@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "format": 1,
+    "generated_by": "tools/build_answers.py",
+    "warning": "Never edit by hand: regenerate from the executed solutions notebooks."
+  },
+  "answers": {
+    "DEMO.1": {
+      "hash": "887eec2cb84ea0912b278386d00c46edf751d1c2fef981bfbd159bb3a4147646",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "763aba5e1f5134077cda45f6215aa6e122a491e5aad5aaae01b66f891ed3df46": "tu as calculé 2 × 10, pas 2 puissance 10"
+      },
+      "sign": 1,
+      "source": "00_setup/demo_solutions.ipynb"
+    },
+    "DEMO.2": {
+      "hash": "18413aff7c77366fe5ec42c013eec21e51ecc36a38b7a5ca5b5c8a28ea00b634",
+      "kind": "fraction",
+      "mistakes": {
+        "a4f2bb1e79ce8a561c73aec8c971e331c27cc3227ccd92b00c03d7417fddb0e2": "on n'additionne pas les numérateurs et les dénominateurs entre eux"
+      },
+      "sign": 1,
+      "source": "00_setup/demo_solutions.ipynb"
+    },
+    "DEMO.3": {
+      "hash": "4c271925cd643c9146b507b35b475ba8ae04d844bdeb782780310d874a6d7f4e",
+      "kind": "expr",
+      "mistakes": {
+        "4f27bbbf0f14c7125203422c93d8aa2740a8bd6bdab7cdbff52283a5748648d7": "l'exposant baisse de 1, et l'ancien exposant passe devant"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "00_setup/demo_solutions.ipynb"
+    },
+    "DEMO.4": {
+      "hash": "b667d278eea6d4677344b1129d594109a8fbb8bfc524fec77283feb0d81d81e7",
+      "kind": "interval",
+      "mistakes": {
+        "6973d62333b19ea2fa48f2bb4fa7e0874fc5c841d602d13094dbe036db4a40f3": "l'inégalité est large : -2 et 2 sont-ils solutions ?"
+      },
+      "source": "00_setup/demo_solutions.ipynb"
+    }
+  }
+}

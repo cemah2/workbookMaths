@@ -1,0 +1,41 @@
+# =====================================================================
+# workbookMaths: pinned dependencies (LOCAL installation, CPU only)
+# ---------------------------------------------------------------------
+# Verified on 2026-11-06 (see docs/BIBLE.md §22).
+# Policy: every package is pinned to the version PRE-INSTALLED on
+# Google Colab (googlecolab/backend-info), and the packages shared with
+# workbookIA keep exactly its pins, so that both repositories can live
+# in ONE environment (install workbookIA's requirements first, then
+# these: nothing changes).
+# Note: Colab's runtime of 2026-11-04 moved NumPy to 2.4.6; the
+# workbook is tested with 2.1.3 (pinned here, as in workbookIA) and 2.4.6.
+#
+# Target Python: 3.13 (same as Colab). 3.12 also works.
+#
+#   pip install -r requirements.txt
+#   pip install -e .
+#
+# On COLAB: do NOT run `pip install -r requirements.txt`; everything is
+# already installed. The notebooks' setup cell only reports the versions.
+# No PyTorch: workbookMaths does not need it.
+# =====================================================================
+
+# --- Scientific stack (same pins as workbookIA) -----------------------
+numpy==2.1.3
+scipy==1.16.3
+matplotlib==3.10.0
+pandas==2.2.3
+scikit-learn==1.6.1
+requests==2.32.4
+
+# --- Symbolic maths ------------------------------------------------------
+sympy==1.14.0
+
+# --- Tests and notebook tooling (same pins as workbookIA) -------------
+pytest==8.4.2
+nbformat==5.11.1
+nbclient==0.10.4
+
+# --- Local notebook interface (not needed on Colab) -------------------
+jupyterlab==4.5.4
+ipykernel

@@ -1,0 +1,635 @@
+"""Tools of the check cells of the exercise notebooks (chapter 21 on).
+
+Until chapter 20, each chapter copied these helpers into its "Tools" cell, and the
+copies drifted apart (BIBLE §22, audit P5 R3). One import replaces them::
+
+    from wbm.nbtools import checked, written, same, verdict, returned, pair, StopCheck, run_pytest_group
+
+    with checked("21.6"):                                   # ⏳ / one ❌ line, the cell goes on
+        out = mymath.conv.pad2d(x, 1)
+        if returned("21.6", "pad2d", out):
+            same("21.6", "pad2d(x, 1)", out, expected)
+    if written(lambda: mymath.conv.pad2d(np.ones((1, 1, 2, 2)), 1)):
+        run_pytest_group("tests/test_m21_conv.py", "test_conv1d_")
+    else:
+        print("⏳ Ex 21.6 : les tests attendent ta fonction.")
+
+Every message for the learner is in French and starts with ✅, ❌ or ⏳ followed by
+``Ex <id>``. Nothing here imports PyTorch: a tensor is recognised only when the
+notebook has already imported ``torch``.
+"""
+
+from __future__ import annotations
+
+import contextlib
+import os
+import re
+import subprocess
+import sys
+from dataclasses import dataclass
+from pathlib import Path
+
+import numpy as np
+
+from wbm.checker import NONE_TYPE_ERROR, attempt
+from wbm.errors import MymathMissingError
+
+__all__ = [
+    "verdict",
+    "filled",
+    "fr",
+    "returned",
+    "StopCheck",
+    "checked",
+    "written",
+    "as_numpy",
+    "same",
+    "pair",
+    "refuses",
+    "ReferenceCalled",
+    "watched",
+    "own_code",
+    "fitted",
+    "shape_text",
+    "letters_text",
+    "print_answer",
+    "GroupResult",
+    "run_pytest_group",
+]
+
+# Errors that mean "the learner's code is not written yet": ⏳, never ❌.
+_NOT_WRITTEN = (NotImplementedError, ImportError, MymathMissingError)
+_NONE_HINT = " ; une fonction ou une méthode oublie-t-elle son return ?"
+_TENSOR_HINT = (" ; une fonction NumPy a-t-elle reçu un tenseur PyTorch ? (rends un tableau NumPy : "
+                "t.detach().cpu().numpy())")
+_TORCH_ARGUMENTS = "received an invalid combination of arguments"   # np.mean(tensor) and the like
+_PICKLE_HINT = (" ; torch.load ne lit que ce qu'écrit torch.save (un pickle) : un fichier .safetensors se lit par "
+                "safetensors.torch.load_file, et on ne passe jamais weights_only=False pour un fichier qu'on n'a pas "
+                "écrit soi-même")
+_PICKLE_ERRORS = ("Weights only load failed", "invalid load key")   # torch.load on a file that is not its pickle
+
+
+def _torch_tensor_type():
+    """``torch.Tensor`` if the notebook has imported torch, else None (never imports it)."""
+    torch = sys.modules.get("torch")
+    return getattr(torch, "Tensor", None) if torch is not None else None
+
+
+# ---------------------------------------------------------------------------
+# Verdicts
+# ---------------------------------------------------------------------------
+def verdict(ex_id: str, ok, success: str, failure: str) -> None:
+    """Print ``✅ Ex <id> : success`` or ``❌ Ex <id> : failure``.
+
+    It returns None (as the copies of chapters 12 to 20), so that a call on the last line of a cell displays
+    nothing more; :func:`same` returns its own verdict.
+    """
+    print(f"✅ Ex {ex_id} : {success}" if ok else f"❌ Ex {ex_id} : {failure}")
+
+
+def filled(*values) -> bool:
+    """True when none of the values is still ``...`` (or None): the answer has been written."""
+    return all(value is not ... and value is not None for value in values)
+
+
+def fr(x, digits: int = 3) -> str:
+    """A number written the French way, with a decimal comma (for the messages in French)."""
+    return f"{x:.{digits}f}".replace(".", ",")
+
+
+def returned(ex_id: str, name: str, value) -> bool:
+    """False, with a ❌ line, when the function ``name`` returned None (a forgotten return); True otherwise."""
+    if value is None:
+        print(f"❌ Ex {ex_id} : {name} renvoie None : as-tu oublié le return ?")
+        return False
+    return True
+
+
+# ---------------------------------------------------------------------------
+# Protected blocks
+# ---------------------------------------------------------------------------
+class StopCheck(Exception):
+    """Raised once a ❌ line is printed (by :func:`pair`) when the rest of the check would make no sense.
+
+    :func:`checked` stops the block quietly on it.
+    """
+
+
+_MYLEARN_FILE = re.compile(r"[/\\](?:mymath|mymath_ref|mymath_stubs)[/\\](.+\.py)$")
+
+
+def _chapter_of_module(rel: str) -> str:
+    """The chapter whose ``start_chapter.py`` copies the mymath file ``rel`` (MANIFEST.json), or "?"."""
+    try:
+        from wbm.impl import _manifest
+
+        for chapter, files in _manifest().get("chapters", {}).items():
+            if rel in files:
+                return chapter
+    except Exception:  # noqa: BLE001 - a message helper never fails
+        pass
+    return "?"
+
+
+def _pending_elsewhere(exc: BaseException) -> str | None:
+    """For a ``NotImplementedError`` raised in a mymath file that another mymath file called (``eigenvalues`` of
+    ``eigen.py`` calls ``solve`` of ``matrices.py``, chapter M09a): « f() (mymath/file.py, M09a), qu'appelle ton
+    code, n'est pas encore écrite », so that the learner knows which file to open. None when
+    the error comes from the file of the exercise itself (or from no mymath file)."""
+    import traceback
+
+    frames = [(frame, _MYLEARN_FILE.search(frame.filename.replace("\\", "/")))
+              for frame in traceback.extract_tb(exc.__traceback__)]
+    inside = [(frame, match.group(1)) for frame, match in frames if match]
+    if len(inside) < 2 or all(rel == inside[-1][1] for _, rel in inside[:-1]):
+        return None
+    frame, rel = inside[-1]
+    return (f"{frame.name}() (mymath/{rel}, {_chapter_of_module(rel)}), qu'appelle ton code, n'est pas encore "
+            "écrite")
+
+
+@contextlib.contextmanager
+def checked(ex_id: str):
+    """Like ``wbm.attempt`` (⏳ while the code is not written yet), but any other error of the learner's code
+    becomes one ❌ line instead of stopping the cell, so that what follows (the tests) can say more.
+
+    - ``NotImplementedError``, a missing mymath module: ⏳ (``wbm.attempt``); when the function not written yet is
+      in another mymath file than the one that calls it (a module of an earlier chapter), the ⏳ names its file
+      and its chapter;
+    - ``TypeError`` about a None used as a value: the forgotten-return message of ``wbm.attempt``;
+    - :class:`StopCheck`: the reason is already printed, the block stops silently;
+    - any other exception: ``❌ Ex <id> : ton code lève <type> : <message>`` (never an empty message), with
+      a hint about a forgotten ``return`` when the message is about None (an ``AttributeError`` on None),
+      or about a tensor given to NumPy (PyTorch's "received an invalid combination of arguments"), or about
+      ``torch.load`` given a file that is not its pickle (a ``.safetensors`` file).
+    """
+    with attempt(ex_id):
+        try:
+            yield
+        except NotImplementedError as exc:
+            elsewhere = _pending_elsewhere(exc)
+            if elsewhere is None:
+                raise
+            print(f"⏳ Ex {ex_id} : pas encore fait : {elsewhere}.")
+        except _NOT_WRITTEN:
+            raise
+        except StopCheck:
+            pass
+        except Exception as exc:                      # a bug in the learner's code: report it, go on
+            message = str(exc).strip()                # scikit-learn's messages may start with a new line
+            if isinstance(exc, TypeError) and NONE_TYPE_ERROR.search(message):
+                raise                                 # wbm.attempt explains the forgotten return
+            if NONE_TYPE_ERROR.search(message):
+                hint = _NONE_HINT
+            elif _TORCH_ARGUMENTS in message:
+                hint = _TENSOR_HINT
+            elif any(text in message for text in _PICKLE_ERRORS):
+                hint = _PICKLE_HINT
+                if _PICKLE_ERRORS[0] in message:              # PyTorch's advice (weights_only=False) is not repeated
+                    message = _PICKLE_ERRORS[0]
+            else:
+                hint = ""
+            shown = message[:300] or "(sans message)"
+            print(f"❌ Ex {ex_id} : ton code lève {type(exc).__name__} : {shown}{hint}")
+
+
+def written(probe) -> bool:
+    """False while ``probe()`` stops on code not written yet (``NotImplementedError``, no mymath module);
+    True otherwise, even when it raises another error (the tests then say which)."""
+    try:
+        probe()
+    except _NOT_WRITTEN:
+        return False
+    except Exception:
+        return True
+    return True
+
+
+# ---------------------------------------------------------------------------
+# Comparisons
+# ---------------------------------------------------------------------------
+def as_numpy(value):
+    """A float64 NumPy array from a tensor (detached, on the CPU), an array, a list or a number; None if
+    impossible (None itself, a dict, a ragged list, complex numbers...).
+
+    A list or a tuple of tensors (``return [h, c]``) is converted element by element, so that a tensor that
+    requires grad is detached there too."""
+    if value is None:
+        return None
+    tensor = _torch_tensor_type()
+    if tensor is not None and isinstance(value, tensor):
+        value = value.detach().cpu()
+        return None if value.is_complex() else value.double().numpy()
+    try:
+        if tensor is not None and isinstance(value, (list, tuple)) and any(isinstance(v, tensor) for v in value):
+            value = [v.detach().cpu().double().numpy() if isinstance(v, tensor) else v for v in value]
+        arr = np.asarray(value)
+        if np.iscomplexobj(arr):                      # float() would drop the imaginary part (ComplexWarning)
+            return None
+        return arr.astype(float)
+    except (TypeError, ValueError, RuntimeError):     # RuntimeError: a nested tensor that requires grad
+        return None
+
+
+def _describe(value, arr) -> str:
+    """How a value of the wrong shape is described: a tuple is named as such (a `return a, b`)."""
+    if isinstance(value, tuple):
+        return f"un tuple de {len(value)} valeurs (de forme {arr.shape} une fois converti)"
+    return f"la forme {arr.shape}"
+
+
+def same(ex_id: str, label: str, got, want, rtol: float = 1e-9, atol: float = 1e-12) -> bool:
+    """✅ if ``got`` (array, list or tensor) equals ``want`` up to rounding (``np.allclose``, NaN equal to NaN),
+    ❌ otherwise with what differs; returns the verdict.
+
+    The ❌ line says, in this order: None (a forgotten return), not an array of numbers, a wrong shape
+    (a tuple is named), then the values: both of them when ``want`` has at most 6 values, otherwise the
+    first index that differs and the largest gap. A ``float32`` (or ``float16``) result that is right to
+    single precision is told so: its values print like the expected ones.
+    """
+    if got is None:
+        print(f"❌ Ex {ex_id} : {label} renvoie None : as-tu oublié le return ?")
+        return False
+    arr = as_numpy(got)
+    if arr is None:
+        print(f"❌ Ex {ex_id} : {label} : attendu un tableau de nombres, reçu un objet {type(got).__name__}.")
+        return False
+    want = as_numpy(want)
+    if arr.shape != want.shape:
+        print(f"❌ Ex {ex_id} : {label} : attendu la forme {want.shape}, reçu {_describe(got, arr)}.")
+        return False
+    close = np.isclose(arr, want, rtol=rtol, atol=atol, equal_nan=True)
+    ok = bool(close.all())
+    shown = np.round(arr, 8).tolist() if arr.size <= 6 else f"un tableau {arr.shape}"
+    if ok or want.size <= 6:
+        failure = f"{label} : attendu {np.round(want, 8).tolist()}, reçu {shown}."
+    else:
+        bad = tuple(int(i) for i in np.argwhere(~close)[0])
+        at = bad if arr.ndim > 1 else bad[0]
+        with np.errstate(invalid="ignore", over="ignore"):
+            gaps = np.abs(arr - want)[~close]
+        gaps = gaps[~np.isnan(gaps)]                  # a NaN against a number has no size of gap
+        largest = f" (plus grand écart {gaps.max():.3g})" if gaps.size else ""
+        failure = (f"{label} : première différence à l'indice {at} : attendu {float(want[bad]):.8g}, reçu "
+                   f"{float(arr[bad]):.8g}{largest}.")
+    if not ok and _single_precision(got) and np.allclose(arr, want, rtol=1e-5, atol=1e-6, equal_nan=True):
+        failure = (failure[:-1] + f" : ton résultat est en {_single_precision(got)}, la précision attendue est "
+                   "celle du float64 (convertis avec np.asarray(..., dtype=float), ou calcule en float64).")
+    verdict(ex_id, ok, f"{label} : {shown}, comme attendu.", failure)
+    return ok
+
+
+def _single_precision(value) -> str:
+    """``"float32"`` or ``"float16"`` when ``value`` (a NumPy array or scalar, a tensor) has that dtype, else ``""``."""
+    name = str(getattr(value, "dtype", "")).removeprefix("torch.")
+    return name if name in ("float32", "float16", "bfloat16") else ""
+
+
+def _count_word(n: int) -> str:
+    return {2: "couple", 3: "triplet"}.get(n, f"tuple de {n} valeurs")
+
+
+def pair(ex_id: str, label: str, result, names=("out", "mask"), floats=()):
+    """The values of a result that must be a tuple ``(out, mask)``, ``(loss, grad)``, ``(dx, dgamma, dbeta)``...
+
+    Otherwise one ❌ line, then :class:`StopCheck` (caught by :func:`checked`), instead of unpacking an array
+    of two rows by mistake. ``floats`` lists the names that must be real numbers (a Python float or a NumPy
+    floating scalar): they are returned as Python floats.
+
+    >>> with checked("20.16"):
+    ...     out, mask = pair("20.16", "dropout_forward", R.dropout_forward(x, p=0.5))
+    """
+    names = tuple(names)
+    if result is None:
+        print(f"❌ Ex {ex_id} : {label} renvoie None : as-tu oublié le return ?")
+        raise StopCheck
+    if not isinstance(result, (tuple, list)) or len(result) != len(names):
+        if isinstance(result, (tuple, list)):
+            what = f"un {type(result).__name__} de {len(result)} valeurs"
+        else:
+            what = f"un {type(result).__name__}"
+            if hasattr(result, "shape"):
+                what += f" de forme {tuple(np.shape(result))}"
+        print(f"❌ Ex {ex_id} : {label} doit rendre le {_count_word(len(names))} ({', '.join(names)}), "
+              f"reçu {what}.")
+        raise StopCheck
+    values = list(result)
+    for i, name in enumerate(names):
+        if name not in floats:
+            continue
+        value = values[i]
+        if isinstance(value, bool) or not isinstance(value, (float, np.floating)):
+            print(f"❌ Ex {ex_id} : {label} : {name} doit être un float Python, reçu {type(value).__name__} "
+                  "(convertis avec float(...)).")
+            raise StopCheck
+        values[i] = float(value)
+    return tuple(values)
+
+
+def refuses(ex_id: str, label: str, call, error=ValueError) -> bool:
+    """✅ if ``call()`` raises ``error``, ❌ otherwise (another error, or nothing); code not written yet
+    (``NotImplementedError``, no mymath module) goes up to :func:`checked`, which prints ⏳."""
+    try:
+        call()
+    except _NOT_WRITTEN:              # before `except error`: NotImplementedError is a RuntimeError
+        raise
+    except error as exc:
+        print(f"✅ Ex {ex_id} : {label} : {error.__name__} levée ({str(exc)[:120]}).")
+        return True
+    except Exception as exc:
+        print(f"❌ Ex {ex_id} : {label} : attendu {error.__name__}, reçu {type(exc).__name__} : {str(exc)[:160]}")
+        return False
+    print(f"❌ Ex {ex_id} : {label} : attendu {error.__name__}, mais rien n'a été levé.")
+    return False
+
+
+class ReferenceCalled(BaseException):
+    """Raised inside the watched block of :func:`watched` when one of its reference functions starts; ``label`` names
+    it. A BaseException, so that a broad ``except Exception`` of the learner's code does not swallow it."""
+
+    def __init__(self, label: str):
+        super().__init__(label)
+        self.label = label
+
+
+_WATCH_TOOLS = (4, 3)          # sys.monitoring tool ids without a reserved use (0 debugger, 1 coverage, 2 profiler...)
+
+
+def _code_objects(obj) -> list:
+    """The code objects of a function, a method or the functions of a class (none for a builtin)."""
+    import inspect
+
+    if isinstance(obj, type):
+        return [code for value in vars(obj).values() if not isinstance(value, type) for code in _code_objects(value)]
+    obj = inspect.unwrap(getattr(obj, "__func__", obj))
+    code = getattr(obj, "__code__", None)
+    return [code] if code is not None else []
+
+
+@contextlib.contextmanager
+def watched(references: dict):
+    """Inside the block, a call to one of the ``references`` (``{label: function, method or class}``), under any name
+    (an alias, a ``from ... import``, a function stored in a dict: its code object is watched with ``sys.monitoring``,
+    on these code objects only), raises :class:`ReferenceCalled`. Yields the list of the labels seen (it stays filled
+    when the learner's code catches the exception). Without ``sys.monitoring`` (Python < 3.12) or a free tool id,
+    nothing is watched."""
+    monitoring = getattr(sys, "monitoring", None)
+    codes = {}
+    for label, reference in references.items():
+        for code in _code_objects(reference):
+            codes.setdefault(code, label)
+    tool = None
+    if monitoring is not None and codes:
+        for candidate in _WATCH_TOOLS:
+            try:
+                monitoring.use_tool_id(candidate, "wbm.nbtools.watched")
+            except ValueError:                          # taken by another tool (or by an enclosing block)
+                continue
+            tool = candidate
+            break
+    seen: list = []
+    if tool is not None:
+        def on_start(code, offset):
+            label = codes.get(code)
+            if label is not None:
+                seen.append(label)
+                raise ReferenceCalled(label)
+
+        monitoring.register_callback(tool, monitoring.events.PY_START, on_start)
+        for code in codes:
+            monitoring.set_local_events(tool, code, monitoring.events.PY_START)
+    try:
+        yield seen
+    finally:
+        if tool is not None:
+            for code in codes:
+                monitoring.set_local_events(tool, code, 0)
+            monitoring.register_callback(tool, monitoring.events.PY_START, None)
+            monitoring.free_tool_id(tool)
+
+
+@contextlib.contextmanager
+def own_code(ex_id: str, name: str, references: dict):
+    """Run the learner's code ``name`` (inside the block) while the reference functions are :func:`watched`: when one
+    of them starts, the block stops and prints one line ``❌ Ex <id> : <name> appelle <label>, une fonction de la
+    référence...``, then raises :class:`StopCheck` (caught by :func:`checked`). The check would otherwise measure the
+    reference instead of the learner's code. ``references`` maps a label shown to the learner (``"wbr.train_dqn"``)
+    to a function, a method or a class. Only the learner's call goes inside the block: the check computes its expected
+    values outside.
+
+    >>> with checked("B8.13"):
+    ...     with own_code("B8.13", "train_dqn_13", wbr.reference_answers()):
+    ...         out = train_dqn_13(env, 0, 600)
+    """
+    seen: list = []
+    try:
+        with watched(references) as seen:
+            yield
+    except ReferenceCalled:
+        pass
+    except BaseException:
+        if not seen:                                    # an error of the learner's code: checked reports it
+            raise                                       # (after a borrowed call, any later error is its consequence)
+    if seen:
+        print(f"❌ Ex {ex_id} : {name} appelle {seen[0]}, une fonction de la référence du notebook : la vérification "
+              "mesurerait la référence, pas ton code. Écris ce calcul toi-même, d'après le contrat de l'énoncé.")
+        raise StopCheck
+
+
+def fitted(model, X, y=None, **fit_params):
+    """The model after ``model.fit(X)`` or ``model.fit(X, y)``: no chained call, so that a ``fit`` that forgets
+    ``return self`` (the tests report it) does not stop the check cells."""
+    if y is None:
+        model.fit(X, **fit_params)
+    else:
+        model.fit(X, y, **fit_params)
+    return model
+
+
+_SHAPE_TEXT = re.compile(r"\s*(torch\.Size)?[\s(\[]*\d+(\s*[,;x×*\s]\s*\d+)*\s*,?[\s)\]]*\s*", flags=re.IGNORECASE)
+
+
+def shape_text(value):
+    """A shape written as ``"[2, 3]"``, ``"2, 3"``, ``"2 x 3"``, ``"2×3"``, ``"torch.Size([2, 3])"``, a tuple, a
+    list, a 1-D NumPy array of integers or a ``torch.Size``, rewritten as the string ``"(2, 3)"``; any other
+    value is returned unchanged."""
+    if isinstance(value, np.ndarray) and value.ndim == 1 and np.issubdtype(value.dtype, np.integer):
+        value = value.tolist()
+    if isinstance(value, (tuple, list)) and value and all(isinstance(v, (int, np.integer)) and not isinstance(v, bool)
+                                                          for v in value):
+        return str(tuple(int(v) for v in value))
+    if isinstance(value, str) and _SHAPE_TEXT.fullmatch(value):
+        return str(tuple(int(n) for n in re.findall(r"\d+", value)))
+    return value
+
+
+def letters_text(value, sort: bool = False):
+    """Letters typed as ``"ACE"``, ``"a, c et e"``, ``"(A) (C) (E)"`` or ``["A", "C", "E"]`` -> ``"ACE"``
+    (in alphabetical order when ``sort``, for a set of letters); ``...`` and None are returned unchanged."""
+    if value is ... or value is None:
+        return value
+    if isinstance(value, (list, tuple, set)):
+        value = " ".join(str(v) for v in value)
+    value = re.sub(r"(?i)\b(et|and|ou|or)\b", " ", str(value))
+    letters = "".join(ch for ch in value if ch.isalpha()).upper()
+    return "".join(sorted(letters)) if sort else letters
+
+
+def print_answer(ex_id: str, value, **_) -> None:
+    """Solutions notebook: show the value that the exercise notebook checks with ``wbm.check``."""
+    shown = value
+    if isinstance(value, (np.ndarray, list, tuple)):
+        try:
+            shown = np.round(np.asarray(value, dtype=float), 4).tolist()
+        except (TypeError, ValueError):   # a list of names
+            shown = value
+    print(f"{ex_id}:", shown)
+
+
+# ---------------------------------------------------------------------------
+# Running a group of tests of a mymath module
+# ---------------------------------------------------------------------------
+@dataclass
+class GroupResult:
+    """Counts of :func:`run_pytest_group` (``pending``: failures on code not written yet, among ``failed``)."""
+
+    passed: int = 0
+    failed: int = 0
+    errors: int = 0
+    pending: int = 0
+    summary: str = ""
+    timed_out: bool = False
+
+    @property
+    def ok(self) -> bool:
+        """True when at least one test ran and none failed."""
+        return self.passed > 0 and self.failed == 0 and self.errors == 0 and not self.timed_out
+
+    def _ipython_display_(self) -> None:   # the lines are already printed: a last-line call shows nothing more
+        pass
+
+
+_PENDING_MARK = "⏳"
+# Tests whose failure is the simplest to fix (return self, copies, new arrays, Python scalars): shown first.
+_CLEAR_FIRST = ("returns_self", "copies", "does_not_modify", "new_array", "new_float", "python_int",
+                "python_float")
+_NONE_ATTRIBUTE = "'NoneType' object has no attribute"
+_SUMMARY = re.compile(r"\d+ (passed|failed|errors?|skipped|deselected|xfailed|xpassed)\b|no tests ran")
+
+
+def _minutes(seconds: float) -> str:
+    if seconds >= 60 and seconds % 60 == 0:
+        return f"{seconds / 60:.0f} min"
+    return f"{seconds:.0f} s"
+
+
+def _count(summary: str, word: str) -> int:
+    return sum(int(n) for n in re.findall(rf"(\d+) {word}", summary))
+
+
+def _test_path(test_file, root: Path) -> str:
+    """The test file, relative to ``root`` when possible; a directory (``tests/``) is refused."""
+    path = Path(test_file)
+    full = path if path.is_absolute() else root / path
+    if full.is_dir() or not path.name.startswith("test_") or path.suffix != ".py":
+        raise ValueError(f"run_pytest_group needs one explicit test file (tests/test_<chapitre>_<module>.py), "
+                         f"not {str(test_file)!r}")
+    if not full.is_file():
+        raise FileNotFoundError(f"no test file {full}")
+    try:
+        return full.resolve().relative_to(root.resolve()).as_posix()
+    except ValueError:
+        return str(full)
+
+
+def run_pytest_group(test_file, keyword: str | None = None, impl: str = "learner", timeout: float = 300,
+                     *, max_shown: int = 8, root=None, env: dict | None = None, args=()) -> GroupResult:
+    """Run the tests of ``test_file`` selected by ``keyword`` (``pytest -k``), on the learner's code by default.
+
+    Parameters
+    ----------
+    test_file : str or Path
+        One explicit test file, relative to the repository (``"tests/test_ch21_conv.py"``); never the
+        ``tests/`` folder.
+    keyword : str, optional
+        The ``-k`` expression (``"test_pad2d_ or test_conv_output_size_"``); None runs the whole file.
+    impl : {"learner", "ref", "stubs"}
+        Passed as ``--impl`` (``"ref"`` in the solutions notebook).
+    timeout : float
+        Seconds before the run is stopped (an endless loop in the learner's code) with one ❌ line.
+    max_shown : int
+        At most this many failures are printed.
+    root : path, optional
+        The repository (default: ``wbm.repo_root()``, which reads ``WBM_ROOT``); the folder of another project (the
+        package of chapter B7) runs that project's tests.
+    env : dict, optional
+        Variables added to the environment of pytest (``{"PYTHONPATH": ...}`` for a project's ``src/``).
+    args : sequence of str, optional
+        More arguments for pytest (``["-c", "pyproject.toml", "--strict-markers"]``).
+
+    Each failure is printed on two lines: ``❌ <test name>`` (``⏳`` when the function is not written yet),
+    then its reason (the first line of pytest's message, read with ``COLUMNS=1000``). Real failures come
+    first, the simplest to fix before the others (``return self``, copies, inputs left unchanged, new
+    arrays, Python scalars: the names in ``_CLEAR_FIRST``), then the ⏳ ones; a 💡 line points
+    to a forgotten ``return`` when an attribute is read on None; the last line is pytest's summary.
+    """
+    if impl not in ("learner", "ref", "stubs"):
+        raise ValueError(f"impl must be 'learner', 'ref' or 'stubs', got {impl!r}")
+    if root is None:
+        from wbm.core import repo_root
+        root = repo_root()
+    root = Path(root)
+    rel = _test_path(test_file, root)
+    command = [sys.executable, "-m", "pytest", rel, "-q", "-p", "no:cacheprovider", "--color=no", "-rfE",
+               "--tb=no"]
+    if keyword:
+        command += ["-k", keyword]
+    if impl != "learner":
+        command.append(f"--impl={impl}")
+    command += [str(a) for a in args]
+    try:
+        result = subprocess.run(command, cwd=root, capture_output=True, text=True, timeout=timeout,
+                                env={**os.environ, **(env or {}), "COLUMNS": "1000"})   # long lines: each reason
+    except subprocess.TimeoutExpired:
+        print(f"❌ les tests n'ont pas fini en {_minutes(timeout)} : une boucle de ton code ne s'arrête-t-elle pas ?")
+        return GroupResult(summary="timeout", timed_out=True)
+
+    lines = result.stdout.strip().splitlines()
+    failures = []                                        # (rank, pending, kind, name, reason)
+    for line in lines:
+        if not line.startswith(("FAILED ", "ERROR ")):
+            continue
+        kind, _, rest = line.partition(" ")
+        node, _, reason = rest.partition(" - ")
+        name = node.split("::", 1)[1] if "::" in node else node
+        pending = reason.startswith(_PENDING_MARK)
+        clear_first = any(key in name for key in _CLEAR_FIRST) or _NONE_ATTRIBUTE in reason
+        rank = 2 if pending else (0 if clear_first else 1)
+        failures.append((rank, pending, kind, name, reason))
+    failures.sort(key=lambda f: f[0])                    # stable: pytest's order within each rank
+
+    for line in lines:                                   # conftest notes: modules not created yet, import errors
+        text = line.strip()
+        if text.startswith("ℹ️"):
+            print(text)
+        elif "Exit: " in text:
+            print(text.split("Exit: ", 1)[1].strip(" !"))
+    if any(_NONE_ATTRIBUTE in f[4] for f in failures):
+        print("💡 un attribut est lu sur None : une fonction ou une méthode (fit doit rendre self) "
+              "oublie-t-elle son return ?")
+    for _, pending, kind, name, reason in failures[:max_shown]:
+        mark = _PENDING_MARK if pending else "❌"
+        reason = reason.removeprefix(_PENDING_MARK).strip()
+        where = " (erreur hors du test : import, fixture…)" if kind == "ERROR" else ""
+        print(f"{mark} {name}{where}" + (f"\n   {reason[:800]}" if reason else ""))
+    hidden = failures[max_shown:]
+    if hidden:
+        n_pending = sum(f[1] for f in hidden)
+        detail = f", dont {n_pending} pas encore écrit(s)" if n_pending else ""
+        print(f"   … et {len(hidden)} autre(s) test(s) en échec{detail}")
+    counts = [line for line in lines if "Exit: " not in line and _SUMMARY.search(line)]
+    summary = (counts[-1].strip("= ") if counts else lines[-1].strip("=! ")[:300] if lines
+               else result.stderr.strip()[-300:])
+    print("pytest:", summary)
+    return GroupResult(passed=_count(summary, "passed"), failed=_count(summary, "failed"),
+                       errors=_count(summary, "errors?"), pending=sum(f[1] for f in failures), summary=summary)

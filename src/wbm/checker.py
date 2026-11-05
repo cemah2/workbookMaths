@@ -1,0 +1,1248 @@
+"""Automatic answer checking without revealing the solution (BIBLE §13).
+
+How it works
+------------
+* In a **solutions** notebook, a code cell tagged ``answer`` calls
+  ``wbm.record("18.4", value, decimals=3)``. It prints a line
+  ``WBM_ANSWER {...json...}`` containing only a salted SHA-256 hash of the
+  normalised value (plus harmless metadata: kind, number of decimals, shape,
+  sign, order of magnitude, hashes of common mistakes).
+* ``tools/build_answers.py`` harvests these lines from the executed notebook
+  and updates ``src/wbm/answers.json``. The file is never edited by hand.
+* In an **exercise** notebook, ``wbm.check("18.4", my_value)`` normalises the
+  learner's value the same way, hashes it and compares. On failure it tries
+  a few classic mistakes (sign, percentage, off-by-one, rounding...) to give
+  a helpful message, without ever printing the expected value.
+
+The hash is a pedagogical safeguard, not a safe: a simple value (a small
+integer, a short word) can be recovered by brute force. Discipline stays with
+the learner.
+
+Normalisation
+-------------
+* floats: rounded to ``decimals`` decimals (``f"{x:.{d}f}"``, ``-0.0`` -> ``0.0``);
+  a tolerance of a tenth of the last decimal absorbs rounding-boundary noise,
+  and both roundings are accepted when the answer sits on a boundary (0.125);
+  "3,14", "1 000,5" and "41/76" are read as numbers, also inside lists
+  (a percentage written as text, "30 %", gets a message instead);
+* ints: exact (``344.0`` is accepted for ``344``);
+* one-element containers (a Series from ``.mode()``, a 1-element tensor) are
+  accepted for scalar answers;
+* strings: case, accents, whitespace and hyphens ignored; typographic
+  apostrophes unified; ligatures (œ, æ) unfolded;
+* booleans: ``True``/``False`` (``"vrai"``, ``"oui"``... accepted);
+* arrays (lists, NumPy, PyTorch, pandas): shape + rounded values; arrays of
+  integers (classes, counts) reject non-integer values;
+* sets (``ordered=False``): sorted normalised elements.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+import numbers
+import re
+import sys
+import unicodedata
+from fractions import Fraction
+from contextlib import contextmanager
+from pathlib import Path
+
+from wbm.mathcheck import MATH_KINDS, check_math_entry, make_math_entry
+from wbm.mathcheck import perturbed as math_perturbed
+
+ANSWERS_PATH = Path(__file__).with_name("answers.json")
+ANSWER_PREFIX = "WBM_ANSWER "
+FORMAT_VERSION = 1
+_MAX_ELEMENT_HASHES = 100  # per-element hashes are stored for small arrays only
+
+_PENDING_VALUES = (None, Ellipsis, NotImplemented)
+_TRUE_WORDS = {"true", "vrai", "oui", "yes", "1", "v", "t"}   # "V" / "F" (or "T" / "F"): abbreviations on a sheet
+_FALSE_WORDS = {"false", "faux", "non", "no", "0", "f"}
+
+# Answers recorded in this Python process (solutions notebooks, tests).
+RECORDED: dict[str, dict] = {}
+
+_cache: dict = {"mtime": None, "path": None, "answers": {}}
+
+
+class NormalizationError(ValueError):
+    """The value cannot be converted to the expected kind."""
+
+
+# ---------------------------------------------------------------------------
+# Result object
+# ---------------------------------------------------------------------------
+class CheckResult:
+    """Outcome of :func:`check`. Truthy when the answer is correct.
+
+    The message is printed by ``check``; the object itself displays nothing
+    in a notebook, so ``wbm.check(...)`` as the last line of a cell does not
+    print ``True``/``False``.
+    """
+
+    def __init__(self, ex_id: str, passed: bool, status: str, message: str):
+        self.ex_id = ex_id
+        self.passed = passed
+        self.status = status  # "correct", "wrong", "pending", "unknown", "type"
+        self.message = message
+
+    def __bool__(self) -> bool:
+        return self.passed
+
+    def __repr__(self) -> str:
+        return f"CheckResult(ex_id={self.ex_id!r}, status={self.status!r})"
+
+    def _ipython_display_(self) -> None:  # the message was already printed
+        return None
+
+
+# ---------------------------------------------------------------------------
+# Normalisation and hashing
+# ---------------------------------------------------------------------------
+def _to_python(value):
+    """Convert torch / pandas / NumPy objects to NumPy arrays or Python scalars."""
+    torch = sys.modules.get("torch")
+    if torch is not None and isinstance(value, torch.Tensor):
+        tensor = value.detach().cpu()
+        if tensor.dtype in (torch.bfloat16, torch.float16):
+            tensor = tensor.float()
+        value = tensor.numpy()
+    elif type(value).__name__ == "NAType":
+        raise NormalizationError("une vraie valeur (pas `pd.NA`, qui signifie « manquant »)")
+    elif type(value).__name__ in ("Timestamp", "datetime", "date", "datetime64", "Period"):
+        raise NormalizationError("un nombre ou un texte, pas une date (l'année d'une date `d` : `d.year`)")
+    elif type(value).__module__.startswith("pandas") and hasattr(value, "to_numpy"):
+        value = value.to_numpy()
+    try:
+        import numpy as np
+    except ImportError:  # pragma: no cover
+        return value
+    if isinstance(value, np.ndarray) and value.ndim == 0:
+        return value.item()
+    if isinstance(value, np.generic):
+        return value.item()
+    return value
+
+
+def _deep_to_python(value):
+    """Like :func:`_to_python`, recursively inside lists and tuples."""
+    value = _to_python(value)
+    if isinstance(value, (list, tuple)):
+        return [_deep_to_python(item) for item in value]
+    return value
+
+
+def _unwrap_single(value):
+    """A container with exactly one element (Series, 1-element tensor...) -> that element."""
+    value = _to_python(value)
+    if isinstance(value, (str, bytes)):
+        return value
+    try:
+        import numpy as np
+
+        if isinstance(value, np.ndarray) and value.size == 1:
+            item = value.reshape(-1)[0]
+            return item.item() if hasattr(item, "item") else item
+    except ImportError:  # pragma: no cover
+        pass
+    if isinstance(value, (list, tuple)) and len(value) == 1:
+        return _unwrap_single(value[0])
+    return value
+
+
+def infer_kind(value) -> str:
+    """Guess the kind of an answer: bool, int, float, str, set or array."""
+    value = _to_python(value)
+    if isinstance(value, Fraction):
+        return "fraction"
+    if isinstance(value, bool):
+        return "bool"
+    if isinstance(value, numbers.Integral):
+        return "int"
+    if isinstance(value, numbers.Real):
+        return "float"
+    if isinstance(value, str):
+        return "str"
+    if isinstance(value, (set, frozenset)):
+        return "set"
+    return "array"
+
+
+def _fmt_float(x: float, decimals: int) -> str:
+    x = float(x)
+    if math.isnan(x):
+        return "nan"
+    if math.isinf(x):
+        return "inf" if x > 0 else "-inf"
+    text = f"{x:.{decimals}f}"
+    if float(text) == 0.0:
+        text = f"{0.0:.{decimals}f}"  # turn "-0.00" into "0.00"
+    return text
+
+
+_CHAR_MAP = str.maketrans({"’": "'", "‘": "'", "ʼ": "'", "´": "'", "`": "'",
+                           "œ": "oe", "Œ": "oe", "æ": "ae", "Æ": "ae"})
+_IGNORED_CHARS = set("-‐‑‒–—−_   ")
+
+
+def _norm_str(value) -> str:
+    """Case, accents, spaces and hyphens are ignored; typographic apostrophes unified."""
+    text = unicodedata.normalize("NFKD", str(value).translate(_CHAR_MAP))
+    text = "".join(ch for ch in text if not unicodedata.combining(ch)).casefold()
+    return "".join(ch for ch in "".join(text.split()) if ch not in _IGNORED_CHARS)
+
+
+def _norm_bool(value) -> str:
+    value = _unwrap_single(value)
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, numbers.Number) and value in (0, 1):
+        return "true" if value else "false"
+    if isinstance(value, str):
+        # "vrai", but also "Vrai.", "(V)" or "« faux »", like the letter choices (_bare_choice)
+        for text in (value, value.strip().strip(_CHOICE_WRAPPERS)):
+            word = _norm_str(text)
+            if word in _TRUE_WORDS:
+                return "true"
+            if word in _FALSE_WORDS:
+                return "false"
+    raise NormalizationError("un booléen : True ou False (ou le mot « vrai » ou « faux » entre guillemets)")
+
+
+def _parse_number(text: str) -> float:
+    """Read "3,14", "1 000,5", "−0,25" or a fraction "41/76" (raise ValueError otherwise)."""
+    cleaned = "".join(text.split()).replace("_", "").replace("\u2212", "-")  # typographic minus sign
+    for space in (" ", " ", " "):
+        cleaned = cleaned.replace(space, "")
+    if "," in cleaned and "." in cleaned:  # 1,000.5 (English thousands separator)
+        cleaned = cleaned.replace(",", "")
+    else:  # 3,14 (French decimal comma)
+        cleaned = cleaned.replace(",", ".")
+    if cleaned.count("/") == 1:  # a fraction written as text: "41/76"
+        numerator, denominator = (float(part) for part in cleaned.split("/"))
+        if denominator == 0:
+            raise ValueError("division by zero")
+        return numerator / denominator
+    return float(cleaned)
+
+
+def _as_number(value) -> float:
+    value = _unwrap_single(value)
+    if isinstance(value, str) and "%" in value:
+        raise NormalizationError("un nombre sans le signe % : le pourcentage lui-même si l'énoncé demande un "
+                                 "pourcentage, ou ce nombre divisé par 100 s'il demande une proportion (entre 0 et 1)")
+    try:
+        if isinstance(value, (bool, numbers.Real)):
+            return float(value)
+        if isinstance(value, str):
+            return _parse_number(value)
+    except OverflowError as exc:
+        raise NormalizationError("un nombre de taille raisonnable (celui-ci est trop grand)") from exc
+    except ValueError:
+        pass
+    raise NormalizationError("un nombre")
+
+
+def _norm_int(value) -> str:
+    raw = _unwrap_single(value)
+    if isinstance(raw, numbers.Integral) and not isinstance(raw, bool):
+        return str(int(raw))  # exact, even for very large integers
+    x = _as_number(raw)
+    if not math.isfinite(x) or abs(x - round(x)) > 1e-9:
+        raise NormalizationError("un nombre entier")
+    return str(int(round(x)))
+
+
+def _parse_elements(value):
+    """Numbers written as text inside a list ("0,854") are read like scalar answers."""
+    import numpy as np
+
+    if isinstance(value, np.ndarray) and value.dtype.kind in "OUS":
+        value = value.tolist()
+    if isinstance(value, bytes):
+        value = value.decode("utf-8", "replace")
+    if isinstance(value, str):
+        if "%" in value:
+            raise NormalizationError("des nombres sans le signe % : les pourcentages eux-mêmes si l'énoncé demande "
+                                     "des pourcentages, ou ces nombres divisés par 100 s'il demande des proportions")
+        try:
+            return _parse_number(value)
+        except ValueError as exc:
+            raise NormalizationError(f"un tableau de nombres (« {value} » n'est pas un nombre)") from exc
+    if isinstance(value, (list, tuple)):
+        return [_parse_elements(item) for item in value]
+    return value
+
+
+def _as_array(value):
+    import numpy as np
+
+    if isinstance(value, (bytes, bytearray, memoryview)):  # "ë".encode() for a list of byte values: its integers
+        value = list(bytes(value))
+    value = _deep_to_python(value)
+    if isinstance(value, (str, bytes)) or isinstance(value, numbers.Number):
+        raise NormalizationError("un tableau (liste, array NumPy ou tenseur)")
+    value = _parse_elements(value)
+    try:
+        arr = np.asarray(value, dtype=float)
+    except Exception as exc:  # ragged lists, objects, tensors needing grad...
+        raise NormalizationError("un tableau de nombres (lignes de même longueur)") from exc
+    return arr
+
+
+def _norm_array(arr, decimals: int) -> str:
+    shape = ",".join(str(s) for s in arr.shape)
+    body = ",".join(_fmt_float(x, decimals) for x in arr.ravel())
+    return f"shape=({shape});{body}"
+
+
+def _norm_set(value, decimals: int | None) -> str:
+    value = _deep_to_python(value)
+    if isinstance(value, (str, bytes)) or isinstance(value, numbers.Number):
+        raise NormalizationError("un ensemble d'éléments (set ou liste)")
+    try:
+        elements = list(value)
+    except TypeError as exc:
+        raise NormalizationError("un ensemble d'éléments (set ou liste)") from exc
+    items = []
+    for item in elements:
+        item = _to_python(item)
+        if isinstance(item, str):
+            items.append("s:" + _norm_str(item))
+        elif isinstance(item, numbers.Real):
+            items.append("n:" + _fmt_float(item, decimals or 0))
+        else:
+            raise NormalizationError("un ensemble de nombres ou de chaînes")
+    return "{" + ",".join(sorted(set(items))) + "}"
+
+
+def normalize(value, kind: str, decimals: int | None = None) -> str:
+    """Return the canonical string of ``value`` for the given ``kind``."""
+    if kind == "bool":
+        return _norm_bool(value)
+    if kind == "int":
+        return _norm_int(value)
+    if kind == "float":
+        return _fmt_float(_as_number(value), decimals if decimals is not None else 0)
+    if kind == "str":
+        raw = _unwrap_single(value)
+        if not isinstance(raw, str):
+            raise NormalizationError("une chaîne de caractères (str)")
+        return _norm_str(raw)
+    if kind == "array":
+        return _norm_array(_as_array(value), decimals or 0)
+    if kind == "set":
+        return _norm_set(value, decimals)
+    raise ValueError(f"unknown answer kind: {kind!r}")
+
+
+def hash_answer(ex_id: str, kind: str, normalized: str) -> str:
+    """Salted SHA-256 of a normalised answer."""
+    payload = f"mwb|{ex_id}|{kind}|{normalized}".encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def _element_hash(ex_id: str, index: int, x: float, decimals: int) -> str:
+    return hash_answer(ex_id, f"element:{index}", _fmt_float(x, decimals))
+
+
+def _hash_value(ex_id: str, entry: dict, value, decimals: int | None = None) -> str | None:
+    try:
+        norm = normalize(value, entry["kind"], entry.get("decimals") if decimals is None else decimals)
+    except (NormalizationError, TypeError, ValueError):
+        return None
+    return hash_answer(ex_id, entry["kind"], norm)
+
+
+# ---------------------------------------------------------------------------
+# answers.json
+# ---------------------------------------------------------------------------
+def load_answers(path: str | Path | None = None, *, reload: bool = False) -> dict:
+    """Load ``answers.json`` (cached; reloaded automatically after a ``git pull``)."""
+    path = Path(path) if path else ANSWERS_PATH
+    if not path.exists():
+        return {}
+    mtime = path.stat().st_mtime
+    if reload or _cache["path"] != path or _cache["mtime"] != mtime:
+        with path.open(encoding="utf-8") as handle:
+            data = json.load(handle)
+        _cache.update(path=path, mtime=mtime, answers=data.get("answers", {}))
+    return _cache["answers"]
+
+
+def _get_entry(ex_id: str, answers_path=None) -> dict | None:
+    answers = load_answers(answers_path)
+    if ex_id in answers:
+        return answers[ex_id]
+    return RECORDED.get(ex_id)
+
+
+# ---------------------------------------------------------------------------
+# Building an answer entry (solutions side)
+# ---------------------------------------------------------------------------
+def _near_rounding_boundary(x: float, decimals: int) -> bool:
+    scaled = abs(x) * 10**decimals
+    frac = scaled - math.floor(scaled)
+    return abs(frac - 0.5) < 0.02
+
+
+def _other_rounding(x: float, decimals: int, norm: str) -> str | None:
+    """At a rounding boundary (e.g. 0.125 at 2 decimals), the other plausible rounding."""
+    if not math.isfinite(x) or not _near_rounding_boundary(x, decimals):
+        return None
+    scale = 10**decimals
+    for candidate in (math.floor(x * scale) / scale, math.ceil(x * scale) / scale):
+        text = _fmt_float(candidate, decimals)
+        if text != norm:
+            return text
+    return None
+
+
+def make_entry(
+    ex_id: str,
+    value,
+    decimals: int | None = None,
+    *,
+    kind: str | None = None,
+    ordered: bool = True,
+    mistakes: dict | None = None,
+    source: str | None = None,
+    fractional: str | None = None,
+    choices: list | None = None,
+    prediction: bool = False,
+    variables=None,
+    simplified: bool = False,
+    up_to_constant: bool = False,
+) -> dict:
+    """Build the (hash-only) answer entry for ``value``. Used by :func:`record`.
+
+    Maths kinds (:mod:`wbm.mathcheck`): ``kind="fraction"`` (``simplified=True``: a typed fraction must be
+    irreducible), ``kind="expr"`` (``variables=("x",)``; ``up_to_constant=True`` for a primitive) and
+    ``kind="interval"``.
+
+    ``prediction``: the answer is a prediction of a 🔮 (written before the experiment): a classic wrong value is
+    reported as « Prédiction ratée », not as « Erreur classique » (a missed prediction is not a mistake of calculation).
+
+    ``fractional`` (whole-number answers only): the hint shown when the learner types a number that is not a whole
+    number, instead of the generic advice to round to the nearest integer (which is wrong when the exercise is about
+    rounding up, as for the length of a code, ``ceil(log2 N)``).
+    ``choices`` (numbers): the values offered by the statement (« the closest of 3, 4, 4.7 or 5 »); they are stored in
+    clear, since the statement shows them, and a value outside them gets « choose one of the offered values » instead
+    of a diagnosis about a calculation.
+    """
+    import numpy as np
+
+    ex_id = str(ex_id)
+    value = _to_python(value)
+    kind = kind or infer_kind(value)
+    if kind in MATH_KINDS:
+        if fractional is not None or choices is not None:
+            raise ValueError(f"Ex {ex_id}: `fractional` and `choices` are not available for the kind {kind!r}")
+        entry = make_math_entry(ex_id, value, kind, variables=variables, simplified=simplified,
+                                up_to_constant=up_to_constant, mistakes=mistakes)
+        if prediction:
+            entry["prediction"] = True
+        if source:
+            entry["source"] = source
+        return entry
+    if variables is not None or simplified or up_to_constant:
+        raise ValueError(f"Ex {ex_id}: `variables`, `simplified` and `up_to_constant` are for the kinds "
+                         f"'fraction', 'expr' and 'interval' (pass kind=...)")
+    if kind == "array" and not ordered:
+        kind = "set"
+    if kind == "float" and decimals is None:
+        raise ValueError(
+            f"Ex {ex_id}: give `decimals` for a float answer (the statement must say how to round)."
+        )
+    integer_array = False
+    if kind == "array":
+        arr = _as_array(value)
+        integer_array = bool(arr.size == 0 or np.all(arr == np.round(arr)))
+        if decimals is None:
+            if not integer_array:
+                raise ValueError(f"Ex {ex_id}: give `decimals` for an array of floats.")
+            decimals = 0
+    if kind == "set" and decimals is None:
+        reals = [x for x in _deep_to_python(list(value)) if isinstance(x, numbers.Real)]
+        if any(float(x) != round(float(x)) for x in reals):
+            raise ValueError(f"Ex {ex_id}: give `decimals` for a set containing non-integer numbers.")
+    if kind in ("int", "bool", "str"):
+        decimals = None
+
+    norm = normalize(value, kind, decimals)
+    entry: dict = {"kind": kind, "hash": hash_answer(ex_id, kind, norm)}
+    if prediction:
+        entry["prediction"] = True
+    if decimals is not None:
+        entry["decimals"] = int(decimals)
+
+    if kind in ("int", "float"):
+        x = _as_number(value)
+        if kind == "float" and x != 0 and float(norm) == 0:
+            raise ValueError(f"Ex {ex_id}: the answer rounds to 0 with {decimals} decimals; use more decimals.")
+        entry["sign"] = 0 if x == 0 else (1 if x > 0 else -1)
+        entry["magnitude"] = None if x == 0 or not math.isfinite(x) else int(math.floor(math.log10(abs(x))))
+        if kind == "float" and decimals and decimals > 0:
+            coarse_texts = _coarse_texts(x, decimals)
+            entry["hash_coarse"] = hash_answer(ex_id, kind, coarse_texts[0])
+            if len(coarse_texts) > 1:
+                entry["alt_coarse"] = [hash_answer(ex_id, kind, text) for text in coarse_texts[1:]]
+        if kind == "float":
+            other = _other_rounding(x, decimals, norm)
+            if other is not None:
+                entry["alt_hashes"] = [hash_answer(ex_id, kind, other)]
+    if kind == "array":
+        arr = _as_array(value)
+        entry["shape"] = list(arr.shape)
+        if integer_array and decimals == 0:
+            entry["integer"] = True
+        if 1 < arr.size <= _MAX_ELEMENT_HASHES:
+            entry["element_hashes"] = [_element_hash(ex_id, i, x, decimals) for i, x in enumerate(arr.ravel())]
+            if decimals >= 2 and np.all(np.isfinite(arr)):
+                entry["element_coarse"] = [[hash_answer(ex_id, f"element:{i}", text) for text in _coarse_texts(float(x), decimals)]
+                                           for i, x in enumerate(arr.ravel())]
+    if mistakes:
+        entry["mistakes"] = {}
+        seen: dict[str, str] = {}  # normalized wrong value -> its message
+        for message, wrong_values in mistakes.items():
+            if not isinstance(message, str) or " " not in message.strip():
+                # {wrong value: message} instead of {message: wrong value} would store the wrong choice in clear
+                raise ValueError(f"Ex {ex_id}: `mistakes` maps a MESSAGE (a sentence) to a wrong value, but "
+                                 f"{message!r} looks like a value: is the dictionary inverted?")
+            # a set of wrong values shares one message (the other letters of a choice): scalar answers only, where
+            # a set cannot be a value itself
+            shared = isinstance(wrong_values, (set, frozenset)) and kind in ("str", "int", "bool", "float")
+            for wrong_value in (sorted(wrong_values, key=repr) if shared else [wrong_values]):
+                try:
+                    wrong_norm = normalize(wrong_value, kind, decimals)
+                except NormalizationError as exc:
+                    raise ValueError(f"Ex {ex_id}: mistake {message!r} has the wrong kind") from exc
+                if wrong_norm == norm:
+                    raise ValueError(f"Ex {ex_id}: mistake {message!r} equals the right answer")
+                if wrong_norm in seen:
+                    # two classic mistakes that give the same value: the learner would read only one of the messages
+                    raise ValueError(f"Ex {ex_id}: mistakes {seen[wrong_norm]!r} and {message!r} give the same value "
+                                     f"({wrong_norm}); merge them into one message")
+                seen[wrong_norm] = str(message)
+                entry["mistakes"][hash_answer(ex_id, kind, wrong_norm)] = str(message)
+    if fractional is not None:
+        if kind != "int":
+            raise ValueError(f"Ex {ex_id}: `fractional` is only for a whole-number answer (kind 'int'), not {kind!r}")
+        if not isinstance(fractional, str) or " " not in fractional.strip():
+            raise ValueError(f"Ex {ex_id}: `fractional` must be a hint sentence, got {fractional!r}")
+        entry["fractional"] = fractional.strip()
+    if choices is not None:
+        if kind not in ("int", "float"):
+            raise ValueError(f"Ex {ex_id}: `choices` is only for a numeric answer, not {kind!r}")
+        offered = [normalize(choice, kind, decimals) for choice in choices]
+        if norm not in offered:
+            raise ValueError(f"Ex {ex_id}: the right answer is not among the `choices` {list(choices)}")
+        entry["choices"] = offered
+    if source:
+        entry["source"] = source
+    return entry
+
+
+# ---------------------------------------------------------------------------
+# Checking (learner side)
+# ---------------------------------------------------------------------------
+_PRAISE = [
+    "Bravo !",
+    "Exact !",
+    "Bien joué !",
+    "C'est ça !",
+    "Parfait !",
+]
+
+
+def _praise(ex_id: str) -> str:
+    return _PRAISE[sum(map(ord, ex_id)) % len(_PRAISE)]
+
+
+_COMPUTED_NEAR = ("Tout près, mais pas égal : cette valeur vient de ta fonction, ce n'est donc pas une question "
+                  "d'arrondi. Ta fonction s'écarte un peu du bon résultat dans un cas particulier (ex-æquo, bord "
+                  "d'intervalle, division par zéro…) : relis sa docstring ; si elle fait partie de `mymath`, ses "
+                  "tests (`pytest`) disent quel cas pose problème.")
+
+
+def _coarse_texts(x: float, decimals: int) -> list[str]:
+    """The right value written with one decimal less: as Python rounds it, plus, on an exact tie, the rounding
+    taught at school, half away from zero, when Python's differs (0.625 -> "0.62" for Python, "0.63" at school).
+    A tie computed just under the half (1.5 * 1.65 gives 2.4749999..., a mean gives -0.31499999...) is still a tie:
+    school rounding gives 2.48 and -0.32 (session 77: floor(scaled + 0.5) gave 2.47 and -0.31 again)."""
+    texts = [_fmt_float(x, decimals - 1)]
+    scale = 10 ** (decimals - 1)
+    scaled = abs(x) * scale
+    if math.isfinite(x):
+        low = math.floor(scaled + 1e-6)          # 247.49999999999997 and 247.5 both give 247
+        if abs(scaled - low - 0.5) < 1e-6:
+            text = _fmt_float(math.copysign((low + 1) / scale, x), decimals - 1)
+            if text not in texts:
+                texts.append(text)
+    return texts
+
+
+def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False) -> str:
+    """Explain a wrong scalar answer without revealing the expected value.
+
+    ``computed``: the value comes from the learner's function (called by the check cell), not typed in: a value
+    one unit away on the last decimal is then a small bug of the function, never a rounding slip.
+    """
+    decimals = entry.get("decimals")
+    if math.isnan(x):
+        return ("Ta valeur est NaN (« pas un nombre ») : division 0/0, logarithme d'un nombre "
+                "négatif ou valeur manquante dans le calcul ?")
+    if math.isinf(x):
+        return "Ta valeur est infinie : division par zéro ou exponentielle trop grande ?"
+
+    def matches(candidate: float) -> bool:
+        return _hash_value(ex_id, entry, candidate) == entry["hash"]
+
+    if x != 0 and matches(-x):
+        return "Le signe est inversé : vérifie l'ordre d'une soustraction ou un signe « moins »."
+    if entry["kind"] == "int" and (matches(x + 1) or matches(x - 1)):
+        if computed:
+            return ("Ta fonction est à 1 près : un élément compté en trop ou en moins (comparaison stricte ou large, "
+                    "premier ou dernier élément, un pas de trop ?). Relis sa docstring ; si elle fait partie de "
+                    "`mymath`, ses tests (`pytest`) disent quel cas pose problème.")
+        return ("Tu es à 1 près : une petite erreur de calcul, ou, si tu comptes des éléments, "
+                "une erreur de bornes (off-by-one : bornes incluses ou exclues ?).")
+    # "exactly 100 times" only when the rounded answer keeps 2 significant digits: with 0.01 (2 decimals),
+    # any value from 0.5 to 1.5 divided by 100 would "match"
+    precise = entry["kind"] != "float" or (
+        entry.get("magnitude") is not None and entry["magnitude"] + (decimals or 0) >= 1)
+    if x != 0 and precise and matches(x / 100):  # we cannot know which of the two is a percentage: say both
+        return ("Ta valeur est exactement 100 fois trop grande : un pourcentage donné au lieu d'une proportion "
+                "(entre 0 et 1), ou une division par 100 oubliée ?")
+    if x != 0 and matches(x * 100):
+        return ("Ta valeur est exactement 100 fois trop petite : une proportion (entre 0 et 1) donnée au lieu d'un "
+                "pourcentage, ou une division par 100 en trop ?")
+    if 0 <= x <= 1 and matches(1 - x):
+        return "Tu as calculé le complément (1 − p) : relis bien ce qui est demandé."
+    if entry["kind"] == "float" and decimals:
+        # given with too few decimals (0.12 for 0.123); never "right at 0 decimals". The hashes of the TRUE value
+        # rounded with one decimal less are stored by record(), with both roundings on an exact tie (0.625)
+        # (not when that coarser value is 0: typing 0 for 0.01 is not "almost right")
+        if (decimals >= 2 and entry.get("hash_coarse") and round(x, decimals - 1) != 0
+                and abs(x - round(x, decimals - 1)) < 1e-9 * max(1.0, abs(x))):
+            coarse = hash_answer(ex_id, "float", _fmt_float(x, decimals - 1))
+            if coarse == entry["hash_coarse"] or coarse in entry.get("alt_coarse", ()):
+                if computed:
+                    return _COMPUTED_NEAR
+                return (f"Tu y es presque : ta valeur est juste à {decimals - 1} décimale(s), mais l'énoncé "
+                        f"en demande {decimals}.")
+        # one unit away on the last decimal (rounded too early, or truncated), claimed only when that unit is
+        # small next to the answer (at least 3 significant digits: with 0.65, the neighbour 0.64 is another
+        # measure as often as a rounding slip)
+        unit = 10.0 ** -decimals
+        base = round(x, decimals)
+        magnitude = entry.get("magnitude")
+        if magnitude is not None and magnitude + decimals >= 2 and any(matches(base + k * unit) for k in (-1, 1)):
+            if computed:
+                return _COMPUTED_NEAR
+            return ("Tu y es presque : une seule unité d'écart sur la dernière décimale demandée. Arrondi trop tôt "
+                    "dans le calcul (garde les valeurs exactes jusqu'au bout), ou valeur tronquée au lieu d'être "
+                    "arrondie ?")
+    sign = entry.get("sign")
+    if not sign or x == 0:  # expected 0, or the learner gave 0: no hint that could leak the answer
+        return "Ce n'est pas la bonne valeur."
+    if (x > 0) != (sign > 0):
+        return "Le signe de ta réponse n'est pas le bon."
+    magnitude = entry.get("magnitude")
+    if computed:  # the value comes from the learner's function: no hint about units or sums, point to the tests
+        return ("Ta fonction ne renvoie pas la bonne valeur ici. Relis l'énoncé et sa docstring ; si elle fait "
+                "partie de `mymath`, ses tests (`pytest`) disent quel cas pose problème.")
+    if magnitude is not None:
+        x_mag = int(math.floor(math.log10(abs(x))))
+        if x_mag == magnitude:
+            return "L'ordre de grandeur est bon : c'est le détail du calcul qui cloche."
+        # the orders of magnitude compare absolute values: -1000 is "too large" only in absolute value
+        absolute = " en valeur absolue" if sign < 0 else ""
+        # one power of ten apart can mean a factor 1.1 (9 vs 11): claim "a factor 10" only from two powers apart
+        if x_mag >= magnitude + 2:
+            return (f"Ta valeur est trop grande{absolute} d'au moins un facteur 10 : revois la méthode (unités, "
+                    "somme au lieu d'une moyenne ?).")
+        if x_mag > magnitude:
+            return (f"Ta valeur est trop grande{absolute} : revois le calcul (un terme compté en trop, une unité, "
+                    "une somme au lieu d'une moyenne ?).")
+        if x_mag <= magnitude - 2:
+            return (f"Ta valeur est trop petite{absolute} d'au moins un facteur 10 : revois la méthode (division "
+                    "en trop, unités ?).")
+        return (f"Ta valeur est trop petite{absolute} : revois le calcul (un terme oublié, une division en trop, "
+                "une unité ?).")
+    return "Ce n'est pas la bonne valeur."
+
+
+def _element_ok(ex_id: str, index: int, x: float, expected: str, decimals: int) -> bool:
+    step = 10**-decimals / 10
+    return any(_element_hash(ex_id, index, c, decimals) == expected for c in (x, x + step, x - step))
+
+
+def _element_near(ex_id: str, index: int, x: float, expected: str, decimals: int,
+                  coarse: list[str] | None = None) -> bool:
+    """A wrong element that is right up to rounding: given with too few decimals (0.85 for 0.854), or one unit off
+    on the last decimal when that unit is small next to the value (at least 3 significant digits, as for scalars).
+
+    ``coarse``: hashes of the true element rounded with one decimal less (stored by record() since session 12);
+    older entries fall back to the values around the learner's one."""
+    x = float(x)
+    if not math.isfinite(x):
+        return False
+    unit = 10.0 ** -decimals
+    # (not when that coarser value is 0: typing 0 for 0.01 is not "almost right", as for scalars)
+    if decimals >= 2 and round(x, decimals - 1) != 0 and abs(x - round(x, decimals - 1)) < 1e-9 * max(1.0, abs(x)):
+        if coarse is not None:
+            if hash_answer(ex_id, f"element:{index}", _fmt_float(x, decimals - 1)) in coarse:
+                return True
+        else:
+            rounded = round(x, decimals - 1)
+            if any(_element_ok(ex_id, index, rounded + k * unit, expected, decimals) for k in range(-5, 5)):
+                return True
+    base = round(x, decimals)
+    return abs(x) >= 100 * unit and any(_element_ok(ex_id, index, base + k * unit, expected, decimals)
+                                        for k in (-1, 1))
+
+
+def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False) -> str:
+    import numpy as np
+
+    expected_shape = tuple(entry.get("shape", ()))
+    if arr.shape != expected_shape:
+        if arr.T.shape == expected_shape and _hash_value(ex_id, entry, arr.T) == entry["hash"]:
+            return "Les valeurs sont bonnes mais le tableau est transposé (.T)."
+        if arr.size == int(np.prod(expected_shape)) and (
+            _hash_value(ex_id, entry, arr.reshape(expected_shape)) == entry["hash"]
+        ):
+            return f"Les valeurs sont bonnes, mais la forme doit être {expected_shape} (reshape)."
+        if (not computed and not entry.get("integer") and arr.ndim == 1 and len(expected_shape) == 1
+                and arr.size > expected_shape[0] and np.all(np.isfinite(arr)) and np.all(arr == np.round(arr))):
+            # [3, 2, 1, 5] for [3, 2, 1.5]: a decimal comma splits a number into two whole numbers
+            return (f"Forme attendue {expected_shape}, reçue {arr.shape}. Des virgules décimales ? Dans une liste "
+                    "Python, `[1,5]` contient deux nombres, 1 et 5 : écris `1.5`.")
+        return f"Forme attendue {expected_shape}, reçue {arr.shape}."
+    if (arr.ndim == 2 and arr.shape[0] == arr.shape[1] > 1 and not np.array_equal(arr, arr.T)
+            and _hash_value(ex_id, entry, arr.T) == entry["hash"]):  # a square table read the other way round
+        return "Les valeurs sont bonnes mais le tableau est transposé (.T) : les lignes et les colonnes sont échangées."
+    element_hashes = entry.get("element_hashes")
+    decimals = entry.get("decimals") or 0
+
+    def matches_all(values) -> bool:
+        """values match the answer, as a whole or element by element (rounding noise absorbed)."""
+        if _hash_value(ex_id, entry, values) == entry["hash"]:
+            return True
+        return bool(element_hashes) and all(
+            _element_ok(ex_id, i, x, h, decimals) for i, (x, h) in enumerate(zip(values.ravel(), element_hashes)))
+
+    nonzero = arr[arr != 0]
+    if nonzero.size and not entry.get("integer"):
+        # percentages instead of proportions (claimed only when the scaled values keep 2 significant digits)
+        if np.all(np.abs(nonzero) / 100 >= 10.0 ** (1 - decimals)) and matches_all(arr / 100):
+            return ("Tes valeurs sont exactement 100 fois trop grandes : des pourcentages donnés au lieu de "
+                    "proportions (entre 0 et 1), ou une division par 100 oubliée ?")
+        if matches_all(arr * 100):
+            return ("Tes valeurs sont exactement 100 fois trop petites : des proportions données au lieu de "
+                    "pourcentages, ou une division par 100 en trop ?")
+    # every sign inverted (a direction -u instead of u): said before the element count, which would only report the
+    # zeros as right
+    if nonzero.size and matches_all(-arr):
+        return "Tous les signes sont inversés."
+    if element_hashes:
+        flat = list(enumerate(zip(arr.ravel(), element_hashes)))
+        wrong_items = [(i, x, h) for i, (x, h) in flat if not _element_ok(ex_id, i, x, h, decimals)]
+        coarse = entry.get("element_coarse")
+        if wrong_items and decimals >= 1 and all(_element_near(ex_id, i, x, h, decimals, coarse[i] if coarse else None)
+                                                 for i, x, h in wrong_items):
+            if computed:
+                return _COMPUTED_NEAR
+            return ("Tu y es presque : tes valeurs ne sont fausses qu'à l'arrondi près (une unité d'écart sur la "
+                    f"dernière décimale, ou trop peu de décimales). Donne {decimals} décimale(s), et n'arrondis "
+                    "qu'à la fin du calcul.")
+        if wrong_items:
+            first = tuple(int(i) for i in np.unravel_index(wrong_items[0][0], arr.shape))
+            return (f"{arr.size - len(wrong_items)} élément(s) sur {arr.size} sont justes. "
+                    f"Premier élément faux à l'indice {first}.")
+    return "Les valeurs ne sont pas les bonnes."
+
+
+def _type_name(value) -> str:
+    return type(value).__name__
+
+
+def _is_finite_real(value) -> bool:
+    """True for a finite real number given as a scalar (int, float, NumPy or 0-d/1-element array)."""
+    try:
+        raw = _unwrap_single(value)
+        return not isinstance(raw, bool) and math.isfinite(_as_number(raw))
+    except Exception:
+        return False
+
+
+def _looks_like_decimal_comma(value) -> bool:
+    """``0,5`` or ``-3,14`` typed without quotes: a tuple of two integers, the second one not negative."""
+    return (isinstance(value, tuple) and len(value) == 2
+            and all(isinstance(v, numbers.Integral) and not isinstance(v, bool) for v in value) and value[1] >= 0)
+
+
+_ENGLISH_THOUSANDS = re.compile(r"[+-]?[1-9]\d{0,2}(?:,\d{3})+")
+
+
+def _thousands_reading(value) -> float | None:
+    """A text such as "2,000,000" or "500,000" read with English thousands separators, or None for another form
+    ("0,125" and "3,14" never qualify)."""
+    try:
+        raw = _unwrap_single(value)
+    except Exception:
+        return None
+    if not isinstance(raw, str):
+        return None
+    compact = "".join(raw.split()).replace("\u2212", "-")  # typographic minus sign
+    if not _ENGLISH_THOUSANDS.fullmatch(compact):
+        return None
+    return float(compact.replace(",", ""))
+
+
+def _thousands_message(value, right: bool) -> str:
+    text = str(_unwrap_single(value)).strip()
+    verdict = " Sans les virgules, c'est la bonne valeur : réécris-la." if right else ""
+    return (f"« {text} » : en français, la virgule sépare les décimales, pas les milliers. Écris le nombre sans "
+            "séparateur (`2000000`), avec des espaces entre guillemets (`\"2 000 000\"`) ou avec des tirets bas "
+            f"(`2_000_000`).{verdict}")
+
+
+_NO_ANSWER = object()
+
+
+def _classic(entry: dict, mistake: str, value=_NO_ANSWER) -> str:
+    """The message of a classic wrong value: « Erreur classique », or « Prédiction ratée » for a 🔮.
+
+    For a prediction whose answer is a choice, a whole number or a truth value, the lead recalls what the learner
+    predicted (« Prédiction ratée (tu as prédit « B ») »): the hint that follows is then never read as the answer."""
+    if not entry.get("prediction"):
+        return f"Erreur classique. Piste : {mistake}"
+    lead = "Prédiction ratée"
+    if value is not _NO_ANSWER and entry.get("kind") in ("str", "int", "bool"):
+        try:
+            text = str(_unwrap_single(value)).strip()
+        except Exception:  # noqa: BLE001 - an odd object: the lead without the answer
+            text = ""
+        if text:
+            shown = text if len(text) <= 40 else text[:37] + "…"
+            lead += f" (tu as prédit « {shown} »)"
+    return f"{lead}. Piste : {mistake}"
+
+
+def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple[bool, str, str]:
+    """Compare ``value`` with a stored entry. Return (passed, status, message).
+
+    ``computed=True``: the value was computed by the learner's function (not typed in); the diagnosis then never
+    blames rounding.
+    """
+    import numpy as np
+
+    kind = entry["kind"]
+    if kind in MATH_KINDS:
+        return check_math_entry(ex_id, entry, value)
+    decimals = entry.get("decimals")
+    accepted = {entry["hash"], *entry.get("alt_hashes", [])}
+    try:
+        norm = normalize(value, kind, decimals)
+    except NormalizationError as exc:
+        thousands = _thousands_reading(value) if kind in ("int", "float") else None
+        if thousands is not None:  # "2,000,000" cannot be French; "93,312" for a whole number: only when right
+            right = _hash_value(ex_id, entry, thousands) in accepted
+            if right or str(_unwrap_single(value)).count(",") >= 2:
+                return False, "type", _thousands_message(value, right)
+        if kind == "int" and _is_finite_real(value):  # a number, just not a whole one: a wrong value, not a wrong type
+            if entry.get("fractional"):  # the author's hint for this exercise (e.g. "round UP")
+                return False, "wrong", f"La réponse attendue est un nombre entier. Piste : {entry['fractional']}"
+            rounded = hash_answer(ex_id, "int", str(int(round(_as_number(value)))))
+            if rounded == entry["hash"]:
+                return False, "wrong", ("Presque : la réponse attendue est un nombre entier ; arrondis ton résultat "
+                                        "à l'entier le plus proche (round).")
+            mistake = entry.get("mistakes", {}).get(rounded)
+            if mistake:
+                return False, "wrong", _classic(entry, mistake, value)
+            return False, "wrong", "Ce n'est pas la bonne valeur (la réponse attendue est un nombre entier)."
+        if kind in ("int", "float") and _looks_like_decimal_comma(value):
+            return False, "type", ("Tu as écrit une virgule décimale : en Python, `0,5` est un couple de deux nombres, "
+                                   "`(0, 5)`. Écris `0.5` (un point), ou `\"0,5\"` entre guillemets.")
+        if kind == "str":  # a shape or a position given as a tuple, a list or a torch.Size instead of a string
+            shape = _shape_reading(value)
+            if shape is not None:
+                shape_hash = hash_answer(ex_id, kind, shape)
+                if shape_hash in accepted:
+                    return True, "correct", _praise(ex_id)
+                mistake = entry.get("mistakes", {}).get(shape_hash)
+                if mistake:
+                    return False, "wrong", _classic(entry, mistake, value)
+                return False, "wrong", _WRONG_SHAPE
+        try:
+            raw = _unwrap_single(value)
+        except Exception:  # a date, pd.NA...: the type name is the useful part
+            raw = value
+        if isinstance(raw, str):  # say what was read: "an object of type str" is confusing when "vrai" is accepted
+            shown = raw if len(raw) <= 40 else raw[:37] + "…"
+            return False, "type", f"J'attends {exc} ; j'ai reçu le texte « {shown} »."
+        return False, "type", f"J'attends {exc} ; j'ai reçu un objet de type `{_type_name(value)}`."
+
+    if kind == "array":
+        arr = _as_array(value)
+        if entry.get("integer") and arr.size and not np.all(arr == np.round(arr)):
+            if np.allclose(arr, np.round(arr), rtol=0, atol=1e-6):
+                arr = np.round(arr)  # integers computed in floating point (2.9999999999999996): accept them
+                norm = normalize(arr, kind, decimals)
+            else:
+                return False, "wrong", ("On attend des valeurs entières (des positions, des classes, des comptes…), "
+                                        "pas des nombres à virgule (des probabilités, des moyennes ?). Si tes valeurs "
+                                        "sont des entiers calculés, arrondis-les avec round().")
+        if hash_answer(ex_id, kind, norm) == entry["hash"]:
+            return True, "correct", _praise(ex_id)
+        element_hashes = entry.get("element_hashes")
+        if element_hashes and list(arr.shape) == entry.get("shape") and all(
+            _element_ok(ex_id, i, x, h, decimals or 0) for i, (x, h) in enumerate(zip(arr.ravel(), element_hashes))
+        ):
+            return True, "correct", _praise(ex_id)  # right up to rounding noise (e.g. float32)
+        mistake = entry.get("mistakes", {}).get(hash_answer(ex_id, kind, norm))
+        if mistake:
+            return False, "wrong", _classic(entry, mistake, value)
+        return False, "wrong", _array_diagnosis(ex_id, entry, arr, computed)
+
+    candidates = [norm]
+    if kind == "float":  # absorb noise at a rounding boundary
+        x = _as_number(value)
+        step = 10 ** -(decimals or 0) / 10
+        candidates += [_fmt_float(x + step, decimals or 0), _fmt_float(x - step, decimals or 0)]
+    if any(hash_answer(ex_id, kind, c) in accepted for c in candidates):
+        return True, "correct", _praise(ex_id)
+
+    mistake = entry.get("mistakes", {}).get(hash_answer(ex_id, kind, norm))
+    if mistake:
+        return False, "wrong", _classic(entry, mistake, value)
+    if kind in ("int", "float"):  # "500,000" read as 500 (French decimal comma) when 500000 was meant
+        thousands = _thousands_reading(value)
+        if thousands is not None and _hash_value(ex_id, entry, thousands) in accepted:
+            return False, "type", _thousands_message(value, right=True)
+    if kind == "str":  # a choice copied with its brackets or punctuation: "(C)", "C)", "« C »", "c."
+        bare = _bare_choice(value)
+        if bare is not None:
+            bare_hash = hash_answer(ex_id, kind, bare)
+            if bare_hash == entry["hash"] or bare_hash in accepted:
+                return True, "correct", _praise(ex_id)
+            mistake = entry.get("mistakes", {}).get(bare_hash)
+            if mistake:
+                return False, "wrong", _classic(entry, mistake, value)
+        # a shape or a position written "1, 2", "[1, 2]", "torch.Size([1, 2])" or "1 x 2" for "(1, 2)"
+        shape = _shape_reading(value)
+        if shape is not None and shape != norm:
+            shape_hash = hash_answer(ex_id, kind, shape)
+            if shape_hash in accepted:
+                return True, "correct", _praise(ex_id)
+            mistake = entry.get("mistakes", {}).get(shape_hash)
+            if mistake:
+                return False, "wrong", _classic(entry, mistake, value)
+        # several choice letters with separators, in the order of an ordering answer ("B, D, E, A, C") or in another
+        # order for a set of letters ("E, D, B" for "BDE")
+        glued = [g for g in dict.fromkeys((_glued_letters(value, keep_order=True), _glued_letters(value)))
+                 if g is not None and g != norm]
+        glued_hashes = [hash_answer(ex_id, kind, g) for g in glued]
+        if any(h in accepted for h in glued_hashes):
+            return True, "correct", _praise(ex_id)
+        for glued_hash in glued_hashes:
+            mistake = entry.get("mistakes", {}).get(glued_hash)
+            if mistake:
+                return False, "wrong", _classic(entry, mistake, value)
+    if kind in ("int", "float") and entry.get("choices") and norm not in entry["choices"]:
+        offered = [_choice_text(choice) for choice in entry["choices"]]
+        listed = ", ".join(offered[:-1]) + " ou " + offered[-1] if len(offered) > 1 else offered[0]
+        return False, "wrong", f"Choisis l'une des valeurs proposées par l'énoncé : {listed}."
+    if kind in ("int", "float"):
+        return False, "wrong", _numeric_diagnosis(ex_id, entry, _as_number(value), computed)
+    if kind == "bool":
+        return False, "wrong", "Ce n'est pas la bonne réponse : relis l'énoncé et justifie ton choix."
+    if kind == "set":
+        return False, "wrong", "L'ensemble n'est pas le bon (l'ordre ne compte pas) : il manque ou il y a des éléments en trop."
+    if kind == "str" and (_shape_reading(value) is not None or (   # a wrong shape or vector: no spelling hint
+            isinstance(value, str) and _NUMBER_TUPLE_TEXT.fullmatch(value))):
+        return False, "wrong", _WRONG_SHAPE
+    return False, "wrong", (
+        "Ce n'est pas la réponse attendue. Si tu as choisi parmi les réponses proposées dans l'énoncé, ton choix "
+        "n'est pas le bon : relis l'énoncé (ou l'expérience) ; sinon, vérifie l'orthographe du terme demandé "
+        "(majuscules, accents, espaces et tirets sont ignorés)."
+    )
+
+
+_WRONG_SHAPE = ("Ce n'est pas la bonne forme (ou le bon vecteur) : vérifie chaque valeur et leur ordre ; pour la forme "
+                "d'un tenseur, vérifie chaque axe (lequel vient en premier, et sa taille), et n'oublie ni l'axe des "
+                "exemples ni celui des canaux ou des features.")
+
+_NUMBER_TUPLE_TEXT = re.compile(r"[\s(\[]*-?\d+(?:[.,]\d+)?(?:\s*[,;]\s*-?\d+(?:[.,]\d+)?)+[\s)\]]*")
+
+_CHOICE_WRAPPERS = "()[]{}«»\"'“”‘’.,:;!? "
+
+
+_SHAPE_TEXT = re.compile(r"\s*(?:torch\.Size)?[\s(\[]*-?\d+(?:(?:\s*(?:,|x|×|\*)\s*|\s+)-?\d+)*\s*,?[\s)\]]*\s*",
+                         re.IGNORECASE)
+
+
+def _shape_reading(value) -> str | None:
+    """The normalised text ``"(a,b,...)"`` of a shape or a position given as ``"a, b"``, ``"[a, b]"``,
+    ``"torch.Size([a, b])"``, ``"a x b"``, ``"a b"``, a tuple, a list or a ``torch.Size`` of integers; None otherwise.
+    A single number without brackets or a trailing comma is not a shape (``"3"`` stays a number)."""
+    if type(value).__name__ == "ndarray" and getattr(value, "ndim", 0) == 1:   # np.array([4., 3.]) for "(4, 3)"
+        value = value.tolist()
+    if isinstance(value, (tuple, list)) and value and all(
+            isinstance(v, numbers.Real) and not isinstance(v, bool) and float(v).is_integer() for v in value):
+        return _norm_str(str(tuple(int(v) for v in value)))
+    if isinstance(value, str) and ";" in value:        # a French vector "(5 ; 3)" or "(5,0 ; 3,0)"
+        parts = [part.strip() for part in value.strip().strip("()[] ").split(";")]
+        try:
+            numbers_read = [_parse_number(part) for part in parts]
+        except ValueError:
+            return None
+        if len(numbers_read) > 1 and all(float(x).is_integer() for x in numbers_read):
+            return _norm_str(str(tuple(int(x) for x in numbers_read)))
+        return None
+    if isinstance(value, str):                          # "(4.0, 3.0)": whole numbers written with a .0
+        value = re.sub(r"(?<=\d)\.0*(?!\d)", "", value)
+    if not isinstance(value, str) or not _SHAPE_TEXT.fullmatch(value):
+        return None
+    numbers_found = re.findall(r"-?\d+", value)
+    if len(numbers_found) == 1 and not re.search(r"[,(\[]", value):
+        return None
+    return _norm_str(str(tuple(int(n) for n in numbers_found)))
+
+
+def _bare_choice(value) -> str | None:
+    """The normalised text of a string answer without the brackets or punctuation around it ("(C)" -> "c"),
+    or None when there is nothing to remove (the text itself is unchanged inside)."""
+    raw = _unwrap_single(value)
+    if not isinstance(raw, str):
+        return None
+    stripped = raw.strip().strip(_CHOICE_WRAPPERS)
+    if not stripped or stripped == raw.strip():
+        return None
+    return _norm_str(stripped)
+
+
+_LETTER_SEPARATORS = re.compile(r"[\s,;/+&-]+")
+
+
+def _glued_letters(value, *, keep_order: bool = False) -> str | None:
+    """Several choice letters written in another order or with separators ("E, D, B", "d+b+e", "EDB", "B, D et E",
+    "(B), (D)") ->
+    the normalised letters, sorted and glued ("bde"); None when the text is not a list of single letters.
+    Letters glued in lower case ("dca") are read as letters only in the sorted reading, and only when they are
+    distinct: the caller compares that reading with the stored answer, so a word answer ("cab") is never re-sorted,
+    while "dca" passes for the set of letters "ACD" (02_exercices: « dans n'importe quel ordre »).
+    ``keep_order=True``: the letters glued in the order typed, repeats kept ("B, D, E, A, C" -> "bdeac"), for the
+    answers that are an ordering of the letters (glued lower-case letters are then the text itself)."""
+    raw = _unwrap_single(value)
+    if not isinstance(raw, str):
+        return None
+    parts = [part.strip(_CHOICE_WRAPPERS) for part in _LETTER_SEPARATORS.split(raw.strip().strip(_CHOICE_WRAPPERS))]
+    parts = [part for part in parts if part]                         # "(A), (C)": brackets around each letter
+    if len(parts) > 2:                   # "A, C et E", "A et C": the word "et" BETWEEN two letters is a separator
+        parts = [part for i, part in enumerate(parts) if not (part.lower() == "et" and 0 < i < len(parts) - 1)]
+    if len(parts) > 1 and all(len(part) == 1 and part.isascii() and part.isalpha() for part in parts):
+        letters = parts
+    elif len(parts) == 1 and len(parts[0]) > 1 and parts[0].isascii() and parts[0].isalpha() and parts[0].isupper():
+        letters = list(parts[0])
+    elif (not keep_order and len(parts) == 1 and len(parts[0]) > 1 and parts[0].isascii() and parts[0].isalpha()
+          and parts[0].islower() and len(set(parts[0])) == len(parts[0])):     # "dca" for "ACD"
+        letters = list(parts[0])
+    else:
+        return None
+    if keep_order:
+        return _norm_str("".join(letter.upper() for letter in letters))
+    return _norm_str("".join(sorted({letter.upper() for letter in letters})))
+
+
+def _choice_text(normalized: str) -> str:
+    """A stored choice written the French way: "4.70" -> "4,7", "3.0" -> "3"."""
+    text = normalized.rstrip("0").rstrip(".") if "." in normalized else normalized
+    return text.replace(".", ",")
+
+
+def check(ex_id, value, decimals: int | None = None, *, quiet: bool = False, computed: bool = False,
+          answers_path: str | Path | None = None) -> CheckResult:
+    """Check the learner's answer to exercise ``ex_id``.
+
+    ``decimals`` is optional: the number of decimals is stored with the answer
+    (it is the one given in the statement). Prints a message and returns a
+    :class:`CheckResult`, which is truthy when the answer is correct.
+    ``computed=True`` when the check cell computes the value with the learner's
+    function (instead of a value typed in): no rounding advice then.
+    """
+    ex_id = str(ex_id)
+    label = f"Ex {ex_id}"
+
+    def done(passed: bool, status: str, message: str, icon: str) -> CheckResult:
+        if not quiet:
+            print(f"{icon} {label} : {message}")
+        return CheckResult(ex_id, passed, status, message)
+
+    if value is None and computed:   # the value comes from the learner's function, which returned nothing
+        return done(False, "wrong", "ta fonction a renvoyé None : as-tu oublié le `return` ?", "❌")
+    if value is None:                # a placeholder, or a function of the learner without `return`
+        return done(False, "pending", "pas encore fait (remplace `None` par ta réponse ; si cette valeur vient "
+                    "d'une fonction que tu as écrite, vérifie qu'elle se termine par `return`).", "⏳")
+    if any(value is pending for pending in _PENDING_VALUES):
+        return done(False, "pending", "pas encore fait (remplace `...` par ta réponse).", "⏳")
+
+    entry = _get_entry(ex_id, answers_path)
+    if entry is None:
+        return done(
+            False,
+            "unknown",
+            "aucune réponse enregistrée pour cet exercice. Vérifie l'ID, puis fais un `git pull` "
+            "(le fichier src/wbm/answers.json est peut-être plus récent sur GitHub).",
+            "❓",
+        )
+    note = ""
+    stored = entry.get("decimals")
+    if decimals is not None and stored is not None and int(decimals) != stored:
+        note = f" (j'arrondis à {stored} décimale(s), comme dans l'énoncé)"
+
+    passed, status, message = check_entry(ex_id, entry, value, computed=computed)
+    icon = "✅" if passed else "❌"
+    return done(passed, status, message + note, icon)
+
+
+# The messages of a None used as a value (a forgotten `return`), and only them: PyTorch's "got (dtype=NoneType,
+# out=NoneType, ...)" (a NumPy function given a tensor) is another error (audit P5 V-VI, A10 14).
+NONE_TYPE_ERROR = re.compile(r"'NoneType'|NoneType object|not NoneType\b|NoneType\.__")
+
+
+@contextmanager
+def attempt(ex_id: str | None = None):
+    """Run exercise code; if it is not written yet, print ⏳ instead of crashing.
+
+    Usage in an exercise notebook::
+
+        with wbm.attempt("3.4"):
+            wbm.check("3.4", mymath.metrics.f1(y_true, y_pred))
+
+    Caught: ``NotImplementedError`` (a TODO not done yet), a missing mymath
+    module or package, and a ``TypeError`` or an ``AttributeError`` about ``None`` (a
+    function of the learner without ``return``: ``'NoneType' object is not iterable``,
+    ``'NoneType' object has no attribute 'transform'``…), shown as one ❌ line.
+    Other bugs still show their traceback.
+    """
+    from wbm.errors import MymathMissingError
+
+    where = f"Ex {ex_id} : " if ex_id else ""
+    try:
+        yield
+    except NotImplementedError as exc:
+        detail = f" ({exc})" if str(exc) else ""
+        print(f"⏳ {where}pas encore fait{detail}.")
+    except MymathMissingError as exc:
+        print(f"⏳ {where}pas encore fait ({exc}).")
+    except ImportError as exc:  # includes ModuleNotFoundError
+        if not (exc.name or "").startswith("mymath"):
+            raise
+        print(f"⏳ {where}pas encore fait (module {exc.name} absent ou incomplet : lance tools/start_chapter.py).")
+    except TypeError as exc:      # a None where a result was expected: almost always a forgotten `return`
+        if not NONE_TYPE_ERROR.search(str(exc)):
+            raise
+        print(f"❌ {where}une valeur vaut None là où un résultat était attendu : une de tes fonctions a-t-elle "
+              f"oublié son `return` ? (TypeError: {exc})")
+    except AttributeError as exc:  # the other form: `fit` without `return self`, then `.transform(...)`
+        if "'NoneType' object has no attribute" not in str(exc):
+            raise
+        print(f"❌ {where}une valeur vaut None là où un résultat était attendu : une de tes fonctions (ou "
+              f"méthodes, comme fit qui doit rendre self) a-t-elle oublié son `return` ? (AttributeError: {exc})")
+
+
+# ---------------------------------------------------------------------------
+# Recording (solutions side)
+# ---------------------------------------------------------------------------
+class RecordedAnswer(dict):
+    """The entry returned by :func:`record`: a plain dict that displays nothing in a notebook.
+
+    ``record`` already prints its message, so a ``wbm.record(...)`` on the last line of a
+    cell must not also display the (hash-only) dictionary.
+    """
+
+    def _ipython_display_(self) -> None:
+        pass
+
+
+def _perturbed(value, entry: dict):
+    """A value that must be rejected: used to prove the check can fail."""
+    kind = entry["kind"]
+    if kind in MATH_KINDS:
+        return math_perturbed(value, entry)
+    decimals = entry.get("decimals") or 0
+    if kind == "bool":
+        return not (_norm_bool(value) == "true")
+    if kind == "int":
+        return int(_norm_int(value)) + 1
+    if kind == "float":
+        x = _as_number(value)
+        return x + 3 * 10 ** -decimals if math.isfinite(x) else 0.0
+    if kind == "str":
+        return str(value) + "zz"
+    if kind == "set":
+        return list(value) + ["__not_an_answer__"]
+    arr = _as_array(value).copy()
+    if arr.size == 0:
+        return [[0.0]]
+    arr.ravel()[0] += 3 * 10 ** -decimals
+    return arr
+
+
+def record(
+    ex_id,
+    value,
+    decimals: int | None = None,
+    *,
+    kind: str | None = None,
+    ordered: bool = True,
+    mistakes: dict | None = None,
+    source: str | None = None,
+    fractional: str | None = None,
+    choices: list | None = None,
+    prediction: bool = False,
+    variables=None,
+    simplified: bool = False,
+    up_to_constant: bool = False,
+) -> dict:
+    """Record the right answer of an exercise (solutions notebooks only).
+
+    Call it in a code cell tagged ``answer``. ``mistakes`` maps a hint message
+    to a classic wrong value, e.g. ``{"tu as oublié le biais": 0.42}``.
+    ``fractional`` (whole-number answers only) is the hint shown for a number that
+    is not a whole number, e.g. ``"arrondis log2 N à l'entier supérieur"``.
+    ``choices`` lists the values a multiple-choice statement offers (numbers only).
+    ``prediction=True`` marks the prediction of a 🔮: its classic wrong value says « Prédiction ratée ».
+    Maths kinds: ``kind="fraction"`` (``simplified=True``), ``kind="expr"`` (``variables=("x",)``,
+    ``up_to_constant=True`` for a primitive), ``kind="interval"`` (see :mod:`wbm.mathcheck`).
+    The function checks that the right value passes and a wrong value fails,
+    then prints the ``WBM_ANSWER`` line harvested by ``tools/build_answers.py``.
+    """
+    ex_id = str(ex_id)
+    entry = make_entry(ex_id, value, decimals, kind=kind, ordered=ordered,
+                       mistakes=mistakes, source=source, fractional=fractional, choices=choices,
+                       prediction=prediction, variables=variables, simplified=simplified,
+                       up_to_constant=up_to_constant)
+    ok, _, message = check_entry(ex_id, entry, value)
+    if not ok:
+        raise AssertionError(f"Ex {ex_id}: the right value does not pass its own check ({message})")
+    bad_ok, _, _ = check_entry(ex_id, entry, _perturbed(value, entry))
+    if bad_ok:
+        raise AssertionError(f"Ex {ex_id}: a wrong value passes the check; use more decimals")
+    if entry.get("alt_hashes"):
+        print(f"ℹ️ Ex {ex_id} : valeur à une limite d'arrondi ; les deux arrondis sont acceptés.")
+    if entry["kind"] == "array" and entry.get("decimals"):
+        arr = _as_array(value)
+        if any(_near_rounding_boundary(float(x), entry["decimals"]) for x in arr.ravel()):
+            print(f"⚠️ Ex {ex_id} : un élément est proche d'une limite d'arrondi ; envisage un autre nombre de décimales.")
+    entry = RecordedAnswer(entry)
+    RECORDED[ex_id] = entry
+    print(ANSWER_PREFIX + json.dumps({"id": ex_id, **entry}, ensure_ascii=False, sort_keys=True))
+    print(f"📝 Ex {ex_id} : réponse enregistrée ({entry['kind']}"
+          + (f", {entry['decimals']} décimale(s)" if "decimals" in entry else "") + ").")
+    return entry

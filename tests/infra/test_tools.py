@@ -1,0 +1,559 @@
+"""Tests of the tools/ scripts on throw-away repositories (tmp_path)."""
+
+import contextlib
+import io
+import json
+import os
+import sys
+from pathlib import Path
+
+import pytest
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "tools"))
+
+import build_answers  # noqa: E402
+import export_flashcards  # noqa: E402
+import run_all_notebooks  # noqa: E402
+import start_chapter  # noqa: E402
+
+
+def quiet(*args, **kwargs):
+    pass
+
+
+# ---------------------------------------------------------------- start_chapter
+@pytest.mark.parametrize("raw, canonical, prefix", [
+    ("R3", "R3", "r3"), ("r0", "R0", "r0"), ("m12C", "M12c", "m12c"), ("M2a", "M02a", "m02a"),
+    ("M05b", "M05b", "m05b"), ("mb3", "MB3", "mb3"), ("cp1", "CP1", "cp1"), ("pos", "POS", "pos"), ("PS", "PS", "ps"),
+])
+def test_canonical_ids(raw, canonical, prefix):
+    assert start_chapter.canonical_id(raw) == canonical
+    assert start_chapter.dir_prefix(canonical) == prefix
+
+
+@pytest.mark.parametrize("raw", ["hello", "M15", "R10", "12", "PF"])
+def test_canonical_id_invalid(raw):
+    with pytest.raises(ValueError):
+        start_chapter.canonical_id(raw)
+
+
+@pytest.mark.parametrize("raw, expected", [
+    ("12", ["M12a", "M12b", "M12c", "M12d"]), ("02", ["M02a", "M02b", "M02c"]), ("ch18", ["M18"]), ("b3", ["MB3"]),
+    ("0B", [f"R{i}" for i in range(10)]), ("M12c", ["M12c"]),
+])
+def test_resolve_a_workbookia_chapter_to_its_math_chapters(raw, expected):
+    assert start_chapter.resolve(raw) == expected
+
+
+@pytest.mark.parametrize("raw, words", [("15", "pas de chapitre de maths"), ("1", "pas de chapitre de maths"),
+                                        ("0A", "R0"), ("B7", "pas de chapitre de maths")])
+def test_resolve_explains_a_workbookia_chapter_without_maths(raw, words, capsys):
+    with pytest.raises(ValueError, match=words):
+        start_chapter.resolve(raw)
+    assert start_chapter.main([raw]) == 2
+    assert words in capsys.readouterr().out
+
+
+@pytest.fixture
+def fake_repo(tmp_path):
+    chapter = tmp_path / "chapitres" / "m12c_valeurs_propres"
+    chapter.mkdir(parents=True)
+    (chapter / "03_notebook.ipynb").write_text('{"cells": []}')
+    (chapter / "06_mes_reponses.md").write_text("# Mes réponses\n")
+    stubs = tmp_path / "templates" / "mymath_stubs"
+    (stubs / "linalg").mkdir(parents=True)
+    (stubs / "__init__.py").write_text("")
+    (stubs / "_example.py").write_text("def mean(v): raise NotImplementedError\n")
+    (stubs / "linalg" / "__init__.py").write_text("")
+    (stubs / "linalg" / "eigen.py").write_text("def power_iteration(): raise NotImplementedError\n")
+    (stubs / "MANIFEST.json").write_text(json.dumps({
+        "base": ["__init__.py", "_example.py"], "chapters": {"M12c": ["linalg/eigen.py"]}}))
+    return tmp_path
+
+
+def test_start_chapter_copies_then_never_overwrites(fake_repo):
+    assert start_chapter.start_chapter("M12c", root=fake_repo, out=quiet) == 0
+    work = fake_repo / "mon_travail"
+    expected = ["m12c_valeurs_propres/03_notebook.ipynb", "m12c_valeurs_propres/06_mes_reponses.md",
+                "mymath/__init__.py", "mymath/_example.py", "mymath/linalg/__init__.py",
+                "mymath/linalg/eigen.py"]
+    for rel in expected:
+        assert (work / rel).exists(), rel
+    # the learner works...
+    (work / "mymath" / "linalg" / "eigen.py").write_text("MY CODE")
+    (work / "m12c_valeurs_propres" / "03_notebook.ipynb").write_text("MY NOTEBOOK")
+    lines = []
+    assert start_chapter.start_chapter("m12c", root=fake_repo, out=lines.append) == 0
+    assert (work / "mymath" / "linalg" / "eigen.py").read_text() == "MY CODE"
+    assert (work / "m12c_valeurs_propres" / "03_notebook.ipynb").read_text() == "MY NOTEBOOK"
+    assert any("conservé" in line for line in lines)
+
+
+def test_start_chapter_with_a_workbookia_number_starts_each_math_chapter(fake_repo):
+    other = fake_repo / "chapitres" / "m12a_espaces_vectoriels"
+    other.mkdir()
+    (other / "03_notebook.ipynb").write_text('{"cells": []}')
+    (other / "06_mes_reponses.md").write_text("# Mes réponses\n")
+    lines = []
+    # M12b and M12d do not exist yet: their absence is reported, the others are started
+    assert start_chapter.start_chapter("12", root=fake_repo, out=lines.append) == 1
+    work = fake_repo / "mon_travail"
+    assert (work / "m12a_espaces_vectoriels" / "03_notebook.ipynb").exists()
+    assert (work / "m12c_valeurs_propres" / "03_notebook.ipynb").exists()
+    assert lines[0].startswith("Avant le chapitre 12 de workbookIA : M12a, M12b, M12c, M12d"), lines[0]
+    assert sum("n'existe pas encore" in line for line in lines) == 2, lines
+
+
+def test_start_chapter_dry_run_and_missing(fake_repo):
+    assert start_chapter.start_chapter("M12c", root=fake_repo, dry_run=True, out=quiet) == 0
+    assert not (fake_repo / "mon_travail").exists()
+    lines = []
+    assert start_chapter.start_chapter("M07", root=fake_repo, out=lines.append) == 1
+    assert any("n'existe pas encore" in line for line in lines)
+
+
+def test_start_chapter_lists_earlier_modules_taken_from_the_reference(fake_repo):
+    stubs = fake_repo / "templates" / "mymath_stubs"
+    (stubs / "matrices.py").write_text("def solve(): ...\n")
+    manifest = json.loads((stubs / "MANIFEST.json").read_text())
+    manifest["chapters"] = {"M09a": ["matrices.py"], **manifest["chapters"]}
+    (stubs / "MANIFEST.json").write_text(json.dumps(manifest))
+    lines = []
+    assert start_chapter.start_chapter("M12c", root=fake_repo, out=lines.append) == 0
+    assert any("M09a : matrices.py" in line for line in lines), lines
+    assert not (fake_repo / "mon_travail" / "mymath" / "matrices.py").exists()  # never copied
+    (fake_repo / "mon_travail" / "mymath" / "matrices.py").write_text("MY MATRICES")
+    lines = []
+    start_chapter.start_chapter("M12c", root=fake_repo, out=lines.append)
+    assert not any("M09a" in line for line in lines)
+
+
+def test_start_chapter_in_progress_copies_everything_but_the_notebook(fake_repo):
+    marker = fake_repo / "chapitres" / "m12c_valeurs_propres" / "EN_COURS.md"
+    marker.write_text("in progress")
+    work = fake_repo / "mon_travail" / "m12c_valeurs_propres"
+    lines = []
+    assert start_chapter.start_chapter("M12c", root=fake_repo, out=lines.append) == 0
+    assert any("en cours de génération" in line for line in lines)
+    assert (work / "06_mes_reponses.md").exists()
+    assert not (work / "03_notebook.ipynb").exists()
+    assert (fake_repo / "mon_travail" / "mymath" / "linalg" / "eigen.py").exists()
+    marker.unlink()  # the chapter is finished: running the same command copies the notebook
+    assert start_chapter.start_chapter("M12c", root=fake_repo, out=quiet) == 0
+    assert (work / "03_notebook.ipynb").exists()
+
+
+def test_start_chapter_force_copies_a_notebook_in_progress(fake_repo):
+    (fake_repo / "chapitres" / "m12c_valeurs_propres" / "EN_COURS.md").write_text("in progress")
+    assert start_chapter.start_chapter("M12c", root=fake_repo, out=quiet, force=True) == 0
+    assert (fake_repo / "mon_travail" / "m12c_valeurs_propres" / "03_notebook.ipynb").exists()
+
+
+@pytest.fixture
+def fake_exams(fake_repo):
+    exam = fake_repo / "checkpoints" / "partie_1"
+    exam.mkdir(parents=True)
+    for name in ("01_examen_sujet.md", "02_examen_notebook.ipynb", "03_examen_corrige.md", "04_mes_reponses.md"):
+        (exam / name).write_text(name)
+    placement = fake_repo / "positionnement"
+    placement.mkdir()
+    for name in ("01_sujet.md", "02_notebook.ipynb", "03_corrige.md", "04_mes_reponses.md"):
+        (placement / name).write_text(name)
+    return fake_repo
+
+
+def test_start_chapter_exam_copies_the_notebook_and_the_answer_sheet(fake_exams):
+    lines = []
+    assert start_chapter.start_chapter("CP1", root=fake_exams, out=lines.append) == 0
+    work = fake_exams / "mon_travail"
+    for rel in ("checkpoints/partie_1/02_examen_notebook.ipynb", "checkpoints/partie_1/04_mes_reponses.md",
+                "mymath/__init__.py", "mymath/_example.py"):
+        assert (work / rel).exists(), rel
+    assert not (work / "checkpoints" / "partie_1" / "03_examen_corrige.md").exists()   # the answers stay in the repo
+    assert any(line.startswith("Examen blanc CP1") for line in lines), lines
+    (work / "checkpoints" / "partie_1" / "04_mes_reponses.md").write_text("MY ANSWERS")
+    assert start_chapter.start_chapter("cp1", root=fake_exams, out=quiet) == 0
+    assert (work / "checkpoints" / "partie_1" / "04_mes_reponses.md").read_text() == "MY ANSWERS"
+
+
+def test_start_chapter_placement_test(fake_exams):
+    lines = []
+    assert start_chapter.start_chapter("POS", root=fake_exams, out=lines.append) == 0
+    work = fake_exams / "mon_travail" / "positionnement"
+    assert (work / "02_notebook.ipynb").exists() and (work / "04_mes_reponses.md").exists()
+    assert not (work / "03_corrige.md").exists()
+    assert any(line.startswith("Test de positionnement") for line in lines), lines
+
+
+def test_start_chapter_exam_not_generated_yet(fake_exams):
+    lines = []
+    assert start_chapter.start_chapter("CP2", root=fake_exams, out=lines.append) == 1
+    assert any("n'existe pas encore" in line for line in lines)
+    assert not (fake_exams / "mon_travail").exists()
+
+
+@pytest.fixture
+def fake_synthesis(fake_repo):
+    project = fake_repo / "projets" / "projet_synthese"
+    for folder in ("depart", "depart/__pycache__", "exemple"):
+        (project / folder).mkdir(parents=True, exist_ok=True)
+    (project / "README.md").write_text("brief")
+    (project / "exemple" / "exemple.ipynb").write_text("an example, never copied")
+    for name in ("synthese.ipynb", "README.md"):
+        (project / "depart" / name).write_text(f"starter {name}")
+    (project / "depart" / "__pycache__" / "x.cpython-313.pyc").write_bytes(b"cache")
+    return fake_repo
+
+
+def test_start_chapter_synthesis_project_copies_the_starter_kit_and_never_overwrites(fake_synthesis):
+    lines = []
+    assert start_chapter.start_chapter("PS", root=fake_synthesis, out=lines.append) == 0
+    work = fake_synthesis / "mon_travail" / "projet_synthese"
+    assert (work / "synthese.ipynb").read_text() == "starter synthese.ipynb"
+    assert not (work / "__pycache__").exists() and not (work / "exemple").exists()
+    assert any(line.startswith("Projet de synthèse") for line in lines), lines
+    (work / "synthese.ipynb").write_text("MY WORK")
+    assert start_chapter.start_chapter("ps", root=fake_synthesis, out=quiet) == 0
+    assert (work / "synthese.ipynb").read_text() == "MY WORK"
+
+
+def test_start_chapter_synthesis_project_not_generated_yet(fake_repo):
+    lines = []
+    assert start_chapter.start_chapter("PS", root=fake_repo, out=lines.append) == 1
+    assert any("n'existe pas encore" in line for line in lines), lines
+
+
+def test_start_chapter_init_only(fake_repo):
+    assert start_chapter.start_chapter(None, root=fake_repo, out=quiet) == 0
+    assert (fake_repo / "mon_travail" / "mymath" / "_example.py").exists()
+    assert not (fake_repo / "mon_travail" / "mymath" / "linalg").exists()
+
+
+def test_real_manifest_is_consistent():
+    from wbm.chapters import CHAPTER_ORDER
+
+    manifest = start_chapter.load_manifest()
+    stubs, ref = ROOT / "templates" / "mymath_stubs", ROOT / "solutions" / "mymath_ref"
+    files = list(manifest["base"]) + [f for fs in manifest["chapters"].values() for f in fs]
+    assert len(files) == len(set(files)), "a stub file is listed twice"
+    assert set(manifest["chapters"]) <= set(CHAPTER_ORDER), "MANIFEST.json names an unknown chapter"
+    for rel in files:
+        assert (stubs / rel).exists(), f"stub {rel} missing"
+    # the reference is written with the chapter: required once the chapter folder exists
+    for cid, rels in manifest["chapters"].items():
+        if start_chapter.find_chapter_dir(cid) is not None:
+            for rel in rels:
+                assert (ref / rel).exists(), f"reference {rel} missing (chapter {cid} is published)"
+    for rel in manifest["base"]:
+        assert (ref / rel).exists(), f"reference {rel} missing"
+
+
+# ---------------------------------------------------------------- build_answers
+def _answer_cell(ex_id, value, decimals=None, tagged=True):
+    import wbm
+
+    buffer = io.StringIO()
+    with contextlib.redirect_stdout(buffer):
+        wbm.record(ex_id, value, decimals)
+    return {
+        "cell_type": "code", "execution_count": 1, "source": ["wbm.record(...)"],
+        "metadata": {"tags": ["answer"] if tagged else []},
+        "outputs": [{"output_type": "stream", "name": "stdout", "text": buffer.getvalue()}],
+    }
+
+
+def _write_nb(path, cells):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({"cells": cells, "metadata": {}, "nbformat": 4, "nbformat_minor": 5}))
+    return path
+
+
+def test_build_answers_end_to_end(tmp_path):
+    import wbm
+
+    nb = _write_nb(tmp_path / "chapitres" / "r1_x" / "05_solutions.ipynb",
+                   [_answer_cell("1.1", 42), _answer_cell("1.2", 0.5, 2),
+                    _answer_cell("1.9", 7, tagged=False)])
+    answers = tmp_path / "answers.json"
+    lines = []
+    assert build_answers.build([nb], answers, root=tmp_path, out=lines.append) == 0
+    data = json.loads(answers.read_text())["answers"]
+    assert set(data) == {"1.1", "1.2"}
+    assert data["1.1"]["source"] == "chapitres/r1_x/05_solutions.ipynb"
+    assert any("non taguée" in line for line in lines)
+    from wbm import checker as check_module
+
+    check_module.RECORDED.clear()  # force the use of the answers file
+    assert wbm.check("1.1", 42, answers_path=answers, quiet=True)
+    assert not wbm.check("1.1", 41, answers_path=answers, quiet=True)
+    assert build_answers.build([nb], answers, root=tmp_path, check_only=True, out=quiet) == 0
+    # removing an answer from the notebook removes it from answers.json
+    _write_nb(nb, [_answer_cell("1.1", 42)])
+    assert build_answers.build([nb], answers, root=tmp_path, check_only=True, out=quiet) == 1
+    build_answers.build([nb], answers, root=tmp_path, out=quiet)
+    assert set(json.loads(answers.read_text())["answers"]) == {"1.1"}
+
+
+def test_build_answers_refuses_a_changed_good_answer_unless_accepted(tmp_path):
+    nb = _write_nb(tmp_path / "chapitres" / "r1_x" / "05_solutions.ipynb", [_answer_cell("1.1", True)])
+    answers = tmp_path / "answers.json"
+    assert build_answers.build([nb], answers, root=tmp_path, out=quiet) == 0
+    before = answers.read_text()
+    _write_nb(nb, [_answer_cell("1.1", False)])           # the good answer itself changes (not a message)
+    lines = []
+    assert build_answers.build([nb], answers, root=tmp_path, out=lines.append) == 2
+    assert answers.read_text() == before, "a changed good answer must not be written silently"
+    assert any("bonne réponse changée" in line and "1.1" in line for line in lines)
+    assert build_answers.build([nb], answers, root=tmp_path, out=quiet, accept_answer_changes=True) == 0
+    assert answers.read_text() != before
+
+
+def test_build_answers_errors(tmp_path):
+    cell = _answer_cell("2.1", 3)
+    cell["outputs"] = []
+    nb = _write_nb(tmp_path / "a.ipynb", [cell])
+    with pytest.raises(build_answers.BuildError, match="exécuté"):
+        build_answers.build([nb], tmp_path / "answers.json", root=tmp_path, out=quiet)
+    nb1 = _write_nb(tmp_path / "b.ipynb", [_answer_cell("2.2", 3)])
+    nb2 = _write_nb(tmp_path / "c.ipynb", [_answer_cell("2.2", 4)])
+    with pytest.raises(build_answers.BuildError, match="deux"):
+        build_answers.build([nb1, nb2], tmp_path / "answers.json", root=tmp_path, out=quiet)
+
+
+def test_natural_sort():
+    ids = ["M12c.10", "M12c.9", "M02a.3", "R3.1", "M12b.1"]
+    assert sorted(ids, key=build_answers.natural_key) == ["M02a.3", "M12b.1", "M12c.9", "M12c.10", "R3.1"]
+
+
+# ---------------------------------------------------------------- export_flashcards
+def test_export_flashcards(tmp_path):
+    for name, rows in {
+        "m02c_estimation": 'front;back;tags\n"Moyenne de 1, 2, 3 ?";2;mwb::m02c::mean\n',
+        "m03_conditionnelles": "P(A) si A certain ?;1;mwb::m03::proba\nbad row without columns\n",
+    }.items():
+        folder = tmp_path / "chapitres" / name
+        folder.mkdir(parents=True)
+        (folder / "flashcards.csv").write_text(rows, encoding="utf-8")
+    out_file = tmp_path / "deck.csv"
+    lines = []
+    code = export_flashcards.export(out_file, root=tmp_path, out=lines.append)
+    assert code == 1 and any("colonne" in line for line in lines)
+    text = out_file.read_text(encoding="utf-8")
+    assert text.startswith("#separator:semicolon\n#html:true\n#tags column:3\n#deck column:4\n")
+    assert "mwb::m02c::mean" in text and "mwb::m03::proba" in text
+    assert export_flashcards.export(out_file, root=tmp_path, check_only=True, out=quiet) == 1
+    one = tmp_path / "m02c.csv"
+    assert export_flashcards.export(one, root=tmp_path, chapter="M02c", out=quiet) == 0
+    text = one.read_text(encoding="utf-8")
+    assert "mwb::m02c::mean" in text and "mwb::m03" not in text
+    assert export_flashcards.export(one, root=tmp_path, chapter="M05a", out=quiet) == 2   # no such chapter
+
+
+def _deck_rows(path):
+    import csv
+
+    lines = [line for line in path.read_text(encoding="utf-8").splitlines() if not line.startswith("#")]
+    return list(csv.reader(lines, delimiter=";"))
+
+
+def test_export_flashcards_files_each_card_in_its_part_and_chapter(tmp_path):
+    """One deck, one sub-deck per part and chapter (4th column, « #deck column »), and a hierarchical tag."""
+    folder = tmp_path / "chapitres" / "m12c_valeurs_propres"
+    folder.mkdir(parents=True)
+    (folder / "flashcards.csv").write_text('front;back;tags\n"Valeur propre ; définition ?";"Av = λv";'
+                                           'mwb::m12c::valeur_propre\n', encoding="utf-8")
+    whole, one = tmp_path / "deck.csv", tmp_path / "one.csv"
+    assert export_flashcards.export(whole, root=tmp_path, out=quiet) == 0
+    assert export_flashcards.export(one, root=tmp_path, chapter="m12c", out=quiet) == 0
+    rows = _deck_rows(whole)
+    from wbm.chapters import CHAPTER_ORDER
+
+    rank = CHAPTER_ORDER.index("M12c")
+    assert rows == [["Valeur propre ; définition ?", "Av = λv", "mwb::m12c::valeur_propre mwb::partie_III::m12c",
+                     f"workbookMaths::Partie III::{rank:02d} M12c Valeurs propres et matrices symétriques"]], rows
+    assert _deck_rows(one) == rows, "a chapter export must land in the same sub-deck as the whole deck"
+
+
+@pytest.mark.parametrize("field, expected", [
+    (r"Quand \( |q| < 1 \) ?", r"Quand \( |q| &lt; 1 \) ?"),                  # a « < » of a formula
+    (r"\( \prod_{i<\ell} s_i \)", r"\( \prod_{i&lt;\ell} s_i \)"),
+    ("<code>a & b</code>, <b>x</b><br>", "<code>a &amp; b</code>, <b>x</b><br>"),   # tags stay, « & » escaped
+    ("&gt; et &#955; et &#x3bb;", "&gt; et &#955; et &#x3bb;"),                  # entities stay
+])
+def test_export_escapes_the_text_of_the_html_fields(field, expected):
+    """The Anki manual asks for ``&lt;`` and ``&amp;`` in an HTML field (``#html:true``); genanki warns otherwise."""
+    assert export_flashcards.escape_text(field) == expected
+
+
+def test_sub_decks_sort_in_study_order(tmp_path):
+    """Anki sorts decks by name: the rank prefix keeps the study order (R0 … R9, M02a … MB8)."""
+    from wbm.chapters import CHAPTER_ORDER
+
+    folders = [tmp_path / f"{cid.lower()}_x" for cid in CHAPTER_ORDER if cid not in ("POS", "PS")
+               and not cid.startswith("CP")]
+    decks = [export_flashcards.deck_of(folder) for folder in folders]          # in study order
+    by_part = {}
+    for deck in decks:
+        by_part.setdefault(deck.split("::")[1], []).append(deck)
+    for part, names in by_part.items():
+        assert names == sorted(names), f"expected sub-decks whose names sort in study order in {part}, got {names}"
+    assert all(d.startswith("workbookMaths::Partie ") and d.count("::") == 2 for d in decks), decks[:3]
+
+
+def test_export_apkg_stops_cleanly_without_genanki(tmp_path, monkeypatch):
+    folder = tmp_path / "chapitres" / "m02c_estimation"
+    folder.mkdir(parents=True)
+    (folder / "flashcards.csv").write_text("Moyenne ?;2;mwb::m02c::mean\n", encoding="utf-8")
+    monkeypatch.setitem(sys.modules, "genanki", None)           # « import genanki » now raises ImportError
+    lines = []
+    out_file = tmp_path / "deck.apkg"
+    assert export_flashcards.export(out_file, root=tmp_path, apkg=True, out=lines.append) == 2
+    assert not out_file.exists() and any("pip install genanki" in line for line in lines), lines
+    assert export_flashcards.export(out_file, root=tmp_path, apkg=True, check_only=True, out=quiet) == 0
+
+
+def test_export_apkg_writes_one_deck_per_chapter(tmp_path):
+    pytest.importorskip("genanki")
+    import sqlite3
+    import zipfile
+
+    for name, rows in {"m02c_estimation": "Moyenne ?;2;mwb::m02c::mean\n",
+                       "mb3_rotations": "Rotation ?;matrice;mwb::mb3::rotation\nRoPE ?;rotation;mwb::mb3::rope\n"}.items():
+        (tmp_path / "chapitres" / name).mkdir(parents=True)
+        (tmp_path / "chapitres" / name / "flashcards.csv").write_text(rows, encoding="utf-8")
+    out_file = tmp_path / "deck.apkg"
+    assert export_flashcards.export(out_file, root=tmp_path, apkg=True, out=quiet) == 0
+    with zipfile.ZipFile(out_file) as archive:
+        archive.extract("collection.anki2", tmp_path)
+    db = sqlite3.connect(tmp_path / "collection.anki2")
+    try:
+        assert db.execute("select count(*) from notes").fetchone()[0] == 3
+        decks = {d["name"] for d in json.loads(db.execute("select decks from col").fetchone()[0]).values()}
+        assert any(d.startswith("workbookMaths::Partie VII::") and d.endswith("MB3 Rotations et attention")
+                   for d in decks), decks
+        tags = {t for (row,) in db.execute("select tags from notes") for t in row.split()}
+        assert "mwb::partie_VII::mb3" in tags
+    finally:
+        db.close()
+
+
+# ---------------------------------------------------------------- run_all_notebooks
+def _code(src):
+    import uuid
+
+    return {"cell_type": "code", "execution_count": None, "id": uuid.uuid4().hex[:8], "metadata": {},
+            "outputs": [], "source": src}
+
+
+def _notebook(tmp_path, name, cells):
+    nb = {"cells": cells, "metadata": {"kernelspec": {"name": "python3", "display_name": "Python 3",
+                                                      "language": "python"}},
+          "nbformat": 4, "nbformat_minor": 5}
+    path = tmp_path / name
+    path.write_text(json.dumps(nb))
+    return path
+
+
+@pytest.mark.parametrize("engine", ["inprocess", "nbclient"])
+def test_run_notebooks_engines(tmp_path, engine, monkeypatch):
+    if engine == "nbclient":
+        pytest.importorskip("nbclient")
+        pytest.importorskip("ipykernel")
+    # a backend exported in the shell (MPLBACKEND=Agg for scripts) must not stop figures being saved
+    monkeypatch.setenv("MPLBACKEND", "Agg")
+    good = _notebook(tmp_path, "good.ipynb", [
+        _code("import os\nx = 21 * 2\nprint('fast', os.environ.get('WBM_FAST_MODE'))"),
+        _code("import matplotlib.pyplot as plt\nplt.plot([1, 2])\nx"),
+    ])
+    bad = _notebook(tmp_path, "bad.ipynb", [_code("y = 1"), _code("1 / 0"), _code("z = 2")])
+    code = run_all_notebooks.main([str(good), str(bad), "--engine", engine, "--inplace",
+                                   "--report", str(tmp_path / "report.md")])
+    assert code == 1
+    assert os.environ["MPLBACKEND"] == "Agg"  # the caller's environment is restored
+    done = json.loads(good.read_text())
+    outputs = [o for c in done["cells"] for o in c["outputs"]]
+    assert any("fast 1" in "".join(o.get("text", "")) for o in outputs)
+    assert any("image/png" in o.get("data", {}) for o in outputs)
+    assert any("".join(o.get("data", {}).get("text/plain", "")) == "42" for o in outputs)
+    report = (tmp_path / "report.md").read_text()
+    assert "bad.ipynb" in report and "ZeroDivisionError" in report
+
+
+def test_run_notebooks_skips_learner_space(tmp_path):
+    folder = tmp_path / "mon_travail"
+    folder.mkdir()
+    _notebook(folder, "mine.ipynb", [_code("1")])
+    assert run_all_notebooks.collect([str(folder)]) == []
+
+
+def test_start_chapter_trackers_copy_then_append(fake_repo):
+    suivi = fake_repo / "suivi"
+    suivi.mkdir()
+    (suivi / "tableau_de_bord.md").write_text(
+        "# Tableau\n\n> **Modèle tenu par Claude : ne coche pas ici.**\n\n"
+        "<!-- wbm:section setup -->\n- [ ] demo\n<!-- wbm:end setup -->\n", encoding="utf-8")
+    (suivi / "journal.md").write_text("# Journal\n", encoding="utf-8")
+    assert start_chapter.start_chapter(None, root=fake_repo, out=quiet) == 0
+    mine = fake_repo / "mon_travail" / "suivi" / "tableau_de_bord.md"
+    text = mine.read_text(encoding="utf-8")
+    assert "Modèle tenu par Claude" not in text and "- [ ] demo" in text
+    mine.write_text(text.replace("- [ ] demo", "- [x] demo"), encoding="utf-8")  # the learner ticks
+    with (suivi / "tableau_de_bord.md").open("a", encoding="utf-8") as handle:  # Claude publishes M12c
+        handle.write("\n<!-- wbm:section M12c -->\n## M12c\n- [ ] Ex M12c.1\n<!-- wbm:end M12c -->\n")
+    lines = []
+    assert start_chapter.start_chapter("M12c", root=fake_repo, out=lines.append) == 0
+    text = mine.read_text(encoding="utf-8")
+    assert "- [x] demo" in text and "- [ ] Ex M12c.1" in text and text.count("wbm:section setup") == 1
+    assert any("complété" in line for line in lines)
+    start_chapter.start_chapter("M12c", root=fake_repo, out=quiet)  # idempotent
+    assert mine.read_text(encoding="utf-8").count("wbm:section M12c") == 1
+
+
+def test_start_chapter_reports_a_dashboard_section_changed_since_the_copy(fake_repo):
+    suivi = fake_repo / "suivi"
+    suivi.mkdir()
+    model = suivi / "tableau_de_bord.md"
+    model.write_text("# Tableau\n\n<!-- wbm:section R3 -->\n## R3\n- [ ] R3.16 🔨 Mesures ★★ 25 min\n"
+                     "<!-- wbm:end R3 -->\n", encoding="utf-8")
+    assert start_chapter.start_chapter(None, root=fake_repo, out=quiet) == 0
+    mine = fake_repo / "mon_travail" / "suivi" / "tableau_de_bord.md"
+    ticked = mine.read_text(encoding="utf-8").replace("- [ ] R3.16 🔨 Mesures ★★ 25 min",
+                                                      "- [x] R3.16 🔨 Mesures ★★ 25 min (fait en 50 min)")
+    mine.write_text(ticked, encoding="utf-8")
+    lines = []
+    start_chapter.start_chapter(None, root=fake_repo, out=lines.append)
+    assert not any("à revoir" in line for line in lines), "a tick and a note of the learner are not a change"
+    model.write_text(model.read_text(encoding="utf-8").replace("★★ 25 min", "★★★ 40 min"), encoding="utf-8")
+    lines = []
+    start_chapter.start_chapter(None, root=fake_repo, out=lines.append)
+    assert any("à revoir" in line and "section(s) R3" in line for line in lines), lines
+    assert mine.read_text(encoding="utf-8") == ticked, "the learner's copy is never modified"
+
+
+def test_copy_no_overwrite_cleans_up_on_failure(tmp_path, monkeypatch):
+    src = tmp_path / "src.txt"
+    src.write_text("data")
+    dst = tmp_path / "out" / "dst.txt"
+    real_open = Path.open
+
+    def failing_open(self, mode="r", *args, **kwargs):
+        handle = real_open(self, mode, *args, **kwargs)
+        if self == dst and "x" in mode:
+            handle.close()
+            raise OSError("disk full")
+        return handle
+
+    monkeypatch.setattr(Path, "open", failing_open)
+    with pytest.raises(OSError):
+        start_chapter.copy_no_overwrite(src, dst, dry_run=False)
+    assert not dst.exists()
+
+
+def test_run_notebooks_collect_glob_matching_folders(tmp_path, monkeypatch):
+    folder = tmp_path / "chapitres" / "m03_conditionnelles"
+    folder.mkdir(parents=True)
+    _notebook(folder, "03_notebook.ipynb", [_code("1")])
+    monkeypatch.chdir(tmp_path)
+    found = run_all_notebooks.collect(["chapitres/m03_*"])
+    assert [p.name for p in found] == ["03_notebook.ipynb"]

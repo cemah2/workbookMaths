@@ -1,0 +1,68 @@
+# ---------------------------------------------------------------
+# Book PDFs: NEVER versioned (MML forbids redistribution, BIBLE §3)
+# ---------------------------------------------------------------
+*.pdf
+*.PDF
+*.epub
+*.djvu
+
+# ---------------------------------------------------------------
+# Downloaded or heavy data (only light datasets are versioned)
+# ---------------------------------------------------------------
+data/raw/
+data/downloads/
+data/cache/
+*.tar.gz
+*.zip
+*.gz
+*.h5
+*.hdf5
+*.parquet
+*.pkl
+*.pickle
+*.joblib
+*.pt
+
+# ---------------------------------------------------------------
+# Python caches and build artefacts
+# ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# ---------------------------------------------------------------
+# Environments and editors
+# ---------------------------------------------------------------
+.venv/
+venv/
+env/
+.env
+.python-version
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ---------------------------------------------------------------
+# Generated exports (Anki decks)
+# ---------------------------------------------------------------
+exports/
+
+# ---------------------------------------------------------------
+# Outputs of a notebook run inside a starter kit
+# (the learner's copy, with its own outputs, lives in mon_travail/)
+# ---------------------------------------------------------------
+projets/*/depart/figures/

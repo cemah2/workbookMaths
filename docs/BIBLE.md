@@ -8,7 +8,7 @@ Ce dépôt accompagne [workbookIA](https://github.com/cemah2/workbookIA) : **les
 
 - **Statut** : v1 validée le 2026-11-06. La v0 rangeait les chapitres par grands thèmes mathématiques ; la v1 les cale sur le chemin de workbookIA, à la demande de l'apprenant.
 - **Validé** : nom du dépôt (`workbookMaths`), temps disponible sans limite, ordre calqué sur workbookIA, plan du §8, lecture de MML intégrée au travail (§3).
-- **Fixé en session 1** : versions (§22), outillage copié depuis workbookIA (§23), ressources secondaires vérifiées (§3).
+- **Fait en session 1** (2026-11-06) : versions (§22), outillage copié depuis workbookIA et adapté (§23), ressources secondaires vérifiées (§3), extensions maths de `wbm.check` (§14).
 - **Fixé en session 2** : le syllabus détaillé (exercices, ID, signatures `mymath`, temps), comme pour workbookIA.
 
 ## 1. Profil de l'apprenant
@@ -45,12 +45,12 @@ Sommaire de MML (vérifié le 2026-11-05) : partie I, ch. 2 *Linear Algebra* (§
 
 **La lecture de MML fait partie du travail** (validé le 2026-11-06), comme celle de Glassner dans workbookIA : un bloc du livre, puis la partie de la fiche correspondante, puis les exercices de ce bloc. Chaque fiche reste un cours complet en français, sur lequel s'appuyer quand un passage du livre résiste.
 
-**Ce que MML ne couvre pas** : la remise à niveau, l'analyse d'une variable (limites, intégrales), les théorèmes limites, les tests, les inégalités de concentration, les chaînes de Markov, la théorie de l'information, la convolution. Pour ces chapitres, la fiche est le cours, et elle renvoie à des ressources libres, **vérifiées en session 1** avant d'être citées :
-- probabilités : J. K. Blitzstein et J. Hwang, *Introduction to Probability* (2ᵉ éd.), dont une version en ligne gratuite est annoncée par le cours Stat 110 de Harvard (vérifié le 2026-11-05) ;
-- information : D. J. C. MacKay, *Information Theory, Inference, and Learning Algorithms* (PDF gratuit, à vérifier) ;
-- statistique : *OpenIntro Statistics* (licence libre, à vérifier) ;
-- démonstrations : R. Hammack, *Book of Proof* (gratuit, à vérifier) ;
-- remise à niveau et lycée, en français : manuels Sésamath, vidéos d'Yvan Monka (Maths et tiques), Khan Academy en français ; niveau licence : cours Exo7 (tous à vérifier).
+**Ce que MML ne couvre pas** : la remise à niveau, l'analyse d'une variable (limites, intégrales), les théorèmes limites, les tests, les inégalités de concentration, les chaînes de Markov, la théorie de l'information, la convolution. Pour ces chapitres, la fiche est le cours, et elle renvoie à des ressources libres, vérifiées en session 1 ; le détail (liens, licences, date de vérification) est dans `annexes/ressources.md` :
+- probabilités : J. K. Blitzstein et J. Hwang, *Introduction to Probability* (2ᵉ éd.), version en ligne gratuite annoncée par le cours Stat 110 de Harvard (vérifié le 2026-11-05) ;
+- statistique : *OpenIntro Statistics*, licence CC BY-SA 3.0 (vérifié le 2026-11-06) ;
+- démonstrations : R. Hammack, *Book of Proof*, PDF gratuit sous licence CC BY-NC-ND 4.0 (vérifié le 2026-11-06) ;
+- information : D. J. C. MacKay, *Information Theory, Inference, and Learning Algorithms* : page officielle trouvée, conditions de téléchargement à confirmer avant M06 ;
+- remise à niveau et lycée, en français : Maths et tiques (Yvan Monka, gratuit, vérifié le 2026-11-06), Khan Academy en français (existence vérifiée), manuels Sésamath (licence à confirmer avant R1) ; niveau licence : Exo7 (Université de Lille, vérifié le 2026-11-06).
 
 ## 4. Stack technique
 
@@ -311,9 +311,9 @@ Difficulté (★ à ★★★★), en-tête des exercices, ID stables, rappels e
 - **Indices** (3 niveaux) et **solutions** (réponse, démarche, erreurs fréquentes, variante avec sa réponse) : mêmes règles que workbookIA. Une solution de ∂ donne en plus une **grille de relecture** (ce qu'une démonstration correcte doit contenir), pour que l'apprenant juge la sienne.
 - Flashcards : format Anki de workbookIA, tags `mwb::<id>::concept`, deck distinct de celui de workbookIA.
 
-**`wbm.check`** : le mécanisme de workbookIA (empreinte SHA-256 salée par l'ID, messages pédagogiques sans révéler la réponse, `answers.json` construit depuis les solutions exécutées), avec trois extensions pour les maths :
+**`wbm.check`** : le mécanisme de workbookIA (empreinte SHA-256 salée par l'ID, messages pédagogiques sans révéler la réponse, `answers.json` construit depuis les solutions exécutées), avec trois types de réponse en plus pour les maths (`src/wbm/mathcheck.py` ; côté solutions, `wbm.record(id, valeur, kind="fraction" | "expr" | "interval")`, et l'apprenant appelle toujours `wbm.check(id, sa_réponse)`) :
 1. **fractions exactes** : `"3/4"`, `Fraction(3, 4)` et `0.75` sont acceptés quand l'énoncé le dit ; une fraction non simplifiée reçoit un message dédié ;
-2. **expressions** : `wbm.check_expr("R7.5", "2*x*exp(x**2)")` lit l'expression avec SymPy et compare ses valeurs en des points fixés aux empreintes des valeurs attendues ; deux expressions équivalentes passent, la bonne expression n'est jamais stockée en clair ;
+2. **expressions** : `wbm.check("R7.5", "2*x*exp(x**2)")` lit l'expression avec SymPy (« 2x e^(x^2) », « exp(x²)·x·2 » passent aussi) et compare ses valeurs, calculées avec 30 chiffres en des points rationnels fixés, aux empreintes des valeurs attendues ; deux expressions équivalentes passent, la bonne expression n'est jamais stockée en clair ; une primitive se vérifie « à une constante près » ;
 3. **ensembles et intervalles** : une liste de solutions dans le désordre, un intervalle écrit `[2, 5[` ou `(2, 5]` selon la convention annoncée.
 
 Les démonstrations ∂ ne se vérifient pas automatiquement : grille de relecture dans les solutions, puis correction par Claude sur demande (en lecture seule de `mon_travail/`).
@@ -372,7 +372,24 @@ Documentation officielle (NumPy, SciPy, SymPy), livres libres du §3, cours reco
 
 ## 22. Versions figées
 
-*À remplir en session 1* : même politique que workbookIA (versions préinstallées sur Colab, revérifiées à chaque examen blanc). Paquets : Python, numpy, scipy, sympy, matplotlib, pandas, scikit-learn, pytest, nbformat, nbclient, jupyterlab (local), genanki (facultatif). Les versions communes avec workbookIA restent identiques aux siennes, pour que les deux dépôts partagent un environnement.
+*Vérifiées le 2026-11-06 (session 1). Source : dépôt officiel [googlecolab/backend-info](https://github.com/googlecolab/backend-info), dernier runtime publié (commit du 2026-11-04, `pip-freeze.txt`).*
+
+**Politique** : les versions préinstallées sur Colab ; pour les paquets communs avec workbookIA, **exactement les mêmes versions que workbookIA**, pour que les deux dépôts partagent un seul environnement local. Le runtime de Colab du 2026-11-04 est passé à NumPy 2.4.6, alors que workbookIA fige 2.1.3 : `requirements.txt` garde 2.1.3 (environnement commun), et le dépôt est testé avec les deux. On revérifie à chaque examen blanc.
+
+| Paquet | Version figée | Colab (2026-11-04) | Vérifié le |
+|---|---|---|---|
+| Python | **3.13** | 3.13.18 | 2026-11-06 |
+| numpy | **2.1.3** (comme workbookIA ; 2.4.6 acceptée) | 2.4.6 | 2026-11-06 |
+| scipy | **1.16.3** | 1.16.3 | 2026-11-06 |
+| sympy | **1.14.0** | 1.14.0 | 2026-11-06 |
+| matplotlib | **3.10.0** | 3.10.0 | 2026-11-06 |
+| pandas | **2.2.3** | 2.2.3 | 2026-11-06 |
+| scikit-learn | **1.6.1** | 1.6.1 | 2026-11-06 |
+| pytest / nbformat / nbclient | **8.4.2 / 5.11.1 / 0.10.4** | identiques | 2026-11-06 |
+| jupyterlab (local uniquement) | **4.5.4** (comme workbookIA) | — | 2026-11-06 |
+| genanki (facultatif, export `.apkg`) | 0.13.1 (comme workbookIA) | absent | 2026-11-06 |
+
+Pas de PyTorch : `wbm.setup()` ne l'importe jamais (il le graine seulement s'il est déjà chargé).
 
 ## 23. Relation avec workbookIA et déroulé de la génération
 
@@ -393,3 +410,11 @@ Documentation officielle (NumPy, SciPy, SymPy), livres libres du §3, cours reco
 | 2026-11-06 | MML suivi dans l'ordre de workbookIA, donc dans le désordre ; il est couvert en entier. | Conséquence de l'ordre commun. |
 | 2026-11-06 | Pas de mini-projet par partie ; examen blanc et synthèse seulement, juste avant le checkpoint de workbookIA. Projet de synthèse en fin de parcours. | Les mini-projets de workbookIA appliquent déjà ces maths ; garder un rythme commun tenable. |
 | 2026-11-06 | Lecture de MML intégrée au travail (un bloc du livre, puis la fiche, puis les exercices), comme Glassner dans workbookIA ; spécification v1 validée. | Choix de l'apprenant. |
+| 2026-11-06 | **Source unique des chapitres** : `src/wbm/chapters.py` (ordre d'étude, titres, parties, chapitre de workbookIA préparé, ordre commun, titres des chapitres de workbookIA recopiés en lecture seule). Un test vérifie qu'il suit les tableaux du §8. | Un seul endroit à changer ; le README, le tableau de bord, les flashcards et `start_chapter.py` en dérivent. |
+| 2026-11-06 | `start_chapter.py` accepte un numéro de workbookIA (`12` → M12a à M12d) ; un chapitre de workbookIA sans maths reçoit un message qui le dit ; `CPn` copie seulement l'examen (pas de mini-projet) ; `POS` et `PS` ont leurs dossiers (`positionnement/`, `projets/projet_synthese/`). | Ordre de travail commun (§9). |
+| 2026-11-06 | `wbm.check` : trois types maths (`src/wbm/mathcheck.py`) choisis côté solutions par `wbm.record(..., kind=...)` avec `"fraction"`, `"expr"` ou `"interval"` ; l'apprenant appelle toujours `wbm.check`. Expressions : valeurs en 5 à 6 points rationnels fixés, calculées avec 30 chiffres et comparées sur 10 ; diagnostics du signe, d'un facteur 2, d'une constante ±1, d'une variable en trop ; `up_to_constant` pour une primitive. Fractions : forme irréductible exigée si `simplified=True`, valeur approchée reconnue. Intervalles : notations française et anglaise, réunions, ∅, crochet fermé à l'infini refusé. | Le §14 annonçait `check_expr` ; une seule fonction côté apprenant est plus simple. |
+| 2026-11-06 | NumPy figé à 2.1.3 comme workbookIA, alors que Colab du 2026-11-04 est passé à 2.4.6 : les deux sont acceptées sans avertissement par `wbm.setup()` (`EXPECTED_VERSIONS` admet une liste de versions). | Un seul environnement local pour les deux dépôts (§22). |
+| 2026-11-06 | `wbm.setup()` n'importe jamais PyTorch (il le graine seulement s'il est déjà chargé) ; le rapport d'environnement ne parle ni de device ni de GPU. | Inutile pour les maths, et l'import coûte plusieurs secondes dans un environnement partagé avec workbookIA. |
+| 2026-11-06 | Flashcards : deck « workbookMaths », sous-paquets « Partie III::27 M12c Titre » (le rang d'étude en tête, pour qu'Anki les range dans l'ordre), tags `mwb::<id>::concept` et `mwb::partie_<P>::<id>`. Remédiation : ID `REM-<chapitre>.<n>`. | Ne jamais se confondre avec le deck et les ID de workbookIA, ni avec les chapitres R0 à R9. |
+| 2026-11-06 | Données ajoutées avec le premier chapitre qui s'en sert (pas en session 1) ; `tools/syllabus.py`, `tools/repo_stats.py`, l'index des notions et les outils d'examen sont adaptés de workbookIA quand ils servent (session 2 pour le syllabus). | La session 1 n'installe que ce que la démo et les premiers chapitres utilisent. |
+| 2026-11-06 | **Décisions d'outillage héritées de workbookIA** (sa BIBLE §22, recopiées ici) : empreintes SHA-256 salées par l'ID, tolérance d'un dixième de la dernière décimale et double arrondi à une limite, messages d'erreurs classiques sans révéler la réponse, `record` qui prouve qu'une bonne valeur passe et qu'une mauvaise échoue et refuse un dictionnaire `mistakes` inversé, sous-ID de vérification (`M12c.4a`), virgule décimale et signe moins typographique acceptés ; cellules TODO qui ne font que définir, appels du code de l'apprenant dans `wbm.attempt`, « Run all » qui va au bout ; 🔮 « gardés » ; outils `wbm.nbtools` ; `EN_COURS.md` pour un chapitre en plusieurs sessions ; `MANIFEST.json` additif ; repli sur la référence pour les modules des chapitres sautés ; modes `--impl=learner|ref|stubs` ; fichiers de suivi personnels dans `mon_travail/suivi/` ; mise à jour Colab par `git pull --rebase --autostash` ; moteur `nbclient` de `run_all_notebooks.py`. | Ce dépôt se suffit à lui-même (§23). |

@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "workbook-maths"
+version = "0.1.0"
+description = "workbookMaths : les maths du machine learning, au rythme de workbookIA (utilitaires `wbm`)."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "workbookMaths" }]
+# Loose lower bounds here; the exact, tested versions live in requirements.txt
+# (aligned on Google Colab and on workbookIA, see docs/BIBLE.md §22).
+dependencies = [
+    "numpy>=2.0",
+    "scipy>=1.15",
+    "sympy>=1.13",
+    "matplotlib>=3.8",
+    "pandas>=2.2",
+    "scikit-learn>=1.5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "nbformat>=5.10", "nbclient>=0.10", "ipykernel>=6.0"]
+anki = ["genanki>=0.13"]   # optional: tools/export_flashcards.py --apkg (annexes/anki.md)
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["wbm*"]
+
+[tool.setuptools.package-data]
+wbm = ["answers.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-rfE"   # one line per failure or error; the skips are summed up by tests/conftest.py
+markers = [
+    "slow: long test (skipped with -m 'not slow')",
+    "network: needs internet access",
+    "mymath: test of the mymath library (depends on --impl)",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning:jupyter_client.*",
+    "ignore:.*deprecated - use.*:DeprecationWarning",
+]

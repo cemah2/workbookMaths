@@ -1,0 +1,242 @@
+"""Shared building blocks of the chapter builders (tools/chapters/build_chXX.py, used by Claude).
+
+An exercise is described ONCE (statement, TODO skeleton, check, solution, recorded
+answers) and produces the cells of both notebooks: the exercise notebook
+(03_notebook.ipynb) and the executed solutions notebook (05_solutions.ipynb).
+
+Paper exercises (✏️ of 02_exercices.md) are checked in a "Part 0" of the notebook:
+the learner types the values found on paper (``answer_0B_1a = ...``) and
+``wbm.check`` compares them with the answers recorded from Python expressions.
+"""
+
+from __future__ import annotations
+
+import json
+import sys
+from dataclasses import dataclass, field
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT / "tools") not in sys.path:
+    sys.path.insert(0, str(ROOT / "tools"))
+
+from nbbuild import badge, code, md, setup_cell, write_notebook  # noqa: E402,F401
+
+STARS = {1: "★", 2: "★★", 3: "★★★", 4: "★★★★"}
+ROCKET = "🚀"                      # an exercise whose contract has "gpu": true (BIBLE §11, §12: GPU Colab advised)
+
+THREAD_SHOWN = {"synth": "synthétique"}   # the contracts keep the key "synth"; the headers show the word
+
+_CONTRACT: dict | None = None
+
+
+def contract_entry(ex_id: str) -> dict:
+    """The entry of an exercise in its contract (docs/syllabus/data/*.json); ``{}`` for an ID it does not list."""
+    global _CONTRACT
+    if _CONTRACT is None:
+        _CONTRACT = {}
+        for path in sorted((ROOT / "docs" / "syllabus" / "data").glob("*.json")):
+            data = json.loads(path.read_text(encoding="utf-8"))
+            _CONTRACT.update((e["id"], e) for e in data.get("exercises", []))
+    return _CONTRACT.get(ex_id, {})
+
+
+def gpu_ids() -> set:
+    """The IDs of the exercises whose contract has ``"gpu": true``."""
+    contract_entry("")
+    return {ex_id for ex_id, e in _CONTRACT.items() if e.get("gpu")}
+
+
+@dataclass
+class Ex:
+    """One notebook exercise."""
+
+    id: str
+    type: str
+    stars: int
+    minutes: int
+    title: str
+    goal: str
+    prereq: str
+    body: str                      # the statement (Markdown, French)
+    todo: str = ""                 # exercise notebook: code to complete (definitions only)
+    check: str = ""                # exercise notebook: calls and wbm.check
+    solution: str = ""             # solutions notebook: the worked solution
+    record: str = ""               # solutions notebook: wbm.record (cell tagged "answer")
+    given: str = ""                # code shared by both notebooks (data preparation)
+    thread: str = "—"
+    tracks: str = ""
+    hypothesis: bool = False       # 🔮: a "my hypothesis" cell before running
+    after: list = field(default_factory=list)   # extra (kind, text) cells after the check (see exercise_cells)
+    note: str = ""                 # solutions notebook: short remark after the answer
+    mymath: str = ""              # 🔨: the mymath file the exercise completes (header of BIBLE §11)
+
+    @property
+    def gpu(self) -> bool:
+        """True when the contract marks the exercise 🚀 (a GPU Colab is advised in full mode)."""
+        return bool(contract_entry(self.id).get("gpu"))
+
+    @property
+    def thread_shown(self) -> str:
+        """The « Fil rouge » of the header (BIBLE §11): the one given to ``Ex``, else the contract's; « — » for none."""
+        thread = self.thread if self.thread != "—" else contract_entry(self.id).get("thread") or "—"
+        return "/".join(THREAD_SHOWN.get(part, part) for part in thread.split("/"))
+
+    def header(self) -> str:
+        thread = self.thread_shown
+        fil = f" · **Fil rouge :** {thread}" if thread != "—" else ""
+        lib = f" · **mymath :** `{self.mymath}`" if self.mymath else ""
+        rocket = f" {ROCKET}" if self.gpu else ""
+        return (f"### Ex {self.id} — {self.title} {self.type} {STARS[self.stars]} ⏱️ {self.minutes} min{rocket}\n"
+                f"**Objectif :** {self.goal}  \n**Prérequis :** {self.prereq}{fil}{lib}"
+                + (f" · **Parcours :** {self.tracks}" if self.tracks else ""))
+
+    def table_row(self, part_key: str = "") -> str:
+        """The row of the exercise in the table of cell 0: ``| A | 21.26 | Titre 🚀 | 🔬 | ★★★ | 40 |``."""
+        title = self.title.replace("|", "\\|") + (f" {ROCKET}" if self.gpu else "")
+        return f"| {part_key} | {self.id} | {title} | {self.type} | {STARS[self.stars]} | {self.minutes} |"
+
+
+@dataclass
+class Part:
+    key: str
+    title: str
+    intro: str
+    given: str = ""
+    exercises: list = field(default_factory=list)
+
+
+@dataclass
+class Paper:
+    """A paper exercise checked in Part 0: sub-questions (letter, hint, expression, record options)."""
+
+    id: str
+    title: str
+    subs: list  # [(letter, hint for the TODO comment, Python expression of the answer, wbm.record options)]
+
+    @property
+    def letters(self) -> str:
+        return "".join(letter for letter, *_ in self.subs)
+
+
+def paper_cells(kind: str, papers: list[Paper], context: str, intro: str) -> list:
+    """Part 0: the learner reports the values found on paper; wbm.check compares them."""
+    cells = [md(intro)]
+    if kind == "solution":
+        cells.append(code(context))
+    for paper in papers:
+        # quiz and recall questions (7.Q1, 7.R2) keep their bare ID; exercises read "Ex 7.3"
+        label = paper.id if paper.id.split(".")[-1][:1] in ("Q", "R") else f"Ex {paper.id}"
+        cells.append(md(f"**{label} — {paper.title}**"))
+        stem = f"answer_{paper.id.replace('.', '_')}"
+        if kind == "exercise":
+            lines = [f"# {label}: the values you found on paper"]
+            lines += [f"{stem}{letter} = ...  # {letter}) {hint}" for letter, hint, _, _ in paper.subs]
+            names = ", ".join(f"{stem}{letter}" for letter, *_ in paper.subs)
+            lines += ["", f"for letter, answer in zip(\"{paper.letters}\", [{names}]):",
+                      f"    wbm.check(f\"{paper.id}{{letter}}\", answer)"]
+            cells.append(code("\n".join(lines)))
+        else:
+            lines = []
+            for letter, _, expr, options in paper.subs:
+                args = f", {options}" if options else ""
+                lines.append(f'wbm.record("{paper.id}{letter}", {expr}{args})')
+            cells.append(code("\n".join(lines), tags=["answer"]))
+    return cells
+
+
+def exercise_cells(ex: Ex, kind: str) -> list:
+    cells = [md(ex.header() + "\n\n" + ex.body)]
+    if ex.given:
+        cells.append(code(ex.given))
+    if kind == "exercise":
+        if ex.hypothesis:
+            cells.append(md("📝 **Mon hypothèse** (à écrire **avant** d'exécuter quoi que ce soit) : …"))
+        if ex.todo:
+            cells.append(code(ex.todo))
+        if ex.check:
+            cells.append(code(ex.check))
+    else:
+        if ex.solution:
+            cells.append(code(ex.solution))
+        if ex.record:
+            cells.append(code(ex.record, tags=["answer"]))
+    for cell_kind, text in ex.after:   # "md" and "code": both notebooks; "todo"/"check"/"todo_md": exercise;
+        if cell_kind == "md":          # "solution"/"record"/"solution_md": solutions
+            cells.append(md(text))
+        elif cell_kind == "code":
+            cells.append(code(text))
+        elif cell_kind in ("todo", "check") and kind == "exercise":
+            cells.append(code(text))
+        elif cell_kind == "todo_md" and kind == "exercise":   # a Markdown cell the learner fills in (written answers)
+            cells.append(md(text))
+        elif cell_kind == "solution" and kind == "solution":
+            cells.append(code(text))
+        elif cell_kind == "solution_md" and kind == "solution":
+            cells.append(md(text))
+        elif cell_kind == "record" and kind == "solution":
+            cells.append(code(text, tags=["answer"]))
+    if kind == "solution" and ex.note:
+        cells.append(md(f"💡 {ex.note}"))
+    return cells
+
+
+def part_cells(part: Part, kind: str) -> list:
+    cells = [md(f"## Partie {part.key} · {part.title}\n\n{part.intro}")]
+    if part.given:
+        cells.append(code(part.given))
+    for ex in part.exercises:
+        cells += exercise_cells(ex, kind)
+    return cells
+
+
+def guarded(code_text: str, names: list[str], message: str) -> str:
+    """Wrap an experiment cell of a 🔮 so that it runs only once the learner's predictions are filled in.
+
+    `names` are the prediction variables (left to `...` in the exercise notebook): while one of them is
+    still `...` (or `None`, which `wbm.check` also treats as "not done"), the cell prints `message` instead of
+    running, so "Run all" on an empty notebook shows no result before the learner has predicted it. The
+    identity tests also work for arrays.
+    """
+    body = "\n".join(("    " + line) if line.strip() else "" for line in code_text.splitlines())
+    return (f"if any(answer is ... or answer is None for answer in [{', '.join(names)}]):\n"
+            f"    print({message!r})\nelse:\n{body}")
+
+
+def bug_letters_mistakes(answer: str, others: str, missing_hints: dict, special: dict | None = None) -> str:
+    """The ``mistakes`` dict (as source code) of a 🐛 answered by the letters of its faulty lines: one message for each
+    set that misses one faulty line, has one line too many, or swaps one faulty line for a correct one. Each message is
+    unique (a duplicate key of a dict literal would silently drop an entry); ``special`` maps (missing, extra) to a
+    message of its own. Raises ValueError on a duplicate message."""
+    answer_set, entries = set(answer), {}
+
+    def add(message: str, letters: str) -> None:
+        if message in entries:
+            raise ValueError(f"duplicate mistakes message: {message!r}")
+        entries[message] = letters
+
+    for removed in sorted(answer_set):
+        add(f"il manque une ligne fautive : {missing_hints[removed]}", "".join(sorted(answer_set - {removed})))
+    for extra in others:
+        add(f"une ligne de trop : la ligne ({extra}) est correcte ; relis ce qu'elle fait",
+            "".join(sorted(answer_set | {extra})))
+    for removed in sorted(answer_set):
+        for extra in others:
+            message = (special or {}).get((removed, extra)) or (
+                f"la ligne ({extra}) est correcte, et il manque une ligne fautive : {missing_hints[removed]}")
+            add(message, "".join(sorted((answer_set - {removed}) | {extra})))
+    return "{" + ",\n                     ".join(f"{json.dumps(m, ensure_ascii=False)}: {json.dumps(v)}"
+                                                for m, v in entries.items()) + "}"
+
+
+def check_unique_keys(source: str, where: str) -> None:
+    """Raise ValueError if a dict literal of the Python source repeats a constant key (``mistakes={...}`` built by
+    hand: the last duplicate silently replaces the others)."""
+    import ast
+    for node in ast.walk(ast.parse(source)):
+        if isinstance(node, ast.Dict):
+            keys = [k.value for k in node.keys if isinstance(k, ast.Constant)]
+            repeated = sorted({key for key in keys if keys.count(key) > 1}, key=str)
+            if repeated:
+                raise ValueError(f"{where}: duplicate keys in a dict literal: {repeated[:3]}")
+
