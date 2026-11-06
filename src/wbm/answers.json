@@ -14098,6 +14098,1663 @@
         "7bc901e777d53840e8e0febd67328048ccce828acf56d22493a1264bcc14211e": "ton test ne voit pas l'erreur de dg_bug (ou il échoue pour une autre raison qu'un assert) : compare en plusieurs points, avec une tolérance serrée (math.isclose)"
       },
       "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R8.1a": {
+      "hash": "e171d2801c545244d5cfafd07228066d84e6084c2180ef1137b6699a8a3b70a0",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "1e773fda774ddcc320fe99060ed3e52ce15c4f0c9f428883ee202f3047873663": "chaque pièce a 2 issues, et l'ordre des lancers compte : principe multiplicatif",
+        "6b8dbc378e91189f4582dffb0619474cb307eec4896be29d57234cdacc36047f": "une issue est la suite des quatre résultats, pas le nombre de piles"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.1b": {
+      "hash": "ead973260697843e35281af24823a64b461ac4f18b3197115d81114f6ef9b67f",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "015c984803d7cfe688b6e2066582cdae9f337ae43b5727f51f30d4d4b86827a4": "une issue est une suite ordonnée : PPFF, PFPF et FFPP sont trois issues différentes",
+        "13496a8a55222b70cee8aaded1c690a40994717156b32864391c7b368f19d75c": "une issue est une suite ordonnée : PPFF, PFPF et FFPP sont trois issues différentes",
+        "51c3b98cc09437676733cc113a24d517048b736b9b96d99ad7e221e49aed40ed": "une issue est une suite ordonnée : PPFF, PFPF et FFPP sont trois issues différentes"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.1c": {
+      "hash": "4be9eafe0cee287164abef8adb662dca26a96046618a41b184460bb556bc0a00",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "19e465fcd9c8ba6e6036b4eba3f49799d3538242d59604e56c820668134429fa": "passe par le contraire, « aucun pile », et retire-le de toutes les issues",
+        "a793e5063a3c7ae64ad00846976056497f991aa3c7f930b41fbb317212fe5d37": "passe par le contraire, « aucun pile », et retire-le de toutes les issues"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.1d": {
+      "hash": "3a6269294836fa1e2e48679f1d6396cd8cd54e198eb4f4c3559dd4acfc483a8c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a6ebeb56587b4b43e6dda766004579687e367a27bd1c57680f2c698f96533120": "« au plus un pile » : zéro pile ou un pile, les deux cas comptent",
+        "e9f05716b7e28f54ed3eb2fbef02d3b800b41b3c88a7c09f9feacb6e72ec65da": "« au plus un pile » : zéro pile ou un pile, les deux cas comptent",
+        "eddf42b858e57d782c3d260d153c0eef5528043bc89f9834aaca77480bff90ba": "« au plus un » n'est pas « au moins un »"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.1e": {
+      "hash": "5d5bde69b2669667ca75083a097096bb350aa33bae085dfa3375583a18695a2b",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "274238a601ddeb89bee384fc4b22e12899953bfaeb36017688eb133db66f8838": "A ∩ B : les cartes qui sont à la fois des as et noires",
+        "9374b0f2f3e0b377c88372e88c0b5ba9f28f1afbb1d0aaee87be8da181b33660": "A ∩ B : les cartes qui sont à la fois des as et noires",
+        "e06c806d2b847b789c655514742d49d9fe2ddd311e1950c0a992ca0b12c271b4": "A ∩ B : les cartes qui sont à la fois des as et noires"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.1f": {
+      "hash": "cc7f0a37d12f3d07f635068d2f48b7f32f71a8551d4120a14f2f399bd1d9d241",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "2220a8b79fed1c59350a166df5896b1d19faa18fc1b828a176aac2d57c7d4cb2": "c'est A ∩ B ; A ∪ B contient les as, les cartes noires, et celles qui sont les deux",
+        "89ba7feed93fc4933fb0157d2f776abe1741ebe073b3b84a671980987b52a230": "des cartes sont comptées deux fois : retire celles qui sont dans A et dans B"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.1g": {
+      "hash": "9e8481427af52efffc0c324faa129870cd97031022f7e79c4dfe586d2b4738c0",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "7632edcace84468c808eebfe92493cc4550ae85e50386fda1876123cbf16524b": "les as rouges sont des as : ils sont exclus aussi",
+        "91e74f714ccb016eb365f4a1c0b41aad8d5b1fc771b3887f595c189d3adedd8c": "c'est A ∪ B ; « ni l'un ni l'autre » en est le contraire"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.1h": {
+      "hash": "4f8091634343406a2d41879c96d3077e8c791c6f7028809d2a0ce8857b7d3f29",
+      "kind": "bool",
+      "mistakes": {
+        "097c85134d18b3388da7f689a292480f201d6cd6bf3ad94337c2db10f9e49b75": "incompatibles veut dire sans issue commune : cherche une carte qui soit un as et rouge"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.2a": {
+      "hash": "6861699cf93fdeb73e7ea746444d25f7c4e56bfe2172d156559eceb8cae31458",
+      "kind": "fraction",
+      "mistakes": {
+        "d0330fcd39b7c6d814fd4343983631ba75834a569005030b7201a514bc53a427": "compte chaque lettre autant de fois qu'elle apparaît dans le mot"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.2b": {
+      "hash": "ea682d142e2af79db24fbf64b0d83ee717cd6962a3c35abaafe48031da74bddd",
+      "kind": "fraction",
+      "mistakes": {
+        "a0d26ed2f89fd2d92cb6a2e4941e777e68c7dbd65b15c768097fb54131f8f6df": "compte chaque voyelle autant de fois qu'elle apparaît (une voyelle revient)"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.2c": {
+      "hash": "02fbc4eadd255e87397b74f1793707bc2ea6fc38aae305ef7cafac3834284bcf",
+      "kind": "fraction",
+      "mistakes": {
+        "559acb31a786770ebd63fceff73065730e27ea9d5e21054b7caacf988f868a24": "ce sont toutes les consonnes : retire aussi les B",
+        "bb7f91b6aea7360df3e0722321bda792936951836fb21f0b4c40c3d5c63d2dff": "ce sont toutes les lettres sauf les B : retire aussi les voyelles"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.2d": {
+      "hash": "7e785efdbd2bb4360911b6b1f83832e6f1c880d8e8fb7e95e548cecad321e366",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "c167421431f6033831932cb53b1e89d371b97e777098ec23ac323b681d627bb6": "principe multiplicatif : on multiplie les issues des deux dés, on ne les additionne pas"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.2e": {
+      "hash": "3e1ea8f295e48c68b32df1d8ff3c921e33d601d966ab387071a0d6bdebd6ac41",
+      "kind": "fraction",
+      "mistakes": {
+        "f49577099517adb4eb685fb1091885e12690cb49694da27c67486e04785ea9e5": "liste les couples (dé à 6 faces, dé à 4 faces) de somme 5, sans en oublier : le dé à 4 faces va de 1 à 4"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.2f": {
+      "hash": "8ccafc66d4cc3795d0f00480ef1e709826b1b19a667f9feef3bfacfdb6c2e2d3",
+      "kind": "fraction",
+      "mistakes": {
+        "8c0ba796eb6ac0318f6c6ea54000a3ad70e8bb0727f13f1e760b2f35f07355aa": "« au moins 9 » compte la somme 9 et la somme 10"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.2g": {
+      "hash": "25e2f22569343b87dfffa031e98c6a8003f5236875908659806241f9e82f8a7d",
+      "kind": "fraction",
+      "mistakes": {
+        "4af2ea7d633064fcd46e3aaad1896e7b6991d9f607a5f96b01f02fd84a28d567": "« strictement plus grand » exclut les couples où les deux dés sont égaux",
+        "5aebe3736e793e13b717eff9340bb996984e82cca3b5d85ea807daea017fc538": "c'est le dé à 4 faces qui dépasse ; on demande le dé à 6 faces"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.2h": {
+      "hash": "3c8fef658145ba7f5374d36ce0361ab7ee9903770e5986d1eacdb78fd25a5913",
+      "kind": "fraction",
+      "mistakes": {
+        "67302a919685bddd3ce508c488a6fe093a642fc920e3c5790084cfca1bcadb53": "c'est la probabilité que le produit soit impair : le produit est pair dès qu'un des deux nombres l'est"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.3a": {
+      "coarse_any": {
+        "0": [
+          "9fa0837f1d7a948d4dfa07db2b7d020d07aa5adc91b54a031778021c95de6241"
+        ]
+      },
+      "decimals": 2,
+      "hash": "85de5aa68baf17435cbaf67e6207fa89058687d8d6c5b827745b6bd1afe46b52",
+      "hash_coarse": "f8fe6d1965ab232cb1d3b4f10914128da7856f1c9e1d883ca7c80777a79127da",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2b369761e63e693311210e68376b92df508280958a642c5d6130f0653b9fe12a": "retire P(A ∩ B), comptée deux fois"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.3b": {
+      "decimals": 2,
+      "hash": "6c0b49b14ed3e6d4bca8c4afe075bca2105b639e0bb1494cefcbce02b1fddcfd",
+      "hash_coarse": "893b422459bed276ac00e921be608d74120f6b78f99bbb40713040a192ac03ad",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "4dd1a19b44fd9c9f7a123c60806e79b0d093bcf2c51e1e14242e0f08aeda1cbd": "c'est P(A ∪ B) ; « ni A ni B » en est le contraire",
+        "72fa4c9c6a53349da684253434d135907cd9dcfeead562dbca61636db04c1918": "le contraire de A ∩ B n'est pas « ni A ni B » (De Morgan)"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.3c": {
+      "decimals": 2,
+      "hash": "81f04b049ef3a43fe818f9c01eb98e2743439156924051b036ebfa78a9b6a95d",
+      "hash_coarse": "43823e42e525173201510261c40889de4f526d2aaa3ace61b21565e98029c77b",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6f20d26bdec2f235c1bd267c8e4b7ef5c5ba21fb56c48d86caad73de9ad42a16": "retire de P(A) la part commune avec B"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.3d": {
+      "decimals": 2,
+      "hash": "b3cbd50f3a15c35fc2fe817a34fef262c8290cf26a0380b9c6d04c06cf950f32",
+      "hash_coarse": "04fe70fe054d6ec57b39a20cc2081fca2292bd581dabdc2ae88a48f598be8b0e",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "f0eed15b8e26f63f97ef4419938ebebe2b46e09eb67ecc3b6f454a1ae23ad4d3": "incompatibles : P(A ∪ B) = P(A) + P(B), donc P(B) se déduit par une soustraction"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.3e": {
+      "hash": "50aca0b5db9646dd89a6b9a9236c4880574bc2ec4f61aa1059a85ea9307631fa",
+      "kind": "bool",
+      "mistakes": {
+        "04a4e2ff4f18f97e66920a0afc13ad686e3fcf48f45434cf4c649ff15ccb5974": "incompatibles : P(A ∪ B) = P(A) + P(B), qui ne peut pas dépasser 1"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.3f": {
+      "alt_coarse": [
+        "8247cd28067754a428af64d4f0a24729893341b6ae6cd70ea8b121acaed85a51"
+      ],
+      "decimals": 2,
+      "hash": "507e42f6af6564ccddaf4d181a0335b5a1388148e089c48ff6b180f2a856c360",
+      "hash_coarse": "78f3778d5958781b0d296d3ccaa94bbe26ec584df7113ef95e80a2ba2fe4c86e",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "9319d3b1a16239c39a8076c558ab5e18a7d857dc93cdee9c082fc9ae4a0b73da": "« l'appli ou la newsletter » est le contraire de « ni l'une ni l'autre » : sa probabilité n'est pas 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.3g": {
+      "hash": "971a956d19d309825c9aa1b5ec9679703b01da20cee1156a72f8c893d5402bdf",
+      "kind": "fraction",
+      "mistakes": {
+        "0a8de25a70a4c6406ab75a53c99a260bba79a266759c7b59fd490f1437138a8e": "quatre pièces : compte toutes les suites de quatre résultats",
+        "981b08bfa55520eddc462b68c05c5e6545c52faaa69283bd93e5f42fd00869c3": "le contraire de « au moins un face » est « que des piles »"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.3h": {
+      "decimals": 2,
+      "hash": "6d2c4ea0bf81f88db2c6aff259bf49fc5dc7ccd65de712eb67613abd65b0cfa8",
+      "hash_coarse": "c667bc4388db6f269b8ef89302d553e03b476c1f69901d6bf8fb2232b7c663b4",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "f755c79af79501f2c22e3687e020df23e993f67dadf754f415511de4b25d757a": "rien ne dit que A et B sont indépendants : pars de la formule de la réunion"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.4a": {
+      "hash": "5dd3307af5c50fd6e626117e5914b7303c29710dbd746a3ba0f2b51fc3760169",
+      "kind": "int",
+      "magnitude": 8,
+      "mistakes": {
+        "535e06452546ac75532d18c42d0569650cc95708a2dc49635b30cd7852b63d4e": "les lettres peuvent revenir : 26 possibilités à chaque position",
+        "9e863756d47a5597bbd8d0724c0b8ff8463da37192f73b02afd68f288b1bed07": "principe multiplicatif : on multiplie les possibilités des positions, on ne les additionne pas"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.4b": {
+      "hash": "359c2a6fc164709f24b820682d828c2dd8939d8ae0adf05c06221ecb9022bbb8",
+      "kind": "int",
+      "magnitude": 8,
+      "mistakes": {
+        "1ffcf877aa7080315906d3ad8c7e9b6c353128394cd1d5978105fbc27f19060a": "les lettres toutes différentes : une possibilité de moins à chaque position"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.4c": {
+      "hash": "bb45ed0b7e94a5213a98c86de9b71630f5f92c8e47c57cf4204663b1a79b75f4",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "68d8ac3f06bf3ccd823eab6feecac637b5ae0ae7932c15590b590f359952de64": "7! a sept facteurs, de 1 à 7"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.4d": {
+      "hash": "1c05df0007da70340a2509622f4f8c1aea4c82f6bcc5f8991aceb588f3caeb82",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "6de89cd63c11ad8180641fda76150635157a032a8713a9d464ef52be20b581ec": "sur un podium, l'ordre compte : arrangements, pas combinaisons",
+        "af438acffcadebd3493ec180ca774aa47e96436b6e5ef7f0d9f39fd58b0836ee": "trois places seulement : on ne range pas les huit coureurs"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.4e": {
+      "hash": "642fbd8505245c8c6effed21b67baacbd2751fa805bd093f5b987c2f80bb9a38",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "4be7114bdea574cd31f2962244712270fdc0e1c3ac2e01bcc2440b7fbde09291": "principe multiplicatif : on multiplie, on n'additionne pas"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.4f": {
+      "hash": "2b801d5b55e5c02a8043479f1dc28feb0df38105d54d24ffcba3654cdd49080e",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "7e73f618f247acadaabf6915b46d19a0f027ddaf0066bc6c1e1da2247c283030": "la tâche A est fixée : on ne range que les autres"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.4g": {
+      "hash": "53538e3d4d1490f32011ea5f5fa428c45673a6d7a882b540fc17d4bffed3fab5",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.4h": {
+      "hash": "3f705ca87b3c3c4d90c85a3f2e5bf334be8a5d44e4d99dc1c4cbb2dc18f2ce2e",
+      "kind": "int",
+      "magnitude": 5,
+      "mistakes": {
+        "da4c4c425ebf3fece76d879b8f2925346246536160efd4dc5c11017ca8f7df68": "les lettres et les chiffres peuvent se répéter"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.5a": {
+      "hash": "627ab738f7d6e49f19c17544ced4c3cbb0f24c2bf4393cdaf8ae6dbe9e35eb48",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "1ab1ee303a5c94b97cd85244cf2675591d5b4f1d3cbcbafbb1be883ebd7a55dd": "une combinaison ne tient pas compte de l'ordre : divise les arrangements par 3!"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.5b": {
+      "hash": "9049f04b1f6adca891e13415faacb61f5c42e0afa54c726decc91dbb8d43adfd",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "9a7da484b53bc3db70138134ecffbd1a3b602fd1c445537e5f4d984655c1509e": "une poignée de main par paire : (a, b) et (b, a) sont la même"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.5c": {
+      "hash": "a18553d4a0bf9a498da79e032e308105e77c531c2bade55c6f8135b4fd9865d4",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "1dfb87512d54e14577cae4033079cc73e2d65948d2986c226cdd5b06e7653ffe": "une combinaison ne tient pas compte de l'ordre : divise les arrangements par 2!"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.5d": {
+      "decimals": 0,
+      "element_hashes": [
+        "1724a67b3c299343a457be1656e9d88b359955117ff3674a411c0f500f8543d2",
+        "53ab5affb006c82ff3801438ccf2daa37cb3b0302704e0fb141e41367f4bb165",
+        "b543c2c73f6b6fbf795a735545a5bd2e57cd2d73956c5ca62cfc7b7abfd6b6b0",
+        "adfd2ca812279e50b09e464a88812244b09944e576f4e4ce964a803aabe9bb28",
+        "8d9a88168e41415b12b3ff5fdbc3c57b876d83d21da2d04fc7d6a7bf38c40ce3",
+        "581063f8c5536cf65115c85472d0ba12732063b0743a338760dd696f259d1234",
+        "dd2a11d2c3e19d38d6a7ef4c75f6bcb60e1b0298d88ccc423ed63c1d40a31ee6",
+        "2a77f7b34a92d86a5155511c6fdce7673249b01045a1dbf134317928beee5eec"
+      ],
+      "hash": "9954013cc0053ac584b91cc8e9dbf518cb03f44eebf253fdd5826f3970464a89",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "14014c7afc4d49485fb3ad705d9082aa4be49c1cc6dde6bbb8c763159a6b04a6": "c'est la ligne n = 8 : la première ligne du triangle est la ligne n = 0",
+        "9de6359a4c49f278e3b65dce1cb5865729e2ecb4e62b4dd0e5794f5f73bb8f44": "c'est la ligne n = 6 : la ligne n = 7 a 8 nombres, de C(7, 0) à C(7, 7)"
+      },
+      "shape": [
+        8
+      ],
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.5e": {
+      "hash": "b78efa4682c0be0dacd41133958e0d5ce5c18635671263308e1801c1c7bea5b2",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "0d030a8199af558616191d4853449f4a7b9b03e614c841dc65bf5bf25ad2baa2": "compte bien : la première ligne du triangle est la ligne n = 0",
+        "a0e7970d2805cd16e202345667a3d4544a4dad5f5facb5d942d0dcc2cdbccaac": "compte bien : la première ligne du triangle est la ligne n = 0"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.5f": {
+      "hash": "aa63ab1be11d8e60981252c1af80a0333847d1609da446328080b660be9d5784",
+      "kind": "int",
+      "magnitude": 5,
+      "mistakes": {
+        "cfa9b3522e747aa4e8ea6d31f622e797fac7d4306db039f5c50c992b34ecab96": "l'ordre des cartes d'une main ne compte pas : combinaisons, pas arrangements"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.5g": {
+      "hash": "82c4e9afc58c6545102eeac78c3aeb19b141727ed85955bc31daf8a057413b73",
+      "kind": "fraction",
+      "mistakes": {
+        "53789deb3e6a3ff6dd0bd163a1bc6e9d019e59b6c515ffaf4e567edf65f10687": "une main qui contient les 4 as a une 5ᵉ carte quelconque : combien de mains conviennent ?"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.5h": {
+      "hash": "33004c159debbfdaa5d0086f8a6190542112db365e967470a021816ab9fb1e88",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "b07778a970061f18220ff64aa37c22e1852a841a584c63da593da614d5440a6d": "un chemin a exactement 4 pas vers la droite et 4 vers le haut : toutes les suites de 8 pas ne conviennent pas"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.6a": {
+      "decimals": 2,
+      "hash": "31486741902cd0f8819b9886441483979b605e167c00906229b44bd6ae1657a0",
+      "hash_coarse": "040cdafa8b4270d228f89f258140b529407b08e23f4dd6d738b8f8569cbefb1d",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "dc2788312ae91c311bcc9513e3a6596d389d32324697b4424d0d0276ef5a9eb0": "c'est la probabilité du retard sachant A : multiplie par P(A)",
+        "fd0af0d8a5706a489003111e60447dfa66973573330575251c3ff13c53de9165": "on multiplie le long d'un chemin, on n'additionne pas"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.6b": {
+      "decimals": 2,
+      "hash": "52d6d785e3b415a6f42d9adf79e76c161ceb78f5b25d0ae8964ea3a091b3b4aa",
+      "hash_coarse": "969d8250796e014d5f77d065ad4d39ae72e06aca6874abd8236229eedc8a5470",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2b46e8456af8a8769482642a422bb040046bb23b435e247ab9491a77441cdaf1": "le retard arrive par deux chemins : additionne-les",
+        "9c6dadc1df50e6ac58736df406d0c411e8c58e2b2ea72d3e13074016cc3142c2": "additionne les probabilités des chemins, pas les pourcentages de retard",
+        "bef41179babd3e842c5bde7eb3a3ebf53d2bf18eb8a20fa389599b463bbe1894": "le retard arrive par deux chemins : additionne-les"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.6c": {
+      "decimals": 2,
+      "hash": "75ea0fc530107db8e63ba5a5dfd15a763ef2e8b1deef6884b9d1b3d2a4c2acdc",
+      "hash_coarse": "4b683e98c2681a3b36d4e17dca280a5124df4f2d10ebc0a1e54955fe5218d0fa",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "bf3429376a5267d4dd7037536e20e92d39e1626cf156ac13986a91237b93258e": "c'est la probabilité d'arriver à l'heure sachant B : multiplie par P(B)"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.6d": {
+      "hash": "ea1b1a027549dc03a4e83f7094edd9806767422444682b687020d1332ef565cf",
+      "kind": "fraction",
+      "mistakes": {
+        "1ae5810d51fe2b16323cbffd1a47715ac14a3bb9118400ffffb063aa5d335a3f": "sans remise, la composition du tiroir change entre les deux tirages"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.6e": {
+      "hash": "22aa7b55456738ed5b62fe24598531387129c11bf9303cf8c964eab5da799053",
+      "kind": "fraction",
+      "mistakes": {
+        "2ae0ed138fe18a4a92f006e7622d946b0a55290b40ea37dd3992955c40023d34": "c'est « deux grises » : « même couleur » compte aussi deux noires",
+        "5c2c7480dff5f6f19ca7b5df2f98394c5ca73f96a22a5a12567df73ced3bbfa6": "sans remise, la composition du tiroir change entre les deux tirages",
+        "d85ed97de7771706d6aab088075d8e9fd2da3051b845ead48e6a5ce34c3983ac": "c'est « deux noires » : « même couleur » compte aussi deux grises"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.6f": {
+      "hash": "203ce0b8cb2ba91bf74b4012f13c6d3eaa5fd050344bef6a60cfedce045162fb",
+      "kind": "fraction",
+      "mistakes": {
+        "bdeb7f0246b1798debec674ed226ae4c9d2333083b33004d99beb7c045eb659b": "c'est la probabilité sachant que la première est noire : il y a un second chemin",
+        "d42a021e3c323d686b05972d7d1cc49c3dfab3b6a17cd2ee4feb84bc3545c0db": "c'est « deux noires » : la seconde est noire aussi après une grise"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.6g": {
+      "hash": "cb9b71c3dc3317eecdd4d5cc084d369359ffe7c8524da90b00e4f513fa5ad3ac",
+      "kind": "fraction",
+      "mistakes": {
+        "a60f9d1404b3afa1e468f3d2b9aca68248975061a2c5fcee319cd32a49025811": "avec remise, le second tirage se fait dans le même tiroir que le premier"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.6h": {
+      "hash": "0f70bda60fd374cf066c2403d21389bfbb41758b29f7abdc78e6314f6958f7d4",
+      "kind": "fraction",
+      "mistakes": {
+        "03de48f7df1b11d81cb11b4472fa649a49a6a2cff6813ee2c4af228b6bcc4741": "c'est la probabilité de trois mauvaises réponses : passe au contraire",
+        "0c3f13c47bb339ac240a79106921db2e91e876c0702ab0d97ccba62885e5a16f": "les trois bonnes réponses ne sont pas incompatibles : on n'additionne pas leurs probabilités"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.7a": {
+      "hash": "4f96f5302f36f40de8d4b157bfdcae902d512b8a82df9c9958bd4f347ada865b",
+      "kind": "fraction",
+      "mistakes": {
+        "a5da0e95b614ad102c0aa5e36b1a8540eb65b03905217d53142af0f4e11d64e4": "c'est P(A) + P(B) ; on demande l'intersection",
+        "f5c4bcd3cb97bce20eaf83842cd2a51195aab14fe5e7994181d2ba6dd2f715a1": "c'est P(A ∪ B) ; A ∩ B contient les cartes à la fois as et cœur"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.7b": {
+      "hash": "69d82320d50137f861953b7da1b65d25a2af17fa920164c77a64258ecd52fe1c",
+      "kind": "bool",
+      "mistakes": {
+        "29a273497004e6ff5ffdd890fff0fcf192feb672c9d28b391ef920fba67f7651": "compare P(A ∩ B) au produit P(A) P(B)"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.7c": {
+      "hash": "e7e3c73adc2dfeb7fd190a22cb725506f73b0624837c7011c06e237219ffcb6e",
+      "kind": "bool",
+      "mistakes": {
+        "ca99ed2fdc0783aa755378eeb0dcd9edbed8b5f43c864cb8d9354ff901b9464b": "un as n'est jamais une figure : A et C sont incompatibles, donc pas indépendants"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.7d": {
+      "hash": "5ebbc8f4f9b770a843f96692aa1fdb467d5301341c368e3a2b0bfd3cf474310b",
+      "kind": "bool",
+      "mistakes": {
+        "0e1a1e63b29739b1a1c9cd406141bbe54c606bd516e1e8f8557efe3045a665a6": "tous les cœurs sont rouges : savoir que la carte est rouge change la probabilité de « cœur »"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.7e": {
+      "hash": "de0bf29496aaf6100a0dfda1d8ab151cc99eb0bbeef70b81d0d2eb2f9ce7ffb1",
+      "kind": "fraction",
+      "mistakes": {
+        "ce436599cbb011b03c99c9c45579c9a6c17242ea97d1ed6165b08a4c28987a53": "c'est P(F) ; E ∩ F demande en plus que la première pièce donne pile"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.7f": {
+      "hash": "a4bb1a9a487a8f1e82f99341f71a8ce0aced1e81ef174bd27cbf3d08c9ecdda0",
+      "kind": "bool",
+      "mistakes": {
+        "4e9c167a30e9428075d8178aea11cbacef048ef3aace886d69db30b7efc1c022": "compare P(E ∩ F) au produit P(E) P(F)"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.7g": {
+      "hash": "5de22673efbd29792fd3846a1ea2a0f95a3c49869426e33a92ea80358ec8d51e",
+      "kind": "fraction",
+      "mistakes": {
+        "0ec578d7210276895d74e60a307d1acd104e23fc13cc9d2d398deed3a2849e8d": "c'est P(G) P(H) ; calcule P(G ∩ H) en listant les issues",
+        "39c5161d2aab0d051262837cbea762f4a80d58d3c9461abed75b8ece85a55da5": "c'est P(G) ; G ∩ H demande en plus que la première pièce donne pile"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.7h": {
+      "hash": "bc94848a5ffd06d01ab74b82698691412264c5f894815f579f19fe36659f0086",
+      "kind": "bool",
+      "mistakes": {
+        "ec2ad0537fa12e5aa18af3cdfa6dfce6eacc463c5b9929db86045def8494ad49": "compare P(G ∩ H) au produit P(G) P(H)"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.8a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "f6c32b01bccb30ec26e3a87162e9cf13221cb142c5b61e8bf80630c270eebd4c",
+          "f254147bb3e1470ca0dd033720ce375265dfb42c8622dfeeb9657455a2ec1e10"
+        ],
+        [
+          "1c07f25f91c56e1ab058908e98d414347775611c4626f1602da83a80d2d87c3a"
+        ],
+        [
+          "4d4a7100830538b45655e8701f6e40cf491cd2a7e1d0d4698b634c828ecbb050"
+        ],
+        [
+          "1e0f99c42b297abbe5dc8924524580e665870ec9dce7260fc517f0ea199ddcdb",
+          "5499180ce7ccef4300f6dcf7a26bb20addd65632f6a4d5aa08242cba1980c04a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0177fe291fb0d1da73a18fae181b1e7e9e8a9011f8708300ac90d02e8ad062f8"
+        ],
+        [
+          "8690d393534a6d80a4e07e432a119b3027563a87e13338814a72c867b6848445"
+        ],
+        [
+          "ab9fad65f7bf91ef3793c70a7fb96d15729b311a5c92e485b6a73cd3fc6c39c2"
+        ],
+        [
+          "ef7d2178b90b23bb9ab0ee6553f504074981daf44df6e8aae6fd0033599919b2"
+        ]
+      ],
+      "element_hashes": [
+        "ff594f871e6dfea5cce12da1385e6ac180109bde6580179c5093efb2d3b5c0c4",
+        "766473baeb3b5a5260fc923a68dd6fac20d6fdced4a72e43f7de5e6b4a481cd5",
+        "ff255a1e91052285ccc875c16fb94d157e23948cf4d87cc3c6db50422b668b2b",
+        "5a3a087b4e06cb98bc36e73a41db1117173512da2ec33d26c0c55b5ac99ac58f"
+      ],
+      "hash": "332bc1a54bb765cb437c625c794156a440c49148c21fb8e748dac0fdfec4a84b",
+      "kind": "array",
+      "mistakes": {
+        "82a51f3b9641f13897dbb371c7acd013701ac1b37d0de4a4292a60e96854d136": "les nombres de piles ne sont pas équiprobables : compte les suites qui donnent chaque valeur"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.8b": {
+      "coarse_any": {
+        "1": [
+          "23807082d8a39fe7d9b8b6db6adfe72cdf35e2289c8e4087950dc7ba48bf7949"
+        ]
+      },
+      "decimals": 3,
+      "hash": "1925a90fd77c59aac16de5e0286d67f277385efaf5f88fd1c0343e2184f6d54a",
+      "hash_coarse": "2f170db4ae17ee8f75a1cef42848fe59603b5703aa80407ebface2ff5c5dad44",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "369ca679d9e29728362f4e1542782c006206e7de0322114358da05cb193c163a": "« au moins 2 » : deux piles ou trois piles, les deux cas comptent",
+        "7b40e0cb739b6404188689fcc3df4dda33010052a9437d427f53efdb910304a7": "« au moins 2 » : deux piles ou trois piles, les deux cas comptent"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.8c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "a01ab02a6f3e1f1c2abcac0edec49246f5ad397d53c038eca97122aebfae3dae",
+          "c42cd44ef5f917509790e4406554776350b4bedcf10f624b7100a0eea1efc981"
+        ],
+        [
+          "0b16810a2bfe0ecb33d692f24d8cca3a7636c910273d0e26c452190ce382161f"
+        ],
+        [
+          "d40755ef9086ee4e100c5c3e779202635488ffb3b8fbcba4d8c6b874207620ef",
+          "7215531433bb863f9670fa5ea7b215895c928654d758431e91972e74acec0966"
+        ],
+        [
+          "3b4b8b3b0482df29c61c81e26cd1f28b8774a09e063f825908eb0c8eba179092"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "811ca8c4ddf81f6317f16a83869dd95a973bec45e747506942df7259b65cd295",
+          "9513941598ddc801f19939b2818e163f87fb8e3d58ab70d46c685979bfe19115"
+        ],
+        [
+          "3c9cac238ce4ab187ed8ae4ffa0b6f30200f3fab1b555b36920f6fc1bb307cb0",
+          "627a26f4faecb5f3df3bd7a59b9766f7307f1a09e9d529634cbda72d547d2bea"
+        ],
+        [
+          "f1dc76869123b318cdd4de808e5c44c54c7cb31ee8ef46d9b983f45e50466dc4",
+          "942547861db32f71729d497da63954e02b9978ad9e0a6c4e81c043392a9f90c9"
+        ],
+        [
+          "4cb92bf97cb06f95704ccf2809b2ce3c3eb10eb6f5b4b4de86dc5116ccb54671",
+          "ee40d8ccfe243941371f8d87a93f0465c936e7dac46777e6c9825c780151d621"
+        ]
+      ],
+      "element_hashes": [
+        "26af8cd04865a66057571e563af6dadb8931ea2351e44644be9a0abd2a70c0af",
+        "b1bed17c0158b110cd82b3541e9bd88a50858d8d8a9aa4033f8a140a494022f5",
+        "504e2ce9413c8a3ab88b773cdbb056dae43a6870a6468fa0e48d6a177ea21ec6",
+        "3c79574fab0ec2d22e05202734b667b465531974e6dc201bc8fa31180e95e7e7"
+      ],
+      "hash": "580bdf9bc1d44b7ef8c38f4586fcd46dfa8f2cb1fe43b26ce39af12d9b2c67b8",
+      "kind": "array",
+      "mistakes": {
+        "6ba52f76a3f512b35cc188efe12abf13badf7c6e8166b612cd09b9ff51b73362": "Y est le plus grand des deux numéros : compte les couples qui donnent chaque valeur",
+        "73b81ffec134ec402bb9c4e4be302a69dc576637ad868748b9786f5cd4fbe91b": "c'est la loi du plus petit des deux numéros, pas du plus grand"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.8d": {
+      "alt_coarse": [
+        "1c9966874fce2abdbadb6cdd04fc204f727d73e3e1d013637c22075071439cfb"
+      ],
+      "decimals": 2,
+      "hash": "8eef9c36da8b0d67dde2f71a3d71b07287ed50f4a4e396f4044d36e81a76adf1",
+      "hash_coarse": "785fc6020441c5229ab9f1a86fa41c75678ab3e941f49bea3489b7c7ca6b3e6e",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "793fb2c5e93162c2b849b764a97d784499b1bcc446522d4d59849eccddfeb8bc": "« au plus 2 » compte aussi Y = 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.8e": {
+      "decimals": 2,
+      "hash": "33979deff8fbdb569716b4785078bbae7d13a2cde4cd1310a145ad32fef98d72",
+      "hash_coarse": "9efe202496461391595baed7c882b860cc99d46f8251d084953511d1c0fa5b4f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "7a17503947829e1eb8006c14c83b0e35b78a3592a043f2dee37bf0391bd2026b": "c'est la somme des probabilités connues ; les probabilités d'une loi ont une somme de 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.8f": {
+      "alt_coarse": [
+        "f092fe40ccad5e1a4359679e0019db7f9296857aafa33650c187d8748eeb6b5c"
+      ],
+      "coarse_any": {
+        "0": [
+          "0bd3b54c650c1d253c649abcd6e97b4b23e565bd194986508813e41ade632ddb"
+        ]
+      },
+      "decimals": 2,
+      "hash": "700242d927290e0a0e3f8a638ce708e5afd48e66287f59ce671134d73b89ce43",
+      "hash_coarse": "3f4f829eb59bacba504b2e8c4559ff41ab01003aab088732e9d2b2a43318db83",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "db4af5b9740bd95780914d397844a0729364c948e35d320fce0e70ec5d7341f2": "Z > 1 : toutes les valeurs sauf 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.8g": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "e16c65e8d2970423d5c9c4fdd4b749ad1c43d3bb1745c33c31658b189f9e539a"
+        ],
+        [
+          "f7acfd0f542fe4220eb486af9b92ea645f0473a4eea04de2a3c756f399f91fe4"
+        ],
+        [
+          "f8a6b0f4cc666701a1072206b5ba3a319ca753754a4ce9fa8a72d8adb31ed7ae",
+          "9f6e716d54def34f938cef154df6745817d5cf048e2c4f0f3c15e98f58ab268e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8a9a12f45e4f4e12965d7a705079fe431ec6c81ed8f763bbd93c776382ce9a13"
+        ],
+        [
+          "6357af6c374e03ae56ed679fc36eb9d87aa824061584fbc1cfdfc4e56ddf9fea"
+        ],
+        [
+          "48baed5773a5027023f57f69df83d9f47c518a0808307a4d07b96346fdcd74d9"
+        ]
+      ],
+      "element_hashes": [
+        "e22b21b28bb3240fd2a9cd55fc251f10df8fed290ca781f2ab75736cfbbbf7ea",
+        "3b5521db3794dd0dbd7941d63edc172fac2eaca354bcfb273d8f37194b345fc5",
+        "b8df570912df8620a63a1ecaff0872cc16cd99eda0e7e1d22aa5de69a48d5e64"
+      ],
+      "hash": "5540f0037145382aa954719f1a81e5c49a6f165fe4a8dfa15566a2644a211b00",
+      "kind": "array",
+      "mistakes": {
+        "1b468425e530d78a52b19f02c8de8eeb085e79c72ce318100e76c325e452dcfc": "les figures sont les valets, les dames et les rois : trois par couleur"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.8h": {
+      "coarse_any": {
+        "0": [
+          "dc69508bbf36b1ded080c735d3888c5d9adf674d37d58cc9f087465be38efa39"
+        ],
+        "1": [
+          "7502e8c9e48a7f0a4008db134227925392323a4556986a7fb6c690fc6b2a80fa"
+        ]
+      },
+      "decimals": 3,
+      "hash": "28fbf7045682c870c427c1c512715173f445f138bc214bf909bf38b388b1d775",
+      "hash_coarse": "362ce6d7fabed0ca39f6e5bcf76c320b57e3298dfbe0f1f82237ca238d5311d2",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "c63a4293735e6e7d9a23e4ded3f6742d5b63e16431b312db013e247d92234e36": "« au plus 2 » compte W = −1 et W = 2"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.9a": {
+      "coarse_any": {
+        "0": [
+          "5ed5e9d5302e477f50873fb7503a0f3c7ed63c04ece41da7fb18ca374a85030b"
+        ]
+      },
+      "decimals": 2,
+      "hash": "b85351b8fe46b308d5efd4ec1e26aa0eeed1ed7ac81f029e7ebff4a0db07b55d",
+      "hash_coarse": "5d0062a453f21271c6b8389ba5ee011c3296b81b75bd628e158744a8bf79ac43",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "810785321be687242be3689dddc98b28e9bdca21eb5c54467512e0ebe3c4cc97": "pondère chaque valeur par sa probabilité, au lieu de faire la moyenne des valeurs"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.9b": {
+      "coarse_any": {
+        "0": [
+          "9fb3442890e4f160d15b1143fa13d12b1019aa91096e8d397986c748ed3d0cf5",
+          "25b2227bbb0195b95c1fe1860ed7d5ed405bf9f466d60aa3706486cf0d143a67"
+        ]
+      },
+      "decimals": 2,
+      "hash": "ab05b6d37603ec346efc13004854b41163fedfca5d5d144e5ba6d055fedb157c",
+      "hash_coarse": "d111f63b499bf6f942842dc1f5012c83a1aadec897d31a7b740dc2a1ccdbe18f",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "d86ccbeed57da754431721d3fe1d3914f9a449351196d54f8524747da5b019a4": "E[X²] est la moyenne des carrés, pas le carré de la moyenne"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.9c": {
+      "coarse_any": {
+        "0": [
+          "aed8563f2f5837fc7822a9dffec23f8147afaf10fb394165be502d62a5632887"
+        ]
+      },
+      "decimals": 2,
+      "hash": "2cca663703fbf2e058625b026d2d26f15e2ff8a40e8c8c1dce1d6e758cd5c9b9",
+      "hash_coarse": "fa37c85d8ffc3d98ee7bc5605ba5841b83a23c843f1200dd23d88c83bfb0ca2f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a4020c3d73c1f1553b17f405b975bbd3c8bd308f87a249f84e2f3b7088e0dcef": "retire le carré de l'espérance, pas l'espérance"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.9d": {
+      "coarse_any": {
+        "0": [
+          "452b65cb0d4fab1432b0c3c9833a9de678cd6b6066afb593d781b63865da4a60"
+        ]
+      },
+      "decimals": 2,
+      "hash": "aef57698bd112627c9ce617de3514bf79e2766d28938ebb75916219135a20b15",
+      "hash_coarse": "68880b9a94c5d6515386b12eb950afc9b4a4bd7f383ff79da9ca512df9d00ef2",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "5fe06c3d5a560274740f5cd170286f01ab3bddf5c57815f435c728d45ce2f71a": "l'écart-type est la racine carrée de la variance"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.9e": {
+      "coarse_any": {
+        "0": [
+          "b8fcafaf73f941954a39fe4827e78a77b883bcf05ca8471633d74253624268ce"
+        ]
+      },
+      "decimals": 2,
+      "hash": "ccc7a1f100eeb230179c6ab8feb043f5769de81a1477d3ae1a2cb4fe85f48859",
+      "hash_coarse": "d155ded49e8bf1853f70fc655e18b2cd7faabc5d96aab4f530334db56c2e4669",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "f98456f824039071d42ea9d14d4689932141e5ac1f8bd7883605d184ea98c11f": "E[aX + b] = a E[X] + b : la pénalité se retire de l'espérance"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.9f": {
+      "coarse_any": {
+        "0": [
+          "5c4d951289fa29f77f6435b9f260a5504779afc396305e06d4729850d7311c51"
+        ]
+      },
+      "decimals": 2,
+      "hash": "3fe1fc71e99947bff5000e78d6ccd2f74997753745d796d9d208bba787b6a2df",
+      "hash_coarse": "2a5f6e4a4af589424358633a769d331ad741d1b9fb8d36ed38882996fe2fdccf",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "4dd557b424f48f7c98d0d2aff06576fb2d3b92e05378c02e68068cbb0bbf9f7b": "une constante ajoutée ne change pas la variance",
+        "89ca05e68f1f25cdba7f2d017094b6348b0ba63390df1a2a3025e15e9f15bf6d": "V(aX + b) = a² V(X) : le coefficient est élevé au carré"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.9g": {
+      "hash": "6cfa57e73525caf0f51148b8ba8689728172440049174e659fd5a29198c3d411",
+      "kind": "fraction",
+      "mistakes": {
+        "ed050d16a29bcb4979c1ffe5ae9c4a4f0cc5688320ab8000eeb61cf379d00572": "pondère chaque valeur par sa probabilité, avec la loi de Y de R8.8"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.9h": {
+      "hash": "5f9ea15fe8116d4fa4c54b41bcb2da46ef9561d56e8e2ef0575d3ae32e9c9c87",
+      "kind": "fraction",
+      "mistakes": {
+        "392d9434e4fc7e9262d9cc28bf0d2a0450f2ccf9168b3c50a4bff9c879fe3a44": "c'est E[Y²] : retire encore le carré de l'espérance"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.10a": {
+      "coarse_any": {
+        "0": [
+          "43c55479390534217e458fc68e83afba8ac2237305895544775ff986010ca8d9",
+          "112e3d8d8cc9e3709868822915da9ecfb523ed20bcd12a92450ba940c0bba59f"
+        ]
+      },
+      "decimals": 2,
+      "hash": "a319fa2d8ab7277b686063044278b6f0ec6818179eb955824e535a8835d8ef53",
+      "hash_coarse": "670683c640c993fe132c8826b17137df70c2de4d968cd17c21cf38bbc88301c8",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "48d82d3f1c4e52ed2c05e8b62e76063f7fb5da16544c8f710051b5b03bf29911": "un seul pile arrive de deux façons (PF ou FP)",
+        "57f3e7f922e2d8a6d229bfe4aec74499e46c7e4d6ac59982c3b0afa0066c5b63": "« deux piles », « un pile » et « aucun pile » ne sont pas équiprobables"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.10b": {
+      "decimals": 2,
+      "hash": "6e0cb9f2ce05c297dfd854d89e9fe3fec5757a879b22aeb6e9b32f9f50b565ae",
+      "hash_coarse": "bbea958711ebfe84b394d2d359577a1cbd1ff36e1c14218bcb1b74a7cd5d7522",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a60da7b698dea2224aed77671bf0e9d41e8ca6081c73a3950629a9690a70b181": "le gain net est le prix moins la mise"
+      },
+      "sign": -1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.10c": {
+      "coarse_any": {
+        "0": [
+          "36b5087a2236dc1b9a0aaad956a007af5ec47d879c2e084b2a8f730bb87819bf"
+        ]
+      },
+      "decimals": 2,
+      "hash": "cd6960aed7ea04f98756c5978ea27075ef32f9ab3ec2b3059d95b4d9e9603702",
+      "hash_coarse": "37f6b9cb590cf0d7494365ed81afb8ac368c6025ee8549e809fa438749dd83b2",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "c2676d77e6b7c316757c054360ea1653dec2cae216bb8eab1777446491226b5f": "ce que gagne l'organisateur, c'est ce que perd le joueur"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.10d": {
+      "alt_coarse": [
+        "9633822942bd8c171d34e0c2c9bc5c9b920053ce61d4ae5a3b0939849c1db555"
+      ],
+      "coarse_any": {
+        "0": [
+          "ab2e1dc5e1152ed9143c75b8ca53b722dca3511aaa3849b666ead81745749480"
+        ]
+      },
+      "decimals": 2,
+      "hash": "3ba290f633828031dcb1c9fd242ab96aec052f304d7fae55c60bcd87655b7efc",
+      "hash_coarse": "082473131a9a6312e4ab62ac0b55408748ba5544dfd68dfdcaab63b8472cc320",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "34f8243b73ac6317b4335abd1e7579872ec8d1aa344c4e75a02a0fa0c28a09c7": "V = E[X²] − E[X]² : retire le carré de l'espérance"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.10e": {
+      "coarse_any": {
+        "0": [
+          "2edaa3cd9e24b8896cdfd4aa8c34369207b8f0b48206d3339a04a2be80fd7ac7"
+        ]
+      },
+      "decimals": 2,
+      "hash": "6021327288716aacb3936178b819f5eba8cd69e386405527d20b5cc430844e4a",
+      "hash_coarse": "5ec50b029a24b9c6472bd9503b0d535fb088eb4a3f90c59ab083394801345b14",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "385fef2deba92987984ce9c2b41ddab379da31b79097e794872bb39924bbe29c": "l'écart-type est la racine carrée de la variance"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.10f": {
+      "coarse_any": {
+        "0": [
+          "a45ae692bf4ce862e7ad79cab6fe20f58b1df59d4b245394955e4668f3dcbfff"
+        ]
+      },
+      "decimals": 2,
+      "hash": "945c7d8f7f07ee6e1da864332c86a4a28fcecf52f31929e6244d0189b761dc7c",
+      "hash_coarse": "aef3803f7d65e45ad5e114d274026fe2ffbddfb5bf4f66871f3684459754ee3c",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "3b8949953977078445ff38099b02330dd436ecc7b2644f8f50baa727378734be": "pondère le prix par la probabilité de le gagner"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.10g": {
+      "coarse_any": {
+        "0": [
+          "83336fa2ec9d66f7def01ab72c204c3ef0eac50148b5140da25ea42b1af21b68"
+        ]
+      },
+      "decimals": 2,
+      "hash": "ae70c4bf55404e6c41acb36ffee3cd6f8444e71909b8fd8dab90d8d5d78c8dab",
+      "hash_coarse": "520e7b4ed80551a272529f3d21019c1250a40d034efec9683e3d328d8d4338f1",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "57792946a2b368747c80a0d4e6c8e8d97b2b4d36a073dc7c936b504f1451ae27": "V = E[X²] − E[X]² : retire le carré de l'espérance"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.10h": {
+      "coarse_any": {
+        "0": [
+          "36cc6f492aa875ad6a1c0f1318f44323516d07303be6ba008b526f99337187d3"
+        ]
+      },
+      "decimals": 2,
+      "hash": "fabca4e72832d86bc0ee903a96aacc5c1220eccde77d24478ac22d7968017870",
+      "hash_coarse": "ea531e5f054312ef5634e44614f556691f1506ea365d853e6ac625b88be6e6ac",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "c6c2e3e94ffd6b0bff9276b8d83466e19345d14578683c62180eba3cb2e77a7c": "équitable : l'espérance du prix est égale à la mise"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.13a": {
+      "hash": "e685fd1b9da81176e0145eb9512a10192a665fdd4c9fe1533e97442b0709023f",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "f7530eaeb1766bef446dc146c991d152eb0bf46239622e98741f90c4af58d6f5": "un match par paire d'équipes : (A, B) et (B, A) sont le même match"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.13b": {
+      "hash": "93674daa2333321a01e4d0c31960867bdae31633bc8d5ab847c3ac04194fa9ab",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "e49a92f63edb875623a1fd4a50d2cbc0141bf681d3cf4bb860da285c6aaf5b8c": "aller et retour : deux matchs par paire d'équipes"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.13c": {
+      "hash": "067737ae8391b2354550877db4454a4dd9f49b8406a2ee1f426a4cbe17c7e245",
+      "kind": "int",
+      "magnitude": 5,
+      "mistakes": {
+        "2540c016a9e22f4a1b75b2eb8b85e34b48cf8602c27f47a2b020bd35fec15c0a": "une comparaison par paire de deux exemples différents",
+        "509718e29a14a385240300926568acd4f1d8af67ae4affbf84daeb6233ca9b20": "une comparaison par paire, pas par couple ordonné"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.13d": {
+      "hash": "a5e13ff389c32fccd53ebc8aa65f7e70cee274d3dc2bdccc69b2715bf3965171",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "57e3f9c66b9112235e4cd37b861f9c01000013c6b555ad6ff93f04405fdcd832": "le nombre de paires ne grandit pas comme n : regarde la formule de C(n, 2)"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.13e": {
+      "decimals": 1,
+      "hash": "f02e299abca1774a002b78120687ddcd3b043837870966373bc14b38fcb12bda",
+      "hash_coarse": "b1f49787da45eb9fcab093b90529b8daf01eb97e90907f66343a77004a66cffd",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "f57acbb58752d333ff44de0db9a29048fb1a45c2a8353ed7e70d3ef6655ae32d": "une comparaison par paire : C(n, 2), pas n²",
+        "f6eeceeb0e8af3579d03ba6aa853250e37f17cf0936b1026196dfa392615d99c": "c'est en minutes : une heure fait 60 minutes"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.13f": {
+      "hash": "03f36ca825cba57bc0af610cd748b2b575229e23b6343118fc48f64951b81393",
+      "kind": "int",
+      "magnitude": 5,
+      "mistakes": {
+        "fcccdf90ced199c6b0ecb0dfa9411b0cf61d4d52fd9b5f47009968aa95bc2ba2": "un groupe ne dépend pas de l'ordre : divise les arrangements par 3!"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.16a": {
+      "decimals": 0,
+      "element_hashes": [
+        "0501a6e712b78de69a8571a9e83d9396bcb28bdc397615ddf260d810c1abc1f6",
+        "32c2d42fd6550bba860039de03574c546006248d29a9e7c8a758ee25120c99cf",
+        "7f9874b743ace818f65fcee70f7a890d3aa7eaf2a6e8c4df6dec45740c361d27",
+        "2e13f811ab0216e5f38f8feb6e219e8f254afee60509fb6adabba4789eb77bd2"
+      ],
+      "hash": "bc27eb64aec8998218196248842aa8bcfc6da1838e8d080372903c00ed9d6aa0",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "8bc6930fb267382aa9e5f654d40fe7420a50f49ca263104fcd60cd74a554bd09": "0! vaut 1 : c'est le produit vide",
+        "9d12c720d07b3bb11161bf8a8c5c922d75f1fa2c6013a2705f9eaaf0aa207bc9": "range(1, n) s'arrête avant n : le dernier facteur manque"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.16b": {
+      "hash": "c36c1800590605640014cb35ec102240745588535bb3ade9107580b441afe629",
+      "kind": "str",
+      "mistakes": {
+        "011017cf0744726189b73600240576fc7188e554a24d1831b507f85b434bd17d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5a433eeb7fec59e054c04b0693b3a4e7cc7e3a9fa26933f81b1fc932d431b6b0": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "832a6967c0ab59aa2ef672b30c35ea24245471b14f29369871e00c879bae9b18": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a00321c98e7f524225522261fcdf9cf9c81746cb774ef0c6ebba35f755955ad4": "n négatif : lève une ValueError avant la boucle",
+        "cb55785be15d1a8f25ecbc5740b5f06bb29a234a5efdb20bcd6b216504ed2d18": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d167006ebed31219f98cd67a228cd3b96837d63bc21aee2d3f51768cd4ee7d29": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f2fe6e86a8c514ebd568cc1cf923475db0be3dcf72dceee802ea98189172faf5": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.16c": {
+      "decimals": 0,
+      "element_hashes": [
+        "ad9c1d6ddd2e32c0d54d80feea250afbd038a413a098f7cbcd9ce6783732cac7",
+        "47850d26bb9c7ce536e22e9be3fa5b582aa0929da6d24c5b65fec6ad099e3d71",
+        "9682c82d3559c68502ed7332bf0b82b63ab7908fb7bd69ace861f8d1c73da8c3",
+        "0bd4549a7a88d594c63107bebe4c50e2a0b44ac8f089531b413525ee6ef9e148",
+        "34b1d886098c83f0221d2601866d9cf8e1bdc3827e92c8ecff8035d898efed96",
+        "bb6c49aff1d5d54e9f0b95e3950b7132f81a8026c42841484726f2e70ba4f42d",
+        "0648fa8d5e54e9482c022453f60243bcf29fc9fe69be1ee191faec51aff01d63",
+        "eae0defc1df93deb2bdad53e82542ff1ccf5e715a9009a493dec125877bc30db",
+        "5689fa3223d7bf999807801f97f5f942b32469eaeea4989a8f84ad96f468efc6",
+        "7d9b7cfa1c92138e7b9d1180464ee0c34b3fa6c7645ed4c7eed213a5bf82d529",
+        "c910264b27f33adf193ebbf478149d25239556c09d23bcd031c2b61f0b2ab482",
+        "813dfd4901cad56b0c68b49a7e92ad92e38a8bd44b12b0c4ba03b10080225aea",
+        "1d77bd62ee26379743f35cf11d830fe3dd762917aa1ebcb457d40236c03c80cf"
+      ],
+      "hash": "4d79eed910e5c90f7b3542fb0ffd5a638426ecf233deb0d237218b140bae2909",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        13
+      ],
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.16d": {
+      "decimals": 0,
+      "element_hashes": [
+        "3af1f7b8c622d273ccf5f77dde394673e35501713d770ed8e637e2b51aabd746",
+        "cf8304e62e52d35a805e238796cf3a1bcb7cd76257451030a501c7e983e1eef7"
+      ],
+      "hash": "6d566160e4345ed265aa808268e1a480d6e3caefe12bccbb542ffcd979274cbd",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.16e": {
+      "hash": "74788004054a6b245f1609d6c50128acf5a4dffd0cc44252937d56f36be2c84e",
+      "kind": "str",
+      "mistakes": {
+        "8211e4791e3dba7625cfb1a39dbd6c13790b37be028180b5a957c8343a38f846": "une division / donne un flottant : utilise la division entière //"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.17a": {
+      "hash": "15ce6e221d1fa6bda2f3658fd3e9984e326b91bee0968512022b09eede85dc99",
+      "kind": "fraction",
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.17b": {
+      "hash": "11b6aeb88be8acea9c9d2bd1b3e36454a6031324e999ffb83e640407387f6613",
+      "kind": "fraction",
+      "mistakes": {
+        "ea0c09e367af2d81327b65829678b446789fd052ed8febd315d5b38672ff8c1a": "« au moins deux égaux » est le contraire de « trois différents »"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.17c": {
+      "hash": "9c911515f425d9bded0f8eb008561a1c97813b07b3aa28898edc7a8b934adc01",
+      "kind": "fraction",
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.17d": {
+      "hash": "5aac3a1cebd9c076c340ee62d454f49930319cb0cd303390b07474afdb9ffbad",
+      "kind": "str",
+      "mistakes": {
+        "0bee404b06d21575970e95647f5db63b2fdaaedae66ab0d8a8e8c996853f6871": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "1c3b3f7d09bc6ccc010afec36730c522647b3a31582d21c0d175d0c871a20fc5": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "46db837228eec2bc394ccdc72dc598565b34b3d199c034889e0e42b1b5620190": "sans issue, lève une ValueError avant de diviser",
+        "6a224f5efacdda8ca2d9262ea651c46fa1bc90326eac0ad03c50632dea4799f5": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "90b5cc1e161d16ccdcfd0b116373022cedece5bf51365f3fcda0875c589b161c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b3dedbb298f1c42ba011f3f161f459509e4c3d766e0e0f5adf144819426eb312": "sans issue, lève une ValueError avant de diviser",
+        "e1efc568a4ee5d570ea81e2b0d03d8eb2d4cb21c50fb7bcb62a9fb4a13a7eb82": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.17e": {
+      "hash": "0f08741a5d6223cfc1ce9e3d64a1b5cb2b1ee5084e9e8bac56d4bf26a58a1ebb",
+      "kind": "str",
+      "mistakes": {
+        "b869c099121768ef2a4a3a47e663107055e9f8e1680e6ca148ac35add93e5daf": "renvoie une Fraction exacte, pas un flottant : Fraction(favorables, total)"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.18a": {
+      "hash": "47bb67fb2e1937792a5dcc5ec1395056c3ae17c1ff742868358d9a40a02d1338",
+      "kind": "fraction",
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.18b": {
+      "hash": "2a5f33f8102858c613b1ae7689ccbda19e1d3eaa5a1245323dc26cae656ca612",
+      "kind": "fraction",
+      "mistakes": {
+        "2e574445d7205437ae2aadd1f4dfb723e7b9ee08bda2f1378471305a4ef06e69": "c'est E[X²] : retire encore le carré de l'espérance"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.18c": {
+      "coarse_any": {
+        "1": [
+          "8fbf306f8dc66f114efc4cd2dad83808703552dc97062d08e65977b06565d5b6"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "6d9bdbca5fb48d949f32163870cce7c1fff0496ebc957de99cd106913ea6bd91",
+          "80b370063837044ac139c0387b11cc6dcf8dd8f4b77af6d14bbfc8a94d0c4a8b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8866e42806e75f90c05af284aaf28b7baaaf9f318fdad1253eedcb0ae8cc4ce5",
+      "hash_coarse": "1e59cb9a9376956283315624aaab20e10110db98a225c5bb5b0b95ef3f22cf9c",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.18d": {
+      "coarse_any": {
+        "0": [
+          "77fe03cee5a6bd8a7f7b57cdc3b19302d850ab521cb62a67a4296ecb2fab1712"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "34fec90e8e27b588dcea67742e7bc470ce12df9e8ecae5e79b3a66b5a8fa9dbc"
+        ],
+        "2": [
+          "d2e430549c057bbee90bd5776939ecd4c069c6f3a355c92a4c66b80e4c142c3d"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c2f4e2b3eb6193b8a54b53a1637b6d5dce2acc00caf0b73813e72eec397fecee",
+      "hash_coarse": "a850e196f4927ab5e6bb8e6a6a1c42d608f95ce9069724c3f4121fe425824016",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "6f64aa57909e3d4a65b2ad73ff1f39fa34c278e2a76f1dbe7b6af1a7ecdab24f": "c'est E[X²] : retire encore le carré de l'espérance"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.18e": {
+      "hash": "0366fdf50c52447ba99fe86dd81f8e50d6be97228d1be362830089d6fe397d25",
+      "kind": "str",
+      "mistakes": {
+        "0e18a8b0ef212cf075c7e0598a6a036e7d4a83d2dc45a1ca490071c4b744d8e5": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "20cccd1e8719482b4f6124a4dd9ec0889f78e38f1a3c076d189edf4d53625255": "des longueurs différentes : lève une ValueError avant de calculer (zip s'arrête sans rien dire)",
+        "426468bc112b2e1066ea4a38b964bd460e4ba329ece34115e253db9ab0e0b9fc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c50e81cab22429287115776a3d54e29f634f663f0b497fc8236153c9d3329785": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e3c1c377ed5d7de102f1c003bf90be2e49fbf163018a4022c9448a0da2a66313": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f6e384049f5d197c025ccc2d33dc341accee27cc6d4913022544df511696340e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fe7ed4b0bfccf79a04e4037cffd0c8f6d359d70e9ef0c09434881e65e251a416": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.18f": {
+      "hash": "312ab5013d939c801b22e388ff441feec82ec7c175b6f228d2ad5ddb25c407bc",
+      "kind": "str",
+      "mistakes": {
+        "458fa64a7bf6ac47ec8e60d2b66a6d86e237d50fc3ba046e9c8f942be14a77fd": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "46eea320227b373d5d773c9a4680fb42c6b6d871da224f2b4e6eec01e1c8b288": "des probabilités de somme 0,9 ne forment pas une loi : lève une ValueError",
+        "4f7f93ec1f48f09ddd8a433849b1bf25df3c988c3c62c4d674b74210d50121df": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5fa9afe8af63c3ad7f0e2a3c935ac7c0e562013768f4a8cc291948e62d401029": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "73b5014102a4ed331e1977ae3003585444843fd51f30dba488f93a00550ebae4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d8a3e3e8424167ebd73720b6e851d57a6f262f80f5c52099e6229bf6a64c7057": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ff28d61dcb73b8f14c32b692eb76b1e4461593e7847d09b96f2c6bd9f5e58447": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.18g": {
+      "hash": "c0f2ebb8119ef646889284f82175d1646ff3e17ed72e2d885807cb060336ca6b",
+      "kind": "str",
+      "mistakes": {
+        "c5812fa4691489650b561c070782e014bf94deb06dea9776fa77df436a0689a7": "avec des entiers et des fractions, le résultat reste une Fraction exacte : pas de float(...)"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.19a": {
+      "coarse_any": {
+        "1": [
+          "79cedc11b9ea509176c0ba25903978e1ff31d4d75f0faea70be880abbb441d3f"
+        ]
+      },
+      "decimals": 3,
+      "hash": "8e65785d002388a94830d6e626b496f82cce4ee0a8470712dc7305f08011df3e",
+      "hash_coarse": "61e53bf40d3a3ee26f3f08e14876532596c49a3367b5579617e4aa5b00a646b3",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "802175779d9ca3270f35d47dc289d5d9c03eeda0c2b6147514a4587328679271": "crée le générateur une seule fois, avant la boucle : recréé à chaque essai avec la même graine, il redonne le même tirage",
+        "add9df2f39f6e60391857479c0c7fab47b456e0b521fb2982394c1cf5f1f8a45": "crée le générateur une seule fois, avant la boucle : recréé à chaque essai avec la même graine, il redonne le même tirage"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.19b": {
+      "hash": "291f7a724fb6466dfa7def737d10ac4bdb2aa0e32719c9c5ce80158884e9f71b",
+      "kind": "bool",
+      "mistakes": {
+        "5e91aef0b63ff2b9dd8c7c129ee84078b9d53e8aa76fcc93efac7b691ef6c545": "la même graine doit redonner la même fréquence : crée le générateur avec default_rng(seed)"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.19c": {
+      "hash": "6c2a3051ed4ac80cfd2c6b1449cd48187cbb13be4a229f226861fd05013ebec2",
+      "kind": "bool",
+      "mistakes": {
+        "f2c50ea97ff9677c4daad1fb9fda72b1d7b98109c5d09387316c01d7441931cf": "deux graines différentes donnent deux suites différentes : passe seed à default_rng"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.19d": {
+      "hash": "adb44c049f2b4e270117132acf1c514a7114f32f335f8103cf569752cf4dde46",
+      "kind": "str",
+      "mistakes": {
+        "0f42b65aba7d71391332f63ae198eee779ac3982a3e64b13a0b694075e9cfb38": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "30fdfaec61a648fab9e0fdd853e35b2fd1b69d4e93120449b46941d54e4a0686": "0 essai : lève une ValueError avant de diviser",
+        "485c56a54dd96f8dd170ecbf281f0940055621534b53fcf09ceabfd883744948": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7dff556b9daeb0d54a97c0894d46c919f5239cdac4cfafebf08928cc1998d3f5": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "bc019bd0e4273bd4eb9cb0da7a05fb979e81500e13be7b65e7e0569d3a3c7c9d": "0 essai : lève une ValueError avant de diviser",
+        "c542c338faa95da1986dd836dca1915b01256a215ef17c0ed5341a2d746bf2a5": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ca48688c218f2cfd266ea0e712fc09064de4f1e876bb1d7056c87023b9454122": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.19e": {
+      "hash": "facb6478fe6e943adf59f48b2eb90414fe64303d62d808a4cced93f04d3026ba",
+      "kind": "bool",
+      "mistakes": {
+        "fde737007b30fa3b3f0f2757c8eb5cb77e693cb15c20675e4c5a6a3baf93b0b0": "avec 20 000 essais, la fréquence doit être proche de 3/8 : relis la boucle (un seul générateur, le nombre de succès divisé par n_trials) ; les tests disent quel cas pose problème"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.20a": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "c112cf63a2d81c04f7c2df986a252a8fb82489420449ffca463ff3c04029c893",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.20b": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "3773aa63698498a8b37589352d8ae7fac40b80ea46d64169205d556e5810bdbe",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.20c": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "4ce2029ae55b13ede0893cbaf82943e2beec488ee3cfe47651202fadcc34c524",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.20d": {
+      "coarse_any": {
+        "0": [
+          "4425572ecaecb1e50c2c255f2f10af112ad266c65778848e4029c34c5734d7d8"
+        ],
+        "1": [
+          "4bf7ba432588ba7ed8713356ac619b5be087a45f3c0ad5521721ea85229093dc"
+        ]
+      },
+      "decimals": 3,
+      "hash": "9651898426f735b67d114f31f67124ea96cacb7b52c6dc0cd0db36fcf7c7cb06",
+      "hash_coarse": "f572d8e30f79411f17f103403f749ee9b3c3bef622e7efe834e0c86e30d96215",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "d7d9a858b1b2b21655bc519916807175b4c3e2e5fa98754bc9135e8532878761": "c'est la probabilité que tous les anniversaires soient différents : passe au contraire"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.20e": {
+      "hash": "22a27330a464ad21d7d96baeaeac58ef33e254ef2ddd8efcc5dd1eec1b2116aa",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "edcbf75777e23b9daf882ea4a4a2e7740642d59ce3dd152051e5a0d951e0f8bf": "le premier n pour lequel la probabilité dépasse 0,5, pas le dernier qui reste en dessous"
+      },
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.21a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "4b52f8987da9119b07dfbdc3b9a6045c030cb4d57e6d60e897f2f4d2aca0089a"
+        ],
+        [
+          "a669aced58f85dfc60834c9e0f794cc2d75d700779919771de5d8a686b9ee490"
+        ],
+        [
+          "0e706af851b8772223a6af72a850ce01a4f88790ec1d7de2743933b6e1d41192"
+        ],
+        [
+          "78e4e1a0ac1de72425efb9ce37b60ff423cc13391d0906617ad142ed2c5af513"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "247219846860cf98229bb3a53dbce143831859d487cc486825e4de5bea7891e9",
+          "4b5ba697e8c1eff5b2fd3d8125019a56bf1b19184d7bef8e782ca4f8ad79f7c2"
+        ],
+        [
+          "a54684b786801dd91af2a941e0d6205d45429077b73390bca1f4dbdbfc187af5"
+        ],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "a0e6c0fea3809e527839e303890b0c45a163533c0f534e54ba9cfb8dc61acf53",
+        "a65600d9c0495deb86f3c874672075c353e8588619bfeda6a4b01ced9dc7e94b",
+        "7c3c5f835e503dfc86822481dabc55d1d0e255db6ee28be6097684503d1d7e1b",
+        "b684abe444b11db897e710fe8ed8f29644fe831646c70735fcf239faeea1c755"
+      ],
+      "hash": "1d403907ec5e9cc18b148075b58f51b069cfd3c2fda26dd71c85ba652e25621a",
+      "kind": "array",
+      "mistakes": {
+        "7e11e3965516f321bb7deea3228fa2cd6d43f7aaac27a13a8b3a64e54a89864b": "un seul générateur, créé avant la boucle avec la graine 81 : recréé à chaque n, il repart du même point"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.21b": {
+      "coarse_any": {
+        "1": [
+          "8439cb2574deab59feeda328dba517d195f60083b3a8a8a9996b42a953a605f5"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "72bfa26605f772e20964cbe3948932f847ddeb33343fc3fdbd1a63a5bc62fff6"
+        ]
+      },
+      "decimals": 4,
+      "hash": "85f5b44ba10d18570cdb3753430d4627c3bdf5415c85b0c92362f2331006f5e7",
+      "hash_coarse": "6391f2cedb88d411137ed119145de864b431f9c1b4068a292694c3c9f09b03bc",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.21c": {
+      "decimals": 2,
+      "hash": "21cf6367cc3b345d677f232e274f5ec5db5baeebccc93a3f370c151554c321f0",
+      "hash_coarse": "c52fa4cc19048a368cd63e5108802aa527698c2b0d78741a2eba2b146ce3add2",
+      "kind": "float",
+      "magnitude": null,
+      "mistakes": {
+        "938b15cee619599530fa5ce2623f9da934fec580c69afe93c506d3329cd88e78": "c'est la proportion des séries qui s'écartent de plus de 0,05 : regarde comment elle évolue quand n grandit",
+        "a6296eb74108b66d34847dd80646143c0a5b827165cccaf4275fdd37271a2386": "c'est la proportion des séries qui s'écartent de plus de 0,05 : regarde comment elle évolue quand n grandit"
+      },
+      "sign": 0,
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.23a": {
+      "hash": "25a0066f73c3be9fa6c02d3146e329e9dff3fba4a3f583be7c3d098b787a6b23",
+      "kind": "str",
+      "mistakes": {
+        "03144b01c21ec91b727d1d43b3fcf81e0ab790f7fcc54fda55f7584a45bd8552": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0754f0f3d343e8a9c857f96a517494c5732ddc7b44f7c5d0d424a9ccf8bbcb90": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "08de189e48837b2b9022e2bfd111cd220034bbeb2b629a69abb4493150c0f878": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "09a70f542b8777360bb319cf06fbef6e89b23a3a2356f5bdb4d89a1e8e8521ac": "il manque une ligne fautive : deux événements qui peuvent se réaliser ensemble ne s'additionnent pas : passe par le contraire",
+        "0ab76ce34dd70330aaa808d6a364a387d0de81be740297ed7f6255724a019522": "la ligne (D) est correcte, et il manque une ligne fautive : incompatibles n'est pas indépendants : l'un empêche l'autre",
+        "11c4f7fc026ca1f41805671b989656cb9f4cac4181cb417af4b57da0eb701f10": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "24ffc8aa33c20251b1fa7ef6ca3a95b112fdd45b86eafa20df3ea3bb96b929ff": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "25715c46859d5e60910b66ec6630db2cba69ed7c39f5ad4accdfb59efc10f8eb": "la ligne (D) est correcte, et il manque une ligne fautive : les trois nombres de piles ne sont pas équiprobables : distingue les deux pièces",
+        "2b5dd368c9acb15169514dad2f88d43eec4064b3be9c8089728e4c6d3a3af29f": "il manque une ligne fautive : les trois nombres de piles ne sont pas équiprobables : distingue les deux pièces",
+        "327f10121020c89117b70dcd82a60a782d1d044d85be7d87661df6f3a48da703": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3e2af626e512d877ede71c6c03b8a0a66d0d021f74cc24dffa75e3f7dc088b20": "la ligne (C) est correcte, et il manque une ligne fautive : les trois nombres de piles ne sont pas équiprobables : distingue les deux pièces",
+        "3e984b6d3e6555f6f6d4ec31df9dd3e17f2607c3768efb0c3d13a9c5d2986e6a": "la ligne (D) est correcte, et il manque une ligne fautive : deux événements qui peuvent se réaliser ensemble ne s'additionnent pas : passe par le contraire",
+        "423e822e7ca1537117606a6f931b4da027cb61e333c82a19f4e1c1a95dcb249a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "46d250558458dfc6ea3ad6bea141b514d5c533e867546e3c0b00d453e2e9ee8a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "48f1674aae5609a4ff68b0a52afb43334231a56cd54b77c2543d6da84518927b": "la ligne (C) est correcte, et il manque une ligne fautive : incompatibles n'est pas indépendants : l'un empêche l'autre",
+        "5858dcff830a363ebcce8db1d5cd09515cf500378a66c3afb2392a8824a41520": "il manque une ligne fautive : incompatibles n'est pas indépendants : l'un empêche l'autre",
+        "5f38a7277861c097e1f5a01b40005a60b3ddf70c34157523fa80ede44bcf0966": "la ligne (C) est correcte, et il manque une ligne fautive : deux événements qui peuvent se réaliser ensemble ne s'additionnent pas : passe par le contraire",
+        "627794b8603805912d1d0307a36ac3f91d413c02679324b5126687e21f42199a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "770ce5dcb7a05b8210ca6015998bca84cf8db55ea1c5cb0c05fe37d95aac5e18": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "77b9c2f644fcc2d263de42eb3c66a367ba427723d6ecff7762b848352335189c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8e3cfec20de5a24851c598d4b9e4cc899b8cec537009a295442c487c869cdaa4": "une ligne de trop : la ligne (D) est correcte ; relis ce qu'elle fait",
+        "926c20acef682e9e70eb68fa8f08c0270cd4d4f9d968eb73faa2f8bd4b697c7b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ad6e1d964ae8d99ed8364dc5fbcaddd45bdf9eb504055d22e1bce8c79e758374": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "ad6fe7fc119493dfe3d715918f3c451340c3d878b1f6005241502fd7407f0300": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ae5d3d8043ae3ccea0cc6d3b9be631afed246739008414cbb8510639db0c9a0d": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "b969909ae8633fa2741742df64f09b329ee012fb3df1350060560b27193eb192": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "be87751e97cfb019e06e7cd170e37713200c5b01b00773fc322a3f32a71e1182": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e44ac7917a1c74cb413e2c8e0aaccb768fa24667977ee77764d01b01f49c809e": "une ligne de trop : la ligne (C) est correcte ; relis ce qu'elle fait",
+        "e6f29b56ee4ed9f5c73ba7358eaf7c35dba4ce76239a67b5c86e32881261bad9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f45fda787c543fe260dfbfd1f3664eb898470114fbd546d59cc6f30102a0bfee": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple"
+      },
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
+    },
+    "R8.23b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "4aff764475882cc40861eee13f4b2078050dce9565ff47e50c4b626220628321"
+        ],
+        [
+          "b128d4591e300c181545a9751cd4a08845749517a4ea4769d71030ac0bcf2b12"
+        ],
+        [
+          "7a8f8fa949eaab0ffa22fd59798deee25cdb59d8dd4974521ff649c6805ebe37"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "debbd987d72147678f849695c7ab7f70ba7481c0a60252ed8a921b92087edf79",
+          "54948ffbd5436889b36aa46cc61b8d3045dad482c76a70e586ddfcb2a1a9e77b"
+        ],
+        [
+          "b59943f03c48872824fd5a7ac10ab7fa745cedf98d1a0c020f848ffa32c9a18f",
+          "3c8a76465f598fdd8f7a02fda68d5554c632250065c5934c9b3c8a9b60f74097"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "6cb203e130a303049f483f0aa7f1a6d0c756bec83cc2548fd440615c7384824b",
+        "eb42acc5c42ecd8a97610886e1606e97cd97ae2137d97180b929712ada4c33a7",
+        "ed9c2587bac3782d1954d14cf40c94f93ba3b3951f738e2bd69be9d30dea98d1"
+      ],
+      "hash": "90cdbb944fb0846f910be4f125e9d6547afad27de3cdd42182569fde4f7773a4",
+      "kind": "array",
+      "mistakes": {
+        "48291a8028e6d53232b3f974c9e03765a85a0bc3e1e2b9b821e11756b2928170": "(A) : « au moins un 4 » est le contraire de « aucun 4 »",
+        "540f40e79ae9afc301445b2878813452d6c791ba535214640638de7d9d3f5224": "ce sont les valeurs des raisonnements faux : calcule les bonnes",
+        "b5c7395388bf8ec6f69f8203cda88c2899dd9210cd6974914032937381543ed3": "(E) : deux événements incompatibles ne se réalisent jamais ensemble"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r8_probabilites/05_solutions.ipynb"
     }
   }
 }

@@ -747,7 +747,8 @@ CHAPTERS = [
             ("R8.9", "✏️", 2, 20, "Espérance, variance (avec V = E[X²] − E[X]²) et écart-type", "§7", "E"),
             ("R8.10", "✏️", 2, 20, "Un jeu est-il équitable ?", "§7", ""),
             ("R8.11", "∂", 2, 25, "Démontrer C(n, k) = C(n − 1, k − 1) + C(n − 1, k)", "§3", ""),
-            ("R8.12", "∂", 2, 25, "E[aX + b] = aE[X] + b et V(aX + b) = a²V(X)", "§7", "E"),
+            ("R8.12", "∂", 2, 25, "L'espérance d'une somme : E[X + Y] = E[X] + E[Y], même pour des variables liées",
+             "§7", "E"),
             ("R8.13", "🔗", 1, 10, "Comparer toutes les paires : un tournoi, C(n, 2) et une croissance en n²", "§3",
              "E"),
             ("R8.14", "🧮", 2, 20, "Fermi : la probabilité de croiser quelqu'un que l'on connaît dans le métro",
@@ -764,6 +765,15 @@ CHAPTERS = [
             ("R8.23", "🐛", 2, 20, "Chasse à l'erreur : trois raisonnements de probabilités faux", "§2 §5", "E"),
             ("R8.24", "🛠️", 1, 15, "Reproductibilité : générateur aléatoire et graine", "§8", "E"),
         ],
+        "notes": "Une session de génération. Règle de partage avec workbookIA 0B : 0B.28 démontre E[aX + b], "
+                 "V(X) = E[X²] − E[X]² et V(aX + b), seulement énoncés et utilisés ici ; le ∂ R8.12 démontre "
+                 "l'énoncé plus général E[X + Y] = E[X] + E[Y] (que 0B admet), en sommant sur les issues. Les "
+                 "exemples et les données évitent ceux de 0B (deux dés à 6 faces, la somme 7, « au moins un 6 », la "
+                 "pièce et le dé, la loi 0, 1, 2, 5 de 0B.27, le dé 1, 1, 2, 3, 3, 3), de workbookIA 2 (dé à 20 "
+                 "faces, pièce truquée à 30 %), de 3.R1 (deux cartes rouges parmi 32) et du test de positionnement "
+                 "(urne de 3 rouges et 2 bleues, loi −2, 0, 1) ; le 🔗 R8.13 compte des paires sans parler "
+                 "d'un-contre-un (workbookIA 7.1) ; le 🔬 R8.21 mesure la proportion de séries qui s'écartent de la "
+                 "probabilité, pas l'écart-type des fréquences (0B.52).",
     },
     {
         "id": "R9",
