@@ -92,24 +92,25 @@ CHAPTERS = [
         "exercises": [
             ("POS.1", "✏️", 1, 6, "Calculer avec des priorités et des fractions", "§R1", "E f:03"),
             ("POS.2", "✏️", 1, 6, "Puissances, racines et notation scientifique", "§R1", "E f:03"),
-            ("POS.3", "✏️", 1, 7, "Développer, factoriser, puis résoudre une équation du premier degré", "§R2", "E f:03"),
+            ("POS.3", "✏️", 1, 7, "Développer, factoriser, résoudre une équation et une inéquation", "§R2", "E f:03"),
             ("POS.4", "✏️", 2, 8, "Un système de deux équations à deux inconnues", "§R2", "E f:03"),
             ("POS.5", "📈", 1, 5, "Lire un graphique de fonction", "§R3", "E f:03"),
             ("POS.6", "✏️", 2, 8, "Racines et sommet d'un polynôme du second degré", "§R3", "E f:03"),
-            ("POS.7", "✏️", 1, 6, "Calculer une somme écrite avec Σ, puis une somme double", "§R4", "E f:03"),
+            ("POS.7", "✏️", 1, 7, "Sommes avec Σ, somme double et produit avec Π", "§R4", "E f:03"),
             ("POS.8", "✏️", 1, 5, "La négation d'une phrase avec « pour tout »", "§R4", "E f:03"),
             ("POS.9", "✏️", 1, 6, "Terme et somme d'une suite géométrique", "§R5", "E f:03"),
             ("POS.10", "✏️", 1, 6, "Une suite définie par récurrence : premiers termes et limite", "§R5", "E f:03"),
             ("POS.11", "✏️", 1, 5, "Propriétés de l'exponentielle et du logarithme", "§R6", "E f:03"),
-            ("POS.12", "✏️", 1, 6, "Résoudre e^x = 5 et log₂ x = 3", "§R6", "E f:03"),
+            ("POS.12", "✏️", 1, 6, "Résoudre des équations avec exp et ln", "§R6", "E f:03"),
             ("POS.13", "✏️", 1, 7, "Dériver trois fonctions, dont une composée", "§R7", "E f:03"),
-            ("POS.14", "✏️", 2, 8, "Tangente et variations d'une fonction", "§R7", "E f:03"),
+            ("POS.14", "✏️", 2, 10, "Tangente, variations et une limite", "§R7", "E f:03"),
             ("POS.15", "✏️", 1, 6, "Une probabilité avec un arbre", "§R8", "E f:03"),
             ("POS.16", "✏️", 1, 6, "L'espérance et la variance d'une variable aléatoire", "§R8", "E f:03"),
             ("POS.17", "✏️", 1, 6, "Distance et produit scalaire dans le plan", "§R9", "E f:03"),
             ("POS.18", "✏️", 1, 5, "Cosinus d'un angle et radians", "§R9", "E f:03"),
         ],
-        "notes": "Fichiers : 01_sujet.md, 02_notebook.ipynb (réponses vérifiées), 03_corrige.md, 04_mes_reponses.md, "
+        "notes": "Fichiers : README.md (mode d'emploi), 01_sujet.md, 02_notebook.ipynb (réponses vérifiées, grille calculée), "
+                 "03_corrige.md (où chaque question est enseignée), 03_solutions.ipynb, 04_mes_reponses.md, "
                  "05_grille.md (deux exercices par chapitre ; seuils : 2/2 → tu peux sauter, 1/2 → survoler la fiche et "
                  "faire les exercices E, 0/2 → chapitre complet). Généré juste après R0, avant R1, pour être prêt quand "
                  "l'apprenant en a besoin ; il vise les notions de la partie 0 telles que ce syllabus les fixe.",

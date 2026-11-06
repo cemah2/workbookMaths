@@ -60,6 +60,713 @@
       },
       "source": "00_setup/demo_solutions.ipynb"
     },
+    "POS.1a": {
+      "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "38f88c37e61f4ba32c48947cffcc94fe6b630739086e9810b00906b46b2c6ede": "la multiplication passe avant la soustraction",
+        "89d4b00683cfd838f81da0e03d4976bda6c289a5ff9f74422b9824bcaa53cbe1": "moins par moins donne plus"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.1b": {
+      "hash": "cc05e1fd64c164a3bd88e7803a793b8c8e179e2760b3f311f702576290896cad",
+      "kind": "fraction",
+      "mistakes": {
+        "58307ee06a6a70e01f4d31429a5e4c007a74ca778a40e46197047370500f6f4c": "on n'additionne pas les numérateurs et les dénominateurs entre eux"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.1c": {
+      "hash": "583c288194dcb2eff6eb998eaced393213c00b3b57aad92a6e4d19f6014d72b6",
+      "kind": "fraction",
+      "mistakes": {
+        "c564dc4a1727db90057a0ff1974e0321d664494cc903a2d1dde1665f30c45315": "diviser par une fraction, c'est multiplier par son inverse"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.1d": {
+      "hash": "88870903b79f61a3ab6375df2aeb43a4161c4ef9b47d92ed43fb9dbff21c49b7",
+      "kind": "fraction",
+      "mistakes": {
+        "b9b16e9aef7a1db82f00529e10b1d677e4e4e02c72a15ad02373b4d9d24b4395": "diviser par 2 rend le nombre plus petit : c'est le dénominateur qui double"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.2a": {
+      "hash": "a0ef8c8e1c5168f8a54dddb5fdb14fe4e1a0cd4b405b9cc75dd430eaa4fc3cf6",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "d583936b41ed0bd730e65388c3ea7d15d026c2f799fc30461ff85bbae5d709e1": "un exposant négatif compte en moins : additionne les exposants avec leur signe"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.2b": {
+      "hash": "a49957a89140244fc66283937511c6565865a0b52fd74cd3465e696b1f2f8987",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "4a9a43d7a160d1cf874be462650dfaed3aadf47a3506a451f64a4bddab50afe6": "écris 72 comme un carré parfait multiplié par 2"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.2c": {
+      "hash": "3eb483042cb999fb7ff8355d1775c82ecd05cf5973fd5e86ca7b64a60dc8248d",
+      "kind": "int",
+      "magnitude": 7,
+      "mistakes": {
+        "f7d85bca98ac02f55204f58257aa96d2bb5256f75ad670603ee7476bc9818672": "diviser par 10 puissance -2, c'est multiplier par 10 puissance 2"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.2d": {
+      "decimals": 5,
+      "hash": "5ac6af248f78568d8a554911b7a77ccea27358e472f4f5b4b1baabac4b985d64",
+      "hash_coarse": "986fa13c01c33429453cc411e982b6dcb57436776c1fe3de3ab4aa1b78fd64db",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "47ca29d2175f1c3bfd3b93c397cbe2546d7bb1a3be49080bbbad2a8f7ae48807": "10 puissance -3 est un millième : la virgule recule de 3 rangs, pas de 4",
+        "ccd19ea90e8b2bcaf5825bdf7483ec64612e7ca00526205ab1f658ac510066ae": "10 puissance -3 est un millième : la virgule recule de 3 rangs, pas de 2"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.3a": {
+      "hash": "4c348919581b2877f962375d27fdac2538944e4d945087ec69ec246becf308d6",
+      "kind": "expr",
+      "mistakes": {
+        "466d13b0438143d03f5ef2c220b9317c35103b0bf9d1efa8fc4dfe70a2fd7907": "réduis les termes en x avec leurs signes",
+        "53ea17de96c0a4a2409a62cf8f8ece1c05efd6f8550912d8f889a9291dd7a882": "le terme constant est le produit des deux nombres, avec son signe"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.3b": {
+      "hash": "45efdc1b74ceaeec31237300c329d672bad8446d3f4672c9035c864840e5c1b6",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "230f3ad92e49a6e66f07a22c1b406835ce0f3cfe411dee00b793d4867992ad59": "(x - a)² = x² - 2ax + a² : identifie le double produit",
+        "370c52081bb1fb56c41f8a61b69f407bb223769a3187145eb1555755a0d6c987": "le signe de a se lit dans le double produit"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.3c": {
+      "hash": "756856b8495fff1dcb6a4abc68ccff2d76ed234d584a685693954aa9c2666b08",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.3d": {
+      "hash": "df593aca1979a27e651c05f288af1442ea11f724f937403d26689462c2a7d3f5",
+      "kind": "interval",
+      "mistakes": {
+        "b0df94d51fcbf7408f332c75f3450f0afeb7ae5f35bb9d5bc8d10176f243a8b1": "l'inégalité est large : la borne est solution",
+        "fc30003456992f78dc29bf2405079fa980ec349bfd976fdc988f0f7a48dfa988": "diviser par un nombre négatif retourne l'inégalité"
+      },
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.4a": {
+      "decimals": 0,
+      "element_hashes": [
+        "ab5c7b96c7ae5629bfa411b6be9ad8d8eec6b1da8779d5ac2d678c6a48794461",
+        "231ac5084c7556249f02ee8bd2d19bba6ac83bf541790c7103d6e9ba9a0725b4"
+      ],
+      "hash": "18b6909426adf034c055c7a2f04a50ef350f64873c5f3263390e0d60f707a695",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "717beef50bfb06816c8b7e3af28a346a4da3cb644254f5053a71d6652ec37863": "l'ordre demandé est [x, y]"
+      },
+      "shape": [
+        2
+      ],
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.4b": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "12003a35fcd6fba070f2b1180923c83a2eaacc23960b5806ba1dd91b5cd638cd",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5d7073b8a447958c6d10eb95b691b752be7e8fcf30abb36783ae306e3283b7dc": "les deux équations se ressemblent, mais leurs membres de droite sont-ils compatibles ?",
+        "b13ac6cf514a1adba8e1a5ab57879f659739cec662ab796c3c93251c244c3437": "divise la seconde équation par 2 et compare-la à la première"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.5a": {
+      "hash": "15fb1ca01ff4d39feaf4e7899f32ee53c5c8340896bbb0396802081d3060abdc",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.5b": {
+      "hash": "b11b4bd085d2d9cf22b560fe7e4a085f7039db5e2b874643899e007ffcd20f1e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "b0458e78659b46aa98bf1666d640d2a877b9eb97bf9c5d1aa8b5855b88c8f407": "regarde aussi les extrémités de la courbe"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.5c": {
+      "hash": "71ac0fcb619c5e42cc186136223eb7466a20dcce9649d17b11e92450099eb36a",
+      "kind": "interval",
+      "mistakes": {
+        "636deed77056867843cda5e480b8a8a39314531c065c51c3b2e60d9c54c69198": "décroissante : la courbe descend quand x augmente",
+        "7228ced72da7d341ce0734361c219e42ae5e4117d14b292909d653ca1cd36ca1": "le plus grand intervalle contient ses bornes : crochets fermés"
+      },
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.5d": {
+      "hash": "2aea84af81ac2e18f1a7a75edfadcf0fce65f18efce8b763bfdc0faa306ac41a",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "98fa7c17e025df81b7396cad146f843b078ec626e521baae5323022712f00dc1": "le maximum est une valeur de g(x), pas l'abscisse où elle est atteinte"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.6a": {
+      "hash": "a0f1879247a896dc965fbe8a466a81bf17471e9b72c84ee989d4f1373e9626de",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "e1d3953bd6c563e6df1d38504d3fc498b0c272408c2417bb402efef4d0a4621c": "c est négatif : le terme -4ac est donc positif"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.6b": {
+      "hash": "346d2ea90f1ce4482c40c0dc75d6e3e6f9bf8700babbfebea7df35e884e3ae8a",
+      "kind": "set",
+      "mistakes": {
+        "065cbf5216864de8e2cd9fd60bd6ce343b28031b4ae1f1b2c43704401e8da9e5": "vérifie chaque racine en la remplaçant dans p(x)"
+      },
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.6c": {
+      "hash": "434389687a357efcc86b141ffe2f9dc7c2d1deb239dd65e1a810aecc11db4c74",
+      "kind": "fraction",
+      "mistakes": {
+        "fa80bd6b47adfbcc60a622bf8b813d070cfd172600ef4f2acfe96359f16bd09f": "l'abscisse du sommet vaut -b/(2a), avec le signe moins"
+      },
+      "sign": -1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.6d": {
+      "hash": "e4af99c773f4c487c3852883a6dfda50793d401e55a9209413495ce5319a0782",
+      "kind": "fraction",
+      "mistakes": {
+        "393e108a6f47cb71bf510f5aa83d1463080e047aae979995418722b4594f7d10": "n'oublie pas le coefficient devant x² en calculant p"
+      },
+      "sign": -1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.7a": {
+      "hash": "b7abe0d93930f6e8140f5ed8b9110e4b66bef4a4ca044c0eeac3ce5264d90309",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "01722835083b857061be52b5c1681716630956bfcdbf2853ccecd720657de3bb": "le +1 s'ajoute à chacun des termes"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.7b": {
+      "hash": "d4209e0b51b29f4c90dc022dfa71e4ff895d245fb9f32a2585268fc6c6a75370",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "91a4bd6ae2ddcac350528920469ad9752bc68eac994819fe864427e6b1c9c5c4": "i commence à 0 : le premier terme compte aussi"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.7c": {
+      "hash": "b0ab949e0a538751828340de5e3dd0e6286793f187ec50e04988e8da0c19dbbb",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.7d": {
+      "hash": "f422bf1c72642a8254321d9f0e6d45d3088f051e1eaac358688a615b5ee0dee6",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "2d9de95cd0d46bf4e4d727cd5997213cc3dc6e6f4edbb1fdf0d1fa56f8aa5f9f": "Π multiplie les termes, Σ les additionne"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.8a": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "8ad431d9d77350996c80557ec43381c6e82d83ff5a56f153e5d0f010b06c5f2f",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "005810cd4f7a0951ad69bf667129e8286c05355a9b28d493f014a85144b6f87d": "la négation de « pour tout » est « il existe »",
+        "b56d713f023a071fbac909279fc0cc09f97350656f82db06b26910cd05377ae8": "« il existe » est juste, mais la conclusion aussi doit être niée",
+        "d1df39f7d49bdfa183ff546bfd702b3916c4ec910782bb5fc12582a0ace48485": "« aucun » nie trop : il suffit d'un seul exemple pour contredire « pour tout »"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.8b": {
+      "hash": "b8b27828e8784b3be5b3d35a830c035f96f0997cbf9b54dd6e8fc16a9c0d2e89",
+      "kind": "bool",
+      "mistakes": {
+        "15a86436443f793f405fe61a1ee7aab56ed1789dafc0f66f4686e4eb0a1a396f": "un seul contre-exemple suffit à rendre la phrase fausse : cherche-le"
+      },
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.9a": {
+      "hash": "2dbe8acccd9bfb4a07c6dd598cf2e8ff107b6709ba36d7e85ffb0de35b6c7584",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "0a1af4136048c45a3e61ecf41d12947d0b1b2b93508cf370fd0e0db5566b0daf": "u_5 est le 6e terme, car on part de u_0",
+        "16392155f0d4d757883058637ce6a2ecc2723b691128cd9dd31f73216c89e894": "u_n = u_0 × q^n : compte bien l'exposant"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.9b": {
+      "hash": "891891e50affdf805c7be3d7b18296e36dc5a61fe3d3863cb3dedcb376b810e5",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "bcd27a50d51631f602cd666c8c4178c5363f37b157736ae4e7ab011883f7ac1c": "compte les termes de u_0 à u_5 : il y en a un de plus que 5"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.9c": {
+      "hash": "15f9842bcdc2df6af440496272b2f4aacbf0447613a3a65ad70cd41dc7cdbae1",
+      "kind": "fraction",
+      "mistakes": {
+        "b409bf6f101119c4439844c86baf6a19164b456d2ef92b1e2163d5dee58fcfde": "la somme infinie vaut 1 / (1 - q), avec un signe moins"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.10a": {
+      "decimals": 1,
+      "element_hashes": [
+        "83a6244c4c50a972873b94aba199c9ffd94f37fb228d968d986a9a9f70af0826",
+        "3c5d33359ef01915c443dd52ac6e3fb521044638d6b8e0a3ec07e99edd369b7f",
+        "b7187cb97ad19322d365f16b58854438ecc130f875dacc359089578831d66217"
+      ],
+      "hash": "94703a70ec1e8a5c03c0cbe4758a6162131bde00ecb3679938819419c9d0ab2e",
+      "kind": "array",
+      "mistakes": {
+        "a732269a53b3668cdee5aee1bfa2fad40c5328660c110ba381d16695e73d925d": "chaque terme se calcule à partir du précédent : moitié, puis plus 3"
+      },
+      "shape": [
+        3
+      ],
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.10b": {
+      "hash": "2410b7efbf8a61584e9d2f9c9ea6651949d142006c147af912087d7f04010194",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2709cd2218d41b39d171c6fed55b72fe5d8bcc387b94cffa5000434e23102142": "la limite vérifie la même relation que les termes de la suite"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.11a": {
+      "hash": "863fc48c3a44b210fb5bd02bb872df823ac7ca3c43648740f1431824de1c35eb",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "3803a9d1d0ebb23b59d62259a945baf555accb7e0c62895070f291dcab7326a7": "e puissance 0 vaut 1, pas 0"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.11b": {
+      "hash": "e3548d91239374a326c58232fbbe23115342ef4cff9f841876a73887480a5ead",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "1e5a1bf606c2faa03f21c68ed3a546a12a386c6d4b290a9ce9a7eb4ae26529b7": "ln a - ln b = ln(a / b), pas ln(a - b)"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.11c": {
+      "hash": "8ee7c70960d7851564f7be2255404212f4a432147e3532a62f5dc68d969169fb",
+      "kind": "fraction",
+      "mistakes": {
+        "9e0ea62a9f30b06beb17d8609a5d5fe1d447d36392962d9507bff09b3b926eed": "la racine carrée est la puissance 1/2 : écris √e comme une puissance de e"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.11d": {
+      "hash": "4fd63e61adf1c257d198f5323a7874b24555c7838a0660c302b7c39f443203f5",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "f227e16cc12a8eff2647c2a449246a6f8a8478b4ddbd10d1c4ddfd098e2644ad": "log₂ 64 est l'exposant de 2 qui donne 64"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.12a": {
+      "hash": "1172e198270192b10c70395c4c4a1b1756beb0f2e3ff68669c3c72f7455787e7",
+      "kind": "expr",
+      "mistakes": {
+        "b8094b905de5ea08ce84933127a7245b0318da851a6a36e3ff0ddf2ba7325a2b": "on défait l'exponentielle avec le logarithme népérien, pas avec l'exponentielle"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.12b": {
+      "hash": "3b2efd5626039e106b93a82cbe8114712c6521536e8971dc1819a5ccb17f6fbc",
+      "kind": "expr",
+      "mistakes": {
+        "1539c7ca91f51fed1319e6e1e3861c419c786868c3868108d3df6567bc2fa8e0": "applique exp aux deux membres, sans perdre le signe du second membre",
+        "60b1c1045fcba514f0a2585655a014b602fe18c965b1e5c3515ba16b28c47376": "une exponentielle est toujours positive"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.12c": {
+      "decimals": 2,
+      "hash": "f857854d55792d2b2d0a90347ee11300902a106634110a54b70cb90d927d4f96",
+      "hash_coarse": "3715fef2fb606f557c6b3fb3136f8591cfe8d1d5456f0c4ab98be67bb9eea187",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "4206bb5b4eef014b44a52d323357869aeb66ebc9ee6687654547b7a89a774788": "e puissance y vaut 1 seulement quand y vaut 0, pas quand y vaut 1"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.13a": {
+      "hash": "76a4e1ede9e1288f032336dd4f02edf1ef1802a3d5518f979c0175a143210489",
+      "kind": "expr",
+      "mistakes": {
+        "272affb1faf9ced29f0b136b5b0b2390dfc694c34f46967fe4237f839330da24": "la dérivée d'une constante est nulle",
+        "bf8589afb2571e7a32edd96709e46459e2e8e41a3fafb7cd16855b35e2854f16": "(x^n)' = n x^(n-1) : l'exposant baisse de 1"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.13b": {
+      "hash": "af6cb989c363ec015d994bf38e7ce6cec57232db1a3ad1e40f581392ea31fb8b",
+      "kind": "expr",
+      "mistakes": {
+        "d75d67f6bdb5bdb1f107f592b8d82f5edf135d512257a7c0680562f93accb303": "un produit se dérive par (uv)' = u'v + uv'"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.13c": {
+      "hash": "29fcd94babcbcceed858e89da71fd92b54ec1a74c57830cab81205f07b73f7e5",
+      "kind": "expr",
+      "mistakes": {
+        "c4ebcc30d83f17a64811b86bec69178344da6029417940edc5835b5b086be53c": "n'oublie pas la dérivée de l'intérieur (règle de la chaîne)",
+        "d4880b30dfac1327385188f915052833fe4f889728463cc06f82f812760a0cad": "la dérivée de l'intérieur, 5 - 2x, est négative"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.14a": {
+      "decimals": 0,
+      "element_hashes": [
+        "c2758350613522d27f2f472db719ff1273050b324cbc6e4bab510306f3b8609a",
+        "7912babdfccc60f3415f56be06c7666139d8f43140ba0f7bca6aa866a5c096a4"
+      ],
+      "hash": "dcd8e78b49e8083f2291d1ed9e74acba88fcc70c8faf480c53086c3fcc271dfb",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "42b22a1f08eb5393ca0ff0bd497ea4a6a9f9da7371ec312fe15f7da706306304": "p n'est pas f(2) : écris y = f'(2)(x - 2) + f(2), puis développe"
+      },
+      "shape": [
+        2
+      ],
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.14b": {
+      "hash": "52e121bac6d6d0a62dc82c0a2baf05b98ad083a3d13ff00ba03ed8227caf41e2",
+      "kind": "interval",
+      "mistakes": {
+        "dd74ad6bf66e2e07b68baa6668d7dbf80204c94626d25f634296c8d11c737aa4": "le plus grand intervalle contient les bornes où f' s'annule : crochets fermés"
+      },
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.14c": {
+      "hash": "4f8ba6c429ebc40b1b329c150feb89c9e0c767adb0b4eaa8c81a48e65966c89d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "1bb7f437e5a1acc48594344760738b0216476d45c0278cb376e782dcac4eca68": "le maximum local est une valeur de f(x), pas une abscisse"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.14d": {
+      "hash": "0ca85812d6d88a8966464b03198da964aae6e3a64ffcfea387fdfd1621fbaf66",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a9117089f623331f64d44aadbc9f68e1932bd6c349bce75397923be75a112e84": "en +∞, seuls les termes de plus haut degré comptent, en haut comme en bas"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.15a": {
+      "hash": "eb30075a19a2cd2812760e37dceb851c546621748320aeb0fa8816cf5cb0205c",
+      "kind": "fraction",
+      "mistakes": {
+        "0979dc33900824c6933e60bc142a3dea2c2e25fc62021a18cd08cc19a62e5531": "sans remise, le second tirage se fait avec une boule de moins"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.15b": {
+      "hash": "89a0bd7637e4d3cd7e9018479a31a0de1ea4f20fc0105e1dd922a98c7dd3d32f",
+      "kind": "fraction",
+      "mistakes": {
+        "549bdbbaf9600b155e768bfd00a7eb2f324ed1402cbf85f537acc45430f21910": "une de chaque couleur : rouge puis bleue, ou bleue puis rouge"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.16a": {
+      "decimals": 2,
+      "hash": "f4c2989eceb9c57a25220f2a34f9f00c7b130db1b3aada3851727c44681f0b65",
+      "hash_coarse": "8c8580d8ddd0e70b2ecfe4b581206750126199fef336611142c66e81ce496e27",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "7e1f5146293c108102743d722e79dadaac7fd0f92c4c891da853bd7bf1037d2e": "l'espérance pondère chaque valeur par sa probabilité",
+        "c74a6ef0675ce4ec7eaede342e46db1e0b42af044c9af4ca108daecc931a7547": "attention au signe de la valeur négative"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.16b": {
+      "decimals": 2,
+      "hash": "e8ce03e554438bd35085b5941bcd40816a28dbc5bd96bcd9f6dd241314926922",
+      "hash_coarse": "39b2afd5ca421667abb4a7bbf323732c3fdb257d99e4c1a6f72753c15904160e",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "320c3e452a670dc39d16ffccb5f3cc93390529e27ab27a873130143d95fe8df0": "V = E[X²] - E[X]² : soustrais le carré de l'espérance",
+        "c9f44957c83a16747a900518e1e5d970ab8ebafda3eafe453c6c936ddf6f34ba": "c'est le carré de l'espérance qu'on soustrait"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.17a": {
+      "decimals": 0,
+      "hash": "8c43e1425615bd5741dd3261808d57173ac6fc5e630ca20fa81f16f8aa04a706",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "48ca8822b27dca82ab017b647d9f6c26ecd4db6f570e36a0e2474d90d7817c5a": "la distance est la racine de la somme des carrés des écarts",
+        "53dfdb3b24991f4fccd366b96939635448d37da1eb76275dd95b76a02283441d": "n'oublie pas la racine carrée",
+        "8dc37c440591239613a15a703fbf4ca01f02c5215aafc69747e54f48526ae1e6": "attention au signe : soustraire une ordonnée négative revient à ajouter"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.17b": {
+      "hash": "47154abe171e750995080c5bd5c09ed33902c1ff392d2d8ec73aba2c7be5646a",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "00234e4f5950a36524f9749e767c9e295f1303f63abf02f4f8e67eb448a0df74": "attention au signe du produit des secondes coordonnées"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.17c": {
+      "hash": "a586600cef3044cbc5dc6569d8597cebc24384a06b5033233249e38a7e61382e",
+      "kind": "bool",
+      "mistakes": {
+        "ab101db4fd93bba606f98ef3e77a6c8e81c6fc000fbfbd60e4ef9672918edcf3": "deux vecteurs sont orthogonaux quand leur produit scalaire est nul : calcule-le"
+      },
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.18a": {
+      "hash": "0b9b139f1bad37e336c197782795f1d8c3071302389e8b5c3f49b26017ef9e5b",
+      "kind": "fraction",
+      "mistakes": {
+        "3f6be988ca2a012345b8cdc8ce402fcbc077dbb8d7534fac005764c17caf13e4": "180 degrés correspondent à π radians"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.18b": {
+      "hash": "58a8f152abb666949b60c0c2ccd43980638613ae21823ef2257e36c7e1397288",
+      "kind": "fraction",
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
+    "POS.18c": {
+      "hash": "9221c2ed38186f2c8e5ae9121cf8f545b30d7f6ac2f6740a1aa535ff089934b1",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "38e364c4a7e79729ec1dc00bb1b69e95d1fd89b8cbf07f71b2de20b372314374": "les vecteurs ne sont pas orthogonaux : calcule le cosinus de leur angle",
+        "84152abe496cc559611efbf3330e9558777160c2d0cf12b00920be79cf494aab": "cos θ = u·v / (‖u‖ ‖v‖) : l'angle est celui dont le cosinus vaut ce quotient"
+      },
+      "sign": 1,
+      "source": "positionnement/03_solutions.ipynb"
+    },
     "R0.1a": {
       "hash": "1d6fba18a248bafcd90038e436d884294e2123779a417082de8d3ee7379464b6",
       "kind": "int",

@@ -5,7 +5,7 @@
     python tools/start_chapter.py M12c      # one math chapter
     python tools/start_chapter.py 12        # ALL the math chapters to study before workbookIA ch. 12 (M12a-M12d)
     python tools/start_chapter.py CP1       # the mock exam of part I (just before workbookIA's checkpoint I)
-    python tools/start_chapter.py POS       # the placement test (before R0)
+    python tools/start_chapter.py POS       # the placement test (just after R0)
     python tools/start_chapter.py PS        # the final synthesis project (its starter kit)
     python tools/start_chapter.py --init    # create mon_travail/mymath (base files) and mon_travail/suivi
     python tools/start_chapter.py M12c --dry-run

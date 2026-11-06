@@ -17,7 +17,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | Chapitre | Titre | Prépare (workbookIA) | MML | Durée | Détail | Sessions |
 |---|---|---|---|---|---|---|
 | [R0](#r0) | Prise en main | 0B | — | 3,2 h | ✅ exercices | 1 |
-| [POS](#pos) | Test de positionnement | — | — | 2,0 h | ✅ exercices | 1 |
+| [POS](#pos) | Test de positionnement | — | — | 2,1 h | ✅ exercices | 1 |
 | [R1](#r1) | Nombres et calcul | 0B | — | 12,5 h | ✅ exercices | 1 |
 | [R2](#r2) | Calcul littéral et équations | 0B | — | 13,6 h | ✅ exercices | 1 |
 | [R3](#r3) | Fonctions | 0B | — | 12,8 h | ✅ exercices | 1 |
@@ -79,7 +79,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 
 | Partie | Chapitres | Exercices détaillés | Durée (complet) | Durée (essentiel) |
 |---|---|---|---|---|
-| 0 · Remise à niveau | 12 | 363 | 113,6 h | 90,5 h |
+| 0 · Remise à niveau | 12 | 363 | 113,7 h | 90,6 h |
 | I · Fondations | 9 | — | ≈ 110 h (estimé) | à détailler |
 | II · Concepts | 7 | — | ≈ 78 h (estimé) | à détailler |
 | III · ML classique | 8 | — | ≈ 98 h (estimé) | à détailler |
@@ -150,7 +150,7 @@ Les outils du workbook, sans maths nouvelles : le notebook, Python comme calcula
 
 Le test de positionnement : deux exercices par chapitre de R1 à R9, vérifiés par `wbm.check`, et une grille qui dit pour chaque chapitre « à faire », « à survoler » ou « tu peux sauter » (avec les exercices à faire quand même). À passer juste après R0 (qui apprend à taper une fraction, une expression ou un intervalle dans `wbm.check`), sans préparation : il mesure ce qui reste, pas ce qu'on peut réviser en une soirée.
 
-**Temps** : 2,0 h en parcours complet, 2,0 h en parcours essentiel (lecture 10 min, 0 flashcards).
+**Temps** : 2,1 h en parcours complet, 2,1 h en parcours essentiel (lecture 10 min, 0 flashcards).
 
 **Objectifs**
 
@@ -179,24 +179,24 @@ Le test de positionnement : deux exercices par chapitre de R1 à R9, vérifiés 
 |---|---|---|---|---|---|---|---|---|
 | POS.1 | ✏️ | Calculer avec des priorités et des fractions | ★ | 6 | §R1 | C, E | wbm | — |
 | POS.2 | ✏️ | Puissances, racines et notation scientifique | ★ | 6 | §R1 | C, E | wbm | — |
-| POS.3 | ✏️ | Développer, factoriser, puis résoudre une équation du premier degré | ★ | 7 | §R2 | C, E | wbm | — |
+| POS.3 | ✏️ | Développer, factoriser, résoudre une équation et une inéquation | ★ | 7 | §R2 | C, E | wbm | — |
 | POS.4 | ✏️ | Un système de deux équations à deux inconnues | ★★ | 8 | §R2 | C, E | wbm | — |
 | POS.5 | 📈 | Lire un graphique de fonction | ★ | 5 | §R3 | C, E | wbm | — |
 | POS.6 | ✏️ | Racines et sommet d'un polynôme du second degré | ★★ | 8 | §R3 | C, E | wbm | — |
-| POS.7 | ✏️ | Calculer une somme écrite avec Σ, puis une somme double | ★ | 6 | §R4 | C, E | wbm | — |
+| POS.7 | ✏️ | Sommes avec Σ, somme double et produit avec Π | ★ | 7 | §R4 | C, E | wbm | — |
 | POS.8 | ✏️ | La négation d'une phrase avec « pour tout » | ★ | 5 | §R4 | C, E | wbm | — |
 | POS.9 | ✏️ | Terme et somme d'une suite géométrique | ★ | 6 | §R5 | C, E | wbm | — |
 | POS.10 | ✏️ | Une suite définie par récurrence : premiers termes et limite | ★ | 6 | §R5 | C, E | wbm | — |
 | POS.11 | ✏️ | Propriétés de l'exponentielle et du logarithme | ★ | 5 | §R6 | C, E | wbm | — |
-| POS.12 | ✏️ | Résoudre e^x = 5 et log₂ x = 3 | ★ | 6 | §R6 | C, E | wbm | — |
+| POS.12 | ✏️ | Résoudre des équations avec exp et ln | ★ | 6 | §R6 | C, E | wbm | — |
 | POS.13 | ✏️ | Dériver trois fonctions, dont une composée | ★ | 7 | §R7 | C, E | wbm | — |
-| POS.14 | ✏️ | Tangente et variations d'une fonction | ★★ | 8 | §R7 | C, E | wbm | — |
+| POS.14 | ✏️ | Tangente, variations et une limite | ★★ | 10 | §R7 | C, E | wbm | — |
 | POS.15 | ✏️ | Une probabilité avec un arbre | ★ | 6 | §R8 | C, E | wbm | — |
 | POS.16 | ✏️ | L'espérance et la variance d'une variable aléatoire | ★ | 6 | §R8 | C, E | wbm | — |
 | POS.17 | ✏️ | Distance et produit scalaire dans le plan | ★ | 6 | §R9 | C, E | wbm | — |
 | POS.18 | ✏️ | Cosinus d'un angle et radians | ★ | 5 | §R9 | C, E | wbm | — |
 
-*Notes* : Fichiers : 01_sujet.md, 02_notebook.ipynb (réponses vérifiées), 03_corrige.md, 04_mes_reponses.md, 05_grille.md (deux exercices par chapitre ; seuils : 2/2 → tu peux sauter, 1/2 → survoler la fiche et faire les exercices E, 0/2 → chapitre complet). Généré juste après R0, avant R1, pour être prêt quand l'apprenant en a besoin ; il vise les notions de la partie 0 telles que ce syllabus les fixe.
+*Notes* : Fichiers : README.md (mode d'emploi), 01_sujet.md, 02_notebook.ipynb (réponses vérifiées, grille calculée), 03_corrige.md (où chaque question est enseignée), 03_solutions.ipynb, 04_mes_reponses.md, 05_grille.md (deux exercices par chapitre ; seuils : 2/2 → tu peux sauter, 1/2 → survoler la fiche et faire les exercices E, 0/2 → chapitre complet). Généré juste après R0, avant R1, pour être prêt quand l'apprenant en a besoin ; il vise les notions de la partie 0 telles que ce syllabus les fixe.
 
 <a id="r1"></a>
 ## R1 · Nombres et calcul
