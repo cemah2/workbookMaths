@@ -423,10 +423,10 @@ wbm.record("R5.15b", 11, mistakes={"n + 1 termes, du rang 0 au rang n": {10, 12}
 wbm.record("R5.15c", [-3],
            mistakes={"n = 0 : la liste contient le seul terme u0": [],
                      "u0 entre tel quel dans la liste : f ne sert qu'à calculer les termes suivants": [3]})
-wbm.record("R5.15d", 89 / 55, decimals=4,
-           mistakes={"le terme de rang 10 : f est appliquée 10 fois à partir de u0": {55 / 34, 144 / 89}})''',
+wbm.record("R5.15d", 144 / 89, decimals=4,
+           mistakes={"le terme de rang 10 : f est appliquée 10 fois à partir de u0": {89 / 55, 233 / 144}})''',
     after=tests_cells("test_iterate_"),
-    note="Les termes de d) sont des quotients de nombres de Fibonacci consécutifs ($\\frac{89}{55}$ au rang 10). La "
+    note="Les termes de d) sont des quotients de nombres de Fibonacci consécutifs ($\\frac{144}{89}$ au rang 10). La "
          "limite vérifie $\\ell = 1 + \\frac{1}{\\ell}$, soit $\\ell^2 - \\ell - 1 = 0$ : sa solution positive est "
          "le **nombre d'or** $\\frac{1 + \\sqrt{5}}{2} \\approx 1{,}618$. Ici la règle n'est pas affine, mais l'idée "
          "du point fixe marche encore.",

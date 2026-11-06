@@ -79,7 +79,24 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | Π | $\prod_{k=1}^{n} (c\,a_k) = c^n \prod a_k$ ; $n! = \prod_{k=1}^{n} k$ ; produit vide = 1 |
 | récurrence | P(n₀) vraie et, pour tout $n \ge n_0$, $P(n) \Rightarrow P(n + 1)$ : P(n) vraie pour tout $n \ge n_0$ |
 
-*(R5 à R9 ajoutés avec leurs chapitres)*
+### R5 · Suites
+
+| Notion | Formule |
+|---|---|
+| arithmétique | $u_{n+1} = u_n + r$ ; $u_n = u_0 + n\,r = u_p + (n - p)\,r$ |
+| géométrique | $u_{n+1} = q\,u_n$ ; $u_n = u_0\,q^n = u_p\,q^{n-p}$ ; une hausse de $t\,\%$ multiplie par $1 + \frac{t}{100}$ |
+| somme arithmétique | nombre de termes × $\frac{\text{premier} + \text{dernier}}{2}$ |
+| somme géométrique | $n$ termes, raison $q \ne 1$ : premier × $\frac{1 - q^n}{1 - q}$ ; $q = 1$ : $n$ × premier |
+| nombre de termes | $\sum_{k=m}^{n}$ : $n - m + 1$ termes |
+| limite | $u_n \to \ell$ : $\forall \varepsilon > 0,\ \exists N,\ \forall n \ge N,\ \lvert u_n - \ell \rvert < \varepsilon$ |
+| $q^n$ | $\to 0$ si $\lvert q \rvert < 1$ ; $= 1$ si $q = 1$ ; $\to +\infty$ si $q > 1$ ; pas de limite si $q \le -1$ |
+| récurrence affine | $u_{n+1} = a\,u_n + b$ ($a \ne 1$) : $\ell = \frac{b}{1 - a}$, $u_n = \ell + (u_0 - \ell)\,a^n$ ; converge vers $\ell$ si $\lvert a \rvert < 1$ |
+| somme infinie | $\lvert q \rvert < 1$ : $\sum_{k=0}^{+\infty} u_0\,q^k = \frac{u_0}{1 - q}$ |
+| intérêts composés, actualisation | $C_n = C_0\,(1 + t)^n$ ; valeur actuelle de $S$ dans $n$ ans : $\frac{S}{(1 + t)^n}$ |
+| moyenne mobile | $m_t = \frac{1}{k}\sum_{j=t-k+1}^{t} x_j$ ; $N - k + 1$ moyennes pour $N$ valeurs |
+| moyenne exponentielle | $v_0 = 0$, $v_t = \beta\,v_{t-1} + (1 - \beta)\,x_t$ ; poids $(1 - \beta)\,\beta^k$ pour la valeur d'âge $k$ |
+
+*(R6 à R9 ajoutés avec leurs chapitres)*
 
 ## Partie I · Fondations
 

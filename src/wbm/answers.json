@@ -7302,13 +7302,13 @@
     },
     "R5.15d": {
       "decimals": 4,
-      "hash": "0c34f9fcc5947bf6e347060efed0f0358f6ddad02eef657a90943113a394f02f",
+      "hash": "b93cf60e54ea0dd8084684641d7e9df8a1a7e36c0589ff88d4486c82cd4d6921",
       "hash_coarse": "8077ba97b03513deb9206dddc4b2e750a263b0ffcc9f6f6be5caa1c46868551f",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "167e52a139c3e11393e111202fe74a6e2aad4c3a94db1428988a20b35b34f5dd": "le terme de rang 10 : f est appliquée 10 fois à partir de u0",
-        "b93cf60e54ea0dd8084684641d7e9df8a1a7e36c0589ff88d4486c82cd4d6921": "le terme de rang 10 : f est appliquée 10 fois à partir de u0"
+        "0c34f9fcc5947bf6e347060efed0f0358f6ddad02eef657a90943113a394f02f": "le terme de rang 10 : f est appliquée 10 fois à partir de u0",
+        "ad21f7484924d19ed08536636d3d1e147dd098e5fd498533566880105899fa4b": "le terme de rang 10 : f est appliquée 10 fois à partir de u0"
       },
       "sign": 1,
       "source": "chapitres/r5_suites/05_solutions.ipynb"

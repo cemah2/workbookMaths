@@ -69,6 +69,27 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Démontrer par des exemples | « vrai pour 1, 2, 3, donc pour tout $n$ » | un argument pour tous les $n$ (ou une récurrence) |
 | Une récurrence sans initialisation | une hérédité juste suffit | vérifier aussi le premier cas |
 
+## Suites (R5)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Confondre rang et valeur | $u_{n+1} = u_n + 1$ | $u_{n+1}$ est le terme suivant ; $u_n + 1$ est le terme augmenté de 1 |
+| Oublier le premier rang | $a_n = a_1 + n\,r$ pour une suite qui commence à $a_1$ | $a_n = a_1 + (n - 1)\,r$ |
+| Calculer une suite géométrique comme une arithmétique | $u_n = u_0 \times q \times n$ | $u_n = u_0\,q^n$ |
+| Mettre le premier terme sous la puissance | $5 \times 3^n = 15^n$ | la puissance ne porte que sur la raison |
+| Ne garder qu'une raison | $q^2 = 9$ donne $q = 3$ | $q = 3$ ou $q = -3$ |
+| Compter les écarts au lieu des termes | $5 + 8 + \dots + 50$ a 15 termes | 15 écarts, donc 16 termes |
+| Mettre le dernier rang en exposant | $\sum_{k=0}^{6} q^k = \frac{1 - q^6}{1 - q}$ | 7 termes : $\frac{1 - q^7}{1 - q}$ |
+| Oublier le premier terme d'une somme | $\sum_{k=1}^{+\infty} q^k = \frac{1}{1 - q}$ | premier terme $q$ : $\frac{q}{1 - q}$ |
+| Une somme infinie avec $\lvert q \rvert \ge 1$ | $1 + 3 + 9 + \dots = \frac{1}{1 - 3} = -\frac{1}{2}$ | pas de valeur finie : la formule exige $\lvert q \rvert < 1$ |
+| Croire que des termes qui tendent vers 0 suffisent | $1 + \frac{1}{2} + \frac{1}{3} + \dots$ est finie | elle grandit sans fin |
+| Prendre le point fixe pour la limite sans vérifier | $u_{n+1} = 2u_n - 3$ « tend vers 3 » | le point fixe n'est la limite que si la suite converge ($\lvert a \rvert < 1$) |
+| Composer des pourcentages en les additionnant | trois hausses de 20 % = +60 % | $1{,}2^3 = 1{,}728$ : +72,8 % |
+| Actualiser en multipliant | valeur actuelle de 5 000 € dans 3 ans : $5\,000 \times 1{,}02^3$ | diviser : $\frac{5\,000}{1{,}02^3}$ |
+| Démarrer une moyenne exponentielle à la première valeur | $v_1 = x_1$ | $v_0 = 0$, donc $v_1 = (1 - \beta)\,x_1$ |
+| Inverser le rôle de $\beta$ | $v_t = (1 - \beta)\,v_{t-1} + \beta\,x_t$ | $\beta$ multiplie l'ancienne moyenne |
+| Une moyenne mobile de trop ou de moins | 4 moyennes sur une fenêtre de 3 et 5 valeurs | $N - k + 1 = 3$ moyennes |
+
 ## Fonctions, exponentielle, logarithme (R3, R6)
 
 | Erreur | Exemple faux | Ce qu'il faut faire |

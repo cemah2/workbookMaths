@@ -56,6 +56,9 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $f^{-1}$ | « f moins un », « réciproque de f » | inverse of f | la fonction qui défait $f$ (attention : pas $1/f$) | $\exp^{-1} = \ln$ | R3 |
 | $e$, $\exp(x)$, $e^x$ | « e », « exponentielle de x » | e, exp of x | le nombre $e \approx 2{,}718$ et sa fonction puissance | $e^0 = 1$ | R6 |
 | $\ln x$, $\log_2 x$ | « logarithme népérien », « log en base 2 » | natural log, log base 2 | l'exposant qu'il faut donner à $e$ (ou à 2) pour obtenir $x$ ; dans MML, $\log$ = $\ln$ | $\log_2 8 = 3$ | R6 |
+| $u_n$, $(u_n)$ | « u indice n », « la suite u n » | u sub n, the sequence u_n | le terme de rang $n$ ; la suite entière | $u_n = n^2$ donne $u_3 = 9$ | R5 |
+| $\lim_{n \to +\infty} u_n = \ell$, $u_n \to \ell$ | « limite de u n quand n tend vers plus l'infini », « u n tend vers ℓ » | limit of u_n as n tends to infinity | les termes finissent par rester aussi près de $\ell$ qu'on veut | $\lim_{n \to +\infty} \frac{1}{n} = 0$ | R5 |
+| $\sum_{k=0}^{+\infty} u_k$ | « somme pour k allant de 0 à plus l'infini » | infinite sum, series | la limite des sommes partielles | $\sum_{k=0}^{+\infty} 0{,}6^k = 2{,}5$ | R5 |
 | $\lim_{x \to a} f(x)$ | « limite de f(x) quand x tend vers a » | limit as x tends to a | la valeur dont $f(x)$ s'approche | $\lim_{x \to 0} \frac{\sin x}{x} = 1$ | R7 |
 | $f'(x)$, $\frac{df}{dx}$ | « f prime de x », « d f sur d x » | f prime, df by dx | dérivée : la pente de la tangente | $(x^2)' = 2x$ | R7 |
 | $\frac{\partial f}{\partial x}$ | « d rond f sur d rond x », « dérivée partielle de f par rapport à x » | partial f partial x | dérivée en $x$, les autres variables fixées | $\frac{\partial}{\partial x}(xy) = y$ | M05b |
@@ -106,10 +109,10 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | Minuscule | Majuscule | Nom | Usage fréquent |
 |:-:|:-:|---|---|
 | $\alpha$ | | alpha | un niveau de test, un coefficient |
-| $\beta$ | | bêta | un coefficient, le momentum, la loi Beta |
+| $\beta$ | | bêta | un coefficient, le momentum et la moyenne exponentielle, la loi Beta |
 | $\gamma$ | $\Gamma$ | gamma | le facteur d'actualisation en RL |
 | $\delta$ | $\Delta$ | delta | une petite variation ($\Delta x$) |
-| $\varepsilon$ | | epsilon | une petite quantité, un bruit |
+| $\varepsilon$ | | epsilon | une petite quantité, un bruit, l'écart toléré dans la définition d'une limite |
 | $\eta$ | | êta | le learning rate |
 | $\theta$ | $\Theta$ | thêta | les paramètres d'un modèle |
 | $\lambda$ | $\Lambda$ | lambda | une valeur propre, une régularisation |

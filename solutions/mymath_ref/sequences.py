@@ -44,6 +44,8 @@ def geometric_sum(u0, q, n):
     >>> geometric_sum(1, 2, 10)
     1023.0
     """
+    if n == 0:
+        return 0.0
     if q == 1:
         return float(n * u0)
     return u0 * (1 - q**n) / (1 - q)
