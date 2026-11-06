@@ -200,12 +200,12 @@ $e^{\ln a} = a$ et $\ln(e^b) = b$ ; l'exponentielle l'emporte sur toute puissanc
 
 <details><summary>Indice 1</summary>
 
-Relis « Les sommes de Riemann » (fiche §1) et l'exemple de $x^2$.
+Relis « Les sommes de Riemann » (fiche §1) et son exemple.
 
 </details>
 <details><summary>Indice 2</summary>
 
-Commence par le tableau des valeurs de $f$ aux points $0$ ; $0{,}5$ ; $1$ ; $1{,}5$ ; $2$ (et aux milieux pour d). Chaque somme : $h$ fois la somme des hauteurs.
+Commence par le tableau des valeurs de $f(x) = (2 - x)^3$ aux points $0$ ; $0{,}5$ ; $1$ ; $1{,}5$ ; $2$ (et aux milieux pour d) : $(2 - 0{,}5)^3 = 1{,}5^3$, etc. Chaque somme : $h$ fois la somme des hauteurs.
 
 </details>
 <details><summary>Indice 3</summary>

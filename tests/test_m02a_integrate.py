@@ -65,6 +65,16 @@ def _counted(f):
     return wrapped
 
 
+RULE_POINTS = {"left": "left ends", "right": "right ends", "midpoint": "midpoints"}
+
+
+def _python_float(got, what="the result"):
+    """Fail unless got is a Python float (numpy.float64 passes isinstance(..., float), but prints np.float64(...))."""
+    assert type(got) is float, (
+        f"expected {what} to be a Python float (as the docstring says), got {type(got).__module__}."
+        f"{type(got).__name__} {got!r}: convert with float(...)")
+
+
 def _cubic(x):
     return 2 * x ** 3 - 3 * x + 1
 
@@ -116,8 +126,8 @@ def test_riemann_sum_matches_the_exact_sum(integrate, rule, shift, a, b, n):
     got = _result(lambda: integrate.riemann_sum(_cubic, float(a), float(b), n, rule=rule),
                   f"{expected} (the {rule} sum, computed exactly)")
     assert got == pytest.approx(expected, rel=1e-12, abs=1e-12), (
-        f"expected {expected} (h × the sum of the heights read at the {rule} {'ends' if rule != 'midpoint' else 'points'} "
-        f"of the {n} rectangles of [{float(a)}, {float(b)}]), got {got!r}")
+        f"expected {expected} (h × the sum of the heights read at the {RULE_POINTS[rule]} of the {n} "
+        f"rectangle{'s' if n > 1 else ''} of [{float(a)}, {float(b)}]), got {got!r}")
 
 
 def test_riemann_sum_default_rule_is_left(integrate):
@@ -129,19 +139,21 @@ def test_riemann_sum_default_rule_is_left(integrate):
 
 def test_riemann_sum_returns_a_float(integrate):
     got = _result(lambda: integrate.riemann_sum(lambda x: 3, 0, 2, 4), "6.0 (a float)")
-    assert isinstance(got, float), f"expected a float (as the docstring says), got {type(got).__name__} {got!r}"
+    _python_float(got)
     assert got == pytest.approx(6.0), f"expected 6.0 (a constant 3 on an interval of length 2), got {got!r}"
 
 
 @pytest.mark.parametrize("rule, mirror", [("left", "right"), ("right", "left"), ("midpoint", "midpoint")],
                          ids=["left", "right", "midpoint"])
 def test_riemann_sum_with_reversed_bounds(integrate, rule, mirror):
-    forward = _result(lambda: integrate.riemann_sum(_cubic, -1, 2, 5, rule=mirror), f"the {mirror} sum on [-1, 2]")
+    shift = {"left": Fraction(0), "right": Fraction(1), "midpoint": Fraction(1, 2)}[rule]
+    h = Fraction(-1 - 2, 5)                               # a = 2, b = -1: a negative step
+    expected = _exact_sum(_cubic, [2 + (i + shift) * h for i in range(5)], h)
     got = _result(lambda: integrate.riemann_sum(_cubic, 2, -1, 5, rule=rule),
-                  f"{-forward} (minus the {mirror} sum on [-1, 2])")
-    assert got == pytest.approx(-forward, rel=1e-12), (
-        f"expected {-forward} with a > b: h = (b - a)/n is negative, and the same formula gives minus the {mirror} sum "
-        f"on [b, a]; got {got!r}")
+                  f"{expected} (minus the {mirror} sum on [-1, 2])")
+    assert got == pytest.approx(expected, rel=1e-12), (
+        f"expected {expected} with a > b: h = (b - a)/n is negative, and the same formula, with the points "
+        f"a + (i + shift) h, gives minus the {mirror} sum on [b, a]; got {got!r}")
 
 
 def test_riemann_sum_converges_to_the_integral(integrate):
@@ -201,7 +213,7 @@ def test_trapezoid_is_exact_for_an_affine_function(integrate, n):
 
 def test_trapezoid_returns_a_float_and_handles_reversed_bounds(integrate):
     forward = _result(lambda: integrate.trapezoid(_cubic, 0, 3, 6), "a float")
-    assert isinstance(forward, float), f"expected a float (as the docstring says), got {type(forward).__name__}"
+    _python_float(forward)
     backward = integrate.trapezoid(_cubic, 3, 0, 6)
     assert backward == pytest.approx(-forward, rel=1e-12), (
         f"expected {-forward} with the bounds reversed (minus the integral from 0 to 3), got {backward!r}")
@@ -254,7 +266,7 @@ def test_simpson_error_is_divided_by_about_16(integrate):
 
 def test_simpson_returns_a_float_and_handles_reversed_bounds(integrate):
     forward = _result(lambda: integrate.simpson(math.exp, 0, 1, 4), "a float")
-    assert isinstance(forward, float), f"expected a float (as the docstring says), got {type(forward).__name__}"
+    _python_float(forward)
     backward = integrate.simpson(math.exp, 1, 0, 4)
     assert backward == pytest.approx(-forward, rel=1e-12), (
         f"expected {-forward} with the bounds reversed (minus the integral from 0 to 1), got {backward!r}")
@@ -276,6 +288,7 @@ def test_cdf_from_pdf_docstring_example(integrate):
 def test_cdf_from_pdf_is_zero_up_to_lower(integrate, x):
     got = _result(lambda: integrate.cdf_from_pdf(lambda t: 0.5, x, 1.0), "0.0")
     assert got == 0.0, f"expected 0.0 for x = {x} <= lower = 1.0 (no probability below lower), got {got!r}"
+    _python_float(got, "F(x) for x <= lower")
 
 
 @pytest.mark.parametrize("x", [0.3, 1.0, 2.5, 6.0], ids=["0.3", "1", "2.5", "6"])
@@ -299,7 +312,7 @@ def test_cdf_from_pdf_uses_the_trapezoid_rule_with_n_intervals(integrate):
 
 def test_cdf_from_pdf_returns_a_float(integrate):
     got = _result(lambda: integrate.cdf_from_pdf(lambda t: 1, 0.5, 0), "0.5 (a float)")
-    assert isinstance(got, float), f"expected a float (as the docstring says), got {type(got).__name__} {got!r}"
+    _python_float(got)
 
 
 def test_cdf_from_pdf_refuses_n_below_1(integrate):
@@ -357,7 +370,7 @@ def test_quantile_stops_after_200_halvings(integrate):
 
 def test_quantile_returns_a_float(integrate):
     got = _result(lambda: integrate.quantile(lambda x: x, 0.5, 0, 1), "0.5 (a float)")
-    assert isinstance(got, float), f"expected a float (as the docstring says), got {type(got).__name__} {got!r}"
+    _python_float(got)
 
 
 @pytest.mark.parametrize("p", [0, 1, -0.2, 1.5], ids=["0", "1", "-0.2", "1.5"])

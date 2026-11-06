@@ -1118,3 +1118,15 @@ def test_a_wrong_choice_is_not_a_calculation_slip():
     e = entry("d.4w", 3, choices=[1, 2, 3])
     text = C.check_entry("d.4w", e, 2)[2]
     assert "bon choix" in text and "1 près" not in text
+
+
+def test_a_pair_for_a_number_suggests_keeping_one_value():
+    entry = C.make_entry("Q.20", 1.772454, decimals=6)
+    passed, status, message = C.check_entry("Q.20", entry, (1.7724538509, 1.4e-08))
+    assert not passed and status == "type" and "resultat[0]" in message
+
+
+def test_an_exact_integer_answer_does_not_invite_to_round_a_wrong_value():
+    entry = C.make_entry("Q.21", 0)
+    passed, _, message = C.check_entry("Q.21", entry, 0.33)
+    assert not passed and "Si l'énoncé demande d'arrondir" in message

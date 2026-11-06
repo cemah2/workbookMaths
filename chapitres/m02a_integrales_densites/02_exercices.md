@@ -126,14 +126,14 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 - un nombre entier, ou un nombre avec un point décimal, comme `-1.25`, arrondi comme le demande la question ;
 - une fraction irréductible entre guillemets, comme `"5/9"` ;
 - une valeur exacte entre guillemets, avec `sqrt`, `pi`, `exp` ou `ln`, comme `"sqrt(5)/3"` ;
-- une expression en $x$ entre guillemets, avec `**` pour les puissances, `exp`, `ln`, `sqrt`, `sin` et `cos`, comme `"x**4/4 - 3*x"` (pour une primitive, sans la constante) ;
+- une expression en $x$ entre guillemets, avec `**` pour les puissances, `exp`, `ln`, `sqrt`, `sin` et `cos`, et des parenthèses autour d'un dénominateur ou d'un exposant, comme `"x**4/4 - 3/(2*x)"` ou `"exp(-x/2)"` (pour une primitive, la constante est inutile) ;
 - une liste entre crochets, comme `[-1.25, 1]` ; un intervalle entre guillemets, comme `"]-oo ; -7]"` ; vrai ou faux par `True` ou `False`.
 
 ### Ex M02a.1 — Sommes de Riemann à la main : rectangles à gauche, à droite, au milieu ✏️ ★ ⏱️ 20 min
 **Objectif :** calculer les trois sommes de Riemann d'une fonction, et s'en servir pour encadrer une aire.
 **Prérequis :** fiche §1 ; R4 (Σ) · **Parcours :** C, E
 
-On étudie $f(x) = 4 - x^2$ sur $[0 ; 2]$, une fonction décroissante sur cet intervalle. On note $L_n$, $R_n$ et $M_n$ ses sommes de Riemann à gauche, à droite et au milieu avec $n$ rectangles de même largeur.
+On étudie $f(x) = (2 - x)^3$ sur $[0 ; 2]$, une fonction décroissante sur cet intervalle. On note $L_n$, $R_n$ et $M_n$ ses sommes de Riemann à gauche, à droite et au milieu avec $n$ rectangles de même largeur.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -178,7 +178,7 @@ Donne **une** primitive de chaque fonction (sans la constante), sur l'intervalle
 | e | l'aire géométrique de la région comprise entre la courbe de $x^2 - 2x$ et l'axe des abscisses, pour $x$ de $-1$ à $2$ | une fraction irréductible |
 | f | les abscisses des points d'intersection des courbes $y = 2x$ et $y = x^2$ | une liste, dans l'ordre croissant |
 | g | l'aire de la région comprise entre ces deux courbes | une fraction irréductible |
-| h | $\int_0^{\pi} \sin x\,dx$ | un entier |
+| h | $\int_0^{\pi/3} \sin x\,dx$ | une fraction irréductible |
 
 Dans ta copie : dessine la courbe de $x^2 - 2x$ sur $[-1 ; 2]$, et explique pourquoi d) et e) diffèrent.
 

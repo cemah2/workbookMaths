@@ -1010,28 +1010,28 @@
       "magnitude": 0,
       "mistakes": {
         "39b5c73b8be71e7858ab377ca8718171fb1c85afb0fe37aa242130418e7cf2a4": "multiplie la somme des hauteurs par la largeur h des rectangles",
-        "e46460013b7a66f1b9058795b1eda68a0a5adffe121797c37ff2c77c1c52541c": "à gauche : la hauteur se lit au début de chaque intervalle, x de 0 à 1,5"
+        "7a1413873cadbe9fb85e084a5aad845847d8e3542b453836b3717e4a83e35deb": "à gauche : la hauteur se lit au début de chaque intervalle, x de 0 à 1,5"
       },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
     },
     "M02a.1c": {
       "alt_coarse": [
-        "e3878d4f5ceeefeb50619b82b1fe3c5348de344189b670ae0632bb64c264b0b6"
+        "900099fed01a9153239b66fea9dd8347bfdcb5c3c9e6014e3e78c294939e51be"
       ],
       "coarse_any": {
         "0": [
-          "d40e13a20d1ae1d89dadddafdadcce97ace1b964dbdb8e21b0c9b92f2f6299d9"
+          "d4e29d5f0827fdcd4cbba32b9b2e6120346052c3aed8b1913bbd4833199485ad"
         ]
       },
       "decimals": 2,
-      "hash": "7ec6c5d6e11ed11535326aefb62405a5d2bd8e5bf468bab72a818832373664db",
-      "hash_coarse": "280b2fc6fdd9b9c469affb89a0b185826d57017ab4836d7b72561320e233e1a9",
+      "hash": "5d293da151f5c6e6f87dc8d3984bd2be38001466fff61c6d826aec8d6de1eeb3",
+      "hash_coarse": "940681aa6b237c17cf3f095eb5da1ab988364f341a6d7e7bd21552e3db5ab138",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
         "4b0aac9b5692f500656955a6ce12778b2ef5aa730b9f4ebf5e23aa97211e2471": "à droite : la hauteur se lit à la fin de chaque intervalle, x de 0,5 à 2",
-        "629794837f8351af1ca1fa517e7d9dedf39e39a0ec90a0e286a358500d181532": "multiplie la somme des hauteurs par la largeur h des rectangles"
+        "7562f46f35a38a07f2804fe7f9e6c4a962e0f49c78c9cb76ff5c26502426eded": "multiplie la somme des hauteurs par la largeur h des rectangles"
       },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
@@ -1039,74 +1039,74 @@
     "M02a.1d": {
       "coarse_any": {
         "0": [
-          "7491d3a166c54954068ca3734e614284a065c7e6eedb2449a278c5cd7b3ecfd3"
+          "d5fb7bf35c3f04886272633dfb22752347f22c69876f1c8ca853903d35bb5941"
         ]
       },
       "coarser": {
         "1": [
-          "a4961c1c57c2027dfa264b92c73ee60cc61c1d25f080cffdae3f902f6aeca621"
+          "1a1a8e8ac75ef2143231abb80985a6c63c8c15ba5f1f72f9381082b4a90c64f4"
         ]
       },
       "decimals": 3,
-      "hash": "e9e9fbbcc79fce58713cd92f3f20d85b38a88298c59dbdbd8a25960cb9b9a9ed",
-      "hash_coarse": "ded165d2f3e6c8327bce38128900d32157403ef90e482095dee35c8f1f6011d0",
+      "hash": "3d3c3ea4e2931f25b35e22b04f4a029e1d4eabf7751464e3d2c2785d239fafa6",
+      "hash_coarse": "a72d214b54df1e2156ce3d8e1ed7b773980217dcdfc3ea16062f121c969ee87b",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "44928641c6239bec9880994f6fe87104d4e5768e5c00c5360c24cbdeb056158d": "c'est l'aire exacte ; la question demande la somme de Riemann au milieu, qui l'approche",
-        "d02881bc2da01402b122551410eeb55914625d75ac636353476d2e5685a011d0": "au milieu : les hauteurs se lisent en 0,25, 0,75, 1,25 et 1,75, puis on les ajoute",
-        "e743d27bbdb1c2848ea0035ec010acd702fa9306259e1ad4c9a47138727541b0": "multiplie la somme des hauteurs par la largeur h des rectangles"
+        "9842b670f043c6c2114078954d130ac8da5695175d1308f8cd94d61ee01ccf0e": "multiplie la somme des hauteurs par la largeur h des rectangles",
+        "c6c353e78732caeda309620a0e7b756cb4541395f568edba12b61ff765876fff": "c'est l'aire exacte ; la question demande la somme de Riemann au milieu, qui l'approche",
+        "e865f222af5dedc69b549ba762d542d128d61a80f6bbb2603d2fcfee39936fe8": "au milieu : les hauteurs se lisent aux milieux des intervalles, en 0,25, 0,75, 1,25 et 1,75"
       },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
     },
     "M02a.1e": {
-      "hash": "db1b31f3d75b72272464dda3e4dc3a5b487f0d23bc7d14aefadfd14cf8136f87",
+      "hash": "d6675ff7c69fd1ebc6c4b61d69cebaef15ee0668587766fdf06fe0b0dc804f25",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "64802b598793ff4ae3ca8f01cf2c175e697d7e4965611a1ed7617e4c058dec7f": "L₄ − R₄, dans cet ordre : f est décroissante, la somme à gauche est la plus grande"
+        "5866a4d751803ca1c99e69d29958d528da5d56c0cae301b5513e3df7834829ca": "L₄ − R₄, dans cet ordre : f est décroissante, la somme à gauche est la plus grande"
       },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
     },
     "M02a.1f": {
       "alt_coarse": [
-        "0b888d608c8ba642f34c0e925ef3152376d3931b1e32fa487e333253eddfaf3f"
+        "e8aea6014f78773bc9407b30c61bff4fb198768f531c6c46b5d5b1c2c5a3be3f"
       ],
       "coarse_any": {
         "0": [
-          "82a3493080f9ed0f5223b455a1e381bb8463451131a81163c6a9a4eb8935bd54"
+          "fcd63b3bc8f7c67a7b676c7822d484d797570bc88457c6578dd43ea2c0b084cb"
         ]
       },
       "coarser": {
         "1": [
-          "9c30d813fa95593548a856763fdc1145d9c0f8f0737414bbb8ffa87d1c232cee"
+          "c011c5fed088afa54f5ef797b52fb18feb69838458bec701fd01b1ba3e60f881"
         ],
         "2": [
-          "c2fa27f7e248741b13055067521cdf5b66dd7af1a07b34c6f887138e5ce9f635"
+          "0a982a5e5df5847800def6dd091f5e26675fa0a20803f282bcfd550316211a73"
         ]
       },
       "decimals": 4,
-      "hash": "d5cec866a594bb01a994fe4c940716870052047e31fbe8ab8f32c1273a75b38a",
-      "hash_coarse": "31a9eeb67f2bfa6972a05d99e9381b5181cd4202c86a980111d9543a0ff00a3e",
+      "hash": "a1094b29747034e2809bf0e66acde79e972e00fe33507a1dcb7a030d97b4ca98",
+      "hash_coarse": "65c4cd8eefb28df981b37152c53ef6d47db292ef7f9d6e135441ce947bb1caaa",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "d3f8cbe50fff07505ab511392811ba44dabf53c2227d5233751afe3e805b8a35": "multiplie la somme des huit hauteurs par la largeur h des rectangles",
+        "c31cdfe7729a8bfc80934d8f4b12243ca968d36e0f6d15221a74ba83c48c9fa3": "multiplie la somme des huit hauteurs par la largeur h des rectangles",
         "e7e39422f2842a458eff4187502611e62db463e02b11b876be981b07a746a33f": "avec n = 8, le pas vaut 2/8 : les hauteurs se lisent en 0 ; 0,25 ; … ; 1,75"
       },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
     },
     "M02a.1g": {
-      "hash": "7e7c9871b30539c819f3da2f69d7e56573eb08385d1702f645a81ae4396916ea",
+      "hash": "cf60cc4cedaea631ad5ea45551dc2bdeb294de07db26dfc4f17cbeda43dee966",
       "kind": "int",
-      "magnitude": 1,
+      "magnitude": 2,
       "mistakes": {
-        "83e8c7b13116176dc31719c5085f3add777a60fe85c15f2aceae5db78280f76f": "L_n − R_n = h (f(0) − f(2)), avec h = 2/n : la longueur de l'intervalle compte",
-        "a262f7f1339f8f08973667bbd11aa9e5ccfad67701f49f2f751bf94d6c63246b": "l'inégalité est L_n − R_n ≤ 0,1 : un n plus petit laisse un écart trop grand",
-        "dea0ef6c7804ef32339b627a9fb0ddaee5da5ea3a39b01abe496c4c863c2a11b": "n ≥ 80 : le plus petit entier qui vérifie l'inégalité large"
+        "10c956bbeac53b9d944044e9c2148498e51babdec89d7f112d4db9306de1b8b2": "le plus petit entier n qui vérifie L_n − R_n ≤ 0,1 (inégalité large) : vérifie aussi l'entier juste en dessous",
+        "7e7c9871b30539c819f3da2f69d7e56573eb08385d1702f645a81ae4396916ea": "L_n − R_n = h (f(0) − f(2)), avec h = 2/n : la longueur de l'intervalle compte",
+        "cc013590c2f6cbae785cd78a2b776f8c26aeed8415d5b202b9a9797c0f940436": "l'inégalité est L_n − R_n ≤ 0,1 : avec ce n, l'écart est encore trop grand"
       },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
@@ -1321,7 +1321,7 @@
       "hash": "17424ab951affb8f9cee2d961ad133c58eb471c91b632f26ea68cbb17f9659c8",
       "kind": "expr",
       "mistakes": {
-        "057fbb92c6954378c4ea043582734c7015b30428966cd52877745181247a4de8": "F(1) = 1 + 1 + C doit valoir 0 : regarde le signe de C",
+        "057fbb92c6954378c4ea043582734c7015b30428966cd52877745181247a4de8": "la constante se choisit pour que F(1) = 0 : vérifie son signe",
         "9096f66a2a3c879cb63f89a693489a25918cf0f10241ad938c34342505cb8304": "c'est bien une primitive, mais pas celle qui vaut 0 en x = 1 : choisis la constante"
       },
       "points": [
@@ -1458,14 +1458,14 @@
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
     },
     "M02a.3h": {
-      "hash": "7e3ef2578935cd484382a3ab25d72938994d70f045651e4ba6c4e4bf58eade3a",
-      "kind": "int",
-      "magnitude": 0,
+      "hash": "492f72f8dbdbc28a45eafa5435162fe8cabb296803458177a1a424636a1202e8",
+      "kind": "fraction",
       "mistakes": {
-        "492e2ed8570a391be0b4bd9e5cab62ce7d8384a0b292a3476f83d2068eef13aa": "[−cos x] de 0 à π : −cos π vaut 1, et −cos 0 vaut −1",
-        "735d969508594b22ce6cfad5234c91fed8fec0e90aa2db85b7df75ef2023df1d": "une primitive de sin est −cos, pas cos : dérive pour vérifier"
+        "17407ec7087a92661b4be02d167906befa72b363b917d6a3abaec922279d84e5": "une primitive de sin est −cos, pas cos : dérive pour vérifier",
+        "88919c3b933d714f35dc9283ae076e4bd52f9f057bb209142ff3e9a45ebe6879": "[−cos x] de 0 à π/3 : F(π/3) − F(0), avec F = −cos (attention aux deux signes moins)"
       },
       "sign": 1,
+      "simplified": true,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
     },
     "M02a.4a": {
@@ -1545,7 +1545,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "70cb1f7cad8fc4b9e9363fc0c40e771b85026b5847d1e1642c0adc6d7bc141c8": "[x ln x − x] de 1 à e : F(1) = −1, à retrancher",
+        "70cb1f7cad8fc4b9e9363fc0c40e771b85026b5847d1e1642c0adc6d7bc141c8": "F(e) − F(1) : n'oublie pas de calculer la primitive en 1, puis de la retrancher",
         "d6cf45771f86c039133be640ea4415879457682cd55bbd32ef6cf5088a952701": "u = ln x, v′ = 1 : [x ln x] de 1 à e, moins ∫ 1 dx"
       },
       "sign": 1,
@@ -1740,13 +1740,9 @@
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
     },
     "M02a.6b": {
-      "decimals": 0,
-      "hash": "97be6bef466143394ea7ac74a6749366fc6a2153ff1aa903c707f4e029e8d1b9",
-      "kind": "float",
+      "hash": "b947c9f2eb02cbffe697a31ee4ebbfa070dc0a52dee4ac4589c42dec86eb65a4",
+      "kind": "int",
       "magnitude": 0,
-      "mistakes": {
-        "406bfdd07f67a0eea5962331f70ccf4a0fcf7f7db446ddb7b97e55948084d5de": "une primitive de e^(−x/3) est −3 e^(−x/3) : on divise par −1/3, donc on multiplie par −3"
-      },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
     },
@@ -1950,13 +1946,9 @@
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
     },
     "M02a.8b": {
-      "decimals": 0,
-      "hash": "35ee289ed9ec9d239d80db07f748a67d981752e3381de841fadf71225f3447c4",
-      "kind": "float",
+      "hash": "35f88ddb4144cccf236805ea28992230fa208e63c4b7a579007ee50975c7ffe6",
+      "kind": "int",
       "magnitude": 0,
-      "mistakes": {
-        "df187ddb1f57f5c34094cd22b12f27c0da57a807bd3cdf79a9a7d27efe6a3b31": "∫ de 0 à +∞ de e^(−2x) dx vaut 1/2 : c en est l'inverse"
-      },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
     },
@@ -1998,7 +1990,7 @@
       "hash": "a58cb34b1aeb6fc27f58ea52adbbecb38b1403dc1a9a4e4c60f9630ff6f5d424",
       "kind": "fraction",
       "mistakes": {
-        "1ea4195e672ea22ff41fbabd2c26b0f2ca61ff1511736247f947f9d1899e9050": "avec c = 1/8, une primitive de x/8 est x²/16 : F(3) − F(1)"
+        "1ea4195e672ea22ff41fbabd2c26b0f2ca61ff1511736247f947f9d1899e9050": "utilise la densité de a), constante comprise, puis F(3) − F(1)"
       },
       "sign": 1,
       "simplified": true,
@@ -2009,7 +2001,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "e73d18b759e26efe130b189fd33170f9830b31b1be06fc4c8ed056b9488d4e89": "la densité 2 e^(−2x) décroît : sa plus grande valeur est en x = 0, et une densité peut dépasser 1"
+        "e73d18b759e26efe130b189fd33170f9830b31b1be06fc4c8ed056b9488d4e89": "une densité peut dépasser 1 : cherche où la densité de b), constante comprise, est la plus grande"
       },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
@@ -2178,7 +2170,7 @@
       "hash": "bc6e8b62a8601f3c774730067675894a9131ac2f325aaee60aabc253278ad7d5",
       "kind": "exact",
       "mistakes": {
-        "10d2f2d5a52377e4b17f97007f7bc98495de72dedb8dfe0395fd139f904f4844": "F(m) = 1/2 donne 1/m² = 1/2, donc m² = 2 : prends la racine"
+        "10d2f2d5a52377e4b17f97007f7bc98495de72dedb8dfe0395fd139f904f4844": "F(m) = 1/2 donne d'abord une équation en m² : termine le calcul"
       },
       "rounded": {
         "1": "b218b9b1e9bab383789ef9899dce6c66346bb22bb3c6c71f1a2ae25a929b17aa",
@@ -2197,7 +2189,7 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "f0fde28e228525094fa9f94aa09d8c6544ef10f64ffd4e004eb829360a2100fe": "F(x) = 0,99 donne 1/x² = 0,01, donc x² = 100 : prends la racine"
+        "f0fde28e228525094fa9f94aa09d8c6544ef10f64ffd4e004eb829360a2100fe": "F(x) = 0,99 donne d'abord une équation en x² : termine le calcul"
       },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
@@ -2851,7 +2843,7 @@
       "hash": "8771fde8f18c56d488d90b76b654fcb0300891436d3a20f563581a91bf5387da",
       "kind": "exact",
       "mistakes": {
-        "db4668d1f08c7640b1b115d1fd9aa66864abebadc655499d2fbfd0788d0abb8d": "l'intégrale de 0 à 1, pas une primitive : sp.integrate(expression, (x, 0, 1))"
+        "1c2a17c06077c6315cd1d183fb7c29bd41e4a307e924a9dac0eba485789ea5e0": "l'intégrande vaut 4/(1 + x²) : n'oublie pas le facteur 4"
       },
       "rounded": {
         "1": "474b853668965a4a766d5a82267e89a5e0515255d05746b968654f0c23e92f87",
@@ -2990,8 +2982,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "904fffa9353488d7f1b70a7794505664e0aa248580d4166be329bc53df3ebd9c": "l'écart doit être inférieur à 1e-6 ; à B = 3, il vaut encore environ 4e-5",
-        "e54cb442078fc95f303941b3e00b754d0efca379ff50c997b2b319a9d6120207": "c'est un B qui convient, mais pas le plus petit de la liste"
+        "904fffa9353488d7f1b70a7794505664e0aa248580d4166be329bc53df3ebd9c": "calcule l'écart |I(B) − √π| pour chaque B de la liste, et garde le premier qui passe sous 1e-6",
+        "e54cb442078fc95f303941b3e00b754d0efca379ff50c997b2b319a9d6120207": "calcule l'écart |I(B) − √π| pour chaque B de la liste, et garde le premier qui passe sous 1e-6"
       },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"

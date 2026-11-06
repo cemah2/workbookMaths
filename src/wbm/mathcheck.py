@@ -67,7 +67,7 @@ _SUPERSCRIPTS = re.compile(r"⁻?[⁰¹²³⁴⁵⁶⁷⁸⁹]+")
 _FUNCTION_CASE = re.compile(r"\b(ln|log|exp|sqrt|sin|cos|tan)\b", re.IGNORECASE)
 _FUNCTION_NUMBER = re.compile(r"\b(ln|log|exp|sqrt)(\d+(?:\.\d+)?)\b")
 # "xln(x)", "2xexp(x)": a function glued to what precedes it; "lnx", "sqrtx": to its one-letter argument
-_GLUED_FUNCTION = re.compile(r"(?<=[0-9A-Za-z)])(ln|log|exp|sqrt)(?=\s*\()")
+_GLUED_FUNCTION = re.compile(r"(?<=[0-9A-Za-z)])(ln|log|exp|sqrt|sin|cos|tan)(?=\s*\()")
 _FUNCTION_LETTER = re.compile(r"\b(ln|log|exp|sqrt)([a-z])\b")
 _FUNCTION_LETTERS = set("sqrtlnexpog")
 _NAME_PREFIX = re.compile(r"\s*[A-Za-z]'*\s*(?:\(\s*[a-z]\s*\))?\s*")
@@ -203,10 +203,11 @@ def parse_expression(value, variables):
         text = _FUNCTION_CASE.sub(lambda m: m.group().lower(), text)
         text = _FUNCTION_NUMBER.sub(r"\1(\2)", text)
         text = _FUNCTION_LETTER.sub(r"\1(\2)", text)
-        text = _GLUED_FUNCTION.sub(r"*\1", text)
+        text = _MODULE_PREFIX.sub("", text)              # np.exp(3*x), math.log(x): the module prefix is not needed
         text = text.replace("{", "(").replace("}", ")")   # e^{kt} copied from LaTeX
-        while _ABS_BARS.search(text):                    # |x - 1| written with bars: Abs(x - 1)
-            text = _ABS_BARS.sub(r"Abs(\1)", text)
+        while _ABS_BARS.search(text):                    # |x - 1| written with bars: (Abs(x - 1)), so ln|x| works
+            text = _ABS_BARS.sub(r"(Abs(\1))", text)
+        text = _GLUED_FUNCTION.sub(r"*\1", text)
         if not text:
             raise MathNormalizationError("une expression, par exemple \"3*x**2 - 1/x\"")
         local = {name: sympy.Symbol(name) for name in names}
@@ -733,12 +734,33 @@ def _check_fraction(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
     return False, "wrong", "Ce n'est pas la bonne valeur : reprends le calcul étape par étape."
 
 
+_CONSTANT_TERM = re.compile(r"\s*[+-]\s*(?:C|c|K|k|cste|const|constante)\s*$")
+_GROUP_DENOMINATOR = re.compile(r"(\d+(?:\.\d+)?)\s*/\s*(\d+(?:\.\d+)?\s*\*?\s*[a-z](?![a-z(])(?:\s*(?:\^|\*\*)\s*\d+)?)")
+_GROUP_EXPONENT = re.compile(r"(?<![A-Za-z])(?:e|exp)\s*(?:\^|\*\*)\s*(-?\d+(?:\.\d+)?\s*\*?\s*[a-z])")
+
+
+def _regrouped_matches(ex_id: str, entry: dict, value: str, variables, points, up_to_constant: bool) -> bool:
+    """True when the text gives the right expression once « 1/2x » is read 1/(2x) and « e^3x » e^(3x)."""
+    variants = {_GROUP_DENOMINATOR.sub(r"\1/(\2)", value), _GROUP_EXPONENT.sub(r"exp(\1)", value),
+                _GROUP_DENOMINATOR.sub(r"\1/(\2)", _GROUP_EXPONENT.sub(r"exp(\1)", value))} - {value}
+    for variant in variants:
+        try:
+            fingerprint = _fingerprint(parse_expression(variant, variables), variables, points, up_to_constant)
+        except MathNormalizationError:
+            continue
+        if fingerprint is not None and _expr_hash(ex_id, fingerprint) == entry["hash"]:
+            return True
+    return False
+
+
 def _check_expr(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
     from wbm.checker import _praise
 
     variables = entry["variables"]
     points = [tuple(p) for p in entry["points"]]
     up_to_constant = bool(entry.get("up_to_constant"))
+    if up_to_constant and isinstance(value, str):     # "x**3/3 + C": the constant of a primitive is allowed
+        value = _CONSTANT_TERM.sub("", value) or value
     expr = parse_expression(value, variables)
     fingerprint = _fingerprint(expr, variables, points, up_to_constant)
     if fingerprint is None:
@@ -768,6 +790,10 @@ def _check_expr(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
             shifted = _fingerprint(expr + constant, variables, points, False)
             if shifted is not None and _expr_hash(ex_id, shifted) == entry["hash"]:
                 return False, "wrong", "Presque : ton expression diffère de la bonne d'une constante (±1)."
+    if isinstance(value, str) and _regrouped_matches(ex_id, entry, value, variables, points, up_to_constant):
+        return False, "wrong", ("Attention à la priorité des opérations : « 1/2x^2 » se lit (1/2)·x², et « e^3x » se "
+                                "lit e³·x. Mets des parenthèses autour d'un dénominateur ou d'un exposant : "
+                                "1/(2*x**2), exp(3*x).")
     hint = "à une constante près, " if up_to_constant else ""
     return False, "wrong", (f"Ce n'est pas la bonne expression ({hint}elle ne prend pas les bonnes valeurs) : "
                             "reprends le calcul, puis vérifie-le en remplaçant la variable par deux ou trois "

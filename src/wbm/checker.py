@@ -1090,6 +1090,10 @@ def _type_hint(value, kind: str) -> str:
             return (f"j'ai reçu une expression SymPy (« {shown} »), pas une liste de nombres : pour les coefficients "
                     "d'un polynôme, `sp.Poly(e, x).all_coeffs()`.")
         return f"j'ai reçu une expression SymPy (« {shown} »), pas une valeur."
+    if (kind in ("int", "float") and isinstance(value, (list, tuple)) and len(value) == 2
+            and all(isinstance(_to_python(v), numbers.Number) for v in value)):
+        return ("j'ai reçu deux nombres : garde seulement celui qui est demandé. Si c'est le couple (valeur, erreur) "
+                "rendu par quad, prends `resultat[0]`, ou écris `valeur, erreur = quad(...)`.")
     if kind == "set" and isinstance(value, numbers.Number) and not isinstance(value, bool):
         return "j'ai reçu un nombre seul : même pour une seule valeur, écris une liste, avec des crochets."
     if isinstance(value, (list, tuple)):
@@ -1185,8 +1189,9 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
                 return False, "wrong", f"La réponse attendue est un nombre entier. Piste : {entry['fractional']}"
             rounded = hash_answer(ex_id, "int", str(int(round(_as_number(value)))))
             if rounded == entry["hash"]:
-                return False, "wrong", ("Presque : la réponse attendue est un nombre entier ; arrondis ton résultat "
-                                        "à l'entier le plus proche (round).")
+                return False, "wrong", ("La réponse attendue est un nombre entier. Si l'énoncé demande d'arrondir, "
+                                        "arrondis ton résultat à l'entier le plus proche (round) ; sinon, reprends ton "
+                                        "calcul : un résultat exact ne tombe pas à côté d'un entier.")
             mistake = entry.get("mistakes", {}).get(rounded)
             if mistake:
                 return False, "wrong", _classic(entry, mistake, value)

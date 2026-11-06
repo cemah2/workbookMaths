@@ -424,3 +424,29 @@ def test_exact_numbers_with_a_glued_logarithm(value):
 
     entry = entry_of("X.9", (2 * sympy.log(2) + 2) / 3, kind="exact")
     assert verdict("X.9", entry, value)[0], value
+
+
+# ------------------------------------------------------------------ writings of a primitive (M02a)
+@pytest.mark.parametrize("value", ["ln|2x+1|/2", "1/2 ln|2x+1|", "ln(2x+1)/2 + C", "0.5*np.log(2*x+1) + k",
+                                   "math.log(2*x + 1)/2 + cste"])
+def test_primitive_accepts_absolute_bars_a_constant_and_module_prefixes(value):
+    entry = entry_of("E.10", "log(2*x + 1)/2", kind="expr", variables=("x",), up_to_constant=True)
+    assert verdict("E.10", entry, value)[0], value
+
+
+def test_function_glued_to_a_variable_is_a_product():
+    entry = entry_of("E.11", "x*sin(x) + cos(x)", kind="expr", variables=("x",), up_to_constant=True)
+    assert verdict("E.11", entry, "xsin(x)+cos(x)")[0]
+
+
+@pytest.mark.parametrize("answer, value", [("-1/(2*x**2)", "-1/2x^2"), ("exp(3*x)/3", "e^3x/3"),
+                                           ("exp(3*x)/3", "1/3e^3x")])
+def test_operator_priority_gets_a_dedicated_message(answer, value):
+    entry = entry_of("E.12", answer, kind="expr", variables=("x",), up_to_constant=True)
+    passed, _, message = verdict("E.12", entry, value)
+    assert not passed and "priorité des opérations" in message
+
+
+def test_constant_is_not_stripped_when_a_precise_primitive_is_asked():
+    entry = entry_of("E.13", "x**3 + x - 2", kind="expr", variables=("x",))
+    assert not verdict("E.13", entry, "x**3 + x + C")[0]

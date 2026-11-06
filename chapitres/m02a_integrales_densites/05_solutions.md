@@ -92,21 +92,21 @@
 
 ### Ex M02a.1 — Sommes de Riemann à la main : rectangles à gauche, à droite, au milieu
 
-**Réponses** : a) `0.5` · b) `6.25` · c) `4.25` · d) `5.375` · e) `2` · f) `5.8125` · g) `80` · h) `True`.
+**Réponses** : a) `0.5` · b) `6.25` · c) `2.25` · d) `3.875` · e) `4` · f) `5.0625` · g) `160` · h) `True`.
 
 **Démarche.**
-- a) $h = \frac{2 - 0}{4} = 0{,}5$ ; les points sont $0$ ; $0{,}5$ ; $1$ ; $1{,}5$ ; $2$, où $f$ vaut $4$ ; $3{,}75$ ; $3$ ; $1{,}75$ ; $0$.
-- b) $L_4 = 0{,}5 \times (4 + 3{,}75 + 3 + 1{,}75) = 0{,}5 \times 12{,}5 = 6{,}25$.
-- c) $R_4 = 0{,}5 \times (3{,}75 + 3 + 1{,}75 + 0) = 0{,}5 \times 8{,}5 = 4{,}25$.
-- d) Aux milieux $0{,}25$ ; $0{,}75$ ; $1{,}25$ ; $1{,}75$ : $f = 3{,}9375$ ; $3{,}4375$ ; $2{,}4375$ ; $0{,}9375$, de somme $10{,}75$, d'où $M_4 = 5{,}375$.
-- e) $6{,}25 - 4{,}25 = 2$.
-- f) $h = 0{,}25$ ; les huit hauteurs à gauche ($x = 0$ à $1{,}75$) somment à $23{,}25$, d'où $L_8 = 5{,}8125$.
-- g) Les deux sommes ont les mêmes termes, sauf le premier de $L_n$ ($h\,f(0)$) et le dernier de $R_n$ ($h\,f(2)$) : $L_n - R_n = h\big(f(0) - f(2)\big) = \frac{2}{n} \times 4 = \frac{8}{n}$. Puis $\frac{8}{n} \le 0{,}1 \iff n \ge 80$.
-- h) $f$ décroît : les rectangles à gauche dépassent la courbe, ceux de droite sont dessous. L'aire exacte, $\frac{16}{3} \approx 5{,}333$, est bien entre 4,25 et 6,25.
+- a) $h = \frac{2 - 0}{4} = 0{,}5$ ; les points sont $0$ ; $0{,}5$ ; $1$ ; $1{,}5$ ; $2$, où $f$ vaut $8$ ; $3{,}375$ ; $1$ ; $0{,}125$ ; $0$.
+- b) $L_4 = 0{,}5 \times (8 + 3{,}375 + 1 + 0{,}125) = 0{,}5 \times 12{,}5 = 6{,}25$.
+- c) $R_4 = 0{,}5 \times (3{,}375 + 1 + 0{,}125 + 0) = 0{,}5 \times 4{,}5 = 2{,}25$.
+- d) Aux milieux $0{,}25$ ; $0{,}75$ ; $1{,}25$ ; $1{,}75$ : $f = 1{,}75^3 = 5{,}359375$ ; $1{,}25^3 = 1{,}953125$ ; $0{,}75^3 = 0{,}421875$ ; $0{,}25^3 = 0{,}015625$, de somme $7{,}75$, d'où $M_4 = 3{,}875$.
+- e) $6{,}25 - 2{,}25 = 4$.
+- f) $h = 0{,}25$ ; les huit hauteurs à gauche ($x = 0$ à $1{,}75$) valent $8$ ; $5{,}359375$ ; $3{,}375$ ; $1{,}953125$ ; $1$ ; $0{,}421875$ ; $0{,}125$ ; $0{,}015625$, de somme $20{,}25$, d'où $L_8 = 5{,}0625$.
+- g) Les deux sommes ont les mêmes termes, sauf le premier de $L_n$ ($h\,f(0)$) et le dernier de $R_n$ ($h\,f(2)$) : $L_n - R_n = h\big(f(0) - f(2)\big) = \frac{2}{n} \times 8 = \frac{16}{n}$. Puis $\frac{16}{n} \le 0{,}1 \iff n \ge 160$.
+- h) $f$ décroît : les rectangles à gauche dépassent la courbe, ceux de droite sont dessous. L'aire exacte, $\int_0^2 (2 - x)^3\,dx = \left[-\frac{(2 - x)^4}{4}\right]_0^2 = 4$, est bien entre 2,25 et 6,25, et le point milieu (3,875) en est le plus proche.
 
-**Erreurs fréquentes.** Oublier de multiplier par $h$ (12,5 et 8,5) ; inverser gauche et droite ; en g, prendre $h = \frac{1}{n}$ (on trouve alors 40).
+**Erreurs fréquentes.** Oublier de multiplier par $h$ (12,5 et 4,5) ; inverser gauche et droite ; en g, prendre $h = \frac{1}{n}$ (on trouve alors 80).
 
-**Variante.** $M_2$ pour la même fonction ? *Réponse* : $h = 1$, milieux $0{,}5$ et $1{,}5$, $M_2 = 3{,}75 + 1{,}75 = 5{,}5$.
+**Variante.** $M_2$ pour la même fonction ? *Réponse* : $h = 1$, milieux $0{,}5$ et $1{,}5$, $M_2 = 1{,}5^3 + 0{,}5^3 = 3{,}375 + 0{,}125 = 3{,}5$.
 
 ### Ex M02a.2 — Primitives usuelles
 
@@ -129,7 +129,7 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 
 ### Ex M02a.3 — Intégrales et aires : le signe, l'aire entre deux courbes
 
-**Réponses** : a) `12` · b) `2` · c) `6` · d) `0` · e) `"8/3"` · f) `[0, 2]` · g) `"4/3"` · h) `2`.
+**Réponses** : a) `12` · b) `2` · c) `6` · d) `0` · e) `"8/3"` · f) `[0, 2]` · g) `"4/3"` · h) `"1/2"`.
 
 **Démarche.**
 - a) $\big[x^2 - x\big]_1^4 = 12 - 0 = 12$.
@@ -139,9 +139,9 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 - e) $x^2 - 2x = x(x - 2)$ est positive sur $[-1 ; 0]$ et négative sur $[0 ; 2]$ : $\int_{-1}^0 = \frac{4}{3}$ et $\int_0^2 = -\frac{4}{3}$, d'où l'aire $\frac{4}{3} + \frac{4}{3} = \frac{8}{3}$. L'intégrale de d) est nulle parce que les deux morceaux se compensent.
 - f) $2x = x^2 \iff x(x - 2) = 0$ : $x = 0$ ou $x = 2$.
 - g) Sur $[0 ; 2]$, $2x \ge x^2$ (essaie $x = 1$) : $\int_0^2 (2x - x^2)\,dx = 4 - \frac{8}{3} = \frac{4}{3}$.
-- h) $\big[-\cos x\big]_0^{\pi} = -(-1) - (-1) = 2$.
+- h) $\big[-\cos x\big]_0^{\pi/3} = -\cos\frac{\pi}{3} - (-\cos 0) = -\frac{1}{2} + 1 = \frac{1}{2}$.
 
-**Erreurs fréquentes.** Répondre 0 à e (l'intégrale au lieu de l'aire) ; inverser les courbes en g ($-\frac{4}{3}$) ; prendre $\cos$ pour primitive de $\sin$ en h ($-2$).
+**Erreurs fréquentes.** Répondre 0 à e (l'intégrale au lieu de l'aire) ; inverser les courbes en g ($-\frac{4}{3}$) ; prendre $\cos$ pour primitive de $\sin$ en h ($-\frac{1}{2}$).
 
 **Variante.** L'aire entre $y = x^2$ et $y = 4$ ? *Réponse* : intersections en $\pm 2$, $\int_{-2}^2 (4 - x^2)\,dx = \frac{32}{3}$.
 

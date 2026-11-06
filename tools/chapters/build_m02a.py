@@ -38,25 +38,27 @@ PAPER = [
         ("a", "a number (1 decimal)", "(2 - 0) / 4",
          'decimals=1, mistakes={"h = (b − a)/n : la longueur de l\'intervalle divisée par le nombre de rectangles": '
          '{2, 0.2, 4}}'),
-        ("b", "a number (2 decimals)", "0.5 * (4 + 3.75 + 3 + 1.75)",
-         'decimals=2, mistakes={"à gauche : la hauteur se lit au début de chaque intervalle, x de 0 à 1,5": 4.25, '
+        ("b", "a number (2 decimals)", "0.5 * (8 + 3.375 + 1 + 0.125)",
+         'decimals=2, mistakes={"à gauche : la hauteur se lit au début de chaque intervalle, x de 0 à 1,5": 2.25, '
          '"multiplie la somme des hauteurs par la largeur h des rectangles": 12.5}'),
-        ("c", "a number (2 decimals)", "0.5 * (3.75 + 3 + 1.75 + 0)",
+        ("c", "a number (2 decimals)", "0.5 * (3.375 + 1 + 0.125 + 0)",
          'decimals=2, mistakes={"à droite : la hauteur se lit à la fin de chaque intervalle, x de 0,5 à 2": 6.25, '
-         '"multiplie la somme des hauteurs par la largeur h des rectangles": 8.5}'),
-        ("d", "a number (3 decimals)", "0.5 * (3.9375 + 3.4375 + 2.4375 + 0.9375)",
-         'decimals=3, mistakes={"multiplie la somme des hauteurs par la largeur h des rectangles": 10.75, '
-         '"c\'est l\'aire exacte ; la question demande la somme de Riemann au milieu, qui l\'approche": 16 / 3, '
-         '"au milieu : les hauteurs se lisent en 0,25, 0,75, 1,25 et 1,75, puis on les ajoute": 5.25}'),
-        ("e", "a number", "2",
-         'mistakes={"L₄ − R₄, dans cet ordre : f est décroissante, la somme à gauche est la plus grande": -2}'),
-        ("f", "a number (4 decimals)", "0.25 * (4 + 3.9375 + 3.75 + 3.4375 + 3 + 2.4375 + 1.75 + 0.9375)",
-         'decimals=4, mistakes={"multiplie la somme des huit hauteurs par la largeur h des rectangles": 23.25, '
+         '"multiplie la somme des hauteurs par la largeur h des rectangles": 4.5}'),
+        ("d", "a number (3 decimals)", "0.5 * (1.75 ** 3 + 1.25 ** 3 + 0.75 ** 3 + 0.25 ** 3)",
+         'decimals=3, mistakes={"multiplie la somme des hauteurs par la largeur h des rectangles": 7.75, '
+         '"c\'est l\'aire exacte ; la question demande la somme de Riemann au milieu, qui l\'approche": 4, '
+         '"au milieu : les hauteurs se lisent aux milieux des intervalles, en 0,25, 0,75, 1,25 et 1,75": 4.25}'),
+        ("e", "a number", "4",
+         'mistakes={"L₄ − R₄, dans cet ordre : f est décroissante, la somme à gauche est la plus grande": -4}'),
+        ("f", "a number (4 decimals)",
+         "0.25 * sum((2 - 0.25 * i) ** 3 for i in range(8))",
+         'decimals=4, mistakes={"multiplie la somme des huit hauteurs par la largeur h des rectangles": 20.25, '
          '"avec n = 8, le pas vaut 2/8 : les hauteurs se lisent en 0 ; 0,25 ; … ; 1,75": 6.25}'),
-        ("g", "an integer", "80",
-         'mistakes={"L_n − R_n = h (f(0) − f(2)), avec h = 2/n : la longueur de l\'intervalle compte": 40, '
-         '"n ≥ 80 : le plus petit entier qui vérifie l\'inégalité large": 81, '
-         '"l\'inégalité est L_n − R_n ≤ 0,1 : un n plus petit laisse un écart trop grand": 79}'),
+        ("g", "an integer", "160",
+         'mistakes={"L_n − R_n = h (f(0) − f(2)), avec h = 2/n : la longueur de l\'intervalle compte": 80, '
+         '"le plus petit entier n qui vérifie L_n − R_n ≤ 0,1 (inégalité large) : vérifie aussi l\'entier '
+         'juste en dessous": 161, "l\'inégalité est L_n − R_n ≤ 0,1 : avec ce n, l\'écart est encore trop grand": '
+         '159}'),
         ("h", "True or False", "True",
          'mistakes={"f décroît : chaque rectangle à gauche dépasse la courbe, chaque rectangle à droite est dessous": '
          'False}'),
@@ -83,7 +85,7 @@ PAPER = [
          '"-sin(2*x)/2", "la dérivée de sin(2x) vaut 2 cos(2x) : divise par 2": "sin(2*x)"}'),
         ("g", "an expression in x, as text (with its constant)", '"x**3 + x - 2"',
          E + ', mistakes={"c\'est bien une primitive, mais pas celle qui vaut 0 en x = 1 : choisis la constante": '
-         '"x**3 + x", "F(1) = 1 + 1 + C doit valoir 0 : regarde le signe de C": "x**3 + x + 2"}'),
+         '"x**3 + x", "la constante se choisit pour que F(1) = 0 : vérifie son signe": "x**3 + x + 2"}'),
         ("h", "an expression in x, as text", '"4*log(x) - exp(-x)"',
          P + ', mistakes={"une primitive de e^(−x) est −e^(−x) : dérive-la pour vérifier le signe": '
          '"4*log(x) + exp(-x)"}'),
@@ -107,9 +109,9 @@ PAPER = [
          'mistakes={"résous 2x = x², soit x² − 2x = 0 : deux solutions": [2]}'),
         ("g", "an irreducible fraction, as text", "Fraction(4, 3)",
          F + ', mistakes={"la courbe du haut moins celle du bas : sur [0 ; 2], 2x est au-dessus de x²": "-4/3"}'),
-        ("h", "an integer", "2",
-         'mistakes={"une primitive de sin est −cos, pas cos : dérive pour vérifier": -2, '
-         '"[−cos x] de 0 à π : −cos π vaut 1, et −cos 0 vaut −1": 0}'),
+        ("h", "an irreducible fraction, as text", "Fraction(1, 2)",
+         F + ', mistakes={"une primitive de sin est −cos, pas cos : dérive pour vérifier": "-1/2", '
+         '"[−cos x] de 0 à π/3 : F(π/3) − F(0), avec F = −cos (attention aux deux signes moins)": "-3/2"}'),
     ]),
 
     Paper("M02a.4", "Intégration par parties", [
@@ -124,7 +126,7 @@ PAPER = [
          '"x*sin(x) - cos(x)"}'),
         ("d", "an integer", "1",
          'mistakes={"u = ln x, v′ = 1 : [x ln x] de 1 à e, moins ∫ 1 dx": 3, '
-         '"[x ln x − x] de 1 à e : F(1) = −1, à retrancher": 0}'),
+         '"F(e) − F(1) : n\'oublie pas de calculer la primitive en 1, puis de la retrancher": 0}'),
         ("e", "an expression in x, as text", '"x**2*log(x)/2 - x**2/4"',
          P + ', mistakes={"[uv] − ∫ u′v avec u = ln x et v = x²/2 : la seconde intégrale se retranche": '
          '"x**2*log(x)/2 + x**2/4", "v est une primitive de x : x²/2, pas x²": "x**2*log(x) - x**2/2"}'),
@@ -154,9 +156,7 @@ PAPER = [
     Paper("M02a.6", "Intégrales impropres : converge, diverge, valeur", [
         ("a", "an irreducible fraction, as text", "Fraction(1, 3)",
          F + ', mistakes={"[−1/x] de 3 à +∞ : la limite en +∞ vaut 0, moins la valeur en 3": "-1/3"}'),
-        ("b", "an integer", "3.0",
-         'decimals=0, mistakes={"une primitive de e^(−x/3) est −3 e^(−x/3) : on divise par −1/3, donc on multiplie '
-         'par −3": 1 / 3}'),
+        ("b", "an integer", "3", ''),
         ("c", "an integer", "4",
          'mistakes={"une primitive de x^(−1/2) est 2√x : [2√x] de 0 à 4": 2}'),
         ("d", "True or False", "False",
@@ -199,8 +199,7 @@ PAPER = [
         ("a", "an irreducible fraction, as text", "Fraction(1, 8)",
          F + ', mistakes={"c × (l\'intégrale de x de 0 à 4) = 1 : c est l\'inverse de cette intégrale": "8", '
          '"une primitive de x est x²/2 : ∫ de 0 à 4 de x dx vaut 4²/2": "1/16"}'),
-        ("b", "an integer", "2.0",
-         'decimals=0, mistakes={"∫ de 0 à +∞ de e^(−2x) dx vaut 1/2 : c en est l\'inverse": 0.5}'),
+        ("b", "an integer", "2", ''),
         ("c", "an integer", "1", ''),
         ("d", "an irreducible fraction, as text", "Fraction(2, 9)",
          F + ', mistakes={"c est l\'inverse de l\'intégrale de 3 − x de 0 à 3": "9/2", '
@@ -210,10 +209,10 @@ PAPER = [
         ("f", "True or False", "True",
          'mistakes={"l\'aire vaut 3 × 1/3 = 1 ; une densité peut dépasser 1, seule l\'aire compte": False}'),
         ("g", "an irreducible fraction, as text", "Fraction(1, 2)",
-         F + ', mistakes={"avec c = 1/8, une primitive de x/8 est x²/16 : F(3) − F(1)": "1"}'),
+         F + ', mistakes={"utilise la densité de a), constante comprise, puis F(3) − F(1)": "1"}'),
         ("h", "an integer", "2",
-         'mistakes={"la densité 2 e^(−2x) décroît : sa plus grande valeur est en x = 0, et une densité peut '
-         'dépasser 1": 1}'),
+         'mistakes={"une densité peut dépasser 1 : cherche où la densité de b), constante comprise, est la plus '
+         'grande": 1}'),
     ]),
 
     Paper("M02a.9", "La probabilité d'un intervalle, et la valeur moyenne d'une fonction", [
@@ -244,9 +243,9 @@ PAPER = [
          E + ', mistakes={"F(1) doit valoir 0 : ∫ de 1 à x, pas une primitive quelconque": "-1/x**2", '
          '"c\'est P(X > x) ; F(x) = P(X ≤ x)": "1/x**2"}'),
         ("c", "an exact value, as text", "sp.sqrt(2)",
-         X + ', mistakes={"F(m) = 1/2 donne 1/m² = 1/2, donc m² = 2 : prends la racine": "2"}'),
+         X + ', mistakes={"F(m) = 1/2 donne d\'abord une équation en m² : termine le calcul": "2"}'),
         ("d", "an integer", "10",
-         'mistakes={"F(x) = 0,99 donne 1/x² = 0,01, donc x² = 100 : prends la racine": 100}'),
+         'mistakes={"F(x) = 0,99 donne d\'abord une équation en x² : termine le calcul": 100}'),
         ("e", "an irreducible fraction, as text", "Fraction(1, 25)",
          F + ', mistakes={"c\'est P(X ≤ 5) ; P(X > 5) = 1 − F(5)": "24/25"}'),
         ("f", "a number (4 decimals)", "4 * math.log(2)",
@@ -290,8 +289,9 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M02a.1 à 
                "- un entier, ou un nombre avec un point décimal, `-1.25`, arrondi comme le demande la question ;\n"
                "- une fraction irréductible entre guillemets, `\"5/9\"` ;\n"
                "- une valeur exacte entre guillemets, avec `sqrt`, `pi`, `exp` ou `ln`, `\"sqrt(5)/3\"` ;\n"
-               "- une expression en $x$ entre guillemets, avec `**` pour les puissances, `\"x**4/4 - 3*x\"` (une "
-               "primitive se vérifie à une constante près) ;\n"
+               "- une expression en $x$ entre guillemets, avec `**` pour les puissances et des parenthèses autour d'un "
+               "dénominateur ou d'un exposant, `\"x**4/4 - 3/(2*x)\"`, `\"exp(3*x)\"` (une primitive se vérifie à une "
+               "constante près) ;\n"
                "- une liste `[-1.25, 1]`, un intervalle `\"]-oo ; -7]\"`, une lettre `\"C\"`, ou `True` / `False`.\n\n"
                "Les réponses pas encore remplies affichent ⏳.")
 
@@ -328,7 +328,7 @@ LOAD_REF = 'mymath = wbm.load_mymath("ref")'
 HOWTO = ("> **Mode d'emploi `mymath`** (comme dans les chapitres précédents). Ouvre ta copie "
          "`mon_travail/mymath/integrate.py`, lis la docstring de la fonction en entier, remplace la ligne "
          "`raise NotImplementedError(...)` par ton code, **enregistre** le fichier, puis exécute les cellules "
-         "ci-dessous : la première recharge ta librairie. **Nouveau à partir de la partie I** : NumPy est permis dans "
+         "ci-dessous : la première recharge ta librairie. **Nouveau dans ce chapitre**, le premier de la partie I de workbookMaths : NumPy est permis dans "
          "`mymath` (importe-le en haut du fichier si tu t'en sers). Mais ni `scipy.integrate` ni `np.trapezoid` : "
          "les tests comparent tes résultats à eux, et un test vérifie que tu ne les appelles pas. Écris toi-même les "
          "sommes : c'est l'exercice. Chaque fonction renvoie un `float` de Python (`float(...)` convertit un nombre "
@@ -566,7 +566,7 @@ Calcule :
 - a) avec `quad`, $\\int_{-\\infty}^{+\\infty} e^{-x^2}\\,dx$ (la valeur, 6 décimales) ;
 - b) un booléen : l'estimation d'erreur rendue par `quad` en a) est-elle inférieure à $10^{-6}$ ?
 - c) avec SymPy, $\\int_0^{+\\infty} x\\,e^{-x}\\,dx$ (un entier) ;
-- d) avec SymPy, $\\int_0^1 \\frac{4}{1 + x^2}\\,dx$ (une valeur exacte : convertis le résultat de SymPy en texte avec `str(...)`) ;
+- d) avec SymPy, $\\int_0^1 \\frac{4}{1 + x^2}\\,dx$ (une valeur exacte : le résultat de SymPy tel quel, ou converti en texte avec `str(...)`) ;
 - e) avec `quad`, $\\int_0^1 \\frac{dx}{\\sqrt{x}}$ (6 décimales), une intégrale impropre : la fonction explose en 0 ;
 - f) le nom de la fonction spéciale que SymPy utilise pour écrire une primitive de $e^{-x^2}$ (un texte de trois lettres : regarde `sp.integrate(sp.exp(-x ** 2), x)`).
 
@@ -575,7 +575,7 @@ Dans ta copie : la primitive de f) contredit-elle la fiche, qui dit que $e^{-x^2
     todo='''answer_M02a_19a = ...  # a) the value of quad(...)
 answer_M02a_19b = ...  # b) True or False
 answer_M02a_19c = ...  # c) sp.integrate(...)
-answer_M02a_19d = ...  # d) str(sp.integrate(...))
+answer_M02a_19d = ...  # d) sp.integrate(...), or its str(...)
 answer_M02a_19e = ...  # e) the value of quad(...)
 answer_M02a_19f = ...  # f) a name, as text''',
     check='''for letter, answer in zip("abcdef", [answer_M02a_19a, answer_M02a_19b, answer_M02a_19c, answer_M02a_19d,
@@ -595,7 +595,7 @@ print(sp.integrate(sp.exp(-x ** 2), x), "|", sp.integrate(4 / (1 + x ** 2), x))'
 wbm.record("M02a.19b", True, mistakes={"compare le second élément du couple rendu par quad à 1e-6": False})
 wbm.record("M02a.19c", 1)
 wbm.record("M02a.19d", sp.pi, kind="exact",
-           mistakes={"l'intégrale de 0 à 1, pas une primitive : sp.integrate(expression, (x, 0, 1))": "4"})
+           mistakes={"l'intégrande vaut 4/(1 + x²) : n'oublie pas le facteur 4": "pi/4"})
 wbm.record("M02a.19e", 2.0, decimals=6)
 wbm.record("M02a.19f", "erf",
            mistakes={"le nom de la fonction seul, sans parenthèses ni variable": "erf(x)"})''',
@@ -642,7 +642,7 @@ M02A_20 = Ex(
 - c) la méthode de Simpson pour $\\int_0^1 \\sqrt{x}\\,dx$ (attention : la dérivée de $\\sqrt{x}$ devient infinie en 0) ;
 - d) la méthode des trapèzes pour $\\int_0^{2\\pi} e^{\\cos x}\\,dx$, une fonction **périodique** intégrée sur une période entière.
 
-**Avant d'exécuter quoi que ce soit**, écris tes quatre prédictions (le numéro du choix), vérifie-les, puis lance l'expérience.""",
+**Avant d'exécuter quoi que ce soit**, écris tes quatre prédictions, vérifie-les, puis lance l'expérience. Réponds par le **numéro du choix**, de 1 à 4, et non par le facteur : pour « environ 4 », écris 2.""",
     todo='''prediction_M02a_20a = ...  # a) 1, 2, 3 or 4, written BEFORE running the experiment below
 prediction_M02a_20b = ...  # b) 1, 2, 3 or 4
 prediction_M02a_20c = ...  # c) 1, 2, 3 or 4
@@ -713,8 +713,8 @@ print([f"{abs(I(B) - gauss):.1e}" for B in bounds])''',
     record='''wbm.record("M02a.21a", 1.493648265624854, decimals=4,
            mistakes={"I(B) va de −B à B : de −1 à 1, pas de 0 à 1": 0.7468})
 wbm.record("M02a.21b", 4,
-           mistakes={"l'écart doit être inférieur à 1e-6 ; à B = 3, il vaut encore environ 4e-5": 3,
-                     "c'est un B qui convient, mais pas le plus petit de la liste": 5})
+           mistakes={"calcule l'écart |I(B) − √π| pour chaque B de la liste, et garde le premier qui passe sous "
+                     "1e-6": {3, 5}})
 wbm.record("M02a.21c", 0.9999779095030017, decimals=6)
 wbm.record("M02a.21d", math.sqrt(2 * math.pi), decimals=4,
            mistakes={"e^(−x²/2) : le carré divisé par 2, pas le carré seul": 1.7725})''',
@@ -738,7 +738,7 @@ plt.show()''')],
 
 M02A_22_CHECK = '''with checked("M02a.22 vérifications"):
     problems = []
-    f_test, F_test = (lambda x: math.cos(x) + 1.5), (lambda x: math.sin(x) + 1.5 * x)
+    f_test, F_test = (lambda x: math.cos(x) + 1.5), (lambda x: math.sin(x) + 1.5 * x + 2)   # F(0) = 2, not 0
     fig, ax = plt.subplots(figsize=(5, 3))
     try:
         created = drawn(draw_riemann, ax, f_test, 0, 3, 6)
@@ -772,16 +772,17 @@ M02A_22_CHECK = '''with checked("M02a.22 vérifications"):
         plt.close(fig)
     if created:
         problems.append("draw_area_function ouvre sa propre figure : dessine dans l'axe reçu")
-    elif len(ax.lines) < 2:
-        problems.append("draw_area_function : deux courbes, l'aire calculée et F(x) − F(a)")
     else:
-        ends = sorted(float(line.get_ydata()[-1]) for line in ax.lines[:2])
-        starts = [float(line.get_ydata()[0]) for line in ax.lines[:2]]
         exact = F_test(3) - F_test(0)
-        if any(abs(end - exact) > 1e-3 for end in ends):
-            problems.append("draw_area_function : les deux courbes doivent finir à F(b) − F(a), l'intégrale de a à b")
-        elif any(abs(start) > 1e-9 for start in starts):
-            problems.append("draw_area_function : les deux courbes partent de 0 en x = a (une aire de a à a)")
+        curves = [line for line in ax.lines if len(np.atleast_1d(line.get_ydata())) >= 50]
+        good = [line for line in curves if abs(float(np.atleast_1d(line.get_ydata())[0])) < 1e-9
+                and abs(float(np.atleast_1d(line.get_ydata())[-1]) - exact) < 1e-3]
+        if len(curves) < 2:
+            problems.append("draw_area_function : deux courbes sur la grille de 200 points, l'aire calculée et "
+                            "F(x) − F(a)")
+        elif len(good) < 2:
+            problems.append("draw_area_function : les deux courbes partent de 0 en x = a (une aire de a à a) et "
+                            "finissent à F(b) − F(a), l'intégrale de a à b : trace F(x) − F(a), pas F(x)")
     if problems:
         print("❌ Ex M02a.22 : à revoir : " + " ; ".join(problems) + ".")
     else:
@@ -794,6 +795,8 @@ M02A_22 = Ex(
     body="""Complète deux fonctions, qui dessinent dans l'axe `ax` qu'elles reçoivent :
 - `draw_riemann(ax, f, a, b, n)` : la courbe de $f$ sur $[a ; b]$ (`ax.plot`), les $n$ rectangles **au milieu** (`ax.bar(lefts, heights, width=h, align="edge", alpha=0.4)`, où `lefts` sont les abscisses $a + ih$ des bords gauches) et, dans le titre, la somme des aires des rectangles avec 4 décimales (`f"somme = {total:.4f}"`) ;
 - `draw_area_function(ax, f, F, a, b)` : sur une grille de 200 points de $[a ; b]$, deux courbes : la **fonction aire** $A(x) = \\int_a^x f$, calculée numériquement (méthode des trapèzes cumulée : `np.cumsum`), et $F(x) - F(a)$, calculée avec la primitive `F` ; avec une légende.
+
+⚠️ `f` et `F` prennent **un** nombre (elles sont écrites avec `math`) : sur une grille `xs`, calcule `ys = np.array([f(x) for x in xs])`, pas `f(xs)`.
 
 La cellule suivante les essaie sur $f(x) = 1 + x\\,e^{-x}$ entre 0 et 4 (une primitive est $F(x) = x - (x + 1)e^{-x}$, par parties) ; une autre les vérifie sur une autre fonction.
 
@@ -1108,7 +1111,9 @@ def build(kind: str) -> list:
     cells.append(setup_cell(kind, chapter=CHAPTER) if kind == "exercise" else setup_cell(kind))
     cells += objectives_cell()
     cells += paper_cells(kind, PAPER, PAPER_CONTEXT, PAPER_INTRO,
-                         learner_context="from fractions import Fraction   # Fraction(5, 9) is accepted too, as \"5/9\"")
+                         learner_context="from fractions import Fraction   # Fraction(5, 9) is accepted too, as \"5/9\"\n"
+                                         "import sympy as sp\n"
+                                         "x = sp.Symbol(\"x\")                  # an expression typed without quotes works too")
     for part in PARTS:
         cells += part_cells(part, kind)
     cells += footer_cells(kind)
