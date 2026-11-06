@@ -11,7 +11,7 @@
 ### M02a.Q1 — Aire, signe et intégrale
 1. **Vrai** : les rectangles des sommes de Riemann ont tous une hauteur positive, et leur limite est l'aire.
 2. **0** : $x^3$ est négative sur $[-1 ; 0]$ et positive sur $[0 ; 1]$, et les deux régions sont symétriques par rapport à l'origine : leurs aires se compensent. Par le calcul, $\left[\frac{x^4}{4}\right]_{-1}^1 = \frac{1}{4} - \frac{1}{4} = 0$.
-3. **Négatif** : chaque rectangle a une « hauteur » négative.
+3. **Négatif** (strictement) : chaque rectangle a une « hauteur » négative. Si $f$ est seulement négative ou nulle, l'intégrale est négative ou nulle.
 4. **0** : l'intervalle est de largeur nulle.
 5. **Vrai** : inverser les bornes change le signe (le pas $h = \frac{b - a}{n}$ change de signe).
 6. **Trop petite** : sur chaque intervalle, la valeur à gauche est la plus petite ; chaque rectangle est sous la courbe.
@@ -30,7 +30,7 @@
 3. (C) : $u = x^2 + 1$, $du = 2x\,dx$ ; on obtient $\ln(x^2 + 1)$.
 4. (P) : $u = x$, $v' = e^{3x}$.
 5. (C) : $u = 1 + e^x$, $du = e^x\,dx$ ; on obtient $\ln(1 + e^x)$.
-6. (T) en développant, $x^2 + 2x + 1$, ou (C) avec $u = x + 1$ : $\frac{(x + 1)^3}{3}$. Les deux résultats diffèrent d'une constante ($\frac{1}{3}$).
+6. (T) en développant $(x + 1)^2 = x^2 + 2x + 1$, de primitive $\frac{x^3}{3} + x^2 + x$, ou (C) avec $u = x + 1$ : $\frac{(x + 1)^3}{3}$. Les deux résultats diffèrent d'une constante ($\frac{1}{3}$).
 
 ### M02a.Q4 — Converge ou diverge ?
 1. **Converge** : $p = 3 > 1$ (elle vaut $\frac{1}{2}$).
@@ -41,11 +41,11 @@
 6. **Converge** : c'est l'intégrale de Gauss, $\sqrt{\pi}$.
 
 ### M02a.Q5 — Rectangles, trapèzes, Simpson
-1. Les trapèzes, le point milieu et Simpson (les rectangles à gauche ou à droite ne sont exacts que pour les constantes).
+1. Les trapèzes, le point milieu et Simpson (avec un nombre pair d'intervalles) ; les rectangles à gauche ou à droite ne sont exacts que pour les constantes.
 2. $n$ doit être **pair** : les intervalles vont par deux, sous une parabole.
 3. Par **4** (erreur en $h^2$).
 4. **11** : les points $x_0, \ldots, x_{10}$.
-5. **Faux** : c'est vrai pour une fonction croissante seulement ; pour une fonction décroissante, ils la sous-estiment.
+5. **Faux** : c'est vrai pour une fonction croissante ; pour une fonction décroissante, ils la sous-estiment.
 6. Jusqu'au **degré 3**.
 
 ### M02a.Q6 — Densité et probabilité : vrai ou faux
@@ -69,16 +69,16 @@
 ## 🔁 Rappels
 
 ### M02a.R1 — Dériver une composée (R7)
-1. $3(x^2 + 1)^2 \times 2x = 6x(x^2 + 1)^2$.
-2. $\frac{3}{3x + 2}$.
+1. $4(3 - x^2)^3 \times (-2x) = -8x(3 - x^2)^3$.
+2. $\frac{-2}{5 - 2x}$, soit $\frac{2}{2x - 5}$.
 3. $5e^{5x - 1}$.
 4. $\frac{2x}{2\sqrt{1 + x^2}} = \frac{x}{\sqrt{1 + x^2}}$.
 
 ### M02a.R2 — Sommes Σ (R4)
 1. $1 + 4 + 9 + 16 = 30$.
-2. $1 + 3 + 5 + 7 = 16$.
+2. $1 + 4 + 7 + 10 = 22$.
 3. $0{,}5\sum_{i=0}^{3} f(0{,}5\,i)$ : une somme de Riemann à gauche, avec $h = 0{,}5$.
-4. $\frac{10 \times 11}{2} = 55$.
+4. $\frac{20 \times 21}{2} = 210$.
 
 ### M02a.R3 — Exponentielle et logarithme (R6)
 1. 0.
@@ -233,7 +233,7 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 
 ### Ex M02a.9 — La probabilité d'un intervalle, et la valeur moyenne d'une fonction
 
-**Réponses** : a) `"1/8"` · b) `"7/8"` · c) `0` · d) `"13/32"` · e) `0.1353` · f) `0.2325` · g) `3` · h) `0.582`.
+**Réponses** : a) `"1/8"` · b) `"7/8"` · c) `0` · d) `"13/32"` · e) `0.1353` · f) `0.2325` · g) `3` · h) `0.5820`.
 
 **Démarche.** Pour $X$, $F(x) = \frac{x^3}{8}$ sur $[0 ; 2]$.
 - a) $F(1) = \frac{1}{8}$.
@@ -241,7 +241,7 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 - c) Une valeur exacte : probabilité nulle.
 - d) $F(1{,}5) - F(0{,}5) = \frac{3{,}375 - 0{,}125}{8} = \frac{3{,}25}{8} = \frac{13}{32}$.
 - e) $\int_{10}^{+\infty} 0{,}2\,e^{-0{,}2t}\,dt = e^{-2} \approx 0{,}1353$.
-- f) $e^{-1} - e^{-2} \approx 0{,}3679 - 0{,}1353 = 0{,}2325$.
+- f) $e^{-1} - e^{-2} \approx 0{,}367879 - 0{,}135335 = 0{,}232544 \approx 0{,}2325$ (en arrondissant d'abord à 4 décimales, on trouverait 0,2326 : on n'arrondit qu'à la fin).
 - g) $\frac{1}{3}\int_0^3 x^2\,dx = \frac{9}{3} = 3$.
 - h) $\frac{1}{e - 1}\int_1^e \frac{dx}{x} = \frac{1}{e - 1} \approx 0{,}5820$.
 
@@ -278,16 +278,16 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 2. $f$ est croissante : pour $t$ dans $[x ; x + h]$, $f(x) \le f(t) \le f(x + h)$. Par positivité de l'intégrale (appliquée aux différences), $\int_x^{x+h} f(x)\,dt \le \int_x^{x+h} f(t)\,dt \le \int_x^{x+h} f(x + h)\,dt$, et l'intégrale d'une constante $k$ sur un intervalle de longueur $h$ vaut $kh$. Sur le dessin : la bande est entre le rectangle de hauteur $f(x)$ et celui de hauteur $f(x + h)$.
 3. En divisant par $h > 0$ : $f(x) \le \frac{A(x + h) - A(x)}{h} \le f(x + h)$. Quand $h \to 0^+$, $f(x + h) \to f(x)$ par continuité, donc, par encadrement, le taux d'accroissement tend vers $f(x)$.
 4. Avec le cas $h < 0$ (admis), $A$ est dérivable et $A' = f$ : $A$ est une primitive de $f$. Si $F$ est une autre primitive, $F - A$ a une dérivée nulle sur l'intervalle, donc $F = A + C$. Alors $F(b) - F(a) = A(b) - A(a) = \int_a^b f - 0$.
-5. $f(t) = e^{-t^2}$ est continue, donc $G'(x) = e^{-x^2}$ et $G'(1) = e^{-1} \approx 0{,}368$. $G' > 0$ partout : $G$ est strictement croissante (logique : on ajoute de l'aire positive).
+5. $f(t) = e^{-t^2}$ est continue (mais pas croissante) : par la version générale du théorème, valable aussi pour $x < 0$, $G'(x) = e^{-x^2}$ et $G'(1) = e^{-1} \approx 0{,}368$. $G' > 0$ partout : $G$ est strictement croissante (logique : on ajoute de l'aire positive).
 
-**Grille.** Une bonne démonstration : (1) cite Chasles ; (2) encadre $f$ sur $[x ; x + h]$ grâce à la croissance, puis intègre l'encadrement ; (3) divise par $h$ en gardant le sens des inégalités ($h > 0$), et invoque la continuité pour passer à la limite ; (4) explique pourquoi n'importe quelle primitive convient (constante) ; (5) applique le résultat sans chercher à calculer $G$.
+**Grille.** Une bonne démonstration : (1) cite Chasles ; (2) encadre $f$ sur $[x ; x + h]$ grâce à la croissance, puis intègre l'encadrement ; (3) divise par $h$ en gardant le sens des inégalités ($h > 0$), et invoque la continuité pour passer à la limite ; (4) explique pourquoi n'importe quelle primitive convient (constante) ; (5) applique le résultat sans chercher à calculer $G$, en remarquant que c'est la version générale (fonction continue) qui s'applique.
 
 ### Ex M02a.12 — Encadrer une aire par des rectangles : pourquoi les sommes de Riemann convergent (fonction croissante)
 
 **Réponse modèle.**
 1. Sur $[x_i ; x_{i+1}]$, $f(x_i) \le f(t) \le f(x_{i+1})$ (croissance), donc $h\,f(x_i) \le \int_{x_i}^{x_{i+1}} f \le h\,f(x_{i+1})$. En additionnant pour $i = 0$ à $n - 1$ (Chasles réunit les intégrales) : $L_n \le \int_a^b f \le R_n$.
 2. $R_n - L_n = h\big(f(x_1) + \cdots + f(x_n)\big) - h\big(f(x_0) + \cdots + f(x_{n-1})\big)$ : les termes $f(x_1)$ à $f(x_{n-1})$ se simplifient, il reste $h\big(f(x_n) - f(x_0)\big) = \frac{b - a}{n}\big(f(b) - f(a)\big)$.
-3. $L_n$ et $R_n$ encadrent l'intégrale, et leur écart tend vers 0 ; chacune est donc à moins de $R_n - L_n$ de l'intégrale, et tend vers elle.
+3. $L_n$ et $R_n$ encadrent l'intégrale, et leur écart tend vers 0 ; chacune est donc à au plus $R_n - L_n$ de l'intégrale, et tend vers elle.
 4. $\frac{(1 - 0)(e - 1)}{n} \le 10^{-3} \iff n \ge 1\,000(e - 1) \approx 1\,718{,}3$ : $n = 1\,719$ suffit. (C'est une borne : l'erreur réelle de $L_n$ est environ la moitié.)
 5. Pour une fonction décroissante, les inégalités s'inversent ($R_n \le \int \le L_n$) et l'écart vaut $\frac{(b - a)(f(a) - f(b))}{n}$ : même conclusion. Pour $\sin$ sur $[0 ; \pi]$, on coupe en $[0 ; \frac{\pi}{2}]$ (croissante) et $[\frac{\pi}{2} ; \pi]$ (décroissante), avec $n$ pair pour que $\frac{\pi}{2}$ soit un point de la subdivision, et on applique le résultat à chaque morceau. Pour une fonction continue quelconque, la preuve demande un outil de plus (la continuité uniforme), admis.
 
@@ -393,7 +393,7 @@ Pour la copie : à 10 % de faux positifs, $\text{TPR}_A = 1 - 0{,}9^3 \approx 0{
 
 **Réponses** : a) `1.4936` · b) `4` · c) `0.999978` · d) `2.5066`.
 
-**Démarche.** `I(B) = quad(lambda x: math.exp(-x ** 2), -B, B)[0]` ; b) les écarts valent 0,28 ; 0,0083 ; 3,9e-5 ; 2,7e-8 ; 2,7e-12 pour $B = 1$ à 5 ; d) $\sqrt{2\pi} \approx 2{,}5066$. Pour la copie : $\sqrt{\pi} - I(B) = 2\int_B^{+\infty} e^{-x^2}\,dx \le 2\int_B^{+\infty} e^{-Bx}\,dx = \frac{2e^{-B^2}}{B}$, soit $5{,}6 \times 10^{-8}$ pour $B = 4$ : la borne est proche de l'écart réel. Au-delà de 6 écarts types, la densité normale n'a plus que $10^{-9}$ de sa masse : couper à 6 ne change rien.
+**Démarche.** `I(B) = quad(lambda x: math.exp(-x ** 2), -B, B)[0]` ; b) les écarts valent 0,28 ; 0,0083 ; 3,9e-5 ; 2,7e-8 ; 2,7e-12 pour $B = 1$ à 5 ; d) $\sqrt{2\pi} \approx 2{,}5066$. Pour la copie : $\sqrt{\pi} - I(B) = 2\int_B^{+\infty} e^{-x^2}\,dx \le 2\int_B^{+\infty} e^{-Bx}\,dx = \frac{2e^{-B^2}}{B}$, soit $5{,}6 \times 10^{-8}$ pour $B = 4$ : la borne est proche de l'écart réel. Au-delà de 6 écarts types, la densité normale n'a plus qu'environ $2 \times 10^{-9}$ de sa masse : couper à 6 ne change rien.
 
 **Erreurs fréquentes.** Intégrer de 0 à $B$ (on trouve la moitié) ; prendre $e^{-x^2}$ au lieu de $e^{-x^2/2}$ en d.
 

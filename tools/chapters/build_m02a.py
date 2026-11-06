@@ -733,7 +733,7 @@ plt.show()''')],
          "$3 \\times 10^{-8}$ pour $B = 4$ : il s'effondre plus vite qu'une exponentielle (la courbe en échelle log "
          "plonge de plus en plus vite). La borne : $\\sqrt{\\pi} - I(B) \\le 2\\int_B^{+\\infty} e^{-Bx}\\,dx = "
          "\\frac{2e^{-B^2}}{B}$, soit environ $5 \\times 10^{-8}$ pour $B = 4$. Pour la densité normale, la masse au-delà "
-         "de 6 écarts types est de l'ordre de $10^{-9}$ : couper à 6 ne change rien en pratique.",
+         "de 6 écarts types vaut environ $2 \\times 10^{-9}$ : couper à 6 ne change rien en pratique.",
 )
 
 M02A_22_CHECK = '''with checked("M02a.22 vérifications"):

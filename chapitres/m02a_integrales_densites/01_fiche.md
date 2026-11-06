@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §8 |
 | **Temps total estimé** | ≈ 12,6 h : lecture et calculs de la fiche ≈ 3 h, exercices ≈ 8 h 50, flashcards ≈ 45 min (parcours essentiel ≈ 8,7 h) |
-| **Prérequis** | R3 (fonctions affines, aire d'un trapèze) ; R4 (Σ) ; R6 (exp et ln) ; R7 (dérivées usuelles, règle de la chaîne, limites en l'infini, dichotomie) ; R8 (probabilité d'un événement) ; R9 (sin, cos et leurs dérivées) ; workbookIA 0A (fonctions, boucles, arrays NumPy) |
+| **Prérequis** | R3 (fonctions affines) ; R4 (Σ) ; R6 (exp et ln) ; R7 (dérivées usuelles, règle de la chaîne, limites en l'infini, dichotomie) ; R8 (probabilité d'un événement) ; R9 (sin, cos et leurs dérivées) ; workbookIA 0A (fonctions, boucles, arrays NumPy) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `integrate.py` : `riemann_sum`, `trapezoid`, `simpson`, `cdf_from_pdf`, `quantile` |
 | **MML** | prérequis de §6.2 : le livre suppose les intégrales connues ; tu en liras la partie continue de §6.2 en M02a.14 |
@@ -110,7 +110,7 @@ Quand $n$ grandit, les rectangles deviennent plus étroits et les trois sommes s
 |---|---|---|---|
 | 4 | 1,75 | 3,75 | 2,625 |
 | 40 | 2,5675 | 2,7675 | 2,66625 |
-| 400 | 2,65668 | 2,67668 | 2,666663 |
+| 400 | 2,656675 | 2,676675 | 2,6666625 |
 
 Pour une fonction **continue** sur $[a ; b]$, les trois sommes ont la même limite quand $n \to +\infty$ (le théorème est admis ; M02a.12 le démontre pour une fonction croissante). Cette limite est l'**intégrale** (*integral*) de $f$ de $a$ à $b$ :
 
@@ -145,7 +145,7 @@ Exemple : $F(x) = \frac{x^3}{3}$ est une primitive de $f(x) = x^2$, car $F'(x) =
 | $f(x)$ | une primitive $F(x)$ | sur |
 |---|---|---|
 | $k$ (constante) | $kx$ | $\mathbb{R}$ |
-| $x^n$, $n \ne -1$ | $\frac{x^{n+1}}{n+1}$ | $\mathbb{R}$ si $n \ge 0$ ; $]0 ; +\infty[$ sinon |
+| $x^n$, $n \ne -1$ | $\frac{x^{n+1}}{n+1}$ | $\mathbb{R}$ si $n$ est un entier $\ge 0$ ; $]0 ; +\infty[$ sinon (et aussi $]-\infty ; 0[$ si $n$ est un entier négatif) |
 | $\frac{1}{x}$ | $\ln \lvert x \rvert$ ($\ln x$ pour $x > 0$) | $]0 ; +\infty[$ ou $]-\infty ; 0[$ |
 | $e^{ax}$, $a \ne 0$ | $\frac{e^{ax}}{a}$ | $\mathbb{R}$ |
 | $\cos x$ | $\sin x$ | $\mathbb{R}$ |
@@ -189,7 +189,7 @@ Pour $f$ et $g$ continues, et des nombres $a$, $b$, $c$, $\lambda$ :
 - **linéarité** : $\int_a^b \big(f(x) + g(x)\big)\,dx = \int_a^b f + \int_a^b g$ et $\int_a^b \lambda f = \lambda \int_a^b f$ ;
 - **relation de Chasles** : $\int_a^b f + \int_b^c f = \int_a^c f$ (les aires s'ajoutent bout à bout) ;
 - **bornes inversées** : $\int_b^a f = -\int_a^b f$, et $\int_a^a f = 0$ ;
-- **positivité** : si $a \le b$ et $f \ge 0$ sur $[a ; b]$, alors $\int_a^b f \ge 0$ ; si $f \le g$, alors $\int_a^b f \le \int_a^b g$.
+- **positivité** : si $a \le b$ et $f \ge 0$ sur $[a ; b]$, alors $\int_a^b f \ge 0$ ; si $a \le b$ et $f \le g$ sur $[a ; b]$, alors $\int_a^b f \le \int_a^b g$.
 
 ⚠️ **Erreur de calcul classique.** $\big[F(x)\big]_a^b = F(b) - F(a)$, la borne du **haut** d'abord. Écrire $F(a) - F(b)$ change le signe du résultat.
 
@@ -211,7 +211,7 @@ $$\int_1^2 \left(3x^2 - \frac{2}{x}\right)dx = \big[x^3 - 2\ln x\big]_1^2 = (8 -
 
 ### Intégration par parties
 
-La règle du produit $(uv)' = u'v + uv'$ (R7), intégrée de $a$ à $b$, donne $\big[uv\big]_a^b = \int_a^b u'v + \int_a^b uv'$, soit
+La règle du produit $(uv)' = u'v + uv'$ (R7), intégrée de $a$ à $b$ (pour $u$ et $v$ dérivables, de dérivées continues), donne $\big[uv\big]_a^b = \int_a^b u'v + \int_a^b uv'$, soit
 
 $$\int_a^b u(x)\,v'(x)\,dx = \big[u(x)\,v(x)\big]_a^b - \int_a^b u'(x)\,v(x)\,dx.$$
 
@@ -223,7 +223,7 @@ Le choix inverse ($u = e^{-x}$, $v' = x$) mènerait à $\int x^2 e^{-x}$, plus c
 
 ### Changement de variable
 
-La règle de la chaîne $\big(F(g(x))\big)' = F'(g(x))\,g'(x)$ (R7), intégrée, donne la formule du **changement de variable** (*substitution*) :
+La règle de la chaîne $\big(F(g(x))\big)' = F'(g(x))\,g'(x)$ (R7), intégrée, donne la formule du **changement de variable** (*substitution*), pour $f$ continue et $g$ dérivable, de dérivée continue :
 
 $$\int_a^b f\big(g(x)\big)\,g'(x)\,dx = \int_{g(a)}^{g(b)} f(u)\,du.$$
 
@@ -271,7 +271,7 @@ $$\int_0^1 \frac{dx}{\sqrt{x}} = \lim_{\varepsilon \to 0^+} \int_\varepsilon^1 x
 
 Ici la règle est inversée : **$\int_0^1 \frac{dx}{x^p}$ converge si et seulement si $p < 1$** (la fonction doit exploser **assez lentement**). Pour $p = 1$, les deux intégrales, vers 0 et vers $+\infty$, divergent.
 
-⚠️ **Erreur de calcul classique.** Appliquer la formule $F(b) - F(a)$ sans regarder si $f$ est définie sur tout $[a ; b]$ : « $\int_{-1}^1 \frac{dx}{x^2} = \left[-\frac{1}{x}\right]_{-1}^1 = -2$ » est faux (une intégrale d'une fonction positive ne peut pas être négative) : $\frac{1}{x^2}$ explose en 0, et l'intégrale diverge.
+⚠️ **Erreur de calcul classique.** Appliquer la formule $F(b) - F(a)$ sans vérifier que $f$ est continue sur tout $[a ; b]$ : « $\int_{-1}^1 \frac{dx}{x^2} = \left[-\frac{1}{x}\right]_{-1}^1 = -2$ » est faux (une intégrale d'une fonction positive ne peut pas être négative) : $\frac{1}{x^2}$ explose en 0, $\int_0^1 \frac{dx}{x^2}$ diverge ($p = 2 \ge 1$), donc l'intégrale de $-1$ à $1$ aussi.
 
 ### L'intégrale de Gauss
 
@@ -279,7 +279,7 @@ La fonction $e^{-x^2}$, une « cloche », n'a **pas de primitive** qui s'écrive
 
 $$\int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi} \approx 1{,}7725.$$
 
-Admets-la pour l'instant, et vérifie-la numériquement (M02a.19, M02a.21). Elle converge bien : pour $\lvert x \rvert \ge 1$, $e^{-x^2} \le e^{-\lvert x \rvert}$, dont l'intégrale converge.
+Admets-la pour l'instant, et vérifie-la numériquement (M02a.19, M02a.21). Pourquoi converge-t-elle ? Par une **règle de comparaison**, admise : si $0 \le f \le g$ sur $[a ; +\infty[$ et si $\int_a^{+\infty} g$ converge, alors $\int_a^{+\infty} f$ converge aussi, et $\int_a^{+\infty} f \le \int_a^{+\infty} g$ (une aire coincée sous une aire finie est finie). Ici, pour $\lvert x \rvert \ge 1$, $e^{-x^2} \le e^{-\lvert x \rvert}$, dont l'intégrale converge.
 
 Par le changement de variable $x = \frac{t}{\sqrt{2}}$ (donc $dx = \frac{dt}{\sqrt{2}}$), on en déduit
 
@@ -306,7 +306,7 @@ La plupart des intégrales du monde réel n'ont pas de primitive simple, ou port
 ### Trois méthodes
 
 - **Rectangles** (gauche, droite, milieu) : les sommes de Riemann du §1.
-- **Trapèzes** (*trapezoidal rule*) : sur chaque intervalle, on remplace la courbe par le **segment** qui joint ses deux extrémités ; l'aire du trapèze vaut $h \times \frac{f(x_i) + f(x_{i+1})}{2}$ (R3). En additionnant, chaque point intérieur est compté deux fois à moitié :
+- **Trapèzes** (*trapezoidal rule*) : sur chaque intervalle, on remplace la courbe par le **segment** qui joint ses deux extrémités. On obtient un trapèze, dont l'aire vaut sa largeur fois la moyenne de ses deux côtés parallèles (un rectangle surmonté d'un triangle) : $h \times \frac{f(x_i) + f(x_{i+1})}{2}$. En additionnant, chaque point intérieur est compté deux fois à moitié :
 $$T_n = h\left(\frac{f(x_0)}{2} + f(x_1) + \cdots + f(x_{n-1}) + \frac{f(x_n)}{2}\right) = \frac{L_n + R_n}{2}.$$
 - **Simpson** (*Simpson's rule*) : sur chaque paire d'intervalles, on remplace la courbe par la **parabole** qui passe par les trois points. Il faut donc un nombre $n$ **pair** d'intervalles. Le calcul de l'aire sous chaque parabole donne les poids $1, 4, 1$, d'où :
 $$S_n = \frac{h}{3}\Big(f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \cdots + 2f(x_{n-2}) + 4f(x_{n-1}) + f(x_n)\Big).$$
@@ -321,9 +321,9 @@ Exemple : $\int_1^2 \frac{dx}{x} = \ln 2 \approx 0{,}693147$, avec $n = 4$ ($h =
 | rectangles à droite | 0,634524 | $-5{,}9 \times 10^{-2}$ | 0,662872 | $-3{,}0 \times 10^{-2}$ | ≈ 2 |
 | point milieu | 0,691220 | $-1{,}9 \times 10^{-3}$ | 0,692661 | $-4{,}9 \times 10^{-4}$ | ≈ 4 |
 | trapèzes | 0,697024 | $+3{,}9 \times 10^{-3}$ | 0,694122 | $+9{,}7 \times 10^{-4}$ | ≈ 4 |
-| Simpson | 0,693254 | $+1{,}1 \times 10^{-4}$ | 0,693155 | $+7{,}3 \times 10^{-6}$ | ≈ 15 |
+| Simpson | 0,693254 | $+1{,}1 \times 10^{-4}$ | 0,693155 | $+7{,}4 \times 10^{-6}$ | ≈ 15 |
 
-Pour Simpson avec $n = 4$ : $\frac{0{,}25}{3}\big(1 + 4 \times 0{,}8 + 2 \times 0{,}6667 + 4 \times 0{,}5714 + 0{,}5\big) = \frac{0{,}25}{3} \times 8{,}3190 \approx 0{,}693254$.
+Pour Simpson avec $n = 4$ : $\frac{0{,}25}{3}\big(1 + 4 \times 0{,}8 + 2 \times 0{,}666667 + 4 \times 0{,}571429 + 0{,}5\big) = \frac{0{,}25}{3} \times 8{,}319048 \approx 0{,}693254$.
 
 ### L'ordre d'une méthode
 
@@ -351,7 +351,7 @@ Ces ordres viennent des polynômes de Taylor (M05a) : on les admet ici, et M02a.
 
 ### Pourquoi une densité ?
 
-Le temps d'attente d'un bus, la taille d'une personne ou le score d'un modèle peuvent prendre **n'importe quelle valeur** d'un intervalle : ce sont des variables aléatoires **continues**. La probabilité d'une valeur **exacte** y est nulle : un temps d'attente de exactement 3,000000… minutes n'arrive (presque) jamais. On ne demande donc que la probabilité d'un **intervalle**, et on la lit comme une **aire** sous une courbe, la densité.
+Le temps d'attente d'un bus, la taille d'une personne ou le score d'un modèle peuvent prendre **n'importe quelle valeur** d'un intervalle : ce sont des variables aléatoires **continues**. La probabilité d'une valeur **exacte** y est nulle : un temps d'attente d'exactement 3,000000… minutes n'arrive (presque) jamais. On ne demande donc que la probabilité d'un **intervalle**, et on la lit comme une **aire** sous une courbe, la densité.
 
 ### Définition
 
@@ -363,7 +363,7 @@ Une variable aléatoire $X$ **a pour densité** $f$ si, pour tous $a \le b$,
 
 $$P(a \le X \le b) = \int_a^b f(x)\,dx.$$
 
-L'ensemble où $f$ n'est pas nulle s'appelle le **support** de la loi : en dehors, $X$ ne tombe jamais. Quand $f$ est nulle hors d'un intervalle $[c ; d]$, l'intégrale totale se réduit à $\int_c^d f$.
+L'ensemble où $f$ n'est pas nulle s'appelle le **support** de la loi : en dehors, $X$ ne tombe qu'avec une probabilité nulle. Quand $f$ est nulle hors d'un intervalle $[c ; d]$, l'intégrale totale se réduit à $\int_c^d f$.
 
 Exemple : $f(x) = c\,(1 - x^2)$ sur $[-1 ; 1]$, et 0 ailleurs. Pour quelle constante $c$ est-ce une densité ? Elle est positive pour $c > 0$, et
 
@@ -426,7 +426,7 @@ Pour une loi **discrète** (R8), la fonction de répartition existe aussi, mais 
 
 ### Quantiles, médiane, percentiles
 
-Le **quantile d'ordre $p$** (*quantile*), pour $0 < p < 1$, est la valeur sous laquelle tombe une proportion $p$ des réalisations. Précisément, c'est **le plus petit $x$ tel que $F(x) \ge p$**, noté $q_p$. Quand $F$ est continue et strictement croissante, c'est simplement la solution de l'équation $F(x) = p$.
+Le **quantile d'ordre $p$** (*quantile*), pour $0 < p < 1$, est la valeur sous laquelle tombe une proportion $p$ des réalisations. Précisément, c'est **le plus petit $x$ tel que $F(x) \ge p$**, noté $q_p$. Quand $F$ est continue et strictement croissante là où elle est entre 0 et 1, c'est simplement la solution de l'équation $F(x) = p$.
 
 - La **médiane** est $q_{0{,}5}$ : une chance sur deux d'être en dessous.
 - Les **quartiles** sont $q_{0{,}25}$, $q_{0{,}5}$ et $q_{0{,}75}$ ; les **déciles**, $q_{0{,}1}, \ldots, q_{0{,}9}$.
@@ -511,14 +511,14 @@ Deux liens avec la suite :
 | produit | $\int fg = \int f \times \int g$ | par parties, ou un changement de variable |
 | changement de variable | garder les anciennes bornes, ou oublier $g'(x)$ | $u$ va de $g(a)$ à $g(b)$, et $g'(x)\,dx$ devient $du$ |
 | intégrale impropre | « $\frac{1}{x} \to 0$, donc $\int_1^{+\infty} \frac{dx}{x}$ converge » | il faut décroître assez vite : $\frac{1}{x^p}$ avec $p > 1$ |
-| fonction qui explose | $\int_{-1}^1 \frac{dx}{x^2} = -2$ | $f$ n'est pas définie en 0 : l'intégrale diverge |
+| fonction qui explose | $\int_{-1}^1 \frac{dx}{x^2} = -2$ | $\frac{1}{x^2}$ n'est pas bornée près de 0, et $\int_0^1 \frac{dx}{x^2}$ diverge ($p = 2 \ge 1$) : l'intégrale diverge |
 | Simpson | un nombre impair d'intervalles | $n$ pair ; poids $1, 4, 2, 4, \ldots, 4, 1$, le tout fois $\frac{h}{3}$ |
 | ordre d'une méthode | « doubler $n$ divise toujours l'erreur par 4 » | pour une fonction régulière : ÷ 2, ÷ 4 ou ÷ 16 selon la méthode |
 | densité | $f(x) = P(X = x)$, ou $f \le 1$ | $P(X = x) = 0$ ; seule l'aire vaut 1, $f$ peut dépasser 1 |
 | constante d'une densité | oublier d'intégrer sur tout le support | $\int f = 1$ sur tout l'intervalle où $f$ n'est pas nulle |
 | fonction de répartition | $F(x) = f(x)$ | $F(x) = \int_{-\infty}^x f$, l'aire à gauche ; $F' = f$ |
 | quantile | le percentile 90 vaut 0,9 | c'est une valeur $x$ telle que $F(x) = 0{,}9$ |
-| médiane et moyenne | toujours égales | égales pour une loi symétrique seulement |
+| médiane et moyenne | toujours égales | égales pour une loi symétrique (quand la moyenne existe) ; une loi asymétrique les sépare souvent |
 
 ## Et maintenant
 

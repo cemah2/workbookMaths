@@ -20,7 +20,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 
 1. Vrai ou faux : si $f \ge 0$ sur $[a ; b]$ (avec $a < b$), alors $\int_a^b f(x)\,dx$ est l'aire de la région entre la courbe et l'axe des abscisses.
 2. Sans calcul, que vaut $\int_{-1}^1 x^3\,dx$ ? Pourquoi ?
-3. Si $f$ est négative sur $[a ; b]$ (avec $a < b$), quel est le signe de $\int_a^b f(x)\,dx$ ?
+3. Si $f(x) < 0$ pour tout $x$ de $[a ; b]$ (avec $a < b$), quel est le signe de $\int_a^b f(x)\,dx$ ?
 4. Que vaut $\int_2^2 f(x)\,dx$, pour n'importe quelle fonction $f$ continue ?
 5. Vrai ou faux : $\int_3^1 f(x)\,dx = -\int_1^3 f(x)\,dx$.
 6. Pour une fonction croissante, la somme de Riemann avec les rectangles à gauche est-elle trop petite ou trop grande ?
@@ -61,7 +61,7 @@ Converge ou diverge ?
 ### M02a.Q5 — Rectangles, trapèzes, Simpson 🧠 ★ ⏱️ 4 min
 *Fiche §5 · parcours C, E*
 
-1. Quelles méthodes donnent la valeur exacte de l'intégrale d'une fonction affine, quel que soit $n$ ?
+1. Quelles méthodes donnent la valeur exacte de l'intégrale d'une fonction affine, avec n'importe quel nombre d'intervalles qu'elles acceptent ?
 2. Quelle condition la méthode de Simpson impose-t-elle au nombre $n$ d'intervalles ?
 3. Pour une fonction régulière, quand on divise le pas par 2, l'erreur des trapèzes est divisée par environ combien ?
 4. Combien d'évaluations de $f$ demande la méthode des trapèzes avec $n = 10$ ?
@@ -97,8 +97,8 @@ La variable $X$ a pour fonction de répartition $F(x) = 0$ pour $x < 0$, $F(x) =
 ### M02a.R1 — Dériver une composée (R7) 🔁 ★ ⏱️ 5 min
 *Fiche §2 · parcours C, E*
 
-1. La dérivée de $x \mapsto (x^2 + 1)^3$ ?
-2. La dérivée de $x \mapsto \ln(3x + 2)$, pour $x > -\frac{2}{3}$ ?
+1. La dérivée de $x \mapsto (3 - x^2)^4$ ?
+2. La dérivée de $x \mapsto \ln(5 - 2x)$, pour $x < \frac{5}{2}$ ?
 3. La dérivée de $x \mapsto e^{5x - 1}$ ?
 4. La dérivée de $x \mapsto \sqrt{1 + x^2}$ ?
 
@@ -106,9 +106,9 @@ La variable $X$ a pour fonction de répartition $F(x) = 0$ pour $x < 0$, $F(x) =
 *Fiche §1 · parcours C, E*
 
 1. $\sum_{k=1}^{4} k^2$ ?
-2. $\sum_{k=0}^{3} (2k + 1)$ ?
+2. $\sum_{k=1}^{4} (3k - 2)$ ?
 3. Écris $0{,}5 \times \big(f(0) + f(0{,}5) + f(1) + f(1{,}5)\big)$ avec le symbole $\Sigma$.
-4. $\sum_{k=1}^{10} k$ ?
+4. $\sum_{k=1}^{20} k$ ?
 
 ### M02a.R3 — Exponentielle et logarithme (R6) 🔁 ★ ⏱️ 5 min
 *Fiche §4 · parcours C*
@@ -261,7 +261,7 @@ Chaque fonction est nulle en dehors de l'intervalle indiqué. La constante $c$ e
 **Objectif :** calculer des probabilités d'intervalles avec une densité, et la valeur moyenne d'une fonction.
 **Prérequis :** fiche §4, §6 et §8 · **Parcours :** C, E
 
-La variable $X$ a pour densité $f(x) = \frac{3}{8}x^2$ sur $[0 ; 2]$ (et 0 ailleurs). Le temps $T$ (en minutes) qu'un serveur met à répondre a pour densité $0{,}2\,e^{-0{,}2t}$ pour $t \ge 0$ (et 0 pour $t < 0$).
+La variable $X$ a pour densité $f(x) = \frac{3}{8}x^2$ sur $[0 ; 2]$ (et 0 ailleurs). Le temps $T$ (en minutes) entre deux appels reçus par un standard téléphonique a pour densité $0{,}2\,e^{-0{,}2t}$ pour $t \ge 0$ (et 0 pour $t < 0$). Garde les valeurs exactes ($e^{-2}$, $e^{-1}$) jusqu'au calcul final, puis arrondis.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -306,9 +306,9 @@ Soit $f$ une fonction continue et **croissante** sur un intervalle $[a ; b]$, et
 2. Pourquoi a-t-on $h\,f(x) \le \int_x^{x+h} f(t)\,dt \le h\,f(x + h)$ ? Fais un dessin.
 3. Déduis-en un encadrement du taux d'accroissement $\frac{A(x + h) - A(x)}{h}$, puis sa limite quand $h \to 0^+$ (utilise la continuité de $f$). Le cas $h < 0$ se traite de la même façon : on l'admet.
 4. Conclus : $A$ est une primitive de $f$. Puis montre que $\int_a^b f(t)\,dt = F(b) - F(a)$ pour **toute** primitive $F$ de $f$ (deux primitives sur un intervalle diffèrent d'une constante).
-5. Application : soit $G(x) = \int_0^x e^{-t^2}\,dt$. Calcule $G'(x)$, puis $G'(1)$, alors que tu ne sais pas calculer $G(x)$. Que dit le signe de $G'$ sur le sens de variation de $G$ ?
+On a supposé $f$ croissante pour simplifier ; le théorème reste vrai pour toute fonction continue (on encadre alors par le minimum et le maximum de $f$ sur $[x ; x + h]$), et pour $x < a$ (avec la convention $\int_a^x = -\int_x^a$). La question 5 s'en sert.
 
-On a supposé $f$ croissante pour simplifier ; le théorème reste vrai pour toute fonction continue (on encadre alors par le minimum et le maximum de $f$ sur $[x ; x + h]$).
+5. Application : soit $G(x) = \int_0^x e^{-t^2}\,dt$, pour tout réel $x$ ($e^{-t^2}$ n'est pas croissante : c'est la version générale du théorème qui s'applique). Calcule $G'(x)$, puis $G'(1)$, alors que tu ne sais pas calculer $G(x)$. Que dit le signe de $G'$ sur le sens de variation de $G$ ?
 
 ### Ex M02a.12 — Encadrer une aire par des rectangles : pourquoi les sommes de Riemann convergent (fonction croissante) ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer que les sommes de Riemann d'une fonction croissante tendent vers l'intégrale, avec une borne de l'erreur.

@@ -41,7 +41,7 @@ CHAPTERS = [
                     "valeur moyenne d'une fonction sur un intervalle"],
         "requires": [("dérivées usuelles et règle de la chaîne", "R7"), ("Σ", "R4"), ("exp et ln", "R6"),
                      ("limites en l'infini", "R7"), ("probabilité d'un événement", "R8"),
-                     ("aire d'un trapèze, fonctions affines", "R3")],
+                     ("fonctions affines", "R3")],
         "frontieres": ["2.3", "2.17", "2.18"],
         "mymath": {"module": "integrate.py",
                    "functions": ["riemann_sum", "trapezoid", "simpson", "cdf_from_pdf", "quantile"]},

@@ -172,7 +172,7 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Intégrer un produit facteur par facteur | $\int x\,e^x\,dx = \frac{x^2}{2}e^x$ | par parties : $x\,e^x - e^x$ |
 | Changer de variable sans changer les bornes | $\int_0^1 2x\,(x^2 + 1)^3\,dx = \int_0^1 u^3\,du$ | $u = x^2 + 1$ va de 1 à 2 : $\int_1^2 u^3\,du$ |
 | Conclure qu'une intégrale converge parce que $f \to 0$ | $\int_1^{+\infty} \frac{dx}{x}$ converge | il faut décroître assez vite : $\frac{1}{x^p}$ converge vers $+\infty$ si et seulement si $p > 1$ |
-| Ignorer une fonction qui explose dans l'intervalle | $\int_{-1}^1 \frac{dx}{x^2} = -2$ | $\frac{1}{x^2}$ n'est pas définie en 0 : l'intégrale diverge |
+| Ignorer une fonction qui explose dans l'intervalle | $\int_{-1}^1 \frac{dx}{x^2} = -2$ | $\frac{1}{x^2}$ n'est pas bornée près de 0, et $\int_0^1 \frac{dx}{x^2}$ diverge ($p = 2 \ge 1$) : l'intégrale diverge |
 | Compter les extrémités entièrement dans les trapèzes | $h(f_0 + f_1 + \cdots + f_n)$ | les deux extrémités comptent pour moitié |
 | Appliquer Simpson avec $n$ impair, ou des poids faux | poids $1, 2, 4, 2, 1$ | $n$ pair, poids $1, 4, 2, 4, \ldots, 4, 1$, le tout fois $\frac{h}{3}$ |
 | Lire une densité comme une probabilité | $f(1) = 0{,}4$, « donc $P(X = 1) = 0{,}4$ » | $P(X = 1) = 0$ ; une probabilité est une aire sous $f$, et $f$ peut dépasser 1 |

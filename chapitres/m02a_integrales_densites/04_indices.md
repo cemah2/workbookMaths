@@ -152,7 +152,7 @@ Repère la fonction extérieure (puissance, ln, exp, racine) et la fonction int�
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $3u^2 \times u'$ avec $u = x^2 + 1$. 4 : $\sqrt{u}$ a pour dérivée $\frac{u'}{2\sqrt{u}}$.
+1 : $4u^3 \times u'$ avec $u = 3 - x^2$. 2 : la dérivée de $\ln u$ est $\frac{u'}{u}$, attention au signe de $u'$. 4 : $\sqrt{u}$ a pour dérivée $\frac{u'}{2\sqrt{u}}$.
 
 </details>
 

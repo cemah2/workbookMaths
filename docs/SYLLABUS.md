@@ -970,7 +970,7 @@ L'intégrale comme aire sous une courbe, les primitives et les méthodes de calc
 
 **Notions enseignées** : aire sous une courbe, sommes de Riemann · primitives · intégrale, théorème fondamental · intégration par parties · changement de variable · intégrales impropres · intégrale de Gauss (valeur admise, vérifiée numériquement ; démontrée en M02b) · méthodes des rectangles, des trapèzes et de Simpson · densité de probabilité · fonction de répartition · quantiles et percentiles · l'AUC est une aire · valeur moyenne d'une fonction sur un intervalle
 
-**Prérequis** : dérivées usuelles et règle de la chaîne (R7) · Σ (R4) · exp et ln (R6) · limites en l'infini (R7) · probabilité d'un événement (R8) · aire d'un trapèze, fonctions affines (R3)
+**Prérequis** : dérivées usuelles et règle de la chaîne (R7) · Σ (R4) · exp et ln (R6) · limites en l'infini (R7) · probabilité d'un événement (R8) · fonctions affines (R3)
 
 **mymath** : `integrate.py` (signatures figées) : `riemann_sum`, `trapezoid`, `simpson`, `cdf_from_pdf`, `quantile`
 
