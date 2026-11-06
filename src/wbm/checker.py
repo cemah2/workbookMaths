@@ -722,7 +722,7 @@ def _near_answer(ex_id: str, entry: dict, target: float, tolerance: float) -> bo
     """Does a value within ``tolerance`` of ``target``, at the recorded rounding, give the right answer?"""
     if entry["kind"] == "int":
         low, high = math.ceil(target - tolerance - 1e-9), math.floor(target + tolerance + 1e-9)
-        candidates = [float(n) for n in range(low, high + 1)] if high - low <= 50 else []
+        candidates = [float(n) for n in range(low, high + 1)] if high - low <= 200 else []
     else:
         decimals = entry.get("decimals")
         if decimals is None:
@@ -731,7 +731,7 @@ def _near_answer(ex_id: str, entry: dict, target: float, tolerance: float) -> bo
         low = round(target - tolerance, decimals)
         high = round(target + tolerance, decimals)
         count = int(round((high - low) / unit))
-        candidates = [low + k * unit for k in range(count + 1)] if count <= 50 else []
+        candidates = [low + k * unit for k in range(count + 1)] if count <= 200 else []
     accepted = {entry["hash"], *entry.get("alt_hashes", [])}
     return any(_hash_value(ex_id, entry, c) in accepted for c in candidates)
 
@@ -1333,6 +1333,8 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
         return False, "wrong", _choices_message(entry)                                      # (R5.18c = 4)
     if entry.get("prediction") and kind in ("int", "float", "array", "set"):
         return False, "wrong", _MISSED_PREDICTION
+    if kind in ("int", "float") and entry.get("choices"):     # a wrong choice: never « à 1 près » (CP0.3f)
+        return False, "wrong", "Ce n'est pas le bon choix : relis l'énoncé, puis justifie ta réponse par un calcul."
     if kind in ("int", "float"):
         return False, "wrong", _numeric_diagnosis(ex_id, entry, _as_number(value), computed)
     if kind == "bool":

@@ -540,3 +540,22 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] R9.24 🛠️ Comparer deux flottants : `np.isclose` ★ 10 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (25 cartes)
 <!-- wbm:end R9 -->
+
+<!-- wbm:section CP0 -->
+## CP0 · Bilan de remise à niveau ⏱️ 3,3 h
+
+- [ ] CP0.Q1 🧠 Dix affirmations sur toute la remise à niveau : vrai ou faux ★ 10 min
+- [ ] CP0.1 ✏️ Fractions, puissances et notation scientifique ★ 8 min
+- [ ] CP0.2 ✏️ Développer, factoriser, résoudre ★ 8 min
+- [ ] CP0.3 ✏️ Un système 2 × 2 et sa lecture graphique ★★ 10 min
+- [ ] CP0.4 ✏️ Second degré : racines et sommet ★★ 10 min
+- [ ] CP0.5 ✏️ Exponentielle et logarithme ★ 8 min
+- [ ] CP0.6 ✏️ Dériver et étudier les variations ★★ 12 min
+- [ ] CP0.7 ✏️ Un arbre de probabilités et une espérance ★★ 10 min
+- [ ] CP0.8 ✏️ Vecteurs, produit scalaire, angle ★ 8 min
+- [ ] CP0.9 ∂ Une démonstration courte par récurrence ★★ 10 min
+- [ ] CP0.10 🐛 Corriger une copie : cinq erreurs ★★ 8 min
+- [ ] CP0.11 ✏️ Une somme écrite avec Σ et une somme géométrique ★ 8 min
+- [ ] CP0.12 🔗 Problème de synthèse : étudier une fonction de coût donnée par une formule ★★ 12 min
+- [ ] CP0.13 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
+<!-- wbm:end CP0 -->

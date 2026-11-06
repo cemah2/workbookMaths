@@ -1111,3 +1111,10 @@ def test_the_right_values_in_another_order():
 def test_classic_mistakes_end_with_a_full_stop():
     e = entry("s.16", 5.0, decimals=2, mistakes={"relis la consigne": 2})
     assert message("s.16", e, 2) == "Erreur classique. Piste : relis la consigne."
+
+
+def test_a_wrong_choice_is_not_a_calculation_slip():
+    """A choice 1, 2 or 3 that is not a prediction: 2 for 3 is a wrong choice, never « à 1 près » (session 15, CP0)."""
+    e = entry("d.4w", 3, choices=[1, 2, 3])
+    text = C.check_entry("d.4w", e, 2)[2]
+    assert "bon choix" in text and "1 près" not in text
