@@ -1,0 +1,26 @@
+front;back;tags
+Qu'est-ce qu'une fonction, et quelle est la différence entre image et antécédent ?;Une règle qui associe à chaque x de son ensemble de définition un unique nombre f(x), son image. Un antécédent de y est un x tel que f(x) = y : il peut y en avoir zéro, un ou plusieurs.;mwb::r3::fonction
+Les deux interdits qui restreignent un ensemble de définition dans ce chapitre ?;Diviser par 0, et prendre la racine carrée d'un nombre négatif. Pour \(\frac{\sqrt{x}}{x - 3}\) : \(x \ge 0\) et \(x \ne 3\).;mwb::r3::domaine
+Comment lire les antécédents de k sur une courbe ?;On trace la droite horizontale y = k et on lit les abscisses de tous ses points communs avec la courbe, extrémités comprises.;mwb::r3::lecture
+Pourquoi un cercle n'est-il pas la courbe d'une fonction ?;Au-dessus d'un même x, il a deux points : ce x aurait deux images.;mwb::r3::lecture
+La pente et l'ordonnée à l'origine de la droite qui passe par \((x_1, y_1)\) et \((x_2, y_2)\) ?;\(m = \frac{y_2 - y_1}{x_2 - x_1}\) (pour \(x_1 \ne x_2\)), puis \(c = y_1 - m x_1\). On vérifie avec l'autre point.;mwb::r3::affine
+Que veulent dire m et c dans \(f(x) = mx + c\) ?;\(c = f(0)\), l'ordonnée à l'origine. m est la variation de f(x) quand x augmente de 1 : si \(m > 0\) la droite monte, si \(m < 0\) elle descend, si \(m = 0\) elle est horizontale.;mwb::r3::affine
+La normalisation min-max, et sa réciproque ?;\(N(x) = \frac{x - \min}{\max - \min}\), une fonction affine qui envoie le minimum sur 0 et le maximum sur 1. Sa réciproque : \(x = (\max - \min)\,N + \min\).;mwb::r3::minmax
+Les variations des quatre fonctions de référence ?;x² : décroissante sur \(]-\infty, 0]\), croissante sur \([0, +\infty[\). 1/x : décroissante sur chacun de ses deux morceaux. √x : croissante sur \([0, +\infty[\). |x| : comme x².;mwb::r3::reference
+Pourquoi \((-3)^2 > (-1)^2\) alors que \(-3 < -1\) ?;Le carré est décroissant sur les négatifs : il retourne l'ordre.;mwb::r3::reference
+Définis max(0, x) et la marche H.;max(0, x) vaut 0 si \(x < 0\) et x si \(x \ge 0\) (la ReLU des réseaux). H(x) vaut 0 si \(x < 0\) et 1 si \(x \ge 0\), la valeur en 0 étant une convention que l'énoncé doit dire.;mwb::r3::morceaux
+La forme canonique de \(ax^2 + bx + c\) ?;\(a(x - \alpha)^2 + \beta\) avec \(\alpha = -\frac{b}{2a}\) et \(\beta = f(\alpha)\). On l'obtient en complétant le carré avec une identité remarquable.;mwb::r3::second_degre
+Le sommet d'une parabole : où, et minimum ou maximum ?;Le sommet est \((\alpha, \beta)\), avec \(\alpha = -\frac{b}{2a}\). Si \(a > 0\), β est le minimum, si \(a < 0\), c'est le maximum. La droite x = α est l'axe de symétrie.;mwb::r3::second_degre
+Les trois cas du discriminant \(\Delta = b^2 - 4ac\) ?;Si \(\Delta > 0\) : deux racines \(\frac{-b \pm \sqrt{\Delta}}{2a}\). Si \(\Delta = 0\) : une racine double \(-\frac{b}{2a}\). Si \(\Delta < 0\) : aucune racine réelle.;mwb::r3::discriminant
+La factorisation d'un second degré qui a deux racines ?;\(ax^2 + bx + c = a(x - x_1)(x - x_2)\). Et avec une racine double : \(a(x - x_0)^2\).;mwb::r3::discriminant
+Le signe de \(ax^2 + bx + c\) ?;Du signe de a, sauf strictement entre les racines, où il est du signe opposé. Si \(\Delta < 0\), du signe de a partout.;mwb::r3::discriminant
+La somme et le produit des racines d'un second degré ?;\(x_1 + x_2 = -\frac{b}{a}\) et \(x_1 x_2 = \frac{c}{a}\). Un contrôle rapide des racines trouvées.;mwb::r3::discriminant
+Que veut dire « f est croissante sur I » ?;Pour tous \(a < b\) dans I, \(f(a) \le f(b)\) : f conserve l'ordre. Le mot porte toujours sur un intervalle.;mwb::r3::variations
+Maximum et argmax : quelle différence ?;Le maximum est la plus grande valeur de f, l'argmax est la valeur de x où il est atteint. Un classifieur prédit un argmax (la classe), pas un maximum.;mwb::r3::extremum
+Comment trouver le maximum d'une fonction sur un intervalle fermé ?;Étudier les variations sur l'intervalle, puis comparer les valeurs aux bornes et au sommet s'il est dans l'intervalle.;mwb::r3::extremum
+Que veut dire \((f \circ g)(x)\), et dans quel ordre ?;\(f(g(x))\) : on applique g d'abord, puis f. En général \(f \circ g \ne g \circ f\).;mwb::r3::composition
+Pourquoi une composée de fonctions affines ne suffit-elle pas pour un réseau de neurones ?;Une composée de fonctions affines reste affine. Les activations non linéaires (comme la ReLU) permettent de représenter autre chose qu'une droite.;mwb::r3::composition
+Comment programmer compose(f, g) en Python ?;Définir une fonction intérieure, def composite(x): return f(g(x)), et la renvoyer sans l'appeler : return composite. C'est une fermeture.;mwb::r3::composition
+Comment trouver la réciproque de f ?;On écrit y = f(x), on résout en x : la formule obtenue est \(f^{-1}(y)\). On vérifie \(f^{-1}(f(x)) = x\).;mwb::r3::reciproque
+\(f^{-1}\) et \(\frac{1}{f}\), est-ce la même chose ?;Non. \(f^{-1}\) défait f (pour f(x) = 3x + 2, \(f^{-1}(y) = \frac{y - 2}{3}\)), alors que \(\frac{1}{f(x)} = \frac{1}{3x + 2}\).;mwb::r3::reciproque
+Le schéma de Horner pour évaluer un polynôme ?;On part du premier coefficient (plus haut degré), puis à chaque étape on multiplie par x et on ajoute le coefficient suivant : n multiplications pour un degré n, aucune puissance.;mwb::r3::horner

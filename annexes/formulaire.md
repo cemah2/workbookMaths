@@ -50,7 +50,23 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | formule de Cramer ($D \ne 0$) | $x = \frac{ed - bf}{D}$ ; $y = \frac{af - ec}{D}$ |
 | déterminant nul | aucune solution ou une infinité (droites parallèles ou confondues) |
 
-*(R3 à R9 ajoutés avec leurs chapitres)*
+### R3 · Fonctions
+
+| Notion | Formule |
+|---|---|
+| droite par deux points | $m = \frac{y_2 - y_1}{x_2 - x_1}$ ($x_1 \ne x_2$) ; $c = y_1 - m x_1$ |
+| normalisation min-max | $N(x) = \frac{x - \min}{\max - \min}$ ; réciproque $x = (\max - \min)N + \min$ |
+| fonctions de référence | $x^2$ et $\lvert x \rvert$ : décroissantes sur $]-\infty \;;\; 0]$, croissantes sur $[0 \;;\; +\infty[$ ; $\frac{1}{x}$ : décroissante sur chaque morceau ; $\sqrt{x}$ : croissante |
+| par morceaux | $\max(0, x)$ ; marche $H(x) = 0$ si $x < 0$, 1 si $x \ge 0$ (convention en 0) ; $\lvert x \rvert = \max(x, -x)$ |
+| forme canonique | $ax^2 + bx + c = a(x - \alpha)^2 + \beta$, $\alpha = -\frac{b}{2a}$, $\beta = c - \frac{b^2}{4a}$ |
+| discriminant | $\Delta = b^2 - 4ac$ ; $\Delta > 0$ : $x_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a}$ ; $\Delta = 0$ : $x_0 = -\frac{b}{2a}$ ; $\Delta < 0$ : aucune racine |
+| factorisation | $a(x - x_1)(x - x_2)$ ; somme $x_1 + x_2 = -\frac{b}{a}$, produit $x_1 x_2 = \frac{c}{a}$ |
+| signe d'un second degré | du signe de $a$, sauf strictement entre les racines |
+| composition | $(f \circ g)(x) = f(g(x))$ ; en général $f \circ g \ne g \circ f$ |
+| réciproque | $f^{-1}(f(x)) = x$, $f(f^{-1}(y)) = y$ ; courbes symétriques par rapport à $y = x$ |
+| Horner | $a_n x^n + \dots + a_0 = (\cdots((a_n x + a_{n-1})x + a_{n-2})\cdots)x + a_0$ |
+
+*(R4 à R9 ajoutés avec leurs chapitres)*
 
 ## Partie I · Fondations
 

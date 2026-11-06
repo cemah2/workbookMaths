@@ -55,6 +55,17 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 
 | Erreur | Exemple faux | Ce qu'il faut faire |
 |---|---|---|
+| Confondre image et antécédent | « les antécédents de 2 » : calculer $f(2)$ | une image se calcule ; des antécédents se cherchent en résolvant $f(x) = 2$ |
+| Oublier un antécédent | $x^2 = 4 \Rightarrow x = 2$ | deux antécédents : $-2$ et $2$ |
+| Mélanger l'ordre des points | $m = \frac{y_2 - y_1}{x_1 - x_2}$ | même ordre en haut et en bas : $\frac{y_2 - y_1}{x_2 - x_1}$ |
+| Un sens de variation sans intervalle | « $x^2$ est croissante » | croissante sur $[0 \;;\; +\infty[$ |
+| L'image d'un intervalle par ses bornes | carré de $[-3 \;;\; 1]$ = $[1 \;;\; 9]$ | la courbe passe par 0 : $[0 \;;\; 9]$ |
+| Le signe dans la forme canonique | $(x + 5)^2 - 2$ : sommet en $x = 5$ | $(x + 5)^2 = (x - (-5))^2$ : sommet en $x = -5$ |
+| Diviser seulement la racine par $2a$ | $-b \pm \frac{\sqrt{\Delta}}{2a}$ | tout le numérateur : $\frac{-b \pm \sqrt{\Delta}}{2a}$ |
+| Maximum et argmax | « le maximum est 3 » quand 3 est une valeur de $x$ | le maximum est une valeur de $f$ ; l'argmax, une valeur de $x$ |
+| Un extremum hors de l'intervalle | le sommet de la parabole comme maximum sur $[0 \;;\; 1]$ alors qu'il est en $x = 4$ | regarder les variations sur l'intervalle, comparer les bornes |
+| L'ordre d'une composée | $(f \circ g)(x)$ : $f$ puis $g$ | $g$ d'abord : $f(g(x))$ |
+| Une réciproque sans restriction | « la réciproque du carré est la racine » sur $\mathbb{R}$ | seulement sur $[0 \;;\; +\infty[$, où chaque valeur a un seul antécédent |
 | Le logarithme d'une somme | $\ln(a + b) = \ln a + \ln b$ | c'est pour un **produit** : $\ln(ab) = \ln a + \ln b$ |
 | L'exponentielle d'une somme | $e^{a+b} = e^a + e^b$ | $e^{a+b} = e^a \times e^b$ |
 | Confondre réciproque et inverse | $f^{-1}(x) = \frac{1}{f(x)}$ | $f^{-1}$ défait $f$ : $\ln$ est la réciproque de $\exp$, pas $\frac{1}{\exp}$ |

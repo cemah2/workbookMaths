@@ -46,6 +46,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $f : A \to B$ | « f va de A dans B » | f maps A to B | à chaque élément de $A$, $f$ associe un élément de $B$ | $f : \mathbb{R} \to \mathbb{R}$ | R3 |
 | $x \mapsto x^2$ | « x a pour image x au carré » | x maps to x squared | la règle de la fonction | $f : x \mapsto x^2$ | R3 |
 | $f \circ g$ | « f rond g » | f composed with g | appliquer $g$, puis $f$ : $(f \circ g)(x) = f(g(x))$ | $\sqrt{\cdot} \circ (x \mapsto x+1)$ | R3 |
+| $\mathbb{R} \setminus \{a\}$ | « R privé de a » | R minus a | tous les réels sauf $a$ | $\mathbb{R} \setminus \{0\} = \,]-\infty ; 0[ \cup ]0 ; +\infty[$ | R3 |
 | $f^{-1}$ | « f moins un », « réciproque de f » | inverse of f | la fonction qui défait $f$ (attention : pas $1/f$) | $\exp^{-1} = \ln$ | R3 |
 | $e$, $\exp(x)$, $e^x$ | « e », « exponentielle de x » | e, exp of x | le nombre $e \approx 2{,}718$ et sa fonction puissance | $e^0 = 1$ | R6 |
 | $\ln x$, $\log_2 x$ | « logarithme népérien », « log en base 2 » | natural log, log base 2 | l'exposant qu'il faut donner à $e$ (ou à 2) pour obtenir $x$ ; dans MML, $\log$ = $\ln$ | $\log_2 8 = 3$ | R6 |
@@ -56,7 +57,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\int_a^b f(x)\,dx$ | « intégrale de a à b de f(x) d x » | integral from a to b of f | aire (signée) sous la courbe | $\int_0^1 x\,dx = \frac{1}{2}$ | M02a |
 | $\propto$ | « proportionnel à » | proportional to | égal à une constante près | $p(\theta \mid x) \propto p(x \mid \theta)\,p(\theta)$ | M04 |
 | $O(n^2)$ | « grand O de n carré » | big O of n squared | croît au plus comme $n^2$ | coût du produit de deux matrices $n \times n$ : $O(n^3)$ | R7 |
-| $\arg\min_x f(x)$ | « argument du minimum de f » | arg min | la valeur de $x$ (pas la valeur de $f$) où $f$ est minimale | $\arg\min_x (x-3)^2 = 3$ | M05b |
+| $\arg\max_x f(x)$, $\arg\min_x f(x)$ | « argument du maximum (du minimum) de f » | arg max, arg min | la valeur de $x$ (pas la valeur de $f$) où $f$ est maximale (minimale) | $\arg\min_x (x-3)^2 = 3$ | R3, M05b |
 
 ## Vecteurs et matrices
 
