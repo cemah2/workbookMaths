@@ -1,0 +1,26 @@
+front;back;tags
+Univers, issue, événement ?;L'univers \(\Omega\) est l'ensemble des issues possibles d'une expérience aléatoire. Un événement est une partie de \(\Omega\) : les issues pour lesquelles une phrase est vraie.;mwb::r8::univers
+« Non A », « A et B », « A ou B » en notations ?;\(\bar{A}\) (le contraire), \(A \cap B\) (l'intersection), \(A \cup B\) (la réunion : l'un, l'autre, ou les deux).;mwb::r8::operations
+Deux événements incompatibles ?;Ils n'ont aucune issue commune : \(A \cap B = \varnothing\). Ils ne peuvent pas se réaliser ensemble.;mwb::r8::incompatibles
+Qu'est-ce qu'une probabilité sur un univers fini ?;Un poids \(p(\omega) \ge 0\) pour chaque issue, de somme 1. \(P(A)\) est la somme des poids des issues de \(A\).;mwb::r8::probabilite
+Probabilité en cas d'équiprobabilité ?;\(P(A) = \frac{|A|}{|\Omega|}\) : le nombre d'issues favorables divisé par le nombre d'issues possibles.;mwb::r8::equiprobabilite
+Probabilité du contraire ?;\(P(\bar{A}) = 1 - P(A)\). « Au moins un » se calcule presque toujours par le contraire, « aucun ».;mwb::r8::complementaire
+Probabilité d'une réunion ?;\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\). Si \(A\) et \(B\) sont incompatibles, \(P(A \cup B) = P(A) + P(B)\).;mwb::r8::reunion
+Deux pièces : 0, 1 ou 2 piles sont-ils équiprobables ?;Non : PP, PF, FP, FF sont équiprobables, donc un seul pile a la probabilité \(\frac{1}{2}\) et les deux autres \(\frac{1}{4}\). Il faut distinguer les deux pièces.;mwb::r8::piege_univers
+Le principe multiplicatif ?;Un choix en étapes, avec \(a\) puis \(b\) possibilités, donne \(a \times b\) possibilités. \(k\) choix avec répétition parmi \(n\) : \(n^k\).;mwb::r8::principe_multiplicatif
+Choisir \(k\) objets parmi \(n\), dans l'ordre, sans répétition ?;\(n(n - 1) \cdots (n - k + 1) = \frac{n!}{(n - k)!}\) arrangements (un podium, un bureau).;mwb::r8::arrangements
+Que compte \(n!\) ? Que vaut \(0!\) ?;Les façons de ranger \(n\) objets distincts : \(n! = n \times (n - 1) \times \cdots \times 1\). Par convention \(0! = 1\), le produit vide.;mwb::r8::factorielle
+Que compte \(\binom{n}{k}\), et sa formule ?;Les façons de choisir \(k\) objets parmi \(n\), sans ordre : \(\binom{n}{k} = \frac{n!}{k!\,(n - k)!}\).;mwb::r8::combinaisons
+Ordre ou pas ordre ?;Un podium : l'ordre compte (arrangements). Un comité de membres égaux : il ne compte pas (combinaisons, \(k!\) fois moins).;mwb::r8::ordre
+Propriétés de \(\binom{n}{k}\) ?;\(\binom{n}{k} = \binom{n}{n - k}\), \(\binom{n}{2} = \frac{n(n - 1)}{2}\) (les paires), et la somme de la ligne \(n\) du triangle vaut \(2^n\).;mwb::r8::proprietes_binomial
+La formule de Pascal ?;\(\binom{n}{k} = \binom{n - 1}{k - 1} + \binom{n - 1}{k}\) : choisir \(k\) objets, c'est prendre le premier ou ne pas le prendre.;mwb::r8::pascal
+Les trois règles d'un arbre pondéré ?;Les branches d'un même nœud ont une somme de 1. On multiplie le long d'un chemin, et on additionne les chemins qui mènent à un événement.;mwb::r8::arbre
+Que représente une branche du second niveau d'un arbre ?;Une probabilité conditionnelle, par exemple \(P(T \mid R)\) : la probabilité de \(T\) sachant \(R\). Et \(P(R \cap T) = P(R) \times P(T \mid R)\).;mwb::r8::conditionnelle
+Tirage sans remise ?;La composition change entre les tirages : 2 rouges sur 6, puis 1 rouge sur 5 après une rouge. Avec remise, les tirages se font dans le même sac.;mwb::r8::remise
+Définition de l'indépendance ?;\(P(A \cap B) = P(A)\,P(B)\) : savoir que \(A\) s'est réalisé ne change pas la probabilité de \(B\).;mwb::r8::independance
+Incompatibles et indépendants ?;Deux événements incompatibles de probabilités non nulles ne sont jamais indépendants : \(P(A \cap B) = 0 \ne P(A)\,P(B)\).;mwb::r8::incompatibles_independants
+Au moins une réussite en \(n\) essais indépendants ?;\(1 - (1 - p)^n\), par le contraire « aucune réussite ».;mwb::r8::au_moins_un
+Variable aléatoire et loi ?;\(X\) associe un nombre à chaque issue. Sa loi est le tableau des \(P(X = x)\), de somme 1.;mwb::r8::loi
+Espérance d'une variable discrète ?;\(\mathbb{E}[X] = \sum x\,P(X = x)\), la moyenne pondérée, et \(\mathbb{E}[aX + b] = a\,\mathbb{E}[X] + b\). Pas forcément une valeur possible.;mwb::r8::esperance
+Variance et écart-type ?;\(\mathbb{V}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2] = \mathbb{E}[X^2] - \mathbb{E}[X]^2\), \(\sigma = \sqrt{\mathbb{V}(X)}\), et \(\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)\).;mwb::r8::variance
+Que dit la loi des grands nombres ?;Sur des répétitions indépendantes, la fréquence d'un événement se rapproche de sa probabilité quand \(n\) grandit (écarts en \(\frac{1}{\sqrt{n}}\)). Elle dilue les écarts, elle ne les compense pas.;mwb::r8::grands_nombres

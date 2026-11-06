@@ -35,6 +35,8 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\varnothing$ | « l'ensemble vide » | the empty set | aucun élément | $\{1\} \cap \{2\} = \varnothing$ | R2, R4 |
 | $\bar{A}$, $A \setminus B$ | « complémentaire de A », « A privé de B » | complement of A, A minus B | les éléments de l'univers qui ne sont pas dans $A$ ; ceux de $A$ qui ne sont pas dans $B$ | $\{1, 2, 3\} \setminus \{2\} = \{1, 3\}$ | R4 |
 | $\lvert A \rvert$ (ou $\operatorname{card} A$) | « cardinal de A » | cardinality of A | le nombre d'éléments d'un ensemble fini | $\lvert \{2, 4, 6\} \rvert = 3$ | R4 |
+| $n!$ | « factorielle n » | n factorial | $n \times (n - 1) \times \cdots \times 1$, les rangements de $n$ objets ; $0! = 1$ | $3! = 6$ | R8 |
+| $\binom{n}{k}$ (au lycée $C_n^k$) | « k parmi n » | n choose k | les façons de choisir $k$ objets parmi $n$, sans ordre | $\binom{9}{3} = 84$ | R8 |
 | $A \times B$, $(a, b)$ | « A croix B », « le couple a, b » | Cartesian product, ordered pair | les couples $(a, b)$ avec $a \in A$ et $b \in B$ ; un couple est ordonné | $(1, 2) \ne (2, 1)$ | R4 |
 | $\{x \in E \mid P(x)\}$ | « l'ensemble des x de E tels que P(x) » | the set of x in E such that P(x) | un ensemble décrit par une propriété (on écrit aussi « : » pour la barre) | $\{n \in \mathbb{N} \mid n < 3\} = \{0, 1, 2\}$ | R4 |
 | $[a ; b]$, $]a ; b[$ | « intervalle fermé, ouvert, de a à b » | closed, open interval | les réels entre $a$ et $b$, bornes comprises ou non (en anglais : $[a, b]$, $(a, b)$) | $1 \in [1 ; 2]$, $1 \notin \,]1 ; 2]$ | R2 |
@@ -96,12 +98,14 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 
 | Symbole | Se lit | En anglais | Signifie | Exemple | Chapitre |
 |---|---|---|---|---|---|
+| $\Omega$ | « oméga », « l'univers » | sample space | l'ensemble des issues d'une expérience aléatoire | trois pièces : $\lvert \Omega \rvert = 8$ | R8 |
 | $P(A)$ | « probabilité de A » | probability of A | entre 0 et 1 | $P(\text{pile}) = \frac{1}{2}$ | R8 |
-| $P(A \mid B)$ | « probabilité de A sachant B » | probability of A given B | probabilité de $A$ quand on sait que $B$ s'est produit | | M03 |
+| $P(A \mid B)$ (au lycée $P_B(A)$) | « probabilité de A sachant B » | probability of A given B | probabilité de $A$ quand on sait que $B$ s'est produit | la branche d'un arbre pondéré | R8, M03 |
 | $X \sim \mathcal{N}(\mu, \sigma^2)$ | « X suit une loi normale de moyenne mu et de variance sigma carré » | X is distributed as a normal | la loi de la variable aléatoire $X$ | | M02b |
 | $p(x)$ | « p de x », « densité en x » | density (or pmf) at x | la loi d'une variable, point par point | | M02a, M02b |
-| $\mathbb{E}[X]$ | « espérance de X » | expected value of X | la moyenne théorique | dé : $\mathbb{E}[X] = 3{,}5$ | R8, M02b |
-| $\mathbb{V}[X]$, $\operatorname{Var}(X)$ | « variance de X » | variance | dispersion autour de l'espérance | | R8, M02b |
+| $\mathbb{E}[X]$ | « espérance de X » | expected value of X | la moyenne théorique, pondérée par les probabilités | somme de deux dés à 4 faces : $\mathbb{E}[S] = 5$ | R8, M02b |
+| $\mathbb{V}(X)$, $\operatorname{Var}(X)$ | « variance de X » | variance | dispersion autour de l'espérance | $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ | R8, M02b |
+| $\sigma(X)$ | « sigma de X », « écart-type de X » | standard deviation | la racine carrée de la variance, dans l'unité de $X$ | $\mathbb{V}(X) = 9$ donne $\sigma(X) = 3$ | R8 |
 | $\operatorname{Cov}(X, Y)$ | « covariance de X et Y » | covariance | tendance à varier ensemble | | M02c |
 | $\hat{\theta}$ | « théta chapeau » | theta hat | une estimation de $\theta$ calculée sur des données (et $\hat{y}$, une prédiction) | | M02c |
 | $\bar{x}$ | « x barre » | x bar | la moyenne de l'échantillon | | M02c |

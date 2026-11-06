@@ -129,7 +129,22 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | approximations en 0 | $e^h \approx 1 + h$, $\ln(1 + h) \approx h$ |
 | grand O | $f = O(g)$ : $\lvert f \rvert \le C \lvert g \rvert$ pour $n$ assez grand ; $1 \ll \log n \ll n \ll n \log n \ll n^2 \ll 2^n$ |
 
-*(R8 et R9 ajoutés avec leurs chapitres)*
+### R8 · Probabilités de base
+
+| Notion | Formules |
+|---|---|
+| événements | contraire $\bar{A}$, « et » $A \cap B$, « ou » $A \cup B$ ; incompatibles : $A \cap B = \varnothing$ ; « ni $A$ ni $B$ » $= \overline{A \cup B}$ |
+| probabilité | $P(A) = \sum_{\omega \in A} p(\omega)$ ; équiprobabilité : $P(A) = \frac{\lvert A \rvert}{\lvert \Omega \rvert}$ ; $P(\bar{A}) = 1 - P(A)$ |
+| réunion | $P(A \cup B) = P(A) + P(B) - P(A \cap B)$ ($= P(A) + P(B)$ si incompatibles) |
+| dénombrer | principe multiplicatif ; $n^k$ suites avec répétition ; $\frac{n!}{(n - k)!}$ arrangements ; $n!$ rangements ; $\binom{n}{k} = \frac{n!}{k!\,(n - k)!}$ choix sans ordre |
+| coefficients binomiaux | $\binom{n}{k} = \binom{n}{n - k}$, $\binom{n}{2} = \frac{n(n - 1)}{2}$, $\binom{n}{k} = \binom{n - 1}{k - 1} + \binom{n - 1}{k}$, $\sum_k \binom{n}{k} = 2^n$ |
+| arbre pondéré | branches d'un nœud de somme 1 ; chemin : produit ; événement : somme des chemins ; $P(A \cap B) = P(A)\,P(B \mid A)$ |
+| indépendance | $P(A \cap B) = P(A)\,P(B)$ ; au moins une réussite en $n$ essais indépendants : $1 - (1 - p)^n$ |
+| espérance | $\mathbb{E}[X] = \sum x\,P(X = x)$ ; $\mathbb{E}[aX + b] = a\,\mathbb{E}[X] + b$ ; $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$ |
+| variance | $\mathbb{V}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2] = \mathbb{E}[X^2] - \mathbb{E}[X]^2$ ; $\sigma = \sqrt{\mathbb{V}(X)}$ ; $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ |
+| loi des grands nombres | la fréquence se rapproche de la probabilité ; écarts en $\frac{1}{\sqrt{n}}$ |
+
+*(R9 ajouté avec son chapitre)*
 
 ## Partie I · Fondations
 

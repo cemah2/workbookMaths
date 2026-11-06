@@ -702,7 +702,7 @@ wbm.record("R8.21c", 0.0, decimals=2, mistakes={"c'est la proportion des séries
          "moins de 0,05 de $\\frac{1}{3}$ ; avec 10 000, toutes. La loi des grands nombres dit exactement cela : la "
          "probabilité que la fréquence s'écarte de la probabilité de plus d'un écart donné tend vers 0. Elle ne dit pas "
          "que la fréquence **égale** la probabilité, ni à partir de quel $n$ on est tranquille : pour un écart de "
-         "0,01, il faut beaucoup plus de lancers (l'écart typique est d'environ 0,005 pour $n = 10\\,000$).",
+         "0,01, environ 3 % des séries de 10 000 lancers resteraient au-delà (l'écart typique y vaut environ 0,005).",
 )
 R8_21.record = "import numpy as np\n" + R8_21.record
 

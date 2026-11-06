@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §8 |
-| **Temps total estimé** | ≈ 10,9 h : lecture et calculs de la fiche ≈ 2 h 30, exercices ≈ 7 h 55, flashcards ≈ 30 min (parcours essentiel ≈ 9,1 h) |
+| **Temps total estimé** | ≈ 10,9 h : lecture et calculs de la fiche ≈ 2 h 30, exercices ≈ 7 h 35, flashcards ≈ 50 min (parcours essentiel ≈ 9,1 h) |
 | **Prérequis** | R1 (fractions) ; R4 (ensembles, complémentaire, notations Σ et Π) ; workbookIA 0A : aléatoire reproductible, `np.random.default_rng` (§100.8.7) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `proba_basics.py` : `factorial`, `binomial`, `enumerate_probability`, `expectation`, `variance`, `simulate_frequency` |
