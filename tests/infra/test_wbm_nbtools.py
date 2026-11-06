@@ -101,7 +101,7 @@ def test_checked_names_the_file_and_chapter_of_an_earlier_function_not_written(t
     lines = out(capsys).splitlines()
     assert lines[0] == ("⏳ Ex M12c.18 : pas encore fait : solve() (mymath/matrices.py, M09a), "
                         "qu'appelle ton code, n'est pas encore écrite.")
-    assert lines[1] == "⏳ Ex M12c.18 : pas encore fait (solve() is not implemented yet)."
+    assert lines[1] == "⏳ Ex M12c.18 : pas encore fait (solve() n'est pas encore écrite)."
 
 
 def test_checked_an_exception_of_the_learner_becomes_one_line(capsys):
@@ -399,7 +399,8 @@ def test_own_code_lets_the_learners_own_code_and_its_errors_through(capsys):
         print(f"value {value}")
     assert out(capsys) == "value 6\n"
     run_checked(lambda: own_code_raising(), ex_id="B8.13")
-    assert out(capsys) == "❌ Ex B8.13 : ton code lève ZeroDivisionError : division by zero\nsuite\n"
+    assert out(capsys) == ("❌ Ex B8.13 : ton code lève ZeroDivisionError : division by zero ; une division par zéro : "
+                           "un cas particulier doit-il être traité avant la division ?\nsuite\n")
     with pytest.raises(NotImplementedError):          # code not written yet goes up (checked prints ⏳)
         with own_code("B8.13", "train_13", {"wbr.answer": _reference_answer}):
             raise NotImplementedError("train_13")
@@ -586,8 +587,7 @@ def test_run_pytest_group_says_which_failures_are_only_pending(group_root, capsy
     result = run_pytest_group("tests/test_group.py", "not_written", root=group_root)
     assert result.pending == 1 and result.failed == 1
     last = out(capsys).splitlines()[-1]
-    assert last.startswith("pytest: 1 failed, 7 deselected")
-    assert last.endswith("(dont 1 en attente ⏳ : fonction pas encore écrite)")
+    assert last.startswith("pytest: 1 en attente ⏳ (fonction pas encore écrite), 7 deselected"), last
 
 
 def test_run_pytest_group_all_green(group_root, capsys):
@@ -658,6 +658,31 @@ def test_run_pytest_group_on_the_stubs_and_the_reference(capsys):
     text = out(capsys)
     assert stubs.failed == stubs.pending == 1 and "❌" not in text
     assert text.splitlines()[0] == "⏳ test_mean_small_list"
-    assert text.splitlines()[1].startswith("   pas encore implémenté : ")
+    assert text.splitlines()[1] == "   mean() n'est pas encore écrite"    # the stub's English message, in French
     ref = run_pytest_group("tests/test_example_mymath.py", keyword, impl="ref", root=ROOT)
     assert ref.ok and out(capsys).startswith("pytest: 1 passed")
+
+
+def test_exception_hint_explains_the_common_errors_of_a_beginner():
+    from wbm.nbtools import exception_hint
+    assert "négatif" in exception_hint("math domain error")
+    assert "sans l'appeler" in exception_hint("'int' object is not callable")
+    assert exception_hint("index 3 is out of bounds") == ""
+
+
+def test_drawn_reports_the_figures_a_function_opens_itself_and_shows_nothing():
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from wbm.nbtools import drawn
+
+    fig, ax = plt.subplots()
+    assert drawn(lambda a: a.plot([0, 1], [1, 0]), ax) == [] and len(ax.lines) == 1
+
+    def own_figure(a):
+        plt.figure()
+        plt.plot([0, 1], [0, 1])
+        plt.show()
+
+    assert len(drawn(own_figure, ax)) == 1 and plt.get_fignums() == [fig.number]
+    plt.close(fig)

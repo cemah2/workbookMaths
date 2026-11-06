@@ -64,7 +64,7 @@ _NAME_PREFIX = re.compile(r"\s*[A-Za-z]'*\s*(?:\(\s*[a-z]\s*\))?\s*")
 # fraction
 # ---------------------------------------------------------------------------
 _FRACTION_TEXT = re.compile(r"\s*([+-]?)\s*\(?\s*([+-]?\d+)\s*\)?\s*/\s*\(?\s*([+-]?\d+)\s*\)?\s*")
-_DECIMAL_TEXT = re.compile(r"\s*[+-]?\d+(?:[.,]\d+)?\s*")
+_DECIMAL_TEXT = re.compile(r"\s*[+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+)\s*")   # ".8" and "-,5" too
 
 
 def _parse_fraction(value) -> tuple[Fraction, bool | None]:
@@ -183,7 +183,7 @@ def parse_expression(value, variables):
         while _ABS_BARS.search(text):                    # |x - 1| written with bars: Abs(x - 1)
             text = _ABS_BARS.sub(r"Abs(\1)", text)
         if not text:
-            raise MathNormalizationError("une expression, par exemple \"3*x**2 + exp(x)\"")
+            raise MathNormalizationError("une expression, par exemple \"3*x**2 - 1/x\"")
         local = {name: sympy.Symbol(name) for name in names}
         local.update({"ln": sympy.log, "log": sympy.log, "exp": sympy.exp, "sqrt": sympy.sqrt, "pi": sympy.pi,
                       "oo": sympy.oo, "sin": sympy.sin, "cos": sympy.cos, "tan": sympy.tan, "abs": sympy.Abs,
@@ -195,15 +195,15 @@ def parse_expression(value, variables):
             expr = parse_expr(text, local_dict=local, transformations=transformations, evaluate=True)
         except Exception as exc:  # SyntaxError, TokenError, TypeError...: the learner's text
             raise MathNormalizationError(
-                "une expression lisible, écrite comme en Python : 3*x**2 + exp(x), ln(x)/x, sqrt(1 - x**2) "
+                "une expression lisible, écrite comme en Python : 3*x**2 - 1/x, sqrt(1 - x**2), abs(x - 2) "
                 f"(je n'arrive pas à lire {value!r})") from exc
     elif callable(value):
-        raise MathNormalizationError("l'expression sous forme de texte, par exemple \"2*x*exp(x**2)\", "
+        raise MathNormalizationError("l'expression sous forme de texte, par exemple \"2*x**3 - x\", "
                                      "pas une fonction Python")
     else:
-        raise MathNormalizationError("une expression sous forme de texte, par exemple \"2*x*exp(x**2)\"")
+        raise MathNormalizationError("une expression sous forme de texte, par exemple \"2*x**3 - x\"")
     if not isinstance(expr, sympy.Basic):
-        raise MathNormalizationError("une expression mathématique, par exemple \"2*x*exp(x**2)\"")
+        raise MathNormalizationError("une expression mathématique, par exemple \"2*x**3 - x\"")
     unknown = sorted(str(s) for s in expr.free_symbols if str(s) not in names)
     if unknown:
         allowed = ", ".join(names) if names else "aucune variable"
@@ -369,6 +369,21 @@ class _ClosedAtInfinity(MathNormalizationError):
         super().__init__("un crochet ouvert du côté de l'infini : on écrit \"[0 ; +oo[\", jamais \"[0 ; +oo]\"")
 
 
+def _rounded_intervals(intervals, k: int):
+    """The intervals with their finite endpoints rounded to ``k`` decimals."""
+    import sympy
+
+    def rounded(x):
+        if x in (sympy.oo, -sympy.oo):
+            return x
+        return sympy.Rational(str(round(float(x), k)))
+
+    return [(lc, rounded(a), rounded(b), rc) for lc, a, b, rc in intervals]
+
+
+_TYPED_DECIMALS = re.compile(r"\d*[.,](\d+)")
+
+
 def _norm_endpoint(x) -> str:
     import sympy
 
@@ -424,8 +439,16 @@ def make_math_entry(ex_id: str, value, kind: str, *, variables=None, simplified:
             wrong[message] = "|".join(fp)
         right = "|".join(fingerprint)
     elif kind == "interval":
-        norm = _norm_intervals(_parse_intervals(value))
+        intervals = _parse_intervals(value)
+        norm = _norm_intervals(intervals)
         entry["hash"] = _hash(ex_id, kind, norm)
+        rounded = {}
+        for k in range(1, 6):                 # "]-0.33 ; 2[" for "]-1/3 ; 2[": the endpoints rounded, « arrondie »
+            variant = _norm_intervals(_rounded_intervals(intervals, k))
+            if variant != norm:
+                rounded[str(k)] = _hash(ex_id, kind, variant)
+        if rounded:
+            entry["rounded"] = rounded
         wrong = {message: _norm_intervals(_parse_intervals(w)) for message, w in (mistakes or {}).items()}
         right = norm
     else:
@@ -465,10 +488,14 @@ def check_math_entry(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
             classic = _classic(entry, digest)
             if classic:
                 return False, "wrong", classic
+            typed = max((len(m) for m in _TYPED_DECIMALS.findall(value)), default=0) if isinstance(value, str) else 0
+            if typed and entry.get("rounded", {}).get(str(typed)) == digest:
+                return False, "near", ("Presque : une borne est arrondie. Donne les bornes exactes : une fraction "
+                                       "s'écrit telle quelle dans l'intervalle, comme \"]-4/3 ; 2]\".")
             return False, "wrong", ("Ce n'est pas le bon ensemble : vérifie les bornes, puis chaque crochet "
                                     "(la borne est-elle atteinte ?).")
     except MathNormalizationError as exc:
-        return False, "type", f"j'attendais {exc}."
+        return False, "type", f"J'attendais {exc}."
     raise ValueError(f"unknown math kind: {kind!r}")
 
 
@@ -498,6 +525,21 @@ def _approximates_answer(ex_id: str, entry: dict, x: float, decimals: int) -> bo
     return False
 
 
+def _approximated_mistake(ex_id: str, entry: dict, x: float, decimals: int) -> str | None:
+    """The message of a recorded wrong fraction that ``x`` approximates (a calculation typed in Python: 65/120 gives
+    0.5416666666666666 for 13/24), or None."""
+    if not entry.get("mistakes"):
+        return None
+    tolerance = 0.5 * 10.0 ** -decimals + 1e-12
+    for denominator in range(1, 1001):
+        candidate = Fraction(round(x * denominator), denominator)
+        if abs(float(candidate) - x) <= tolerance and candidate.denominator == denominator:
+            classic = _classic(entry, _hash(ex_id, "fraction", _norm_fraction(candidate)))
+            if classic:
+                return classic
+    return None
+
+
 _APPROXIMATE = ("C'est une valeur approchée de la bonne réponse : donne la valeur exacte, sous forme de fraction "
                 "(texte comme \"2/7\").")
 
@@ -511,10 +553,14 @@ def _check_fraction(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
         return False, "wrong", ("Ce n'est pas la bonne valeur : la réponse attendue est une fraction (un nombre "
                                 "rationnel), et ta valeur n'en est pas une. Relis ce que la question demande.")
     except _ApproximateValue as exc:
-        if _approximates_answer(ex_id, entry, exc.x, min(_decimals_typed(value) or 12, 12)):
+        decimals = min(_decimals_typed(value) or 12, 12)
+        if _approximates_answer(ex_id, entry, exc.x, decimals):
             return False, "near", _APPROXIMATE
-        return False, "wrong", ("Ce n'est pas la bonne valeur ; et donne la valeur exacte, sous forme de fraction "
-                                "(texte comme \"2/7\"), pas une valeur approchée.")
+        mistake = _approximated_mistake(ex_id, entry, exc.x, decimals)   # 65/120 typed as a calculation: 13/24
+        if mistake:
+            return False, "wrong", mistake
+        return False, "wrong", ("Ce n'est pas la bonne valeur : reprends le calcul étape par étape (et donne une "
+                                "valeur exacte : une fraction se tape comme un calcul, 2/7, ou entre guillemets).")
     digest = _hash(ex_id, "fraction", _norm_fraction(q))
     if digest == entry["hash"]:
         if entry.get("simplified") and irreducible is False:
@@ -526,6 +572,9 @@ def _check_fraction(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
     decimals = _decimals_typed(value)
     if decimals is not None and _approximates_answer(ex_id, entry, float(q), decimals):
         return False, "near", _APPROXIMATE
+    if entry.get("prediction"):           # a 🔮: no hint about the sign, the experiment explains
+        from wbm.checker import _MISSED_PREDICTION
+        return False, "wrong", _MISSED_PREDICTION
     if q != 0 and _hash(ex_id, "fraction", _norm_fraction(-q)) == entry["hash"]:
         return False, "wrong", "La valeur absolue est bonne, mais le signe est inversé."
     if q != 0 and _hash(ex_id, "fraction", _norm_fraction(1 / q)) == entry["hash"]:
@@ -565,7 +614,8 @@ def _check_expr(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
                 return False, "wrong", "Presque : ton expression diffère de la bonne d'une constante (±1)."
     hint = "à une constante près, " if up_to_constant else ""
     return False, "wrong", (f"Ce n'est pas la bonne expression ({hint}elle ne prend pas les bonnes valeurs) : "
-                            "reprends le calcul, ou vérifie-le avec SymPy.")
+                            "reprends le calcul, puis vérifie-le en remplaçant la variable par deux ou trois "
+                            "valeurs simples.")
 
 
 def perturbed(value, entry: dict):

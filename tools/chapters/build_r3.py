@@ -83,7 +83,8 @@ PAPER = [
         ("a", "the list [m, c]", "[2.0, -3.0]",
          f'decimals=3, mistakes={{"la pente est Δy/Δx, pas Δx/Δy": [0.5, 0.0], {MC}: [-3.0, 2.0]}}'),
         ("b", "the list [m, c]", "[-2.0, 1.0]",
-         'decimals=3, mistakes={"c = y − m·x : avec une pente négative, attention aux signes": [-2.0, -3.0]}'),
+         f'decimals=3, mistakes={{"c = y − m·x : avec une pente négative, attention aux signes": [-2.0, -3.0], '
+         f'{MC}: [1.0, -2.0]}}'),
         ("c", "the list [m, c]", "[0.4, 4.0]",
          'decimals=3, mistakes={"la pente est Δy/Δx : la variation de y divisée par celle de x": [2.5, 4.0]}'),
         ("d", "a number", "Fraction(1, 2)",
@@ -101,8 +102,8 @@ PAPER = [
         ("b", "a number", "Fraction(65 - 20, 100)",
          'kind="fraction", mistakes={"retire le minimum avant de diviser par l\'étendue": "13/24"}'),
         ("c", "the list [m, c]", "[100.0, 20.0]",
-         'decimals=3, mistakes={"la réciproque défait N : multiplie par l\'étendue, puis ajoute le minimum": '
-         '[100.0, -20.0]}'),
+         f'decimals=3, mistakes={{"la réciproque défait N : multiplie par l\'étendue, puis ajoute le minimum": '
+         f'[100.0, -20.0], {MC}: [20.0, 100.0]}}'),
         ("d", "a number (m²)", "100", 'mistakes={"multiplie par l\'étendue, puis ajoute le minimum": 80}'),
         ("e", "the list [m, c]", "[0.1, -2.0]",
          'decimals=3, mistakes={"10 × N multiplie les deux coefficients par 10": [0.1, -0.2]}'),
@@ -152,13 +153,10 @@ PAPER = [
          'mistakes={"b² avec b négatif : un carré est positif": -1, "−4ac avec c négatif : moins par moins donne '
          'plus": 1}'),
         ("b", "a list", "[-1 / 3, 2]",
-         f'ordered=False, decimals=8, mistakes={{"−b avec b négatif donne un nombre positif": [-2, 1 / 3], '
-         f'"{EXACT} (à deux décimales)": [-0.33, 2], "{EXACT} (à trois décimales)": [-0.333, 2], '
-         f'"{EXACT} (à quatre décimales)": [-0.3333, 2], "{EXACT} (à cinq décimales)": [-0.33333, 2]}}'),
+         'ordered=False, decimals=8, mistakes={"−b avec b négatif donne un nombre positif": [-2, 1 / 3]}'),
         ("c", "the list [a, x1, x2]", "[3, -1 / 3, 2]",
-         f'decimals=8, mistakes={{"n\'oublie pas le coefficient a devant le produit": [1, -1 / 3, 2], '
-         f'"x₁ < x₂ : la plus petite racine d\'abord": [3, 2, -1 / 3], "{EXACT} (à deux décimales)": [3, -0.33, 2], '
-         f'"{EXACT} (à trois décimales)": [3, -0.333, 2], "{EXACT} (à quatre décimales)": [3, -0.3333, 2]}}'),
+         'decimals=8, mistakes={"n\'oublie pas le coefficient a devant le produit": [1, -1 / 3, 2], '
+         '"x₁ < x₂ : la plus petite racine d\'abord": [3, 2, -1 / 3]}'),
         ("d", "a list", "[3]",
          'ordered=False, mistakes={"(x − 3)² s\'annule quand x − 3 = 0 : résous avec le bon signe": [-3]}'),
         ("e", "a list (empty if there is none)", "[]",
@@ -172,7 +170,8 @@ PAPER = [
     Paper("R3.8", "Trouver le maximum d'une aire ou d'un bénéfice", [
         ("a", "a number (m²)", "10 * (40 - 2 * 10)",
          'mistakes={"le grillage fait trois côtés : deux de longueur x et un de longueur 40 − 2x": 400, '
-         '"le mur fait le quatrième côté : seuls trois côtés sont en grillage": 100}'),
+         '"le mur fait le quatrième côté : seuls trois côtés sont en grillage": 100, '
+         '"on demande l\'aire maximale, pas la valeur de x qui la donne": 10}'),
         ("b", "a number (m)", "10", 'mistakes={"on demande la valeur de x, pas l\'aire": 200}'),
         ("c", "a list", "[5, 15]",
          'ordered=False, mistakes={"l\'équation du second degré a deux solutions, de part et d\'autre du sommet": '
@@ -187,18 +186,21 @@ PAPER = [
          'mistakes={"(f∘g)(x) = f(g(x)) : on remplace x par g(x) dans f": [2, -16, 33]}'),
         ("d", "a list of coefficients", "[2, -16, 33]",
          'mistakes={"(g∘f)(x) = g(f(x)) : on remplace x par f(x) dans g": [2, 0, -3], '
-         '"(x − 4)² a un double produit": [2, 0, 33], "multiplie tout le carré développé par 2": [2, -8, 17]}'),
+         '"(x − 4)² a un double produit": [2, 0, 33], "multiplie tout le carré développé par 2": [2, -8, 17], '
+         '"le terme constant du carré développé est lui aussi multiplié par 2": [2, -16, 17]}'),
         ("e", "a list of coefficients", "[1, -8]",
          'mistakes={"f∘f applique f deux fois, ce n\'est pas f(x) × f(x)": [1, -8, 16]}'),
         ("f", "the list [m, c]", "[-5, 4]", f"mistakes={{{MC}: [4, -5], \"v(x) = 4 − 5x : la pente est le coefficient de x, avec son signe\": [5, 4]}}"),
         ("g", "a list", "[9 / 4]",
-         f'ordered=False, decimals=6, mistakes={{"{EXACT}": [2.2]}}'),
+         'ordered=False, decimals=6'),
         ("h", "a list of coefficients", "[-3, 13]", 'mistakes={"p∘q = p(q(x)) : q d\'abord, puis p": [-3, 7]}'),
     ]),
     Paper("R3.10", "Trouver une réciproque et son ensemble de définition", [
         ("a", "the list [m, c]", "[0.25, 0.75]",
          f'decimals=4, mistakes={{"pour isoler x, ajoute 3 puis divise par 4": [0.25, -0.75], {MC}: [0.75, 0.25]}}'),
-        ("b", "a number", "3", 'mistakes={"f⁻¹(9) est l\'antécédent de 9 par f, pas f(9)": 33}'),
+        ("b", "a number", "3.0",
+         'decimals=4, mistakes={"f⁻¹(9) est l\'antécédent de 9 par f, pas f(9)": 33.0, '
+         '"f⁻¹ n\'est pas 1/f : f⁻¹(9) est le nombre x tel que f(x) = 9": 1 / 33}'),
         ("c", "a number", "1 + Fraction(2, 4)",
          'kind="fraction", mistakes={"g⁻¹(4) est le nombre x tel que g(x) = 4, pas g(4)": "2/3"}'),
         ("d", "a union of intervals, as text", '"]-oo ; 0[ U ]0 ; +oo["',
@@ -247,7 +249,9 @@ PAPER = [
          '"un intervalle de variation se donne avec ses bornes, fermé du côté du sommet": "[0 ; 30["}'),
         ("e", "an interval, as text", '"[20 ; 40]"',
          'kind="interval", mistakes={"a > 0 : E(t) − 9 est négatif entre ses racines": "]-oo ; 20] U [40 ; +oo[", '
-         '"« ne dépasse pas » : les bornes sont incluses": "]20 ; 40["}'),
+         '"« ne dépasse pas » : les bornes sont incluses": "]20 ; 40[", '
+         '"a > 0 : E(t) − 9 est négatif entre ses racines, pas à l\'extérieur": "[0 ; 20] U [40 ; +oo[", '
+         '"E(t) ≤ 9 est vrai entre les racines : à l\'extérieur, l\'erreur dépasse 9": "[0 ; 20[ U ]40 ; +oo["}'),
     ]),
 ]
 
@@ -276,7 +280,7 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 
-from wbm.nbtools import checked, run_pytest_group
+from wbm.nbtools import checked, drawn, run_pytest_group
 
 
 def raised(function, *args):
@@ -291,35 +295,73 @@ def raised(function, *args):
         return type(exc).__name__
     return "aucune"'''
 
+R3_21_CHECK = '''with checked("R3.21 vérifications"):
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+    try:
+        created = drawn(plot_reference, axes)
+    finally:
+        plt.close(fig)                                 # only the checks below are shown here
+    problems = []
+    if created:
+        problems.append("un dessin dans les axes reçus (axes[0].plot, axes[1].plot), sans créer de figure")
+    else:
+        if len(axes[0].lines) < 3:
+            problems.append("les trois courbes x, x² et √x dans axes[0]")
+        if len(axes[1].lines) < 2:
+            problems.append("les courbes de 1/x et de x dans axes[1]")
+        if any(ax.get_legend() is None for ax in axes):
+            problems.append("une légende dans chaque graphique (label=, puis ax.legend())")
+        for line in axes[1].lines:                     # 1/x drawn in one piece: a vertical line that does not exist
+            xs = np.asarray(line.get_xdata(), dtype=float)
+            ys = np.asarray(line.get_ydata(), dtype=float)
+            ok = np.isfinite(xs) & np.isfinite(ys) & (xs != 0)
+            if ok.sum() > 2 and np.allclose(xs[ok] * ys[ok], 1) and xs[ok].min() < 0 < xs[ok].max():
+                problems.append("1/x en deux morceaux, un de chaque côté de 0, et non d'un seul trait")
+                break
+    if problems:
+        print("❌ Ex R3.21 : il manque " + " ; ".join(problems) + ".")
+    else:
+        print("✅ Ex R3.21 : deux graphiques avec leurs courbes et leurs légendes, et 1/x en deux morceaux.")'''
+
 R3_21 = Ex(
     "R3.21", "📦", 1, 15, "Tracer et lire les fonctions de référence",
     "tracer des fonctions avec NumPy et matplotlib, lire leurs positions relatives, puis les justifier par le calcul.",
     "fiche §2 et §4 ; R0 (matplotlib)", tracks="C, E",
     body="""Avec NumPy, une fonction s'applique à tout un tableau d'un coup : `xs = np.linspace(0, 3, 300)` fabrique 300 abscisses régulières, et `np.sqrt(xs)`, `xs**2`, `np.abs(xs)` ou `1 / xs` calculent les images de toutes ces abscisses.
 
-Complète `plot_reference()` : deux graphiques côte à côte (`fig, axes = plt.subplots(1, 2, figsize=(10, 4))`).
-- À gauche, sur $[0 \\;;\\; 3]$ : les courbes de $x$, de $x^2$ et de $\\sqrt{x}$, avec une légende.
-- À droite, sur $[-3 \\;;\\; 3]$ : les courbes de $\\frac{1}{x}$ et de $x$. Attention : $\\frac{1}{x}$ n'est pas définie en 0 ; trace-la en **deux morceaux**, sur $[-3 \\;;\\; -0{,}1]$ et sur $[0{,}1 \\;;\\; 3]$, sinon matplotlib relie les deux branches par un trait vertical qui n'existe pas.
+Complète `plot_reference(axes)`, qui dessine **dans les deux axes qu'on lui donne**, côte à côte : la cellule de vérification les crée (`plt.subplots(1, 2)`), et tu dessines avec `axes[0].plot(...)` et `axes[1].plot(...)`, sans créer de figure.
+- Dans `axes[0]`, sur $[0 \\;;\\; 3]$ : les courbes de $x$, de $x^2$ et de $\\sqrt{x}$, avec une légende.
+- Dans `axes[1]`, sur $[-3 \\;;\\; 3]$ : les courbes de $\\frac{1}{x}$ et de $x$. Attention : $\\frac{1}{x}$ n'est pas définie en 0 ; trace-la en **deux morceaux**, sur $[-3 \\;;\\; -0{,}1]$ et sur $[0{,}1 \\;;\\; 3]$, sinon matplotlib relie les deux branches par un trait vertical qui n'existe pas.
 
 Puis, en lisant tes figures **et** en le justifiant par le calcul dans ta copie :
 - a) l'intervalle de $]0 \\;;\\; +\\infty[$ sur lequel $\\sqrt{x} > x$ ;
 - b) l'ensemble des réels $x$ (pas seulement ceux de la figure) tels que $x^2 > x$ ;
 - c) les abscisses des points communs aux courbes de $\\frac{1}{x}$ et de $x$.""",
-    todo='''def plot_reference():
-    """Left: x, x² and √x on [0, 3]. Right: 1/x (in two pieces) and x on [−3, 3]. Legends, titles, axis labels."""
-    raise NotImplementedError("trace les deux graphiques")
+    todo='''def plot_reference(axes):
+    """axes[0]: x, x² and √x on [0, 3]. axes[1]: 1/x (in two pieces) and x on [−3, 3]. Legends, titles, axis labels."""
+    raise NotImplementedError("trace les deux graphiques dans axes[0] et axes[1]")
 
 
 answer_R3_21a = ...  # a) an interval, as text
 answer_R3_21b = ...  # b) an interval or a union, as text
 answer_R3_21c = ...  # c) a list''',
     check='''with checked("R3.21 figure"):
-    plot_reference()
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+    try:
+        created = drawn(plot_reference, axes)
+    except BaseException:
+        plt.close(fig)                                 # no empty figure while plot_reference is not written yet
+        raise
+    if created:
+        plt.close(fig)
+        print("❌ Ex R3.21 : ta fonction ouvre sa propre figure (plt.figure ou plt.subplots) : dessine dans les axes "
+              "qu'elle reçoit, avec axes[0].plot(...) et axes[1].plot(...).")
+    else:
+        plt.show()
 for letter, answer in zip("abc", [answer_R3_21a, answer_R3_21b, answer_R3_21c]):
     wbm.check(f"R3.21{letter}", answer)''',
-    solution='''def plot_reference():
-    """Left: x, x² and √x on [0, 3]. Right: 1/x (in two pieces) and x on [−3, 3]. Legends, titles, axis labels."""
-    fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+    solution='''def plot_reference(axes):
+    """axes[0]: x, x² and √x on [0, 3]. axes[1]: 1/x (in two pieces) and x on [−3, 3]. Legends, titles, axis labels."""
     xs = np.linspace(0, 3, 300)
     axes[0].plot(xs, xs, label="x")
     axes[0].plot(xs, xs**2, label="x²")
@@ -339,10 +381,11 @@ for letter, answer in zip("abc", [answer_R3_21a, answer_R3_21b, answer_R3_21c]):
         ax.set_ylabel("y")
         ax.grid(True, alpha=0.3)
         ax.legend()
-    plt.show()
 
 
-plot_reference()
+fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+plot_reference(axes)
+plt.show()
 answer_R3_21a, answer_R3_21b, answer_R3_21c = "]0 ; 1[", "]-oo ; 0[ U ]1 ; +oo[", [-1, 1]''',
     record='''wbm.record("R3.21a", "]0 ; 1[", kind="interval",
            mistakes={"pour x > 1, la droite y = x passe au-dessus de la racine carrée": "]1 ; +oo[",
@@ -352,6 +395,7 @@ wbm.record("R3.21b", "]-oo ; 0[ U ]1 ; +oo[", kind="interval",
                      "x² − x = x(x − 1) : positif à l'extérieur des racines, pas entre elles": "]0 ; 1["})
 wbm.record("R3.21c", [-1, 1], ordered=False,
            mistakes={"1/x = x revient à x² = 1 : deux solutions, opposées": [1]})''',
+    after=[("md", "**Vérifications automatiques** (la figure elle-même se juge à l'œil)."), ("code", R3_21_CHECK)],
     note="Pour b), $x^2 > x \\iff x^2 - x > 0 \\iff x(x - 1) > 0$ : un produit de deux facteurs, positif quand ils ont "
          "le même signe, donc pour $x < 0$ ou $x > 1$. La figure de gauche ne montre que $[0 \\;;\\; 3]$ : elle ne "
          "pouvait pas révéler les négatifs. Une lecture graphique suggère ; le calcul conclut.",
@@ -360,17 +404,19 @@ wbm.record("R3.21c", [-1, 1], ordered=False,
 R3_26_CHECK = '''with checked("R3.26 vérifications"):
     fig, ax = plt.subplots(figsize=(6.5, 4))
     try:
-        plot_cost(ax)
+        created = drawn(plot_cost, ax)
     finally:
         plt.close(fig)                                 # only the checks below are shown here
     problems = []
-    if not ax.get_title():
+    if created:
+        problems.append("un dessin dans l'axe ax reçu (ax.plot, ax.axhline…), sans créer de figure ni appeler plt.plot")
+    elif not ax.get_title():
         problems.append("un titre (`ax.set_title`)")
-    if not ax.get_xlabel() or not ax.get_ylabel():
+    if not created and (not ax.get_xlabel() or not ax.get_ylabel()):
         problems.append("les deux axes nommés (`ax.set_xlabel`, `ax.set_ylabel`)")
-    if ax.get_legend() is None:
+    if not created and ax.get_legend() is None:
         problems.append("une légende (`label=` dans chaque `plot`, puis `ax.legend()`)")
-    if len(ax.lines) < 3:
+    if not created and len(ax.lines) + len(ax.collections) < 3:          # ax.scatter or ax.hlines count too
         problems.append("la courbe, la droite du budget et le point du minimum (trois tracés au moins)")
     if problems:
         print("❌ Ex R3.26 : il manque " + " ; ".join(problems) + ".")
@@ -397,11 +443,16 @@ La première cellule de vérification affiche ta figure ; la seconde regarde aut
     check='''with checked("R3.26"):
     fig, ax = plt.subplots(figsize=(6.5, 4))
     try:
-        plot_cost(ax)
+        created = drawn(plot_cost, ax)
     except BaseException:
         plt.close(fig)                                 # no empty figure while plot_cost is not written yet
         raise
-    plt.show()''',
+    if created:
+        plt.close(fig)
+        print("❌ Ex R3.26 : ta fonction ouvre sa propre figure (plt.figure ou plt.subplots) : dessine dans l'axe ax "
+              "qu'elle reçoit (ax.plot, ax.axhline, ax.set_title…).")
+    else:
+        plt.show()''',
     solution='''def plot_cost(ax):
     """Draw C(q) = 0.5 q² − 20 q + 300 on [0, 40], the budget line y = 150 and the marked minimum, in ax."""
     qs = np.linspace(0, 40, 200)
@@ -473,7 +524,9 @@ print("même abscisse :", raised(mymath.functions.affine_from_points, (2, 1), (2
 wbm.record("R3.18b", "ValueError",
            mistakes={"teste x1 == x2 avant de diviser, et lève une ValueError": "ZeroDivisionError",
                      "deux points de même abscisse : la fonction doit lever une ValueError (raise), pas rendre un "
-                     "résultat": "aucune"})''',
+                     "résultat": "aucune",
+                     "lève précisément une ValueError, le type d'erreur que demande la docstring : "
+                     "raise ValueError(\\"...\\")": {"Exception", "TypeError", "AssertionError"}})''',
     after=tests_cells("test_affine_from_points_"),
 )
 
@@ -485,21 +538,29 @@ R3_19 = Ex(
 - a) `quadratic_roots(a, b, c)` : une `ValueError` si `a == 0` ; sinon le discriminant décide (fiche §5) : deux racines (`math.sqrt`, rendues dans l'ordre croissant, même quand `a` est négatif), une racine double, ou la liste vide. Compare le discriminant à 0 avec `==` : les tests de la racine double utilisent des entiers. Le squelette n'importe pas `math` : ajoute `import math` en haut du fichier.
 - b) `quadratic_vertex(a, b, c)` : une `ValueError` si `a == 0` ; sinon le tuple `(alpha, beta)` de la forme canonique.
 
-La vérification calcule `quadratic_roots(2, -7, 3)`, regarde si `quadratic_roots(1, 2, 3)` vaut bien `[]`, puis calcule `quadratic_vertex(-1, 6, -5)`.""",
+La vérification calcule `quadratic_roots(-2, 7, -3)`, regarde si `quadratic_roots(1, 2, 3)` vaut bien `[]`, puis calcule `quadratic_vertex(-1, 6, -5)`.""",
     todo=LOAD_LEARNER,
     check='''with checked("R3.19a"):
-    wbm.check("R3.19a", mymath.functions.quadratic_roots(2, -7, 3), computed=True)
+    wbm.check("R3.19a", mymath.functions.quadratic_roots(-2, 7, -3), computed=True)
 with checked("R3.19b"):
     wbm.check("R3.19b", mymath.functions.quadratic_roots(1, 2, 3) == [], computed=True)
 with checked("R3.19c"):
     wbm.check("R3.19c", list(mymath.functions.quadratic_vertex(-1, 6, -5)), computed=True)''',
     solution=LOAD_REF + '''
-print("quadratic_roots(2, -7, 3)   =", mymath.functions.quadratic_roots(2, -7, 3))
+print("quadratic_roots(-2, 7, -3)  =", mymath.functions.quadratic_roots(-2, 7, -3))
 print("quadratic_roots(1, 2, 3)    =", mymath.functions.quadratic_roots(1, 2, 3))
 print("quadratic_vertex(-1, 6, -5) =", mymath.functions.quadratic_vertex(-1, 6, -5))''',
     record='''wbm.record("R3.19a", [0.5, 3.0], decimals=4,
-           mistakes={"le dénominateur est 2a, pas 2": [1.0, 6.0],
-                     "rends les racines dans l'ordre croissant": [3.0, 0.5]})
+           mistakes={"le dénominateur est 2a, pas 2": [-6.0, -1.0],
+                     "rends les racines dans l'ordre croissant : avec a négatif, (−b − √Δ)/(2a) est la plus grande":
+                         [3.0, 0.5],
+                     "priorités : -b + math.sqrt(d) / 2 * a ne divise que la racine, puis multiplie par a ; "
+                     "écris (-b + math.sqrt(d)) / (2 * a)": [-12.0, -2.0],
+                     "priorités : -b + math.sqrt(d) / 2 * a ne divise que la racine ; écris (-b + math.sqrt(d)) / "
+                     "(2 * a), et rends les racines dans l'ordre croissant": [-2.0, -12.0],
+                     "priorités : / 2 * a divise par 2 puis multiplie par a ; écris / (2 * a)": [2.0, 12.0],
+                     "priorités : / 2 * a divise par 2 puis multiplie par a ; écris / (2 * a), et rends les racines "
+                     "dans l'ordre croissant": [12.0, 2.0]})
 wbm.record("R3.19b", True,
            mistakes={"un discriminant négatif : pas de racine réelle, la fonction doit rendre la liste vide": False})
 wbm.record("R3.19c", [3.0, 4.0], decimals=4,
@@ -513,13 +574,15 @@ wbm.record("R3.19c", [3.0, 4.0], decimals=4,
 R3_22_CHECK = '''with checked("R3.22 vérifications"):
     fig, axes = plt.subplots(1, 3, figsize=(13, 3.8))
     try:
-        plot_families(axes)
+        created = drawn(plot_families, axes)
     finally:
         plt.close(fig)
     problems = []
-    if any(len(ax.lines) < 3 for ax in axes):
+    if created:
+        problems.append("un dessin dans les axes reçus (axes[0].plot…), sans créer de figure")
+    elif any(len(ax.lines) < 3 for ax in axes):
         problems.append("au moins trois paraboles dans chacun des trois graphiques")
-    if not all(ax.get_title() for ax in axes):
+    if not created and not all(ax.get_title() for ax in axes):
         problems.append("un titre par graphique, qui dit quel paramètre varie")
     if problems:
         print("❌ Ex R3.22 : il manque " + " ; ".join(problems) + ".")
@@ -544,11 +607,16 @@ Puis réponds dans ta copie : que fait $a$ (son signe, sa taille) ? que fait $c$
     check='''with checked("R3.22"):
     fig, axes = plt.subplots(1, 3, figsize=(13, 3.8))
     try:
-        plot_families(axes)
+        created = drawn(plot_families, axes)
     except BaseException:
         plt.close(fig)
         raise
-    plt.show()''',
+    if created:
+        plt.close(fig)
+        print("❌ Ex R3.22 : ta fonction ouvre sa propre figure (plt.figure ou plt.subplots) : dessine dans les trois "
+              "axes qu'elle reçoit (axes[0].plot, axes[1].plot, axes[2].plot).")
+    else:
+        plt.show()''',
     solution='''def plot_families(axes):
     """Three families of parabolas: y = a x², y = x² + c, y = (x − h)², one per axis, with legends and titles."""
     xs = np.linspace(-4, 4, 300)
@@ -642,7 +710,9 @@ print("deux, une, aucune racine :", count_roots())
 answer_R3_24b = "b**2/4"''',
     record='''wbm.record("R3.24a", [85, 5, 31],
            mistakes={"l'ordre demandé est [deux racines, une racine, aucune racine]": [31, 5, 85],
-                     "b et c vont de −5 à 5 inclus : range(-5, 6)": [72, 5, 28]})
+                     "b et c vont de −5 à 5 inclus : range(-5, 6) dans les deux boucles": [73, 5, 22],
+                     "b va de −5 à 5 inclus : range(-5, 6) aussi pour b": [74, 5, 31],
+                     "c va de −5 à 5 inclus : range(-5, 6) aussi pour c": [83, 5, 22]})
 wbm.record("R3.24b", "b**2/4", kind="expr", variables=("b",),
            mistakes={"Δ = b² − 4c = 0 : isole c, en divisant par 4": "b**2",
                      "Δ = b² − 4ac avec a = 1 : il y a un facteur 4": "b**2/2"})''',
@@ -819,7 +889,9 @@ with checked("R3.17b"):
 print("polyval([1, -2, 0, 3], -2) =", mymath.functions.polyval([1, -2, 0, 3], -2))
 print("polyval([0.5, 1], 4)       =", mymath.functions.polyval([0.5, 1], 4))''',
     record='''wbm.record("R3.17a", -13,
-           mistakes={"le premier coefficient va avec le plus haut degré : ne parcours pas la liste à l'envers": -19})
+           mistakes={"le premier coefficient va avec le plus haut degré : ne parcours pas la liste à l'envers": -19,
+                     "la valeur courante part de 0, pas de 1": 3,
+                     "à chaque étape, multiplie d'abord la valeur courante par x, puis ajoute le coefficient": 26})
 wbm.record("R3.17b", 3.0, decimals=4,
            mistakes={"le premier coefficient va avec le plus haut degré": 4.5})''',
     after=tests_cells("test_polyval_"),

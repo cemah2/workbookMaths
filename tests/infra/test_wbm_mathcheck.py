@@ -35,7 +35,7 @@ def test_fraction_simplified_refuses_a_reducible_fraction_with_a_dedicated_messa
 
 
 @pytest.mark.parametrize("value, words", [
-    ("-3/4", "signe"), ("4/3", "à l'envers"), (0.2857, None), ("1/2", "reprends le calcul"), ("abc", "j'attendais"),
+    ("-3/4", "signe"), ("4/3", "à l'envers"), (0.2857, None), ("1/2", "reprends le calcul"), ("abc", "J'attendais"),
 ])
 def test_fraction_diagnoses(value, words):
     entry = entry_of("F.3", Fraction(3, 4), kind="fraction")
@@ -175,7 +175,7 @@ def test_interval_with_exact_endpoints_and_sympy_sets():
 
 
 @pytest.mark.parametrize("value, words", [
-    ("]-oo ; 3] U [5 ; +oo]", "infini"), ("[5 ; 3]", "dans l'ordre"), ("n'importe quoi", "j'attendais"),
+    ("]-oo ; 3] U [5 ; +oo]", "infini"), ("[5 ; 3]", "dans l'ordre"), ("n'importe quoi", "J'attendais"),
     ("[1 ; 2]", "bon ensemble"),
 ])
 def test_interval_diagnoses(value, words):
@@ -253,3 +253,28 @@ def test_expr_superscript_with_several_digits_and_a_minus():
 def test_interval_infinity_in_capitals(value):
     entry = entry_of("I.20", "]-oo ; 2]", kind="interval")
     assert verdict("I.20", entry, value)[0], value
+
+
+# ------------------------------------------------------------------ R3: learner simulation
+def test_fraction_reads_a_decimal_without_leading_zero():
+    e = entry_of("t3.m1", "9/20", kind="fraction")
+    assert verdict("t3.m1", e, ".45")[0] and verdict("t3.m1", e, "0,45")[0]
+    assert "rationnel" not in verdict("t3.m1", e, "-.8")[2]
+
+
+def test_fraction_typed_as_a_python_calculation_finds_the_recorded_mistake():
+    e = entry_of("t3.m2", "9/20", kind="fraction", mistakes={"retire le minimum avant de diviser": "13/24"})
+    assert "retire le minimum" in verdict("t3.m2", e, 65 / 120)[2]
+
+
+def test_interval_with_a_rounded_endpoint_is_named_as_such():
+    e = entry_of("t3.m3", "]-1/3 ; 2[", kind="interval")
+    for rounded in ("]-0.33 ; 2[", "]-0,333 ; 2["):
+        passed, status, message = verdict("t3.m3", e, rounded)
+        assert not passed and status == "near" and "arrondie" in message
+    assert "arrondie" not in verdict("t3.m3", e, "]-0.34 ; 2[")[2]
+
+
+def test_fraction_prediction_gets_no_hint_about_its_sign():
+    e = entry_of("t3.m4", "3/2", kind="fraction", prediction=True)
+    assert verdict("t3.m4", e, "-3/2")[2].startswith("Prédiction ratée")

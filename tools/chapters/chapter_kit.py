@@ -203,11 +203,15 @@ def guarded(code_text: str, names: list[str], message: str) -> str:
             f"    print({message!r})\nelse:\n{body}")
 
 
-def bug_letters_mistakes(answer: str, others: str, missing_hints: dict, special: dict | None = None) -> str:
+def bug_letters_mistakes(answer: str, others: str, missing_hints: dict, special: dict | None = None,
+                         many: bool = True) -> str:
     """The ``mistakes`` dict (as source code) of a 🐛 answered by the letters of its faulty lines: one message for each
     set that misses one faulty line, has one line too many, or swaps one faulty line for a correct one. Each message is
     unique (a duplicate key of a dict literal would silently drop an entry); ``special`` maps (missing, extra) to a
-    message of its own. Raises ValueError on a duplicate message."""
+    message of its own. Raises ValueError on a duplicate message.
+
+    ``many`` (R3 on): every other non-empty set of letters gets one of three shared messages (several faulty lines
+    missing, several correct lines cited, or both), which name no line: a set of values for one message."""
     answer_set, entries = set(answer), {}
 
     def add(message: str, letters: str) -> None:
@@ -225,8 +229,28 @@ def bug_letters_mistakes(answer: str, others: str, missing_hints: dict, special:
             message = (special or {}).get((removed, extra)) or (
                 f"la ligne ({extra}) est correcte, et il manque une ligne fautive : {missing_hints[removed]}")
             add(message, "".join(sorted((answer_set - {removed}) | {extra})))
-    return "{" + ",\n                     ".join(f"{json.dumps(m, ensure_ascii=False)}: {json.dumps(v)}"
-                                                for m, v in entries.items()) + "}"
+    groups: dict[str, list[str]] = {}
+    if many:
+        import itertools
+
+        letters = sorted(answer_set | set(others))
+        known = set(entries.values()) | {"".join(sorted(answer_set))}
+        for size in range(1, len(letters) + 1):
+            for chosen in itertools.combinations(letters, size):
+                text = "".join(chosen)
+                if text in known:
+                    continue
+                missing, extra = answer_set - set(chosen), set(chosen) - answer_set
+                key = ("plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple" if not extra
+                       else "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple"
+                       if not missing else
+                       "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque "
+                       "ligne avec un petit exemple")
+                groups.setdefault(key, []).append(text)
+    parts = [f"{json.dumps(m, ensure_ascii=False)}: {json.dumps(v)}" for m, v in entries.items()]
+    parts += [f"{json.dumps(m, ensure_ascii=False)}: {{{', '.join(json.dumps(v) for v in values)}}}"
+              for m, values in groups.items()]
+    return "{" + ",\n                     ".join(parts) + "}"
 
 
 def check_unique_keys(source: str, where: str) -> None:

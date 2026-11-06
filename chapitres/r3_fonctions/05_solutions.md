@@ -403,7 +403,7 @@
 
 ### Ex R3.19 — Racines et sommet d'un polynôme du second degré · `quadratic_roots`, `quadratic_vertex`
 
-**Réponses** : `quadratic_roots(2, -7, 3)` vaut `[0.5, 3.0]` ; `quadratic_roots(1, 2, 3)` vaut `[]` ; `quadratic_vertex(-1, 6, -5)` vaut `(3.0, 4.0)`.
+**Réponses** : `quadratic_roots(-2, 7, -3)` vaut `[0.5, 3.0]` (avec `a` négatif, les racines doivent quand même être triées) ; `quadratic_roots(1, 2, 3)` vaut `[]` ; `quadratic_vertex(-1, 6, -5)` vaut `(3.0, 4.0)`.
 
 **Démarche.** $\Delta = 49 - 24 = 25$, racines $\frac{7 \pm 5}{4}$ : 0,5 et 3. Pour $x^2 + 2x + 3$, $\Delta = 4 - 12 < 0$. Pour $-x^2 + 6x - 5$ : $\alpha = -\frac{6}{-2} = 3$ et $\beta = -5 - \frac{36}{-4} = 4$.
 

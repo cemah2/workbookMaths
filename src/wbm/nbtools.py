@@ -31,7 +31,7 @@ from pathlib import Path
 
 import numpy as np
 
-from wbm.checker import NONE_TYPE_ERROR, attempt
+from wbm.checker import NONE_TYPE_ERROR, attempt, pending_text
 from wbm.errors import MymathMissingError
 
 __all__ = [
@@ -55,6 +55,8 @@ __all__ = [
     "print_answer",
     "GroupResult",
     "run_pytest_group",
+    "exception_hint",
+    "drawn",
 ]
 
 # Errors that mean "the learner's code is not written yet": ⏳, never ❌.
@@ -67,6 +69,45 @@ _PICKLE_HINT = (" ; torch.load ne lit que ce qu'écrit torch.save (un pickle) : 
                 "safetensors.torch.load_file, et on ne passe jamais weights_only=False pour un fichier qu'on n'a pas "
                 "écrit soi-même")
 _PICKLE_ERRORS = ("Weights only load failed", "invalid load key")   # torch.load on a file that is not its pickle
+
+# Common errors of a beginner's code, explained in French (part 0 on): (text of the message, hint)
+_BEGINNER_HINTS = (
+    ("math domain error", "math.sqrt (ou math.log) a reçu un nombre hors de son domaine, un négatif par exemple : "
+                          "traite ce cas avant l'appel"),
+    ("object is not callable", "une valeur est appelée comme une fonction : une fonction qui doit renvoyer une "
+                               "fonction la renvoie-t-elle sans l'appeler (return h, pas return h(x)) ?"),
+    ("'function' and", "une fonction est utilisée comme un nombre : manque-t-il un appel, ou une fonction renvoyée au "
+                       "lieu de sa valeur ?"),
+    ("and 'function'", "une fonction est utilisée comme un nombre : manque-t-il un appel, ou une fonction renvoyée au "
+                       "lieu de sa valeur ?"),
+    ("Did you forget to import", "un module n'est pas importé : ajoute la ligne import en haut du fichier"),
+    ("division by zero", "une division par zéro : un cas particulier doit-il être traité avant la division ?"),
+)
+
+
+def exception_hint(message: str) -> str:
+    """A French hint for a common error of a beginner's code, read from its message ("math domain error", a function
+    called on an int, a module not imported, a division by zero), or ""."""
+    return next((hint for text, hint in _BEGINNER_HINTS if text in message), "")
+
+
+def drawn(draw, *args) -> list:
+    """Call ``draw(*args)`` without showing anything (``plt.show`` does nothing meanwhile) and return the numbers of
+    the figures it opened itself (``plt.figure``, ``plt.subplots``), all closed: a function that must draw in the axes
+    it receives should open none."""
+    import matplotlib.pyplot as plt
+
+    before = set(plt.get_fignums())
+    show = plt.show
+    plt.show = lambda *a, **k: None
+    try:
+        draw(*args)
+    finally:
+        plt.show = show
+        created = sorted(set(plt.get_fignums()) - before)
+        for number in created:
+            plt.close(number)
+    return created
 
 
 def _torch_tensor_type():
@@ -161,7 +202,8 @@ def checked(ex_id: str):
     - any other exception: ``❌ Ex <id> : ton code lève <type> : <message>`` (never an empty message), with
       a hint about a forgotten ``return`` when the message is about None (an ``AttributeError`` on None),
       or about a tensor given to NumPy (PyTorch's "received an invalid combination of arguments"), or about
-      ``torch.load`` given a file that is not its pickle (a ``.safetensors`` file).
+      ``torch.load`` given a file that is not its pickle (a ``.safetensors`` file), or about a common error of a
+      beginner (:func:`exception_hint`: ``math.sqrt`` of a negative number, a number called as a function…).
     """
     with attempt(ex_id):
         try:
@@ -187,6 +229,8 @@ def checked(ex_id: str):
                 hint = _PICKLE_HINT
                 if _PICKLE_ERRORS[0] in message:              # PyTorch's advice (weights_only=False) is not repeated
                     message = _PICKLE_ERRORS[0]
+            elif exception_hint(message):
+                hint = " ; " + exception_hint(message)
             else:
                 hint = ""
             shown = message[:300] or "(sans message)"
@@ -603,6 +647,7 @@ def run_pytest_group(test_file, keyword: str | None = None, impl: str = "learner
         node, _, reason = rest.partition(" - ")
         name = node.split("::", 1)[1] if "::" in node else node
         pending = reason.startswith(_PENDING_MARK)
+        reason = pending_text(reason)                    # the English message of a stub, in French
         clear_first = any(key in name for key in _CLEAR_FIRST) or _NONE_ATTRIBUTE in reason
         rank = 2 if pending else (0 if clear_first else 1)
         failures.append((rank, pending, kind, name, reason))
@@ -631,7 +676,12 @@ def run_pytest_group(test_file, keyword: str | None = None, impl: str = "learner
     summary = (counts[-1].strip("= ") if counts else lines[-1].strip("=! ")[:300] if lines
                else result.stderr.strip()[-300:])
     n_pending = sum(f[1] for f in failures)
-    waiting = f" (dont {n_pending} en attente ⏳ : fonction pas encore écrite)" if n_pending else ""
-    print("pytest:", summary + waiting)
+    n_failed = _count(summary, "failed")
+    if n_pending and n_pending == n_failed:             # nothing really fails: the functions are only not written yet
+        words = "fonction pas encore écrite" if n_pending == 1 else "fonctions pas encore écrites"
+        shown = re.sub(r"\b\d+ failed\b", f"{n_pending} en attente ⏳ ({words})", summary, count=1)
+    else:
+        shown = summary + (f" (dont {n_pending} en attente ⏳ : fonction pas encore écrite)" if n_pending else "")
+    print("pytest:", shown)
     return GroupResult(passed=_count(summary, "passed"), failed=_count(summary, "failed"),
                        errors=_count(summary, "errors?"), pending=sum(f[1] for f in failures), summary=summary)

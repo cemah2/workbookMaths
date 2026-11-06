@@ -15,7 +15,9 @@ With your code (``--impl=learner``), a module you do not have yet is taken from
 the reference when another module needs it (e.g. your ``ensemble.py`` imports
 ``tree.py``), but only your own modules are tested.
 A function that still raises ``NotImplementedError`` is reported as a short
-"⏳ pas encore implémenté" failure instead of a long traceback, and a module that cannot
+"⏳ pas encore implémenté" failure instead of a long traceback; another error of the code under test (outside an
+assertion) says first that a result (or the error of the docstring) was expected, then gives a French hint for the common
+ones (``math domain error``, a number called as a function…); and a module that cannot
 be imported (a ``SyntaxError``...) stops the session with one line that names its file
 and line.
 The one-line summaries of ``pytest -rf`` (what the notebooks print) always carry a
@@ -273,11 +275,24 @@ def pytest_runtest_makereport(item, call):
     report = outcome.get_result()
     if report.when != "call" or call.excinfo is None:
         return
+    from wbm.checker import pending_text
+    from wbm.nbtools import exception_hint
+
+    crash = getattr(report.longrepr, "reprcrash", None)
     if call.excinfo.errisinstance(NotImplementedError):
-        message = str(call.excinfo.value) or "fonction pas encore écrite"
-        report.longrepr = _PendingRepr(f"⏳ pas encore implémenté : {message}")
+        message = pending_text(str(call.excinfo.value)) or "fonction pas encore écrite"
+        # "⏳ polyval() n'est pas encore écrite" (a stub), "⏳ pas encore implémenté : <message>" (another message)
+        text = message if message.endswith("n'est pas encore écrite") else f"pas encore implémenté : {message}"
+        report.longrepr = _PendingRepr(f"⏳ {text}")
     elif call.excinfo.errisinstance(AssertionError):
         summary = _numpy_summary(str(call.excinfo.value))
-        crash = getattr(report.longrepr, "reprcrash", None)
         if summary and crash is not None:
             crash.message = f"AssertionError: {summary}"
+    elif crash is not None and call.excinfo.errisinstance(Exception):
+        # an error of the code under test, outside any assertion: what was expected comes first, then a hint
+        error = call.excinfo.value
+        hint = exception_hint(str(error))
+        crash.message = (f"expected a result (or the error its docstring asks for), got {type(error).__name__}: {error}"
+                         + (f" — 💡 {hint}" if hint else ""))
+    elif crash is not None and exception_hint(crash.message) and "💡" not in crash.message:
+        crash.message += f" — 💡 {exception_hint(crash.message)}"     # pytest.fail("expected …, but it raised …")

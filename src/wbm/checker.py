@@ -283,7 +283,7 @@ def _as_array(value):
         value = list(bytes(value))
     value = _deep_to_python(value)
     if isinstance(value, (str, bytes)) or isinstance(value, numbers.Number):
-        raise NormalizationError("un tableau (liste, array NumPy ou tenseur)")
+        raise NormalizationError("une liste de nombres (ou un tableau NumPy)")
     value = _parse_elements(value)
     try:
         arr = np.asarray(value, dtype=float)
@@ -493,6 +493,20 @@ def make_entry(
         reals = [x for x in _deep_to_python(list(value)) if isinstance(x, numbers.Real)]
         if any(float(x) != round(float(x)) for x in reals):
             raise ValueError(f"Ex {ex_id}: give `decimals` for a set containing non-integer numbers.")
+    if kind == "set" and decimals is not None and decimals >= 6:   # 6 decimals and more: an exact fraction is expected
+        # the right set rounded with fewer decimals (-0.33 for -1/3): « une valeur arrondie », never a wrong set
+        reals = [float(x) for x in _deep_to_python(list(value))
+                 if isinstance(x, numbers.Real) and not isinstance(x, bool)]
+        rounded = {}
+        for k in range(1, min(decimals, 6)):
+            if any(abs(x - round(x, k)) > 10.0 ** -(decimals + 1) for x in reals):
+                rounded[str(k)] = hash_answer(ex_id, kind, normalize(value, kind, k))
+        if rounded:
+            set_rounded = rounded
+        else:
+            set_rounded = None
+    else:
+        set_rounded = None
     if kind in ("int", "bool", "str"):
         decimals = None
 
@@ -502,6 +516,8 @@ def make_entry(
         entry["prediction"] = True
     if decimals is not None:
         entry["decimals"] = int(decimals)
+    if set_rounded:
+        entry["set_rounded"] = set_rounded
 
     if kind in ("int", "float"):
         x = _as_number(value)
@@ -523,6 +539,13 @@ def make_entry(
         entry["shape"] = list(arr.shape)
         if integer_array and decimals == 0:
             entry["integer"] = True
+        if decimals >= 6 and arr.size and np.all(np.isfinite(arr)):    # an exact fraction expected (R2 on)
+            # the right values rounded with fewer decimals (-0.33 for -1/3): « une valeur arrondie »
+            rounded = {str(k): hash_answer(ex_id, kind, _norm_array(np.round(arr, k), decimals))
+                       for k in range(1, min(decimals, 6))
+                       if np.any(np.abs(arr - np.round(arr, k)) > 10.0 ** -(decimals + 1))}
+            if rounded:
+                entry["array_rounded"] = rounded
         if 1 < arr.size <= _MAX_ELEMENT_HASHES:
             entry["element_hashes"] = [_element_hash(ex_id, i, x, decimals) for i, x in enumerate(arr.ravel())]
             if decimals >= 2 and np.all(np.isfinite(arr)):
@@ -673,12 +696,12 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
     sign = entry.get("sign")
     if not sign or x == 0:  # expected 0, or the learner gave 0: no hint that could leak the answer
         return "Ce n'est pas la bonne valeur."
+    if computed:  # the value comes from the learner's function: no hint about signs or sizes, point to the tests
+        return ("Ta fonction ne renvoie pas la bonne valeur ici. Relis l'énoncé et sa docstring ; si elle fait "
+                "partie de `mymath`, ses tests (`pytest`) disent quel cas pose problème.")
     if (x > 0) != (sign > 0):
         return "Le signe de ta réponse n'est pas le bon, et sa valeur sans le signe non plus : reprends le calcul."
     magnitude = entry.get("magnitude")
-    if computed:  # the value comes from the learner's function: no hint about units or sums, point to the tests
-        return ("Ta fonction ne renvoie pas la bonne valeur ici. Relis l'énoncé et sa docstring ; si elle fait "
-                "partie de `mymath`, ses tests (`pytest`) disent quel cas pose problème.")
     if magnitude is not None:
         x_mag = int(math.floor(math.log10(abs(x))))
         if x_mag == magnitude:
@@ -688,10 +711,10 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
         # one power of ten apart can mean a factor 1.1 (9 vs 11): claim "a factor 10" only from two powers apart
         if x_mag >= magnitude + 2:
             return (f"Ta valeur est trop grande{absolute} d'au moins un facteur 10 : revois la méthode (unités, "
-                    "somme au lieu d'une moyenne ?).")
+                    "division oubliée ?).")
         if x_mag > magnitude:
-            return (f"Ta valeur est trop grande{absolute} : revois le calcul (un terme compté en trop, une unité, "
-                    "une somme au lieu d'une moyenne ?).")
+            return (f"Ta valeur est trop grande{absolute} : revois le calcul (un terme compté en trop, une division "
+                    "oubliée, une unité ?).")
         if x_mag <= magnitude - 2:
             return (f"Ta valeur est trop petite{absolute} d'au moins un facteur 10 : revois la méthode (division "
                     "en trop, unités ?).")
@@ -730,7 +753,7 @@ def _element_near(ex_id: str, index: int, x: float, expected: str, decimals: int
                                         for k in (-1, 1))
 
 
-def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False) -> str:
+def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False, value=None) -> str:
     import numpy as np
 
     expected_shape = tuple(entry.get("shape", ()))
@@ -744,17 +767,25 @@ def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False) -> st
         if (not computed and not entry.get("integer") and arr.ndim == 1 and len(expected_shape) == 1
                 and arr.size > expected_shape[0] and np.all(np.isfinite(arr)) and np.all(arr == np.round(arr))):
             # [3, 2, 1, 5] for [3, 2, 1.5]: a decimal comma splits a number into two whole numbers
-            return (f"Forme attendue {expected_shape}, reçue {arr.shape}. Des virgules décimales ? Dans une liste "
-                    "Python, `[1,5]` contient deux nombres, 1 et 5 : écris `1.5`.")
+            return (f"Ta liste a {arr.size} éléments, il en faut {expected_shape[0]}. Des virgules décimales ? Dans "
+                    "une liste Python, `[1,5]` contient deux nombres, 1 et 5 : écris `1.5`.")
         if arr.ndim == 1 and len(expected_shape) == 1:   # a list: say it with counts, not NumPy shapes
-            return (f"Ta liste a {arr.size} élément(s), il en faut {expected_shape[0]} : un élément oublié ou en "
-                    "trop (un coefficient nul s'écrit aussi, avec un 0) ?")
+            if arr.size < expected_shape[0]:
+                return (f"Ta liste a {arr.size} élément(s), il en faut {expected_shape[0]} : un élément oublié (si ce "
+                        "sont des coefficients, un coefficient nul s'écrit aussi, avec un 0) ?")
+            return f"Ta liste a {arr.size} éléments, il en faut {expected_shape[0]} : un élément en trop ?"
         return f"Forme attendue {expected_shape}, reçue {arr.shape}."
     if (arr.ndim == 2 and arr.shape[0] == arr.shape[1] > 1 and not np.array_equal(arr, arr.T)
             and _hash_value(ex_id, entry, arr.T) == entry["hash"]):  # a square table read the other way round
         return "Les valeurs sont bonnes mais le tableau est transposé (.T) : les lignes et les colonnes sont échangées."
     element_hashes = entry.get("element_hashes")
     decimals = entry.get("decimals") or 0
+    if entry.get("array_rounded") and not computed:
+        typed = max((_decimals_of(item) for item in np.ravel(np.asarray(_deep_to_python(value), dtype=object))),
+                    default=0) if value is not None else 0
+        rounded = entry["array_rounded"].get(str(typed))
+        if rounded and hash_answer(ex_id, "array", _norm_array(arr, decimals)) == rounded:
+            return _SET_ROUNDED
 
     def matches_all(values) -> bool:
         """values match the answer, as a whole or element by element (rounding noise absorbed)."""
@@ -901,6 +932,9 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
     kind = entry["kind"]
     if kind in MATH_KINDS:
         return check_math_entry(ex_id, entry, value)
+    if kind == "str" and isinstance(value, (list, tuple)) and value and all(
+            isinstance(item, str) and len(item.strip()) == 1 and item.strip().isalpha() for item in value):
+        value = ", ".join(item.strip() for item in value)   # ["A", "C"] for "AC": read as the text of the letters
     decimals = entry.get("decimals")
     accepted = {entry["hash"], *entry.get("alt_hashes", [])}
     try:
@@ -941,7 +975,11 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
             raw = value
         if isinstance(raw, str):  # say what was read: "an object of type str" is confusing when "vrai" is accepted
             shown = raw if len(raw) <= 40 else raw[:37] + "…"
-            return False, "type", f"J'attends {exc} ; j'ai reçu le texte « {shown} »."
+            more = ""
+            if kind in ("array", "set") and re.search(r"[a-zA-Z]", raw) and re.search(r"[+\-*^/]", raw):
+                more = (" Pour un polynôme, l'énoncé demande la liste de ses coefficients, du plus haut degré au terme "
+                        "constant, zéros compris.")
+            return False, "type", f"J'attends {exc} ; j'ai reçu le texte « {shown} ».{more}"
         hint = _type_hint(value, kind)
         if hint:
             lead = {"array": "une liste de nombres", "set": "une liste de nombres (dans l'ordre que tu veux)"}
@@ -967,7 +1005,9 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
         mistake = entry.get("mistakes", {}).get(hash_answer(ex_id, kind, norm))
         if mistake:
             return False, "wrong", _classic(entry, mistake, value)
-        return False, "wrong", _array_diagnosis(ex_id, entry, arr, computed)
+        if entry.get("prediction") and list(arr.shape) == entry.get("shape"):
+            return False, "wrong", _MISSED_PREDICTION
+        return False, "wrong", _array_diagnosis(ex_id, entry, arr, computed, value)
 
     candidates = [norm]
     if kind == "float":  # absorb noise at a rounding boundary
@@ -1013,6 +1053,8 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
             mistake = entry.get("mistakes", {}).get(glued_hash)
             if mistake:
                 return False, "wrong", _classic(entry, mistake, value)
+    if entry.get("prediction") and kind in ("int", "float", "array", "set"):
+        return False, "wrong", _MISSED_PREDICTION
     if kind in ("int", "float") and entry.get("choices") and norm not in entry["choices"]:
         offered = [_choice_text(choice) for choice in entry["choices"]]
         listed = ", ".join(offered[:-1]) + " ou " + offered[-1] if len(offered) > 1 else offered[0]
@@ -1022,7 +1064,7 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
     if kind == "bool":
         return False, "wrong", "Ce n'est pas la bonne réponse : relis l'énoncé et justifie ton choix."
     if kind == "set":
-        return False, "wrong", "L'ensemble n'est pas le bon (l'ordre ne compte pas) : il manque ou il y a des éléments en trop."
+        return False, "wrong", _set_diagnosis(ex_id, entry, value)
     if kind == "str" and (_shape_reading(value) is not None or (   # a wrong shape or vector: no spelling hint
             isinstance(value, str) and _NUMBER_TUPLE_TEXT.fullmatch(value))):
         return False, "wrong", _WRONG_SHAPE
@@ -1032,6 +1074,64 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
         "(majuscules, accents, espaces et tirets sont ignorés)."
     )
 
+
+def _decimals_of(item) -> int:
+    """The number of decimals of a number as typed: -0.333 -> 3, "−0,33" -> 2, 4 -> 0 (a fraction "4/3" -> 0)."""
+    item = _to_python(item)
+    if isinstance(item, bool):
+        return 0
+    if isinstance(item, float) and math.isfinite(item):
+        text = repr(item)
+    elif isinstance(item, str):
+        text = item.strip().replace(",", ".")
+    else:
+        return 0
+    if "e" in text.lower() or "/" in text or "." not in text:
+        return 0
+    return len(text.split(".")[1].strip())
+
+
+_SET_ROUNDED = ("Presque : au moins une de tes valeurs est arrondie. Donne les valeurs exactes : une fraction se "
+                "tape comme un calcul (`4/3`) ou entre guillemets (`\"4/3\"`).")
+
+
+def _set_diagnosis(ex_id: str, entry: dict, value) -> str:
+    """A wrong set: right up to rounding (-0.33 for -1/3), right once a decimal comma is fixed ([2,25] for [2.25]),
+    or simply wrong."""
+    try:
+        items = list(_deep_to_python(value))
+    except TypeError:
+        items = []
+    typed = max((_decimals_of(item) for item in items), default=0)
+    rounded = entry.get("set_rounded", {}).get(str(typed))
+    if rounded:
+        try:
+            if hash_answer(ex_id, "set", normalize(value, "set", typed)) == rounded:
+                return _SET_ROUNDED
+        except NormalizationError:
+            pass
+    whole = [_to_python(item) for item in items]
+    if len(whole) >= 2 and all(isinstance(v, numbers.Integral) and not isinstance(v, bool) for v in whole):
+        def glued(a, b):
+            return float(f"{a}.{b}") if b >= 0 else None
+        readings = [whole[:i] + [glued(whole[i], whole[i + 1])] + whole[i + 2:] for i in range(len(whole) - 1)]
+        if len(whole) % 2 == 0:
+            readings.append([glued(whole[i], whole[i + 1]) for i in range(0, len(whole), 2)])
+        for reading in readings:
+            if None in reading:
+                continue
+            try:
+                if hash_answer(ex_id, "set", normalize(reading, "set", entry.get("decimals"))) == entry["hash"]:
+                    return ("Des virgules décimales ? Dans une liste Python, `[1,5]` contient deux nombres, 1 et 5 : "
+                            "écris `1.5` (avec un point).")
+            except NormalizationError:
+                continue
+    return "L'ensemble n'est pas le bon (l'ordre ne compte pas) : il manque ou il y a des éléments en trop."
+
+
+# A prediction (🔮) is never diagnosed by sign or size: the experiment that follows is the explanation
+_MISSED_PREDICTION = ("Prédiction ratée : lance l'expérience qui suit, puis cherche dans ta copie d'où vient "
+                      "l'écart.")
 
 _WRONG_SHAPE = ("Ce n'est pas la bonne forme (ou le bon vecteur) : vérifie chaque valeur et leur ordre ; pour la forme "
                 "d'un tenseur, vérifie chaque axe (lequel vient en premier, et sa taille), et n'oublie ni l'axe des "
@@ -1125,6 +1225,15 @@ def _choice_text(normalized: str) -> str:
     return text.replace(".", ",")
 
 
+_NOT_IMPLEMENTED_YET = re.compile(r"\b(\w+\(\)) is not implemented yet\b")
+
+
+def pending_text(message: str) -> str:
+    """The message of a stub not written yet, in French: "polyval() is not implemented yet" -> "polyval() n'est pas
+    encore écrite" (the stubs, frozen once published, speak English)."""
+    return _NOT_IMPLEMENTED_YET.sub(r"\1 n'est pas encore écrite", message)
+
+
 def check(ex_id, value, decimals: int | None = None, *, quiet: bool = False, computed: bool = False,
           answers_path: str | Path | None = None) -> CheckResult:
     """Check the learner's answer to exercise ``ex_id``.
@@ -1196,7 +1305,7 @@ def attempt(ex_id: str | None = None):
     try:
         yield
     except NotImplementedError as exc:
-        detail = f" ({exc})" if str(exc) else ""
+        detail = f" ({pending_text(str(exc))})" if str(exc) else ""
         print(f"⏳ {where}pas encore fait{detail}.")
     except MymathMissingError as exc:
         print(f"⏳ {where}pas encore fait ({exc}).")

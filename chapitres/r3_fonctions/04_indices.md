@@ -523,7 +523,7 @@ Relis « S'en servir pour comparer et résoudre » (fiche §4) et la cellule de 
 </details>
 <details><summary>Indice 2</summary>
 
-`xs = np.linspace(0, 3, 300)`, puis `ax.plot(xs, np.sqrt(xs), label="√x")`. Pour $\frac{1}{x}$, deux tableaux d'abscisses, un de chaque côté de 0. Pour b, factorise $x^2 - x$.
+`xs = np.linspace(0, 3, 300)`, puis `axes[0].plot(xs, np.sqrt(xs), label="√x")` : on dessine dans les axes reçus, sans `plt.figure`. Pour $\frac{1}{x}$, deux tableaux d'abscisses, un de chaque côté de 0, et deux `axes[1].plot`. Pour b, factorise $x^2 - x$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -541,7 +541,7 @@ Relis l'encadré « Un graphique propre » (fiche §2), et calcule d'abord le so
 </details>
 <details><summary>Indice 2</summary>
 
-Tout se dessine dans `ax` : `ax.plot(..., label=...)`, `ax.axhline(150, ...)`, `ax.plot(alpha, beta, "o")`, `ax.annotate(...)`, `ax.set_title`, `ax.set_xlabel`, `ax.set_ylabel`, `ax.legend()`.
+Tout se dessine dans `ax`, sans `plt.figure` ni `plt.plot` : `ax.plot(..., label=...)`, `ax.axhline(150, ...)`, `ax.plot(alpha, beta, "o")`, `ax.annotate(...)`, `ax.set_title`, `ax.set_xlabel`, `ax.set_ylabel`, `ax.legend()`.
 
 </details>
 <details><summary>Indice 3</summary>

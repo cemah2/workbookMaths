@@ -896,3 +896,53 @@ def test_a_set_reads_a_fraction_typed_between_quotes():
 def test_a_string_order_may_be_written_with_its_signs():
     e = entry("t.7", "ACEDBF")
     assert passes("t.7", e, "A < C < E < D < B < F") and passes("t.7", e, "a,c,e,d,b,f")
+
+
+# ---------------------------------------------------------------- R3: learner simulation
+
+def test_an_exact_set_rounded_by_the_learner_is_named_as_such():
+    """6 decimals or more mean an exact fraction is expected: -0.333 for -1/3 is « arrondie », not a wrong set."""
+    e = entry("t3.1", [-1 / 3, 2], ordered=False, decimals=8)
+    for rounded in ([-0.33, 2], [2, -0.333], ["-0,3333", 2]):
+        assert "arrondie" in message("t3.1", e, rounded)
+    assert "arrondie" not in message("t3.1", e, [-0.34, 2])
+    assert passes("t3.1", e, ["-1/3", 2]) and passes("t3.1", e, [-1 / 3, 2])
+
+
+def test_an_exact_list_rounded_by_the_learner_is_named_as_such_but_not_a_list_to_round():
+    e = entry("t3.2", [3, -1 / 3, 2], decimals=8)
+    assert "arrondie" in message("t3.2", e, [3, -0.33, 2])
+    asked = entry("t3.3", [0.123, 0.5], decimals=3)                  # the statement asks for 3 decimals
+    assert "arrondie" not in message("t3.3", asked, [0.12, 0.5])
+
+
+def test_a_decimal_comma_inside_a_set_is_explained_when_it_hides_the_right_answer():
+    e = entry("t3.4", [9 / 4], ordered=False, decimals=6)
+    assert "virgules décimales" in message("t3.4", e, [2, 25])
+    assert "virgules décimales" not in message("t3.4", e, [2, 26])
+
+
+def test_a_prediction_gets_no_hint_about_its_sign_or_size():
+    e = entry("t3.5", 5, prediction=True, mistakes={"on retire 3 d'abord, puis la valeur absolue": -1})
+    for wrong in (-5, 50, 6):
+        assert message("t3.5", e, wrong).startswith("Prédiction ratée") and "signe" not in message("t3.5", e, wrong)
+    assert "on retire 3" in message("t3.5", e, -1)
+
+
+def test_a_list_of_letters_is_read_as_the_text_of_the_letters():
+    e = entry("t3.6", "ACF")
+    assert passes("t3.6", e, ["A", "C", "F"]) and passes("t3.6", e, ["f", "a", "c"])
+    assert not passes("t3.6", e, ["A", "C"])
+
+
+def test_an_expression_typed_for_a_list_of_coefficients_gets_the_form_in_words():
+    e = entry("t3.7", [2, 0, -3])
+    text = message("t3.7", e, "2*x**2 - 3")
+    assert "liste de ses coefficients" in text and "tenseur" not in text
+    assert "élément en trop" in message("t3.7", e, [2, 0, -3, 0])
+    assert "coefficient nul" in message("t3.7", e, [2, -3])
+
+
+def test_a_value_from_the_learners_function_gets_no_hint_about_its_sign():
+    e = entry("t3.8", -13)
+    assert "Ta fonction" in C.check_entry("t3.8", e, 26, computed=True)[2]
