@@ -79,7 +79,7 @@ R8 a décrit une expérience aléatoire par son univers $\Omega$ (l'ensemble des
 - $\mathcal{A}$, l'ensemble des **événements** (*event space*), les parties de $\Omega$ auxquelles on donne une probabilité ;
 - $P$, la **probabilité**, qui associe à chaque événement un nombre entre 0 et 1, avec $P(\Omega) = 1$, et $P(A \cup B) = P(A) + P(B)$ quand $A$ et $B$ sont incompatibles (plus généralement pour une suite d'événements deux à deux incompatibles).
 
-Quand $\Omega$ est fini, tout sous-ensemble est un événement, et c'est le cadre de R8. Quand $\Omega$ est infini, par exemple $[0 ; 1[$ pour un nombre tiré « au hasard » par `rng.random()`, on ne peut pas toujours donner une probabilité à **toutes** les parties de $\Omega$ ; on se limite aux intervalles et à ce qu'on en construit par réunions, intersections et complémentaires. C'est une subtilité technique, admise ici : dans ce workbook, tous les ensembles que tu rencontreras sont des événements.
+Quand $\Omega$ est fini, tout sous-ensemble est un événement, et c'est le cadre de R8. Quand $\Omega$ est un intervalle, par exemple $[0 ; 1[$ pour un nombre tiré « au hasard » par `rng.random()`, on ne peut pas toujours donner une probabilité à **toutes** les parties de $\Omega$ ; on se limite aux intervalles et à ce qu'on en construit par réunions, intersections et complémentaires. C'est une subtilité technique, admise ici : dans ce workbook, tous les ensembles que tu rencontreras sont des événements.
 
 ### Une variable aléatoire est une fonction
 
@@ -343,7 +343,7 @@ Avec $X = \mu + \sigma Z$ (§8), $\mathbb{V}(X) = \sigma^2$ : le paramètre $\si
 | exponentielle $\mathcal{E}(\lambda)$ | $[0 ; +\infty[$ | $\lambda e^{-\lambda t}$ | $\frac{1}{\lambda}$ | $\frac{1}{\lambda^2}$ |
 | normale $\mathcal{N}(\mu, \sigma^2)$ | $\mathbb{R}$ | $\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$ | $\mu$ | $\sigma^2$ |
 
-Les variances de la binomiale, de la loi géométrique et de la loi de Poisson se démontrent avec les outils de la fiche ; on les admet ici, sauf celle de la binomiale (§6). Pour une Poisson, $\mathbb{E}[X(X - 1)] = \lambda^2$ par le même calcul que l'espérance, puis $\mathbb{V}(X) = \mathbb{E}[X(X-1)] + \mathbb{E}[X] - \mathbb{E}[X]^2 = \lambda$.
+Ces trois variances discrètes se démontrent avec les outils de la fiche : celle de la loi géométrique est admise ici, celle de la binomiale vient au §6, et pour une Poisson, $\mathbb{E}[X(X - 1)] = \lambda^2$ par le même calcul que l'espérance, puis $\mathbb{V}(X) = \mathbb{E}[X(X-1)] + \mathbb{E}[X] - \mathbb{E}[X]^2 = \lambda$.
 
 ```python
 >>> from scipy.integrate import quad
@@ -510,7 +510,7 @@ M02a a admis $I = \int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi}$. L'idée d
 
 Si $X$ a une loi connue et $Y = g(X)$, quelle est la loi de $Y$ ? La méthode sûre est de passer par la **fonction de répartition** : on écrit $F_Y(y) = P(g(X) \le y)$, on résout l'inégalité pour la ramener à une condition sur $X$, puis on dérive pour obtenir la densité.
 
-**Une transformation affine** $Y = aX + b$, avec $a > 0 :$
+**Une transformation affine** $Y = aX + b$, avec $a > 0$ :
 
 $$F_Y(y) = P(aX + b \le y) = P\Big(X \le \frac{y - b}{a}\Big) = F_X\Big(\frac{y - b}{a}\Big), \qquad f_Y(y) = \frac{1}{a}\,f_X\Big(\frac{y - b}{a}\Big)$$
 
@@ -535,7 +535,7 @@ C'est la loi du **khi-deux** à un degré de liberté, qui reviendra en statisti
 
 Un ordinateur ne sait tirer que des nombres (pseudo-)uniformes sur $[0 ; 1[$. Comment tirer dans une autre loi ?
 
-> **Simulation par inversion.** Soit $F$ une fonction de répartition continue et strictement croissante (sur l'intervalle où elle est entre 0 et 1), de réciproque $F^{-1}$. Si $U \sim \mathcal{U}([0 ; 1])$, alors $X = F^{-1}(U)$ a pour fonction de répartition $F$.
+> **Simulation par inversion.** Soit $F$ une fonction de répartition continue et strictement croissante (sur l'intervalle où elle est strictement entre 0 et 1), de réciproque $F^{-1}$. Si $U \sim \mathcal{U}([0 ; 1])$, alors $X = F^{-1}(U)$ a pour fonction de répartition $F$.
 
 La démonstration tient en une ligne : comme $F$ est croissante, $F^{-1}(U) \le x$ équivaut à $U \le F(x)$, donc $P(X \le x) = P(U \le F(x)) = F(x)$, la probabilité qu'un nombre uniforme tombe sous $F(x)$. Géométriquement : on tire $u$ sur l'axe vertical, et on lit la valeur $x$ qui lui correspond sur la courbe de $F$. $F^{-1}$ est la **fonction quantile** de M02a §7 : $F^{-1}(u) = q_u$.
 
