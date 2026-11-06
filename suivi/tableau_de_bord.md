@@ -418,3 +418,45 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] R6.22 🛠️ Lire la documentation de `numpy.log`, `log2`, `log10`, `log1p` ★ 15 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)
 <!-- wbm:end R6 -->
+
+<!-- wbm:section R7 -->
+## R7 · Limites et dérivation ⏱️ 13,2 h
+
+- [ ] R7.Q1 🧠 Limites : vrai ou faux ★ 4 min
+- [ ] R7.Q2 🧠 Continue ou pas ? ★ 4 min
+- [ ] R7.Q3 🧠 Le nombre dérivé est une pente ★ 4 min
+- [ ] R7.Q4 🧠 Dérivées usuelles ★ 4 min
+- [ ] R7.Q5 🧠 Produit, quotient : quelle formule ? ★ 4 min
+- [ ] R7.Q6 🧠 Règle de la chaîne : qu'y a-t-il « dedans » ? ★ 4 min
+- [ ] R7.Q7 🧠 Dérivée nulle, extremum ? ★ 4 min
+- [ ] R7.Q8 🧠 Qui domine qui ? ★ 4 min (complet)
+- [ ] R7.R1 🔁 Croissances comparées (R6) ★ 5 min
+- [ ] R7.R2 🔁 Limite d'une suite (R5) ★ 5 min
+- [ ] R7.R3 🔁 Sommet d'une parabole (R3) ★ 5 min (complet)
+- [ ] R7.1 ✏️ Limites en l'infini des fonctions de référence ★ 15 min
+- [ ] R7.2 ✏️ Limites et asymptotes de fonctions rationnelles ★★ 20 min (complet)
+- [ ] R7.3 ✏️ Taux d'accroissement et nombre dérivé ★ 15 min
+- [ ] R7.4 ✏️ Équation de la tangente ★ 15 min
+- [ ] R7.5 ✏️ Dériver les fonctions usuelles ★ 15 min
+- [ ] R7.6 ✏️ Dériver des produits et des quotients ★★ 20 min
+- [ ] R7.7 ✏️ Dériver des composées ★★ 25 min
+- [ ] R7.8 ✏️ Variations et tableau de variations ★★ 25 min
+- [ ] R7.9 ✏️ Optimiser : la boîte de volume maximal ★★ 25 min
+- [ ] R7.10 ✏️ La règle de la chaîne en série : trois étages, et l'ordre qui compte ★★ 25 min
+- [ ] R7.11 ✏️ Dériver par rapport à une lettre, les autres fixées : A e^(kt), π r² h, ½ m v² ★★ 20 min
+- [ ] R7.12 ∂ La dérivée de x² à partir de la définition, et |x| qui n'est pas dérivable en 0 ★★ 20 min
+- [ ] R7.13 ∂ Démontrer la règle du produit ★★ 35 min (complet)
+- [ ] R7.14 ∂ La règle du quotient à partir de la règle du produit : (1/v)′ = −v′/v² ★★ 25 min
+- [ ] R7.15 🔗 Minimiser une fonction de coût donnée par une formule : dériver, annuler, vérifier ★★ 20 min
+- [ ] R7.16 🗣️ Expliquer ce qu'est une dérivée sans écrire de formule ★ 10 min
+- [ ] R7.17 🔨 Le taux d'accroissement ★ 15 min
+- [ ] R7.18 🔨 La tangente à partir de f et de sa dérivée ★★ 20 min (complet)
+- [ ] R7.19 🔨 Trouver un zéro par dichotomie ★★ 25 min
+- [ ] R7.20 📦 Vérifier ses dérivées avec `sympy.diff` ★ 15 min
+- [ ] R7.21 🔮 Prédire : le taux d'accroissement s'approche-t-il toujours de la dérivée quand h devient minuscule ? ★★ 15 min (complet)
+- [ ] R7.22 🔬 Zoomer sur une courbe jusqu'à voir une droite ★★ 20 min
+- [ ] R7.23 🎨 Tracer f, f′ et des tangentes ★★ 20 min (complet)
+- [ ] R7.24 🐛 Chasse à l'erreur : quatre dérivées fausses ★★ 20 min
+- [ ] R7.25 🛠️ Tester une dérivée avec pytest et SymPy ★ 15 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (25 cartes)
+<!-- wbm:end R7 -->

@@ -634,7 +634,7 @@ CHAPTERS = [
         "python_0a": ["100.5.3"],
         "frontieres": ["0B.10", "0B.22", "0B.23", "0B.24", "9.2", "9.3", "17.4", "18.R1", "18.3", "18.5", "19.7"],
         "mymath": {"module": "deriv.py", "functions": ["difference_quotient", "tangent_line", "bisection"]},
-        "reading_minutes": 180,
+        "reading_minutes": 200,
         "flashcards": 25,
         "exercises": [
             ("R7.Q1", "🧠", 1, 4, "Limites : vrai ou faux", "§1", "E"),
@@ -657,10 +657,9 @@ CHAPTERS = [
             ("R7.7", "✏️", 2, 25, "Dériver des composées", "§7", "E"),
             ("R7.8", "✏️", 2, 25, "Variations et tableau de variations", "§8", "E"),
             ("R7.9", "✏️", 2, 25, "Optimiser : la boîte de volume maximal", "§8", "E"),
-            ("R7.10", "✏️", 2, 25, "La règle de la chaîne en série : e^(−x²/2), ln(1 + x²), (3x + 1)⁵, √(1 + x²)", "§7",
-             "E"),
-            ("R7.11", "✏️", 2, 20, "Dériver par rapport à w, puis par rapport à b : (wx + b − y)², x et y étant fixés", "§5 §7",
-             "E"),
+            ("R7.10", "✏️", 2, 25, "La règle de la chaîne en série : trois étages, et l'ordre qui compte", "§7", "E"),
+            ("R7.11", "✏️", 2, 20, "Dériver par rapport à une lettre, les autres fixées : A e^(kt), π r² h, ½ m v²",
+             "§5 §7", "E"),
             ("R7.12", "∂", 2, 20, "La dérivée de x² à partir de la définition, et |x| qui n'est pas dérivable en 0", "§3",
              "E"),
             ("R7.13", "∂", 2, 35, "Démontrer la règle du produit", "§6", ""),
@@ -679,11 +678,14 @@ CHAPTERS = [
             ("R7.24", "🐛", 2, 20, "Chasse à l'erreur : quatre dérivées fausses", "§6 §7", "E"),
             ("R7.25", "🛠️", 1, 15, "Tester une dérivée avec pytest et SymPy", "§5", ""),
         ],
-        "notes": "Deux sessions de génération (chapitre long, figures nombreuses). R7.19 annonce seulement le problème du "
-                 "pas h, que M05a traite, sans en donner les nombres. Frontières : on ne dérive ni σ, ni tanh, ni "
-                 "softplus (workbookIA 17.4) ; les fonctions de coût de R7.13 sont données par une formule, jamais "
-                 "par des données (pas de moyenne qui minimise les carrés, pas de w* = Σxy / Σx²) ; pas de pas de "
-                 "descente sur une parabole.",
+        "notes": "Deux sessions de génération (chapitre long, figures nombreuses). Le 🔮 R7.21 montre seulement le "
+                 "problème du pas h (l'erreur du taux remonte quand h devient minuscule), que M05a et workbookIA 5 "
+                 "traitent, sans le théorème ni le meilleur pas ; ni la différence centrée ni la dérivée seconde "
+                 "(workbookIA 5). Frontières : on ne dérive ni σ, ni tanh, ni softplus (workbookIA 17.4) ; les "
+                 "fonctions de coût de R7.15 sont données par une formule, jamais par des données (pas de moyenne "
+                 "qui minimise les carrés, pas de w* = Σxy / Σx²) ; pas de pas de descente ; les composées de R7.7 "
+                 "et R7.10 et la dérivation « une lettre à la fois » de R7.11 évitent celles de 0B.23, de 0B §101.5.3 "
+                 "(la loss (wx + b − y)²) et de workbookIA 5.R3.",
     },
     {
         "id": "R8",

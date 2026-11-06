@@ -9874,6 +9874,2539 @@
         3
       ],
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
+    },
+    "R7.1a": {
+      "decimals": 2,
+      "hash": "04a73b77219c7a2914e4edf7d40b5f912acd8a3ca63d922be0150f2d6a7a3fa3",
+      "hash_coarse": "79e81dd676fc362f0a281fbfa2ac4a644b6ca2dc2f5098dfd3b80f14883b1d76",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "99bf77b58bdfbb633937a25cc874fbe200f5456a4db43bfdb735ecb0c2f82bf9": "3/x tend vers 0 : il reste le premier terme"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.1b": {
+      "decimals": 2,
+      "hash": "585146b78422606d07d81e1669a0d45467c035e3803caf9facfba41c0ae3baea",
+      "hash_coarse": "585146b78422606d07d81e1669a0d45467c035e3803caf9facfba41c0ae3baea",
+      "kind": "float",
+      "magnitude": null,
+      "mistakes": {
+        "56ccfcb157d6ae882c73db24ece3dd13ba6dbcd4556af01c185d91406e3b650d": "∞ − ∞ est une forme indéterminée, pas 0 : mets le terme de plus haut degré en facteur"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.1c": {
+      "decimals": 2,
+      "hash": "fe688ddcac993fa2c5a301bc5cf5f685f477e8c818bcf3d11a74800a5dab43dd",
+      "hash_coarse": "861e2bc32d22915f7326a22d72c33cec20b40f3e371c5d00c228f4f1a5a840e5",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "3433b87e4e968d8532b80afc96768d80f8bc9c8a1ea125fdd8503188dea346a1": "en l'infini, ce sont les termes de plus haut degré qui comptent, pas les constantes",
+        "b696d5efc7f0e8b17fb06c5968382df839741a29a9eaee703635f8d3af800d23": "en l'infini, ce sont les termes de plus haut degré qui comptent, pas les constantes"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.1d": {
+      "decimals": 2,
+      "hash": "85740b42ac44c3314135d4dc26ffde5f0689b5bd33dd4b4c64649c24d3b71c9e",
+      "hash_coarse": "8ef7937575c405a670a7b430549b48fd91671b78b4b3bd686262848eb8048913",
+      "kind": "float",
+      "magnitude": null,
+      "mistakes": {
+        "62fabbd4a00a34d5cdbe0898190866455146f395a6d3ac84311f70e9e3828919": "le degré du dénominateur est plus grand que celui du numérateur",
+        "b8122d0587d8b953217e116d80923df38f3ccf75e5756610061a1594918a56ed": "en l'infini, les termes de plus haut degré décident, pas les constantes"
+      },
+      "sign": 0,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.1e": {
+      "decimals": 2,
+      "hash": "892d0dd6e5103cf4b86ba8faddd312c132235075f454895d3d8da047906ab301",
+      "hash_coarse": "f1a323204e0e0b8c242842f69c7f1b7d5e199dee1edc8a1a51ab5946ead3c93c",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "c2094fe5edf048db5af3bed441e13572464e8072999c51bcee40a5f02ce22dd5": "e^(−2x) tend vers 0, mais un terme constant s'y ajoute"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.1f": {
+      "decimals": 2,
+      "hash": "249f4a0524873fcb5afa9c407c2fd811196596ead83260d381340731d3defd61",
+      "hash_coarse": "0ed7f37dea35561405c1e05968ce5745412c0bc068e8f4b301800441aedd4114",
+      "kind": "float",
+      "magnitude": null,
+      "mistakes": {
+        "09129961beffd405e6cb8f5ee9fe24efd204cfe6a62691fcba4c8e391ba81b02": "croissances comparées : l'exponentielle l'emporte sur toute puissance"
+      },
+      "sign": 0,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.1g": {
+      "decimals": 2,
+      "hash": "d75e52d3ac97e951aa40980c50c920c4d5c51b50cf39cd58ca503dd50ced2489",
+      "hash_coarse": "d75e52d3ac97e951aa40980c50c920c4d5c51b50cf39cd58ca503dd50ced2489",
+      "kind": "float",
+      "magnitude": null,
+      "mistakes": {
+        "749ee185fd45c98a3b20c9944d1b63fe5da89d44cb765e9c245b370dd3f963ea": "croissances comparées : toute puissance de x, même √x, l'emporte sur ln x"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.1h": {
+      "decimals": 2,
+      "hash": "a00a89b6cf908595b235cada018eee8e8a52de3fb8dbd4a4ffff9f54a2d9499a",
+      "hash_coarse": "a00a89b6cf908595b235cada018eee8e8a52de3fb8dbd4a4ffff9f54a2d9499a",
+      "kind": "float",
+      "magnitude": null,
+      "mistakes": {
+        "b791c8b117e57d15371bca83f6766d33e51c8c34a378f1f996c216ce42fae991": "quand x est négatif, x³ l'est aussi : regarde le signe du terme dominant"
+      },
+      "sign": -1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.2a": {
+      "decimals": 2,
+      "hash": "9b828c4278204601847476897c7b53f8aa6425b20a6d5a9a9d1a22bcd097f2de",
+      "hash_coarse": "7f3625a5daeb33e9234815c3a9bb6ab23914148087b3cef0fb44f35a466aaef2",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "eeee0a070d98c1435579790b270cdbec073f3c40eede5643459f1a985b116250": "en l'infini, les termes de plus haut degré décident, pas les constantes"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.2b": {
+      "decimals": 2,
+      "hash": "6d17052e1383a570aecf5bf466c81b3e202809c5d346da93933f3d09a4355c45",
+      "hash_coarse": "6d17052e1383a570aecf5bf466c81b3e202809c5d346da93933f3d09a4355c45",
+      "kind": "float",
+      "magnitude": null,
+      "mistakes": {
+        "1b46c9c8a39384d2cad45b4b1f7ab9bec63b0a10cce4b9b545218bfa0c78e0fa": "en −1, le dénominateur s'annule mais pas le numérateur : la limite n'est pas finie",
+        "59fd84c11cd175acb92eb8e3bc0e66b5d720c77c3f84c18562862bf1dda62055": "en −1, le dénominateur s'annule mais pas le numérateur : la limite n'est pas finie"
+      },
+      "sign": -1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.2c": {
+      "decimals": 2,
+      "hash": "8b4f84dba55a265181397e214d596095c60e2151b976728e54a848a7a2efc051",
+      "hash_coarse": "8b4f84dba55a265181397e214d596095c60e2151b976728e54a848a7a2efc051",
+      "kind": "float",
+      "magnitude": null,
+      "mistakes": {
+        "1aa94280c6cc2702cfa91dadd0a141ce74a8dc59fae643f17e2ec3b6b0ea1736": "en −1, le dénominateur s'annule mais pas le numérateur : la limite n'est pas finie (et regarde son signe à gauche)",
+        "642c99393b1d82a3af2ebc760bc27238cbdaa73e0b655c926ab24f797544752c": "en −1, le dénominateur s'annule mais pas le numérateur : la limite n'est pas finie (et regarde son signe à gauche)"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.2d": {
+      "decimals": 0,
+      "element_hashes": [
+        "27d80f25e6a3b37dc52396ee1cdd5509f5f24725fe16fe1c74aa4d0cd7185c7a",
+        "5d7e5fa3acf87d58a5cfc881dbafd795663c613d00f4a19c753db958de08bbce"
+      ],
+      "hash": "e25618513fa80d9daf1f885b9023a921a215988c82fb82845e34e0b3c33fb584",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4a6e67de6affafaef65a8f8a0c6697a031d54004e2d834056e8d36729b3f33d2": "l'asymptote verticale est là où le dénominateur s'annule, pas le numérateur",
+        "d0befc32642b4f52ec6c617bb5c7ffaa8a30eb44e187dd29c61e25740cc8ad6b": "la liste est [a, L] : d'abord l'abscisse de l'asymptote verticale"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.2e": {
+      "decimals": 2,
+      "hash": "b00cf343af03488785fd79af364445818101332aec5cf992b517bd6587fabba6",
+      "hash_coarse": "d941b5733864de0144239e326904134bbde0a6d84ccd9369153ee77292c39efa",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "32ad1e4e9bb12df029445d5eb543ff62d4543c7e8e03c144a648d0b49d613ac0": "après la factorisation, la limite se calcule en remplaçant x par 2",
+        "41b533dc0216a99f023919d1a3a75e7c79228888ed9dd3df1c010b4b56d1ffc6": "0/0 est une forme indéterminée, pas une limite : factorise le numérateur"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.2f": {
+      "hash": "6230d32e5df68bf41a728b513e1d87af86ffc51ea281d3a1faab7338b4a45190",
+      "kind": "bool",
+      "mistakes": {
+        "51485795a416f68828d9fa20a423e8236c9dd4b94fd33f1f3c37ec1c60e234be": "le numérateur s'annule aussi en 2 : factorise avant de conclure"
+      },
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.2g": {
+      "decimals": 0,
+      "element_hashes": [
+        "0b6902e6cdb7c20363ea0f521baffa19e44aa037b4faffb760bb33c0b6765b86",
+        "1a380226674d6a296b9ab54e2a4a742f3ee83ccd55401dfb8840337156b54d10"
+      ],
+      "hash": "2cab80ff97eeded4b0ca0d962ad609e5fd84eb64c79551667170c984b759e359",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "450dc4b402469fb5062fb499d42d1734d4b49a73edf3adc3de5261a00dee9036": "x² − 9 = 0 a deux solutions",
+        "dd7624f4f5e6eb76594bd5f255b1c738da3ac4498a023a0b98a551bb65fed32c": "le dénominateur s'annule en ces points, pas le numérateur"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.2h": {
+      "decimals": 2,
+      "hash": "34d95919cc7adc1f274cfc32c753393595c8674cdf93136e27aae797efe5c724",
+      "hash_coarse": "34d95919cc7adc1f274cfc32c753393595c8674cdf93136e27aae797efe5c724",
+      "kind": "float",
+      "magnitude": null,
+      "mistakes": {
+        "4ba92c92be59da90ae51d232ccfe97c70fbaf4c0f405192cae3215c0f92e2832": "en 3, le dénominateur s'annule mais pas le numérateur : la limite n'est pas finie",
+        "80bb178a5feaf84af5867c41b4f2ceaed4e4841fea1d0c1084a1a1c54e827fed": "en 3, le dénominateur s'annule mais pas le numérateur : la limite n'est pas finie",
+        "f8f80eafdf5aba0a5986b5fecadd12018223e73ed66dc9ac4e4f0adadc617887": "en 3, le dénominateur s'annule mais pas le numérateur : la limite n'est pas finie"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.3a": {
+      "decimals": 2,
+      "hash": "a2881cd8a6e5bb496c05150d0a60f65b84dd3258bffc9846a6e38101b7e20339",
+      "hash_coarse": "1105676746c149cac362374f337a930ad127c6f5a3f3a952fa1b7644bb3c0904",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "7a0a06ca7b5b73ec0a72f4c182a668c3afd1bcc46146d0664b5c03155e13120a": "le taux est une différence de deux valeurs de f, divisée par h",
+        "820b8de874cb28501724cde95900f00063bf04d4868af050ebcbda3b440000d8": "le taux est une différence de deux valeurs de f, divisée par h"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.3b": {
+      "decimals": 2,
+      "hash": "5cf28839cde791765d8b08e50a4a8089593e17a573b012159f291645515a3637",
+      "hash_coarse": "3c3c6a95f3f42bf8f2ab65ebd33d961c3c205289f7acbfed3781a29d869f9ec8",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "d2ae1c575e6706ed35fbdaa16c36b7fa0fd4fa662a495b41d705c564b815a91f": "divise la différence des valeurs de f par h = 0,1"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.3c": {
+      "decimals": 2,
+      "hash": "75c2fb363a2df0a1ad62498261e302c14a74b03aadf0ad70094bc6c227e4fa50",
+      "hash_coarse": "cde115be4bbf51d21706784e27bdfbbd75be8f183b601d769a6637361f5f5f70",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "fab7f4d74222806101f8cf9bdbbe90b64a4588a0c0e286b8b2850f46a8607dfc": "h est négatif : on divise par −0,5, pas par 0,5"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.3d": {
+      "hash": "73f7d75fcb61c898ca88d71684eda40b593d4f57357e2468fe59070105e0cec3",
+      "kind": "expr",
+      "mistakes": {
+        "1c7f4dbff1172fb5c26840e186cd8cc3fb2b9589f2d033de59388e5233659c51": "développe (4 + h)² avant de simplifier par h",
+        "e52b3a81f59ef71a84f0bb2458cff64f7b328083e1da2dd6a2b9af5aaf21e7b3": "le taux dépend encore de h ; sa limite viendra en e)"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "h"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.3e": {
+      "decimals": 2,
+      "hash": "086669dcf7c65d71a4e62263bb2415055a081ca1a49b3fd47f0c211dce8040b8",
+      "hash_coarse": "8fce259146bb7d3124b05208f28a4031f4bb39941dd9067eb8ac9454bf520b7d",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "8fa4a217d39136892f086baacff546482dd0586b952537893e05e68b8ba86a15": "f′(4) est la limite du taux quand h tend vers 0, pas sa valeur pour h = 1",
+        "e035778b85e43f8f2416af7e9bbfa8e19475c1caec90ca17f5ac98f90152b2da": "f′(4) est une pente, pas la valeur f(4)"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.3f": {
+      "decimals": 2,
+      "hash": "4e42adc5e71ef87632bf9526a42b6542e25409a8b6cbbc994b08686a3070f538",
+      "hash_coarse": "50b93fa28d03c3279a61361ad4b98dc6f7fa396aba09def6157834d3c006bd43",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "0428fedd74481db90d73c7fdc51ba00dc14f5ac3eaf7b2df7705d0f4c72714a8": "la distance parcourue entre t = 2 et t = 2,5, pas depuis le départ",
+        "de5f991ff136cd0c51178c022f58588c2ac17fc43c955da067b63a5350d41651": "une vitesse moyenne : la distance parcourue divisée par la durée, 0,5 s"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.3g": {
+      "decimals": 2,
+      "hash": "27ac1969d6efc894808b908f75c1b20cde6682c0659f1740a5b147a009032737",
+      "hash_coarse": "88731d3f2ddf3ae807d9fdd8984b38c625ed6199539792f5f980d87a75077f48",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "06a8bc69da07ce75bd4e11e2f121eea833fd361155a509a0960f55bbadb54d6d": "c'est la vitesse moyenne de f) ; la vitesse instantanée est la limite quand la durée tend vers 0"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.3h": {
+      "decimals": 2,
+      "hash": "3915be7829942fbdf01452c2b2325c9422c6db68cca8024f91f8b51dc6f936b1",
+      "hash_coarse": "a6463259f69b19d9a4cf70ba7b46569523331f851987cad0caa31b3798501672",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "340fb4354c3d043f6ca83ca358434f7d5b781880c8b9fefe82afcbd46b8b4961": "le taux d'une fonction affine est sa pente, pas son ordonnée à l'origine"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.4a": {
+      "decimals": 0,
+      "element_hashes": [
+        "bcc346e06adcf9a56b3c4d47be18be4f71df2b591fa15cb61cc8851448b7a968",
+        "b4a2109b063673aea6cf909fb9ff57dbd6325ec43cdb5d207af133e122454c14"
+      ],
+      "hash": "99195ee9156aff8822cc6b0879f41e5685b4824e6264d4fb26e8804db4817f32",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "9663c2b87b9d88f0447df87daee04db9c90d2b532f8d45d4a81e5a5222ffa259": "p = f(a) − f′(a) × a : vérifie le signe",
+        "a82cf3860b791632151fd367cf6780e68eafbd24b7489e0d5bb8ac8e612931f0": "p n'est pas f(4) : développe f(4) + f′(4)(x − 4)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.4b": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "dad2c4f8e84067879e8bf3ded959a9184d4262829d404d8e82727f7b9c0a2a7b"
+        ],
+        [
+          "1db4127835e5fe70731c0fada9b4e0c327e32d4c20e10f5bd42a3d6240282f19"
+        ]
+      ],
+      "element_hashes": [
+        "9d4c4a027283773763d43e171aace021f6bb5b335ca2a4e2f25ed3b2908f38af",
+        "1317ba6cd6bc9c4f0c68752508e093a0fcbdea86968ead773043ba643d531110"
+      ],
+      "hash": "3b5a0d5b88cf2d40d96f15210f91286b4227bfb489df89cd51f6eb1777ca06ce",
+      "kind": "array",
+      "mistakes": {
+        "4ee88e2f79f1633ad23a0a0953614438113e80d43cead0d7f53fd8e283132de2": "la pente en 1 est e¹, pas 1"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.4c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "de635b500a2648c95b7488476fedd8be8a709f4e4740de41853a3e71a397bdf5"
+        ],
+        [
+          "b17309331c6ee929100e069f94711adc84eaa3d5337b8f0caa766d25dbe85c88"
+        ]
+      ],
+      "element_hashes": [
+        "c1386bb80fc71192569238aada95a9e08f44da75bad83a15951b1f423e6a7e1e",
+        "2af78ea1dc17b1890387b02e1adf7429a199692e123bfbacb7a0780652ec3660"
+      ],
+      "hash": "27a3319883deddda291761af614aa972ea746e270c25c8cbf564859ab9ba6bc1",
+      "kind": "array",
+      "mistakes": {
+        "0106494b435feaf365f2a578f72f27e9eb903591c731700e7f5ec25059b318cc": "la pente de ln en 2 est 1/2, pas ln 2",
+        "3a21e4d828d690c36ebdd3727778b8eab12a9ed2515463857a498e358323ebaa": "p = f(2) − f′(2) × 2 : f(2) = ln 2"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.4d": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "912c58cbb86640f9634698250356ed91b980154c21b2a7348e3f703ad664ebf2",
+          "c060b548fc58ac87d761fc5b8137631cf50983169af71f5715acd416b98a5e29"
+        ],
+        [
+          "bb157ae4b3d9b1711402d4f6189ddfdab371a3b82dce366bddea4a3849c871a1"
+        ]
+      ],
+      "element_hashes": [
+        "149ca720c9d158aa55d214bfde36789d9715d45839aa45413bf150c3b9cc5313",
+        "2eb28d7696c2d2986b48fac8a994234a8195f2139c26ae3168354e81ffc9633f"
+      ],
+      "hash": "c09f0dfee91fa81392efff7ff49c09f3b78ec847e7b197a80d3f3bd3c951a76a",
+      "kind": "array",
+      "mistakes": {
+        "368a378665d949fe8ac7ad6273bc11d3e72853bbb0275ef8a6513bd0aaf04e34": "(√x)′ = 1/(2√x) : en 4, 1/(2 × 2)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.4e": {
+      "alt_coarse": [
+        "88b1639a3b8d2ab0a909d915650e77518dff63714cfe27d070969d5b5e69a902"
+      ],
+      "decimals": 2,
+      "hash": "6ee788301e02b2592a8bc393aefa9cfbeb0b7aec2becf21dfe6e0ce694501350",
+      "hash_coarse": "f2439cc3e72d408648f4cec2be4d88b762009f33f0dd16e25f9e5089400bbb15",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "d1157937c51be94d430b03411628e895ea074301f79ed883d8a81b1b3c935ae3": "remplace x par 4,2 dans l'équation de la tangente de d)"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.4f": {
+      "decimals": 5,
+      "hash": "b70fc50224c197adc547daa599a314e658c4a1a45a659765657b9d0746d0da18",
+      "hash_coarse": "bca7809dc00ff4d3f0b2a53c7e29f3b4ff5b6a12de0cbedfc3a7a4a61c78a00c",
+      "kind": "float",
+      "magnitude": -4,
+      "mistakes": {
+        "20b120eac2592d6f676ee0f3d0ef8742325a7faeb00216023189bcba86de5799": "approximation moins vraie valeur, dans cet ordre"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.4g": {
+      "decimals": 2,
+      "hash": "632665110a6e2bac7175b9465dcaf1bf8e7877382eca75dc3def7e2c2ae9e072",
+      "hash_coarse": "8d41b049cb976bcc67b3be95a16d1b7b6e52218d51c1c6c73151f81d5de2546e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "018f0011b99f5e90996eb3f16a2c165997e0af93d6790adaebb43e33e444fc90": "une tangente horizontale a une pente nulle : résous f′(x) = 0, pas f(x) = 0"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.4h": {
+      "hash": "092ef4dd5d3af53fed1dcb6e7dceedbaf1b8c3a5bb0707c3aa4fa4753eafb97b",
+      "kind": "fraction",
+      "mistakes": {
+        "43ec6b3e6296f76cb4cbaaa211f1ce697aec77a83102c071f20830bf355a6a6e": "la tangente coupe l'axe des abscisses là où y = 0 : résous 3x − 2 = 0"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.5a": {
+      "hash": "9b2c21180a0c4a682429fdba96eaefe9f1730b6228fd0bad088a6009f1cfa176",
+      "kind": "expr",
+      "mistakes": {
+        "5e514d4ddd33fdfd6d740e7b242ed64b2a0de530553a400b98c825dc2364eb9f": "l'exposant descend devant, et diminue de 1"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.5b": {
+      "hash": "7643fd8563cebe47d8b71d11b968450ef330e636076b566b226707e54d810baa",
+      "kind": "expr",
+      "mistakes": {
+        "40e7bbfb36ec6d344c9cc51123d3e64e9e2274f6e72ff1b15eafa9b52301c029": "la dérivée de x est 1, pas 0",
+        "9d8b4166214f06a8c8796902d51f66fc453929fc8d528c9367724ccf50220d7c": "chaque exposant diminue de 1 après être descendu devant"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.5c": {
+      "hash": "869c52f3ee4cbe1db70a73dd74cb3e076d20e65550002e24d400424d67e6d59a",
+      "kind": "expr",
+      "mistakes": {
+        "cd5f368a8a6bdf1b5ed4cc705a7d62d209f2e6fdf81ef88ba693a59756c81db4": "écris 1/x³ = x^(−3) : l'exposant −3 descend devant, et diminue de 1",
+        "f26e6ca5ca5c87f78bcc9193a7164487f92c96d0928aac86c65d5683178a3a0d": "1/x³ n'est pas une puissance positive : écris-la x^(−3)"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.5d": {
+      "hash": "f75112f20f4faf242dab2d4a154e4a681e76f3ee61db370a41fd7aaa2815f69d",
+      "kind": "expr",
+      "mistakes": {
+        "3f75e7f68303b3e4af5c4c9a7e00bcb5b9f562a71eea3377a6c3c0314da17019": "(x√x)′ n'est pas 1 × (√x)′ : écris x√x = x^(3/2)",
+        "905aed2e4f7d9f7e328167f3057c64f3c7d04704cd662e33fcf658a9a5ee5ed5": "x√x n'est pas √x : écris-le x^(3/2)"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "9/4"
+        ],
+        [
+          "3/11"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.5e": {
+      "hash": "9784a32e3c983d35ece7c98e525a86624c75a317358da5dccb186a6ba9ec23f9",
+      "kind": "expr",
+      "mistakes": {
+        "794faf327b66a1569cd51959940d5cf18218b7ffc328188b083dc6cced31cb1f": "l'exposant diminue de 1 : 2/3 − 1"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "9/4"
+        ],
+        [
+          "3/11"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.5f": {
+      "hash": "35f85ec9a0cbbbbb573406539ee59689a238094053ba209e39e986aa1828e9a7",
+      "kind": "expr",
+      "mistakes": {
+        "a567f52d27586848808910c9dc204dabe0a03415766ff3578535149a91b6a445": "une constante multiplicative reste devant",
+        "f17b10e67d31d5288fc6996f2a20b9deee0647f888a67f06712c8d5ea5c1248d": "(ln x)′ = 1/x : c'est 1/x qui a pour dérivée −1/x²"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.5g": {
+      "hash": "9622c5ef8efb4cc7e3e081e1a0faae2a1ccac0f8199963702fc67db4778c7c89",
+      "kind": "expr",
+      "mistakes": {
+        "481fae3f95853316c3cea7a8b308aab9d48f69373a04773ca1eb7a72c91d9a6e": "ln(5x) = ln 5 + ln x, et ln 5 est une constante",
+        "b16a6c6f6f58c66fb4b22f60c4fbe6a12ddc122ea877be6b360d36fe52177694": "ln(5x) = ln 5 + ln x : la constante ln 5 disparaît en dérivant, le 5 ne sort pas"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.5h": {
+      "hash": "00dfa2f3714796cd441bf5fa4ab66baeda005a1dfb59aebd5ab1eeb2084aaa66",
+      "kind": "expr",
+      "mistakes": {
+        "f866f080d30dab744d38f09769e68b2f90067010d9d8d8e0eb87c98c8da4b8cc": "e^(x + 2) = e² × eˣ : la constante e² reste devant"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.6a": {
+      "hash": "3ec6cbf3ce9cbcf07c1ab7ab31cbd9f0aa639e4eb150817f36dfc8e55f7af2a1",
+      "kind": "expr",
+      "mistakes": {
+        "6f6a3423bd6cf70be8f17379e45b97efa04067a5c87d39e2e7111b4a46f808ee": "la dérivée d'un produit n'est pas le produit des dérivées",
+        "d4104dc5c14c8edacfda58ed58cedd3177bb282883a4b582b261ae8d1695d8f8": "(uv)′ = u′v + uv′ : il manque un des deux termes"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "9/4"
+        ],
+        [
+          "3/11"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.6b": {
+      "hash": "b31079249698d23f77cbd3d717c2b6429fd4a7d3b63579270b0cbe84db59c64a",
+      "kind": "expr",
+      "mistakes": {
+        "8e25e619dc8e62403347fa168c9675f697d5381c3dc633ed05fbf80ed41cfed9": "la dérivée d'un produit n'est pas le produit des dérivées"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.6c": {
+      "hash": "ea7ed171f31a06fcd1c80eb2debe2bfc1da49deb1490a9b1da6d1eab8b24027b",
+      "kind": "expr",
+      "mistakes": {
+        "22e910fbd26085a6490b50556f2471f0aee857239add296712ef9069194f513e": "la dérivée d'un produit n'est pas le produit des dérivées"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "9/4"
+        ],
+        [
+          "3/11"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.6d": {
+      "hash": "848af7d7969bc0969c9aa716c55a974e98fc0d6af56b9b7a2e62ef7c25ac82b6",
+      "kind": "expr",
+      "mistakes": {
+        "0d072b18356603b8c37c71d3988cff225e4ea892803745aaa8d6b83633479728": "la dérivée d'un quotient n'est pas le quotient des dérivées",
+        "4d4b94462e476d2aaf44df40b159282aae4796e31e3e905ef55abd90c9e4a1ba": "u′v − uv′, dans cet ordre, au numérateur",
+        "f0a042b6557e8dd82428347b431916fd1706e17ccb8880a51f3cd532b15e46c2": "le dénominateur est v², pas v"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.6e": {
+      "hash": "9b42a68603f5b981c98309a60fb2bf81dcf112dd7c038f252c065e52f30bc328",
+      "kind": "expr",
+      "mistakes": {
+        "7c48e71ad0ca093067fe0fb4fb6f532c5cc49401e3ff9e60d45ec9ef5a93fc68": "la dérivée d'un quotient n'est pas le quotient des dérivées",
+        "a353f8b4285bb83dee961201af997c354147eddaa66adb5f9314863509a6827b": "u′v − uv′, dans cet ordre, au numérateur"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.6f": {
+      "hash": "29b51e299bf944b75cf773308def28062f06b28c82851721b91d9cf48c981aba",
+      "kind": "expr",
+      "mistakes": {
+        "4af874caa131ed9592f226bbf951981448989ce245a2f6a19d017f8496fe7e3e": "u′v − uv′, dans cet ordre, au numérateur",
+        "908244af362a0ac838ec93c8c5790d5db209da77b5f28a1a5a28f8c509f7e94b": "le dénominateur est v² = x⁴ ; simplifie ensuite par x"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "9/4"
+        ],
+        [
+          "3/11"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.6g": {
+      "decimals": 2,
+      "hash": "4edcb65f16533c15e23afe0da1f35e715c3836a4edf022f247f116c8c13d6045",
+      "hash_coarse": "aa1656aaf918a581051b899af6e18282dcc824f90ecab7226cc14be0a081e740",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "412b4c863e8ad89f23f0137ffa4c303603412afd9f27d8309c69a62eedc19f95": "ln 1 = 0 : un des deux termes s'annule, pas les deux",
+        "44eb8d09b53e12e3f92e33a6ea5e3eca1b76c049b4f2e87da2bced80e19a39be": "la dérivée d'un produit n'est pas le produit des dérivées"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.6h": {
+      "hash": "92fc68e2a5d765fe4be6cbae0d0e4df170d3bd65c41892530574689ba2ee4acd",
+      "kind": "expr",
+      "mistakes": {
+        "036d4e455695c05f50d38152f8dba433d4c67c7f7edf8d93d408ff5c6e2e85db": "la dérivée de 1/v n'est pas 1/v′",
+        "2baf6580666859ff2f51aa2a959dfb59f697ba95216a14b9061a5b53b40bc48f": "(1/v)′ = −v′/v² : un signe moins",
+        "ef81932680059e78bc1f7bc688f2af927924978c672cf89ad2d6dc87735b389c": "(1/v)′ = −v′/v² : n'oublie pas v′ au numérateur"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.7a": {
+      "hash": "0238f4f8c58a1c220830d5c3578d04e47fcae05f75716b79c0943f838d48b9b1",
+      "kind": "expr",
+      "mistakes": {
+        "af343c7885ced9912d624b32dfc40aea72b570abe1c0b1401688f590345ad013": "multiplie par la dérivée de l'étage intérieur"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.7b": {
+      "hash": "0b5dda8d87659f47a376f3991632c199426173544e1586913daf6315f6cb4c89",
+      "kind": "expr",
+      "mistakes": {
+        "c1606ec7ef2b13be58eaaccb3439a164ff7b8005724529f1bd91f394d2beb525": "multiplie par la dérivée de l'étage intérieur"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.7c": {
+      "hash": "3774788513a63e06e01cd6ac44cd67caab4056ceb5db8c345ff7c18adc04c9b8",
+      "kind": "expr",
+      "mistakes": {
+        "3af7c673dd9f3bc7bcf56592fb0f66393c3451e5894c3c399273a1480c6a8920": "(ln u)′ = u′/u : multiplie par la dérivée de l'étage intérieur"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.7d": {
+      "hash": "086c4b4eba3ac7ebba5b540f024d9940178257655ffdae94e915476a3e569a06",
+      "kind": "expr",
+      "mistakes": {
+        "a1b8ffc1342a93a51cd5675004eff72a5a582579f23c7f0ec3fa20649f7f0d78": "l'étage intérieur 4 − x a pour dérivée −1"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.7e": {
+      "hash": "5bb41aef1f9c43c678db28ceb2b668e9b643871a2d6bdab9191232b8fee5cffb",
+      "kind": "expr",
+      "mistakes": {
+        "7455b0abe88aa0e99bb56eaf3e406b8ee9a388df5fd6c723fc5c4fc6b856ee11": "multiplie par la dérivée de l'étage intérieur √x"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "9/4"
+        ],
+        [
+          "3/11"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.7f": {
+      "hash": "8a5259b653e776c849b3f8a06212631301046304d85d121cfe12560448009784",
+      "kind": "expr",
+      "mistakes": {
+        "912c884958c06708494a0d9ce25cc29791c6204232921cf2e4bba57557faa71b": "(ln u)′ = u′/u : ici u = ln x, et u′ n'est pas 1"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "9/4"
+        ],
+        [
+          "3/11"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.7g": {
+      "hash": "56add3436a400f5091c777046d08c586caaa63beedc40ea80cbbf440db53f404",
+      "kind": "expr",
+      "mistakes": {
+        "c3c89c36ab679f7824104342672f3f9591ac1a7f98660b492500503c5b0a0f8b": "multiplie par la dérivée de l'étage intérieur",
+        "e93e0d504ed8a7154206266df19ce54eb68901feff39ec11aae8551c360e505a": "(u^(−1))′ = −u^(−2) × u′ : un signe moins"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.7h": {
+      "hash": "23f10507a5756b5df563d4f58b76704456363426e0815a0d0f579d4a80693f09",
+      "kind": "fraction",
+      "mistakes": {
+        "d5cde4a9dc8156e3921fedadfd0ee1906944dd87178a5d0b78a7f45ee9c6173d": "(ln u)′ = u′/u : multiplie par u′ avant de remplacer x par 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.8a": {
+      "hash": "c03c101b7146d20c6beead08daabb1ae7db010e35946cf7999f979fa75d22347",
+      "kind": "expr",
+      "mistakes": {
+        "241234693376635fbfba38906105a6bffc0d83a9051f42f2e1b23a0f9fa1a00c": "la dérivée de la constante 1 est 0, et chaque exposant diminue de 1"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.8b": {
+      "decimals": 0,
+      "element_hashes": [
+        "c5e686429eb7e435498deabd84db1eecac5214b2fd3b97779b80b66361db9181",
+        "eb1852ff081628ed6cccd8e07598d52047dfbdda1862f097fd50fb131c4b9293"
+      ],
+      "hash": "e0932edd9550b05cb748de8b8dc2568785320e1824ed0834a48006c80e4d03aa",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0cb91df869962a8b2b35e229b840420c396841243d83420c12fdd19383ea8fdf": "6x² + 6x − 12 = 6(x² + x − 2) : vérifie les racines du second degré"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.8c": {
+      "hash": "3c0fbf28518b0f2140ba0ce3c627eff455d75717b6f9d294f22513858c61a1c2",
+      "kind": "interval",
+      "mistakes": {
+        "979ad4b893e399d9995f15b5e5cfa76f1c7d20a1326c3216e94663d0809a978d": "les bornes, où f′ s'annule, sont comprises : f y est décroissante jusqu'au bout",
+        "9d91cec9ae7d37d054f62943241af8cf864f5b945188a7a9f1f55e3d167a169b": "f décroît là où f′ < 0, entre les racines (le coefficient de x² est positif)"
+      },
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.8d": {
+      "decimals": 2,
+      "hash": "0ed5ccddbb14911d030aa7900e2c259ea86279f7aaa93a27ec2426a7a5cab7c5",
+      "hash_coarse": "f8fa0db6ea0aa58918f2207f9f8f52a5afc270e33637ebc8a7374ba3b53406de",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "b392218d84d42ff489a8348985e7d56d9861a243bceead427f04f91a324ac4d6": "c'est l'abscisse du maximum local ; on demande la valeur de f en ce point"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.8e": {
+      "decimals": 2,
+      "hash": "228ba17d4e5fc5082dd38e5d98216065ae39a43694bc76801acf3742fd1f59af",
+      "hash_coarse": "ba361d5cdec9bb4923c2300ef376230cecbc61d89ec45720f4114b0be7a5c2e4",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "e3c9353f7f484d19782e3f7f172da66c490ab80a2f44d1f3888c04f107f45199": "c'est l'abscisse du minimum local ; on demande la valeur de f en ce point"
+      },
+      "sign": -1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.8f": {
+      "decimals": 2,
+      "hash": "5ea68469b9c2e669a7962d7299a154c474cb282d9b0bef68f330ddbe3daaa7c8",
+      "hash_coarse": "c7a695aed1fb91bcc0e983f6769ed0c2c1a296ccce76604727e8f2029ecde984",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "5d0442de6b7102b52ff47caa321396cb2f16e7b92a66b115b6b6f92efc4ef72f": "sur un intervalle fermé, compare aussi les valeurs de f aux bords"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.8g": {
+      "decimals": 2,
+      "hash": "bbc06b59f2df4375838a6d1221b45b57a2956d7eec71a70b719c7a5a89ca300b",
+      "hash_coarse": "550d2ee32e50e309c84edc2c87ee911002dec109a2147c38d1f83439e74dae72",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "401d4fb819efc05f70a30b366843bf86c0472b099cb494c80c204928c8833101": "g′(x) = 1 − 2/x : résous g′(x) = 0, pas g(x) = 0",
+        "6d4d82770f981ee1be3449f571f1d354c4d01907901bbf466e02038dbeceaacb": "g′(x) = 1 − 2/x : résous g′(x) = 0, pas g(x) = 0"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.8h": {
+      "decimals": 3,
+      "hash": "479189b7c4bce21f03578d7e2001185584cb7e1d4fc5780992afc47c44b9f4fc",
+      "hash_coarse": "685699b1a05cd22a096b2fd4e803a789dffce02e5b48d3356d0dcb6a7d6a91a8",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3aab3894c4805ff260d2e8b865c30159ec46a5ff6119024c176787676e2afd49": "c'est l'abscisse du minimum ; on demande la valeur de g en ce point",
+        "9d6ed08569bb9d42af82ee26a3f73bd1af632b9e714aef03ffb5b3420de9bb06": "g(2) = 2 − 2 ln 2, avec ln et pas log₁₀"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.9a": {
+      "hash": "872a3cd29e90a36f0db331178a20d81f1c7d62086bc3d72a0f6401779270d3de",
+      "kind": "interval",
+      "mistakes": {
+        "187023c79992dfd941651a205412323454c1867f0053601d6cf22bc8eb592a57": "en x = 0 ou x = 5, la boîte est plate : les bornes sont exclues",
+        "a24334af7618c2bcee22e7f21f26a43024789714510492524dc12e8b46173c99": "deux découpes de x sont prises sur le côté de 10 cm : 10 − 2x doit rester positif"
+      },
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.9b": {
+      "hash": "ded1588c92cdb530264f9137b242749919a9d89172c2cb4c60a5ddc98db32052",
+      "kind": "expr",
+      "mistakes": {
+        "5079433bab28b67743c2749d7173465a03e3864d22689a4c25dadab1bc117d83": "développe (16 − 2x)(10 − 2x) avant de multiplier par x"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.9c": {
+      "hash": "7b23e7ff931f14ab3fed4396b8a7f4e53c38825b7e7f33fcff61724e62b38774",
+      "kind": "expr",
+      "mistakes": {
+        "38d5b44cfc4bc5e10c90ab40ec3285fb346febc4589ecd982fae893e578131db": "chaque exposant diminue de 1 après être descendu devant"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.9d": {
+      "decimals": 2,
+      "hash": "67d8ae6989a0d635f7f5a704759708c8966cda21d80fff0515ec5551c38b38fd",
+      "hash_coarse": "cf46f3047e19a231f02790c8cf6cd72c4520173096e2ade99d4ef139f7954120",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "91aa65a536057b710213f3f2a6eea2c424d5d215007b44b901d01e19e76fcc42": "cette racine n'est pas dans le domaine : la largeur 10 − 2x serait négative"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.9e": {
+      "decimals": 2,
+      "hash": "b86350d218799a3ae0993e07a9995354c409fb9cd11ec9e4d03613d331ae2e50",
+      "hash_coarse": "b4df802ae1c2e7f8247e4889e9a31ee9c15673b44b309ae339db99268b168b35",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "387046a862017ba657cb31466bc935b4415c639050d14a11713f7d13d0bf0222": "le volume est V(x) au point trouvé, pas V′"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.9f": {
+      "decimals": 0,
+      "element_hashes": [
+        "0b40d1d06e6cae3ddeb445452d198d8243db265a037f38a248ddbcab0207f387",
+        "661290374e8b518cc8329bb6898edea1713458376b7f3bd45efd19ce2e4a7d32",
+        "5b13f1cfc35bb6a7197d510de63cf426ca6221e571a755174d22db743f5317cb"
+      ],
+      "hash": "8d579dd30ede91b4d7fb89fc5830c213d12f3c5c6159e3f88610971c3732ba5f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "01d06602d489021a1e2e7e6d897812de9b6edcdc1a0d08ebf513a53c0ef53310": "longueur, largeur, hauteur, dans cet ordre",
+        "350e0b379522fe9611918647d29a538f987242e772cfcf53b98f047ae14bb262": "la longueur et la largeur perdent 2x, pas x"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.10a": {
+      "hash": "44059524350154aa41586286962698bd974dbf093edea6a596ed4013e6b94700",
+      "kind": "expr",
+      "mistakes": {
+        "c6ba16e0887c9595fc35e35b613a5cbd3b2484ee461b70a31031d59b0dfead53": "trois étages : il manque la dérivée du plus intérieur, x² + 1"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.10b": {
+      "hash": "91b6073f96b7861570fe8beed422d62d8d83fef5e8eb9e9fc969542e48c12358",
+      "kind": "expr",
+      "mistakes": {
+        "c40f8edd4644e24e7d6c4d4a7004e08835c80da05bb786dfe5f5a1ece60b6032": "multiplie par la dérivée de l'étage intérieur ln x"
+      },
+      "points": [
+        [
+          "6/5"
+        ],
+        [
+          "9/4"
+        ],
+        [
+          "13/6"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.10c": {
+      "hash": "0a9c9e69f2973c88e4b419f43ae73af2aeea7468ccdd05c5eb923bcfed9e3786",
+      "kind": "expr",
+      "mistakes": {
+        "e6b64e1ce4aa69270d5231fe65ab121740a5d07d71522a60751663bb8aff6520": "multiplie par la dérivée de l'étage intérieur 2 + eˣ"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.10d": {
+      "hash": "cc43067f1c568595a67a66c00e5442e2c2cc7d70761981f077c011f588001c93",
+      "kind": "expr",
+      "mistakes": {
+        "11d8b400fcfacf1e32e8f2a15364df19ba92598e795b70ac4ab3127369338c89": "(ln u)′ = u′/u, avec u = (2x + 1)² et u′ = 2(2x + 1) × 2",
+        "e61d262f9f8fff6e14c629f212bcab9cc328b4ed7855505cc976477dfb5f989d": "ln(a²) = 2 ln a : le 2 de l'exposant reste devant"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.10e": {
+      "decimals": 2,
+      "hash": "e4bc487dc8fb2a8a20bf5dfb74be7531e6a769a37cd98c6ef24706dd59172f71",
+      "hash_coarse": "74403937be2484154330265c6c8c7a21a29a2f63eb285169edf9eb89f9895de5",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "1da37422e312221f484a5e1de91cdc82f6e22f6623ea84f3666ce4d952761f46": "multiplie par la dérivée de l'étage intérieur x² − 3, en x = 2"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.10f": {
+      "decimals": 3,
+      "hash": "0638a5d441dc533aa78507004036ca81c2bf6ee655d8ae92f21f1e2cf9e763bd",
+      "hash_coarse": "25407d09bdf7a36b65a1d648ab059abbdbe2e6fc6f8d1667bd567f78e357d49c",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "c3fed56b47466be585dc9992959c90407e2bd0c96859e5d59391d2cc56f2539b": "multiplie par la dérivée de l'étage intérieur −(x − 3)²",
+        "fcd7e53d45679e60d5b5d7aadf400db19ad6ed5f467a2b478f37f6b1f12e9ad1": "la dérivée de −(x − 3)² est −2(x − 3) : un signe moins"
+      },
+      "sign": -1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.10g": {
+      "decimals": 2,
+      "hash": "f1fa2e2797c858c10f170fbd24a5cb8f1dd5048520aefe271226d1e687a34afb",
+      "hash_coarse": "cd980df359ec082c3eb35541659304a1132de8350043dbcfd61a07455cb34938",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "ce0db4d401e18df208c270d8c6f4d212bde5e03f13d8c95bcc7db452bd8ca05f": "l'exposant 2x a pour dérivée 2 : un étage de plus"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.10h": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "7f4f397d67adf77af4c4f47cd51c2e1bf06e8cb174eac02300bab0664ea4a3c5"
+        ],
+        [
+          "5b937c3c2867d853f49407f95b982cac832d995e0c350c6e196f5f7b5b098a09"
+        ]
+      ],
+      "element_hashes": [
+        "a36b71bafb4e94f17961efa3276cd7a0f5cba06b1063912194200ad28e03f533",
+        "9cfffec0c32ad5c48c26afb43bc2f535a8a03a23346fb1a67faefbf999a882f9"
+      ],
+      "hash": "8ca7c6d47d38d4a6269b7eac7526bfaa58251c1618b041643c4de22c5408fc94",
+      "kind": "array",
+      "mistakes": {
+        "6b62be65b1cbb10ccc19686bde8c06827d48c63649e13b85b41c1e1b4fb31b69": "e^(x²) : multiplie par la dérivée de x²",
+        "cf9d664edf2066a83e514d4af01ee858142bd11f2b44064821069c8c2d478230": "(eˣ)² = e^(2x) : c'est une exponentielle de 2x, pas un carré d'exposant"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.11a": {
+      "hash": "1c6521b17e8e93a6b1132e43c1cec75b04a52448e30ae138cd688a4f21667052",
+      "kind": "expr",
+      "mistakes": {
+        "58c2dbb2a14515975de723c908caa13b810e187a9a17fdfe5ca20f98808aee86": "l'exposant kt a pour dérivée k par rapport à t",
+        "992b962db7f3d24072c9a89a35b08f804ed9606afe3cad0709600a91d391187a": "par rapport à t, la lettre A est une constante qui reste devant"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "5/7",
+          "9/4",
+          "13/6"
+        ],
+        [
+          "6/5",
+          "-7/3",
+          "1/3"
+        ],
+        [
+          "-2/5",
+          "3/11",
+          "5/7"
+        ],
+        [
+          "9/4",
+          "13/6",
+          "6/5"
+        ]
+      ],
+      "variables": [
+        "A",
+        "k",
+        "t"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.11b": {
+      "hash": "b29cda01043427ec08eb5a97c0feb904cc6d00fac5a57867b1f613f1c2fcc3c7",
+      "kind": "expr",
+      "mistakes": {
+        "1daa6a7d1e2c56548d83bbcc6b0c8fd360e93eb8a5f2006a387f6c2d2f3d4214": "l'exposant kt dépend de k : multiplie par sa dérivée",
+        "652f0c739693a548bd74d722c8d108e3393a53460da654410fd0b58c3e1f1f62": "par rapport à k, t est une constante : la dérivée de kt est t"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "5/7",
+          "9/4",
+          "13/6"
+        ],
+        [
+          "6/5",
+          "-7/3",
+          "1/3"
+        ],
+        [
+          "-2/5",
+          "3/11",
+          "5/7"
+        ],
+        [
+          "9/4",
+          "13/6",
+          "6/5"
+        ]
+      ],
+      "variables": [
+        "A",
+        "k",
+        "t"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.11c": {
+      "hash": "ad9b547a3353fd276b857aac8476b2af59a455d9563bd8f7ac6113d43181b87d",
+      "kind": "expr",
+      "mistakes": {
+        "25114a506b160c2b64b95d09eda9399c2d40a80c0bb2d579a9d2c5b9d3765023": "par rapport à A, N est de la forme A × constante"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "5/7",
+          "9/4",
+          "13/6"
+        ],
+        [
+          "6/5",
+          "-7/3",
+          "1/3"
+        ],
+        [
+          "-2/5",
+          "3/11",
+          "5/7"
+        ],
+        [
+          "9/4",
+          "13/6",
+          "6/5"
+        ]
+      ],
+      "variables": [
+        "A",
+        "k",
+        "t"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.11d": {
+      "hash": "58f5b50d2c54e8107672a523052494d7a86ea310fe6942e8aace9cb52ed4b3d2",
+      "kind": "expr",
+      "mistakes": {
+        "1440378b82d191fa72893fccbfdc282b6f8fbbaecda7e1b9fb044cc613e7aa9f": "la dérivée de r² est 2r, pas r²",
+        "9986fe0049745bd29ebfb6befdcab5b25188cd49b38bee58c0c0caaf0b185e35": "h est une constante : elle reste en facteur"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5"
+        ],
+        [
+          "5/7",
+          "9/4"
+        ],
+        [
+          "6/5",
+          "-7/3"
+        ],
+        [
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "9/4",
+          "13/6"
+        ]
+      ],
+      "variables": [
+        "r",
+        "h"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.11e": {
+      "hash": "7423ec06895c69bcb4b08a3fc69fedd04459a85fe36eb7df040e1f94a39ba64b",
+      "kind": "expr",
+      "mistakes": {
+        "736f3ed7255035695aea2e6ecaf1c4ea70b3e183c4358504a6d723e292664da1": "par rapport à h, le facteur r² ne se dérive pas",
+        "bc880acb624fd3797bb6e99a506c683b3346e741ec8f080a4424f0268e26bb5e": "par rapport à h, πr² est une constante et h a pour dérivée 1"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5"
+        ],
+        [
+          "5/7",
+          "9/4"
+        ],
+        [
+          "6/5",
+          "-7/3"
+        ],
+        [
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "9/4",
+          "13/6"
+        ]
+      ],
+      "variables": [
+        "r",
+        "h"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.11f": {
+      "decimals": 2,
+      "hash": "f687b286172c6b7a79f80f56db34bd204bd9606fb13c0bb09361606902947294",
+      "hash_coarse": "0c236707f761f2e8ccd856b3e750f8ac678608c6c1d92087d04b4f097b84a8c6",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "1df68cea78be006c234f95ef80c52fdc21b84aa081a23c6df0663b7109b95fb8": "remplace r et h dans dV/dr, pas dans V",
+        "6e442f9bfde619cbdf90f63cb742627c4d509f8484846c7561ecc3f4112b6ae0": "π fait partie de la formule"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.11g": {
+      "hash": "3fd94ed6bd4ad085f30e553b7fc9572e86edb386e3996031b950fe67b347b789",
+      "kind": "expr",
+      "mistakes": {
+        "004ceac283cfaac045acfb334b6f6ea2493e074c74370a5578b81b22d1e0dffd": "le facteur 1/2 et m sont des constantes qui restent",
+        "f8d5f4b61bfe234d06213ee2926a5b8e41dbcd68e0803a4332139b02936e894d": "(v²)′ = 2v, et 1/2 × 2 = 1"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5"
+        ],
+        [
+          "5/7",
+          "9/4"
+        ],
+        [
+          "6/5",
+          "-7/3"
+        ],
+        [
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "9/4",
+          "13/6"
+        ]
+      ],
+      "variables": [
+        "m",
+        "v"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.11h": {
+      "hash": "fceb17de20e0a881aded32e80ae28e8ce1a960f0f9b5e25d44524007ef4ba754",
+      "kind": "expr",
+      "mistakes": {
+        "7d2273283f7e600fafb9609ea3b877e996f1e0c1ecd41f84b3c9cb44ec793aa5": "par rapport à m, v est une constante : on ne dérive pas v²"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5"
+        ],
+        [
+          "5/7",
+          "9/4"
+        ],
+        [
+          "6/5",
+          "-7/3"
+        ],
+        [
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "9/4",
+          "13/6"
+        ]
+      ],
+      "variables": [
+        "m",
+        "v"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.15a": {
+      "hash": "2b29ea98d21d46ffe86ef19c82b450d1d5f8dbcd25dfece4b215b835e41141a8",
+      "kind": "expr",
+      "mistakes": {
+        "1f9bfbabd6e733fe41644f81455a4e68fc70b4513a29566ca3efd2e8efd46ba6": "(1/a)′ = −1/a², pas ln a ni 1/a",
+        "c044976f537591afbd50da507e15c11443494a2717a0e7c4223819e807f7d726": "(8/a)′ = 8 × (−1/a²) : un signe moins"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "a"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.15b": {
+      "decimals": 2,
+      "hash": "9d36bf9447b238be46954f0d3a64b50373476872d190d6872460526b0255c65b",
+      "hash_coarse": "8aa3642a0d124338e26d3e4c1d4c4ec5526dee3c3599e06d8cf91f6d54e8e322",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "08726380e95db6482ad7e6e6d15a4b7c09df297ba6981538888c6eb517f996c6": "2 − 8/a² = 0 donne a² = 4",
+        "106223dd2d789b35e4f352aa8a5249e148aea816405682cf22d9521f65861087": "a > 0 : la solution négative n'est pas dans le domaine"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.15c": {
+      "decimals": 2,
+      "hash": "4b8a3e68439efaa65cb998e9479b2a8d3bd48c8e95930a8e292ad64e51a3369e",
+      "hash_coarse": "709aaff7cc4c2093ce8836620d57fac8aa6c69b19d08bccd76d0bc957cb98304",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "054b1aa8ec694669fde88a1eae83452bfbcbcca8692542570eef53beab8c7d82": "n'oublie pas le terme constant 1",
+        "ebdd43022744c9de8acee7ce34cee135074f02a02390fce1ffdecb6b1b7bc6f5": "remplace a par a* dans E, pas dans E′"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.15d": {
+      "decimals": 2,
+      "hash": "1729bd0a7193792c2e00add482e44ac0743d3777333922db5395ae049f18f6a5",
+      "hash_coarse": "19c60b58ca8bf8aa6a479ba4cc28069cdc0ef505e83372f502f858c3999e96ae",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "d9a3f04d0d0157350012808b98303eb0842341719110b2e9de6194fda416042c": "(8/a)′ = −8/a² : un signe moins"
+      },
+      "sign": -1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.15e": {
+      "decimals": 3,
+      "hash": "7ee3fabcfeb106ba50fd01a3792ac9e2615cd09be6b378b61b9b2a778591ffd1",
+      "hash_coarse": "0c9aa62d2cafeacf175e301ff9461b4e25b64f86107fe92559c93d414568a78a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2a8c5ea43c12045a7f420535212c3301dbeff585d327e26cc5e2e105c1331355": "(e^(−t))′ = −e^(−t) : un signe moins",
+        "94861c567b596b2de7e5439f296b20628ec520b4c0ee437218064579d2578008": "e^(2t) = 4 donne 2t = ln 4 : divise encore par 2"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.15f": {
+      "decimals": 2,
+      "hash": "d29d69911321602485e7a2a44be47d3b284e2a9d8d28c5db751cd6899ac9dafe",
+      "hash_coarse": "0fedebc297c42b1b2ddcebbfc0792303ddec327b84df2c1a466efa847a0245ab",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "ad084541034d155778fcce0f851f8b438fb2bc8fe82e5c23d20938b9a593b034": "remplace t par t* dans L, pas dans L′",
+        "b7421d0d86361bea2782ab64b6c34d981451a993cfc39ea932971aef1c8a1b84": "eᵗ* = 2 et e^(−t*) = 1/2"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.15g": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "dde0991bdf1b60b5cfa6a9f0d326afa13df556916143f34f8068adbda37a9cc9"
+        ],
+        [
+          "107f276f30400ce95cf52ae4e9d09a09a1451f7f19d1f3d8d56234983dae05d8"
+        ]
+      ],
+      "element_hashes": [
+        "6376dc9c3b0f613475d5deb4d4a4512397894540b3e9ebff6cf0c48faf266087",
+        "2837a061646713fa48c5abd96d2cb229a67ac4ce46e374d86a15e4951381490b"
+      ],
+      "hash": "79cde1e8a7403afcc1703dd9d28364f20113174f28d8cff6edd6c72ccf36e2db",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.17a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "0f29ed22e8c485b35f7497d340ddc9398b31ad3fca106ad5dd39d42e7d3ad427"
+        ],
+        [
+          "e646a980efc03ae65eb7e88902be1fe213a96a48cbf33c8a60bdc445236dd508"
+        ],
+        [
+          "5cf3e35bfedbfdf65256ae5b62c321ec5e2f93c626e268964fc5936fbb95b2cc"
+        ]
+      ],
+      "element_hashes": [
+        "7ee7dd85100143e39250eedbe124e7853377afc7057d8908194b85ccd9e94547",
+        "0d6877f0e6d0e6ec08f6d9dbefb2e6c20586235f1d30b7367d975186777d5d20",
+        "64205664c4a89b8ada7eb49af1164ed48109d87de189199efcc1fbc0f1dda164"
+      ],
+      "hash": "a59df2fdcaef5d05a3e8cf1fbbdb165b12115afbf98cecd0ce8922cb0e48e9ee",
+      "kind": "array",
+      "mistakes": {
+        "1ba03aa35811ca4709c86620ae5114de1e42d5d431ec351f50ac75fc4f8a5f11": "le taux divise la différence f(a + h) − f(a) par h",
+        "4e5c49cf037ea0b0f64bec9634cbc21bdd5d2705091f90a93f9828c9689c1d2f": "le taux est (f(a + h) − f(a)) / h, dans cet ordre"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.17b": {
+      "coarser": {
+        "2": [
+          "fd1337d748803be71d99cfa6e9f8daff35561a2d2f47e39353807a617a0492a6"
+        ]
+      },
+      "decimals": 4,
+      "hash": "99d7deba823c2ebf7423aa2e9f77f591fcfa48462d86b3192f5249638f7bbd39",
+      "hash_coarse": "3bed87975664e3d23dd205b7b6b36fb3dbff26da68b65001d72b69abe1e87c1c",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "ee88464e10a9a5851cc5c10029c555582085513a09b82cbce7a85d709649d851": "h est négatif : divise par h tel quel, pas par sa valeur absolue"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.17c": {
+      "hash": "b683d9a5004852eb3fb8658e04df2834426997629359f126fccf94ccbd239944",
+      "kind": "str",
+      "mistakes": {
+        "26bc094935cb3cb923adbf6413027283ac0d4be3975f2b9b8f87269e2c48797c": "h = 0 : lève une ValueError (raise) avant de diviser",
+        "4a38d50bd5fdbbbe5c975d66b88a29173398076fa1fd4c742977bd30415efe92": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5cae8ac81401bace7d0bc3924175d3db2c347224810a7543d79456da08fa69dc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5e707b326e5ba7d72c3505ec493e3c1898fb19084b614b292e614c9d408779a4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ac40636e57f632afc5a90d7ac91d971cd5d900bdf68bd2ad6a7edbe41417f19a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d612afffc9604115cd9ed5fd8107bd50574da750cb247af402594b1c5aa7eb53": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e79f7ee5f15ade1e334a59b5b8fb0a134e2bac6dad403d58cd0f162188ebcdba": "h = 0 : lève une ValueError (raise) avant de diviser"
+      },
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.17d": {
+      "coarser": {
+        "1": [
+          "cebdae29f56ea334ea64ee08ae0c1cba6f47b4b33e006facf815d79dcb233e6c"
+        ]
+      },
+      "decimals": 3,
+      "hash": "020eb3676b5d75874f3c9af446ea8f64c364609fd479eefe4846b807f9b7f28b",
+      "hash_coarse": "9c7026f249f6247628bfb5afae247f44f41dcfdeac9441293e78f835d8c9d3a0",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.18a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "d93ec5b500fc9dbde396dcd14b63dbaa2d746b73e9231651f6b9d4e1b6e5930d"
+        ],
+        [
+          "b2857dc658bc7579109931a54001a86d09d152dbfafb9a9a75244821eeb1e561"
+        ]
+      ],
+      "element_hashes": [
+        "07d99b4d2a00ef92ed79d401ec452d7fa5283a2ccd2e982a73465bebcff01096",
+        "91d1cd943f68ad677d7c316eff3daa4c6e98bc3adaf0812db5bc94154ff4c2dc"
+      ],
+      "hash": "f833d16bd6579ec358ba3004609b219d3ba867a8d5452e97e4fe889133754aa6",
+      "kind": "array",
+      "mistakes": {
+        "2369ca96521d9b07883c1b45f88cd7964dc3cdff56c7696d589e16aa547007c0": "c = f(a) − m × a : vérifie le signe",
+        "70c04d76f2b1f0f4a3f19e9556a107fc380bcb3685970b538eec8e35daf70cf1": "c n'est pas f(a) : développe f(a) + f′(a)(x − a)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.18b": {
+      "decimals": 0,
+      "element_hashes": [
+        "37d92d4e49ac1e8b47ad167252feba6ebd8fc651567218ea851dbfb106a73e68",
+        "539a21fc8f6e7d3a9cfb112d84090ffca4348b7d5f49f276c6b71af30511bfa9"
+      ],
+      "hash": "3c06f1f91449a4b5b391d8a4bf5a1146377f4f39aee74b8ca8123596422d07de",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4a55fa944877113e5cd77b460cfa4fe54e6aa2054248d888bc66b3310ec8a375": "c = f(a) − m × a : vérifie le signe",
+        "adf7e1c4f043b22c40332913f343005dcabbb39fe497620571c5face8aafbe5c": "c n'est pas f(a) : développe f(a) + f′(a)(x − a)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.18c": {
+      "hash": "073eb69b74e596653e33f753dc7af22afb37c8c5b877259ea24d1dbf433cfbf6",
+      "kind": "str",
+      "mistakes": {
+        "2d10885277086512a6a7091a5331ce611a14c21408ead3749aeef1a3e16317ce": "garde les entiers : pas de float(...) ni de division /",
+        "c040f6154fb6de0b2bf016881bc13747d28a69a6f7b6b94b2a0bed7df8d50bbc": "garde les entiers : pas de float(...) ni de division /",
+        "fd8deccbb22dadea51fe953c329f6c5baa4970d0fb68c560add79e350855f494": "garde les entiers : pas de float(...) ni de division /"
+      },
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.18d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "3ede0661372de33b1fb8b00bedd189b57973026d8699939643458a1b3c8cd160"
+        ],
+        [
+          "44b30eb7ec25f585d0d7a83a263cd109619f7f5ff415430d8ffcdf79ca6507b2"
+        ]
+      ],
+      "element_hashes": [
+        "80076208d1f9b52dad7f1a6d37d9d740210859e859f510aee6752478e7874a46",
+        "de9331905006f8c4ef3304f680eb9e48365c4e8e229898c5677f13d904642f49"
+      ],
+      "hash": "57db6d53ab5312f51a4d6735912db2627d3b2ef3acd485df837822d91dfdb66a",
+      "kind": "array",
+      "mistakes": {
+        "da7e7d53040c65e804c1c9dd5e88e3b4013f4e0f3ae8997418c41e6069ce3f18": "c = f(a) − m × a, avec a = −1 : vérifie le signe"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.19a": {
+      "coarser": {
+        "2": [
+          "c9969e7cb3520ed79ac9bc781ddf42fc427706741cbd5842f51ead97b4d17108"
+        ],
+        "3": [
+          "79e633fe9a7adbdcd23ce3476ee7b6d8a5d3a92ac2661eec1aa94fc295bde614"
+        ],
+        "4": [
+          "58e8db9a6a57f8d32af5f3031e448a5b019cd7689f265fe51fa51cf3faf366d3"
+        ]
+      },
+      "decimals": 6,
+      "hash": "7b4daafcbe7e0c26c3548daadb7aab2b5686937b86afa3d614662225e93903d9",
+      "hash_coarse": "ae23cc169796aef63973266471d628e0e408f7911898bc07aea95349c261add0",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.19b": {
+      "coarser": {
+        "1": [
+          "ab5d658a639562c190d959c7ee80273569d2c97ba162f533bb9a85e693715ca5"
+        ],
+        "2": [
+          "9fa3b9d3d058cfaf2a6134d1117cbebb222310f304a7c7a986ab1500949fdac4"
+        ],
+        "3": [
+          "1a564b3adaf3560c913721af9b78a20123ee9897776a3ce67cf175980f9d7d8f"
+        ],
+        "4": [
+          "a4163d11d2857a3c6adf7add2c3a984c63f0d8546b229602de1ba09aa6ce68ba"
+        ]
+      },
+      "decimals": 6,
+      "hash": "d98832451eb94804b1e130fc15783cb17bcc0545b05fe2a9d6733a7e56c7ef54",
+      "hash_coarse": "5c6898421de723de748c67e8e747441a6faf67b2efb40ffa43570511ec32d58f",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.19c": {
+      "hash": "744c1282ec171c85c61f707118d6cf000058d388d84edd7d16de53c50060eb72",
+      "kind": "str",
+      "mistakes": {
+        "2d97b46cc01431adc0d763e8084458ef9afcafa1822f55b3d7e73fe999f51c7c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "3fe9b302ffd4ca98904a3d1bdd92250cabea83629461035f0682949ebe4b14f9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4681c3fa970d0f7f3e05862d7338ce234dae48fb4b260f3011185f29d330e96b": "f(a) et f(b) ont le même signe : lève une ValueError avant de chercher",
+        "86d9a9bb070c789eff78386b019d7f235d3efd9ed1a0d81868db0c5063c48bc7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "924fd67bf30d74bb1096e5564441ea03bcda7b1c891be595213cc4de4072eda9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b5b5db49973df4a869145f8b288e30ae01033db9a27a72a7f352f0d6c7db5a0d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e5e56cb048d248f8db80bdba2a8c05d38415ee8b714af2e35654d46208c0f518": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.19d": {
+      "hash": "fc0e35f46831bf3b0a5c83c8cc3cb3b2581bfc9b3e4020809a22dad0c794672e",
+      "kind": "str",
+      "mistakes": {
+        "0db79248254f9cec232acd85f6276ebdf09abec360392742d33a4c837316fb9f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4952dfb257ec93225c6008af75cd67895fc0ac98b4b963049b9b3d33cc2262e4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "53649b950773a8957ec323377111ae2d4576a2316ddce02e61743202c4c74b92": "a ≥ b : lève une ValueError avant de chercher",
+        "77a59939c9da8f425e449054618f453f751d6b85641abee0c7a041fa1af46766": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "caf7624d6188da869c6bcf55578648a08756f4ec742c7b1895d2ed8574b4d6c7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cf432c0c8c027a7531a68408c4a5fa6b7c5c361d87cfd63d5560c0f6af54a95d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "dcec0d02719832caccca51fdfc75f06f884dbd112b4aae91f4cbe8274c22e71a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.19e": {
+      "coarser": {
+        "1": [
+          "7cf66be6aa642be02d9d7b59f217313aceaa90b3b48dcdf5714961084b4692d9"
+        ],
+        "2": [
+          "0fd65b90a2f2f6c8a197e725e32826e3b3c1b28a2fcb9d2980d328a7c010f9f1"
+        ],
+        "3": [
+          "341dca798f1c42cec54027eb42bb006eb9ae1b3df217774f000ca6d951329b7e"
+        ],
+        "4": [
+          "e7c8e9a5f9f965838a45fdd4fc783e241a72cde69df36ec9ef5954d6af9fb6c0"
+        ]
+      },
+      "decimals": 6,
+      "hash": "3834534e6f5d26d08e35f998ce1b1fa8602e50cb97e8fa39a4ebc943423dec7d",
+      "hash_coarse": "ede206c671d5bb61c5b67423080e00a5f2a2269702b7fa8fca7566344a86325c",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.19f": {
+      "hash": "fed8b5abce2795141ea278afdf97816ddb2f59fa7f4fb05619c73671e7afde8c",
+      "kind": "bool",
+      "mistakes": {
+        "8acd85655b464f90824e72264ebfd2c8a9b7f35a8efb2a5ba4f937b287592fdc": "avec tol = 1e-3, le résultat doit être à moins de 1e-3 du zéro : arrête-toi quand b − a < tol, et renvoie le milieu"
+      },
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.19g": {
+      "fractional": "un nombre de coupes entier : le premier qui convient, pas un arrondi",
+      "hash": "d619fc09cdd2b6747d3f7c995b3d0c8fbe1e045d27b9031a2dfe8b21bd85984e",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "57d53ae7824ed69146d0cc976fc53c5ffe9c3121ad937d357000d298da7f3dc8": "le nombre de coupes vient de log₂, pas de log₁₀",
+        "df855c8bdfab99296f45d0332d58177d5abdbfcab315b5e09836b82083953984": "après ce nombre de coupes, l'intervalle mesure encore plus de 10^(−10)"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.20a": {
+      "hash": "1069a1a6d003114ed010ad1028f960ff8e4789224630258dfca0f620bce7ec6f",
+      "kind": "expr",
+      "mistakes": {
+        "b0ac56b3b192499f0ae29b15dc58b0299f142def581cdd3ecb8fa82c5a8e0515": "la dérivée de e^(−x) est −e^(−x) : sp.exp(-x), et un signe moins"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.20b": {
+      "decimals": 0,
+      "element_hashes": [
+        "e5b8ad025c5aa8792f4cf5ff884404f6777471e8472664897cd434d4b9681989",
+        "1141edcfe610e8e54d18060cd6ef7c05b3910d5e4a1b87d25e99b6aa78eb4342"
+      ],
+      "hash": "4379dac19157b8b6e786b8bfd7042a1a52dbbd09b190ca392002ce24530089c6",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "b53612684ba90cba6d79060d38f21cb9f462cae25220fea369a3916e1a85418d": "ce sont les zéros de la dérivée, pas ceux de la fonction"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.20c": {
+      "decimals": 0,
+      "element_hashes": [
+        "1823b471cc015b5d00419dbf93374724a5c40b4ebe8f2263b17ca25390ed9a70",
+        "d0442f540af9f5937a45f4e65fc39fb20dab1c6d73f9bcd918ab3db288bc2dd2",
+        "80bc565b2da36a30732569c6cddfe0f48ee19b1c4807b79962e0fb3668bd9daa"
+      ],
+      "hash": "e0752ee0641122b9126fe1b804a194b44f0be0b0b531a663a6f31a162aba3655",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "124edf62028d5aa95ce9705414e575cab48ffd52bb5c26dbb0ccd5bad1b51e36": "compare la dérivée de SymPy à la proposée avec sp.simplify(a - b) == 0, pas avec =="
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.20d": {
+      "hash": "0591625da5053f351278f68e4310504e12e68cc9f244c10596712d1eb7992ccb",
+      "kind": "fraction",
+      "mistakes": {
+        "01d60425ac2855579c0f9fb7a191f07662352e90eb18077a91a785eef2b7a249": "la limite quand x tend vers 0, pas vers l'infini"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.21a": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "2deca5d6b43e9516aaab39a17403ce8dc2fa785930e02932f5e7246564de6ea0",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.21b": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "e01a32f0b973c136ea11f2154c097438e6623b21730f2cf3ef8a74265bb3aade",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.21c": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "532de4f98a1da288d21336a372929ebf0133d940b447a735298c3ce1162acdab",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.22a": {
+      "decimals": 5,
+      "element_coarse": [
+        [
+          "21f030f6f1cce0bc426db27d02a1ac1b7a13e9c4ad49c8fc8f1bc3a323ba4379"
+        ],
+        [
+          "835a2a5a53c87b71c86d44ff0ff89367d5a1ef8e1e11b24c94059242aa86cdca"
+        ],
+        [
+          "1343cd605bcfa4764a7fd0644c212b3f8d1b67aa46ffa52ac00c6e6f8d3488a3"
+        ],
+        [
+          "3bd4d44005b39f3449acc1afc6ef6897ee4d6170306e4ea0d77d690e04962cbc"
+        ]
+      ],
+      "element_hashes": [
+        "bf47f7279613507cad3fc539e13808077b80ee7d14442f71334895a11a735054",
+        "14cb895db8c37b353127ba504e44c8030cf85c5f08359a5136d75ac144e23320",
+        "195fddd44583ce28ddc12a0ed216f4a3ee33e3f779bdcdfd927fd813c94eae3b",
+        "7e62b503f0815845eb0e45e9d20b4107920ac44929c05059e6d2072625b38f02"
+      ],
+      "hash": "6481281c7403ac359bccd2bbfe5d8e28a772c1d8dbef14763b301191ad1ac98e",
+      "kind": "array",
+      "mistakes": {
+        "7a0757ade02e45eba29197dabace397ac3355110b14d3f4d7005c6d1413aaf11": "l'écart est une valeur absolue, sur toute la fenêtre [a − w, a + w]"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.22b": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "903d8f5e2755b540f1d7d1803e931eb0e9893a07b64a72e8cc7064096dea2280"
+        ],
+        [
+          "c8d5949bfe49b7be861b0dfb3d53588afe02a87f21883c9d3008c8e5435fa1eb"
+        ],
+        [
+          "8f4a967656ef1207c59bb18519763508a221085b6e42751d594d4a4d58ca314c"
+        ],
+        [
+          "cd141ac8eb36637726f3722608b507b7cf0ec67c34aa9e083dd99ed086b41a7c"
+        ]
+      ],
+      "element_hashes": [
+        "2a746eaac26df20501b403e73f3da8d1a047987a803f942f4bf38496d84fe1c0",
+        "6a9afb920dbbbfd92eb5af7a1418b04391652e5173c187d090f91fed6acb08ca",
+        "d6bffbbd3e722433f3372e916936e90bccaf25e97c0cab6dab80c9421a1b8f7a",
+        "546bb3bb1766d822432b138ab8aaeb5cc6e2827cb21bfad8f10411d73930f687"
+      ],
+      "hash": "01961a2c542f485af4c4f3da7d53b6e392e64b5cbc0c29b0d9216a44d65a58ed",
+      "kind": "array",
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.22c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "b08bd937325614b41a2872d1bd9adcc6d1c29aa96e8d6cdd9a5aa682d600d2ab"
+        ],
+        [
+          "79898a2e671c37239178e1a921dd6f67184c770a2bd81a5656a47ba42573b42c"
+        ],
+        [
+          "f69863e76103e58fc2ab6bd40ca798d1417517cf8ef7922ab9935aba61bad63d"
+        ],
+        [
+          "b95d1d3c799146f80c877cba4222a2f73cdff56b58610f405ebae80ff3f346ed"
+        ]
+      ],
+      "element_hashes": [
+        "e194b8d8d682a4c8861e41c07ba202539557cba911b4cc24ad217d7759373e03",
+        "dc714e4d5360027b212c99f92f57e5deb427cfe5c91027e48adf4b66a7b0a381",
+        "3e7f4363b6e705c269036ebd67f0331fc4cde9521ad26aabbf2d1c3908a7a2b4",
+        "140ad80b97f254f1cbce1931c23c49d1e4f426ac25c29001385d55868f6a1d20"
+      ],
+      "hash": "1ba042a98d8e3b8f1dee78cc73c52ff304dd36ce16a40252e838e7d650bcf8d8",
+      "kind": "array",
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.22d": {
+      "alt_coarse": [
+        "e132741884c42188a778e48cf728670ab8624581dfba6e7d3f0e65e326b04e71"
+      ],
+      "decimals": 1,
+      "hash": "fa6f3836ac3ba1d2caf74e6107a3e2f1f3b0eeca818f1a70a41260b33ac8e95f",
+      "hash_coarse": "bc197c7055f3425c9edc875508a08fa6cafff8357e7ddbcb5ae7b0a07934b4c5",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "acd224e280a41a848f7ae0ea6805cbc2dbecc83057cc3543378fd9a867677a93": "regarde les rapports de b), pas ceux de a)"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.23a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "6daa3003328acd9d56e3fccd8084bb833b341602fdc1a8f97ed1421e1bde842e"
+        ],
+        [
+          "a2750f1cc587250872dee794dd2070093ced981110b2bcb71ce322522b0b8e43"
+        ],
+        [
+          "6f5fa34e6ad622394f22eace63cea890ad7ed88a4b833ef9512fcdaaba0172ed"
+        ]
+      ],
+      "element_hashes": [
+        "db7da2f797cd5c21d30b81adf7cc245f40c6b02f902dde6e1a93e63c64766c76",
+        "9bf67c11d30e38871f851b61259b81da5d0ad808c61320e315fadeea41a7da0d",
+        "26d0b50c365fc97bb0acf4d1e1d89b70e3358ba808c0d8d8ec455cef5cdb2436"
+      ],
+      "hash": "50892beb9774205b710a657c9a9d8c123a3585fdb039e9938877ad04a818d790",
+      "kind": "array",
+      "mistakes": {
+        "02a6ebdfe47185c50196848b7ac9b05be5be8fb18862f6be4a41022fb7aeff20": "f′(x) = 4x(x² − 2) s'annule en trois points",
+        "bfb2fa7f434648d64e7020a26040f6ed955300bbb4f2320df91dba266c7ba601": "ce sont les zéros de f′, pas ceux de f"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.23b": {
+      "hash": "9dd4cbae3d3753dadcff2bc6bc48da95199fbce0535499422fe1886e7d94792a",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "37ded1b09a179060fd73d4442b5f28f10272f6bed904c129bf3b1b3236baa8e9": "en 0, f′ passe de + à − : c'est un maximum local"
+      },
+      "sign": 1,
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.24a": {
+      "hash": "30eafdbd7b7841c598dbde6bf4e311e411ea08ff004b5ae04727c15c59e4d350",
+      "kind": "str",
+      "mistakes": {
+        "0028c19a010dc171273b28387d449e75b3a8e837e883cff0e14053c5f3e1c7c3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0f8c2aab38e3d57556159fe88050b12836297d0acee006e9d951f38ec406e2f4": "la ligne (B) est correcte, et il manque une ligne fautive : x⁴ ln x est un produit : sa dérivée n'est pas le produit des dérivées",
+        "127c5ae4fa4f09d1228407510bed49c94a1409e5efaacba5cb87ef98851f6f19": "la ligne (B) est correcte, et il manque une ligne fautive : √(2x) est une composée : l'étage intérieur 2x a pour dérivée 2",
+        "184533b87144e30d3ac77c2719ce9907c31a974004bdc296842e2754b436d35d": "la ligne (B) est correcte, et il manque une ligne fautive : ln(x² + 5) est une composée : (ln u)′ = u′/u",
+        "20d28a603e65fa792f8549c2d16e5b8dfac97ac9051bcbffc7148378a232f345": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "21989681cae6c5b2e4dd7ca3ed5e9c8210b9c7f98d0dc2cb0908bc3ea7452f1c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "246894a48ca968437d9b346c6f542ad50349e41ade76939f94d27c7a7b6cfb20": "il manque une ligne fautive : e^(3x) est une composée : multiplie par la dérivée de l'étage intérieur",
+        "2637cccf92f9b1689f6a78621c3ac5b66003f4f25fd9594a8fede7ace2713e07": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2a06e0baafffc02631d296f398c0288c7911652f3a0b3b5f9ceb43c92a305623": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2c6b665aea1d62c7acec536d862a2280f5ff32b18c92b9bd432d951574e82a85": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "2d7e670be2a84bad6ca5626dc9375a1ee82ec8c24169b0ffc8b3164c148a78ca": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2e33d1776f47dc0e31b14d205dcd312639cb83bc49db1ca89a59a4e03f7407a2": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "3228cf494770fbe9cdfd2da694cc85cfcb55692429a9871d5f239bd455dc6bf5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "360021e1c21fe935e091022fc4b52c3fc15280fc49a23352f738a094a048e3f2": "la ligne (F) est correcte, et il manque une ligne fautive : e^(3x) est une composée : multiplie par la dérivée de l'étage intérieur",
+        "3ba6c68811c14e37a4e7f7bafa9e33719f85b251673f8004f04e0b4aa4240caa": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3ba6e332fbb1328e73843fbe93854590582e5d6824edb930a0454855469b2da3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "42f31392f21d786293fbfd2ba3df70da37d308c55a5df6128f21f88f0d6cb846": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "50de660bc506b842b4e99e8fc5220e783fdeaa1e6fbd23a8adcc72a3a34cb368": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "512ce8d4b832309097fd10407e8792610cc34803d2906b24f985003034dedebb": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "54a4c2e368bdfee7eb2e3457d4769ceee701c7ea72e7163832d1aba6fbed3a84": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "55e2fc793a74b8d8f4a06d4127c0fab81547be3a5bcb2f36dbbce4952fce7149": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "5e83724b01cdbed400c8ab1551a82c3969d2f15bfab2331b827cc4a05bb0d87c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "638c151075fff5880b98911f85dbec6fce35bcca330cd4dd7d2618b4f9451145": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "65e83d01a1c41880c8796d3974032b1c844eeb96b975190b010ee3478630add4": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "69088f1231586cc01e0d53ca2acbc6bac224a6a206ccf5dfd118edad9848a090": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "69702118cd59c9f3479049abf81b6bce905d6b0a1f298a34a00a9b76f98cea11": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6ef38f40c769aabcdf4de495511082151c957f04b7f8b2641a6eeac240fcd6c9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "737b5c4c484f6bef5394be060e29066457f58885477edfba9065b9576f4d9ca4": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "798a77bc2b9d31ea8cab6052548017ab33697894efee79cc945132d2c56ef365": "il manque une ligne fautive : ln(x² + 5) est une composée : (ln u)′ = u′/u",
+        "802a074a9f06fea4f08455834326b9c23cc1fef708cc91caae3fa026e5828f0f": "il manque une ligne fautive : √(2x) est une composée : l'étage intérieur 2x a pour dérivée 2",
+        "8ba35ab2c7490bf711ab724f8454d52e8979e160e08e3a70c322552a68e0f4b2": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "8bc9305be39593d84bfe3db460815e899b3060b88ccde24f2a518e36608b5da9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8f00a3e7f26c33ef26ff8cbbc1dcbf1d43eb8e46f17e79d6eced56480fb469e6": "la ligne (F) est correcte, et il manque une ligne fautive : x⁴ ln x est un produit : sa dérivée n'est pas le produit des dérivées",
+        "9523af544384d46e3bf94daa733aa8565fbf79e524ee96d40e23172479f8b5cc": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9edc0402e1c02032a57f281d7428167ce4bd9058ec0874a758d5e566ffb37d17": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "abd512805eb25e6ac3a56e3d1564b0119b946add018ca63bbe29f8ad24ae1e67": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ae15a2f9436d527cf7620a803a1df5dfcfbdfebd19b7c82e416c2a50911c8d5d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b02b93178ac51fba371b87cfee78e743a672cfb20f696bd01a93925bc44beb80": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "b1eb5ef9b9004296b16e3322ec5dca422e423c39377d86784efa7d36ba4d1394": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "bfaa55f4206c3427232c22184880ca2c88c6502f5dee344126eb7abccb3578f2": "la ligne (B) est correcte, et il manque une ligne fautive : e^(3x) est une composée : multiplie par la dérivée de l'étage intérieur",
+        "c0efe0cf9e335d766d6888e75f0a7971559fb2be9a2c22b642ce822d97a2d994": "la ligne (F) est correcte, et il manque une ligne fautive : ln(x² + 5) est une composée : (ln u)′ = u′/u",
+        "d139736377d900ca3768e650fd2d27179ac7da7d67266d4a838d020ab18e5fd5": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "d2580d53065dff64ef0528c2f595c02eb455f9dc0d37287361f755dd83c3660f": "il manque une ligne fautive : x⁴ ln x est un produit : sa dérivée n'est pas le produit des dérivées",
+        "d276ddfc1e7dda32ce944eeb3b69c364fdecd4a46979fc204af1ad35bd520094": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "d2dd81b98690e6e674f41582195a0eb3bf9abfc47193273df39f806a2ec3e350": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d3b3823c58c1ba57e25b2354eefb1081bbb0d6494158e712b13decd6dd7e8bba": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d411a3ba61bd9088d6c7f7e34050c0a55e49be5ab24545f45840d01a7a5db0c1": "la ligne (F) est correcte, et il manque une ligne fautive : √(2x) est une composée : l'étage intérieur 2x a pour dérivée 2",
+        "dc8eadd319b2a231e1ae9151784d73345edd3c6c755c72338b6d74792bccbce8": "une ligne de trop : la ligne (F) est correcte ; relis ce qu'elle fait",
+        "e0f361ca8fc9ef05574df4ab7f459f43cbfb5c6a4032946dfea33beeebf31174": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e3c837b4eca756d6ef35909636d6439113c4393b957e15b485dee0800cf0ef95": "une ligne de trop : la ligne (B) est correcte ; relis ce qu'elle fait",
+        "e4a87cbc4e07b2d672854d42b9f0002a5d19dcb40498469283c3b9c1f9a062c7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e56a3fd61d456f8575e0140f05483d9885870dade5d6110761c12c19fbf576c3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e5e364ff2b396ead951fbb3cc2fde53893e6a667d107b8a775e58ee301d33bce": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e693219b81d0bcadd0fd07631c8c9079ba0d07806aff3d55aba455b4dd35d88e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e81c687f5428553e8cde71719bf11b7216680ba26c938e3a76e082597ccaf02b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e873e9a6caddb363401b935e9a1bee203f2a664ba7b29a39cf9d149a29c662f3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "eccba744a328e5f5c230160ea0be2ebb6e4a2941e13faca1ec7ee04cf81ca2e8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ed93d425d268fe1babbc3e61e97b78fcf0941b93dcb8eda468eb8f4d2c118c6f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ef722ff0dbc04d403dc6ee68d252723109070f5232bb1190e6a8d3d344adf09f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f8c4e3826d7078a073121ce92661b8bb411715f13933bc2eb5388f140f7d98f1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "fa01509fcaf3b78e193dc48ba9b9dc6ac84126aa62110f138fdb7a0b9f77ba17": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "fc38f2b1bff39fe0de5fc8d9da680d83ef276e1e1512182c27b7e3609a0a3910": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple"
+      },
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.24b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "b114be52fcd8c639de4df4764dd2d9fddd8321ddf169ea8d8ae03e853f3e899b"
+        ],
+        [
+          "d3b0b3974f060b473b8f462aae6edf1f0197903b9fb27b833367ad064b03eaf5"
+        ],
+        [
+          "05cf5c1a9a58deb0b59082a0ddbc08b2e3aa7dce4100d825ea8e981dfff3311c"
+        ],
+        [
+          "aef18c4ed29e63a10c473d2a7a168ed944c5c08c361b9a599f5b214b0eb7d3a9"
+        ]
+      ],
+      "element_hashes": [
+        "e6f164f0668a5333aaa1596d464741a4140670aa208ad8298a0b73822cd8ea65",
+        "c851c6685b28ad6709d9c38a723f1d40bf84c47b181c3a1674a6c050730edd62",
+        "9a34070d1e87d4ffd100fd6accb88a485c9cb2515fd31580c2f7059c09f454da",
+        "a0e9ffb0997a332152ac78005680d1b911e8be1806f22d356c146ce284de5440"
+      ],
+      "hash": "83ad545b223cadba4f7bcb5232270eba5f173926709b88727dfe4e498bed770b",
+      "kind": "array",
+      "mistakes": {
+        "0254bb5ee83bd62152cf711cd05b78d8914e57b61689f80e82613e84a1ddac76": "aucune des quatre lignes fausses n'est encore corrigée : corrige-les dans la cellule où tu as écrit a)",
+        "7d18988a3793d5bb0346c30a67640300b5af3e3cfa00c3c107cdeb6df1aa0443": "d_a : la règle du produit donne deux termes"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.25a": {
+      "hash": "235b2bfb99ca0473995157abfa00a042353a27865709524185317f080a9a7ac8",
+      "kind": "bool",
+      "mistakes": {
+        "487336a30d78c6c2145e8856dd3b0c84e7a7f1e061a94bfd4bfbc926f7a445ea": "ton test échoue sur ta propre dg : relis ta dérivée (u′v − uv′ sur v²) ou ton test (lis la sortie de pytest : print(good.output))"
+      },
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
+    },
+    "R7.25b": {
+      "hash": "d2046ec84bb09a5e96dbc86a8446fb6d349205ca13a087c194dd0cc630467a31",
+      "kind": "bool",
+      "mistakes": {
+        "7bc901e777d53840e8e0febd67328048ccce828acf56d22493a1264bcc14211e": "ton test ne voit pas l'erreur de dg_bug : compare en plusieurs points, avec une tolérance serrée (math.isclose)"
+      },
+      "source": "chapitres/r7_limites_derivation/05_solutions.ipynb"
     }
   }
 }

@@ -42,6 +42,8 @@ def chapter_cases():
                     continue
                 if isinstance(value, (bool, dict)) or value is Ellipsis or value is None:
                     continue
+                if isinstance(value, str) and value.strip() in {"+oo", "-oo", "oo"}:   # the notation of an infinite
+                    continue                                                       # limit (R7), not an example value
                 cases.append(pytest.param(ids, value, id=f"{folder.name}/{name}:{token}"))
     return cases
 

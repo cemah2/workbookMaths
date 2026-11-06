@@ -293,3 +293,11 @@ def test_fraction_calculated_from_decimals_is_exact(value):
     entry = entry_of("F.4c", Fraction(3, 7), kind="fraction")
     assert verdict("F.4c", entry, value)[0], verdict("F.4c", entry, value)[2]
     assert not verdict("F.4c", entry, 0.4285714286)[0]
+
+
+def test_pi_glued_to_letters_is_read_as_a_factor():
+    """Session 11 (R7): « 2πrh » typed with the π key is 2·π·r·h, like « 2*pi*r*h »."""
+    entry = entry_of("E.40", "2*pi*r*h", kind="expr", variables=("r", "h"))
+    for value in ("2πrh", "2π r h", "2*π*r*h", "2*pi*r*h"):
+        assert verdict("E.40", entry, value)[0], value
+    assert not verdict("E.40", entry, "πr²")[0]

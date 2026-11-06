@@ -44,7 +44,7 @@ def _hash(ex_id: str, kind: str, normalized: str) -> str:
 def _clean_text(text: str) -> str:
     """Typographic signs a French keyboard or a copy-paste produces -> ASCII."""
     table = {"−": "-", "–": "-", "—": "-", "×": "*", "·": "*", "⋅": "*", "÷": "/",
-             "√": "sqrt", "∞": "oo", "π": "pi", " ": " ", " ": " "}
+             "√": "sqrt", "∞": "oo", "π": " pi ", " ": " ", " ": " "}
     for old, new in table.items():
         text = text.replace(old, new)
     # x², x⁴, x¹⁰, x⁻¹ -> x**(2), x**(4), x**(10), x**(-1)

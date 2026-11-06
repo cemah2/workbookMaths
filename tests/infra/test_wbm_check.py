@@ -1,6 +1,7 @@
 """Tests of wbm.check / wbm.record: right values pass, wrong values fail, no leak."""
 
 import json
+import math
 
 import numpy as np
 import pytest
@@ -993,3 +994,17 @@ def test_a_prediction_outside_its_choices_is_told_the_choices():
     passed, _, message = checker.check_entry("P.c", entry, 4)
     assert not passed and message.startswith("Choisis l'une des valeurs proposées"), message
     assert checker.check_entry("P.c", entry, 3)[2].startswith("Prédiction ratée")
+
+
+def test_infinite_limits_are_written_like_interval_ends():
+    """Session 11 (R7): a limit +∞ is typed "+oo" (as in an interval), "∞", float("inf") or "inf"; the other sign
+    gets « le signe est inversé », a finite answer for an infinite limit (and the reverse) a plain message."""
+    e = entry("d.32", math.inf, decimals=2)
+    for v in ("+oo", "oo", "∞", "+∞", math.inf, "inf", " + oo "):
+        assert passes("d.32", e, v), v
+    assert "signe est inversé" in message("d.32", e, "-oo")
+    assert "signe" not in message("d.32", e, 3.0)
+    e = entry("d.33", -math.inf, decimals=2)
+    assert passes("d.33", e, "-oo") and passes("d.33", e, "−∞") and passes("d.33", e, -math.inf)
+    e = entry("d.34", 2.0, decimals=2)
+    assert "infinie" in message("d.34", e, "+oo")

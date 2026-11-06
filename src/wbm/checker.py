@@ -220,6 +220,10 @@ def _parse_number(text: str) -> float:
         cleaned = cleaned.replace(",", "")
     else:  # 3,14 (French decimal comma)
         cleaned = cleaned.replace(",", ".")
+    infinity = {"oo": 1, "+oo": 1, "∞": 1, "+∞": 1, "infini": 1, "+infini": 1, "plusinfini": 1,
+                "-oo": -1, "-∞": -1, "-infini": -1, "moinsinfini": -1}.get(cleaned.lower())
+    if infinity:  # an infinite limit written as in an interval: "+oo", "-oo", "∞"
+        return math.copysign(math.inf, infinity)
     if cleaned.count("/") == 1:  # a fraction written as text: "41/76"
         numerator, denominator = (float(part) for part in cleaned.split("/"))
         if denominator == 0:
@@ -651,7 +655,10 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
         return ("Ta valeur est NaN (« pas un nombre ») : division 0/0, logarithme d'un nombre "
                 "négatif ou valeur manquante dans le calcul ?")
     if math.isinf(x):
-        return "Ta valeur est infinie : division par zéro ou exponentielle trop grande ?"
+        if _hash_value(ex_id, entry, -x) == entry["hash"]:
+            return "Le signe est inversé : l'infini attendu est de l'autre signe."
+        return ("Ta valeur est infinie, et ce n'est pas la réponse attendue : pour une limite, regarde si elle est "
+                "vraiment infinie ; pour un calcul, cherche une division par zéro ou une exponentielle trop grande.")
 
     def matches(candidate: float) -> bool:
         return _hash_value(ex_id, entry, candidate) == entry["hash"]

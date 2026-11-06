@@ -24,7 +24,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [R4](#r4) | Logique, ensembles, Σ et Π | 0B | — | 13,2 h | ✅ exercices | 1 |
 | [R5](#r5) | Suites | 0B | — | 10,2 h | ✅ exercices | 1 |
 | [R6](#r6) | Exponentielle et logarithmes | 0B | — | 10,4 h | ✅ exercices | 1 |
-| [R7](#r7) | Limites et dérivation | 0B | — | 12,9 h | ✅ exercices | 2 |
+| [R7](#r7) | Limites et dérivation | 0B | — | 13,2 h | ✅ exercices | 2 |
 | [R8](#r8) | Probabilités de base | 0B | — | 10,9 h | ✅ exercices | 1 |
 | [R9](#r9) | Géométrie du plan, vecteurs et trigonométrie | 0B | — | 11,0 h | ✅ exercices | 1 |
 | [CP0](#cp0) | Bilan de remise à niveau | 0B | — | 3,3 h | ✅ exercices | 1 |
@@ -79,7 +79,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 
 | Partie | Chapitres | Exercices détaillés | Durée (complet) | Durée (essentiel) |
 |---|---|---|---|---|
-| 0 · Remise à niveau | 12 | 363 | 116,2 h | 93,0 h |
+| 0 · Remise à niveau | 12 | 363 | 116,5 h | 93,3 h |
 | I · Fondations | 9 | — | ≈ 110 h (estimé) | à détailler |
 | II · Concepts | 7 | — | ≈ 78 h (estimé) | à détailler |
 | III · ML classique | 8 | — | ≈ 98 h (estimé) | à détailler |
@@ -668,7 +668,7 @@ L'exponentielle et le logarithme : leurs propriétés algébriques, le nombre e,
 
 Le cœur de l'analyse du lycée : limites et asymptotes, continuité et théorème des valeurs intermédiaires (avec la dichotomie), taux d'accroissement, nombre dérivé et tangente, dérivées usuelles et règles de calcul, la règle de la chaîne, et l'étude des variations pour trouver un extremum. C'est la base de toute l'optimisation de workbookIA, de la descente de gradient (5) à la rétropropagation (18).
 
-**Temps** : 12,9 h en parcours complet, 10,6 h en parcours essentiel (lecture 180 min, 25 flashcards).
+**Temps** : 13,2 h en parcours complet, 11,0 h en parcours essentiel (lecture 200 min, 25 flashcards).
 
 **Objectifs**
 
@@ -722,8 +722,8 @@ Le cœur de l'analyse du lycée : limites et asymptotes, continuité et théorè
 | R7.7 | ✏️ | Dériver des composées | ★★ | 25 | §7 | C, E | wbm | — |
 | R7.8 | ✏️ | Variations et tableau de variations | ★★ | 25 | §8 | C, E | wbm | — |
 | R7.9 | ✏️ | Optimiser : la boîte de volume maximal | ★★ | 25 | §8 | C, E | wbm | — |
-| R7.10 | ✏️ | La règle de la chaîne en série : e^(−x²/2), ln(1 + x²), (3x + 1)⁵, √(1 + x²) | ★★ | 25 | §7 | C, E | wbm | — |
-| R7.11 | ✏️ | Dériver par rapport à w, puis par rapport à b : (wx + b − y)², x et y étant fixés | ★★ | 20 | §5 §7 | C, E | wbm | — |
+| R7.10 | ✏️ | La règle de la chaîne en série : trois étages, et l'ordre qui compte | ★★ | 25 | §7 | C, E | wbm | — |
+| R7.11 | ✏️ | Dériver par rapport à une lettre, les autres fixées : A e^(kt), π r² h, ½ m v² | ★★ | 20 | §5 §7 | C, E | wbm | — |
 | R7.12 | ∂ | La dérivée de x² à partir de la définition, et |x| qui n'est pas dérivable en 0 | ★★ | 20 | §3 | C, E | manuel | — |
 | R7.13 | ∂ | Démontrer la règle du produit | ★★ | 35 | §6 | C | manuel | — |
 | R7.14 | ∂ | La règle du quotient à partir de la règle du produit : (1/v)′ = −v′/v² | ★★ | 25 | §6 | C, E | manuel | — |
@@ -739,7 +739,7 @@ Le cœur de l'analyse du lycée : limites et asymptotes, continuité et théorè
 | R7.24 | 🐛 | Chasse à l'erreur : quatre dérivées fausses | ★★ | 20 | §6 §7 | C, E | wbm | — |
 | R7.25 | 🛠️ | Tester une dérivée avec pytest et SymPy | ★ | 15 | §5 | C | manuel | — |
 
-*Notes* : Deux sessions de génération (chapitre long, figures nombreuses). R7.19 annonce seulement le problème du pas h, que M05a traite, sans en donner les nombres. Frontières : on ne dérive ni σ, ni tanh, ni softplus (workbookIA 17.4) ; les fonctions de coût de R7.13 sont données par une formule, jamais par des données (pas de moyenne qui minimise les carrés, pas de w* = Σxy / Σx²) ; pas de pas de descente sur une parabole.
+*Notes* : Deux sessions de génération (chapitre long, figures nombreuses). Le 🔮 R7.21 montre seulement le problème du pas h (l'erreur du taux remonte quand h devient minuscule), que M05a et workbookIA 5 traitent, sans le théorème ni le meilleur pas ; ni la différence centrée ni la dérivée seconde (workbookIA 5). Frontières : on ne dérive ni σ, ni tanh, ni softplus (workbookIA 17.4) ; les fonctions de coût de R7.15 sont données par une formule, jamais par des données (pas de moyenne qui minimise les carrés, pas de w* = Σxy / Σx²) ; pas de pas de descente ; les composées de R7.7 et R7.10 et la dérivation « une lettre à la fois » de R7.11 évitent celles de 0B.23, de 0B §101.5.3 (la loss (wx + b − y)²) et de workbookIA 5.R3.
 
 <a id="r8"></a>
 ## R8 · Probabilités de base
