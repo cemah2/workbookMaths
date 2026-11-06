@@ -1,0 +1,23 @@
+front;back;tags
+Que vaut \(a^{p/q}\) pour \(a > 0\) ?;La racine \(q\)-ième de \(a\), élevée à la puissance \(p\) : \(8^{2/3} = 2^2 = 4\). Une exponentielle prolonge ainsi les puissances entières à tous les réels.;mwb::r6::puissance_reelle
+Les règles de calcul de \(a^x\) ?;\(a^0 = 1\), \(a^{x+y} = a^x a^y\), \(a^{-x} = \frac{1}{a^x}\), \((a^x)^y = a^{xy}\), \((ab)^x = a^x b^x\), et \(a^x > 0\) pour tout \(x\).;mwb::r6::proprietes_exp
+\(e^{a+b}\) vaut-il \(e^a + e^b\) ?;Non : \(e^{a+b} = e^a \times e^b\), un produit. Exemple : \(2^{3+1} = 16\) mais \(2^3 + 2^1 = 10\).;mwb::r6::exp_somme
+Comment définit-on le nombre \(e\) ?;\(e = \lim_{n \to +\infty} (1 + \frac{1}{n})^n \approx 2{,}718\) : la limite des intérêts composés de plus en plus souvent (100 % par an versés \(n\) fois).;mwb::r6::nombre_e
+Croissance exponentielle et croissance linéaire ?;Exponentielle : on multiplie par le même nombre sur des durées égales, \(N_0 a^t\). Linéaire : on ajoute la même quantité, \(N_0 + bt\).;mwb::r6::croissance_exponentielle
+Définition de \(\ln x\) ?;Pour \(x > 0\), l'unique réel \(y\) tel que \(e^y = x\). Donc \(\ln(e^y) = y\), \(e^{\ln x} = x\), \(\ln 1 = 0\), \(\ln e = 1\).;mwb::r6::ln
+Les propriétés de ln ?;\(\ln(ab) = \ln a + \ln b\), \(\ln \frac{a}{b} = \ln a - \ln b\), \(\ln(a^k) = k \ln a\), \(\ln \sqrt{a} = \frac{1}{2} \ln a\). Mais \(\ln(a + b)\) ne se simplifie pas.;mwb::r6::proprietes_ln
+Domaine et signe de \(\ln x\) ?;Défini seulement pour \(x > 0\). Négatif entre 0 et 1, nul en 1, positif au-delà. Tend vers \(-\infty\) près de 0, vers \(+\infty\) très lentement.;mwb::r6::domaine_ln
+Résoudre \(e^x = c\) et \(\ln x = c\) ?;\(e^x = c \iff x = \ln c\) si \(c > 0\) (aucune solution si \(c \le 0\)). \(\ln x = c \iff x = e^c\). exp et ln gardent le sens des inégalités.;mwb::r6::equations
+Résoudre \(q^n > c\) avec \(0 < q < 1\) ?;\(n \ln q > \ln c \iff n < \frac{\ln c}{\ln q}\) : diviser par \(\ln q < 0\) change le sens de l'inégalité.;mwb::r6::inequation
+Temps de doublement d'une hausse de \(r\) par période ?;\(\frac{\ln 2}{\ln(1 + r)}\) (règle de 70 : environ \(\frac{70}{\text{taux en \%}}\)). Pour une croissance continue \(e^{rt}\) : exactement \(\frac{\ln 2}{r}\).;mwb::r6::doublement
+Définition de \(\log_b x\) et changement de base ?;L'exposant \(y\) tel que \(b^y = x\). \(\log_b x = \frac{\ln x}{\ln b}\). Exemple : \(\log_3 81 = 4\).;mwb::r6::changement_base
+Ce que compte \(\log_{10}\) ?;Les chiffres : un entier \(N \ge 1\) a \(\lfloor \log_{10} N \rfloor + 1\) chiffres.;mwb::r6::log10
+Combien de bits apporte un événement de probabilité \(p\) ?;\(-\log_2 p\) bits, ou \(-\ln p\) nats. 1 bit ≈ 0,693 nat. Trouver un objet parmi \(N\) demande \(\lceil \log_2 N \rceil\) questions oui ou non.;mwb::r6::bits
+Les log-probabilités ?;Le logarithme d'un produit de probabilités est la somme de leurs logarithmes. Il reste un nombre ordinaire quand le produit est trop petit pour un flottant, et il range les modèles dans le même ordre.;mwb::r6::log_probabilites
+Croissances comparées ?;Pour \(x\) très grand : \(\ln x \ll x^k \ll a^x\) (\(k > 0\), \(a > 1\)). L'exponentielle finit par dépasser toute puissance, mais parfois très loin.;mwb::r6::croissances
+Une échelle logarithmique ?;Des graduations également espacées pour des rapports égaux (1, 10, 100) : on place \(x\) en \(\log_{10} x\). Ni 0 ni les négatifs n'y ont de place.;mwb::r6::echelle_log
+Qu'est-ce qui devient une droite en échelle semi-logarithmique ? En log-log ?;Semi-log (axe vertical logarithmique) : une exponentielle \(C a^t\), de pente \(\log_{10} a\). Log-log : une puissance \(C x^k\), de pente \(k\).;mwb::r6::droite_log
+La sigmoïde ?;\(\sigma(x) = \frac{1}{1 + e^{-x}}\), entre 0 et 1 strictement, \(\sigma(0) = \frac{1}{2}\), croissante, et \(\sigma(-x) = 1 - \sigma(x)\).;mwb::r6::sigmoide
+La cote et le logit d'une probabilité \(p\) ?;Cote : \(\frac{p}{1 - p}\). Logit (log-cote) : \(\ln \frac{p}{1 - p}\), la réciproque de la sigmoïde. Ajouter \(\ln k\) au logit multiplie la cote par \(k\).;mwb::r6::logit
+La tangente hyperbolique ?;\(\tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}}\), entre −1 et 1, impaire, \(\tanh 0 = 0\), et \(\tanh x = 2\sigma(2x) - 1\).;mwb::r6::tanh
+Que veut dire « log » en Python et en ML ?;Le logarithme népérien : `np.log` et `math.log` (un argument) calculent \(\ln\). Les bases 2 et 10 sont explicites : `np.log2`, `np.log10`.;mwb::r6::log_python

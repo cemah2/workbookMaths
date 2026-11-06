@@ -96,7 +96,25 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | moyenne mobile | $m_t = \frac{1}{k}\sum_{j=t-k+1}^{t} x_j$ ; $N - k + 1$ moyennes pour $N$ valeurs |
 | moyenne exponentielle | $v_0 = 0$, $v_t = \beta\,v_{t-1} + (1 - \beta)\,x_t$ ; poids $(1 - \beta)\,\beta^k$ pour la valeur d'âge $k$ |
 
-*(R6 à R9 ajoutés avec leurs chapitres)*
+### R6 · Exponentielle et logarithmes
+
+| Notion | Formule |
+|---|---|
+| puissances réelles ($a, b > 0$) | $a^{p/q} = (\sqrt[q]{a})^p$ ; $a^{x+y} = a^x a^y$, $a^{-x} = \frac{1}{a^x}$, $(a^x)^y = a^{xy}$, $(ab)^x = a^x b^x$, $a^x > 0$ |
+| nombre e | $e = \lim_{n \to +\infty} (1 + \frac{1}{n})^n \approx 2{,}718$ ; $\exp(x) = e^x$ ; $(1 + \frac{r}{n})^{nt} \to e^{rt}$ |
+| ln | pour $x > 0$ : $e^y = x \iff y = \ln x$ ; $\ln(e^y) = y$, $e^{\ln x} = x$, $\ln 1 = 0$, $\ln e = 1$ |
+| propriétés de ln ($a, b > 0$) | $\ln(ab) = \ln a + \ln b$, $\ln \frac{a}{b} = \ln a - \ln b$, $\ln(a^k) = k \ln a$, $\ln \sqrt{a} = \frac{1}{2} \ln a$ |
+| équations, inéquations | $e^x = c \iff x = \ln c$ ($c > 0$) ; exp et ln gardent le sens des inégalités ; $q^n > c \iff n \ln q > \ln c$ (attention si $\ln q < 0$) |
+| doublement, demi-vie | $\frac{\ln 2}{\ln(1 + r)}$ (règle de 70 : $\frac{70}{\text{taux en \%}}$) ; $\frac{\ln 0{,}5}{\ln(1 - r)}$ ; continu : $\frac{\ln 2}{r}$ |
+| base b | $\log_b x = \frac{\ln x}{\ln b}$ ; chiffres de $N \ge 1$ : $\lfloor \log_{10} N \rfloor + 1$ |
+| information | $-\log_2 p$ bits, $-\ln p$ nats ; 1 bit $= \ln 2 \approx 0{,}693$ nat ; $\lceil \log_2 N \rceil$ questions oui ou non |
+| croissances comparées | $\frac{x^k}{a^x} \to 0$ ($a > 1$), $\frac{\ln x}{x^k} \to 0$ ($k > 0$) |
+| échelles | position de $x$ sur un axe logarithmique : $\log_{10} x$ ; $C a^t$ droite en semi-log (pente $\log_{10} a$), $C x^k$ droite en log-log (pente $k$) ; décibels : $10 \log_{10} R$ |
+| sigmoïde | $\sigma(x) = \frac{1}{1 + e^{-x}}$, $\sigma(0) = \frac{1}{2}$, $\sigma(-x) = 1 - \sigma(x)$ |
+| cote, logit | cote $\frac{p}{1 - p}$ ; $\operatorname{logit}(p) = \ln \frac{p}{1 - p}$, réciproque de $\sigma$ |
+| tanh | $\tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}} = 2\sigma(2x) - 1$, impaire, dans $]-1 \;;\; 1[$ |
+
+*(R7 à R9 ajoutés avec leurs chapitres)*
 
 ## Partie I · Fondations
 

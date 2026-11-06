@@ -109,6 +109,21 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | L'exponentielle d'une somme | $e^{a+b} = e^a + e^b$ | $e^{a+b} = e^a \times e^b$ |
 | Confondre réciproque et inverse | $f^{-1}(x) = \frac{1}{f(x)}$ | $f^{-1}$ défait $f$ : $\ln$ est la réciproque de $\exp$, pas $\frac{1}{\exp}$ |
 | Le logarithme d'un nombre négatif ou nul | $\ln(-1)$ | $\ln$ n'est défini que pour $x > 0$ |
+| Multiplier les exposants d'un produit | $e^{2x} \times e^{3} = e^{6x}$ | on les additionne : $e^{2x + 3}$ |
+| Additionner les exposants d'une puissance | $(e^{3})^{2} = e^{5}$ | on les multiplie : $e^{6}$ |
+| Lire un exposant fractionnaire comme un produit | $8^{2/3} = 8 \times \frac{2}{3}$ | la racine cubique, puis le carré : 4 |
+| Un exposant négatif rend négatif | $27^{-1/3} = -3$ | il donne l'inverse : $\frac{1}{3}$ |
+| Le carré d'un logarithme | $(\ln a)^2 = 2 \ln a$ | c'est $\ln(a^2)$ qui vaut $2 \ln a$ |
+| Le logarithme d'un quotient | $\ln \frac{a}{b} = \frac{\ln a}{\ln b}$ | $\ln a - \ln b$ |
+| Une équation exponentielle sans solution | $e^x = -2 \iff x = \ln(-2)$ | pas de solution : $e^x > 0$ |
+| Diviser par un logarithme négatif | $0{,}8^n < 0{,}1 \iff n < \frac{\ln 0{,}1}{\ln 0{,}8}$ | $\ln 0{,}8 < 0$ : le sens change, $n > \dots$ |
+| Le changement de base à l'envers | $\log_5 30 = \frac{\ln 5}{\ln 30}$ | $\frac{\ln 30}{\ln 5}$ |
+| Des bits aux nats | 4 bits $= \frac{4}{\ln 2}$ nats | on multiplie par $\ln 2$ : $4 \ln 2 \approx 2{,}77$ nats |
+| `np.log` pris pour le logarithme décimal | `np.log(1000)` vaut 3 | `np.log` est $\ln$ ; le décimal est `np.log10` |
+| Croire qu'une puissance bat une exponentielle | $x^5 > 1{,}1^x$ en $x = 100$, donc toujours | l'exponentielle finit par gagner (ici vers 299) |
+| La symétrie de la sigmoïde | $\sigma(-x) = -\sigma(x)$ | $\sigma(-x) = 1 - \sigma(x)$ ; c'est tanh qui est impaire |
+| Le logit | $\operatorname{logit}(p) = \ln p$ | $\ln \frac{p}{1 - p}$ |
+| Un produit de probabilités en flottants | multiplier des milliers de probabilités | additionner leurs logarithmes : le produit devient 0 |
 
 ## Dérivées (R7)
 
