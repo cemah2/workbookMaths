@@ -761,6 +761,10 @@ def _check_expr(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
     up_to_constant = bool(entry.get("up_to_constant"))
     if up_to_constant and isinstance(value, str):     # "x**3/3 + C": the constant of a primitive is allowed
         value = _CONSTANT_TERM.sub("", value) or value
+    elif isinstance(value, str) and _CONSTANT_TERM.search(value) and not any(
+            name in ("C", "c", "K", "k") for name in variables):
+        return False, "wrong", ("On demande ici une primitive précise, pas toutes : remplace la constante par sa "
+                                "valeur, que donne la condition de l'énoncé.")
     expr = parse_expression(value, variables)
     fingerprint = _fingerprint(expr, variables, points, up_to_constant)
     if fingerprint is None:

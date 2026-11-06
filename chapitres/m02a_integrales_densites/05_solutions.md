@@ -69,16 +69,16 @@
 ## 🔁 Rappels
 
 ### M02a.R1 — Dériver une composée (R7)
-1. $4(3 - x^2)^3 \times (-2x) = -8x(3 - x^2)^3$.
-2. $\frac{-2}{5 - 2x}$, soit $\frac{2}{2x - 5}$.
+1. $5(1 - 2x)^4 \times (-2) = -10(1 - 2x)^4$.
+2. $\frac{-\sin x}{2 + \cos x}$ ($2 + \cos x \ge 1 > 0$, le logarithme est défini partout).
 3. $5e^{5x - 1}$.
-4. $\frac{2x}{2\sqrt{1 + x^2}} = \frac{x}{\sqrt{1 + x^2}}$.
+4. $\frac{-1}{2\sqrt{4 - x}}$.
 
 ### M02a.R2 — Sommes Σ (R4)
-1. $1 + 4 + 9 + 16 = 30$.
-2. $1 + 4 + 7 + 10 = 22$.
+1. $2 + 6 + 12 = 20$.
+2. $0{,}1 + 0{,}2 + 0{,}3 + 0{,}4 + 0{,}5 = 1{,}5$ (ou $0{,}1 \times 15$).
 3. $0{,}5\sum_{i=0}^{3} f(0{,}5\,i)$ : une somme de Riemann à gauche, avec $h = 0{,}5$.
-4. $\frac{20 \times 21}{2} = 210$.
+4. Dix termes égaux à 3 ($k$ va de 0 à 9) : 30. C'est le calcul d'une somme de Riemann d'une fonction constante.
 
 ### M02a.R3 — Exponentielle et logarithme (R6)
 1. 0.

@@ -450,3 +450,9 @@ def test_operator_priority_gets_a_dedicated_message(answer, value):
 def test_constant_is_not_stripped_when_a_precise_primitive_is_asked():
     entry = entry_of("E.13", "x**3 + x - 2", kind="expr", variables=("x",))
     assert not verdict("E.13", entry, "x**3 + x + C")[0]
+
+
+def test_a_constant_in_a_precise_primitive_gets_a_dedicated_message():
+    entry = entry_of("E.14", "x**3 + x - 2", kind="expr", variables=("x",))
+    passed, _, message = verdict("E.14", entry, "x**3 + x + C")
+    assert not passed and "primitive précise" in message

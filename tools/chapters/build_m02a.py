@@ -49,11 +49,13 @@ PAPER = [
          '"c\'est l\'aire exacte ; la question demande la somme de Riemann au milieu, qui l\'approche": 4, '
          '"au milieu : les hauteurs se lisent aux milieux des intervalles, en 0,25, 0,75, 1,25 et 1,75": 4.25}'),
         ("e", "a number", "4",
-         'mistakes={"L₄ − R₄, dans cet ordre : f est décroissante, la somme à gauche est la plus grande": -4}'),
+         'mistakes={"L₄ − R₄, dans cet ordre : f est décroissante, la somme à gauche est la plus grande": -4, '
+         '"L₄ et R₄ sont des aires : la différence des hauteurs se multiplie par la largeur h": 8}'),
         ("f", "a number (4 decimals)",
          "0.25 * sum((2 - 0.25 * i) ** 3 for i in range(8))",
          'decimals=4, mistakes={"multiplie la somme des huit hauteurs par la largeur h des rectangles": 20.25, '
-         '"avec n = 8, le pas vaut 2/8 : les hauteurs se lisent en 0 ; 0,25 ; … ; 1,75": 6.25}'),
+         '"avec n = 8, le pas vaut 2/8 : les hauteurs se lisent en 0 ; 0,25 ; … ; 1,75": 6.25, '
+         '"c\'est R₈ ; L₈ lit les hauteurs au début de chaque intervalle, de 0 à 1,75": 3.0625}'),
         ("g", "an integer", "160",
          'mistakes={"L_n − R_n = h (f(0) − f(2)), avec h = 2/n : la longueur de l\'intervalle compte": 80, '
          '"le plus petit entier n qui vérifie L_n − R_n ≤ 0,1 (inégalité large) : vérifie aussi l\'entier '
@@ -111,7 +113,8 @@ PAPER = [
          F + ', mistakes={"la courbe du haut moins celle du bas : sur [0 ; 2], 2x est au-dessus de x²": "-4/3"}'),
         ("h", "an irreducible fraction, as text", "Fraction(1, 2)",
          F + ', mistakes={"une primitive de sin est −cos, pas cos : dérive pour vérifier": "-1/2", '
-         '"[−cos x] de 0 à π/3 : F(π/3) − F(0), avec F = −cos (attention aux deux signes moins)": "-3/2"}'),
+         '"[−cos x] de 0 à π/3 : attention aux deux signes moins de −cos(π/3) − (−cos 0)": "-3/2", '
+         '"F(π/3) − F(0) avec F = −cos : calcule chaque terme avec son signe, puis leur différence": "3/2"}'),
     ]),
 
     Paper("M02a.4", "Intégration par parties", [

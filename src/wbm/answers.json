@@ -1065,7 +1065,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "5866a4d751803ca1c99e69d29958d528da5d56c0cae301b5513e3df7834829ca": "L₄ − R₄, dans cet ordre : f est décroissante, la somme à gauche est la plus grande"
+        "5866a4d751803ca1c99e69d29958d528da5d56c0cae301b5513e3df7834829ca": "L₄ − R₄, dans cet ordre : f est décroissante, la somme à gauche est la plus grande",
+        "c9655275b71c02bb46e0047ec9f0695c3a32b36bc6d8ee88912bf9d5d3f17361": "L₄ et R₄ sont des aires : la différence des hauteurs se multiplie par la largeur h"
       },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
@@ -1093,6 +1094,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "5da87980d4ef42015f66c5d3a5785c1f2a8e78d43f56bcb5f7e38672c6726fcc": "c'est R₈ ; L₈ lit les hauteurs au début de chaque intervalle, de 0 à 1,75",
         "c31cdfe7729a8bfc80934d8f4b12243ca968d36e0f6d15221a74ba83c48c9fa3": "multiplie la somme des huit hauteurs par la largeur h des rectangles",
         "e7e39422f2842a458eff4187502611e62db463e02b11b876be981b07a746a33f": "avec n = 8, le pas vaut 2/8 : les hauteurs se lisent en 0 ; 0,25 ; … ; 1,75"
       },
@@ -1461,8 +1463,9 @@
       "hash": "492f72f8dbdbc28a45eafa5435162fe8cabb296803458177a1a424636a1202e8",
       "kind": "fraction",
       "mistakes": {
+        "0c657ac193277461f1585e604668c882e1d25dabcd2ab817be890758367af81c": "F(π/3) − F(0) avec F = −cos : calcule chaque terme avec son signe, puis leur différence",
         "17407ec7087a92661b4be02d167906befa72b363b917d6a3abaec922279d84e5": "une primitive de sin est −cos, pas cos : dérive pour vérifier",
-        "88919c3b933d714f35dc9283ae076e4bd52f9f057bb209142ff3e9a45ebe6879": "[−cos x] de 0 à π/3 : F(π/3) − F(0), avec F = −cos (attention aux deux signes moins)"
+        "88919c3b933d714f35dc9283ae076e4bd52f9f057bb209142ff3e9a45ebe6879": "[−cos x] de 0 à π/3 : attention aux deux signes moins de −cos(π/3) − (−cos 0)"
       },
       "sign": 1,
       "simplified": true,

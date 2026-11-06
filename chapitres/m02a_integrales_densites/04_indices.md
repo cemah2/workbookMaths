@@ -152,7 +152,7 @@ Repère la fonction extérieure (puissance, ln, exp, racine) et la fonction int�
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $4u^3 \times u'$ avec $u = 3 - x^2$. 2 : la dérivée de $\ln u$ est $\frac{u'}{u}$, attention au signe de $u'$. 4 : $\sqrt{u}$ a pour dérivée $\frac{u'}{2\sqrt{u}}$.
+1 : $5u^4 \times u'$ avec $u = 1 - 2x$. 2 : la dérivée de $\ln u$ est $\frac{u'}{u}$, et $\cos' = -\sin$. 4 : $\sqrt{u}$ a pour dérivée $\frac{u'}{2\sqrt{u}}$, attention au signe de $u'$.
 
 </details>
 
@@ -170,7 +170,7 @@ Relis la notation $\Sigma$ (R4) : l'indice, ses bornes, le terme général.
 </details>
 <details><summary>Indice 3</summary>
 
-3 : les points sont $0{,}5 \times i$ pour $i = 0, 1, 2, 3$. 4 : la formule $\frac{n(n + 1)}{2}$.
+2 : $0{,}1$ se met en facteur. 3 : les points sont $0{,}5 \times i$ pour $i = 0, 1, 2, 3$. 4 : compte les valeurs de $k$ de 0 à 9.
 
 </details>
 

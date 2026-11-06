@@ -97,18 +97,18 @@ La variable $X$ a pour fonction de répartition $F(x) = 0$ pour $x < 0$, $F(x) =
 ### M02a.R1 — Dériver une composée (R7) 🔁 ★ ⏱️ 5 min
 *Fiche §2 · parcours C, E*
 
-1. La dérivée de $x \mapsto (3 - x^2)^4$ ?
-2. La dérivée de $x \mapsto \ln(5 - 2x)$, pour $x < \frac{5}{2}$ ?
+1. La dérivée de $x \mapsto (1 - 2x)^5$ ?
+2. La dérivée de $x \mapsto \ln(2 + \cos x)$ ?
 3. La dérivée de $x \mapsto e^{5x - 1}$ ?
-4. La dérivée de $x \mapsto \sqrt{1 + x^2}$ ?
+4. La dérivée de $x \mapsto \sqrt{4 - x}$, pour $x < 4$ ?
 
 ### M02a.R2 — Sommes Σ (R4) 🔁 ★ ⏱️ 5 min
 *Fiche §1 · parcours C, E*
 
-1. $\sum_{k=1}^{4} k^2$ ?
-2. $\sum_{k=1}^{4} (3k - 2)$ ?
+1. $\sum_{k=1}^{3} (k^2 + k)$ ?
+2. $\sum_{i=1}^{5} 0{,}1\,i$ ?
 3. Écris $0{,}5 \times \big(f(0) + f(0{,}5) + f(1) + f(1{,}5)\big)$ avec le symbole $\Sigma$.
-4. $\sum_{k=1}^{20} k$ ?
+4. $\sum_{k=0}^{9} 3$ ? (Combien de termes ?)
 
 ### M02a.R3 — Exponentielle et logarithme (R6) 🔁 ★ ⏱️ 5 min
 *Fiche §4 · parcours C*
@@ -306,6 +306,7 @@ Soit $f$ une fonction continue et **croissante** sur un intervalle $[a ; b]$, et
 2. Pourquoi a-t-on $h\,f(x) \le \int_x^{x+h} f(t)\,dt \le h\,f(x + h)$ ? Fais un dessin.
 3. Déduis-en un encadrement du taux d'accroissement $\frac{A(x + h) - A(x)}{h}$, puis sa limite quand $h \to 0^+$ (utilise la continuité de $f$). Le cas $h < 0$ se traite de la même façon : on l'admet.
 4. Conclus : $A$ est une primitive de $f$. Puis montre que $\int_a^b f(t)\,dt = F(b) - F(a)$ pour **toute** primitive $F$ de $f$ (deux primitives sur un intervalle diffèrent d'une constante).
+
 On a supposé $f$ croissante pour simplifier ; le théorème reste vrai pour toute fonction continue (on encadre alors par le minimum et le maximum de $f$ sur $[x ; x + h]$), et pour $x < a$ (avec la convention $\int_a^x = -\int_x^a$). La question 5 s'en sert.
 
 5. Application : soit $G(x) = \int_0^x e^{-t^2}\,dt$, pour tout réel $x$ ($e^{-t^2}$ n'est pas croissante : c'est la version générale du théorème qui s'applique). Calcule $G'(x)$, puis $G'(1)$, alors que tu ne sais pas calculer $G(x)$. Que dit le signe de $G'$ sur le sens de variation de $G$ ?
