@@ -292,7 +292,7 @@ CHAPTERS = [
     {
         "id": "R3",
         "dir": "r3_fonctions",
-        "hours": 13,
+        "hours": 12.8,
         "generation_sessions": 1,
         "mml": [],
         "summary": "La notion de fonction et ses représentations : images, antécédents, ensemble de définition, "

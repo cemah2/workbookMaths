@@ -259,3 +259,46 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] R2.28 🛠️ Écrire un test pytest pour une fonction qui résout une équation ★ 15 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (25 cartes)
 <!-- wbm:end R2 -->
+
+<!-- wbm:section R3 -->
+## R3 · Fonctions ⏱️ 12,8 h
+
+- [ ] R3.Q1 🧠 Image, antécédent, ensemble de définition ★ 4 min
+- [ ] R3.Q2 🧠 Lire un graphique ★ 4 min
+- [ ] R3.Q3 🧠 Pente et ordonnée à l'origine ★ 4 min
+- [ ] R3.Q4 🧠 Fonctions de référence : allure et variations ★ 4 min
+- [ ] R3.Q5 🧠 Discriminant : combien de racines ? ★ 4 min
+- [ ] R3.Q6 🧠 Croissante, décroissante, extremum ★ 4 min (complet)
+- [ ] R3.Q7 🧠 f∘g ou g∘f ? ★ 4 min
+- [ ] R3.Q8 🧠 Réciproque et inverse : ne pas confondre ★ 4 min
+- [ ] R3.R1 🔁 Identités remarquables (R2) ★ 5 min
+- [ ] R3.R2 🔁 Inéquations et intervalles (R2) ★ 5 min
+- [ ] R3.R3 🔁 Puissances et racines (R1) ★ 5 min (complet)
+- [ ] R3.1 ✏️ Images, antécédents et ensemble de définition ★ 15 min
+- [ ] R3.2 📈 Lire des valeurs, des solutions et des variations sur un graphique ★ 15 min
+- [ ] R3.3 ✏️ La fonction affine qui passe par deux points ★ 15 min
+- [ ] R3.4 ✏️ Ramener des données entre 0 et 1 avec une fonction affine (min-max) ★★ 20 min
+- [ ] R3.5 ✏️ Variations et signe des fonctions de référence ★ 15 min
+- [ ] R3.6 ✏️ Forme canonique et sommet d'une parabole ★★ 20 min
+- [ ] R3.7 ✏️ Racines par le discriminant et factorisation ★★ 20 min
+- [ ] R3.8 ✏️ Trouver le maximum d'une aire ou d'un bénéfice ★★ 20 min
+- [ ] R3.9 ✏️ Composer deux fonctions dans les deux ordres ★ 15 min
+- [ ] R3.10 ✏️ Trouver une réciproque et son ensemble de définition ★★ 20 min
+- [ ] R3.11 ✏️ Fonctions par morceaux et argmax : max(0, x), |x|, la marche, et où une fonction atteint son maximum ★★ 20 min
+- [ ] R3.12 ✏️ Évaluer un polynôme par le schéma de Horner ★ 10 min (complet)
+- [ ] R3.13 ∂ Démontrer la formule des racines du second degré ★★ 35 min (complet)
+- [ ] R3.14 ∂ Une fonction affine de pente positive est croissante ★★ 20 min (complet)
+- [ ] R3.15 🔗 Une fonction de coût donnée par une formule : une parabole et son sommet ★★ 20 min
+- [ ] R3.16 🗣️ Expliquer ce qu'est une fonction à quelqu'un qui n'aime pas les maths ★ 10 min
+- [ ] R3.17 🔨 Évaluer un polynôme par Horner ★ 25 min (complet)
+- [ ] R3.18 🔨 La fonction affine qui passe par deux points ★ 25 min
+- [ ] R3.19 🔨 Racines et sommet d'un polynôme du second degré ★★ 40 min
+- [ ] R3.20 🔨 Composer deux fonctions ★ 25 min
+- [ ] R3.21 📦 Tracer et lire les fonctions de référence ★ 15 min
+- [ ] R3.22 🎨 Faire varier a, b et c : déformer une parabole ★★ 20 min
+- [ ] R3.23 🔮 Prédire f∘g et g∘f pour « valeur absolue » et « moins 3 » ★ 10 min (complet)
+- [ ] R3.24 🔬 Combien de racines ? Le signe du discriminant sur une grille de paramètres ★★ 20 min (complet)
+- [ ] R3.25 🐛 Chasse à l'erreur : composition, réciproque et racines ★★ 20 min
+- [ ] R3.26 🛠️ Un graphique propre : titre, axes, légende ★ 15 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (25 cartes)
+<!-- wbm:end R3 -->
