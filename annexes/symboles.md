@@ -11,10 +11,12 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $:=$ | « est défini comme » | is defined as | on donne un nom à une expression | $f(x) := x^2$ | R4 |
 | $<$, $\le$ | « strictement inférieur à », « inférieur ou égal à » | less than, less than or equal to | comparaison | $2 \le 2$ est vrai, $2 < 2$ est faux | R2 |
 | $\pm$ | « plus ou moins » | plus or minus | deux valeurs à la fois | $x = \pm 3$ : $x = 3$ ou $x = -3$ | R2 |
-| $a^n$ | « a puissance n » | a to the power n | $a$ multiplié $n$ fois par lui-même | $2^3 = 8$ | R1 |
+| $a^n$ | « a puissance n » | a to the power n | produit de $n$ facteurs égaux à $a$ | $5^3 = 125$ | R1 |
+| $a^{-n}$ | « a puissance moins n » | a to the minus n | l'inverse de $a^n$ | $3^{-2} = \frac{1}{9}$ | R1 |
+| $m \times 10^k$, `me k` | « m fois dix puissance k » | m times ten to the k | notation scientifique ; en Python `3.72e-5` | $3{,}72 \times 10^{-5}$ | R1 |
 | $\sqrt{a}$ | « racine carrée de a » | square root of a | le nombre positif dont le carré vaut $a$ | $\sqrt{9} = 3$ | R1 |
 | $\lvert x \rvert$ | « valeur absolue de x » | absolute value of x | $x$ sans son signe ; distance de $x$ à 0 | $\lvert -3 \rvert = 3$ | R2 |
-| $\lfloor x \rfloor$, $\lceil x \rceil$ | « partie entière (inférieure, supérieure) de x » | floor, ceiling of x | arrondi vers le bas, vers le haut | $\lfloor 2{,}7 \rfloor = 2$, $\lceil 2{,}1 \rceil = 3$ | R1 |
+| $\lfloor x \rfloor$, $\lceil x \rceil$ | « partie entière (inférieure, supérieure) de x » | floor, ceiling of x | arrondi vers le bas, vers le haut | $\lfloor 2{,}4 \rfloor = 2$, $\lceil 2{,}4 \rceil = 3$, $\lfloor -1{,}6 \rfloor = -2$ | R1 |
 | $n!$ | « factorielle n » | n factorial | $1 \times 2 \times \dots \times n$ | $4! = 24$ | R8 |
 | $\binom{n}{k}$ | « k parmi n » | n choose k | nombre de façons de choisir $k$ objets parmi $n$ | $\binom{4}{2} = 6$ | R8 |
 | $\infty$ | « l'infini » | infinity | plus grand que tout nombre (pas un nombre) | $x \to +\infty$ | R5 |
@@ -25,7 +27,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 |---|---|---|---|---|---|
 | $\sum_{i=1}^{n} x_i$ | « somme pour i allant de 1 à n de x indice i » | sum over i from 1 to n | $x_1 + x_2 + \dots + x_n$ | $\sum_{i=1}^{3} i = 6$ | R4 |
 | $\prod_{i=1}^{n} x_i$ | « produit pour i allant de 1 à n » | product over i | $x_1 \times x_2 \times \dots \times x_n$ | $\prod_{i=1}^{3} i = 6$ | R4 |
-| $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ | « N, Z, Q, R » | naturals, integers, rationals, reals | entiers naturels, relatifs, rationnels, réels | $-2 \in \mathbb{Z}$, $-2 \notin \mathbb{N}$ | R1, R4 |
+| $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{D}$, $\mathbb{Q}$, $\mathbb{R}$ | « N, Z, D, Q, R » | naturals, integers, decimals, rationals, reals | entiers naturels, relatifs, décimaux, rationnels, réels | $-2 \in \mathbb{Z}$, $-2 \notin \mathbb{N}$ | R1, R4 |
 | $\in$, $\notin$ | « appartient à », « n'appartient pas à » | is in, is an element of | un élément dans un ensemble | $3 \in \{1, 2, 3\}$ | R4 |
 | $\subset$ ou $\subseteq$ | « est inclus dans » | is a subset of | tous les éléments du premier sont dans le second | $\{1, 2\} \subset \{1, 2, 3\}$ | R4 |
 | $A \cup B$, $A \cap B$ | « A union B », « A inter B » | union, intersection | dans l'un ou l'autre, dans les deux | $\{1,2\} \cap \{2,3\} = \{2\}$ | R4 |

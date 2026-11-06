@@ -554,7 +554,7 @@ $\\log_{10}$ est le **logarithme décimal** : $\\log_{10}(10^k) = k$. R6 l'étud
     given=R1_30_DATA,
     todo='''def plot_magnitudes(quantities):
     """Draw each quantity as a point at x = log10(value), with its label; title, axis label, ticks."""
-    raise NotImplementedError("place les points, puis les étiquettes")''',
+    raise NotImplementedError("place les points, puis écris leurs noms")''',
     check='''with wbm.attempt("R1.30"):
     plot_magnitudes(quantities)''',
     solution='''def plot_magnitudes(quantities):

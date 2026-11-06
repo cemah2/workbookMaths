@@ -12,7 +12,28 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 
 ## Partie 0 · Remise à niveau
 
-*(ajouté avec les chapitres R0 à R9)*
+### R1 · Nombres et calcul
+
+| Notion | Formule |
+|---|---|
+| ensembles de nombres | $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{D} \subset \mathbb{Q} \subset \mathbb{R}$ |
+| distributivité | $k(a + b) = ka + kb$ ; $-(a - b) = -a + b$ |
+| fractions | $\frac{a}{b} + \frac{c}{d} = \frac{ad + cb}{bd}$ ; $\frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd}$ ; $\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c}$ |
+| PGCD (Euclide) | $\operatorname{PGCD}(a, b) = \operatorname{PGCD}(b, r)$ si $a = bq + r$ ; le dernier reste non nul |
+| puissances | $a^m a^n = a^{m+n}$ ; $\frac{a^m}{a^n} = a^{m-n}$ ; $(a^m)^n = a^{mn}$ ; $(ab)^n = a^n b^n$ ; $\left(\frac{a}{b}\right)^n = \frac{a^n}{b^n}$ |
+| exposants nul et négatifs | $a^0 = 1$ ; $a^{-n} = \frac{1}{a^n}$ ($a \ne 0$) |
+| racines carrées | $\sqrt{ab} = \sqrt{a}\sqrt{b}$ ; $\sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}$ ; $(\sqrt{a})^2 = a$ ; $\sqrt{a^2} = a$ si $a \ge 0$ ; $\sqrt{a} = a^{1/2}$ |
+| notation scientifique | $x = m \times 10^k$, $1 \le \lvert m \rvert < 10$ |
+| ordre de grandeur | $10^k$ si $m < \sqrt{10} \approx 3{,}16$, sinon $10^{k+1}$ |
+| plancher, plafond | $\lfloor x \rfloor \le x < \lfloor x \rfloor + 1$ ; $\lceil x \rceil - 1 < x \le \lceil x \rceil$ |
+| taux d'évolution | $t = \frac{V_a - V_d}{V_d}$ ; coefficient $1 + t$ |
+| évolutions successives | coefficient global $(1 + t_1)(1 + t_2)\cdots(1 + t_n)$ |
+| évolution réciproque | coefficient $\frac{1}{1 + t}$ |
+| moyenne, moyenne pondérée | $\bar{x} = \frac{1}{n}\sum_i x_i$ ; $\bar{x}_w = \frac{\sum_i w_i x_i}{\sum_i w_i}$ |
+| somme pondérée (neurone) | $z = \sum_i w_i x_i + b$ |
+| moyenne harmonique | $H = \frac{n}{\sum_i \frac{1}{x_i}}$ |
+
+*(R2 à R9 ajoutés avec leurs chapitres)*
 
 ## Partie I · Fondations
 
