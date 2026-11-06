@@ -1,6 +1,6 @@
 # CP0 · Bilan de la remise à niveau (R1 à R9)
 
-Le bilan clôt la partie 0. Il vérifie que la remise à niveau tient avant d'ouvrir workbookIA 0B, qui reprend toutes ces notions, les étend aux vecteurs de $\mathbb{R}^n$, aux matrices et au gradient, et les relie au ML. Compte environ **3 h 20** : la lecture de ce dossier (15 min), la synthèse (60 min), l'examen blanc (122 min), sans compter la correction et la remédiation. Pas de mini-projet : ceux de workbookIA appliquent ces maths juste après.
+Le bilan clôt la partie 0. Il vérifie que la remise à niveau tient avant d'ouvrir workbookIA 0B, qui reprend toutes ces notions, les étend aux vecteurs de $\mathbb{R}^n$, aux matrices et au gradient, et les relie au ML. Compte environ **3 h 20** : la synthèse (75 min, sa lecture comprise), l'examen blanc (122 min), sans compter la correction et la remédiation. Pas de mini-projet : ceux de workbookIA appliquent ces maths juste après.
 
 | Fichier | Contenu | Quand |
 |---|---|---|

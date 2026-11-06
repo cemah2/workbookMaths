@@ -4,11 +4,11 @@
 
 ## Règles de notation
 
-- **Barème par sous-question**, entre crochets ; sauf mention contraire, une sous-question vaut 0,25 point. Une réponse juste sans démarche, quand la question en demande une, rapporte la moitié des points.
-- **Méthode juste, erreur de calcul** : la moitié des points de la sous-question. **Erreur reportée** : si une réponse fausse est réutilisée correctement plus loin, la suite n'est pas pénalisée une seconde fois.
-- **Valeurs exactes** : une valeur approchée là où une valeur exacte est demandée (une fraction, `ln`, une racine) rapporte la moitié des points ; une fraction juste mais non simplifiée, les trois quarts.
+- **Barème par sous-question**, entre crochets ; sauf mention contraire, une sous-question vaut 0,25 point.
+- **Crédit partiel** sur une sous-question de 0,25 point : 0,1 pour une réponse juste sans la démarche demandée, pour une méthode juste avec une erreur de calcul, ou pour une valeur approchée là où une valeur exacte est demandée (une fraction, `ln`, une racine) ; 0,2 pour une fraction juste mais non simplifiée. **Erreur reportée** : si une réponse fausse est réutilisée correctement plus loin, la suite n'est pas pénalisée une seconde fois.
 - **Arrondis** : une décimale de trop ou de moins coûte au plus 0,05 point par question ; un arrondi fait trop tôt, qui change la dernière décimale demandée, aussi.
 - **Questions rédigées** (CP0.Q1, CP0.9, CP0.10 b) : les critères sont listés ; une idée juste formulée autrement compte autant.
+- **Écriture de `ln`** : le logarithme népérien s'écrit `ln` (ou `log`, comme en Python) dans le notebook ; au lycée, $\log$ seul désigne souvent $\log_{10}$, d'où $\ln$ partout ici.
 
 ---
 
@@ -18,26 +18,26 @@ Chaque affirmation : **[0,1]** pour le verdict, **[0,15]** pour une justificatio
 
 **a) Faux** (R1). Une puissance de puissance **multiplie** les exposants : $(2^3)^2 = 2^{3 \times 2} = 2^6 = 64$, alors que $2^5 = 32$.
 
-**b) Faux** (R2, R3). $\sqrt{x^2} = \lvert x \rvert$ : une racine carrée n'est jamais négative. Contre-exemple : $x = -3$ donne $\sqrt{9} = 3 \ne -3$.
+**b) Faux** (R2). Contre-exemple : $a = 3$ et $b = -3$ donnent $\lvert a + b \rvert = 0$, mais $\lvert a \rvert + \lvert b \rvert = 6$. On a seulement $\lvert a + b \rvert \le \lvert a \rvert + \lvert b \rvert$, avec égalité quand $a$ et $b$ ont le même signe.
 
 **c) Vrai** (R3). Si $a < b$, alors $f(a) < f(b)$, donc $f(a) \ne f(b)$ : deux nombres différents n'ont jamais la même image. C'est pour cela qu'une telle fonction a une réciproque.
 
-**d) Faux** (R4). La contraposée de « $P \Rightarrow Q$ » est « non $Q \Rightarrow$ non $P$ » : « si le sol n'est pas mouillé, alors il ne pleut pas ». La phrase proposée est la **réciproque**, qui peut être fausse (un arrosage mouille le sol).
+**d) Vrai** (R4). La négation de « pour tout $n$, $P(n)$ » est « il existe $n$ tel que non $P(n)$ » : un seul $n$ pour lequel $P(n)$ est faux la démontre. (Pour montrer qu'une telle affirmation est **vraie**, en revanche, des exemples ne suffisent jamais.)
 
-**e) Vrai** (R5). $u_n = 2 \times 0{,}9^n$, et $0{,}9^n$ tend vers 0 car $0 < 0{,}9 < 1$.
+**e) Vrai** (R5). $u_n = u_0 + nr$ avec $r < 0$ : $nr$ tend vers $-\infty$, donc $u_n$ aussi.
 
-**f) Vrai** (R6). $e^{2\ln 5} = \left(e^{\ln 5}\right)^2 = 5^2 = 25$ (ou $2\ln 5 = \ln 25$, et $e^{\ln 25} = 25$).
+**f) Vrai** (R6). Une exponentielle est toujours strictement positive : $e^{-x} = \frac{1}{e^x}$, et $e^x > 0$.
 
-**g) Faux** (R7). La valeur absolue est continue en 0, mais pas dérivable en 0 : son taux d'accroissement vaut $-1$ à gauche et $1$ à droite (un « coin »). L'inverse est vrai : dérivable entraîne continue.
+**g) Vrai** (R7). Une dérivée strictement positive sur un intervalle rend $f$ strictement croissante sur cet intervalle ; comme $0 < 1$, $f(0) < f(1)$.
 
-**h) Faux** (R8). Incompatibles : $P(A \cap B) = 0$. Indépendants : $P(A \cap B) = P(A)\,P(B) > 0$. Les deux ensemble sont impossibles quand $P(A) > 0$ et $P(B) > 0$ : savoir que $A$ est arrivé dit que $B$ n'est pas arrivé.
+**h) Faux** (R8). Sans remise, le contenu de l'urne change après le premier tirage : la probabilité du second dépend du résultat du premier. Exemple : avec une boule rouge et une bleue, $P(\text{rouge au 2ᵉ}) = \frac{1}{2}$, mais $P(\text{rouge au 2ᵉ} \mid \text{rouge au 1ᵉʳ}) = 0$.
 
-**i) Vrai** (R9). $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert\cos\theta$, avec des normes positives : le produit scalaire a le signe de $\cos\theta$, négatif exactement quand $\theta$ est entre 90° et 180°.
+**i) Faux** (R9). Le cosinus est l'abscisse du point du cercle trigonométrique : il est négatif entre $\frac{\pi}{2}$ et $\pi$. Contre-exemple : $\cos\pi = -1$, ou $\cos\frac{2\pi}{3} = -\frac{1}{2}$.
 
-**j) Faux** (R8). Ajouter une constante décale toutes les valeurs, sans changer leur dispersion : $\mathbb{V}(X + 3) = \mathbb{V}(X)$. Plus généralement, $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$.
+**j) Vrai** (R8). $\mathbb{E}[X] = \frac{0 + 10}{2} = 5$ ; $\mathbb{E}[X^2] = \frac{0 + 100}{2} = 50$, donc $\mathbb{V}(X) = 50 - 25 = 25$ (les deux valeurs sont à 5 de la moyenne : l'écart-type vaut 5).
 
-**Erreurs fréquentes** : en a), additionner les exposants ; en d), confondre contraposée et réciproque ; en g), croire que « continue » suffit ; en h), confondre « incompatibles » et « indépendants » ; en j), appliquer à la variance la règle de l'espérance.
-**Remédiation** : a) R1.7 ; b) R2.9, R3.5 ; c) R3.10 ; d) R4.2 ; e) R5.3, R5.5 ; f) R6.1, R6.2 ; g) R7.12 ; h) R8.7 ; i) R9.5, R9.9 ; j) R8.9.
+**Erreurs fréquentes** : en a), additionner les exposants ; en b), oublier les signes contraires ; en d), croire qu'il faut une démonstration générale pour réfuter ; en h), croire que des tirages « successifs » sont toujours indépendants ; en i), confondre $[0 ; \pi]$ et $\left[0 ; \frac{\pi}{2}\right]$.
+**Remédiation** : a) R1.7 ; b) R2.9 ; c) R3.10 ; d) R4.3, R4.8 ; e) R5.2 ; f) R6.1 ; g) R7.8 ; h) R8.7 ; i) R9.7, R9.8 ; j) R8.9.
 
 ## CP0.1 — Fractions, puissances et notation scientifique ✏️ · 1,25 point
 
@@ -49,7 +49,7 @@ c) $4 \times 7 = 28$ et $10^{-5} \times 10^{8} = 10^{3}$ : $28 \times 10^3 = 2{,
 d) $\frac{9}{1{,}5} = 6$ et $\frac{10^{-4}}{10^{-7}} = 10^{-4 - (-7)} = 10^{3}$ : $6 \times 10^{3}$. **[0,25]**
 e) Les coefficients se multiplient : $1{,}2 \times 0{,}75 = 0{,}9$, soit une baisse de 10 %. **[0,25]**
 
-**Erreurs fréquentes** : en a), soustraire avant de diviser ($\frac{33}{16}$) ; en b), lire $25^{-3}$ comme $5^{-3}$ ; en c), laisser $28 \times 10^3$ ; en d), oublier le signe dans $-4 - (-7)$ ; en e), additionner les pourcentages ($-5$ %).
+**Erreurs fréquentes** : en a), soustraire avant de diviser ($\frac{33}{16}$) ; en b), lire $25^{-3}$ comme $5^{-3}$ ; en c), laisser $28 \times 10^3$ ; en d), $10^{-11}$ (le signe de $-(-7)$ perdu) ou $10^{-3}$ (la soustraction à l'envers) ; en e), additionner les pourcentages ($-5$ %), ou donner le coefficient 0,9.
 **Remédiation** : R1.2, R1.5, R1.7, R1.8, R1.10, R1.12.
 
 ## CP0.2 — Développer, factoriser, résoudre ✏️ · 1,25 point
@@ -81,61 +81,61 @@ f) **3** : la seconde équation est la première multipliée par 2 ; elles décr
 
 ## CP0.4 — Second degré : racines et sommet ✏️ · 1,5 point
 
-**Réponses** : a) `16` · b) `[1, 3]` · c) `[2, 2]` · d) `"]1 ; 3["` · e) `0` · f) `-6`.
+**Réponses** : a) `64` · b) `[-7, 1]` · c) `[-3, 16]` · d) `"]-7 ; 1["` · e) `0` · f) `7`.
 
-a) $\Delta = 8^2 - 4 \times (-2) \times (-6) = 64 - 48 = 16$. **[0,25]**
-b) $x = \frac{-8 \pm 4}{2 \times (-2)}$ : $\frac{-4}{-4} = 1$ et $\frac{-12}{-4} = 3$. Ou : $f(x) = -2(x^2 - 4x + 3) = -2(x - 1)(x - 3)$. **[0,25]**
-c) $\alpha = -\frac{b}{2a} = -\frac{8}{-4} = 2$ (au milieu des racines), et $f(2) = -8 + 16 - 6 = 2$. **[0,25]**
-d) $a = -2 < 0$ : la parabole est tournée vers le bas, $f$ est positive entre ses racines, strictement entre elles. **[0,25]**
-e) **0** : le maximum de $f$ est 2 (le sommet), donc $f(x) = 3$ n'a pas de solution. **[0,25]**
-f) Le sommet est en $x = 2$, hors de $[-1 ; 0]$ ; sur cet intervalle, à gauche du sommet, $f$ est croissante : sa plus grande valeur est $f(0) = -6$ (et $f(-1) = -16$). **[0,25]**
+a) $\Delta = (-6)^2 - 4 \times (-1) \times 7 = 36 + 28 = 64$. **[0,25]**
+b) $x = \frac{6 \pm 8}{2 \times (-1)}$ : $\frac{14}{-2} = -7$ et $\frac{-2}{-2} = 1$. Ou : $f(x) = -(x^2 + 6x - 7) = -(x + 7)(x - 1)$. **[0,25]**
+c) $\alpha = -\frac{b}{2a} = -\frac{-6}{-2} = -3$ (au milieu des racines), et $f(-3) = -9 + 18 + 7 = 16$. **[0,25]**
+d) $a = -1 < 0$ : la parabole est tournée vers le bas, $f$ est positive entre ses racines, strictement entre elles. **[0,25]**
+e) **0** : le maximum de $f$ est 16 (le sommet), donc $f(x) = 20$ n'a pas de solution. **[0,25]**
+f) Le sommet est en $x = -3$, hors de $[0 ; 2]$ ; sur cet intervalle, à droite du sommet, $f$ est décroissante : sa plus grande valeur est $f(0) = 7$ (et $f(2) = -9$). **[0,25]**
 
-**Erreurs fréquentes** : en a), $64 + 48$ ; en b), oublier le signe de $a$ au dénominateur ; en d), donner l'extérieur des racines (le cas $a > 0$) ; en f), répondre 2, le maximum sur $\mathbb{R}$.
+**Erreurs fréquentes** : en a), $36 - 28$ ; en b), oublier le signe de $a$ au dénominateur ($[-1, 7]$) ; en d), donner l'extérieur des racines (le cas $a > 0$) ; en f), répondre 16, le maximum sur $\mathbb{R}$.
 **Remédiation** : R3.5, R3.6, R3.7, R3.8.
 
 ## CP0.5 — Exponentielle et logarithme ✏️ · 1,25 point
 
-**Réponses** : a) `7` · b) `"(log(4) + 2)/3"` · c) `10.54` · d) `0` · e) `"4/5"`.
+**Réponses** : a) `0` · b) `"(ln(3) + 5)/2"` · c) `1.43` · d) `2` · e) `"4/5"`.
 
-a) $\ln(e^4) = 4$, $e^{\ln 3} = 3$, $\ln 1 = 0$ : $4 + 3 - 0 = 7$. **[0,25]**
-b) $3x - 2 = \ln 4$, donc $x = \frac{\ln 4 + 2}{3}$ (ou $\frac{2\ln 2 + 2}{3}$), environ 1,129. **[0,25]** (0,1 pour la seule valeur approchée)
-c) $2x - 1 = e^3$, donc $x = \frac{e^3 + 1}{2} \approx \frac{20{,}086 + 1}{2} \approx 10{,}54$ ; on vérifie que $2x - 1 > 0$. **[0,25]**
-d) $\log_{10}(1\,000) = 3$ et $\log_2\left(\frac{1}{8}\right) = \log_2(2^{-3}) = -3$ : la somme vaut 0. **[0,25]**
+a) $\ln 12 - \ln 3 + \ln\frac{1}{4} = \ln\left(\frac{12}{3} \times \frac{1}{4}\right) = \ln 1 = 0$. **[0,25]**
+b) $2x - 5 = \ln 3$, donc $x = \frac{\ln 3 + 5}{2} \approx 3{,}049$. **[0,25]** (0,1 pour la seule valeur approchée)
+c) $4x - 3 = e^1$, donc $x = \frac{e + 3}{4} \approx \frac{5{,}718}{4} \approx 1{,}43$ ; on vérifie que $4x - 3 = e > 0$. **[0,25]**
+d) $\log_{10} 2 + \log_{10} 50 = \log_{10}(2 \times 50) = \log_{10} 100 = 2$. **[0,25]**
 e) $e^{-\ln 4} = \frac{1}{e^{\ln 4}} = \frac{1}{4}$, donc $\sigma(\ln 4) = \frac{1}{1 + \frac{1}{4}} = \frac{4}{5}$. **[0,25]**
 
-**Erreurs fréquentes** : en a), $\ln 1 = 1$ ; en b), diviser avant d'ajouter 2 ; en c), prendre $\ln$ au lieu de $\exp$ pour défaire $\ln$ ; en d), $\log_2\frac{1}{8} = 3$ ; en e), oublier le signe moins de $e^{-z}$ ($\frac{1}{5}$).
+**Erreurs fréquentes** : en a) et d), $\ln(a - b)$ ou $\log(a + b)$ au lieu de $\ln\frac{a}{b}$ et $\log(ab)$ ; en b), diviser avant d'ajouter 5 ; en c), prendre $\ln$ au lieu de $\exp$ pour défaire $\ln$ ; en e), oublier le signe moins de $e^{-z}$ ($\frac{1}{5}$).
 **Remédiation** : R6.1, R6.2, R6.3, R6.4, R6.7.
 
 ## CP0.6 — Dériver et étudier les variations ✏️ · 2 points
 
-**Réponses** : a) `"3*x**2 - 12"` · b) `[-2, 2]` · c) `[21, -11]` · d) `"[-2 ; 2]"` · e) `[-9, 3]` · f) `"(6*x + 1)*exp(2*x)"` · g) `"1/sqrt(2*x + 5)"` · h) `0`.
+**Réponses** : a) `"3*x**2 - 12"` · b) `[-2, 2]` · c) `[21, -11]` · d) `"[-2 ; 2]"` · e) `[-9, 3]` · f) `"(2*x - x**2)*exp(-x)"` · g) `"-3/(x - 2)**2"` · h) `3`.
 
 a) $f'(x) = 3x^2 - 12$. **[0,25]**
 b) $3x^2 - 12 = 0$ équivaut à $x^2 = 4$ : $x = -2$ ou $x = 2$. **[0,25]**
 c) $f'$ est positive avant $-2$, négative entre $-2$ et 2, positive après : maximum local $f(-2) = -8 + 24 + 5 = 21$, minimum local $f(2) = 8 - 24 + 5 = -11$. **[0,25]**
 d) $f' \le 0$ sur $[-2 ; 2]$ (nulle seulement aux bornes) : $f$ y est décroissante. **[0,25]**
 e) $f(1) = -6$ et $f'(1) = -9$ : $y = -9(x - 1) - 6 = -9x + 3$. **[0,25]**
-f) Règle du produit avec $u = 3x - 1$, $v = e^{2x}$, $v' = 2e^{2x}$ (règle de la chaîne) : $g'(x) = 3e^{2x} + (3x - 1) \times 2e^{2x} = (6x + 1)e^{2x}$. **[0,25]**
-g) $(\sqrt{u})' = \frac{u'}{2\sqrt{u}}$ avec $u = 2x + 5$, $u' = 2$ : $h'(x) = \frac{2}{2\sqrt{2x + 5}} = \frac{1}{\sqrt{2x + 5}}$. **[0,25]**
-h) Croissances comparées : $x^2 e^{-x} = \frac{x^2}{e^x}$ tend vers 0, car l'exponentielle l'emporte sur toute puissance de $x$. **[0,25]**
+f) Règle du produit avec $u = x^2$, $v = e^{-x}$, $v' = -e^{-x}$ (règle de la chaîne) : $g'(x) = 2x\,e^{-x} - x^2 e^{-x} = (2x - x^2)\,e^{-x}$. **[0,25]**
+g) Règle du quotient avec $u = x + 1$, $v = x - 2$ : $h'(x) = \frac{1 \times (x - 2) - (x + 1) \times 1}{(x - 2)^2} = \frac{-3}{(x - 2)^2}$. **[0,25]**
+h) **3** : $f$ part de $-\infty$ (en $-\infty$), monte jusqu'à $f(-2) = 21 > 0$, descend jusqu'à $f(2) = -11 < 0$, puis remonte vers $+\infty$. Sur chacun des trois intervalles où elle est monotone, elle passe par 0 exactement une fois. **[0,25]** (0,1 sans le tableau de variations)
 
-**Erreurs fréquentes** : en a), garder le 5 ; en b), oublier $-2$ ; en c), donner les abscisses au lieu des valeurs ; en e), répondre $[-9, -6]$ (le point au lieu de l'ordonnée à l'origine) ; en f), $u'v'$, ou oublier le facteur 2 de $e^{2x}$ ; en g), oublier la dérivée de $2x + 5$ ; en h), « $+\infty$ » parce que $x^2$ grandit.
-**Remédiation** : R7.1, R7.4, R7.5, R7.6, R7.7, R7.8 ; R6 (croissances comparées).
+**Erreurs fréquentes** : en a), garder le 5 ; en b), oublier $-2$ ; en c), donner les abscisses au lieu des valeurs ; en e), répondre $[-9, -6]$ (le point au lieu de l'ordonnée à l'origine) ; en f), $u'v'$, ou oublier le signe moins de la dérivée de $e^{-x}$ ; en g), $u'v - uv'$ dans le mauvais ordre ($\frac{3}{(x - 2)^2}$) ; en h), ne pas comparer les extrema à 0.
+**Remédiation** : R7.1, R7.4, R7.5, R7.6, R7.7, R7.8.
 
 ## CP0.7 — Un arbre de probabilités et une espérance ✏️ · 1,5 point
 
-**Réponses** : a) `0.07` · b) `0.04` · c) `0.1351` · d) `2.44` · e) `4.17` · f) `3.88`.
+**Réponses** : a) `0.052` · b) `0.024` · c) `0.1013` · d) `1.38` · e) `7.10` · f) `1.75`.
 
-L'arbre : une première branche $A$ (0,6) ou $B$ (0,4), puis $D$ ou $\bar{D}$ : 0,05 et 0,95 après $A$, 0,1 et 0,9 après $B$.
+L'arbre : une première branche $C$ (0,7) ou $V$ (0,3), puis $R$ ou $\bar{R}$ : 0,04 et 0,96 après $C$, 0,08 et 0,92 après $V$.
 
-a) $P(D) = 0{,}6 \times 0{,}05 + 0{,}4 \times 0{,}1 = 0{,}03 + 0{,}04 = 0{,}07$ (probabilités totales). **[0,25]**
-b) $P(B \cap D) = P(B) \times P_B(D) = 0{,}4 \times 0{,}1 = 0{,}04$. **[0,25]**
-c) Par l'événement contraire : aucune des deux n'est défectueuse avec probabilité $0{,}93^2 = 0{,}8649$ (indépendance), donc au moins une l'est avec probabilité $1 - 0{,}8649 = 0{,}1351$. **[0,25]**
-d) $\mathbb{E}[X] = 0{,}93 \times 3 + 0{,}07 \times (-5) = 2{,}79 - 0{,}35 = 2{,}44$. **[0,25]**
-e) $\mathbb{E}[X^2] = 0{,}93 \times 9 + 0{,}07 \times 25 = 8{,}37 + 1{,}75 = 10{,}12$, puis $\mathbb{V}(X) = 10{,}12 - 2{,}44^2 = 10{,}12 - 5{,}9536 = 4{,}1664 \approx 4{,}17$. **[0,25]**
-f) Linéarité de l'espérance : $\mathbb{E}[2X - 1] = 2\,\mathbb{E}[X] - 1 = 3{,}88$. **[0,25]**
+a) $P(R) = 0{,}7 \times 0{,}04 + 0{,}3 \times 0{,}08 = 0{,}028 + 0{,}024 = 0{,}052$ (probabilités totales). **[0,25]**
+b) $P(V \cap R) = P(V) \times P_V(R) = 0{,}3 \times 0{,}08 = 0{,}024$. **[0,25]**
+c) Par l'événement contraire : aucun des deux n'est en retard avec probabilité $0{,}948^2 = 0{,}898704$ (indépendance), donc au moins un l'est avec probabilité $1 - 0{,}898704 \approx 0{,}1013$. **[0,25]**
+d) $\mathbb{E}[X] = 0{,}948 \times 2 + 0{,}052 \times (-10) = 1{,}896 - 0{,}52 = 1{,}376 \approx 1{,}38$. **[0,25]**
+e) $\mathbb{E}[X^2] = 0{,}948 \times 4 + 0{,}052 \times 100 = 3{,}792 + 5{,}2 = 8{,}992$, puis $\mathbb{V}(X) = 8{,}992 - 1{,}376^2 = 8{,}992 - 1{,}893376 \approx 7{,}10$. **[0,25]**
+f) Linéarité de l'espérance : $\mathbb{E}[2X - 1] = 2\,\mathbb{E}[X] - 1 = 1{,}752 \approx 1{,}75$. **[0,25]**
 
-**Erreurs fréquentes** : en a), additionner les taux de défaut (0,15) ; en b), répondre 0,1, la seule probabilité conditionnelle ; en c), $2 \times 0{,}07$ ; en d), la moyenne non pondérée $-1$ ; en e), oublier de retrancher $\mathbb{E}[X]^2$ ; en f), oublier le $-1$.
+**Erreurs fréquentes** : en a), additionner les taux de retard (0,12) ou en faire la moyenne (0,06) ; en b), répondre 0,08, la seule probabilité conditionnelle ; en c), $2 \times 0{,}052$ ; en d), la moyenne non pondérée $-4$ ; en e), oublier de retrancher $\mathbb{E}[X]^2$ ; en f), oublier le $-1$.
 **Remédiation** : R8.3, R8.6, R8.7, R8.8, R8.9.
 
 ## CP0.8 — Vecteurs, produit scalaire, angle ✏️ · 1,25 point
@@ -171,37 +171,37 @@ e) $\arccos\frac{5}{13} \approx 1{,}176$ radian, soit environ 67,4°. **[0,25]**
 
 ## CP0.10 — Corriger une copie : cinq erreurs 🐛 · 1,25 point
 
-**Réponse** : a) `"ADEFH"`.
+**Réponse** : a) `"BCEFH"`.
 
 a) **[0,5]** : 0,1 par lettre juste, et 0,1 de moins par ligne juste citée (au moins 0).
 b) **[0,75]** : 0,15 par ligne fausse corrigée avec sa règle.
-- **(A)** $\sqrt{36 + 64} = \sqrt{100} = 10$ : la racine d'une somme n'est pas la somme des racines.
-- **(D)** $\frac{2}{5} + \frac{1}{3} = \frac{6}{15} + \frac{5}{15} = \frac{11}{15}$ : on additionne des fractions sur un dénominateur commun, jamais numérateurs et dénominateurs entre eux.
-- **(E)** $3^4 \times 3^5 = 3^{4 + 5} = 3^9$ : un produit de puissances d'un même nombre additionne les exposants.
-- **(F)** la dérivée de $e^{-4x}$ est $-4e^{-4x}$ : règle de la chaîne, on multiplie par la dérivée de $-4x$.
-- **(H)** $\mathbb{V}(-2X) = (-2)^2\,\mathbb{V}(X) = 16$ : une variance n'est jamais négative, $\mathbb{V}(aX) = a^2\,\mathbb{V}(X)$.
+- **(B)** $\frac{x + 6}{3} = \frac{x}{3} + 2$ : on divise **chaque** terme du numérateur, pas un seul.
+- **(C)** $(-2)^4 = 16$ : un nombre négatif élevé à une puissance paire donne un résultat positif (à ne pas confondre avec $-2^4 = -16$).
+- **(E)** $e^3 \times e^4 = e^{3 + 4} = e^7$ : un produit d'exponentielles additionne les exposants.
+- **(F)** la dérivée de $\frac{1}{x}$ est $-\frac{1}{x^2}$ ; c'est la dérivée de $\ln x$ qui vaut $\frac{1}{x}$ (la ligne confond une dérivée et une primitive).
+- **(H)** $P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0{,}5 + 0{,}4 - 0{,}1 = 0{,}8$ : sans retrancher l'intersection, on la compte deux fois.
 
-Les lignes (B) (une identité remarquable), (C) ($\ln a + \ln b = \ln(ab)$) et (G) (une valeur remarquable) sont justes.
+Les lignes (A) ($\sqrt{ab} = \sqrt{a}\sqrt{b}$ : $5 \times 4$), (D) ($\ln a - \ln b = \ln\frac{a}{b}$) et (G) (une valeur remarquable) sont justes.
 
-**Erreurs fréquentes** : citer (C), en confondant avec l'erreur $\ln(a + b) = \ln a + \ln b$ ; laisser passer (H) parce que la règle des espérances est linéaire.
-**Remédiation** : R1.28, R2.27, R6.21, R7.24, R8.23, et `annexes/erreurs_frequentes.md`.
+**Erreurs fréquentes** : citer (A), en confondant avec l'erreur $\sqrt{a + b} = \sqrt{a} + \sqrt{b}$, ou (D) ; laisser passer (C), parce que $-2^4 = -16$ est juste.
+**Remédiation** : R1.28, R1.29, R2.27, R6.21, R7.24, R8.23, et `annexes/erreurs_frequentes.md`.
 
 ## CP0.11 — Une somme écrite avec Σ et une somme géométrique ✏️ · 1,25 point
 
-**Réponses** : a) `26` · b) `155` · c) `27` · d) `"5/3"` · e) `"1/6"`.
+**Réponses** : a) `26` · b) `155` · c) `27` · d) `"5/3"` · e) `729`.
 
 a) $0 + 3 + 8 + 15 = 26$ (ou $1 + 4 + 9 + 16 - 4$). **[0,25]**
 b) Somme géométrique de premier terme 5, de raison 2, à 5 termes : $5 \times \frac{2^5 - 1}{2 - 1} = 5 \times 31 = 155$ (vérification : $5 + 10 + 20 + 40 + 80$). **[0,25]**
 c) De $k = 4$ à $k = 12$, il y a $12 - 4 + 1 = 9$ termes, tous égaux à 3 : 27. **[0,25]**
 d) Raison $q = \frac{2}{5}$, avec $\lvert q \rvert < 1$, premier terme 1 : $\frac{1}{1 - \frac{2}{5}} = \frac{5}{3}$. **[0,25]**
-e) $\frac{1}{2} \times \frac{2}{3} \times \frac{3}{4} \times \frac{4}{5} \times \frac{5}{6} = \frac{1}{6}$ : chaque numérateur se simplifie avec le dénominateur précédent. **[0,25]**
+e) $3^1 \times 3^2 \times 3^3 = 3^{1 + 2 + 3} = 3^6 = 729$ : un produit de puissances d'un même nombre additionne les exposants. **[0,25]**
 
-**Erreurs fréquentes** : en a), compter le $-1$ une seule fois (29) ; en b) et c), un terme de moins (75, 24) ; en d), $\frac{q}{1 - q}$ en oubliant le terme $k = 0$ ; en e), s'arrêter à $k = 5$.
+**Erreurs fréquentes** : en a), compter le $-1$ une seule fois (29) ; en b) et c), un terme de moins (75, 24) ; en d), $\frac{q}{1 - q}$ en oubliant le terme $k = 0$ ; en e), additionner au lieu de multiplier (39).
 **Remédiation** : R4.6, R4.7, R5.4, R5.5.
 
 ## CP0.12 — Problème de synthèse : étudier une fonction de coût 🔗 · 2 points
 
-**Réponses** : a) `1` · b) `"exp(w) - 2"` · c) `"log(2)"` · d) `0.614` · e) `"]-oo ; log(2)]"` · f) `"+oo"` · g) `[-1, 1]` · h) `True`.
+**Réponses** : a) `1` · b) `"exp(w) - 2"` · c) `"ln(2)"` · d) `0.614` · e) `"]-oo ; ln(2)]"` · f) `"+oo"` · g) `[-1, 1]` · h) `True`.
 
 a) $L(0) = e^0 - 0 = 1$. **[0,25]**
 b) $L'(w) = e^w - 2$. **[0,25]**
@@ -215,25 +215,25 @@ h) **Vrai** : le minimum de $L$ sur $\mathbb{R}$ est $2 - 2\ln 2 \approx 0{,}614
 Le lien avec workbookIA : « entraîner » un modèle, c'est chercher le paramètre qui minimise une fonction de coût. Ici, une seule variable et une formule simple permettent de le faire à la main : dériver, annuler la dérivée, vérifier les variations. workbookIA fera la même chose avec des milliers de paramètres, par un calcul numérique.
 
 **Erreurs fréquentes** : en c), $w = 2$ ou $w = e^2$ ; en d), oublier que $e^{\ln 2} = 2$ ; en e), inverser décroissante et croissante ; en f), « $-\infty$ », en croyant que $-2w$ l'emporte ; en g), donner le point $(0 ; 1)$ au lieu de l'équation.
-**Remédiation** : R6.3, R7.4, R7.8, R7.15, R3.15.
+**Remédiation** : R6.3, R6 §5 et R6.19 (croissances comparées), R7.1, R7.4, R7.8, R7.15.
 
 ## Barème récapitulatif et remédiation
 
 | Question | Points | Chapitres | Si tu as moins de la moitié des points, refais… |
 |---|---|---|---|
 | CP0.Q1 | 2,5 | R1 à R9 | les exercices cités au CP0.Q1, puis les quiz et les flashcards des chapitres concernés |
-| CP0.1 | 1,25 | R1 | R1.5, R1.7, R1.8, R1.10, R1.12 |
-| CP0.2 | 1,25 | R2 | R2.2, R2.4, R2.6, R2.7, R2.9 |
+| CP0.1 | 1,25 | R1 | R1.2, R1.5, R1.7, R1.8, R1.10, R1.12 |
+| CP0.2 | 1,25 | R2 | R2.2, R2.4, R2.5, R2.6, R2.7, R2.9 |
 | CP0.3 | 1,5 | R2, R3 | R2.10, R2.11, R2.15, R3.3 |
-| CP0.4 | 1,5 | R3 | R3.6, R3.7, R3.8 |
+| CP0.4 | 1,5 | R3 | R3.5, R3.6, R3.7, R3.8 |
 | CP0.5 | 1,25 | R6 | R6.1, R6.2, R6.3, R6.4, R6.7 |
-| CP0.6 | 2 | R7 | R7.4, R7.5, R7.6, R7.7, R7.8 |
-| CP0.7 | 1,5 | R8 | R8.3, R8.6, R8.8, R8.9 |
-| CP0.8 | 1,25 | R9 | R9.1, R9.5, R9.9 |
-| CP0.9 | 1,5 | R4, R5 | R4.12, R4.13, R4.24, R5.3 |
-| CP0.10 | 1,25 | R1 à R9 | R1.28, R2.27, R6.21, R7.24, R8.23 |
+| CP0.6 | 2 | R7 | R7.1, R7.4, R7.5, R7.6, R7.7, R7.8 |
+| CP0.7 | 1,5 | R8 | R8.3, R8.6, R8.7, R8.8, R8.9 |
+| CP0.8 | 1,25 | R9 | R9.1, R9.2, R9.5, R9.9 |
+| CP0.9 | 1,5 | R4, R5 | R4.12, R4.13, R4.24, R5.1, R5.3 |
+| CP0.10 | 1,25 | R1 à R9 | R1.28, R1.29, R2.27, R6.21, R7.24, R8.23 |
 | CP0.11 | 1,25 | R4, R5 | R4.6, R4.7, R5.4, R5.5 |
-| CP0.12 | 2 | R6, R7 | R7.8, R7.15, R6.3 |
+| CP0.12 | 2 | R6, R7 | R6.3, R6.19, R7.1, R7.4, R7.8, R7.15 |
 | **Total** | **20** | | |
 
 **Lire ta note**

@@ -49,8 +49,8 @@
 - b) racines :
 - c) sommet : [x, y] =
 - d) f(x) > 0 pour x dans
-- e) nombre de solutions de f(x) = 3 :
-- f) plus grande valeur sur [−1 ; 0] :
+- e) nombre de solutions de f(x) = 20 :
+- f) plus grande valeur sur [0 ; 2] :
 
 ## CP0.5 — Exponentielle et logarithme
 
@@ -69,13 +69,13 @@
 - e) tangente en 1 : [m, p] =
 - f) g′(x) =
 - g) h′(x) =
-- h) limite =
+- h) nombre de solutions de f(x) = 0 : — parce que
 
 ## CP0.7 — Un arbre de probabilités et une espérance
 
 - L'arbre :
-- a) P(D) =
-- b) P(B ∩ D) =
+- a) P(R) =
+- b) P(V ∩ R) =
 - c) =
 - d) E[X] =
 - e) V(X) =

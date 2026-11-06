@@ -415,3 +415,12 @@ def test_exact_integers_and_float_noise():
     for value in (45, 45.0, "45"):
         assert "degrés" in verdict("X.8", angle, value)[2]
     assert "degrés" in verdict("X.8", angle, "120")[2]
+
+
+@pytest.mark.parametrize("value", ["(2+2ln2)/3", "2ln2/3 + 2/3", "(2 + 2 ln 2)/3", "(2 + 2*log(2))/3"])
+def test_exact_numbers_with_a_glued_logarithm(value):
+    """« 2ln2 », a number glued to ln and to its argument, as the correction writes it (session 15, CP0 learner)."""
+    import sympy
+
+    entry = entry_of("X.9", (2 * sympy.log(2) + 2) / 3, kind="exact")
+    assert verdict("X.9", entry, value)[0], value

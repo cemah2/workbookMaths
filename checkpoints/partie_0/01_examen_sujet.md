@@ -42,15 +42,15 @@ Le barème de chaque sous-question est entre crochets. Sauf mention contraire, u
 Pour chaque affirmation, réponds **Vrai** ou **Faux**, puis justifie en une phrase : une règle, un calcul ou un contre-exemple. Chaque affirmation vaut 0,25 point : 0,1 pour le verdict, 0,15 pour la justification.
 
 a) $(2^3)^2 = 2^5$.
-b) Pour tout réel $x$, $\sqrt{x^2} = x$.
+b) Pour tous réels $a$ et $b$, $\lvert a + b \rvert = \lvert a \rvert + \lvert b \rvert$.
 c) Une fonction strictement croissante sur $\mathbb{R}$ ne prend jamais deux fois la même valeur.
-d) La contraposée de « s'il pleut, alors le sol est mouillé » est « si le sol est mouillé, alors il pleut ».
-e) La suite géométrique de premier terme 2 et de raison 0,9 tend vers 0.
-f) $e^{2\ln 5} = 25$.
-g) Une fonction continue en $a$ est dérivable en $a$.
-h) Deux événements incompatibles, de probabilités non nulles, sont indépendants.
-i) Deux vecteurs non nuls dont le produit scalaire est négatif font un angle obtus.
-j) Pour toute variable aléatoire $X$, $\mathbb{V}(X + 3) = \mathbb{V}(X) + 3$.
+d) Pour montrer qu'une affirmation de la forme « pour tout entier $n$, … » est fausse, un seul contre-exemple suffit.
+e) Une suite arithmétique de raison strictement négative tend vers $-\infty$.
+f) Pour tout réel $x$, $e^{-x} > 0$.
+g) Si $f'(x) > 0$ pour tout $x$ de l'intervalle $[0 ; 1]$, alors $f(1) > f(0)$.
+h) On tire successivement deux boules d'une urne, sans remettre la première : les deux tirages sont indépendants.
+i) Le cosinus d'un angle de $[0 ; \pi]$ est toujours positif ou nul.
+j) Si une variable aléatoire $X$ vaut 0 ou 10, chacun avec la probabilité $\frac{1}{2}$, alors $\mathbb{E}[X] = 5$ et $\mathbb{V}(X) = 25$.
 
 ### CP0.1 — Fractions, puissances et notation scientifique ✏️ ★ ⏱️ 8 min · 1,25 point
 
@@ -91,7 +91,7 @@ La figure montre trois droites : $D_1$ d'équation $3x + y = 9$, $D_2$ d'équati
 
 ### CP0.4 — Second degré : racines et sommet ✏️ ★★ ⏱️ 10 min · 1,5 point
 
-On pose $f(x) = -2x^2 + 8x - 6$, définie sur $\mathbb{R}$.
+On pose $f(x) = -x^2 - 6x + 7$, définie sur $\mathbb{R}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -99,17 +99,17 @@ On pose $f(x) = -2x^2 + 8x - 6$, définie sur $\mathbb{R}$.
 | b | les racines de $f$ | une liste, dans l'ordre croissant |
 | c | les coordonnées du sommet de la parabole | la liste $[x, y]$ |
 | d | l'ensemble des $x$ tels que $f(x) > 0$ | un intervalle |
-| e | le nombre de solutions de l'équation $f(x) = 3$ | un nombre |
-| f | la plus grande valeur de $f$ sur l'intervalle $[-1 ; 0]$ | un nombre |
+| e | le nombre de solutions de l'équation $f(x) = 20$ | un nombre |
+| f | la plus grande valeur de $f$ sur l'intervalle $[0 ; 2]$ | un nombre |
 
 ### CP0.5 — Exponentielle et logarithme ✏️ ★ ⏱️ 8 min · 1,25 point
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $\ln\left(e^{4}\right) + e^{\ln 3} - \ln 1$ | un nombre |
-| b | la solution de $e^{3x - 2} = 4$ | une valeur exacte, avec `ln` |
-| c | la solution de $\ln(2x - 1) = 3$ | un nombre (2 décimales) |
-| d | $\log_{10}(1\,000) + \log_2\left(\frac{1}{8}\right)$ | un nombre |
+| a | $\ln 12 - \ln 3 + \ln\left(\frac{1}{4}\right)$ | un nombre |
+| b | la solution de $e^{2x - 5} = 3$ | une valeur exacte, avec `ln` |
+| c | la solution de $\ln(4x - 3) = 1$ | un nombre (2 décimales) |
+| d | $\log_{10} 2 + \log_{10} 50$ | un nombre |
 | e | $\sigma(\ln 4)$, où $\sigma(z) = \dfrac{1}{1 + e^{-z}}$ est la sigmoïde | une fraction irréductible |
 
 ### CP0.6 — Dériver et étudier les variations ✏️ ★★ ⏱️ 12 min · 2 points
@@ -123,21 +123,21 @@ On pose $f(x) = x^3 - 12x + 5$, définie sur $\mathbb{R}$.
 | c | la valeur du maximum local de $f$, puis celle de son minimum local | la liste [maximum, minimum] |
 | d | le plus grand intervalle sur lequel $f$ est décroissante | un intervalle |
 | e | l'équation de la tangente à la courbe de $f$ au point d'abscisse 1, sous la forme $y = mx + p$ | la liste $[m, p]$ |
-| f | la dérivée de $g(x) = (3x - 1)\,e^{2x}$ | une expression en $x$ |
-| g | la dérivée de $h(x) = \sqrt{2x + 5}$, pour $x > -\frac{5}{2}$ | une expression en $x$ |
-| h | la limite de $x^2 e^{-x}$ quand $x$ tend vers $+\infty$ | un nombre, ou `"+oo"` |
+| f | la dérivée de $g(x) = x^2 e^{-x}$ | une expression en $x$ |
+| g | la dérivée de $h(x) = \dfrac{x + 1}{x - 2}$, pour $x \ne 2$ | une expression en $x$ |
+| h | le nombre de solutions de l'équation $f(x) = 0$ (avec le tableau de variations de $f$ et ses limites en $\pm\infty$) | un nombre |
 
 ### CP0.7 — Un arbre de probabilités et une espérance ✏️ ★★ ⏱️ 10 min · 1,5 point
 
-Un atelier fabrique des pièces sur deux machines : la machine $A$ produit 60 % des pièces, la machine $B$ le reste. 5 % des pièces de $A$ sont défectueuses, et 10 % de celles de $B$. On prend une pièce au hasard ; $D$ est l'événement « la pièce est défectueuse ».
+Un livreur expédie 70 % de ses colis en camionnette ($C$) et les autres à vélo ($V$). 4 % des colis en camionnette arrivent en retard, et 8 % des colis à vélo. On prend un colis au hasard ; $R$ est l'événement « le colis arrive en retard ».
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $P(D)$ (dessine l'arbre) | un nombre (2 décimales) |
-| b | $P(B \cap D)$ | un nombre (2 décimales) |
-| c | on prend deux pièces, de façon indépendante : la probabilité qu'**au moins une** des deux soit défectueuse | un nombre (4 décimales) |
+| a | $P(R)$ (dessine l'arbre) | un nombre (3 décimales) |
+| b | $P(V \cap R)$ | un nombre (3 décimales) |
+| c | on prend deux colis, de façon indépendante : la probabilité qu'**au moins un** des deux arrive en retard | un nombre (4 décimales) |
 
-L'atelier gagne 3 € sur une pièce bonne et perd 5 € sur une pièce défectueuse. On note $X$ son gain sur une pièce prise au hasard (en euros : 3 ou $-5$).
+Le livreur gagne 2 € par colis livré à l'heure et rembourse 10 € par colis en retard. On note $X$ son gain sur un colis pris au hasard (en euros : 2 ou $-10$).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -170,14 +170,14 @@ La suite $(u_n)$ est définie par $u_0 = 1$ et $u_{n+1} = 2u_n + 5$ pour tout en
 
 Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 
-- **(A)** $\sqrt{36 + 64} = 6 + 8 = 14$
-- **(B)** $(x - 5)^2 = x^2 - 10x + 25$
-- **(C)** $\ln 4 + \ln 5 = \ln 20$
-- **(D)** $\dfrac{2}{5} + \dfrac{1}{3} = \dfrac{3}{8}$
-- **(E)** $3^{4} \times 3^{5} = 3^{20}$
-- **(F)** la dérivée de $x \mapsto e^{-4x}$ est $x \mapsto e^{-4x}$
-- **(G)** $\cos\dfrac{\pi}{4} = \dfrac{\sqrt{2}}{2}$
-- **(H)** si $\mathbb{V}(X) = 4$, alors $\mathbb{V}(-2X) = -8$
+- **(A)** $\sqrt{25 \times 16} = 20$
+- **(B)** $\dfrac{x + 6}{3} = x + 2$
+- **(C)** $(-2)^4 = -16$
+- **(D)** $\ln 50 - \ln 2 = \ln 25$
+- **(E)** $e^{3} \times e^{4} = e^{12}$
+- **(F)** la dérivée de $x \mapsto \dfrac{1}{x}$ est $x \mapsto \ln x$
+- **(G)** $\sin\dfrac{\pi}{2} = 1$
+- **(H)** si $P(A) = 0{,}5$, $P(B) = 0{,}4$ et $P(A \cap B) = 0{,}1$, alors $P(A \cup B) = 0{,}9$
 
 a) Les lettres des cinq lignes fausses, dans l'ordre alphabétique (un texte, comme `"ABCDE"`). **[0,5]**
 b) Pour chaque ligne fausse, écris le résultat juste et la règle oubliée, en une ligne. **[0,75]** (0,15 par ligne)
@@ -190,7 +190,7 @@ b) Pour chaque ligne fausse, écris le résultat juste et la règle oubliée, en
 | b | $\displaystyle\sum_{k=0}^{4} 5 \times 2^{k}$ (avec la formule de la somme géométrique) | un nombre |
 | c | $\displaystyle\sum_{k=4}^{12} 3$ | un nombre |
 | d | $\displaystyle\sum_{k=0}^{+\infty} \left(\frac{2}{5}\right)^{k}$ | une fraction irréductible |
-| e | $\displaystyle\prod_{k=2}^{6} \left(1 - \frac{1}{k}\right)$ | une fraction irréductible |
+| e | $\displaystyle\prod_{k=1}^{3} 3^{k}$ | un nombre |
 
 ### CP0.12 — Problème de synthèse : étudier une fonction de coût donnée par une formule 🔗 ★★ ⏱️ 12 min · 2 points
 

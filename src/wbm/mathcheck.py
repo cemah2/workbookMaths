@@ -454,6 +454,7 @@ def _exact_text(text: str) -> str:
     text = _MODULE_PREFIX.sub("", text)
     text = re.sub(r"\bracine\b", "sqrt", text, flags=re.IGNORECASE)
     text = _PI_CASE.sub("pi", text)
+    text = re.sub(r"(?<=\d)(ln|log|exp|sqrt)(?=\s*[\d(])", r"*\1", text)   # "2ln2", "3sqrt(2)": a glued factor
     return _RADIAN_WORD.sub("", text)
 
 
@@ -473,7 +474,8 @@ def _exact_value(value):
         if float(value).is_integer() and abs(float(value)) < 1e15:   # 45.0: an integer, not an approximation
             return sympy.Integer(int(value))
         return sympy.Float(float(value), 17)
-    expected = "un nombre exact, comme \"sqrt(5)/3\" ou \"2*pi/5\" (avec sqrt, pi et des fractions, sans lettre)"
+    expected = ("un nombre exact, comme \"sqrt(5)/3\" ou \"2*pi/5\" (avec sqrt, pi, ln, exp et des fractions, sans autre "
+                "lettre)")
     if isinstance(value, str):
         value = _exact_text(value)
         text = _clean_text(value).replace(" ", "")
@@ -772,8 +774,8 @@ def _check_expr(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
                             "valeurs simples.")
 
 
-_EXACT_APPROXIMATE = ("C'est une valeur approchée de la bonne réponse : donne la valeur exacte, avec sqrt, pi ou une "
-                      "fraction, entre guillemets (comme \"sqrt(5)/3\" ou \"2*pi/5\").")
+_EXACT_APPROXIMATE = ("C'est une valeur approchée de la bonne réponse : donne la valeur exacte, avec sqrt, pi, ln ou "
+                      "une fraction, entre guillemets (comme \"sqrt(5)/3\" ou \"2*pi/5\").")
 
 
 def _has_float(number) -> bool:
@@ -819,7 +821,7 @@ def _check_exact(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
     if number != 0 and _exact_digest(ex_id, -number) == entry["hash"]:
         return False, "wrong", "La valeur absolue est bonne, mais le signe est inversé."
     if _has_float(number):
-        return False, "wrong", ("Ce n'est pas la bonne valeur ; et donne la valeur exacte, avec sqrt, pi ou une "
+        return False, "wrong", ("Ce n'est pas la bonne valeur ; et donne la valeur exacte, avec sqrt, pi, ln ou une "
                                 "fraction, plutôt qu'une valeur approchée.")
     return False, "wrong", "Ce n'est pas la bonne valeur exacte : reprends le calcul."
 
