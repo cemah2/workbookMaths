@@ -81,6 +81,11 @@ _BEGINNER_HINTS = (
     ("and 'function'", "une fonction est utilisée comme un nombre : manque-t-il un appel, ou une fonction renvoyée au "
                        "lieu de sa valeur ?"),
     ("Did you forget to import", "un module n'est pas importé : ajoute la ligne import en haut du fichier"),
+    ("name 'np' is not defined", "NumPy n'est pas importé : ajoute import numpy as np en haut du fichier"),
+    ("name 'Fraction' is not defined", "Fraction n'est pas importée : ajoute from fractions import Fraction en haut du "
+                                       "fichier"),
+    ("name 'plt' is not defined", "Matplotlib n'est pas importé : ajoute import matplotlib.pyplot as plt en haut du "
+                                  "fichier"),
     ("division by zero", "une division par zéro : un cas particulier doit-il être traité avant la division ?"),
     ("truth value of an array with more than one element is ambiguous",
      "sur des tableaux NumPy, pas de not, and ni or (ils attendent un seul booléen) : écris ~, & et |, avec des "

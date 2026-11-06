@@ -691,7 +691,7 @@ CHAPTERS = [
     {
         "id": "R8",
         "dir": "r8_probabilites",
-        "hours": 11,
+        "hours": 10.9,
         "generation_sessions": 1,
         "mml": [],
         "summary": "Les probabilités du lycée : expérience aléatoire, événements et leurs opérations, probabilité et "
@@ -735,17 +735,17 @@ CHAPTERS = [
             ("R8.R1", "🔁", 1, 5, "Ensembles et complémentaire (R4)", "§1", "E"),
             ("R8.R2", "🔁", 1, 5, "Σ et Π (R4)", "§7", "E"),
             ("R8.R3", "🔁", 1, 5, "Fractions (R1)", "§2", ""),
-            ("R8.1", "✏️", 1, 10, "Décrire univers et événements : dés, cartes, pièces", "§1", "E"),
+            ("R8.1", "✏️", 1, 10, "Décrire univers et événements : cartes et pièces", "§1", "E"),
             ("R8.2", "✏️", 1, 15, "Probabilités par équiprobabilité", "§2", "E"),
             ("R8.3", "✏️", 2, 15, "P(A ∪ B) et le complémentaire", "§2", "E"),
             ("R8.4", "✏️", 1, 15, "Principe multiplicatif et factorielles", "§3", "E"),
             ("R8.5", "✏️", 2, 20, "Combinaisons et triangle de Pascal", "§3", "E"),
-            ("R8.6", "✏️", 2, 20, "Arbres pondérés : tirages successifs", "§4", "E"),
-            ("R8.7", "✏️", 2, 15, "Indépendance : tester P(A ∩ B) = P(A) P(B) avec des cartes et des pièces", "§5",
-             "E"),
+            ("R8.6", "✏️", 2, 20, "Arbres pondérés : épreuves successives", "§4", "E"),
+            ("R8.7", "✏️", 2, 15, "Indépendant ou pas ? Le décider par le calcul, avec des cartes et des pièces",
+             "§5", "E"),
             ("R8.8", "✏️", 1, 15, "La loi d'une variable aléatoire", "§6", "E"),
             ("R8.9", "✏️", 2, 20, "Espérance, variance (avec V = E[X²] − E[X]²) et écart-type", "§7", "E"),
-            ("R8.10", "✏️", 2, 20, "Un jeu est-il équitable ?", "§7", ""),
+            ("R8.10", "✏️", 2, 20, "Deux jeux de hasard : équité et risque", "§7", ""),
             ("R8.11", "∂", 2, 25, "Démontrer C(n, k) = C(n − 1, k − 1) + C(n − 1, k)", "§3", ""),
             ("R8.12", "∂", 2, 25, "L'espérance d'une somme : E[X + Y] = E[X] + E[Y], même pour des variables liées",
              "§7", "E"),
@@ -760,7 +760,7 @@ CHAPTERS = [
             ("R8.19", "🔨", 2, 20, "Estimer une probabilité par simulation", "§8", "E m:simulate_frequency"),
             ("R8.20", "🔮", 2, 15, "Prédire : dans une classe de 30, deux élèves ont-ils le même anniversaire ?",
              "§2 §3", "E"),
-            ("R8.21", "🔬", 2, 20, "La loi des grands nombres : fréquence et nombre de lancers", "§8", "E"),
+            ("R8.21", "🔬", 2, 20, "La loi des grands nombres : fréquence et nombre d'essais", "§8", "E"),
             ("R8.22", "🎨", 1, 10, "Le diagramme en bâtons d'une loi", "§6", ""),
             ("R8.23", "🐛", 2, 20, "Chasse à l'erreur : trois raisonnements de probabilités faux", "§2 §5", "E"),
             ("R8.24", "🛠️", 1, 15, "Reproductibilité : générateur aléatoire et graine", "§8", "E"),
@@ -773,7 +773,12 @@ CHAPTERS = [
                  "faces, pièce truquée à 30 %), de 3.R1 (deux cartes rouges parmi 32) et du test de positionnement "
                  "(urne de 3 rouges et 2 bleues, loi −2, 0, 1) ; le 🔗 R8.13 compte des paires sans parler "
                  "d'un-contre-un (workbookIA 7.1) ; le 🔬 R8.21 mesure la proportion de séries qui s'écartent de la "
-                 "probabilité, pas l'écart-type des fréquences (0B.52).",
+                 "probabilité, pas l'écart-type des fréquences (0B.52). Session 13 (relecture à l'aveugle) : les exemples "
+                 "de la fiche et des exercices ✏️ R8.4, R8.6, R8.7, R8.9, R8.10 et 🔬 R8.21 ont été remplacés pour "
+                 "s'éloigner davantage de workbookIA (roue de 8 secteurs, playlist, lancers francs, roue de 3 "
+                 "secteurs) ; les 🔗 de la fiche renvoient aux chapitres 2, 3, 9, 19 et 26 sans en reprendre "
+                 "d'exemple. Le 🔨 R8.18 (expectation, variance) recouvre en partie 0B.53, qui fait coder les mêmes "
+                 "formules : recouvrement assumé, ses signatures étant fixées au syllabus depuis la session 2.",
     },
     {
         "id": "R9",

@@ -14,7 +14,7 @@
 3. « Au plus un pile » : zéro pile ou un pile.
 4. **Vrai** : $A \cap \bar{A} = \varnothing$, une issue ne peut pas être à la fois dans $A$ et hors de $A$.
 5. **Faux** : sur un dé, « obtenir 1 » et « obtenir 2 » sont incompatibles, mais le contraire de « obtenir 1 » est « obtenir 2, 3, 4, 5 ou 6 ».
-6. $A \cap B = \{6\}$ et $A \cup B = \{2, 4, 5, 6\}$.
+6. $A = \{1, 3, 5, 7\}$ et $B = \{6, 7, 8\}$ : $A \cap B = \{7\}$ et $A \cup B = \{1, 3, 5, 6, 7, 8\}$.
 
 ### R8.Q2 — Propriétés d'une probabilité
 1. **Non** et **non** : une probabilité est toujours entre 0 et 1.
@@ -27,10 +27,10 @@
 ### R8.Q3 — Arrangement ou combinaison ?
 1. L'ordre compte, sans répétition : un **arrangement** de 3 coureurs parmi 10.
 2. L'ordre ne compte pas, sans répétition : une **combinaison**, $\binom{32}{5}$ (R8.5 f).
-3. L'ordre compte, **avec** répétition (0000 est permis) : $10^4$.
-4. L'ordre compte (président, puis trésorier), sans répétition : un **arrangement** de 2 personnes parmi les membres.
-5. Pas d'ordre, sans répétition : $\binom{8}{3}$.
-6. On range les 6 élèves : $6!$.
+3. L'ordre compte, **avec** répétition (un caractère peut revenir) : $36^8$.
+4. L'ordre ne compte pas, sans répétition (une grille est un ensemble de 6 numéros) : $\binom{49}{6}$.
+5. On range les 7 chapitres : $7!$.
+6. L'ordre compte, **avec** répétition (une boule remise peut ressortir) : $10^3$.
 
 ### R8.Q4 — Lire un arbre pondéré
 1. $1 - 0{,}9 = 0{,}1$.
@@ -43,14 +43,14 @@
 ### R8.Q5 — Indépendants ou incompatibles ?
 1. **Incompatibles**, et donc **pas indépendants** : $P(\{1\} \cap \{6\}) = 0$, alors que $\frac{1}{6} \times \frac{1}{6} > 0$.
 2. **Oui** : la pièce n'a pas de mémoire ; $P(\text{PP}) = \frac{1}{4} = \frac{1}{2} \times \frac{1}{2}$.
-3. **Faux** : ils ne le sont jamais (fiche §5, ⚠️).
-4. $0{,}5 \times 0{,}2 = 0{,}1$.
+3. **Vrai** (fiche §5) : $P(\bar{A} \cap B) = P(B) - P(A \cap B) = P(B) - P(A)\,P(B) = \big(1 - P(A)\big)\,P(B) = P(\bar{A})\,P(B)$.
+4. $P(A \cap B) = P(A)\,P(B)$, donc $P(B) = \frac{0{,}1}{0{,}4} = 0{,}25$.
 5. **Non** : $0{,}3 \times 0{,}5 = 0{,}15 \ne 0{,}2$.
-6. **Non** : sans remise, après un as il en reste 3 parmi 31 cartes, contre 4 parmi 32 au départ ; le premier tirage change les chances du second.
+6. **Oui** : si $P(A) = 0$, alors $A \cap B$, inclus dans $A$, a aussi la probabilité 0, et $P(A \cap B) = 0 = P(A)\,P(B)$.
 
 ### R8.Q6 — Espérance et variance : vrai ou faux
-1. **Faux** : une variable qui vaut 0 ou 1 avec une chance sur deux a pour espérance $\frac{1}{2}$.
-2. **Vrai** : $2 \times 4 - 3 = 5$.
+1. **Faux** : $S$ et $T$ de la fiche (§7) ont la même espérance 5, et des variances 2,5 et 8.
+2. **Vrai** : $\mathbb{E}[X - 3Y] = \mathbb{E}[X] - 3\,\mathbb{E}[Y] = 4 - 3 = 1$ (linéarité, fiche §7 et R8.12).
 3. **Faux** : une moyenne de carrés n'est jamais négative.
 4. **Vrai** : $\sigma = \sqrt{9} = 3$.
 5. **Faux** : ajouter une constante ne change pas la dispersion, $\mathbb{V}(X + 10) = \mathbb{V}(X)$.
@@ -61,8 +61,8 @@
 1. **Faux** : les lancers sont indépendants ; le hasard n'a pas de mémoire (fiche §8).
 2. Avec **10 000** lancers : la fréquence s'y écarte beaucoup moins de 0,5 (avec 10 lancers, il faudrait exactement 5 piles).
 3. **Faux** : c'est la **fréquence** qui est proche de 0,5 ; le **nombre** de piles s'écarte typiquement de 5 000 d'une cinquantaine, et rester entre 4 990 et 5 010 n'arrive qu'environ une fois sur six.
-4. Par **100** : les écarts diminuent comme $\frac{1}{\sqrt{n}}$.
-5. Même graine : **la même** fréquence (la même suite de tirages). Deux graines : des fréquences en général **différentes**, mais proches l'une de l'autre si $n$ est grand.
+4. **Faux** : les écarts diminuent comme $\frac{1}{\sqrt{n}}$ ; doubler $n$ les divise par $\sqrt{2} \approx 1{,}41$ seulement.
+5. **Non** : sur 50 lancers, une pièce équilibrée s'écarte d'au moins 0,12 de 0,5 (31 piles ou plus, ou 19 ou moins) environ une fois sur huit. Ce résultat n'a rien d'exceptionnel ; il faudrait beaucoup plus de lancers pour soupçonner la pièce (M02c).
 6. **Faux** : elle garantit que la fréquence s'en **rapproche**, pas qu'elle lui soit égale.
 
 <a id="rappels"></a>
@@ -73,7 +73,7 @@
 1. $A \cap B = \{c\}$ et $A \cup B = \{a, b, c, d\}$. 2. $\bar{A} = \{d, e, f\}$. 3. $3 + 2 - 1 = 4$. 4. $\bar{A} \cap \bar{B} = \{e, f\}$, le complémentaire de $\{a, b, c, d\}$.
 
 ### R8.R2 — Σ et Π (R4)
-1. $1 + 4 + 9 + 16 = 30$. 2. $-0{,}2 + 0 + 0{,}6 = 0{,}4$. 3. $5! = 120$. 4. $0{,}9 \times 0{,}8 \times 0{,}7 = 0{,}504$.
+1. $1 + 4 + 9 + 16 = 30$. 2. $0{,}5 + 0{,}9 + 2 = 3{,}4$. 3. $5! = 120$. 4. $0{,}9 \times 0{,}8 \times 0{,}7 = 0{,}504$.
 
 ### R8.R3 — Fractions (R1)
 1. $\frac{2}{30} = \frac{1}{15}$. 2. $\frac{19}{27}$. 3. $\frac{3}{8} + \frac{2}{8} = \frac{5}{8}$. 4. $\frac{1}{6}$ (504 = 6 × 84). 5. $\frac{1}{32}$.
@@ -82,7 +82,7 @@
 
 ## ✏️ Papier-crayon
 
-### Ex R8.1 — Décrire univers et événements : dés, cartes, pièces
+### Ex R8.1 — Décrire univers et événements : cartes et pièces
 
 **Réponses** : a) `16` · b) `6` · c) `15` · d) `5` · e) `2` · f) `18` · g) `14` · h) `False`.
 
@@ -96,7 +96,7 @@
 - g) « Ni as, ni noire » est le contraire de $A \cup B$ : $32 - 18 = 14$ (les cœurs et les carreaux qui ne sont pas des as).
 - h) **Faux** : l'as de cœur et l'as de carreau sont des as rouges ; les deux événements ont des issues communes.
 
-**Erreurs fréquentes.** Prendre le nombre de piles pour une issue (répondre 5 en a) ; compter deux fois les as noirs en f ; confondre « au plus un » et « au moins un » en d.
+**Erreurs fréquentes.** Prendre le nombre de piles pour une issue (répondre 5 en a) ; compter deux fois les as noirs en f ; confondre « au plus un » et « au moins un » en d ; en g, retirer les 4 as des cartes rouges (12), alors que seuls les as rouges en font partie.
 
 **Variante.** Avec cinq pièces, combien d'issues pour « exactement deux piles » ? *Réponse* : 10 (deux positions parmi cinq, $\binom{5}{2}$, §3).
 
@@ -105,14 +105,14 @@
 **Réponses** : a) `"2/11"` · b) `"5/11"` · c) `"4/11"` · d) `24` · e) `"1/6"` · f) `"1/8"` · g) `"7/12"` · h) `"3/4"`.
 
 **Démarche.**
-- a) à c) Les 11 positions sont équiprobables : P, R, O, B, A, B, I, L, I, T, E. Deux B ; cinq voyelles (O, A, I, I, E) ; les autres consonnes sont P, R, L, T.
+- a) à c) Les 11 positions sont équiprobables : P, R, O, B, A, B, I, L, I, T, É. Deux B ; cinq voyelles (O, A, I, I, É) ; les autres consonnes sont P, R, L, T.
 - d) $6 \times 4 = 24$ couples (dé à 6 faces, dé à 4 faces), équiprobables.
 - e) Somme 5 : (1, 4), (2, 3), (3, 2), (4, 1), soit $\frac{4}{24} = \frac{1}{6}$.
 - f) Somme 9 ou 10 : (5, 4), (6, 3), (6, 4), soit $\frac{3}{24} = \frac{1}{8}$.
 - g) On compte selon le dé à 4 faces : s'il donne 1, le dé à 6 faces doit donner 2 à 6 (5 couples), puis 4, 3 et 2 couples. $\frac{5 + 4 + 3 + 2}{24} = \frac{14}{24} = \frac{7}{12}$.
 - h) Le produit est impair seulement si les deux nombres le sont : $3 \times 2 = 6$ couples. $P = 1 - \frac{6}{24} = \frac{3}{4}$.
 
-**Erreurs fréquentes.** Compter une seule fois une lettre qui revient ; oublier qu'un couple (2, 3) et un couple (3, 2) sont deux issues ; inclure les égalités en g.
+**Erreurs fréquentes.** Compter une seule fois une lettre qui revient, ou oublier le É ; oublier qu'un couple (2, 3) et un couple (3, 2) sont deux issues ; prendre deux dés à 6 faces en e ($\frac{4}{36}$) ; inclure les égalités en g.
 
 **Variante.** La probabilité que la somme des deux dés soit paire ? *Réponse* : les deux pairs ($3 \times 2$) ou les deux impairs ($3 \times 2$) : $\frac{12}{24} = \frac{1}{2}$.
 
@@ -130,17 +130,17 @@
 - g) Le contraire de « au moins un face » est « que des piles », PPPP, une seule suite sur 16 : $1 - \frac{1}{16} = \frac{15}{16}$.
 - h) $0{,}7 = 0{,}55 + 0{,}35 - P(A \cap B)$, donc $P(A \cap B) = 0{,}2$.
 
-**Erreurs fréquentes.** Additionner sans retirer l'intersection ; prendre le contraire de $A \cap B$ pour « ni $A$ ni $B$ » ; en f, croire que « l'appli ou la newsletter » a la probabilité 1.
+**Erreurs fréquentes.** Additionner sans retirer l'intersection ; prendre le contraire de $A \cap B$ pour « ni $A$ ni $B$ » ; en f, croire que « l'appli ou la newsletter » a la probabilité 1, ou multiplier 0,6 par 0,45 comme si les deux étaient indépendantes (0,27).
 
 **Variante.** $P(A) = 0{,}6$, $P(B) = 0{,}5$ et $P(\bar{A} \cap \bar{B}) = 0{,}1$ : que vaut $P(A \cap B)$ ? *Réponse* : $P(A \cup B) = 0{,}9$, donc $0{,}6 + 0{,}5 - 0{,}9 = 0{,}2$.
 
 ### Ex R8.4 — Principe multiplicatif et factorielles
 
-**Réponses** : a) `308915776` · b) `165765600` · c) `5040` · d) `336` · e) `60` · f) `24` · g) `72` · h) `676000`.
+**Réponses** : a) `308915776` · b) `71288256` · c) `5040` · d) `336` · e) `60` · f) `24` · g) `72` · h) `676000`.
 
 **Démarche.**
 - a) $26^6$ : 26 possibilités à chacune des 6 positions.
-- b) $26 \times 25 \times 24 \times 23 \times 22 \times 21$ : une lettre de moins à chaque position.
+- b) 6 voyelles pour la première lettre, puis 26 possibilités pour chacune des 5 autres : $6 \times 26^5 = 71\,288\,256$.
 - c) $7! = 1 \times 2 \times \cdots \times 7 = 5\,040$.
 - d) $8 \times 7 \times 6 = 336$ : l'or, puis l'argent, puis le bronze.
 - e) $4 \times 5 \times 3 = 60$.
@@ -148,7 +148,7 @@
 - g) $\frac{9!}{7!} = 9 \times 8 = 72$ : les facteurs de 1 à 7 se simplifient.
 - h) $26 \times 26 \times 10 \times 10 \times 10 = 676\,000$.
 
-**Erreurs fréquentes.** Additionner au lieu de multiplier (e) ; traiter un podium comme une combinaison (d) ; ranger aussi la tâche fixée (f).
+**Erreurs fréquentes.** Additionner au lieu de multiplier (e) ; contraindre les six lettres à être des voyelles en b ; traiter un podium comme une combinaison (d) ; ranger aussi la tâche fixée (f).
 
 **Variante.** Combien de codes de 4 chiffres tous différents, dont le premier n'est pas 0 ? *Réponse* : $9 \times 9 \times 8 \times 7 = 4\,536$.
 
@@ -166,44 +166,44 @@
 - g) Une main qui contient les 4 as se complète par une 5ᵉ carte parmi les 28 autres : 28 mains favorables. $\frac{28}{201\,376} = \frac{1}{7\,192}$.
 - h) Un chemin est une suite de 8 pas, dont 4 vers la droite ; il suffit de choisir lesquels : $\binom{8}{4} = 70$.
 
-**Erreurs fréquentes.** Oublier de diviser par $k!$ (répondre 210 en a ou en b) ; commencer à compter les lignes à 1 au lieu de 0 ; en g, croire qu'il n'y a qu'une main favorable.
+**Erreurs fréquentes.** Oublier de diviser par $k!$ (répondre 210 en a ou en b) ; commencer à compter les lignes à 1 au lieu de 0 ; en g, croire qu'il n'y a qu'une main favorable, ou diviser par le nombre de mains de 4 cartes ; en h, compter 3 pas de chaque sorte au lieu de 4 (20).
 
 **Variante.** La probabilité qu'une main de 5 cartes parmi 32 contienne exactement 2 as ? *Réponse* : $\frac{\binom{4}{2}\binom{28}{3}}{\binom{32}{5}} = \frac{6 \times 3\,276}{201\,376} = \frac{351}{3\,596} \approx 0{,}098$.
 
-### Ex R8.6 — Arbres pondérés : tirages successifs
+### Ex R8.6 — Arbres pondérés : épreuves successives
 
-**Réponses** : a) `0.06` · b) `0.16` · c) `0.3` · d) `"2/15"` · e) `"7/15"` · f) `"2/5"` · g) `"4/25"` · h) `"37/64"`.
+**Réponses** : a) `0.06` · b) `0.16` · c) `0.3` · d) `0.56` · e) `0.29` · f) `0.71` · g) `0.15` · h) `"37/64"`.
 
 **Démarche.**
 - a) $0{,}6 \times 0{,}1 = 0{,}06$.
 - b) Deux chemins mènent au retard : $0{,}06 + 0{,}4 \times 0{,}25 = 0{,}06 + 0{,}1 = 0{,}16$.
 - c) $0{,}4 \times 0{,}75 = 0{,}3$.
-- d) $\frac{4}{10} \times \frac{3}{9} = \frac{12}{90} = \frac{2}{15}$.
-- e) Deux noires ou deux grises : $\frac{2}{15} + \frac{6}{10} \times \frac{5}{9} = \frac{2}{15} + \frac{1}{3} = \frac{7}{15}$.
-- f) Noire puis noire, ou grise puis noire : $\frac{12}{90} + \frac{6}{10} \times \frac{4}{9} = \frac{12}{90} + \frac{24}{90} = \frac{36}{90} = \frac{2}{5}$.
-- g) Avec remise : $\frac{4}{10} \times \frac{4}{10} = \frac{4}{25}$.
+- d) Réussi, puis réussi : $0{,}7 \times 0{,}8 = 0{,}56$.
+- e) Réussi puis manqué, ou manqué puis réussi : $0{,}7 \times 0{,}2 + 0{,}3 \times 0{,}5 = 0{,}14 + 0{,}15 = 0{,}29$.
+- f) Deux chemins finissent par une réussite : $0{,}56 + 0{,}15 = 0{,}71$.
+- g) Manqué, puis manqué : $0{,}3 \times 0{,}5 = 0{,}15$. Vérification : $0{,}56 + 0{,}29 + 0{,}15 = 1$.
 - h) Le contraire est « trois mauvaises réponses » : $1 - \left(\frac{3}{4}\right)^3 = 1 - \frac{27}{64} = \frac{37}{64}$.
 
-Dans ta copie : f donne $\frac{2}{5} = \frac{4}{10}$, exactement la probabilité que la **première** soit noire. Ce n'est pas une coïncidence : tant qu'on ne regarde pas la première, la seconde chaussette est « une chaussette prise au hasard » comme une autre.
+Dans ta copie : f vaut 0,71, un peu plus que les 0,7 du premier lancer. La joueuse réussit son second lancer avec la probabilité 0,8 après une réussite, et 0,5 seulement après un échec ; comme elle réussit le premier sept fois sur dix, c'est la branche à 0,8 qui pèse le plus : $0{,}7 \times 0{,}8 + 0{,}3 \times 0{,}5$.
 
-**Erreurs fréquentes.** Garder $\frac{4}{10}$ au second tirage sans remise ; oublier un des deux chemins en e et en f ; additionner $\frac{1}{4}$ trois fois en h.
+**Erreurs fréquentes.** Garder 0,7 au second lancer, comme si les deux étaient indépendants (0,49 en d) ; oublier un des deux chemins en e et en f ; faire la moyenne des deux branches en f (0,65) au lieu de les pondérer ; additionner $\frac{1}{4}$ trois fois en h.
 
-**Variante.** Trois chaussettes, sans remise : la probabilité qu'elles soient toutes grises ? *Réponse* : $\frac{6}{10} \times \frac{5}{9} \times \frac{4}{8} = \frac{1}{6}$.
+**Variante.** Un troisième lancer suit la même règle (0,8 après une réussite, 0,5 après un échec) : la probabilité de réussir les trois ? *Réponse* : $0{,}7 \times 0{,}8 \times 0{,}8 = 0{,}448$.
 
-### Ex R8.7 — Indépendance : tester P(A ∩ B) = P(A) P(B) avec des cartes et des pièces
+### Ex R8.7 — Indépendant ou pas ? Le décider par le calcul, avec des cartes et des pièces
 
-**Réponses** : a) `"1/32"` · b) `True` · c) `False` · d) `False` · e) `"1/4"` · f) `True` · g) `"3/8"` · h) `False`.
+**Réponses** : a) `"1/32"` · b) `True` · c) `False` · d) `True` · e) `"1/4"` · f) `False` · g) `"3/4"` · h) `False`.
 
 **Démarche.**
 - a) et b) $A \cap B$ est l'as de cœur : $\frac{1}{32} = \frac{4}{32} \times \frac{8}{32} = \frac{1}{8} \times \frac{1}{4}$. Indépendants.
-- c) Un as n'est jamais une figure : $P(A \cap C) = 0 \ne \frac{1}{8} \times \frac{3}{8}$. Savoir que la carte est un as rend « figure » impossible.
-- d) Tout cœur est rouge : $P(B \cap D) = P(B) = \frac{1}{4} \ne \frac{1}{4} \times \frac{1}{2}$. Savoir que la carte est rouge rend « cœur » **plus** probable (une chance sur deux).
-- e) et f) $E \cap F$ = PP : $\frac{1}{4} = \frac{1}{2} \times \frac{1}{2}$ ($F$ = {PP, FF}). Indépendants, alors que $F$ parle aussi de la première pièce.
-- g) et h) $G \cap H$ = {PPP, PPF, PFP} : $\frac{3}{8} \ne \frac{1}{2} \times \frac{1}{2}$. Savoir que la première pièce donne pile rend « au moins deux piles » plus probable ($\frac{3}{4}$).
+- c) Une carte n'est jamais à la fois un as et un roi : $P(A \cap C) = 0 \ne \frac{1}{8} \times \frac{1}{8}$. Incompatibles, donc pas indépendants : savoir que la carte est un as rend « roi » impossible.
+- d) $A \cap D$ = {as de pique, as de trèfle} : $\frac{2}{32} = \frac{1}{16} = \frac{1}{8} \times \frac{1}{2}$. Indépendants : il y a autant d'as parmi les noires que parmi toutes les cartes (un sur huit).
+- e) et f) $E$ = {PFF, FPF, FFP} et $F$ = {FPP, FPF, FFP, FFF} : $E \cap F$ = {FPF, FFP}, de probabilité $\frac{2}{8} = \frac{1}{4}$, alors que $P(E)\,P(F) = \frac{3}{8} \times \frac{1}{2} = \frac{3}{16}$. Pas indépendants : savoir qu'il y a exactement un pile rend « la première donne face » plus probable ($\frac{2}{3}$ au lieu de $\frac{1}{2}$).
+- g) et h) $G \cap H$ contient toutes les issues sauf PPP et FFF : $\frac{6}{8} = \frac{3}{4}$, alors que $P(G)\,P(H) = \frac{7}{8} \times \frac{7}{8} = \frac{49}{64}$. Pas indépendants : savoir qu'il y a au moins un pile rend « au moins un face » un peu moins probable ($\frac{6}{7}$ au lieu de $\frac{7}{8}$), car FFF est exclu.
 
-**Erreurs fréquentes.** Conclure « incompatibles, donc indépendants » en c ; décider sans calculer, sur l'impression d'un « lien » (f) ; comparer des arrondis au lieu des fractions exactes.
+**Erreurs fréquentes.** Conclure « incompatibles, donc indépendants » en c ; décider sans calculer, sur l'impression d'un « lien » (d, f) ; comparer des arrondis au lieu des fractions exactes ($\frac{3}{4}$ et $\frac{49}{64}$ sont proches, mais différents).
 
-**Variante.** Un dé à 6 faces, $A$ = « pair », $B$ = « au plus 4 » : indépendants ? *Réponse* : $P(A \cap B) = P(\{2, 4\}) = \frac{1}{3} = \frac{1}{2} \times \frac{2}{3}$ : **oui**.
+**Variante.** La roue de 8 secteurs, $A$ = « pair », $B$ = « au plus 4 » : indépendants ? *Réponse* : $P(A \cap B) = P(\{2, 4\}) = \frac{1}{4} = \frac{1}{2} \times \frac{1}{2}$ : **oui**.
 
 ### Ex R8.8 — La loi d'une variable aléatoire
 
@@ -219,47 +219,47 @@ Dans ta copie : f donne $\frac{2}{5} = \frac{4}{10}$, exactement la probabilité
 - g) 16 cartes ne sont ni des as ni des figures, 12 sont des figures, 4 sont des as : $\frac{16}{32}, \frac{12}{32}, \frac{4}{32}$.
 - h) $1 - P(W = 5) = 1 - 0{,}125 = 0{,}875$.
 
-**Erreurs fréquentes.** Croire les valeurs de $X$ équiprobables ; donner la loi du plus petit numéro en c ; compter deux figures par couleur en g.
+**Erreurs fréquentes.** Croire les valeurs de $X$ équiprobables ; donner la loi du plus petit numéro en c ; oublier $P(Z = 3)$, qui n'est pas donnée, en f (0,55) ; compter deux figures par couleur en g.
 
 **Variante.** La loi du plus **petit** des deux numéros de c ? *Réponse* : $\frac{7}{16}, \frac{5}{16}, \frac{3}{16}, \frac{1}{16}$ pour 1, 2, 3, 4.
 
 ### Ex R8.9 — Espérance, variance (avec V = E[X²] − E[X]²) et écart-type
 
-**Réponses** : a) `1.3` · b) `2.5` · c) `0.81` · d) `0.9` · e) `9` · f) `81` · g) `"25/8"` · h) `"55/64"`.
+**Réponses** : a) `0.25` · b) `1.5` · c) `5.5` · d) `1.225` · e) `-1` · f) `2.449` · g) `"1/3"` · h) `2`.
 
 **Démarche.**
-- a) $0 \times 0{,}2 + 1 \times 0{,}4 + 2 \times 0{,}3 + 3 \times 0{,}1 = 1{,}3$.
-- b) $0 + 1 \times 0{,}4 + 4 \times 0{,}3 + 9 \times 0{,}1 = 2{,}5$.
-- c) $2{,}5 - 1{,}3^2 = 2{,}5 - 1{,}69 = 0{,}81$.
-- d) $\sqrt{0{,}81} = 0{,}9$.
-- e) $10 \times 1{,}3 - 4 = 9$.
-- f) $10^2 \times 0{,}81 = 81$ : la pénalité ne change pas la dispersion.
-- g) $\frac{1 \times 1 + 2 \times 3 + 3 \times 5 + 4 \times 7}{16} = \frac{50}{16} = \frac{25}{8}$.
-- h) $\mathbb{E}[Y^2] = \frac{1 + 12 + 45 + 112}{16} = \frac{170}{16} = \frac{85}{8}$, donc $\mathbb{V}(Y) = \frac{85}{8} - \frac{625}{64} = \frac{680 - 625}{64} = \frac{55}{64}$.
+- a) Deux équations : la somme des probabilités, $0{,}5 + a + b = 1$, et l'espérance, $1 \times 0{,}5 + 2a + 4b = 2$. La première donne $a = 0{,}5 - b$ ; dans la seconde, $0{,}5 + 1 - 2b + 4b = 2$, donc $b = 0{,}25$ (et $a = 0{,}25$).
+- b) Les écarts à 2 valent −1, 0 et 2 : $\mathbb{V}(X) = 1 \times 0{,}5 + 0 \times 0{,}25 + 4 \times 0{,}25 = 1{,}5$.
+- c) $\mathbb{E}[X^2] = 1 \times 0{,}5 + 4 \times 0{,}25 + 16 \times 0{,}25 = 5{,}5$, et $5{,}5 - 2^2 = 1{,}5$ : les deux méthodes concordent.
+- d) $\sigma(X) = \sqrt{1{,}5} \approx 1{,}225$.
+- e) $\mathbb{E}[3 - 2X] = 3 - 2 \times 2 = -1$.
+- f) $\sigma(Y) = \lvert -2 \rvert \times \sigma(X) = 2\sqrt{1{,}5} \approx 2{,}449$ (et $\mathbb{V}(Y) = 4 \times 1{,}5 = 6$).
+- g) $\mathbb{E}[W] = 2p + (-1)(1 - p) = 3p - 1 = 0$, donc $p = \frac{1}{3}$.
+- h) $\mathbb{V}(W) = \mathbb{E}[W^2] - 0^2 = 4 \times \frac{1}{3} + 1 \times \frac{2}{3} = 2$.
 
-**Erreurs fréquentes.** Faire la moyenne des valeurs sans les pondérer (1,5 en a) ; confondre $\mathbb{E}[X^2]$ et $\mathbb{E}[X]^2$ ; écrire $\mathbb{V}(10X - 4) = 10 \times 0{,}81 - 4$.
+**Erreurs fréquentes.** N'écrire qu'une équation en a ; confondre $\mathbb{E}[X^2]$ et $\mathbb{E}[X]^2$ ; multiplier l'écart-type par $a^2$, ou garder le signe de $a$, en f ; croire qu'une espérance nulle rend les deux valeurs équiprobables en g.
 
-**Variante.** L'écart-type du score $S$ ? *Réponse* : $\sigma(S) = 10 \times 0{,}9 = 9$ points.
+**Variante.** Une variable $V$ vaut −2 ou 3, d'espérance nulle : $P(V = 3)$ et $\mathbb{V}(V)$ ? *Réponse* : $3q - 2(1 - q) = 0$, donc $q = \frac{2}{5}$ ; $\mathbb{V}(V) = 9 \times \frac{2}{5} + 4 \times \frac{3}{5} = 6$.
 
-### Ex R8.10 — Un jeu est-il équitable ?
+### Ex R8.10 — Deux jeux de hasard : équité et risque
 
-**Réponses** : a) `2.5` · b) `-0.5` · c) `100` · d) `10.25` · e) `3.2` · f) `1` · g) `5` · h) `9`.
+**Réponses** : a) `-0.5` · b) `8.25` · c) `2.87` · d) `5` · e) `3.54` · f) `0.75` · g) `3.03` · h) `3`.
 
 **Démarche.**
-- a) Deux piles : $\frac{1}{4}$ ; un seul pile (PF ou FP) : $\frac{1}{2}$. $8 \times \frac{1}{4} + 1 \times \frac{1}{2} = 2{,}5$ €.
-- b) $2{,}5 - 3 = -0{,}5$ € par partie.
-- c) L'organisateur gagne ce que le joueur perd : $200 \times 0{,}5 = 100$ €.
-- d) $\mathbb{E}[W^2] = 64 \times \frac{1}{4} + 1 \times \frac{1}{2} = 16{,}5$, donc $\mathbb{V} = 16{,}5 - 2{,}5^2 = 10{,}25$.
-- e) $\sqrt{10{,}25} \approx 3{,}20$ €.
-- f) $6 \times \frac{1}{6} = 1$ €.
-- g) $\mathbb{E}[W^2] = 36 \times \frac{1}{6} = 6$, donc $\mathbb{V} = 6 - 1 = 5$.
-- h) Il faut $\frac{p}{6} = 1{,}5$, soit $p = 9$ €.
+- a) Deux piles $\frac{1}{4}$, un de chaque $\frac{1}{2}$ (PF ou FP), deux faces $\frac{1}{4}$ : $3 \times \frac{1}{4} + 0 \times \frac{1}{2} + (-5) \times \frac{1}{4} = -0{,}5$ €.
+- b) $\mathbb{E}[G^2] = 9 \times \frac{1}{4} + 25 \times \frac{1}{4} = 8{,}5$, donc $\mathbb{V} = 8{,}5 - (-0{,}5)^2 = 8{,}25$.
+- c) $\sqrt{8{,}25} \approx 2{,}87$ €.
+- d) Avec un gain $x$ pour deux piles : $\frac{x}{4} - \frac{5}{4} = 0$, donc $x = 5$ €.
+- e) Le gain vaut 5, 0 ou −5, d'espérance nulle : $\mathbb{V} = \frac{25}{4} + \frac{25}{4} = 12{,}5$, et $\sigma = \sqrt{12{,}5} \approx 3{,}54$ €.
+- f) 4 doubles parmi les 16 couples : $6 \times \frac{1}{4} + (-1) \times \frac{3}{4} = 0{,}75$ €.
+- g) $\mathbb{E}[G^2] = 36 \times \frac{1}{4} + 1 \times \frac{3}{4} = 9{,}75$, donc $\mathbb{V} = 9{,}75 - 0{,}75^2 = 9{,}1875$ et $\sigma \approx 3{,}03$ €.
+- h) Avec un gain $x$ pour un double : $\frac{x}{4} - \frac{3}{4} = 0$, donc $x = 3$ €.
 
-Dans ta copie : rendus équitables, les deux jeux ont la même espérance de gain net, 0. Ils diffèrent par le **risque** : rapporté à la mise, le jeu B (on perd la mise cinq fois sur six, ou l'on gagne gros) disperse davantage ses résultats que le jeu A. Préférer l'un ou l'autre est une question de goût du risque, que l'espérance ne mesure pas, et que l'écart-type résume.
+Dans ta copie : le jeu B rendu équitable fait gagner 3 € ou perdre 1 €, avec $\mathbb{V} = \frac{9}{4} + \frac{3}{4} = 3$ et $\sigma = \sqrt{3} \approx 1{,}73$ €, contre 3,54 € pour le jeu A équitable. Les deux ont la même espérance, 0 ; le jeu A est deux fois plus dispersé : on y gagne ou perd 5 € une fois sur deux. Préférer l'un ou l'autre est une question de goût du risque, que l'espérance ne mesure pas, et que l'écart-type résume.
 
-**Erreurs fréquentes.** Prendre les trois résultats du jeu A pour équiprobables (3 € en a) ; confondre le prix et le gain net ; oublier de retirer le carré de l'espérance en d et en g.
+**Erreurs fréquentes.** Prendre « deux piles », « deux faces » et « un de chaque » pour équiprobables (−0,67 en a) ; oublier de retirer le carré de l'espérance en b et en g ; ajouter au gain de deux piles le manque de 0,5 € en d (3,5), alors qu'un euro de plus sur ce gain n'ajoute qu'un quart d'euro à l'espérance.
 
-**Variante.** Jeu C : on lance trois pièces ; trois piles font gagner 16 €, sinon rien. L'espérance et la variance du prix ? *Réponse* : $16 \times \frac{1}{8} = 2$ € ; $\frac{256}{8} - 4 = 28$.
+**Variante.** Jeu C : on lance trois pièces ; trois piles font gagner 7 €, sinon on perd 1 €. L'espérance et la variance du gain ? *Réponse* : $7 \times \frac{1}{8} - \frac{7}{8} = 0$ € (équitable) ; $\frac{49}{8} + \frac{7}{8} - 0 = 7$.
 
 <a id="demonstrations"></a>
 
@@ -280,13 +280,13 @@ $$\binom{n - 1}{k - 1} + \binom{n - 1}{k} = \frac{(n - 1)!}{(k - 1)!\,(n - k)!} 
 ### Ex R8.12 — L'espérance d'une somme : E[X + Y] = E[X] + E[Y], même pour des variables liées
 
 **Réponse modèle.**
-1. Avec la loi : $\mathbb{E}[X] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{12}{8} = 1{,}5$. Avec les issues (PPP → 3, PPF → 2, PFP → 2, PFF → 1, FPP → 2, FPF → 1, FFP → 1, FFF → 0), chacune de poids $\frac{1}{8}$ : $\frac{3 + 2 + 2 + 1 + 2 + 1 + 1 + 0}{8} = \frac{12}{8}$. Les deux sommes sont toujours égales : si l'on regroupe, dans la somme sur les issues, les issues qui donnent la même valeur $x$, leur contribution est $x \times \sum_{\omega : X(\omega) = x} p(\omega) = x\,P(X = x)$.
-2. $\mathbb{E}[X + Y] = \sum_\omega \big(X(\omega) + Y(\omega)\big)\,p(\omega) = \sum_\omega X(\omega)\,p(\omega) + \sum_\omega Y(\omega)\,p(\omega) = \mathbb{E}[X] + \mathbb{E}[Y]$ (une somme se sépare, R4). On n'a **jamais** supposé $X$ et $Y$ indépendantes : la formule vaut pour des variables liées.
-3. De même, $\mathbb{E}[aX] = \sum_\omega a\,X(\omega)\,p(\omega) = a\,\mathbb{E}[X]$, et une constante $c$ (une variable qui vaut $c$ pour toute issue) a pour espérance $c \sum_\omega p(\omega) = c$. Avec 2 : $\mathbb{E}[aX + bY + c] = a\,\mathbb{E}[X] + b\,\mathbb{E}[Y] + c$. Avec $b = 0$, on retrouve $\mathbb{E}[aX + c] = a\,\mathbb{E}[X] + c$.
-4. $N = X_1 + X_2 + \cdots + X_{10}$, et $\mathbb{E}[X_i] = 0 \times \frac{1}{2} + 1 \times \frac{1}{2} = \frac{1}{2}$. Donc $\mathbb{E}[N] = 10 \times \frac{1}{2} = 5$, sans calculer la loi de $N$.
+1. Avec la loi : $\mathbb{E}[X] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{12}{8} = 1{,}5$. Avec les issues (PPP → 3, PPF → 2, PFP → 2, PFF → 1, FPP → 2, FPF → 1, FFP → 1, FFF → 0), chacune de poids $\frac{1}{8}$ : $\frac{3 + 2 + 2 + 1 + 2 + 1 + 1 + 0}{8} = \frac{12}{8}$. En général : les événements $\{X = x\}$, pour les différentes valeurs $x$, partagent $\Omega$ en morceaux disjoints. Dans la somme sur les issues, on regroupe celles de chaque morceau : leur contribution est $\sum_{\omega : X(\omega) = x} x\,p(\omega) = x \sum_{\omega : X(\omega) = x} p(\omega) = x\,P(X = x)$, et la somme de ces contributions sur toutes les valeurs $x$ est $\sum_x x\,P(X = x) = \mathbb{E}[X]$.
+2. $\mathbb{E}[X + Y] = \sum_\omega \big(X(\omega) + Y(\omega)\big)\,p(\omega) = \sum_\omega X(\omega)\,p(\omega) + \sum_\omega Y(\omega)\,p(\omega) = \mathbb{E}[X] + \mathbb{E}[Y]$ (une somme se sépare, R4 ; et 1 appliqué à $X + Y$, à $X$ et à $Y$). On n'a **jamais** supposé $X$ et $Y$ indépendantes : la formule vaut pour des variables liées.
+3. Pour $n = 2$, c'est 2. Si la formule est vraie pour $n$ variables, alors pour $n + 1$ : $X_1 + \cdots + X_{n+1} = (X_1 + \cdots + X_n) + X_{n+1}$ est la somme de **deux** variables aléatoires, donc, par 2, $\mathbb{E}[X_1 + \cdots + X_{n+1}] = \mathbb{E}[X_1 + \cdots + X_n] + \mathbb{E}[X_{n+1}]$, puis, par l'hypothèse de récurrence, $= \mathbb{E}[X_1] + \cdots + \mathbb{E}[X_n] + \mathbb{E}[X_{n+1}]$. La formule est vraie pour tout $n \ge 2$.
+4. $N = X_1 + X_2 + \cdots + X_{20}$, et $\mathbb{E}[X_i] = 0 \times \frac{3}{4} + 1 \times \frac{1}{4} = \frac{1}{4}$. Par 3, $\mathbb{E}[N] = 20 \times \frac{1}{4} = 5$ bonnes réponses en moyenne, sans calculer la loi de $N$.
 5. $XY = X^2 = X$ (0 ou 1), donc $\mathbb{E}[XY] = \frac{1}{2}$, alors que $\mathbb{E}[X]\,\mathbb{E}[Y] = \frac{1}{4}$.
 
-**Grille.** Une bonne démonstration : (1) calcule l'exemple des deux façons et justifie l'égalité générale par un regroupement des issues ; (2) écrit $\mathbb{E}[X + Y]$ comme une somme sur les issues, la sépare en deux, et remarque qu'aucune indépendance n'a servi ; (3) traite la constante et le facteur $a$, puis combine ; (4) décompose $N$ en une somme d'indicatrices ; (5) donne un contre-exemple chiffré pour le produit.
+**Grille.** Une bonne démonstration : (1) calcule l'exemple des deux façons, et justifie l'égalité générale en partageant $\Omega$ selon les valeurs de $X$ ; (2) écrit $\mathbb{E}[X + Y]$ comme une somme sur les issues, la sépare en deux, et remarque qu'aucune indépendance n'a servi ; (3) rédige une récurrence complète : initialisation, hérédité qui écrit la somme de $n + 1$ termes comme la somme de deux variables, conclusion ; (4) décompose $N$ en une somme de variables qui valent 0 ou 1 ; (5) donne un contre-exemple chiffré pour le produit.
 
 <a id="reflexion"></a>
 
@@ -373,11 +373,11 @@ Dans ta copie : $\binom{n}{2} = \frac{n(n - 1)}{2}$, et pour $n$ grand, $n - 1 \
 
 **Erreurs fréquentes.** Calculer la probabilité que tous les anniversaires soient différents, sans passer au contraire ; répondre 22 en e (le dernier qui reste en dessous de 0,5) ; diviser 30 par 365.
 
-### Ex R8.21 — La loi des grands nombres : fréquence et nombre de lancers
+### Ex R8.21 — La loi des grands nombres : fréquence et nombre d'essais
 
-**Réponses** : a) `[0.772, 0.28, 0.002, 0.0]` · b) `0.3332` · c) `0`.
+**Réponses** : a) `[0.694, 0.288, 0.0, 0.0]` · b) `0.3333` · c) `0`.
 
-**Démarche.** Une boucle sur `sizes`, un seul générateur créé avant elle, et à chaque tour la ligne de l'énoncé, puis `far.append(...)` ; on garde les fréquences de $n = 100$ et $n = 10\,000$ dans un dictionnaire pour les histogrammes. L'histogramme pour $n = 10\,000$ est beaucoup plus resserré autour de $\frac{1}{3}$ que celui pour $n = 100$. Pour la copie : la loi des grands nombres dit que la probabilité d'un écart donné entre fréquence et probabilité tend vers 0 quand $n$ grandit ; elle ne dit pas que la fréquence **égale** la probabilité, ni à partir de quel $n$. Pour un écart de 0,01 avec $n = 10\,000$, environ 3 % des séries resteraient au-delà : l'écart typique vaut alors environ 0,005, et 0,01 en fait deux.
+**Démarche.** Une boucle sur `sizes`, un seul générateur créé avant elle, et à chaque tour la ligne de l'énoncé, puis `far.append(...)` ; on garde les fréquences de $n = 100$ et $n = 10\,000$ dans un dictionnaire pour les histogrammes. L'histogramme pour $n = 10\,000$ est beaucoup plus resserré autour de $\frac{1}{3}$ que celui pour $n = 100$. Pour la copie : la loi des grands nombres dit que la probabilité d'un écart donné entre fréquence et probabilité tend vers 0 quand $n$ grandit ; elle ne dit pas que la fréquence **égale** la probabilité, ni à partir de quel $n$. Pour un écart de 0,01 avec $n = 10\,000$, environ 3 % des séries resteraient au-delà : la proportion de a) ne tombe à 0 que pour des $n$ plus grands.
 
 **Erreurs fréquentes.** Recréer le générateur à chaque tour de boucle ; oublier `np.abs` (seuls les écarts positifs comptent alors) ; confondre la fréquence des 500 séries avec la proportion de séries qui s'écartent.
 

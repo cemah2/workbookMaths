@@ -1,6 +1,6 @@
 # R8 · Probabilités de base — fiche de cours
 
-> La remise à niveau (R0 à R9) n'a pas de livre : **cette fiche est le cours**. Les probabilités sont la langue du machine learning : un classifieur ne répond pas « c'est un chat », il répond « chat avec une probabilité de 0,92 » ; une loss est une moyenne d'erreurs, que les maths appellent une **espérance** ; et chaque expérience de workbookIA dépend d'un **générateur aléatoire**. Ce chapitre reprend les probabilités du lycée, à partir de zéro : décrire une expérience aléatoire, compter ses issues, calculer une probabilité, enchaîner des épreuves avec un arbre, reconnaître des événements indépendants, résumer une variable aléatoire par son espérance et sa variance, et vérifier tout cela par simulation.
+> La remise à niveau (R0 à R9) n'a pas de livre : **cette fiche est le cours**. Les probabilités sont la langue du machine learning : un classifieur ne tranche pas, il donne à chaque réponse possible une probabilité ; la moyenne des erreurs sur les données **estime une espérance**, une notion de ce chapitre ; et chaque expérience de workbookIA dépend d'un **générateur aléatoire**. Ce chapitre reprend les probabilités du lycée, à partir de zéro : décrire une expérience aléatoire, compter ses issues, calculer une probabilité, enchaîner des épreuves avec un arbre, reconnaître des événements indépendants, résumer une variable aléatoire par son espérance et sa variance, et vérifier tout cela par simulation.
 
 | | |
 |---|---|
@@ -55,7 +55,7 @@ Parcours essentiel : tout sauf R8.Q7, R8.R3, R8.10, R8.11, R8.14, R8.17 et R8.22
 7. $A$ et $B$ sont **indépendants** si $P(A \cap B) = P(A)\,P(B)$ : savoir que $A$ s'est produit ne change pas la probabilité de $B$. Incompatibles et de probabilités non nulles, ils ne sont **jamais** indépendants.
 8. Une **variable aléatoire** $X$ associe un nombre à chaque issue ; sa **loi** est le tableau des $P(X = x)$, de somme 1.
 9. $\mathbb{E}[X] = \sum x\,P(X = x)$ (la moyenne à long terme) ; $\mathbb{V}(X) = \mathbb{E}\big[(X - \mathbb{E}[X])^2\big] = \mathbb{E}[X^2] - \mathbb{E}[X]^2$ ; $\sigma = \sqrt{\mathbb{V}(X)}$. $\mathbb{E}[aX + b] = a\,\mathbb{E}[X] + b$ et $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$.
-10. **Loi des grands nombres** : sur $n$ répétitions indépendantes, la fréquence d'un événement se rapproche de sa probabilité quand $n$ grandit. Simuler (avec une **graine**, pour pouvoir refaire l'expérience) vérifie un calcul, ou remplace un calcul trop difficile.
+10. **Loi des grands nombres** : sur $n$ répétitions indépendantes, la fréquence d'un événement se rapproche de sa probabilité quand $n$ grandit. Simuler (avec une **graine**, pour pouvoir refaire l'expérience) donne une estimation, qui permet de vérifier un calcul.
 
 ---
 
@@ -93,17 +93,19 @@ Deux événements sans issue commune, $A \cap B = \varnothing$, sont **incompati
 
 ![La roue de 8 secteurs : les événements A (pair) et B (au plus 3), leur intersection et leur réunion](figures/evenements.png)
 
-En Python, les ensembles de workbookIA 0A font exactement ces opérations :
+En Python, les ensembles de workbookIA 0A font exactement ces opérations. Sur les trois lancers de pièce, avec « exactement deux piles » et « le premier lancer donne pile » :
 
 ```python
->>> omega = set(range(1, 9))
->>> A = {n for n in omega if n % 2 == 0}
->>> B = {n for n in omega if n <= 3}
->>> sorted(omega - A), sorted(A & B), sorted(A | B), sorted(omega - (A | B))
-([1, 3, 5, 7], [2], [1, 2, 3, 4, 6, 8], [5, 7])
+>>> omega = {a + b + c for a in "PF" for b in "PF" for c in "PF"}
+>>> two_piles = {w for w in omega if w.count("P") == 2}
+>>> first_pile = {w for w in omega if w[0] == "P"}
+>>> sorted(two_piles & first_pile), len(two_piles | first_pile)
+(['PFP', 'PPF'], 5)
 ```
 
-🔗 **Dans workbookIA** — une prédiction de classification est une issue (« Adélie », « Gentoo » ou « Chinstrap ») ; « le modèle se trompe » est un événement. Les ensembles et leur cardinal reviennent au chapitre 0B, puis au chapitre 3 pour compter les vrais et faux positifs.
+`&` est l'intersection, `|` la réunion, et `omega - two_piles` serait le contraire.
+
+🔗 **Dans workbookIA** — la réponse d'un classifieur sur un exemple est une issue, parmi les classes possibles ; « le modèle se trompe » est un événement. Les ensembles et leur cardinal reviennent au chapitre 0B, puis au chapitre 3 pour compter les vrais et faux positifs.
 
 ---
 
@@ -111,7 +113,7 @@ En Python, les ensembles de workbookIA 0A font exactement ces opérations :
 
 ### De la fréquence à la probabilité
 
-Fais tourner la roue 1 000 fois et compte les numéros pairs : tu en trouveras environ 500, rarement exactement 500. La **fréquence** d'un événement, le nombre de fois où il se réalise divisé par le nombre d'essais, change d'une série à l'autre ; mais plus la série est longue, plus elle se stabilise autour d'un nombre, ici $\frac{1}{2}$. Ce nombre, qui ne dépend pas de la série, est la **probabilité** de l'événement. Le §8 précisera ce lien (la loi des grands nombres) ; retiens pour l'instant qu'une probabilité est une fréquence « idéale », et qu'une fréquence est une probabilité mesurée.
+Fais tourner la roue 1 000 fois et compte les numéros pairs : tu en trouveras environ 500, rarement exactement 500. La **fréquence** d'un événement, le nombre de fois où il se réalise divisé par le nombre d'essais, change d'une série à l'autre ; mais plus la série est longue, plus elle se stabilise autour d'un nombre, ici $\frac{1}{2}$. Ce nombre, qui ne dépend pas de la série, est la **probabilité** de l'événement. Le §8 précisera ce lien (la loi des grands nombres) ; retiens pour l'instant qu'une probabilité est une fréquence « idéale », et qu'une fréquence est une **estimation** de la probabilité.
 
 ### Définition
 
@@ -162,7 +164,7 @@ En Python, on compte avec une compréhension de liste, et `Fraction` (R1) garde 
 
 `sum` d'une suite de booléens compte les `True` : c'est ce que fera ta fonction `enumerate_probability` (R8.17).
 
-🔗 **Dans workbookIA** — un classifieur renvoie une probabilité par classe, de somme 1 (le softmax du chapitre 17) ; l'accuracy d'un modèle est la fréquence de ses bonnes réponses sur un jeu de test, une estimation de la probabilité qu'il réponde juste (chapitre 3).
+🔗 **Dans workbookIA** — le chapitre 3 range les réponses d'un classifieur dans un tableau de comptages (la matrice de confusion) : chaque case compte les exemples d'une classe réelle classés dans une classe prédite, et un rapport de ces comptages est une fréquence, donc une estimation d'une probabilité.
 
 ---
 
@@ -193,7 +195,7 @@ Le nombre d'arrangements s'écrit aussi avec des factorielles : $n(n - 1)\cdots(
 
 Souvent, l'ordre ne compte pas : une équipe de 3 joueurs parmi 9, une main de cartes, un groupe de features. Compte d'abord les choix **ordonnés** : $9 \times 8 \times 7 = 504$. Chaque équipe y apparaît plusieurs fois, une fois pour chaque rangement de ses 3 membres, soit $3! = 6$ fois. Il y a donc $\frac{504}{6} = 84$ équipes.
 
-Le même raisonnement, en général, donne le **coefficient binomial** (*binomial coefficient*), noté $\binom{n}{k}$ et lu « $k$ parmi $n$ » (au lycée, on écrit aussi $C_n^k$) : le nombre de façons de choisir $k$ objets parmi $n$, sans ordre ni répétition,
+Le même raisonnement, en général, donne le **coefficient binomial** (*binomial coefficient*), noté $\binom{n}{k}$ et lu « $k$ parmi $n$ » ($C_n^k$ est l'ancienne notation) : le nombre de façons de choisir $k$ objets parmi $n$, sans ordre ni répétition,
 
 $$\binom{n}{k} = \frac{n(n - 1)\cdots(n - k + 1)}{k!} = \frac{n!}{k!\,(n - k)!} \qquad (0 \le k \le n).$$
 
@@ -241,7 +243,7 @@ En Python, `math.factorial`, `math.perm` et `math.comb` font ces calculs exactem
 
 Beaucoup d'expériences se déroulent en étapes : un tirage, puis un autre ; il pleut ou non, puis le bus est en retard ou non. Un **arbre pondéré** représente ces étapes. Chaque nœud ouvre une branche par issue possible de l'étape suivante, et chaque branche porte la probabilité de cette issue, **sachant le chemin déjà parcouru**.
 
-Exemple : un matin, il pleut avec la probabilité 0,3. Quand il pleut, le bus est en retard avec la probabilité 0,4 ; sinon, avec la probabilité 0,1. On note $R$ l'événement « il pleut » et $T$ « le bus est en retard ».
+Exemple : un matin, il pleut avec la probabilité 0,3. Quand il pleut, le bus est en retard avec la probabilité 0,4 ; sinon, avec la probabilité 0,1. On note $A$ l'événement « il pleut » et $B$ « le bus est en retard ».
 
 ![Arbre pondéré : la pluie, puis le retard du bus](figures/arbre.png)
 
@@ -249,23 +251,23 @@ Trois règles permettent de tout calculer :
 1. **Les branches issues d'un même nœud ont une somme de 1** : 0,3 et 0,7 au départ ; 0,4 et 0,6 après « pluie » ; 0,1 et 0,9 après « pas de pluie ».
 2. **La probabilité d'un chemin est le produit des probabilités de ses branches** : « il pleut et le bus est en retard » a la probabilité $0{,}3 \times 0{,}4 = 0{,}12$.
 3. **La probabilité d'un événement est la somme des probabilités des chemins qui y mènent** : le bus est en retard par deux chemins, donc
-$$P(T) = 0{,}3 \times 0{,}4 + 0{,}7 \times 0{,}1 = 0{,}12 + 0{,}07 = 0{,}19.$$
+$$P(B) = 0{,}3 \times 0{,}4 + 0{,}7 \times 0{,}1 = 0{,}12 + 0{,}07 = 0{,}19.$$
 
 La somme des probabilités de tous les chemins vaut 1 : $0{,}12 + 0{,}18 + 0{,}07 + 0{,}63 = 1$. C'est une bonne vérification.
 
 ### Un premier contact avec le conditionnement
 
-Les probabilités du second niveau ne sont pas des probabilités « tout court » : 0,4 est la probabilité du retard **sachant qu'il pleut**. On la note $P(T \mid R)$ (lire « probabilité de $T$ sachant $R$ » ; au lycée, $P_R(T)$). La règle 2 s'écrit alors
+Les probabilités du second niveau ne sont pas des probabilités « tout court » : 0,4 est la probabilité du retard **sachant qu'il pleut**. On la note $P(B \mid A)$ (lire « probabilité de $B$ sachant $A$ » ; au lycée, $P_A(B)$). La règle 2 s'écrit alors
 
-$$P(R \cap T) = P(R) \times P(T \mid R).$$
+$$P(A \cap B) = P(A) \times P(B \mid A).$$
 
 Ce n'est qu'un premier contact : les probabilités conditionnelles auront leur chapitre (M03), et la règle 3 y deviendra la **formule des probabilités totales**.
 
 ### Tirages avec ou sans remise
 
-Un sac contient 6 billes, dont 2 rouges. On en tire deux, l'une après l'autre. **Sans remise** (la première bille reste dehors), la composition du sac change entre les deux tirages : après une bille rouge, il reste 1 bille rouge sur 5. Le chemin « rouge, puis rouge » a la probabilité
+Une playlist contient 6 morceaux, dont tes 2 préférés, et le lecteur en joue deux au hasard, l'un après l'autre. En mode **sans remise** (un morceau joué ne peut pas revenir, comme quand on mélange la playlist), le choix change entre les deux tirages : si le premier morceau est un préféré, il reste 1 préféré parmi les 5 morceaux restants. Le chemin « préféré, puis préféré » a la probabilité
 $$\frac{2}{6} \times \frac{1}{5} = \frac{2}{30} = \frac{1}{15}.$$
-**Avec remise** (on remet la bille et on mélange), le second tirage se fait dans le même sac que le premier : $\frac{2}{6} \times \frac{2}{6} = \frac{1}{9}$.
+En mode **avec remise** (chaque morceau est tiré parmi les 6, même s'il vient d'être joué), le second tirage se fait dans les mêmes conditions que le premier : $\frac{2}{6} \times \frac{2}{6} = \frac{1}{9}$.
 
 ⚠️ **On multiplie le long d'un chemin, on additionne entre les chemins.** Additionner les probabilités d'un même chemin, ou multiplier celles de deux chemins différents, donne des nombres qui n'ont pas de sens (parfois plus grands que 1).
 
@@ -283,7 +285,7 @@ $$A \text{ et } B \text{ sont indépendants} \iff P(A \cap B) = P(A)\,P(B).$$
 
 **Deux épreuves sans lien.** On fait tourner deux fois la roue de 8 secteurs. « Le premier numéro est pair » ($\frac{1}{2}$) et « le second vaut au plus 3 » ($\frac{3}{8}$) : parmi les $8 \times 8 = 64$ couples équiprobables, $4 \times 3 = 12$ réalisent les deux, et $\frac{12}{64} = \frac{3}{16} = \frac{1}{2} \times \frac{3}{8}$. Indépendants, comme on s'y attend : la roue n'a pas de mémoire.
 
-**Une seule épreuve.** L'indépendance n'est pas toujours une question de « lien physique » : elle se **calcule**. On lance un dé à 6 faces. Avec $A$ = « pair » $= \{2, 4, 6\}$ et $B$ = « au plus 2 » $= \{1, 2\}$ : $P(A \cap B) = P(\{2\}) = \frac{1}{6}$ et $P(A)\,P(B) = \frac{1}{2} \times \frac{1}{3} = \frac{1}{6}$. Les deux événements sont indépendants : savoir que le résultat vaut au plus 2 laisse une chance sur deux qu'il soit pair. Mais avec $B'$ = « au plus 3 » $= \{1, 2, 3\}$, $P(A \cap B') = \frac{1}{6}$ alors que $P(A)\,P(B') = \frac{1}{4}$ : savoir que le résultat vaut au plus 3 rend « pair » moins probable (une chance sur trois). Pas indépendants.
+**Une seule épreuve.** L'indépendance n'est pas toujours une question de « lien physique » : elle se **calcule**. On fait tourner une seule fois la roue de 8 secteurs. Avec $A$ = « pair » $= \{2, 4, 6, 8\}$ et $B$ = « multiple de 3 » $= \{3, 6\}$ : $P(A \cap B) = P(\{6\}) = \frac{1}{8}$ et $P(A)\,P(B) = \frac{1}{2} \times \frac{1}{4} = \frac{1}{8}$. Les deux événements sont indépendants : savoir que le numéro est un multiple de 3 laisse une chance sur deux qu'il soit pair. Mais avec $B'$ = « multiple de 4 » $= \{4, 8\}$, $P(A \cap B') = \frac{2}{8} = \frac{1}{4}$ alors que $P(A)\,P(B') = \frac{1}{8}$ : savoir que le numéro est un multiple de 4 rend « pair » certain. Pas indépendants.
 
 ⚠️ **Indépendants n'est pas incompatibles.** Deux événements incompatibles, chacun de probabilité non nulle, ne sont **jamais** indépendants : $P(A \cap B) = 0$, alors que $P(A)\,P(B) > 0$. Si l'un se réalise, l'autre devient impossible : c'est le contraire de « ne rien changer ».
 
@@ -297,7 +299,7 @@ $$P(\text{au moins une réussite en } n \text{ essais}) = 1 - (1 - p)^n.$$
 
 Exemple : un test automatique échoue au hasard, avec la probabilité 0,02, à chaque exécution, indépendamment des autres. Sur 50 exécutions, la probabilité qu'il échoue au moins une fois est $1 - 0{,}98^{50} \approx 0{,}636$ : un défaut rare à chaque essai devient probable sur beaucoup d'essais. Les puissances d'un nombre entre 0 et 1 décroissent vite (R5, R6).
 
-🔗 **Dans workbookIA** — on suppose presque toujours que les exemples d'un dataset sont **indépendants** et tirés de la même loi (« i.i.d. », chapitre 2) : la probabilité de tout le dataset est alors un **produit** de probabilités, qu'un logarithme transforme en somme (R6). Le classifieur « Naïve Bayes » du chapitre 13 suppose, lui, des features indépendantes.
+🔗 **Dans workbookIA** — on suppose presque toujours que les exemples d'un dataset sont **indépendants** et tirés de la même loi (« i.i.d. », chapitre 2) : c'est ce qui justifie de mélanger les exemples avant de les découper en mini-batches, et d'évaluer un modèle sur des exemples qu'il n'a jamais vus.
 
 ---
 
@@ -344,11 +346,11 @@ $$\mathbb{E}[S] = \frac{2 \times 1 + 3 \times 2 + 4 \times 3 + 5 \times 4 + 6 \t
 
 On pouvait le prévoir : la loi est symétrique autour de 5. L'espérance est le **centre de gravité** du diagramme en bâtons, et la moyenne à laquelle on s'attend sur un très grand nombre de répétitions (§8). Elle n'est pas forcément une valeur possible : une variable qui vaut 0 ou 1 avec une chance sur deux a pour espérance $\frac{1}{2}$.
 
-**Un jeu équitable.** Une roue de loterie a 10 secteurs égaux : un secteur rapporte 15 €, trois rapportent 5 €, les six autres rien ; le ticket coûte 3 €. Le gain net $G$ (somme gagnée moins prix du ticket) vaut 12 €, 2 € ou −3 €, avec les probabilités 0,1, 0,3 et 0,6 :
+**Un jeu de hasard.** On fait tourner la roue de 8 secteurs : le 8 fait gagner 5 €, tout autre numéro fait perdre 1 €. Le gain $G$ vaut 5 ou −1, avec les probabilités $\frac{1}{8}$ et $\frac{7}{8}$ :
 
-$$\mathbb{E}[G] = 12 \times 0{,}1 + 2 \times 0{,}3 + (-3) \times 0{,}6 = 1{,}2 + 0{,}6 - 1{,}8 = 0.$$
+$$\mathbb{E}[G] = 5 \times \frac{1}{8} + (-1) \times \frac{7}{8} = -\frac{2}{8} = -0{,}25.$$
 
-Un jeu d'espérance nulle est dit **équitable** : en moyenne, sur beaucoup de parties, ni le joueur ni l'organisateur ne gagne. Avec une espérance négative, le joueur perd en moyenne, et l'organisateur gagne.
+Le joueur perd en moyenne 25 centimes par partie. Si le 8 faisait gagner 7 €, l'espérance serait $\frac{7}{8} - \frac{7}{8} = 0$. Un jeu d'espérance nulle est dit **équitable** : en moyenne, sur beaucoup de parties, ni le joueur ni l'organisateur ne gagne. Avec une espérance négative, le joueur perd en moyenne, et l'organisateur gagne.
 
 **Linéarité.** Si l'on multiplie toutes les valeurs par $a$ et qu'on ajoute $b$, l'espérance suit le même chemin :
 
@@ -358,11 +360,11 @@ Exemple : chaque point de la somme $S$ rapporte 2 €, et la partie coûte 9 €
 
 ### La variance et l'écart-type
 
-L'espérance ne dit rien de la **dispersion**. Le jeu de la roue et un jeu où l'on ne gagne et ne perd jamais rien ont tous deux une espérance nulle ; l'un fait gagner 12 € ou perdre 3 €, l'autre rien. La **variance** (*variance*) mesure l'écart à l'espérance, élevé au carré et moyenné :
+L'espérance ne dit rien de la **dispersion**. Une variable $T$ qui vaut 1, 5 ou 9 avec les probabilités $\frac{1}{4}$, $\frac{1}{2}$ et $\frac{1}{4}$ a, elle aussi, l'espérance 5 ; mais une fois sur deux, elle tombe à 4 unités de 5, alors que $S$ en reste souvent tout près. La **variance** (*variance*) mesure l'écart à l'espérance, élevé au carré et moyenné :
 
 $$\mathbb{V}(X) = \mathbb{E}\big[(X - \mathbb{E}[X])^2\big] = \sum_x \big(x - \mathbb{E}[X]\big)^2\, P(X = x).$$
 
-On la note $V(X)$ au lycée, $\mathrm{Var}(X)$ dans workbookIA. Le carré rend tous les écarts positifs (sinon les écarts au-dessus et au-dessous de l'espérance se compenseraient, et la somme vaudrait toujours 0) et donne plus de poids aux grands écarts. Une variance est toujours positive ou nulle, et elle n'est nulle que si $X$ est constante.
+On la note $V(X)$ au lycée, $\mathrm{Var}(X)$ dans workbookIA. Le carré rend tous les écarts positifs ou nuls (sinon les écarts au-dessus et au-dessous de l'espérance se compenseraient, et la somme vaudrait toujours 0) et donne plus de poids aux grands écarts. Une variance est toujours positive ou nulle, et elle n'est nulle que si $X$ est constante.
 
 Comme la variance est dans une unité au carré (des euros au carré), on utilise aussi l'**écart-type** (*standard deviation*), sa racine carrée, dans l'unité de $X$ :
 
@@ -372,23 +374,25 @@ Pour $S$, avec $\mathbb{E}[S] = 5$, les écarts au carré valent 9, 4, 1, 0, 1, 
 
 $$\mathbb{V}(S) = \frac{9 \times 1 + 4 \times 2 + 1 \times 3 + 0 \times 4 + 1 \times 3 + 4 \times 2 + 9 \times 1}{16} = \frac{40}{16} = 2{,}5, \qquad \sigma(S) = \sqrt{2{,}5} \approx 1{,}58.$$
 
+Pour $T$, les écarts à 5 valent −4, 0 et 4 : $\mathbb{V}(T) = 16 \times \frac{1}{4} + 0 \times \frac{1}{2} + 16 \times \frac{1}{4} = 8$, et $\sigma(T) = \sqrt{8} \approx 2{,}83$. Même espérance, mais $T$ est bien plus dispersée.
+
 **Une formule plus rapide** (démontrée au chapitre 0B de workbookIA) :
 
 $$\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2, \qquad \text{où } \mathbb{E}[X^2] = \sum_x x^2\, P(X = x).$$
 
-Pour $S$ : $\mathbb{E}[S^2] = \frac{4 \times 1 + 9 \times 2 + 16 \times 3 + 25 \times 4 + 36 \times 3 + 49 \times 2 + 64 \times 1}{16} = \frac{440}{16} = 27{,}5$, et $\mathbb{V}(S) = 27{,}5 - 5^2 = 2{,}5$, comme avant. Pour le jeu de la roue : $\mathbb{E}[G^2] = 144 \times 0{,}1 + 4 \times 0{,}3 + 9 \times 0{,}6 = 21$, donc $\mathbb{V}(G) = 21 - 0^2 = 21$ et $\sigma(G) \approx 4{,}58$ €.
+Pour $S$ : $\mathbb{E}[S^2] = \frac{4 \times 1 + 9 \times 2 + 16 \times 3 + 25 \times 4 + 36 \times 3 + 49 \times 2 + 64 \times 1}{16} = \frac{440}{16} = 27{,}5$, et $\mathbb{V}(S) = 27{,}5 - 5^2 = 2{,}5$, comme avant. Pour le jeu de la roue : $\mathbb{E}[G^2] = 25 \times \frac{1}{8} + 1 \times \frac{7}{8} = \frac{32}{8} = 4$, donc $\mathbb{V}(G) = 4 - (-0{,}25)^2 = 3{,}9375$ et $\sigma(G) \approx 1{,}98$ €.
 
-⚠️ **$\mathbb{E}[X^2]$ n'est pas $\mathbb{E}[X]^2$.** Le premier est la moyenne des carrés, le second le carré de la moyenne ; leur différence est justement la variance, qui est positive. Pour $S$ : 27,5 contre 25.
+⚠️ **$\mathbb{E}[X^2]$ n'est pas $\mathbb{E}[X]^2$.** Le premier est la moyenne des carrés, le second le carré de la moyenne. Pour $S$ : 27,5 contre 25.
 
-**Changer d'échelle.** Ajouter une constante décale toutes les valeurs, et l'espérance avec elles, sans changer les écarts ; multiplier par $a$ multiplie chaque écart par $a$, donc chaque écart au carré par $a^2$ :
+**Changer d'échelle.** Pour tous nombres $a$ et $b$, on admet ici les règles
 
 $$\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X), \qquad \sigma(aX + b) = \lvert a \rvert\, \sigma(X).$$
 
-Pour le gain $2S - 9$ : $\mathbb{V} = 4 \times 2{,}5 = 10$ et $\sigma = 2 \times 1{,}58 \approx 3{,}16$ €. Le $-9$ n'a rien changé à la dispersion.
+La constante $b$ ne change pas la dispersion, et le facteur $a$ compte au carré dans la variance. Pour le gain $2S - 9$ : $\mathbb{V} = 4 \times 2{,}5 = 10$ et $\sigma = 2 \times 1{,}58 \approx 3{,}16$ €.
 
-![Deux lois de même espérance 5 : la somme S, resserrée autour de 5 (σ ≈ 1,58), et une variable qui vaut 2 ou 8 (σ = 3)](figures/dispersion.png)
+![Deux lois de même espérance 5 : la somme S, resserrée autour de 5 (σ ≈ 1,58), et la variable T, qui vaut 1, 5 ou 9 (σ ≈ 2,83)](figures/dispersion.png)
 
-🔗 **Dans workbookIA** — la loss qu'un modèle minimise est l'**espérance** de son erreur, estimée par une moyenne sur les données (chapitres 2 et 8) ; **standardiser** une feature, c'est lui retirer sa moyenne et la diviser par son écart-type (chapitre 12) ; l'écart-type d'un score sur plusieurs graines dit si une amélioration est réelle ou due au hasard (chapitre 8).
+🔗 **Dans workbookIA** — en apprentissage par renforcement (chapitre 26), un agent cherche les actions qui rapportent la plus grande récompense **espérée** ; deux actions de même espérance peuvent avoir des variances très différentes, et la variance mesure alors le risque. Au chapitre 9, l'erreur d'un modèle se décompose en un biais et une **variance**, qui mesure combien le modèle change quand on change ses données d'entraînement.
 
 ---
 
@@ -400,30 +404,32 @@ Un ordinateur ne tire pas vraiment au hasard : un **générateur pseudo-aléatoi
 
 ```python
 >>> import numpy as np
->>> rng = np.random.default_rng(0)
->>> rolls = rng.integers(1, 5, size=(100_000, 2))     # 100 000 lancers de deux dés à 4 faces
->>> s = rolls.sum(axis=1)
->>> round(float((s >= 6).mean()), 4), 3 / 8
-(0.3736, 0.375)
->>> round(float(s.mean()), 3), round(float(s.var()), 3)
-(4.999, 2.483)
+>>> rng = np.random.default_rng(2024)
+>>> spins = rng.integers(1, 9, size=50_000)          # 50 000 tours de la roue de 8 secteurs
+>>> hits = (spins % 2 == 0) | (spins <= 3)           # « pair ou au plus 3 », A ∪ B
+>>> round(float(hits.mean()), 4), 3 / 4
+(0.7501, 0.75)
 ```
 
-`rng.integers(1, 5, ...)` tire des entiers de 1 à 4 (la borne 5 est exclue). La fréquence de « $S \ge 6$ » (la moyenne d'un tableau de booléens, R0) est proche de la probabilité $\frac{3}{8}$ calculée au §6, et la moyenne et la variance des 100 000 sommes sont proches de $\mathbb{E}[S] = 5$ et $\mathbb{V}(S) = 2{,}5$. Simuler, c'est donc **vérifier un calcul** ; c'est aussi la seule méthode quand le calcul exact est trop difficile (on parle de méthode de Monte-Carlo).
+`rng.integers(1, 9, ...)` tire des entiers de 1 à 8 (la borne 9 est exclue), et `|` fait le « ou » case par case. La fréquence de $A \cup B$ (la moyenne d'un tableau de booléens, R0) est proche de la probabilité $\frac{3}{4}$ calculée au §2. Simuler donne une **estimation**, qui permet de vérifier un calcul.
 
 ### La loi des grands nombres
 
-Que se passe-t-il quand on fait de plus en plus de lancers ?
+Que se passe-t-il quand on fait de plus en plus de tours ?
 
 ```python
+>>> def frequency(rng, n):
+...     spins = rng.integers(1, 9, size=n)
+...     return float(((spins % 2 == 0) | (spins <= 3)).mean())
+...
 >>> rng = np.random.default_rng(7)
->>> [float((rng.integers(1, 5, size=(n, 2)).sum(axis=1) >= 6).mean()) for n in (10, 100, 1_000, 10_000)]
-[0.5, 0.4, 0.397, 0.3684]
+>>> [frequency(rng, n) for n in (10, 100, 1_000, 10_000)]
+[0.7, 0.71, 0.742, 0.7567]
 ```
 
-Sur 10 lancers, la fréquence peut être loin de 0,375 ; sur 10 000, elle en est proche. C'est la **loi des grands nombres** (*law of large numbers*) : quand on répète une expérience un grand nombre de fois, de façon indépendante et dans les mêmes conditions, la fréquence d'un événement se rapproche de sa probabilité, et la moyenne des valeurs d'une variable aléatoire se rapproche de son espérance. Les écarts diminuent environ comme $\frac{1}{\sqrt{n}}$ : pour une précision dix fois meilleure, il faut cent fois plus d'essais. M02c donnera l'énoncé précis et en tirera des intervalles de confiance.
+Sur 10 tours, la fréquence peut être loin de 0,75 ; sur 10 000, elle en est proche. C'est la **loi des grands nombres** (*law of large numbers*) : quand on répète une expérience un grand nombre de fois, de façon indépendante et dans les mêmes conditions, la fréquence d'un événement se rapproche de sa probabilité, et la moyenne des valeurs d'une variable aléatoire se rapproche de son espérance. Les écarts diminuent environ comme $\frac{1}{\sqrt{n}}$. M02c donnera l'énoncé précis et en tirera des intervalles de confiance.
 
-![Fréquence de « S ≥ 6 » au fil des lancers, pour trois graines : les trois courbes se rapprochent de 3/8](figures/grands_nombres.png)
+![Fréquence de « pair ou au plus 3 » au fil des tours, pour 30 séries : l'éventail des fréquences se resserre autour de 3/4](figures/fluctuations.png)
 
 ⚠️ **Le hasard n'a pas de mémoire.** Après cinq piles de suite, une pièce équilibrée a toujours une chance sur deux de donner pile : les lancers sont indépendants (§5). La loi des grands nombres ne « compense » pas les écarts passés ; elle les **dilue** : cinq piles de trop pèsent beaucoup sur 10 lancers, presque rien sur 10 000. Croire le contraire s'appelle l'erreur du joueur (*gambler's fallacy*).
 
@@ -431,9 +437,9 @@ Sur 10 lancers, la fréquence peut être loin de 0,375 ; sur 10 000, elle en est
 
 - Crée le générateur **une seule fois** (`rng = np.random.default_rng(graine)`), et passe-le aux fonctions qui tirent au hasard, comme le fera ta fonction `simulate_frequency(experiment, n_trials, seed)` (R8.19).
 - Note la graine avec les résultats : une autre graine donne d'autres fréquences, toutes proches de la probabilité si $n$ est grand.
-- Une simulation ne remplace pas une preuve, mais elle détecte vite une erreur de calcul : si ta probabilité exacte est 0,6 et que 100 000 essais donnent 0,375, l'un des deux est faux.
+- Une simulation ne remplace pas une preuve, mais elle détecte vite une erreur de calcul : si ta probabilité exacte est 0,6 et que 50 000 essais donnent 0,75, l'un des deux est faux.
 
-🔗 **Dans workbookIA** — chaque chapitre fixe ses graines pour que tes résultats soient ceux du corrigé ; un score mesuré sur un jeu de test est une fréquence, qui fluctue d'autant moins que le jeu est grand (chapitres 2 et 8) ; l'apprentissage par renforcement (chapitre 26) estime des espérances de récompenses par simulation.
+🔗 **Dans workbookIA** — chaque chapitre fixe ses graines pour que tes résultats soient ceux du corrigé. Au chapitre 19, la descente de gradient par mini-batch calcule le gradient sur quelques exemples tirés au hasard, au lieu de tout le dataset : c'est une estimation, comme une fréquence, qui fluctue d'autant moins que le mini-batch est grand.
 
 ---
 
@@ -447,7 +453,7 @@ Sur 10 lancers, la fréquence peut être loin de 0,375 ; sur 10 000, elle en est
 | ordre ou pas | compter un comité comme un podium | combinaisons : diviser par $k!$ |
 | factorielle | $0! = 0$ | $0! = 1$ (le produit vide) |
 | arbre | additionner le long d'un chemin | multiplier le long d'un chemin, additionner entre les chemins |
-| sans remise | garder les mêmes probabilités au second tirage | la composition change : $\frac{2}{6}$ puis $\frac{1}{5}$ |
+| sans remise | garder les mêmes probabilités au second tirage | ce qui est tiré ne revient pas : $\frac{2}{6}$ puis $\frac{1}{5}$ |
 | indépendance | incompatibles, donc indépendants | incompatibles (non impossibles), donc **dépendants** |
 | indépendance | « pas de lien physique » ou « un lien », sans calculer | comparer $P(A \cap B)$ et $P(A)\,P(B)$ |
 | espérance | une valeur que $X$ peut prendre | une moyenne pondérée, pas forcément une valeur possible |

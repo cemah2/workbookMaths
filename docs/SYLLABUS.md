@@ -791,16 +791,16 @@ Les probabilités du lycée : expérience aléatoire, événements et leurs opé
 | R8.R1 | 🔁 | Ensembles et complémentaire (R4) | ★ | 5 | §1 | C, E | manuel | — |
 | R8.R2 | 🔁 | Σ et Π (R4) | ★ | 5 | §7 | C, E | manuel | — |
 | R8.R3 | 🔁 | Fractions (R1) | ★ | 5 | §2 | C | manuel | — |
-| R8.1 | ✏️ | Décrire univers et événements : dés, cartes, pièces | ★ | 10 | §1 | C, E | wbm | — |
+| R8.1 | ✏️ | Décrire univers et événements : cartes et pièces | ★ | 10 | §1 | C, E | wbm | — |
 | R8.2 | ✏️ | Probabilités par équiprobabilité | ★ | 15 | §2 | C, E | wbm | — |
 | R8.3 | ✏️ | P(A ∪ B) et le complémentaire | ★★ | 15 | §2 | C, E | wbm | — |
 | R8.4 | ✏️ | Principe multiplicatif et factorielles | ★ | 15 | §3 | C, E | wbm | — |
 | R8.5 | ✏️ | Combinaisons et triangle de Pascal | ★★ | 20 | §3 | C, E | wbm | — |
-| R8.6 | ✏️ | Arbres pondérés : tirages successifs | ★★ | 20 | §4 | C, E | wbm | — |
-| R8.7 | ✏️ | Indépendance : tester P(A ∩ B) = P(A) P(B) avec des cartes et des pièces | ★★ | 15 | §5 | C, E | wbm | — |
+| R8.6 | ✏️ | Arbres pondérés : épreuves successives | ★★ | 20 | §4 | C, E | wbm | — |
+| R8.7 | ✏️ | Indépendant ou pas ? Le décider par le calcul, avec des cartes et des pièces | ★★ | 15 | §5 | C, E | wbm | — |
 | R8.8 | ✏️ | La loi d'une variable aléatoire | ★ | 15 | §6 | C, E | wbm | — |
 | R8.9 | ✏️ | Espérance, variance (avec V = E[X²] − E[X]²) et écart-type | ★★ | 20 | §7 | C, E | wbm | — |
-| R8.10 | ✏️ | Un jeu est-il équitable ? | ★★ | 20 | §7 | C | wbm | — |
+| R8.10 | ✏️ | Deux jeux de hasard : équité et risque | ★★ | 20 | §7 | C | wbm | — |
 | R8.11 | ∂ | Démontrer C(n, k) = C(n − 1, k − 1) + C(n − 1, k) | ★★ | 25 | §3 | C | manuel | — |
 | R8.12 | ∂ | L'espérance d'une somme : E[X + Y] = E[X] + E[Y], même pour des variables liées | ★★ | 25 | §7 | C, E | manuel | — |
 | R8.13 | 🔗 | Comparer toutes les paires : un tournoi, C(n, 2) et une croissance en n² | ★ | 10 | §3 | C, E | wbm | — |
@@ -811,12 +811,12 @@ Les probabilités du lycée : expérience aléatoire, événements et leurs opé
 | R8.18 | 🔨 | Espérance et variance d'une loi · `expectation, variance` | ★ | 15 | §7 | C, E | pytest | — |
 | R8.19 | 🔨 | Estimer une probabilité par simulation · `simulate_frequency` | ★★ | 20 | §8 | C, E | pytest | — |
 | R8.20 | 🔮 | Prédire : dans une classe de 30, deux élèves ont-ils le même anniversaire ? | ★★ | 15 | §2 §3 | C, E | wbm | — |
-| R8.21 | 🔬 | La loi des grands nombres : fréquence et nombre de lancers | ★★ | 20 | §8 | C, E | wbm | — |
+| R8.21 | 🔬 | La loi des grands nombres : fréquence et nombre d'essais | ★★ | 20 | §8 | C, E | wbm | — |
 | R8.22 | 🎨 | Le diagramme en bâtons d'une loi | ★ | 10 | §6 | C | manuel | — |
 | R8.23 | 🐛 | Chasse à l'erreur : trois raisonnements de probabilités faux | ★★ | 20 | §2 §5 | C, E | wbm | — |
 | R8.24 | 🛠️ | Reproductibilité : générateur aléatoire et graine | ★ | 15 | §8 | C, E | manuel | — |
 
-*Notes* : Une session de génération. Règle de partage avec workbookIA 0B : 0B.28 démontre E[aX + b], V(X) = E[X²] − E[X]² et V(aX + b), seulement énoncés et utilisés ici ; le ∂ R8.12 démontre l'énoncé plus général E[X + Y] = E[X] + E[Y] (que 0B admet), en sommant sur les issues. Les exemples et les données évitent ceux de 0B (deux dés à 6 faces, la somme 7, « au moins un 6 », la pièce et le dé, la loi 0, 1, 2, 5 de 0B.27, le dé 1, 1, 2, 3, 3, 3), de workbookIA 2 (dé à 20 faces, pièce truquée à 30 %), de 3.R1 (deux cartes rouges parmi 32) et du test de positionnement (urne de 3 rouges et 2 bleues, loi −2, 0, 1) ; le 🔗 R8.13 compte des paires sans parler d'un-contre-un (workbookIA 7.1) ; le 🔬 R8.21 mesure la proportion de séries qui s'écartent de la probabilité, pas l'écart-type des fréquences (0B.52).
+*Notes* : Une session de génération. Règle de partage avec workbookIA 0B : 0B.28 démontre E[aX + b], V(X) = E[X²] − E[X]² et V(aX + b), seulement énoncés et utilisés ici ; le ∂ R8.12 démontre l'énoncé plus général E[X + Y] = E[X] + E[Y] (que 0B admet), en sommant sur les issues. Les exemples et les données évitent ceux de 0B (deux dés à 6 faces, la somme 7, « au moins un 6 », la pièce et le dé, la loi 0, 1, 2, 5 de 0B.27, le dé 1, 1, 2, 3, 3, 3), de workbookIA 2 (dé à 20 faces, pièce truquée à 30 %), de 3.R1 (deux cartes rouges parmi 32) et du test de positionnement (urne de 3 rouges et 2 bleues, loi −2, 0, 1) ; le 🔗 R8.13 compte des paires sans parler d'un-contre-un (workbookIA 7.1) ; le 🔬 R8.21 mesure la proportion de séries qui s'écartent de la probabilité, pas l'écart-type des fréquences (0B.52). Session 13 (relecture à l'aveugle) : les exemples de la fiche et des exercices ✏️ R8.4, R8.6, R8.7, R8.9, R8.10 et 🔬 R8.21 ont été remplacés pour s'éloigner davantage de workbookIA (roue de 8 secteurs, playlist, lancers francs, roue de 3 secteurs) ; les 🔗 de la fiche renvoient aux chapitres 2, 3, 9, 19 et 26 sans en reprendre d'exemple. Le 🔨 R8.18 (expectation, variance) recouvre en partie 0B.53, qui fait coder les mêmes formules : recouvrement assumé, ses signatures étant fixées au syllabus depuis la session 2.
 
 <a id="r9"></a>
 ## R9 · Géométrie du plan, vecteurs et trigonométrie

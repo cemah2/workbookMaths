@@ -996,6 +996,31 @@ def test_a_prediction_outside_its_choices_is_told_the_choices():
     assert checker.check_entry("P.c", entry, 3)[2].startswith("Prédiction ratée")
 
 
+@pytest.mark.parametrize("value", ["plus de 50 %", 0.85, 4])
+def test_any_value_outside_the_choices_of_a_prediction_is_told_the_choices(value):
+    """Session 13 (R8 learner, C11): a text, a percentage or a decimal for a choice 1, 2 or 3 gets the same message."""
+    import wbm.checker as checker
+    entry = checker.make_entry("P.d", 3, None, choices=[1, 2, 3], prediction=True)
+    passed, _, message = checker.check_entry("P.d", entry, value)
+    assert not passed and message.startswith("Choisis l'une des valeurs proposées"), message
+
+
+def test_a_computed_value_right_only_at_zero_decimals_is_not_almost_right():
+    """Session 13 (R8 learner, C2): a function that returns 1 for 0.706 (an integer division) is not « tout près »."""
+    import wbm.checker as checker
+    entry = checker.make_entry("C.z", 0.7063162427, decimals=3)
+    message = checker.check_entry("C.z", entry, 1, computed=True)[2]
+    assert "Tout près" not in message and "//" in message, message
+
+
+def test_the_right_values_in_another_order_name_no_order():
+    """Session 13 (R8 learner, C9): the order asked may be that of the letters A, B, E, not the increasing order."""
+    import wbm.checker as checker
+    entry = checker.make_entry("O.p", [0.4375, 0.5, 0.0], decimals=4)
+    message = checker.check_entry("O.p", entry, [0.5, 0.4375, 0.0])[2]
+    assert "pas dans l'ordre demandé" in message and "croissant" not in message, message
+
+
 def test_infinite_limits_are_written_like_interval_ends():
     """Session 11 (R7): a limit +∞ is typed "+oo" (as in an interval), "∞", float("inf") or "inf"; the other sign
     gets « le signe est inversé », a finite answer for an infinite limit (and the reverse) a plain message."""

@@ -5,7 +5,7 @@
 
 Writes small PNG files into chapitres/r8_probabilites/figures/: the wheel of 8 sectors with two events, a weighted
 tree (rain, then a late bus), the law of the sum of two 4-sided dice, two laws with the same expectation and
-different spreads, and running frequencies for three seeds (law of large numbers). Every figure is computed and uses
+different spreads, and running frequencies of 30 series on the wheel (law of large numbers). Every figure is computed and uses
 the workbook style (wbm.plot colours, French decimal commas). The examples are those of the sheet: none comes from
 workbookIA 0B, 2 or 3, from the placement test or from an exercise of R8.
 """
@@ -78,16 +78,18 @@ def fig_events() -> None:
 
 
 def fig_tree() -> None:
-    """§4: rain (0,3), then a late bus (0,4 if it rains, 0,1 otherwise), with the probability of each path."""
+    """§4: rain A (0,3), then a late bus B (0,4 if it rains, 0,1 otherwise), with the probability of each path."""
     fig, ax = plt.subplots(figsize=(8.2, 4.2))
     ax.axis("off")
     root = (0.0, 0.5)
-    first = {"pluie R": (0.38, 0.8), "pas de pluie R̄": (0.38, 0.2)}
+    rain, dry = "pluie $A$", r"pas de pluie $\bar{A}$"
+    late, on_time = "retard $B$", r"à l'heure $\bar{B}$"
+    first = {rain: (0.38, 0.8), dry: (0.38, 0.2)}
     second = {
-        ("pluie R", "retard T"): (1.0, 0.95, 0.4, "0,3 × 0,4 = 0,12"),
-        ("pluie R", "à l'heure T̄"): (1.0, 0.65, 0.6, "0,3 × 0,6 = 0,18"),
-        ("pas de pluie R̄", "retard T"): (1.0, 0.35, 0.1, "0,7 × 0,1 = 0,07"),
-        ("pas de pluie R̄", "à l'heure T̄"): (1.0, 0.05, 0.9, "0,7 × 0,9 = 0,63"),
+        (rain, late): (1.0, 0.95, 0.4, "0,3 × 0,4 = 0,12"),
+        (rain, on_time): (1.0, 0.65, 0.6, "0,3 × 0,6 = 0,18"),
+        (dry, late): (1.0, 0.35, 0.1, "0,7 × 0,1 = 0,07"),
+        (dry, on_time): (1.0, 0.05, 0.9, "0,7 × 0,9 = 0,63"),
     }
 
     def edge(start, end, text, colour="black"):
@@ -98,17 +100,17 @@ def fig_tree() -> None:
 
     ax.plot(*root, "o", color="black", markersize=6)
     for name, point in first.items():
-        edge(root, point, "0,3" if name.startswith("pluie") else "0,7")
+        edge(root, point, "0,3" if name == rain else "0,7")
         ax.text(point[0] + 0.01, point[1], name, ha="left", va="center", fontsize=10,
                 bbox={"boxstyle": "round,pad=0.25", "facecolor": "#f0f0f0", "edgecolor": "0.6"})
     for (parent, name), (x, y, p, path) in second.items():
-        start = (first[parent][0] + (0.19 if parent.startswith("pluie") else 0.3), first[parent][1])
-        late = name.startswith("retard")
-        edge(start, (x, y), french_number(p), colour=C[1] if late else "black")
-        ax.text(x + 0.01, y, name, ha="left", va="center", fontsize=10, color=C[1] if late else "black")
-        ax.text(1.32, y, path, ha="left", va="center", fontsize=9, color=C[1] if late else "0.3")
+        start = (first[parent][0] + (0.17 if parent == rain else 0.28), first[parent][1])
+        is_late = name == late
+        edge(start, (x, y), french_number(p), colour=C[1] if is_late else "black")
+        ax.text(x + 0.01, y, name, ha="left", va="center", fontsize=10, color=C[1] if is_late else "black")
+        ax.text(1.32, y, path, ha="left", va="center", fontsize=9, color=C[1] if is_late else "0.3")
     ax.text(1.32, 1.05, "probabilité du chemin", ha="left", fontsize=9, style="italic")
-    ax.text(0.0, -0.08, "P(T) = 0,12 + 0,07 = 0,19 (les deux chemins en orange)", fontsize=10, color=C[1])
+    ax.text(0.0, -0.08, "P(B) = 0,12 + 0,07 = 0,19 (les deux chemins en orange)", fontsize=10, color=C[1])
     ax.set_xlim(-0.05, 1.75)
     ax.set_ylim(-0.12, 1.08)
     save(fig, "arbre.png")
@@ -136,10 +138,10 @@ def fig_sum_law() -> None:
 
 
 def fig_spread() -> None:
-    """§7: two laws with expectation 5: S (σ ≈ 1,58) and T, which is 2 or 8 with probability 1/2 each (σ = 3)."""
+    """§7: two laws with expectation 5: S (σ ≈ 1,58) and T, which is 1, 5 or 9 with probabilities 1/4, 1/2, 1/4."""
     fig, axes = plt.subplots(1, 2, figsize=(10, 3.4), sharey=True)
     laws = [(SUM_VALUES, SUM_PROBS, "S : somme de deux dés à 4 faces", np.sqrt(2.5)),
-            (np.array([2, 8]), np.array([0.5, 0.5]), "T : 2 ou 8, une chance sur deux", 3.0)]
+            (np.array([1, 5, 9]), np.array([0.25, 0.5, 0.25]), "T : 1, 5 ou 9, avec 1/4, 1/2, 1/4", np.sqrt(8))]
     for ax, (values, probs, title, sigma), colour in zip(axes, laws, (C[0], C[2])):
         ax.bar(values, probs, width=0.15, color=colour)
         ax.axvline(5, color=C[1], linestyle="--", linewidth=1.5, label="espérance 5")
@@ -153,29 +155,34 @@ def fig_spread() -> None:
         ax.legend(loc="upper left", fontsize=8)
     axes[0].set_ylabel("probabilité")
     axes[0].set_ylim(0, 0.65)
-    fig.suptitle("Même espérance, dispersions différentes : V(S) = 2,5 et V(T) = 9", fontsize=10)
+    fig.suptitle("Même espérance, dispersions différentes : V(S) = 2,5 et V(T) = 8", fontsize=10)
     fig.tight_layout()
     save(fig, "dispersion.png")
 
 
-def fig_large_numbers() -> None:
-    """§8: running frequency of « S ≥ 6 » over 10 000 rolls of two 4-sided dice, for three seeds; 3/8 dashed."""
+def fig_fluctuations() -> None:
+    """§8: running frequency of « even or at most 3 » on the wheel, for 30 series; the fan narrows around 3/4."""
     fig, ax = plt.subplots(figsize=(7, 3.8))
-    n = 10_000
+    n, series = 10_000, 30
     k = np.arange(1, n + 1)
-    for seed, colour in zip((1, 2, 3), (C[0], C[2], C[3])):
-        rng = np.random.default_rng(seed)
-        hits = rng.integers(1, 5, size=(n, 2)).sum(axis=1) >= 6
-        ax.plot(k, np.cumsum(hits) / k, color=colour, linewidth=1.3, label=f"graine {seed}")
-    ax.axhline(3 / 8, color="black", linestyle="--", linewidth=1.2, label="probabilité 3/8")
+    rng = np.random.default_rng(31)
+    spins = rng.integers(1, 9, size=(series, n))
+    hits = (spins % 2 == 0) | (spins <= 3)
+    running = np.cumsum(hits, axis=1) / k
+    for row in running:
+        ax.plot(k, row, color=C[0], linewidth=0.7, alpha=0.45)
+    ax.plot(k, 0.75 + 1.3 / np.sqrt(k), color=C[1], linewidth=1.2, linestyle=":", label="3/4 ± 1,3/√n (une enveloppe en 1/√n)")
+    ax.plot(k, 0.75 - 1.3 / np.sqrt(k), color=C[1], linewidth=1.2, linestyle=":")
+    ax.axhline(0.75, color="black", linestyle="--", linewidth=1.2, label="probabilité 3/4")
     ax.set_xscale("log")
-    ax.set_xlabel("nombre de lancers (échelle logarithmique)")
-    ax.set_ylabel("fréquence de « S ≥ 6 »")
-    ax.set_ylim(0, 1)
+    ax.set_xlabel("nombre de tours n (échelle logarithmique)")
+    ax.set_ylabel("fréquence de « pair ou au plus 3 »")
+    ax.set_xlim(10, n)
+    ax.set_ylim(0.4, 1.02)
     ax.grid(True, alpha=0.3)
-    ax.legend(loc="upper right", fontsize=8)
-    ax.set_title("La fréquence se stabilise autour de la probabilité quand les lancers s'accumulent", fontsize=10)
-    save(fig, "grands_nombres.png")
+    ax.legend(loc="lower right", fontsize=8)
+    ax.set_title("30 séries de tours : les fréquences se resserrent autour de la probabilité", fontsize=10)
+    save(fig, "fluctuations.png")
 
 
 def main() -> int:
@@ -184,7 +191,7 @@ def main() -> int:
     fig_tree()
     fig_sum_law()
     fig_spread()
-    fig_large_numbers()
+    fig_fluctuations()
     return 0
 
 

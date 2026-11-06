@@ -15,8 +15,8 @@ Ordre ou pas ordre ?;Un podium : l'ordre compte (arrangements). Un comité de me
 Propriétés de \(\binom{n}{k}\) ?;\(\binom{n}{k} = \binom{n}{n - k}\), \(\binom{n}{2} = \frac{n(n - 1)}{2}\) (les paires), et la somme de la ligne \(n\) du triangle vaut \(2^n\).;mwb::r8::proprietes_binomial
 La formule de Pascal ?;\(\binom{n}{k} = \binom{n - 1}{k - 1} + \binom{n - 1}{k}\) : choisir \(k\) objets, c'est prendre le premier ou ne pas le prendre.;mwb::r8::pascal
 Les trois règles d'un arbre pondéré ?;Les branches d'un même nœud ont une somme de 1. On multiplie le long d'un chemin, et on additionne les chemins qui mènent à un événement.;mwb::r8::arbre
-Que représente une branche du second niveau d'un arbre ?;Une probabilité conditionnelle, par exemple \(P(T \mid R)\) : la probabilité de \(T\) sachant \(R\). Et \(P(R \cap T) = P(R) \times P(T \mid R)\).;mwb::r8::conditionnelle
-Tirage sans remise ?;La composition change entre les tirages : 2 rouges sur 6, puis 1 rouge sur 5 après une rouge. Avec remise, les tirages se font dans le même sac.;mwb::r8::remise
+Que représente une branche du second niveau d'un arbre ?;Une probabilité conditionnelle, par exemple \(P(B \mid A)\) : la probabilité de \(B\) sachant \(A\). Et \(P(A \cap B) = P(A) \times P(B \mid A)\).;mwb::r8::conditionnelle
+Tirage sans remise ?;Ce qui est tiré ne revient pas : 2 morceaux préférés sur 6, puis 1 sur 5 après un préféré. Avec remise, chaque tirage se fait dans les mêmes conditions.;mwb::r8::remise
 Définition de l'indépendance ?;\(P(A \cap B) = P(A)\,P(B)\) : savoir que \(A\) s'est réalisé ne change pas la probabilité de \(B\).;mwb::r8::independance
 Incompatibles et indépendants ?;Deux événements incompatibles de probabilités non nulles ne sont jamais indépendants : \(P(A \cap B) = 0 \ne P(A)\,P(B)\).;mwb::r8::incompatibles_independants
 Au moins une réussite en \(n\) essais indépendants ?;\(1 - (1 - p)^n\), par le contraire « aucune réussite ».;mwb::r8::au_moins_un

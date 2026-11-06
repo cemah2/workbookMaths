@@ -91,7 +91,8 @@ def test_factorial_is_an_exact_int(proba):
     assert isinstance(got, int) and not isinstance(got, bool), (
         f"expected an int (exact, never a float), got {type(got).__name__} {got!r}")
     big = _result(lambda: proba.factorial(100), "100!, exact")
-    assert big == math.factorial(100), "expected factorial(100) == math.factorial(100) exactly (a float would round it)"
+    hint = " (a float rounds it)" if isinstance(big, float) else ""
+    assert big == math.factorial(100), f"expected factorial(100) == math.factorial(100) exactly{hint}"
 
 
 @pytest.mark.parametrize("n", [-1, -5], ids=["n=-1", "n=-5"])
@@ -131,8 +132,8 @@ def test_binomial_is_exact_for_large_numbers(proba):
     got = _result(lambda: proba.binomial(100, 50), "C(100, 50), exact")
     assert isinstance(got, int) and not isinstance(got, bool), (
         f"expected an int (exact: integer division //, never /), got {type(got).__name__} {got!r}")
-    assert got == math.comb(100, 50), (
-        f"expected binomial(100, 50) == {math.comb(100, 50)} exactly, got {got!r} (a float division loses digits)")
+    hint = " (a float division loses digits)" if isinstance(got, float) else ""
+    assert got == math.comb(100, 50), f"expected binomial(100, 50) == {math.comb(100, 50)} exactly, got {got!r}{hint}"
 
 
 @pytest.mark.parametrize("n", [-1, -3], ids=["n=-1", "n=-3"])
@@ -214,10 +215,13 @@ def test_expectation_matches_a_weighted_sum(proba, values, probs):
         f"expected expectation({values}, {probs}) ≈ {exact} (Σ x_i p_i, numpy.dot), got {got!r}")
 
 
-def test_expectation_accepts_probabilities_that_sum_to_1_up_to_rounding(proba):
-    probs = [0.1] * 10                       # sum: 0.9999999999999999
-    got = _result(lambda: proba.expectation(list(range(10)), probs), "4.5 (the sum of probs is 1 up to 1e-9)")
-    assert got == pytest.approx(4.5), f"expected 4.5 (ten values 0 to 9, each 0.1), got {got!r}"
+@pytest.mark.parametrize("gap", [1e-12, -1e-12], ids=["sum 1 + 1e-12", "sum 1 - 1e-12"])
+def test_expectation_accepts_probabilities_that_sum_to_1_up_to_rounding(proba, gap):
+    # not [0.1] * 10: since Python 3.12, sum() adds floats exactly and gives 1.0 (session 13, R8 learner D1)
+    probs = [0.25, 0.25, 0.25, 0.25 + gap]
+    got = _result(lambda: proba.expectation([0, 1, 2, 3], probs),
+                  "1.5: probabilities whose sum is 1 up to 1e-9 form a law (abs(sum - 1) > 1e-9 only is refused)")
+    assert got == pytest.approx(1.5), f"expected 1.5 (values 0 to 3, each 0.25), got {got!r}"
 
 
 BAD_LAWS = [([1, 2, 3], [0.5, 0.5], "3 values but 2 probabilities"),
@@ -265,7 +269,8 @@ def test_variance_is_never_negative(proba):
         values = [rng.uniform(-50, 50) for _ in range(5)]
         weights = [rng.random() for _ in range(5)]
         probs = [w / sum(weights) for w in weights]
-        got = _result(lambda: proba.variance(values, probs), "a variance >= 0")
+        got = _result(lambda: proba.variance(values, probs),
+                      "a variance >= 0 (these probabilities sum to 1 up to rounding, within 1e-9)")
         assert got >= -1e-9, f"expected a variance >= 0 (a mean of squares), got {got!r} for {values}, {probs}"
 
 

@@ -31,14 +31,14 @@ F = 'kind="fraction", simplified=True'
 # Part 0: the paper exercises (02_exercices.md)
 # ---------------------------------------------------------------------------
 PAPER = [
-    Paper("R8.1", "Décrire univers et événements : dés, cartes, pièces", [
+    Paper("R8.1", "Décrire univers et événements : cartes et pièces", [
         ("a", "an integer", "2 ** 4",
          'mistakes={"chaque pièce a 2 issues, et l\'ordre des lancers compte : principe multiplicatif": 8, '
          '"une issue est la suite des quatre résultats, pas le nombre de piles": 5}'),
         ("b", "an integer", "6",
          'mistakes={"une issue est une suite ordonnée : PPFF, PFPF et FFPP sont trois issues différentes": {1, 2, 4}}'),
         ("c", "an integer", "15",
-         'mistakes={"passe par le contraire, « aucun pile », et retire-le de toutes les issues": {1, 16}}'),
+         'mistakes={"« au moins un pile » est le contraire de « aucun pile »": {1, 16}}'),
         ("d", "an integer", "5",
          'mistakes={"« au plus un pile » : zéro pile ou un pile, les deux cas comptent": {1, 4}, '
          '"« au plus un » n\'est pas « au moins un »": 15}'),
@@ -49,32 +49,35 @@ PAPER = [
          '"c\'est A ∩ B ; A ∪ B contient les as, les cartes noires, et celles qui sont les deux": 2}'),
         ("g", "an integer", "14",
          'mistakes={"c\'est A ∪ B ; « ni l\'un ni l\'autre » en est le contraire": 18, '
-         '"les as rouges sont des as : ils sont exclus aussi": 16}'),
+         '"les as rouges sont des as : ils sont exclus aussi": 16, '
+         '"les as noirs sont déjà des cartes noires : ne les retire pas deux fois": 12}'),
         ("h", "True or False", "False",
          'mistakes={"incompatibles veut dire sans issue commune : cherche une carte qui soit un as et rouge": True}'),
     ]),
 
     Paper("R8.2", "Probabilités par équiprobabilité", [
-        ("a", "a fraction, as text", "Fraction(2, 11)",
+        ("a", "an irreducible fraction, as text", "Fraction(2, 11)",
          F + ', mistakes={"compte chaque lettre autant de fois qu\'elle apparaît dans le mot": "1/11"}'),
-        ("b", "a fraction, as text", "Fraction(5, 11)",
-         F + ', mistakes={"compte chaque voyelle autant de fois qu\'elle apparaît (une voyelle revient)": "4/11"}'),
-        ("c", "a fraction, as text", "Fraction(4, 11)",
+        ("b", "an irreducible fraction, as text", "Fraction(5, 11)",
+         F + ', mistakes={"compte chaque voyelle autant de fois qu\'elle apparaît, É compris": "4/11"}'),
+        ("c", "an irreducible fraction, as text", "Fraction(4, 11)",
          F + ', mistakes={"ce sont toutes les consonnes : retire aussi les B": "6/11", '
          '"ce sont toutes les lettres sauf les B : retire aussi les voyelles": "9/11"}'),
         ("d", "an integer", "6 * 4",
          'mistakes={"principe multiplicatif : on multiplie les issues des deux dés, on ne les additionne pas": 10}'),
-        ("e", "a fraction, as text", "Fraction(4, 24)",
+        ("e", "an irreducible fraction, as text", "Fraction(4, 24)",
          F + ', mistakes={"liste les couples (dé à 6 faces, dé à 4 faces) de somme 5, sans en oublier : le dé à 4 '
-         'faces va de 1 à 4": "1/8"}'),
-        ("f", "a fraction, as text", "Fraction(3, 24)",
+         'faces va de 1 à 4": "1/8", "l\'univers des deux dés est celui de d : un dé à 6 faces et un dé à 4 faces": '
+         '"1/9"}'),
+        ("f", "an irreducible fraction, as text", "Fraction(3, 24)",
          F + ', mistakes={"« au moins 9 » compte la somme 9 et la somme 10": "1/12"}'),
-        ("g", "a fraction, as text", "Fraction(14, 24)",
+        ("g", "an irreducible fraction, as text", "Fraction(14, 24)",
          F + ', mistakes={"« strictement plus grand » exclut les couples où les deux dés sont égaux": "3/4", '
          '"c\'est le dé à 4 faces qui dépasse ; on demande le dé à 6 faces": "1/4"}'),
-        ("h", "a fraction, as text", "Fraction(3, 4)",
+        ("h", "an irreducible fraction, as text", "Fraction(3, 4)",
          F + ', mistakes={"c\'est la probabilité que le produit soit impair : le produit est pair dès qu\'un des deux '
-         'nombres l\'est": "1/4"}'),
+         'nombres l\'est": "1/4", "« le dé à 6 faces est pair » et « le dé à 4 faces est pair » peuvent arriver '
+         'ensemble : on n\'additionne pas leurs probabilités": "1"}'),
     ]),
 
     Paper("R8.3", "P(A ∪ B) et le complémentaire", [
@@ -86,14 +89,14 @@ PAPER = [
         ("c", "a number", "0.45 - 0.15",
          'decimals=2, mistakes={"retire de P(A) la part commune avec B": 0.45}'),
         ("d", "a number", "0.65 - 0.2",
-         'decimals=2, mistakes={"incompatibles : P(A ∪ B) = P(A) + P(B), donc P(B) se déduit par une soustraction": '
-         '0.85}'),
+         'decimals=2, mistakes={"incompatibles : P(A ∪ B) = P(A) + P(B)": 0.85}'),
         ("e", "True or False", "False",
          'mistakes={"incompatibles : P(A ∪ B) = P(A) + P(B), qui ne peut pas dépasser 1": True}'),
         ("f", "a number", "0.6 + 0.45 - (1 - 0.2)",
          'decimals=2, mistakes={"« l\'appli ou la newsletter » est le contraire de « ni l\'une ni l\'autre » : sa '
-         'probabilité n\'est pas 1": 0.05}'),
-        ("g", "a fraction, as text", "Fraction(15, 16)",
+         'probabilité n\'est pas 1": 0.05, "rien ne dit que l\'appli et la newsletter sont indépendantes : pars de la '
+         'formule de la réunion": 0.27, "c\'est la part de ceux qui n\'ont ni l\'une ni l\'autre": 0.2}'),
+        ("g", "an irreducible fraction, as text", "Fraction(15, 16)",
          F + ', mistakes={"le contraire de « au moins un face » est « que des piles »": "1/16", '
          '"quatre pièces : compte toutes les suites de quatre résultats": "7/8"}'),
         ("h", "a number", "0.55 + 0.35 - 0.7",
@@ -102,10 +105,13 @@ PAPER = [
 
     Paper("R8.4", "Principe multiplicatif et factorielles", [
         ("a", "an integer", "26 ** 6",
-         'mistakes={"les lettres peuvent revenir : 26 possibilités à chaque position": 26 * 25 * 24 * 23 * 22 * 21, '
+         'mistakes={"une lettre peut revenir : le nombre de possibilités ne diminue pas d\'une position à l\'autre": '
+         '26 * 25 * 24 * 23 * 22 * 21, '
          '"principe multiplicatif : on multiplie les possibilités des positions, on ne les additionne pas": 156}'),
-        ("b", "an integer", "26 * 25 * 24 * 23 * 22 * 21",
-         'mistakes={"les lettres toutes différentes : une possibilité de moins à chaque position": 26 ** 6}'),
+        ("b", "an integer", "6 * 26 ** 5",
+         'mistakes={"seule la première lettre est contrainte : les cinq autres restent libres": 6 ** 6, '
+         '"la première lettre est une voyelle : elle n\'a pas 26 possibilités": 26 ** 6, '
+         '"les six voyelles comptent, y compris le y": 5 * 26 ** 5}'),
         ("c", "an integer", "5040",
          'mistakes={"7! a sept facteurs, de 1 à 7": 720}'),
         ("d", "an integer", "8 * 7 * 6",
@@ -114,7 +120,7 @@ PAPER = [
         ("e", "an integer", "4 * 5 * 3",
          'mistakes={"principe multiplicatif : on multiplie, on n\'additionne pas": 12}'),
         ("f", "an integer", "24",
-         'mistakes={"la tâche A est fixée : on ne range que les autres": 120}'),
+         'mistakes={"une tâche dont la place est imposée ne fait plus partie des choix": 120}'),
         ("g", "an integer", "72", ''),
         ("h", "an integer", "26 * 26 * 1000",
          'mistakes={"les lettres et les chiffres peuvent se répéter": 26 * 25 * 10 * 9 * 8}'),
@@ -136,57 +142,61 @@ PAPER = [
         ("f", "an integer", "201376",
          'mistakes={"l\'ordre des cartes d\'une main ne compte pas : combinaisons, pas arrangements": '
          '32 * 31 * 30 * 29 * 28}'),
-        ("g", "a fraction, as text", "Fraction(28, 201376)",
-         F + ', mistakes={"une main qui contient les 4 as a une 5ᵉ carte quelconque : combien de mains conviennent ?": '
-         '"1/201376"}'),
+        ("g", "an irreducible fraction, as text", "Fraction(28, 201376)",
+         F + ', mistakes={"plusieurs mains de 5 cartes contiennent les 4 as : compte les mains favorables": '
+         '"1/201376", "le dénominateur compte les mains de 5 cartes, pas de 4": "1/35960"}'),
         ("h", "an integer", "70",
-         'mistakes={"un chemin a exactement 4 pas vers la droite et 4 vers le haut : toutes les suites de 8 pas ne '
-         'conviennent pas": 256}'),
+         'mistakes={"toutes les suites de 8 pas n\'arrivent pas au coin opposé : compte les pas de chaque sorte": '
+         '256, "un quadrillage de 4 × 4 cases a 5 lignes et 5 colonnes de coins : on compte les pas sur les côtés '
+         'des cases": 20}'),
     ]),
 
-    Paper("R8.6", "Arbres pondérés : tirages successifs", [
+    Paper("R8.6", "Arbres pondérés : épreuves successives", [
         ("a", "a number", "0.6 * 0.1",
-         'decimals=2, mistakes={"c\'est la probabilité du retard sachant A : multiplie par P(A)": 0.1, '
+         'decimals=2, mistakes={"la probabilité d\'un chemin est le produit des probabilités de ses branches": 0.1, '
          '"on multiplie le long d\'un chemin, on n\'additionne pas": 0.7}'),
         ("b", "a number", "0.6 * 0.1 + 0.4 * 0.25",
          'decimals=2, mistakes={"le retard arrive par deux chemins : additionne-les": {0.06, 0.1}, '
          '"additionne les probabilités des chemins, pas les pourcentages de retard": 0.35}'),
         ("c", "a number", "0.4 * 0.75",
-         'decimals=2, mistakes={"c\'est la probabilité d\'arriver à l\'heure sachant B : multiplie par P(B)": 0.75}'),
-        ("d", "a fraction, as text", "Fraction(4, 10) * Fraction(3, 9)",
-         F + ', mistakes={"sans remise, la composition du tiroir change entre les deux tirages": "4/25"}'),
-        ("e", "a fraction, as text", "Fraction(4, 10) * Fraction(3, 9) + Fraction(6, 10) * Fraction(5, 9)",
-         F + ', mistakes={"c\'est « deux noires » : « même couleur » compte aussi deux grises": "2/15", '
-         '"c\'est « deux grises » : « même couleur » compte aussi deux noires": "1/3", '
-         '"sans remise, la composition du tiroir change entre les deux tirages": "13/25"}'),
-        ("f", "a fraction, as text", "Fraction(2, 5)",
-         F + ', mistakes={"c\'est la probabilité sachant que la première est noire : il y a un second chemin": "1/3", '
-         '"c\'est « deux noires » : la seconde est noire aussi après une grise": "2/15"}'),
-        ("g", "a fraction, as text", "Fraction(4, 25)",
-         F + ', mistakes={"avec remise, le second tirage se fait dans le même tiroir que le premier": "2/15"}'),
-        ("h", "a fraction, as text", "1 - Fraction(3, 4) ** 3",
+         'decimals=2, mistakes={"la probabilité d\'un chemin est le produit des probabilités de ses branches": 0.75}'),
+        ("d", "a number", "0.7 * 0.8",
+         'decimals=2, mistakes={"la seconde branche dépend du premier tir : après une réussite, ce n\'est plus 0,7": '
+         '0.49, "on multiplie le long d\'un chemin, on n\'additionne pas": 1.5}'),
+        ("e", "a number", "0.7 * 0.2 + 0.3 * 0.5",
+         'decimals=2, mistakes={"« exactement une réussite » arrive par deux chemins : additionne-les": {0.14, 0.15}}'),
+        ("f", "a number", "0.7 * 0.8 + 0.3 * 0.5",
+         'decimals=2, mistakes={"c\'est la probabilité sachant que le premier tir est réussi : il y a un second '
+         'chemin": 0.8, "additionne les probabilités des chemins, pas les branches seules": 1.3, '
+         '"chaque chemin pèse le poids de sa première branche : on ne fait pas la moyenne des deux branches": 0.65}'),
+        ("g", "a number", "0.3 * 0.5",
+         'decimals=2, mistakes={"la seconde branche dépend du premier tir : après un échec, ce n\'est plus 0,3": 0.09, '
+         '"la probabilité d\'un chemin est le produit des probabilités de ses branches": 0.5}'),
+        ("h", "an irreducible fraction, as text", "1 - Fraction(3, 4) ** 3",
          F + ', mistakes={"c\'est la probabilité de trois mauvaises réponses : passe au contraire": "27/64", '
-         '"les trois bonnes réponses ne sont pas incompatibles : on n\'additionne pas leurs probabilités": "3/4"}'),
+         '"les trois bonnes réponses ne sont pas incompatibles : on n\'additionne pas leurs probabilités": "3/4", '
+         '"le contraire de « au moins une bonne réponse » est « trois mauvaises réponses »": "63/64", '
+         '"c\'est la probabilité de trois bonnes réponses : « au moins une » en compte bien plus": "1/64"}'),
     ]),
 
-    Paper("R8.7", "Indépendance : tester P(A ∩ B) = P(A) P(B) avec des cartes et des pièces", [
-        ("a", "a fraction, as text", "Fraction(1, 32)",
+    Paper("R8.7", "Indépendant ou pas ? Le décider par le calcul, avec des cartes et des pièces", [
+        ("a", "an irreducible fraction, as text", "Fraction(1, 32)",
          F + ', mistakes={"c\'est P(A ∪ B) ; A ∩ B contient les cartes à la fois as et cœur": "11/32", '
          '"c\'est P(A) + P(B) ; on demande l\'intersection": "3/8"}'),
         ("b", "True or False", "True",
          'mistakes={"compare P(A ∩ B) au produit P(A) P(B)": False}'),
         ("c", "True or False", "False",
-         'mistakes={"un as n\'est jamais une figure : A et C sont incompatibles, donc pas indépendants": True}'),
-        ("d", "True or False", "False",
-         'mistakes={"tous les cœurs sont rouges : savoir que la carte est rouge change la probabilité de « cœur »": '
-         'True}'),
-        ("e", "a fraction, as text", "Fraction(1, 4)",
-         F + ', mistakes={"c\'est P(F) ; E ∩ F demande en plus que la première pièce donne pile": "1/2"}'),
-        ("f", "True or False", "True",
-         'mistakes={"compare P(E ∩ F) au produit P(E) P(F)": False}'),
-        ("g", "a fraction, as text", "Fraction(3, 8)",
-         F + ', mistakes={"c\'est P(G) P(H) ; calcule P(G ∩ H) en listant les issues": "1/4", '
-         '"c\'est P(G) ; G ∩ H demande en plus que la première pièce donne pile": "1/2"}'),
+         'mistakes={"deux événements incompatibles, de probabilités non nulles, ne sont jamais indépendants": True}'),
+        ("d", "True or False", "True",
+         'mistakes={"compare P(A ∩ D) au produit P(A) P(D)": False}'),
+        ("e", "an irreducible fraction, as text", "Fraction(1, 4)",
+         F + ', mistakes={"c\'est P(E) P(F) ; calcule P(E ∩ F) en listant les issues": "3/16", '
+         '"c\'est P(F) ; E ∩ F demande en plus exactement un pile": "1/2"}'),
+        ("f", "True or False", "False",
+         'mistakes={"compare P(E ∩ F) au produit P(E) P(F)": True}'),
+        ("g", "an irreducible fraction, as text", "Fraction(3, 4)",
+         F + ', mistakes={"c\'est P(G) P(H) ; calcule P(G ∩ H) en listant les issues": "49/64", '
+         '"c\'est P(G) ; G ∩ H demande en plus au moins un face": "7/8"}'),
         ("h", "True or False", "False",
          'mistakes={"compare P(G ∩ H) au produit P(G) P(H)": True}'),
     ]),
@@ -194,66 +204,75 @@ PAPER = [
     Paper("R8.8", "La loi d'une variable aléatoire", [
         ("a", "a list (3 decimals)", "[1 / 8, 3 / 8, 3 / 8, 1 / 8]",
          'decimals=3, mistakes={"les nombres de piles ne sont pas équiprobables : compte les suites qui donnent chaque '
-         'valeur": [0.25, 0.25, 0.25, 0.25]}'),
+         'valeur": [0.25, 0.25, 0.25, 0.25], "une loi donne des probabilités, pas des nombres d\'issues": '
+         '[1, 3, 3, 1]}'),
         ("b", "a number (3 decimals)", "4 / 8",
          'decimals=3, mistakes={"« au moins 2 » : deux piles ou trois piles, les deux cas comptent": {0.375, 0.125}}'),
         ("c", "a list (4 decimals)", "[1 / 16, 3 / 16, 5 / 16, 7 / 16]",
          'decimals=4, mistakes={"Y est le plus grand des deux numéros : compte les couples qui donnent chaque valeur": '
          '[0.25, 0.25, 0.25, 0.25], "c\'est la loi du plus petit des deux numéros, pas du plus grand": '
-         '[7 / 16, 5 / 16, 3 / 16, 1 / 16]}'),
+         '[7 / 16, 5 / 16, 3 / 16, 1 / 16], "une loi donne des probabilités, pas des nombres de couples": '
+         '[1, 3, 5, 7]}'),
         ("d", "a number (2 decimals)", "4 / 16",
          'decimals=2, mistakes={"« au plus 2 » compte aussi Y = 1": 0.19}'),
         ("e", "a number (2 decimals)", "1 - 0.15 - 0.35 - 0.2",
          'decimals=2, mistakes={"c\'est la somme des probabilités connues ; les probabilités d\'une loi ont une somme '
          'de 1": 0.7}'),
         ("f", "a number (2 decimals)", "1 - 0.15",
-         'decimals=2, mistakes={"Z > 1 : toutes les valeurs sauf 1": 0.15}'),
+         'decimals=2, mistakes={"Z > 1 : toutes les valeurs sauf 1": 0.15, '
+         '"Z > 1 compte aussi la valeur dont la probabilité n\'est pas donnée": 0.55}'),
         ("g", "a list (3 decimals)", "[16 / 32, 12 / 32, 4 / 32]",
          'decimals=3, mistakes={"les figures sont les valets, les dames et les rois : trois par couleur": '
-         '[0.625, 0.25, 0.125]}'),
+         '[0.625, 0.25, 0.125], "une loi donne des probabilités, pas des nombres de cartes": [16, 12, 4]}'),
         ("h", "a number (3 decimals)", "28 / 32",
          'decimals=3, mistakes={"« au plus 2 » compte W = −1 et W = 2": 0.375}'),
     ]),
 
     Paper("R8.9", "Espérance, variance (avec V = E[X²] − E[X]²) et écart-type", [
-        ("a", "a number (2 decimals)", "0 * 0.2 + 1 * 0.4 + 2 * 0.3 + 3 * 0.1",
-         'decimals=2, mistakes={"pondère chaque valeur par sa probabilité, au lieu de faire la moyenne des valeurs": '
-         '1.5}'),
-        ("b", "a number (2 decimals)", "0 * 0.2 + 1 * 0.4 + 4 * 0.3 + 9 * 0.1",
-         'decimals=2, mistakes={"E[X²] est la moyenne des carrés, pas le carré de la moyenne": 1.69}'),
-        ("c", "a number (2 decimals)", "2.5 - 1.3 ** 2",
-         'decimals=2, mistakes={"retire le carré de l\'espérance, pas l\'espérance": 1.2}'),
-        ("d", "a number (2 decimals)", "0.9",
-         'decimals=2, mistakes={"l\'écart-type est la racine carrée de la variance": 0.81}'),
-        ("e", "a number (2 decimals)", "10 * 1.3 - 4",
-         'decimals=2, mistakes={"E[aX + b] = a E[X] + b : la pénalité se retire de l\'espérance": 13}'),
-        ("f", "a number (2 decimals)", "100 * 0.81",
-         'decimals=2, mistakes={"V(aX + b) = a² V(X) : le coefficient est élevé au carré": 8.1, '
-         '"une constante ajoutée ne change pas la variance": 77}'),
-        ("g", "a fraction, as text", "Fraction(25, 8)",
-         F + ', mistakes={"pondère chaque valeur par sa probabilité, avec la loi de Y de R8.8": "5/2"}'),
-        ("h", "a fraction, as text", "Fraction(85, 8) - Fraction(25, 8) ** 2",
-         F + ', mistakes={"c\'est E[Y²] : retire encore le carré de l\'espérance": "85/8"}'),
+        ("a", "a number (2 decimals)", "0.25",
+         'decimals=2, mistakes={"deux conditions : la somme des probabilités vaut 1 et l\'espérance vaut 2": 0.5}'),
+        ("b", "a number (2 decimals)", "0.5 * (1 - 2) ** 2 + 0.25 * (2 - 2) ** 2 + 0.25 * (4 - 2) ** 2",
+         'decimals=2, mistakes={"la variance moyenne les écarts au carré, pas les écarts": 0, '
+         '"pondère chaque écart au carré par sa probabilité": 5}'),
+        ("c", "a number (2 decimals)", "0.5 * 1 + 0.25 * 4 + 0.25 * 16",
+         'decimals=2, mistakes={"E[X²] est la moyenne des carrés, pas le carré de la moyenne": 4}'),
+        ("d", "a number (3 decimals)", "1.5 ** 0.5",
+         'decimals=3, mistakes={"l\'écart-type est la racine carrée de la variance": 1.5}'),
+        ("e", "a number (2 decimals)", "3 - 2 * 2",
+         'decimals=2, mistakes={"E[aX + b] = a E[X] + b, avec ici a = −2": {7, -4}}'),
+        ("f", "a number (3 decimals)", "2 * 1.5 ** 0.5",
+         'decimals=3, mistakes={"un écart-type est positif ou nul : σ(aX + b) = |a| σ(X)": -2.449, '
+         '"c\'est la variance de Y ; on demande son écart-type": 6, '
+         '"le facteur a² concerne la variance ; l\'écart-type est multiplié par |a|": 4.899}'),
+        ("g", "an irreducible fraction, as text", "Fraction(1, 3)",
+         F + ', mistakes={"une espérance nulle ne rend pas les deux valeurs équiprobables : écris E[W] avec p": "1/2", '
+         '"p est la probabilité de la valeur 2 : vérifie que E[W] = 0": "2/3"}'),
+        ("h", "a number (2 decimals)", "4 * (1 / 3) + 1 * (2 / 3)",
+         'decimals=2, mistakes={"la variance n\'est pas le carré de l\'espérance : V = E[W²] − E[W]²": 0}'),
     ]),
 
-    Paper("R8.10", "Un jeu est-il équitable ?", [
-        ("a", "a number", "8 / 4 + 1 / 2",
-         'decimals=2, mistakes={"un seul pile arrive de deux façons (PF ou FP)": 2.25, '
-         '"« deux piles », « un pile » et « aucun pile » ne sont pas équiprobables": 3}'),
-        ("b", "a number", "2.5 - 3",
-         'decimals=2, mistakes={"le gain net est le prix moins la mise": 5.5}'),
-        ("c", "a number", "200 * 0.5",
-         'decimals=2, mistakes={"ce que gagne l\'organisateur, c\'est ce que perd le joueur": -100}'),
-        ("d", "a number", "64 / 4 + 1 / 2 - 2.5 ** 2",
-         'decimals=2, mistakes={"V = E[X²] − E[X]² : retire le carré de l\'espérance": 16.5}'),
-        ("e", "a number", "(64 / 4 + 1 / 2 - 2.5 ** 2) ** 0.5",
-         'decimals=2, mistakes={"l\'écart-type est la racine carrée de la variance": 10.25}'),
-        ("f", "a number", "6 / 6",
-         'decimals=2, mistakes={"pondère le prix par la probabilité de le gagner": 6}'),
-        ("g", "a number", "36 / 6 - 1",
-         'decimals=2, mistakes={"V = E[X²] − E[X]² : retire le carré de l\'espérance": 6}'),
-        ("h", "a number", "1.5 * 6",
-         'decimals=2, mistakes={"équitable : l\'espérance du prix est égale à la mise": 1.5}'),
+    Paper("R8.10", "Deux jeux de hasard : équité et risque", [
+        ("a", "a number", "3 / 4 - 5 / 4",
+         'decimals=2, mistakes={"« deux piles », « deux faces » et « un de chaque » ne sont pas équiprobables": -0.67, '
+         '"pondère chaque gain par sa probabilité, un gain négatif comptant avec son signe": 2}'),
+        ("b", "a number", "(9 + 25) / 4 - 0.25",
+         'decimals=2, mistakes={"V = E[G²] − E[G]² : retire le carré de l\'espérance": 8.5, '
+         '"le carré de l\'espérance est positif : on le retire": 8.75}'),
+        ("c", "a number", "((9 + 25) / 4 - 0.25) ** 0.5",
+         'decimals=2, mistakes={"l\'écart-type est la racine carrée de la variance": 8.25}'),
+        ("d", "a number", "5.0",
+         'decimals=2, mistakes={"un gain qui augmente de 1 € n\'augmente l\'espérance que de 1 € fois sa '
+         'probabilité": 3.5}'),
+        ("e", "a number", "(50 / 4) ** 0.5",
+         'decimals=2, mistakes={"l\'écart-type est la racine carrée de la variance": 12.5}'),
+        ("f", "a number", "6 / 4 - 3 / 4",
+         'decimals=2, mistakes={"compte les doubles parmi les 16 couples équiprobables": -0.56, '
+         '"pondère chaque gain par sa probabilité, un gain négatif comptant avec son signe": 5}'),
+        ("g", "a number", "(36 / 4 + 3 / 4 - 0.75 ** 2) ** 0.5",
+         'decimals=2, mistakes={"l\'écart-type est la racine carrée de la variance": 9.19}'),
+        ("h", "a number", "3.0",
+         'decimals=2, mistakes={"un gain qui baisse de 1 € ne fait baisser l\'espérance que de 1 € fois sa '
+         'probabilité": 5.25}'),
     ]),
 
     Paper("R8.13", "Comparer toutes les paires : un tournoi, C(n, 2) et une croissance en n²", [
@@ -283,7 +302,7 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ R8.1 à R8
                "`06_mes_reponses.md`. Reporte ensuite chaque réponse ici : **la valeur** que tu as trouvée, sous la "
                "forme indiquée en commentaire, jamais le calcul qui y mène :\n"
                "- un entier, ou un nombre avec un point décimal, `-1.5`, arrondi comme le demande la question ;\n"
-               "- une fraction irréductible entre guillemets, `\"5/7\"` ;\n"
+               "- une fraction irréductible entre guillemets, `\"3/11\"` ;\n"
                "- une liste de nombres entre crochets, `[0.25, 0.5, 0.25]` ; vrai ou faux par `True` ou `False`.\n\n"
                "Les réponses pas encore remplies affichent ⏳.")
 
@@ -319,13 +338,17 @@ HOWTO = ("> **Mode d'emploi `mymath`** (comme dans les chapitres précédents). 
          "`mon_travail/mymath/proba_basics.py`, lis la docstring de la fonction en entier, remplace la ligne "
          "`raise NotImplementedError(...)` par ton code, **enregistre** le fichier, puis exécute les cellules "
          "ci-dessous : la première recharge ta librairie. Comme dans tous les chapitres R0 à R9, Python pur : "
-         "`fractions.Fraction` est permis, mais ni `math.factorial`, ni `math.comb`, ni le module `statistics` "
-         "(la docstring du module le dit, et un test le vérifie) ; seule `simulate_frequency` se sert du générateur "
-         "de NumPy. Les tests comparent tes résultats à `math.factorial`, `math.comb`, à des comptages exacts avec "
-         "`Fraction` et à NumPy.")
+         "`fractions.Fraction` est permis (importe-le en haut du fichier : `from fractions import Fraction`, et "
+         "`import numpy as np` pour `simulate_frequency`), mais ni `math.factorial`, ni `math.comb`, ni `math.perm`, "
+         "ni le module `statistics`, ni SciPy (la docstring du module le dit, et un test le vérifie) ; seule "
+         "`simulate_frequency` se sert du générateur de NumPy. Les tests comparent tes résultats à `math.factorial`, "
+         "`math.comb`, à des comptages exacts avec `Fraction` et à NumPy. Une cellule qui ne s'arrête pas (l'étoile "
+         "`[*]` reste affichée) : interromps-la (■, *Interrupt*), puis cherche une boucle `while` dont la condition "
+         "reste toujours vraie.")
 
 WRONG_ERROR = "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
-OTHER_ERRORS = ["AssertionError", "Exception", "IndexError", "KeyError", "TypeError", "ZeroDivisionError"]
+OTHER_ERRORS = ["AssertionError", "Exception", "IndexError", "KeyError", "RecursionError", "TypeError",
+                "ZeroDivisionError"]
 
 
 def errors_source(*excluded: str) -> str:
@@ -346,7 +369,7 @@ R8_16 = Ex(
     "fiche §3", tracks="C, E", mymath="proba_basics.py",
     body=HOWTO + """
 
-Écris `factorial(n)` puis `binomial(n, k)` dans `mon_travail/mymath/proba_basics.py` (fiche §3). `factorial` lève une `ValueError` pour un `n` négatif ; `binomial(n, k)` vaut 0 quand $k < 0$ ou $k > n$, et doit rester un **entier exact**, même pour de grands nombres : pas de division `/`, qui donne un flottant arrondi, mais la division entière `//`.
+Écris `factorial(n)` puis `binomial(n, k)` dans `mon_travail/mymath/proba_basics.py` (fiche §3). `factorial` lève une `ValueError` pour un `n` négatif, et `binomial` aussi ; `binomial(n, k)` vaut 0 quand $k < 0$ ou $k > n$, et doit rester un **entier exact**, même pour de grands nombres : pas de division `/`, qui donne un flottant arrondi, mais la division entière `//`.
 
 La vérification calcule :
 - a) la liste `[factorial(n) for n in (0, 1, 8, 13)]` ;
@@ -381,7 +404,8 @@ wbm.record("R8.16b", "ValueError",
 wbm.record("R8.16c", [math.comb(12, k) for k in range(13)])
 wbm.record("R8.16d", [0, 0])
 wbm.record("R8.16e", "int",
-           mistakes={{"une division / donne un flottant : utilise la division entière //": "float"}})''',
+           mistakes={{"un flottant : une division / dans binomial (utilise la division entière //), ou un produit qui "
+                     "part de 1.0 (dans binomial ou dans factorial, si binomial l'appelle)": "float"}})''',
     after=tests_cells("test_factorial_ or test_binomial_ or test_proba_basics_does"),
     note="La ligne 12 du triangle est 1, 12, 66, 220, 495, 792, 924, 792, …, 1, symétrique. Pour "
          "`factorial(20) // factorial(18)`, tous les facteurs de 1 à 18 se simplifient : il reste $20 \\times 19 = 380$. "
@@ -431,7 +455,9 @@ print("d)", raised(enumerate_probability, [], lambda o: True),
     record=f'''wbm.record("R8.17a", Fraction(10, 64), kind="fraction")
 wbm.record("R8.17b", Fraction(40, 64), kind="fraction",
            mistakes={{"« au moins deux égaux » est le contraire de « trois différents »": "3/8"}})
-wbm.record("R8.17c", Fraction(271, 1000), kind="fraction")
+wbm.record("R8.17c", Fraction(271, 1000), kind="fraction",
+           mistakes={{"un générateur ne se lit qu'une fois : compte les issues et les favorables dans la même "
+                     "boucle": "0"}})
 wbm.record("R8.17d", "ValueError",
            mistakes={{"sans issue, lève une ValueError avant de diviser": {{"ZeroDivisionError", "aucune"}},
                      "{WRONG_ERROR}": {errors_source("ZeroDivisionError")}}})
@@ -488,10 +514,12 @@ print("e)", raised(expectation, [1, 2, 3], [0.5, 0.5]), " f)", raised(variance, 
       " g)", type(variance(sixes_values, sixes_probs)).__name__)''',
     record=f'''wbm.record("R8.18a", Fraction(1, 3), kind="fraction")
 wbm.record("R8.18b", Fraction(5, 18), kind="fraction",
-           mistakes={{"c'est E[X²] : retire encore le carré de l'espérance": "7/18"}})
+           mistakes={{"c'est E[X²] : retire encore le carré de l'espérance": "7/18",
+                     "élève chaque écart au carré : sans carré, les écarts à l'espérance se compensent": "0"}})
 wbm.record("R8.18c", 0.175, decimals=4)
 wbm.record("R8.18d", 2.2375 - 0.175 ** 2, decimals=4,
-           mistakes={{"c'est E[X²] : retire encore le carré de l'espérance": 2.2375}})
+           mistakes={{"c'est E[X²] : retire encore le carré de l'espérance": 2.2375,
+                     "élève chaque écart au carré : sans carré, les écarts à l'espérance se compensent": 0}})
 wbm.record("R8.18e", "ValueError",
            mistakes={{"des longueurs différentes : lève une ValueError avant de calculer (zip s'arrête sans rien dire)":
                          "aucune",
@@ -550,12 +578,14 @@ print("a)", simulate_frequency(one_four, 1000, seed=5), " b)", simulate_frequenc
 print("d)", raised(simulate_frequency, one_four, 0), " e)", simulate_frequency(sum_at_least_6, 20_000, seed=0))''',
     record=f'''rng = np.random.default_rng(5)                     # the replayed generator: the exact frequency of a)
 wbm.record("R8.19a", sum(bool(rng.integers(1, 5) == 4) for _ in range(1000)) / 1000, decimals=3,
-           mistakes={{"crée le générateur une seule fois, avant la boucle : recréé à chaque essai avec la même graine, il "
-                     "redonne le même tirage": {{0.0, 1.0}}}})
+           mistakes={{"une fréquence de 0 ou de 1 : un générateur recréé à chaque essai redonne le même tirage (crée-le "
+                     "une seule fois, avant la boucle), et une division entière // arrondit à l'entier (divise "
+                     "avec /)": {{0.0, 1.0}}}})
 wbm.record("R8.19b", True,
            mistakes={{"la même graine doit redonner la même fréquence : crée le générateur avec default_rng(seed)": False}})
 wbm.record("R8.19c", True,
-           mistakes={{"deux graines différentes donnent deux suites différentes : passe seed à default_rng": False}})
+           mistakes={{"deux graines différentes donnent deux suites différentes : passe seed à default_rng, et crée le "
+                     "générateur une seule fois, avant la boucle": False}})
 wbm.record("R8.19d", "ValueError",
            mistakes={{"0 essai : lève une ValueError avant de diviser": {{"ZeroDivisionError", "aucune"}},
                      "{WRONG_ERROR}": {errors_source("ZeroDivisionError")}}})
@@ -583,13 +613,15 @@ R8_20 = Ex(
     "prévoir une probabilité contre-intuitive, la vérifier par simulation, puis la calculer exactement.",
     "fiche §2, §3 et §8", tracks="C, E", hypothesis=True,
     body="""On suppose que les 365 jours de l'année (sans 29 février) sont équiprobables pour une date d'anniversaire, et que les élèves d'une classe sont nés indépendamment les uns des autres. **Avant d'exécuter quoi que ce soit**, prédis :
-- a) dans une classe de 30 élèves, la probabilité qu'au moins deux élèves aient le même anniversaire : 1 moins de 10 % ; 2 entre 10 % et 50 % ; 3 plus de 50 % ;
-- b) le plus petit nombre d'élèves pour lequel cette probabilité dépasse 50 % est proche de : 1 23 ; 2 60 ; 3 183 ;
-- c) avec 60 élèves, la probabilité est : 1 environ 70 % ; 2 environ 85 % ; 3 plus de 99 %.
+- a) dans une classe de 30 élèves, la probabilité qu'au moins deux élèves aient le même anniversaire : (1) moins de 10 % ; (2) entre 10 % et 50 % ; (3) plus de 50 % ;
+- b) le plus petit nombre d'élèves pour lequel cette probabilité dépasse 50 % est proche de : (1) 23 ; (2) 60 ; (3) 183 ;
+- c) avec 60 élèves, la probabilité est : (1) environ 70 % ; (2) environ 85 % ; (3) plus de 99 %.
+
+Réponds par le numéro du choix : 1, 2 ou 3.
 
 Écris tes trois prédictions, vérifie-les, puis lance l'expérience, qui simule 20 000 classes de chaque taille. Ensuite, calcule la probabilité **exacte** :
 - d) écris `p_shared(n)`, la probabilité qu'au moins deux élèves sur $n$ aient le même anniversaire. Passe par le contraire, « tous les anniversaires sont différents » : le premier élève a 365 jours possibles sur 365, le deuxième 364 sur 365, le troisième 363 sur 365… (une boucle, ou un produit Π). La vérification calcule `p_shared(30)` (3 décimales) ;
-- e) le plus petit nombre d'élèves $n$ pour lequel `p_shared(n)` dépasse 0,5 (un entier, cherché avec une boucle).""",
+- e) écris `smallest_class()`, qui renvoie le plus petit nombre d'élèves $n$ pour lequel `p_shared(n)` dépasse 0,5 (un entier, cherché avec une boucle `for n in range(1, 366)`).""",
     todo='''prediction_R8_20a = ...  # a) 1, 2 or 3, written BEFORE running the experiment below
 prediction_R8_20b = ...  # b) 1, 2 or 3
 prediction_R8_20c = ...  # c) 1, 2 or 3''',
@@ -609,7 +641,9 @@ wbm.record("R8.20c", 3, prediction=True, choices=[1, 2, 3])''',
     raise NotImplementedError("passe par le contraire : le produit des (365 - k) / 365")
 
 
-answer_R8_20e = ...  # e) an integer, found with a loop'''),
+def smallest_class():
+    """The smallest number of students n for which p_shared(n) > 0.5 (a loop: for n in range(1, 366))."""
+    raise NotImplementedError("une boucle for sur n, qui s'arrête au premier p_shared(n) > 0.5")'''),
         ("solution", '''def p_shared(n):
     """The probability that at least two of n students share a birthday (365 equally likely days)."""
     all_different = 1.0
@@ -618,17 +652,28 @@ answer_R8_20e = ...  # e) an integer, found with a loop'''),
     return 1 - all_different
 
 
-answer_R8_20e = next(n for n in range(1, 366) if p_shared(n) > 0.5)
-print(round(p_shared(30), 4), answer_R8_20e)'''),
+def smallest_class():
+    """The smallest number of students n for which p_shared(n) > 0.5 (a loop: for n in range(1, 366))."""
+    for n in range(1, 366):
+        if p_shared(n) > 0.5:
+            return n
+
+
+print(round(p_shared(30), 4), smallest_class())'''),
         ("check", '''with checked("R8.20d"):
     wbm.check("R8.20d", p_shared(30), computed=True)
-wbm.check("R8.20e", answer_R8_20e)'''),
+with checked("R8.20e"):
+    wbm.check("R8.20e", smallest_class(), computed=True)'''),
         ("record", '''all_different = 1.0
 for k in range(30):
     all_different *= (365 - k) / 365
 wbm.record("R8.20d", 1 - all_different, decimals=3,
            mistakes={"c'est la probabilité que tous les anniversaires soient différents : passe au contraire":
-                         all_different})
+                         all_different,
+                     "c'est la probabilité qu'un autre élève soit né le même jour que l'un d'eux, fixé : la question "
+                     "porte sur toutes les paires d'élèves": {1 - (364 / 365) ** 29, 1 - (364 / 365) ** 30},
+                     "une probabilité ne dépasse pas 1 : les paires ne sont pas incompatibles, on n'additionne pas "
+                     "leurs chances": 30 * 29 / 2 / 365})
 wbm.record("R8.20e", 23, mistakes={"le premier n pour lequel la probabilité dépasse 0,5, pas le dernier qui reste "
                                    "en dessous": 22})'''),
         ("md", "**Après l'expérience**, dans ta copie : combien de **paires** d'élèves une classe de 30 contient-elle "
@@ -643,11 +688,11 @@ wbm.record("R8.20e", 23, mistakes={"le premier n pour lequel la probabilité dé
 )
 
 R8_21 = Ex(
-    "R8.21", "🔬", 2, 20, "La loi des grands nombres : fréquence et nombre de lancers",
-    "mesurer comment la probabilité qu'une fréquence s'écarte de la probabilité diminue quand le nombre d'essais "
-    "grandit.", "fiche §8 ; workbookIA 0A §100.8.7 (default_rng) et §100.8.3 (calcul vectorisé)", tracks="C, E",
-    body="""On lance un dé à 6 faces, et l'on s'intéresse à l'événement « le dé donne 5 ou 6 », de probabilité $\\frac{1}{3}$. Pour chaque nombre de lancers $n$ de `sizes = [10, 100, 1000, 10000]`, **dans cet ordre**, et avec **un seul** générateur `rng = np.random.default_rng(81)`, créé avant la boucle :
-- tire 500 séries de $n$ lancers : `freqs = (rng.integers(1, 7, size=(500, n)) >= 5).mean(axis=1)`, les 500 fréquences de l'événement ;
+    "R8.21", "🔬", 2, 20, "La loi des grands nombres : fréquence et nombre d'essais",
+    "mesurer comment la part des séries dont la fréquence s'écarte de la probabilité diminue quand le nombre "
+    "d'essais grandit.", "fiche §8 ; workbookIA 0A §100.8.7 (default_rng) et §100.8.3 (calcul vectorisé)", tracks="C, E",
+    body="""Une roue a 3 secteurs égaux, numérotés 0, 1 et 2, et l'on s'intéresse à l'événement « la roue s'arrête sur le 0 », de probabilité $\\frac{1}{3}$. Pour chaque nombre de tours $n$ de `sizes = [10, 100, 1000, 10000]`, **dans cet ordre**, et avec **un seul** générateur `rng = np.random.default_rng(81)`, créé avant la boucle :
+- tire 500 séries de $n$ tours : `freqs = (rng.integers(0, 3, size=(500, n)) == 0).mean(axis=1)`, les 500 fréquences de l'événement ;
 - calcule la proportion des 500 séries dont la fréquence s'écarte de $\\frac{1}{3}$ de plus de 0,05 : `np.mean(np.abs(freqs - 1 / 3) > 0.05)`.
 
 Questions :
@@ -662,13 +707,13 @@ Dans ta copie : que dit la loi des grands nombres, et que ne dit-elle pas ? Avec
     todo='''far = ...           # a) a list of 4 proportions
 mean_10000 = ...    # b) a number
 answer_R8_21c = ... # c) a number''',
-    check='''wbm.check("R8.21a", far, computed=True)
-wbm.check("R8.21b", mean_10000, computed=True)
+    check='''wbm.check("R8.21a", far)
+wbm.check("R8.21b", mean_10000)
 wbm.check("R8.21c", answer_R8_21c)''',
     solution='''rng = np.random.default_rng(81)
 far, kept = [], {}
 for n in sizes:
-    freqs = (rng.integers(1, 7, size=(500, n)) >= 5).mean(axis=1)
+    freqs = (rng.integers(0, 3, size=(500, n)) == 0).mean(axis=1)
     far.append(float(np.mean(np.abs(freqs - 1 / 3) > 0.05)))
     kept[n] = freqs
 mean_10000 = float(kept[10000].mean())
@@ -680,68 +725,78 @@ for ax, n in zip(axes, (100, 10000)):
     ax.hist(kept[n], bins=40, range=(0, 1))
     ax.axvline(1 / 3, color="0.3", linestyle="--")
     ax.set_title(f"500 fréquences, n = {n}")
-    ax.set_xlabel("fréquence de « 5 ou 6 »")
+    ax.set_xlabel("fréquence du 0")
 plt.show()''',
     record='''rng = np.random.default_rng(81)
 proportions, means = [], []
 for n in [10, 100, 1000, 10000]:
-    freqs = (rng.integers(1, 7, size=(500, n)) >= 5).mean(axis=1)
+    freqs = (rng.integers(0, 3, size=(500, n)) == 0).mean(axis=1)
     proportions.append(float(np.mean(np.abs(freqs - 1 / 3) > 0.05)))
     means.append(float(freqs.mean()))
-renewed = []                                    # the classic slip: a generator created again for each n
+renewed, renewed_means = [], []                 # the classic slip: a generator created again for each n
 for n in [10, 100, 1000, 10000]:
-    freqs = (np.random.default_rng(81).integers(1, 7, size=(500, n)) >= 5).mean(axis=1)
+    freqs = (np.random.default_rng(81).integers(0, 3, size=(500, n)) == 0).mean(axis=1)
     renewed.append(float(np.mean(np.abs(freqs - 1 / 3) > 0.05)))
+    renewed_means.append(float(freqs.mean()))
 wbm.record("R8.21a", proportions, decimals=3,
            mistakes={"un seul générateur, créé avant la boucle avec la graine 81 : recréé à chaque n, il repart du "
                      "même point": renewed})
-wbm.record("R8.21b", means[-1], decimals=4)
+wbm.record("R8.21b", means[-1], decimals=4,
+           mistakes={"un seul générateur, créé avant la boucle avec la graine 81 : recréé à chaque n, il repart du "
+                     "même point": renewed_means[-1]})
 wbm.record("R8.21c", 0.0, decimals=2, mistakes={"c'est la proportion des séries qui s'écartent de plus de 0,05 : "
                                                 "regarde comment elle évolue quand n grandit": {0.05, 0.33}})''',
-    note="Les proportions valent 0,772, 0,28, 0,002 et 0 : avec 10 lancers, une série sur quatre seulement reste à "
-         "moins de 0,05 de $\\frac{1}{3}$ ; avec 10 000, toutes. La loi des grands nombres dit exactement cela : la "
+    note="Les proportions valent 0,694, 0,288, 0 et 0 : avec 10 tours, moins d'une série sur trois reste à moins de "
+         "0,05 de $\\frac{1}{3}$ ; dès 1 000 tours, toutes. La loi des grands nombres dit exactement cela : la "
          "probabilité que la fréquence s'écarte de la probabilité de plus d'un écart donné tend vers 0. Elle ne dit pas "
          "que la fréquence **égale** la probabilité, ni à partir de quel $n$ on est tranquille : pour un écart de "
-         "0,01, environ 3 % des séries de 10 000 lancers resteraient au-delà (l'écart typique y vaut environ 0,005).",
+         "0,01, environ 3 % des séries de 10 000 tours resteraient au-delà.",
 )
 R8_21.record = "import numpy as np\n" + R8_21.record
 
 R8_22_CHECK = '''with checked("R8.22 vérifications"):
-    fig, ax = plt.subplots(figsize=(6, 3.5))
-    try:
-        created = drawn(plot_law, ax, piles_values, piles_probs)
-    finally:
-        plt.close(fig)                                     # only the checks below are shown here
     problems = []
-    if created:
-        problems.append("ta fonction ouvre sa propre figure : dessine dans l'axe reçu (ax.bar, …)")
-    else:
+    for values, probs in [(piles_values, piles_probs), ([0, 1, 5], [0.5, 0.3, 0.2])]:   # symmetric, then not
+        fig, ax = plt.subplots(figsize=(6, 3.5))
+        try:
+            created = drawn(plot_law, ax, values, probs)
+        finally:
+            plt.close(fig)                                 # only the checks below are shown here
+        if created:
+            problems.append("ta fonction ouvre sa propre figure : dessine dans l'axe reçu (ax.bar, …)")
+            break
         heights = sorted((round(float(p.get_x() + p.get_width() / 2), 6), round(float(p.get_height()), 6))
                          for p in ax.patches)
-        expected = sorted((float(v), round(float(p), 6)) for v, p in zip(piles_values, piles_probs))
+        expected = sorted((float(v), round(float(p), 6)) for v, p in zip(values, probs))
         if heights != expected:
             problems.append("un bâton par valeur, centré sur la valeur, de hauteur sa probabilité (ax.bar)")
-        mean = sum(v * p for v, p in zip(piles_values, piles_probs))
+        mean = sum(v * p for v, p in zip(values, probs))
         verticals = [l for l in ax.lines if len(set(np.round(np.asarray(l.get_xdata(), dtype=float), 6))) == 1]
-        if not any(np.isclose(float(np.asarray(l.get_xdata(), dtype=float)[0]), mean) for l in verticals):
-            problems.append("une droite verticale à l'espérance (ax.axvline), calculée dans la fonction")
+        at_mean = [l for l in verticals if np.isclose(float(np.asarray(l.get_xdata(), dtype=float)[0]), mean)]
+        if not at_mean:
+            problems.append("une droite verticale à l'espérance (ax.axvline), calculée dans la fonction : la moyenne "
+                            "des valeurs pondérée par leurs probabilités (vérifiée aussi sur une loi non symétrique)")
+        elif not any(l.get_linestyle() == "--" for l in at_mean):
+            problems.append("la droite de l'espérance en pointillés (linestyle=\\"--\\")")
         if not ax.get_title() or not ax.get_xlabel() or not ax.get_ylabel():
             problems.append("un titre et le nom des deux axes (ax.set_title, ax.set_xlabel, ax.set_ylabel)")
+        if problems:
+            break
     if problems:
         print("❌ Ex R8.22 : à revoir : " + " ; ".join(problems) + ".")
     else:
-        print("✅ Ex R8.22 : les bâtons, l'espérance, le titre et les axes.")'''
+        print("✅ Ex R8.22 : les bâtons, l'espérance (sur deux lois), le titre et les axes.")'''
 
 R8_22 = Ex(
     "R8.22", "🎨", 1, 10, "Le diagramme en bâtons d'une loi",
     "tracer la loi d'une variable aléatoire discrète et y placer son espérance.",
     "fiche §6 et §7 ; R0 (matplotlib)", tracks="C",
     body="""Complète `plot_law(ax, values, probabilities)`, qui dessine dans l'axe `ax` qu'elle reçoit :
-- un bâton par valeur, centré sur la valeur, de hauteur sa probabilité (`ax.bar(values, probabilities, width=0.2)`) ;
+- un bâton par valeur, centré sur la valeur, de hauteur sa probabilité, avec `ax.bar(values, probabilities, width=0.2)` (la vérification lit les rectangles de `ax.bar`) ;
 - une droite verticale en pointillés à l'espérance, **calculée dans la fonction** à partir de `values` et `probabilities` (`ax.axvline`) ;
 - un titre, et le nom des deux axes.
 
-La cellule suivante trace la loi du nombre de piles en quatre lancers d'une pièce (`piles_values`, `piles_probs`, fournies), puis une autre la vérifie.
+La cellule suivante trace la loi du nombre de piles en quatre lancers d'une pièce (`piles_values`, `piles_probs`, fournies), puis une autre la vérifie, sur cette loi et sur une loi qui n'est pas symétrique.
 
 Dans ta copie : où se trouve l'espérance, et pourquoi pouvait-on la prévoir sans calcul ? Pourquoi la loi n'est-elle pas « plate », alors que les 16 suites de quatre lancers sont équiprobables ?""",
     given='''piles_values = [0, 1, 2, 3, 4]                       # number of piles in four coin flips
@@ -787,9 +842,9 @@ plt.show()''',
 # ---------------------------------------------------------------------------
 R8_23_MISTAKES = bug_letters_mistakes(
     "ABE", "CD",
-    {"A": "deux événements qui peuvent se réaliser ensemble ne s'additionnent pas : passe par le contraire",
-     "B": "les trois nombres de piles ne sont pas équiprobables : distingue les deux pièces",
-     "E": "incompatibles n'est pas indépendants : l'un empêche l'autre"})
+    {"A": "relis chaque addition de probabilités : les deux événements peuvent-ils arriver ensemble ?",
+     "B": "relis chaque raisonnement qui compte des cas : sont-ils tous équiprobables ?",
+     "E": "relis chaque produit de probabilités : la règle utilisée s'applique-t-elle ?"})
 
 R8_23 = Ex(
     "R8.23", "🐛", 2, 20, "Chasse à l'erreur : trois raisonnements de probabilités faux",
@@ -843,7 +898,9 @@ def buggy_runs(n_runs, seed):
 R8_24_CHECK = '''with checked("R8.24 vérifications"):
     runs = run_experiments(5, seed=42)
     problems = []
-    if not isinstance(runs, list) or len(runs) != 5:
+    if runs is None:
+        problems.append("run_experiments renvoie None : as-tu oublié le return de la liste ?")
+    elif not isinstance(runs, list) or len(runs) != 5:
         problems.append("run_experiments(5, seed) renvoie une liste de 5 mesures")
     else:
         if run_experiments(5, seed=42) != runs:
@@ -962,7 +1019,8 @@ def build(kind: str) -> list:
     cells = header_cells(kind)
     cells.append(setup_cell(kind, chapter=CHAPTER) if kind == "exercise" else setup_cell(kind))
     cells += objectives_cell()
-    cells += paper_cells(kind, PAPER, PAPER_CONTEXT, PAPER_INTRO)
+    cells += paper_cells(kind, PAPER, PAPER_CONTEXT, PAPER_INTRO,
+                         learner_context="from fractions import Fraction   # Fraction(3, 11) is accepted too, as \"3/11\"")
     for part in PARTS:
         cells += part_cells(part, kind)
     cells += footer_cells(kind)

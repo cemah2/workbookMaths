@@ -23,7 +23,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 3. On lance une pièce quatre fois. Quel est le contraire de « au moins deux piles » ?
 4. Vrai ou faux : un événement et son contraire sont toujours incompatibles.
 5. Vrai ou faux : deux événements incompatibles sont toujours contraires l'un de l'autre.
-6. On lance un dé à 6 faces ; $A$ = « pair » et $B$ = « au moins 5 ». Écris $A \cap B$ et $A \cup B$.
+6. On fait tourner une roue de 8 secteurs égaux, numérotés de 1 à 8 ; $A$ = « impair » et $B$ = « au moins 6 ». Écris $A \cap B$ et $A \cup B$.
 
 ### R8.Q2 — Propriétés d'une probabilité 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
@@ -40,11 +40,11 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 
 Pour chaque situation, dis si l'ordre compte, s'il peut y avoir des répétitions, et quel outil compte les possibilités ($n^k$, arrangements, $n!$ ou $\binom{n}{k}$). Ne calcule pas.
 1. Le podium (or, argent, bronze) d'une course de 10 coureurs.
-2. Une main de 5 cartes.
-3. Le code à 4 chiffres d'une carte bancaire.
-4. Le bureau d'une association : un président et un trésorier, deux personnes différentes.
-5. Les 3 chapitres que tu révises ce soir parmi 8, sans ordre de préférence.
-6. L'ordre de passage de 6 élèves à un oral.
+2. Une main de 5 cartes tirée d'un jeu de 32.
+3. Un mot de passe de 8 caractères, chacun choisi parmi 36 (26 lettres et 10 chiffres).
+4. Une grille de loto : 6 numéros cochés parmi 49.
+5. L'ordre dans lequel tu lis les 7 chapitres d'un livre.
+6. Trois boules tirées d'une urne de 10 boules numérotées, **avec remise**, en notant les numéros dans l'ordre de sortie.
 
 ### R8.Q4 — Lire un arbre pondéré 🧠 ★ ⏱️ 4 min
 *Fiche §4 · parcours C, E*
@@ -62,17 +62,17 @@ Un sachet mélange des graines de deux variétés : 60 % de variété A, 40 % de
 
 1. On lance un dé : « obtenir 1 » et « obtenir 6 » sont-ils incompatibles ? indépendants ?
 2. On lance deux fois une pièce : « le premier lancer donne pile » et « le second lancer donne pile » sont-ils indépendants ?
-3. Vrai ou faux : deux événements incompatibles, de probabilités non nulles, sont indépendants.
-4. $P(A) = 0{,}5$, $P(B) = 0{,}2$, et $A$ et $B$ sont indépendants : que vaut $P(A \cap B)$ ?
+3. Vrai ou faux : si $A$ et $B$ sont indépendants, alors $\bar{A}$ et $B$ le sont aussi.
+4. $A$ et $B$ sont indépendants, $P(A) = 0{,}4$ et $P(A \cap B) = 0{,}1$ : que vaut $P(B)$ ?
 5. $P(A) = 0{,}3$, $P(B) = 0{,}5$ et $P(A \cap B) = 0{,}2$ : $A$ et $B$ sont-ils indépendants ?
-6. On tire deux cartes d'un jeu, sans remise : « la première est un as » et « la seconde est un as » sont-ils indépendants ?
+6. Un événement de probabilité 0 est-il indépendant de n'importe quel autre événement ?
 
 ### R8.Q6 — Espérance et variance : vrai ou faux 🧠 ★ ⏱️ 4 min
 *Fiche §6 et §7 · parcours C, E*
 
 Vrai ou faux ?
-1. L'espérance d'une variable aléatoire est toujours l'une de ses valeurs.
-2. Si $\mathbb{E}[X] = 4$, alors $\mathbb{E}[2X - 3] = 5$.
+1. Deux variables aléatoires de même espérance ont la même variance.
+2. Si $\mathbb{E}[X] = 4$ et $\mathbb{E}[Y] = 1$, alors $\mathbb{E}[X - 3Y] = 1$.
 3. Une variance peut être négative.
 4. Si $\mathbb{V}(X) = 9$, alors $\sigma(X) = 3$.
 5. $\mathbb{V}(X + 10) = \mathbb{V}(X) + 10$.
@@ -85,8 +85,8 @@ Vrai ou faux ?
 1. Vrai ou faux : après six faces de suite, une pièce équilibrée a plus d'une chance sur deux de donner pile au lancer suivant.
 2. On lance une pièce équilibrée 10 fois, puis, dans une autre expérience, 10 000 fois. Dans laquelle la fréquence des piles a-t-elle le plus de chances d'être entre 0,45 et 0,55 ?
 3. Vrai ou faux : sur 10 000 lancers d'une pièce équilibrée, on obtient toujours entre 4 990 et 5 010 piles.
-4. Par combien faut-il multiplier le nombre d'essais pour diviser par 10 l'écart typique entre une fréquence et la probabilité ?
-5. Deux simulations lancées avec la même graine donnent-elles la même fréquence ? Et avec deux graines différentes ?
+4. Vrai ou faux : si l'on double le nombre d'essais, les écarts entre la fréquence et la probabilité sont, en général, divisés par 2.
+5. Une pièce donne 31 piles sur 50 lancers, une fréquence de 0,62. Peut-on en conclure qu'elle est truquée ?
 6. Vrai ou faux : la loi des grands nombres garantit que, sur un million d'essais, la fréquence est égale à la probabilité.
 
 <a id="rappels"></a>
@@ -106,7 +106,7 @@ Dans $\Omega = \{a, b, c, d, e, f\}$, on pose $A = \{a, b, c\}$ et $B = \{c, d\}
 *Fiche §7 · parcours C, E*
 
 1. $\sum_{k=1}^{4} k^2$ ?
-2. $\sum_{i=1}^{3} x_i\,p_i$ pour $x = (-1, 0, 2)$ et $p = (0{,}2 ;\ 0{,}5 ;\ 0{,}3)$ ?
+2. $\sum_{i=1}^{3} x_i\,p_i$ pour $x = (1, 3, 10)$ et $p = (0{,}5 ;\ 0{,}3 ;\ 0{,}2)$ ?
 3. $\prod_{k=1}^{5} k$ ?
 4. $\prod_{k=1}^{3} \left(1 - \frac{k}{10}\right)$ ?
 
@@ -126,10 +126,10 @@ Donne chaque résultat sous forme de fraction irréductible.
 
 Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en écrivant ta démarche dans ta copie de `06_mes_reponses.md`. Reporte ensuite **la valeur** trouvée dans la **partie 0 du notebook**, sous la forme demandée :
 - un nombre entier, ou un nombre avec un point décimal, comme `-1.5`, arrondi comme le demande la question ;
-- une fraction irréductible entre guillemets, comme `"5/7"` ;
+- une fraction irréductible entre guillemets, comme `"3/11"` ;
 - une liste de nombres entre crochets, comme `[0.25, 0.5, 0.25]` ; vrai ou faux par `True` ou `False`.
 
-### Ex R8.1 — Décrire univers et événements : dés, cartes, pièces ✏️ ★ ⏱️ 10 min
+### Ex R8.1 — Décrire univers et événements : cartes et pièces ✏️ ★ ⏱️ 10 min
 **Objectif :** décrire un univers, compter les issues d'un événement, et traduire « et », « ou », « ni… ni… » en opérations sur les ensembles.
 **Prérequis :** fiche §1 ; R4 (ensembles) · **Parcours :** C, E
 
@@ -150,18 +150,18 @@ On lance quatre pièces, en notant la suite des résultats (P ou F). Puis, sépa
 **Objectif :** calculer des probabilités en comptant des issues équiprobables, et passer par le contraire.
 **Prérequis :** fiche §2 · **Parcours :** C, E
 
-On choisit au hasard l'une des 11 lettres du mot PROBABILITE (chaque position a la même chance d'être choisie). Puis, séparément, on lance un dé équilibré à 6 faces et un dé équilibré à 4 faces.
+On choisit au hasard l'une des 11 lettres du mot PROBABILITÉ (chaque position a la même chance d'être choisie). Puis, séparément, on lance un dé équilibré à 6 faces et un dé équilibré à 4 faces.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $P(\text{la lettre est un B})$ | une fraction |
-| b | $P(\text{la lettre est une voyelle})$ (A, E, I, O, U, Y) | une fraction |
-| c | $P(\text{la lettre est une consonne autre que B})$ | une fraction |
+| a | $P(\text{la lettre est un B})$ | une fraction irréductible |
+| b | $P(\text{la lettre est une voyelle})$ (A, E, É, I, O, U, Y) | une fraction irréductible |
+| c | $P(\text{la lettre est une consonne autre que B})$ | une fraction irréductible |
 | d | le nombre d'issues de l'univers des deux dés | un entier |
-| e | $P(\text{la somme des deux dés vaut } 5)$ | une fraction |
-| f | $P(\text{la somme vaut au moins } 9)$ | une fraction |
-| g | $P(\text{le dé à 6 faces donne un nombre strictement plus grand que le dé à 4 faces})$ | une fraction |
-| h | $P(\text{le produit des deux nombres est pair})$ (passe par le contraire) | une fraction |
+| e | $P(\text{la somme des deux dés vaut } 5)$ | une fraction irréductible |
+| f | $P(\text{la somme vaut au moins } 9)$ | une fraction irréductible |
+| g | $P(\text{le dé à 6 faces donne un nombre strictement plus grand que le dé à 4 faces})$ | une fraction irréductible |
+| h | $P(\text{le produit des deux nombres est pair})$ (passe par le contraire) | une fraction irréductible |
 
 ### Ex R8.3 — P(A ∪ B) et le complémentaire ✏️ ★★ ⏱️ 15 min
 **Objectif :** utiliser la formule de la réunion, le complémentaire et les lois de De Morgan.
@@ -177,7 +177,7 @@ $A$ et $B$ sont deux événements d'une même expérience. Réponses à 2 décim
 | d | $A$ et $B$ sont incompatibles, $P(A) = 0{,}2$ et $P(A \cup B) = 0{,}65$ : $P(B)$ | un nombre |
 | e | $P(A) = 0{,}7$ et $P(B) = 0{,}6$ : $A$ et $B$ peuvent-ils être incompatibles ? | vrai ou faux |
 | f | 60 % des utilisateurs d'un site ont son appli mobile, 45 % reçoivent sa newsletter, et 20 % n'ont ni l'une ni l'autre. On choisit un utilisateur au hasard : la probabilité qu'il ait l'appli **et** la newsletter | un nombre |
-| g | on lance quatre pièces : $P(\text{au moins un face})$ | une fraction |
+| g | on lance quatre pièces : $P(\text{au moins un face})$ | une fraction irréductible |
 | h | $P(A) = 0{,}55$, $P(B) = 0{,}35$ et $P(A \cup B) = 0{,}7$ : $P(A \cap B)$ | un nombre |
 
 ### Ex R8.4 — Principe multiplicatif et factorielles ✏️ ★ ⏱️ 15 min
@@ -187,13 +187,13 @@ $A$ et $B$ sont deux événements d'une même expérience. Réponses à 2 décim
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le nombre de mots de passe de 6 lettres minuscules (26 lettres, une lettre peut revenir) | un entier |
-| b | le même nombre, quand les 6 lettres sont toutes différentes | un entier |
+| b | le nombre de ces mots de passe qui commencent par une voyelle (a, e, i, o, u, y) | un entier |
 | c | $7!$ | un entier |
 | d | le nombre de podiums (or, argent, bronze) possibles dans une course de 8 coureurs | un entier |
 | e | un restaurant propose 4 entrées, 5 plats et 3 desserts : le nombre de menus entrée-plat-dessert | un entier |
 | f | le nombre d'ordres possibles pour exécuter 5 tâches, quand la tâche A doit passer en premier | un entier |
 | g | $\frac{9!}{7!}$ (simplifie avant de calculer) | un entier |
-| h | le nombre d'immatriculations formées de 2 lettres puis 3 chiffres (toutes les lettres et tous les chiffres sont permis) | un entier |
+| h | le nombre d'immatriculations formées de 2 lettres puis 3 chiffres (toutes les lettres et tous les chiffres sont permis, et peuvent se répéter) | un entier |
 
 ### Ex R8.5 — Combinaisons et triangle de Pascal ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer des coefficients binomiaux, utiliser leur symétrie et le triangle de Pascal, et s'en servir pour une probabilité.
@@ -207,11 +207,11 @@ $A$ et $B$ sont deux événements d'une même expérience. Réponses à 2 décim
 | d | la ligne $n = 7$ du triangle de Pascal, de $\binom{7}{0}$ à $\binom{7}{7}$ | une liste |
 | e | la somme des nombres de la ligne $n = 9$ du triangle (sans la calculer terme à terme) | un entier |
 | f | le nombre de mains de 5 cartes dans un jeu de 32 cartes | un entier |
-| g | la probabilité qu'une main de 5 cartes, tirée au hasard dans un jeu de 32, contienne les 4 as | une fraction |
-| h | le nombre de chemins sur un quadrillage de 4 × 4 cases, du coin en bas à gauche au coin en haut à droite, en ne se déplaçant que d'un côté de case vers la droite ou vers le haut | un entier |
+| g | la probabilité qu'une main de 5 cartes, tirée au hasard dans un jeu de 32, contienne les 4 as | une fraction irréductible |
+| h | le nombre de chemins sur un quadrillage de 4 × 4 cases, du coin en bas à gauche au coin en haut à droite (un chemin est une suite de 8 pas le long des côtés des cases, chacun d'un côté de case vers la droite ou vers le haut) | un entier |
 
-### Ex R8.6 — Arbres pondérés : tirages successifs ✏️ ★★ ⏱️ 20 min
-**Objectif :** construire un arbre pondéré, calculer des probabilités de chemins et d'événements, avec et sans remise.
+### Ex R8.6 — Arbres pondérés : épreuves successives ✏️ ★★ ⏱️ 20 min
+**Objectif :** construire un arbre pondéré, calculer des probabilités de chemins et d'événements, quand le second niveau dépend du premier.
 **Prérequis :** fiche §4 · **Parcours :** C, E
 
 Une appli de navigation propose l'itinéraire A dans 60 % des cas, l'itinéraire B sinon. Par A, on arrive en retard dans 10 % des cas ; par B, dans 25 % des cas. Réponses de a à c à 2 décimales.
@@ -222,33 +222,38 @@ Une appli de navigation propose l'itinéraire A dans 60 % des cas, l'itinéraire
 | b | $P(\text{retard})$ | un nombre |
 | c | $P(B \cap \text{à l'heure})$ | un nombre |
 
-Un tiroir contient 4 chaussettes noires et 6 grises. On en prend deux au hasard, l'une après l'autre, **sans remise**. Puis un QCM de 3 questions, chacune à 4 choix dont un seul est juste. Réponses de d à h en fractions irréductibles.
+Une joueuse de basket tire deux lancers francs. Elle réussit le premier avec la probabilité 0,7. Si elle l'a réussi, elle réussit le second avec la probabilité 0,8 ; si elle l'a manqué, avec la probabilité 0,5. Réponses de d à g à 2 décimales.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| d | $P(\text{deux chaussettes noires})$ | une fraction |
-| e | $P(\text{deux chaussettes de la même couleur})$ | une fraction |
-| f | $P(\text{la seconde chaussette est noire})$ | une fraction |
-| g | $P(\text{deux chaussettes noires})$ si l'on remet la première dans le tiroir avant de tirer la seconde | une fraction |
-| h | on répond au QCM au hasard : $P(\text{au moins une bonne réponse})$ | une fraction |
+| d | $P(\text{deux lancers réussis})$ | un nombre |
+| e | $P(\text{exactement un lancer réussi})$ | un nombre |
+| f | $P(\text{le second lancer est réussi})$ | un nombre |
+| g | $P(\text{aucun lancer réussi})$ | un nombre |
 
-Dans ta copie : compare f à la probabilité que la **première** chaussette soit noire. Est-ce une coïncidence ?
+Enfin, un QCM a 3 questions, chacune à 4 choix dont un seul est juste ; on répond à chaque question au hasard, indépendamment des autres (un arbre à trois niveaux). Réponse en fraction irréductible.
 
-### Ex R8.7 — Indépendance : tester P(A ∩ B) = P(A) P(B) avec des cartes et des pièces ✏️ ★★ ⏱️ 15 min
+| | Question | Réponse attendue |
+|---|---|---|
+| h | $P(\text{au moins une bonne réponse})$ | une fraction irréductible |
+
+Dans ta copie : compare f à la probabilité de réussir le **premier** lancer. Pourquoi le second lancer réussit-il un peu plus souvent ?
+
+### Ex R8.7 — Indépendant ou pas ? Le décider par le calcul, avec des cartes et des pièces ✏️ ★★ ⏱️ 15 min
 **Objectif :** décider de l'indépendance de deux événements par le calcul, et distinguer indépendance et incompatibilité.
 **Prérequis :** fiche §5 · **Parcours :** C, E
 
-On tire une carte au hasard dans un jeu de 32 cartes (celui de R8.1) : $A$ = « un as », $B$ = « un cœur », $C$ = « une figure » (valet, dame ou roi) et $D$ = « une carte rouge ». Puis on lance deux pièces : $E$ = « la première pièce donne pile », $F$ = « les deux pièces tombent du même côté ». Enfin, on lance trois pièces : $G$ = « au moins deux piles », $H$ = « la première pièce donne pile ».
+On tire une carte au hasard dans un jeu de 32 cartes (celui de R8.1) : $A$ = « un as », $B$ = « un cœur », $C$ = « un roi » et $D$ = « une carte noire ». Puis on lance trois pièces : $E$ = « exactement un pile », $F$ = « la première pièce donne face », $G$ = « au moins un pile » et $H$ = « au moins un face ».
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $P(A \cap B)$ | une fraction |
+| a | $P(A \cap B)$ | une fraction irréductible |
 | b | $A$ et $B$ sont-ils indépendants ? | vrai ou faux |
 | c | $A$ et $C$ sont-ils indépendants ? | vrai ou faux |
-| d | $B$ et $D$ sont-ils indépendants ? | vrai ou faux |
-| e | $P(E \cap F)$ | une fraction |
+| d | $A$ et $D$ sont-ils indépendants ? | vrai ou faux |
+| e | $P(E \cap F)$ | une fraction irréductible |
 | f | $E$ et $F$ sont-ils indépendants ? | vrai ou faux |
-| g | $P(G \cap H)$ | une fraction |
+| g | $P(G \cap H)$ | une fraction irréductible |
 | h | $G$ et $H$ sont-ils indépendants ? | vrai ou faux |
 
 Dans ta copie : pour chaque couple non indépendant, dis si savoir que le premier événement s'est réalisé rend le second plus ou moins probable.
@@ -276,46 +281,40 @@ Une variable $Z$ prend les valeurs 1, 2, 3 et 4, avec $P(Z = 1) = 0{,}15$, $P(Z 
 | h | $P(W \le 2)$ | un nombre (3 décimales) |
 
 ### Ex R8.9 — Espérance, variance (avec V = E[X²] − E[X]²) et écart-type ✏️ ★★ ⏱️ 20 min
-**Objectif :** calculer l'espérance, la variance et l'écart-type d'une variable discrète, et l'effet d'un changement d'échelle.
-**Prérequis :** fiche §7 ; Ex R8.8 · **Parcours :** C, E
+**Objectif :** calculer l'espérance, la variance et l'écart-type d'une variable discrète, de deux façons, et l'effet d'un changement d'échelle.
+**Prérequis :** fiche §7 · **Parcours :** C, E
 
-Le nombre $X$ de buts marqués par une équipe de hockey sur glace pendant un match suit la loi :
-
-| $x$ | 0 | 1 | 2 | 3 |
-|---|---|---|---|---|
-| $P(X = x)$ | 0,2 | 0,4 | 0,3 | 0,1 |
-
-Un classement donne à l'équipe 10 points par but, moins une pénalité fixe de 4 points par match : son score est $S = 10X - 4$.
+Une variable aléatoire $X$ prend les valeurs 1, 2 et 4, avec $P(X = 1) = 0{,}5$, $P(X = 2) = a$ et $P(X = 4) = b$ ; son espérance vaut $\mathbb{E}[X] = 2$. On pose $Y = 3 - 2X$. Enfin, une variable $W$ ne prend que les valeurs −1 et 2, avec $P(W = 2) = p$, et son espérance est nulle.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $\mathbb{E}[X]$ | un nombre (2 décimales) |
-| b | $\mathbb{E}[X^2]$ | un nombre (2 décimales) |
-| c | $\mathbb{V}(X)$, avec la formule $\mathbb{E}[X^2] - \mathbb{E}[X]^2$ | un nombre (2 décimales) |
-| d | $\sigma(X)$ | un nombre (2 décimales) |
-| e | $\mathbb{E}[S]$ | un nombre (2 décimales) |
-| f | $\mathbb{V}(S)$ | un nombre (2 décimales) |
-| g | $\mathbb{E}[Y]$, pour la variable $Y$ de R8.8 (le plus grand de deux lancers d'un dé à 4 faces) | une fraction |
-| h | $\mathbb{V}(Y)$ | une fraction |
+| a | $b$ (écris deux équations, en $a$ et $b$) | un nombre (2 décimales) |
+| b | $\mathbb{V}(X)$, avec la définition $\mathbb{E}\big[(X - \mathbb{E}[X])^2\big]$ | un nombre (2 décimales) |
+| c | $\mathbb{E}[X^2]$ (vérifie b avec la formule $\mathbb{E}[X^2] - \mathbb{E}[X]^2$) | un nombre (2 décimales) |
+| d | $\sigma(X)$ | un nombre (3 décimales) |
+| e | $\mathbb{E}[Y]$ | un nombre (2 décimales) |
+| f | $\sigma(Y)$ | un nombre (3 décimales) |
+| g | $p$ | une fraction irréductible |
+| h | $\mathbb{V}(W)$ | un nombre (2 décimales) |
 
-### Ex R8.10 — Un jeu est-il équitable ? ✏️ ★★ ⏱️ 20 min
-**Objectif :** juger un jeu par son espérance, trouver la mise qui le rend équitable, et comparer deux jeux par leur dispersion.
+### Ex R8.10 — Deux jeux de hasard : équité et risque ✏️ ★★ ⏱️ 20 min
+**Objectif :** juger un jeu par son espérance, trouver le gain qui le rend équitable, et comparer deux jeux par leur écart-type.
 **Prérequis :** fiche §7 · **Parcours :** C
 
-**Jeu A** : on lance deux pièces ; deux piles font gagner 8 €, un seul pile 1 €, aucun pile rien. **Jeu B** : on lance un dé à 6 faces ; un 6 rapporte 6 €, sinon rien. La somme gagnée s'appelle le **prix** ; la **mise**, payée avant chaque partie, n'est jamais rendue, et le gain net est le prix moins la mise. Réponses à 2 décimales.
+**Jeu A** : on lance deux pièces ; deux piles font gagner 3 €, deux faces font perdre 5 €, un pile et un face ne font ni gagner ni perdre. **Jeu B** : on lance deux dés à 4 faces ; un double (les deux dés donnent le même numéro) fait gagner 6 €, sinon on perd 1 €. Le **gain** d'une partie est positif ou négatif. Réponses à 2 décimales, en euros pour les gains.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | l'espérance du prix du jeu A, en euros | un nombre |
-| b | le gain net moyen par partie du jeu A, quand la mise est de 3 € | un nombre |
-| c | avec cette mise, ce que l'organisateur gagne en moyenne sur 200 parties, en euros | un nombre |
-| d | la variance du prix du jeu A | un nombre |
-| e | l'écart-type du prix du jeu A | un nombre |
-| f | l'espérance du prix du jeu B | un nombre |
-| g | la variance du prix du jeu B | un nombre |
-| h | le prix à offrir pour un 6 pour que le jeu B soit équitable avec une mise de 1,50 € | un nombre |
+| a | l'espérance du gain du jeu A | un nombre |
+| b | la variance du gain du jeu A | un nombre |
+| c | l'écart-type du gain du jeu A | un nombre |
+| d | le gain à offrir pour deux piles, le reste ne changeant pas, pour que le jeu A soit équitable | un nombre |
+| e | l'écart-type du gain du jeu A rendu équitable comme en d | un nombre |
+| f | l'espérance du gain du jeu B | un nombre |
+| g | l'écart-type du gain du jeu B | un nombre |
+| h | le gain à offrir pour un double, sans double le joueur perdant toujours 1 €, pour que le jeu B soit équitable | un nombre |
 
-Dans ta copie : chaque jeu est rendu équitable (la mise est égale à l'espérance du prix). Lequel des deux préfères-tu jouer, et pourquoi ? Que mesure la différence entre leurs écarts-types ?
+Dans ta copie : calcule l'écart-type du jeu B rendu équitable comme en h, et compare-le à e. Les deux jeux équitables ont la même espérance : lequel est le plus risqué ? Lequel préfères-tu jouer, et pourquoi ?
 
 <a id="demonstrations"></a>
 
@@ -336,14 +335,13 @@ Soient $n \ge 2$ et $k$ deux entiers, avec $1 \le k \le n - 1$.
 
 ### Ex R8.12 — L'espérance d'une somme : E[X + Y] = E[X] + E[Y], même pour des variables liées ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer la linéarité de l'espérance en sommant sur les issues, et s'en servir pour calculer une espérance sans connaître la loi.
-**Prérequis :** fiche §6 et §7 ; R4 (Σ) · **Parcours :** C, E
+**Prérequis :** fiche §6 et §7 ; R4 (Σ, récurrence) · **Parcours :** C, E
 
-Un univers fini $\Omega$ porte une probabilité, de poids $p(\omega)$ pour chaque issue $\omega$. On admet que l'espérance d'une variable aléatoire $X$ s'écrit aussi comme une somme sur les **issues** :
-$$\mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega)\,p(\omega).$$
-1. On lance trois pièces, et $X$ est le nombre de piles. Calcule $\mathbb{E}[X]$ de deux façons : avec la loi de $X$ (somme sur les valeurs), puis avec la somme sur les 8 issues. Explique pourquoi les deux sommes sont toujours égales (regroupe les issues qui donnent la même valeur de $X$).
+Un univers fini $\Omega$ porte une probabilité, de poids $p(\omega)$ pour chaque issue $\omega$, et une variable aléatoire $X$ associe un nombre $X(\omega)$ à chaque issue.
+1. On lance trois pièces, et $X$ est le nombre de piles. Calcule $\mathbb{E}[X]$ de deux façons : avec la loi de $X$ (la somme sur les valeurs de la fiche), puis avec la somme sur les 8 issues, $\sum_{\omega \in \Omega} X(\omega)\,p(\omega)$. Démontre ensuite que, pour toute variable aléatoire $X$ sur un univers fini, $\mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega)\,p(\omega)$ (regroupe les issues qui donnent la même valeur de $X$).
 2. $X$ et $Y$ sont deux variables aléatoires définies sur le même univers. Démontre que $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$. As-tu supposé que $X$ et $Y$ sont indépendantes ?
-3. Déduis-en que $\mathbb{E}[aX + bY + c] = a\,\mathbb{E}[X] + b\,\mathbb{E}[Y] + c$ pour tous réels $a$, $b$ et $c$. Quel cas particulier redonne la formule $\mathbb{E}[aX + b] = a\,\mathbb{E}[X] + b$ de la fiche ?
-4. On lance 10 fois une pièce équilibrée. Pour $i$ de 1 à 10, $X_i$ vaut 1 si le $i$-ème lancer donne pile, 0 sinon. Écris le nombre $N$ de piles à l'aide des $X_i$, et déduis $\mathbb{E}[N]$ de 2, sans calculer la loi de $N$.
+3. Démontre par récurrence sur $n \ge 2$ que $\mathbb{E}[X_1 + X_2 + \cdots + X_n] = \mathbb{E}[X_1] + \mathbb{E}[X_2] + \cdots + \mathbb{E}[X_n]$ pour $n$ variables aléatoires définies sur le même univers.
+4. Un QCM a 20 questions, chacune à 4 choix dont un seul est juste, et l'on répond à chacune au hasard. Pour $i$ de 1 à 20, $X_i$ vaut 1 si la réponse à la $i$-ème question est juste, 0 sinon. Écris le nombre $N$ de bonnes réponses à l'aide des $X_i$, et déduis $\mathbb{E}[N]$ de 3, sans calculer la loi de $N$.
 5. L'espérance d'un **produit** n'est pas toujours le produit des espérances : on lance une seule pièce, et $X = Y$ vaut 1 si elle donne pile, 0 sinon. Compare $\mathbb{E}[XY]$ et $\mathbb{E}[X]\,\mathbb{E}[Y]$.
 
 <a id="reflexion"></a>
@@ -374,7 +372,7 @@ Dans ta copie : pourquoi $\binom{n}{2} \approx \frac{n^2}{2}$ quand $n$ est gran
 Tu prends le métro dans une grande ville. Quelle est la probabilité de croiser, pendant un trajet, au moins une personne que tu connais ? Fais une estimation de Fermi, en écrivant chaque hypothèse et son ordre de grandeur :
 1. combien de personnes connais-tu assez pour les reconnaître et les saluer, et combien d'entre elles prennent ce métro un jour donné ?
 2. combien de personnes le métro transporte-t-il par jour ? Déduis-en la probabilité $q$ qu'un voyageur croisé au hasard soit l'une de tes connaissances ;
-3. combien de voyageurs croises-tu pendant un trajet (dans ta rame, sur les quais, dans les couloirs) ?
+3. combien de personnes différentes croises-tu pendant un trajet (dans ta rame, sur les quais, dans les couloirs) ?
 4. en supposant ces rencontres indépendantes, calcule $1 - (1 - q)^N$ ; compare avec $N \times q$ quand $N q$ est petit, et explique pourquoi les deux sont proches ;
 5. sur une année de trajets, quelle est la probabilité d'au moins une telle rencontre ? Quelle hypothèse de ton modèle te semble la plus fragile ?
 
@@ -399,7 +397,7 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | R8.18 | Espérance et variance d'une loi · `expectation`, `variance` | 🔨 | ★ | 15 | C, E |
 | R8.19 | Estimer une probabilité par simulation · `simulate_frequency` | 🔨 | ★★ | 20 | C, E |
 | R8.20 | Prédire : dans une classe de 30, deux élèves ont-ils le même anniversaire ? | 🔮 | ★★ | 15 | C, E |
-| R8.21 | La loi des grands nombres : fréquence et nombre de lancers | 🔬 | ★★ | 20 | C, E |
+| R8.21 | La loi des grands nombres : fréquence et nombre d'essais | 🔬 | ★★ | 20 | C, E |
 | R8.22 | Le diagramme en bâtons d'une loi | 🎨 | ★ | 10 | C |
 | R8.23 | Chasse à l'erreur : trois raisonnements de probabilités faux | 🐛 | ★★ | 20 | C, E |
 | R8.24 | Reproductibilité : générateur aléatoire et graine | 🛠️ | ★ | 15 | C, E |

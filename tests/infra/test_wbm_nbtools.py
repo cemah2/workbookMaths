@@ -680,6 +680,9 @@ def test_exception_hint_explains_the_common_errors_of_a_beginner():
     assert "négatif" in exception_hint("math domain error")
     assert "sans l'appeler" in exception_hint("'int' object is not callable")
     assert exception_hint("index 3 is out of bounds") == ""
+    # session 13 (R8 learner, D4): a module outside the standard library gets no « Did you forget to import »
+    assert "import numpy as np" in exception_hint("name 'np' is not defined")
+    assert "from fractions import Fraction" in exception_hint("name 'Fraction' is not defined")
 
 
 def test_drawn_reports_the_figures_a_function_opens_itself_and_shows_nothing():

@@ -95,7 +95,7 @@
 
 ## ✏️ Papier-crayon
 
-### Ex R8.1 — Décrire univers et événements : dés, cartes, pièces
+### Ex R8.1 — Décrire univers et événements : cartes et pièces
 
 - a :
 - b :
@@ -150,19 +150,19 @@
 - g :
 - h :
 
-### Ex R8.6 — Arbres pondérés : tirages successifs
+### Ex R8.6 — Arbres pondérés : épreuves successives
 
 - a (l'arbre) :
 - b :
 - c :
-- d (l'arbre sans remise) :
+- d (l'arbre des deux lancers francs) :
 - e :
 - f :
 - g :
 - h :
-- f comparé à la probabilité que la première soit noire :
+- f comparé à la probabilité de réussir le premier lancer, et pourquoi :
 
-### Ex R8.7 — Indépendance : tester P(A ∩ B) = P(A) P(B) avec des cartes et des pièces
+### Ex R8.7 — Indépendant ou pas ? Le décider par le calcul, avec des cartes et des pièces
 
 - a :
 - b :
@@ -187,7 +187,7 @@
 
 ### Ex R8.9 — Espérance, variance (avec V = E[X²] − E[X]²) et écart-type
 
-- a :
+- a (les deux équations) :
 - b :
 - c :
 - d :
@@ -196,7 +196,7 @@
 - g :
 - h :
 
-### Ex R8.10 — Un jeu est-il équitable ?
+### Ex R8.10 — Deux jeux de hasard : équité et risque
 
 - a :
 - b :
@@ -206,7 +206,7 @@
 - f :
 - g :
 - h :
-- Le jeu que je préfère, et ce que mesurent les écarts-types :
+- L'écart-type du jeu B équitable, le jeu le plus risqué, et celui que je préfère :
 
 ## ∂ Démonstrations
 

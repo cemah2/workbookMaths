@@ -161,7 +161,7 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Additionner pour « au moins un » | au moins un 4 en deux lancers d'un dé à 4 faces : $\frac{1}{4} + \frac{1}{4}$ | passer par le contraire : $1 - \left(\frac{3}{4}\right)^2 = \frac{7}{16}$ |
 | Compter un comité comme un podium | 3 personnes parmi 9 : $9 \times 8 \times 7$ | sans ordre : diviser par $3!$, $\binom{9}{3} = 84$ |
 | Croire que $0! = 0$ | $\binom{n}{n} = \frac{n!}{n! \times 0!}$ impossible | $0! = 1$, le produit vide |
-| Garder les mêmes probabilités sans remise | 2 billes rouges sur 6, deux tirages : $\left(\frac{2}{6}\right)^2$ | la composition change : $\frac{2}{6} \times \frac{1}{5}$ |
+| Garder les mêmes probabilités sans remise | 2 morceaux préférés sur 6, deux tirages sans remise : $\left(\frac{2}{6}\right)^2$ | ce qui est tiré ne revient pas : $\frac{2}{6} \times \frac{1}{5}$ |
 | Additionner le long d'un chemin d'arbre | $0{,}3 + 0{,}4$ pour « pluie et retard » | multiplier le long d'un chemin ($0{,}3 \times 0{,}4$), additionner entre les chemins |
 | Confondre incompatibles et indépendants | « incompatibles, donc $P(A \cap B) = P(A)\,P(B)$ » | incompatibles : $P(A \cap B) = 0$, donc dépendants (si $P(A), P(B) > 0$) |
 | Confondre $\mathbb{E}[X^2]$ et $\mathbb{E}[X]^2$ | $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]$ | $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2$, la moyenne des carrés moins le carré de la moyenne |

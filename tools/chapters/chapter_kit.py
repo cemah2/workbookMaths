@@ -119,11 +119,14 @@ class Paper:
         return "".join(letter for letter, *_ in self.subs)
 
 
-def paper_cells(kind: str, papers: list[Paper], context: str, intro: str) -> list:
-    """Part 0: the learner reports the values found on paper; wbm.check compares them."""
+def paper_cells(kind: str, papers: list[Paper], context: str, intro: str, learner_context: str | None = None) -> list:
+    """Part 0: the learner reports the values found on paper; wbm.check compares them. ``learner_context``: a code
+    cell for the exercise notebook only, before the answers (``from fractions import Fraction``, R8)."""
     cells = [md(intro)]
     if kind == "solution":
         cells.append(code(context))
+    elif learner_context:
+        cells.append(code(learner_context))
     for paper in papers:
         # quiz and recall questions (7.Q1, 7.R2) keep their bare ID; exercises read "Ex 7.3"
         label = paper.id if paper.id.split(".")[-1][:1] in ("Q", "R") else f"Ex {paper.id}"

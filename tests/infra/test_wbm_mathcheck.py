@@ -52,6 +52,16 @@ def test_fraction_a_decimal_approximation_is_named_as_such(value):
     assert not passed and status == "near" and "valeur approchée" in message, message
 
 
+@pytest.mark.parametrize("value", ["0.000139", 0.0001390434, "1.39e-4", "1,39E-4"])
+def test_fraction_a_small_value_with_a_large_denominator_is_named_approximate(value):
+    """Session 13 (R8 learner, C5): 1/7192 typed 0.000139 or 1.39e-4 is a decimal approximation, not a wrong value
+    (denominators up to 1000 only missed it; "1.39e-4" was read with Euler's e)."""
+    entry = entry_of("F.4b", Fraction(1, 7192), kind="fraction", simplified=True)
+    passed, status, message = verdict("F.4b", entry, value)
+    assert not passed and status == "near" and "valeur approchée" in message, message
+    assert not verdict("F.4b", entry, "1/7190")[0]
+
+
 def test_fraction_classic_mistake():
     entry = entry_of("F.5", Fraction(3, 4), kind="fraction", mistakes={"tu as additionné les dénominateurs": "3/8"})
     passed, _, message = verdict("F.5", entry, "3/8")

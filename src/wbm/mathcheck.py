@@ -124,7 +124,7 @@ def _parse_fraction(value) -> tuple[Fraction, bool | None]:
             sign = -1 if outer == "-" else 1
             irreducible = math.gcd(numerator, denominator) == 1   # "4/-7" is irreducible too (the sign aside)
             return sign * Fraction(numerator, denominator), irreducible
-        if _DECIMAL_TEXT.fullmatch(text):
+        if _DECIMAL_TEXT.fullmatch(text) or _SCIENTIFIC_TEXT.fullmatch(text):   # "1.39e-4": not Euler's e
             decimal = Decimal(text.replace(",", "."))
             return Fraction(decimal), None
         number = _exact_number(_DECIMAL_NUMBER.sub(lambda m: f"({Fraction(Decimal(m.group()))})", text))
@@ -550,15 +550,37 @@ def _decimals_typed(value) -> int | None:
     return len(text.split(".")[1])
 
 
-def _approximates_answer(ex_id: str, entry: dict, x: float, decimals: int) -> bool:
-    """Is ``x`` the right fraction rounded to ``decimals`` decimals (denominators up to 1000)?"""
+_SCIENTIFIC_TEXT = re.compile(r"[+-]?(\d+)(?:[.,](\d*))?[eE]([+-]?\d+)")
+
+
+def _scientific_decimals(value) -> int | None:
+    """Decimals of a number typed in scientific notation, "1.39e-4" -> 6 (as if typed 0.000139); None otherwise."""
+    if not isinstance(value, str):
+        return None
+    match = _SCIENTIFIC_TEXT.fullmatch(_clean_text(value).replace(" ", ""))
+    if match is None:
+        return None
+    return max(len(match.group(2) or "") - int(match.group(3)), 0)
+
+
+def _fraction_candidates(x: float, decimals: int):
+    """The irreducible fractions that ``x`` may round at ``decimals`` decimals: one per denominator, up to 1000, then
+    further for a small ``x`` typed with many decimals (0.000139 for 1/7192), the number of candidates staying
+    bounded (session 13, R8 learner C5: denominators up to 1000 only missed it)."""
     tolerance = 0.5 * 10.0 ** -decimals + 1e-12
-    for denominator in range(1, 1001):
-        candidate = Fraction(round(x * denominator), denominator)
-        if abs(float(candidate) - x) <= tolerance and candidate.denominator == denominator and \
-                _hash(ex_id, "fraction", _norm_fraction(candidate)) == entry["hash"]:
-            return True
-    return False
+    limit = 1000
+    if x != 0:
+        limit = max(1000, min(100_000, int((20_000 / tolerance) ** 0.5)))
+    for denominator in range(1, limit + 1):
+        numerator = round(x * denominator)
+        if abs(numerator / denominator - x) <= tolerance and math.gcd(numerator, denominator) == 1:
+            yield Fraction(numerator, denominator)
+
+
+def _approximates_answer(ex_id: str, entry: dict, x: float, decimals: int) -> bool:
+    """Is ``x`` the right fraction rounded to ``decimals`` decimals?"""
+    return any(_hash(ex_id, "fraction", _norm_fraction(candidate)) == entry["hash"]
+               for candidate in _fraction_candidates(x, decimals))
 
 
 def _approximated_mistake(ex_id: str, entry: dict, x: float, decimals: int) -> str | None:
@@ -566,13 +588,10 @@ def _approximated_mistake(ex_id: str, entry: dict, x: float, decimals: int) -> s
     0.5416666666666666 for 13/24), or None."""
     if not entry.get("mistakes"):
         return None
-    tolerance = 0.5 * 10.0 ** -decimals + 1e-12
-    for denominator in range(1, 1001):
-        candidate = Fraction(round(x * denominator), denominator)
-        if abs(float(candidate) - x) <= tolerance and candidate.denominator == denominator:
-            classic = _classic(entry, _hash(ex_id, "fraction", _norm_fraction(candidate)))
-            if classic:
-                return classic
+    for candidate in _fraction_candidates(x, decimals):
+        classic = _classic(entry, _hash(ex_id, "fraction", _norm_fraction(candidate)))
+        if classic:
+            return classic
     return None
 
 
@@ -589,7 +608,7 @@ def _check_fraction(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
         return False, "wrong", ("Ce n'est pas la bonne valeur : la réponse attendue est une fraction (un nombre "
                                 "rationnel), et ta valeur n'en est pas une. Relis ce que la question demande.")
     except _ApproximateValue as exc:
-        decimals = min(_decimals_typed(value) or 12, 12)
+        decimals = min(_decimals_typed(value) or _scientific_decimals(value) or 12, 12)
         if _approximates_answer(ex_id, entry, exc.x, decimals):
             return False, "near", _APPROXIMATE
         mistake = _approximated_mistake(ex_id, entry, exc.x, decimals)   # 65/120 typed as a calculation: 13/24
@@ -605,7 +624,7 @@ def _check_fraction(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
     classic = _classic(entry, digest)
     if classic:
         return False, "wrong", classic
-    decimals = _decimals_typed(value)
+    decimals = _decimals_typed(value) or _scientific_decimals(value)
     if decimals is not None and _approximates_answer(ex_id, entry, float(q), decimals):
         return False, "near", _APPROXIMATE
     if entry.get("prediction"):           # a 🔮: no hint about the sign, the experiment explains

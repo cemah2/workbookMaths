@@ -22,7 +22,7 @@ Une issue est un résultat précis de l'expérience ; un événement est un ense
 </details>
 <details><summary>Indice 3</summary>
 
-1 : chaque lancer double le nombre de suites. Pour 5, cherche deux événements sans issue commune qui ne couvrent pas tout l'univers. Pour 6, écris $A$ et $B$ comme des ensembles de numéros.
+1 : chaque lancer double le nombre de suites. Pour 5, cherche deux événements sans issue commune qui ne couvrent pas tout l'univers. Pour 6, écris $A$ et $B$ comme des ensembles de numéros de 1 à 8.
 
 </details>
 
@@ -58,7 +58,7 @@ Deux questions pour chaque situation : deux choix qui ne diffèrent que par l'or
 </details>
 <details><summary>Indice 3</summary>
 
-1 : l'or et l'argent ne sont pas interchangeables, donc l'ordre compte, et un coureur n'occupe qu'une place : un arrangement. Pose les deux mêmes questions pour les autres.
+1 : l'or et l'argent ne sont pas interchangeables, donc l'ordre compte, et un coureur n'occupe qu'une place : un arrangement. Pose les deux mêmes questions pour les autres ; en 6, une boule remise peut ressortir.
 
 </details>
 
@@ -94,7 +94,7 @@ Incompatibles : $P(A \cap B) = 0$. Indépendants : $P(A \cap B) = P(A)\,P(B)$. C
 </details>
 <details><summary>Indice 3</summary>
 
-1 : « 1 » et « 6 » ne peuvent pas arriver ensemble ; compare $0$ et $\frac{1}{6} \times \frac{1}{6}$. Pour 5, calcule $P(A)\,P(B)$. Pour 6, la composition du jeu change-t-elle après le premier tirage ?
+1 : « 1 » et « 6 » ne peuvent pas arriver ensemble ; compare $0$ et $\frac{1}{6} \times \frac{1}{6}$. Pour 4, écris $P(A \cap B) = P(A)\,P(B)$ et isole $P(B)$. Pour 6, que vaut $P(A \cap B)$ quand $P(A) = 0$ ?
 
 </details>
 
@@ -112,7 +112,7 @@ $\mathbb{E}[aX + b] = a\,\mathbb{E}[X] + b$ et $\mathbb{V}(aX + b) = a^2\,\mathb
 </details>
 <details><summary>Indice 3</summary>
 
-1 : pense à une variable qui vaut 0 ou 1 avec une chance sur deux. Pour 5 et 6, applique la formule de $\mathbb{V}(aX + b)$ avec les bons $a$ et $b$.
+1 : pense aux variables $S$ et $T$ du §7. Pour 2, l'espérance d'une somme est la somme des espérances. Pour 5 et 6, applique la formule de $\mathbb{V}(aX + b)$ avec les bons $a$ et $b$.
 
 </details>
 
@@ -130,7 +130,7 @@ La loi parle de la **fréquence**, pas du nombre de succès ; elle dit que la fr
 </details>
 <details><summary>Indice 3</summary>
 
-1 : les lancers sont indépendants (§5). Pour 4, cherche le nombre dont la racine carrée vaut 10. Pour 5, relis « Un générateur et une graine ».
+1 : les lancers sont indépendants (§5). Pour 4, que devient $\frac{1}{\sqrt{n}}$ quand $n$ double ? Pour 5, sur 50 lancers, un écart de 0,12 est-il rare ? Regarde la figure des fluctuations (§8) autour de $n = 50$.
 
 </details>
 
@@ -170,7 +170,7 @@ Relis les notations Σ et Π de R4.
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $1^2 + 2^2 + 3^2 + 4^2$. Pour 4, les trois facteurs sont $1 - \frac{1}{10}$, $1 - \frac{2}{10}$ et $1 - \frac{3}{10}$.
+1 : $1^2 + 2^2 + 3^2 + 4^2$. Pour 2, $1 \times 0{,}5 + 3 \times 0{,}3 + 10 \times 0{,}2$. Pour 4, les trois facteurs sont $1 - \frac{1}{10}$, $1 - \frac{2}{10}$ et $1 - \frac{3}{10}$.
 
 </details>
 
@@ -196,7 +196,7 @@ Produit : on multiplie les numérateurs et les dénominateurs ; somme : on rédu
 
 ## ✏️ Papier-crayon
 
-### Ex R8.1 — Décrire univers et événements : dés, cartes, pièces
+### Ex R8.1 — Décrire univers et événements : cartes et pièces
 
 <details><summary>Indice 1</summary>
 
@@ -228,7 +228,7 @@ Compte les issues favorables et les issues possibles. Pour les deux dés, une is
 </details>
 <details><summary>Indice 3</summary>
 
-a : il y a deux B parmi 11 lettres. Pour g, compte, pour chaque valeur du dé à 4 faces, les valeurs du dé à 6 faces qui la dépassent strictement. Pour h, le produit est impair seulement si les deux nombres le sont.
+a : il y a deux B parmi 11 lettres ; É est une voyelle. Pour g, compte, pour chaque valeur du dé à 4 faces, les valeurs du dé à 6 faces qui la dépassent strictement. Pour h, le produit est impair seulement si les deux nombres le sont.
 
 </details>
 
@@ -264,7 +264,7 @@ Pour chaque position, combien de possibilités ? Avec répétition, toujours aut
 </details>
 <details><summary>Indice 3</summary>
 
-a : $26^6$. Pour d, il y a 8 possibilités pour l'or, puis 7 pour l'argent, puis 6 pour le bronze. Pour f, la tâche A n'a qu'une place possible.
+a : $26^6$. Pour b, la première lettre a 6 possibilités, les cinq autres n'ont pas de contrainte. Pour d, il y a 8 possibilités pour l'or, puis 7 pour l'argent, puis 6 pour le bronze. Pour f, la tâche A n'a qu'une place possible.
 
 </details>
 
@@ -286,25 +286,25 @@ a : $\frac{7 \times 6 \times 5}{3 \times 2 \times 1}$. Pour b, une poignée de m
 
 </details>
 
-### Ex R8.6 — Arbres pondérés : tirages successifs
+### Ex R8.6 — Arbres pondérés : épreuves successives
 
 <details><summary>Indice 1</summary>
 
-Relis le §4 : « Enchaîner des épreuves » et « Tirages avec ou sans remise ».
+Relis le §4 : « Enchaîner des épreuves » et ses trois règles.
 
 </details>
 <details><summary>Indice 2</summary>
 
-Dessine l'arbre de chaque expérience. Sans remise, la seconde branche tient compte de la chaussette déjà sortie. Pour « au moins une », passe par le contraire.
+Dessine l'arbre de chaque expérience. Pour les lancers francs, la branche du second lancer dépend du premier : 0,8 après une réussite, 0,5 après un échec. Pour « au moins une », passe par le contraire.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $0{,}6 \times 0{,}1$. Pour d, $\frac{4}{10}$ puis $\frac{3}{9}$. Pour f, deux chemins mènent à « la seconde est noire » : noire puis noire, grise puis noire.
+a : $0{,}6 \times 0{,}1$. Pour d, $0{,}7$ puis $0{,}8$. Pour f, deux chemins mènent à « le second est réussi » : réussi puis réussi, manqué puis réussi.
 
 </details>
 
-### Ex R8.7 — Indépendance : tester P(A ∩ B) = P(A) P(B) avec des cartes et des pièces
+### Ex R8.7 — Indépendant ou pas ? Le décider par le calcul, avec des cartes et des pièces
 
 <details><summary>Indice 1</summary>
 
@@ -318,7 +318,7 @@ Pour chaque couple, calcule $P(A \cap B)$ en comptant les issues communes, puis 
 </details>
 <details><summary>Indice 3</summary>
 
-a : une seule carte est à la fois un as et un cœur. Pour e, $F$ = {PP, FF}. Pour g, liste les suites de trois lancers qui commencent par P et ont au moins deux P.
+a : une seule carte est à la fois un as et un cœur. Pour e, liste les suites qui commencent par F et n'ont qu'un P. Pour g, deux suites seulement n'ont pas à la fois un pile et un face.
 
 </details>
 
@@ -344,35 +344,35 @@ a : sur les 8 suites, une seule a zéro pile. Pour c, dresse le tableau des 16 c
 
 <details><summary>Indice 1</summary>
 
-Relis le §7 : l'espérance, la formule $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2$ et « Changer d'échelle ».
+Relis le §7 : l'espérance, la définition de la variance, la formule $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2$ et « Changer d'échelle ».
 
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{E}[X] = \sum x\,P(X = x)$ ; $\mathbb{E}[X^2] = \sum x^2\,P(X = x)$ ; puis la variance, l'écart-type, et les formules de $aX + b$.
+Pour a, deux équations : la somme des probabilités vaut 1, et l'espérance vaut 2. Puis $\mathbb{E}[X^2] = \sum x^2\,P(X = x)$, la variance, l'écart-type, et les formules de $aX + b$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $0 \times 0{,}2 + 1 \times 0{,}4 + 2 \times 0{,}3 + 3 \times 0{,}1$. Pour f, $a = 10$ et la constante $-4$ disparaît. Pour g et h, reprends la loi de $Y$ trouvée en R8.8 c, en fractions.
+a : $0{,}5 + a + b = 1$ et $0{,}5 + 2a + 4b = 2$. Pour f, $Y = -2X + 3$ : l'écart-type est multiplié par $\lvert -2 \rvert$. Pour g, écris $\mathbb{E}[W] = 2p - (1 - p)$.
 
 </details>
 
-### Ex R8.10 — Un jeu est-il équitable ?
+### Ex R8.10 — Deux jeux de hasard : équité et risque
 
 <details><summary>Indice 1</summary>
 
-Relis « Un jeu équitable » et la variance (fiche §7).
+Relis « Un jeu de hasard » et la variance (fiche §7).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Écris la loi du prix de chaque jeu (valeurs et probabilités), puis son espérance et sa variance. Le gain net est le prix moins la mise ; un jeu est équitable quand l'espérance du gain net est nulle.
+Écris la loi du gain de chaque jeu (valeurs, avec leur signe, et probabilités), puis son espérance et sa variance. Un jeu est équitable quand l'espérance du gain est nulle.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : deux piles ont la probabilité $\frac{1}{4}$, un seul pile $\frac{1}{2}$. Pour d, calcule $\mathbb{E}[W^2]$, puis retire $\mathbb{E}[W]^2$. Pour h, écris que l'espérance du prix est égale à la mise.
+a : deux piles et deux faces ont chacun la probabilité $\frac{1}{4}$, un de chaque $\frac{1}{2}$. Pour b, calcule $\mathbb{E}[G^2]$, puis retire $\mathbb{E}[G]^2$. Pour d et h, appelle $x$ le gain inconnu et écris que l'espérance vaut 0.
 
 </details>
 
@@ -412,7 +412,7 @@ Relis « L'espérance » et « Linéarité » (fiche §7), et les règles des so
 </details>
 <details><summary>Indice 3</summary>
 
-1 : écris la valeur de $X$ pour chacune des 8 suites, puis regroupe celles qui donnent la même valeur. Pour 3, une constante $c$ est une variable qui vaut $c$ pour toute issue. Pour 5, $X$ ne vaut que 0 ou 1 : que vaut $X \times X$ ?
+1 : écris la valeur de $X$ pour chacune des 8 suites, puis regroupe celles qui donnent la même valeur ; en général, les événements $\{X = x\}$ partagent $\Omega$. Pour 3, écris $X_1 + \cdots + X_{n+1}$ comme la somme de deux variables, $X_1 + \cdots + X_n$ et $X_{n+1}$. Pour 5, $X$ ne vaut que 0 ou 1 : que vaut $X \times X$ ?
 
 </details>
 
@@ -452,7 +452,7 @@ Relis « Au moins un : passer par le contraire » (fiche §2) et « Répéter un
 </details>
 <details><summary>Indice 3</summary>
 
-Par exemple : 300 personnes connues, dont 30 dans le métro un jour donné, 4 millions d'usagers, donc $q \approx \frac{30}{4 \times 10^6}$. Pour 4, développe $(1 - q)^2 = 1 - 2q + q^2$ et regarde le terme $q^2$ quand $q$ est minuscule.
+Par exemple : 300 personnes connues, dont 30 dans le métro un jour donné, 4 millions d'usagers, donc $q \approx \frac{30}{4 \times 10^6}$. Pour 4, développe $(1 - q)^2 = 1 - 2q + q^2$, puis $(1 - q)^3$ : les termes en $q^2$, $q^3$… sont minuscules devant $q$, d'où $(1 - q)^N \approx 1 - Nq$ tant que $Nq$ reste petit.
 
 </details>
 
@@ -584,11 +584,11 @@ Relis « Au moins un : passer par le contraire » (fiche §2) et le nombre de pa
 </details>
 <details><summary>Indice 3</summary>
 
-Pour d, le $k$-ième élève (en comptant à partir de 0) doit éviter les $k$ dates déjà prises : il a $365 - k$ dates possibles sur 365. Pour e, une boucle `for n in range(1, 366)` qui s'arrête au premier $n$ qui convient.
+Pour d, le $k$-ième élève (en comptant à partir de 0) doit éviter les $k$ dates déjà prises : il a $365 - k$ dates possibles sur 365. Pour e, dans `smallest_class`, une boucle `for n in range(1, 366)` qui fait `return n` au premier $n$ qui convient.
 
 </details>
 
-### Ex R8.21 — La loi des grands nombres : fréquence et nombre de lancers
+### Ex R8.21 — La loi des grands nombres : fréquence et nombre d'essais
 
 <details><summary>Indice 1</summary>
 
@@ -624,7 +624,7 @@ Relis « La loi d'une variable aléatoire » (fiche §6, la figure) et l'espéra
 </details>
 <details><summary>Indice 2</summary>
 
-Dans l'axe reçu : `ax.bar` pour les bâtons, l'espérance calculée avec `values` et `probabilities`, `ax.axvline` pour la droite, puis le titre et les deux axes.
+Dans l'axe reçu : `ax.bar` pour les bâtons, l'espérance calculée avec `values` et `probabilities` (la vérification essaie aussi une loi non symétrique), `ax.axvline(..., linestyle="--")` pour la droite, puis le titre et les deux axes.
 
 </details>
 <details><summary>Indice 3</summary>

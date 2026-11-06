@@ -674,6 +674,10 @@ def _praise(ex_id: str) -> str:
     return _PRAISE[sum(map(ord, ex_id)) % len(_PRAISE)]
 
 
+_COMPUTED_INTEGER = ("Ta fonction renvoie un nombre entier, alors que le bon résultat a des décimales : une division "
+                     "entière `//`, un `round(...)` ou un `int(...)` dans le calcul ? Relis sa docstring ; si elle fait "
+                     "partie de `mymath`, ses tests (`pytest`) disent quel cas pose problème.")
+
 _COMPUTED_NEAR = ("Tout près, mais pas égal : cette valeur vient de ta fonction, ce n'est donc pas une question "
                   "d'arrondi. Ta fonction s'écarte un peu du bon résultat dans un cas particulier (ex-æquo, bord "
                   "d'intervalle, division par zéro…) : relis sa docstring ; si elle fait partie de `mymath`, ses "
@@ -764,8 +768,8 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
             if typed == decimals - 1:
                 hashes |= {entry.get("hash_coarse"), *entry.get("alt_coarse", ())}
             if hash_answer(ex_id, "float", _fmt_float(x, typed)) in hashes:
-                if computed:
-                    return _COMPUTED_NEAR
+                if computed:   # right at 0 decimals only (1 for 0.706): never « tout près » (R8 learner, C2)
+                    return _COMPUTED_INTEGER if typed == 0 else _COMPUTED_NEAR
                 return (f"Ta valeur n'a que {_count(typed, 'décimale')}, et l'énoncé en demande {decimals} : "
                         "refais l'arrondi avec plus de chiffres (arrondis seulement à la fin du calcul).")
         # one unit away on the last decimal (rounded too early, or truncated), claimed only when that unit is
@@ -910,7 +914,7 @@ def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False, value
 
         given = tuple(arr.tolist())
         if any(perm != given and matches_all(np.array(perm)) for perm in itertools.permutations(given)):
-            return "Les valeurs sont bonnes, mais pas dans l'ordre demandé : relis l'énoncé (ordre croissant ?)."
+            return "Les valeurs sont bonnes, mais pas dans l'ordre demandé : relis l'ordre que donne l'énoncé."
     # every sign inverted (a direction -u instead of u): said before the element count, which would only report the
     # zeros as right
     if nonzero.size and matches_all(-arr):
@@ -1051,6 +1055,13 @@ def _type_hint(value, kind: str) -> str:
     return ""
 
 
+def _choices_message(entry: dict) -> str:
+    """The message of a value that is not one of the choices offered by the statement (a 🔮 answered 1, 2 or 3)."""
+    offered = [_choice_text(choice) for choice in entry["choices"]]
+    listed = ", ".join(offered[:-1]) + " ou " + offered[-1] if len(offered) > 1 else offered[0]
+    return f"Choisis l'une des valeurs proposées par l'énoncé : {listed}."
+
+
 def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple[bool, str, str]:
     """Compare ``value`` with a stored entry. Return (passed, status, message).
 
@@ -1082,6 +1093,8 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
     try:
         norm = normalize(value, kind, decimals)
     except NormalizationError as exc:
+        if kind in ("int", "float") and entry.get("choices"):   # "plus de 50 %" or 0.85 for a choice 1, 2 or 3
+            return False, "wrong", _choices_message(entry)
         thousands = _thousands_reading(value) if kind in ("int", "float") else None
         if thousands is not None:  # "2,000,000" cannot be French; "93,312" for a whole number: only when right
             right = _hash_value(ex_id, entry, thousands) in accepted
@@ -1209,9 +1222,7 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
             if mistake:
                 return False, "wrong", _classic(entry, mistake, value)
     if kind in ("int", "float") and entry.get("choices") and norm not in entry["choices"]:   # before a prediction
-        offered = [_choice_text(choice) for choice in entry["choices"]]                     # (R5.18c = 4)
-        listed = ", ".join(offered[:-1]) + " ou " + offered[-1] if len(offered) > 1 else offered[0]
-        return False, "wrong", f"Choisis l'une des valeurs proposées par l'énoncé : {listed}."
+        return False, "wrong", _choices_message(entry)                                      # (R5.18c = 4)
     if entry.get("prediction") and kind in ("int", "float", "array", "set"):
         return False, "wrong", _MISSED_PREDICTION
     if kind in ("int", "float"):
