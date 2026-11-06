@@ -416,7 +416,7 @@ Pour la copie : $n$ est grand, $p$ petit et $np = 4$ modéré : la situation typ
 
 **Réponses** : a) `3` · b) `2` · c) `3` · d) `4`.
 
-**Démarche.** Un dé : $\mathbb{V} = \frac{35}{12} \approx 2{,}917$. a) $\mathbb{V}(\bar{X}) = \frac{35/12}{4}$ : divisée par 4 (l'expérience donne 0,728). b) Écart-type divisé par $\sqrt{4} = 2$. c) $\mathbb{V}(S) = 4 \times \frac{35}{12}$ : multipliée par 4. d) $\mathbb{V}(4X) = 16 \times \frac{35}{12}$ : multipliée par 16. Pour la copie : la somme de quatre dés et 4 fois un dé ont la même espérance, 14, mais les quatre dés indépendants compensent en partie leurs écarts, alors qu'un seul dé multiplié par 4 amplifie chacun de ses écarts.
+**Démarche.** Un dé à 8 faces : $\mathbb{V} = \frac{8^2 - 1}{12} = 5{,}25$. a) $\mathbb{V}(\bar{X}) = \frac{5{,}25}{4}$ : divisée par 4. b) Écart-type divisé par $\sqrt{4} = 2$. c) $\mathbb{V}(S) = 4 \times 5{,}25$ : multipliée par 4. d) $\mathbb{V}(4X) = 16 \times 5{,}25$ : multipliée par 16. Pour la copie : la somme de quatre dés et 4 fois un dé ont la même espérance, 18, mais les quatre dés indépendants compensent en partie leurs écarts, alors qu'un seul dé multiplié par 4 amplifie chacun de ses écarts.
 
 **Erreurs fréquentes.** Croire que la moyenne garde la variance d'un dé ; confondre c et d (somme de copies indépendantes et multiple d'une seule variable).
 

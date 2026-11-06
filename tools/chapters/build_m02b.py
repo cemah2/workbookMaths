@@ -669,9 +669,9 @@ wbm.record("M02b.21h", 3.0, decimals=1,
 # Notebook exercises: a prediction, an experiment, a figure (M02b.22 to M02b.24)
 # ---------------------------------------------------------------------------
 M02B_22_EXPERIMENT = '''rng_22 = np.random.default_rng(0)
-dice = rng_22.integers(1, 7, size=(100_000, 4))          # 100 000 rows of 4 dice
+dice = rng_22.integers(1, 9, size=(100_000, 4))          # 100 000 rows of 4 eight-sided dice
 one = dice[:, 0]
-print(f"variance d'un dé                        : {one.var():.3f}   (théorie : 35/12 ≈ {35 / 12:.3f})")
+print(f"variance d'un dé                        : {one.var():.3f}")
 print(f"variance de la moyenne des 4 dés         : {dice.mean(axis=1).var():.3f}")
 print(f"écart-type d'un dé / celui de la moyenne : {one.std() / dice.mean(axis=1).std():.2f}")
 print(f"variance de la somme des 4 dés           : {dice.sum(axis=1).var():.3f}")
@@ -681,7 +681,7 @@ M02B_22 = Ex(
     "M02b.22", "🔮", 1, 10, "Prédire : la variance de la moyenne de quatre dés",
     "prévoir l'effet d'une somme et d'une moyenne de variables indépendantes sur la variance et l'écart-type, puis "
     "le vérifier par simulation.", "fiche §6", tracks="C, E", hypothesis=True,
-    body="""On lance quatre dés équilibrés indépendants. Pour chaque question, choisis : (1) la même ; (2) multipliée (ou divisée) par 2 ; (3) multipliée (ou divisée) par 4 ; (4) multipliée (ou divisée) par 16.
+    body="""On lance quatre dés équilibrés à 8 faces (numérotées de 1 à 8), indépendants. Pour chaque question, choisis : (1) la même ; (2) multipliée (ou divisée) par 2 ; (3) multipliée (ou divisée) par 4 ; (4) multipliée (ou divisée) par 16.
 - a) la variance de la **moyenne** des quatre dés, comparée à la variance d'un dé ;
 - b) l'écart-type de cette moyenne, comparé à l'écart-type d'un dé ;
 - c) la variance de la **somme** des quatre dés, comparée à la variance d'un dé ;
@@ -709,10 +709,11 @@ wbm.record("M02b.22d", 4, prediction=True, choices=[1, 2, 3, 4])''',
                "($\\mathbb{V}(X_1 + \\cdots + X_n)$, $\\mathbb{V}(aX)$, $\\mathbb{V}(\\bar{X})$). Pourquoi c) et d) "
                "diffèrent-ils, alors que la somme de quatre dés et 4 fois un dé ont la même espérance ?"),
     ],
-    note="Un dé a pour variance $\\frac{35}{12} \\approx 2{,}917$. a) La moyenne de 4 dés indépendants a pour variance "
-         "$\\frac{35/12}{4} \\approx 0{,}729$ : divisée par 4 ; b) son écart-type est donc divisé par $\\sqrt{4} = 2$. "
-         "c) La somme a pour variance $4 \\times \\frac{35}{12}$ : multipliée par 4 (les variances s'additionnent). "
-         "d) $4X$ a pour variance $16 \\times \\frac{35}{12}$ : multipliée par 16. Quatre dés différents se "
+    note="Un dé à 8 faces a pour variance $\\frac{8^2 - 1}{12} = 5{,}25$ (la loi uniforme sur $\\{1, \\ldots, n\\}$ a pour "
+         "variance $\\frac{n^2 - 1}{12}$). a) La moyenne de 4 dés indépendants a pour variance $\\frac{5{,}25}{4} \\approx 1{,}31$ : "
+         "divisée par 4 ; b) son écart-type est donc divisé par $\\sqrt{4} = 2$. c) La somme a pour variance "
+         "$4 \\times 5{,}25$ : multipliée par 4 (les variances s'additionnent). d) $4X$ a pour variance $16 \\times 5{,}25$ : "
+         "multipliée par 16. Quatre dés différents se "
          "compensent en partie ; un seul dé multiplié par 4 amplifie chaque écart, sans compensation.",
 )
 
