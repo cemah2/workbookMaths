@@ -6215,6 +6215,1781 @@
         "7c5eb6c982d532d570dc42c513c3b639defe64833f45c5c3f7a36d450172d08a": "deux boules peuvent avoir deux couleurs différentes"
       },
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R5.1a": {
+      "hash": "c3b079027b4b0b31fadc2ab53ce1547568504d29f0e5b789aa41743c5dd1a826",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "82311ea7c8292fd72a5f588b80ce557f714a3a0af9f2e3a5e91f5aeb98d6afa6": "remplace n par 5 partout, puis respecte les priorités : la puissance, puis les produits",
+        "e58facf179c4e7adfa8a0d9fde4fb4b29cc456c0a236752a44861f09c963be9a": "u₅ est le terme de rang 5 : remplace n par 5 (le rang, pas la place dans la liste u₀, u₁, …)"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.1b": {
+      "hash": "085fdd8174dd47c9de4d2345df8476a158de74dd1f7cff1c0aded7ea5eb8daa4",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "9ef8f3382311cdeae8926e341e8ba6a5aefc6d5efedd89b514c3aa209a3c4ed4": "u₁₀ est le terme de rang 10 : remplace n par 10"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.1c": {
+      "decimals": 0,
+      "element_hashes": [
+        "6ab7ee1f71e7f68d1cbd58d852f0b2b93f24c5fe982f208322938f2083ee1136",
+        "e91df3b7e428e217db7343e3f493ffb13bfa72c275ed16fa42fdeed6f88aefcd",
+        "a4806bb4524d8bebf3393987b039ebd81272e96907b85e4988f9135874c2e2b8"
+      ],
+      "hash": "d0aa3c70d102294d6b1e851989325df0cfc213d5ae921c53ba4ef688fa576146",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "7615be1a5f44214b552e118f791664835475e9b4c99fd8d2ee16b66d26cba74a": "2vₙ − 4 : on multiplie vₙ par 2, puis on retire 4 (pas 2 × (vₙ − 4))",
+        "8f957d4035d7a5a981c6a565d1a63610f33ffe09402f10eaaf5eaec39c4e2ce5": "la liste commence à v₁ = 2 × v₀ − 4 : v₀ n'en fait pas partie"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.1d": {
+      "hash": "00e92f2864e01d725bcf21d09aeeb9157cdbd26b70827183da0e1357eb8e7785",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "2bfc52e56642c88e77a9aef835031e4ff89666ec2b521600970704257e1c7a52": "w₄ : trois pas depuis w₁, qui est le premier terme",
+        "3cda1a33f83a0af78a19532599809dde2004936fdd0b1d35fba49a02d0f92e9e": "w₄ : trois pas depuis w₁, qui est le premier terme",
+        "b93b16aec0b09022efc4103fe8710360f597cc2e01de0fc11a59ecf9bc6038ca": "pour calculer w₂, on prend n = 1 dans la règle : w₂ = w₁ + 2 × 1 + 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.1e": {
+      "hash": "72b2fba42720883a835ead11e8931f5295dd9fa85fd5062c4200be1fd5f1c1c8",
+      "kind": "expr",
+      "mistakes": {
+        "0f10f9e930736219bea41cbf46ef34f048cc29150524cbb3e2c8eb9bf895671e": "vérifie ta formule en n = 1 : elle doit donner w₁ = 1",
+        "3524b73915cb2d42cd5267fee8e0597fb86bff0ebff01777f39a15622aa5e37c": "vérifie ta formule en n = 2 : elle doit donner w₂",
+        "bbd8983411c9d896f6639615ec470e640ca06b6781a28b927329a700f889a500": "2n + 1 est l'écart entre deux termes, pas le terme lui-même"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "n"
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.1f": {
+      "hash": "7393c3c8c5d9c4d35f92eace1f3b71e17b489b1d1b2d830d782853d8dcc6d250",
+      "kind": "expr",
+      "mistakes": {
+        "3b6d2bc8d1d459cd6930cc09e4b877751accc885f29dd9af3bb00fb878d3bdb7": "on calcule u_{n+1} − uₙ, dans cet ordre",
+        "6e5ec030b61778c97fe5ec52a11e435fe70ecb4473358f0c73a3a27133fc3f7d": "(n + 1)² = n² + 2n + 1, pas n² + 1",
+        "b2331247190a2e49890dd95991dc35c761a73ccee76be2cf8911911d66afdcd3": "−3(n + 1) = −3n − 3 : le −3 multiplie aussi le 1"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "n"
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.1g": {
+      "hash": "dc8bdfacf2106e84f0825f9c192eb462a75ce55ca8772579d14ce5d5335a0ec6",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "59d79d9b8623ad21358171a6576a4c3e622dea5b84e61a534d10ca2322dfd07a": "u_{n+1} ≥ uₙ est une inégalité large : un cas d'égalité convient",
+        "6ae36e89623459b4362579d6f7dd58830370a60976924d4c30ee5b194c579396": "compare u₁ et u₀ : la suite commence par diminuer"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.2a": {
+      "hash": "c112d42a254a9df9f58393ce6d9fc9da9a56adbc3ab0a85f6a22edaf4d6439f0",
+      "kind": "expr",
+      "mistakes": {
+        "149b502c6620e5babe0b50f4a6af17b2d0352dfef445a676f23fc844848b220c": "uₙ = u₀ + n r : le premier terme est 7, la raison 4",
+        "2b3cc936b86fb6e15a96de8197ed0b81c791e9a356aa559d3b1fffbb99161105": "la suite commence au rang 0 : uₙ = u₀ + n r",
+        "f85a11ee8c26da6bfc755a7cdd75104893d81bd54c24ac751007f51b0a52a980": "une suite arithmétique ajoute la raison : pas de puissance"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "n"
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.2b": {
+      "hash": "e4496de56d96aa2b8724cb5bfae63a078d70407e9f12afa3a1305fb1af0828b5",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "729aa905621c709db69424b33c27a565b3b1d54134564105373e05c5b4a7bb0a": "u₂₅ : on ajoute 25 fois la raison à u₀",
+        "fb21125e2a62c32b7e465f59881fe7a0a700b82ee734b845a89cfab4120494a5": "u₂₅ : on ajoute 25 fois la raison à u₀"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.2c": {
+      "decimals": 2,
+      "hash": "f20e3d2bdf961db4f5c5a67057d63c14dc608af9d67dcdee124bfdf5f75822c2",
+      "hash_coarse": "3195b23d5a2d0d33e3f551bd657983a3e87839363b500657f328e19973fc0cfa",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "16069c7203dd29506e78e813d0582c687b7adb74aed1ef09a30c82dc3f482676": "la suite commence au rang 1 : aₙ = a₁ + (n − 1) r",
+        "b4e9ce81ff6391ca42d76995b5e73181a08a0f4591eaa9856bd88fa14131eadb": "la raison est négative : chaque pas retire 2,5",
+        "b553f15df376bae61b9c714347ac991e6d5621a79768a502b9fd5985a52e990a": "la suite commence au rang 1 : aₙ = a₁ + (n − 1) r"
+      },
+      "sign": -1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.2d": {
+      "fractional": "un rang est un entier : le premier entier qui convient",
+      "hash": "8d484c60ccc4fdfda9ece0631803b3e413ea0ee91bb918d741d4a0c75fbe3ce2",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "28ba3da840fe177ef8beeb8993f88c94bdd7134de856ea999f167ba3ed3bce02": "il y a un rang plus petit qui convient : calcule les termes un par un",
+        "2cb45606b2a8e8f3a8dfce36f9fe4f0d8d74b5cc32c666940266c7abdb215437": "aₙ = a₁ + (n − 1) r : calcule le terme de ce rang, il est encore positif ou nul",
+        "a949f4c79e4aa015b75ab4e6dc9ff6dc6c2eb382d159a7a09e67473a3783b62c": "aₙ = a₁ + (n − 1) r : calcule le terme de ce rang, il est encore positif ou nul"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.2e": {
+      "hash": "3013041595e553c77a6ab8ce908f78135213651e5eba3b3d31758179e42be52b",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "16ec90cfcc92140363c8865c2fcb5b95d52cbf6d42ff1daf50353c1664dc9c69": "n est un rang : résous 7 + 4n = 2 023, puis vérifie avec u_n",
+        "bc77ea3eef28ebcd9c796be261fada0c851abb773db408612b4c60c2e75bb719": "n est un rang : résous 7 + 4n = 2 023, puis vérifie avec u_n",
+        "e37d0b9ae6be14757c35ffc2d26008d63a29919a592fb2f641c8176c55d78407": "la suite commence au rang 0 : résous 7 + 4n = 2 023"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.2f": {
+      "hash": "1df46278dbd419b977613adb8c68a26d7f7324b30c7d38a89fe1559d3b5b44c1",
+      "kind": "bool",
+      "mistakes": {
+        "8ddb59fb9a9002fb0d71ea744721af7f36ab86efbfaa41a86199ea599bb44569": "résous 7 + 4n = 2 026 : n doit être un entier"
+      },
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.2g": {
+      "hash": "d293aea66888862b37633aa0dfa6a1d8fd30b53d94949061edfd89c2a7bb4e90",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "85804286d7ccfa012bd7882abc55846541f658742069ee09369ed0528a46dfc3": "compte la hauteur restante heure par heure : elle n'est pas encore nulle",
+        "a36cfd3557be7645aea8f5fcbbb315ad09881b1b2b48f920823e2733d10bb9df": "la bougie est consumée quand sa hauteur est nulle : pas une heure de plus"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.3a": {
+      "hash": "19de95e231ae9a533e3cd6cc39aa5e5791cc75bd9f6e3ac9c6ca07557529376f",
+      "kind": "expr",
+      "mistakes": {
+        "02cee5d00d061a3721d8a613d0d25ba3b25644ad1eb70d89a1ff28d89e48cd16": "une suite géométrique : la raison est à la puissance n, elle ne multiplie pas n",
+        "35b7790dd17f7cf9e1a146f09b5f72986802a73b8fa83e93f1c1c1bce96d167e": "la suite commence au rang 0 : vₙ = v₀ qⁿ",
+        "52f092bbbedd94fa0cae800b29dfc0f0548d22f27c1fa7a101a224dd87731f0a": "une suite géométrique multiplie par la raison : on n'ajoute pas",
+        "a80a00b141cd532d70ecf5943bb2985f61d630d6670863ceb7492920127d5da3": "le premier terme multiplie, la raison est à la puissance n",
+        "c29e82cee2083601fbeb96c6d723f2333b2c130acc94a3fd403c908370737382": "5 × 3ⁿ n'est pas (5 × 3)ⁿ : la puissance ne porte que sur la raison"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "n"
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.3b": {
+      "hash": "e5d8928e262f061ebe2984d1df89a2ebe14cd3c0b70209c2001fab420a53e3c4",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "ac5342693cb6497939ff788a46e0d7ba596dac412a14c2534d75c04f62036e01": "5 × 3⁴ n'est pas (5 × 3)⁴",
+        "ad549d07bdaf297f5d21da12305458c7d83e6a7c1215ac5395210bf6720a94a5": "3⁴, pas 3 × 4",
+        "b354ed771505e88a906732e460f23fa853bd7e9f996b12ea50c49834fa8a584b": "v₄ : quatre multiplications par 3 depuis v₀",
+        "d75194647d52236fc0af78a819ff5ca1454d227d2ff71e10e65807e97c25cc5b": "v₄ : quatre multiplications par 3 depuis v₀"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.3c": {
+      "decimals": 2,
+      "hash": "243ed6c1edcb5f87da37bd681f40087b51b0cd797243a69233a5ea2274af8eab",
+      "hash_coarse": "27aa0cf41dac19054da6bfcefee7754fc2e184e0d70e8a59dc8ffb22b775d9e4",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "407304bc2ff4524db8d9143b9d84d3d677918f63d60375d911f3d93755af4049": "la suite commence au rang 1 : wₙ = w₁ q^(n − 1)",
+        "8a4b2b3cedf34195f1e722d9469c48fce244adf5a25479556ee2bfe9e4eb00e0": "la suite commence au rang 1 : wₙ = w₁ q^(n − 1)"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.3d": {
+      "hash": "be8f1b8a87bdeba619d8eec7627eeb2b68b52ab48160beef6d1b5c44c2728b93",
+      "kind": "fraction",
+      "mistakes": {
+        "105765ce9220237a1ac6c4691686aa902015d32ece174efc865f2d7e8911b2a8": "la suite commence au rang 1 : wₙ = w₁ q^(n − 1), donc une puissance de moins que le rang",
+        "518424cf1df4b9b90aeef66bca9a56a7e236481f160343af2a5ac6b611bdebe9": "w₇ = w₁ q^(7 − 1) : six multiplications par la raison"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.3e": {
+      "decimals": 2,
+      "hash": "e9031526fd7c5d8ab3c15bbb7572d68f368627bdddb3c8e9487cb85a8206a51d",
+      "hash_coarse": "9ca747ac3dd2b057cbd4c7b9fad3caa1ce933abdf436bdb4bdb3e925a9e211e2",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "0072d03f25b987c0617dd14aa8c93a9aab655cf699037e2da41bb101e614e3ca": "p₃ : trois heures, trois multiplications par 1,2",
+        "88de159b886c8911445f3582baee3c9075b76b615700b622d1a90db499486859": "p₃ : trois heures, trois multiplications par 1,2",
+        "a276310746fbbf74485edae193f96eda03d7f546a1bcf46f5524fc6ccd92d632": "chaque heure, on multiplie par 1,2 : les hausses se composent"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.3f": {
+      "hash": "8bb5a766c39fa35cfcaa1eb01da9ef0331152e95888a0e421ef5f52f8b6a55f0",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "941c695d6a3e7e4182bae30a5821e35532bd49409dd5b34354eaab5231f5e4ea": "t₅ : cinq multiplications par −3 depuis t₀",
+        "dc7193b544e9a17038ae5ac83e0bc45b76129725ce1f6f168434c0f7ca593d3c": "t₅ : cinq multiplications par −3 depuis t₀",
+        "debc7f82fd6cfe1dc39b2eed6d6ef65d3c02fb2b4766de49267fe2489cfb7da6": "une puissance impaire d'un nombre négatif est négative"
+      },
+      "sign": -1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.3g": {
+      "hash": "3dc84aeab9617e03afafc65f5191872a250545c73c241046565ca81d22be2c9e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "89623ce1076c20d99b6befc994a5ef6a095b7cc3a95ee0f84950f114955fd3a8": "calcule p₇ : la population n'a pas encore dépassé 2 000",
+        "ae60b8e4e07c05cd06369b818357baa311cc61faa84761b53fe47a398949ecfb": "les hausses se composent : on multiplie par 1,2 chaque heure, on n'ajoute pas 100"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.4a": {
+      "hash": "c9dcfe7e21b62ffe9989ceb8e147bebabdab9d5bc95689843e775fb30b347fff",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "8a175ffdfc067851956dfcf48c766b91da7298de36df11c29f3c4204c708e913": "de 5 à 50 par pas de 3 : il y a un terme de plus que d'écarts"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.4b": {
+      "decimals": 2,
+      "hash": "2cb9874097e79a58e528bcd0e05df044c6f486551469fbe624222c9ce81641c4",
+      "hash_coarse": "59ac458c0aec083aed8bb5ccd0dd5ce8518b5b3babe9c2f0607990043fa407cc",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "9a49fd1312c799a883fd25a4b23599ea86e257234c9d238df2b9f9ae69fe1057": "nombre de termes × (premier + dernier), divisé par 2",
+        "c82e30e6206b43f34c6a460035ee65591c83685f4a73ae235e5611a17cb1ead3": "compte les termes : un de plus que d'écarts"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.4c": {
+      "decimals": 2,
+      "hash": "1867521eb18157dc02f433f766a4e656ea532737e34dd9aceed0889dd8bda138",
+      "hash_coarse": "b04570eff114c7487026509cc380acd5a476267725807826f14d254e38737089",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "018f82ca723019824382edbb8a72370e8e16a2c43478465bb5f6677d32882cf3": "de k = 0 à 19 : 20 termes",
+        "751837c1eae854d588906387091d9e97e69f2d1457c9bf58cfc50b5290309cbf": "de k = 0 à 19 : 20 termes",
+        "ca677ae941092acf44a436c49de425d39916529e4f29dc578724b5cc35262289": "le dernier terme est celui de k = 19 : 2 + 0,5 × 19"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.4d": {
+      "hash": "248e53c117016a64c4378f5fefb578bb7e25264c2f4bcae28825ef12ddc45efa",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "23d7881ff06953e463e2c5b518f418659963c48713f50c5e4f55a34591f12aea": "de 4⁰ à 4⁵ : 6 termes, donc 4⁶ dans la formule",
+        "29f02a03833a07bfffa26feab5d3c368490018378212d25312aa35666510d061": "de 4⁰ à 4⁵ : 6 termes, donc 4⁶ dans la formule",
+        "9ef96d59e61f828b67f71619d130cd9c30ea6c8a9f04ed52910590181ccdef3c": "(qⁿ − 1)/(q − 1) : n'oublie pas de diviser par q − 1 = 3"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.4e": {
+      "decimals": 2,
+      "hash": "c3ca285774f12c41d917a9e65b67140adff56a2dba3481264ed2573572e3f709",
+      "hash_coarse": "489522bf10630af221e2fd529acbb6565e7513394c160bd441e7a0210ba4dc48",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "4d76b1dc1852c68463de0dfc94a1c33ea08275696f7913e00d44c4224e97ef79": "compte les termes : il y en a cinq",
+        "612c43c8a54046595c315d544340c1ce0a3da50b146616d5470f764fe92f2988": "la raison est le quotient d'un terme par le précédent : 54/81",
+        "a702ab63383070bda1e1c70f7789e3b92148b9767efa585244a0e731f944a414": "compte les termes : il y en a cinq"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.4f": {
+      "hash": "0dcc668f296d8fd47e7f29cca0409aa543c57ff176c5158f05bf3f24dc232a36",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "1267f305907529267cd79c07bdb5e6034768e20c62ce5120b057d5da667e8f3d": "de k = 3 à 8, il y a 8 − 3 + 1 termes",
+        "374dbae255f927f92f05ddafc9d12e716be6dccba9bfa149bdcd5789b1c1f1e9": "la somme commence à k = 3 : son premier terme est 2³",
+        "47d15762ce34897e90c8e80fa20ad9f8030d8b902d8f8080deb3a32f74af5daf": "de k = 3 à 8, il y a 8 − 3 + 1 termes",
+        "8e80e642ae88e90e47d6f1e8e79e154a1f1e4d28e4b2b53e8db9e39c42f35973": "la somme commence à k = 3 : son premier terme est 2³"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.4g": {
+      "hash": "bb6ff18d112fdc44d63b2801ea7e14c01537ee3d6e32ba19133ac1d3e54949a5",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "03082da93f17315ca760b70c59c0a5dba1ca9afeb536d5d9b4669da34fc35e0d": "(−2)¹⁰ est positif : 1 − (−2)¹⁰ = 1 − 1 024",
+        "839156d1be5e727b52d8c4313828f2beea3ac59a6f6f54150408de55d6041c3a": "la raison est −2 : 1 − q = 1 + 2",
+        "ae9706abed9a7f8d6a2383387b097f4f95e43ce17ba5bdf7683ec01f215a7886": "de k = 0 à 9 : 10 termes"
+      },
+      "sign": -1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.4h": {
+      "hash": "5a37aee56f43bc255d4505fe11ace2d044b5041be233fac4dd82914f0a0b7d1a",
+      "kind": "expr",
+      "mistakes": {
+        "0c70270906c3da5868e5c82ebac822eef833b8e4520dad40c515532daa338f34": "le dernier terme est celui de k = n − 1 : 3 + 2(n − 1)",
+        "4769f08b9115b377439ad5d2327dbd15ab1d9d98e1e1bf63435bf3ef1e854e40": "de k = 0 à n − 1, la somme des k vaut (n − 1)n/2",
+        "bba53da046fd36d43eda2d4e5a3497166b8d9dab874813bef9a1cdd330e7b32f": "la constante 3 est ajoutée n fois"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "n"
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.5a": {
+      "hash": "6b65dfc39ee076512b26d7bb40b39b1b427e8a31ff3cdcd21d0fdcff8e350ad2",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "de37244b5eab9b58370ae98cea4812f5b7d7d1f56662603baca2b17dcb147c0d": "la somme commence à k = 0 : son premier terme est 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.5b": {
+      "hash": "be00aa9d31e8070283c520c1da3617471550e387efa5663e4f0d06b018c62bcf",
+      "kind": "fraction",
+      "mistakes": {
+        "601ee6f7710e15672006bfa89d9da10b7b987e484ef070b1559db85cfc300c03": "premier terme ÷ (1 − raison) : le premier terme est 2",
+        "d4866f5f6e28e003e31b69733cb691cf644f01a3efbd3ae2f73af18df8128283": "la raison est le quotient de deux termes consécutifs : (2/5) ÷ 2"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.5c": {
+      "hash": "86e8848a65194745e69438beb997f71b1563eb64e87b91ba0b97091bac6f304b",
+      "kind": "fraction",
+      "mistakes": {
+        "6bdafb3b7ce65174b5b19f2dc34820275327677614decf169593c7f4ed9db15f": "la raison est négative : −6/9 = −2/3, donc 1 − q = 1 + 2/3",
+        "d2376959f0c12b8376981fbc824dcd38def84b27dcece1ed8791ba712f1138bc": "premier terme ÷ (1 − raison) : le premier terme est 9"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.5d": {
+      "hash": "13d7761c7729f1e43a610a76cd357faab678a4d44150d9f739ddb9219b32a474",
+      "kind": "fraction",
+      "mistakes": {
+        "da241e4d38453104a67135a39be59c73a236e68c78d4a154457cce83906f8383": "la somme commence à k = 1 : son premier terme est 0,3, pas 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.5e": {
+      "hash": "ac463a56c77716b7f6b7d931b8200f9da0559e9f10f0620ac342cd77ab0118c7",
+      "kind": "bool",
+      "mistakes": {
+        "babf8ca824e7dc8272f888ecf3374da41a0610705454e3cf6a4bc33478cdec5e": "la raison 1,1 est plus grande que 1 : les termes grandissent, et les sommes partielles aussi"
+      },
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.5f": {
+      "hash": "940192e8cfe222aa6853f33d834ea569b2372daabf1739e4540affd1d0fde014",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "0cf91453a45ea21eaddd6dd1ef4310389ffab3bd892c146859f25083ddec6dfb": "pour ce nombre de termes, l'écart à la limite est encore supérieur à 0,1",
+        "895dbfd82e6dc4bcc0c94a1870d9a99356887a8741e474c745ed1be855477954": "l'écart entre la limite et la somme partielle vaut premier terme × qⁿ / (1 − q) (fiche §5)",
+        "f5adf51c764974e9acf9e21eee95c3ec0bff6fc4c5553fe60a93691605e47713": "un nombre de termes plus petit convient déjà : essaie les valeurs une par une"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.6a": {
+      "hash": "5ff259ede19d6bac945ced93bfcb861539349d371263499b6c27a8a36a825c5e",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "6e938f8acfa2aa945aa47ca85b5d1be040402f4cf9b66d785d9c9bd835805509": "le capital, pas seulement les intérêts de l'année"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.6b": {
+      "alt_coarse": [
+        "82ed8dc8a0e53d0aa0a49655db698e78ff19d83398e6e95eaf035e12da5202b7"
+      ],
+      "decimals": 2,
+      "hash": "a2745fea171a87fa3350f477c71bca9f2d02afe7363d6ea6c09e77700765a1f0",
+      "hash_coarse": "870c5226057901fc00332baf42c774740304484ce7ae944bebbda145e4ffa921",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "2b1b17343e6caad63b3f085eb4df883b30a38125d9f78d86e3c32de3c9966b28": "10 ans : dix multiplications par 1,025",
+        "78e74e2afa0003883a203be48f4b6945c4ec557dc0a05d91c6cc840569cb5e97": "10 ans : dix multiplications par 1,025",
+        "80a7e9d7fa931bdce722f5d3b517b13ecc43bfb4b5fb53d1d0e669b0ba10d92b": "les intérêts se composent : on multiplie par 1,025 chaque année"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.6c": {
+      "decimals": 2,
+      "hash": "021c677550405c94a4724993bbd991f3190142c49f1025f674894b9957af97ff",
+      "hash_coarse": "7d57201b3ed4cfe0ceec4494e5a7172c1b9102b0d66f79e58a69e1a616378575",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "b12c2e5b160f5ae4b081398d67ef2cdfb2b18f94afd75d47d657fe3012a3b043": "à intérêts simples, les intérêts sont les mêmes chaque année : 2,5 % du capital de départ"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.6d": {
+      "hash": "5bb810e77b061f2e0ea484961b7ec3bd15319fbb7e7b8a9c2ecaef30361ab3b4",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "362fdb0b969ca41f918c762cdcbf66a9107c55694e54f75d258998015e31b9e6": "calcule le capital au bout de ce nombre d'années : il n'a pas encore dépassé 4 000 €",
+        "58d7393ba1319101673e16438cc867c519f58c01a72d9fe4a3b1bfa389a6d443": "les intérêts se composent : on multiplie par 1,025 chaque année"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.6e": {
+      "decimals": 2,
+      "hash": "e2b4fae8e9ebdb71ac80fce2cd38a0c4d4fb47200bc1121fb920946ab6a35daa",
+      "hash_coarse": "281ff5c4d930b10e5efcda4262f588c7cc6484abb337d555ddd6c6bb06ac4aba",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "0565233186ef899830021d45693b27a72478dc582b7686e8d3c7e7a0b22b0f32": "on divise par 1,025⁶ : on ne retire pas six fois des intérêts simples",
+        "c189aad1d9f14a8f8d86f15f80f92b459955130d41ea4e1d37f90ea0214617a1": "actualiser, c'est diviser par 1,025⁶, pas multiplier"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.6f": {
+      "decimals": 2,
+      "hash": "aa89f0352dec0b1b9928f53d6c061f8415742b39a1f0ebf993316e72be6b3224",
+      "hash_coarse": "d28ee67cfb818a8bdf3bd500415f3ea503aeb901a4b3c8c1a79c24f37c4c6e1f",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "c162dd7146496823f9edaa8083807f8389f5280a2e574ed5304f2098a3739f37": "1 % par mois se compose : le coefficient annuel est 1,01¹²",
+        "dd36e3fc11038d09d336957c5e0fb1b19ba49abd20d4d70459e200bd779dd12f": "la hausse en pourcentage, pas le coefficient multiplicateur : (coefficient − 1) × 100",
+        "e8e1e1cfc02b2a7a85eaf7ac4b4f6f0f1f4e5740a273979113525eace38687df": "la hausse en pourcentage, pas le coefficient multiplicateur : (coefficient − 1) × 100"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.6g": {
+      "hash": "14954c8cf791beeab0dec0dbdbb6b383a9f1a65814fb343fa06784ce7711a74b",
+      "kind": "bool",
+      "mistakes": {
+        "7743ed0d3004967eb60a2bc5232d1c23a280207064a775ca518b5af6c062bef3": "1/1,025ⁿ = (1/1,025)ⁿ : une suite géométrique de raison comprise entre 0 et 1"
+      },
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.7a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "9767766f6ca0868026fab88a84bdfa048fabefb09319f4e5234b46f6e7b08dcc"
+        ],
+        [
+          "67329daf32756c15efdffb70b68108af53e116ef0d473412e492d1fab30bec2b"
+        ],
+        [
+          "d8e5ef352ff91c12d1c5f9622f963fcaa9e7246f36b893020107755a30066286"
+        ],
+        [
+          "a756efd948e23cddedd9d836bf6ba11b30388b9d5c5c4937b578b58fb02a73ea"
+        ],
+        [
+          "ca0d993819a1fe58ecd7dcd91f32f963a71ff347ef930ea96b46eb20c7ca94fd"
+        ]
+      ],
+      "element_hashes": [
+        "2b509817b08b582f1c7afc70dde2aadc71a0e87cbf808ff68f95d883c9a60e97",
+        "a63437d5b4e6b6b4e3bda11b38451f6970fccc9744f23e402eca8dbdbb4c6327",
+        "30758953e3ecd36df90570e2f481ae1871a2957e54a8e51e0f52e9f83a7927c4",
+        "9517b42c008013af1ecc72d5102ce3e37f613cd2c95d02f429d275c8edec45be",
+        "829f71e77fcde3df6b2a90ba480ddb1c0005cdf0222782b467be5e9413376ba3"
+      ],
+      "hash": "92b5bf4aacfc08b6aa574a6eff0f12c01407e5d589061ff4dc8a85007a74f772",
+      "kind": "array",
+      "mistakes": {
+        "02fd849f652d8fe86fb5b494aa92368bc472bbf39fc1fc0dc15215452c6bb9f2": "v₀ = 0, pas x₁ : la moyenne part de 0",
+        "6a10292471c39d8eafc5218d4156e1882626ec5fe83d2d6a142f71089be594d0": "0,8 multiplie l'ancienne moyenne, 0,2 la nouvelle valeur"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.7b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "8e00d0d122c9b3b1803ba649afdd64c2c643b3801fa26681f31437cbd562c279"
+        ],
+        [
+          "1cb1401762a32c5dd9e87c70057492bc5f78c13d8860590a347a14b6760b8b60"
+        ],
+        [
+          "18b62e93ab1b15f1b7e65fbfdeb20858d27af33af64a8580077521f1734239e0"
+        ]
+      ],
+      "element_hashes": [
+        "315bfcfe86acc38f0e991bfb99ff6d671f7144a5d2d430286d1a002642f544a2",
+        "4b1437e73b9a121cfc2dcb65ef63095741fc474b79b889bd54ca475e6b54337c",
+        "b86414b27684c99e2be38206d067534e080b0dc4b50d5755c798b6455b83970b"
+      ],
+      "hash": "f8e40b0028e205f030bfddf6f9dcdd8e7ebb75da3930796a04757891c9d0453f",
+      "kind": "array",
+      "mistakes": {
+        "373d6dcb3de1812ee856323b184d0b7d20ef1b287e794edb65bff207ee48b689": "une moyenne : divise chaque somme par 3",
+        "715cbd8279f44869c8d79f8b6d53b354c94d8e1fe4ac81a3eaf19ece458a02a5": "5 valeurs et une fenêtre de 3 : 5 − 3 + 1 moyennes"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.7c": {
+      "hash": "5af32697e4fddc5f9e31a4ee6fd4f34fadf4e7d6a5f8c70426e8f2b5da770a80",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "2c0968e98a15e608cdbd45b742c5f268f07edfd05c85d37bd88d5c0bb4b4535d": "une moyenne : divise la somme par 5"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.7d": {
+      "hash": "f1e4da2e435ec31c581816abfe5f05c0689b6ef0c520a9791a7928d012b2f125",
+      "kind": "bool",
+      "mistakes": {
+        "fce785c8976cbf0caed7aff6b5be8fd5296c717f9b1727afa70de4a835ddb2df": "compare v₅ à la moyenne de c)"
+      },
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.7e": {
+      "decimals": 4,
+      "hash": "69fcd32db75f938aa309fa1aa787011a5a3a9944d272a5fc8428bcd7032cdf20",
+      "hash_coarse": "d677a0a934537aacd4f6cd94753a94a8e1b5fc49ffe0782fd7d71727ce1c420f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "033659450b1fcf412aa5038eff0befc4a800b071f043b087307505a8f8d2d935": "deux pas séparent x₁ de x₃ : le poids est multiplié deux fois par 0,8",
+        "690f77c4eb6b4cc7cec17a304256ca834e21be74ad82c5e7326ffcc4b0a12501": "x₁ n'a le poids 0,2 que dans v₁ : chaque pas en arrière multiplie le poids par 0,8",
+        "7e6211aaeebd6aa8ea2be4be46bdffe21e759f87e07207b3bcfe251a8ce51b38": "le poids de x₁ contient aussi le facteur 0,2 avec lequel elle est entrée"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.7f": {
+      "hash": "0ee049b2fbe5e69c2c701ae2488a3c94d6982b04d4cb415f8672468af47517da",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "b1689ee65e23e64559e068f2b3422c369226cc25361c1e20486ee80eb6cc0acd": "avec ces coefficients, v_t ne garde rien du passé : v_t = x_t",
+        "e0d8749ba777c0c424d21db1ad6ab88940819c556dd805d1926ea5f1cf1441f6": "avec ces coefficients, v_t ne garde rien du passé : v_t = x_t",
+        "e40405454dfe4c0714a7808e0ef29fa42998d7432fffab1d20cadaf27c19423f": "avec ces coefficients, v_t ne garde rien du passé : v_t = x_t"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.8a": {
+      "decimals": 2,
+      "hash": "2cd6a34ad6c72811247cbbf710f709a0dbaaec605932794b854ec50ff7623215",
+      "hash_coarse": "0347f82fbdab1f30a4cb258a92fc681623aba94b90157c8799d4531f376d4bf4",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "0b80613c4b39b7a4635e70f62a9573932652d3695cf2d5eace74ea176c090c32": "entre le rang 4 et le rang 10, on ajoute 6 fois la raison, pas 10",
+        "b56c8d67eac4041c3409f48534cba38750e3b31ec002f5fa5c26b609eca84e0a": "u₁₀ − u₄ = 6 r : divise par le nombre de pas"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.8b": {
+      "hash": "b1e1f77a2deeb458d2e419f27bcc0b8a6607443c832cd9a7488bb47327b6a504",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5bc66504d9be6c10d429358f9d7dba0af44a627896a2f356b3663b73f4dff58f": "de u₄ à u₀, on retire 4 fois la raison",
+        "ab3eddf72fbf514d0da6e459c122d12f2dc60b17363ec7106dddf940af836889": "de u₄ à u₀, on retire 4 fois la raison",
+        "c0e998dd72427b7cabd064c21101caf3478bb479848ecafa954904f771ea1805": "de u₄ à u₀, on retire 4 fois la raison"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.8c": {
+      "hash": "48f8af7c2c5e9d9dd3b0c7e659ca92693bc4f18c3160645387d0ba1825c7e67d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "44e4698e7a1afbffa89f1161d1002afacc8d8cef2fe9d6d88421230dd4895a72": "v₄ / v₁ = q³ est négatif : la raison aussi",
+        "a14f797790ecca489d0f9da30189760c9228f908cecd757f878d55962d72a9c4": "v₄ / v₁ = q³ : la raison est sa racine cubique"
+      },
+      "sign": -1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.8d": {
+      "hash": "3c82a45915351d8dd0c72e751e406d5253bb838424b6e1b7539f95169a94e272",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0843619e52500d2fc23421d4c16c3e4fe16b2b423ef6cdc76c008e4b0746edef": "v₀ = v₁ ÷ q, et q est négatif",
+        "9ce6477517139b945098b1833e4387c657eec6db20a33c5ff2918b46e73f4229": "v₀ = v₁ ÷ q, pas v₁ × q"
+      },
+      "sign": -1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.8e": {
+      "decimals": 2,
+      "hash": "9d286bfa7b38614ea808f4bc43b6b30e7a255da1c8a32560a01b004c8783ed26",
+      "hash_coarse": "e6c0cbbd6907ecce91d79e37024f621aa860d7cfdf652e92955b7d18fc760c91",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "576ea931d368e338371a23efa8802891d7727553e30a73481257e34861eeb4d1": "w₃ / w₁ = q² : prends la racine carrée",
+        "b3455be7ff3798678292bcdab5f88e80bdc3baa823f62eff2e6d3fed2e899d6f": "les termes sont positifs : la raison aussi"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.8f": {
+      "decimals": 2,
+      "hash": "0613c28298720d1e9968160052aca11233b9097f62db24b771adb3c512ac9f39",
+      "hash_coarse": "9a6024cf1194fad3d9a41e1c17503952f4510108fc06662477678070b00954d4",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "72d6f255c595827cd963b00d3e084978b0b657804b8cb43729d2b41ae2edea78": "w₀ = w₁ ÷ q, pas w₁ × q"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.8g": {
+      "decimals": 6,
+      "hash": "7ac587ceac922c4379549a83cbfc18a849fd7428537929e7d93e5dd50284b007",
+      "kind": "set",
+      "mistakes": {
+        "0b288ada7a0ba5fdb8e1dcb086293cfb4bc604597c1c6ef9b88a12eb54eed9b6": "q² = 4/9 : prends les racines carrées",
+        "8cdcc7acdb7e4abaa4b3ad99e2a480d04d256122365636027a16659e1a05c9d2": "q² = 4/9 a deux solutions, opposées",
+        "9327559038913be6ef0358f0fa6f60e94128a04b83a68e2e69bbbd4b1941a2bd": "q² = 4/9 : la raison est une racine carrée de 4/9"
+      },
+      "set_rounded": {
+        "1": "04e5555dceb19e13481c35054b8ace0831360a52bd4b8a284085a076b80c5cdb",
+        "2": "0eefde3c69e1665e2f3d6b6217a741a921fbb4a8ca93da57f76db233b59887cb",
+        "3": "283fdc004b6722f2b87314275feedd126e7b0b3be24888e70b58a9d701491815",
+        "4": "fdb7a59ec98ea40e2f91a6168b58f6e9694d6a4c36d4144a27ce4a213f0bf39c",
+        "5": "845dae3dc94edff0accfbf5a9beb2255d7c542dbcedab5bfab556d9e110ebcf1"
+      },
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.11a": {
+      "decimals": 2,
+      "hash": "377dd67d0e02badac0ebafb1282752e151fcc879964b6346cf35805e70790b4a",
+      "hash_coarse": "8d9f25d66a3577ee3b4deb5e559b572d6a67d62aeb8842ce0485f091b131b2ab",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "4a8b09610976ab31a0b60a1cbda96ba309417f25960b646f5f1a34fdb26a7cf9": "actualiser, c'est diviser par 1,04 : la valeur actuelle est plus petite",
+        "99b06ffdd2b7944013be43c0ab25bb84c9e49e8d9d5e59661dc79ce3464bd244": "on divise par 1,04 : retirer 4 % ne donne pas la même chose"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.11b": {
+      "decimals": 4,
+      "hash": "59d6a8860793dbc521027737ffc5a07984c9f4c9225dd22e19a5a5152df492a2",
+      "hash_coarse": "3df3733c0e430d588868d01cb5176dc0b2cc82da4d4fc8b070569fea83a70224",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "508b80f097ed72bb6b4eea51b5b34144c8218b16492e18896ca88e3e8e251f42": "1/1,04 n'est pas 1 − 0,04",
+        "68fdc9286a3d2bcaf29fb21a4a48e90ef8bcffe49fb8463bc9a2d968b194e792": "chaque année de plus divise la valeur actuelle par 1,04 : la raison est 1/1,04"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.11c": {
+      "decimals": 2,
+      "hash": "1a3f68cd619e64d3c55eb661cbbb4ed33f584ebd0ef42015c42099b6d9f956d7",
+      "hash_coarse": "28b4357ec8e8ef1a52d1bcab35463ed1ec989aaa254d668e3d1f073e095f3c6d",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "5734a732b098ffbf3d0086f02d29d5976288816e334c8e4041534a5a73698b6d": "on cherche la valeur aujourd'hui : on divise par les puissances de 1,04, on ne multiplie pas",
+        "6bcebeb8550711e7ee5da3907e773691d337c576012b154c5a128827b7c0e0e0": "le premier versement arrive dans un an : il est déjà actualisé une fois",
+        "9ba837d06e97ee284e2d4e803b481a7e5b565ea6cd5359f8ca1b6486d0f5ebaf": "chaque versement vaut moins aujourd'hui : actualise-les",
+        "b6602d1a908a1cd73a3379786f4ae6df80542e8c3b3c4aebcd625ac901e1eee6": "il y a 8 versements, de l'année 1 à l'année 8",
+        "e90112d5a69d7f73a36892eddd5d8198acbb859e73d4d1226ee0fe5c2d9b24eb": "il y a 8 versements, de l'année 1 à l'année 8"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.11d": {
+      "choices": [
+        "1",
+        "2"
+      ],
+      "hash": "7d910a22eb0ae5003128e7402b8cd01ca6530e05a652ec7d5ff27e0db2e8e3c7",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "341f93cd88e939c99e1e95d842f6017aebc427f05f2235ad25d66f5ca8a6d0ef": "compare 7 000 € à la valeur actuelle de c)"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.11e": {
+      "decimals": 2,
+      "hash": "e2caf09ffc040b7ef4f6046c17642d7e024e5036182f965ab1d773ab9b3a80e1",
+      "hash_coarse": "bdf3ef6a989f5b2e493d51899ffc87c542f18491bc88a94c76e61ce2b4df2598",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "23f50ae2fab53c49ba221eb7c7abbc98d3f0f5c78829658c4ce39791b490ab7a": "le taux a changé : actualise avec 1,06"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.12a": {
+      "decimals": 2,
+      "hash": "7aac98d36171e61af206245adbf22ead0932bad8d8b89583e4ce7d1e75a5e170",
+      "hash_coarse": "d565f61f53c922b6c812f4e56568a21c79dbf1c51f4a2c57e89f3213adfbfeb1",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "5a627a77a082f186a82a7516c9e80f2c314f834aa1232945a33fcbe73223220f": "une moyenne : divise la somme des 4 valeurs par 4"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.12b": {
+      "decimals": 2,
+      "hash": "c3cf5488f3e0cfb27930f29af2130bcce886b7acc565601abea6a6cd2bb46532",
+      "hash_coarse": "a49e10b474359a186a5a4c7e3c0a6e15932134b23e4a6718de59adffcb6af911",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "2fa2f495286a4360c5424e845d5ef1fc276736f9a29ea2e68d7e8528d5c2d553": "m₅ est la moyenne de x₂ à x₅"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.12c": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "6ad7a7b07e5f5b62951feae01a58abb20700f2c51d11aa5b08cf018b71720f69",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "13ab57ef4a7eb19baa4b9a37c1d025fee82ecf7dd9b018d1f07d5f70de717962": "la fenêtre de mₜ va de x_{t−3} à xₜ : c'est x_{t−3} qui en sort",
+        "6f340a35ef91aac5599910cd3d5181b1548ae37475d18c2b7cbc5ae32f6190ca": "la valeur qui sort de la fenêtre est la plus ancienne, pas la dernière",
+        "85efc8dd4d4b6ce2dd10255bdbe5673aa60b593aa52721e1c9cbbacac1f154ea": "la nouvelle moyenne corrige l'ancienne : elle ne la remplace pas"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.12d": {
+      "alt_coarse": [
+        "610d1229e84e3e5fd755422bf0a5f109490c13cdf2917c7194c2ad5da4fd9c6c"
+      ],
+      "decimals": 2,
+      "hash": "e436204c082acb5b3c08596c57277a7a4b68fa02ee89258ac8aef690912c1639",
+      "hash_coarse": "fe850cff25bffe86296daa833fe5d604e7b51e55740028ff0cdc9f7ce8d0f4cb",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "4918af5eb2817e930dd04033c96fc6a75d8264cd59da05f0e451cda6cf34183a": "la valeur qui sort de la fenêtre de m₅ pour former m₆ est x₂, la plus ancienne",
+        "4f0594f486344084551fe6646fdace9534a898f34162a1119be3f592ba1ec8a1": "la valeur qui sort de la fenêtre de m₅ pour former m₆ est x₂, la plus ancienne",
+        "9ab1bf7b75ab00f948a2bdcf9f7720feb2d4d170413df5207d594eb56d03820c": "la différence des deux valeurs est divisée par 4",
+        "a02160e208c58de5566dce3d95f33e7c7e1761a2c1daa216981f8d673fe47084": "la valeur qui sort de la fenêtre de m₅ pour former m₆ est x₂, la plus ancienne"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.12e": {
+      "decimals": 0,
+      "element_hashes": [
+        "57e63a55e373e4e478c3f0abd8a48af1bb2b708fa6080362c1ece70647afd8ec",
+        "6ed24f974353752cb0213121e51af648762eb27e67b252358ffdcfda43130efb"
+      ],
+      "hash": "2cafd79d1f50e6d49943964a699a50c136d79e07cc2f4e1f77f9116e3049afe8",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2fcd19c4ad5f9d9343e2f7ddb0fe3fd69d99d036c57e252a753d8538a265808b": "la mise à jour fait une soustraction et une addition (la division ne compte pas ici)",
+        "3e115112c827ff57672297fa13f1a332ab7374eb695adc82e840f92a8ef4dc9e": "dans l'ordre [direct, mise à jour]",
+        "c07c7d81fb785a1c00592b02eeef80aa8526e5bb9cf359f8bef0ca676fc11209": "additionner 100 nombres demande 99 additions",
+        "c0c022bd9b0984911a2a8f3f0ada11f165d852365e4a1a24fa80edba8ea9a3c6": "la mise à jour fait une soustraction, puis une addition à l'ancienne moyenne"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.12f": {
+      "decimals": 2,
+      "hash": "f7c3d930b82a0cd08e0781e6da3f3d13743269af73bca05b07a4cfee50517757",
+      "hash_coarse": "027bc767c6c2e9e6078d773c7e17659e79521943c8a21b2e217d007fa346e162",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "e901bd9b1d23c57e9be7285b12e620db3839aded9d6dd9a267dce45c95b2abc8": "m₈ est la moyenne de x₅ à x₈ : la dernière fenêtre"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.14a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "87e8bd7aae5831402783d35fa034a392a5aac08fcc12b8fd4d2f5fc0b816d13e"
+        ],
+        [
+          "a0abc79eb601bf177390593d87487e979119521ad0bed552e4e5d688374c16b4"
+        ]
+      ],
+      "element_hashes": [
+        "f9b61eb1b30a427d32fb3f973b633291834cb8fa272c5d66308bff6101f93490",
+        "3240aafb25520892d995e1054bb988fbcdf0ce76d16c5b1f78660bded4a88d4d"
+      ],
+      "hash": "ab8d98fada64a70a60f91ec497f36ce5ac20fe4f4241b76d167a8890cbe3ccc5",
+      "kind": "array",
+      "mistakes": {
+        "420c283e77007a865c1b339f55d71f3f401c8845a338919d667ca0c9041b59cf": "le rang 0 est u0 : u(n) = u0 + n × r, pas (n − 1) × r",
+        "8a43d8e6edc6d608ae94b734129397fdfb68138c1c50b84978592a4749dbae20": "le rang 0 est u0 : u(n) = u0 + n × r, pas (n + 1) × r"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.14b": {
+      "decimals": 5,
+      "hash": "3f9d94e4375ba18da38c6154c5cd9a6f38c6c0a7799756db164010037cb067fb",
+      "hash_coarse": "bd4b2e9d7de3cc3c572de5f6fc4bc305c061ee7cbec834d28f1a9aad06c51e36",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "1cab78fa74a927ed1947ce3e316841cfe205db53f52a2639236524bab3311ba5": "n est le nombre de termes : la formule contient q**n (le dernier terme est u0*q**(n - 1))",
+        "c8b43ff4a09b0370dff88229b08a01fb4d99cfc4fc0c5c11689096e2116ad96b": "n est le nombre de termes : la formule contient q**n (le dernier terme est u0*q**(n - 1))"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.14c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "747e14125d585514bbc537ad42c82aa4dbb42419b906af857dde2503c02a67c5"
+        ],
+        [
+          "c69912d85544c3ec719303fecb59f9b861e9db46ac11eb39aff0be2c394af317"
+        ]
+      ],
+      "element_hashes": [
+        "98b77457692f7e097198e18ec4713c8f2ea424ade332f342cffcdc27d9fedff3",
+        "6ae1b949735ec2616efa6136c54d3ba4ee9a3f90ae8bcb70dd75e29212b1819f"
+      ],
+      "hash": "500de34cad8dabc53205b5d3071c6e29efe96c533317aff17c1c9d133048ebac",
+      "kind": "array",
+      "mistakes": {
+        "3abab6341184b046eedd698280fd414c5092ba98b85d17c19d95f8f21668155b": "q = 1 : il y a n termes égaux à u0, pas un seul",
+        "60228b054a138e982449831ebcd3b120a2886ab25b57f6e0f81bc3288addf611": "q = 1 : chacun des n termes vaut u0, la somme vaut n × u0",
+        "c7241a9a23d44d2709c5f75974035a5edb0a8fbd043947a6a62abf084f652b1a": "une somme de 0 terme vaut 0"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.14d": {
+      "decimals": 4,
+      "hash": "45ca215a509e1a09bd39aed3e2c1429281d09022e1e4ec2f704011557897b155",
+      "hash_coarse": "31d9ddd90c5bf4ec75435a7a7a093fa894ff9342e2f254cb3e48ef43481368be",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.15a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "b3f4e1c87478410687741b94e8edb296bf0dbc14c3415c8ac703f0351be3f4ec"
+        ],
+        [
+          "a1e9567070f31cc0efaf5113e8c378665371eea8148ff934cb8ebf5f970ca38b"
+        ],
+        [
+          "f47ff8f4a7e1eda2236536e6a29b2131c461a33460fd7c56f13c58229817d343"
+        ],
+        [
+          "ae1a5d31dd4d3ec7ec7e96cbb9621cc3324877912facc55491d366beee12a375"
+        ],
+        [
+          "88b0b80e8aa046f6f6f402767dc2e10aae08fc5091f038eaade5f844f989c7db"
+        ]
+      ],
+      "element_hashes": [
+        "33f39c570d66e02a136639193d7eb2f3ebd098c90278d6323823ed97a1d39143",
+        "e59d686257fe206ad76c867bfe55face11f3ec89b567dc8b9bfaf6bee6f42b87",
+        "5d5217b2520fe775be91bc18a80a082edda86b8196be38fe5048e844723c42c8",
+        "1221d3a4cb1fd65a2b653c6ed5d2b5f399e5a6ac4015e14b4a4527506e697550",
+        "f4143906d572b282fb035bc068c26aca180cd71f887062ef5b83d218c26bf8b1"
+      ],
+      "hash": "625acbc231e2c8746e2fdcd82990873c0a45529569ea48d502b4b841eed8e07f",
+      "kind": "array",
+      "mistakes": {
+        "1054d6549bb978ee8015b9a7b95a57eb8099f50a1c6465baef5218a0a0a722f4": "la liste commence par u0 lui-même",
+        "b24e20d66236eb78a250a14cd62502a1ac2470c4dd8e2711c181662e8ff839e7": "n est le dernier rang : n + 1 termes, de u(0) à u(n)"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.15b": {
+      "hash": "ab9c8c6f550a19458c9b65a7deceaf8aa2a2ddedb55b6ffffe5993ddc5f47274",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "41986468ab6a8f8f7894af6a8b32a438f7a04d505af9112224649d9d16f616b3": "n + 1 termes, du rang 0 au rang n",
+        "e2a07785e233777d618c2de753044d5131c52b9f38c514af424be93f1ded7329": "n + 1 termes, du rang 0 au rang n"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.15c": {
+      "decimals": 0,
+      "hash": "fdc1ffef59414007233a6760feb12ecedbcb9b6141e1c6838d01dbf7b33c378d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "da56791fb5e2565ead24f818a121d4237e8ad181383df326409b992708eccc3a": "u0 entre tel quel dans la liste : f ne sert qu'à calculer les termes suivants",
+        "fafaee41ba14136a5d3049f1652d5310a3e729db73170c388e5bae270f1b787d": "n = 0 : la liste contient le seul terme u0"
+      },
+      "shape": [
+        1
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.15d": {
+      "decimals": 4,
+      "hash": "0c34f9fcc5947bf6e347060efed0f0358f6ddad02eef657a90943113a394f02f",
+      "hash_coarse": "8077ba97b03513deb9206dddc4b2e750a263b0ffcc9f6f6be5caa1c46868551f",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "167e52a139c3e11393e111202fe74a6e2aad4c3a94db1428988a20b35b34f5dd": "le terme de rang 10 : f est appliquée 10 fois à partir de u0",
+        "b93cf60e54ea0dd8084684641d7e9df8a1a7e36c0589ff88d4486c82cd4d6921": "le terme de rang 10 : f est appliquée 10 fois à partir de u0"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.16a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "b5ed7a362966ec313761b608bf57b8f097cf02266c996732d45b4e0e79589660"
+        ],
+        [
+          "79b0d851dc18ccb5d053d0ac5df1e030ace5d6ce4199628bd61cb5af58ac4204"
+        ],
+        [
+          "432fc65b82a722d74f56cd0146c12d5f1f1ea247484eeba6c72b8491969c19c8"
+        ],
+        [
+          "b87b4ccb1f62c2ac6488f8d1d4fe8ba98441098633d7533b351a610ee7477ef8"
+        ]
+      ],
+      "element_hashes": [
+        "e3606d9707ebb2449b2c6415b80702cd5d914d4ed8336f73c0f4262b76e1df70",
+        "9212af881c23f0b4476463c1366c94ba9e6325375eb3a117c2ecd117483ded4e",
+        "4c0bfb23ccf44271dd251616bdd6d407f97bc35f406b603825f8144819df0360",
+        "bff661c1e60792427de274f7758266a8c8c208d2668a29f72c0ddecba58edb00"
+      ],
+      "hash": "ded56c0cf565a2e4d89f9626f8442de16305e48a8fbba21ea3c5a394812ac6c8",
+      "kind": "array",
+      "mistakes": {
+        "a61a54146d8d7bd53b129c82625be5375dbb8fc2dd8980d51b022d3f1bec1638": "len(values) − window + 1 moyennes : la dernière fenêtre se termine sur la dernière valeur",
+        "b71cf1b2644fb5415d2cbf61517a43fa8efed1d2be7a2a3a2f759f659a7d5a33": "une moyenne : divise chaque somme par window"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.16b": {
+      "hash": "6ead5604fd986b427e2b51d7866568af78e19c7e01593c0d3343092d5268f245",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "67b1fae004c295c6298152c79aeb148b2ddc41df1ec8d9d83a3984fdd646bfbf": "len(values) − window + 1 moyennes",
+        "8e155717902225ec8639c5e8a9489be7d51a7de0bbaa93c46baddf33d06a10b4": "len(values) − window + 1 moyennes",
+        "d22118eaf38e3e9a1d59718d87c824a7f2cc753a362d73c093507b1ff71087e5": "len(values) − window + 1 moyennes"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.16c": {
+      "hash": "5af593486073683ebc25c2e083f057e64968a0b64d6d6e3333c5c26ddd0e119c",
+      "kind": "str",
+      "mistakes": {
+        "0cb0df36c69ace3ebce583beca86e07da524f1f70d6e1b0cbcdce6ec0824f912": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "2da33f977d5f04f7e1b813c742188a536d0d78102c464d40aa3bcb4264793207": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "817e8b8755d780049b462ec3c17426c7a039b4a369c41aea6b226d1a279f9b0d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cd38efc37659b54e21fcd3cf74a3e5b633b4311dc89fcab7bb2aefd67c127a07": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d4e5277c691520a11c8f28f6a5f5d0bc4b6aaf9def29e190e81b5eece7c54912": "une fenêtre plus longue que la liste doit lever une ValueError (raise), pas rendre une liste",
+        "ea9e6246abe924c87b67a502cbd573d106954c8ba376d8f0dc3eea1f4b1b1f89": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f4178e09b8da35f0ec57acbeedd1aebb3b775c19bfd527385978d298ec3099b6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.16d": {
+      "hash": "345ea87aefd8e22db1684ca7a4e4a8c15bb4738303c68d04169eb0a649b458eb",
+      "kind": "str",
+      "mistakes": {
+        "36e585796d8578bd608e5f24b89876fc47e91d9afc80026428e23e6284713b2d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "417c4b2e8d8258cf083101275a03de120139ff3a768dcf3b2e052f422fb85278": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8294ea917c624f934a5e5c774d6a3a43e9897845319680d15b594956ac3f349c": "teste la fenêtre avant de calculer : une fenêtre de 0 doit lever une ValueError, pas une division par zéro",
+        "9d55d00e8e21237b39d32e626b8e25f0000c3c4a01b9c6374464b1b06cf64cc7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c4a744132bd09dbb29224d3bb1b503deb679554a8dc0df25e6925e61165cb593": "une fenêtre de 0 doit lever une ValueError (raise), pas rendre une liste",
+        "f732f095483343b4619bfa962507b8c3bb7d33b871f263748e6768ace14cc166": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fee3a1b334b11205c5dfa6fa004adad2c0b062ccca4ccf7ba87c01fc74bd0afc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.16e": {
+      "decimals": 5,
+      "element_coarse": [
+        [
+          "d5a6508ac69e38b14559f32784ceda8786070d877f40cdae09c1da288054923a"
+        ],
+        [
+          "6e1bb87b7a8288ae62d5c6556b520a8c5a0072cd2f740abf1d41f07b3cdb136f"
+        ],
+        [
+          "1985bdc175e62b4e164a2b12e914ea6fd537aa999923704bd9b77f1433e4ffb3"
+        ],
+        [
+          "bf3bc666301b4a4c8e44e73d367b18f2790cbe1b6ef24d924f20115d0162a4e2"
+        ]
+      ],
+      "element_hashes": [
+        "7214b39e5c67d656b59fbcf820d057a5660d6533e0d2a4c23002d4b652747856",
+        "f1a869196dcb1a4edc7abea669457bbd22fc83a2f3390825b1b822443b2f8279",
+        "ee3d7cc5d64cccb92bb035101ce8ad05d9b1c625cc5492557bc569353acd9e83",
+        "af15ec02e00765922cff88f5c3577176411ad791c3a19a8df868acb2482614c8"
+      ],
+      "hash": "dda952475f5b19b41ec191adb1b4b357459880b57c68f0ac1f4e316237cad7f3",
+      "kind": "array",
+      "mistakes": {
+        "230b4e33246aa05cf11c6f381287da72a9a2cd406a7b4deaa6590f21bdc5f76a": "beta multiplie l'ancienne moyenne, 1 − beta la nouvelle valeur",
+        "c9a868d9a5a7f1c3fe9b83ed7464d2f09a1a03d760dba6f0f43dddd68c038464": "v(0) = 0 : la moyenne part de 0, pas de la première valeur"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.16f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "e5e63b29821766c54dfad26163194e76a5587000db50f30448c8f828cbcc6de6"
+        ],
+        [
+          "910f732b729580054977dfa30cf56cb0f42d7f41f2b681bf957a186b4a3deaba"
+        ],
+        [
+          "1b1ad0f9f092cea23d13f02b35cae9fa8767df2432f7e58120575151cc2fe6b1"
+        ]
+      ],
+      "element_hashes": [
+        "de4080846f2b5d12955a52f022f30c17863c50501bbd9354bb1af9527a69038d",
+        "bbc85b354893cf83a15f8f9fb67b4830de140483be456ecb2a90c28a5d8ee032",
+        "8acfe97dfea9f1f8d71c6e88bfbb2ab48a13f7669705c9a1ac2e88dcb9544b25"
+      ],
+      "hash": "672715613f65b06820144bd7d7dc6ad0cf392a32b0d1531a1314216b77ad1549",
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.16g": {
+      "hash": "a562fb8a257f3d363649fdb2efc58e37b0f12009aa0925b29f6203b34f4837a2",
+      "kind": "str",
+      "mistakes": {
+        "3f975afacb639c31cb983b66c01f641bc033afbf5e41e124c906d19ba2be7b1f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "536333d236240fb1283c1d02e91f0d545aa7e80d39cf04a2fd791342eedfdc90": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "642f5243cd1dc8b5ca6760ccc689720fe95bb0d03bf951193719ebf290012308": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "980b2592961c4dae2f57a2c2a4fcdf0626621eb5f40d17d52909550f76b2c224": "beta = 1 est exclu (la moyenne ne bougerait plus) : lève une ValueError",
+        "a7468c748018393481985e3c5cdc48e23e6f20045c8813feadd71cdb4f7f4fcc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ba721bc44fbaea9e122ad4e21d72bc3f1437ecd09d606b343b2f6dd3f276738b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "eb7270b36508a0293e43c0cc38aecfb7fb233ba767827d2782fc1dcb237252dc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.17a": {
+      "decimals": 0,
+      "element_hashes": [
+        "341755e2d53109668ce82d4f90f7b8fdcb8c0be7cc591837ccfe8440afc65be7",
+        "aefb1c7c65e4460f29d2334bb588f9bc6ada92610a8ed6ce1ca4bbb3c8147ea1",
+        "eb25fdedf5c05c92eaeff522ae4fc2a0cadcb51373335e793b48025005d999d1",
+        "889557adeeb82e3d5760e106bb147d75d03edb3524ec6cc0057d0491bb20b108",
+        "ec9c466cc265a402494db323a10285f95f90c141fabd0f6953eb8346adaf9984",
+        "81b6492026c0136aa2544c708c9e65d0436cf617530f5d054547325585b75b13",
+        "4018e7aed13d55c2a158ef7bbe070c5dd6283aef7e06c68c5e14c6afa2db32bf",
+        "d36a76991228afd1d806438101ccf84aa8f5108c7fa7b201827cbffdd682bf79",
+        "07b4e9ffa546d82d77e99074f9a3735658f15adcec133fddb02262b01e22b160",
+        "553179e5f99c259ff46bb850de6e21a45f36f03b72b99cba28eb1050a0e99971"
+      ],
+      "hash": "b997404b753af70973eb8e49df091eddd89bc203b8551112c943c491ee79206e",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1baf7e2160af91a8066395572dc5e5aaabe60203fa029002843e812e89b5148f": "k commence à 0 : np.arange(10)",
+        "8f75221622183367ea8c91ff7286895e9b4ea274c813aa69c5526e737c43134c": "les sommes partielles, pas les termes : np.cumsum",
+        "b7a9e19e56553909c35e06158f5388342b44d86e47a90dd6205a1b697e71ea76": "chaque terme contient 4 : cumule les termes 4 + 3k eux-mêmes"
+      },
+      "shape": [
+        10
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.17b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "27dde2f599becb3b3eb7734508793a255ddda9cb1a28c7242825af56dbc66af9"
+        ],
+        [
+          "b93d6ff0478abd320d397feb646a369c8b38946de0193c72886c139bc4bd83f0"
+        ],
+        [
+          "b837ee9afb80596ce65c34c2692842c4bc07b745897753c2b6b8133d010b6d94"
+        ],
+        [
+          "613dcc2aec5c114ea59f8f6d32df33fee408d34284024069d04da7958c4b6158"
+        ],
+        [
+          "73a0e2992b374d8038d242ecdc5d6a060ea4cc74c065de12b2a1a5abad5cb5a1"
+        ],
+        [
+          "134d1b2c8d28ab16553d25c2c5ca2f1023587cc0ec11d1b52c735b473838b181"
+        ]
+      ],
+      "element_hashes": [
+        "eea48485ed9cf2f7c8b581ffa53fab48fb5ab758d1b891a5977e2203ca6c9937",
+        "e855e08181060dd84776a859f401a826d283d09a9754f72dc15fd5cf9f234ddc",
+        "5593516d3b91eb5d6c68889d059240a240c5414f12fc9d466ea545b0828f1eea",
+        "4649c6e2d318431a1561a8ee819609a405c1513dac3e935fc6945499c8ec83cc",
+        "f3d22ec721727fb3763d3f37fcb147d5703b3ae3632ea2e6919e520ae60b3915",
+        "2c0166f791980ec288be44ae0b83d7229f1b462e7ba2a887941ad3a4ccb29fa2"
+      ],
+      "hash": "9a41f233a95edc9e59d861ecd60fc0636248e267a740ec02b9843a5ce87e1bb7",
+      "kind": "array",
+      "mistakes": {
+        "575d299626b71df3da35e19685ad1d47b82746e0734a871ec00515185f4841a9": "k commence à 0 : le premier terme est 5",
+        "b8c61532af52d7e3f9a22db3667d2b808cce779f93d8782d88ee2204d2baa22e": "les sommes partielles, pas les termes : np.cumsum"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.17c": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "57d79cb8b109a2a3b8f62e5be425fddbaedc2d758a3c0fd3efe095a80995c595"
+        ],
+        [
+          "1128cf865a9346572a2d38807a09359f01fc51b15f1bdf13803c1e6dd0d338c1"
+        ],
+        [
+          "f6fd36213c432225d382810b29ab9157adf90e31da224e32f8b08a4c02800411"
+        ],
+        [
+          "e839e0235a6270a047fbdf793b97e712a63547392083f9c4466e58d8274f8af1"
+        ]
+      ],
+      "element_hashes": [
+        "d9cc79a06d537a1971cdda4ee64277270fd5d1ac6fd7cf7f44f86ceb28f1ff06",
+        "45481881f03aa52b38532bf5b1deaf02ffb60950a759c6ecd09a97375d2fc628",
+        "c2ef5d6474b8b5e90a8c7c79f90c13bb2bbd1d8ed0ca0493bccfc57ddfc0c15f",
+        "a828cb75f4d58effeceeccf4da75e2cafb70058a4e72db156b2d2c56038cb509"
+      ],
+      "hash": "97b8e2c6d58c53b7c0f200bb13849036a33bce45238c4fb2d2cc13a0742c9e15",
+      "kind": "array",
+      "mistakes": {
+        "32e7ef289f3dcf1050357981067dae08b96ad4df01a4ec876f84acc9e0397060": "les évolutions se composent : le produit des coefficients 1 + taux, avec np.cumprod",
+        "c4776d382829c869b62bfa33d70a0b3fad560810139cee9fa38bae05bf88d7f2": "on multiplie par le coefficient 1 + taux, pas par le taux"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.17d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "123777d2d48885c31fc3594fba6a2762f863454f396d99d2afa964889107f8df"
+        ],
+        [
+          "b287d67dcb8a53b20e6ee5c19bb20c7204d374decf4bd1b3819851704006782e"
+        ],
+        [
+          "0e444aaeeac02394f78f3898291301d3a800039f47e52d3d9ea224c92d416882"
+        ],
+        [
+          "e83964a5aaba9b1c762fa18183d342c3ea6904949ff751e9bc33266bc3d4ba91"
+        ],
+        [
+          "140781f9e62f3461376e444d871880b64c1c721cd9d7583a26dae4d703a92c15"
+        ],
+        [
+          "b87c375872b085398d175e453affd0190abd8d8789a63c1796a0512949094b25"
+        ]
+      ],
+      "element_hashes": [
+        "4647b37cadf763da18ce7235cc00e67f2d3a5c95191652dd4f163111b4096c2b",
+        "bb4c8fd26c1eafd38cf70812949a24890840a24443d16ae605ef02be34a75a6d",
+        "f7b22662c3933395218a8c5115bcb6f0b7b3e6ed3cbc673b8306b0cb42537ee5",
+        "ae4a7106f26de4c5792df21d11acd70113760df86bc724423fc9c2127bce1495",
+        "4f965d9696daf2e61ab710db0ca47a5b86f59a23e38b4ce09b9f8ab75632d56f",
+        "52d6bece1d24995a312c2a6d34bc79df17400772bc66a05e9f93f6462669069e"
+      ],
+      "hash": "a16a816811a2bddd3b1afd19b2788ef38a79b86b572a25123278b80b085ba5b4",
+      "kind": "array",
+      "mistakes": {
+        "88ea714b6b46b72a1c83419e166a7a97e3d8b9e99be529b08627cd5ddbaf6d3b": "les poids d'une moyenne sur 2 valeurs valent 1/2 : np.ones(2) / 2",
+        "9fbc84c49c857a03ac8c350b447c9f2c96b1e604cc4a4303cb39c9f089d5aa3c": "mode=\"valid\" ne garde que les positions où la fenêtre tient en entier",
+        "a4ee4d60a4dca4033e94a6f910faaddb10c0d96f834194cc99d46324aa9b3130": "mode=\"valid\" : la fenêtre doit tenir en entier, même au début"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.18a": {
+      "decimals": 2,
+      "hash": "810d9b6b8140f1eb9b22b5af918021c90ecb5e5ebda4f5e3d2c83af8041a12a8",
+      "hash_coarse": "00b07df07cd1cbe479b83ee2d76c5fd55fa367f72d57e78c36316ea72038b675",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "189af923adbe7423476906109194fb5e327e126d2d4e75882f5303b69b9210c8": "la limite d'une récurrence affine qui converge est son point fixe, la solution de ℓ = 0,75 ℓ + 2",
+        "428aeacf599cf371136c59214201456cbed111e7103f3d9142261ff4f664b488": "la limite d'une récurrence affine qui converge est son point fixe, la solution de ℓ = 0,75 ℓ + 2",
+        "75b0ff707c4e612ea9afe599f5bec75699e0ae1b75643df62cee0430c893068c": "la limite d'une récurrence affine qui converge est son point fixe, la solution de ℓ = 0,75 ℓ + 2"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.18b": {
+      "decimals": 2,
+      "hash": "43a6006e15a748947d90ebff742cbdb18af8ad2ab39c130403fe0b1b3e307b3a",
+      "hash_coarse": "efb73c52fe715192a73006d3dce8a039cf56da1daf827d42ae5f453f901dbc11",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1e8d8279951b8493863badbe3d03274f0d0e0d8ac17ae83574e248bb1173b226": "l'écart au point fixe est multiplié par 0,75 à chaque pas, quel que soit le premier terme : la limite ne dépend pas de u₀",
+        "7624680d87ad2f9e3026d2473a2fc48afcb358cd2b0460106d2404a1d7dc3668": "l'écart au point fixe est multiplié par 0,75 à chaque pas, quel que soit le premier terme : la limite ne dépend pas de u₀",
+        "8b5bece65c66f6c21b50069e0c11af970bbc15a8d15bbee28550d661040b3da2": "l'écart au point fixe est multiplié par 0,75 à chaque pas, quel que soit le premier terme : la limite ne dépend pas de u₀"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.18c": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "7aeffc60de34a53f80f9d1c77a0cf38ee30f4f4c4f57d4d927d839604dbf2ae2",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "7895656ee1b2b112e98787b2b069eb3578ba96364a815a197b4e256da105d721": "l'écart est multiplié par 0,75 à chaque pas : le diviser par 800 demande plus de 10 pas",
+        "dc2f1aa72dc7e1637f65c3b914e3c14261c60e92b4c8eb0b59481fd04d261770": "0,75ⁿ diminue plus vite qu'on ne le croit : 0,75⁵⁰ est de l'ordre de 10⁻⁶"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.18d": {
+      "hash": "16cfba195ee22695e8c234bd7c609cdfe000153c8cfc183e420f214b48e4e7a8",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "ca30c39403ccfd2af1ac396d1218c1c0bca811a7f8867b785131c0fab506240c": "le premier rang où l'écart passe sous 0,01 : lis la ligne « premier rang » de la sortie",
+        "f7853eb099381d0e2b613704a646e73736cf24e9c4c3488ae38210d620dbffc9": "le premier rang où l'écart passe sous 0,01 : lis la ligne « premier rang » de la sortie"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.19a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1aa68907253c38029950ad6d81de6fa7debd072b0b61388afe39610b6dd8bb07"
+        ],
+        [
+          "a09afdfee8ed2d0329f2391196f2fb24246d207178d3f0ca3af0a22f7af3a2cf"
+        ],
+        [
+          "a5c453f48c8fa6aeb59a06bcf99290e80cb46cc69e8b1b783acfc195f461e515"
+        ],
+        [
+          "b62bfd2d5da3ffe1a8cccc35edefbdd2fa9db4bd884fb865b3b588d16d2e42ab"
+        ],
+        [
+          "2c01a525f9c8ef1d790f42b0077be1b9735c5d324eea749a5d97e3fb586f2a9b"
+        ]
+      ],
+      "element_hashes": [
+        "2e4ed33e05a33ce40a889388a5c0a49133e600053ec02ed951aab22f44615187",
+        "e810926425a97b7b63d1b5fadc763a440da8eea187e7ccfcf53237058398672a",
+        "a11f75fa4b99233173d2493789f0712292f1c495102ae6807601108ab43641e9",
+        "e17e9f0583fb7790036c7a68809cad01e11c56139e26adcfde2f2a7230bbaac9",
+        "d67f304c83f0bc7c43c065a20a95085d9d35c61b8d0acd27aa2db467503356ae"
+      ],
+      "hash": "398e9ea70931f83a6b74ef92ffeaed5c930eef9a4415e2a8be7cbc78c2d88fda",
+      "kind": "array",
+      "mistakes": {
+        "170cc74c07d2f64fd1d52868a03ba3af1fed4719c48bbac272a516cdb7c47e6b": "une erreur par fenêtre, dans l'ordre de windows : error(moving(x, k))"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.19b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "882e49fec510ba962a060fe46f3860d5888c4d2885efb2a7a2054e1671bb8ffa"
+        ],
+        [
+          "e7ecf54b2ec84ada611e7d18ea09b316a65d43e0f115f98dee9faa3658efe613"
+        ],
+        [
+          "35feebabd816a7c334b6fd1a431bc362ae4daa7453f1e6093160ea595dda8562"
+        ],
+        [
+          "259f0a0100bf11f6a7fac1444af7697eec430eff3418fcced2cbd1b6921497ef"
+        ],
+        [
+          "1797185cdbcf02fb68c84d7593d93f84ac88a63ca8726c54bd314746ed5bc4e0"
+        ]
+      ],
+      "element_hashes": [
+        "5ff95419b143ff40bfde1394efe8d8c56c2edae1f2f1d87e5b9507a4cd55acb0",
+        "563b485a84d1ca1f0ae49c47ccfb9d503beecc28a45c756b80553d1fb2b79730",
+        "397618d2e336c85cb13e23487de2101cd6bcb2e7b2a3ad46ccf94febd3f60972",
+        "b05b3edb9ba960d945c71b5f253e79b3ff6c3bc019ed8c32441d7e5921503b46",
+        "fea7501d431f063eb58f2ceca37a3698b95c3359aceba4a62b930254492d9075"
+      ],
+      "hash": "3ee5a2454494294ca461fc540d6cabd0be2b2f54f7dbd9cbd465ee3fa2336e3d",
+      "kind": "array",
+      "mistakes": {
+        "a4f493159dcab54e8450afc6dfe1b286bc04a2cbca88f5c9bde8de0fb1893fa4": "une erreur par valeur de β, dans l'ordre de betas : error(ema(x, beta))"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.19c": {
+      "choices": [
+        "1",
+        "3",
+        "9",
+        "25",
+        "61"
+      ],
+      "hash": "e45aeecf973a3d83784d680b74e76b8ab660c31d409df82dd4063d2b48020497",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "9ee07585f4b28809f2ce6c6a9d3e2f529396cd05512d1a63c73e7a0430ca9e06": "cherche la plus petite erreur de window_errors",
+        "d9c53af85fa37ad246ed26911ca3c26f6728b78897721aadf2ae3f6e4c11e329": "cherche la plus petite erreur de window_errors",
+        "e2d5919d521a1a0c8b3451c5db132b4e035baa78063b8f3209403c67fb239d95": "une fenêtre de 1 ne lisse rien : l'erreur est celle du bruit",
+        "f1b37fee5a7c9667e7241023491e3786647bee36fac4571888e9b8d31b4f3b9f": "la plus grande fenêtre lisse le plus, mais la courbe prend du retard : lis la liste des erreurs"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.19d": {
+      "decimals": 2,
+      "hash": "b5a387b8585aeb52e84871225cde7125d4219b679adcfdf4ea17ac096c9df28a",
+      "hash_coarse": "0ca6b08ce810548225c717e468dedde3f9e4c06e9269667a87d41c3eed6d213a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "4b83ad9245d784b70d67da741e3c7751060cf84ed891d16b00e1694cde3f742a": "β = 0 ne lisse rien : v_t = x_t",
+        "dc6f3ad507b27eab24c9fb9250ee112e92c0463d750753e96962629a353d4972": "un β proche de 1 lisse fort, mais réagit lentement : lis la liste des erreurs",
+        "f82bfdc93946fbbd2969a36e13d4737690909e8b7c78706e9a09e2d47582509b": "un β proche de 1 lisse fort, mais réagit lentement : lis la liste des erreurs",
+        "fcdfdd2b9aac67505555937f34918668242c13f39e2e901f27fd6bc631d5e1bf": "cherche la plus petite erreur de beta_errors"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.19e": {
+      "choices": [
+        "1",
+        "2"
+      ],
+      "hash": "c8fe45999069d80016c959faab98954ba836f532ef216bf382029944f78390ca",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "b212adb09d55210af0b4521c3a77832cfc9a4ec7636027dc06fbc84360b454f1": "la moyenne à l'instant t n'utilise que des valeurs passées : regarde où sont ses sommets"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.20a": {
+      "hash": "d34238c07838484e52cbd16d6338ae29fc02781acd6318522fddbe429235da87",
+      "kind": "str",
+      "mistakes": {
+        "040fffb43d0e42b45839dc93f012a16baf92a736ed2e47c84ddf00495e784682": "(c) se rapproche tour à tour de deux nombres différents : elle n'a pas de limite",
+        "1de225e3889102f0ecf50de8b6fd1750fcc69669473ecba29501ed83f52d5009": "(a) converge : l'écart à sa limite est multiplié par 0,7 à chaque pas",
+        "35e193c58399e4b78f98b0450365a1f63eb1f066a15aa863f3762a4dbc71fa43": "√n grandit sans fin, lentement : elle tend vers +∞, elle ne converge pas",
+        "771af4dc3631d5b63b7777f526884688afbfcb48ed810796e02fe0532ac9bed7": "(c) se rapproche tour à tour de deux nombres différents : elle n'a pas de limite",
+        "a71f58ac9537aa20b78326261480d3791fa8d2cf442e134514af17cec0e88892": "(b) oscille, mais de moins en moins : l'écart à sa limite est multiplié par −0,75 à chaque pas",
+        "f37d6b21e861779c162a3b95bb15b4df278b3b53489e005408c5424cccec5edc": "√n grandit sans fin, lentement : elle tend vers +∞, elle ne converge pas"
+      },
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.20b": {
+      "decimals": 0,
+      "element_hashes": [
+        "4a80f1b177413b6d099e5481ee73f7c5b468e38dda9182b29340866b59a11564",
+        "b1e4895299c9fd498e357f08b03c43a01b13899bd27b2fd0260f0de82d28658b"
+      ],
+      "hash": "3cd09fa47e8bdcbf29ae8fdaaad30674187198df376dce4b7a7e89f686286e3d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "53ce04ae29f3e019bf6ae588b2b61edb9f8b7523d67d5c147cc2774360e9364b": "les limites, pas les coefficients des puissances",
+        "936e435a2e04fdab12e1a1f0275bac5e6e858bffbd0ce5f9a5131bcbfcccf4a8": "0,7ⁿ tend vers 0, pas vers 1 : dans (a), le terme 4 × 0,7ⁿ disparaît",
+        "cba6df1d45d46fbb5bac9c894f65fb259730da50051daafcd8bb00f8f9c74995": "(−0,75)ⁿ tend vers 0, pas vers 1 : dans (b), le terme 3 × (−0,75)ⁿ disparaît"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.20c": {
+      "hash": "062c171bc0a225883bef78b557f0b9c58869468e4b8c344e318ddf68388acd50",
+      "kind": "set",
+      "mistakes": {
+        "11b92fd73748eee3f8b38f24e3ce83b9217aaeaf6073244ebba99bd331a8c223": "(c) n'a pas de limite : ses termes se rapprochent tour à tour de deux nombres",
+        "ce1f26e60a080c9cdb2d5bf78afb4e7c2eb16e4986417b3366e0f8696a1df4ce": "n / (n + 1) tend vers 1 : (c) saute entre des valeurs proches de −1 et de 1"
+      },
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.21a": {
+      "hash": "b08f1d27d9884346d0b6f685b905f4ffe61f7be5ec57ab494f139ea5aa0946a0",
+      "kind": "str",
+      "mistakes": {
+        "006b562f81275d258fe3c1f1c80380a8b8619d6abd13c521c274815cd47d99a7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "00f52ce5af840915c370fc03d297f8ec2111e37c1f29fd96dc06dd48f53bf14c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "04d9954dff1f5d813fb1406de65839f1bf6f5db61515f7abdceb4bb4a56ea930": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "05275a883f1e6228ba25e651ff71223aa730b94d59186652df4a1818209a1afe": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "05d6ca11400b1b7e7095615387c362b56c0d68e69ca7da4bba7a7ca18c4d3178": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "06de7710d42e7434d5db0c719529110bf5ddb60edc089ec3e6503169178c0390": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "075bb8995fcd30aac4aac1862287eb507e9485ff856354105fb1c15571e46529": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "0831873d1be424c55f47b273314b60f65f8bc114eb4e8d0b0c69bdcba66d60f0": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0b4b5a290d78b1b0ade22bafd1121c80a9afa5ed08755dbd49552657effefd5a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0c58838c907004dfc2cf2ed0fdc08a93c6064f6f5cd626d63c75fe41e5162c6d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0cff330b370ce1bd7ea996aa5f0781ab6701a4d39c27ae25f4f9a1efcdb2925a": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "0f88844df7233dd64ba4afd0f9d7c0dd3adf84a0048a5d9bc3db295df41c9d48": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1037396fe20026f9e077bc021244b61edef71b37fb82582709b73ed1ca24b9db": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "11cc200590fc07ef8503cf2f77fc0f700a07ba3058e41c2d72e375aebd2cd754": "une ligne de trop : la ligne (E) est correcte ; relis ce qu'elle fait",
+        "1bd613dc78ec2ca3664c933545a7250ac1bfa4df15acfbc278f78a9f63da35c3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1dceaa524844098469b20ad575976273e95c64f030da50b7a60d972a74b09370": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1ea957a269b4e0c7932117b579aa3b8bf4ed15cd617afccec1ff1e7655dda5bf": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1fe000c4832967ab617d1af977c2691b2b965157fc9e65273ad45f72882b1de4": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "23fbd825bf74758d4f02b72136fde21822f98b8931c26775c72817560b58715a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2432256d6524f61a8391bf95f30b5624f8f1b6e8dbb30a8245fd0c8c7bd45abf": "la ligne (A) est correcte, et il manque une ligne fautive : compte les tours de la boucle pour years = 3 : combien de dépôts sont ajoutés ?",
+        "25d872ca32c299088a3553d5b5ea39e673d53ff6365c3156b60fe210d003fc8b": "la ligne (D) est juste si la boucle part de k = 0 : c'est la boucle qui saute un dépôt",
+        "2778edca7d83eabd1857b442ef4e85934d11e6e2a53e94519c8afe95efbb8819": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "28098573c9df39f5027f1d906d314b6ace0bc0e44cf1a5c3f59e15834bd765d9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2bdff876abb4bff3a1b75e04d1fec20adc2d526e91addbc3e1d1443ca1510393": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "308599ab50b2328021b4f4451d7df69ff39563eff2dcfcb7ad37b16da67a030f": "la ligne (A) est correcte, et il manque une ligne fautive : dans la formule, l'exposant est le nombre de termes",
+        "35f8d2f15e697f8921c3fa798823e8e62885be67619b2470dfe919014f990260": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3698ee5967d957e3d4acf4b19e972ce4ee383f2ae9907c6b7b980ba4c72e5ecd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3802aa28fe8036d7c80d67d8f98fe9f66fa142ab5918865ba9047f4ea637e9e2": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "3861abeed4eed6220458cd2d15bd536f7bd74ac08d5568f5373b6b3841e13268": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3df39b8517d4933fdd4074bf78926e5a1a6a5431626772af04c1934548f5f9d5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4141242820859c89f6fff3acb98759c0bfc2ceda11f23dc04f2896158d0878b2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "44d400b3ed34e01a6440fcef9d320a500ab5a13ea65011a3ab8577a29bfc271b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "483c3c2a5d5368545e1f112dba42cb1020a283f1edcee73e420f2573d8de34a0": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "4948fa0ca7cb14db6dfc945d0200a45dccdd42486c7c9acd35bd6940f83ff088": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "4b8d74b1cbfed5cb8cfa65dcae0eb57bc4f3aedacaa20e42b0e66fe3a12c1dc3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4be72371cafe6a5c3e6db88ebb439e14b4dacb96287cc7e6d4306d5b688ee3cf": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4c413b46f45ad6920febc8c59135c5950a59b603bdd3bde0fce464085142ac05": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4e75c4c8e54c6826ff2f3a3f849991bbbd9433523b76c9be46ea2337d7092faf": "la ligne (E) est correcte, et il manque une ligne fautive : dans la formule, l'exposant est le nombre de termes",
+        "4fa466e6bdb7d9318b878e015710c41b15ee484a090d0e569983d44904d7a229": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "50b591527e0b75256599cbe1b0cab40624428d3e16c039ca3ba0da6c3bd16d37": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "53005b88cf1ac3bfe57ee200449939a5269aa49e8668a9a2b5946e4bc202e26a": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "54a9a8b72e11ae1f17a8f8285e31f6c8d853c8c2d21c5a51fdf78fb5ff050453": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "54c751d10f9cc95b324bd6e7edc05e702cae914808689c73c0878e990ae95fb7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "54df9477d1c9664aa0ca912eefbc35199f8402bdb5d3f27a0469361f94146700": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "56a9989f28de92bdf8c709af470cc9aee56470ad038f6feb02c6dbcf924fc8b3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "59ec97df38c44e52ee63dbf9565303723ded813add8f894d6e444d8b01f15dfd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5a8d32fb4cef5f5de367ec577332328bc283e40f03768353cade578c7f651f50": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "5da67ee1223d992d1e29846e6e54b0b0b36e333de31dc2a06eecebf97ffb1704": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "5db21647fdc3b8ce832d224d2d1d38df9491c352a44e36e710919580702d078e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5eeedbe1d08862d0e7948af83df014ce9651d84c07226779220d8ad10a50a001": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5f6b4419e31e9e2d85c812091abcbd3ddbbbf7be82a6d37d379779b58c4b4b00": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "63d3d1f0546f359b3ddacc2d16486c6e88ae30b79c43a078f3fca3809de95b50": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "64324378eb4d32d7321bf0b5bba1a429d8050f441788b580e3f25230e29d5d15": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "64a6368a666c8ee5935da4d653eabf89b4afe7d86d038bc19296f348d5895ff2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "66d9d9f353d8ec3a6f12eb582f73dce2f19d101e1dbe8cf3999445dc613d1f6d": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "6a634bf5ba0c484cac5358e4a825ce91b8297f0ff34f4f4bb7c46c3b5be73414": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6cb9f2d5a76ca8bb855d0a40b9f511d932ddd3e5d8b044483a4bb9a6e2ab8e25": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6cf29debc070aeb3e6db87a7679028d960c5c4611b7e86c713a38e8a2c46fb0d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6da3d21c84fc3063420c096d6c69b8c0c50d9e57ca1ff6dce677a9f00300d192": "la ligne (B) est correcte, et il manque une ligne fautive : compte les tours de la boucle pour years = 3 : combien de dépôts sont ajoutés ?",
+        "6dfd42c060c543b6972c26d9adf98338bfd3a395568d3438e6fb562916add649": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "790a48c5cc84e56070892e90c508b224cd3debafe28c5d8789ea096ae6eb0cab": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "79588ebef6279b9baf5992b5755b41a6141a6370d2366f037d0d787c406d81c1": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "7a2051e836df7e617d5e55eb4577eaf9ea12806ce269f46822ea45bdb059701d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7a9fa7f32e88803d1ad797f890a4b1bb09c32f384a956109327ee0ea72b4333f": "il manque une ligne fautive : compte les tours de la boucle pour years = 3 : combien de dépôts sont ajoutés ?",
+        "7d4b6f52e1a80ea93faf28c92305459523dcd1f418d40cc0562b93113e63e2c4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "86ba659aa46750f4f6653e918cbb2f03d38214b35896ba03dfc75148f2a99ce2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "883308c44703b5f42addaedd5a15ca09c779ff4839b1786624d7d3e4daea2b09": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8a42c0d5c944cc6d8f3b8b99c127af9a3b00b95391914c34d4ed8bfd96f78b1f": "la ligne (E) est correcte, et il manque une ligne fautive : compte les tours de la boucle pour years = 3 : combien de dépôts sont ajoutés ?",
+        "8ca611aa2e4bd3eeae2e3ec212a7e5860cbb089bf4481e586f38a470a62cfde6": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "8f5923b1fd1852faf9626720855faa84e10ad61be57186d881df0f651294a663": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "8f88ba69b8f5b75c131073ee5dcc3bddf245c7ce2bdce7a890af6042260e2fa2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8f89041c9c5c8147fac46edf7550ecfdcd821e98bcdfcb71153ced7e1ea3d36d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8f8ea4e186aa47a60f3ec47f7e2a772bd14a5f548d145303d730026b928c8b20": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "94b1c3442672f6b301bc1666afd1af1d0df9517b209c59e383b9d7c94b7ad33d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "94ecb3426a62480b233e22057d19ad397db5ff3720f660bf38306a91c69c7a31": "une ligne de trop : la ligne (D) est correcte ; relis ce qu'elle fait",
+        "97b3314257b7fa0adfa5332b0886dfae10eb39fdbbcf1e30f25956691035ec39": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "996f2e04a93ce86b969a20ba8d45dc9d5920bbda3bb4a26849a99e1c4fd8a244": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "99fe7653dbbe6a73611594ddef685561de2071c47f53bcfb9a121fb21d16eacd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9aaa238d8d0c7227277369a66f3dbc2f537f2ad5e46a90c7434ef5f172f721fd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9b417e3f83abf187c427dfa1f62587ac3f2d9906a04a7dd86d2f4fcda2e14610": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9e4cba9d641ec6b9f89eea717d3aaf3bc41fb11257dc9c4527eeba9a04f7b123": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "a019ed7b703c53865f1a5eac030f67acf68fb4b465f3bf03a0ef69a025017f9e": "la ligne (B) est correcte, et il manque une ligne fautive : dans la formule, l'exposant est le nombre de termes",
+        "a137b188736b9e2a840f02368111c34db72f3f28d17e942c650773481a3518d6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a39982679643ea8a5c3fd3dbb82e49738b1452ef2904a41cd143b5d4ca5220fd": "une ligne de trop : la ligne (F) est correcte ; relis ce qu'elle fait",
+        "a3b44b081b4d47d54438fb0aa70671ddd520c8cc906a63828ac3b533fc476ff4": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "a6dd830c41307abec939bda2a6752246e6f206113d5e40cd8272b7713a6b6803": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a9c3e5ef1a4d2c5aafcaa4f807caa15db315a14d348b423c050faa85c3f8d140": "la ligne (F) est correcte, et il manque une ligne fautive : compte les tours de la boucle pour years = 3 : combien de dépôts sont ajoutés ?",
+        "ac6e5ba5c73fd7abd7752b92ee2ac2be43dee4726a034daaab47b2e004901bb9": "une ligne de trop : la ligne (A) est correcte ; relis ce qu'elle fait",
+        "ae4308828d06cc86d3f1ef60f6d278eeb46b39acc0e7fafeec8e3ab35537515a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b02c34e2fc57e4f15dff31340decc6fb69847660bf396dac1a618fae80ff180c": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "b0640e8ed34e338215f0f36833f3ca933f72d2445da566c9282b22b555651c0b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b5880708f7f3884a4e453d60aebcac502d282118d836de33c55d4125068cfe4a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b5da6c2f410b235d034902f4e24a332023a2101f9df8adb69d4f241d2a90894c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b787775f241f2ab60f78e6c4115ccac11ae9f3ffe03137dec56f733aeb4b20fe": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b78b9ca2a37f12d54c19fdbfe2594a0bfe22480e0c58b3038a6d42647c6e596b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "baeca7402bc867aad863f22aa139cf17a996201e64758f50d4d6b4a69d2b6c84": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "bd8f17ea478a8a49d19da32a57c01e11ce502d7dca5bcdd4e43b5ab9757c2ded": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "bf69cd03593291e0d3d1cc25674b1742324411a898fe19c2b805b1926546ea1f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c058385433d49072e9429b0fd168237cd9fc8b9d4739cd481d42bc86b4dc04e8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c208e07c565574d5937eeb2edac22c70ab8e0cc5e1388a867997ff61f823ed12": "la ligne (F) est correcte, et il manque une ligne fautive : dans la formule, l'exposant est le nombre de termes",
+        "c4cf0f106ad74036f2a5bf9aa1bb9ef5d1ca01c8e97ed4b3c2cd23aebf7ef98e": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "c71922aae405bb9206d7d92796457016fd3c24e2982e5862251f8e338189a690": "il manque une ligne fautive : dans la formule, l'exposant est le nombre de termes",
+        "c77a1551d31d6038fe1f009bfee034ee3f84d114c706744359adcec8e3e17e4f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c79d839a2a820bad21b0430b1a81e9350f599a199bf8e0048f64b407a12a9b90": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "cdbc5ead2f16e72b37ae604d7093873ca7c699451e9817d22e1dc1319771537d": "la ligne (D) est correcte, et il manque une ligne fautive : dans la formule, l'exposant est le nombre de termes",
+        "cf32f9f55e927f8323bdd6d56dd331a44b9a42c8bb12cf04d3570b9a5eccff92": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d1c6bb34d011d7a424a17a025d9700062b119ae0c8eaf5fdc84dc8b0e228a744": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d24a6c2eebfb2a8fb1fbc5b5c03b57c805378896a55c8ae3db8b23323d838755": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "dbe81eef220d784ddd09eda382e0afcab7086c3f6b98d70cfab2b67f4959db04": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ddc0e809c4003c46568c8d487362fc9af99edaa723213a5d96c80612460d7ac3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e70afce3ab858ad47142313c8144edb53ebfc6a0ebd1df9fe38cdae237bd1133": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "e8a435b5999287a8ed9ba205952500247837325291a7275a35bc48bfa7f45a10": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e9a9d160b0e0b0d96c59cd53aa6900051383d0e73b7be89fde8339bbd9a58d09": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "e9c3ba4b696a3e4326246512b46caadbf004dd5bfcdb9721ca90ea90803341a6": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "eb557529b502ce5cc26647522e51fb47e0a90e0abd45b08e890c1b94bfbaaa05": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "ebf93a1bd65be74c612c993f13cd83cf420bd950cb2479a539055c161cf7bb5a": "une ligne de trop : la ligne (B) est correcte ; relis ce qu'elle fait",
+        "ec0ec16c545e07fbc010e710423e420d28c64ae599a34f54741a75322ff24af7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ec262bf39e112fba72d9612ecb2328a567a9ebd697c68d5a714e19425db9fab8": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "ec5235a6706ced5825e05d8357d992ba37c54cc4c98e59243ed3898eb77aa205": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "ef2c4faea7951c1a22eaa4282091fd71f64099533a495f24755c2c564b884fe6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ef3d59c41a4a37614b2e7dcb0a04c7f6a3c2f9c980dbb8fe8d8f2a992d0237ab": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f359ced8c04de351748bf11eadb9ac75ddf8145bb52b5d2a811dbf5cb5c058fb": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f7fc3ef4b92b3c2ac723d8af313e5fe1402f9c338635de432ea2015195213f59": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "fa4bdb2713d3ec124cd36534564c445ea9cea13d9a2f31667bdced8475ad8d4b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ff81db3faa20b31236e14e0da6a4a26fe3cba4544af08c4685abc0b9e74c1cb4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ff98f7e5da28fb2b376a3a387d4ca0fc937854f2d6d37e84e228997553daf1e0": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple"
+      },
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.21b": {
+      "hash": "ea016c33d2181251ccc6041e4688197d90daa642a775abab84b8078375ab2770",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "47bc59ed504a14d1a77e97d9e73a1714fa7b256530cc9439c8f2df0721b49abe": "range(1, years) va de 1 à years − 1 : la borne de droite est exclue",
+        "def693a05ecb95f7c752bd4b2056cd50941943886b4fb12c4a4a7882772fd31f": "range(1, years) va de 1 à years − 1 : la borne de droite est exclue"
+      },
+      "sign": 1,
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
+    },
+    "R5.21c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "e6845fa7264da7c35f5f8d238878da53eb18383f99248ed2d733d4d8a5f429b4"
+        ],
+        [
+          "a7a90a50d846593cdfa7034ecb4528991592d9aff472e5705bd1645a03951a5a"
+        ]
+      ],
+      "element_hashes": [
+        "f858e3fbbd35814d6f2609cae9de8959a644609a9b9feded34e9d219ae4379d9",
+        "014a803a77cd526593c39693b9b447ddeb057d45feac049371f19e60a2b711ed"
+      ],
+      "hash": "4e171350bcab9bc841c15578ded28d18e98bff96f9ea133d81922ade30e3e5a6",
+      "kind": "array",
+      "mistakes": {
+        "14c248885890b7de675be7ae72c0d4c60f9d6eb68f2dd828270040eee4c2f275": "les deux fonctions sont encore fausses : relis a)",
+        "c1185245405b23b5fbbdd57178bd31f490ea32c8eb4e6ac64b3000470e7c93dc": "la boucle saute encore le premier dépôt : k doit partir de 0",
+        "e1d2dde89b53c63c50de80e8c85f57d4e055c88b8b8f089fb97816156499e894": "la formule : l'exposant de q est le nombre de dépôts"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r5_suites/05_solutions.ipynb"
     }
   }
 }
