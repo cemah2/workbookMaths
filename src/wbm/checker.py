@@ -182,6 +182,38 @@ def _fmt_float(x: float, decimals: int) -> str:
     return text
 
 
+def _count(n: int, singular: str, plural: str | None = None) -> str:
+    """« 0 décimale », « 1 décimale », « 3 décimales » (in French, 0 and 1 take the singular)."""
+    return f"{n} {singular if abs(n) < 2 else (plural or singular + 's')}"
+
+
+def _sympy_to_python(value):
+    """SymPy numbers and truth values -> Python ones, inside lists and tuples too: ``sp.Float(0.25)`` -> 0.25,
+    ``sp.Integer(3)`` -> 3, ``sp.oo`` -> inf, ``sp.true`` -> True; a ``FiniteSet`` (``sp.solveset``) -> a Python set.
+    Anything else (an expression with a symbol...) is returned unchanged."""
+    sympy = sys.modules.get("sympy")
+    if sympy is None:
+        return value
+    if isinstance(value, list):
+        return [_sympy_to_python(item) for item in value]
+    if isinstance(value, tuple):
+        return tuple(_sympy_to_python(item) for item in value)
+    if not isinstance(value, sympy.Basic):
+        return value
+    if isinstance(value, sympy.logic.boolalg.BooleanAtom):
+        return bool(value)
+    if isinstance(value, sympy.FiniteSet):
+        return {_sympy_to_python(item) for item in value}
+    if getattr(value, "is_number", False):
+        if value.is_Integer:
+            return int(value)
+        try:
+            return float(value)
+        except (TypeError, ValueError):   # a complex number, zoo...
+            return value
+    return value
+
+
 _CHAR_MAP = str.maketrans({"’": "'", "‘": "'", "ʼ": "'", "´": "'", "`": "'",
                            "œ": "oe", "Œ": "oe", "æ": "ae", "Æ": "ae"})
 _IGNORED_CHARS = set("-‐‑‒–—−_   <>")   # "A < C < E": an order written with its signs
@@ -221,7 +253,8 @@ def _parse_number(text: str) -> float:
     else:  # 3,14 (French decimal comma)
         cleaned = cleaned.replace(",", ".")
     infinity = {"oo": 1, "+oo": 1, "∞": 1, "+∞": 1, "infini": 1, "+infini": 1, "plusinfini": 1,
-                "-oo": -1, "-∞": -1, "-infini": -1, "moinsinfini": -1}.get(cleaned.lower())
+                "-oo": -1, "-∞": -1, "-infini": -1, "moinsinfini": -1}.get(
+        cleaned.lower().replace("l'", "").replace("l’", ""))   # "plus l'infini" too
     if infinity:  # an infinite limit written as in an interval: "+oo", "-oo", "∞"
         return math.copysign(math.inf, infinity)
     if cleaned.count("/") == 1:  # a fraction written as text: "41/76"
@@ -431,6 +464,9 @@ def _other_rounding(x: float, decimals: int, norm: str) -> str | None:
     return None
 
 
+_MISTAKE_DECIMALS = 2   # the decimals of a non-integer classic mistake of a list of integers
+
+
 def make_entry(
     ex_id: str,
     value,
@@ -446,6 +482,7 @@ def make_entry(
     variables=None,
     simplified: bool = False,
     up_to_constant: bool = False,
+    expanded: bool = False,
 ) -> dict:
     """Build the (hash-only) answer entry for ``value``. Used by :func:`record`.
 
@@ -472,14 +509,14 @@ def make_entry(
         if fractional is not None or choices is not None:
             raise ValueError(f"Ex {ex_id}: `fractional` and `choices` are not available for the kind {kind!r}")
         entry = make_math_entry(ex_id, value, kind, variables=variables, simplified=simplified,
-                                up_to_constant=up_to_constant, mistakes=mistakes)
+                                up_to_constant=up_to_constant, expanded=expanded, mistakes=mistakes)
         if prediction:
             entry["prediction"] = True
         if source:
             entry["source"] = source
         return entry
-    if variables is not None or simplified or up_to_constant:
-        raise ValueError(f"Ex {ex_id}: `variables`, `simplified` and `up_to_constant` are for the kinds "
+    if variables is not None or simplified or up_to_constant or expanded:
+        raise ValueError(f"Ex {ex_id}: `variables`, `simplified`, `up_to_constant` and `expanded` are for the kinds "
                          f"'fraction', 'expr' and 'interval' (pass kind=...)")
     if kind == "array" and not ordered:
         kind = "set"
@@ -542,6 +579,12 @@ def make_entry(
                        if round(x, d) != 0 and entry["magnitude"] is not None and entry["magnitude"] + d >= 1}
             if coarser:
                 entry["coarser"] = coarser
+            # still fewer decimals, when that rounding keeps less than 2 significant digits (0.7 for 0.693, 188 for
+            # 188.50): not « presque », only « too few decimals », which is true whatever the value is worth
+            coarse_any = {str(d): [hash_answer(ex_id, kind, text) for text in _coarse_texts(x, d + 1)]
+                          for d in range(0, decimals - 1) if str(d) not in coarser and round(x, d) != 0}
+            if coarse_any:
+                entry["coarse_any"] = coarse_any
         if kind == "float":
             other = _other_rounding(x, decimals, norm)
             if other is not None:
@@ -563,6 +606,10 @@ def make_entry(
             if decimals >= 2 and np.all(np.isfinite(arr)):
                 entry["element_coarse"] = [[hash_answer(ex_id, f"element:{i}", text) for text in _coarse_texts(float(x), decimals)]
                                            for i, x in enumerate(arr.ravel())]
+                # still fewer decimals ([4.0, 4.0] for [4.020, 4.020]): « too few decimals », not « presque »
+                entry["element_coarse_any"] = [
+                    [hash_answer(ex_id, f"element:{i}", text) for d in range(0, decimals - 1) if round(float(x), d) != 0
+                     for text in _coarse_texts(float(x), d + 1)] for i, x in enumerate(arr.ravel())]
     if mistakes:
         entry["mistakes"] = {}
         seen: dict[str, str] = {}  # normalized wrong value -> its message
@@ -577,6 +624,12 @@ def make_entry(
             for wrong_value in (sorted(wrong_values, key=repr) if shared else [wrong_values]):
                 try:
                     wrong_norm = normalize(wrong_value, kind, decimals)
+                    if entry.get("integer"):
+                        wrong_arr = _as_array(wrong_value)
+                        if wrong_arr.size and not np.all(wrong_arr == np.round(wrong_arr)):
+                            # [2/3, 3] for a list of integers: kept with 2 decimals, never read as [1, 3]
+                            entry["mistake_decimals"] = _MISTAKE_DECIMALS
+                            wrong_norm = normalize(wrong_value, kind, _MISTAKE_DECIMALS)
                 except NormalizationError as exc:
                     raise ValueError(f"Ex {ex_id}: mistake {message!r} has the wrong kind") from exc
                 if wrong_norm == norm:
@@ -682,7 +735,7 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
     if x != 0 and matches(x * 100):
         return ("Ta valeur est exactement 100 fois trop petite : une proportion (entre 0 et 1) donnée au lieu d'un "
                 "pourcentage, ou une division par 100 en trop ?")
-    if 0 <= x <= 1 and matches(1 - x):
+    if 0 < x < 1 and matches(1 - x):
         return "Tu as calculé le complément (1 − p) : relis bien ce qui est demandé."
     if entry["kind"] == "float" and decimals:
         # given with too few decimals (0.12 for 0.123); never "right at 0 decimals". The hashes of the TRUE value
@@ -694,16 +747,27 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
             if coarse == entry["hash_coarse"] or coarse in entry.get("alt_coarse", ()):
                 if computed:
                     return _COMPUTED_NEAR
-                return (f"Tu y es presque : ta valeur est juste à {decimals - 1} décimale(s), mais l'énoncé "
-                        f"en demande {decimals}.")
+                return (f"Tu y es presque : ta valeur est juste à {_count(decimals - 1, 'décimale')}, mais "
+                        f"l'énoncé en demande {decimals}.")
         for d, hashes in sorted(entry.get("coarser", {}).items(), key=lambda item: -int(item[0])):
             d = int(d)
             if round(x, d) != 0 and abs(x - round(x, d)) < 1e-9 * max(1.0, abs(x)):
                 if hash_answer(ex_id, "float", _fmt_float(x, d)) in hashes:
                     if computed:
                         return _COMPUTED_NEAR
-                    return (f"Tu y es presque : ta valeur est juste à {d} décimale(s), mais l'énoncé en demande "
-                            f"{decimals}.")
+                    return (f"Tu y es presque : ta valeur est juste à {_count(d, 'décimale')}, mais l'énoncé en "
+                            f"demande {decimals}.")
+        # far fewer decimals than asked (0.7 for 0.693): only that, without « presque »
+        typed = next((d for d in range(0, decimals) if abs(x - round(x, d)) < 1e-9 * max(1.0, abs(x))), None)
+        if typed is not None and round(x, typed) != 0:
+            hashes = set(entry.get("coarse_any", {}).get(str(typed), ()))
+            if typed == decimals - 1:
+                hashes |= {entry.get("hash_coarse"), *entry.get("alt_coarse", ())}
+            if hash_answer(ex_id, "float", _fmt_float(x, typed)) in hashes:
+                if computed:
+                    return _COMPUTED_NEAR
+                return (f"Ta valeur n'a que {_count(typed, 'décimale')}, et l'énoncé en demande {decimals} : "
+                        "refais l'arrondi avec plus de chiffres (arrondis seulement à la fin du calcul).")
         # one unit away on the last decimal (rounded too early, or truncated), claimed only when that unit is
         # small next to the answer (at least 3 significant digits: with 0.65, the neighbour 0.64 is another
         # measure as often as a rounding slip)
@@ -776,6 +840,16 @@ def _element_near(ex_id: str, index: int, x: float, expected: str, decimals: int
                                         for k in (-1, 1))
 
 
+def _typed_coarse(ex_id: str, index: int, x: float, decimals: int, hashes: list[str]) -> bool:
+    """The element ``x`` has fewer decimals than asked, and is the true element rounded that way."""
+    x = float(x)
+    if not math.isfinite(x):
+        return False
+    typed = next((d for d in range(0, decimals) if abs(x - round(x, d)) < 1e-9 * max(1.0, abs(x))), None)
+    return (typed is not None and round(x, typed) != 0
+            and hash_answer(ex_id, f"element:{index}", _fmt_float(x, typed)) in hashes)
+
+
 def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False, value=None) -> str:
     import numpy as np
 
@@ -794,8 +868,10 @@ def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False, value
                     "une liste Python, `[1,5]` contient deux nombres, 1 et 5 : écris `1.5`.")
         if arr.ndim == 1 and len(expected_shape) == 1:   # a list: say it with counts, not NumPy shapes
             if arr.size < expected_shape[0]:
-                return (f"Ta liste a {arr.size} élément(s), il en faut {expected_shape[0]} : un élément oublié (si ce "
-                        "sont des coefficients, un coefficient nul s'écrit aussi, avec un 0) ?")
+                more = (" (si ce sont des coefficients, un coefficient nul s'écrit aussi, avec un 0)"
+                        if entry.get("integer") and expected_shape[0] >= 3 else "")
+                return (f"Ta liste a {_count(arr.size, 'élément')}, il en faut {expected_shape[0]} : un élément "
+                        f"oublié{more} ?")
             return f"Ta liste a {arr.size} éléments, il en faut {expected_shape[0]} : un élément en trop ?"
         return f"Forme attendue {expected_shape}, reçue {arr.shape}."
     if (arr.ndim == 2 and arr.shape[0] == arr.shape[1] > 1 and not np.array_equal(arr, arr.T)
@@ -829,6 +905,12 @@ def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False, value
     if (arr.ndim == 1 and arr.size > 1 and not np.array_equal(arr, arr[::-1])
             and _hash_value(ex_id, entry, arr[::-1]) == entry["hash"]):   # the right values, read backwards
         return "Les valeurs sont bonnes, mais dans l'ordre inverse : relis l'ordre demandé par l'énoncé."
+    if arr.ndim == 1 and 2 < arr.size <= 6 and len(set(arr.tolist())) == arr.size:   # the right values, other order
+        import itertools
+
+        given = tuple(arr.tolist())
+        if any(perm != given and matches_all(np.array(perm)) for perm in itertools.permutations(given)):
+            return "Les valeurs sont bonnes, mais pas dans l'ordre demandé : relis l'énoncé (ordre croissant ?)."
     # every sign inverted (a direction -u instead of u): said before the element count, which would only report the
     # zeros as right
     if nonzero.size and matches_all(-arr):
@@ -842,14 +924,21 @@ def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False, value
             if computed:
                 return _COMPUTED_NEAR
             return ("Tu y es presque : tes valeurs ne sont fausses qu'à l'arrondi près (une unité d'écart sur la "
-                    f"dernière décimale, ou trop peu de décimales). Donne {decimals} décimale(s), et n'arrondis "
-                    "qu'à la fin du calcul.")
+                    f"dernière décimale, ou trop peu de décimales). Donne {_count(decimals, 'décimale')}, et "
+                    "n'arrondis qu'à la fin du calcul.")
+        coarse_any = entry.get("element_coarse_any")
+        if wrong_items and coarse_any and not computed and all(
+                _typed_coarse(ex_id, i, x, decimals, coarse_any[i]) for i, x, _ in wrong_items):
+            return (f"Tes valeurs ont trop peu de décimales : l'énoncé en demande {decimals}. Refais l'arrondi avec "
+                    "plus de chiffres, à la fin du calcul seulement.")
         if wrong_items:
             first = tuple(int(i) for i in np.unravel_index(wrong_items[0][0], arr.shape))
             rank = "1ᵉʳ" if first[0] == 0 else f"{first[0] + 1}ᵉ"
             where = (f"Le premier faux est le {rank} (en comptant à partir de 1)." if arr.ndim == 1
                      else f"Premier élément faux à l'indice {first} (indices comptés à partir de 0).")
-            return f"{arr.size - len(wrong_items)} élément(s) sur {arr.size} sont justes. {where}"
+            right = arr.size - len(wrong_items)
+            verb = "est juste" if right < 2 else "sont justes"
+            return f"{_count(right, 'élément')} sur {arr.size} {verb}. {where}"
     return "Les valeurs ne sont pas les bonnes."
 
 
@@ -902,11 +991,18 @@ def _thousands_message(value, right: bool) -> str:
 _NO_ANSWER = object()
 
 
+def _sentence(text: str) -> str:
+    """A hint ends with a full stop (« … pas le numérateur. »), unless it already ends with a sign."""
+    text = text.strip()
+    return text if text.endswith((".", "!", "?", "…")) else text + "."
+
+
 def _classic(entry: dict, mistake: str, value=_NO_ANSWER) -> str:
     """The message of a classic wrong value: « Erreur classique », or « Prédiction ratée » for a 🔮.
 
     For a prediction whose answer is a choice, a whole number or a truth value, the lead recalls what the learner
     predicted (« Prédiction ratée (tu as prédit « B ») »): the hint that follows is then never read as the answer."""
+    mistake = _sentence(mistake)
     if not entry.get("prediction"):
         return f"Erreur classique. Piste : {mistake}"
     lead = "Prédiction ratée"
@@ -945,6 +1041,13 @@ def _type_hint(value, kind: str) -> str:
             if _is_sympy_expression(item) or not isinstance(item, (numbers.Number, str)):
                 shown = str(item) if len(str(item)) <= 40 else str(item)[:37] + "…"
                 return f"un élément de ta liste, « {shown} », n'est pas un nombre."
+            if isinstance(item, str):
+                try:
+                    _parse_number(item)
+                except ValueError:
+                    shown = item if len(item) <= 40 else item[:37] + "…"
+                    return (f"un élément de ta liste, « {shown} », n'est pas un nombre que je sais lire : écris sa "
+                            "valeur décimale, sans guillemets (avec math.e, math.log, math.sqrt… si besoin).")
     return ""
 
 
@@ -959,6 +1062,11 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
     kind = entry["kind"]
     if kind in MATH_KINDS:
         return check_math_entry(ex_id, entry, value)
+    value = _sympy_to_python(value)        # sp.Float, sp.oo, sp.true, sp.solveset(...): read as Python values
+    if kind == "array" and isinstance(value, (set, frozenset)):
+        return False, "type", ("J'attends une liste, dans l'ordre demandé ; j'ai reçu un ensemble (`set`, ou un "
+                               "`FiniteSet` de SymPy), qui n'a pas d'ordre : écris `sorted(...)` autour pour en faire "
+                               "une liste triée.")
     if kind == "str" and isinstance(value, (list, tuple)) and value and all(
             isinstance(item, str) and len(item.strip()) == 1 and item.strip().isalpha() for item in value):
         value = ", ".join(item.strip() for item in value)   # ["A", "C"] for "AC": read as the text of the letters
@@ -1009,10 +1117,18 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
             raw = value
         if isinstance(raw, str):  # say what was read: "an object of type str" is confusing when "vrai" is accepted
             shown = raw if len(raw) <= 40 else raw[:37] + "…"
+            if kind in ("array", "set") and re.fullmatch(r"\s*[\[(].*[\])]\s*", raw):
+                return False, "type", (f"J'attends une liste, et j'ai reçu le texte « {shown} » : enlève les "
+                                       "guillemets (une liste s'écrit entre crochets, sans guillemets : `[-1, 3]`).")
+            if kind in ("int", "float"):
+                exact = _exact_form(ex_id, entry, raw)
+                if exact:
+                    return False, "type", exact
             more = ""
             if kind in ("array", "set") and re.search(r"[a-zA-Z]", raw) and re.search(r"[+\-*^/]", raw):
-                more = (" Pour un polynôme, l'énoncé demande la liste de ses coefficients, du plus haut degré au terme "
-                        "constant, zéros compris.")
+                more = (" Pour une droite y = mx + p, l'énoncé demande la liste [m, p]." if entry.get("shape") == [2]
+                        else " Pour un polynôme, l'énoncé demande la liste de ses coefficients, du plus haut degré au "
+                        "terme constant, zéros compris.")
             return False, "type", f"J'attends {exc} ; j'ai reçu le texte « {shown} ».{more}"
         hint = _type_hint(value, kind)
         if hint:
@@ -1027,6 +1143,11 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
                 arr = np.round(arr)  # integers computed in floating point (2.9999999999999996): accept them
                 norm = normalize(arr, kind, decimals)
             else:
+                mistake_decimals = entry.get("mistake_decimals")
+                if mistake_decimals is not None:   # [2/3, 3]: a classic mistake that is not a list of integers
+                    mistake = entry.get("mistakes", {}).get(hash_answer(ex_id, kind, normalize(arr, kind, mistake_decimals)))
+                    if mistake:
+                        return False, "wrong", _classic(entry, mistake, value)
                 return False, "wrong", ("On attend des nombres entiers ici, pas des nombres à virgule. Si tes "
                                         "valeurs sont des entiers calculés en Python, arrondis-les avec round().")
         if hash_answer(ex_id, kind, norm) == entry["hash"]:
@@ -1110,6 +1231,38 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
         "n'est pas le bon : relis l'énoncé (ou l'expérience) ; sinon, vérifie l'orthographe du terme demandé "
         "(majuscules, accents, espaces et tirets sont ignorés)."
     )
+
+
+def _exact_form(ex_id: str, entry: dict, text: str) -> str | None:
+    """The message for a number typed in exact form ("ln(2)", "60*pi", "-2/e") where a decimal is asked, or None
+    when ``text`` is not a real number written that way."""
+    from wbm.mathcheck import _exact_number
+
+    try:
+        number = _exact_number(text)
+    except Exception:  # noqa: BLE001 - an odd text: the generic message
+        return None
+    if number is None:
+        return None
+    try:
+        x = float(number)
+    except (TypeError, ValueError):
+        return None
+    if not math.isfinite(x):
+        return None
+    if entry["kind"] == "int":
+        right = abs(x - round(x)) < 1e-9 and _hash_value(ex_id, entry, int(round(x))) == entry["hash"]
+    else:
+        decimals = entry.get("decimals") or 0
+        step = 10 ** -decimals / 10
+        right = any(hash_answer(ex_id, "float", _fmt_float(c, decimals)) in {entry["hash"], *entry.get("alt_hashes", [])}
+                    for c in (x, x + step, x - step))
+    asked = ("un nombre entier" if entry["kind"] == "int"
+             else f"une valeur décimale, arrondie à {_count(entry.get('decimals') or 0, 'décimale')}")
+    if right:
+        return f"Ta valeur exacte est la bonne, mais l'énoncé demande {asked} : calcule-la et donne ce nombre."
+    return (f"J'attends {asked}, pas une forme exacte comme « {text.strip()} » : calcule sa valeur (math.log, math.pi, "
+            "math.e…), puis arrondis-la comme le demande l'énoncé.")
 
 
 def _decimals_of(item) -> int:
@@ -1311,7 +1464,7 @@ def check(ex_id, value, decimals: int | None = None, *, quiet: bool = False, com
     note = ""
     stored = entry.get("decimals")
     if decimals is not None and stored is not None and int(decimals) != stored:
-        note = f" (j'arrondis à {stored} décimale(s), comme dans l'énoncé)"
+        note = f" (j'arrondis à {_count(stored, 'décimale')}, comme dans l'énoncé)"
 
     passed, status, message = check_entry(ex_id, entry, value, computed=computed)
     icon = "✅" if passed else "❌"
@@ -1417,6 +1570,7 @@ def record(
     variables=None,
     simplified: bool = False,
     up_to_constant: bool = False,
+    expanded: bool = False,
 ) -> dict:
     """Record the right answer of an exercise (solutions notebooks only).
 
@@ -1427,7 +1581,8 @@ def record(
     ``choices`` lists the values a multiple-choice statement offers (numbers only).
     ``prediction=True`` marks the prediction of a 🔮: its classic wrong value says « Prédiction ratée ».
     Maths kinds: ``kind="fraction"`` (``simplified=True``), ``kind="expr"`` (``variables=("x",)``,
-    ``up_to_constant=True`` for a primitive), ``kind="interval"`` (see :mod:`wbm.mathcheck`).
+    ``up_to_constant=True`` for a primitive, ``expanded=True`` when the statement asks for the expanded form),
+    ``kind="interval"`` (see :mod:`wbm.mathcheck`).
     The function checks that the right value passes and a wrong value fails,
     then prints the ``WBM_ANSWER`` line harvested by ``tools/build_answers.py``.
     """
@@ -1435,7 +1590,7 @@ def record(
     entry = make_entry(ex_id, value, decimals, kind=kind, ordered=ordered,
                        mistakes=mistakes, source=source, fractional=fractional, choices=choices,
                        prediction=prediction, variables=variables, simplified=simplified,
-                       up_to_constant=up_to_constant)
+                       up_to_constant=up_to_constant, expanded=expanded)
     ok, _, message = check_entry(ex_id, entry, value)
     if not ok:
         raise AssertionError(f"Ex {ex_id}: the right value does not pass its own check ({message})")
@@ -1452,5 +1607,5 @@ def record(
     RECORDED[ex_id] = entry
     print(ANSWER_PREFIX + json.dumps({"id": ex_id, **entry}, ensure_ascii=False, sort_keys=True))
     print(f"📝 Ex {ex_id} : réponse enregistrée ({entry['kind']}"
-          + (f", {entry['decimals']} décimale(s)" if "decimals" in entry else "") + ").")
+          + (f", {_count(entry['decimals'], 'décimale')}" if "decimals" in entry else "") + ").")
     return entry

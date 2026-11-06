@@ -733,13 +733,13 @@ Le cœur de l'analyse du lycée : limites et asymptotes, continuité et théorè
 | R7.18 | 🔨 | La tangente à partir de f et de sa dérivée · `tangent_line` | ★★ | 20 | §4 | C | pytest | — |
 | R7.19 | 🔨 | Trouver un zéro par dichotomie · `bisection` | ★★ | 25 | §2 | C, E | pytest | — |
 | R7.20 | 📦 | Vérifier ses dérivées avec `sympy.diff` | ★ | 15 | §5 §6 §7 | C, E | wbm | — |
-| R7.21 | 🔮 | Prédire : le taux d'accroissement s'approche-t-il toujours de la dérivée quand h devient minuscule ? | ★★ | 15 | §3 | C | wbm | — |
+| R7.21 | 🔮 | Prédire : le taux d'accroissement a-t-il toujours une limite quand h tend vers 0 ? | ★★ | 15 | §3 | C | wbm | — |
 | R7.22 | 🔬 | Zoomer sur une courbe jusqu'à voir une droite | ★★ | 20 | §4 | C, E | wbm | — |
 | R7.23 | 🎨 | Tracer f, f′ et des tangentes | ★★ | 20 | §4 §8 | C | manuel | — |
 | R7.24 | 🐛 | Chasse à l'erreur : quatre dérivées fausses | ★★ | 20 | §6 §7 | C, E | wbm | — |
 | R7.25 | 🛠️ | Tester une dérivée avec pytest et SymPy | ★ | 15 | §5 | C | manuel | — |
 
-*Notes* : Deux sessions de génération (chapitre long, figures nombreuses). Le 🔮 R7.21 montre seulement le problème du pas h (l'erreur du taux remonte quand h devient minuscule), que M05a et workbookIA 5 traitent, sans le théorème ni le meilleur pas ; ni la différence centrée ni la dérivée seconde (workbookIA 5). Frontières : on ne dérive ni σ, ni tanh, ni softplus (workbookIA 17.4) ; les fonctions de coût de R7.15 sont données par une formule, jamais par des données (pas de moyenne qui minimise les carrés, pas de w* = Σxy / Σx²) ; pas de pas de descente ; les composées de R7.7 et R7.10 et la dérivation « une lettre à la fois » de R7.11 évitent celles de 0B.23, de 0B §101.5.3 (la loss (wx + b − y)²) et de workbookIA 5.R3.
+*Notes* : Deux sessions de génération (chapitre long, figures nombreuses). Le 🔮 R7.21 porte sur l'existence du nombre dérivé (un coin, un saut, un raccord lisse) ; le choix du pas h en flottants (l'erreur du taux qui remonte quand h devient minuscule, workbookIA 5.12) est laissé à workbookIA 5 et à M05a ; ni différence centrée ni dérivée seconde (workbookIA 5). Frontières : on ne dérive ni σ, ni tanh, ni softplus (workbookIA 17.4) ; les fonctions de coût de R7.15 sont données par une formule, jamais par des données (pas de moyenne qui minimise les carrés, pas de w* = Σxy / Σx²) ; pas de pas de descente ; pas de tableau de variations de x³ − 3x (workbookIA 5.4) ; les composées de R7.7 et R7.10 et la dérivation « une lettre à la fois » de R7.11 évitent celles de 0B.23, de 0B §101.5.3 (la loss (wx + b − y)²) et de workbookIA 5.R3.
 
 <a id="r8"></a>
 ## R8 · Probabilités de base

@@ -43,8 +43,12 @@ def _hash(ex_id: str, kind: str, normalized: str) -> str:
 
 def _clean_text(text: str) -> str:
     """Typographic signs a French keyboard or a copy-paste produces -> ASCII."""
+    # √x, 3√x, √2: the square root of the letter or number that follows; √(…) and √ln(x) keep what follows
+    text = _ROOT_OF_TOKEN.sub(r" sqrt(\1)", text)
     table = {"−": "-", "–": "-", "—": "-", "×": "*", "·": "*", "⋅": "*", "÷": "/",
-             "√": "sqrt", "∞": "oo", "π": " pi ", " ": " ", " ": " "}
+             "√": " sqrt ", "∞": "oo", "π": " pi ", " ": " ", " ": " ",
+             "ˣ": "**(x)", "ᵗ": "**(t)", "ⁿ": "**(n)", "½": "(1/2)", "¼": "(1/4)", "¾": "(3/4)", "⅓": "(1/3)",
+             "⅔": "(2/3)"}
     for old, new in table.items():
         text = text.replace(old, new)
     # x², x⁴, x¹⁰, x⁻¹ -> x**(2), x**(4), x**(10), x**(-1)
@@ -52,11 +56,16 @@ def _clean_text(text: str) -> str:
     return text.strip()
 
 
+_ROOT_OF_TOKEN = re.compile(r"√\s*(\d+(?:\.\d+)?|[A-Za-z](?![A-Za-z(]))")
 _SUPERSCRIPT_DIGITS = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁻", "0123456789-")
 _SUPERSCRIPTS = re.compile(r"⁻?[⁰¹²³⁴⁵⁶⁷⁸⁹]+")
 # "Ln(5)", "LOG(x)" -> lower case; "ln5", "ln2.5" -> "ln(5)", "ln(2.5)"; "f'(x) = ...", "y = ..." -> the right side
 _FUNCTION_CASE = re.compile(r"\b(ln|log|exp|sqrt|sin|cos|tan)\b", re.IGNORECASE)
 _FUNCTION_NUMBER = re.compile(r"\b(ln|log|exp|sqrt)(\d+(?:\.\d+)?)\b")
+# "xln(x)", "2xexp(x)": a function glued to what precedes it; "lnx", "sqrtx": to its one-letter argument
+_GLUED_FUNCTION = re.compile(r"(?<=[0-9A-Za-z)])(ln|log|exp|sqrt)(?=\s*\()")
+_FUNCTION_LETTER = re.compile(r"\b(ln|log|exp|sqrt)([a-z])\b")
+_FUNCTION_LETTERS = set("sqrtlnexpog")
 _NAME_PREFIX = re.compile(r"\s*[A-Za-z]'*\s*(?:\(\s*[a-z]\s*\))?\s*")
 
 
@@ -76,7 +85,12 @@ def _parse_fraction(value) -> tuple[Fraction, bool | None]:
         if isinstance(value, sympy.Basic):
             if value.is_Rational:
                 return Fraction(int(value.p), int(value.q)), None
-            raise MathNormalizationError("une fraction exacte (la valeur n'est pas rationnelle)")
+            if value.is_Float:                    # sp.N(...), .evalf(): read like a Python float
+                value = float(value)
+            elif value.is_number and value.is_real:
+                raise _IrrationalValue()          # sqrt(2): a wrong value, not a wrong form
+            else:
+                raise MathNormalizationError("une fraction exacte, comme \"3/4\" ou sp.Rational(3, 4)")
     except ImportError:  # pragma: no cover
         pass
     if isinstance(value, Fraction):
@@ -184,6 +198,9 @@ def parse_expression(value, variables):
             text = text.split("=")[1].strip()   # "f'(x) = 2x", "y = 3x - 1": the expression is on the right
         text = _FUNCTION_CASE.sub(lambda m: m.group().lower(), text)
         text = _FUNCTION_NUMBER.sub(r"\1(\2)", text)
+        text = _FUNCTION_LETTER.sub(r"\1(\2)", text)
+        text = _GLUED_FUNCTION.sub(r"*\1", text)
+        text = text.replace("{", "(").replace("}", ")")   # e^{kt} copied from LaTeX
         while _ABS_BARS.search(text):                    # |x - 1| written with bars: Abs(x - 1)
             text = _ABS_BARS.sub(r"Abs(\1)", text)
         if not text:
@@ -209,6 +226,10 @@ def parse_expression(value, variables):
     if not isinstance(expr, sympy.Basic):
         raise MathNormalizationError("une expression mathématique, par exemple \"2*x**3 - x\"")
     unknown = sorted(str(s) for s in expr.free_symbols if str(s) not in names)
+    if unknown and len(unknown) >= 2 and set("".join(unknown)) <= _FUNCTION_LETTERS:
+        raise MathNormalizationError(
+            f"une expression lisible : les lettres {', '.join(unknown)} viennent sans doute d'une fonction collée à ce "
+            "qui l'entoure. Écris sqrt(x), ln(x), exp(x) avec des parenthèses, et le signe * pour multiplier")
     if unknown:
         allowed = ", ".join(names) if names else "aucune variable"
         raise MathNormalizationError(
@@ -409,8 +430,13 @@ def _norm_intervals(intervals) -> str:
 # entries (solutions side) and checks (learner side)
 # ---------------------------------------------------------------------------
 def make_math_entry(ex_id: str, value, kind: str, *, variables=None, simplified: bool = False,
-                    up_to_constant: bool = False, mistakes: dict | None = None) -> dict:
-    """The hash-only entry of a fraction, expression or interval answer."""
+                    up_to_constant: bool = False, expanded: bool = False, mistakes: dict | None = None) -> dict:
+    """The hash-only entry of a fraction, expression or interval answer.
+
+    ``expanded`` (expressions): the statement asks for the expanded form; an equal expression that is not expanded
+    (``x*(16 - 2*x)*(10 - 2*x)``, ``(3*h + h**2)/h``) gets « la valeur est juste, mais développe »."""
+    if expanded and kind != "expr":
+        raise ValueError(f"Ex {ex_id}: `expanded` is for an expression answer (kind='expr')")
     entry: dict = {"kind": kind}
     if kind == "fraction":
         q, _ = _parse_fraction(value)
@@ -435,6 +461,8 @@ def make_math_entry(ex_id: str, value, kind: str, *, variables=None, simplified:
         entry.update(hash=_expr_hash(ex_id, fingerprint), variables=variables, points=[list(p) for p in points])
         if up_to_constant:
             entry["up_to_constant"] = True
+        if expanded:
+            entry["expanded"] = True
         wrong = {}
         for message, w in (mistakes or {}).items():
             fp = _fingerprint(parse_expression(w, variables), variables, points, up_to_constant)
@@ -471,7 +499,11 @@ def make_math_entry(ex_id: str, value, kind: str, *, variables=None, simplified:
 
 def _classic(entry: dict, digest: str) -> str | None:
     message = entry.get("mistakes", {}).get(digest)
-    return f"Erreur classique : {message}" if message else None
+    if not message:
+        return None
+    from wbm.checker import _sentence
+
+    return f"Erreur classique. Piste : {_sentence(message)}"
 
 
 def check_math_entry(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
@@ -599,6 +631,11 @@ def _check_expr(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
                                 "réponse l'est : vérifie les racines, les logarithmes et les divisions.")
     digest = _expr_hash(ex_id, fingerprint)
     if digest == entry["hash"]:
+        import sympy
+
+        if entry.get("expanded") and sympy.expand(expr) != expr:
+            return False, "near", ("La valeur est juste, mais l'énoncé demande la forme développée et réduite : "
+                                   "développe ton expression (plus de parenthèses ni de division à simplifier).")
         return True, "ok", _praise(ex_id)
     classic = _classic(entry, digest)
     if classic:

@@ -55,7 +55,7 @@ def _sympy_derivative(expression, point):
 
 
 def test_deriv_uses_only_python_and_math(deriv):
-    """Part 0 convention: plain Python and the math module (no NumPy, SciPy or SymPy solver in deriv.py)."""
+    """Convention of chapters R0 to R9: plain Python and the math module (no NumPy, SciPy or SymPy in deriv.py)."""
     try:
         tree = ast.parse(inspect.getsource(deriv))
     except (OSError, TypeError, SyntaxError):   # source not readable: nothing to check
@@ -68,7 +68,7 @@ def test_deriv_uses_only_python_and_math(deriv):
             imported.add(node.module.split(".")[0])
     forbidden = sorted(imported - {"math", "__future__", "typing"})
     assert not forbidden, (
-        f"expected deriv.py to import only math (plain Python, the convention of part 0), not "
+        f"expected deriv.py to import only math (plain Python, the convention of chapters R0 to R9), not "
         f"{', '.join(forbidden)}: write the rate of change, the tangent and the bisection yourself")
 
 
@@ -102,8 +102,8 @@ def test_difference_quotient_returns_a_float(deriv):
     assert isinstance(got, float), f"expected a float (7.0, the docstring example), got {type(got).__name__} {got!r}"
 
 
-SMOOTH = [(sp.exp(X), math.exp, 0.5, "exp"), (sp.sqrt(X), math.sqrt, 4, "sqrt"), (sp.log(X), math.log, 2, "ln"),
-          (X**3 - 2 * X, lambda x: x**3 - 2 * x, -1, "x³ − 2x")]
+SMOOTH = [(sp.exp(X), math.exp, 0.5, "exp"), (sp.sqrt(X), math.sqrt, 9, "sqrt"), (sp.log(X), math.log, 2, "ln"),
+          (X**3 - 2 * X, lambda x: x**3 - 2 * x, -1, "x**3 - 2x")]
 
 
 @pytest.mark.parametrize("expression, f, a, name", SMOOTH, ids=[s[3] for s in SMOOTH])
@@ -163,19 +163,38 @@ def test_tangent_line_touches_the_curve_with_the_right_slope(deriv):
 
 
 # ---------------------------------------------------------------- bisection
+CALL_LIMIT = 10_000
+
+
+def _counted(f):
+    """f, which stops a loop that never ends: past CALL_LIMIT calls (a bisection needs fewer than 1 100), it raises
+    with a message, instead of letting the test run forever."""
+    calls = 0
+
+    def wrapped(x):
+        nonlocal calls
+        calls += 1
+        if calls > CALL_LIMIT:
+            raise RuntimeError(f"f was called more than {CALL_LIMIT} times: does your loop stop? (stop when the "
+                               "interval is shorter than tol, and after max_iter halvings even when tol = 0)")
+        return f(x)
+
+    return wrapped
+
+
 def test_bisection_docstring_example(deriv):
-    got = _result(lambda: deriv.bisection(lambda x: x * x - 2, 0, 2), "√2 ≈ 1.41421356")
+    got = _result(lambda: deriv.bisection(_counted(lambda x: x * x - 2), 0, 2), "√2 ≈ 1.41421356")
     assert got == pytest.approx(math.sqrt(2), abs=1e-9), f"expected √2 ≈ {math.sqrt(2)} (zero of x² − 2), got {got!r}"
 
 
-ROOTS = [(lambda x: x**3 + x - 1, 0, 1, "x³ + x − 1"), (lambda x: math.exp(x) - 3, 0, 2, "eˣ − 3"),
-         (lambda x: 2 - x, 0, 5, "2 − x (decreasing)"), (lambda x: math.log(x) + x, 0.1, 1, "ln x + x")]
+ROOTS = [(lambda x: x**3 + x - 1, 0, 1, "x**3 + x - 1"), (lambda x: math.exp(x) - 3, 0, 2, "exp(x) - 3"),
+         (lambda x: 2 - x, 0, 5, "2 - x (decreasing)"), (lambda x: math.log(x) + x, 0.1, 1, "ln(x) + x")]
 
 
 @pytest.mark.parametrize("f, a, b, name", ROOTS, ids=[r[3] for r in ROOTS])
 def test_bisection_finds_the_zero(deriv, f, a, b, name):
     exact = brentq(f, a, b, xtol=1e-14)
-    got = _result(lambda: deriv.bisection(f, a, b), f"≈ {exact} (the zero of {name} on [{a}, {b}])")
+    got = _result(lambda: deriv.bisection(_counted(f), a, b), f"≈ {exact} (the zero of {name} on [{a}, {b}])")
     assert got == pytest.approx(exact, abs=1e-9), (
         f"expected ≈ {exact} (the zero of {name} on [{a}, {b}], from scipy.optimize.brentq), got {got!r}")
 
@@ -183,7 +202,7 @@ def test_bisection_finds_the_zero(deriv, f, a, b, name):
 @pytest.mark.parametrize("tol", [1e-3, 1e-6, 1e-12], ids=["1e-3", "1e-6", "1e-12"])
 def test_bisection_respects_the_tolerance(deriv, tol):
     exact = math.log(3)
-    got = _result(lambda: deriv.bisection(lambda x: math.exp(x) - 3, 0, 2, tol=tol), f"within {tol} of ln 3")
+    got = _result(lambda: deriv.bisection(_counted(lambda x: math.exp(x) - 3), 0, 2, tol=tol), f"within {tol} of ln 3")
     assert abs(got - exact) <= tol, (
         f"expected a result within tol = {tol} of ln 3 = {exact} (zero of eˣ − 3), got {got!r} "
         f"(off by {abs(got - exact):.3g})")
@@ -195,13 +214,13 @@ ENDS = [(lambda x: x - 1, 1, 3, 1, "zero at a"), (lambda x: x - 3, 1, 3, 3, "zer
 
 @pytest.mark.parametrize("f, a, b, zero, why", ENDS, ids=[e[4] for e in ENDS])
 def test_bisection_returns_an_exact_zero(deriv, f, a, b, zero, why):
-    got = _result(lambda: deriv.bisection(f, a, b), f"{zero} ({why})")
+    got = _result(lambda: deriv.bisection(_counted(f), a, b), f"{zero} ({why})")
     assert got == pytest.approx(zero, abs=1e-12), (
         f"expected {zero} ({why}: f is exactly 0 there, no sign change is needed), got {got!r}")
 
 
 def test_bisection_stops_after_max_iter_halvings(deriv):
-    got = _result(lambda: deriv.bisection(lambda x: x**3 + x - 1, 0, 1, max_iter=3),
+    got = _result(lambda: deriv.bisection(_counted(lambda x: x**3 + x - 1), 0, 1, max_iter=3),
                   "0.6875, the middle of [0.625, 0.75] after 3 halvings")
     assert got == pytest.approx(0.6875), (
         f"expected 0.6875 (after 3 halvings of [0, 1] for x³ + x − 1: [0.5, 1], [0.5, 0.75], [0.625, 0.75], whose "
@@ -209,7 +228,8 @@ def test_bisection_stops_after_max_iter_halvings(deriv):
 
 
 def test_bisection_with_a_zero_tolerance_still_stops(deriv):
-    got = _result(lambda: deriv.bisection(lambda x: x * x - 2, 0, 2, tol=0, max_iter=60), "≈ √2, after 60 halvings")
+    got = _result(lambda: deriv.bisection(_counted(lambda x: x * x - 2), 0, 2, tol=0, max_iter=60),
+                  "≈ √2, after 60 halvings")
     assert got == pytest.approx(math.sqrt(2), abs=1e-9), (
         f"expected ≈ √2 (tol = 0 can never be reached: max_iter = 60 must stop the loop), got {got!r}")
 
@@ -221,4 +241,4 @@ BAD = [(lambda x: x * x + 1, -1, 1, "f(a) and f(b) have the same sign (x² + 1 >
 
 @pytest.mark.parametrize("f, a, b, why", BAD, ids=["same sign positive", "same sign negative", "a > b", "a == b"])
 def test_bisection_refuses_a_bad_interval(deriv, f, a, b, why):
-    _expect_value_error(lambda: deriv.bisection(f, a, b), f"bisection on [{a}, {b}]", why)
+    _expect_value_error(lambda: deriv.bisection(_counted(f), a, b), f"bisection on [{a}, {b}]", why)

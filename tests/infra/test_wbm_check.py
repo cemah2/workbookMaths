@@ -154,7 +154,7 @@ def test_a_missed_choice_prediction_recalls_the_letter_before_the_hint():
     e = entry("d.7b", "C", mistakes={"lis la part des courbes sous la figure": {"A", "B", "D"}}, prediction=True)
     for letter in "ABD":
         assert message("d.7b", e, letter) == ("Prédiction ratée (tu as prédit « " + letter + " »). Piste : lis la part "
-                                              "des courbes sous la figure")
+                                              "des courbes sous la figure.")
     assert passes("d.7b", e, "C") and passes("d.7b", e, "c")
 
 
@@ -190,7 +190,7 @@ def test_arrays_shape_values_and_diagnostics():
     assert passes("r.1", e, value.tolist())
     assert "transposé" in message("r.1", e, value.T + 0) or "élément" in message("r.1", e, value.T)
     assert "reshape" in message("r.1", e, value.ravel())
-    assert "3 élément(s) sur 4" in message("r.1", e, [[1.5, 2.25], [3.0, 9.0]])
+    assert "3 éléments sur 4" in message("r.1", e, [[1.5, 2.25], [3.0, 9.0]])
     assert "Forme attendue" in message("r.1", e, np.zeros((3, 2)))
 
 
@@ -198,10 +198,10 @@ def test_array_with_every_sign_inverted_is_diagnosed_before_the_element_count():
     value = np.array([-3.578, -0.894, 0.0, 1.789, 2.683])     # coordinates on u; -u flips every non-zero one
     e = entry("r.5", value, decimals=3)
     assert message("r.5", e, (-value).tolist()) == "Tous les signes sont inversés."
-    assert message("r.5", e, [-2, -200]).startswith("Ta liste a 2 élément(s), il en faut 5")
+    assert message("r.5", e, [-2, -200]).startswith("Ta liste a 2 éléments, il en faut 5")
     e = entry("r.6", [2, 200])
     assert message("r.6", e, [-2, -200]) == "Tous les signes sont inversés."
-    assert "1 élément(s) sur 2" in message("r.6", e, [2, -200])           # one sign only: the element count
+    assert "1 élément sur 2" in message("r.6", e, [2, -200])           # one sign only: the element count
 
 
 def test_transposed_rectangular_array():
@@ -281,7 +281,7 @@ def test_check_reads_answers_file(tmp_path):
 def test_decimals_argument_mismatch_is_harmless(capsys):
     wbm.record("rt.4", 2.71828, decimals=3)
     assert wbm.check("rt.4", 2.71828, decimals=2)
-    assert "3 décimale(s)" in capsys.readouterr().out
+    assert "3 décimales" in capsys.readouterr().out
 
 
 def test_check_result_displays_nothing():
@@ -647,17 +647,17 @@ def test_too_few_decimals_is_recognized_two_decimals_short_or_more():
     """Session 10 (R6, learner): 1.15 for 1.1487 (4 decimals asked) is right at 2 decimals, not « le détail du calcul
     qui cloche » ; -2.74 for -2.7364 too. Only roundings that keep 2 significant digits are claimed."""
     e = entry("d.27", 2 ** (1 / 5), decimals=4)                  # 1.1487
-    assert "juste à 2 décimale(s)" in message("d.27", e, 1.15)
-    assert "juste à 1 décimale(s)" in message("d.27", e, 1.1)
+    assert "juste à 2 décimales" in message("d.27", e, 1.15)
+    assert "juste à 1 décimale" in message("d.27", e, 1.1)
     assert "juste à" not in message("d.27", e, 1.16) and "juste à" not in message("d.27", e, 1.2)
     e = entry("d.28", -2.7364, decimals=4)
-    assert "juste à 2 décimale(s)" in message("d.28", e, -2.74)
+    assert "juste à 2 décimales" in message("d.28", e, -2.74)
     e = entry("d.29", 0.0498, decimals=4)                        # 0.05 is 0.050, right at 3 decimals; 0.0 never
-    assert "juste à 3 décimale(s)" in message("d.29", e, 0.05) and "juste à" not in message("d.29", e, 0.0)
+    assert "juste à 3 décimales" in message("d.29", e, 0.05) and "juste à" not in message("d.29", e, 0.0)
     e = entry("d.31", 0.1234, decimals=4)                        # 0.1 keeps one significant digit only
-    assert "juste à 2 décimale(s)" in message("d.31", e, 0.12) and "juste à" not in message("d.31", e, 0.1)
+    assert "juste à 2 décimales" in message("d.31", e, 0.12) and "juste à" not in message("d.31", e, 0.1)
     e = entry("d.30", 6.4375, decimals=4)                        # a tie at 2 decimals: 6.44 at school, 6.44 here too
-    assert "juste à 2 décimale(s)" in message("d.30", e, 6.44)
+    assert "juste à 2 décimales" in message("d.30", e, 6.44)
 
 
 def test_fractions_written_as_text_are_numbers_and_percent_signs_get_a_message():
@@ -679,7 +679,7 @@ def test_arrays_accept_numbers_written_as_text_and_hint_at_rounding():
     assert "presque" in message("d.24", e, [0.85, 0.72, 0.97])        # too few decimals
     assert "presque" in message("d.24", e, [0.854, 0.723, 0.971])     # one unit away
     far = message("d.24", e, [0.854, 0.65, 0.971])
-    assert "presque" not in far and "2 élément(s) sur 3" in far
+    assert "presque" not in far and "2 éléments sur 3" in far
     assert "n'est pas un nombre" in message("d.24", e, ["0,854", "abc", "0,971"])
 
 
@@ -725,7 +725,7 @@ def test_too_few_decimals_is_recognized_on_a_rounding_boundary():
     """0.625 asked with 3 decimals: 0.63 (rounded half up) and 0.62 (Python's rounding) are both 'right at 2'."""
     e = entry("n.1", 0.625, decimals=3)
     for given in (0.63, 0.62):
-        assert "juste à 2 décimale(s)" in message("n.1", e, given)
+        assert "juste à 2 décimales" in message("n.1", e, given)
     assert "juste à 2" not in message("n.1", e, 0.61)
 
 
@@ -739,7 +739,7 @@ def test_too_few_decimals_on_a_tie_stored_under_the_half():
     for value, decimals, neighbours, truncated in cases:
         e = entry("n.10", value, decimals=decimals)
         for given in neighbours:
-            assert f"juste à {decimals - 1} décimale(s)" in message("n.10", e, given), (value, given)
+            assert f"juste à {decimals - 1} décimale" + ("s" if decimals > 2 else "") in message("n.10", e, given), (value, given)
         if truncated is not None:
             assert "presque" not in message("n.10", e, truncated), (value, truncated)
     e = entry("n.11", 2.4751, decimals=4)                 # not a tie at 3 decimals: only the right rounding
@@ -765,10 +765,10 @@ def test_two_mistakes_with_the_same_value_are_refused():
 def test_too_few_decimals_is_judged_on_the_true_value_not_on_its_rounding():
     """95.2948 is recorded as 95.295 (3 decimals): at 2 decimals the right value is 95.29, not 95.30."""
     e = entry("n.5", 95.29482, decimals=3)
-    assert "juste à 2 décimale(s)" in message("n.5", e, 95.29)
+    assert "juste à 2 décimales" in message("n.5", e, 95.29)
     assert "juste à 2" not in message("n.5", e, 95.30) and "juste à 2" not in message("n.5", e, 95.3)
     e = entry("n.6", 0.034595, decimals=3)
-    assert "juste à 2 décimale(s)" in message("n.6", e, 0.03)
+    assert "juste à 2 décimales" in message("n.6", e, 0.03)
     assert "juste à 2" not in message("n.6", e, 0.04)
     for value, good, bad in [(1.2348, 1.23, 1.24), (0.1449, 0.14, 0.15)]:
         e = entry("n.7", value, decimals=3)
@@ -1008,3 +1008,62 @@ def test_infinite_limits_are_written_like_interval_ends():
     assert passes("d.33", e, "-oo") and passes("d.33", e, "−∞") and passes("d.33", e, -math.inf)
     e = entry("d.34", 2.0, decimals=2)
     assert "infinie" in message("d.34", e, "+oo")
+
+
+# ---------------------------------------------------------------- session 12 (R7, learner simulation)
+def test_sympy_numbers_booleans_and_sets_are_read_as_python_values():
+    import sympy
+
+    e = entry("s.1", 0.25, decimals=2)
+    assert passes("s.1", e, sympy.Float(0.25)) and passes("s.1", e, sympy.Rational(1, 4))
+    assert passes("s.2", entry("s.2", [True, True, False]), [sympy.true, sympy.true, sympy.false])
+    assert passes("s.3", entry("s.3", math.inf, decimals=2), sympy.oo)
+    assert "sorted" in message("s.4", entry("s.4", [0, 2]), sympy.FiniteSet(0, 2))
+
+
+def test_plus_l_infini_is_read_as_infinity():
+    e = entry("s.5", math.inf, decimals=2)
+    for text in ("plus l'infini", "plus l’infini", "+oo", "plus infini"):
+        assert passes("s.5", e, text), text
+    assert passes("s.6", entry("s.6", -math.inf, decimals=2), "moins l'infini")
+
+
+def test_a_list_typed_in_quotes_is_told_to_drop_them():
+    assert "enlève les guillemets" in message("s.7", entry("s.7", [-1, 3]), "[-1, 3]")
+
+
+def test_an_exact_form_where_a_decimal_is_asked():
+    e = entry("s.8", math.log(2), decimals=3)
+    assert "Ta valeur exacte est la bonne" in message("s.8", e, "ln(2)")
+    assert "pas une forme exacte" in message("s.8", e, "ln(3)")
+    assert "« e »" in message("s.9", entry("s.9", [math.e, 0.0], decimals=3), ["e", 0])
+
+
+def test_a_non_integer_mistake_of_an_integer_list_is_not_rounded():
+    e = entry("s.10", [-1, 3], mistakes={"le dénominateur, pas le numérateur": [2 / 3, 3]})
+    assert "dénominateur" in message("s.10", e, [2 / 3, 3]) and "dénominateur" in message("s.10", e, [0.67, 3])
+    assert "dénominateur" not in message("s.10", e, [1, 3])
+
+
+def test_the_complement_hint_needs_a_value_strictly_between_0_and_1():
+    e = entry("s.11", 0.0, decimals=2)
+    assert "complément" not in message("s.11", e, 1)
+
+
+def test_far_too_few_decimals_is_said_without_presque():
+    e = entry("s.12", math.log(2), decimals=3)
+    text = message("s.12", e, 0.7)
+    assert "n'a que 1 décimale" in text and "presque" not in text
+    assert "n'a que 0 décimale" in message("s.13", entry("s.13", 60 * math.pi, decimals=2), 188)
+    arr = entry("s.14", [4.02, 4.02], decimals=3)
+    assert "trop peu de décimales" in message("s.14", arr, [4.0, 4.0])
+
+
+def test_the_right_values_in_another_order():
+    e = entry("s.15", [12, 6, 2])
+    assert "pas dans l'ordre" in message("s.15", e, [2, 12, 6])
+
+
+def test_classic_mistakes_end_with_a_full_stop():
+    e = entry("s.16", 5.0, decimals=2, mistakes={"relis la consigne": 2})
+    assert message("s.16", e, 2) == "Erreur classique. Piste : relis la consigne."

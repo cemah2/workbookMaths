@@ -55,7 +55,7 @@ def test_fraction_a_decimal_approximation_is_named_as_such(value):
 def test_fraction_classic_mistake():
     entry = entry_of("F.5", Fraction(3, 4), kind="fraction", mistakes={"tu as additionné les dénominateurs": "3/8"})
     passed, _, message = verdict("F.5", entry, "3/8")
-    assert not passed and message == "Erreur classique : tu as additionné les dénominateurs"
+    assert not passed and message == "Erreur classique. Piste : tu as additionné les dénominateurs."
 
 
 def test_fraction_entry_stores_no_clear_value():
@@ -113,7 +113,7 @@ def test_expression_classic_mistake():
     entry = entry_of("E.7", "cos(x)", kind="expr", variables=("x",),
                      mistakes={"la dérivée de sin est cos, pas -cos": "-cos(x)"})
     passed, _, message = verdict("E.7", entry, "-cos(x)")
-    assert not passed and message.startswith("Erreur classique : la dérivée de sin")
+    assert not passed and message.startswith("Erreur classique. Piste : la dérivée de sin")
 
 
 def test_expression_needs_variables():
@@ -301,3 +301,51 @@ def test_pi_glued_to_letters_is_read_as_a_factor():
     for value in ("2πrh", "2π r h", "2*π*r*h", "2*pi*r*h"):
         assert verdict("E.40", entry, value)[0], value
     assert not verdict("E.40", entry, "πr²")[0]
+
+
+@pytest.mark.parametrize("value", ["3√x/2", "3*sqrt(x)/2", "1.5√x", "(3/2)x√x/x"])
+def test_square_root_sign_before_a_letter(value):
+    """Session 12 (R7, learner simulation): « 3√x/2 » is 3·√x/2, not 3·s·q·r·t·x/2."""
+    entry = entry_of("E.41", "3*sqrt(x)/2", kind="expr", variables=("x",))
+    assert verdict("E.41", entry, value)[0], verdict("E.41", entry, value)[2]
+
+
+@pytest.mark.parametrize("value, expected", [
+    ("ln(x)/(2√x) + √x/x", "log(x)/(2*sqrt(x)) + 1/sqrt(x)"), ("e^(√x)/(2√x)", "exp(sqrt(x))/(2*sqrt(x))"),
+    ("1/(2x√(ln x))", "1/(2*x*sqrt(log(x)))"), ("xln(x)", "x*log(x)"), ("lnx", "log(x)"), ("3eˣ - 4/x", "3*exp(x) - 4/x"),
+    ("√ln(x)", "sqrt(log(x))")])
+def test_typed_forms_of_roots_logarithms_and_superscripts(value, expected):
+    import sympy
+
+    assert sympy.simplify(parse_expression(value, ["x"]) - parse_expression(expected, ["x"])) == 0
+
+
+def test_glued_function_letters_get_a_readable_message():
+    entry = entry_of("E.42", "x*log(x)", kind="expr", variables=("x",))
+    passed, _, text = verdict("E.42", entry, "xlnx")
+    assert not passed and "ln(x)" in text and "q, r" not in text
+
+
+def test_half_superscripts_and_latex_braces():
+    entry = entry_of("E.43", "m*v**2/2 + exp(k*t)", kind="expr", variables=("m", "v", "k", "t"))
+    assert verdict("E.43", entry, "½mv² + e^{kt}")[0]
+
+
+def test_a_sympy_float_is_read_like_a_python_float_for_a_fraction():
+    import sympy
+
+    entry = entry_of("F.5", Fraction(1, 4), kind="fraction")
+    assert verdict("F.5", entry, sympy.Float(0.25))[0]
+    passed, _, text = verdict("F.5", entry, sympy.Float(0.5))
+    assert not passed and "rationnel" not in text
+
+
+def test_expanded_form_is_required_when_asked():
+    entry = entry_of("E.44", "4*x**3 - 52*x**2 + 160*x", kind="expr", variables=("x",), expanded=True)
+    assert verdict("E.44", entry, "4x³ - 52x² + 160x")[0]
+    assert verdict("E.44", entry, "160*x - 52*x**2 + 4*x**3")[0]
+    passed, status, text = verdict("E.44", entry, "x*(16-2*x)*(10-2*x)")
+    assert not passed and status == "near" and "développée" in text
+    rate = entry_of("E.45", "20 + 5*h", kind="expr", variables=("h",), expanded=True)
+    assert verdict("E.45", rate, "5*(4 + h)")[0]
+    assert verdict("E.45", rate, "(20*h + 5*h**2)/h")[1] == "near"

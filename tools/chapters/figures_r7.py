@@ -101,41 +101,42 @@ def fig_bisection() -> None:
 
 
 def fig_secants() -> None:
-    """§3: secants of f(x) = 3x² between 1 and 1 + h (h = 1, 0,5, 0,2) and the tangent at 1 (slope 6)."""
-    f = lambda x: 3 * x**2  # noqa: E731
-    x = np.linspace(0, 2.2, 300)
+    """§3: secants of f(x) = x² − 2x between 3 and 3 + h (h = 1, 0,5, 0,2) and the tangent at 3 (slope 4)."""
+    f = lambda x: x**2 - 2 * x  # noqa: E731
+    x = np.linspace(1.5, 4.3, 300)
     fig, ax = plt.subplots(figsize=(6.4, 4.2))
-    ax.plot(x, f(x), color=C[0], linewidth=2, label="y = 3x²")
+    ax.plot(x, f(x), color=C[0], linewidth=2, label="y = x² − 2x")
     for h, colour in ((1, C[1]), (0.5, C[2]), (0.2, C[3])):
-        slope = (f(1 + h) - f(1)) / h
-        ax.plot(x, f(1) + slope * (x - 1), color=colour, linewidth=1.2,
+        slope = (f(3 + h) - f(3)) / h
+        ax.plot(x, f(3) + slope * (x - 3), color=colour, linewidth=1.2,
                 label=f"sécante, h = {french_number(h)} : pente {french_number(round(slope, 2))}")
-        ax.plot([1 + h], [f(1 + h)], "o", color=colour, markersize=4)
-    ax.plot(x, 6 * x - 3, color="black", linewidth=1.8, linestyle="--", label="tangente : pente 6")
-    ax.plot([1], [3], "o", color="black", markersize=5)
-    ax.set_xlim(0, 2.2)
-    ax.set_ylim(-1, 14)
+        ax.plot([3 + h], [f(3 + h)], "o", color=colour, markersize=4)
+    ax.plot(x, 4 * x - 9, color="black", linewidth=1.8, linestyle="--", label="tangente : pente 4")
+    ax.plot([3], [3], "o", color="black", markersize=5)
+    ax.set_xlim(1.5, 4.3)
+    ax.set_ylim(-2, 11)
     ax.grid(True, alpha=0.3)
     ax.set_xlabel("x")
     ax.legend(loc="upper left", fontsize=8)
-    ax.set_title("Quand h diminue, la sécante se rapproche de la tangente", fontsize=10)
+    ax.set_title("Les sécantes issues de (3 ; 3) pivotent vers la tangente", fontsize=10)
     save(fig, "secantes.png")
 
 
 def fig_zoom() -> None:
-    """§4: f(x) = 3x² and its tangent y = 6x − 3 at 1, on three windows of widths 2, 0,2 and 0,02."""
-    f = lambda x: 3 * x**2  # noqa: E731
+    """§4: f(x) = x² − 2x and its tangent y = 4x − 9 at 3, on three windows of widths 2, 0,2 and 0,02."""
+    f = lambda x: x**2 - 2 * x  # noqa: E731
     fig, axes = plt.subplots(1, 3, figsize=(11, 3.4))
     for ax, width in zip(axes, (1, 0.1, 0.01)):
-        x = np.linspace(1 - width, 1 + width, 200)
-        ax.plot(x, f(x), color=C[0], linewidth=2, label="y = 3x²")
-        ax.plot(x, 6 * x - 3, color="black", linewidth=1.2, linestyle="--", label="tangente")
-        ax.plot([1], [3], "o", color="black", markersize=4)
-        ax.set_title(f"x entre {french_number(round(1 - width, 3))} et {french_number(round(1 + width, 3))}",
+        x = np.linspace(3 - width, 3 + width, 200)
+        ax.plot(x, f(x), color=C[0], linewidth=2, label="y = x² − 2x")
+        ax.plot(x, 4 * x - 9, color="black", linewidth=1.2, linestyle="--", label="tangente")
+        ax.plot([3], [3], "o", color="black", markersize=4)
+        ax.set_title(f"x entre {french_number(round(3 - width, 3))} et {french_number(round(3 + width, 3))}",
                      fontsize=9)
         ax.grid(True, alpha=0.3)
     axes[0].legend(fontsize=8, loc="upper left")
-    fig.suptitle("Plus on zoome sur le point (1 ; 3), plus la courbe se confond avec sa tangente", fontsize=10)
+    fig.suptitle("Trois fenêtres de plus en plus étroites autour de (3 ; 3) : la courbe finit par se confondre avec "
+                 "sa tangente", fontsize=10)
     fig.tight_layout()
     save(fig, "zoom.png")
 
@@ -160,9 +161,9 @@ def fig_variations() -> None:
     bottom.set_xlabel("x")
     top.set_ylim(-3, 9)
     bottom.set_ylim(-5, 12)
-    fig.suptitle("f monte quand f′ > 0, descend quand f′ < 0", fontsize=10)
+    fig.suptitle("Chaque changement de signe de f′ (en bas) marque un extremum local de f (en haut)", fontsize=10)
     fig.tight_layout()
-    save(fig, "variations.png")
+    save(fig, "variations_extremums.png")
 
 
 def main() -> int:

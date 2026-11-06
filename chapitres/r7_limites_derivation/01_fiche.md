@@ -55,7 +55,7 @@ Parcours essentiel : tout sauf R7.Q8, R7.R3, R7.2, R7.13, R7.18, R7.21, R7.23 et
 7. $(u + v)' = u' + v'$, $(ku)' = k u'$, $(uv)' = u'v + uv'$, $\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}$.
 8. **Règle de la chaîne** : $\big(g(u(x))\big)' = g'(u(x)) \times u'(x)$, ou $\frac{dz}{dx} = \frac{dz}{du} \times \frac{du}{dx}$ : on dérive chaque étage, et on multiplie.
 9. $f' > 0$ sur un intervalle : $f$ y croît ; $f' < 0$ : elle décroît. En un extremum intérieur, $f' = 0$ ; mais $f' = 0$ ne suffit pas : on regarde le **signe** de $f'$ autour.
-10. $f = O(g)$ : $f$ ne grandit pas plus vite que $g$, à une constante près. La dichotomie fait $O(\log n)$ étapes, une double boucle $O(n^2)$.
+10. $f = O(g)$ : $f$ ne grandit pas plus vite que $g$, à une constante près. Chercher dans une liste triée en coupant en deux demande $O(\log n)$ étapes, une double boucle $O(n^2)$.
 
 ---
 
@@ -105,6 +105,8 @@ Les cas intéressants sont ceux où $f(a)$ n'existe pas. Avec $f(x) = \frac{1}{x
 | $\frac{1}{x - 3}$ | 10 | 100 | 1 000 | −10 | −100 | −1 000 |
 
 Par la droite ($x > 3$, noté $x \to 3^+$), le dénominateur est un petit nombre positif et $f(x) \to +\infty$ ; par la gauche ($x \to 3^-$), il est petit et négatif, et $f(x) \to -\infty$. Ce sont deux **limites à droite et à gauche** ; elles diffèrent, donc $f$ n'a pas de limite en 3 tout court.
+
+Quand le numérateur tend vers un nombre non nul et le dénominateur vers 0, la limite est infinie, et son **signe suit la règle des signes** de la division. Pour $\frac{-2}{x - 3}$ : à droite de 3, on divise un nombre proche de −2 par un petit nombre positif, et le quotient tend vers $-\infty$ ; à gauche, par un petit nombre négatif, et il tend vers $+\infty$.
 
 Une limite en un point peut aussi être finie alors que $f(a)$ n'existe pas : la forme $\frac{0}{0}$. Pour $\frac{x^2 - 9}{x - 3}$ en 3, on factorise : $\frac{(x - 3)(x + 3)}{x - 3} = x + 3$ pour $x \ne 3$, donc la limite vaut 6. La courbe est une droite à laquelle il manque un point.
 
@@ -159,13 +161,13 @@ Le théorème dit qu'un zéro existe, pas où il est. La **dichotomie** (*bisect
 | 1 | $[0 \;;\; 1]$ | 0,5 | −0,375 | $[0{,}5 \;;\; 1]$ |
 | 2 | $[0{,}5 \;;\; 1]$ | 0,75 | 0,172 | $[0{,}5 \;;\; 0{,}75]$ |
 | 3 | $[0{,}5 \;;\; 0{,}75]$ | 0,625 | −0,131 | $[0{,}625 \;;\; 0{,}75]$ |
-| 4 | $[0{,}625 \;;\; 0{,}75]$ | 0,6875 | 0,013 | $[0{,}625 \;;\; 0{,}6875]$ |
+| 4 | $[0{,}625 \;;\; 0{,}75]$ | 0,6875 | 0,012 | $[0{,}625 \;;\; 0{,}6875]$ |
 
 Après 4 étapes, le zéro est dans un intervalle de longueur $\frac{1}{16}$ ; il vaut environ 0,6823. À chaque étape, la longueur est **divisée par 2** : après $n$ étapes, elle vaut $\frac{b - a}{2^n}$. Pour descendre sous $10^{-6}$ en partant d'un intervalle de longueur 1, il faut $2^n \ge 10^6$, soit $n \ge \log_2(10^6) \approx 19{,}9$ : **20 étapes** (R6 §4). La dichotomie est lente mais sûre : elle marche pour toute fonction continue qui change de signe. Tu la programmeras en R7.19.
 
 ![La dichotomie sur x³ + x − 1 : quatre intervalles emboîtés autour du zéro](figures/dichotomie.png)
 
-🔗 **Dans workbookIA** — la même idée, « couper l'espace de recherche en deux », est celle des questions oui ou non de R6 et de la recherche dans une liste triée. Les bibliothèques de calcul (`scipy.optimize`) proposent la dichotomie et des méthodes plus rapides qui s'y ramènent quand elles échouent.
+🔗 **Dans workbookIA** — les bibliothèques de calcul (`scipy.optimize`) proposent la dichotomie, et des méthodes plus rapides qui s'y ramènent quand elles échouent. La même idée, « couper l'espace de recherche en deux », est celle des questions oui ou non de R6 et de la recherche dans une liste triée (§9).
 
 ---
 
@@ -183,33 +185,33 @@ la variation de $f$ divisée par la variation de $x$. C'est la **pente de la sé
 
 ### Le nombre dérivé
 
-Prenons $f(x) = 3x^2$ et $a = 1$. Le taux d'accroissement vaut
+Prenons $f(x) = x^2 - 2x$ et $a = 3$, où $f(3) = 3$. Le taux d'accroissement vaut
 
-$$\frac{3(1 + h)^2 - 3}{h} = \frac{3 + 6h + 3h^2 - 3}{h} = \frac{6h + 3h^2}{h} = 6 + 3h.$$
+$$\frac{(3 + h)^2 - 2(3 + h) - 3}{h} = \frac{9 + 6h + h^2 - 6 - 2h - 3}{h} = \frac{4h + h^2}{h} = 4 + h.$$
 
 | $h$ | 1 | 0,1 | 0,01 | −0,1 |
 |---|---|---|---|---|
-| taux | 9 | 6,3 | 6,03 | 5,7 |
+| taux | 5 | 4,1 | 4,01 | 3,9 |
 
-Quand $h$ se rapproche de 0, de part et d'autre, le taux se rapproche de 6.
+Quand $h$ se rapproche de 0, de part et d'autre, le taux se rapproche de 4.
 
 > **Définition.** $f$ est **dérivable en $a$** si le taux d'accroissement a une limite finie quand $h$ tend vers 0. Cette limite est le **nombre dérivé** de $f$ en $a$ :
 > $$f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}.$$
 
-Ici, $f'(1) = 6$. Géométriquement, quand $h \to 0$, la sécante pivote autour du point $(a \;;\; f(a))$ et se rapproche d'une droite limite, la **tangente** (§4) : $f'(a)$ est sa pente.
+Ici, $f'(3) = 4$. Géométriquement, quand $h \to 0$, la sécante pivote autour du point $(a \;;\; f(a))$ et se rapproche d'une droite limite, la **tangente** (§4) : $f'(a)$ est sa pente.
 
-![Les sécantes entre a et a + h se rapprochent de la tangente quand h diminue](figures/secantes.png)
+![Trois sécantes issues du point (3 ; 3), qui pivotent vers la tangente à mesure que h rétrécit](figures/secantes.png)
 
-Ce que dit $f'(a)$ :
-- c'est une **vitesse de variation** : près de $a$, quand $x$ augmente de $h$, $f(x)$ augmente d'environ $f'(a) \times h$ ;
-- son **signe** dit si $f$ monte ($f'(a) > 0$) ou descend ($f'(a) < 0$) en passant par $a$ ;
-- sa **taille** dit à quel point $f$ est sensible à $x$ : une dérivée de 6 amplifie une petite variation de $x$ par 6.
+**Trois lectures d'un nombre dérivé.** Si $f'(a) = 4$, comme ici :
+- une **vitesse** : au voisinage de $a$, un petit pas de $x$ est reproduit environ 4 fois par $f(x)$ ; un pas de 0,01 change $f$ d'environ 0,04 ;
+- une **direction** : un nombre dérivé positif veut dire que la courbe monte quand on la parcourt vers la droite, un négatif qu'elle descend ;
+- une **sensibilité** : plus $\lvert f'(a) \rvert$ est grand, plus $f$ réagit à un petit changement de $x$.
 
 Les **unités** aident à interpréter : si $f(t)$ est une distance en mètres et $t$ un temps en secondes, $f'(t)$ est en mètres par seconde ; si $C(q)$ est un coût en euros pour $q$ pièces, $C'(q)$ est le coût d'une pièce de plus (le coût marginal).
 
 ### La fonction dérivée et ses notations
 
-Quand $f$ est dérivable en tout point d'un intervalle, la fonction $x \mapsto f'(x)$ est la **fonction dérivée** de $f$. Pour $f(x) = 3x^2$, le même calcul en un point $x$ quelconque donne un taux $6x + 3h$, donc $f'(x) = 6x$.
+Quand $f$ est dérivable en tout point d'un intervalle, la fonction $x \mapsto f'(x)$ est la **fonction dérivée** de $f$. Pour $f(x) = x^2 - 2x$, le même calcul en un point $x$ quelconque donne un taux $2x - 2 + h$, donc $f'(x) = 2x - 2$.
 
 On écrit aussi $\frac{df}{dx}$ (« d f sur d x », la notation de Leibniz) : un rapport de deux petites variations, $df$ pour $f$ et $dx$ pour $x$. Avec $y = f(x)$, on écrit $y'$ ou $\frac{dy}{dx}$. Cette notation dit **par rapport à quelle lettre** on dérive, ce qui comptera au §7.
 
@@ -235,7 +237,7 @@ La tangente en $a$ passe par le point $(a \;;\; f(a))$ et a pour pente $f'(a)$. 
 
 $$y = f(a) + f'(a)(x - a).$$
 
-Pour $f(x) = 3x^2$ en $a = 1$ : $f(1) = 3$ et $f'(1) = 6$, donc $y = 3 + 6(x - 1) = 6x - 3$. Elle touche la courbe en $(1 \;;\; 3)$ et reste en dessous partout ailleurs (la parabole est tournée vers le haut).
+Pour $f(x) = x^2 - 2x$ en $a = 3$ : $f(3) = 3$ et $f'(3) = 4$, donc $y = 3 + 4(x - 3) = 4x - 9$. Elle touche la courbe en $(3 \;;\; 3)$ et reste en dessous partout ailleurs (la parabole est tournée vers le haut).
 
 Une tangente **horizontale** a une pente nulle : elle se trouve là où $f'(a) = 0$. On s'en servira au §8 pour trouver les sommets et les creux d'une courbe.
 
@@ -245,20 +247,20 @@ Près de $a$, la courbe et sa tangente se confondent presque. D'où l'**approxim
 
 $$f(a + h) \approx f(a) + f'(a)\,h \quad \text{pour } h \text{ petit}.$$
 
-Avec $f(x) = 3x^2$ : $f(1{,}02) \approx 3 + 6 \times 0{,}02 = 3{,}12$, alors que la vraie valeur est $3 \times 1{,}02^2 = 3{,}1212$. L'erreur, 0,0012, est bien plus petite que le pas 0,02 : c'est tout l'intérêt. Quand on divise $h$ par 10, l'erreur est divisée par environ 100 (elle vaut ici exactement $3h^2$).
+Un exemple concret : un carré a un côté de 3 m, qui s'allonge de 2 cm. Son aire $x^2$ a pour dérivée $2x$, qui vaut 6 en 3 : l'aire augmente d'environ $6 \times 0{,}02 = 0{,}12$ m². La vraie augmentation est $3{,}02^2 - 9 = 0{,}1204$ m² : l'erreur, $0{,}0004 = 0{,}02^2$, est le petit carré du coin, bien plus petit que le pas lui-même. Quand on divise le pas par 10, l'erreur est divisée par 100 : c'est tout l'intérêt de l'approximation.
 
-![Zoom sur une courbe : plus on s'approche du point, plus la courbe ressemble à sa tangente](figures/zoom.png)
+![La même courbe et sa tangente sur trois fenêtres de plus en plus étroites autour de (3 ; 3)](figures/zoom.png)
 
 C'est ce que montre un **zoom** : une courbe dérivable, vue de très près, ressemble à une droite, sa tangente (tu le mesureras en R7.22). Un coin, comme celui de ReLU en 0, reste un coin à toutes les échelles.
 
 ```python
->>> f = lambda x: 3 * x ** 2
->>> tangent = lambda x: 6 * x - 3
+>>> f = lambda x: x ** 2 - 2 * x
+>>> tangent = lambda x: 4 * x - 9
 >>> for h in (0.1, 0.01, 0.001):
-...     print(h, round(f(1 + h) - tangent(1 + h), 8))
-0.1 0.03
-0.01 0.0003
-0.001 3e-06
+...     print(h, round(f(3 + h) - tangent(3 + h), 8))
+0.1 0.01
+0.01 0.0001
+0.001 1e-06
 ```
 
 🔗 **Dans workbookIA** — la descente de gradient (ch. 5) repose sur l'approximation affine : près du point où l'on est, la loss se comporte comme sa tangente, donc un petit pas dans le sens où la tangente descend fait baisser la loss. Le pas doit rester **petit** : loin du point, la tangente ne dit plus rien de la courbe.
@@ -302,9 +304,9 @@ $$\frac{e^{x + h} - e^x}{h} = e^x \times \frac{e^h - 1}{h}.$$
 
 Tout revient donc à la limite de $\frac{e^h - 1}{h}$ quand $h \to 0$, c'est-à-dire au nombre dérivé de exp en 0 :
 
-| $h$ | 0,1 | 0,01 | 0,001 | −0,01 |
+| $h$ | 0,2 | 0,02 | 0,002 | −0,02 |
 |---|---|---|---|---|
-| $\frac{e^h - 1}{h}$ | 1,05171 | 1,00502 | 1,00050 | 0,99502 |
+| $\frac{e^h - 1}{h}$ | 1,10701 | 1,01007 | 1,00100 | 0,99007 |
 
 La limite vaut 1, donc $(e^x)' = e^x \times 1 = e^x$ : **la pente de la courbe de exp en un point est égale à sa hauteur**. C'est la propriété qui fait de $e$ la « bonne » base (R6 §2).
 
@@ -314,7 +316,7 @@ On admet deux encadrements de $e$ par des suites de R5 : $\left(1 + \frac{1}{n}\
 
 $$1 + h \le e^h \le \frac{n}{n - 1} = \frac{1}{1 - h}.$$
 
-En retirant 1 et en divisant par $h > 0$ : $1 \le \frac{e^h - 1}{h} \le \frac{1}{h}\left(\frac{1}{1 - h} - 1\right) = \frac{1}{1 - h}$. Quand $h \to 0$, le majorant tend vers 1 : le taux, coincé entre 1 et un nombre qui tend vers 1, tend vers 1 (les « gendarmes » de R5). Cela prouve la limite pour $h$ de la forme $\frac{1}{n}$ ; on admet que l'encadrement reste vrai pour tout $h$ de $]0 \;;\; 1[$, et un calcul semblable traite les $h$ négatifs.
+En retirant 1 et en divisant par $h > 0$ : $1 \le \frac{e^h - 1}{h} \le \frac{1}{h}\left(\frac{1}{1 - h} - 1\right) = \frac{1}{1 - h}$. Quand $h \to 0$, le majorant tend vers 1 : le taux, coincé entre 1 et un nombre qui tend vers 1, tend lui aussi vers 1 (c'est le théorème d'encadrement, dit « des gendarmes », que l'on admet). Cela prouve la limite pour $h$ de la forme $\frac{1}{n}$ ; on admet que l'encadrement reste vrai pour tout $h$ de $]0 \;;\; 1[$, et un calcul semblable traite les $h$ négatifs.
 </details>
 
 ### Le logarithme
@@ -323,9 +325,9 @@ $(\ln x)' = \frac{1}{x}$ pour $x > 0$ : la courbe de ln monte de moins en moins 
 
 ### Deux approximations à connaître
 
-L'approximation affine du §4 en $a = 0$ donne, pour $h$ petit :
+L'approximation affine du §4 donne, pour $h$ petit :
 - $e^h \approx 1 + h$ (la tangente de exp en 0 est $y = 1 + x$) : $e^{0{,}05} \approx 1{,}05$, pour une vraie valeur de 1,0513 ;
-- $\ln(1 + h) \approx h$ (la tangente de $x \mapsto \ln(1 + x)$ en 0 est $y = x$) : $\ln 1{,}05 \approx 0{,}05$, pour une vraie valeur de 0,0488.
+- $\ln(1 + h) \approx h$ (la tangente de ln en 1 est $y = x - 1$, puisque $\ln 1 = 0$ et $(\ln)'(1) = 1$ : en $x = 1 + h$, elle vaut $h$) : $\ln 1{,}05 \approx 0{,}05$, pour une vraie valeur de 0,0488.
 
 La seconde explique la règle de 70 de R6 : le temps de doublement $\frac{\ln 2}{\ln(1 + r)}$ vaut à peu près $\frac{0{,}693}{r}$ quand $r$ est petit.
 
@@ -339,13 +341,13 @@ La seconde explique la règle de 70 de R6 : le temps de doublement $\frac{\ln 2}
 
 > $(u + v)' = u' + v'$ et $(k\,u)' = k\,u'$ pour une constante $k$.
 
-On dérive terme à terme, et une constante multiplicative reste devant. Ainsi tout polynôme se dérive d'un coup : $(4x^3 - 5x^2 + 7)' = 12x^2 - 10x$. Une constante ajoutée disparaît : $f$ et $f + 7$ ont la même dérivée (leurs courbes sont décalées verticalement, avec les mêmes pentes).
+On dérive terme à terme, et une constante multiplicative reste devant. Ainsi tout polynôme se dérive d'un coup : $(6x^4 - x^3 + 9)' = 24x^3 - 3x^2$. Une constante ajoutée disparaît : $f$ et $f + 7$ ont la même dérivée (leurs courbes sont décalées verticalement, avec les mêmes pentes).
 
 ### Produit
 
 > $(u\,v)' = u'\,v + u\,v'$.
 
-⚠️ **La dérivée d'un produit n'est pas le produit des dérivées.** $(x \times x)' = (x^2)' = 2x$, alors que $1 \times 1 = 1$.
+⚠️ **Produit de fonctions, pas produit de dérivées.** $x^3 = x^2 \times x$ a pour dérivée $3x^2$, alors que $(x^2)' \times (x)' = 2x \times 1 = 2x$ : multiplier les dérivées ne donne pas la bonne réponse.
 
 L'idée : pense à un rectangle de côtés $u$ et $v$. Si $u$ grandit de $du$ et $v$ de $dv$, l'aire $uv$ grandit de deux bandes, $du \times v$ et $u \times dv$, plus un petit coin $du \times dv$, négligeable quand les deux variations sont petites. D'où $d(uv) \approx v\,du + u\,dv$. Tu en feras la démonstration en R7.13.
 
@@ -396,11 +398,9 @@ C'est la règle de la chaîne. Une **composée** (R3) $f(x) = g(u(x))$ se calcul
 
 La notation de Leibniz se lit comme une simplification de fractions ($du$ « se simplifie ») ; ce n'en est pas une, mais c'est un bon moyen mnémotechnique.
 
-### La méthode en trois temps
+### Comment s'y prendre
 
-1. **Nommer** l'étage intérieur : $u = \dots$, puis écrire $z$ en fonction de $u$.
-2. **Dériver** chaque étage par rapport à sa propre entrée : $\frac{dz}{du}$ (avec $u$ comme variable) et $\frac{du}{dx}$.
-3. **Multiplier**, puis remplacer $u$ par son expression en $x$.
+Demande-toi quelle opération tu ferais **en dernier** pour calculer $f(x)$ à la main : c'est l'étage extérieur, et ce qu'elle reçoit est l'étage intérieur, que l'on baptise $u$. On dérive l'extérieur comme si $u$ était la variable, puis l'intérieur par rapport à $x$ ; on multiplie les deux dérivées, et l'on remet l'expression de $u$ à sa place.
 
 Exemple : $f(x) = (x^2 + 3)^4$. On pose $u = x^2 + 3$ et $z = u^4$. Alors $\frac{dz}{du} = 4u^3$ et $\frac{du}{dx} = 2x$, donc
 
@@ -416,7 +416,7 @@ L'erreur classique : oublier la dérivée de l'intérieur, et écrire $4(x^2 + 3
 | $e^{u}$ | $u' \times e^{u}$ | $(e^{3x})' = 3e^{3x}$ |
 | $\ln u$ | $\frac{u'}{u}$ ($u > 0$) | $\big(\ln(2x + 5)\big)' = \frac{2}{2x + 5}$ |
 | $\sqrt{u}$ | $\frac{u'}{2\sqrt{u}}$ ($u > 0$) | $\big(\sqrt{x^2 + 9}\big)' = \frac{2x}{2\sqrt{x^2 + 9}} = \frac{x}{\sqrt{x^2 + 9}}$ |
-| $g(ax + b)$ | $a\,g'(ax + b)$ | $\big((5 - x)^3\big)' = -3(5 - x)^2$ |
+| $g(ax + b)$ | $a\,g'(ax + b)$ | $\left(e^{2 - x}\right)' = -e^{2 - x}$ |
 
 La dernière ligne, une fonction d'une expression affine, revient sans cesse : l'intérieur a pour dérivée la constante $a$.
 
@@ -442,7 +442,7 @@ Exemple : une somme placée à $r$ par an vaut $p = p_0(1 + r)^t$ au bout de $t$
 - Par rapport à $t$ ($p_0$ et $r$ fixés), c'est une exponentielle de base $1 + r$ : $\frac{dp}{dt} = p_0(1 + r)^t \ln(1 + r)$.
 - Par rapport à $r$ ($p_0$ et $t$ fixés), c'est une puissance de $1 + r$ : $\frac{dp}{dr} = p_0\,t\,(1 + r)^{t - 1}$ (règle de la chaîne, avec $u = 1 + r$ et $\frac{du}{dr} = 1$).
 
-La même formule, dérivée par rapport à deux lettres différentes, donne deux dérivées qui n'ont rien à voir : la première dit l'effet d'une année de plus, la seconde celui d'un taux un peu plus élevé.
+La même formule, dérivée par rapport à deux lettres différentes, donne deux dérivées qui n'ont rien à voir : la première dit l'effet d'une année de plus, la seconde celui d'un taux un peu plus élevé. Quand une grandeur dépend de plusieurs lettres, on écrit souvent $\partial$ (« d rond ») au lieu de $d$ : $\frac{\partial p}{\partial r}$. Ce sont les **dérivées partielles** de workbookIA 0B et de M05b ; ce chapitre garde le $d$.
 
 ```python
 >>> p0, r, t = sp.symbols("p0 r t", positive=True)
@@ -480,9 +480,9 @@ Exemple : $f(x) = x^3 - 6x^2 + 9x + 1$. Alors $f'(x) = 3x^2 - 12x + 9 = 3(x^2 - 
 | signe de $f'(x)$ | | $+$ | $0$ | $-$ | $0$ | $+$ | |
 | variations de $f$ | | ↗ | **5** | ↘ | **1** | ↗ | |
 
-![f(x) = x³ − 6x² + 9x + 1 et sa dérivée : f′ s'annule et change de signe aux extremums](figures/variations.png)
+![En haut x³ − 6x² + 9x + 1, en bas sa dérivée : chaque changement de signe de la dérivée marque un extremum local](figures/variations_extremums.png)
 
-$f$ monte jusqu'à 5 en $x = 1$, descend jusqu'à 1 en $x = 3$, puis remonte : un **maximum local** 5 en 1, un **minimum local** 1 en 3. « Local » : ce sont les plus grande et plus petite valeurs **au voisinage** de ces points, pas forcément partout ; ici $f(x) \to +\infty$ en $+\infty$, et $f$ dépasse 5 dès $x > 4$.
+$f$ monte jusqu'à 5 en $x = 1$, descend jusqu'à 1 en $x = 3$, puis remonte : un **maximum local** 5 en 1, un **minimum local** 1 en 3. « Local » : ce sont la plus grande et la plus petite valeur **au voisinage** de ces points, pas forcément partout ; ici $f(x) \to +\infty$ en $+\infty$, et $f$ dépasse 5 dès $x > 4$.
 
 ### Extremums : dérivée nulle, mais pas seulement
 
@@ -518,13 +518,13 @@ Pour dire qu'une quantité « ne grandit pas plus vite qu'une autre », sans s'e
 
 > **Définition.** $f(n) = O\big(g(n)\big)$ (« grand O de $g$ ») s'il existe une constante $C$ telle que $\lvert f(n) \rvert \le C\,\lvert g(n) \rvert$ pour tout $n$ assez grand.
 
-Exemple : $4n^2 + 3n + 10 = O(n^2)$. En effet, pour $n \ge 5$, $3n + 10 \le n^2$ (à $n = 5$ : $25 \le 25$, et l'écart ne fait que grandir), donc $4n^2 + 3n + 10 \le 5n^2$ : $C = 5$ convient. On ne garde que le terme qui domine, et on oublie son coefficient.
+Exemple : $4n^2 + 3n + 10 = O(n^2)$. En effet, pour $n \ge 5$, $3n + 10 \le n^2$ (pour $n = 5$ : $25 \le 25$, et l'écart ne fait que grandir), donc $4n^2 + 3n + 10 \le 5n^2$ : $C = 5$ convient. On ne garde que le terme qui domine, et on oublie son coefficient.
 
 Le grand O prolonge les croissances comparées (R6) et les limites du §1 : si $\frac{f(n)}{g(n)}$ a une limite finie quand $n \to +\infty$, alors $f = O(g)$. Les fonctions qui reviennent, de la plus lente à la plus rapide :
 
 $$1 \ll \log n \ll \sqrt{n} \ll n \ll n \log n \ll n^2 \ll n^3 \ll 2^n.$$
 
-(La base du logarithme ne compte pas : $\log_2 n = \frac{\ln n}{\ln 2}$, une constante près, R6 §4.)
+(La base du logarithme ne compte pas : $\log_2 n = \frac{\ln n}{\ln 2}$ est égal à $\ln n$ à une constante près, R6 §4.)
 
 ### Le coût d'un algorithme
 
@@ -532,7 +532,7 @@ Le grand O sert surtout à dire comment le **temps de calcul** d'un algorithme g
 
 | Coût | Exemple | $n = 1\,000$ | $n = 1\,000\,000$ |
 |---|---|---|---|
-| $O(\log n)$ | dichotomie dans une liste triée (§2) | 10 étapes | 20 étapes |
+| $O(\log n)$ | chercher dans une liste triée en coupant en deux, l'idée de la dichotomie (§2) | 10 étapes | 20 étapes |
 | $O(n)$ | parcourir une liste une fois (une somme, un maximum) | $10^3$ | $10^6$ |
 | $O(n^2)$ | comparer chaque élément à chaque autre (deux boucles imbriquées) | $10^6$ | $10^{12}$ |
 | $O(2^n)$ | essayer tous les sous-ensembles | impossible | impossible |
@@ -550,7 +550,7 @@ Multiplier $n$ par 1 000 multiplie un coût en $O(n)$ par 1 000, mais un coût e
 (100, 10000)
 ```
 
-La notation sert aussi près de 0, avec $h \to 0$ au lieu de $n \to +\infty$ : l'erreur de l'approximation affine du §4 était $3h^2 = O(h^2)$. M05a reprendra cette idée pour mesurer la précision des calculs numériques.
+La notation sert aussi près de 0, avec $h \to 0$ au lieu de $n \to +\infty$ : l'erreur de l'approximation affine du §4 (le petit carré du coin) était $h^2 = O(h^2)$. M05a reprendra cette idée pour mesurer la précision des calculs numériques.
 
 🔗 **Dans workbookIA** — le coût en grand O dit pourquoi certaines méthodes passent à l'échelle et d'autres non : chercher les plus proches voisins demande de comparer un point à tous les autres (ch. 7), un produit de matrices coûte $O(n^3)$ opérations (M09a), et l'attention d'un transformer compare chaque mot à chaque autre (B3).
 

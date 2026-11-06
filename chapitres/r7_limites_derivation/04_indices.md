@@ -40,7 +40,7 @@ Les valeurs intermédiaires demandent la **continuité** ; la dichotomie demande
 </details>
 <details><summary>Indice 3</summary>
 
-1 : la valeur absolue n'a pas de saut, donc **oui**. Pour 4, imagine une fonction qui saute de −1 à 1. Pour 5, la longueur est divisée par 2 à chaque étape.
+1 : la continuité se regarde là où la fonction est définie ; 0 n'en fait pas partie. Pour 2, que vaut la fonction juste avant 0, et en 0 ? Pour 4, imagine une fonction qui saute de −1 à 1. Pour 5, la longueur est divisée par 2 à chaque étape.
 
 </details>
 
@@ -58,7 +58,7 @@ $f'(a)$ est la pente de la tangente ; $f(a + h) \approx f(a) + f'(a)\,h$ ; l'uni
 </details>
 <details><summary>Indice 3</summary>
 
-1 : la pente de la tangente au point d'abscisse $a$. Pour 3, $h = 0{,}1$. Pour 5, pense à $\lvert x \rvert$ en 0.
+1 : le taux relie les points d'abscisses $a$ et $a + h$ de la courbe. Pour 2, quel est le signe de la pente ? Pour 3, $h = 0{,}1$. Pour 5, pense à $\lvert x \rvert$ en 0.
 
 </details>
 
@@ -102,7 +102,7 @@ $(uv)' = u'v + uv'$ ; $\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}$, avec 
 
 <details><summary>Indice 1</summary>
 
-Relis « La méthode en trois temps » (fiche §7).
+Relis « Comment s'y prendre » (fiche §7).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -112,7 +112,7 @@ L'étage extérieur est l'opération faite **en dernier** quand on calcule la va
 </details>
 <details><summary>Indice 3</summary>
 
-1 : pour calculer $(2x - 7)^6$, on calcule d'abord $u = 2x - 7$, puis $u^6$. Fais de même pour les autres.
+1 : pour calculer $(2x - 7)^6$, on calcule d'abord $u = 2x - 7$, puis $u^6$. Fais de même pour les autres. Pour 6, récris $\ln(2x)$ avec R6, ou multiplie par la dérivée de l'intérieur.
 
 </details>
 
@@ -130,7 +130,7 @@ Un extremum demande que $f'$ **change de signe** ; il peut aussi se trouver au b
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $(x^7)' = 7x^6$ : change-t-elle de signe en 0 ? Pour 3, une fonction croissante atteint son maximum… où ?
+1 : $(x^3 + x)' = 3x^2 + 1$ : peut-elle changer de signe ? Pour 3, une fonction croissante atteint son maximum… où ?
 
 </details>
 
@@ -259,12 +259,12 @@ Relis « Une vitesse moyenne » et « Le nombre dérivé » (fiche §3).
 </details>
 <details><summary>Indice 2</summary>
 
-Taux $= \frac{f(a + h) - f(a)}{h}$ ; pour l'avoir en fonction de $h$, développe $f(4 + h)$ et simplifie par $h$ ; sa limite quand $h \to 0$ est le nombre dérivé.
+Taux $= \frac{s(a + h) - s(a)}{h}$ ; pour l'avoir en fonction de $h$, développe $s(2 + h)$ et simplifie par $h$ ; sa limite quand $h \to 0$ est la vitesse instantanée. Même méthode pour le coût marginal.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $f(5) = 0$ et $f(4) = -4$, donc $\frac{0 - (-4)}{1} = 4$. Pour c, divise par $-0{,}5$. Pour g, calcule le taux de $s$ entre 2 et $2 + h$, puis fais tendre $h$ vers 0.
+a : $s(2) = 20$ et $s(2{,}5) = 31{,}25$ ; divise la différence par la durée. Pour c, $(2 + h)^2 = 4 + 4h + h^2$. Pour f, développe $C(10 + h)$. Pour h, divise par $-0{,}5$.
 
 </details>
 
@@ -318,7 +318,7 @@ Nomme $u$ et $v$, calcule $u'$ et $v'$, puis applique la formule ; pour un quoti
 </details>
 <details><summary>Indice 3</summary>
 
-a : $u = x^3$, $v = \ln x$, donc $3x^2 \ln x + x^3 \times \frac{1}{x}$. Pour d, $u' = 1$ et $v' = 2$. Pour h, $\left(\frac{1}{v}\right)' = -\frac{v'}{v^2}$.
+a : $u = e^x$, $v = \ln x$, donc $u' = e^x$ et $v' = \frac{1}{x}$. Pour d, $u' = 1$ et $v' = 2$. Pour g, remplace $x$ par 1 dans les deux termes de a. Pour h, $\left(\frac{1}{v}\right)' = -\frac{v'}{v^2}$ avec $v = e^x + x$.
 
 </details>
 
@@ -326,7 +326,7 @@ a : $u = x^3$, $v = \ln x$, donc $3x^2 \ln x + x^3 \times \frac{1}{x}$. Pour d, 
 
 <details><summary>Indice 1</summary>
 
-Relis « La méthode en trois temps » et le tableau des formes à reconnaître (fiche §7).
+Relis « Comment s'y prendre » et le tableau des formes à reconnaître (fiche §7).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -336,7 +336,7 @@ Nomme l'étage intérieur $u$, dérive l'extérieur par rapport à $u$, multipli
 </details>
 <details><summary>Indice 3</summary>
 
-a : $u = 2x^2 - 1$, $u' = 4x$, et $(u^3)' = 3u^2 u'$. Pour f, $u = \ln x$. Pour h, dérive d'abord, remplace $x$ par 1 ensuite.
+a : $u = 2x^2 - 1$, $u' = 4x$, et $(u^3)' = 3u^2 u'$. Pour b, $u = -\frac{x}{5}$. Pour f, $u = \ln x$. Pour h, dérive d'abord, remplace $x$ par 1 ensuite.
 
 </details>
 
@@ -349,12 +349,12 @@ Relis « Le tableau de variations » et « Extremums : dérivée nulle, mais pas
 </details>
 <details><summary>Indice 2</summary>
 
-Factorise $f'(x)$, étudie son signe, puis calcule $f$ aux points où il change ; sur un intervalle fermé, compare aussi les valeurs aux bords.
+Factorise $f'(x)$, étudie son signe, puis calcule $f$ aux points où il change ; un point où $f'$ s'annule sans changer de signe n'est pas un extremum ; sur un intervalle fermé, compare aussi les valeurs aux bords.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $f'(x) = 6x^2 + 6x - 12 = 6(x^2 + x - 2)$. Pour f, calcule $f(-3)$, $f(-2)$, $f(1)$ et $f(3)$. Pour g, $g'(x) = 1 - \frac{2}{x}$.
+a : $f'(x) = 4x^3 - 12x^2$ ; mets $4x^2$ en facteur. Un carré n'est jamais négatif : quel facteur décide du signe ? Pour f, calcule $f$ aux bords −1 et 4, et aux points de $[-1 \;;\; 4]$ où $f'$ s'annule. Pour g, $g'(x) = 1 - \frac{2}{x}$.
 
 </details>
 
@@ -385,7 +385,7 @@ Relis « Plus de deux étages » et l'encadré ⚠️ sur l'ordre de la composit
 </details>
 <details><summary>Indice 2</summary>
 
-Nomme chaque étage, de l'intérieur vers l'extérieur, et multiplie toutes les dérivées. Pour d, simplifie d'abord avec $\ln(a^2) = 2\ln a$.
+Nomme chaque étage, de l'intérieur vers l'extérieur, et multiplie toutes les dérivées. Pour d, simplifie d'abord avec $\ln(a^2) = 2\ln a$. Pour f, $(\ln u)' = \frac{u'}{u}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -506,7 +506,7 @@ Pars d'une vitesse lue sur un compteur ; dis ce que mesure une dérivée (une va
 </details>
 <details><summary>Indice 3</summary>
 
-Par exemple : « une vitesse, c'est de combien la distance change pour une seconde de plus, mesuré sur un temps très court » ; puis la pente d'un chemin, et le fond d'une vallée, où la pente est nulle.
+Par exemple : « une vitesse, c'est de combien la distance change pour une seconde de plus, mesuré sur un temps très court » ; puis la pente d'une courbe, et le moment où une quantité cesse de descendre pour remonter.
 
 </details>
 
@@ -595,25 +595,25 @@ a et b : `sp.diff`, puis `sp.solve(…, x)` ; c : pour chaque couple de `proposa
 </details>
 <details><summary>Indice 3</summary>
 
-a : `sp.diff(x**2 * sp.exp(-x), x)`. Pour c, une compréhension de liste sur `for f, proposed in proposals`. Pour d, `sp.sqrt` et le troisième argument 0.
+a : `sp.diff(...)` sur `(x**2 - 3) * sp.exp(x)`, avec ses parenthèses. Pour c, une compréhension de liste sur `for f, proposed in proposals`. Pour d, `sp.sqrt` et le troisième argument 0.
 
 </details>
 
-### Ex R7.21 — Prédire : le taux d'accroissement s'approche-t-il toujours de la dérivée quand h devient minuscule ?
+### Ex R7.21 — Prédire : le taux d'accroissement a-t-il toujours une limite quand h tend vers 0 ?
 
 <details><summary>Indice 1</summary>
 
-Relis l'arrondi des flottants (fiche de R1) : un flottant garde environ 16 chiffres significatifs.
+Relis « Dérivable ou non » (fiche §3) et la partie entière (fiche §2).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Le numérateur $e^{1 + h} - e$ est la différence de deux nombres presque égaux : combien de ses chiffres restent justes quand $h$ est minuscule ? Et que vaut `1 + 1e-16` ?
+Pour chaque fonction, dessine son allure près du point, puis imagine la sécante entre le point et un point voisin, à droite puis à gauche : que devient sa pente quand le voisin se rapproche ?
 
 </details>
 <details><summary>Indice 3</summary>
 
-Écris tes prédictions, même incertaines : l'expérience tranchera. Puis, pour la copie, tape `1 + 1e-16 == 1` dans une cellule.
+Écris tes prédictions, même incertaines : l'expérience tranchera. Pour chacune, calcule à la main un taux avec $h = 0{,}1$ et un avec $h = -0{,}1$.
 
 </details>
 
@@ -631,7 +631,7 @@ Une grille `np.linspace(a - w, a + w, 1001)`, les valeurs de `f` et de `line` su
 </details>
 <details><summary>Indice 3</summary>
 
-`xs = np.linspace(a - w, a + w, 1001)`, puis `np.abs(...)` et `np.max(...)`. Pour d, regarde les quatre rapports de b.
+`xs = np.linspace(a - w, a + w, 1001)`, puis `np.abs(...)` et `np.max(...)`. Pour d, regarde les deux derniers rapports de b.
 
 </details>
 
@@ -651,10 +651,10 @@ Dans `axes[0]` : une grille pour la courbe, puis, pour chaque `p`, un petit segm
 
 Pour chaque `p` :
 ```python
-segment = np.linspace(p - 0.6, p + 0.6, 2)
+segment = np.linspace(p - 0.3, p + 0.3, 2)
 axes[0].plot(segment, f(p) + df(p) * (segment - p), "--")
 ```
-Pour a, factorise $f'(x) = 4x^3 - 8x$.
+Pour a, chaque facteur de $f'(x) = 6x(x^2 - 1)^2$ peut s'annuler. Pour b, regarde où $f'$ change de signe, pas seulement où elle s'annule.
 
 </details>
 
@@ -672,7 +672,7 @@ Pour chaque ligne, demande-toi si la fonction est un produit, un quotient ou une
 </details>
 <details><summary>Indice 3</summary>
 
-(A) : $x^4 \ln x$ est un produit ; la ligne n'écrit qu'un produit de dérivées. Pour chacune des autres, nomme l'étage intérieur et sa dérivée.
+(A) : $x^2\sqrt{x + 1}$ est un produit ; la ligne n'écrit qu'un produit de dérivées. Pour un quotient, refais le calcul de $\frac{u'v - uv'}{v^2}$ en entier avant de juger un signe. Pour une composée, nomme l'étage intérieur et sa dérivée.
 
 </details>
 
@@ -685,7 +685,7 @@ Relis la règle du quotient (fiche §6) et les tests de R0 (`assert`, `math.iscl
 </details>
 <details><summary>Indice 2</summary>
 
-`dg` : la dérivée simplifiée, en une ligne. Le test : un symbole `X = sp.symbols("x")`, la dérivée exacte `sp.diff(...)`, puis une boucle sur quelques points avec un `assert`.
+`dg` : la dérivée simplifiée, en une ligne. Le test, sans argument et sans rien utiliser d'une autre cellule : un symbole `X = sp.symbols("x")` créé dedans, la dérivée exacte `sp.diff(...)`, puis une boucle sur quelques points avec un `assert`.
 
 </details>
 <details><summary>Indice 3</summary>

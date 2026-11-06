@@ -127,8 +127,8 @@
 
 - a :
 - b :
-- c :
-- d (développe, puis simplifie par h) :
+- c (développe, puis simplifie par h) :
+- d :
 - e :
 - f :
 - g :
@@ -183,7 +183,7 @@
 - a :
 - b :
 - c (avec le tableau de variations) :
-- d :
+- d (que se passe-t-il en 0 ?) :
 - e :
 - f :
 - g :
@@ -279,10 +279,10 @@
 
 - Le calcul du nombre de coupes (g) :
 
-### Ex R7.21 — Prédire : le taux quand h devient minuscule
+### Ex R7.21 — Prédire : le taux a-t-il toujours une limite ?
 
 - Mes prédictions avant l'expérience (et pourquoi) :
-- Ce que vaut 1 + 1e-16 en flottant, et d'où vient la remontée de l'écart :
+- Pour chacune des trois fonctions, dérivable ou non en son point, et pourquoi (les taux des deux côtés) :
 
 ### Ex R7.22 — Zoomer sur une courbe
 
@@ -290,10 +290,10 @@
 
 ### Ex R7.23 — f, f′ et des tangentes
 
-- Où je lis que f monte, et la pente de la tangente en 1 sur les deux graphiques :
+- Où je lis que f monte ; la tangente horizontale en 1 sans extremum, et comment je la lis sur les deux graphiques :
 
 ### Ex R7.24 — Quatre dérivées fausses
 
-- Pour chaque ligne fausse, la règle oubliée ; la ligne juste qui semblait fausse :
+- Pour chaque ligne fausse, la règle oubliée ; les lignes justes qui semblaient fausses :
 
 ### Mes notes

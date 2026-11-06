@@ -601,7 +601,7 @@ CHAPTERS = [
     {
         "id": "R7",
         "dir": "r7_limites_derivation",
-        "hours": 13,
+        "hours": 13.2,
         "generation_sessions": 2,
         "mml": [],
         "summary": "Le cœur de l'analyse du lycée : limites et asymptotes, continuité et théorème des valeurs "
@@ -671,20 +671,21 @@ CHAPTERS = [
             ("R7.18", "🔨", 2, 20, "La tangente à partir de f et de sa dérivée", "§4", "m:tangent_line"),
             ("R7.19", "🔨", 2, 25, "Trouver un zéro par dichotomie", "§2", "E m:bisection"),
             ("R7.20", "📦", 1, 15, "Vérifier ses dérivées avec `sympy.diff`", "§5 §6 §7", "E"),
-            ("R7.21", "🔮", 2, 15, "Prédire : le taux d'accroissement s'approche-t-il toujours de la dérivée quand "
-             "h devient minuscule ?", "§3", ""),
+            ("R7.21", "🔮", 2, 15, "Prédire : le taux d'accroissement a-t-il toujours une limite quand h tend vers 0 ?",
+             "§3", ""),
             ("R7.22", "🔬", 2, 20, "Zoomer sur une courbe jusqu'à voir une droite", "§4", "E"),
             ("R7.23", "🎨", 2, 20, "Tracer f, f′ et des tangentes", "§4 §8", ""),
             ("R7.24", "🐛", 2, 20, "Chasse à l'erreur : quatre dérivées fausses", "§6 §7", "E"),
             ("R7.25", "🛠️", 1, 15, "Tester une dérivée avec pytest et SymPy", "§5", ""),
         ],
-        "notes": "Deux sessions de génération (chapitre long, figures nombreuses). Le 🔮 R7.21 montre seulement le "
-                 "problème du pas h (l'erreur du taux remonte quand h devient minuscule), que M05a et workbookIA 5 "
-                 "traitent, sans le théorème ni le meilleur pas ; ni la différence centrée ni la dérivée seconde "
-                 "(workbookIA 5). Frontières : on ne dérive ni σ, ni tanh, ni softplus (workbookIA 17.4) ; les "
-                 "fonctions de coût de R7.15 sont données par une formule, jamais par des données (pas de moyenne "
-                 "qui minimise les carrés, pas de w* = Σxy / Σx²) ; pas de pas de descente ; les composées de R7.7 "
-                 "et R7.10 et la dérivation « une lettre à la fois » de R7.11 évitent celles de 0B.23, de 0B §101.5.3 "
+        "notes": "Deux sessions de génération (chapitre long, figures nombreuses). Le 🔮 R7.21 porte sur l'existence "
+                 "du nombre dérivé (un coin, un saut, un raccord lisse) ; le choix du pas h en flottants (l'erreur du "
+                 "taux qui remonte quand h devient minuscule, workbookIA 5.12) est laissé à workbookIA 5 et à M05a ; "
+                 "ni différence centrée ni dérivée seconde (workbookIA 5). Frontières : on ne dérive ni σ, ni "
+                 "tanh, ni softplus (workbookIA 17.4) ; les fonctions de coût de R7.15 sont données par une formule, "
+                 "jamais par des données (pas de moyenne qui minimise les carrés, pas de w* = Σxy / Σx²) ; pas de pas "
+                 "de descente ; pas de tableau de variations de x³ − 3x (workbookIA 5.4) ; les composées de R7.7 et "
+                 "R7.10 et la dérivation « une lettre à la fois » de R7.11 évitent celles de 0B.23, de 0B §101.5.3 "
                  "(la loss (wx + b − y)²) et de workbookIA 5.R3.",
     },
     {

@@ -18,16 +18,16 @@
 7. **Faux** : pour $x < 0$ proche de 0, $\frac{1}{x}$ est très négatif : la limite à gauche est $-\infty$.
 
 ### R7.Q2 — Continue ou pas ?
-1. **Oui** : la valeur absolue est continue, et $x - 2$ aussi ; leur composée l'est.
-2. **Oui** en 2,5 (la partie entière vaut 2 sur tout $[2 \;;\; 3[$) ; **non** en 3, où elle saute de 2 à 3.
+1. **Oui** : $\frac{1}{x}$ est continue sur $]-\infty \;;\; 0[$ et sur $]0 \;;\; +\infty[$. En 0, elle n'est pas définie : la question ne s'y pose pas (et la courbe y est coupée en deux morceaux).
+2. **Non** en 0, où elle saute de 0 à 1 ; **oui** en 0,5, où elle vaut 1 tout autour.
 3. **Oui** : 3 est entre $-2$ et 5, et $f$ est continue (théorème des valeurs intermédiaires).
 4. **Faux** : sans continuité, rien n'oblige à passer par 0. La fonction qui vaut −1 sur $[0 \;;\; 0{,}5[$ et 1 sur $[0{,}5 \;;\; 1]$ ne s'annule jamais.
 5. $\frac{1}{2^{10}} = \frac{1}{1\,024} \approx 0{,}001$.
-6. **Faux** : $x^2$ vaut 1 en −1 et en 1, sans changement de signe ; la dichotomie n'a rien à couper (et `bisection` lève une `ValueError`), bien que 0 soit un zéro. Un zéro où la courbe touche l'axe sans le traverser lui échappe.
+6. **Faux** : $x^2$ vaut 1 en −1 et 4 en 2, sans changement de signe ; la dichotomie n'a rien à couper (et `bisection` lève une `ValueError`), bien que 0 soit un zéro. Un zéro où la courbe touche l'axe sans le traverser lui échappe.
 
 ### R7.Q3 — Le nombre dérivé est une pente
-1. La **pente de la tangente** à la courbe au point d'abscisse $a$.
-2. Elle **descend** : sa pente est négative.
+1. **Vrai** : c'est la pente de la **sécante** qui passe par $(a \;;\; f(a))$ et $(a + h \;;\; f(a + h))$.
+2. Elle **monte** : la pente de sa tangente en −1 est positive.
 3. $f(5{,}1) \approx f(5) + f'(5) \times 0{,}1 = 2 + 0{,}4 = $ **2,4**.
 4. **Faux** : $y = f(a) + f'(a)(x - a)$ ; sans $f(a)$, la droite passe par $(a \;;\; 0)$ au lieu du point de la courbe.
 5. **Faux** : $\lvert x \rvert$ est continue en 0, mais n'y est pas dérivable (R7.12).
@@ -45,11 +45,11 @@
 6. **Vrai** : une constante ajoutée a une dérivée nulle.
 
 ### R7.Q6 — Règle de la chaîne : qu'y a-t-il « dedans » ?
-1. $u = 2x - 7$, puis $u^6$. 2. $u = x^3$, puis $e^u$. 3. $u = 4 - x$, puis $\ln u$. 4. $u = e^x + 1$, puis $\sqrt{u}$. 5. $u = \ln x$, puis $u^4$.
-6. **Faux** : $\left(e^{5x}\right)' = 5e^{5x}$ ; on multiplie par la dérivée de l'intérieur.
+1. $u = 2x - 7$, puis $u^6$. 2. $u = x^3$, puis $e^u$. 3. $u = 4 - x$, puis $\ln u$. 4. $u = e^x + 1$, puis $\sqrt{u}$. 5. $u = e^x + x$, puis $u^3$.
+6. **Faux** : $\ln(2x) = \ln 2 + \ln x$ a pour dérivée $\frac{1}{x}$ ; par la règle de la chaîne aussi, $\frac{2}{2x} = \frac{1}{x}$. Oublier la dérivée de l'intérieur donne $\frac{1}{2x}$.
 
 ### R7.Q7 — Dérivée nulle, extremum ?
-1. **Non** : $(x^7)' = 7x^6 \ge 0$, nulle seulement en 0 ; $x^7$ ne fait que monter.
+1. **Non** : $(x^3 + x)' = 3x^2 + 1 > 0$ partout ; la fonction ne fait que monter, et sa dérivée ne s'annule même pas.
 2. Un **maximum** local : $f$ monte, puis descend.
 3. **En 4** : $f$ est strictement croissante sur $[0 \;;\; 4]$, son maximum est au bord droit.
 4. **Vrai** : $\lvert x \rvert \ge 0 = \lvert 0 \rvert$ ; un extremum peut se trouver en un coin.
@@ -61,7 +61,7 @@
 2. **Faux** : $\frac{n^3}{n^2} = n$ n'est pas borné.
 3. $2^n$ (une exponentielle finit par dépasser toute puissance).
 4. $O(n^2)$ : $n \times n$ tours.
-5. **Vrai** : $\log_2 n = \frac{\ln n}{\ln 2}$, une constante près.
+5. **Vrai** : $\log_2 n = \frac{\ln n}{\ln 2}$, égal à $\ln n$ à une constante près.
 6. Environ **200 secondes** : $n$ multiplié par 10, $n^2$ par 100.
 
 <a id="rappels"></a>
@@ -97,7 +97,7 @@
 - g) $\sqrt{x} = x^{1/2}$ est une puissance, qui l'emporte sur ln : le quotient tend vers $+\infty$.
 - h) $x^3 + 2x = x^3\left(1 + \frac{2}{x^2}\right)$, et $x^3 \to -\infty$ quand $x \to -\infty$.
 
-**Erreurs fréquentes.** Écrire $\infty - \infty = 0$ en b ; garder les constantes ($\frac{1}{-3}$) en c ; répondre $+\infty$ en f (le polynôme grandit, mais l'exponentielle bien plus vite) ; oublier le signe en h.
+**Erreurs fréquentes.** Écrire $\infty - \infty = 0$ en b ; en c, garder les constantes au lieu des termes de plus haut degré (et répondre $\frac{1}{-3}$) ; répondre $+\infty$ en f (le polynôme grandit, mais l'exponentielle bien plus vite) ; oublier le signe en h.
 
 **Variante.** $\lim_{x \to +\infty} \frac{6x^3 - x}{2x^3 + 5}$ et $\lim_{x \to +\infty} \left(\sqrt{x} - x\right)$ ? *Réponse* : 3 ; $\sqrt{x} - x = x\left(\frac{1}{\sqrt{x}} - 1\right) \to -\infty$.
 
@@ -120,19 +120,19 @@
 
 ### Ex R7.3 — Taux d'accroissement et nombre dérivé
 
-**Réponses** : a) `4` · b) `3.1` · c) `2.5` · d) `"3 + h"` · e) `3` · f) `22.5` · g) `20` · h) `3`.
+**Réponses** : a) `22.5` · b) `20.5` · c) `"20 + 5*h"` · d) `20` · e) `14` · f) `13` · g) `3` · h) `2.5`.
 
 **Démarche.**
-- a) $f(4) = 16 - 20 = -4$ et $f(5) = 0$ : $\frac{0 - (-4)}{1} = 4$.
-- b) $f(4{,}1) = 16{,}81 - 20{,}5 = -3{,}69$ : $\frac{-3{,}69 + 4}{0{,}1} = 3{,}1$.
-- c) $f(3{,}5) = 12{,}25 - 17{,}5 = -5{,}25$ : $\frac{-5{,}25 + 4}{-0{,}5} = 2{,}5$.
-- d) $f(4 + h) = 16 + 8h + h^2 - 20 - 5h = -4 + 3h + h^2$, donc $\frac{f(4 + h) - f(4)}{h} = \frac{3h + h^2}{h} = 3 + h$ ; on retrouve a, b et c.
-- e) $3 + h \to 3$ : $f'(4) = 3$.
-- f) $s(2) = 20$, $s(2{,}5) = 31{,}25$ : $\frac{11{,}25}{0{,}5} = 22{,}5$ m/s.
-- g) $\frac{5(2 + h)^2 - 20}{h} = 20 + 5h \to 20$ m/s.
-- h) $\frac{(3(x + h) + 7) - (3x + 7)}{h} = \frac{3h}{h} = 3$ : le taux d'une fonction affine est sa pente, partout.
+- a) $s(2) = 20$ et $s(2{,}5) = 31{,}25$ : $\frac{31{,}25 - 20}{0{,}5} = 22{,}5$ m/s.
+- b) $s(2{,}1) = 22{,}05$ : $\frac{2{,}05}{0{,}1} = 20{,}5$ m/s.
+- c) $s(2 + h) = 5(4 + 4h + h^2) = 20 + 20h + 5h^2$, donc $\frac{s(2 + h) - s(2)}{h} = \frac{20h + 5h^2}{h} = 20 + 5h$ ; on retrouve a ($h = 0{,}5$) et b ($h = 0{,}1$).
+- d) $20 + 5h \to 20$ quand $h \to 0$ : la vitesse instantanée vaut 20 m/s.
+- e) $C(10) = 50 + 30 + 100 = 180$ et $C(12) = 72 + 36 + 100 = 208$ : $\frac{28}{2} = 14$ € par pièce ajoutée.
+- f) $C(10 + h) = 180 + 13h + 0{,}5h^2$, donc le taux vaut $13 + 0{,}5h \to 13$ € : le coût marginal.
+- g) $\frac{\big(3(x + h) + 7\big) - (3x + 7)}{h} = \frac{3h}{h} = 3$ : le taux d'une fonction affine est sa pente, partout.
+- h) $f(4) = -4$ et $f(3{,}5) = 12{,}25 - 17{,}5 = -5{,}25$ : $\frac{-5{,}25 + 4}{-0{,}5} = 2{,}5$.
 
-**Erreurs fréquentes.** Oublier de diviser par $h$ (b, f) ; diviser par $+0{,}5$ en c ; répondre $f(4)$ en e ; prendre la vitesse moyenne pour la vitesse instantanée en g.
+**Erreurs fréquentes.** Oublier de diviser par la durée (a, b) ; laisser $\frac{20h + 5h^2}{h}$ sans le simplifier (c) ; prendre une vitesse moyenne pour la vitesse instantanée (d) ; confondre le coût moyen des pièces ajoutées (e) et le coût marginal (f) ; diviser par $+0{,}5$ en h.
 
 **Variante.** Le taux de $x^2 + 2x$ entre 1 et $1 + h$, et la dérivée en 1 ? *Réponse* : $4 + h$, et 4.
 
@@ -152,7 +152,7 @@
 
 **Erreurs fréquentes.** $y = f'(a)(x - a)$, sans $f(a)$ ; un signe faux en développant $-f'(a) \times a$ ; résoudre $f(x) = 0$ au lieu de $f'(x) = 0$ en g.
 
-**Variante.** La tangente de $\frac{1}{x}$ en $x = 2$, et l'approximation de $\frac{1}{2{,}1}$ qu'elle donne ? *Réponse* : $f'(2) = -\frac{1}{4}$, $y = \frac{1}{2} - \frac{x - 2}{4} = -\frac{x}{4} + 1$ ; $\frac{1}{2{,}1} \approx 0{,}475$ (vraie valeur 0,4762).
+**Variante.** La tangente de $\sqrt{x}$ en $x = 9$, et l'approximation de $\sqrt{9{,}3}$ qu'elle donne ? *Réponse* : $f'(9) = \frac{1}{6}$, $y = 3 + \frac{x - 9}{6} = \frac{x}{6} + 1{,}5$ ; $\sqrt{9{,}3} \approx 3{,}05$ (vraie valeur 3,0496).
 
 ### Ex R7.5 — Dériver les fonctions usuelles
 
@@ -171,61 +171,62 @@
 
 ### Ex R7.6 — Dériver des produits et des quotients
 
-**Réponses** : a) `"3*x**2*log(x) + x**2"` · b) `"9*x**2 - 4*x + 3"` · c) `"log(x)/(2*sqrt(x)) + 1/sqrt(x)"` · d) `"9/(2*x + 1)**2"` · e) `"(1 - x**2)/(x**2 + 1)**2"` · f) `"(1 - 2*log(x))/x**3"` · g) `1` · h) `"-2*x/(x**2 + 4)**2"`.
+**Réponses** : a) `"exp(x)*log(x) + exp(x)/x"` · b) `"9*x**2 - 4*x + 3"` · c) `"log(x)/(2*sqrt(x)) + 1/sqrt(x)"` · d) `"9/(2*x + 1)**2"` · e) `"(1 - x**2)/(x**2 + 1)**2"` · f) `"x*exp(x)/(x + 1)**2"` · g) `2.718` · h) `"-(exp(x) + 1)/(exp(x) + x)**2"`.
 
 **Démarche.**
-- a) $3x^2 \ln x + x^3 \times \frac{1}{x} = 3x^2 \ln x + x^2$.
+- a) $e^x \ln x + e^x \times \frac{1}{x} = e^x \ln x + \frac{e^x}{x}$.
 - b) $2x(3x - 2) + 3(x^2 + 1) = 9x^2 - 4x + 3$ (ou développer d'abord : $3x^3 - 2x^2 + 3x - 2$).
 - c) $\frac{1}{2\sqrt{x}} \ln x + \sqrt{x} \times \frac{1}{x} = \frac{\ln x}{2\sqrt{x}} + \frac{1}{\sqrt{x}}$.
 - d) $\frac{1 \times (2x + 1) - (x - 4) \times 2}{(2x + 1)^2} = \frac{9}{(2x + 1)^2}$.
 - e) $\frac{(x^2 + 1) - x \times 2x}{(x^2 + 1)^2} = \frac{1 - x^2}{(x^2 + 1)^2}$.
-- f) $\frac{\frac{1}{x} \times x^2 - \ln x \times 2x}{x^4} = \frac{x - 2x\ln x}{x^4} = \frac{1 - 2\ln x}{x^3}$.
-- g) $3 \times 1 \times 0 + 1 = 1$.
-- h) $-\frac{2x}{(x^2 + 4)^2}$, avec $\left(\frac{1}{v}\right)' = -\frac{v'}{v^2}$.
+- f) $\frac{e^x (x + 1) - e^x \times 1}{(x + 1)^2} = \frac{x\,e^x}{(x + 1)^2}$.
+- g) En 1 : $e \ln 1 + \frac{e}{1} = 0 + e \approx 2{,}718$.
+- h) $-\frac{e^x + 1}{(e^x + x)^2}$, avec $\left(\frac{1}{v}\right)' = -\frac{v'}{v^2}$ et $v = e^x + x$.
 
-**Erreurs fréquentes.** Le produit des dérivées ($3x^2 \times \frac{1}{x} = 3x$ en a) ; inverser $u'v$ et $uv'$ (le signe change) ; oublier le carré du dénominateur ; ne pas simplifier par $x$ en f.
+**Erreurs fréquentes.** Le produit des dérivées ($e^x \times \frac{1}{x}$ en a) ; inverser $u'v$ et $uv'$ (le signe change) ; oublier le carré du dénominateur ; en g, croire que tout s'annule parce que $\ln 1 = 0$ ; en h, oublier $v'$ au numérateur.
 
 **Variante.** Les dérivées de $(x^2 - 1)\sqrt{x}$ et de $\frac{x^2}{x - 1}$ ? *Réponse* : $2x\sqrt{x} + \frac{x^2 - 1}{2\sqrt{x}} = \frac{5x^2 - 1}{2\sqrt{x}}$ ; $\frac{2x(x - 1) - x^2}{(x - 1)^2} = \frac{x^2 - 2x}{(x - 1)^2}$.
 
 ### Ex R7.7 — Dériver des composées
 
-**Réponses** : a) `"12*x*(2*x**2 - 1)**2"` · b) `"5*exp(5*x - 3)"` · c) `"3/(3*x + 2)"` · d) `"-1/(2*sqrt(4 - x))"` · e) `"exp(sqrt(x))/(2*sqrt(x))"` · f) `"1/(x*log(x))"` · g) `"-(2*x + 1)/(x**2 + x)**2"` · h) `"4/3"`.
+**Réponses** : a) `"12*x*(2*x**2 - 1)**2"` · b) `"-2*exp(-x/5)"` · c) `"3/(3*x + 2)"` · d) `"3*x**2/(2*sqrt(x**3 + 1))"` · e) `"exp(sqrt(x))/(2*sqrt(x))"` · f) `"1/(x*log(x))"` · g) `"-(2*x + 1)/(x**2 + x)**2"` · h) `"4/3"`.
 
 **Démarche.**
 - a) $u = 2x^2 - 1$, $u' = 4x$ : $3u^2 \times 4x = 12x(2x^2 - 1)^2$.
-- b) $u = 5x - 3$, $u' = 5$ : $5e^{5x - 3}$.
+- b) $u = -\frac{x}{5}$, $u' = -\frac{1}{5}$ : $10 \times \left(-\frac{1}{5}\right) e^{-x/5} = -2e^{-x/5}$.
 - c) $\frac{u'}{u} = \frac{3}{3x + 2}$.
-- d) $u = 4 - x$, $u' = -1$ : $\frac{-1}{2\sqrt{4 - x}}$.
+- d) $u = x^3 + 1$, $u' = 3x^2$ : $\frac{3x^2}{2\sqrt{x^3 + 1}}$.
 - e) $u = \sqrt{x}$ : $e^{\sqrt{x}} \times \frac{1}{2\sqrt{x}}$.
 - f) $u = \ln x$, $u' = \frac{1}{x}$ : $\frac{1/x}{\ln x} = \frac{1}{x \ln x}$.
 - g) $-u^{-2} \times u'$ avec $u = x^2 + x$ et $u' = 2x + 1$.
 - h) $\frac{2x + 2}{x^2 + 2x}$ en 1 : $\frac{4}{3}$.
 
-**Erreurs fréquentes.** Oublier la dérivée de l'intérieur (la plus fréquente de toutes) ; perdre le signe de $u' = -1$ en d ; $\frac{1}{\ln x}$ en f ; en h, remplacer $x$ par 1 avant de dériver.
+**Erreurs fréquentes.** Oublier la dérivée de l'intérieur (la plus fréquente de toutes) ; perdre le signe de $u' = -\frac{1}{5}$ en b ; $\frac{1}{\ln x}$ en f ; en h, remplacer $x$ par 1 avant de dériver.
 
 **Variante.** Les dérivées de $(1 - 3x)^4$ et de $e^{1/x}$ ? *Réponse* : $-12(1 - 3x)^3$ ; $-\frac{1}{x^2}e^{1/x}$.
 
 ### Ex R7.8 — Variations et tableau de variations
 
-**Réponses** : a) `"6*x**2 + 6*x - 12"` · b) `[-2, 1]` · c) `"[-2 ; 1]"` · d) `21` · e) `-6` · f) `46` · g) `2` · h) `0.614`.
+**Réponses** : a) `"4*x**3 - 12*x**2"` · b) `[0, 3]` · c) `"]-oo ; 3]"` · d) `1` · e) `-17` · f) `15` · g) `2` · h) `0.614`.
 
 **Démarche.**
-- a) et b) $f'(x) = 6x^2 + 6x - 12 = 6(x^2 + x - 2) = 6(x + 2)(x - 1)$, nulle en −2 et en 1.
-- c) Coefficient de $x^2$ positif : $f' < 0$ entre les racines. $f$ décroît sur $[-2 \;;\; 1]$.
+- a) et b) $f'(x) = 4x^3 - 12x^2 = 4x^2(x - 3)$, nulle en 0 et en 3.
+- c) $4x^2 \ge 0$ : $f'$ a le signe de $x - 3$. Elle est négative avant 3 (sauf en 0, où elle s'annule sans changer de signe), positive après. $f$ décroît sur $]-\infty \;;\; 3]$.
 
-| $x$ | $-\infty$ | | $-2$ | | $1$ | | $+\infty$ |
+| $x$ | $-\infty$ | | $0$ | | $3$ | | $+\infty$ |
 |---|---|---|---|---|---|---|---|
-| $f'(x)$ | | $+$ | $0$ | $-$ | $0$ | $+$ | |
-| $f$ | | ↗ | 21 | ↘ | −6 | ↗ | |
+| $f'(x)$ | | $-$ | $0$ | $-$ | $0$ | $+$ | |
+| $f$ | | ↘ | 10 | ↘ | −17 | ↗ | |
 
-- d) $f(-2) = -16 + 12 + 24 + 1 = 21$. e) $f(1) = 2 + 3 - 12 + 1 = -6$.
-- f) Sur $[-3 \;;\; 3]$ : $f(-3) = 10$, $f(-2) = 21$, $f(1) = -6$, $f(3) = 46$. Le maximum, 46, est atteint au bord.
+- d) Un seul extremum local, le minimum en 3. En 0, la tangente est horizontale, mais $f$ continue de descendre : pas d'extremum (comme $x^5$ en 0, fiche §8).
+- e) $f(3) = 81 - 108 + 10 = -17$ : $f$ décroît jusqu'à 3 puis croît, c'est sa plus petite valeur sur $\mathbb{R}$.
+- f) Sur $[-1 \;;\; 4]$ : $f(-1) = 1 + 4 + 10 = 15$, $f(0) = 10$, $f(3) = -17$, $f(4) = 256 - 256 + 10 = 10$. Le maximum, 15, est atteint au bord gauche.
 - g) $g'(x) = 1 - \frac{2}{x} = \frac{x - 2}{x}$ : négatif sur $]0 \;;\; 2[$, positif ensuite ; minimum en 2.
 - h) $g(2) = 2 - 2\ln 2 \approx 0{,}614$.
 
-**Erreurs fréquentes.** Oublier les bords en f (répondre 21) ; donner l'abscisse au lieu de la valeur (d, e, h) ; un intervalle ouvert en c (en −2 et en 1, $f$ est encore décroissante : les bornes sont comprises).
+**Erreurs fréquentes.** Oublier la racine 0 du facteur $x^2$ (b) ; compter 0 comme un extremum (d) ; oublier les bords en f (répondre 10) ; donner l'abscisse au lieu de la valeur (e, h).
 
-**Variante.** Les extremums locaux de $x^3 - 12x$ ? *Réponse* : $3x^2 - 12 = 3(x - 2)(x + 2)$ : maximum local 16 en −2, minimum local −16 en 2.
+**Variante.** Le minimum de $x^2 - 8\ln x$ sur $]0 \;;\; +\infty[$ ? *Réponse* : $2x - \frac{8}{x} = \frac{2(x^2 - 4)}{x}$, négative avant 2 et positive après : minimum $4 - 8\ln 2 \approx -1{,}545$ en 2.
 
 ### Ex R7.9 — Optimiser : la boîte de volume maximal
 
@@ -244,7 +245,7 @@
 
 ### Ex R7.10 — La règle de la chaîne en série : trois étages, et l'ordre qui compte
 
-**Réponses** : a) `"6*x*(x**2 + 1)**2*exp((x**2 + 1)**3)"` · b) `"1/(2*x*sqrt(log(x)))"` · c) `"3*exp(x)*(2 + exp(x))**2"` · d) `"4/(2*x + 1)"` · e) `20` · f) `-0.736` · g) `0.5` · h) `[14.778, 5.437]`.
+**Réponses** : a) `"6*x*(x**2 + 1)**2*exp((x**2 + 1)**3)"` · b) `"1/(2*x*sqrt(log(x)))"` · c) `"3*exp(x)*(2 + exp(x))**2"` · d) `"4/(2*x + 1)"` · e) `20` · f) `1.269` · g) `0.5` · h) `[109.196, 218.393]`.
 
 **Démarche.**
 - a) Trois étages : $v = x^2 + 1$, $u = v^3$, $z = e^u$. $\frac{dz}{dx} = e^u \times 3v^2 \times 2x$.
@@ -252,11 +253,11 @@
 - c) $3(2 + e^x)^2 \times e^x$.
 - d) $\ln\big((2x + 1)^2\big) = 2\ln(2x + 1)$ (pour $2x + 1 > 0$), de dérivée $2 \times \frac{2}{2x + 1}$.
 - e) $5(x^2 - 3)^4 \times 2x$ en 2 : $5 \times 1 \times 4 = 20$.
-- f) $-2(x - 3)e^{-(x - 3)^2}$ en 4 : $-2e^{-1} \approx -0{,}736$.
+- f) $(\ln u)' = \frac{u'}{u}$ avec $u = x^2 + e^x$ et $u' = 2x + e^x$ : en 1, $\frac{2 + e}{1 + e} \approx 1{,}269$.
 - g) $\frac{2e^{2x}}{2\sqrt{e^{2x} + 3}} = \frac{e^{2x}}{\sqrt{e^{2x} + 3}}$ en 0 : $\frac{1}{\sqrt{4}} = 0{,}5$.
-- h) $(e^x)^2 = e^{2x}$ a pour dérivée $2e^{2x}$, soit $2e^2 \approx 14{,}778$ en 1 ; $e^{x^2}$ a pour dérivée $2x\,e^{x^2}$, soit $2e \approx 5{,}437$.
+- h) $(e^x)^2 = e^{2x}$ a pour dérivée $2e^{2x}$, soit $2e^4 \approx 109{,}196$ en 2 ; $e^{x^2}$ a pour dérivée $2x\,e^{x^2}$, soit $4e^4 \approx 218{,}393$.
 
-**Erreurs fréquentes.** S'arrêter à deux étages en a ; oublier le 2 de l'exposant en d ou en g ; confondre $(e^x)^2$ et $e^{x^2}$ en h.
+**Erreurs fréquentes.** S'arrêter à deux étages en a ; oublier le 2 de l'exposant en d ou en g ; oublier $u'$ en f ; confondre $(e^x)^2$ et $e^{x^2}$ en h.
 
 **Variante.** Les dérivées de $\sqrt{1 + e^{-x}}$ et de $\ln(\ln(\ln x))$ ? *Réponse* : $\frac{-e^{-x}}{2\sqrt{1 + e^{-x}}}$ ; $\frac{1}{x \ln x \ln(\ln x)}$.
 
@@ -272,7 +273,7 @@
 - f) $2\pi \times 3 \times 10 = 60\pi \approx 188{,}50$.
 - g) $\frac{1}{2} m \times 2v = mv$. h) $\frac{1}{2}v^2 \times 1$.
 
-**Erreurs fréquentes.** Oublier la dérivée de l'intérieur en a ; dériver $kt$ par rapport à $k$ en $k$ (au lieu de $t$) ; « perdre » une lettre constante (répondre $2\pi r$ en d) ; dériver aussi les lettres fixées.
+**Erreurs fréquentes.** Oublier la dérivée de l'intérieur en a ; en b, donner $k$ comme dérivée de $kt$ par rapport à $k$ (c'est $t$) ; « perdre » une lettre constante (répondre $2\pi r$ en d) ; dériver aussi les lettres fixées.
 
 **Variante.** Pour $P = \frac{nRT}{V}$ (loi des gaz parfaits), $\frac{dP}{dT}$ et $\frac{dP}{dV}$ ? *Réponse* : $\frac{nR}{V}$ ; $-\frac{nRT}{V^2}$.
 
@@ -369,9 +370,9 @@ Dans ta copie : une dérivée nulle peut aussi signaler un maximum ou un replat 
 
 **Exemple de réponse.**
 
-> Imagine le compteur d'une voiture : il ne dit pas la distance parcourue, mais à quelle vitesse elle change, à cet instant. Une dérivée, c'est ce compteur pour n'importe quelle quantité : elle dit de combien la quantité bouge quand on bouge un tout petit peu ce dont elle dépend, rapporté à ce petit pas. Si elle est positive, la quantité monte ; négative, elle descend ; nulle, elle est à plat, pour un instant. Sa taille dit la sensibilité : une grande dérivée veut dire qu'un petit changement a un gros effet. Sur une courbe, c'est la pente du chemin à l'endroit où tu es. Pour trouver le bas d'une vallée dans le brouillard, tu regardes la pente sous tes pieds et tu descends ; au fond, la pente est nulle. Un modèle de machine learning cherche ainsi le bas de son erreur.
+> Imagine le compteur d'une voiture : il ne dit pas la distance parcourue, mais à quelle vitesse elle change, à cet instant. Une dérivée, c'est ce compteur pour n'importe quelle quantité : elle dit de combien la quantité bouge quand on bouge un tout petit peu ce dont elle dépend, rapporté à ce petit pas. Si elle est positive, la quantité monte ; négative, elle descend ; nulle, elle est à plat, pour un instant. Sa taille dit la sensibilité : une grande dérivée veut dire qu'un petit changement a un gros effet. Sur une courbe, c'est la pente à l'endroit où tu es. Et au moment où une quantité cesse de descendre pour remonter, comme le niveau d'un lac au plus sec de l'été, sa dérivée vaut zéro : c'est ainsi qu'on repère le plus petit niveau, ou la plus petite erreur d'un modèle.
 
-**Grille.** Une bonne réponse : (1) l'image de la vitesse (compteur) ; (2) le rapport entre deux petites variations ; (3) le signe : monte ou descend ; (4) la taille : la sensibilité ; (5) l'usage pour trouver un minimum (la pente nulle au fond, la descente) ; (6) aucune formule, huit lignes au plus.
+**Grille.** Une bonne réponse : (1) l'image de la vitesse (compteur) ; (2) le rapport entre deux petites variations ; (3) le signe : monte ou descend ; (4) la taille : la sensibilité ; (5) l'usage pour trouver un minimum (la dérivée nulle au moment où la quantité cesse de descendre) ; (6) aucune formule, huit lignes au plus.
 
 <a id="notebook"></a>
 
@@ -387,9 +388,9 @@ Dans ta copie : une dérivée nulle peut aussi signaler un maximum ou un replat 
 
 ### Ex R7.18 — La tangente à partir de f et de sa dérivée · `tangent_line`
 
-**Réponses** : a) `[1.0, -1.0]` · b) `[11, -16]` · c) `"int int"` · d) `[0.3679, 0.7358]`.
+**Réponses** : a) `[0.3679, 0]` · b) `[11, -16]` · c) `"int int"` · d) `[0.3679, 0.7358]`.
 
-**Démarche.** `m = df(a)`, puis `return m, f(a) - m * a`. Pour la copie : la tangente de exp en $a$ est $y = e^a x + e^a(1 - a)$ ; elle coupe l'axe des abscisses en $x = a - 1$ (ici −2), toujours une unité à gauche du point de contact.
+**Démarche.** `m = df(a)`, puis `return m, f(a) - m * a`. En a), la tangente de ln en $e$ est $y = \frac{x}{e}$ : elle passe par l'origine. Pour la copie : la tangente de exp en $a$ est $y = e^a x + e^a(1 - a)$ ; elle coupe l'axe des abscisses en $x = a - 1$ (ici −2), toujours une unité à gauche du point de contact.
 
 **Erreurs fréquentes.** `c = f(a)` (oublier $-f'(a) \times a$) ; un signe faux ; `float(...)` qui transforme les entiers de b en flottants.
 
@@ -399,52 +400,56 @@ Dans ta copie : une dérivée nulle peut aussi signaler un maximum ou un replat 
 
 **Démarche.** Vérifier `a < b` ; calculer `f(a)` et `f(b)` ; renvoyer une borne où `f` vaut 0 ; lever une `ValueError` si les deux signes sont stricts et identiques ; puis, au plus `max_iter` fois et tant que `b - a >= tol`, couper en deux et garder la moitié où le signe change ; renvoyer le milieu. g) $2^{-n} < 10^{-10} \iff n > 10\log_2 10 \approx 33{,}2$ : 34 coupes.
 
-**Erreurs fréquentes.** Tester `f(a) * f(b) > 0` sans traiter les zéros aux bornes ; renvoyer `a` au lieu du milieu (on perd jusqu'à la moitié de `tol`) ; une boucle `while b - a > tol` sans limite, qui ne s'arrête jamais pour `tol = 0`.
+**Erreurs fréquentes.** Tester `f(a) * f(b) > 0` sans traiter les zéros aux bornes (ni un milieu où `f` vaut exactement 0) ; renvoyer `a` au lieu du milieu (on perd jusqu'à la moitié de `tol`) ; une boucle `while b - a > tol` sans limite, qui ne s'arrête jamais pour `tol = 0`.
 
 ### Ex R7.20 — Vérifier ses dérivées avec `sympy.diff`
 
-**Réponses** : a) $2x e^{-x} - x^2 e^{-x}$ · b) `[0, 2]` · c) `[True, True, False]` · d) `1/4`.
+**Réponses** : a) $(x^2 + 2x - 3)\,e^x$ · b) `[-3, 1]` · c) `[True, True, False]` · d) `1/4`.
 
-**Démarche.** a) `sp.diff(x**2 * sp.exp(-x), x)` ; b) `sorted(int(v) for v in sp.solve(..., x))` ; c) `sp.simplify(sp.diff(f, x) - proposed) == 0` pour chaque couple ; d) `sp.limit((sp.sqrt(x + 4) - 2) / x, x, 0)`, le nombre dérivé de $\sqrt{x}$ en 4. La troisième dérivée proposée est fausse : $\left(\sqrt{x}\,e^{2x}\right)' = \frac{e^{2x}}{2\sqrt{x}} + 2\sqrt{x}\,e^{2x}$ (le facteur 2 de la règle de la chaîne manque).
+**Démarche.** a) `sp.diff((x**2 - 3) * sp.exp(x), x)`, qui affiche $2x e^x + (x^2 - 3)e^x$ ; b) `sorted(int(v) for v in sp.solve(..., x))` : $(x^2 + 2x - 3)e^x = (x + 3)(x - 1)e^x$ s'annule en −3 et en 1 ; c) `sp.simplify(sp.diff(f, x) - proposed) == 0` pour chaque couple ; d) `sp.limit((sp.sqrt(x + 4) - 2) / x, x, 0)`, le nombre dérivé de $\sqrt{x}$ en 4. La troisième dérivée proposée est fausse : $\left(\sqrt{x}\,e^{2x}\right)' = \frac{e^{2x}}{2\sqrt{x}} + 2\sqrt{x}\,e^{2x}$ (le facteur 2 de la règle de la chaîne manque). Avec `==`, la première, juste pourtant, serait déclarée fausse : `==` compare des écritures.
 
-**Erreurs fréquentes.** Comparer avec `==` deux écritures de la même dérivée (elles diffèrent comme textes) ; chercher les zéros de la fonction au lieu de ceux de la dérivée ; `math.exp` au lieu de `sp.exp` (une erreur, car $x$ est un symbole).
+**Erreurs fréquentes.** Comparer avec `==` deux écritures de la même dérivée ; oublier les parenthèses autour de $x^2 - 3$ ; chercher les zéros de la fonction au lieu de ceux de la dérivée ; `math.exp` au lieu de `sp.exp` (une erreur, car $x$ est un symbole).
 
-### Ex R7.21 — Prédire : le taux d'accroissement s'approche-t-il toujours de la dérivée quand h devient minuscule ?
+### Ex R7.21 — Prédire : le taux d'accroissement a-t-il toujours une limite quand h tend vers 0 ?
 
-**Réponses** : a) `2` · b) `2` · c) `2`.
+**Réponses** : a) `2` · b) `3` · c) `1`.
 
-**Démarche.** L'écart diminue jusque vers $h = 10^{-8}$ (environ $7 \times 10^{-9}$), puis remonte : $e^{1 + h}$ et $e$ sont presque égaux, leur différence en flottants ne garde que quelques chiffres justes, et la division par $h$ grossit l'erreur. Pour $h = 10^{-16}$, `1 + h == 1` en flottant (R1) : le numérateur vaut 0, le taux aussi. Pour la copie : une formule juste en mathématiques peut devenir fausse en flottants ; M05a étudiera comment choisir $h$.
+**Démarche.** a) Pour $h > 0$, $\frac{e^{h} - 1}{h} \to 1$ ; pour $h < 0$, $\frac{e^{-h} - 1}{h} \to -1$. Deux limites différentes : $e^{\lvert x \rvert}$ fait un coin en 0, comme $\lvert x \rvert$, et n'y est pas dérivable. b) Juste à gauche de 2, la partie entière vaut 1 : le taux vaut $\frac{1 - 2}{h} = \frac{1}{\lvert h \rvert}$ (10, 100, …, $10^6$), sans limite finie ; à droite, il vaut 0. Une fonction qui saute n'est pas dérivable : elle n'est même pas continue. c) Les taux valent $\frac{h^2}{h} = h$ à droite et $\frac{0}{h} = 0$ à gauche : ils tendent vers 0 des deux côtés. $\big(\max(0, x)\big)^2$ est dérivable en 0, de dérivée 0, alors que $\max(0, x)$ y fait un coin.
 
-**Erreurs fréquentes.** Penser que « plus petit » est toujours « plus précis » ; attendre une erreur pour $h = 10^{-16}$ (aucune division par zéro : $h$ n'est pas nul, c'est le numérateur qui l'est).
+**Pour la copie.** Seule la fonction c) est dérivable en son point. Un nombre dérivé existe quand les taux ont **la même limite finie** des deux côtés : un coin donne deux limites différentes, un saut une limite infinie.
+
+**Erreurs fréquentes.** Croire qu'une fonction sans formule « bizarre » est toujours dérivable (a) ; regarder un seul côté (b : à droite, tout semble tranquille) ; confondre $\max(0, x)$, qui fait un coin, et son carré, qui se raccorde en douceur.
 
 ### Ex R7.22 — Zoomer sur une courbe jusqu'à voir une droite
 
-**Réponses** : a) `[0.38629, 0.05361, 0.00503, 0.0005]` · b) `[0.773, 0.536, 0.503, 0.500]` · c) `[1, 1, 1, 1]` · d) `0.5`.
+**Réponses** : a) `[0.03131, 0.00568, 0.00056, 0.00006]` · b) `[0.0626, 0.0568, 0.0557, 0.0556]` · c) `[1, 1, 1, 1]` · d) `0.056`.
 
-**Démarche.** `xs = np.linspace(a - w, a + w, 1001)`, puis `float(np.max(np.abs(f(xs) - line(xs))))`. L'écart est le plus grand au bord gauche, $-\ln(1 - w) - w$. Les rapports de a) tendent vers 0 (la courbe se confond avec sa tangente), ceux de b) vers $\frac{1}{2}$ (l'écart est de l'ordre de $w^2$). Pour $\lvert x \rvert$, le rapport reste 1 : aucune droite ne colle au coin.
+**Démarche.** `xs = np.linspace(a - w, a + w, 1001)`, puis `float(np.max(np.abs(f(xs) - line(xs))))`. La courbe de ln est sous sa tangente, et l'écart est le plus grand au bord gauche : $-\frac{w}{3} - \ln\left(1 - \frac{w}{3}\right)$. Les rapports de a) tendent vers 0 (la courbe se confond avec sa tangente) ; ceux de b) se stabilisent vers 0,0556 (c'est $\frac{1}{18}$) : l'écart est de l'ordre de $w^2$, comme le petit carré du coin de la fiche (§4). Pour $\lvert x \rvert$, le rapport reste 1 : aucune droite ne colle au coin.
 
-**Erreurs fréquentes.** Oublier la valeur absolue (on prend le maximum de différences négatives) ; une grille sans les bornes ; diviser par $w$ en b.
+**Erreurs fréquentes.** Oublier la valeur absolue (le maximum de différences négatives vaut 0, atteint au point de contact) ; une grille sans les bornes ; diviser par $w$ en b.
 
 ### Ex R7.23 — Tracer f, f′ et des tangentes
 
-**Réponses** : a) `[-1.414, 0, 1.414]` · b) `2`.
+**Réponses** : a) `[-1, 0, 1]` · b) `1`.
 
-**Démarche.** Dans `axes[0]` : la courbe, puis pour chaque $p$ le segment `f(p) + df(p) * (s - p)` sur $[p - 0{,}6 \;;\; p + 0{,}6]$ et le point $(p \;;\; f(p))$ ; dans `axes[1]` : `df` et `axhline(0)`. $f'(x) = 4x(x^2 - 2)$ s'annule en $-\sqrt{2}$, 0, $\sqrt{2}$ ; deux minimums locaux ($f(\pm\sqrt{2}) = -4$), un maximum local en 0. Pour la copie : $f$ monte là où la courbe de droite est au-dessus de l'axe ; la pente de la tangente en 1 vaut $f'(1) = -4$, la hauteur de la courbe de droite en 1.
+**Démarche.** Dans `axes[0]` : la courbe, puis pour chaque $p$ le segment `f(p) + df(p) * (s - p)` sur $[p - 0{,}3 \;;\; p + 0{,}3]$ et le point $(p \;;\; f(p))$ ; dans `axes[1]` : `df` et `axhline(0)`. $f'(x) = 6x(x^2 - 1)^2$ s'annule en −1, 0 et 1, mais le facteur $(x^2 - 1)^2$ n'est jamais négatif : $f'$ a le signe de $x$, et ne change de signe qu'en 0. Un seul minimum local, $f(0) = -1$.
 
-**Erreurs fréquentes.** Ouvrir une figure dans la fonction ; tracer $f$ dans les deux axes ; donner les zéros de $f$ ($0$, $\pm 2$) en a.
+**Pour la copie.** $f$ monte là où la courbe de droite est au-dessus de l'axe, ici pour $x > 0$. La tangente en 1 est horizontale, mais $f$ n'y a pas d'extremum : la courbe traverse sa tangente (elle monte avant 1 et après 1), et la courbe de $f'$ touche l'axe en 1 sans le traverser.
+
+**Erreurs fréquentes.** Ouvrir une figure dans la fonction ; tracer $f$ dans les deux axes ; donner les zéros de $f$ (−1 et 1) en a ; compter trois extremums en b.
 
 ### Ex R7.24 — Chasse à l'erreur : quatre dérivées fausses
 
-**Réponses** : a) `"ACDE"` · b) `[30.1807, 1210.2864, 0.4444, 0.5]`.
+**Réponses** : a) `"ACDE"` · b) `[8.0829, -5.0, 1210.2864, 1.3333, 0.5, 12.25]`.
 
-**Démarche.** (A) $(x^4 \ln x)' = 4x^3 \ln x + x^3$ : la règle du produit. (C) $(e^{3x})' = 3e^{3x}$. (D) $(\ln(x^2 + 5))' = \frac{2x}{x^2 + 5}$. (E) $(\sqrt{2x})' = \frac{2}{2\sqrt{2x}} = \frac{1}{\sqrt{2x}}$. (B) est juste ($\frac{(x + 1) - (x - 1)}{(x + 1)^2}$), (F) aussi (la dérivée de $-\frac{1}{x}$ est $+\frac{1}{x^2}$, ce qui peut surprendre). En 2, `slope` donne des valeurs proches des dérivées corrigées.
+**Démarche.** (A) $\left(x^2\sqrt{x + 1}\right)' = 2x\sqrt{x + 1} + \frac{x^2}{2\sqrt{x + 1}}$ : la règle du produit, pas le produit des dérivées. (C) $(e^{3x})' = 3e^{3x}$. (D) $\big(\ln(x^3 + 1)\big)' = \frac{3x^2}{x^3 + 1}$. (E) $(\sqrt{2x})' = \frac{2}{2\sqrt{2x}} = \frac{1}{\sqrt{2x}}$. (B) est juste malgré son signe moins : $\frac{1 \times (x - 3) - (x + 2) \times 1}{(x - 3)^2} = \frac{-5}{(x - 3)^2}$ ; (F) aussi (la dérivée de $-\frac{1}{x}$ est $+\frac{1}{x^2}$, ce qui peut surprendre). En 2, `slope` donne des valeurs proches des dérivées corrigées.
 
-**Erreurs fréquentes.** Accuser (F) à cause du signe $+$ ; corriger (A) en $4x^3 \ln x$ seulement.
+**Erreurs fréquentes.** Accuser (B) ou (F) à cause de leur signe ; corriger (A) avec un seul des deux termes de la règle du produit.
 
 ### Ex R7.25 — Tester une dérivée avec pytest et SymPy
 
 **Réponses** : a) `True` · b) `True`.
 
-**Démarche.** $g'(x) = \frac{2x(x + 3) - (x^2 + 1)}{(x + 3)^2} = \frac{x^2 + 6x - 1}{(x + 3)^2}$. Le test calcule `exact = sp.diff((X**2 + 1) / (X + 3), X)`, puis, pour plusieurs points (dont un négatif), `assert math.isclose(dg(p), float(exact.subs(X, p)), rel_tol=1e-12)`. Il passe sur la bonne dérivée et échoue sur `dg_bug`.
+**Démarche.** $g'(x) = \frac{2x(x + 3) - (x^2 + 1)}{(x + 3)^2} = \frac{x^2 + 6x - 1}{(x + 3)^2}$. Le test crée son symbole (`X = sp.symbols("x")`, dans la fonction : pytest l'exécute seul), calcule `exact = sp.diff((X**2 + 1) / (X + 3), X)`, puis, pour plusieurs points (dont un négatif), `assert math.isclose(dg(p), float(exact.subs(X, p)), rel_tol=1e-12)`. Il passe sur la bonne dérivée et échoue sur `dg_bug`.
 
-**Erreurs fréquentes.** Un test qui ne compare qu'en un point (une dérivée fausse peut y être juste par hasard) ; comparer avec `==` des flottants ; choisir $-3$, où $g$ n'est pas définie.
+**Erreurs fréquentes.** Un test qui utilise un nom défini dans une autre cellule (pytest lève `NameError`) ; un test qui ne compare qu'en un point (une dérivée fausse peut y être juste par hasard) ; comparer avec `==` des flottants ; choisir $-3$, où $g$ n'est pas définie.

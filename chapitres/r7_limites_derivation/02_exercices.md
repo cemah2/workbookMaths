@@ -30,18 +30,18 @@ Vrai ou faux ?
 ### R7.Q2 — Continue ou pas ? 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
 
-1. $x \mapsto \lvert x - 2 \rvert$ est-elle continue sur $\mathbb{R}$ ?
-2. La partie entière $\lfloor x \rfloor$ est-elle continue en 2,5 ? En 3 ?
+1. La fonction $x \mapsto \frac{1}{x}$ est-elle continue en chaque point où elle est définie ?
+2. La fonction marche (0 pour $x < 0$, 1 pour $x \ge 0$) est-elle continue en 0 ? En 0,5 ?
 3. $f$ est continue sur $[0 \;;\; 1]$, $f(0) = -2$ et $f(1) = 5$ : $f$ prend-elle la valeur 3 ?
 4. Vrai ou faux : une fonction telle que $f(0) = -1$ et $f(1) = 1$ s'annule forcément entre 0 et 1.
 5. Après 10 étapes de dichotomie partant de $[0 \;;\; 1]$, quelle est la longueur de l'intervalle ?
-6. Vrai ou faux : la dichotomie trouve un zéro de $x \mapsto x^2$ sur $[-1 \;;\; 1]$.
+6. Vrai ou faux : la dichotomie trouve un zéro de $x \mapsto x^2$ sur $[-1 \;;\; 2]$.
 
 ### R7.Q3 — Le nombre dérivé est une pente 🧠 ★ ⏱️ 4 min
 *Fiche §3 et §4 · parcours C, E*
 
-1. Que représente $f'(a)$ sur la courbe de $f$ ?
-2. Si $f'(2) = -3$, la fonction monte-t-elle ou descend-elle en passant par 2 ?
+1. Vrai ou faux : le taux d'accroissement de $f$ entre $a$ et $a + h$ est la pente d'une droite qui passe par deux points de la courbe.
+2. Si $f'(-1) = 4$, la fonction monte-t-elle ou descend-elle en passant par −1 ?
 3. $f(5) = 2$ et $f'(5) = 4$ : une valeur approchée de $f(5{,}1)$ ?
 4. Vrai ou faux : la tangente en $a$ a pour équation $y = f'(a)(x - a)$.
 5. Vrai ou faux : une fonction continue en $a$ est dérivable en $a$.
@@ -78,13 +78,13 @@ Pour chaque fonction, nomme l'étage intérieur $u$ et l'étage extérieur (la f
 2. $e^{x^3}$
 3. $\ln(4 - x)$
 4. $\sqrt{e^x + 1}$
-5. $(\ln x)^4$
-6. Vrai ou faux : $\left(e^{5x}\right)' = e^{5x}$.
+5. $(e^x + x)^3$
+6. Vrai ou faux : $\big(\ln(2x)\big)' = \frac{1}{2x}$.
 
 ### R7.Q7 — Dérivée nulle, extremum ? 🧠 ★ ⏱️ 4 min
 *Fiche §8 · parcours C, E*
 
-1. La fonction $x \mapsto x^7$ a-t-elle un extremum en 0 ?
+1. La fonction $x \mapsto x^3 + x$ a-t-elle un extremum local ?
 2. $f'$ passe du signe $+$ au signe $-$ en $c$ : maximum ou minimum local ?
 3. Sur $[0 \;;\; 4]$, $f'(x) > 0$ partout : où $f$ atteint-elle son maximum sur cet intervalle ?
 4. Vrai ou faux : $\lvert x \rvert$ a un minimum en 0, bien qu'elle n'y soit pas dérivable.
@@ -141,7 +141,7 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 **Objectif :** calculer des limites en l'infini, en levant les formes indéterminées par le terme dominant et par les croissances comparées.
 **Prérequis :** fiche §1 ; R6 §5 · **Parcours :** C, E
 
-Limites quand $x \to +\infty$, sauf en h.
+Limites quand $x \to +\infty$, sauf à la ligne h.
 
 | | Limite | Réponse attendue |
 |---|---|---|
@@ -172,26 +172,26 @@ On pose $f(x) = \dfrac{3x - 2}{x + 1}$, $g(x) = \dfrac{x^2 + x - 6}{x - 2}$ et $
 | h | $\lim_{x \to 3^+} k(x)$ | un nombre ou `"+oo"`, `"-oo"` |
 
 ### Ex R7.3 — Taux d'accroissement et nombre dérivé ✏️ ★ ⏱️ 15 min
-**Objectif :** calculer des taux d'accroissement, les simplifier, et en déduire un nombre dérivé et une vitesse instantanée.
+**Objectif :** calculer des taux d'accroissement, les simplifier, et en déduire une vitesse instantanée et un coût marginal.
 **Prérequis :** fiche §3 · **Parcours :** C, E
 
-On pose $f(x) = x^2 - 5x$ et $a = 4$.
+Un objet lâché sans vitesse a parcouru $s(t) = 5t^2$ mètres au bout de $t$ secondes (on néglige l'air).
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | le taux d'accroissement de $f$ entre 4 et $4 + h$, pour $h = 1$ | un nombre |
-| b | le même taux, pour $h = 0{,}1$ | un nombre |
-| c | le même taux, pour $h = -0{,}5$ | un nombre |
-| d | ce taux, simplifié, en fonction de $h$ | une expression en `h` |
-| e | $f'(4)$ | un nombre |
+| a | sa vitesse moyenne entre $t = 2$ et $t = 2{,}5$, en m/s | un nombre |
+| b | sa vitesse moyenne entre $t = 2$ et $t = 2{,}1$, en m/s | un nombre |
+| c | le taux d'accroissement de $s$ entre 2 et $2 + h$, simplifié et développé, en fonction de $h$ | une expression en `h` |
+| d | sa vitesse instantanée à $t = 2$, en m/s | un nombre |
 
-Un objet lâché sans vitesse a parcouru $s(t) = 5t^2$ mètres au bout de $t$ secondes (on néglige l'air). Et $g(x) = 3x + 7$.
+Fabriquer $q$ pièces coûte $C(q) = 0{,}5q^2 + 3q + 100$ euros. Et $g(x) = 3x + 7$, $f(x) = x^2 - 5x$.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| f | sa vitesse moyenne entre $t = 2$ et $t = 2{,}5$, en m/s | un nombre |
-| g | sa vitesse instantanée à $t = 2$, en m/s | un nombre |
-| h | le taux d'accroissement de $g$ entre deux nombres distincts quelconques | un nombre |
+| e | le coût moyen de chacune des pièces supplémentaires quand on passe de 10 à 12 pièces : le taux d'accroissement de $C$ entre 10 et 12 | un nombre |
+| f | le coût marginal en 10 pièces, $C'(10)$, à partir de la limite du taux | un nombre |
+| g | le taux d'accroissement de $g$ entre deux nombres distincts quelconques | un nombre |
+| h | le taux d'accroissement de $f$ entre 4 et $4 + h$ pour $h = -0{,}5$ | un nombre |
 
 ### Ex R7.4 — Équation de la tangente ✏️ ★ ⏱️ 15 min
 **Objectif :** écrire l'équation d'une tangente, s'en servir pour une approximation affine, et trouver une tangente horizontale.
@@ -233,14 +233,14 @@ Donne $f'(x)$ pour chaque fonction (là où elle est définie).
 
 | | $f(x)$ | Réponse attendue |
 |---|---|---|
-| a | $x^3 \ln x$ | une expression en `x` |
+| a | $e^x \ln x$ | une expression en `x` |
 | b | $(x^2 + 1)(3x - 2)$ | une expression en `x` |
 | c | $\sqrt{x}\,\ln x$ | une expression en `x` |
 | d | $\dfrac{x - 4}{2x + 1}$ | une expression en `x` |
 | e | $\dfrac{x}{x^2 + 1}$ | une expression en `x` |
-| f | $\dfrac{\ln x}{x^2}$ | une expression en `x` |
-| g | la valeur en $x = 1$ de la dérivée de a | un nombre |
-| h | $\dfrac{1}{x^2 + 4}$ | une expression en `x` |
+| f | $\dfrac{e^x}{x + 1}$ | une expression en `x` |
+| g | la valeur en $x = 1$ de la dérivée de a | un nombre (3 décimales) |
+| h | $\dfrac{1}{e^x + x}$ | une expression en `x` |
 
 ### Ex R7.7 — Dériver des composées ✏️ ★★ ⏱️ 25 min
 **Objectif :** dériver une composée en nommant l'étage intérieur, avec la règle de la chaîne.
@@ -251,9 +251,9 @@ Pour chaque fonction, nomme $u$ dans ta copie, dérive chaque étage, puis multi
 | | $f(x)$ | Réponse attendue |
 |---|---|---|
 | a | $(2x^2 - 1)^3$ | une expression en `x` |
-| b | $e^{5x - 3}$ | une expression en `x` |
+| b | $10\,e^{-x/5}$ | une expression en `x` |
 | c | $\ln(3x + 2)$ | une expression en `x` |
-| d | $\sqrt{4 - x}$ | une expression en `x` |
+| d | $\sqrt{x^3 + 1}$, pour $x > -1$ | une expression en `x` |
 | e | $e^{\sqrt{x}}$ | une expression en `x` |
 | f | $\ln(\ln x)$, pour $x > 1$ | une expression en `x` |
 | g | $\dfrac{1}{x^2 + x}$, écrite $(x^2 + x)^{-1}$ | une expression en `x` |
@@ -263,16 +263,16 @@ Pour chaque fonction, nomme $u$ dans ta copie, dérive chaque étage, puis multi
 **Objectif :** étudier le signe d'une dérivée, en déduire les variations et les extremums, y compris aux bords d'un intervalle.
 **Prérequis :** fiche §8 ; R3 (second degré) · **Parcours :** C, E
 
-On pose $f(x) = 2x^3 + 3x^2 - 12x + 1$, définie sur $\mathbb{R}$. Dresse son tableau de variations dans ta copie.
+On pose $f(x) = x^4 - 4x^3 + 10$, définie sur $\mathbb{R}$. Dresse son tableau de variations dans ta copie.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $f'(x)$ | une expression en `x` |
 | b | les points où $f'$ s'annule, dans l'ordre croissant | une liste |
-| c | le plus grand intervalle sur lequel $f$ est décroissante | un intervalle |
-| d | la valeur du maximum local de $f$ | un nombre |
-| e | la valeur du minimum local de $f$ | un nombre |
-| f | la plus grande valeur de $f$ sur l'intervalle $[-3 \;;\; 3]$ | un nombre |
+| c | l'intervalle sur lequel $f$ est décroissante (le plus grand possible) | un intervalle |
+| d | le nombre d'extremums locaux de $f$ | un nombre entier |
+| e | la plus petite valeur de $f$ sur $\mathbb{R}$ | un nombre |
+| f | la plus grande valeur de $f$ sur l'intervalle $[-1 \;;\; 4]$ | un nombre |
 
 Puis $g(x) = x - 2\ln x$, sur $]0 \;;\; +\infty[$.
 
@@ -307,9 +307,9 @@ Dans une feuille de carton de 16 cm sur 10 cm, on découpe un carré de côté $
 | c | la dérivée de $(2 + e^x)^3$ | une expression en `x` |
 | d | la dérivée de $\ln\big((2x + 1)^2\big)$, pour $x > -\frac{1}{2}$ | une expression en `x` |
 | e | la valeur en $x = 2$ de la dérivée de $(x^2 - 3)^5$ | un nombre |
-| f | la valeur en $x = 4$ de la dérivée de $e^{-(x - 3)^2}$ | un nombre (3 décimales) |
+| f | la valeur en $x = 1$ de la dérivée de $\ln(x^2 + e^x)$ | un nombre (3 décimales) |
 | g | la valeur en $x = 0$ de la dérivée de $\sqrt{e^{2x} + 3}$ | un nombre |
-| h | les valeurs en $x = 1$ des dérivées de $\left(e^x\right)^2$ et de $e^{x^2}$, dans cet ordre | une liste (3 décimales) |
+| h | les valeurs en $x = 2$ des dérivées de $\left(e^x\right)^2$ et de $e^{x^2}$, dans cet ordre | une liste (3 décimales) |
 
 ### Ex R7.11 — Dériver par rapport à une lettre, les autres fixées : A e^(kt), π r² h, ½ m v² ✏️ ★★ ⏱️ 20 min
 **Objectif :** dériver une formule à plusieurs lettres par rapport à l'une d'elles, en traitant les autres comme des constantes.
@@ -408,7 +408,7 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | R7.18 | La tangente à partir de f et de sa dérivée · `tangent_line` | 🔨 | ★★ | 20 | C |
 | R7.19 | Trouver un zéro par dichotomie · `bisection` | 🔨 | ★★ | 25 | C, E |
 | R7.20 | Vérifier ses dérivées avec `sympy.diff` | 📦 | ★ | 15 | C, E |
-| R7.21 | Prédire : le taux d'accroissement s'approche-t-il toujours de la dérivée quand h devient minuscule ? | 🔮 | ★★ | 15 | C |
+| R7.21 | Prédire : le taux d'accroissement a-t-il toujours une limite quand h tend vers 0 ? | 🔮 | ★★ | 15 | C |
 | R7.22 | Zoomer sur une courbe jusqu'à voir une droite | 🔬 | ★★ | 20 | C, E |
 | R7.23 | Tracer f, f′ et des tangentes | 🎨 | ★★ | 20 | C |
 | R7.24 | Chasse à l'erreur : quatre dérivées fausses | 🐛 | ★★ | 20 | C, E |
