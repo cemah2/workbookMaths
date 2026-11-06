@@ -18,8 +18,8 @@ import re
 
 # (id, short French title, part) in study order. Part "0" to "VII" as in workbookIA; "fin" for PS.
 CHAPTERS: tuple[tuple[str, str, str], ...] = (
-    ("POS", "Test de positionnement", "0"),
     ("R0", "Prise en main", "0"),
+    ("POS", "Test de positionnement", "0"),
     ("R1", "Nombres et calcul", "0"),
     ("R2", "Calcul littéral et équations", "0"),
     ("R3", "Fonctions", "0"),
@@ -221,12 +221,13 @@ def checkpoint_number(chapter_id: str) -> int | None:
 def common_order() -> list[tuple[str, str]]:
     """The common study order of both workbooks, as (workbook, id) pairs: ("maths", "R0"), ("IA", "0A")...
 
-    R0-R9 are listed with workbookIA 0A (studied alongside it); each math chapter comes just before the
+    R0, POS and R1-R9 are listed with workbookIA 0A (studied alongside it; each R chapter names the 0A sections it
+    needs, see docs/PARCOURS.md); each math chapter comes just before the
     workbookIA chapter it prepares; each mock exam just before the workbookIA checkpoint of the same part.
     """
-    order: list[tuple[str, str]] = [("maths", "POS")]
+    order: list[tuple[str, str]] = []
     for cid in CHAPTER_ORDER:
-        if re.fullmatch(r"R\d", cid):
+        if re.fullmatch(r"R\d|POS", cid):         # R0, then the placement test, then R1 to R9
             order.append(("maths", cid))
     order += [("IA", "0A"), ("maths", "CP0"), ("IA", "0B")]
     ia_checkpoints = {"6": 1, "11": 2, "15": 3, "20": 4, "24": 5, "29": 6}

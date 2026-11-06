@@ -11,11 +11,12 @@ def arithmetic_term(u0, r, n):
     ----------
     u0, r : float
     n : int
-        Index, ``n >= 0``.
+        **Index** of the term, ``n >= 0`` (``u(0) = u0``).
 
     Returns
     -------
-    float
+    int or float
+        An int when ``u0`` and ``r`` are ints.
 
     Examples
     --------
@@ -33,7 +34,7 @@ def geometric_sum(u0, q, n):
     ----------
     u0, q : float
     n : int
-        Number of terms, ``n >= 0`` (the empty sum is 0).
+        **Number of terms**, ``n >= 0`` (the empty sum is 0): the last term is ``u0*q**(n - 1)``.
 
     Returns
     -------
@@ -56,7 +57,7 @@ def iterate(f, u0, n):
     f : callable
     u0 : float
     n : int
-        Last index computed, ``n >= 0``.
+        **Last index** computed, ``n >= 0``.
 
     Returns
     -------
@@ -101,7 +102,7 @@ def moving_average(values, window):
     raise NotImplementedError("moving_average() is not implemented yet")
 
 
-def exponential_moving_average(values, beta, bias_correction=False):
+def exponential_moving_average(values, beta):
     """Return the exponential moving average ``v(t) = beta*v(t - 1) + (1 - beta)*x(t)``, starting from ``v(0) = 0``.
 
     Parameters
@@ -110,9 +111,6 @@ def exponential_moving_average(values, beta, bias_correction=False):
         ``x(1), x(2), ..., x(T)``.
     beta : float
         Between 0 (included) and 1 (excluded): the weight kept from the past.
-    bias_correction : bool, default False
-        If True, return ``v(t) / (1 - beta**t)`` instead of ``v(t)`` (this removes the pull towards the starting
-        value 0 during the first steps).
 
     Returns
     -------
@@ -128,8 +126,6 @@ def exponential_moving_average(values, beta, bias_correction=False):
     --------
     >>> exponential_moving_average([10, 10], 0.5)
     [5.0, 7.5]
-    >>> exponential_moving_average([10, 10], 0.5, bias_correction=True)
-    [10.0, 10.0]
     """
     # TODO: a loop that updates v; index t starts at 1.
     raise NotImplementedError("exponential_moving_average() is not implemented yet")

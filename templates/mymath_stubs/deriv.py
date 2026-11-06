@@ -46,7 +46,7 @@ def tangent_line(f, df, a):
     Returns
     -------
     tuple of (float, float)
-        ``(m, c)`` such that the tangent is ``y = m*x + c``.
+        ``(m, c)`` such that the tangent is ``y = m*x + c`` (ints when ``f``, ``df`` and ``a`` give ints).
 
     Examples
     --------
@@ -67,14 +67,16 @@ def bisection(f, a, b, tol=1e-10, max_iter=200):
     a, b : float
         Ends of the interval, ``a < b``.
     tol : float, default 1e-10
-        Stop when the interval is shorter than ``tol``.
+        Stop as soon as the interval is shorter than ``tol``.
     max_iter : int, default 200
-        Maximum number of halvings.
+        Maximum number of halvings: after ``max_iter`` halvings, stop even if the interval is still longer than
+        ``tol`` (no error is raised).
 
     Returns
     -------
     float
-        A point within ``tol`` of a zero of ``f`` (the middle of the last interval, or an end where ``f`` is 0).
+        The middle of the last interval, or an end of an interval where ``f`` is exactly 0. When the loop stops
+        because of ``tol``, it is within ``tol`` of a zero of ``f``.
 
     Raises
     ------

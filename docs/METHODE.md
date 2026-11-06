@@ -19,7 +19,7 @@ Ce guide est pour toi. Il explique **comment piloter Claude, session après sess
 |---|---|---|---|
 | 1 ✅ | Mise en place : outils, versions, consignes, démo | (fait le 2026-11-06) | Ouvrir `00_setup/demo.ipynb` dans Colab et vérifier qu'il tourne |
 | 2 ✅ | Syllabus : la partie 0 détaillée (exercices, signatures `mymath`, parcours, temps), le plan des parties I à VII, la preuve que workbookIA est couvert | (fait le 2026-11-06) | **Relire `docs/SYLLABUS.md`** (la partie 0 en détail, le plan du reste) : c'est le moment de tout changer |
-| 3 → ~14 | Remise à niveau R0 à R9, test de positionnement, examen CP0 | « Session : chapitre R3 » | Commencer l'étude (et workbookIA 0A en parallèle) |
+| 3 → ~15 | Remise à niveau : R0, le test de positionnement, R1 à R9, l'examen CP0 | « Session : chapitre R3 » | Commencer l'étude (et workbookIA 0A en parallèle) |
 | avant chaque partie I à VII | Syllabus de la partie : ses exercices, ses signatures `mymath`, ses temps | « Session : syllabus de la partie II » | Relire la partie dans `docs/SYLLABUS.md` |
 | suite | Chapitres M02a à MB8, dans l'ordre de travail commun ; un examen blanc à la fin de chaque partie | « Session : chapitre M12c » | Étudier, puis envoyer ton retour |
 | après les parties 0, II, IV | Audit qualité indépendant | « Audit des parties … » | Valider les corrections majeures |
@@ -39,7 +39,7 @@ Compte **environ 75 sessions**.
 
 ## 3. Comment étudier les deux workbooks en même temps
 
-**L'ordre** est dans le README (« Ordre de travail commun ») et dans ton tableau de bord : remise à niveau R0 à R9 pendant workbookIA 0A, puis l'examen CP0, puis workbookIA 0B, puis, pour chaque chapitre k de workbookIA, d'abord ses chapitres de maths (`python tools/start_chapter.py k` les prépare tous).
+**L'ordre** est dans le README (« Ordre de travail commun ») et dans ton tableau de bord : R0, le test de positionnement, puis R1 à R9 pendant workbookIA 0A (le tableau de bord dit jusqu'où avancer 0A avant chaque chapitre), puis l'examen CP0, puis workbookIA 0B, puis, pour chaque chapitre k de workbookIA, d'abord ses chapitres de maths (`python tools/start_chapter.py k` les prépare tous).
 
 **Routine d'un chapitre de maths :**
 

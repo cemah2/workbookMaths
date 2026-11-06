@@ -1,6 +1,7 @@
 """Logic, sums and products, counterexamples (chapter R4).
 
 Replace each ``raise NotImplementedError`` with your code, then run ``pytest tests/test_r4_logic.py``.
+If you need ``itertools``, write ``import itertools`` and call ``itertools.product(...)``.
 """
 
 
@@ -12,13 +13,18 @@ def truth_table(formula, n):
     formula : callable
         A function of ``n`` booleans returning a boolean, e.g. ``lambda p, q: p and not q``.
     n : int
-        Number of variables (at least 1).
+        Number of variables, at least 1.
 
     Returns
     -------
     list of tuple
         ``2**n`` rows ``(values, result)``, ``values`` being a tuple of ``n`` booleans, in the order of
         ``itertools.product([True, False], repeat=n)`` (the usual order: all true first).
+
+    Raises
+    ------
+    ValueError
+        If ``n < 1``.
 
     Examples
     --------
@@ -50,7 +56,7 @@ def implies(p, q):
     raise NotImplementedError("implies() is not implemented yet")
 
 
-def sigma(f, start, stop):
+def sum_over(f, start, stop):
     """Return the sum ``f(start) + f(start + 1) + ... + f(stop)`` (both ends included, as the symbol Σ).
 
     Parameters
@@ -62,18 +68,19 @@ def sigma(f, start, stop):
 
     Returns
     -------
-    number
+    int or float
+        An int when ``f`` returns ints.
 
     Examples
     --------
-    >>> sigma(lambda k: k, 1, 100)
+    >>> sum_over(lambda k: k, 1, 100)
     5050
     """
     # TODO: careful, range(start, stop) does not include stop.
-    raise NotImplementedError("sigma() is not implemented yet")
+    raise NotImplementedError("sum_over() is not implemented yet")
 
 
-def product(f, start, stop):
+def prod_over(f, start, stop):
     """Return the product ``f(start) * f(start + 1) * ... * f(stop)`` (both ends included, as the symbol Π).
 
     Parameters
@@ -85,15 +92,16 @@ def product(f, start, stop):
 
     Returns
     -------
-    number
+    int or float
+        An int when ``f`` returns ints.
 
     Examples
     --------
-    >>> product(lambda k: k, 1, 5)
+    >>> prod_over(lambda k: k, 1, 5)
     120
     """
-    # TODO: same as sigma, but which value do you start from?
-    raise NotImplementedError("product() is not implemented yet")
+    # TODO: same as sum_over, but which value do you start from?
+    raise NotImplementedError("prod_over() is not implemented yet")
 
 
 def find_counterexample(predicate, n_max):

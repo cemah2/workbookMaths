@@ -1,8 +1,8 @@
 """Arithmetic with exact numbers (chapter R1): fractions, scientific notation, percentages.
 
 Each function below starts as ``raise NotImplementedError``: replace that line with your code, then run
-``pytest tests/test_r1_arith.py``. Use only plain Python (no ``math.gcd``, no ``fractions``): the tests compare your
-results with those trusted tools.
+``pytest tests/test_r1_arith.py``. Use plain Python and the ``math`` module, but not ``math.gcd`` nor the
+``fractions`` module: the tests compare your results with those trusted tools.
 """
 
 
@@ -71,6 +71,11 @@ def add_fractions(a, b):
     tuple of (int, int)
         The sum, as returned by :func:`simplify_fraction`.
 
+    Raises
+    ------
+    ValueError
+        If a denominator is zero.
+
     Examples
     --------
     >>> add_fractions((1, 6), (1, 4))
@@ -92,8 +97,9 @@ def scientific_notation(x, digits=3):
     Returns
     -------
     tuple of (float, int)
-        ``(mantissa, exponent)`` with ``1 <= abs(mantissa) < 10`` and the mantissa rounded to ``digits``
-        significant digits; ``x = 0`` gives ``(0.0, 0)``.
+        ``(mantissa, exponent)`` with ``1 <= abs(mantissa) < 10``, the mantissa rounded with
+        ``round(m, digits - 1)``; ``x = 0`` gives ``(0.0, 0)``. Ties (a 5 exactly at the cut) are not tested:
+        floats rarely hold them exactly.
 
     Examples
     --------
@@ -112,12 +118,17 @@ def successive_changes(rates):
     Parameters
     ----------
     rates : sequence of float
-        Rates written as decimals: ``0.10`` for +10 %, ``-0.25`` for −25 %.
+        Rates written as decimals: ``0.10`` for +10 %, ``-0.25`` for −25 % (each at least −1, i.e. −100 %).
 
     Returns
     -------
     float
         The overall rate, as a decimal (``0.0`` for an empty sequence).
+
+    Raises
+    ------
+    ValueError
+        If a rate is below −1.
 
     Examples
     --------

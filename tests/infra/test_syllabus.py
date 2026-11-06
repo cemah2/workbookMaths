@@ -214,3 +214,62 @@ def test_published_ignores_gitkeep(data, tmp_path):
 def test_hours_label():
     assert syllabus.hours_label(90) == "1,5 h"
     assert syllabus.hours_label(None) == "?"
+
+
+# ---------------------------------------------------------------- sharing rule, 0A sync, mylearn (BIBLE §24)
+def test_check_catches_an_unknown_frontier(data):
+    chapters = copy.deepcopy(data[0])
+    chapters["R5"]["frontieres"] = chapters["R5"]["frontieres"] + ["11.999"]
+    assert any("R5: frontieres names 11.999" in e for e in _errors(chapters))
+
+
+def test_check_catches_an_unknown_0a_section(data):
+    chapters = copy.deepcopy(data[0])
+    chapters["R1"]["python_0a"] = ["100.99"]
+    assert any("R1: python_0a names §100.99" in e for e in _errors(chapters))
+
+
+def test_detailed_chapters_declare_frontiers_and_0a_sync(data):
+    chapters = copy.deepcopy(data[0])
+    del chapters["R2"]["frontieres"]
+    del chapters["R3"]["python_0a"]
+    errors = _errors(chapters)
+    assert any("R2: a detailed chapter needs 'frontieres'" in e for e in errors)
+    assert any("R3: a detailed chapter needs 'python_0a'" in e for e in errors)
+
+
+def test_check_catches_a_mymath_function_that_duplicates_mylearn(data):
+    chapters = copy.deepcopy(data[0])
+    chapters["M06"]["mymath"] = {"module": "info.py", "functions": ["entropy", "mutual_information"]}
+    assert any("M06: mymath info.py duplicates the mylearn function(s) ['entropy']" in e for e in _errors(chapters))
+    chapters["M06"]["mylearn_overlap"] = ["entropy"]
+    assert not any(e.startswith("M06: mymath") for e in _errors(chapters))
+
+
+def test_frontiers_include_every_proof_of_the_prepared_chapter(data):
+    snapshot = data[2]
+    ch = data[0]["M19"]
+    proofs = [k for k, (kind, _) in snapshot["chapters"]["19"]["exercises"].items() if kind == "∂"]
+    assert proofs and all(p in syllabus.frontier_ids(ch, snapshot) for p in proofs)
+
+
+def test_part_0_does_not_solve_the_proofs_of_0b(data):
+    """No part-0 exercise reuses the title of a 0B proof (the sharing rule, checked on titles)."""
+    snapshot = data[2]
+    proof_titles = {t.lower() for kind, t in snapshot["chapters"]["0B"]["exercises"].values() if kind == "∂"}
+    for cid, ch in data[0].items():
+        for ex in ch["exercises"]:
+            assert ex["title"].lower() not in proof_titles, ex["id"]
+
+
+def test_sync_with_0a_is_monotonic(data):
+    order = [ref for ref, _ in syllabus.sections_0a(data[2])]
+    upto = list(syllabus.sync_0a_upto(data[0]).values())
+    assert [order.index(r) for r in upto] == sorted(order.index(r) for r in upto)
+
+
+def test_snapshot_tool_reads_mylearn_names():
+    import snapshot_workbookia
+    chapter = {"mylearn": [{"api": [{"signature": "def entropy(p: ArrayLike) -> float"},
+                                    {"signature": "class KMeans:"}, {"signature": "x = 1"}]}]}
+    assert snapshot_workbookia._mylearn_names(chapter) == ["entropy", "KMeans"]

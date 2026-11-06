@@ -11,13 +11,14 @@ def polyval(coefficients, x):
     ----------
     coefficients : sequence of float
         Coefficients from the highest degree to the constant (as ``numpy.polyval``): ``[2, 0, -1]`` is
-        ``2x² − 1``. An empty sequence is the zero polynomial.
+        ``2x² − 1``. An empty sequence is the zero polynomial and gives ``0``.
     x : float or numpy.ndarray
         Plain arithmetic also works element-wise on a NumPy array.
 
     Returns
     -------
-    float or numpy.ndarray
+    int, float or numpy.ndarray
+        An int when the coefficients and ``x`` are ints.
 
     Examples
     --------
@@ -66,7 +67,8 @@ def quadratic_roots(a, b, c):
     Returns
     -------
     list of float
-        The real roots in increasing order: two, one (double root) or none.
+        The real roots in increasing order: two, one (double root, when the discriminant is exactly 0) or none.
+        Tests of a double root use integer coefficients.
 
     Raises
     ------

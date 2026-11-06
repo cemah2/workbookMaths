@@ -17,8 +17,7 @@ La règle : **la remise à niveau (R0 à R9) pendant le chapitre 0A de workbookI
 <!-- wbm:readme ordre -->
 | Dans workbookIA | Fais d'abord, dans workbookMaths |
 |---|---|
-| *(avant de commencer)* | **POS** · Test de positionnement |
-| 0A · Python, notebooks et outils *(en parallèle de la remise à niveau)* | **R0** · Prise en main<br>**R1** · Nombres et calcul<br>**R2** · Calcul littéral et équations<br>**R3** · Fonctions<br>**R4** · Logique, ensembles, Σ et Π<br>**R5** · Suites<br>**R6** · Exponentielle et logarithmes<br>**R7** · Limites et dérivation<br>**R8** · Probabilités de base<br>**R9** · Géométrie du plan, vecteurs et trigonométrie |
+| 0A · Python, notebooks et outils *(en parallèle de la remise à niveau ; synchronisation : [PARCOURS](docs/PARCOURS.md#sync-0a))* | **R0** · Prise en main<br>**POS** · Test de positionnement<br>**R1** · Nombres et calcul<br>**R2** · Calcul littéral et équations<br>**R3** · Fonctions<br>**R4** · Logique, ensembles, Σ et Π<br>**R5** · Suites<br>**R6** · Exponentielle et logarithmes<br>**R7** · Limites et dérivation<br>**R8** · Probabilités de base<br>**R9** · Géométrie du plan, vecteurs et trigonométrie |
 | 0B · Maths du lycée au ML | **CP0** · Bilan de remise à niveau |
 | 1 · Introduction au machine learning et au deep learning | — (rien de nouveau) |
 | 2 · Hasard et statistiques de base | **M02a** · Intégrales et densités<br>**M02b** · Variables aléatoires et lois usuelles<br>**M02c** · Échantillons et estimation |
@@ -68,7 +67,7 @@ La règle : **la remise à niveau (R0 à R9) pendant le chapitre 0A de workbookI
 
 `python tools/start_chapter.py 12` prépare d'un coup tous les chapitres de maths à faire avant le chapitre 12 de workbookIA. Le détail de chaque chapitre (contenu, sections de MML, durée estimée) est dans [`docs/BIBLE.md` §8](docs/BIBLE.md#8-plan--chapitre-par-chapitre-de-workbookia).
 
-**Volume estimé** : 49 chapitres, environ 620 h pour le parcours complet (environ 340 h pour le parcours essentiel), à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
+**Volume estimé** : 49 chapitres, environ 620 h pour le parcours complet (environ 370 h pour le parcours essentiel), à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
 
 ## 🚀 Démarrage rapide sur Google Colab
 

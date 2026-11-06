@@ -2,9 +2,9 @@
 
 *Généré par `python tools/syllabus.py build` : ne pas modifier à la main.*
 
-Pour chaque chapitre de workbookIA, ses notions mathématiques et le chapitre de maths qui les enseigne **avant** lui dans l'ordre de travail commun (`syllabus.py check` le vérifie). Les notions de workbookIA sont lues dans une copie figée (`docs/syllabus/workbookia_notions.json`, commit ff7a37c). Les notions sans chapitre de maths sont jugées non mathématiques (outils, pratique, vocabulaire du ML) : elles sont listées pour relecture.
+Pour chaque chapitre de workbookIA, ses notions mathématiques et le chapitre de maths qui les enseigne **avant** lui dans l'ordre de travail commun (`syllabus.py check` le vérifie). Les notions de workbookIA sont lues dans une copie figée (`docs/syllabus/workbookia_notions.json`, commit ff7a37c). « Enseignée » veut dire : le chapitre de maths donne les outils dont la notion a besoin ; les démonstrations du chapitre de workbookIA restent les siennes (règle de partage, BIBLE §8 : la liste « Frontières » de chaque chapitre dans `docs/SYLLABUS.md`). Les notions sans chapitre de maths sont jugées non mathématiques (outils, pratique, vocabulaire du ML) : elles sont listées pour relecture.
 
-**Bilan** : 331 notions mathématiques couvertes, 227 notions non mathématiques.
+**Bilan** : 341 notions mathématiques couvertes, 217 notions non mathématiques.
 
 ## workbookIA 0A · Python, notebooks et outils
 
@@ -90,7 +90,7 @@ Non mathématiques : reproductibilité (graine)
 | spécificité | M03 |
 | F1 | R1, M03 |
 | F-beta | M03 |
-| moyennes macro/micro/pondérée | R1 |
+| moyennes macro/micro/pondérée | R1, M03 |
 | prévalence (base rate) | M03 |
 | courbe ROC | M03 |
 | AUC | M02a, M03 |
@@ -204,8 +204,9 @@ Non mathématiques : courbes de validation · courbes d'apprentissage · early s
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
+| fonction d'activation | R3, R6 |
 | biais | M07 |
-| convention des poids | M07 |
+| convention des poids | M07, M09a |
 | neurone artificiel | M07 |
 | perceptron | M10 |
 | règle d'apprentissage du perceptron | M10 |
@@ -214,7 +215,7 @@ Non mathématiques : courbes de validation · courbes d'apprentissage · early s
 | astuce du biais | M10 |
 | théorème de convergence du perceptron | M10 |
 
-Non mathématiques : neurone biologique (modèle simplifié) · fonction d'activation
+Non mathématiques : neurone biologique (modèle simplifié)
 
 ## workbookIA 11 · Apprentissage et raisonnement
 
@@ -232,7 +233,7 @@ Non mathématiques : neurone biologique (modèle simplifié) · fonction d'activ
 | UCB | M11 |
 | échantillonnage de Thompson | M04, M11 |
 | regret | M11 |
-| moyenne incrémentale | R5, M11 |
+| moyenne incrémentale | R5 |
 
 Non mathématiques : représentation, évaluation, optimisation · No Free Lunch · conditionnement opérant
 
@@ -240,6 +241,9 @@ Non mathématiques : représentation, évaluation, optimisation · No Free Lunch
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
+| valeurs aberrantes | M02c |
+| imputation | M02c |
+| sélection de features | M02c, M06 |
 | one-hot encoding | M07 |
 | samplewise/featurewise/elementwise | M09a |
 | UMAP | M12d |
@@ -252,7 +256,7 @@ Non mathématiques : représentation, évaluation, optimisation · No Free Lunch
 | matrice de covariance | M12c |
 | t-SNE | M06, M12d |
 
-Non mathématiques : encodage ordinal · imputation · valeurs aberrantes · sélection de features · fuite de données · dates avec pandas (to_datetime, dt) · merge et pivot_table · SQL de base (sqlite3, pd.read_sql)
+Non mathématiques : encodage ordinal · fuite de données · dates avec pandas (to_datetime, dt) · merge et pivot_table · SQL de base (sqlite3, pd.read_sql)
 
 ## workbookIA 13 · Classifieurs
 
@@ -301,9 +305,11 @@ Non mathématiques : ensemble · ExtraTrees · souche · early stopping (boostin
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
+| PolynomialFeatures | M09b |
+| classes déséquilibrées : class_weight, rééchantillonnage | M03 |
 | silhouette | M07 |
 
-Non mathématiques : API scikit-learn · get_params/set_params/clone · decision_function · predict_proba · cross_validate · StratifiedKFold · GridSearchCV · RandomizedSearchCV · cv_results_ · PolynomialFeatures · Pipeline · ColumnTransformer · set_output · DecisionBoundaryDisplay · seuil de décision · persistance joblib · lecture de dépréciations · classes déséquilibrées : class_weight, rééchantillonnage
+Non mathématiques : API scikit-learn · get_params/set_params/clone · decision_function · predict_proba · cross_validate · StratifiedKFold · GridSearchCV · RandomizedSearchCV · cv_results_ · Pipeline · ColumnTransformer · set_output · DecisionBoundaryDisplay · seuil de décision · persistance joblib · lecture de dépréciations
 
 ## workbookIA 16 · Réseaux feed-forward
 
@@ -326,10 +332,10 @@ Non mathématiques : flux synchrone et asynchrone
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
-| rôle de la non-linéarité | M16 |
+| rôle de la non-linéarité | M12a, M16 |
 | activations linéaires par morceaux (ReLU et variantes, maxout) | M17 |
 | activations lisses (softplus, ELU, sigmoïde, tanh, SiLU, GELU) | M17 |
-| dérivées des activations | M17 |
+| dérivées des activations | R7, M17 |
 | saturation et neurones morts | M17 |
 | softmax, log-softmax, température | M17 |
 | Jacobienne de la softmax | M17 |
@@ -396,7 +402,7 @@ Non mathématiques : architecture d'un réseau profond · autograd PyTorch · nn
 | im2col | M21 |
 | max et average pooling | M21 |
 | convolution transposée | M21 |
-| rétropropagation d'une convolution | M21 |
+| rétropropagation d'une convolution | M18, M21 |
 | champ récepteur | M21 |
 | attaque adversariale FGSM | M18 |
 
@@ -416,11 +422,20 @@ Non mathématiques : fenêtres de séries temporelles · vocabulaire caractères
 
 ## workbookIA 23 · PyTorch en pratique 1 : du dataset au modèle sauvegardé
 
-Non mathématiques : workflow PyTorch complet · Dataset, DataLoader, transforms · normalisation et découpage stratifié · nn.Sequential, nn.Flatten, nn.Linear · CrossEntropyLoss et logits · fonction fit() avec historique · analyse d'erreurs · inférence avec eval et inference_mode · state_dict et checkpoints · modèle pré-entraîné torchvision · schedulers de learning rate · early stopping et meilleur checkpoint · fiche modèle
+| Notion de workbookIA | Enseignée dans |
+|---|---|
+| CrossEntropyLoss et logits | M17 |
+
+Non mathématiques : workflow PyTorch complet · Dataset, DataLoader, transforms · normalisation et découpage stratifié · nn.Sequential, nn.Flatten, nn.Linear · fonction fit() avec historique · analyse d'erreurs · inférence avec eval et inference_mode · state_dict et checkpoints · modèle pré-entraîné torchvision · schedulers de learning rate · early stopping et meilleur checkpoint · fiche modèle
 
 ## workbookIA 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN
 
-Non mathématiques : démarche expérimentale et journal d'expériences · dropout et max-norm en PyTorch · estimateur scikit-learn autour d'un réseau PyTorch · validation croisée et recherche d'hyperparamètres · nn.Conv2d, nn.MaxPool2d, nn.BatchNorm2d · torchvision.transforms.v2 · Dataset généré à la volée · LSTM pour séries (fenêtres, scaler, RMSE) · sorties de nn.LSTM et état porté · génération de texte par caractère et par mot · forward() avec branches et bloc résiduel · précision mixte et torch.compile
+| Notion de workbookIA | Enseignée dans |
+|---|---|
+| dropout et max-norm en PyTorch | M07, M20 |
+| LSTM pour séries (fenêtres, scaler, RMSE) | M09b |
+
+Non mathématiques : démarche expérimentale et journal d'expériences · estimateur scikit-learn autour d'un réseau PyTorch · validation croisée et recherche d'hyperparamètres · nn.Conv2d, nn.MaxPool2d, nn.BatchNorm2d · torchvision.transforms.v2 · Dataset généré à la volée · sorties de nn.LSTM et état porté · génération de texte par caractère et par mot · forward() avec branches et bloc résiduel · précision mixte et torch.compile
 
 ## workbookIA 25 · Autoencodeurs et VAE
 
@@ -432,8 +447,8 @@ Non mathématiques : démarche expérimentale et journal d'expériences · dropo
 | PSNR | R6 |
 | autoencodeur linéaire et ACP | M12d |
 | VAE | M25b |
-| astuce de reparamétrisation | M25b |
-| divergence KL entre gaussiennes | M25a |
+| astuce de reparamétrisation | M02b, M25a |
+| divergence KL entre gaussiennes | M06, M25a |
 | ELBO | M25b |
 | β-VAE | M25b |
 | interpolation sphérique (slerp) | M25a |
@@ -491,10 +506,11 @@ Non mathématiques : sources de datasets (HF Hub, Kaggle, OpenML, UCI) · API sc
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
+| zéro-shot CLIP | M07, M17 |
 | few-shot par prototypes | M07 |
 | linear probe | M13a |
 
-Non mathématiques : transfer learning · extraction de features · fine-tuning partiel et complet · learning rates discriminatifs · dégel progressif · zéro-shot CLIP · modèles de fondation (DINOv2, CLIP) · oubli catastrophique · latence et taille des modèles · fiche modèle d'un modèle dérivé
+Non mathématiques : transfer learning · extraction de features · fine-tuning partiel et complet · learning rates discriminatifs · dégel progressif · modèles de fondation (DINOv2, CLIP) · oubli catastrophique · latence et taille des modèles · fiche modèle d'un modèle dérivé
 
 ## workbookIA B2 · Tokenisation et embeddings
 
@@ -561,7 +577,7 @@ Non mathématiques : U-Net conditionné par le temps · mémorisation
 | gradients intégrés | MB6 |
 | Grad-CAM par hooks | MB6 |
 | indicateurs d'équité par groupe | M03, MB6 |
-| théorème d'impossibilité | MB6 |
+| théorème d'impossibilité | M03, MB6 |
 
 Non mathématiques : tests de santé des explications · atténuation des biais · fiche modèle équité et explicabilité · RGPD et AI Act appliqués
 

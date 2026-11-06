@@ -23,6 +23,14 @@ Exercise tuple: ``(id, type, stars, minutes, title, covers, flags)`` where ``cov
 * ``f:02`` | ``f:03``: where it lives (default from the type: paper types in 02_exercices, the others in the notebook);
 * ``p:R1.3,R1.4``: exercises it needs (prerequisites);
 * ``m:gcd,lcm``: the mymath functions it writes (🔨).
+
+Chapter fields beyond the exercises (BIBLE §24, 2026-11-06):
+
+* ``frontieres``: workbookIA exercises this chapter must not solve in advance (sharing rule, BIBLE §8): the chapter
+  teaches the notion in another setting and leaves these results to workbookIA. Required for a detailed chapter.
+* ``python_0a``: for part 0, the sections of workbookIA 0A (Python) to have done before the chapter.
+* ``mylearn_overlap``: mymath functions allowed to share a name with a mylearn function of the prepared workbookIA
+  chapter (otherwise an error: mymath writes the mathematical building block, mylearn the ML function).
 """
 
 from __future__ import annotations
@@ -126,6 +134,37 @@ def load_snapshot() -> dict:
     return json.loads(SNAPSHOT.read_text(encoding="utf-8"))
 
 
+_SNAP: dict | None = None
+
+
+def _snapshot() -> dict:
+    global _SNAP
+    if _SNAP is None:
+        _SNAP = load_snapshot()
+    return _SNAP
+
+
+def ia_exercise(ex_id: str, snapshot: dict | None = None) -> tuple[str, str] | None:
+    """(type, title) of a workbookIA exercise from the frozen copy, or None."""
+    snapshot = _snapshot() if snapshot is None else snapshot
+    chapter = ex_id.split(".")[0]
+    return tuple(snapshot["chapters"].get(chapter, {}).get("exercises", {}).get(ex_id, ())) or None
+
+
+def frontier_ids(ch: dict, snapshot: dict | None = None) -> list[str]:
+    """Every proof (∂) of the prepared workbookIA chapter, then the chapter's explicit ``frontieres``."""
+    snapshot = _snapshot() if snapshot is None else snapshot
+    ia = ch.get("prepares")
+    implicit = [k for k, (kind, _) in snapshot["chapters"].get(ia, {}).get("exercises", {}).items()
+                if kind == "∂"] if ia else []
+    return implicit + [x for x in ch.get("frontieres", []) if x not in implicit]
+
+
+def sections_0a(snapshot: dict | None = None) -> list[tuple[str, str]]:
+    snapshot = _snapshot() if snapshot is None else snapshot
+    return [tuple(x) for x in snapshot["chapters"]["0A"]["sections"]]
+
+
 # ---------------------------------------------------------------------------- times
 def chapter_minutes(ch: dict, track: str = "complet") -> int | None:
     """Study time of a detailed chapter in a track (reading + exercises + flashcards), None for a planned one."""
@@ -187,8 +226,19 @@ def check(chapters: dict | None = None, coverage: dict | None = None, snapshot: 
                 continue
             if source not in order or order.index(source) >= rank:
                 errors.append(f"{cid}: requires « {notion} » from {source}, which is not an earlier chapter")
+        for ex_id in ch.get("frontieres", []):
+            if ia_exercise(ex_id, snapshot) is None:
+                errors.append(f"{cid}: frontieres names {ex_id}, which is not a workbookIA exercise")
+        known_0a = {ref for ref, _ in sections_0a(snapshot)}
+        for ref in ch.get("python_0a", []):
+            if ref not in known_0a:
+                errors.append(f"{cid}: python_0a names §{ref}, which is not a section of workbookIA 0A")
+        errors += mylearn_errors(cid, ch, snapshot)
         if not ch["detailed"]:
             continue
+        for key in ("frontieres",) + (("python_0a",) if ch["part"] == "0" else ()):
+            if key not in ch:
+                errors.append(f"{cid}: a detailed chapter needs {key!r} (possibly empty)")
         for key in ("objectives", "sections", "reading_minutes", "flashcards"):
             if key not in ch or (key in ("objectives", "sections") and not ch[key]):
                 errors.append(f"{cid}: a detailed chapter needs {key!r}")
@@ -266,7 +316,8 @@ def composition_warnings(cid: str, ch: dict) -> list[str]:
     counts = {t: 0 for t in TYPES}
     for ex in ch["exercises"]:
         counts[ex["type"]] += 1
-    short = ch["hours"] <= 8
+    minutes = chapter_minutes(ch)
+    short = (minutes / 60 if minutes else ch["hours"]) <= 8
     factor = 0.5 if short else 1.0
     part = ch["part"]
     rules = [("🧠", 6), ("✏️∂", 10), ("🔨📦", 4), ("🔬🔮", 2), ("🐛", 1), ("🎨", 1), ("🗣️", 1), ("🛠️", 1)]
@@ -281,7 +332,7 @@ def composition_warnings(cid: str, ch: dict) -> list[str]:
             warnings.append(f"{cid}: composition {group} = {have} (expected ≥ {max(1, int(minimum * factor))}); "
                             "justify with COMPOSITION in notes")
     recall = counts["🔁"]
-    earlier = wch.CHAPTER_ORDER.index(cid) - 1          # POS is first
+    earlier = len([c for c in wch.CHAPTER_ORDER[: wch.CHAPTER_ORDER.index(cid)] if c[0] in "RM"])
     if recall < min(3, max(0, earlier)):
         warnings.append(f"{cid}: {recall} 🔁 (expected {min(3, earlier)})")
     if not 15 <= ch.get("flashcards", 0) <= 30 and not short:
@@ -290,14 +341,14 @@ def composition_warnings(cid: str, ch: dict) -> list[str]:
 
 
 def stub_functions(module: str) -> list[str] | None:
-    """Public function names of a stub module, or None if the stub does not exist."""
+    """Public function and class names of a stub module, or None if the stub does not exist."""
     import ast
 
     path = STUBS / module
     if not path.exists():
         return None
     tree = ast.parse(path.read_text(encoding="utf-8"))
-    return [n.name for n in tree.body if isinstance(n, ast.FunctionDef) and not n.name.startswith("_")]
+    return [n.name for n in tree.body if isinstance(n, (ast.FunctionDef, ast.ClassDef)) and not n.name.startswith("_")]
 
 
 def mymath_errors(cid: str, ch: dict) -> list[str]:
@@ -322,6 +373,17 @@ def mymath_errors(cid: str, ch: dict) -> list[str]:
     for f in sorted(written - set(functions)):
         errors.append(f"{cid}: a 🔨 writes {f}, which is not in {module}")
     return errors
+
+
+def mylearn_errors(cid: str, ch: dict, snapshot: dict) -> list[str]:
+    """A mymath function never duplicates a mylearn function of the workbookIA chapter it prepares."""
+    spec, ia = ch.get("mymath"), ch.get("prepares")
+    if not spec or not ia or ia not in snapshot["chapters"]:
+        return []
+    same = set(spec["functions"]) & set(snapshot["chapters"][ia].get("mylearn", []))
+    same -= set(ch.get("mylearn_overlap", []))
+    return [f"{cid}: mymath {spec['module']} duplicates the mylearn function(s) {sorted(same)} of workbookIA {ia} "
+            "(write the mathematical building block instead, or justify in mylearn_overlap)"] if same else []
 
 
 def coverage_errors(coverage: dict, snapshot: dict) -> list[str]:
@@ -436,18 +498,36 @@ def chapter_section(cid: str, ch: dict) -> list[str]:
     if ch.get("after"):
         out.append("**Après** : " + ", ".join(ch["after"]))
         out.append("")
+    if ch.get("python_0a"):
+        titles = dict(sections_0a())
+        out.append("**Python (workbookIA 0A, à avoir fait avant)** : "
+                   + " · ".join(f"§{r} {titles[r]}" for r in ch["python_0a"]))
+        out.append("")
     spec = ch.get("mymath")
     if spec:
         status = "signatures figées" if ch["detailed"] else "fonctions prévues"
         out.append(f"**mymath** : `{spec['module']}` ({status}) : " + ", ".join(f"`{f}`" for f in spec["functions"]))
+        if ch.get("mylearn_overlap"):
+            out.append(f"(même nom qu'une fonction de `mylearn` en workbookIA {ch['prepares']}, voulu : "
+                       + ", ".join(f"`{f}`" for f in ch["mylearn_overlap"]) + ")")
+        out.append("")
+    frontiers = frontier_ids(ch)
+    if frontiers:
+        items = []
+        for ex_id in frontiers:
+            kind, title = ia_exercise(ex_id)
+            items.append(f"{ex_id} {kind} {title}")
+        out.append("**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est "
+                   "enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du "
+                   "chapitre préparé y sont toujours) : " + " · ".join(items))
         out.append("")
     if ch["detailed"]:
         out += ["| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |",
                 "|---|---|---|---|---|---|---|---|---|"]
         out += [_exercise_row(ex) for ex in ch["exercises"]]
         out.append("")
-        if ch.get("notes"):
-            out += [f"*Notes* : {ch['notes']}", ""]
+    if ch.get("notes"):
+        out += [f"*Notes* : {ch['notes']}", ""]
     return out
 
 
@@ -456,6 +536,7 @@ def build_parcours(chapters: dict) -> str:
            "*Généré par `python tools/syllabus.py build` : ne pas modifier à la main.*", "",
            "Deux parcours (BIBLE §12) : **complet** (tout, par défaut) et **essentiel** (ce dont workbookIA a besoin). "
            "Seules les parties détaillées sont listées ; les autres le seront avant leur génération.", ""]
+    out += sync_0a_table(chapters)
     for track, label in TRACKS.items():
         out += [f"<a id=\"{track}\"></a>", f"## {label}", "",
                 "| Chapitre | Exercices | Durée |", "|---|---|---|"]
@@ -471,14 +552,44 @@ def build_parcours(chapters: dict) -> str:
     return "\n".join(out) + "\n"
 
 
+def sync_0a_upto(chapters: dict) -> dict[str, str]:
+    """For each part-0 chapter, the last workbookIA 0A section to have done before it (cumulative)."""
+    order = [ref for ref, _ in sections_0a()]
+    last, out = -1, {}
+    for cid, ch in chapters.items():
+        if "python_0a" not in ch:
+            continue
+        for ref in ch["python_0a"]:
+            last = max(last, order.index(ref))
+        if last >= 0:
+            out[cid] = order[last]
+    return out
+
+
+def sync_0a_table(chapters: dict) -> list[str]:
+    upto = sync_0a_upto(chapters)
+    if not upto:
+        return []
+    titles = dict(sections_0a())
+    out = ["<a id=\"sync-0a\"></a>", "## Synchronisation avec workbookIA 0A (Python)", "",
+           "La remise à niveau se fait en même temps que 0A. Avant chaque chapitre, avance 0A au moins jusqu'à la "
+           "section indiquée (les sections précises dont le chapitre se sert sont dans sa fiche et dans "
+           "`docs/SYLLABUS.md`).", "", "| Avant | workbookIA 0A au moins jusqu'à |", "|---|---|"]
+    out += [f"| {cid} · {chapters[cid]['title']} | §{ref} {titles[ref]} |" for cid, ref in upto.items()]
+    return out + [""]
+
+
 def build_coverage(coverage: dict, snapshot: dict) -> str:
     out = ["# Couverture des notions de workbookIA", "",
            "*Généré par `python tools/syllabus.py build` : ne pas modifier à la main.*", "",
            f"Pour chaque chapitre de workbookIA, ses notions mathématiques et le chapitre de maths qui les enseigne "
            f"**avant** lui dans l'ordre de travail commun (`syllabus.py check` le vérifie). Les notions de workbookIA "
            f"sont lues dans une copie figée (`docs/syllabus/workbookia_notions.json`, commit "
-           f"{snapshot['_meta']['commit']}). Les notions sans chapitre de maths sont jugées non mathématiques "
-           f"(outils, pratique, vocabulaire du ML) : elles sont listées pour relecture.", ""]
+           f"{snapshot['_meta']['commit']}). « Enseignée » veut dire : le chapitre de maths donne les outils dont la "
+           f"notion a besoin ; les démonstrations du chapitre de workbookIA restent les siennes (règle de partage, "
+           f"BIBLE §8 : la liste « Frontières » de chaque chapitre dans `docs/SYLLABUS.md`). Les notions sans "
+           f"chapitre de maths sont jugées non mathématiques (outils, pratique, vocabulaire du ML) : elles sont "
+           f"listées pour relecture.", ""]
     n_math = n_other = 0
     for ia in snapshot["order"]:
         info = snapshot["chapters"][ia]
@@ -509,9 +620,8 @@ def readme_order_table() -> str:
     def fmt(ids):
         return "<br>".join(f"**{c}** · {wch.TITLES[c]}" for c in ids)
 
-    rows.append(f"| *(avant de commencer)* | {fmt(['POS'])} |")
-    rows.append(f"| 0A · {wch.IA_TITLES['0A']} *(en parallèle de la remise à niveau)* | "
-                f"{fmt([f'R{i}' for i in range(10)])} |")
+    rows.append(f"| 0A · {wch.IA_TITLES['0A']} *(en parallèle de la remise à niveau ; synchronisation : "
+                f"[PARCOURS](docs/PARCOURS.md#sync-0a))* | {fmt([c for c in wch.CHAPTER_ORDER if c == 'POS' or c[0] == 'R'])} |")
     rows.append(f"| 0B · {wch.IA_TITLES['0B']} | {fmt(['CP0'])} |")
     checkpoints = {"6": 1, "11": 2, "15": 3, "20": 4, "24": 5, "29": 6}
     for ia in wch.IA_CHAPTERS[2:]:
@@ -524,17 +634,19 @@ def readme_order_table() -> str:
     return "\n".join(rows)
 
 
-def dashboard_order_section() -> str:
+def dashboard_order_section(chapters: dict | None = None) -> str:
+    upto = sync_0a_upto(chapters) if chapters else {}
     lines = []
     for book, cid in wch.common_order():
         if book == "maths":
-            lines.append(f"- [ ] 📐 **{cid}** · {wch.TITLES[cid]}")
+            hint = f" *(avant : workbookIA 0A jusqu'à §{upto[cid]})*" if cid in upto else ""
+            lines.append(f"- [ ] 📐 **{cid}** · {wch.TITLES[cid]}{hint}")
         elif cid.startswith("CP"):
             lines.append(f"- [ ] 🤖 workbookIA **{cid}** · checkpoint (examen blanc, synthèse, mini-projet)")
         elif cid == "PF":
             lines.append("- [ ] 🤖 workbookIA **PF** · projet final")
         else:
-            extra = " *(en parallèle de R0 à R9)*" if cid == "0A" else ""
+            extra = " *(en parallèle de la remise à niveau)*" if cid == "0A" else ""
             lines.append(f"- [ ] 🤖 workbookIA **{cid}** · {wch.IA_TITLES[cid]}{extra}")
     return "\n".join(lines)
 
@@ -579,7 +691,7 @@ def render(chapters: dict, warnings: list[str], coverage: dict, snapshot: dict, 
     head = text[: text.index("<!-- wbm:section ordre -->")]
     sections = [head.rstrip("\n"), "", "<!-- wbm:section ordre -->", "## Ordre de travail commun (les deux workbooks)",
                 "", "Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre de maths (ses "
-                "exercices) s'ajoute plus bas quand il est publié.", "", dashboard_order_section(),
+                "exercices) s'ajoute plus bas quand il est publié.", "", dashboard_order_section(chapters),
                 "<!-- wbm:end ordre -->"]
     for cid, ch in chapters.items():
         if published(ch, root):

@@ -63,7 +63,8 @@ def dot(u, v):
 
     Returns
     -------
-    float
+    int or float
+        An int when the coordinates are ints.
 
     Raises
     ------
@@ -90,7 +91,7 @@ def angle_between(u, v):
     Returns
     -------
     float
-        An angle in ``[0, pi]``.
+        An angle in ``[0, pi]``, computed with ``math.acos`` (the reciprocal of cos on ``[0, pi]``).
 
     Raises
     ------
@@ -118,7 +119,7 @@ def line_through(A, B):
     Returns
     -------
     tuple of (float, float, float)
-        ``(a, b, c)`` with ``(a, b) != (0, 0)``. Any non-zero multiple is also correct: the tests accept every
+        ``(a, b, c)`` with ``(a, b) != (0, 0)`` (ints when the coordinates are ints). Any non-zero multiple is also correct: the tests accept every
         equation of the line. Vertical lines are allowed.
 
     Raises

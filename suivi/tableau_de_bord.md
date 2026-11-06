@@ -21,19 +21,19 @@ Légende : ★ application directe · ★★ standard · ★★★ approfondi ·
 
 Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre de maths (ses exercices) s'ajoute plus bas quand il est publié.
 
-- [ ] 📐 **POS** · Test de positionnement
-- [ ] 📐 **R0** · Prise en main
-- [ ] 📐 **R1** · Nombres et calcul
-- [ ] 📐 **R2** · Calcul littéral et équations
-- [ ] 📐 **R3** · Fonctions
-- [ ] 📐 **R4** · Logique, ensembles, Σ et Π
-- [ ] 📐 **R5** · Suites
-- [ ] 📐 **R6** · Exponentielle et logarithmes
-- [ ] 📐 **R7** · Limites et dérivation
-- [ ] 📐 **R8** · Probabilités de base
-- [ ] 📐 **R9** · Géométrie du plan, vecteurs et trigonométrie
-- [ ] 🤖 workbookIA **0A** · Python, notebooks et outils *(en parallèle de R0 à R9)*
-- [ ] 📐 **CP0** · Bilan de remise à niveau
+- [ ] 📐 **R0** · Prise en main *(avant : workbookIA 0A jusqu'à §100.5.1)*
+- [ ] 📐 **POS** · Test de positionnement *(avant : workbookIA 0A jusqu'à §100.5.1)*
+- [ ] 📐 **R1** · Nombres et calcul *(avant : workbookIA 0A jusqu'à §100.6.2)*
+- [ ] 📐 **R2** · Calcul littéral et équations *(avant : workbookIA 0A jusqu'à §100.6.2)*
+- [ ] 📐 **R3** · Fonctions *(avant : workbookIA 0A jusqu'à §100.6.2)*
+- [ ] 📐 **R4** · Logique, ensembles, Σ et Π *(avant : workbookIA 0A jusqu'à §100.6.6)*
+- [ ] 📐 **R5** · Suites *(avant : workbookIA 0A jusqu'à §100.8.5)*
+- [ ] 📐 **R6** · Exponentielle et logarithmes *(avant : workbookIA 0A jusqu'à §100.8.5)*
+- [ ] 📐 **R7** · Limites et dérivation *(avant : workbookIA 0A jusqu'à §100.8.5)*
+- [ ] 📐 **R8** · Probabilités de base *(avant : workbookIA 0A jusqu'à §100.8.7)*
+- [ ] 📐 **R9** · Géométrie du plan, vecteurs et trigonométrie *(avant : workbookIA 0A jusqu'à §100.8.7)*
+- [ ] 🤖 workbookIA **0A** · Python, notebooks et outils *(en parallèle de la remise à niveau)*
+- [ ] 📐 **CP0** · Bilan de remise à niveau *(avant : workbookIA 0A jusqu'à §100.8.7)*
 - [ ] 🤖 workbookIA **0B** · Maths du lycée au ML
 - [ ] 🤖 workbookIA **1** · Introduction au machine learning et au deep learning
 - [ ] 📐 **M02a** · Intégrales et densités

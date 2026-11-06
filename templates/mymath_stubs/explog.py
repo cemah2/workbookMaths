@@ -34,44 +34,47 @@ def log_base(x, base):
 
 
 def sigmoid(x):
-    """Return the logistic sigmoid ``1 / (1 + exp(-x))``, without overflow even for very large ``|x|``.
+    """Return the logistic sigmoid ``1 / (1 + exp(-x))``.
 
     Parameters
     ----------
     x : float
+        A single number with ``|x| <= 30`` (the tests stay there; NumPy arrays and very large ``|x|`` come later,
+        in workbookIA).
 
     Returns
     -------
     float
-        A number in ``[0, 1]``; ``sigmoid(-1000)`` returns about 0 instead of raising ``OverflowError``.
+        A number in ``]0, 1[``.
 
     Examples
     --------
     >>> sigmoid(0)
     0.5
     """
-    # TODO: two formulas, one for x >= 0 and one for x < 0, so that exp only receives non-positive numbers.
+    # TODO: the definition, with math.exp.
     raise NotImplementedError("sigmoid() is not implemented yet")
 
 
 def tanh(x):
-    """Return the hyperbolic tangent of ``x``, computed from ``exp``, without overflow for very large ``|x|``.
+    """Return the hyperbolic tangent of ``x``, computed from ``exp``.
 
     Parameters
     ----------
     x : float
+        A single number with ``|x| <= 30``.
 
     Returns
     -------
     float
-        A number in ``[-1, 1]``.
+        A number in ``]-1, 1[`` (rounding may give exactly ±1.0 near the ends).
 
     Examples
     --------
     >>> tanh(0)
     0.0
     """
-    # TODO: tanh(x) = 2*sigmoid(2x) − 1, or a formula with exp(−2|x|).
+    # TODO: (e^x − e^(−x)) / (e^x + e^(−x)), or reuse sigmoid.
     raise NotImplementedError("tanh() is not implemented yet")
 
 

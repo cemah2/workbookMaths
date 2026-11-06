@@ -1,6 +1,11 @@
 """Solving equations, inequalities and systems (chapter R2).
 
 Replace each ``raise NotImplementedError`` with your code, then run ``pytest tests/test_r2_algebra.py``.
+
+Conventions of the module: a finite set of solutions is a sorted list of floats (``[]`` when there is none); every
+real number is the string ``"all"``; an interval is a tuple ``(left_closed, low, high, right_closed)`` read like the
+bracket notation you type in ``wbm.check``: ``(True, 2.0, inf, False)`` is ``[2 ; +∞[``. Tests of degenerate cases
+(a zero coefficient, a zero determinant) use integers, so compare with 0 exactly.
 """
 
 
@@ -23,6 +28,8 @@ def solve_linear(a, b):
     [3.0]
     >>> solve_linear(0, 5)
     []
+    >>> solve_linear(0, 0)
+    'all'
     """
     # TODO: three cases, depending on a (and on b when a is zero).
     raise NotImplementedError("solve_linear() is not implemented yet")
@@ -52,6 +59,10 @@ def solve_linear_inequality(a, b, sense="<"):
     --------
     >>> solve_linear_inequality(-2, 4, "<=")
     (True, 2.0, inf, False)
+    >>> solve_linear_inequality(0, 1, "<") is None       # 1 < 0 is never true
+    True
+    >>> solve_linear_inequality(0, -1, "<")              # -1 < 0 is always true
+    (False, -inf, inf, False)
     """
     # TODO: dividing by a negative number reverses the inequality; a = 0 is a separate case.
     raise NotImplementedError("solve_linear_inequality() is not implemented yet")
@@ -73,6 +84,8 @@ def solve_abs_equation(a, c):
     --------
     >>> solve_abs_equation(1, 3)
     [-2.0, 4.0]
+    >>> solve_abs_equation(1, 0)
+    [1.0]
     """
     # TODO: a distance cannot be negative; c = 0 gives one point.
     raise NotImplementedError("solve_abs_equation() is not implemented yet")

@@ -7,6 +7,10 @@ studied before the workbookIA chapter in the common order (tools/syllabus.py che
 workbookIA 0B is itself a maths course from the level of the lycée: a value « 0B:M09a » means « taught by 0B on
 the basis of the catch-up part, deepened later in M09a » (allowed for 0B only).
 
+« Taught » means: the math chapter teaches the tools the notion needs, before workbookIA uses it. The proofs (∂) of
+the prepared workbookIA chapter stay workbookIA's (sharing rule, BIBLE §8): the math chapter may state such a result,
+prove a more general one in another setting, or give the tools only.
+
 A notion that is not listed is judged non-mathematical (a tool, a practice, the vocabulary of ML); the generated
 report docs/syllabus/COUVERTURE_IA.md lists them for review.
 """
@@ -75,7 +79,7 @@ COVERAGE = {
         "spécificité": "M03",
         "F1": "R1,M03",
         "F-beta": "M03",
-        "moyennes macro/micro/pondérée": "R1",
+        "moyennes macro/micro/pondérée": "R1,M03",
         "prévalence (base rate)": "M03",
         "courbe ROC": "M03",
         "AUC": "M02a,M03",
@@ -160,8 +164,9 @@ COVERAGE = {
         "double descente": "M09b",
     },
     "10": {
+        "fonction d'activation": "R3,R6",
         "biais": "M07",
-        "convention des poids": "M07",
+        "convention des poids": "M07,M09a",
         "neurone artificiel": "M07",
         "perceptron": "M10",
         "règle d'apprentissage du perceptron": "M10",
@@ -183,9 +188,12 @@ COVERAGE = {
         "UCB": "M11",
         "échantillonnage de Thompson": "M04,M11",
         "regret": "M11",
-        "moyenne incrémentale": "R5,M11",
+        "moyenne incrémentale": "R5",
     },
     "12": {
+        "valeurs aberrantes": "M02c",
+        "imputation": "M02c",
+        "sélection de features": "M02c,M06",
         "one-hot encoding": "M07",
         "samplewise/featurewise/elementwise": "M09a",
         "UMAP": "M12d",
@@ -232,6 +240,8 @@ COVERAGE = {
         "importance par permutation": "M08",
     },
     "15": {
+        "PolynomialFeatures": "M09b",
+        "classes déséquilibrées : class_weight, rééchantillonnage": "M03",
         "silhouette": "M07",
     },
     "16": {
@@ -247,10 +257,10 @@ COVERAGE = {
         "fan-in / fan-out": "M16",
     },
     "17": {
-        "rôle de la non-linéarité": "M16",
+        "rôle de la non-linéarité": "M12a,M16",
         "activations linéaires par morceaux (ReLU et variantes, maxout)": "M17",
         "activations lisses (softplus, ELU, sigmoïde, tanh, SiLU, GELU)": "M17",
-        "dérivées des activations": "M17",
+        "dérivées des activations": "R7,M17",
         "saturation et neurones morts": "M17",
         "softmax, log-softmax, température": "M17",
         "Jacobienne de la softmax": "M17",
@@ -299,7 +309,7 @@ COVERAGE = {
         "im2col": "M21",
         "max et average pooling": "M21",
         "convolution transposée": "M21",
-        "rétropropagation d'une convolution": "M21",
+        "rétropropagation d'une convolution": "M18,M21",
         "champ récepteur": "M21",
         "attaque adversariale FGSM": "M18",
     },
@@ -310,6 +320,13 @@ COVERAGE = {
         "génération de texte avec température": "M17",
         "perplexité": "M06",
     },
+    "23": {
+        "CrossEntropyLoss et logits": "M17",
+    },
+    "24": {
+        "dropout et max-norm en PyTorch": "M07,M20",
+        "LSTM pour séries (fenêtres, scaler, RMSE)": "M09b",
+    },
     "25": {
         "autoencodeur (encodeur, décodeur, goulot)": "M12d",
         "détection d'anomalies par reconstruction": "M12d",
@@ -317,8 +334,8 @@ COVERAGE = {
         "PSNR": "R6",
         "autoencodeur linéaire et ACP": "M12d",
         "VAE": "M25b",
-        "astuce de reparamétrisation": "M25b",
-        "divergence KL entre gaussiennes": "M25a",
+        "astuce de reparamétrisation": "M02b,M25a",
+        "divergence KL entre gaussiennes": "M06,M25a",
         "ELBO": "M25b",
         "β-VAE": "M25b",
         "interpolation sphérique (slerp)": "M25a",
@@ -351,6 +368,7 @@ COVERAGE = {
         "décalage de distribution": "M27",
     },
     "B1": {
+        "zéro-shot CLIP": "M07,M17",
         "few-shot par prototypes": "M07",
         "linear probe": "M13a",
     },
@@ -396,7 +414,7 @@ COVERAGE = {
         "gradients intégrés": "MB6",
         "Grad-CAM par hooks": "MB6",
         "indicateurs d'équité par groupe": "M03,MB6",
-        "théorème d'impossibilité": "MB6",
+        "théorème d'impossibilité": "M03,MB6",
     },
     "B7": {
         "mesure de latence": "M02c",

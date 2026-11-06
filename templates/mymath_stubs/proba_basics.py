@@ -46,6 +46,11 @@ def binomial(n, k):
     int
         An exact integer, even for large ``n`` (no float division).
 
+    Raises
+    ------
+    ValueError
+        If ``n`` is negative.
+
     Examples
     --------
     >>> binomial(5, 2)
@@ -91,12 +96,13 @@ def expectation(values, probabilities):
     ----------
     values : sequence of float
         The values ``x_i`` taken by ``X``.
-    probabilities : sequence of float
+    probabilities : sequence of float or fractions.Fraction
         ``P(X = x_i)``: same length, non-negative, summing to 1 (up to 1e-9).
 
     Returns
     -------
-    float
+    float or fractions.Fraction
+        A Fraction when every value and probability is an int or a Fraction.
 
     Raises
     ------
@@ -123,8 +129,8 @@ def variance(values, probabilities):
 
     Returns
     -------
-    float
-        Non-negative.
+    float or fractions.Fraction
+        Non-negative; a Fraction when every value and probability is an int or a Fraction.
 
     Raises
     ------

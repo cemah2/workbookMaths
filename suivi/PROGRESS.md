@@ -4,15 +4,15 @@
 
 ## Prochaine étape
 
-➡️ **Session 3 : chapitre R0** (prise en main), puis **R1** à **R9** dans l'ordre (une session chacun, deux pour R7), le test de positionnement **POS** juste après la partie 0, et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` (exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` dont les stubs sont déjà publiés). Avant d'écrire R1 à R9 : relire workbookIA 0B (lecture seule) pour ne reprendre aucun de ses exemples ni de ses nombres.
+➡️ **Session 3 : chapitre R0** (prise en main), puis **POS** (le test de positionnement, juste après R0 : il se répond dans `wbm.check`), puis **R1** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre.
 
-Avant la génération de la partie I : **session de syllabus de la partie I** (détailler M02a à M06 et CP1 : exercices, stubs `mymath`, temps), en tenant compte du calibrage de la partie 0.
+Avant la génération de la partie I : **session de syllabus de la partie I** (détailler M02a à M06 et CP1 : exercices, stubs `mymath`, temps, frontières explicites), en tenant compte du calibrage de la partie 0. Rafraîchir d'abord la copie de workbookIA (`python tools/snapshot_workbookia.py <clone> --check`).
 
 ## Statut des chapitres
 
 | Partie | Chapitres | Statut |
 |---|---|---|
-| 0 · Remise à niveau | POS, R0 à R9, CP0 | 📅 planifié |
+| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | 📅 planifié (syllabus détaillé) |
 | I · Fondations | M02a à M06, CP1 | 📅 planifié |
 | II · Concepts | M07 à M11, CP2 | 📅 planifié |
 | III · ML classique | M12a à M14, CP3 | 📅 planifié |
@@ -36,6 +36,17 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 ## Écarts par rapport à la bible
 
 *(aucun)*
+
+## Session 2 (2026-11-06) : syllabus ✅
+
+**Fait** :
+- `tools/syllabus.py` (`check`, `build`, `stats`) et les données `docs/syllabus/data/` : la **partie 0 détaillée** (R0, POS, R1 à R9, CP0 : 363 exercices, 114 h en parcours complet, 90 h en parcours essentiel), les **parties I à VII et le projet de synthèse planifiés** (notions, prérequis, sections de MML, fonctions `mymath` prévues, frontières). Documents générés : `docs/SYLLABUS.md`, `docs/PARCOURS.md` (avec la synchronisation avec workbookIA 0A), `docs/syllabus/COUVERTURE_IA.md`, le tableau du README et le modèle du tableau de bord.
+- Copie figée de workbookIA (`tools/snapshot_workbookia.py`, lecture seule, commit ff7a37c) ; preuve de couverture : 341 notions mathématiques de workbookIA enseignées avant leur chapitre, 217 jugées non mathématiques et listées.
+- Stubs `mymath` de la partie 0 publiés (`arith`, `algebra`, `functions`, `logic`, `sequences`, `explog`, `deriv`, `proba_basics`, `plane`) et `MANIFEST.json` ; leurs exemples de docstrings vérifiés par une implémentation de brouillon.
+- **Relecture pédagogique indépendante** (sous-agent, 33 points), appliquée : frontières de la règle de partage (σ′, moyenne incrémentale, correction de biais, « la moyenne minimise les carrés »… ne sont plus résolus d'avance), `mymath` qui ne double plus `mylearn`, synchronisation Python avec 0A, test de positionnement déplacé après R0, notions manquantes (droites en R2, argmax et fonctions par morceaux en R3, logit et nats en R6, arccos en R9…), parcours essentiel revu, temps relevés, plan des parties I à VII réordonné. Détail : BIBLE §24.
+- BIBLE (§0, §8, §9, §11, §18, §23, §24), `CLAUDE.md`, `docs/METHODE.md`, README mis à jour ; `tests/infra/test_syllabus.py` (52 tests).
+
+**À relire par l'apprenant** : `docs/SYLLABUS.md` (la partie 0 en détail, le plan du reste) et `docs/PARCOURS.md`. C'est le moment de tout changer : rien n'est encore généré.
 
 ## Session 1 (2026-11-06) : mise en place ✅
 
