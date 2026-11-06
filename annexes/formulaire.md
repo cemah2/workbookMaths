@@ -66,7 +66,20 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | réciproque | $f^{-1}(f(x)) = x$, $f(f^{-1}(y)) = y$ ; courbes symétriques par rapport à $y = x$ |
 | Horner | $a_n x^n + \dots + a_0 = (\cdots((a_n x + a_{n-1})x + a_{n-2})\cdots)x + a_0$ |
 
-*(R4 à R9 ajoutés avec leurs chapitres)*
+### R4 · Logique, ensembles, Σ et Π
+
+| Notion | Formule |
+|---|---|
+| De Morgan | non (P et Q) = (non P) ou (non Q) ; non (P ou Q) = (non P) et (non Q) ; $\overline{A \cup B} = \bar{A} \cap \bar{B}$, $\overline{A \cap B} = \bar{A} \cup \bar{B}$ |
+| implication | $P \Rightarrow Q$ fausse seulement si P vraie et Q fausse ; équivalente à (non P) ou Q et à sa contraposée $\text{non } Q \Rightarrow \text{non } P$ ; négation : P et non Q |
+| quantificateurs | non ($\forall x$, P(x)) = $\exists x$, non P(x) ; non ($\exists x$, P(x)) = $\forall x$, non P(x) |
+| cardinaux | $\lvert A \cup B \rvert = \lvert A \rvert + \lvert B \rvert - \lvert A \cap B \rvert$ ; $\lvert \bar{A} \rvert = \lvert E \rvert - \lvert A \rvert$ ; $\lvert A \times B \rvert = \lvert A \rvert \times \lvert B \rvert$ |
+| Σ | $\sum_{k=m}^{n}$ : $n - m + 1$ termes ; $\sum_{k=1}^{n} c = nc$ ; linéarité ; $\sum_{k=m}^{n} = \sum_{k=m}^{p} + \sum_{k=p+1}^{n}$ ; somme vide = 0 |
+| sommes connues | $\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$ ; $\sum_{k=1}^{n} (2k - 1) = n^2$ ; télescopique $\sum_{k=1}^{n} (b_{k+1} - b_k) = b_{n+1} - b_1$ |
+| Π | $\prod_{k=1}^{n} (c\,a_k) = c^n \prod a_k$ ; $n! = \prod_{k=1}^{n} k$ ; produit vide = 1 |
+| récurrence | P(n₀) vraie et, pour tout $n \ge n_0$, $P(n) \Rightarrow P(n + 1)$ : P(n) vraie pour tout $n \ge n_0$ |
+
+*(R5 à R9 ajoutés avec leurs chapitres)*
 
 ## Partie I · Fondations
 

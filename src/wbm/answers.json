@@ -5751,7 +5751,7 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "96d37f42c412892b62763bec5e47da075d714398dc7b708073b66f67606c2d5b": "pour chaque i, la somme sur j a 4 termes, donc i est ajouté 4 fois"
+        "a19e8a6ed701075efa4e64fbf0d0931763fea97a177721cee07df61bde5fe282": "pour chaque i, la somme sur j a 4 termes, donc i est ajouté 4 fois"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"

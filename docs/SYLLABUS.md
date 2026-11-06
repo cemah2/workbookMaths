@@ -21,7 +21,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [R1](#r1) | Nombres et calcul | 0B | — | 12,7 h | ✅ exercices | 1 |
 | [R2](#r2) | Calcul littéral et équations | 0B | — | 13,6 h | ✅ exercices | 1 |
 | [R3](#r3) | Fonctions | 0B | — | 12,8 h | ✅ exercices | 1 |
-| [R4](#r4) | Logique, ensembles, Σ et Π | 0B | — | 12,4 h | ✅ exercices | 1 |
+| [R4](#r4) | Logique, ensembles, Σ et Π | 0B | — | 13,2 h | ✅ exercices | 1 |
 | [R5](#r5) | Suites | 0B | — | 9,2 h | ✅ exercices | 1 |
 | [R6](#r6) | Exponentielle et logarithmes | 0B | — | 9,8 h | ✅ exercices | 1 |
 | [R7](#r7) | Limites et dérivation | 0B | — | 12,9 h | ✅ exercices | 2 |
@@ -79,7 +79,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 
 | Partie | Chapitres | Exercices détaillés | Durée (complet) | Durée (essentiel) |
 |---|---|---|---|---|
-| 0 · Remise à niveau | 12 | 363 | 113,8 h | 90,7 h |
+| 0 · Remise à niveau | 12 | 363 | 114,6 h | 91,4 h |
 | I · Fondations | 9 | — | ≈ 110 h (estimé) | à détailler |
 | II · Concepts | 7 | — | ≈ 78 h (estimé) | à détailler |
 | III · ML classique | 8 | — | ≈ 98 h (estimé) | à détailler |
@@ -449,7 +449,7 @@ La notion de fonction et ses représentations : images, antécédents, ensemble 
 
 Le langage des mathématiques : propositions et connecteurs, implication et contraposée, quantificateurs et leur négation, ensembles et opérations, notations Σ et Π. Puis les grands types de raisonnement (direct, contraposée, absurde, contre-exemple, récurrence) et la rédaction d'une démonstration courte : de quoi lire MML, et workbookIA 11 (déduction, induction).
 
-**Temps** : 12,4 h en parcours complet, 9,1 h en parcours essentiel (lecture 150 min, 22 flashcards).
+**Temps** : 13,2 h en parcours complet, 9,9 h en parcours essentiel (lecture 195 min, 22 flashcards).
 
 **Objectifs**
 

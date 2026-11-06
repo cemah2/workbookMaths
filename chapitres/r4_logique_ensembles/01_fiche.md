@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §8 |
-| **Temps total estimé** | ≈ 12,4 h : lecture et calculs de la fiche ≈ 2 h 30, exercices ≈ 9 h 10, flashcards ≈ 45 min (parcours essentiel ≈ 9,1 h) |
+| **Temps total estimé** | ≈ 13,2 h : lecture et calculs de la fiche ≈ 3 h 15, exercices ≈ 9 h 10, flashcards ≈ 45 min (parcours essentiel ≈ 9,9 h) |
 | **Prérequis** | R2 (équations, inéquations, intervalles) ; R3 (fonctions) ; R1 (fractions) ; workbookIA 0A : ensembles en Python (§100.3.4), `itertools` (§100.6.6, aperçu) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `logic.py` : `truth_table`, `implies`, `sum_over`, `prod_over`, `find_counterexample` |

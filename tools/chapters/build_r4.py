@@ -166,7 +166,7 @@ PAPER = [
          'mistakes={"avec j = k − 2, les bornes diminuent de 2": [5, 10], '
          '"les bornes changent avec l\'indice": [3, 8]}'),
         ("f", "an integer", "sum(i + 2 * j for i in range(1, 3) for j in range(1, 5))",
-         'mistakes={"pour chaque i, la somme sur j a 4 termes, donc i est ajouté 4 fois": 46}'),
+         'mistakes={"pour chaque i, la somme sur j a 4 termes, donc i est ajouté 4 fois": 43}'),
         ("g", "an integer", "sum(i for i in range(1, 5)) * sum(2 ** j for j in range(0, 3))",
          'mistakes={"j commence à 0 : 2⁰ = 1 compte": 60}'),
         ("h", "a fraction, as text", "Fraction(1) - Fraction(1, 10)",

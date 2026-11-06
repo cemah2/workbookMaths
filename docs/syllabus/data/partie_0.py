@@ -407,7 +407,7 @@ CHAPTERS = [
         "frontieres": ["0B.3", "0B.5"],
         "mymath": {"module": "logic.py",
                    "functions": ["truth_table", "implies", "sum_over", "prod_over", "find_counterexample"]},
-        "reading_minutes": 150,
+        "reading_minutes": 195,
         "flashcards": 22,
         "exercises": [
             ("R4.Q1", "🧠", 1, 4, "Vrai, faux, ou pas une proposition ?", "§1", "E"),

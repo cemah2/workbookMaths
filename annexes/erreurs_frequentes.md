@@ -51,6 +51,24 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Un système à déterminant nul « a une solution » | $D = 0$, « une solution » | aucune ou une infinité : comparer les seconds membres |
 | Lire `[]` de `sympy.solve` comme « aucune solution » | `sp.solve(3*(x - 2) - (3*x - 6), x)` vaut `[]` | aussi pour une équation vraie pour tout $x$ ; `sp.solveset(..., x, sp.S.Reals)` distingue `EmptySet` et `Reals` |
 
+## Logique, ensembles et sommes (R4)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Nier un « et » en gardant « et » | non ($a > 0$ et $b > 0$) = ($a \le 0$ et $b \le 0$) | De Morgan : ($a \le 0$ **ou** $b \le 0$) |
+| Prendre la réciproque pour l'implication | « les rectangles ont quatre angles droits, donc une figure à quatre angles droits est un carré » | la réciproque est une autre phrase, à démontrer à part |
+| Nier une implication par une implication | non (s'il fait beau, je sors) = (s'il ne fait pas beau, je ne sors pas) | « il fait beau et je ne sors pas » |
+| Nier « pour tout » par « aucun » | non (tous les nombres sont pairs) = aucun n'est pair | il existe un nombre impair |
+| Nier une inégalité stricte | non ($t > 5$) = $t < 5$ | $t \le 5$ |
+| Confondre élément et sous-ensemble | $\{a\} \in \{a, b\}$ | $a \in \{a, b\}$ et $\{a\} \subset \{a, b\}$ |
+| Oublier l'intersection dans un cardinal | $\lvert A \cup B \rvert = \lvert A \rvert + \lvert B \rvert$ | retirer $\lvert A \cap B \rvert$, comptée deux fois |
+| Compter les termes d'une somme | $\sum_{k=5}^{9}$ a 4 termes | $9 - 5 + 1 = 5$ termes |
+| Séparer un produit dans une somme | $\sum a_k b_k = \left(\sum a_k\right)\left(\sum b_k\right)$ | faux en général ; seule une somme **double** $\sum_i \sum_j x_i y_j$ se factorise |
+| Sortir une constante d'un produit | $\prod_{k=1}^{n} 3a_k = 3 \prod a_k$ | $3^n \prod a_k$ |
+| Une borne de `range` | $\sum_{k=1}^{n}$ codée `range(1, n)` | `range(1, n + 1)` |
+| Démontrer par des exemples | « vrai pour 1, 2, 3, donc pour tout $n$ » | un argument pour tous les $n$ (ou une récurrence) |
+| Une récurrence sans initialisation | une hérédité juste suffit | vérifier aussi le premier cas |
+
 ## Fonctions, exponentielle, logarithme (R3, R6)
 
 | Erreur | Exemple faux | Ce qu'il faut faire |

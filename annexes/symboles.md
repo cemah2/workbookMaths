@@ -33,11 +33,17 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\subset$ ou $\subseteq$ | « est inclus dans » | is a subset of | tous les éléments du premier sont dans le second | $\{1, 2\} \subset \{1, 2, 3\}$ | R4 |
 | $A \cup B$, $A \cap B$ | « A union B », « A inter B » | union, intersection | dans l'un ou l'autre, dans les deux | $\{1,2\} \cap \{2,3\} = \{2\}$, $[0 ; 3] \cap [2 ; 5] = [2 ; 3]$ | R2, R4 |
 | $\varnothing$ | « l'ensemble vide » | the empty set | aucun élément | $\{1\} \cap \{2\} = \varnothing$ | R2, R4 |
+| $\bar{A}$, $A \setminus B$ | « complémentaire de A », « A privé de B » | complement of A, A minus B | les éléments de l'univers qui ne sont pas dans $A$ ; ceux de $A$ qui ne sont pas dans $B$ | $\{1, 2, 3\} \setminus \{2\} = \{1, 3\}$ | R4 |
+| $\lvert A \rvert$ (ou $\operatorname{card} A$) | « cardinal de A » | cardinality of A | le nombre d'éléments d'un ensemble fini | $\lvert \{2, 4, 6\} \rvert = 3$ | R4 |
+| $A \times B$, $(a, b)$ | « A croix B », « le couple a, b » | Cartesian product, ordered pair | les couples $(a, b)$ avec $a \in A$ et $b \in B$ ; un couple est ordonné | $(1, 2) \ne (2, 1)$ | R4 |
+| $\{x \in E \mid P(x)\}$ | « l'ensemble des x de E tels que P(x) » | the set of x in E such that P(x) | un ensemble décrit par une propriété (on écrit aussi « : » pour la barre) | $\{n \in \mathbb{N} \mid n < 3\} = \{0, 1, 2\}$ | R4 |
 | $[a ; b]$, $]a ; b[$ | « intervalle fermé, ouvert, de a à b » | closed, open interval | les réels entre $a$ et $b$, bornes comprises ou non (en anglais : $[a, b]$, $(a, b)$) | $1 \in [1 ; 2]$, $1 \notin \,]1 ; 2]$ | R2 |
 | $\forall$ | « pour tout » | for all | la propriété vaut pour chaque élément | $\forall x \in \mathbb{R},\ x^2 \ge 0$ | R4 |
 | $\exists$ | « il existe » | there exists | au moins un élément vérifie la propriété | $\exists x \in \mathbb{R},\ x^2 = 2$ | R4 |
 | $\Rightarrow$ | « implique », « donc » | implies | si la gauche est vraie, la droite aussi | $x = 2 \Rightarrow x^2 = 4$ | R4 |
 | $\Leftrightarrow$ | « équivaut à », « si et seulement si » | if and only if (iff) | les deux sont vraies ou fausses ensemble (aussi $\iff$) | $2x = 6 \Leftrightarrow x = 3$ | R2, R4 |
+| $\neg P$, $P \land Q$, $P \lor Q$ | « non P », « P et Q », « P ou Q » | not, and, or | les connecteurs logiques ; le « ou » est inclusif | $\neg(x > 2) \Leftrightarrow x \le 2$ | R4 |
+| ∎ (ou □, CQFD) | « ce qu'il fallait démontrer » | QED, end of proof | la fin d'une démonstration | | R4 |
 
 ## Fonctions et analyse
 
