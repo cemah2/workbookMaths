@@ -160,6 +160,9 @@ def _symbols(variables):
     return [sympy.Symbol(name) for name in variables]
 
 
+_ABS_BARS = re.compile(r"\|([^|]+)\|")
+
+
 def parse_expression(value, variables):
     """A SymPy expression from a string or a SymPy object; MathNormalizationError with a helpful message."""
     import sympy
@@ -177,6 +180,8 @@ def parse_expression(value, variables):
             text = text.split("=")[1].strip()   # "f'(x) = 2x", "y = 3x - 1": the expression is on the right
         text = _FUNCTION_CASE.sub(lambda m: m.group().lower(), text)
         text = _FUNCTION_NUMBER.sub(r"\1(\2)", text)
+        while _ABS_BARS.search(text):                    # |x - 1| written with bars: Abs(x - 1)
+            text = _ABS_BARS.sub(r"Abs(\1)", text)
         if not text:
             raise MathNormalizationError("une expression, par exemple \"3*x**2 + exp(x)\"")
         local = {name: sympy.Symbol(name) for name in names}

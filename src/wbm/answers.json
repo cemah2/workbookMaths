@@ -3559,6 +3559,1369 @@
         "47012e9b2d993eb4ad3f6972dd5a3b5aee9fe752e542544907e7d358ce0fd2d3": "en divisant par x, on perd une solution : factorise 3x² − 6x"
       },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R3.1a": {
+      "hash": "7c158407b4f9290cd47c1a69495fceca5196843b19e22f95066a75334ce10157",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "b86ac6c78d3ee47bbfbb4ff74946688810ff7cffb4a9070e8a24cc1c445c851d": "−x avec x = −2 donne +2",
+        "e1a2cbc0593d00fdc25174d57d7dab328b9afbf1626246c1cea614f08bcc30c1": "le carré d'un nombre négatif est positif : garde les parenthèses autour de −2"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.1b": {
+      "hash": "e16798eb1480770173fc83d8cfccf04b8c2ab93ce7b5b3eff3d6cc7900e16ff3",
+      "kind": "fraction",
+      "mistakes": {
+        "758cfa51964ccc5ed06755207b92b0a1fcc71be2e75e1dd42e13737369593131": "le dénominateur 1/2 − 3 est négatif"
+      },
+      "sign": -1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.1c": {
+      "hash": "5f3829384b7ef22e28f7dad2534b24a9d5c49ee94cf3a5f166fe67857e095a06",
+      "kind": "set",
+      "mistakes": {
+        "8a45579c17302b357103367dbeb7602c5fa95a2dde4d7b9f87632eb8abd7503a": "un antécédent se cherche en résolvant h(x) = 10, pas en calculant h(10)",
+        "b3924ab6bc674ce1d17042f9f2688c6538fe9ad35652b62575dc3306771eeed2": "un carré égal à un nombre positif : deux solutions opposées"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.1d": {
+      "hash": "2165fd4b5f5ef5e9bbad0151b8806c840c35f1357ce7a65f61336f3cdec2d1fc",
+      "kind": "set",
+      "mistakes": {
+        "a80456aa3b91ea52d1ab6c4a2a9c9596db100369b24810ec52d870242024eb7f": "un carré n'est jamais négatif : regarde ce que donne h(x) = −3"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.1e": {
+      "decimals": 2,
+      "hash": "bb4e883987e78e0d48e458576b5a92dec92e832b6cddf1cd5b756996a0aadf4e",
+      "hash_coarse": "34eea42142840b1d24dfa77829f7216c7101f2cfc278f503dd8ed7f7f92bde8a",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "3e98c89bf4c064824fe0008f34280678d3bfebc61d35636b69b9b0ba4796a505": "pour isoler 4x, ajoute 5 aux deux membres",
+        "a8145ba30daed9dd3555ea117392fb04bdc88a4cb7df575609bc6cd74a340f7e": "un antécédent se cherche en résolvant k(x) = 7, pas en calculant k(7)"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.1f": {
+      "hash": "8e9c331193aa1ee853b3bd939e8e51b785d9f67a9b1441f9aa4853212d9039c2",
+      "kind": "interval",
+      "mistakes": {
+        "69b629f984b40df5e5fb68e25923b640ad01c199095c9260f467077c16a156d7": "on n'exclut qu'une seule valeur : celle qui annule le dénominateur",
+        "8f4b69b01057cd1b987e580395f105e4f224f4735f5ac968cfe86c3ec1c48443": "x − 4 s'annule pour la valeur qui le rend nul, avec son signe"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.1g": {
+      "hash": "36f20263e7c2fd962eb39606bef9c59dbddbdf9665b17c97c76be0c39f603846",
+      "kind": "interval",
+      "mistakes": {
+        "1c5488876696e0a35ef7aad63ab0356b6a8817bdc47510addcd1ce59aa70da38": "la racine carrée de 0 existe : la borne est incluse",
+        "c81c0ae56c7045e91a7318f2962a60a787c66f8511178173929fed6945d44d89": "6 − 2x ≥ 0 : en divisant par −2, le sens change"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.1h": {
+      "hash": "ed220368c83a53496d34a2d289242700b949dd6a9deab3a2b8cdef0a18148219",
+      "kind": "interval",
+      "mistakes": {
+        "7a0974ae201fb3112e9fcbbcd9363ac9abaa8b6620b81ed1ff3b0bc07edf7eea": "il faut les deux conditions : la racine et le dénominateur",
+        "80b7ca8e32a2aceaa27eaab0dce6cad7eb9d10da17a344d5a1213cca2efe1d9e": "la racine carrée de 0 existe : la borne de gauche est incluse"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.2a": {
+      "hash": "37bfb5a2b4eb98af1d280d33bd2215e15800b09ffddc3b43c7fc4090782ddaa8",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.2b": {
+      "hash": "c45ad41857f83e7052aeb0449702ea65e886f5b4aa3b2e83f160025a6e5a39dc",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": -1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.2c": {
+      "hash": "568ed9c27704d1bf1ad0c1d53228798a447933f18573607e658de551916cac33",
+      "kind": "set",
+      "mistakes": {
+        "d73137ede63c8bef533b509700df0e88c71a2c74857bb3ab4ffbacacda29126e": "trace toute la droite y = 1 : elle coupe la courbe trois fois, extrémité comprise"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.2d": {
+      "hash": "a86023bb86fba011edafef708a4f7c287b8c6a06472f19399806141013d253fd",
+      "kind": "set",
+      "mistakes": {
+        "f90f9d0f5d5ae5159628b88f3088bee3ccc75e15609898a3559b02b81000cede": "la droite y = −1 touche aussi la courbe en un point anguleux"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.2e": {
+      "hash": "6cc95cc3ebb87cf499d263b9df4bb61fcc1c1d0b7490adab530d2534895e280a",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "6269ff17addbd5363f829a9056a2735fc075918abdf782e1839eb8b283c57054": "le maximum est une valeur de f, lue sur l'axe vertical, pas une abscisse"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.2f": {
+      "hash": "9789999027f1d23a22186f00bc3504ed1d5f1d34088d29cb66e49c7928de1fc8",
+      "kind": "set",
+      "mistakes": {
+        "5eeebd7f1c2f50c1a9e6faafcccfedd69da834c06005aa688d9783b34854b608": "le maximum est atteint deux fois : regarde aussi les extrémités",
+        "990aa0ff3b87ac7437c51fb7c34ff758dc0077fbdf9959d224586f507b7de854": "ce sont des valeurs de x, lues sur l'axe horizontal"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.2g": {
+      "hash": "1d94262950c9454986f8649fb6be115bac5f976902526f8eb2a92de90c15e935",
+      "kind": "interval",
+      "mistakes": {
+        "4349055793ad4c31db767824205b48701bfbc02b552cb250401030bb423abec7": "décroissante : la courbe descend quand on va de gauche à droite",
+        "6898425331c5d59517a08aced3e45dab41a4c896d180c4e445060ffb44121cdb": "un intervalle de variation se donne avec ses bornes, fermé"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.2h": {
+      "hash": "2b8c4e09971d34252db584d6c854e04dc02fbb1e82801399df2eefb7e7fd48db",
+      "kind": "interval",
+      "mistakes": {
+        "427e65559d16e4892128d9efde7d51ce28c959d32250a39a83f70465904619e2": "≥ 1 : là où la courbe est au-dessus de la droite y = 1, pas en dessous",
+        "f729bcb8edb59c03a11d5d7264c9023b1967ad148fffddbcde1899d522534ad3": "f(x) ≥ 1 garde aussi les points sur la droite y = 1 : bornes incluses"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.3a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "747ce51f63cab105c0daf2cbdf312c715360cac8092e11aae36424128028f701"
+        ],
+        [
+          "ec799402321fdd413e2b4dfc0232f7089072559207248c161e1e64da0c5161c7"
+        ]
+      ],
+      "element_hashes": [
+        "d5f7c7429cbcd1202e7b83cdfba9a0eb3f78675356d402b92a9734f9399a7b30",
+        "a49c6689abde324a6d506479c722c0edd04b9048dc193d866ad1ad47e6411620"
+      ],
+      "hash": "d5e3be8e776170cf83b614748d8e4600d99890756adccd884461ad08bb042f91",
+      "kind": "array",
+      "mistakes": {
+        "1cdc0d745bdaca8ba0895dbf2563b038f9cbb364630951365fc1cafb204dc098": "l'ordre demandé est [m, c] : la pente, puis l'ordonnée à l'origine",
+        "e77065c5e8c7ecc8ed9aeed0dc9cdbb04f19ec9029e33e788060293067681190": "la pente est Δy/Δx, pas Δx/Δy"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.3b": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "7dd94e410843737bf77080215b65ee6cc87a261a4a917b0a83597bb7f9612339"
+        ],
+        [
+          "cc72eab8f5d830b00fb8141519f7536c4d20c33d587047fbec5fe49a09caba0b"
+        ]
+      ],
+      "element_hashes": [
+        "f54c1be16f2381d62106c1dfce6fe736f8c472a56fb1f21e11a1299e479e2b57",
+        "6b190a1e0d162417ce7d5f953e88e83f23d7bcc8e36acb8799937942e75d2df4"
+      ],
+      "hash": "7094b2e4c92c48e4267e237347a9f99c393233c35023e05543cb6770f45c8a41",
+      "kind": "array",
+      "mistakes": {
+        "f5d8e3c461af08b7df2e9bf82b19b6d03af706507a3c2561c1da71d75ad50d53": "c = y − m·x : avec une pente négative, attention aux signes"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.3c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "9ca5d8a7ae4a12d9012ff24dc53f28efed146c1db1119ba11a15aeb24f5fc30f"
+        ],
+        [
+          "41cc78a573f1d84cf448ca18fbdc7a3199d239b068c1cbd0e44635ac07010a15"
+        ]
+      ],
+      "element_hashes": [
+        "e8cda06dbdd834fc7d5ffe8c5aa29552dc7697a91c16e1ba5a3678efc016f03a",
+        "5e1d30937ab4ca205b9cc8d685240d3f50af822a9d8c5ae57959ce5766080a52"
+      ],
+      "hash": "77fbcabecc1e285e5f126d43db8c6c04f7653d4544c2cd884c20ea1cd22c69c9",
+      "kind": "array",
+      "mistakes": {
+        "65b0e37496d6d1375adbaf2b25853e476f1edaf293bff8393206dfa3d1ea0195": "la pente est Δy/Δx : la variation de y divisée par celle de x"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.3d": {
+      "hash": "6669080c26fe017e8606bc340085a44c316fba3645bdbe6fecf9f3815478f43e",
+      "kind": "fraction",
+      "mistakes": {
+        "3e1c81e8a6b69b856c1451f6fbb7f50dbfee54ace36ee69ca46819e7864a29ea": "la racine est l'abscisse où la droite coupe l'axe horizontal, pas l'ordonnée à l'origine",
+        "ac06e0a3ba7012bc77c090025efe267a3e6c90590ae3e3756e2a559fc6666526": "la racine annule la fonction : isole x avec son signe"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.3e": {
+      "hash": "ddc4f411c59d01f5a14bc0a48d81abae1b23c129944b43371bab1ca8200404f9",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "1df848fc26141594973f1232778c703bc751f53f89b92ea827981273926511ad": "f est affine, pas proportionnelle : f(50) n'est pas 5 × f(10)"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.3f": {
+      "hash": "ba751b5d6e6147c6adcb93ac2f4adf428a1bdf196478aa1d72a2363693ea0b32",
+      "kind": "bool",
+      "mistakes": {
+        "9a7dc9a4931689fd222f8cafaa735d90f141a1569d3d5083fa1b7854d24bdb6d": "calcule m × 4 + c avec les m et c de a, puis compare à 5"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.3g": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "03c24435ec5c5a446f3861eb1e5528160e93ae8e2a7418bd48be42bce6568b48"
+        ],
+        [
+          "d9e6fa17f8bc77f8374089be322a4cfb6ad8f9570544c0404939710991ef3b7e"
+        ]
+      ],
+      "element_hashes": [
+        "cc1815b4db69893523d3359dd5b3880f3bf32be0579b53b780ed88ff1a8c23f5",
+        "f1f417fbda97bec91fe699b0126dfba398df8e5e8da2a037906902746b8b0bd8"
+      ],
+      "hash": "4a35646ae7f91759cb7629dfc7965d91dd87f9641ab4b1f691b72c3ad2b27782",
+      "kind": "array",
+      "mistakes": {
+        "5718bbe1ddae6c9ba5d46299deaeeec27d762497206c5e2e47e60a4d1f7e1b43": "l'ordre demandé est [m, c] : la pente, puis l'ordonnée à l'origine"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.4a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "30dde6045f376ff0b4d5ac5ea724b25cd04b25513dfde7b2977a8c6ba4148b37"
+        ],
+        [
+          "308ab60d0e6c04a69e6939aed72e4eb31a6c2d43b2c768637624891a682505c1"
+        ]
+      ],
+      "element_hashes": [
+        "e45fc58fc044505d9738e36b9db9229dfeaa42a4b07337dfeb5779cd966b00b4",
+        "6f5f553ba438c4328efc70d0594c68efd20ee490bfdf877135561a516aaca975"
+      ],
+      "hash": "d73ae65a0335e4295ce8346b0aa9e4bce0909aa013530c429317f566ec557bd7",
+      "kind": "array",
+      "mistakes": {
+        "55ba51c7bfe6b5f671ccee3938a29824e79ae238964eba230691ae266feed82d": "l'ordre demandé est [m, c] : la pente, puis l'ordonnée à l'origine"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.4b": {
+      "hash": "824ad0a7d3b928dfa4d06718b47cce1ce82d6af6d5cb25831a31822ebe628568",
+      "kind": "fraction",
+      "mistakes": {
+        "eac68450f37eb8a6cbc3b550043062c315479fed8eaa53293c65307f48bd3beb": "retire le minimum avant de diviser par l'étendue"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.4c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "e8cf168d2683250070a10b956bda2484e1cf499367dcaae565d0442ce07e4adc"
+        ],
+        [
+          "cd5c3620112035cbfa604602a039d789fcd6d9b5ff7fd9a0f8a8a2f831c2d876"
+        ]
+      ],
+      "element_hashes": [
+        "416d84d87136f1df9770865cf72f60bfb218427efbc2762b0bdad8c42a25ed90",
+        "ebdfcbcab6b5171fbc884d49124c86333495e57bc24d1e6cfade2e0001dc4295"
+      ],
+      "hash": "9a6955ec83875b6fb8b0be22ccc8e419fa72addcff8ef05d3bb7168750ac9e33",
+      "kind": "array",
+      "mistakes": {
+        "4716fd1b36eca3e2fde4fb9af3ef40815a99f13a83d4f1bfb735e9e850cebc48": "la réciproque défait N : multiplie par l'étendue, puis ajoute le minimum"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.4d": {
+      "hash": "fa9f3afc180612f91edc2c0c01a0bc00dff0a062a67ef661cd1c44c63d3c44e4",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "fcd7eced89311e6956a2f99ffed97fcd848615e4c3be78cf40e84d49695c0322": "multiplie par l'étendue, puis ajoute le minimum"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.4e": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "5344a5d52967a61db1213ecce496bdca6efff407978a45a7332fd4811d741a36"
+        ],
+        [
+          "af0d064894e83a28e57eea6483b93fb3d5fbc6fe24fec703601b7a3f5f463c0b"
+        ]
+      ],
+      "element_hashes": [
+        "3e8142e103de39e17190b7c5101831dce18e81b9b163e085a9febed19f1b25a1",
+        "a052b61deb7d3a8d0115aee8f49f2437aa6dc9e48c0d1ef17ee84dacdd2a0381"
+      ],
+      "hash": "5a772c4ba57a2b397bfdc6252bfab1937b3f75dfef3592cf6b64dec1df4bb1ba",
+      "kind": "array",
+      "mistakes": {
+        "6dfdd7b607bd84aa96701c1be5a850000d03e0ecc747c5aabf397c33ff3afbd9": "10 × N multiplie les deux coefficients par 10"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.5a": {
+      "hash": "26d013c08e4047493b4301992b5b98efeaaabbbe4750aca8e094a22ac745720e",
+      "kind": "interval",
+      "mistakes": {
+        "f9e5479c90fdaea7e31ff596422f1183c29943db6fef4aa81a28435a1b1e5758": "le carré décroît à gauche de 0 et croît à droite"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.5b": {
+      "hash": "f12e9b9a453afc384ec3e9efa171f3d9d4598bb0916efd21f94780e273485297",
+      "kind": "interval",
+      "mistakes": {
+        "3cc3f052182ff1542f4d6cd8601c9c6e969ec7354f64bba1d324fb083171a65c": "x² < 9 garde aussi des négatifs : essaie x = −2",
+        "4877cc446f4c1d7feebbc8c75f4ae9fec2f14d294521a47a1ff091bde7bd7154": "l'inégalité est stricte : les bornes sont exclues"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.5c": {
+      "hash": "a04503060ba8e3cef34d593372c68859ea6ef2816a89589d4a134311489d3338",
+      "kind": "interval",
+      "mistakes": {
+        "a85bd6f6cbfc04cb79ad911a78dce4a8a19b708cfb072c891b29bf19572e9f2a": "l'inverse est décroissant sur ]0 ; +∞[ : il retourne l'ordre",
+        "d0d6d259b4a3d22b7a2268f4797dc571134f9e5553a5342985aa0f5f1ff598a8": "1/x est négatif pour x < 0 : seuls des x positifs conviennent"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.5d": {
+      "hash": "0ed5d8bc69f023fcdf78b31b295445dc4d86d5d7d7eb2498ef44cc6902eb1024",
+      "kind": "interval",
+      "mistakes": {
+        "35a5f650df7d23b1adbb0ab2c9748d47ed3e7fb5e050bb6271d457c10a86ad6c": "√x ≤ 3 : élève au carré, ne prends pas une racine de plus",
+        "f8ba9dbcf605e91c3e22881688185370a3e29236657002dbe48e7a94be666d7e": "√x n'est définie que pour x ≥ 0"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.5e": {
+      "hash": "402759658e1a51fc3734fe602fb19fb069ccb621214a415ed4b650d617829fdc",
+      "kind": "interval",
+      "mistakes": {
+        "a364e39e8131605a2080ff0df9c712f5d1c29279afdc81d874cabba25a030168": "|x| ≥ 2 : les points à distance au moins 2 de 0, donc à l'extérieur",
+        "bf5cd8ce9c2da7c89f7dcbb28c734973dba02cdab76d70f52ef85526a3b11702": "l'inégalité est large : les bornes sont incluses"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.5f": {
+      "hash": "bd08f83971956b41faa8fffc8f493b6b01ae5c13ef4c95d9bece2abf1b33fe03",
+      "kind": "interval",
+      "mistakes": {
+        "8263b54f700d0e9a075263309be401e526a81a159b7d18e9602442e15e895ef9": "quand x parcourt l'intervalle, x passe par 0 : trace la courbe"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.5g": {
+      "hash": "76f8061f8aa903ac3ad5bfc122520c86b11bfa3e2aed2718a51a476394039f35",
+      "kind": "bool",
+      "mistakes": {
+        "8e431e50b9ede157568bc780a1ba89680b7238da195dc8e5e6dba2ba8242444a": "calcule les deux nombres, ou sers-toi du sens de variation de l'inverse sur les négatifs"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.6a": {
+      "decimals": 0,
+      "element_hashes": [
+        "19d25cefb0c95e5fcc6070a94a4561ae00be9a76115f93dd7f9cb472aa664a84",
+        "233d2909662ab37377399837ab4b480489ced1e4d4d5c481cd2da399979d0c3c",
+        "f08e045f2550e2ca183c43d8a19ec399aa3b9cc5a67f0062981dfccd808b9ee1"
+      ],
+      "hash": "c899eb17eb94391361b010e8b069b6e9b89713586e1024cce64b18b656412faf",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "29b495bcf3015f7a61dd0980dcc996e18f6de33677ea6a53114d09b363665f85": "le carré ajouté pour compléter doit être retiré",
+        "9498378afa9987a053cedcb43be377d9d955f900676634c139b7b9e17aed4850": "(x − α)² : α est l'opposé du nombre dans la parenthèse"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.6b": {
+      "decimals": 0,
+      "element_hashes": [
+        "22c1fb9ccc83ac563cd8cec25823564621d35c2b665c84b101c0bd3da555d086",
+        "37b4f2cfa2ee3f05f2c4e27f2eb08e3073c373c9993ea3c5c70094089663abb2",
+        "50d4b5e1a7deeee5de49d20806bb3e279866d90e12ea2f1ab3486efff6c6d627"
+      ],
+      "hash": "c045a52bf13768cdeafd72e91bff610cc437c246fd4d29e83b12cb0488802c50",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "8d799eadf50b7bd51915e50cb616394845f118f7b0d4161cb6e92c58a56dbb23": "a est en facteur : le carré retiré est multiplié par a",
+        "ad5146f0be467dfcde2f9b8f106ec7f6a003212d59776e49330d184725631e63": "(x − α)² : α est l'opposé du nombre dans la parenthèse"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.6c": {
+      "decimals": 0,
+      "element_hashes": [
+        "fed342dd4f20e22c7464358e6575322875ddfe68bbe2f98945c328029f862ff2",
+        "6b2f67b4faa6c811127e98d1e909239e0f10dc78fb1db8c3c25f48e95776f792",
+        "b8b67a06f0d2b4c76621b32f84db7d400f8a59b589fbaa800e79c93477f635cb"
+      ],
+      "hash": "9c049b789afe618eb231a27d58db3557c26f402bd3aca576812a0dd119366375",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1075bcd42b81c7a53531af442b266ae643ff7f79127b0b2e7b8875419123159d": "a est le coefficient de x², avec son signe",
+        "2e0d2ac2fc682d084ef3c1ddf63ce7d5f5a263029284361236e985cdaa7199fd": "avec a = −1, mets −1 en facteur et suis les signes"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.6d": {
+      "decimals": 0,
+      "element_hashes": [
+        "811f1d2e708c4f19256e79b657b3c01b7ea2182484ead056495756685d7e4e23",
+        "cbd082cdbbb72f1f69f206b0187237b6b040db40ca93ced1324f01e93d773bf6"
+      ],
+      "hash": "3518b6d5246ede9134718279c6a2e3d28f3a21a37b011e8caf04aa79fe5c1f4b",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3e3cc24e5b9841dfd10c975cd62422b8d083052b9f83634aae94b74127fb9ca2": "le carré d'un nombre négatif est positif",
+        "c9c034a10e206d9eb87e7a5568963b730323b1ae719e20ec6d30c082b632093c": "α = −b/(2a) : attention au signe"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.6e": {
+      "decimals": 0,
+      "element_hashes": [
+        "17a2cba611a78aa0728728343f37383a27a8525b09794ea56c89ce826c6b0bcb",
+        "24f42e6406876f30469787b1d2bd42c570c2bc51fc4d8ed19be1a44403ec70ba",
+        "939bb43f34254ba858ee742b0ade91dd913c9127efdc90e4aef646cc9a2fac0b"
+      ],
+      "hash": "2f1a07378b5f666592e2363c393a037c36a4d96e510f7a760fa2f7f9ec32f2bc",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a7d630eff2934747380a0141e34cf3c7565d8ee9d0b4c2c278e19ed638193237": "un sommet d'abscisse négative donne (x + …)² dans la forme canonique",
+        "beee2f961ebe3434812ec7890ccc73ec8a0637cf0a85f39e8361d566be8bfe07": "développe le carré, puis multiplie tout le carré développé par a"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.6f": {
+      "hash": "f4eb40378a3f208dbf9c281806a38cbe31417d755129a08eab020af8cd18e831",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "c408a8af8f2ad6edd806c742c1d5c4361ad5c62a554cc70344d3f1ddf7d21301": "(3 − 1)² est un carré : calcule-le avant de résoudre"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.7a": {
+      "hash": "ef8a1a50d2e14619d2bd21a8548cc08267995d9e0e4686bbe420cea4167b9baf",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "8ef64251b5e44e5a1ec5e6725c4139511f1eff39b98d6fac2ab8dbf60a24f791": "−4ac avec c négatif : moins par moins donne plus",
+        "9bfd5f755e89c37ad78d83865e7df828eb9c7dedefd4d7c3d1b9318e21cdd6a1": "b² avec b négatif : un carré est positif"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.7b": {
+      "decimals": 6,
+      "hash": "d8c9c04748a2405110c957ec33bf4ff9b144b1abf009e57e81eca4793e17f81c",
+      "kind": "set",
+      "mistakes": {
+        "ae92e5c4e91ef1566cbfbccd7686b050e5a1a1f494aff5c03f58f65c5e00cfa1": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie",
+        "db3c8f43d0506391ceb926fe866a5976df5196e112d9783ca7be0a2940c2b43f": "−b avec b négatif donne un nombre positif"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.7c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d610a6f5d8f529f8b3a6bbe7a829abc6896befcbee01e704087f532eadd3b4e2"
+        ],
+        [
+          "e42d5b1e4ecd22894d8c310c48e043c0ebc239c1213ba343f5d862227a2b1c44"
+        ],
+        [
+          "68fab72b4dd77f944db7fc1f3cd59a27c106b40f6dc5db90b8bd8ff9909c9cb1"
+        ]
+      ],
+      "element_hashes": [
+        "b28903b7fcfbbe3d73972f041db302375b9851af0244f7cba5f47c852be02758",
+        "378ad4200a32a7b5bf0aca589e261d0244948419c62cad6d368f745abf382094",
+        "10f06a070533b284e0822649e481ba80de42457db94ab86f074d13469c610f6a"
+      ],
+      "hash": "c7fbbc77ed85d874b941b47e351ce7aac765ad9d58881d1fc03311079c0f4e34",
+      "kind": "array",
+      "mistakes": {
+        "19cfc76cc1343655e57ab738e08f38f8d95b5a8ac8ce96b0b3af006db041816b": "n'oublie pas le coefficient a devant le produit",
+        "2ef31fa0825d06f7f4d3db4e60c4d8b8a3a6a76e21113481361624d6059ba394": "x₁ < x₂ : la plus petite racine d'abord"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.7d": {
+      "hash": "7f3a9ad7a548071e3dd3d7138e38d6ffcdd6fff2c79787318470e74fc2040e48",
+      "kind": "set",
+      "mistakes": {
+        "366c7217590742c97721b37926e9fafef3261c436ed8e4ae82ffe89e01436f75": "la racine annule x − 3 : elle a le signe opposé"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.7e": {
+      "hash": "a2dbaa25c7325d006cece5d4e1800f939f271f1f7f9955fdc1ee0060f3329157",
+      "kind": "set",
+      "mistakes": {
+        "380ad759ad31a82a127a31399dccbbc8c0995160ce443a312d9d40bbe8e701fc": "un discriminant négatif : pas de racine réelle"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.7f": {
+      "hash": "d03d608b086ddfff4995bc05c2e613da37121e39434e2045346cc68821d55d34",
+      "kind": "set",
+      "mistakes": {
+        "42c9418a6bfa86a735fd59d8d32aaa5bbe42d5a7f8cdfb93d8777478a98a9449": "avec a négatif, 2a est négatif : les signes changent"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.7g": {
+      "hash": "bf147adbea367003419943d68f6b3315746f5203ac164804bf0463fe1b0197b5",
+      "kind": "interval",
+      "mistakes": {
+        "3dbc41d5c177356572bd2382cfcd49d25cd04f58f178f19dcb2d421ca1bb211c": "l'inégalité est stricte : les racines sont exclues",
+        "ccfd46e2f7a49960beb37549c739db27089ed86fe16c686d72d931bd1ff18e1f": "a > 0 : le polynôme est négatif entre les racines, pas à l'extérieur"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.8a": {
+      "hash": "4c4264999daabbea8938828474fc9423091d91c8e398c374e764c689d03f8460",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "211f86f1ec42318970fce86412b3834fadf744ac05d826c06985908536b0f378": "le mur fait le quatrième côté : seuls trois côtés sont en grillage",
+        "b6a8830c136cef9ae36d84ec2091cbdbd3f377cc73c42091f8226634cc39fa60": "le grillage fait trois côtés : deux de longueur x et un de longueur 40 − 2x"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.8b": {
+      "hash": "aeb29fcb45baf3b6f81110ce7e33016d4d965744c83a89eecfb34bf17700e114",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "210431129be156820c819120cab22979377666871b9908396376460c0c014e4c": "on demande la valeur de x, pas l'aire"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.8c": {
+      "hash": "a20f8d5d1c71737881730b54694993b2a853fac29b01dbfd34acc8fd1cd9f6e8",
+      "kind": "set",
+      "mistakes": {
+        "12ed3eeebe3f2a1c36bfc4a57bc8c4127c57e2e7b5dc5ad489088714d77a0620": "l'équation du second degré a deux solutions, de part et d'autre du sommet",
+        "83f783089307ea26db3952bad724dfd1518d0b6090128f2977c840f5e1c8e64b": "il y a deux solutions : cherche l'autre"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.8d": {
+      "hash": "90bcda494c093933ccad5ae690c98aa69c326fdcb880a87b901245d9dba08d1e",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "d6cf9e8fb020335270c34a8e3e6e43b19577b65959d1c6bc6267486b53504d81": "on demande le prix, pas la recette"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.8e": {
+      "hash": "76b65cc74eafb58ea92e65ea97f4e4bd6a92a1726522a1f9f72ef54b9e3addf6",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "313d5cb39a9e2ca299ff73ed3dc927c6d022471b6eba407219aff7a4dccb96b7": "on demande la recette, pas le prix"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.9a": {
+      "hash": "60d968aa22dc47da886b1f5a7eb6effdc94f53eb2b169b3e97a9c45585e52cc8",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "f21c8061250b5dd4201d13c08295749c4b33c8ba90838bccabb8e7e66c8a02fa": "(f∘g)(2) : g d'abord, puis f"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.9b": {
+      "hash": "aff61a2d5f19ec4e3ee41807154f3c2210a68eb004ef07830b648b3e5526c26e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0707cbe5e9015a118c135a9cffbe04b79634c5cb5dc3375f5edf0f2134ed7888": "(g∘f)(2) : f d'abord, puis g"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.9c": {
+      "decimals": 0,
+      "element_hashes": [
+        "0617df6a8ed11d18d81c3a69671895118244931f47c75de921c0030b39cc463d",
+        "6bf1aea938867bb09352fb5ab0a039dce77410204038af1339c8f74564c9ad87",
+        "3c8a89d94505084c5f0746d79230f0a4435bb30d822e86c271c2fce27c4261bd"
+      ],
+      "hash": "ddc633f3515da495fc78a7870c21334189e2cd33994bff050d1fbf5016d9d50e",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "64cc341488892c89196f53a6d8eb3175fb6752db42831af0c9d703ae682b7fe1": "(f∘g)(x) = f(g(x)) : on remplace x par g(x) dans f"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.9d": {
+      "decimals": 0,
+      "element_hashes": [
+        "947a0e88ed33aae649a9b40db149e52ba7d0efa246014da533dd81f47b4cc404",
+        "0dabd625d0098637d845d6367ea7f82f98b7326d9ac99a804718b85a1d5f56d1",
+        "551dccb501faa0c5d38c630b94a03b676f9883834308ad495e8f6e92da5efc42"
+      ],
+      "hash": "1d97e9648aecfb2e81923362acc59d5be7581912e1235c7e22eda9798eaebe64",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0da962037883bacdd6403f74dc209ead9f72115ef19b407459024d97e9c3df03": "multiplie tout le carré développé par 2",
+        "4d3468e9c273b34042cd9f81d7f486e09063c1a3aa64af247a15d4bfe4ad5994": "(g∘f)(x) = g(f(x)) : on remplace x par f(x) dans g",
+        "ddf1d3c3e2a2a0096c6031b93abb9f57a5b6a1c95c1d07cc080483fcede222ca": "(x − 4)² a un double produit"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.9e": {
+      "decimals": 0,
+      "element_hashes": [
+        "1ee00d12917f0bfdacb9a7c11ca31fa9120fe29ddb4a7f9c3af9881b2e08a378",
+        "528cafcc7fa5f817bef6fc8bfd1826df38f7da53ca403d51ff9b5272282f40e9"
+      ],
+      "hash": "a63f70eeda801f00071098c4eb4572eb974e2020a841fab32ee99cb841c0e718",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "7c209b8438ba932d528ac825b581b2f34c92f11759e3dd678dc2b8028eab0048": "f∘f applique f deux fois, ce n'est pas f(x) × f(x)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.9f": {
+      "decimals": 0,
+      "element_hashes": [
+        "49b5fe795a9ce1fb6910e721a22b6998541a2abeace3a0cb62a49968752aee93",
+        "eaf860173379af91fab650b51be9029f0b3bd91582a7e9492e98e4b2754b3e83"
+      ],
+      "hash": "880bb65e6f48ba5f511422aa5f50ac5f028a972d58b6bd8a2bf6afab4eb9e896",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "171f7b79e91dc5e3691e3409f3d24696d5867bb07d3d24e0352108281a312354": "l'ordre demandé est [m, c] : la pente, puis l'ordonnée à l'origine"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.9g": {
+      "decimals": 6,
+      "hash": "3c9cc504e0f5bdea7953c80386f37a42bea3a75893e6aac94a9239a9d3b400de",
+      "kind": "set",
+      "mistakes": {
+        "292f9eff875a34db1967b8faf4748f831a2f67f404b11b5b92c05911418effa9": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.9h": {
+      "decimals": 0,
+      "element_hashes": [
+        "ebb4728f87b3d1b43dbbc219be4959a9fadb7e5cbd264279d9713adf9393772f",
+        "e40c77b178a31eb172e318dbb75c36f7906f5e41e79c5b88975e36b7f51e73a5"
+      ],
+      "hash": "db59949e8fdf6ace8d92dc2797499ade41b5bcfd43d68692503ddb9549fb3fd2",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "04e9521093252170b1d4c31886686c73b5e9e8e5e22441f5dc4c7450745aa829": "p∘q = p(q(x)) : q d'abord, puis p"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.10a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "2c1982ce5de9d2dfdcccb6ff114ebb3cb33a8dd88413c04ca24001cf5242fc8d"
+        ],
+        [
+          "6d0bb98c65a8c364448c7607a26feddd8a39dd0c99ec7d1ec97bbe827ad89f64"
+        ]
+      ],
+      "element_hashes": [
+        "695d768802a9a8314ef0234aecaf1cf582ae43c43a826825c1e6eba7cbd2f862",
+        "ea0699986eaabe9140dbb0e2b047eaa69cf9e5ce777ff749f8d76f6bc943b15e"
+      ],
+      "hash": "7cc545b65888b19d21a26abdf5cf61ec711bf074b8e17f5ac8c528170d76c5b4",
+      "kind": "array",
+      "mistakes": {
+        "61a4567712162a8f4ed47371c56b2e817f930747d0ff87c48ff48de38def0333": "pour isoler x, ajoute 3 puis divise par 4",
+        "7fe64818a79eeda5b6c5e6b9723859f4c98e832c504d4128a025828862237038": "l'ordre demandé est [m, c] : la pente, puis l'ordonnée à l'origine"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.10b": {
+      "hash": "aed67d878cdb15372d40cfe5c416397617e096aa427c240e574961742a6ae6ce",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "27b724f09c01eb71b4a7f4a1bed3b61f482bcbbac4499b14b0715c70e6b05e09": "f⁻¹(9) est l'antécédent de 9 par f, pas f(9)"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.10c": {
+      "hash": "ed2ff5d21d7c543e98d08bab87c01af843819348a1f4904c9c82aac9ee835336",
+      "kind": "fraction",
+      "mistakes": {
+        "0083555ee6def1fed60adb0b21f8476b02d2009d4aa58d3eb3b040be1e3c3eaf": "g⁻¹(4) est le nombre x tel que g(x) = 4, pas g(4)"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.10d": {
+      "hash": "c6d466eae962ea0e26dbf69acf63496c4edb465d0730c53bee596226bf958ac1",
+      "kind": "interval",
+      "mistakes": {
+        "6a20a0978bc2eb38d661bb4bf55a6e7bdac4f38d4b2d737f4f9cf01456dd5c97": "g⁻¹ est définie sur l'ensemble des valeurs prises par g, pas sur celui de g"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.10e": {
+      "hash": "b7574813d543f4757833742b968ee58c9c611258bf57c94d2e14457e3f1a2169",
+      "kind": "interval",
+      "mistakes": {
+        "a62d438182d65134623405918e3a17f95051d2fba1d81c2bf0178d97e00367d7": "h⁻¹ est définie sur l'ensemble des valeurs prises par h"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.10f": {
+      "hash": "cd8429c74967f9e5752fcf294ec8c56bd807f8651583f7842f781d86ae2b7efa",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "fb94f6918d7c3772c8080f7206d70ba92b7f84fb8366078e5c416291c3501427": "h⁻¹(7) est l'antécédent positif de 7 par h, pas h(7)"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.10g": {
+      "hash": "b75a6e3a691abe96a71612ecb1bceffd09243ca326357d8070f746093568ed43",
+      "kind": "bool",
+      "mistakes": {
+        "4dd29470aef0f9b0e5b08c185276cf253ab1281474598dbefbab9f8ec53bddcf": "un nombre positif a deux antécédents par le carré : on ne saurait pas lequel rendre"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.11a": {
+      "decimals": 2,
+      "hash": "4b06d9966a308e7131a5333a34d3a6e8fbfb56d7811983b0ec882092b8953582",
+      "hash_coarse": "a045c865b38a699aecd3ce27cd7954494ece960c0901b4cac0e955c939855585",
+      "kind": "float",
+      "magnitude": null,
+      "mistakes": {
+        "642babaa337091ffb291447ee3a29f2895e60091356017a11d8f61c75cd725fc": "max(0, x) remplace les négatifs par 0"
+      },
+      "sign": 0,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.11b": {
+      "hash": "e4bed9a02472d318e454b7950406b9cb075002c4f087ed7e32edd50abb8bd96d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "7c14b9cb402185279203f0d1ccf6dbc2d84cb63277f1a556b527222691908c45": "r(−3) = max(0, −3), qui n'est pas négatif"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.11c": {
+      "hash": "99e5f04b5cf50dbc0560bad2af80be4c7f7da39858dbc32ca87b3c80522f41f3",
+      "kind": "interval",
+      "mistakes": {
+        "81bf45684193c1ba4b7f498c2cb704b1f3652f37b9b703cf582d7e45734e7acd": "r(0) = max(0, 0) : la borne 0 est incluse"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.11d": {
+      "hash": "459865fc060258745a759ddbaadf00ccdea968076576b6c6655605313ff075f6",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "270c13d3eee4552c8cb4f52748d6f5458824251e92f975cb99c4f5a265b096b9": "la convention de l'énoncé fixe la valeur en 0",
+        "e4c83f81a841885bb7d63736e8adbcefc2fee40100b1cb936c536d47c3d6f05b": "−0,1 est négatif : regarde la marche à gauche de 0"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.11e": {
+      "hash": "e00c93cb51b1ae9d071a5c1e5609b8565f3369a4d8328c552b60c8d6264339c9",
+      "kind": "expr",
+      "mistakes": {
+        "4adb4acc22f25be0f5aa8ba8e7d31cab4d97800f37f783988027ec297bceedd6": "un des deux termes est toujours nul, mais pas les deux",
+        "f1281db2530ef179ee2692b876abf7b43f951f7f5d951fae30f57ad0f59de419": "pour x négatif, r(x) vaut 0 et r(−x) vaut −x"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.11f": {
+      "hash": "02e2ba0a1ec9150b3e1c4c42da92ae109843ee66caa890cd88800c3f8cf2a988",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "1ebeadf4fdab7bd79754477f6d0791331a72181dae071c4432bffe26a74bdcae": "le sommet n'est pas dans l'intervalle : regarde les variations de q sur [3 ; 6]"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.11g": {
+      "hash": "7c06b39c9da765c8a9c9f483e420514832bd91a6b50f45a22580c3b026a6d4c2",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "b351e9bbacb6723153705ea3e9cfaac3673eb54594f9090ba1f82eafef189529": "q est décroissante sur l'intervalle : son maximum est à une borne, et le sommet n'y est pas"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.11h": {
+      "hash": "d689573b17e3cacd072ec3ea897d372992341d63ccc81d789c3de5f44d988b44",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "06ee91309d7d74550ab9670a107a1fe574c3591e421c3b66a947b52b6d822841": "on demande la position du maximum, pas sa valeur",
+        "0b7bed2d32106bbc636da2fe0deb101f64b2ab656bbb989219b4a9c899fa4176": "NumPy prend la première position du maximum",
+        "5801765ae0c60f7ba543c693595080aa2f92160c4b493e1f339dbd13b3640e20": "NumPy compte les positions à partir de 0"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.12a": {
+      "hash": "66239f7db02c307c490091b4cc12606ae5884716985a7ba4400e0a0c8885e491",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.12b": {
+      "decimals": 0,
+      "element_hashes": [
+        "42631a53c656c87e40f1ca78d5fd40d143266f54d7cab3f27508b6fb97728093",
+        "5cece65fbac438802ef09640fdb2fe9a25d37988de519d38190ac81546a68207",
+        "99811fe652cda2db69ffc7523b10e38589699c8d5aa135579a190cc2ceacf12f",
+        "8863780c9827939bca3739dedce32f81209d5988178c51fb7012ac6be2088557"
+      ],
+      "hash": "d196b06bb72130315f08434398efca40880140f359e066c76e84a7d1eb464988",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "d4c384270865d0b17ba5f4a76137c4912668a05a929b620cea8c41d7c8d44562": "multiplie la valeur courante par x avant d'ajouter le coefficient suivant"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.12c": {
+      "hash": "3b344ea1edff7307300373566c37b5979f11e9f8b5b0918e18171cfd2bbbe30c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a186957d63daabcb30c53d4484ace6fb518b703b314c176a20fcb4ee037c3e47": "n'oublie pas le coefficient nul du terme en x³"
+      },
+      "sign": -1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.12d": {
+      "hash": "8e8fda60b5529c9450c1b98b1cf198833921f69ba6c9944b766aa97437139cdd",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "f85f4fb3c0e9fc41bb8997e316f5710018b51351abe5589123be635f0a5f4638": "Horner ne calcule aucune puissance : une multiplication par étape"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.15a": {
+      "hash": "0c9d96b26a838063e151824841741ffaccdf8ea9f2d5cb2556fe42dfba7976d3",
+      "kind": "fraction",
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.15b": {
+      "hash": "eb2c2753f6c6e48e008d0925f32cd3381e39d573d9ef2e300fdcdab75b8ef25a",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "e0df35bb6e1b58134aae743ba7829fca2116cb54dfc6cd1112000bdba580f76f": "on demande le nombre d'epochs, pas l'erreur minimale"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.15c": {
+      "hash": "12e04a37e1f4b47e49ffa0ec89f29c711f5011361c58aa19e944502765ac7399",
+      "kind": "fraction",
+      "mistakes": {
+        "868c15f8d0f9a70a4eab448296a894276d6764eaa534837b60e9cec6de7e7adb": "on demande l'erreur minimale, pas le nombre d'epochs"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.15d": {
+      "hash": "94ea8c859f5f5f4e1b09d4800918d036838c12b3fdb4ef0c4bc6f79b14b18626",
+      "kind": "interval",
+      "mistakes": {
+        "7525cd3019579ae159a7efed49896959a22ddf99be3a01d9e67bc8d41dc263e6": "l'erreur diminue avant le sommet, pas après"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.15e": {
+      "hash": "6648b1ad7d122e3b3ef5633242af926a90dbd1026f75e2e1ed0ddb0b667b2fa8",
+      "kind": "interval",
+      "mistakes": {
+        "371a2c8c680c365b7901d812f65ce81c30a00f1039fc3d4686806409ed4ff628": "a > 0 : E(t) − 9 est négatif entre ses racines",
+        "4525a95de628d1dec62f0aad9356cbcd3fd1702cf638e9d6ee61cd11e0f7604c": "« ne dépasse pas » : les bornes sont incluses"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.17a": {
+      "hash": "234eae93b872e72bc286667a1a0ca29351f9419a5f41744e2f6f836efd823c44",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "a6bc8839547742567a7cb0756f993ecf1dd2b9550dd87c442602fd9eb21d7592": "le premier coefficient va avec le plus haut degré : ne parcours pas la liste à l'envers"
+      },
+      "sign": -1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.17b": {
+      "decimals": 4,
+      "hash": "0c82683cac268a2e11189bfcde5f3fe2ea5b02707538fc83aaf08357eb4b209f",
+      "hash_coarse": "cc3ae806985660924845317f66cf01e7a81f6bd1e4251e125fb92b07e2466927",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "4cf2cfb9011590acecf8fc137bd5c51f80fff401dfc5077b5bddd9df1417bf7b": "le premier coefficient va avec le plus haut degré"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.18a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "46b302035b69df8651f1aaefbeafffb638afec5132709d0d62423c1e487ac073"
+        ],
+        [
+          "60d70f5da29ef6d893a21031a9a4affcafe63cefb065068c111658e109651987"
+        ]
+      ],
+      "element_hashes": [
+        "97a28dfc93a7a89146dfa497245ee18efd47c9292b47b5a6fbd2562138cf3e1c",
+        "7904a082c31b91b02193ee7d63afa1cb1ae7abea06b4679cac8e332febd6c10f"
+      ],
+      "hash": "3c4820c446969d485c2d6b7b5c6e94b2c1a4216465fdf781e456b1fca225e6c3",
+      "kind": "array",
+      "mistakes": {
+        "0bbbee47d0613b630a3982ab3864c4783d4ea9cb57cc15f089725e7c9333c98c": "c = y₁ − m·x₁ : attention au signe de x₁",
+        "10ea10e50dbaea7e57531d0f8c0e8693e4a66d346cd247aceeeb37b0cc980cd7": "rends le couple dans l'ordre (m, c)",
+        "d134a518564b768c7b91fcec5ed9fb123f2a601833618b4160881937aaccb2ab": "la pente est (y₂ − y₁)/(x₂ − x₁) : même ordre en haut et en bas"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.18b": {
+      "hash": "d2ab14998f27372eb79b1cd130237e93d0d4098d75c76f04d791316467d5891a",
+      "kind": "str",
+      "mistakes": {
+        "832d3e57fdf8b46b6433dae9c3eb25d7fadcc712dbc9b8ecff17576087b3f6aa": "teste x1 == x2 avant de diviser, et lève une ValueError",
+        "c5f53e89eac4b5561b6029386875e58a7a3270beccafad577376da0606859a7e": "deux points de même abscisse : la fonction doit lever une ValueError (raise), pas rendre un résultat"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.19a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "a08bd0d8868ea9f7a4f27cf99a945bfedcda0f7e781fb8423611553f5e7788d7"
+        ],
+        [
+          "a8d0ae473ef3b915c77b93478f1215f8666411ac7b201ed7d2195e98f095cf3f"
+        ]
+      ],
+      "element_hashes": [
+        "207749bd217be162f63c9e9cade2d2f249eab339de88deab1aef3948a8419ffb",
+        "35ffa0c32ff12138c3e05bfeba1f9d3f4af5fe749ec6c98e0a238d46f64f7ae4"
+      ],
+      "hash": "1ce1e09ffc9c7be5490ae3128bae28828cabdc54cf4fea811abaf73446cf2b10",
+      "kind": "array",
+      "mistakes": {
+        "5fd4192914cee88387324691c2ebd63a57baa496a9baa56053389edb530e9b95": "rends les racines dans l'ordre croissant",
+        "64a1c3dd8ab9d3308eaa049ebdce2ea6c6aa8f3a0bdec715bb831ca3c8fe4ec4": "le dénominateur est 2a, pas 2"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.19b": {
+      "hash": "56176ac3a7cc1f73ffefada1f6cc8c9d218a608baa23ca51abd023b8e3fdd48f",
+      "kind": "bool",
+      "mistakes": {
+        "c054c7ae05861bfa82c4af6f713553a346ee55ffbdcbb2b9ce1dd523ed65027b": "un discriminant négatif : pas de racine réelle, la fonction doit rendre la liste vide"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.19c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "6d92e17e26d7bc120168d4447da44118b2f023ef74643d4c0be3903a31a00947"
+        ],
+        [
+          "93ab60eb0103dbd61316f1cb11c838ffd71b5811c888acf68d6b685dbc301536"
+        ]
+      ],
+      "element_hashes": [
+        "c07a0ea38a5d46a5bc406cf9a8103e9ca2948752ca2935de5cfe2c644de13e1a",
+        "7859d797893b91970bf71b88206d57082a4408280681492bcc2e60e0eaafc559"
+      ],
+      "hash": "1f6829e0e86455833ad10ad62e89e8009a7368b485293747498dd171c75e23fd",
+      "kind": "array",
+      "mistakes": {
+        "2487fc8babc6725cc94e5eebb4ef229e55c09d2fe17ab87875c93b4e92f57f4c": "α = −b/(2a) : avec a négatif, attention au signe",
+        "5b556fe2cbd18a6944fb294ff50f3d061d98a1a7cb458b14d2d8208909ae7c1c": "β = c − b²/(4a) : attention au signe"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.20": {
+      "decimals": 0,
+      "element_hashes": [
+        "9a9f1b96bf5d54b4d26e784b349742a70c407f90d7a2ebfed6f5c400da5e84eb",
+        "603cc493c71d10ef1b994461827c518e74c5eb33ba04037ef76a372392944687"
+      ],
+      "hash": "c35570babd84dbb8f48c037a8585a0828e37818e4aff4da03c4b21820cb125b8",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "d23126c1ce165ffb2818d9544cb4233784c1b1e0f8b535273c85402eeb589dd1": "compose(f, g) applique g d'abord, puis f"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.21a": {
+      "hash": "50e37fc707faf93e14f22054cf4ea8d8a7c75e51195af4e057eacd43cb45512f",
+      "kind": "interval",
+      "mistakes": {
+        "18fe0933f39876a5ad38ed91470b1b7434f4fd0e42e22a424e85b165d0800ce5": "pour x > 1, la droite y = x passe au-dessus de la racine carrée",
+        "d9d138c4b3f0b45a0da8f5a03af9ffdf775e92c30ea5fa341072caf5d5194bcf": "en 1, √x et x sont égaux : la borne est exclue"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.21b": {
+      "hash": "f3169d1e488651641ecc7a514451ec07e3356a26b8cb72480ab7fd523351fd1a",
+      "kind": "interval",
+      "mistakes": {
+        "5498689136adfb8ef633220a9c9c27febd01dc2a67c774deac9894a73fda4279": "x² − x = x(x − 1) : positif à l'extérieur des racines, pas entre elles",
+        "bba58fdb778506bdb1cfc72ce0eecd2685825699f774640c976f4602ca04cdf1": "x² > x vaut aussi pour les négatifs : x² est positif, x est négatif"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.21c": {
+      "hash": "a2f67ad28b2f16bbbefa618a4a3fab8a4a139a1f6f47b40016f826a02f0d7cc2",
+      "kind": "set",
+      "mistakes": {
+        "7eb6401224934bd7a3f86cc9e14da6141e9d1b5bf7f3e89f6bb84559b83b6776": "1/x = x revient à x² = 1 : deux solutions, opposées"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.23a": {
+      "hash": "7cf68a80c21babb983ccfd0b2536abd0f29e098996e8cb7817b8b3876386d4dd",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "c204e3f2cbcbac8a4f933c476ded135dd8c207741211ee0a6bcdf48bea8d89f2": "f∘g applique g d'abord (moins 3), puis la valeur absolue"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.23b": {
+      "hash": "2918ea447e18fffd096b313218d701b4d5ad4ba06359a901e57293fc605bc8e7",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2a4252331fd1268115840e42f4bdb18cd77e7b8743a98d5b3594213ff827649c": "g∘f applique f d'abord (la valeur absolue), puis moins 3"
+      },
+      "prediction": true,
+      "sign": -1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.23c": {
+      "hash": "8977b3482c95504cd22dc731d5a7aed7d81600c3e0fe3d8e53fbc859e8b31be0",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "1faa8e27a4b075714c57fe1583b9b15107b7fa40bbdf9563ba6659070a3b7c17": "−2 − 3 se calcule avec les signes avant de prendre la valeur absolue",
+        "d07e48840c19abf098a57586cd946f52d0974d74b2ca9d369d4601b03c4f00d0": "f∘g : on retire 3 d'abord, puis on prend la valeur absolue du résultat"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.23d": {
+      "hash": "03ae33b2302bf8d27e9f0fb6915cf128405d86f2a2fb9216a1ad9b7395e4231c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "f71acab4ba53bd9c41399aa672ab811782729439446afefa156f8e7c8381f78e": "g∘f : la valeur absolue d'abord, puis on retire 3"
+      },
+      "prediction": true,
+      "sign": -1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.24a": {
+      "decimals": 0,
+      "element_hashes": [
+        "6ace7e3d6216774d54e789e1925ecd216543837518b4667dac1b0e901a9f3bd4",
+        "1d2c03c2134b8dd29dc8c6f7799b25b9106069c5bb893345d6804d84c27b8aeb",
+        "92f30d83d813e38f209f7ee2c97c1998d42defc9f56d054d5ec42e58e770a2eb"
+      ],
+      "hash": "ebbac02a883b59794891328c3991a53a024b704a45f85ceeda2697baac1bc6a8",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "007c64f1ae52241f179da0ba0ecdeec106a94f5604ccd998c0004151477c5f3d": "b et c vont de −5 à 5 inclus : range(-5, 6)",
+        "a261980be6716811d12cb4226ab095f5a16429fa4bfc2f17ec5b2991a091607e": "l'ordre demandé est [deux racines, une racine, aucune racine]"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.24b": {
+      "hash": "883370ab2ce75ff2e8ddbf6f7f52b243b54d6354ba0a7b47495ce09d95a336b7",
+      "kind": "expr",
+      "mistakes": {
+        "482e4012a774d8cf6132906bfc6443c07cc0c0c73320d041d503e3798951aa05": "Δ = b² − 4c = 0 : isole c, en divisant par 4",
+        "4b8e5f427169000903568e960a797b9257ae4510ac14a7d26ca06cafca69a248": "Δ = b² − 4ac avec a = 1 : il y a un facteur 4"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "b"
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.25a": {
+      "hash": "6baabac1af3ac6835d72f05183ca0ebefe34e7d16d155788a8b901b57145a959",
+      "kind": "str",
+      "mistakes": {
+        "0206a4407b0df9ec3e5e5c6bf42df43d48a81692c8cf2461ee3d6369534bc139": "il manque une ligne fautive : une composée calculée dans le mauvais ordre",
+        "08c1a33e936c4e55bddb8a71c10061ba62b7cc1be0153bf6e5bc8d7ce27b26bf": "il manque une ligne fautive : des racines qui ont pris le mauvais signe",
+        "37132622848547bd51ef8eff1a0dfd762b9bcf335edbc461332da52887952233": "la ligne (D) est correcte, et il manque une ligne fautive : une composée calculée dans le mauvais ordre",
+        "4bd8e85b6494fd0ac81aa7e6c76ef1e6a2be1dbd641b2b4d72fbb8d91a3dcb25": "la ligne (E) est correcte, et il manque une ligne fautive : une formule des racines qui ne divise pas tout le numérateur",
+        "5c7a5783d21e301a7ae5685fe8a1a3497daff0d6776f20b416f0ac15534502d1": "il manque une ligne fautive : un discriminant qui a perdu un signe",
+        "6b987dd8742015922f78ec51a8ca871beb097ad0ffaa4e30378fea7f48ebf71d": "il manque une ligne fautive : une formule des racines qui ne divise pas tout le numérateur",
+        "6f35c9d4ab399f6eefa00536e238b3a1dd7e0c1e79fe8cfa3e0dc0d5a7319d3b": "la ligne (D) est correcte, et il manque une ligne fautive : des racines qui ont pris le mauvais signe",
+        "809b46ff14d8eab08627c28337768035f507327aeb86055ec33b7c0eab0ae48f": "il manque une ligne fautive : une réciproque confondue avec l'inverse",
+        "897eb8075c8476562c4197627adc2be3d7c70fae7eddc22e5d07da2a11f1cc55": "une ligne de trop : la ligne (E) est correcte ; relis ce qu'elle fait",
+        "91732af713a3ab087575043ab7d22137643eeb3b47ecb6ded4fb3e4e5e50468d": "la ligne (D) est correcte, et il manque une ligne fautive : une réciproque confondue avec l'inverse",
+        "9a79e2c4af8639b8a68e4d401a4e013e82d671a988ae8d84d4a296a92b3ca3f3": "une ligne de trop : la ligne (D) est correcte ; relis ce qu'elle fait",
+        "a301812e3d3d4749213cac7cb5923e9b3ce716d7bb50abf26c61b1b7137178c4": "la ligne (E) est correcte, et il manque une ligne fautive : des racines qui ont pris le mauvais signe",
+        "ae86f1481e280e56c07c118b975efb62b80d75289382e02452894235c8af4280": "la ligne (E) est correcte, et il manque une ligne fautive : une composée calculée dans le mauvais ordre",
+        "b071d390ef9df2b6d74b6fd6119faf984d2cb15283094489899febc6cfca2fe1": "la ligne (E) est correcte, et il manque une ligne fautive : un discriminant qui a perdu un signe",
+        "c6b21af6c9067e9cffab2505cae8d46137dd5fa2a1a8a8ade1e21c93b1bff1c2": "la ligne (D) est correcte, et il manque une ligne fautive : un discriminant qui a perdu un signe",
+        "cd187d65e07586ef474f0eb444a981519fd99f1e962c29ed6e0e6ee5007c7fe5": "la ligne (E) est correcte, et il manque une ligne fautive : une réciproque confondue avec l'inverse",
+        "e45933e99afb8646d8f97247a6022145373d1c37c564d2fdee0fd003e3410988": "la ligne (D) est correcte, et il manque une ligne fautive : une formule des racines qui ne divise pas tout le numérateur"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.25b": {
+      "decimals": 0,
+      "element_hashes": [
+        "4a787d9ed9870a5a7ec5d7e555032492a921b3ccb2deb3e504519ada72cc3546",
+        "7b08a273b2e23fa489fa2944327a30296459eec735dd6f5f4aca1a40a8d1b8ed",
+        "3c5f4ba913e7df107414c8a2880fe25ba2d43a4facc1303ba26f4887d5dcf355"
+      ],
+      "hash": "9e971c84a8a9a732622a06826b70ea77370f3a1dd0a1dab6ca6e284a7a78c17c",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "dd1384fa7a35bea71f10ad9d6df30ef5c08d6ad7ae7a14ba2cdefa006b2f5d95": "f∘g applique g d'abord : on remplace x par x² dans f"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.25c": {
+      "hash": "bcec0303f0baa003be1c25bae4d1987fb8809978d22cfa2d65c69a42e6d8628a",
+      "kind": "set",
+      "mistakes": {
+        "e36cc6f3462fabae9d1814bdaa59ac73332142494b65315fa3caa6d4b47f6838": "les racines sont (−b ± √Δ)/(2a) : −b est positif ici"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.25d": {
+      "hash": "9b5974372faff9a2279c9a92d3301626010ec26f7f2f5d680d3ee73003a476ea",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "379b7f7aeb57fef675fb87d503b987ccffd944f2607957687346ad412702f40e": "−4ac avec c négatif : moins par moins donne plus"
+      },
+      "sign": 1,
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R3.25e": {
+      "decimals": 4,
+      "hash": "df966b8c7f467d5915f76bc817b13e3906f37dbcdf762bf737d97d01c7a77aa8",
+      "kind": "set",
+      "mistakes": {
+        "4fe4196d54ff6be3bb748d2c526680c3a8410fab80da19a35d1c5ffd1489479f": "tout le numérateur −b ± √Δ est divisé par 2a, pas seulement √Δ"
+      },
+      "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     }
   }
 }

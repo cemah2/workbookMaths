@@ -136,6 +136,13 @@ def test_interval_writings(value):
     assert verdict("I.1", entry, value)[0], value
 
 
+def test_expression_reads_absolute_value_bars():
+    entry = entry_of("E.abs", "Abs(x - 1) + Abs(x + 1)", kind="expr", variables=("x",))
+    for value in ("|x - 1| + |x + 1|", "abs(x-1)+abs(x+1)", "Abs(x+1) + |x-1|"):
+        assert verdict("E.abs", entry, value)[0], value
+    assert not verdict("E.abs", entry, "|x - 1| + |x - 1|")[0]
+
+
 def test_interval_reads_decimal_commas_the_whole_line_and_the_empty_set():
     entry = entry_of("I.5", "]-2.5 ; +oo[", kind="interval")
     for value in ("]-2,5 ; +oo[", "]-2,5;+oo[", "]-2.5 ; +oo["):

@@ -367,7 +367,7 @@ CHAPTERS = [
             ("R3.20", "🔨", 1, 25, "Composer deux fonctions", "§7", "E m:compose"),
             ("R3.21", "📦", 1, 15, "Tracer et lire les fonctions de référence", "§4", "E"),
             ("R3.22", "🎨", 2, 20, "Faire varier a, b et c : déformer une parabole", "§5", "E"),
-            ("R3.23", "🔮", 1, 10, "Prédire f∘g et g∘f pour « au carré » et « plus 3 »", "§7", ""),
+            ("R3.23", "🔮", 1, 10, "Prédire f∘g et g∘f pour « valeur absolue » et « moins 3 »", "§7", ""),
             ("R3.24", "🔬", 2, 20, "Combien de racines ? Le signe du discriminant sur une grille de paramètres",
              "§5", ""),
             ("R3.25", "🐛", 2, 20, "Chasse à l'erreur : composition, réciproque et racines", "§5 §7 §8", "E"),
