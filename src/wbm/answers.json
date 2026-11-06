@@ -2235,6 +2235,1321 @@
       },
       "sign": 1,
       "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R2.1a": {
+      "hash": "66d8da7f6063f4411bac27b13d743a8027fd1e2ec4fb17430b65194d773bbc89",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "0c216cf21b4e74491a0c6bf4f96d215e48bdf8990dac508bf698577b0977663c": "−3 × (−3) est positif : moins par moins donne plus",
+        "a2155a354d2d45b42ae621711bb62ef2df75941cbaaf3ec2f19974d105812b23": "le carré d'un nombre négatif est positif : garde les parenthèses autour de −3"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.1b": {
+      "hash": "315caf8eeca1a7b13fbd552addcb2211d0a18edeb54b8ba00fd1177cdbfa14dd",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "28086d2963ecac5d4f8c4e6786368d73edaa59193a69ef501a36d8453150a7e7": "ab est négatif : retirer un nombre négatif, c'est ajouter",
+        "ac8ed5cf1b6541a673adb7990eec668f3252ede6fd2440c959757e99204321fa": "a − b = 2 − (−1) : soustraire un négatif, c'est ajouter"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.1c": {
+      "decimals": 0,
+      "element_hashes": [
+        "1fc7c0359f7eab80ac55415cb193dcfd1c39886c7ff5e720f7c468559ec0dd3d",
+        "2c4429a0e1c36868b5f854a3ab4f8a821c7f34975be66c9e7db9ef3e56142fa6",
+        "d4cb159fd6cb9dd5e7677b24c00971d75ed0d5a3d14a475f18b69caf88f5db37"
+      ],
+      "hash": "a5491c8f9beaf54757544c1ced8c068da97f272111a7cd148d0d76203cb41e1c",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a8d317fe21808e1a12a615e718c2a9f90dadc23d78763f9faf88c950e9992edd": "les constantes se réduisent aussi, avec leurs signes : −3 + 4",
+        "d46297fe244c0d0a62b5f32933caaf7df613a33f47abbed0e5fc05ec461f233e": "réduis les termes en x avec leurs signes : 5x − 7x",
+        "f9e4a2033cc329b9573dcc768c8d611985130fe83d704219bb545eb08cb195f2": "−x² compte en moins : 2x² − x²"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.1d": {
+      "decimals": 0,
+      "element_hashes": [
+        "07fb2be204184e6b9ba25045bdf9da64a40ab9476e4b8f16f25a67fb0b8858b8",
+        "f3408251419ad4dc2c7b2a82b4cabbfc40cf091174814dde65144287467d2acb"
+      ],
+      "hash": "d5b10a9159b73538d1039acfb5471a79d027e37ae3b42de66ad9e52d0e8eff5d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "68a1ccbef85757df74d11605156a6dfc0a650ac8ed67c1bd2339d581a921ca38": "l'ordre demandé est [coefficient de xy, coefficient de x]",
+        "af79f279aa5cad0218e415df06e2aaad2e24a170b22421ed9373b02eac0fe418": "−2x + 5x : additionne les coefficients avec leurs signes"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.1e": {
+      "hash": "9995a1ee20d410a180069b0a6a8109bb9674f016e4d01f92fd6e4b88611adeae",
+      "kind": "fraction",
+      "mistakes": {
+        "808267895ea8bc4e2e952e9ebb613c5860bf154eb884847348afea8371498830": "x − 1 est négatif pour x = 1/2 : le quotient aussi"
+      },
+      "sign": -1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.2a": {
+      "decimals": 0,
+      "element_hashes": [
+        "5c1ebfa7f7086d99fc4df3f7f64a809f6c58f7dd00ce143466e50a4d6c601b75",
+        "f8272f1761e65cc1bb347e514693c18c9c17f74e1f7a8276a7f92e994e12a161"
+      ],
+      "hash": "a91844f9c8735bbb759dd2f01fe5cdc49fdbbfbe8f44a38ae3d3e118f58ac2b8",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "112a281b2c3963d5146ee1444d6ec9e5a4b2390ac2ab3df2920d6df9749590b6": "un moins devant une parenthèse change le signe de chacun de ses termes : −4 × (−1)",
+        "d524d4846a2c264768e8e70a620c92473bf8f78b80148485e295bbc62d5223f9": "−4 × x est négatif"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.2b": {
+      "decimals": 0,
+      "element_hashes": [
+        "2668f0ae248fc0f969acbfd3f5fee64e20c2296365755acda6a2ba6cd2dced9a",
+        "833a2fb8a676482f9bb393670595f79835f61fe51c29ab90242459709a619ad2",
+        "43b7e71300dcc3278be8d081ee9b1e746ceb082966a3745e6ee10572a15873aa"
+      ],
+      "hash": "dd79dc94c79d7b963cafc8ab1d3d27de50a545986482192bc8dfb7d1bfca2dc7",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "7677df31aad78f58167fbcf2cd522c35f59960044ae1b5f2a0042183b2b4cd7e": "−2 × 5 est négatif",
+        "9f07aec6b3c3a51ba2785e3dda0bb453e8586506a4a0ac6fa4c3e3e5c624c8c6": "quatre produits : n'oublie pas les deux produits croisés",
+        "bdbb916dd6f7760a80e21c8698ccc75fc84a33757111d59b1f3fa33ef96884b4": "−2 × 3x est négatif"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.2c": {
+      "decimals": 0,
+      "element_hashes": [
+        "67bb289c7b97025101bd09ef24fc91b33ae398be1a2c9cbf1e2ef3e04aac93df",
+        "724efd5a7ed33165e477f03d0e7fd52194c15af911c32f9f02a2d109c56daf09",
+        "70396e250caf8b261d1cdc1cc830848989a4a0a3ddf269c493d9ab976775859b",
+        "fa12703bfff4717216ed3b116481b7e3220b7e12683590879d4f803927f5ef33"
+      ],
+      "hash": "41df056a75c3177d83dfc13387d89985c86d5e831af6f723bfd84c15ac5abcb8",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "e64dbdc1d3ef492af090de7b3325dcacef7145257a8c6132b9ff797e5c871465": "trois termes dans la seconde parenthèse : six produits en tout"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.2d": {
+      "decimals": 0,
+      "element_hashes": [
+        "791273136d3af75a01d5724d3575a9c884f2a041dac4649d51a6e8831dd0fb76",
+        "c6d930417f2aa67f0e6ad94ac573b7e6c0a7dbccef5d96f1ccdf8743c5cbc0b8",
+        "0e99c20121f6bb823888b6e835dabd6ee7d72d278ae100b763c0ddd17c45943e"
+      ],
+      "hash": "f471eccbeadd72b0685c2321f9baca3591ce52fd89dec5916fef349905b20661",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "516fed104fc80a8e6662b25c5d5313891da8bee1bad745f360709a4abaf20fb8": "le signe moins change le signe de chaque terme du produit développé, pas seulement du premier",
+        "a32cf671a8d001012ab4c55a1edd09a183d1db3f65e63c9819403d8229118165": "le signe moins devant porte sur tout le produit"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.2e": {
+      "decimals": 0,
+      "element_hashes": [
+        "8ec81f3d58de965768fbfd167a51c199955e863eefcaf9ec0e35adc03ffd55d1",
+        "8c80fa09aed548d290c43749709b5b6c243fe6993328cdf2a605b69c9b9ca148",
+        "7196ce6ae91010f608869acf3987dae7c7a6f67e5d393deac6519c9d1371d4e7"
+      ],
+      "hash": "63a355a986238380c89f1f9b1a7045f9da3cd4b58df4c80e4da2375d491a73b9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "96903ba335bb887bf78a0710261a5435341dfbdec9056df2b12a609d4595acad": "n'oublie pas les produits croisés",
+        "dd8abec814b5678e31056968d9dc1863635a51fcb8b3e782b4da1bfca55cd91d": "a × (−b) est négatif"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.3a": {
+      "decimals": 0,
+      "element_hashes": [
+        "10922c1e8723c974d541ce738b5b2a0d1c33e9ab9cda5f014f2848aea9487d97",
+        "92b6662f2a18779699a19a9f0b4a81b773408a455c03f480d7e93a8ee2bcb386",
+        "77250f31fb14393e1780d271830c2629183307bd6d6e60d0870e9b410daab0b8"
+      ],
+      "hash": "9d1b219b7a59f08631df99a3129933185a3b02e9b858ff7bd13dec348fbf0211",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "84f3c45d310b5ff8d6472bac6530a9eeca940f8e5b850d2a659332f331891203": "cherche le plus grand facteur commun : le PGCD des coefficients et la plus petite puissance de x"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.3b": {
+      "decimals": 0,
+      "element_hashes": [
+        "b0e7a49f0d536870005c88193adee536a762813b4903f1b8733b8c5972fe5fd1",
+        "c27d7cd2282ceca2bf68c9ba19b82ef5e70bd3d68ace710a742e6b9fc7be8ec6"
+      ],
+      "hash": "d99ef48047af14b135ab7a63d848a990fa9594f0b0de531e53516b37bea32ac1",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0a3fa1d0b040bd00afd34badfc3d37b5522d2aa6f20d0869abf9d482dfc98ea2": "garde le signe de chaque terme en divisant par 4x",
+        "ae12997d35960cb902cb1b6ce9c2fb9000732780acf4f3342d5cc7a1e96e070c": "divise chaque terme par 4x, coefficient compris"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.3c": {
+      "decimals": 0,
+      "element_hashes": [
+        "f249d10e84b9a83d55057a8ce8b1b7510753c2fd7e59fb79a7c063e8097e99c6",
+        "be45d6b7ae8a939b1944c5accd1fac9b3193cd30bcc40d5380007aa7b0190c12"
+      ],
+      "hash": "77eaaa7dc00693594580e5a450c25d50ba6389c3a79687067e5e23e5f529fd3f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "dc59b432e45ddf0d5e2f4b27a297bef1584587c03de6fb4bacd2a68379fa086a": "additionne les deux parenthèses en gardant le signe de −5"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.3d": {
+      "decimals": 0,
+      "element_hashes": [
+        "a37846385fc59f4e07fd60b6f13ea8fb3d5f21379d422b3e38f4694f97afcd0a",
+        "9516055e92d97ad36a624dbee5a88a9133390bbb9081b8da7d5bfe0522af99a5"
+      ],
+      "hash": "5f09f88dd5fb2b76550299d7f2d5ecf35dbd8c70bbcebf934b517cd264185539",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "524112f35bb2cbc765100a3c00e3df45671cd4d594517b561ca8fbcfd11ee072": "le second produit est soustrait : (2x + 1) − (x − 4)",
+        "75bb4bea97dee1780c0f0afc7411bb66da7b9f2b7486238af2849c9ee863e39f": "le moins devant (x − 4) change aussi le signe de −4"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.3e": {
+      "decimals": 0,
+      "element_hashes": [
+        "4a8e46be042c3e71ba77ac48c76aa90118adfba48ebaef10b628f8dcd921e989",
+        "0f5e3b1d5f53bde9d65e4683c382b76511dc7d09b06f0d73c8ee87a6fe3c15a3"
+      ],
+      "hash": "f6d673ac4929783a7872afd3db64a40c8a96f6fcea4e5c1a1759468c3c8cfd91",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "bbf4d16fb89bf18771f6ccc78e50d2744f31192e12250eac21bba310076eb470": "le −3 garde son signe"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.3f": {
+      "decimals": 0,
+      "element_hashes": [
+        "fc932e63b873fc957dd0c9e491868074da13af3e76e2bb7bb315bcd90b03fcef",
+        "1c9297339433b611293bea82eee849d48992359f0bf6ec08cd2e6b0b9616675b"
+      ],
+      "hash": "3e38b2c84fad6d9ae11ded1915ba5b78ac861a0cb1e07284d0f9eba175a554ec",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "41f3f1d03b14565cc2a40c3026a9fbf226cf57fe142f1c12c04631a11fe1c18e": "le terme x − 7 vaut 1 × (x − 7) : il reste un 1, pas un 0"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.4a": {
+      "decimals": 0,
+      "element_hashes": [
+        "096df4c4a48ad3d5b113ac66007eb573c1952ecc5356e48183528816e5b685db",
+        "ac37796f4fa4e02b28060471372a5a87b03d53a0b30a542eeb327f2ff7d68ceb",
+        "2faca09c48dc3c352e2e07b421c38c9a2374c235002457cc335d3f2529e760b6"
+      ],
+      "hash": "6bbefc68cb6f256e59adccdbe8ec68adf252cadf7af7411dda190af2c0b812fc",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "08e3eaab82251195122be112e5a7cfce199a6c8d1841cae2356154d42d215db0": "il manque le double produit 2ab",
+        "f5206bb2b3af060186ad5fca90ea1d8706483a46683fa59d77e481fb57ed743a": "le double produit vaut 2 × a × b"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.4b": {
+      "decimals": 0,
+      "element_hashes": [
+        "069cd5d335204e50a32a32c0818d66f9451fd03bc5ce2cc344071b0433d9b121",
+        "5da52400cbaee606738b2ce62cf68b9eb3441526038d404afa386b98e1a53727",
+        "8f5f55ec7e6bd649b598eb74fc6d21ecd03f9f4276805c5920379ff51747b6cf"
+      ],
+      "hash": "b431f19abcf23fa602c6a2cf6270a064eeea227724a358dc9f0fe6ad954e7dc1",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3ea513569664d0381ec9b37e2e1c64fe660153913545eac826b0c016f2a8b0e2": "le double produit vaut 2 × a × b",
+        "8003e998b926c14246b3d265c64d6eb7ed3974b5e08935d76fc93214da42feba": "(a − b)² a un double produit négatif",
+        "87719566c3daa30f265d0a31c577e477522c1fda06455d414825bc09c2b80c8a": "le carré porte sur tout 3x",
+        "b4c8bb7d1b955b83a4224f854a8265c09f1697f51dd85179758a450d86f0e537": "(a − b)² n'est pas a² − b² : il y a un double produit"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.4c": {
+      "decimals": 0,
+      "element_hashes": [
+        "d6840c7fc11cc5bd453006635a2b41305235ea2b95c9041cc25d546322345b8b",
+        "5db40274fe01c4260c67f112dad8877cc6cfb0f3938de1603ea04870e433375c",
+        "ba7fd8934329009b31f89ff05a2511855cc6f49588a5b59031283c758b9ce2dd"
+      ],
+      "hash": "a5d5d20c8fb45452ea27b2199ca29353a73de14175cdaee48662e439b5d51769",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "279e7c318ce5230b4408499905a80e1ca980a78211c279f275c62d01b868e6f0": "(a + b)(a − b) = a² − b² : une différence",
+        "9401a81bbc2066eb1c6b2efa60e3d48c607809106595d50036c227e2c7592e89": "le carré porte sur tout 2x"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.4d": {
+      "hash": "328872fd06dca182ef1f3202b1fffc25e273eaa5b275ef3bb86b313c8543fbe9",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "412b788d878a73e92c4c6ab77421cf1a7a534c83ff946867f344746adf66e560": "développe (x − a)² : le double produit −2ax doit redonner le terme en x",
+        "c65ef820d8d55c1d53638303e02500b80b9b8fe2e62d5fad811d24d037501aee": "a² est le terme constant : il reste à prendre la racine",
+        "f8b39373f3368de8b49b2b41e6a91527d2afa0c723274c60bd2261cad94d2587": "le double produit vaut 2a, pas a"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.4e": {
+      "decimals": 0,
+      "element_hashes": [
+        "d434acda9291d9a32f209b65037f66c9a13c066028a9bad74e64ee517f59968b",
+        "b9adba7c83c2fda5a0de769286217c837e9cc51ea467ce8a3fa7fe4d16fbc7eb"
+      ],
+      "hash": "f7c09f46c475adc0c87acd01499a4d26b775fe01c075e3c7274c135c8e3a756a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4b494c893cb86cc68892005ab6838afebe99902289ce64749b688d27bd9bab5b": "α² et β² sont les carrés : prends leurs racines carrées"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.4f": {
+      "decimals": 0,
+      "element_hashes": [
+        "c17f34297b47ad493a69d1b897fa9418bdcbfee495fee35975cf647623c2a975",
+        "9671b5f6c03030e83e8d5214c446aed1b948eb20d69218ff379354297ee7b66c"
+      ],
+      "hash": "6a0c056e2a4f2bfe51c61ca60a0f7e0d5129fbb88028440e1f7d445a1431a258",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "e5220bdbdf940e090127276580da1f8bba93a48188838a4ef5403c99a1e0dbfc": "α² et β² sont les carrés : prends leurs racines carrées"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.4g": {
+      "hash": "4ac6ac8343cd8344171f86137fec85e697e20683f51a37c7e06ff698bfae4e89",
+      "kind": "int",
+      "magnitude": 4,
+      "mistakes": {
+        "8b9729194b586091aa1e7411839c119b641bf063ffcd085cc9a68367f69c97cd": "il manque le double produit"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.4h": {
+      "hash": "7fe1ee812255127c877e8d3c3acfdfe80fbd857b92e7cc1ca7a5b6014443afb3",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "ff82a8ec10ab6a02f61263da2de643f486e49d28d91f1122d2f0c3c0925e87ca": "(a − b)(a + b) = a² − b² : on soustrait b², on ne l'ajoute pas"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.5a": {
+      "decimals": 2,
+      "hash": "48d4e1c4b462b6b124e4c3c76ba865312b80c61e32c60ee09ae3c1c8e7f6f76b",
+      "hash_coarse": "0979b5d10f4da947850743c6a9a271ddc79ce2be1bb418ef9fda9168741a4367",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "0d29a1249c050219b998ffe4001a9ce26f7a38266629ce64995a49aa4668d1ce": "divise par 4 en gardant le signe",
+        "a9bad7055e5abb737df23b5d2f424dfbdcd591be871fcdc8048e2bfa30430ab7": "pour isoler 4x, retire 9 aux deux membres"
+      },
+      "sign": -1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.5b": {
+      "hash": "f9e850a5c0d112ab97048f820666cfad078cc83ab45bc9c2e74ea5e61e3fdb52",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "06d2e74a9ede7667923403f58718b29e8cc2d3a8361a963dc30df79152c3b9c2": "retire 3x aux deux membres : −2x − 3x",
+        "afe3dc71561049e4eab177c4133d0cef7409abdfbbd272d916f7a98b59b3ff38": "divise par −5 en gardant le signe"
+      },
+      "sign": -1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.5c": {
+      "hash": "2059b2b781d204f50ae843f4b9f088f515cf84c366deeb4871fa2b2475ca1593",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "0c9f75a49cf740bd1a4d1e58db58291686f335380103b668df4a284329044459": "un terme qui change de membre change de signe",
+        "483b982325805aeaedbad73dd82bdab3373fdc27445340d6b98a827c634a27ae": "développe : le 3 multiplie les deux termes de la parenthèse"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.5d": {
+      "hash": "45a22166f2efd7955b330583c3d830a717a8b9b1fde1a06584e67677458f9454",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "e7f5798c9c3e3ce238d988c9e6e51e413d404f0dde036a14dd842abb22e6d2e3": "le 2 multiplie tout le numérateur x + 4 : mets des parenthèses",
+        "eb8c5a0225970ea2a66727c39d4d60b40f4f99a8b3c2eb953b6642cfee9d0527": "le −1 aussi est multiplié par le dénominateur commun"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.5e": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "186f9b487a16f1995aae63492b5700f903536cbef41bb5f7720957ef60ac8bc6",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2d92a76820a1b4d26ff4f72d21263f2238641ec97ebd90b7a91040ff780339da": "les x disparaissent : il ne reste aucune valeur de x à trouver",
+        "b923fc4ad3711180912d3d90d7317e63ccc21b00e981ae40d371626a102098c1": "les x disparaissent : l'égalité qui reste est-elle vraie ?"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.5f": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "9ff4bd35f24f6250bc4bebcfa7a28294c9344a18d8ef2ac5125c23581e87145a",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "6f9f89458a464e0083d6198589c43333a761badbc0bc01b5dbaf6ec48379fc3d": "les x disparaissent : l'égalité qui reste est-elle vraie ou fausse ?",
+        "c1aa3e2c219da1cb09630ed982c8ab3a20f3515db26385ff5482601793abfcb4": "les x disparaissent : il ne reste aucune valeur de x à trouver"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.6a": {
+      "decimals": 4,
+      "hash": "6d0707cf9515f69cdf27f31a90b86234e177d128eb1b8b3af28217c2738d7ce0",
+      "kind": "set",
+      "mistakes": {
+        "482d55505da660f99b08ee352a9e34ea7ed7442933f82abc147f44c1c015cf6d": "2x = −3 : divise par 2",
+        "eadf80cc54b39bfd5f708af320a629456d2f02c7fd72a0a7a5fbaef7c7b2a839": "2x + 3 = 0 donne une solution négative"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.6b": {
+      "decimals": 4,
+      "hash": "ab8f740b0ef15f093574a48ddb78d7f61c8584e476540d9db3ae65ced340d20d",
+      "kind": "set",
+      "mistakes": {
+        "9e37fbb76cd5ce5b13c3c862bd8713ae17e8074747d81b3e7d0d84b91cf9edad": "4x = 9 : divise 9 par 4, pas l'inverse",
+        "d751f591166273684304a5d40da930141ab529ad1fa7e558593df2f203f1e55f": "en divisant par x, on perd une solution : factorise"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.6c": {
+      "decimals": 4,
+      "hash": "f036d0c588ba3338318a186fbdc046fbd3f6f82cbba14a3500189a0486f41fec",
+      "kind": "set",
+      "mistakes": {
+        "3ee71deb0a5d856edad07569832fb5248f0365df87be1c5507298229581c8c3e": "3x = 1 : divise 1 par 3",
+        "5fb32263ace2ae9a39212a364453ffa2cd42eea00479c5ce3bf510bd6a3e6960": "un carré est nul seulement quand le nombre élevé au carré est nul : une seule solution"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.6d": {
+      "decimals": 4,
+      "hash": "d9bdf110411be4b2402abcd4cd3fba196494d580b4c1df3d0bd2eaa734fc9e01",
+      "kind": "set",
+      "mistakes": {
+        "6790c87a21f302e83f3ed0943ba800e226d8e428053b97f610a9e33eb8ce5055": "un carré égal à un nombre positif : deux solutions opposées",
+        "b351f6a08162b3e3051de7ed8b5f402c42e3a144e1a2cfa52cd9445d39fc3486": "x² est connu : il reste à prendre la racine carrée"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.6e": {
+      "hash": "a3c2d72c1797dbcaa2d74bc20d7ecf3b3895eb8678e91f577e35d10623b7a9f6",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "98983014f9a4cfa7864776fe9bec776af796a3f239129c6e03a953713e5470f1": "une valeur interdite annule un dénominateur"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.6f": {
+      "decimals": 4,
+      "hash": "5858064888288bb3fe322f0cf4abba139c475cfd5888aee470ad3c5c152f7d5d",
+      "kind": "set",
+      "mistakes": {
+        "3aff158fc6a59179ab871e662ad5710fdb76470f04d74b689a461f3ca635e3e5": "3 multiplie tout le dénominateur : 3(x − 1)"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.6g": {
+      "decimals": 4,
+      "hash": "0160355f28c12ba1db4a3572dfae8ca2d0668ee2d6132a8b8970f57e4f38aebd",
+      "kind": "set",
+      "mistakes": {
+        "348e19d521156ae2d23f4b922edc6ccc5a45ac7a862e33aff8fbbc24e7daf143": "le moins devant la fraction porte sur tout le numérateur x − 2"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.7a": {
+      "hash": "ab6492e02bb846b15bbd14af007516156bc37c4d7984614b82777c1a7a6ee449",
+      "kind": "interval",
+      "mistakes": {
+        "951be69b36145cdd405a3493da04079802d1ed41e53e908459bb12a4fb70d8af": "pour isoler 2x, ajoute 7 aux deux membres",
+        "bd7ab1e3714dcfd919d1cbf5970a7c70fdea01bc6ca87ac528e8ee538668926e": "l'inégalité est stricte : la borne est exclue"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.7b": {
+      "hash": "b4247c63be541b1ac9e38943a4992bc8ac78388266949eee87b760c53f563728",
+      "kind": "interval",
+      "mistakes": {
+        "8b9c87d4a6c1f4a8bc3ff703034dafb4e3dce9facb3c87dcaf7cc11f2cbafea7": "diviser par un nombre négatif retourne le sens",
+        "a591d80f7100a782e70f55b7e67c1f4e7ba93841d3d04208897d4ad20f327197": "l'inégalité est large : la borne est incluse"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.7c": {
+      "hash": "b209db14f1c0e5b43c598245ef544b3040b39e45fb27a5e83e339a07a917b113",
+      "kind": "interval",
+      "mistakes": {
+        "3b4b7c3d0324163972df6f4201e079dc66857bb281eeb9617799fd41dfd6b11b": "l'inégalité est large : la borne est incluse",
+        "dd2727a77c2f40640a39e402eaa79420d68c72f87ff6533c269b9739c7e267da": "diviser par un nombre négatif retourne le sens"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.7d": {
+      "hash": "d788822d4bcc5e050cf8af0631a87c10112d2b480ce5c32a0a9cfdca80383c60",
+      "kind": "interval",
+      "mistakes": {
+        "e4448e8154ff8099bbbd17d231d901f9006421215807b916e25f2efce8f1d36a": "chaque borne garde son inégalité : stricte à gauche, large à droite"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.7e": {
+      "hash": "11a492fb68cf2efb207419edae442f00ff294c00d0cc73dcda39602c810ba268",
+      "kind": "interval",
+      "mistakes": {
+        "7f1c3605a6150b1745e77231b334199d3605620585a35ecee601a48f40c568db": "le 2 multiplie tout le numérateur x − 3"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.8a": {
+      "hash": "9dfc15ab464d898a6bb5c02bf2d37a342c06ebb56b6bd8d4f44b2f95f5825725",
+      "kind": "interval",
+      "mistakes": {
+        "2ec45fd860332fccbe579e20ab63ad12a90f5d8dbf77d76246dcdef94470b879": "∩ garde les nombres qui sont dans les deux à la fois (la réunion, c'est ∪)"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.8b": {
+      "hash": "9a2fdfdc58dd7954984b2fbe6ee16525d8872d7fea8bc8fd2f5ad2ff4fddc977",
+      "kind": "interval",
+      "mistakes": {
+        "3202da8849847d2c7c7fd17042ae3e7c6924b2abaea69a002d7b5c5902192bfb": "un nombre exclu de l'un des deux intervalles n'est pas dans l'intersection"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.8c": {
+      "hash": "c61896c28251735acd6408d9f28eb5ba5c7339c3ff0394c87c2ae016ac1d6a17",
+      "kind": "interval",
+      "mistakes": {
+        "3e231cfccd48f79f41d722691931af1313722a37f8d851840c8088746bd73f5c": "∪ garde les nombres qui sont dans l'un ou dans l'autre (l'intersection, c'est ∩)",
+        "67214d43c9de4d3b9c4e4b559ed16b53a237a2006aa8b5dafc267581d185ff87": "les deux intervalles se chevauchent : écris leur réunion en un seul intervalle"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.8d": {
+      "hash": "7c82c87b520e8783a4bf0b4c20daeabd7e37f5c077bb37fbc56f8ad074b6ba89",
+      "kind": "interval",
+      "mistakes": {
+        "7c70753ce0e2d0c039331a6eda5a84919e17ed25eaa305b8e587e59f0663592e": "l'intersection garde seulement les nombres communs aux deux"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.8e": {
+      "hash": "d5ad558c1ef17665e043815bb27707f7265f252537a505ff6a875616daf38b39",
+      "kind": "interval",
+      "mistakes": {
+        "23c51dde1ed33e94053e9372d3708238dab8ed59d640e7f9612fb1ca231f999c": "« ou » donne une réunion, pas une intersection",
+        "67cf298c8a10da89f32fc712fe1f635d97b74af7e5ca7ab907f3c16a1c5a2fe8": "x ≥ 3 : la borne 3 est incluse"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.8f": {
+      "hash": "2d7e1f8cf562bf4ec1f51ab3a50a2248b12dac582b3187403f74eb0a3cc2dbc7",
+      "kind": "interval",
+      "mistakes": {
+        "91af136e03583cbba9dba5b021b5b937291609bb309b9f2328644cea57e5f483": "2x > 4 : divise par 2",
+        "dc988205ca4fe6beeea812f334d28fc97e4d8c80ccb3569468574dab4ce1163b": "« et » donne une intersection, pas une réunion"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.9a": {
+      "hash": "ceca8227e887e10e656230268f6ed46fc115da9866fdd7b1cbfc19dd1255f44c",
+      "kind": "set",
+      "mistakes": {
+        "afc1e7e77ea6166bf0fcdd178fdde686669ad27c3a50d23007acb6c01f06977e": "une distance donnée à un point : deux solutions, une de chaque côté",
+        "da642b9c93cf7ea01f66fb223a479e18ed4fa08c95cc69a4f8eb367849a045c1": "|x − 3| est la distance de x à 3, pas à −3"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.9b": {
+      "hash": "c3ea8bfa3f6bf4be814eb87a45b4510a69d906a43c426998d3070350ae3f4384",
+      "kind": "set",
+      "mistakes": {
+        "9d20d4a2770aa95380b7c42dc8dded90c574ffbb64e92b47b9a8268e5e8d179a": "deux cas : 2x + 1 = 9 ou 2x + 1 = −9"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.9c": {
+      "hash": "bea5cd5e1bcbe5c764556bf889e649c529bf3b966c7fb6ee0b29137bfae8d56c",
+      "kind": "int",
+      "magnitude": null,
+      "mistakes": {
+        "f9f5a9d6a93fabd2035ee7408b504ca815f3f4557d6498cba28487c0e178eb03": "une valeur absolue n'est jamais négative"
+      },
+      "sign": 0,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.9d": {
+      "hash": "333cf6779b21d4464c27b91aca461beca75c7a0ecd32f88242d074ba87d9d915",
+      "kind": "interval",
+      "mistakes": {
+        "bfcc61bc79e23ff1f54219feeae97a22a5a04d32d9d4af589cef9a9a0a2b5ea3": "≤ : les points à distance au plus 3, donc entre les deux",
+        "e2adafc8017ca62d9ee668f76f6aed501f724a23364445997dcbd220096add39": "x + 1 = x − (−1) : c'est la distance de x à −1"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.9e": {
+      "hash": "efd7f35c6c1e6d12d8d694464e3c26fdfedabaed0bd4686ead198540743cabf0",
+      "kind": "interval",
+      "mistakes": {
+        "06874287fc1df1021284221e715a5d59d46482a2b43189647ca5637f2cacd250": "l'inégalité est stricte : les bornes sont exclues",
+        "d32712d45b7504241fab026c26b6ef695ed1dc0edb30c2d9e200d5de0e330fc7": "> : les points à distance plus grande que 5, donc à l'extérieur"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.9f": {
+      "hash": "830aca823f629450082c3453ae1e4a5f0a30a85267e9b6df3d4382e44272b5c3",
+      "kind": "fraction",
+      "mistakes": {
+        "1e82bcca7e17da4ef08a5d026bcbfe2c80fb6ac067975d96bc5d214b45d7b40f": "la distance entre a et b est |a − b| : soustrais avec les signes"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.9g": {
+      "hash": "aae0652f8765f67741ce3b69fb23d393624f43bd3455d56f20f8f7e6afb75fd5",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "343dc72f9d9b17a73a5b25bd28e4005de76d6470b5a41c21ca8139521e79d097": "(−2)² − 9 est négatif",
+        "a9567db95376b22d0de58e03a00366c5f9aae91245c306aa70175091ed724550": "sign ne donne que −1, 0 ou 1"
+      },
+      "sign": -1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.10a": {
+      "decimals": 0,
+      "element_hashes": [
+        "567fd5dfe6a24b968348b1d82a980c6ea8e729d73ae1b0ec1a935cd8832a60fa",
+        "e36fdab79ada30364bd36cb39d0cdb36ab0193ead09c47d84c8f689213094889"
+      ],
+      "hash": "ceca1e9e43cefb7853331c47ebbdb278dd6c920b18de5ced7d1acf4d6f3ff9d9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "d90bfbfef7e246541bf54e7fdf5aa8e0b01257919d12f4037d4144178ad14e5d": "l'ordre demandé est [x, y]"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.10b": {
+      "decimals": 0,
+      "element_hashes": [
+        "4ac08270307b5d7af2e11f1eda26f4807e6191ae9602dc2d9cf6fa1fa316d1d7",
+        "30b03a48538c12be12f68db427f179095e9650860292569290d92dba9575c692"
+      ],
+      "hash": "c0c9288420bb55f5c7150d002d707885474c23b4fd36d0c06eec7619ae19ff35",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "cce1eaf8cd0b4bac09bee82a1b6c69da2f2eb2b9b112680932b597f6e8aea563": "l'ordre demandé est [x, y]"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.10c": {
+      "decimals": 0,
+      "element_hashes": [
+        "6ea7739f7b6cf5828df4d510f05034ade27265fa8d4e811d5744c5fb531a398c",
+        "c09e354977d086465e0b7befa953d7ebd54994e3cc24f6ede210847f16873f9f"
+      ],
+      "hash": "b1ccdab50a6d06471f22ec0ffa97658d2daf066443ad2f32ecf155a4247397fd",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0da25907fb9e6a287a1df6924b10718909660958200d7e1e3ab1c7b8202f9178": "l'ordre demandé est [x, y]"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.10d": {
+      "decimals": 0,
+      "element_hashes": [
+        "2e89966cac2dc7c9c5dac43102b28945277c41dae71d18782ff6625ab2d6ba12",
+        "095c0e13d587fd377f40c190a25bcc8f1b6ded55f5f67f7d7c41b41c5d2126ac"
+      ],
+      "hash": "7116e47b4f3fc273ba54ffcb63fb03a78d1af42e138b5d0a1593b775ba592a60",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3ff471423615b679503cd2d1657d3279782f4075d8b62248a2bc7479b2e4a4ba": "l'ordre demandé est [x, y]"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.11a": {
+      "hash": "e154eaaf4a01432fd7b9af57fa96feeef80675d1eaff622f09f40983bf5ad0f6",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "024327bbf02e4b18af0e55ce14b001a047442f4e847244b95c131bd42dbfc9cd": "D = ad − bc : le produit bc est soustrait",
+        "e2208232d3748f92657fa38d966390fd2202dd0bf2de338ce09bce1c18363ead": "d vaut −1 : garde son signe"
+      },
+      "sign": -1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.11b": {
+      "decimals": 0,
+      "element_hashes": [
+        "36e0031c73ec5944108327d5e2692b7cdc3870c494a867bfe4f323adcd93a3d4",
+        "6f1b1be75fcc3f74e60f576166a5aef37151de4aa84c073039c5701d4850a11d"
+      ],
+      "hash": "e9ffb9fff6c56a0608fe596d599929a6bf1686916efcf6809016ff85ba6e6df4",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "69cfc43d19b3963490ce3f5d176792c147f0eedebf07b12bed9fa0b44543d38c": "l'ordre demandé est [x, y]",
+        "fd2352ba17f854ffeeb5c9c2c3fe16c87290917a947ae478b2ef518087ce318f": "divise par D en gardant son signe"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.11c": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "f635bfec7391ad07c29b0e2833adac51bf2cbad35d55ad4b20699ded143db649",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "8ce2397fd121a3cd24d130bc6b5adf34c3d867c5cd6ed21bce6c3844de13273d": "le déterminant est nul : pas une seule solution",
+        "9b29ef6936808f6be0fb42c4207ed92ddfeabe40a48d8e586b94658bf27d8f2d": "compare aussi les seconds membres : la seconde équation est-elle un multiple de la première, membre de droite compris ?"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.11d": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "2473c9b61075d8330e535c3f4052852dd454bb2ea1124a74c9ce11dc224784d2",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0ee2195f488c43e5fa6cdef9fda9a3f629429fc8570f4512b434050d0ae8f85c": "le déterminant est nul : pas une seule solution",
+        "e86d52686b62d86a44ba1ce196d8dbedd51c2b864b744c6425a013cc1d689493": "compare les seconds membres : sont-ils dans le même rapport que les coefficients ?"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.12a": {
+      "decimals": 2,
+      "hash": "ab86f7909c483fea7a248ebb5cca70baac2b1a3e3a4708636afb2b907479917e",
+      "hash_coarse": "b478e11bf6856b76f726e309f47a85217dd305a1dcdbfeb95bd740e5955e2f7e",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "019840e2da197108158f21c5972f02119fee47d1d3d67cc341901a5f29d5438d": "on demande l'aire, pas la largeur",
+        "7fc0c1809ea7888a5cc50e548245dacc1375e92f7ba421c6d15226f663bc0d66": "le périmètre compte chaque côté deux fois : 2 × (longueur + largeur)",
+        "aa5446348eb35d8c725adfa7191dde5e66be52852e60394a03232522d601d747": "on demande l'aire, pas la longueur"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.12b": {
+      "decimals": 2,
+      "hash": "240a2d711a670313a8af80fcdb613933cbc51dda008a1c40ea0542e82c057430",
+      "hash_coarse": "12683e3a03c52f4d8599650854021a026e127988a955ef16fb224c38f137e801",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "05920235c3f7f57e2519aaab234d339b1cb2d3dcef7886832a071543af1d567d": "la baisse porte sur le prix de départ, pas sur le prix réduit"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.12c": {
+      "hash": "af8cff3467558bb01d85fac128a4050b53d9281dafdcd546dbf258df5f11b31b",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "ff723f5192a6b3a3959875488c21e09125e09606caa671da839a1b01ad3ae613": "c'est le nombre de tables de 4 places : relis la question"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.16a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "ffc02e4992c742110c2de6433af01421e89997d3e3abafabaa3e66a4bbfa869b"
+        ],
+        [
+          "b22e4b4a9ef367d45b2283c2767de427ba9d4529d460fc7140874236c8ac3c8e"
+        ]
+      ],
+      "element_hashes": [
+        "67eecf2e55b8591bf7027bd7b9131e6734543922d42cd5a3aa7840ebde80ba75",
+        "b6c40e84358b5e3f74718f95481004b207db99b6f78a687c638c394c94d9c41b"
+      ],
+      "hash": "2601ab94be509ba8ab91323d052f39952e3d34279035cab2b2c870f385b6fb68",
+      "kind": "array",
+      "mistakes": {
+        "5fdb6d7f18cf621ccaad105822b6cbf9dac3372643b29738165177811bf07ea8": "l'ordre demandé est [a, b]"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.16b": {
+      "decimals": 2,
+      "hash": "d3ee2d3f1d7fb9f43f0b4e77550300a75a4e4209e6fb12ee240333600c86774d",
+      "hash_coarse": "c30d981a25a7c28dd3ac5d0e8903e6d23cb5bf2c2a435048c8b8bc18eade54cb",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "eedb010a08b78b418eb127ea7e3e8c20fcee26f32bfa2dd63ca5f469eab2cb76": "T = a × u + b : n'oublie pas b"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.16c": {
+      "decimals": 2,
+      "hash": "90ed5f90a5b92aae6b4ca5753926084568247c7599e949edae8f814dcbd91f08",
+      "hash_coarse": "c60587eb3c4f5b4e9eb4aa1fdcb339294a59d5809e1a25d7b6b4cd8947e6c57f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "5768dc6a0abd84ce4e794e66da60ddaf7de1ce5b7c7b324e00385ee4c148ac4d": "l'écart est la mesure moins la prédiction : son signe compte"
+      },
+      "sign": -1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.16d": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "f0efb8d315895d375417763903fe3a58e08da9b23934dac589ae262276ff0be8",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "3f62dd6e8c10fc6ed92c35ba393819b1ab3e358356ed09724e977668127c7ef0": "le point de la troisième mesure est-il sur la droite des deux premières ?",
+        "c1c9a90d48c65ad422cb2d3d342b08fec06288cbb5e8bc182485e3cb22d198fa": "trois équations pour deux inconnues : une infinité seulement si elles disent toutes la même chose"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.18a": {
+      "decimals": 4,
+      "hash": "d67bd66ab14a48315fe263717f1d453b761fd392d79b5826dc74e9a62b1a042a",
+      "kind": "array",
+      "mistakes": {
+        "12c71650c80d48c7909d14b66918ebe02d5c3deb052e8d126eeba0074900061c": "la solution de ax + b = 0 est −b/a : attention au signe",
+        "aef7b7753398dc6ea3e92925044a031b0685f850075c7fe57229e676846f5cb3": "la solution est −b/a, pas −a/b"
+      },
+      "shape": [
+        1
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.18b": {
+      "hash": "ddc619aa491ee16cbfdf546ed1196b01c5dd51d37e5dab0320671e6da0743b8a",
+      "kind": "int",
+      "magnitude": null,
+      "mistakes": {
+        "05d618fa301e7a9b22a9fb8819b52f23464f463675b33d28f4b1b3948c0d5f7f": "aucune solution : la liste vide, sans élément",
+        "f27976fd0351b2389ec40d520eddc32791065aa6b8ca0e6d306ebb74a84c0bed": "0x − 3 = 0 n'est jamais vrai : aucune solution, la liste vide (pas \"all\")"
+      },
+      "sign": 0,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.18c": {
+      "hash": "328cfd2a5e46546ade0705c6a0ff4dfb2b482d56ba685bb2a649cf2429e088bf",
+      "kind": "str",
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.19a": {
+      "hash": "c8cb1c852afe5486d8c3d44c1f62c19137b9b228ec2a4eeba4f80783675f8b84",
+      "kind": "interval",
+      "mistakes": {
+        "56d145b92542b9454acd7cc1330090a11e141393df263e5420c17b74614cc944": "a est négatif : diviser par a retourne le sens",
+        "8eb07ed1df97981d3812ac4e4a10845afa1c7b6de676bde01f2abe89c36b53ed": "l'inégalité est large : la borne est incluse",
+        "cd533271f2c790c29b5a6a33df1b2b57ac1c5690bf945737e258a7aa2db03c71": "la borne est −b/a : attention au signe"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.19b": {
+      "hash": "eff645ee77f63a91017e416a2786be0faccb2d0fb68ae2de73100d2eea111444",
+      "kind": "interval",
+      "mistakes": {
+        "6ad7c1ff4d35517dd9898ec9ef2a0600c0ad0e9409ded333f16cfc3286ff264c": "avec a = 0, l'inéquation ne dépend plus de x : elle est vraie pour tout x, ou jamais ; ici ?"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.20a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "a51e498b394406e5ca97f294d6c27a086c695da8032dc2dd7fb587141394aa50"
+        ],
+        [
+          "74c193f65666b645bfd9210306ec81fad74f46c15b17c7a0700248fbc820df47"
+        ]
+      ],
+      "element_hashes": [
+        "3d4662c979ce0a28f33bf887df629f6fab27a1f9acb50192d3ff313d7103104c",
+        "024c7abb4146c7731bf41da23c0448af5f94560a1095fe6d351f141f5641733b"
+      ],
+      "hash": "afc5ac765b8c58e7eed7584ed242414c581e935d724b0e911b48edb678ab2ca6",
+      "kind": "array",
+      "mistakes": {
+        "22794c855cbc3545a29f5e17f7317d2758eb74cdd00b69bb84b8291a28acd846": "rends les solutions dans l'ordre croissant",
+        "b155070391fc3daa402e2798f69fbbdf56b8df96ac6592e9cc296ba4ebb9af6d": "les points à distance c de a sont a − c et a + c"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.20b": {
+      "decimals": 4,
+      "hash": "16444ee8bd723696d7adb18bc68bcf32113dd2f5c0560706919a726fed0cf9ba",
+      "kind": "array",
+      "mistakes": {
+        "dead5f16bb16d441f46a94aeb162837c7a6d055b3c54f8767245a2e58acd617d": "à distance 0 de a, il n'y a qu'un point : a, une seule fois"
+      },
+      "shape": [
+        1
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.21a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "6b5e430717149fdd26e4e5edcc10da686bc00c8e4a433b2106df4bfb0c2adaf0"
+        ],
+        [
+          "04b9b6490a0ddd89b5a7c2de103ebc692ee2893a0fae64f09f51aad58bdc98d5"
+        ]
+      ],
+      "element_hashes": [
+        "7e21efca14decbb43f37a33d826863564e7cd1bf5aeba065ed2cd1f0242b971b",
+        "e93211f69cdb546af4f7106d7dbb00ed215f3763c336d9b3bbbca370b1272096"
+      ],
+      "hash": "644e01c8f99ff44e7966de5781dbc1a36367f1d905b8226814c55399fdc07ec5",
+      "kind": "array",
+      "mistakes": {
+        "139336bfb0e5ac85626f699f0a8d7ef2b917683436e8956fa57d4c1fb771d667": "D = ad − bc : le produit bc est soustrait",
+        "b0b4311140de95ca96a35ee16d0242484342c5aa573f9ece6dc001d921392b32": "rends le couple dans l'ordre (x, y)",
+        "de6387966d35e0d9a22bdd9f5d726d8cf1ccf9e5ac4cb6186c7479d7d2eeba2a": "les numérateurs sont ed − bf (pour x) et af − ec (pour y) : l'ordre des produits compte"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.21b": {
+      "hash": "79be82e318c4783b4f1de3a0e2b089165961554c19974f680707ddee338790d1",
+      "kind": "str",
+      "mistakes": {
+        "702e82b9f7d95ede39b79e46968e6b8e53a8fc5c5fef72e8ad96589f8c7b462b": "teste D == 0 avant de diviser, et lève une ValueError",
+        "98e4d1e344bbf35701ea372e8c14d749bf00df1f60739b71b7a8bf9cbc31752a": "un déterminant nul : pas une seule solution, lève une ValueError au lieu de rendre un couple"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.22a": {
+      "decimals": 0,
+      "element_hashes": [
+        "656398c86b479bccfa8b2f4a0846f452385005e2431c9bc6f291c570d993fae7",
+        "006171948bca63ca7d721e285b289a8085e98f5b23ba7025521286e47200ca5f",
+        "22b14e485602673e0f172b2ab1432cc4127249bc25f04279e78aec423d8fecf8",
+        "8de415e013c96c163a68e1c98b223e4858eb5bb6e71f8ae491b4a4ac5dec2f18"
+      ],
+      "hash": "588fa9b53c41cce329fa8ec3c7b2b5d2112801891cd73e0e3cea557c60c57e8c",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3429bfce19ae8fcefce20c837b194b3d9ec727e8f5b12cee238673290e8c7038": "all_coeffs commence par le terme de plus haut degré",
+        "a83be46dfb4f5d43d0f92c4299c2c14fe4e69acca10be956d6657817573d70b9": "le terme en x vient de deux produits, chacun avec son signe"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.22b": {
+      "hash": "845fce7618906f8b25be1279711d75add329674f6a64f7c08c48d657a5b45ee9",
+      "kind": "str",
+      "mistakes": {
+        "1c232754a8e0a08682b278ad2d5a2cfbf1d9c33ace692fe4998c010e7109270f": "D est fausse : développe le produit, puis regarde le terme constant",
+        "43f9df2b3697b1a5885676fef7eef27e19e00d60d6c6f513097d7cf11ef5e9b5": "B est vraie : développe l'écart gauche − droite, il vaut 0",
+        "b4d8352a057ddcad90baa9800e57325b527d0784a8e80f6218bd8d249e10dbb6": "A est fausse : le carré d'une différence a un double produit",
+        "e9fa3d1422da07aa4a4a00d95f822647e33183dfb63342cdf64729f9fd0b9dd1": "C est vraie : développe l'écart gauche − droite, il vaut 0"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.22c": {
+      "hash": "67d45bf5bac09db0bacc0dc99c201aedf41df50080efb7ccfaeda071da3eb251",
+      "kind": "set",
+      "mistakes": {
+        "fa7671109aa77cc5351a334b1fddbf4b0784b9dc9c85178166831aecff4dd2ea": "un facteur x − a s'annule pour x = a, avec le signe opposé à celui de la parenthèse"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.23a": {
+      "decimals": 2,
+      "hash": "d57bf00ef400773ad22725fea8012ce0bd61ef0e27482bd473b85cc4a9036908",
+      "hash_coarse": "685502c54f8afccee50f0048ef9e6daee587b99bbec41cfdeacbfa0522bf01bd",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "0fe173c4f10698a96cd5130f70182b3d31ee2ca8ac415aeebfe2780fcb665a51": "pour une équation A = B, donne A − B à sp.solve, pas A seul"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.23b": {
+      "hash": "be99d75120bac8cb8976f6e5bb9fdb216cf65cf6422d7ee501a782a0107d1947",
+      "kind": "int",
+      "magnitude": null,
+      "mistakes": {
+        "92e50ab690bb3c910ae711b4c2e075e25558f395f8fc1e7e3dffcdb4578414da": "compte les éléments de la liste que renvoie sp.solve (len), pas les solutions de l'équation"
+      },
+      "sign": 0,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.23c": {
+      "hash": "b9ac3066dfe30db262854b4d373f9a046632e8d4bb2656e2cccf7b7ff1ae331a",
+      "kind": "interval",
+      "mistakes": {
+        "bf7b435777071610a1f06f7ac8c528bd0aa940fee2c23c09ab8c8785e27ad1b7": "tout réel vérifie 3(x − 2) = 3x − 6 : ce n'est pas l'ensemble vide"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.23d": {
+      "decimals": 0,
+      "element_hashes": [
+        "ad2a52b3f8be7eae6dd7c3cf186ba7b712ec96fe727fcba7de9455bb766b38ab",
+        "734594cda38a7f64907a73dadac78b0d6b03621350e967060d6de67fc2baba09"
+      ],
+      "hash": "1bf5835fb2e593164f8d92bc86b3fa691795a34a46f8a6a833529420c1f1b8ac",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "20ba931207a22204e41bd45effce2581a1d80f40cdf67f18b5bc33b34552c704": "l'ordre demandé est [x, y]"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.24a": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "1ace0feb1a5d5f5abfaca8efc6e82e44a3b6f2b3d295ad8fab44dfbff44f8197",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "8c1490c3d003e1c4eee3acea5ba80726bac7b9d2a9130616e18842bb3917cb46": "des coefficients proportionnels donnent un déterminant nul : pas une seule solution",
+        "e6f95309024601ee4502690a98ed7fe432d84c3f63678b8694a18fc6083de0a0": "les coefficients sont proportionnels : compare aussi les seconds membres"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.24b": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "64de474482373d8683184a2e368cb2dd8635382c477727c1bc89ff7f3e76e718",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "cda25ac85f4ecd7b376dede9704c20044113735ad1864f1907852611ccc8f76a": "les coefficients ne sont pas proportionnels : les deux équations ne disent pas la même chose",
+        "d2fbc08fddce06fe3924e06b4a6ea27a3f470012988bcd4ab13f94d3da3d0a29": "les coefficients ne sont pas proportionnels : les droites ne sont pas parallèles"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.24c": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "e0c3c46dbd5319f3bba824946d607370992fe230f5649109e8ce100dc1268ef3",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "6242bfe19c08e3ca42b2f5f923e6b06733a796bf2911d278c6ab093f35b6ffab": "compare les seconds membres : sont-ils dans le même rapport que les coefficients ?",
+        "f178c2a62c198be003619d8e55f3b9b627015a86e73c1cd02e0a76fb16462a1b": "des coefficients proportionnels donnent un déterminant nul : pas une seule solution"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.25a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "28d40fded342292fdbdb9133a0cbd11e3812099f848faa0188e097bef6b7c955"
+        ],
+        [
+          "351d33e32f77bde713123c09fc95db9d7403250981ed9923fa300769d680c80a"
+        ]
+      ],
+      "element_hashes": [
+        "ad1dd3abed62d72ae2b0c84e854ffcda19f30053d9e8b68697181ded5d9f0b1e",
+        "addda5a1613bd092bfb49b60d6429fa83b4246898ccf18e4fe19e29860c3b444"
+      ],
+      "hash": "6fc847ee03b831aeedcbfa6ee78648fd7269bce71d0a0a38cfcb15365a21559d",
+      "kind": "array",
+      "mistakes": {
+        "bc84673e7bdc2d94738a2d913f9bbd4a02ea4826fb2b38af8549db982382f284": "le second membre de la seconde équation est 2,001, pas 2"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.25b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "f99e0073e58542c4dc2995697efd659c2dc00a3547134d487f70d60a47f032d5"
+        ],
+        [
+          "1a8fd3850cd7b7eab7e8f62057c6edfa49c3862f6e597b92843d3089e1c5aa93"
+        ]
+      ],
+      "element_hashes": [
+        "17945b82fb078f4778f085c15c5696b92708b50dcf71d6ba3aa294cd3d0dc181",
+        "c2e4812c86ded2b07d2fa4c9f987269dc005804d7847b019a8e4c62eb0fe3e52"
+      ],
+      "hash": "d7922178acd17ede3db0fd8223ce263e484a2423019533e2d55e15f9fddfc8b0",
+      "kind": "array",
+      "mistakes": {
+        "55bdf112a71b898ff81df0415ed2f24423875593e662999b321b0ffda1cddca6": "le coefficient c est celui de y dans la seconde équation, pas celui de x"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.25c": {
+      "decimals": 6,
+      "hash": "657d0a7b0c6bd0947130d0b5e31589cdc3e4fbd736b7826bbb75ae3f87ccc666",
+      "hash_coarse": "9aec281fdeacabc3750ddac4498ee6d39798afa1f7ae4b1abf76c1cd3d05c289",
+      "kind": "float",
+      "magnitude": -4,
+      "mistakes": {
+        "b1cd638507ca965d2c3af322401dd4429a6312ffdf017bb63c4279f06b148fb1": "D = ad − bc : le produit de la diagonale moins l'autre produit, dans cet ordre"
+      },
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.25d": {
+      "decimals": 3,
+      "hash": "31f3d2f37ac3c267f9393f239b931f9f899e772552cc31cf1e45bc54f0fcf5bb",
+      "hash_coarse": "0975518c174d366587ec9ad18ef1b67105195ed635ce5866af12708f5faae543",
+      "kind": "float",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.27a": {
+      "hash": "2928bde8b701ee10c1f5ec160b2572d65db7ff0296f40fb44e204f608d1ba7a9",
+      "kind": "str",
+      "mistakes": {
+        "2af69e6aadc4ba7843d4a8229f3ae91f09aed60b815a90bc0201681b531c1a0a": "la ligne (B) est correcte, et il manque une ligne fautive : une division par un nombre négatif qui garde le sens",
+        "39b97952883fd2bebdc5210b68267706de4e8cee1f5e2155172050ee85783811": "la ligne (E) est correcte, et il manque une ligne fautive : le carré d'une différence qui a perdu son double produit",
+        "3c5423a0177607d23918254b8ff09784fb2c4f9c78c98c65e5fc62c88ba05a05": "il manque une ligne fautive : une division par un nombre négatif qui garde le sens",
+        "64265ece3572c134aac75d8b1372fcecef63a326082ce9caa9dcf28624aae044": "la ligne (E) est correcte, et il manque une ligne fautive : une fraction multipliée sans parenthèses autour de son numérateur",
+        "6ee521af4911f2ec8b1312d217d6f650856e69f37558c5a73b55e5b3d1d16bd0": "la ligne (E) est correcte, et il manque une ligne fautive : un moins devant une parenthèse qui ne change pas tous ses signes",
+        "733ae2deb3995ae43425682b2be8b854abf13ebc310654530675276a53eec24d": "la ligne (E) est correcte, et il manque une ligne fautive : une division par un nombre négatif qui garde le sens",
+        "77a06498e8fb298b753603a3c4275e6f1bd67df511ade60f66af0e348b5b764f": "la ligne (E) est correcte, et il manque une ligne fautive : un carré qui ne porte pas sur tout le produit",
+        "80352f030fca7a1adb22e0ca720cf54798b57b10a6866ac0a94a178b9c703a0e": "il manque une ligne fautive : le carré d'une différence qui a perdu son double produit",
+        "8436d698ae9478ac69abd49783469a5f3a6c840e1c6f4169a679cd765369d1e4": "la ligne (B) est correcte, et il manque une ligne fautive : un moins devant une parenthèse qui ne change pas tous ses signes",
+        "85d1ff689ef044c40de5ae2d0d3d5b40d4e4cc9497f474dd79fb7e95a99fcaaa": "une ligne de trop : la ligne (B) est correcte ; relis ce qu'elle fait",
+        "88074e0b58d4a57927401b0ab0df9e5e2d8327f1ea77b2aaf19673c709fd3141": "la ligne (B) est correcte, et il manque une ligne fautive : une fraction multipliée sans parenthèses autour de son numérateur",
+        "8fe8c15a232a60d4da43135ce10bb2f3ab0e8bfbfc11a73c5e8f6e110883f437": "il manque une ligne fautive : une fraction multipliée sans parenthèses autour de son numérateur",
+        "a400417882e010898e56c83e997c9dd5cdbfa3913029c73765bec28e19393ab5": "il manque une ligne fautive : un moins devant une parenthèse qui ne change pas tous ses signes",
+        "aa1730443aae9da8609ee71d6a1ed51c741576178463c732461e175f7a1671ae": "la ligne (B) est correcte, et il manque une ligne fautive : un carré qui ne porte pas sur tout le produit",
+        "ae62bacc6f2a8790778312820de0691c8dfd7b7ec4e34c1dfcd553f680e3f810": "il manque une ligne fautive : un carré qui ne porte pas sur tout le produit",
+        "c0e5f1b31430e3e5419f9f9595a72b5e8847196e556e7f85fcaef5a4a78e772e": "la ligne (E) est correcte, et il manque une ligne fautive : une équation divisée par l'inconnue",
+        "cac0460b382a7cc14f3ccf19da9d6c5cdce67c03ae6156f714c42bcee8c24ac0": "il manque une ligne fautive : une équation divisée par l'inconnue",
+        "ce13999e76cee9448291b10570c8cff81db2b33aaabe3273aca93349595214c3": "la ligne (B) est correcte, et il manque une ligne fautive : une équation divisée par l'inconnue",
+        "e0103a3a36aaf98995e12517a5d32e9ce536adf68327c17fb0f1d878ad6c2bda": "la ligne (B) est correcte, et il manque une ligne fautive : le carré d'une différence qui a perdu son double produit",
+        "e30356d0d0953ad81c2a591c1775984b7442c880df07a6eec2f533b51df6cd53": "une ligne de trop : la ligne (E) est correcte ; relis ce qu'elle fait"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.27b": {
+      "decimals": 0,
+      "element_hashes": [
+        "8fd3d9bfbe13ae9f097fa357c9f956e197b813bac2886b96eb780d10ce356e24",
+        "4290c1d7c6fd1d3c6918845b49dd0899d50abd1f70330ef2f388996d18a031d6"
+      ],
+      "hash": "b9a06c7e63719f19ee5b98ff3e6e1a1b849ddae0802b2023aa2c73764af15cb8",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0150f688c2f994333c296fccb2f82e283b1551052f389f47274a6b9e2c47f33b": "un moins devant une parenthèse change le signe de chacun de ses termes",
+        "2d1b915f28ec5b545a7dfc48849ed4ce8cd7617f61362b3a6577ec5328091f28": "−3 × x est négatif"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.27c": {
+      "hash": "9594d62089d81a05af0fa92df841648d69b6964b261b574e87e52b536e263334",
+      "kind": "interval",
+      "mistakes": {
+        "73c69702f266bbed086edb98d3d653e5b75d0f7a92308eae103e25df7759c753": "la borne est 10 divisé par −4 : un nombre négatif",
+        "b5aa14d98bb51786ab48116697c1988c6494afaec366194ab2c62e4737fbc20c": "diviser par un nombre négatif retourne le sens"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
+    },
+    "R2.27d": {
+      "hash": "a4a0c4bbcc19a2596cc0bde8fbd95275bb1ef732fd32a694d35112416e2048f0",
+      "kind": "set",
+      "mistakes": {
+        "47012e9b2d993eb4ad3f6972dd5a3b5aee9fe752e542544907e7d358ce0fd2d3": "en divisant par x, on perd une solution : factorise 3x² − 6x"
+      },
+      "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     }
   }
 }
