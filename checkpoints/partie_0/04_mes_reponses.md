@@ -58,7 +58,7 @@
 - b) x =
 - c) x ≈
 - d) =
-- e) σ(ln 4) =
+- e) tanh(ln 2) =
 
 ## CP0.6 — Dériver et étudier les variations
 

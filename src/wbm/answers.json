@@ -297,7 +297,8 @@
       "kind": "int",
       "magnitude": null,
       "mistakes": {
-        "9e15b40f9a83b23fc707f73790ce5b5361a2a63925ed9135605abdec89588821": "compare 20 à la plus grande valeur que prend f (l'ordonnée du sommet)"
+        "9e15b40f9a83b23fc707f73790ce5b5361a2a63925ed9135605abdec89588821": "compare 20 à la plus grande valeur que prend f (l'ordonnée du sommet)",
+        "b5c426e4acbc020b32de30d944e95c827a1bac6de535e1d0172d56c81ae243f9": "le nombre de solutions de f(x) = k se lit en comparant k au maximum de f"
       },
       "sign": 0,
       "source": "checkpoints/partie_0/03_examen_solutions.ipynb"
@@ -314,14 +315,9 @@
       "source": "checkpoints/partie_0/03_examen_solutions.ipynb"
     },
     "CP0.5a": {
-      "decimals": 2,
-      "hash": "d5e34544270982b81f1d094116bcb83a96bc93c004b615a8dd87c9b458736a7a",
-      "hash_coarse": "6b69dc36785643522dd9aae7439d3d8142a8376a7e1fafad939a7a721c8c1d9e",
-      "kind": "float",
+      "hash": "14357a6d097fb5c80778776d2795d3b63327ec6cbc68fdc9877296f39aae252f",
+      "kind": "int",
       "magnitude": null,
-      "mistakes": {
-        "942b8ca4d837ae7f31240833e1c878c4ee24c55e923dbbe6c10f13c373605cde": "ln a − ln b = ln(a/b) et ln a + ln b = ln(ab), pas ln(a − b) ni ln(a + b)"
-      },
       "sign": 0,
       "source": "checkpoints/partie_0/03_examen_solutions.ipynb"
     },
@@ -363,27 +359,18 @@
       "source": "checkpoints/partie_0/03_examen_solutions.ipynb"
     },
     "CP0.5d": {
-      "coarse_any": {
-        "0": [
-          "a9bdb7fff5fbf81317f1c38a5f28de152ead92a4c5cbd72fec4e2262ad11ee9c"
-        ]
-      },
-      "decimals": 2,
-      "hash": "a8f01d75e27728487f3c3060ae7c70459a2a6586a2214383bf5a8f9dfc4f17d6",
-      "hash_coarse": "548149e8bef571e4c690bed6be1cf7f05b808db25055ac6c0ca41c15d7031750",
-      "kind": "float",
+      "hash": "9cf1860d1131a030480fc477cdb67da25956c220da11a80d820e82cf434c2cf7",
+      "kind": "int",
       "magnitude": 0,
-      "mistakes": {
-        "8de8e60a0607d0fb7de2805a4a0e073aee16317c366175457e1a0c9dd250ef15": "log a + log b = log(ab), pas log(a + b)"
-      },
       "sign": 1,
       "source": "checkpoints/partie_0/03_examen_solutions.ipynb"
     },
     "CP0.5e": {
-      "hash": "f751d0640ab88e6a75f6f8f35974548b06b0e0b12bd13cb86c4279d4c895dc2b",
+      "hash": "229b301b6f28d3f92fce53d94fde9454c7e53412cad85daa8c580f94314157b5",
       "kind": "fraction",
       "mistakes": {
-        "7bd3ec9f6072a63657de1e29f87eca35e7911e919fc08804dd9fd56a81c316cc": "la sigmoïde contient e^(−z), avec un signe moins : e^(−ln a) = 1/a"
+        "30bfb1f4fe0ded922af9a666103d11230ed8674c31d94203133c3ff788769633": "e^(−ln a) = 1/a, pas a",
+        "4e73aeab97245e7927288dafcc8f4c8dd7f8102e8423c87ab840d625e1a4770b": "le numérateur de tanh est la différence, son dénominateur la somme"
       },
       "sign": 1,
       "simplified": true,
@@ -508,11 +495,11 @@
       "source": "checkpoints/partie_0/03_examen_solutions.ipynb"
     },
     "CP0.6g": {
-      "hash": "17031be6beb45ad41bae528b7b48df2fbec04a3a6444c5b23feec92f3ca2f53e",
+      "hash": "d527a222b73b6eecaf2a754804ec49f561a08ec303b0ce5f3b7003f06d23a795",
       "kind": "expr",
       "mistakes": {
-        "e51ab23224750b4077f666e675a0385b52420244e9763bb8fb774699525b6244": "(u/v)' = (u'v − uv')/v² : l'ordre des termes compte",
-        "f1bb8cbbf28c6df4595f7e3cec491ee71a08558eec890ad65a06767151b023f6": "la dérivée d'un quotient n'est pas le quotient des dérivées"
+        "2ebf13bb0c16df072443bd63962c7d92670b5382a7260580d8b5f75da34a8dcf": "la dérivée d'un quotient n'est pas le quotient des dérivées",
+        "e64a2954d9e4b00f89f32306d6040faf0305ede7c430d4fa91d23d2efc57ccc9": "(u/v)' = (u'v − uv')/v² : l'ordre des termes compte"
       },
       "points": [
         [
@@ -572,6 +559,7 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
+        "5d2e3a637bcf99ad85801fa1ead2cf7a44c62cf3891b2a9503c4d99c73e41c3f": "P(V ∩ R) est la probabilité d'être à vélo ET en retard, pas une probabilité sachant R",
         "695a39168cab5cea6d1321f538776ead66fb9a90e155a8f7d8034582965d57e0": "P(V ∩ R) = P(V) × P(R sachant V) : n'oublie pas la première branche"
       },
       "sign": 1,
@@ -595,7 +583,8 @@
       "magnitude": -1,
       "mistakes": {
         "84e55e863a58e9dc3a2f9795c123635f5b82b9dad9fa8d41211e52ab03d6f35f": "c'est la probabilité que les deux colis soient en retard",
-        "bff5000bd352bc1682e9f79ab4619b5aa4a41b5781b7bc61b2fccee44f815d3a": "les probabilités ne s'additionnent pas ici : passe par l'événement contraire"
+        "bff5000bd352bc1682e9f79ab4619b5aa4a41b5781b7bc61b2fccee44f815d3a": "les probabilités ne s'additionnent pas ici : passe par l'événement contraire",
+        "d7021ef9bce6ab0eab7a2632e231227718818cc7bf110779666dbe76605271a7": "« au moins un » compte aussi le cas où les deux colis sont en retard"
       },
       "sign": 1,
       "source": "checkpoints/partie_0/03_examen_solutions.ipynb"
@@ -630,7 +619,8 @@
       "magnitude": 0,
       "mistakes": {
         "03af739c09c750b049be60d45f9b95d0a71f04a02702d588c5d2745df5c50107": "V(X) = E[X²] − E[X]² : retranche le carré de l'espérance",
-        "800405f7a65a75d4465c6a437c5f29b89a592c82fc0940a519caa378d240d49b": "V(X) = E[X²] − E[X]² : c'est le CARRÉ de l'espérance qu'on retranche"
+        "800405f7a65a75d4465c6a437c5f29b89a592c82fc0940a519caa378d240d49b": "V(X) = E[X²] − E[X]² : c'est le CARRÉ de l'espérance qu'on retranche",
+        "c29cb26a8d2568cd8040d63d9f9fcc1e30d995a2e3c93e69e6ed264e4c4dbadd": "c'est l'écart-type ; la variance est son carré"
       },
       "sign": 1,
       "source": "checkpoints/partie_0/03_examen_solutions.ipynb"
@@ -719,6 +709,31 @@
     "CP0.10a": {
       "hash": "3476f2e0be465a8eda11a6c13fad38ae1556283bb0f871e675929e4e5c597709",
       "kind": "str",
+      "mistakes": {
+        "089530dcd307f3195388f427c1dd11352b3631c35bd20b942e455635410e2ba6": "une des lignes citées est juste : relis-les une par une, avec la règle qu'elle utilise",
+        "098c81563af90c46a33dc6a710ab1bbe6b0555626051371f0319f3882757da0b": "une ligne juste est citée à la place d'une ligne fausse",
+        "3c394c9306247202edf9bb72eb9f81e7cf39d386d1d9c1ce45cc0687ba9bd0c4": "une des lignes citées est juste : relis-les une par une, avec la règle qu'elle utilise",
+        "4cab8075933b670180fda1019ef5f085091c876c4c53c6ebe96fb370fc27c860": "il manque une des lignes fausses : il y en a exactement cinq",
+        "63586a0cf5caedc7ee09ef9fa4851c723ec2c657c516c34bf906c26a8e2f2a3d": "il manque une des lignes fausses : il y en a exactement cinq",
+        "7262f88757aa7e5cfacd62f30ea064930517f7f041eaba9f37bee0078cd656c5": "il manque une des lignes fausses : il y en a exactement cinq",
+        "76e9d9e2475c3e961e882b426ec4ec2612c9d096c5ec621f66aa8b6a4ae30f0d": "une ligne juste est citée à la place d'une ligne fausse",
+        "7781179fc34a2efee658dd0ee0548d171e7744f99308c769c09230d623491cd2": "une ligne juste est citée à la place d'une ligne fausse",
+        "7b5f2bc0bef2b937f2a3be3f61c777526fb3fa3a1c07c51d4a4105dbb20804fb": "une ligne juste est citée à la place d'une ligne fausse",
+        "8234aa6648d929e9b23afc9c73ff211e17778d42661071e8522f3bc7e15d8077": "il manque une des lignes fausses : il y en a exactement cinq",
+        "84bb97626c2c53b71f6009c25dbef64d5f4efe80a48b859462619b8c2c4fb5a0": "une ligne juste est citée à la place d'une ligne fausse",
+        "923c821fbaeb388f69f18a41ccc341ab56886568b09f952f7a1c799cc1dbd93e": "une ligne juste est citée à la place d'une ligne fausse",
+        "9ffe98c681ceb889adc8116439c7ea556995bc68139af2bc7ba92c6efe4ea83a": "une ligne juste est citée à la place d'une ligne fausse",
+        "a5f93ed20d2d103fb112d0de7591a28e8f0183caf27d0c3f2a9a122f10bb0375": "il manque une des lignes fausses : il y en a exactement cinq",
+        "c77dc8da616f031983edec461bfef5472106b1d1dcd20128c1e04e46d3fbcbd4": "une ligne juste est citée à la place d'une ligne fausse",
+        "cc5c7c4de4f6c145d76a9bd64a4b4fba363af4a058edaeb2b8673ccb2ff23b04": "une ligne juste est citée à la place d'une ligne fausse",
+        "d47d0d6d49ceb91854a7ad44cae487a3ef370ff7413daec43777223ee7271ff1": "une ligne juste est citée à la place d'une ligne fausse",
+        "d4f910cfc73ce35732daaebf5e06c3f232a3fc0fbaf816035fd2185727b82792": "une ligne juste est citée à la place d'une ligne fausse",
+        "df6c78326945d03538539e68e95ca75bbd170093b1a66b9e294bceb929c0ed4f": "une ligne juste est citée à la place d'une ligne fausse",
+        "e81096ef2508c9f0235ed8705e28c3e3736231e7e7bb89c243f9a730d79ccaaf": "une des lignes citées est juste : relis-les une par une, avec la règle qu'elle utilise",
+        "ee9c4e878fcea7a823ab21bdfddb9b77a51caf8c32b4510803c141aa30b058ca": "une ligne juste est citée à la place d'une ligne fausse",
+        "fa899431344ce5235b430bdca751617d728a3d07ea3039b8ef111faf03b1b9f2": "une ligne juste est citée à la place d'une ligne fausse",
+        "fb44ca7c314f2182aeefd0e5ca5d43e53a9e3cec7a1c480807efa4492ed468d6": "une ligne juste est citée à la place d'une ligne fausse"
+      },
       "source": "checkpoints/partie_0/03_examen_solutions.ipynb"
     },
     "CP0.11a": {
@@ -762,11 +777,12 @@
       "source": "checkpoints/partie_0/03_examen_solutions.ipynb"
     },
     "CP0.11e": {
-      "hash": "437df7a8b547d795424a1bdf1989596510607ac843b4c730f6a28f9236357e98",
+      "hash": "7bda496619cc3c7c912f87abe95cea32e43b87ee1efa861ef816af4485d63001",
       "kind": "int",
-      "magnitude": 2,
+      "magnitude": 3,
       "mistakes": {
-        "5a4ced6333d45cd6ecb89f9f71c1ef5faf5ae375625c9d67a57902f7ee51c8e7": "Π multiplie les termes ; c'est Σ qui les additionne"
+        "6917749903d6c9ae3acac40bd062cce12bc08bce24fda02b2e186d33a2d90934": "Π multiplie les termes ; c'est Σ qui les additionne",
+        "b4505c4235b3561a480439778d39ed737a9cbc0b0eeca89839403d67bbbe968a": "un produit de puissances d'un même nombre additionne les exposants, il ne les multiplie pas"
       },
       "sign": 1,
       "source": "checkpoints/partie_0/03_examen_solutions.ipynb"

@@ -30,6 +30,26 @@ SOLUTIONS = f"{FOLDER}/03_examen_solutions.ipynb"
 F = 'kind="fraction", simplified=True'
 FRACTION = "an irreducible fraction, as text"
 
+
+def _letter_sets():
+    """CP0.10 a: wrong sets of letters, by kind, with messages that name no line (the check must not give the
+    answer away: the correction explains each line)."""
+    from itertools import combinations
+
+    wrong, right = "BCEFH", "ADG"
+    missing = {"".join(c) for c in combinations(wrong, 4)}
+    extra = {"".join(sorted(wrong + r)) for r in right}
+    swapped = {"".join(sorted(set(wrong) - {w} | {r})) for w in wrong for r in right}
+    def literal(values):
+        return "{" + ", ".join(repr(v) for v in sorted(values)) + "}"
+
+    return (f'{{"il manque une des lignes fausses : il y en a exactement cinq": {literal(missing)}, '
+            f'"une des lignes citées est juste : relis-les une par une, avec la règle qu\'elle utilise": '
+            f'{literal(extra)}, "une ligne juste est citée à la place d\'une ligne fausse": {literal(swapped)}}}')
+
+
+LETTERS = _letter_sets()
+
 PAPER_CONTEXT = r'''# Part B: the answers are computed from the numbers of the statements (01_examen_sujet.md)
 import math
 from fractions import Fraction
@@ -104,25 +124,24 @@ PAPER = [
          'kind="interval", mistakes={"a < 0 : la parabole est tournée vers le bas, f est positive entre ses racines": '
          '"]-oo ; -7[ U ]1 ; +oo[", "f(x) > 0 est strict : les racines sont exclues": "[-7 ; 1]"}'),
         ("e", "a number", "0",
-         'mistakes={"compare 20 à la plus grande valeur que prend f (l\'ordonnée du sommet)": 2}'),
+         'mistakes={"compare 20 à la plus grande valeur que prend f (l\'ordonnée du sommet)": 2, '
+         '"le nombre de solutions de f(x) = k se lit en comparant k au maximum de f": 1}'),
         ("f", "a number", "7",
          'mistakes={"le sommet n\'est pas dans [0 ; 2] : regarde le sens de variation de f sur cet intervalle": 16, '
          '"f est décroissante sur [0 ; 2] : sa plus grande valeur est au bord gauche": -9}'),
     ]),
     Paper("CP0.5", "Exponentielle et logarithme", [
-        ("a", "a number", "0.0",
-         'decimals=2, mistakes={"ln a − ln b = ln(a/b) et ln a + ln b = ln(ab), pas ln(a − b) ni ln(a + b)": '
-         'math.log(12 - 3 + 1 / 4)}'),
+        ("a", "a number", "0", ""),
         ("b", 'an exact value, as text (with ln)', "(sp.log(3) + 5) / 2",
          'kind="exact", mistakes={"isole 2x avant de diviser : ajoute 5 aux deux membres": "(log(3) - 5)/2", '
          '"divise tout le membre de droite par 2, pas seulement ln 3": "log(3)/2 + 5"}'),
         ("c", "a number (2 decimals)", "(math.e + 3) / 4",
          'decimals=2, mistakes={"ln(4x − 3) = 1 équivaut à 4x − 3 = e : la réciproque de ln est exp": 0.75, '
          '"isole x en gardant les signes : ajoute 3, puis divise par 4": (math.e - 3) / 4}'),
-        ("d", "a number", "2.0",
-         'decimals=2, mistakes={"log a + log b = log(ab), pas log(a + b)": math.log10(52)}'),
-        ("e", FRACTION, "Fraction(4, 5)",
-         F + ', mistakes={"la sigmoïde contient e^(−z), avec un signe moins : e^(−ln a) = 1/a": "1/5"}'),
+        ("d", "a number", "3", ""),
+        ("e", FRACTION, "(Fraction(2) - Fraction(1, 2)) / (Fraction(2) + Fraction(1, 2))",
+         F + ', mistakes={"e^(−ln a) = 1/a, pas a": "0", "le numérateur de tanh est la différence, son dénominateur la '
+         'somme": "5/3"}'),
     ]),
     Paper("CP0.6", "Dériver et étudier les variations", [
         ("a", "an expression in x (between quotes)", '"3*x**2 - 12"',
@@ -141,9 +160,9 @@ PAPER = [
         ("f", "an expression in x (exp(-x) for e^(-x))", '"(2*x - x**2)*exp(-x)"',
          'kind="expr", variables=("x",), mistakes={"la dérivée d\'un produit est u\'v + uv\', pas u\'v\'": '
          '"-2*x*exp(-x)", "la dérivée de e^(−x) est −e^(−x) (règle de la chaîne)": "(2*x + x**2)*exp(-x)"}'),
-        ("g", "an expression in x", '"-3/(x - 2)**2"',
+        ("g", "an expression in x", '"7/(x + 3)**2"',
          'kind="expr", variables=("x",), mistakes={"(u/v)\' = (u\'v − uv\')/v² : l\'ordre des termes compte": '
-         '"3/(x - 2)**2", "la dérivée d\'un quotient n\'est pas le quotient des dérivées": "1"}'),
+         '"-7/(x + 3)**2", "la dérivée d\'un quotient n\'est pas le quotient des dérivées": "2"}'),
         ("h", "a number", "3",
          'mistakes={"utilise le tableau de variations : compare à 0 le maximum local, le minimum local et les limites '
          'en ±∞": 2, "f(x) = 0 peut avoir une solution sur chaque intervalle où f est monotone : regarde le signe de f '
@@ -154,15 +173,19 @@ PAPER = [
          'decimals=3, mistakes={"multiplie les probabilités le long de chaque branche, puis additionne": '
          'LATE_C + LATE_V, "pondère chaque taux de retard par la part des colis concernés": (LATE_C + LATE_V) / 2}'),
         ("b", "a number (3 decimals)", "P_V * LATE_V",
-         'decimals=3, mistakes={"P(V ∩ R) = P(V) × P(R sachant V) : n\'oublie pas la première branche": LATE_V}'),
+         'decimals=3, mistakes={"P(V ∩ R) = P(V) × P(R sachant V) : n\'oublie pas la première branche": LATE_V, '
+         '"P(V ∩ R) est la probabilité d\'être à vélo ET en retard, pas une probabilité sachant R": '
+         'P_V * LATE_V / P_R}'),
         ("c", "a number (4 decimals)", "1 - (1 - P_R) ** 2",
          'decimals=4, mistakes={"les probabilités ne s\'additionnent pas ici : passe par l\'événement contraire": '
-         '2 * P_R, "c\'est la probabilité que les deux colis soient en retard": P_R ** 2}'),
+         '2 * P_R, "c\'est la probabilité que les deux colis soient en retard": P_R ** 2, '
+         '"« au moins un » compte aussi le cas où les deux colis sont en retard": 2 * P_R * (1 - P_R)}'),
         ("d", "a number (2 decimals)", "E_X",
          'decimals=2, mistakes={"pondère chaque gain par sa probabilité": (2 + (-10)) / 2}'),
         ("e", "a number (2 decimals)", "V_X",
          'decimals=2, mistakes={"V(X) = E[X²] − E[X]² : retranche le carré de l\'espérance": V_X + E_X ** 2, '
-         '"V(X) = E[X²] − E[X]² : c\'est le CARRÉ de l\'espérance qu\'on retranche": V_X + E_X ** 2 - E_X}'),
+         '"V(X) = E[X²] − E[X]² : c\'est le CARRÉ de l\'espérance qu\'on retranche": V_X + E_X ** 2 - E_X, '
+         '"c\'est l\'écart-type ; la variance est son carré": math.sqrt(V_X)}'),
         ("f", "a number (2 decimals)", "2 * E_X - 1",
          'decimals=2, mistakes={"E[aX + b] = a E[X] + b : n\'oublie pas la constante": 2 * E_X}'),
     ]),
@@ -179,7 +202,7 @@ PAPER = [
         ("e", "a number (1 decimal)", "math.degrees(math.acos(5 / 13))", 'decimals=1'),
     ]),
     Paper("CP0.10", "Corriger une copie : cinq erreurs (les lettres seulement)", [
-        ("a", 'the letters, as text (like "ABCDE")', '"BCEFH"', ""),
+        ("a", 'the letters, as text (like "ABCDE")', '"BCEFH"', f"mistakes={LETTERS}"),
     ]),
     Paper("CP0.11", "Une somme écrite avec Σ et une somme géométrique", [
         ("a", "a number", "sum(k ** 2 - 1 for k in range(1, 5))",
@@ -190,8 +213,9 @@ PAPER = [
          'mistakes={"de k = 4 à k = 12 : compte les termes, bornes comprises": 24}'),
         ("d", FRACTION, "1 / (1 - Fraction(2, 5))",
          F + ', mistakes={"le premier terme (k = 0) vaut 1 : la somme vaut 1/(1 − q)": "2/3"}'),
-        ("e", "a number", "math.prod(3 ** k for k in range(1, 4))",
-         'mistakes={"Π multiplie les termes ; c\'est Σ qui les additionne": 3 + 9 + 27}'),
+        ("e", "a number", "math.prod(2 ** k for k in range(1, 5))",
+         'mistakes={"Π multiplie les termes ; c\'est Σ qui les additionne": 2 + 4 + 8 + 16, '
+         '"un produit de puissances d\'un même nombre additionne les exposants, il ne les multiplie pas": 2 ** 24}'),
     ]),
     Paper("CP0.12", "Problème de synthèse : étudier une fonction de coût donnée par une formule", [
         ("a", "a number", "round(math.exp(0) - 2 * 0)", 'mistakes={"e⁰ = 1": 0}'),

@@ -41,12 +41,12 @@ Le barème de chaque sous-question est entre crochets. Sauf mention contraire, u
 
 Pour chaque affirmation, réponds **Vrai** ou **Faux**, puis justifie en une phrase : une règle, un calcul ou un contre-exemple. Chaque affirmation vaut 0,25 point : 0,1 pour le verdict, 0,15 pour la justification.
 
-a) $(2^3)^2 = 2^5$.
-b) Pour tous réels $a$ et $b$, $\lvert a + b \rvert = \lvert a \rvert + \lvert b \rvert$.
+a) $\dfrac{2^{10}}{2^{5}} = 2^{2}$.
+b) L'équation $2x + 3 = 2x + 5$ n'a aucune solution.
 c) Une fonction strictement croissante sur $\mathbb{R}$ ne prend jamais deux fois la même valeur.
 d) Pour montrer qu'une affirmation de la forme « pour tout entier $n$, … » est fausse, un seul contre-exemple suffit.
 e) Une suite arithmétique de raison strictement négative tend vers $-\infty$.
-f) Pour tout réel $x$, $e^{-x} > 0$.
+f) $\ln\left(e^{3}\right) + \ln\left(e^{-3}\right) = 0$.
 g) Si $f'(x) > 0$ pour tout $x$ de l'intervalle $[0 ; 1]$, alors $f(1) > f(0)$.
 h) On tire successivement deux boules d'une urne, sans remettre la première : les deux tirages sont indépendants.
 i) Le cosinus d'un angle de $[0 ; \pi]$ est toujours positif ou nul.
@@ -109,8 +109,8 @@ On pose $f(x) = -x^2 - 6x + 7$, définie sur $\mathbb{R}$.
 | a | $\ln 12 - \ln 3 + \ln\left(\frac{1}{4}\right)$ | un nombre |
 | b | la solution de $e^{2x - 5} = 3$ | une valeur exacte, avec `ln` |
 | c | la solution de $\ln(4x - 3) = 1$ | un nombre (2 décimales) |
-| d | $\log_{10} 2 + \log_{10} 50$ | un nombre |
-| e | $\sigma(\ln 4)$, où $\sigma(z) = \dfrac{1}{1 + e^{-z}}$ est la sigmoïde | une fraction irréductible |
+| d | $\log_2 40 - \log_2 5$ | un nombre |
+| e | $\tanh(\ln 2)$, où $\tanh z = \dfrac{e^{z} - e^{-z}}{e^{z} + e^{-z}}$ | une fraction irréductible |
 
 ### CP0.6 — Dériver et étudier les variations ✏️ ★★ ⏱️ 12 min · 2 points
 
@@ -124,7 +124,7 @@ On pose $f(x) = x^3 - 12x + 5$, définie sur $\mathbb{R}$.
 | d | le plus grand intervalle sur lequel $f$ est décroissante | un intervalle |
 | e | l'équation de la tangente à la courbe de $f$ au point d'abscisse 1, sous la forme $y = mx + p$ | la liste $[m, p]$ |
 | f | la dérivée de $g(x) = x^2 e^{-x}$ | une expression en $x$ |
-| g | la dérivée de $h(x) = \dfrac{x + 1}{x - 2}$, pour $x \ne 2$ | une expression en $x$ |
+| g | la dérivée de $h(x) = \dfrac{2x - 1}{x + 3}$, pour $x \ne -3$ | une expression en $x$ |
 | h | le nombre de solutions de l'équation $f(x) = 0$ (avec le tableau de variations de $f$ et ses limites en $\pm\infty$) | un nombre |
 
 ### CP0.7 — Un arbre de probabilités et une espérance ✏️ ★★ ⏱️ 10 min · 1,5 point
@@ -172,12 +172,12 @@ Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 
 - **(A)** $\sqrt{25 \times 16} = 20$
 - **(B)** $\dfrac{x + 6}{3} = x + 2$
-- **(C)** $(-2)^4 = -16$
+- **(C)** $(-1)^{7} = 1$
 - **(D)** $\ln 50 - \ln 2 = \ln 25$
 - **(E)** $e^{3} \times e^{4} = e^{12}$
-- **(F)** la dérivée de $x \mapsto \dfrac{1}{x}$ est $x \mapsto \ln x$
-- **(G)** $\sin\dfrac{\pi}{2} = 1$
-- **(H)** si $P(A) = 0{,}5$, $P(B) = 0{,}4$ et $P(A \cap B) = 0{,}1$, alors $P(A \cup B) = 0{,}9$
+- **(F)** la dérivée de $x \mapsto \sqrt{x}$ est $x \mapsto 2\sqrt{x}$
+- **(G)** $\cos\dfrac{2\pi}{3} = -\dfrac{1}{2}$
+- **(H)** si $P(A) = 0{,}45$, $P(B) = 0{,}35$ et $P(A \cap B) = 0{,}15$, alors $P(A \cup B) = 0{,}8$
 
 a) Les lettres des cinq lignes fausses, dans l'ordre alphabétique (un texte, comme `"ABCDE"`). **[0,5]**
 b) Pour chaque ligne fausse, écris le résultat juste et la règle oubliée, en une ligne. **[0,75]** (0,15 par ligne)
@@ -190,7 +190,7 @@ b) Pour chaque ligne fausse, écris le résultat juste et la règle oubliée, en
 | b | $\displaystyle\sum_{k=0}^{4} 5 \times 2^{k}$ (avec la formule de la somme géométrique) | un nombre |
 | c | $\displaystyle\sum_{k=4}^{12} 3$ | un nombre |
 | d | $\displaystyle\sum_{k=0}^{+\infty} \left(\frac{2}{5}\right)^{k}$ | une fraction irréductible |
-| e | $\displaystyle\prod_{k=1}^{3} 3^{k}$ | un nombre |
+| e | $\displaystyle\prod_{k=1}^{4} 2^{k}$ | un nombre |
 
 ### CP0.12 — Problème de synthèse : étudier une fonction de coût donnée par une formule 🔗 ★★ ⏱️ 12 min · 2 points
 
