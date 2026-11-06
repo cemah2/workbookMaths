@@ -19,7 +19,7 @@
 
 ### R6.Q2 — ln d'un produit, d'un quotient, d'une puissance
 1. **Vrai**.
-2. **Faux** : avec $a = b = 1$, $\ln 2 \approx 0{,}69$ et $\ln 1 + \ln 1 = 0$.
+2. **Faux** : $\ln 2 + \ln 3 = \ln 6$, pas $\ln 5$. Le logarithme d'une somme ne se découpe pas.
 3. **Vrai**.
 4. **Vrai**.
 5. **Faux** : avec $a = e$, $(\ln e)^{2} = 1$ et $2 \ln e = 2$.
@@ -29,10 +29,10 @@
 ### R6.Q3 — Combien de bits ?
 1. **4** questions ($2^{4} = 16$).
 2. **20** questions : $2^{19} = 524\,288$ ne suffit pas, $2^{20} = 1\,048\,576$ suffit.
-3. **2** bits ($-\log_{2} \frac{1}{4} = 2$).
+3. **5** bits ($-\log_{2} \frac{1}{32} = 5$).
 4. **0** bit : un événement certain n'apprend rien.
 5. $2^{7} = $ **128** possibilités.
-6. **Vrai** : 1 bit ≈ 0,693 nat, donc une même quantité compte plus de bits que de nats ($I$ bits $= 0{,}693\,I$ nats).
+6. **Vrai** : 1 bit ≈ 0,693 nat, donc une quantité de $I$ bits vaut $0{,}693\,I$ nats, un nombre plus petit (4 bits ≈ 2,77 nats).
 
 ### R6.Q4 — Qui grandit le plus vite ?
 1. $1{,}01^{x}$ (exponentielle contre puissance).
@@ -50,12 +50,12 @@
 5. Une croissance **exponentielle** : $\log y$ est une fonction affine de $x$.
 
 ### R6.Q6 — Sigmoïde : valeurs remarquables et symétrie
-1. $\frac{1}{2}$.
+1. **Faux** : $\sigma(0) = \frac{1}{1 + 1} = \frac{1}{2}$.
 2. **Faux** : $\sigma(x) < 1$ toujours, car $e^{-x} > 0$.
-3. $1 - 0{,}7 = $ **0,3**.
+3. **Faux** : $\sigma(-x) = 1 - \sigma(x)$ ; $\sigma(-x)$ est positif, comme toute valeur de la sigmoïde.
 4. **Vrai** : σ est strictement croissante et $\sigma(0) = \frac{1}{2}$.
-5. $\tanh 0 = 0$ ; tanh est **impaire**.
-6. $]-1 \;;\; 1[$.
+5. **Faux** : tanh est impaire, la sigmoïde ne l'est pas ($\sigma(0) = \frac{1}{2} \ne 0$).
+6. **Vrai** : elle va de −1 à 1 sans jamais les atteindre, et sa courbe, d'un seul tenant, passe par toutes les valeurs intermédiaires (R7 précisera ce « d'un seul tenant »).
 
 <a id="rappels"></a>
 
@@ -74,7 +74,7 @@
 
 ### R6.R3 — Notation scientifique (R1)
 1. $4{,}2 \times 10^{-4}$ et $7{,}3 \times 10^{6}$.
-2. $7 \times 10^{4}$.
+2. $\frac{4{,}8}{1{,}6} \times 10^{5 - (-3)} = 3 \times 10^{8}$.
 3. **13** chiffres (un 1 suivi de 12 zéros).
 
 <a id="papier"></a>
@@ -83,81 +83,82 @@
 
 ### Ex R6.1 — Simplifier avec les propriétés de exp
 
-**Réponses** : a) `2.5` · b) `2` · c) `"x + 1"` · d) `"2*x + 3"` · e) `4` · f) `"1/3"` · g) `"2*x + 2"` · h) `1`.
+**Réponses** : a) `2.5` · b) `1` · c) `"2 - 2*x"` · d) `"2*x + 3"` · e) `8` · f) `"1/5"` · g) `"2*x + 2"` · h) `1`.
 
 **Démarche.**
-- a) $4 + (-1{,}5) = 2{,}5$. b) $(e^{3})^{2} = e^{6}$, puis $6 - 4 = 2$.
-- c) $2x + (1 - x) = x + 1$. d) $x + (x + 3) = 2x + 3$.
-- e) $8^{2/3} = (\sqrt[3]{8})^{2} = 2^{2} = 4$. f) $27^{-1/3} = \frac{1}{\sqrt[3]{27}} = \frac{1}{3}$.
+- a) $4 + (-1{,}5) = 2{,}5$. b) $(e^{2})^{3} = e^{6}$, puis $7 - 6 = 1$.
+- c) $3x + (2 - 5x) = 2 - 2x$. d) $x + (x + 3) = 2x + 3$.
+- e) $16^{3/4} = (\sqrt[4]{16})^{3} = 2^{3} = 8$. f) $125^{-1/3} = \frac{1}{\sqrt[3]{125}} = \frac{1}{5}$.
 - g) $(e^{x})^{3} = e^{3x}$, puis $3x - (x - 2) = 2x + 2$.
-- h) $(\sqrt{e})^{4} = (e^{1/2})^{4} = e^{2}$, et $e^{2} \times e^{-2} = e^{0} = 1$.
+- h) $(\sqrt{e})^{4} = (e^{1/2})^{4} = e^{2}$, et $e^{2} \times e^{-2} = e^{0} = 1$ : la valeur est 1 (l'exposant, lui, vaut 0).
 
-**Erreurs fréquentes.** Multiplier les exposants d'un produit (a, c) ou additionner ceux d'une puissance de puissance (b) ; oublier de distribuer le signe moins (g) ; lire $8^{2/3}$ comme $8 \times \frac{2}{3}$ ; croire qu'un exposant négatif rend le nombre négatif (f).
+**Erreurs fréquentes.** Multiplier les exposants d'un produit (a, c) ou additionner ceux d'une puissance de puissance (b) ; perdre le signe moins de $-5x$ (c) ou oublier les parenthèses de $x - 2$ (g) ; lire $16^{3/4}$ comme $16 \times \frac{3}{4}$ ; croire qu'un exposant négatif rend le nombre négatif (f) ; répondre 0, l'exposant, en h.
 
-**Variante.** $16^{3/4}$ et $e^{3x} \times e^{-x} / e^{2}$ ? *Réponse* : $(\sqrt[4]{16})^{3} = 8$ et $e^{2x - 2}$.
+**Variante.** $81^{3/4}$ et $e^{x} \times e^{4 - 3x} / e^{-1}$ ? *Réponse* : $(\sqrt[4]{81})^{3} = 27$ et $e^{5 - 2x}$.
 
 ### Ex R6.2 — Simplifier avec les propriétés de ln
 
-**Réponses** : a) `3` · b) `25` · c) `36` · d) `"5/2"` · e) `20` · f) `9` · g) `"a + 2*b"` · h) `"b - 2*a"`.
+**Réponses** : a) `2` · b) `5` · c) `36` · d) `"-5/2"` · e) `20` · f) `2` · g) `"a + 2*b"` · h) `"b - 2*a"`.
 
 **Démarche.**
-- a) $5 - 2 = 3$. b) $\ln \frac{50}{2} = \ln 25$. c) $\ln 9 + \ln 4 = \ln 36$.
-- d) $\ln(e^{3}) - \ln(e^{1/2}) = 3 - \frac{1}{2} = \frac{5}{2}$.
-- e) $e^{\ln 4} \times e^{\ln 5} = 4 \times 5 = 20$ (ou $e^{\ln 20}$). f) $e^{\ln 9} = 9$.
+- a) $3 \times 2 - 4 = 2$. b) $\ln \frac{60}{4 \times 3} = \ln 5$. c) $\ln 9 + \ln 4 = \ln 36$.
+- d) $\ln(e^{1/2}) - \ln(e^{3}) = \frac{1}{2} - 3 = -\frac{5}{2}$.
+- e) $e^{\ln 4} \times e^{\ln 5} = 4 \times 5 = 20$ (ou $e^{\ln 20}$). f) $e^{3 \ln 2 - \ln 4} = \frac{e^{\ln 8}}{e^{\ln 4}} = \frac{8}{4} = 2$.
 - g) $18 = 2 \times 3^{2}$ : $\ln 2 + 2 \ln 3 = a + 2b$.
 - h) $0{,}75 = \frac{3}{2^{2}}$ : $\ln 3 - 2 \ln 2 = b - 2a$ (négatif, comme le logarithme de tout nombre plus petit que 1).
 
-**Erreurs fréquentes.** $\ln 50 - \ln 2 = \ln 48$ ; $2 \ln 3 = \ln 6$ ; $\frac{\ln(e^{5})}{\ln(e^{2})}$ au lieu d'une différence ; en h, oublier que $4 = 2^{2}$.
+**Erreurs fréquentes.** $\ln 60 - \ln 4 - \ln 3 = \ln 53$ ; $2 \ln 3 = \ln 6$ ; diviser les logarithmes au lieu de les soustraire (a, d) ; $e^{u - v} = e^{u} - e^{v}$ en f ; en h, oublier que $4 = 2^{2}$.
 
-**Variante.** $\ln 0{,}5$ en fonction de $a$, et $e^{3 \ln 2 - \ln 4}$ ? *Réponse* : $-a$, et $e^{\ln \frac{8}{4}} = 2$.
+**Variante.** $\ln 0{,}5$ en fonction de $a$, et $\ln 24$ en fonction de $a$ et $b$ ? *Réponse* : $-a$ ; $24 = 2^{3} \times 3$, donc $3a + b$.
 
 ### Ex R6.3 — Équations et inéquations avec exp et ln
 
-**Réponses** : a) `2.71` · b) `1.40` · c) `12.18` · d) `1` · e) `12` · f) `19` · g) `"]1 ; 2]"` · h) `[0.6931, 1.0986]`.
+**Réponses** : a) `1.61` · b) `-0.40` · c) `12.18` · d) `3` · e) `12` · f) `19` · g) `"]1 ; 2]"` · h) `[0.6931, 1.0986]`.
 
 **Démarche.**
-- a) $x = \ln 15 \approx 2{,}708$.
-- b) $2x - 1 = \ln 6$, donc $x = \frac{1 + \ln 6}{2} \approx 1{,}396$.
-- c) $x = e^{2{,}5} \approx 12{,}18$.
-- d) Il faut $3x - 2 > 0$ ; $\ln(3x - 2) = 0 \iff 3x - 2 = 1 \iff x = 1$ (et $3 \times 1 - 2 = 1 > 0$).
+- a) $4e^{x} = 20$, $e^{x} = 5$, $x = \ln 5 \approx 1{,}609$.
+- b) $1 - 2x = \ln 6$, $-2x = \ln 6 - 1$, donc $x = \frac{1 - \ln 6}{2} \approx -0{,}396$.
+- c) $2 \ln x = 5$, $\ln x = 2{,}5$, $x = e^{2{,}5} \approx 12{,}18$.
+- d) Domaine : $x - 1 > 0$ et $x + 1 > 0$, donc $x > 1$. Puis $\ln\big((x - 1)(x + 1)\big) = \ln 8 \iff x^{2} - 1 = 8 \iff x^{2} = 9$ : $x = 3$ ou $x = -3$, et seul 3 est dans le domaine.
 - e) $1{,}04^{n} > 1{,}6 \iff n > \frac{\ln 1{,}6}{\ln 1{,}04} \approx 11{,}98$ : $n = 12$. Contrôle : $5 \times 1{,}04^{11} \approx 7{,}70$ et $5 \times 1{,}04^{12} \approx 8{,}005$.
 - f) $n \ln 0{,}85 < \ln 0{,}05 \iff n > \frac{\ln 0{,}05}{\ln 0{,}85} \approx 18{,}43$ ($\ln 0{,}85 < 0$ : le sens change) : $n = 19$.
 - g) Domaine : $x > 1$ ; puis $\ln(x - 1) \le 0 = \ln 1 \iff x - 1 \le 1 \iff x \le 2$ : $]1 \;;\; 2]$.
 - h) Avec $X = e^{x}$ : $X^{2} - 5X + 6 = (X - 2)(X - 3) = 0$, donc $e^{x} = 2$ ou $e^{x} = 3$ : $x = \ln 2 \approx 0{,}6931$ ou $x = \ln 3 \approx 1{,}0986$.
 
-**Erreurs fréquentes.** Diviser par 2 avant d'ajouter 1 (b) ; $x = \ln 2{,}5$ en c ; oublier de changer le sens de l'inégalité en f ; oublier le domaine en g (et répondre $]-\infty \;;\; 2]$) ; en h, s'arrêter à $X = 2$ et $X = 3$.
+**Erreurs fréquentes.** Prendre le logarithme avant d'avoir isolé $e^{x}$ (a) ; un signe perdu en divisant par $-2$ (b) ; $x = \ln 2{,}5$ en c ; garder $-3$ en d, ou écrire $\ln(x - 1) + \ln(x + 1) = \ln(2x)$ ; oublier de changer le sens de l'inégalité en f ; oublier le domaine en g (et répondre $]-\infty \;;\; 2]$) ; en h, s'arrêter à $X = 2$ et $X = 3$.
 
 **Variante.** Résous $e^{2x} = 10$ et trouve le plus petit $n$ tel que $0{,}7^{n} < 0{,}5$. *Réponse* : $x = \frac{\ln 10}{2} \approx 1{,}15$ ; $n > \frac{\ln 0{,}5}{\ln 0{,}7} \approx 1{,}94$, donc $n = 2$.
 
 ### Ex R6.4 — Changer de base : log₂, log₁₀, ln
 
-**Réponses** : a) `9` · b) `-4` · c) `4` · d) `-7` · e) `2.113` · f) `3.322` · g) `31` · h) `"3/2"`.
+**Réponses** : a) `9` · b) `2` · c) `3` · d) `-7` · e) `2.113` · f) `2.807` · g) `31` · h) `"3/2"`.
 
 **Démarche.**
-- a) $2^{9} = 512$. b) $0{,}0001 = 10^{-4}$. c) $3^{4} = 81$. d) $\frac{1}{128} = 2^{-7}$.
-- e) $\frac{\ln 30}{\ln 5} \approx \frac{3{,}401}{1{,}609} \approx 2{,}113$. f) $\frac{\ln 10}{\ln 2} \approx 3{,}322$.
+- a) $2^{9} = 512$. b) $\log_{10}(25 \times 4) = \log_{10} 100 = 2$. c) $6^{3} = 216$. d) $\frac{1}{128} = 2^{-7}$.
+- e) $\frac{\ln 30}{\ln 5} \approx \frac{3{,}401}{1{,}609} \approx 2{,}113$. f) $\frac{\ln 7}{\ln 2} \approx \frac{1{,}946}{0{,}693} \approx 2{,}807$.
 - g) $\log_{10}(2^{100}) = 100 \log_{10} 2 \approx 30{,}10$ : $2^{100}$ est entre $10^{30}$ et $10^{31}$, il a 31 chiffres.
 - h) $4^{y} = 8 \iff 2^{2y} = 2^{3} \iff y = \frac{3}{2}$ (ou $\frac{\ln 8}{\ln 4} = \frac{3 \ln 2}{2 \ln 2}$).
 
-**Erreurs fréquentes.** Diviser 512 par 2 ; un signe oublié en b et d ; $\frac{\ln 5}{\ln 30}$ en e (le quotient à l'envers) ; 30 chiffres en g.
+**Erreurs fréquentes.** Diviser 512 par 2 ; $\log_{10} 29$ en b (une somme de logarithmes est le logarithme du **produit**) ; un signe oublié en d ; le quotient à l'envers en e et f ; 30 chiffres en g.
 
 **Variante.** $\log_{7} 100$, et le nombre de chiffres de $5^{50}$ (avec $\log_{10} 5 \approx 0{,}699$) ? *Réponse* : $\frac{\ln 100}{\ln 7} \approx 2{,}367$ ; $50 \times 0{,}699 \approx 34{,}9$, donc 35 chiffres.
 
 ### Ex R6.5 — Compter en bits et en nats : combien de questions oui ou non ?
 
-**Réponses** : a) `9` · b) `8.23` · c) `9` · d) `6.238` · e) `5.70` · f) `13.93` · g) `0.0498` · h) `6.93`.
+**Réponses** : a) `9` · b) `8.23` · c) `14.10` · d) `11` · e) `5.70` · f) `2.12` · g) `0.0498` · h) `6.93`.
 
 **Démarche.**
 - a) $2^{8} = 256 < 300 \le 512 = 2^{9}$ : 9 questions. b) $\frac{\ln 300}{\ln 2} \approx 8{,}23$ : un peu plus de 8 bits, d'où 9 questions entières.
-- c) $-\log_{2} \frac{1}{512} = 9$ bits. d) $9 \ln 2 \approx 6{,}238$ nats.
+- c) $26^{3} = 17\,576$ codes également probables : $\log_{2}(26^{3}) = 3 \log_{2} 26 \approx 3 \times 4{,}700 = 14{,}10$ bits. Chaque lettre apporte $\log_{2} 26$ bits, et les informations s'additionnent.
+- d) $n \log_{2} 26 \ge 50 \iff n \ge \frac{50}{4{,}700} \approx 10{,}64$ : 11 lettres (10 lettres n'apportent que 47 bits).
 - e) $\log_{2} 52 \approx 5{,}70$ bits.
-- f) Indépendants : les probabilités se multiplient, les informations s'additionnent : $5{,}70 + 8{,}23 = 13{,}93$ bits.
+- f) $p = \frac{12}{52}$ : $-\log_{2} \frac{12}{52} = \log_{2} \frac{52}{12} \approx 2{,}12$ bits, moins qu'en e : savoir que c'est une figure apprend moins que connaître la carte.
 - g) $-\ln p = 3 \iff p = e^{-3} \approx 0{,}0498$.
 - h) $10 \times \ln 2 \approx 6{,}93$ nats.
 
-**Erreurs fréquentes.** Répondre 8 en a ($2^{8} = 256$ ne suffit pas) ; diviser par $\ln 2$ pour passer des bits aux nats ; multiplier les informations en f ; $p = 2^{-3}$ en g (des bits, pas des nats).
+**Erreurs fréquentes.** Répondre 8 en a ($2^{8} = 256$ ne suffit pas) ; $\log_{2}(26 \times 3)$ en c ; 10 en d ; $\log_{2} 12$ en f (le nombre de figures, pas la probabilité) ; diviser par $\ln 2$ pour passer des bits aux nats ; $p = 2^{-3}$ en g (des bits, pas des nats).
 
-**Variante.** Combien de questions oui ou non pour un nombre choisi entre 1 et 2 000, et combien de nats apporte un événement de probabilité $\frac{1}{8}$ ? *Réponse* : 11 ($2^{11} = 2\,048$) ; $\ln 8 \approx 2{,}079$ nats.
+**Variante.** Combien de questions oui ou non pour un nombre choisi entre 1 et 2 000, et combien de bits apporte « la carte est un as » (4 cartes sur 52) ? *Réponse* : 11 ($2^{11} = 2\,048$) ; $\log_{2} 13 \approx 3{,}70$ bits.
 
 ### Ex R6.6 — Temps de doublement et demi-vie
 
@@ -175,33 +176,34 @@
 
 **Variante.** Une population baisse de 5 % par an : sa demi-vie ? Et une grandeur qui triple toutes les 3 heures, par quel nombre est-elle multipliée par heure ? *Réponse* : $\frac{\ln 0{,}5}{\ln 0{,}95} \approx 13{,}51$ ans ; $3^{1/3} \approx 1{,}442$.
 
-### Ex R6.7 — Sigmoïde et logit : la symétrie σ(−x) = 1 − σ(x), la cote et la log-cote
+### Ex R6.7 — La cote et le logit : d'une probabilité à un score, et retour
 
-**Réponses** : a) `"3/4"` · b) `"1/4"` · c) `0.769` · d) `0.231` · e) `19` · f) `2.944` · g) `-1.386` · h) `0.6`.
+**Réponses** : a) `19` · b) `2.944` · c) `0.3` · d) `-0.847` · e) `0.769` · f) `-1.2` · g) `20.09` · h) `0.6`.
 
 **Démarche.**
-- a) $e^{-\ln 3} = \frac{1}{3}$, donc $\sigma(\ln 3) = \frac{1}{1 + \frac{1}{3}} = \frac{3}{4}$. b) $1 - \frac{3}{4} = \frac{1}{4}$ (symétrie), ou $\frac{1}{1 + 3}$.
-- c) $\frac{1}{1 + e^{-1{,}2}} \approx \frac{1}{1{,}301} \approx 0{,}769$. d) $1 - 0{,}769 = 0{,}231$.
-- e) $\frac{0{,}95}{0{,}05} = 19$. f) $\ln 19 \approx 2{,}944$.
-- g) $x = \ln \frac{0{,}2}{0{,}8} = \ln \frac{1}{4} = -\ln 4 \approx -1{,}386$ (négatif, car $0{,}2 < \frac{1}{2}$).
-- h) La cote de 0,2 est $\frac{0{,}2}{0{,}8} = \frac{1}{4}$ ; ajouter $\ln 6$ au logit la multiplie par 6 : $\frac{6}{4} = 1{,}5$ ; la probabilité vaut $\frac{1{,}5}{1 + 1{,}5} = 0{,}6$.
+- a) $\frac{0{,}95}{0{,}05} = 19$. b) $\ln 19 \approx 2{,}944$.
+- c) $\frac{p}{1 - p} = \frac{3}{7} \iff 7p = 3 - 3p \iff p = \frac{3}{10} = 0{,}3$ (une cote « $a$ contre $b$ » donne $p = \frac{a}{a + b}$). d) $\ln \frac{3}{7} \approx -0{,}847$, négatif car $p < \frac{1}{2}$.
+- e) $\sigma(1{,}2) = \frac{1}{1 + e^{-1{,}2}} \approx \frac{1}{1{,}301} \approx 0{,}769$.
+- f) La probabilité contraire $1 - p$ a la cote $\frac{1 - p}{p}$, l'inverse de celle de $p$ ; son logit est le logarithme de l'inverse, donc l'opposé : $-1{,}2$, puisque le logit de $p$ est le score $1{,}2$.
+- g) Le logit est le logarithme de la cote : la cote vaut $e^{3} \approx 20{,}09$.
+- h) La cote de 0,2 est $\frac{0{,}2}{0{,}8} = 0{,}25$ ; ajouter $\ln 6$ au logit la multiplie par 6 : $1{,}5$ ; la probabilité vaut $\frac{1{,}5}{1 + 1{,}5} = 0{,}6$.
 
-**Erreurs fréquentes.** Oublier le signe moins de $e^{-x}$ (c donne 0,231) ; $\sigma(-x) = -\sigma(x)$ ; la cote à l'envers ($\frac{1}{19}$) ; prendre $\ln p$ pour le logit ; multiplier la probabilité par 6 en h.
+**Erreurs fréquentes.** La cote à l'envers ($\frac{1}{19}$) ; prendre $\ln p$ pour le logit ; $\frac{3}{7}$ pour la probabilité en c ; oublier le signe moins de $e^{-x}$ (e donne 0,231) ; donner en f la probabilité contraire (0,231) au lieu de son logit ; $10^{3}$ en g ; multiplier la probabilité par 6 en h.
 
-**Variante.** $\sigma(\ln 5)$ et le logit de 0,7 ? *Réponse* : $\frac{5}{6}$ ; $\ln \frac{0{,}7}{0{,}3} \approx 0{,}847$.
+**Variante.** Une cote de « 2 contre 3 » : la probabilité et le logit ? Puis on ajoute $\ln 3$ au logit : la nouvelle probabilité ? *Réponse* : 0,4 et $\ln \frac{2}{3} \approx -0{,}405$ ; la cote devient $\frac{2}{3} \times 3 = 2$, la probabilité $\frac{2}{3} \approx 0{,}667$.
 
 ### Ex R6.8 — Placer des valeurs sur une échelle logarithmique
 
-**Réponses** : a) `10` · b) `16.51` · c) `3.49` · d) `31.62` · e) `3.98`.
+**Réponses** : a) `10` · b) `16.5` · c) `3.5` · d) `31.62` · e) `3.98`.
 
 **Démarche.**
-- a) $5 \times \log_{10} 100 = 10$ cm. b) $5 \times \log_{10} 2\,000 \approx 5 \times 3{,}301 = 16{,}51$ cm. c) $5 \times \log_{10} 5 \approx 3{,}49$ cm.
+- a) $5 \times \log_{10} 100 = 10$ cm. b) $5 \times \log_{10} 2\,000 \approx 5 \times 3{,}301 \approx 16{,}5$ cm. c) $5 \times \log_{10} 5 \approx 5 \times 0{,}699 \approx 3{,}5$ cm.
 - d) $7{,}5$ cm $= 1{,}5$ décade : $10^{1{,}5} \approx 31{,}62$.
 - e) 3 cm $= 0{,}6$ décade : un rapport $10^{0{,}6} \approx 3{,}98$.
 
 **Erreurs fréquentes.** Oublier le facteur 5 cm par décade ; placer 5 au milieu de la décade (2,5 cm) ; répondre 1,5 ou 0,6 (des décades) au lieu des valeurs.
 
-**Variante.** La position de 300 ? *Réponse* : $5 \log_{10} 300 \approx 12{,}39$ cm.
+**Variante.** La position de 300 ? *Réponse* : $5 \log_{10} 300 \approx 12{,}4$ cm.
 
 <a id="demonstrations"></a>
 
@@ -212,7 +214,7 @@
 **Démonstration.**
 1. Par définition de $\ln$, $e^{\ln a} = a$ et $e^{\ln b} = b$. Avec $e^{u + v} = e^{u} e^{v}$ : $e^{\ln a + \ln b} = e^{\ln a} \times e^{\ln b} = ab$.
 2. Le réel $\ln a + \ln b$ a donc pour exponentielle $ab$. Or $\ln(ab)$ est **l'unique** réel dont l'exponentielle vaut $ab$ (et $ab > 0$). Donc $\ln(ab) = \ln a + \ln b$. ∎
-3. Avec 2 appliqué à $b$ et $\frac{1}{b}$ : $\ln b + \ln \frac{1}{b} = \ln\left(b \times \frac{1}{b}\right) = \ln 1 = 0$, donc $\ln \frac{1}{b} = -\ln b$. Puis $\ln \frac{a}{b} = \ln\left(a \times \frac{1}{b}\right) = \ln a + \ln \frac{1}{b} = \ln a - \ln b$.
+3. Avec 2 appliqué à $b$ et $\frac{1}{b}$ : $\ln b + \ln \frac{1}{b} = \ln\left(b \times \frac{1}{b}\right) = \ln 1 = 0$ (car $e^{0} = 1$), donc $\ln \frac{1}{b} = -\ln b$. Puis $\ln \frac{a}{b} = \ln\left(a \times \frac{1}{b}\right) = \ln a + \ln \frac{1}{b} = \ln a - \ln b$.
 4. *Initialisation* : $\ln(a^{0}) = \ln 1 = 0 = 0 \times \ln a$. *Hérédité* : si $\ln(a^{n}) = n \ln a$, alors $\ln(a^{n+1}) = \ln(a^{n} \times a) = \ln(a^{n}) + \ln a = (n + 1) \ln a$. *Conclusion* : vrai pour tout $n \ge 0$. Puis $\ln a = \ln(\sqrt{a} \times \sqrt{a}) = 2 \ln \sqrt{a}$, donc $\ln \sqrt{a} = \frac{1}{2} \ln a$.
 5. $a = b = 1$ : $\ln(1 + 1) = \ln 2 \approx 0{,}693$, mais $\ln 1 + \ln 1 = 0$.
 
@@ -227,24 +229,24 @@
 
 **Variante.** Démontre de même que $\ln(a^{-1}) = -\ln a$ sans passer par 3, en calculant $e^{-\ln a}$. *Réponse* : $e^{-\ln a} = \frac{1}{e^{\ln a}} = \frac{1}{a}$, donc $-\ln a$ est l'unique réel dont l'exponentielle vaut $\frac{1}{a}$.
 
-### Ex R6.10 — tanh(x) = 2σ(2x) − 1
+### Ex R6.10 — Les propriétés de tanh, démontrées avec exp
 
 **Démonstration.**
-1. $2\sigma(2x) - 1 = \frac{2}{1 + e^{-2x}} - \frac{1 + e^{-2x}}{1 + e^{-2x}} = \frac{1 - e^{-2x}}{1 + e^{-2x}}$.
-2. En multipliant le haut et le bas par $e^{x}$ (non nul) : $\frac{e^{x} - e^{-x}}{e^{x} + e^{-x}} = \tanh x$. Donc $\tanh x = 2\sigma(2x) - 1$ pour tout réel $x$. ∎
-3. $\tanh(-x) = 2\sigma(-2x) - 1 = 2(1 - \sigma(2x)) - 1 = 1 - 2\sigma(2x) = -(2\sigma(2x) - 1) = -\tanh x$ : tanh est impaire.
-4. $0 < \sigma(2x) < 1$, donc $0 < 2\sigma(2x) < 2$, et $-1 < 2\sigma(2x) - 1 < 1$.
-5. Avec $u = 2x$ : $\tanh \frac{u}{2} = 2\sigma(u) - 1$, donc $\sigma(u) = \frac{1 + \tanh \frac{u}{2}}{2}$.
+1. Pour tout réel $x$, $e^{x} \ne 0$ : on peut multiplier le numérateur et le dénominateur par $e^{x}$. Comme $e^{x} \times e^{x} = e^{2x}$ et $e^{x} \times e^{-x} = e^{0} = 1$ : $\tanh x = \frac{e^{2x} - 1}{e^{2x} + 1}$.
+2. $\tanh(-x) = \frac{e^{-x} - e^{x}}{e^{-x} + e^{x}} = -\frac{e^{x} - e^{-x}}{e^{x} + e^{-x}} = -\tanh x$ : échanger $x$ et $-x$ change le signe du numérateur, pas le dénominateur. tanh est impaire.
+3. Posons $u = e^{2x} > 0$. Alors $u + 1 > 0$, et $-(u + 1) < u - 1 < u + 1$ : à gauche, car $-u - 1 < u - 1 \iff 0 < 2u$ ; à droite, car $-1 < 1$. En divisant par $u + 1 > 0$ (le sens est gardé) : $-1 < \tanh x < 1$.
+4. $\tanh b - \tanh a = \frac{B - 1}{B + 1} - \frac{A - 1}{A + 1} = \frac{(B - 1)(A + 1) - (A - 1)(B + 1)}{(A + 1)(B + 1)} = \frac{2(B - A)}{(A + 1)(B + 1)}$. Si $a < b$, alors $2a < 2b$ et, exp étant strictement croissante, $A < B$ : le numérateur est positif, le dénominateur aussi. Donc $\tanh a < \tanh b$ : tanh est strictement croissante.
+5. $\tanh a + \tanh b = \frac{(A - 1)(B + 1) + (B - 1)(A + 1)}{(A + 1)(B + 1)} = \frac{2(AB - 1)}{(A + 1)(B + 1)}$ et $1 + \tanh a \tanh b = \frac{(A + 1)(B + 1) + (A - 1)(B - 1)}{(A + 1)(B + 1)} = \frac{2(AB + 1)}{(A + 1)(B + 1)}$. Leur quotient vaut $\frac{AB - 1}{AB + 1}$. Or $AB = e^{2a} e^{2b} = e^{2(a + b)}$ : d'après 1, c'est $\tanh(a + b)$. ∎
 
 **Grille de relecture.**
-- La réduction au même dénominateur est écrite, avec le dénominateur $1 + e^{-2x}$.
-- La multiplication par $e^{x}$ est justifiée ($e^{x} \ne 0$) et le calcul $e^{x} e^{-2x} = e^{-x}$ apparaît.
-- En 3, la symétrie de σ est citée au bon endroit ; en 4, les inégalités sont transformées pas à pas.
-- En 5, le changement de variable est dit.
+- En 1, la multiplication par $e^{x}$ est justifiée ($e^{x} \ne 0$) et les calculs $e^{x} e^{x} = e^{2x}$, $e^{x} e^{-x} = 1$ apparaissent.
+- En 3, la positivité de $e^{2x}$ sert deux fois : pour l'encadrement, et pour diviser sans changer le sens.
+- En 4, la différence est mise sur un seul dénominateur, le signe de chaque facteur est justifié, et la croissance de exp est citée pour passer de $a < b$ à $A < B$.
+- En 5, les deux fractions sont réduites, et $AB = e^{2(a + b)}$ est écrit avec la règle $e^{u} e^{v} = e^{u + v}$.
 
-**Erreurs fréquentes.** Partir de tanh pour arriver à $\tanh x$ ; oublier le $-1$ ; écrire $\sigma(2x) = 2\sigma(x)$.
+**Erreurs fréquentes.** Diviser une inégalité sans regarder le signe du diviseur ; en 4, conclure sur deux ou trois exemples ; en 5, écrire $e^{2a} e^{2b} = e^{4ab}$ ; partir de la formule à démontrer.
 
-**Variante.** Vérifie numériquement la relation de 5 pour $u = 5$ : $\sigma(5)$ et $\frac{1 + \tanh 2{,}5}{2}$. *Réponse* : les deux valent environ 0,9933 (calculatrice).
+**Variante.** Avec la formule de 5, exprime $\tanh(2a)$ en fonction de $t = \tanh a$, puis vérifie avec $a = 1$ ($\tanh 1 \approx 0{,}7616$). *Réponse* : $\tanh 2a = \frac{2t}{1 + t^{2}}$ ; $\frac{2 \times 0{,}7616}{1 + 0{,}5800} \approx 0{,}9640$, la valeur de $\tanh 2$.
 
 <a id="reflexion"></a>
 
@@ -252,35 +254,35 @@
 
 ### Ex R6.11 — Des produits de probabilités aux sommes de logarithmes
 
-**Réponses** : a) `0.0648` · b) `-2.7364` · c) `-0.5473` · d) `0.1681` · e) `2` · f) `-397.94` · g) `False` · h) `-916.3`.
+**Réponses** : a) `0.0648` · b) `-2.7364` · c) `-0.5473` · d) `0.1681` · e) `2` · f) `-897.5` · g) `18.8` · h) `8.17`.
 
 **Démarche.**
 - a) $0{,}9 \times 0{,}6 \times 0{,}3 \times 0{,}8 \times 0{,}5 = 0{,}0648$.
 - b) $\ln 0{,}9 + \ln 0{,}6 + \ln 0{,}3 + \ln 0{,}8 + \ln 0{,}5 \approx -0{,}105 - 0{,}511 - 1{,}204 - 0{,}223 - 0{,}693 = -2{,}736$ (c'est aussi $\ln 0{,}0648$).
 - c) $\frac{-2{,}7364}{5} \approx -0{,}5473$.
 - d) $0{,}7^{5} \approx 0{,}1681$. e) $0{,}1681 > 0{,}0648$ : le second modèle explique mieux les résultats observés.
-- f) $\log_{10}(0{,}4^{1000}) = 1000 \log_{10} 0{,}4 \approx -397{,}94$ : la vraisemblance vaut environ $10^{-397{,}9}$.
-- g) **Faux** : c'est bien plus petit que le plus petit flottant positif (de l'ordre de $10^{-308}$, fiche §5) : un `float64` donnerait 0.
-- h) $1000 \ln 0{,}4 \approx -916{,}3$, un nombre ordinaire.
+- f) $600 \ln 0{,}5 + 400 \ln 0{,}3 \approx 600 \times (-0{,}6931) + 400 \times (-1{,}2040) \approx -415{,}9 - 481{,}6 = -897{,}5$.
+- g) Pour A : $1000 \ln 0{,}4 \approx -916{,}3$. L'écart vaut $-897{,}5 - (-916{,}3) \approx 18{,}8$ (18,81 avec les valeurs non arrondies) : B est meilleur.
+- h) $\ln \frac{L_{B}}{L_{A}} = \ln L_{B} - \ln L_{A} \approx 18{,}81$, donc $\log_{10} \frac{L_{B}}{L_{A}} = \frac{18{,}81}{\ln 10} \approx 8{,}17$ : B est environ $10^{8}$ fois plus vraisemblable que A, sans qu'on ait jamais calculé ces vraisemblances.
 
-Dans ta copie : $\ln$ est strictement croissante, donc le plus grand produit a la plus grande somme de logarithmes ; et $-\ln p$ est l'information, en nats, de ce qui s'est produit : la « surprise » du modèle. Un bon modèle est peu surpris par ce qui arrive : sa somme des $-\ln p$ est petite.
+Dans ta copie : $-\ln p$ est l'information, en nats, de ce qui s'est produit, la « surprise » du modèle. Le premier modèle a été le plus surpris par le troisième résultat, auquel il donnait 0,3 : $-\ln 0{,}3 \approx 1{,}20$ nat.
 
-**Erreurs fréquentes.** Additionner les probabilités en a ; utiliser $\log_{10}$ en b et h ; oublier de diviser par 5 en c ; choisir le premier modèle parce qu'il donne 0,9 à un résultat.
+**Erreurs fréquentes.** Additionner les probabilités en a ; utiliser $\log_{10}$ en b et f ; oublier de diviser par 5 en c ; choisir le premier modèle parce qu'il donne 0,9 à un résultat ; $1000 \ln(0{,}5 \times 0{,}3)$ en f ; oublier de diviser par $\ln 10$ en h.
 
-**Variante.** Quatre résultats de probabilités 0,5 et un de 0,8 : la vraisemblance et la log-vraisemblance ? *Réponse* : $0{,}5^{4} \times 0{,}8 = 0{,}05$ ; $\ln 0{,}05 \approx -2{,}996$.
+**Variante.** Un modèle C donne 0,45 à chacun des 1 000 résultats : sa log-vraisemblance, et est-il meilleur que B ? *Réponse* : $1000 \ln 0{,}45 \approx -798{,}5 > -897{,}5$ : oui.
 
 ### Ex R6.12 — Des logarithmes au travail : TF-IDF et PSNR
 
-**Réponses** : a) `0` · b) `4.605` · c) `2.303` · d) `[9.210, 11.513]` · e) `30` · f) `3.01` · g) `6.5025`.
+**Réponses** : a) `0` · b) `4.605` · c) `2.303` · d) `[9.210, 11.513]` · e) `30` · f) `6.99` · g) `6.5025`.
 
 **Démarche.**
 - a) $\ln \frac{2000}{2000} = \ln 1 = 0$. b) $\ln 100 \approx 4{,}605$. c) $\ln 10 \approx 2{,}303$.
-- d) $2 \times 4{,}605 = 9{,}210$ et $5 \times 2{,}303 = 11{,}513$ : le mot fréquent dans le document l'emporte, malgré un idf plus petit.
+- d) $2 \ln 100 \approx 9{,}210$ et $5 \ln 10 \approx 11{,}513$ (avec l'arrondi 2,303, on trouverait 11,515 : on garde les valeurs exactes jusqu'au bout). Le mot fréquent dans le document l'emporte, malgré un idf plus petit.
 - e) $\frac{255^{2}}{65{,}025} = \frac{65\,025}{65{,}025} = 1\,000$, et $10 \log_{10} 1\,000 = 30$ dB.
-- f) Diviser la MSE par 2 multiplie le rapport par 2 : $+10 \log_{10} 2 \approx 3{,}01$ dB.
+- f) Diviser la MSE par 5 multiplie le rapport par 5 : $+10 \log_{10} 5 \approx 6{,}99$ dB.
 - g) $10 \log_{10} R = 40 \iff R = 10^{4}$, donc $\mathrm{MSE} = \frac{65\,025}{10\,000} = 6{,}5025$.
 
-Dans ta copie : un mot présent partout ne distingue aucun document (son idf vaut $\ln 1 = 0$) ; le logarithme du PSNR transforme des rapports en écarts additifs (diviser l'erreur par 10, c'est toujours +10 dB), et rend comparables des erreurs de tailles très différentes.
+Dans ta copie : un mot présent partout ne distingue aucun document (son idf vaut $\ln 1 = 0$) ; le logarithme du PSNR change les rapports en écarts : multiplier le rapport par un même nombre ajoute toujours le même nombre de décibels, quelle que soit la qualité de départ, et des erreurs de tailles très différentes deviennent comparables.
 
 **Erreurs fréquentes.** $\log_{10}$ au lieu de $\ln$ dans l'idf ; oublier le facteur 10 du PSNR ; inverser le rapport en g.
 
@@ -290,7 +292,7 @@ Dans ta copie : un mot présent partout ne distingue aucun document (son idf vau
 
 **Exemple de réponse.**
 
-> Un logarithme répond à une seule question : « à quelle puissance faut-il élever la base pour obtenir ce nombre ? ». Par exemple $\log_{10} 1\,000 = 3$, parce que $10^{3} = 1\,000$. En base 10, il compte donc à peu près les chiffres : un nombre de 5 chiffres a un $\log_{10}$ entre 4 et 5. En base 2, il compte les doublements : $\log_{2} 4\,096 = 12$, il faut doubler 12 fois 1 pour atteindre 4 096. C'est aussi le nombre de questions oui ou non pour retrouver un objet parmi 4 096, en coupant à chaque fois en deux : 12 bits. Et comme multiplier deux puissances revient à additionner leurs exposants, le logarithme d'un produit est la somme des logarithmes : il transforme les multiplications en additions.
+> Un logarithme répond à une seule question : « à quelle puissance faut-il élever la base pour obtenir ce nombre ? ». Par exemple $\log_{10} 100\,000 = 5$, parce que $10^{5} = 100\,000$. En base 10, il compte donc à peu près les chiffres : un nombre de 5 chiffres a un $\log_{10}$ entre 4 et 5. En base 2, il compte les doublements : $\log_{2} 4\,096 = 12$, il faut doubler 12 fois 1 pour atteindre 4 096. C'est aussi le nombre de questions oui ou non pour retrouver un objet parmi 4 096, en coupant à chaque fois en deux : 12 bits. Et comme multiplier deux puissances revient à additionner leurs exposants, le logarithme d'un produit est la somme des logarithmes : il transforme les multiplications en additions.
 
 **Grille.** Une bonne réponse : (1) la question « à quelle puissance… ? » avec un exemple ; (2) les chiffres pour $\log_{10}$ ; (3) les doublements, puis les questions oui ou non, pour $\log_{2}$ ; (4) le produit qui devient une somme, avec sa raison (les exposants s'additionnent) ; (5) huit lignes au plus.
 
@@ -300,15 +302,15 @@ Dans ta copie : un mot présent partout ne distingue aucun document (son idf vau
 
 ### Ex R6.14 — Un logarithme dans n'importe quelle base · `log_base`
 
-**Réponses** : a) `[6.0, -9.0]` · b) `-3.3219` · c) `"ValueError"` · d) `"ValueError"`.
+**Réponses** : a) `[6.0, -9.0]` · b) `-2.585` · c) `"ValueError"` · d) `"ValueError"`.
 
 **Démarche.** Les deux tests (`x <= 0`, puis `base <= 0 or base == 1`) lèvent une `ValueError` ; puis `return math.log(x) / math.log(base)`. Pour la copie : la base 1 donnerait $\ln 1 = 0$ au dénominateur ; aucune puissance de 1 ne vaut autre chose que 1.
 
-**Erreurs fréquentes.** Le quotient à l'envers ; oublier le test de la base 1 (`ZeroDivisionError`) ; utiliser `math.log(x, base)`, `math.log2` ou `math.log10`, que la docstring interdit.
+**Erreurs fréquentes.** Le quotient à l'envers ; oublier le test de la base 1 (`ZeroDivisionError`) ; utiliser `math.log(x, base)`, `math.log2` ou `math.log10`, que la docstring interdit (un test le vérifie).
 
 ### Ex R6.15 — Sigmoïde et tanh à partir de exp · `sigmoid`, `tanh`
 
-**Réponses** : a) `[0.5, 0.8176, 0.1824]` · b) `[True, True]` · c) `[0.0, 0.63515, -0.96403]` · d) `True` · e) `[1.0, -1.0]`.
+**Réponses** : a) `[0.5, 0.6682, 0.3318]` · b) `[True, True]` · c) `[0.0, 0.63515, -0.96403]` · d) `True` · e) `[1.0, -1.0]`.
 
 **Démarche.** `sigmoid` : `1 / (1 + math.exp(-x))`. `tanh` : `2 * sigmoid(2 * x) - 1`, ou `(a - b) / (a + b)` avec `a = math.exp(x)` et `b = math.exp(-x)`.
 
@@ -330,13 +332,13 @@ Dans ta copie : un mot présent partout ne distingue aucun document (son idf vau
 
 **Erreurs fréquentes.** `np.log` au lieu de `np.log2` ; oublier le `+ 1` en b ; `np.linspace` au lieu de `np.logspace` en d.
 
-### Ex R6.18 — Prédire : exp(800) avec math et NumPy, et le produit de 600 probabilités de 0,25
+### Ex R6.18 — Prédire : exp(800) et exp(−800), avec math et avec NumPy
 
-**Réponses** : a) `3` · b) `2` · c) `2` · d) `1` · e) `-831.8`.
+**Réponses** : a) `3` · b) `2` · c) `2` · d) `3`.
 
-**Démarche.** `math.exp(800)` lève `OverflowError` : Python s'arrête plutôt que de rendre un faux nombre. `np.exp(800.0)` rend `inf` avec une alerte (`RuntimeWarning: overflow`) et continue : sur un tableau, une case qui déborde n'arrête pas les autres. `np.prod` rend exactement `0.0`, sans alerte : le résultat le plus trompeur. La somme des logarithmes vaut $600 \ln 0{,}25 \approx -831{,}8$, un nombre ordinaire. Pour la copie : le produit de milliers de probabilités devient 0 en flottant, et deux modèles ne se distinguent plus ; leurs sommes de log-probabilités, elles, restent comparables.
+**Démarche.** `math.exp(800)` lève `OverflowError` : Python s'arrête plutôt que de rendre un faux nombre. `np.exp(800.0)` rend `inf` avec une alerte (`RuntimeWarning: overflow`) et continue : sur un tableau, une case qui déborde n'arrête pas les autres. Dans l'autre sens, $e^{-800}$ est trop petit pour un flottant : `math.exp(-800)` et `np.exp(-800.0)` rendent exactement `0.0`, sans erreur ni alerte. Pour la copie : c'est ce 0 silencieux le plus dangereux, car il ressemble à un résultat normal ; plus loin, `math.log` de ce 0 lèverait `ValueError`, et une division par lui donnerait une erreur ou `inf`, loin de la vraie cause.
 
-**Erreurs fréquentes.** Croire que Python et NumPy réagissent pareil ; attendre une erreur pour le produit trop petit ; utiliser $\log_{10}$ en e.
+**Erreurs fréquentes.** Croire que Python et NumPy réagissent pareil ; attendre une erreur ou une alerte pour le nombre trop petit, comme pour le nombre trop grand.
 
 ### Ex R6.19 — Croissances comparées : x¹⁰, 2ˣ et ln x de plus en plus loin
 

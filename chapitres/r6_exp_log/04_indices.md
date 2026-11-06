@@ -40,7 +40,7 @@ $\ln$ transforme un produit en somme et une puissance en multiplication. Une som
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $6 = 2 \times 3$, donc **vrai**. Pour 5, compare $(\ln a)^{2}$ et $\ln(a^{2})$ avec $a = e$. Pour 7, regarde la courbe de ln entre 0 et 1.
+1 : $6 = 2 \times 3$, donc **vrai**. Pour 2, que vaut $\ln 2 + \ln 3$ ? Pour 5, compare $(\ln a)^{2}$ et $\ln(a^{2})$ avec $a = e$. Pour 7, regarde la courbe de ln entre 0 et 1.
 
 </details>
 
@@ -58,7 +58,7 @@ $k$ réponses oui ou non distinguent $2^{k}$ possibilités ; un événement de p
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $2^{4} = 16$, donc 4 questions. Pour 2, cherche la plus petite puissance de 2 au-dessus d'un million. Pour 6, une quantité en bits multipliée par 0,693 donne des nats.
+1 : $2^{4} = 16$, donc 4 questions. Pour 2, cherche la plus petite puissance de 2 au-dessus d'un million. Pour 6, convertis 4 bits en nats et compare les deux nombres.
 
 </details>
 
@@ -112,7 +112,7 @@ $\sigma(0) = \frac{1}{2}$, $0 < \sigma(x) < 1$, $\sigma(-x) = 1 - \sigma(x)$ ; t
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $\frac{1}{1 + e^{0}} = \frac{1}{2}$. Pour 3, utilise la symétrie. Pour 4, σ est croissante : compare $\sigma(x)$ à $\sigma(0)$.
+1 : $\sigma(0) = \frac{1}{1 + e^{0}}$, calcule-le. Pour 3, essaie $x = 1$ : $\sigma(-1)$ peut-il être négatif ? Pour 4, σ est croissante : compare $\sigma(x)$ à $\sigma(0)$.
 
 </details>
 
@@ -165,7 +165,7 @@ Relis « Notation scientifique » (fiche de R1, §6).
 </details>
 <details><summary>Indice 2</summary>
 
-$a \times 10^{k}$ avec $1 \le a < 10$ ; on multiplie les mantisses et on additionne les exposants.
+$a \times 10^{k}$ avec $1 \le a < 10$ ; pour un quotient, on divise les mantisses et on soustrait les exposants.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -192,7 +192,7 @@ Produit : on additionne les exposants ; quotient : on les soustrait ; puissance 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $4 + (-1{,}5) = 2{,}5$. Pour e, la racine cubique de 8 est 2. Pour g, $(e^{x})^{3} = e^{3x}$, puis soustrais tout l'exposant $x - 2$.
+a : $4 + (-1{,}5) = 2{,}5$. Pour e, la racine quatrième de 16 est 2. Pour g, $(e^{x})^{3} = e^{3x}$, puis soustrais tout l'exposant $x - 2$. Pour h, on demande un nombre, pas un exposant.
 
 </details>
 
@@ -210,7 +210,7 @@ $\ln(e^{y}) = y$, $e^{\ln x} = x$ ; $\ln a + \ln b = \ln(ab)$, $k \ln a = \ln(a^
 </details>
 <details><summary>Indice 3</summary>
 
-a : $5 - 2 = 3$. Pour c, $2 \ln 3 = \ln 9$. Pour h, $0{,}75 = \frac{3}{4} = \frac{3}{2^{2}}$.
+a : $3\ln(e^{2}) = 3 \times 2$. Pour c, $2 \ln 3 = \ln 9$. Pour f, $e^{u - v} = \frac{e^{u}}{e^{v}}$. Pour h, $0{,}75 = \frac{3}{4} = \frac{3}{2^{2}}$. Écris g et h avec les lettres $a$ et $b$.
 
 </details>
 
@@ -228,7 +228,7 @@ Isole l'exponentielle, puis prends ln (ou isole ln, puis prends exp). Pour $a^{n
 </details>
 <details><summary>Indice 3</summary>
 
-a : $x = \ln 15$. Pour f, $\ln 0{,}85 < 0$. Pour g, il faut $x - 1 > 0$ et $x - 1 \le 1$. Pour h, $X^{2} - 5X + 6 = 0$ a deux racines positives.
+a : $4e^{x} = 20$, donc $e^{x} = 5$. Pour d, il faut $x - 1 > 0$ et $x + 1 > 0$ ; puis $\ln a + \ln b = \ln(ab)$. Pour f, $\ln 0{,}85 < 0$. Pour g, il faut $x - 1 > 0$ et $x - 1 \le 1$. Pour h, $X^{2} - 5X + 6 = 0$ a deux racines positives.
 
 </details>
 
@@ -246,7 +246,7 @@ Cherche d'abord un exposant entier ($b^{y} = x$) ; sinon, $\log_{b} x = \frac{\l
 </details>
 <details><summary>Indice 3</summary>
 
-a : $2^{9} = 512$. Pour e, $\frac{\ln 30}{\ln 5}$. Pour h, écris 4 et 8 comme des puissances de 2.
+a : $2^{9} = 512$. Pour b, une somme de logarithmes est le logarithme d'un produit. Pour e, $\frac{\ln 30}{\ln 5}$. Pour h, écris 4 et 8 comme des puissances de 2.
 
 </details>
 
@@ -259,12 +259,12 @@ Relis « Combien de questions oui ou non ? Les bits » (fiche §4).
 </details>
 <details><summary>Indice 2</summary>
 
-Questions : le plus petit $k$ tel que $2^{k} \ge N$. Information : $-\log_{2} p$ bits, ou $-\ln p$ nats ; les informations d'événements indépendants s'additionnent ; bits × ln 2 = nats.
+Questions : le plus petit $k$ tel que $2^{k} \ge N$. Information : $\log_{2} N$ bits pour un choix parmi $N$ possibilités également probables, $-\log_{2} p$ bits ou $-\ln p$ nats pour un événement de probabilité $p$ ; bits × ln 2 = nats.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $2^{8} = 256 < 300 \le 2^{9}$. Pour d, multiplie par $\ln 2$. Pour g, $-\ln p = 3$.
+a : $2^{8} = 256 < 300 \le 2^{9}$. Pour c, combien de codes de 3 lettres y a-t-il ? Pour d, chaque lettre apporte $\log_{2} 26$ bits. Pour f, $p = \frac{12}{52}$. Pour g, $-\ln p = 3$.
 
 </details>
 
@@ -282,25 +282,25 @@ Doublement : $(1 + r)^{n} = 2$ ; demi-vie : $(1 - r)^{n} = \frac{1}{2}$ ; un fac
 </details>
 <details><summary>Indice 3</summary>
 
-a : $\frac{\ln 2}{\ln 1{,}03}$. Pour d, $m = 2^{1/5}$. Pour g, combien de demi-vies tiennent dans 24 heures ?
+a : $\frac{\ln 2}{\ln 1{,}03}$. Pour d, $m$ est la racine cinquième de 2. Pour e, 12 heures font $\frac{12}{5}$ périodes de 5 heures. Pour g, combien de demi-vies tiennent dans 24 heures ?
 
 </details>
 
-### Ex R6.7 — Sigmoïde et logit : la symétrie σ(−x) = 1 − σ(x), la cote et la log-cote
+### Ex R6.7 — La cote et le logit : d'une probabilité à un score, et retour
 
 <details><summary>Indice 1</summary>
 
-Relis le §7, de « La sigmoïde » à « La cote, le logit ».
+Relis « La cote, le logit : remonter de la probabilité au score » (fiche §7).
 
 </details>
 <details><summary>Indice 2</summary>
 
-$e^{-\ln 3} = \frac{1}{3}$ ; $\sigma(-x) = 1 - \sigma(x)$ ; cote $\frac{p}{1 - p}$, logit $\ln \frac{p}{1 - p}$ ; ajouter $\ln k$ au logit multiplie la cote par $k$.
+Cote $\frac{p}{1 - p}$, logit $\ln \frac{p}{1 - p}$ (le logarithme de la cote) ; la sigmoïde fait le chemin inverse, du score à la probabilité ; ajouter $\ln k$ au logit multiplie la cote par $k$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $\sigma(\ln 3) = \frac{1}{1 + \frac{1}{3}}$. Pour g, le logit de 0,2. Pour h, la cote de 0,2 est $\frac{1}{4}$ : multiplie-la par 6, puis repasse en probabilité.
+a : $\frac{0{,}95}{0{,}05}$. Pour c, résous $\frac{p}{1 - p} = \frac{3}{7}$. Pour f, écris la cote de $1 - p$ à l'aide de celle de $p$. Pour g, la cote est l'exponentielle du logit. Pour h, la cote de 0,2 est $\frac{1}{4}$ : multiplie-la par 6, puis repasse en probabilité.
 
 </details>
 
@@ -318,7 +318,7 @@ Position (en cm) = 5 × $\log_{10}$ (valeur) ; valeur = $10^{\text{position} / 5
 </details>
 <details><summary>Indice 3</summary>
 
-a : $5 \times \log_{10} 100 = 10$ cm. Pour d, $7{,}5$ cm font 1,5 décade. Pour e, 3 cm font 0,6 décade.
+a : $\log_{10} 100 = 2$ décades. Pour c, $\log_{10} 5 \approx 0{,}699$. Pour d et e, convertis d'abord les centimètres en décades (5 cm par décade).
 
 </details>
 
@@ -335,7 +335,7 @@ Relis la définition de ln (fiche §3) : « l'unique réel $y$ tel que $e^{y} = 
 </details>
 <details><summary>Indice 2</summary>
 
-Montre que le nombre $\ln a + \ln b$ a la propriété qui définit $\ln(ab)$ : son exponentielle vaut $ab$. L'unicité fait le reste.
+Montre que le nombre $\ln a + \ln b$ a la propriété qui définit $\ln(ab)$ : son exponentielle vaut $ab$. L'unicité fait le reste. Pour 3, $\ln 1 = 0$ vient de $e^{0} = 1$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -344,21 +344,21 @@ $e^{\ln a + \ln b} = e^{\ln a} \times e^{\ln b} = a b$ : donc $\ln a + \ln b$ es
 
 </details>
 
-### Ex R6.10 — tanh(x) = 2σ(2x) − 1
+### Ex R6.10 — Les propriétés de tanh, démontrées avec exp
 
 <details><summary>Indice 1</summary>
 
-Relis les définitions de σ et de tanh (fiche §7).
+Relis la définition de tanh (fiche §7) et les règles de exp (fiche §2) : $e^{x} e^{x} = e^{2x}$, $e^{x} e^{-x} = 1$, $e^{u} > 0$.
 
 </details>
 <details><summary>Indice 2</summary>
 
-$2\sigma(2x) - 1 = \frac{2}{1 + e^{-2x}} - 1$ : réduis au même dénominateur, puis multiplie en haut et en bas par $e^{x}$.
+Avec l'écriture $\frac{e^{2x} - 1}{e^{2x} + 1}$, tout se ramène à des fractions en $A = e^{2a}$ et $B = e^{2b}$, deux nombres positifs. Pour 3, encadre $u - 1$ entre $-(u + 1)$ et $u + 1$, avec $u = e^{2x}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-$\frac{2 - (1 + e^{-2x})}{1 + e^{-2x}} = \frac{1 - e^{-2x}}{1 + e^{-2x}}$ ; et $e^{x} \times e^{-2x} = e^{-x}$. Pour 3, écris $\tanh(-x) = 2\sigma(-2x) - 1$ et utilise la symétrie.
+Pour 4, développe $(B - 1)(A + 1) - (A - 1)(B + 1)$ : il reste un multiple de $B - A$. Pour 5, réduis séparément le numérateur et le dénominateur de la formule au même dénominateur $(A + 1)(B + 1)$, puis simplifie.
 
 </details>
 
@@ -375,12 +375,12 @@ Relis « Les log-probabilités » (fiche §3) et les limites des flottants (fich
 </details>
 <details><summary>Indice 2</summary>
 
-Vraisemblance : un produit ; log-vraisemblance : la somme des logarithmes ; pour f, $\log_{10}(0{,}4^{1000}) = 1000 \log_{10} 0{,}4$.
+Vraisemblance : un produit ; log-vraisemblance : la somme des logarithmes. Un même facteur répété $n$ fois devient $n$ fois son logarithme.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $0{,}9 \times 0{,}6 \times 0{,}3 \times 0{,}8 \times 0{,}5$. Pour d, $0{,}7^{5}$. Pour g, compare f à l'exposant du plus petit flottant positif.
+a : $0{,}9 \times 0{,}6 \times 0{,}3 \times 0{,}8 \times 0{,}5$. Pour d, cinq fois le même facteur. Pour f, deux groupes de résultats, chacun avec son logarithme. Pour h, le logarithme d'un rapport est une différence de logarithmes, puis change de base.
 
 </details>
 
@@ -393,12 +393,12 @@ Relis l'énoncé (les deux formules), puis « Les décibels » (fiche §6).
 </details>
 <details><summary>Indice 2</summary>
 
-idf $= \ln \frac{2000}{\mathrm{df}}$ ; tf-idf $=$ tf × idf ; PSNR $= 10 \log_{10} \frac{255^{2}}{\mathrm{MSE}}$. Diviser la MSE par 2 multiplie le rapport par 2.
+idf $= \ln \frac{2000}{\mathrm{df}}$ ; tf-idf $=$ tf × idf ; PSNR $= 10 \log_{10} \frac{255^{2}}{\mathrm{MSE}}$. Diviser la MSE par un nombre multiplie le rapport par ce nombre.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $\ln 1 = 0$. Pour e, $\frac{255^{2}}{65{,}025} = 1\,000$. Pour g, résous $10 \log_{10} R = 40$, puis $\mathrm{MSE} = \frac{255^{2}}{R}$.
+a : que vaut $\frac{N}{\mathrm{df}}$ ici ? Pour d, garde les valeurs non arrondies de b et c. Pour e, calcule d'abord le rapport $\frac{255^{2}}{65{,}025}$. Pour g, trouve d'abord le rapport $R$ tel que $10 \log_{10} R = 40$.
 
 </details>
 
@@ -416,7 +416,7 @@ Pars de la question « à quelle puissance faut-il élever 10 (ou 2) pour obteni
 </details>
 <details><summary>Indice 3</summary>
 
-Par exemple : $\log_{10} 1\,000 = 3$ (trois zéros) ; $\log_{2} 4\,096 = 12$ (douze doublements depuis 1, ou douze questions oui ou non pour trouver un nombre parmi 4 096).
+Par exemple : $\log_{10} 100\,000 = 5$ (cinq zéros) ; $\log_{2} 4\,096 = 12$ (douze doublements depuis 1, ou douze questions oui ou non pour trouver un nombre parmi 4 096).
 
 </details>
 
@@ -463,7 +463,7 @@ Relis les définitions de σ et de tanh (fiche §7), et R6.10.
 </details>
 <details><summary>Indice 3</summary>
 
-`sigmoid` : `return 1 / (1 + math.exp(-x))`. Pour `tanh`, calcule d'abord `a = math.exp(x)` et `b = math.exp(-x)`, puis le quotient.
+Dans `sigmoid`, le dénominateur est `1 + math.exp(...)` : quel argument donner à `math.exp` ? Pour `tanh`, calcule d'abord `a = math.exp(x)` et `b = math.exp(-x)`, puis le quotient de la fiche.
 
 </details>
 
@@ -504,25 +504,25 @@ Chaque réponse est un appel de fonction sur le tableau entier, sans boucle. Pou
 </details>
 <details><summary>Indice 3</summary>
 
-a : `np.log2(values_a)`. Pour b, `np.floor(np.log10(values_b)) + 1`. Pour d, `np.logspace(-4, 0, 5)`.
+a : `np.log2(values_a)`. Pour b, la partie entière d'un logarithme (`np.floor`), plus 1. Pour d, relis la signature `np.logspace(a, b, n)` : quels exposants ?
 
 </details>
 
-### Ex R6.18 — Prédire : exp(800) avec math et NumPy, et le produit de 600 probabilités de 0,25
+### Ex R6.18 — Prédire : exp(800) et exp(−800), avec math et avec NumPy
 
 <details><summary>Indice 1</summary>
 
-Relis les limites des flottants (fiche §5) et « Les log-probabilités » (fiche §3).
+Relis les limites des flottants (fiche §5).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque calcul, demande-toi d'abord si le résultat existe en flottant ; puis, s'il n'existe pas, si l'outil préfère s'arrêter ou continuer avec une valeur spéciale.
+Pour chaque calcul, demande-toi d'abord si le résultat existe en flottant ; puis, s'il n'existe pas, si l'outil préfère s'arrêter ou continuer avec une valeur approchée.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Pour d, calcule $\ln 0{,}25$ : est-ce un nombre ordinaire ? Et 600 fois ce nombre ?
+Un nombre trop grand et un nombre trop petit ne posent pas le même problème : le plus proche flottant d'un nombre minuscule, quel est-il ? Et vaut-il la peine d'arrêter un calcul pour lui ? Écris ta prédiction, même incertaine : l'expérience tranchera.
 
 </details>
 
@@ -540,7 +540,7 @@ Relis « Qui gagne à la fin ? » (fiche §5).
 </details>
 <details><summary>Indice 3</summary>
 
-`gap = n * math.log(2) - 10 * np.log(n)`. Pour a, `(gap <= 0).sum()`. Pour e, $\ln k > 15 \iff k > e^{15}$.
+`gap` combine `n`, `math.log(2)` et `np.log(n)`, comme dans la formule. Pour a, un tableau de booléens se compte avec `.sum()`. Pour b et d, `np.nonzero` donne des **positions** : lis ensuite la valeur de `n` (ou de `t`) à la position voulue. Pour e, $\ln k > 15 \iff k > e^{15}$.
 
 </details>
 
@@ -558,13 +558,7 @@ Un `axes[k].plot(steps, counts, "o")` par axe, `axes[1].set_yscale("log")`, un t
 </details>
 <details><summary>Indice 3</summary>
 
-Squelette :
-```python
-axes[0].plot(steps, counts, "o")
-axes[0].set_title("...")
-axes[1].plot(steps, counts, "o")
-axes[1].set_yscale("log")
-```
+Dans `axes[1]`, trace les comptages eux-mêmes (pas leurs logarithmes) : c'est l'axe qui devient logarithmique. Pour b, une décade divisée par la pente de a.
 
 </details>
 

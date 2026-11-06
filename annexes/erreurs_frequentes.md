@@ -111,7 +111,7 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Le logarithme d'un nombre négatif ou nul | $\ln(-1)$ | $\ln$ n'est défini que pour $x > 0$ |
 | Multiplier les exposants d'un produit | $e^{2x} \times e^{3} = e^{6x}$ | on les additionne : $e^{2x + 3}$ |
 | Additionner les exposants d'une puissance | $(e^{3})^{2} = e^{5}$ | on les multiplie : $e^{6}$ |
-| Lire un exposant fractionnaire comme un produit | $8^{2/3} = 8 \times \frac{2}{3}$ | la racine cubique, puis le carré : 4 |
+| Lire un exposant fractionnaire comme un produit | $27^{2/3} = 27 \times \frac{2}{3}$ | la racine cubique, puis le carré : 9 |
 | Un exposant négatif rend négatif | $27^{-1/3} = -3$ | il donne l'inverse : $\frac{1}{3}$ |
 | Le carré d'un logarithme | $(\ln a)^2 = 2 \ln a$ | c'est $\ln(a^2)$ qui vaut $2 \ln a$ |
 | Le logarithme d'un quotient | $\ln \frac{a}{b} = \frac{\ln a}{\ln b}$ | $\ln a - \ln b$ |

@@ -47,29 +47,35 @@ def _expect_value_error(call, what, why):
 
 
 def test_explog_uses_only_exp_and_log(explog):
-    """The docstring allows math.exp and math.log, not the ready-made tanh, log2 or log10 (math, NumPy, SciPy)."""
+    """The docstring allows math.exp and math.log with one argument (ln), not the ready-made tanh, log2, log10, the
+    sigmoid of SciPy, nor math.log(x, base), which is log_base itself. math.log1p, ln(1 + x) computed precisely, is
+    allowed (R6.22)."""
     try:
         tree = ast.parse(inspect.getsource(explog))
     except (OSError, TypeError, SyntaxError):   # source not readable: nothing to check
         return
-    forbidden = {"tanh", "log2", "log10", "expit", "logit", "log1p", "sinh", "cosh"}
+    forbidden = {"tanh", "log2", "log10", "expit", "logit", "sinh", "cosh"}
+    log_names = {alias.asname or alias.name for node in ast.walk(tree)        # from math import log (as ln)
+                 if isinstance(node, ast.ImportFrom) and node.module == "math"
+                 for alias in node.names if alias.name == "log"}
     used = set()
     for node in ast.walk(tree):
         if isinstance(node, ast.Attribute) and node.attr in forbidden:
             used.add(f"{getattr(node.value, 'id', '?')}.{node.attr}")
         elif isinstance(node, ast.ImportFrom) and any(alias.name in forbidden for alias in node.names):
             used.update(f"{node.module}.{alias.name}" for alias in node.names if alias.name in forbidden)
-        elif isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute) and node.func.attr == "log" \
-                and len(node.args) + len(node.keywords) > 1:
+        elif isinstance(node, ast.Call) and len(node.args) + len(node.keywords) > 1 and (
+                (isinstance(node.func, ast.Attribute) and node.func.attr == "log")
+                or (isinstance(node.func, ast.Name) and node.func.id in log_names)):
             used.add("math.log(x, base)")
     assert not used, (
-        f"expected explog.py to use only math.exp and math.log(x), not {', '.join(sorted(used))}: the docstring asks "
-        "you to write these functions with exp and ln yourself")
+        f"expected explog.py to use only math.exp and math.log(x) with one argument, not {', '.join(sorted(used))}: "
+        "the docstring asks you to write these functions with exp and ln yourself")
 
 
 # ---------------------------------------------------------------- log_base
 LOGS = [(8, 2, 3.0, "the docstring example"), (729, 3, 6.0, "an exact power of 3"), (0.0625, 2, -4.0, "a power of 1/2"),
-        (1, 7, 0.0, "the logarithm of 1 is 0 in every base"), (10, 0.5, -math.log2(10), "a base below 1"),
+        (1, 7, 0.0, "the logarithm of 1 is 0 in every base"), (20, 0.5, -math.log2(20), "a base below 1"),
         (1e-6, 10, -6.0, "a negative power of 10"), (math.e, math.e, 1.0, "log_e(e) = 1")]
 
 
@@ -187,7 +193,8 @@ def test_doubling_time_doubles(explog, rate, exact, why):
 def test_doubling_time_is_close_to_the_rule_of_70_for_small_rates(explog):
     got = _result(lambda: explog.doubling_time(0.01), "about 70 periods for +1 %")
     assert got == pytest.approx(math.log(2) / math.log(1.01), rel=1e-12), (
-        f"expected doubling_time(0.01) ≈ {math.log(2) / math.log(1.01)} (rule of 70: about 70 periods), got {got!r}")
+        f"expected doubling_time(0.01) ≈ {math.log(2) / math.log(1.01)} (the exact value ln 2 / ln 1.01, close to "
+        f"the 70 periods of the rule of 70), got {got!r}")
 
 
 @pytest.mark.parametrize("rate", [0, -0.1], ids=["zero", "negative"])

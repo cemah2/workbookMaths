@@ -32,59 +32,72 @@ PAPER = [
         ("a", "a number", "2.5",
          'decimals=2, mistakes={"multiplier des puissances de e, c\'est additionner les exposants, pas les multiplier": '
          '-6, "l\'exposant −1,5 est négatif : on l\'ajoute avec son signe": 5.5}'),
-        ("b", "a number", "2.0",
-         'decimals=2, mistakes={"(e³)² = e^(3 × 2) : une puissance de puissance multiplie les exposants": 1, '
-         '"diviser des puissances de e, c\'est soustraire les exposants": 1.5}'),
-        ("c", "an expression in x, as text", '"x + 1"',
+        ("b", "a number", "1.0",
+         'decimals=2, mistakes={"une puissance de puissance multiplie les exposants, elle ne les additionne pas": 2, '
+         '"diviser des puissances de e, c\'est soustraire les exposants, pas les diviser": 7 / 6}'),
+        ("c", "an expression in x, as text", '"2 - 2*x"',
          'kind="expr", variables=("x",), mistakes={"multiplier des puissances, c\'est additionner les exposants": '
-         '"2*x*(1 - x)", "le signe moins de 1 − x porte sur x : 2x + 1 − x": "3*x + 1"}'),
+         '"3*x*(2 - 5*x)", "l\'exposant 2 − 5x garde son signe moins : additionne-le tel quel": "8*x + 2", '
+         '"tous les termes des deux exposants s\'additionnent, le nombre seul compris": "-2*x"}'),
         ("d", "an expression in x, as text", '"2*x + 3"',
          'kind="expr", variables=("x",), mistakes={"multiplier des puissances de 2, c\'est additionner les exposants": '
          '"x*(x + 3)"}'),
-        ("e", "an integer", "4.0",
-         'decimals=2, mistakes={"8^(2/3) n\'est pas 8 × 2/3 : la racine cubique de 8, puis au carré": 16 / 3, '
-         '"8^(2/3) : la racine cubique de 8, mise au carré (pas la racine carrée)": 8 ** (1 / 3)}'),
-        ("f", "a fraction, as text", "Fraction(1, 3)",
-         'kind="fraction", mistakes={"un exposant négatif donne l\'inverse, pas un nombre négatif": "-3", '
-         '"27^(−1/3) : la racine cubique de 27, puis son inverse": "3", '
-         '"un exposant négatif donne un nombre positif : l\'inverse": "-1/3"}'),
+        ("e", "an integer", "8.0",
+         'decimals=2, mistakes={"16^(3/4) n\'est pas 16 × 3/4 : un exposant fractionnaire est une racine, puis une '
+         'puissance": 12, "le dénominateur 4 de l\'exposant demande la racine quatrième, pas la racine carrée": 64, '
+         '"le dénominateur de l\'exposant donne la racine, le numérateur la puissance : pas l\'inverse": 16 ** (4 / 3)}'),
+        ("f", "a fraction, as text", "Fraction(1, 5)",
+         'kind="fraction", mistakes={"un exposant négatif donne l\'inverse, pas un nombre négatif": "-5", '
+         '"le signe moins de l\'exposant demande l\'inverse du résultat": "5", '
+         '"un exposant négatif donne un nombre positif : l\'inverse": "-1/5"}'),
         ("g", "an expression in x, as text", '"2*x + 2"',
-         'kind="expr", variables=("x",), mistakes={"(eˣ)³ = e^(3x) ; diviser, c\'est soustraire les exposants": '
-         '"4*x - 2", "on soustrait tout l\'exposant x − 2 : 3x − (x − 2) = 3x − x + 2": "2*x - 2"}'),
-        ("h", "an integer", "1", 'mistakes={"(√e)⁴ = e², puis e² × e⁻² = e⁰ ; et e⁰ vaut 1": 0}'),
+         'kind="expr", variables=("x",), mistakes={"diviser, c\'est soustraire les exposants, pas les additionner": '
+         '"4*x - 2", "on soustrait tout l\'exposant x − 2 : mets-le entre parenthèses": "2*x - 2"}'),
+        ("h", "an integer", "1", 'mistakes={"la question demande la valeur du nombre, pas son exposant": 0}'),
     ]),
     Paper("R6.2", "Simplifier avec les propriétés de ln", [
-        ("a", "an integer", "3.0",
-         'decimals=2, mistakes={"ln(e⁵) = 5 et ln(e²) = 2 : on les soustrait, on ne les divise pas": 2.5}'),
-        ("b", "an integer", "25",
-         'mistakes={"ln a − ln b = ln(a / b)": {48, 52}, "ln a − ln b = ln(a / b), pas ln(a × b)": 100}'),
+        ("a", "an integer", "2.0",
+         'decimals=2, mistakes={"on soustrait les deux logarithmes, on ne les divise pas": 1.5, '
+         '"3 ln(e²) est 3 fois ln(e²), pas 3 + ln(e²)": 1}'),
+        ("b", "an integer", "5",
+         'mistakes={"ln a − ln b = ln(a / b), pas ln(a − b)": 53, '
+         '"soustraire des logarithmes, c\'est diviser, pas multiplier": 720, '
+         '"les deux logarithmes sont soustraits : on divise par l\'un et par l\'autre": 45}'),
         ("c", "an integer", "36",
-         'mistakes={"2 ln 3 = ln(3²), puis ln a + ln b = ln(a × b)": {10, 13}, "2 ln 3 = ln(3²) = ln 9, pas ln 6": 24}'),
-        ("d", "a fraction, as text", "Fraction(5, 2)",
-         'kind="fraction", mistakes={"√e = e^(1/2) : diviser, c\'est soustraire son exposant": "7/2", '
-         '"ln(a / b) = ln a − ln b, pas ln a ÷ ln b": "6"}'),
+         'mistakes={"2 ln 3 = ln(3²), puis ln a + ln b = ln(a × b)": {10, 13}, "2 ln 3 = ln(3²), pas ln(2 × 3)": 24}'),
+        ("d", "a fraction, as text", "Fraction(-5, 2)",
+         'kind="fraction", mistakes={"ln(a / b) = ln a − ln b, pas ln a ÷ ln b": "1/6", '
+         '"diviser des puissances de e, c\'est soustraire les exposants, pas les additionner": "7/2", '
+         '"celui du numérateur moins celui du dénominateur : vérifie le signe": "5/2"}'),
         ("e", "an integer", "20", 'mistakes={"e^(ln 4 + ln 5) = e^(ln 4) × e^(ln 5) : un produit": 9}'),
-        ("f", "an integer", "9", 'mistakes={"2 ln 3 = ln(3²) : e^(ln 9)": 6}'),
-        ("g", "an expression in a and b, as text", '"a + 2*b"',
-         'kind="expr", variables=("a", "b"), mistakes={"18 = 2 × 3² : ln 2 + 2 ln 3": "2*a + b", '
-         '"ln(xy) = ln x + ln y, pas ln x × ln y": "a*b**2"}'),
-        ("h", "an expression in a and b, as text", '"b - 2*a"',
-         'kind="expr", variables=("a", "b"), mistakes={"0,75 = 3/4 : ln 3 − ln 4, et 4 = 2²": "b - a", '
-         '"ln(3/4) = ln 3 − ln 4 : le numérateur moins le dénominateur": "2*a - b"}'),
+        ("f", "an integer", "2.0",
+         'decimals=2, mistakes={"e^(u − v) = e^u / e^v : un quotient, pas une différence": 4, '
+         '"3 ln 2 = ln(2³), pas ln(3 × 2)": 1.5, "e^(u − v) est un quotient, pas un produit": 32}'),
+        ("g", "an expression in a and b (not ln), as text", '"a + 2*b"',
+         'kind="expr", variables=("a", "b"), mistakes={"2a + b vaut ln 12 : vérifie ta décomposition de 18 en facteurs '
+         'premiers": "2*a + b", "ln(xy) = ln x + ln y, pas ln x × ln y": "a*b**2", '
+         '"écris ta réponse avec les lettres a et b, pas avec ln": "log(2) + 2*log(3)"}'),
+        ("h", "an expression in a and b (not ln), as text", '"b - 2*a"',
+         'kind="expr", variables=("a", "b"), mistakes={"b − a vaut ln(3/2) : vérifie la décomposition du dénominateur": '
+         '"b - a", "le logarithme d\'un quotient est celui du numérateur moins celui du dénominateur": "2*a - b", '
+         '"écris ta réponse avec les lettres a et b, pas avec ln": "log(3) - 2*log(2)"}'),
     ]),
     Paper("R6.3", "Équations et inéquations avec exp et ln", [
-        ("a", "a number (2 decimals)", "round(math.log(15), 2)",
-         'decimals=2, mistakes={"eˣ = c ⟺ x = ln c : le logarithme népérien, pas le décimal": round(math.log10(15), 2), '
-         '"eˣ = c ⟺ x = ln c : pas e^c": round(math.exp(15), 2)}'),
-        ("b", "a number (2 decimals)", "round((1 + math.log(6)) / 2, 2)",
-         'decimals=2, mistakes={"2x − 1 = ln 6 : ajoute 1 avant de diviser par 2": round(math.log(6) / 2 + 1, 2), '
-         '"2x − 1 = ln 6 : on ajoute 1 aux deux membres, on ne le retire pas": round((math.log(6) - 1) / 2, 2), '
-         '"2x − 1 = ln 6, puis isole x : la division porte sur 1 + ln 6": round(math.log(6) / 2, 2)}'),
+        ("a", "a number (2 decimals)", "round(math.log(5), 2)",
+         'decimals=2, mistakes={"isole d\'abord eˣ : retire 1, puis divise par 4, et seulement ensuite prends ln": '
+         'round(math.log(20) / 4, 2), "isole eˣ en entier : il reste à diviser par 4": round(math.log(20), 2), '
+         '"eˣ = c ⟺ x = ln c : le logarithme népérien, pas le décimal": round(math.log10(5), 2)}'),
+        ("b", "a number (2 decimals)", "round((1 - math.log(6)) / 2, 2)",
+         'decimals=2, mistakes={"1 − 2x = ln 6 : il reste à diviser par −2 les deux membres": round(1 - math.log(6), 2), '
+         '"1 − 2x = ln 6 : retire 1 aux deux membres, puis divise par −2": round((1 + math.log(6)) / 2, 2)}'),
         ("c", "a number (2 decimals)", "round(math.exp(2.5), 2)",
-         'decimals=2, mistakes={"ln x = c ⟺ x = e^c": round(math.log(2.5), 2), '
-         '"x = e^2,5, pas 2,5 × e": round(2.5 * math.e, 2)}'),
-        ("d", "a number", "1.0",
-         'decimals=4, mistakes={"ln 1 = 0 : l\'équation donne 3x − 2 = 1, pas 3x − 2 = 0": 2 / 3}'),
+         'decimals=2, mistakes={"ln x = c ⟺ x = e^c : on défait ln avec exp": round(math.log(2.5), 2), '
+         '"x = e^c est une puissance de e, pas un produit": round(2.5 * math.e, 2), '
+         '"isole ln x : retire 1, puis divise par 2": round(math.exp(3.5), 2), '
+         '"divise par 2 avant d\'appliquer exp : 2 ln x + 1 = 6 donne d\'abord ln x": round(math.exp(5) / 2, 2)}'),
+        ("d", "an integer", "3",
+         'mistakes={"pour cette valeur, x − 1 est négatif : ln(x − 1) n\'y est pas défini": -3, '
+         '"tu as trouvé x², pas x": 9, "ln a + ln b = ln(ab), pas ln(a + b)": 4}'),
         ("e", "an integer", "next(n for n in range(100) if 5 * 1.04**n > 8)",
          'fractional="un nombre de périodes entier : le premier entier qui convient, pas un arrondi", '
          'mistakes={"calcule 5 × 1,04ⁿ pour ce n : il ne dépasse pas encore 8": 11}'),
@@ -96,30 +109,33 @@ PAPER = [
          '"en x = 1, ln(x − 1) = ln 0 n\'existe pas : la borne est exclue": "[1 ; 2]", '
          '"ln(x − 1) ≤ 0 inclut l\'égalité ln(x − 1) = 0": "]1 ; 2[", '
          '"ln(x − 1) ≤ 0 ⟺ 0 < x − 1 ≤ 1 : on ajoute 1": "]0 ; 1]"}'),
-        ("h", "a list (4 decimals)", "[math.log(2), math.log(3)]",
-         'decimals=4, ordered=False, mistakes={"X = eˣ : il reste à revenir à x, avec x = ln X": [2, 3], '
+        ("h", "a list in increasing order (4 decimals)", "[math.log(2), math.log(3)]",
+         'decimals=4, mistakes={"X = eˣ : il reste à revenir à x, avec x = ln X": [2, 3], '
          '"X² − 5X + 6 = 0 a deux solutions positives : deux valeurs de x": [math.log(2)]}'),
     ]),
     Paper("R6.4", "Changer de base : log₂, log₁₀, ln", [
         ("a", "an integer", "9",
          'mistakes={"log₂ 512 est l\'exposant y tel que 2^y = 512, pas un quotient": 256, '
-         '"compte les doublements depuis 1 : un de plus": 8}'),
-        ("b", "an integer", "-4",
-         'mistakes={"0,0001 = 10^(−4) : un nombre entre 0 et 1 a un logarithme négatif": 4, '
-         '"compte les décimales de 0,0001 : 1 est à la 4ᵉ place": {-3, -5}}'),
-        ("c", "an integer", "4", 'mistakes={"log₃ 81 est l\'exposant y tel que 3^y = 81, pas un quotient": 27}'),
-        ("d", "an integer", "-7", 'mistakes={"1/128 = 2^(−7) : un logarithme négatif": 7}'),
+         '"vérifie : 2 puissance ta réponse doit redonner 512": 8}'),
+        ("b", "an integer", "2.0",
+         'decimals=3, mistakes={"une somme de logarithmes est le logarithme du produit, pas de la somme": '
+         'round(math.log10(29), 3), "tu as trouvé le produit : il reste à en prendre le log₁₀": 100, '
+         '"log a + log b est le logarithme du produit ab, pas le produit log a × log b": '
+         'round(math.log10(25) * math.log10(4), 3)}'),
+        ("c", "an integer", "3", 'mistakes={"log₆ 216 est l\'exposant y tel que 6^y = 216, pas un quotient": 36}'),
+        ("d", "an integer", "-7", 'mistakes={"un nombre entre 0 et 1 a un logarithme négatif": 7}'),
         ("e", "a number (3 decimals)", "round(math.log(30) / math.log(5), 3)",
-         'decimals=3, mistakes={"log₅ 30 = ln 30 / ln 5, pas ln 5 / ln 30": round(math.log(5) / math.log(30), 3), '
-         '"divise par ln 5 : le logarithme décimal de 30 n\'est pas son logarithme en base 5": '
-         'round(math.log10(30), 3), "log₅ 30 est un exposant, pas le quotient 30 / 5": 6}'),
-        ("f", "a number (3 decimals)", "round(math.log2(10), 3)",
-         'decimals=3, mistakes={"log₂ 10 = ln 10 / ln 2, pas ln 2 / ln 10": round(math.log10(2), 3)}'),
+         'decimals=3, mistakes={"le logarithme de x divisé par celui de la base, pas l\'inverse": '
+         'round(math.log(5) / math.log(30), 3), "divise par ln 5 : le logarithme décimal de 30 n\'est pas son '
+         'logarithme en base 5": round(math.log10(30), 3), "log₅ 30 est un exposant, pas le quotient 30 / 5": 6}'),
+        ("f", "a number (3 decimals)", "round(math.log2(7), 3)",
+         'decimals=3, mistakes={"le logarithme de x divisé par celui de la base, pas l\'inverse": '
+         'round(math.log(2) / math.log(7), 3), "le logarithme en base 2, pas en base 10": round(math.log10(7), 3)}'),
         ("g", "an integer", "len(str(2**100))",
-         'mistakes={"un nombre entre 10^30 et 10^31 a 31 chiffres : la partie entière du logarithme, plus 1": 30, '
-         '"le nombre de chiffres vient de log₁₀(2^100) = 100 log₁₀ 2": 100}'),
+         'mistakes={"le nombre de chiffres est la partie entière du logarithme décimal, plus 1": 30, '
+         '"passe par le logarithme décimal de 2^100 (fiche §4)": 100}'),
         ("h", "a fraction, as text", "Fraction(3, 2)",
-         'kind="fraction", mistakes={"log₄ 8 = ln 8 / ln 4, pas ln 4 / ln 8": "2/3", '
+         'kind="fraction", mistakes={"le logarithme de x divisé par celui de la base, pas l\'inverse": "2/3", '
          '"log₄ 8 est un exposant y tel que 4^y = 8, pas un quotient": "2"}'),
     ]),
     Paper("R6.5", "Compter en bits et en nats : combien de questions oui ou non ?", [
@@ -129,86 +145,96 @@ PAPER = [
         ("b", "a number (2 decimals)", "round(math.log2(300), 2)",
          'decimals=2, mistakes={"log₂ 300 = ln 300 / ln 2 : pas le logarithme décimal": round(math.log10(300), 2), '
          '"log₂ 300 = ln 300 / ln 2 : divise par ln 2": round(math.log(300), 2)}'),
-        ("c", "an integer", "9", 'mistakes={"−log₂ p : avec p = 1/512, le signe moins rend le résultat positif": -9}'),
-        ("d", "a number (3 decimals)", "round(9 * math.log(2), 3)",
-         'decimals=3, mistakes={"des bits aux nats, on multiplie par ln 2 (1 bit ≈ 0,693 nat)": round(9 / math.log(2), 3), '
-         '"les nats utilisent ln, pas log₁₀": round(9 * math.log10(2), 3)}'),
+        ("c", "a number (2 decimals)", "round(3 * math.log2(26), 2)",
+         'decimals=2, mistakes={"3 lettres parmi 26 : 26 × 26 × 26 codes possibles, pas 26 × 3": '
+         'round(math.log2(78), 2), "en bits : log₂, pas ln": round(3 * math.log(26), 2), '
+         '"l\'information est le logarithme du nombre de codes, pas ce nombre": 26**3}'),
+        ("d", "an integer", "math.ceil(50 / math.log2(26))",
+         'fractional="un nombre de lettres entier : le premier entier qui convient, pas un arrondi", '
+         'mistakes={"avec ce nombre de lettres, l\'information reste sous 50 bits : il faut l\'atteindre": 10}'),
         ("e", "a number (2 decimals)", "round(math.log2(52), 2)",
          'decimals=2, mistakes={"en bits : log₂ 52, pas ln 52": round(math.log(52), 2), '
          '"l\'information est log₂ 52, pas le nombre de cartes": 52}'),
-        ("f", "a number (2 decimals)", "round(math.log2(52) + math.log2(300), 2)",
-         'decimals=2, mistakes={"des informations indépendantes s\'additionnent (le logarithme d\'un produit)": '
-         'round(math.log2(52) * math.log2(300), 2)}'),
+        ("f", "a number (2 decimals)", "round(math.log2(52 / 12), 2)",
+         'decimals=2, mistakes={"l\'information est −log₂ p, avec p la probabilité de l\'événement, pas log₂ du nombre '
+         'de figures": round(math.log2(12), 2), "en bits : log₂, pas ln": round(math.log(52 / 12), 2)}'),
         ("g", "a number (4 decimals)", "round(math.exp(-3), 4)",
-         'decimals=4, mistakes={"3 nats : −ln p = 3, donc p = e^(−3)": round(2**-3, 4), '
-         '"−ln p = 3 donne p = e^(−3), pas 10^(−3)": 0.001, "p = e^(−3) : une probabilité est entre 0 et 1": '
-         'round(math.exp(3), 4)}'),
+         'decimals=4, mistakes={"les nats utilisent ln, pas log₂": round(2**-3, 4), '
+         '"il faut défaire un ln, pas un log₁₀": 0.001, "une probabilité est entre 0 et 1 : attention au signe moins '
+         'de −ln p": round(math.exp(3), 4)}'),
         ("h", "a number (2 decimals)", "round(10 * math.log(2), 2)",
-         'decimals=2, mistakes={"des bits aux nats, on multiplie par ln 2": round(10 / math.log(2), 2)}'),
+         'decimals=2, mistakes={"1 bit vaut moins d\'un nat : 10 bits font moins de 10 nats": round(10 / math.log(2), 2)}'),
     ]),
     Paper("R6.6", "Temps de doublement et demi-vie", [
         ("a", "a number (2 decimals)", "round(math.log(2) / math.log(1.03), 2)",
-         'decimals=2, mistakes={"c\'est l\'estimation de la règle de 70 ; la question demande la valeur exacte, '
-         'ln 2 / ln 1,03": round(70 / 3, 2), "(1,03)ⁿ = 2 : le logarithme de 1,03, pas de 0,03": '
-         'round(math.log(2) / math.log(0.03), 2), "ln 2 / ln 1,03 : le logarithme népérien des deux, ou décimal des '
-         'deux, mais le même": round(math.log10(2) / math.log(1.03), 2)}'),
+         'decimals=2, mistakes={"c\'est l\'estimation de la règle de 70 ; la question demande la valeur exacte (fiche '
+         '§3)": round(70 / 3, 2), "(1,03)ⁿ = 2 : le logarithme de 1,03, pas de 0,03": '
+         'round(math.log(2) / math.log(0.03), 2), "le même logarithme au numérateur et au dénominateur (ln, ou log₁₀, '
+         'mais pas les deux)": round(math.log10(2) / math.log(1.03), 2)}'),
         ("b", "a number (2 decimals)", "round(70 / 3, 2)",
          'decimals=2, mistakes={"la règle de 70 : 70 divisé par le taux en pourcentage": '
          'round(math.log(2) / math.log(1.03), 2)}'),
         ("c", "a number (2 decimals)", "round(math.log(0.5) / math.log(0.9), 2)",
-         'decimals=2, mistakes={"une baisse de 10 % multiplie par 0,9 : (0,9)ⁿ = 1/2": '
+         'decimals=2, mistakes={"une baisse de 10 % multiplie par 0,9 chaque année, pas une hausse par 1,1": '
          'round(math.log(2) / math.log(1.1), 2), "les baisses se composent : on ne retire pas 10 % de la masse de '
          'départ chaque année": 5}'),
         ("d", "a number (4 decimals)", "round(2 ** (1 / 5), 4)",
-         'decimals=4, mistakes={"m⁵ = 2 : m est la racine cinquième de 2, 2^(1/5)": {1.4, 0.4}}'),
+         'decimals=4, mistakes={"en une heure, la population est multipliée par m ; en 5 heures, par m⁵, qui vaut 2": '
+         '{1.4, 0.4}}'),
         ("e", "a number (2 decimals)", "round(2 ** (12 / 5), 2)",
-         'decimals=2, mistakes={"12 heures = 12/5 périodes de doublement : 2^(12/5), pas 2 × 12/5": 4.8}'),
+         'decimals=2, mistakes={"12 heures ne font pas un nombre entier de périodes de 5 heures : le facteur est 2 '
+         'puissance le nombre de périodes, pas 2 fois ce nombre": 4.8}'),
         ("f", "a number (2 decimals)", "round(math.log(2) / 0.04, 2)",
-         'decimals=2, mistakes={"croissance continue : e^(0,04 t) = 2 donne t = ln 2 / 0,04": '
-         'round(math.log(2) / math.log(1.04), 2)}'),
+         'decimals=2, mistakes={"croissance continue : le temps de doublement n\'a pas la même formule qu\'avec un '
+         'taux par période (fiche §3)": round(math.log(2) / math.log(1.04), 2)}'),
         ("g", "a fraction, as text", "Fraction(1, 16)",
-         'kind="fraction", mistakes={"24 heures = 4 demi-vies : la dose est divisée par 2 quatre fois, pas deux": "1/4", '
-         '"24 heures = 4 demi-vies : la dose est divisée par 2 quatre fois, pas trois": "1/8"}'),
+         'kind="fraction", mistakes={"compte les demi-vies dans 24 heures : chacune divise la dose par 2": "1/4", '
+         '"24 heures ÷ 6 heures : recompte les demi-vies": "1/8"}'),
     ]),
-    Paper("R6.7", "Sigmoïde et logit : la symétrie σ(−x) = 1 − σ(x), la cote et la log-cote", [
-        ("a", "a fraction, as text", "Fraction(3, 4)",
-         'kind="fraction", mistakes={"e^(−ln 3) = 1/3 : σ(ln 3) = 1 / (1 + 1/3)": "1/4"}'),
-        ("b", "a fraction, as text", "Fraction(1, 4)",
-         'kind="fraction", mistakes={"σ(−x) = 1 − σ(x), pas −σ(x)": "-3/4", "e^(ln 3) = 3 : σ(−ln 3) = 1 / (1 + 3)": '
-         '"3/4"}'),
-        ("c", "a number (3 decimals)", "round(1 / (1 + math.exp(-1.2)), 3)",
-         'decimals=3, mistakes={"σ(x) = 1 / (1 + e^(−x)) : l\'exponentielle a un exposant négatif": '
-         'round(1 / (1 + math.exp(1.2)), 3)}'),
-        ("d", "a number (3 decimals)", "round(1 - 1 / (1 + math.exp(-1.2)), 3)",
-         'decimals=3, mistakes={"σ(−x) = 1 − σ(x), pas −σ(x)": -round(1 / (1 + math.exp(-1.2)), 3)}'),
-        ("e", "a number", "19.0",
+    Paper("R6.7", "La cote et le logit : d'une probabilité à un score, et retour", [
+        ("a", "a number", "19.0",
          'decimals=2, mistakes={"la cote est p / (1 − p), pas (1 − p) / p": round(1 / 19, 2)}'),
-        ("f", "a number (3 decimals)", "round(math.log(19), 3)",
-         'decimals=3, mistakes={"le logit est ln(p / (1 − p)), pas ln((1 − p) / p)": -round(math.log(19), 3), '
-         '"le logit utilise ln, pas log₁₀": round(math.log10(19), 3), "le logit est ln(p / (1 − p)), pas ln p": '
-         'round(math.log(0.95), 3)}'),
-        ("g", "a number (3 decimals)", "round(math.log(0.2 / 0.8), 3)",
-         'decimals=3, mistakes={"σ(x) < 1/2, donc x est négatif : x = ln(p / (1 − p))": -round(math.log(0.2 / 0.8), 3), '
-         '"x = ln(p / (1 − p)), pas ln p": round(math.log(0.2), 3)}'),
+        ("b", "a number (3 decimals)", "round(math.log(19), 3)",
+         'decimals=3, mistakes={"le logit est le logarithme de la cote de a), pas de son inverse": '
+         '-round(math.log(19), 3), "le logit utilise ln, pas log₁₀": round(math.log10(19), 3), '
+         '"le logit est le logarithme de la cote, pas de p": round(math.log(0.95), 3)}'),
+        ("c", "a number", "0.3",
+         'decimals=2, mistakes={"3/7 est la cote ; la probabilité est le p tel que p / (1 − p) = 3/7": round(3 / 7, 2)}'),
+        ("d", "a number (3 decimals)", "round(math.log(3 / 7), 3)",
+         'decimals=3, mistakes={"le logit est le logarithme de la cote, pas de p": round(math.log(0.3), 3), '
+         '"le logit utilise ln, pas log₁₀": round(math.log10(3 / 7), 3)}'),
+        ("e", "a number (3 decimals)", "round(1 / (1 + math.exp(-1.2)), 3)",
+         'decimals=3, mistakes={"σ(x) = 1 / (1 + e^(−x)) : l\'exponentielle a l\'exposant −x": '
+         'round(1 / (1 + math.exp(1.2)), 3)}'),
+        ("f", "a number", "-1.2",
+         'decimals=2, mistakes={"1 − p a la cote inverse de celle de p : que devient son logarithme ?": 1.2, '
+         '"c\'est la probabilité du contraire ; on demande son logit": round(1 / (1 + math.exp(1.2)), 2)}'),
+        ("g", "a number (2 decimals)", "round(math.exp(3), 2)",
+         'decimals=2, mistakes={"le logit est un ln, pas un log₁₀ : on le défait avec exp": 1000, '
+         '"on demande la cote, pas la probabilité": round(1 / (1 + math.exp(-3)), 2), '
+         '"le logit est le logarithme de la cote : la cote s\'obtient en défaisant ce logarithme": '
+         'round(math.log(3), 2)}'),
         ("h", "a number", "0.6",
          'decimals=2, mistakes={"ajouter ln 6 au logit multiplie la cote par 6, pas la probabilité": 1.2, '
-         '"la cote 1,5 correspond à la probabilité 1,5 / (1 + 1,5)": 1.5}'),
+         '"1,5 est la nouvelle cote : reviens à la probabilité": 1.5}'),
     ]),
     Paper("R6.8", "Placer des valeurs sur une échelle logarithmique", [
-        ("a", "a number", "10.0",
-         'decimals=2, mistakes={"log₁₀ 100 = 2 décades, et chaque décade mesure 5 cm": 2, '
-         '"la position est 5 cm par décade × log₁₀ x, pas proportionnelle à x": 100 * 20 / 10000}'),
-        ("b", "a number (2 decimals)", "round(5 * math.log10(2000), 2)",
-         'decimals=2, mistakes={"multiplie le nombre de décades par 5 cm": round(math.log10(2000), 2), '
-         '"log₁₀, pas ln": round(5 * math.log(2000), 2)}'),
-        ("c", "a number (2 decimals)", "round(5 * math.log10(5), 2)",
-         'decimals=2, mistakes={"multiplie le nombre de décades par 5 cm": round(math.log10(5), 2), '
-         '"5 n\'est pas au milieu de la décade : sa position est 5 × log₁₀ 5": 2.5}'),
+        ("a", "a number (1 decimal)", "10.0",
+         'decimals=1, mistakes={"c\'est le nombre de décades : convertis-le en centimètres": 2, '
+         '"la position est proportionnelle au logarithme de la valeur, pas à la valeur": 100 * 20 / 10000}'),
+        ("b", "a number (1 decimal)", "round(5 * math.log10(2000), 1)",
+         'decimals=1, mistakes={"multiplie le nombre de décades par 5 cm": round(math.log10(2000), 1), '
+         '"log₁₀, pas ln": round(5 * math.log(2000), 1), '
+         '"la position est proportionnelle au logarithme de la valeur, pas à la valeur": 2000 * 20 / 10000}'),
+        ("c", "a number (1 decimal)", "round(5 * math.log10(5), 1)",
+         'decimals=1, mistakes={"multiplie le nombre de décades par 5 cm": round(math.log10(5), 1), '
+         '"5 n\'est pas au milieu de la décade : l\'axe est logarithmique": 2.5}'),
         ("d", "a number (2 decimals)", "round(10**1.5, 2)",
-         'decimals=2, mistakes={"7,5 cm = 1,5 décade : la valeur est 10^1,5, pas 1,5": 1.5, '
-         '"7,5 cm = 7,5 / 5 décade : la valeur est 10^(7,5 / 5)": round(10**7.5, 2)}'),
+         'decimals=2, mistakes={"1,5 est le nombre de décades : la valeur est 10 puissance ce nombre": 1.5, '
+         '"convertis d\'abord les centimètres en décades (5 cm par décade)": round(10**7.5, 2)}'),
         ("e", "a number (2 decimals)", "round(10**0.6, 2)",
-         'decimals=2, mistakes={"3 cm = 0,6 décade : le rapport est 10^0,6": {0.6, 1000, 3}}'),
+         'decimals=2, mistakes={"0,6 est le nombre de décades : le rapport est 10 puissance ce nombre": 0.6, '
+         '"convertis d\'abord les centimètres en décades (5 cm par décade)": {1000, 3}}'),
     ]),
     Paper("R6.11", "Des produits de probabilités aux sommes de logarithmes", [
         ("a", "a number (4 decimals)", "round(math.prod(P11), 4)",
@@ -220,19 +246,24 @@ PAPER = [
          'decimals=4, mistakes={"une moyenne : divise la somme par le nombre d\'expériences": '
          'round(sum(math.log(p) for p in P11), 4)}'),
         ("d", "a number (4 decimals)", "round(0.7**5, 4)",
-         'decimals=4, mistakes={"la vraisemblance est le produit des cinq probabilités : 0,7 multiplié cinq fois": 3.5}'),
+         'decimals=4, mistakes={"la vraisemblance est le produit des cinq probabilités, pas leur somme": 3.5}'),
         ("e", "1 or 2", "2",
          'choices=[1, 2], mistakes={"compare les deux vraisemblances (ou leurs logarithmes) : la plus grande gagne": 1}'),
-        ("f", "a number (2 decimals)", "round(1000 * math.log10(0.4), 2)",
-         'decimals=2, mistakes={"log₁₀ d\'un produit = somme des log₁₀ : log₁₀ et pas ln": round(1000 * math.log(0.4), 2), '
-         '"le logarithme d\'un nombre plus petit que 1 est négatif": -round(1000 * math.log10(0.4), 2)}'),
-        ("g", "True or False", "False",
-         'mistakes={"le plus petit flottant positif est de l\'ordre de 10^(−308) (fiche §5) : compare avec f": True}'),
-        ("h", "a number (1 decimal)", "round(1000 * math.log(0.4), 1)",
-         'decimals=1, mistakes={"la log-vraisemblance utilise ln, pas log₁₀": round(1000 * math.log10(0.4), 1)}'),
+        ("f", "a number (1 decimal)", "round(LOG_B, 1)",
+         'decimals=1, mistakes={"la log-vraisemblance utilise ln, pas log₁₀": '
+         'round(600 * math.log10(0.5) + 400 * math.log10(0.3), 1), '
+         '"chaque groupe compte autant de fois qu\'il a de résultats : 600 fois un logarithme, 400 fois l\'autre": '
+         'round(1000 * math.log(0.5 * 0.3), 1), "c\'est la log-vraisemblance du modèle A, pas celle de B": '
+         'round(LOG_A, 1)}'),
+        ("g", "a number (1 decimal)", "round(LOG_B - LOG_A, 1)",
+         'decimals=1, mistakes={"l\'écart des log-vraisemblances népériennes, pas des log₁₀": '
+         'round((LOG_B - LOG_A) / math.log(10), 1)}'),
+        ("h", "a number (2 decimals)", "round((LOG_B - LOG_A) / math.log(10), 2)",
+         'decimals=2, mistakes={"le log₁₀ du rapport : divise l\'écart des ln par ln 10": round(LOG_B - LOG_A, 2), '
+         '"divise par ln 10, ne multiplie pas": round((LOG_B - LOG_A) * math.log(10), 2)}'),
     ]),
     Paper("R6.12", "Des logarithmes au travail : TF-IDF et PSNR", [
-        ("a", "a number", "0.0", 'decimals=2, mistakes={"ln(N / N) = ln 1 = 0": 1}'),
+        ("a", "a number", "0.0", 'decimals=2, mistakes={"idf = ln(N / df) : calcule N / df, puis son logarithme": 1}'),
         ("b", "a number (3 decimals)", "round(math.log(100), 3)",
          'decimals=3, mistakes={"l\'idf utilise ln, pas log₁₀": 2, "idf = ln(N / df), pas N / df": 100}'),
         ("c", "a number (3 decimals)", "round(math.log(10), 3)",
@@ -240,16 +271,19 @@ PAPER = [
         ("d", "a list (3 decimals)", "[round(2 * math.log(100), 3), round(5 * math.log(10), 3)]",
          'decimals=3, mistakes={"le mot de b) apparaît 2 fois, celui de c) 5 fois : tf × idf pour chacun": '
          '[round(5 * math.log(100), 3), round(2 * math.log(10), 3)], '
-         '"un poids tf-idf est tf × idf, pas l\'idf seul": [round(math.log(100), 3), round(math.log(10), 3)]}'),
+         '"un poids tf-idf est tf × idf, pas l\'idf seul": [round(math.log(100), 3), round(math.log(10), 3)], '
+         '"calcule avec les valeurs non arrondies de b) et c), pas avec leurs arrondis": '
+         '[round(2 * round(math.log(100), 3), 3), round(5 * round(math.log(10), 3), 3)]}'),
         ("e", "a number", "30.0",
          'decimals=2, mistakes={"le PSNR est 10 × log₁₀ du rapport : n\'oublie pas le facteur 10": 3, '
          '"le PSNR est le logarithme du rapport, pas le rapport lui-même": 1000}'),
-        ("f", "a number (2 decimals)", "round(10 * math.log10(2), 2)",
-         'decimals=2, mistakes={"10 × log₁₀ 2 : n\'oublie pas le facteur 10": round(math.log10(2), 2), '
-         '"diviser la MSE par 2 multiplie le rapport par 2 : le PSNR augmente": -round(10 * math.log10(2), 2)}'),
+        ("f", "a number (2 decimals)", "round(10 * math.log10(5), 2)",
+         'decimals=2, mistakes={"le PSNR a un facteur 10 devant le logarithme": round(math.log10(5), 2), '
+         '"diviser la MSE par 5 multiplie le rapport par 5 : le PSNR augmente": -round(10 * math.log10(5), 2)}'),
         ("g", "a number (4 decimals)", "255**2 / 10**4",
-         'decimals=4, mistakes={"40 dB = 10 log₁₀(255² / MSE), donc 255² / MSE = 10⁴": 255**2 / 10**3, '
-         '"255² / MSE = 10⁴ : la MSE est 255² divisé par 10⁴": 10**4 / 255**2}'),
+         'decimals=4, mistakes={"défais le log₁₀ : le rapport 255² / MSE vaut 10 puissance (PSNR / 10)": '
+         '255**2 / 10**3, "le PSNR a un facteur 10 devant le logarithme, pas 20": 255**2 / 10**2, '
+         '"la MSE est au dénominateur du rapport : MSE = 255² / rapport": 10**4 / 255**2}'),
     ]),
 ]
 
@@ -257,7 +291,9 @@ PAPER_CONTEXT = '''# Part 0: the answers are computed exactly from the statement
 import math
 from fractions import Fraction
 
-P11 = [0.9, 0.6, 0.3, 0.8, 0.5]                              # R6.11'''
+P11 = [0.9, 0.6, 0.3, 0.8, 0.5]                              # R6.11 a to e
+LOG_A = 1000 * math.log(0.4)                                 # R6.11 f to h: the log-likelihoods of A and B
+LOG_B = 600 * math.log(0.5) + 400 * math.log(0.3)'''
 
 PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ R6.1 à R6.8, 🔗 R6.11 et R6.12)\n\n"
                "Fais d'abord les exercices de `02_exercices.md` **sur papier**, dans ta copie de "
@@ -332,7 +368,7 @@ R6_14 = Ex(
 
 La vérification calcule :
 - a) $\\log_{5} 15\\,625$ et $\\log_{2} 0{,}001\\,953\\,125$ ;
-- b) $\\log_{0{,}5} 10$ ;
+- b) $\\log_{0{,}5} 6$ ;
 - c) le nom de l'erreur levée pour $x = 0$ (avec `raised`, de la cellule des outils), puis d) pour la base 1.
 
 Puis, dans ta copie : pourquoi la base 1 est-elle interdite ? Que donnerait la formule ?""",
@@ -340,19 +376,19 @@ Puis, dans ta copie : pourquoi la base 1 est-elle interdite ? Que donnerait la f
     check='''with checked("R6.14a"):
     wbm.check("R6.14a", [mymath.explog.log_base(15625, 5), mymath.explog.log_base(0.001953125, 2)], computed=True)
 with checked("R6.14b"):
-    wbm.check("R6.14b", mymath.explog.log_base(10, 0.5), computed=True)
+    wbm.check("R6.14b", mymath.explog.log_base(6, 0.5), computed=True)
 with checked("R6.14c"):
     wbm.check("R6.14c", raised(mymath.explog.log_base, 0, 10), computed=True)
 with checked("R6.14d"):
     wbm.check("R6.14d", raised(mymath.explog.log_base, 5, 1), computed=True)''',
     solution=LOAD_REF + '''
 log_base = mymath.explog.log_base
-print("a)", [log_base(15625, 5), log_base(0.001953125, 2)], " b)", log_base(10, 0.5))
+print("a)", [log_base(15625, 5), log_base(0.001953125, 2)], " b)", log_base(6, 0.5))
 print("c)", raised(log_base, 0, 10), " d)", raised(log_base, 5, 1))''',
     record=f'''wbm.record("R6.14a", [6.0, -9.0], decimals=6,
            mistakes={{"log_base(x, base) = ln x / ln base, pas ln base / ln x": [1 / 6, -1 / 9]}})
-wbm.record("R6.14b", math.log(10) / math.log(0.5), decimals=4,
-           mistakes={{"log_base(x, base) = ln x / ln base, pas ln base / ln x": math.log(0.5) / math.log(10)}})
+wbm.record("R6.14b", math.log(6) / math.log(0.5), decimals=4,
+           mistakes={{"log_base(x, base) = ln x / ln base, pas ln base / ln x": math.log(0.5) / math.log(6)}})
 wbm.record("R6.14c", "ValueError",
            mistakes={{"x = 0 : lève une ValueError (raise) avant de calculer": "aucune",
                      "{WRONG_ERROR}": {errors_source()}}})
@@ -363,7 +399,7 @@ wbm.record("R6.14d", "ValueError",
     after=tests_cells("test_log_base_ or test_explog_uses"),
     note="Toutes les bases se ramènent à $\\ln$ : $\\log_b x = \\frac{\\ln x}{\\ln b}$. Avec la base 1, $\\ln 1 = 0$ et "
          "la formule divise par zéro : aucune puissance de 1 ne vaut autre chose que 1. Une base entre 0 et 1 est "
-         "permise, et son logarithme change de signe : $\\log_{0{,}5} 10 = -\\log_2 10$.",
+         "permise, et son logarithme change de signe : $\\log_{0{,}5} 6 = -\\log_2 6$.",
 )
 
 R6_15 = Ex(
@@ -377,28 +413,36 @@ R6_15 = Ex(
 Les tests restent dans $\\lvert x \\rvert \\le 30$ (la docstring) : pas besoin de précautions pour des $x$ énormes, que workbookIA prendra au chapitre 17.
 
 La vérification calcule :
-- a) $\\sigma(0)$, $\\sigma(1{,}5)$ et $\\sigma(-1{,}5)$ ;
+- a) $\\sigma(0)$, $\\sigma(0{,}7)$ et $\\sigma(-0{,}7)$ ;
 - b) si $\\sigma(-30) > 0$ et si $\\sigma(30) < 1$ (une liste de deux booléens) ;
 - c) $\\tanh 0$, $\\tanh 0{,}75$ et $\\tanh(-2)$ ;
 - d) si $\\tanh x = 2\\,\\sigma(2x) - 1$ à $10^{-12}$ près pour 101 valeurs de $x$ entre −5 et 5 ;
 - e) $\\tanh 30$ et $\\tanh(-30)$.""",
     todo=LOAD_LEARNER,
-    check='''with checked("R6.15"):
-    sigmoid, tanh = mymath.explog.sigmoid, mymath.explog.tanh
-    wbm.check("R6.15a", [sigmoid(0), sigmoid(1.5), sigmoid(-1.5)], computed=True)
+    check='''with checked("R6.15a"):
+    sigmoid = mymath.explog.sigmoid
+    wbm.check("R6.15a", [sigmoid(0), sigmoid(0.7), sigmoid(-0.7)], computed=True)
+with checked("R6.15b"):
+    sigmoid = mymath.explog.sigmoid
     wbm.check("R6.15b", [bool(sigmoid(-30) > 0), bool(sigmoid(30) < 1)], computed=True)
+with checked("R6.15c"):
+    tanh = mymath.explog.tanh
     wbm.check("R6.15c", [tanh(0), tanh(0.75), tanh(-2)], computed=True)
+with checked("R6.15d"):
+    sigmoid, tanh = mymath.explog.sigmoid, mymath.explog.tanh
     wbm.check("R6.15d", all(abs(tanh(x) - (2 * sigmoid(2 * x) - 1)) < 1e-12 for x in np.linspace(-5, 5, 101)),
               computed=True)
+with checked("R6.15e"):
+    tanh = mymath.explog.tanh
     wbm.check("R6.15e", [tanh(30), tanh(-30)], computed=True)''',
     solution=LOAD_REF + '''
 sigmoid, tanh = mymath.explog.sigmoid, mymath.explog.tanh
-print("a)", [sigmoid(0), sigmoid(1.5), sigmoid(-1.5)], " b)", [sigmoid(-30) > 0, sigmoid(30) < 1])
+print("a)", [sigmoid(0), sigmoid(0.7), sigmoid(-0.7)], " b)", [sigmoid(-30) > 0, sigmoid(30) < 1])
 print("c)", [tanh(0), tanh(0.75), tanh(-2)], " e)", [tanh(30), tanh(-30)])
 print("d)", all(abs(tanh(x) - (2 * sigmoid(2 * x) - 1)) < 1e-12 for x in np.linspace(-5, 5, 101)))''',
-    record='''wbm.record("R6.15a", [0.5, 1 / (1 + math.exp(-1.5)), 1 / (1 + math.exp(1.5))], decimals=4,
-           mistakes={"σ(x) = 1 / (1 + e^(−x)) : l'exponentielle a l'exposant −x": [0.5, 1 / (1 + math.exp(1.5)),
-                                                                              1 / (1 + math.exp(-1.5))]})
+    record='''wbm.record("R6.15a", [0.5, 1 / (1 + math.exp(-0.7)), 1 / (1 + math.exp(0.7))], decimals=4,
+           mistakes={"σ(x) = 1 / (1 + e^(−x)) : l'exponentielle a l'exposant −x": [0.5, 1 / (1 + math.exp(0.7)),
+                                                                              1 / (1 + math.exp(-0.7))]})
 wbm.record("R6.15b", [True, True],
            mistakes={"σ(x) reste strictement entre 0 et 1 : 1 / (1 + e^(−x)), sans arrondi de ta part":
                          [False, True]})
@@ -407,8 +451,10 @@ wbm.record("R6.15c", [0.0, math.tanh(0.75), math.tanh(-2)], decimals=5,
                                                                         2 / (1 + math.exp(2)) - 1],
                      "tanh est impaire : tanh(−2) est négatif": [0.0, math.tanh(0.75), -math.tanh(-2)]})
 wbm.record("R6.15d", True,
-           mistakes={"tanh x = (eˣ − e⁻ˣ) / (eˣ + e⁻ˣ) : vérifie les signes du numérateur et du dénominateur": False})
-wbm.record("R6.15e", [1.0, -1.0], decimals=6)''',
+           mistakes={"ta tanh ne coïncide pas avec 2σ(2x) − 1 : écrite avec ta sigmoïde, relis son argument (2x, pas x) ; "
+                     "écrite avec exp, vérifie chaque exponentielle de la formule": False})
+wbm.record("R6.15e", [1.0, -1.0], decimals=6,
+           mistakes={"le signe de ta tanh est inversé : vérifie l'ordre de la soustraction du numérateur": [-1.0, 1.0]})''',
     after=tests_cells("test_sigmoid_ or test_tanh_ or test_explog_uses"),
     note="Avec la sigmoïde déjà écrite, `tanh` tient en une ligne : `2 * sigmoid(2 * x) - 1`. La formule "
          "$\\frac{e^{x} - e^{-x}}{e^{x} + e^{-x}}$ marche aussi pour $\\lvert x \\rvert \\le 30$ ; pour $x = 1\\,000$, "
@@ -449,7 +495,7 @@ wbm.record("R6.16b", "ValueError",
                      "{WRONG_ERROR}": {errors_source("ZeroDivisionError")}}})
 wbm.record("R6.16c", [math.log(2) / math.log(1 + r) for r in (0.01, 0.1, 0.5)], decimals=4,
            mistakes={{"(1 + r)ⁿ = 2 : le logarithme de 1 + r, pas de r": [math.log(2) / r for r in (0.01, 0.1, 0.5)]}})''',
-    after=tests_cells("test_doubling_time_"),
+    after=tests_cells("test_doubling_time_ or test_explog_uses"),
     note="La règle de 70 remplace $\\ln(1 + r)$ par $r$ et $\\ln 2 \\approx 0{,}693$ par 0,70 : très bonne à 1 % "
          "(70 contre 69,66), correcte à 10 % (7 contre 7,27), fausse à 50 % (1,4 contre 1,71), car $\\ln(1 + r) "
          "\\approx r$ n'est vrai que pour un petit $r$.",
@@ -516,24 +562,22 @@ R6_18_EXPERIMENT = '''def outcome(compute):
     return value, alerts or "aucune alerte"
 
 
-probabilities = np.full(600, 0.25)
 for label, compute in [("a) math.exp(800)", lambda: math.exp(800)),
-                       ("b) np.exp(800)", lambda: np.exp(800.0)),
-                       ("c) np.prod(probabilities)", lambda: np.prod(probabilities)),
-                       ("d) np.log(probabilities).sum()", lambda: np.log(probabilities).sum())]:
+                       ("b) np.exp(800.0)", lambda: np.exp(800.0)),
+                       ("c) math.exp(-800)", lambda: math.exp(-800)),
+                       ("d) np.exp(-800.0)", lambda: np.exp(-800.0))]:
     value, alerts = outcome(compute)
-    print(f"{label:32} -> {value}   [{alerts}]")'''
+    print(f"{label:20} -> {value}   [{alerts}]")'''
 
 R6_18 = Ex(
-    "R6.18", "🔮", 2, 15, "Prédire : exp(800) avec math et NumPy, et le produit de 600 probabilités de 0,25",
-    "prévoir ce que font Python et NumPy d'un nombre trop grand ou trop petit pour un flottant, et voir pourquoi on "
-    "calcule avec des log-probabilités.",
-    "fiche §3 et §5", tracks="C, E", hypothesis=True,
-    body="""$e^{800}$ dépasse de loin le plus grand `float64` (≈ $1{,}8 \\times 10^{308}$, fiche §5), et $0{,}25^{600} \\approx 10^{-361}$ est bien plus petit que le plus petit flottant positif. Que font alors Python et NumPy ? **Avant d'exécuter quoi que ce soit**, prédis, pour chaque calcul, le numéro de ce qu'il donne :
+    "R6.18", "🔮", 2, 15, "Prédire : exp(800) et exp(−800), avec math et avec NumPy",
+    "prévoir ce que font Python et NumPy d'un nombre trop grand ou trop petit pour un flottant.",
+    "fiche §5", tracks="C, E", hypothesis=True,
+    body="""$e^{800}$ dépasse de loin le plus grand `float64` (≈ $1{,}8 \\times 10^{308}$, fiche §5), et $e^{-800}$ est bien plus petit que le plus petit flottant positif. Que font alors Python et NumPy ? **Avant d'exécuter quoi que ce soit**, prédis, pour chaque calcul, le numéro de ce qu'il donne :
 - a) `math.exp(800)` : 1 un nombre fini immense ; 2 la valeur spéciale `inf` (l'infini des flottants) ; 3 une erreur qui arrête le calcul ;
 - b) `np.exp(800.0)` : 1, 2 ou 3, comme en a) ;
-- c) `np.prod(probabilities)`, le produit de 600 probabilités égales à 0,25 : 1 un tout petit nombre positif ; 2 exactement `0.0` ; 3 une erreur ;
-- d) `np.log(probabilities).sum()`, la somme de leurs 600 logarithmes : 1 un nombre ordinaire ; 2 la valeur spéciale `-inf` ; 3 une erreur.
+- c) `math.exp(-800)` : 1 un tout petit nombre positif ; 2 exactement `0.0` ; 3 une erreur qui arrête le calcul ;
+- d) `np.exp(-800.0)` : 1 un tout petit nombre positif ; 2 exactement `0.0`, avec une alerte ; 3 exactement `0.0`, sans aucune alerte.
 
 Écris tes quatre prédictions, vérifie-les, puis lance l'expérience : elle affiche chaque résultat, ou l'erreur levée, et les alertes émises.""",
     todo='''prediction_R6_18a = ...  # a) 1, 2 or 3, written BEFORE running the experiment below
@@ -543,36 +587,24 @@ prediction_R6_18d = ...  # d) 1, 2 or 3''',
     check='''for letter, prediction in zip("abcd", [prediction_R6_18a, prediction_R6_18b, prediction_R6_18c,
                                           prediction_R6_18d]):
     wbm.check(f"R6.18{letter}", prediction)''',
-    record='''wbm.record("R6.18a", 3, prediction=True, choices=[1, 2, 3],
-           mistakes={"e^800 dépasse le plus grand flottant : aucun float64 ne peut l'écrire": 1,
-                     "math et NumPy ne traitent pas un débordement de la même façon : regarde la sortie": 2})
-wbm.record("R6.18b", 2, prediction=True, choices=[1, 2, 3],
-           mistakes={"e^800 dépasse le plus grand flottant : aucun float64 ne peut l'écrire": 1,
-                     "NumPy ne s'arrête pas sur un débordement : regarde la sortie et l'alerte": 3})
-wbm.record("R6.18c", 2, prediction=True, choices=[1, 2, 3],
-           mistakes={"0,25^600 est plus petit que le plus petit flottant positif : aucun float64 ne l'écrit": 1,
-                     "NumPy ne s'arrête pas sur un résultat trop petit : regarde la sortie": 3})
-wbm.record("R6.18d", 1, prediction=True, choices=[1, 2, 3],
-           mistakes={"chaque ln 0,25 est un nombre ordinaire, et la somme de 600 nombres ordinaires aussi": {2, 3}})''',
+    record='''wbm.record("R6.18a", 3, prediction=True, choices=[1, 2, 3])
+wbm.record("R6.18b", 2, prediction=True, choices=[1, 2, 3])
+wbm.record("R6.18c", 2, prediction=True, choices=[1, 2, 3])
+wbm.record("R6.18d", 3, prediction=True, choices=[1, 2, 3])''',
     after=[
         ("md", "**L'expérience.** Elle ne s'exécute qu'une fois tes quatre prédictions écrites."),
         ("todo", guarded(R6_18_EXPERIMENT, ["prediction_R6_18a", "prediction_R6_18b", "prediction_R6_18c",
                                             "prediction_R6_18d"],
                          "⏳ Écris d'abord tes quatre prédictions, puis exécute à nouveau.")),
         ("solution", R6_18_EXPERIMENT),
-        ("md", "**Après l'expérience.** e) La valeur de la somme d), à 1 décimale : vérifie-la par un calcul à la "
-               "main, avec $\\ln 0{,}25$. Puis, dans ta copie : pourquoi, pour comparer deux modèles sur des milliers "
-               "de données, calcule-t-on la somme des logarithmes des probabilités plutôt que leur produit ?"),
-        ("todo", "answer_R6_18e = ...  # e) a number (1 decimal)"),
-        ("check", 'wbm.check("R6.18e", answer_R6_18e)'),
-        ("solution", "answer_R6_18e = round(float(np.log(probabilities).sum()), 1)\nprint(answer_R6_18e)"),
-        ("record", 'wbm.record("R6.18e", 600 * math.log(0.25), decimals=1, '
-                   'mistakes={"600 fois ln 0,25 : le logarithme népérien, pas le décimal": 600 * math.log10(0.25)})'),
+        ("md", "**Après l'expérience**, dans ta copie : laquelle des quatre sorties est la plus dangereuse au milieu "
+               "d'un long calcul, et pourquoi ? Que deviendrait le `0.0` de c) si le calcul en prenait ensuite le "
+               "logarithme avec `math.log` (fiche §3) ?"),
     ],
     note="`math.exp(800)` lève `OverflowError` ; `np.exp(800.0)` renvoie `inf` avec une alerte (`RuntimeWarning`), "
-         "et le calcul continue ; `np.prod` renvoie exactement 0, sans même une alerte : c'est le plus dangereux. "
-         "La somme des logarithmes, $600 \\ln 0{,}25 \\approx -831{,}8$, ne pose aucun problème : c'est pourquoi le "
-         "ML compare des log-probabilités.",
+         "et le calcul continue. Dans l'autre sens, `math.exp(-800)` et `np.exp(-800.0)` renvoient exactement `0.0`, "
+         "sans erreur ni alerte : un nombre trop petit est arrondi à 0 en silence. C'est le plus dangereux : ce 0 "
+         "n'en est pas un, et il fera plus loin un $\\ln 0$ (`ValueError` avec `math.log`) ou une division par 0.",
 )
 
 R6_19_GIVEN = '''n = np.arange(2, 1001)                                  # the integers 2, 3, …, 1000
@@ -632,16 +664,20 @@ answer_R6_19d = int(t[np.nonzero(race <= 0)[0][-1] + 1])
 answer_R6_19e = math.floor(math.exp(15)) + 1
 print(answer_R6_19a, answer_R6_19b, answer_R6_19c, answer_R6_19d, answer_R6_19e)''',
     record='''wbm.record("R6.19a", 57,
-           mistakes={"compte les n de 2 à 1 000 où n ln 2 − 10 ln n ≤ 0 (l'inégalité est large)": {56, 58},
+           mistakes={"compte tous les entiers de 2 à 1 000 où gap est négatif ou nul, n = 2 compris": {56, 58},
                      "compte les n où 2ⁿ est le plus petit, pas ceux où il est le plus grand": 942})
 wbm.record("R6.19b", 59,
-           mistakes={"le premier n après le dernier où 2ⁿ ≤ n¹⁰ : un de plus que ce dernier": 58,
+           mistakes={"c'est le dernier n où 2ⁿ ≤ n¹⁰ ; on demande le premier à partir duquel 2ⁿ reste devant": 58,
+                     "c'est une position dans le tableau n (ou le compte de a), pas une valeur de n : lis n à cette "
+                     "position": 57,
                      "le plus petit n à partir duquel 2ⁿ reste devant, pas le premier n où il passe devant : regarde "
                      "les petites valeurs de n": 2})
 wbm.record("R6.19c", 1000 * math.log10(2) - 30, decimals=2,
            mistakes={"le log₁₀ du rapport : divise l'écart des ln par ln 10": 1000 * math.log(2) - 10 * math.log(1000)})
 wbm.record("R6.19d", 36,
-           mistakes={"le premier t où 0,1 t dépasse ln t pour de bon : regarde le signe de race autour de 36": {35, 37},
+           mistakes={"le premier t à partir duquel 0,1 t > ln t pour tous les t suivants : regarde le signe de race "
+                     "juste avant et juste après ta réponse": {35, 37},
+                     "c'est une position dans le tableau t, pas une valeur de t : lis t à cette position": 34,
                      "le premier t à partir duquel 0,1 t reste devant ; pour les petits t, ln t est devant": 2})
 wbm.record("R6.19e", math.floor(math.exp(15)) + 1,
            mistakes={"ln k > 15 ⟺ k > e^15 : le premier entier strictement plus grand": math.floor(math.exp(15)),
@@ -668,9 +704,12 @@ R6_20_CHECK = '''with checked("R6.20 vérifications"):
                 ys += list(np.asarray(line.get_ydata(), dtype=float))
             for collection in ax.collections:
                 ys += list(np.asarray(collection.get_offsets(), dtype=float)[:, 1])
-            if not any(np.isclose(y, counts[-1]) for y in ys):
+            if not ys:
                 problems.append(f"rien n'est tracé dans axes[{k}] (dessine les données avec axes[{k}].plot(...), pas "
                                 f"plt.plot)")
+            elif not any(np.isclose(y, counts[-1]) for y in ys):
+                problems.append(f"axes[{k}] ne montre pas les comptages eux-mêmes : trace counts tel quel (c'est "
+                                f"l'axe qui devient logarithmique, pas les données)")
         if axes[0].get_yscale() != "linear":
             problems.append("axes[0] doit garder l'échelle linéaire")
         if axes[1].get_yscale() != "log":
@@ -834,6 +873,7 @@ print(answer_R6_21a, answer_R6_21b, [total_log_prob([0.5, 0.4]), log_of_sum(2, 3
 wbm.record("R6.21b", "ValueError",
            mistakes={{"math.log(0) ne renvoie pas -inf (c'est NumPy qui le fait) : il lève une erreur ; lis son nom":
                          {{"aucune", "-inf", "nan"}},
+                     "juste le nom de l'erreur, avant les deux-points": "ValueError: math domain error",
                      "le nom exact de l'erreur que lève math.log(0) : exécute-le pour le voir":
                          {{"ZeroDivisionError", "OverflowError", "MathError", "ArithmeticError"}}}})
 wbm.record("R6.21c", [math.log(0.2), math.log(5), 100 * math.exp(0.5)], decimals=4,
@@ -842,22 +882,27 @@ wbm.record("R6.21c", [math.log(0.2), math.log(5), 100 * math.exp(0.5)], decimals
                      "log_of_sum : ln(a + b) se calcule tel quel, il ne se découpe pas": [math.log(0.2), math.log(6),
                                                                                           100 * math.exp(0.5)],
                      "grow : e^(u + v) = e^u × e^v, un produit": [math.log(0.2), math.log(5),
-                                                                 100 * (math.exp(0.2) + math.exp(0.3))]}})''',
+                                                                 100 * (math.exp(0.2) + math.exp(0.3))],
+                     "aucune des trois fonctions n'est encore corrigée : corrige-les dans la cellule où tu as écrit a) "
+                     "et b)": [1 + math.log(0.2), math.log(6), 100 * (math.exp(0.2) + math.exp(0.3))]}})''',
     note="(A) une somme part de 0, pas de 1 (c'est un produit qui part de 1). (E) $\\ln(a + b)$ ne se découpe pas : "
          "c'est $\\ln(ab)$ qui vaut $\\ln a + \\ln b$. (F) $e^{u + v} = e^{u} \\times e^{v}$, un produit. Et "
          "`math.log(0)` lève `ValueError` (*math domain error*) : la log-probabilité d'un événement impossible vaut "
          "$-\\infty$, et NumPy la renvoie telle quelle (`-inf`).",
 )
 
-R6_22_TODO = '''# 1. The first lines of the documentation of np.log1p (np.info shows the full text; or help(np.log1p))
-print(np.log1p.__doc__[:700])
+R6_22_TODO = '''# 1. The documentation of np.log1p: its first lines, then its Notes (help(np.log1p) shows the full text)
+doc = np.log1p.__doc__
+print(doc[:doc.find("Parameters")].strip())
+print("...")
+print(doc[doc.find("Notes"):doc.find("Logarithm is a multivalued")].strip())
 
-# 2. Your experiments: np.log(1 + 1e-12) against np.log1p(1e-12); np.log2(8.0) and np.log10(0.001);
+# 2. Your experiments: np.log(1 + 1e-12) against np.log1p(1e-12); np.log2(32.0) and np.log10(1e-5);
 #    np.log(0.0) and np.log(-1.0) (inside `with np.errstate(all="ignore"):` to silence the alerts)
 '''
 
 R6_22_SOLUTION = R6_22_TODO + '''print("np.log(1 + 1e-12) =", np.log(1 + 1e-12), "  np.log1p(1e-12) =", np.log1p(1e-12))
-print("np.log2(8.0) =", np.log2(8.0), "  np.log10(0.001) =", np.log10(0.001))
+print("np.log2(32.0) =", np.log2(32.0), "  np.log10(1e-5) =", np.log10(1e-5))
 with np.errstate(all="ignore"):
     print("np.log(0.0) =", np.log(0.0), "  np.log(-1.0) =", np.log(-1.0))'''
 
@@ -866,7 +911,7 @@ R6_22 = Ex(
     "lire la documentation d'une fonction de NumPy pour savoir ce qu'elle calcule, sur quelles entrées, et pourquoi "
     "une variante existe.",
     "fiche §3 et §4", tracks="C",
-    body="""Une documentation dit ce qu'une fonction calcule, ce qu'elle rend pour les entrées interdites et à quoi servent ses variantes. Lis celle de `np.log1p` (la cellule en affiche le début ; `help(np.log1p)` ou la [page en ligne](https://numpy.org/doc/stable/reference/generated/numpy.log1p.html) donnent tout), puis celles de `np.log`, `np.log2` et `np.log10`. Complète la cellule avec tes expériences.
+    body="""Une documentation dit ce qu'une fonction calcule, ce qu'elle rend pour les entrées interdites et à quoi servent ses variantes. Lis celle de `np.log1p` (la cellule en affiche le début et la note sur la précision ; `help(np.log1p)` ou la [page en ligne](https://numpy.org/doc/stable/reference/generated/numpy.log1p.html) donnent tout), puis celles de `np.log`, `np.log2` et `np.log10`. Complète la cellule avec tes expériences.
 
 Dans ta copie :
 1. Que calcule `np.log1p(x)` ? Pour quels $x$ est-il plus précis que `np.log(1 + x)`, et pourquoi (pense à ce que devient `1 + 1e-12` en flottant, R1) ?

@@ -532,6 +532,12 @@ def make_entry(
             entry["hash_coarse"] = hash_answer(ex_id, kind, coarse_texts[0])
             if len(coarse_texts) > 1:
                 entry["alt_coarse"] = [hash_answer(ex_id, kind, text) for text in coarse_texts[1:]]
+            # two decimals too few or more (1.15 for 1.1487): every coarser rounding that keeps 2 significant digits
+            coarser = {str(d): [hash_answer(ex_id, kind, text) for text in _coarse_texts(x, d + 1)]
+                       for d in range(1, decimals - 1)
+                       if round(x, d) != 0 and entry["magnitude"] is not None and entry["magnitude"] + d >= 1}
+            if coarser:
+                entry["coarser"] = coarser
         if kind == "float":
             other = _other_rounding(x, decimals, norm)
             if other is not None:
@@ -683,6 +689,14 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
                     return _COMPUTED_NEAR
                 return (f"Tu y es presque : ta valeur est juste à {decimals - 1} décimale(s), mais l'énoncé "
                         f"en demande {decimals}.")
+        for d, hashes in sorted(entry.get("coarser", {}).items(), key=lambda item: -int(item[0])):
+            d = int(d)
+            if round(x, d) != 0 and abs(x - round(x, d)) < 1e-9 * max(1.0, abs(x)):
+                if hash_answer(ex_id, "float", _fmt_float(x, d)) in hashes:
+                    if computed:
+                        return _COMPUTED_NEAR
+                    return (f"Tu y es presque : ta valeur est juste à {d} décimale(s), mais l'énoncé en demande "
+                            f"{decimals}.")
         # one unit away on the last decimal (rounded too early, or truncated), claimed only when that unit is
         # small next to the answer (at least 3 significant digits: with 0.65, the neighbour 0.64 is another
         # measure as often as a rounding slip)
@@ -1207,7 +1221,7 @@ _LETTER_SEPARATORS = re.compile(r"[\s,;/+&-]+")
 
 def _glued_letters(value, *, keep_order: bool = False) -> str | None:
     """Several choice letters written in another order or with separators ("E, D, B", "d+b+e", "EDB", "B, D et E",
-    "(B), (D)") ->
+    "(B), (D)", "(B)(D)") ->
     the normalised letters, sorted and glued ("bde"); None when the text is not a list of single letters.
     Letters glued in lower case ("dca") are read as letters only in the sorted reading, and only when they are
     distinct: the caller compares that reading with the stored answer, so a word answer ("cab") is never re-sorted,
@@ -1217,6 +1231,7 @@ def _glued_letters(value, *, keep_order: bool = False) -> str | None:
     raw = _unwrap_single(value)
     if not isinstance(raw, str):
         return None
+    raw = re.sub(r"[)\]]\s*[(\[]", ",", raw)          # "(A)(E)(F)": a closing bracket glued to the next opening one
     parts = [part.strip(_CHOICE_WRAPPERS) for part in _LETTER_SEPARATORS.split(raw.strip().strip(_CHOICE_WRAPPERS))]
     parts = [part for part in parts if part]                         # "(A), (C)": brackets around each letter
     if len(parts) > 2:                   # "A, C et E", "A et C": the word "et" BETWEEN two letters is a separator

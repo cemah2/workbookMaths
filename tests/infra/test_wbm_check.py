@@ -484,7 +484,8 @@ def test_a_wrong_shape_gets_a_shape_hint_not_a_spelling_hint():
 def test_several_choice_letters_in_another_order_or_with_separators_are_read_glued():
     e = entry("g.20", "BDE", mistakes={"il manque une lettre": "BD"})
     for v in ("BDE", "bde", "EDB", "E, D, B", "b, d, e", "B; D; E", "(B, D, E)", "D+B+E", "B D E", "B, D, D, E",
-              "B, D et E", "E et D et B", "b, d ET e", "(B), (D), (E)", "(B) et (D) et (E)", "(B) (D) (E)"):
+              "B, D et E", "E et D et B", "b, d ET e", "(B), (D), (E)", "(B) et (D) et (E)", "(B) (D) (E)",
+              "(B)(D)(E)", "[B][D][E]"):
         assert passes("g.20", e, v), v
     assert "Erreur classique" in message("g.20", e, "D, B")      # the mistakes are read the same way
     for v in ("BD", "B, D, E, F", "ABDE", "B, DE", "B et D", "B, D et", "bdee", "bdd"):
@@ -639,6 +640,23 @@ def test_almost_only_one_unit_away_or_too_few_decimals():
     assert "presque" in message("d.25", e, 3.26)
     e = entry("d.26", 0.849, decimals=3)               # too few decimals is said first, even one unit away
     assert "juste à 2 décimale" in message("d.26", e, 0.85)
+
+
+def test_too_few_decimals_is_recognized_two_decimals_short_or_more():
+    """Session 10 (R6, learner): 1.15 for 1.1487 (4 decimals asked) is right at 2 decimals, not « le détail du calcul
+    qui cloche » ; -2.74 for -2.7364 too. Only roundings that keep 2 significant digits are claimed."""
+    e = entry("d.27", 2 ** (1 / 5), decimals=4)                  # 1.1487
+    assert "juste à 2 décimale(s)" in message("d.27", e, 1.15)
+    assert "juste à 1 décimale(s)" in message("d.27", e, 1.1)
+    assert "juste à" not in message("d.27", e, 1.16) and "juste à" not in message("d.27", e, 1.2)
+    e = entry("d.28", -2.7364, decimals=4)
+    assert "juste à 2 décimale(s)" in message("d.28", e, -2.74)
+    e = entry("d.29", 0.0498, decimals=4)                        # 0.05 is 0.050, right at 3 decimals; 0.0 never
+    assert "juste à 3 décimale(s)" in message("d.29", e, 0.05) and "juste à" not in message("d.29", e, 0.0)
+    e = entry("d.31", 0.1234, decimals=4)                        # 0.1 keeps one significant digit only
+    assert "juste à 2 décimale(s)" in message("d.31", e, 0.12) and "juste à" not in message("d.31", e, 0.1)
+    e = entry("d.30", 6.4375, decimals=4)                        # a tie at 2 decimals: 6.44 at school, 6.44 here too
+    assert "juste à 2 décimale(s)" in message("d.30", e, 6.44)
 
 
 def test_fractions_written_as_text_are_numbers_and_percent_signs_get_a_message():

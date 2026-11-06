@@ -148,7 +148,7 @@
 - f :
 - g :
 
-### Ex R6.7 — Sigmoïde et logit : la symétrie σ(−x) = 1 − σ(x), la cote et la log-cote
+### Ex R6.7 — La cote et le logit : d'une probabilité à un score, et retour
 
 - a :
 - b :
@@ -177,7 +177,7 @@
 4. 
 5. 
 
-### Ex R6.10 — tanh(x) = 2σ(2x) − 1
+### Ex R6.10 — Les propriétés de tanh, démontrées avec exp
 
 1. 
 2. 
@@ -197,7 +197,7 @@
 - f :
 - g :
 - h :
-- Pourquoi la plus grande vraisemblance a la plus grande log-vraisemblance, et ce que mesure −ln p :
+- Ce que mesure −ln p, et le résultat qui a le plus surpris le premier modèle :
 
 ### Ex R6.12 — Des logarithmes au travail : TF-IDF et PSNR
 
@@ -226,10 +226,10 @@
 
 - La règle de 70 comparée aux valeurs de c), et pourquoi :
 
-### Ex R6.18 — Prédire : exp(800) et le produit de 600 probabilités
+### Ex R6.18 — Prédire : exp(800) et exp(−800), avec math et avec NumPy
 
 - Mes prédictions avant l'expérience (et pourquoi) :
-- Pourquoi on compare des modèles sur des sommes de log-probabilités :
+- La sortie la plus dangereuse dans un long calcul, et ce que deviendrait le 0.0 de c) passé à math.log :
 
 ### Ex R6.19 — Croissances comparées
 

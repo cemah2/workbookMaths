@@ -381,3 +381,40 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] R5.22 🛠️ Une boucle ou une formule ? Mesurer le temps de calcul ★ 15 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (20 cartes)
 <!-- wbm:end R5 -->
+
+<!-- wbm:section R6 -->
+## R6 · Exponentielle et logarithmes ⏱️ 10,4 h
+
+- [ ] R6.Q1 🧠 Propriétés de l'exponentielle : vrai ou faux ★ 4 min
+- [ ] R6.Q2 🧠 ln d'un produit, d'un quotient, d'une puissance ★ 4 min
+- [ ] R6.Q3 🧠 Combien de bits ? ★ 4 min
+- [ ] R6.Q4 🧠 Qui grandit le plus vite ? ★ 4 min
+- [ ] R6.Q5 🧠 Lire une échelle logarithmique ★ 4 min (complet)
+- [ ] R6.Q6 🧠 Sigmoïde : valeurs remarquables et symétrie ★ 4 min
+- [ ] R6.R1 🔁 Suites géométriques (R5) ★ 5 min
+- [ ] R6.R2 🔁 Fonction réciproque (R3) ★ 5 min
+- [ ] R6.R3 🔁 Notation scientifique (R1) ★ 5 min (complet)
+- [ ] R6.1 ✏️ Simplifier avec les propriétés de exp ★ 15 min
+- [ ] R6.2 ✏️ Simplifier avec les propriétés de ln ★ 15 min
+- [ ] R6.3 ✏️ Équations et inéquations avec exp et ln ★★ 20 min
+- [ ] R6.4 ✏️ Changer de base : log₂, log₁₀, ln ★ 15 min
+- [ ] R6.5 ✏️ Compter en bits et en nats : combien de questions oui ou non ? ★★ 15 min
+- [ ] R6.6 ✏️ Temps de doublement et demi-vie ★★ 20 min (complet)
+- [ ] R6.7 ✏️ La cote et le logit : d'une probabilité à un score, et retour ★★ 20 min
+- [ ] R6.8 ✏️ Placer des valeurs sur une échelle logarithmique ★ 10 min (complet)
+- [ ] R6.9 ∂ Démontrer ln(ab) = ln a + ln b à partir de exp ★★ 25 min
+- [ ] R6.10 ∂ Les propriétés de tanh, démontrées avec exp ★★ 25 min (complet)
+- [ ] R6.11 🔗 Des produits de probabilités aux sommes de logarithmes ★★ 20 min
+- [ ] R6.12 🔗 Des logarithmes au travail : TF-IDF et PSNR ★ 15 min (complet)
+- [ ] R6.13 🗣️ Expliquer ce que compte un logarithme : des chiffres, des doublements, des bits ★ 10 min
+- [ ] R6.14 🔨 Un logarithme dans n'importe quelle base ★ 15 min
+- [ ] R6.15 🔨 Sigmoïde et tanh à partir de exp ★★ 20 min
+- [ ] R6.16 🔨 Temps de doublement ★ 15 min (complet)
+- [ ] R6.17 📦 Sur tout un tableau : `np.exp`, `np.log2` et `scipy.special.expit` ★ 15 min (complet)
+- [ ] R6.18 🔮 Prédire : exp(800) et exp(−800), avec math et avec NumPy ★★ 15 min
+- [ ] R6.19 🔬 Croissances comparées : x¹⁰, 2ˣ et ln x de plus en plus loin ★★ 20 min (complet)
+- [ ] R6.20 🎨 Les mêmes données en échelle linéaire et en échelle logarithmique ★ 15 min
+- [ ] R6.21 🐛 Chasse à l'erreur : ln(a + b), e^(a + b) et log(0) ★★ 15 min
+- [ ] R6.22 🛠️ Lire la documentation de `numpy.log`, `log2`, `log10`, `log1p` ★ 15 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (22 cartes)
+<!-- wbm:end R6 -->

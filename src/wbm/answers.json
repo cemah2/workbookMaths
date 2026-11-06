@@ -925,6 +925,11 @@
       "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
     },
     "R0.3e": {
+      "coarser": {
+        "1": [
+          "2053ed63a9bf00458e13a8eac5cf3c3215c2cb72b7d07d7f73b4534d4ba6f6ca"
+        ]
+      },
       "decimals": 3,
       "hash": "04c332caefc03e4c4e83725157c755c06de125b9ed49555098a772dbc5d6c675",
       "hash_coarse": "9f13cc06769bbdeb3b4f1f986ed1344229b7bbe7cba25cb427a56641788204d8",
@@ -1028,6 +1033,12 @@
       "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
     },
     "R0.6b": {
+      "coarser": {
+        "2": [
+          "7579f854f23bde7a8cc1ab4a63b179feb9197e851bb97e266f8452d7f23fdbae",
+          "c73285b77a2acec4fd237ac8442917a7bb512064c2da8e8ade9e7dc5a347e584"
+        ]
+      },
       "decimals": 4,
       "hash": "f2acdf4238cb837eaf9426feb055ef81af378f8f33da5712ec44746cedd8e8a0",
       "hash_coarse": "f53c833de8f66709bb241e66c4ca1ae42514d570b7f23046599d0f80a1836e82",
@@ -1040,6 +1051,14 @@
       "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
     },
     "R0.9": {
+      "coarser": {
+        "1": [
+          "af4ad7b4f302c53b0db3ca1bb0f8f554091790939e7e2b47d1586f30ff5e655a"
+        ],
+        "2": [
+          "b65ba153f6cb1de931e09b82245e886ad4a2d27932402bfbe234d4b60a7494d0"
+        ]
+      },
       "decimals": 4,
       "hash": "5f5967bc51b2fb9f139eed227daeb589862251df1f52d15586aca710a522a9b1",
       "hash_coarse": "31f1eabb53d85e7eb88dd718b43d635fc5545c96d4a02a7dac652cbb780b2a41",
@@ -2084,6 +2103,14 @@
       "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
     },
     "R1.24b": {
+      "coarser": {
+        "1": [
+          "f26ccf7e4f26c306e94e8926eaa31285bfa5603cafb7c058a8aeab6e59b6fda4"
+        ],
+        "2": [
+          "cedd8c9ce5e30d75bdd80955e2f074b47166fba48d8d3020f2e194b2e5156bda"
+        ]
+      },
       "decimals": 4,
       "hash": "cc0f99db3fd756762889c119de0a2c7192576a963b0476dfb8c294777c2c2d1f",
       "hash_coarse": "3a228e9e8f55f53c5e235547211c0ea256cc8e78ec08cae8f53877f607eb7b9d",
@@ -2225,6 +2252,11 @@
       "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
     },
     "R1.29b": {
+      "coarser": {
+        "2": [
+          "daff63bef3e6ec9f2f2bb8189017eddcb03d52085264c16cb86201709e374573"
+        ]
+      },
       "decimals": 4,
       "hash": "3c433e61f1fced667255a97e6a1f6cc1e778306605d76e6724359bb0af4e3a7f",
       "hash_coarse": "5fa42ea8f08084bf7dd3e5cd73cc2d66d1917c7ef94632306c2520dda1d29de9",
@@ -3507,6 +3539,11 @@
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.25d": {
+      "coarser": {
+        "1": [
+          "17e11da84fb64622f566d965f16091877da1e45d434eebd33969bcfdf6efac69"
+        ]
+      },
       "decimals": 3,
       "hash": "31f3d2f37ac3c267f9393f239b931f9f899e772552cc31cf1e45bc54f0fcf5bb",
       "hash_coarse": "0975518c174d366587ec9ad18ef1b67105195ed635ce5866af12708f5faae543",
@@ -4407,6 +4444,14 @@
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
     "R3.10b": {
+      "coarser": {
+        "1": [
+          "24936811fd78db0b42e96913ab45fab10a226fe6c8281b31cd2a9e78ea39e116"
+        ],
+        "2": [
+          "e4a74bc3a4aabb4adf22d213b50b8c069e548224930693727ae4522c8e00cc48"
+        ]
+      },
       "decimals": 4,
       "hash": "36e94082b598b9ec38f65abcab33d2a41e94daa09ad816f183eb028f09d1285b",
       "hash_coarse": "54c084cb66c0db5073da285452e704f76d44c3afb1dc3b016987534465742656",
@@ -4665,6 +4710,14 @@
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
     "R3.17b": {
+      "coarser": {
+        "1": [
+          "ccb3d99e7fa3a16632523dcc9e5599f142ec2e5f11018c2336cbf6e917178508"
+        ],
+        "2": [
+          "1670bf9b699039bd114d14e693934da85c0259cf87ecbc9f1946adcac023b6f6"
+        ]
+      },
       "decimals": 4,
       "hash": "0c82683cac268a2e11189bfcde5f3fe2ea5b02707538fc83aaf08357eb4b209f",
       "hash_coarse": "cc3ae806985660924845317f66cf01e7a81f6bd1e4251e125fb92b07e2466927",
@@ -5992,6 +6045,17 @@
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.18b": {
+      "coarser": {
+        "2": [
+          "d37179aed989a7120fa8a177758511278a35b68cf98800bd3a01a1427308305c"
+        ],
+        "3": [
+          "32b3f563a23cfabdf78fc44792e47d40a5c2baaad85cadb45ba6d4ff140c1962"
+        ],
+        "4": [
+          "7a21fa54f84c695198158c6df31463d7a56f7b219c6671b88b0768f1b2635143"
+        ]
+      },
       "decimals": 6,
       "hash": "d11702652ec5f0e7217ce105720d7176a1e10aa453d6744f4151675757195b88",
       "hash_coarse": "af4317bc09fb834bb3368dad7b4111f7ba015465797c8a0d5f40082d860677ce",
@@ -6900,6 +6964,11 @@
       "source": "chapitres/r5_suites/05_solutions.ipynb"
     },
     "R5.7e": {
+      "coarser": {
+        "2": [
+          "999f5984ec80988b21ca9938dc0a9acb0e056dff67e30811f205bfa240c8dfbe"
+        ]
+      },
       "decimals": 4,
       "hash": "69fcd32db75f938aa309fa1aa787011a5a3a9944d272a5fc8428bcd7032cdf20",
       "hash_coarse": "d677a0a934537aacd4f6cd94753a94a8e1b5fc49ffe0782fd7d71727ce1c420f",
@@ -7030,6 +7099,11 @@
       "source": "chapitres/r5_suites/05_solutions.ipynb"
     },
     "R5.11b": {
+      "coarser": {
+        "2": [
+          "73ede568322639b2d84889f09f29b12d4bfcd49fdc7f3589f4717b7182352c5a"
+        ]
+      },
       "decimals": 4,
       "hash": "59d6a8860793dbc521027737ffc5a07984c9f4c9225dd22e19a5a5152df492a2",
       "hash_coarse": "3df3733c0e430d588868d01cb5176dc0b2cc82da4d4fc8b070569fea83a70224",
@@ -7207,6 +7281,17 @@
       "source": "chapitres/r5_suites/05_solutions.ipynb"
     },
     "R5.14b": {
+      "coarser": {
+        "1": [
+          "ed23a42a507124ab02e9e82386cea0b112776a9317c35e3ad6c69b23364de310"
+        ],
+        "2": [
+          "9ac9ee6a8e1642204cee884973b1bb4c278dd22ca9c323a4f04fcbc44bb8d122"
+        ],
+        "3": [
+          "721cac23ce78c898c673e50ed45154dd302ebc84d737492f42c7ee6cfbd80ae4"
+        ]
+      },
       "decimals": 5,
       "hash": "3f9d94e4375ba18da38c6154c5cd9a6f38c6c0a7799756db164010037cb067fb",
       "hash_coarse": "bd4b2e9d7de3cc3c572de5f6fc4bc305c061ee7cbec834d28f1a9aad06c51e36",
@@ -7246,6 +7331,14 @@
       "source": "chapitres/r5_suites/05_solutions.ipynb"
     },
     "R5.14d": {
+      "coarser": {
+        "1": [
+          "389a2acc37425582c19a7c805904d8b40c82074c029fa29e9ade74f44f923aa7"
+        ],
+        "2": [
+          "a437bf3361fd9995273011725b1c1969b2b5e4484ddb100b79d486088ef4122c"
+        ]
+      },
       "decimals": 4,
       "hash": "45ca215a509e1a09bd39aed3e2c1429281d09022e1e4ec2f704011557897b155",
       "hash_coarse": "31d9ddd90c5bf4ec75435a7a7a093fa894ff9342e2f254cb3e48ef43481368be",
@@ -7318,6 +7411,14 @@
       "source": "chapitres/r5_suites/05_solutions.ipynb"
     },
     "R5.15d": {
+      "coarser": {
+        "1": [
+          "ad5b9e23ce1fd1ae611b6227ca1cd2021bba503a330cfb45ababdbbb701c156b"
+        ],
+        "2": [
+          "6bf1af3e440010f88e4271e7c6c8ad3f6a4fbf64b6bf6114dd97f102e5c214eb"
+        ]
+      },
       "decimals": 4,
       "hash": "b93cf60e54ea0dd8084684641d7e9df8a1a7e36c0589ff88d4486c82cd4d6921",
       "hash_coarse": "8077ba97b03513deb9206dddc4b2e750a263b0ffcc9f6f6be5caa1c46868551f",
@@ -8036,23 +8137,24 @@
     },
     "R6.1b": {
       "decimals": 2,
-      "hash": "8d2e32568750659a7fd60ec89050fe522dc98e3daf4b49bef1269dfe584fee56",
-      "hash_coarse": "9feb4ff148e8e4dffdfd0ceb2896a4cb0f566d6f73c868b7c552a71c17f9187a",
+      "hash": "2ef137717442c132c80b10e00ae41c530bd477b424357748bf499b03641a98f4",
+      "hash_coarse": "ffb0e130c9fe082d1243069f40f1ae96215bf4dea64dea09b8b2073f39520c8c",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "2ef137717442c132c80b10e00ae41c530bd477b424357748bf499b03641a98f4": "(e³)² = e^(3 × 2) : une puissance de puissance multiplie les exposants",
-        "a47a82999091f1051b824417780f474cc318b9094e52620c27ca2d9229733354": "diviser des puissances de e, c'est soustraire les exposants"
+        "8d2e32568750659a7fd60ec89050fe522dc98e3daf4b49bef1269dfe584fee56": "une puissance de puissance multiplie les exposants, elle ne les additionne pas",
+        "c09bd3630b127f61f1769353e8160bf793de2bc289540019a705beeeb6059509": "diviser des puissances de e, c'est soustraire les exposants, pas les diviser"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.1c": {
-      "hash": "1f8be0817b6550e1b1fbb59b36c317fee877199e63e544e4cf92a3e13c54475f",
+      "hash": "f640155d3caf0ce58f6c61611359948142cce918803b9a4e7e90ef76c840e5b0",
       "kind": "expr",
       "mistakes": {
-        "790890af4931d5074deaade5384e431c4e9171960375063ee17f38a6e3a40d2a": "le signe moins de 1 − x porte sur x : 2x + 1 − x",
-        "e59bff09e9aeb74660341795c8343f7cf44cac417af80ac57d6db27443e5962a": "multiplier des puissances, c'est additionner les exposants"
+        "2a56db240d55a0a865aea0489935fbb4b0f6343b393dd3dc7f5c428fc97d167a": "multiplier des puissances, c'est additionner les exposants",
+        "6dbefc489b47c979f2c6cf28550ae7ba5d867fde4c3a16439223bac41b64679d": "l'exposant 2 − 5x garde son signe moins : additionne-le tel quel",
+        "cb22c04f3cb6d075ed635a8f1891d1636e98615c4ba27438aefa6630fb259605": "tous les termes des deux exposants s'additionnent, le nombre seul compris"
       },
       "points": [
         [
@@ -8106,24 +8208,25 @@
     },
     "R6.1e": {
       "decimals": 2,
-      "hash": "469beb3469fd971cf15284e40219485e0e4cab22545a34c65eff4d752c8b5b17",
-      "hash_coarse": "123b100cc734de66beb770303fb2aec29a65f3e9628bf266299ccb37b848901d",
+      "hash": "d7a40932c4c902c728998d73bb45ceacaf98163ffc70a136d055c52ba856fa61",
+      "hash_coarse": "d3c07084cd175586495c84e4bac3694256d3c269d4dafbb3f47e2af13c254079",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "341fe4bd1fa539e6b2329607aaa2aebbbe8764c8180f20cb291a91588761efa0": "8^(2/3) : la racine cubique de 8, mise au carré (pas la racine carrée)",
-        "f939a4e3f4d7254f27e9767e14dc616684bd1a4c30e3d4140a310faff3e16a48": "8^(2/3) n'est pas 8 × 2/3 : la racine cubique de 8, puis au carré"
+        "2c66bd28e5c02aa1fcd9eba0e11a6de3eb9d2944b53cd408f3cd089fc9368c2b": "le dénominateur de l'exposant donne la racine, le numérateur la puissance : pas l'inverse",
+        "3ab6ae7d93ad1dda47aeccef12dd2eb26e6eced0150ebe822593db771e2cf605": "le dénominateur 4 de l'exposant demande la racine quatrième, pas la racine carrée",
+        "3f599eb1932667c24d304ea1d6a67d4058ca9e220079d39acdab9553062b6559": "16^(3/4) n'est pas 16 × 3/4 : un exposant fractionnaire est une racine, puis une puissance"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.1f": {
-      "hash": "35d6911b84c0db85cd5f5871a714bb5bc068b3f5204d2701106e82f8edbe19c5",
+      "hash": "bd9ece900e1fa989c5b8b930b2584b3d181f4e013b26d7582835d42218e14a4d",
       "kind": "fraction",
       "mistakes": {
-        "050abc950217fd68d0cda66571e675a70937d4f7c61377a9e581f6cb0378582c": "un exposant négatif donne l'inverse, pas un nombre négatif",
-        "1f4eb392d34155a5a202d4d3b3d81486740a71342aae61ffa8cb0358a084b6d2": "27^(−1/3) : la racine cubique de 27, puis son inverse",
-        "80381bbfd8b9b2637a1f35ff0bd3bdb5f9a4d629cb030718b593860808158d4a": "un exposant négatif donne un nombre positif : l'inverse"
+        "a96b4d044187cf9308b0367912f5abbe3bf66aac10ef49d12896f7c7956eb929": "un exposant négatif donne l'inverse, pas un nombre négatif",
+        "b40564fe4d3ae87d48505ae303f614e9bce713082cdbe4a7f8e3cbef59b51f7c": "le signe moins de l'exposant demande l'inverse du résultat",
+        "c03f1570c050cc2cd3f5edbfbd686331a0df7588a93a17c6f3b8b742fb9e175f": "un exposant négatif donne un nombre positif : l'inverse"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8132,8 +8235,8 @@
       "hash": "427f7a3c7b91bcebc8e07f87ff85681f5304111e38547c8f6b198fb7ad4c02f1",
       "kind": "expr",
       "mistakes": {
-        "689ade791009817f5da03e276968c905a813700e73c2e8d8cee1bf89f2a27976": "on soustrait tout l'exposant x − 2 : 3x − (x − 2) = 3x − x + 2",
-        "f6fa46645b977641679f58c0761486be497e6c43c6076c10dd7c3a155ba32760": "(eˣ)³ = e^(3x) ; diviser, c'est soustraire les exposants"
+        "689ade791009817f5da03e276968c905a813700e73c2e8d8cee1bf89f2a27976": "on soustrait tout l'exposant x − 2 : mets-le entre parenthèses",
+        "f6fa46645b977641679f58c0761486be497e6c43c6076c10dd7c3a155ba32760": "diviser, c'est soustraire les exposants, pas les additionner"
       },
       "points": [
         [
@@ -8162,31 +8265,32 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "835bbdd3b807bdce86669679f6c731d0092e4b9a66ae4ca63169e7c34f0df423": "(√e)⁴ = e², puis e² × e⁻² = e⁰ ; et e⁰ vaut 1"
+        "835bbdd3b807bdce86669679f6c731d0092e4b9a66ae4ca63169e7c34f0df423": "la question demande la valeur du nombre, pas son exposant"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.2a": {
       "decimals": 2,
-      "hash": "8f9b4c220c3d127791c9e6eb56e0fe7069babd0f15c0d2affe54edf6dddb26c6",
-      "hash_coarse": "b8d94162dd8833fe82a37f7caba2d12ec97e737ec3bb964de2889a5e8af700a9",
+      "hash": "65121407e307807e60701ea922fa874174c56b274d69aba16f00d4abc3a7d02c",
+      "hash_coarse": "a58d434352125ab000897a6651d53b285d7d42b81621a0ebeaf419ba043cba7b",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "9ff179cb11399c427858a454adfd57b5743e93a6fa733195f891bd7a9f2e6798": "ln(e⁵) = 5 et ln(e²) = 2 : on les soustrait, on ne les divise pas"
+        "65befa778ca21d2d3d16a39740784bb2da00ee543bef3abbb315c60fbc037e96": "on soustrait les deux logarithmes, on ne les divise pas",
+        "87f28b58dd6666ab92c92a7ae8bb9e50658c480d67a75f708751a2b5c7623835": "3 ln(e²) est 3 fois ln(e²), pas 3 + ln(e²)"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.2b": {
-      "hash": "0ff948de98d3d6684ca50c4e4037560b1c032e8092c2d0a7351816eb82347846",
+      "hash": "c203006d6b1b4953e78e905ce2be551a1ca385556f942eddbfd15f710ef43450",
       "kind": "int",
-      "magnitude": 1,
+      "magnitude": 0,
       "mistakes": {
-        "8294a790c4d032365abf90eac126f5c14ca58257e126004856d8947f0a85fecc": "ln a − ln b = ln(a / b)",
-        "8301d89feaf7ac13fc79883c1dbaba49a2cd0f2dc27b49273be657ffb61b62a0": "ln a − ln b = ln(a / b)",
-        "f21d7d1580ef392ea1bb630fc6450c288ba6e464a58c26f094e6ef0cc9facf66": "ln a − ln b = ln(a / b), pas ln(a × b)"
+        "7eb5664bd39227ab47524104c59a8116b76f8de4c86ea8b1412fb1ca22fc3ca7": "les deux logarithmes sont soustraits : on divise par l'un et par l'autre",
+        "9cfca71c4480f1eb4119bd0d1c829a437707a36bf0536af47c1a0b633bc17ffc": "soustraire des logarithmes, c'est diviser, pas multiplier",
+        "d82bbb57eec9e31e2a3a03a04895b96800bd3019772845ab4abd6b17dab14988": "ln a − ln b = ln(a / b), pas ln(a − b)"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8198,19 +8302,20 @@
       "mistakes": {
         "66ec1e951295fb8ea53506000d9f7419f1f79b5f6d4d25eac9be2c2ffb02fe73": "2 ln 3 = ln(3²), puis ln a + ln b = ln(a × b)",
         "7aa1713dc0bc601b23e434f802b6a4aa6d7b617e2cef22b5dca51d304e441296": "2 ln 3 = ln(3²), puis ln a + ln b = ln(a × b)",
-        "8d7374930b97c41e122edccfd9ff5d77dc01668c103624aef5212fb2c77abb6f": "2 ln 3 = ln(3²) = ln 9, pas ln 6"
+        "8d7374930b97c41e122edccfd9ff5d77dc01668c103624aef5212fb2c77abb6f": "2 ln 3 = ln(3²), pas ln(2 × 3)"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.2d": {
-      "hash": "ae5772fbdda75eebc53bd0a79da053c4e00e885ce54e6b6883e3704252b5fa07",
+      "hash": "a9523e24d21e40e59f1659abf262ded0739ea1b4169e03f9de0d6935b45644b6",
       "kind": "fraction",
       "mistakes": {
-        "1c4feb9a5017567f1d8be7a0027dfe16b440cfd6fbcef07bf8f9ed3a3fa33cdf": "ln(a / b) = ln a − ln b, pas ln a ÷ ln b",
-        "7a223386704fb9ea60fbcdd4505a9b085e46ad60d291ffb8728203d99e232145": "√e = e^(1/2) : diviser, c'est soustraire son exposant"
+        "7a223386704fb9ea60fbcdd4505a9b085e46ad60d291ffb8728203d99e232145": "diviser des puissances de e, c'est soustraire les exposants, pas les additionner",
+        "ae5772fbdda75eebc53bd0a79da053c4e00e885ce54e6b6883e3704252b5fa07": "celui du numérateur moins celui du dénominateur : vérifie le signe",
+        "df55d160be22ab6bf99469d10e94be8639be84d7265a2bc70ebfd7d66f1e0f39": "ln(a / b) = ln a − ln b, pas ln a ÷ ln b"
       },
-      "sign": 1,
+      "sign": -1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.2e": {
@@ -8224,11 +8329,15 @@
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.2f": {
-      "hash": "b5858f7a7584acbf49b0b64e1395916765236ca76115736dc1929b8383da3f16",
-      "kind": "int",
+      "decimals": 2,
+      "hash": "d2fc558c2428b937b5e21f25f5cef5e96bd55f96eecb6e575ff9be9309e3b029",
+      "hash_coarse": "153fee1f6d4e2b4cbd3ed94e121efdfb0f97729ec320e8ec1406d9d0617b3bc3",
+      "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "ac91753bc851ed8c6fe042cf0f3d330aa7298dc90f6e3fbcbb59a4cc36ce48cb": "2 ln 3 = ln(3²) : e^(ln 9)"
+        "09bf311e6a329ae284badf654b46a39078110000c4139ca883aba1a2e466185f": "e^(u − v) = e^u / e^v : un quotient, pas une différence",
+        "9c01713282a17bdec1f289bd5409a8562e6f024bbf01dfccf496039ebf2887d3": "3 ln 2 = ln(2³), pas ln(3 × 2)",
+        "9ecb580cddccc918c37f91ee1d125535c3d4f5e4929090e7b7bff7d7c661d307": "e^(u − v) est un quotient, pas un produit"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8238,7 +8347,8 @@
       "kind": "expr",
       "mistakes": {
         "36d7434e0010ce7b4f72dc709ce327d360b45525c19d9b9047c90e001d1e2b22": "ln(xy) = ln x + ln y, pas ln x × ln y",
-        "c3341e24741fcc562a484a9370b9e32fc6e3b4c104edca8e2654c784393f92c8": "18 = 2 × 3² : ln 2 + 2 ln 3"
+        "6b3687708321a59eca53012be522e0527c1d21394ce1fc3b0b184a1fa25520cd": "écris ta réponse avec les lettres a et b, pas avec ln",
+        "c3341e24741fcc562a484a9370b9e32fc6e3b4c104edca8e2654c784393f92c8": "2a + b vaut ln 12 : vérifie ta décomposition de 18 en facteurs premiers"
       },
       "points": [
         [
@@ -8272,8 +8382,9 @@
       "hash": "e172fd9fc8fbb36e21968825b71e141e052b12c1da218dcf17d588823edae449",
       "kind": "expr",
       "mistakes": {
-        "5334fecd2a81ff8ce7a4df853cb4a36bfb72e221e621533447462eede85f54ed": "0,75 = 3/4 : ln 3 − ln 4, et 4 = 2²",
-        "dd0e895f75040f86ee3b6ee519fc41b5d6ac19c6813e0b2cc02fb686ff08e08f": "ln(3/4) = ln 3 − ln 4 : le numérateur moins le dénominateur"
+        "5334fecd2a81ff8ce7a4df853cb4a36bfb72e221e621533447462eede85f54ed": "b − a vaut ln(3/2) : vérifie la décomposition du dénominateur",
+        "dd0e895f75040f86ee3b6ee519fc41b5d6ac19c6813e0b2cc02fb686ff08e08f": "le logarithme d'un quotient est celui du numérateur moins celui du dénominateur",
+        "f48c6ab375eae7447c4d562d1f698a77216ab9e97cbf3ace2f7e5695ccc90780": "écris ta réponse avec les lettres a et b, pas avec ln"
       },
       "points": [
         [
@@ -8305,29 +8416,29 @@
     },
     "R6.3a": {
       "decimals": 2,
-      "hash": "ea55eeadb4296f0f69787940ba3f67a55c1be5bb509946d97d2c92d522c23d9c",
-      "hash_coarse": "76646f2dd19877b6b8b32dc6adef64ca1f353a864bf21786c497a78746aeea57",
+      "hash": "273228f9ff46b774bf9c0d160346907adeda37757f4094bf4f65b8a674103281",
+      "hash_coarse": "fba952a8762678c320c91badd4792902e5801b383a0d4d91cae6df6191937ce7",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "75964eab58cfb046b18db125a092b3acf8b120d82ee7c6a6f165624a0405de58": "eˣ = c ⟺ x = ln c : pas e^c",
-        "cc6fe9eb56d8abd221a185ed079b3f65d97ca5082cf39b248e99fd07ee518a6d": "eˣ = c ⟺ x = ln c : le logarithme népérien, pas le décimal"
+        "033c7534c2f14e920efebb716f48c460120410f8ccc73572ee285b3ddacb8ffd": "eˣ = c ⟺ x = ln c : le logarithme népérien, pas le décimal",
+        "824cfa0b3be26daa8bf1b0c4cc773b8cda578ad3b9bd861e5b8e1994fedb511b": "isole eˣ en entier : il reste à diviser par 4",
+        "ba1055054973cce6bed9d90bc460718bf48f76e9657bb6439b5d616d509f60bc": "isole d'abord eˣ : retire 1, puis divise par 4, et seulement ensuite prends ln"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.3b": {
       "decimals": 2,
-      "hash": "321ac8633db52a5441baf0647878132ec965610791470d30a09676d0234ce072",
-      "hash_coarse": "78228ae0950d598e118a4c5b1e498eec6703c82a82e9312b671344af729d019a",
+      "hash": "7625306473f0595ff95c085f4407d54c62959ac2de339bdd8d2ed3ab41b7f96e",
+      "hash_coarse": "bc3fbe3d208fc6ae390276d13928332be6648011fb8f12e8ce6b9d1129cdb816",
       "kind": "float",
-      "magnitude": 0,
+      "magnitude": -1,
       "mistakes": {
-        "5ed97ffb4b1bcd54be5e06b8f7065b5fb5f1ead97d017f6968118bcecaf78557": "2x − 1 = ln 6, puis isole x : la division porte sur 1 + ln 6",
-        "c0905f2a1a798847392ad1932447673c5278dbc0074752b0d10a35eb9f588eb0": "2x − 1 = ln 6 : ajoute 1 avant de diviser par 2",
-        "e0f9afef9cecabe2707609d0397552dd551badd5242ecb2d09b67ce90b7a0687": "2x − 1 = ln 6 : on ajoute 1 aux deux membres, on ne le retire pas"
+        "2c8ef1fb8c079cf8c5e980a8ea409696eaa2ae551e34950c7790c5c06d4f152a": "1 − 2x = ln 6 : il reste à diviser par −2 les deux membres",
+        "321ac8633db52a5441baf0647878132ec965610791470d30a09676d0234ce072": "1 − 2x = ln 6 : retire 1 aux deux membres, puis divise par −2"
       },
-      "sign": 1,
+      "sign": -1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.3c": {
@@ -8337,20 +8448,22 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "d230a1f612db97e6dc86997290144c35c8be07ab06501f3ee9a04d0af8175247": "x = e^2,5, pas 2,5 × e",
-        "ed2ea291cdf786bb44ad72bc8d3b372c2bda2551e101f2e4c42deab887ba20f0": "ln x = c ⟺ x = e^c"
+        "3f0bca6432730f01c5e22fe4689210406abf7e707dac5cc9602777b803d916ba": "divise par 2 avant d'appliquer exp : 2 ln x + 1 = 6 donne d'abord ln x",
+        "90edf8ef77e347981599932eed4d0c98be6b7a75c41448d51f128dedc91ee5e6": "isole ln x : retire 1, puis divise par 2",
+        "d230a1f612db97e6dc86997290144c35c8be07ab06501f3ee9a04d0af8175247": "x = e^c est une puissance de e, pas un produit",
+        "ed2ea291cdf786bb44ad72bc8d3b372c2bda2551e101f2e4c42deab887ba20f0": "ln x = c ⟺ x = e^c : on défait ln avec exp"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.3d": {
-      "decimals": 4,
-      "hash": "b818abdaab61df7fa8d1e9fe724ff14c6b3bb763c28eeeef005522e188c5d0ef",
-      "hash_coarse": "f3eea7c7b822c3c5ff862dcda59c7d1bb77f935708b422a84db39c98ebc415fd",
-      "kind": "float",
+      "hash": "ecdaff349e672fe471ccae5925fcc2efffe64474629a43e6ea1b510f5f485449",
+      "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "fa64ac11fa7cba13245d00dd9348c64aa5ceb85e99705ffb5701892ff6a12045": "ln 1 = 0 : l'équation donne 3x − 2 = 1, pas 3x − 2 = 0"
+        "09416ed6168fb76a5c7f6c99c069cbd1a72bf0f4f3bec0fc186f91ebbf1e2790": "pour cette valeur, x − 1 est négatif : ln(x − 1) n'y est pas défini",
+        "b3bbf6d3a393e10c516c04a38549cad20a0ae76af7be376da7f60f880f13460b": "ln a + ln b = ln(ab), pas ln(a + b)",
+        "ebe762da753e4dacec2fdefd3b928d76feeff88281f2ebe80708cd91296e6d43": "tu as trouvé x², pas x"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8390,12 +8503,27 @@
     },
     "R6.3h": {
       "decimals": 4,
-      "hash": "304fad227f9120e269c94d4c9a7dbdc38779518ce6ef6242d08b5efdf05fabe4",
-      "kind": "set",
+      "element_coarse": [
+        [
+          "7838c7b0fc213e213db703cfa6f0f79940360c7d078d639559f06aaecc894bac"
+        ],
+        [
+          "30fa0e703e70d56dc1eca12aa1065049a8f904b8b18f174e4ebae4b431851158"
+        ]
+      ],
+      "element_hashes": [
+        "173764d799892bfbe0cd3a8285dc90bbdac08f7a334698681e011a597c3a8033",
+        "c94003d194c040670c3fa8302b0085942e506441d6cd8f555c2ec593ae06dd7c"
+      ],
+      "hash": "a07c4241c7cf169d06423a4c19674917d86e0b8a71c9015ef567d99ec4914868",
+      "kind": "array",
       "mistakes": {
-        "514f8ed74c6eec942e9d714143d67cb5553beb57be0b2ca78a082d5896e7d4e3": "X² − 5X + 6 = 0 a deux solutions positives : deux valeurs de x",
-        "939e1100cb4be12658c687bda60140322e19d6ec0a776f227af32287a59dbdd2": "X = eˣ : il reste à revenir à x, avec x = ln X"
+        "02816c384a2194b63a04dbd459f382c7789f940bcb9358fe5a1d342ff34fdd89": "X = eˣ : il reste à revenir à x, avec x = ln X",
+        "c0fdb9aba49f630f1ae2bd1be9d1427a0e10f56311ff61feee8252d3b3715b79": "X² − 5X + 6 = 0 a deux solutions positives : deux valeurs de x"
       },
+      "shape": [
+        2
+      ],
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.4a": {
@@ -8404,29 +8532,36 @@
       "magnitude": 0,
       "mistakes": {
         "2bbc75b38e5f4f4ac12a562b1059c44b606b1aa44e8ec0b2b4d4caf4a3f82c7e": "log₂ 512 est l'exposant y tel que 2^y = 512, pas un quotient",
-        "c5a6b713acf99c2c0e203d3313098463b2cffdab8999dc121046fa0b2b664d37": "compte les doublements depuis 1 : un de plus"
+        "c5a6b713acf99c2c0e203d3313098463b2cffdab8999dc121046fa0b2b664d37": "vérifie : 2 puissance ta réponse doit redonner 512"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.4b": {
-      "hash": "cd597e7fc6f81b212a3fbefeb0722c99f2d617604c5514dc226d383f52da77e4",
-      "kind": "int",
+      "coarser": {
+        "1": [
+          "0a0168247aeaa4e47c0e90ffababc42a53ce66e3e7bb50eb8b8790717aa11ea6"
+        ]
+      },
+      "decimals": 3,
+      "hash": "5ab3e63c21ad94d1319d087317c340100c852be2d470bdf953be100709b3e94f",
+      "hash_coarse": "17d0126c4109d1f43b7f322c75c47a62275ea3ba5c88bdf16257f0f89ad37078",
+      "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "8b2a9bf4ce9ad1c1c2e50b527ea511f1ee4f48fd6ddf3f36201e8a8b5bc49f82": "compte les décimales de 0,0001 : 1 est à la 4ᵉ place",
-        "b04438c45b3123af51029581821dd7629ad9d06a5e8cb868aa67ce39d6a7b86d": "0,0001 = 10^(−4) : un nombre entre 0 et 1 a un logarithme négatif",
-        "b8030cb2ff5869191f04264d68e8d8b872a03ba4c273bb183fac5166711c1939": "compte les décimales de 0,0001 : 1 est à la 4ᵉ place"
+        "3b215f7050c22bfb17185bb3364e7087e68b3925cc3c4921836670ccb1f109be": "tu as trouvé le produit : il reste à en prendre le log₁₀",
+        "45191b4376dedf4b38736d36097e3f466624f4df020d71064bfd0f172ca321c0": "log a + log b est le logarithme du produit ab, pas le produit log a × log b",
+        "ec508dcacb9a10f1f5d406c86ee9292c38c280db3de71ca76db3e629672b7aa3": "une somme de logarithmes est le logarithme du produit, pas de la somme"
       },
-      "sign": -1,
+      "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.4c": {
-      "hash": "caec4f885137b5938d8637b5d0f79a54f43128b0d18d0fd921e4dd809d462209",
+      "hash": "df9c924ba3954e6bdab7cf734ae3f4d87a2ab4b6e39666863667e6ff1b5fa1e6",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "962cc6a92fb90428208be50e8e3267e7029dd1c56914de53871d4121242547ed": "log₃ 81 est l'exposant y tel que 3^y = 81, pas un quotient"
+        "a4bc41d29d2e8840a81ced7bb29285779bba1590e4963bddd182b104ee7f7bdd": "log₆ 216 est l'exposant y tel que 6^y = 216, pas un quotient"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8436,12 +8571,17 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "bafd5508d9cc1da04ee8b0e0d96113f0c425d0f298c08f7117df3931c39db7f1": "1/128 = 2^(−7) : un logarithme négatif"
+        "bafd5508d9cc1da04ee8b0e0d96113f0c425d0f298c08f7117df3931c39db7f1": "un nombre entre 0 et 1 a un logarithme négatif"
       },
       "sign": -1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.4e": {
+      "coarser": {
+        "1": [
+          "4799fedd5f1ea12ac1eb3bec06ccaf3c9b37483100de971b959e49393f38b4ee"
+        ]
+      },
       "decimals": 3,
       "hash": "5a4ccaaaa25e1140f0e83c50351361ac32054eaa7ca12edd16a0e443600672e4",
       "hash_coarse": "7499a858c1d860419988cbf2571593e5c8278e8cd7450be601decda868d54c2e",
@@ -8449,20 +8589,26 @@
       "magnitude": 0,
       "mistakes": {
         "45692e924cccb53d2acaca9808ba778a8963ed8fd066b35ad259f369585883e7": "log₅ 30 est un exposant, pas le quotient 30 / 5",
-        "df26d4a8cda0644ed9bd479a096ae58c6a6ac3723b334c4539f9c3b26335c1e7": "log₅ 30 = ln 30 / ln 5, pas ln 5 / ln 30",
+        "df26d4a8cda0644ed9bd479a096ae58c6a6ac3723b334c4539f9c3b26335c1e7": "le logarithme de x divisé par celui de la base, pas l'inverse",
         "eb87d04b627e6d7b536968c0320d4f77d32de2d40cfbd6268eb0aec13a886649": "divise par ln 5 : le logarithme décimal de 30 n'est pas son logarithme en base 5"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.4f": {
+      "coarser": {
+        "1": [
+          "46879669b67057d881ee16c6ee43f8ff1f098614209bfe72f86b4229556e5a9a"
+        ]
+      },
       "decimals": 3,
-      "hash": "7fee0a3c3cb95e94632a81b9ae77048b4ada1b05d3ec15b1bdece1ea5f117702",
-      "hash_coarse": "d8c5516d84d6f829b62906dc44fe5351ec77c6d38128f4504c6e680551786e6f",
+      "hash": "c0f1dddea43c497ba001fb11eac26708aa5c20b47c99d1d0575566b86860d35f",
+      "hash_coarse": "e748b8ce0541db768614c432d490fed61a84df278c0d81b8db585f53fe6f23bc",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "d393795b3e1f87c9d1ea98d360fcab8551c4032628c5b2ff1f900c6212a949b7": "log₂ 10 = ln 10 / ln 2, pas ln 2 / ln 10"
+        "5aa9811c5217353fb6d62728a676dce3a2551ba796da3c272c23f055c5936515": "le logarithme en base 2, pas en base 10",
+        "6be385c5c7e63873c6eca2a14450b81d8037c52922c52b1e71ce846426bd6b13": "le logarithme de x divisé par celui de la base, pas l'inverse"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8472,8 +8618,8 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "19b87e4254b7b3340a44cef3758f50640b5e646a5ad15963831acaaa975c0ce3": "un nombre entre 10^30 et 10^31 a 31 chiffres : la partie entière du logarithme, plus 1",
-        "436c78048a220b6dbe181f131694aa670c0bc54ec73eb025330dd5c3cab2faa0": "le nombre de chiffres vient de log₁₀(2^100) = 100 log₁₀ 2"
+        "19b87e4254b7b3340a44cef3758f50640b5e646a5ad15963831acaaa975c0ce3": "le nombre de chiffres est la partie entière du logarithme décimal, plus 1",
+        "436c78048a220b6dbe181f131694aa670c0bc54ec73eb025330dd5c3cab2faa0": "passe par le logarithme décimal de 2^100 (fiche §4)"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8483,7 +8629,7 @@
       "kind": "fraction",
       "mistakes": {
         "95f2725c5cc6158d0f10413af283b5df2d4a11e4a0be35a38e7991e58cd6a70a": "log₄ 8 est un exposant y tel que 4^y = 8, pas un quotient",
-        "e79b5505857e4770d27594fc0ad856d997285873b26ae55887cec12aa517a685": "log₄ 8 = ln 8 / ln 4, pas ln 4 / ln 8"
+        "e79b5505857e4770d27594fc0ad856d997285873b26ae55887cec12aa517a685": "le logarithme de x divisé par celui de la base, pas l'inverse"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8515,24 +8661,26 @@
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.5c": {
-      "hash": "a0938a27b6806f1e8cd3c14d9170cc2172ecc7e6d75cd750144a095d2c9989ca",
-      "kind": "int",
-      "magnitude": 0,
+      "decimals": 2,
+      "hash": "15c4a6f69a92ebcdf0ab259ee59e6ab30039d459bbeddeb69d88efc01d15dc23",
+      "hash_coarse": "80b0ee5335c8311eff7dd67dcebd24ead880892db3e6bf6fa6785aa4098a9e12",
+      "kind": "float",
+      "magnitude": 1,
       "mistakes": {
-        "0aaae902d8a8c0e5f342588b801b3fab101e9dbd2c9282d44811068aa6b555f2": "−log₂ p : avec p = 1/512, le signe moins rend le résultat positif"
+        "a2ec8acf182fdc2af720cb29fd846a6be4c5e397ee2a11bca031fb965f9c19de": "l'information est le logarithme du nombre de codes, pas ce nombre",
+        "addf8fdb0374ab2088eedb1825b9b2b47836cd87dd67298ce5e1ef73d9de16c3": "3 lettres parmi 26 : 26 × 26 × 26 codes possibles, pas 26 × 3",
+        "c71f734245907a1423fd63c9e67832b2823510b1d2f40f5b4f41da92df185bb5": "en bits : log₂, pas ln"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.5d": {
-      "decimals": 3,
-      "hash": "a72c6be4a96b07f3829ae4b948dfb4ddf109b13475aa3d3fbe1a2e9700fc6417",
-      "hash_coarse": "b6d50930f92eeb5d3687aed18a1a7f63060474563a24bc4447b229ea9446e92c",
-      "kind": "float",
-      "magnitude": 0,
+      "fractional": "un nombre de lettres entier : le premier entier qui convient, pas un arrondi",
+      "hash": "883df776b516e84e4af86f60b3cacc88cda18fc2d9b3d7fa733e873c93048205",
+      "kind": "int",
+      "magnitude": 1,
       "mistakes": {
-        "1a4b5930141bbd5faefd021962d02c75239bc67a48181c6e93973a9078e163c7": "les nats utilisent ln, pas log₁₀",
-        "f3ceb4726edd05f28b250a7b30be35a1785c500ef013f592515f8731c4dba26f": "des bits aux nats, on multiplie par ln 2 (1 bit ≈ 0,693 nat)"
+        "c5b7e18ed94a63c325da14f1c94f0b6e37ae75cd0857ffb7692ae17c9c26c82d": "avec ce nombre de lettres, l'information reste sous 50 bits : il faut l'atteindre"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8552,12 +8700,13 @@
     },
     "R6.5f": {
       "decimals": 2,
-      "hash": "867d33ffd7b81c408ad76c00fc47d8c5fa8e3fc7e3fb9e65e7b1c8dcd170ad19",
-      "hash_coarse": "2cc716830a6f57b28f8d9fe25b8de887a6fa0cde4117b1653f7961cbd8bf062e",
+      "hash": "ad8f83544c78c994755f6e97ca16c88e27f8a143b5977a73dd68956f047d75e8",
+      "hash_coarse": "379b41b16b8a6c563159ba16fe44235d8c3df4c13c89bb0db76cb25a0b3018df",
       "kind": "float",
-      "magnitude": 1,
+      "magnitude": 0,
       "mistakes": {
-        "1f502bb59d52f59c65ed7dc8dd7ae7557509a1a5a97923d0bee9a54b67670291": "des informations indépendantes s'additionnent (le logarithme d'un produit)"
+        "19a75ec6c8d606887968dd846a8529378bfbdb4003e25380d9f35a49728068cb": "en bits : log₂, pas ln",
+        "2968b3e9799da85816f9af2ea1708d22db8205fd85371ec7783c0090d4ba05a2": "l'information est −log₂ p, avec p la probabilité de l'événement, pas log₂ du nombre de figures"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8569,9 +8718,9 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "07e0a973b79fd8110c5b51d38fe000611a36e33ad3c308542f2cad43e393a95f": "−ln p = 3 donne p = e^(−3), pas 10^(−3)",
-        "116d9ad205c4f00f564779ea25694569015ac22d93995897165820985132f08c": "3 nats : −ln p = 3, donc p = e^(−3)",
-        "8ce327a120ef978aaba180cb9ae4482f193b45cdae280bafa21953483ad67c4c": "p = e^(−3) : une probabilité est entre 0 et 1"
+        "07e0a973b79fd8110c5b51d38fe000611a36e33ad3c308542f2cad43e393a95f": "il faut défaire un ln, pas un log₁₀",
+        "116d9ad205c4f00f564779ea25694569015ac22d93995897165820985132f08c": "les nats utilisent ln, pas log₂",
+        "8ce327a120ef978aaba180cb9ae4482f193b45cdae280bafa21953483ad67c4c": "une probabilité est entre 0 et 1 : attention au signe moins de −ln p"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8583,7 +8732,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "ed95c196858b6bc62de4fd6586b7837865f0946e85771a010bd4fdfe53a089f0": "des bits aux nats, on multiplie par ln 2"
+        "ed95c196858b6bc62de4fd6586b7837865f0946e85771a010bd4fdfe53a089f0": "1 bit vaut moins d'un nat : 10 bits font moins de 10 nats"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8599,8 +8748,8 @@
       "magnitude": 1,
       "mistakes": {
         "03943c1d2fae882a7c90df4f49f7a79ff1ea30d9ee29a7076c0d6339b28800f0": "(1,03)ⁿ = 2 : le logarithme de 1,03, pas de 0,03",
-        "06ff811bcf70f60cb82d0b1931325ba2fb7919f38b982fb3ffc50d761150d0df": "ln 2 / ln 1,03 : le logarithme népérien des deux, ou décimal des deux, mais le même",
-        "8ef0a530149023034af0f48151736e28f0e12b158d8eb8c93e096376f0c10ac8": "c'est l'estimation de la règle de 70 ; la question demande la valeur exacte, ln 2 / ln 1,03"
+        "06ff811bcf70f60cb82d0b1931325ba2fb7919f38b982fb3ffc50d761150d0df": "le même logarithme au numérateur et au dénominateur (ln, ou log₁₀, mais pas les deux)",
+        "8ef0a530149023034af0f48151736e28f0e12b158d8eb8c93e096376f0c10ac8": "c'est l'estimation de la règle de 70 ; la question demande la valeur exacte (fiche §3)"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8624,21 +8773,29 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "2a15539eea644afe8389bf74f47f2bda069f10f40d52cbe6a0fc094de2f326cf": "une baisse de 10 % multiplie par 0,9 : (0,9)ⁿ = 1/2",
+        "2a15539eea644afe8389bf74f47f2bda069f10f40d52cbe6a0fc094de2f326cf": "une baisse de 10 % multiplie par 0,9 chaque année, pas une hausse par 1,1",
         "c14dee7ee10a65da353ad705ed6f0fcbd4cabb176d6ed8fdde7fcf8318b65c09": "les baisses se composent : on ne retire pas 10 % de la masse de départ chaque année"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.6d": {
+      "coarser": {
+        "1": [
+          "fdb29d7a79e0b06bb1f0efdc3b32d8a8146b327d38b393f2c00e329518f045be"
+        ],
+        "2": [
+          "bc22e9710d61a858c36b51f53a9a17557c000ca759c43c89259112af524528e9"
+        ]
+      },
       "decimals": 4,
       "hash": "433c2b875e7a4638fb51873970ce28b8b7678ef587291c07fbc19c36b776edae",
       "hash_coarse": "32edbab4fa6d554fef276b04e3f5122fda1bc22c61c1c06daf1378de17c3ec68",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "1179d8bb226b2ec886a4d09aa905f2bd3c7b2caee41ac7d269f963e72789df85": "m⁵ = 2 : m est la racine cinquième de 2, 2^(1/5)",
-        "c76f316491047b2b5f8275fdf1b0919be6ba6742bf82163cf4b497e784681b2f": "m⁵ = 2 : m est la racine cinquième de 2, 2^(1/5)"
+        "1179d8bb226b2ec886a4d09aa905f2bd3c7b2caee41ac7d269f963e72789df85": "en une heure, la population est multipliée par m ; en 5 heures, par m⁵, qui vaut 2",
+        "c76f316491047b2b5f8275fdf1b0919be6ba6742bf82163cf4b497e784681b2f": "en une heure, la population est multipliée par m ; en 5 heures, par m⁵, qui vaut 2"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8650,7 +8807,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "02f8985ca8a4eee8a1cc428fc60fb38207be0ab7c80483f714143b477601741b": "12 heures = 12/5 périodes de doublement : 2^(12/5), pas 2 × 12/5"
+        "02f8985ca8a4eee8a1cc428fc60fb38207be0ab7c80483f714143b477601741b": "12 heures ne font pas un nombre entier de périodes de 5 heures : le facteur est 2 puissance le nombre de périodes, pas 2 fois ce nombre"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8662,7 +8819,7 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "a129f9f198d78bb9c3e72efa6f6be46c9df8e45790f9430e506c2cd6cc894087": "croissance continue : e^(0,04 t) = 2 donne t = ln 2 / 0,04"
+        "a129f9f198d78bb9c3e72efa6f6be46c9df8e45790f9430e506c2cd6cc894087": "croissance continue : le temps de doublement n'a pas la même formule qu'avec un taux par période (fiche §3)"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8671,92 +8828,105 @@
       "hash": "00e296f1d05e4fab743d0bfc85305259f8aa9e098616484cb5689c428913d57a",
       "kind": "fraction",
       "mistakes": {
-        "01b94c8995201c45f90b6e962ad2c1c7269b04a03b69d5f3b9af31907e03bb89": "24 heures = 4 demi-vies : la dose est divisée par 2 quatre fois, pas trois",
-        "8842b750e837cde0f292f49dea7defbe99e8581d1e8461c9a759af5bf2eab4bd": "24 heures = 4 demi-vies : la dose est divisée par 2 quatre fois, pas deux"
+        "01b94c8995201c45f90b6e962ad2c1c7269b04a03b69d5f3b9af31907e03bb89": "24 heures ÷ 6 heures : recompte les demi-vies",
+        "8842b750e837cde0f292f49dea7defbe99e8581d1e8461c9a759af5bf2eab4bd": "compte les demi-vies dans 24 heures : chacune divise la dose par 2"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.7a": {
-      "hash": "79d5a32eed5765e12a6d9ea3c5e197aadcb064bbed53f275d35cbaddc880a736",
-      "kind": "fraction",
+      "decimals": 2,
+      "hash": "b0f8c31eb695d5cf8e0e851419ddec52e15283d7bf582fbb46d1259067675cda",
+      "hash_coarse": "0e0fcab5962ccb6fc80062b0ab3fdecb6dcefcb0dcc76f61303357fc56aee9b6",
+      "kind": "float",
+      "magnitude": 1,
       "mistakes": {
-        "dcdadcdfad5440ef5fdca73ef7194ac7fd74757745d67e2b4795808719007920": "e^(−ln 3) = 1/3 : σ(ln 3) = 1 / (1 + 1/3)"
+        "1365278cf50e81b9179c9e2b4a976af122be221e84bd4d57ca21f7e90d29bf6b": "la cote est p / (1 − p), pas (1 − p) / p"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.7b": {
-      "hash": "e5fa9f7ae9371e7286ff5453886b687f99561c90819e4d5f2284fd068c78912f",
-      "kind": "fraction",
+      "coarser": {
+        "1": [
+          "eaf8271ef268f6cc65556e46e1c2cfab42a9994788e4ba210229b1855feb38eb"
+        ]
+      },
+      "decimals": 3,
+      "hash": "7f4908ee8bf583de724ec9373f4e617273766db9abd1082759ccd79e98b15602",
+      "hash_coarse": "45bc28805a6cd3e42b708d0b7d213209618dc82c5d739185c067f85a789c6726",
+      "kind": "float",
+      "magnitude": 0,
       "mistakes": {
-        "0841563c608a874fc2acde05f28d5348a3ed5b4f2b98d74fbbfe34ecc2f6a507": "e^(ln 3) = 3 : σ(−ln 3) = 1 / (1 + 3)",
-        "3d4c6b3ed9e2d88c15178ac6c0488c21f50ef44b80eebf313e2591f78fc26866": "σ(−x) = 1 − σ(x), pas −σ(x)"
+        "0beb24b14a0571eca26acdc92cb79aab18c7a76f28133f2f35458e51101a4c0a": "le logit utilise ln, pas log₁₀",
+        "2e93f8c62a8f9621521e1aecc758b36f2ee7891bf4a714a014b30808a52fb0f7": "le logit est le logarithme de la cote de a), pas de son inverse",
+        "b3bacd53fb1f172bd89600618bd862c7cfd4aa3b379d79b1551316374e01a15e": "le logit est le logarithme de la cote, pas de p"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.7c": {
-      "decimals": 3,
-      "hash": "c200e105a041c128a075eeaa5f743487c4cb92277d1c6bc21dfc0b854af0ce2d",
-      "hash_coarse": "784efb15052c0c34ef09f6ed0c532fc50746a65636130898d15ed630cb80809b",
+      "decimals": 2,
+      "hash": "0c8756099dd6b634c7abf5d93bbfb3078ae457137f0f30e60b5190514fad4f99",
+      "hash_coarse": "66b6bdfb33e9739bade3d937242daef43ee10038000db81e105921b626a1a408",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "600016f4aee04a35afc36fbece025b9d29ee4d335761b60d8613965aca3a284b": "σ(x) = 1 / (1 + e^(−x)) : l'exponentielle a un exposant négatif"
+        "8c548a6e68841d2664cd7ee297c14c9e420b8c6e924cffc390ff3b89cc75e8af": "3/7 est la cote ; la probabilité est le p tel que p / (1 − p) = 3/7"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.7d": {
       "decimals": 3,
-      "hash": "5ae64830b265cd4e4f648bd16944281dec2482555fceac8715d849f929bc3e42",
-      "hash_coarse": "1b24c5d1234a77011d7c98bccf83c01d67cf0fb12a8815c8791ec6bfce1bdda2",
+      "hash": "2c44fed717c6ec866700fb0c9f2929c0116ea9a68cb75b369dd5f4dcf6a53e73",
+      "hash_coarse": "c495a22dd15652dadc1d3c958d040a4ea2512a37416a4db0b7354c7216d5b2cd",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "8a5b15281c2016a625c668ce623013c401ee15653f58187f1f1d8087e78f11e3": "σ(−x) = 1 − σ(x), pas −σ(x)"
+        "54baa3003afeddab46fdc8a8074142767775c25460c025f7929d97a4852b2dc7": "le logit utilise ln, pas log₁₀",
+        "fcb4dafa381ee543b84c6cf36b185335d87f9b0e7e1a0f87d3533f83b3758141": "le logit est le logarithme de la cote, pas de p"
       },
-      "sign": 1,
+      "sign": -1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.7e": {
-      "decimals": 2,
-      "hash": "4ed8d3c40c89e527f0c12fb2806e068f4e4b05aa926f6b1c251d0afbd39b3bf9",
-      "hash_coarse": "5333896cb57ad8b1e4a834c3b4f6982418315dcdfc964cbb6dc7ef3a5fbd1b1f",
+      "decimals": 3,
+      "hash": "078ffa26981594f8eedec02891f9a4c8cb5b3e238d0d114918dc02865de0b0fd",
+      "hash_coarse": "76bad46ec00bea762edbbcfa41a47f47e126552d20134fb811cc820a99f42f62",
       "kind": "float",
-      "magnitude": 1,
+      "magnitude": -1,
       "mistakes": {
-        "7701d69368900acc35a6ca2d88037bc5cc099d7c60b96a13493f1ed2aaf3df96": "la cote est p / (1 − p), pas (1 − p) / p"
+        "7ee9417b4eb5fb4cb2df9d85b26f824a60d3d813446ccb9950cf950d27a0c12b": "σ(x) = 1 / (1 + e^(−x)) : l'exponentielle a l'exposant −x"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.7f": {
-      "decimals": 3,
-      "hash": "a7afc3d8624ab22f734a9849e5bf939577ec0223363f63222b2cee2460bebb7a",
-      "hash_coarse": "7f6e4ada64502a1c455d2cf0bb7096692a8b2d5ce6e131537a3cdcaa5759d3f1",
+      "decimals": 2,
+      "hash": "b294e2321b47b3d90ac718740447ece6d1ac3891802f4b7c2745e740fc21434b",
+      "hash_coarse": "b246d8d6fa1d787e9a1de73a97e515370e5eba432cd4160b3ed2d78fe252355b",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "84fcfea0d5cdefc635d51fe40d10fe7a4abf1f4a8144be4ff2364684caa946ad": "le logit est ln(p / (1 − p)), pas ln p",
-        "949c03090e7b2456d137aac747c4baebabaf82297cdf6ca0a97124cd9e8154f2": "le logit utilise ln, pas log₁₀",
-        "b726e6b4d5092087fd64bfc996ed45c847e928b833d8eb2ae2eaa0ccdc5cb5cb": "le logit est ln(p / (1 − p)), pas ln((1 − p) / p)"
+        "39d560d1da811bcdf1b448e786fc4e0e712860294dada98d0e68feacc6ecaa1a": "1 − p a la cote inverse de celle de p : que devient son logarithme ?",
+        "f2df5be805c4e745fe28a640b4753a677a0e0ee7dae2d51ac54fa3b1ba0d523c": "c'est la probabilité du contraire ; on demande son logit"
       },
-      "sign": 1,
+      "sign": -1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.7g": {
-      "decimals": 3,
-      "hash": "c9d57258068b91495f589d4bbe9ffde823b7dcd82c8bd17a00cde762d64407b3",
-      "hash_coarse": "71e21c229836563c42ece2d9359b7144ed82d68d26c6a2ca1bd32f0bf8fcf0eb",
+      "decimals": 2,
+      "hash": "b6889db8658084dfb41fb7450212c08ace74ac04b0f0aa389527c2cffa60809a",
+      "hash_coarse": "b8d08eca02cafbbc6d586aeb48831f541a44190d5620193fb119ec819d658cde",
       "kind": "float",
-      "magnitude": 0,
+      "magnitude": 1,
       "mistakes": {
-        "5f56ed21757399790fe9ccc9aa33a2272fee5e4e896101f7fa68ef5c5eb4c1e2": "x = ln(p / (1 − p)), pas ln p",
-        "98544fc276f4755db592807cf14f38b976d11dfa089ec0f90867e0fec400cf25": "σ(x) < 1/2, donc x est négatif : x = ln(p / (1 − p))"
+        "6825a3ed177ec5b367bc6632234aad7c9cffef3d6552e53723ce23c959067d6d": "le logit est un ln, pas un log₁₀ : on le défait avec exp",
+        "c592d73a09e9cf79c84f14ae99e4137ed8b979cfec0b3794519c98ccb8c31255": "le logit est le logarithme de la cote : la cote s'obtient en défaisant ce logarithme",
+        "fad260fe178563aba7d5515e615a6a3807a70ccfca6f244b2299d502a3ec2dac": "on demande la cote, pas la probabilité"
       },
-      "sign": -1,
+      "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.7h": {
@@ -8766,47 +8936,51 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "529b7a0d0e74b349fb7e504b1c5acbdbdc830c7e612f6778e95cb26e58a28767": "la cote 1,5 correspond à la probabilité 1,5 / (1 + 1,5)",
+        "529b7a0d0e74b349fb7e504b1c5acbdbdc830c7e612f6778e95cb26e58a28767": "1,5 est la nouvelle cote : reviens à la probabilité",
         "8bfd3349b3bb0b4457e3f9d7e5c2961c9af59a6750e7ed168ea7f3203f474516": "ajouter ln 6 au logit multiplie la cote par 6, pas la probabilité"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.8a": {
-      "decimals": 2,
-      "hash": "67887fc413611a607a890a0cef7a7528c6d07e717b1129e2e5cff0ab1733831a",
-      "hash_coarse": "d99db595ef7042cef6543b2161ed8f50f2a06a32adf514c6c29be6c5e19e8a6d",
+      "decimals": 1,
+      "hash": "d99db595ef7042cef6543b2161ed8f50f2a06a32adf514c6c29be6c5e19e8a6d",
+      "hash_coarse": "ce370be1ff0b30bf8486a6bd2f6915826ed019e0eb3c431946dd457edc13bece",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "4dc727d6cd1e7fc40a929db533ab8782971ba0fe18b132115b7b13e637dd0598": "la position est 5 cm par décade × log₁₀ x, pas proportionnelle à x",
-        "79905c0e315ac733a169207582735e9a7ed8668a0c5104af951c0b499bf183c3": "log₁₀ 100 = 2 décades, et chaque décade mesure 5 cm"
+        "09937bd59d781a476f9c5224751aecd060d5473707f1418b468811254a576bf6": "la position est proportionnelle au logarithme de la valeur, pas à la valeur",
+        "430fb2b12e9f8f3aa736621279f2e494ca29e92ce7d0f57c2967158abfc4cf7a": "c'est le nombre de décades : convertis-le en centimètres"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.8b": {
-      "decimals": 2,
-      "hash": "f51419534f45cc202e22fc0aa619cb2efc786df14ea49f38ed8deb5755eb5b38",
-      "hash_coarse": "e822e63ffc11d8b0cd171d49938f4340c7e17cbe13141c326fb6f294349dc77d",
+      "alt_coarse": [
+        "4439cbad945761f4da548701a7ba71d603a6a82d3a780dcbbb4eef6b5ab5a12c"
+      ],
+      "decimals": 1,
+      "hash": "e822e63ffc11d8b0cd171d49938f4340c7e17cbe13141c326fb6f294349dc77d",
+      "hash_coarse": "3f4d0fe33b66c55b34cab0073a8f8fa51a640bb9a87f5dc3209b52f7e2c92c3c",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "70b78b3bfde8a7931273be59689da0c23b81c07a2e1d7838c24b99d2e270995f": "multiplie le nombre de décades par 5 cm",
-        "7c807066c0581743ed70d17c5606c11e5f57e9736b8f80004f036778add381b8": "log₁₀, pas ln"
+        "92a867494ce6d318776b2fb25911c5e219459d8257ba02688fde30869098957b": "log₁₀, pas ln",
+        "93c66c3e672f6293959bcd1ab42246e639a42756c540769c7c302723095c00ff": "la position est proportionnelle au logarithme de la valeur, pas à la valeur",
+        "a448bfa56eca4bc1c40806b00477b02d0fc95834cf38f3081b33194e40dab7fa": "multiplie le nombre de décades par 5 cm"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.8c": {
-      "decimals": 2,
-      "hash": "b18c7d31ab8a421b6322cb83b9a15975bb392ef080f540362925afb6c17b294a",
-      "hash_coarse": "1e37eda48a6f1136dfece82f2c5a9f6ce79bdff8c30b1ed87d1bdd1e82372f71",
+      "decimals": 1,
+      "hash": "1e37eda48a6f1136dfece82f2c5a9f6ce79bdff8c30b1ed87d1bdd1e82372f71",
+      "hash_coarse": "01e48039588b3706e8592779b1f12c8881601d4dfe3d59720ce9d2d7027369a2",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "0b2efd3bef4399b99d828488bac5391b1c1760265b08f0b821e0dbbefa67d775": "5 n'est pas au milieu de la décade : sa position est 5 × log₁₀ 5",
-        "6c6dde1e6b51eb62ee7d087b114fd14632793741d5bf3e5158403d4bb91b4422": "multiplie le nombre de décades par 5 cm"
+        "650bddeeae41648b9884350610e06afb28653e9b8603038a1743263e974b6301": "multiplie le nombre de décades par 5 cm",
+        "b25e60a838ba5e13be12ea9f31762aef458f711391a484bcdd1ec77983f7b8dc": "5 n'est pas au milieu de la décade : l'axe est logarithmique"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8818,8 +8992,8 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "4cc79911662d95967125bb838729cf56324ca51228e367c30a52e904266ad851": "7,5 cm = 7,5 / 5 décade : la valeur est 10^(7,5 / 5)",
-        "5ef7e70b9b90228a0a19d7b7ddeb4962dd72eb993aff01bb9d2f1a16c491dff6": "7,5 cm = 1,5 décade : la valeur est 10^1,5, pas 1,5"
+        "4cc79911662d95967125bb838729cf56324ca51228e367c30a52e904266ad851": "convertis d'abord les centimètres en décades (5 cm par décade)",
+        "5ef7e70b9b90228a0a19d7b7ddeb4962dd72eb993aff01bb9d2f1a16c491dff6": "1,5 est le nombre de décades : la valeur est 10 puissance ce nombre"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8831,9 +9005,9 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "0e8ef152d731ed31a0e73834ed7bc1869dc51a4273a103b3d405e95eb9dc8d00": "3 cm = 0,6 décade : le rapport est 10^0,6",
-        "aacbe358c8d5ac7598b33e5144cc6cb88c32f1d7c5590a37ec90272f68a549a8": "3 cm = 0,6 décade : le rapport est 10^0,6",
-        "afbe89881bf4515936a0ad9f7b26f870584d2613dd28da6c33fcb0a0b12b6cb1": "3 cm = 0,6 décade : le rapport est 10^0,6"
+        "0e8ef152d731ed31a0e73834ed7bc1869dc51a4273a103b3d405e95eb9dc8d00": "convertis d'abord les centimètres en décades (5 cm par décade)",
+        "aacbe358c8d5ac7598b33e5144cc6cb88c32f1d7c5590a37ec90272f68a549a8": "convertis d'abord les centimètres en décades (5 cm par décade)",
+        "afbe89881bf4515936a0ad9f7b26f870584d2613dd28da6c33fcb0a0b12b6cb1": "0,6 est le nombre de décades : le rapport est 10 puissance ce nombre"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8851,6 +9025,14 @@
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.11b": {
+      "coarser": {
+        "1": [
+          "cd144bc73f78e1b4ebbff3720df6086d520bbaee99b182ffc69abc885056f00f"
+        ],
+        "2": [
+          "822e7e63da5d04bba1ff425feb45e2acd81cd6b821077820ab3950926ddd674b"
+        ]
+      },
       "decimals": 4,
       "hash": "b6a9cdd59ba5fee3006e729f172bae6f0c7d81c03253847cbd1f0fd22b3543c2",
       "hash_coarse": "4d630776516aaef2594e837123374a0f01f0512772ef0e6ceecdab2de15a04d2",
@@ -8864,6 +9046,11 @@
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.11c": {
+      "coarser": {
+        "2": [
+          "4fa2b782c20fcef895b58f2f65080bbf699e02deff5b83a6b3c1e58ba40ad5be"
+        ]
+      },
       "decimals": 4,
       "hash": "9fcef14a43f4fd5bc67de972b34f3b21e878cb17efbf3f44e4defee494408994",
       "hash_coarse": "9c9a26a11f914c1f479c8a9c5f36c4e20fb3c0c68210fd468ee08bd016530557",
@@ -8876,13 +9063,18 @@
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.11d": {
+      "coarser": {
+        "2": [
+          "e33f0f849bf7593509a9249dcf792313d6b6d170c4666af649b6e7a08871ff95"
+        ]
+      },
       "decimals": 4,
       "hash": "a8e998ae3cf8c560d08d1220895c542e4600c5faa97a5eedcd552672ae09ead3",
       "hash_coarse": "0418678af4bd28805d44e8a492bdc0c6b2e772b3f713e978c1066b59efd4a666",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "c241b10959345daa71f547ca8ff0f87001370b47808473a8d09788cf049fac3c": "la vraisemblance est le produit des cinq probabilités : 0,7 multiplié cinq fois"
+        "c241b10959345daa71f547ca8ff0f87001370b47808473a8d09788cf049fac3c": "la vraisemblance est le produit des cinq probabilités, pas leur somme"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -8902,36 +9094,42 @@
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.11f": {
-      "decimals": 2,
-      "hash": "f344cf5f42ab2248005ea55144a8583ce7abbb0715c4b8337b6f9978dc606521",
-      "hash_coarse": "ab2a83e811b8faa51e16af1e7b2919a845994718e1ef7037a6f79a59b70e73a0",
+      "decimals": 1,
+      "hash": "1aaae6380d6f251454d752b9c4cb3a4b4cf2875e03303600a9bbd996b7ba0a97",
+      "hash_coarse": "aaa3750e7bcfa213907ffc96954f77166730648feecc242486f960ef754ecc54",
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
-        "e7edd38e68c41f5fc09e8d8c1c0314dc0ab57a06e70863d2e877c2ef2063c56c": "le logarithme d'un nombre plus petit que 1 est négatif",
-        "f41a0182679850c75cacacb967b70ed0aadb13b58a69304db927ca40a79a9908": "log₁₀ d'un produit = somme des log₁₀ : log₁₀ et pas ln"
+        "3393af239b4697073ca752c97a4f6c22490bfcb53e90ddecae12671aae832d96": "chaque groupe compte autant de fois qu'il a de résultats : 600 fois un logarithme, 400 fois l'autre",
+        "358fd5e76a2aaa17b24ae892ddb9977138abd26e91a557fb2c6b910f7606c31a": "la log-vraisemblance utilise ln, pas log₁₀",
+        "c12acbae2854961c3b4b17a618e5f6f710e436a16e0c8dfe9cf8d945206eea99": "c'est la log-vraisemblance du modèle A, pas celle de B"
       },
       "sign": -1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.11g": {
-      "hash": "3264a27610a1c3d41d4921c4a8549e5bb6896b5b4c314d5a60f01579b615b87e",
-      "kind": "bool",
+      "decimals": 1,
+      "hash": "501cddd1cc4d19805b1b16ea7ce8fb582b06546df38ac2d636ad3acbc2750448",
+      "hash_coarse": "4b8b91380063f0667a73ee21d33f29519a6a42b287144249fa3e23605cd9b8f5",
+      "kind": "float",
+      "magnitude": 1,
       "mistakes": {
-        "c19bd988bafbacd62f9e694d38d676187a0564cd0c2e655575af1b4f266e3667": "le plus petit flottant positif est de l'ordre de 10^(−308) (fiche §5) : compare avec f"
+        "705f228aac07597dd509775e351694d99272770d391b1e03e4a32057527957e9": "l'écart des log-vraisemblances népériennes, pas des log₁₀"
       },
+      "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.11h": {
-      "decimals": 1,
-      "hash": "a220badf378fe95b63cb1fb98cad7d27fc8760e225c772a971ad709f5d44d640",
-      "hash_coarse": "a4d99744255dd9d5e2ddb48d91d590c003f3ef0fdeaa983061a77bb7ff6e58e1",
+      "decimals": 2,
+      "hash": "b65a93a2c110ae4cbf042b84c856e07c3c274fd152007c5fda350c822f8e5fe2",
+      "hash_coarse": "dbd2fe4642da15a204101de02488f9a06e2cad042d70825549daaa28ea8465c5",
       "kind": "float",
-      "magnitude": 2,
+      "magnitude": 0,
       "mistakes": {
-        "c524fc98d29a5c18f80f5c2306fbfd03a42670a74537d1a1381d87903fabd404": "la log-vraisemblance utilise ln, pas log₁₀"
+        "12052cc567cb6857d36b61e379490ce7b4ba252f2b5cb04ebe094b81d2f39fa8": "le log₁₀ du rapport : divise l'écart des ln par ln 10",
+        "9fa126f3fb4094b6037473b751f93a5bcd8eccd60037c71573b4b3e9f81dd4e3": "divise par ln 10, ne multiplie pas"
       },
-      "sign": -1,
+      "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.12a": {
@@ -8941,12 +9139,17 @@
       "kind": "float",
       "magnitude": null,
       "mistakes": {
-        "eeac8275fc8c0eef5a695c3bc5ed656991f394595b55ac3b3c7add53e948e0aa": "ln(N / N) = ln 1 = 0"
+        "eeac8275fc8c0eef5a695c3bc5ed656991f394595b55ac3b3c7add53e948e0aa": "idf = ln(N / df) : calcule N / df, puis son logarithme"
       },
       "sign": 0,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.12b": {
+      "coarser": {
+        "1": [
+          "ba6dc9ea2d1ecfb934f8a2058df27d505b5d6a447598a6459a3bcedec365fef7"
+        ]
+      },
       "decimals": 3,
       "hash": "af5bfccea7f224ca6ebc881fdecbe59b87c607f919adc5d6356be6a7b94d1f2f",
       "hash_coarse": "a31ab90f375df0c52fa6790a544e2a4b4065e9d58ef5842cc28c0f66be085a4f",
@@ -8960,6 +9163,11 @@
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.12c": {
+      "coarser": {
+        "1": [
+          "dc56754f38f52d4fb1375f7cf15ab9650e90066834071b0aa1e62e65fdc76af2"
+        ]
+      },
       "decimals": 3,
       "hash": "c183856541b0b978816d34b06e6aa60ff5868b6c0b0a15d439c672c683d09888",
       "hash_coarse": "c275d375f5ec787acc32f50a8fe0e7af197ba5b7bf421edd3e2ef6a545cab0e8",
@@ -8990,6 +9198,7 @@
       "kind": "array",
       "mistakes": {
         "1db73318286b85980ffb43ca2b800128edd530f420b39d3de50e0b23478b028a": "le mot de b) apparaît 2 fois, celui de c) 5 fois : tf × idf pour chacun",
+        "862cdf0f8af22860b7209e54b52a5035b70e2145142e6e08c00219c46c8056a5": "calcule avec les valeurs non arrondies de b) et c), pas avec leurs arrondis",
         "ad092f30b4b83cd9233f8fbcd390b4130856cadc9b36eac16268ee4cd76d2b52": "un poids tf-idf est tf × idf, pas l'idf seul"
       },
       "shape": [
@@ -9012,26 +9221,35 @@
     },
     "R6.12f": {
       "decimals": 2,
-      "hash": "a5344ab523e041a0341c52aee4323e2d876f10af8171e9fa480fd804a5020514",
-      "hash_coarse": "e7d24a39cb4b22ad8943a38f704a5ebc53807ae241a5d7e06ba51b50c17d65d6",
+      "hash": "218a160b7f8f7d9174fadd10b273c608fa5ba7d0a05b4370153077b33ef509ba",
+      "hash_coarse": "61ff93a56fe5636c8273d5dd374f679da985199be07e4b334f0a7edec172224e",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "0789c5cb0b69238ae21692ce867e1eabcb89476406c109002b9a686c83110573": "diviser la MSE par 2 multiplie le rapport par 2 : le PSNR augmente",
-        "0fe090e32eab1a5843de603a589fafd9b59ae87d69a59ca44095a5d8a4fbef50": "10 × log₁₀ 2 : n'oublie pas le facteur 10"
+        "710ddc34b11e4757c6c287357842a28257f0f23969aa692b5b73938fa20c93ee": "le PSNR a un facteur 10 devant le logarithme",
+        "a19324735fe28c02cbbfcd839c07cc92799dcfd64532ec2f88a2f86c5bad7d1a": "diviser la MSE par 5 multiplie le rapport par 5 : le PSNR augmente"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.12g": {
+      "coarser": {
+        "1": [
+          "4f6eac27b34d1a4278f52dd9a8d72d410831577268412738ebc643f6e72f5e67"
+        ],
+        "2": [
+          "57af50ebbe957771535b98b5eb98d17fd2be19a6701fbe544c444003a22a087b"
+        ]
+      },
       "decimals": 4,
       "hash": "b07113f15c59f308a0f5334448812e14c1860ba5bf522bf481abcf1366fc1d9b",
       "hash_coarse": "690a0f10ce57f699d6630fd45f4974e2af773e84f75fa943f220e44177bea97d",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "72d7a0ed0ee909a59a4f8534187686cd760bc0c97d7d099052f2e0f5a9c72ca4": "40 dB = 10 log₁₀(255² / MSE), donc 255² / MSE = 10⁴",
-        "e6703e55d13cfd2c5b05094daff8bb6d3f347e1c0b708f2c71c37cb2f9917cc5": "255² / MSE = 10⁴ : la MSE est 255² divisé par 10⁴"
+        "4007ec6dcbb0c03ce45debe8e33858cdab61ba07555a0697db19ee3c09028a44": "le PSNR a un facteur 10 devant le logarithme, pas 20",
+        "72d7a0ed0ee909a59a4f8534187686cd760bc0c97d7d099052f2e0f5a9c72ca4": "défais le log₁₀ : le rapport 255² / MSE vaut 10 puissance (PSNR / 10)",
+        "e6703e55d13cfd2c5b05094daff8bb6d3f347e1c0b708f2c71c37cb2f9917cc5": "la MSE est au dénominateur du rapport : MSE = 255² / rapport"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -9061,13 +9279,21 @@
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.14b": {
+      "coarser": {
+        "1": [
+          "c3347d360e53de51473df2ade251d6cfccb9902def3948d74941197980723d87"
+        ],
+        "2": [
+          "055648cc7092edb69084ad5e01dfc72748f6f53fc170aa269fa4140003971f91"
+        ]
+      },
       "decimals": 4,
-      "hash": "4ab338e4abb795f94e37196dfd3510f83b0771129a171cc777547d05982355d6",
-      "hash_coarse": "becc74c1d5d97cc52568fa5017b4b794aeeaa185998634b3a81af89abda559ee",
+      "hash": "ad6cde4a27431f6f11162b67cd1ac966bc16e53860d0edf9025902699d534be8",
+      "hash_coarse": "c02da80b34e0d9574f427645a71d682587b74f6c38dcee2a69eb785f8e199eb9",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "525190aac1cb28b707128fd985316f28ed11c8ae9b8d36e89a27bc6aeba20e3f": "log_base(x, base) = ln x / ln base, pas ln base / ln x"
+        "a639109428e7ff78e9a8373a4a58a44c8b2749defe79833644139eafc5754673": "log_base(x, base) = ln x / ln base, pas ln base / ln x"
       },
       "sign": -1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -9107,21 +9333,21 @@
           "9a43c92d7798190f9ab9c9df65ff8f75778c615e9753968fe3a82ed343b37916"
         ],
         [
-          "71d7571198d09fb06ee38a0b027a9e87d8fd32082c0a42e233124b0b36b9b380"
+          "5b2ca20d29faf4274258dcb7768abf4df2521b06917d4bd35c330e350e7d4df4"
         ],
         [
-          "634f85d655f33baf82632919e3676cb180f0c9133d33f38983f7e6c42c3c366e"
+          "53896dfbcd1ae3d992cf8c25e64abde99903f5271ad8678b1e90d035b0e361a6"
         ]
       ],
       "element_hashes": [
         "89056f8f48813abc10d43f5e8e8293c03782c726202c0cda71356317046af4bf",
-        "f2926e64345a95692680a944053d49914fc3bbb73414dfc626b6c3a6bced0fcc",
-        "62dd10a24e1e684607fe514d8c5ed41ecbda89d91c10fe4d5db860a27c03cc5d"
+        "44a9e3719d9b990e988dab9325f5afc8930863bbbf5fc4813a0b66df6fffa7d9",
+        "24d65d258417375f1da965fb1aec9d86924ef60b0ccf09bc0f93fd3eac359479"
       ],
-      "hash": "92054b607c008d5c5de06450df87a93b5785bf9e617f8841a4203bc0eb344f92",
+      "hash": "068a851a885e03e2180b1a6628fe9505d3de18fec7d5184ba8806b4fc0f7105f",
       "kind": "array",
       "mistakes": {
-        "90b09d3ccd75de18f8febcf8cc5fc1de18e15372ebb05576cb8a59a1181233e3": "σ(x) = 1 / (1 + e^(−x)) : l'exponentielle a l'exposant −x"
+        "a2e93fac76236498916df49712f58fcb7255d197ff6346058f5f9e13f2842524": "σ(x) = 1 / (1 + e^(−x)) : l'exponentielle a l'exposant −x"
       },
       "shape": [
         3
@@ -9178,7 +9404,7 @@
       "hash": "abaeb2fcc6220ea7945cccbdf513a3e92e321aed91a84952a1571a72e965adcc",
       "kind": "bool",
       "mistakes": {
-        "3faba0287be38fd06927d466aa38c9487228f7bf74d9f097a65acca7af461231": "tanh x = (eˣ − e⁻ˣ) / (eˣ + e⁻ˣ) : vérifie les signes du numérateur et du dénominateur"
+        "3faba0287be38fd06927d466aa38c9487228f7bf74d9f097a65acca7af461231": "ta tanh ne coïncide pas avec 2σ(2x) − 1 : écrite avec ta sigmoïde, relis son argument (2x, pas x) ; écrite avec exp, vérifie chaque exponentielle de la formule"
       },
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
@@ -9198,6 +9424,9 @@
       ],
       "hash": "59d2c764851593f6577e1fa918c3c79ce8a693fe156c369155740e68eaa7ec58",
       "kind": "array",
+      "mistakes": {
+        "30c397c7f2b7558173bfed1fb24649efc1e54c4fb842d3fa83b78e276b9ed828": "le signe de ta tanh est inversé : vérifie l'ordre de la soustraction du numérateur"
+      },
       "shape": [
         2
       ],
@@ -9402,10 +9631,6 @@
       "hash": "a35b5d88f867c34eb6510f963b9e38662c1ddeba856c4b69cc937c56c307955c",
       "kind": "int",
       "magnitude": 0,
-      "mistakes": {
-        "2f2cb3bc4ae7d8a76fd6c6c0e1290d4a5720a00ec1832bddf4c072c2d37e026c": "math et NumPy ne traitent pas un débordement de la même façon : regarde la sortie",
-        "933b4fdfb3cb8b2c262a99b5668e9825bb44fcd90a20e198717aa309d71b43bc": "e^800 dépasse le plus grand flottant : aucun float64 ne peut l'écrire"
-      },
       "prediction": true,
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -9419,10 +9644,6 @@
       "hash": "a92657a8e00fcde322ca907b064269a39bd5ef219055809c8ff63b666198f384",
       "kind": "int",
       "magnitude": 0,
-      "mistakes": {
-        "a14a98fd73a7b76de44303df442d55b72287f1234311c0bb4d4aac7dbb493d4f": "NumPy ne s'arrête pas sur un débordement : regarde la sortie et l'alerte",
-        "fbdd672599b80faaaa2e4245a5929444d5c7a06626ec704abe69f507c36b3570": "e^800 dépasse le plus grand flottant : aucun float64 ne peut l'écrire"
-      },
       "prediction": true,
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -9436,10 +9657,6 @@
       "hash": "9d539dec3855000c1e763383efbc1e0ceff9ddad826e2d1fb794fbd0a5c564ca",
       "kind": "int",
       "magnitude": 0,
-      "mistakes": {
-        "a4cb84c3fed8d6fac693d0273b8595828db725cebae58694fc22c5158f011f95": "0,25^600 est plus petit que le plus petit flottant positif : aucun float64 ne l'écrit",
-        "f5c38cda62f7d63e519866656f24b7afa30ea7037d92498f5470106bc75fb110": "NumPy ne s'arrête pas sur un résultat trop petit : regarde la sortie"
-      },
       "prediction": true,
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -9450,27 +9667,11 @@
         "2",
         "3"
       ],
-      "hash": "3e2f6a769b5977db074c072a925ef2e0c65d1f1d6fbf6d03a99a8c93e07efde8",
+      "hash": "4d1f2643040547e48ed8614557e5f268a729af5a4319ac841d7066c19777dafb",
       "kind": "int",
       "magnitude": 0,
-      "mistakes": {
-        "1faef650565c55256a2de99edb846dadc981c819febec81a92662a5b67773990": "chaque ln 0,25 est un nombre ordinaire, et la somme de 600 nombres ordinaires aussi",
-        "4d1f2643040547e48ed8614557e5f268a729af5a4319ac841d7066c19777dafb": "chaque ln 0,25 est un nombre ordinaire, et la somme de 600 nombres ordinaires aussi"
-      },
       "prediction": true,
       "sign": 1,
-      "source": "chapitres/r6_exp_log/05_solutions.ipynb"
-    },
-    "R6.18e": {
-      "decimals": 1,
-      "hash": "1bd9cea4c5aa19dfe26767dcaf0242ffb10ded3f5e121b1f952601ae4b11a9c1",
-      "hash_coarse": "148858dd542762cd58744cfc4c1cca9041be5e1f271f076b6628248abc5ac996",
-      "kind": "float",
-      "magnitude": 2,
-      "mistakes": {
-        "e1f5fe30b3a4b574ac398e8cd06d1a88a490886df99db3c14b59cbd7de7bc481": "600 fois ln 0,25 : le logarithme népérien, pas le décimal"
-      },
-      "sign": -1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
     },
     "R6.19a": {
@@ -9479,8 +9680,8 @@
       "magnitude": 1,
       "mistakes": {
         "4c3a422a2c7128b6fdad42fde1192bf88f886e72c561b3690eec80c87cb2acc9": "compte les n où 2ⁿ est le plus petit, pas ceux où il est le plus grand",
-        "6c16ac7ca889f2dabe9373610781c039629a9b21759e0210d39b5fe06f478905": "compte les n de 2 à 1 000 où n ln 2 − 10 ln n ≤ 0 (l'inégalité est large)",
-        "c1aded911427e5dfcf0ca3d401aacfa929aa0c46433ca9dfc3f2c2a8057d08cc": "compte les n de 2 à 1 000 où n ln 2 − 10 ln n ≤ 0 (l'inégalité est large)"
+        "6c16ac7ca889f2dabe9373610781c039629a9b21759e0210d39b5fe06f478905": "compte tous les entiers de 2 à 1 000 où gap est négatif ou nul, n = 2 compris",
+        "c1aded911427e5dfcf0ca3d401aacfa929aa0c46433ca9dfc3f2c2a8057d08cc": "compte tous les entiers de 2 à 1 000 où gap est négatif ou nul, n = 2 compris"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -9490,8 +9691,9 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "736d9cb91f75467ada5ad75899265cecc589c33446445adbc551a98a1a81dca7": "le premier n après le dernier où 2ⁿ ≤ n¹⁰ : un de plus que ce dernier",
-        "793616a38de44b133f31a1f0021a53e43bc52730b9c73d5d037b3d242658b40d": "le plus petit n à partir duquel 2ⁿ reste devant, pas le premier n où il passe devant : regarde les petites valeurs de n"
+        "736d9cb91f75467ada5ad75899265cecc589c33446445adbc551a98a1a81dca7": "c'est le dernier n où 2ⁿ ≤ n¹⁰ ; on demande le premier à partir duquel 2ⁿ reste devant",
+        "793616a38de44b133f31a1f0021a53e43bc52730b9c73d5d037b3d242658b40d": "le plus petit n à partir duquel 2ⁿ reste devant, pas le premier n où il passe devant : regarde les petites valeurs de n",
+        "b7cc1c256737da56d589e823918da0ab8e75e6ad8644f8875a1d90a88cb235be": "c'est une position dans le tableau n (ou le compte de a), pas une valeur de n : lis n à cette position"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -9513,9 +9715,10 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "004c1bac17da054d4bcfa1e60dd797e8b24246488ff91d4588e5f2d2c11f2fea": "le premier t où 0,1 t dépasse ln t pour de bon : regarde le signe de race autour de 36",
+        "004c1bac17da054d4bcfa1e60dd797e8b24246488ff91d4588e5f2d2c11f2fea": "le premier t à partir duquel 0,1 t > ln t pour tous les t suivants : regarde le signe de race juste avant et juste après ta réponse",
         "2b76bb042e447209f2b17f0859bd6f542f67d1b4f5b65c912ec3ab9ef89fe12c": "le premier t à partir duquel 0,1 t reste devant ; pour les petits t, ln t est devant",
-        "7428171c3a03c6a8c6d30ed2969936b3f5f8211c0ccfd44c90e663b92f31d7e0": "le premier t où 0,1 t dépasse ln t pour de bon : regarde le signe de race autour de 36"
+        "7428171c3a03c6a8c6d30ed2969936b3f5f8211c0ccfd44c90e663b92f31d7e0": "le premier t à partir duquel 0,1 t > ln t pour tous les t suivants : regarde le signe de race juste avant et juste après ta réponse",
+        "85a41f6922ecd098929500d6d88696240660fdbf1c944896398f70acf6236c2c": "c'est une position dans le tableau t, pas une valeur de t : lis t à cette position"
       },
       "sign": 1,
       "source": "chapitres/r6_exp_log/05_solutions.ipynb"
@@ -9634,6 +9837,7 @@
         "18cbf0d47b2e4ac653ee9e82aff5c513e51e71729bfd5ae6927282c169154f22": "le nom exact de l'erreur que lève math.log(0) : exécute-le pour le voir",
         "4eafa5265b615edd6f037f707ef2e521e398d95f17f046c8d94b528c2770b293": "math.log(0) ne renvoie pas -inf (c'est NumPy qui le fait) : il lève une erreur ; lis son nom",
         "560cc9abaab5be3fc0a6cafd2deddcf18dee25f363c513dc6f99fd66d183b97a": "le nom exact de l'erreur que lève math.log(0) : exécute-le pour le voir",
+        "722d8aa873cf98d3b7d5964987939a5af52c515de935cb1da360bcc5d45bdfa5": "juste le nom de l'erreur, avant les deux-points",
         "f20016f48096ace637970d963faa91cf3a73ed74e32405736db0de9ab9afd316": "le nom exact de l'erreur que lève math.log(0) : exécute-le pour le voir",
         "f75bbb1dd2f6ce1d9f81f5e392c36e480f13e44f6b06cae6e438a0cb4ccef89d": "le nom exact de l'erreur que lève math.log(0) : exécute-le pour le voir",
         "fde8d1ddf6d0ad9e1ed66909e58a565a49ccae6a7c0f4ecba57073f0fb0e66cc": "math.log(0) ne renvoie pas -inf (c'est NumPy qui le fait) : il lève une erreur ; lis son nom"
@@ -9661,6 +9865,7 @@
       "hash": "13417ea8b453c3260b7b21715b238fbfafd700639cc802c43963ec2e8af5ee7d",
       "kind": "array",
       "mistakes": {
+        "4463ebdeda8d7635d616984b255fad2e53af06f233117dd90316b71fbd08dc37": "aucune des trois fonctions n'est encore corrigée : corrige-les dans la cellule où tu as écrit a) et b)",
         "601a23e0eb30a474b70ef28a8b14ca5eac95c5bdfe4fdfc55c3e72e826912435": "log_of_sum : ln(a + b) se calcule tel quel, il ne se découpe pas",
         "b5de24d6c807127014886a25a3ec1855c2831cccf2bfa702370a19b36c2132a2": "grow : e^(u + v) = e^u × e^v, un produit",
         "de781b3b6b4a1e2593a248078fd91daa3a944528798d894641997c5809683541": "total_log_prob : une somme de logarithmes part de 0"

@@ -25,7 +25,7 @@ Si le test de positionnement t'a donné « tu peux sauter » pour R6, lis « L'e
 |---|---|---|---|
 | §1 La fonction exponentielle et ses propriétés | Q1, R1 🔁 | R6.1 ✏️, R6.6 ✏️ | R6.16 🔨 |
 | §2 Le nombre e | Q1 | R6.1 ✏️ | |
-| §3 Le logarithme népérien | Q2, R2 🔁 | R6.2 ✏️, R6.3 ✏️, R6.6 ✏️, R6.9 ∂, R6.11 🔗, R6.13 🗣️ | R6.16 🔨, R6.18 🔮, R6.21 🐛 |
+| §3 Le logarithme népérien | Q2, R2 🔁 | R6.2 ✏️, R6.3 ✏️, R6.6 ✏️, R6.9 ∂, R6.11 🔗, R6.13 🗣️ | R6.16 🔨, R6.21 🐛 |
 | §4 Logarithmes en base 2 et 10, changement de base, bits | Q3 | R6.4 ✏️, R6.5 ✏️, R6.12 🔗 | R6.14 🔨, R6.17 📦, R6.22 🛠️ |
 | §5 Croissances comparées | Q4 | | R6.18 🔮, R6.19 🔬 |
 | §6 Échelles logarithmiques | Q5, R3 🔁 | R6.8 ✏️ | R6.20 🎨 |
@@ -61,10 +61,10 @@ Parcours essentiel : tout sauf R6.Q5, R6.R3, R6.6, R6.8, R6.10, R6.12, R6.16, R6
 
 ### Des suites géométriques aux fonctions exponentielles
 
-En R5, une quantité multipliée par 3 à chaque année valait $3^n$ fois sa valeur de départ au bout de $n$ années : une suite géométrique, définie seulement aux entiers. Mais que vaut-elle au bout d'**une demi-année** ? Si la croissance est régulière, une demi-année multiplie par un nombre $m$ tel que deux demi-années fassent une année : $m \times m = 3$, donc $m = \sqrt{3} \approx 1{,}732$. C'est ce qu'on note $3^{1/2}$ (R1 : la racine carrée est la puissance $\frac{1}{2}$).
+En R5, une quantité multipliée par 3 chaque année valait $3^n$ fois sa valeur de départ au bout de $n$ années : une suite géométrique, définie seulement aux entiers. Mais que vaut-elle au bout d'**une demi-année** ? Si la croissance est régulière, une demi-année multiplie par un nombre $m$ tel que deux demi-années fassent une année : $m \times m = 3$, donc $m = \sqrt{3} \approx 1{,}732$. C'est ce qu'on note $3^{1/2}$ (R1 : la racine carrée est la puissance $\frac{1}{2}$).
 
 On définit ainsi $a^x$ pour **tout réel** $x$, quand $a > 0$ :
-- pour une fraction $x = \frac{p}{q}$, $a^{p/q} = \left(\sqrt[q]{a}\right)^p$, la racine $q$-ième (le nombre positif dont la puissance $q$-ième vaut $a$) élevée à la puissance $p$ : $8^{2/3} = 2^2 = 4$ ;
+- pour une fraction $x = \frac{p}{q}$, $a^{p/q} = \left(\sqrt[q]{a}\right)^p$, la racine $q$-ième (le nombre positif dont la puissance $q$-ième vaut $a$) élevée à la puissance $p$ : $27^{2/3} = 3^2 = 9$ ;
 - pour un réel quelconque, comme $\sqrt{2}$, on prend des fractions de plus en plus proches ($1{,}4$ ; $1{,}41$ ; $1{,}414$…) : les puissances correspondantes se rapprochent d'un nombre, qu'on note $a^{\sqrt{2}}$ (une limite de suite, R5). La calculatrice et Python font ce calcul pour toi : `3 ** 0.5`, `10 ** 0.3`.
 
 La fonction $x \mapsto a^x$ s'appelle la **fonction exponentielle de base $a$**. Pour $a = 1$, elle vaut toujours 1 ; on prend en général $a > 0$ et $a \ne 1$.
@@ -93,20 +93,20 @@ Parce qu'elle est strictement monotone, une exponentielle ne prend jamais deux f
 
 ### La croissance exponentielle
 
-Une grandeur a une **croissance exponentielle** quand elle est **multipliée** par le même nombre sur des durées égales : $N(t) = N_0\,a^t$. C'est le contraire d'une croissance linéaire (affine, R3), qui **ajoute** la même quantité. Un capital placé à 3 % par an vaut $C(t) = C_0 \times 1{,}03^t$ au bout de $t$ années, même pour $t = 0{,}5$ : au bout de six mois, $1{,}03^{0{,}5} \approx 1{,}0149$, soit un peu moins de la moitié de 3 %.
+Une grandeur a une **croissance exponentielle** quand elle est **multipliée** par le même nombre sur des durées égales : $N(t) = N_0\,a^t$. Une croissance linéaire (affine, R3), elle, **ajoute** la même quantité sur des durées égales. Un capital placé à 3 % par an vaut $C(t) = C_0 \times 1{,}03^t$ au bout de $t$ années, même pour $t = 0{,}5$ : au bout de six mois, $1{,}03^{0{,}5} \approx 1{,}0149$, soit un peu moins de la moitié de 3 %.
 
 Si une grandeur double toutes les $T$ unités de temps, elle vaut $N(t) = N_0 \times 2^{t/T}$ : au bout de $T$, elle a doublé ; au bout de $2T$, quadruplé ; au bout de $\frac{T}{2}$, elle est multipliée par $\sqrt{2} \approx 1{,}414$. Le §3 dira comment trouver $T$ à partir du pourcentage de hausse.
 
 ```python
->>> 3 ** 0.5, 8 ** (2 / 3)
-(1.7320508075688772, 3.9999999999999996)
+>>> 3 ** 0.5, 27 ** (2 / 3)
+(1.7320508075688772, 8.999999999999998)
 >>> 5 ** 1.5 * 5 ** 0.5
 25.000000000000004
 ```
 
-Les derniers chiffres trahissent les arrondis des flottants (R1) : $8^{2/3}$ vaut exactement 4, mais `2 / 3` n'est pas exactement $\frac{2}{3}$.
+Les derniers chiffres trahissent les arrondis des flottants (R1) : $27^{2/3}$ vaut exactement 9, mais `2 / 3` n'est pas exactement $\frac{2}{3}$.
 
-🔗 **Dans workbookIA** — une croissance exponentielle se repère partout où l'on multiplie : le nombre de configurations possibles de $n$ bits ($2^n$), la taille d'une grille de recherche d'hyperparamètres (le nombre de valeurs essayées pour un paramètre, puissance le nombre de paramètres), la décroissance d'un learning rate multiplié par le même facteur à chaque pas (ch. 19).
+🔗 **Dans workbookIA** — une croissance exponentielle se repère partout où l'on multiplie : le nombre de configurations possibles de $n$ bits ($2^n$), la taille d'une grille de recherche d'hyperparamètres ($k^d$ combinaisons quand on essaie $k$ valeurs pour chacun de $d$ réglages), la décroissance d'un learning rate multiplié par le même facteur à chaque pas (ch. 19).
 
 ---
 
@@ -148,7 +148,7 @@ L'exemple des intérêts va plus loin : avec un taux annuel $r$ versé $n$ fois 
 (2.718281828459045, 1.649, 54.6)
 ```
 
-🔗 **Dans workbookIA** — l'exponentielle sert à rendre positif n'importe quel nombre : c'est le cœur de la sigmoïde (§7) et du softmax (ch. 17), qui transforment des scores en probabilités. Elle apparaît aussi dans la loi normale, $e^{-x^2/2}$ (R8, M02b).
+🔗 **Dans workbookIA** — comme $e^x > 0$ pour tout $x$, l'exponentielle change n'importe quel score en un nombre positif. La sigmoïde (§7) est faite ainsi, et le softmax du chapitre 17 s'en sert pour fabriquer des probabilités à partir de plusieurs scores. On la retrouve aussi dans la loi normale, $e^{-x^2/2}$ (R8, M02b).
 
 ---
 
@@ -218,7 +218,7 @@ La probabilité que plusieurs événements **indépendants** se produisent tous 
 
 $$\ln(0{,}6 \times 0{,}3 \times 0{,}2) = \ln 0{,}6 + \ln 0{,}3 + \ln 0{,}2 \approx -0{,}511 - 1{,}204 - 1{,}609 = -3{,}324.$$
 
-Le logarithme d'une probabilité est négatif (une probabilité est au plus 1), et il est d'autant plus négatif que l'événement est rare. Avec des milliers d'événements, le produit devient minuscule, si petit qu'un flottant ne peut plus l'écrire (§5 donne les limites des flottants ; R6.18 te fera voir ce qui se passe alors). La somme des logarithmes, elle, reste un nombre ordinaire. Et comme $\ln$ est croissante, le plus grand produit est aussi celui qui a la plus grande somme de logarithmes : on peut comparer des modèles sur leurs **log-probabilités**.
+Le logarithme d'une probabilité est négatif (une probabilité est au plus 1), et il est d'autant plus négatif que l'événement est rare. Avec des milliers d'événements, le produit devient minuscule, si petit qu'un flottant ne peut plus l'écrire (§5 donne les limites des flottants). La somme des logarithmes, elle, reste un nombre ordinaire. Et comme $\ln$ est croissante, le plus grand produit est aussi celui qui a la plus grande somme de logarithmes : on peut comparer des modèles sur leurs **log-probabilités**.
 
 ```python
 >>> math.log(math.e), round(math.log(12), 4), round(math.log(3) + 2 * math.log(2), 4)
@@ -231,7 +231,7 @@ Le logarithme d'une probabilité est négatif (une probabilité est au plus 1), 
 
 En Python, `math.log(x)` est $\ln x$ ; `math.log` d'un nombre négatif ou nul lève une erreur (`math domain error`).
 
-🔗 **Dans workbookIA** — « log » veut dire $\ln$ dans les articles, dans NumPy (`np.log`) et dans PyTorch. La loss de classification (la *cross-entropy*, ch. 6 et 13) est une moyenne de $-\ln p$, où $p$ est la probabilité que le modèle donne à la bonne réponse : c'est une moyenne de log-probabilités changée de signe. Le chapitre 0B y revient, avec ses propres exemples.
+🔗 **Dans workbookIA** — quand un texte de ML ou une bibliothèque écrit « log » sans préciser de base, il s'agit presque toujours de $\ln$ : c'est ce que calcule `np.log`. La loss de classification (la *cross-entropy*, ch. 6 et 13) est une moyenne de $-\ln p$, où $p$ est la probabilité que le modèle donne à la bonne réponse : c'est une moyenne de log-probabilités changée de signe. Le chapitre 0B y revient, avec ses propres exemples.
 
 ---
 
@@ -246,7 +246,7 @@ Ce que $\ln$ fait pour la base $e$, on peut le faire pour toute base $b > 0$, $b
 $\log_3 81 = 4$ car $3^4 = 81$ ; $\log_5 0{,}2 = -1$ car $5^{-1} = 0{,}2$ ; $\log_b 1 = 0$ et $\log_b b = 1$ pour toute base. Toutes les règles du §3 restent vraies : $\log_b(xy) = \log_b x + \log_b y$, $\log_b(x^k) = k \log_b x$, $\log_b(b^y) = y$, $b^{\log_b x} = x$.
 
 Deux bases ont un nom :
-- $\log_{10}$, le **logarithme décimal**, **compte les chiffres** : $\log_{10} 1\,000 = 3$, $\log_{10} 0{,}01 = -2$, et un entier qui s'écrit avec $d$ chiffres a un logarithme décimal entre $d - 1$ et $d$. Ainsi $\log_{10} 50\,000 \approx 4{,}70$ : 50 000 a 5 chiffres. Le nombre de chiffres d'un entier $N \ge 1$ vaut $\lfloor \log_{10} N \rfloor + 1$ (R1 : la partie entière) ;
+- $\log_{10}$, le **logarithme décimal**, **compte les chiffres** : $\log_{10} 100\,000 = 5$, $\log_{10} 0{,}01 = -2$, et un entier qui s'écrit avec $d$ chiffres a un logarithme décimal entre $d - 1$ et $d$. Ainsi $\log_{10} 50\,000 \approx 4{,}70$ : 50 000 a 5 chiffres. Le nombre de chiffres d'un entier $N \ge 1$ vaut $\lfloor \log_{10} N \rfloor + 1$ (R1 : la partie entière) ;
 - $\log_2$, le **logarithme binaire**, **compte les doublements** : $\log_2 4\,096 = 12$, car il faut doubler 12 fois 1 pour atteindre 4 096 ; $\log_2 \frac{1}{16} = -4$.
 
 ### Changer de base
@@ -255,9 +255,9 @@ Tous les logarithmes sont proportionnels les uns aux autres. On les ramène à $
 
 $$\log_b x = \frac{\ln x}{\ln b}$$
 
-(workbookIA 0B.16 te la fera démontrer). Par exemple $\log_2 4\,096 = \frac{\ln 4\,096}{\ln 2} \approx \frac{8{,}318}{0{,}693} = 12$, et $\log_2 10 = \frac{\ln 10}{\ln 2} \approx 3{,}32$ : il faut à peu près 3,32 doublements pour multiplier par 10. C'est ainsi qu'on calcule un logarithme dans une base que la calculatrice n'a pas.
+(workbookIA 0B.16 te la fera démontrer). Par exemple $\log_2 4\,096 = \frac{\ln 4\,096}{\ln 2} \approx \frac{8{,}318}{0{,}693} = 12$, et $\log_2 3 = \frac{\ln 3}{\ln 2} \approx 1{,}585$ : il faut à peu près 1,6 doublement pour tripler. C'est ainsi qu'on calcule un logarithme dans une base que la calculatrice n'a pas.
 
-⚠️ **Une base, deux calculs.** `math.log(x, b)` calcule $\frac{\ln x}{\ln b}$, et les deux logarithmes arrondis peuvent donner un résultat légèrement faux : `math.log(125, 5)` renvoie `3.0000000000000004`. Pour les bases 2 et 10, préfère `math.log2` et `math.log10`, plus précis ; pour une autre base, arrondis le résultat quand tu sais qu'il doit être entier.
+⚠️ **Une base, deux calculs.** Avec deux arguments, `math.log(x, b)` divise deux logarithmes népériens, arrondis chacun : le quotient peut tomber à côté, et `math.log(125, 5)` renvoie `3.0000000000000004`. Les fonctions faites pour une base, `math.log2` et `math.log10`, n'ont pas cette division ; dans une autre base, arrondis le résultat quand tu sais qu'il doit être entier.
 
 ```python
 >>> math.log2(4096), round(math.log10(50000), 2), math.log(125, 5)
@@ -268,7 +268,7 @@ $$\log_b x = \frac{\ln x}{\ln b}$$
 
 ### Combien de questions oui ou non ? Les bits
 
-Pour retrouver un nombre choisi entre 1 et 100 en posant des questions auxquelles on répond par oui ou non (« est-il plus grand que 50 ? »), la meilleure stratégie coupe à chaque fois les possibilités restantes en deux. Après $k$ questions, on distingue au plus $2^k$ possibilités ; il en faut donc $k$ tel que $2^k \ge 100$, soit $k \ge \log_2 100 \approx 6{,}64$ : **7 questions** suffisent, et 6 ne suffisent pas toujours.
+Pour deviner le jour d'anniversaire de quelqu'un (un jour parmi 365) en posant des questions auxquelles on répond par oui ou non (« est-il avant le 2 juillet ? »), la meilleure stratégie coupe à chaque fois les possibilités restantes en deux. Après $k$ questions, on distingue au plus $2^k$ possibilités ; il en faut donc $k$ tel que $2^k \ge 365$, soit $k \ge \log_2 365 \approx 8{,}51$ : **9 questions** suffisent, et 8 ne suffisent pas toujours ($2^8 = 256$).
 
 C'est la définition du **bit** : la quantité d'information d'une réponse oui ou non, quand les deux réponses sont également probables. Un choix parmi $N$ possibilités également probables apporte $\log_2 N$ bits ; un **événement de probabilité $p$** apporte
 
@@ -276,7 +276,9 @@ $$I = \log_2 \frac{1}{p} = -\log_2 p \text{ bits}.$$
 
 Un événement de probabilité $\frac{1}{16}$ apporte 4 bits (autant que quatre réponses oui ou non). Un événement certain ($p = 1$) n'apporte rien : 0 bit. Plus il est rare, plus il informe.
 
-En base $e$, la même quantité se mesure en **nats** : $-\ln p$. Comme $\ln p = \log_2 p \times \ln 2$, une quantité qui vaut $I$ bits vaut $I \times \ln 2 \approx 0{,}693\,I$ nats : 1 bit ≈ 0,693 nat. Nos 4 bits valent $4 \ln 2 \approx 2{,}77$ nats. Bits et nats sont deux unités de la même grandeur, comme le mètre et le pied.
+En base $e$, la même quantité se mesure en **nats** : $-\ln p$. Le changement de base relie les deux unités : 1 bit vaut $\ln 2 \approx 0{,}693$ nat, et nos 4 bits valent $4 \ln 2 \approx 2{,}77$ nats. Bits et nats sont deux unités de la même grandeur, comme les heures et les minutes pour une durée.
+
+Quand deux événements **indépendants** se produisent, leurs probabilités se multiplient (§3) : leurs informations s'additionnent, puisque le logarithme d'un produit est la somme des logarithmes. Tirer une carte précise parmi 52, puis lancer une pièce, apporte $\log_2 52 + 1$ bits.
 
 🔗 **Dans workbookIA** — le chapitre 6 mesure l'information et l'entropie en bits, et la loss d'un modèle de langage en nats (parce qu'elle utilise $\ln$) ; le passage de l'un à l'autre est une multiplication par $\ln 2$. La **perplexité** d'un modèle de langage est $e^{\text{loss}}$ : une loss en nats remise à l'échelle d'un nombre de choix.
 
@@ -304,7 +306,7 @@ On résume souvent : **le logarithme est plus lent que toute puissance, l'expone
 
 Un algorithme qui fait $\log_2 n$ étapes (la recherche par dichotomie, celle des questions oui ou non du §4) reste rapide pour un $n$ énorme : 30 étapes pour un milliard de possibilités. Un algorithme qui fait $2^n$ étapes (essayer tous les sous-ensembles de $n$ objets) devient impraticable dès $n \approx 60$.
 
-Les **flottants** (R1) ont eux aussi leurs limites : un `float64` ne représente pas les nombres plus grands qu'environ $1{,}8 \times 10^{308}$, ni les nombres positifs plus petits qu'environ $10^{-308}$ (un peu moins en perdant des chiffres). Une exponentielle atteint ces bornes très vite : $e^x$ dépasse $10^{308}$ pour un $x$ de quelques centaines seulement. Ce qui se passe alors dépend de l'outil : R6.18 te le fera prédire, puis voir.
+Les **flottants** (R1) ont eux aussi leurs limites : un `float64` ne représente pas les nombres plus grands qu'environ $1{,}8 \times 10^{308}$, ni les nombres positifs plus petits qu'environ $10^{-308}$ (un peu moins en perdant des chiffres). Une exponentielle atteint ces bornes très vite : $e^x$ dépasse $10^{308}$ pour un $x$ de quelques centaines seulement. Que font alors Python et NumPy ? R6.18 te le fera prédire, puis voir.
 
 🔗 **Dans workbookIA** — les croissances comparées expliquent pourquoi certaines méthodes passent à l'échelle et d'autres non : le nombre de cases d'une grille en $d$ dimensions croît en $k^d$ (la « malédiction de la dimension », ch. 7 et 12), alors qu'un arbre de décision équilibré répond en $\log_2 n$ comparaisons. Elles disent aussi pourquoi l'exponentielle du softmax déborde si l'on ne prend pas de précautions (ch. 17).
 
@@ -376,13 +378,13 @@ Donc $\sigma(-x) = 1 - \sigma(x)$ : la courbe est symétrique par rapport au poi
 
 ### La cote, le logit : remonter de la probabilité au score
 
-Une probabilité $p$ peut aussi s'écrire comme une **cote** (*odds*), le rapport de la probabilité que l'événement se produise à celle qu'il ne se produise pas : $\frac{p}{1 - p}$. Pour $p = 0{,}8$, la cote vaut $\frac{0{,}8}{0{,}2} = 4$ : « 4 contre 1 ». Une cote va de 0 à $+\infty$, et vaut 1 pour $p = \frac{1}{2}$.
+Une probabilité $p$ peut aussi s'écrire comme une **cote** (*odds*), le rapport de la probabilité que l'événement se produise à celle qu'il ne se produise pas : $\frac{p}{1 - p}$. Pour $p = 0{,}99$, la cote vaut $\frac{0{,}99}{0{,}01} = 99$ : « 99 contre 1 ». Une cote va de 0 à $+\infty$, et vaut 1 pour $p = \frac{1}{2}$.
 
 Son logarithme, la **log-cote** (*log-odds*) ou **logit**, va de $-\infty$ à $+\infty$ :
 
 $$\operatorname{logit}(p) = \ln \frac{p}{1 - p}.$$
 
-Le logit est la **réciproque de la sigmoïde** : si $\sigma(x) = p$, alors $1 + e^{-x} = \frac{1}{p}$, donc $e^{-x} = \frac{1 - p}{p}$, et $x = \ln \frac{p}{1 - p}$. Pour $p = 0{,}8$ : $x = \ln 4 \approx 1{,}386$, et l'on vérifie que $\sigma(\ln 4) = \frac{1}{1 + \frac{1}{4}} = 0{,}8$. En résumé : la sigmoïde transforme un **score** réel en probabilité ; le logit transforme une probabilité en score.
+Le logit est la **réciproque de la sigmoïde** : si $\sigma(x) = p$, alors $1 + e^{-x} = \frac{1}{p}$, donc $e^{-x} = \frac{1 - p}{p}$, et $x = \ln \frac{p}{1 - p}$. Pour $p = 0{,}99$ : $x = \ln 99 \approx 4{,}595$, et l'on vérifie que $\sigma(\ln 99) = \frac{1}{1 + \frac{1}{99}} = 0{,}99$. En résumé : la sigmoïde transforme un **score** réel en probabilité ; le logit transforme une probabilité en score.
 
 Une remarque qui sert : ajouter $\ln 2$ au logit multiplie la cote par 2 ($e^{x + \ln 2} = 2\,e^x$), ajouter $\ln 3$ la multiplie par 3. Le logit transforme les multiplications de la cote en additions, comme tout logarithme.
 
@@ -399,22 +401,22 @@ $$\tanh x = \frac{e^{x} - e^{-x}}{e^{x} + e^{-x}}.$$
 - elle est **impaire** : $\tanh(-x) = -\tanh x$ (échanger $x$ et $-x$ change le signe du numérateur, pas celui du dénominateur) ;
 - elle est strictement croissante. Quelques valeurs : $\tanh 1{,}5 \approx 0{,}905$, $\tanh 2 \approx 0{,}964$.
 
-C'est une sigmoïde agrandie et recentrée : $\tanh x = 2\,\sigma(2x) - 1$ (tu le démontreras en R6.10). Elle va de −1 à 1 au lieu de 0 à 1, et elle est centrée en 0 au lieu de $\frac{1}{2}$.
+C'est une sigmoïde agrandie et recentrée : $\tanh x = 2\,\sigma(2x) - 1$, un calcul de fractions que workbookIA te fera faire au chapitre 17. Elle va de −1 à 1 au lieu de 0 à 1, et elle est centrée en 0 au lieu de $\frac{1}{2}$. R6.10 te fera démontrer ses propriétés avec les seules règles de l'exponentielle.
 
 ```python
 >>> def sigmoid(x):
 ...     return 1 / (1 + math.exp(-x))
 >>> round(sigmoid(0.5), 3), round(sigmoid(4) + sigmoid(-4), 12)
 (0.622, 1.0)
->>> round(math.log(0.8 / 0.2), 4), round(sigmoid(math.log(4)), 4)
-(1.3863, 0.8)
->>> round(math.tanh(2), 3), round(2 * sigmoid(4) - 1, 3)
-(0.964, 0.964)
+>>> round(math.log(0.99 / 0.01), 3), round(sigmoid(math.log(99)), 4)
+(4.595, 0.99)
+>>> round(math.tanh(1.5), 3), round(math.tanh(-1.5), 3)
+(0.905, -0.905)
 ```
 
 Ces formules marchent sans problème pour des $x$ raisonnables ($\lvert x \rvert \le 30$, par exemple). Pour des $x$ énormes, le calcul de $e^{-x}$ demande des précautions (§5) : workbookIA les prend au chapitre 17.
 
-🔗 **Dans workbookIA** — la sigmoïde transforme le score d'un classifieur en probabilité : c'est la régression logistique (ch. 13), et la sortie d'un réseau qui répond oui ou non. Le logit est alors exactement le score du modèle. La tangente hyperbolique est une fonction d'activation, notamment dans les réseaux récurrents (ch. 17 et 22) ; le chapitre 17 étudie leurs dérivées. Pour plus de deux classes, la sigmoïde se généralise en **softmax** (ch. 17).
+🔗 **Dans workbookIA** — la sigmoïde transforme le score d'un classifieur en probabilité : c'est la régression logistique (ch. 13), et la sortie d'un réseau qui répond oui ou non. Le logit est alors exactement le score du modèle. La tangente hyperbolique sert de fonction d'activation, en particulier dans les réseaux récurrents du chapitre 22 ; le chapitre 17 étudie les dérivées de ces deux fonctions. Pour plus de deux classes, la sigmoïde se généralise en **softmax** (ch. 17).
 
 ---
 

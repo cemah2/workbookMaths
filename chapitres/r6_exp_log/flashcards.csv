@@ -1,5 +1,5 @@
 front;back;tags
-Que vaut \(a^{p/q}\) pour \(a > 0\) ?;La racine \(q\)-ième de \(a\), élevée à la puissance \(p\) : \(8^{2/3} = 2^2 = 4\). Une exponentielle prolonge ainsi les puissances entières à tous les réels.;mwb::r6::puissance_reelle
+Que vaut \(a^{p/q}\) pour \(a > 0\) ?;La racine \(q\)-ième de \(a\), élevée à la puissance \(p\) : \(27^{2/3} = 3^2 = 9\). Une exponentielle prolonge ainsi les puissances entières à tous les réels.;mwb::r6::puissance_reelle
 Les règles de calcul de \(a^x\) ?;\(a^0 = 1\), \(a^{x+y} = a^x a^y\), \(a^{-x} = \frac{1}{a^x}\), \((a^x)^y = a^{xy}\), \((ab)^x = a^x b^x\), et \(a^x > 0\) pour tout \(x\).;mwb::r6::proprietes_exp
 \(e^{a+b}\) vaut-il \(e^a + e^b\) ?;Non : \(e^{a+b} = e^a \times e^b\), un produit. Exemple : \(2^{3+1} = 16\) mais \(2^3 + 2^1 = 10\).;mwb::r6::exp_somme
 Comment définit-on le nombre \(e\) ?;\(e = \lim_{n \to +\infty} (1 + \frac{1}{n})^n \approx 2{,}718\) : la limite des intérêts composés de plus en plus souvent (100 % par an versés \(n\) fois).;mwb::r6::nombre_e
