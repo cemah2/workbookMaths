@@ -1,10 +1,10 @@
 # PROGRESS : état de la génération de workbookMaths
 
-*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-06, session 8 (R4).*
+*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-06, session 9 (R5).*
 
 ## Prochaine étape
 
-➡️ **Session 9 : R5** (Suites), puis **R6** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre.
+➡️ **Session 10 : R6** (Exponentielle et logarithmes), puis **R7** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre. Pour R6 : la suite $(1 + \frac{1}{n})^n$ et les limites de suites sont enseignées en R5 (§5), le « nombre de pas pour passer sous un seuil » y est fait par essais (R5.3g, R5.5f, R5.6d, R5.18d) : R6 le refait avec les logarithmes.
 
 Avant la génération de la partie I : **session de syllabus de la partie I** (détailler M02a à M06 et CP1 : exercices, stubs `mymath`, temps, frontières explicites), en tenant compte du calibrage de la partie 0. Rafraîchir d'abord la copie de workbookIA (`python tools/snapshot_workbookia.py <clone> --check`).
 
@@ -12,7 +12,7 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 
 | Partie | Chapitres | Statut |
 |---|---|---|
-| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | R0 ✅, POS ✅, R1 ✅, R2 ✅, R3 ✅, R4 ✅ ; le reste 📅 |
+| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | R0 ✅, POS ✅, R1 ✅, R2 ✅, R3 ✅, R4 ✅, R5 ✅ ; le reste 📅 |
 | I · Fondations | M02a à M06, CP1 | 📅 planifié |
 | II · Concepts | M07 à M11, CP2 | 📅 planifié |
 | III · ML classique | M12a à M14, CP3 | 📅 planifié |
@@ -48,6 +48,10 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 
 - R4 : R4.4 retitré (« Opérations sur des ensembles et dénombrement ») et R4.R3 (« Additionner des fractions ») ; R4.R2 rattaché au §6 ; R4.14 réécrit (il reprenait workbookIA 9.1, ajouté aux frontières) ; frontières : 0B.3, 0B.5 et 9.1 ; lecture de la fiche à 195 min (13,2 h en parcours complet, 9,9 h en parcours essentiel, au lieu de 12,4 h et 9,1 h) ; notebook rangé dans l'ordre des ID (A : R4.17 à R4.19, B : R4.20 à R4.23, C : R4.24, R4.25). ID inchangés.
 
+- R5 : R5.5 retitré (« Sommes infinies d'une suite géométrique ») et R5.18 (« Prédire : vers quoi tend u(n + 1) = 0,75 u(n) + 2 ? ») pour la règle de partage ; R5.16 vérifié en sept réponses (c et d : les deux fenêtres invalides, séparées) ; lecture de la fiche à 180 min (10,2 h en parcours complet, 8,2 h en parcours essentiel, au lieu de 9,2 h et 7,2 h) ; notebook rangé dans l'ordre des ID (A : R5.14 à R5.16, B : R5.17 à R5.20, C : R5.21, R5.22). ID inchangés.
+
+**À retenir pour R6 à R9** (R5) : relire les messages génériques de `wbm` qui en disent trop pour un exercice donné (« diffère d'une constante (±1) » pour une formule à conjecturer : ajouter une erreur classique) ; un « plus petit entier » demande un `fractional` ; une liste de nombres est une erreur classique seulement pour une valeur à la fois (pas d'ensemble de listes ni d'expressions : un message par valeur) ; une réponse entière dont une erreur classique est décimale s'enregistre en flottant avec `decimals` ; vérifier les réponses enregistrées à la main contre une exécution (R5.15d était faux d'un rang avant la relecture) ; l'expérience d'un 🔮 ne doit pas écrire l'issue dans son code, qui est visible avant les prédictions.
+
 **À retenir pour R5 à R9** (R4) : chercher aussi les doublons dans les chapitres de workbookIA **après** 0B (R4.14 reprenait 9.1 : lire la liste des exercices de la copie figée `docs/syllabus/workbookia_notions.json` pour le thème du chapitre) ; une valeur que la fonction de l'apprenant peut rendre sous plusieurs types (None, False, un entier) se vérifie par son `repr` ; une vérification qui compare à une première valeur ne se fait que si celle-ci est juste (`wbm.check(...).passed`) ; un exercice sur des opérateurs (`&` contre `and`) doit avoir des données où le mauvais opérateur donne une mauvaise réponse ; ne rien écrire avant un 🔮 (objectifs du notebook, introduction de la partie, fiche) qui en donne l'issue ; les messages d'erreur classique ne donnent ni un calcul de la réponse (« 30 − 7 + 1 ») ni la valeur qui la contredit.
 
 **À retenir pour R4 à R9** (en plus de la liste qui suit) : une fonction de tracé reçoit ses axes et se vérifie avec `drawn` (de `wbm.nbtools`) ; une sortie triée ou ordonnée se vérifie sur une entrée où l'ordre naturel est faux ; inutile d'enregistrer les valeurs arrondies d'une réponse exacte (6 décimales ou plus) ni les écarts de plusieurs lignes d'un 🐛 (`bug_letters_mistakes` les couvre) ; une prédiction (🔮) n'a que ses `mistakes` comme indices ; dans les tests, chaque appel passe par un `_result` (voir `tests/test_r3_functions.py`) et les cas paramétrés ont des `ids` ; calculer les valeurs des erreurs classiques en exécutant le code fautif (une valeur impossible ne se déclenche jamais).
@@ -55,6 +59,12 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 **À retenir pour R3 à R9** : les vérifications qui appellent le code de l'apprenant passent par `checked` (de `wbm.nbtools`), pour qu'une erreur de son code ne bloque pas « Run all » ; un ensemble de solutions s'enregistre avec 6 décimales quand une fraction non décimale est attendue ; tester aussi les cas dégénérés pour **tous** les sens ou toutes les branches (un test oublié laisse passer un code faux) ; une réponse qu'il faut **arrondir** (ou un décimal exact) s'enregistre en `kind="fraction"` (ou avec plus de décimales que demandé), sinon une valeur non arrondie passe ; un exemple de forme ne doit être la réponse d'aucune question du chapitre (`tests/infra/test_examples_are_not_answers.py`) ; un test d'algorithme dont la version naïve ne finit jamais passe par `_within` (limite de temps, voir `tests/test_r1_arith.py`) ; chaque groupe de tests lancé par le notebook inclut le test qui interdit les outils tout faits (`or test_arith_uses`) ; les cas `ValueError` passent par `_expect_value_error` (une autre exception dit d'abord ce qui était attendu).
 
 **À retenir pour R1 à R9** : ne reprendre aucun nombre ni aucune donnée du test de positionnement (sujet : `positionnement/01_sujet.md`) ; en R5, le 🔮 prévu sur une suite uₙ₊₁ = ½uₙ + 1 est proche de POS.10 (vₙ₊₁ = ½vₙ + 3) : changer ses nombres. Les messages génériques de `wbm` hérités de workbookIA parlent parfois ML ou Python (« indice (1,) », « arrondis avec round() », « vérifie-le avec SymPy ») : les adapter à la partie 0 si un chapitre en souffre.
+
+## Session 9 (2026-11-06) : chapitre R5 ✅
+
+**Fait** : `chapitres/r5_suites/` : fiche en 6 sections (≈ 6 700 mots, 4 figures par `tools/chapters/figures_r5.py` : suites arithmétique et géométrique, $q^n$ selon $q$, limite et bande $\varepsilon$, deux lissages ; exemples `>>>` vérifiés), 31 exercices (6 quiz, 3 rappels, 8 ✏️, 2 ∂, 2 🔗, 🗣️, 3 🔨, 📦, 🔮, 🔬, 🎨, 🐛, 🛠️), notebooks par `tools/chapters/build_r5.py` (partie 0 : 66 vérifications papier ; parties A à C : 9 exercices ; solutions en 5 s), 93 indices, solutions avec grilles de relecture des ∂, feuille de réponses, 20 flashcards ; `solutions/mymath_ref/sequences.py` et `tests/test_r5_sequences.py` (53 tests, oracles `fractions`, SymPy `summation`, forme close d'une récurrence affine, `np.convolve`, `scipy.signal.lfilter`) ; 100 réponses ajoutées à `answers.json` (588 au total) ; glossaire (+14 termes), symboles, formulaire, erreurs fréquentes.
+
+**Vérification indépendante** (sous-agents) : re-résolution à l'aveugle (66 réponses retrouvées, aucun désaccord ; remarques sur la fiche, des données proches de 0B et de POS, des indices 3 trop bavards, dont celui du 🔮) ; apprenant simulé (≈ 400 réponses de formes variées, 9 versions de `sequences.py` avec des bugs de débutant, 17 variantes de tracé ; 20 remarques). Corrigés : données reprises de 0B et de POS, l'issue du 🔮 R5.18 visible dans le code de l'expérience, R5.15d enregistré avec un rang de décalage, un ❌ au lieu de ⏳ (id de test avec « - »), R5.21c qui accusait un notebook vide, une moyenne en `//` qui passait (R5.16a), erreurs classiques ajoutées (arrondis en chemin, sommes jusqu'à $k = n$, `cumsum` pour `cumprod`…), vérification de R5.20 qui distingue des termes faux et des termes manquants, `wbm` plus clair (BIBLE §24).
 
 ## Session 8 (2026-11-06) : chapitre R4 ✅
 

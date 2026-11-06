@@ -603,6 +603,20 @@ def _french_summary(summary: str) -> str:
     return summary
 
 
+def _split_failure(rest: str) -> tuple[str, str]:
+    """Split ``path::test[id] - reason`` (a line of ``pytest -rf``) into the node and the reason.
+
+    The id of a parametrized test may itself contain « - » (``[close to u0 / (1 - q)]``, R5): the node then ends at
+    the first « ] - » after its opening bracket."""
+    bracket, cut = rest.find("["), rest.find(" - ")
+    if 0 <= bracket < cut:
+        close = rest.find("] - ", bracket)
+        if close != -1:
+            return rest[:close + 1], rest[close + 4:]
+    node, _, reason = rest.partition(" - ")
+    return node, reason
+
+
 def run_pytest_group(test_file, keyword: str | None = None, impl: str = "learner", timeout: float = 300,
                      *, max_shown: int = 8, root=None, env: dict | None = None, args=()) -> GroupResult:
     """Run the tests of ``test_file`` selected by ``keyword`` (``pytest -k``), on the learner's code by default.
@@ -661,7 +675,7 @@ def run_pytest_group(test_file, keyword: str | None = None, impl: str = "learner
         if not line.startswith(("FAILED ", "ERROR ")):
             continue
         kind, _, rest = line.partition(" ")
-        node, _, reason = rest.partition(" - ")
+        node, reason = _split_failure(rest)
         name = node.split("::", 1)[1] if "::" in node else node
         pending = reason.startswith(_PENDING_MARK)
         reason = pending_text(reason)                    # the English message of a stub, in French

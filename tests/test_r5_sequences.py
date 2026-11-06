@@ -52,6 +52,13 @@ def _floats(values):
     return [round(float(v), 6) for v in values]
 
 
+def _assert_list(got, call):
+    """The functions of this chapter return a list (the docstring): a NumPy array or a tuple is reported first."""
+    assert isinstance(got, list), (
+        f"expected {call} to return a list (the docstring says list), got a {type(got).__name__}: {got!r}"
+        + (" (convert it with .tolist(), or build a list)" if type(got).__name__ == "ndarray" else ""))
+
+
 # ---------------------------------------------------------------- arithmetic_term
 ARITHMETIC = [(5, 3, 10, 35, "the docstring example"), (-4, 7, 12, 80, "a negative first term"),
               (9, -2, 6, -3, "a negative common difference"), (2.5, -0.5, 9, -2.0, "floats"),
@@ -101,7 +108,7 @@ def _geometric_oracle(u0, q, n):
 
 
 GEOMETRIC = [(1, 2, 10, "the docstring example"), (3, 1.5, 6, "a decimal ratio"), (2, -0.5, 7, "a negative ratio"),
-             (6, 0.25, 40, "|q| < 1, many terms: close to u0 / (1 - q)"), (5, 1, 7, "q = 1: n times u0"),
+             (6, 0.25, 40, "|q| < 1, many terms: close to u0 over 1 minus q"), (5, 1, 7, "q = 1: n times u0"),
              (8, 3, 0, "n = 0: the empty sum is 0"), (7, -1, 5, "q = -1: the terms cancel in pairs"),
              (-4, 2, 1, "n = 1: the first term alone"), (2.5, 0, 4, "q = 0: only the first term is not 0")]
 
@@ -154,10 +161,12 @@ def test_iterate_matches_the_closed_form(sequences, a, b, u0, n):
     else:
         fixed = Fraction(b) / (1 - a)
         want = [fixed + (u0 - fixed) * a**k for k in range(n + 1)]   # ℓ + (u0 − ℓ) a^k, exactly
-    got = _result(lambda: sequences.iterate(lambda u: a * u + b, u0, n), f"the {n + 1} terms {want}")
-    assert got == want, (f"expected iterate(lambda u: {a} * u + {b}, {u0}, {n}) == {[str(w) for w in want]} "
-                         f"(u(0) = u0, then u(k + 1) = f(u(k)), up to index {n} included), got "
-                         f"{[str(g) for g in got] if isinstance(got, list) else got!r}")
+    rule = f"lambda u: {a} * u {'+' if b >= 0 else '-'} {abs(b)}"
+    shown = "[" + ", ".join(str(w) for w in want) + "]"
+    got = _result(lambda: sequences.iterate(lambda u: a * u + b, u0, n), f"the {n + 1} terms {shown}")
+    got_shown = "[" + ", ".join(str(g) for g in got) + "]" if isinstance(got, list) else repr(got)
+    assert got == want, (f"expected iterate({rule}, {u0}, {n}) == {shown} (exact fractions: u(0) = u0, then "
+                         f"u(k + 1) = f(u(k)), up to index {n} included), got {got_shown}")
 
 
 @pytest.mark.parametrize("n", [0, 1, 5, 30])
@@ -197,7 +206,8 @@ MOVING = [([1, 2, 3, 4, 5], 2, "the docstring example"), ([4, 8, 6, 10, 2, 12], 
 def test_moving_average_matches_numpy(sequences, values, window, why):
     want = np.convolve(np.asarray(values, dtype=float), np.ones(window) / window, mode="valid")
     got = _result(lambda: sequences.moving_average(values, window), f"{_floats(want)} ({why})")
-    assert isinstance(got, list) and len(got) == len(want) and np.allclose(got, want), (
+    _assert_list(got, f"moving_average({values}, {window})")
+    assert len(got) == len(want) and np.allclose(got, want), (
         f"expected moving_average({values}, {window}) == {_floats(want)} ({why}; len(values) - window + 1 = "
         f"{len(want)} means, like np.convolve(values, np.ones(window) / window, mode='valid')), got {got!r}")
 
@@ -205,12 +215,14 @@ def test_moving_average_matches_numpy(sequences, values, window, why):
 def test_moving_average_matches_numpy_on_random_cases(sequences):
     rng = np.random.default_rng(53)
     for _ in range(30):
-        values = list(np.round(rng.normal(10, 5, size=int(rng.integers(1, 30))), 2))
+        values = [float(v) for v in np.round(rng.normal(10, 5, size=int(rng.integers(1, 30))), 2)]
         window = int(rng.integers(1, len(values) + 1))
         want = np.convolve(values, np.ones(window) / window, mode="valid")
         got = _result(lambda: sequences.moving_average(values, window), f"{len(want)} means")
+        _assert_list(got, "moving_average(values, window)")
         assert len(got) == len(want) and np.allclose(got, want), (
-            f"expected the {len(want)} moving averages {_floats(want)} of {values} over {window} values, got {got!r}")
+            f"expected the {len(want)} moving averages {_floats(want)} of {values} with a window of {window}, "
+            f"got {got!r}")
 
 
 def test_moving_average_accepts_a_tuple(sequences):
@@ -241,7 +253,8 @@ EMA = [([10, 10], 0.5, "the docstring example"), ([40, 0, 20, 20], 0.75, "beta =
 def test_exponential_moving_average_matches_scipy(sequences, values, beta, why):
     want = _ema_oracle(values, beta)
     got = _result(lambda: sequences.exponential_moving_average(values, beta), f"{_floats(want)} ({why})")
-    assert isinstance(got, list) and len(got) == len(want) and np.allclose(got, want), (
+    _assert_list(got, f"exponential_moving_average(…, {beta})")
+    assert len(got) == len(want) and np.allclose(got, want), (
         f"expected exponential_moving_average({values if len(values) < 8 else '[…]'}, {beta}) == "
         f"{_floats(want) if len(want) < 8 else _floats(want[:4]) + ['…']} ({why}; v(0) = 0 and v(t) = beta*v(t - 1) "
         f"+ (1 - beta)*x(t)), got {got!r}")
@@ -250,13 +263,14 @@ def test_exponential_moving_average_matches_scipy(sequences, values, beta, why):
 def test_exponential_moving_average_matches_scipy_on_random_cases(sequences):
     rng = np.random.default_rng(54)
     for _ in range(30):
-        values = list(np.round(rng.normal(0, 3, size=int(rng.integers(1, 40))), 2))
+        values = [float(v) for v in np.round(rng.normal(0, 3, size=int(rng.integers(1, 40))), 2)]
         beta = float(rng.choice([0.0, 0.1, 0.5, 0.9, 0.99]))
         want = _ema_oracle(values, beta)
         got = _result(lambda: sequences.exponential_moving_average(values, beta), f"{len(want)} averages")
+        _assert_list(got, f"exponential_moving_average(values, {beta})")
         assert len(got) == len(want) and np.allclose(got, want), (
             f"expected the {len(want)} exponential moving averages of {values[:5]}… with beta = {beta}, starting "
-            f"{_floats(want[:3])}, got {got[:3] if isinstance(got, list) else got!r}")
+            f"{_floats(want[:3])}, got {got[:3]!r}")
 
 
 def test_exponential_moving_average_starts_from_zero(sequences):

@@ -285,3 +285,11 @@ def test_fraction_typed_as_a_python_calculation_is_exact():
     entry = entry_of("F.4b", Fraction(2, 7), kind="fraction")
     assert verdict("F.4b", entry, 2 / 7)[0]
     assert not verdict("F.4b", entry, 0.2857142857)[0]
+
+
+@pytest.mark.parametrize("value", [0.3 / 0.7, "0.3/0.7", "0.3 / (1 - 0.3)", "3/7"])
+def test_fraction_calculated_from_decimals_is_exact(value):
+    """0.3/0.7 is a few units of the last place away from the float nearest to 3/7; "0.3/0.7" is read exactly (R5)."""
+    entry = entry_of("F.4c", Fraction(3, 7), kind="fraction")
+    assert verdict("F.4c", entry, value)[0], verdict("F.4c", entry, value)[2]
+    assert not verdict("F.4c", entry, 0.4285714286)[0]

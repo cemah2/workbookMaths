@@ -590,6 +590,18 @@ def test_run_pytest_group_says_which_failures_are_only_pending(group_root, capsy
     assert last.startswith("pytest: 1 en attente ⏳ (fonction pas encore écrite), 7 non sélectionné(s)"), last
 
 
+@pytest.mark.parametrize("rest, node, reason", [
+    ("tests/t.py::test_a - AssertionError: expected 1", "tests/t.py::test_a", "AssertionError: expected 1"),
+    ("tests/t.py::test_a[case] - AssertionError: x - y", "tests/t.py::test_a[case]", "AssertionError: x - y"),
+    ("tests/t.py::test_a[close to u0 / (1 - q)] - ⏳ pas encore", "tests/t.py::test_a[close to u0 / (1 - q)]",
+     "⏳ pas encore"),
+], ids=["plain", "id_then_dash_in_reason", "dash_inside_the_id"])
+def test_split_failure_keeps_a_dash_inside_a_test_id(rest, node, reason):
+    """R5: the id of a parametrized test may contain « - »; the reason starts after the closing bracket."""
+    from wbm.nbtools import _split_failure
+    assert _split_failure(rest) == (node, reason)
+
+
 def test_run_pytest_group_all_green(group_root, capsys):
     result = run_pytest_group(group_root / "tests" / "test_group.py", "passes", root=group_root)
     assert result.ok and result.passed == 1

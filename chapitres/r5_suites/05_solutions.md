@@ -325,11 +325,11 @@ Dans ta copie : chaque nouvelle mesure coûte deux opérations au lieu de $k$, q
 
 ### Ex R5.16 — Moyennes mobile et exponentielle · `moving_average`, `exponential_moving_average`
 
-**Réponses** : a) `[6.0, 8.0, 6.0, 8.0]` · b) `44` · c) `"ValueError"` · d) `"ValueError"` · e) `[10.0, 7.5, 10.625, 12.96875]` · f) `[3.0, 1.0, 4.0]` · g) `"ValueError"`.
+**Réponses** : a) `[6.3333, 8.3333, 6.0, 8.0]` · b) `44` · c) `"ValueError"` · d) `"ValueError"` · e) `[10.0, 7.5, 10.625, 12.96875]` · f) `[3.0, 1.0, 4.0]` · g) `"ValueError"`.
 
 **Démarche.** `moving_average` : `if not 1 <= window <= len(values): raise ValueError(...)`, puis une moyenne par position de départ, de 0 à `len(values) - window` inclus. `exponential_moving_average` : la `ValueError` si `not 0 <= beta < 1`, puis `v = 0.0` et, pour chaque valeur, `v = beta * v + (1 - beta) * x`, ajouté à la liste.
 
-**Erreurs fréquentes.** `range(len(values) - window)` (la dernière moyenne manque) ; diviser par `len(values)` ; tester la fenêtre après le calcul (une fenêtre de 0 donne une division par zéro) ; partir de `v = values[0]` ; échanger `beta` et `1 - beta`.
+**Erreurs fréquentes.** `range(len(values) - window)` (la dernière moyenne manque) ; diviser par `len(values)` ; `//` au lieu de `/` (une moyenne n'est pas toujours entière) ; tester la fenêtre après le calcul (une fenêtre de 0 donne une division par zéro) ; partir de `v = values[0]` ; échanger `beta` et `1 - beta`.
 
 ### Ex R5.17 — Les mêmes calculs avec NumPy : `np.cumsum`, `np.cumprod`, `np.convolve`
 
@@ -351,7 +351,7 @@ Dans ta copie : chaque nouvelle mesure coûte deux opérations au lieu de $k$, q
 
 **Réponses** : a) environ `[1.621, 1.036, 0.834, 1.776, 3.430]` · b) environ `[1.621, 1.011, 0.796, 1.262, 3.135]` · c) `9` · d) `0.75` · e) `2`.
 
-**Démarche.** `window_errors = [error(moving(x, k)) for k in windows]` et de même pour `betas`. L'erreur commence par baisser (le lissage enlève du bruit), puis remonte : une grande fenêtre moyenne des valeurs trop anciennes, la courbe lissée est en retard d'environ la moitié de la fenêtre et aplatit les sommets. Le meilleur réglage est un compromis entre bruit et retard.
+**Démarche.** `window_errors = [error(moving(x, k)) for k in windows]` et de même pour `betas` ; pour c et d, `windows[int(np.argmin(window_errors))]` (`np.argmin` donne un indice, pas la fenêtre). L'erreur commence par baisser (le lissage enlève du bruit), puis remonte : une grande fenêtre moyenne des valeurs trop anciennes, la courbe lissée est en retard d'environ la moitié de la fenêtre et aplatit les sommets. Le meilleur réglage est un compromis entre bruit et retard.
 
 **Erreurs fréquentes.** Choisir la plus grande fenêtre (« plus on lisse, mieux c'est ») ; croire que la courbe lissée anticipe la tendance (elle n'utilise que des valeurs passées).
 

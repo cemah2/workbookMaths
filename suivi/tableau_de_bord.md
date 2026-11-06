@@ -344,3 +344,40 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] R4.25 🛠️ Rédiger une démonstration propre en LaTeX ★ 20 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)
 <!-- wbm:end R4 -->
+
+<!-- wbm:section R5 -->
+## R5 · Suites ⏱️ 10,2 h
+
+- [ ] R5.Q1 🧠 Explicite ou par récurrence ? ★ 4 min
+- [ ] R5.Q2 🧠 Arithmétique, géométrique, ou ni l'une ni l'autre ? ★ 4 min
+- [ ] R5.Q3 🧠 Formules de somme : vrai ou faux ★ 4 min
+- [ ] R5.Q4 🧠 Converge ou diverge ? ★ 4 min
+- [ ] R5.Q5 🧠 Moyenne mobile ou moyenne exponentielle ? ★ 4 min
+- [ ] R5.Q6 🧠 Les poids d'une moyenne exponentielle ★ 4 min (complet)
+- [ ] R5.R1 🔁 Σ et changement d'indice (R4) ★ 5 min
+- [ ] R5.R2 🔁 Raisonnement par récurrence (R4) ★ 5 min (complet)
+- [ ] R5.R3 🔁 Évolutions successives (R1) ★ 5 min
+- [ ] R5.1 ✏️ Calculer des termes : explicite et récurrence ★ 10 min
+- [ ] R5.2 ✏️ Terme général d'une suite arithmétique ★ 10 min
+- [ ] R5.3 ✏️ Terme général d'une suite géométrique ★ 10 min
+- [ ] R5.4 ✏️ Sommes arithmétiques et géométriques ★★ 20 min
+- [ ] R5.5 ✏️ Sommes infinies d'une suite géométrique ★★ 15 min
+- [ ] R5.6 ✏️ Intérêts composés et actualisation ★★ 20 min (complet)
+- [ ] R5.7 ✏️ Une moyenne exponentielle à la main sur cinq valeurs ★★ 20 min
+- [ ] R5.8 ✏️ Retrouver le premier terme et la raison à partir de deux termes ★ 10 min
+- [ ] R5.9 ∂ La somme d'une suite géométrique, démontrée par récurrence ★★ 25 min
+- [ ] R5.10 ∂ La somme d'une suite arithmétique : l'astuce de Gauss (premier + dernier) ★★ 25 min (complet)
+- [ ] R5.11 🔗 Actualiser : ce que vaut aujourd'hui une somme versée chaque année (une somme géométrique) ★★ 20 min
+- [ ] R5.12 🔗 Une moyenne mobile qui glisse : la mettre à jour sans tout recalculer ★ 15 min
+- [ ] R5.13 🗣️ Expliquer pourquoi une somme infinie peut être finie ★ 10 min
+- [ ] R5.14 🔨 Terme d'une suite arithmétique et somme géométrique ★ 15 min
+- [ ] R5.15 🔨 Itérer une récurrence ★ 15 min
+- [ ] R5.16 🔨 Moyennes mobile et exponentielle ★★ 25 min
+- [ ] R5.17 📦 Les mêmes calculs avec NumPy : `np.cumsum`, `np.cumprod`, `np.convolve` ★ 15 min (complet)
+- [ ] R5.18 🔮 Prédire : vers quoi tend u(n + 1) = 0,75 u(n) + 2 ? ★ 10 min
+- [ ] R5.19 🔬 Lisser un signal bruité : l'effet de la fenêtre et de β ★★ 20 min (complet)
+- [ ] R5.20 🎨 Des suites qui convergent, divergent, oscillent ★ 15 min (complet)
+- [ ] R5.21 🐛 Chasse à l'erreur : un décalage d'indice dans une somme ★ 15 min
+- [ ] R5.22 🛠️ Une boucle ou une formule ? Mesurer le temps de calcul ★ 15 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (20 cartes)
+<!-- wbm:end R5 -->

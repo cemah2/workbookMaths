@@ -1066,12 +1066,12 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
             mistake = entry.get("mistakes", {}).get(glued_hash)
             if mistake:
                 return False, "wrong", _classic(entry, mistake, value)
-    if entry.get("prediction") and kind in ("int", "float", "array", "set"):
-        return False, "wrong", _MISSED_PREDICTION
-    if kind in ("int", "float") and entry.get("choices") and norm not in entry["choices"]:
-        offered = [_choice_text(choice) for choice in entry["choices"]]
+    if kind in ("int", "float") and entry.get("choices") and norm not in entry["choices"]:   # before a prediction
+        offered = [_choice_text(choice) for choice in entry["choices"]]                     # (R5.18c = 4)
         listed = ", ".join(offered[:-1]) + " ou " + offered[-1] if len(offered) > 1 else offered[0]
         return False, "wrong", f"Choisis l'une des valeurs proposées par l'énoncé : {listed}."
+    if entry.get("prediction") and kind in ("int", "float", "array", "set"):
+        return False, "wrong", _MISSED_PREDICTION
     if kind in ("int", "float"):
         return False, "wrong", _numeric_diagnosis(ex_id, entry, _as_number(value), computed)
     if kind == "bool":

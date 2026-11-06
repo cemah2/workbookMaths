@@ -548,7 +548,7 @@ Une liste par compréhension suffit pour chacune : une erreur par fenêtre, une 
 </details>
 <details><summary>Indice 3</summary>
 
-a : `[error(moving(x, k)) for k in windows]`. Pour c et d, cherche la plus petite valeur de chaque liste (ou utilise `np.argmin`). Pour e, compare la position des sommets de la courbe rouge et de la courbe noire.
+a : `[error(moving(x, k)) for k in windows]`. Pour c et d, cherche la plus petite valeur de chaque liste (`np.argmin` donne son indice : `windows[np.argmin(window_errors)]` donne la fenêtre). Pour e, compare la position des sommets de la courbe rouge et de la courbe noire.
 
 </details>
 

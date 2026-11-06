@@ -207,7 +207,7 @@ On place 3 000 € à 2,5 % par an, à intérêts composés. Arrondis les montan
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | le capital au bout d'un an | un nombre |
+| a | le capital au bout d'un an | un nombre entier |
 | b | le capital au bout de 10 ans | un nombre (2 décimales) |
 | c | le capital au bout de 10 ans à intérêts **simples** (2,5 % de 3 000 € chaque année) | un nombre |
 | d | le nombre d'années pleines au bout duquel le capital à intérêts composés dépasse 4 000 € | un nombre entier |
@@ -225,7 +225,7 @@ On mesure les valeurs $x_1, \dots, x_5 = 10, 20, 15, 5, 25$. On calcule la moyen
 |---|---|---|
 | a | la liste `[v1, v2, v3, v4, v5]` | une liste de 5 nombres (4 décimales) |
 | b | la liste des moyennes mobiles sur une fenêtre de 3 valeurs | une liste (2 décimales) |
-| c | la moyenne des cinq valeurs | un nombre |
+| c | la moyenne des cinq valeurs | un nombre entier |
 | d | $v_5$ est plus petit que la moyenne des cinq valeurs | vrai ou faux |
 | e | le poids de $x_1$ dans $v_3$, en écrivant $v_3$ en fonction de $x_1$, $x_2$ et $x_3$ | un nombre |
 | f | $v_5$ si l'on remplace 0,8 par 0 et 0,2 par 1 | un nombre |
@@ -284,7 +284,7 @@ $$\begin{array}{rcccccccc} S & = & 1 & + & 2 & + & \dots & + & 100 \\ S & = & 10
 **Objectif :** calculer la valeur actuelle d'une suite de versements avec une somme géométrique, et faire le lien avec le facteur d'actualisation du RL.
 **Prérequis :** fiche §3 à §5 ; R5.4 · **Parcours :** C, E
 
-Tu gagnes un prix : 1 000 € versés à la fin de chaque année pendant 8 ans (le premier versement dans un an). L'argent placé rapporte 4 % par an, à intérêts composés. La **valeur actuelle** d'une somme reçue dans $k$ années est la somme qu'il faudrait placer aujourd'hui pour l'obtenir dans $k$ années (fiche §3). Arrondis les montants au centime.
+Tu gagnes un prix : 1 000 € versés à la fin de chaque année pendant 8 ans (le premier versement dans un an). L'argent placé rapporte 4 % par an, à intérêts composés. La **valeur actuelle** d'une somme reçue dans $k$ années est la somme qu'il faudrait placer aujourd'hui pour l'obtenir dans $k$ années (fiche §3). Arrondis les montants au centime, à la fin du calcul seulement (garde les valeurs intermédiaires exactes, en mémoire de la calculatrice).
 
 | | Question | Réponse attendue |
 |---|---|---|

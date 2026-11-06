@@ -65,6 +65,7 @@ _NAME_PREFIX = re.compile(r"\s*[A-Za-z]'*\s*(?:\(\s*[a-z]\s*\))?\s*")
 # ---------------------------------------------------------------------------
 _FRACTION_TEXT = re.compile(r"\s*([+-]?)\s*\(?\s*([+-]?\d+)\s*\)?\s*/\s*\(?\s*([+-]?\d+)\s*\)?\s*")
 _DECIMAL_TEXT = re.compile(r"\s*[+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+)\s*")   # ".8" and "-,5" too
+_DECIMAL_NUMBER = re.compile(r"(?<![\w.])\d+\.\d+(?![\w.])")             # a decimal inside a calculation
 
 
 def _parse_fraction(value) -> tuple[Fraction, bool | None]:
@@ -92,8 +93,10 @@ def _parse_fraction(value) -> tuple[Fraction, bool | None]:
         if not math.isfinite(x):
             raise MathNormalizationError("une fraction exacte, pas l'infini ni NaN")
         candidate = Fraction(x).limit_denominator(10**6)
-        # 25/12 typed as a Python calculation (2.0833333333333335) is that fraction: the nearest float to it
-        if abs(float(candidate) - x) <= 1e-12 * max(1.0, abs(x)) and (len(repr(x)) <= 12 or float(candidate) == x):
+        # 25/12 typed as a Python calculation (2.0833333333333335) is that fraction: the nearest float to it, or a float
+        # a few units of the last place away (0.3/0.7, R5); a decimal typed by hand has far fewer digits
+        if abs(float(candidate) - x) <= 1e-12 * max(1.0, abs(x)) and (
+                len(repr(x)) <= 12 or abs(float(candidate) - x) <= 4 * math.ulp(x)):
             return candidate, None
         raise _ApproximateValue(x)
     if isinstance(value, str):
@@ -110,8 +113,8 @@ def _parse_fraction(value) -> tuple[Fraction, bool | None]:
         if _DECIMAL_TEXT.fullmatch(text):
             decimal = Decimal(text.replace(",", "."))
             return Fraction(decimal), None
-        number = _exact_number(text)
-        if number is not None:
+        number = _exact_number(_DECIMAL_NUMBER.sub(lambda m: f"({Fraction(Decimal(m.group()))})", text))
+        if number is not None:                           # "0.3/0.7" (R5): the decimals are read exactly
             if number.is_Rational:
                 return Fraction(int(number.p), int(number.q)), None
             raise _IrrationalValue()

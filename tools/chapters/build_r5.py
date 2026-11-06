@@ -42,7 +42,8 @@ PAPER = [
          '"w₄ : trois pas depuis w₁, qui est le premier terme": {W[3], W[5]}}'),
         ("e", "an expression in n, as text", '"n**2"',
          'kind="expr", variables=("n",), mistakes={"vérifie ta formule en n = 1 : elle doit donner w₁ = 1": '
-         '"(n + 1)**2", "vérifie ta formule en n = 2 : elle doit donner w₂": "(n - 1)**2", "2n + 1 est l\'écart entre deux termes, pas le terme lui-même": "2*n + 1"}'),
+         '"(n + 1)**2", "vérifie ta formule en n = 2 : elle doit donner w₂": "(n - 1)**2", '
+         '"vérifie ta formule sur w₁, w₂, w₃ et w₄ : elle doit les donner tous": "n**2 + 1", "2n + 1 est l\'écart entre deux termes, pas le terme lui-même": "2*n + 1"}'),
         ("f", "an expression in n, as text", '"2*n - 2"',
          'kind="expr", variables=("n",), mistakes={"(n + 1)² = n² + 2n + 1, pas n² + 1": "-2", '
          '"−3(n + 1) = −3n − 3 : le −3 multiplie aussi le 1": "2*n + 1", '
@@ -72,7 +73,8 @@ PAPER = [
          'mistakes={"résous 7 + 4n = 2 026 : n doit être un entier": True}'),
         ("g", "an integer", "int(24 / 1.5)",
          'mistakes={"compte la hauteur restante heure par heure : elle n\'est pas encore nulle": 15, '
-         '"la bougie est consumée quand sa hauteur est nulle : pas une heure de plus": 17}'),
+         '"la bougie est consumée quand sa hauteur est nulle : pas une heure de plus": 17, '
+         '"combien de fois 1,5 cm tiennent-ils dans 24 cm ? On divise": 36}'),
     ]),
     Paper("R5.3", "Terme général d'une suite géométrique", [
         ("a", "an expression in n, as text", '"5*3**n"',
@@ -103,11 +105,12 @@ PAPER = [
         ("a", "an integer", "len(range(5, 51, 3))",
          'mistakes={"de 5 à 50 par pas de 3 : il y a un terme de plus que d\'écarts": 15}'),
         ("b", "an integer", "float(sum(range(5, 51, 3)))",
-         'decimals=2, mistakes={"compte les termes : un de plus que d\'écarts": 15 * 55 / 2, '
+         'decimals=2, mistakes={"compte les termes : un de plus que d\'écarts": {15 * 55 / 2, 17 * 55 / 2}, '
          '"nombre de termes × (premier + dernier), divisé par 2": 16 * 55}'),
         ("c", "a number", "sum(2 + 0.5 * k for k in range(20))",
          'decimals=2, mistakes={"de k = 0 à 19 : 20 termes": {19 * 13.5 / 2, 21 * 13.5 / 2}, '
-         '"le dernier terme est celui de k = 19 : 2 + 0,5 × 19": 20 * 14 / 2}'),
+         '"le dernier terme est celui de k = 19 : 2 + 0,5 × 19": 20 * 14 / 2, '
+         '"la somme des k va de 0 à 19, pas de 1 à 20": 20 * 2 + 0.5 * 210}'),
         ("d", "an integer", "sum(4**k for k in range(6))",
          'mistakes={"de 4⁰ à 4⁵ : 6 termes, donc 4⁶ dans la formule": {(4**5 - 1) // 3, (4**7 - 1) // 3}, '
          '"(qⁿ − 1)/(q − 1) : n\'oublie pas de diviser par q − 1 = 3": 4**6 - 1}'),
@@ -119,7 +122,7 @@ PAPER = [
          '"de k = 3 à 8, il y a 8 − 3 + 1 termes": {8 * 31, 8 * 127}}'),
         ("g", "an integer", "sum((-2) ** k for k in range(10))",
          'mistakes={"(−2)¹⁰ est positif : 1 − (−2)¹⁰ = 1 − 1 024": 341, '
-         '"la raison est −2 : 1 − q = 1 + 2": 1023, "de k = 0 à 9 : 10 termes": 683}'),
+         '"la raison est −2 : 1 − q = 1 + 2": 1023, "de k = 0 à 9 : 10 termes, donc (−2)¹⁰ dans la formule": {683, 171}}'),
         ("h", "an expression in n, as text", '"n**2 + 2*n"',
          'kind="expr", variables=("n",), mistakes={"de k = 0 à n − 1, la somme des k vaut (n − 1)n/2": "n**2 + 4*n", '
          '"la somme s\'arrête à k = n − 1 : n termes, pas n + 1": "n**2 + 4*n + 3", '
@@ -169,7 +172,8 @@ PAPER = [
     Paper("R5.7", "Une moyenne exponentielle à la main sur cinq valeurs", [
         ("a", "a list of 5 numbers (4 decimals)", "ema(X7, 0.8)",
          'decimals=4, mistakes={"0,8 multiplie l\'ancienne moyenne, 0,2 la nouvelle valeur": ema(X7, 0.2), '
-         '"v₀ = 0, pas x₁ : la moyenne part de 0": ema(X7, 0.8, 10.0)}'),
+         '"v₀ = 0, pas x₁ : la moyenne part de 0": ema(X7, 0.8, 10.0), '
+         '"la liste commence à v₁ : v₀ = 0 n\'en fait pas partie": [0] + ema(X7, 0.8)[:4]}'),
         ("b", "a list of 3 numbers (2 decimals)", "window_means(X7, 3)",
          'decimals=2, mistakes={"5 valeurs et une fenêtre de 3 : 5 − 3 + 1 moyennes": window_means(X7, 3)[:2], '
          '"une moyenne : divise chaque somme par 3": [3 * m for m in window_means(X7, 3)]}'),
@@ -211,6 +215,8 @@ PAPER = [
          '"1/1,04 n\'est pas 1 − 0,04": 0.96}'),
         ("c", "a number (2 decimals)", "round(present_value(1000, 0.04, 8), 2)",
          'decimals=2, mistakes={"chaque versement vaut moins aujourd\'hui : actualise-les": 8000, '
+         '"garde 1 000/1,04 et 1/1,04 exacts jusqu\'au bout (en mémoire de la calculatrice) : n\'arrondis qu\'à la '
+         'fin": {6732.76, 6731.87, 6732.75, 6732.77}, '
          '"le premier versement arrive dans un an : il est déjà actualisé une fois": '
          '{round(present_value(1000, 0.04, 8, first=0), 2), round(present_value(1000, 0.04, 8, first=0), 2) + 0.01}, '
          '"on cherche la valeur aujourd\'hui : on divise par les puissances de 1,04, on ne multiplie pas": '
@@ -419,7 +425,8 @@ print("b)", len(iterate(abs, -3, 10)), " c)", iterate(abs, -3, 0))
 print("d)", iterate(lambda u: 1 + 1 / u, 1, 10)[-1], "et (1 + √5) / 2 =", (1 + math.sqrt(5)) / 2)''',
     record='''wbm.record("R5.15a", [0, 10.0, 5.0, 7.5, 6.25], decimals=4,
            mistakes={"la liste commence par u0 lui-même": [10.0, 5.0, 7.5, 6.25],
-                     "n est le dernier rang : n + 1 termes, de u(0) à u(n)": [0, 10.0, 5.0, 7.5, 6.25, 6.875]})
+                     "n est le dernier rang : n + 1 termes, de u(0) à u(n)": [0, 10.0, 5.0, 7.5, 6.25, 6.875],
+                     "applique f au dernier terme calculé (terms[-1]), pas à u0": [0, 10.0, 10.0, 10.0, 10.0]})
 wbm.record("R5.15b", 11, mistakes={"n + 1 termes, du rang 0 au rang n": {10, 12}})
 wbm.record("R5.15c", [-3],
            mistakes={"n = 0 : la liste contient le seul terme u0": [],
@@ -442,7 +449,7 @@ R5_16 = Ex(
 - `exponential_moving_average(values, beta)` : la liste `[v(1), …, v(T)]` de la moyenne exponentielle $v_0 = 0$, $v_t = \\beta\\,v_{t-1} + (1 - \\beta)\\,x_t$ ; une `ValueError` si `beta` n'est pas dans $[0 \\;;\\; 1[$.
 
 La vérification calcule :
-- a) les moyennes mobiles sur 3 valeurs de `[4, 8, 6, 10, 2, 12]` ;
+- a) les moyennes mobiles sur 3 valeurs de `[4, 9, 6, 10, 2, 12]` ;
 - b) le nombre de moyennes mobiles sur 7 valeurs d'une liste de 50 valeurs ;
 - c) le nom de l'erreur levée pour une fenêtre de 3 sur 2 valeurs (avec `raised`, de la cellule des outils), puis d) pour une fenêtre de 0 ;
 - e) la moyenne exponentielle de `[40, 0, 20, 20]` avec $\\beta = 0{,}75$ ;
@@ -450,7 +457,7 @@ La vérification calcule :
 - g) le nom de l'erreur levée pour $\\beta = 1$.""",
     todo=LOAD_LEARNER,
     check='''with checked("R5.16a"):
-    wbm.check("R5.16a", mymath.sequences.moving_average([4, 8, 6, 10, 2, 12], 3), computed=True)
+    wbm.check("R5.16a", mymath.sequences.moving_average([4, 9, 6, 10, 2, 12], 3), computed=True)
 with checked("R5.16b"):
     wbm.check("R5.16b", len(mymath.sequences.moving_average(list(range(50)), 7)), computed=True)
 with checked("R5.16c"):
@@ -465,14 +472,16 @@ with checked("R5.16g"):
     wbm.check("R5.16g", raised(mymath.sequences.exponential_moving_average, [1], 1), computed=True)''',
     solution=LOAD_REF + '''
 seq = mymath.sequences
-print("a)", seq.moving_average([4, 8, 6, 10, 2, 12], 3), " b)", len(seq.moving_average(list(range(50)), 7)))
+print("a)", seq.moving_average([4, 9, 6, 10, 2, 12], 3), " b)", len(seq.moving_average(list(range(50)), 7)))
 print("c)", raised(seq.moving_average, [1, 2], 3), " d)", raised(seq.moving_average, [1, 2], 0))
 print("e)", seq.exponential_moving_average([40, 0, 20, 20], 0.75))
 print("f)", seq.exponential_moving_average([3, 1, 4], 0), " g)", raised(seq.exponential_moving_average, [1], 1))''',
-    record=f'''wbm.record("R5.16a", [6.0, 8.0, 6.0, 8.0], decimals=4,
+    record=f'''wbm.record("R5.16a", [19 / 3, 25 / 3, 6.0, 8.0], decimals=4,
            mistakes={{"len(values) − window + 1 moyennes : la dernière fenêtre se termine sur la dernière valeur":
-                         [6.0, 8.0, 6.0],
-                     "une moyenne : divise chaque somme par window": [18, 24, 18, 24]}})
+                         [19 / 3, 25 / 3, 6.0],
+                     "une moyenne : divise chaque somme par window": [19, 25, 18, 24],
+                     "divise par window (la taille de la fenêtre), pas par len(values)": [19 / 6, 25 / 6, 3.0, 4.0],
+                     "/ et non // : une moyenne n'est pas toujours un entier": [6, 8, 6, 8]}})
 wbm.record("R5.16b", 44, mistakes={{"len(values) − window + 1 moyennes": {{43, 45, 50}}}})
 wbm.record("R5.16c", "ValueError",
            mistakes={{"une fenêtre plus longue que la liste doit lever une ValueError (raise), pas rendre une liste":
@@ -543,7 +552,8 @@ wbm.record("R5.17b", [5.0, 11.0, 18.2, 26.84, 37.208, 49.6496], decimals=4,
 wbm.record("R5.17c", [1020.0, 1071.0, 1038.87, 1080.4248], decimals=2,
            mistakes={"les évolutions se composent : le produit des coefficients 1 + taux, avec np.cumprod":
                          [1020.0, 1070.0, 1040.0, 1080.0],
-                     "on multiplie par le coefficient 1 + taux, pas par le taux": [20.0, 1.0, -0.03, -0.0012]})
+                     "on multiplie par le coefficient 1 + taux, pas par le taux": [20.0, 1.0, -0.03, -0.0012],
+                     "des produits cumulés (np.cumprod), pas des sommes cumulées": [1020.0, 2070.0, 3040.0, 4080.0]})
 wbm.record("R5.17d", [6.0, 5.0, 6.0, 10.0, 6.0, 4.5], decimals=4,
            mistakes={"mode=\\"valid\\" ne garde que les positions où la fenêtre tient en entier":
                          [2.5, 6.0, 5.0, 6.0, 10.0, 6.0, 4.5, 4.0],
@@ -555,21 +565,25 @@ wbm.record("R5.17d", [6.0, 5.0, 6.0, 10.0, 6.0, 4.5], decimals=4,
          "calculer avec une racine quatrième).",
 )
 
-R5_18_EXPERIMENT = '''def run(u0, steps=40):
-    terms = [u0]
+R5_18_EXPERIMENT = '''def run(u0, steps):
+    """[u(0), …, u(steps)] for u(n + 1) = 0.75 u(n) + 2."""
+    terms = [float(u0)]
     for _ in range(steps):
         terms.append(0.75 * terms[-1] + 2)
     return terms
 
 
-from_0, from_100 = run(0), run(100)
+from_0, from_100 = run(0, 40), run(100, 40)
+far = run(0, 500)[-1]                                    # the value after 500 steps: where the sequence settles
 print("depuis 0   :", [round(u, 3) for u in from_0[:6]], "…", round(from_0[-1], 6))
 print("depuis 100 :", [round(u, 3) for u in from_100[:6]], "…", round(from_100[-1], 6))
-print("premier rang où |u_n - 8| < 0,01, depuis 0 :", next(n for n, u in enumerate(from_0) if abs(u - 8) < 0.01))
+print("valeur après 500 pas :", far)
+print("premier rang à moins de 0,01 de cette valeur, depuis 0 :",
+      next(n for n, u in enumerate(from_0) if abs(u - far) < 0.01))
 fig, ax = plt.subplots(figsize=(7, 3.6))
-ax.plot(from_0, "o-", markersize=3, label="u₀ = 0")
-ax.plot(from_100, "o-", markersize=3, label="u₀ = 100")
-ax.axhline(8, color="gray", linestyle=":", label="y = 8")
+ax.plot(from_0, "o", markersize=3, label="u₀ = 0")
+ax.plot(from_100, "o", markersize=3, label="u₀ = 100")
+ax.axhline(far, color="gray", linestyle=":", label="valeur après 500 pas")
 ax.set_xlabel("n")
 ax.set_ylabel("uₙ")
 ax.set_title("u(n + 1) = 0,75 u(n) + 2, depuis deux premiers termes")
@@ -600,19 +614,20 @@ wbm.record("R5.18b", 8.0, decimals=2, prediction=True,
            mistakes={"l'écart au point fixe est multiplié par 0,75 à chaque pas, quel que soit le premier terme : la "
                      "limite ne dépend pas de u₀": {100, 0, 2}})
 wbm.record("R5.18c", 2, prediction=True, choices=[1, 2, 3],
-           mistakes={"l'écart est multiplié par 0,75 à chaque pas : le diviser par 800 demande plus de 10 pas": 1,
+           mistakes={"l'écart est multiplié par 0,75 à chaque pas : pour devenir des centaines de fois plus petit, "
+                     "il lui faut plus de 10 pas": 1,
                      "0,75ⁿ diminue plus vite qu'on ne le croit : 0,75⁵⁰ est de l'ordre de 10⁻⁶": 3})''',
     after=[
         ("md", "**L'expérience.** Elle ne s'exécute qu'une fois tes trois prédictions écrites."),
         ("todo", guarded(R5_18_EXPERIMENT, ["prediction_R5_18a", "prediction_R5_18b", "prediction_R5_18c"],
                          "⏳ Écris d'abord tes trois prédictions, puis exécute à nouveau.")),
         ("solution", R5_18_EXPERIMENT),
-        ("md", "**Après l'expérience.** d) Le premier rang $n$ pour lequel $\\lvert u_n - 8 \\rvert < 0{,}01$, "
-               "partie de $u_0 = 0$ (lis-le dans la sortie). Puis, dans ta copie : écris $u_n$ en fonction de $n$ "
-               "pour $u_0 = 0$ (fiche §5), et explique pourquoi les deux courbes se rejoignent."),
+        ("md", "**Après l'expérience.** d) Le premier rang $n$ pour lequel $u_n$ est à moins de 0,01 de sa "
+               "limite, partie de $u_0 = 0$ (lis-le dans la sortie). Puis, dans ta copie : écris $u_n$ en fonction "
+               "de $n$ pour $u_0 = 0$ (fiche §5), et compare les deux suites."),
         ("todo", "answer_R5_18d = ...  # d) an integer"),
         ("check", 'wbm.check("R5.18d", answer_R5_18d)'),
-        ("solution", "answer_R5_18d = next(n for n, u in enumerate(run(0)) if abs(u - 8) < 0.01)\nprint(answer_R5_18d)"),
+        ("solution", "answer_R5_18d = next(n for n, u in enumerate(from_0) if abs(u - far) < 0.01)\nprint(answer_R5_18d)"),
         ("record", 'wbm.record("R5.18d", 24, mistakes={"le premier rang où l\'écart passe sous 0,01 : lis la ligne '
                    '« premier rang » de la sortie": {23, 25}})'),
     ],
@@ -708,17 +723,17 @@ answer_R5_19d = betas[int(np.argmin(beta_errors))]
 answer_R5_19e = 2
 print("fenêtres :", dict(zip(windows, np.round(window_errors, 3))))
 print("β        :", dict(zip(betas, np.round(beta_errors, 3))))''',
-    record='''wbm.record("R5.19a", [error(moving(x, k)) for k in windows], decimals=4,
+    record='''wbm.record("R5.19a", [error(moving(x, k)) for k in windows], decimals=2,
            mistakes={"une erreur par fenêtre, dans l'ordre de windows : error(moving(x, k))":
                          [error(moving(x, k)) for k in reversed(windows)]})
-wbm.record("R5.19b", [error(ema(x, beta)) for beta in betas], decimals=4,
+wbm.record("R5.19b", [error(ema(x, beta)) for beta in betas], decimals=2,
            mistakes={"une erreur par valeur de β, dans l'ordre de betas : error(ema(x, beta))":
                          [error(ema(x, beta)) for beta in reversed(betas)]})
 wbm.record("R5.19c", 9, choices=[1, 3, 9, 25, 61],
            mistakes={"la plus grande fenêtre lisse le plus, mais la courbe prend du retard : lis la liste des erreurs":
                          61, "une fenêtre de 1 ne lisse rien : l'erreur est celle du bruit": 1,
                      "cherche la plus petite erreur de window_errors": {3, 25}})
-wbm.record("R5.19d", 0.75, decimals=2,
+wbm.record("R5.19d", 0.75, decimals=2, choices=[0, 0.5, 0.75, 0.9, 0.99],
            mistakes={"un β proche de 1 lisse fort, mais réagit lentement : lis la liste des erreurs": {0.99, 0.9},
                      "β = 0 ne lisse rien : v_t = x_t": 0, "cherche la plus petite erreur de beta_errors": 0.5})
 wbm.record("R5.19e", 2, choices=[1, 2],
@@ -741,19 +756,26 @@ R5_20_CHECK = '''with checked("R5.20 vérifications"):
              lambda n: math.sqrt(n)]
     problems = []
     if created:
-        problems.append("un dessin dans les axes reçus (axes[0].plot, …), sans créer de figure")
+        problems.append("ta fonction ouvre sa propre figure : dessine dans les axes reçus (axes[0].plot, …)")
     else:
-        for name, ax, rule in zip("abcd", axes, rules):
+        for k, (name, ax, rule) in enumerate(zip("abcd", axes, rules)):
             points = []
             for line in ax.lines:
                 points += list(zip(np.asarray(line.get_xdata(), dtype=float), np.asarray(line.get_ydata(), dtype=float)))
             for collection in ax.collections:
                 points += [tuple(p) for p in np.asarray(collection.get_offsets(), dtype=float)]
-            missing = [n for n in range(21) if not any(abs(px - n) < 1e-9 and abs(py - rule(n)) < 1e-6 for px, py in points)]
-            if missing:
-                problems.append(f"les termes de ({name}) dans axes[{'abcd'.index(name)}] (il manque au moins le rang {missing[0]})")
+            at_integers = {n: [py for px, py in points if abs(px - n) < 1e-9] for n in range(21)}
+            if not points:
+                problems.append(f"rien n'est tracé dans axes[{k}] : dessine ({name}) avec axes[{k}].plot(...), pas plt.plot")
+                continue
+            wrong = [n for n, ys in at_integers.items() if ys and not any(abs(y - rule(n)) < 1e-6 for y in ys)]
+            missing = [n for n, ys in at_integers.items() if not ys]
+            if wrong:
+                problems.append(f"les termes de ({name}) dans axes[{k}] ne sont pas les bons (dès le rang {wrong[0]})")
+            elif missing:
+                problems.append(f"il manque des termes de ({name}) dans axes[{k}] (au moins celui de rang {missing[0]})")
     if problems:
-        print("❌ Ex R5.20 : il manque " + " ; ".join(problems) + ".")
+        print("❌ Ex R5.20 : à revoir : " + " ; ".join(problems) + ".")
     else:
         print("✅ Ex R5.20 : les quatre suites sont tracées, chacune dans son graphique.")'''
 
@@ -827,6 +849,7 @@ wbm.record("R5.20b", [5, 2],
                      "les limites, pas les coefficients des puissances": [-4, 3]})
 wbm.record("R5.20c", [-1, 1], ordered=False,
            mistakes={"n / (n + 1) tend vers 1 : (c) saute entre des valeurs proches de −1 et de 1": [0, 1],
+                     "deux nombres seulement : ceux dont les termes de (c) se rapprochent tour à tour": [-1, 0, 1],
                      "(c) n'a pas de limite : ses termes se rapprochent tour à tour de deux nombres": [0]})''',
     after=[("md", "**Vérifications automatiques** (la figure elle-même se juge à l'œil)."), ("code", R5_20_CHECK)],
     note="(a) converge vers 5 en restant en dessous ; (b) converge vers 2 en oscillant autour ; (c) n'a pas de "
@@ -913,7 +936,11 @@ wbm.record("R5.21b", 9,
 wbm.record("R5.21c", [5204.04016, 5204.04016], decimals=4,
            mistakes={{"la boucle saute encore le premier dépôt : k doit partir de 0": [4204.04016, 5204.04016],
                      "la formule : l'exposant de q est le nombre de dépôts": [5204.04016, 4121.608],
-                     "les deux fonctions sont encore fausses : relis a)": [4204.04016, 4121.608]}})''',
+                     "les deux fonctions sont encore fausses : relis a)": [4204.04016, 4121.608],
+                     "avec k de 1 à years, le dépôt de rang k est first × q**(k − 1) : le plus simple est de faire "
+                     "partir k de 0": [5308.1209632, 5204.04016],
+                     "la boucle : avec k de 1 à years, le dépôt est first × q**(k − 1) ; la formule : l'exposant de q "
+                     "est le nombre de dépôts": [5308.1209632, 4121.608]}})''',
     note="Les deux erreurs sont le même décalage d'indice, sous deux formes : `range(1, years)` n'a que `years − 1` "
          "tours et oublie le dépôt de rang 0 ; la formule utilise $q^{n-1}$ au lieu de $q^n$, où $n$ est le "
          "**nombre** de termes. Le réflexe qui les attrape : tester avec `years = 1` (un seul dépôt, le total vaut "

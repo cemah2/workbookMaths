@@ -966,3 +966,12 @@ def test_a_text_computed_by_the_learners_function_gets_no_spelling_advice():
     e = entry("t4.3", "None", mistakes={"rends None, pas False": "False"})
     text = C.check_entry("t4.3", e, "0", computed=True)[2]
     assert "Ta fonction" in text and "orthographe" not in text
+
+
+def test_a_prediction_outside_its_choices_is_told_the_choices():
+    """A 🔮 answered by a number that is not offered (R5.18c = 4) is told the offered values, not « Prédiction ratée »."""
+    import wbm.checker as checker
+    entry = checker.make_entry("P.c", 2, None, choices=[1, 2, 3], prediction=True)
+    passed, _, message = checker.check_entry("P.c", entry, 4)
+    assert not passed and message.startswith("Choisis l'une des valeurs proposées"), message
+    assert checker.check_entry("P.c", entry, 3)[2].startswith("Prédiction ratée")

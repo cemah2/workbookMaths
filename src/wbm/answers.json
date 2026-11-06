@@ -6274,7 +6274,8 @@
       "mistakes": {
         "0f10f9e930736219bea41cbf46ef34f048cc29150524cbb3e2c8eb9bf895671e": "vérifie ta formule en n = 1 : elle doit donner w₁ = 1",
         "3524b73915cb2d42cd5267fee8e0597fb86bff0ebff01777f39a15622aa5e37c": "vérifie ta formule en n = 2 : elle doit donner w₂",
-        "bbd8983411c9d896f6639615ec470e640ca06b6781a28b927329a700f889a500": "2n + 1 est l'écart entre deux termes, pas le terme lui-même"
+        "bbd8983411c9d896f6639615ec470e640ca06b6781a28b927329a700f889a500": "2n + 1 est l'écart entre deux termes, pas le terme lui-même",
+        "dd381dc008cd713df16a3fdcfa2be1f508d3b28a6be63ef10a1bad9055602a8f": "vérifie ta formule sur w₁, w₂, w₃ et w₄ : elle doit les donner tous"
       },
       "points": [
         [
@@ -6432,6 +6433,7 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
+        "30810549c120dd6396bd7630c8187733d1d0c85a600f8e8fe87862ab423e4733": "combien de fois 1,5 cm tiennent-ils dans 24 cm ? On divise",
         "85804286d7ccfa012bd7882abc55846541f658742069ee09369ed0528a46dfc3": "compte la hauteur restante heure par heure : elle n'est pas encore nulle",
         "a36cfd3557be7645aea8f5fcbbb315ad09881b1b2b48f920823e2733d10bb9df": "la bougie est consumée quand sa hauteur est nulle : pas une heure de plus"
       },
@@ -6533,6 +6535,7 @@
       "source": "chapitres/r5_suites/05_solutions.ipynb"
     },
     "R5.3g": {
+      "fractional": "un nombre d'heures entier : le premier entier qui convient, pas un arrondi",
       "hash": "3dc84aeab9617e03afafc65f5191872a250545c73c241046565ca81d22be2c9e",
       "kind": "int",
       "magnitude": 0,
@@ -6560,6 +6563,7 @@
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
+        "44e19ee320672e015658395edf530459ac17a2c148226739e9433657fa1d6735": "compte les termes : un de plus que d'écarts",
         "9a49fd1312c799a883fd25a4b23599ea86e257234c9d238df2b9f9ae69fe1057": "nombre de termes × (premier + dernier), divisé par 2",
         "c82e30e6206b43f34c6a460035ee65591c83685f4a73ae235e5611a17cb1ead3": "compte les termes : un de plus que d'écarts"
       },
@@ -6574,6 +6578,7 @@
       "magnitude": 2,
       "mistakes": {
         "018f82ca723019824382edbb8a72370e8e16a2c43478465bb5f6677d32882cf3": "de k = 0 à 19 : 20 termes",
+        "0430b61b25a1baed4ee73d453db9feaffdbfe3302b7edd3b27235a11775c818d": "la somme des k va de 0 à 19, pas de 1 à 20",
         "751837c1eae854d588906387091d9e97e69f2d1457c9bf58cfc50b5290309cbf": "de k = 0 à 19 : 20 termes",
         "ca677ae941092acf44a436c49de425d39916529e4f29dc578724b5cc35262289": "le dernier terme est celui de k = 19 : 2 + 0,5 × 19"
       },
@@ -6626,7 +6631,8 @@
       "mistakes": {
         "03082da93f17315ca760b70c59c0a5dba1ca9afeb536d5d9b4669da34fc35e0d": "(−2)¹⁰ est positif : 1 − (−2)¹⁰ = 1 − 1 024",
         "839156d1be5e727b52d8c4313828f2beea3ac59a6f6f54150408de55d6041c3a": "la raison est −2 : 1 − q = 1 + 2",
-        "ae9706abed9a7f8d6a2383387b097f4f95e43ce17ba5bdf7683ec01f215a7886": "de k = 0 à 9 : 10 termes"
+        "ae9706abed9a7f8d6a2383387b097f4f95e43ce17ba5bdf7683ec01f215a7886": "de k = 0 à 9 : 10 termes, donc (−2)¹⁰ dans la formule",
+        "d3ba79393c952ec550895ecf0176ae0ea3c189ded966c7f8556987a8345cf9d1": "de k = 0 à 9 : 10 termes, donc (−2)¹⁰ dans la formule"
       },
       "sign": -1,
       "source": "chapitres/r5_suites/05_solutions.ipynb"
@@ -6637,6 +6643,7 @@
       "mistakes": {
         "0c70270906c3da5868e5c82ebac822eef833b8e4520dad40c515532daa338f34": "le dernier terme est celui de k = n − 1 : 3 + 2(n − 1)",
         "4769f08b9115b377439ad5d2327dbd15ab1d9d98e1e1bf63435bf3ef1e854e40": "de k = 0 à n − 1, la somme des k vaut (n − 1)n/2",
+        "5316728662047923bde2afbd17943b7dcc30ed9f2fca8711ff7f5ea98294dc78": "la somme s'arrête à k = n − 1 : n termes, pas n + 1",
         "bba53da046fd36d43eda2d4e5a3497166b8d9dab874813bef9a1cdd330e7b32f": "la constante 3 est ajoutée n fois"
       },
       "points": [
@@ -6709,6 +6716,7 @@
       "source": "chapitres/r5_suites/05_solutions.ipynb"
     },
     "R5.5f": {
+      "fractional": "un nombre de termes est entier : le premier entier qui convient, pas un arrondi",
       "hash": "940192e8cfe222aa6853f33d834ea569b2372daabf1739e4540affd1d0fde014",
       "kind": "int",
       "magnitude": 1,
@@ -6760,6 +6768,7 @@
       "source": "chapitres/r5_suites/05_solutions.ipynb"
     },
     "R5.6d": {
+      "fractional": "un nombre d'années pleines : le premier entier qui convient, pas un arrondi",
       "hash": "5bb810e77b061f2e0ea484961b7ec3bd15319fbb7e7b8a9c2ecaef30361ab3b4",
       "kind": "int",
       "magnitude": 1,
@@ -6835,7 +6844,8 @@
       "kind": "array",
       "mistakes": {
         "02fd849f652d8fe86fb5b494aa92368bc472bbf39fc1fc0dc15215452c6bb9f2": "v₀ = 0, pas x₁ : la moyenne part de 0",
-        "6a10292471c39d8eafc5218d4156e1882626ec5fe83d2d6a142f71089be594d0": "0,8 multiplie l'ancienne moyenne, 0,2 la nouvelle valeur"
+        "6a10292471c39d8eafc5218d4156e1882626ec5fe83d2d6a142f71089be594d0": "0,8 multiplie l'ancienne moyenne, 0,2 la nouvelle valeur",
+        "774c4296d4f1384fb1ab48f83b23ec53d8fd675670142aea8e61c8079fa099b9": "la liste commence à v₁ : v₀ = 0 n'en fait pas partie"
       },
       "shape": [
         5
@@ -6994,7 +7004,8 @@
       "mistakes": {
         "0b288ada7a0ba5fdb8e1dcb086293cfb4bc604597c1c6ef9b88a12eb54eed9b6": "q² = 4/9 : prends les racines carrées",
         "8cdcc7acdb7e4abaa4b3ad99e2a480d04d256122365636027a16659e1a05c9d2": "q² = 4/9 a deux solutions, opposées",
-        "9327559038913be6ef0358f0fa6f60e94128a04b83a68e2e69bbbd4b1941a2bd": "q² = 4/9 : la raison est une racine carrée de 4/9"
+        "9327559038913be6ef0358f0fa6f60e94128a04b83a68e2e69bbbd4b1941a2bd": "q² = 4/9 : la raison est une racine carrée de 4/9",
+        "ed96a791b089148943bab4771da86a45ea380e62af580dc64eca5e0f9070ac3b": "6 décimales : arrondis au plus proche, ne tronque pas"
       },
       "set_rounded": {
         "1": "04e5555dceb19e13481c35054b8ace0831360a52bd4b8a284085a076b80c5cdb",
@@ -7038,10 +7049,15 @@
       "kind": "float",
       "magnitude": 3,
       "mistakes": {
+        "03b1b3a58a4c87bd633d7a125ddf0e5a0af7f755efb29ec9f4a5dc3e40932966": "le premier versement arrive dans un an : il est déjà actualisé une fois",
+        "048da68e31595f1276e96e21f09752f3c8b5aa4f27ea4b96ca1169427e195018": "garde 1 000/1,04 et 1/1,04 exacts jusqu'au bout (en mémoire de la calculatrice) : n'arrondis qu'à la fin",
+        "09d580ba9b87cdd9eba6d40fd57038eba2f840985aa817e8bb8b775673d62e2f": "garde 1 000/1,04 et 1/1,04 exacts jusqu'au bout (en mémoire de la calculatrice) : n'arrondis qu'à la fin",
         "5734a732b098ffbf3d0086f02d29d5976288816e334c8e4041534a5a73698b6d": "on cherche la valeur aujourd'hui : on divise par les puissances de 1,04, on ne multiplie pas",
         "6bcebeb8550711e7ee5da3907e773691d337c576012b154c5a128827b7c0e0e0": "le premier versement arrive dans un an : il est déjà actualisé une fois",
+        "97f72720f97ac1019ed9388ef3738cc7e7746e86723b80a02a5a62acd6b66676": "garde 1 000/1,04 et 1/1,04 exacts jusqu'au bout (en mémoire de la calculatrice) : n'arrondis qu'à la fin",
         "9ba837d06e97ee284e2d4e803b481a7e5b565ea6cd5359f8ca1b6486d0f5ebaf": "chaque versement vaut moins aujourd'hui : actualise-les",
         "b6602d1a908a1cd73a3379786f4ae6df80542e8c3b3c4aebcd625ac901e1eee6": "il y a 8 versements, de l'année 1 à l'année 8",
+        "dd843f403d7526e3f4e7ed9104e5e3e3a8d0f1137ed65005282e2ec17dcf0103": "garde 1 000/1,04 et 1/1,04 exacts jusqu'au bout (en mémoire de la calculatrice) : n'arrondis qu'à la fin",
         "e90112d5a69d7f73a36892eddd5d8198acbb859e73d4d1226ee0fe5c2d9b24eb": "il y a 8 versements, de l'année 1 à l'année 8"
       },
       "sign": 1,
@@ -7145,7 +7161,7 @@
       "mistakes": {
         "2fcd19c4ad5f9d9343e2f7ddb0fe3fd69d99d036c57e252a753d8538a265808b": "la mise à jour fait une soustraction et une addition (la division ne compte pas ici)",
         "3e115112c827ff57672297fa13f1a332ab7374eb695adc82e840f92a8ef4dc9e": "dans l'ordre [direct, mise à jour]",
-        "c07c7d81fb785a1c00592b02eeef80aa8526e5bb9cf359f8bef0ca676fc11209": "additionner 100 nombres demande 99 additions",
+        "c07c7d81fb785a1c00592b02eeef80aa8526e5bb9cf359f8bef0ca676fc11209": "additionner 100 nombres demande au minimum 99 additions (on part du premier nombre)",
         "c0c022bd9b0984911a2a8f3f0ada11f165d852365e4a1a24fa80edba8ea9a3c6": "la mise à jour fait une soustraction, puis une addition à l'ancienne moyenne"
       },
       "shape": [
@@ -7268,7 +7284,8 @@
       "kind": "array",
       "mistakes": {
         "1054d6549bb978ee8015b9a7b95a57eb8099f50a1c6465baef5218a0a0a722f4": "la liste commence par u0 lui-même",
-        "b24e20d66236eb78a250a14cd62502a1ac2470c4dd8e2711c181662e8ff839e7": "n est le dernier rang : n + 1 termes, de u(0) à u(n)"
+        "b24e20d66236eb78a250a14cd62502a1ac2470c4dd8e2711c181662e8ff839e7": "n est le dernier rang : n + 1 termes, de u(0) à u(n)",
+        "d226d31056ef11e73b77e583c6e18c2ed21f7fcfea387c5fdaa6fe1d39b17d88": "applique f au dernier terme calculé (terms[-1]), pas à u0"
       },
       "shape": [
         5
@@ -7317,10 +7334,10 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "b5ed7a362966ec313761b608bf57b8f097cf02266c996732d45b4e0e79589660"
+          "955c118423885818ecc388a2940a5e8cb46fb884281879dc23bbb79043029527"
         ],
         [
-          "79b0d851dc18ccb5d053d0ac5df1e030ace5d6ce4199628bd61cb5af58ac4204"
+          "ddfa8a040095d728f8e9c1a94445463252b4a5fdd4a0698c94607a51e10d2d5f"
         ],
         [
           "432fc65b82a722d74f56cd0146c12d5f1f1ea247484eeba6c72b8491969c19c8"
@@ -7330,16 +7347,18 @@
         ]
       ],
       "element_hashes": [
-        "e3606d9707ebb2449b2c6415b80702cd5d914d4ed8336f73c0f4262b76e1df70",
-        "9212af881c23f0b4476463c1366c94ba9e6325375eb3a117c2ecd117483ded4e",
+        "1ec4cc27b2153082cc8222145270e86ff3e94f53912171829cf465329a731a3c",
+        "d68f89cee0b82490e3cd71016cd752ed6cd2f5da61b15a0913dc492448530c6f",
         "4c0bfb23ccf44271dd251616bdd6d407f97bc35f406b603825f8144819df0360",
         "bff661c1e60792427de274f7758266a8c8c208d2668a29f72c0ddecba58edb00"
       ],
-      "hash": "ded56c0cf565a2e4d89f9626f8442de16305e48a8fbba21ea3c5a394812ac6c8",
+      "hash": "894f95c6aa4bf550c66403f3e9ee10ed35492c059ac534317ce10c7ec0f959db",
       "kind": "array",
       "mistakes": {
-        "a61a54146d8d7bd53b129c82625be5375dbb8fc2dd8980d51b022d3f1bec1638": "len(values) − window + 1 moyennes : la dernière fenêtre se termine sur la dernière valeur",
-        "b71cf1b2644fb5415d2cbf61517a43fa8efed1d2be7a2a3a2f759f659a7d5a33": "une moyenne : divise chaque somme par window"
+        "405a368a80c031cfedf2b934ef7f1f9068464f6a777f82cd3fb2af0090f91664": "divise par window (la taille de la fenêtre), pas par len(values)",
+        "ded56c0cf565a2e4d89f9626f8442de16305e48a8fbba21ea3c5a394812ac6c8": "/ et non // : une moyenne n'est pas toujours un entier",
+        "ee4afba0495d3cd145074b9363a148cf83865915ef1fa7c5a05ae4121f3977e7": "len(values) − window + 1 moyennes : la dernière fenêtre se termine sur la dernière valeur",
+        "eea8d86a7c3cfc1a177917ce44fe4c8a378ff15f7a2ffc50e0c6b36b41f4c8a7": "une moyenne : divise chaque somme par window"
       },
       "shape": [
         4
@@ -7552,6 +7571,7 @@
       "kind": "array",
       "mistakes": {
         "32e7ef289f3dcf1050357981067dae08b96ad4df01a4ec876f84acc9e0397060": "les évolutions se composent : le produit des coefficients 1 + taux, avec np.cumprod",
+        "5944f0e734db6e1ab622779af59393a12d1ce5af650c88d6c43724a7a2622eb6": "des produits cumulés (np.cumprod), pas des sommes cumulées",
         "c4776d382829c869b62bfa33d70a0b3fad560810139cee9fa38bae05bf88d7f2": "on multiplie par le coefficient 1 + taux, pas par le taux"
       },
       "shape": [
@@ -7641,7 +7661,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "7895656ee1b2b112e98787b2b069eb3578ba96364a815a197b4e256da105d721": "l'écart est multiplié par 0,75 à chaque pas : le diviser par 800 demande plus de 10 pas",
+        "7895656ee1b2b112e98787b2b069eb3578ba96364a815a197b4e256da105d721": "l'écart est multiplié par 0,75 à chaque pas : pour devenir des centaines de fois plus petit, il lui faut plus de 10 pas",
         "dc2f1aa72dc7e1637f65c3b914e3c14261c60e92b4c8eb0b59481fd04d261770": "0,75ⁿ diminue plus vite qu'on ne le croit : 0,75⁵⁰ est de l'ordre de 10⁻⁶"
       },
       "prediction": true,
@@ -7660,35 +7680,35 @@
       "source": "chapitres/r5_suites/05_solutions.ipynb"
     },
     "R5.19a": {
-      "decimals": 4,
+      "decimals": 2,
       "element_coarse": [
         [
-          "1aa68907253c38029950ad6d81de6fa7debd072b0b61388afe39610b6dd8bb07"
+          "4f670a5fe7539a1e68b552c9eb9d6d5f9b33eea293544719f71005f885045183"
         ],
         [
-          "a09afdfee8ed2d0329f2391196f2fb24246d207178d3f0ca3af0a22f7af3a2cf"
+          "df96222f5f7059b6b7e6ed43bbaac0a305a7e97b72c83ad942bb707243adcef1"
         ],
         [
-          "a5c453f48c8fa6aeb59a06bcf99290e80cb46cc69e8b1b783acfc195f461e515"
+          "9f9d4f73298719855c3ac23261c3b12601fe9066632e21f0beb3eae3322ffd58"
         ],
         [
-          "b62bfd2d5da3ffe1a8cccc35edefbdd2fa9db4bd884fb865b3b588d16d2e42ab"
+          "487b9713d047242250f6e44129a4827f059c9296c7c0671e7c5da0b86060b23d"
         ],
         [
-          "2c01a525f9c8ef1d790f42b0077be1b9735c5d324eea749a5d97e3fb586f2a9b"
+          "1df0f402cde80b23b32216b2b56922590d97ae949e0d7d9f2ce1a4a2dc80ae34"
         ]
       ],
       "element_hashes": [
-        "2e4ed33e05a33ce40a889388a5c0a49133e600053ec02ed951aab22f44615187",
-        "e810926425a97b7b63d1b5fadc763a440da8eea187e7ccfcf53237058398672a",
-        "a11f75fa4b99233173d2493789f0712292f1c495102ae6807601108ab43641e9",
-        "e17e9f0583fb7790036c7a68809cad01e11c56139e26adcfde2f2a7230bbaac9",
-        "d67f304c83f0bc7c43c065a20a95085d9d35c61b8d0acd27aa2db467503356ae"
+        "63d2d7a2aaac613cedd17f8370bfc6dfb9e18b9ceb2c6a9010fc52b5813f2044",
+        "fb5c35f0a05b2b5d3c6d4a8ea912970bade4348069190e0a2e7b43aea7dcd407",
+        "6d9f73a586b084e360a46952506655fa7487fbd261d125654b125b9e0b8de731",
+        "554d3860bc046d00eb16d89077867803b4bdce18804a6b76ab211eba50e0fad2",
+        "760652833e53ac62d91f1194d30dabb1c6bd8e6f9a481916a887fbe4997d2a95"
       ],
-      "hash": "398e9ea70931f83a6b74ef92ffeaed5c930eef9a4415e2a8be7cbc78c2d88fda",
+      "hash": "5d4126c128b8e2488a2064f83add0a961848612c8b703907a3e95c7122f98db1",
       "kind": "array",
       "mistakes": {
-        "170cc74c07d2f64fd1d52868a03ba3af1fed4719c48bbac272a516cdb7c47e6b": "une erreur par fenêtre, dans l'ordre de windows : error(moving(x, k))"
+        "ccfb196ca93f0ff3ccb80a7e8326cbf009929a4147758afd08d4284ee6a8e5f8": "une erreur par fenêtre, dans l'ordre de windows : error(moving(x, k))"
       },
       "shape": [
         5
@@ -7696,35 +7716,35 @@
       "source": "chapitres/r5_suites/05_solutions.ipynb"
     },
     "R5.19b": {
-      "decimals": 4,
+      "decimals": 2,
       "element_coarse": [
         [
-          "882e49fec510ba962a060fe46f3860d5888c4d2885efb2a7a2054e1671bb8ffa"
+          "c1fba1f9743c3426cd7671078a08f6cd32e9698329a917927f040844a9e4419e"
         ],
         [
-          "e7ecf54b2ec84ada611e7d18ea09b316a65d43e0f115f98dee9faa3658efe613"
+          "1fc1f2981ea2c219670424b37f13ffcd061bc69f21e6f52f06d6142f0fed80aa"
         ],
         [
-          "35feebabd816a7c334b6fd1a431bc362ae4daa7453f1e6093160ea595dda8562"
+          "7e329f90a178d1c379d5d8d932963ded37545cf1d86177dd9ce06fc788471443"
         ],
         [
-          "259f0a0100bf11f6a7fac1444af7697eec430eff3418fcced2cbd1b6921497ef"
+          "bf4ff093b09fa718d7a28c756267e72789bc1a3a11919786ab7ed8cb937b9248"
         ],
         [
-          "1797185cdbcf02fb68c84d7593d93f84ac88a63ca8726c54bd314746ed5bc4e0"
+          "0a7a1a049c299404d3674a143504eb90fc61af0da4cc0be6eeac7a9526a214e2"
         ]
       ],
       "element_hashes": [
-        "5ff95419b143ff40bfde1394efe8d8c56c2edae1f2f1d87e5b9507a4cd55acb0",
-        "563b485a84d1ca1f0ae49c47ccfb9d503beecc28a45c756b80553d1fb2b79730",
-        "397618d2e336c85cb13e23487de2101cd6bcb2e7b2a3ad46ccf94febd3f60972",
-        "b05b3edb9ba960d945c71b5f253e79b3ff6c3bc019ed8c32441d7e5921503b46",
-        "fea7501d431f063eb58f2ceca37a3698b95c3359aceba4a62b930254492d9075"
+        "bd951a634665bb817b9a417d8668fb8d4ae60b3318ce504bd36b17b8e15d6c63",
+        "ada6840a8a72884fb48cd2edf718f1c937661c9bca1f45112d4125b8685568e1",
+        "09f553a395c99f210afd76e8ce48e9b8debec7cb292221b752fbaf8a54acb66b",
+        "b85084054c5fdb7af500fddbdeae1ddfb450ef14fc8891d4229ef8b957448ad1",
+        "10a73db5760addede0a59ed733ccc343e6d1a67e820d92e06263a0e8387e56c3"
       ],
-      "hash": "3ee5a2454494294ca461fc540d6cabd0be2b2f54f7dbd9cbd465ee3fa2336e3d",
+      "hash": "7514b6e9348faec3e0c9e8a6497dd602f71890bd58e8977ee9f3b9c3ebce7608",
       "kind": "array",
       "mistakes": {
-        "a4f493159dcab54e8450afc6dfe1b286bc04a2cbca88f5c9bde8de0fb1893fa4": "une erreur par valeur de β, dans l'ordre de betas : error(ema(x, beta))"
+        "0aa8120cccb9970b748cc94f8a53003004d801b76e403047bbeed67225ba60c9": "une erreur par valeur de β, dans l'ordre de betas : error(ema(x, beta))"
       },
       "shape": [
         5
@@ -7752,6 +7772,13 @@
       "source": "chapitres/r5_suites/05_solutions.ipynb"
     },
     "R5.19d": {
+      "choices": [
+        "0.00",
+        "0.50",
+        "0.75",
+        "0.90",
+        "0.99"
+      ],
       "decimals": 2,
       "hash": "b5a387b8585aeb52e84871225cde7125d4219b679adcfdf4ea17ac096c9df28a",
       "hash_coarse": "0ca6b08ce810548225c717e468dedde3f9e4c06e9269667a87d41c3eed6d213a",
@@ -7817,6 +7844,7 @@
       "kind": "set",
       "mistakes": {
         "11b92fd73748eee3f8b38f24e3ce83b9217aaeaf6073244ebba99bd331a8c223": "(c) n'a pas de limite : ses termes se rapprochent tour à tour de deux nombres",
+        "65913ea1678fcf582556347b2f6135963f4701ec5c4305c9862c7c41065612f6": "deux nombres seulement : ceux dont les termes de (c) se rapprochent tour à tour",
         "ce1f26e60a080c9cdb2d5bf78afb4e7c2eb16e4986417b3366e0f8696a1df4ce": "n / (n + 1) tend vers 1 : (c) saute entre des valeurs proches de −1 et de 1"
       },
       "source": "chapitres/r5_suites/05_solutions.ipynb"
@@ -7982,6 +8010,8 @@
       "hash": "4e171350bcab9bc841c15578ded28d18e98bff96f9ea133d81922ade30e3e5a6",
       "kind": "array",
       "mistakes": {
+        "0688f44015e4b3615d7c24ecf3534ce895551d20f099fe7c85d738dbab5ab8f7": "la boucle : avec k de 1 à years, le dépôt est first × q**(k − 1) ; la formule : l'exposant de q est le nombre de dépôts",
+        "126efb8130f3210566aec51c9a4784a0756eead0db88af90ad636b009dce423f": "avec k de 1 à years, le dépôt de rang k est first × q**(k − 1) : le plus simple est de faire partir k de 0",
         "14c248885890b7de675be7ae72c0d4c60f9d6eb68f2dd828270040eee4c2f275": "les deux fonctions sont encore fausses : relis a)",
         "c1185245405b23b5fbbdd57178bd31f490ea32c8eb4e6ac64b3000470e7c93dc": "la boucle saute encore le premier dépôt : k doit partir de 0",
         "e1d2dde89b53c63c50de80e8c85f57d4e055c88b8b8f089fb97816156499e894": "la formule : l'exposant de q est le nombre de dépôts"
