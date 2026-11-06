@@ -5091,6 +5091,1095 @@
         "4fe4196d54ff6be3bb748d2c526680c3a8410fab80da19a35d1c5ffd1489479f": "tout le numérateur −b ± √Δ est divisé par 2a, pas seulement √Δ"
       },
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
+    },
+    "R4.1a": {
+      "decimals": 0,
+      "element_hashes": [
+        "d343d9fd9b5f20d06c3d63c5755ef9c96f1167fd3473411476ca5d31a3e84089",
+        "0d888b4a26f872b43d177ca5b91ea1260b4c09b8a6556d5e7e81f2bfe4e63a95",
+        "c13a7f6c58b5c4f33a7ac54b2716e5b9229b3ff2489ef5b5d745a306afecfadf",
+        "1ea804edb10db7a56a75ac0336cc743cf23eba61f1131d23f372d0e99bbf82a5"
+      ],
+      "hash": "d62956e145c4cbe4e09c48a1db0312f14c75b58712a834645fb71ca4e1713b0f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "158ae1bbae0afe8f8633f9eedc6bdbeab1e42558b2f0f304f7d9a2332ccd7d2a": "c'est la colonne de « P et Q » : il reste à la nier",
+        "561ecbb1f11f364a52b591d0d218872a86ac846ed2a183ff40e29e802ab31f77": "non (P et Q) est vraie dès qu'une des deux est fausse : ce n'est pas « ni P ni Q »"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.1b": {
+      "decimals": 0,
+      "element_hashes": [
+        "d1d5df6646e983d728a27cb26f8b749f036c395e72e75b987b414709d69dc245",
+        "acad5b8de6f7ada7d8337340c5699be8eb715225fb28667c23fb57a535471469",
+        "4e091bd45d9d934920a44e005cf38547778369b9baec483a5b18e78da3022215",
+        "aab498d863ee6ba6434e3e1d5349e802fcace43bf6aee14f22f92d5549177e69"
+      ],
+      "hash": "b0cd5b2a97df45146d0ecef93269ccb2454751cdad1854614f382174634a0a14",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "825c7097bb24af7d49093c2943b3d157aea870d8e0011d95a393d70a22698ec3": "« ou » est vraie dès qu'au moins une des deux est vraie"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.1c": {
+      "hash": "6bf4d1dcd6ed276cd1737a07be0d3cd6c59e33adbd5408ac2d74ae8f7f1aca7c",
+      "kind": "bool",
+      "mistakes": {
+        "fa3a7b568be53e7828831eca4ed29fba6962e1e2ce53690cb134b413da32b3ba": "compare les deux colonnes ligne par ligne : ce sont les lois de De Morgan"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.1d": {
+      "decimals": 0,
+      "element_hashes": [
+        "d33553bb65cc376d5296018fc5757f689d1d9fc73330131dfcd83e98f56d8a06",
+        "b65a94edc7a2a4b387a4a8465c8bdcf5aa8ef57159128b00054808c186ee6e9a",
+        "1ccf5dde5fde5f09da1d0770696870cc06f892c361675566f2a6bd08961f34fb",
+        "a538290d98311f5c2d9b79033be9525add17cfca644c8cdb5954736efcbf5076"
+      ],
+      "hash": "ae4efb850a8890bd9f923327038bc0829f187aa42e6bf61680054061f7a93d4a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "25d9ef2f6891e05fcce3c6d51c1efca23c5a8db80746c9dd2263bff0f0d1d5bb": "quand P est fausse, P ⇒ Q est vraie : elle n'est fausse que si P est vraie et Q fausse",
+        "8126f0c99d14ba08decc07dac754c5fa0081211680ea8611076d97058ce207a7": "c'est la colonne de Q ⇒ P, la réciproque",
+        "d65782d619fc07c228a100bf5a9e5a1dd862c5f37db9de9631983244eb7a835b": "c'est la colonne de la négation de P ⇒ Q"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.1e": {
+      "decimals": 0,
+      "element_hashes": [
+        "93519f35672954acf71619e8d4b1430031553389ac8e72ad5246e643308d4a0f",
+        "50b803282adb665dd8a31f36c2137672b4c78a5d66e9fdb58c5927762a16f4d9",
+        "a1d3585b14a82455e4544e984dd41d89a667fdff62a3703956523d551b9f9f56",
+        "9b35ae04ca4ca3f2479e1d843d04075363a5339c4c016cd88500f18dabfc243b"
+      ],
+      "hash": "02dca99f7d4b1bce28eab527ec85346d3314a05abc965889cf360c8f82fe5c81",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1213bbb88cff8ef27993958892d75aad47c618dda80dfc6523e274aad43f8215": "Q ⇒ P est vraie quand Q est fausse",
+        "7de4882179145d6056c57f75accf7be6d90216af21c28658fd858a570d341415": "Q ⇒ P n'est fausse que si Q est vraie et P fausse : regarde la ligne FV"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.1f": {
+      "decimals": 0,
+      "element_hashes": [
+        "7ddcc9b07798f69936ffac7be21e3fa1509e61e90d8ba6b9de390a064f5b23c9",
+        "c8607b1e129aa8b53d166528f4cac9ac2cb04a27c510f38445f5b4419fdd8c22",
+        "fab7ce2da99605933f29ec8f847dd7f28921c6ebf5e7d1f61174c8ba0c4dbbdf",
+        "08550b3ffef8278ef814bccde0271031e64a840f56a1fce968ccb9c312da6965"
+      ],
+      "hash": "587c75c877abeefee614803545ad8beab80b7156a1a9c14d17710ccb0cb54923",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "989a87396164326031b172c3dac58b32b11a289728a5a767b97d0388227876b7": "(non Q) ⇒ (non P) n'est fausse que si non Q est vraie et non P fausse : regarde la ligne VF"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.1g": {
+      "hash": "3d4bfd94faa8649b10cfa2a66b589fac6a4d362df259cbb39039f645b6d2b942",
+      "kind": "str",
+      "mistakes": {
+        "1b96abe448ca8d55f42035b01e5f7e714b71edab4c3e191a2de684f009f2798f": "une implication a la même table que sa contraposée, pas que sa réciproque",
+        "c110975fd1711dac564940e2baeac4a78a17820bba23d064e38ebde9bbc9d4f4": "une implication a la même table que sa contraposée, pas que sa réciproque"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.1h": {
+      "hash": "f85c0a80788eb0928a001668719d18e8ad80b34a135160e43414bde5085628ff",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5c0299b234594b1bcf864d341c3d60c7cb9fe09c50c86967b1dbf933a5b3eb83": "2³, pas 3²",
+        "746ad7cdb2e40a2712c6b1edf0f4c7ec2d1e2e3c42c009c167662b3d0f64871f": "chaque proposition double le nombre de lignes : 2 × 2 × 2"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.1i": {
+      "hash": "05b681ed2d6b041fcb1f040ff7de623db707729167ee5151610b87575073c52c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "4f21748b185146b06a77e64606d63ed02b7ece4751283c3c6e2500931480f986": "(P ou Q) est vraie dès qu'une des deux l'est : trois combinaisons de P et Q sur quatre",
+        "91d93dc0c6df6e58c3bf40b4a85ed1b0191098a7da18dde5da2d37456db5c474": "« et (non R) » : seules les lignes où R est fausse comptent"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.2a": {
+      "decimals": 0,
+      "element_hashes": [
+        "a7159c808f4e7b8e49cc61a9f2afc2b07f08ee6a8cfb1e2935251e3706ff6956",
+        "1e0aaf020c8dc34a69329244c4196d64f0cc4b9be9d697fd7dfc60fb359f1f80",
+        "ea3a456e3c6c51d0b30bfed8532b8eaa01babe0add8def6247284adb6911dc9e",
+        "12d2e90c053f59e5e9e45d8babeaf8bedd5c41f71d152bea090d71ab590b4996"
+      ],
+      "hash": "3d2c6663917b4a5e01478d105d7ac694cede723101841ab24eb0de7b4c819de5",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5e1eae4c90c542e5fab1f384d03b086bd603cad7c26491e1252e5e061bb50379": "la négation d'une implication vraie est fausse",
+        "c16b9adca1d2370d36a266590087d41aa9300aba89ecd9ef2eb09dfe01a31733": "la réciproque « divisible par 3 ⇒ divisible par 6 » a un contre-exemple : essaie 9",
+        "d62acaae30d125fe39d6953e8eff715b7ba43bcf9e4ff5db26fdee774bb32d03": "la contraposée a toujours la même valeur que l'implication"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.2b": {
+      "decimals": 0,
+      "element_hashes": [
+        "475c052f5ef91701ae2fb89333605e224f2afc34211a098ac5d6b2728ed25b38",
+        "9948e01481edfa209300dcacdcbc1bf65633f492b6e2ef2505f3af8d672798e5",
+        "5b482360fefe81af9b521a8b1d658924f77007a7978f2736f4f022acacf1bb8f",
+        "1e1f9e6f363d538786227c04f616f4f1023346fe1759c65608227d747d351eb4"
+      ],
+      "hash": "0b3751068ee6bf4cf889fa5dd9ffe19c2c92c7ac45b7608e9b1b12aa5ea169e9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "bc7a85007866f41795a27a4be3c133d8ac03660141ac5ba32580e641c1414fc1": "la contraposée a toujours la même valeur que l'implication",
+        "d6507bba3e121bb916f58e8479e27f5ad519562217fe5204da19bcb1f66a97d1": "x² > 25 vaut aussi pour des nombres négatifs : essaie-en un"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.2c": {
+      "decimals": 0,
+      "element_hashes": [
+        "e02f52f9d0565e25c9e6e781fad7272ab6b77dcd80c3c2482b6c4c1f6ac9c80d",
+        "480256907e4de905163c27e9b8e0c827b8a714a050cb0ed7e1662e344f6265a7",
+        "e0477d591e1d0c06ce7e20b144825ed88fefdb9b5bc6a954b3d4c48daaecfb72",
+        "48b1d450d571c965928728bebc2165b8d9ae9cf3709c1a0d536487d93a0c8f90"
+      ],
+      "hash": "c9e895ed71161cb272716bc47a011d25ffdf1468de8de020e2e2cb0fe2a6c7a8",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1e15ee23f14d84f34aa2b573b3f0dc3e05dd69e7dc80d163e97b5ced7b1eb6b3": "un seul contre-exemple suffit : cherche un impair qui n'est pas premier",
+        "e6821b51904f2b4952e305bab9f41b56958b2a5d3d53be9873572489648231c9": "la réciproque « premier ⇒ impair » a un contre-exemple : 2"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.2d": {
+      "decimals": 0,
+      "element_hashes": [
+        "6036cad3ba2854fbead4ccda3efb0f21dd60b5d5f1f9f595bfd8adcb71dcfb49",
+        "f8075b1a45f17bec9bcb8b4f2994d969daa17e26f2e5d699ca7fa7da1fab1572",
+        "afd59965eed775f534fc928a2ea0dd8a64758cce04920aa14fdb05708ede6596",
+        "bf4e93dc642a8c98f4320ba8c56dde0ac4d468e83e7c9f7b66ed61bfbf3fedac"
+      ],
+      "hash": "eb5ead6634a1aceb53d48565c01c038bcec8169c3bd12998adc8f1db5ec0b214",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "06418bdd47c481b8c0b34a622274c6054c638a4306f6843e2c45e23a1b97bf99": "3x − 2 = 10 équivaut à x = 4 : la réciproque est vraie aussi (une équivalence)"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.2e": {
+      "hash": "adb4e69529740be11ebe5a59e0e1868a527e5c7c24fd30be3ea4cb505959a417",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "4501513c72c21e3d0fd77af819b05bb79a4b8a6c7d238189e20b6da6deacb0f3": "3, 5 et 7 sont premiers : la propriété est vraie pour eux",
+        "b54ba0a573d55761693a325f0902bc017f98db324f964ca625171a8ae3244348": "3, 5 et 7 sont premiers : la propriété est vraie pour eux",
+        "b634a6bcd5af0944ebf905b883828ddcacbc808cbde08367e41c588650060c3a": "3, 5 et 7 sont premiers : la propriété est vraie pour eux"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.2f": {
+      "hash": "7dc09270ff9e1486f537256b1b4ba1e20c4886c6312112f62a036d0b157c07e2",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "bace566da11be4af8332968cd97f47174d662a2c34f64367f0a66f7d60bf6586": "on cherche un entier négatif",
+        "d792d6512e6435881f8ffa6b77a7c0e6b44513d6c1615ba91af6db88f7f9d4b1": "pour x = −5, x² = 25, qui n'est pas strictement plus grand que 25"
+      },
+      "sign": -1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.3a": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "06d5766369bdedb301cfb4b97482745f867b920e1fc548d6a85b8fef1b4f9387",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "68f46b9fbc109eda8e7bef5c983968e7908b7a694d0da2fcb156bdafff9b419b": "on garde l'ordre des variables : on change chaque quantificateur, puis on nie la fin",
+        "9bb65589b54569abfffad8edd339eb6f4c690eb6376f547d86d5b8336a7d4c6c": "nier « pour tout x » donne « il existe x » : le premier quantificateur change aussi",
+        "ad638d84a64fb03661cf14c60cb0e4d0439928aed49acb215e3a1407d24f6062": "nier « il existe y » donne « pour tout y »"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.3b": {
+      "hash": "ca3d7b0f2534e7229eb1cdf69c1e557fbbe1ff802af1519202f6023677cf9849",
+      "kind": "bool",
+      "mistakes": {
+        "6b1d272613a47a9fb077ea160fb915d5bf133677c40f0b8528f6efa7cd897147": "à x donné, cherche un y plus grand : x + 1 convient"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.3c": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "78f975756b3f432def283bfe290351cdbda23b3c6acc64bbf50e0d0808546db5",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0d252af5ef435a85edb223778ba3e1dd68ba3c2943900be782ec1c46efc8ffae": "nier « pour tout x » donne « il existe x »",
+        "96d78edcc0133575ea276b17efff61c8314bd36a26d89ffc547aeba2118cabaa": "nier « il existe M » donne « pour tout M »",
+        "f8dea6d20079a3bba13e1c22fe63ac7d92bd37b01526dfb8c4c044b96b8a9e66": "la négation de x² ≤ M est x² > M, pas x² ≥ M"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.3d": {
+      "hash": "b8a080c91765b6c434757a1e2413e78657f1f1307b0a214afe9fe9adbd66091a",
+      "kind": "bool",
+      "mistakes": {
+        "63216653f808a3a1b000d138d64669139b54c9797cdb3bf61845b22f6cec6e17": "x² n'est pas majoré : pour tout M, un x assez grand donne x² > M"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.3e": {
+      "decimals": 0,
+      "element_hashes": [
+        "59b7f57f1328b7ba4fb21ce6371a9be2d250adf6b6bbf91579363e86782511b0",
+        "a754f91bd1b7cc9d525b0da5e5ce848b8ea66c73ccd04f07f003f65294e57547"
+      ],
+      "hash": "1ce77b20bba77654375bc9e577ddf751142cbc3ebb545ffea1ad3e391a92aad7",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "12dd5106a52771d60785ec2141fa61121ab2669d0f56159a60423fd33704137c": "essaie y = 0 dans la seconde phrase",
+        "56edca1bd5ad46926d7d8c8dd1842b975225d957bc7a67e1e79ef4bcfe3d6581": "y² = x n'a pas de solution réelle quand x est négatif ; et y = 0 convient pour tous les x",
+        "ae979b52a232740e91a115d673a91077a0f0eb21716271b8c9c20681f9b913ee": "essaie x = −1 dans la première phrase"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.3f": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "479d6da2a410e6aaa6087093e46b558d01c68c7934f3f4d068241b6f8f9a99f6",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "24fc4f9f9622f0551d9f35ff5b93213b712fd490edf085a5e8e97b9f9e57a29d": "nier « pour tout ε > 0 » donne « il existe ε > 0 » : la condition ε > 0 reste, seul le quantificateur change",
+        "b8fa5dacddca4691920afd2629f2db7f5d29606c2e5d382d032bad09ed343fc7": "nier « pour tout ε » donne « il existe ε »",
+        "f695456931d07a5ca6e4cfd7e84df5d77e596308bdb8102b8c39d6a68253218d": "nier « il existe N » donne « pour tout N »"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.3g": {
+      "hash": "4126f5a17bce1d7e5a5b6b6a14d2f5725b1446930bfc81e5a9adc874c4af47c6",
+      "kind": "bool",
+      "mistakes": {
+        "2cff4cce490d4ae7599917f39c3bee87824b01bbaaaddb65085fde4be7dd9bc0": "à ε donné, un entier N plus grand que 1/ε convient"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.4a": {
+      "hash": "20970742b4f1be7abb62a6f749cad98b101e12ec3308cdeb607713114a48186d",
+      "kind": "set",
+      "mistakes": {
+        "682212bf37a6fbd6f7ad85efea30b16a54e68893683e28d4f3da302071bc2a7d": "1 n'est pas un nombre premier"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.4b": {
+      "hash": "6f9a0afdf2e20be5126087a1b5d226141de62b9af4a4c3af73951aa9f01b9241",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "29c95eb4ad951f5e84a858284874377bc8a468af49513ef93768c4e74cfd21f7": "compte d'abord les carrés (5) et les premiers de E, puis retire ceux qui sont les deux"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.4c": {
+      "hash": "b76444aabfc4dc3b8fa3366b57f171fd5715df5aff2fbf252b820677a142f8e7",
+      "kind": "set",
+      "mistakes": {
+        "251a19b57e1f21516d16170bd2f06683511ef6678e80357945d9caf2391ff78f": "23 est premier, et 23 ≥ 17",
+        "47f9417e174cb67a8f40951c9f893e251a76f5f0e951ed83b0390a0b58cb7ed3": "17 ≥ 17 : 17 est dans C"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.4d": {
+      "hash": "4fabe8b297ab228853055e1184a29b6bcba4383a6f1770f5e5a75ed36953950d",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "0bad686c6a80f48a6876224033401d4174e7a8b0c59d74c380d896d08d10dd2a": "le complémentaire de B : les éléments de E qui ne sont pas premiers"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.4e": {
+      "hash": "434063817e981eccc6f1560af1fe0e45f6c4083e431dda78d592f27cf7ad4be8",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "1d452046b5ec54950250002092804471d8da8753d98da22fb026218f045e8115": "les éléments de B ∩ C ont été comptés deux fois : retire-les une fois"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.4f": {
+      "hash": "280196fd6b6c3160e4244c41e7b27a6bc4fe890c9fa95f610834dbdbd37bba11",
+      "kind": "set",
+      "mistakes": {
+        "b91a5b3db6262aa2647a718aa746022a08f4b611a9143c3c8cad24312e5f4a21": "A \\ C contient les éléments de A qui ne sont pas dans C",
+        "e79e8f117973db5b4eeb2026b961d7b695c7d823973dabb0cb0a44f23f328ddd": "25 est dans C : il faut le retirer"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.4g": {
+      "hash": "40fdbb63da9f45004dd4f557fa6b3e6194bb6e9fb81f5e7db949d18e63fadf4d",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "7fd8387ff64c51f01351dc5e8bce53705455802c57af53e9f492041f71d6260f": "25 est à la fois dans A et dans C : ne le compte qu'une fois",
+        "da1246c99a2aa415a42f4e80519d0959fb25e7f54c80bd8db8187f560593f90f": "on demande le complémentaire de A ∪ C, pas A ∪ C"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.4h": {
+      "hash": "c6266ec1212697cb48c043ce88f7d86073909fdefa65fe6f11a440e21ff7730e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "c8d61ac874fa98c75486f9bbad9ffe89ec14010600fce534bc9890d60f4f0556": "les 5 élèves qui font les deux sont comptés deux fois dans 17 + 12",
+        "fa07979264c4b0b98b34aa60a202ca8d0707b60f9985f00be1482c36986c7338": "on demande ceux qui ne font ni l'un ni l'autre"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.5a": {
+      "hash": "0284e81668541a2a2dab5b0475dc4c00c0ae304122b79c0909e68713e2976ec1",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0e3ed40c7752e8a11e695e840d102f66e41e177c57d3c9c20c11226aad0842d8": "chaque élément de A va avec chaque élément de B : on multiplie"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.5b": {
+      "hash": "b2de35a68cc4188cbc76cd03d2df170a66c7e3920d041800c9ee7d25cd93bfd2",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "c839b3c3d4ab9615f0541dba45a2551676d18bc8e55d59551c2fa47279cfcb04": "2 choix pour chacune des trois coordonnées : 2 × 2 × 2"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.5c": {
+      "hash": "787e88f5277ba5abb39d78162a72dd26ff5719feb6e07b543717d0d6bd570aa6",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "6603c7dd719013c1e2009a31410f2f338cc0291906e2dbfd1e0b237c5818066f": "un couple (2, 1) n'a pas x < y : l'ordre des coordonnées compte",
+        "a59ba15ea8423d0a4e2eba62d8091b6ea03b0d7d6ba96acda5e3d9feb92be0ea": "x < y est strict : (1, 1) ne convient pas"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.5d": {
+      "hash": "a58a4248766b727bb7b245cabec962f0cfbc4acbf4e282015ab9c90d09ffb770",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "03dd3f9601291a825e4f356f5aa9b7118949962ff3b984a8d3de7226d5a18777": "pense aux deux valeurs possibles de a, 0 et 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.5e": {
+      "hash": "fb7beacf5b52b731d7f4bc386b276863dbd919e504c6982342017e25f3e0da16",
+      "kind": "bool",
+      "mistakes": {
+        "a7b21a891da788b1cb9976bd29a6bb590113bf9d29a7e360b59b69691bb5b422": "la seconde coordonnée doit appartenir à B"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.5f": {
+      "hash": "03d7b2c369e55026dedea24efb36c85d593b2f3da54287fd5870d0b1b79b84e7",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "c25d1d2092e061772cb68b64e4e85d253bd70fee86c9f6bdcf284cd73bd53dff": "chaque choix se combine avec tous les autres : on multiplie"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.5g": {
+      "hash": "7c620e39e710db35d5462bbdc35ef44f4b1a67b15ba589d006db7504231dfe0c",
+      "kind": "bool",
+      "mistakes": {
+        "f6161fbdf7323309c12958e6f1b62060b9ee6a0420299dc0e9d24726aabef810": "un couple est ordonné : (0, 2) est dans A × B, mais pas dans B × A"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.6a": {
+      "hash": "5d6630ff941d768eec0bd8a8491652823f773d19520678b058001744a898f31b",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "8d3ef89a1a241d87a5946c63e1188e412ba48ba086aa2c16c8e0d43f87ca04e7": "le −2 est dans chaque terme : il est retiré six fois"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.6b": {
+      "hash": "b56f63c69ee3a332b1bdf92038372273ff80f2b7c957ea764db03d0c285b0459",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "3fc97ffea3e930b1798322d916998d72a2e1e1129ced2214340537995f3b056d": "la somme commence à j = 2",
+        "c9b5a08d6b698e92f5e326626ff4f374a431e69aaa27b6c0f68fec4dc29a72c4": "j va jusqu'à 5 inclus"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.6c": {
+      "hash": "767dd6da2c1fb8ab952cad05c576f24afbfce2d4eac6af0b4ae20eeea4ab2dec",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "8fab9c8b43668d161d3d7edaf6fb92b7da5c10d3153ef23f940893e0f97c09ec": "de i = 0 à 4, il y a 5 termes, et (−1)⁰ = 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.6d": {
+      "hash": "f2750e61d8888b657e764d6dd57533799aaed1ef4ab3446ce0050e326ac6c589",
+      "kind": "fraction",
+      "mistakes": {
+        "64242ff4fdbd7f16011b1dc5ae9f48aa48b1741f1d0dbfed33c25d769743122a": "la somme commence à k = 1 : 1/1 = 1 compte"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.6e": {
+      "hash": "e48ef81ccaa21eda296dd5f8f111c807ec01a922a51f20bb8edc103f9215deaa",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "be0282ba70f8807dc6a75a3b87fa4a689c609f985c8427285f5a76e2e9e652f8": "k va jusqu'à 5 inclus"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.6f": {
+      "hash": "5c7dd9778a85049c9a3df15a40a1f6e5f1cd246fbc2251bec8fb1122a772e05f",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "cc04055a36302e5619814b76eb5e0e810ac5950114846f6b6842ba88ad4868a1": "le facteur est i + 2, pas i"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.6g": {
+      "hash": "2b3ec775cea59f73a941db3fe02e589651c4bb3648ffb622d8c4343f8eaa4b74",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "4f48796b7588fd8fdee04c1b64783b42e3a1f96c7575e4543de1bd19b5663c15": "la somme commence à k = 3",
+        "524cb13eef48f44858b518e5aa98a03e8cfb5b85b335d79600d8d29d03ed6ea9": "de 3 à 10, il y a 10 − 3 + 1 = 8 termes"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.6h": {
+      "hash": "4459e7a1493463552493108444651c51d1ce9f6edac4c05d33a8b99b7000b47d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "3bfbd9ae1d8a6a4ba71704b97f2b46ae3e217056096e44ef75f0044d2f620e72": "cinq facteurs −1 : un nombre impair de signes moins",
+        "dc98cddb6fbae34472cc3d917394b025026c40361d5326f14dddc2cc8023782c": "un produit, pas une somme"
+      },
+      "sign": -1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.6i": {
+      "hash": "54e7ef7f3f1a52df4efc7b5a209f97251ce0634615a365550283391ff3c3e177",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "940b278867c322170cffb3088ad01507fd37c0c08cf46962338ac3c576528746": "de 7 à 30, il y a 30 − 7 + 1 termes : 7 et 30 comptent"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.7a": {
+      "hash": "c03b0f5c3691902d961dc981aa76aa0791a0d4908a1451b9f7d856b4730dcdfc",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "f9b00688418ae9a7b177c35a1d7c4848bf2f15ba96bfda15c8c44b6a9bf3bdf9": "la constante 3 est ajoutée à chacun des 10 termes"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.7b": {
+      "hash": "3ce4aeb3fd3836a5e828ac9714dda70d3df29ac54ad0d4889079b9bf1a57e8c0",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "d0b4829a664dd5bfb468382374202432dab40dacf2afbd8f882415d3d1be5317": "retire la somme de 1 à 10",
+        "f78eddd045fd5be283a750c025e92c175a031cf6087d949840d2170c09bea6ea": "de 11 à 20 = de 1 à 20 moins de 1 à 10 : le terme 11 doit rester"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.7c": {
+      "hash": "415dd86dec232b7760adc52b531a23ad2dfc9160872fe824517cbcb6bc9deb78",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "2f4356388a68c08c60abece86e8331caa18aafec8bee86afd9f234173f8f2026": "k va jusqu'à 10, pas 11",
+        "f0a3a739b88b717b198f2d312b770ed718be34e15896a675567ff8b69e35789d": "quand j va de 0 à 9, k = j + 1 va de 1 à 10"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.7d": {
+      "hash": "6d2422b54b7a6cdb5b8ecc58be03f11902d2659080672b2124c41e0b353c0f2c",
+      "kind": "expr",
+      "mistakes": {
+        "5a15b4e750016f53bcb3d5eae001896472f80f1ad027bc6697b1568f5a1b35ae": "2 × n(n + 1)/2 = n(n + 1) = n² + n",
+        "d104083316496621cfc6f74d208879f436e7ebdb9ff18c64930b686b51e24381": "la constante 3 est ajoutée n fois"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "n"
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.7e": {
+      "decimals": 0,
+      "element_hashes": [
+        "414159bda78d8d90593b4323d0a69ba3fb87eb80e01b4385cdf27333ef206f2f",
+        "c01ad48e16dd787964e4fe8b0e9eaf52dba8f1ad67f65963827e72febbf2efde"
+      ],
+      "hash": "b29008b5b90108d4c0c15d7ac561a23ba79b8ee5fbc9037a380e56a4194d819d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "39c5242b3bbd857268c24c70d3a66e25d0ecd75413a9ad598033960f207eddee": "avec j = k − 2, les bornes diminuent de 2",
+        "9dec02cfa400124f0ce6b42c290549f78d06bd8d5defa6d07e1f567fbb8abb86": "les bornes changent avec l'indice"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.7f": {
+      "hash": "534edf8386bd03b9806262dbc232247cf57fa1ff5e0d49cf17bef71d88a533cd",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "96d37f42c412892b62763bec5e47da075d714398dc7b708073b66f67606c2d5b": "pour chaque i, la somme sur j a 4 termes, donc i est ajouté 4 fois"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.7g": {
+      "hash": "12769dcadf46d84b6693fd1b8565d68e5cc04c9315a2bb48099990d711a32ee2",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "d830923d4591f2ebba2e2714a59bec26839f303785e9cf326adf1d4fab3dd654": "j commence à 0 : 2⁰ = 1 compte"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.7h": {
+      "hash": "f067ca70a6b20e6c138478446dfad0a81cf4d5d6de583e5380630503211064da",
+      "kind": "fraction",
+      "mistakes": {
+        "7cb6c23de73a86b140c7602b181351488adbee298b0665eafe14b4a5f021ff32": "le dernier terme est −1/10 : il reste 1 − 1/10"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.8a": {
+      "hash": "f4b3a80a06e2d0ae0ce56d27dd15bed91e1287ab1af3443e8d670b3eb2eee856",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "ad16c05f9bd94ab484d190d8568d3b8c17313763ddf36c9cdcf8bdca0c1ddedb": "2² = 4 n'est pas strictement plus grand que 2² = 4"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.8b": {
+      "hash": "4fde6a7c2650829f340e0c2511542a66def22ac742585783b2a773ac923c6845",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "215bd35afec047667ce9068e4083ac713dc229b8a1e65de338b663e2d49a8d7e": "il y a un contre-exemple plus petit : essaie les valeurs de n une par une",
+        "295cbb4b56f23e1f5ee84ae86faaff6e0f0451c49c9454a215710b5fd58b3c47": "il y a un contre-exemple plus petit : essaie les valeurs de n une par une",
+        "8e32cf0e45436ccefe2abdb7c0804108432b28f5dbfb9ebf5c2a749d2676704e": "il y a un contre-exemple plus petit : essaie les valeurs de n une par une",
+        "8fd877d8dad88af1cef9dd1d94c5190e1e04f7736e8445b659330dfa0a265aa3": "il y a un contre-exemple plus petit : essaie les valeurs de n une par une",
+        "cc8f19ce935560c4cc2fca3a2f01f01b4b14f51a2c7b35e8916c8a0fcab51bd2": "il y a un contre-exemple plus petit : essaie les valeurs de n une par une"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.8c": {
+      "hash": "fcbc3653d92ad3e30a44ac4ce9d2e6a61ed2ad7064d421a5fef94d844be1eb5b",
+      "kind": "interval",
+      "mistakes": {
+        "1771dbf82594320f67fbe3e4593e0d1b5269301c1ca02b2badf25eb1b2c0031d": "en 0 et en 1, x² = x : l'inégalité large y est vraie",
+        "8ad4f4e9edc687c49e5c00862c71072d083aea3222ad89a750c8be623d619c30": "pour x négatif, x² est positif, donc plus grand que x"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.8d": {
+      "hash": "657d39cb3b40a8e3af1be3e6800243b71ba687badc1d7bedc3bc766db959d438",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "ea62e08c64fcd93ef5b72902461a79239c90a56b8fac31e9df96d43ba2cd4974": "24 est divisible par 24 : ce n'est pas un contre-exemple"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.8e": {
+      "hash": "b9d47011ba915bca5574df5c7d6ecd52be2fba2684837214b29e5f10d80e921c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "e4e07a337b60610c60eeda34427f5b983f483697bbd22874a8f3a6ddee33488f": "2 + 2 = 4 est pair"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.8f": {
+      "hash": "35ffa29cd76ce12ab8965417008689fedc0fa2106aa9eb126dc6a9263d251a93",
+      "kind": "set",
+      "mistakes": {
+        "e4bbcbeef7f9a7bbfa506f2ae15196f0a066612690bca24b21d94537973fa811": "développe (x + 1)² = x² + 2x + 1 : l'égalité devient 2x = 0"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.14a": {
+      "hash": "9295749f1129e1d42cf057c661e747a6393ed30c8ffdff0b4ec354d74de8042c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "14b32bb023d46b29bff8898af39f47b8208c143f3ade5cab3de11eb79fe3623a": "e_i = ŷ_i − y_i garde son signe : les erreurs se compensent",
+        "5e54466c121f75ebc79d7b2a982546c94c7b6752a26e841335a310f54ca45cef": "e_i = ŷ_i − y_i : prédiction moins vraie valeur"
+      },
+      "sign": -1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.14b": {
+      "hash": "ceb3b7683454c12855eae5817cfc19bb1c8abe56142548726a2cd472b4dcac8f",
+      "kind": "fraction",
+      "mistakes": {
+        "1f0b614cd78253699de9a0e544f02bf28436aff05e5cca9f35d471d9841238cc": "une moyenne : divise par n = 5",
+        "64bc22dfc767a3c8af35bf9638221317d0a89e2d20600531d65b2188e7444c7a": "élève chaque erreur au carré"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.14c": {
+      "hash": "d4b46f8147d95471a0280cc901df9df3611914c2242a69b5c7f8a492544b0f20",
+      "kind": "fraction",
+      "mistakes": {
+        "2353dc157f15de54fb2ceb9d5ad5a6686eb741ed4fb632d5a6fcd0b5fa253ac8": "une moyenne : divise par n = 5",
+        "ac8aa6c6cfb47ae0484cc9fcd1f786fa29b6601a7d0bcc9bb44841d1a0ce4094": "la valeur absolue de chaque erreur, avant de les ajouter"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.14d": {
+      "hash": "5bf9dee17d844712890f97e049fe533f1fd0841f03cbb8aea144fff7d5f6798e",
+      "kind": "fraction",
+      "mistakes": {
+        "a7b03adce82d5f8042cc61c89026f97dcba4f27388ca05e4104ad491a687fdf9": "la nouvelle erreur, 16 − 6, est élevée au carré elle aussi"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.14e": {
+      "hash": "6eb2046553260d605ad424928a87ad12b91efd36b43d8e813c7a0b2b7c793a71",
+      "kind": "fraction",
+      "mistakes": {
+        "8a0874ae36080bf381a22c46fc86d67ae7d5f3bbe133e35a87833cd4a5767f24": "une moyenne : divise par n = 5"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.14f": {
+      "choices": [
+        "1",
+        "2"
+      ],
+      "hash": "b5e4b80733c823c59e992966d116297fa2c2f50b45b60f963b7b866ce9ab4331",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "922c4128dee0bc863218794520dfed9fb085261eae240f1b3d3ef858503c514a": "compare les facteurs : la nouvelle valeur divisée par l'ancienne, pour chaque mesure"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.17a": {
+      "decimals": 0,
+      "element_hashes": [
+        "9e386b304393dbf96b65562fa8c2fcfe12c4b3dfa6315013cbae419394239130",
+        "5577a65b3d460f24c7bbf84cc879658905cd1b9abd6508adf2e88dc3be5c5c79",
+        "b1eb299924218345d86f5152915b1796b1cb7a9510818a02a7feb5e6fd63393f",
+        "f949a13e84f27905140edecfe98918f0a4847fef28415ad4f6963d2d0ae3c32c",
+        "885c1134148d38b49a48f63e4c792ea0bcb1954c932f9d9d00420b42efe8bde8",
+        "7800e07c4a1db03db5b2ed0366f7db1ffe7b1eb120c71a74888cbe9e04b6e26c",
+        "7253de655daa5ffc7e5aeb92cf914d5874455de0a00d7f1e2f3c04955eb0a0aa",
+        "40998f07cb3d2c3d595a6dc73a2cc78461adf25376225edb3209828443579e04"
+      ],
+      "hash": "fcaa2ce4eeb0cb11e8f08bd64ab03dc7b585634f37889bad881c158c29bc1a39",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4420a5a29791829629bc9af5b6a60aa9061c76b9101e68ae6d777f234dccec50": "les lignes commencent par « tout vrai » : itertools.product([True, False], repeat=n)",
+        "5eaec0f067bef505f27026e9e9f2dac6f46da13ec126d668cd05377ae26c3b9e": "implies(p, q) est l'implication p ⇒ q, pas sa réciproque q ⇒ p",
+        "e4b19b4a2a1f26416b59e25074b154560a713e2f81587d27ddbde17904718842": "implies(p, q) n'est fausse que si p est vraie et q fausse : ce n'est pas « p et q »"
+      },
+      "shape": [
+        8
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.17b": {
+      "hash": "47903ac6de3020a85f2501b30ada23c9bf3a32929cb5a6d16008156480377fbd",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "1e04c586ec5ada892e327b37c6da2fa6c2cc1f91f54d52910033b8b254528247": "une table à n variables a 2**n lignes, une par combinaison"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.17c": {
+      "hash": "6271a778bbbd820af7eaea707e79f15f54a62a5e7393251514197584ea629d77",
+      "kind": "str",
+      "mistakes": {
+        "2a3e261db59f4928884c964c6cdcd28ff52f2fa409522f5257df33f1dec3c454": "avec n < 1, la fonction doit lever une ValueError (raise), pas rendre un résultat",
+        "5f8de16b6f49ec4f5a0e2df8c6e287fcb2fc785b895aba4d00af90401a94e929": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6a21acdea265d6c39a21aa24fcb70667261456a167f5821ed69c93df1a406586": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "92930e4f4be2bd9c31c82a6b086cd6a97e28b01e2f08e21185c4a9636e9de5a5": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d36d2a11d82648b0cc7c166f5ef823c0ae6f48e1c028eb85e2b5992cb2d62ccc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.18a": {
+      "decimals": 0,
+      "element_hashes": [
+        "77cfe8a18bd1111117e7966957f7cd27acbe9c5c655a332b49b6a0aca2d6b8f9",
+        "11d48add632570ed5f42dfeb54e5c4ab473af9dfe8659f3b35d91f81b09b0202",
+        "25376774389f3419298bb7516a386dab1b9f22936fa09dda54fd58835b76adc6",
+        "79de8ba48ce84833e107cab6c85f07271d471b18095a397c5995dd48f513a1e3"
+      ],
+      "hash": "3e9d804a7d770f03a94bc46cc8e538ee5f805df24e415a68e2218dd0031078a3",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "331b117c1532d63c6864c22f7e80b2fe7466d9f72a4b80346c5bd2fc0b02280e": "un produit vide vaut 1, l'élément neutre de la multiplication",
+        "573fd9b1c726b02263ef2a7c4991a0d1d8254b40b8c85df4846d5b192da321a0": "stop est inclus : range(start, stop + 1)",
+        "7748340c2b7a4285190367aa852cae6aa4228eaa94947dbc22e1a58fef92745d": "un produit part de 1, pas de 0"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.18b": {
+      "decimals": 6,
+      "hash": "d11702652ec5f0e7217ce105720d7176a1e10aa453d6744f4151675757195b88",
+      "hash_coarse": "af4317bc09fb834bb3368dad7b4111f7ba015465797c8a0d5f40082d860677ce",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "931c8697c0487301f76999b219a726c10475e38c3a285dfc2a997e73cad41d65": "stop est inclus : range(start, stop + 1)"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.19a": {
+      "hash": "89eefebcef706370a2c2ef8e182ab32639a5b773c34a1612d106f56aef583a2d",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "63964b56f34de3fdfb69b8996646eba047bbe3db4164ad75aad5a1bcd302f955": "la fonction rend le premier n où la propriété est FAUSSE, pas le dernier où elle est vraie"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.19b": {
+      "hash": "966c24af957d132b716773cc32aadbd5f1cd55c937b060dc42403029aa36b3c4",
+      "kind": "bool",
+      "mistakes": {
+        "c789ee669ecbd6815c0f26b9923ccdafc61ce756ab13dc5c18fdd01abef1402e": "quand aucun n de 0 à n_max ne contredit la propriété, la fonction rend None"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.19c": {
+      "hash": "90c620736e03a49df75655a2b1b30c3272214dfd1c4481d6da8508e0839cbafd",
+      "kind": "bool",
+      "mistakes": {
+        "4db8b0c181e2d8c2e01043837cb9c3a4cdee9aece45638cbd8d669f8f8c90515": "0 est le premier entier à essayer : range(n_max + 1) commence à 0"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.19d": {
+      "hash": "2a3aeba3b44889e8fc367bf66d32b0d3d13bab40802b41cd14b79c75a425bccd",
+      "kind": "bool",
+      "mistakes": {
+        "6b7076eac1e8ed20b05cb3a3824e2a6c3c2b6db39b1ae8255819a5a163f69745": "n_max est essayé lui aussi : range(n_max + 1)"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.20a": {
+      "hash": "17822164a5e380090fca1b8721c001de91c92a42851363726859dc9aec373aed",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "81ad47df316c452403e7ab4ce7800649b2776aa849c9c4f21f0b7989d09b4fa4": "set garde chaque lettre une seule fois : len(set(mot))"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.20b": {
+      "hash": "2669aed0e860a8eaea25334fd5198973d5a854ffd19af49f632be27f571c977c",
+      "kind": "set",
+      "mistakes": {
+        "a529213e8269f76fc9b6c4aa421599a4f7dd4c6e7f6598e246a7918d70669a10": "A & B : les lettres qui sont dans A et dans B"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.20c": {
+      "hash": "882260e58ea84f1eb112964a9a37d99d6f93c1528b4c10a5e6a36090f8f92eae",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "f284c8869cf1aaa3ef6efdb9e46362bc758f65041dbcb97ec8859e172b5fd9b0": "les lettres communes ne comptent qu'une fois : |A ∪ B| = |A| + |B| − |A ∩ B|"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.20d": {
+      "hash": "408b5439fd75289547bb080195d432a9b0f144f9a3d97c1ca9b3ae0fdd5e1b33",
+      "kind": "bool",
+      "mistakes": {
+        "f997751fc4f3c66aabd6b7d52a23218fc469a803bcd5f7698064c81bbba224d9": "B <= A teste si chaque lettre de B est aussi dans A"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.20e": {
+      "hash": "99a39c98030dfae3bdf12db89b12a291b7202507e249b2c42f9d2854586798b6",
+      "kind": "set",
+      "mistakes": {
+        "a04b2d0c6cf85034a938e789d3d0e9e967046de9d435ef75ebdb8d9260cae834": "A - B : les lettres de A qui ne sont pas dans B"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.20f": {
+      "hash": "8378316f267dadd1903f8f562c79de4c9f44a64c229cf6f21c2bd557d4552976",
+      "kind": "bool",
+      "mistakes": {
+        "d55b8b230d34d9da7758af387c1bf9fa45e875170c012b9ede96e4e8db4ccaa9": "compare les ensembles de lettres, pas les mots"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.21a": {
+      "hash": "81620f1295c41bc41fcb8cbed2c4e6ab400073fa72f3480b2f94505aacbc5764",
+      "kind": "bool",
+      "mistakes": {
+        "c8cef9ecb5d4a23f1c8076026dcacf565c3b1d24500e1295ca1ccf8646374b23": "une propriété vérifiée sur beaucoup de cas n'est pas démontrée : l'expérience cherche un contre-exemple"
+      },
+      "prediction": true,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.21b": {
+      "hash": "04809298d60eb31b7e6f8d3eccf95e6c15372cfdffe3d06872cc65946ef373ba",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "bac68f8a791f3ef893476bc50e40fa94a1cbc28683a9e3fc14d1c95ae1b9303d": "tu as prédit qu'il n'y en a pas : l'expérience montre le contraire"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.21c": {
+      "hash": "9ba6957da5f9c7cec08d2ace164bcc44274d5a7c5fa5dc4567f3a67a713913e6",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "9d890df1217e2c53c8a43ae95e53da0d623e0ae809c946806a3a9f2599317473": "de 0 à 39 inclus, il y a 40 entiers"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.22a": {
+      "hash": "119549711cb02871364a5e5e476b2501a2b36da4622a170ca278904d6c796f3d",
+      "kind": "int",
+      "magnitude": 11,
+      "mistakes": {
+        "0b45851259a6e0774ba3a4103ba0b67e1bad3e1abf440e8a0dbdef6c2713b048": "n est inclus : range(1, n + 1)"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.22b": {
+      "hash": "b30c850a257eb4e522ad80647d22d3a54c3359270705bde0544885afb0940fef",
+      "kind": "int",
+      "magnitude": null,
+      "mistakes": {
+        "90b45f0e7bd23177149ee72f542d1661d5792e92ac16f1fd841a1fa2562d7ea5": "attention aux priorités : (n * (n + 1) // 2) ** 2, avec des parenthèses autour du produit"
+      },
+      "sign": 0,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.22c": {
+      "hash": "442980dd81301a5d5a9e77d4a0016161c3bff7332defa23f924ae3f01a32d1ef",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "49b1c3017987a8584654e403c28a057ae4bb697c814f6262b01ea3c47cea3f40": "pour n = 1, 2 et 3, le produit (n − 1)(n − 2)(n − 3) est nul : la formule B y est juste"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.24a": {
+      "choices": [
+        "1",
+        "2"
+      ],
+      "hash": "e7cc2321b6ecdfd5bda784bddcfcd65670612a55e83374a7d95ab508d709ac79",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "dbcda7d58932d0b499508e04ef18fa819004046c35811594a303e3ef4f7e7c93": "l'hérédité est écrite, et son calcul est juste : refais-le"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.24b": {
+      "hash": "8fc3709dca3af1fb6b943ba3a696b3a662c9230d97b9b4efc4d6282ae7759cc6",
+      "kind": "int",
+      "magnitude": null,
+      "mistakes": {
+        "5d30fd338304a42534b67c9bd929e13874f7a18336ed8d034b954fe0ab22db37": "teste n = 0 : 5⁰ + 1 = 2 ; puis regarde le reste de 5ⁿ dans la division par 4"
+      },
+      "sign": 0,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.24c": {
+      "hash": "7c5a40cb8ca255f6fe9f8005380e5b7d47864499e9f8acc222dcbe8c3ef24131",
+      "kind": "str",
+      "mistakes": {
+        "6d1fcb3e8d8a8f43ccab8f5352ae9d46425e4c40155ddd2036b4876700746087": "cette ligne est juste : cherche celle qui ne vaut pas pour toutes les valeurs de n",
+        "7f2623d2c454f5334478efa222a800ea3596b6c4380588530567446f7c30769a": "cette ligne est juste : cherche celle qui ne vaut pas pour toutes les valeurs de n",
+        "a1dc31e4d3d45e9094fcea19d06e3b60bc724a5e72a34e727f4c29e5b9d57506": "cette ligne est juste : cherche celle qui ne vaut pas pour toutes les valeurs de n",
+        "ece08a527b41063988c5605ff17e41708ea283a1d2d6dd9ea61825c5e8217ce0": "cette ligne est juste : cherche celle qui ne vaut pas pour toutes les valeurs de n",
+        "ee72bd848ee964472e5f504cfcdc9a30b67297dd736013ead42a0cf33e1275ce": "cette ligne est juste : cherche celle qui ne vaut pas pour toutes les valeurs de n",
+        "fc9c3555b9653deb668c8f93679f69ff92613d173540483459c92cbc812c8109": "cette ligne est juste : cherche celle qui ne vaut pas pour toutes les valeurs de n"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.24d": {
+      "hash": "9fd2920c2134538164319e9df37ac9b004d39abe5a2784e7c86d6ca40529a2e2",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "685acae441de345e84564d6d26b9a0ad5f49e77a43acd37b18bef53a7c87581e": "pour n = 2, les boules 1 à 2 et 2 à 3 partagent bien la boule 2 : essaie une valeur plus petite",
+        "daddbf684f097b47762b70a0ac93695eb5d0744682a94f604bfb5a089bd4c620": "l'hérédité part de n ≥ 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.24e": {
+      "hash": "129e96ecec5250615aadbaa598dd3e3ca8497cb34a3ec6497a7bedec0abbf55f",
+      "kind": "bool",
+      "mistakes": {
+        "7c5eb6c982d532d570dc42c513c3b639defe64833f45c5c3f7a36d450172d08a": "deux boules peuvent avoir deux couleurs différentes"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     }
   }
 }

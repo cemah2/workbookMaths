@@ -267,6 +267,8 @@ def _parse_elements(value):
         if "%" in value:
             raise NormalizationError("des nombres sans le signe % : les pourcentages eux-mêmes si l'énoncé demande "
                                      "des pourcentages, ou ces nombres divisés par 100 s'il demande des proportions")
+        if _norm_str(value) in _TRUE_WORDS | {"v"} or _norm_str(value) in _FALSE_WORDS | {"f"}:
+            return 1.0 if _norm_str(value) in _TRUE_WORDS | {"v"} else 0.0   # a column of a truth table: "V", "F"
         try:
             return _parse_number(value)
         except ValueError as exc:
