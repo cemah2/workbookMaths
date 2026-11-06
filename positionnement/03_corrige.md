@@ -152,11 +152,11 @@
 **Erreur fréquente** : en b, dériver chaque facteur et multiplier ($1 \times e^x$) ; en c, oublier le facteur $-2$, la dérivée de l'intérieur, ou son signe. **Où c'est enseigné** : R7 §5 (dérivées usuelles), §6 (produit) et §7 (règle de la chaîne).
 
 ### POS.14 — Tangente, variations et une limite
-**Réponses** : a) `[9, -16]` · b) `"[-1 ; 1]"` · c) `2` · d) `3`.
+**Réponses** : a) `[15, -28]` · b) `"[-3 ; 1]"` · c) `27` · d) `3`.
 
-- a) $f(2) = 8 - 6 = 2$ et $f'(x) = 3x^2 - 3$, donc $f'(2) = 9$. La tangente : $y = 9(x - 2) + 2 = 9x - 16$.
-- b) $f'(x) = 3(x - 1)(x + 1)$ est négative entre $-1$ et $1$ et s'annule en $-1$ et en $1$ : le plus grand intervalle de décroissance est $[-1 ; 1]$.
-- c) $f$ croît sur $]-\infty ; -1]$ puis décroît sur $[-1 ; 1]$ : le maximum local vaut $f(-1) = -1 + 3 = 2$.
+- a) $f(2) = 8 + 12 - 18 = 2$ et $f'(x) = 3x^2 + 6x - 9$, donc $f'(2) = 15$. La tangente : $y = 15(x - 2) + 2 = 15x - 28$.
+- b) $f'(x) = 3(x^2 + 2x - 3) = 3(x + 3)(x - 1)$ est négative entre $-3$ et $1$ et s'annule en $-3$ et en $1$ : le plus grand intervalle de décroissance est $[-3 ; 1]$.
+- c) $f$ croît sur $]-\infty ; -3]$ puis décroît sur $[-3 ; 1]$ : le maximum local vaut $f(-3) = -27 + 27 + 27 = 27$.
 - d) En $+\infty$, on factorise par le terme de plus haut degré : $\frac{x^2 (3 - \frac{1}{x})}{x^2 (1 + \frac{5}{x^2})} = \frac{3 - \frac{1}{x}}{1 + \frac{5}{x^2}}$, qui tend vers $\frac{3}{1} = 3$.
 
 **Erreur fréquente** : en a, prendre $p = f(2)$ sans développer ; en d, conclure « $\frac{\infty}{\infty}$ » sans lever l'indétermination. **Où c'est enseigné** : R7 §1 (limites), §4 (tangente) et §8 (variations, extremums).

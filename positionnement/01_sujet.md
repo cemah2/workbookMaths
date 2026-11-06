@@ -153,7 +153,7 @@ Donne chaque dérivée sous forme d'expression en $x$ (entre guillemets ; `exp(x
 
 ### POS.14 — Tangente, variations et une limite ✏️ ⏱️ 10 min
 
-On pose $f(x) = x^3 - 3x$, définie sur $\mathbb{R}$.
+On pose $f(x) = x^3 + 3x^2 - 9x$, définie sur $\mathbb{R}$.
 
 | | Question | Réponse attendue |
 |---|---|---|

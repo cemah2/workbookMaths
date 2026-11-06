@@ -616,14 +616,14 @@
     "POS.14a": {
       "decimals": 0,
       "element_hashes": [
-        "c2758350613522d27f2f472db719ff1273050b324cbc6e4bab510306f3b8609a",
-        "7912babdfccc60f3415f56be06c7666139d8f43140ba0f7bca6aa866a5c096a4"
+        "61759fb3d3c4b1c7af414f4323c0544eeb50d379a8ed40644ab8b23ab16a46f2",
+        "07aa3921e47c143269cbbed6fd4366f46be98dcfcbfb60592a0b81d6fbb481be"
       ],
-      "hash": "dcd8e78b49e8083f2291d1ed9e74acba88fcc70c8faf480c53086c3fcc271dfb",
+      "hash": "0abd80da8a0c3a5c7775267642f47314bed6e64e61b14b47932e9e49c16b36ea",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "42b22a1f08eb5393ca0ff0bd497ea4a6a9f9da7371ec312fe15f7da706306304": "p n'est pas f(2) : écris y = f'(2)(x - 2) + f(2), puis développe"
+        "90939b07ce74f5f39a96fef388c6341c38920c24634a160c70ae8a612e58a814": "p n'est pas f(2) : écris y = f'(2)(x - 2) + f(2), puis développe"
       },
       "shape": [
         2
@@ -631,19 +631,19 @@
       "source": "positionnement/03_solutions.ipynb"
     },
     "POS.14b": {
-      "hash": "52e121bac6d6d0a62dc82c0a2baf05b98ad083a3d13ff00ba03ed8227caf41e2",
+      "hash": "ce509f25aeea4bb41007d84bee03dfc7ecea1aba26801d245d035aacfb89377a",
       "kind": "interval",
       "mistakes": {
-        "dd74ad6bf66e2e07b68baa6668d7dbf80204c94626d25f634296c8d11c737aa4": "le plus grand intervalle contient les bornes où f' s'annule : crochets fermés"
+        "d8f1cb126ba20a5a03b857d8354adfce0151432fd28bc14652f805c16acb6960": "le plus grand intervalle contient les bornes où f' s'annule : crochets fermés"
       },
       "source": "positionnement/03_solutions.ipynb"
     },
     "POS.14c": {
-      "hash": "4f8ba6c429ebc40b1b329c150feb89c9e0c767adb0b4eaa8c81a48e65966c89d",
+      "hash": "c723ade2e342a2d069528167142a74c2f6460418435c66edd5929a40191e91e5",
       "kind": "int",
-      "magnitude": 0,
+      "magnitude": 1,
       "mistakes": {
-        "1bb7f437e5a1acc48594344760738b0216476d45c0278cb376e782dcac4eca68": "le maximum local est une valeur de f(x), pas une abscisse"
+        "0504e72c45f29d19fe68145fe19953056b66ca282bd52982aab308e7b4c878c1": "le maximum local est une valeur de f(x), pas une abscisse"
       },
       "sign": 1,
       "source": "positionnement/03_solutions.ipynb"

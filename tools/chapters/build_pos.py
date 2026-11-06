@@ -162,12 +162,12 @@ SECTIONS = [
              '"la dérivée de l\'intérieur, 5 - 2x, est négative": "6*(5 - 2*x)**2"}'),
         ]),
         Paper("POS.14", "Tangente, variations et une limite", [
-            ("a", "the list [m, p]", "[9, -16]",
-             'mistakes={"p n\'est pas f(2) : écris y = f\'(2)(x - 2) + f(2), puis développe": [9, 2]}'),
-            ("b", "an interval, as text", '"[-1 ; 1]"',
+            ("a", "the list [m, p]", "[15, -28]",
+             'mistakes={"p n\'est pas f(2) : écris y = f\'(2)(x - 2) + f(2), puis développe": [15, 2]}'),
+            ("b", "an interval, as text", '"[-3 ; 1]"',
              'kind="interval", mistakes={"le plus grand intervalle contient les bornes où f\' s\'annule : '
-             'crochets fermés": "]-1 ; 1["}'),
-            ("c", "a number", "2", 'mistakes={"le maximum local est une valeur de f(x), pas une abscisse": -1}'),
+             'crochets fermés": "]-3 ; 1["}'),
+            ("c", "a number", "27", 'mistakes={"le maximum local est une valeur de f(x), pas une abscisse": -3}'),
             ("d", "a number", "3",
              'mistakes={"en +∞, seuls les termes de plus haut degré comptent, en haut comme en bas": 0}'),
         ]),
