@@ -113,14 +113,19 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\Omega$ | « oméga », « l'univers » | sample space | l'ensemble des issues d'une expérience aléatoire | trois pièces : $\lvert \Omega \rvert = 8$ | R8 |
 | $P(A)$ | « probabilité de A » | probability of A | entre 0 et 1 | $P(\text{pile}) = \frac{1}{2}$ | R8 |
 | $P(A \mid B)$ (au lycée $P_B(A)$) | « probabilité de A sachant B » | probability of A given B | probabilité de $A$ quand on sait que $B$ s'est produit | la branche d'un arbre pondéré | R8, M03 |
-| $X \sim \mathcal{N}(\mu, \sigma^2)$ | « X suit une loi normale de moyenne mu et de variance sigma carré » | X is distributed as a normal | la loi de la variable aléatoire $X$ | | M02b |
+| $X \sim \mathcal{N}(\mu, \sigma^2)$ | « X suit une loi normale de moyenne mu et de variance sigma carré » | X is distributed as a normal | la loi de la variable aléatoire $X$ | $\mathcal{N}(505, 5^2)$ : écart-type 5 | M02b |
+| $\mathcal{B}(n, p)$, $\mathcal{P}(\lambda)$, $\mathcal{E}(\lambda)$, $\mathcal{U}([a ; b])$ | « binomiale n p », « Poisson lambda », « exponentielle lambda », « uniforme sur a b » | binomial, Poisson, exponential, uniform | les lois usuelles et leurs paramètres | $X \sim \mathcal{P}(3)$ : 3 événements en moyenne | M02b |
+| $\varphi(z)$, $\Phi(z)$ | « phi de z », « grand phi de z » | standard normal pdf and cdf | la densité et la fonction de répartition de $\mathcal{N}(0, 1)$ | $\Phi(0) = \frac{1}{2}$, $\Phi(-z) = 1 - \Phi(z)$ | M02b |
+| $P(X = x, Y = y)$ | « probabilité que X vaille x et Y vaille y » | joint probability | la loi jointe d'un couple, case par case | | M02b |
+| $\iint_D f(x, y)\,dx\,dy$ | « intégrale double sur D de f » | double integral | le volume sous la surface $z = f(x, y)$, au-dessus de $D$ | $\iint_{[0 ; 2] \times [0 ; 1]} 1\,dx\,dy = 2$ | M02b |
+| $F^{-1}(u)$ | « F moins un de u » | inverse cdf, quantile function | la valeur $x$ telle que $F(x) = u$ : le quantile d'ordre $u$ | | M02a, M02b |
 | $p(x)$ | « p de x », « densité en x » | density (or pmf) at x | la loi d'une variable, point par point | | M02a, M02b |
 | $F(x)$, $F_X(x)$ | « F de x », « fonction de répartition en x » | cdf at x | $P(X \le x)$, l'aire à gauche de $x$ sous la densité | $F(\text{médiane}) = \frac{1}{2}$ | M02a |
 | $q_p$ | « quantile d'ordre p » | p-quantile | le plus petit $x$ tel que $F(x) \ge p$ ; $q_{0{,}5}$ est la médiane | percentile 90 : $q_{0{,}9}$ | M02a |
 | $\mathbb{E}[X]$ | « espérance de X » | expected value of X | la moyenne théorique, pondérée par les probabilités | somme de deux dés à 4 faces : $\mathbb{E}[S] = 5$ | R8, M02b |
 | $\mathbb{V}(X)$, $\operatorname{Var}(X)$ | « variance de X » | variance | dispersion autour de l'espérance | $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ | R8, M02b |
 | $\sigma(X)$ | « sigma de X », « écart-type de X » | standard deviation | la racine carrée de la variance, dans l'unité de $X$ | $\mathbb{V}(X) = 9$ donne $\sigma(X) = 3$ | R8 |
-| $\operatorname{Cov}(X, Y)$ | « covariance de X et Y » | covariance | tendance à varier ensemble | | M02c |
+| $\operatorname{Cov}(X, Y)$ | « covariance de X et Y » | covariance | $\mathbb{E}[XY] - \mathbb{E}[X]\,\mathbb{E}[Y]$ : tendance à varier ensemble ; nulle pour des variables indépendantes | | M02b, M02c |
 | $\hat{\theta}$ | « théta chapeau » | theta hat | une estimation de $\theta$ calculée sur des données (et $\hat{y}$, une prédiction) | | M02c |
 | $\bar{x}$ | « x barre » | x bar | la moyenne de l'échantillon | | M02c |
 | $\theta$ | « thêta » | theta | les paramètres d'un modèle | | M04 |

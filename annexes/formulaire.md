@@ -179,7 +179,25 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | quantiles | $q_p$ : le plus petit $x$ tel que $F(x) \ge p$ ; médiane $q_{0{,}5}$ ; percentile $k$ : $q_{k/100}$ ; densité $\lambda e^{-\lambda t}$ : $F(t) = 1 - e^{-\lambda t}$, $q_p = -\frac{\ln(1 - p)}{\lambda}$ |
 | AUC, valeur moyenne | $\text{AUC} = \int_0^1 \text{TPR}\,d(\text{FPR})$ ; $\bar{f} = \frac{1}{b - a}\int_a^b f$ |
 
-*(M02b à M06 : ajoutés avec leurs chapitres)*
+### M02b · Variables aléatoires et lois usuelles
+
+| Notion | Formules |
+|---|---|
+| variable aléatoire, loi | $X : \Omega \to \mathbb{R}$ ; loi : $P(X \in B)$ ; $F(x) = P(X \le x)$ (escalier pour une loi discrète, continue pour une densité) |
+| lois discrètes | Bernoulli $P(X = 1) = p$ ; binomiale $\binom{n}{k}p^k(1-p)^{n-k}$ ; géométrique $(1-p)^{k-1}p$, $P(X > k) = (1-p)^k$ ; Poisson $e^{-\lambda}\frac{\lambda^k}{k!}$ ; catégorielle $p_1, \ldots, p_K$ de somme 1 |
+| lois continues | uniforme $\frac{1}{b - a}$ sur $[a ; b]$ ; exponentielle $\lambda e^{-\lambda t}$, $P(T > t) = e^{-\lambda t}$ ; normale $\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$ |
+| loi normale | $Z = \frac{X - \mu}{\sigma} \sim \mathcal{N}(0, 1)$ ; $P(X \le x) = \Phi\big(\frac{x - \mu}{\sigma}\big)$ ; $\Phi(-z) = 1 - \Phi(z)$ ; $\Phi(z) = \frac{1}{2}\big(1 + \operatorname{erf}\frac{z}{\sqrt{2}}\big)$ ; $\Phi(1{,}96) \approx 0{,}975$ |
+| espérance, transfert | $\mathbb{E}[X] = \sum x\,P(X = x)$ ou $\int x\,f(x)\,dx$ ; $\mathbb{E}[g(X)] = \sum g(x)\,P(X = x)$ ou $\int g(x)\,f(x)\,dx$ |
+| variance | $\mathbb{V}(X) = \mathbb{E}[(X - \mu)^2] = \mathbb{E}[X^2] - \mu^2$ ; $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ ; $\sigma(X) = \sqrt{\mathbb{V}(X)}$ |
+| espérances et variances usuelles | Bernoulli $p$, $p(1-p)$ ; binomiale $np$, $np(1-p)$ ; géométrique $\frac{1}{p}$, $\frac{1-p}{p^2}$ ; Poisson $\lambda$, $\lambda$ ; uniforme $\frac{a+b}{2}$, $\frac{(b-a)^2}{12}$ ; exponentielle $\frac{1}{\lambda}$, $\frac{1}{\lambda^2}$ ; normale $\mu$, $\sigma^2$ |
+| couples | marginale $P(X = x) = \sum_y P(X = x, Y = y)$, $f_X(x) = \int f(x, y)\,dy$ ; indépendance : $P(X = x, Y = y) = P(X = x)P(Y = y)$, et alors $\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y]$ |
+| sommes | $\mathbb{E}[aX + bY + c] = a\,\mathbb{E}[X] + b\,\mathbb{E}[Y] + c$ ; $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\operatorname{Cov}(X, Y)$ ; indépendantes : $\mathbb{V}(X \pm Y) = \mathbb{V}(X) + \mathbb{V}(Y)$ ; moyenne i.i.d. : $\mathbb{V}(\bar{X}) = \frac{\sigma^2}{n}$ |
+| sommes de lois | $\mathcal{P}(\lambda) + \mathcal{P}(\mu) = \mathcal{P}(\lambda + \mu)$ ; $\mathcal{N}(\mu_1, \sigma_1^2) + \mathcal{N}(\mu_2, \sigma_2^2) = \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)$ (indépendantes) ; $\mathcal{B}(n, \frac{\lambda}{n}) \to \mathcal{P}(\lambda)$ |
+| intégrale double | $\iint_{[a ; b] \times [c ; d]} f = \int_a^b \big(\int_c^d f(x, y)\,dy\big)dx$ ; produit : $\iint g(x)h(y) = \int g \times \int h$ ; polaires : $dx\,dy = r\,dr\,d\theta$ |
+| changement de variable | $Y = aX + b$ : $f_Y(y) = \frac{1}{\lvert a \rvert}f_X\big(\frac{y - b}{a}\big)$ ; $g$ monotone : $f_Y(y) = f_X(g^{-1}(y))\,\lvert (g^{-1})'(y) \rvert$ ; $X = \mu + \sigma Z$ |
+| simulation | $U \sim \mathcal{U}([0 ; 1])$ : $F^{-1}(U)$ suit la loi de $F$ ; exponentielle $-\frac{\ln(1 - U)}{\lambda}$ ; discrète : segments de longueurs $p_k$, bornes aux sommes cumulées |
+
+*(M02c à M06 : ajoutés avec leurs chapitres)*
 
 ## Partie II · Concepts
 

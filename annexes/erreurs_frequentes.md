@@ -180,6 +180,25 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Confondre $F(x)$ et $P(X > x)$ | $P(X > 2) = F(2)$ | $P(X > 2) = 1 - F(2)$ |
 | Prendre un percentile pour une probabilité | « le percentile 90 vaut 0,9 » | c'est une valeur $x$ telle que $F(x) = 0{,}9$ |
 
+## Variables aléatoires et lois usuelles (M02b)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Confondre une variable aléatoire et sa loi | « $X$ et $Y$ ont la même loi, donc $X = Y$ » | une loi décrit des chances : $X$ et $1 - X$ (pièce équilibrée) ont la même loi et ne sont jamais égales |
+| Oublier le coefficient binomial | $P(X = 2) = 0{,}2^2 \times 0{,}8^4$ pour $\mathcal{B}(6 ; 0{,}2)$ | $\binom{6}{2}\,0{,}2^2\,0{,}8^4$ : il y a $\binom{6}{2}$ suites à deux succès |
+| Se tromper sur $P(X > k)$ d'une loi géométrique | $P(X > 3) = 1 - (1 - p)^3$ | $P(X > 3) = (1 - p)^3$ : les trois premiers essais échouent |
+| Lire le second paramètre de $\mathcal{N}$ comme un écart-type | $\mathcal{N}(5, 4)$ : $z = \frac{x - 5}{4}$ | c'est la variance : $\sigma = 2$, $z = \frac{x - 5}{2}$ ; et NumPy, SciPy attendent $\sigma$ |
+| Se tromper de signe avec $\Phi$ | $\Phi(-1) = -0{,}8413$ | $\Phi(-1) = 1 - \Phi(1) = 0{,}1587$ |
+| Donner une probabilité à une valeur exacte d'une variable à densité | $T \sim \mathcal{E}(2)$ : $P(T = 1) = 2e^{-2}$ | $P(T = 1) = 0$ ; $f(1)$ est une densité |
+| Croire que $\mathbb{E}[g(X)] = g(\mathbb{E}[X])$ | $\mathbb{E}[X^2] = \mathbb{E}[X]^2$ | vrai pour $g$ affine seulement ; utiliser le théorème de transfert |
+| Mal transformer une variance | $\mathbb{V}(3X + 5) = 3\,\mathbb{V}(X) + 5$ | $9\,\mathbb{V}(X)$ : le facteur au carré, le décalage disparaît |
+| Additionner des écarts-types | $\sigma(X + Y) = 3 + 4 = 7$ pour des variables indépendantes | additionner les variances : $\sqrt{9 + 16} = 5$ |
+| Soustraire les variances d'une différence | $\mathbb{V}(X - Y) = \mathbb{V}(X) - \mathbb{V}(Y)$ | $\mathbb{V}(X) + \mathbb{V}(Y)$ pour des variables indépendantes |
+| Traiter $2X$ comme deux copies indépendantes | $\mathbb{V}(2X) = 2\,\mathbb{V}(X)$ | $\mathbb{V}(2X) = 4\,\mathbb{V}(X)$ ; c'est $\mathbb{V}(X_1 + X_2)$ qui vaut $2\,\mathbb{V}(X)$ |
+| Conclure à l'indépendance sur une seule case | « $P(X = 0, Y = 0) = P(X = 0)P(Y = 0)$, donc indépendantes » | vérifier toutes les cases ; une seule case fausse prouve la dépendance |
+| Oublier le facteur d'un changement de variable | $Y = 3X - 1$ : $f_Y(y) = f_X\big(\frac{y + 1}{3}\big)$ | multiplier par $\frac{1}{3}$ : l'aire de la densité doit rester 1 |
+| Se tromper sur `loc` et `scale` de `scipy.stats` | `stats.expon(2)` pour $\lambda = 2$ ; `stats.uniform(2, 8)` pour $[2 ; 8]$ | `stats.expon(scale=1/2)` ; `stats.uniform(loc=2, scale=6)` |
+
 ## Matrices (M09a et suite)
 
 | Erreur | Exemple faux | Ce qu'il faut faire |

@@ -3151,6 +3151,2371 @@
       },
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
     },
+    "M02b.1a": {
+      "coarse_any": {
+        "1": [
+          "be38d1c625ec822fbfe0768c82c5d552aee3f0fab4ebe73a50e0038fa0a374fa"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "6b1db1cf75b72ba5a7e050e88bb818b07ddbdab180423d916cb94f8981eb2cc6"
+        ]
+      },
+      "decimals": 4,
+      "hash": "faf25e629f03f2beaa957b7936d18ed30d70891a9a4bc5db890be6ef6617bfac",
+      "hash_coarse": "792658bb06fefe077dd216dade7ce05cc6c3547302337e3b0671ad583da63dfe",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "5a6cb77f4f85cb4beb39f09d8e49198502139383ac61511b0527f14bf5042667": "les cinq lancers réussissent tous : les probabilités se multiplient, elles ne s'additionnent pas",
+        "95ca81270d087ae6e745d25412e5d8778f34427e060181e18d80d51cd9be2a45": "0,8 est la probabilité de réussir un lancer : cinq réussites, c'est 0,8 à la puissance 5"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.1b": {
+      "coarse_any": {
+        "1": [
+          "304c01e6bb9c46a60f0909ad49b96e54e4d4370b4ee5b6bfdc94086413486d69"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "4c86ecdaaf39d193df61e8fc36340dfd85860cca051b6e4cc653672b9d7116de"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e2bd59c1e5d3d77a261b8738c4e0034e912ca186529684ba507a74293050bfeb",
+      "hash_coarse": "37ae4c74d6cce0410996b52705c0cf8ac60d5d63f3de1f0a894cb5a29711dc3f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "cdeaac3ddcdcacc6c4d82e1e28943b816d5a7a47b45cf67e014ff286a70250b4": "n'oublie pas C(5, 3) : le nombre de façons de placer les 3 réussites parmi les 5 lancers",
+        "fbf90e838777da35c9ae9b00c368267200ae56eb618fb64fc9746857d3e5a4ea": "p^k (1 − p)^(n − k) : la probabilité de réussite porte l'exposant k, le nombre de réussites"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.1c": {
+      "coarse_any": {
+        "0": [
+          "f71a485b32af41372d788f9d7665d68f3e54bf39ec44177114c6b622fa556534"
+        ],
+        "1": [
+          "9a3317f400927e0f0fd66ecc19bc6b28a5bf8fa54cec4dd1880e050ddf23ccfa"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "d71b692c9a94339465d5b041012758bca144de234aae52e86bdcfe002fd99dd1"
+        ]
+      },
+      "decimals": 4,
+      "hash": "2e1505ea89105a63505c8c9f0776eae3e57c656438b7cd80509c2749f221083e",
+      "hash_coarse": "803f170e18c34704a99df3583ea7aa527bd09e8c7a2c7ae7963aaf2b6be967de",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "41454eac43e60829037164361ce942fc186485aa876392d5f0a244b8cf90db97": "c'est P(X ≤ 3) ; X ≥ 4 est l'événement contraire",
+        "d4d10f62070aa409e48a3be1e52b5b0480f5da069732e937aa92c6154ddb348e": "X ≥ 4 : X = 4 ou X = 5, additionne les deux probabilités",
+        "f05956248cf36acb62613710663fbebb8f1afc7772a6f4e3579047279080cb63": "X ≥ 4 : X = 4 ou X = 5, additionne les deux probabilités"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.1d": {
+      "hash": "c0267d52c1f28cff8218078cde2f75801b1731ab9b3a5c1638415a0f7a3caa66",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "96794da4cf0adbb6dae7417661db5b19fa8989fcb8d4896a4942213f5da2a935": "compare P(X = 4) et P(X = 5) : la valeur la plus probable n'est pas forcément n"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.1e": {
+      "decimals": 1,
+      "hash": "a4286a159b0af4a680d00f79c40241d4b634e855e136641ea43d87515dff5496",
+      "hash_coarse": "120c5b52192067834dc49f32626f85f207e50c029b847f2ee309330ad70669aa",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "84a9dccceeed8ad2d4b37687761a43b6530c81593c78a341fb345bbe16d0f61e": "E[X] = n p pour la loi binomiale B(n, p) : n essais, chacun réussi en moyenne p fois",
+        "ec5479524196c180a8e1d3e7387669081bea652464df2ad1c85b7d830230b412": "c'est l'espérance du nombre d'échecs ; E[X] = n p, avec p la probabilité de réussite"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.1f": {
+      "coarse_any": {
+        "0": [
+          "c4ac2ee7855c5db6068877b2d8abf07323315e4888da8402ceb84d8ce39633a3"
+        ]
+      },
+      "decimals": 2,
+      "hash": "f4d1009f5f7b28b2b0c4c693f77d453b82ea3f9546769cdc183b83a6dfcc3b77",
+      "hash_coarse": "2764da342eabe7b83ab7d0bd12fe8879c190fd93b0875748214d6aaf2a3065d1",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "39860a70a1e9d00eaebf00d4a999a62f82ed681ba48ff688bcaa802def627006": "c'est la variance d'un seul lancer ; pour 5 lancers indépendants, les variances s'additionnent",
+        "413d3a16eb74d21e5ed793684a8527a3c7aed37a349981961109c7510bf8aabb": "c'est l'écart-type ; la variance est son carré",
+        "49c53ea41cf5b95319a82b034e6bba9994545ca56243c06d558aea1a6fc2c2a3": "c'est l'espérance ; la variance de B(n, p) vaut n p (1 − p)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.1g": {
+      "coarse_any": {
+        "0": [
+          "46beec2e8ec00f035abc970e5f0a0417a61c56b6e69e0562cef22504f4e08dea"
+        ],
+        "1": [
+          "61db73fd753fc2499b3fc9f559bb7f7b4c6c504f5c738df85093b3c1c350a739"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "f9dd8ee45d16d350d824585f4a02bb89a88a02f86d1c09ab5f36d725fe3ff0e9"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b2f47f0d1ff3edd618c347b63fad06884553d5fa714c9ef5b232c944bce5f255",
+      "hash_coarse": "95e4818d7f5a722560ef1bd3635d2e57493beb15103ed754544da701dd9ad8c9",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "accf8c563abc27a49c568d3b8cec2599a5f2acb8b6cd5cccb9843b8de55044e4": "c'est P(aucun échec) ; « au moins un échec » est l'événement contraire",
+        "ec55c9cbcf945764fa818d32ff7fa04fd0ca97a1953ae06a094e8bc2593ea906": "« au moins un échec » est le contraire de « cinq réussites », pas de « cinq échecs »"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.1h": {
+      "hash": "3cb3efef6822b470f6ccd2c2081fb4583ecf258fdbd9f35c52c21fa19b2c5671",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "56e07ba890fa0c24b6452badf49cbc215c8560c5b5bd8e8e78f8af48bc81fea9": "1 − 0,8ⁿ ≥ 0,9 équivaut à 0,8ⁿ ≤ 0,1 : avec ce n, 0,8ⁿ dépasse encore 0,1",
+        "e51e2bdf296e8f93697b5b541dc6fbf8e3e1a0e0733e32d901e83e0fa90f6bcb": "le plus petit n qui convient : vérifie aussi l'entier juste en dessous"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.2a": {
+      "coarse_any": {
+        "1": [
+          "28007f5268c0254e448aade982a34e93e9474b2fb5bc2e8333458413270f38c0"
+        ]
+      },
+      "decimals": 3,
+      "hash": "ad2f0b41c3c7c6160f1bbe3dfbd713eaac316930610d63ef584d74865f4b68ef",
+      "hash_coarse": "52ee05a6153f868d23a88e8309f18acefb321a2e8e7f141251617f0b190302b5",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "29fe186a3e82b32b2d291cde048839d56bdf93fadb90414bae8942bb4b237834": "X = 3 : deux échecs (probabilité 0,6 chacun), puis une réussite (0,4)",
+        "6fa4032fcda95afa1f11855674bb5bb1b9e6fb3a59dbf721095c8dc13f9dab03": "X = 3 : deux échecs (probabilité 0,6 chacun), puis une réussite (0,4)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.2b": {
+      "coarse_any": {
+        "1": [
+          "69504c1289766ca6eb583203bb8b1443d36b1f2982531d9d7c2e43673f19e69d"
+        ]
+      },
+      "decimals": 3,
+      "hash": "daea2e0f9884fa6d54bd7cb31623fb8698b45a50c387a67495bd5bd80c3ea0a3",
+      "hash_coarse": "6c8e974ae65749ff3a2457803db8cb9da49d0f627efc6c5e12daf9dbf1154b2d",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2c8eb3ddaf67ae1bbef5e1ce96c516b15a3420a2b092f5fe00fd4b48f0dbe7f9": "X > 3 : les trois premières tentatives échouent, chacune avec la probabilité 0,6, et rien n'est imposé à la quatrième",
+        "6169e10026e46f6ae0a35064074d0e0d624db33e72bf7d6efda56cfb148eaf40": "X > 3 : les trois premières tentatives échouent, chacune avec la probabilité 0,6, et rien n'est imposé à la quatrième",
+        "94625beb72cb0ad290f31deb9b1a8e540f985fc027d6b80084392bf3aee723ba": "c'est P(X ≤ 3) ; P(X > 3) est l'événement contraire"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.2c": {
+      "coarse_any": {
+        "0": [
+          "e4c4f12be99bb8eb844eb1bed8a0e19c717e0033de0124bf00dabd47b121ce95"
+        ]
+      },
+      "decimals": 2,
+      "hash": "c3cfcc16b531c092fa88eba44520c4474868fe54ea4ff906a4f8265417417729",
+      "hash_coarse": "cf02df552c0e64326f7b464dc7ec48301c2a33dda5cbe032f7c401fc1dd0be75",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "76a67b02c48e5e5cdc0c31f5a4481a75f5ef7e981d745dc441973915ae801f65": "X ≤ 2 : réussite à la première tentative ou à la deuxième, additionne les deux cas",
+        "c8d0710854ac253caa98a5395d61343fc563525d4f256e6b7a896853972e4d7f": "X ≤ 2 : réussite à la première tentative ou à la deuxième, additionne les deux cas"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.2d": {
+      "alt_coarse": [
+        "c8ffdda33e188358ddc982ae70fbf7186896179a5287c4eb791e0494753c80e3"
+      ],
+      "coarse_any": {
+        "0": [
+          "c3d921709095264e7e8436d9857110dfcf82e9f55f59f946d8e63809ef00abdf"
+        ]
+      },
+      "decimals": 2,
+      "hash": "30525ee008ba07077d5b089889d39b41549428b54cff22b1f39931f7518e0f8c",
+      "hash_coarse": "7d2aa4fc0209eca085a1f7d4b03db5357f6d8fdc47da6db595b26b2719ccd7bf",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1fefa1ae45c9e02fc8d05038229b1cee23d1991e6fa780e3f7e172261beeceef": "S − qS est la série géométrique Σ q^(k−1), de somme 1/(1 − q) ; S s'obtient en divisant encore par 1 − q",
+        "d6491e2a0bedb0f94803807b42d2a3a39e78340fb329b818cc8772820c789661": "S = 1/(1 − q)², sans facteur q au numérateur"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.2e": {
+      "alt_coarse": [
+        "bff0e69975fdac1d60024d1828d560442c46754e495e6ead1cb2e2511212c261"
+      ],
+      "decimals": 1,
+      "hash": "b1f498cc9751038e5d9717d11ca43a544063dea98d26734ddf6ef13ab4d68dce",
+      "hash_coarse": "ca513ffe2e722347e8c769246fc31759d63b48473ebd11413ae32f9c05008034",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "06f21a832c5d6554133c93cb88de3cbaf530884aec7b20955c9f67390afbc05b": "E[X] = p × S, avec la somme S de d)",
+        "0d40efa44ba3a89f00f63f7893e5ccbe3e13167777455675032c2b664e43e037": "E[X] = Σ k p q^(k−1) = p × S : n'oublie pas le facteur p",
+        "7196355b5bd9a331330ce5b40530eb33f4330d9a6cb6252393fc524920a92a6c": "c'est q/p, le nombre moyen d'échecs ; X compte aussi la tentative réussie"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.2f": {
+      "alt_coarse": [
+        "7830363e89e1bb5045357cc6dacf1280448f7396f9d58b370ef22ffbdbb5ba97"
+      ],
+      "decimals": 1,
+      "hash": "6317fe8f20373874ee76d8af5e5f98f6890bf928d6a4a58e3fda888651b7a624",
+      "hash_coarse": "4bbee733cbd07fe22363ec6f30721214fe06268d016f7c9d0879997a45d1c575",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "f3ca494b79c3118b09aad717820464a33096c82eaad7e1b0944bf2827b6fa204": "les tentatives échouées sont X − 1 : toutes sauf la dernière"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.2g": {
+      "hash": "109b3e00ec699a9f97a07b1a3778b925535d893cbdf3b488fa96f4ff3756d997",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "c0c6a9ca19559a7b065673769fd68e8e55b9204669c36146fe5816ab6591fee6": "P(X ≤ 1) = 0,4 n'atteint pas 0,5 : la médiane est plus loin",
+        "e5fe16cee0b5482b91536c291edfd3d8948717cb5be084a841ea561f301da839": "le plus petit k : P(X ≤ 2) atteint déjà 0,5"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.2h": {
+      "hash": "5df148ef14d9853943fc96362f3780ff93be98d0d71266d59532afbf9521b2a6",
+      "kind": "expr",
+      "mistakes": {
+        "5645497d8e3c9afaa13cdb2ff802898ba0d7dc10a1bfc89e483a40b96071e06c": "c'est le nombre moyen d'échecs ; X compte aussi la tentative réussie",
+        "6fba697d95c460a4d249f0823de41f0c011c16c88bb061d9769c987129df7c08": "n'oublie pas le facteur p devant la somme S",
+        "bbc0d9ea75a77943d06f1cfcfde8d8d93a499de6e0599b85dca89cda539f31fc": "1 − q = p : p × 1/(1 − q)² se simplifie en divisant par p"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "p"
+      ],
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.3a": {
+      "coarse_any": {
+        "1": [
+          "a961b119a2e72c160ba5231e5553bfcdd2589d2edf96eb3a0ee36f99f5eca708"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "fa8491a5a08f8a00d59121e79ea409520705b43324564adc6081d6e454bcdf35"
+        ]
+      },
+      "decimals": 4,
+      "hash": "7b64decd3d71ba68ad68e06198bd8b0984970fd80f37d896d33ea7719d0dc82f",
+      "hash_coarse": "9f3b0eb66acdd202195776fa18717ea43192e0298df7d2a56f2d7e7120e8fa8b",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "d19f9bd330248af3a2c4d5b5e01c35a783c16be9feafe1d610c881188d00c8ab": "c'est P(X ≥ 1) ; P(X = 0) = e^(−λ) λ⁰/0! = e^(−λ)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.3b": {
+      "coarse_any": {
+        "1": [
+          "2c5e90c7d8588b63086a00d492dc1bf0776ac86120e1564d2217cab3325e5b51"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "33a02be3dc02415ebd5df7b0ac056463e09ef879e290a3a118761a254e6c1b1e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "087bcad201fe3255ef734e40f41e89900c9f136e05ea260638b43e2194a853bb",
+      "hash_coarse": "200c33c8f7b7c9339a4d1af738033a650b930d0b68e998620478e8f3b08b9abf",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "02e9ab9430b7293259dfdbf749a762a22904bdafa2dfe269fbdb4cf0289fd3a7": "λᵏ/k! avec k = 2 : n'oublie pas de diviser par 2! = 2",
+        "5704dafbba9134ff6090f6447c9aec9b8d55b3b455eeb8be639269ed32fcf5c1": "λᵏ/k! avec k = 2 : λ au carré, divisé par 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.3c": {
+      "coarse_any": {
+        "1": [
+          "896236b79b4649dc4baae0cce0b9730049506ad6d27f7ff98e793a8d177d9eb4"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "6b7ac35e20042be2bbf61b00b1c937ca7f1e409856a4c995adb7b3e2a2f01645"
+        ]
+      },
+      "decimals": 4,
+      "hash": "07d9f1fdb0a1437fdc9cf9caed9dd1a0def2409c4b086e1d9f0b96a7274b64d6",
+      "hash_coarse": "4966115becfed606a2fa563233d6cd4a7fa113ef179c035dde2f6d6fc02eb29b",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3ba394814f423c6d69e4967b6cbb4f5565af681a527a2a85a5d155ba6e879dd4": "c'est P(X ≤ 1) ; X ≥ 2 est l'événement contraire",
+        "628856b3260df0ab4b12b0817ccb78b5768874f51bb574e50b47f2d1898d69df": "X ≥ 2 exclut X = 0 et X = 1 : retire les deux probabilités"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.3d": {
+      "decimals": 1,
+      "hash": "7525a09866a43d180a135bfcf4b8872cd72cd46046910c8498d508d1efec47ac",
+      "hash_coarse": "3d1d2aa79afd08a6f3b699321a4a45ce083dbf15b016fa6d06f9ad15d8cd14c3",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "a82b27e22603b7e6a1b365581f268c2f9e3438aac824ae302e6d327a850b90e3": "sur 5 jours, la linéarité de l'espérance additionne l'espérance de chaque jour"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.3e": {
+      "coarse_any": {
+        "2": [
+          "51b507f82be7d6a8c6aa5d1af92bccbe8f934170d0a6969bd8dbb2c97195c03b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b986a4d697e01be62d9f2ebd1c6c2d4dea3e3d30583a5559d1b5e21e5bd59277",
+      "hash_coarse": "2fcaf9013c3b3170ba869540ba70b650c15c24977ed40a02f5e62021523d7ce7",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "a86c630653843f47cc784ae1d92c68cb3bed57b38284616aa8b6cabc9d879633": "S = 0 demande X = 0 et Y = 0 : pour des variables indépendantes, les probabilités se multiplient"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.3f": {
+      "coarse_any": {
+        "1": [
+          "d424287d03ca6f7b5eaf83e60cdb4dc7928ff82cd35e06d12628fe8c3ec02f27"
+        ],
+        "2": [
+          "6783235dbff82d8504b5adc9304777c0e77aff85eac62827417ec72ec52fe7e8"
+        ]
+      },
+      "decimals": 4,
+      "hash": "cf971a65ac314110b1a1247bc228c6b5badcec67f4dd454f65c4cbf01717bd1a",
+      "hash_coarse": "92a87a3e431d4cd5f2fad548be6b07307b0364af9d8d3fec96f0c8cdc3a6008b",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "21f890f75d0b08b38c50807d036b4dcbf2cf564bbbd12e5273b7ba13648a73c0": "S = 1 : (X, Y) vaut (0, 1) ou (1, 0) ; additionne les deux cas",
+        "c8200bfa421e37f9b405d159d770d80c0aad502f12987ab6d720e1bfc922f34a": "S = 1 : (X, Y) vaut (0, 1) ou (1, 0) ; additionne les deux cas",
+        "fc7ecef275a10df747008f82201c4ee951030890d6e6dc261f6d9275773b2bd8": "(X, Y) = (1, 1) donne S = 2, pas S = 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.3g": {
+      "coarse_any": {
+        "1": [
+          "4ea7248f0c2f136625763f6ae3c666d233861432b226dd02b276e8d6a82671ac"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "91f844959f06e388b2d20c3bb951d86377c98133a66ffbfcc83764f3fe46a58e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "aa47ead863f560ef41475a785335506c4d6aaafd3e612ab2d390d44c92cd513f",
+      "hash_coarse": "c006a98567788b95928765357e5f43b33b5e964f2d9983ce04f0b1cb7e677525",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "9aedc784fdc1ea879d7b8d63de0edcd3f974e3de8f08da4ece7632608f96f97c": "S = 2 : trois couples, (0, 2), (1, 1) et (2, 0) ; n'oublie pas (1, 1)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.3h": {
+      "decimals": 1,
+      "hash": "dbfac7cad15ce8c8afd5fdf8e4ef5bb1acfa5706f96a2bcb41f74adf441fb29e",
+      "hash_coarse": "c2c3b2dc6dca5fceb7d1e33c31af9918a5639bfceda9a83d438ef9e42bc1d3c0",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "eecd291ad4a2c7536502dff47461f0dfc840a6bd10601e35a179f1b7956af332": "e^(−1,5) e^(−2,5) = e^(−λ) : λ est la somme des deux paramètres"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.4a": {
+      "hash": "cdddbd79f12db04598d098b79cea054b06ccb8ca5f3f3e1d64d67ff749daed96",
+      "kind": "fraction",
+      "mistakes": {
+        "90ef2e99e209cd61e4b2cfeff38dedeee7a29739d20d12069f5ed8d2793fd1cc": "b − a est la longueur de l'intervalle : 25 − 10",
+        "9ec278cb3aa93261da7899f940fd02c82f163c103f08225a8b4a92db735d5ccd": "la densité vaut 1/(b − a) sur [a ; b] : l'inverse de la longueur de l'intervalle"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.4b": {
+      "hash": "de1b76771242754ec06c2613bce3f7f60b84745fbab44367795ff8ab6469bb59",
+      "kind": "fraction",
+      "mistakes": {
+        "20391070ce0410168b800bea3b4cdb36fa742546d95fcb0b054d8e9957a6cf6d": "P(D ≤ 15) = (15 − 10)/(25 − 10) : D commence à 10, pas à 0"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.4c": {
+      "hash": "e825823b2708405e18857e7586afee252c18c7afdf34e773ccc9727dfd5e47e4",
+      "kind": "fraction",
+      "mistakes": {
+        "99104de63fc01f51f553869dc809c92e9908e743c52751a02c39787cb4a9efd1": "la longueur de [12 ; 20] divisée par celle de [10 ; 25]"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.4d": {
+      "decimals": 1,
+      "hash": "931c45fd9d5d574e922f8fe7f95020108a884629b179e7a7d5b4ca40732956e6",
+      "hash_coarse": "9db1440e37c45caa12fbc489472e8a27ad6a93d03c9ac8ed9d97cca40529accb",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "afa3a84896b920dcfdb00b331a18eb6c85eda47681fc2abe3b38af5f26f6160d": "l'espérance d'une loi uniforme est le milieu de l'intervalle, (a + b)/2",
+        "b9d98a57392f73ef02982866cee9075ac21e4fce661667ac26b6d97921da6da9": "l'espérance d'une loi uniforme est le milieu de l'intervalle, (a + b)/2"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.4e": {
+      "coarse_any": {
+        "0": [
+          "1a209d6e95a41550243684e0b73b27594cfe288d8da2693d0a88220ba3eeb277"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "2c57020f3999834efba9660501f5538bed53f080de44ddc943b0438da42dc066"
+        ]
+      },
+      "decimals": 3,
+      "hash": "5fe5d53e51a523bb8114197b3d1c562aa29a77e782eb794d8a2c11c9d7b1f8a4",
+      "hash_coarse": "022add5a6cb62fdba5b9ac96727514dc23c327f5f9549cbe805c3a8fcaacfcbb",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "6fbe2365efbcc807f746424f76b653d4da923ba945315618500d6d18ec79f2a5": "(b − a)²/12, puis la racine : (b − a)/√12, pas (b − a)/12",
+        "8d4f6399f2300f0fdd1d9b502610fcec96b8b8a2e51312c2bdbeb379997cecad": "σ = (b − a)/√12, avec b − a = 15, la longueur de l'intervalle",
+        "a160e0badbd096578a01fea0a5041fb77d43fc96202b5bb4141ec9ba4c90afc2": "c'est la variance (b − a)²/12 ; l'écart-type est sa racine"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.4f": {
+      "coarse_any": {
+        "1": [
+          "c4cbe6e40e3655692de54f9715090a1bfd45322558939ae371e82b35d0ec203e"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "87f7195d8ec79e87bde17a22df1dd7d9d4a6017229f7380b88017ee50d198021"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ab82f75fd8a3fc30a7dffd41a11a0ab9274bbe53b3ebf13c02c2f2a7da8b0902",
+      "hash_coarse": "d7c413a246895bdba5f61971925308d6748c585edfec350d5c137166176a20c0",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "c3498f6deb084d3684b5cd99ec714c4130d369fe0107d0c0457fef58dbe8ba3c": "c'est P(T ≤ 5) ; P(T > t) = e^(−λt)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.4g": {
+      "alt_coarse": [
+        "a2cd5a9936453ab5f83e6871c042f53aadb5a7bf4bb2a0b49b4d7fb47c27460a"
+      ],
+      "decimals": 1,
+      "hash": "189507a84b1f0de9a0daf01e337ee117647ce65ec1f546f30c9480ef6a655971",
+      "hash_coarse": "d65bc1741810243f727eb924e2fa98a8f29c01aea6c1635c5397e33540d5d95b",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "b911c0bcbf4e78b4d08a2e406ba421d9f4042acfe01be298fb2ac1bc86cf733e": "E[T] = 1/λ, l'inverse du paramètre"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.4h": {
+      "coarse_any": {
+        "1": [
+          "b1b5bf3fd9e82804351842338b50ff4e583f17141f670d072a28ba701499e7ab"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "b8e6b8f6e545efe6c3e11535c2500f284733c62ac4b2826c7a1fef63c90b84a5"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b76b454372362f1e86d50d581f2b173af518cf0361ab6bc6336f38840665813a",
+      "hash_coarse": "703b3a2152aecce2bfefb7cdad5c4dba1c738fed575fb88468de0970e5b9322f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "1d225b0336901ef0a2a889f5ab245fb14147b6281425dc1a4df47c8de1e3ab25": "P(T > t) = e^(−λt) avec t = E[T] = 1/λ ; la loi exponentielle n'est pas symétrique",
+        "4890c422e8af14273f194a5faecf04f3fa0d38a7a451d951462b7b4a5bfea1a7": "c'est P(T ≤ E[T]) ; P(T > t) = e^(−λt)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.5a": {
+      "decimals": 1,
+      "hash": "3b47364dde7ce2d36dae2f36e9e84e8f74d238a0544f2391dca57aaa8ad33f79",
+      "hash_coarse": "8040c8a451d0ada510c39024395f0f7fafcbf8dcade0804d9255df872f2f4d50",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "b4d3b4a3f8c690d9082692d2099f2cd608c5d49f212a4c7fedb1834aeadca3cd": "z = (x − μ)/σ : divise par l'écart-type, pas par la variance (N(30, 4²) a pour variance 16)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.5b": {
+      "coarse_any": {
+        "0": [
+          "a87cf895014af69b0265f7de7e035b6afef4f914703467d8014351d847261c8c"
+        ],
+        "1": [
+          "bddc133fc0d3ec2705c504caf04a252dc45e40373db74af4461e9dbf399e3d42"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "5b2016487bd6187f51fb3b5ffb1d4b2364efc3816bc926e8abbc0e678d39defa"
+        ]
+      },
+      "decimals": 4,
+      "hash": "d7da3c8a4ab04f98e1e9027228c87b6115372f89767a5dc523e0044a45ca57eb",
+      "hash_coarse": "a9046d4852f110b9a519d87a30e324fa560044c5cee2a5cb20b32a29239c263a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "81f0068bbb61cff7f111fce937a348fecfd2ec73b8eb9dde7f2a067118cac4b2": "P(X ≤ 36) = Φ(z), l'aire à gauche de z"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.5c": {
+      "coarse_any": {
+        "1": [
+          "a90cad5f5e981fd0a529ebead3de42a4fb4d06f068d03e5c8f8875ffc34a2e2f"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "a3cdc434bd97e5b09395620b2b2298fd105d1c1bb55a4f52570b941817dafac7"
+        ]
+      },
+      "decimals": 4,
+      "hash": "08d8043da24b106598df3e8f7cecce9132993598996d50fd1df24d6517df299e",
+      "hash_coarse": "561049d21769d77f62da2f14d688b303f2aebf25248e9e85ec0b85f7b67d3cdd",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "41d44d385d26bf573830bd2ce0d7d580d77a9b8b649239ea115b431e2f85bfe6": "Φ(−z) = 1 − Φ(z), pas −Φ(z) : une probabilité n'est jamais négative",
+        "f8ea61061c6e9cead5f9436dc7927316a37fc8cf905f598f894ea87e78db8801": "z = −1 : Φ(−1) = 1 − Φ(1), l'aire à gauche d'un z négatif est petite"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.5d": {
+      "coarse_any": {
+        "0": [
+          "3689a088049c72ad813f98b7dc560c96e3857ed58a00bd930964e95a315b9790"
+        ],
+        "1": [
+          "aa653da72973d8e4e71cd8b7947b47ab80fe14261b3c5b90fed0eed4429087d5"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "ac31d234f34e3c71841b4d5f0ab579ace4ec4412a0cf191e04c69d285deb0037"
+        ]
+      },
+      "decimals": 4,
+      "hash": "5deb38461ebdd9d4ca5c3af1c3ccfa6fabcfc4e423acf110c3d4e664eefa9ff6",
+      "hash_coarse": "f5e3e429670fc6dedd5242a1acc97f1829091c6f42416548b12fdf7df63ede4e",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3e66dbcd0a5ee4dfcb69a37b4c1c816ca2e9d0e353c310ac371362c22891673c": "P(26 ≤ X ≤ 36) = Φ(1,5) − Φ(−1), avec Φ(−1) = 1 − Φ(1)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.5e": {
+      "coarse_any": {
+        "2": [
+          "1fbd32d201f628758fe7f4471fba1da986ab1155851c3402272091b55f3420e4"
+        ]
+      },
+      "decimals": 4,
+      "hash": "f3fcfb89ceef684130d94d34bfd767b761c2cf70de67ad6c0a2c895bda4fb825",
+      "hash_coarse": "1a256e7f5cc36124a7507c56a665917366c3ad7f62d2dd28f98938ca69dd7018",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "4feb3b63eec4107cab34aa151452c903a4fd9b236f3b4b0e0f874e2e740f1646": "c'est P(X ≤ 38) ; P(X > 38) = 1 − Φ(z)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.5f": {
+      "coarse_any": {
+        "0": [
+          "9c2ec6ab7392c6c23e628fbaa83bc714fe5eae93c1e0f21c36ab1535a3211410"
+        ]
+      },
+      "decimals": 2,
+      "hash": "5a9c36fb8b18dfbb606ce3c3847848c80c2874a91427310bff01031a0b1afacd",
+      "hash_coarse": "fe0db2ed2cccc76ce48276796b2d01d49702f439ed5eccda402d0607c4065221",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "26326c16473e314586b9a66af3cebb5fb32e15b2f490680e33a820e6006994d3": "t = μ + z σ, avec l'écart-type σ = 4",
+        "a9748215bca317ec77a933a8cc6ebe899b55d3759933082518cf93f8df7944b1": "c'est z, lu dans la table ; ramène-le à une durée : t = μ + z σ"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.5g": {
+      "coarse_any": {
+        "0": [
+          "0b34b5b75f8009230b157ee596da221d91cd2c395c80bbc1b530c6152034551a"
+        ],
+        "1": [
+          "f42d49f563f6e196c8dda3d9c3f4cf986007a805f32b827f032bbd29318d7468"
+        ]
+      },
+      "decimals": 3,
+      "hash": "d746d0716d1b812932546e6496a3022ceb56a09ddb11f96964d3debe25f203a9",
+      "hash_coarse": "5f4d6997a244f89c4c8753a56ba5cd1c420a3cd64a49e6c0bbeed06b27ee9976",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "ce6da079b93aacd3d109392a4ffc7aed5bc14fc620c2d30b9ada18b260e9f965": "|X − 30| ≤ 5 va de 25 à 35, des deux côtés de μ : Φ(1,25) − Φ(−1,25) = 2Φ(1,25) − 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.5h": {
+      "coarse_any": {
+        "1": [
+          "3f196059cfea9e336ec8db9f27812a6942c2dcef8860639e211986e3ab460036"
+        ],
+        "2": [
+          "8a62b8f922807f7294ce4e37d2e8dcd61e9f2b478c3ef2e1dd7bdf8408b30f3e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "fef6c12a2c8a5b4ca9d7f72af821b31b5360d2bf1c6b80adff87688b52788a26",
+      "hash_coarse": "fdc60989fd3e63c4c796005c631ff8dce42bfc31e4b5491cd238b9c9358875e5",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "2b9f02ee99564a33ac9e7294604a6c05306c5cbfc59af12f4512b9f6339838d7": "N(31, 2²) a pour écart-type 2 : z = (34 − 31)/2",
+        "976200d74f7fc1f92724b2ff4dc24c857b2f4f82cffd6c9bb8de32dd51583741": "c'est P(Y ≤ 34) ; P(Y > 34) = 1 − Φ(z)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.6a": {
+      "hash": "5e4345f319f996b1e36f1f04254599fe6f0d682d5f00be09b96b36c9821a4c36",
+      "kind": "fraction",
+      "mistakes": {
+        "0af16a300dfe9e853ead7fafa66ed9c94c2165d5de278435a3ab2086fa331b95": "c'est P(X > 1/2) ; P(X ≤ 1/2) est l'aire de 0 à 1/2",
+        "48f2a2ce245242cd3b9f6bed4c3cde48b4ce4c97965e6ac7da7fa2399a879296": "c'est la densité en 1/2 ; la probabilité est l'aire sous la densité de 0 à 1/2"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.6b": {
+      "hash": "970048811fd2359dfbdfd680c58691913bf647f36da9b9041fa9c6a8ff60c5df",
+      "kind": "fraction",
+      "mistakes": {
+        "15e98108da78aef63bf6b129d8eb73be9e28071d65184e1ed295192444b43a5d": "E[X] = ∫ x f(x) dx, pas ∫ f(x) dx",
+        "da30055cfb0765a5cef041eaac1480cfd9c9ec8da02f2d4163077cda85078789": "X n'est pas uniforme : la densité, plus haute près de 0, tire l'espérance vers 0 ; calcule ∫ x f(x) dx"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.6c": {
+      "hash": "efedb41fc5424c5cba505c3b208a547516542cf186757a38471dec190f708d1d",
+      "kind": "fraction",
+      "mistakes": {
+        "818c18dc3ba5c4704809015188061f868c59e05941a225aa3d16caa98e774ef2": "E[X²] = ∫ x² f(x) dx, la moyenne des carrés, pas le carré de la moyenne"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.6d": {
+      "hash": "ce2bb01d2d2e140d9ec0bc9c15feea6a32e9da26001416c5a08ace76fd012c9c",
+      "kind": "fraction",
+      "mistakes": {
+        "57e7d8e30e2131d3f34374ab6fa94779d552153babf1b6008839644eb8082024": "V(X) = E[X²] − E[X]² : retire le carré de l'espérance"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.6e": {
+      "hash": "d23271d765882883d8f3294e7542fd1c57d8a949ac83dd92a122a8872687c232",
+      "kind": "fraction",
+      "mistakes": {
+        "2c7367037143d4bb8c0ba2f243e0bb593c79023efd53cd9c98e6c82fd179596d": "E[5X + 2] = 5 E[X] + 2 : n'oublie pas le + 2"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.6f": {
+      "hash": "e72ab71bb2cd4a2a5270724ef6156aa0586a07d4fb9cca83e8fa53cf2daa7b3c",
+      "kind": "fraction",
+      "mistakes": {
+        "131c98544fd010a7be8bca49ab15f3509fc033900bf40f5da87ae1b7d07618fe": "la constante b ne change pas la dispersion : V(aX + b) = a² V(X)",
+        "1ea01d56d3688b60e38e38cf9ed3160099ec6f9a5bb0fbc88128873bf5af4ef7": "V(aX + b) = a² V(X) : le facteur compte au carré"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.6g": {
+      "coarse_any": {
+        "0": [
+          "7e82f6c8374a51900c93a28b3a9dfadfc1cde554c27ec799cc33bc9911199cd1"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "eb4d62da862a94e8d42e20a857e32a4830f8690f320199893e6d927b28494577"
+        ],
+        "2": [
+          "960f2c95e22750b57b2790df3963bc96b650ed3e237b4576fbdced66f5bc9f8a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "89da3da08315e82354cc832733b6482c369463a1c726dfb9ab698c646aaa8d22",
+      "hash_coarse": "f9440cdeb06fc7b4eca8052dd6b49e1546ffcb63924fd8893fd6d8a41b6f30de",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "68e347de19baed22651e0746c129ac39c72c44b6130b31b66d31674a05d28de7": "c'est e^(E[X]) ; le théorème de transfert calcule ∫ eˣ f(x) dx",
+        "cae25f222647ee3deda8954e2db3a81efb6cbdf94717577cb2b3d731ddc5bf18": "par parties, une primitive de (1 − x)eˣ est (2 − x)eˣ ; n'oublie pas le facteur 2 de la densité"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.6h": {
+      "hash": "7e36a013852466d3713f7d56ceae616ade42480c3c087a0acae03dd3d86fedd6",
+      "kind": "bool",
+      "mistakes": {
+        "3174228084f5cac9dbf5b84fc6bc84e628f06cd1b43c7606f6ac3de5d2d3827b": "compare g) à e^(1/3), calculé avec la valeur de b)"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.7a": {
+      "coarse_any": {
+        "0": [
+          "6d70d7f9b60153bfe6a26f297458658898d3210be01e19aa69700991ebaf773e"
+        ]
+      },
+      "decimals": 2,
+      "hash": "898abd2c9c6f74d44e16a65ff4c94eac7fb8b3849842aa9e1580a3bcb6f136d4",
+      "hash_coarse": "37ff7b070b54ecdad944894ffc2feb3806351b0b123e89cf4ea74ad4ed4a8e35",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "1d1b5d90f412d8e8f417ede76976fa17921134c5843bb5ed95ff6ceddcefd536": "P(Y ≥ 1) = 1 − P(Y = 0), et P(Y = 0) somme la colonne Y = 0 sur les deux valeurs de X",
+        "d085a0c457473d8b45ba89184541aa3d83856e46bc20189da2d1f5e00a4b0e5c": "P(Y ≥ 1) = 1 − P(Y = 0), et P(Y = 0) somme la colonne Y = 0 sur les deux valeurs de X"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.7b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "598a11d91d229d1df4a00fac1c4c8ab59fc2d7903a649bd2d76f705503942f51"
+        ],
+        [
+          "b1983ad58fcbf910a37d6976fa8ac7513ac4a2c66d3656e1cc1d499baf7b9751"
+        ],
+        [
+          "9433384576d32386adeb83968d294e7b67dda055d9338d6c59a77398fcb20bd8"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "da09a28204e891d25a0ef487f83523b263863889ebbdd6bc968d50062de1ed66",
+        "70734c8e97b8d92a859c81df05918f671160c0826e79e1eeef1c2938ffd2410a",
+        "cd11f25efc28f878824bc8df501fc0571eef9380cf69ad2549e39c88781fbb7b"
+      ],
+      "hash": "8c28afafbb6d3d9e271e63b0da64049b35618074a597aca6fa8f0ae9bbea4886",
+      "kind": "array",
+      "mistakes": {
+        "375d3aa3f9e51e4241a1a19c9667e4a4aa867d322adbc42417f5667ace2cbdbf": "c'est une ligne du tableau ; la marginale de Y somme chaque colonne sur les deux valeurs de X",
+        "a8ee216bee471499d6227996bd2bb863875b4bc0a4e0afd5740fe748786629c4": "c'est l'autre ligne du tableau ; additionne les deux lignes, colonne par colonne"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.7c": {
+      "coarse_any": {
+        "0": [
+          "36293db484c52753393fe6d9c762c3f7e5f5cc2270f52743219df7c8b9a1ee91"
+        ]
+      },
+      "decimals": 2,
+      "hash": "19ceba9d51d57f8c6deec7bbb57d10b9139832e41cff96fb9daf18c376e2fdce",
+      "hash_coarse": "840cdb9d83fbcb2a2c29d9cd8224667a0de7b97444e1d3333186281375841adf",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "7439a8c701edfa7cd3c5cf8118b365a3fadda53089776bc357c4d6b825277d12": "E[Y] = Σ y P(Y = y), pondérée par la loi marginale de b), pas la moyenne simple des valeurs"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.7d": {
+      "alt_coarse": [
+        "d0f40e1da5e62d69b51097fe1deac675c70b01858bd94f157b4a8ada140c5313"
+      ],
+      "coarse_any": {
+        "0": [
+          "d20ba9f3979e3aa682d3ae799ff5d5240f2567b29954b9826f842240a7cbbd43"
+        ]
+      },
+      "decimals": 2,
+      "hash": "97db80ec080a907889ea642c9381bf0c0e169ae98021b0e86967db848c497f5b",
+      "hash_coarse": "7b3433368296c28d7f52557f12894f66f5146f76bb728b4cbcccbce2b8b07835",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "236032b6115faadf00d91fde610eb6c566ef5d47b1c21e18c37adf6a5c5c0dea": "c'est E[X] E[Y] ; E[XY] somme xy P(X = x, Y = y) sur les six cases du tableau"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.7e": {
+      "coarse_any": {
+        "0": [
+          "824ab820cc1ff77f47163acfdc2bc2f2bd8b752c9d1c20835427aee7dd1f8b64"
+        ]
+      },
+      "decimals": 2,
+      "hash": "4f0deadb00e4a3a5ebc0a55eec9e4540b4be88f3a2360e22ff33892870a300b3",
+      "hash_coarse": "e8f55606ce000ec894e63838c7b6b30cfa0c38b17dd7a6ff42d55df07e9df10f",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "f18bbf56354564f0570e696a8565fed2bd123a5607a371a786df34ded9c36142": "c'est E[XY] ; ici, le produit des deux espérances"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.7f": {
+      "hash": "6acd75f53510412998b14b5f86e1784c9b5987995b45e0aa081878e4d9e50f6e",
+      "kind": "bool",
+      "mistakes": {
+        "a73eeea74f77682a61c24dcc5d00529c5adbe3e234cd4ab340b7b3dc656ab090": "compare P(X = 1, Y = 0) au produit P(X = 1) P(Y = 0) : une seule case suffit à conclure"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.7g": {
+      "decimals": 2,
+      "hash": "cbaa7c0edf6ff0fd0803c5681012191596d68da7b6d5b1002e8815c8a546fa33",
+      "hash_coarse": "22d73367d19dd180fce875ca76bed4abf46183500dc4c277f23446c4c2df43d3",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6001f963cef541f1c0f500edcfeda5bc0eaf515da0d9a0df89b24572c9f8cb3d": "X′ et Y′ sont indépendantes : P(X′ = 2, Y′ = 1) = P(X′ = 2) × P(Y′ = 1)",
+        "68a4d1163a1e9f0654a3b0057cb8371f2fae566ff224fb5126edaf409fd3eec2": "X′ et Y′ sont indépendantes : P(X′ = 2, Y′ = 1) = P(X′ = 2) × P(Y′ = 1)",
+        "78b7d9a2757a588fc79f83abd146757b813b012a67d8f7f70bddbcd8fe0a6426": "X′ et Y′ sont indépendantes : P(X′ = 2, Y′ = 1) = P(X′ = 2) × P(Y′ = 1)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.7h": {
+      "hash": "2063843713a32c1ab1c8c74f197292091ee8a787478ac8a4e242fbbd6a67f7fe",
+      "kind": "bool",
+      "mistakes": {
+        "f6a2a1d082f56e6883f576676c9fd42a44565de9d91de8794e9c8dd16a6655f9": "complète la dernière case (la somme vaut 1), puis compare chaque case au produit des marginales"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.8a": {
+      "hash": "bd1d8d1f1429b94ca168c5a26f2da6a3b5a778eab2c3d5b92b7916ab5439e489",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.8b": {
+      "hash": "7dd5e18d0854c039505a123893b97e178be78c2a7b3fdb13153e8d563e2c6b8e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2b8b1ad5ba5e6cfb0138747d06e2ec0016a0c4911852877de885945edb18f0ab": "la somme des variances, pas le carré de la somme des écarts-types",
+        "ec98290a8e9bed28019d60bebd697565c2e57fb6db6e135422c07932c88154c5": "additionne les variances σ², pas les écarts-types"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.8c": {
+      "hash": "d1e4c1c0277ff2f2f6de7fb77d67699eb083612465fe1e680ee69b10ce35c404",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5259963b701101140346df495481b63f432ee9b06878a86a24503e2a7fc9c76e": "c'est la variance ; l'écart-type est sa racine",
+        "afb8468384f87d044441e03bd417bb78e05c7a9fe0f9f44148f83f72b998db28": "σ(S) = √V(S) : additionne d'abord les variances, puis prends la racine"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.8d": {
+      "hash": "d1300646a945490de895fdeb2c2d476ff4b2d9e17f06fffa774f7303a02e24cd",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2d99df8ea6abf725438dfad6e29492a9df330a02c0a86e1738365a6f8393cd7c": "T₃ − T₂ : l'espérance de T₂ se retranche"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.8e": {
+      "coarse_any": {
+        "0": [
+          "a6e1085b3f4943026fb2839577dc18033f1e7c253ba0019f1eb5dbd4ab14e316"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "3b3ad0bb8d5f10ec08966096586a02f3760300e0d4536fcbb4ea3f7d84bc9981"
+        ]
+      },
+      "decimals": 3,
+      "hash": "8cf371f3dbb11c6a9a09c1bf174dbf972a2735dec001fcffd3500996ce98e315",
+      "hash_coarse": "04ffbf801bb3a29bda8b6ab195cbdc76538382753b25e6b7ed5b881ceab39a3d",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "b55f60d1dc5fedd354088c4168ddc5c3cb5dc36e7bdc1add407766b29f93067a": "c'est la variance ; l'écart-type est sa racine",
+        "d0c54e06e0f4a35605fabff279722b8de569ae40fbdefc0d032254ea95d94fab": "V(T₃ − T₂) = V(T₃) + V(T₂) : les variances s'additionnent aussi pour une différence",
+        "f663371c9a3d5946bda5dab07b32a75c21ca36ed1f53b025831e0387baa16fec": "σ = √(V(T₃) + V(T₂)), pas σ(T₃) + σ(T₂)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.8f": {
+      "coarse_any": {
+        "0": [
+          "a80ed20ce52279c453eb11d0ff9961e93e94a211f75bc5105da8160f54b7adc4"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "eaa7c164d023a7f3a79808dc3fca1611f2e0fc0d2cd808b99f862fc4f868ad7d"
+        ]
+      },
+      "decimals": 3,
+      "hash": "4251c63993e95fb5b0faa2dac404bf60423ac79647b9dda2edc162596a25a8ed",
+      "hash_coarse": "47f81c5c14d41c69357f8cc9c04746f3dfba688120225ad439f2752bfc01e7fc",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "7481709849f26dc8ff2eaab87a8c3bf7d742159552d6c94fe398ce6ebaa88932": "50 durées indépendantes : la variance est multipliée par 50, donc l'écart-type par √50"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.8g": {
+      "coarse_any": {
+        "1": [
+          "e7f6e441dd4b55be92f61a7dcc83cb8f270759207903dfe577c024463fe89761"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "b662c5af4957df25b369b738d2a8ea5ef867f2e307247e3e17f891c6f77237ba"
+        ]
+      },
+      "decimals": 4,
+      "hash": "5c59df654d9ee335ea0827ac41ed3a0e449e5f89f6aa043d621f80af704edf8b",
+      "hash_coarse": "b44f46e2cc4739c4d63258e9b7a51e97bbd1617b6f74e5a2de6de03ef0aa8f76",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3b60435006152a0839febc817f2578d01859decf40f0ec34db86a359c2b0d763": "la moyenne divise la somme par 50 : son écart-type est celui de f) divisé par 50",
+        "be4203110f1cd450046796927701910d415f5020e8784a7293913a1b8e7248c8": "σ(moyenne) = σ/√n, pas σ/n"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.8h": {
+      "hash": "bf6545f43ea2cfa09ae9fa6bd68dea05929afe2a941007ed81640adb5e96356e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "4288a9ba601e5eb41fcfb4add05b9b6da4da2d7bb37ad5f9db4c1995357ef6e7": "T₁ + T₁ = 2T₁ : V(2T₁) = 4 V(T₁) ; une variable n'est pas indépendante d'elle-même"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.9a": {
+      "hash": "5626e4481a79fe0fabd127b21e4a9cc28c809905ba315e477ed3ebaacd1b6be1",
+      "kind": "fraction",
+      "mistakes": {
+        "6489ac445082811c60330e973d0c5d399b9fb2e8e28a39378f3af83ec60f535d": "le produit des deux intégrales simples : ∫ de 0 à 1 de x dx, fois ∫ de 0 à 3 de y² dy",
+        "9dfff727f14eef85d30c712cef13f5b08d3f12c878c9a0ec80f6153e08b3ba15": "une primitive de y² est y³/3 : ∫ de 0 à 3 de y² dy vaut 3³/3"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.9b": {
+      "coarse_any": {
+        "0": [
+          "f0bacbf46785b5afc98173bc30bb6fd7094d8f178620d1b1782b3b39a3422e92"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b833d34c4f4b3ea44e0d30588397bab4ce8633b6b46c778086b20dc921a3fc7d"
+        ],
+        "2": [
+          "2c7b0416ef5a0c59856c89bf8699ce855c3e5eb1c3bc20d56dcfdcdeb3df360b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a30a050fbfba3a5baf33d00a9ff3c3bb69ed58933545bfc5d5ba9215079119b6",
+      "hash_coarse": "f5d368c73b89094c676f2e830b022a7d08f67b5748782a6563d7915191650a5d",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "47c3833b5ce2a11699dfb715cfd0f6785e6af426d65180c961dfc8b9ea3aba3a": "e^(x + y) = eˣ eʸ : le produit de deux intégrales simples, chacune égale à e − 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.9c": {
+      "hash": "943b8321ddd1cc8b35bb9b84a5a9d83924c7c98dfa7021c950e49d975b573de9",
+      "kind": "fraction",
+      "mistakes": {
+        "159f18899460bec1e2c65f11e478ae024db41fee9425850e43a6da683f693b18": "après l'intégrale en x, qui vaut 1/3 + y/2, il reste à intégrer en y de 0 à 1"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.9d": {
+      "hash": "c7d0e2def9cd46d840230d04b1e0bc2fd07280608ab63650d3c0b00997117150",
+      "kind": "fraction",
+      "mistakes": {
+        "7a3686f20cd512cc8ecae55418ed9116c255c7bba11b2eb087c2f7e68f6c2398": "c × (l'intégrale de a)) = 1 : c est l'inverse de cette intégrale"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.9e": {
+      "hash": "b040c58c9b3b1c743c7617bdda8f1e4616e127961dfe8ef644d5ab60afbcdf15",
+      "kind": "expr",
+      "mistakes": {
+        "4c27429ca0f51d0ec65ffee8a59fd0f8433db91f34b82da20fc9298b964bb7e5": "f_X(x) = ∫ de 0 à 3 de c x y² dy, avec la constante c de d)",
+        "eb332f502e0494d28ed280142c7c55c8a76c6e5ebdc8147d83bb9862458199f1": "intègre la variable y seulement : x reste dans le résultat"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.9f": {
+      "hash": "9609445c5117619b59701b167d463625f4388f5348ef5b2d8f3db3a6f9268955",
+      "kind": "expr",
+      "mistakes": {
+        "41ffe6ce0bb2681b1625a3936148112d9a1182d6e201653ef6acc53ca7b3e84c": "intègre la variable x seulement : y reste dans le résultat",
+        "e4252695ad9a03927ba74e0d8ea4f8f7bd88719315fb02e2f5e6d401c59bc5cf": "f_Y(y) = ∫ de 0 à 1 de c x y² dx, et ∫ de 0 à 1 de x dx = 1/2"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "y"
+      ],
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.9g": {
+      "hash": "d274193eac6ced780ddb33d6e5bbbad7815a3cb913e2b77dfd0eaf0e97ef98d3",
+      "kind": "bool",
+      "mistakes": {
+        "d735ea046d965284f5567f31b9149a75cd14eaa67938353bd7a40f413d74277b": "compare f(x, y) au produit f_X(x) f_Y(y) de e) et f)"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.9h": {
+      "hash": "58946194698ae310eae27e3ee38df87fda4ba192114acf5d966407e2635c650f",
+      "kind": "fraction",
+      "mistakes": {
+        "c8cd6aa40d5723b5039a2bb0cd423ddb219c5de12538b88e3714018b032e5b5e": "une probabilité de densité produit : ∫ de 0 à 1/2 de f_X, fois ∫ de 0 à 1 de f_Y",
+        "e18927fa661fef413ff0afa7dd9b034e140d86121ea868c036809ad7565591ef": "il manque le second facteur, ∫ de 0 à 1 de f_Y(y) dy"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.10a": {
+      "hash": "b61cd564ddbbbb61e80995fa61eb01fb9b76e949312d0cb2dc606f36bba5b3f2",
+      "kind": "interval",
+      "mistakes": {
+        "29466ffa978465f298eaa57a566f6ae6441473546eaf673aa59b37853460e16f": "c'est l'intervalle des valeurs de X ; Y = 3X − 1 va de 3 × 0 − 1 à 3 × 2 − 1"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.10b": {
+      "hash": "1d0469d8eda2a4003318c7a11ecf30b48e3ce2f6380d650a9a124fd2efddf8b7",
+      "kind": "fraction",
+      "mistakes": {
+        "b7a0e4900353a3c4ff51635121235b61905e0df02680d8ae52d430a88645b9fa": "divise par 3, ne multiplie pas : l'aire doit rester 1",
+        "d89b0bb6d694e6542a6b315d86c0deb0ecc1d6f6736fe0dbad40d630361b06ca": "f_Y(y) = f_X((y + 1)/3) / 3 : la densité de X divisée par 3"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.10c": {
+      "hash": "40dc204dda580563d140a0aac6288abd7ca5c3e00bfffaf16ad174c41ac5c85a",
+      "kind": "fraction",
+      "mistakes": {
+        "6e8ed020a878a599c9a587cc90b284d35689ae4ac02e342bc83039a23e489925": "Y commence à −1 : P(Y ≤ 2) = (2 − (−1)) × la densité de b)"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.10d": {
+      "coarse_any": {
+        "1": [
+          "7a4002b293ac3ca12144954359aa5feb51d4db77b6c2deee34fecd970418c92f"
+        ],
+        "2": [
+          "dab06d65e6394997f046bff1b1771dc41daba972927084681192081f99162b86"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b41a70ce56404a8fb50565d5e83ddab3ecd3d4ed918c8214046c0fcdb66714db",
+      "hash_coarse": "08d78f50c2aeffbef71e76b57f6032220fdfed47501d0638a71bd62526ff8c92",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "14737436019eb83eadf5ad61701107342ec8e535ff4a5c224adb260399bc40c3": "Y = 2X + 5 a pour écart-type 2 × 3 : sa densité est deux fois plus basse que celle de X",
+        "50fae9167c775bdadf89605771c09ddd7da9ad83a9ff99e3be77796b1fd706b0": "l'écart-type de Y vaut 2 × 3, pas 2 × 3²"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.10e": {
+      "hash": "b316f7125c32ee2a3036d4f621f6d8a80379b669f405680ac7bc281fd0b331fa",
+      "kind": "fraction",
+      "mistakes": {
+        "d4ae4a64b1a506bfb2c90a956a7f85f9d83d8baf42f9ca4f2df09c4033cc2bf8": "X² ≤ 4 équivaut à X ≤ 2 (X est positif), puis P(X ≤ 2) pour X uniforme sur [0 ; 3]"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.10f": {
+      "hash": "0486db8b9beda65066e7148e820cb7659eb7bda03dade9ce4f94329223ad6147",
+      "kind": "expr",
+      "mistakes": {
+        "63d3ec70c909b891cdb7afadbaa394133fc9725883bab9a5941f653860c7a4a9": "F_Y(y) = P(X ≤ √y) : remplace t par √y dans P(X ≤ t) = t/3",
+        "781ec0a50e945cae218038c68bbff44a680f4d7818159dc317d6515b7fe7e701": "c'est une densité ; la fonction de répartition est F_Y(y) = P(Y ≤ y)"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "9/4"
+        ],
+        [
+          "3/11"
+        ]
+      ],
+      "variables": [
+        "y"
+      ],
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.10g": {
+      "hash": "65adfa2e83184640100f061ae4f9cdfb92f98b51a17c71f17b37896882fbd8bd",
+      "kind": "expr",
+      "mistakes": {
+        "c4b3b17ef12d2ae20aa2f60ccc3da73b5915e73bdc3490b359174f9ccc2f5fcd": "c'est F_Y ; la densité est sa dérivée",
+        "f8c2751a1e1cf8f4d1deb8f1352924a1c73d510ebf68453b0cc6d67fee8909d2": "dérive √y/3 : la dérivée de √y vaut 1/(2√y)"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "9/4"
+        ],
+        [
+          "3/11"
+        ]
+      ],
+      "variables": [
+        "y"
+      ],
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.10h": {
+      "hash": "48f96d046433fa91857c289472888b01c13a954b864de0a2f9fe8886df83a62a",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "4fd172f560852f5ef257e25baa5663fac42d995c07b8df6824cf0b463f996867": "E[X²] = ∫ de 0 à 3 de x² × (1/3) dx : n'oublie pas la densité 1/3",
+        "a505f07e06c5342dc5e2503a8029218e9d943f864ab57c229f54f284cf3ef0b3": "c'est E[X]² ; E[X²] est la moyenne des carrés"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.14a": {
+      "hash": "749ac73f7f21ce141ad6998474e52bbceb0e8e6b3aa42812917a16770ded06d8",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0c15b93a8bf1759bbf73d7a43f0c2b3a458f9b085240938b4c56df5fbe9b3aca": "E[X] = n p : 2 000 × 0,002"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.14b": {
+      "coarse_any": {
+        "0": [
+          "c8ad20ef8b1a9e7beeddc20860cee5ba6604bdcc9a1c4580008ac6e012626e37"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "2f7bb397e1132ac30c4b013ed70721854910c4af43ae225d1989ef2c882c37d9"
+        ]
+      },
+      "decimals": 3,
+      "hash": "18cdcdc8541c971a0aacc22220e4f3e361ffeb96279a0d8b4cb8cba493f40bc8",
+      "hash_coarse": "9bf6a29a04dd4f6947b7ada834f601a30ee660db1ff3322ebb7de701ef0bd50e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "79089cf34a5dad4d3448909d0b97e84f51ff9dd4c8a7f9fd866a6dab89acca23": "c'est la variance ; l'écart-type est sa racine",
+        "88feee345006df6ea02108c87ac38b252f60a2166b4b3e0e8d0aca6aa673e88d": "c'est l'écart-type de la loi de Poisson ; avec la binomiale, σ = √(n p (1 − p))"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.14c": {
+      "coarse_any": {
+        "2": [
+          "23d85c84a03017ae5e6c15a956e2e64cef9651b50d34d258ada2c3b2cfe91a8f"
+        ]
+      },
+      "decimals": 4,
+      "hash": "0f7f9fe2d85b128ba0f82674dd1edc7662a647ab383a0102b22f80fbc61f28b8",
+      "hash_coarse": "8eea63c97a0c6a624d6711aaceac5659a02d98be277fb3df9f600f4598e477c5",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "edd2a06bce5c1d515f0678912b70affb74c8f7f9b6d7a17713e87bc5eabf487a": "c'est l'approximation de Poisson ; la binomiale donne (1 − p)ⁿ"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.14d": {
+      "coarse_any": {
+        "2": [
+          "6f3e34d9d1a1ab73c9239cb04d46561470f7dc4de00a1c2b321ef6f244f4608e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b3f9f20ae9106deedac17f91555d845dff9b2f73b36b2df8590eee948977811a",
+      "hash_coarse": "c4193929155869d1ed2570fa4033305ed30edc0a187c8787b1729cf9661c4b02",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "9d6628f57ff5a10eaa469033cc833b7bc482b9f5e0c1a33accfe58a97a89d9c6": "c'est la valeur exacte de la binomiale ; l'approximation de Poisson donne e^(−λ), avec λ = n p"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.14e": {
+      "coarse_any": {
+        "1": [
+          "66f250cd0953280bd430de828b58e777a8d36b8c97d3430a94d20b33a53addb5"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "6f111abcf07f3578f0975990b87e80a1d97a03e566c41de42a4d9183fbdf609b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "85dec9c7a511c71b8f971f9d9fa80ef5143dba27e4faf4eeb6eabb77a98f817b",
+      "hash_coarse": "ed107287cebee8b2e67d702f8a073a98e2d2e083a736bee2ab5596b775732c9f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "5c620a6d68921684112a54b4f75c2d895020cba772e1263dc1cd3a6dfba2e036": "P(X ≤ 2) additionne k = 0, 1 et 2 : n'oublie pas k = 0",
+        "5febff4f5aafe0be0e4696766af48e8d2374bb07a07f6d94c001aee1c3343a37": "λᵏ/k! avec k = 2 : 4²/2, pas 4²",
+        "d7cd9bebf60a37051590e213e823f241c3c0c1df329f95623284ad27d9461196": "c'est P(X = 2) seule ; X ≤ 2 additionne k = 0, 1 et 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.14f": {
+      "coarse_any": {
+        "0": [
+          "8d0b39ea891924713c45235bcf7327643014f1d738c8832b131c5ce2753f9d66"
+        ],
+        "1": [
+          "702425a7c568af7098f344bae22757238754b7b2fc853bb4cc17522079907f56"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "f74ac2bd80003a3607f1529741b7e4081486a8a4bd223b4ceb457ec0fd46ce5c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3adc9b807850e33b8d9aa60186ded5e1ae0c63118462b04c18a1a10f98625216",
+      "hash_coarse": "b72b5b014187c40fe36b67967380bfee596e6b124a83cadf9f1cddc5c778dceb",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3c6e599624a796d52e0a7b2c1071cca30c61f3e9f5065bddb834e649db2b83b1": "Y porte sur 500 images : son paramètre est 500 × 0,002, pas celui de X",
+        "a4a4b12ffb286d4de64de2140b8c789a14044733582e870711740e94348a6fe1": "c'est P(Y = 0) ; P(Y ≥ 1) est l'événement contraire"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.14g": {
+      "hash": "a70285cbe22a64ffc93d7383558f31d561dfa5817022d746d4b9a4794c4146bf",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "9e3853c8a3957c154e55bf27fa572d64c2732473a60ba7abc302af6962cc572d": "c'est le résultat exact avec la binomiale, 0,998ⁿ ≤ 0,1 ; la question demande l'approximation e^(−0,002 n) ≤ 0,1"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.18a": {
+      "coarse_any": {
+        "1": [
+          "42c552dbb5d85f0b7f5204d2d79c4d5cf1b803f219da3cf3a2950aa2ce373653"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "a6a55b6fbf0562673fa36b1cfcb6309c70f7707b8c046d2bc62a4dc4754edaf9"
+        ],
+        "3": [
+          "059b5a20a93caea1e50ef9e02853f1696d1f01494656fbd129cdfc39991e0bac"
+        ],
+        "4": [
+          "35700637b49a5082dc84399f8d7889518508a58906ce995c9ea3b24510ab5739"
+        ]
+      },
+      "decimals": 6,
+      "hash": "4a795e361b3fceb6870a4c931e06ed5578511d030a8edc7be1854740f319b928",
+      "hash_coarse": "2c0adb6e8a0ab113c957e1f0bf062538d9a9283a6fda4d39880fd627b2e991fc",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a1fba3c10e22338ba330c684cc8860bb4cc90c30def0a87977a58db17f9ac635": "n'oublie pas le coefficient C(n, k), le nombre de suites à k succès",
+        "ca0326ffe1716125ab37bc9ef96bf536b9c7eaa91387e650692d9f0e0a736659": "C(n, k) p^k (1 − p)^(n − k) : la probabilité p porte l'exposant k, le nombre de succès"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.18b": {
+      "coarse_any": {
+        "0": [
+          "a830028cc0836effd2761983c434c69d15d5b830309f968ba232344fd3b576d1"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "48634976e70cadb678adcf40b40daad86aeb4ed3bbefc9d7f963dc97737f9577"
+        ],
+        "2": [
+          "5671a7b7890456bbd121dd9c37c2f9cc8f417200c4b5033f0eb7a4b67f459a52"
+        ],
+        "3": [
+          "87aade5730036f6f67180ef814b530cb7488c5caadbf35d8004935bc964dbfe9"
+        ],
+        "4": [
+          "57b0a22f6e5e415b4e247a24f336583e2d1798055c5eef033a5742ebd938247e"
+        ]
+      },
+      "decimals": 6,
+      "hash": "cfbba1ba37595549b4850dfea0181cdcefe642e2cb8fc5ef88bc95fe71889492",
+      "hash_coarse": "ad506862b745b1970003e847e3d4ae3b2d02a4d6b0789b5e8a536e9a7f8c144e",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.18c": {
+      "decimals": 6,
+      "hash": "7d8a7952eb946854ba4c34846646a9b3a8e5132360ef5a63868716e8152cdc67",
+      "hash_coarse": "bb3b14dbf9b08ca358e065f87d3bcebaf5448d1b3d850cb2492ad46e7db294ae",
+      "kind": "float",
+      "magnitude": null,
+      "sign": 0,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.18d": {
+      "hash": "30d8b6058935b937310becf3d7d6d35c2216ab3d799c26cb681d2808d98a8d12",
+      "kind": "str",
+      "mistakes": {
+        "4e44fe2ea42b5903936bfa7453a85edf15a428aa2a8aff5fbc39e25c6655265e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9ace29064926d15253a41af4e3ae144af2ab1bee91eefbd244507caa18cc179f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c41a02abe0fad5a943677c7a2660784e3348e71ed250b895f6a33e2132643449": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cbfcb530a40289c60c55a267a434425abe42a2aaa57532a2706fda6b035a448e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d0ff805925449ae61380fba33e62f6f31f278a2fbb40c23c6f33a5e6802538ea": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d2b78f4c167622268a910993f3c1026fdd4916c5e72083b75f950f36d55b90df": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "dfba715f6b3006fcc00a814eab77c9f1bd2e4de33e5e7100f6a8290cd1c84b12": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f182e77bbc31a8efdf8e01437d00de05a861e6f71b227bcc783f6514c831e651": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f8940b5072917605dfdd664bad1e990a8cbe0991e1d0e77f3b2abd8b243e999b": "p hors de [0 ; 1] n'est pas une probabilité : lève une ValueError"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.18e": {
+      "coarse_any": {
+        "1": [
+          "fd92d0e19413690cfad6171e3647d596f16a613c4a96b2f8251a93b5b455f262"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "51adda71078877ef11a1945f006cee1d537d2e4d2b2b464783b97d2244d2f3c8"
+        ],
+        "3": [
+          "b24973b13f339c47fefe2ab90f0c80ecefda6840f0287c4e6121781f01705336"
+        ],
+        "4": [
+          "d200ea6228092d8bd8c9100452613ca2f089bf6ce86f8af5f01f895804496704"
+        ]
+      },
+      "decimals": 6,
+      "hash": "ec42e2ae9fdbfe4c91ad13d689d0b903fd6e4916d7ba60a1aace34dd699f9848",
+      "hash_coarse": "aae33adb73200f278493d92e15f27adf34bb765c231ec857aed564c5c7ab780d",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "bb88903d539b2d9ca449bfdaab9e8744de599c71515fea6e3f9e62c03902a1ae": "e^(−λ) λᵏ / k! : n'oublie pas de diviser par k!"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.18f": {
+      "coarse_any": {
+        "0": [
+          "3c55911957cbc2b9a7e2e85620c3aadde4162ae2f3d77572a86a15c9e1c04984"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "2921190ee72108cced0659fb7ff8e74b86bc4fb9023bb9ec3c1c46329f1a14e1"
+        ],
+        "2": [
+          "57c7e190f5bcac2d95033e40fecc6372c427a0f9f034cad53ba2a36e23ea081a"
+        ],
+        "3": [
+          "8580f8c649fff8adc5d60dfde0e5e66dbc5bea5594be00c3468198904ddf4088"
+        ],
+        "4": [
+          "ae1e5ea60bcf8fe8fdd5e6401805e6854a922e1c9cd2883aaa56c08528b47b9c"
+        ]
+      },
+      "decimals": 6,
+      "hash": "a32b48e584b35c2653ebddbc0be8b78f8901abf349cd7fed9c028b4a29b14d10",
+      "hash_coarse": "28295555f8ff8d5d7257163cd2261a70315c9db7bdcd22b21a80b9457fe37f80",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "f19cd2c732ca9d2097755d2921b34e50c222102f361514c2efdbf36b37176219": "λ = 0 : aucun événement, X = 0 est sûr ; en Python, 0 ** 0 vaut 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.18g": {
+      "hash": "2d5dd7867b5c72f0d96ab360a3f2025b34051b8c7afab1463fc8883ef96cc8c9",
+      "kind": "str",
+      "mistakes": {
+        "e9bfabe136b71c56e353149645684c0bd8121bd890cc78f4127991bb0150be14": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy",
+        "fcaff97de0404406ed31db6e12d6aa16db528cefa252f91f9aea4b8fc3c53015": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.18h": {
+      "coarse_any": {
+        "0": [
+          "bcf9d8cdd654a4c1b4c861f98515a89afdef511ad6e240c943667ce58b00f41c",
+          "81732ae4d447a6ee0e2326c2a5b55030e895f1be1c10167fe5dc3d999203d412"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "753fa3579bdcc558b0f79f06aa8e97225b1127048d3b11bab3e3efdc3330d650"
+        ],
+        "2": [
+          "cfe6fb01df4f22bc7ce6cb722dd582275ab44277f3facd8f1764b4e25bc72c91"
+        ]
+      },
+      "decimals": 4,
+      "hash": "12737603ed91331b77852051db7b3a9aaa1bfd992c0778c247cef05a7aacbbf6",
+      "hash_coarse": "f92036015563772c9e7f8fa5cdac15604a67dc99dde17714f023d36bb58a162c",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "16bdee6b4b2865c839ca389d93f4120c02cd5ab425c2aa2c7bbcde961cdae80c": "la somme de k P(X = k), pas de P(X = k)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.19a": {
+      "coarse_any": {
+        "1": [
+          "70ac29d82475f879f5466f71ceb7c54f653dd0856370ff9b5e90fced513a8912"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "fd9d8826a12622e57298c8ae6f1ef8e5253d536e8d01354213f13c9c95c9d218"
+        ],
+        "3": [
+          "b454da3b8da6c1ad19acaf79ac1a06917d8d6272b0d93534c6225da6a6e7a2c3"
+        ],
+        "4": [
+          "03d1baff9ce8d35dfbe655bd01f30caa9b01485d84a56246d26ca66c395cb1c2"
+        ]
+      },
+      "decimals": 6,
+      "hash": "d4559c66055cfb33d5e16cd5a6b7ea51dfdfadd22e83d4b62401a4e374df8c28",
+      "hash_coarse": "e6f98bc7e9d9658292cb172a998850ee3ba33a0518663a158e836d6a2d02fec8",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3a695d7ecf36e991c7db00d78b675b31dd26366e13cbbe7b1366b0ba038ee16d": "φ(z) = e^(−z²/2) / √(2π) : le carré est divisé par 2 dans l'exponentielle",
+        "3e5ca65df614126762e48773d2b30bac5299e741c138b500cf2820b48678c83f": "n'oublie pas le facteur 1/√(2π) devant l'exponentielle"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.19b": {
+      "coarse_any": {
+        "0": [
+          "49d2758f9bc23790858f4713bf249ba5d3272cf2163a7069e7c099c8f81f2c50"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "3fbbf22b031ed1753eb3fa85ba027bd8ce4de76093d4120b29d1465be551e24a"
+        ],
+        "2": [
+          "ac5ff78116ac7e2767fc64132ca05e6f89083f8137455bf8da30c9bb6498e14e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e31d6e38c606f3136028c34998f17e9d032379235ac612ae07533a7c47df4227",
+      "hash_coarse": "0e498f94bb41a3f9abb14c786df5ebc6a9b1d8ac1f173b057c16a9d847028761",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "8f410b694f4f0fce1d9c65fb1707c97caa8bd2c768a355426e0ddd217851ff3f": "sigma est l'écart-type : le facteur vaut 1/(σ√(2π)), avec σ, pas σ²",
+        "f75915482b88f67f5da043290fc231cd8339959b4a882e73aea066d58e69b253": "le facteur vaut 1/(σ√(2π)), avec σ lui-même, pas sa racine"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.19c": {
+      "coarse_any": {
+        "0": [
+          "ac199073cdd424962db2fc0c8b08ff73d8fffec360e2ebcc192840ab31032ef1"
+        ],
+        "1": [
+          "49493e34419e077c9d366a8a243343da101a73f422dafe0d63503e50b5970279"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "4ebad602f1bfad18da5f36c0041118b08368e7bb38db064a439654131df6b51b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "5b1e8a41c2aa939babec52487e6ed968d6f137e71dba1d5989a10a1e3161012f",
+      "hash_coarse": "e162a35aa657235e5b64fcd931671e3e40932bc8cfc7da8d92989134bb447268",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "5aa7eb676a1d2a0e359efb788a4c460757e85dae7cd6acc46216dfb5d32b63cf": "Φ(z) = (1 + erf(z/√2)) / 2 : divise z par √2 dans erf"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.19d": {
+      "coarse_any": {
+        "1": [
+          "a01496b8e981731211c92bf7c4effdd8136dbf97e8086ea913519c805ecb09e3"
+        ],
+        "2": [
+          "0ffd5640e0ba69d327a5299d7788b55316677cce7fe304e335ebdb78590ca5b5"
+        ]
+      },
+      "decimals": 4,
+      "hash": "90e60f3ba377b40b99fdd7a78dcc9d0d121a43ed01af4101d77679dbedbb7bcf",
+      "hash_coarse": "89b91b57d901dc34b117a7ec00d3a1cf24ef95c89ea58cfa3cd76973eca684cc",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "6b46af41967f30e62e15bc4f0c2575f49f9f1f1ecea6afb0b2d923db0d8ebe27": "Φ(z) = (1 + erf(z/√2)) / 2 : divise z par √2 dans erf",
+        "97922be3f05d868ad648e93d9cd75738ea7d5218b964d691dbf80d0c749c23bc": "standardise par l'écart-type : z = (x − mu)/sigma"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.19e": {
+      "coarse_any": {
+        "1": [
+          "6f656fde92c4141fb254bc2274c04d027b4779241b7cb451a4df3ff64178f58e"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "48720475ec57f62a72d97fade9b343d546a0d702308e6f29b4f2f7203300b01f"
+        ]
+      },
+      "decimals": 4,
+      "hash": "73d75bde0d084d80592abd992e3b75b9614d0fbd2330d7a57eab691bde67efeb",
+      "hash_coarse": "aeec078413eeee4f93c5399f6cf412e5973890611deec8ff7834914b16bfeaf2",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.19f": {
+      "hash": "be36c60c5aad19a9656364eb9d7cc5d1e749966ddd5720b4b5aed53f780e6565",
+      "kind": "str",
+      "mistakes": {
+        "3ea2d255a947388f14848fe636cb052188b23a472fef6542bef16ae212381aca": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7a46f8cfc24edcbe9d8e3c3f15c45e540df5cf89f4efd3f5ea1e77bdb7e1ff83": "sigma = 0 : lève une ValueError avant de diviser par sigma",
+        "7b9d106860f49f62a063075ae930a76a8ecfd0c0d451f942f669af9d3083f848": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "832d1fc249fd9808ca72c8a33dd8dc30cb4daa574ecc4efaa557bb060085560e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8fd7cb8ff9b2288222f6c86be64e93e687762076399881ca040faab0651ccee4": "sigma = 0 : lève une ValueError avant de diviser par sigma",
+        "af3b27aaaf3a7167d9f907259fe48a099426faa31ecac420268ff961ec0edbcd": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b13d4a61f56d3f6bc2e5eb232d75c0ab2ead9f6409cbd90851c81acde9486045": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "dda5106257407f5a6336c77576a6ae556696969dbcf8ac2176f4b46b2bd94108": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e7e4ea8c0261705879900fd158675e788fea07dbb600e459514abb701b729978": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.19g": {
+      "hash": "ababd7ecd1966c9eaec6deebe95eaac4a3953a29138b19d40d3906e6cb9c32df",
+      "kind": "str",
+      "mistakes": {
+        "16a60460f83bfc20e009e748bbd9c0970d4957d8d223a918782d57619dd31c58": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy",
+        "30d4d7dde301ff87bfb03f27e4878ab0ced7b149aa117121d6a7cb07c0745aa3": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.19h": {
+      "coarse_any": {
+        "1": [
+          "eb8ffad76393e771dd837ea81b4a5a7feb2ab92f6922cfaec7e5fc1d6fca1064"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "6bf18c56a5bc157dcbdefc2c83eb4b60a5c22f1375be52a9d00fcd6f298a4d98"
+        ],
+        "3": [
+          "86f5117702bfb55612940e7613a92ed7108fc5a8b89517ff3301c588a3d009ee"
+        ]
+      },
+      "decimals": 5,
+      "hash": "b8bd812653ad7377882a2b3384a1a6ad44146e971f9212dad06e413912791ea8",
+      "hash_coarse": "72522cca672d1efd3d52c78c4941012185010a7e25770c9eed64ab592122f09b",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.20a": {
+      "coarse_any": {
+        "0": [
+          "10e7335a7ae8cc3f9004c497ee25b193b804be9db821a02312c865d23df7555e"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "d6e17d31f8881da888f5ff3e8159d8f6f66f3bf0ca2f6e323cae162325a3a3a0"
+        ],
+        "2": [
+          "3e46ba62b40860043e97a4dcc848bb68e4284b4f5f2465f9821ea26784836896"
+        ],
+        "3": [
+          "afbc32d47fa80c27cc1f738793403a0c327ed787b68d6b3c851fd1482144d3e7"
+        ],
+        "4": [
+          "7c7776a8acb1969b6f11e59dedc67f1c240e633fe20387bc37d9e98181b919a9"
+        ]
+      },
+      "decimals": 6,
+      "hash": "45fa35f9550cd85d8c5492e2993af7b40ddb6db6cca7194a7d42c9af5396b42b",
+      "hash_coarse": "9c982e26560605627092f78899712fb29d2fb1ea62b5edf38a9c30b3298ecf20",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "12b82f344b20a6bda938e5742c4fef7fd014fe610adca8bf3dfe057b9d6a5466": "les uniformes de np.random.default_rng(seed).random(n), dans l'ordre, chacun passé à inverse_cdf",
+        "307739447b3b963f1c24d21c752078b5cbac979f92ca3f659354f0ab4f492d53": "les uniformes de np.random.default_rng(seed).random(n), dans l'ordre, chacun passé à inverse_cdf",
+        "e733b5622cf346aa58115e3d89f318d888484036b93416beb723e433d96de0e7": "les uniformes de np.random.default_rng(seed).random(n), dans l'ordre, chacun passé à inverse_cdf"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.20b": {
+      "coarse_any": {
+        "1": [
+          "94a3c048db4b7c22310b96cd4ff1d861c20679c63449d57e85c6c6c30534d795"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "68f83a5dc5841b6325bb1888c4b1ffcbbc158cb719c5dc5ca0ce77f1222f750d"
+        ]
+      },
+      "decimals": 4,
+      "hash": "64d1d6b0f41969de5a56b4002a7fa6e3854430e36b02407a2497f87013a64cf5",
+      "hash_coarse": "586056f05d06892bac0350ade3626cc2128b4bc35fdb5373f117c69c2fd3b02b",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3451e1f03c606ba49ec77ad60ed08c73537fc30cf0d094b87fcda9db4ed2783b": "−ln(1 − u)/λ avec λ = 3 : divise par 3, ne multiplie pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.20c": {
+      "hash": "65f9ccebd67f4896ea40edeb4b28b78386820358747ec19b61dca68554029536",
+      "kind": "int",
+      "magnitude": 3,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.20d": {
+      "hash": "96cf9bc6db778ad72af8fccafa53736b2086480436ff01d8e0d922eddffafbc5",
+      "kind": "str",
+      "mistakes": {
+        "0a8b78b9720cc8a9c5ef515a4f269ed89848771099889b97a44296ed0d0afb27": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "1b40b4b10f6f4d990fe486725a4c4dd01c7092bf2cf7c8c36c583018a54ee6ef": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "246a717e15235045627e22489ecc8b9594f96f0eae72c1eb387c6176ab14f5fe": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "396e9543cbdec9989f258914b1615055595dbe64a910951c2b6ef988470211c9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "895b296692213be7a801b51c305cdd4f3067ab69e1baf0b374d5ae5164c2d9a8": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8d8931b111f0178b7463bb8e1d1561ab5590f75f7a4117aef847dbdee54fc014": "n < 1 : aucun tirage, lève une ValueError",
+        "b55239d114e64034561602cfb3314382a8baea61b6a87709c0bc67667e81bdeb": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "baab047bdb8ff4944ce3d8e0702b1439a15684b5bb0781becfc4817833981482": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e6a166b0d981b2535db3ef9bbbb42f89ac6668ece6eb91d9c7e852299144d6fc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.20e": {
+      "coarse_any": {
+        "0": [
+          "8fc0e287b58633d25490e370ea60f8c569d6a1c18bca56d0d800fe9c987659b3"
+        ]
+      },
+      "decimals": 2,
+      "hash": "ee4335f96bc2551c9cda694e8509413b3ed09525881c33b8b4ab7548879a70e8",
+      "hash_coarse": "7f95ca81509b1bb76ea83ad33cc99e3f431e361a725ec0f2cdd035c1b2d16708",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "610291061732a0b2ad5d8441e5417ada5fd9f00b00a399fd3773abb960104be2": "l'espérance de la loi géométrique vaut 1/p : relis la fonction d'inversion"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.20f": {
+      "coarse_any": {
+        "1": [
+          "e747c575ac76d9d3ae1e13ebc2d30030d090a8c223145de073da444289955757"
+        ]
+      },
+      "decimals": 3,
+      "hash": "e879d53e57f499841ae39f155c701c9892053c5fced38a96ee1216ebe6326fbd",
+      "hash_coarse": "f94ff72a23dcb3bd2450f6a6c73f28ef5c16f89c4a2af74cf1461c0a89621995",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.20g": {
+      "hash": "cd49a12f36a31dcb185c4182cfad4d37cc0ba723096873534402cb6514e515e8",
+      "kind": "str",
+      "mistakes": {
+        "075bd4385f9e54512525c3e88b9fcd74dc8e7ceb106aa9923d6b6742e6ad5b38": "la docstring demande un array de flottants : np.array(values, dtype=float)",
+        "386bd08d813bcfcae42b4f8926e62c624039b860dd192ef6281b042c0e1d1948": "la docstring demande un array de flottants : np.array(values, dtype=float)"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.20h": {
+      "coarse_any": {
+        "0": [
+          "97aff6934ae2df97ac0c9277c7b6cf1b277092b86f6c64f93916311d3843e197"
+        ],
+        "1": [
+          "611dd76d97182dcada4aa31615d64cb4bc775840bac330ef87ddba953efe18ab"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "1bc206afd42079107a88651af50884a465337f53f80fe1352babb85d2f9fad0b"
+        ],
+        "3": [
+          "8e6f34b5584f69876465d1ef87ca491ddd6996ba67cf87dae14b6ee626b4757d"
+        ],
+        "4": [
+          "3e782ad84dfcfbdb7f730eacbab284396c35d369bfc0bba491715a9ce4c5bf6c"
+        ]
+      },
+      "decimals": 6,
+      "hash": "fb2044ecf01c7f2d7033b8bed6fa2e4df1444a3353910010d655919050ebf5c1",
+      "hash_coarse": "ca656e98b34d7ab45c1ff8c6e8617aa872a22bf2edf6fc8f0fe855ff041570a1",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3a2b96213d59b60f591e48b8ad6d7a66422e1f0e19a86a196c410670cf3f3aad": "seed=3 : le générateur np.random.default_rng(seed), avec la graine reçue"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.21a": {
+      "coarse_any": {
+        "1": [
+          "20f8960a60339798c9734209f12597b1c00cd0f069459d823b7554675cfcf88d"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "7f6fcd0744bc11fd28404630130c65264c387c20f0766f088c4863e762ae91cf"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ae26e69202887f11dafd6c0edd536694d2a676288c23b53ff4f9da6f26e0518c",
+      "hash_coarse": "da1581d31c472db530a0a61ca441af78be51e56710bbdc87a46afc9aebdea3c3",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "c6fe14da045c195933438550d64e4c3342f7e69ffbbe72646c96d0a0dd4337b4": "pmf(3) donne P(X = 3) ; cdf(3) donnerait P(X ≤ 3)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.21b": {
+      "coarse_any": {
+        "1": [
+          "99acbd2482c8dfcdc85dece60b2960e93c5524eaaf8142fd20cb414e9360a1fd"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "a2eb7231cb88711e150e2de1132e72f683b8379ea2983bd882904ef46a01f9f9"
+        ]
+      },
+      "decimals": 4,
+      "hash": "acc6e5ce5f2e22c63eb6659e3c4f0991757b030cfbf939136f65da11c259911a",
+      "hash_coarse": "1787c3e0b6a8ba3ff5343b5edaaf903eb3691473c0398aa273945752a11efcd6",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "ef596f0b0beb36e434629de1f3710570053aa0f0188766f3b5705d10e1236645": "cdf(2) = P(X ≤ 2) ; pmf(2) donne seulement P(X = 2)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.21c": {
+      "alt_hashes": [
+        "b2ceb54eaae85e98e66803f0cb2e83df037fd0269b3e5e3a061d0e42288dda75"
+      ],
+      "coarse_any": {
+        "0": [
+          "95f28ab91a7afa7a4fc4effd2abbca7ecf5a31de6ec462bfc7ae9b3cffce2c98"
+        ],
+        "1": [
+          "20edde40214d8cc76a46a19e38f9aa3665dbcb2196130963e5e52e1b5859a192"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "cafb006e6e4e72c29b6635f16cc973f8701857c0d83fb5ab0b4d7b3798a351a3"
+        ]
+      },
+      "decimals": 4,
+      "hash": "2699e4b5ad76f86266a71a0ee7881c189d5b219fe0d4529c6f439fa9f5fa0e96",
+      "hash_coarse": "60753f8129d222e40133540eae7b3fe430c3ab84756c28e531e9327ff829b593",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "27ace01df21bf27cb331b87209115acd0c70609299792620b4d1267d178c83d6": "stats.norm(loc, scale) attend l'écart-type 15, pas la variance 225"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.21d": {
+      "coarse_any": {
+        "0": [
+          "3fd8695e88fc16d60c9090fd8032e434a0cae6c65f5051f6458f44e5ae4a50fb"
+        ]
+      },
+      "decimals": 2,
+      "hash": "66e30b84eb0d3278ed7e34ae300bff2483c0b03e6e47cde514155ed5082d5dee",
+      "hash_coarse": "95b8f9170ef6c6a0c529613dcd8a5160f5567a155580d789f6531ce808b81c59",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "2357690c79155e13590b38a32073c675aa99832865feccc172a0cf6f1274c799": "stats.norm(loc, scale) attend l'écart-type 15, pas la variance 225",
+        "95283dbf721a2f35ac55c3b284d8f92385c24260946851a304bada87f5364800": "le percentile 90 est ppf(0.9), une valeur de X ; cdf donne une probabilité"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.21e": {
+      "alt_coarse": [
+        "651e5939cc6c3f973fdc947aedbbd59c2c600061720ef5c7ae8a69f748cdd70d"
+      ],
+      "decimals": 1,
+      "hash": "552e06041240e2345e4b226511c57f02041079fcba9c9b5526902c350e9a3bc7",
+      "hash_coarse": "bc5f32f6d38c37dd41d843077beb09d3d8d04d0a69520420680e3189bcbe78a5",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6e53a402d788355d4a701b7c3a38adb8e4276d3650b8c9614213d26ebae41c2b": "stats.expon(2) fixe loc = 2, un décalage ; le paramètre λ se donne par scale = 1/λ",
+        "9fcbe1bfbc5cc670fe16b88b900bbd6f33615e416c91f3f25b48f416a0badda6": "scale = 1/λ, l'inverse du paramètre"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.21f": {
+      "coarse_any": {
+        "0": [
+          "167ea69d953f38a2b4113fcb22c98fab953c7d01f3c9d7d0dbfef4676fdab5a1"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "57e656a83daf5bb924eacd0faf5c973a9c1e52c3cb012c5cbdb2a0961bbdad0e"
+        ],
+        "2": [
+          "9b58674f73e263de9c7f6eee81829f686161fd662c91a62334f9e18297c7fa06"
+        ]
+      },
+      "decimals": 4,
+      "hash": "537fd5473829294f7b463be8e52c1c8aabe79b3655030e1f0c806917a710ed79",
+      "hash_coarse": "4aa09828e71c5461720dd0664c6a0dbc588b18641b4fedb25684eb4fd4de8c00",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "c9d4d4ea32a5930f33436c2258efc6a906cf083513d9934e85065cb630215b1b": "ppf est la réciproque de cdf : ppf(0.975), pas cdf(0.975)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.21g": {
+      "coarse_any": {
+        "0": [
+          "ec499f1390ab58fce74fc3b3089870c4f172ed205ed23a2179f0c1d785d3b2cc"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "10a9ad541073f8f7a1a6242985e8f939ba88a855d02c704ee8a4d2b29147987c"
+        ],
+        "2": [
+          "375a93baa236b1dae1a8177a8ca61f300c207e2ca00c21d8cd1b5b874be1f9b5"
+        ]
+      },
+      "decimals": 4,
+      "hash": "9653f1eab70f4dcc6232163f3a6ac0d1aa543a99c6f81b64eb9dab693504cfb5",
+      "hash_coarse": "ae296697ba69f0708a11e44a587434c6823d39d40e22ec113738dbea9ebb8d03",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.21h": {
+      "decimals": 1,
+      "hash": "3bd7de4d5ec334d42330bb3cba2cded490a18696b70c5fabe4af8b20eb4cafa7",
+      "hash_coarse": "11b8044563a8fc5d0d741ae4e7d28b0ace324b95598bea31ef3f86d307c58b0f",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "e4e139768609ffdf2d5e5103134b8fb58a8a54ecce9d9b88e27231181209df56": "stats.uniform(loc, scale) couvre [loc ; loc + scale] : scale est la largeur de l'intervalle"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.22a": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "e7258bc7ff0048bbcf952d9c0e44578347aaa5652d327fe2a8608638e151029c",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.22b": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "8a6d73f7fa5d1b3d7bd261443d9fbbb48cd124d00120e0d529d817a931327129",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.22c": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "b4cca09876958515a643615c43445c37b2ad1798d6d6543f479b6ff2c2a036d9",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.22d": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "7d49867f7a5c2c46ec58da031dfc64ac93b0212a6fb6444e847e3177abb73d51",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.23a": {
+      "coarse_any": {
+        "2": [
+          "193119bdea58e9f00961cf68625a379bf5b051a4ed5b6b468e81a5c0b721ba35"
+        ]
+      },
+      "decimals": 4,
+      "hash": "203bffd268c2342ca676ca31d20645771c3a9eb81f8e60f7ed81d8d11b32c3e0",
+      "hash_coarse": "697978a8ab5ec4848a70b52f75ab12461ea2d82d4c044038dd43b3bd7995f058",
+      "kind": "float",
+      "magnitude": -2,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.23b": {
+      "decimals": 5,
+      "hash": "8a0514ed9579728bb8f0a82db2e2f08c0325b244fdb3ca8aec170e6ed619d83e",
+      "hash_coarse": "4281130bdbfe8b2fb0ed3881c9d8e8819d7e6f2b1c93cbe113c4f32642db342e",
+      "kind": "float",
+      "magnitude": -4,
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.23c": {
+      "decimals": 1,
+      "hash": "24fc088cc0ed2269dac1d80669ff524355e90b461bfee9e574e5331a8b31744a",
+      "hash_coarse": "29e10b6f9e343c0aedb98cbfd1c386a886c474cd1b214d49b9ab58f194c7b8cb",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "fcc80906cfb070150ae0d5ce712687227505d69a7a12bae4e0a6d7a17b213134": "l'écart pour n = 100 divisé par l'écart pour n = 1 000, dans cet ordre"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.23d": {
+      "hash": "0ec23b6316d960b2363c5192c15d79bac59d5bea305715200bae6955164d3f03",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "330ae6154174d131275e92c5a101b4a458ee36aeb902fa713f8414192c834e04": "compare chaque écart à 0,01 : pour n = 30, il est encore au-dessus"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.24": {
+      "coarse_any": {
+        "2": [
+          "22ca1b10ac7d1a87024f96073d0eb161f04216d26ee035e56071d14623e7d769"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ce5b6ae3f9a5389f3fc1d450388293af1e21da43970dc8b2d42eaf1981a5ae5f",
+      "hash_coarse": "474ce58006987880b557725b4d84bbee4234917f6cd1409ed362fe323a751b6e",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "6ec130619c016457eb1d5580600b9b1998c2af584f68596dbea5f49df3818c7c": "le produit des marginales se calcule case par case : np.outer(p_rows, p_cols)"
+      },
+      "sign": 1,
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.25a": {
+      "hash": "511c5adc9666dc1fc3c7c51fe66052307d2e9f280f8f62ff7e3b682c4f3577cc",
+      "kind": "str",
+      "mistakes": {
+        "01ca08ddf10ebd245e92cb19a0bc4766c157eaec658a35b58d649a2ed9fc9924": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "05cd9ac449281f88ebb80d4cb912dfa13e3469fc8bff65d4cd52241c8fda3634": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "06872ae11a128e6ab5e6b9546e3220a42cbc79fb6d8653d8791a0c8be260f23c": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "069659d60f251f952a78e7f7418bf0d3af5088f6203c5635df501c448e98e784": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "06bd85a8def4441b496e9895e0fd72089ef3e88b8f2b5449b81547f312cb853c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0826086e26bf6bba21843b5b1e2a8cc04e0fcccd3fdae4bc88b8b9f9a464d1e1": "il manque une ligne fautive : relis chaque probabilité d'une valeur exacte pour une variable à densité",
+        "152c72f7be081d384e258555c3fc047263dd1a96c23cf5b2e46e034dcbe31390": "une ligne de trop : la ligne (E) est correcte ; relis ce qu'elle fait",
+        "2b96a9da36264d4b03227b4e065c11bccc2ec6c81599040f4fce0c582ded56e2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4243aa210e1861f44c86b0d4650e0605f9cba8276628bda1d35ce0db41ba8a17": "la ligne (C) est correcte, et il manque une ligne fautive : relis chaque phrase qui compare une densité à 1 : seule l'aire d'une densité doit valoir 1",
+        "47fccb59d818834c4bdf3417669769ecc0b371661aa3411ded38eb576b89b410": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "56008add9eacc4ebe823951641e05f78b738137e22441828248fd6d2b69626ae": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "599c2b0277ccc538f1c1abdeb1747f8de344629a1de595d68a01dfda952d5c1b": "une ligne de trop : la ligne (C) est correcte ; relis ce qu'elle fait",
+        "5d70195711c535c12ec7942c16f7d7216825520e995b6bca89a53def6d367f82": "il manque une ligne fautive : relis chaque notation N(μ, ·) : le second paramètre est la variance, et l'on standardise par l'écart-type",
+        "666cdf6f00976598657de93d903d69076552146af3d94161dd587889f4eca44b": "il manque une ligne fautive : relis chaque phrase qui compare une densité à 1 : seule l'aire d'une densité doit valoir 1",
+        "720645a4fa563b18b918a21d97fdf2d59e031b87a10f6b5bba49e671e343e8c4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "73daf52ab1ef1d62b3b2925a2f789d8106409ed1f94bc387ddad3a7cc0aa3a1e": "la ligne (E) est correcte, et il manque une ligne fautive : relis chaque probabilité d'une valeur exacte pour une variable à densité",
+        "76cb5184ff1d7fb87005f99a7f3215cd2202ac263f19d351f573b858f5404bf6": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "8410f154f36daa64e20c4d1ed3564b8b07d18e96a76628d4ac61e89db488bd1d": "la ligne (C) est correcte, et il manque une ligne fautive : relis chaque probabilité d'une valeur exacte pour une variable à densité",
+        "8d9d1d9cc49a0521afde1d44382443dc889660105e617a021b7b3ade40d3df44": "la ligne (E) est correcte, et il manque une ligne fautive : relis chaque notation N(μ, ·) : le second paramètre est la variance, et l'on standardise par l'écart-type",
+        "b41bfe34d0f10afeb961365023070be0394c8b01c2807e463f8140031530e0dd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b505f08d49e8a7c998b9cbf9fea975e0b7c9180b9e58212e7c0e0ffc3e53c249": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b851d76fc763b4914494bbde692591371f06fa1bd146962f4384a012775dd5df": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c1691427fdb28a2a52635f4f1e16589ee9c1482af03ef46c0b2de259f50885e6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d15be352294bd1de0430523b2113010ec82222d24a4421ebd5cd45694ff1b627": "la ligne (C) est correcte, et il manque une ligne fautive : relis chaque notation N(μ, ·) : le second paramètre est la variance, et l'on standardise par l'écart-type",
+        "e2f893a9e6f6b86af2b69837efa13c29632ef8c8aeea1b7d417f1e4c2de773fd": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "ebac2f2f7e89ccf7b58f2a535afdd7aa2ae1654124f1e6cbf6239aa6db4a0a61": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ee7d4222d2f41e0622d133c8d9fa97fb134bfc170ca8adc18c44859ce10a06e2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f21f30a6eca6b35adb354e76ce49869705c1afa2227a6f0ca8094396bc407322": "la ligne (E) est correcte, et il manque une ligne fautive : relis chaque phrase qui compare une densité à 1 : seule l'aire d'une densité doit valoir 1",
+        "f861a62a0b8b52150b00754d6b8202f0bd21e44627744f6de1eb3b382013e13c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "fd8a5e2fa253fc940779088337fae0e58fe5b4e241405b95b6a5eb31eeba565a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.25b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "d1e964965cd675b13d1d8974ad5517da69c023d431d3781a01e3074f788593f4"
+        ],
+        [
+          "ac4daefaf73970053e5d2bfa8e232014404e533a8ec88238e667dee32d540555"
+        ],
+        [
+          "1f573dbcd34a5aee75040c363a76347f553726b96a9f82b1e19f8573d776d839"
+        ],
+        [
+          "e6b088d17902b13c6bf04469239cb49c6b25098976e4efd1c0bb4a1ef824177b"
+        ],
+        [
+          "348cd209069c0bf811c47f77d4b96f00de1b57ec22972b07b13589feb431406c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "167039224754184e54a025d9ce35f8dcbe3e196eb7d54f014888dfcdc5c3ab72",
+          "a96354ba29e0d6f7595fde0ad49ada8253901bbaf23d41943bc6be493aa6bef2",
+          "3f4fb232afeb00fcc708c59d532f03000bdd3749ddfde80a04e12b55bab07437"
+        ],
+        [
+          "ab4c0b56ac2de822ff08b745f9feb503d36da5c5c078636402082f1f77e5347c",
+          "002f3f7d002f018fa234a7a7f89ef3bca8f7555587efe0b7312c2ed4867f1cdc",
+          "c629061b8244085209850257643a943b21262e3c3c87280cb789d9d251aa83c6"
+        ],
+        [
+          "52ea36809083fbc4a37025b32715be264f42049f3be58ced2dcef86dceb8bf6a",
+          "9971776cfa997cfdede2ff54ca815ca7fcca1707abc301587c3a54754ed2ff09",
+          "c54bbfbfd6ed49856b9afb77924cb2a1e09b67b02517166320873b3ce09491db"
+        ],
+        [],
+        [
+          "35c44eb5e3ab56aa8418b71d96d781101cdee57aa23e552d6afb0c63e3bb2382",
+          "e2b731b56f6f1fd54eb3013576ef2a5edaf7199cfd298d7b1ea6ba1a993d1c3b",
+          "58b2a863bc3b850987a1e540021d810a552bb20d46df81868b7abc3c447cf17d"
+        ]
+      ],
+      "element_hashes": [
+        "972a3112efcc3f58e854284e575a13375df5855ac284f18583c09d5b8bda822a",
+        "ed410fdd19bac7be746e055621cf0772cde79c910c9b60ce3321cc0a99d870ef",
+        "b6cfa7d0be23292036873ae94034d6ba3f8416ae62c6205f4def80ff79a9387c",
+        "a4eb89c8b40af2ddd95da2f4bad6adec8122e8d375337298ee1a13dcba8d7838",
+        "67d096ddb4a2fa43c30a3b36852629da7155b2dcda91d9328bbabf4c13f73eec"
+      ],
+      "hash": "570e394be4d8a843f049b09ab8d0d6b7b004dce253b7ebe0e311560d4b79208a",
+      "kind": "array",
+      "mistakes": {
+        "1e6b4e9a705cf9f5645c78abcb22c887f140466e40154aa8fed4484ca8ff35c5": "ce sont les valeurs des auteurs ; donne les bonnes valeurs des grandeurs dont ils parlent",
+        "7da1e03f69a4144c7ef280f86cd66f56e4295dfccd18e956afc2643780034381": "(B) : N(5, 4) a pour écart-type 2, et l'on standardise par l'écart-type",
+        "bc2bbb3538b81861b2e9cacdadf88a2e2edb853a19ab7f4a2da9eac90138d204": "(A) : la valeur 3,99 de la densité est juste ; c'est le raisonnement qui est faux",
+        "d05cd92596685f067a39e6bc9f57e76b0f17db07658b6b0d4ea859993b436745": "(D) : une valeur exacte a une probabilité nulle pour une variable à densité"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
+    "M02b.27": {
+      "hash": "c33bcda17b2d09fabfe1e12ab324ad3fd42244e9307d6a3f5c085b21b1ae328c",
+      "kind": "bool",
+      "mistakes": {
+        "5e416a6775d3148329b4eba6e03bf8b34c7fe08e1d92ad052f07a23f86b1c4d9": "un objectif au moins n'est pas atteint : relis les lignes ❌ et les pistes de 04_indices.md"
+      },
+      "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",

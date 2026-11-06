@@ -601,3 +601,47 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M02a.25 🏆 Défi : la meilleure précision avec dix évaluations de la fonction ★★★ 30 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)
 <!-- wbm:end M02a -->
+
+<!-- wbm:section M02b -->
+## M02b · Variables aléatoires et lois usuelles ⏱️ 13,9 h
+
+- [ ] M02b.Q1 🧠 Discrète ou continue ? ★ 4 min
+- [ ] M02b.Q2 🧠 Quelle loi pour quelle situation ? ★ 4 min
+- [ ] M02b.Q3 🧠 Espérance et variance : vrai ou faux ★ 4 min
+- [ ] M02b.Q4 🧠 La loi normale : ce que disent μ et σ ★ 4 min
+- [ ] M02b.Q5 🧠 Jointe, marginale, indépendance ★ 4 min
+- [ ] M02b.Q6 🧠 La variance d'une somme ★ 4 min
+- [ ] M02b.Q7 🧠 Simuler une loi ★ 4 min (complet)
+- [ ] M02b.R1 🔁 Espérance d'une variable discrète (R8) ★ 5 min
+- [ ] M02b.R2 🔁 Intégrales et densités (M02a) ★ 5 min
+- [ ] M02b.R3 🔁 Coefficients binomiaux (R8) ★ 5 min (complet)
+- [ ] M02b.1 ✏️ Loi de Bernoulli et loi binomiale ★ 20 min
+- [ ] M02b.2 ✏️ Loi géométrique : probabilités, et l'espérance par une série ★★ 20 min
+- [ ] M02b.3 ✏️ Loi de Poisson : probabilités, espérance, et la somme de deux variables de Poisson indépendantes ★★ 20 min (complet)
+- [ ] M02b.4 ✏️ Lois uniforme et exponentielle : probabilités et espérance ★ 20 min
+- [ ] M02b.5 ✏️ Loi normale : standardiser et lire la fonction Φ ★★ 20 min
+- [ ] M02b.6 ✏️ Espérance et variance d'une variable continue (théorème de transfert) ★★ 20 min
+- [ ] M02b.7 ✏️ Un couple de variables discrètes : loi jointe, marginales, indépendance ★★ 20 min
+- [ ] M02b.8 ✏️ Linéarité et variance d'une somme : sommes et moyennes de variables ★★ 20 min
+- [ ] M02b.9 ✏️ Une intégrale double sur un rectangle, et une densité jointe ★★ 20 min (complet)
+- [ ] M02b.10 ✏️ Changement de variable : la loi de aX + b, et celle de X² ★★ 20 min (complet)
+- [ ] M02b.11 ∂ La variance d'une somme de variables indépendantes ★★ 25 min
+- [ ] M02b.12 ∂ L'intégrale de Gauss par une intégrale double (changement en coordonnées polaires admis) ★★★ 30 min (complet)
+- [ ] M02b.13 ∂ La loi de Poisson, limite de lois binomiales ★★ 25 min (complet)
+- [ ] M02b.14 🔗 Combien d'erreurs d'annotation dans un dataset ? Binomiale et Poisson ★ 15 min
+- [ ] M02b.15 📖 MML §6.1 et §6.2 : espace probabilisé, pmf et pdf, en anglais ★★ 30 min (complet)
+- [ ] M02b.16 📖 MML §6.4 et §6.7 : espérance, variance, sommes de variables, changement de variable ★★ 30 min (complet)
+- [ ] M02b.17 🗣️ Expliquer la différence entre une variable aléatoire et sa loi ★ 10 min (complet)
+- [ ] M02b.E1 💼 Quand modéliser un comptage par une loi de Poisson ? ★ 10 min
+- [ ] M02b.18 🔨 Lois binomiale et de Poisson ★ 20 min
+- [ ] M02b.19 🔨 Densité et fonction de répartition de la loi normale (avec `math.erf`) ★ 20 min
+- [ ] M02b.20 🔨 Simuler par inversion de la fonction de répartition ★★ 20 min (complet)
+- [ ] M02b.21 📦 `scipy.stats` : pmf, pdf, cdf, ppf et rvs ★ 15 min
+- [ ] M02b.22 🔮 Prédire : la variance de la moyenne de quatre dés ★ 10 min
+- [ ] M02b.23 🔬 Binomiale et Poisson côte à côte quand n grandit ★★ 20 min (complet)
+- [ ] M02b.24 🎨 Une loi jointe en carte de chaleur, ses marginales sur les bords ★ 20 min (complet)
+- [ ] M02b.25 🐛 Chasse à l'erreur : une densité prise pour une probabilité, σ et σ² ★ 15 min (complet)
+- [ ] M02b.26 🛠️ Documenter une loi : docstring et exemples testés (`doctest`) ★ 15 min (complet)
+- [ ] M02b.27 🏆 Défi : tirer des valeurs normales avec seulement des tirages uniformes ★★★ 30 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (25 cartes)
+<!-- wbm:end M02b -->

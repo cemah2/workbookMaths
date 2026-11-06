@@ -41,3 +41,4 @@ Les ressources que les fiches citent. Chaque lien a été vérifié avant d'êtr
 | Ressource | Ce que c'est | Vérifié |
 |---|---|---|
 | 3Blue1Brown, *Essence of linear algebra* et *Essence of calculus* | séries de vidéos courtes et très visuelles (en anglais, sous-titres disponibles), déjà conseillées par le chapitre 0B de workbookIA | à confirmer à la première citation |
+| 3Blue1Brown, *Why π is in the normal distribution (beyond integral tricks)* (2023) | une vidéo (en anglais, sous-titres disponibles) sur l'origine du $\pi$ de la loi normale, par la symétrie de la loi à deux dimensions ; citée par M02b ([3blue1brown.substack.com](https://3blue1brown.substack.com/p/why-is-in-the-normal-distribution)) | 2026-11-07 |
