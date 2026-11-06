@@ -53,7 +53,7 @@ CHAPTERS = [
             ("R0.5", "📦", 1, 15, "Vérifier un développement avec SymPy (expand, simplify)", "§4", "E"),
             ("R0.6", "🐛", 1, 10, "Chasse à l'erreur : `x^2` et `2x` en Python", "§2 §4", "E"),
             ("R0.7", "🎨", 1, 10, "Tracer une fonction avec matplotlib", "§6", ""),
-            ("R0.8", "🛠️", 1, 15, "Écrire trois formules en LaTeX dans ta feuille de réponses", "§5", "E c:manuel"),
+            ("R0.8", "🛠️", 1, 15, "Écrire trois formules en LaTeX dans ta feuille de réponses", "§5", "E c:manuel f:02"),
             ("R0.9", "🔨", 1, 25, "Ta première fonction : la moyenne (`mean`)", "§7", "E m:mean"),
         ],
         "notes": "COMPOSITION : chapitre d'outils de 3 h, sans calcul nouveau (un seul ✏️, pas de ∂ ni de 🔁). "

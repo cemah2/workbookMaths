@@ -126,3 +126,22 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] 📐 **PS** · Projet de synthèse
 - [ ] 🤖 workbookIA **PF** · projet final
 <!-- wbm:end ordre -->
+
+<!-- wbm:section R0 -->
+## R0 · Prise en main ⏱️ 3,2 h
+
+- [ ] R0.Q1 🧠 Le notebook : cellules, ordre d'exécution, « Run all » ★ 3 min
+- [ ] R0.Q2 🧠 Python calculatrice : `**` ou `^`, `//` ou `%` ★ 3 min
+- [ ] R0.Q3 🧠 Taper une réponse : fraction, expression, intervalle ★ 3 min
+- [ ] R0.Q4 🧠 SymPy et LaTeX : vrai ou faux ★ 3 min (complet)
+- [ ] R0.1 ✏️ Calculer avec Python : priorités, division entière et reste ★ 10 min
+- [ ] R0.2 🗣️ Expliquer à quoi sert `wbm.check`, et pourquoi il ne montre jamais la réponse ★ 10 min (complet)
+- [ ] R0.3 📦 Taper une fraction exacte, une expression et un intervalle ★ 10 min
+- [ ] R0.4 🔮 Prédire : 0,1 + 0,2 vaut-il 0,3 pour Python ? ★ 10 min
+- [ ] R0.5 📦 Vérifier un développement avec SymPy (expand, simplify) ★ 15 min
+- [ ] R0.6 🐛 Chasse à l'erreur : `x^2` et `2x` en Python ★ 10 min
+- [ ] R0.7 🎨 Tracer une fonction avec matplotlib ★ 10 min (complet)
+- [ ] R0.8 🛠️ Écrire trois formules en LaTeX dans ta feuille de réponses ★ 15 min
+- [ ] R0.9 🔨 Ta première fonction : la moyenne (`mean`) ★ 25 min
+- [ ] Flashcards du chapitre importées dans Anki (10 cartes)
+<!-- wbm:end R0 -->

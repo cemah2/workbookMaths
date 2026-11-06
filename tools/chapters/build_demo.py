@@ -99,7 +99,7 @@ print("mymath._example.mean([1, 2, 3, 4]) =", mymath._example.mean([1, 2, 3, 4])
 
 END_MD = """## C'est prêt
 
-Si tout s'est exécuté jusqu'ici, ton environnement fonctionne. Suite : le test de positionnement (`python tools/start_chapter.py POS`) puis le chapitre R0, en parallèle du chapitre 0A de workbookIA (voir le README, « Ordre de travail commun »)."""
+Si tout s'est exécuté jusqu'ici, ton environnement fonctionne. Suite : le chapitre R0 (`python tools/start_chapter.py R0`), puis le test de positionnement (`POS`), en parallèle du chapitre 0A de workbookIA (voir le README, « Ordre de travail commun »)."""
 
 
 def build(kind: str) -> list:

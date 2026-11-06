@@ -59,6 +59,323 @@
         "6973d62333b19ea2fa48f2bb4fa7e0874fc5c841d602d13094dbe036db4a40f3": "l'inégalité est large : -2 et 2 sont-ils solutions ?"
       },
       "source": "00_setup/demo_solutions.ipynb"
+    },
+    "R0.1a": {
+      "hash": "1d6fba18a248bafcd90038e436d884294e2123779a417082de8d3ee7379464b6",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "924b76a43f0e76bf30658539cec86579912ca7c1aee738825dfb847678c1ca32": "** passe avant * : 2 * 3 ** 2 = 2 × 9",
+        "c7dfbc0a35d60d9860ca1f72bdadaec634d8f0d94450412a5f7704d3176a3ccb": "** passe avant *, et * avant + : 3 ** 2 d'abord"
+      },
+      "sign": 1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.1b": {
+      "hash": "9d3cce9df9148c2797aac1d082dab6bbd3d40cac8a6fea3847a7f4a40bf15106",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "da7e5c7e0db9c17ef8525df262014667821b018389f22979ab2589ba07a8461c": "les parenthèses d'abord, puis ** avant * : 7 × 9"
+      },
+      "sign": 1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.1c": {
+      "hash": "1208049267f968f21e2f6e6ee879f4603baef551a68f8e5ec1f64a79fe704c5f",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "b6c18cb91b03937eaf92d32b9a892136ace7ba30c8f73450bd6d98b6bd980b68": "** passe avant le signe moins : -4 ** 2 se lit -(4 ** 2)"
+      },
+      "sign": -1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.1d": {
+      "hash": "d41bcb2d09eb08771dc6b7bae8b19acd1348b76b9c20a32c5a7c9655d6579024",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "a41cbd547c8df891eb1e132cb6c5472215e76a05c6d6f9c93c5ae56f52d9c274": "avec les parenthèses, c'est (-4) qui est élevé au carré : moins par moins donne plus"
+      },
+      "sign": 1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.1e": {
+      "hash": "d118fc566a2f257736897ac877bf64dba07abc4ce72084dfd10244e767aae915",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "76da8dde5e635dee57fe2382920def31a6ac62983b88c0ad969564c34a564310": "// donne le quotient entier, pas le reste"
+      },
+      "sign": 1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.1f": {
+      "hash": "18e8f04dd04251c5852015fb1ede13924f8b0d30fd2db4e1b88c76daca8db568",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "6dac22d8289e35a503ab3afe1421e7c9a48fa7bbf4e2da4cc310ee50d3dfeb13": "% donne le reste, pas le quotient : 29 = 6 × 4 + 5"
+      },
+      "sign": 1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.1g": {
+      "hash": "22bd391da1edfffde2d0a39707c9cf8e869623fcc6b40cdb4e7f7616b4d6f1dd",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "70f980d74829c31f509963a6f0deedf32224a5d245fa0b939c839cfebd196927": "// arrondit vers le bas (vers moins l'infini), pas vers zéro : -4,83… devient -5"
+      },
+      "sign": -1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.1h": {
+      "hash": "1491505534681a37e4ab3a9da5b3eeb9f431aac542914e7b0a72674add475674",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "4038f1d65588f73066c25af0cd9cefaf0c014439af53d35d01cc548c487ad5ae": "le reste est toujours entre 0 et 5 : écris -29 = 6 × (-5) + r"
+      },
+      "sign": 1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.1i": {
+      "hash": "350b855fd6bcbbcbb85ac74a1516ba510114b2aee156a87610ff8c1819b36cf1",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "3feb706828a83427492be9326eb982c3d1d681ef8d728a87fec65f4afcf03db3": "les puissances se calculent de droite à gauche : 3 ** 0 d'abord"
+      },
+      "sign": 1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.1j": {
+      "decimals": 1,
+      "hash": "635fb2bedf7b0ebcc2d50fcd7b9f5b9776467b9b1b3ecb94c564c46bbeb8c73a",
+      "hash_coarse": "2c2f4e54c11447f784090ddeb4fc06b53cd8f334da9dcab7bfc4fce76236b8d2",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "9d9d73d4857ece2e5153a69e9a0ae2d66f91fbacc6e0b592e7cd2f2b0cabc5a8": "/ et * se calculent de gauche à droite : (10 / 4) × 2"
+      },
+      "sign": 1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.3a": {
+      "hash": "27c3520b27eccd4a09f9602025c4133a4946e426c40455c66fd445211c7c7909",
+      "kind": "fraction",
+      "mistakes": {
+        "d55634d49b2777b7e9e1dbed520286e32c0d7b725542b8324a1a915ca4a3e076": "1/6 = 2/12 : le numérateur aussi est multiplié par 2",
+        "f38683f982659e35f30fa7e85853fec1fd65b0a64a3502c70f98d05ea6e1732a": "on ne soustrait pas les numérateurs et les dénominateurs entre eux"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.3b": {
+      "hash": "fe39f106e2cf61d3bd904955aef522cce4b34a3bf7b90c7a813de6f5ccfb698f",
+      "kind": "expr",
+      "mistakes": {
+        "3ea4ee679e35fe42c2dad316da7e770725633119355cceff0793dd3e7db42bcd": "le carré porte sur toute la somme x + 3 : des parenthèses autour de x + 3",
+        "888d48efe3bff0be1856f848a1d11fdafd5a0517d4d606833ceb8d9c5f0feef9": "le « moins 1 » vient après le carré, hors des parenthèses"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.3c": {
+      "hash": "c9c2a58572d831615daf9a758cfac7791a8b52f2256af29f03d4bdb0652f61c3",
+      "kind": "interval",
+      "mistakes": {
+        "272643b3cce3d2ddb68e27028f974873607cfaec8ad050f190115ead1dd335fe": "-2 est exclu (« strictement »), crochet ouvert de ce côté-là",
+        "2b8867c575068eb778408e9b776a2d5471e0832a5994ceda082cfb3114e4dfb2": "« strictement supérieurs » : -2 est exclu, et « inférieurs ou égaux » : 5 est inclus"
+      },
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.3d": {
+      "hash": "befe3f529e4d923dfee4c13c6948786cd730862fd4052153872ce471416c0f98",
+      "kind": "interval",
+      "mistakes": {
+        "11d35866e567fda39f223933f417d552657675d36c9f7c835dbc14b7f81df849": "« ou nuls » : 0 est inclus, donc crochet fermé en 0",
+        "c35e8c1b76d5d6bbb953b268b2ef1b931f726d943ec731aaa9aeee12e17070bf": "« négatifs » : ce sont les nombres inférieurs à 0, pas supérieurs"
+      },
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.3e": {
+      "decimals": 3,
+      "hash": "04c332caefc03e4c4e83725157c755c06de125b9ed49555098a772dbc5d6c675",
+      "hash_coarse": "9f13cc06769bbdeb3b4f1f986ed1344229b7bbe7cba25cb427a56641788204d8",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "2235099f678145ffa127190a88512df8f1ff728e6a3c2f96e5ec663d8a7cbc4e": "arrondir n'est pas tronquer : π = 3,14159…, la 4e décimale (5) fait monter la 3e"
+      },
+      "sign": 1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.4a": {
+      "hash": "b60541503043778848caf01177c76583ead5a932616a3cb311351be76a5fec8e",
+      "kind": "bool",
+      "prediction": true,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.4b": {
+      "hash": "7949bee8d4cc629195dbdab401bea91be22bd416fc1188cc10d461317eed4002",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "85dc153b646e186357f8a4e6d68bb22c02557123665ad814a1abce1c57a67b9f": "e-17 veut dire « fois 10 puissance -17 » : l'exposant est négatif"
+      },
+      "sign": -1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.4c": {
+      "hash": "60491107cf140b5d9bc86fce046e2f9c3d5baafb44b005ec311beb9703bad1df",
+      "kind": "fraction",
+      "mistakes": {
+        "86fb7d81b1093cf3b4da0647fd7d0a078a30f00769a08a0dd2569d3b1042e14a": "avec Fraction, le calcul est exact : 1/10 + 2/10 n'a pas d'erreur d'arrondi"
+      },
+      "sign": 1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.5a": {
+      "hash": "54c02fc4b883a1eb3efc552f7f809331880c1d9799310fc8213a33696e90c70d",
+      "kind": "str",
+      "mistakes": {
+        "12977e8783b49146d784f71b8d20e194abfd98c04af91d23f91043cf3fa048dd": "d) est faux : développe-le, le dernier terme vaut 2 × 4 = +8",
+        "7210673650c28e33e2d14e5599b1dc0bd8a41a751e8243d53c2eb95b3c868afb": "c) est juste : sp.expand((x - 1)**3) redonne exactement son résultat",
+        "8d51fcf97957fbd750277c3e620bab257b43da5e26590b78f6ad59eb5e35ea21": "b) est faux : le carré d'une différence a un « double produit », -12x",
+        "9a96789068c6173433c10e35b7fac8a5ef97ebaef6702c34f5ef2ed19eb1ee49": "a) est juste : la différence se développe en 0"
+      },
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.5b": {
+      "hash": "fef22b0c52ca4d628cef41d196ebdb1b98161b2ed42f23703233c8b6f1829516",
+      "kind": "expr",
+      "mistakes": {
+        "96b032c34b898988c112376f7df17de28094e01fa6630b213b2b89cb24e319cb": "le double produit vaut 2 × 3x × 2 = 12x",
+        "b44bf3aa2ba1e9bdd3efb7d65016f70e5fc06853c04717940e6f828ea661f53e": "le dernier terme est (-2)² = +4"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.5c": {
+      "hash": "3655fd1b0467f81a7916c2e354c2e96fbc70df899d60c2f4e93cfe824c99a207",
+      "kind": "expr",
+      "mistakes": {
+        "ac075de6fbab5b7b05d5aa330fc4fee87e5d08cf9c976871a30fffc4fcbe0b88": "x² - 4 = (x - 2)(x + 2) : quand on simplifie par x + 2, il reste x - 2"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.6a": {
+      "hash": "b07fb2f2c2d8e49900017a0e57040c00b3f06f1e0030c55635fb239ae42a5f66",
+      "kind": "str",
+      "mistakes": {
+        "18da5c0a3c69cd106fb5e42f446e40e6e42323ea3b0ff7b52ae3095493206591": "il manque une ligne fautive : la multiplication ne se sous-entend pas en Python",
+        "31e59c1a9dff5464eb039de7b86b6a5f83f691a15316747a411c81dfd144bfb5": "il manque une ligne fautive : 1/4*x se calcule (1/4) × x, pas 1/(4x)",
+        "380162548018d0e9e2efe34a5c441a7fcc823a45635fd96890cf008c67e39e92": "la ligne (a) est correcte, et il manque une ligne fautive : la multiplication ne se sous-entend pas en Python",
+        "41b5d387c14252d01188a4f2bde9e58ac6e8aa955e4c7ecfbfc42c9e04e5c29c": "une ligne de trop : la ligne (g) est correcte ; relis ce qu'elle fait",
+        "45ee2f19a46de3e13a36acd0963f00acbd27cacf7a98a17db548dfff4c5dc348": "la ligne (g) est correcte, et il manque une ligne fautive : la multiplication ne se sous-entend pas en Python",
+        "46e05752110f2814c22327920f6ea7876575761020fa5052490b154c51acf51b": "une ligne de trop : la ligne (d) est correcte ; relis ce qu'elle fait",
+        "499f827ac2d68bc23447cbc944c33ce3cffc5399e651bbe7a0a0e8f7e2b31319": "la ligne (a) est correcte, et il manque une ligne fautive : en Python, ^ n'est pas la puissance",
+        "4ddd74dc4e9b2d43d10b2c5940a190982d7696ddb601a1ef8ba5783d9648352e": "la ligne (a) est correcte, et il manque une ligne fautive : 1/4*x se calcule (1/4) × x, pas 1/(4x)",
+        "5a6a7a73eef8c7b97245e3d877c2b3a01a02de26358dfb8636fb60bac047ab6d": "la ligne (d) est correcte, et il manque une ligne fautive : 1/4*x se calcule (1/4) × x, pas 1/(4x)",
+        "688c08bb0e8f2eb08eacea09b68bd674b1edacce60a8aa9320d49b9f00389192": "la ligne (e) est correcte, et il manque une ligne fautive : 1/4*x se calcule (1/4) × x, pas 1/(4x)",
+        "badbfdde675d0c20670ce5b0b169f8a756444e261e853026952c5657d9d4f784": "il manque une ligne fautive : en Python, ^ n'est pas la puissance",
+        "be8c3da650ecf6f7fc646ff3248062897159739a50bf91335f893511ee8f83d5": "la ligne (d) est correcte, et il manque une ligne fautive : la multiplication ne se sous-entend pas en Python",
+        "c489e16f1232d8508aed2c2e4144e18235aea8e523788f89b5cbbb986c5b3ab7": "une ligne de trop : la ligne (e) est correcte ; relis ce qu'elle fait",
+        "c4a1447eabd9b0b4d3f5575d95c9fe3f6a0477dd623c56eb788c8bf1b4ed9179": "la ligne (g) est correcte, et il manque une ligne fautive : 1/4*x se calcule (1/4) × x, pas 1/(4x)",
+        "c75bd448036cc3a01a0e340355f2ba2137ff1a093986cdb966e50149ac2d735c": "la ligne (e) est correcte, et il manque une ligne fautive : la multiplication ne se sous-entend pas en Python",
+        "c98c8fb632d44b3545474545915e789eba45bf701518c147d86bf39c523ef5ac": "la ligne (g) est correcte, et il manque une ligne fautive : en Python, ^ n'est pas la puissance",
+        "cb6131368a2dae90b2ba262908065682090da7fc5aa2c2722c6167cb437372ee": "la ligne (e) est correcte, et il manque une ligne fautive : en Python, ^ n'est pas la puissance",
+        "ec7d50c421de0e24d3721599165009060751c5bfab5fc4e28c19c4297c413b4b": "la ligne (d) est correcte, et il manque une ligne fautive : en Python, ^ n'est pas la puissance",
+        "f000d2278e20d403333d57d6646cce53fc39c2ff05cff080262a83cc3fbe3c91": "une ligne de trop : la ligne (a) est correcte ; relis ce qu'elle fait"
+      },
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.6b": {
+      "decimals": 4,
+      "hash": "f2acdf4238cb837eaf9426feb055ef81af378f8f33da5712ec44746cedd8e8a0",
+      "hash_coarse": "f53c833de8f66709bb241e66c4ca1ae42514d570b7f23046599d0f80a1836e82",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "1ab5592d9f0e6c55c363618541338216d07afc5d7668ab22e56075145f6923d5": "1/4*x se lit (1/4) × x : il faut des parenthèses, 1/(4*x)"
+      },
+      "sign": 1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R0.9": {
+      "decimals": 4,
+      "hash": "5f5967bc51b2fb9f139eed227daeb589862251df1f52d15586aca710a522a9b1",
+      "hash_coarse": "31f1eabb53d85e7eb88dd718b43d635fc5545c96d4a02a7dac652cbb780b2a41",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "8f05cd2a006c816a71c41fb254a8c5ed9b521cfe5c2058a65778880b6f7607f7": "on veut la moyenne, pas la somme : divise par le nombre de valeurs",
+        "c53c2a8063c0037a9d2d7c2e8ef13050f8173a48e85ddc28ef3395b3fc7873a6": "divise par le nombre de valeurs (3), pas par 2"
+      },
+      "sign": 1,
+      "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
     }
   }
 }

@@ -1,10 +1,10 @@
 # PROGRESS : état de la génération de workbookMaths
 
-*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-06, session 2 (syllabus).*
+*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-06, session 3 (R0).*
 
 ## Prochaine étape
 
-➡️ **Session 3 : chapitre R0** (prise en main), puis **POS** (le test de positionnement, juste après R0 : il se répond dans `wbm.check`), puis **R1** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre.
+➡️ **Fin de la session 3** : appliquer les corrections de la vérification indépendante de R0, puis **POS** (le test de positionnement, juste après R0 : il se répond dans `wbm.check`), puis **R1** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre.
 
 Avant la génération de la partie I : **session de syllabus de la partie I** (détailler M02a à M06 et CP1 : exercices, stubs `mymath`, temps, frontières explicites), en tenant compte du calibrage de la partie 0. Rafraîchir d'abord la copie de workbookIA (`python tools/snapshot_workbookia.py <clone> --check`).
 
@@ -12,7 +12,7 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 
 | Partie | Chapitres | Statut |
 |---|---|---|
-| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | 📅 planifié (syllabus détaillé) |
+| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | R0 🛠️ (écrit, vérification indépendante en cours) ; le reste 📅 |
 | I · Fondations | M02a à M06, CP1 | 📅 planifié |
 | II · Concepts | M07 à M11, CP2 | 📅 planifié |
 | III · ML classique | M12a à M14, CP3 | 📅 planifié |
@@ -35,7 +35,13 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 
 ## Écarts par rapport à la bible
 
-*(aucun)*
+- R0.8 (🛠️ LaTeX) : drapeau `f:02` ajouté au syllabus (exercice de la feuille de réponses, pas du notebook) ; ID et contenu inchangés.
+
+## Session 3 (2026-11-06) : chapitre R0 🛠️
+
+**Fait** : `chapitres/r0_prise_en_main/` (fiche en 7 sections et 3 figures par `tools/chapters/figures_r0.py`, exercices, notebook et corrigé exécuté par `tools/chapters/build_r0.py`, indices, solutions, feuille de réponses, 10 flashcards) ; 24 réponses vérifiées dans `answers.json` ; corrigé exécuté en 2,8 s ; notebook vide « Run all » sans erreur ; glossaire et erreurs fréquentes complétés ; démo : la suite indique R0 puis POS.
+
+**En cours** : vérification indépendante (re-résolution à l'aveugle, apprenant simulé sur le notebook) ; ses corrections suivront dans un commit « R0: … ».
 
 ## Session 2 (2026-11-06) : syllabus ✅
 
