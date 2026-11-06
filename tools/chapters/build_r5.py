@@ -96,7 +96,7 @@ PAPER = [
          'mistakes={"une puissance impaire d\'un nombre négatif est négative": 486, '
          '"t₅ : cinq multiplications par −3 depuis t₀": {2 * (-3) ** 4, 2 * (-3) ** 6}}'),
         ("g", "an integer", "next(n for n in range(50) if 500 * 1.2**n > 2000)",
-         'mistakes={"calcule p₇ : la population n\'a pas encore dépassé 2 000": 7, '
+         'fractional="un nombre d\'heures entier : le premier entier qui convient, pas un arrondi", mistakes={"calcule p₇ : la population n\'a pas encore dépassé 2 000": 7, '
          '"les hausses se composent : on multiplie par 1,2 chaque heure, on n\'ajoute pas 100": 16}'),
     ]),
     Paper("R5.4", "Sommes arithmétiques et géométriques", [
@@ -122,6 +122,7 @@ PAPER = [
          '"la raison est −2 : 1 − q = 1 + 2": 1023, "de k = 0 à 9 : 10 termes": 683}'),
         ("h", "an expression in n, as text", '"n**2 + 2*n"',
          'kind="expr", variables=("n",), mistakes={"de k = 0 à n − 1, la somme des k vaut (n − 1)n/2": "n**2 + 4*n", '
+         '"la somme s\'arrête à k = n − 1 : n termes, pas n + 1": "n**2 + 4*n + 3", '
          '"la constante 3 est ajoutée n fois": "n**2 - n + 3", '
          '"le dernier terme est celui de k = n − 1 : 3 + 2(n − 1)": "n**2 + 3*n"}'),
     ]),
@@ -139,7 +140,7 @@ PAPER = [
         ("e", "True or False", "False",
          'mistakes={"la raison 1,1 est plus grande que 1 : les termes grandissent, et les sommes partielles aussi": True}'),
         ("f", "an integer", "next(n for n in range(1, 100) if 4 - 4 * (1 - 0.75**n) < 0.1)",
-         'mistakes={"pour ce nombre de termes, l\'écart à la limite est encore supérieur à 0,1": 12, '
+         'fractional="un nombre de termes est entier : le premier entier qui convient, pas un arrondi", mistakes={"pour ce nombre de termes, l\'écart à la limite est encore supérieur à 0,1": 12, '
          '"l\'écart entre la limite et la somme partielle vaut premier terme × qⁿ / (1 − q) (fiche §5)": 9, '
          '"un nombre de termes plus petit convient déjà : essaie les valeurs une par une": 14}'),
     ]),
@@ -153,7 +154,7 @@ PAPER = [
          'decimals=2, mistakes={"à intérêts simples, les intérêts sont les mêmes chaque année : 2,5 % du capital de départ": '
          'round(3000 * 1.025**10, 2)}'),
         ("d", "an integer", "next(n for n in range(100) if 3000 * 1.025**n > 4000)",
-         'mistakes={"calcule le capital au bout de ce nombre d\'années : il n\'a pas encore dépassé 4 000 €": 11, '
+         'fractional="un nombre d\'années pleines : le premier entier qui convient, pas un arrondi", mistakes={"calcule le capital au bout de ce nombre d\'années : il n\'a pas encore dépassé 4 000 €": 11, '
          '"les intérêts se composent : on multiplie par 1,025 chaque année": 14}'),
         ("e", "a number (2 decimals)", "round(5000 / 1.025**6, 2)",
          'decimals=2, mistakes={"actualiser, c\'est diviser par 1,025⁶, pas multiplier": round(5000 * 1.025**6, 2), '
@@ -199,7 +200,7 @@ PAPER = [
         ("g", "a list (6 decimals)", "[-2 / 3, 2 / 3]",
          'decimals=6, ordered=False, mistakes={"q² = 4/9 a deux solutions, opposées": [2 / 3], '
          '"q² = 4/9 : prends les racines carrées": [-4 / 9, 4 / 9], "q² = 4/9 : la raison est une racine carrée '
-         'de 4/9": [4 / 9]}'),
+         'de 4/9": [4 / 9], "6 décimales : arrondis au plus proche, ne tronque pas": [-0.666666, 0.666666]}'),
     ]),
     Paper("R5.11", "Actualiser : ce que vaut aujourd'hui une somme versée chaque année", [
         ("a", "a number (2 decimals)", "round(1000 / 1.04, 2)",
@@ -211,7 +212,7 @@ PAPER = [
         ("c", "a number (2 decimals)", "round(present_value(1000, 0.04, 8), 2)",
          'decimals=2, mistakes={"chaque versement vaut moins aujourd\'hui : actualise-les": 8000, '
          '"le premier versement arrive dans un an : il est déjà actualisé une fois": '
-         'round(present_value(1000, 0.04, 8, first=0), 2), '
+         '{round(present_value(1000, 0.04, 8, first=0), 2), round(present_value(1000, 0.04, 8, first=0), 2) + 0.01}, '
          '"on cherche la valeur aujourd\'hui : on divise par les puissances de 1,04, on ne multiplie pas": '
          'round(sum(1000 * 1.04**k for k in range(8)), 2), '
          '"il y a 8 versements, de l\'année 1 à l\'année 8": {round(present_value(1000, 0.04, 7), 2), '
@@ -235,7 +236,7 @@ PAPER = [
          'window_means(X12, 4)[1] + (X12[5] - X12[0]) / 4}, '
          '"la différence des deux valeurs est divisée par 4": window_means(X12, 4)[1] + (X12[5] - X12[1])}'),
         ("e", "a list of 2 integers", "[99, 2]",
-         'mistakes={"additionner 100 nombres demande 99 additions": [100, 2], '
+         'mistakes={"additionner 100 nombres demande au minimum 99 additions (on part du premier nombre)": [100, 2], '
          '"la mise à jour fait une soustraction et une addition (la division ne compte pas ici)": [99, 3], '
          '"la mise à jour fait une soustraction, puis une addition à l\'ancienne moyenne": [99, 1], '
          '"dans l\'ordre [direct, mise à jour]": [2, 99]}'),

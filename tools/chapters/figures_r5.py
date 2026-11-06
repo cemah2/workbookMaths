@@ -73,7 +73,7 @@ def fig_geometric_ratios() -> None:
                                       ("tend vers 0", "oscille et tend vers 0", "constante", "tend vers +∞"),
                                       (C[0], C[2], C[3], C[1])):
         ax.axhline(0, color="gray", linewidth=0.8)
-        ax.plot(n, q**n, "o-", color=colour, markersize=4, linewidth=1)
+        ax.plot(n, q**n, "o", color=colour, markersize=4)           # points only: a sequence lives on the integers
         ax.set_title(f"q = {french_number(q)} : {comment}", fontsize=10)
         ax.set_xlabel("n")
         ax.grid(True, alpha=0.3)
@@ -84,20 +84,20 @@ def fig_geometric_ratios() -> None:
 
 
 def fig_limit() -> None:
-    """§5: uₙ = 10 − 8 × 0,6ⁿ tends to 10; from N = 6 on, every term stays within ε = 0,5 of 10."""
+    """§5: uₙ = 10 − 9 × 0,6ⁿ tends to 10; from N = 6 on, every term stays within ε = 0,5 of 10."""
     n = np.arange(0, 15)
-    u = 10 - 8 * 0.6**n
+    u = 10 - 9 * 0.6**n
     fig, ax = plt.subplots(figsize=(7.2, 3.8))
-    ax.axhspan(9.5, 10.5, color=C[2], alpha=0.18, label="bande de largeur ε = 0,5 autour de 10")
+    ax.axhspan(9.5, 10.5, color=C[2], alpha=0.18, label="la bande ]9,5 ; 10,5[ (ε = 0,5)")
     ax.axhline(10, color=C[2], linewidth=1.2)
     inside = np.abs(u - 10) < 0.5
     ax.plot(n[~inside], u[~inside], "o", color=C[1], markersize=6, label="termes hors de la bande")
     ax.plot(n[inside], u[inside], "o", color=C[0], markersize=6, label="termes dans la bande (n ≥ 6)")
     ax.axvline(5.5, color="black", linestyle=":", linewidth=1)
-    ax.text(5.7, 3.2, "N = 6", fontsize=10)
+    ax.text(5.7, 3.0, "N = 6", fontsize=10)
     ax.set_xlabel("n")
     ax.set_ylabel("uₙ")
-    ax.set_ylim(1, 11.5)
+    ax.set_ylim(0, 11.5)
     ax.set_title("uₙ tend vers 10 : à partir d'un certain rang, tous les termes sont dans la bande", fontsize=10)
     ax.grid(True, alpha=0.3)
     ax.legend(fontsize=8.5, loc="lower right")

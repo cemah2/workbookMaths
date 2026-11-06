@@ -50,7 +50,7 @@ Parcours essentiel : tout sauf R5.Q6, R5.R2, R5.6, R5.10, R5.17, R5.19, R5.20 et
 5. Somme de $n$ termes consécutifs d'une suite géométrique de raison $q \ne 1$ : **premier terme × $\frac{1 - q^n}{1 - q}$** ; si $q = 1$, $n$ fois le premier terme.
 6. $u_n$ **tend vers** $\ell$ si, pour tout écart $\varepsilon > 0$, tous les termes sont à moins de $\varepsilon$ de $\ell$ à partir d'un certain rang.
 7. $q^n$ tend vers 0 si $\lvert q \rvert < 1$, vers $+\infty$ si $q > 1$ ; il reste égal à 1 si $q = 1$ et n'a pas de limite si $q \le -1$.
-8. Si $\lvert q \rvert < 1$, la **somme infinie** $u_0 + u_0 q + u_0 q^2 + \dots$ vaut $\frac{u_0}{1 - q}$ ; sinon elle n'a pas de valeur finie (pour $u_0 \ne 0$).
+8. Si $\lvert q \rvert < 1$, la **somme infinie** $u_0 + u_0 q + u_0 q^2 + \dots$ vaut $\frac{u_0}{1 - q}$ ; si $\lvert q \rvert \ge 1$ (et $u_0 \ne 0$), elle n'a pas de valeur.
 9. **Moyenne mobile** sur $k$ valeurs : la moyenne des $k$ dernières valeurs, chacune de poids $\frac{1}{k}$.
 10. **Moyenne exponentielle** : $v_0 = 0$ et $v_t = \beta\,v_{t-1} + (1 - \beta)\,x_t$ ; les poids des valeurs passées forment une suite géométrique de raison $\beta$, et les premières valeurs de $v$ sont tirées vers 0.
 
@@ -170,7 +170,7 @@ Plus généralement, $v_n = v_p\,q^{\,n - p}$ ; si la suite commence au rang 1, 
 
 ### Reconnaître une suite géométrique
 
-Pour une suite dont aucun terme n'est nul, elle est géométrique si et seulement si le **quotient** $\frac{u_{n+1}}{u_n}$ est le même pour tous les $n$ ; ce quotient est la raison.
+Une suite dont aucun terme n'est nul est géométrique si et seulement si le **quotient** $\frac{u_{n+1}}{u_n}$ est le même pour tous les $n$ ; ce quotient est la raison.
 - 48, 12, 3, 0,75 : les quotients valent tous $\frac{1}{4}$ ;
 - 2, 6, 12, 20 : les quotients valent 3, 2, $\frac{5}{3}$, elle n'est pas géométrique.
 
@@ -276,15 +276,15 @@ En Python, `sum` additionne les termes un par un ; la formule donne le même nom
 
 ### « Se rapprocher autant qu'on veut, et y rester »
 
-Revenons à une suite définie par récurrence, $u_0 = 2$ et $u_{n+1} = 0{,}6\,u_n + 4$. Ses termes valent environ
+Revenons à une suite définie par récurrence, $u_0 = 1$ et $u_{n+1} = 0{,}6\,u_n + 4$. Ses termes valent environ
 
-$$2 \quad 5{,}2 \quad 7{,}12 \quad 8{,}27 \quad 8{,}96 \quad 9{,}38 \quad 9{,}63 \quad 9{,}78 \quad 9{,}87 \quad 9{,}92 \quad \dots$$
+$$1 \quad 4{,}6 \quad 6{,}76 \quad 8{,}06 \quad 8{,}83 \quad 9{,}30 \quad 9{,}58 \quad 9{,}75 \quad 9{,}85 \quad 9{,}91 \quad \dots$$
 
 Ils se rapprochent de 10, sans jamais l'atteindre. Dire que $u_n$ **tend vers 10**, c'est dire que l'écart $\lvert u_n - 10 \rvert$ finit par devenir aussi petit qu'on veut, **et le reste**. On fixe un écart toléré $\varepsilon$ (« epsilon ») : à partir d'un certain rang $N$, tous les termes sont dans la bande $]10 - \varepsilon \;;\; 10 + \varepsilon[$.
 
 ![uₙ tend vers 10 : à partir du rang 6, tous les termes sont à moins de 0,5 de 10](figures/limite.png)
 
-Ici (on le montrera plus bas), $u_n = 10 - 8 \times 0{,}6^n$, donc $\lvert u_n - 10 \rvert = 8 \times 0{,}6^n$. Pour $\varepsilon = 0{,}5$ : $8 \times 0{,}6^5 \approx 0{,}62$ est trop grand, mais $8 \times 0{,}6^6 \approx 0{,}37 < 0{,}5$, et l'écart ne fait que diminuer ensuite : $N = 6$ convient (figure). Pour $\varepsilon = 0{,}01$, il faut aller plus loin : $N = 14$. Plus l'écart toléré est petit, plus $N$ est grand, mais il existe **toujours**.
+Ici (on le montrera plus bas), $u_n = 10 - 9 \times 0{,}6^n$, donc $\lvert u_n - 10 \rvert = 9 \times 0{,}6^n$. Pour $\varepsilon = 0{,}5$ : $9 \times 0{,}6^5 \approx 0{,}70$ est trop grand, mais $9 \times 0{,}6^6 \approx 0{,}42 < 0{,}5$, et l'écart ne fait que diminuer ensuite : $N = 6$ convient (figure). Pour $\varepsilon = 0{,}01$, il faut aller plus loin : $N = 14$. Plus l'écart toléré est petit, plus $N$ est grand, mais il existe **toujours**.
 
 > **Définition.** La suite $(u_n)$ **tend vers** le réel $\ell$, ou **converge vers** $\ell$, si : pour tout $\varepsilon > 0$, il existe un entier $N$ tel que, pour tout $n \ge N$, $\lvert u_n - \ell \rvert < \varepsilon$. On écrit $\lim_{n \to +\infty} u_n = \ell$, ou $u_n \to \ell$. Le nombre $\ell$ est la **limite** de la suite.
 
@@ -312,19 +312,21 @@ Pour $q^n$ avec $\lvert q \rvert < 1$, l'intuition est celle du §3 : chaque pas
 ### Calculer avec les limites
 
 Si $u_n \to \ell$ et $v_n \to \ell'$ (deux réels), alors $u_n + v_n \to \ell + \ell'$, $c\,u_n \to c\,\ell$ pour toute constante $c$, et $u_n\,v_n \to \ell\,\ell'$ ; si de plus $\ell' \ne 0$, $\frac{u_n}{v_n} \to \frac{\ell}{\ell'}$. Ces règles, qu'on admet ici, font presque tout le travail :
-- $10 - 8 \times 0{,}6^n \to 10 - 8 \times 0 = 10$ ;
+- $10 - 9 \times 0{,}6^n \to 10 - 9 \times 0 = 10$ ;
 - $3 + \frac{2}{n} \to 3 + 0 = 3$ ;
 - pour un quotient, on divise en haut et en bas par la plus grande puissance de $n$ : $\frac{2n + 1}{n + 3} = \frac{2 + \frac{1}{n}}{1 + \frac{3}{n}} \to \frac{2 + 0}{1 + 0} = 2$.
 
+Avec des limites infinies : si $u_n \to +\infty$ et $v_n \to +\infty$, alors $u_n + v_n \to +\infty$ et $u_n\,v_n \to +\infty$ ; si $u_n \to +\infty$ et $v_n \to \ell$ (un réel), alors $u_n + v_n \to +\infty$ ; et si $u_n \to +\infty$, alors $\frac{1}{u_n} \to 0$. Par exemple, $n^2 - 10n = n\,(n - 10)$ tend vers $+\infty$, produit de deux facteurs qui tendent vers $+\infty$. En revanche, $u_n - v_n$ avec $u_n$ et $v_n$ qui tendent tous deux vers $+\infty$ peut faire n'importe quoi : il faut transformer l'écriture.
+
 ### Une récurrence affine : $u_{n+1} = a\,u_n + b$
 
-La suite du début, $u_{n+1} = 0{,}6\,u_n + 4$, est de la forme $u_{n+1} = a\,u_n + b$. Deux idées suffisent à l'étudier.
+La suite du début, $u_{n+1} = 0{,}6\,u_n + 4$, est de la forme $u_{n+1} = a\,u_n + b$, avec $a \ne 1$ (pour $a = 1$, c'est une suite arithmétique de raison $b$). Deux idées suffisent à l'étudier.
 
 **Si elle converge, sa limite est un point fixe.** Si $u_n \to \ell$, alors $u_{n+1} \to \ell$ aussi (c'est la même suite, décalée d'un rang), et $a\,u_n + b \to a\,\ell + b$. Donc $\ell = a\,\ell + b$ : la limite est la solution de cette équation (R2). Ici, $\ell = 0{,}6\,\ell + 4$ donne $0{,}4\,\ell = 4$, soit $\ell = 10$.
 
 **L'écart au point fixe est une suite géométrique.** Posons $e_n = u_n - \ell$. En soustrayant $\ell = a\,\ell + b$ à $u_{n+1} = a\,u_n + b$, on obtient $u_{n+1} - \ell = a\,(u_n - \ell)$, c'est-à-dire $e_{n+1} = a\,e_n$ : l'écart est multiplié par $a$ à chaque pas. Donc $e_n = e_0\,a^n$ et
 
-$$u_n = \ell + (u_0 - \ell)\,a^n, \qquad \text{ici } u_n = 10 + (2 - 10) \times 0{,}6^n = 10 - 8 \times 0{,}6^n.$$
+$$u_n = \ell + (u_0 - \ell)\,a^n, \qquad \text{ici } u_n = 10 + (1 - 10) \times 0{,}6^n = 10 - 9 \times 0{,}6^n.$$
 
 C'est la formule utilisée plus haut. Si $\lvert a \rvert < 1$, $a^n \to 0$ et $u_n \to \ell$, **quel que soit le premier terme** ; si $\lvert a \rvert > 1$, l'écart explose (sauf si $u_0 = \ell$ : la suite reste alors égale à $\ell$). Ce raisonnement donne aussi le raccourci promis au §1 : pour $u_0 = 5$ et $u_{n+1} = 2u_n - 3$, le point fixe vaut 3, et $u_n = 3 + 2 \times 2^n$. Vérifie : $u_4 = 3 + 2 \times 16 = 35$.
 
@@ -349,8 +351,8 @@ Pourquoi une somme d'une infinité de nombres positifs peut-elle être finie ? P
 ⚠️ **Des termes qui tendent vers 0 ne suffisent pas.** $1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \dots$ n'a pas de valeur finie, alors que ses termes tendent vers 0 : ses sommes partielles grossissent sans fin, très lentement (environ 7,5 après mille termes, 14,4 après un million). On l'admet ici ; ce qui compte pour une suite géométrique, c'est que $\lvert q \rvert < 1$.
 
 ```python
->>> [round(10 - 8 * 0.6**n, 2) for n in range(6)]
-[2.0, 5.2, 7.12, 8.27, 8.96, 9.38]
+>>> [round(10 - 9 * 0.6**n, 2) for n in range(6)]
+[1.0, 4.6, 6.76, 8.06, 8.83, 9.3]
 >>> round(sum(0.6**k for k in range(50)), 6), 1 / (1 - 0.6)
 (2.5, 2.5)
 ```
@@ -375,9 +377,9 @@ La **moyenne mobile** sur une **fenêtre** de $k$ valeurs remplace la valeur de 
 
 $$m_t = \frac{x_{t-k+1} + \dots + x_{t-1} + x_t}{k} = \frac{1}{k}\sum_{j=t-k+1}^{t} x_j.$$
 
-Avec les six valeurs $x = (12, 15, 9, 18, 21, 12)$ et une fenêtre de 3 :
+Avec les six valeurs $x_1, \dots, x_6 = 14, 11, 17, 20, 23, 14$ et une fenêtre de 3 (la première moyenne est $m_3$) :
 
-$$m_3 = \frac{12 + 15 + 9}{3} = 12, \quad m_4 = \frac{15 + 9 + 18}{3} = 14, \quad m_5 = \frac{9 + 18 + 21}{3} = 16, \quad m_6 = \frac{18 + 21 + 12}{3} = 17.$$
+$$m_3 = \frac{14 + 11 + 17}{3} = 14, \quad m_4 = \frac{11 + 17 + 20}{3} = 16, \quad m_5 = \frac{17 + 20 + 23}{3} = 20, \quad m_6 = \frac{20 + 23 + 14}{3} = 19.$$
 
 La fenêtre **glisse** d'un cran à chaque instant : une valeur entre, la plus ancienne sort. Trois remarques :
 - elle donne $N - k + 1$ moyennes pour $N$ valeurs (ici $6 - 3 + 1 = 4$) : les $k - 1$ premiers instants n'ont pas de moyenne, faute de valeurs assez nombreuses ;
@@ -385,9 +387,9 @@ La fenêtre **glisse** d'un cran à chaque instant : une valeur entre, la plus a
 - une fenêtre plus large lisse davantage, mais **réagit plus tard** à un changement de tendance (sur la figure, la courbe bleue est en retard sur la série).
 
 ```python
->>> x = [12, 15, 9, 18, 21, 12]
->>> sum(x[0:3]) / 3, sum(x[1:4]) / 3, sum(x[3:6]) / 3
-(12.0, 14.0, 17.0)
+>>> x = [14, 11, 17, 20, 23, 14]
+>>> sum(x[0:3]) / 3, sum(x[1:4]) / 3, sum(x[2:5]) / 3, sum(x[3:6]) / 3
+(14.0, 16.0, 20.0, 19.0)
 ```
 
 ### La moyenne exponentielle
@@ -424,7 +426,7 @@ Le choix de $\beta$ règle ce compromis :
 - $\beta$ **proche de 1** : la moyenne garde beaucoup de passé, elle lisse fort, mais réagit lentement ;
 - $\beta$ **proche de 0** : elle suit les valeurs de près ; pour $\beta = 0$, $v_t = x_t$, aucun lissage.
 
-⚠️ **Un démarrage trop bas.** Parce que $v_0 = 0$, les premières valeurs de la moyenne sont tirées vers 0 : sur la figure, la courbe orange part de 4 alors que la série tourne autour de 20, et ne rattrape la série qu'au bout d'une dizaine de pas. Les premiers poids ne « remplissent » pas encore toute la moyenne. Le chapitre 19 de workbookIA montre comment l'optimiseur Adam corrige ce démarrage.
+⚠️ **Un démarrage trop bas.** Parce que $v_0 = 0$, les premières valeurs de la moyenne sont tirées vers 0 : sur la figure, la courbe orange part d'environ 4 alors que la série tourne autour de 20, et ne rattrape la série qu'au bout d'une dizaine de pas. Les premiers poids ne « remplissent » pas encore toute la moyenne. Le chapitre 19 de workbookIA montre comment l'optimiseur Adam corrige ce démarrage.
 
 🔗 **Dans workbookIA** — le **momentum** (ch. 19) remplace le gradient de chaque pas par une moyenne exponentielle des gradients passés, pour amortir leurs oscillations ; Adam en garde deux. Les courbes d'entraînement sont souvent lissées par une moyenne exponentielle avant d'être tracées. Et la mise à jour d'une estimation par petits pas en apprentissage par renforcement (ch. 11 et 26) a la même forme : garder une part de l'ancienne valeur, ajouter une part de la nouvelle.
 
@@ -434,7 +436,7 @@ Le choix de $\beta$ règle ce compromis :
 
 | Piège | Faux | Juste |
 |---|---|---|
-| rang et valeur | $u_{n+1} = u_n + 1$ | $u_{n+1}$ est le terme suivant ; $u_n + 1$ est $u_n$ augmenté de 1 |
+| rang et valeur | $u_{n+1}$ et $u_n + 1$ sont le même nombre | $u_{n+1}$ est le terme suivant ; $u_n + 1$ est $u_n$ augmenté de 1 |
 | récurrence sans premier terme | $u_{n+1} = 2u_n - 3$ définit une suite | il faut aussi $u_0$ |
 | premier rang | $u_n = u_0 + n\,r$ pour une suite qui commence à $u_1$ | $u_n = u_1 + (n - 1)\,r$ |
 | géométrique comme arithmétique | $u_n = u_0 \times q \times n$ | $u_n = u_0\,q^n$ |
@@ -446,7 +448,7 @@ Le choix de $\beta$ règle ce compromis :
 | somme infinie | $\sum q^k = \frac{1}{1 - q}$ pour tout $q$ | seulement si $\lvert q \rvert < 1$ |
 | premier terme de la somme infinie | $\sum_{k=1}^{+\infty} q^k = \frac{1}{1 - q}$ | premier terme $q$ : $\frac{q}{1 - q}$ |
 | termes qui tendent vers 0 | la somme infinie est donc finie | $1 + \frac{1}{2} + \frac{1}{3} + \dots$ est infinie |
-| point fixe | la solution de $\ell = a\ell + b$ est toujours la limite | seulement si la suite converge ($\lvert a \rvert < 1$) |
+| point fixe | la solution de $\ell = a\ell + b$ est toujours la limite | seulement si la suite converge (c'est le cas si $\lvert a \rvert < 1$) |
 | quantificateurs de la limite | « il existe $N$ » choisi avant $\varepsilon$ | $\varepsilon$ d'abord, puis $N$ qui dépend de lui |
 | moyenne mobile | elle donne une moyenne par valeur | $N - k + 1$ moyennes pour $N$ valeurs |
 | sens de $\beta$ | un grand $\beta$ suit les valeurs de près | un grand $\beta$ lisse fort et réagit lentement |

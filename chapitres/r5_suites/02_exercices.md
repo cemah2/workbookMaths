@@ -30,7 +30,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 
 Pour chaque suite (on suppose que la règle des premiers termes continue), dis si elle est arithmétique, géométrique, les deux ou aucune, et donne sa raison quand elle en a une.
 1. 4, 9, 14, 19, …
-2. 3, 6, 12, 24, …
+2. 5, 10, 20, 40, …
 3. 1, 4, 9, 16, …
 4. 10, 7, 4, 1, …
 5. 2, −6, 18, −54, …
@@ -46,7 +46,7 @@ Vrai ou faux ?
 3. Pour tout réel $q$ et tout entier $n \ge 1$, $1 + q + \dots + q^{n-1} = \frac{1 - q^n}{1 - q}$.
 4. Si $q = 1$, $1 + q + \dots + q^{n-1} = n$.
 5. La somme de termes consécutifs d'une suite arithmétique vaut le nombre de termes multiplié par la moyenne du premier et du dernier.
-6. $\sum_{k=0}^{4} 2^k = 2^5 - 1$.
+6. $\sum_{k=0}^{3} 5^k = \frac{5^4 - 1}{4}$.
 7. $\sum_{k=1}^{5} 3^k = \frac{1 - 3^5}{1 - 3}$.
 
 ### R5.Q4 — Converge ou diverge ? 🧠 ★ ⏱️ 4 min
@@ -150,7 +150,7 @@ $(u_n)$ est la suite arithmétique de premier terme $u_0 = 7$ et de raison 4 ; $
 | c | $a_{11}$ | un nombre |
 | d | le rang du premier terme strictement négatif de $(a_n)$ | un nombre entier |
 | e | le rang $n$ tel que $u_n = 2\,023$ | un nombre entier |
-| f | 2 026 est-il un terme de $(u_n)$ ? | vrai ou faux |
+| f | 2 026 est un terme de $(u_n)$ | vrai ou faux |
 | g | une bougie de 24 cm raccourcit de 1,5 cm par heure : au bout de combien d'heures est-elle entièrement consumée ? | un nombre entier |
 
 ### Ex R5.3 — Terme général d'une suite géométrique ✏️ ★ ⏱️ 10 min
@@ -196,7 +196,7 @@ Pour chaque somme, écris dans ta copie le premier terme, le nombre de termes et
 | b | $2 + \frac{2}{5} + \frac{2}{25} + \frac{2}{125} + \dots$ | une fraction |
 | c | $9 - 6 + 4 - \frac{8}{3} + \dots$ | une fraction |
 | d | $\sum_{k=1}^{+\infty} 0{,}3^k$ (attention au premier terme) | une fraction |
-| e | la somme infinie $1 + 1{,}1 + 1{,}1^2 + \dots$ a-t-elle une valeur finie ? | vrai ou faux |
+| e | la somme infinie $1 + 1{,}1 + 1{,}1^2 + \dots$ a une valeur finie | vrai ou faux |
 | f | à partir de combien de termes la somme partielle de a) est-elle à moins de 0,1 de sa limite ? (essaie des valeurs) | un nombre entier |
 
 ### Ex R5.6 — Intérêts composés et actualisation ✏️ ★★ ⏱️ 20 min
@@ -224,7 +224,7 @@ On mesure les valeurs $x_1, \dots, x_5 = 10, 20, 15, 5, 25$. On calcule la moyen
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la liste `[v1, v2, v3, v4, v5]` | une liste de 5 nombres (4 décimales) |
-| b | la liste des moyennes mobiles sur une fenêtre de 3 valeurs | une liste de 3 nombres (2 décimales) |
+| b | la liste des moyennes mobiles sur une fenêtre de 3 valeurs | une liste (2 décimales) |
 | c | la moyenne des cinq valeurs | un nombre |
 | d | $v_5$ est plus petit que la moyenne des cinq valeurs | vrai ou faux |
 | e | le poids de $x_1$ dans $v_3$, en écrivant $v_3$ en fonction de $x_1$, $x_2$ et $x_3$ | un nombre |
@@ -244,7 +244,7 @@ Dans ta copie : pourquoi les premières valeurs de $v$ sont-elles si petites ?
 | d | son premier terme $v_0$ | un nombre entier |
 | e | $(w_n)$ est géométrique à termes positifs, $w_1 = 50$ et $w_3 = 32$ : sa raison | un nombre |
 | f | son premier terme $w_0$ | un nombre |
-| g | $(s_n)$ est géométrique, $s_2 = 18$ et $s_4 = 8$ : la liste des valeurs possibles de sa raison | une liste (6 décimales) |
+| g | $(s_n)$ est géométrique, $s_2 = 18$ et $s_4 = 8$ : la liste des valeurs possibles de sa raison | une liste, dans l'ordre que tu veux : des fractions entre guillemets, ou des nombres arrondis à 6 décimales |
 
 <a id="demonstrations"></a>
 
@@ -314,7 +314,7 @@ On lisse les valeurs $x_1, \dots, x_8 = 12, 18, 15, 9, 21, 24, 6, 15$ par une mo
 | b | $m_5$, calculé directement | un nombre |
 | c | le numéro de la bonne formule ci-dessus | un nombre entier |
 | d | $m_6$, calculé à partir de $m_5$ avec cette formule | un nombre |
-| e | pour une fenêtre de 100 valeurs, la liste `[direct, mise à jour]` du nombre d'additions et de soustractions qu'il faut pour obtenir une nouvelle moyenne : en additionnant les 100 valeurs, puis avec la formule de c) | une liste de 2 entiers |
+| e | pour une fenêtre de 100 valeurs, la liste `[direct, mise à jour]` du nombre minimal d'additions et de soustractions qu'il faut pour obtenir une nouvelle moyenne : en additionnant les 100 valeurs, puis avec la formule de c) (sans compter la division) | une liste de 2 entiers |
 | f | $m_8$ | un nombre |
 
 Dans ta copie : quand des mesures arrivent une par une (un capteur, les pas d'un entraînement suivis en direct), pourquoi cette mise à jour est-elle utile ? Que faut-il quand même garder en mémoire ?

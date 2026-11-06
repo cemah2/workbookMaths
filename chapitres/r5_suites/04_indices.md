@@ -112,7 +112,7 @@ Développe $v_t$ en remplaçant $v_{t-1}$, puis $v_{t-2}$ : chaque pas en arriè
 </details>
 <details><summary>Indice 3</summary>
 
-1 : 0,3. Pour 2, le poids de $x_{t-1}$ est $0{,}7 \times 0{,}3$. Pour 6, que reste-t-il de $v_{t-1}$ ?
+1 : 0,3. Pour 2, développe $v_t = 0{,}3\,x_t + 0{,}7\,v_{t-1}$ et regarde avec quel poids $x_{t-1}$ entre dans $v_{t-1}$. Pour 6, que reste-t-il de $v_{t-1}$ ?
 
 </details>
 
@@ -152,7 +152,7 @@ Calcule les termes, compare-les aux puissances de 3 : il manque toujours le mêm
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $u_1 = 3 \times 2 - 2 = 4$. Pour 3, l'hérédité : $u_{n+1} = 3u_n - 2 = 3(3^n + 1) - 2 = \dots$
+1 : $u_1 = 3 \times 2 - 2 = 4$. Pour 3, dans l'hérédité, remplace $u_n$ par ta formule dans $3u_n - 2$, puis simplifie jusqu'à retrouver la formule au rang $n + 1$.
 
 </details>
 
@@ -358,7 +358,7 @@ Relis la somme des premiers entiers (fiche de R4, §5) et la somme arithmétique
 </details>
 <details><summary>Indice 3</summary>
 
-Pour 1, chaque colonne vaut 101 et il y a 100 colonnes. Pour 3, les $n$ colonnes valent toutes $u_0 + u_{n-1}$, donc $2S = n(u_0 + u_{n-1})$. Pour 4, le premier terme est 1 et le dernier $2n - 1$.
+Pour 1, chaque colonne vaut 101 : combien y a-t-il de colonnes ? Pour 3, que vaut chaque colonne, d'après 2 ? Pour 4, le premier terme est 1 et le dernier $2n - 1$.
 
 </details>
 
@@ -380,7 +380,7 @@ Le versement de l'année $k$ vaut aujourd'hui $\frac{1\,000}{1{,}04^k}$. Ces val
 </details>
 <details><summary>Indice 3</summary>
 
-a : $\frac{1\,000}{1{,}04} \approx 961{,}54$. Pour c, premier terme $\frac{1\,000}{1{,}04}$, raison $\frac{1}{1{,}04}$, 8 termes. Pour e, refais c) avec 1,06.
+a : $\frac{1\,000}{1{,}04} \approx 961{,}54$. Pour c, le premier terme est la réponse de a, la raison celle de b, et il y a 8 termes. Pour e, refais c) avec 1,06.
 
 </details>
 
@@ -393,7 +393,7 @@ Relis « La moyenne mobile » (fiche §6).
 </details>
 <details><summary>Indice 2</summary>
 
-Écris $m_{t+1}$ et $m_t$ l'une sous l'autre : trois valeurs sont communes, une entre, une sort.
+Écris $m_{t+1}$ et $m_t$ l'une sous l'autre, valeur par valeur : lesquelles apparaissent dans les deux ? Laquelle entre, laquelle sort ?
 
 </details>
 <details><summary>Indice 3</summary>
@@ -530,7 +530,7 @@ Deux questions à te poser : quelle est la solution de $\ell = 0{,}75\,\ell + 2$
 </details>
 <details><summary>Indice 3</summary>
 
-Pour c, écris l'écart au départ, puis demande-toi combien de multiplications par 0,75 il faut pour le rendre 800 fois plus petit : estime $0{,}75^{10}$ et $0{,}75^{50}$ (par exemple à partir de $0{,}75^2 \approx 0{,}56$).
+Pour c, écris l'écart initial (il découle de ta prédiction a), puis calcule de proche en proche $0{,}75^2$, $0{,}75^4$, $0{,}75^8$… : combien de multiplications par 0,75 faut-il pour que l'écart passe sous 0,01 ?
 
 </details>
 

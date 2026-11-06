@@ -31,7 +31,7 @@
 3. **Faux** : seulement pour $q \ne 1$ (pour $q = 1$, la formule divise par zéro).
 4. **Vrai** : $n$ termes égaux à 1.
 5. **Vrai** : c'est la règle « nombre de termes × (premier + dernier) / 2 ».
-6. **Vrai** : $1 + 2 + 4 + 8 + 16 = 31 = 2^5 - 1$ (5 termes, $\frac{1 - 2^5}{1 - 2} = 2^5 - 1$).
+6. **Vrai** : $1 + 5 + 25 + 125 = 156 = \frac{625 - 1}{4}$ (4 termes, raison 5 : $\frac{5^4 - 1}{5 - 1}$).
 7. **Faux** : la somme commence à $3^1 = 3$ et a 5 termes : $3 \times \frac{1 - 3^5}{1 - 3} = 363$. La formule proposée, $\frac{1 - 3^5}{1 - 3} = 121$, est celle de $\sum_{k=0}^{4} 3^k$.
 
 ### R5.Q4 — Converge ou diverge ?
@@ -194,13 +194,13 @@
 
 Dans ta copie : les premières valeurs sont petites parce que $v_0 = 0$ et que $\beta = 0{,}8$ garde 80 % de cette valeur nulle à chaque pas ; la somme des poids des valeurs déjà vues est encore loin de 1 (à $t = 1$, seulement 0,2).
 
-**Erreurs fréquentes.** Échanger 0,8 et 0,2 ; partir de $v_0 = x_1$ ; donner quatre moyennes mobiles au lieu de trois ; oublier le facteur 0,2 dans le poids de e.
+**Erreurs fréquentes.** Échanger 0,8 et 0,2 ; partir de $v_0 = x_1$ ; donner quatre moyennes mobiles au lieu de trois ($5 - 3 + 1 = 3$) ; oublier le facteur 0,2 dans le poids de e.
 
 **Variante.** Même série, $\beta = 0{,}5$ : $v_3$ ? *Réponse* : $v_1 = 5$, $v_2 = 12{,}5$, $v_3 = 13{,}75$.
 
 ### Ex R5.8 — Retrouver le premier terme et la raison à partir de deux termes
 
-**Réponses** : a) `4` · b) `1` · c) `-2` · d) `-6` · e) `0.8` · f) `62.5` · g) `[-0.666667, 0.666667]`.
+**Réponses** : a) `4` · b) `1` · c) `-2` · d) `-6` · e) `0.8` · f) `62.5` · g) `["-2/3", "2/3"]` (ou `[-0.666667, 0.666667]`, dans n'importe quel ordre).
 
 **Démarche.**
 - a) $u_{10} - u_4 = 6r = 24$, donc $r = 4$ ; b) $u_0 = u_4 - 4r = 17 - 16 = 1$.
@@ -286,7 +286,7 @@ Dans ta copie : $\gamma$ joue le rôle de $\frac{1}{1{,}04}$, le facteur qui mul
 - a) $\frac{12 + 18 + 15 + 9}{4} = \frac{54}{4} = 13{,}5$ ; b) $\frac{18 + 15 + 9 + 21}{4} = 15{,}75$.
 - c) $m_{t+1} - m_t = \frac{(x_{t-2} + x_{t-1} + x_t + x_{t+1}) - (x_{t-3} + x_{t-2} + x_{t-1} + x_t)}{4} = \frac{x_{t+1} - x_{t-3}}{4}$ : la formule 1.
 - d) $m_6 = m_5 + \frac{x_6 - x_2}{4} = 15{,}75 + \frac{24 - 18}{4} = 17{,}25$.
-- e) 99 additions pour additionner 100 nombres ; une soustraction et une addition pour la mise à jour (et une division dans les deux cas).
+- e) Au minimum 99 additions pour additionner 100 nombres (on part du premier, pas de 0) ; une soustraction et une addition pour la mise à jour (et une division dans les deux cas, qu'on ne compte pas).
 - f) $m_7 = 17{,}25 + \frac{6 - 15}{4} = 15$, puis $m_8 = 15 + \frac{15 - 9}{4} = 16{,}5$.
 
 Dans ta copie : chaque nouvelle mesure coûte deux opérations au lieu de $k$, quelle que soit la largeur de la fenêtre ; il faut quand même garder en mémoire les $k$ dernières valeurs, pour savoir laquelle sort. (Et, sur des millions de mises à jour, les arrondis des flottants s'accumulent : on recalcule de temps en temps la moyenne en entier.)
@@ -361,7 +361,7 @@ Dans ta copie : chaque nouvelle mesure coûte deux opérations au lieu de $k$, q
 
 **Démarche.** `ns = np.arange(31)` et une ligne par suite, tracée en points. (a) converge vers 5 en restant en dessous ($4 \times 0{,}7^n > 0$) ; (b) converge vers 2 en oscillant autour ; (c) n'a pas de limite : ses termes pairs s'approchent de 1, ses termes impairs de −1 ; (d) tend vers $+\infty$, lentement ($\sqrt{30} \approx 5{,}5$).
 
-**Erreurs fréquentes.** Tracer des lignes continues (une suite n'est définie qu'aux entiers) ; écrire `(-1) ** ns` avec des entiers et `ns / (ns + 1)` (ça marche, mais `(-1.0) ** ns` évite les surprises avec des puissances négatives) ; prendre (c) pour une suite convergente parce que $\frac{n}{n + 1} \to 1$.
+**Erreurs fréquentes.** Relier les points par des lignes, qui suggèrent des valeurs entre les entiers (une suite n'est définie qu'aux entiers) ; écrire `(-1) ** ns` avec des entiers et `ns / (ns + 1)` (ça marche, mais `(-1.0) ** ns` évite les surprises avec des puissances négatives) ; prendre (c) pour une suite convergente parce que $\frac{n}{n + 1} \to 1$.
 
 ### Ex R5.21 — Chasse à l'erreur : un décalage d'indice dans une somme
 

@@ -92,7 +92,7 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | $q^n$ | $\to 0$ si $\lvert q \rvert < 1$ ; $= 1$ si $q = 1$ ; $\to +\infty$ si $q > 1$ ; pas de limite si $q \le -1$ |
 | récurrence affine | $u_{n+1} = a\,u_n + b$ ($a \ne 1$) : $\ell = \frac{b}{1 - a}$, $u_n = \ell + (u_0 - \ell)\,a^n$ ; converge vers $\ell$ si $\lvert a \rvert < 1$ |
 | somme infinie | $\lvert q \rvert < 1$ : $\sum_{k=0}^{+\infty} u_0\,q^k = \frac{u_0}{1 - q}$ |
-| intérêts composés, actualisation | $C_n = C_0\,(1 + t)^n$ ; valeur actuelle de $S$ dans $n$ ans : $\frac{S}{(1 + t)^n}$ |
+| intérêts composés, actualisation | taux $t$ en décimal : $C_n = C_0\,(1 + t)^n$ ; valeur actuelle de $S$ dans $n$ ans : $\frac{S}{(1 + t)^n}$ |
 | moyenne mobile | $m_t = \frac{1}{k}\sum_{j=t-k+1}^{t} x_j$ ; $N - k + 1$ moyennes pour $N$ valeurs |
 | moyenne exponentielle | $v_0 = 0$, $v_t = \beta\,v_{t-1} + (1 - \beta)\,x_t$ ; poids $(1 - \beta)\,\beta^k$ pour la valeur d'âge $k$ |
 
