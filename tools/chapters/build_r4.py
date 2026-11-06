@@ -51,7 +51,8 @@ PAPER = [
         ("g", "two letters, as text", '"df"',
          'mistakes={"une implication a la même table que sa contraposée, pas que sa réciproque": {"de", "ef"}}'),
         ("h", "an integer", "2 ** 3",
-         'mistakes={"chaque proposition double le nombre de lignes : 2 × 2 × 2": 6, "2³, pas 3²": 9}'),
+         'mistakes={"chaque proposition double le nombre de lignes : on multiplie, on n\'additionne pas": 6, '
+         '"le nombre de lignes est 2 puissance le nombre de propositions": 9}'),
         ("i", "an integer", "sum(((p or q) and not r) for p, q, r in ROWS3)",
          'mistakes={"« et (non R) » : seules les lignes où R est fausse comptent": 6, '
          '"(P ou Q) est vraie dès qu\'une des deux l\'est : trois combinaisons de P et Q sur quatre": 1}'),
@@ -100,7 +101,8 @@ PAPER = [
         ("a", "a set, as a list (empty if it is empty)", "sorted(SQUARES & PRIMES)",
          'ordered=False, mistakes={"1 n\'est pas un nombre premier": [1]}'),
         ("b", "an integer", "len(SQUARES | PRIMES)",
-         'mistakes={"compte d\'abord les carrés (5) et les premiers de E, puis retire ceux qui sont les deux": 13}'),
+         'mistakes={"compte les éléments de A et ceux de B (1 n\'est pas premier), puis retire ceux qui sont dans les deux": '
+         '13}'),
         ("c", "a set, as a list", "sorted(PRIMES & LATE)",
          'ordered=False, mistakes={"23 est premier, et 23 ≥ 17": [17, 19], "17 ≥ 17 : 17 est dans C": [19, 23]}'),
         ("d", "an integer", "len(E - PRIMES)",
@@ -120,7 +122,7 @@ PAPER = [
     Paper("R4.5", "Produit cartésien et couples", [
         ("a", "an integer", "len(PAIRS_AB)",
          'mistakes={"chaque élément de A va avec chaque élément de B : on multiplie": 5}'),
-        ("b", "an integer", "2 ** 3", 'mistakes={"2 choix pour chacune des trois coordonnées : 2 × 2 × 2": 6}'),
+        ("b", "an integer", "2 ** 3", 'mistakes={"2 choix pour chaque coordonnée : on multiplie autant de fois qu\'il y a de coordonnées": 6}'),
         ("c", "an integer", "sum(x < y for x in B_SET for y in B_SET)",
          'mistakes={"x < y est strict : (1, 1) ne convient pas": 6, '
          '"un couple (2, 1) n\'a pas x < y : l\'ordre des coordonnées compte": 9}'),
@@ -138,7 +140,7 @@ PAPER = [
         ("b", "an integer", "sum(j ** 2 for j in range(2, 6))",
          'mistakes={"la somme commence à j = 2": 55, "j va jusqu\'à 5 inclus": 29}'),
         ("c", "an integer", "sum((-1) ** i for i in range(0, 5))",
-         'mistakes={"de i = 0 à 4, il y a 5 termes, et (−1)⁰ = 1": 0}'),
+         'mistakes={"i commence à 0, et (−1)⁰ = 1 : écris tous les termes": 0}'),
         ("d", "a fraction, as text", "sum(Fraction(1, k) for k in range(1, 5))",
          'kind="fraction", mistakes={"la somme commence à k = 1 : 1/1 = 1 compte": "13/12"}'),
         ("e", "an integer", "int(math.prod(Fraction(k, k - 1) for k in range(2, 6)))",
@@ -146,10 +148,10 @@ PAPER = [
         ("f", "an integer", "math.prod(i + 2 for i in range(1, 4))",
          'mistakes={"le facteur est i + 2, pas i": 6}'),
         ("g", "an integer", "sum(2 for k in range(3, 11))",
-         'mistakes={"de 3 à 10, il y a 10 − 3 + 1 = 8 termes": 14, "la somme commence à k = 3": 20}'),
+         'mistakes={"les deux bornes comptent : de m à n, il y a n − m + 1 termes": 14, "la somme commence à k = 3": 20}'),
         ("h", "an integer", "math.prod(-1 for k in range(1, 6))",
          'mistakes={"cinq facteurs −1 : un nombre impair de signes moins": 1, "un produit, pas une somme": -5}'),
-        ("i", "an integer", "30 - 7 + 1", 'mistakes={"de 7 à 30, il y a 30 − 7 + 1 termes : 7 et 30 comptent": 23}'),
+        ("i", "an integer", "30 - 7 + 1", 'mistakes={"les deux bornes comptent : de m à n, il y a n − m + 1 termes": 23}'),
     ]),
     Paper("R4.7", "Développer, réindexer et découper une somme Σ ; calculer une somme double", [
         ("a", "an integer", "2 * 55 + 3 * 10",
@@ -174,7 +176,7 @@ PAPER = [
     ]),
     Paper("R4.8", "Trouver un contre-exemple", [
         ("a", "an integer", "next(n for n in range(1, 100) if not 2 ** n > n ** 2)",
-         'mistakes={"2² = 4 n\'est pas strictement plus grand que 2² = 4": 3}'),
+         'mistakes={"l\'inégalité est stricte : un cas d\'égalité est déjà un contre-exemple": 3}'),
         ("b", "an integer", "4",
          'mistakes={"il y a un contre-exemple plus petit : essaie les valeurs de n une par une": {6, 8, 9, 10, 11}}'),
         ("c", "an interval, as text", '"]0 ; 1["',
@@ -405,7 +407,7 @@ wbm.record("R4.21b", 40, prediction=True,
         ("todo", "answer_R4_21c = ...  # c) an integer"),
         ("check", 'wbm.check("R4.21c", answer_R4_21c)'),
         ("solution", "answer_R4_21c = sum(is_prime(n * n + n + 41) for n in range(40))\nprint(answer_R4_21c)"),
-        ("record", 'wbm.record("R4.21c", 40, mistakes={"de 0 à 39 inclus, il y a 40 entiers": 39})'),
+        ("record", 'wbm.record("R4.21c", 40, mistakes={"0 compte aussi : compte les entiers de 0 à 39, les deux inclus": 39})'),
     ],
     note="Pour $n = 40$, $n^2 + n + 41 = 40 \\times 41 + 41 = 41^2 = 1\\,681$. Pour $n = 41$, les trois termes sont "
          "divisibles par 41. Quarante cas vrais de suite, et pourtant la phrase « pour tout $n$ » est fausse : c'est "
@@ -698,13 +700,13 @@ print("Preuve 2, n = 1 : les boules 1 à 1 et 2 à 2 forment les groupes", [1], 
     record='''wbm.record("R4.24a", 1, choices=[1, 2],
            mistakes={"l'hérédité est écrite, et son calcul est juste : refais-le": 2})
 wbm.record("R4.24b", 0,
-           mistakes={"teste n = 0 : 5⁰ + 1 = 2 ; puis regarde le reste de 5ⁿ dans la division par 4": 21})
+           mistakes={"teste quelques valeurs de n, et regarde le reste de 5ⁿ dans la division par 4": 21})
 wbm.record("R4.24c", "F",
            mistakes={"cette ligne est juste : cherche celle qui ne vaut pas pour toutes les valeurs de n":
                          {"A", "B", "C", "D", "E", "G"}})
 wbm.record("R4.24d", 1,
-           mistakes={"pour n = 2, les boules 1 à 2 et 2 à 3 partagent bien la boule 2 : essaie une valeur plus "
-                     "petite": 2,
+           mistakes={"pour n = 2, les groupes « boules 1 à 2 » et « boules 2 à 3 » partagent bien la boule 2 : la "
+                     "ligne F y est juste": 2,
                      "l'hérédité part de n ≥ 1": 0})
 wbm.record("R4.24e", False, mistakes={"deux boules peuvent avoir deux couleurs différentes": True})''',
     note="Preuve 1 : $5 \\equiv 1$ modulo 4, donc $5^n + 1$ laisse toujours le reste 2 ; aucun domino ne tombe. "

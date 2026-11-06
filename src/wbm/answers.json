@@ -5213,8 +5213,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "5c0299b234594b1bcf864d341c3d60c7cb9fe09c50c86967b1dbf933a5b3eb83": "2³, pas 3²",
-        "746ad7cdb2e40a2712c6b1edf0f4c7ec2d1e2e3c42c009c167662b3d0f64871f": "chaque proposition double le nombre de lignes : 2 × 2 × 2"
+        "5c0299b234594b1bcf864d341c3d60c7cb9fe09c50c86967b1dbf933a5b3eb83": "le nombre de lignes est 2 puissance le nombre de propositions",
+        "746ad7cdb2e40a2712c6b1edf0f4c7ec2d1e2e3c42c009c167662b3d0f64871f": "chaque proposition double le nombre de lignes : on multiplie, on n'additionne pas"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -5443,7 +5443,7 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "29c95eb4ad951f5e84a858284874377bc8a468af49513ef93768c4e74cfd21f7": "compte d'abord les carrés (5) et les premiers de E, puis retire ceux qui sont les deux"
+        "29c95eb4ad951f5e84a858284874377bc8a468af49513ef93768c4e74cfd21f7": "compte les éléments de A et ceux de B (1 n'est pas premier), puis retire ceux qui sont dans les deux"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -5523,7 +5523,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "c839b3c3d4ab9615f0541dba45a2551676d18bc8e55d59551c2fa47279cfcb04": "2 choix pour chacune des trois coordonnées : 2 × 2 × 2"
+        "c839b3c3d4ab9615f0541dba45a2551676d18bc8e55d59551c2fa47279cfcb04": "2 choix pour chaque coordonnée : on multiplie autant de fois qu'il y a de coordonnées"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -5601,7 +5601,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "8fab9c8b43668d161d3d7edaf6fb92b7da5c10d3153ef23f940893e0f97c09ec": "de i = 0 à 4, il y a 5 termes, et (−1)⁰ = 1"
+        "8fab9c8b43668d161d3d7edaf6fb92b7da5c10d3153ef23f940893e0f97c09ec": "i commence à 0, et (−1)⁰ = 1 : écris tous les termes"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -5641,7 +5641,7 @@
       "magnitude": 1,
       "mistakes": {
         "4f48796b7588fd8fdee04c1b64783b42e3a1f96c7575e4543de1bd19b5663c15": "la somme commence à k = 3",
-        "524cb13eef48f44858b518e5aa98a03e8cfb5b85b335d79600d8d29d03ed6ea9": "de 3 à 10, il y a 10 − 3 + 1 = 8 termes"
+        "524cb13eef48f44858b518e5aa98a03e8cfb5b85b335d79600d8d29d03ed6ea9": "les deux bornes comptent : de m à n, il y a n − m + 1 termes"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -5662,7 +5662,7 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "940b278867c322170cffb3088ad01507fd37c0c08cf46962338ac3c576528746": "de 7 à 30, il y a 30 − 7 + 1 termes : 7 et 30 comptent"
+        "940b278867c322170cffb3088ad01507fd37c0c08cf46962338ac3c576528746": "les deux bornes comptent : de m à n, il y a n − m + 1 termes"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -5780,7 +5780,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "ad16c05f9bd94ab484d190d8568d3b8c17313763ddf36c9cdcf8bdca0c1ddedb": "2² = 4 n'est pas strictement plus grand que 2² = 4"
+        "ad16c05f9bd94ab484d190d8568d3b8c17313763ddf36c9cdcf8bdca0c1ddedb": "l'inégalité est stricte : un cas d'égalité est déjà un contre-exemple"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -6090,7 +6090,7 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "9d890df1217e2c53c8a43ae95e53da0d623e0ae809c946806a3a9f2599317473": "de 0 à 39 inclus, il y a 40 entiers"
+        "9d890df1217e2c53c8a43ae95e53da0d623e0ae809c946806a3a9f2599317473": "0 compte aussi : compte les entiers de 0 à 39, les deux inclus"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -6144,7 +6144,7 @@
       "kind": "int",
       "magnitude": null,
       "mistakes": {
-        "5d30fd338304a42534b67c9bd929e13874f7a18336ed8d034b954fe0ab22db37": "teste n = 0 : 5⁰ + 1 = 2 ; puis regarde le reste de 5ⁿ dans la division par 4"
+        "5d30fd338304a42534b67c9bd929e13874f7a18336ed8d034b954fe0ab22db37": "teste quelques valeurs de n, et regarde le reste de 5ⁿ dans la division par 4"
       },
       "sign": 0,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -6167,7 +6167,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "685acae441de345e84564d6d26b9a0ad5f49e77a43acd37b18bef53a7c87581e": "pour n = 2, les boules 1 à 2 et 2 à 3 partagent bien la boule 2 : essaie une valeur plus petite",
+        "685acae441de345e84564d6d26b9a0ad5f49e77a43acd37b18bef53a7c87581e": "pour n = 2, les groupes « boules 1 à 2 » et « boules 2 à 3 » partagent bien la boule 2 : la ligne F y est juste",
         "daddbf684f097b47762b70a0ac93695eb5d0744682a94f604bfb5a089bd4c620": "l'hérédité part de n ≥ 1"
       },
       "sign": 1,
