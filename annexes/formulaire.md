@@ -33,7 +33,24 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | somme pondérée (neurone) | $z = \sum_i w_i x_i + b$ |
 | moyenne harmonique | $H = \frac{n}{\sum_i \frac{1}{x_i}}$ |
 
-*(R2 à R9 ajoutés avec leurs chapitres)*
+### R2 · Calcul littéral et équations
+
+| Notion | Formule |
+|---|---|
+| double distributivité | $(a + b)(c + d) = ac + ad + bc + bd$ |
+| identités remarquables | $(a + b)^2 = a^2 + 2ab + b^2$ ; $(a - b)^2 = a^2 - 2ab + b^2$ ; $(a + b)(a - b) = a^2 - b^2$ |
+| équation $ax + b = 0$ | $a \ne 0$ : $x = -\frac{b}{a}$ ; $a = 0$, $b \ne 0$ : aucune solution ; $a = b = 0$ : tous les réels |
+| produit nul | $AB = 0 \iff A = 0$ ou $B = 0$ |
+| inéquations | multiplier ou diviser par $k < 0$ retourne le sens : $a < b \iff ka > kb$ |
+| valeur absolue | $\lvert x \rvert = x$ si $x \ge 0$, $-x$ sinon ; $\sqrt{x^2} = \lvert x \rvert$ ; distance $\lvert a - b \rvert$ |
+| $\lvert x - a \rvert = c$ | $c > 0$ : $x = a \pm c$ ; $c = 0$ : $x = a$ ; $c < 0$ : aucune solution |
+| $\lvert x - a \rvert \le r$, $\lvert x - a \rvert > r$ | $[a - r \;;\; a + r]$ ; $]-\infty \;;\; a - r[ \,\cup\, ]a + r \;;\; +\infty[$ |
+| fonction signe | $\operatorname{sign}(x) \in \{-1, 0, 1\}$ ; $x = \operatorname{sign}(x)\,\lvert x \rvert$ |
+| système 2 × 2 | $ax + by = e$, $cx + dy = f$ ; déterminant $D = ad - bc$ |
+| formule de Cramer ($D \ne 0$) | $x = \frac{ed - bf}{D}$ ; $y = \frac{af - ec}{D}$ |
+| déterminant nul | aucune solution ou une infinité (droites parallèles ou confondues) |
+
+*(R3 à R9 ajoutés avec leurs chapitres)*
 
 ## Partie I · Fondations
 

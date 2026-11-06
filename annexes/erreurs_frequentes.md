@@ -39,6 +39,17 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Diviser par la valeur d'arrivée | de 250 à 210 : $\frac{-40}{210}$ | le taux d'évolution divise par la valeur de départ : $\frac{-40}{250} = -16\,\%$ |
 | Prendre l'opposé du taux pour revenir au départ | après −20 %, +20 % | le coefficient réciproque est l'inverse : $\frac{1}{0{,}8} = 1{,}25$, soit +25 % |
 | Faire la moyenne de deux moyennes | moyenne de 12 (10 élèves) et de 8 (30 élèves) = 10 | pondérer par les effectifs : $\frac{120 + 240}{40} = 9$ |
+| Oublier des produits en développant | $(x + 3)(2x - 5) = 2x^2 - 15$ | chaque terme par chaque terme : quatre produits, $2x^2 + x - 15$ |
+| Un moins devant une parenthèse qui ne change qu'un signe | $-(x - 4) = -x - 4$ | il change le signe de **chaque** terme : $-x + 4$ |
+| Le carré d'un produit | $(2x)^2 = 2x^2$ | le carré porte sur tout le produit : $4x^2$ |
+| Multiplier une fraction sans parenthèses | $\frac{x - 1}{2} \times 6 = 3x - 1$ | le 3 multiplie tout le numérateur : $3(x - 1) = 3x - 3$ |
+| Conclure « $x = 0$ » quand les $x$ disparaissent | $2(x + 1) = 2x + 5$, « donc $x = 0$ » | regarder l'égalité qui reste : $2 = 5$ est faux, aucune solution ; $6 = 6$ serait vrai, tous les réels |
+| Un crochet fermé du côté de l'infini | $[1 ; +\infty]$ | toujours ouvert : $[1 ; +\infty[$ |
+| Confondre « et » et « ou » | « $x > 1$ et $x < 4$ » donne une réunion | « et » : intersection, $]1 ; 4[$ ; « ou » : réunion |
+| Une seule solution à une équation avec valeur absolue | $\lvert x + 2 \rvert = 5 \Rightarrow x = 3$ | deux points à distance 5 de $-2$ : $-7$ et $3$ |
+| Distribuer la valeur absolue sur une somme | $\lvert a + b \rvert = \lvert a \rvert + \lvert b \rvert$ | faux pour $a = 1$, $b = -1$ ; seulement $\lvert a + b \rvert \le \lvert a \rvert + \lvert b \rvert$ |
+| Un système à déterminant nul « a une solution » | $D = 0$, « une solution » | aucune ou une infinité : comparer les seconds membres |
+| Lire `[]` de `sympy.solve` comme « aucune solution » | `sp.solve(3*(x - 2) - (3*x - 6), x)` vaut `[]` | aussi pour une équation vraie pour tout $x$ ; `sp.solveset(..., x, sp.S.Reals)` distingue `EmptySet` et `Reals` |
 
 ## Fonctions, exponentielle, logarithme (R3, R6)
 

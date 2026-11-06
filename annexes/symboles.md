@@ -9,17 +9,18 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $=$, $\ne$ | « égale », « différent de » | equals, is not equal to | même valeur, valeurs différentes | $2 + 2 = 4$, $3 \ne 4$ | R1 |
 | $\approx$ | « environ égal à » | approximately equal to | valeur approchée | $\pi \approx 3{,}14$ | R1 |
 | $:=$ | « est défini comme » | is defined as | on donne un nom à une expression | $f(x) := x^2$ | R4 |
-| $<$, $\le$ | « strictement inférieur à », « inférieur ou égal à » | less than, less than or equal to | comparaison | $2 \le 2$ est vrai, $2 < 2$ est faux | R2 |
+| $<$, $\le$ ($>$, $\ge$) | « strictement inférieur à », « inférieur ou égal à » (« supérieur ») | less than, less than or equal to (greater than) | comparaison | $2 \le 2$ est vrai, $2 < 2$ est faux | R2 |
 | $\pm$ | « plus ou moins » | plus or minus | deux valeurs à la fois | $x = \pm 3$ : $x = 3$ ou $x = -3$ | R2 |
 | $a^n$ | « a puissance n » | a to the power n | produit de $n$ facteurs égaux à $a$ | $5^3 = 125$ | R1 |
 | $a^{-n}$ | « a puissance moins n » | a to the minus n | l'inverse de $a^n$ | $3^{-2} = \frac{1}{9}$ | R1 |
 | $m \times 10^k$, `me k` | « m fois dix puissance k » | m times ten to the k | notation scientifique ; en Python `3.72e-5` | $3{,}72 \times 10^{-5}$ | R1 |
 | $\sqrt{a}$ | « racine carrée de a » | square root of a | le nombre positif dont le carré vaut $a$ | $\sqrt{9} = 3$ | R1 |
 | $\lvert x \rvert$ | « valeur absolue de x » | absolute value of x | $x$ sans son signe ; distance de $x$ à 0 | $\lvert -3 \rvert = 3$ | R2 |
+| $\operatorname{sign}(x)$ | « signe de x » | sign of x | $-1$, 0 ou 1 selon le signe de $x$ ; $x = \operatorname{sign}(x) \lvert x \rvert$ | $\operatorname{sign}(-8) = -1$ | R2 |
 | $\lfloor x \rfloor$, $\lceil x \rceil$ | « partie entière (inférieure, supérieure) de x » | floor, ceiling of x | arrondi vers le bas, vers le haut | $\lfloor 2{,}4 \rfloor = 2$, $\lceil 2{,}4 \rceil = 3$, $\lfloor -1{,}6 \rfloor = -2$ | R1 |
 | $n!$ | « factorielle n » | n factorial | $1 \times 2 \times \dots \times n$ | $4! = 24$ | R8 |
 | $\binom{n}{k}$ | « k parmi n » | n choose k | nombre de façons de choisir $k$ objets parmi $n$ | $\binom{4}{2} = 6$ | R8 |
-| $\infty$ | « l'infini » | infinity | plus grand que tout nombre (pas un nombre) | $x \to +\infty$ | R5 |
+| $\infty$ | « l'infini » | infinity | plus grand que tout nombre (pas un nombre) | $[2 ; +\infty[$, $x \to +\infty$ | R2, R5 |
 
 ## Sommes, produits, ensembles et logique
 
@@ -30,13 +31,13 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{D}$, $\mathbb{Q}$, $\mathbb{R}$ | « N, Z, D, Q, R » | naturals, integers, decimals, rationals, reals | entiers naturels, relatifs, décimaux, rationnels, réels | $-2 \in \mathbb{Z}$, $-2 \notin \mathbb{N}$ | R1, R4 |
 | $\in$, $\notin$ | « appartient à », « n'appartient pas à » | is in, is an element of | un élément dans un ensemble | $3 \in \{1, 2, 3\}$ | R4 |
 | $\subset$ ou $\subseteq$ | « est inclus dans » | is a subset of | tous les éléments du premier sont dans le second | $\{1, 2\} \subset \{1, 2, 3\}$ | R4 |
-| $A \cup B$, $A \cap B$ | « A union B », « A inter B » | union, intersection | dans l'un ou l'autre, dans les deux | $\{1,2\} \cap \{2,3\} = \{2\}$ | R4 |
-| $\varnothing$ | « l'ensemble vide » | the empty set | aucun élément | $\{1\} \cap \{2\} = \varnothing$ | R4 |
+| $A \cup B$, $A \cap B$ | « A union B », « A inter B » | union, intersection | dans l'un ou l'autre, dans les deux | $\{1,2\} \cap \{2,3\} = \{2\}$, $[0 ; 3] \cap [2 ; 5] = [2 ; 3]$ | R2, R4 |
+| $\varnothing$ | « l'ensemble vide » | the empty set | aucun élément | $\{1\} \cap \{2\} = \varnothing$ | R2, R4 |
 | $[a ; b]$, $]a ; b[$ | « intervalle fermé, ouvert, de a à b » | closed, open interval | les réels entre $a$ et $b$, bornes comprises ou non (en anglais : $[a, b]$, $(a, b)$) | $1 \in [1 ; 2]$, $1 \notin \,]1 ; 2]$ | R2 |
 | $\forall$ | « pour tout » | for all | la propriété vaut pour chaque élément | $\forall x \in \mathbb{R},\ x^2 \ge 0$ | R4 |
 | $\exists$ | « il existe » | there exists | au moins un élément vérifie la propriété | $\exists x \in \mathbb{R},\ x^2 = 2$ | R4 |
 | $\Rightarrow$ | « implique », « donc » | implies | si la gauche est vraie, la droite aussi | $x = 2 \Rightarrow x^2 = 4$ | R4 |
-| $\Leftrightarrow$ | « équivaut à », « si et seulement si » | if and only if (iff) | les deux sont vraies ou fausses ensemble | $2x = 6 \Leftrightarrow x = 3$ | R4 |
+| $\Leftrightarrow$ | « équivaut à », « si et seulement si » | if and only if (iff) | les deux sont vraies ou fausses ensemble (aussi $\iff$) | $2x = 6 \Leftrightarrow x = 3$ | R2, R4 |
 
 ## Fonctions et analyse
 
