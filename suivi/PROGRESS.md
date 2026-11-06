@@ -1,12 +1,12 @@
 # PROGRESS : état de la génération de workbookMaths
 
-*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-06, session 1 (mise en place).*
+*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-06, session 2 (syllabus).*
 
 ## Prochaine étape
 
-➡️ **Session 2 : syllabus détaillé.** Pour chacun des 49 chapitres, des examens blancs, du test de positionnement et du projet de synthèse : les exercices (ID, type, ★, durée, prérequis, parcours), les sections de MML couvertes, les notions requises par le chapitre de workbookIA préparé (lues dans son `docs/syllabus/data/`, en lecture seule) et la preuve qu'elles sont toutes enseignées avant, les signatures figées de `mymath` (tous les stubs et `MANIFEST.json`), les temps d'étude recalculés. Outil : `tools/syllabus.py` adapté de workbookIA (`check`, `build`), qui génère `docs/SYLLABUS.md`, `docs/PARCOURS.md`, le modèle du tableau de bord et les tableaux du README. Relecture pédagogique indépendante (sous-agent), puis relecture par l'apprenant.
+➡️ **Session 3 : chapitre R0** (prise en main), puis **R1** à **R9** dans l'ordre (une session chacun, deux pour R7), le test de positionnement **POS** juste après la partie 0, et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` (exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` dont les stubs sont déjà publiés). Avant d'écrire R1 à R9 : relire workbookIA 0B (lecture seule) pour ne reprendre aucun de ses exemples ni de ses nombres.
 
-Ensuite : la remise à niveau R0 à R9 (l'apprenant commence par elle, en parallèle de workbookIA 0A), le test de positionnement, l'examen CP0.
+Avant la génération de la partie I : **session de syllabus de la partie I** (détailler M02a à M06 et CP1 : exercices, stubs `mymath`, temps), en tenant compte du calibrage de la partie 0.
 
 ## Statut des chapitres
 

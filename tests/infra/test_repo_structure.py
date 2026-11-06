@@ -12,7 +12,8 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 REQUIRED = [
     "README.md", "CLAUDE.md", "requirements.txt", "pyproject.toml", ".gitignore", ".gitattributes",
-    "docs/BIBLE.md", "docs/METHODE.md",
+    "docs/BIBLE.md", "docs/METHODE.md", "docs/SYLLABUS.md", "docs/PARCOURS.md", "docs/syllabus/COUVERTURE_IA.md",
+    "docs/syllabus/workbookia_notions.json", "docs/syllabus/data/ia_coverage.py", "tools/syllabus.py",
     "00_setup/check_env.py", "00_setup/demo.ipynb", "00_setup/demo_solutions.ipynb", "00_setup/INSTALL_LOCAL.md",
     "00_setup/COLAB.md", "src/wbm/__init__.py", "src/wbm/answers.json", "src/wbm/chapters.py", "src/wbm/mathcheck.py",
     "templates/mymath_stubs/__init__.py", "templates/mymath_stubs/MANIFEST.json",

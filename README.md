@@ -8,7 +8,7 @@ Il suit le livre **« Mathematics for Machine Learning »** de M. P. Deisenroth,
 
 > Le livre n'est pas inclus dans ce dépôt : son PDF est gratuit pour un usage personnel sur le site du livre, mais sa notice en interdit la redistribution. Les fiches et les exercices sont originaux ; ils renvoient aux sections sous la forme « (MML §4.5) ». Voir [Crédits et licences](#crédits-et-licences).
 
-**État** : la mise en place est faite (session 1, 2026-11-06). Le syllabus détaillé (session 2), puis les chapitres, arrivent dans l'ordre de travail ci-dessous, la remise à niveau en premier.
+**État** : la mise en place (session 1) et le syllabus (session 2) sont faits, le 2026-11-06 : la remise à niveau est détaillée exercice par exercice dans [`docs/SYLLABUS.md`](docs/SYLLABUS.md), les parties suivantes sont planifiées. Les chapitres arrivent dans l'ordre de travail ci-dessous, la remise à niveau en premier.
 
 ## 🔀 Ordre de travail commun
 

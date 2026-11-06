@@ -38,7 +38,14 @@ python tools/run_all_notebooks.py chapitres/<dossier>/03_notebook.ipynb   # « R
 python tools/export_flashcards.py --check
 python 00_setup/check_env.py
 ```
-Le syllabus (`tools/syllabus.py check|build`) arrive en session 2.
+```bash
+python tools/syllabus.py check      # cohérence des données du syllabus (0 erreur, 0 avertissement attendus)
+python tools/syllabus.py build      # régénère docs/SYLLABUS.md, docs/PARCOURS.md, docs/syllabus/COUVERTURE_IA.md,
+                                    # le tableau du README et le modèle du tableau de bord
+python tools/syllabus.py stats
+```
+- Source du syllabus : `docs/syllabus/data/partie_*.py` et `fin.py` (jamais les `.md` générés). Une partie est **détaillée** (chaque exercice) dans une session de syllabus juste avant sa génération ; avant, elle est seulement **planifiée** (notions, prérequis, MML, fonctions `mymath` prévues, qui peuvent encore changer). Détailler une partie : écrire ses exercices, ses stubs `mymath` et leur ligne dans `MANIFEST.json`, relire la couverture de workbookIA, puis `check` et `build`.
+- Couverture de workbookIA : `docs/syllabus/data/ia_coverage.py` relie chaque notion mathématique d'un chapitre de workbookIA (copie figée `docs/syllabus/workbookia_notions.json`) au chapitre de maths qui l'enseigne avant lui. Si workbookIA évolue, régénérer la copie depuis son `docs/syllabus/data/` (lecture seule), puis `check`.
 
 ## Écrire un chapitre
 

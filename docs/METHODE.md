@@ -18,17 +18,19 @@ Ce guide est pour toi. Il explique **comment piloter Claude, session après sess
 | # | Session | Ce que tu demandes | Ton rôle après la session |
 |---|---|---|---|
 | 1 ✅ | Mise en place : outils, versions, consignes, démo | (fait le 2026-11-06) | Ouvrir `00_setup/demo.ipynb` dans Colab et vérifier qu'il tourne |
-| 2 | Syllabus détaillé : tous les exercices planifiés, signatures `mymath`, parcours, temps | « Session 2 : syllabus » (modèle ci-dessous) | **Relire `docs/SYLLABUS.md`** : c'est le moment de tout changer |
+| 2 ✅ | Syllabus : la partie 0 détaillée (exercices, signatures `mymath`, parcours, temps), le plan des parties I à VII, la preuve que workbookIA est couvert | (fait le 2026-11-06) | **Relire `docs/SYLLABUS.md`** (la partie 0 en détail, le plan du reste) : c'est le moment de tout changer |
 | 3 → ~14 | Remise à niveau R0 à R9, test de positionnement, examen CP0 | « Session : chapitre R3 » | Commencer l'étude (et workbookIA 0A en parallèle) |
+| avant chaque partie I à VII | Syllabus de la partie : ses exercices, ses signatures `mymath`, ses temps | « Session : syllabus de la partie II » | Relire la partie dans `docs/SYLLABUS.md` |
 | suite | Chapitres M02a à MB8, dans l'ordre de travail commun ; un examen blanc à la fin de chaque partie | « Session : chapitre M12c » | Étudier, puis envoyer ton retour |
 | après les parties 0, II, IV | Audit qualité indépendant | « Audit des parties … » | Valider les corrections majeures |
 | dernière | Projet de synthèse, finalisation (index des notions, deck Anki global) | « Finalisation » | 🎓 |
 
-Compte **environ 70 sessions**.
+Compte **environ 75 sessions**.
 
 ### Modèles de demandes (à copier dans une nouvelle conversation)
 
 - **Générer un chapitre** : « Session de génération de workbookMaths : chapitre `M12c`. Clone `cemah2/workbookMaths` (écriture) et `cemah2/workbookIA` (lecture seule, ne le modifie jamais), lis `CLAUDE.md` puis suis-le. Pousse à la fin. »
+- **Détailler une partie** (avant de la générer) : « Session de syllabus de workbookMaths : partie `II`. Clone `cemah2/workbookMaths` (écriture) et `cemah2/workbookIA` (lecture seule, ne le modifie jamais), lis `CLAUDE.md` puis suis-le. Pousse à la fin. »
 - **Reprendre une session interrompue** : « Reprends la session de génération de workbookMaths là où `suivi/PROGRESS.md` l'indique. »
 - **Correction ciblée** : « Dans workbookMaths, chapitre `R3`, exercice `R3.12` : [le problème]. Corrige en respectant la bible. »
 - **Retour d'étude** (calibrage) : « Retour sur workbookMaths `R3` : temps réel [..], trop dur / trop facile [..], pas clair [..]. Mets à jour le calibrage dans `PROGRESS.md` pour les chapitres suivants. »

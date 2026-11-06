@@ -1,5 +1,15 @@
 {
-  "_doc": "Stub files copied by tools/start_chapter.py, per chapter (paths relative to templates/mymath_stubs). Additive only: a published entry is never renamed, edited or removed (BIBLE §7). The chapters' modules are added in session 2 (syllabus).",
+  "_doc": "Stub files copied by tools/start_chapter.py, per chapter (paths relative to templates/mymath_stubs). Additive only: a published entry is never renamed, edited or removed (BIBLE §7). Part 0 published in session 2; the modules of a later part are added in the syllabus session that details it.",
   "base": ["__init__.py", "_example.py"],
-  "chapters": {}
+  "chapters": {
+    "R1": ["arith.py"],
+    "R2": ["algebra.py"],
+    "R3": ["functions.py"],
+    "R4": ["logic.py"],
+    "R5": ["sequences.py"],
+    "R6": ["explog.py"],
+    "R7": ["deriv.py"],
+    "R8": ["proba_basics.py"],
+    "R9": ["plane.py"]
+  }
 }
