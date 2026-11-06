@@ -579,7 +579,7 @@ def test_run_pytest_group_hides_what_exceeds_max_shown(group_root, capsys):
     run_pytest_group("tests/test_group.py", "not slow and not passes", root=group_root, max_shown=2)
     text = out(capsys)
     assert sum(line[:1] in "❌⏳" for line in text.splitlines()) == 2
-    assert "   … et 4 autre(s) test(s) en échec, dont 1 pas encore écrit(s)" in text
+    assert "   … et 4 autre(s) test(s) en échec, dont 1 sur une fonction pas encore écrite" in text
 
 
 def test_run_pytest_group_says_which_failures_are_only_pending(group_root, capsys):

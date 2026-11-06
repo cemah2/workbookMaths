@@ -72,8 +72,9 @@ _PICKLE_ERRORS = ("Weights only load failed", "invalid load key")   # torch.load
 
 # Common errors of a beginner's code, explained in French (part 0 on): (text of the message, hint)
 _BEGINNER_HINTS = (
-    ("math domain error", "math.sqrt (ou math.log) a reçu un nombre hors de son domaine, un négatif par exemple : "
-                          "traite ce cas avant l'appel"),
+    ("math domain error", "une fonction de math a reçu un nombre hors de son domaine : un négatif pour math.sqrt ou "
+                          "math.log, un nombre hors de [-1, 1] pour math.acos ou math.asin (un cosinus calculé en "
+                          "flottants peut dépasser 1 de très peu) : traite ce cas avant l'appel"),
     ("object is not callable", "une valeur est appelée comme une fonction : une fonction qui doit renvoyer une "
                                "fonction la renvoie-t-elle sans l'appeler (return h, pas return h(x)) ?"),
     ("'function' and", "une fonction est utilisée comme un nombre : manque-t-il un appel, ou une fonction renvoyée au "
@@ -713,7 +714,7 @@ def run_pytest_group(test_file, keyword: str | None = None, impl: str = "learner
     hidden = failures[max_shown:]
     if hidden:
         n_pending = sum(f[1] for f in hidden)
-        detail = f", dont {n_pending} pas encore écrit(s)" if n_pending else ""
+        detail = f", dont {n_pending} sur une fonction pas encore écrite" if n_pending else ""
         print(f"   … et {len(hidden)} autre(s) test(s) en échec{detail}")
     counts = [line for line in lines if "Exit: " not in line and _SUMMARY.search(line)]
     summary = (counts[-1].strip("= ") if counts else lines[-1].strip("=! ")[:300] if lines

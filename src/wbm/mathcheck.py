@@ -94,13 +94,13 @@ def _parse_fraction(value) -> tuple[Fraction, bool | None]:
             elif value.is_number and value.is_real:
                 raise _IrrationalValue()          # sqrt(2): a wrong value, not a wrong form
             else:
-                raise MathNormalizationError("une fraction exacte, comme \"3/4\" ou sp.Rational(3, 4)")
+                raise MathNormalizationError("une fraction exacte, comme \"8/11\" ou sp.Rational(8, 11)")
     except ImportError:  # pragma: no cover
         pass
     if isinstance(value, Fraction):
         return value, None
     if isinstance(value, bool):
-        raise MathNormalizationError("une fraction comme \"3/4\" (pas un booléen)")
+        raise MathNormalizationError("une fraction comme \"8/11\" (pas un booléen)")
     if (isinstance(value, tuple) and len(value) == 2
             and all(isinstance(v, numbers.Integral) and not isinstance(v, bool) for v in value)):
         raise MathNormalizationError(_DECIMAL_COMMA)
@@ -136,8 +136,8 @@ def _parse_fraction(value) -> tuple[Fraction, bool | None]:
             if number.is_Rational:
                 return Fraction(int(number.p), int(number.q)), None
             raise _IrrationalValue()
-        raise MathNormalizationError("une fraction écrite comme \"3/4\" ou \"-5/2\" (ou un entier)")
-    raise MathNormalizationError("une fraction écrite comme \"3/4\" (texte), ou Fraction(3, 4)")
+        raise MathNormalizationError("une fraction écrite comme \"8/11\" ou \"-7/3\" (ou un entier)")
+    raise MathNormalizationError("une fraction écrite comme \"8/11\" (texte), ou Fraction(8, 11)")
 
 
 _DECIMAL_COMMA = ("un seul nombre : sans guillemets, `0,5` ou `(3, 5)` est un couple de deux nombres, comme `(0, 5)`. "
@@ -165,7 +165,7 @@ class _ApproximateValue(MathNormalizationError):
     """A float that is not a short exact decimal: maybe an approximation of the right fraction."""
 
     def __init__(self, x: float):
-        super().__init__("la valeur exacte, sous forme de fraction (\"2/7\"), pas une valeur approchée")
+        super().__init__("la valeur exacte, sous forme de fraction (\"8/11\"), pas une valeur approchée")
         self.x = x
 
 
@@ -315,7 +315,7 @@ _ONE_INTERVAL = re.compile(r"\s*([\[\]\(])\s*(.+?)\s*([;,])\s*(.+?)\s*([\[\]\)])
 _ONE_INTERVAL_SEMICOLON = re.compile(r"\s*([\[\]\(])\s*(.+?)\s*(;)\s*(.+?)\s*([\[\]\)])\s*")  # "]-2,5 ; 3]"
 _INTERSECTION = re.compile(r"∩|\binter\b|\bet\b")
 _SET_MINUS = re.compile(r"\s*(?:R|ℝ)\s*(?:\\setminus|\\|∖|privé de)\s*\{(.+)\}\s*")
-_INTERVAL_FORM = ("un intervalle écrit comme \"[2 ; 5[\" ou \"]-oo ; 3]\" (réunion : \"[0 ; 1] U [2 ; 3]\" ; ensemble vide : "
+_INTERVAL_FORM = ("un intervalle écrit comme \"[2 ; 5[\" ou \"]-oo ; -7]\" (réunion : \"[0 ; 1] U [2 ; 3]\" ; ensemble vide : "
                   "\"vide\")")
 
 
@@ -433,12 +433,36 @@ def _norm_intervals(intervals) -> str:
 # ---------------------------------------------------------------------------
 # entries (solutions side) and checks (learner side)
 # ---------------------------------------------------------------------------
+_LATEX_FRAC = re.compile(r"\\[dt]?frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}")
+_LATEX_SQRT = re.compile(r"\\sqrt\s*\{([^{}]*)\}")
+_LATEX_SQRT_TOKEN = re.compile(r"\\sqrt\s*(\d+|[A-Za-z](?![A-Za-z]))")
+_MODULE_PREFIX = re.compile(r"\b(?:math|numpy|np|sympy|sp)\.")
+_PI_CASE = re.compile(r"(?<![A-Za-z])P[iI](?![A-Za-z])")
+_RADIAN_WORD = re.compile(r"\s*(?:rad|radians?)\s*$", re.IGNORECASE)
+
+
+def _exact_text(text: str) -> str:
+    """An exact number as a learner may type it, made readable: "Pi" and "PI", "math.sqrt(3)", "np.pi", "racine(3)",
+    a final "rad", and LaTeX copied from the answer sheet ("-\\frac{\\sqrt{3}}{2}", "\\pi") (session 14, R9 learner
+    A1-A3)."""
+    text = text.replace("$", "").replace("\\left", "").replace("\\right", "")
+    for _ in range(5):                                    # nested \frac{\sqrt{3}}{2}: the innermost first
+        text = _LATEX_SQRT.sub(r"sqrt(\1)", text)
+        text = _LATEX_SQRT_TOKEN.sub(r"sqrt(\1)", text)
+        text = _LATEX_FRAC.sub(r"((\1)/(\2))", text)
+    text = (text.replace("\\pi", " pi ").replace("\\cdot", "*").replace("\\times", "*"))
+    text = _MODULE_PREFIX.sub("", text)
+    text = re.sub(r"\bracine\b", "sqrt", text, flags=re.IGNORECASE)
+    text = _PI_CASE.sub("pi", text)
+    return _RADIAN_WORD.sub("", text)
+
+
 def _exact_value(value):
     """The exact real number of an ``exact`` answer (a SymPy number), or MathNormalizationError."""
     import sympy
 
     if isinstance(value, bool):
-        raise MathNormalizationError("un nombre exact, comme \"sqrt(3)/2\" ou \"3*pi/4\" (pas un booléen)")
+        raise MathNormalizationError("un nombre exact, comme \"sqrt(5)/3\" ou \"2*pi/5\" (pas un booléen)")
     if isinstance(value, Fraction):
         return sympy.Rational(value.numerator, value.denominator)
     if isinstance(value, numbers.Integral):
@@ -446,11 +470,16 @@ def _exact_value(value):
     if isinstance(value, numbers.Real):
         if not math.isfinite(float(value)):
             raise MathNormalizationError("un nombre exact et fini")
+        if float(value).is_integer() and abs(float(value)) < 1e15:   # 45.0: an integer, not an approximation
+            return sympy.Integer(int(value))
         return sympy.Float(float(value), 17)
-    expected = "un nombre exact, comme \"sqrt(3)/2\" ou \"3*pi/4\" (avec sqrt, pi et des fractions, sans lettre)"
+    expected = "un nombre exact, comme \"sqrt(5)/3\" ou \"2*pi/5\" (avec sqrt, pi et des fractions, sans lettre)"
     if isinstance(value, str):
+        value = _exact_text(value)
         text = _clean_text(value).replace(" ", "")
         if _DECIMAL_TEXT.fullmatch(text):                 # "-0,866": a decimal, read as the float it is
+            if not re.search(r"[.,]", text):              # "1", "-45": an integer, exact
+                return sympy.Integer(int(text))
             return sympy.Float(text.replace(",", "."), _PRECISION)
     try:
         number = parse_expression(value, [])
@@ -661,7 +690,7 @@ def _approximated_mistake(ex_id: str, entry: dict, x: float, decimals: int) -> s
 
 
 _APPROXIMATE = ("C'est une valeur approchée de la bonne réponse : donne la valeur exacte, sous forme de fraction "
-                "(texte comme \"2/7\").")
+                "(texte comme \"8/11\").")
 
 
 def _check_fraction(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
@@ -680,7 +709,7 @@ def _check_fraction(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
         if mistake:
             return False, "wrong", mistake
         return False, "wrong", ("Ce n'est pas la bonne valeur : reprends le calcul étape par étape (et donne la valeur "
-                                "exacte, sous forme de fraction, comme \"2/7\").")
+                                "exacte, sous forme de fraction, comme \"8/11\").")
     digest = _hash(ex_id, "fraction", _norm_fraction(q))
     if digest == entry["hash"]:
         if entry.get("simplified") and irreducible is False:
@@ -744,7 +773,7 @@ def _check_expr(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
 
 
 _EXACT_APPROXIMATE = ("C'est une valeur approchée de la bonne réponse : donne la valeur exacte, avec sqrt, pi ou une "
-                      "fraction, entre guillemets (comme \"sqrt(3)/2\" ou \"3*pi/4\").")
+                      "fraction, entre guillemets (comme \"sqrt(5)/3\" ou \"2*pi/5\").")
 
 
 def _has_float(number) -> bool:
@@ -770,18 +799,23 @@ def _check_exact(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
     classic = _classic(entry, digest)
     if classic:
         return False, "wrong", classic
+    import sympy
+
+    if _has_float(number) and abs(float(number)) < 1e-12 and _exact_digest(ex_id, sympy.Integer(0)) == entry["hash"]:
+        return True, "ok", _praise(ex_id)          # math.cos(3*math.pi/2): 0 up to the rounding of the floats
     if _has_float(number):                          # a decimal: the right value, rounded?
         decimals = _typed_decimals(value)
         if decimals is not None and 1 <= decimals <= 8:
             if _hash(ex_id, "exact", "~" + _exact_rounded_text(number, decimals)) == entry.get("rounded", {}).get(
                     str(decimals)):
                 return False, "near", _EXACT_APPROXIMATE
-    import sympy
-
     if entry.get("angle") and not _has_float(number):     # 150 for 5*pi/6: degrees given for radians
         if _exact_digest(ex_id, number * sympy.pi / 180) == entry["hash"]:
             return False, "wrong", ("Ta valeur est un angle en degrés ; la réponse est attendue en radians "
                                     "(multiplie par π/180, et garde π dans la réponse).")
+        if number.is_Integer and abs(number) > 7:         # 120 for an angle in radians: degrees again
+            return False, "wrong", ("Ta valeur ressemble à un angle en degrés, et la réponse est attendue en "
+                                    "radians, avec pi (comme \"2*pi/5\") : reprends la conversion.")
     if number != 0 and _exact_digest(ex_id, -number) == entry["hash"]:
         return False, "wrong", "La valeur absolue est bonne, mais le signe est inversé."
     if _has_float(number):

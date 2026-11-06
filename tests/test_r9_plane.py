@@ -36,14 +36,14 @@ def _result(call, expected):
 def _expect_value_error(call, what, why):
     """Fail with what was expected first, whatever the function did instead of raising ValueError."""
     try:
-        call()
+        result = call()
     except ValueError:
         return
     except NotImplementedError:
         raise
     except Exception as exc:  # noqa: BLE001 - any other error is reported, with what was expected first
         pytest.fail(f"expected {what} to raise ValueError ({why}), got {type(exc).__name__}: {exc}")
-    pytest.fail(f"expected {what} to raise ValueError ({why}), but it returned a value")
+    pytest.fail(f"expected {what} to raise ValueError ({why}), but it returned {result!r}")
 
 
 def _random_vectors(seed, count=20):
@@ -212,6 +212,18 @@ def test_angle_between_survives_a_cosine_rounded_above_1(plane):
                 f"expected angle_between({u}, {v}) ≈ 0 (same direction), got {got!r}")
 
 
+def test_angle_between_survives_a_cosine_rounded_below_minus_1(plane):
+    """(1, 6) and (-2, -12) give a computed cosine of -1.0000000000000002: clamping only at 1 is not enough."""
+    for a in range(1, 13):
+        for k in (2, 3):
+            u, v = (1, a), (-k, -k * a)
+            got = _result(lambda: plane.angle_between(u, v),
+                          f"pi for {u} and {v} (opposite directions): clamp the cosine to [-1, 1], on both sides, "
+                          "before math.acos")
+            assert got == pytest.approx(math.pi, abs=1e-7), (
+                f"expected angle_between({u}, {v}) ≈ pi (opposite directions), got {got!r}")
+
+
 @pytest.mark.parametrize("u, v", [((0, 0), (1, 2)), ((3, -1), (0, 0)), ((0, 0, 0), (0, 0, 0))],
                          ids=["first is zero", "second is zero", "both zero"])
 def test_angle_between_refuses_a_zero_vector(plane, u, v):
@@ -233,9 +245,13 @@ def _check_line(plane, A, B):
     a, b, c = equation
     assert (a, b) != (0, 0), f"expected (a, b) != (0, 0) for line_through({A}, {B}), got {equation!r}"
     for point in (A, B):
-        assert _on_line(equation, point), (
-            f"expected a*x + b*y + c == 0 at {point} for line_through({A}, {B}) = {equation!r}, "
-            f"got {a * point[0] + b * point[1] + c!r}")
+        if not _on_line(equation, point):
+            rest = Fraction(a) * point[0] + Fraction(b) * point[1] + Fraction(c)
+            floats = any(isinstance(x, float) for x in equation)
+            hint = (" (your coefficients are floats, rounded: a division? with int coordinates, compute them without "
+                    "dividing)") if floats else ""
+            raise AssertionError(f"expected a*x + b*y + c == 0 at {point} for line_through({A}, {B}) = {equation!r}, "
+                                 f"got {float(rest):.3g}{hint}")
     return equation
 
 
@@ -277,7 +293,7 @@ def test_line_through_random_points_exactly(plane):
 @pytest.mark.parametrize("A", [(2, 3), (0, 0)], ids=["(2, 3) twice", "(0, 0) twice"])
 def test_line_through_refuses_twice_the_same_point(plane, A):
     _expect_value_error(lambda: plane.line_through(A, A), f"line_through({A}, {A})",
-                        "two distinct points are needed: every line goes through a single point")
+                        "two distinct points are needed: infinitely many lines go through a single point")
 
 
 # ---------------------------------------------------------------- deg_to_rad

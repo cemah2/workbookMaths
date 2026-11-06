@@ -92,7 +92,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\lVert \mathbf{x} \rVert$ | « norme de x » | norm of x | longueur du vecteur | $\lVert (3, 4) \rVert = 5$ | R9, M07 |
 | $\lVert \mathbf{x} \rVert_1$, $\lVert \mathbf{x} \rVert_\infty$ | « norme un de x », « norme infinie de x » | L1 norm, infinity norm | $\sum_i \lvert x_i \rvert$ ; $\max_i \lvert x_i \rvert$ | $\lVert (-6, 2) \rVert_1 = 8$ | R9, M07 |
 | $\mathbf{x} \cdot \mathbf{y}$, $\langle \mathbf{x}, \mathbf{y} \rangle$ | « x scalaire y », « produit scalaire de x et y » | dot product, inner product | $\sum_i x_i y_i$ | $(1,2) \cdot (3,4) = 11$ | R9, M07 |
-| $\perp$ | « orthogonal à », « perpendiculaire à » | orthogonal to, perpendicular to | de produit scalaire nul | $(2, -1) \perp (1, 2)$ | R9 |
+| $\perp$ | « orthogonal à », « perpendiculaire à » | orthogonal to, perpendicular to | de produit scalaire nul | $(3, -1) \perp (1, 3)$ | R9 |
 | $\mathbf{A}$ (gras majuscule) | « la matrice A » | matrix A | un tableau de nombres | | M09a |
 | $\mathbf{A}^\top$ ou $\mathbf{A}^T$ | « A transposée » | A transpose | lignes et colonnes échangées | | M09a |
 | $\mathbf{A}\mathbf{B}$ | « A B », « produit de A par B » | matrix product | produit matriciel (l'ordre compte) | | M09a |

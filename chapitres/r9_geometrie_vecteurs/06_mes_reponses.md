@@ -235,7 +235,7 @@
 - f :
 - g :
 - h :
-- s·p et s·q, et pourquoi doubler une recette ne change pas la similarité cosinus :
+- La recette la plus éloignée des crêpes, et l'explication par les ingrédients :
 
 ### Ex R9.14 — Un neurone trace une droite : w₁x₁ + w₂x₂ + b = 0
 
@@ -247,7 +247,7 @@
 - f :
 - g :
 - h :
-- La figure : la frontière, w posé sur elle, les cinq points ; de quel côté pointe w :
+- La figure : la frontière z = 0 et la droite z = 6 ; ce que je remarque :
 
 ### Ex R9.15 — Expliquer ce que mesure un produit scalaire
 
@@ -263,7 +263,7 @@
 
 ### Ex R9.17 — Produit scalaire et angle
 
-- Pourquoi le cosinus de e) dépasse 1 :
+- Pourquoi le cosinus de e) sort de [−1 ; 1] :
 
 ### Ex R9.18 — La droite qui passe par deux points, et les radians
 
@@ -273,13 +273,13 @@
 
 - Angle aigu ou obtus, et comment le savoir dès b) :
 
-### Ex R9.20 — Prédire le cosinus entre un vecteur et son double, puis son opposé
+### Ex R9.20 — Prédire : multiplier ou décaler deux vecteurs change-t-il leur similarité cosinus ?
 
 - Mes prédictions avant l'expérience (et pourquoi), puis l'explication des trois résultats :
 
 ### Ex R9.21 — Dessiner des vecteurs, leur somme et un angle
 
-- Sans ax.set_aspect("equal"), l'angle dessiné, et pourquoi :
+- Sans ax.set_aspect("equal"), l'angle dessiné ressemble-t-il à celui du titre, et pourquoi :
 
 ### Ex R9.22 — Le cercle trigonométrique : cos et sin d'un angle qui tourne
 

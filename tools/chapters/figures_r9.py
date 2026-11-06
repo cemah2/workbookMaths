@@ -91,22 +91,23 @@ def fig_frame() -> None:
 
 
 def fig_vectors() -> None:
-    """§2: u = (2, −1) and v = (−1, 3); u + v by tip to tail and by the parallelogram; 2u and −v."""
-    u, v = np.array([2, -1]), np.array([-1, 3])
-    fig, axes = plt.subplots(1, 2, figsize=(10, 4.6))
+    """§2: u = (3, −1) and v = (−2, 4); u + v by tip to tail and by the parallelogram; 2u and −v."""
+    u, v = np.array([3, -1]), np.array([-2, 4])
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4.8))
     ax = axes[0]
-    frame(ax, (-2.5, 4.5), (-2.5, 3.5))
+    frame(ax, (-2.5, 4.5), (-1.5, 4.5))
     arrow(ax, (0, 0), u, C[0], "u", offset=(0.1, -0.5))
-    arrow(ax, u, v, C[1], "v", offset=(0.2, 0))
-    arrow(ax, (0, 0), u + v, C[2], "u + v", offset=(-0.55, 0.75))
+    arrow(ax, u, v, C[1], "v", offset=(0.25, 0))
+    arrow(ax, (0, 0), u + v, C[2], "u + v", offset=(-0.9, 0.4))
     arrow(ax, (0, 0), v, C[1], None, style="--")
     arrow(ax, v, u, C[0], None, style="--")
     ax.set_title("u + v : les flèches bout à bout (et le parallélogramme)", fontsize=10)
     ax = axes[1]
-    frame(ax, (-2.5, 4.5), (-3.5, 2.5))
-    arrow(ax, (0, 0), 2 * u, C[0], "2u", offset=(0.1, 0.1))
-    arrow(ax, (0, 0), u, C[3], "u", offset=(-0.1, 0.25))
-    arrow(ax, (0, 0), -v, C[1], "−v", offset=(0.2, 0))
+    frame(ax, (-2.5, 6.5), (-4.5, 4.5))
+    arrow(ax, (0, 0), 2 * u, C[0], "2u", offset=(0.1, 0.15))
+    arrow(ax, (0, 0), u, C[3], "u", offset=(-0.1, 0.3))
+    arrow(ax, (0, 0), v, C[1], "v", offset=(-0.6, 0))
+    arrow(ax, (0, 0), -v, C[1], "−v", offset=(0.25, 0))
     ax.set_title("Multiplier par un nombre : 2u (même sens), −v (sens contraire)", fontsize=10)
     fig.tight_layout()
     save(fig, "vecteurs.png")
@@ -136,10 +137,10 @@ def fig_line() -> None:
     for P, name in (((1, -1), "A(1 ; −1)"), ((4, 5), "B(4 ; 5)")):
         ax.plot(*P, "o", color="black", markersize=6)
         ax.text(P[0] + 0.25, P[1] - 0.2, name, fontsize=11)
-    arrow(ax, (2, 1), (1, 2), C[3], "(1 ; 2) directeur", offset=(-2.6, 0.3), size=10)
+    arrow(ax, (2, 1), (1, 2), C[3], "(1 ; 2) directeur", offset=(-3.3, 0.6), size=10)
     arrow(ax, (2, 1), (2, -1), C[1], "(2 ; −1) normal", offset=(-0.3, -0.9), size=10)
     ax.text(-1.6, 5.5, "2x − y − 3 < 0", color=C[1], fontsize=10)
-    ax.text(3.3, -4.3, "2x − y − 3 > 0", color=C[2], fontsize=10)
+    ax.text(2.4, -4.3, "2x − y − 3 > 0", color=C[2], fontsize=10)
     ax.legend(loc="upper left", fontsize=9, bbox_to_anchor=(0.0, -0.08))
     ax.set_title("Une droite, un vecteur directeur, un vecteur normal", fontsize=10)
     save(fig, "droite.png")
@@ -163,8 +164,8 @@ def fig_projection() -> None:
 
 
 def fig_circle() -> None:
-    """§6: the unit circle, the point of angle 3π/4, its cosine (abscissa) and sine (ordinate), and π/6, π/4, π/3."""
-    theta = 3 * np.pi / 4
+    """§6: the unit circle, the point of angle 7π/6, its cosine (abscissa) and sine (ordinate), and π/6, π/4, π/3."""
+    theta = 7 * np.pi / 6
     fig, ax = plt.subplots(figsize=(6, 6))
     frame(ax, (-1.35, 1.35), (-1.35, 1.35), step=0.5)
     t = np.linspace(0, 2 * np.pi, 400)
@@ -174,10 +175,10 @@ def fig_circle() -> None:
     ax.plot([x, x], [0, y], color=C[2], linestyle="--")
     ax.plot([0, x], [y, y], color=C[1], linestyle="--")
     ax.plot(x, y, "o", color=C[0], markersize=7)
-    ax.add_patch(Arc((0, 0), 0.5, 0.5, theta1=0, theta2=135, color=C[0], linewidth=1.5))
-    ax.text(0.05, 0.3, "3π/4", color=C[0], fontsize=11)
-    ax.text(x, -0.12, "cos = −√2/2", color=C[2], ha="center", fontsize=10)
-    ax.text(0.05, y + 0.05, "sin = √2/2", color=C[1], fontsize=10)
+    ax.add_patch(Arc((0, 0), 0.5, 0.5, theta1=0, theta2=210, color=C[0], linewidth=1.5))
+    ax.text(0.05, 0.3, "7π/6", color=C[0], fontsize=11)
+    ax.text(x, 0.07, "cos = −√3/2", color=C[2], ha="center", fontsize=10)
+    ax.text(0.05, y - 0.12, "sin = −1/2", color=C[1], fontsize=10)
     for angle, name in ((np.pi / 6, "π/6"), (np.pi / 4, "π/4"), (np.pi / 3, "π/3"), (np.pi / 2, "π/2"),
                         (np.pi, "π"), (3 * np.pi / 2, "3π/2"), (0, "0")):
         px, py = np.cos(angle), np.sin(angle)
@@ -211,17 +212,17 @@ def fig_curves() -> None:
 
 
 def fig_angle() -> None:
-    """§7: u = (2, −1) and v = (−1, 3): u·v = −5, cos θ = −√2/2, θ = 3π/4 (135°)."""
-    u, v = np.array([2, -1]), np.array([-1, 3])
+    """§7: u = (3, −1) and v = (−2, 4): u·v = −10, cos θ = −√2/2, θ = 3π/4 (135°)."""
+    u, v = np.array([3, -1]), np.array([-2, 4])
     fig, ax = plt.subplots(figsize=(5.4, 5.2))
-    frame(ax, (-2, 3), (-2, 3.5))
+    frame(ax, (-2.5, 3.5), (-1.5, 4.5))
     arrow(ax, (0, 0), u, C[0], "u", offset=(0.1, -0.45))
-    arrow(ax, (0, 0), v, C[1], "v", offset=(-0.55, 0))
+    arrow(ax, (0, 0), v, C[1], "v", offset=(-0.6, 0))
     start = np.degrees(np.arctan2(u[1], u[0]))
     end = np.degrees(np.arctan2(v[1], v[0]))
     ax.add_patch(Arc((0, 0), 1.2, 1.2, theta1=start, theta2=end, color=C[2], linewidth=2))
     ax.text(0.45, 0.55, "θ = 135°", color=C[2], fontsize=11)
-    ax.set_title("cos θ = u·v / (‖u‖ ‖v‖) = −5 / (√5 √10) = −√2/2", fontsize=10)
+    ax.set_title("cos θ = u·v / (‖u‖ ‖v‖) = −10 / (√10 √20) = −√2/2", fontsize=10)
     save(fig, "angle.png")
 
 

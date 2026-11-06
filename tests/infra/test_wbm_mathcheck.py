@@ -386,3 +386,32 @@ def test_expanded_form_is_required_when_asked():
     rate = entry_of("E.45", "20 + 5*h", kind="expr", variables=("h",), expanded=True)
     assert verdict("E.45", rate, "5*(4 + h)")[0]
     assert verdict("E.45", rate, "(20*h + 5*h**2)/h")[1] == "near"
+
+
+@pytest.mark.parametrize("value", ["-Sqrt(3)/2", "-\\frac{\\sqrt{3}}{2}", "$-\\dfrac{\\sqrt 3}{2}$", "-math.sqrt(3)/2",
+                                   "-np.sqrt(3)/2", "-racine(3)/2"])
+def test_exact_numbers_typed_as_python_latex_or_in_french(value):
+    """Forms a learner copies from Python, from LaTeX or writes in French (session 14, R9 learner A1-A3)."""
+    entry = entry_of("X.4", "-sqrt(3)/2", kind="exact")
+    assert verdict("X.4", entry, value)[0], value
+
+
+@pytest.mark.parametrize("value", ["2Pi/3", "2PI/3", "2*pi/3 rad", "\\frac{2\\pi}{3}"])
+def test_exact_angles_with_pi_in_any_case(value):
+    entry = entry_of("X.5", "2*pi/3", kind="exact", angle=True)
+    assert verdict("X.5", entry, value)[0], value
+
+
+def test_exact_integers_and_float_noise():
+    """"1" is an exact integer (never « valeur approchée »); 45.0 and "45" are degrees for pi/4; the float noise of
+    math.cos(3*math.pi/2) is 0 (session 14, R9 learner C4-C6)."""
+    import math
+
+    entry = entry_of("X.6", "-sqrt(3)/2", kind="exact")
+    assert "approchée" not in verdict("X.6", entry, "1")[2]
+    zero = entry_of("X.7", "0", kind="exact")
+    assert verdict("X.7", zero, math.cos(3 * math.pi / 2))[0]
+    angle = entry_of("X.8", "pi/4", kind="exact", angle=True)
+    for value in (45, 45.0, "45"):
+        assert "degrés" in verdict("X.8", angle, value)[2]
+    assert "degrés" in verdict("X.8", angle, "120")[2]

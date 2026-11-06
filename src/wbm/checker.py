@@ -704,6 +704,53 @@ def _coarse_texts(x: float, decimals: int) -> list[str]:
     return texts
 
 
+_RADIANS_FOR_DEGREES = ("Ta valeur ressemble à un angle en radians, alors que l'énoncé le demande en degrés : multiplie "
+                        "par 180/π (math.degrees).")
+_DEGREES_FOR_RADIANS = ("Ta valeur ressemble à un angle en degrés, alors que l'énoncé le demande en radians : multiplie "
+                        "par π/180 (math.radians).")
+
+
+def _typed_tolerance(x: float) -> float:
+    """Half a unit of the last decimal of ``x`` as typed (0.005 for 1.35), tiny for a computed float."""
+    text = repr(float(x))
+    if "e" in text or "." not in text:
+        return 1e-12
+    return 0.5 * 10.0 ** -min(len(text.split(".")[1]), 12)
+
+
+def _near_answer(ex_id: str, entry: dict, target: float, tolerance: float) -> bool:
+    """Does a value within ``tolerance`` of ``target``, at the recorded rounding, give the right answer?"""
+    if entry["kind"] == "int":
+        low, high = math.ceil(target - tolerance - 1e-9), math.floor(target + tolerance + 1e-9)
+        candidates = [float(n) for n in range(low, high + 1)] if high - low <= 50 else []
+    else:
+        decimals = entry.get("decimals")
+        if decimals is None:
+            return False
+        unit = 10.0 ** -decimals
+        low = round(target - tolerance, decimals)
+        high = round(target + tolerance, decimals)
+        count = int(round((high - low) / unit))
+        candidates = [low + k * unit for k in range(count + 1)] if count <= 50 else []
+    accepted = {entry["hash"], *entry.get("alt_hashes", [])}
+    return any(_hash_value(ex_id, entry, c) in accepted for c in candidates)
+
+
+def _angle_unit_slip(ex_id: str, entry: dict, x: float) -> str | None:
+    """An angle given in radians where degrees are asked (2.356 for 135), or the reverse (30 for 0.5236), or None
+    (session 14, R9 learner C4)."""
+    if entry.get("kind") not in ("int", "float") or x == 0 or not math.isfinite(x):
+        return None
+    tolerance = _typed_tolerance(x)
+    if abs(x) <= 2 * math.pi + 0.01 and not float(x).is_integer():
+        if _near_answer(ex_id, entry, math.degrees(x), math.degrees(tolerance)):
+            return _RADIANS_FOR_DEGREES
+    if entry["kind"] == "float" and 6.3 < abs(x) <= 360:
+        if _near_answer(ex_id, entry, math.radians(x), math.radians(tolerance)):
+            return _DEGREES_FOR_RADIANS
+    return None
+
+
 def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False) -> str:
     """Explain a wrong scalar answer without revealing the expected value.
 
@@ -723,6 +770,9 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
     def matches(candidate: float) -> bool:
         return _hash_value(ex_id, entry, candidate) == entry["hash"]
 
+    slip = _angle_unit_slip(ex_id, entry, x)
+    if slip:
+        return slip
     if x != 0 and matches(-x):
         return "Le signe est inversé : vérifie l'ordre d'une soustraction ou un signe « moins »."
     if entry["kind"] == "int" and (matches(x + 1) or matches(x - 1)):
@@ -1058,6 +1108,33 @@ def _type_hint(value, kind: str) -> str:
     return ""
 
 
+def _exact_items(value) -> list[float] | None:
+    """The numbers of a list written partly as exact texts (["pi/2", "3*pi/2"]), or None."""
+    if not isinstance(value, (list, tuple)) or not value or not any(isinstance(v, str) for v in value):
+        return None
+    from wbm.mathcheck import _exact_number, _exact_text
+
+    numbers_read = []
+    for item in value:
+        item = _to_python(item)
+        if isinstance(item, bool):
+            return None
+        if isinstance(item, numbers.Real):
+            numbers_read.append(float(item))
+            continue
+        if not isinstance(item, str):
+            return None
+        try:
+            number = _exact_number(_exact_text(item))
+            x = float(number) if number is not None else None
+        except Exception:  # noqa: BLE001 - an odd text: not an exact number
+            return None
+        if x is None or not math.isfinite(x):
+            return None
+        numbers_read.append(x)
+    return numbers_read
+
+
 def _choices_message(entry: dict) -> str:
     """The message of a value that is not one of the choices offered by the statement (a 🔮 answered 1, 2 or 3)."""
     offered = [_choice_text(choice) for choice in entry["choices"]]
@@ -1113,6 +1190,9 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
             mistake = entry.get("mistakes", {}).get(rounded)
             if mistake:
                 return False, "wrong", _classic(entry, mistake, value)
+            slip = _angle_unit_slip(ex_id, entry, float(_as_number(value)))
+            if slip:
+                return False, "wrong", slip
             return False, "wrong", "Ce n'est pas la bonne valeur (la réponse attendue est un nombre entier)."
         if kind in ("int", "float") and _looks_like_decimal_comma(value):
             return False, "type", ("Tu as écrit une virgule décimale : en Python, `0,5` est un couple de deux nombres, "
@@ -1135,17 +1215,30 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
             shown = raw if len(raw) <= 40 else raw[:37] + "…"
             if kind in ("array", "set") and re.fullmatch(r"\s*[\[(].*[\])]\s*", raw):
                 return False, "type", (f"J'attends une liste, et j'ai reçu le texte « {shown} » : enlève les "
-                                       "guillemets (une liste s'écrit entre crochets, sans guillemets : `[-1, 3]`).")
+                                       "guillemets (une liste s'écrit entre crochets, sans guillemets : `[-1.25, 1]`).")
             if kind in ("int", "float"):
                 exact = _exact_form(ex_id, entry, raw)
                 if exact:
                     return False, "type", exact
             more = ""
-            if kind in ("array", "set") and re.search(r"[a-zA-Z]", raw) and re.search(r"[+\-*^/]", raw):
+            if kind in ("array", "set") and "=" in raw and re.search(r"[xy]", raw) and entry.get("shape") == [3]:
+                more = (" Pour une équation de droite ax + by + c = 0, l'énoncé demande la liste [a, b, c] de ses "
+                        "coefficients.")
+            elif kind in ("array", "set") and re.search(r"[a-zA-Z]", raw) and re.search(r"[+\-*^/]", raw):
                 more = (" Pour une droite y = mx + p, l'énoncé demande la liste [m, p]." if entry.get("shape") == [2]
                         else " Pour un polynôme, l'énoncé demande la liste de ses coefficients, du plus haut degré au "
                         "terme constant, zéros compris.")
             return False, "type", f"J'attends {exc} ; j'ai reçu le texte « {shown} ».{more}"
+        exact_items = _exact_items(value) if kind in ("array", "set") else None
+        if exact_items is not None:              # ["pi/2", "3*pi/2"]: numbers written in exact form, as texts
+            if check_entry(ex_id, entry, exact_items)[0]:
+                text = next(str(_to_python(v)) for v in value if isinstance(_to_python(v), str))
+                shown = text if len(text) <= 40 else text[:37] + "…"
+                return False, "type", (f"Tes valeurs sont les bonnes, mais « {shown} » est un texte : écris des "
+                                       "nombres, sans guillemets (avec math.e, math.pi, math.sqrt… si besoin).")
+            if all(abs(x) <= 2 * math.pi + 0.01 for x in exact_items) and check_entry(
+                    ex_id, entry, [math.degrees(x) for x in exact_items])[0]:
+                return False, "wrong", _RADIANS_FOR_DEGREES
         hint = _type_hint(value, kind)
         if hint:
             lead = {"array": "une liste de nombres", "set": "une liste de nombres (dans l'ordre que tu veux)"}
@@ -1164,8 +1257,20 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
                     mistake = entry.get("mistakes", {}).get(hash_answer(ex_id, kind, normalize(arr, kind, mistake_decimals)))
                     if mistake:
                         return False, "wrong", _classic(entry, mistake, value)
-                return False, "wrong", ("On attend des nombres entiers ici, pas des nombres à virgule. Si tes "
-                                        "valeurs sont des entiers calculés en Python, arrondis-les avec round().")
+                degrees = np.degrees(arr.astype(float))
+                if arr.size and np.all(np.abs(arr) <= 2 * np.pi + 0.01) and np.all(
+                        np.abs(degrees - np.round(degrees)) <= 0.6):   # [1.57, 4.71] for [90, 270]: radians
+                    try:
+                        if hash_answer(ex_id, kind, normalize(np.round(degrees), kind, decimals)) == entry["hash"]:
+                            return False, "wrong", _RADIANS_FOR_DEGREES
+                    except NormalizationError:
+                        pass
+                if computed:
+                    return False, "wrong", ("Ta fonction renvoie des nombres à virgule là où on attend des entiers : "
+                                            "relis sa docstring ; si elle fait partie de `mymath`, ses tests "
+                                            "(`pytest`) disent quel cas pose problème.")
+                return False, "wrong", ("On attend des nombres entiers ici, et ta liste contient des nombres à "
+                                        "virgule : reprends le calcul.")
         if hash_answer(ex_id, kind, norm) == entry["hash"]:
             return True, "correct", _praise(ex_id)
         element_hashes = entry.get("element_hashes")
@@ -1275,6 +1380,8 @@ def _exact_form(ex_id: str, entry: dict, text: str) -> str | None:
              else f"une valeur décimale, arrondie à {_count(entry.get('decimals') or 0, 'décimale')}")
     if right:
         return f"Ta valeur exacte est la bonne, mais l'énoncé demande {asked} : calcule-la et donne ce nombre."
+    if abs(x) <= 2 * math.pi + 0.01 and x != 0 and _near_answer(ex_id, entry, math.degrees(x), 1e-9):
+        return _RADIANS_FOR_DEGREES                      # "3*pi/4" for 135: an angle in radians
     return (f"J'attends {asked}, pas une forme exacte comme « {text.strip()} » : calcule sa valeur (math.log, math.pi, "
             "math.e…), puis arrondis-la comme le demande l'énoncé.")
 

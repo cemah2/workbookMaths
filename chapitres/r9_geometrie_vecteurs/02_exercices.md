@@ -32,7 +32,7 @@ Vrai ou faux ?
 1. Si $\overrightarrow{AB} = \overrightarrow{DC}$, alors $ABCD$ est un parallélogramme.
 2. $(2 ; -6)$ et $(-1 ; 3)$ sont colinéaires.
 3. $\lVert \vec{u} + \vec{v} \rVert = \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ pour tous vecteurs $\vec{u}$ et $\vec{v}$.
-4. $\lVert -3\vec{u} \rVert = -3\,\lVert \vec{u} \rVert$.
+4. $\lVert -0{,}5\,\vec{u} \rVert = 0{,}5\,\lVert \vec{u} \rVert$.
 5. $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$ pour tous points $A$, $B$ et $C$.
 6. Un vecteur unitaire a toutes ses coordonnées égales à 1.
 
@@ -43,7 +43,7 @@ Vrai ou faux ?
 2. Donne un vecteur directeur de la droite $y = 3x - 1$.
 3. Vrai ou faux : $(5 ; 2)$ est un vecteur directeur de la droite $2x - 5y + 1 = 0$.
 4. La droite $x = 4$ a-t-elle une pente ?
-5. Les droites $y = 2x + 1$ et $4x - 2y + 7 = 0$ sont-elles parallèles ?
+5. Les droites $y = -3x + 2$ et $6x + 2y - 1 = 0$ sont-elles parallèles ?
 6. Le point $(1 ; 2)$ est-il sur la droite $3x - y - 1 = 0$ ?
 
 ### R9.Q4 — Le signe du produit scalaire 🧠 ★ ⏱️ 4 min
@@ -52,7 +52,7 @@ Vrai ou faux ?
 1. Si $\vec{u} \cdot \vec{v} > 0$, l'angle entre $\vec{u}$ et $\vec{v}$ est-il aigu ou obtus ?
 2. Que vaut $(1 ; 2) \cdot (-2 ; 1)$ ? Que peut-on en dire ?
 3. Vrai ou faux : $\vec{u} \cdot \vec{u}$ peut être négatif.
-4. Le produit scalaire de deux vecteurs est-il un nombre ou un vecteur ?
+4. Vrai ou faux : le produit scalaire de $\vec{u} = (x ; y)$ et de $\vec{v} = (x' ; y')$ est le vecteur $(xx' ; yy')$.
 5. Vrai ou faux : $(3\vec{u}) \cdot \vec{v} = 3\,(\vec{u} \cdot \vec{v})$.
 6. Vrai ou faux : si $\vec{u} \cdot \vec{v} = 0$ et $\vec{u} \ne \vec{0}$, alors $\vec{v} = \vec{0}$.
 
@@ -82,8 +82,8 @@ Vrai ou faux ?
 1. Combien de coordonnées a un point de l'espace ?
 2. Quelle est la norme de $(1, 1, 1, 1)$ ?
 3. Peut-on calculer le produit scalaire de $(1, 2, 3)$ et $(4, 5)$ ?
-4. Une image en niveaux de gris de 20 × 30 pixels, mise à plat, est un vecteur de combien de coordonnées ?
-5. Vrai ou faux : dans $\mathbb{R}^5$, deux vecteurs de produit scalaire nul sont dits orthogonaux.
+4. Une image en couleur de 10 × 10 pixels, décrite par 3 nombres par pixel (rouge, vert, bleu), est mise à plat : c'est un vecteur de combien de coordonnées ?
+5. Combien de multiplications faut-il pour calculer le produit scalaire de deux vecteurs de $\mathbb{R}^{100}$ ?
 6. Quelle est la distance entre $(1, 0, 0)$ et $(0, 1, 0)$ ?
 
 <a id="rappels"></a>
@@ -93,11 +93,10 @@ Vrai ou faux ?
 ### R9.R1 — Fonctions affines (R3) 🔁 ★ ⏱️ 5 min
 *Fiche §4 · parcours C, E*
 
-La droite $d$ passe par $(-1 ; 1)$ et $(2 ; 7)$.
-1. Sa pente ?
-2. Son ordonnée à l'origine ?
-3. L'abscisse du point où elle coupe l'axe des abscisses ?
-4. La fonction affine $f(x) = 0{,}5x - 3$ est-elle croissante ou décroissante ?
+1. La pente de la droite qui passe par $(0 ; -2)$ et $(3 ; 4)$ ?
+2. L'image de 5 par la fonction affine $f(x) = -0{,}5x + 4$ ?
+3. Les droites $y = 2x + 1$ et $y = 2x - 3$ sont-elles parallèles ?
+4. La fonction $f$ de la question 2 est-elle croissante ou décroissante ?
 
 ### R9.R2 — Racines carrées (R1) 🔁 ★ ⏱️ 5 min
 *Fiche §3 · parcours C, E*
@@ -105,7 +104,7 @@ La droite $d$ passe par $(-1 ; 1)$ et $(2 ; 7)$.
 1. Écris $\sqrt{50}$ sous la forme $a\sqrt{b}$, avec $b$ le plus petit possible.
 2. $\sqrt{12} \times \sqrt{3}$ ?
 3. Écris $\frac{1}{\sqrt{2}}$ sans racine au dénominateur.
-4. Compare $\sqrt{49 + 576}$ et $\sqrt{49} + \sqrt{576}$.
+4. Compare $\sqrt{1 + 1}$ et $\sqrt{1} + \sqrt{1}$.
 
 ### R9.R3 — Dériver une composée (R7) 🔁 ★ ⏱️ 5 min
 *Fiche §6 · parcours C*
@@ -129,13 +128,13 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 **Objectif :** calculer des distances et des milieux dans un repère, et reconnaître un triangle rectangle.
 **Prérequis :** fiche §1 ; R1 (racines carrées) · **Parcours :** C, E
 
-On donne $A(-3 ; 2)$, $B(6 ; 14)$ et $C(5 ; -4)$.
+On donne $A(-3 ; 2)$, $B(6 ; 14)$ et $C(-1 ; 0{,}5)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | les coordonnées du milieu de $[AB]$ | une liste |
 | b | $AB$ | un entier |
-| c | $AC$ | un entier |
+| c | $AC$ | un nombre (1 décimale) |
 | d | $BC$ | un nombre (2 décimales) |
 | e | le triangle $ABC$ est-il rectangle en $A$ ? | vrai ou faux |
 | f | la distance de l'origine $O$ au point $B$ | un nombre (2 décimales) |
@@ -157,41 +156,41 @@ On donne $\vec{u} = (4 ; -1)$, $\vec{v} = (-2 ; 3)$, et les points $A(1 ; 2)$ et
 | e | le point $C$ tel que $\overrightarrow{AC} = \vec{u}$ | une liste |
 | f | le point $D$ tel que $ABCD$ soit un parallélogramme | une liste |
 | g | $\vec{u}$ et $\vec{w} = (-6 ; 1{,}5)$ sont-ils colinéaires ? | vrai ou faux |
-| h | le nombre $k$ tel que $k\vec{v} = (5 ; -7{,}5)$ | un nombre |
+| h | le nombre $k$ tel que $k\vec{v} = (5 ; -7{,}5)$ | un nombre (1 décimale) |
 
 ### Ex R9.3 — Normes (euclidienne, avec un aperçu de L1 et L∞) et vecteurs unitaires ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer des normes, normaliser un vecteur, et comparer la norme euclidienne aux normes L1 et L∞.
 **Prérequis :** fiche §3 · **Parcours :** C, E
 
-On donne $\vec{u} = (5 ; -3)$ et $\vec{v} = (-7 ; 24)$.
+On donne $\vec{u} = (5 ; -3)$ et $\vec{v} = (-8 ; 15)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $\lVert \vec{u} \rVert$ | un nombre (2 décimales) |
-| b | $\lVert \vec{u} \rVert_1$ | un entier |
-| c | $\lVert \vec{u} \rVert_\infty$ | un entier |
-| d | $\lVert -2\vec{u} \rVert$ | un nombre (2 décimales) |
-| e | le vecteur unitaire de même direction et de même sens que $\vec{v}$ | une liste (2 décimales) |
-| f | les valeurs de $t$ telles que $\lVert (t ; 2) \rVert = \sqrt{13}$ | une liste, dans l'ordre croissant |
-| g | $\lVert \vec{u} + \vec{v} \rVert$ | un nombre (1 décimale) |
-| h | la distance L1 (la norme L1 de $\overrightarrow{PQ}$) entre $P(-1 ; 4)$ et $Q(3 ; -2)$ | un entier |
+| b | les valeurs de $t$ telles que $\lVert (t ; 2) \rVert = \sqrt{13}$ | une liste, dans l'ordre croissant |
+| c | $\lVert -2\vec{u} \rVert$ | un nombre (2 décimales) |
+| d | le vecteur unitaire de même direction et de même sens que $(1 ; -2)$ | une liste (2 décimales) |
+| e | $\lVert \vec{u} + \vec{v} \rVert$ | un nombre (1 décimale) |
+| f | $\lVert \vec{u} \rVert_1$ | un entier |
+| g | $\lVert \vec{u} \rVert_\infty$ | un entier |
+| h | le vecteur de même direction et de même sens que $\vec{u}$, de norme 3 | une liste (2 décimales) |
 
 ### Ex R9.4 — Équations de droites ✏️ ★★ ⏱️ 20 min
 **Objectif :** écrire l'équation réduite et une équation cartésienne d'une droite, et s'en servir.
 **Prérequis :** fiche §4 ; R3 (fonctions affines) · **Parcours :** C, E
 
-On donne $A(-1 ; 4)$ et $B(3 ; -2)$. Une équation cartésienne $ax + by + c = 0$ se donne par la liste $[a, b, c]$.
+On donne $A(-2 ; 5)$ et $B(2 ; -1)$. Une équation cartésienne $ax + by + c = 0$ se donne par la liste $[a, b, c]$.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | la pente $m$ de la droite $(AB)$ | un nombre |
+| a | la pente $m$ de la droite $(AB)$ | un nombre (1 décimale) |
 | b | son ordonnée à l'origine $p$ | un nombre |
 | c | le vecteur directeur de $(AB)$ dont la première coordonnée vaut 2 | une liste |
 | d | l'équation cartésienne de $(AB)$ dont le coefficient $a$ vaut 3 | une liste $[a, b, c]$ |
 | e | la pente de la droite $4x - 6y + 9 = 0$ | une fraction irréductible |
 | f | l'ordonnée à l'origine de la parallèle à $(AB)$ qui passe par $C(2 ; 1)$ | un nombre |
-| g | le point commun à $(AB)$ et à la droite $y = x$ | une liste |
-| h | l'équation cartésienne de la droite qui passe par $D(-2 ; 5)$ et $E(-2 ; -1)$, avec $a = 1$ | une liste $[a, b, c]$ |
+| g | le point commun à $(AB)$ et à la droite $y = x$ | une liste (1 décimale) |
+| h | l'équation cartésienne de la droite qui passe par $D(-2 ; 3)$ et $E(-2 ; -1)$, avec $a = 1$ | une liste $[a, b, c]$ |
 
 ### Ex R9.5 — Le produit scalaire en coordonnées ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer des produits scalaires et utiliser leurs règles de calcul.
@@ -216,14 +215,14 @@ On donne $\vec{u} = (2 ; 5)$, $\vec{v} = (-3 ; 1)$ et $\vec{w} = (6 ; 3)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $(6 ; -4)$ et $(2 ; 3)$ sont-ils orthogonaux ? | vrai ou faux |
+| a | $(7 ; -3)$ et $(6 ; 14)$ sont-ils orthogonaux ? | vrai ou faux |
 | b | le vecteur orthogonal à $(5 ; -2)$ dont la première coordonnée vaut 4 | une liste |
-| c | le nombre $k$ tel que $(k ; 2)$ et $(3 ; k + 1)$ soient orthogonaux | un nombre |
+| c | le nombre $k$ tel que $(k ; 2)$ et $(3 ; k + 1)$ soient orthogonaux | un nombre (1 décimale) |
 | d | avec $A(1 ; 1)$, $B(5 ; 3)$ et $C(0 ; 3)$, le triangle $ABC$ est-il rectangle en $A$ ? | vrai ou faux |
 | e | la longueur de la projection de $\vec{v} = (5 ; 5)$ sur la direction de $\vec{u} = (3 ; 1)$ | un nombre (2 décimales) |
 | f | le vecteur projeté $\vec{p}$ de $\vec{v}$ sur la direction de $\vec{u}$ | une liste |
 | g | le reste $\vec{v} - \vec{p}$ | une liste |
-| h | les droites $y = 2x + 1$ et $y = -0{,}5x + 3$ sont-elles perpendiculaires ? | vrai ou faux |
+| h | les droites $y = 3x - 2$ et $y = -\frac{x}{3} + 1$ sont-elles perpendiculaires ? | vrai ou faux |
 
 Dans ta copie : vérifie que le reste de g est orthogonal à $\vec{u}$, et explique pourquoi c'était prévisible.
 
@@ -235,7 +234,7 @@ Dessine chaque angle sur le cercle trigonométrique avant de répondre.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | le nombre $k$ tel que 135° $= k\pi$ radians | une fraction irréductible |
+| a | 105°, en radians | une valeur exacte |
 | b | $\frac{7\pi}{6}$ radians, en degrés | un entier |
 | c | 1 radian, en degrés | un nombre (1 décimale) |
 | d | $\cos\frac{5\pi}{6}$ | une valeur exacte |
@@ -265,10 +264,10 @@ Dessine chaque angle sur le cercle trigonométrique avant de répondre.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | la similarité cosinus de $(1 ; 2)$ et $(3 ; -1)$ | un nombre (4 décimales) |
+| a | la similarité cosinus de $(2 ; 1)$ et $(-1 ; 4)$ | un nombre (4 décimales) |
 | b | l'angle entre ces deux vecteurs, en degrés | un nombre (1 décimale) |
 | c | l'angle entre $(1 ; 1)$ et $(0 ; -3)$, en degrés | un entier |
-| d | l'angle entre $(\sqrt{3} ; 1)$ et $(-4 ; 0)$, en degrés | un entier |
+| d | l'angle entre $(1 ; \sqrt{3})$ et $(-\sqrt{3} ; -1)$, en degrés | un entier |
 | e | l'angle entre $(1 ; -1)$ et $(-2 ; 2)$, en radians | une valeur exacte |
 
 Le triangle $ABC$ a pour sommets $A(0 ; 0)$, $B(4 ; 0)$ et $C(1 ; 3)$. L'angle en $A$ est l'angle entre $\overrightarrow{AB}$ et $\overrightarrow{AC}$.
@@ -322,7 +321,7 @@ Soit $ABC$ un triangle, $a = BC$, $b = CA$, $c = AB$, et $\hat{C}$ l'angle en $C
 1. On suppose d'abord l'angle $\hat{C}$ aigu, et le pied $H$ de la hauteur issue de $A$ situé sur le segment $[BC]$. Dans le triangle rectangle $AHC$, exprime $CH$ et $AH$ à l'aide de $b$ et de $\hat{C}$.
 2. Exprime $BH$ à l'aide de $a$, $b$ et $\cos\hat{C}$, puis applique le théorème de Pythagore dans le triangle $ABH$ et conclus, avec $\cos^2 + \sin^2 = 1$.
 3. On suppose maintenant l'angle $\hat{C}$ obtus : $H$ est sur la droite $(BC)$, au-delà de $C$. Que valent $CH$ et $BH$ ? Montre que la formule reste vraie (pense à $\cos(\pi - \hat{C}) = -\cos\hat{C}$).
-4. Que devient la formule quand $\hat{C}$ est droit ? Et quand $\hat{C}$ est aigu, $c$ est-il plus court ou plus long que $\sqrt{a^2 + b^2}$ ?
+4. Il reste deux cas. Si $\hat{C}$ est droit, $H = C$ : montre que la formule redonne le théorème de Pythagore. Si l'angle $\hat{B}$ est obtus, $H$ est sur la droite $(BC)$, au-delà de $B$ : justifie que $BH = b\cos\hat{C} - a$, puis montre que la formule reste vraie.
 5. Un triangle a des côtés de longueurs 5, 7 et 8. Calcule, avec la formule, l'angle opposé au côté de longueur 7 (une valeur exacte).
 
 <a id="reflexion"></a>
@@ -346,7 +345,7 @@ Chaque recette est décrite par le vecteur de ses quantités de farine, de sucre
 | g | parmi $\mathbf{c}$, $\mathbf{q}$ et $\mathbf{p}$, la recette la plus semblable aux sablés au sens de la similarité cosinus | une lettre entre guillemets : c, q ou p |
 | h | l'angle entre $\mathbf{c}$ et $\mathbf{q}$, en degrés | un nombre (1 décimale) |
 
-Dans ta copie : calcule aussi $\mathbf{s} \cdot \mathbf{p}$ et $\mathbf{s} \cdot \mathbf{q}$. Le plus grand produit scalaire désigne-t-il la même recette que g ? Pourquoi la similarité cosinus ne change-t-elle pas si l'on double toutes les quantités d'une recette ?
+Dans ta copie : quelle recette est la plus éloignée des crêpes, au sens de la similarité cosinus ? Explique ce résultat en regardant les ingrédients.
 
 ### Ex R9.14 — Un neurone trace une droite : w₁x₁ + w₂x₂ + b = 0 🔗 ★ ⏱️ 15 min
 **Objectif :** relier le calcul d'un neurone à deux entrées à une droite du plan et à son vecteur normal.
@@ -357,15 +356,15 @@ Un neurone à deux entrées, de poids $\mathbf{w} = (1 ; 3)$ et de biais $b = -6
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $z$ pour $\mathbf{x} = (3 ; 2)$ | un entier |
-| b | $z$ pour $\mathbf{x} = (0 ; 1)$ | un entier |
-| c | la frontière $z = 0$ s'écrit $x_2 = m x_1 + p$ : la pente $m$ | une fraction irréductible |
-| d | l'ordonnée à l'origine $p$ | un entier |
-| e | $\mathbf{w}$ est-il orthogonal au vecteur directeur $(3 ; -1)$ de la frontière ? | vrai ou faux |
-| f | le point de la frontière situé sur l'axe des $x_1$ | une liste |
-| g | si l'on multiplie $w_1$, $w_2$ et $b$ par 5, la frontière change-t-elle ? | vrai ou faux |
-| h | parmi les points $(0 ; 0)$, $(3 ; 2)$, $(6 ; 1)$, $(1 ; -1)$ et $(2 ; 2)$, combien reçoivent la réponse 1 ? | un entier |
+| b | $z$ pour $\mathbf{x} = (4 ; -1)$ | un entier |
+| c | le point de la frontière $z = 0$ situé sur l'axe des $x_2$ | une liste |
+| d | le point de la frontière situé sur l'axe des $x_1$ | une liste |
+| e | le vecteur directeur de la frontière dont la première coordonnée vaut 3 | une liste |
+| f | $\mathbf{w}$ est-il orthogonal à ce vecteur directeur ? | vrai ou faux |
+| g | le point de la droite $z = 6$ situé sur l'axe des $x_1$ | une liste |
+| h | parmi les points $(0 ; 0)$, $(3 ; 2)$, $(6 ; 1)$, $(1 ; -1)$ et $(2 ; 2)$, combien sont du côté où $z > 0$ ? | un entier |
 
-Dans ta copie : dessine la frontière, le vecteur $\mathbf{w}$ posé sur elle, et les cinq points de h. De quel côté de la droite pointe $\mathbf{w}$ ?
+Dans ta copie : dessine la frontière $z = 0$ et la droite $z = 6$ sur le même repère. Que remarques-tu ?
 
 ### Ex R9.15 — Expliquer ce que mesure un produit scalaire 🗣️ ★ ⏱️ 10 min
 **Objectif :** expliquer simplement ce que mesure un produit scalaire, et ce que dit son signe.
@@ -387,7 +386,7 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | R9.17 | Produit scalaire et angle · `dot`, `angle_between` | 🔨 | ★ | 20 | C, E |
 | R9.18 | La droite qui passe par deux points, et les radians · `line_through`, `deg_to_rad` | 🔨 | ★ | 15 | C |
 | R9.19 | Les mêmes calculs avec NumPy (`np.linalg.norm`, `@`) | 📦 | ★ | 15 | C, E |
-| R9.20 | Prédire le cosinus entre un vecteur et son double, puis son opposé | 🔮 | ★ | 10 | C, E |
+| R9.20 | Prédire : multiplier ou décaler deux vecteurs change-t-il leur similarité cosinus ? | 🔮 | ★ | 10 | C, E |
 | R9.21 | Dessiner des vecteurs, leur somme et un angle | 🎨 | ★★ | 20 | C, E |
 | R9.22 | Le cercle trigonométrique : cos et sin d'un angle qui tourne | 🔬 | ★★ | 20 | C |
 | R9.23 | Chasse à l'erreur : radians et degrés | 🐛 | ★ | 15 | C, E |

@@ -148,16 +148,16 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 |---|---|---|
 | Additionner les écarts pour une distance | $AB = (x_B - x_A) + (y_B - y_A)$, ou $\sqrt{a^2 + b^2} = a + b$ | $AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$ |
 | Inverser les coordonnées d'un vecteur | $\overrightarrow{AB} = A - B$ | arrivée moins départ : $B - A$ |
-| Additionner deux vecteurs en Python avec `+` sur des tuples | `(2, -1) + (-1, 3)` donne `(2, -1, -1, 3)` | additionner coordonnée par coordonnée, ou passer par NumPy |
-| Garder le signe dans une norme | $\lVert -3\vec{u} \rVert = -3\,\lVert \vec{u} \rVert$ | $\lvert -3 \rvert\,\lVert \vec{u} \rVert = 3\,\lVert \vec{u} \rVert$ |
-| Croire que la norme d'une somme est la somme des normes | $\lVert \vec{u} + \vec{v} \rVert = \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ | seulement $\le$ (inégalité triangulaire) |
+| Additionner deux vecteurs en Python avec `+` sur des tuples | `(3, -1) + (-2, 4)` donne `(3, -1, -2, 4)` | additionner coordonnée par coordonnée, ou passer par NumPy |
+| Garder le signe dans une norme | $\lVert -2\vec{u} \rVert = -2\,\lVert \vec{u} \rVert$ | $\lvert -2 \rvert\,\lVert \vec{u} \rVert = 2\,\lVert \vec{u} \rVert$ |
+| Croire que la norme d'une somme est la somme des normes | $\lVert \vec{u} + \vec{v} \rVert = \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ | seulement $\le$ (inégalité triangulaire), avec égalité si l'un est nul ou s'ils ont même direction et même sens |
 | Prendre $(a ; b)$ pour un vecteur directeur de $ax + by + c = 0$ | $(2 ; -1)$ dirige $2x - y - 3 = 0$ | $(-b ; a) = (1 ; 2)$ la dirige ; $(a ; b)$ lui est normal |
-| Croire qu'un produit scalaire est un vecteur | $(2 ; -1) \cdot (-1 ; 3) = (-2 ; -3)$ | c'est un nombre : $-2 - 3 = -5$ |
+| Croire qu'un produit scalaire est un vecteur | $(3 ; -1) \cdot (-2 ; 4) = (-6 ; -4)$ | c'est un nombre : $-6 - 4 = -10$ |
 | Passer des degrés à `math.cos` | `math.cos(30)` pour $\cos 30°$ | `math.cos(math.radians(30))` : Python attend des radians |
 | Convertir à l'envers | $30° = 30 \times \frac{180}{\pi}$ rad | $\times \frac{\pi}{180}$ : 180° doivent donner $\pi$ |
 | Confondre les valeurs remarquables | $\cos\frac{\pi}{3} = \frac{\sqrt{3}}{2}$ | $\frac{1}{2}$ ; c'est $\sin\frac{\pi}{3}$ qui vaut $\frac{\sqrt{3}}{2}$ |
-| Oublier le signe d'un cosinus ou d'un sinus | $\cos\frac{3\pi}{4} = \frac{\sqrt{2}}{2}$ | dessiner le point sur le cercle : à gauche de l'axe vertical, le cosinus est négatif |
-| Croire que $\arccos(\cos\theta) = \theta$ toujours | $\arccos\left(\cos\frac{5\pi}{3}\right) = \frac{5\pi}{3}$ | $\arccos$ rend un angle de $[0 ; \pi]$ : ici $\frac{\pi}{3}$ |
+| Oublier le signe d'un cosinus ou d'un sinus | $\sin\frac{7\pi}{6} = \frac{1}{2}$ | dessiner le point sur le cercle : sous l'axe horizontal, le sinus est négatif |
+| Croire que $\arccos(\cos\theta) = \theta$ toujours | $\arccos\left(\cos\left(-\frac{\pi}{6}\right)\right) = -\frac{\pi}{6}$ | $\arccos$ rend un angle de $[0 ; \pi]$ : ici $\frac{\pi}{6}$ |
 | Oublier de diviser par les normes pour un angle | $\cos\theta = \vec{u} \cdot \vec{v}$ | $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$ |
 | Tester l'orthogonalité de flottants avec `==` | `0.1 * 2.1 + 0.7 * (-0.3) == 0` vaut `False` | comparer à 0 avec une tolérance absolue : `math.isclose(x, 0, abs_tol=1e-9)` |
 

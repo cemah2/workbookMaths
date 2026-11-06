@@ -9,7 +9,7 @@ Comment tester que deux vecteurs sont colinéaires ?;Leurs coordonnées sont pro
 La norme d'un vecteur du plan ?;Sa longueur : \(\lVert \vec{u} \rVert = \sqrt{x^2 + y^2}\). La distance AB est la norme de \(\overrightarrow{AB}\).;mwb::r9::norme
 Propriétés de la norme ?;\(\lVert k\vec{u} \rVert = |k|\,\lVert \vec{u} \rVert\), \(\lVert \vec{u} \rVert = 0\) seulement pour le vecteur nul, et l'inégalité triangulaire \(\lVert \vec{u} + \vec{v} \rVert \le \lVert \vec{u} \rVert + \lVert \vec{v} \rVert\).;mwb::r9::proprietes_norme
 Vecteur unitaire ?;Un vecteur de norme 1. Normaliser : \(\frac{\vec{u}}{\lVert \vec{u} \rVert}\), même direction et même sens.;mwb::r9::unitaire
-Normes L1 et L∞ ?;\(\lVert \vec{u} \rVert_1 = \sum |x_i|\) (la distance du taxi) et \(\lVert \vec{u} \rVert_\infty = \max |x_i|\). Sans précision, la norme est la norme L2.;mwb::r9::normes_l1_linf
+Normes L1 et L∞ ?;\(\lVert \vec{u} \rVert_1 = \sum |x_i|\) (un trajet fait seulement de pas horizontaux et verticaux) et \(\lVert \vec{u} \rVert_\infty = \max |x_i|\). Sans indice, \(\lVert \vec{u} \rVert\) est la norme euclidienne (L2).;mwb::r9::normes_l1_linf
 Équation réduite d'une droite ?;\(y = mx + p\) : \(m\) est la pente, \(p\) l'ordonnée à l'origine, et \((1, m)\) un vecteur directeur. Une droite verticale s'écrit \(x = k\).;mwb::r9::equation_reduite
 Ce qu'on lit dans l'équation cartésienne ax + by + c = 0 ?;\((-b, a)\) est un vecteur directeur, \((a, b)\) un vecteur normal. Toutes les équations proportionnelles décrivent la même droite.;mwb::r9::equation_cartesienne
 De quel côté d'une droite est un point ?;Le signe de \(ax + by + c\) : nul sur la droite, positif du côté où pointe le vecteur normal \((a, b)\), négatif de l'autre.;mwb::r9::demi_plans

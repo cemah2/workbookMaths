@@ -40,12 +40,12 @@ PAPER = [
         ("b", "an integer", "math.isqrt(9 ** 2 + 12 ** 2)",
          'mistakes={"la racine d\'une somme n\'est pas la somme des racines : élève les écarts au carré": 21, '
          '"AB est la racine carrée de la somme des carrés des écarts": 225}'),
-        ("c", "an integer", "math.isqrt(8 ** 2 + 6 ** 2)",
-         'mistakes={"la racine d\'une somme n\'est pas la somme des racines : élève les écarts au carré": 14, '
-         '"AC est la racine carrée de la somme des carrés des écarts": 100}'),
-        ("d", "a number (2 decimals)", "math.sqrt(1 + 18 ** 2)",
+        ("c", "a number (1 decimal)", "math.sqrt(2 ** 2 + 1.5 ** 2)",
+         'decimals=1, mistakes={"la racine d\'une somme n\'est pas la somme des racines : élève les écarts au '
+         'carré": 3.5, "AC est la racine carrée de la somme des carrés des écarts": 6.25}'),
+        ("d", "a number (2 decimals)", "math.sqrt(7 ** 2 + 13.5 ** 2)",
          'decimals=2, mistakes={"la racine d\'une somme n\'est pas la somme des racines : élève les écarts au '
-         'carré": 19, "BC est la racine carrée de la somme des carrés des écarts": 325}'),
+         'carré": 20.5, "BC est la racine carrée de la somme des carrés des écarts": 231.25}'),
         ("e", "True or False", "True",
          'mistakes={"compare BC² à AB² + AC² (réciproque de Pythagore), avec les longueurs au carré": False}'),
         ("f", "a number (2 decimals)", "math.sqrt(6 ** 2 + 14 ** 2)",
@@ -75,50 +75,53 @@ PAPER = [
         ("g", "True or False", "True",
          'mistakes={"deux vecteurs sont colinéaires quand leurs coordonnées sont proportionnelles : calcule '
          'xy\' − x\'y": False}'),
-        ("h", "a number", "5 / -2", 'decimals=2, mistakes={"le signe : la première coordonnée de v est négative": 2.5}'),
+        ("h", "a number (1 decimal)", "5 / -2",
+         'decimals=1, mistakes={"le signe : la première coordonnée de v est négative": 2.5}'),
     ]),
 
     Paper("R9.3", "Normes (euclidienne, avec un aperçu de L1 et L∞) et vecteurs unitaires", [
         ("a", "a number (2 decimals)", "math.sqrt(34)",
          'decimals=2, mistakes={"le carré d\'un nombre négatif est positif : (−3)² = 9": 4, '
          '"la norme est la racine de la somme des carrés": 34}'),
-        ("b", "an integer", "8", 'mistakes={"la norme L1 additionne les valeurs absolues": 2}'),
-        ("c", "an integer", "5", 'mistakes={"la norme L∞ est la plus grande valeur absolue": {3, -3}}'),
-        ("d", "a number (2 decimals)", "2 * math.sqrt(34)",
-         'decimals=2, mistakes={"‖ku‖ = |k| ‖u‖ : une norme n\'est jamais négative": -11.66, '
-         '"multiplier un vecteur par k multiplie sa norme par |k|, pas par k²": 23.32}'),
-        ("e", "a list (2 decimals)", "[-7 / 25, 24 / 25]",
-         'decimals=2, mistakes={"divise par la norme euclidienne, la racine de la somme des carrés": '
-         '[-7 / 31, 24 / 31], "même sens que v : on divise par un nombre positif, la norme": [0.28, -0.96]}'),
-        ("f", "a list, in increasing order", "[-3, 3]",
+        ("b", "a list, in increasing order", "[-3, 3]",
          'mistakes={"t² = 9 a deux solutions, opposées": [3], '
          '"‖(t ; 2)‖² = t² + 4 : la norme vaut √13, donc son carré vaut 13": [-1, 1]}'),
-        ("g", "a number (1 decimal)", "math.sqrt(2 ** 2 + 21 ** 2)",
+        ("c", "a number (2 decimals)", "2 * math.sqrt(34)",
+         'decimals=2, mistakes={"‖ku‖ = |k| ‖u‖ : une norme n\'est jamais négative": -11.66, '
+         '"multiplier un vecteur par k multiplie sa norme par |k|, pas par k²": 23.32}'),
+        ("d", "a list (2 decimals)", "[1 / math.sqrt(5), -2 / math.sqrt(5)]",
+         'decimals=2, mistakes={"divise par la norme euclidienne, la racine de la somme des carrés": '
+         '[1 / 3, -2 / 3], "même sens : on divise par un nombre positif, la norme": [-0.45, 0.89]}'),
+        ("e", "a number (1 decimal)", "math.sqrt(3 ** 2 + 12 ** 2)",
          'decimals=1, mistakes={"la norme d\'une somme n\'est pas la somme des normes : additionne d\'abord les '
-         'vecteurs": 30.8}'),
-        ("h", "an integer", "float(4 + 6)",
-         'decimals=2, mistakes={"c\'est la distance euclidienne ; la distance L1 additionne les valeurs absolues '
-         'des écarts": 7.21, "les valeurs absolues des écarts : |−2 − 4| = 6": 2}'),
+         'vecteurs": 22.8}'),
+        ("f", "an integer", "8", 'mistakes={"la norme L1 additionne les valeurs absolues": 2}'),
+        ("g", "an integer", "5", 'mistakes={"la norme L∞ est la plus grande valeur absolue": {3, -3}}'),
+        ("h", "a list (2 decimals)", "[3 * 5 / math.sqrt(34), 3 * (-3) / math.sqrt(34)]",
+         'decimals=2, mistakes={"3u a pour norme 3 ‖u‖, pas 3 : rends d\'abord u unitaire": [15, -9], '
+         '"c\'est le vecteur unitaire, de norme 1 ; la norme demandée est 3": [0.86, -0.51]}'),
     ]),
 
     Paper("R9.4", "Équations de droites", [
-        ("a", "a number", "(-2 - 4) / (3 - (-1))",
-         'decimals=2, mistakes={"la pente est l\'écart des ordonnées divisé par l\'écart des abscisses": -0.67, '
+        ("a", "a number (1 decimal)", "(-1 - 5) / (2 - (-2))",
+         'decimals=1, mistakes={"la pente est l\'écart des ordonnées divisé par l\'écart des abscisses": -0.67, '
          '"le point mis en premier en haut doit être en premier en bas": 1.5}'),
-        ("b", "a number", "4 - (-1.5) * (-1)",
-         'decimals=2, mistakes={"p = y_A − m x_A, avec les signes de m et de x_A": 5.5}'),
+        ("b", "a number", "round(5 - (-1.5) * (-2))",
+         'mistakes={"p = y_A − m x_A, avec les signes de m et de x_A": 8}'),
         ("c", "a list", "[2, -3]",
          'mistakes={"un vecteur directeur (1 ; m) : la seconde coordonnée se lit avec le signe de la pente": [2, 3]}'),
-        ("d", "a list [a, b, c]", "[3, 2, -5]",
-         'mistakes={"vérifie ton équation avec les coordonnées de A et de B : chacune doit donner 0": [3, -2, -5], '
-         '"tout passer du même côté change le signe de p": [3, 2, 5]}'),
+        ("d", "a list [a, b, c]", "[3, 2, -4]",
+         'mistakes={"vérifie ton équation avec les coordonnées de A et de B : chacune doit donner 0": [3, -2, -4], '
+         '"tout passer du même côté change le signe de p": [3, 2, 4]}'),
         ("e", "an irreducible fraction, as text", "Fraction(4, 6)",
          F + ', mistakes={"isole y : 6y = 4x + 9": "-2/3", "pour ax + by + c = 0, la pente vaut −a/b, pas −b/a": '
          '"3/2"}'),
-        ("f", "a number", "1 - (-1.5) * 2",
-         'decimals=2, mistakes={"une parallèle a la même pente, pas la même ordonnée à l\'origine : elle passe par '
-         'C": 2.5}'),
-        ("g", "a list", "[1, 1]", ''),
+        ("f", "a number", "round(1 - (-1.5) * 2)",
+         'mistakes={"une parallèle a la même pente, pas la même ordonnée à l\'origine : elle passe par '
+         'C": 2, "p = y_C − m x_C, avec les signes de m et de x_C": -2}'),
+        ("g", "a list (1 decimal)", "[0.8, 0.8]",
+         'decimals=1, mistakes={"le point commun vérifie les deux équations : remplace y par x dans celle de (AB)": '
+         '[2, 2]}'),
         ("h", "a list [a, b, c]", "[1, 0, 2]",
          'mistakes={"la droite verticale x = −2 s\'écrit x + 2 = 0": [1, 0, -2], '
          '"les deux points ont la même abscisse : la droite est verticale, son équation ne contient pas y": '
@@ -146,8 +149,8 @@ PAPER = [
         ("a", "True or False", "True", 'mistakes={"calcule le produit scalaire : nul, ils sont orthogonaux": False}'),
         ("b", "a list", "[4, 10]",
          'mistakes={"écris 5 × 4 + (−2) × y = 0, puis isole y avec son signe": [4, -10]}'),
-        ("c", "a number", "-2 / 5",
-         'decimals=2, mistakes={"3k + 2(k + 1) = 0 : développe 2(k + 1), puis isole k avec son signe": 0.4}'),
+        ("c", "a number (1 decimal)", "-2 / 5",
+         'decimals=1, mistakes={"3k + 2(k + 1) = 0 : développe 2(k + 1), puis isole k avec son signe": 0.4}'),
         ("d", "True or False", "True",
          'mistakes={"l\'angle en A est celui de AB et AC : calcule leur produit scalaire": False}'),
         ("e", "a number (2 decimals)", "20 / math.sqrt(10)",
@@ -161,8 +164,8 @@ PAPER = [
     ]),
 
     Paper("R9.7", "Degrés et radians, cosinus et sinus remarquables", [
-        ("a", "an irreducible fraction, as text", "Fraction(135, 180)",
-         F + ', mistakes={"θ en radians = θ en degrés × π/180 : 180° donnent π": "4/3"}'),
+        ("a", "an exact value, as text", "7 * sp.pi / 12",
+         XA + ', mistakes={"θ en radians = θ en degrés × π/180 : 180° donnent π": "12*pi/7"}'),
         ("b", "an integer", "7 * 180 // 6", ''),
         ("c", "a number (1 decimal)", "180 / math.pi",
          'decimals=1, mistakes={"de radians en degrés, on multiplie par 180/π (π radians donnent 180°)": 0.0175}'),
@@ -198,10 +201,10 @@ PAPER = [
     ]),
 
     Paper("R9.9", "L'angle entre deux vecteurs", [
-        ("a", "a number (4 decimals)", "1 / math.sqrt(50)",
-         'decimals=4, mistakes={"divise le produit scalaire par le produit des normes": 1, '
-         '"le produit des normes est √5 × √10 = √50, pas 5 × 10": 0.02}'),
-        ("b", "a number (1 decimal)", "math.degrees(math.acos(1 / math.sqrt(50)))",
+        ("a", "a number (4 decimals)", "2 / math.sqrt(85)",
+         'decimals=4, mistakes={"divise le produit scalaire par le produit des normes": 2, '
+         '"les normes sont des racines carrées : ne multiplie pas les sommes de carrés entre elles": 2 / 85}'),
+        ("b", "a number (1 decimal)", "math.degrees(math.acos(2 / math.sqrt(85)))",
          'decimals=1, mistakes={"math.acos rend des radians : convertis en degrés": 1.4}'),
         ("c", "an integer", "135",
          'mistakes={"le produit scalaire est négatif : l\'angle est obtus": 45}'),
@@ -247,8 +250,8 @@ PAPER = [
         ("e", "a number (3 decimals)", "55 / (math.sqrt(75) * 7)", 'decimals=3'),
         ("f", "a number (3 decimals)", "102 / 127", 'decimals=3'),
         ("g", "a letter, as text", '"q"',
-         'mistakes={"compare les similarités cosinus, pas les produits scalaires : un grand vecteur a un grand '
-         'produit scalaire avec presque tout": "p"}'),
+         'mistakes={"compare les similarités cosinus, pas les produits scalaires": "p", '
+         '"on compare les sablés aux trois autres recettes : la réponse est c, q ou p": "s"}'),
         ("h", "a number (1 decimal)", "math.degrees(math.acos(35 / (math.sqrt(127) * math.sqrt(75))))",
          'decimals=1, mistakes={"math.acos rend des radians : convertis en degrés": 1.2}'),
     ]),
@@ -256,19 +259,23 @@ PAPER = [
     Paper("R9.14", "Un neurone trace une droite : w₁x₁ + w₂x₂ + b = 0", [
         ("a", "an integer", "1 * 3 + 3 * 2 - 6",
          'mistakes={"n\'oublie pas le biais b dans z": 9}'),
-        ("b", "an integer", "1 * 0 + 3 * 1 - 6", 'mistakes={"n\'oublie pas le biais b dans z": 3}'),
-        ("c", "an irreducible fraction, as text", "Fraction(-1, 3)",
-         F + ', mistakes={"isole x₂ : divise toute l\'équation par son coefficient": "-1", '
-         '"3x₂ = −x₁ + 6 : la pente est négative": "1/3"}'),
-        ("d", "an integer", "6 // 3",
-         'mistakes={"isole x₂ : le biais aussi se divise par le coefficient de x₂": 6, '
-         '"3x₂ = −x₁ + 6 : le biais change de signe en passant de l\'autre côté": -2}'),
-        ("e", "True or False", "True",
+        ("b", "an integer", "1 * 4 + 3 * (-1) - 6",
+         'mistakes={"n\'oublie pas le biais b dans z, ni le signe de x₂": 1, '
+         '"z est le nombre que calcule le neurone avant de répondre 0 ou 1 : calcule w₁x₁ + w₂x₂ + b": 0}'),
+        ("c", "a list", "[0, 2]",
+         'mistakes={"sur l\'axe des x₂, c\'est la coordonnée x₁ qui est nulle": [6, 0], '
+         '"3x₂ − 6 = 0 : divise aussi le biais par 3": [0, 6]}'),
+        ("d", "a list", "[6, 0]",
+         'mistakes={"sur l\'axe des x₁, c\'est la coordonnée x₂ qui est nulle": [0, 2]}'),
+        ("e", "a list", "[3, -1]",
+         'mistakes={"c\'est la direction de w, un vecteur normal ; un vecteur directeur de ax + by + c = 0 est '
+         '(−b ; a)": [3, 9], "vérifie : en te déplaçant de ce vecteur à partir d\'un point de la frontière, z doit '
+         'rester nul": [3, 1]}'),
+        ("f", "True or False", "True",
          'mistakes={"calcule le produit scalaire de w et du vecteur directeur": False}'),
-        ("f", "a list", "[6, 0]",
-         'mistakes={"sur l\'axe des x₁, la coordonnée x₂ est nulle (et non x₁)": [0, 2]}'),
-        ("g", "True or False", "False",
-         'mistakes={"des équations proportionnelles décrivent la même droite": True}'),
+        ("g", "a list", "[12, 0]",
+         'mistakes={"c\'est le point de la frontière z = 0 ; ici, z vaut 6": [6, 0], '
+         '"sur l\'axe des x₁, c\'est la coordonnée x₂ qui est nulle": [0, 4]}'),
         ("h", "an integer", "3",
          'mistakes={"z doit être strictement positif : calcule z pour chaque point, biais compris": {2, 4}}'),
     ]),
@@ -394,11 +401,12 @@ wbm.record("R9.16b", [-1, -2, -3], mistakes={{"arrivée moins départ : B − A,
 wbm.record("R9.16c", "ValueError",
            mistakes={{"des dimensions différentes : lève une ValueError (zip s'arrêterait sans rien dire)": "aucune",
                      "{WRONG_ERROR}": {errors_source()}}})
-wbm.record("R9.16d", [25.0, 2.0, 0.0],
+wbm.record("R9.16d", [25.0, 2.0, 0.0], decimals=4,
            mistakes={{"la norme est la racine carrée de la somme des carrés": [625, 4, 0],
                      "élève chaque coordonnée au carré, puis prends la racine de la somme": [31, 4, 0]}})
 wbm.record("R9.16e", "float",
-           mistakes={{"math.sqrt rend un flottant : renvoie la racine carrée, pas son carré": "int"}})
+           mistakes={{"math.sqrt rend un flottant ; un int vient d'une somme de carrés sans racine, ou de math.isqrt "
+                     "(la racine entière, arrondie)": "int"}})
 wbm.record("R9.16f", 29.0, decimals=4,
            mistakes={{"la distance est la norme du vecteur qui relie les deux points": 841}})''',
     after=tests_cells("test_vector_ or test_norm_ or test_plane_uses"),
@@ -413,18 +421,18 @@ R9_17 = Ex(
     "fiche §5 et §7 ; Ex R9.16", tracks="C, E", mymath="plane.py",
     body="""Écris `dot(u, v)` puis `angle_between(u, v)` (fiche §5 et §7). `dot` renvoie la somme des produits des coordonnées (un entier si les coordonnées sont entières) et lève une `ValueError` si les dimensions diffèrent. `angle_between` renvoie l'angle en radians, dans $[0 ; \\pi]$, avec `math.acos` ; elle lève une `ValueError` si l'un des vecteurs est nul. Réutilise `dot` et `norm`.
 
-⚠️ Avec des flottants, le cosinus calculé peut valoir 1,0000000000000002 pour deux vecteurs de même direction : `math.acos` lève alors une erreur. Ramène le quotient dans $[-1 ; 1]$ avant de l'appeler (`max(-1.0, min(1.0, cosine))`).
+⚠️ Avec des flottants, le cosinus calculé peut valoir 1,0000000000000002 pour deux vecteurs de même sens, ou −1,0000000000000002 pour deux vecteurs de sens contraires : `math.acos` lève alors une erreur. Ramène le quotient dans $[-1 ; 1]$ avant de l'appeler (`max(-1.0, min(1.0, cosine))`).
 
 La vérification calcule :
 - a) `dot((2, -3, 1), (4, 1, -5))` ;
 - b) le type de `dot((1, 2), (3, 4))`, en texte ;
 - c) le nom de l'erreur levée par `dot((1, 2), (1, 2, 3))` ;
-- d) `angle_between((1, 0), (-1, 1))` (4 décimales) ;
-- e) le nom de l'erreur levée par `angle_between((1, 5), (2, 10))` (`"aucune"` si elle n'en lève pas), puis f) sa valeur ;
+- d) `angle_between((1, 0), (-1, 2))` (4 décimales) ;
+- e) le nom de l'erreur levée par `angle_between((1, 6), (-2, -12))` (`"aucune"` si elle n'en lève pas), puis f) sa valeur (4 décimales) ;
 - g) le nom de l'erreur levée par `angle_between((0, 0), (1, 2))` ;
-- h) l'angle entre $(-2 ; 1)$ et $(1 ; 3)$, en degrés (`math.degrees`, 4 décimales).
+- h) l'angle entre $(-2 ; 1)$ et $(3 ; 4)$, en degrés (`math.degrees`, 4 décimales).
 
-Puis, dans ta copie : pourquoi le cosinus de e) dépasse-t-il 1, alors que les deux vecteurs ont exactement la même direction ?""",
+Puis, dans ta copie : pourquoi le cosinus de e) sort-il de $[-1 ; 1]$, alors que les deux vecteurs sont exactement de sens contraires ?""",
     todo=LOAD_LEARNER,
     check='''with checked("R9.17a"):
     wbm.check("R9.17a", mymath.plane.dot((2, -3, 1), (4, 1, -5)), computed=True)
@@ -433,46 +441,50 @@ with checked("R9.17b"):
 with checked("R9.17c"):
     wbm.check("R9.17c", raised(mymath.plane.dot, (1, 2), (1, 2, 3)), computed=True)
 with checked("R9.17d"):
-    wbm.check("R9.17d", mymath.plane.angle_between((1, 0), (-1, 1)), computed=True)
+    wbm.check("R9.17d", mymath.plane.angle_between((1, 0), (-1, 2)), computed=True)
 with checked("R9.17e"):
-    wbm.check("R9.17e", raised(mymath.plane.angle_between, (1, 5), (2, 10)), computed=True)
+    wbm.check("R9.17e", raised(mymath.plane.angle_between, (1, 6), (-2, -12)), computed=True)
 with checked("R9.17f"):
-    wbm.check("R9.17f", mymath.plane.angle_between((1, 5), (2, 10)), computed=True)
+    wbm.check("R9.17f", mymath.plane.angle_between((1, 6), (-2, -12)), computed=True)
 with checked("R9.17g"):
     wbm.check("R9.17g", raised(mymath.plane.angle_between, (0, 0), (1, 2)), computed=True)
 with checked("R9.17h"):
-    wbm.check("R9.17h", math.degrees(mymath.plane.angle_between((-2, 1), (1, 3))), computed=True)''',
+    wbm.check("R9.17h", math.degrees(mymath.plane.angle_between((-2, 1), (3, 4))), computed=True)''',
     solution=LOAD_REF + '''
 dot, angle_between = mymath.plane.dot, mymath.plane.angle_between
 print("a)", dot((2, -3, 1), (4, 1, -5)), " b)", type(dot((1, 2), (3, 4))).__name__,
       " c)", raised(dot, (1, 2), (1, 2, 3)))
-print("d)", angle_between((1, 0), (-1, 1)), " e)", raised(angle_between, (1, 5), (2, 10)),
-      " f)", angle_between((1, 5), (2, 10)), " g)", raised(angle_between, (0, 0), (1, 2)))
-print("h)", math.degrees(angle_between((-2, 1), (1, 3))))
-print("the rounded cosine of e):", dot((1, 5), (2, 10)) / (mymath.plane.norm((1, 5)) * mymath.plane.norm((2, 10))))''',
+print("d)", angle_between((1, 0), (-1, 2)), " e)", raised(angle_between, (1, 6), (-2, -12)),
+      " f)", angle_between((1, 6), (-2, -12)), " g)", raised(angle_between, (0, 0), (1, 2)))
+print("h)", math.degrees(angle_between((-2, 1), (3, 4))))
+print("the rounded cosine of e):",
+      dot((1, 6), (-2, -12)) / (mymath.plane.norm((1, 6)) * mymath.plane.norm((-2, -12))))''',
     record=f'''wbm.record("R9.17a", 0, mistakes={{"multiplie les coordonnées de même rang, puis additionne les produits": 8}})
 wbm.record("R9.17b", "int",
            mistakes={{"avec des entiers, la somme des produits reste un entier : pas de float(...) ni de /": "float"}})
 wbm.record("R9.17c", "ValueError",
            mistakes={{"des dimensions différentes : lève une ValueError (zip s'arrêterait sans rien dire)": "aucune",
                      "{WRONG_ERROR}": {errors_source()}}})
-wbm.record("R9.17d", 3 * math.pi / 4, decimals=4,
-           mistakes={{"angle_between rend des radians, pas des degrés": 135,
+wbm.record("R9.17d", math.acos(-1 / math.sqrt(5)), decimals=4,
+           mistakes={{"angle_between rend des radians, pas des degrés": math.degrees(math.acos(-1 / math.sqrt(5))),
                      "divise le produit scalaire par le produit des normes avant math.acos": math.pi}})
 wbm.record("R9.17e", "aucune",
            mistakes={{"ramène le cosinus dans [-1, 1] avant math.acos : max(-1.0, min(1.0, cosine))": "ValueError",
                      "aucune erreur ici : les deux vecteurs sont non nuls, le cosinus est ramené dans [-1, 1]":
                          {errors_source()}}})
-wbm.record("R9.17f", 0.0, decimals=4)
+wbm.record("R9.17f", math.pi, decimals=4,
+           mistakes={{"deux vecteurs de sens contraires font un angle plat, pas nul": 0.0}})
 wbm.record("R9.17g", "ValueError",
            mistakes={{"un vecteur nul : lève une ValueError avant de diviser par sa norme": {{"ZeroDivisionError",
                                                                                         "aucune"}},
                      "{WRONG_ERROR}": {errors_source("ZeroDivisionError")}}})
-wbm.record("R9.17h", math.degrees(math.acos(1 / math.sqrt(50))), decimals=4)''',
+wbm.record("R9.17h", math.degrees(math.acos(-2 / (5 * math.sqrt(5)))), decimals=4,
+           mistakes={{"math.degrees convertit les radians de angle_between en degrés": math.acos(-2 / (5 * math.sqrt(5)))}})''',
     after=tests_cells("test_dot_ or test_angle_between_ or test_plane_uses"),
-    note="Le cosinus de e) se calcule avec deux racines carrées arrondies : $\\sqrt{26} \\times \\sqrt{104}$ ne "
-         "redonne pas exactement 52 en flottants, et le quotient tombe à 1,0000000000000002. L'erreur est minuscule, "
-         "mais `math.acos` refuse tout ce qui sort de $[-1 ; 1]$ : on ramène donc le quotient dans l'intervalle.",
+    note="Le cosinus de e) se calcule avec deux racines carrées arrondies : $\\sqrt{37} \\times \\sqrt{148}$ ne "
+         "redonne pas exactement 74 en flottants, et le quotient tombe à −1,0000000000000002. L'erreur est minuscule, "
+         "mais `math.acos` refuse tout ce qui sort de $[-1 ; 1]$ : on ramène donc le quotient dans l'intervalle, et "
+         "l'angle vaut bien $\\pi$.",
 )
 
 R9_18 = Ex(
@@ -542,8 +554,8 @@ R9_19 = Ex(
 - g) l'angle entre `x` et `y`, en degrés (2 décimales).
 
 Puis vérifie que tes fonctions `norm` et `dot` de `mymath` donnent les mêmes valeurs que NumPy sur `x` et `y` (passe-leur `tuple(x)`). Dans ta copie : l'angle de g) est-il aigu ou obtus ? Comment le savoir dès b) ?""",
-    given='''x = np.array([2.0, -1.0, 4.0, 2.0])
-y = np.array([1.0, 3.0, -1.0, 0.5])''',
+    given='''x = np.array([2.0, -1.0, -4.0, 2.0])
+y = np.array([1.0, 3.0, 1.0, 0.5])''',
     todo='''answer_R9_19a = ...  # a) np.linalg.norm(...)
 answer_R9_19b = ...  # b) with @
 answer_R9_19c = ...  # c) ord=1
@@ -567,7 +579,9 @@ print(round(float(answer_R9_19e), 4), round(float(answer_R9_19f), 4), round(floa
 wbm.record("R9.19b", -4.0, decimals=4,
            mistakes={"x @ y est le produit scalaire, un nombre ; x * y multiplie case par case": 4.0})
 wbm.record("R9.19c", 9.0, decimals=4, mistakes={"ord=1 donne la norme L1 : la somme des valeurs absolues": 7.0})
-wbm.record("R9.19d", 4.0, decimals=4, mistakes={"ord=np.inf donne la plus grande valeur absolue": -1.0})
+wbm.record("R9.19d", 4.0, decimals=4,
+           mistakes={"ord=np.inf donne la plus grande valeur absolue, pas la plus grande valeur": 2.0,
+                     "une norme n'est jamais négative : ord=np.inf donne la plus grande valeur absolue": -4.0})
 wbm.record("R9.19e", -4 / (5 * math.sqrt(11.25)), decimals=4,
            mistakes={"divise le produit scalaire par le produit des deux normes": -4.0})
 wbm.record("R9.19f", math.sqrt(44.25), decimals=4,
@@ -588,53 +602,60 @@ wbm.record("R9.19g", math.degrees(math.acos(-4 / (5 * math.sqrt(11.25)))), decim
 # Notebook exercises: a prediction, a figure, an experiment (R9.20 to R9.22)
 # ---------------------------------------------------------------------------
 R9_20_EXPERIMENT = '''u = np.array([3, -1, 4, 1, -5])
+v = np.array([2, 2, -1, 3, 0])
 
 
 def cosine(a, b):
     return float(a @ b / (np.linalg.norm(a) * np.linalg.norm(b)))
 
 
-print("cos(u, 2u)   =", round(cosine(u, 2 * u), 6))
-print("cos(u, -u)   =", round(cosine(u, -u), 6))
-print("‖-3u‖ / ‖u‖ =", round(float(np.linalg.norm(-3 * u) / np.linalg.norm(u)), 6))'''
+print("   cos(u, v)           =", round(cosine(u, v), 4))
+print("a) cos(u, 2v)          =", round(cosine(u, 2 * v), 4))
+print("b) cos(u + 10, v + 10) =", round(cosine(u + 10, v + 10), 4))
+print("c) cos(-u, -v)         =", round(cosine(-u, -v), 4))'''
 
 R9_20 = Ex(
-    "R9.20", "🔮", 1, 10, "Prédire le cosinus entre un vecteur et son double, puis son opposé",
-    "prévoir l'effet d'une multiplication par un nombre sur la similarité cosinus et sur la norme.",
-    "fiche §3 et §7", tracks="C, E", hypothesis=True,
-    body="""Le vecteur $\\mathbf{u} = (3, -1, 4, 1, -5)$ a cinq coordonnées. **Avant d'exécuter quoi que ce soit**, prédis :
-- a) la similarité cosinus de $\\mathbf{u}$ et $2\\mathbf{u}$ : (1) 0,5 ; (2) 1 ; (3) 2 ;
-- b) la similarité cosinus de $\\mathbf{u}$ et $-\\mathbf{u}$ : (1) $-1$ ; (2) 0 ; (3) 1 ;
-- c) la norme de $-3\\mathbf{u}$, comparée à celle de $\\mathbf{u}$ : (1) $-3$ fois plus grande ; (2) 3 fois plus grande ; (3) 9 fois plus grande.
+    "R9.20", "🔮", 1, 10, "Prédire : multiplier ou décaler deux vecteurs change-t-il leur similarité cosinus ?",
+    "prévoir l'effet d'une multiplication par un nombre, d'un changement de signe et d'un décalage de toutes les "
+    "coordonnées sur la similarité cosinus.",
+    "fiche §5, §7 et §8", tracks="C, E", hypothesis=True,
+    body="""Les vecteurs $\\mathbf{u} = (3, -1, 4, 1, -5)$ et $\\mathbf{v} = (2, 2, -1, 3, 0)$ ont cinq coordonnées, et une similarité cosinus proche de 0. **Avant d'exécuter quoi que ce soit**, prédis :
+- a) la similarité cosinus de $\\mathbf{u}$ et $2\\mathbf{v}$, comparée à celle de $\\mathbf{u}$ et $\\mathbf{v}$ : (1) deux fois plus petite ; (2) la même ; (3) deux fois plus grande ;
+- b) la similarité cosinus des deux vecteurs obtenus en ajoutant 10 à **chaque** coordonnée de $\\mathbf{u}$ et de $\\mathbf{v}$ : (1) plus petite ; (2) la même ; (3) plus proche de 1 ;
+- c) la similarité cosinus de $-\\mathbf{u}$ et $-\\mathbf{v}$ : (1) l'opposée ; (2) la même ; (3) 0.
 
-Réponds par le numéro du choix : 1, 2 ou 3. Écris tes trois prédictions, vérifie-les, puis lance l'expérience, qui calcule les trois valeurs avec NumPy.""",
+Réponds par le numéro du choix : 1, 2 ou 3. Écris tes trois prédictions, vérifie-les, puis lance l'expérience, qui calcule ces similarités avec NumPy.""",
     todo='''prediction_R9_20a = ...  # a) 1, 2 or 3, written BEFORE running the experiment below
 prediction_R9_20b = ...  # b) 1, 2 or 3
 prediction_R9_20c = ...  # c) 1, 2 or 3''',
     check='''for letter, prediction in zip("abc", [prediction_R9_20a, prediction_R9_20b, prediction_R9_20c]):
     wbm.check(f"R9.20{letter}", prediction)''',
     record='''wbm.record("R9.20a", 2, prediction=True, choices=[1, 2, 3])
-wbm.record("R9.20b", 1, prediction=True, choices=[1, 2, 3])
+wbm.record("R9.20b", 3, prediction=True, choices=[1, 2, 3])
 wbm.record("R9.20c", 2, prediction=True, choices=[1, 2, 3])''',
     after=[
         ("md", "**L'expérience.** Elle ne s'exécute qu'une fois tes trois prédictions écrites."),
         ("todo", guarded(R9_20_EXPERIMENT, ["prediction_R9_20a", "prediction_R9_20b", "prediction_R9_20c"],
                          "⏳ Écris d'abord tes trois prédictions, puis exécute à nouveau.")),
         ("solution", R9_20_EXPERIMENT),
-        ("md", "**Après l'expérience**, dans ta copie : explique les trois résultats avec les formules "
-               "$\\lVert k\\mathbf{u} \\rVert = \\lvert k \\rvert\\,\\lVert \\mathbf{u} \\rVert$ et "
-               "$(k\\mathbf{u}) \\cdot \\mathbf{u} = k\\,(\\mathbf{u} \\cdot \\mathbf{u})$. Que vaudrait la similarité "
-               "cosinus de $\\mathbf{u}$ et $k\\mathbf{u}$ pour un nombre $k$ négatif quelconque ?"),
+        ("md", "**Après l'expérience**, dans ta copie : explique a) et c) avec les formules "
+               "$(k\\mathbf{u}) \\cdot \\mathbf{v} = k\\,(\\mathbf{u} \\cdot \\mathbf{v})$ et "
+               "$\\lVert k\\mathbf{v} \\rVert = \\lvert k \\rvert\\,\\lVert \\mathbf{v} \\rVert$. Pour b), "
+               "compare les directions de $\\mathbf{u} + 10$ et de $\\mathbf{v} + 10$ à celle du vecteur "
+               "$(1, 1, 1, 1, 1)$ : pourquoi ajouter un même nombre très grand à toutes les coordonnées rapprocherait-il "
+               "la similarité cosinus de 1 ?"),
     ],
-    note="Multiplier un vecteur par $k > 0$ ne change pas sa direction : la similarité cosinus reste 1. Par $k < 0$, "
-         "la direction s'inverse : elle vaut $-1$. La norme, elle, est multipliée par $\\lvert k \\rvert$ : 3 fois, "
-         "jamais $-3$ fois. Sans l'arrondi de l'affichage, NumPy donne parfois 1,0000000000000002 pour a) : un cosinus "
-         "calculé en flottants peut sortir très légèrement de $[-1 ; 1]$ (R9.17).",
+    note="Multiplier un des vecteurs par un nombre $k > 0$ multiplie le produit scalaire et une des normes par $k$ : "
+         "le quotient ne change pas. Changer le signe des deux vecteurs ne change ni le produit scalaire, "
+         "$(-\\mathbf{u}) \\cdot (-\\mathbf{v}) = \\mathbf{u} \\cdot \\mathbf{v}$, ni les normes. Ajouter 10 à "
+         "chaque coordonnée, en revanche, change les directions : les deux vecteurs penchent vers celle de "
+         "$(1, 1, 1, 1, 1)$, et leur similarité cosinus passe d'environ 0,10 à environ 0,95. La similarité cosinus "
+         "ignore la longueur, mais pas un décalage.",
 )
 
 R9_21_CHECK = '''with checked("R9.21 vérifications"):
     problems = []
-    for u, v, angle in [((2, -1), (-1, 3), "135.0"), ((4, 0), (1, 3), "71.6")]:
+    for u, v, angle in [((5, 1), (-2, 3), "112.4"), ((-3, 2), (1, 4), "70.3")]:
         fig, ax = plt.subplots(figsize=(5, 5))
         try:
             created = drawn(draw_vectors, ax, u, v)
@@ -644,14 +665,23 @@ R9_21_CHECK = '''with checked("R9.21 vérifications"):
             problems.append("ta fonction ouvre sa propre figure : dessine dans l'axe reçu (ax.quiver, …)")
             break
         arrows = set()
-        for q in ax.collections:
-            if hasattr(q, "U") and hasattr(q, "V"):
-                for a, b in zip(np.ravel(q.U), np.ravel(q.V)):
-                    arrows.add((round(float(a), 6), round(float(b), 6)))
+        quivers = [q for q in ax.collections if hasattr(q, "U") and hasattr(q, "V")]
+        for q in quivers:
+            for a, b in zip(np.ravel(q.U), np.ravel(q.V)):
+                arrows.add((round(float(a), 6), round(float(b), 6)))
         wanted = {tuple(float(c) for c in u), tuple(float(c) for c in v),
                   tuple(float(a + b) for a, b in zip(u, v))}
         if not wanted <= arrows:
             problems.append("trois flèches avec ax.quiver, parties de l'origine : u, v et u + v")
+        elif any(getattr(q, "angles", None) != "xy" or getattr(q, "scale_units", None) != "xy"
+                 or getattr(q, "scale", None) != 1 for q in quivers):
+            problems.append("les réglages angles=\\"xy\\", scale_units=\\"xy\\", scale=1 de ax.quiver, pour que chaque "
+                            "flèche ait exactement la longueur de son vecteur")
+        x0, x1 = sorted(ax.get_xlim())
+        y0, y1 = sorted(ax.get_ylim())
+        tips = [(0, 0), u, v, (u[0] + v[0], u[1] + v[1])]
+        if not all(x0 <= px <= x1 and y0 <= py <= y1 for px, py in tips):
+            problems.append("des limites qui laissent voir les trois flèches en entier (ax.set_xlim, ax.set_ylim)")
         if ax.get_aspect() not in (1, 1.0, "equal"):
             problems.append("la même unité sur les deux axes : ax.set_aspect(\\"equal\\")")
         title = ax.get_title().replace(",", ".")
@@ -675,16 +705,16 @@ R9_21 = Ex(
 - la même unité sur les deux axes (`ax.set_aspect("equal")`), des limites qui laissent voir les trois flèches, et une grille ;
 - un titre qui donne l'angle entre $\\vec{u}$ et $\\vec{v}$, en degrés, avec 1 décimale, **calculé dans la fonction** (par exemple `f"angle = {angle:.1f}°"`).
 
-La cellule suivante dessine $\\vec{u} = (2 ; -1)$ et $\\vec{v} = (-1 ; 3)$, les vecteurs de la fiche ; une autre la vérifie, sur ces vecteurs et sur une autre paire.
+La cellule suivante dessine $\\vec{u} = (5 ; 1)$ et $\\vec{v} = (-2 ; 3)$ ; une autre la vérifie, sur ces vecteurs et sur une autre paire.
 
-Dans ta copie : sans la ligne `ax.set_aspect("equal")`, l'angle **dessiné** a-t-il encore l'air de valoir 135° ? Pourquoi ?""",
+Dans ta copie : sans la ligne `ax.set_aspect("equal")`, l'angle **dessiné** a-t-il encore l'air de valoir celui du titre ? Pourquoi ?""",
     todo='''def draw_vectors(ax, u, v):
     """Draw u, v and u + v from the origin in ax (ax.quiver), with equal axes and the angle in the title."""
     raise NotImplementedError("ax.quiver pour les trois flèches, ax.set_aspect, puis le titre avec l'angle")''',
     check='''with checked("R9.21 figure"):
     fig, ax = plt.subplots(figsize=(5, 5))
     try:
-        created = drawn(draw_vectors, ax, (2, -1), (-1, 3))
+        created = drawn(draw_vectors, ax, (5, 1), (-2, 3))
     except BaseException:
         plt.close(fig)                                     # no empty figure while the function is not written yet
         raise
@@ -713,12 +743,12 @@ Dans ta copie : sans la ligne `ax.set_aspect("equal")`, l'angle **dessiné** a-t
 
 
 fig, ax = plt.subplots(figsize=(5, 5))
-draw_vectors(ax, (2, -1), (-1, 3))
+draw_vectors(ax, (5, 1), (-2, 3))
 plt.show()''',
     after=[("md", "**Vérifications automatiques** (la figure elle-même se juge à l'œil)."), ("code", R9_21_CHECK)],
     note="Sans `ax.set_aspect(\"equal\")`, matplotlib étire les axes pour remplir la figure : une unité horizontale "
          "n'a plus la même longueur qu'une unité verticale, et les angles dessinés sont faux (un angle droit n'a plus "
-         "l'air droit). Le calcul, lui, ne change pas : l'angle vaut toujours 135°.",
+         "l'air droit). Le calcul, lui, ne change pas : le titre donne toujours le bon angle.",
 )
 
 R9_22_GIVEN = '''degrees = np.arange(360) + 0.5          # 0.5°, 1.5°, ..., 359.5°: no angle where cos = sin exactly
@@ -731,31 +761,41 @@ R9_22 = Ex(
     tracks="C",
     body="""La cellule fournie définit `degrees`, 360 angles en degrés (0,5°, 1,5°, …, 359,5°), et `whole`, les angles entiers de 0° à 359°. Avec NumPy (`np.radians`, `np.cos`, `np.sin`, `np.max`, `np.abs`, `np.sum`, `np.argmax`) :
 - a) `close_to_1` : vrai si, pour tous les angles de `degrees`, $\\lvert \\cos^2\\theta + \\sin^2\\theta - 1 \\rvert$ reste inférieur à $10^{-12}$ (un booléen) ;
-- b) `count_cos_above` : le nombre d'angles de `degrees` pour lesquels $\\cos\\theta > \\sin\\theta$ ;
+- b) `first_sin_above` : le premier angle de `degrees`, en degrés, pour lequel $\\sin\\theta > \\cos\\theta$ (sur un tableau de booléens, `np.argmax` donne la position du premier `True`) ;
 - c) `argmax_sin` : l'angle de `whole`, en degrés, pour lequel $\\sin\\theta$ est le plus grand ;
-- d) `slope` : le taux d'accroissement $\\frac{\\sin(1 + h) - \\sin 1}{h}$, avec $h = 10^{-5}$ (4 décimales), à comparer avec $\\cos 1$.
+- d) `slope` : le taux d'accroissement $\\frac{\\sin(1 + h) - \\sin 1}{h}$, avec $h = 10^{-5}$ (6 décimales), à comparer avec $\\cos 1$.
 
-Trace aussi, sur un même graphique, $\\cos$ et $\\sin$ entre 0 et $4\\pi$, avec une légende et l'abscisse en radians.
+Puis, dans la cellule qui suit la vérification, trace sur un même graphique $\\cos$ et $\\sin$ entre 0 et $4\\pi$, avec une légende et l'abscisse en radians.
 
 Dans ta copie : sur quels intervalles d'angles a-t-on $\\cos\\theta > \\sin\\theta$ ? Dessine-les sur le cercle. Que montre d) sur la dérivée de $\\sin$ ?""",
     given=R9_22_GIVEN,
     todo='''close_to_1 = ...       # a) a boolean
-count_cos_above = ...  # b) an integer
+first_sin_above = ...  # b) an angle in degrees
 argmax_sin = ...       # c) an angle in degrees
 slope = ...            # d) a number''',
     check='''wbm.check("R9.22a", close_to_1)
-wbm.check("R9.22b", count_cos_above)
+wbm.check("R9.22b", first_sin_above)
 wbm.check("R9.22c", argmax_sin)
 wbm.check("R9.22d", slope)''',
     solution='''theta = np.radians(degrees)
 close_to_1 = bool(np.max(np.abs(np.cos(theta) ** 2 + np.sin(theta) ** 2 - 1)) < 1e-12)
-count_cos_above = int(np.sum(np.cos(theta) > np.sin(theta)))
+first_sin_above = float(degrees[np.argmax(np.sin(theta) > np.cos(theta))])
 argmax_sin = int(whole[np.argmax(np.sin(np.radians(whole)))])
 h = 1e-5
 slope = (math.sin(1 + h) - math.sin(1)) / h
-print("a)", close_to_1, " b)", count_cos_above, " c)", argmax_sin, " d)", round(slope, 4), " cos 1 =", round(math.cos(1), 4))
-
-t = np.linspace(0, 4 * np.pi, 400)
+print("a)", close_to_1, " b)", first_sin_above, " c)", argmax_sin, " d)", round(slope, 6), " cos 1 =", round(math.cos(1), 6))''',
+    record='''wbm.record("R9.22a", True, mistakes={"compare la plus grande valeur de |cos² + sin² − 1| à 1e-12": False})
+wbm.record("R9.22b", 45.5, decimals=1,
+           mistakes={"np.sin et np.cos attendent des radians : convertis les degrés avec np.radians": 1.5,
+                     "c'est la position dans le tableau ; l'angle est degrees[position]": 45,
+                     "c'est le premier angle où cos θ > sin θ : relis le sens de la comparaison": 0.5})
+wbm.record("R9.22c", 90, mistakes={"np.sin attend des radians : convertis les degrés avec np.radians": 322})
+wbm.record("R9.22d", (math.sin(1 + 1e-5) - math.sin(1)) / 1e-5, decimals=6,
+           mistakes={"le taux d'accroissement se divise par h": math.sin(1 + 1e-5) - math.sin(1),
+                     "c'est cos 1 lui-même ; calcule le taux d'accroissement demandé, qui s'en approche": math.cos(1)})''',
+    after=[("md", "**Le tracé** de $\\cos$ et $\\sin$ entre 0 et $4\\pi$ (`np.linspace`, `ax.plot`, `ax.legend`)."),
+           ("todo", "# the plot of cos and sin on [0, 4π], with a legend and the angle in radians on the x-axis"),
+           ("solution", '''t = np.linspace(0, 4 * np.pi, 400)
 fig, ax = plt.subplots(figsize=(8, 3))
 ax.plot(t, np.cos(t), label="cos")
 ax.plot(t, np.sin(t), label="sin")
@@ -763,15 +803,12 @@ ax.axhline(0, color="0.5", linewidth=0.8)
 ax.set_xlabel("angle (radians)")
 ax.legend()
 ax.set_title("cos et sin sur deux tours")
-plt.show()''',
-    record='''wbm.record("R9.22a", True, mistakes={"compare la plus grande valeur de |cos² + sin² − 1| à 1e-12": False})
-wbm.record("R9.22b", 180, mistakes={"compare cos θ et sin θ angle par angle, puis compte les True": {360, 0}})
-wbm.record("R9.22c", 90, mistakes={"np.sin attend des radians : convertis les degrés avec np.radians": 322})
-wbm.record("R9.22d", (math.sin(1 + 1e-5) - math.sin(1)) / 1e-5, decimals=4,
-           mistakes={"le taux d'accroissement se divise par h": math.sin(1 + 1e-5) - math.sin(1)})''',
-    note="$\\cos\\theta > \\sin\\theta$ pour $\\theta$ entre $-135°$ et $45°$, soit 180 des 360 angles : les deux "
-         "courbes se croisent en 45° et 225°. Le taux d'accroissement de d) vaut environ 0,5403, la valeur de "
-         "$\\cos 1$ : la pente de la courbe de $\\sin$ en 1 est $\\cos 1$, comme le dit $\\sin' = \\cos$ (en radians).",
+plt.show()''')],
+    note="$\\sin\\theta$ dépasse $\\cos\\theta$ à partir de 45° (le premier angle de la grille est 45,5°), et "
+         "jusqu'à 225° : $\\cos\\theta > \\sin\\theta$ pour $\\theta$ entre $-135°$ et $45°$, la moitié du "
+         "cercle. Le taux d'accroissement de d) vaut environ 0,540298, tout près de "
+         "$\\cos 1 \\approx 0{,}540302$ : la pente de la courbe de $\\sin$ en 1 est $\\cos 1$, comme le dit "
+         "$\\sin' = \\cos$ (en radians).",
 )
 
 # ---------------------------------------------------------------------------
@@ -791,31 +828,35 @@ R9_23 = Ex(
 
 - **(A)** « Le sinus de 45° : `math.sin(45)`. »
 - **(B)** « Le sinus de 45° : `math.sin(math.radians(45))`. »
-- **(C)** « Un angle `rad` en radians, converti en degrés : `rad * 180 / math.pi`. »
-- **(D)** « L'angle dont le cosinus vaut 0,5 : `math.acos(0.5)` vaut 60. »
+- **(C)** « $\\frac{\\pi}{3}$ radian, converti en degrés : `(math.pi / 3) * 180 / math.pi`. »
+- **(D)** « L'angle, en degrés, dont le cosinus vaut 0,5 : `math.acos(0.5)`. »
 - **(E)** « 30° en radians : `30 * 180 / math.pi`. »
 
 Questions :
 - a) les lettres des lignes fausses, dans l'ordre alphabétique (un texte) ;
-- b) les **bonnes** valeurs, dans l'ordre alphabétique des trois lignes fausses : celle que voulait l'auteur de (A), la vraie valeur de `math.acos(0.5)` et 30° en radians (une liste, 4 décimales).
+- b) pour chacune des cinq lignes, de (A) à (E), la valeur exacte de ce que décrit la phrase de son auteur, calculée correctement (une liste de 5 nombres, 4 décimales).
 
 Tu peux exécuter les lignes après avoir répondu, pour vérifier. Dans ta copie : pour chaque ligne fausse, quelle règle a été oubliée ?""",
     todo='''answer_R9_23a = ...  # a) letters, as text
-answer_R9_23b = ...  # b) a list of 3 values (4 decimals)''',
+answer_R9_23b = ...  # b) a list of 5 values (4 decimals)''',
     check='''wbm.check("R9.23a", answer_R9_23a)
 wbm.check("R9.23b", answer_R9_23b)''',
     solution='''answer_R9_23a = "ADE"
-answer_R9_23b = [math.sin(math.radians(45)), math.acos(0.5), math.radians(30)]
+answer_R9_23b = [math.sin(math.radians(45)), math.sin(math.radians(45)), math.degrees(math.pi / 3),
+                 math.degrees(math.acos(0.5)), math.radians(30)]
 print(answer_R9_23a, [round(v, 4) for v in answer_R9_23b])
-print("the wrong lines give:", math.sin(45), math.acos(0.5), 30 * 180 / math.pi)''',
+print("the five lines give:", math.sin(45), math.sin(math.radians(45)), (math.pi / 3) * 180 / math.pi,
+      math.acos(0.5), 30 * 180 / math.pi)''',
     record=f'''wbm.record("R9.23a", "ADE",
            mistakes={R9_23_MISTAKES})
-wbm.record("R9.23b", [math.sqrt(2) / 2, math.pi / 3, math.pi / 6], decimals=4,
-           mistakes={{"ce sont les valeurs des lignes fausses : calcule les bonnes": [math.sin(45), 60,
-                                                                                   30 * 180 / math.pi],
-                     "math.acos rend des radians : sa vraie valeur n'est pas 60": [math.sqrt(2) / 2, 60, math.pi / 6]}})''',
+wbm.record("R9.23b", [math.sqrt(2) / 2, math.sqrt(2) / 2, 60.0, 60.0, math.pi / 6], decimals=4,
+           mistakes={{"ce sont les valeurs que calcule le code ; donne celles que décrit chaque phrase":
+                         [math.sin(45), math.sqrt(2) / 2, 60.0, math.pi / 3, 30 * 180 / math.pi],
+                     "la phrase de (D) demande l'angle en degrés": [math.sqrt(2) / 2, math.sqrt(2) / 2, 60.0,
+                                                                   math.pi / 3, math.pi / 6]}})''',
     note="(A) `math.sin(45)` calcule le sinus de 45 radians, environ 0,851, au lieu de $\\frac{\\sqrt{2}}{2} \\approx "
-         "0{,}7071$. (D) `math.acos` rend des radians : $\\frac{\\pi}{3} \\approx 1{,}0472$, qui vaut bien 60°. (E) "
+         "0{,}7071$. (D) `math.acos` rend des radians : $\\frac{\\pi}{3} \\approx 1{,}0472$, qui vaut bien 60°, mais "
+         "pas le nombre 60 ; il fallait `math.degrees(math.acos(0.5))`. (E) "
          "La conversion est à l'envers : de degrés en radians, on multiplie par $\\frac{\\pi}{180}$, ce qui donne "
          "$\\frac{\\pi}{6} \\approx 0{,}5236$. (B) et (C) sont justes.",
 )
@@ -826,13 +867,25 @@ print("u·v =", u[0] * v[0] + u[1] * v[1])'''
 
 R9_24_CHECK = '''with checked("R9.24 vérifications"):
     problems = []
-    if is_orthogonal(u, v) is not True:
+    result = is_orthogonal(u, v)
+    if result is None:
+        problems.append("is_orthogonal ne renvoie rien (None) : il manque un return (print affiche, mais ne renvoie "
+                        "pas)")
+    elif not isinstance(result, bool):
+        kind = ("un booléen de NumPy (np.isclose en renvoie un)" if type(result).__module__ == "numpy"
+                else f"un objet de type {type(result).__name__}")
+        problems.append(f"is_orthogonal doit renvoyer un booléen de Python, True ou False, et non {kind} : "
+                        "convertis avec bool(...)")
+    elif result is not True:
         problems.append("is_orthogonal(u, v) doit être True : sur papier, u·v vaut 0")
-    if is_orthogonal((1, 0), (1e-6, 1)) is not False:
+    elif is_orthogonal((1, 2), (-3, 1)) is not False:
+        problems.append("is_orthogonal((1, 2), (-3, 1)) doit être False : u·v vaut −1 ; compare sa valeur absolue "
+                        "à tol")
+    if not problems and is_orthogonal((1, 0), (1e-6, 1)) is not False:
         problems.append("is_orthogonal((1, 0), (1e-6, 1)) doit être False : 1e-6 dépasse la tolérance")
-    if is_orthogonal((3, 4), (-4, 3)) is not True:
+    if not problems and is_orthogonal((3, 4), (-4, 3)) is not True:
         problems.append("is_orthogonal((3, 4), (-4, 3)) doit être True")
-    if is_orthogonal((2, 1), (1, 1), tol=10) is not True:
+    if not problems and is_orthogonal((2, 1), (1, 1), tol=10) is not True:
         problems.append("le paramètre tol doit être utilisé : avec tol=10, (2 ; 1) et (1 ; 1) passent")
     if problems:
         print("❌ Ex R9.24 : à revoir : " + " ; ".join(problems) + ".")
@@ -846,7 +899,7 @@ R9_24 = Ex(
     body="""Sur papier, $\\vec{u} = (0{,}1 ; 0{,}7)$ et $\\vec{v} = (2{,}1 ; -0{,}3)$ sont orthogonaux : $0{,}21 - 0{,}21 = 0$. La cellule fournie calcule leur produit scalaire en flottants : il ne vaut pas exactement 0 (R0 : les flottants forment une grille). Un test `u·v == 0` se tromperait donc.
 
 1. Écris `is_orthogonal(u, v, tol=1e-9)`, qui renvoie `True` quand le produit scalaire est nul **à `tol` près**, en valeur absolue. Deux outils font cette comparaison : `math.isclose(x, 0, abs_tol=tol)` et `np.isclose(x, 0, atol=tol)` (qui renvoie un booléen de NumPy : convertis-le avec `bool(...)`).
-2. La cellule de vérification essaie ta fonction sur quatre cas.
+2. La cellule de vérification essaie ta fonction sur cinq cas.
 
 Dans ta copie : que renvoie `math.isclose(1e-17, 0)`, sans `abs_tol` ? Pourquoi une tolérance **relative** (« à 1e-9 près de la valeur ») ne peut-elle pas servir pour comparer à 0 ?""",
     given=R9_24_GIVEN,

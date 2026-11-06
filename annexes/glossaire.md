@@ -143,7 +143,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | nombre rationnel, irrationnel | rational, irrational number | quotient de deux entiers (ℚ) ; un réel qui n'en est pas un, comme $\sqrt{2}$ ou $\pi$ | R1 |
 | normalisation min-max | min-max scaling | la fonction affine $\frac{x - \min}{\max - \min}$, qui ramène des données entre 0 et 1 | R3 |
 | norme | norm | longueur d'un vecteur | R9, M07 |
-| normes L1 et L∞ | L1 norm, infinity norm | $\sum \lvert x_i \rvert$ (la distance du taxi) et $\max \lvert x_i \rvert$ ; sans précision, la norme est la norme L2 | R9, M07 |
+| normes L1 et L∞ | L1 norm, infinity norm | $\sum \lvert x_i \rvert$ (un trajet fait seulement de pas horizontaux et verticaux) et $\max \lvert x_i \rvert$ ; sans indice, $\lVert \mathbf{x} \rVert$ est la norme euclidienne (L2) | R9, M07 |
 | noyau (d'un notebook) | kernel | la mémoire qui exécute les cellules et garde leurs variables | R0 |
 | noyau (d'une application linéaire) | kernel, null space | vecteurs envoyés sur zéro | M12a |
 | numérateur, dénominateur | numerator, denominator | le nombre du haut et celui du bas d'une fraction | R1 |

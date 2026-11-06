@@ -52,3 +52,35 @@ def chapter_cases():
 def test_a_writing_example_is_not_an_answer(ids, value):
     right = [ex for ex in ids if wbm.check(ex, value, quiet=True).passed]
     assert not right, f"expected the example {value!r} to answer no question of its chapter, but it answers {right}"
+
+
+def message_examples():
+    """The values quoted as writing examples in the messages of `wbm` (`comme "8/11"`, `` `[-1.25, 1]` ``): they are
+    shown in every chapter, so they must answer no question at all, nor its opposite (session 14, R9 learner C1:
+    "sqrt(3)/2" was the answer of R9.7d up to the sign)."""
+    examples = set()
+    for name in ("checker.py", "mathcheck.py"):
+        source = (ROOT / "src" / "wbm" / name).read_text(encoding="utf-8")
+        examples |= set(re.findall(r'(?:comme|ou|\() \\"([^"\\]+)\\"', source))
+        examples |= {token for token in re.findall(r"sans guillemets : `([^`]+)`", source)}
+    return sorted(examples)
+
+
+@pytest.mark.parametrize("example", message_examples())
+def test_a_message_example_is_no_answer(example):
+    if example == "vide":                                  # the empty set, a notation rather than an example
+        return
+    if example.startswith(("[2 ;", "]-oo", "[0 ; 1] U")):
+        values = [example]                                 # an interval written as text
+    else:
+        try:
+            values = [ast.literal_eval(example)]
+        except (ValueError, SyntaxError):
+            values = [example]
+    for value in list(values):
+        if isinstance(value, str) and not value.startswith(("[", "]")):
+            values.append("-(" + value + ")")
+        elif isinstance(value, list):
+            values.append([-x for x in value])
+    right = [(ex, v) for ex in sorted(ANSWERS) for v in values if wbm.check(ex, v, quiet=True).passed]
+    assert not right, f"expected the message example {example!r} to answer no question, but {right}"

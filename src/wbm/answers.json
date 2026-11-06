@@ -15855,12 +15855,17 @@
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.1c": {
-      "hash": "02043d31065dbac684953440b3fba2305e2d4e11d1e3be15b9105efdf5df36a0",
-      "kind": "int",
-      "magnitude": 1,
+      "alt_coarse": [
+        "768a7019146d3a76887e51b40280ea0ae6f7041d4d1115801cb2f06e5237ab59"
+      ],
+      "decimals": 1,
+      "hash": "6c216836cc103aeefa3e954dc6b7d3ff33516c5f4c26a63fab56d368d4bf139b",
+      "hash_coarse": "3d370a6cba2a6e8c5916cd962f0bbfac32f475162a380dca23ac5775c5ef835d",
+      "kind": "float",
+      "magnitude": 0,
       "mistakes": {
-        "41d3f942d5f218f87061cd8d23ee2eba3889b53731b77fec1444ba7d936834ff": "AC est la racine carrée de la somme des carrés des écarts",
-        "4dd435ee231dde4e24438f247c97c3414cfad5c87241e0ae96910ab09cc671d7": "la racine d'une somme n'est pas la somme des racines : élève les écarts au carré"
+        "0b8cf777f20ba23a356b3283621a985b9e7c11ec3ae92dbb2bf79bdea93a13a9": "la racine d'une somme n'est pas la somme des racines : élève les écarts au carré",
+        "2fe7ecc4a77b776c28a77561f6df9f37e11f82ef993daeabaf6e4ef89684a1cf": "AC est la racine carrée de la somme des carrés des écarts"
       },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
@@ -15868,17 +15873,17 @@
     "R9.1d": {
       "coarse_any": {
         "0": [
-          "14f71ea48b2b05549e94876dfe051898553dcee2e27fa015185527f702e6d804"
+          "5c3adfb04482a5eac2e7c76555b92dab36ffe0f3d3fa381f805d8ebaeabf9db1"
         ]
       },
       "decimals": 2,
-      "hash": "f22d0fbf17d783a46da6946219465763d0d933d854fbc297d512c43eb97c63bc",
-      "hash_coarse": "fb2801c2b05631135cdf95d8f39d1b70e287d656a0421f3a9ed6cf48fe509967",
+      "hash": "f060983c5be0ed7891ee71ad4718b88bcfec8bfb45bd8b78a278013f0933bd88",
+      "hash_coarse": "38894819d0115c6f78bbf96decf955875b9bc147e52e52dd76df308e59977d64",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "845a3f4e0fff291647ef8377e6b208aeee7fdcf45b25cc03d6806ba4040a5454": "BC est la racine carrée de la somme des carrés des écarts",
-        "fe38c49449725da8cabe33d3c43244f12ad90ee47d9038b4e06ae53f09c418f0": "la racine d'une somme n'est pas la somme des racines : élève les écarts au carré"
+        "73dd64a17acbfe9d61bfb3b30641e83a4b0c373abb83da872a914f9b21709cbb": "BC est la racine carrée de la somme des carrés des écarts",
+        "97060d3c7d4417dac53011dc59a8aeac5bcce7e656f9f65ce85870e1680826d7": "la racine d'une somme n'est pas la somme des racines : élève les écarts au carré"
       },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
@@ -16046,19 +16051,16 @@
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.2h": {
-      "coarse_any": {
-        "0": [
-          "baaeba015cf026b34f8e58eae81bb995df251d77e5559c60532cb045dbcb4be1",
-          "8d80ff90972b004847272bdb2f9e8fd14c3ba3a53e0a983ec2bb1f8c4858314c"
-        ]
-      },
-      "decimals": 2,
-      "hash": "0c502e06a6b8ec5c205fa7a61eac4bcae7282a46a5e209205c2d9d32a677bbbb",
-      "hash_coarse": "9f8559c5a9845a93b207176ac2ec6b184cebba13f701ad8190fbb31d2cfac561",
+      "alt_coarse": [
+        "8d80ff90972b004847272bdb2f9e8fd14c3ba3a53e0a983ec2bb1f8c4858314c"
+      ],
+      "decimals": 1,
+      "hash": "9f8559c5a9845a93b207176ac2ec6b184cebba13f701ad8190fbb31d2cfac561",
+      "hash_coarse": "baaeba015cf026b34f8e58eae81bb995df251d77e5559c60532cb045dbcb4be1",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "38ebf59ad6b8220dbc2394d9a993864d3d0b8b0a06721b2c3177a2fab893c129": "le signe : la première coordonnée de v est négative"
+        "44ce39e626a234aa90cc073514ed37e01d2599ef7879da69eb9c70f0f16b3210": "le signe : la première coordonnée de v est négative"
       },
       "sign": -1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
@@ -16082,155 +16084,157 @@
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.3b": {
-      "hash": "cd49fdf05d7275a8380930c968879e4751f99cd6d43f56d82bdbe46b180a69b6",
-      "kind": "int",
-      "magnitude": 0,
+      "decimals": 0,
+      "element_hashes": [
+        "92aca66aef536e5955ea11b3751a45fd768c0c667f65d0017a86f05825694e71",
+        "fc39d4351505bff83cec9d38300710ca30dec712846facd92fd000dde2952583"
+      ],
+      "hash": "78f1efadaca8fd53aeff53336052fce815ec423b44aff91e6039c3dc47908d8d",
+      "integer": true,
+      "kind": "array",
       "mistakes": {
-        "d118142e987674b39521b1ab78cfba847f2cb95a6e5dab771d8afd249d40bcd5": "la norme L1 additionne les valeurs absolues"
+        "8f5b73512132f87ecf72835554d860562c21707cffa583017aabfa4842b7050b": "t² = 9 a deux solutions, opposées",
+        "b37f44d0a5122eeb82cbc5c543b474aa4cb8efc98e5d665c7da4cbd8cac39998": "‖(t ; 2)‖² = t² + 4 : la norme vaut √13, donc son carré vaut 13"
       },
-      "sign": 1,
+      "shape": [
+        2
+      ],
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.3c": {
-      "hash": "24b28b170bba52b5be82c9dacfda0a1d399bd1c750a860acc2808e7fd8c6f233",
-      "kind": "int",
-      "magnitude": 0,
+      "coarse_any": {
+        "0": [
+          "8bdf8d0c858e56f74551854b0fdef6997cad950592c93986f32f78971b1b1a59"
+        ]
+      },
+      "decimals": 2,
+      "hash": "01588d846c92fe1a6d0e4dcc90e8a8bae974ba542762442ff7256b61c5c61de9",
+      "hash_coarse": "f4ff232e5c5ef29c0e5dfec8b93a56d29df38dcb3a9ef658c7a628d913888c26",
+      "kind": "float",
+      "magnitude": 1,
       "mistakes": {
-        "4cfbed911e82bd4adbfb2f6a0d4a72f57516dbfa74023e72b08bbbe5bc7df2e1": "la norme L∞ est la plus grande valeur absolue",
-        "aa0f7066fbca35c5fc4688c073ffbad63c39e4a22dae1f17de5735a0ca4d46d4": "la norme L∞ est la plus grande valeur absolue"
+        "808690a145e9368f56d8160580e05856ca1251f8d710e8bab5df396ff52685b2": "multiplier un vecteur par k multiplie sa norme par |k|, pas par k²",
+        "a07e512278d50581c92129d5b6144c0011a9a012f91c82cf95d24ceaeac89fe9": "‖ku‖ = |k| ‖u‖ : une norme n'est jamais négative"
       },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.3d": {
-      "coarse_any": {
-        "0": [
-          "e01e9ee3be3cf123f60c169de32fd032727a1781d63fdb67d01ab23d5d769ed3"
-        ]
-      },
-      "decimals": 2,
-      "hash": "d17fadba3001b106c498949af8ab66a446ef05a7a7a9dbc54fb39f2467dbc434",
-      "hash_coarse": "652369523cdaa1e1fee8ac3283a6f308965da69b7fd3141fb17f54bf17628bab",
-      "kind": "float",
-      "magnitude": 1,
-      "mistakes": {
-        "11c5733f92e2fd5e7dd13ef411b4f2711ed8f450497860b5e2fe8ab677a66a83": "multiplier un vecteur par k multiplie sa norme par |k|, pas par k²",
-        "d3e8d64c7a0f903edb1cc901574d3a6890b4e9f7e733dcc032c8a12218dfa979": "‖ku‖ = |k| ‖u‖ : une norme n'est jamais négative"
-      },
-      "sign": 1,
-      "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
-    },
-    "R9.3e": {
       "decimals": 2,
       "element_coarse": [
         [
-          "23d9e123cea34b502e3e26f5feef248b26a8efd58155f0a0bf5affb1066f1fad"
+          "23d548585759d278688d2937c61dc0ad2c7225acb75e1572f89459dfc8c16dfb"
         ],
         [
-          "8f11914fc382bc58bf636c68a2c51df412ed1a0fdba1c697571e02bd7e66cb70"
+          "8d819a223cb926e5469933345cd2dcbcbd2c66fde26a034ffa21e9a380f0d2da"
         ]
       ],
       "element_coarse_any": [
         [],
         [
-          "dd8f2979acda6e73b598fc95415ec88724e9244ed31cbe43623d9f5572431e32"
+          "264e7f4c55546df263207a3b4c8dc0b7649b30bb413ad9f53173aa465bd6f4da"
         ]
       ],
       "element_hashes": [
-        "fe61bbddb88f6e7b0dc55615e2c3ce21aec169a97b6b783ee39bf76bb2a75fda",
-        "226f62c1bb191b9b3e6cdcfdb998b33edc22644a0f20b6cccc063b1ed736483e"
+        "2e4978c6950a9fd553c8515fa7ee19eacce1abe5014be929cfb3257ba0706076",
+        "0179ddfac5580553819096d492d975a7922a18fa581fdf0a6aeb9eda469bfe05"
       ],
-      "hash": "af5be8a65f92b922ca6f1f2385fe27b035f39690bb918fa7e515dc72c87f5860",
+      "hash": "eadd35b283d51d1a9f371bed621f5a82ef10c5a194b97f0b2a67ad85780cf8d5",
       "kind": "array",
       "mistakes": {
-        "6e37c1152ba8dba5f5a856b752e2579e5bde3544d787cf526a763b7852ac875c": "même sens que v : on divise par un nombre positif, la norme",
-        "d554c779b588a96603215839d141c053f0cf56683b51f04c871960ebfe7ce29f": "divise par la norme euclidienne, la racine de la somme des carrés"
+        "6c479dbf2dfff82b9e4708492d65db5ef7c1a0bbeb665c2ce96b4364f1af22c8": "même sens : on divise par un nombre positif, la norme",
+        "f384e1b331e3094850865632bb85481fd5013a521923c273b441d57f55a967f2": "divise par la norme euclidienne, la racine de la somme des carrés"
       },
       "shape": [
         2
       ],
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
-    "R9.3f": {
-      "decimals": 0,
-      "element_hashes": [
-        "f049bee0a4a4e9fc267333414b6ff32d6ffcbaac0f5721ca4c0b83f70701ad13",
-        "8f4291223b6da716871f361bdf9ac50e637650cf03761e48476b51c9e4e511f6"
-      ],
-      "hash": "e2d318afbb08409cb74c61fbc69672805f46543cd546a18dd08899020de829d8",
-      "integer": true,
-      "kind": "array",
-      "mistakes": {
-        "31211712c5972387352e54f441c2e5890cf71dc609486cf6625fe73543eded64": "‖(t ; 2)‖² = t² + 4 : la norme vaut √13, donc son carré vaut 13",
-        "bfc55c86aa3548e8421a07d6cfda665aa53004b964bf99a3d9acdaf1f31c14ec": "t² = 9 a deux solutions, opposées"
-      },
-      "shape": [
-        2
-      ],
-      "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
-    },
-    "R9.3g": {
+    "R9.3e": {
       "decimals": 1,
-      "hash": "25af08b8259a9bf7b260197af4c9448b671dc3f247326939e4d5872cacd28a81",
-      "hash_coarse": "eb46aeaf59a57c5e47eb976b356fab4ea8556a3380fe49d65089edfec02ddc74",
+      "hash": "c4707cfd4456a75930aba25ccbd89dcd484acffa90f398d0b485c347735929ea",
+      "hash_coarse": "407be4cd81478384c101cd7197aae8bd47da0b821fde9cb0716d1bf5c8f635c5",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "cec1609721b859258bbbf40c8882450097670d22692015f41e9cf6d6a3c1b65a": "la norme d'une somme n'est pas la somme des normes : additionne d'abord les vecteurs"
+        "e5eda1d5fa3d105e621e95882b2427037d9b6197557f7d24f9b1ffbbd9aa9adf": "la norme d'une somme n'est pas la somme des normes : additionne d'abord les vecteurs"
+      },
+      "sign": 1,
+      "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
+    },
+    "R9.3f": {
+      "hash": "de8d566295f9323999d383008782b87801fe13adb5993b00ba15014d62c55387",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "27f476e89fd3834b83e890ab905cbd7f6c48e5141aaa663ab9d58b2ecd87ee7e": "la norme L1 additionne les valeurs absolues"
+      },
+      "sign": 1,
+      "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
+    },
+    "R9.3g": {
+      "hash": "fd29d7952ff448a9678aacaf6f5d2394a9e5f0ef12f393874243ac7df38b0616",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2426cf4a796042f5b090e594d09710d8b603a836a1c4026a25de07f8feaa6083": "la norme L∞ est la plus grande valeur absolue",
+        "46fdd217de3ccb161ee2b99b9a43ea18733886cd972228bf0010704f72ea0f5f": "la norme L∞ est la plus grande valeur absolue"
       },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.3h": {
-      "coarse_any": {
-        "0": [
-          "32d373ac1ad3a3e507d34f94d7e1ab11f1b7e40bffbbd68b5635871264276e4a"
-        ]
-      },
       "decimals": 2,
-      "hash": "1c7b88bd61d5948374f597c15159e390bc10b6aaf6ceb1bc7ac7e22797f88233",
-      "hash_coarse": "b51ce1cc6131c6d4b2073812b09540a4433c46c6f70f4c4cd7eae6a93a387394",
-      "kind": "float",
-      "magnitude": 1,
+      "element_coarse": [
+        [
+          "6dd1ec36d40cc6304ae93861de101b1d9859c78c0fb5cc9887d94903d74dd012"
+        ],
+        [
+          "6e3351696af93e338c13b782ac8f91e54c93a83afa6a49f64d966005428a9431"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "10c217898a780437ce1a8143e5e5a17d6a6210730083ef10a055ca60ad4382fb"
+        ],
+        [
+          "feab2e8f0063f130712842483e808526ebca922791e3b0f06ec1e5c45d29ffa6"
+        ]
+      ],
+      "element_hashes": [
+        "c1f0d788fe74d9635d9027fd42016ac9dbffe6f774b6f6be7129b11396412e0c",
+        "fbe9c0217b4b3130cdb7902ad1e96af1d887304610e5250cfa56c6e84d7ac4c8"
+      ],
+      "hash": "ae15ae62e4c3b687efd89e885e589803bfc21a556b12430ccd930a0f9a9ade7d",
+      "kind": "array",
       "mistakes": {
-        "0edfe837314798ef70471b71a2ec2c00266393ac8e670858bd639e5622c48dd0": "les valeurs absolues des écarts : |−2 − 4| = 6",
-        "2e2b8afde0049edea568e7b188e64e12f57c7195df30df88ce56286e3424d9a4": "c'est la distance euclidienne ; la distance L1 additionne les valeurs absolues des écarts"
+        "6b9a79acfe19c357113c3decfa03acba383b3d2b1945b6a1b275e57cc8717a5a": "3u a pour norme 3 ‖u‖, pas 3 : rends d'abord u unitaire",
+        "b4310bb654725bfa39c22671fce96ad03760fe8b99c792b1e022aa2c06f56ae7": "c'est le vecteur unitaire, de norme 1 ; la norme demandée est 3"
       },
-      "sign": 1,
+      "shape": [
+        2
+      ],
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.4a": {
-      "coarse_any": {
-        "0": [
-          "767e9080c11eb6713306f6f11aa989c3048d2d96f3fe34c04688d78f32ac0916"
-        ]
-      },
-      "decimals": 2,
-      "hash": "0693da8968a463bd05143176dd6c3c1fc18d06bf8572a67e78a454c468865e1a",
-      "hash_coarse": "260bed451995874365e196d25384caa41f4bf4aca8832690a1d611579c3b1183",
+      "decimals": 1,
+      "hash": "260bed451995874365e196d25384caa41f4bf4aca8832690a1d611579c3b1183",
+      "hash_coarse": "767e9080c11eb6713306f6f11aa989c3048d2d96f3fe34c04688d78f32ac0916",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "34f227b2d5bc0b7ceb02ee59e9338b0f68bb36f996f5796618b1b4beb0b993c8": "le point mis en premier en haut doit être en premier en bas",
-        "d73ae70859e70f9e3b05a1c80dbb7785dbc43a01b8ac4ca3e78eef7eee99e97c": "la pente est l'écart des ordonnées divisé par l'écart des abscisses"
+        "510c05cf1dff557cebcc7b321ff6450c17619fb2b8036b80d6eb301516137b78": "le point mis en premier en haut doit être en premier en bas",
+        "986963d928c674fabffdf0943f0f2ebb03ecc575ef3f96da3756d1a360020062": "la pente est l'écart des ordonnées divisé par l'écart des abscisses"
       },
       "sign": -1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.4b": {
-      "coarse_any": {
-        "0": [
-          "fb19ed29f370bca4284627aa5438ca7f15c53bb718898905361339f0e762f58e",
-          "76bb08888d229bfc24d003e43e259dc30d936c7d2de0686efdb383556e4e4905"
-        ]
-      },
-      "decimals": 2,
-      "hash": "096a12176bda6869f54b25dc7d9d808349d56b1de2321b138e91935182e7c73a",
-      "hash_coarse": "d388c92f515ef46d8e12488e80be8f69276d488528a2411010df11abaa5ca6e2",
-      "kind": "float",
+      "hash": "993764a1497f5b664c8b7d5b2987019e4446416f92944551e10dbeed1a95cdab",
+      "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "a6e29353ee5926719fa262d407a367654eabe642cd664bc6db852368c72a1aea": "p = y_A − m x_A, avec les signes de m et de x_A"
+        "fc877dadddb9bde2e296fa014e31823340b38c497dfc91c80ea3b58663420551": "p = y_A − m x_A, avec les signes de m et de x_A"
       },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
@@ -16257,14 +16261,14 @@
       "element_hashes": [
         "cc054d2bada7d46ae3dcc27e0a8eed3e3f40dcf0f4b32befe49822f6d278a474",
         "20561b6b7f0b9d37530cddd65792b7aedce8f6ad49736689d2033fe3ecb3adf1",
-        "55d1a59eb2e57229c148d88b45c111bc65f27e7f60927271df7d4df1ecedeb77"
+        "1988170d04bc8fe6b3b99a17ab778b1562308288f57b23ecf6244754a924c588"
       ],
-      "hash": "5404705963abc7c4f3122c554cd71490b0ab0badc8b297f03c64fa2b2e7aa22a",
+      "hash": "74c0f352b6a227b66d7fa717ef78a39ab4f515a585af5d3fae8796b2ac30b3dd",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "2de05902e90da1c34cd67d2f72ef9a774a2f8f03a13e7e45e5f5edc1f702414a": "vérifie ton équation avec les coordonnées de A et de B : chacune doit donner 0",
-        "d377f534599bc0359c58695486c08e8b50f42a0d5580978426a556290ee5830e": "tout passer du même côté change le signe de p"
+        "141be5e6c65328890a0b6a8478de84192e512a4635386d6b161147bc84ae58b4": "vérifie ton équation avec les coordonnées de A et de B : chacune doit donner 0",
+        "5dd2d29f500f1aaa3862d9d6d0fe6d9faf9ab831b02fbdc86a190d52f4b23455": "tout passer du même côté change le signe de p"
       },
       "shape": [
         3
@@ -16283,31 +16287,27 @@
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.4f": {
-      "coarse_any": {
-        "0": [
-          "4f4d5b7e0880bf90a06d2e8ed7d45d9fe672191c37115946227b797f5ac0cf54"
-        ]
-      },
-      "decimals": 2,
-      "hash": "03a839ba96aa1099c610a8411641c694fccbad5e18a62098873172d67556a47e",
-      "hash_coarse": "07ed207ec7d5281a4dd519a28216c6eb0a6cf0011e919525b4c799b9d8cbc688",
-      "kind": "float",
+      "hash": "320b5c4ad61a05dcc2c8a417fbdff6ef530c9588928856391a7ce2b36bbf6e5c",
+      "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "7f15e780f663c343ff2db6c4486ed47a5a21a15641bbb428117b6f86e291febc": "une parallèle a la même pente, pas la même ordonnée à l'origine : elle passe par C"
+        "49c9177094bb2a6d1c354c758479550c5ee76d46288b26cf495abf227ec4ecff": "une parallèle a la même pente, pas la même ordonnée à l'origine : elle passe par C",
+        "dfcbbc6e3b5febb2c10eec94f3a9abdfae087516a8d2a9d7418a60236e83de4b": "p = y_C − m x_C, avec les signes de m et de x_C"
       },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.4g": {
-      "decimals": 0,
+      "decimals": 1,
       "element_hashes": [
-        "283b7552cb08f462960bd4b5291b47ef8353965c8ca3889cc9c842c9a147c963",
-        "d2f311a60abfc50023a422a363512681412fbc75e806a1f8b082f400d27f0cf8"
+        "1fc56c5530b27eb377ca63d73b26b609bf19cc4e84970483b85c8bbc2348fd52",
+        "f1803e1558fe950e44854229c97c2bb443311a791acd1d7419064a5dca897f7f"
       ],
-      "hash": "7ea93e5fdb5d6a334d0f48049de23154849190f562a08158e82cef7eddbe8f61",
-      "integer": true,
+      "hash": "f8ab27d99eed929cebaee396fc848f8fa843a9afdd27d9c8f5dec363096fba28",
       "kind": "array",
+      "mistakes": {
+        "52514850208ad455d6f5f533e54c2caf128111d25010926004946c0bda6fc1c4": "le point commun vérifie les deux équations : remplace y par x dans celle de (AB)"
+      },
       "shape": [
         2
       ],
@@ -16437,13 +16437,13 @@
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.6c": {
-      "decimals": 2,
-      "hash": "a00f6a66dced342d912dea2ed2ebdfd9be00a15f71e93240edace144b92273f9",
-      "hash_coarse": "4629291c909338dae8beeca663b057d2689d228a96dae5b17e5b656236d7a2a0",
+      "decimals": 1,
+      "hash": "4629291c909338dae8beeca663b057d2689d228a96dae5b17e5b656236d7a2a0",
+      "hash_coarse": "4cfea99a1ec8a44878864513965bfc5887742807c3005afadfe4e2ddb0bb60b7",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "f92dd60b9afbd4409d21f571feb4cceb53b78b16d0f06b1226dfac64003f23e4": "3k + 2(k + 1) = 0 : développe 2(k + 1), puis isole k avec son signe"
+        "db19596e232698274d01e5978437dcd35593c207f313e3f7b5f00faba3de9874": "3k + 2(k + 1) = 0 : développe 2(k + 1), puis isole k avec son signe"
       },
       "sign": -1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
@@ -16517,13 +16517,22 @@
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.7a": {
-      "hash": "4b95eb7e4f0085a96af44a10c0d3e7aee02bd9965240c51b5f3c15b6ede69610",
-      "kind": "fraction",
+      "angle": true,
+      "hash": "c763a344020153c844b8db779199c6fb025208d950a4ab70fc6b24a4516479d0",
+      "kind": "exact",
       "mistakes": {
-        "924b108646537bb6798fac30eec6d506c3970d773bf697faced922f1148acf78": "θ en radians = θ en degrés × π/180 : 180° donnent π"
+        "477fbbaae086f8512ffa1027a7e378af399d8be40b156846c309dee198fc2672": "θ en radians = θ en degrés × π/180 : 180° donnent π"
       },
-      "sign": 1,
-      "simplified": true,
+      "rounded": {
+        "1": "25d363a82bbcd173a57409ebfc0b97b6d1dffd92854da0587aaf12b7ccd95cc1",
+        "2": "3e26f22f45e3917c0c0fe9f83b9515512753690caf17894ed1cae7bc446cf01c",
+        "3": "e4669935371ec4ad5e9b940acb48466f35b84c6fc73683e9ffb29cf4d0c6541f",
+        "4": "4087f2fc3962765d93188c213606259b5c0c66a7b56c170179186154b8ec8257",
+        "5": "bfc3b4922b485c94704f7145c17c19147531d6e63e1b58cf092fd77ff3eabe28",
+        "6": "007506f8ce8f8eba7277150d155a92aee291e81338742164230fefa214c43fe9",
+        "7": "6689e033efe21044c9b82b8e1619bc295f8b18cd409fb63ad2846a0d8dfb8deb",
+        "8": "833dd683bed3be468211a88231583cf6596e60da635615b5e4d746e84fef4cd8"
+      },
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.7b": {
@@ -16746,30 +16755,30 @@
     "R9.9a": {
       "coarse_any": {
         "1": [
-          "cb2c1f28f60335e7f272f1be8a04fd4aa249a6d3ff2100ad1981e17de98c9263"
+          "1601d99509d36a73234087eac678c583d0d54b644ed7e72714b577040b1a8629"
         ]
       },
       "coarser": {
         "2": [
-          "9ecff88434e9c36bf4bd6173a47f84faab9b8afa9a5024bc5b34290bf7458886"
+          "85f9d8f8cec33150cb51a61c32dd8716378a18538fc82e9733272473d53d04e9"
         ]
       },
       "decimals": 4,
-      "hash": "c3ccdc229d7fc571c33ac974f14020471a1faa2c7645742d5587b3209ea495e0",
-      "hash_coarse": "984d0963ba991e6daa6fb6fc7c7625c8acbdda51ffb2f30878a3826c77f4b3b8",
+      "hash": "c50f4dd5cd1bc6e519b9e14c4e4de8c08dd87245acf2ca1baf539b4270a2b16c",
+      "hash_coarse": "0876fea79fff55c73574e1111ac62b4bc761619d4e4e64555c70e9e78886425c",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "5f1194e48f96dbd51d5dea5c9ed4686cfaeb834a528ef881a01d860520778d16": "le produit des normes est √5 × √10 = √50, pas 5 × 10",
-        "a716239bee646ad1f31c6bf1f6a38779a581d03d245c1defffc7be8d09ab93c5": "divise le produit scalaire par le produit des normes"
+        "7abdf78c2ce4e58b58f97548d599cc2c534fb542122bb9601d693c46936c6a0a": "divise le produit scalaire par le produit des normes",
+        "ea8ce11bb759e32d9d41a8e9ee987affc72d8ab76e6cf5aba89fcf360cf0cc01": "les normes sont des racines carrées : ne multiplie pas les sommes de carrés entre elles"
       },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.9b": {
       "decimals": 1,
-      "hash": "be12dd1cfc674dac803182f2c77089b6145c5f85666e05873dded9f85d5e9efe",
-      "hash_coarse": "5c747476a6dd510fec2dfe8ce3dd4d3cb55c95c269c524ab930cdbae1e8cc4e2",
+      "hash": "940b59fd8ecd9a9ce27c03d0d2da6d5f766a9de431029c1afda29fce9ce1615d",
+      "hash_coarse": "d1a575e55d2cc12f29beee3f9469b9f97c681a75e71b91adb92d294a4a5ea717",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
@@ -17039,7 +17048,8 @@
       "hash": "6bada0cc26f91d2b359702be23071f4347b4d4330203ea625751bbdf8560eda7",
       "kind": "str",
       "mistakes": {
-        "8e077947c95700e55fca297affa7af17e83e28cefad1e3c9408f15cb0b7f48e0": "compare les similarités cosinus, pas les produits scalaires : un grand vecteur a un grand produit scalaire avec presque tout"
+        "31bdf8081b47f920288f7fe6ca44de8d146e17e80129b52aae5d212fb1f95ea2": "on compare les sablés aux trois autres recettes : la réponse est c, q ou p",
+        "8e077947c95700e55fca297affa7af17e83e28cefad1e3c9408f15cb0b7f48e0": "compare les similarités cosinus, pas les produits scalaires"
       },
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
@@ -17066,68 +17076,93 @@
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.14b": {
-      "hash": "2f5f221bb52df9de007b95566519cd638795256f01a114d8c20b3ed2d6e353ed",
+      "hash": "4892a8740461b515b34ebaf269e5ef9253714fa3aedeeff2c78ca9e3e10f56ff",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "75788ef1a4a1f683f024abd6c6973bd08a62d47cea74c6806af905fff7f31e9b": "n'oublie pas le biais b dans z"
+        "2ecadd8ed905f4f227570cea116f070cfe43089323f4b4f1011d6239117c642c": "n'oublie pas le biais b dans z, ni le signe de x₂",
+        "c7bad1f2dca36dfd3fe145784b1c4e076473336195de85412ba27ccb226cfb11": "z est le nombre que calcule le neurone avant de répondre 0 ou 1 : calcule w₁x₁ + w₂x₂ + b"
       },
       "sign": -1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.14c": {
-      "hash": "6cf4d3d42fe21d2d9f9c650169f7dfba5daf6e5a23ceb2f2ec29e77e65530005",
-      "kind": "fraction",
-      "mistakes": {
-        "22cbed64b7c3a42b6383fbcc09113723cc02f310024f4c7fb966b4260928c3d3": "3x₂ = −x₁ + 6 : la pente est négative",
-        "e57cffab1f4862c76b59d48121746cb9f9356dfa6e060d89478311bbec23d083": "isole x₂ : divise toute l'équation par son coefficient"
-      },
-      "sign": -1,
-      "simplified": true,
-      "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
-    },
-    "R9.14d": {
-      "hash": "3f787081ca8dd1aff1c04e52bfe684284e8670eec8a8a7d19e1c92a5b5737139",
-      "kind": "int",
-      "magnitude": 0,
-      "mistakes": {
-        "68a88b0d95f5b6badd20be323c881ca677051b58b87b6861c9184c122a07b014": "3x₂ = −x₁ + 6 : le biais change de signe en passant de l'autre côté",
-        "d2944068affcc412794156c06d24240eef28b3247390835ebf29c37ffd43997e": "isole x₂ : le biais aussi se divise par le coefficient de x₂"
-      },
-      "sign": 1,
-      "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
-    },
-    "R9.14e": {
-      "hash": "aa477b0d986a89a14c0e3f97d569eb08182e1449b9e36430e15cd57f64313223",
-      "kind": "bool",
-      "mistakes": {
-        "7e36613d71957c2e91d8b0cfa6d9d0d748f1561d4d7b9c90259175c7c1c42441": "calcule le produit scalaire de w et du vecteur directeur"
-      },
-      "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
-    },
-    "R9.14f": {
       "decimals": 0,
       "element_hashes": [
-        "0ee57e2b5752368a23c30d765667f3d7aa7b6942678394830fce55c0c17f2b3f",
-        "7c3481d90124f50e97c93e38fc16bcdba63e9edbd95f3944b6561cf068d29249"
+        "c502950f03bc2c9fc8a0f8d8a05b41d406d357ca3d83f8ca1241bc4676ba3fed",
+        "c117a41bda6303a34351ec6c019c9a68e3d042f3b5ec623cb2dea53f149d8e60"
       ],
-      "hash": "e276b44d19b4196f3c7519e0920dfee5a515d30eaba1004e4ec9c89c59e2b0fb",
+      "hash": "229c33c9b9021eb21e9b1d698e5a928e6365f3883cf43413c4571471a91d6c42",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "0ebaf530c1b82fc8e13b4f35e5a364e54d8b17f836f0dd07dd77ae9e3eebed1c": "sur l'axe des x₁, la coordonnée x₂ est nulle (et non x₁)"
+        "0473316dd3d0065b54e39dffd51b4bae2effba1e7e714e9b01939fa2db1f4148": "3x₂ − 6 = 0 : divise aussi le biais par 3",
+        "fde3f52d909b285a92816d5c12acc943aff0bbcf9e9f926852ed46e543fdc398": "sur l'axe des x₂, c'est la coordonnée x₁ qui est nulle"
       },
       "shape": [
         2
       ],
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
-    "R9.14g": {
-      "hash": "d72797877fbdf0b7c4db957a86a2f09d5da6028e28d46efe12a2a124fa47bba1",
+    "R9.14d": {
+      "decimals": 0,
+      "element_hashes": [
+        "b77b8e6d4f55edfda4432243c2e60655bcd011c15d4253a10b3782c48610c2a3",
+        "807abd97fa8f3c87c4ed6bb24f644b429f2800a2f3afd256b4d71437406994bf"
+      ],
+      "hash": "74dadac50070906c7b4404e920e7f2b513dafeb8aca7a11ada2f726b7d01d6d7",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5df3850204e88bb80fc2aa55da781f7774614cd855102355108ee7b1a201347e": "sur l'axe des x₁, c'est la coordonnée x₂ qui est nulle"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
+    },
+    "R9.14e": {
+      "decimals": 0,
+      "element_hashes": [
+        "9ff28ec16d596b1d8d5ae9a81c1108c4e1a4c8f06c864a7aebd98f29f8091e30",
+        "2b26183f19d84e3f3b444a1311ffe6518fde72eab664ea2c96172d196b47aadc"
+      ],
+      "hash": "14697e23bd5eb78d251ab4730806740e99140df18e2a1b1a0b953f7ff8a88591",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "207678b6e92fc48e057b61aeb4dc0a28c55640cceaab003ab5c8b970cdf00e29": "c'est la direction de w, un vecteur normal ; un vecteur directeur de ax + by + c = 0 est (−b ; a)",
+        "caaf73151c9ac60d86eb8d871ccf55dedd46080db953c5fe9d07eabf49df27fd": "vérifie : en te déplaçant de ce vecteur à partir d'un point de la frontière, z doit rester nul"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
+    },
+    "R9.14f": {
+      "hash": "2ac6bd4633371cd40f25c5b9d1340fbb6e10192dadcb5751ecb748f71088e517",
       "kind": "bool",
       "mistakes": {
-        "67ce7c159d68f75ba94b94137c482455504a200b3704a9184704f9d7811cc43b": "des équations proportionnelles décrivent la même droite"
+        "b18cf3082887d31b844dddd248d7ee6e239163d32b9067229e6f58a2209c7cd9": "calcule le produit scalaire de w et du vecteur directeur"
       },
+      "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
+    },
+    "R9.14g": {
+      "decimals": 0,
+      "element_hashes": [
+        "d64e21ebdc0c9397a9ed645450a1046117114883f0168b453f6fdc2fa59ce112",
+        "53819e62d364e13e3173d0aa9f9dbec161b447b3ef2c6cc4e287cc5c9948b92c"
+      ],
+      "hash": "74191f5681f1e2258b0060b27073f5b0d871aec5f56141ae0b19f84f036f7ce6",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "452c9aeb08521d66f6dab420123d1909bd0997598c9c648d41263aac27ab0dcc": "sur l'axe des x₁, c'est la coordonnée x₂ qui est nulle",
+        "b922086cb585af619b38b2d4e079ed2960c0dba5b09a16642b473ca960aeba3c": "c'est le point de la frontière z = 0 ; ici, z vaut 6"
+      },
+      "shape": [
+        2
+      ],
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.14h": {
@@ -17192,18 +17227,41 @@
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.16d": {
-      "decimals": 0,
-      "element_hashes": [
-        "bdae006f6b238a7ff7d9ae58915558ecfb678f8b075a022affc09122eba2a1ba",
-        "2f11f1f1b59b08dd3c19dd6730618a5290b194d52634acb62cd3b6438f3d7727",
-        "4f5e485e691227805e941ed1995d68e28e7c388d7ee0d710d4f3b2640f78fe54"
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "94bdcab902cf7a2a7cca03afb0ca2b8834916b3dfa7895a42088c7b8ca4523ba"
+        ],
+        [
+          "6e8b0fadcc5a0856340a505d3cdb7790f06575ec426b9af5e6c3f7b0db7d87ce"
+        ],
+        [
+          "09c64942c7c5d6d30f6dcdad224f2f076a635b1b74cb0235a3954204900abf67"
+        ]
       ],
-      "hash": "cab0d8f6f76bb99d7e379d4fe421f6faf51d8bda649f5f6234ad176ae4a80dc3",
-      "integer": true,
+      "element_coarse_any": [
+        [
+          "bdae006f6b238a7ff7d9ae58915558ecfb678f8b075a022affc09122eba2a1ba",
+          "fbdbd250bdb1da2536a3580d7863d162bb566190ebcc220505f8b6a078b7607b",
+          "be483c4d0d83f335c6847150a75cf42db56a296e41462bb2daaacf38f48b7e4a"
+        ],
+        [
+          "2f11f1f1b59b08dd3c19dd6730618a5290b194d52634acb62cd3b6438f3d7727",
+          "bd21591628b6e1dd2dde441facd1577df83b924580ebb2deab3f0e24f6675831",
+          "7718968704a36a314d5230a7d2d24a3bd0503c0c7462c0222be3139b3b629ee6"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "5b6d19b3516f04f86071bd753442ff33da03d85faf14e6247204ec482cdc5da3",
+        "a3615d0c36c7c986879c725ce829185592898ffd4957ad21759eb6da1ba735cd",
+        "3dc91d43accd8ad101b956410a4fecd0d3ce2c7188fdbc7e2598b984e57e897e"
+      ],
+      "hash": "3798b48e4ca9d6b616b2d7a79c2442fef2dc100d58b0cff51a8077c87cc05116",
       "kind": "array",
       "mistakes": {
-        "80a574516b4ea8e77a0975c57aa5e620e2f4ca274de2ac17779e7a5c654f03b3": "élève chaque coordonnée au carré, puis prends la racine de la somme",
-        "e090073b5f7c590de81d90cbd8132761f1cbd200aaa5aad3fe23921ba9888217": "la norme est la racine carrée de la somme des carrés"
+        "56156ae669a2c52cf461b3b9d287489cdff55b1a3effa277244c1e893727f3a4": "élève chaque coordonnée au carré, puis prends la racine de la somme",
+        "d4cbdc4f727c0151c41f9681ecfd30d368c3a6eadd954ea5a4e9ec73be90bea5": "la norme est la racine carrée de la somme des carrés"
       },
       "shape": [
         3
@@ -17214,7 +17272,7 @@
       "hash": "46a6ab1f5067f168e7d1a7c007004cd63c7d1e402c2690f87e77e813e2a639c9",
       "kind": "str",
       "mistakes": {
-        "e56404561871a368a2890088660f9d8814535d124ca5da9900598012db4d63bf": "math.sqrt rend un flottant : renvoie la racine carrée, pas son carré"
+        "e56404561871a368a2890088660f9d8814535d124ca5da9900598012db4d63bf": "math.sqrt rend un flottant ; un int vient d'une somme de carrés sans racine, ou de math.isqrt (la racine entière, arrondie)"
       },
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
@@ -17284,20 +17342,20 @@
       },
       "coarser": {
         "1": [
-          "3732e1375e72d214be6ac89dac219d2533b8e201f9f2834c1915840416a62303"
+          "b796b202adeae55cbaee5b941060401d666748731fbab2f824a7d8ac9a544ad3"
         ],
         "2": [
-          "f97d88071172b1d57d07533d6758d0ad24b452eef9874afa53296673d27cee08"
+          "db46220c6975574dd8c8451d918c8b68be99a1607c1758bd865135a1beb538b3"
         ]
       },
       "decimals": 4,
-      "hash": "b1899746c2173eed88b80456d6269b6f3337e8444fadee4798236ac0ee7b7e94",
-      "hash_coarse": "9c314fc95ddf67fee2f5f58b47469aba76ac81bd8dea5752bf9799fa176e3b89",
+      "hash": "906ab7044e95dd4e6263ce9011815cf37d33cf674a7dd6e36d4a6969e8f3f646",
+      "hash_coarse": "08e09d5e2d556e081453460cff356bae99c20dab1cadd30dc563a30e1f21f498",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
         "336ba5fca3de7274a4ec2175d9f70ac948b2b057f02d85c86103aefcca1977fa": "divise le produit scalaire par le produit des normes avant math.acos",
-        "9919488967be36f82d381f04e7fbc522b8f50db4d859cee33fb22b55b1ef452c": "angle_between rend des radians, pas des degrés"
+        "8379119244c1d4b0691c3d0a222dfcd92ef921f40872e96e0ea3566f4d425860": "angle_between rend des radians, pas des degrés"
       },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
@@ -17318,12 +17376,28 @@
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.17f": {
+      "coarse_any": {
+        "0": [
+          "0c31be598ee78906643e0b49a69c0b728ec801f85e1b24c56e26f0f89133b801"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "8c6a9cccdd84af0045e96effd7ae2b5dd93ba93254cf5b3ab8010c466f0cb057"
+        ],
+        "2": [
+          "beb83b374f0cba7c2f3fbfc6163f1564480815192898af0576b8fc79f49866d4"
+        ]
+      },
       "decimals": 4,
-      "hash": "1a48eb0c0ee27ab38c7a62a7892b90d04e89f37ab5686e21d7b2799866b0cdd4",
-      "hash_coarse": "269bbd3f919515792b21ee65500ea4fe47fa4694b838d171a3a4448a0b1b3285",
+      "hash": "458d0cccccb8faf961adae76aac1a5483691074f05189edf77776794e95e5c2c",
+      "hash_coarse": "18218cf5bc2c8352d7973270ada2f1154df9c940d1995afcb1715d4a68bda45e",
       "kind": "float",
-      "magnitude": null,
-      "sign": 0,
+      "magnitude": 0,
+      "mistakes": {
+        "1a48eb0c0ee27ab38c7a62a7892b90d04e89f37ab5686e21d7b2799866b0cdd4": "deux vecteurs de sens contraires font un angle plat, pas nul"
+      },
+      "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.17g": {
@@ -17344,22 +17418,25 @@
     "R9.17h": {
       "coarse_any": {
         "0": [
-          "be9efe0b01c6a298ab246a1d942ce9b12e177267c5424892c5779f7f04929133"
+          "6304667799666e4dbd2896074db8a87993513056b4f94ddc9d90778921e6a1c2"
         ]
       },
       "coarser": {
         "1": [
-          "0d2215a7ea89ec9d7efd943e92781d76b8a883605b2b19423251dfc6a16f1bbc"
+          "e446be5caf75f5030573db22c529d7110007f8ce522f50a26031d7d114bd88f3"
         ],
         "2": [
-          "5a47669ec2c25d4880462a3a9b09ccff75af40ef71d87947d91ba98495028b7e"
+          "8ae2e0b73f51658419769a0ffc6a7b694f54e59ccecf8f8c3159c163f85b5b6a"
         ]
       },
       "decimals": 4,
-      "hash": "f8b58eebedc45ea401e6ce6d0fe44e8e51c48b8c2e36334fa83bdb9cf686bed7",
-      "hash_coarse": "ceeda715ceed3c6770acaa2c7e7864b3167d71603c659e4838788a674502dc33",
+      "hash": "675f80a1d6f9f1e1fa7df68c07fd91733b8d4482cfeafe54427584d3ded996f5",
+      "hash_coarse": "2526acd022aee2687ae2045afee6898a962242edac05fbab3770dd9ee82e4bf5",
       "kind": "float",
-      "magnitude": 1,
+      "magnitude": 2,
+      "mistakes": {
+        "f38c149593c91806f34543eaed655814e03cedee2a9153c9a4e7a344ab9c97f1": "math.degrees convertit les radians de angle_between en degrés"
+      },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
@@ -17617,7 +17694,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "67585da872ecd2871025e09a198714b9818047e90cbceb41f220463a89838f07": "ord=np.inf donne la plus grande valeur absolue"
+        "6473a5cc21801e586c46233f38736ad615f32122e5290dffeb0ae35c41dc4601": "une norme n'est jamais négative : ord=np.inf donne la plus grande valeur absolue",
+        "b686187592edd500871f42f9e74795ccc4405b585cbf1fe8c692e08087e219a1": "ord=np.inf donne la plus grande valeur absolue, pas la plus grande valeur"
       },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
@@ -17705,7 +17783,7 @@
         "2",
         "3"
       ],
-      "hash": "f74f458c97ddb156002edaa31f496e41e5310b9fddc23b84ec5521112bd70669",
+      "hash": "6af9ad3a3857bbf34f1bee3c2e5f4228701e2edb7c080e1d92bdeb2f30eebb38",
       "kind": "int",
       "magnitude": 0,
       "prediction": true,
@@ -17734,12 +17812,15 @@
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     },
     "R9.22b": {
-      "hash": "724b59cd5b32b02ce387c2bbce53f7a246c2e30ece4f51b75fd23bc2262c183d",
-      "kind": "int",
-      "magnitude": 2,
+      "decimals": 1,
+      "hash": "c489cdb2f88af0b8fd0970206af1da7b63d8328db32370166ed63fb4a13cbdb2",
+      "hash_coarse": "ff39e6cb2c1bae1c20142e30d33c65541f365cc60f11cb5bbd065dfbbe99f10d",
+      "kind": "float",
+      "magnitude": 1,
       "mistakes": {
-        "4be611b221ae7b64bfc13e5fd57e7619f7bd354ae86c7f8ef24290f012b672a7": "compare cos θ et sin θ angle par angle, puis compte les True",
-        "cc2cbf51fa5e23de56996e58485a11db1077a8323cf8e9f43df759a56c4e3c12": "compare cos θ et sin θ angle par angle, puis compte les True"
+        "8802d0c6931ed75927bb45037c3287f94c50ee1c3c36de1f46ec6ac4e7a0a72f": "c'est la position dans le tableau ; l'angle est degrees[position]",
+        "c69c1025a9fc9b108d0048e4093229a60671c2ec8b1fb7336bfb5080eeb30d9b": "np.sin et np.cos attendent des radians : convertis les degrés avec np.radians",
+        "d3b427a3e7e5f9a7cee8d6a114ef02fbe07ef779673c69f6148d6c1509141eed": "c'est le premier angle où cos θ > sin θ : relis le sens de la comparaison"
       },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
@@ -17766,15 +17847,22 @@
       "coarser": {
         "2": [
           "56a0ec77371986a1835ccf8a609990b130ef6c93b36c52659b18e5475e587cd4"
+        ],
+        "3": [
+          "6d45502614749c2b2675d33f80e61308d4d51e7b2c76c861e772ad836b96cc35"
+        ],
+        "4": [
+          "7a1ab5a48649e4eb43202b34e5f1e5cd9451d8c1842990b5b8cc4d823cecb173"
         ]
       },
-      "decimals": 4,
-      "hash": "7a1ab5a48649e4eb43202b34e5f1e5cd9451d8c1842990b5b8cc4d823cecb173",
-      "hash_coarse": "6d45502614749c2b2675d33f80e61308d4d51e7b2c76c861e772ad836b96cc35",
+      "decimals": 6,
+      "hash": "69187cd989d5f3af1454b4b2bd85d8254b3069b209ce31fd2fbcf13f31578902",
+      "hash_coarse": "f2868257aade5780518c7c197708fa1020de6800c249afcb13f95469a94c8704",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "36a7b7d291a0d393a55ffb77452981f0be9e20699b52704531162ee24996c270": "le taux d'accroissement se divise par h"
+        "2b95b06d24286db282eff40a9b8f2d713dfb628745f0e219ad158cfe22bbc1cc": "le taux d'accroissement se divise par h",
+        "7f74d9a536a3cf4beec1948e64a34c0607965de42ccdb8ff310581c8f57929ee": "c'est cos 1 lui-même ; calcule le taux d'accroissement demandé, qui s'en approche"
       },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
@@ -17823,10 +17911,16 @@
           "b9cb0dc043545609e9f9af1d37fd6bfa36a9592fc540dc84cc5ecced708df6ee"
         ],
         [
-          "b06aa140fc575b370b64d22a38b046a364cce3654d02b2e5bb9ad32048fc9dd9"
+          "66cf6a14032fb9df2264886e16e411d88d76b9da9cef917382d1ceaa699e92eb"
         ],
         [
-          "908c74845a76206f924928e170456fb1f0db654d13003ac3b579e4b22608126b"
+          "fe5870ba22f33d322a70de4cb98c5b3361c9e9ee67ec95a3069beb55604caf13"
+        ],
+        [
+          "16a5cc0519d06b86b21ff696af53cc22ee14a9602c9a5645dcb285ee111ed791"
+        ],
+        [
+          "8817670064924a2ed847b6ef1003df5c17de66a1e71ec1bfa77c43bcd78a10cc"
         ]
       ],
       "element_coarse_any": [
@@ -17837,28 +17931,40 @@
         ],
         [
           "f062b69cef7fba9bcd22ebba4f99f8332b5c07db71efdfa3b8db399dcdd90179",
-          "7d4df9608beb06b4e68af3d6a746d61de401d3a43205608ce121b93f6c5dd678",
-          "573de9a830f4b78aae1d43520921e5d27eaf83ffad6db65ee144abfc7bd9bfa6"
+          "d1d8136cfbfe5785120d92260d157ed328978974cf9fe3f55932ce440fb46e78",
+          "dc4cd4fab67192786d209ddd50ab2faa17058b062ff504c5cefc0fe4a2d3d294"
         ],
         [
-          "b3b5273e8fdf766077867362db1051bc7b683a90bad61508a24afb8d216a5a67",
-          "14e688a8f3f4b4b6e47fea27fc4443e15bb9db029ac634abfa39e836c30c0529",
-          "9c3897fdb262011c78a457419ed45800f242f2569613e682b1c2ae5771c894e0"
+          "60f4fb600dd9d5dd80836cddcdaa03ce31ed2507a9677af903ceb1c3fa68ddf0",
+          "b846c28023a1fbd09565a639a6073b9a0a14686850e37e0d4ead9fe023bd5e0b",
+          "fd7b9c0719f41b111737c0270d581519fb8f05cc57cd9457e7e87f54c026fe1a"
+        ],
+        [
+          "722865aa8d3b99991ca917e0d304fe1ced023d66cd6c47577211a6b44b6ecfc8",
+          "4b2f1f6c37f7b764c046ce870f7ab8b150acda5af35f6d2b325b7ef311db8278",
+          "7742f7f5ea903c7637cbc6a77992d2eff735092d404682200d6b37d6f326c24a"
+        ],
+        [
+          "65fd80024d7da6d308560c0971ac792a5bed56915bc782ef2bef7b1ac6dccccb",
+          "46396fbb37b928f3f72b46a7a8214562b44b921428a6cfecdc272ca8ceacb22b",
+          "6febb07528b3d8a0f88aaffda9e13cc5497362b69200655fb3c3c9c4bb49f346"
         ]
       ],
       "element_hashes": [
         "edb22eaa389366ac16ac148b83d849441eaba78a88154e381c57cca5d91ac2c6",
-        "8f04099587266a5b1004b4b30f2b6dafe55fc1ae1eaad7b58e9248945733f5e9",
-        "27b6c9565a303d1805f6fa651958beb9e395223a9466fd5d2b57037f05c18968"
+        "25cf445de24a623213fa555459c6ad3c1fd59150ec6b06fff091326c6dd8c92a",
+        "aa9c868bc84a8f96c496920b6a59c7e936b1f97725e2d5dc9a60a9a4ccfb696c",
+        "0af27368c46465b02eb8097ab8555f13ccc8d004b64625f70584b246f27b2a29",
+        "87a12eeaddb86f34485344c245f897dafe33df11b0bd6e4932c763b3250c71ca"
       ],
-      "hash": "0cd8bca1b4aca82491d4a903cc60ab9e6d48fa5833b234af3f299c93ef030301",
+      "hash": "ce18a9b95b83545c87cb38bfa9f3931e28a99ad640bfe4bd8e346cdc86f8abc4",
       "kind": "array",
       "mistakes": {
-        "ac945e79da72172219c852244f91111fb18f8d645a58fedf81764a884e2b0d9b": "math.acos rend des radians : sa vraie valeur n'est pas 60",
-        "c144321d22b94fd87d350fb83a2257c2c8693062f2b9f40730ccad8fe45d12d8": "ce sont les valeurs des lignes fausses : calcule les bonnes"
+        "ca8aff85a4ed91bcf05bb56db87b8895231925df44ae156a298812914758c7cb": "ce sont les valeurs que calcule le code ; donne celles que décrit chaque phrase",
+        "cf5c73f20a6740706473d020c32df9f4e3aaa4236847f202e901f8981653eab3": "la phrase de (D) demande l'angle en degrés"
       },
       "shape": [
-        3
+        5
       ],
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
     }

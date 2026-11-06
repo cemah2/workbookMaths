@@ -119,7 +119,7 @@ Pour $A(-2 ; 1)$ et $B(6 ; 16)$ : $\overrightarrow{AB} = (8 ; 15)$, et $\overrig
 
 Un vecteur ne dépend pas de son point de départ : deux flèches parallèles, de même sens et de même longueur représentent le même vecteur, qui a les mêmes coordonnées. On note souvent un vecteur par une lettre, $\vec{u}$ (ou $\mathbf{u}$ en gras, comme dans workbookIA). Le **vecteur nul** $\vec{0} = (0 ; 0)$ ne déplace rien.
 
-Quatre points $A$, $B$, $C$, $D$ forment un **parallélogramme** $ABCD$ exactement quand $\overrightarrow{AB} = \overrightarrow{DC}$ : les côtés opposés $[AB]$ et $[DC]$ sont alors parallèles et de même longueur.
+Quatre points $A$, $B$, $C$, $D$ forment un **parallélogramme** $ABCD$ (éventuellement aplati, si les quatre points sont alignés) exactement quand $\overrightarrow{AB} = \overrightarrow{DC}$ : les côtés opposés $[AB]$ et $[DC]$ sont alors parallèles et de même longueur.
 
 ### Additionner deux vecteurs
 
@@ -129,13 +129,13 @@ $$\vec{u} = (x ; y), \ \vec{v} = (x' ; y') \quad \Longrightarrow \quad \vec{u} +
 
 Avec trois points, c'est la **relation de Chasles** : aller de $A$ à $B$, puis de $B$ à $C$, revient à aller de $A$ à $C$, $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$.
 
-Exemple : $\vec{u} = (2 ; -1)$ et $\vec{v} = (-1 ; 3)$ donnent $\vec{u} + \vec{v} = (1 ; 2)$. Le résultat ne dépend pas de l'ordre ($\vec{u} + \vec{v} = \vec{v} + \vec{u}$) : les deux chemins forment un parallélogramme, dont $\vec{u} + \vec{v}$ est la diagonale.
+Exemple : $\vec{u} = (3 ; -1)$ et $\vec{v} = (-2 ; 4)$ donnent $\vec{u} + \vec{v} = (1 ; 3)$. Le résultat ne dépend pas de l'ordre ($\vec{u} + \vec{v} = \vec{v} + \vec{u}$) : les deux chemins forment un parallélogramme, dont $\vec{u} + \vec{v}$ est la diagonale.
 
 ### Multiplier un vecteur par un nombre
 
-Pour un nombre $k$, le vecteur $k\vec{u} = (kx ; ky)$ a la même direction que $\vec{u}$ ; il a le même sens si $k > 0$, le sens contraire si $k < 0$, et sa longueur est multipliée par $\lvert k \rvert$. Avec $\vec{u} = (2 ; -1)$ : $3\vec{u} = (6 ; -3)$, $-\vec{u} = (-2 ; 1)$ (l'**opposé** de $\vec{u}$), $\frac{1}{2}\vec{u} = (1 ; -0{,}5)$.
+Pour un nombre $k$, le vecteur $k\vec{u} = (kx ; ky)$ a la même direction que $\vec{u}$ ; il a le même sens si $k > 0$, le sens contraire si $k < 0$, et sa longueur est multipliée par $\lvert k \rvert$. Avec $\vec{u} = (3 ; -1)$ : $3\vec{u} = (9 ; -3)$, $-\vec{u} = (-3 ; 1)$ (l'**opposé** de $\vec{u}$), $\frac{1}{2}\vec{u} = (1{,}5 ; -0{,}5)$.
 
-On combine les deux opérations : $2\vec{u} - \vec{v} = (4 ; -2) - (-1 ; 3) = (5 ; -5)$. Soustraire, c'est ajouter l'opposé.
+On combine les deux opérations : $\vec{u} - 2\vec{v} = (3 ; -1) - (-4 ; 8) = (7 ; -9)$. Soustraire, c'est ajouter l'opposé.
 
 ![Somme de deux vecteurs (bout à bout et parallélogramme) ; produit par un nombre positif et par un nombre négatif](figures/vecteurs.png)
 
@@ -145,22 +145,22 @@ Deux vecteurs sont **colinéaires** (*collinear*) quand l'un est un multiple de 
 
 $$\vec{u} \text{ et } \vec{v} \text{ colinéaires} \iff xy' - x'y = 0.$$
 
-$(2 ; -1)$ et $(-6 ; 3)$ : $2 \times 3 - (-6) \times (-1) = 6 - 6 = 0$, colinéaires (le second vaut $-3$ fois le premier). $(2 ; -1)$ et $(-1 ; 3)$ : $2 \times 3 - (-1) \times (-1) = 5 \ne 0$, pas colinéaires. Trois points $A$, $B$, $C$ sont **alignés** quand $\overrightarrow{AB}$ et $\overrightarrow{AC}$ sont colinéaires.
+$(3 ; -1)$ et $(-9 ; 3)$ : $3 \times 3 - (-9) \times (-1) = 9 - 9 = 0$, colinéaires (le second vaut $-3$ fois le premier). $(3 ; -1)$ et $(-2 ; 4)$ : $3 \times 4 - (-2) \times (-1) = 10 \ne 0$, pas colinéaires. Trois points $A$, $B$, $C$ sont **alignés** quand $\overrightarrow{AB}$ et $\overrightarrow{AC}$ sont colinéaires.
 
 ### En Python
 
-Un vecteur s'écrit comme un tuple de nombres. Attention : avec des tuples ou des listes, `+` **colle** les deux suites au lieu d'additionner les coordonnées. On calcule coordonnée par coordonnée, ou l'on passe par un array de NumPy (workbookIA 0A, §100.8.3), qui calcule case par case :
+Un vecteur s'écrit comme un tuple de nombres. Mais l'opérateur `+` de Python, appliqué à deux tuples, les met bout à bout : il ne fait pas la somme des vecteurs. Pour additionner, on parcourt les coordonnées deux à deux avec `zip`, ou l'on convertit en arrays de NumPy (workbookIA 0A, §100.8.3), sur lesquels les opérations se font case par case :
 
 ```python
->>> u, v = (2, -1), (-1, 3)
+>>> u, v = (3, -1), (-2, 4)
 >>> tuple(a + b for a, b in zip(u, v)), u + v
-((1, 2), (2, -1, -1, 3))
+((1, 3), (3, -1, -2, 4))
 >>> import numpy as np
->>> (2 * np.array(u) - np.array(v)).tolist()
-[5, -5]
+>>> (np.array(u) - 2 * np.array(v)).tolist()
+[7, -9]
 ```
 
-🔗 **Dans workbookIA** — une ligne d'un dataset est un vecteur de features, et additionner ou moyenner des exemples se fait coordonnée par coordonnée : le chapitre 7 calcule ainsi le **centroïde** d'un groupe, la moyenne de ses points.
+🔗 **Dans workbookIA** — chaque pas de la descente de gradient (chapitre 19) remplace le vecteur des poids $\mathbf{w}$ par $\mathbf{w} - \eta\,\mathbf{g}$ : un vecteur moins un multiple d'un autre, calculé coordonnée par coordonnée.
 
 ---
 
@@ -172,12 +172,12 @@ La **norme** (*norm*) d'un vecteur $\vec{u} = (x ; y)$ est sa longueur, toujours
 
 $$\lVert \vec{u} \rVert = \sqrt{x^2 + y^2}.$$
 
-La distance entre deux points est la norme du vecteur qui les relie : $AB = \lVert \overrightarrow{AB} \rVert$. Avec les vecteurs du §2 : $\lVert \vec{u} \rVert = \sqrt{2^2 + (-1)^2} = \sqrt{5} \approx 2{,}24$ et $\lVert \vec{v} \rVert = \sqrt{1 + 9} = \sqrt{10} \approx 3{,}16$.
+La distance entre deux points est la norme du vecteur qui les relie : $AB = \lVert \overrightarrow{AB} \rVert$. Avec les vecteurs du §2 : $\lVert \vec{u} \rVert = \sqrt{3^2 + (-1)^2} = \sqrt{10} \approx 3{,}16$ et $\lVert \vec{v} \rVert = \sqrt{4 + 16} = \sqrt{20} = 2\sqrt{5} \approx 4{,}47$.
 
 Trois propriétés :
 - $\lVert \vec{u} \rVert \ge 0$, et $\lVert \vec{u} \rVert = 0$ seulement pour le vecteur nul ;
-- $\lVert k\vec{u} \rVert = \lvert k \rvert\,\lVert \vec{u} \rVert$ : $\lVert -3\vec{u} \rVert = 3\sqrt{5}$, jamais $-3\sqrt{5}$ ;
-- l'**inégalité triangulaire** $\lVert \vec{u} + \vec{v} \rVert \le \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ : un côté d'un triangle est plus court que la somme des deux autres. Ici, $\lVert \vec{u} + \vec{v} \rVert = \lVert (1 ; 2) \rVert = \sqrt{5} \approx 2{,}24$, bien moins que $\sqrt{5} + \sqrt{10} \approx 5{,}40$. L'égalité n'a lieu que si les deux vecteurs ont la même direction et le même sens.
+- $\lVert k\vec{u} \rVert = \lvert k \rvert\,\lVert \vec{u} \rVert$ : $\lVert -2\vec{u} \rVert = 2\sqrt{10}$, jamais $-2\sqrt{10}$ ;
+- l'**inégalité triangulaire** $\lVert \vec{u} + \vec{v} \rVert \le \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ : un côté d'un triangle est plus court que la somme des deux autres. Ici, $\lVert \vec{u} + \vec{v} \rVert = \lVert (1 ; 3) \rVert = \sqrt{10} \approx 3{,}16$, bien moins que $\sqrt{10} + 2\sqrt{5} \approx 7{,}63$. L'égalité n'a lieu que si l'un des deux vecteurs est nul, ou s'ils ont la même direction et le même sens.
 
 ⚠️ **La norme d'une somme n'est pas la somme des normes**, sauf pour deux vecteurs de même direction et de même sens.
 
@@ -185,17 +185,17 @@ Trois propriétés :
 
 Un vecteur de norme 1 est **unitaire** (*unit vector*). Diviser un vecteur non nul par sa norme le rend unitaire, sans changer ni sa direction ni son sens : c'est le **normaliser**.
 
-$$\frac{\vec{u}}{\lVert \vec{u} \rVert} = \frac{1}{\sqrt{5}}(2 ; -1) = \left(\frac{2}{\sqrt{5}} ; -\frac{1}{\sqrt{5}}\right) \approx (0{,}894 ; -0{,}447).$$
+$$\frac{\vec{u}}{\lVert \vec{u} \rVert} = \frac{1}{\sqrt{10}}(3 ; -1) = \left(\frac{3}{\sqrt{10}} ; -\frac{1}{\sqrt{10}}\right) \approx (0{,}949 ; -0{,}316).$$
 
-Vérification : $\frac{4}{5} + \frac{1}{5} = 1$. Le vecteur nul, de norme 0, ne se normalise pas.
+Vérification : $\frac{9}{10} + \frac{1}{10} = 1$. Le vecteur nul, de norme 0, ne se normalise pas.
 
 ### D'autres façons de mesurer (aperçu)
 
 La norme $\lVert \vec{u} \rVert$ s'appelle aussi la **norme euclidienne**, ou **norme L2**, notée $\lVert \vec{u} \rVert_2$. Deux autres mesures servent en machine learning :
-- la **norme L1**, $\lVert \vec{u} \rVert_1 = \lvert x \rvert + \lvert y \rvert$, la distance d'un taxi dans une ville quadrillée, qui ne peut rouler qu'à l'horizontale ou à la verticale ;
+- la **norme L1**, $\lVert \vec{u} \rVert_1 = \lvert x \rvert + \lvert y \rvert$ : la longueur d'un trajet fait seulement de pas horizontaux et verticaux, comme dans les rues d'un quartier en damier ;
 - la **norme L∞**, $\lVert \vec{u} \rVert_\infty = \max(\lvert x \rvert, \lvert y \rvert)$, le plus grand écart sur une seule coordonnée.
 
-Pour $\vec{w} = (-6 ; 2)$ : $\lVert \vec{w} \rVert_2 = \sqrt{40} = 2\sqrt{10} \approx 6{,}32$, $\lVert \vec{w} \rVert_1 = 6 + 2 = 8$ et $\lVert \vec{w} \rVert_\infty = 6$. On a toujours $\lVert \vec{w} \rVert_\infty \le \lVert \vec{w} \rVert_2 \le \lVert \vec{w} \rVert_1$. Sans précision, « la norme » est la norme L2.
+Pour $\vec{w} = (-6 ; 2)$ : $\lVert \vec{w} \rVert_2 = \sqrt{40} = 2\sqrt{10} \approx 6{,}32$, $\lVert \vec{w} \rVert_1 = 6 + 2 = 8$ et $\lVert \vec{w} \rVert_\infty = 6$. On a toujours $\lVert \vec{w} \rVert_\infty \le \lVert \vec{w} \rVert_2 \le \lVert \vec{w} \rVert_1$. Dans ce dépôt, $\lVert \vec{w} \rVert$ sans indice désigne toujours la norme euclidienne.
 
 ![Les vecteurs de norme 1 pour L1, L2 et L∞ : un losange, un cercle et un carré](figures/normes.png)
 
@@ -235,7 +235,7 @@ Toute droite, verticale comprise, a une **équation cartésienne** de la forme
 
 $$ax + by + c = 0, \qquad \text{avec } (a ; b) \ne (0 ; 0).$$
 
-R2 l'écrivait $px + qy = r$. Pour passer de l'équation réduite à une équation cartésienne, on fait tout passer d'un côté : $y = 2x - 3$ devient $2x - y - 3 = 0$. Dans l'autre sens, si $b \ne 0$, on isole $y$ : $4x + 2y - 6 = 0$ donne $y = -2x + 3$, de pente $-2$. Si $b = 0$, la droite est verticale : $2x - 8 = 0$ est la droite $x = 4$.
+R2 l'écrivait $px + qy = r$. Pour passer de l'équation réduite à une équation cartésienne, on fait tout passer d'un côté : $y = 2x - 3$ devient $2x - y - 3 = 0$. Dans l'autre sens, si $b \ne 0$, on isole $y$ : $3x + 6y - 12 = 0$ donne $y = -0{,}5x + 2$, de pente $-0{,}5$. Si $b = 0$, la droite est verticale : $2x - 8 = 0$ est la droite $x = 4$.
 
 Une droite a une infinité d'équations cartésiennes : on peut multiplier $a$, $b$ et $c$ par un même nombre non nul. $2x - y - 3 = 0$ et $-4x + 2y + 6 = 0$ décrivent la même droite.
 
@@ -261,12 +261,12 @@ Le **produit scalaire** (*dot product*) de $\vec{u} = (x ; y)$ et $\vec{v} = (x'
 
 $$\vec{u} \cdot \vec{v} = xx' + yy'.$$
 
-On multiplie les coordonnées de même rang, puis on additionne. Avec $\vec{u} = (2 ; -1)$ et $\vec{v} = (-1 ; 3)$ : $\vec{u} \cdot \vec{v} = 2 \times (-1) + (-1) \times 3 = -2 - 3 = -5$. Le résultat n'est pas un vecteur : le mot « scalaire » veut dire « nombre ».
+On multiplie les coordonnées de même rang, puis on additionne. Avec $\vec{u} = (3 ; -1)$ et $\vec{v} = (-2 ; 4)$ : $\vec{u} \cdot \vec{v} = 3 \times (-2) + (-1) \times 4 = -6 - 4 = -10$. Le résultat n'est pas un vecteur : le mot « scalaire » veut dire « nombre ».
 
 Les règles de calcul se vérifient directement sur les coordonnées :
 - **symétrie** : $\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}$ ;
 - **linéarité** : $(k\vec{u}) \cdot \vec{v} = k\,(\vec{u} \cdot \vec{v})$ et $\vec{u} \cdot (\vec{v} + \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}$ ;
-- **lien avec la norme** : $\vec{u} \cdot \vec{u} = x^2 + y^2 = \lVert \vec{u} \rVert^2$, qui n'est jamais négatif. Pour $\vec{u}$ : $\vec{u} \cdot \vec{u} = 4 + 1 = 5 = (\sqrt{5})^2$.
+- **lien avec la norme** : $\vec{u} \cdot \vec{u} = x^2 + y^2 = \lVert \vec{u} \rVert^2$, qui n'est jamais négatif. Pour $\vec{u}$ : $\vec{u} \cdot \vec{u} = 9 + 1 = 10 = (\sqrt{10})^2$.
 
 ⚠️ Le produit scalaire de deux vecteurs est un **nombre**, et l'on ne « simplifie » pas par un vecteur : $\vec{u} \cdot \vec{v} = \vec{u} \cdot \vec{w}$ n'entraîne pas $\vec{v} = \vec{w}$.
 
@@ -276,7 +276,7 @@ Deux vecteurs sont **orthogonaux** (*orthogonal*) quand leurs directions sont pe
 
 $$\vec{u} \perp \vec{v} \iff \vec{u} \cdot \vec{v} = 0.$$
 
-Exemple : $\vec{u} = (2 ; -1)$ et $\vec{u} + \vec{v} = (1 ; 2)$ : $2 \times 1 + (-1) \times 2 = 0$, orthogonaux. Le quart de tour de $\vec{u}$ est justement $(1 ; 2)$.
+Exemple : $\vec{u} = (3 ; -1)$ et $\vec{u} + \vec{v} = (1 ; 3)$ : $3 \times 1 + (-1) \times 3 = 0$, orthogonaux. Le quart de tour de $\vec{u}$ est justement $(1 ; 3)$.
 
 Par convention, le vecteur nul est orthogonal à tout vecteur. C'est aussi ce qui explique le vecteur normal du §4 : pour la droite $ax + by + c = 0$, le produit scalaire de $(a ; b)$ avec le vecteur directeur $(-b ; a)$ vaut $-ab + ba = 0$.
 
@@ -287,7 +287,7 @@ Le produit scalaire mesure à quel point deux vecteurs vont dans le même sens. 
 - $\vec{u} \cdot \vec{v} = 0$ : l'angle est **droit** ;
 - $\vec{u} \cdot \vec{v} < 0$ : l'angle est **obtus** (plus de 90°), les vecteurs vont plutôt en sens contraires.
 
-Pour $\vec{u} \cdot \vec{v} = -5$ : un angle obtus, ce que confirme la figure du §7.
+Pour $\vec{u} \cdot \vec{v} = -10$ : un angle obtus, ce que confirme la figure du §7.
 
 ### Projeter un vecteur sur une direction
 
@@ -295,7 +295,7 @@ Pour $\vec{u} \cdot \vec{v} = -5$ : un angle obtus, ce que confirme la figure du
 
 $$\vec{p} = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert^2}\,\vec{u}.$$
 
-C'est le seul multiple de $\vec{u}$ tel que le reste $\vec{v} - \vec{p}$ soit orthogonal à $\vec{u}$ : avec $\vec{p} = k\vec{u}$, la condition $(\vec{v} - k\vec{u}) \cdot \vec{u} = 0$ donne $\vec{u} \cdot \vec{v} - k\,\lVert \vec{u} \rVert^2 = 0$. Sa longueur, au signe près, est $\frac{\lvert \vec{u} \cdot \vec{v} \rvert}{\lVert \vec{u} \rVert}$.
+C'est le seul multiple de $\vec{u}$ tel que le reste $\vec{v} - \vec{p}$ soit orthogonal à $\vec{u}$ : avec $\vec{p} = k\vec{u}$, la condition $(\vec{v} - k\vec{u}) \cdot \vec{u} = 0$ donne $\vec{u} \cdot \vec{v} - k\,\lVert \vec{u} \rVert^2 = 0$. Sa longueur est $\frac{\lvert \vec{u} \cdot \vec{v} \rvert}{\lVert \vec{u} \rVert}$ ; sans la valeur absolue, $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert}$ est positif quand $\vec{p}$ a le sens de $\vec{u}$ (un angle aigu), négatif sinon.
 
 Exemple : $\vec{u} = (4 ; 2)$ et $\vec{v} = (1 ; 3)$. $\vec{u} \cdot \vec{v} = 4 + 6 = 10$ et $\lVert \vec{u} \rVert^2 = 20$, donc $\vec{p} = \frac{10}{20}(4 ; 2) = (2 ; 1)$. Le reste $\vec{v} - \vec{p} = (-1 ; 2)$ vérifie bien $(-1) \times 4 + 2 \times 2 = 0$.
 
@@ -351,9 +351,9 @@ Les autres angles se ramènent à ceux du tableau par symétrie :
 - **angle supplémentaire** (symétrie par rapport à l'axe des ordonnées) : $\cos(\pi - \theta) = -\cos\theta$ et $\sin(\pi - \theta) = \sin\theta$ ;
 - **demi-tour** (symétrie par rapport à $O$) : $\cos(\theta + \pi) = -\cos\theta$ et $\sin(\theta + \pi) = -\sin\theta$.
 
-Exemples : $\frac{3\pi}{4} = \pi - \frac{\pi}{4}$, donc $\cos\frac{3\pi}{4} = -\frac{\sqrt{2}}{2}$ et $\sin\frac{3\pi}{4} = \frac{\sqrt{2}}{2}$. Et $\cos\left(-\frac{\pi}{6}\right) = \frac{\sqrt{3}}{2}$, $\sin\left(-\frac{\pi}{6}\right) = -\frac{1}{2}$. Dessine toujours le point sur le cercle : le signe se lit sur la figure (à gauche de l'axe vertical, le cosinus est négatif ; sous l'axe horizontal, le sinus l'est).
+Exemples : $\frac{7\pi}{6} = \pi + \frac{\pi}{6}$, donc $\cos\frac{7\pi}{6} = -\frac{\sqrt{3}}{2}$ et $\sin\frac{7\pi}{6} = -\frac{1}{2}$. Et $\cos\left(-\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2}$, $\sin\left(-\frac{\pi}{4}\right) = -\frac{\sqrt{2}}{2}$. Dessine toujours le point sur le cercle : le signe se lit sur la figure (à gauche de l'axe vertical, le cosinus est négatif ; sous l'axe horizontal, le sinus l'est).
 
-![Le cercle trigonométrique : le point d'angle 3π/4, son cosinus (−√2/2) et son sinus (√2/2)](figures/cercle.png)
+![Le cercle trigonométrique : le point d'angle 7π/6, son cosinus (−√3/2) et son sinus (−1/2)](figures/cercle.png)
 
 ### Périodicité et courbes
 
@@ -396,17 +396,17 @@ L'**angle** $\theta$ entre deux vecteurs non nuls est l'angle entre leurs flèch
 
 $$\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert \cos\theta.$$
 
-**Pourquoi.** Choisissons les axes pour que $\vec{u}$ soit sur l'axe des abscisses, dans le sens positif : $\vec{u} = (\lVert \vec{u} \rVert ; 0)$. Le vecteur $\vec{v}$ fait l'angle $\theta$ avec cet axe, donc $\vec{v} = \lVert \vec{v} \rVert\,(\cos\theta ; \sin\theta)$ (§6, sur un cercle de rayon $\lVert \vec{v} \rVert$ au lieu de 1). Alors $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert\cos\theta + 0$. On admet ici que faire tourner les deux vecteurs du même angle ne change pas leur produit scalaire, ce qui permet de choisir ainsi les axes ; R9.12 démontre la formule d'Al-Kashi, qui donne une autre preuve.
+**Pourquoi.** Choisissons les axes pour que $\vec{u}$ soit sur l'axe des abscisses, dans le sens positif : $\vec{u} = (\lVert \vec{u} \rVert ; 0)$. Le vecteur $\vec{v}$ fait l'angle $\theta$ avec cet axe, donc $\vec{v} = \lVert \vec{v} \rVert\,(\cos\theta ; \sin\theta)$ s'il est au-dessus de l'axe, ou $\lVert \vec{v} \rVert\,(\cos\theta ; -\sin\theta)$ s'il est en dessous (§6, sur un cercle de rayon $\lVert \vec{v} \rVert$ au lieu de 1). Dans les deux cas, $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert\cos\theta + 0$. On admet ici que faire tourner les deux vecteurs du même angle ne change pas leur produit scalaire, ce qui permet de choisir ainsi les axes.
 
 On en tire l'angle :
 
 $$\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}, \qquad \theta = \arccos\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}.$$
 
-Exemple : $\vec{u} = (2 ; -1)$ et $\vec{v} = (-1 ; 3)$. $\vec{u} \cdot \vec{v} = -5$, $\lVert \vec{u} \rVert = \sqrt{5}$, $\lVert \vec{v} \rVert = \sqrt{10}$, donc
+Exemple : $\vec{u} = (3 ; -1)$ et $\vec{v} = (-2 ; 4)$. $\vec{u} \cdot \vec{v} = -10$, $\lVert \vec{u} \rVert = \sqrt{10}$, $\lVert \vec{v} \rVert = \sqrt{20}$, donc
 
-$$\cos\theta = \frac{-5}{\sqrt{5}\sqrt{10}} = \frac{-5}{\sqrt{50}} = \frac{-5}{5\sqrt{2}} = -\frac{1}{\sqrt{2}} = -\frac{\sqrt{2}}{2}, \qquad \theta = \frac{3\pi}{4} = 135°.$$
+$$\cos\theta = \frac{-10}{\sqrt{10}\sqrt{20}} = \frac{-10}{\sqrt{200}} = \frac{-10}{10\sqrt{2}} = -\frac{1}{\sqrt{2}} = -\frac{\sqrt{2}}{2}, \qquad \theta = \frac{3\pi}{4} = 135°.$$
 
-![L'angle entre u = (2 ; −1) et v = (−1 ; 3) : 135°](figures/angle.png)
+![L'angle entre u = (3 ; −1) et v = (−2 ; 4) : 135°](figures/angle.png)
 
 ### La similarité cosinus
 
@@ -415,7 +415,7 @@ Le nombre $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVe
 - 0 quand ils sont orthogonaux ;
 - $-1$ quand ils ont la même direction et des sens contraires.
 
-Comme un cosinus est entre $-1$ et $1$, on en déduit l'**inégalité de Cauchy-Schwarz** : $\lvert \vec{u} \cdot \vec{v} \rvert \le \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert$, avec égalité seulement pour des vecteurs colinéaires.
+Et puisque $\lvert \cos\theta \rvert \le 1$, la formule du produit scalaire donne aussitôt une majoration utile, l'**inégalité de Cauchy-Schwarz** : le produit scalaire de deux vecteurs ne dépasse jamais, en valeur absolue, le produit de leurs normes, $\lvert \vec{u} \cdot \vec{v} \rvert \le \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert$.
 
 ### La formule d'Al-Kashi
 
@@ -428,15 +428,15 @@ C'est Pythagore corrigé d'un terme qui dépend de l'angle : pour $\hat{C} = 90�
 ### En Python
 
 ```python
->>> u, v = (2, -1), (-1, 3)
+>>> u, v = (3, -1), (-2, 4)
 >>> dot = sum(a * b for a, b in zip(u, v))
 >>> norm_u, norm_v = math.sqrt(sum(a * a for a in u)), math.sqrt(sum(b * b for b in v))
 >>> cos = dot / (norm_u * norm_v)
 >>> dot, round(cos, 4), round(math.degrees(math.acos(cos)), 6)
-(-5, -0.7071, 135.0)
+(-10, -0.7071, 135.0)
 ```
 
-⚠️ Avec des flottants, le quotient peut sortir très légèrement de $[-1 ; 1]$ (1,0000000000000002 pour deux vecteurs colinéaires), et `math.acos` lève alors une erreur. Ta fonction `angle_between` (R9.17) ramènera le quotient dans $[-1 ; 1]$ avant d'appeler `math.acos`.
+⚠️ Avec des flottants, le quotient peut sortir très légèrement de $[-1 ; 1]$ pour deux vecteurs colinéaires, à cause des arrondis des racines carrées, et `math.acos` lève alors une erreur. Ta fonction `angle_between` (R9.17) ramènera le quotient dans $[-1 ; 1]$ avant d'appeler `math.acos`.
 
 🔗 **Dans workbookIA** — la similarité cosinus compare des **embeddings**, les vecteurs qui représentent des mots ou des textes (chapitres bonus B1, B2 et B4) : deux textes proches par le sens ont des vecteurs de directions proches.
 
@@ -456,7 +456,7 @@ La norme vient de Pythagore appliqué deux fois : la diagonale de la base de la 
 
 L'angle se calcule avec la même formule, et deux vecteurs de produit scalaire nul sont orthogonaux : $\vec{v} = (3 ; -2 ; 0)$ vérifie $\vec{u} \cdot \vec{v} = 6 - 6 + 0 = 0$.
 
-Une différence : dans l'espace, une équation $ax + by + cz + d = 0$ décrit un **plan**, pas une droite. Une droite de l'espace se décrit par un point et un vecteur directeur, $A + t\,\vec{d}$ (§4).
+Une différence : dans l'espace, une équation $ax + by + cz + d = 0$ (avec $a$, $b$, $c$ non tous nuls) décrit un **plan**, pas une droite. Une droite de l'espace se décrit par un point et un vecteur directeur, $A + t\,\vec{d}$ (§4).
 
 ### $n$ coordonnées
 
@@ -484,7 +484,7 @@ Pour des vecteurs de grande dimension, on utilise des arrays de NumPy (workbookI
 
 Tu écriras tes propres versions, en Python pur, dans `mymath/plane.py` (R9.16 et R9.17), puis tu les compareras à NumPy (R9.19).
 
-🔗 **Dans workbookIA** — dès le chapitre 0B, un exemple d'un dataset est un vecteur de $\mathbb{R}^p$ (une coordonnée par feature), et tout le dataset une **matrice** ; une image en niveaux de gris de 20 × 30 pixels, mise à plat, est un vecteur de 600 coordonnées.
+🔗 **Dans workbookIA** — dès le chapitre 0B, un exemple d'un dataset est un vecteur de $\mathbb{R}^p$ (une coordonnée par feature : un exemple décrit par 12 features est un vecteur de $\mathbb{R}^{12}$), et tout le dataset une **matrice**.
 
 ---
 
@@ -494,8 +494,8 @@ Tu écriras tes propres versions, en Python pur, dans `mymath/plane.py` (R9.16 e
 |---|---|---|
 | distance | $AB = (x_B - x_A) + (y_B - y_A)$, ou $\sqrt{a^2 + b^2} = a + b$ | $AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$ |
 | coordonnées d'un vecteur | $\overrightarrow{AB} = A - B$ | arrivée moins départ : $B - A$ |
-| somme en Python | `(2, -1) + (-1, 3)` additionne | elle colle les tuples : additionner coordonnée par coordonnée, ou NumPy |
-| norme d'un multiple | $\lVert -3\vec{u} \rVert = -3\lVert \vec{u} \rVert$ | $\lvert -3 \rvert\,\lVert \vec{u} \rVert = 3\lVert \vec{u} \rVert$ |
+| somme en Python | `(3, -1) + (-2, 4)` additionne | elle met les tuples bout à bout : additionner coordonnée par coordonnée, ou NumPy |
+| norme d'un multiple | $\lVert -2\vec{u} \rVert = -2\lVert \vec{u} \rVert$ | $\lvert -2 \rvert\,\lVert \vec{u} \rVert = 2\lVert \vec{u} \rVert$ |
 | norme d'une somme | $\lVert \vec{u} + \vec{v} \rVert = \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ | $\le$ (inégalité triangulaire) |
 | vecteur directeur | $(a ; b)$ dirige la droite $ax + by + c = 0$ | $(-b ; a)$ la dirige ; $(a ; b)$ lui est normal |
 | droite verticale | $x = 4$ a une pente infinie, ou pas d'équation | pas d'équation réduite, mais une équation cartésienne $x - 4 = 0$ |
@@ -504,7 +504,7 @@ Tu écriras tes propres versions, en Python pur, dans `mymath/plane.py` (R9.16 e
 | radians | `math.cos(30)` pour cos 30° | `math.cos(math.radians(30))` |
 | conversion | $\theta_{\text{rad}} = \theta_{\text{deg}} \times \frac{180}{\pi}$ | $\times \frac{\pi}{180}$ (180° doit donner π) |
 | valeurs remarquables | $\cos\frac{\pi}{3} = \frac{\sqrt{3}}{2}$ | $\frac{1}{2}$ ; c'est $\sin\frac{\pi}{3}$ qui vaut $\frac{\sqrt{3}}{2}$ |
-| signe | $\cos\frac{3\pi}{4} = \frac{\sqrt{2}}{2}$ | dessine le point : à gauche, le cosinus est négatif |
+| signe | $\sin\frac{7\pi}{6} = \frac{1}{2}$ | dessine le point : sous l'axe horizontal, le sinus est négatif |
 | arccos | $\arccos(\cos\theta) = \theta$ toujours | seulement pour $\theta \in [0 ; \pi]$ |
 | angle de deux vecteurs | oublier de diviser par les normes | $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$ |
 | flottants | `math.acos(1.0000000000000002)` | ramener le quotient dans $[-1 ; 1]$ avant `math.acos` |

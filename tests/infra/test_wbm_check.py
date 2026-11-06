@@ -120,7 +120,26 @@ def test_integer_arrays_accept_integers_computed_in_floating_point():
     e = entry("d.4e", [-1, 3])
     assert passes("d.4e", e, [-0.9999999999999998, 3.0000000000000004])   # np.roots, a grid read-out...
     ok, status, text = C.check_entry("d.4e", e, [-0.9, 3.2])
-    assert not ok and "entiers" in text and "round" in text
+    assert not ok and "entiers" in text and "round" not in text      # far from integers: rounding would not help
+
+
+def test_angles_in_radians_where_degrees_are_asked():
+    """2.356 or "3*pi/4" for 135°, [1.57, 4.71] for [90, 270], 30 for 0.5236 rad (session 14, R9 learner C4)."""
+    e = entry("d.4r", 135)
+    for value in (2.356, 2.3562, "3*pi/4"):
+        assert "en radians" in C.check_entry("d.4r", e, value)[2]
+    assert "en radians" not in C.check_entry("d.4r", e, 2.0)[2]
+    e = entry("d.4s", 77.47, decimals=1)
+    assert "en radians" in C.check_entry("d.4s", e, 1.3521)[2]
+    e = entry("d.4t", [90, 270])
+    assert "en radians" in C.check_entry("d.4t", e, [1.57, 4.71])[2]
+    e = entry("d.4u", 0.5236, decimals=4)
+    assert "en degrés" in C.check_entry("d.4u", e, 30)[2]
+
+
+def test_an_equation_typed_where_its_coefficients_are_asked():
+    e = entry("d.4v", [3, 2, -4])
+    assert "[a, b, c]" in C.check_entry("d.4v", e, "3x + 2y - 4 = 0")[2]
 
 def test_integer_arrays_accept_bytes_and_bytearray():
     e = entry("d.4f", [0xC3, 0xAB], mistakes={"le premier octet commence par 110": [0x03, 0xAB]})

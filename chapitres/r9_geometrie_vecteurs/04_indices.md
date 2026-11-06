@@ -22,7 +22,7 @@ Place chaque point sur un quadrillage. Le milieu : les moyennes des coordonnées
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $\frac{-4 + 2}{2} = -1$, et fais de même pour l'ordonnée. Pour 5, pense au trajet d'un taxi dans une ville quadrillée (fiche §3). Pour 6, compare $\sqrt{2}$ et 1,5.
+2 : $\frac{-4 + 2}{2} = -1$, et fais de même pour l'ordonnée. Pour 5, pense à un trajet fait seulement de pas horizontaux et verticaux (fiche §3). Pour 6, compare $\sqrt{2}$ et 1,5.
 
 </details>
 
@@ -40,7 +40,7 @@ Pour chaque affirmation, cherche un contre-exemple simple avec des vecteurs du p
 </details>
 <details><summary>Indice 3</summary>
 
-2 : cherche le nombre $k$ tel que $(2 ; -6) = k(-1 ; 3)$. Pour 3, essaie $\vec{u} = (1 ; 0)$ et $\vec{v} = (-1 ; 0)$. Pour 6, calcule la norme de $(1 ; 1)$.
+2 : cherche le nombre $k$ tel que $(2 ; -6) = k(-1 ; 3)$. Pour 3, essaie $\vec{u} = (1 ; 0)$ et $\vec{v} = (-1 ; 0)$. Pour 4, relis la règle $\lVert k\vec{u} \rVert = \ldots$ du §3. Pour 6, calcule la norme de $(1 ; 1)$.
 
 </details>
 
@@ -58,7 +58,7 @@ Pour $y = mx + p$, $(1 ; m)$ est directeur ; pour $ax + by + c = 0$, $(-b ; a)$ 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : avec $a = 2$ et $b = -5$, $(-b ; a) = (5 ; 2)$. Pour 5, isole $y$ dans $4x - 2y + 7 = 0$. Pour 6, remplace $x$ par 1 et $y$ par 2.
+3 : avec $a = 2$ et $b = -5$, $(-b ; a) = (5 ; 2)$. Pour 5, isole $y$ dans $6x + 2y - 1 = 0$. Pour 6, remplace $x$ par 1 et $y$ par 2.
 
 </details>
 
@@ -76,7 +76,7 @@ Le produit scalaire est un nombre, de même signe que le cosinus de l'angle ; il
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $1 \times (-2) + 2 \times 1$. Pour 6, cherche un vecteur non nul orthogonal à $(1 ; 2)$ : son quart de tour.
+2 : $1 \times (-2) + 2 \times 1$. Pour 4, relis la définition : que donne la somme $xx' + yy'$ ? Pour 6, cherche un vecteur non nul orthogonal à $(1 ; 2)$ : son quart de tour.
 
 </details>
 
@@ -130,7 +130,7 @@ Avec $n$ coordonnées, la norme, le produit scalaire et la distance se calculent
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $\sqrt{1 + 1 + 1 + 1}$. Pour 3, compte les coordonnées de chaque vecteur. Pour 6, le vecteur entre les deux points est $(-1, 1, 0)$.
+2 : $\sqrt{1 + 1 + 1 + 1}$. Pour 3, compte les coordonnées de chaque vecteur. Pour 4, compte les pixels, puis les nombres de chaque pixel. Pour 5, une multiplication par coordonnée. Pour 6, le vecteur entre les deux points est $(-1, 1, 0)$.
 
 </details>
 
@@ -142,17 +142,17 @@ Avec $n$ coordonnées, la norme, le produit scalaire et la distance se calculent
 
 <details><summary>Indice 1</summary>
 
-Relis R3 §3, « La droite qui passe par deux points ».
+Relis R3 §3, « La droite qui passe par deux points », et le sens de variation d'une fonction affine.
 
 </details>
 <details><summary>Indice 2</summary>
 
-La pente est le rapport $\frac{\Delta y}{\Delta x}$ ; l'ordonnée à l'origine s'obtient en écrivant qu'un des points est sur la droite.
+La pente est le rapport $\frac{\Delta y}{\Delta x}$. Deux droites sont parallèles quand elles ont la même pente. Une fonction affine est croissante quand sa pente est positive.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $\frac{7 - 1}{2 - (-1)}$. Pour 3, résous $mx + p = 0$.
+1 : $\frac{4 - (-2)}{3 - 0}$. Pour 2, remplace $x$ par 5 dans $-0{,}5x + 4$. Pour 4, regarde le signe de $-0{,}5$.
 
 </details>
 
@@ -170,7 +170,7 @@ $\sqrt{ab} = \sqrt{a}\sqrt{b}$ pour $a, b \ge 0$ ; cherche le plus grand carré 
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $50 = 25 \times 2$. Pour 3, multiplie le numérateur et le dénominateur par $\sqrt{2}$. Pour 4, calcule d'abord $49 + 576$.
+1 : $50 = 25 \times 2$. Pour 3, multiplie le numérateur et le dénominateur par $\sqrt{2}$. Pour 4, calcule d'abord $1 + 1$, puis compare $\sqrt{2}$ à 2.
 
 </details>
 
@@ -210,7 +210,7 @@ Calcule d'abord les vecteurs $\overrightarrow{AB}$, $\overrightarrow{AC}$ et $\o
 </details>
 <details><summary>Indice 3</summary>
 
-b : $\overrightarrow{AB} = (9 ; 12)$, donc $AB = \sqrt{81 + 144}$. Pour g, écris $M(x ; 0)$ et $MA^2 = MB^2$, puis développe : les $x^2$ s'en vont. Pour h, $B$ est le milieu : $x_B = \frac{x_A + x_{A'}}{2}$.
+b : $\overrightarrow{AB} = (9 ; 12)$, donc $AB = \sqrt{81 + 144}$. Pour c, $\overrightarrow{AC} = (2 ; -1{,}5)$. Pour g, écris $M(x ; 0)$ et $MA^2 = MB^2$, puis développe : les $x^2$ s'en vont. Pour h, $B$ est le milieu : $x_B = \frac{x_A + x_{A'}}{2}$.
 
 </details>
 
@@ -246,7 +246,7 @@ L2 : la racine de la somme des carrés ; L1 : la somme des valeurs absolues ; L�
 </details>
 <details><summary>Indice 3</summary>
 
-a : $\sqrt{5^2 + (-3)^2}$. Pour e, $\lVert \vec{v} \rVert = \sqrt{49 + 576}$. Pour f, écris $t^2 + 2^2 = 13$. Pour g, additionne d'abord $\vec{u}$ et $\vec{v}$.
+a : $\sqrt{5^2 + (-3)^2}$. Pour b, écris $t^2 + 2^2 = 13$. Pour d, $\lVert (1 ; -2) \rVert = \sqrt{5}$. Pour e, additionne d'abord $\vec{u}$ et $\vec{v}$. Pour h, rends d'abord $\vec{u}$ unitaire, puis multiplie-le par 3.
 
 </details>
 
@@ -264,7 +264,7 @@ Pente $m = \frac{y_B - y_A}{x_B - x_A}$, puis $p = y_A - m x_A$. Pour une équat
 </details>
 <details><summary>Indice 3</summary>
 
-a : $\frac{-2 - 4}{3 - (-1)}$. Pour d, $y = -1{,}5x + 2{,}5$ devient $1{,}5x + y - 2{,}5 = 0$ ; il reste à multiplier par 2. Pour h, les deux points ont la même abscisse.
+a : $\frac{-1 - 5}{2 - (-2)}$. Pour d, $y = -1{,}5x + 2$ devient $1{,}5x + y - 2 = 0$ ; il reste à multiplier par 2. Pour g, remplace $y$ par $x$ dans l'équation réduite. Pour h, les deux points ont la même abscisse.
 
 </details>
 
@@ -318,7 +318,7 @@ Convertis avec $\frac{\pi}{180}$ ou $\frac{180}{\pi}$. Pour un cosinus ou un sin
 </details>
 <details><summary>Indice 3</summary>
 
-a : $135 \times \frac{\pi}{180}$, à simplifier. Pour d, $\frac{5\pi}{6} = \pi - \frac{\pi}{6}$, et le point est à gauche de l'axe vertical. Pour h, retire un tour complet.
+a : $105 \times \frac{\pi}{180}$, puis simplifie $\frac{105}{180}$. Pour d, $\frac{5\pi}{6} = \pi - \frac{\pi}{6}$, et le point est à gauche de l'axe vertical. Pour h, retire un tour complet.
 
 </details>
 
@@ -354,7 +354,7 @@ $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v}
 </details>
 <details><summary>Indice 3</summary>
 
-a : $\frac{1}{\sqrt{5}\sqrt{10}}$. Pour c, $\cos = \frac{-3}{3\sqrt{2}}$. Pour l'angle en $B$, prends les vecteurs qui partent de $B$ : $\overrightarrow{BA}$ et $\overrightarrow{BC}$.
+a : $\frac{2 \times (-1) + 1 \times 4}{\sqrt{5}\sqrt{17}}$. Pour c, $\cos = \frac{-3}{3\sqrt{2}}$. Pour l'angle en $B$, prends les vecteurs qui partent de $B$ : $\overrightarrow{BA}$ et $\overrightarrow{BC}$.
 
 </details>
 
@@ -412,7 +412,7 @@ Coupe le triangle par la hauteur issue de $A$ : deux triangles rectangles. Expri
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $BH = a - b\cos\hat{C}$, puis $c^2 = (b\sin\hat{C})^2 + (a - b\cos\hat{C})^2$ ; développe, et regroupe $\sin^2 + \cos^2$. Pour 5, l'angle cherché est opposé au côté 7 : c'est lui qui joue le rôle de $c$.
+2 : $BH = a - b\cos\hat{C}$, puis $c^2 = (b\sin\hat{C})^2 + (a - b\cos\hat{C})^2$ ; développe, et regroupe $\sin^2 + \cos^2$. Pour 4, compare $(b\cos\hat{C} - a)^2$ et $(a - b\cos\hat{C})^2$. Pour 5, l'angle cherché est opposé au côté 7 : c'est lui qui joue le rôle de $c$.
 
 </details>
 
@@ -447,12 +447,12 @@ Relis « De quel côté de la droite ? » (fiche §4) et l'encadré 🔗 du §5.
 </details>
 <details><summary>Indice 2</summary>
 
-$z = x_1 + 3x_2 - 6$. La frontière est la droite $z = 0$ ; isole $x_2$ pour son équation réduite. $\mathbf{w}$ est un vecteur normal.
+$z = x_1 + 3x_2 - 6$. La frontière est la droite $x_1 + 3x_2 - 6 = 0$, une équation cartésienne : $\mathbf{w} = (a ; b)$ en est un vecteur normal, et $(-b ; a)$ un vecteur directeur.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $3 + 3 \times 2 - 6$. Pour c, $3x_2 = -x_1 + 6$. Pour h, calcule $z$ pour chacun des cinq points, et compte ceux où $z > 0$.
+a : $3 + 3 \times 2 - 6$. Pour c, un point de l'axe des $x_2$ a $x_1 = 0$. Pour g, la droite $z = 6$ s'écrit $x_1 + 3x_2 - 12 = 0$. Pour h, calcule $z$ pour chacun des cinq points, et compte ceux où $z > 0$.
 
 </details>
 
@@ -521,7 +521,7 @@ Les deux lignes clés :
 cosine = dot(u, v) / (length_u * length_v)
 cosine = max(-1.0, min(1.0, cosine))
 ```
-Pour la copie : $\sqrt{26} \times \sqrt{104}$ calculé en flottants ne redonne pas exactement 52.
+Pour la copie : $\sqrt{37} \times \sqrt{148}$ calculé en flottants ne redonne pas exactement 74.
 
 </details>
 
@@ -567,21 +567,21 @@ e : `x @ y / (np.linalg.norm(x) * np.linalg.norm(y))`. Pour f, la distance est l
 
 </details>
 
-### Ex R9.20 — Prédire le cosinus entre un vecteur et son double, puis son opposé
+### Ex R9.20 — Prédire : multiplier ou décaler deux vecteurs change-t-il leur similarité cosinus ?
 
 <details><summary>Indice 1</summary>
 
-Relis « La similarité cosinus » (fiche §7) et les propriétés de la norme (§3).
+Relis « La similarité cosinus » (fiche §7), les règles de calcul du produit scalaire (§5) et les propriétés de la norme (§3).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Écris tes prédictions, même incertaines : l'expérience tranchera. Pense à ce que devient la direction d'un vecteur quand on le multiplie par un nombre positif, puis négatif.
+Écris tes prédictions, même incertaines : l'expérience tranchera. Demande-toi, pour chaque transformation, si elle change la direction des vecteurs.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Pour c, relis la propriété $\lVert k\vec{u} \rVert = \ldots$ du §3. Pour a et b, écris le numérateur et le dénominateur de la similarité cosinus avec $k\mathbf{u}$ à la place de $\mathbf{v}$.
+Pour a et c, écris le numérateur et le dénominateur de la similarité cosinus après la transformation. Pour b, regarde ce que deviennent les coordonnées : toutes positives, et proches les unes des autres ?
 
 </details>
 
@@ -616,12 +616,12 @@ Relis « Cosinus et sinus », « Périodicité et courbes » et « Dérivées (a
 </details>
 <details><summary>Indice 2</summary>
 
-Convertis d'abord les degrés en radians avec `np.radians`, puis travaille sur des arrays : `np.cos(theta) > np.sin(theta)` est un array de booléens, et `np.sum` compte les `True`.
+Convertis d'abord les degrés en radians avec `np.radians`, puis travaille sur des arrays : `np.sin(theta) > np.cos(theta)` est un array de booléens, et `np.argmax` donne la position de son premier `True`.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : `np.max(np.abs(np.cos(theta) ** 2 + np.sin(theta) ** 2 - 1)) < 1e-12`. Pour c, `np.argmax` rend une position dans `whole`. Pour d, `(math.sin(1 + h) - math.sin(1)) / h`.
+a : `np.max(np.abs(np.cos(theta) ** 2 + np.sin(theta) ** 2 - 1)) < 1e-12`. Pour b et c, `np.argmax` rend une position : l'angle est `degrees[position]` ou `whole[position]`. Pour d, `(math.sin(1 + h) - math.sin(1)) / h`.
 
 </details>
 
@@ -639,7 +639,7 @@ Pour chaque ligne : la fonction reçoit-elle des radians ? Dans quelle unité r�
 </details>
 <details><summary>Indice 3</summary>
 
-(A) : `math.sin(45)` calcule le sinus de 45 radians, pas de 45°. Applique les trois questions aux quatre autres lignes.
+(A) : `math.sin(45)` calcule le sinus de 45 radians, pas de 45°. Applique les trois questions aux quatre autres lignes. Pour b, chaque phrase décrit une valeur : calcule-la correctement, que la ligne soit juste ou fausse.
 
 </details>
 
@@ -652,7 +652,7 @@ Relis la section de R0 sur les flottants, et l'avertissement de la fiche §7 sur
 </details>
 <details><summary>Indice 2</summary>
 
-Un produit scalaire calculé en flottants vaut rarement 0 exactement : compare sa valeur absolue à une tolérance.
+Un produit scalaire calculé en flottants vaut rarement 0 exactement : compare sa valeur absolue à une tolérance, et renvoie un booléen de Python (`return`, pas `print`).
 
 </details>
 <details><summary>Indice 3</summary>
