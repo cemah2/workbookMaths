@@ -55,11 +55,11 @@ PAPER = [
          '"le nombre de lignes est 2 puissance le nombre de propositions": 9}'),
         ("i", "an integer", "sum(((p or q) and not r) for p, q, r in ROWS3)",
          'mistakes={"« et (non R) » : seules les lignes où R est fausse comptent": 6, '
-         '"(P ou Q) est vraie dès qu\'une des deux l\'est : trois combinaisons de P et Q sur quatre": 1}'),
+         '"« P ou Q » est vraie dès qu\'une des deux l\'est : compte les lignes une par une": 1}'),
     ]),
     Paper("R4.2", "Réciproque, contraposée, négation : écrire les trois", [
         ("a", "the list [implication, converse, contrapositive, negation]", "[T, F, T, F]",
-         'mistakes={"la réciproque « divisible par 3 ⇒ divisible par 6 » a un contre-exemple : essaie 9": [T, T, T, F], '
+         'mistakes={"la réciproque « divisible par 3 ⇒ divisible par 6 » a un contre-exemple : essaie 3": [T, T, T, F], '
          '"la contraposée a toujours la même valeur que l\'implication": [T, F, F, F], '
          '"la négation d\'une implication vraie est fausse": [T, F, T, T]}'),
         ("b", "a list of 4 values", "[F, T, F, T]",
@@ -71,10 +71,11 @@ PAPER = [
         ("d", "a list of 4 values", "[T, T, T, F]",
          'mistakes={"3x − 2 = 10 équivaut à x = 4 : la réciproque est vraie aussi (une équivalence)": [T, F, T, F]}'),
         ("e", "an integer", "9",
-         'mistakes={"3, 5 et 7 sont premiers : la propriété est vraie pour eux": {3, 5, 7}}'),
+         'mistakes={"3, 5 et 7 sont premiers : la propriété est vraie pour eux": {3, 5, 7}, '
+         '"l\'énoncé demande un entier compris entre 2 et 10": 1}'),
         ("f", "an integer", "-6",
          'mistakes={"pour x = −5, x² = 25, qui n\'est pas strictement plus grand que 25": -5, '
-         '"on cherche un entier négatif": 6}'),
+         '"6 vérifie B (6² > 25 et 6 > 5) : ce n\'est pas un contre-exemple, et l\'énoncé demande un entier négatif": 6}'),
     ]),
     Paper("R4.3", "Nier des phrases à deux quantificateurs", [
         ("a", "a number (1 to 4)", "2",
@@ -88,8 +89,8 @@ PAPER = [
         ("d", "True or False", "False",
          'mistakes={"x² n\'est pas majoré : pour tout M, un x assez grand donne x² > M": True}'),
         ("e", "a list of 2 values", "[F, T]",
-         'mistakes={"y² = x n\'a pas de solution réelle quand x est négatif ; et y = 0 convient pour tous les x": '
-         '[T, F], "essaie x = −1 dans la première phrase": [T, T], "essaie y = 0 dans la seconde phrase": [F, F]}'),
+         'mistakes={"essaie x = −1 dans la première phrase, et y = 0 dans la seconde": [T, F], '
+         '"essaie x = −1 dans la première phrase": [T, T], "essaie y = 0 dans la seconde phrase": [F, F]}'),
         ("f", "a number (1 to 4)", "1",
          f'{CHOICES}, mistakes={{"nier « pour tout ε > 0 » donne « il existe ε > 0 » : la condition ε > 0 reste, '
          f'seul le quantificateur change": 3, "nier « pour tout ε » donne « il existe ε »": 2, '
@@ -111,13 +112,14 @@ PAPER = [
          'mistakes={"les éléments de B ∩ C ont été comptés deux fois : retire-les une fois": 18}'),
         ("f", "a set, as a list", "sorted(SQUARES - LATE)",
          'ordered=False, mistakes={"25 est dans C : il faut le retirer": [1, 4, 9, 16, 25], '
+         '"1 = 1² est un carré parfait": [4, 9, 16], '
          '"A \\\\ C contient les éléments de A qui ne sont pas dans C": [25]}'),
         ("g", "an integer", "len(E - (SQUARES | LATE))",
          'mistakes={"on demande le complémentaire de A ∪ C, pas A ∪ C": 13, '
          '"25 est à la fois dans A et dans C : ne le compte qu\'une fois": 11}'),
-        ("h", "an integer", "30 - (17 + 12 - 5)",
-         'mistakes={"les 5 élèves qui font les deux sont comptés deux fois dans 17 + 12": 1, '
-         '"on demande ceux qui ne font ni l\'un ni l\'autre": 24}'),
+        ("h", "an integer", "40 - (22 + 15 - 8)",
+         'mistakes={"les 8 membres qui ont les deux sont comptés deux fois dans 22 + 15": 3, '
+         '"on demande ceux qui n\'ont ni l\'un ni l\'autre": 29}'),
     ]),
     Paper("R4.5", "Produit cartésien et couples", [
         ("a", "an integer", "len(PAIRS_AB)",
@@ -125,7 +127,7 @@ PAPER = [
         ("b", "an integer", "2 ** 3", 'mistakes={"2 choix pour chaque coordonnée : on multiplie autant de fois qu\'il y a de coordonnées": 6}'),
         ("c", "an integer", "sum(x < y for x in B_SET for y in B_SET)",
          'mistakes={"x < y est strict : (1, 1) ne convient pas": 6, '
-         '"un couple (2, 1) n\'a pas x < y : l\'ordre des coordonnées compte": 9}'),
+         '"applique la condition x < y : tous les couples de B × B ne conviennent pas": 9}'),
         ("d", "an integer", "sum(a + b == 2 for a, b in PAIRS_AB)",
          'mistakes={"pense aux deux valeurs possibles de a, 0 et 1": 1}'),
         ("e", "True or False", "(1, 0) in PAIRS_AB",
@@ -172,13 +174,16 @@ PAPER = [
         ("g", "an integer", "sum(i for i in range(1, 5)) * sum(2 ** j for j in range(0, 3))",
          'mistakes={"j commence à 0 : 2⁰ = 1 compte": 60}'),
         ("h", "a fraction, as text", "Fraction(1) - Fraction(1, 10)",
-         'kind="fraction", mistakes={"le dernier terme est −1/10 : il reste 1 − 1/10": "8/9"}'),
+         'kind="fraction", mistakes={"seuls le premier et le dernier terme restent : écris le dernier terme, pour k = 9": '
+         '"8/9"}'),
     ]),
     Paper("R4.8", "Trouver un contre-exemple", [
         ("a", "an integer", "next(n for n in range(1, 100) if not 2 ** n > n ** 2)",
-         'mistakes={"l\'inégalité est stricte : un cas d\'égalité est déjà un contre-exemple": 3}'),
+         'mistakes={"l\'inégalité est stricte : un cas d\'égalité est déjà un contre-exemple": 3, '
+         '"c\'est un contre-exemple, mais pas le plus petit : essaie les valeurs de n une par une": 4}'),
         ("b", "an integer", "4",
-         'mistakes={"il y a un contre-exemple plus petit : essaie les valeurs de n une par une": {6, 8, 9, 10, 11}}'),
+         'mistakes={"il y a un contre-exemple plus petit : essaie les valeurs de n une par une": {6, 8, 9, 10, 11}, '
+         '"le contre-exemple est la valeur de n, pas celle de 2ⁿ − 1": 15}'),
         ("c", "an interval, as text", '"]0 ; 1["',
          'kind="interval", mistakes={"en 0 et en 1, x² = x : l\'inégalité large y est vraie": "[0 ; 1]", '
          '"pour x négatif, x² est positif, donc plus grand que x": "]-oo ; 1["}'),
@@ -190,20 +195,25 @@ PAPER = [
     ]),
     Paper("R4.14", "Écrire la loss moyenne d'un modèle avec Σ", [
         ("a", "an integer", "sum(ERRORS)",
-         'mistakes={"e_i = ŷ_i − y_i garde son signe : les erreurs se compensent": 4, '
-         '"e_i = ŷ_i − y_i : prédiction moins vraie valeur": 2}'),
-        ("b", "a number (or a fraction)", "Fraction(sum(e ** 2 for e in ERRORS), 5)",
-         'kind="fraction", mistakes={"une moyenne : divise par n = 5": 6, "élève chaque erreur au carré": "-2/5"}'),
-        ("c", "a number (or a fraction)", "Fraction(sum(abs(e) for e in ERRORS), 5)",
-         'kind="fraction", mistakes={"une moyenne : divise par n = 5": 4, '
-         '"la valeur absolue de chaque erreur, avant de les ajouter": "-2/5"}'),
-        ("d", "a number (or a fraction)", "Fraction(sum(e ** 2 for e in OUTLIER), 5)",
-         'kind="fraction", mistakes={"la nouvelle erreur, 16 − 6, est élevée au carré elle aussi": "16/5"}'),
-        ("e", "a number (or a fraction)", "Fraction(sum(abs(e) for e in OUTLIER), 5)",
-         'kind="fraction", mistakes={"une moyenne : divise par n = 5": 14}'),
-        ("f", "1 or 2", "1",
-         'choices=[1, 2], mistakes={"compare les facteurs : la nouvelle valeur divisée par l\'ancienne, pour chaque '
-         'mesure": 2}'),
+         'mistakes={"e_i = ŷ_i − y_i : prédiction moins vraie valeur": 1, '
+         '"e_i garde son signe : des erreurs de signes contraires se compensent": 7}'),
+        ("b", "an integer", "sum(e ** 2 for e in ERRORS)",
+         'mistakes={"élève chaque erreur au carré, puis additionne : ce n\'est pas le carré de la somme": 1, '
+         '"des carrés, pas des valeurs absolues": 7}'),
+        ("c", "a number (or a fraction)", "Fraction(sum(e ** 2 for e in ERRORS), 5)",
+         'kind="fraction", mistakes={"une moyenne : divise par n = 5": 15, '
+         '"élève chaque erreur au carré avant de faire la moyenne": "1/5"}'),
+        ("d", "a number (or a fraction)", "Fraction(sum(abs(e) for e in ERRORS), 5)",
+         'kind="fraction", mistakes={"une moyenne : divise par n = 5": 7, '
+         '"la valeur absolue de chaque erreur, avant de les ajouter": "-1/5"}'),
+        ("e", "True or False", "sum(e ** 2 for e in ERRORS) == sum(ERRORS) ** 2",
+         'mistakes={"compare les deux nombres : le carré d\'une somme n\'est pas la somme des carrés": True}'),
+        ("f", "an integer", "sum(e + 1 for e in ERRORS)",
+         'mistakes={"le 1 est ajouté à chacun des 5 termes": 0, "n\'oublie pas la somme des erreurs elle-même": 5}'),
+        ("g", "a number (or a fraction)", "Fraction(sum((e + 1) ** 2 for e in ERRORS), 5)",
+         'kind="fraction", mistakes={"(e_i + 1)² = e_i² + 2e_i + 1 : le double produit compte": 4, '
+         '"le 1 du développement est ajouté à chacun des 5 termes": "16/5", '
+         '"les erreurs ont changé : la MSE aussi": 3}'),
     ]),
 ]
 
@@ -221,9 +231,8 @@ PRIMES = {n for n in E if n > 1 and all(n % d for d in range(2, n))}
 LATE = {n for n in E if n >= 17}
 B_SET = {1, 2, 3}                                                 # R4.5
 PAIRS_AB = {(a, b) for a in (0, 1) for b in B_SET}
-TRUE_Y, PRED_Y = [3, 5, 2, 8, 6], [4, 5, 1, 6, 6]                 # R4.14
-ERRORS = [p - y for p, y in zip(PRED_Y, TRUE_Y)]
-OUTLIER = ERRORS[:4] + [16 - 6]'''
+TRUE_Y, PRED_Y = [5, 3, 7, 6, 2], [7, 2, 7, 3, 3]                 # R4.14
+ERRORS = [p - y for p, y in zip(PRED_Y, TRUE_Y)]'''
 
 PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ R4.1 à R4.8, 🔗 R4.14)\n\n"
                "Fais d'abord les exercices de `02_exercices.md` **sur papier**, dans ta copie de "
@@ -560,22 +569,22 @@ R4_18 = Ex(
 
 Écris `sum_over(f, start, stop)` et `prod_over(f, start, stop)` : la somme et le produit des `f(k)` pour `k` allant de `start` à `stop`, **les deux bornes incluses**, comme $\\sum_{k=\\text{start}}^{\\text{stop}} f(k)$ et $\\prod_{k=\\text{start}}^{\\text{stop}} f(k)$. Une boucle `for` sur un `range` et un total suffisent ; réfléchis à la valeur de départ du total, et à ce que rendent les deux fonctions quand `stop < start` (fiche §5).
 
-La vérification calcule $\\sum_{k=1}^{5} k(k+1)$, une somme vide, $\\prod_{k=1}^{10} 2$ et un produit vide, puis $\\sum_{k=1}^{10} \\frac{1}{2^k}$.""",
+La vérification calcule $\\sum_{k=1}^{5} k(k+2)$, une somme vide, $\\prod_{k=1}^{10} 2$ et un produit vide, puis $\\sum_{k=1}^{10} \\frac{1}{2^k}$.""",
     todo=LOAD_LEARNER,
     check='''with checked("R4.18a"):
-    wbm.check("R4.18a", [mymath.logic.sum_over(lambda k: k * (k + 1), 1, 5), mymath.logic.sum_over(lambda k: k, 5, 4),
+    wbm.check("R4.18a", [mymath.logic.sum_over(lambda k: k * (k + 2), 1, 5), mymath.logic.sum_over(lambda k: k, 5, 4),
                          mymath.logic.prod_over(lambda k: 2, 1, 10), mymath.logic.prod_over(lambda k: k, 3, 2)],
               computed=True)
 with checked("R4.18b"):
     wbm.check("R4.18b", mymath.logic.sum_over(lambda k: 1 / 2**k, 1, 10), computed=True)''',
     solution=LOAD_REF + '''
-print("a)", [mymath.logic.sum_over(lambda k: k * (k + 1), 1, 5), mymath.logic.sum_over(lambda k: k, 5, 4),
+print("a)", [mymath.logic.sum_over(lambda k: k * (k + 2), 1, 5), mymath.logic.sum_over(lambda k: k, 5, 4),
              mymath.logic.prod_over(lambda k: 2, 1, 10), mymath.logic.prod_over(lambda k: k, 3, 2)])
 print("b)", mymath.logic.sum_over(lambda k: 1 / 2**k, 1, 10))''',
-    record='''wbm.record("R4.18a", [70, 0, 1024, 1],
-           mistakes={"stop est inclus : range(start, stop + 1)": [40, 0, 512, 1],
-                     "un produit part de 1, pas de 0": [70, 0, 0, 0],
-                     "un produit vide vaut 1, l'élément neutre de la multiplication": [70, 0, 1024, 0]})
+    record='''wbm.record("R4.18a", [85, 0, 1024, 1],
+           mistakes={"stop est inclus : range(start, stop + 1)": [50, 0, 512, 1],
+                     "un produit part de 1, pas de 0": [85, 0, 0, 0],
+                     "un produit vide vaut 1, l'élément neutre de la multiplication": [85, 0, 1024, 0]})
 wbm.record("R4.18b", 0.9990234375, decimals=6,
            mistakes={"stop est inclus : range(start, stop + 1)": 0.998046875})''',
     after=tests_cells("test_sum_over_ or test_prod_over_"),

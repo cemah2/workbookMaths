@@ -88,7 +88,7 @@
 2. 
 3. 
 
-### R4.R3 — Simplifier des fractions (R1)
+### R4.R3 — Additionner des fractions (R1)
 
 1. 
 2. 
@@ -156,7 +156,7 @@
 - f :
 - g :
 
-### Ex R4.4 — Union, intersection, complémentaire et cardinal
+### Ex R4.4 — Opérations sur des ensembles et dénombrement
 
 - A, B et C en extension :
 
@@ -274,8 +274,9 @@
 - d :
 - e :
 - f :
+- g :
 
-- Pourquoi pas la moyenne des erreurs, et le défaut révélé par f (deux phrases) :
+- Pourquoi pas la moyenne des erreurs, et pourquoi la MSE n'est nulle que si toutes les erreurs le sont (deux phrases) :
 
 ### Ex R4.15 — Repérer un raisonnement fautif dans une phrase de presse
 

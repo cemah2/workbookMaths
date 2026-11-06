@@ -1,6 +1,6 @@
 # R4 · Logique, ensembles, Σ et Π — fiche de cours
 
-> La remise à niveau (R0 à R9) n'a pas de livre : **cette fiche est le cours**. R4 apprend le langage dans lequel les mathématiques sont écrites : les propositions et les connecteurs (« et », « ou », « non », « si… alors »), les quantificateurs « pour tout » et « il existe », les ensembles, les sommes Σ et les produits Π. Puis la façon dont on **démontre** : directement, par contraposée, par l'absurde, par un contre-exemple, par récurrence, et comment rédiger une démonstration courte. C'est ce qui te permettra de lire MML et les fiches des chapitres suivants, où presque chaque formule contient un Σ et chaque définition un « pour tout ».
+> La remise à niveau (R0 à R9) n'a pas de livre : **cette fiche est le cours**. R4 t'apprend le langage dans lequel les mathématiques sont écrites : les propositions et les connecteurs (« et », « ou », « non », « si… alors »), les quantificateurs « pour tout » et « il existe », les ensembles, les sommes Σ et les produits Π. Puis la façon dont on **démontre** : directement, par contraposée, par l'absurde, par un contre-exemple, par récurrence, et comment rédiger une démonstration courte. C'est ce qui te permettra de lire MML et les fiches des chapitres suivants, où presque chaque formule contient un Σ et chaque définition un « pour tout ».
 
 | | |
 |---|---|
@@ -22,11 +22,11 @@ Si le test de positionnement t'a donné « tu peux sauter » pour R4, lis « L'e
 | Section | Quiz 🧠 | Papier et réflexion | Notebook |
 |---|---|---|---|
 | §1 Propositions, « et », « ou », « non » | Q1 | R4.1 ✏️ | R4.17 🔨 |
-| §2 Implication, réciproque, contraposée, équivalence | Q2, R2 🔁 | R4.1 ✏️, R4.2 ✏️, R4.15 ⚖️, R4.16 🗣️ | R4.17 🔨 |
+| §2 Implication, réciproque, contraposée, équivalence | Q2 | R4.1 ✏️, R4.2 ✏️, R4.15 ⚖️, R4.16 🗣️ | R4.17 🔨 |
 | §3 Quantificateurs et négation | Q3, R1 🔁 | R4.2 ✏️, R4.3 ✏️ | |
 | §4 Ensembles | Q4 | R4.4 ✏️, R4.5 ✏️ | R4.20 📦, R4.23 🎨 |
 | §5 Notations Σ et Π | Q5, R3 🔁 | R4.6 ✏️, R4.7 ✏️, R4.14 🔗 | R4.18 🔨, R4.22 🔬 |
-| §6 Raisonnements | Q6 | R4.8 ✏️, R4.9 ∂, R4.10 ∂, R4.11 ∂, R4.15 ⚖️ | R4.19 🔨, R4.21 🔮 |
+| §6 Raisonnements | Q6, R2 🔁 | R4.8 ✏️, R4.9 ∂, R4.10 ∂, R4.11 ∂, R4.15 ⚖️ | R4.19 🔨, R4.21 🔮 |
 | §7 Raisonnement par récurrence | Q7 | R4.12 ∂, R4.13 ∂ | R4.22 🔬, R4.24 🐛 |
 | §8 Rédiger une démonstration courte | Q8 | R4.9 ∂ | R4.24 🐛, R4.25 🛠️ |
 
@@ -50,7 +50,7 @@ Parcours essentiel : tout sauf R4.Q7, R4.Q8, R4.R2, R4.5, R4.11, R4.13, R4.15, R
 4. **P ⇔ Q** (« P si et seulement si Q ») : P ⇒ Q **et** Q ⇒ P.
 5. **Quantificateurs** : ∀ « pour tout », ∃ « il existe ». La négation échange les deux : non (∀x, P(x)) = ∃x, non P(x). L'**ordre** de ∀ et ∃ change le sens.
 6. **Ensembles** : $A \cup B$ (ou), $A \cap B$ (et), $\bar{A}$ (non), $A \setminus B$ ; $\lvert A \cup B \rvert = \lvert A \rvert + \lvert B \rvert - \lvert A \cap B \rvert$ ; $\lvert A \times B \rvert = \lvert A \rvert \times \lvert B \rvert$.
-7. $\sum_{k=m}^{n} a_k = a_m + \dots + a_n$ a $n - m + 1$ termes ; l'indice est muet ; on sort les constantes et on sépare les sommes, mais **pas** les produits : $\sum a_k b_k \ne \left(\sum a_k\right)\left(\sum b_k\right)$. Une somme vide vaut 0, un produit vide vaut 1.
+7. $\sum_{k=m}^{n} a_k = a_m + \dots + a_n$ a $n - m + 1$ termes ; l'indice est muet ; une somme est linéaire, mais une somme de produits n'est **pas** le produit des sommes : $\sum a_k b_k \ne \left(\sum a_k\right)\left(\sum b_k\right)$. Une somme vide vaut 0, un produit vide vaut 1.
 8. **Démontrer** un « pour tout » demande un argument qui marche pour **tous** les cas ; le **réfuter** ne demande qu'un **contre-exemple**.
 9. **Récurrence** : si P(n₀) est vraie (**initialisation**) et si P(n) entraîne P(n + 1) pour tout $n \ge n_0$ (**hérédité**), alors P(n) est vraie pour tout $n \ge n_0$.
 10. Une démonstration se **rédige** : ce qu'on suppose (« Soit… »), chaque étape et sa justification, ce qu'on conclut.
@@ -85,7 +85,7 @@ Une **table de vérité** liste toutes les combinaisons de valeurs de P et Q, et
 
 Avec trois propositions, il y a $2^3 = 8$ lignes ; avec $n$, il y en a $2^n$ : chaque proposition double le nombre de cas.
 
-⚠️ **Le « ou » des maths est inclusif.** « P ou Q » est vraie aussi quand P et Q sont vraies toutes les deux. Le « ou » du menu « fromage ou dessert » est exclusif (l'un ou l'autre, pas les deux) : en maths, on le dirait « ou bien… ou bien », et on l'écrit avec « ou » et « non (P et Q) ».
+⚠️ **Le « ou » des maths est inclusif.** « P ou Q » est vraie aussi quand P et Q sont vraies toutes les deux. Le « ou » du menu « fromage ou dessert » est exclusif (l'un ou l'autre, pas les deux) : en maths, on l'écrit « (P ou Q) et non (P et Q) ».
 
 Exemple : pour un entier $n$, on pose P = « $n$ est pair » et Q = « $n > 10$ ». Pour $n = 14$ : P et Q sont vraies, donc « P et Q » et « P ou Q » sont vraies. Pour $n = 7$ : P et Q sont fausses, donc « P ou Q » est fausse. Pour $n = 21$ : P est fausse et Q vraie, donc « P et Q » est fausse et « P ou Q » vraie.
 
@@ -185,7 +185,7 @@ Exemples :
 - non ($\forall x \in \mathbb{R},\ x^2 \ge x$) = ($\exists x \in \mathbb{R},\ x^2 < x$). La négation est vraie ($x = 0{,}5$ donne $0{,}25 < 0{,}5$), donc la phrase de départ est fausse.
 - non ($\exists n \in \mathbb{N},\ n^2 = 7$) = ($\forall n \in \mathbb{N},\ n^2 \ne 7$), qui est vraie.
 
-⚠️ **« Tous les… ne… pas » est ambigu.** « Tous les élèves n'ont pas rendu leur devoir » veut dire, à l'oral, « certains ne l'ont pas rendu » ; écrit, on le lit souvent « aucun ne l'a rendu ». En maths, on évite cette tournure : on écrit « il existe un élève qui… » ou « aucun élève… ».
+⚠️ **« Tous les… ne… pas » est ambigu.** Selon la grammaire, « tous les élèves n'ont pas rendu leur devoir » veut dire « pas tous » : certains ne l'ont pas rendu. Mais beaucoup de lecteurs comprennent « aucun ne l'a rendu ». En maths, on évite cette tournure : on écrit « il existe un élève qui… » ou « aucun élève… ».
 
 ### L'ordre des quantificateurs
 
@@ -209,7 +209,7 @@ Un **ensemble** est une collection d'objets, ses **éléments**, sans ordre et s
 
 $x \in A$ se lit « $x$ appartient à $A$ » ($3 \in A$), et $x \notin A$ le contraire ($4 \notin A$). L'**ensemble vide** $\varnothing$ n'a aucun élément. Le **cardinal** $\lvert A \rvert$ est le nombre d'éléments d'un ensemble fini : $\lvert A \rvert = 4$. Comme il n'y a pas de répétition, $\{1, 1, 2\} = \{1, 2\}$, de cardinal 2, et comme il n'y a pas d'ordre, $\{1, 2\} = \{2, 1\}$.
 
-$A$ est **inclus** dans $B$ ($A \subset B$) si **tout** élément de $A$ est aussi dans $B$ : $\{3, 5\} \subset A$. Ne confonds pas $3 \in A$ (un élément) et $\{3\} \subset A$ (un ensemble à un élément, inclus dans $A$). L'ensemble vide est inclus dans tout ensemble. Deux ensembles sont **égaux** quand chacun est inclus dans l'autre.
+Un ensemble $X$ est **inclus** dans un ensemble $Y$ ($X \subset Y$) si **tout** élément de $X$ est aussi dans $Y$. Par exemple, $\{3, 5\} \subset A$. Ne confonds pas $3 \in A$ (un élément) et $\{3\} \subset A$ (un ensemble à un élément, inclus dans $A$). L'ensemble vide est inclus dans tout ensemble. Deux ensembles sont **égaux** quand chacun est inclus dans l'autre.
 
 Les **ensembles de nombres** s'emboîtent : $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}$ (entiers naturels, entiers relatifs, rationnels, réels ; R1). Les **intervalles** de R2 sont des ensembles de réels : $[2 \;;\; 5[\, = \{x \in \mathbb{R} \mid 2 \le x < 5\}$.
 
@@ -275,23 +275,23 @@ $$\sum_{k=m}^{n} a_k = a_m + a_{m+1} + \dots + a_n$$
 
 On lit « somme pour $k$ allant de $m$ à $n$ de $a_k$ ». $k$ est l'**indice**, $m$ et $n$ les **bornes** (toutes deux **incluses**), $a_k$ le **terme général**. Par exemple :
 
-$$\sum_{k=1}^{4} (3k + 1) = 4 + 7 + 10 + 13 = 34 \qquad \sum_{j=2}^{5} \frac{1}{j} = \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} = \frac{77}{60}$$
+$$\sum_{k=1}^{4} (5k - 2) = 3 + 8 + 13 + 18 = 42 \qquad \sum_{j=2}^{5} \frac{1}{j} = \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} = \frac{77}{60}$$
 
 Trois remarques qui évitent la plupart des erreurs :
-- **le nombre de termes** de $\sum_{k=m}^{n}$ est $n - m + 1$, pas $n - m$ : de 3 à 7, il y a 5 termes (3, 4, 5, 6, 7) ;
+- **le nombre de termes** de $\sum_{k=m}^{n}$ est $n - m + 1$, pas $n - m$ : de 2 à 6, il y a 5 termes (2, 3, 4, 5, 6) ;
 - **l'indice est muet** : $\sum_{k=1}^{4} k^3$ et $\sum_{i=1}^{4} i^3$ sont le même nombre, la lettre ne sert qu'à l'intérieur ;
-- **une somme de termes constants** compte les termes : $\sum_{k=1}^{n} c = c + c + \dots + c = n\,c$ (le terme ne dépend pas de $k$, mais il y a bien $n$ termes).
+- **quand le terme ne dépend pas de $k$**, la somme vaut le nombre de termes multiplié par ce terme : $\sum_{k=1}^{n} c = c + c + \dots + c = n\,c$ (il y a bien $n$ termes, même si $k$ n'apparaît pas).
 
 Quand $n < m$, la somme ne contient aucun terme : c'est une **somme vide**, et elle vaut 0 (l'élément neutre de l'addition).
 
 ### Calculer avec Σ
 
-Trois règles, qui sont la distributivité et l'associativité de l'addition écrites avec Σ :
+Trois règles, qui ne sont que la distributivité et l'associativité de l'addition, écrites avec Σ :
 1. **Linéarité** : $\sum_{k} (\lambda a_k + \mu b_k) = \lambda \sum_{k} a_k + \mu \sum_{k} b_k$ pour des constantes $\lambda$ et $\mu$ (qui ne dépendent pas de $k$).
 2. **Découpage** (relation de Chasles) : pour $m \le p < n$, $\sum_{k=m}^{n} a_k = \sum_{k=m}^{p} a_k + \sum_{k=p+1}^{n} a_k$.
 3. **Changement d'indice** : on pose $j = k + d$ ; les bornes bougent avec l'indice. Ainsi $\sum_{k=1}^{5} a_{k+2} = \sum_{j=3}^{7} a_j$ : quand $k$ va de 1 à 5, $j = k + 2$ va de 3 à 7.
 
-⚠️ **On ne sépare pas un produit.** $\sum_{k} a_k b_k \ne \left(\sum_{k} a_k\right)\left(\sum_{k} b_k\right)$ en général : avec deux termes, $a_1 b_1 + a_2 b_2$ n'est pas $(a_1 + a_2)(b_1 + b_2)$, qui contient en plus $a_1 b_2 + a_2 b_1$. De même $\sum a_k^2 \ne \left(\sum a_k\right)^2$.
+⚠️ **Une somme de produits n'est pas le produit des sommes.** $\sum_{k} a_k b_k \ne \left(\sum_{k} a_k\right)\left(\sum_{k} b_k\right)$ en général : avec deux termes, $a_1 b_1 + a_2 b_2$ n'est pas $(a_1 + a_2)(b_1 + b_2)$, qui contient en plus $a_1 b_2 + a_2 b_1$. De même $\sum a_k^2 \ne \left(\sum a_k\right)^2$.
 
 ### Deux sommes à connaître
 
@@ -313,7 +313,7 @@ Par exemple, $\frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1}$ (réduis au même 
 
 ### Le produit Π
 
-Le symbole $\Pi$ (pi majuscule, le P de « produit ») fait la même chose pour la multiplication : $\prod_{k=m}^{n} a_k = a_m \times a_{m+1} \times \dots \times a_n$. Par exemple $\prod_{k=1}^{3} (2k + 1) = 3 \times 5 \times 7 = 105$. La **factorielle** est un produit : $n! = \prod_{k=1}^{n} k$, et $6! = 720$. Un **produit vide** vaut 1, l'élément neutre de la multiplication (c'est pourquoi $0! = 1$).
+Le symbole $\Pi$ (pi majuscule, le P de « produit ») fait la même chose pour la multiplication : $\prod_{k=m}^{n} a_k = a_m \times a_{m+1} \times \dots \times a_n$. Par exemple $\prod_{k=1}^{3} (k + 4) = 5 \times 6 \times 7 = 210$. La **factorielle** est un produit : $n! = \prod_{k=1}^{n} k$, et $6! = 720$. Un **produit vide** vaut 1, l'élément neutre de la multiplication (c'est pourquoi $0! = 1$).
 
 ⚠️ **Une constante sort à la puissance $n$.** $\prod_{k=1}^{n} (c\,a_k) = c^n \prod_{k=1}^{n} a_k$, car $c$ apparaît dans chacun des $n$ facteurs. Le logarithme (R6) transformera un produit en somme : c'est ainsi que workbookIA calcule la probabilité d'un dataset.
 
@@ -332,13 +332,13 @@ Quand le terme est un produit d'un facteur qui ne dépend que de $i$ et d'un fac
 En Python, une somme est une boucle ou un `sum` sur un `range`, dont la borne de droite est **exclue** : $\sum_{k=m}^{n}$ s'écrit avec `range(m, n + 1)`.
 
 ```python
->>> sum(3 * k + 1 for k in range(1, 5))
-34
+>>> sum(5 * k - 2 for k in range(1, 5))
+42
 >>> sum(i + j for i in range(1, 4) for j in range(1, 3))
 21
 >>> import math
->>> math.prod(2 * k + 1 for k in range(1, 4)), math.factorial(6)
-(105, 720)
+>>> math.prod(k + 4 for k in range(1, 4)), math.factorial(6)
+(210, 720)
 ```
 
 🔗 **Dans workbookIA** — la moyenne de $n$ valeurs s'écrit $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$, et presque toutes les losses sont une moyenne sur les exemples ; une couche de neurones calcule des sommes $\sum_j w_{ij} x_j$, et un produit de matrices des sommes de produits. Les sommes doubles reviennent dès qu'il y a deux indices : exemples et classes, lignes et colonnes.
@@ -422,19 +422,19 @@ Dans l'hérédité, on **suppose** $P(n)$ vraie pour un $n$ quelconque (c'est l'
 
 ### Un exemple de somme
 
-> **Propriété.** Pour tout entier $n \ge 1$, $\sum_{k=1}^{n} (2k - 1) = n^2$ : la somme des $n$ premiers nombres impairs est un carré.
+> **Propriété.** Pour tout entier $n \ge 1$, $\sum_{k=1}^{n} k(k + 1) = \frac{n(n + 1)(n + 2)}{3}$.
 >
-> *Démonstration.* Pour $n \ge 1$, notons $P(n)$ : « $\sum_{k=1}^{n} (2k - 1) = n^2$ ».
+> *Démonstration.* Pour $n \ge 1$, notons $P(n)$ : « $\sum_{k=1}^{n} k(k + 1) = \frac{n(n + 1)(n + 2)}{3}$ ».
 >
-> *Initialisation.* Pour $n = 1$, la somme a un seul terme, $2 \times 1 - 1 = 1$, et $1^2 = 1$ : $P(1)$ est vraie.
+> *Initialisation.* Pour $n = 1$, la somme a un seul terme, $1 \times 2 = 2$, et $\frac{1 \times 2 \times 3}{3} = 2$ : $P(1)$ est vraie.
 >
 > *Hérédité.* Soit $n \ge 1$ tel que $P(n)$ est vraie. On découpe la somme jusqu'à $n + 1$ en ses $n$ premiers termes et le dernier :
-> $$\sum_{k=1}^{n+1} (2k - 1) = \sum_{k=1}^{n} (2k - 1) + \big(2(n + 1) - 1\big) = n^2 + 2n + 1 = (n + 1)^2,$$
-> où l'on a utilisé l'hypothèse de récurrence, puis une identité remarquable (R2). Donc $P(n + 1)$ est vraie.
+> $$\sum_{k=1}^{n+1} k(k + 1) = \sum_{k=1}^{n} k(k + 1) + (n + 1)(n + 2) = \frac{n(n + 1)(n + 2)}{3} + (n + 1)(n + 2) = \frac{(n + 1)(n + 2)(n + 3)}{3},$$
+> où l'on a utilisé l'hypothèse de récurrence, puis mis $(n + 1)(n + 2)$ en facteur : $\frac{n}{3} + 1 = \frac{n + 3}{3}$. Donc $P(n + 1)$ est vraie.
 >
 > *Conclusion.* Par récurrence, $P(n)$ est vraie pour tout $n \ge 1$. ∎
 
-Le geste clé de l'hérédité est presque toujours le même pour une somme : **isoler le dernier terme** pour faire apparaître la somme jusqu'à $n$, que l'hypothèse de récurrence permet de remplacer.
+Le geste clé de l'hérédité est presque toujours le même pour une somme : **isoler le dernier terme** pour faire apparaître la somme jusqu'à $n$, que l'hypothèse de récurrence permet de remplacer, puis **factoriser** pour reconnaître la formule au rang $n + 1$.
 
 ### Un exemple de divisibilité
 
@@ -473,7 +473,7 @@ On l'a trouvée **à l'envers** (on voulait $a^2 + b^2 - 2ab \ge 0$ et on a reco
 
 - **Vérifier sur des exemples** au lieu de démontrer (§6) : « 2 + 4 = 6, 8 + 10 = 18, donc la somme de deux pairs est paire » n'est pas une démonstration.
 - **Démontrer la réciproque** : pour montrer $P \Rightarrow Q$, on part de P. Partir de Q et arriver à P démontre $Q \Rightarrow P$, une autre phrase.
-- **Partir de la conclusion** : écrire « $a^2 + b^2 \ge 2ab$, donc … donc $0 \le (a - b)^2$, vrai » enchaîne des implications dans le mauvais sens ; elle ne montre rien, sauf si chaque étape est une équivalence (et il faut alors l'écrire avec ⇔).
+- **Partir de la conclusion** : écrire « $a^2 + b^2 \ge 2ab$, donc … donc $0 \le (a - b)^2$, vrai » enchaîne des implications dans le mauvais sens ; cette chaîne ne montre rien, sauf si chaque étape est une équivalence (et il faut alors l'écrire avec ⇔).
 - **Utiliser une lettre sans l'introduire**, ou la même lettre pour deux objets différents.
 - **Oublier un cas** dans une disjonction de cas, ou l'**initialisation** d'une récurrence.
 
@@ -496,8 +496,8 @@ Dans un notebook ou un fichier Markdown, une démonstration s'écrit en texte, a
 | ordre des quantificateurs | $\forall x\, \exists y$ = $\exists y\, \forall x$ | le $y$ ne peut dépendre de $x$ que dans $\forall x\, \exists y$ |
 | élément et sous-ensemble | $\{3\} \in \{2, 3, 5\}$ | $3 \in \{2, 3, 5\}$ et $\{3\} \subset \{2, 3, 5\}$ |
 | cardinal d'une union | $\lvert A \cup B \rvert = \lvert A \rvert + \lvert B \rvert$ | retirer $\lvert A \cap B \rvert$ |
-| nombre de termes | $\sum_{k=3}^{7}$ a 4 termes | $7 - 3 + 1 = 5$ termes |
-| somme d'une constante | $\sum_{k=1}^{n} 5 = 5$ | $5n$ |
+| nombre de termes | $\sum_{k=2}^{6}$ a 4 termes | $6 - 2 + 1 = 5$ termes |
+| somme d'une constante | $\sum_{k=1}^{n} 4 = 4$ | $4n$ |
 | séparer un produit | $\sum a_k b_k = \left(\sum a_k\right)\left(\sum b_k\right)$ | faux en général |
 | constante dans un Π | $\prod (2 a_k) = 2 \prod a_k$ | $2^n \prod a_k$ |
 | bornes en Python | $\sum_{k=1}^{n}$ = `range(1, n)` | `range(1, n + 1)` |

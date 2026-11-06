@@ -22,10 +22,10 @@
 3. **Ni l'une ni l'autre** : on a nié sans échanger. C'est la contraposée de la réciproque, qui a donc la valeur de la réciproque.
 4. **La contraposée**, la phrase 2.
 5. **Faux** : le sol peut être mouillé sans qu'il pleuve (un arrosage) ; la réciproque est une autre phrase.
-6. « **Il pleut et le sol n'est pas mouillé.** »
+6. « **Il pleut et le sol n'est pas mouillé.** » Avec le « pour tout » caché (« à chaque fois qu'il pleut, le sol est mouillé »), la négation devient « il arrive qu'il pleuve sans que le sol soit mouillé » : c'est la même idée.
 
 ### R4.Q3 — Nier une phrase avec « pour tout »
-1. « **Au moins un élève n'a pas rendu son devoir.** » La troisième tournure est ambiguë, la première dit beaucoup plus.
+1. « **Au moins un élève n'a pas rendu son devoir.** » La première dit beaucoup plus (aucun ne l'a rendu). La troisième est ambiguë : selon la grammaire, elle veut dire « pas tous », mais beaucoup la lisent « aucun » ; on l'évite (fiche §3).
 2. $\exists x \in \mathbb{R},\ x^2 + 1 \le 0$ (et cette négation est fausse : la phrase de départ est vraie).
 3. $\forall n \in \mathbb{N},\ n \le 100$ ou $n$ est impair (« et » devient « ou », par De Morgan).
 4. **Faux** : la négation de $x > 2$ est $x \le 2$.
@@ -66,7 +66,7 @@
 ### R4.Q8 — Ce qui manque dans une démonstration
 1. Des **exemples** au lieu d'un argument. Il faut : soient $a = 2k + 1$ et $b = 2\ell + 1$ ; $a + b = 2(k + \ell + 1)$.
 2. Le texte démontre la **réciproque** : il part de « $n^2$ pair ». Il fallait partir de $n = 2k$ : $n^2 = 4k^2 = 2(2k^2)$.
-3. Un **cas oublié** (et $n$ n'est pas introduit) : tout entier n'est pas de la forme $2k$. Il manque le cas $n = 2k + 1$, où $n^2 + 3n = 4k^2 + 10k + 4 = 2(2k^2 + 5k + 2)$.
+3. Des **cas oubliés** (et $x$ n'est pas introduit) : tout réel ne vérifie pas $x \ge 1$. Il faut aussi traiter $0 \le x < 1$, où $\lvert x - 1 \rvert = 1 - x \le 1 \le x + 1$, et $x < 0$, où $\lvert x - 1 \rvert = 1 - x = \lvert x \rvert + 1$.
 4. Le texte **part de la conclusion** : des « donc » dans le mauvais sens. Une rédaction juste part d'un fait vrai : $(\sqrt{a} - \sqrt{b})^2 \ge 0$, donc $a - 2\sqrt{ab} + b \ge 0$, donc $\sqrt{ab} \le \frac{a + b}{2}$.
 
 <a id="rappels"></a>
@@ -83,7 +83,7 @@
 2. $(f \circ g)(x) = 3 - (x^2 + 1) = 2 - x^2$ et $(g \circ f)(x) = (3 - x)^2 + 1 = x^2 - 6x + 10$.
 3. **Faux** : $x = 2$ est un contre-exemple ($-2 \ne 2$).
 
-### R4.R3 — Simplifier des fractions (R1)
+### R4.R3 — Additionner des fractions (R1)
 1. $\frac{3}{6} + \frac{2}{6} + \frac{1}{6} = 1$.
 2. $\frac{1}{3} - \frac{1}{4} = \frac{4 - 3}{12} = \frac{1}{12}$, et $\frac{1}{k} - \frac{1}{k + 1} = \frac{(k + 1) - k}{k(k + 1)} = \frac{1}{k(k + 1)}$.
 3. Même dénominateur : $\frac{6}{12} + \frac{2}{12} + \frac{1}{12} = \frac{3}{4}$. Avec la question 2 : $\left(1 - \frac{1}{2}\right) + \left(\frac{1}{2} - \frac{1}{3}\right) + \left(\frac{1}{3} - \frac{1}{4}\right) = 1 - \frac{1}{4} = \frac{3}{4}$, une somme télescopique.
@@ -119,7 +119,7 @@
 **Réponses** : a) `[True, False, True, False]` · b) `[False, True, False, True]` · c) `[False, False, False, True]` · d) `[True, True, True, False]` · e) `9` · f) `-6`.
 
 **Démarche.**
-- A. Réciproque : « pour tout entier $n$, si $n$ est divisible par 3, alors $n$ est divisible par 6 », fausse (9). Contraposée : « si $n$ n'est pas divisible par 3, alors $n$ n'est pas divisible par 6 », vraie comme l'implication ($n = 6m = 3 \times 2m$). Négation : « il existe un entier divisible par 6 et pas par 3 », fausse.
+- A. Réciproque : « pour tout entier $n$, si $n$ est divisible par 3, alors $n$ est divisible par 6 », fausse (3). Contraposée : « si $n$ n'est pas divisible par 3, alors $n$ n'est pas divisible par 6 », vraie comme l'implication ($n = 6m = 3 \times 2m$). Négation : « il existe un entier divisible par 6 et pas par 3 », fausse.
 - B. L'implication est fausse : $x = -6$ donne $x^2 = 36 > 25$ et pourtant $x \le 5$. Réciproque : « si $x > 5$, alors $x^2 > 25$ », vraie (deux nombres positifs, et le carré est croissant sur les positifs). Contraposée : « si $x \le 5$, alors $x^2 \le 25$ », fausse (même contre-exemple). Négation : « il existe un réel $x$ tel que $x^2 > 25$ et $x \le 5$ », vraie.
 - C. L'implication est fausse (9 est impair et vaut $3 \times 3$). Réciproque : « si $n$ est premier, alors $n$ est impair », fausse (2). Contraposée : « si $n$ n'est pas premier, alors $n$ est pair », fausse (9). Négation : « il existe un entier $n \ge 2$ impair et non premier », vraie.
 - D. $3x - 2 = 10 \iff 3x = 12 \iff x = 4$ : l'implication et sa réciproque sont vraies (une équivalence), la contraposée aussi, la négation est fausse.
@@ -147,9 +147,9 @@
 
 **Variante.** La négation de « $\forall n \in \mathbb{N},\ \exists m \in \mathbb{N},\ m = 2n$ » ? *Réponse* : « $\exists n \in \mathbb{N},\ \forall m \in \mathbb{N},\ m \ne 2n$ », fausse (la phrase de départ est vraie : $m = 2n$).
 
-### Ex R4.4 — Union, intersection, complémentaire et cardinal
+### Ex R4.4 — Opérations sur des ensembles et dénombrement
 
-**Réponses** : a) `[]` · b) `14` · c) `[17, 19, 23]` · d) `16` · e) `15` · f) `[1, 4, 9, 16]` · g) `12` · h) `6`.
+**Réponses** : a) `[]` · b) `14` · c) `[17, 19, 23]` · d) `16` · e) `15` · f) `[1, 4, 9, 16]` · g) `12` · h) `11`.
 
 **Démarche.** $A = \{1, 4, 9, 16, 25\}$ (5 éléments), $B = \{2, 3, 5, 7, 11, 13, 17, 19, 23\}$ (9 éléments), $C = \{17, 18, \dots, 25\}$ (9 éléments).
 - a) Un carré $k^2$ avec $k \ge 2$ a le diviseur $k$, et 1 n'est pas premier : $A \cap B = \varnothing$.
@@ -159,7 +159,7 @@
 - e) $9 + 9 - 3 = 15$ ; en listant : $\{2, 3, 5, 7, 11, 13\}$ et les 9 éléments de $C$, soit 15.
 - f) On retire de $A$ ce qui est dans $C$, c'est-à-dire 25.
 - g) $\lvert A \cup C \rvert = 5 + 9 - 1 = 13$ (25 est dans les deux), donc $\lvert \overline{A \cup C} \rvert = 25 - 13 = 12$. Par De Morgan, c'est aussi $\lvert \bar{A} \cap \bar{C} \rvert$ : les nombres de 1 à 16 qui ne sont pas des carrés, $16 - 4 = 12$.
-- h) $17 + 12 - 5 = 24$ élèves font au moins une activité ; $30 - 24 = 6$.
+- h) $22 + 15 - 8 = 29$ membres ont un vélo ou une voiture ; $40 - 29 = 11$.
 
 **Erreurs fréquentes.** Compter 1 parmi les premiers ; oublier de retirer l'intersection (e, g) ; répondre $\lvert A \cup C \rvert$ au lieu de son complémentaire.
 
@@ -341,21 +341,22 @@ en utilisant $P(n)$ à la deuxième égalité. C'est $P(n + 1)$.
 
 ### Ex R4.14 — Écrire la loss moyenne d'un modèle avec Σ
 
-**Réponses** : a) `-2` · b) `"6/5"` (ou `1.2`) · c) `"4/5"` (ou `0.8`) · d) `"106/5"` (ou `21.2`) · e) `"14/5"` (ou `2.8`) · f) `1`.
+**Réponses** : a) `-1` · b) `15` · c) `3` · d) `"7/5"` (ou `1.4`) · e) `False` · f) `4` · g) `"18/5"` (ou `3.6`).
 
-**Démarche.** $\text{MSE} = \frac{1}{n}\sum_{i=1}^{n} (\hat{y}_i - y_i)^2$ et $\text{MAE} = \frac{1}{n}\sum_{i=1}^{n} \lvert \hat{y}_i - y_i \rvert$. Les erreurs sont $e = (1, 0, -1, -2, 0)$.
-- a) $1 + 0 - 1 - 2 + 0 = -2$.
-- b) $\frac{1 + 0 + 1 + 4 + 0}{5} = \frac{6}{5}$.
-- c) $\frac{1 + 0 + 1 + 2 + 0}{5} = \frac{4}{5}$.
-- d) La cinquième erreur devient $16 - 6 = 10$ : $\frac{6 + 100}{5} = \frac{106}{5}$.
-- e) $\frac{4 + 10}{5} = \frac{14}{5}$.
-- f) La MSE est multipliée par $\frac{106}{6} \approx 17{,}7$, la MAE par $\frac{14}{4} = 3{,}5$.
+**Démarche.** $\text{MSE} = \frac{1}{n}\sum_{i=1}^{n} (\hat{y}_i - y_i)^2$ et $\text{MAE} = \frac{1}{n}\sum_{i=1}^{n} \lvert \hat{y}_i - y_i \rvert$. Les erreurs sont $e = (2, -1, 0, -3, 1)$.
+- a) $2 - 1 + 0 - 3 + 1 = -1$.
+- b) $4 + 1 + 0 + 9 + 1 = 15$.
+- c) $\frac{15}{5} = 3$.
+- d) $\frac{2 + 1 + 0 + 3 + 1}{5} = \frac{7}{5}$.
+- e) **Faux** : $\left(\sum e_i\right)^2 = (-1)^2 = 1 \ne 15$. Le carré d'une somme contient aussi tous les doubles produits $2 e_i e_j$.
+- f) Linéarité : $\sum (e_i + 1) = \sum e_i + \sum_{i=1}^{5} 1 = -1 + 5 = 4$.
+- g) $\sum (e_i + 1)^2 = \sum e_i^2 + 2\sum e_i + \sum 1 = 15 - 2 + 5 = 18$, donc la nouvelle MSE vaut $\frac{18}{5}$.
 
-La moyenne des erreurs signées ne mesure rien : des erreurs de signes contraires se compensent, et un modèle qui se trompe de $+10$ puis de $-10$ aurait une erreur moyenne nulle. La MSE élève au carré : elle donne un poids énorme aux grosses erreurs, donc aux valeurs aberrantes.
+La moyenne des erreurs signées ne mesure pas l'erreur : des erreurs de signes contraires se compensent (ici, des erreurs qui vont jusqu'à 3 en valeur absolue donnent une moyenne de $-\frac{1}{5}$). La MSE est une moyenne de carrés, tous positifs ou nuls : elle ne vaut 0 que si chaque carré est nul, donc si toutes les erreurs le sont.
 
-**Erreurs fréquentes.** Calculer $y_i - \hat{y}_i$ (le signe de a change, les carrés non) ; oublier de diviser par $n$ ; élever au carré la somme au lieu de chaque terme.
+**Erreurs fréquentes.** Calculer $y_i - \hat{y}_i$ (le signe de a change, les carrés non) ; oublier de diviser par $n$ ; élever au carré la somme au lieu de chaque terme ; ajouter le 1 une seule fois en f.
 
-**Variante.** Avec les cinq erreurs $(2, -2, 2, -2, 0)$, que valent la moyenne des erreurs et la MAE ? *Réponse* : 0 et $\frac{8}{5}$.
+**Variante.** Si on ajoute 2 à chaque erreur, que vaut $\sum (e_i + 2)^2$ ? *Réponse* : $15 + 4 \times (-1) + 4 \times 5 = 31$.
 
 ### Ex R4.15 — Repérer un raisonnement fautif dans une phrase de presse
 
@@ -420,7 +421,7 @@ La moyenne des erreurs signées ne mesure rien : des erreurs de signes contraire
 
 ### Ex R4.18 — Σ et Π en Python · `sum_over`, `prod_over`
 
-**Réponses** : a) `[70, 0, 1024, 1]` · b) `0.9990234375` ($1 - \frac{1}{1\,024}$).
+**Réponses** : a) `[85, 0, 1024, 1]` · b) `0.9990234375` ($1 - \frac{1}{1\,024}$).
 
 **Démarche.** `total = 0`, puis `for k in range(start, stop + 1): total = total + f(k)` ; `prod_over` part de `1` et multiplie. Une somme vide reste à 0, un produit vide à 1, sans cas particulier à écrire.
 

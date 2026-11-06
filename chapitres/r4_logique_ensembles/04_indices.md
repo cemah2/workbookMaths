@@ -148,7 +148,7 @@ Cherche : des exemples à la place d'un argument ; la réciproque démontrée à
 </details>
 <details><summary>Indice 3</summary>
 
-1 : trois exemples ne démontrent pas un « pour tout ». Pour 2, d'où part le texte, et d'où devait-il partir ? Pour 3, tout entier est-il de la forme $2k$ ?
+1 : trois exemples ne démontrent pas un « pour tout ». Pour 2, d'où part le texte, et d'où devait-il partir ? Pour 3, tout réel vérifie-t-il $x \ge 1$ ?
 
 </details>
 
@@ -192,7 +192,7 @@ $(f \circ g)(x) = f(g(x))$ : on applique $g$ d'abord. Pour réfuter un « pour t
 
 </details>
 
-### R4.R3 — Simplifier des fractions (R1)
+### R4.R3 — Additionner des fractions (R1)
 
 <details><summary>Indice 1</summary>
 
@@ -246,7 +246,7 @@ La contraposée a toujours la valeur de l'implication, la négation la valeur co
 </details>
 <details><summary>Indice 3</summary>
 
-A est vraie, donc sa contraposée aussi, et sa négation est fausse ; sa réciproque « divisible par 3 ⇒ divisible par 6 » est fausse (essaie 9). Pour B, essaie un nombre négatif. Pour D, résous $3x - 2 = 10$.
+A est vraie, donc sa contraposée aussi, et sa négation est fausse ; sa réciproque « divisible par 3 ⇒ divisible par 6 » est fausse (essaie 3). Pour B, essaie un nombre négatif. Pour D, résous $3x - 2 = 10$.
 
 </details>
 
@@ -268,7 +268,7 @@ a : ∀x devient ∃x, ∃y devient ∀y, et $y > x$ devient $y \le x$ : c'est l
 
 </details>
 
-### Ex R4.4 — Union, intersection, complémentaire et cardinal
+### Ex R4.4 — Opérations sur des ensembles et dénombrement
 
 <details><summary>Indice 1</summary>
 
@@ -282,7 +282,7 @@ Relis « Les opérations » et « Compter une union » (fiche §4).
 </details>
 <details><summary>Indice 3</summary>
 
-$A = \{1, 4, 9, 16, 25\}$ et $B = \{2, 3, 5, 7, 11, 13, 17, 19, 23\}$ : a, un carré peut-il être premier ? Pour g, calcule d'abord $\lvert A \cup C \rvert$ (25 est dans les deux). Pour h, représente la classe par un diagramme de Venn.
+$A = \{1, 4, 9, 16, 25\}$ et $B = \{2, 3, 5, 7, 11, 13, 17, 19, 23\}$ : a, un carré peut-il être premier ? Pour g, calcule d'abord $\lvert A \cup C \rvert$ (25 est dans les deux). Pour h, représente l'association par un diagramme de Venn.
 
 </details>
 
@@ -460,17 +460,17 @@ $2(n + 1) - (n + 2) = n \ge 0$. Pour 4, $2n^2 - (n + 1)^2 = n^2 - 2n - 1 = (n - 
 
 <details><summary>Indice 1</summary>
 
-Relis « Lire une somme » et l'encadré « Dans workbookIA » (fiche §5).
+Relis « Lire une somme », « Calculer avec Σ » et l'encadré « Dans workbookIA » (fiche §5).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Calcule d'abord les cinq erreurs $e_i = \hat{y}_i - y_i$, avec leur signe ; puis leurs carrés et leurs valeurs absolues ; enfin les moyennes (divise par 5).
+Calcule d'abord les cinq erreurs $e_i = \hat{y}_i - y_i$, avec leur signe, puis leurs carrés et leurs valeurs absolues ; une moyenne divise par 5. Pour f et g, la linéarité : $\sum (e_i + 1) = \sum e_i + \sum 1$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-$e = (1, 0, -1, -2, 0)$. La MSE est $\frac{1 + 0 + 1 + 4 + 0}{5}$. Pour d et e, seule la cinquième erreur change : elle vaut maintenant $16 - 6$. Pour f, divise chaque nouvelle valeur par l'ancienne.
+$e = (2, -1, 0, -3, 1)$, donc $\sum e_i = -1$. Pour g, $\sum (e_i + 1)^2 = \sum e_i^2 + 2\sum e_i + \sum 1$ : remplace chaque somme par sa valeur, puis divise par 5.
 
 </details>
 

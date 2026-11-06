@@ -14,7 +14,7 @@ Le cardinal d'une union ?;\(\lvert A \cup B \rvert = \lvert A \rvert + \lvert B 
 Le produit cartésien \(A \times B\) ?;L'ensemble des couples (a, b) avec a dans A et b dans B. Un couple est ordonné. \(\lvert A \times B \rvert = \lvert A \rvert \times \lvert B \rvert\).;mwb::r4::produit_cartesien
 Combien de termes a \(\sum_{k=m}^{n} a_k\) ?;\(n - m + 1\) : les deux bornes sont incluses. En Python, range(m, n + 1).;mwb::r4::somme
 Que vaut \(\sum_{k=1}^{n} c\) pour une constante c ?;\(n\,c\) : il y a n termes, tous égaux à c.;mwb::r4::somme
-Les règles de calcul avec Σ ?;Linéarité (on sort les constantes, on sépare les sommes), découpage (Chasles), changement d'indice (les bornes bougent avec l'indice). Mais \(\sum a_k b_k \ne (\sum a_k)(\sum b_k)\) en général.;mwb::r4::somme
+Les règles de calcul avec Σ ?;Linéarité (les constantes se factorisent, une somme de deux suites se coupe en deux sommes), découpage (Chasles), changement d'indice (les bornes bougent avec l'indice). Mais \(\sum a_k b_k \ne (\sum a_k)(\sum b_k)\) en général.;mwb::r4::somme
 \(\sum_{k=1}^{n} k\) ?;\(\frac{n(n+1)}{2}\) : deux escaliers 1 + 2 + … + n forment un rectangle n × (n + 1).;mwb::r4::somme_entiers
 Une somme télescopique ?;\(\sum_{k=1}^{n} (b_{k+1} - b_k) = b_{n+1} - b_1\) : tout se simplifie sauf le premier et le dernier. Exemple : \(\frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1}\).;mwb::r4::telescopique
 Somme vide, produit vide, et une constante dans un Π ?;Une somme vide vaut 0, un produit vide vaut 1 (les éléments neutres). \(\prod_{k=1}^{n} (c\,a_k) = c^n \prod_{k=1}^{n} a_k\).;mwb::r4::produit

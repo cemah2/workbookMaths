@@ -94,7 +94,7 @@ Pour chaque affirmation, quel raisonnement choisirais-tu (direct, contraposée, 
 Que reproches-tu à chacune de ces « démonstrations » ?
 1. « La somme de deux impairs est paire : $3 + 5 = 8$, $7 + 11 = 18$, $1 + 1 = 2$. »
 2. « Montrons que si $n$ est pair, alors $n^2$ est pair. On suppose $n^2$ pair ; alors $n^2 = 2k$, donc $n$ est pair. »
-3. « Montrons que $n^2 + 3n$ est pair pour tout entier $n$. On a $n = 2k$, donc $n^2 + 3n = 4k^2 + 6k = 2(2k^2 + 3k)$. »
+3. « Montrons que pour tout réel $x$, $\lvert x - 1 \rvert \le \lvert x \rvert + 1$. On a $x \ge 1$, donc $\lvert x - 1 \rvert = x - 1 \le x + 1 = \lvert x \rvert + 1$. »
 4. « Montrons que pour tous réels $a, b \ge 0$, $\sqrt{ab} \le \frac{a + b}{2}$. On a $\sqrt{ab} \le \frac{a + b}{2}$, donc $4ab \le (a + b)^2$, donc $0 \le (a - b)^2$, ce qui est vrai. »
 
 <a id="rappels"></a>
@@ -109,14 +109,14 @@ Que reproches-tu à chacune de ces « démonstrations » ?
 3. Écris la négation de « $x \ge 2$ », puis l'ensemble des réels qui la vérifient : comment s'appelle cet ensemble par rapport à $[2 \;;\; +\infty[$ ?
 
 ### R4.R2 — Composer deux fonctions (R3) 🔁 ★ ⏱️ 5 min
-*Fiche §2 · parcours C*
+*Fiche §6 · parcours C*
 
 On pose $f(x) = 3 - x$ et $g(x) = x^2 + 1$.
 1. Calcule $(f \circ g)(2)$ et $(g \circ f)(2)$.
 2. Donne une expression de $(f \circ g)(x)$ et de $(g \circ f)(x)$.
 3. Vrai ou faux : « pour tout réel $x$, $(f \circ g)(x) = (g \circ f)(x)$ ». Justifie par un contre-exemple ou une démonstration.
 
-### R4.R3 — Simplifier des fractions (R1) 🔁 ★ ⏱️ 5 min
+### R4.R3 — Additionner des fractions (R1) 🔁 ★ ⏱️ 5 min
 *Fiche §5 · parcours C, E*
 
 1. Calcule $\frac{1}{2} + \frac{1}{3} + \frac{1}{6}$.
@@ -156,7 +156,7 @@ Dresse dans ta copie la table de vérité de chaque proposition, puis donne sa c
 **Objectif :** écrire la réciproque, la contraposée et la négation d'une implication, et trouver leurs valeurs de vérité.
 **Prérequis :** fiche §2 et §3 · **Parcours :** C, E
 
-Pour chacune des quatre implications, écris dans ta copie, en français, sa réciproque, sa contraposée et sa négation (attention aux « pour tout » cachés), puis donne la liste `[implication, réciproque, contraposée, négation]` de leurs valeurs de vérité.
+Pour chacune des quatre implications, écris dans ta copie, en français, sa réciproque, sa contraposée et sa négation (n'oublie pas le « pour tout » dans la négation), puis donne la liste `[implication, réciproque, contraposée, négation]` de leurs valeurs de vérité.
 - A : « Pour tout entier $n$, si $n$ est divisible par 6, alors $n$ est divisible par 3. »
 - B : « Pour tout réel $x$, si $x^2 > 25$, alors $x > 5$. »
 - C : « Pour tout entier $n \ge 2$, si $n$ est impair, alors $n$ est premier. »
@@ -203,8 +203,8 @@ Pour chacune des quatre implications, écris dans ta copie, en français, sa ré
 
 Pour a, c et f, la réponse est le numéro choisi ; pour b, d et g, vrai ou faux ; pour e, une liste de deux valeurs.
 
-### Ex R4.4 — Union, intersection, complémentaire et cardinal ✏️ ★ ⏱️ 15 min
-**Objectif :** lister et compter les éléments d'unions, d'intersections, de différences et de complémentaires.
+### Ex R4.4 — Opérations sur des ensembles et dénombrement ✏️ ★ ⏱️ 15 min
+**Objectif :** décrire en extension des ensembles définis par une propriété, les combiner, et compter leurs éléments sans tout lister.
 **Prérequis :** fiche §4 · **Parcours :** C, E
 
 Dans l'univers $E = \{1, 2, \dots, 25\}$, on pose $A$ l'ensemble des carrés parfaits de $E$ (les carrés d'entiers), $B$ celui des nombres premiers de $E$ (1 n'est pas premier) et $C = \{n \in E \mid n \ge 17\}$.
@@ -215,10 +215,10 @@ Dans l'univers $E = \{1, 2, \dots, 25\}$, on pose $A$ l'ensemble des carrés par
 | b | $\lvert A \cup B \rvert$ | un nombre entier |
 | c | $B \cap C$ | un ensemble |
 | d | $\lvert \bar{B} \rvert$ (complémentaire dans $E$) | un nombre entier |
-| e | $\lvert B \cup C \rvert$ (avec la formule du cardinal d'une union, puis vérifie en listant) | un nombre entier |
+| e | $\lvert B \cup C \rvert$ | un nombre entier |
 | f | $A \setminus C$ | un ensemble |
 | g | $\lvert \overline{A \cup C} \rvert$ | un nombre entier |
-| h | dans une classe de 30 élèves, 17 font du sport, 12 font de la musique et 5 font les deux : combien ne font ni l'un ni l'autre ? | un nombre entier |
+| h | dans une association de 40 membres, 22 ont un vélo, 15 ont une voiture et 8 ont les deux : combien n'ont ni vélo ni voiture ? | un nombre entier |
 
 ### Ex R4.5 — Produit cartésien et couples ✏️ ★ ⏱️ 10 min
 **Objectif :** dénombrer les couples d'un produit cartésien, et ne pas confondre couple et ensemble.
@@ -237,7 +237,7 @@ On pose $A = \{0, 1\}$ et $B = \{1, 2, 3\}$.
 | g | $A \times B = B \times A$ ? | vrai ou faux |
 
 ### Ex R4.6 — Calculer des sommes Σ et des produits Π ✏️ ★ ⏱️ 15 min
-**Objectif :** traduire Σ et Π en additions et en multiplications, avec les bons termes et les bonnes bornes.
+**Objectif :** écrire une somme Σ ou un produit Π en extension, avec les bonnes bornes et le bon nombre de termes, puis la calculer.
 **Prérequis :** fiche §5 · **Parcours :** C, E
 
 Écris d'abord chaque somme ou produit **en extension** dans ta copie, puis calcule.
@@ -350,24 +350,25 @@ Pour tout entier $n \ge 1$, on note $P(n)$ : « $\displaystyle\sum_{k=1}^{n} k =
 ## 🔗 ⚖️ 🗣️ Pont, esprit critique et explication
 
 ### Ex R4.14 — Écrire la loss moyenne d'un modèle avec Σ 🔗 ★★ ⏱️ 15 min
-**Objectif :** écrire une erreur moyenne avec Σ, la calculer, et voir comment elle réagit à une valeur aberrante.
+**Objectif :** écrire une erreur moyenne avec Σ, la calculer, et se servir des règles de calcul de Σ pour prévoir l'effet d'un décalage des prédictions.
 **Prérequis :** fiche §5 · **Parcours :** C, E
 
-Un modèle prédit le prix de cinq objets (en dizaines d'euros). Les vraies valeurs sont $y = (3, 5, 2, 8, 6)$, les prédictions $\hat{y} = (4, 5, 1, 6, 6)$. On note $e_i = \hat{y}_i - y_i$ l'erreur sur l'objet $i$.
+Un modèle prédit la durée de cinq trajets (en dizaines de minutes). Les vraies durées sont $y = (5, 3, 7, 6, 2)$, les prédictions $\hat{y} = (7, 2, 7, 3, 3)$. On note $e_i = \hat{y}_i - y_i$ l'erreur sur le trajet $i$, et $n$ le nombre de trajets.
 
-1. Écris dans ta copie, avec Σ, l'erreur quadratique moyenne $\text{MSE} = \frac{1}{n}\sum_{i=1}^{n} e_i^2$ et l'erreur absolue moyenne MAE (même formule avec $\lvert e_i \rvert$ au lieu de $e_i^2$), pour $n$ objets.
+1. Écris dans ta copie, avec Σ et pour $n$ trajets, l'**erreur quadratique moyenne** MSE (la moyenne des carrés des erreurs) et l'**erreur absolue moyenne** MAE (la moyenne des valeurs absolues des erreurs).
 2. Calcule les réponses du tableau.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $\sum_{i=1}^{5} e_i$ | un nombre entier |
-| b | la MSE | un nombre (ou une fraction) |
-| c | la MAE | un nombre (ou une fraction) |
-| d | la MSE si la cinquième prédiction devient 16 au lieu de 6 | un nombre (ou une fraction) |
-| e | la MAE dans ce même cas | un nombre (ou une fraction) |
-| f | laquelle des deux est multipliée par le plus grand facteur : 1 pour la MSE, 2 pour la MAE | un nombre entier |
+| b | $\sum_{i=1}^{5} e_i^2$ | un nombre entier |
+| c | la MSE | un nombre (ou une fraction) |
+| d | la MAE | un nombre (ou une fraction) |
+| e | $\sum_{i=1}^{5} e_i^2 = \left(\sum_{i=1}^{5} e_i\right)^2$ ? | vrai ou faux |
+| f | on ajoute 1 à chaque prédiction : la nouvelle somme $\sum_{i=1}^{5} (e_i + 1)$, calculée avec la linéarité, sans recalculer les erreurs | un nombre entier |
+| g | la nouvelle MSE, en développant $(e_i + 1)^2$ et en utilisant a et b | un nombre (ou une fraction) |
 
-3. Dans ta copie, en deux phrases : pourquoi n'utilise-t-on pas $\frac{1}{n}\sum e_i$ comme mesure d'erreur ? Et quel défaut la question f révèle-t-elle chez la MSE ?
+3. Dans ta copie, en deux phrases : pourquoi n'utilise-t-on pas la moyenne des erreurs $\frac{1}{n}\sum e_i$ comme mesure d'erreur ? Et pourquoi la MSE ne peut-elle être nulle que si toutes les erreurs le sont ?
 
 ### Ex R4.15 — Repérer un raisonnement fautif dans une phrase de presse ⚖️ ★ ⏱️ 15 min
 **Objectif :** reconnaître les erreurs de logique les plus courantes dans un texte : réciproque prise pour l'implication, négation mal formée, exemples pris pour une démonstration.

@@ -5224,7 +5224,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "4f21748b185146b06a77e64606d63ed02b7ece4751283c3c6e2500931480f986": "(P ou Q) est vraie dès qu'une des deux l'est : trois combinaisons de P et Q sur quatre",
+        "4f21748b185146b06a77e64606d63ed02b7ece4751283c3c6e2500931480f986": "« P ou Q » est vraie dès qu'une des deux l'est : compte les lignes une par une",
         "91d93dc0c6df6e58c3bf40b4a85ed1b0191098a7da18dde5da2d37456db5c474": "« et (non R) » : seules les lignes où R est fausse comptent"
       },
       "sign": 1,
@@ -5243,7 +5243,7 @@
       "kind": "array",
       "mistakes": {
         "5e1eae4c90c542e5fab1f384d03b086bd603cad7c26491e1252e5e061bb50379": "la négation d'une implication vraie est fausse",
-        "c16b9adca1d2370d36a266590087d41aa9300aba89ecd9ef2eb09dfe01a31733": "la réciproque « divisible par 3 ⇒ divisible par 6 » a un contre-exemple : essaie 9",
+        "c16b9adca1d2370d36a266590087d41aa9300aba89ecd9ef2eb09dfe01a31733": "la réciproque « divisible par 3 ⇒ divisible par 6 » a un contre-exemple : essaie 3",
         "d62acaae30d125fe39d6953e8eff715b7ba43bcf9e4ff5db26fdee774bb32d03": "la contraposée a toujours la même valeur que l'implication"
       },
       "shape": [
@@ -5316,6 +5316,7 @@
       "magnitude": 0,
       "mistakes": {
         "4501513c72c21e3d0fd77af819b05bb79a4b8a6c7d238189e20b6da6deacb0f3": "3, 5 et 7 sont premiers : la propriété est vraie pour eux",
+        "a1b02f8b33206d09f0fdf2c753797969d960009c16036d4e8f3d5a5c9a85053a": "l'énoncé demande un entier compris entre 2 et 10",
         "b54ba0a573d55761693a325f0902bc017f98db324f964ca625171a8ae3244348": "3, 5 et 7 sont premiers : la propriété est vraie pour eux",
         "b634a6bcd5af0944ebf905b883828ddcacbc808cbde08367e41c588650060c3a": "3, 5 et 7 sont premiers : la propriété est vraie pour eux"
       },
@@ -5327,7 +5328,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "bace566da11be4af8332968cd97f47174d662a2c34f64367f0a66f7d60bf6586": "on cherche un entier négatif",
+        "bace566da11be4af8332968cd97f47174d662a2c34f64367f0a66f7d60bf6586": "6 vérifie B (6² > 25 et 6 > 5) : ce n'est pas un contre-exemple, et l'énoncé demande un entier négatif",
         "d792d6512e6435881f8ffa6b77a7c0e6b44513d6c1615ba91af6db88f7f9d4b1": "pour x = −5, x² = 25, qui n'est pas strictement plus grand que 25"
       },
       "sign": -1,
@@ -5396,7 +5397,7 @@
       "kind": "array",
       "mistakes": {
         "12dd5106a52771d60785ec2141fa61121ab2669d0f56159a60423fd33704137c": "essaie y = 0 dans la seconde phrase",
-        "56edca1bd5ad46926d7d8c8dd1842b975225d957bc7a67e1e79ef4bcfe3d6581": "y² = x n'a pas de solution réelle quand x est négatif ; et y = 0 convient pour tous les x",
+        "56edca1bd5ad46926d7d8c8dd1842b975225d957bc7a67e1e79ef4bcfe3d6581": "essaie x = −1 dans la première phrase, et y = 0 dans la seconde",
         "ae979b52a232740e91a115d673a91077a0f0eb21716271b8c9c20681f9b913ee": "essaie x = −1 dans la première phrase"
       },
       "shape": [
@@ -5481,6 +5482,7 @@
       "hash": "280196fd6b6c3160e4244c41e7b27a6bc4fe890c9fa95f610834dbdbd37bba11",
       "kind": "set",
       "mistakes": {
+        "001c0108ffe4bdca2c8aca58f465f98571a75777ca15858f9363a481d85104c1": "1 = 1² est un carré parfait",
         "b91a5b3db6262aa2647a718aa746022a08f4b611a9143c3c8cad24312e5f4a21": "A \\ C contient les éléments de A qui ne sont pas dans C",
         "e79e8f117973db5b4eeb2026b961d7b695c7d823973dabb0cb0a44f23f328ddd": "25 est dans C : il faut le retirer"
       },
@@ -5498,12 +5500,12 @@
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.4h": {
-      "hash": "c6266ec1212697cb48c043ce88f7d86073909fdefa65fe6f11a440e21ff7730e",
+      "hash": "c761cd20dbcbd92bf38c2b46e5dd98254a32c877b691300dae8f683d6c66b44a",
       "kind": "int",
-      "magnitude": 0,
+      "magnitude": 1,
       "mistakes": {
-        "c8d61ac874fa98c75486f9bbad9ffe89ec14010600fce534bc9890d60f4f0556": "les 5 élèves qui font les deux sont comptés deux fois dans 17 + 12",
-        "fa07979264c4b0b98b34aa60a202ca8d0707b60f9985f00be1482c36986c7338": "on demande ceux qui ne font ni l'un ni l'autre"
+        "608702d6dbf7f707991cd077d75c0cda21464e63cef283d804ab591be4e60655": "on demande ceux qui n'ont ni l'un ni l'autre",
+        "8563887452a23cb220f14744fba349fb38ee00aa811aafdb83043d6b038098cf": "les 8 membres qui ont les deux sont comptés deux fois dans 22 + 15"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -5533,7 +5535,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "6603c7dd719013c1e2009a31410f2f338cc0291906e2dbfd1e0b237c5818066f": "un couple (2, 1) n'a pas x < y : l'ordre des coordonnées compte",
+        "6603c7dd719013c1e2009a31410f2f338cc0291906e2dbfd1e0b237c5818066f": "applique la condition x < y : tous les couples de B × B ne conviennent pas",
         "a59ba15ea8423d0a4e2eba62d8091b6ea03b0d7d6ba96acda5e3d9feb92be0ea": "x < y est strict : (1, 1) ne convient pas"
       },
       "sign": 1,
@@ -5770,7 +5772,7 @@
       "hash": "f067ca70a6b20e6c138478446dfad0a81cf4d5d6de583e5380630503211064da",
       "kind": "fraction",
       "mistakes": {
-        "7cb6c23de73a86b140c7602b181351488adbee298b0665eafe14b4a5f021ff32": "le dernier terme est −1/10 : il reste 1 − 1/10"
+        "7cb6c23de73a86b140c7602b181351488adbee298b0665eafe14b4a5f021ff32": "seuls le premier et le dernier terme restent : écris le dernier terme, pour k = 9"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -5780,6 +5782,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
+        "18ba25b1b59fc744b60c04f46d939d98527bb0609b2a39015a74f278e90f7b2f": "c'est un contre-exemple, mais pas le plus petit : essaie les valeurs de n une par une",
         "ad16c05f9bd94ab484d190d8568d3b8c17313763ddf36c9cdcf8bdca0c1ddedb": "l'inégalité est stricte : un cas d'égalité est déjà un contre-exemple"
       },
       "sign": 1,
@@ -5792,6 +5795,7 @@
       "mistakes": {
         "215bd35afec047667ce9068e4083ac713dc229b8a1e65de338b663e2d49a8d7e": "il y a un contre-exemple plus petit : essaie les valeurs de n une par une",
         "295cbb4b56f23e1f5ee84ae86faaff6e0f0451c49c9454a215710b5fd58b3c47": "il y a un contre-exemple plus petit : essaie les valeurs de n une par une",
+        "83392467b83621ff77d900df610de1250ceb6f8bd93f47c65765be0edd0294a6": "le contre-exemple est la valeur de n, pas celle de 2ⁿ − 1",
         "8e32cf0e45436ccefe2abdb7c0804108432b28f5dbfb9ebf5c2a749d2676704e": "il y a un contre-exemple plus petit : essaie les valeurs de n une par une",
         "8fd877d8dad88af1cef9dd1d94c5190e1e04f7736e8445b659330dfa0a265aa3": "il y a un contre-exemple plus petit : essaie les valeurs de n une par une",
         "cc8f19ce935560c4cc2fca3a2f01f01b4b14f51a2c7b35e8916c8a0fcab51bd2": "il y a un contre-exemple plus petit : essaie les valeurs de n une par une"
@@ -5837,64 +5841,73 @@
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.14a": {
-      "hash": "9295749f1129e1d42cf057c661e747a6393ed30c8ffdff0b4ec354d74de8042c",
+      "hash": "6f76b06ebe649d7cc44b80c48505b00f6d7fe0e16604107cf658a0c1ca758e77",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "14b32bb023d46b29bff8898af39f47b8208c143f3ade5cab3de11eb79fe3623a": "e_i = ŷ_i − y_i garde son signe : les erreurs se compensent",
-        "5e54466c121f75ebc79d7b2a982546c94c7b6752a26e841335a310f54ca45cef": "e_i = ŷ_i − y_i : prédiction moins vraie valeur"
+        "031617f2d2dbfb06c22147579823ea94a472573ba418d76b0d93d1e7d3c8bb8b": "e_i garde son signe : des erreurs de signes contraires se compensent",
+        "640cc4f5b4b6c59c7772ed065b1f26ea46b6c069f1734603f62929dde97edaca": "e_i = ŷ_i − y_i : prédiction moins vraie valeur"
       },
       "sign": -1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.14b": {
-      "hash": "ceb3b7683454c12855eae5817cfc19bb1c8abe56142548726a2cd472b4dcac8f",
-      "kind": "fraction",
+      "hash": "d80d3f3987170f18d52dd286b0edba97da9db37be008aef9daadcb621e2aba8e",
+      "kind": "int",
+      "magnitude": 1,
       "mistakes": {
-        "1f0b614cd78253699de9a0e544f02bf28436aff05e5cca9f35d471d9841238cc": "une moyenne : divise par n = 5",
-        "64bc22dfc767a3c8af35bf9638221317d0a89e2d20600531d65b2188e7444c7a": "élève chaque erreur au carré"
+        "1011a531ba4b4feab94468cc57ab9e5d0bf2d6539ef79d5c72d8fcc026f494cb": "des carrés, pas des valeurs absolues",
+        "bf21ed69cf958f41a8e3a626cda1af2f44433ac3db125a72cc9b8b141a433afa": "élève chaque erreur au carré, puis additionne : ce n'est pas le carré de la somme"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.14c": {
-      "hash": "d4b46f8147d95471a0280cc901df9df3611914c2242a69b5c7f8a492544b0f20",
+      "hash": "25c3c0d15bc7145d55b192c49ef79106ad22119b7378f9ca24fd39e150c9f4bc",
       "kind": "fraction",
       "mistakes": {
-        "2353dc157f15de54fb2ceb9d5ad5a6686eb741ed4fb632d5a6fcd0b5fa253ac8": "une moyenne : divise par n = 5",
-        "ac8aa6c6cfb47ae0484cc9fcd1f786fa29b6601a7d0bcc9bb44841d1a0ce4094": "la valeur absolue de chaque erreur, avant de les ajouter"
+        "81c6d91dbe99cdcc5ff108427443518099d760eae7bb8a1840dbf1bf0e92de4e": "une moyenne : divise par n = 5",
+        "d39db26293fe580f3470300ddb765962c07154f809478300254edd724386a1b0": "élève chaque erreur au carré avant de faire la moyenne"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.14d": {
-      "hash": "5bf9dee17d844712890f97e049fe533f1fd0841f03cbb8aea144fff7d5f6798e",
+      "hash": "e566e7456d9fb48e9c63b58ea180e68bc2c596283ff5af97ca6590f6a2305d4b",
       "kind": "fraction",
       "mistakes": {
-        "a7b03adce82d5f8042cc61c89026f97dcba4f27388ca05e4104ad491a687fdf9": "la nouvelle erreur, 16 − 6, est élevée au carré elle aussi"
+        "597d9f01384ef1543dd972081c9b036ce7621b9946a7d6e66cfce54311f538fe": "une moyenne : divise par n = 5",
+        "b2df6472f57df0d0ef2945e6ba7f5bc4c38a23f1de7e86f29b06527f59e9bf20": "la valeur absolue de chaque erreur, avant de les ajouter"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.14e": {
-      "hash": "6eb2046553260d605ad424928a87ad12b91efd36b43d8e813c7a0b2b7c793a71",
-      "kind": "fraction",
+      "hash": "96780139f72514a711376c947e1e14d4a8467d287e32b5d2d3d82e6c6389765c",
+      "kind": "bool",
       "mistakes": {
-        "8a0874ae36080bf381a22c46fc86d67ae7d5f3bbe133e35a87833cd4a5767f24": "une moyenne : divise par n = 5"
+        "917037d46db8955e0312736eda1472e219c8ab2534e43eb9c0b963c365b3b366": "compare les deux nombres : le carré d'une somme n'est pas la somme des carrés"
+      },
+      "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
+    },
+    "R4.14f": {
+      "hash": "df1084c71d74f0edcaa83c86f575e8016c14000b24f67358bbb3f8f7fb531d64",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5fbf750b0a04f87234b36f58a0514c7361b16b4ecfc849969d8e0d2b17cdc1ac": "le 1 est ajouté à chacun des 5 termes",
+        "9e6a69ff3f7a897c8ff25aa5972a23044b9c2d857c958f733dd6bf828f19e2a5": "n'oublie pas la somme des erreurs elle-même"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
-    "R4.14f": {
-      "choices": [
-        "1",
-        "2"
-      ],
-      "hash": "b5e4b80733c823c59e992966d116297fa2c2f50b45b60f963b7b866ce9ab4331",
-      "kind": "int",
-      "magnitude": 0,
+    "R4.14g": {
+      "hash": "f149ef72dc57ef2152afe3c4e20c3feb4f4ac5a87cc133126418d65923625cbf",
+      "kind": "fraction",
       "mistakes": {
-        "922c4128dee0bc863218794520dfed9fb085261eae240f1b3d3ef858503c514a": "compare les facteurs : la nouvelle valeur divisée par l'ancienne, pour chaque mesure"
+        "3916a448d75a5f133f7303f37bf4d56ba6a4249acd13fd255c6da5803cc938d9": "le 1 du développement est ajouté à chacun des 5 termes",
+        "7744e9d4c2d9fa205279701b586ec396ba0c42c5616d1372ee11452a64bd6682": "les erreurs ont changé : la MSE aussi",
+        "e678ae0a4798afb9bf6b93d5f567977f78c95f2914ac62ebcf518648f9e2dd45": "(e_i + 1)² = e_i² + 2e_i + 1 : le double produit compte"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -5949,18 +5962,18 @@
     "R4.18a": {
       "decimals": 0,
       "element_hashes": [
-        "77cfe8a18bd1111117e7966957f7cd27acbe9c5c655a332b49b6a0aca2d6b8f9",
+        "1e418344e23d5860ffd11b3a2d32e1ae64829948543f401caaad05d159a9d88a",
         "11d48add632570ed5f42dfeb54e5c4ab473af9dfe8659f3b35d91f81b09b0202",
         "25376774389f3419298bb7516a386dab1b9f22936fa09dda54fd58835b76adc6",
         "79de8ba48ce84833e107cab6c85f07271d471b18095a397c5995dd48f513a1e3"
       ],
-      "hash": "3e9d804a7d770f03a94bc46cc8e538ee5f805df24e415a68e2218dd0031078a3",
+      "hash": "2a1e1d81bede376eb90e30e2a3202d21165cae28d1fb18c47da12b1d01b1bef7",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "331b117c1532d63c6864c22f7e80b2fe7466d9f72a4b80346c5bd2fc0b02280e": "un produit vide vaut 1, l'élément neutre de la multiplication",
-        "573fd9b1c726b02263ef2a7c4991a0d1d8254b40b8c85df4846d5b192da321a0": "stop est inclus : range(start, stop + 1)",
-        "7748340c2b7a4285190367aa852cae6aa4228eaa94947dbc22e1a58fef92745d": "un produit part de 1, pas de 0"
+        "935fb974acd573d54725b9b3c2409554d0d99cbbcbc997e61a1476e2dd3015b5": "un produit vide vaut 1, l'élément neutre de la multiplication",
+        "c9c787f913f3f9bea37dd5ec531190a536c929b48d31d8f0f3e25aa9ae1bb069": "un produit part de 1, pas de 0",
+        "d0985454417cfa118dedd2d912c18586dee89a5310b5b38821107f9005519faa": "stop est inclus : range(start, stop + 1)"
       },
       "shape": [
         4
