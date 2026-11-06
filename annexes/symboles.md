@@ -74,16 +74,25 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\propto$ | « proportionnel à » | proportional to | égal à une constante près | $p(\theta \mid x) \propto p(x \mid \theta)\,p(\theta)$ | M04 |
 | $O(n^2)$ | « grand O de n carré » | big O of n squared | croît au plus comme $n^2$ | coût du produit de deux matrices $n \times n$ : $O(n^3)$ | R7 |
 | $\arg\max_x f(x)$, $\arg\min_x f(x)$ | « argument du maximum (du minimum) de f » | arg max, arg min | la valeur de $x$ (pas la valeur de $f$) où $f$ est maximale (minimale) | $\arg\min_x (x-3)^2 = 3$ | R3, M05b |
+| $\cos\theta$, $\sin\theta$ | « cosinus de thêta », « sinus de thêta » | cosine, sine of theta | l'abscisse et l'ordonnée du point d'angle $\theta$ du cercle trigonométrique | $\cos\frac{\pi}{3} = \frac{1}{2}$ | R9 |
+| $\cos^2\theta$ | « cosinus carré de thêta » | cos squared theta | $(\cos\theta)^2$ | $\cos^2\theta + \sin^2\theta = 1$ | R9 |
+| $\arccos x$ | « arc cosinus de x » | arccosine of x | l'angle de $[0 ; \pi]$ dont le cosinus vaut $x$ | $\arccos 0 = \frac{\pi}{2}$ | R9 |
+| rad, ° | « radian », « degré » | radian, degree | deux unités d'angle : $\pi$ rad $= 180°$ | $\frac{\pi}{4}$ rad $= 45°$ | R9 |
+| $\hat{C}$ | « angle C » | angle C | l'angle d'un triangle au sommet $C$ | $c^2 = a^2 + b^2 - 2ab\cos\hat{C}$ | R9 |
 
 ## Vecteurs et matrices
 
 | Symbole | Se lit | En anglais | Signifie | Exemple | Chapitre |
 |---|---|---|---|---|---|
 | $\mathbf{x}$ (gras) | « le vecteur x » | vector x | une liste de nombres (en colonne) | $\mathbf{x} = (1, 2)$ | R9, M07 |
+| $\overrightarrow{AB}$, $\vec{u}$ | « vecteur A B », « vecteur u » | vector AB, vector u | le déplacement de $A$ vers $B$ : $(x_B - x_A ; y_B - y_A)$ | $A(-2 ; 1)$, $B(6 ; 16)$ : $\overrightarrow{AB} = (8 ; 15)$ | R9 |
+| $M(x ; y)$ | « M de coordonnées x, y » | point M (x, y) | le point d'abscisse $x$ et d'ordonnée $y$ ; en Python, `(x, y)` | $O(0 ; 0)$, l'origine | R9 |
 | $x_i$ | « x indice i » | x sub i | la $i$-ième composante de $\mathbf{x}$ | $x_2 = 2$ | R4 |
-| $\mathbb{R}^n$ | « R n » | R n | les vecteurs à $n$ composantes réelles | $(1, 2, 3) \in \mathbb{R}^3$ | M07 |
+| $\mathbb{R}^n$ | « R n » | R n | les vecteurs à $n$ composantes réelles | $(1, 2, 3) \in \mathbb{R}^3$ | R9, M07 |
 | $\lVert \mathbf{x} \rVert$ | « norme de x » | norm of x | longueur du vecteur | $\lVert (3, 4) \rVert = 5$ | R9, M07 |
+| $\lVert \mathbf{x} \rVert_1$, $\lVert \mathbf{x} \rVert_\infty$ | « norme un de x », « norme infinie de x » | L1 norm, infinity norm | $\sum_i \lvert x_i \rvert$ ; $\max_i \lvert x_i \rvert$ | $\lVert (-6, 2) \rVert_1 = 8$ | R9, M07 |
 | $\mathbf{x} \cdot \mathbf{y}$, $\langle \mathbf{x}, \mathbf{y} \rangle$ | « x scalaire y », « produit scalaire de x et y » | dot product, inner product | $\sum_i x_i y_i$ | $(1,2) \cdot (3,4) = 11$ | R9, M07 |
+| $\perp$ | « orthogonal à », « perpendiculaire à » | orthogonal to, perpendicular to | de produit scalaire nul | $(2, -1) \perp (1, 2)$ | R9 |
 | $\mathbf{A}$ (gras majuscule) | « la matrice A » | matrix A | un tableau de nombres | | M09a |
 | $\mathbf{A}^\top$ ou $\mathbf{A}^T$ | « A transposée » | A transpose | lignes et colonnes échangées | | M09a |
 | $\mathbf{A}\mathbf{B}$ | « A B », « produit de A par B » | matrix product | produit matriciel (l'ordre compte) | | M09a |

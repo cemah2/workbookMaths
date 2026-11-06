@@ -1,0 +1,26 @@
+front;back;tags
+La distance entre deux points du plan ?;\(AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}\), par le théorème de Pythagore. Les carrés effacent le signe des écarts.;mwb::r9::distance
+Les coordonnées du milieu de [AB] ?;Les moyennes des coordonnées : \(\left(\frac{x_A + x_B}{2}, \frac{y_A + y_B}{2}\right)\).;mwb::r9::milieu
+Les coordonnées du vecteur AB ?;Arrivée moins départ : \(\overrightarrow{AB} = (x_B - x_A, y_B - y_A)\). Un vecteur est un déplacement, qui ne dépend pas de son point de départ.;mwb::r9::vecteur
+La relation de Chasles ?;\(\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}\) : enchaîner deux déplacements, c'est additionner leurs vecteurs.;mwb::r9::chasles
+Quand ABCD est-il un parallélogramme ?;Quand \(\overrightarrow{AB} = \overrightarrow{DC}\) : les côtés opposés sont parallèles et de même longueur.;mwb::r9::parallelogramme
+Multiplier un vecteur par un nombre k ?;\(k\vec{u} = (kx, ky)\) : même direction, même sens si \(k > 0\), sens contraire si \(k < 0\), longueur multipliée par \(|k|\).;mwb::r9::produit_nombre
+Comment tester que deux vecteurs sont colinéaires ?;Leurs coordonnées sont proportionnelles, soit \(xy' - x'y = 0\) (le déterminant de R2).;mwb::r9::colineaires
+La norme d'un vecteur du plan ?;Sa longueur : \(\lVert \vec{u} \rVert = \sqrt{x^2 + y^2}\). La distance AB est la norme de \(\overrightarrow{AB}\).;mwb::r9::norme
+Propriétés de la norme ?;\(\lVert k\vec{u} \rVert = |k|\,\lVert \vec{u} \rVert\), \(\lVert \vec{u} \rVert = 0\) seulement pour le vecteur nul, et l'inégalité triangulaire \(\lVert \vec{u} + \vec{v} \rVert \le \lVert \vec{u} \rVert + \lVert \vec{v} \rVert\).;mwb::r9::proprietes_norme
+Vecteur unitaire ?;Un vecteur de norme 1. Normaliser : \(\frac{\vec{u}}{\lVert \vec{u} \rVert}\), même direction et même sens.;mwb::r9::unitaire
+Normes L1 et L∞ ?;\(\lVert \vec{u} \rVert_1 = \sum |x_i|\) (la distance du taxi) et \(\lVert \vec{u} \rVert_\infty = \max |x_i|\). Sans précision, la norme est la norme L2.;mwb::r9::normes_l1_linf
+Équation réduite d'une droite ?;\(y = mx + p\) : \(m\) est la pente, \(p\) l'ordonnée à l'origine, et \((1, m)\) un vecteur directeur. Une droite verticale s'écrit \(x = k\).;mwb::r9::equation_reduite
+Ce qu'on lit dans l'équation cartésienne ax + by + c = 0 ?;\((-b, a)\) est un vecteur directeur, \((a, b)\) un vecteur normal. Toutes les équations proportionnelles décrivent la même droite.;mwb::r9::equation_cartesienne
+De quel côté d'une droite est un point ?;Le signe de \(ax + by + c\) : nul sur la droite, positif du côté où pointe le vecteur normal \((a, b)\), négatif de l'autre.;mwb::r9::demi_plans
+Le produit scalaire en coordonnées ?;\(\vec{u} \cdot \vec{v} = xx' + yy'\), un nombre, \(\vec{u} \cdot \vec{u} = \lVert \vec{u} \rVert^2\). Il est symétrique et linéaire.;mwb::r9::produit_scalaire
+Quand deux vecteurs sont-ils orthogonaux ?;Quand leur produit scalaire est nul : \(\vec{u} \perp \vec{v} \iff \vec{u} \cdot \vec{v} = 0\). Le quart de tour de \((x, y)\) est \((-y, x)\).;mwb::r9::orthogonalite
+Projection de v sur la direction de u ?;\(\vec{p} = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert^2}\vec{u}\) : le seul multiple de \(\vec{u}\) tel que \(\vec{v} - \vec{p}\) soit orthogonal à \(\vec{u}\).;mwb::r9::projection
+Degrés et radians ?;\(180° = \pi\) rad : \(\theta_{\text{rad}} = \theta_{\text{deg}} \times \frac{\pi}{180}\). Les fonctions trigonométriques de Python attendent des radians.;mwb::r9::radians
+Cosinus et sinus sur le cercle trigonométrique ?;Le point d'angle \(\theta\) a pour coordonnées \((\cos\theta, \sin\theta)\), et \(\cos^2\theta + \sin^2\theta = 1\).;mwb::r9::cercle
+Cosinus de 0, π/6, π/4, π/3, π/2 ?;\(1, \frac{\sqrt{3}}{2}, \frac{\sqrt{2}}{2}, \frac{1}{2}, 0\). Les sinus : la même liste à l'envers.;mwb::r9::valeurs_remarquables
+Les symétries du cercle trigonométrique ?;\(\cos(-\theta) = \cos\theta\), \(\sin(-\theta) = -\sin\theta\), \(\cos(\pi - \theta) = -\cos\theta\), \(\sin(\pi - \theta) = \sin\theta\), \(\cos(\theta + \pi) = -\cos\theta\).;mwb::r9::symetries
+Période de t ↦ cos(ωt) ?;\(\frac{2\pi}{\omega}\) (pour \(\omega > 0\)) : cos et sin sont périodiques de période \(2\pi\).;mwb::r9::periode
+Que rend arccos ?;L'unique angle de \([0, \pi]\) qui a ce cosinus. \(\arccos(\cos\theta) = \theta\) seulement si \(\theta \in [0, \pi]\).;mwb::r9::arccos
+L'angle entre deux vecteurs non nuls ?;\(\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}\) (la similarité cosinus, entre −1 et 1), puis \(\theta = \arccos(\ldots) \in [0, \pi]\).;mwb::r9::angle
+La formule d'Al-Kashi ?;\(c^2 = a^2 + b^2 - 2ab\cos\hat{C}\) dans un triangle quelconque, pour un angle droit, c'est Pythagore.;mwb::r9::al_kashi

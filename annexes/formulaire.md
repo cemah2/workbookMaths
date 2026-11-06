@@ -144,7 +144,20 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | variance | $\mathbb{V}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2] = \mathbb{E}[X^2] - \mathbb{E}[X]^2$ ; $\sigma = \sqrt{\mathbb{V}(X)}$ ; $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ |
 | loi des grands nombres | la fréquence se rapproche de la probabilité ; écarts en $\frac{1}{\sqrt{n}}$ |
 
-*(R9 ajouté avec son chapitre)*
+### R9 · Géométrie du plan, vecteurs et trigonométrie
+
+| Notion | Formules |
+|---|---|
+| distance et milieu | $AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$ ; milieu $\left(\frac{x_A + x_B}{2} ; \frac{y_A + y_B}{2}\right)$ |
+| vecteurs | $\overrightarrow{AB} = (x_B - x_A ; y_B - y_A)$ ; $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$ ; $ABCD$ parallélogramme $\iff \overrightarrow{AB} = \overrightarrow{DC}$ ; colinéaires $\iff xy' - x'y = 0$ |
+| norme | $\lVert \vec{u} \rVert = \sqrt{x^2 + y^2}$ ; $\lVert k\vec{u} \rVert = \lvert k \rvert\,\lVert \vec{u} \rVert$ ; $\lVert \vec{u} + \vec{v} \rVert \le \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ ; unitaire $\frac{\vec{u}}{\lVert \vec{u} \rVert}$ ; $\lVert \vec{u} \rVert_1 = \sum \lvert x_i \rvert$, $\lVert \vec{u} \rVert_\infty = \max \lvert x_i \rvert$ |
+| droites | $y = mx + p$, $m = \frac{y_B - y_A}{x_B - x_A}$ ; $ax + by + c = 0$ : $(-b ; a)$ directeur, $(a ; b)$ normal ; points $A + t\,\vec{d}$ |
+| produit scalaire | $\vec{u} \cdot \vec{v} = xx' + yy' = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert\cos\theta$ ; $\vec{u} \cdot \vec{u} = \lVert \vec{u} \rVert^2$ ; $\vec{u} \perp \vec{v} \iff \vec{u} \cdot \vec{v} = 0$ ; projection $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert^2}\vec{u}$ |
+| radians | $180° = \pi$ rad ; $\theta_{\text{rad}} = \theta_{\text{deg}} \times \frac{\pi}{180}$ |
+| cosinus et sinus | $M(\theta) = (\cos\theta ; \sin\theta)$ ; $\cos^2\theta + \sin^2\theta = 1$ ; $\cos 0, \frac{\pi}{6}, \frac{\pi}{4}, \frac{\pi}{3}, \frac{\pi}{2}$ : $1, \frac{\sqrt{3}}{2}, \frac{\sqrt{2}}{2}, \frac{1}{2}, 0$ (sinus : à l'envers) |
+| symétries, période | $\cos(-\theta) = \cos\theta$, $\sin(-\theta) = -\sin\theta$ ; $\cos(\pi - \theta) = -\cos\theta$, $\sin(\pi - \theta) = \sin\theta$ ; période $2\pi$, et $\frac{2\pi}{\omega}$ pour $\cos(\omega t)$ ; $\sin' = \cos$, $\cos' = -\sin$ |
+| angle | $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$ (similarité cosinus), $\theta = \arccos(\ldots) \in [0 ; \pi]$ ; Al-Kashi : $c^2 = a^2 + b^2 - 2ab\cos\hat{C}$ |
+| dimension $n$ | $\lVert \mathbf{x} \rVert = \sqrt{\sum x_i^2}$, $\mathbf{x} \cdot \mathbf{y} = \sum x_i y_i$, $d(\mathbf{x}, \mathbf{y}) = \lVert \mathbf{x} - \mathbf{y} \rVert$ |
 
 ## Partie I · Fondations
 
