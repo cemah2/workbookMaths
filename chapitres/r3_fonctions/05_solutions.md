@@ -17,7 +17,7 @@
 6. **Vrai** : $x - 2 \ge 0 \iff x \ge 2$.
 
 ### R3.Q2 — Lire un graphique
-1. **Vrai** : au-dessus de $x = 1$, la courbe est à la hauteur 1 (c'est un sommet de la courbe).
+1. **Vrai** : au-dessus de $x = 1$, la courbe est à la hauteur 1 (c'est son point le plus haut sur $[0 \;;\; 3]$).
 2. **Vrai** : la droite $y = 1$ touche la courbe en $x = 1$ et la recoupe en $x = 4$ ; à gauche de 1, la courbe est en dessous.
 3. **Faux** : $f$ est croissante sur $[0 \;;\; 1]$, puis décroissante sur $[1 \;;\; 3]$.
 4. **Vrai** : $f(0) = -1$ et $f(3) = -1$, et la courbe ne descend jamais plus bas sur $[0 \;;\; 4]$.
@@ -37,7 +37,7 @@
 2. **Vrai** : l'inverse est décroissant sur $]0 \;;\; +\infty[$ : il retourne l'ordre.
 3. **Faux** : $\sqrt{x}$ demande $x \ge 0$.
 4. **Faux** : $\sqrt{(-3)^2} = 3 \ne -3$ ; en général, $\sqrt{x^2} = |x|$.
-5. **Vrai**.
+5. **Vrai** : sur $]-\infty \;;\; 0]$, $|x| = -x$, une fonction affine de pente $-1$.
 6. **Vrai** : pour $x \ge 0$, $\max(0, x) = x$.
 7. **Faux** : $9 > 1$. Le carré est décroissant sur les négatifs : il retourne l'ordre.
 
@@ -47,7 +47,7 @@
 3. **Une** : $\Delta = 16 - 16 = 0$ ; c'est $(2x - 1)^2$, racine double $\frac{1}{2}$.
 4. **Deux** : $\Delta = 1 + 8 = 9 > 0$.
 5. **Aucune** : $x^2 + 7 \ge 7$ pour tout $x$.
-6. **Deux** : un « U » dont le point le plus bas est sous l'axe ($\beta = -3 < 0$) coupe forcément l'axe deux fois.
+6. **Deux** : un « U » dont le point le plus bas est sous l'axe ($\beta = -2 < 0$) coupe forcément l'axe deux fois.
 7. **Deux** : $\Delta = b^2 - 4 \times 3 \times (-5) = b^2 + 60 > 0$ quel que soit $b$. Quand $a$ et $c$ ont des signes contraires, il y a toujours deux racines.
 
 ### R3.Q6 — Croissante, décroissante, extremum
@@ -128,20 +128,20 @@
 
 ### Ex R3.2 — Lire des valeurs, des solutions et des variations sur un graphique
 
-**Réponses** : a) `3` · b) `-1` · c) `[-4, -1, 4]` · d) `[0, 3]` · e) `3` · f) `[-2, 5]` · g) `"[-2 ; 1]"` · h) `"[-4 ; -1] U [4 ; 5]"`.
+**Réponses** : a) `4` · b) `0` · c) `[-3, -1, 4]` · d) `[-4, 0, 3]` · e) `4` · f) `[-2, 5]` · g) `"[1 ; 5]"` · h) `"[-3 ; -1] U [4 ; 5]"`.
 
-**Démarche.** La courbe relie les points $(-4, 1)$, $(-2, 3)$, $(1, -3)$, $(3, -1)$ et $(5, 3)$.
-- a) Au-dessus de $x = -2$, la courbe est à la hauteur 3.
-- b) Le segment de $(-2, 3)$ à $(1, -3)$ descend de 2 par unité : en $x = 0$, il est à $3 - 2 \times 2 = -1$.
-- c) La droite $y = 1$ passe par l'extrémité gauche ($x = -4$), coupe le deuxième segment en $x = -1$ et le dernier en $x = 4$.
-- d) La droite $y = -1$ coupe le deuxième segment en $x = 0$ et touche le point anguleux $(3, -1)$.
-- e) et f) La plus grande hauteur est 3, atteinte en $x = -2$ **et** en $x = 5$ (l'extrémité droite).
-- g) La courbe descend de $x = -2$ à $x = 1$.
-- h) La courbe est au-dessus de $y = 1$ (ou dessus) de $-4$ à $-1$, puis de 4 à 5.
+**Démarche.** La courbe relie les points $(-4, 0)$, $(-2, 4)$, $(1, -2)$, $(3, 0)$ et $(5, 4)$.
+- a) Au-dessus de $x = -2$, la courbe est à la hauteur 4.
+- b) Le segment de $(-2, 4)$ à $(1, -2)$ descend de 2 par unité : en $x = 0$, il est à $4 - 2 \times 2 = 0$ (la courbe passe par l'origine).
+- c) La droite $y = 2$ coupe le premier segment en $x = -3$, le deuxième en $x = -1$ et le dernier en $x = 4$.
+- d) La courbe est sur l'axe horizontal à son extrémité gauche ($x = -4$), en $x = 0$ et au point anguleux $(3, 0)$.
+- e) et f) La plus grande hauteur est 4, atteinte en $x = -2$ **et** en $x = 5$ (l'extrémité droite).
+- g) La courbe monte de $x = 1$ à $x = 3$, puis continue de monter, plus vite, jusqu'à $x = 5$ : elle est croissante sur tout $[1 \;;\; 5]$. Elle monte aussi sur $[-4 \;;\; -2]$, mais cet intervalle est plus court.
+- h) La courbe est au-dessus de $y = 2$ (ou dessus) de $-3$ à $-1$, puis de 4 à 5.
 
-**Erreurs fréquentes.** Oublier les extrémités de la courbe (c, f, h) ; donner une ordonnée pour une question sur les $x$ (f) ; exclure des bornes où l'égalité $f(x) = 1$ a lieu (h).
+**Erreurs fréquentes.** Oublier les extrémités et les points anguleux (d, f) ; donner une ordonnée pour une question sur les $x$ (f) ; en g), s'arrêter au point anguleux $x = 3$ alors que la courbe continue de monter ; exclure des bornes où l'égalité $f(x) = 2$ a lieu (h).
 
-**Variante.** Sur la même courbe, les solutions de $f(x) < 0$ ? *Réponse* : la courbe est sous l'axe entre $x = -0{,}5$ (deuxième segment : $3 - 2(x + 2) = 0$) et $x = 3{,}5$ (dernier segment : $-1 + 2(x - 3) = 0$), soit $]-0{,}5 \;;\; 3{,}5[$.
+**Variante.** Sur la même courbe, les solutions de $f(x) < 0$ ? *Réponse* : la courbe est sous l'axe entre $x = 0$ et $x = 3$, soit $]0 \;;\; 3[$.
 
 ### Ex R3.3 — La fonction affine qui passe par deux points
 
@@ -189,7 +189,7 @@
 
 **Erreurs fréquentes.** b) Oublier les négatifs ; c) inclure les négatifs, ou garder l'ordre ; f) répondre $[1 \;;\; 4]$ en ne calculant que les images des bornes.
 
-**Variante.** L'ensemble des valeurs de $x^2$ pour $x \in [-1 \;;\; 3]$ ? *Réponse* : $[0 \;;\; 9]$.
+**Variante.** L'ensemble des valeurs de $x^2$ pour $x \in [-4 \;;\; 2]$ ? *Réponse* : $[0 \;;\; 16]$ (le plus grand carré est en $x = -4$).
 
 ### Ex R3.6 — Forme canonique et sommet d'une parabole
 
@@ -241,14 +241,14 @@
 
 ### Ex R3.9 — Composer deux fonctions dans les deux ordres
 
-**Réponses** : a) `5` · b) `9` · c) `[2, 0, -3]` · d) `[2, -16, 33]` · e) `[1, -8]` · f) `[3, -2]` · g) `[9/4]` · h) `[-3, 13]`.
+**Réponses** : a) `5` · b) `9` · c) `[2, 0, -3]` · d) `[2, -16, 33]` · e) `[1, -8]` · f) `[-5, 4]` · g) `[9/4]` · h) `[-3, 13]`.
 
 **Démarche.**
 - a) $g(2) = 9$, puis $f(9) = 5$. b) $f(2) = -2$, puis $g(-2) = 9$.
 - c) $f(g(x)) = (2x^2 + 1) - 4 = 2x^2 - 3$.
 - d) $g(f(x)) = 2(x - 4)^2 + 1 = 2(x^2 - 8x + 16) + 1 = 2x^2 - 16x + 33$.
 - e) $f(f(x)) = (x - 4) - 4 = x - 8$.
-- f) L'intérieur, calculé en premier, est $v(x) = 3x - 2$.
+- f) L'intérieur, calculé en premier, est $v(x) = 4 - 5x = -5x + 4$ : pente $-5$, ordonnée à l'origine 4.
 - g) $2x^2 - 16x + 33 = 2x^2 - 3 \iff 16x = 36 \iff x = \frac{9}{4}$.
 - h) $p(q(x)) = 3(-x + 5) - 2 = -3x + 13$ : encore une fonction affine, de pente $3 \times (-1)$. **Une composée de fonctions affines est affine** : c'est pourquoi un réseau de neurones a besoin d'activations non linéaires (fiche §7).
 
@@ -264,7 +264,7 @@
 - a) $y = 4x - 3 \iff x = \frac{y + 3}{4} = 0{,}25y + 0{,}75$.
 - b) $f^{-1}(9) = \frac{12}{4} = 3$ ; vérification : $f(3) = 9$.
 - c) $y = \frac{2}{x - 1} \iff x - 1 = \frac{2}{y} \iff x = 1 + \frac{2}{y}$ (pour $y \ne 0$), donc $g^{-1}(4) = 1{,}5$ ; vérification : $g(1{,}5) = \frac{2}{0{,}5} = 4$.
-- d) $g$ ne prend jamais la valeur 0 (une fraction de numérateur 2 n'est jamais nulle) : $g^{-1}$ est définie pour $y \ne 0$.
+- d) $g$ ne prend jamais la valeur 0 (une fraction de numérateur 2 n'est jamais nulle), et elle prend toutes les autres : pour $y \ne 0$, $x = 1 + \frac{2}{y}$ existe, est différent de 1, et vérifie $g(x) = y$. Les valeurs prises par $g$ sont donc tous les réels non nuls, et $g^{-1}$ est définie pour $y \ne 0$.
 - e) Pour $x \ge 0$, $x^2 + 3$ prend toutes les valeurs à partir de 3.
 - f) $x^2 + 3 = 7$ avec $x \ge 0$ : $x = 2$.
 - g) Non : 4 a deux antécédents, $-2$ et $2$.
@@ -332,14 +332,14 @@
 2. Si $m < 0$, $m(b - a) < 0$ : $f(a) > f(b)$, $f$ est strictement décroissante. Si $m = 0$, $f(b) - f(a) = 0$ : $f$ est constante.
 3. Si $f$ est croissante, $0 < 1$ donne $f(0) \le f(1)$, soit $c \le m + c$, donc $m \ge 0$.
 4. Pour $0 \le a < b$ : $b > 0$, donc $\sqrt{b} > 0$ et $\sqrt{b} + \sqrt{a} > 0$ (on peut diviser). Et $(\sqrt{b} - \sqrt{a})(\sqrt{b} + \sqrt{a}) = b - a$ (identité remarquable), d'où $\sqrt{b} - \sqrt{a} = \frac{b - a}{\sqrt{b} + \sqrt{a}}$, quotient de deux nombres strictement positifs : $\sqrt{a} < \sqrt{b}$.
-5. Soient $a < b$. Si $g$ est croissante, $g(a) \le g(b)$, puis, $f$ étant croissante, $f(g(a)) \le f(g(b))$ : $f \circ g$ est croissante. Si $g$ est décroissante, $g(a) \ge g(b)$, et $f$ croissante conserve cet ordre : $f(g(a)) \ge f(g(b))$, donc $f \circ g$ est décroissante.
+5. Soient $a < b$. Si $g$ est croissante, $g(a) \le g(b)$. Deux cas : si $g(a) = g(b)$, alors $f(g(a)) = f(g(b))$ ; si $g(a) < g(b)$, $f$ croissante donne $f(g(a)) \le f(g(b))$. Dans les deux cas, $f(g(a)) \le f(g(b))$ : $f \circ g$ est croissante. Si $g$ est décroissante, $g(a) \ge g(b)$, et le même raisonnement (égalité, ou inégalité stricte que $f$ croissante conserve au sens large) donne $f(g(a)) \ge f(g(b))$ : $f \circ g$ est décroissante.
 
 **Grille de relecture.**
 - Chaque question part de la **définition** (deux nombres $a < b$ quelconques) et étudie un signe ou un ordre.
 - 1 factorise $f(b) - f(a)$ par $m$ et cite la règle des signes.
 - 3 choisit deux valeurs précises et en déduit une condition sur $m$.
 - 4 justifie que le dénominateur n'est pas nul **avant** de diviser.
-- 5 enchaîne les deux comparaisons dans le bon ordre : $g$ d'abord, puis $f$.
+- 5 enchaîne les deux comparaisons dans le bon ordre, $g$ d'abord puis $f$, et traite le cas où $g(a) = g(b)$ (la définition de « croissante » ne parle que de nombres distincts).
 
 **Erreurs fréquentes.** Vérifier sur deux exemples au lieu de prendre $a$ et $b$ quelconques ; oublier le cas $a = 0$ en 4 (alors $\sqrt{a} = 0$, et c'est $\sqrt{b} > 0$ qui empêche la division par 0).
 

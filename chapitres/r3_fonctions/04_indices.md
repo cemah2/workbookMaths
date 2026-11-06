@@ -241,12 +241,12 @@ Relis « Lire une courbe » et « Lire les variations » (fiche §2), et la déf
 </details>
 <details><summary>Indice 2</summary>
 
-Pour une image, monte de $x$ jusqu'à la courbe. Pour des antécédents ou des solutions de $f(x) = k$, trace la droite horizontale $y = k$ en entier, extrémités comprises, et lis toutes les abscisses. Pour $f(x) \ge 1$, garde les morceaux de courbe au-dessus de cette droite, ou dessus.
+Pour une image, monte de $x$ jusqu'à la courbe. Pour des antécédents ou des solutions de $f(x) = k$, trace la droite horizontale $y = k$ en entier, extrémités comprises, et lis toutes les abscisses. Pour $f(x) \ge 2$, garde les morceaux de courbe au-dessus de cette droite, ou dessus.
 
 </details>
 <details><summary>Indice 3</summary>
 
-c : la droite $y = 1$ passe par l'extrémité gauche, coupe le deuxième segment, puis le dernier. Pour d, la droite $y = -1$ coupe le deuxième segment et touche un point anguleux. Pour f, la hauteur 3 est atteinte à deux endroits. Pour h, de $-4$ jusqu'à un premier point, puis à partir d'un second.
+c : la droite $y = 2$ coupe trois segments. Pour d, regarde aussi l'extrémité gauche et le point anguleux qui est sur l'axe. Pour f, la hauteur 4 est atteinte à deux endroits. Pour g, la courbe monte sur deux segments de suite, avec un changement de pente : c'est un seul intervalle de croissance.
 
 </details>
 
@@ -277,12 +277,12 @@ Relis « Ramener des données entre 0 et 1 » (fiche §3) et la méthode de la r
 </details>
 <details><summary>Indice 2</summary>
 
-$N$ est la droite qui passe par $(20, 0)$ et $(120, 1)$ : $N(x) = \frac{x - 20}{100}$. Pour c, résous $y = N(x)$ en $x$.
+$N$ est la droite qui passe par $(20, 0)$ et $(120, 1)$ : calcule sa pente, puis son ordonnée à l'origine. Pour c, résous $y = N(x)$ en $x$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : développe $\frac{x - 20}{100} = \frac{x}{100} - \frac{20}{100}$. Pour c, $y = \frac{x - 20}{100} \iff x = 100y + 20$ : lis $m$ et $c$. Pour e, multiplie les deux coefficients de $N$ par 10.
+a : la pente est $\frac{1 - 0}{120 - 20}$, et $N(20) = 0$ donne l'ordonnée à l'origine. Pour c, écris $y = N(x)$, multiplie par 100, puis isole $x$. Pour d, utilise la réciproque de c. Pour e, multiplie chaque coefficient de $N$ par 10.
 
 </details>
 
@@ -390,7 +390,7 @@ Résous $y = 4x - 3$, $y = \frac{2}{x - 1}$ et $y = x^2 + 3$ (avec $x \ge 0$) en
 </details>
 <details><summary>Indice 3</summary>
 
-a : $x = \frac{y + 3}{4}$. Pour c, $y = \frac{2}{x - 1} \iff x - 1 = \frac{2}{y}$ : quelle valeur de $y$ est interdite ? Pour e, quelle est la plus petite valeur de $x^2 + 3$ pour $x \ge 0$ ? Pour f, $x^2 + 3 = 7$ avec $x \ge 0$.
+a : dans $y = 4x - 3$, ajoute 3 aux deux membres, puis divise par 4. Pour c et d, $y = \frac{2}{x - 1} \iff x - 1 = \frac{2}{y}$ : quelle valeur de $y$ est interdite ? Pour e, quelle est la plus petite valeur de $x^2 + 3$ pour $x \ge 0$ ? Pour f, $x^2 + 3 = 7$ avec $x \ge 0$.
 
 </details>
 
@@ -426,7 +426,7 @@ Relis « Le schéma de Horner » et son tableau (fiche §9).
 </details>
 <details><summary>Indice 3</summary>
 
-a : $2$, puis $2 \times 2 - 3 = 1$, puis $1 \times 2 + 4$… Pour c, les coefficients de $q$ sont $[1, 0, -2, 3, -1]$. Pour d, une multiplication par coefficient après le premier.
+a : $2$, puis $2 \times 2 - 3 = 1$, puis $1 \times 2 + 4$… Pour c, les coefficients de $q$ sont $[1, 0, -2, 3, -1]$. Pour d, compte les étapes de ton tableau où tu as multiplié.
 
 </details>
 

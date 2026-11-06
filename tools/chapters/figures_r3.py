@@ -30,7 +30,7 @@ OUT = ROOT / "chapitres" / "r3_fonctions" / "figures"
 C = wbplot.CATEGORICAL
 DPI = 110
 
-EXERCISE_POINTS = [(-4, 1), (-2, 3), (1, -3), (3, -1), (5, 3)]   # the graph of f in R3.2
+EXERCISE_POINTS = [(-4, 0), (-2, 4), (1, -2), (3, 0), (5, 4)]   # the graph of f in R3.2
 
 
 def french_number(value: float, _pos=None) -> str:
@@ -72,7 +72,7 @@ def fig_reading() -> None:
                 xytext=(1.2, -2.4), fontsize=8.5, color=C[2], arrowprops={"arrowstyle": "->", "color": C[2]})
     axes_cross(ax)
     ax.set_xlim(-0.6, 4.6)
-    ax.set_ylim(-3, 3)
+    ax.set_ylim(-4.5, 4.5)
     ax.set_xlabel("x")
     ax.set_ylabel("y = f(x)")
     ax.set_title("Lire une image et des antécédents sur une courbe", fontsize=10)
@@ -213,7 +213,7 @@ def fig_exercise_graph() -> None:
     ax.yaxis.set_major_locator(MultipleLocator(1))
     ax.grid(True, alpha=0.5)
     ax.set_xlim(-5, 6)
-    ax.set_ylim(-4, 4)
+    ax.set_ylim(-3, 5)
     ax.set_xlabel("x")
     ax.set_ylabel("y")
     ax.set_title("La courbe de f, définie sur [−4 ; 5] (quadrillage d'unité 1)", fontsize=10)

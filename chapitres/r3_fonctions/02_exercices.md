@@ -69,7 +69,7 @@ Combien de racines réelles ? Réponds par **aucune**, **une** ou **deux**, en c
 3. $4x^2 - 4x + 1$
 4. $-2x^2 + x + 1$
 5. $x^2 + 7$
-6. un polynôme du second degré dont la parabole est tournée vers le haut et a pour sommet $(2 \;;\; -3)$
+6. un polynôme du second degré dont la parabole est tournée vers le haut et a pour sommet $(-1 \;;\; -2)$
 7. $3x^2 + bx - 5$, quel que soit le nombre $b$
 
 ### R3.Q6 — Croissante, décroissante, extremum 🧠 ★ ⏱️ 4 min
@@ -179,12 +179,12 @@ Voici la courbe d'une fonction $f$ définie sur $[-4 \;;\; 5]$. Toutes les répo
 |---|---|---|
 | a | $f(-2)$ | un nombre |
 | b | $f(0)$ | un nombre |
-| c | les antécédents de 1 | une liste |
-| d | les solutions de $f(x) = -1$ | une liste |
+| c | les antécédents de 2 | une liste |
+| d | les solutions de $f(x) = 0$ | une liste |
 | e | le maximum de $f$ sur $[-4 \;;\; 5]$ | un nombre |
 | f | les valeurs de $x$ où ce maximum est atteint | une liste |
-| g | le plus grand intervalle sur lequel $f$ est décroissante | un intervalle |
-| h | les solutions de $f(x) \ge 1$ | une réunion d'intervalles |
+| g | le plus grand intervalle sur lequel $f$ est croissante | un intervalle |
+| h | les solutions de $f(x) \ge 2$ | une réunion d'intervalles |
 
 ### Ex R3.3 — La fonction affine qui passe par deux points ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer une pente et une ordonnée à l'origine, et s'en servir.
@@ -284,7 +284,7 @@ On pose $f(x) = x - 4$ et $g(x) = 2x^2 + 1$.
 | c | $(f \circ g)(x)$, développé | une liste de coefficients |
 | d | $(g \circ f)(x)$, développé | une liste de coefficients |
 | e | $(f \circ f)(x)$ | une liste de coefficients |
-| f | $h(x) = (3x - 2)^3$ s'écrit $u(v(x))$ avec $u(t) = t^3$ : la fonction affine $v$ | la liste `[m, c]` |
+| f | $h(x) = (4 - 5x)^3$ s'écrit $u(v(x))$ avec $u(t) = t^3$ : la fonction affine $v$ | la liste `[m, c]` |
 | g | les valeurs de $x$ pour lesquelles $(g \circ f)(x) = (f \circ g)(x)$ | une liste |
 | h | avec $p(x) = 3x - 2$ et $q(x) = -x + 5$, la composée $p \circ q$ | une liste de coefficients |
 
@@ -316,7 +316,7 @@ On note $r(x) = \max(0, x)$ et $H$ la marche, avec la convention $H(0) = 1$ ($H(
 | b | $r(3) + r(-3)$ | un nombre |
 | c | les réels $x$ tels que $r(x) = 0$ | un intervalle |
 | d | $H(0) + H(-0{,}1)$ | un nombre |
-| e | $r(x) + r(-x)$, écrit plus simplement | une expression en `x`, entre guillemets |
+| e | $r(x) + r(-x)$ est égal, pour tout $x$, à une fonction de référence : son expression | une expression en `x`, entre guillemets |
 | f | le maximum de $q$ sur $[3 \;;\; 6]$ | un nombre |
 | g | l'argmax de $q$ sur $[3 \;;\; 6]$ | un nombre |
 | h | la position du maximum de la liste $[6, 2, 9, 4, 9]$, en comptant à partir de 0 et en prenant la première, comme NumPy | un entier |
@@ -355,7 +355,7 @@ Soient $a$, $b$, $c$ trois réels avec $a \ne 0$, et $\Delta = b^2 - 4ac$.
 **Objectif :** démontrer un sens de variation à partir de la définition, pour une fonction affine, puis pour la racine carrée et pour une composée.
 **Prérequis :** fiche §3 et §6 ; R2.14 (règles des inégalités) · **Parcours :** C
 
-On rappelle la définition : $f$ est strictement croissante sur $I$ si, pour tous $a < b$ dans $I$, $f(a) < f(b)$.
+On rappelle les définitions : $f$ est croissante sur $I$ si, pour tous $a < b$ dans $I$, $f(a) \le f(b)$, et strictement croissante si $f(a) < f(b)$.
 1. Soit $f(x) = mx + c$ avec $m > 0$, et $a < b$ deux réels. Calcule $f(b) - f(a)$ et montre que $f$ est strictement croissante sur $\mathbb{R}$.
 2. Que se passe-t-il si $m < 0$ ? Et si $m = 0$ ?
 3. Réciproquement, montre que si une fonction affine $f(x) = mx + c$ est croissante sur $\mathbb{R}$, alors $m \ge 0$ (regarde $f(0)$ et $f(1)$).
@@ -381,7 +381,7 @@ où $t \ge 0$ est le nombre d'epochs et $E(t)$ l'erreur, en pourcentage.
 | a | l'erreur après 10 epochs | un nombre |
 | b | le nombre d'epochs qui rend l'erreur minimale (l'argmin) | un nombre |
 | c | cette erreur minimale | un nombre |
-| d | l'intervalle de $[0 \;;\; +\infty[$ sur lequel l'erreur diminue | un intervalle |
+| d | le plus grand intervalle de $[0 \;;\; +\infty[$ sur lequel l'erreur diminue | un intervalle |
 | e | les nombres d'epochs pour lesquels l'erreur ne dépasse pas 9 % | un intervalle |
 
 Dans ta copie, explique en deux phrases ce que veut dire le fait que $E$ remonte après son minimum, et ce qu'une ingénieure en ferait.

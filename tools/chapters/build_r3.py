@@ -57,24 +57,26 @@ PAPER = [
          '"la racine carrée de 0 existe : la borne de gauche est incluse": "]-2 ; 1[ U ]1 ; +oo["}'),
     ]),
     Paper("R3.2", "Lire des valeurs, des solutions et des variations sur un graphique", [
-        ("a", "a number", "3", ""),
-        ("b", "a number", "-1", ""),
-        ("c", "a list", "[-4, -1, 4]",
-         'ordered=False, mistakes={"trace toute la droite y = 1 : elle coupe la courbe trois fois, extrémité '
-         'comprise": [-1, 4]}'),
-        ("d", "a list", "[0, 3]",
-         'ordered=False, mistakes={"la droite y = −1 touche aussi la courbe en un point anguleux": [0]}'),
-        ("e", "a number", "3",
+        ("a", "a number", "4", ""),
+        ("b", "a number", "0", ""),
+        ("c", "a list", "[-3, -1, 4]",
+         'ordered=False, mistakes={"trace toute la droite y = 2 : elle coupe la courbe trois fois": [-1, 4], '
+         '"des antécédents sont des abscisses, lues sur l\'axe horizontal": [2]}'),
+        ("d", "a list", "[-4, 0, 3]",
+         'ordered=False, mistakes={"regarde aussi les extrémités de la courbe et ses points anguleux": [0], '
+         '"l\'extrémité gauche de la courbe est aussi sur l\'axe horizontal": [0, 3]}'),
+        ("e", "a number", "4",
          'mistakes={"le maximum est une valeur de f, lue sur l\'axe vertical, pas une abscisse": 5}'),
         ("f", "a list", "[-2, 5]",
          'ordered=False, mistakes={"le maximum est atteint deux fois : regarde aussi les extrémités": [-2], '
-         '"ce sont des valeurs de x, lues sur l\'axe horizontal": [3]}'),
-        ("g", "an interval, as text", '"[-2 ; 1]"',
-         'kind="interval", mistakes={"décroissante : la courbe descend quand on va de gauche à droite": "[1 ; 5]", '
-         '"un intervalle de variation se donne avec ses bornes, fermé": "]-2 ; 1["}'),
-        ("h", "a union of intervals, as text", '"[-4 ; -1] U [4 ; 5]"',
-         'kind="interval", mistakes={"f(x) ≥ 1 garde aussi les points sur la droite y = 1 : bornes incluses": '
-         '"]-4 ; -1[ U ]4 ; 5[", "≥ 1 : là où la courbe est au-dessus de la droite y = 1, pas en dessous": '
+         '"ce sont des valeurs de x, lues sur l\'axe horizontal": [4]}'),
+        ("g", "an interval, as text", '"[1 ; 5]"',
+         'kind="interval", mistakes={"croissante : la courbe monte quand on va de gauche à droite": "[-2 ; 1]", '
+         '"la courbe monte sans s\'arrêter sur deux segments de suite : ils forment un seul intervalle": "[3 ; 5]", '
+         '"un intervalle de variation se donne avec ses bornes, fermé": "]1 ; 5["}'),
+        ("h", "a union of intervals, as text", '"[-3 ; -1] U [4 ; 5]"',
+         'kind="interval", mistakes={"f(x) ≥ 2 garde aussi les points sur la droite y = 2 : bornes incluses": '
+         '"]-3 ; -1[ U ]4 ; 5[", "≥ 2 : là où la courbe est au-dessus de la droite y = 2, pas en dessous": '
          '"]-1 ; 4["}'),
     ]),
     Paper("R3.3", "La fonction affine qui passe par deux points", [
@@ -107,7 +109,8 @@ PAPER = [
     ]),
     Paper("R3.5", "Variations et signe des fonctions de référence", [
         ("a", "an interval, as text", '"]-oo ; 0]"',
-         'kind="interval", mistakes={"le carré décroît à gauche de 0 et croît à droite": "[0 ; +oo["}'),
+         'kind="interval", mistakes={"le carré décroît à gauche de 0 et croît à droite": "[0 ; +oo[", '
+         '"un intervalle de variation se donne avec ses bornes, fermé du côté de 0": "]-oo ; 0["}'),
         ("b", "an interval, as text", '"]-3 ; 3["',
          'kind="interval", mistakes={"x² < 9 garde aussi des négatifs : essaie x = −2": "]-oo ; 3[", '
          '"l\'inégalité est stricte : les bornes sont exclues": "[-3 ; 3]"}'),
@@ -149,12 +152,15 @@ PAPER = [
          'mistakes={"b² avec b négatif : un carré est positif": -1, "−4ac avec c négatif : moins par moins donne '
          'plus": 1}'),
         ("b", "a list", "[-1 / 3, 2]",
-         f'ordered=False, decimals=6, mistakes={{"−b avec b négatif donne un nombre positif": [-2, 1 / 3], '
-         f'"{EXACT}": [-0.33, 2]}}'),
+         f'ordered=False, decimals=8, mistakes={{"−b avec b négatif donne un nombre positif": [-2, 1 / 3], '
+         f'"{EXACT} (à deux décimales)": [-0.33, 2], "{EXACT} (à trois décimales)": [-0.333, 2], '
+         f'"{EXACT} (à quatre décimales)": [-0.3333, 2], "{EXACT} (à cinq décimales)": [-0.33333, 2]}}'),
         ("c", "the list [a, x1, x2]", "[3, -1 / 3, 2]",
-         'decimals=6, mistakes={"n\'oublie pas le coefficient a devant le produit": [1, -1 / 3, 2], '
-         '"x₁ < x₂ : la plus petite racine d\'abord": [3, 2, -1 / 3]}'),
-        ("d", "a list", "[3]", 'ordered=False, mistakes={"la racine annule x − 3 : elle a le signe opposé": [-3]}'),
+         f'decimals=8, mistakes={{"n\'oublie pas le coefficient a devant le produit": [1, -1 / 3, 2], '
+         f'"x₁ < x₂ : la plus petite racine d\'abord": [3, 2, -1 / 3], "{EXACT} (à deux décimales)": [3, -0.33, 2], '
+         f'"{EXACT} (à trois décimales)": [3, -0.333, 2], "{EXACT} (à quatre décimales)": [3, -0.3333, 2]}}'),
+        ("d", "a list", "[3]",
+         'ordered=False, mistakes={"(x − 3)² s\'annule quand x − 3 = 0 : résous avec le bon signe": [-3]}'),
         ("e", "a list (empty if there is none)", "[]",
          'ordered=False, mistakes={"un discriminant négatif : pas de racine réelle": [-0.25]}'),
         ("f", "a list", "[-2, 4]",
@@ -184,7 +190,7 @@ PAPER = [
          '"(x − 4)² a un double produit": [2, 0, 33], "multiplie tout le carré développé par 2": [2, -8, 17]}'),
         ("e", "a list of coefficients", "[1, -8]",
          'mistakes={"f∘f applique f deux fois, ce n\'est pas f(x) × f(x)": [1, -8, 16]}'),
-        ("f", "the list [m, c]", "[3, -2]", f"mistakes={{{MC}: [-2, 3]}}"),
+        ("f", "the list [m, c]", "[-5, 4]", f"mistakes={{{MC}: [4, -5], \"v(x) = 4 − 5x : la pente est le coefficient de x, avec son signe\": [5, 4]}}"),
         ("g", "a list", "[9 / 4]",
          f'ordered=False, decimals=6, mistakes={{"{EXACT}": [2.2]}}'),
         ("h", "a list of coefficients", "[-3, 13]", 'mistakes={"p∘q = p(q(x)) : q d\'abord, puis p": [-3, 7]}'),
@@ -205,7 +211,7 @@ PAPER = [
          'mistakes={"un nombre positif a deux antécédents par le carré : on ne saurait pas lequel rendre": True}'),
     ]),
     Paper("R3.11", "Fonctions par morceaux et argmax", [
-        ("a", "a number", "0.0", 'decimals=2, mistakes={"max(0, x) remplace les négatifs par 0": -2.5}'),
+        ("a", "a number", "Fraction(0)", 'kind="fraction", mistakes={"max(0, x) remplace les négatifs par 0": "-5/2"}'),
         ("b", "a number", "3", 'mistakes={"r(−3) = max(0, −3), qui n\'est pas négatif": 0}'),
         ("c", "an interval, as text", '"]-oo ; 0]"',
          'kind="interval", mistakes={"r(0) = max(0, 0) : la borne 0 est incluse": "]-oo ; 0["}'),
@@ -237,7 +243,8 @@ PAPER = [
         ("c", "a number", "Fraction(2, 100) * 30**2 - Fraction(12, 10) * 30 + 25",
          'kind="fraction", mistakes={"on demande l\'erreur minimale, pas le nombre d\'epochs": 30}'),
         ("d", "an interval, as text", '"[0 ; 30]"',
-         'kind="interval", mistakes={"l\'erreur diminue avant le sommet, pas après": "[30 ; +oo["}'),
+         'kind="interval", mistakes={"l\'erreur diminue avant le sommet, pas après": "[30 ; +oo[", '
+         '"un intervalle de variation se donne avec ses bornes, fermé du côté du sommet": "[0 ; 30["}'),
         ("e", "an interval, as text", '"[20 ; 40]"',
          'kind="interval", mistakes={"a > 0 : E(t) − 9 est négatif entre ses racines": "]-oo ; 20] U [40 ; +oo[", '
          '"« ne dépasse pas » : les bornes sont incluses": "]20 ; 40["}'),

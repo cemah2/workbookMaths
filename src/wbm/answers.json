@@ -3638,37 +3638,39 @@
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
     "R3.2a": {
-      "hash": "37bfb5a2b4eb98af1d280d33bd2215e15800b09ffddc3b43c7fc4090782ddaa8",
+      "hash": "4a4714a57af35550b1d3c7490ef6da26c48b769e9b8c46650650d4159c03f735",
       "kind": "int",
       "magnitude": 0,
       "sign": 1,
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
     "R3.2b": {
-      "hash": "c45ad41857f83e7052aeb0449702ea65e886f5b4aa3b2e83f160025a6e5a39dc",
+      "hash": "12c6ac95ff94e78668f65b09fb87e476615fa222d22885fb1adc24a5232bc6cb",
       "kind": "int",
-      "magnitude": 0,
-      "sign": -1,
+      "magnitude": null,
+      "sign": 0,
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
     "R3.2c": {
-      "hash": "568ed9c27704d1bf1ad0c1d53228798a447933f18573607e658de551916cac33",
+      "hash": "f04ecd6a2d6d378dc889e15b369cd16ad9f566c4644d3ef0f1f333cb63d9883e",
       "kind": "set",
       "mistakes": {
-        "d73137ede63c8bef533b509700df0e88c71a2c74857bb3ab4ffbacacda29126e": "trace toute la droite y = 1 : elle coupe la courbe trois fois, extrémité comprise"
+        "ca4824e648d32ca19c3ce1eaba379bae73c81fea8396cfacdc4b5ceb14029c11": "des antécédents sont des abscisses, lues sur l'axe horizontal",
+        "d73137ede63c8bef533b509700df0e88c71a2c74857bb3ab4ffbacacda29126e": "trace toute la droite y = 2 : elle coupe la courbe trois fois"
       },
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
     "R3.2d": {
-      "hash": "a86023bb86fba011edafef708a4f7c287b8c6a06472f19399806141013d253fd",
+      "hash": "3e3771320d0dbbdda6327f8ab7df8f9534daa0f01545e2cbbf52eb3f20c7fa06",
       "kind": "set",
       "mistakes": {
-        "f90f9d0f5d5ae5159628b88f3088bee3ccc75e15609898a3559b02b81000cede": "la droite y = −1 touche aussi la courbe en un point anguleux"
+        "a86023bb86fba011edafef708a4f7c287b8c6a06472f19399806141013d253fd": "l'extrémité gauche de la courbe est aussi sur l'axe horizontal",
+        "f90f9d0f5d5ae5159628b88f3088bee3ccc75e15609898a3559b02b81000cede": "regarde aussi les extrémités de la courbe et ses points anguleux"
       },
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
     "R3.2e": {
-      "hash": "6cc95cc3ebb87cf499d263b9df4bb61fcc1c1d0b7490adab530d2534895e280a",
+      "hash": "e3bf395360a788d61069e5037e4c25dea52d02531a127e2343b3162940709815",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
@@ -3681,26 +3683,27 @@
       "hash": "9789999027f1d23a22186f00bc3504ed1d5f1d34088d29cb66e49c7928de1fc8",
       "kind": "set",
       "mistakes": {
-        "5eeebd7f1c2f50c1a9e6faafcccfedd69da834c06005aa688d9783b34854b608": "le maximum est atteint deux fois : regarde aussi les extrémités",
-        "990aa0ff3b87ac7437c51fb7c34ff758dc0077fbdf9959d224586f507b7de854": "ce sont des valeurs de x, lues sur l'axe horizontal"
+        "4c6fe881534ee80789103c168375a638979eab975c3b54b3881fdf4a14288cec": "ce sont des valeurs de x, lues sur l'axe horizontal",
+        "5eeebd7f1c2f50c1a9e6faafcccfedd69da834c06005aa688d9783b34854b608": "le maximum est atteint deux fois : regarde aussi les extrémités"
       },
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
     "R3.2g": {
-      "hash": "1d94262950c9454986f8649fb6be115bac5f976902526f8eb2a92de90c15e935",
+      "hash": "4349055793ad4c31db767824205b48701bfbc02b552cb250401030bb423abec7",
       "kind": "interval",
       "mistakes": {
-        "4349055793ad4c31db767824205b48701bfbc02b552cb250401030bb423abec7": "décroissante : la courbe descend quand on va de gauche à droite",
-        "6898425331c5d59517a08aced3e45dab41a4c896d180c4e445060ffb44121cdb": "un intervalle de variation se donne avec ses bornes, fermé"
+        "1d94262950c9454986f8649fb6be115bac5f976902526f8eb2a92de90c15e935": "croissante : la courbe monte quand on va de gauche à droite",
+        "64995c6ef5bdd08cb0e5f7783fa265d703e63388798a3924d5756cf4c4bc6c70": "la courbe monte sans s'arrêter sur deux segments de suite : ils forment un seul intervalle",
+        "9efa34683e3874ca94ae6ad4bd52fde1e1d49cf1d8bfdafd673a0d6d79566941": "un intervalle de variation se donne avec ses bornes, fermé"
       },
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
     "R3.2h": {
-      "hash": "2b8c4e09971d34252db584d6c854e04dc02fbb1e82801399df2eefb7e7fd48db",
+      "hash": "909c74903979ab99b746ee3386102d55db935f6f936c3b4dc107bfafabf01a07",
       "kind": "interval",
       "mistakes": {
-        "427e65559d16e4892128d9efde7d51ce28c959d32250a39a83f70465904619e2": "≥ 1 : là où la courbe est au-dessus de la droite y = 1, pas en dessous",
-        "f729bcb8edb59c03a11d5d7264c9023b1967ad148fffddbcde1899d522534ad3": "f(x) ≥ 1 garde aussi les points sur la droite y = 1 : bornes incluses"
+        "427e65559d16e4892128d9efde7d51ce28c959d32250a39a83f70465904619e2": "≥ 2 : là où la courbe est au-dessus de la droite y = 2, pas en dessous",
+        "e6613645cc29c8a6104f90b59bd1aa4c1595cb4fb054a687f9e817c92356034e": "f(x) ≥ 2 garde aussi les points sur la droite y = 2 : bornes incluses"
       },
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
@@ -3924,6 +3927,7 @@
       "hash": "26d013c08e4047493b4301992b5b98efeaaabbbe4750aca8e094a22ac745720e",
       "kind": "interval",
       "mistakes": {
+        "e1b22e6000cfb59fb491f92868aaa9915d7c7e10d229ec13110986eb73220390": "un intervalle de variation se donne avec ses bornes, fermé du côté de 0",
         "f9e5479c90fdaea7e31ff596422f1183c29943db6fef4aa81a28435a1b1e5758": "le carré décroît à gauche de 0 et croît à droite"
       },
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
@@ -4096,38 +4100,44 @@
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
     "R3.7b": {
-      "decimals": 6,
-      "hash": "d8c9c04748a2405110c957ec33bf4ff9b144b1abf009e57e81eca4793e17f81c",
+      "decimals": 8,
+      "hash": "4276bf5ca55dedf761c0bc654cab61cd517d1313460aeda9a1bcc8972569787a",
       "kind": "set",
       "mistakes": {
-        "ae92e5c4e91ef1566cbfbccd7686b050e5a1a1f494aff5c03f58f65c5e00cfa1": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie",
-        "db3c8f43d0506391ceb926fe866a5976df5196e112d9783ca7be0a2940c2b43f": "−b avec b négatif donne un nombre positif"
+        "1c9c3e7f2c5b5b2a01b11d0e2d78565cc836ebce5f2bb7f9f952a16624afb1b2": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie (à deux décimales)",
+        "87fa5b436c8d735486c1a5b2e4840d218b76b01960fb111eab7cdbd67580560e": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie (à trois décimales)",
+        "9586ef02acf3040d728ec4530857ffe6e2e11067fbe073c64b3ac40d565d82cc": "−b avec b négatif donne un nombre positif",
+        "9c6270311af16085f420a5d08869b28380cfe6c210890d67fcfbcdb875e999d5": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie (à cinq décimales)",
+        "d53d0884f540ced3bc92c06414152cc043cd4225b53f8eae038b47d73ea562dc": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie (à quatre décimales)"
       },
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
     "R3.7c": {
-      "decimals": 6,
+      "decimals": 8,
       "element_coarse": [
         [
-          "d610a6f5d8f529f8b3a6bbe7a829abc6896befcbee01e704087f532eadd3b4e2"
+          "2fdfb1e4898de30b7c357e71ee619b63e8daba042c423d22d31f51ddbde67a06"
         ],
         [
-          "e42d5b1e4ecd22894d8c310c48e043c0ebc239c1213ba343f5d862227a2b1c44"
+          "0917bce27d853fd3df5a402f1fabad0b7dbd08c0d8ab375d4d1f56ea6f5a4f96"
         ],
         [
-          "68fab72b4dd77f944db7fc1f3cd59a27c106b40f6dc5db90b8bd8ff9909c9cb1"
+          "449549974dff636dca0f7966faf0209468dae6956b56e86967da0b2fba5fc101"
         ]
       ],
       "element_hashes": [
-        "b28903b7fcfbbe3d73972f041db302375b9851af0244f7cba5f47c852be02758",
-        "378ad4200a32a7b5bf0aca589e261d0244948419c62cad6d368f745abf382094",
-        "10f06a070533b284e0822649e481ba80de42457db94ab86f074d13469c610f6a"
+        "6a463075dbdc5395bccc584a45d5115a8ec7ae0f35527e3aee21e46130a1da1b",
+        "36874b76a1220125782470d5f9b55505745efd6f2677f2ade5382ca6d86bc10a",
+        "386942c8bdcc61e5a2400013c8e11c8b5a560127fb689a5b0c2aeaa25a301088"
       ],
-      "hash": "c7fbbc77ed85d874b941b47e351ce7aac765ad9d58881d1fc03311079c0f4e34",
+      "hash": "ba04927eccc0cab90eec962a9180643193de2fe71144d6db52a6cb43c2c35a7f",
       "kind": "array",
       "mistakes": {
-        "19cfc76cc1343655e57ab738e08f38f8d95b5a8ac8ce96b0b3af006db041816b": "n'oublie pas le coefficient a devant le produit",
-        "2ef31fa0825d06f7f4d3db4e60c4d8b8a3a6a76e21113481361624d6059ba394": "x₁ < x₂ : la plus petite racine d'abord"
+        "0e9e2ba292da90be32bd399fb47622f86be4ebec3048bdeff0e822a0f7b94326": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie (à deux décimales)",
+        "6dfc343cf10063d1b2aad69666cd95f1d7d10697e72cb85f0b796159a082c365": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie (à quatre décimales)",
+        "997164f1f822b3b1756ff9fc3f6855af88bc1e04a744c095dcd2f16478971e55": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie (à trois décimales)",
+        "9eb09af863d497cf6a6bbfea3ea32661bde1e5f28deeccbf7b354387db695ffe": "x₁ < x₂ : la plus petite racine d'abord",
+        "c07c381032755d4cae9ac38744ca703c55527140505e08286cfcdd0f32b94c94": "n'oublie pas le coefficient a devant le produit"
       },
       "shape": [
         3
@@ -4138,7 +4148,7 @@
       "hash": "7f3a9ad7a548071e3dd3d7138e38d6ffcdd6fff2c79787318470e74fc2040e48",
       "kind": "set",
       "mistakes": {
-        "366c7217590742c97721b37926e9fafef3261c436ed8e4ae82ffe89e01436f75": "la racine annule x − 3 : elle a le signe opposé"
+        "366c7217590742c97721b37926e9fafef3261c436ed8e4ae82ffe89e01436f75": "(x − 3)² s'annule quand x − 3 = 0 : résous avec le bon signe"
       },
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
@@ -4295,14 +4305,15 @@
     "R3.9f": {
       "decimals": 0,
       "element_hashes": [
-        "49b5fe795a9ce1fb6910e721a22b6998541a2abeace3a0cb62a49968752aee93",
-        "eaf860173379af91fab650b51be9029f0b3bd91582a7e9492e98e4b2754b3e83"
+        "af690ba1085d65c9614daa7075fae8f8791b1851b8ca4967df366a92f3f9f397",
+        "a897a74ba1352915310999028ff4b2ece782834f633dd1ae3965d7ea08407f98"
       ],
-      "hash": "880bb65e6f48ba5f511422aa5f50ac5f028a972d58b6bd8a2bf6afab4eb9e896",
+      "hash": "683ce8c819efb6cb52b0c735b661d0670c5539b206c08e04d0e19386048d126b",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "171f7b79e91dc5e3691e3409f3d24696d5867bb07d3d24e0352108281a312354": "l'ordre demandé est [m, c] : la pente, puis l'ordonnée à l'origine"
+        "a94a539a4f53e5967d7e7cf62dbd9c8575ff9a8b0998b9fc0577e34ff361e6a1": "v(x) = 4 − 5x : la pente est le coefficient de x, avec son signe",
+        "e26316d6244e6e3c331720959d00545ca782c62fa1f5b6c5aa8f2df8662413cb": "l'ordre demandé est [m, c] : la pente, puis l'ordonnée à l'origine"
       },
       "shape": [
         2
@@ -4414,13 +4425,10 @@
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
     },
     "R3.11a": {
-      "decimals": 2,
-      "hash": "4b06d9966a308e7131a5333a34d3a6e8fbfb56d7811983b0ec882092b8953582",
-      "hash_coarse": "a045c865b38a699aecd3ce27cd7954494ece960c0901b4cac0e955c939855585",
-      "kind": "float",
-      "magnitude": null,
+      "hash": "d338c10b85b90fbe2b4be730fa56013c6d08c8414d39f82b199b07f35135e638",
+      "kind": "fraction",
       "mistakes": {
-        "642babaa337091ffb291447ee3a29f2895e60091356017a11d8f61c75cd725fc": "max(0, x) remplace les négatifs par 0"
+        "d8405fe0ccd9c2ac4539afaff192afb96fc0ecf9af6018905a73d9ecf885d4ff": "max(0, x) remplace les négatifs par 0"
       },
       "sign": 0,
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"
@@ -4590,6 +4598,7 @@
       "hash": "94ea8c859f5f5f4e1b09d4800918d036838c12b3fdb4ef0c4bc6f79b14b18626",
       "kind": "interval",
       "mistakes": {
+        "2b33a21106dd77d70d7e26405bdc6f990f234247b9748c3bf54ca8b5da531dae": "un intervalle de variation se donne avec ses bornes, fermé du côté du sommet",
         "7525cd3019579ae159a7efed49896959a22ddf99be3a01d9e67bc8d41dc263e6": "l'erreur diminue avant le sommet, pas après"
       },
       "source": "chapitres/r3_fonctions/05_solutions.ipynb"

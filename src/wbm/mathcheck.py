@@ -285,6 +285,7 @@ _UNION = re.compile(r"\s*(?:∪|\bU\b|\bu\b|\bunion\b|\bou\b)\s*")
 _ONE_INTERVAL = re.compile(r"\s*([\[\]\(])\s*(.+?)\s*([;,])\s*(.+?)\s*([\[\]\)])\s*")
 _ONE_INTERVAL_SEMICOLON = re.compile(r"\s*([\[\]\(])\s*(.+?)\s*(;)\s*(.+?)\s*([\[\]\)])\s*")  # "]-2,5 ; 3]"
 _INTERSECTION = re.compile(r"∩|\binter\b|\bet\b")
+_SET_MINUS = re.compile(r"\s*(?:R|ℝ)\s*(?:\\setminus|\\|∖|privé de)\s*\{(.+)\}\s*")
 _INTERVAL_FORM = ("un intervalle écrit comme \"[2 ; 5[\" ou \"]-oo ; 3]\" (réunion : \"[0 ; 1] U [2 ; 3]\" ; ensemble vide : "
                   "\"vide\")")
 
@@ -332,6 +333,16 @@ def _parse_intervals(value):
         return []
     if text in {"R", "ℝ"}:
         return [(False, -sympy.oo, sympy.oo, False)]
+    minus = _SET_MINUS.fullmatch(text)
+    if minus:                                          # "R \\ {4}", "ℝ∖{-1 ; 2}": the reals except a few points
+        inside = minus.group(1)
+        pieces = inside.split(";") if ";" in inside else inside.split(",")
+        points = sorted({_endpoint(piece) for piece in pieces if piece.strip()}, key=float)
+        intervals, low = [], -sympy.oo
+        for point in points:
+            intervals.append((False, low, point, False))
+            low = point
+        return intervals + [(False, low, sympy.oo, False)]
     if _INTERSECTION.search(text):
         raise MathNormalizationError("un seul intervalle (ou une réunion avec U) : une intersection se calcule, donne "
                                      "l'intervalle obtenu, ou \"vide\"")

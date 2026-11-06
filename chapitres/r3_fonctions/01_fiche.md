@@ -96,7 +96,7 @@ L'**ensemble de définition** (*domain*) de $f$, noté $\mathcal{D}_f$, est l'en
 
 Quand les deux se combinent, on écrit **toutes** les conditions : $h(x) = \frac{\sqrt{x}}{x - 3}$ demande $x \ge 0$ **et** $x \ne 3$, donc $\mathcal{D}_h = [0 \;;\; 3[ \;\cup\; ]3 \;;\; +\infty[$. Un polynôme, lui, est défini partout : $\mathcal{D} = \mathbb{R}$.
 
-On écrit $\mathbb{R} \setminus \{-2\}$ (« R privé de $-2$ ») pour tous les réels sauf $-2$. Pour `wbm.check`, on tape la réunion : `"]-oo ; -2[ U ]-2 ; +oo["`.
+On écrit $\mathbb{R} \setminus \{-2\}$ (« R privé de $-2$ ») pour tous les réels sauf $-2$. Pour `wbm.check`, on tape la réunion, `"]-oo ; -2[ U ]-2 ; +oo["`, ou l'écriture courte `"R \\ {-2}"`.
 
 ## §2 · Représentation graphique et lecture graphique
 
@@ -110,7 +110,7 @@ Dans un repère, la **courbe représentative** (*graph*) de $f$ est l'ensemble d
 
 ![La courbe de f : lire une image et des antécédents](figures/lecture_graphique.png)
 
-**Une courbe ne peut pas revenir en arrière à la verticale** : à chaque $x$ correspond un seul point. Un cercle, par exemple, n'est pas la courbe d'une fonction (il a deux points au-dessus de chaque $x$ intérieur).
+**Une droite verticale coupe la courbe d'une fonction au plus une fois** : à chaque $x$ correspond un seul point. Un cercle, par exemple, n'est pas la courbe d'une fonction (il a deux points au-dessus de chaque $x$ intérieur).
 
 ### Lire une courbe
 
@@ -172,7 +172,7 @@ $$N(x) = \frac{x - \min}{\max - \min} = \frac{x - 2}{8} = 0{,}125\,x - 0{,}25$$
 
 Une durée de 6 minutes devient $N(6) = \frac{4}{8} = 0{,}5$, exactement au milieu. C'est la **normalisation min-max** (*min-max scaling*) : une fonction affine de pente $\frac{1}{\max - \min}$, qui garde l'ordre des valeurs et les proportions entre leurs écarts. Pour revenir aux minutes, on la **défait** (§8) : $x = 8\,N + 2$.
 
-> 🔗 **Dans workbookIA** — le chapitre 12 met les features à la même échelle avant d'entraîner un modèle ; la normalisation min-max y est l'une des deux transformations de base, et revenir aux unités d'origine (`inverse_transform`) est une réciproque. Un neurone sans fonction d'activation calcule une fonction affine de ses entrées (chapitre 10).
+> 🔗 **Dans workbookIA** — le chapitre 12 met les features à la même échelle avant d'entraîner un modèle ; la normalisation min-max y est l'une des deux transformations de base, et revenir aux unités d'origine (`inverse_transform`) est une réciproque. Privé de sa fonction d'activation, un neurone (chapitre 10) ne ferait qu'une somme pondérée de ses entrées plus un biais : vu comme une fonction d'une seule de ses entrées, c'est une fonction affine.
 
 ## §4 · Fonctions de référence : carré, inverse, racine carrée, valeur absolue
 
@@ -183,7 +183,7 @@ Quatre fonctions dont il faut connaître l'**allure** par cœur, parce que tant 
 | Fonction | Définie sur | Variations | À retenir |
 |---|---|---|---|
 | carré, $x^2$ | $\mathbb{R}$ | décroissante sur $]-\infty \;;\; 0]$, croissante sur $[0 \;;\; +\infty[$ | toujours $\ge 0$ ; $(-x)^2 = x^2$ : courbe symétrique par rapport à l'axe vertical (une **parabole**) |
-| inverse, $\frac{1}{x}$ | $\mathbb{R} \setminus \{0\}$ | décroissante sur $]-\infty \;;\; 0[$ et sur $]0 \;;\; +\infty[$ | du signe de $x$ ; grande quand $x$ est proche de 0 ; une **hyperbole** en deux morceaux |
+| inverse, $\frac{1}{x}$ | $\mathbb{R} \setminus \{0\}$ | décroissante sur $]-\infty \;;\; 0[$ et sur $]0 \;;\; +\infty[$ | du signe de $x$ ; grande en valeur absolue quand $x$ est proche de 0 ; une **hyperbole** en deux morceaux |
 | racine carrée, $\sqrt{x}$ | $[0 \;;\; +\infty[$ | croissante | $\sqrt{x^2} = \lvert x \rvert$ (R2 §6) ; elle « défait » le carré sur $[0 \;;\; +\infty[$ (§8) |
 | valeur absolue, $\lvert x \rvert$ | $\mathbb{R}$ | décroissante sur $]-\infty \;;\; 0]$, croissante sur $[0 \;;\; +\infty[$ | un « V » ; c'est la distance à 0 (R2 §6) |
 
@@ -282,7 +282,7 @@ Une fois les racines connues, le signe se lit sur la parabole : **$f(x)$ est du 
 
 > ⚠️ **Erreur de calcul classique** — Oublier le signe de $b$ dans $-b$, ou le carré de $b$ quand $b$ est négatif : pour $b = -4$, $b^2 = 16$ (pas $-16$) et $-b = 4$. Et diviser seulement $\sqrt{\Delta}$ par $2a$ : c'est tout le numérateur $-b \pm \sqrt{\Delta}$ qui est divisé.
 
-> 🔗 **Dans workbookIA** — l'erreur au carré $(\hat{y} - y)^2$ est une parabole en $\hat{y}$, avec un unique minimum : c'est pour cela qu'elle est si commode à minimiser. Le chapitre 0B reprend le sommet et le discriminant, le chapitre 9 minimise des sommes de carrés.
+> 🔗 **Dans workbookIA** — pour une donnée de valeur $y$, le carré de l'erreur $(\hat{y} - y)^2$, vu comme une fonction de la prédiction $\hat{y}$, est un second degré de coefficient 1 : son sommet est en $\hat{y} = y$, où il vaut 0. Les losses quadratiques des chapitres 9 et suivants ont cette forme en « U ». Le chapitre 0B reprend le sommet et le discriminant.
 
 ## §6 · Sens de variation, maximum et minimum
 
@@ -367,7 +367,7 @@ Une composée est une nouvelle fonction. En Python, on la fabrique avec une **fe
 
 > ⚠️ **Erreur de calcul classique** — Appliquer les fonctions dans l'ordre de lecture : $(f \circ g)(x)$ n'est pas « $f$ puis $g$ ». C'est $g$ d'abord. En cas de doute, écris $f(g(x))$ et calcule depuis les parenthèses intérieures.
 
-> 🔗 **Dans workbookIA** — un réseau de neurones est une composition : chaque couche applique une fonction affine, puis une activation, au résultat de la précédente, $\hat{y} = f_3(f_2(f_1(\mathbf{x})))$ (chapitre 16). Sans l'activation, la composée de fonctions affines resterait affine (R3.9 le montre sur un exemple) : c'est pourquoi on en met une.
+> 🔗 **Dans workbookIA** — dans un réseau de neurones (chapitre 16), les données traversent les couches l'une après l'autre : la sortie de la première est l'entrée de la deuxième, et ainsi de suite. Le réseau entier est la composée de ses couches, et chaque couche est elle-même la composée d'une fonction affine et d'une activation. Sans les activations, des fonctions affines composées resteraient affines (R3.9 h le montre sur un exemple) : c'est pourquoi on en met.
 
 ## §8 · Fonction réciproque
 
