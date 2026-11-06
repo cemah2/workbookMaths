@@ -98,7 +98,7 @@
 - d) $\frac{2}{3}$ n'est pas décimal (son écriture ne s'arrête pas). Les autres le sont : $-2{,}5$, $-2$, $0{,}6$, $-1{,}5$ et $1{,}75$ s'écrivent avec un nombre fini de chiffres.
 
 **Erreurs fréquentes.**
-- Placer $D$ après $B$ : $0{,}6$ semble « plus long » que $0{,}66$, mais $0{,}600 < 0{,}666$. Compare avec le même nombre de chiffres.
+- Écrire $\frac{2}{3} \approx 0{,}6$ avec une seule décimale, puis mal départager $B$ et $D$ : avec trois décimales, $0{,}600 < 0{,}667$, donc $D$ avant $B$. Compare toujours avec le même nombre de chiffres, et assez de chiffres.
 - Ranger les négatifs comme les positifs ($E$ avant $A$).
 - b) Oublier 0, ou compter $-3$, qui est à gauche de $A$.
 - c) Oublier que $-\sqrt{4}$ se simplifie en $-2$.
@@ -344,13 +344,13 @@
 
 **Démarche.**
 - a) $\frac{13 \times 4 + 9 \times 1 + 16 \times 3}{4 + 1 + 3} = \frac{52 + 9 + 48}{8} = \frac{109}{8} = 13{,}625$.
-- b) Avec la note $x$ de coefficient 2 : $\frac{109 + 2x}{10} = 14$, donc $109 + 2x = 140$, $2x = 31$, $x = 15{,}5$.
+- b) Sans équation : pour une moyenne de 14 avec des coefficients qui totalisent $8 + 2 = 10$, il faut $14 \times 10 = 140$ points pondérés. On en a 109 ; il en manque 31, que la note de coefficient 2 doit apporter : $31 \div 2 = 15{,}5$. (Avec une équation, comme en R2 : $\frac{109 + 2x}{10} = 14$, donc $2x = 31$.)
 - c) $1{,}5 \times 2 + (-2) \times 0{,}5 + 0{,}5 \times 6 + (-1) = 3 - 1 + 3 - 1 = 4$.
 - d) Sur une distance $d$ : la montée dure $\frac{d}{15}$, la descente $\frac{d}{45}$, en tout $\frac{3d + d}{45} = \frac{4d}{45}$ ; la vitesse moyenne vaut $\frac{2d}{4d/45} = \frac{90}{4} = 22{,}5$ km/h. C'est la moyenne harmonique de 15 et 45.
 
 **Erreurs fréquentes.**
 - a) Faire la moyenne simple des trois notes (12,67).
-- b) Compter le coefficient 2 dans la somme des notes mais pas dans la somme des coefficients (on trouve 17).
+- b) Oublier le coefficient 2 de la nouvelle note, en haut comme en bas : $\frac{109 + x}{9} = 14$ donne 17.
 - c) Oublier le biais (5), ou le signe du poids négatif (6).
 - d) Faire la moyenne des vitesses (30) : la cycliste passe trois fois plus de temps à monter.
 
@@ -366,7 +366,7 @@
 1. Avec $m = 1$ et $p = 0$, la règle donne $a^1 \times a^0 = a^{1 + 0} = a^1$, c'est-à-dire $a \times a^0 = a$. Comme $a \ne 0$, on peut diviser les deux membres par $a$ : $a^0 = 1$. Aucune autre valeur ne convient.
 2. Avec $m = n$ et $p = -n$ : $a^n \times a^{-n} = a^{n + (-n)} = a^0 = 1$ (d'après 1). Comme $a^n \ne 0$ (un produit de facteurs non nuls n'est pas nul), on divise par $a^n$ : $a^{-n} = \frac{1}{a^n}$.
 3. Pour $m = 2$ et $p = 5$ : $\frac{a^2}{a^5} = \frac{a \times a}{a \times a \times a \times a \times a} = \frac{1}{a^3}$ (on simplifie deux facteurs $a$), et $a^{2 - 5} = a^{-3} = \frac{1}{a^3}$ : les deux côtés coïncident. En général, pour $m < p$ : on simplifie les $m$ facteurs du numérateur avec $m$ des $p$ facteurs du dénominateur ; il reste $\frac{1}{a^{p - m}}$, qui vaut bien $a^{-(p - m)} = a^{m - p}$ par la définition de 2.
-4. On a divisé par $a$ (en 1) et par $a^n$ (en 2) : il fallait que $a \ne 0$. Et $0^{-1}$ vaudrait $\frac{1}{0}$, qui n'existe pas. (Pour $0^0$, il n'y a pas de valeur imposée par les règles ; on convient souvent que $0^0 = 1$, et Python aussi : `0 ** 0` vaut 1.)
+4. On a divisé par $a$ (en 1) et par $a^n$ (en 2) : il fallait que $a \ne 0$. Et $0^{-1}$ vaudrait $\frac{1}{0}$, qui n'existe pas : si $0^{-1}$ existait, la règle donnerait $0 \times 0^{-1} = 0^{1 + (-1)} = 0^0$, et un produit par 0 vaut 0, alors que la question 1 impose $a^0 = 1$. (Pour $0^0$, il n'y a pas de valeur imposée par les règles ; on convient souvent que $0^0 = 1$, et Python aussi : `0 ** 0` vaut 1.)
 
 **Grille de relecture.** Une démonstration correcte :
 - part de la règle $a^m \times a^p = a^{m+p}$ **supposée** vraie, et l'applique avec des valeurs choisies (sans utiliser ce qu'on veut démontrer) ;
@@ -390,7 +390,7 @@
 - 1 donne des valeurs **précises** et calcule les deux côtés.
 - 2 part de la définition (« le nombre qui, multiplié par $d$, donne… ») et utilise la distributivité ; sans définition, il n'y a pas de démonstration.
 - 3 justifie la mise au même dénominateur, puis **réutilise** 2.
-- 4 transforme chaque inégalité en une inégalité équivalente en multipliant par un nombre **positif** (sinon le sens changerait), et retombe sur l'hypothèse $ad < bc$.
+- 4 transforme chaque inégalité en une inégalité équivalente en multipliant par un nombre **positif** (un nombre positif garde le sens d'une inégalité ; R2 traitera le cas d'un nombre négatif), et retombe sur l'hypothèse $ad < bc$.
 
 **Variante.** Démontre de la même façon que $\frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd}$. *Réponse* : $bd \times \left(\frac{a}{b} \times \frac{c}{d}\right) = \left(b \times \frac{a}{b}\right) \times \left(d \times \frac{c}{d}\right) = ac$, donc le produit est le nombre qui, multiplié par $bd$, donne $ac$ : c'est $\frac{ac}{bd}$.
 
@@ -422,9 +422,9 @@
 2. Estimations : on lit environ 200 à 300 mots par minute (prenons $2{,}5 \times 10^2$) ; une à deux heures de lecture par jour, tout compris (prenons 90 min, soit $9 \times 10^1$) ; 365 jours ($3{,}65 \times 10^2$) ; de 6 à 80 ans, environ 75 ans ($7{,}5 \times 10^1$).
 3. Produit : mantisses $2{,}5 \times 9 \times 3{,}65 \times 7{,}5 \approx 22{,}5 \times 3{,}65 \times 7{,}5 \approx 82 \times 7{,}5 \approx 600$ ; puissances $10^{2 + 1 + 2 + 1} = 10^6$. Résultat : $6 \times 10^2 \times 10^6 = 6 \times 10^8$ mots environ.
 4. $\frac{6 \times 10^8}{8 \times 10^5} \approx 750$ Bibles dans une vie, soit une dizaine par an. Plausible pour un lecteur moyen d'aujourd'hui, si l'on compte tout ce qu'il lit sur écran.
-5. Le temps de lecture par jour est le plus incertain (il varie d'un facteur 5 d'une personne à l'autre). S'il double, le résultat double : $1{,}2 \times 10^9$. L'ordre de grandeur reste entre $10^8$ et $10^9$.
+5. Le temps de lecture par jour est le plus incertain (il varie d'un facteur 5 d'une personne à l'autre). S'il double, le résultat double : $1{,}2 \times 10^9$. Avec la règle de la fiche (seuil 3,16), $6 \times 10^8$ et $1{,}2 \times 10^9$ ont le même ordre de grandeur, $10^9$.
 
-**Ce qu'on attend.** Des facteurs clairs, une estimation justifiée pour chacun, un produit en notation scientifique, un résultat à un chiffre significatif, et un jugement de vraisemblance. Une réponse entre $10^8$ et $10^9$ est raisonnable.
+**Ce qu'on attend.** Des facteurs clairs, une estimation justifiée pour chacun, un produit en notation scientifique, un résultat à un chiffre significatif, et un jugement de vraisemblance. Une réponse entre $10^8$ et quelques $10^9$ est raisonnable.
 
 ### Ex R1.19 — Fermi : la place que prend un dataset de photos
 
@@ -434,7 +434,7 @@
 3. Il faudrait environ 600 disques de 1 To ; un serveur de 100 To ne suffit pas (il en faudrait six).
 4. Une photo réduite pèse $224 \times 224 \times 3 \approx 1{,}5 \times 10^5$ octets (150 ko). Le dataset réduit : $2 \times 10^8 \times 1{,}5 \times 10^5 = 3 \times 10^{13}$ octets, soit 30 To : il tient sur le serveur.
 
-**Ce qu'on attend.** Une hypothèse explicite sur le nombre de photos (entre 0,5 et 10 par semaine donne entre $5 \times 10^7$ et $10^9$ photos), une taille par photo justifiée (de 1 à 5 Mo), et la conclusion : le dataset brut se compte en centaines de To, le dataset réduit en dizaines. Réduire les images avant l'entraînement est exactement ce que font les vrais pipelines.
+**Ce qu'on attend.** Une hypothèse explicite sur le nombre de photos (entre 0,5 et 10 par semaine donne entre $5 \times 10^7$ et $10^9$ photos), une taille par photo justifiée (de 1 à 5 Mo), et une conclusion **qui suit tes hypothèses** : selon elles, le dataset brut va de quelques dizaines à quelques milliers de To, et le dataset réduit de moins de 10 à plus de 100 To (il dépasse le serveur au-delà d'environ 6 photos par utilisateur et par semaine). Dans tous les cas, réduire les images divise la taille par 20 ou plus : c'est exactement ce que font les vrais pipelines avant l'entraînement.
 
 ### Ex R1.20 — Expliquer pourquoi +10 % puis −10 % ne ramène pas au départ
 
@@ -484,10 +484,10 @@
 
 ### Ex R1.28 — Chasse à l'erreur : cinq calculs de fractions et de puissances
 
-**Réponses** : a) `"ace"` · b) `4` · c) `"22/15"`.
+**Réponses** : a) `"ace"` · b) `4` · c) `"29/28"`.
 
 **Démarche.**
-- a est faux : on a additionné les numérateurs et les dénominateurs ; $\frac{10}{15} + \frac{12}{15} = \frac{22}{15}$.
+- a est faux : on a additionné les numérateurs et les dénominateurs ; au dénominateur 28, $\frac{21}{28} + \frac{8}{28} = \frac{29}{28}$.
 - b est juste : $\frac{3 \times 8}{4 \times 9} = \frac{24}{36} = \frac{2}{3}$.
 - c est faux : on additionne les exposants en gardant la base, $5^5$, et non $25^5$.
 - d est juste : l'exposant $-1$ retourne la fraction.
@@ -584,11 +584,11 @@ def harmonic_mean(values):
     --------
     >>> harmonic_mean([90, 60])
     72.0
-    >>> harmonic_mean([5, 5, 5])
-    5.0
+    >>> harmonic_mean([3, 6])
+    4.0
     """
 ```
 
 **Ce qu'on attend.** Une première ligne qui dit ce que fait la fonction ; les quatre sections avec leur soulignement de tirets ; les deux cas d'erreur du code dans `Raises` ; des exemples dont le résultat est exactement ce que Python affiche (`72.0`, pas `72`).
 
-**Erreurs fréquentes.** Un exemple dont le résultat est mal écrit (`72` au lieu de `72.0`) : `doctest` le signale ; oublier un cas d'erreur ; écrire la docstring après le code au lieu de juste sous la ligne `def`.
+**Erreurs fréquentes.** Un exemple dont le résultat est mal écrit (`72` au lieu de `72.0`) : `doctest` le signale ; un exemple dont le calcul en flottants ne tombe pas juste (la moyenne harmonique de 5, 5 et 5 s'affiche `4.999999999999999`, pas `5.0`) ; oublier un cas d'erreur ; écrire la docstring après le code au lieu de juste sous la ligne `def`.

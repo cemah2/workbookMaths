@@ -113,13 +113,15 @@ Sans regarder R0, écris ce que tu taperais dans le notebook pour que `wbm.check
 3. les réels strictement positifs ;
 4. l'expression $x^3 + 2x$.
 
-5. Que se passe-t-il si tu tapes `2/7`, sans guillemets, pour la fraction $\frac{2}{7}$ ?
+Et une question à part :
+
+5. Pour la fraction $\frac{2}{7}$, tu tapes `2/7`, sans guillemets : que répond `wbm.check`, et pourquoi ?
 
 <a id="papier"></a>
 
 ## ✏️ Papier-crayon
 
-Fais-les **à la main**, en écrivant ta démarche dans ta copie de `06_mes_reponses.md`. Reporte ensuite **la valeur** trouvée dans la **partie 0 du notebook** : une fraction entre guillemets (`"5/12"`), un décimal avec un point (`0.75`), une liste entre crochets (`[7.25, 7]`), un texte entre guillemets (`"ACE"`).
+Fais-les **à la main**, en écrivant ta démarche dans ta copie de `06_mes_reponses.md`. Reporte ensuite **la valeur** trouvée dans la **partie 0 du notebook** : une fraction entre guillemets (`"11/20"`), un décimal avec un point (`0.75`), une liste entre crochets (`[3.5, -2]`), un texte entre guillemets (`"XYZ"`).
 
 ### Ex R1.1 — Placer des nombres sur la droite numérique et les ranger ✏️ ★ ⏱️ 10 min
 **Objectif :** comparer des nombres écrits de façons différentes, négatifs compris, et les classer par ensemble.
@@ -165,7 +167,7 @@ Calcule **de tête** (écris seulement l'étape clé), en développant ou en fac
 | d | $25 \times 44$ |
 | e | $8 \times 47 - 8 \times 7$ |
 
-### Ex R1.4 — Simplifier des fractions avec le PGCD ✏️ ★ ⏱️ 10 min
+### Ex R1.4 — Simplifier des fractions avec le PGCD ✏️ ★ ⏱️ 15 min
 **Objectif :** trouver un PGCD (par les diviseurs ou par l'algorithme d'Euclide) et rendre une fraction irréductible.
 **Prérequis :** fiche §3 · **Parcours :** C, E
 
@@ -280,7 +282,7 @@ Simplifie d'abord avec les règles, puis donne la valeur.
 **Objectif :** calculer avec des coefficients multiplicateurs : évolution, évolutions successives, évolution réciproque.
 **Prérequis :** fiche §7 · **Parcours :** C, E
 
-Donne les taux **en pourcentage, avec leur signe** : `-20` pour une baisse de 20 %, `32` pour une hausse de 32 %.
+Donne les taux **en pourcentage, avec leur signe** : `-12` pour une baisse de 12 %, `45` pour une hausse de 45 %.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -335,7 +337,7 @@ reste vraie pour **tous** les entiers $m$ et $p$, positifs, nuls ou négatifs.
 3. Avec ces définitions, vérifie que $\frac{a^m}{a^p} = a^{m-p}$ reste vraie quand $m < p$ : d'abord pour $m = 2$ et $p = 5$, puis en général (pour $m < p$ entiers positifs).
 4. Pourquoi a-t-on exigé $a \ne 0$ ? Que vaudrait $0^{-1}$ ?
 
-### Ex R1.16 — Pourquoi on n'additionne pas les dénominateurs ∂ ★★ ⏱️ 20 min
+### Ex R1.16 — Pourquoi on n'additionne pas les dénominateurs ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer la règle d'addition des fractions à partir de la définition d'une fraction, et voir ce que calcule la « fausse règle ».
 **Prérequis :** fiche §3 · **Parcours :** C
 
@@ -344,7 +346,7 @@ On rappelle la définition : pour $b \ne 0$, $\frac{a}{b}$ est l'unique nombre $
 1. Montre par un contre-exemple que l'égalité $\frac{a}{b} + \frac{c}{d} = \frac{a + c}{b + d}$ est fausse en général.
 2. Démontre, à partir de la définition, que $\frac{a}{d} + \frac{c}{d} = \frac{a + c}{d}$ (pour $d \ne 0$) : multiplie la somme par $d$.
 3. Déduis-en que $\frac{a}{b} + \frac{c}{d} = \frac{ad + cb}{bd}$ (pour $b \ne 0$ et $d \ne 0$).
-4. ★ La « fausse règle » calcule un vrai nombre, la **médiante** $\frac{a + c}{b + d}$. Pour des nombres $a, b, c, d$ strictement positifs, avec $\frac{a}{b} < \frac{c}{d}$, montre qu'elle est toujours **entre** les deux fractions. Exemple concret : un joueur réussit 3 tirs sur 5 le samedi et 7 sur 10 le dimanche ; que représente $\frac{3 + 7}{5 + 10}$ ?
+4. ★ La « fausse règle » calcule un vrai nombre, la **médiante** $\frac{a + c}{b + d}$. Pour des nombres $a, b, c, d$ strictement positifs, avec $\frac{a}{b} < \frac{c}{d}$, montre qu'elle est toujours **strictement entre** les deux fractions. Exemple concret : un joueur réussit 3 tirs sur 5 le samedi et 7 sur 10 le dimanche ; que représente $\frac{3 + 7}{5 + 10}$ ?
 
 <a id="reflexion"></a>
 

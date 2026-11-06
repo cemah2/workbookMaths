@@ -18,7 +18,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 |---|---|---|---|---|---|---|
 | [R0](#r0) | Prise en main | 0B | — | 3,2 h | ✅ exercices | 1 |
 | [POS](#pos) | Test de positionnement | — | — | 2,1 h | ✅ exercices | 1 |
-| [R1](#r1) | Nombres et calcul | 0B | — | 12,5 h | ✅ exercices | 1 |
+| [R1](#r1) | Nombres et calcul | 0B | — | 12,7 h | ✅ exercices | 1 |
 | [R2](#r2) | Calcul littéral et équations | 0B | — | 13,6 h | ✅ exercices | 1 |
 | [R3](#r3) | Fonctions | 0B | — | 12,8 h | ✅ exercices | 1 |
 | [R4](#r4) | Logique, ensembles, Σ et Π | 0B | — | 12,4 h | ✅ exercices | 1 |
@@ -79,7 +79,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 
 | Partie | Chapitres | Exercices détaillés | Durée (complet) | Durée (essentiel) |
 |---|---|---|---|---|
-| 0 · Remise à niveau | 12 | 363 | 113,7 h | 90,6 h |
+| 0 · Remise à niveau | 12 | 363 | 113,8 h | 90,7 h |
 | I · Fondations | 9 | — | ≈ 110 h (estimé) | à détailler |
 | II · Concepts | 7 | — | ≈ 78 h (estimé) | à détailler |
 | III · ML classique | 8 | — | ≈ 98 h (estimé) | à détailler |
@@ -205,7 +205,7 @@ Le test de positionnement : deux exercices par chapitre de R1 à R9, vérifiés 
 
 Le calcul sur les nombres, du collège à la seconde : les ensembles de nombres, les priorités, les fractions, les puissances et les racines, la notation scientifique et les arrondis, les pourcentages et les évolutions successives, les moyennes pondérées. Tout ce que le chapitre 0B de workbookIA suppose sans le dire, avec ses pièges classiques.
 
-**Temps** : 12,5 h en parcours complet, 9,6 h en parcours essentiel (lecture 135 min, 25 flashcards).
+**Temps** : 12,7 h en parcours complet, 9,7 h en parcours essentiel (lecture 135 min, 25 flashcards).
 
 **Objectifs**
 
@@ -252,7 +252,7 @@ Le calcul sur les nombres, du collège à la seconde : les ensembles de nombres,
 | R1.1 | ✏️ | Placer des nombres sur la droite numérique et les ranger | ★ | 10 | §1 | C, E | wbm | — |
 | R1.2 | ✏️ | Calculer avec les priorités et les signes | ★ | 10 | §2 | C, E | wbm | — |
 | R1.3 | ✏️ | Calcul mental avec la distributivité : 17 × 99, 23 × 101 | ★ | 10 | §2 | C | wbm | — |
-| R1.4 | ✏️ | Simplifier des fractions avec le PGCD | ★ | 10 | §3 | C, E | wbm | — |
+| R1.4 | ✏️ | Simplifier des fractions avec le PGCD | ★ | 15 | §3 | C, E | wbm | — |
 | R1.5 | ✏️ | Additionner, multiplier et diviser des fractions | ★★ | 20 | §3 | C, E | wbm | — |
 | R1.6 | ✏️ | Comparer des fractions | ★ | 10 | §3 | C | wbm | — |
 | R1.7 | ✏️ | Appliquer les règles des puissances | ★ | 15 | §4 | C, E | wbm | — |
@@ -264,7 +264,7 @@ Le calcul sur les nombres, du collège à la seconde : les ensembles de nombres,
 | R1.13 | ✏️ | Règle de trois et proportionnalité | ★ | 10 | §7 | C | wbm | — |
 | R1.14 | ✏️ | Moyenne pondérée : la note finale et la somme pondérée d'un neurone | ★★ | 15 | §8 | C, E | wbm | — |
 | R1.15 | ∂ | Pourquoi a⁰ = 1 et a⁻ⁿ = 1/aⁿ : prolonger les règles des puissances | ★★ | 25 | §4 | C, E | manuel | — |
-| R1.16 | ∂ | Pourquoi on n'additionne pas les dénominateurs | ★★ | 20 | §3 | C | manuel | — |
+| R1.16 | ∂ | Pourquoi on n'additionne pas les dénominateurs | ★★ | 25 | §3 | C | manuel | — |
 | R1.17 | 🔗 | Combien de paramètres, combien d'octets ? Un réseau en notation scientifique | ★★ | 20 | §6 | C, E | wbm | — |
 | R1.18 | 🧮 | Fermi : combien de mots lis-tu dans une vie ? | ★★ | 20 | §9 | C | manuel | — |
 | R1.19 | 🧮 | Fermi : la place que prend un dataset de photos | ★★ | 20 | §9 §6 | C, E | manuel | — |

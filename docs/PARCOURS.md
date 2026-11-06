@@ -31,7 +31,7 @@ La remise à niveau se fait en même temps que 0A. Avant chaque chapitre, avance
 |---|---|---|
 | R0 | R0.Q1, R0.Q2, R0.Q3, R0.Q4, R0.1, R0.2, R0.3, R0.4, R0.5, R0.6, R0.7, R0.8, R0.9 | 3,2 h |
 | POS | POS.1, POS.2, POS.3, POS.4, POS.5, POS.6, POS.7, POS.8, POS.9, POS.10, POS.11, POS.12, POS.13, POS.14, POS.15, POS.16, POS.17, POS.18 | 2,1 h |
-| R1 | R1.Q1, R1.Q2, R1.Q3, R1.Q4, R1.Q5, R1.Q6, R1.Q7, R1.Q8, R1.R1, R1.1, R1.2, R1.3, R1.4, R1.5, R1.6, R1.7, R1.8, R1.9, R1.10, R1.11, R1.12, R1.13, R1.14, R1.15, R1.16, R1.17, R1.18, R1.19, R1.20, R1.21, R1.22, R1.23, R1.24, R1.25, R1.26, R1.27, R1.28, R1.29, R1.30, R1.31 | 12,5 h |
+| R1 | R1.Q1, R1.Q2, R1.Q3, R1.Q4, R1.Q5, R1.Q6, R1.Q7, R1.Q8, R1.R1, R1.1, R1.2, R1.3, R1.4, R1.5, R1.6, R1.7, R1.8, R1.9, R1.10, R1.11, R1.12, R1.13, R1.14, R1.15, R1.16, R1.17, R1.18, R1.19, R1.20, R1.21, R1.22, R1.23, R1.24, R1.25, R1.26, R1.27, R1.28, R1.29, R1.30, R1.31 | 12,7 h |
 | R2 | R2.Q1, R2.Q2, R2.Q3, R2.Q4, R2.Q5, R2.Q6, R2.Q7, R2.Q8, R2.R1, R2.R2, R2.R3, R2.1, R2.2, R2.3, R2.4, R2.5, R2.6, R2.7, R2.8, R2.9, R2.10, R2.11, R2.12, R2.13, R2.14, R2.15, R2.16, R2.17, R2.18, R2.19, R2.20, R2.21, R2.22, R2.23, R2.24, R2.25, R2.26, R2.27, R2.28 | 13,6 h |
 | R3 | R3.Q1, R3.Q2, R3.Q3, R3.Q4, R3.Q5, R3.Q6, R3.Q7, R3.Q8, R3.R1, R3.R2, R3.R3, R3.1, R3.2, R3.3, R3.4, R3.5, R3.6, R3.7, R3.8, R3.9, R3.10, R3.11, R3.12, R3.13, R3.14, R3.15, R3.16, R3.17, R3.18, R3.19, R3.20, R3.21, R3.22, R3.23, R3.24, R3.25, R3.26 | 12,8 h |
 | R4 | R4.Q1, R4.Q2, R4.Q3, R4.Q4, R4.Q5, R4.Q6, R4.Q7, R4.Q8, R4.R1, R4.R2, R4.R3, R4.1, R4.2, R4.3, R4.4, R4.5, R4.6, R4.7, R4.8, R4.9, R4.10, R4.11, R4.12, R4.13, R4.14, R4.15, R4.16, R4.17, R4.18, R4.19, R4.20, R4.21, R4.22, R4.23, R4.24, R4.25 | 12,4 h |
@@ -42,7 +42,7 @@ La remise à niveau se fait en même temps que 0A. Avant chaque chapitre, avance
 | R9 | R9.Q1, R9.Q2, R9.Q3, R9.Q4, R9.Q5, R9.Q6, R9.Q7, R9.R1, R9.R2, R9.R3, R9.1, R9.2, R9.3, R9.4, R9.5, R9.6, R9.7, R9.8, R9.9, R9.10, R9.11, R9.12, R9.13, R9.14, R9.15, R9.16, R9.17, R9.18, R9.19, R9.20, R9.21, R9.22, R9.23, R9.24 | 11,0 h |
 | CP0 | CP0.Q1, CP0.1, CP0.2, CP0.3, CP0.4, CP0.5, CP0.6, CP0.7, CP0.8, CP0.9, CP0.10, CP0.11, CP0.12, CP0.13 | 3,3 h |
 
-**Total des parties détaillées** : 113,7 h.
+**Total des parties détaillées** : 113,8 h.
 
 <a id="essentiel"></a>
 ## Parcours essentiel
@@ -51,7 +51,7 @@ La remise à niveau se fait en même temps que 0A. Avant chaque chapitre, avance
 |---|---|---|
 | R0 | R0.Q1, R0.Q2, R0.Q3, R0.1, R0.3, R0.4, R0.5, R0.6, R0.8, R0.9 | 2,8 h |
 | POS | POS.1, POS.2, POS.3, POS.4, POS.5, POS.6, POS.7, POS.8, POS.9, POS.10, POS.11, POS.12, POS.13, POS.14, POS.15, POS.16, POS.17, POS.18 | 2,1 h |
-| R1 | R1.Q1, R1.Q2, R1.Q3, R1.Q4, R1.Q5, R1.Q6, R1.Q7, R1.R1, R1.1, R1.2, R1.4, R1.5, R1.7, R1.8, R1.9, R1.10, R1.11, R1.12, R1.14, R1.15, R1.17, R1.19, R1.20, R1.21, R1.22, R1.24, R1.25, R1.28, R1.29 | 9,6 h |
+| R1 | R1.Q1, R1.Q2, R1.Q3, R1.Q4, R1.Q5, R1.Q6, R1.Q7, R1.R1, R1.1, R1.2, R1.4, R1.5, R1.7, R1.8, R1.9, R1.10, R1.11, R1.12, R1.14, R1.15, R1.17, R1.19, R1.20, R1.21, R1.22, R1.24, R1.25, R1.28, R1.29 | 9,7 h |
 | R2 | R2.Q1, R2.Q2, R2.Q3, R2.Q4, R2.Q5, R2.Q7, R2.R1, R2.1, R2.2, R2.3, R2.4, R2.5, R2.6, R2.7, R2.9, R2.10, R2.11, R2.12, R2.13, R2.16, R2.17, R2.18, R2.21, R2.22, R2.24, R2.26, R2.27 | 10,1 h |
 | R3 | R3.Q1, R3.Q2, R3.Q3, R3.Q4, R3.Q5, R3.Q7, R3.Q8, R3.R1, R3.R2, R3.1, R3.2, R3.3, R3.4, R3.5, R3.6, R3.7, R3.8, R3.9, R3.10, R3.11, R3.15, R3.16, R3.18, R3.19, R3.20, R3.21, R3.22, R3.25 | 10,4 h |
 | R4 | R4.Q1, R4.Q2, R4.Q3, R4.Q4, R4.Q5, R4.Q6, R4.R1, R4.R3, R4.1, R4.2, R4.3, R4.4, R4.6, R4.7, R4.8, R4.9, R4.10, R4.12, R4.14, R4.16, R4.18, R4.19, R4.20, R4.21, R4.24 | 9,1 h |
@@ -62,5 +62,5 @@ La remise à niveau se fait en même temps que 0A. Avant chaque chapitre, avance
 | R9 | R9.Q1, R9.Q2, R9.Q3, R9.Q4, R9.Q5, R9.Q6, R9.R1, R9.R2, R9.1, R9.2, R9.3, R9.4, R9.5, R9.7, R9.8, R9.9, R9.10, R9.13, R9.14, R9.15, R9.16, R9.17, R9.19, R9.20, R9.21, R9.23 | 8,8 h |
 | CP0 | CP0.Q1, CP0.1, CP0.2, CP0.3, CP0.4, CP0.5, CP0.6, CP0.7, CP0.8, CP0.9, CP0.10, CP0.11, CP0.12, CP0.13 | 3,3 h |
 
-**Total des parties détaillées** : 90,6 h.
+**Total des parties détaillées** : 90,7 h.
 

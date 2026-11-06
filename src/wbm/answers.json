@@ -2198,10 +2198,10 @@
       "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
     },
     "R1.28c": {
-      "hash": "ab97a73e1f7f4882f5b1cf91f748d479f680c627374d3a8abf17a525b49d6f70",
+      "hash": "d7e1a0a78f2ba08d0297468a629967040c8120ad9241ee3a51f0a91ea9c7b85c",
       "kind": "fraction",
       "mistakes": {
-        "8a8879ffa73b8a0b04d751b5704e30e52681fbad18711c515ab2791e78ddecca": "mets au même dénominateur (15) avant d'additionner"
+        "97b53c1225dfdb611a12a961f855e61630c6574974faf94fba1f8ad471c698af": "mets au même dénominateur avant d'additionner"
       },
       "sign": 1,
       "simplified": true,

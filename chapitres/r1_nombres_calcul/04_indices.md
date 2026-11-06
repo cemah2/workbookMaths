@@ -76,7 +76,7 @@ Pour chaque ligne, dis quelle règle s'applique (produit, quotient, puissance de
 </details>
 <details><summary>Indice 3</summary>
 
-1 est **faux** : on additionne les exposants, $4^5$. Pour 6, calcule les deux membres : $2^3 + 2^3$, c'est deux fois la même chose. Pour 7, soustraire un exposant négatif…
+1 est **faux** : on additionne les exposants, $4^5$. Pour 6, calcule les deux membres séparément. Pour 7, soustraire un exposant négatif…
 
 </details>
 
@@ -112,7 +112,7 @@ La mantisse est entre 1 et 10 ; les zéros de tête ne sont pas significatifs, c
 </details>
 <details><summary>Indice 3</summary>
 
-1 est **vrai** : 6, 3 et le zéro final. Pour 2, regarde la mantisse. Pour 5, écris $8\,200 = 8{,}2 \times 10^3$, puis compare 8,2 à 3,16.
+1 est **vrai** : 6, 3 et le zéro final. Pour 2, regarde la mantisse. Pour 5, écris $8\,200$ en notation scientifique, puis applique la règle de l'ordre de grandeur.
 
 </details>
 
@@ -282,7 +282,7 @@ Pour a, compare $7 \times 14$ et $11 \times 9$. Pour b, mets les trois fractions
 </details>
 <details><summary>Indice 3</summary>
 
-a : $7 \times 14 = 98$ et $11 \times 9 = 99$ : la fraction dont le produit en croix est le plus grand… Pour b, $P = \frac{16}{24}$ ; calcule $Q$ et $R$ de la même façon. Pour d, compare $13 \times 3$ et $40 \times 1$.
+a : $7 \times 14 = 98$ et $11 \times 9 = 99$ ; or $\frac{a}{b} > \frac{c}{d}$ exactement quand $a \times d > c \times b$. Pour b, $P = \frac{16}{24}$ ; calcule $Q$ et $R$ de la même façon. Pour d, compare $13 \times 3$ et $40 \times 1$.
 
 </details>
 
@@ -631,7 +631,7 @@ Pour chaque ligne, nomme la règle : somme de fractions, produit de fractions, p
 </details>
 <details><summary>Indice 3</summary>
 
-a est faux : $\frac{2}{3} + \frac{4}{5}$ se calcule au dénominateur 15. Juge les autres de la même façon ; pour e, multiplie par l'inverse de $\frac{5}{6}$.
+a est faux : $\frac{3}{4} + \frac{2}{7}$ se calcule au dénominateur 28. Juge les autres de la même façon ; pour e, multiplie par l'inverse de $\frac{5}{6}$.
 
 </details>
 
@@ -649,7 +649,7 @@ Pour chaque ligne, écris la formule que Python calcule vraiment (avec des paren
 </details>
 <details><summary>Indice 3</summary>
 
-Ligne 1 : `-x**2` se lit $-(x^2)$, qui n'est pas $(-x)^2$. Pour les lignes 4 et 7, souviens-toi que / et * se font de gauche à droite, et que / passe avant +.
+Ligne 1 : `-x**2` se lit $-(x^2)$, qui n'est pas $(-x)^2$. Pour les autres lignes, écris les parenthèses que Python met, en te souvenant que / et * se font de gauche à droite et que / passe avant +.
 
 </details>
 
@@ -756,7 +756,7 @@ price, years = 1.0, 0
 while price < 2:
     ...   # one more year
 ```
-Pour b, `round(1.1**30, 2)`.
+Pour b, `round` avec deux décimales.
 
 </details>
 

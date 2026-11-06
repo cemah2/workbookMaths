@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §9 |
-| **Temps total estimé** | ≈ 12,5 h : lecture et calculs de la fiche ≈ 2 h 15, exercices ≈ 9 h 25, flashcards ≈ 50 min (parcours essentiel ≈ 9,6 h) |
+| **Temps total estimé** | ≈ 12,7 h : lecture et calculs de la fiche ≈ 2 h 15, exercices ≈ 9 h 35, flashcards ≈ 50 min (parcours essentiel ≈ 9,7 h) |
 | **Prérequis** | R0 (taper une fraction et un intervalle pour `wbm.check`) ; workbookIA 0A jusqu'à §100.6.2 : listes (§100.3.1), boucles (§100.4.2), docstrings (§100.5.5), exceptions (§100.6.2) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `arith.py` : `gcd`, `simplify_fraction`, `add_fractions`, `scientific_notation`, `successive_changes`, `weighted_mean` |
@@ -83,6 +83,8 @@ Chaque ensemble contient le précédent : un entier naturel est aussi un entier 
 $$\mathbb{N} \subset \mathbb{Z} \subset \mathbb{D} \subset \mathbb{Q} \subset \mathbb{R}$$
 
 Pour dire qu'un nombre **appartient** à un ensemble, on écrit $\in$ : $-3 \in \mathbb{Z}$, et $-3 \notin \mathbb{N}$ (« n'appartient pas »). Quand on demande « le plus petit ensemble qui contient $x$ », on cherche le premier de la chaîne qui le contient : pour $-0{,}75$, c'est 𝔻.
+
+**Nombres premiers.** Un **nombre premier** est un entier supérieur ou égal à 2 qui n'a que deux diviseurs, 1 et lui-même : 2, 3, 5, 7, 11, 13, 17… Tout entier supérieur ou égal à 2 s'écrit comme un produit de nombres premiers, sa **décomposition en facteurs premiers** : $20 = 2^2 \times 5$, $60 = 2^2 \times 3 \times 5$. On s'en sert pour les fractions (§3).
 
 **Décimal ou pas ?** Un nombre est décimal quand il s'écrit $\frac{p}{10^k}$ : $2{,}05 = \frac{205}{10^2}$. Une fraction irréductible $\frac{p}{q}$ est décimale exactement quand son dénominateur $q$ n'a que 2 et 5 comme facteurs premiers : $\frac{7}{20} = 0{,}35$ (car $20 = 2^2 \times 5$), mais $\frac{1}{3} = 0{,}333\ldots$, avec des 3 à l'infini, n'est pas décimal.
 
@@ -186,7 +188,7 @@ Une fraction dont le numérateur dépasse le dénominateur dépasse 1 : $\frac{7
 
 On ne change pas une fraction en multipliant (ou en divisant) **son numérateur et son dénominateur** par le même nombre non nul : $\frac{5}{6} = \frac{5 \times 12}{6 \times 12} = \frac{60}{72}$. Dans l'autre sens, c'est **simplifier**. Une fraction est **irréductible** quand on ne peut plus la simplifier : numérateur et dénominateur n'ont plus d'autre diviseur commun que 1.
 
-Pour simplifier en une seule fois, on divise par le **PGCD** (plus grand commun diviseur) du numérateur et du dénominateur. Les diviseurs de 60 sont 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 ; ceux de 72 sont 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72. Le plus grand diviseur commun est 12, donc :
+Pour simplifier en une seule fois, on divise par le **PGCD** (plus grand commun diviseur) du numérateur et du dénominateur. Les diviseurs de 60 sont 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 ; ceux de 72 sont 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72. Le plus grand diviseur commun est 12. Les décompositions en facteurs premiers (§1) le donnent aussi : $60 = 2^2 \times 3 \times 5$ et $72 = 2^3 \times 3^2$ ont en commun $2^2 \times 3 = 12$ (chaque facteur commun, avec le plus petit des deux exposants). Donc :
 
 $$\frac{60}{72} = \frac{60 \div 12}{72 \div 12} = \frac{5}{6}$$
 
@@ -305,7 +307,7 @@ L'exercice R1.15 te fait démontrer que ce sont les **seules** valeurs qui garde
 Les règles portent sur des **produits**, jamais sur des sommes :
 - $(a + b)^2 \ne a^2 + b^2$ : $(2 + 3)^2 = 25$, alors que $2^2 + 3^2 = 13$. Le bon développement, $(a + b)^2 = a^2 + 2ab + b^2$, vient en R2 ;
 - $a^m + a^n \ne a^{m+n}$ : $3^2 + 3^3 = 9 + 27 = 36$, alors que $3^5 = 243$ ;
-- $a^m \times b^n$ ne se simplifie pas quand $a \ne b$ et $m \ne n$ ;
+- il n'y a pas de règle pour $a^m \times b^n$ quand les bases et les exposants diffèrent ; parfois, on peut se ramener à une même base : $2^3 \times 4 = 2^3 \times 2^2 = 2^5$ ;
 - $(-a)^n$ et $-a^n$ diffèrent quand $n$ est pair : $(-2)^4 = 16$, mais $-2^4 = -16$.
 
 ### Puissances de 10 et préfixes
@@ -411,7 +413,7 @@ En Python, `5.86e8` et `3.72e-5` sont des flottants écrits en notation scientif
 
 ### Chiffres significatifs et arrondis
 
-Les **chiffres significatifs** d'un nombre sont ses chiffres à partir du premier chiffre non nul : $0{,}040\,50$ a quatre chiffres significatifs (4, 0, 5, 0) ; les zéros de tête ne comptent pas, ceux de la fin oui (ils disent la précision). En notation scientifique, ce sont les chiffres de la mantisse : $4{,}050 \times 10^{-2}$.
+Les **chiffres significatifs** d'un nombre sont ses chiffres à partir du premier chiffre non nul : $0{,}040\,50$ a quatre chiffres significatifs (4, 0, 5, 0). Les zéros de tête ne comptent jamais. Les zéros de la fin comptent quand ils sont **après la virgule** : écrire $0{,}040\,50$ plutôt que $0{,}0405$, c'est dire qu'on connaît aussi le chiffre suivant. Dans un entier comme $2\,720\,000$, les zéros qui ne font que tenir la place des unités ne disent rien de la précision : on ne sait pas si on connaît ce nombre à l'unité près ou au millier près. La notation scientifique lève l'ambiguïté : les chiffres significatifs sont ceux de la mantisse, $4{,}050 \times 10^{-2}$ en a quatre, et $2{,}72 \times 10^6$ trois.
 
 **Arrondir à $n$ chiffres significatifs** : on garde les $n$ premiers, et on regarde le suivant ; s'il vaut 5 ou plus, le dernier chiffre gardé monte de 1.
 - $2\,718\,281$ à 3 chiffres significatifs : 2, 7, 1, et le suivant est 8, donc $2\,720\,000 = 2{,}72 \times 10^6$ ;
@@ -420,7 +422,7 @@ Les **chiffres significatifs** d'un nombre sont ses chiffres à partir du premie
 
 **Arrondir à $n$ décimales** est un autre réglage : $3{,}14159$ à 2 décimales donne $3{,}14$. **Tronquer**, c'est couper sans regarder la suite : $3{,}149$ tronqué à 2 décimales donne $3{,}14$, arrondi $3{,}15$.
 
-> ⚠️ **Erreur de calcul classique** — Arrondir en plusieurs fois : arrondir d'abord au centième, puis le résultat au dixième, peut donner un autre nombre qu'arrondir directement au dixième. On arrondit **une seule fois**, à la fin, depuis la valeur complète (l'exercice R1.26 le montre en Python).
+> ⚠️ **Erreur de calcul classique** — Arrondir en plusieurs fois : arrondir d'abord au centième, puis le résultat au dixième, peut donner un autre nombre qu'arrondir directement au dixième. On arrondit **une seule fois**, à la fin, depuis la valeur complète.
 
 ```python
 >>> f"{2718281:.3g}", f"{0.01496:.2g}"
@@ -455,8 +457,8 @@ Le plafond sert dès qu'on compte des « paquets » qu'on ne peut pas couper : p
 ### Ordres de grandeur
 
 L'**ordre de grandeur** d'un nombre est la puissance de 10 la plus proche de lui. On écrit le nombre $m \times 10^k$, puis :
-- si $m < \sqrt{10} \approx 3{,}16$, l'ordre de grandeur est $10^k$ ;
-- si $m \ge 3{,}16$, c'est $10^{k+1}$.
+- si $|m| < \sqrt{10}$ (environ 3,16), l'ordre de grandeur est $10^k$ ;
+- si $|m| \ge \sqrt{10}$, c'est $10^{k+1}$.
 
 Le seuil $\sqrt{10}$ vient de ce que « proche » se juge en **multipliant** : $\sqrt{10}$ est aussi loin de 1 que de 10, puisque $\frac{\sqrt{10}}{1} = \frac{10}{\sqrt{10}}$. Ainsi $586\,000\,000 = 5{,}86 \times 10^8$ a pour ordre de grandeur $10^9$, et $0{,}000\,024 = 2{,}4 \times 10^{-5}$ a pour ordre de grandeur $10^{-5}$. Certains manuels coupent à 5 au lieu de 3,16 ; les deux règles ne diffèrent que pour une mantisse entre 3,16 et 5, et les exercices du workbook évitent ce cas.
 
@@ -627,7 +629,7 @@ Pourquoi ça marche ? Les erreurs se compensent souvent : on surestime un facteu
 | × et ÷ de gauche à droite | $24 \div 4 \times 2 = 3$ | $24 \div 4 \times 2 = 12$ |
 | un moins devant une parenthèse | $-(3 - 8) = -3 - 8$ | $-(3 - 8) = -3 + 8$ |
 | additionner des fractions | $\frac{1}{2} + \frac{1}{3} = \frac{2}{5}$ | $\frac{1}{2} + \frac{1}{3} = \frac{5}{6}$ |
-| diviser par une fraction | $\frac{a}{b} \div \frac{c}{d} = \frac{a \div c}{b \div d}$ (rarement entier) | multiplier par l'inverse : $\frac{a}{b} \times \frac{d}{c}$ |
+| diviser par une fraction | $\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{c}{d}$ | multiplier par l'**inverse** : $\frac{a}{b} \times \frac{d}{c}$ |
 | une puissance d'une somme | $(a + b)^2 = a^2 + b^2$ | $(a + b)^2 = a^2 + 2ab + b^2$ (R2) |
 | une somme de puissances | $3^2 + 3^3 = 3^5$ | $3^2 \times 3^3 = 3^5$ ; la somme ne se simplifie pas |
 | un exposant négatif | $3^{-2} = -9$ | $3^{-2} = \frac{1}{9}$ |

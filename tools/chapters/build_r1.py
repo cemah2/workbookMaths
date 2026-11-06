@@ -244,8 +244,8 @@ PAPER_CONTEXT = "# Part 0: the answers are computed exactly from the statements\
 PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ R1.1 à R1.14, 🔗 R1.17)\n\n"
                "Fais d'abord les exercices de `02_exercices.md` **sur papier**, dans ta copie de "
                "`06_mes_reponses.md`. Reporte ensuite chaque réponse ici : **la valeur** que tu as trouvée, sous la "
-               "forme indiquée en commentaire (une fraction entre guillemets, `\"5/12\"` ; un décimal avec un point, "
-               "`0.75` ; une liste, `[7.25, 7]` ; un texte entre guillemets, `\"ACE\"`), jamais le calcul lui-même. "
+               "forme indiquée en commentaire (une fraction entre guillemets, `\"11/20\"` ; un décimal avec un point, "
+               "`0.75` ; une liste, `[3.5, -2]` ; un texte entre guillemets, `\"XYZ\"`), jamais le calcul lui-même. "
                "Les réponses pas encore remplies affichent ⏳.")
 
 # ---------------------------------------------------------------------------
@@ -373,7 +373,7 @@ R1_28 = Ex(
 
 | | Calcul |
 |---|---|
-| a | $\\dfrac{2}{3} + \\dfrac{4}{5} = \\dfrac{6}{8}$ |
+| a | $\\dfrac{3}{4} + \\dfrac{2}{7} = \\dfrac{5}{11}$ |
 | b | $\\dfrac{3}{4} \\times \\dfrac{8}{9} = \\dfrac{2}{3}$ |
 | c | $5^3 \\times 5^2 = 25^5$ |
 | d | $\\left(\\dfrac{2}{5}\\right)^{-1} = \\dfrac{5}{2}$ |
@@ -387,7 +387,7 @@ answer_R1_28b = ...  # b) an integer
 answer_R1_28c = ...  # c) an irreducible fraction, as text''',
     check='''for letter, answer in zip("abc", [answer_R1_28a, answer_R1_28b, answer_R1_28c]):
     wbm.check(f"R1.28{letter}", answer)''',
-    solution='''claims = {"a": (Fraction(2, 3) + Fraction(4, 5), Fraction(6, 8)),
+    solution='''claims = {"a": (Fraction(3, 4) + Fraction(2, 7), Fraction(5, 11)),
           "b": (Fraction(3, 4) * Fraction(8, 9), Fraction(2, 3)),
           "c": (5**3 * 5**2, 25**5),
           "d": (Fraction(2, 5) ** -1, Fraction(5, 2)),
@@ -398,8 +398,8 @@ for letter, (right, claimed) in claims.items():
            mistakes={bug_letters_mistakes("ace", "bd", R1_28_MISSING)})
 wbm.record("R1.28b", Fraction(10, 3) / Fraction(5, 6),
            mistakes={{"diviser par une fraction, c'est multiplier par son inverse": Fraction(50, 18)}})
-wbm.record("R1.28c", Fraction(2, 3) + Fraction(4, 5), kind="fraction", simplified=True,
-           mistakes={{"mets au même dénominateur (15) avant d'additionner": "6/8"}})''',
+wbm.record("R1.28c", Fraction(3, 4) + Fraction(2, 7), kind="fraction", simplified=True,
+           mistakes={{"mets au même dénominateur avant d'additionner": "5/11"}})''',
     note="Le calcul c additionne bien les exposants, mais garde la base 5 : $5^3 \\times 5^2 = 5^5 = 3125$, alors "
          "que $25^5$ dépasse neuf millions.",
 )
@@ -475,7 +475,7 @@ R1_23 = Ex(
 
 Une démarche, à suivre dans la docstring :
 1. `x == 0` est un cas à part (docstring) ;
-2. l'exposant est l'entier $k$ tel que $10^k \\le |x| < 10^{k+1}$ : `math.floor(math.log10(abs(x)))` le donne presque toujours (vérifie que la mantisse obtenue est bien entre 1 et 10, et corrige d'un rang sinon) ;
+2. l'exposant est l'entier $k$ tel que $10^k \\le |x| < 10^{k+1}$. `math.log10(y)` donne le nombre (pas forcément entier) $e$ tel que $10^e = y$ : `math.log10(1000)` vaut 3, `math.log10(2000)` environ 3,3 (R6 l'étudiera). Son plancher, `math.floor(math.log10(abs(x)))`, donne donc presque toujours $k$ (vérifie que la mantisse obtenue est bien entre 1 et 10, et corrige d'un rang sinon) ;
 3. la mantisse est $x / 10^k$, puis on l'arrondit ;
 4. **le piège** : l'arrondi peut donner 10 (9,996 à trois chiffres) ; on écrit alors 1,00 et l'exposant augmente de 1.
 
@@ -503,7 +503,7 @@ print("round(3.46)           =", round(3.46))'''
 
 R1_26 = Ex(
     "R1.26", "🔮", 1, 10, "Prédire : arrondir deux fois, est-ce arrondir une fois ?",
-    "voir sur un exemple qu'arrondir un arrondi peut changer le résultat.",
+    "prévoir le résultat de deux arrondis successifs, et le comparer à un arrondi direct.",
     "fiche §6, « Chiffres significatifs et arrondis »", tracks="C", hypothesis=True,
     body="""`round(x, 1)` arrondit au dixième, `round(x)` à l'unité. **Avant d'exécuter quoi que ce soit**, prédis :
 - a) `round(round(3.46, 1))` : on arrondit d'abord 3,46 au dixième, puis ce résultat à l'unité ;
@@ -546,7 +546,7 @@ R1_30 = Ex(
     "fiche §6, « Ordres de grandeur »", tracks="C",
     body="""Sur une échelle ordinaire, $10^{-10}$ et $10^{12}$ ne tiennent pas sur le même dessin. On place plutôt l'**exposant** : chaque graduation est une puissance de 10, et un pas vers la droite multiplie par 10.
 
-Complète `plot_magnitudes` : pour chaque nombre du dictionnaire `quantities` (cellule suivante), place un point à l'abscisse $\\log_{10}(\\text{valeur})$ (`math.log10`, qui donne l'exposant, à une décimale près) et écris son nom à côté. Un titre, l'axe horizontal nommé « puissance de 10 », une graduation par entier de −10 à 12 (`ax.set_xticks(range(-10, 13))`).
+Complète `plot_magnitudes` : pour chaque nombre du dictionnaire `quantities` (cellule suivante), place un point à l'abscisse $\\log_{10}(\\text{valeur})$ (`math.log10`, qui donne l'exposant, même non entier : `math.log10(7e-5)` vaut environ −4,15) et écris son nom à côté. Un titre, l'axe horizontal nommé « puissance de 10 », une graduation par entier de −10 à 12 (`ax.set_xticks(range(-10, 13))`).
 
 Puis lis ta figure : combien de puissances de 10 séparent l'épaisseur d'un cheveu du nombre de paramètres du modèle ? Note ta réponse dans ta copie de `06_mes_reponses.md`, et compare ta figure à celle de `05_solutions.ipynb`.
 
@@ -677,12 +677,16 @@ R1_31_CHECK = '''with wbm.attempt("R1.31"):
     if missing:
         print("❌ Ex R1.31 : il manque ces sections dans la docstring :", ", ".join(missing))
     else:
-        failures = doctest.run_docstring_examples(harmonic_mean, {"harmonic_mean": harmonic_mean}, verbose=False)
-        n_examples = doc.count(">>>")
-        if n_examples >= 2:
-            print(f"✅ Ex R1.31 : quatre sections, et {n_examples} exemples (aucun message au-dessus = ils passent).")
+        runner = doctest.DocTestRunner()
+        for test in doctest.DocTestFinder().find(harmonic_mean, "harmonic_mean", globs={"harmonic_mean": harmonic_mean}):
+            runner.run(test)
+        failed, attempted = runner.summarize(verbose=False)
+        if attempted < 2:
+            print(f"❌ Ex R1.31 : {attempted} exemple(s) >>> dans la docstring ; il en faut au moins deux.")
+        elif failed:
+            print(f"❌ Ex R1.31 : {failed} exemple(s) sur {attempted} ne donnent pas le résultat écrit (détail au-dessus).")
         else:
-            print(f"❌ Ex R1.31 : {n_examples} exemple(s) >>> dans la docstring ; il en faut au moins deux.")'''
+            print(f"✅ Ex R1.31 : quatre sections, et {attempted} exemples qui donnent bien le résultat écrit.")'''
 
 R1_31 = Ex(
     "R1.31", "🛠️", 1, 15, "Écrire la docstring d'une fonction (format NumPy)",
@@ -691,9 +695,9 @@ R1_31 = Ex(
     body="""La fonction `harmonic_mean` (fiche §8, la moyenne harmonique) marche, mais personne ne sait comment s'en servir : elle n'a pas de docstring. Écris-la, **en anglais** comme tout le code du dépôt, au format NumPy que tu as vu dans 0A (§100.5.5) et dans les fichiers de `mymath` :
 - une première ligne qui dit ce que fait la fonction ;
 - `Parameters`, `Returns` et `Raises` (les deux cas d'erreur du code) ;
-- `Examples` : au moins deux exemples `>>>` avec leur résultat, que tu calcules à la main (par exemple la moyenne harmonique de 90 et de 60 de la fiche).
+- `Examples` : au moins deux exemples `>>>` avec leur résultat, que tu calcules à la main (par exemple la moyenne harmonique de 90 et de 60 de la fiche). Écris le résultat exactement comme Python l'affiche : un flottant, `72.0`. Choisis des exemples dont le calcul en flottants tombe juste (évite les tiers et les septièmes).
 
-La vérification regarde que les quatre sections sont là, puis **exécute tes exemples** (`doctest`) : un exemple faux affiche un message. Compare ensuite ta docstring à celle de `05_solutions.ipynb` : plusieurs rédactions sont justes.""",
+La vérification regarde que les quatre sections sont là, puis **exécute tes exemples** (`doctest`) : un exemple dont le résultat diffère de ce que tu as écrit est signalé. Compare ensuite ta docstring à celle de `05_solutions.ipynb` : plusieurs rédactions sont justes.""",
     todo=R1_31_FUNCTION.replace("def harmonic_mean(values):\n",
                                 'def harmonic_mean(values):\n    """TODO: write the docstring (NumPy format)."""\n'),
     check=R1_31_CHECK,
@@ -719,8 +723,8 @@ La vérification regarde que les quatre sections sont là, puis **exécute tes e
     --------
     >>> harmonic_mean([90, 60])
     72.0
-    >>> harmonic_mean([5, 5, 5])
-    5.0
+    >>> harmonic_mean([3, 6])
+    4.0
     """
 ''') + "\n\n\n" + R1_31_CHECK,
 )

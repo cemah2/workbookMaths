@@ -118,7 +118,7 @@ CHAPTERS = [
     {
         "id": "R1",
         "dir": "r1_nombres_calcul",
-        "hours": 12.5,
+        "hours": 12.7,
         "generation_sessions": 1,
         "mml": [],
         "summary": "Le calcul sur les nombres, du collège à la seconde : les ensembles de nombres, les priorités, les "
@@ -170,7 +170,7 @@ CHAPTERS = [
             ("R1.1", "✏️", 1, 10, "Placer des nombres sur la droite numérique et les ranger", "§1", "E"),
             ("R1.2", "✏️", 1, 10, "Calculer avec les priorités et les signes", "§2", "E"),
             ("R1.3", "✏️", 1, 10, "Calcul mental avec la distributivité : 17 × 99, 23 × 101", "§2", ""),
-            ("R1.4", "✏️", 1, 10, "Simplifier des fractions avec le PGCD", "§3", "E"),
+            ("R1.4", "✏️", 1, 15, "Simplifier des fractions avec le PGCD", "§3", "E"),
             ("R1.5", "✏️", 2, 20, "Additionner, multiplier et diviser des fractions", "§3", "E"),
             ("R1.6", "✏️", 1, 10, "Comparer des fractions", "§3", ""),
             ("R1.7", "✏️", 1, 15, "Appliquer les règles des puissances", "§4", "E"),
@@ -182,7 +182,7 @@ CHAPTERS = [
             ("R1.13", "✏️", 1, 10, "Règle de trois et proportionnalité", "§7", ""),
             ("R1.14", "✏️", 2, 15, "Moyenne pondérée : la note finale et la somme pondérée d'un neurone", "§8", "E"),
             ("R1.15", "∂", 2, 25, "Pourquoi a⁰ = 1 et a⁻ⁿ = 1/aⁿ : prolonger les règles des puissances", "§4", "E"),
-            ("R1.16", "∂", 2, 20, "Pourquoi on n'additionne pas les dénominateurs", "§3", ""),
+            ("R1.16", "∂", 2, 25, "Pourquoi on n'additionne pas les dénominateurs", "§3", ""),
             ("R1.17", "🔗", 2, 20, "Combien de paramètres, combien d'octets ? Un réseau en notation scientifique",
              "§6", "E"),
             ("R1.18", "🧮", 2, 20, "Fermi : combien de mots lis-tu dans une vie ?", "§9", ""),

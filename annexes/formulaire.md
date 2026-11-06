@@ -24,7 +24,7 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | exposants nul et négatifs | $a^0 = 1$ ; $a^{-n} = \frac{1}{a^n}$ ($a \ne 0$) |
 | racines carrées | $\sqrt{ab} = \sqrt{a}\sqrt{b}$ ; $\sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}$ ; $(\sqrt{a})^2 = a$ ; $\sqrt{a^2} = a$ si $a \ge 0$ ; $\sqrt{a} = a^{1/2}$ |
 | notation scientifique | $x = m \times 10^k$, $1 \le \lvert m \rvert < 10$ |
-| ordre de grandeur | $10^k$ si $m < \sqrt{10} \approx 3{,}16$, sinon $10^{k+1}$ |
+| ordre de grandeur | $10^k$ si $\lvert m \rvert < \sqrt{10} \approx 3{,}16$, sinon $10^{k+1}$ |
 | plancher, plafond | $\lfloor x \rfloor \le x < \lfloor x \rfloor + 1$ ; $\lceil x \rceil - 1 < x \le \lceil x \rceil$ |
 | taux d'évolution | $t = \frac{V_a - V_d}{V_d}$ ; coefficient $1 + t$ |
 | évolutions successives | coefficient global $(1 + t_1)(1 + t_2)\cdots(1 + t_n)$ |
