@@ -136,6 +136,21 @@ def test_interval_writings(value):
     assert verdict("I.1", entry, value)[0], value
 
 
+def test_interval_reads_decimal_commas_the_whole_line_and_the_empty_set():
+    entry = entry_of("I.5", "]-2.5 ; +oo[", kind="interval")
+    for value in ("]-2,5 ; +oo[", "]-2,5;+oo[", "]-2.5 ; +oo["):
+        assert verdict("I.5", entry, value)[0], value
+    entry = entry_of("I.6", "]-oo ; +oo[", kind="interval")
+    assert verdict("I.6", entry, "R")[0] and verdict("I.6", entry, "ℝ")[0]
+    entry = entry_of("I.7", "vide", kind="interval")
+    for value in ("Ø", "∅", [], "vide"):
+        assert verdict("I.7", entry, value)[0], value
+    entry = entry_of("I.8", "]-oo ; -2[ U [3 ; +oo[", kind="interval")
+    assert verdict("I.8", entry, "]-oo ; -2[ ou [3 ; +oo[")[0]
+    passed, status, message = verdict("I.8", entry, "]-oo ; -2[ et [3 ; +oo[")
+    assert not passed and "intersection" in message and "-2[" not in message
+
+
 def test_interval_with_exact_endpoints_and_sympy_sets():
     import sympy
 

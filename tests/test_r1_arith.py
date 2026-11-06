@@ -35,6 +35,8 @@ def _expect_value_error(call, what, why):
         call()
     except ValueError:
         return
+    except NotImplementedError:
+        raise                 # a function not written yet: the notebook shows ⏳, not a failure
     except Exception as exc:  # noqa: BLE001 - any other error is reported, with what was expected first
         pytest.fail(f"expected {what} to raise ValueError ({why}), got {type(exc).__name__}: {exc}")
     pytest.fail(f"expected {what} to raise ValueError ({why}), but it returned a value")

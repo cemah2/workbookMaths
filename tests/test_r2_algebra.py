@@ -29,6 +29,8 @@ def _expect_value_error(call, what, why):
         call()
     except ValueError:
         return
+    except NotImplementedError:
+        raise                 # a function not written yet: the notebook shows ⏳, not a failure
     except Exception as exc:  # noqa: BLE001 - any other error is reported, with what was expected first
         pytest.fail(f"expected {what} to raise ValueError ({why}), got {type(exc).__name__}: {exc}")
     pytest.fail(f"expected {what} to raise ValueError ({why}), but it returned a value")
@@ -116,6 +118,12 @@ def test_solve_linear_inequality_matches_sympy(algebra, sense):
     (0, -1, "<", (False, -INF, INF, False), "-1 < 0 is always true: the whole line"),
     (0, 0, "<", None, "0 < 0 is false: strict, so no solution"),
     (0, 0, "<=", (False, -INF, INF, False), "0 <= 0 is true for every x"),
+    (0, 1, ">", (False, -INF, INF, False), "1 > 0 is always true: the whole line"),
+    (0, -1, ">=", None, "-1 >= 0 is never true: the empty set is None"),
+    (0, 0, ">", None, "0 > 0 is false: strict, so no solution"),
+    (0, 0, ">=", (False, -INF, INF, False), "0 >= 0 is true for every x"),
+    (0, -2, "<=", (False, -INF, INF, False), "-2 <= 0 is always true: the whole line"),
+    (0, 2, ">=", (False, -INF, INF, False), "2 >= 0 is always true: the whole line"),
 ])
 def test_solve_linear_inequality_special_cases(algebra, a, b, sense, want, why):
     got = algebra.solve_linear_inequality(a, b, sense)
@@ -129,16 +137,29 @@ def test_solve_linear_inequality_default_sense_is_strict_less(algebra):
         f"expected solve_linear_inequality(1, -3) == (False, -inf, 3.0, False): the default sense is '<', got {got!r}")
 
 
-def test_solve_linear_inequality_infinite_ends_are_open(algebra):
+def test_solve_linear_inequality_returns_a_tuple_of_two_bools_and_two_numbers(algebra):
     got = algebra.solve_linear_inequality(1, -3, "<=")
-    assert isinstance(got, tuple) and got[0] is False and got[1] == -INF, (
-        f"expected an open bracket at -inf, (False, -inf, 3.0, True): an infinite end is never included, got {got!r}")
+    ok = (isinstance(got, tuple) and len(got) == 4 and isinstance(got[0], bool) and isinstance(got[3], bool)
+          and not isinstance(got[1], bool) and not isinstance(got[2], bool))
+    assert ok, (f"expected a tuple (left_closed, low, high, right_closed) such as (False, -inf, 3.0, True), with "
+                f"True or False at both ends (not 0 or 1, not a list), got {got!r}")
 
 
-@pytest.mark.parametrize("sense", ["=", "=<", "≤", "lt"])
-def test_solve_linear_inequality_invalid_sense_raises(algebra, sense):
-    _expect_value_error(lambda: algebra.solve_linear_inequality(1, 2, sense),
-                        f"solve_linear_inequality(1, 2, {sense!r})", "the sense must be '<', '<=', '>' or '>='")
+def test_solve_linear_inequality_infinite_ends_are_open(algebra):
+    for a, b, sense in [(1, -3, "<="), (-2, 4, ">="), (5, 10, ">=")]:
+        got = algebra.solve_linear_inequality(a, b, sense)
+        infinite_ends_open = (isinstance(got, (tuple, list)) and len(got) == 4
+                              and (got[1] != -INF or not got[0]) and (got[2] != INF or not got[3]))
+        assert infinite_ends_open, (f"expected an open bracket on the infinite side (False next to -inf or inf): "
+                                    f"an infinite end is never included, got solve_linear_inequality({a}, {b}, "
+                                    f"{sense!r}) = {got!r}")
+
+
+@pytest.mark.parametrize("a, sense", [(1, "="), (1, "=<"), (1, "≤"), (1, "lt"), (0, "="), (0, "≤")],
+                         ids=["equals", "reversed_le", "unicode_le", "word", "a0_equals", "a0_unicode_le"])
+def test_solve_linear_inequality_invalid_sense_raises(algebra, a, sense):
+    _expect_value_error(lambda: algebra.solve_linear_inequality(a, 2, sense),
+                        f"solve_linear_inequality({a}, 2, {sense!r})", "the sense must be '<', '<=', '>' or '>='")
 
 
 # ---------------------------------------------------------------- solve_abs_equation

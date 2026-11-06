@@ -197,7 +197,7 @@ def test_array_with_every_sign_inverted_is_diagnosed_before_the_element_count():
     value = np.array([-3.578, -0.894, 0.0, 1.789, 2.683])     # coordinates on u; -u flips every non-zero one
     e = entry("r.5", value, decimals=3)
     assert message("r.5", e, (-value).tolist()) == "Tous les signes sont inversés."
-    assert message("r.5", e, [-2, -200]) == "Forme attendue (5,), reçue (2,)."
+    assert message("r.5", e, [-2, -200]).startswith("Ta liste a 2 élément(s), il en faut 5")
     e = entry("r.6", [2, 200])
     assert message("r.6", e, [-2, -200]) == "Tous les signes sont inversés."
     assert "1 élément(s) sur 2" in message("r.6", e, [2, -200])           # one sign only: the element count
@@ -377,7 +377,7 @@ def test_sets_of_floats_need_decimals():
         entry("g.2", [0.1, 0.2], ordered=False)
     e = entry("g.3", [0.1, 0.2], decimals=1, ordered=False)
     assert passes("g.3", e, {0.2, 0.1}) and not passes("g.3", e, [0.3, 0.4])
-    assert "ensemble" in message("g.3", e, 5)
+    assert "liste" in message("g.3", e, 5) and "crochets" in message("g.3", e, 5)
 
 
 def test_torch_non_tensors_and_special_tensors():
@@ -873,6 +873,17 @@ def test_sets_of_integers_do_not_round_a_decimal_and_read_numbers_in_quotes():
     assert not passes("t.5", e, [2.4, -3])
     e = entry("t.6", [4, 5, 5.5], ordered=False, decimals=1)
     assert passes("t.6", e, ["4", "5", "5,5"])
+
+
+def test_common_wrong_types_are_explained_in_words():
+    import sympy as sp
+    x, y = sp.symbols("x y")
+    e = entry("t.9", [3, 10, -11, 2])
+    assert "sp.Poly" in message("t.9", e, 3*x**3 + 10*x**2 - 11*x + 2)
+    assert "dictionnaire" in message("t.9", e, {x: 1, y: 2})
+    e = entry("t.10", [3, -4], ordered=False)
+    assert "« x - 3 »" in message("t.10", e, [x - 3, x + 4])
+    assert "crochets" in message("t.10", e, 3)
 
 
 def test_a_set_reads_a_fraction_typed_between_quotes():

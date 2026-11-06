@@ -276,8 +276,12 @@ def _expr_hash(ex_id: str, fingerprint: list[str]) -> str:
 # ---------------------------------------------------------------------------
 # interval
 # ---------------------------------------------------------------------------
-_UNION = re.compile(r"\s*(?:∪|\bU\b|\bu\b|\bunion\b)\s*")
+_UNION = re.compile(r"\s*(?:∪|\bU\b|\bu\b|\bunion\b|\bou\b)\s*")
 _ONE_INTERVAL = re.compile(r"\s*([\[\]\(])\s*(.+?)\s*([;,])\s*(.+?)\s*([\[\]\)])\s*")
+_ONE_INTERVAL_SEMICOLON = re.compile(r"\s*([\[\]\(])\s*(.+?)\s*(;)\s*(.+?)\s*([\[\]\)])\s*")  # "]-2,5 ; 3]"
+_INTERSECTION = re.compile(r"∩|\binter\b|\bet\b")
+_INTERVAL_FORM = ("un intervalle écrit comme \"[2 ; 5[\" ou \"]-oo ; 3]\" (réunion : \"[0 ; 1] U [2 ; 3]\" ; ensemble vide : "
+                  "\"vide\")")
 
 
 def _endpoint(text: str):
@@ -314,17 +318,23 @@ def _parse_intervals(value):
             else:
                 raise MathNormalizationError("un intervalle ou une réunion d'intervalles")
         return sorted(intervals, key=lambda t: (float(t[1]), not t[0]))
+    if isinstance(value, (list, tuple, set, frozenset)) and len(value) == 0:
+        return []                                  # [] or set() for the empty set
     if not isinstance(value, str):
-        raise MathNormalizationError("un intervalle écrit comme \"[2 ; 5[\" ou \"(2, 5]\"")
+        raise MathNormalizationError(_INTERVAL_FORM)
     text = _clean_text(value)
-    if text.lower() in {"∅", "{}", "vide", "ensemble vide", "empty", "emptyset"}:
+    if text.lower() in {"∅", "ø", "{}", "vide", "ensemble vide", "empty", "emptyset"}:
         return []
+    if text in {"R", "ℝ"}:
+        return [(False, -sympy.oo, sympy.oo, False)]
+    if _INTERSECTION.search(text):
+        raise MathNormalizationError("un seul intervalle (ou une réunion avec U) : une intersection se calcule, donne "
+                                     "l'intervalle obtenu, ou \"vide\"")
     intervals = []
     for piece in _UNION.split(text):
-        match = _ONE_INTERVAL.fullmatch(piece)
+        match = (_ONE_INTERVAL_SEMICOLON if ";" in piece else _ONE_INTERVAL).fullmatch(piece)
         if not match:
-            raise MathNormalizationError(
-                "un intervalle écrit comme \"[2 ; 5[\" ou \"]-oo ; 3]\" (réunion : \"[0 ; 1] U [2 ; 3]\")")
+            raise MathNormalizationError(_INTERVAL_FORM)
         left, a_text, separator, b_text, right = match.groups()
         if separator == "," and ";" in piece:
             raise MathNormalizationError("un seul séparateur entre les bornes (« ; » en français)")

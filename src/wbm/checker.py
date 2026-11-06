@@ -746,6 +746,9 @@ def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False) -> st
             # [3, 2, 1, 5] for [3, 2, 1.5]: a decimal comma splits a number into two whole numbers
             return (f"Forme attendue {expected_shape}, reçue {arr.shape}. Des virgules décimales ? Dans une liste "
                     "Python, `[1,5]` contient deux nombres, 1 et 5 : écris `1.5`.")
+        if arr.ndim == 1 and len(expected_shape) == 1:   # a list: say it with counts, not NumPy shapes
+            return (f"Ta liste a {arr.size} élément(s), il en faut {expected_shape[0]} : un élément oublié ou en "
+                    "trop (un coefficient nul s'écrit aussi, avec un 0) ?")
         return f"Forme attendue {expected_shape}, reçue {arr.shape}."
     if (arr.ndim == 2 and arr.shape[0] == arr.shape[1] > 1 and not np.array_equal(arr, arr.T)
             and _hash_value(ex_id, entry, arr.T) == entry["hash"]):  # a square table read the other way round
@@ -860,6 +863,33 @@ def _classic(entry: dict, mistake: str, value=_NO_ANSWER) -> str:
     return f"{lead}. Piste : {mistake}"
 
 
+def _is_sympy_expression(value) -> bool:
+    sympy = sys.modules.get("sympy")
+    return sympy is not None and isinstance(value, sympy.Basic) and not getattr(value, "is_number", False)
+
+
+def _type_hint(value, kind: str) -> str:
+    """What a common wrong type means, in words (a dict from sympy.solve, a SymPy expression, a lone number)."""
+    if isinstance(value, dict):
+        return ("j'ai reçu un dictionnaire : lis les valeurs dedans (par exemple `resultat[x]`), puis donne-les sous "
+                "la forme demandée.")
+    if _is_sympy_expression(value):
+        shown = str(value) if len(str(value)) <= 40 else str(value)[:37] + "…"
+        if kind == "array":
+            return (f"j'ai reçu une expression SymPy (« {shown} »), pas une liste de nombres : pour les coefficients "
+                    "d'un polynôme, `sp.Poly(e, x).all_coeffs()`.")
+        return f"j'ai reçu une expression SymPy (« {shown} »), pas une valeur."
+    if kind == "set" and isinstance(value, numbers.Number) and not isinstance(value, bool):
+        return "j'ai reçu un nombre seul : même pour une seule valeur, écris une liste, avec des crochets."
+    if isinstance(value, (list, tuple)):
+        for item in value:
+            item = _to_python(item)
+            if _is_sympy_expression(item) or not isinstance(item, (numbers.Number, str)):
+                shown = str(item) if len(str(item)) <= 40 else str(item)[:37] + "…"
+                return f"un élément de ta liste, « {shown} », n'est pas un nombre."
+    return ""
+
+
 def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple[bool, str, str]:
     """Compare ``value`` with a stored entry. Return (passed, status, message).
 
@@ -912,6 +942,10 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
         if isinstance(raw, str):  # say what was read: "an object of type str" is confusing when "vrai" is accepted
             shown = raw if len(raw) <= 40 else raw[:37] + "…"
             return False, "type", f"J'attends {exc} ; j'ai reçu le texte « {shown} »."
+        hint = _type_hint(value, kind)
+        if hint:
+            lead = {"array": "une liste de nombres", "set": "une liste de nombres (dans l'ordre que tu veux)"}
+            return False, "type", f"J'attends {lead.get(kind, exc)} ; {hint}"
         return False, "type", f"J'attends {exc} ; j'ai reçu un objet de type `{_type_name(value)}`."
 
     if kind == "array":

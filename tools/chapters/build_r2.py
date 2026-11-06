@@ -87,7 +87,7 @@ PAPER = [
         ("b", "the list [alpha, beta, gamma]", "[9, -24, 16]",
          'mistakes={"le carré porte sur tout 3x": [3, -24, 16], "le double produit vaut 2 × a × b": [9, -12, 16], '
          '"(a − b)² n\'est pas a² − b² : il y a un double produit": [9, 0, -16], '
-         '"(a − b)² a un double produit négatif": [9, 24, 16]}'),
+         '"(a − b)² a un double produit négatif": [9, 24, 16], "il manque le double produit −2ab": [9, 0, 16]}'),
         ("c", "the list [alpha, beta, gamma]", "[4, 0, -49]",
          'mistakes={"(a + b)(a − b) = a² − b² : une différence": [4, 0, 49], "le carré porte sur tout 2x": '
          '[2, 0, -49]}'),
@@ -100,7 +100,8 @@ PAPER = [
          'mistakes={"α² et β² sont les carrés : prends leurs racines carrées": [4, 25]}'),
         ("g", "an integer", "101 ** 2", 'mistakes={"il manque le double produit": 10001}'),
         ("h", "an integer", "59 * 61",
-         'mistakes={"(a − b)(a + b) = a² − b² : on soustrait b², on ne l\'ajoute pas": 3601}'),
+         'mistakes={"(a − b)(a + b) = a² − b² : on soustrait b², on ne l\'ajoute pas": 3601, '
+         '"a² seul n\'est pas le résultat : (a − b)(a + b) = a² − b², il reste à soustraire b²": 3600}'),
     ]),
     Paper("R2.5", "Équations du premier degré", [
         ("a", "a number", "-2.0",
@@ -128,9 +129,9 @@ PAPER = [
          '"2x = −3 : divise par 2": [4, -3]}'),
         ("b", "a list of solutions", "[0, 9 / 4]",
          'ordered=False, decimals=6, mistakes={"en divisant par x, on perd une solution : factorise": [9 / 4], '
-         '"4x = 9 : divise 9 par 4, pas l\'inverse": [0, 4 / 9]}'),
+         '"pour isoler x dans ax = b, on divise b par a, pas l\'inverse": [0, 4 / 9]}'),
         ("c", "a list of solutions", "[1 / 3]",
-         'ordered=False, decimals=6, mistakes={"3x = 1 : divise 1 par 3": [3], '
+         'ordered=False, decimals=6, mistakes={"pour isoler x dans ax = b, on divise b par a, pas l\'inverse": [3], '
          '"un carré est nul seulement quand le nombre élevé au carré est nul : une seule solution": '
          f'[-1 / 3, 1 / 3], "{EXACT} à deux décimales": [0.33], "{EXACT} à trois décimales": [0.333]}}'),
         ("d", "a list of solutions", "[-4 / 3, 4 / 3]",
@@ -166,7 +167,8 @@ PAPER = [
          '"[-2 ; 8]"}'),
         ("b", "an interval, as text", '"[0 ; 3["',
          'kind="interval", mistakes={"un nombre exclu de l\'un des deux intervalles n\'est pas dans '
-         'l\'intersection": "[0 ; 3]"}'),
+         'l\'intersection": "[0 ; 3]", "∩ garde les nombres qui sont dans les deux à la fois (la réunion, c\'est ∪)": '
+         '"]-oo ; +oo["}'),
         ("c", "an interval, as text", '"[-4 ; 6["',
          'kind="interval", mistakes={"∪ garde les nombres qui sont dans l\'un ou dans l\'autre (l\'intersection, '
          'c\'est ∩)": "[0 ; 1]", "les deux intervalles se chevauchent : écris leur réunion en un seul intervalle": '
@@ -223,7 +225,8 @@ PAPER = [
          'decimals=2, mistakes={"le périmètre compte chaque côté deux fois : 2 × (longueur + largeur)": 516.75, '
          '"on demande l\'aire, pas la longueur": 15.0, "on demande l\'aire, pas la largeur": 8.0}'),
         ("b", "a number (€)", "56 / 0.8",
-         'decimals=2, mistakes={"la baisse porte sur le prix de départ, pas sur le prix réduit": 67.2}'),
+         'decimals=2, mistakes={"la baisse porte sur le prix de départ, pas sur le prix réduit": 67.2, '
+         '"le prix donné est déjà celui d\'après la baisse : on cherche le prix d\'avant": 44.8}'),
         ("c", "an integer", "10", 'mistakes={"c\'est le nombre de tables de 4 places : relis la question": 12}'),
     ]),
     Paper("R2.16", "Deux mesures, deux inconnues : retrouver a et b dans y = ax + b par un système", [
@@ -252,8 +255,8 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ R2.1 à R2
                "`[-2/7, 6]` ;\n"
                "- un intervalle entre guillemets, `\"]-1 ; 4]\"` ou `\"[0 ; +oo[\"` ; une réunion avec un U ; "
                "l'ensemble vide avec le mot vide entre guillemets ;\n"
-               "- le nombre de solutions d'un système par son numéro : 1 pour aucune, 2 pour une seule, 3 pour une "
-               "infinité.\n\n"
+               "- le nombre de solutions d'une équation ou d'un système, quand on te le demande, par son numéro : 1 "
+               "pour aucune, 2 pour une seule, 3 pour une infinité.\n\n"
                "Les réponses pas encore remplies affichent ⏳.")
 
 # ---------------------------------------------------------------------------
@@ -261,12 +264,13 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ R2.1 à R2
 # ---------------------------------------------------------------------------
 TOOLS = '''# Tools of the notebook (parts A to C)
 import math
+import traceback
 
 import matplotlib.pyplot as plt
 import numpy as np
 import sympy as sp
 
-from wbm.nbtools import run_pytest_group
+from wbm.nbtools import checked, run_pytest_group
 
 x, y = sp.symbols("x y")
 
@@ -397,7 +401,8 @@ wbm.record("R2.27b", [-1, 11],
                      "−3 × x est négatif": [5, 11]}})
 wbm.record("R2.27c", "]-2.5 ; +oo[", kind="interval",
            mistakes={{"diviser par un nombre négatif retourne le sens": "]-oo ; -2.5[",
-                     "la borne est 10 divisé par −4 : un nombre négatif": "]2.5 ; +oo["}})
+                     "la borne est le quotient de deux nombres de signes contraires : elle est négative":
+                     "]2.5 ; +oo["}})
 wbm.record("R2.27d", [0, 2], ordered=False,
            mistakes={{"en divisant par x, on perd une solution : factorise 3x² − 6x": [2]}})''',
     note="Les deux calculs justes ont chacun leur piège apparent : B change bien les deux signes, et E est "
@@ -436,24 +441,24 @@ R2_18 = Ex(
 
 Écris `solve_linear(a, b)` : les **trois cas** de la fiche (§4). Une solution se rend dans une liste, `[x]` (divise avec `/`, pour obtenir un flottant) ; aucune solution, la liste vide `[]` ; tous les réels, la chaîne `"all"`. Compare `a` (et `b`) à 0 avec `==` : les tests des cas dégénérés utilisent des entiers.
 
-La vérification calcule `solve_linear(-5, 2)`, la longueur de `solve_linear(0, -3)` et `solve_linear(0, 0)`, puis lance les tests.""",
+La vérification calcule `solve_linear(-5, 2)`, regarde si `solve_linear(0, -3)` vaut bien `[]` et si `solve_linear(0, 0)` vaut bien `"all"`, puis lance les tests.""",
     todo=LOAD_LEARNER,
-    check='''with wbm.attempt("R2.18a"):
+    check='''with checked("R2.18a"):
     wbm.check("R2.18a", mymath.algebra.solve_linear(-5, 2), computed=True)
-with wbm.attempt("R2.18b"):
-    wbm.check("R2.18b", len(mymath.algebra.solve_linear(0, -3)), computed=True)
-with wbm.attempt("R2.18c"):
-    wbm.check("R2.18c", mymath.algebra.solve_linear(0, 0), computed=True)''',
+with checked("R2.18b"):
+    wbm.check("R2.18b", mymath.algebra.solve_linear(0, -3) == [], computed=True)
+with checked("R2.18c"):
+    wbm.check("R2.18c", mymath.algebra.solve_linear(0, 0) == "all", computed=True)''',
     solution=LOAD_REF + '''
 for a, b in [(-5, 2), (0, -3), (0, 0)]:
     print(f"solve_linear({a}, {b}) =", mymath.algebra.solve_linear(a, b))''',
     record='''wbm.record("R2.18a", [0.4], decimals=4,
            mistakes={"la solution de ax + b = 0 est −b/a : attention au signe": [-0.4],
                      "la solution est −b/a, pas −a/b": [2.5]})
-wbm.record("R2.18b", 0,
-           mistakes={"0x − 3 = 0 n'est jamais vrai : aucune solution, la liste vide (pas \\"all\\")": 3,
-                     "aucune solution : la liste vide, sans élément": 1})
-wbm.record("R2.18c", "all")''',
+wbm.record("R2.18b", True,
+           mistakes={"0x − 3 = 0 n'est jamais vrai : la fonction doit rendre la liste vide, []": False})
+wbm.record("R2.18c", True,
+           mistakes={"0x + 0 = 0 est vrai pour tout x : la fonction doit rendre exactement la chaîne \\"all\\"": False})''',
     after=tests_cells("test_solve_linear_ and not inequality"),
     note="L'ordre des tests compte : on regarde d'abord si `a == 0`, sinon la division `-b / a` lèverait "
          "`ZeroDivisionError`. C'est la même démarche que sur papier : avant de diviser, s'assurer qu'on ne divise "
@@ -468,25 +473,25 @@ R2_19 = Ex(
 1. un `sense` qui n'est pas l'un des quatre symboles lève une `ValueError` ;
 2. si `a == 0`, l'inéquation dit « $b < 0$ » (ou $b \\le 0$…), vraie pour tout $x$ (toute la droite) ou jamais (`None`) ;
 3. sinon, la borne est $-\\frac{b}{a}$, et diviser par un $a$ **négatif** retourne le sens (fiche §5) ;
-4. `"<"` et `"<="` donnent $]-\\infty \\;;\\; r[$ ou $]-\\infty \\;;\\; r]$ ; `">"` et `">="` donnent $]r \\;;\\; +\\infty[$ ou $[r \\;;\\; +\\infty[$, avec `math.inf` pour l'infini, toujours ouvert.
+4. `"<"` et `"<="` donnent $]-\\infty \\;;\\; r[$ ou $]-\\infty \\;;\\; r]$ ; `">"` et `">="` donnent $]r \\;;\\; +\\infty[$ ou $[r \\;;\\; +\\infty[$, avec `math.inf` pour l'infini, toujours ouvert (le squelette n'importe pas `math` : ajoute `import math` en haut du fichier).
 
-La vérification transforme ton tuple en texte avec `as_interval` (cellule des outils) pour `wbm.check` : `solve_linear_inequality(-4, -6, ">=")`, puis `solve_linear_inequality(0, 3, "<=")`.""",
+La vérification transforme ton tuple en texte avec `as_interval` (cellule des outils) pour `wbm.check` : `solve_linear_inequality(-4, -6, ">=")`, puis `solve_linear_inequality(0, 3, ">")`.""",
     todo=LOAD_LEARNER,
-    check='''with wbm.attempt("R2.19a"):
+    check='''with checked("R2.19a"):
     wbm.check("R2.19a", as_interval(mymath.algebra.solve_linear_inequality(-4, -6, ">=")), computed=True)
-with wbm.attempt("R2.19b"):
-    wbm.check("R2.19b", as_interval(mymath.algebra.solve_linear_inequality(0, 3, "<=")), computed=True)''',
+with checked("R2.19b"):
+    wbm.check("R2.19b", as_interval(mymath.algebra.solve_linear_inequality(0, 3, ">")), computed=True)''',
     solution=LOAD_REF + '''
-for a, b, sense in [(-4, -6, ">="), (0, 3, "<=")]:
+for a, b, sense in [(-4, -6, ">="), (0, 3, ">")]:
     result = mymath.algebra.solve_linear_inequality(a, b, sense)
     print(f"solve_linear_inequality({a}, {b}, {sense!r}) = {result}, soit {as_interval(result)}")''',
     record='''wbm.record("R2.19a", "]-oo ; -1.5]", kind="interval",
            mistakes={"a est négatif : diviser par a retourne le sens": "[-1.5 ; +oo[",
                      "l'inégalité est large : la borne est incluse": "]-oo ; -1.5[",
                      "la borne est −b/a : attention au signe": "]-oo ; 1.5]"})
-wbm.record("R2.19b", "vide", kind="interval",
-           mistakes={"avec a = 0, l'inéquation ne dépend plus de x : elle est vraie pour tout x, ou jamais ; ici ?":
-                     "]-oo ; +oo["})''',
+wbm.record("R2.19b", "]-oo ; +oo[", kind="interval",
+           mistakes={"avec a = 0, l'inéquation devient « b > 0 », qui ne dépend plus de x : vraie pour tout x, ou "
+                     "jamais ; ici ?": "vide"})''',
     after=tests_cells("test_solve_linear_inequality_"),
     note="Un dictionnaire évite une cascade de `if` : `{\"<\": \">\", \"<=\": \">=\", \">\": \"<\", \">=\": \"<=\"}"
          "[sense]` donne le sens retourné. Les cas où l'inéquation ne dépend plus de $x$ se règlent de la même façon, "
@@ -501,9 +506,9 @@ R2_20 = Ex(
 
 La vérification calcule `solve_abs_equation(-1.5, 4)` et `solve_abs_equation(7, 0)`.""",
     todo=LOAD_LEARNER,
-    check='''with wbm.attempt("R2.20a"):
+    check='''with checked("R2.20a"):
     wbm.check("R2.20a", mymath.algebra.solve_abs_equation(-1.5, 4), computed=True)
-with wbm.attempt("R2.20b"):
+with checked("R2.20b"):
     wbm.check("R2.20b", mymath.algebra.solve_abs_equation(7, 0), computed=True)''',
     solution=LOAD_REF + '''
 print("solve_abs_equation(-1.5, 4) =", mymath.algebra.solve_abs_equation(-1.5, 4))
@@ -579,7 +584,9 @@ R2_28_CHECK = '''with wbm.attempt("R2.28"):
     except NotImplementedError:
         raise
     except Exception as exc:  # noqa: BLE001 - a test that fails on a right function
-        print(f"❌ Ex R2.28 : ton test échoue sur une fonction juste ({type(exc).__name__} {exc}) : relis tes assert.")
+        line = (traceback.extract_tb(exc.__traceback__)[-1].line or "").strip()
+        print(f"❌ Ex R2.28 : ton test échoue sur une fonction juste, à la ligne « {line} » "
+              f"({type(exc).__name__} {exc}) : relis ce cas.")
     else:
         missed = []
         for faulty in (solve_linear_wrong_sign, solve_linear_divides_by_zero, solve_linear_forgets_all):
@@ -588,9 +595,11 @@ R2_28_CHECK = '''with wbm.attempt("R2.28"):
             except Exception:  # noqa: BLE001 - an AssertionError or any other error: the fault is caught
                 continue
             missed.append(faulty.__name__)
-        if missed:
-            print("❌ Ex R2.28 : ton test passe sur une version fausse :", ", ".join(missed),
-                  "; ajoute le cas qu'elle rate.")
+        if len(missed) == 1:
+            print(f"❌ Ex R2.28 : ton test passe sur une version fausse, {missed[0]} ; ajoute le cas qu'elle rate.")
+        elif missed:
+            print(f"❌ Ex R2.28 : ton test passe sur des versions fausses, {', '.join(missed)} ; ajoute les cas "
+                  "qu'elles ratent.")
         else:
             print("✅ Ex R2.28 : ton test passe sur la fonction juste et attrape les trois versions fausses.")'''
 
@@ -648,9 +657,9 @@ R2_21 = Ex(
 
 La vérification calcule `solve_2x2([[3, 4], [5, -2]], [5.5, 13.5])`, puis le nom de l'erreur levée pour un système de déterminant nul (avec `raised`, de la cellule des outils).""",
     todo=LOAD_LEARNER,
-    check='''with wbm.attempt("R2.21a"):
+    check='''with checked("R2.21a"):
     wbm.check("R2.21a", list(mymath.algebra.solve_2x2([[3, 4], [5, -2]], [5.5, 13.5])), computed=True)
-with wbm.attempt("R2.21b"):
+with checked("R2.21b"):
     wbm.check("R2.21b", raised(mymath.algebra.solve_2x2, [[2, -5], [-4, 10]], [1, 3]), computed=True)''',
     solution=LOAD_REF + '''
 print("solve_2x2([[3, 4], [5, -2]], [5.5, 13.5]) =", mymath.algebra.solve_2x2([[3, 4], [5, -2]], [5.5, 13.5]))
@@ -662,10 +671,27 @@ print("déterminant nul :", raised(mymath.algebra.solve_2x2, [[2, -5], [-4, 10]]
                      [-2.5, 0.5]})
 wbm.record("R2.21b", "ValueError",
            mistakes={"teste D == 0 avant de diviser, et lève une ValueError": "ZeroDivisionError",
-                     "un déterminant nul : pas une seule solution, lève une ValueError au lieu de rendre un couple":
+                     "un déterminant nul : la fonction doit lever une ValueError (raise), pas rendre un résultat":
                      "aucune"})''',
     after=tests_cells("test_solve_2x2_"),
 )
+
+R2_26_LIGHT_CHECK = '''with checked("R2.26 vérifications"):
+    fig, axes = plt.subplots(1, 2)
+    try:
+        plot_system([[1, 3], [2, 0]], [5, -2], ax=axes[0])
+        plot_system([[1, -3], [2, -6]], [3, 1], ax=axes[1])     # a zero determinant: no common point to mark
+    finally:
+        plt.close(fig)                                          # only the checks below are shown
+    problems = []
+    if any(len(ax.lines) < 2 for ax in axes):
+        problems.append("trace les deux droites dans l'axe `ax` qu'on te donne, pas dans une nouvelle figure")
+    if not all(ax.get_title() for ax in axes):
+        problems.append("écris le titre avec `ax.set_title(...)`, sur l'axe donné")
+    if problems:
+        print("❌ Ex R2.26 : " + " ; ".join(problems) + ".")
+    else:
+        print("✅ Ex R2.26 : deux droites et un titre dans l'axe donné, y compris pour un déterminant nul.")'''
 
 R2_26 = Ex(
     "R2.26", "🎨", 2, 20, "Un système, deux droites : voir la solution",
@@ -673,17 +699,20 @@ R2_26 = Ex(
     "fiche §7, « Le regard géométrique » ; R0 (matplotlib)", tracks="C, E",
     body="""Complète `plot_system(A, b, ax=None)`, qui dessine le système $a_1 x + b_1 y = c_1$, $a_2 x + b_2 y = c_2$ (avec `A = [[a1, b1], [a2, b2]]` et `b = [c1, c2]`) :
 - chaque équation est une droite, tracée pour $x$ de $-5$ à $5$ : si son coefficient de $y$ n'est pas nul, $y = \\frac{c - a x}{b}$ ; sinon, la droite est **verticale**, $x = \\frac{c}{a}$ (`ax.axvline`) ;
-- si le déterminant n'est pas nul, marque le point commun (calculé avec `np.linalg.solve(A, b)`) et écris ses coordonnées dans le titre ;
+- si le déterminant n'est pas nul, marque le point commun (calculé avec `np.linalg.solve(A, b)`, qui refuse une matrice de déterminant nul : teste le déterminant **avant**) et écris ses coordonnées dans le titre, avec `ax.set_title(...)` ;
 - sinon, le titre dit « une infinité de solutions » quand les droites sont confondues, ce qui arrive quand, en plus, $a_1 c_2 - a_2 c_1 = 0$ et $b_1 c_2 - b_2 c_1 = 0$ (R2.15), et « aucune solution » dans l'autre cas ;
 - une légende avec les deux équations, une grille, les axes nommés, une fenêtre $[-5 ; 5] \\times [-5 ; 5]$ ;
 - si on lui donne `ax` (une case d'une figure à plusieurs graphiques), elle dessine dedans ; sinon, elle crée sa figure (`fig, ax = plt.subplots()`) et l'affiche.
 
-La vérification dessine $\\begin{cases} x + 3y = 5 \\\\ 2x = -2 \\end{cases}$ (une droite verticale). Lis la solution sur ta figure, note-la dans ta copie, et compare ta figure à celle de `05_solutions.ipynb`. R2.24 se servira de ta fonction.""",
+La vérification dessine $\\begin{cases} x + 3y = 5 \\\\ 2x = -2 \\end{cases}$ (une droite verticale). Lis la solution sur ta figure, note-la dans ta copie, et compare ta figure à celle de `05_solutions.ipynb`. Puis une cellule vérifie automatiquement deux choses : les deux droites sont tracées dans l'axe donné, et chaque figure a un titre, même pour un système de déterminant nul. R2.24 se servira de ta fonction.""",
     todo='''def plot_system(A, b, ax=None):
     """Draw the two lines of the system A·(x, y) = b, and their common point when there is exactly one."""
     raise NotImplementedError("trace les deux droites, puis le point commun")''',
-    check='''with wbm.attempt("R2.26"):
+    check='''with checked("R2.26"):
     plot_system([[1, 3], [2, 0]], [5, -2])''',
+    after=[("md", "**Vérifications automatiques** : les deux droites dans l'axe donné, un titre, et un système de "
+                  "déterminant nul qui ne fait pas planter la fonction."),
+           ("code", R2_26_LIGHT_CHECK)],
     solution='''def plot_system(A, b, ax=None):
     """Draw the two lines of the system A·(x, y) = b, and their common point when there is exactly one."""
     own_figure = ax is None
@@ -734,11 +763,15 @@ SYSTEMS_24 = {
 R2_24_EXPERIMENT = '''for name, (A, b) in SYSTEMS_24.items():
     (a1, b1), (a2, b2) = A
     print(f"{name} : déterminant D = ad − bc = {a1 * b2 - b1 * a2}")
-with wbm.attempt("R2.24 figure"):
+with checked("R2.24 figure"):
     fig, axes = plt.subplots(1, 3, figsize=(14, 4.2))
-    for ax, (name, (A, b)) in zip(axes, SYSTEMS_24.items()):
-        plot_system(A, b, ax=ax)
-        ax.set_title(f"{name} : {ax.get_title()}", fontsize=10)
+    try:
+        for ax, (name, (A, b)) in zip(axes, SYSTEMS_24.items()):
+            plot_system(A, b, ax=ax)
+            ax.set_title(f"{name} : {ax.get_title()}", fontsize=10)
+    except BaseException:
+        plt.close(fig)                       # no empty figure while plot_system is not written yet
+        raise
     fig.tight_layout()
     plt.show()'''
 
@@ -778,14 +811,14 @@ wbm.record("R2.24c", 3, choices=[1, 2, 3], prediction=True,
          "nul ($-7$) et une seule solution, $(2 \\;;\\; 1)$.",
 )
 
-R2_25_PLOT = '''with wbm.attempt("R2.25 figure"):
+R2_25_PLOT = '''with checked("R2.25 figure"):
     gaps = np.logspace(-4, -2, 60)                    # c − 1, from 0.0001 to 0.01
     ys = [solve_near(1 + gap)[1] for gap in gaps]
     fig, ax = plt.subplots(figsize=(6.5, 4))
     ax.loglog(gaps, ys, "o-", markersize=3)
     ax.set_xlabel("c − 1, le déterminant (échelle logarithmique)")
     ax.set_ylabel("y, la solution (échelle logarithmique)")
-    ax.set_title("Quand le déterminant tend vers 0, la solution s'envole")
+    ax.set_title("La solution y en fonction de c − 1")
     ax.grid(True, which="both", alpha=0.3)
     plt.show()'''
 
@@ -809,12 +842,12 @@ Puis lance l'expérience : elle trace $y$ en fonction de $c - 1$, de $10^{-4}$ �
 
 
 answer_R2_25c = ...  # c) the determinant for c = 1.001 (a number)''',
-    check='''with wbm.attempt("R2.25a"):
+    check='''with checked("R2.25a"):
     wbm.check("R2.25a", list(solve_near(1.001)), computed=True)
-with wbm.attempt("R2.25b"):
+with checked("R2.25b"):
     wbm.check("R2.25b", list(solve_near(1.002)), computed=True)
 wbm.check("R2.25c", answer_R2_25c)
-with wbm.attempt("R2.25d"):
+with checked("R2.25d"):
     wbm.check("R2.25d", solve_near(1.0001)[1], computed=True)''',
     solution='''def solve_near(c):
     """Solution [x, y] of x + y = 2, x + c·y = 2.001 (with np.linalg.solve)."""
@@ -829,7 +862,8 @@ answer_R2_25c = 1 * 1.001 - 1 * 1''',
 wbm.record("R2.25b", [1.5, 0.5], decimals=4,
            mistakes={"le coefficient c est celui de y dans la seconde équation, pas celui de x": [0.5, 1.5]})
 wbm.record("R2.25c", 1.001 - 1, decimals=6,
-           mistakes={"D = ad − bc : le produit de la diagonale moins l'autre produit, dans cet ordre": -0.001})
+           mistakes={"D = ad − bc : le produit de la diagonale moins l'autre produit, dans cet ordre": -0.001,
+                     "D = ad − bc : n'oublie pas de soustraire le produit bc": 1.001})
 wbm.record("R2.25d", 10.0, decimals=3)''',
     after=[
         ("md", "**L'expérience** : $y$ en fonction de $c - 1$."),

@@ -440,7 +440,7 @@
 
 ### Ex R2.18 — Résoudre ax + b = 0 dans tous les cas · `solve_linear`
 
-**Réponses** : `solve_linear(-5, 2)` vaut `[0.4]` ; `solve_linear(0, -3)` vaut `[]` (longueur 0) ; `solve_linear(0, 0)` vaut `"all"`.
+**Réponses** : `solve_linear(-5, 2)` vaut `[0.4]` ; `solve_linear(0, -3)` vaut `[]` ; `solve_linear(0, 0)` vaut exactement `"all"` (la vérification compare avec `==`).
 
 **Démarche.** `if a == 0: return "all" if b == 0 else []`, puis `return [-b / a]`. Le test de `a == 0` vient **avant** la division.
 
@@ -450,11 +450,11 @@
 
 ### Ex R2.19 — Résoudre ax + b ≤ 0 et rendre l'intervalle des solutions · `solve_linear_inequality`
 
-**Réponses** : `solve_linear_inequality(-4, -6, ">=")` vaut `(False, -inf, -1.5, True)`, soit $]-\infty \;;\; -1{,}5]$ ; `solve_linear_inequality(0, 3, "<=")` vaut `None` ($3 \le 0$ est faux).
+**Réponses** : `solve_linear_inequality(-4, -6, ">=")` vaut `(False, -inf, -1.5, True)`, soit $]-\infty \;;\; -1{,}5]$ ; `solve_linear_inequality(0, 3, ">")` vaut `(False, -inf, inf, False)`, toute la droite ($3 > 0$ est vrai pour tout $x$).
 
 **Démarche.** Pour $-4x - 6 \ge 0$ : la borne est $-\frac{-6}{-4} = -1{,}5$ ; $a < 0$, donc `">="` devient `"<="`, et l'ensemble est $]-\infty ; -1{,}5]$. Le code complet (un dictionnaire pour retourner le sens, un autre pour le cas $a = 0$) est dans `05_solutions.ipynb`.
 
-**Erreurs fréquentes.** Oublier de retourner le sens quand `a < 0` ; un crochet fermé à l'infini (`True` en première position avec `-inf`) ; ne pas lever `ValueError` pour un sens inconnu ; traiter `a == 0` en divisant.
+**Erreurs fréquentes.** Oublier de retourner le sens quand `a < 0` ; un crochet fermé à l'infini (`True` en première position avec `-inf`) ; ne pas lever `ValueError` pour un sens inconnu ; traiter `a == 0` en divisant, ou en ne pensant qu'aux sens `"<"` et `"<="` (pour `">"`, c'est $b > 0$ qu'il faut tester) ; oublier `import math` (le squelette ne l'importe pas).
 
 **Variante.** `solve_linear_inequality(2, -5, ">")` ? *Réponse* : `(False, 2.5, inf, False)`, soit $]2{,}5 \;;\; +\infty[$.
 
@@ -508,9 +508,9 @@ def check_solve_linear(solve_linear):
 
 **Réponse** : les deux droites se coupent en $(-1 \;;\; 2)$ ; la seconde, $2x = -2$, est la droite verticale $x = -1$. La figure de référence est dans `05_solutions.ipynb`.
 
-**Ce qu'on regarde dans ta figure.** Deux droites distinctes (styles ou couleurs), la verticale tracée avec `axvline`, le point commun marqué, un titre qui donne ses coordonnées, une légende avec les deux équations, des axes nommés et une fenêtre fixe ($[-5 ; 5]$ en $x$ et en $y$).
+**Ce qu'on regarde dans ta figure.** Deux droites distinctes (styles ou couleurs), la verticale tracée avec `axvline`, le point commun marqué, un titre qui donne ses coordonnées, une légende avec les deux équations, des axes nommés et une fenêtre fixe ($[-5 ; 5]$ en $x$ et en $y$). La cellule de vérifications automatiques regarde seulement que les deux droites et le titre sont dans l'axe donné, même pour un déterminant nul.
 
-**Erreurs fréquentes.** Diviser par le coefficient de $y$ quand il est nul ; appeler `np.linalg.solve` quand le déterminant est nul (il lève une erreur) ; créer une nouvelle figure alors qu'un `ax` est fourni (R2.24 dessinerait alors trois figures vides).
+**Erreurs fréquentes.** Diviser par le coefficient de $y$ quand il est nul (un avertissement « divide by zero », et la droite manque) ; appeler `np.linalg.solve` quand le déterminant est nul (`LinAlgError: Singular matrix`) ; créer une nouvelle figure alors qu'un `ax` est fourni ; écrire le titre avec `plt.title` au lieu de `ax.set_title` (il va sur une autre figure, et R2.24 lit `ax.get_title()`).
 
 ### Ex R2.24 — Prédire le nombre de solutions de trois systèmes, puis tracer leurs droites
 

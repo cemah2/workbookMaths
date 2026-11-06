@@ -2536,6 +2536,7 @@
       "kind": "array",
       "mistakes": {
         "3ea513569664d0381ec9b37e2e1c64fe660153913545eac826b0c016f2a8b0e2": "le double produit vaut 2 × a × b",
+        "6744eb7a7bd137033b201c81124e378a7edc07b52fa50668acc7a87e66eed0d6": "il manque le double produit −2ab",
         "8003e998b926c14246b3d265c64d6eb7ed3974b5e08935d76fc93214da42feba": "(a − b)² a un double produit négatif",
         "87719566c3daa30f265d0a31c577e477522c1fda06455d414825bc09c2b80c8a": "le carré porte sur tout 3x",
         "b4c8bb7d1b955b83a4224f854a8265c09f1697f51dd85179758a450d86f0e537": "(a − b)² n'est pas a² − b² : il y a un double produit"
@@ -2625,6 +2626,7 @@
       "kind": "int",
       "magnitude": 3,
       "mistakes": {
+        "db398a74ec626a5b0596b2c73e721229a5c370d674dc2c7ba14e5ffbdf01787d": "a² seul n'est pas le résultat : (a − b)(a + b) = a² − b², il reste à soustraire b²",
         "ff82a8ec10ab6a02f61263da2de643f486e49d28d91f1122d2f0c3c0925e87ca": "(a − b)(a + b) = a² − b² : on soustrait b², on ne l'ajoute pas"
       },
       "sign": 1,
@@ -2724,7 +2726,7 @@
       "hash": "fc571e3b4085471e6f7d6b8894999b81649993395a8dbba45410a2bdb20325cf",
       "kind": "set",
       "mistakes": {
-        "94f0a24b7fff255607563c88de8eda67273eb48389d39d876312e38341a2e185": "4x = 9 : divise 9 par 4, pas l'inverse",
+        "94f0a24b7fff255607563c88de8eda67273eb48389d39d876312e38341a2e185": "pour isoler x dans ax = b, on divise b par a, pas l'inverse",
         "f4c734e01b8f1cd7b47d8d16910300e329466a37953f3cfedef05994883bc840": "en divisant par x, on perd une solution : factorise"
       },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
@@ -2734,7 +2736,7 @@
       "hash": "5f90dc281b7bc19da761c73d35d9c91483bbfb2a8e65dd3a0f5a9357b7401873",
       "kind": "set",
       "mistakes": {
-        "098351326b767f29208b6721161148b25f2ca62e3b7982096f3bffcce45c12e7": "3x = 1 : divise 1 par 3",
+        "098351326b767f29208b6721161148b25f2ca62e3b7982096f3bffcce45c12e7": "pour isoler x dans ax = b, on divise b par a, pas l'inverse",
         "129ed961ac2ef420e3c387b5127d657db7e3d23a4f20955f527ba9324b8f567b": "un carré est nul seulement quand le nombre élevé au carré est nul : une seule solution",
         "4c65ae52261f0566cdea0e569edd37ebf6adcda51be30e03a73dc6d55c8e6968": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie à trois décimales",
         "4c6d01674329cb3654c9454bdd63daee0583a77ab6b7cb4b8acdf638cd62b21e": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie à deux décimales"
@@ -2836,7 +2838,8 @@
       "hash": "9a2fdfdc58dd7954984b2fbe6ee16525d8872d7fea8bc8fd2f5ad2ff4fddc977",
       "kind": "interval",
       "mistakes": {
-        "3202da8849847d2c7c7fd17042ae3e7c6924b2abaea69a002d7b5c5902192bfb": "un nombre exclu de l'un des deux intervalles n'est pas dans l'intersection"
+        "3202da8849847d2c7c7fd17042ae3e7c6924b2abaea69a002d7b5c5902192bfb": "un nombre exclu de l'un des deux intervalles n'est pas dans l'intersection",
+        "39b0345bdd63a50cd3f689cc2fe34d1331ffeb811847dc7c900a84e71087b8a6": "∩ garde les nombres qui sont dans les deux à la fois (la réunion, c'est ∪)"
       },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
@@ -3088,7 +3091,8 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "05920235c3f7f57e2519aaab234d339b1cb2d3dcef7886832a071543af1d567d": "la baisse porte sur le prix de départ, pas sur le prix réduit"
+        "05920235c3f7f57e2519aaab234d339b1cb2d3dcef7886832a071543af1d567d": "la baisse porte sur le prix de départ, pas sur le prix réduit",
+        "1c7ba746cceb867c910c4dd74a1a78cb2db7753ff5ec6f38b94178e8e8e28db2": "le prix donné est déjà celui d'après la baisse : on cherche le prix d'avant"
       },
       "sign": 1,
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
@@ -3182,19 +3186,19 @@
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.18b": {
-      "hash": "ddc619aa491ee16cbfdf546ed1196b01c5dd51d37e5dab0320671e6da0743b8a",
-      "kind": "int",
-      "magnitude": null,
+      "hash": "316305a8813fe0be5017c48ab4cb444ee4e905533670679f11ff1a9b386bfe9f",
+      "kind": "bool",
       "mistakes": {
-        "05d618fa301e7a9b22a9fb8819b52f23464f463675b33d28f4b1b3948c0d5f7f": "aucune solution : la liste vide, sans élément",
-        "f27976fd0351b2389ec40d520eddc32791065aa6b8ca0e6d306ebb74a84c0bed": "0x − 3 = 0 n'est jamais vrai : aucune solution, la liste vide (pas \"all\")"
+        "a10da13a1df9b72de423d1b2a2f20c22eff467e79c7db39641a05fa85653963d": "0x − 3 = 0 n'est jamais vrai : la fonction doit rendre la liste vide, []"
       },
-      "sign": 0,
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.18c": {
-      "hash": "328cfd2a5e46546ade0705c6a0ff4dfb2b482d56ba685bb2a649cf2429e088bf",
-      "kind": "str",
+      "hash": "1a61e80d0c089ef73aa0f8b48ae0342600026eb69ba458ece44a7f137cb5343e",
+      "kind": "bool",
+      "mistakes": {
+        "3b87ea29d5e0678aec8d96e7457f4a80bb1b24f9777433caf7ace47e4947671b": "0x + 0 = 0 est vrai pour tout x : la fonction doit rendre exactement la chaîne \"all\""
+      },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.19a": {
@@ -3208,10 +3212,10 @@
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.19b": {
-      "hash": "eff645ee77f63a91017e416a2786be0faccb2d0fb68ae2de73100d2eea111444",
+      "hash": "6ad7c1ff4d35517dd9898ec9ef2a0600c0ad0e9409ded333f16cfc3286ff264c",
       "kind": "interval",
       "mistakes": {
-        "6ad7c1ff4d35517dd9898ec9ef2a0600c0ad0e9409ded333f16cfc3286ff264c": "avec a = 0, l'inéquation ne dépend plus de x : elle est vraie pour tout x, ou jamais ; ici ?"
+        "eff645ee77f63a91017e416a2786be0faccb2d0fb68ae2de73100d2eea111444": "avec a = 0, l'inéquation devient « b > 0 », qui ne dépend plus de x : vraie pour tout x, ou jamais ; ici ?"
       },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
@@ -3283,7 +3287,7 @@
       "kind": "str",
       "mistakes": {
         "702e82b9f7d95ede39b79e46968e6b8e53a8fc5c5fef72e8ad96589f8c7b462b": "teste D == 0 avant de diviser, et lève une ValueError",
-        "98e4d1e344bbf35701ea372e8c14d749bf00df1f60739b71b7a8bf9cbc31752a": "un déterminant nul : pas une seule solution, lève une ValueError au lieu de rendre un couple"
+        "98e4d1e344bbf35701ea372e8c14d749bf00df1f60739b71b7a8bf9cbc31752a": "un déterminant nul : la fonction doit lever une ValueError (raise), pas rendre un résultat"
       },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
@@ -3479,7 +3483,8 @@
       "kind": "float",
       "magnitude": -4,
       "mistakes": {
-        "b1cd638507ca965d2c3af322401dd4429a6312ffdf017bb63c4279f06b148fb1": "D = ad − bc : le produit de la diagonale moins l'autre produit, dans cet ordre"
+        "b1cd638507ca965d2c3af322401dd4429a6312ffdf017bb63c4279f06b148fb1": "D = ad − bc : le produit de la diagonale moins l'autre produit, dans cet ordre",
+        "c413fbd99ba6d3058c5c0a63cfca9f3211372149cbf53dec26b97b18a6f587ec": "D = ad − bc : n'oublie pas de soustraire le produit bc"
       },
       "sign": 1,
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
@@ -3542,7 +3547,7 @@
       "hash": "9594d62089d81a05af0fa92df841648d69b6964b261b574e87e52b536e263334",
       "kind": "interval",
       "mistakes": {
-        "73c69702f266bbed086edb98d3d653e5b75d0f7a92308eae103e25df7759c753": "la borne est 10 divisé par −4 : un nombre négatif",
+        "73c69702f266bbed086edb98d3d653e5b75d0f7a92308eae103e25df7759c753": "la borne est le quotient de deux nombres de signes contraires : elle est négative",
         "b5aa14d98bb51786ab48116697c1988c6494afaec366194ab2c62e4737fbc20c": "diviser par un nombre négatif retourne le sens"
       },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"

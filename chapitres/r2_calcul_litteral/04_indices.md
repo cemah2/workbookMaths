@@ -606,7 +606,7 @@ Quatre étapes : vérifier `sense`, traiter `a == 0`, calculer la borne et retou
 </details>
 <details><summary>Indice 3</summary>
 
-Pour retourner le sens : `sense = {"<": ">", "<=": ">=", ">": "<", ">=": "<="}[sense]`. Pour `"<"` et `"<="`, le tuple est `(False, -math.inf, root, sense == "<=")` ; écris le cas `">"` et `">="` de la même façon.
+Pour retourner le sens : `sense = {"<": ">", "<=": ">=", ">": "<", ">=": "<="}[sense]`. Pour `"<"` et `"<="`, le tuple est `(False, -math.inf, root, sense == "<=")` ; écris le cas `">"` et `">="` de la même façon. Sans `import math` en haut du fichier, `math.inf` lève une `NameError`.
 
 </details>
 

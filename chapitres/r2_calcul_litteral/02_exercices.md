@@ -150,7 +150,7 @@ Fais-les **à la main**, en écrivant ta démarche dans ta copie de `06_mes_repo
 - une **liste de coefficients**, du plus haut degré au terme constant, sans oublier les zéros : pour $2x^2 - 5$, on écrirait `[2, 0, -5]` ;
 - une **liste de solutions**, dans l'ordre que tu veux (la liste vide s'il n'y en a aucune) ; une fraction s'y écrit comme un calcul, sans guillemets : `[-2/7, 6]` ;
 - un **intervalle** entre guillemets : `"]-1 ; 4]"`, `"[0 ; +oo["`, une réunion `"]-oo ; 0] U ]1 ; +oo["` ; l'ensemble vide s'écrit avec le mot vide entre guillemets ;
-- le **nombre de solutions** d'un système par son numéro : 1 pour aucune, 2 pour une seule, 3 pour une infinité.
+- le **nombre de solutions** d'une équation ou d'un système, quand on te le demande, par son numéro : 1 pour aucune, 2 pour une seule, 3 pour une infinité.
 
 ### Ex R2.1 — Substituer et réduire ✏️ ★ ⏱️ 10 min
 **Objectif :** calculer la valeur d'une expression pour des valeurs données, et réduire une expression.
