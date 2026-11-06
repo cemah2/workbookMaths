@@ -893,8 +893,11 @@ answer_R5_21b = ...  # b) an integer
 ''' + R5_21_BUGGY,
     check='''for letter, answer in zip("ab", [answer_R5_21a, answer_R5_21b]):
     wbm.check(f"R5.21{letter}", answer)
-with checked("R5.21c"):
-    wbm.check("R5.21c", [total_savings(1000, 0.02, 5), total_formula(1000, 0.02, 5)], computed=True)''',
+if answer_R5_21a is ...:
+    print("⏳ Ex R5.21c : trouve d'abord les lignes fausses (a), puis corrige les deux fonctions.")
+else:
+    with checked("R5.21c"):
+        wbm.check("R5.21c", [total_savings(1000, 0.02, 5), total_formula(1000, 0.02, 5)], computed=True)''',
     solution='''answer_R5_21a = "CG"
 answer_R5_21b = len(range(1, 10))
 

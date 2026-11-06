@@ -135,7 +135,7 @@ Les durées sont des estimations (lecture, exercices, flashcards) ; le syllabus 
 | R2 | Calcul littéral et équations | développer, factoriser, identités remarquables, équations et inéquations du 1ᵉʳ degré, valeur absolue et fonction signe, systèmes 2 × 2, mettre un problème en équation | `algebra` | 13,6 |
 | R3 | Fonctions | notion de fonction, graphe, lecture graphique, fonctions affines, carré, inverse, racine, polynômes du second degré (forme canonique, discriminant), variations, composition, réciproque | `functions` | 12,8 |
 | R4 | Logique, ensembles, Σ et Π | propositions, quantificateurs, implication et équivalence, ensembles et intervalles, notations Σ et Π, raisonnements (direct, contraposée, absurde, contre-exemple, récurrence), rédiger une démonstration courte | `logic` | 13,2 |
-| R5 | Suites | suites arithmétiques et géométriques, sommes finies et infinies, limite d'une suite, moyennes mobiles et exponentielles | `sequences` | 9 |
+| R5 | Suites | suites arithmétiques et géométriques, sommes finies et infinies, limite d'une suite, moyennes mobiles et exponentielles | `sequences` | 10,2 |
 | R6 | Exponentielle et logarithmes | propriétés, croissances comparées, ln, log₂, log₁₀, échelles logarithmiques, sigmoïde et tanh | `explog` | 10 |
 | R7 | Limites et dérivation | limites de fonctions, continuité, taux d'accroissement, dérivée, règles (somme, produit, quotient, composée), variations, extrema, tangente | `deriv` | 13 |
 | R8 | Probabilités de base | expérience aléatoire, événements, arbres, dénombrement (factorielle, combinaisons), indépendance, variable aléatoire discrète, espérance, variance, simulation | `proba_basics` | 11 |

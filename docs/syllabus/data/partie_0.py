@@ -453,7 +453,7 @@ CHAPTERS = [
     {
         "id": "R5",
         "dir": "r5_suites",
-        "hours": 9,
+        "hours": 10.2,
         "generation_sessions": 1,
         "mml": [],
         "summary": "Les suites : définies explicitement ou par récurrence, arithmétiques et géométriques, leurs sommes, "
@@ -481,7 +481,7 @@ CHAPTERS = [
         "mymath": {"module": "sequences.py",
                    "functions": ["arithmetic_term", "geometric_sum", "iterate", "moving_average",
                                  "exponential_moving_average"]},
-        "reading_minutes": 120,
+        "reading_minutes": 180,
         "flashcards": 20,
         "exercises": [
             ("R5.Q1", "🧠", 1, 4, "Explicite ou par récurrence ?", "§1", "E"),
@@ -497,7 +497,7 @@ CHAPTERS = [
             ("R5.2", "✏️", 1, 10, "Terme général d'une suite arithmétique", "§2", "E"),
             ("R5.3", "✏️", 1, 10, "Terme général d'une suite géométrique", "§3", "E"),
             ("R5.4", "✏️", 2, 20, "Sommes arithmétiques et géométriques", "§4", "E"),
-            ("R5.5", "✏️", 2, 15, "Somme infinie : 1 + 1/2 + 1/4 + …", "§5", "E"),
+            ("R5.5", "✏️", 2, 15, "Sommes infinies d'une suite géométrique", "§5", "E"),
             ("R5.6", "✏️", 2, 20, "Intérêts composés et actualisation", "§3 §5", ""),
             ("R5.7", "✏️", 2, 20, "Une moyenne exponentielle à la main sur cinq valeurs", "§6", "E"),
             ("R5.8", "✏️", 1, 10, "Retrouver le premier terme et la raison à partir de deux termes", "§2 §3", "E"),
@@ -515,7 +515,7 @@ CHAPTERS = [
             ("R5.16", "🔨", 2, 25, "Moyennes mobile et exponentielle", "§6",
              "E m:moving_average,exponential_moving_average"),
             ("R5.17", "📦", 1, 15, "Les mêmes calculs avec NumPy : `np.cumsum`, `np.cumprod`, `np.convolve`", "§4 §6", ""),
-            ("R5.18", "🔮", 1, 10, "Prédire : vers quoi tend u(n + 1) = 0,5 u(n) + 1 ?", "§1 §5", "E"),
+            ("R5.18", "🔮", 1, 10, "Prédire : vers quoi tend u(n + 1) = 0,75 u(n) + 2 ?", "§1 §5", "E"),
             ("R5.19", "🔬", 2, 20, "Lisser un signal bruité : l'effet de la fenêtre et de β", "§6", ""),
             ("R5.20", "🎨", 1, 15, "Des suites qui convergent, divergent, oscillent", "§5", ""),
             ("R5.21", "🐛", 1, 15, "Chasse à l'erreur : un décalage d'indice dans une somme", "§4", "E"),

@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §6 |
-| **Temps total estimé** | ≈ 10,2 h : lecture et calculs de la fiche ≈ 2 h 30, exercices ≈ 7 h, flashcards ≈ 40 min (parcours essentiel ≈ 8 h) |
+| **Temps total estimé** | ≈ 10,2 h : lecture et calculs de la fiche ≈ 3 h, exercices ≈ 6 h 30, flashcards ≈ 40 min (parcours essentiel ≈ 8,2 h) |
 | **Prérequis** | R4 (Σ, changement d'indice, récurrence) ; R1 (puissances, pourcentages) ; R3 (fonctions affines) ; workbookIA 0A : créer des arrays (§100.8.1), calcul vectorisé (§100.8.3), réductions (§100.8.5) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `sequences.py` : `arithmetic_term`, `geometric_sum`, `iterate`, `moving_average`, `exponential_moving_average` |

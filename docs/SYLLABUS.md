@@ -22,7 +22,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [R2](#r2) | Calcul littéral et équations | 0B | — | 13,6 h | ✅ exercices | 1 |
 | [R3](#r3) | Fonctions | 0B | — | 12,8 h | ✅ exercices | 1 |
 | [R4](#r4) | Logique, ensembles, Σ et Π | 0B | — | 13,2 h | ✅ exercices | 1 |
-| [R5](#r5) | Suites | 0B | — | 9,2 h | ✅ exercices | 1 |
+| [R5](#r5) | Suites | 0B | — | 10,2 h | ✅ exercices | 1 |
 | [R6](#r6) | Exponentielle et logarithmes | 0B | — | 9,8 h | ✅ exercices | 1 |
 | [R7](#r7) | Limites et dérivation | 0B | — | 12,9 h | ✅ exercices | 2 |
 | [R8](#r8) | Probabilités de base | 0B | — | 10,9 h | ✅ exercices | 1 |
@@ -79,7 +79,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 
 | Partie | Chapitres | Exercices détaillés | Durée (complet) | Durée (essentiel) |
 |---|---|---|---|---|
-| 0 · Remise à niveau | 12 | 363 | 114,6 h | 91,4 h |
+| 0 · Remise à niveau | 12 | 363 | 115,6 h | 92,4 h |
 | I · Fondations | 9 | — | ≈ 110 h (estimé) | à détailler |
 | II · Concepts | 7 | — | ≈ 78 h (estimé) | à détailler |
 | III · ML classique | 8 | — | ≈ 98 h (estimé) | à détailler |
@@ -526,7 +526,7 @@ Le langage des mathématiques : propositions et connecteurs, implication et cont
 
 Les suites : définies explicitement ou par récurrence, arithmétiques et géométriques, leurs sommes, leur limite et la somme infinie d'une suite géométrique. Puis les moyennes mobiles et exponentielles, dont les poids forment une suite géométrique : on les retrouvera dans le momentum des optimiseurs (workbookIA 19) et le retour actualisé du RL (26), qui les étudient pour leur compte.
 
-**Temps** : 9,2 h en parcours complet, 7,2 h en parcours essentiel (lecture 120 min, 20 flashcards).
+**Temps** : 10,2 h en parcours complet, 8,2 h en parcours essentiel (lecture 180 min, 20 flashcards).
 
 **Objectifs**
 
@@ -569,7 +569,7 @@ Les suites : définies explicitement ou par récurrence, arithmétiques et géom
 | R5.2 | ✏️ | Terme général d'une suite arithmétique | ★ | 10 | §2 | C, E | wbm | — |
 | R5.3 | ✏️ | Terme général d'une suite géométrique | ★ | 10 | §3 | C, E | wbm | — |
 | R5.4 | ✏️ | Sommes arithmétiques et géométriques | ★★ | 20 | §4 | C, E | wbm | — |
-| R5.5 | ✏️ | Somme infinie : 1 + 1/2 + 1/4 + … | ★★ | 15 | §5 | C, E | wbm | — |
+| R5.5 | ✏️ | Sommes infinies d'une suite géométrique | ★★ | 15 | §5 | C, E | wbm | — |
 | R5.6 | ✏️ | Intérêts composés et actualisation | ★★ | 20 | §3 §5 | C | wbm | — |
 | R5.7 | ✏️ | Une moyenne exponentielle à la main sur cinq valeurs | ★★ | 20 | §6 | C, E | wbm | — |
 | R5.8 | ✏️ | Retrouver le premier terme et la raison à partir de deux termes | ★ | 10 | §2 §3 | C, E | wbm | — |
@@ -582,7 +582,7 @@ Les suites : définies explicitement ou par récurrence, arithmétiques et géom
 | R5.15 | 🔨 | Itérer une récurrence · `iterate` | ★ | 15 | §1 | C, E | pytest | — |
 | R5.16 | 🔨 | Moyennes mobile et exponentielle · `moving_average, exponential_moving_average` | ★★ | 25 | §6 | C, E | pytest | — |
 | R5.17 | 📦 | Les mêmes calculs avec NumPy : `np.cumsum`, `np.cumprod`, `np.convolve` | ★ | 15 | §4 §6 | C | wbm | — |
-| R5.18 | 🔮 | Prédire : vers quoi tend u(n + 1) = 0,5 u(n) + 1 ? | ★ | 10 | §1 §5 | C, E | wbm | — |
+| R5.18 | 🔮 | Prédire : vers quoi tend u(n + 1) = 0,75 u(n) + 2 ? | ★ | 10 | §1 §5 | C, E | wbm | — |
 | R5.19 | 🔬 | Lisser un signal bruité : l'effet de la fenêtre et de β | ★★ | 20 | §6 | C | wbm | — |
 | R5.20 | 🎨 | Des suites qui convergent, divergent, oscillent | ★ | 15 | §5 | C | manuel | — |
 | R5.21 | 🐛 | Chasse à l'erreur : un décalage d'indice dans une somme | ★ | 15 | §4 | C, E | wbm | — |
