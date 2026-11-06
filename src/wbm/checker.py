@@ -483,6 +483,7 @@ def make_entry(
     simplified: bool = False,
     up_to_constant: bool = False,
     expanded: bool = False,
+    angle: bool = False,
 ) -> dict:
     """Build the (hash-only) answer entry for ``value``. Used by :func:`record`.
 
@@ -509,12 +510,14 @@ def make_entry(
         if fractional is not None or choices is not None:
             raise ValueError(f"Ex {ex_id}: `fractional` and `choices` are not available for the kind {kind!r}")
         entry = make_math_entry(ex_id, value, kind, variables=variables, simplified=simplified,
-                                up_to_constant=up_to_constant, expanded=expanded, mistakes=mistakes)
+                                up_to_constant=up_to_constant, expanded=expanded, mistakes=mistakes, angle=angle)
         if prediction:
             entry["prediction"] = True
         if source:
             entry["source"] = source
         return entry
+    if angle:
+        raise ValueError(f"Ex {ex_id}: `angle` is for an exact number (kind='exact')")
     if variables is not None or simplified or up_to_constant or expanded:
         raise ValueError(f"Ex {ex_id}: `variables`, `simplified`, `up_to_constant` and `expanded` are for the kinds "
                          f"'fraction', 'expr' and 'interval' (pass kind=...)")
@@ -1582,6 +1585,7 @@ def record(
     simplified: bool = False,
     up_to_constant: bool = False,
     expanded: bool = False,
+    angle: bool = False,
 ) -> dict:
     """Record the right answer of an exercise (solutions notebooks only).
 
@@ -1593,7 +1597,8 @@ def record(
     ``prediction=True`` marks the prediction of a 🔮: its classic wrong value says « Prédiction ratée ».
     Maths kinds: ``kind="fraction"`` (``simplified=True``), ``kind="expr"`` (``variables=("x",)``,
     ``up_to_constant=True`` for a primitive, ``expanded=True`` when the statement asks for the expanded form),
-    ``kind="interval"`` (see :mod:`wbm.mathcheck`).
+    ``kind="interval"``, ``kind="exact"`` (an exact real number such as ``"sqrt(3)/2"``; ``angle=True`` for an
+    angle in radians, so that degrees are recognised) (see :mod:`wbm.mathcheck`).
     The function checks that the right value passes and a wrong value fails,
     then prints the ``WBM_ANSWER`` line harvested by ``tools/build_answers.py``.
     """
@@ -1601,7 +1606,7 @@ def record(
     entry = make_entry(ex_id, value, decimals, kind=kind, ordered=ordered,
                        mistakes=mistakes, source=source, fractional=fractional, choices=choices,
                        prediction=prediction, variables=variables, simplified=simplified,
-                       up_to_constant=up_to_constant, expanded=expanded)
+                       up_to_constant=up_to_constant, expanded=expanded, angle=angle)
     ok, _, message = check_entry(ex_id, entry, value)
     if not ok:
         raise AssertionError(f"Ex {ex_id}: the right value does not pass its own check ({message})")

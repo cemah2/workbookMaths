@@ -11,6 +11,10 @@ As for the other kinds, only salted hashes are stored, never the answer itself.
   ``"ln(x) + 1/x"``...). Two expressions are equal when they take the same values at a few fixed rational points
   (computed with 30 significant digits, compared on 10); the right expression is never stored, only the hashes of its
   values. ``up_to_constant=True`` (a primitive): two expressions that differ by a constant are equal.
+* ``exact``: an exact real number written with integers, fractions, ``sqrt`` and ``pi`` (``"-sqrt(3)/2"``,
+  ``"3*pi/4"``, ``"√2/2"``), compared on 10 significant digits. A decimal approximation (``-0.866``) gets « valeur
+  approchée » (the hashes of the right value rounded to 1 to 8 decimals are stored), and ``angle=True`` recognises an
+  angle given in degrees instead of radians (``150`` for ``5*pi/6``).
 * ``interval``: an interval or a union of intervals, in French (``"]2 ; 5]"``, ``"[0 ; +∞["``) or English notation
   (``"(2, 5]"``), or a SymPy set. Endpoints can be exact (``"1/2"``, ``"sqrt(2)"``, ``"-oo"``).
 """
@@ -23,7 +27,7 @@ import re
 from decimal import Decimal
 from fractions import Fraction
 
-MATH_KINDS = ("fraction", "expr", "interval")
+MATH_KINDS = ("fraction", "expr", "interval", "exact")
 
 SIGNIFICANT = 10          # significant digits compared for expressions and interval endpoints
 _PRECISION = 30           # digits used to evaluate
@@ -429,14 +433,58 @@ def _norm_intervals(intervals) -> str:
 # ---------------------------------------------------------------------------
 # entries (solutions side) and checks (learner side)
 # ---------------------------------------------------------------------------
+def _exact_value(value):
+    """The exact real number of an ``exact`` answer (a SymPy number), or MathNormalizationError."""
+    import sympy
+
+    if isinstance(value, bool):
+        raise MathNormalizationError("un nombre exact, comme \"sqrt(3)/2\" ou \"3*pi/4\" (pas un booléen)")
+    if isinstance(value, Fraction):
+        return sympy.Rational(value.numerator, value.denominator)
+    if isinstance(value, numbers.Integral):
+        return sympy.Integer(int(value))
+    if isinstance(value, numbers.Real):
+        if not math.isfinite(float(value)):
+            raise MathNormalizationError("un nombre exact et fini")
+        return sympy.Float(float(value), 17)
+    expected = "un nombre exact, comme \"sqrt(3)/2\" ou \"3*pi/4\" (avec sqrt, pi et des fractions, sans lettre)"
+    if isinstance(value, str):
+        text = _clean_text(value).replace(" ", "")
+        if _DECIMAL_TEXT.fullmatch(text):                 # "-0,866": a decimal, read as the float it is
+            return sympy.Float(text.replace(",", "."), _PRECISION)
+    try:
+        number = parse_expression(value, [])
+    except MathNormalizationError:
+        raise MathNormalizationError(expected) from None
+    if not (number.is_number and number.is_real):
+        raise MathNormalizationError(expected)
+    return number
+
+
+def _exact_digest(ex_id: str, number) -> str | None:
+    fingerprint = _round_significant(number)
+    return None if fingerprint is None else _hash(ex_id, "exact", fingerprint)
+
+
+def _exact_rounded_text(number, k: int) -> str:
+    """``number`` rounded to ``k`` decimals, as text ("-0.866"), the way a calculator shows it."""
+    import sympy
+
+    text = f"{Decimal(str(sympy.N(number, _PRECISION))).quantize(Decimal(1).scaleb(-k), rounding='ROUND_HALF_UP')}"
+    return "0" + text[text.index("."):] if text.startswith("-0") and set(text[1:]) <= set("0.") else text
+
+
 def make_math_entry(ex_id: str, value, kind: str, *, variables=None, simplified: bool = False,
-                    up_to_constant: bool = False, expanded: bool = False, mistakes: dict | None = None) -> dict:
+                    up_to_constant: bool = False, expanded: bool = False, mistakes: dict | None = None,
+                    angle: bool = False) -> dict:
     """The hash-only entry of a fraction, expression or interval answer.
 
     ``expanded`` (expressions): the statement asks for the expanded form; an equal expression that is not expanded
     (``x*(16 - 2*x)*(10 - 2*x)``, ``(3*h + h**2)/h``) gets « la valeur est juste, mais développe »."""
     if expanded and kind != "expr":
         raise ValueError(f"Ex {ex_id}: `expanded` is for an expression answer (kind='expr')")
+    if angle and kind != "exact":
+        raise ValueError(f"Ex {ex_id}: `angle` is for an exact number (kind='exact')")
     entry: dict = {"kind": kind}
     if kind == "fraction":
         q, _ = _parse_fraction(value)
@@ -470,6 +518,21 @@ def make_math_entry(ex_id: str, value, kind: str, *, variables=None, simplified:
                 raise ValueError(f"Ex {ex_id}: mistake {message!r} is undefined at a check point")
             wrong[message] = "|".join(fp)
         right = "|".join(fingerprint)
+    elif kind == "exact":
+        number = _exact_value(value)
+        right = _round_significant(number)
+        if right is None:
+            raise ValueError(f"Ex {ex_id}: an exact answer must be a finite real number")
+        entry["hash"] = _hash(ex_id, kind, right)
+        entry["rounded"] = {str(k): _hash(ex_id, kind, "~" + _exact_rounded_text(number, k)) for k in range(1, 9)}
+        if angle:
+            entry["angle"] = True
+        wrong = {}
+        for message, w in (mistakes or {}).items():
+            fingerprint = _round_significant(_exact_value(w))
+            if fingerprint is None:
+                raise ValueError(f"Ex {ex_id}: mistake {message!r} is not a finite real number")
+            wrong[message] = fingerprint
     elif kind == "interval":
         intervals = _parse_intervals(value)
         norm = _norm_intervals(intervals)
@@ -516,6 +579,8 @@ def check_math_entry(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
             return _check_fraction(ex_id, entry, value)
         if kind == "expr":
             return _check_expr(ex_id, entry, value)
+        if kind == "exact":
+            return _check_exact(ex_id, entry, value)
         if kind == "interval":
             norm = _norm_intervals(_parse_intervals(value))
             digest = _hash(ex_id, kind, norm)
@@ -678,6 +743,53 @@ def _check_expr(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
                             "valeurs simples.")
 
 
+_EXACT_APPROXIMATE = ("C'est une valeur approchée de la bonne réponse : donne la valeur exacte, avec sqrt, pi ou une "
+                      "fraction, entre guillemets (comme \"sqrt(3)/2\" ou \"3*pi/4\").")
+
+
+def _has_float(number) -> bool:
+    import sympy
+
+    return bool(number.atoms(sympy.Float))
+
+
+def _typed_decimals(value) -> int | None:
+    """Decimals of a decimal number typed as a float or a text ("-0,866" -> 3), None otherwise."""
+    return _decimals_typed(value) or _scientific_decimals(value)
+
+
+def _check_exact(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
+    from wbm.checker import _praise
+
+    number = _exact_value(value)
+    digest = _exact_digest(ex_id, number)
+    if digest is None:
+        return False, "wrong", "Ce n'est pas un nombre réel fini : vérifie le calcul."
+    if digest == entry["hash"]:
+        return True, "ok", _praise(ex_id)
+    classic = _classic(entry, digest)
+    if classic:
+        return False, "wrong", classic
+    if _has_float(number):                          # a decimal: the right value, rounded?
+        decimals = _typed_decimals(value)
+        if decimals is not None and 1 <= decimals <= 8:
+            if _hash(ex_id, "exact", "~" + _exact_rounded_text(number, decimals)) == entry.get("rounded", {}).get(
+                    str(decimals)):
+                return False, "near", _EXACT_APPROXIMATE
+    import sympy
+
+    if entry.get("angle") and not _has_float(number):     # 150 for 5*pi/6: degrees given for radians
+        if _exact_digest(ex_id, number * sympy.pi / 180) == entry["hash"]:
+            return False, "wrong", ("Ta valeur est un angle en degrés ; la réponse est attendue en radians "
+                                    "(multiplie par π/180, et garde π dans la réponse).")
+    if number != 0 and _exact_digest(ex_id, -number) == entry["hash"]:
+        return False, "wrong", "La valeur absolue est bonne, mais le signe est inversé."
+    if _has_float(number):
+        return False, "wrong", ("Ce n'est pas la bonne valeur ; et donne la valeur exacte, avec sqrt, pi ou une "
+                                "fraction, plutôt qu'une valeur approchée.")
+    return False, "wrong", "Ce n'est pas la bonne valeur exacte : reprends le calcul."
+
+
 def perturbed(value, entry: dict):
     """A value that must be rejected (used by ``record`` to prove the check can fail)."""
     kind = entry["kind"]
@@ -692,4 +804,6 @@ def perturbed(value, entry: dict):
         return expr + bump
     if kind == "interval":
         return "[1000 ; 1001]"
+    if kind == "exact":
+        return _exact_value(value) + 3
     raise ValueError(kind)

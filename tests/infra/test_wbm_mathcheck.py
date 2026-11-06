@@ -62,6 +62,33 @@ def test_fraction_a_small_value_with_a_large_denominator_is_named_approximate(va
     assert not verdict("F.4b", entry, "1/7190")[0]
 
 
+# ------------------------------------------------------------------ exact (session 14, R9)
+@pytest.mark.parametrize("value", ["-sqrt(3)/2", "-√3/2", "−√(3)/2", "-1/2*sqrt(3)", "-3**0.5/2", -(3 ** 0.5) / 2])
+def test_exact_accepts_every_writing_of_the_value(value):
+    entry = entry_of("X.1", "-sqrt(3)/2", kind="exact")
+    assert verdict("X.1", entry, value)[0], value
+
+
+@pytest.mark.parametrize("value, status, words", [
+    ("-0.866", "near", "valeur approchée"), (-0.87, "near", "valeur approchée"), ("-0,866", "near", "valeur approchée"),
+    ("sqrt(3)/2", "wrong", "signe"), ("-0.5", "wrong", "valeur approchée"), ("abc", "type", "nombre exact"),
+    ("-1/2", "wrong", "reprends le calcul"),
+])
+def test_exact_diagnoses(value, status, words):
+    entry = entry_of("X.2", "-sqrt(3)/2", kind="exact")
+    passed, got_status, message = verdict("X.2", entry, value)
+    assert not passed and got_status == status and words in message, (value, got_status, message)
+
+
+def test_exact_angle_recognises_degrees_and_keeps_no_clear_value():
+    entry = entry_of("X.3", "5*pi/6", kind="exact", angle=True, mistakes={"c'est l'angle supplémentaire": "pi/6"})
+    assert verdict("X.3", entry, "5pi/6")[0] and verdict("X.3", entry, "5/6*π")[0]
+    assert "degrés" in verdict("X.3", entry, 150)[2]
+    assert verdict("X.3", entry, "pi/6")[2].startswith("Erreur classique")
+    text = json.dumps(entry)
+    assert "5*pi/6" not in text and "2.61799" not in text and "150" not in text
+
+
 def test_fraction_classic_mistake():
     entry = entry_of("F.5", Fraction(3, 4), kind="fraction", mistakes={"tu as additionné les dénominateurs": "3/8"})
     passed, _, message = verdict("F.5", entry, "3/8")
