@@ -1051,6 +1051,1187 @@
       },
       "sign": 1,
       "source": "chapitres/r0_prise_en_main/05_solutions.ipynb"
+    },
+    "R1.1a": {
+      "hash": "8d7aac34836bd988d5dd2c5ae665191ef940dc03d7d4506b6eccdf922025ad30",
+      "kind": "str",
+      "mistakes": {
+        "23b8bbd5566d9533223e2420fbb61f14a72271dc487b439606cf2711d5f11f63": "compare 0,6 et 2/3 : écris 2/3 en décimal, avec trois chiffres après la virgule",
+        "4e4c1cb347e91c1424d45e7fafed4ab3e74f046d78cb2a3954205aea3cf41c47": "parmi les négatifs, le plus petit est le plus loin de zéro",
+        "b5e6e9211e25e8f5c0aa7f3f5177656a6ae4aa2351b6e321a2b36e145cc1e16d": "l'ordre croissant va du plus petit au plus grand"
+      },
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.1b": {
+      "hash": "c1b705b7eb778bdf6f50bd55eb869e5c552907b257da0ce60fcff311c3045e27",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5d6e040e29f5dcb60ae697a8089446a2c0cfe92b8c103d266fef373fb09966ac": "un entier plus petit que A n'est pas entre A et F",
+        "e35a7e99290ea574e72f103fef08ca709ffb9447d82f8bb1cc6ea2d4477343f2": "n'oublie pas 0, qui est un entier relatif"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.1c": {
+      "hash": "70c16ad5f9ad008a01775502463af966f64a05251274d6a38b1c034756f3b444",
+      "kind": "str",
+      "mistakes": {
+        "310826359d2febd9742ba7c820a6b4dc1f45d3ba009584c169c0ba5b4eafb0cb": "E vaut −1,5 : ce n'est pas un entier"
+      },
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.1d": {
+      "hash": "d4f1b6a9cde65baa3ca5c0dfc41e520aca5fac0ee9500145d6daca841a156afa",
+      "kind": "str",
+      "mistakes": {
+        "51cf59e2053a01166648664782b861e5538b7d43dcbc097efc4cd9b2d5e62adc": "F vaut 1,75 : son écriture décimale s'arrête, c'est un décimal",
+        "59c9fe1cde48181fb325a3fd878ecbf0cc737c681f1c2008885899d2758c4bdb": "C vaut −2 : un entier est aussi un décimal"
+      },
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.2a": {
+      "hash": "d7d766238e5604465ad1c074f84580d97016d74f68216f8f7007fa66e7b8fc75",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "3ea0fe1f408e5514c1bf580892b840481c07e4d0414dc73c65f2fdfac60ea818": "la multiplication passe avant la soustraction",
+        "4bd704199386f5efc55e57ddfef8b73d0297c75372637dc4b930122ff42fcd8f": "+ et − se font de gauche à droite : la soustraction d'abord, puis l'addition"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.2b": {
+      "hash": "83862b5e91a6c49b3892cce6d17112b17722180c1c68a18a92d79fe58981b465",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "bb12f41be9fb91ebda4ab35a2c6ef71b18ae909fada24f94199d38f001fab8ba": "soustraire un négatif, c'est ajouter"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.2c": {
+      "hash": "7a3e3480b0622ecb790502ee794db9838b19bdb7a7791a530e40c758119cdbea",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "83d5247dc4c58fad6db8a13e16282655a8a57f74034b16cddcf5ec903ca81ef8": "trois facteurs négatifs : le produit est négatif",
+        "f4abc105aba38803efc36bf02222f59b39df11e9719d3f035c3922952d3a87a0": "une puissance est un produit de facteurs égaux, pas une multiplication par l'exposant"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.2d": {
+      "hash": "5276f6d68df7753d2d2f66ea0ee4371fd277730cc495cd59db1695f577d0730e",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "57194de7d049c8a951e3ffae9fdb3611a4185c5fb68d09a45ba8c042ec19376f": "la puissance passe avant le signe moins : seul 2 est élevé à la puissance"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.2e": {
+      "hash": "b677bb5fbb66b7e377c0a9c11cc59b49cd594b4dea1bf7e67b3a9ab060366a7e",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "9143b5978448453164cf58746cb5d13b0f6fd1e230c5bc7c0725258bf204ae91": "× et ÷ ont la même priorité : on calcule de gauche à droite"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.2f": {
+      "hash": "dceea52d6441478b85eab9366261af15100f7069e5134937cef44036a803bda1",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "9b5352c3dfdb340e6f966e21ccedefadba9a7ae3d173615e5b1eae7dab909893": "la multiplication passe avant la soustraction",
+        "b4167b57d74c32fa4cf808a3694a925e4d3eb0b20fee5c52cbecaa21b5ae77a2": "le carré d'un nombre négatif est positif"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.2g": {
+      "hash": "ac2fa44eb0346827d024eb39bed5869a4e4cac7e19bc4f7c3ffc198d180811bc",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "49fc2cc80faab81d45e8ff569280467191a111a563563f0f42e8064c45e2677a": "moins divisé par moins donne plus"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.2h": {
+      "hash": "a84e115a03804d600670f2e5d3fe6da802379c041cb0039ee2cec919657bf873",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0a34a87bc35fd6e9eac2e1fee5f80dd1adff090586baaf2f75d85c724d564231": "un signe moins devant une parenthèse change le signe de chaque terme",
+        "0bb8b1607d2cdb147a5381fc89ed56f051bb11c33237127e3b605778982902ae": "deux fois un nombre négatif donne un nombre négatif"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.3a": {
+      "hash": "be86193e445bcc8af113cb9302d83f2f552ef1e09aa81ba03b8a01c82da42246",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "afaa582892936818b8dcaa517b14d44e2e9ddb2eab4d0b30611209419f8da4d6": "99 = 100 − 1 : retire le second produit, 17 × 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.3b": {
+      "hash": "1fe09c9f92e42da7dc7413125abf3e9389828abe7a45607194589a673946c1e0",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "b77f133bfb7551b32fb75cfc08ea6b13e3993a5bc1a6ba9b028d3782d2fc3e5c": "101 = 100 + 1 : ajoute le second produit, 23 × 1"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.3c": {
+      "hash": "24495cf4c0188b6023b567cef688023bd9d8d6d7891406ea25ba5e84423dd7ee",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "750bee90b3c8ec65a0ba1fac287aebe1c357483e060f19b965e422e97e6a1317": "factorise par 9 : 9 × (34 + 66)"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.3d": {
+      "hash": "66c29b8254c26bd22c786b812cc3505cb9d9de403b66b57e52a4f2814841f2b8",
+      "kind": "int",
+      "magnitude": 3,
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.3e": {
+      "hash": "7c5c6c329dfa7a31752215e3ad444b45ceb5078fd0a531e0e24846fdbfded889",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "092c3c10762d2522fd9915d2542f33bb15511dbce55e10f90ceb05340d073f8a": "factorise par 8 : 8 × (47 − 7)"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.4a": {
+      "hash": "389baf00c7e19a3873aefb78e87ef7cac3e11673b76a6e6f0389b39e4b90a886",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "dbacdd1c75900ff993c54689634e790b8b9290d72a10611d2be2ac37de29ab3b": "5 divise les deux nombres, mais ce n'est pas le plus grand diviseur commun",
+        "f5e6a070fb7ecb79682be2c121ec5c725fd1ef8b3f1328c2c2dca1d53251c234": "3 divise les deux nombres, mais ce n'est pas le plus grand diviseur commun"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.4b": {
+      "hash": "2df9acdc3f4c0e7c8a853f6b371d0817203054c1ac3106fa26c1590d86a4d15d",
+      "kind": "fraction",
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.4c": {
+      "hash": "516c53709770363a274e4447f2d0af249586c22f9b241fe8d4c1e5239fe298fe",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "03b944bf0aca4c0b26ca16f12a78f0adae8f186f0e581cd25eb3ac278bfc1013": "le PGCD est le dernier reste non nul : continue jusqu'au reste 0",
+        "89e4f10fc5d9a6a2fd5bae1e4d86c901f90ac81bedfac1134beb781c3ddf27a7": "6 divise les deux nombres, mais ce n'est pas le plus grand diviseur commun"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.4d": {
+      "hash": "d31537e9ca229057333b0417a63d2ba30be645d58bfb8af73f01f441834df5b3",
+      "kind": "fraction",
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.4e": {
+      "hash": "7ca5c1a6380e03745b03ac6fc0709d0ddf91ce1135f5b34df9d1ea83743cb477",
+      "kind": "fraction",
+      "sign": -1,
+      "simplified": true,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.4f": {
+      "hash": "2d5ba8155ff68cf3d585b4f05b094e93ad101f5cb879129207e535cf510fb296",
+      "kind": "fraction",
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.5a": {
+      "hash": "99ee1d255dbfc4d4da3ce72c9507eff499a6a2801499965bdda331837f4bc778",
+      "kind": "fraction",
+      "mistakes": {
+        "b696bda0bc67d4961faaaf555366dba676d6c518e5bee5b292d3f3e6b8507272": "on n'additionne ni les numérateurs ni les dénominateurs entre eux : mets au même dénominateur"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.5b": {
+      "hash": "966753c9ba605ee0e140edee5519722d4abfca83bc1ab8f71b75c816747cc54a",
+      "kind": "fraction",
+      "mistakes": {
+        "24d21a8c2d7b5d0c814800f72dbb8e1ec3325cffd46b734b6992bbf27d79d4c8": "on ne soustrait pas les dénominateurs : mets au même dénominateur"
+      },
+      "sign": -1,
+      "simplified": true,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.5c": {
+      "hash": "271be378e2c46dee81ac012de3d5cb2f6342e44f306d14f5f623c6fd3e7c7159",
+      "kind": "fraction",
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.5d": {
+      "hash": "d035d11ac1770a7f0d40c60973cf118ee19fbcab7d5641a880079e1b3c47e115",
+      "kind": "fraction",
+      "mistakes": {
+        "2fa08aee2420f347898dfaadbbe3ade920a1b7bd5ae068c1799e0017257a16d1": "diviser par une fraction, c'est multiplier par son inverse"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.5e": {
+      "hash": "67f6b7150c1536ecf1c7e3ca0c1bfaf0e805f3df83bcb6ba6ea6d885622c7dab",
+      "kind": "fraction",
+      "mistakes": {
+        "f9a649e3466d79ec9bf9947c0089222a11f1506b846091505825c86662f25eb1": "1 divisé par une fraction, c'est l'inverse de cette fraction"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.5f": {
+      "hash": "a9657b703ed88d84676b593dfdee17e7d69f50339e0cb529ab5022b4de54496d",
+      "kind": "fraction",
+      "mistakes": {
+        "288997daf88bfba7a19de9690aff4624d407e9a6af72ca21c934fb7268711d00": "prendre une fraction d'une quantité, c'est multiplier par cette fraction"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.6a": {
+      "hash": "d988e42562e6757c78e865c5b610a80f0b6c850bc53849a4ea976ebff7ea282b",
+      "kind": "fraction",
+      "mistakes": {
+        "9742c1cbff689de61fce358f422f54d3fc9ab05fdf5be4ce1fcdb0c53a86bcab": "compare les produits en croix : 7 × 14 et 11 × 9"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.6b": {
+      "hash": "bb8ba9549161219f759420d6177b1674c5942dd22ba698c649fe7b7fb9fe27d5",
+      "kind": "str",
+      "mistakes": {
+        "777151eb013f89c557551aaef71d8232b3cea6651c00e72cda5051f910d1082b": "compare Q et R avec le dénominateur commun 24",
+        "c626c7645ccc7714cb0349c1e5d68b3e53ab5a6a6bafc77aeb821673128446b8": "l'ordre croissant va du plus petit au plus grand"
+      },
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.6c": {
+      "hash": "799afc852b153dff4e75b4cef3e3e750a0739dca55b7783b9ed4af7398bb4b0a",
+      "kind": "fraction",
+      "mistakes": {
+        "324226a0fbcdae73d642c97fba192fab16f2e28a6838ecc1b62d54c74180e67e": "6/12 vaut exactement 1/2 : « strictement » l'exclut",
+        "66b920edabe0979471afa726dd84cb4303bfb6c6d622b19fb76b2f4df1b2ea9c": "4/12 vaut exactement 1/3 : « strictement » l'exclut"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.6d": {
+      "hash": "ea5ff43f5407c2ce454a31399764b126d5a198bb02482d12f7641f453a8583c0",
+      "kind": "bool",
+      "mistakes": {
+        "55b45bb1c04209bd72bb09b9f0131395905e265bd042ed27aa5220791271a521": "compare les produits en croix : 13 × 3 et 40 × 1"
+      },
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.7a": {
+      "hash": "edfc7a078c6467ac9ccfe64b22b1cd33666833e7aa7db4f6f13de9a829dc4f27",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a10a69cf0d49ec25286b5a040896a59d056acf8357d64c11817af00c01204c1e": "additionne les exposants avec leur signe : l'exposant −2 compte en moins"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.7b": {
+      "hash": "118b68a8a53e83e06027da0b7f0b735cbc0d7a85cb49c47a43bc148ec2fb1ae8",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "417245caefdadca973aa5e71723e219daf4d83f23092e513ae00654b415d0b26": "(a^m)^n = a^(m × n) : on multiplie les exposants"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.7c": {
+      "hash": "35c4afba66615c2376377a907f9b1d50bf13762fe1a88a06caa035bbc23281e2",
+      "kind": "fraction",
+      "mistakes": {
+        "df66928c13f450c190ba022e18e664f91df28dd6b3b756a53ffb631cb95d2b51": "5 tout seul, c'est 5 puissance 1 : compte-le au numérateur"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.7d": {
+      "hash": "9450c7e4ca1f51ab3a6f7e2753d7b335ca070be08b0c6cdd7a353f4dfc461b0a",
+      "kind": "int",
+      "magnitude": 6,
+      "mistakes": {
+        "d710dd73d714921b4a2c6e422f5beceb471cbdd81ad91174b846971b79cd0e92": "(ab)^n = a^n × b^n : on multiplie les bases, l'exposant reste le même"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.7e": {
+      "hash": "2102609ba8dfe3ba5254c1ca6264bce253edc03d7a006db36117ef9ca028adc7",
+      "kind": "fraction",
+      "mistakes": {
+        "c02b74cd2bfcab642d799cacf4629c5e84dab9b4c2c1ae4bd90ed47f3a7951c3": "la puissance porte sur le numérateur ET sur le dénominateur"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.7f": {
+      "hash": "95d1a8ab5c754a7532e0a8402e514a188d863cfff4c33e09fc1117ea7fe94492",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5dd3bddba62b45c1dafe9514869c082ea1655261ce70fb24ce9d0fe6316e127b": "l'exposant est impair : un nombre impair de facteurs −1"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.8a": {
+      "hash": "9e467e09fac8d65a80d63f6a99f671a7671fd5bd5dc98dc55f2596f931ac208a",
+      "kind": "fraction",
+      "mistakes": {
+        "a936acdfcb6bf66a2a4028875fc729a02a9f04f5782be90ebf2767a7922b543e": "un exposant négatif donne un inverse, pas un nombre négatif",
+        "abf9559284c241dee577e5a7dae46877e9b77f8e29364143b517dbfdc5dcaa29": "4 puissance −2, c'est 1 sur 4 au carré, pas 1 sur 4 fois 2"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.8b": {
+      "hash": "49d85121dba9c5f76ff16defcdd24c7198c5947dd54d199c68dd64ef6c79add0",
+      "kind": "fraction",
+      "mistakes": {
+        "af62dd732b1ddc33dafdada9f033fb4763d8a0f5958c97782c6bc1bfaa6346d2": "un exposant négatif retourne la fraction"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.8c": {
+      "decimals": 6,
+      "hash": "9ab1c498dd63d21a2b43b7c47c590648e665dbafa7fbda5d19a85b201cdb2a32",
+      "hash_coarse": "1d653b3e8a6df4044a294241112afc3d1ac64952977ecf1637f289f7b83dcda2",
+      "kind": "float",
+      "magnitude": -5,
+      "mistakes": {
+        "cf6f375d980982f468013f98f2bbd43748c61b8330321784557e97c62300a115": "10^a × 10^b = 10^(a+b) : on additionne les exposants, on ne les multiplie pas"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.8d": {
+      "decimals": 0,
+      "element_hashes": [
+        "ada66428f82e07348325c91f40ba47abb3ea965de598396098094c7e8514dc04",
+        "2c7bce7d7c77b9d21e8684a57e6ba695b2ac34efa138495f086e127dab83f946"
+      ],
+      "hash": "dc113a59c9157f619d46597761e7b20a3560f7c28d74d797e70cf33053f8185a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "50be95f3f9f6b1ae4cf37323077759fbfa1498b56605e3c28c66c741898addf8": "(10^a)² = 10^(2a) : l'exposant est multiplié par 2",
+        "dcc28dcd2dd336a52f372dd2db0ecd3e36be89be16a80f87796f08d01bfb0a5a": "le carré porte aussi sur la mantisse 2"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.8e": {
+      "hash": "32cd852a4090654d34bb87e8d9af5e4f6ec1694b1a21962d48465bab372b245c",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "e27a4bc081f7beb04e7d3a374655478097d89ad77a84422fdfc919ea5fc9689a": "diviser par 10^(−3), c'est soustraire −3 à l'exposant, donc ajouter 3"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.8f": {
+      "hash": "d10292216e948e6505b961ddc02fb258966d73abe708a831cffff7861cc0bb62",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "16ca8aa7480382f64fbc919d0e2f7c8be7976ba4784ffc5802faecb432d16246": "un exposant négatif donne un inverse, pas un nombre négatif"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.8g": {
+      "hash": "7a8e68b52ae42cf6b44592ee3c63e22d9df5c82082e58521090a23bde740c1b0",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "266a3e2d3b46da72b61f08e92e8778c4374715592690143db94f7658a3730d05": "une nanoseconde est bien plus petite qu'une milliseconde : il y en a beaucoup dedans",
+        "e6babb29c98dc2251b95fe7c21a08a489196f6fcc318b2ae1b2ec9e582cfbdf2": "une milliseconde vaut 10^(−3) s et une nanoseconde 10^(−9) s : divise l'une par l'autre"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.9a": {
+      "hash": "3fa1ac934292ff728dc1e0dd857c00483392912d01ca46864bc49fa4670b6879",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "6c1a0d7587d0304b3498ad7dea3039e0421bb055de46b66494549685d058cc6e": "√200 = √100 × √2 : sors la racine de 100"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.9b": {
+      "hash": "364389bb2076d1fe84db743fe7d22c0290d47de83c1b7d602b27078d4df4fb4e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "1a5a98f940140f141bdc466dce90a7cee2aa6cb549014830639e8e4332840467": "√75 = √25 × √3 : sors la racine de 25"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.9c": {
+      "hash": "4dafec93b1d629d7157e347c282096658825d8c32511d5cdb06804300c688b0f",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2655c3b99c669c418bf2bfe4a65cc9108893965b485a2fb4fa48c6712c90df45": "√12 × √3 = √36 : prends ensuite la racine"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.9d": {
+      "hash": "9cb3570e6890b35cf4c40078d5d6f629698947b4e28b5e08d88270bfc44af612",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "6bdd11772ed980bd26cbbfef86d8930871b263583a45a42ec04ad31cdf0cf506": "√98 ÷ √2 = √49 : prends ensuite la racine"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.9e": {
+      "decimals": 2,
+      "hash": "506c6ffcf9729f6be2f805a0e05e074be1479fbdbfff71bbe297b846bf32480d",
+      "hash_coarse": "7a0ae52fb05619aefd11f734306b16b6422c44f8a393b8b94c6cde3b57c1da36",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "5c00d28364a73aec1a7db3e98815f19229e879ee7ac6e2080ce94154ed253a43": "élève ta réponse au carré pour vérifier : elle doit redonner 0,49"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.9f": {
+      "hash": "c4400c3ff2aa51595ad7d9f8541957d33b2a1d372a69cb5a25042dd34a7a05d5",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "c25503ea168f03657591f19f39e500d2d286357dc64f84dae555f813fbef9b0e": "√20 = 2√5 : n'oublie pas de le multiplier par 3"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.9g": {
+      "hash": "167c949fdce06ed714f82863deb24ed8c5abbfa6ac0eff3df9c12c57e40d670b",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "6420817ef5f31e8be98f3182a4e7e4e1ab9c42e133db4df15e98f4fcb33a823d": "une racine carrée n'est jamais négative"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.10a": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "7b87045362d187a5ce4f8bdd34b6a9729282c3282aecb343942af84d3deea03d",
+          "d87dac3ff8d922303048a5d4243abbcc8f6203f2380af15067f9f7ffe377e831"
+        ],
+        [
+          "53b058c4f203465dbfae0bbc93a47304c73872695312c9dd6f6a5cbc1e62d223"
+        ]
+      ],
+      "element_hashes": [
+        "8bb751135020158aa1bf7e4fe732f12449ad6b104135cce59bcf9f1f509b140b",
+        "0b3bccb86fa82ca20baf1fe48d1e8d6828634c749f3791f7e220210aba19cb99"
+      ],
+      "hash": "2393ce9ad99971913e7891c9b67324d6a1302a7c496fbf18b3e1ff7063574b0f",
+      "kind": "array",
+      "mistakes": {
+        "a2c3cad990bf8862984cdce2b078b3fdcbacb4b1581deecd7c886c3413f3b920": "compte les rangs : la mantisse fois 10^k doit redonner le nombre de départ",
+        "e52001773eb8ecd67952aa2a173a5bdf5873421de20d18b657cccdc15917a357": "la mantisse doit être comprise entre 1 et 10"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.10b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "9ead58a582c8cd688ad211c1e04813c6b91a3f6fed48c0679db8b217f8100eeb"
+        ],
+        [
+          "e5adebacce3ffd68ef583cefbbf6676a7a846b326598166243f4c9f98c4a2fae"
+        ]
+      ],
+      "element_hashes": [
+        "33b708d7738e09d0a51170f38a8f871ed7ec1cb98d5254e50821b411e6d09af3",
+        "055c53ab5f408c9f8183526bd4cc115c56047ceba490c7895fab04b8e0188f8a"
+      ],
+      "hash": "a982992670bc951fb58280b81e8fc984298843267f546967776dad924897dbc3",
+      "kind": "array",
+      "mistakes": {
+        "9a77514b6e44386ad891d25008119f43e9e4a504836e258ce2c776d50fdd5a3a": "un nombre plus petit que 1 a un exposant négatif",
+        "dbb84170a631ac38145a539a7b286d7304ff89e1f77c34fdde6d7e99d54b49f1": "compte les rangs dont la virgule avance jusqu'au premier chiffre non nul"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.10c": {
+      "hash": "6e02d6653f28708764cf53219849e4ea854affd13d94b4452f75d54d15c56fd3",
+      "kind": "int",
+      "magnitude": 5,
+      "mistakes": {
+        "49d1cd1a5ba90375ad8fbe991c7338fb5cfb7d6c2195635ae2cba707d4bef72d": "deux chiffres significatifs seulement",
+        "deb915ea302a2c9d22fb5631440c1b545d4460229af6a5f211c03e8e55ca9074": "écris le nombre arrondi en entier, avec les zéros qui gardent la place des unités"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.10d": {
+      "decimals": 4,
+      "hash": "5f37063542f3554f6d51567efa7cdd5ccee82bc74eecb7e367671661bdcae0f9",
+      "hash_coarse": "05a8fdb0a530092f79741f47171e119d6e68ec87d1cc1c9516795fdf5bc7185a",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "284a260874e091f839b3d3fa2e1bbdfc57a715be961d689bfaf571080624b75f": "les zéros de tête ne sont pas significatifs : garde deux chiffres à partir du premier non nul",
+        "79805f269226ecef46340e00456238003f23e140c3be2ed0d96c27e85475e796": "arrondis une seule fois, depuis la valeur complète"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.10e": {
+      "hash": "fa7f7d1aa34d7f37776cc0d60c3cb76bda1ef1f78605b77dad86b18fe49c4f14",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "fc2cd935401c32c841ef202ca60dca2ab4127c84706b717d6cdcae15e3b13662": "écris le nombre en notation scientifique, puis compare sa mantisse à 3,16"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.10f": {
+      "decimals": 0,
+      "element_hashes": [
+        "7fcb60139b66a2d4c587d9308d146e0c622be0c67102de6d17cd8617a4499f49",
+        "47d04954a6a5052ceb7e12ef028538b0fc03fbd8f9dfebfcdfd23cb65926b599"
+      ],
+      "hash": "fee19c5834c6cdfd9cee67f4c654190aab2c95577d89c4c606db154a7a84bc4a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0b4a6d4e9ca1c0675f243c4d9c76a600764e180cdbeb343a5f8893a864e06ce6": "diviser par 10^5, c'est soustraire 5 à l'exposant"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.11a": {
+      "hash": "63350daf03fc80c945cdf52e54c5325cca5b179d7193473b3229857e6ed692d1",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.11b": {
+      "hash": "2c9af4fb6549d14190e405e5d208d5d9c7765d05af3c30bdeffd29916873d6d9",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "98ff6dbec55fb97213272832a43fa61fd85cbff52f5bfb6857bab032b74af518": "le plancher d'un négatif est l'entier juste en dessous, plus à gauche"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.11c": {
+      "hash": "8f389fc4e72b822bf8824b2ceaa9a1f12abf7976d6e2d846849e2064b258e2dc",
+      "kind": "int",
+      "magnitude": null,
+      "mistakes": {
+        "67cd6c7b7f945ee15956f6b42f484fde975cc34e809f92121ce9033d72c63416": "le plafond est l'entier juste au-dessus, vers la droite"
+      },
+      "sign": 0,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.11d": {
+      "hash": "a738e0c7e9d3cd5ef0a8b8d86a873412dd6ac81934f0e8e157ea81a8fcd391c2",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "263cda509f5726e433aefce5ddbf525bc60f07f7d0aadbc7158bcf789087d2fc": "un entier est son propre plafond"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.11e": {
+      "hash": "7c4a1d9fdd4e7b85cdc6a0e488c7cd22b5268f1386794f22a807d7e1620cacc9",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "fc601181631d6dd2de24c2f8c3fa61b979f7b02454394a6d6f8b5c85721bb40d": "regarde le chiffre des dixièmes : il est inférieur à 5"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.11f": {
+      "hash": "84d640fa66938ede07a07cc4bf9342b78ae3746345e4e8e7fffcdce917c08b90",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "72331e5554eb429825500d4a2f6b5aa3a58636177c846c1e8961ed6efac06d93": "avec une boîte de moins, il reste des œufs sans boîte : il faut un plafond"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.11g": {
+      "hash": "7352c43c61ec9d2a3226964521392883e88c9d0c744b01d4eade2afc666d6fc3",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "c0a1c1a6b237ac2e0db1f05b0da19e5daa3500918c13b471c7a5b770f08f0eb6": "int coupe vers 0 : ce n'est pas un plancher"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.12a": {
+      "decimals": 2,
+      "hash": "e2d8cb3136074815a59fbe70bdd0cfa04a8340e5c5feaac58dc15998c77fcb60",
+      "hash_coarse": "37b62825d8ee2d9047a5721f95ca0d704ee89b63d93c357d971d913a61814393",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "d8581a0b0287fa126c8d8629e5e62251e285feeabdb54a0b4ce01ec63b9e9d7b": "augmenter de 12,5 %, c'est multiplier par 1,125, pas ajouter 12,5"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.12b": {
+      "decimals": 1,
+      "hash": "cc201f4ba8ebfe573820fb4e7853838c204b12f60b36b5194a16bf4277de9e3d",
+      "hash_coarse": "5919d19ee6275a79f669d2e0a755ee1024a7ff88fa948113041872bde6fda371",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "82948f8711e3c56bac3917d778ae4a63bf3a712eb1a94b02339958dde30070b4": "une baisse donne un taux négatif",
+        "e5512e534fd1a5ab395b443b343e7df1a384c759c9a82e2df4ea4263b4404b49": "on divise la variation par la valeur de départ"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.12c": {
+      "decimals": 1,
+      "hash": "f431a674c042e51adee4d46eb6f92fc8453cb58929535cf90fd9023ef50c73a8",
+      "hash_coarse": "dd07b93b04501f4141270fc4c00de13d355f6c76554877c31b3abd9edeb0243a",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "2947b4fe0e52e3d3c7373277f9337af77672498d6be488cdce39c8136066a95b": "les coefficients se multiplient, les taux ne s'additionnent pas"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.12d": {
+      "decimals": 1,
+      "hash": "5ff8a311e3c8697cc2a546507b455a305ad9de8756fc33ed560d680c9b05b669",
+      "hash_coarse": "d51fa0db66660ce180ec952328720a1d1fbbe6803e2145a9fa7a7c8639ffb83e",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "0152c9c2e6af918d5ec4763ac6c436fe17e36ea69e1ecf293a30d5cb2c250f18": "les coefficients se multiplient : trois fois le coefficient de −10 %"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.12e": {
+      "decimals": 1,
+      "hash": "9ce9a7a3b166a1578180d15eaa662fcea0f6e80d00a170c35bda1e055f185e0d",
+      "hash_coarse": "d32f2f6f532301f0a015fdbab87a10e9e90beaeff3a443e9193ebfc8959d949a",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "b05985bcd965461b2b214d6a413fb68175228eb0d9d53569462433521cc90e3f": "le coefficient réciproque est l'inverse du coefficient, pas son opposé"
+      },
+      "sign": -1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.12f": {
+      "decimals": 2,
+      "hash": "090d9f8c2144962d6be1a0ee7dde8bd31de463610a59ec12b42af7924694e915",
+      "hash_coarse": "0c798a60df7819c58fddc5a9369a6f5b325a73ab80131605a578978979102639",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "ba644f3d9f74c98ff2730159a10cb39690587228c4215d1041dc9040be4d6322": "le coefficient réciproque est l'inverse du coefficient de la baisse"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.13a": {
+      "decimals": 2,
+      "hash": "a6884deb38df2e2230c02d02f50f71c9f4b961f8c38a7ab00937b2ef9d0eb072",
+      "hash_coarse": "1c006a8450ec9c442a2e605c44655f5ba19f1cf7052537cf540fcaa35bd6ac75",
+      "kind": "float",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.13b": {
+      "decimals": 2,
+      "hash": "b6faa590b8348296a75ec2047dd429ebc3e11cc5260e4d2b3684ae1ec71424d7",
+      "hash_coarse": "cfffb474c1196951e7ddb061761ed79af8da82f5be15e984f66aa86927ddc83e",
+      "kind": "float",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.13c": {
+      "decimals": 1,
+      "hash": "ea48e2984b373d7eb5e338f294ea6cbacaa933d0ab4927213adce8180b2a29b3",
+      "hash_coarse": "806668ca957936d8b682b73a473752868502773769d1df209bfc715ddbc1a62f",
+      "kind": "float",
+      "magnitude": 2,
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.13d": {
+      "decimals": 2,
+      "hash": "efceace5581371885ba821854b141ec7912a8693f348734aa71d67d4591f55a4",
+      "hash_coarse": "32991bf4109011091be811bee4138da089123e9be10e653354db29d8eaa9987b",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "2bfa3fc4657389d360582bd5b1f091900937c7f44cd87e9d3b85ac51b4f8a995": "1 h 30 vaut une heure et demie : 1,5 h, pas 1,3 h"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.13e": {
+      "hash": "02e818f2539d05caa07c9272586d91aa78e7284cc399ddb3917ddfaff05d9223",
+      "kind": "bool",
+      "mistakes": {
+        "e9709effb962d31070f28a8fab6b3c5de73df9236235d713d069b07acefe5a32": "calcule les trois quotients « bas ÷ haut » : sont-ils tous égaux ?"
+      },
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.14a": {
+      "alt_coarse": [
+        "67f591338779422338e797b52660bcd0aeeee8498e983bc95033acce2188eb62"
+      ],
+      "decimals": 3,
+      "hash": "679cb8141367005817efd6fd10a0941202d716a29d38ebe927f388f22859ea2c",
+      "hash_coarse": "ecd2a145785413df3657bfc6ed5005ffb82484c1b7b69ef95409538d19bee6eb",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "01889807f12de211466e374a3b9cb5c405dddcf97bda319a963ca2b3153d5bcc": "pondère chaque note par son coefficient, puis divise par la somme des coefficients"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.14b": {
+      "decimals": 2,
+      "hash": "5684afed2a77a7e6afde4988b6cc6dafe1cfc9b38fd48934303e5d7432fc4200",
+      "hash_coarse": "5b8099674b5bdc9b6163a5426ade7e7fa6d11e1868184fb24cde6f4e836d83b7",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "70f53bb09df51746596072bc3763d9b39a00a5690c31f8943d7be6386e02c8f9": "le coefficient 2 compte dans la somme pondérée ET dans la somme des coefficients"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.14c": {
+      "decimals": 2,
+      "hash": "3b7d07ca0efeaaae4ed53a3e0059242b1e78cf2992ef11c7851b89988c17470a",
+      "hash_coarse": "8de92b7e002fb1da954fcf0e4df535c4bc1ea3817a993e606908e85672275763",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "42f96f0f8fe409bec4b0761d0c5cdbe8cf25684541b8c26cdfb7884a1af156e2": "n'oublie pas le biais b",
+        "ea5c2cef0f1ce290f74f84022b0e54c1b8809056a3a6c7d96c4407164aa3ef91": "un poids négatif fois une entrée positive donne un nombre négatif"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.14d": {
+      "alt_coarse": [
+        "86b6d40e73b7aca9ac05f80d42dc48de1540cc0a4d1846b7150ebb79f8738ffd"
+      ],
+      "decimals": 1,
+      "hash": "3b1be0dee74b49c99cfa809f1fbb1885cd4218298a16dd9febd5091ed4187912",
+      "hash_coarse": "3a62888f996186ecf0ded2fa34f484cbb6bd1680fd8d2d0a3244a7f0c4da4c46",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "b09689f2a7437926a33561518c44ad107693961e46cc9c4f5db1c24fbc0c1aed": "la moyenne des deux vitesses oublie le temps : la montée dure plus longtemps"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.17a": {
+      "hash": "627d3bbcfdc4b09c4810eb5cebc9a9618ed827da98556784b0c0ea092801120c",
+      "kind": "int",
+      "magnitude": 4,
+      "mistakes": {
+        "5168206388706a9de885b11af6dbbf7cedf8fe981e0b03e07cd11dbd1833f4d9": "chaque neurone a aussi un biais"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.17b": {
+      "hash": "0170a407f0444f69e8ea1fb90d619b1ee06e212b51a91aec2fc2bf8bceffff93",
+      "kind": "int",
+      "magnitude": 4,
+      "mistakes": {
+        "bb7b6b4a14b477b458f374e4dab56a727ee0a02c7a43984ecb4582e6d981e839": "n'oublie pas les biais des trois couches"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.17c": {
+      "hash": "8138a3b0fb9fe4c4b57930fc919436221c15b6b42672503b484f5222d062b6ff",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "ecc8334f9a4ba800bdbbf3e9206e7cab7d5a7c843fe5a18d3380c1a0709a9413": "écris le total en notation scientifique, puis compare sa mantisse à 3,16"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.17d": {
+      "decimals": 1,
+      "element_hashes": [
+        "11c88bce652003133035cf8da00621f479a8085a7a522d12e14775557a6b047f",
+        "647eac088ef5509d30177bd21226b9e3fc0b6b506420f7a65214d370a68476d8"
+      ],
+      "hash": "86d239deda720fb7f23b1583119a174e7c042136a29cbef4ab62d3fde050d221",
+      "kind": "array",
+      "mistakes": {
+        "6a1209ca4045d965798418ccfe39182c91d7cc6771a2bbed5dc5f5a0be94dce6": "un float32 occupe 4 octets : multiplie le nombre de paramètres par 4"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.17e": {
+      "hash": "8259b7daaa7628e52741f8494851f785b57b3e6c7e13e0766d010bce326a7a2b",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "6ad00f94b41d8353fd80b22d53c7516c6134abeefe0758860f483cb1808d98f7": "chaque paramètre occupe 2 octets",
+        "fa9559607974afffba65c31f07cb12aa493ca36fc065864d207a3b128591823d": "donne la réponse en Go : 1 Go vaut 10^9 octets"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.21a": {
+      "hash": "ed2030393c6bda7bb2bf09027a931c8fa923c1535c9c5a135bce615c7a057783",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "444d817b545f1f4e7b96fe56f1448de546da724a34e480d1bf497b3126f2deef": "à la fin de la boucle, le PGCD est dans a (le dernier reste non nul), b vaut 0"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.21b": {
+      "decimals": 0,
+      "element_hashes": [
+        "bff58501e7f41aba509191886d9a4252ad166ae7124fe27285c69a71af54c2cf",
+        "21a75ddb8466f6c115f0717035d2f70d10ab662300cf83654c871268b1279055"
+      ],
+      "hash": "864fb9c2a26e481e9d8943d71312ed218db068e20f6059293a094ac99ed903f2",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "c0bf8df95d443739a9c3621ae50cb2444d8821c9ba57258c737dadbbc2704b88": "divise par le PGCD, pas seulement par un diviseur commun",
+        "feb4055ee1e9815a592425bcc868fec6c97ba1f81c6f3eb1624ec4378132f7ea": "le signe va au numérateur : le dénominateur doit rester positif"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.22": {
+      "decimals": 0,
+      "element_hashes": [
+        "ec22a22f5a0b63e8b4c61a43a66e7f450e3eacbf2a907d2d042e7739770785ce",
+        "dad9c18a4063cb1907176d741c8bacaee8ab858731dea80330a5dc73e4cf2c9d"
+      ],
+      "hash": "247154ba250afe2b83a835725e5f9d2748ed0274c5a71ab0253abab448eafad6",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "61a8773941e207d920b1a140d67901f144d848d1517a3174f0470d5966517023": "on n'additionne ni les numérateurs ni les dénominateurs entre eux",
+        "e2bc4af097a2a8924ef06fbb11eaf41661197f48aca11e41caa16a55e3bfc4bf": "pense à rendre le résultat irréductible avec simplify_fraction"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.23a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "e74199f406a71dadeff91139594a3c61829f11681e996ae8ff2a5d1d0f25c8db"
+        ],
+        [
+          "f7564d0834c65c37f746d5c08f384e7f8eb35d219074094c1bf2a0ca5ba722ae"
+        ]
+      ],
+      "element_hashes": [
+        "2a78751b5a4608020b73cdde9c2a202e90a757593e2916440d1fe734d4f85f43",
+        "02e4f0de2ebbca7bf5d942ca9051d647ebded596ca49540650b51495fed8999a"
+      ],
+      "hash": "32bfe83221dc148f20ea87db4624a1d3fcdad4edd3eab8aee53eba62b1f0950b",
+      "kind": "array",
+      "mistakes": {
+        "b7a8993e38f62f14a83e793492106d642d46e2273b7c6f470aaf5d7461120490": "arrondis la mantisse avec round, ne la tronque pas",
+        "d44a43d44b377276bc92dc17c4cab070528670ef4898919314c6d6c63d15da62": "la mantisse doit être comprise entre 1 et 10"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.23b": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "c640b8d1dd7951c151ccc019bf87810d949739487e58ae85194392d74caac202"
+        ],
+        [
+          "42e53fecc0e1078c2cba77edb3a79f4ee3b679efac4c1744f0500193816ca9f8"
+        ]
+      ],
+      "element_hashes": [
+        "0dd1bf51cfcc1c8abeb0463bd830e6cdb1e14679084618321c3ae3834d076ced",
+        "f511e32279a1464dfee82cbf98a28b4ea3f4d0ddd993c082a700da39b6d6016a"
+      ],
+      "hash": "f1c34eb9665bdf566faa70dd91c2dba0d81c7e75e31223524e40f1d6940c6ad7",
+      "kind": "array",
+      "mistakes": {
+        "501b84a22478cfb8b683beccbb405ec11b294903b31493c0caec57e16d7912d5": "le signe du nombre reste sur la mantisse",
+        "edfa329bceb31aa59ec1d449461fdca900804bbad2b29221d64f2e6cbd7d4481": "quand l'arrondi donne 10, écris 1,00 et ajoute 1 à l'exposant"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.24a": {
+      "decimals": 4,
+      "hash": "bcfabdfb9d0838cae4ce3eecc12e58312dc2b7314b50e6fd9c543d574c1cb2ae",
+      "hash_coarse": "14eefafd0297a617a4e3c0207795a924abc91dcfb21105bd70ebd0b8ca66f02b",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "5449e2bdfce4463355c34eefe281a5a4fe6f5faad634179d8468d1ca2eb6bb0c": "les coefficients se multiplient, les taux ne s'additionnent pas",
+        "a80bcf262fdb6ed96727254a629d249ef12b8dfc754f0325c1877414652cd45e": "renvoie le taux global (le coefficient moins 1), pas le coefficient"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.24b": {
+      "decimals": 4,
+      "hash": "cc0f99db3fd756762889c119de0a2c7192576a963b0476dfb8c294777c2c2d1f",
+      "hash_coarse": "3a228e9e8f55f53c5e235547211c0ea256cc8e78ec08cae8f53877f607eb7b9d",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "380bd0e0e12326122f57b77f04f1df2b02838cd157cd7186adad09c69fec0cd4": "divise par la somme des poids, pas par le nombre de valeurs",
+        "9220cabd56f7cb8084bdbd7205c941eeeacdddcf06205931ea4a7439672158f4": "c'est une moyenne pondérée, pas une moyenne simple"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.25a": {
+      "hash": "3d2d45c9e5db5d5fbbd41700b7e87fad504c21ac05849e26f7bee1daebc8af58",
+      "kind": "fraction",
+      "mistakes": {
+        "2b61a90de2fe49a789b35410fc1f779535f81777186a8bc34363f376795c3a79": "la somme commence à 1 (k = 1) et va jusqu'à 1/10 compris"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.25b": {
+      "hash": "6912e934221ac4ed03934c64403548a96099e5259eba89f457df4f23526871e4",
+      "kind": "fraction",
+      "mistakes": {
+        "67f44eef8a2803b86e2f9d277c54a3d892560e652288f5b5aee1eb5f31b30fa4": "le produit va jusqu'au facteur (1 − 1/10) compris : range(2, 11)"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.25c": {
+      "hash": "09013d5226970c69fcc45bd2906be6e5cb94ce88652505ed0f24358cf0feb68f",
+      "kind": "bool",
+      "mistakes": {
+        "b8134bfa6c1a660cdbff51bbd88b975f47d6e763d537f5a9396cc4687cf1322c": "affiche le produit en flottants : ses derniers chiffres s'écartent de 0.1"
+      },
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.26a": {
+      "hash": "e0570b4e7207be2e884b2b22921d9835fa738621429f516b61dbf6783c48fd8e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "7f1b3f999b8c9d335c500e1a976be6543011b398cd2f8cc4052110393f3648be": "arrondis d'abord au dixième : regarde le chiffre des centièmes, puis arrondis ce résultat"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.26b": {
+      "hash": "69b6c569e50d92ed2c5b95ea80e6750844b1d462d5530ae5684f5908f9bd801f",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "d2cb1e0be502c70373eec0d054c010fab2fa1f649d5a5738a3d7de53733e8e9e": "arrondis directement à l'unité : seul le chiffre des dixièmes compte"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.27a": {
+      "hash": "4e97520c0cfd4d7e7da691f245d7360d19e226853b65b6d87da8ab989e59d7f3",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "4c1459da9b34e96f31c52383af269692154f2b84f78fb13e3e7755935c706129": "au bout de 7 ans, le prix n'a pas encore atteint 2 € : un an de plus",
+        "6ec12cfb3a75078a04465f39c12939440571c999d26b0603b33090c40fac79eb": "les taux ne s'additionnent pas : les hausses se multiplient, le doublement vient plus tôt"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.27b": {
+      "alt_coarse": [
+        "5ea57821b4d8509efb2005e397d49a24e1a8c2318e90f5477abb1ba716566c52"
+      ],
+      "decimals": 2,
+      "hash": "73c3ad653e6430416414088ae84ddc9fae8dbcb8a22588df1ba34a3472bc43d4",
+      "hash_coarse": "8a6804416fa9ac17e9f64456b497bc0db543a576d7b3d6344a5246e9e4957b94",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "16319c08991a180c5420b95af0d3b0b7c27a1db9c998d9c6156b8dbfe2a866f3": "c'est une puissance, pas une somme de taux : multiplie trente fois par 1,1"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.28a": {
+      "hash": "d2abfce851aa2d46c80c979949b1aaf8162f9955e00473dd667951db81d659d0",
+      "kind": "str",
+      "mistakes": {
+        "0552a381206677e62e98bf49077ee1989a2a118a8447a4955b59a69902beb983": "une ligne de trop : la ligne (d) est correcte ; relis ce qu'elle fait",
+        "33103b9aef0475c4399d36f673c9def1497b59bebb0a8486a0f86c9c13c36ea5": "la ligne (b) est correcte, et il manque une ligne fautive : un produit de puissances de même base, dont la base a changé",
+        "4ef6166843dd20bc378cbc29728ee66bbf0a603d906f7607d8c6eb96d7d08205": "il manque une ligne fautive : une division par une fraction qui ne passe pas par l'inverse",
+        "58149f2f076a6fdae3f4a901454193e231683656aae8bc7e7772564bc2a3857a": "la ligne (d) est correcte, et il manque une ligne fautive : un produit de puissances de même base, dont la base a changé",
+        "5e71dec3ecbec868319c8253fa2420af6eb6d16b9a8a781dedc9799fdae7ca7b": "une ligne de trop : la ligne (b) est correcte ; relis ce qu'elle fait",
+        "8695f39a50d7f2c9ba57c096d6c7a1a47fc4c7c958b0a228b53b07d7f95ef845": "la ligne (b) est correcte, et il manque une ligne fautive : une addition de fractions qui additionne aussi les dénominateurs",
+        "b225851525016f9d32aef889c99677bf3a1cdf1278e164b435dffd6614958a8a": "il manque une ligne fautive : un produit de puissances de même base, dont la base a changé",
+        "e5abdac73c6c089c8c049bcee3cbae2f84e4b89f6d1b57892be6eb6fd4d33005": "la ligne (d) est correcte, et il manque une ligne fautive : une division par une fraction qui ne passe pas par l'inverse",
+        "e5fa3bb5284d5a82afeadfb89f00da60386f179ed2f21ab64895558dad44df60": "la ligne (b) est correcte, et il manque une ligne fautive : une division par une fraction qui ne passe pas par l'inverse",
+        "f3ac59bb443f34a5d3caeed8efa8bcd51a99a8d736b867a6c4fc53297b242665": "il manque une ligne fautive : une addition de fractions qui additionne aussi les dénominateurs",
+        "f8a48e9355c2e419bacea20517da8dea1194a13d2e30423aaf3989a21f54241e": "la ligne (d) est correcte, et il manque une ligne fautive : une addition de fractions qui additionne aussi les dénominateurs"
+      },
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.28b": {
+      "hash": "86a83863c84ea9cf904f3329d7261fdce17fb7136301f7ec4b1a6a892ef3cacc",
+      "kind": "fraction",
+      "mistakes": {
+        "26228cc719a04c132afb2f1f974f8c608ea77e3765131136e14465aef274ca35": "diviser par une fraction, c'est multiplier par son inverse"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.28c": {
+      "hash": "ab97a73e1f7f4882f5b1cf91f748d479f680c627374d3a8abf17a525b49d6f70",
+      "kind": "fraction",
+      "mistakes": {
+        "8a8879ffa73b8a0b04d751b5704e30e52681fbad18711c515ab2791e78ddecca": "mets au même dénominateur (15) avant d'additionner"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.29a": {
+      "hash": "df7b38e44987dc1e3ac4466855feba96f749b0fc6bce718afc3676e33aaef6ed",
+      "kind": "set",
+      "mistakes": {
+        "0d76d4b0e77e060f8c7c60a4f065cedc9e122aa51c128e013f33b621f08f757e": "la ligne 2 est juste : ((x + 1) / 2) × x vaut bien (x + 1)x / 2",
+        "87e57467fd39f7d6e18f01ca3a5bf6ab1e7eca075fe85f302d8d74be8747211b": "la ligne 6 est juste : 10 − (x − 4) vaut bien 10 − x + 4",
+        "ca880fa666be5a9cf83bad971f8b27a686b752cf6a8eae1f7056c9df81087baa": "la ligne 5 est juste : les parenthèses portent sur −2",
+        "d6d021f516785e9918d0fb8cc89c2818cbc6fc25201a84dcebf5127b16885db8": "la ligne 3 est juste : 2 ** -1 vaut 1/2",
+        "e671a03b6911ea4992ce0226d03b02476e9fde3afedea8ea76db840758393d35": "il manque une ligne fausse : la division passe avant l'addition",
+        "fa234fc5b65986f89dde6f242b1fb8568b8b3c18e9fc96e887edcbd8a70b171a": "il manque une ligne fausse : / et * se calculent de gauche à droite",
+        "fbd85d2caeb5540a35e6d8ace2286e965c569981cdcac32eeb6ea03aaf75e551": "il manque une ligne fausse : la puissance passe avant le signe moins"
+      },
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
+    },
+    "R1.29b": {
+      "decimals": 4,
+      "hash": "3c433e61f1fced667255a97e6a1f6cc1e778306605d76e6724359bb0af4e3a7f",
+      "hash_coarse": "5fa42ea8f08084bf7dd3e5cd73cc2d66d1917c7ef94632306c2520dda1d29de9",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "434c34408720ccf20206ef00e759ae6916e4713ba7f1effcca766a8bb4be0a88": "sans parenthèses, x / 2 * 3 divise par 2 puis multiplie par 3 : protège le dénominateur"
+      },
+      "sign": 1,
+      "source": "chapitres/r1_nombres_calcul/05_solutions.ipynb"
     }
   }
 }
