@@ -873,3 +873,8 @@ def test_sets_of_integers_do_not_round_a_decimal_and_read_numbers_in_quotes():
     assert not passes("t.5", e, [2.4, -3])
     e = entry("t.6", [4, 5, 5.5], ordered=False, decimals=1)
     assert passes("t.6", e, ["4", "5", "5,5"])
+
+
+def test_a_string_order_may_be_written_with_its_signs():
+    e = entry("t.7", "ACEDBF")
+    assert passes("t.7", e, "A < C < E < D < B < F") and passes("t.7", e, "a,c,e,d,b,f")

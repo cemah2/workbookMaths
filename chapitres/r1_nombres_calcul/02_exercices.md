@@ -108,7 +108,7 @@ Vrai ou faux ?
 *Fiche R0 §3 · parcours C, E*
 
 Sans regarder R0, écris ce que tu taperais dans le notebook pour que `wbm.check` accepte :
-1. la fraction $\frac{5}{12}$ ;
+1. la fraction $\frac{7}{15}$ ;
 2. les réels supérieurs ou égaux à $-1$ et strictement inférieurs à 4 ;
 3. les réels strictement positifs ;
 4. l'expression $x^3 + 2x$.

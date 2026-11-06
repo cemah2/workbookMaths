@@ -12,6 +12,7 @@ import ast
 import inspect
 import math
 import random
+import threading
 from decimal import ROUND_HALF_EVEN, Decimal
 from fractions import Fraction
 
@@ -21,6 +22,42 @@ import pytest
 @pytest.fixture
 def arith(mymath_module):
     return mymath_module("arith")
+
+
+def _pair(got):
+    """A list or a tuple of two items, as a tuple: its type is tested once, in a test of its own."""
+    return tuple(got) if isinstance(got, (list, tuple)) and len(got) == 2 else got
+
+
+def _expect_value_error(call, what, why):
+    """Fail with what was expected first, whatever the function did instead of raising ValueError."""
+    try:
+        call()
+    except ValueError:
+        return
+    except Exception as exc:  # noqa: BLE001 - any other error is reported, with what was expected first
+        pytest.fail(f"expected {what} to raise ValueError ({why}), got {type(exc).__name__}: {exc}")
+    pytest.fail(f"expected {what} to raise ValueError ({why}), but it returned a value")
+
+
+def _within(seconds, call, message):
+    """Run call() in a thread; fail with ``message`` if it takes more than ``seconds`` (a loop that never ends)."""
+    result = {}
+
+    def run():
+        try:
+            result["value"] = call()
+        except BaseException as exc:  # noqa: BLE001 - re-raised below, in the test's own thread
+            result["error"] = exc
+
+    worker = threading.Thread(target=run, daemon=True)
+    worker.start()
+    worker.join(timeout=seconds)
+    if worker.is_alive():
+        pytest.fail(message)
+    if "error" in result:
+        raise result["error"]
+    return result["value"]
 
 
 def _pairs(n=60, seed=0, low=-500, high=500):
@@ -41,13 +78,13 @@ def test_arith_uses_neither_math_gcd_nor_fractions(arith):
         elif isinstance(node, ast.ImportFrom):
             if node.module == "fractions":
                 used.add("fractions")
-            if node.module == "math" and any(alias.name == "gcd" for alias in node.names):
-                used.add("math.gcd")
-        elif isinstance(node, ast.Attribute) and node.attr == "gcd" and getattr(node.value, "id", "") == "math":
-            used.add("math.gcd")
+            if any(alias.name == "gcd" for alias in node.names):
+                used.add(f"{node.module}.gcd")
+        elif isinstance(node, ast.Attribute) and node.attr == "gcd":
+            used.add(f"{getattr(node.value, 'id', '?')}.gcd")
     assert not used, (
-        f"expected arith.py to work without {', '.join(sorted(used))} (the tests use it as the trusted answer): "
-        "write the computation yourself")
+        f"expected arith.py to work without {', '.join(sorted(used))} (a ready-made gcd, or the tools the tests "
+        "trust): write the computation yourself")
 
 
 # ---------------------------------------------------------------- gcd
@@ -78,7 +115,9 @@ def test_gcd_returns_an_int(arith):
 
 def test_gcd_large_numbers_quickly(arith):
     a, b = 2**61 - 1, 2**31 - 1   # two primes: Euclid needs a few dozen steps, a loop over divisors would never end
-    got = arith.gcd(a * 6, b * 4)
+    got = _within(2, lambda: arith.gcd(a * 6, b * 4),
+                  f"expected gcd({a * 6}, {b * 4}) == 2 in less than 2 s: trying every divisor is far too slow, "
+                  "use Euclid's algorithm")
     assert got == 2, f"expected gcd({a * 6}, {b * 4}) == 2 quickly: use Euclid's algorithm, got {got!r}"
 
 
@@ -89,7 +128,7 @@ def test_simplify_fraction_matches_fraction(arith):
             continue
         want = Fraction(p, q)
         got = arith.simplify_fraction(p, q)
-        assert got == (want.numerator, want.denominator), (
+        assert _pair(got) == (want.numerator, want.denominator), (
             f"expected simplify_fraction({p}, {q}) == {(want.numerator, want.denominator)}, got {got!r}")
 
 
@@ -102,7 +141,7 @@ def test_simplify_fraction_matches_fraction(arith):
 ])
 def test_simplify_fraction_special_cases(arith, p, q, want, why):
     got = arith.simplify_fraction(p, q)
-    assert got == want, f"expected simplify_fraction({p}, {q}) == {want} ({why}), got {got!r}"
+    assert _pair(got) == want, f"expected simplify_fraction({p}, {q}) == {want} ({why}), got {got!r}"
 
 
 def test_simplify_fraction_returns_ints(arith):
@@ -112,10 +151,8 @@ def test_simplify_fraction_returns_ints(arith):
 
 
 def test_simplify_fraction_zero_denominator_raises(arith):
-    with pytest.raises(ValueError):
-        arith.simplify_fraction(3, 0)
-        pytest.fail("expected simplify_fraction(3, 0) to raise ValueError (no fraction has a zero denominator), "
-                    "but it returned")
+    _expect_value_error(lambda: arith.simplify_fraction(3, 0), "simplify_fraction(3, 0)",
+                        "no fraction has a zero denominator")
 
 
 # ---------------------------------------------------------------- add_fractions
@@ -126,34 +163,40 @@ def test_add_fractions_matches_fraction(arith):
         b = (rng.randint(-60, 60), rng.choice([d for d in range(-30, 31) if d != 0]))
         want = Fraction(*a) + Fraction(*b)
         got = arith.add_fractions(a, b)
-        assert got == (want.numerator, want.denominator), (
+        assert _pair(got) == (want.numerator, want.denominator), (
             f"expected add_fractions({a}, {b}) == {(want.numerator, want.denominator)} (irreducible, "
             f"denominator > 0), got {got!r}")
 
 
 @pytest.mark.parametrize("a, b, want, why", [
-    ((1, 6), (1, 4), (5, 12), "the docstring example: the common denominator is 12, not 24"),
+    ((1, 6), (1, 4), (5, 12), "the docstring example: 1/6 + 1/4 = 5/12, irreducible"),
     ((1, 3), (2, 3), (1, 1), "the sum is the integer 1"),
     ((1, 2), (-1, 2), (0, 1), "the sum is zero"),
     ((3, -4), (1, 4), (-1, 2), "a negative denominator"),
 ])
 def test_add_fractions_special_cases(arith, a, b, want, why):
     got = arith.add_fractions(a, b)
-    assert got == want, f"expected add_fractions({a}, {b}) == {want} ({why}), got {got!r}"
+    assert _pair(got) == want, f"expected add_fractions({a}, {b}) == {want} ({why}), got {got!r}"
 
 
 def test_add_fractions_is_exact_for_large_denominators(arith):
     a, b = (1, 3**30), (1, 2**40)
     want = Fraction(*a) + Fraction(*b)
-    got = arith.add_fractions(a, b)
-    assert got == (want.numerator, want.denominator), (
+    got = _within(2, lambda: arith.add_fractions(a, b),
+                  f"expected add_fractions({a}, {b}) in less than 2 s: your gcd must use Euclid's algorithm")
+    assert _pair(got) == (want.numerator, want.denominator), (
         f"expected the exact sum {(want.numerator, want.denominator)}: never go through a float, got {got!r}")
 
 
+def test_add_fractions_returns_a_tuple_of_ints(arith):
+    got = arith.add_fractions((1, 6), (1, 4))
+    assert isinstance(got, tuple) and all(isinstance(v, int) and not isinstance(v, bool) for v in got), (
+        f"expected a tuple of two int, (5, 12) (return simplify_fraction(...), not a list), got {got!r}")
+
+
 def test_add_fractions_zero_denominator_raises(arith):
-    with pytest.raises(ValueError):
-        arith.add_fractions((1, 2), (1, 0))
-        pytest.fail("expected add_fractions((1, 2), (1, 0)) to raise ValueError, but it returned")
+    _expect_value_error(lambda: arith.add_fractions((1, 2), (1, 0)), "add_fractions((1, 2), (1, 0))",
+                        "a denominator is zero")
 
 
 # ---------------------------------------------------------------- scientific_notation
@@ -192,9 +235,8 @@ def _random_numbers(seed=3, n=80):
 def test_scientific_notation_matches_decimal(arith, digits):
     for text in _random_numbers():
         want_m, want_e = _expected_notation(text, digits)
-        got = arith.scientific_notation(float(text), digits=digits)
-        assert isinstance(got, tuple) and len(got) == 2, (
-            f"expected a tuple (mantissa, exponent), got {got!r}")
+        got = _pair(arith.scientific_notation(float(text), digits=digits))
+        assert isinstance(got, tuple), f"expected a tuple (mantissa, exponent), got {got!r}"
         m, e = got
         assert e == want_e and m == pytest.approx(want_m, abs=1e-9), (
             f"expected scientific_notation({text}, digits={digits}) == {(want_m, want_e)}, got {got!r}")
@@ -209,8 +251,8 @@ def test_scientific_notation_matches_decimal(arith, digits):
     (0, 3, (0.0, 0), "zero is (0.0, 0) by convention (docstring)"),
 ])
 def test_scientific_notation_special_cases(arith, x, digits, want, why):
-    got = arith.scientific_notation(x, digits=digits)
-    assert isinstance(got, tuple) and len(got) == 2 and got[1] == want[1] and got[0] == pytest.approx(want[0]), (
+    got = _pair(arith.scientific_notation(x, digits=digits))
+    assert isinstance(got, tuple) and got[1] == want[1] and got[0] == pytest.approx(want[0]), (
         f"expected scientific_notation({x}, digits={digits}) == {want} ({why}), got {got!r}")
 
 
@@ -218,6 +260,12 @@ def test_scientific_notation_default_digits_is_3(arith):
     got = arith.scientific_notation(123456.0)
     assert got[1] == 5 and got[0] == pytest.approx(1.23), (
         f"expected scientific_notation(123456.0) == (1.23, 5) with the default digits=3, got {got!r}")
+
+
+def test_scientific_notation_returns_a_tuple(arith):
+    got = arith.scientific_notation(0.0042)
+    assert isinstance(got, tuple) and len(got) == 2, (
+        f"expected a tuple (mantissa, exponent), (4.2, -3), not a list, got {got!r}")
 
 
 def test_scientific_notation_exponent_is_an_int(arith):
@@ -245,18 +293,19 @@ def test_successive_changes_matches_exact_product(arith):
     ([0.5], 0.5, "one change is itself"),
     ([], 0.0, "no change at all (docstring)"),
     ([0.25, -0.20], 0.0, "-20 % exactly cancels +25 %"),
-    ([-1.0, 0.5], -1.0, "after -100 % the value is 0, and stays 0"),
+    ([-1.0, 0.5], -1.0, "a change of exactly -100 % is allowed: the value becomes 0, and stays 0"),
 ])
 def test_successive_changes_special_cases(arith, rates, want, why):
-    got = arith.successive_changes(rates)
+    try:
+        got = arith.successive_changes(rates)
+    except ValueError as exc:
+        pytest.fail(f"expected successive_changes({rates}) == {want} ({why}), got ValueError: {exc}")
     assert got == pytest.approx(want, abs=1e-12), f"expected successive_changes({rates}) == {want} ({why}), got {got!r}"
 
 
 def test_successive_changes_rate_below_minus_one_raises(arith):
-    with pytest.raises(ValueError):
-        arith.successive_changes([0.1, -1.5])
-        pytest.fail("expected successive_changes([0.1, -1.5]) to raise ValueError (a value cannot lose more than "
-                    "100 %), but it returned")
+    _expect_value_error(lambda: arith.successive_changes([0.1, -1.5]), "successive_changes([0.1, -1.5])",
+                        "a value cannot lose more than 100 %")
 
 
 # ---------------------------------------------------------------- weighted_mean
@@ -294,10 +343,8 @@ def test_weighted_mean_returns_float(arith):
 
 @pytest.mark.parametrize("values, weights, why", [
     ([1, 2, 3], [1, 1], "the lengths differ"),
-    ([1, 2], [1, -1], "a weight is negative"),
+    ([1, 2], [2, -1], "a weight is negative (even when the sum of the weights is not zero)"),
     ([1, 2], [0, 0], "the weights sum to zero"),
 ], ids=["lengths", "negative", "zero_sum"])
 def test_weighted_mean_invalid_raises(arith, values, weights, why):
-    with pytest.raises(ValueError):
-        arith.weighted_mean(values, weights)
-        pytest.fail(f"expected weighted_mean({values}, {weights}) to raise ValueError ({why}), but it returned")
+    _expect_value_error(lambda: arith.weighted_mean(values, weights), f"weighted_mean({values}, {weights})", why)

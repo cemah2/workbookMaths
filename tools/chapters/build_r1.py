@@ -132,51 +132,60 @@ PAPER = [
          '"4 puissance −2, c\'est 1 sur 4 au carré, pas 1 sur 4 fois 2": "1/8"}'),
         ("b", "an integer (or a fraction as text)", "Fraction(1, 3) ** -2",
          'kind="fraction", mistakes={"un exposant négatif retourne la fraction": "1/9"}'),
-        ("c", "a decimal", "1e-5",
-         'decimals=6, mistakes={"10^a × 10^b = 10^(a+b) : on additionne les exposants, on ne les multiplie pas": '
-         '1e-6}'),
+        ("c", "a decimal", "Fraction(1, 10 ** 5)",
+         'kind="fraction", mistakes={"10^a × 10^b = 10^(a+b) : on additionne les exposants, on ne les multiplie pas": '
+         '"1/1000000"}'),
         ("d", "the list [m, k]", "[4, -6]",
-         'mistakes={"le carré porte aussi sur la mantisse 2": [2, -6], '
+         'decimals=3, mistakes={"le carré porte aussi sur la mantisse 2": [2, -6], '
          '"(10^a)² = 10^(2a) : l\'exposant est multiplié par 2": [4, -5]}'),
         ("e", "an integer", "9 - (-3)",
-         'mistakes={"diviser par 10^(−3), c\'est soustraire −3 à l\'exposant, donc ajouter 3": 6}'),
+         'mistakes={"diviser par 10^(−3), c\'est soustraire −3 à l\'exposant, donc ajouter 3": 6, '
+         '"on demande l\'exposant k, pas la puissance de 10 elle-même": 10 ** 12}'),
         ("f", "an integer", "int(0.5 ** -3)",
          'mistakes={"un exposant négatif donne un inverse, pas un nombre négatif": -8}'),
         ("g", "an integer", "-3 - (-9)",
          'mistakes={"une nanoseconde est bien plus petite qu\'une milliseconde : il y en a beaucoup dedans": -6, '
-         '"une milliseconde vaut 10^(−3) s et une nanoseconde 10^(−9) s : divise l\'une par l\'autre": 3}'),
+         '"une milliseconde vaut 10^(−3) s et une nanoseconde 10^(−9) s : divise l\'une par l\'autre": 3, '
+         '"on demande l\'exposant k, pas la puissance de 10 elle-même": 10 ** 6}'),
     ]),
     Paper("R1.9", "Simplifier des racines carrées", [
-        ("a", "an integer", "10", 'mistakes={"√200 = √100 × √2 : sors la racine de 100": 100}'),
-        ("b", "an integer", "5", 'mistakes={"√75 = √25 × √3 : sors la racine de 25": 25}'),
-        ("c", "an integer", "math.isqrt(12 * 3)", 'mistakes={"√12 × √3 = √36 : prends ensuite la racine": 36}'),
-        ("d", "an integer", "math.isqrt(98 // 2)", 'mistakes={"√98 ÷ √2 = √49 : prends ensuite la racine": 49}'),
-        ("e", "a decimal", "0.7",
-         'decimals=2, mistakes={"élève ta réponse au carré pour vérifier : elle doit redonner 0,49": 0.07}'),
+        ("a", "an integer", "10",
+         'mistakes={"tu as gardé le carré parfait : c\'est sa racine carrée qui sort devant la racine": 100}'),
+        ("b", "an integer", "5",
+         'mistakes={"tu as gardé le carré parfait : c\'est sa racine carrée qui sort devant la racine": 25}'),
+        ("c", "an integer", "math.isqrt(12 * 3)",
+         'mistakes={"le produit des racines est la racine du produit : il reste à prendre cette racine": 36}'),
+        ("d", "an integer", "math.isqrt(98 // 2)",
+         'mistakes={"le quotient des racines est la racine du quotient : il reste à prendre cette racine": 49}'),
+        ("e", "a decimal", "Fraction(7, 10)",
+         'kind="fraction", mistakes={"élève ta réponse au carré pour vérifier : elle doit redonner 0,49": "7/100"}'),
         ("f", "an integer", "3 * 2 - 3",
          'mistakes={"√20 = 2√5 : n\'oublie pas de le multiplier par 3": -1}'),
         ("g", "an integer", "math.isqrt((-9) ** 2)", 'mistakes={"une racine carrée n\'est jamais négative": -9}'),
     ]),
     Paper("R1.10", "Écrire en notation scientifique et arrondir", [
         ("a", "the list [m, k]", "[7.25, 7]",
-         'decimals=2, mistakes={"la mantisse doit être comprise entre 1 et 10": [72.5, 6], '
+         'decimals=3, mistakes={"la mantisse doit être comprise entre 1 et 10": [72.5, 6], '
          '"compte les rangs : la mantisse fois 10^k doit redonner le nombre de départ": [7.25, 6]}'),
         ("b", "the list [m, k]", "[9.06, -5]",
-         'decimals=2, mistakes={"un nombre plus petit que 1 a un exposant négatif": [9.06, 5], '
+         'decimals=3, mistakes={"un nombre plus petit que 1 a un exposant négatif": [9.06, 5], '
          '"compte les rangs dont la virgule avance jusqu\'au premier chiffre non nul": [9.06, -4]}'),
         ("c", "an integer", "310000",
          'mistakes={"écris le nombre arrondi en entier, avec les zéros qui gardent la place des unités": 31, '
-         '"deux chiffres significatifs seulement": 314000}'),
-        ("d", "a decimal", "0.0078",
-         'decimals=4, mistakes={"arrondis une seule fois, depuis la valeur complète": 0.0079, '
-         '"les zéros de tête ne sont pas significatifs : garde deux chiffres à partir du premier non nul": 0.01}'),
+         '"deux chiffres significatifs seulement": 314000, "arrondis le nombre : deux chiffres significatifs": 314159, '
+         '"deux chiffres significatifs, pas un seul": 300000}'),
+        ("d", "a decimal", "Fraction(78, 10 ** 4)",
+         'kind="fraction", mistakes={"arrondis une seule fois, depuis la valeur complète": "79/10000", '
+         '"les zéros de tête ne sont pas significatifs : garde deux chiffres à partir du premier non nul": "1/100", '
+         '"arrondis le nombre : garde deux chiffres significatifs": "7849/1000000"}'),
         ("e", "an integer", "-4",
          'mistakes={"écris le nombre en notation scientifique, puis compare sa mantisse à 3,16": -3}'),
         ("f", "the list [m, k]", "[7, -8]",
-         'mistakes={"diviser par 10^5, c\'est soustraire 5 à l\'exposant": [7, 2]}'),
+         'decimals=3, mistakes={"diviser par 10^5, c\'est soustraire 5 à l\'exposant": [7, 2]}'),
     ]),
     Paper("R1.11", "Partie entière, arrondi au plus proche, arrondi supérieur", [
-        ("a", "an integer", "math.floor(4.6)", ""),
+        ("a", "an integer", "math.floor(4.6)",
+         'mistakes={"le plancher est l\'entier juste en dessous (ou le nombre lui-même s\'il est entier)": 5}'),
         ("b", "an integer", "math.floor(-4.6)",
          'mistakes={"le plancher d\'un négatif est l\'entier juste en dessous, plus à gauche": -4}'),
         ("c", "an integer", "math.ceil(-0.4)",
@@ -190,17 +199,21 @@ PAPER = [
     Paper("R1.12", "Évolutions successives et évolution réciproque", [
         ("a", "a number", "64 * 1.125",
          'decimals=2, mistakes={"augmenter de 12,5 %, c\'est multiplier par 1,125, pas ajouter 12,5": 76.5}'),
-        ("b", "a percentage", "(1000 - 1250) / 1250 * 100",
-         'decimals=1, mistakes={"on divise la variation par la valeur de départ": -25, '
-         '"une baisse donne un taux négatif": 20}'),
-        ("c", "a percentage", "(1.1 * 1.2 - 1) * 100",
-         'decimals=1, mistakes={"les coefficients se multiplient, les taux ne s\'additionnent pas": 30}'),
-        ("d", "a percentage", "(0.9 ** 3 - 1) * 100",
-         'decimals=1, mistakes={"les coefficients se multiplient : trois fois le coefficient de −10 %": -30}'),
-        ("e", "a percentage", "(1 / 1.6 - 1) * 100",
-         'decimals=1, mistakes={"le coefficient réciproque est l\'inverse du coefficient, pas son opposé": -60}'),
-        ("f", "a percentage", "(1 / 0.7 - 1) * 100",
-         'decimals=2, mistakes={"le coefficient réciproque est l\'inverse du coefficient de la baisse": 30}'),
+        ("b", "a percentage", "(Fraction(1000) - 1250) / 1250 * 100",
+         'kind="fraction", mistakes={"on divise la variation par la valeur de départ": -25, '
+         '"une baisse donne un taux négatif": 20, "donne le taux en pourcentage, pas en décimal": "-1/5"}'),
+        ("c", "a percentage", "(Fraction(11, 10) * Fraction(12, 10) - 1) * 100",
+         'kind="fraction", mistakes={"les coefficients se multiplient, les taux ne s\'additionnent pas": 30, '
+         '"donne le taux (le coefficient moins 1), pas le coefficient": 132}'),
+        ("d", "a percentage, to one decimal", "(Fraction(9, 10) ** 3 - 1) * 100",
+         'kind="fraction", mistakes={"les coefficients se multiplient : trois fois le coefficient de −10 %": -30, '
+         '"donne le taux (le coefficient moins 1), pas le coefficient": "729/10"}'),
+        ("e", "a percentage, to one decimal", "(1 / Fraction(16, 10) - 1) * 100",
+         'kind="fraction", mistakes={"le coefficient réciproque est l\'inverse du coefficient, pas son opposé": -60, '
+         '"donne le taux (le coefficient moins 1), pas le coefficient": "125/2"}'),
+        ("f", "a percentage, rounded to 2 decimals", "(1 / 0.7 - 1) * 100",
+         'decimals=2, mistakes={"le coefficient réciproque est l\'inverse du coefficient de la baisse": 30, '
+         '"donne le taux (le coefficient moins 1), pas le coefficient": 142.86}'),
     ]),
     Paper("R1.13", "Règle de trois et proportionnalité", [
         ("a", "a number", "7.20 / 3 * 5", 'decimals=2'),
@@ -212,27 +225,28 @@ PAPER = [
          'mistakes={"calcule les trois quotients « bas ÷ haut » : sont-ils tous égaux ?": True}'),
     ]),
     Paper("R1.14", "Moyenne pondérée : la note finale et la somme pondérée d'un neurone", [
-        ("a", "a decimal", "(13 * 4 + 9 * 1 + 16 * 3) / (4 + 1 + 3)",
-         'decimals=3, mistakes={"pondère chaque note par son coefficient, puis divise par la somme des '
-         'coefficients": (13 + 9 + 16) / 3}'),
-        ("b", "a decimal", "(14 * 10 - 109) / 2",
-         'decimals=2, mistakes={"le coefficient 2 compte dans la somme pondérée ET dans la somme des '
+        ("a", "an exact decimal", "Fraction(13 * 4 + 9 * 1 + 16 * 3, 4 + 1 + 3)",
+         'kind="fraction", mistakes={"pondère chaque note par son coefficient, puis divise par la somme des '
+         'coefficients": "38/3"}'),
+        ("b", "an exact decimal", "Fraction(14 * 10 - 109, 2)",
+         'kind="fraction", mistakes={"le coefficient 2 compte dans la somme pondérée ET dans la somme des '
          'coefficients": 14 * 9 - 109}'),
         ("c", "a number", "1.5 * 2 + (-2) * 0.5 + 0.5 * 6 + (-1)",
          'decimals=2, mistakes={"n\'oublie pas le biais b": 5.0, "un poids négatif fois une entrée positive donne '
          'un nombre négatif": 6.0}'),
-        ("d", "a decimal", "2 / (1 / 15 + 1 / 45)",
-         'decimals=1, mistakes={"la moyenne des deux vitesses oublie le temps : la montée dure plus longtemps": '
-         '30.0}'),
+        ("d", "an exact decimal", "2 / (Fraction(1, 15) + Fraction(1, 45))",
+         'kind="fraction", mistakes={"la moyenne des deux vitesses oublie le temps : la montée dure plus longtemps": '
+         '30}'),
     ]),
     Paper("R1.17", "Combien de paramètres, combien d'octets ? Un réseau en notation scientifique", [
         ("a", "an integer", "300 * 200 + 200", 'mistakes={"chaque neurone a aussi un biais": 60000}'),
         ("b", "an integer", "(300 * 200 + 200) + (200 * 50 + 50) + (50 * 4 + 4)",
          'mistakes={"n\'oublie pas les biais des trois couches": 70200}'),
         ("c", "an integer", "5", 'mistakes={"écris le total en notation scientifique, puis compare sa mantisse à '
-         '3,16": 4}'),
+         '3,16": 4, "on demande l\'exposant k, pas la puissance de 10 elle-même": 100000}'),
         ("d", "the list [m, k]", "[2.8, 5]",
-         'decimals=1, mistakes={"un float32 occupe 4 octets : multiplie le nombre de paramètres par 4": [7.0, 4]}'),
+         'decimals=3, mistakes={"un float32 occupe 4 octets : multiplie le nombre de paramètres par 4": [7.0, 4], '
+         '"arrondis la mantisse à deux chiffres significatifs": [2.818, 5]}'),
         ("e", "an integer", "round(1.3e11 * 2 / 1e9)",
          'mistakes={"chaque paramètre occupe 2 octets": 130, '
          '"donne la réponse en Go : 1 Go vaut 10^9 octets": 260_000_000_000}'),
@@ -287,15 +301,15 @@ R1_21 = Ex(
 - a) Écris `gcd(a, b)` : tant que `b` n'est pas nul, remplace le couple `(a, b)` par `(b, a % b)` ; à la fin, `a` est le PGCD. Travaille avec les valeurs sans signe (`abs`), et vérifie à la main sur le tableau de la fiche (1071 et 462).
 - b) Écris `simplify_fraction(numerator, denominator)` : divise les deux par leur PGCD (avec `//`, pour rester en entiers), puis mets le signe au numérateur ; une `ValueError` si le dénominateur est nul.
 
-La vérification calcule `gcd(2310, 1092)` et `simplify_fraction(-1092, 2310)`, puis lance les tests.""",
+La vérification calcule `gcd(2310, 1092)` et `simplify_fraction(1092, -2310)`, puis lance les tests.""",
     todo=LOAD_LEARNER,
     check='''with wbm.attempt("R1.21a"):
     wbm.check("R1.21a", mymath.arith.gcd(2310, 1092), computed=True)
 with wbm.attempt("R1.21b"):
-    wbm.check("R1.21b", list(mymath.arith.simplify_fraction(-1092, 2310)), computed=True)''',
+    wbm.check("R1.21b", list(mymath.arith.simplify_fraction(1092, -2310)), computed=True)''',
     solution=LOAD_REF + '''
 print("gcd(2310, 1092)               =", mymath.arith.gcd(2310, 1092))
-print("simplify_fraction(-1092, 2310) =", mymath.arith.simplify_fraction(-1092, 2310))''',
+print("simplify_fraction(1092, -2310) =", mymath.arith.simplify_fraction(1092, -2310))''',
     record='''wbm.record("R1.21a", math.gcd(2310, 1092),
            mistakes={"à la fin de la boucle, le PGCD est dans a (le dernier reste non nul), b vaut 0": 0})
 wbm.record("R1.21b", [-26, 55],
@@ -321,7 +335,7 @@ print("add_fractions((7, 15), (-3, 10)) =", mymath.arith.add_fractions((7, 15), 
     record='''wbm.record("R1.22", [1, 6],
            mistakes={"pense à rendre le résultat irréductible avec simplify_fraction": [25, 150],
                      "on n'additionne ni les numérateurs ni les dénominateurs entre eux": [4, 25]})''',
-    after=tests_cells("test_add_fractions_"),
+    after=tests_cells("test_add_fractions_ or test_arith_uses"),
 )
 
 R1_25 = Ex(
@@ -331,12 +345,12 @@ R1_25 = Ex(
     body="""Avec `Fraction` (déjà importé dans la cellule des outils), calcule :
 - a) la somme $S = 1 + \\dfrac{1}{2} + \\dfrac{1}{3} + \\dots + \\dfrac{1}{10}$, exactement ;
 - b) le produit $P = \\left(1 - \\dfrac{1}{2}\\right)\\left(1 - \\dfrac{1}{3}\\right) \\cdots \\left(1 - \\dfrac{1}{10}\\right)$, exactement ;
-- c) le même produit $P$ calculé en **flottants** (avec `1 - 1/k`) : vaut-il exactement `0.1` (`== 0.1`) ?
+- c) le même produit $P$ calculé en **flottants** (avec `1 - 1/k`) : il n'est pas exactement `0.1`. L'écart `produit - 0.1` s'affiche en notation scientifique, `…e-k` : quel est l'exposant (un entier négatif) ?
 
 Une boucle `for k in range(...)` fait l'affaire (0A §100.4.2). Pour b), écris les premiers facteurs sur papier : devines-tu le résultat avant de l'exécuter ?""",
     todo='''answer_R1_25a = ...  # a) a Fraction (computed with a loop)
 answer_R1_25b = ...  # b) a Fraction
-answer_R1_25c = ...  # c) True or False (computed with floats)''',
+answer_R1_25c = ...  # c) an integer: the exponent read on the printed gap (product computed with floats)''',
     check='''for letter, answer in zip("abc", [answer_R1_25a, answer_R1_25b, answer_R1_25c]):
     wbm.check(f"R1.25{letter}", answer)''',
     solution='''total = Fraction(0)
@@ -348,22 +362,23 @@ for k in range(2, 11):
     product *= 1 - Fraction(1, k)
     product_float *= 1 - 1 / k
 print("S =", total, "≈", float(total))
-print("P =", product, "; en flottants :", product_float, "; == 0.1 :", product_float == 0.1)
-answer_R1_25a, answer_R1_25b, answer_R1_25c = total, product, product_float == 0.1''',
+print("P =", product, "; en flottants :", product_float, "; écart avec 0.1 :", product_float - 0.1)
+answer_R1_25a, answer_R1_25b, answer_R1_25c = total, product, math.floor(math.log10(product_float - 0.1))''',
     record='''wbm.record("R1.25a", sum(Fraction(1, k) for k in range(1, 11)), kind="fraction",
-           mistakes={"la somme commence à 1 (k = 1) et va jusqu'à 1/10 compris": "4861/2520"})
+           mistakes={"la somme commence à 1 (k = 1) : range(1, ...)": "4861/2520",
+                     "la somme va jusqu'à 1/10 compris : range(..., 11)": "7129/2520"})
 wbm.record("R1.25b", math.prod(1 - Fraction(1, k) for k in range(2, 11)), kind="fraction",
            mistakes={"le produit va jusqu'au facteur (1 − 1/10) compris : range(2, 11)": "1/9"})
-wbm.record("R1.25c", math.prod(1 - 1 / k for k in range(2, 11)) == 0.1,
-           mistakes={"affiche le produit en flottants : ses derniers chiffres s'écartent de 0.1": True})''',
+wbm.record("R1.25c", math.floor(math.log10(math.prod(1 - 1 / k for k in range(2, 11)) - 0.1)),
+           mistakes={"un écart minuscule a un exposant négatif : e-k veut dire « fois 10 puissance −k »": 17})''',
     note="Le produit se « télescope » : $\\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{3}{4} \\times \\dots \\times "
          "\\frac{9}{10} = \\frac{1}{10}$, chaque numérateur s'annule avec le dénominateur précédent. `Fraction` le "
          "trouve exactement ; les flottants arrivent à `0.10000000000000002`.",
 )
 
-R1_28_MISSING = {"a": "une addition de fractions qui additionne aussi les dénominateurs",
-                 "c": "un produit de puissances de même base, dont la base a changé",
-                 "e": "une division par une fraction qui ne passe pas par l'inverse"}
+R1_28_MISSING = {"A": "une addition de fractions qui additionne aussi les dénominateurs",
+                 "C": "un produit de puissances de même base, dont la base a changé",
+                 "E": "une division par une fraction qui ne passe pas par l'inverse"}
 
 R1_28 = Ex(
     "R1.28", "🐛", 1, 15, "Chasse à l'erreur : cinq calculs de fractions et de puissances",
@@ -373,34 +388,34 @@ R1_28 = Ex(
 
 | | Calcul |
 |---|---|
-| a | $\\dfrac{3}{4} + \\dfrac{2}{7} = \\dfrac{5}{11}$ |
-| b | $\\dfrac{3}{4} \\times \\dfrac{8}{9} = \\dfrac{2}{3}$ |
-| c | $5^3 \\times 5^2 = 25^5$ |
-| d | $\\left(\\dfrac{2}{5}\\right)^{-1} = \\dfrac{5}{2}$ |
-| e | $\\dfrac{10}{3} \\div \\dfrac{5}{6} = \\dfrac{50}{18}$ |
+| A | $\\dfrac{3}{4} + \\dfrac{2}{7} = \\dfrac{5}{11}$ |
+| B | $\\dfrac{3}{4} \\times \\dfrac{8}{9} = \\dfrac{2}{3}$ |
+| C | $5^3 \\times 5^2 = 25^5$ |
+| D | $\\left(\\dfrac{2}{5}\\right)^{-1} = \\dfrac{5}{2}$ |
+| E | $\\dfrac{10}{3} \\div \\dfrac{5}{6} = \\dfrac{50}{18}$ |
 
-- a) Donne les lettres des calculs faux, dans un texte : par exemple `"bd"`.
-- b) Le bon résultat du calcul e (un entier).
-- c) Le bon résultat du calcul a (une fraction irréductible, entre guillemets).""",
-    todo='''answer_R1_28a = ...  # a) the letters of the wrong lines, as text, e.g. "bd"
+- a) Donne les lettres des calculs faux, dans un texte : par exemple `"BD"`.
+- b) Le bon résultat du calcul E (un entier).
+- c) Le bon résultat du calcul A (une fraction irréductible, entre guillemets).""",
+    todo='''answer_R1_28a = ...  # a) the letters of the wrong calculations, as text, e.g. "BD"
 answer_R1_28b = ...  # b) an integer
 answer_R1_28c = ...  # c) an irreducible fraction, as text''',
     check='''for letter, answer in zip("abc", [answer_R1_28a, answer_R1_28b, answer_R1_28c]):
     wbm.check(f"R1.28{letter}", answer)''',
-    solution='''claims = {"a": (Fraction(3, 4) + Fraction(2, 7), Fraction(5, 11)),
-          "b": (Fraction(3, 4) * Fraction(8, 9), Fraction(2, 3)),
-          "c": (5**3 * 5**2, 25**5),
-          "d": (Fraction(2, 5) ** -1, Fraction(5, 2)),
-          "e": (Fraction(10, 3) / Fraction(5, 6), Fraction(50, 18))}
+    solution='''claims = {"A": (Fraction(3, 4) + Fraction(2, 7), Fraction(5, 11)),
+          "B": (Fraction(3, 4) * Fraction(8, 9), Fraction(2, 3)),
+          "C": (5**3 * 5**2, 25**5),
+          "D": (Fraction(2, 5) ** -1, Fraction(5, 2)),
+          "E": (Fraction(10, 3) / Fraction(5, 6), Fraction(50, 18))}
 for letter, (right, claimed) in claims.items():
     print(letter, "juste" if right == claimed else f"faux : le bon résultat est {right}")''',
-    record=f'''wbm.record("R1.28a", "ace",
-           mistakes={bug_letters_mistakes("ace", "bd", R1_28_MISSING)})
+    record=f'''wbm.record("R1.28a", "ACE",
+           mistakes={bug_letters_mistakes("ACE", "BD", R1_28_MISSING)})
 wbm.record("R1.28b", Fraction(10, 3) / Fraction(5, 6),
            mistakes={{"diviser par une fraction, c'est multiplier par son inverse": Fraction(50, 18)}})
 wbm.record("R1.28c", Fraction(3, 4) + Fraction(2, 7), kind="fraction", simplified=True,
            mistakes={{"mets au même dénominateur avant d'additionner": "5/11"}})''',
-    note="Le calcul c additionne bien les exposants, mais garde la base 5 : $5^3 \\times 5^2 = 5^5 = 3125$, alors "
+    note="Le calcul C additionne bien les exposants, mais garde la base 5 : $5^3 \\times 5^2 = 5^5 = 3125$, alors "
          "que $25^5$ dépasse neuf millions.",
 )
 
@@ -473,7 +488,7 @@ R1_23 = Ex(
     "fiche §6", tracks="C", mymath="arith.py",
     body="""Écris `scientific_notation(x, digits=3)` dans `mon_travail/mymath/arith.py` : elle renvoie le couple `(mantisse, exposant)` avec $1 \\le |\\text{mantisse}| < 10$, la mantisse arrondie à `digits` chiffres significatifs (`round(m, digits - 1)`).
 
-Une démarche, à suivre dans la docstring :
+Une démarche (la docstring fixe le contrat et les cas limites) :
 1. `x == 0` est un cas à part (docstring) ;
 2. l'exposant est l'entier $k$ tel que $10^k \\le |x| < 10^{k+1}$. `math.log10(y)` donne le nombre (pas forcément entier) $e$ tel que $10^e = y$ : `math.log10(1000)` vaut 3, `math.log10(2000)` environ 3,3 (R6 l'étudiera). Son plancher, `math.floor(math.log10(abs(x)))`, donne donc presque toujours $k$ (vérifie que la mantisse obtenue est bien entre 1 et 10, et corrige d'un rang sinon) ;
 3. la mantisse est $x / 10^k$, puis on l'arrondit ;
@@ -494,7 +509,7 @@ print("scientific_notation(-0.0009996)          =", mymath.arith.scientific_nota
 wbm.record("R1.23b", [-1.0, -3], decimals=3,
            mistakes={"quand l'arrondi donne 10, écris 1,00 et ajoute 1 à l'exposant": [-10.0, -4],
                      "le signe du nombre reste sur la mantisse": [1.0, -3]})''',
-    after=tests_cells("test_scientific_notation_"),
+    after=tests_cells("test_scientific_notation_ or test_arith_uses"),
 )
 
 R1_26_EXPERIMENT = '''print("round(3.46, 1)        =", round(3.46, 1))
@@ -546,7 +561,7 @@ R1_30 = Ex(
     "fiche §6, « Ordres de grandeur »", tracks="C",
     body="""Sur une échelle ordinaire, $10^{-10}$ et $10^{12}$ ne tiennent pas sur le même dessin. On place plutôt l'**exposant** : chaque graduation est une puissance de 10, et un pas vers la droite multiplie par 10.
 
-Complète `plot_magnitudes` : pour chaque nombre du dictionnaire `quantities` (cellule suivante), place un point à l'abscisse $\\log_{10}(\\text{valeur})$ (`math.log10`, qui donne l'exposant, même non entier : `math.log10(7e-5)` vaut environ −4,15) et écris son nom à côté. Un titre, l'axe horizontal nommé « puissance de 10 », une graduation par entier de −10 à 12 (`ax.set_xticks(range(-10, 13))`).
+Complète `plot_magnitudes` : pour chaque nombre du dictionnaire `quantities` (cellule suivante), place un point à l'abscisse $\\log_{10}(\\text{valeur})$ et à l'ordonnée 0, 1, 2… (le numéro de la ligne, pour que les noms ne se superposent pas) (`math.log10`, qui donne l'exposant, même non entier : `math.log10(7e-5)` vaut environ −4,15) et écris son nom à côté. Un titre, l'axe horizontal nommé « puissance de 10 », une graduation par entier de −10 à 12 (`ax.set_xticks(range(-10, 13))`).
 
 Puis lis ta figure : combien de puissances de 10 séparent l'épaisseur d'un cheveu du nombre de paramètres du modèle ? Note ta réponse dans ta copie de `06_mes_reponses.md`, et compare ta figure à celle de `05_solutions.ipynb`.
 
@@ -607,7 +622,7 @@ print("weighted_mean([11, 17, 8], [2, 3, 5]) =", mymath.arith.weighted_mean([11,
 wbm.record("R1.24b", (11 * 2 + 17 * 3 + 8 * 5) / (2 + 3 + 5), decimals=4,
            mistakes={"divise par la somme des poids, pas par le nombre de valeurs": (11 * 2 + 17 * 3 + 8 * 5) / 3,
                      "c'est une moyenne pondérée, pas une moyenne simple": (11 + 17 + 8) / 3})''',
-    after=tests_cells("test_successive_changes_ or test_weighted_mean_"),
+    after=tests_cells("test_successive_changes_ or test_weighted_mean_ or test_arith_uses"),
 )
 
 R1_27 = Ex(
@@ -654,7 +669,7 @@ while price < 2:
 answer_R1_27a, answer_R1_27b = years, round(1.1**30, 2)
 print("doublement après", years, "ans ; 1,1^30 =", answer_R1_27b, "; 1 + 0,1 × 30 =", 1 + 0.1 * 30)''',
     record='''wbm.record("R1.27a", 8,
-           mistakes={"au bout de 7 ans, le prix n'a pas encore atteint 2 € : un an de plus": 7,
+           mistakes={"vérifie ta condition d'arrêt : le prix doit avoir atteint 2 €, pas seulement s'en approcher": 7,
                      "les taux ne s'additionnent pas : les hausses se multiplient, le doublement vient plus tôt": 10})
 wbm.record("R1.27b", round(1.1**30, 2), decimals=2,
            mistakes={"c'est une puissance, pas une somme de taux : multiplie trente fois par 1,1": 4.0})''',
@@ -673,6 +688,8 @@ R1_31_FUNCTION = '''def harmonic_mean(values):
 
 R1_31_CHECK = '''with wbm.attempt("R1.31"):
     doc = harmonic_mean.__doc__ or ""
+    if doc.strip().startswith("TODO"):
+        raise NotImplementedError("écris la docstring")
     missing = [section for section in ("Parameters", "Returns", "Raises", "Examples") if section not in doc]
     if missing:
         print("❌ Ex R1.31 : il manque ces sections dans la docstring :", ", ".join(missing))

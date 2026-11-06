@@ -168,3 +168,49 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] POS.17 ✏️ Distance et produit scalaire dans le plan ★ 6 min
 - [ ] POS.18 ✏️ Cosinus d'un angle et radians ★ 5 min
 <!-- wbm:end POS -->
+
+<!-- wbm:section R1 -->
+## R1 · Nombres et calcul ⏱️ 12,7 h
+
+- [ ] R1.Q1 🧠 Quel ensemble ? Entiers, décimaux, rationnels, réels ★ 4 min
+- [ ] R1.Q2 🧠 Priorités et signes : vrai ou faux ★ 4 min
+- [ ] R1.Q3 🧠 Fractions : quelles opérations sont justes ? ★ 4 min
+- [ ] R1.Q4 🧠 Règles des puissances : vrai ou faux ★ 4 min
+- [ ] R1.Q5 🧠 Racines carrées : vrai ou faux ★ 4 min
+- [ ] R1.Q6 🧠 Notation scientifique et chiffres significatifs ★ 4 min
+- [ ] R1.Q7 🧠 Les pièges des évolutions successives ★ 4 min
+- [ ] R1.Q8 🧠 Moyenne, moyenne pondérée, moyenne harmonique ★ 4 min (complet)
+- [ ] R1.R1 🔁 Taper une fraction et un intervalle pour `wbm.check` (R0) ★ 5 min
+- [ ] R1.1 ✏️ Placer des nombres sur la droite numérique et les ranger ★ 10 min
+- [ ] R1.2 ✏️ Calculer avec les priorités et les signes ★ 10 min
+- [ ] R1.3 ✏️ Calcul mental avec la distributivité : 17 × 99, 23 × 101 ★ 10 min (complet)
+- [ ] R1.4 ✏️ Simplifier des fractions avec le PGCD ★ 15 min
+- [ ] R1.5 ✏️ Additionner, multiplier et diviser des fractions ★★ 20 min
+- [ ] R1.6 ✏️ Comparer des fractions ★ 10 min (complet)
+- [ ] R1.7 ✏️ Appliquer les règles des puissances ★ 15 min
+- [ ] R1.8 ✏️ Puissances négatives et puissances de 10 ★★ 15 min
+- [ ] R1.9 ✏️ Simplifier des racines carrées ★ 15 min
+- [ ] R1.10 ✏️ Écrire en notation scientifique et arrondir ★ 10 min
+- [ ] R1.11 ✏️ Partie entière, arrondi au plus proche, arrondi supérieur ★ 10 min
+- [ ] R1.12 ✏️ Évolutions successives et évolution réciproque ★★ 20 min
+- [ ] R1.13 ✏️ Règle de trois et proportionnalité ★ 10 min (complet)
+- [ ] R1.14 ✏️ Moyenne pondérée : la note finale et la somme pondérée d'un neurone ★★ 15 min
+- [ ] R1.15 ∂ Pourquoi a⁰ = 1 et a⁻ⁿ = 1/aⁿ : prolonger les règles des puissances ★★ 25 min
+- [ ] R1.16 ∂ Pourquoi on n'additionne pas les dénominateurs ★★ 25 min (complet)
+- [ ] R1.17 🔗 Combien de paramètres, combien d'octets ? Un réseau en notation scientifique ★★ 20 min
+- [ ] R1.18 🧮 Fermi : combien de mots lis-tu dans une vie ? ★★ 20 min (complet)
+- [ ] R1.19 🧮 Fermi : la place que prend un dataset de photos ★★ 20 min
+- [ ] R1.20 🗣️ Expliquer pourquoi +10 % puis −10 % ne ramène pas au départ ★ 10 min
+- [ ] R1.21 🔨 PGCD par l'algorithme d'Euclide et fraction irréductible ★★ 40 min
+- [ ] R1.22 🔨 Additionner deux fractions sans passer par les décimaux ★★ 30 min
+- [ ] R1.23 🔨 La notation scientifique à n chiffres significatifs ★★ 40 min (complet)
+- [ ] R1.24 🔨 Évolutions successives et moyenne pondérée ★ 30 min
+- [ ] R1.25 📦 Calculer exactement avec `fractions.Fraction` ★ 10 min
+- [ ] R1.26 🔮 Prédire : arrondir deux fois, est-ce arrondir une fois ? ★ 10 min (complet)
+- [ ] R1.27 🔬 Après n hausses de 10 % : tracer et comparer à une hausse de 10n % ★★ 20 min (complet)
+- [ ] R1.28 🐛 Chasse à l'erreur : cinq calculs de fractions et de puissances ★ 15 min
+- [ ] R1.29 🐛 Chasse à l'erreur : `-3**2` et les parenthèses ★ 10 min
+- [ ] R1.30 🎨 Les ordres de grandeur sur une échelle : de l'atome aux paramètres d'un LLM ★ 15 min (complet)
+- [ ] R1.31 🛠️ Écrire la docstring d'une fonction (format NumPy) ★ 15 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (25 cartes)
+<!-- wbm:end R1 -->

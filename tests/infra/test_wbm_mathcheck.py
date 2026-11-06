@@ -187,6 +187,7 @@ def test_fraction_a_decimal_comma_without_quotes_is_named(value):
     entry = entry_of("F.6", Fraction(3, 4), kind="fraction")
     passed, status, message = verdict("F.6", entry, value)
     assert not passed and status == "type" and "avec un point" in message and "(0, 5)" in message, message
+    assert "3/5" in message, message   # a pair (numerator, denominator) is answered too
 
 
 @pytest.mark.parametrize("value", ["sqrt(3)/2", "√3/2", "pi/4"])

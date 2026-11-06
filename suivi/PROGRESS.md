@@ -1,10 +1,10 @@
 # PROGRESS : état de la génération de workbookMaths
 
-*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-06, session 4 (POS).*
+*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-06, session 5 (R1).*
 
 ## Prochaine étape
 
-➡️ **Session 5 : R1** (Nombres et calcul), puis **R2** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre.
+➡️ **Session 6 : R2** (Calcul littéral et équations), puis **R3** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre.
 
 Avant la génération de la partie I : **session de syllabus de la partie I** (détailler M02a à M06 et CP1 : exercices, stubs `mymath`, temps, frontières explicites), en tenant compte du calibrage de la partie 0. Rafraîchir d'abord la copie de workbookIA (`python tools/snapshot_workbookia.py <clone> --check`).
 
@@ -12,7 +12,7 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 
 | Partie | Chapitres | Statut |
 |---|---|---|
-| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | R0 ✅, POS ✅ ; le reste 📅 |
+| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | R0 ✅, POS ✅, R1 ✅ ; le reste 📅 |
 | I · Fondations | M02a à M06, CP1 | 📅 planifié |
 | II · Concepts | M07 à M11, CP2 | 📅 planifié |
 | III · ML classique | M12a à M14, CP3 | 📅 planifié |
@@ -40,7 +40,17 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 - R0 : sections de workbookIA 0A supposées connues complétées (§100.2.2 chaînes, §100.3.1 listes).
 - POS : titres changés pour POS.3 (« Développer, factoriser, résoudre une équation et une inéquation »), POS.7 (« Sommes avec Σ, somme double et produit avec Π », 7 min), POS.12 (« Résoudre des équations avec exp et ln ») et POS.14 (« Tangente, variations et une limite », 10 min) ; POS.4b répondu par un numéro (1, 2 ou 3) ; POS.3a par la liste des coefficients ; questions ajoutées POS.7d et POS.14d ; fichiers en plus de la note du syllabus : `README.md` (mode d'emploi) et `03_solutions.ipynb`. ID inchangés.
 
+- R1 : R1.26 retitré (« Prédire : arrondir deux fois, est-ce arrondir une fois ? ») : le 🔮 sur `round(2.5)` et `round(3.5)` reprenait l'exemple de workbookIA 0A §100.2.3. R1.4 passe à 15 min et R1.16 à 25 min (R1 : 12,7 h en parcours complet, 9,7 h en parcours essentiel). R1.28 : calculs nommés A à E (les questions gardent a, b, c) ; R1.25c demande l'exposant de l'écart en flottants (au lieu d'un vrai/faux). ID inchangés.
+
+**À retenir pour R2 à R9** : une réponse qu'il faut **arrondir** (ou un décimal exact) s'enregistre en `kind="fraction"` (ou avec plus de décimales que demandé), sinon une valeur non arrondie passe ; un exemple de forme ne doit être la réponse d'aucune question du chapitre (`tests/infra/test_examples_are_not_answers.py`) ; un test d'algorithme dont la version naïve ne finit jamais passe par `_within` (limite de temps, voir `tests/test_r1_arith.py`) ; chaque groupe de tests lancé par le notebook inclut le test qui interdit les outils tout faits (`or test_arith_uses`) ; les cas `ValueError` passent par `_expect_value_error` (une autre exception dit d'abord ce qui était attendu).
+
 **À retenir pour R1 à R9** : ne reprendre aucun nombre ni aucune donnée du test de positionnement (sujet : `positionnement/01_sujet.md`) ; en R5, le 🔮 prévu sur une suite uₙ₊₁ = ½uₙ + 1 est proche de POS.10 (vₙ₊₁ = ½vₙ + 3) : changer ses nombres. Les messages génériques de `wbm` hérités de workbookIA parlent parfois ML ou Python (« indice (1,) », « arrondis avec round() », « vérifie-le avec SymPy ») : les adapter à la partie 0 si un chapitre en souffre.
+
+## Session 5 (2026-11-06) : chapitre R1 ✅
+
+**Fait** : `chapitres/r1_nombres_calcul/` : fiche en 9 sections (≈ 7 600 mots, 5 figures par `tools/chapters/figures_r1.py`, exemples `>>>` vérifiés), 40 exercices (8 quiz, 1 rappel, 14 ✏️, 2 ∂, 🔗, 2 🧮, 🗣️, 4 🔨, 📦, 🔮, 🔬, 2 🐛, 🎨, 🛠️), notebooks par `tools/chapters/build_r1.py` (partie 0 : 86 vérifications papier ; parties A à C : 11 exercices ; solutions en 3,5 s), 120 indices, solutions avec grilles de relecture des ∂, feuille de réponses, 25 flashcards ; `solutions/mymath_ref/arith.py` et `tests/test_r1_arith.py` (54 tests, oracles `math.gcd`, `Fraction`, `Decimal`) ; 105 réponses ajoutées à `answers.json` (191 au total) ; glossaire, symboles, formulaire, erreurs fréquentes.
+
+**Vérification indépendante** (sous-agents) : re-résolution à l'aveugle (toutes les réponses retrouvées ; 17 remarques) ; apprenant simulé (notebook, six fonctions écrites avec des bugs de débutant ; 21 remarques). Corrigés : docstring modèle fausse de R1.31 et vérification qui ne comptait pas les exemples faux, exemples de forme qui donnaient des réponses (test ajouté), valeurs non arrondies acceptées (réponses exactes en `kind="fraction"`), mantisses traitées comme des entiers, messages qui donnaient la réponse (R1.9, R1.27), nouvelles erreurs classiques, zéros significatifs, nombres premiers définis, tests plus stricts (poids négatif, −100 % permis, listes au lieu de tuples, PGCD naïf limité à 2 s, `np.gcd` interdit), `wbm` (signe et valeur fausses, rang « 1ᵉʳ » d'un élément, ordre écrit avec `<`, `"4/-7"` irréductible, couple `(3, 5)` expliqué).
 
 ## Session 4 (2026-11-06) : test de positionnement ✅
 

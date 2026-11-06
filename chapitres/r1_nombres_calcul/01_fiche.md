@@ -323,6 +323,7 @@ Les préfixes du système international nomment les puissances de 10 qui vont de
 Ainsi 3 GHz font $3 \times 10^9$ hertz, et 250 nm font $250 \times 10^{-9} = 2{,}5 \times 10^{-7}$ m.
 
 ```python
+>>> from fractions import Fraction
 >>> 5**7, 6**8 // 6**5
 (78125, 216)
 >>> 3**-2
@@ -446,6 +447,7 @@ Ainsi $\lfloor 2{,}4 \rfloor = 2$ et $\lceil 2{,}4 \rceil = 3$ ; pour un négati
 Le plafond sert dès qu'on compte des « paquets » qu'on ne peut pas couper : pour ranger 50 livres sur des étagères de 8, il faut $\lceil 50 / 8 \rceil = \lceil 6{,}25 \rceil = 7$ étagères.
 
 ```python
+>>> import math
 >>> math.floor(2.4), math.ceil(2.4), math.floor(-1.6), math.ceil(-1.6)
 (2, 3, -2, -1)
 >>> int(-1.6)

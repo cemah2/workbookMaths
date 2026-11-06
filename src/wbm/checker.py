@@ -184,7 +184,7 @@ def _fmt_float(x: float, decimals: int) -> str:
 
 _CHAR_MAP = str.maketrans({"’": "'", "‘": "'", "ʼ": "'", "´": "'", "`": "'",
                            "œ": "oe", "Œ": "oe", "æ": "ae", "Æ": "ae"})
-_IGNORED_CHARS = set("-‐‑‒–—−_   ")
+_IGNORED_CHARS = set("-‐‑‒–—−_   <>")   # "A < C < E": an order written with its signs
 
 
 def _norm_str(value) -> str:
@@ -670,7 +670,7 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
     if not sign or x == 0:  # expected 0, or the learner gave 0: no hint that could leak the answer
         return "Ce n'est pas la bonne valeur."
     if (x > 0) != (sign > 0):
-        return "Le signe de ta réponse n'est pas le bon."
+        return "Le signe de ta réponse n'est pas le bon, et sa valeur sans le signe non plus : reprends le calcul."
     magnitude = entry.get("magnitude")
     if computed:  # the value comes from the learner's function: no hint about units or sums, point to the tests
         return ("Ta fonction ne renvoie pas la bonne valeur ici. Relis l'énoncé et sa docstring ; si elle fait "
@@ -782,8 +782,10 @@ def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False) -> st
                     "qu'à la fin du calcul.")
         if wrong_items:
             first = tuple(int(i) for i in np.unravel_index(wrong_items[0][0], arr.shape))
-            return (f"{arr.size - len(wrong_items)} élément(s) sur {arr.size} sont justes. "
-                    f"Premier élément faux à l'indice {first}.")
+            rank = "1ᵉʳ" if first[0] == 0 else f"{first[0] + 1}ᵉ"
+            where = (f"Le premier faux est le {rank} (en comptant à partir de 1)." if arr.ndim == 1
+                     else f"Premier élément faux à l'indice {first} (indices comptés à partir de 0).")
+            return f"{arr.size - len(wrong_items)} élément(s) sur {arr.size} sont justes. {where}"
     return "Les valeurs ne sont pas les bonnes."
 
 

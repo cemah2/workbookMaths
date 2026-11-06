@@ -104,7 +104,7 @@ def _parse_fraction(value) -> tuple[Fraction, bool | None]:
             if denominator == 0:
                 raise MathNormalizationError("une fraction dont le dénominateur n'est pas nul")
             sign = -1 if outer == "-" else 1
-            irreducible = math.gcd(numerator, denominator) == 1 and denominator > 0
+            irreducible = math.gcd(numerator, denominator) == 1   # "4/-7" is irreducible too (the sign aside)
             return sign * Fraction(numerator, denominator), irreducible
         if _DECIMAL_TEXT.fullmatch(text):
             decimal = Decimal(text.replace(",", "."))
@@ -118,8 +118,9 @@ def _parse_fraction(value) -> tuple[Fraction, bool | None]:
     raise MathNormalizationError("une fraction écrite comme \"3/4\" (texte), ou Fraction(3, 4)")
 
 
-_DECIMAL_COMMA = ("un décimal écrit avec un point : en Python, `0,5` sans guillemets est un couple de deux nombres, "
-                  "`(0, 5)`. Écris `0.5`, ou `\"0,5\"` entre guillemets, ou une fraction entre guillemets")
+_DECIMAL_COMMA = ("un seul nombre : sans guillemets, `0,5` ou `(3, 5)` est un couple de deux nombres, comme `(0, 5)`. "
+                  "Pour un décimal, écris-le avec un point (`0.5`) ou entre guillemets (`\"0,5\"`) ; pour une "
+                  "fraction, entre guillemets (`\"3/5\"`)")
 
 
 def _exact_number(text: str):

@@ -170,7 +170,7 @@ Fraction, expression et intervalle se tapent entre guillemets ; un crochet est f
 </details>
 <details><summary>Indice 3</summary>
 
-1 : `"5/12"`. Pour 2, « supérieurs ou égaux » inclut $-1$, « strictement inférieurs » exclut 4. Pour 5, que calcule Python avec `2/7`, sans guillemets ?
+1 : `"7/15"`. Pour 2, « supérieurs ou égaux » inclut $-1$, « strictement inférieurs » exclut 4. Pour 5, que calcule Python avec `2/7`, sans guillemets ?
 
 </details>
 
@@ -613,7 +613,7 @@ total = Fraction(0)
 for k in range(1, 11):
     total += Fraction(1, k)
 ```
-Pour b, le premier facteur est $1 - \frac{1}{2}$ : avec quel `range` ?
+Pour b, le premier facteur est $1 - \frac{1}{2}$ : avec quel `range` ? Pour c, affiche l'écart `produit_flottant - 0.1` avec `print`, puis lis l'exposant après le `e` (comme en R0.4).
 
 </details>
 
@@ -626,12 +626,12 @@ Refais chaque calcul toi-même, avec la règle de la fiche §3 ou §4, avant de 
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque ligne, nomme la règle : somme de fractions, produit de fractions, produit de puissances, exposant négatif, division par une fraction.
+Pour chaque calcul, nomme la règle : somme de fractions, produit de fractions, produit de puissances, exposant négatif, division par une fraction.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a est faux : $\frac{3}{4} + \frac{2}{7}$ se calcule au dénominateur 28. Juge les autres de la même façon ; pour e, multiplie par l'inverse de $\frac{5}{6}$.
+A est faux : $\frac{3}{4} + \frac{2}{7}$ se calcule au dénominateur 28. Juge les autres de la même façon ; pour E, multiplie par l'inverse de $\frac{5}{6}$.
 
 </details>
 

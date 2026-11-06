@@ -77,7 +77,7 @@
 ## 🔁 Rappel
 
 ### R1.R1 — Taper une fraction et un intervalle pour `wbm.check` (R0)
-1. `"5/12"`, entre guillemets.
+1. `"7/15"`, entre guillemets.
 2. `"[-1 ; 4["` : crochet fermé du côté de −1 (inclus), ouvert du côté de 4 (exclu). La notation anglaise `"[-1, 4)"` passe aussi.
 3. `"]0 ; +oo["` : 0 est exclu (« strictement »), et le crochet est toujours ouvert du côté de l'infini.
 4. `"x**3 + 2*x"`, entre guillemets ; dans une chaîne, `"x^3 + 2x"` passe aussi.
@@ -450,7 +450,7 @@
 
 ### Ex R1.21 — PGCD par l'algorithme d'Euclide et fraction irréductible · `gcd`, `simplify_fraction`
 
-**Réponses** : `gcd(2310, 1092)` vaut `42` ; `simplify_fraction(-1092, 2310)` vaut `(-26, 55)`.
+**Réponses** : `gcd(2310, 1092)` vaut `42` ; `simplify_fraction(1092, -2310)` vaut `(-26, 55)` : le signe passe au numérateur.
 
 **Démarche.** `gcd` : on passe aux valeurs sans signe, puis tant que `b != 0`, on remplace `(a, b)` par `(b, a % b)` ; à la fin, `a` contient le dernier reste non nul. `simplify_fraction` : on vérifie que le dénominateur n'est pas nul (`raise ValueError(...)`), on divise numérateur et dénominateur par le PGCD avec `//`, puis, si le dénominateur est négatif, on change les deux signes. Le code complet est dans `05_solutions.ipynb`.
 
@@ -474,26 +474,26 @@
 
 ### Ex R1.25 — Calculer exactement avec `fractions.Fraction`
 
-**Réponses** : a) `Fraction(7381, 2520)` · b) `Fraction(1, 10)` · c) `False`.
+**Réponses** : a) `Fraction(7381, 2520)` · b) `Fraction(1, 10)` · c) `-17`.
 
-**Démarche.** a) une boucle `total += Fraction(1, k)` pour `k` de 1 à 10. b) `product *= 1 - Fraction(1, k)` pour `k` de 2 à 10 : le produit se télescope, $\frac{1}{2} \times \frac{2}{3} \times \dots \times \frac{9}{10} = \frac{1}{10}$. c) en flottants, chaque `1 - 1/k` est arrondi, et le produit vaut `0.10000000000000002` : `== 0.1` répond `False`.
+**Démarche.** a) une boucle `total += Fraction(1, k)` pour `k` de 1 à 10. b) `product *= 1 - Fraction(1, k)` pour `k` de 2 à 10 : le produit se télescope, $\frac{1}{2} \times \frac{2}{3} \times \dots \times \frac{9}{10} = \frac{1}{10}$. c) en flottants, chaque `1 - 1/k` est arrondi, et le produit vaut `0.10000000000000002` : l'écart avec `0.1` s'affiche `2.7755575615628914e-17`, environ $2{,}8 \times 10^{-17}$, d'exposant $-17$.
 
-**Erreurs fréquentes.** `range(1, 10)` s'arrête à 9 (il manque $\frac{1}{10}$) ; `Fraction(1/k)` convertit un flottant déjà arrondi (écris `Fraction(1, k)`).
+**Erreurs fréquentes.** `range(1, 10)` s'arrête à 9 (il manque $\frac{1}{10}$) ; `Fraction(1/k)` convertit un flottant déjà arrondi (écris `Fraction(1, k)`) ; en c, faire le produit avec `Fraction` (l'écart vaut alors exactement 0, et `log10(0)` lève une erreur).
 
 **Variante.** Calcule exactement $\frac{1}{2} + \frac{1}{4} + \dots + \frac{1}{1024}$. *Réponse* : `Fraction(1023, 1024)`.
 
 ### Ex R1.28 — Chasse à l'erreur : cinq calculs de fractions et de puissances
 
-**Réponses** : a) `"ace"` · b) `4` · c) `"29/28"`.
+**Réponses** : a) `"ACE"` · b) `4` · c) `"29/28"`.
 
 **Démarche.**
-- a est faux : on a additionné les numérateurs et les dénominateurs ; au dénominateur 28, $\frac{21}{28} + \frac{8}{28} = \frac{29}{28}$.
-- b est juste : $\frac{3 \times 8}{4 \times 9} = \frac{24}{36} = \frac{2}{3}$.
-- c est faux : on additionne les exposants en gardant la base, $5^5$, et non $25^5$.
-- d est juste : l'exposant $-1$ retourne la fraction.
-- e est faux : il faut multiplier par l'inverse, $\frac{10}{3} \times \frac{6}{5} = \frac{60}{15} = 4$ ; le camarade a multiplié par $\frac{5}{6}$.
+- A est faux : on a additionné les numérateurs et les dénominateurs ; au dénominateur 28, $\frac{21}{28} + \frac{8}{28} = \frac{29}{28}$.
+- B est juste : $\frac{3 \times 8}{4 \times 9} = \frac{24}{36} = \frac{2}{3}$.
+- C est faux : on additionne les exposants en gardant la base, $5^5$, et non $25^5$.
+- D est juste : l'exposant $-1$ retourne la fraction.
+- E est faux : il faut multiplier par l'inverse, $\frac{10}{3} \times \frac{6}{5} = \frac{60}{15} = 4$ ; le camarade a multiplié par $\frac{5}{6}$.
 
-**Erreurs fréquentes.** Croire b faux parce que $\frac{24}{36}$ « n'est pas $\frac{2}{3}$ » : simplifie par 12.
+**Erreurs fréquentes.** Croire B faux parce que $\frac{24}{36}$ « n'est pas $\frac{2}{3}$ » : simplifie par 12.
 
 **Variante.** Juste ou faux : $\left(\frac{3}{4}\right)^2 = \frac{9}{16}$ ; $2^{-2} \times 2^5 = 2^3$ ; $\frac{1}{2} + \frac{1}{3} = \frac{2}{5}$ ? *Réponses* : juste, juste, faux ($\frac{5}{6}$).
 
