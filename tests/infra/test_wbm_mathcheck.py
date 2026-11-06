@@ -45,7 +45,7 @@ def test_fraction_diagnoses(value, words):
         assert words in message, message
 
 
-@pytest.mark.parametrize("value", [0.2857, "0,2857", 0.285714285714, 2 / 7])
+@pytest.mark.parametrize("value", [0.2857, "0,2857", 0.285714285714])
 def test_fraction_a_decimal_approximation_is_named_as_such(value):
     entry = entry_of("F.4", Fraction(2, 7), kind="fraction")
     passed, status, message = verdict("F.4", entry, value)
@@ -278,3 +278,10 @@ def test_interval_with_a_rounded_endpoint_is_named_as_such():
 def test_fraction_prediction_gets_no_hint_about_its_sign():
     e = entry_of("t3.m4", "3/2", kind="fraction", prediction=True)
     assert verdict("t3.m4", e, "-3/2")[2].startswith("Prédiction ratée")
+
+
+def test_fraction_typed_as_a_python_calculation_is_exact():
+    """2/7 typed without quotes is the float nearest to 2/7: the learner typed the fraction (R4)."""
+    entry = entry_of("F.4b", Fraction(2, 7), kind="fraction")
+    assert verdict("F.4b", entry, 2 / 7)[0]
+    assert not verdict("F.4b", entry, 0.2857142857)[0]

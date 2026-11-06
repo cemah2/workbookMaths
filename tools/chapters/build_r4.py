@@ -33,23 +33,28 @@ PAPER = [
     Paper("R4.1", "Tables de vérité de « et », « ou », « non » et de l'implication", [
         ("a", "a list of 4 values (rows VV, VF, FV, FF)", "[not (p and q) for p, q in ROWS2]",
          'mistakes={"non (P et Q) est vraie dès qu\'une des deux est fausse : ce n\'est pas « ni P ni Q »": '
-         '[F, F, F, T], "c\'est la colonne de « P et Q » : il reste à la nier": [T, F, F, F]}'),
+         '[F, F, F, T], "c\'est la colonne de « P et Q » : il reste à la nier": [T, F, F, F], '
+         '"les valeurs sont dans l\'ordre inverse : les lignes vont dans l\'ordre VV, VF, FV, FF": [T, T, T, F]}'),
         ("b", "a list of 4 values", "[(not p) or (not q) for p, q in ROWS2]",
-         'mistakes={"« ou » est vraie dès qu\'au moins une des deux est vraie": [F, F, F, T]}'),
+         'mistakes={"« ou » est vraie dès qu\'au moins une des deux est vraie": [F, F, F, T], '
+         '"les valeurs sont dans l\'ordre inverse : les lignes vont dans l\'ordre VV, VF, FV, FF": [T, T, T, F]}'),
         ("c", "True or False", "True",
          'mistakes={"compare les deux colonnes ligne par ligne : ce sont les lois de De Morgan": False}'),
         ("d", "a list of 4 values", "[(not p) or q for p, q in ROWS2]",
          'mistakes={"quand P est fausse, P ⇒ Q est vraie : elle n\'est fausse que si P est vraie et Q fausse": '
-         '[T, F, F, F], "c\'est la colonne de Q ⇒ P, la réciproque": [T, T, F, T], '
+         '[T, F, F, F], "c\'est la colonne de Q ⇒ P (la réciproque), ou celle de P ⇒ Q lue de bas en haut : l\'ordre des lignes est '
+         'VV, VF, FV, FF": [T, T, F, T], '
          '"c\'est la colonne de la négation de P ⇒ Q": [F, T, F, F]}'),
         ("e", "a list of 4 values", "[(not q) or p for p, q in ROWS2]",
-         'mistakes={"Q ⇒ P n\'est fausse que si Q est vraie et P fausse : regarde la ligne FV": [T, F, T, T], '
+         'mistakes={"Q ⇒ P n\'est fausse que si Q est vraie et P fausse, sur la ligne FV ; l\'ordre des lignes est VV, '
+         'VF, FV, FF": [T, F, T, T], '
          '"Q ⇒ P est vraie quand Q est fausse": [T, F, F, F]}'),
         ("f", "a list of 4 values", "[q or (not p) for p, q in ROWS2]",
-         'mistakes={"(non Q) ⇒ (non P) n\'est fausse que si non Q est vraie et non P fausse : regarde la ligne VF": '
-         '[T, T, F, T]}'),
+         'mistakes={"(non Q) ⇒ (non P) n\'est fausse que si non Q est vraie et non P fausse, sur la ligne VF ; l\'ordre '
+         'des lignes est VV, VF, FV, FF": [T, T, F, T]}'),
         ("g", "two letters, as text", '"df"',
-         'mistakes={"une implication a la même table que sa contraposée, pas que sa réciproque": {"de", "ef"}}'),
+         'mistakes={"une implication a la même table que sa contraposée, pas que sa réciproque": {"de", "ef"}, '
+         '"il faut les lettres des deux propositions qui ont la même colonne": {"d", "e", "f"}}'),
         ("h", "an integer", "2 ** 3",
          'mistakes={"chaque proposition double le nombre de lignes : on multiplie, on n\'additionne pas": 6, '
          '"le nombre de lignes est 2 puissance le nombre de propositions": 9}'),
@@ -64,17 +69,19 @@ PAPER = [
          '"la négation d\'une implication vraie est fausse": [T, F, T, T]}'),
         ("b", "a list of 4 values", "[F, T, F, T]",
          'mistakes={"x² > 25 vaut aussi pour des nombres négatifs : essaie-en un": [T, F, T, F], '
+         '"x² > 25 vaut aussi pour des nombres négatifs : l\'implication a un contre-exemple": [T, T, T, F], '
          '"la contraposée a toujours la même valeur que l\'implication": [F, T, T, T]}'),
         ("c", "a list of 4 values", "[F, F, F, T]",
          'mistakes={"un seul contre-exemple suffit : cherche un impair qui n\'est pas premier": [T, F, T, F], '
-         '"la réciproque « premier ⇒ impair » a un contre-exemple : 2": [F, T, F, T]}'),
+         '"la réciproque « premier ⇒ impair » a un contre-exemple : 2": [F, T, F, T], '
+         '"la négation d\'une implication fausse est vraie": [F, F, F, F]}'),
         ("d", "a list of 4 values", "[T, T, T, F]",
          'mistakes={"3x − 2 = 10 équivaut à x = 4 : la réciproque est vraie aussi (une équivalence)": [T, F, T, F]}'),
         ("e", "an integer", "9",
          'mistakes={"3, 5 et 7 sont premiers : la propriété est vraie pour eux": {3, 5, 7}, '
          '"l\'énoncé demande un entier compris entre 2 et 10": 1}'),
         ("f", "an integer", "-6",
-         'mistakes={"pour x = −5, x² = 25, qui n\'est pas strictement plus grand que 25": -5, '
+         'mistakes={"vérifie les deux conditions pour ta valeur : x² > 25, strictement, et x ≤ 5": -5, '
          '"6 vérifie B (6² > 25 et 6 > 5) : ce n\'est pas un contre-exemple, et l\'énoncé demande un entier négatif": 6}'),
     ]),
     Paper("R4.3", "Nier des phrases à deux quantificateurs", [
@@ -124,7 +131,9 @@ PAPER = [
     Paper("R4.5", "Produit cartésien et couples", [
         ("a", "an integer", "len(PAIRS_AB)",
          'mistakes={"chaque élément de A va avec chaque élément de B : on multiplie": 5}'),
-        ("b", "an integer", "2 ** 3", 'mistakes={"2 choix pour chaque coordonnée : on multiplie autant de fois qu\'il y a de coordonnées": 6}'),
+        ("b", "an integer", "2 ** 3",
+         'mistakes={"2 choix pour chaque coordonnée : on multiplie autant de fois qu\'il y a de coordonnées": 6, '
+         '"le nombre de triplets est 2 puissance le nombre de coordonnées": 9}'),
         ("c", "an integer", "sum(x < y for x in B_SET for y in B_SET)",
          'mistakes={"x < y est strict : (1, 1) ne convient pas": 6, '
          '"applique la condition x < y : tous les couples de B × B ne conviennent pas": 9}'),
@@ -165,7 +174,8 @@ PAPER = [
          'mistakes={"quand j va de 0 à 9, k = j + 1 va de 1 à 10": 285, "k va jusqu\'à 10, pas 11": 506}'),
         ("d", "an expression in n, as text", '"n**2 + 4*n"',
          'kind="expr", variables=("n",), mistakes={"la constante 3 est ajoutée n fois": "n**2 + n + 3", '
-         '"2 × n(n + 1)/2 = n(n + 1) = n² + n": "n**2 + 3*n"}'),
+         '"2 × n(n + 1)/2 = n(n + 1) = n² + n": "n**2 + 3*n", '
+         '"la linéarité garde le facteur 2 devant la somme des k": "n*(n + 1)/2 + 3*n"}'),
         ("e", "the list [p, q]", "[1, 6]",
          'mistakes={"avec j = k − 2, les bornes diminuent de 2": [5, 10], '
          '"les bornes changent avec l\'indice": [3, 8]}'),
@@ -175,7 +185,7 @@ PAPER = [
          'mistakes={"j commence à 0 : 2⁰ = 1 compte": 60}'),
         ("h", "a fraction, as text", "Fraction(1) - Fraction(1, 10)",
          'kind="fraction", mistakes={"seuls le premier et le dernier terme restent : écris le dernier terme, pour k = 9": '
-         '"8/9"}'),
+         '"8/9", "la somme s\'arrête à k = 9 : écris son dernier terme": "10/11"}'),
     ]),
     Paper("R4.8", "Trouver un contre-exemple", [
         ("a", "an integer", "next(n for n in range(1, 100) if not 2 ** n > n ** 2)",
@@ -191,7 +201,7 @@ PAPER = [
          'mistakes={"24 est divisible par 24 : ce n\'est pas un contre-exemple": 24}'),
         ("e", "an integer", "2 + 3", 'mistakes={"2 + 2 = 4 est pair": 4}'),
         ("f", "a set, as a list", "[0]",
-         'ordered=False, mistakes={"développe (x + 1)² = x² + 2x + 1 : l\'égalité devient 2x = 0": []}'),
+         'ordered=False, mistakes={"développe (x + 1)², puis résous l\'équation obtenue": []}'),
     ]),
     Paper("R4.14", "Écrire la loss moyenne d'un modèle avec Σ", [
         ("a", "an integer", "sum(ERRORS)",
@@ -239,7 +249,7 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ R4.1 à R4
                "`06_mes_reponses.md`. Reporte ensuite chaque réponse ici : **la valeur** que tu as trouvée, sous la "
                "forme indiquée en commentaire, jamais le calcul qui y mène :\n"
                "- une colonne de table de vérité par la liste de ses valeurs, dans l'ordre des lignes VV, VF, FV, FF : "
-               "`[True, False, False, False]` pour « P et Q » (ou les lettres V et F, entre guillemets) ;\n"
+               "`[True, False, False, False]` pour « P et Q » (ou ses lettres V et F entre guillemets, `\"VFFF\"`) ;\n"
                "- vrai ou faux par `True` ou `False` ; un numéro de réponse proposée par un entier ;\n"
                "- un ensemble par la liste de ses éléments, dans l'ordre que tu veux, la liste vide pour $\\varnothing$ ;\n"
                "- un nombre avec un point décimal, `-1.5` ; une fraction exacte entre guillemets, `\"5/7\"` ;\n"
@@ -247,7 +257,7 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ R4.1 à R4
                "Les réponses pas encore remplies affichent ⏳.")
 
 # ---------------------------------------------------------------------------
-# Part A: logic in Python (R4.17, R4.19, R4.21)
+# Notebook exercises, first block (R4.17, R4.19, R4.21); the parts are assembled at the end
 # ---------------------------------------------------------------------------
 TOOLS = '''# Tools of the notebook (parts A to C)
 import math
@@ -334,7 +344,7 @@ print("n = 0 :", raised(mymath.logic.truth_table, lambda: True, 0))''',
 wbm.record("R4.17b", 16, mistakes={{"une table à n variables a 2**n lignes, une par combinaison": 8}})
 wbm.record("R4.17c", "ValueError",
            mistakes={{"avec n < 1, la fonction doit lever une ValueError (raise), pas rendre un résultat": "aucune",
-                     "{WRONG_ERROR}": {{"Exception", "TypeError", "IndexError", "AssertionError"}}}})''',
+                     "{WRONG_ERROR}": {{"Exception", "TypeError", "IndexError", "AssertionError", "ZeroDivisionError"}}}})''',
     after=tests_cells("test_truth_table_ or test_implies_"),
     note="`itertools.product([True, False], repeat=n)` énumère exactement les $2^n$ lignes, dans l'ordre usuel. Sans "
          "lui, on peut aussi compter de 0 à $2^n - 1$ et lire les chiffres binaires : c'est la même table.",
@@ -343,7 +353,7 @@ wbm.record("R4.17c", "ValueError",
 R4_19 = Ex(
     "R4.19", "🔨", 2, 30, "Chercher un contre-exemple de 0 à N · `find_counterexample`",
     "programmer la recherche systématique d'un contre-exemple, et comprendre ce qu'elle prouve et ne prouve pas.",
-    "fiche §6 ; R4.17", tracks="C, E", mymath="logic.py",
+    "fiche §6 ; R4.18 (une boucle sur un range)", tracks="C, E", mymath="logic.py",
     body="""Écris `find_counterexample(predicate, n_max)` dans `mon_travail/mymath/logic.py` : essaie les entiers $n = 0, 1, \\dots, n_{\\max}$ **dans l'ordre**, et rends le premier pour lequel `predicate(n)` est faux ; si aucun ne l'est, rends `None`. `predicate` représente la phrase « pour tout $n$, $P(n)$ ».
 
 La vérification cherche :
@@ -354,28 +364,33 @@ La vérification cherche :
 
 Puis, dans ta copie : la réponse de b) démontre-t-elle que $n^3 - n$ est toujours divisible par 3 ? Démontre-le (écris $n^3 - n = (n - 1)\\,n\\,(n + 1)$).""",
     todo=LOAD_LEARNER,
-    check='''with checked("R4.19a"):
-    wbm.check("R4.19a", mymath.logic.find_counterexample(lambda n: math.factorial(n) < 10**6, 50), computed=True)
-with checked("R4.19b"):
-    wbm.check("R4.19b", mymath.logic.find_counterexample(lambda n: (n**3 - n) % 3 == 0, 1000) is None,
-              computed=True)
-with checked("R4.19c"):
-    wbm.check("R4.19c", mymath.logic.find_counterexample(lambda n: n > 0, 10) == 0, computed=True)
-with checked("R4.19d"):
-    wbm.check("R4.19d", mymath.logic.find_counterexample(lambda n: n < 20, 20) == 20, computed=True)''',
+    check='''with checked("R4.19"):
+    find = mymath.logic.find_counterexample
+    if wbm.check("R4.19a", find(lambda n: math.factorial(n) < 10**6, 50), computed=True).passed:
+        # repr: None, False, 0 and 20 stay distinct (False == 0 in Python)
+        wbm.check("R4.19b", repr(find(lambda n: (n**3 - n) % 3 == 0, 1000)), computed=True)
+        wbm.check("R4.19c", repr(find(lambda n: n > 0, 10)), computed=True)
+        wbm.check("R4.19d", repr(find(lambda n: n < 20, 20)), computed=True)
+    else:
+        print("ℹ️ Ex R4.19b à d : vérifiés quand a) est juste.")''',
     solution=LOAD_REF + '''
 print("a) n! < 10**6 échoue en n =", mymath.logic.find_counterexample(lambda n: math.factorial(n) < 10**6, 50))
 print("b)", mymath.logic.find_counterexample(lambda n: (n**3 - n) % 3 == 0, 1000))
 print("c)", mymath.logic.find_counterexample(lambda n: n > 0, 10))
 print("d)", mymath.logic.find_counterexample(lambda n: n < 20, 20))''',
     record='''wbm.record("R4.19a", 10,
-           mistakes={"la fonction rend le premier n où la propriété est FAUSSE, pas le dernier où elle est vraie": 9})
-wbm.record("R4.19b", True,
-           mistakes={"quand aucun n de 0 à n_max ne contredit la propriété, la fonction rend None": False})
-wbm.record("R4.19c", True,
-           mistakes={"0 est le premier entier à essayer : range(n_max + 1) commence à 0": False})
-wbm.record("R4.19d", True,
-           mistakes={"n_max est essayé lui aussi : range(n_max + 1)": False})''',
+           mistakes={"la fonction rend le premier n où la propriété est FAUSSE, pas le dernier où elle est vraie": 9,
+                     "la fonction rend le premier n où la propriété est FAUSSE : vérifie le test, if not predicate(n)": 0})
+wbm.record("R4.19b", "None",
+           mistakes={"quand aucun n de 0 à n_max ne contredit la propriété, la fonction rend None, pas False": "False",
+                     "quand aucun n de 0 à n_max ne contredit la propriété, la boucle va au bout, puis la fonction rend "
+                     "None": {"1000", "1001"}})
+wbm.record("R4.19c", "0",
+           mistakes={"0 est le premier entier à essayer : range(n_max + 1) commence à 0": {"None", "1"},
+                     "la fonction rend l'entier n trouvé, pas un booléen": "False"})
+wbm.record("R4.19d", "20",
+           mistakes={"n_max est essayé lui aussi : range(n_max + 1)": "None",
+                     "la fonction rend l'entier n trouvé, pas un booléen": "False"})''',
     after=tests_cells("test_find_counterexample_"),
     note="`None` après 1 000 essais ne démontre rien pour $n = 1\\,001$ : seul un argument le fait. Ici, $(n - 1)\\,n\\,"
          "(n + 1)$ est un produit de trois entiers consécutifs, dont l'un est divisible par 3 (disjonction de cas sur "
@@ -390,7 +405,7 @@ print("premier n pour lequel ce n'est pas un nombre premier :", first, "->", fir
 
 R4_21 = Ex(
     "R4.21", "🔮", 1, 15, "Prédire : n² + n + 41 est-il toujours un nombre premier ?",
-    "voir une propriété vraie sur des dizaines de cas tomber, et comprendre pourquoi des exemples ne démontrent rien.",
+    "confronter une prédiction à une expérience, et savoir ce que des vérifications sur des exemples prouvent.",
     "fiche §6 ; R4.19", tracks="C, E", hypothesis=True,
     body="""Calcule de tête $n^2 + n + 41$ pour $n = 0, 1, 2, 3$ : tu obtiens 41, 43, 47, 53, tous des nombres premiers. **Avant d'exécuter quoi que ce soit**, prédis :
 - a) $n^2 + n + 41$ est-il premier pour **tout** entier $n \\ge 0$ ? (`True` ou `False`)
@@ -423,29 +438,26 @@ wbm.record("R4.21b", 40, prediction=True,
          "pourquoi on démontre au lieu de vérifier.",
 )
 
-PART_A = Part("A", "La logique en Python",
-              "Fiche §1, §2 et §6. Tes premières fonctions de `mymath/logic.py` : une table de vérité, l'implication, "
-              "la recherche d'un contre-exemple ; puis une propriété qui tient longtemps avant de tomber.",
-              given=TOOLS, exercises=[R4_17, R4_19, R4_21])
 
 # ---------------------------------------------------------------------------
-# Part B: sets (R4.20, R4.23)
+# Notebook exercises: sets (R4.20, R4.23)
 # ---------------------------------------------------------------------------
 R4_20 = Ex(
     "R4.20", "📦", 1, 10, "Les ensembles de Python : `set`, `|`, `&`, `-`",
     "calculer unions, intersections, différences et inclusions avec les ensembles de Python.",
     "fiche §4 ; workbookIA 0A §100.3.4 (ensembles)", tracks="C, E",
-    body="""`set("mot")` est l'ensemble des **lettres** d'un mot, sans répétition ni ordre. On pose `A = set("mathematiques")` et `B = set("statistiques")`. Avec les opérateurs de Python (`|` union, `&` intersection, `-` différence, `<=` inclusion, `len` cardinal, `==` égalité), calcule en une ligne chacun :
+    body="""`set("mot")` est l'ensemble des **lettres** d'un mot, sans répétition ni ordre. On pose `A = set("mathematiques")`, `B = set("informatique")` et `C = set("statistiques")`. Avec les opérateurs de Python (`|` union, `&` intersection, `-` différence, `<=` inclusion, `len` cardinal, `==` égalité), calcule en une ligne chacun :
 - a) le nombre de lettres différentes du mot « anticonstitutionnellement » ;
 - b) les lettres communes à A et B (un ensemble) ;
 - c) le nombre d'éléments de $A \\cup B$ ;
-- d) $B \\subset A$ ? (`True` ou `False`)
+- d) $C \\subset A$ ? (`True` ou `False`)
 - e) les lettres de A qui ne sont pas dans B (un ensemble) ;
 - f) les mots « algorithme » et « logarithme » ont-ils le même ensemble de lettres ?
 
-Puis, dans ta copie : explique la réponse de c) à partir de celle de d).""",
+⚠️ Les mots `and` et `or` de Python ne calculent **pas** une intersection ni une union d'ensembles. Puis, dans ta copie : retrouve la réponse de c) avec la formule du cardinal d'une union (fiche §4).""",
     todo='''A = set("mathematiques")
-B = set("statistiques")
+B = set("informatique")
+C = set("statistiques")
 
 answer_R4_20a = ...  # a) an integer
 answer_R4_20b = ...  # b) a set
@@ -457,34 +469,43 @@ answer_R4_20f = ...  # f) True or False''',
                                        answer_R4_20e, answer_R4_20f]):
     wbm.check(f"R4.20{letter}", answer)''',
     solution='''A = set("mathematiques")
-B = set("statistiques")
+B = set("informatique")
+C = set("statistiques")
 
 answer_R4_20a = len(set("anticonstitutionnellement"))
 answer_R4_20b = A & B
 answer_R4_20c = len(A | B)
-answer_R4_20d = B <= A
+answer_R4_20d = C <= A
 answer_R4_20e = A - B
 answer_R4_20f = set("algorithme") == set("logarithme")
 print(answer_R4_20a, sorted(answer_R4_20b), answer_R4_20c, answer_R4_20d, sorted(answer_R4_20e), answer_R4_20f)''',
     record='''wbm.record("R4.20a", 11, mistakes={"set garde chaque lettre une seule fois : len(set(mot))": 25})
-wbm.record("R4.20b", sorted(set("mathematiques") & set("statistiques")), ordered=False,
-           mistakes={"A & B : les lettres qui sont dans A et dans B": ["h", "m"]})
-wbm.record("R4.20c", 9,
-           mistakes={"les lettres communes ne comptent qu'une fois : |A ∪ B| = |A| + |B| − |A ∩ B|": 16})
-wbm.record("R4.20d", True, mistakes={"B <= A teste si chaque lettre de B est aussi dans A": False})
-wbm.record("R4.20e", ["h", "m"], ordered=False,
-           mistakes={"A - B : les lettres de A qui ne sont pas dans B": []})
+wbm.record("R4.20b", sorted(set("mathematiques") & set("informatique")), ordered=False,
+           mistakes={"and ne calcule pas une intersection d'ensembles : utilise &": sorted(set("informatique")),
+                     "A & B : les lettres qui sont dans A et dans B": sorted(set("mathematiques") - set("informatique"))})
+wbm.record("R4.20c", len(set("mathematiques") | set("informatique")),
+           mistakes={"les lettres communes ne comptent qu'une fois : |A ∪ B| = |A| + |B| − |A ∩ B|": 20,
+                     "or ne calcule pas une union d'ensembles : utilise |": 9})
+wbm.record("R4.20d", True, mistakes={"l'inclusion se teste avec <=, l'ensemble inclus à gauche": False})
+wbm.record("R4.20e", sorted(set("mathematiques") - set("informatique")), ordered=False,
+           mistakes={"A - B : les lettres de A qui ne sont pas dans B, et pas celles de B qui ne sont pas dans A":
+                         sorted(set("mathematiques") ^ set("informatique")),
+                     "A - B : les lettres de A qui ne sont pas dans B, pas l'inverse":
+                         sorted(set("informatique") - set("mathematiques"))})
 wbm.record("R4.20f", True, mistakes={"compare les ensembles de lettres, pas les mots": False})''',
-    note="B est inclus dans A, donc $A \\cup B = A$ et $\\lvert A \\cup B \\rvert = \\lvert A \\rvert = 9$. Et "
+    note="$\\lvert A \\cup B \\rvert = \\lvert A \\rvert + \\lvert B \\rvert - \\lvert A \\cap B \\rvert = 9 + 11 - 7 = 13$. Et "
          "« algorithme » et « logarithme » sont des anagrammes : mêmes lettres, autre ordre. Un ensemble oublie "
          "l'ordre et les répétitions ; c'est exactement ce qu'on lui demande.",
 )
 
 R4_23_GIVEN = '''def show_regions(xs, ys, regions, titles):
     """Draw four boolean masks of the grid (xs, ys) as shaded Venn diagrams, in a 2 × 2 figure."""
+    masks = [np.asarray(mask, dtype=float) for mask in regions]       # before the figure: no empty figure on an error
+    if len(masks) != 4 or any(mask.shape != xs.shape for mask in masks):
+        raise ValueError("venn_regions doit rendre une liste de quatre tableaux de la forme de in_a")
     fig, axes = plt.subplots(2, 2, figsize=(9, 5.4))
-    for ax, mask, title in zip(axes.ravel(), regions, titles):
-        ax.contourf(xs, ys, np.asarray(mask, dtype=float), levels=[0.5, 1.5], colors=["C0"], alpha=0.45)
+    for ax, mask, title in zip(axes.ravel(), masks, titles):
+        ax.contourf(xs, ys, mask, levels=[0.5, 1.5], colors=["C0"], alpha=0.45)
         for centre, name in ((-0.55, "A"), (0.55, "B")):
             ax.add_patch(plt.Circle((centre, 0), 1, fill=False, linewidth=1.6))
             ax.text(centre * 2.3, 0.8, name, fontsize=12, ha="center", fontweight="bold")
@@ -506,22 +527,25 @@ TITLES = ["non A et non B", "non (A ou B)", "non A ou non B", "non (A et B)"]'''
 
 R4_23_CHECK = '''with checked("R4.23 vérifications"):
     regions = [np.asarray(mask, dtype=bool) for mask in venn_regions(in_a, in_b)]
-    outside, only_a, both = (0, 140), (100, 60), (100, 150)      # three points of the grid (row, column)
+    points = {"un point hors de A et de B": (0, 140), "un point de A seulement": (100, 60),
+              "un point de B seulement": (100, 240), "un point de A et de B": (100, 150)}   # (row, column) of the grid
+    rules = [lambda a, b: not a and not b, lambda a, b: not (a or b), lambda a, b: not a or not b,
+             lambda a, b: not (a and b)]
     problems = []
     if len(regions) != 4 or any(mask.shape != in_a.shape for mask in regions):
         problems.append("quatre tableaux de booléens de la forme de in_a")
     else:
-        if not regions[0][outside] or regions[0][only_a]:
-            problems.append("le 1ᵉʳ : les points qui ne sont ni dans A ni dans B")
-        if not regions[2][only_a] or regions[2][both]:
-            problems.append("le 3ᵉ : les points qui manquent à A ou à B")
-        if not np.array_equal(regions[0], regions[1]) or not np.array_equal(regions[2], regions[3]):
-            problems.append("le 2ᵉ égal au 1ᵉʳ, et le 4ᵉ égal au 3ᵉ, point par point")
+        for k, (mask, rule, title) in enumerate(zip(regions, rules, TITLES), start=1):
+            wrong = [name for name, p in points.items() if bool(mask[p]) != rule(bool(in_a[p]), bool(in_b[p]))]
+            if wrong:
+                problems.append(f"le tableau {k} ({title}) se trompe pour {wrong[0]}")
     if problems:
         print("❌ Ex R4.23 : à revoir : " + " ; ".join(problems) + ".")
+    elif np.array_equal(regions[0], regions[1]) and np.array_equal(regions[2], regions[3]):
+        print("✅ Ex R4.23 : les quatre régions sont justes, et elles coïncident deux par deux ; écris dans ta copie "
+              "la loi qu'elles illustrent.")
     else:
-        print("✅ Ex R4.23 : les deux paires de régions coïncident point par point ; écris dans ta copie la loi "
-              "qu'elles illustrent.")'''
+        print("❌ Ex R4.23 : les régions sont justes aux points testés, mais pas partout : vérifie les parenthèses.")'''
 
 R4_23 = Ex(
     "R4.23", "🎨", 1, 15, "Diagrammes de Venn",
@@ -539,9 +563,12 @@ La vérification les dessine, puis regarde quelques points. Dans ta copie : quel
     given=R4_23_GIVEN,
     todo='''def venn_regions(in_a, in_b):
     """[not A and not B, not (A or B), not A or not B, not (A and B)]: four boolean arrays, point by point."""
-    raise NotImplementedError("combine in_a and in_b with ~, & and |")''',
+    raise NotImplementedError("combine in_a et in_b avec ~, & et |")''',
     check='''with checked("R4.23"):
-    show_regions(xs, ys, venn_regions(in_a, in_b), TITLES)''',
+    regions = []
+    if drawn(lambda: regions.extend(venn_regions(in_a, in_b))):
+        print("⚠️ Ex R4.23 : venn_regions ouvre une figure ; elle doit seulement rendre les quatre tableaux.")
+    show_regions(xs, ys, regions, TITLES)''',
     solution='''def venn_regions(in_a, in_b):
     """[not A and not B, not (A or B), not A or not B, not (A and B)]: four boolean arrays, point by point."""
     return [~in_a & ~in_b, ~(in_a | in_b), ~in_a | ~in_b, ~(in_a & in_b)]
@@ -555,11 +582,9 @@ show_regions(xs, ys, venn_regions(in_a, in_b), TITLES)''',
          "dans $A$ ou non, et dans $B$ ou non : quatre cas, tous vérifiés.",
 )
 
-PART_B = Part("B", "Les ensembles", "Fiche §4. Les ensembles de Python, puis les lois de De Morgan en image.",
-              exercises=[R4_20, R4_23])
 
 # ---------------------------------------------------------------------------
-# Part C: Σ and Π, induction (R4.18, R4.22, R4.24, R4.25)
+# Notebook exercises: Σ and Π, induction (R4.18, R4.22, R4.24, R4.25)
 # ---------------------------------------------------------------------------
 R4_18 = Ex(
     "R4.18", "🔨", 1, 25, "Σ et Π en Python · `sum_over`, `prod_over`",
@@ -594,15 +619,14 @@ wbm.record("R4.18b", 0.9990234375, decimals=6,
 )
 
 R4_22_PLOT = '''with checked("R4.22 figure"):
-    ns = list(range(1, 13))
-    cubes, proposed = [sum_of_cubes(n) for n in ns], [formula_b(n) for n in ns]   # before the figure
+    ns = list(range(1, 11))
+    gaps = [formula_b(n) - sum_of_cubes(n) for n in ns]          # before the figure
     fig, ax = plt.subplots(figsize=(6.5, 4))
-    ax.plot(ns, cubes, "o-", label="1³ + 2³ + … + n³")
-    ax.plot(ns, proposed, "s--", label="formule B")
-    ax.set_yscale("log")
+    ax.plot(ns, gaps, "o-", color="C3", label="formule B − (1³ + 2³ + … + n³)")
+    ax.axhline(0, color="gray", linewidth=0.8)
     ax.set_xlabel("n")
-    ax.set_ylabel("valeur (échelle logarithmique)")
-    ax.set_title("La formule B colle au début, puis décroche")
+    ax.set_ylabel("écart")
+    ax.set_title("L'écart entre la formule B et la somme des cubes")
     ax.grid(True, alpha=0.3)
     ax.legend()
     plt.show()'''
@@ -621,23 +645,23 @@ Complète les trois fonctions (avec `//` pour les divisions, qui tombent juste :
 Puis l'expérience trace les deux courbes. Dans ta copie : démontre la formule A par récurrence (comme R4.12 : isole le dernier terme, puis factorise par $(n + 1)^2$), et explique pourquoi la formule B est juste pour $n = 1, 2, 3$.""",
     todo='''def sum_of_cubes(n):
     """1³ + 2³ + … + n³, added term by term (a loop, or sum over a range)."""
-    raise NotImplementedError("add the cubes from 1 to n")
+    raise NotImplementedError("additionne les cubes de 1 à n")
 
 
 def formula_a(n):
     """(n(n + 1)/2)², computed with // so that it stays an exact integer."""
-    raise NotImplementedError("write formula A")
+    raise NotImplementedError("écris la formule A")
 
 
 def formula_b(n):
     """The classmate's formula: n²(n + 1)²/4 + (n − 1)(n − 2)(n − 3), with //."""
-    raise NotImplementedError("write formula B")''',
-    check='''with checked("R4.22a"):
-    wbm.check("R4.22a", sum_of_cubes(1000), computed=True)
-with checked("R4.22b"):
-    wbm.check("R4.22b", sum(sum_of_cubes(n) != formula_a(n) for n in range(1, 1001)), computed=True)
-with checked("R4.22c"):
-    wbm.check("R4.22c", next(n for n in range(1, 1001) if sum_of_cubes(n) != formula_b(n)), computed=True)''',
+    raise NotImplementedError("écris la formule B")''',
+    check='''with checked("R4.22"):
+    if wbm.check("R4.22a", sum_of_cubes(1000), computed=True).passed:   # b and c compare the formulas with it
+        wbm.check("R4.22b", sum(sum_of_cubes(n) != formula_a(n) for n in range(1, 1001)), computed=True)
+        wbm.check("R4.22c", next((n for n in range(1, 1001) if sum_of_cubes(n) != formula_b(n)), None), computed=True)
+    else:
+        print("ℹ️ Ex R4.22b et c : vérifiés quand sum_of_cubes est juste (a).")''',
     solution='''def sum_of_cubes(n):
     """1³ + 2³ + … + n³, added term by term (a loop, or sum over a range)."""
     return sum(k**3 for k in range(1, n + 1))
@@ -659,10 +683,12 @@ print("c)", next(n for n in range(1, 1001) if sum_of_cubes(n) != formula_b(n)))'
     record='''wbm.record("R4.22a", 250500250000,
            mistakes={"n est inclus : range(1, n + 1)": 249500250000})
 wbm.record("R4.22b", 0,
-           mistakes={"attention aux priorités : (n * (n + 1) // 2) ** 2, avec des parenthèses autour du produit": 1000})
+           mistakes={"formule A : vérifie les priorités (la puissance passe avant la division) et l'opérateur de "
+                     "puissance, ** (^ n'est pas une puissance en Python)": 1000})
 wbm.record("R4.22c", 4,
-           mistakes={"pour n = 1, 2 et 3, le produit (n − 1)(n − 2)(n − 3) est nul : la formule B y est juste": 1})''',
-    after=[("md", "**L'expérience** : la somme et la formule B pour $n = 1$ à 12."), ("code", R4_22_PLOT)],
+           mistakes={"compare la somme et la formule B pour les premières valeurs de n, une par une, en recopiant la "
+                     "formule B exactement": 1})''',
+    after=[("md", "**L'expérience** : l'écart entre la formule B et la somme, pour $n = 1$ à 10."), ("code", R4_22_PLOT)],
     note="La formule A est vraie pour tout $n$ (la récurrence le démontre) ; mille vérifications ne le démontraient "
          "pas, mais rendaient la conjecture crédible. La formule B montre le danger inverse : elle colle à la somme "
          "pour $n = 1, 2, 3$, car son terme en trop $(n - 1)(n - 2)(n - 3)$ s'annule en ces trois valeurs, puis s'en "
@@ -712,7 +738,8 @@ wbm.record("R4.24b", 0,
            mistakes={"teste quelques valeurs de n, et regarde le reste de 5ⁿ dans la division par 4": 21})
 wbm.record("R4.24c", "F",
            mistakes={"cette ligne est juste : cherche celle qui ne vaut pas pour toutes les valeurs de n":
-                         {"A", "B", "C", "D", "E", "G"}})
+                         {"A", "B", "C", "D", "E", "G"},
+                     "c'est la bonne ligne : écris seulement sa lettre": {"ligne F", "la ligne F"}})
 wbm.record("R4.24d", 1,
            mistakes={"pour n = 2, les groupes « boules 1 à 2 » et « boules 2 à 3 » partagent bien la boule 2 : la "
                      "ligne F y est juste": 2,
@@ -757,10 +784,19 @@ Commandes utiles : `\\sum_{k=1}^{n} k`, `\\frac{n(n+1)}{2}`, `\\ge`, `\\Rightarr
     after=[("todo_md", R4_25_TEMPLATE), ("solution_md", R4_25_MODEL)],
 )
 
-PART_C = Part("C", "Σ, Π et récurrence",
-              "Fiche §5, §7 et §8. Σ et Π dans `mymath/logic.py`, une formule vérifiée mille fois puis démontrée, "
-              "deux récurrences fausses, et une démonstration mise au propre.",
-              exercises=[R4_18, R4_22, R4_24, R4_25])
+
+PART_A = Part("A", "Ta librairie : logique, Σ et Π, contre-exemples",
+              "Fiche §1, §2, §5 et §6. Les cinq fonctions de `mymath/logic.py` : une table de vérité, l'implication, "
+              "Σ et Π, et la recherche d'un contre-exemple.",
+              given=TOOLS, exercises=[R4_17, R4_18, R4_19])
+
+PART_B = Part("B", "Ensembles et expériences",
+              "Fiche §4 à §6. Les ensembles de Python, une prédiction à confronter à l'expérience, une formule vérifiée "
+              "mille fois, puis les lois de De Morgan en image.", exercises=[R4_20, R4_21, R4_22, R4_23])
+
+PART_C = Part("C", "Récurrence et rédaction",
+              "Fiche §7 et §8. Deux récurrences fausses, puis une démonstration mise au propre.",
+              exercises=[R4_24, R4_25])
 
 PARTS = [PART_A, PART_B, PART_C]
 
@@ -797,7 +833,7 @@ def objectives_cell() -> list:
                "- Vérifier tes calculs papier (partie 0) : tables de vérité, implications, quantificateurs, "
                "ensembles, sommes Σ et produits Π, contre-exemples, une loss moyenne.\n"
                "- Écrire les cinq fonctions de `mymath/logic.py` et les tester.\n"
-               "- Voir une propriété tenir 40 fois puis tomber, vérifier une formule mille fois puis la démontrer, "
+               "- Tester une propriété sur des dizaines de cas, vérifier une formule mille fois puis la démontrer, "
                "chasser l'erreur dans deux récurrences.\n\n"
                "**Rappel express.** $P \\Rightarrow Q$ n'est fausse que si P est vraie et Q fausse ; elle équivaut à sa "
                "contraposée $\\text{non } Q \\Rightarrow \\text{non } P$, pas à sa réciproque. Nier : « pour tout » "

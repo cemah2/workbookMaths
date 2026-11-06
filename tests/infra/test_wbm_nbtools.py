@@ -572,7 +572,7 @@ def test_run_pytest_group_prints_each_failure_on_two_lines(group_root, capsys):
     assert "❌ test_uses_a_broken_fixture (erreur hors du test : import, fixture…)" in lines
     i = lines.index("⏳ test_not_written")
     assert lines[i + 1] == "   pas encore implémenté : Ex 21.4 : softmax_rows"
-    assert lines[-1].startswith("pytest: 5 failed, 1 passed, 1 deselected, 1 error")
+    assert lines[-1].startswith("pytest: 5 en échec, 1 réussi(s), 1 non sélectionné(s), 1 erreur(s)"), lines[-1]
 
 
 def test_run_pytest_group_hides_what_exceeds_max_shown(group_root, capsys):
@@ -587,13 +587,13 @@ def test_run_pytest_group_says_which_failures_are_only_pending(group_root, capsy
     result = run_pytest_group("tests/test_group.py", "not_written", root=group_root)
     assert result.pending == 1 and result.failed == 1
     last = out(capsys).splitlines()[-1]
-    assert last.startswith("pytest: 1 en attente ⏳ (fonction pas encore écrite), 7 deselected"), last
+    assert last.startswith("pytest: 1 en attente ⏳ (fonction pas encore écrite), 7 non sélectionné(s)"), last
 
 
 def test_run_pytest_group_all_green(group_root, capsys):
     result = run_pytest_group(group_root / "tests" / "test_group.py", "passes", root=group_root)
     assert result.ok and result.passed == 1
-    assert out(capsys).startswith("pytest: 1 passed, 7 deselected")
+    assert out(capsys).startswith("pytest: 1 réussi(s), 7 non sélectionné(s)")
 
 
 def test_run_pytest_group_stops_an_endless_loop(group_root, capsys):
@@ -634,7 +634,7 @@ def test_run_pytest_group_passes_env_and_args(tmp_path, capsys):
     result = run_pytest_group("test_env.py", root=tmp_path, env={"PYTHONPATH": str(tmp_path / "src")},
                               args=["-m", "not slow"])
     assert result.ok and result.passed == 1
-    assert out(capsys).startswith("pytest: 1 passed, 1 deselected")
+    assert out(capsys).startswith("pytest: 1 réussi(s), 1 non sélectionné(s)")
 
 
 @pytest.mark.parametrize("test_file, error", [
@@ -660,7 +660,7 @@ def test_run_pytest_group_on_the_stubs_and_the_reference(capsys):
     assert text.splitlines()[0] == "⏳ test_mean_small_list"
     assert text.splitlines()[1] == "   mean() n'est pas encore écrite"    # the stub's English message, in French
     ref = run_pytest_group("tests/test_example_mymath.py", keyword, impl="ref", root=ROOT)
-    assert ref.ok and out(capsys).startswith("pytest: 1 passed")
+    assert ref.ok and out(capsys).startswith("pytest: 1 réussi(s)")
 
 
 def test_exception_hint_explains_the_common_errors_of_a_beginner():
@@ -686,3 +686,14 @@ def test_drawn_reports_the_figures_a_function_opens_itself_and_shows_nothing():
 
     assert len(drawn(own_figure, ax)) == 1 and plt.get_fignums() == [fig.number]
     plt.close(fig)
+
+
+def test_french_summary_translates_the_counts():
+    from wbm.nbtools import _french_summary
+    assert _french_summary("3 failed, 2 passed, 7 deselected in 0.25s") == (
+        "3 en échec, 2 réussi(s), 7 non sélectionné(s) en 0,25 s")
+
+
+def test_exception_hint_for_numpy_truth_values():
+    from wbm.nbtools import exception_hint
+    assert "~" in exception_hint("The truth value of an array with more than one element is ambiguous. Use a.any()")

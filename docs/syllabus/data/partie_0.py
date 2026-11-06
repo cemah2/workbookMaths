@@ -377,7 +377,7 @@ CHAPTERS = [
     {
         "id": "R4",
         "dir": "r4_logique_ensembles",
-        "hours": 12.5,
+        "hours": 13.2,
         "generation_sessions": 1,
         "mml": [],
         "summary": "Le langage des mathématiques : propositions et connecteurs, implication et contraposée, "

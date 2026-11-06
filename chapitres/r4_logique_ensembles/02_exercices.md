@@ -398,12 +398,12 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | ID | Titre | Type | ★ | ⏱️ | Parcours |
 |---|---|---|---|---|---|
 | R4.17 | Tables de vérité et implication · `truth_table`, `implies` | 🔨 | ★ | 30 | C |
-| R4.19 | Chercher un contre-exemple de 0 à N · `find_counterexample` | 🔨 | ★★ | 30 | C, E |
-| R4.21 | Prédire : n² + n + 41 est-il toujours un nombre premier ? | 🔮 | ★ | 15 | C, E |
-| R4.20 | Les ensembles de Python : `set`, `\|`, `&`, `-` | 📦 | ★ | 10 | C, E |
-| R4.23 | Diagrammes de Venn | 🎨 | ★ | 15 | C |
 | R4.18 | Σ et Π en Python · `sum_over`, `prod_over` | 🔨 | ★ | 25 | C, E |
+| R4.19 | Chercher un contre-exemple de 0 à N · `find_counterexample` | 🔨 | ★★ | 30 | C, E |
+| R4.20 | Les ensembles de Python : `set`, `\|`, `&`, `-` | 📦 | ★ | 10 | C, E |
+| R4.21 | Prédire : n² + n + 41 est-il toujours un nombre premier ? | 🔮 | ★ | 15 | C, E |
 | R4.22 | Vérifier une formule de somme de 1 à 1 000, puis la démontrer | 🔬 | ★★ | 20 | C |
+| R4.23 | Diagrammes de Venn | 🎨 | ★ | 15 | C |
 | R4.24 | Chasse à l'erreur : une « démonstration » par récurrence qui prouve le faux | 🐛 | ★★ | 20 | C, E |
 | R4.25 | Rédiger une démonstration propre en LaTeX | 🛠️ | ★ | 20 | C |
 

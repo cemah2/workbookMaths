@@ -389,13 +389,29 @@ La moyenne des erreurs signées ne mesure pas l'erreur : des erreurs de signes c
 
 **Erreurs fréquentes.** L'ordre `[False, True]`, qui donne les lignes à l'envers ; `implies` écrit `p and q`, ou `(not q) or p` (la réciproque) ; `formula(values)` au lieu de `formula(*values)` (la formule reçoit un seul argument, le tuple).
 
+### Ex R4.18 — Σ et Π en Python · `sum_over`, `prod_over`
+
+**Réponses** : a) `[85, 0, 1024, 1]` · b) `0.9990234375` ($1 - \frac{1}{1\,024}$).
+
+**Démarche.** `total = 0`, puis `for k in range(start, stop + 1): total = total + f(k)` ; `prod_over` part de `1` et multiplie. Une somme vide reste à 0, un produit vide à 1, sans cas particulier à écrire.
+
+**Erreurs fréquentes.** `range(start, stop)`, qui oublie le dernier terme ; un produit qui part de 0 ; un total qui part de `0.0` (le résultat devient un flottant).
+
 ### Ex R4.19 — Chercher un contre-exemple de 0 à N · `find_counterexample`
 
-**Réponses** : a) `10` ($9! = 362\,880 < 10^6 \le 10! = 3\,628\,800$) · b) `None`, donc `True` · c) `0` · d) `20`.
+**Réponses** : a) `10` ($9! = 362\,880 < 10^6 \le 10! = 3\,628\,800$) · b) `None` · c) `0` · d) `20`.
 
 **Démarche.** `for n in range(n_max + 1):` puis `if not predicate(n): return n`, et `return None` après la boucle. Pour la copie : $n^3 - n = (n - 1)\,n\,(n + 1)$ est le produit de trois entiers consécutifs ; l'un d'eux est divisible par 3 (selon que $n$ laisse le reste 0, 1 ou 2, c'est $n$, $n - 1$ ou $n + 1$), donc le produit aussi. La réponse de b) ne démontrait rien au-delà de 1 000.
 
 **Erreurs fréquentes.** `range(1, n_max + 1)` (0 n'est pas essayé), `range(n_max)` ($n_{\max}$ n'est pas essayé) ; rendre `False` au lieu de `None` ; rendre le dernier $n$ où la propriété est vraie.
+
+### Ex R4.20 — Les ensembles de Python : `set`, `|`, `&`, `-`
+
+**Réponses** : a) `11` · b) `{'a', 'e', 'i', 'm', 'q', 't', 'u'}` · c) `13` · d) `True` · e) `{'h', 's'}` · f) `True`.
+
+**Démarche.** Chaque réponse tient en une ligne : `len(set("anticonstitutionnellement"))`, `A & B`, `len(A | B)`, `C <= A`, `A - B`, `set("algorithme") == set("logarithme")`. Pour c), la formule du cardinal donne $9 + 11 - 7 = 13$.
+
+**Erreurs fréquentes.** `len("anticonstitutionnellement")` (25, les répétitions comptées) ; `A and B` ou `A or B`, qui rendent l'un des deux ensembles et non leur intersection ou leur union ; `A + B`, qui n'existe pas pour des ensembles ; confondre `A - B` et `B - A`.
 
 ### Ex R4.21 — Prédire : n² + n + 41 est-il toujours un nombre premier ?
 
@@ -404,28 +420,6 @@ La moyenne des erreurs signées ne mesure pas l'erreur : des erreurs de signes c
 **Démarche.** Les valeurs pour $n = 0$ à 39 sont toutes premières ; pour $n = 40$, $40^2 + 40 + 41 = 40 \times 41 + 41 = 41^2 = 1\,681$. Pour $n = 41$ : $41^2 + 41 + 41 = 41 \times 43$, divisible par 41 sans calcul. Quarante succès de suite, et la phrase « pour tout $n$ » est fausse.
 
 **Erreurs fréquentes.** Conclure « toujours premier » après quelques essais ; compter 39 nombres de 0 à 39.
-
-### Ex R4.20 — Les ensembles de Python : `set`, `|`, `&`, `-`
-
-**Réponses** : a) `11` · b) `{'a', 'e', 'i', 'q', 's', 't', 'u'}` · c) `9` · d) `True` · e) `{'h', 'm'}` · f) `True`.
-
-**Démarche.** Chaque réponse tient en une ligne : `len(set("anticonstitutionnellement"))`, `A & B`, `len(A | B)`, `B <= A`, `A - B`, `set("algorithme") == set("logarithme")`. Comme $B \subset A$, $A \cup B = A$ : c) vaut $\lvert A \rvert = 9$.
-
-**Erreurs fréquentes.** `len("anticonstitutionnellement")` (25, les répétitions comptées) ; `A + B`, qui n'existe pas pour des ensembles ; confondre `A - B` et `B - A` (qui est vide ici).
-
-### Ex R4.23 — Diagrammes de Venn
-
-**Réponse.** `[~in_a & ~in_b, ~(in_a | in_b), ~in_a | ~in_b, ~(in_a & in_b)]`. Les régions 1 et 2 coïncident, et 3 et 4 aussi : ce sont les lois de De Morgan, $\overline{A \cup B} = \bar{A} \cap \bar{B}$ et $\overline{A \cap B} = \bar{A} \cup \bar{B}$.
-
-**Erreurs fréquentes.** `not in_a` ou `in_a and in_b` sur des tableaux NumPy (une erreur : `and`, `or` et `not` veulent un seul booléen) ; oublier les parenthèses, `~in_a & ~in_b` étant juste mais `~in_a | in_b & ...` mélangeant les priorités.
-
-### Ex R4.18 — Σ et Π en Python · `sum_over`, `prod_over`
-
-**Réponses** : a) `[85, 0, 1024, 1]` · b) `0.9990234375` ($1 - \frac{1}{1\,024}$).
-
-**Démarche.** `total = 0`, puis `for k in range(start, stop + 1): total = total + f(k)` ; `prod_over` part de `1` et multiplie. Une somme vide reste à 0, un produit vide à 1, sans cas particulier à écrire.
-
-**Erreurs fréquentes.** `range(start, stop)`, qui oublie le dernier terme ; un produit qui part de 0 ; un total qui part de `0.0` (le résultat devient un flottant).
 
 ### Ex R4.22 — Vérifier une formule de somme de 1 à 1 000, puis la démontrer
 
@@ -438,6 +432,12 @@ $$\sum_{k=1}^{n+1} k^3 = \frac{n^2(n+1)^2}{4} + (n + 1)^3 = \frac{(n + 1)^2}{4}\
 c'est la formule au rang $n + 1$. *Conclusion* : par récurrence, elle est vraie pour tout $n \ge 1$. ∎ Remarque : $\sum k^3 = \left(\sum k\right)^2$.
 
 **Erreurs fréquentes.** `n * (n + 1) // 2 ** 2` (la puissance passe avant la division : on divise par 4, pas au carré) ; `range(1, n)` ; conclure de b) que la formule A est démontrée.
+
+### Ex R4.23 — Diagrammes de Venn
+
+**Réponse.** `[~in_a & ~in_b, ~(in_a | in_b), ~in_a | ~in_b, ~(in_a & in_b)]`. Les régions 1 et 2 coïncident, et 3 et 4 aussi : ce sont les lois de De Morgan, $\overline{A \cup B} = \bar{A} \cap \bar{B}$ et $\overline{A \cap B} = \bar{A} \cup \bar{B}$.
+
+**Erreurs fréquentes.** `not in_a` ou `in_a and in_b` sur des tableaux NumPy (une erreur : `and`, `or` et `not` veulent un seul booléen) ; oublier les parenthèses, `~in_a & ~in_b` étant juste mais `~in_a | in_b & ...` mélangeant les priorités.
 
 ### Ex R4.24 — Chasse à l'erreur : une « démonstration » par récurrence qui prouve le faux
 

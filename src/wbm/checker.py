@@ -805,6 +805,9 @@ def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False, value
         if matches_all(arr * 100):
             return ("Tes valeurs sont exactement 100 fois trop petites : des proportions données au lieu de "
                     "pourcentages, ou une division par 100 en trop ?")
+    if (arr.ndim == 1 and arr.size > 1 and not np.array_equal(arr, arr[::-1])
+            and _hash_value(ex_id, entry, arr[::-1]) == entry["hash"]):   # the right values, read backwards
+        return "Les valeurs sont bonnes, mais dans l'ordre inverse : relis l'ordre demandé par l'énoncé."
     # every sign inverted (a direction -u instead of u): said before the element count, which would only report the
     # zeros as right
     if nonzero.size and matches_all(-arr):
@@ -848,6 +851,7 @@ def _looks_like_decimal_comma(value) -> bool:
             and all(isinstance(v, numbers.Integral) and not isinstance(v, bool) for v in value) and value[1] >= 0)
 
 
+_TRUTH_LETTERS = re.compile(r"\s*[VFvf](?:[\s,;]*[VFvf])+\s*")   # "VFVV", "V, F, V, V"
 _ENGLISH_THOUSANDS = re.compile(r"[+-]?[1-9]\d{0,2}(?:,\d{3})+")
 
 
@@ -937,6 +941,13 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
     if kind == "str" and isinstance(value, (list, tuple)) and value and all(
             isinstance(item, str) and len(item.strip()) == 1 and item.strip().isalpha() for item in value):
         value = ", ".join(item.strip() for item in value)   # ["A", "C"] for "AC": read as the text of the letters
+    if kind == "array" and isinstance(value, str) and _TRUTH_LETTERS.fullmatch(value):
+        value = [letter for letter in value.upper() if letter in "VF"]   # "VFVV": a column of a truth table
+    if kind in ("array", "set") and isinstance(value, (list, tuple)) and any(item is None for item in value):
+        if computed:
+            return False, "wrong", ("Une valeur de la liste vaut None : une de tes fonctions a-t-elle oublié son "
+                                    "`return`, ou rend-elle None trop tôt (dans la boucle, ou pour un cas particulier) ?")
+        return False, "type", "Un élément de ta liste vaut None : remplace-le par ta valeur."
     decimals = entry.get("decimals")
     accepted = {entry["hash"], *entry.get("alt_hashes", [])}
     try:
@@ -1067,6 +1078,9 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
         return False, "wrong", "Ce n'est pas la bonne réponse : relis l'énoncé et justifie ton choix."
     if kind == "set":
         return False, "wrong", _set_diagnosis(ex_id, entry, value)
+    if kind == "str" and computed:   # a value of the learner's function: no advice about choices or spelling
+        return False, "wrong", ("Ta fonction ne renvoie pas la bonne valeur ici. Relis l'énoncé et sa docstring ; si elle "
+                                "fait partie de `mymath`, ses tests (`pytest`) disent quel cas pose problème.")
     if kind == "str" and (_shape_reading(value) is not None or (   # a wrong shape or vector: no spelling hint
             isinstance(value, str) and _NUMBER_TUPLE_TEXT.fullmatch(value))):
         return False, "wrong", _WRONG_SHAPE
@@ -1255,7 +1269,8 @@ def check(ex_id, value, decimals: int | None = None, *, quiet: bool = False, com
         return CheckResult(ex_id, passed, status, message)
 
     if value is None and computed:   # the value comes from the learner's function, which returned nothing
-        return done(False, "wrong", "ta fonction a renvoyé None : as-tu oublié le `return` ?", "❌")
+        return done(False, "wrong", "ta fonction a renvoyé None : as-tu oublié le `return`, ou rend-elle None trop tôt "
+                                    "(un return dans la boucle, ou un cas particulier) ?", "❌")
     if value is None:                # a placeholder, or a function of the learner without `return`
         return done(False, "pending", "pas encore fait (remplace `None` par ta réponse ; si cette valeur vient "
                     "d'une fonction que tu as écrite, vérifie qu'elle se termine par `return`).", "⏳")

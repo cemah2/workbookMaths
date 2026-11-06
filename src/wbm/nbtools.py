@@ -82,6 +82,9 @@ _BEGINNER_HINTS = (
                        "lieu de sa valeur ?"),
     ("Did you forget to import", "un module n'est pas importé : ajoute la ligne import en haut du fichier"),
     ("division by zero", "une division par zéro : un cas particulier doit-il être traité avant la division ?"),
+    ("truth value of an array with more than one element is ambiguous",
+     "sur des tableaux NumPy, pas de not, and ni or (ils attendent un seul booléen) : écris ~, & et |, avec des "
+     "parenthèses autour de chaque comparaison"),
 )
 
 
@@ -586,6 +589,20 @@ def _test_path(test_file, root: Path) -> str:
         return str(full)
 
 
+_SUMMARY_WORDS = [(r"\b(\d+) passed\b", r"\1 réussi(s)"), (r"\b(\d+) failed\b", r"\1 en échec"),
+                  (r"\b(\d+) errors?\b", r"\1 erreur(s)"), (r"\b(\d+) skipped\b", r"\1 ignoré(s)"),
+                  (r"\b(\d+) deselected\b", r"\1 non sélectionné(s)"), (r"\b(\d+) xfailed\b", r"\1 échec(s) prévu(s)"),
+                  (r"\b(\d+) xpassed\b", r"\1 réussite(s) inattendue(s)"), (r"\bno tests ran\b", "aucun test lancé"),
+                  (r"\bin (\d+)\.(\d+)s\b", r"en \1,\2 s")]
+
+
+def _french_summary(summary: str) -> str:
+    """pytest's summary line in French: "1 failed, 7 deselected in 0.25s" -> "1 en échec, 7 non sélectionné(s) en 0,25 s"."""
+    for pattern, french in _SUMMARY_WORDS:
+        summary = re.sub(pattern, french, summary)
+    return summary
+
+
 def run_pytest_group(test_file, keyword: str | None = None, impl: str = "learner", timeout: float = 300,
                      *, max_shown: int = 8, root=None, env: dict | None = None, args=()) -> GroupResult:
     """Run the tests of ``test_file`` selected by ``keyword`` (``pytest -k``), on the learner's code by default.
@@ -652,6 +669,13 @@ def run_pytest_group(test_file, keyword: str | None = None, impl: str = "learner
         rank = 2 if pending else (0 if clear_first else 1)
         failures.append((rank, pending, kind, name, reason))
     failures.sort(key=lambda f: f[0])                    # stable: pytest's order within each rank
+    # the first failing case of each test function first: one buggy function must not hide the others
+    firsts, repeats, seen = [], [], set()
+    for failure in failures:
+        base = failure[3].split("[", 1)[0]
+        (repeats if base in seen else firsts).append(failure)
+        seen.add(base)
+    failures = firsts + repeats
 
     for line in lines:                                   # conftest notes: modules not created yet, import errors
         text = line.strip()
@@ -682,6 +706,6 @@ def run_pytest_group(test_file, keyword: str | None = None, impl: str = "learner
         shown = re.sub(r"\b\d+ failed\b", f"{n_pending} en attente ⏳ ({words})", summary, count=1)
     else:
         shown = summary + (f" (dont {n_pending} en attente ⏳ : fonction pas encore écrite)" if n_pending else "")
-    print("pytest:", shown)
+    print("pytest:", _french_summary(shown))
     return GroupResult(passed=_count(summary, "passed"), failed=_count(summary, "failed"),
                        errors=_count(summary, "errors?"), pending=sum(f[1] for f in failures), summary=summary)

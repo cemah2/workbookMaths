@@ -1,10 +1,10 @@
 # PROGRESS : état de la génération de workbookMaths
 
-*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-06, session 7 (R3).*
+*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-06, session 8 (R4).*
 
 ## Prochaine étape
 
-➡️ **Session 8 : R4** (Logique, ensembles, Σ et Π), puis **R5** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre.
+➡️ **Session 9 : R5** (Suites), puis **R6** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre.
 
 Avant la génération de la partie I : **session de syllabus de la partie I** (détailler M02a à M06 et CP1 : exercices, stubs `mymath`, temps, frontières explicites), en tenant compte du calibrage de la partie 0. Rafraîchir d'abord la copie de workbookIA (`python tools/snapshot_workbookia.py <clone> --check`).
 
@@ -12,7 +12,7 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 
 | Partie | Chapitres | Statut |
 |---|---|---|
-| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | R0 ✅, POS ✅, R1 ✅, R2 ✅, R3 ✅ ; le reste 📅 |
+| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | R0 ✅, POS ✅, R1 ✅, R2 ✅, R3 ✅, R4 ✅ ; le reste 📅 |
 | I · Fondations | M02a à M06, CP1 | 📅 planifié |
 | II · Concepts | M07 à M11, CP2 | 📅 planifié |
 | III · ML classique | M12a à M14, CP3 | 📅 planifié |
@@ -46,11 +46,21 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 
 - R3 : R3.23 retitré (« Prédire f∘g et g∘f pour « valeur absolue » et « moins 3 » ») ; R3.2 (📈) lit un autre graphique que celui de la première version (relecture à l'aveugle) ; R3.10b répondu par un flottant (pour diagnostiquer 1/f) ; R3.21 dessine dans les axes reçus (`plot_reference(axes)`, comme R3.22 et R3.26) et a des vérifications automatiques ; R3.19a vérifié sur `quadratic_roots(-2, 7, -3)` ; durée 12,8 h (13 h prévues). ID inchangés.
 
+- R4 : R4.4 retitré (« Opérations sur des ensembles et dénombrement ») et R4.R3 (« Additionner des fractions ») ; R4.R2 rattaché au §6 ; R4.14 réécrit (il reprenait workbookIA 9.1, ajouté aux frontières) ; frontières : 0B.3, 0B.5 et 9.1 ; lecture de la fiche à 195 min (13,2 h en parcours complet, 9,9 h en parcours essentiel, au lieu de 12,4 h et 9,1 h) ; notebook rangé dans l'ordre des ID (A : R4.17 à R4.19, B : R4.20 à R4.23, C : R4.24, R4.25). ID inchangés.
+
+**À retenir pour R5 à R9** (R4) : chercher aussi les doublons dans les chapitres de workbookIA **après** 0B (R4.14 reprenait 9.1 : lire la liste des exercices de la copie figée `docs/syllabus/workbookia_notions.json` pour le thème du chapitre) ; une valeur que la fonction de l'apprenant peut rendre sous plusieurs types (None, False, un entier) se vérifie par son `repr` ; une vérification qui compare à une première valeur ne se fait que si celle-ci est juste (`wbm.check(...).passed`) ; un exercice sur des opérateurs (`&` contre `and`) doit avoir des données où le mauvais opérateur donne une mauvaise réponse ; ne rien écrire avant un 🔮 (objectifs du notebook, introduction de la partie, fiche) qui en donne l'issue ; les messages d'erreur classique ne donnent ni un calcul de la réponse (« 30 − 7 + 1 ») ni la valeur qui la contredit.
+
 **À retenir pour R4 à R9** (en plus de la liste qui suit) : une fonction de tracé reçoit ses axes et se vérifie avec `drawn` (de `wbm.nbtools`) ; une sortie triée ou ordonnée se vérifie sur une entrée où l'ordre naturel est faux ; inutile d'enregistrer les valeurs arrondies d'une réponse exacte (6 décimales ou plus) ni les écarts de plusieurs lignes d'un 🐛 (`bug_letters_mistakes` les couvre) ; une prédiction (🔮) n'a que ses `mistakes` comme indices ; dans les tests, chaque appel passe par un `_result` (voir `tests/test_r3_functions.py`) et les cas paramétrés ont des `ids` ; calculer les valeurs des erreurs classiques en exécutant le code fautif (une valeur impossible ne se déclenche jamais).
 
 **À retenir pour R3 à R9** : les vérifications qui appellent le code de l'apprenant passent par `checked` (de `wbm.nbtools`), pour qu'une erreur de son code ne bloque pas « Run all » ; un ensemble de solutions s'enregistre avec 6 décimales quand une fraction non décimale est attendue ; tester aussi les cas dégénérés pour **tous** les sens ou toutes les branches (un test oublié laisse passer un code faux) ; une réponse qu'il faut **arrondir** (ou un décimal exact) s'enregistre en `kind="fraction"` (ou avec plus de décimales que demandé), sinon une valeur non arrondie passe ; un exemple de forme ne doit être la réponse d'aucune question du chapitre (`tests/infra/test_examples_are_not_answers.py`) ; un test d'algorithme dont la version naïve ne finit jamais passe par `_within` (limite de temps, voir `tests/test_r1_arith.py`) ; chaque groupe de tests lancé par le notebook inclut le test qui interdit les outils tout faits (`or test_arith_uses`) ; les cas `ValueError` passent par `_expect_value_error` (une autre exception dit d'abord ce qui était attendu).
 
 **À retenir pour R1 à R9** : ne reprendre aucun nombre ni aucune donnée du test de positionnement (sujet : `positionnement/01_sujet.md`) ; en R5, le 🔮 prévu sur une suite uₙ₊₁ = ½uₙ + 1 est proche de POS.10 (vₙ₊₁ = ½vₙ + 3) : changer ses nombres. Les messages génériques de `wbm` hérités de workbookIA parlent parfois ML ou Python (« indice (1,) », « arrondis avec round() », « vérifie-le avec SymPy ») : les adapter à la partie 0 si un chapitre en souffre.
+
+## Session 8 (2026-11-06) : chapitre R4 ✅
+
+**Fait** : `chapitres/r4_logique_ensembles/` : fiche en 8 sections (≈ 7 200 mots, 4 figures par `tools/chapters/figures_r4.py` : diagrammes de Venn, escalier de Σk, tableau d'une somme double, dominos, exemples `>>>` vérifiés), 36 exercices (8 quiz, 3 rappels, 8 ✏️, 5 ∂, 🔗, ⚖️, 🗣️, 3 🔨, 📦, 🔮, 🔬, 🎨, 🐛, 🛠️), notebooks par `tools/chapters/build_r4.py` (partie 0 : 67 vérifications papier ; parties A à C : 9 exercices ; solutions en 4 s), 108 indices, solutions avec grilles de relecture des ∂, feuille de réponses, 22 flashcards ; `solutions/mymath_ref/logic.py` et `tests/test_r4_logic.py` (45 tests, oracles SymPy `summation` et `product`, `math.prod`, évaluation directe) ; 93 réponses ajoutées à `answers.json` (488 au total) ; glossaire (+21 termes), symboles, formulaire, erreurs fréquentes.
+
+**Vérification indépendante** (sous-agents) : re-résolution à l'aveugle (toutes les réponses retrouvées ; 11 groupes de remarques, dont un doublon avec workbookIA 9.1 et des exemples proches de 0B) ; apprenant simulé (notebook rempli avec des écritures variées et des erreurs classiques, `logic.py` écrit avec des bugs de débutant ; 15 remarques). Corrigés : R4.14 réécrit, exemples et titres proches de 0B remplacés, messages qui donnaient la réponse, vérifications de R4.19 que `False == 0` trompait, données de R4.20 où `and` et `or` donnaient la bonne réponse, issue du 🔮 R4.21 annoncée avant la prédiction, vérifications de R4.22 et R4.23 qui accusaient la mauvaise fonction, `wbm` plus clair (BIBLE §24).
 
 ## Session 7 (2026-11-06) : chapitre R3 ✅
 

@@ -381,7 +381,7 @@ La démonstration la plus célèbre de ce type montre que $\sqrt{2}$ n'est pas u
 
 Pour montrer qu'une phrase « pour tout $x$, $P(x)$ » est **fausse**, il suffit de **un** $x$ pour lequel $P(x)$ est fausse : c'est la négation du §3. « Tout nombre premier est impair » est faux : 2 est premier et pair. « Pour tous réels $a$ et $b$, $(a + b)^2 = a^2 + b^2$ » est faux : $a = b = 1$ donne $4 \ne 2$.
 
-⚠️ **Des exemples ne démontrent pas un « pour tout ».** Vérifier une propriété sur 10, 1 000 ou un milliard de cas ne prouve rien pour les suivants (R4.21 en montre une qui tient longtemps avant de tomber). À l'inverse, **un seul** contre-exemple suffit à réfuter. Un ordinateur est donc très bon pour chercher des contre-exemples, et ne remplace jamais une démonstration.
+⚠️ **Des exemples ne démontrent pas un « pour tout ».** Vérifier une propriété sur 10, 1 000 ou un milliard de cas ne prouve rien pour les suivants (R4.21 te le fera tester sur un exemple). À l'inverse, **un seul** contre-exemple suffit à réfuter. Un ordinateur est donc très bon pour chercher des contre-exemples, et ne remplace jamais une démonstration.
 
 ### La disjonction de cas
 

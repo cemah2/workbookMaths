@@ -541,84 +541,6 @@ Pour `implies`, la table de $P \Rightarrow Q$ est celle de « (non P) ou Q ».
 
 </details>
 
-### Ex R4.19 — Chercher un contre-exemple de 0 à N · `find_counterexample`
-
-<details><summary>Indice 1</summary>
-
-Relis « Le contre-exemple » et la cellule Python de la fin du §6.
-
-</details>
-<details><summary>Indice 2</summary>
-
-Une boucle `for n in range(...)` qui s'arrête au premier `n` pour lequel `predicate(n)` est faux, et `return n` ; après la boucle, `return None`. Les deux bornes 0 et `n_max` sont essayées.
-
-</details>
-<details><summary>Indice 3</summary>
-
-Squelette :
-```python
-for n in range(n_max + 1):
-    if not predicate(n):
-        return ...
-return None
-```
-
-</details>
-
-### Ex R4.21 — Prédire : n² + n + 41 est-il toujours un nombre premier ?
-
-<details><summary>Indice 1</summary>
-
-Relis l'encadré « Des exemples ne démontrent pas un « pour tout » » (fiche §6).
-
-</details>
-<details><summary>Indice 2</summary>
-
-Pour prédire, calcule encore deux ou trois valeurs à la main, puis demande-toi si quelques succès suffisent à affirmer « pour tout $n$ ».
-
-</details>
-<details><summary>Indice 3</summary>
-
-Pour c, compte les nombres premiers affichés (ou utilise `sum(is_prime(...) for n in range(40))`). Pour la copie, écris $41^2 + 41 + 41$ en mettant 41 en facteur.
-
-</details>
-
-### Ex R4.20 — Les ensembles de Python : `set`, `|`, `&`, `-`
-
-<details><summary>Indice 1</summary>
-
-Relis la cellule Python du §4 et workbookIA 0A §100.3.4.
-
-</details>
-<details><summary>Indice 2</summary>
-
-`set("mot")` donne les lettres sans répétition ; `len` les compte ; `A & B`, `A | B`, `A - B`, `B <= A` font le reste, chacun en une ligne.
-
-</details>
-<details><summary>Indice 3</summary>
-
-a : `len(set("anticonstitutionnellement"))`. Pour b, `A & B` est déjà un ensemble : donne-le tel quel. Pour f, compare deux `set(...)` avec `==`.
-
-</details>
-
-### Ex R4.23 — Diagrammes de Venn
-
-<details><summary>Indice 1</summary>
-
-Relis « Les opérations » et les lois de De Morgan (fiche §4).
-
-</details>
-<details><summary>Indice 2</summary>
-
-Sur des tableaux NumPy, `not`, `and` et `or` ne marchent pas point par point : utilise `~`, `&` et `|`, avec des parenthèses autour de chaque morceau.
-
-</details>
-<details><summary>Indice 3</summary>
-
-Le premier tableau est `~in_a & ~in_b` ; le deuxième nie l'union : `~(in_a | in_b)`. Écris les deux autres de la même façon, puis `return [premier, deuxième, troisième, quatrième]`.
-
-</details>
-
 ### Ex R4.18 — Σ et Π en Python · `sum_over`, `prod_over`
 
 <details><summary>Indice 1</summary>
@@ -644,6 +566,66 @@ return total
 
 </details>
 
+### Ex R4.19 — Chercher un contre-exemple de 0 à N · `find_counterexample`
+
+<details><summary>Indice 1</summary>
+
+Relis « Le contre-exemple » et la cellule Python de la fin du §6.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Une boucle `for n in range(...)` qui s'arrête au premier `n` pour lequel `predicate(n)` est faux, et `return n` ; après la boucle, `return None`. Les deux bornes 0 et `n_max` sont essayées.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Squelette :
+```python
+for n in range(n_max + 1):
+    if not predicate(n):
+        return ...
+return None
+```
+
+</details>
+
+### Ex R4.20 — Les ensembles de Python : `set`, `|`, `&`, `-`
+
+<details><summary>Indice 1</summary>
+
+Relis la cellule Python du §4 et workbookIA 0A §100.3.4.
+
+</details>
+<details><summary>Indice 2</summary>
+
+`set("mot")` donne les lettres sans répétition ; `len` les compte ; `A & B`, `A | B`, `A - B`, `B <= A` font le reste, chacun en une ligne.
+
+</details>
+<details><summary>Indice 3</summary>
+
+a : `len(set("anticonstitutionnellement"))`. Pour b, `A & B` est déjà un ensemble : donne-le tel quel. Pour f, compare deux `set(...)` avec `==`.
+
+</details>
+
+### Ex R4.21 — Prédire : n² + n + 41 est-il toujours un nombre premier ?
+
+<details><summary>Indice 1</summary>
+
+Relis l'encadré « Des exemples ne démontrent pas un « pour tout » » (fiche §6).
+
+</details>
+<details><summary>Indice 2</summary>
+
+Pour prédire, calcule encore deux ou trois valeurs à la main, puis demande-toi si quelques succès suffisent à affirmer « pour tout $n$ ».
+
+</details>
+<details><summary>Indice 3</summary>
+
+Pour c, compte les nombres premiers affichés (ou utilise `sum(is_prime(...) for n in range(40))`). Pour la copie, écris $41^2 + 41 + 41$ en mettant 41 en facteur.
+
+</details>
+
 ### Ex R4.22 — Vérifier une formule de somme de 1 à 1 000, puis la démontrer
 
 <details><summary>Indice 1</summary>
@@ -659,6 +641,24 @@ Relis « Deux sommes à connaître » (fiche §5) et « Un exemple de somme » (
 <details><summary>Indice 3</summary>
 
 `formula_a(n)` : `(n * (n + 1) // 2) ** 2`. Pour la démonstration, l'hérédité donne $\frac{n^2(n+1)^2}{4} + (n + 1)^3 = \frac{(n + 1)^2}{4}\left(n^2 + 4(n + 1)\right)$ : reconnais un carré dans la parenthèse.
+
+</details>
+
+### Ex R4.23 — Diagrammes de Venn
+
+<details><summary>Indice 1</summary>
+
+Relis « Les opérations » et les lois de De Morgan (fiche §4).
+
+</details>
+<details><summary>Indice 2</summary>
+
+Sur des tableaux NumPy, `not`, `and` et `or` ne marchent pas point par point : utilise `~`, `&` et `|`, avec des parenthèses autour de chaque morceau.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Le premier tableau est `~in_a & ~in_b` ; le deuxième nie l'union : `~(in_a | in_b)`. Écris les deux autres de la même façon, puis `return [premier, deuxième, troisième, quatrième]`.
 
 </details>
 

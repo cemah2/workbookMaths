@@ -45,6 +45,21 @@ def _expect_value_error(call, what, why):
     pytest.fail(f"expected {what} to raise ValueError ({why}), but it returned a value")
 
 
+def _poly(*coefficients):
+    """The polynomial in k with these coefficients (highest degree first), written for a message: "2k² − k + 3"."""
+    names = {2: "k²", 1: "k", 0: ""}
+    degree = len(coefficients) - 1
+    text = ""
+    for power, c in zip(range(degree, -1, -1), coefficients):
+        if c == 0:
+            continue
+        sign = "−" if c < 0 else "+"
+        size = abs(c)
+        body = (str(size) if size != 1 or power == 0 else "") + names[power]
+        text += (f" {sign} " if text else ("−" if c < 0 else "")) + body
+    return text or "0"
+
+
 def _table(formula, n):
     """The oracle: every combination, all true first, and the value of the formula."""
     return [(values, bool(formula(*values))) for values in itertools.product([True, False], repeat=n)]
@@ -133,10 +148,11 @@ def test_sum_over_matches_sympy(logic):
         start = rng.randint(-6, 6)
         stop = start + rng.randint(0, 12)
         want = int(sp.summation(a * K**2 + b * K + c, (K, start, stop)))
+        term = _poly(a, b, c)
         got = _result(lambda: logic.sum_over(lambda k: a * k * k + b * k + c, start, stop),
-                      f"sum of {a}k² + {b}k + {c} for k = {start}..{stop} == {want}")
-        assert got == want, (f"expected sum_over({a}k² + {b}k + {c}, {start}, {stop}) == {want} (both ends included, "
-                             f"like sympy.summation), got {got!r}")
+                      f"sum of {term} for k = {start}..{stop} == {want}")
+        assert got == want, (f"expected sum_over({term}, {start}, {stop}) == {want} (both ends included, like "
+                             f"sympy.summation), got {got!r}")
 
 
 @pytest.mark.parametrize("terms, start, stop, want, why", [
@@ -154,8 +170,8 @@ def test_sum_over_special_cases(logic, terms, start, stop, want, why):
 
 def test_sum_over_keeps_integers(logic):
     got = _result(lambda: logic.sum_over(lambda k: 2 * k, 1, 4), "the int 20")
-    assert isinstance(got, int) and got == 20, (
-        f"expected the int 20 (2 + 4 + 6 + 8): start the total at 0, not 0.0, got {got!r}")
+    assert got == 20, f"expected 20 (2 + 4 + 6 + 8, both ends included), got {got!r}"
+    assert isinstance(got, int), f"expected the int 20, not {got!r}: start the total at 0, not 0.0"
 
 
 def test_sum_over_works_with_floats(logic):
@@ -171,9 +187,10 @@ def test_prod_over_matches_sympy(logic):
         start = rng.randint(-4, 4)
         stop = start + rng.randint(0, 7)
         want = int(sp.product(a * K + c, (K, start, stop)))
+        term = _poly(a, c)
         got = _result(lambda: logic.prod_over(lambda k: a * k + c, start, stop),
-                      f"product of {a}k + {c} for k = {start}..{stop} == {want}")
-        assert got == want, (f"expected prod_over({a}k + {c}, {start}, {stop}) == {want} (both ends included, like "
+                      f"product of {term} for k = {start}..{stop} == {want}")
+        assert got == want, (f"expected prod_over({term}, {start}, {stop}) == {want} (both ends included, like "
                              f"sympy.product), got {got!r}")
 
 
@@ -192,8 +209,8 @@ def test_prod_over_special_cases(logic, start, stop, want, why):
 def test_prod_over_keeps_integers(logic):
     want = math.prod(range(1, 13))
     got = _result(lambda: logic.prod_over(lambda k: k, 1, 12), f"the int {want}")
-    assert isinstance(got, int) and got == want, (
-        f"expected the int 12! = {want} (start the product at 1, not 1.0), got {got!r}")
+    assert got == want, f"expected 12! = {want} (both ends included), got {got!r}"
+    assert isinstance(got, int), f"expected the int {want}, not {got!r}: start the product at 1, not 1.0"
 
 
 # ---------------------------------------------------------------- find_counterexample

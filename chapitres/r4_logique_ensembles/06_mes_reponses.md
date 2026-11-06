@@ -305,7 +305,7 @@
 
 ### Ex R4.20 — Les ensembles de Python
 
-- Pourquoi la réponse de c) découle de celle de d) :
+- La réponse de c), retrouvée avec la formule du cardinal d'une union :
 
 ### Ex R4.23 — Diagrammes de Venn
 

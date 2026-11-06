@@ -946,3 +946,23 @@ def test_an_expression_typed_for_a_list_of_coefficients_gets_the_form_in_words()
 def test_a_value_from_the_learners_function_gets_no_hint_about_its_sign():
     e = entry("t3.8", -13)
     assert "Ta fonction" in C.check_entry("t3.8", e, 26, computed=True)[2]
+
+
+# ---------------------------------------------------------------- R4: learner simulation
+
+def test_a_truth_table_column_typed_as_letters_is_read():
+    e = entry("t4.1", [False, True, True, True])
+    assert passes("t4.1", e, "FVVV") and passes("t4.1", e, "f, v, v, v")
+    assert "ordre inverse" in message("t4.1", e, "VVVF")
+
+
+def test_a_none_inside_a_list_is_named():
+    e = entry("t4.2", [85, 0, 1024, 1])
+    assert "None" in C.check_entry("t4.2", e, [85, None, 1024, 1], computed=True)[2]
+    assert "None" in message("t4.2", e, [85, None, 1024, 1])
+
+
+def test_a_text_computed_by_the_learners_function_gets_no_spelling_advice():
+    e = entry("t4.3", "None", mistakes={"rends None, pas False": "False"})
+    text = C.check_entry("t4.3", e, "0", computed=True)[2]
+    assert "Ta fonction" in text and "orthographe" not in text

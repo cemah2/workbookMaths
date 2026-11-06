@@ -92,7 +92,8 @@ def _parse_fraction(value) -> tuple[Fraction, bool | None]:
         if not math.isfinite(x):
             raise MathNormalizationError("une fraction exacte, pas l'infini ni NaN")
         candidate = Fraction(x).limit_denominator(10**6)
-        if abs(float(candidate) - x) <= 1e-12 * max(1.0, abs(x)) and len(repr(x)) <= 12:
+        # 25/12 typed as a Python calculation (2.0833333333333335) is that fraction: the nearest float to it
+        if abs(float(candidate) - x) <= 1e-12 * max(1.0, abs(x)) and (len(repr(x)) <= 12 or float(candidate) == x):
             return candidate, None
         raise _ApproximateValue(x)
     if isinstance(value, str):
@@ -559,8 +560,8 @@ def _check_fraction(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
         mistake = _approximated_mistake(ex_id, entry, exc.x, decimals)   # 65/120 typed as a calculation: 13/24
         if mistake:
             return False, "wrong", mistake
-        return False, "wrong", ("Ce n'est pas la bonne valeur : reprends le calcul étape par étape (et donne une "
-                                "valeur exacte : une fraction se tape comme un calcul, 2/7, ou entre guillemets).")
+        return False, "wrong", ("Ce n'est pas la bonne valeur : reprends le calcul étape par étape (et donne la valeur "
+                                "exacte, sous forme de fraction, comme \"2/7\").")
     digest = _hash(ex_id, "fraction", _norm_fraction(q))
     if digest == entry["hash"]:
         if entry.get("simplified") and irreducible is False:

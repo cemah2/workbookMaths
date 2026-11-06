@@ -302,3 +302,45 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] R3.26 🛠️ Un graphique propre : titre, axes, légende ★ 15 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (25 cartes)
 <!-- wbm:end R3 -->
+
+<!-- wbm:section R4 -->
+## R4 · Logique, ensembles, Σ et Π ⏱️ 13,2 h
+
+- [ ] R4.Q1 🧠 Vrai, faux, ou pas une proposition ? ★ 4 min
+- [ ] R4.Q2 🧠 Réciproque ou contraposée ? ★ 4 min
+- [ ] R4.Q3 🧠 Nier une phrase avec « pour tout » ★ 4 min
+- [ ] R4.Q4 🧠 Ensembles : vrai ou faux ★ 4 min
+- [ ] R4.Q5 🧠 Lire une somme Σ ★ 4 min
+- [ ] R4.Q6 🧠 Quel raisonnement pour quelle affirmation ? ★ 4 min
+- [ ] R4.Q7 🧠 Les deux étapes d'une récurrence ★ 4 min (complet)
+- [ ] R4.Q8 🧠 Ce qui manque dans une démonstration ★ 4 min (complet)
+- [ ] R4.R1 🔁 Résoudre une inéquation (R2) ★ 5 min
+- [ ] R4.R2 🔁 Composer deux fonctions (R3) ★ 5 min (complet)
+- [ ] R4.R3 🔁 Additionner des fractions (R1) ★ 5 min
+- [ ] R4.1 ✏️ Tables de vérité de « et », « ou », « non » et de l'implication ★ 15 min
+- [ ] R4.2 ✏️ Réciproque, contraposée, négation : écrire les trois ★★ 20 min
+- [ ] R4.3 ✏️ Nier des phrases à deux quantificateurs ★★ 20 min
+- [ ] R4.4 ✏️ Opérations sur des ensembles et dénombrement ★ 15 min
+- [ ] R4.5 ✏️ Produit cartésien et couples ★ 10 min (complet)
+- [ ] R4.6 ✏️ Calculer des sommes Σ et des produits Π ★ 15 min
+- [ ] R4.7 ✏️ Développer, réindexer et découper une somme Σ ; calculer une somme double ★★ 20 min
+- [ ] R4.8 ✏️ Trouver un contre-exemple ★ 10 min
+- [ ] R4.9 ∂ Démonstration directe : la somme de deux nombres pairs est paire ★★ 20 min
+- [ ] R4.10 ∂ Par contraposée : si n² est pair, alors n est pair ★★ 25 min
+- [ ] R4.11 ∂ Par l'absurde : √2 n'est pas une fraction ★★★ 40 min (complet)
+- [ ] R4.12 ∂ Par récurrence : 1 + 2 + … + n = n(n + 1)/2 ★★ 35 min
+- [ ] R4.13 ∂ Par récurrence : 2ⁿ ≥ n + 1 ★★ 35 min (complet)
+- [ ] R4.14 🔗 Écrire la loss moyenne d'un modèle avec Σ ★★ 15 min
+- [ ] R4.15 ⚖️ Repérer un raisonnement fautif dans une phrase de presse ★ 15 min (complet)
+- [ ] R4.16 🗣️ Expliquer la différence entre « si » et « si et seulement si » ★ 10 min
+- [ ] R4.17 🔨 Tables de vérité et implication ★ 30 min (complet)
+- [ ] R4.18 🔨 Σ et Π en Python : `sum_over` et `prod_over` ★ 25 min
+- [ ] R4.19 🔨 Chercher un contre-exemple de 0 à N ★★ 30 min
+- [ ] R4.20 📦 Les ensembles de Python : `set`, `|`, `&`, `-` ★ 10 min
+- [ ] R4.21 🔮 Prédire : n² + n + 41 est-il toujours un nombre premier ? ★ 15 min
+- [ ] R4.22 🔬 Vérifier une formule de somme de 1 à 1 000, puis la démontrer ★★ 20 min (complet)
+- [ ] R4.23 🎨 Diagrammes de Venn ★ 15 min (complet)
+- [ ] R4.24 🐛 Chasse à l'erreur : une « démonstration » par récurrence qui prouve le faux ★★ 20 min
+- [ ] R4.25 🛠️ Rédiger une démonstration propre en LaTeX ★ 20 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (22 cartes)
+<!-- wbm:end R4 -->

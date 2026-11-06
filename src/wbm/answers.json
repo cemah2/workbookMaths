@@ -5105,6 +5105,7 @@
       "kind": "array",
       "mistakes": {
         "158ae1bbae0afe8f8633f9eedc6bdbeab1e42558b2f0f304f7d9a2332ccd7d2a": "c'est la colonne de « P et Q » : il reste à la nier",
+        "21b5d9bb48ca60bf33956f7c61455879e487e3abae4ee191a4de4322bb22f4f5": "les valeurs sont dans l'ordre inverse : les lignes vont dans l'ordre VV, VF, FV, FF",
         "561ecbb1f11f364a52b591d0d218872a86ac846ed2a183ff40e29e802ab31f77": "non (P et Q) est vraie dès qu'une des deux est fausse : ce n'est pas « ni P ni Q »"
       },
       "shape": [
@@ -5124,7 +5125,8 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "825c7097bb24af7d49093c2943b3d157aea870d8e0011d95a393d70a22698ec3": "« ou » est vraie dès qu'au moins une des deux est vraie"
+        "825c7097bb24af7d49093c2943b3d157aea870d8e0011d95a393d70a22698ec3": "« ou » est vraie dès qu'au moins une des deux est vraie",
+        "c2786c3a7b0d9ff834e841257e454ae17fcbdf2400019c1c5ccad10a9ce70882": "les valeurs sont dans l'ordre inverse : les lignes vont dans l'ordre VV, VF, FV, FF"
       },
       "shape": [
         4
@@ -5152,7 +5154,7 @@
       "kind": "array",
       "mistakes": {
         "25d9ef2f6891e05fcce3c6d51c1efca23c5a8db80746c9dd2263bff0f0d1d5bb": "quand P est fausse, P ⇒ Q est vraie : elle n'est fausse que si P est vraie et Q fausse",
-        "8126f0c99d14ba08decc07dac754c5fa0081211680ea8611076d97058ce207a7": "c'est la colonne de Q ⇒ P, la réciproque",
+        "8126f0c99d14ba08decc07dac754c5fa0081211680ea8611076d97058ce207a7": "c'est la colonne de Q ⇒ P (la réciproque), ou celle de P ⇒ Q lue de bas en haut : l'ordre des lignes est VV, VF, FV, FF",
         "d65782d619fc07c228a100bf5a9e5a1dd862c5f37db9de9631983244eb7a835b": "c'est la colonne de la négation de P ⇒ Q"
       },
       "shape": [
@@ -5173,7 +5175,7 @@
       "kind": "array",
       "mistakes": {
         "1213bbb88cff8ef27993958892d75aad47c618dda80dfc6523e274aad43f8215": "Q ⇒ P est vraie quand Q est fausse",
-        "7de4882179145d6056c57f75accf7be6d90216af21c28658fd858a570d341415": "Q ⇒ P n'est fausse que si Q est vraie et P fausse : regarde la ligne FV"
+        "7de4882179145d6056c57f75accf7be6d90216af21c28658fd858a570d341415": "Q ⇒ P n'est fausse que si Q est vraie et P fausse, sur la ligne FV ; l'ordre des lignes est VV, VF, FV, FF"
       },
       "shape": [
         4
@@ -5192,7 +5194,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "989a87396164326031b172c3dac58b32b11a289728a5a767b97d0388227876b7": "(non Q) ⇒ (non P) n'est fausse que si non Q est vraie et non P fausse : regarde la ligne VF"
+        "989a87396164326031b172c3dac58b32b11a289728a5a767b97d0388227876b7": "(non Q) ⇒ (non P) n'est fausse que si non Q est vraie et non P fausse, sur la ligne VF ; l'ordre des lignes est VV, VF, FV, FF"
       },
       "shape": [
         4
@@ -5204,7 +5206,10 @@
       "kind": "str",
       "mistakes": {
         "1b96abe448ca8d55f42035b01e5f7e714b71edab4c3e191a2de684f009f2798f": "une implication a la même table que sa contraposée, pas que sa réciproque",
-        "c110975fd1711dac564940e2baeac4a78a17820bba23d064e38ebde9bbc9d4f4": "une implication a la même table que sa contraposée, pas que sa réciproque"
+        "1f38c975d8c45e10fad72e129a0be7ad34a6db689d189ce57a234c1824ee0af5": "il faut les lettres des deux propositions qui ont la même colonne",
+        "28ea1df09623eef28f2c846c07ab9fea6b7bd211f43eca96887b6b01d6d4832f": "il faut les lettres des deux propositions qui ont la même colonne",
+        "c110975fd1711dac564940e2baeac4a78a17820bba23d064e38ebde9bbc9d4f4": "une implication a la même table que sa contraposée, pas que sa réciproque",
+        "eb765a3b8edfefe854fdd1280edaa71f18d20dcd51093ba0086218abd92fb292": "il faut les lettres des deux propositions qui ont la même colonne"
       },
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
@@ -5264,7 +5269,8 @@
       "kind": "array",
       "mistakes": {
         "bc7a85007866f41795a27a4be3c133d8ac03660141ac5ba32580e641c1414fc1": "la contraposée a toujours la même valeur que l'implication",
-        "d6507bba3e121bb916f58e8479e27f5ad519562217fe5204da19bcb1f66a97d1": "x² > 25 vaut aussi pour des nombres négatifs : essaie-en un"
+        "d6507bba3e121bb916f58e8479e27f5ad519562217fe5204da19bcb1f66a97d1": "x² > 25 vaut aussi pour des nombres négatifs : essaie-en un",
+        "e0341a8c848204f7220e83c5dc6373cfa01ba05fe3f2c9dbf9e55f1e9aff8c88": "x² > 25 vaut aussi pour des nombres négatifs : l'implication a un contre-exemple"
       },
       "shape": [
         4
@@ -5284,6 +5290,7 @@
       "kind": "array",
       "mistakes": {
         "1e15ee23f14d84f34aa2b573b3f0dc3e05dd69e7dc80d163e97b5ced7b1eb6b3": "un seul contre-exemple suffit : cherche un impair qui n'est pas premier",
+        "9a79a3f616bacaa7521d830f0b2297c8c863ea3a34bf0723dc86a886fcce619f": "la négation d'une implication fausse est vraie",
         "e6821b51904f2b4952e305bab9f41b56958b2a5d3d53be9873572489648231c9": "la réciproque « premier ⇒ impair » a un contre-exemple : 2"
       },
       "shape": [
@@ -5329,7 +5336,7 @@
       "magnitude": 0,
       "mistakes": {
         "bace566da11be4af8332968cd97f47174d662a2c34f64367f0a66f7d60bf6586": "6 vérifie B (6² > 25 et 6 > 5) : ce n'est pas un contre-exemple, et l'énoncé demande un entier négatif",
-        "d792d6512e6435881f8ffa6b77a7c0e6b44513d6c1615ba91af6db88f7f9d4b1": "pour x = −5, x² = 25, qui n'est pas strictement plus grand que 25"
+        "d792d6512e6435881f8ffa6b77a7c0e6b44513d6c1615ba91af6db88f7f9d4b1": "vérifie les deux conditions pour ta valeur : x² > 25, strictement, et x ≤ 5"
       },
       "sign": -1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -5525,7 +5532,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "c839b3c3d4ab9615f0541dba45a2551676d18bc8e55d59551c2fa47279cfcb04": "2 choix pour chaque coordonnée : on multiplie autant de fois qu'il y a de coordonnées"
+        "c839b3c3d4ab9615f0541dba45a2551676d18bc8e55d59551c2fa47279cfcb04": "2 choix pour chaque coordonnée : on multiplie autant de fois qu'il y a de coordonnées",
+        "d041f83179b08b12e147b862d86674353a2846a1ca1fe5dea5e5acd8a770813d": "le nombre de triplets est 2 puissance le nombre de coordonnées"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -5705,6 +5713,7 @@
       "hash": "6d2422b54b7a6cdb5b8ecc58be03f11902d2659080672b2124c41e0b353c0f2c",
       "kind": "expr",
       "mistakes": {
+        "1721d67e21eeef1c6b997919d2f718f2b47f734131cb9b86c795435afc1bf93f": "la linéarité garde le facteur 2 devant la somme des k",
         "5a15b4e750016f53bcb3d5eae001896472f80f1ad027bc6697b1568f5a1b35ae": "2 × n(n + 1)/2 = n(n + 1) = n² + n",
         "d104083316496621cfc6f74d208879f436e7ebdb9ff18c64930b686b51e24381": "la constante 3 est ajoutée n fois"
       },
@@ -5772,7 +5781,8 @@
       "hash": "f067ca70a6b20e6c138478446dfad0a81cf4d5d6de583e5380630503211064da",
       "kind": "fraction",
       "mistakes": {
-        "7cb6c23de73a86b140c7602b181351488adbee298b0665eafe14b4a5f021ff32": "seuls le premier et le dernier terme restent : écris le dernier terme, pour k = 9"
+        "7cb6c23de73a86b140c7602b181351488adbee298b0665eafe14b4a5f021ff32": "seuls le premier et le dernier terme restent : écris le dernier terme, pour k = 9",
+        "f7b2f6c74184508eb1b77566047da84423f9d59e1fe754a6a32fa486f43f59e2": "la somme s'arrête à k = 9 : écris son dernier terme"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -5836,7 +5846,7 @@
       "hash": "35ffa29cd76ce12ab8965417008689fedc0fa2106aa9eb126dc6a9263d251a93",
       "kind": "set",
       "mistakes": {
-        "e4bbcbeef7f9a7bbfa506f2ae15196f0a066612690bca24b21d94537973fa811": "développe (x + 1)² = x² + 2x + 1 : l'égalité devient 2x = 0"
+        "e4bbcbeef7f9a7bbfa506f2ae15196f0a066612690bca24b21d94537973fa811": "développe (x + 1)², puis résous l'équation obtenue"
       },
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
@@ -5955,7 +5965,8 @@
         "5f8de16b6f49ec4f5a0e2df8c6e287fcb2fc785b895aba4d00af90401a94e929": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
         "6a21acdea265d6c39a21aa24fcb70667261456a167f5821ed69c93df1a406586": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
         "92930e4f4be2bd9c31c82a6b086cd6a97e28b01e2f08e21185c4a9636e9de5a5": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
-        "d36d2a11d82648b0cc7c166f5ef823c0ae6f48e1c028eb85e2b5992cb2d62ccc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+        "d36d2a11d82648b0cc7c166f5ef823c0ae6f48e1c028eb85e2b5992cb2d62ccc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e477d3079a9c86455954e53c7200c277e710d74c8198b1280c13a4d3950f8846": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
       },
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
@@ -5997,32 +6008,38 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "63964b56f34de3fdfb69b8996646eba047bbe3db4164ad75aad5a1bcd302f955": "la fonction rend le premier n où la propriété est FAUSSE, pas le dernier où elle est vraie"
+        "63964b56f34de3fdfb69b8996646eba047bbe3db4164ad75aad5a1bcd302f955": "la fonction rend le premier n où la propriété est FAUSSE, pas le dernier où elle est vraie",
+        "ed1f09f843e80a1033aa39a23af2340b9935b4886c1cc62f4c0c2bd497538cc7": "la fonction rend le premier n où la propriété est FAUSSE : vérifie le test, if not predicate(n)"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.19b": {
-      "hash": "966c24af957d132b716773cc32aadbd5f1cd55c937b060dc42403029aa36b3c4",
-      "kind": "bool",
+      "hash": "e168b4030cc933f0fec3d1cd05de5245d5dcb6bc770ee97863aa4c600a72bcbd",
+      "kind": "str",
       "mistakes": {
-        "c789ee669ecbd6815c0f26b9923ccdafc61ce756ab13dc5c18fdd01abef1402e": "quand aucun n de 0 à n_max ne contredit la propriété, la fonction rend None"
+        "82e1bee11dd108539808f07c1fcbfe390d20009ab7b06c3976d429f4d1ff55e1": "quand aucun n de 0 à n_max ne contredit la propriété, la boucle va au bout, puis la fonction rend None",
+        "8b754293f62391441f2a3ee4117e56a964368d5aff3be0aa1ca3c8b05b6a0df0": "quand aucun n de 0 à n_max ne contredit la propriété, la boucle va au bout, puis la fonction rend None",
+        "c70c6cafc34864f1db49989d159bc8013a52439e765b57c30fbafd16d9e3a16d": "quand aucun n de 0 à n_max ne contredit la propriété, la fonction rend None, pas False"
       },
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.19c": {
-      "hash": "90c620736e03a49df75655a2b1b30c3272214dfd1c4481d6da8508e0839cbafd",
-      "kind": "bool",
+      "hash": "6994838f841ceb2debb05a44997712ceb853d8897c84fa5d0801abf118e1f378",
+      "kind": "str",
       "mistakes": {
-        "4db8b0c181e2d8c2e01043837cb9c3a4cdee9aece45638cbd8d669f8f8c90515": "0 est le premier entier à essayer : range(n_max + 1) commence à 0"
+        "1e2d54ea3068ad997fd1d6c6e4059cdfbf7d82bbe305fcac9c27816be64a3147": "0 est le premier entier à essayer : range(n_max + 1) commence à 0",
+        "5ccd374dad2cafaf7e1da81b133ef0089ebd62482d939d1095b736c96175f6af": "la fonction rend l'entier n trouvé, pas un booléen",
+        "e45a78c6c04bccda5e18ccb496fac67b3232b085ff5ab8b9aae2fc57b6352f40": "0 est le premier entier à essayer : range(n_max + 1) commence à 0"
       },
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.19d": {
-      "hash": "2a3aeba3b44889e8fc367bf66d32b0d3d13bab40802b41cd14b79c75a425bccd",
-      "kind": "bool",
+      "hash": "c2409306466b98098b68d29709f1560f2ed86d66bdd61e2445f27217bd393be1",
+      "kind": "str",
       "mistakes": {
-        "6b7076eac1e8ed20b05cb3a3824e2a6c3c2b6db39b1ae8255819a5a163f69745": "n_max est essayé lui aussi : range(n_max + 1)"
+        "3a2621fdfdff01dabe36079d5f59857728bb5052c10e67646e9894d173660cd9": "la fonction rend l'entier n trouvé, pas un booléen",
+        "7ff7411941d0dbf1d7653071273f9c256b50014efe604fee60baa467c296ac27": "n_max est essayé lui aussi : range(n_max + 1)"
       },
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
@@ -6037,19 +6054,21 @@
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.20b": {
-      "hash": "2669aed0e860a8eaea25334fd5198973d5a854ffd19af49f632be27f571c977c",
+      "hash": "1607eb92286e04605dde85d81a1bc7482fdc2e37c54669c6be993657eb122808",
       "kind": "set",
       "mistakes": {
-        "a529213e8269f76fc9b6c4aa421599a4f7dd4c6e7f6598e246a7918d70669a10": "A & B : les lettres qui sont dans A et dans B"
+        "08b744e791fc6509e7593697f7d3e7a75cea542ced40742ce650af1dd049e963": "and ne calcule pas une intersection d'ensembles : utilise &",
+        "6352a8b622a671805428fa010930f353ae5b7ab12519f9beb33e75f2e1138d84": "A & B : les lettres qui sont dans A et dans B"
       },
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.20c": {
-      "hash": "882260e58ea84f1eb112964a9a37d99d6f93c1528b4c10a5e6a36090f8f92eae",
+      "hash": "9a367079c61423e89b72f873466effa6a7dabb9689be4f168f58b73b1ceec201",
       "kind": "int",
-      "magnitude": 0,
+      "magnitude": 1,
       "mistakes": {
-        "f284c8869cf1aaa3ef6efdb9e46362bc758f65041dbcb97ec8859e172b5fd9b0": "les lettres communes ne comptent qu'une fois : |A ∪ B| = |A| + |B| − |A ∩ B|"
+        "6ddfbdfe502513c73d84f6f78baea5189dd6c21d301e6227ffa10b0063875a23": "les lettres communes ne comptent qu'une fois : |A ∪ B| = |A| + |B| − |A ∩ B|",
+        "882260e58ea84f1eb112964a9a37d99d6f93c1528b4c10a5e6a36090f8f92eae": "or ne calcule pas une union d'ensembles : utilise |"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -6058,15 +6077,16 @@
       "hash": "408b5439fd75289547bb080195d432a9b0f144f9a3d97c1ca9b3ae0fdd5e1b33",
       "kind": "bool",
       "mistakes": {
-        "f997751fc4f3c66aabd6b7d52a23218fc469a803bcd5f7698064c81bbba224d9": "B <= A teste si chaque lettre de B est aussi dans A"
+        "f997751fc4f3c66aabd6b7d52a23218fc469a803bcd5f7698064c81bbba224d9": "l'inclusion se teste avec <=, l'ensemble inclus à gauche"
       },
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
     "R4.20e": {
-      "hash": "99a39c98030dfae3bdf12db89b12a291b7202507e249b2c42f9d2854586798b6",
+      "hash": "6b9aef2333333da4efe77aa0d59848e8c78b9518680a4dd7c261faa21565bd1a",
       "kind": "set",
       "mistakes": {
-        "a04b2d0c6cf85034a938e789d3d0e9e967046de9d435ef75ebdb8d9260cae834": "A - B : les lettres de A qui ne sont pas dans B"
+        "a2c203d9d6045dab1a426725e80ebda16776de292ead1739788788724d1dd08c": "A - B : les lettres de A qui ne sont pas dans B, et pas celles de B qui ne sont pas dans A",
+        "ebac0c186d5e4fdb72ea39a1b6140c9076768252565b6f1e7cb3054327ebb3af": "A - B : les lettres de A qui ne sont pas dans B, pas l'inverse"
       },
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
     },
@@ -6123,7 +6143,7 @@
       "kind": "int",
       "magnitude": null,
       "mistakes": {
-        "90b45f0e7bd23177149ee72f542d1661d5792e92ac16f1fd841a1fa2562d7ea5": "attention aux priorités : (n * (n + 1) // 2) ** 2, avec des parenthèses autour du produit"
+        "90b45f0e7bd23177149ee72f542d1661d5792e92ac16f1fd841a1fa2562d7ea5": "formule A : vérifie les priorités (la puissance passe avant la division) et l'opérateur de puissance, ** (^ n'est pas une puissance en Python)"
       },
       "sign": 0,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -6133,7 +6153,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "49b1c3017987a8584654e403c28a057ae4bb697c814f6262b01ea3c47cea3f40": "pour n = 1, 2 et 3, le produit (n − 1)(n − 2)(n − 3) est nul : la formule B y est juste"
+        "49b1c3017987a8584654e403c28a057ae4bb697c814f6262b01ea3c47cea3f40": "compare la somme et la formule B pour les premières valeurs de n, une par une, en recopiant la formule B exactement"
       },
       "sign": 1,
       "source": "chapitres/r4_logique_ensembles/05_solutions.ipynb"
@@ -6166,6 +6186,8 @@
       "hash": "7c5a40cb8ca255f6fe9f8005380e5b7d47864499e9f8acc222dcbe8c3ef24131",
       "kind": "str",
       "mistakes": {
+        "357676bf8b2029d64955d26b69b1a977b4caaa823f0acf9ba007593a9196d24d": "c'est la bonne ligne : écris seulement sa lettre",
+        "5262257922463d0e01938ecf0f6de3672dc1ffc963437f9485618d9ed420838c": "c'est la bonne ligne : écris seulement sa lettre",
         "6d1fcb3e8d8a8f43ccab8f5352ae9d46425e4c40155ddd2036b4876700746087": "cette ligne est juste : cherche celle qui ne vaut pas pour toutes les valeurs de n",
         "7f2623d2c454f5334478efa222a800ea3596b6c4380588530567446f7c30769a": "cette ligne est juste : cherche celle qui ne vaut pas pour toutes les valeurs de n",
         "a1dc31e4d3d45e9094fcea19d06e3b60bc724a5e72a34e727f4c29e5b9d57506": "cette ligne est juste : cherche celle qui ne vaut pas pour toutes les valeurs de n",
