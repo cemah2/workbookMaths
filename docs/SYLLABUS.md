@@ -28,15 +28,15 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [R8](#r8) | Probabilités de base | 0B | — | 10,9 h | ✅ exercices | 1 |
 | [R9](#r9) | Géométrie du plan, vecteurs et trigonométrie | 0B | — | 11,0 h | ✅ exercices | 1 |
 | [CP0](#cp0) | Bilan de remise à niveau | 0B | — | 3,3 h | ✅ exercices | 1 |
-| [M02a](#m02a) | Intégrales et densités | 2 | (prérequis de §6.2) | ≈ 14 h (estimé) | plan | 1 |
-| [M02b](#m02b) | Variables aléatoires et lois usuelles | 2 | §6.1, §6.2, §6.4, §6.7 | ≈ 14 h (estimé) | plan | 1 |
-| [M02c](#m02c) | Échantillons et estimation | 2 | §6.4 | ≈ 14 h (estimé) | plan | 1 |
-| [M03](#m03) | Probabilités conditionnelles | 3 | §6.3 | ≈ 12 h (estimé) | plan | 1 |
-| [M04](#m04) | Bayes, vraisemblance et loi Beta | 4 | §6.3, §6.6, §8.3 | ≈ 12 h (estimé) | plan | 1 |
-| [M05a](#m05a) | Dérivées, Taylor et calcul numérique | 5 | §5.1 | ≈ 14 h (estimé) | plan | 1 |
-| [M05b](#m05b) | Fonctions de plusieurs variables et gradient | 5 | §5.2 | ≈ 14 h (estimé) | plan | 1 |
-| [M06](#m06) | Théorie de l'information | 6 | — | ≈ 12 h (estimé) | plan | 1 |
-| [CP1](#cp1) | Examen blanc de la partie I | — | — | ≈ 4 h (estimé) | plan | 1 |
+| [M02a](#m02a) | Intégrales et densités | 2 | (prérequis de §6.2) | 12,6 h | ✅ exercices | 1 |
+| [M02b](#m02b) | Variables aléatoires et lois usuelles | 2 | §6.1, §6.2, §6.4, §6.7 | 13,9 h | ✅ exercices | 1 |
+| [M02c](#m02c) | Échantillons et estimation | 2 | §6.4 | 13,8 h | ✅ exercices | 1 |
+| [M03](#m03) | Probabilités conditionnelles | 3 | §6.3 | 12,8 h | ✅ exercices | 1 |
+| [M04](#m04) | Bayes, vraisemblance et loi Beta | 4 | §6.3, §6.6, §8.3 | 12,9 h | ✅ exercices | 1 |
+| [M05a](#m05a) | Dérivées, Taylor et calcul numérique | 5 | §5.1 | 13,5 h | ✅ exercices | 1 |
+| [M05b](#m05b) | Fonctions de plusieurs variables et gradient | 5 | §5.2 | 13,3 h | ✅ exercices | 1 |
+| [M06](#m06) | Théorie de l'information | 6 | — | 11,4 h | ✅ exercices | 1 |
+| [CP1](#cp1) | Examen blanc de la partie I | — | — | 3,3 h | ✅ exercices | 1 |
 | [M07](#m07) | Vecteurs et géométrie de ℝⁿ | 7 | §3.1, §3.2.1, §3.3, §3.4 | ≈ 14 h (estimé) | plan | 1 |
 | [M08](#m08) | Tests statistiques | 8 | §8.6 | ≈ 10 h (estimé) | plan | 1 |
 | [M09a](#m09a) | Matrices et systèmes linéaires | 9 | §2.1, §2.2, §2.3 | ≈ 16 h (estimé) | plan | 2 |
@@ -80,7 +80,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | Partie | Chapitres | Exercices détaillés | Durée (complet) | Durée (essentiel) |
 |---|---|---|---|---|
 | 0 · Remise à niveau | 12 | 363 | 116,5 h | 93,3 h |
-| I · Fondations | 9 | — | ≈ 110 h (estimé) | à détailler |
+| I · Fondations | 9 | 319 | 107,6 h | 69,7 h |
 | II · Concepts | 7 | — | ≈ 78 h (estimé) | à détailler |
 | III · ML classique | 8 | — | ≈ 98 h (estimé) | à détailler |
 | IV · Réseaux | 6 | — | ≈ 58 h (estimé) | à détailler |
@@ -946,17 +946,76 @@ Le bilan de la remise à niveau, avant d'ouvrir workbookIA 0B : un examen blanc 
 
 L'intégrale comme aire sous une courbe, les primitives et les méthodes de calcul, les intégrales impropres, les méthodes numériques ; puis la densité de probabilité, la fonction de répartition et les quantiles, sans lesquels les lois continues de workbookIA 2 restent des boîtes noires.
 
-**Durée estimée** : ≈ 14 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 12,6 h en parcours complet, 8,7 h en parcours essentiel (lecture 180 min, 22 flashcards).
 
-**Notions enseignées** : aire sous une courbe, sommes de Riemann · primitives · intégrale, théorème fondamental · intégration par parties · changement de variable · intégrales impropres · intégrale de Gauss (valeur admise, vérifiée numériquement ; démontrée en M02b) · méthodes des rectangles, des trapèzes et de Simpson · densité de probabilité · fonction de répartition · quantiles et percentiles · l'AUC est une aire
+**Objectifs**
 
-**Après** : R7, R8, R6
+- Approcher une aire par des sommes de Riemann, et la calculer exactement par une primitive.
+- Calculer une intégrale par linéarité, par parties ou par un changement de variable.
+- Reconnaître une intégrale impropre convergente et la calculer.
+- Programmer les méthodes des rectangles, des trapèzes et de Simpson, et comparer leurs erreurs.
+- Vérifier qu'une fonction est une densité, en déduire des probabilités et sa fonction de répartition.
+- Calculer un quantile, un percentile et la médiane d'une loi continue.
 
-**mymath** : `integrate.py` (fonctions prévues) : `riemann_sum`, `trapezoid`, `simpson`, `cdf_from_pdf`, `quantile`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 2.8 ∂ Changer d'unité : la covariance bouge, pas la corrélation
+- §1 L'aire sous une courbe : sommes de Riemann
+- §2 Primitives et intégrale : le théorème fondamental
+- §3 Calculer : linéarité, intégration par parties, changement de variable
+- §4 Intégrales impropres et intégrale de Gauss
+- §5 Méthodes numériques : rectangles, trapèzes, Simpson
+- §6 Densité de probabilité
+- §7 Fonction de répartition, quantiles et percentiles
+- §8 Des aires en ML : l'AUC et la valeur moyenne d'une fonction
 
-*Notes* : Parcours essentiel : intégration par parties, changement de variable et Simpson hors parcours (workbookIA 2 n'en a pas besoin).
+**Notions enseignées** : aire sous une courbe, sommes de Riemann · primitives · intégrale, théorème fondamental · intégration par parties · changement de variable · intégrales impropres · intégrale de Gauss (valeur admise, vérifiée numériquement ; démontrée en M02b) · méthodes des rectangles, des trapèzes et de Simpson · densité de probabilité · fonction de répartition · quantiles et percentiles · l'AUC est une aire · valeur moyenne d'une fonction sur un intervalle
+
+**Prérequis** : dérivées usuelles et règle de la chaîne (R7) · Σ (R4) · exp et ln (R6) · limites en l'infini (R7) · probabilité d'un événement (R8) · aire d'un trapèze, fonctions affines (R3)
+
+**mymath** : `integrate.py` (signatures figées) : `riemann_sum`, `trapezoid`, `simpson`, `cdf_from_pdf`, `quantile`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 2.8 ∂ Changer d'unité : la covariance bouge, pas la corrélation · 2.3 ✏️ La règle 68-95-99,7 sur les nageoires des manchots · 2.17 🎨 Galerie des lois usuelles · 2.18 🔬 68-95-99,7 : la théorie face aux tirages et aux manchots
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M02a.Q1 | 🧠 | Aire, signe et intégrale | ★ | 4 | §1 §2 | C, E | manuel | — |
+| M02a.Q2 | 🧠 | Primitives : vrai ou faux | ★ | 4 | §2 | C, E | manuel | — |
+| M02a.Q3 | 🧠 | Quelle méthode de calcul pour quelle intégrale ? | ★ | 4 | §3 | C | manuel | — |
+| M02a.Q4 | 🧠 | Converge ou diverge ? | ★ | 4 | §4 | C, E | manuel | — |
+| M02a.Q5 | 🧠 | Rectangles, trapèzes, Simpson | ★ | 4 | §5 | C, E | manuel | — |
+| M02a.Q6 | 🧠 | Une densité peut-elle dépasser 1 ? | ★ | 4 | §6 | C, E | manuel | — |
+| M02a.Q7 | 🧠 | Lire une fonction de répartition | ★ | 4 | §7 | C, E | manuel | — |
+| M02a.R1 | 🔁 | Dériver une composée (R7) | ★ | 5 | §2 | C, E | manuel | — |
+| M02a.R2 | 🔁 | Sommes Σ (R4) | ★ | 5 | §1 | C, E | manuel | — |
+| M02a.R3 | 🔁 | Exponentielle et logarithme (R6) | ★ | 5 | §4 | C | manuel | — |
+| M02a.1 | ✏️ | Sommes de Riemann à la main : rectangles à gauche, à droite, au milieu | ★ | 20 | §1 | C, E | wbm | — |
+| M02a.2 | ✏️ | Primitives usuelles | ★ | 15 | §2 | C, E | wbm | — |
+| M02a.3 | ✏️ | Intégrales et aires : le signe, l'aire entre deux courbes | ★★ | 20 | §2 | C, E | wbm | — |
+| M02a.4 | ✏️ | Intégration par parties | ★★ | 20 | §3 | C | wbm | — |
+| M02a.5 | ✏️ | Changement de variable | ★★ | 20 | §3 | C | wbm | — |
+| M02a.6 | ✏️ | Intégrales impropres : converge, diverge, valeur | ★★ | 20 | §4 | C, E | wbm | — |
+| M02a.7 | ✏️ | Trapèzes et Simpson à la main, et leurs erreurs | ★★ | 20 | §5 | C | wbm | — |
+| M02a.8 | ✏️ | Vérifier qu'une fonction est une densité, trouver sa constante | ★ | 20 | §6 | C, E | wbm | — |
+| M02a.9 | ✏️ | La probabilité d'un intervalle, et la valeur moyenne d'une fonction | ★★ | 20 | §6 §8 | C, E | wbm | — |
+| M02a.10 | ✏️ | Fonction de répartition, médiane et percentiles d'une loi donnée | ★★ | 20 | §7 | C, E | wbm | — |
+| M02a.11 | ∂ | Le théorème fondamental : la dérivée d'une aire | ★★ | 25 | §2 | C | manuel | — |
+| M02a.12 | ∂ | Encadrer une aire par des rectangles : pourquoi les sommes de Riemann convergent (fonction croissante) | ★★ | 25 | §1 §5 | C | manuel | — |
+| M02a.13 | 🔗 | L'aire sous une courbe ROC donnée par une formule | ★★ | 20 | §8 | C, E | wbm | — |
+| M02a.14 | 📖 | MML §6.2 (la partie continue) : densité et fonction de répartition, en anglais | ★★ | 25 | §6 §7 | C | manuel | — |
+| M02a.15 | 🗣️ | Expliquer pourquoi P(X = a) = 0 pour une variable continue | ★ | 10 | §6 | C, E | manuel | — |
+| M02a.E1 | 💼 | Une densité de probabilité peut-elle valoir plus que 1 ? | ★ | 10 | §6 | C, E | manuel | — |
+| M02a.16 | 🔨 | Rectangles et trapèzes · `riemann_sum, trapezoid` | ★ | 20 | §1 §5 | C, E | pytest | — |
+| M02a.17 | 🔨 | La méthode de Simpson · `simpson` | ★★ | 15 | §5 | C | pytest | M02a.16 |
+| M02a.18 | 🔨 | De la densité à la fonction de répartition, puis au quantile par dichotomie · `cdf_from_pdf, quantile` | ★★ | 25 | §7 | C, E | pytest | M02a.16 |
+| M02a.19 | 📦 | Vérifier avec `scipy.integrate.quad` et SymPy | ★ | 15 | §2 §4 | C, E | wbm | — |
+| M02a.20 | 🔮 | Prédire : le pas divisé par 2, l'erreur divisée par combien ? | ★ | 10 | §5 | C, E | wbm | — |
+| M02a.21 | 🔬 | L'intégrale de Gauss par le calcul : la borne qui s'éloigne | ★★ | 20 | §4 | C | wbm | — |
+| M02a.22 | 🎨 | L'aire qui se remplit : la courbe, les rectangles et la primitive | ★ | 20 | §1 §2 | C, E | manuel | — |
+| M02a.23 | 🐛 | Chasse à l'erreur : bornes inversées, primitive fausse, aire négative | ★ | 15 | §2 §3 | C | wbm | — |
+| M02a.24 | 🛠️ | Vérifier une primitive avec SymPy : dériver le résultat | ★ | 10 | §2 | C | manuel | — |
+| M02a.25 | 🏆 | Défi : la meilleure précision avec dix évaluations de la fonction | ★★★ | 30 | §5 | C | wbm | — |
+
+*Notes* : Parcours essentiel : intégration par parties, changement de variable et Simpson hors parcours (workbookIA 2 n'en a pas besoin). 📖 : MML §6.2 n'est lu qu'en partie ici (la partie continue) ; M02b le lit en entier.
 
 <a id="m02b"></a>
 ## M02b · Variables aléatoires et lois usuelles
@@ -965,15 +1024,78 @@ L'intégrale comme aire sous une courbe, les primitives et les méthodes de calc
 
 Les variables aléatoires discrètes et continues et leurs lois usuelles, l'espérance et la variance, les couples de variables (loi jointe, marginales, indépendance, variance d'une somme), une première intégrale double, le changement de variable et la simulation par inversion.
 
-**Durée estimée** : ≈ 14 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 13,9 h en parcours complet, 8,7 h en parcours essentiel (lecture 180 min, 25 flashcards).
+
+**Objectifs**
+
+- Reconnaître la loi qui modélise une situation (Bernoulli, binomiale, catégorielle, géométrique, Poisson, uniforme, exponentielle, normale).
+- Calculer des probabilités, une espérance et une variance, pour une loi discrète ou continue.
+- Lire une loi jointe, ses marginales, et décider de l'indépendance de deux variables.
+- Utiliser la linéarité de l'espérance et la variance d'une somme de variables indépendantes.
+- Calculer une intégrale double simple et la loi d'une variable transformée.
+- Simuler une loi par inversion de sa fonction de répartition.
+
+**Sections de la fiche**
+
+- §1 Variable aléatoire et loi : l'espace probabilisé (aperçu)
+- §2 Lois discrètes : Bernoulli, binomiale, catégorielle, géométrique, Poisson
+- §3 Lois continues : uniforme, exponentielle, normale
+- §4 Espérance et variance ; théorème de transfert
+- §5 Couples de variables : loi jointe, marginales, indépendance
+- §6 Linéarité de l'espérance, variance d'une somme
+- §7 Intégrale double (premier contact) et intégrale de Gauss
+- §8 Changement de variable et simulation
 
 **Notions enseignées** : espace probabilisé (aperçu) · lois discrètes : Bernoulli, binomiale, catégorielle, géométrique, Poisson · lois continues : uniforme, exponentielle, normale · espérance d'une variable continue · variance, propriétés · couples de variables discrètes : loi jointe, marginales · indépendance de deux variables aléatoires · linéarité de l'espérance · variance d'une somme de variables indépendantes · intégrale double sur un rectangle, densité jointe, marginale par intégration (premier contact) · l'intégrale de Gauss par une intégrale double · théorème de transfert · changement de variable · simulation par inversion · tirage catégoriel
 
-**Après** : M02a, R8
+**Prérequis** : variable aléatoire discrète, espérance, variance (R8) · dénombrement, coefficients binomiaux (R8) · intégrale, densité, fonction de répartition (M02a) · intégrales impropres (M02a) · suites géométriques et leurs sommes (R5)
 
-**mymath** : `distributions.py` (fonctions prévues) : `binomial_pmf`, `poisson_pmf`, `normal_pdf`, `normal_cdf`, `inverse_transform_sample`
+**mymath** : `distributions.py` (signatures figées) : `binomial_pmf`, `poisson_pmf`, `normal_pdf`, `normal_cdf`, `inverse_transform_sample`
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 2.8 ∂ Changer d'unité : la covariance bouge, pas la corrélation
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 2.8 ∂ Changer d'unité : la covariance bouge, pas la corrélation · 2.3 ✏️ La règle 68-95-99,7 sur les nageoires des manchots · 2.5 ✏️ Espérances : Bernoulli, multinoulli et jeu de hasard · 2.17 🎨 Galerie des lois usuelles · 2.18 🔬 68-95-99,7 : la théorie face aux tirages et aux manchots · 2.19 🔨 La roue de la fortune : tirer dans une distribution discrète · 2.20 🔮 Le pelage des animaux : une variable qui dépend d'une autre
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M02b.Q1 | 🧠 | Discrète ou continue ? | ★ | 4 | §1 | C, E | manuel | — |
+| M02b.Q2 | 🧠 | Quelle loi pour quelle situation ? | ★ | 4 | §2 §3 | C, E | manuel | — |
+| M02b.Q3 | 🧠 | Espérance et variance : vrai ou faux | ★ | 4 | §4 | C, E | manuel | — |
+| M02b.Q4 | 🧠 | La loi normale : ce que disent μ et σ | ★ | 4 | §3 | C, E | manuel | — |
+| M02b.Q5 | 🧠 | Jointe, marginale, indépendance | ★ | 4 | §5 | C, E | manuel | — |
+| M02b.Q6 | 🧠 | La variance d'une somme | ★ | 4 | §6 | C, E | manuel | — |
+| M02b.Q7 | 🧠 | Simuler une loi | ★ | 4 | §8 | C | manuel | — |
+| M02b.R1 | 🔁 | Espérance d'une variable discrète (R8) | ★ | 5 | §4 | C, E | manuel | — |
+| M02b.R2 | 🔁 | Intégrales et densités (M02a) | ★ | 5 | §3 §4 | C, E | manuel | — |
+| M02b.R3 | 🔁 | Coefficients binomiaux (R8) | ★ | 5 | §2 | C | manuel | — |
+| M02b.1 | ✏️ | Loi de Bernoulli et loi binomiale | ★ | 20 | §2 | C, E | wbm | — |
+| M02b.2 | ✏️ | Loi géométrique : probabilités, et l'espérance par une série | ★★ | 20 | §2 §4 | C, E | wbm | — |
+| M02b.3 | ✏️ | Loi de Poisson : probabilités, espérance, et la somme de deux variables de Poisson indépendantes | ★★ | 20 | §2 | C | wbm | — |
+| M02b.4 | ✏️ | Lois uniforme et exponentielle : probabilités et espérance | ★ | 20 | §3 §4 | C, E | wbm | — |
+| M02b.5 | ✏️ | Loi normale : standardiser et lire la fonction Φ | ★★ | 20 | §3 | C, E | wbm | — |
+| M02b.6 | ✏️ | Espérance et variance d'une variable continue (théorème de transfert) | ★★ | 20 | §4 | C, E | wbm | — |
+| M02b.7 | ✏️ | Un couple de variables discrètes : loi jointe, marginales, indépendance | ★★ | 20 | §5 | C, E | wbm | — |
+| M02b.8 | ✏️ | Linéarité et variance d'une somme : sommes et moyennes de variables | ★★ | 20 | §6 | C, E | wbm | — |
+| M02b.9 | ✏️ | Une intégrale double sur un rectangle, et une densité jointe | ★★ | 20 | §7 | C | wbm | — |
+| M02b.10 | ✏️ | Changement de variable : la loi de aX + b, et celle de X² | ★★ | 20 | §8 | C | wbm | — |
+| M02b.11 | ∂ | La variance d'une somme de variables indépendantes | ★★ | 25 | §6 | C, E | manuel | — |
+| M02b.12 | ∂ | L'intégrale de Gauss par une intégrale double (changement en coordonnées polaires admis) | ★★★ | 30 | §7 | C | manuel | — |
+| M02b.13 | ∂ | La loi de Poisson, limite de lois binomiales | ★★ | 25 | §2 | C | manuel | — |
+| M02b.14 | 🔗 | Combien d'erreurs d'annotation dans un dataset ? Binomiale et Poisson | ★ | 15 | §2 | C, E | wbm | — |
+| M02b.15 | 📖 | MML §6.1 et §6.2 : espace probabilisé, pmf et pdf, en anglais | ★★ | 30 | §1 §2 §3 | C | manuel | — |
+| M02b.16 | 📖 | MML §6.4 et §6.7 : espérance, variance, sommes de variables, changement de variable | ★★ | 30 | §4 §6 §8 | C | manuel | — |
+| M02b.17 | 🗣️ | Expliquer la différence entre une variable aléatoire et sa loi | ★ | 10 | §1 | C | manuel | — |
+| M02b.E1 | 💼 | Quand modéliser un comptage par une loi de Poisson ? | ★ | 10 | §2 | C, E | manuel | — |
+| M02b.18 | 🔨 | Lois binomiale et de Poisson · `binomial_pmf, poisson_pmf` | ★ | 20 | §2 | C, E | pytest | — |
+| M02b.19 | 🔨 | Densité et fonction de répartition de la loi normale (avec `math.erf`) · `normal_pdf, normal_cdf` | ★ | 20 | §3 | C, E | pytest | — |
+| M02b.20 | 🔨 | Simuler par inversion de la fonction de répartition · `inverse_transform_sample` | ★★ | 20 | §8 | C | pytest | — |
+| M02b.21 | 📦 | `scipy.stats` : pmf, pdf, cdf, ppf et rvs | ★ | 15 | §2 §3 | C, E | wbm | — |
+| M02b.22 | 🔮 | Prédire : la variance de la moyenne de quatre dés | ★ | 10 | §6 | C, E | wbm | — |
+| M02b.23 | 🔬 | Binomiale et Poisson côte à côte quand n grandit | ★★ | 20 | §2 | C | wbm | — |
+| M02b.24 | 🎨 | Une loi jointe en carte de chaleur, ses marginales sur les bords | ★ | 20 | §5 | C | manuel | — |
+| M02b.25 | 🐛 | Chasse à l'erreur : une densité prise pour une probabilité, σ et σ² | ★ | 15 | §3 §6 | C | wbm | — |
+| M02b.26 | 🛠️ | Documenter une loi : docstring et exemples testés (`doctest`) | ★ | 15 | §3 | C | manuel | — |
+| M02b.27 | 🏆 | Défi : tirer des valeurs normales avec seulement des tirages uniformes | ★★★ | 30 | §8 | C | wbm | — |
+
+*Notes* : La loi catégorielle est dans la fiche et les quiz, sans ✏️ propre (workbookIA 2.5 calcule son espérance, 2.19 programme son tirage) ; la règle 68-95-99,7 n'est pas un exercice (workbookIA 2.3 et 2.18). Parcours essentiel : l'intégrale double, l'intégrale de Gauss et la limite de Poisson hors parcours.
 
 <a id="m02c"></a>
 ## M02c · Échantillons et estimation
@@ -982,17 +1104,80 @@ Les variables aléatoires discrètes et continues et leurs lois usuelles, l'esp�
 
 De la loi à l'échantillon : variables i.i.d., tirages avec et sans remise, loi des grands nombres et théorème central limite, estimateurs, leur biais et leur erreur quadratique (le ddof), erreur type, intervalles de confiance et bootstrap ; puis la covariance et la corrélation, et une première matrice de covariance.
 
-**Durée estimée** : ≈ 14 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 13,8 h en parcours complet, 9,0 h en parcours essentiel (lecture 180 min, 25 flashcards).
+
+**Objectifs**
+
+- Résumer une série (moyenne, médiane, quantiles, variance) et repérer ses valeurs aberrantes.
+- Énoncer la loi des grands nombres et le théorème central limite, et s'en servir pour une probabilité.
+- Calculer le biais, la variance et l'erreur quadratique d'un estimateur, et justifier le n − 1.
+- Calculer une erreur type et un intervalle de confiance pour une moyenne.
+- Calculer une covariance, une corrélation et une matrice de covariance, et les interpréter.
+- Reconnaître un biais d'échantillonnage et l'effet d'une imputation.
+
+**Sections de la fiche**
+
+- §1 Statistiques descriptives : moyenne, médiane, variance, quantiles
+- §2 Standardiser : z-score ; valeurs aberrantes
+- §3 Échantillon i.i.d., tirages avec et sans remise
+- §4 Loi des grands nombres
+- §5 Théorème central limite
+- §6 Estimateurs : biais, variance, erreur quadratique ; le ddof
+- §7 Erreur type, intervalle de confiance et bootstrap (principe)
+- §8 Covariance, corrélation, matrice de covariance
+- §9 Données réelles : imputation, biais d'échantillonnage, grande dimension
 
 **Notions enseignées** : statistiques descriptives : moyenne, médiane, variance, quantiles · z-score, standardisation · échantillon i.i.d. · tirages avec et sans remise · loi des grands nombres · théorème central limite · estimateur, biais, ddof · erreur quadratique d'un estimateur · erreur type · intervalle de confiance · bootstrap (principe) · covariance et corrélation · matrice de covariance (première rencontre) · valeurs aberrantes : z-score et écart interquartile · imputer par la moyenne ou la médiane : ce que cela change · biais d'échantillonnage · grande dimension (premières surprises) · percentiles d'une mesure (latence)
 
-**Après** : M02b, R9, R4
+**Prérequis** : espérance, variance, variance d'une somme (M02b) · loi normale, fonction Φ (M02b) · quantiles (M02a) · Σ (R4) · produit scalaire, norme (R9)
 
-**mymath** : `estimation.py` (fonctions prévues) : `sample_means`, `estimator_bias`, `estimator_mse`, `standard_error`, `confidence_interval_mean`
+**mymath** : `estimation.py` (signatures figées) : `sample_means`, `estimator_bias`, `estimator_mse`, `standard_error`, `confidence_interval_mean`
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 2.8 ∂ Changer d'unité : la covariance bouge, pas la corrélation
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 2.8 ∂ Changer d'unité : la covariance bouge, pas la corrélation · 2.1 ✏️ Moyenne, médiane et mode d'une liste de salaires · 2.4 ✏️ Variance : diviser par N ou par N − 1 ? · 2.7 ✏️ Covariance et corrélation de cinq points à la main · 2.9 🗣️ Le bootstrap en cinq lignes · 2.22 🔨 Bootstrap : distribution et intervalle de confiance · 2.25 📦 Distances entre chiffres dans l'espace à 784 dimensions · 2.29 🐛 Le piège de ddof : NumPy, pandas et toi · 2.E4 💼 Corrélation nulle veut-elle dire indépendance ?
 
-*Notes* : mymath étudie les estimateurs (biais, erreur quadratique, théorème central limite par simulation) ; les fonctions de statistiques descriptives et de bootstrap sont celles de `mylearn` en workbookIA 2.
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M02c.Q1 | 🧠 | Résumer une série : vrai ou faux | ★ | 4 | §1 | C, E | manuel | — |
+| M02c.Q2 | 🧠 | z-scores et valeurs aberrantes | ★ | 4 | §2 | C, E | manuel | — |
+| M02c.Q3 | 🧠 | i.i.d. ou pas ? | ★ | 4 | §3 | C, E | manuel | — |
+| M02c.Q4 | 🧠 | Grands nombres et TCL : ce qu'ils disent, ce qu'ils ne disent pas | ★ | 4 | §4 §5 | C, E | manuel | — |
+| M02c.Q5 | 🧠 | Biais, variance et ddof | ★ | 4 | §6 | C, E | manuel | — |
+| M02c.Q6 | 🧠 | Lire un intervalle de confiance | ★ | 4 | §7 | C, E | manuel | — |
+| M02c.Q7 | 🧠 | Covariance et corrélation : vrai ou faux | ★ | 4 | §8 | C, E | manuel | — |
+| M02c.R1 | 🔁 | Espérance et variance d'une somme (M02b) | ★ | 5 | §4 §6 | C, E | manuel | — |
+| M02c.R2 | 🔁 | Loi normale et fonction Φ (M02b) | ★ | 5 | §5 | C, E | manuel | — |
+| M02c.R3 | 🔁 | Racines et puissances (R1) | ★ | 5 | §7 | C | manuel | — |
+| M02c.1 | ✏️ | Les statistiques d'une petite série : moyenne, médiane, quartiles, variance | ★ | 20 | §1 | C, E | wbm | — |
+| M02c.2 | ✏️ | z-scores, écart interquartile et valeurs aberrantes | ★ | 15 | §2 | C, E | wbm | — |
+| M02c.3 | ✏️ | Imputer par la moyenne ou la médiane : ce qui change | ★ | 15 | §9 | C | wbm | — |
+| M02c.4 | ✏️ | Avec ou sans remise : la variance de la moyenne | ★★ | 20 | §3 | C | wbm | — |
+| M02c.5 | ✏️ | Combien d'observations pour une moyenne précise à 1 % ? | ★★ | 20 | §4 §5 | C, E | wbm | — |
+| M02c.6 | ✏️ | Le théorème central limite à la main : une somme de 100 variables | ★★ | 20 | §5 | C, E | wbm | — |
+| M02c.7 | ✏️ | Biais, variance et erreur quadratique de trois estimateurs | ★★ | 25 | §6 | C, E | wbm | — |
+| M02c.8 | ✏️ | Erreur type et intervalle de confiance d'une moyenne | ★★ | 20 | §7 | C, E | wbm | — |
+| M02c.9 | ✏️ | La variance d'une somme et la covariance : V(X + Y), V(X − Y) | ★★ | 20 | §8 | C, E | wbm | — |
+| M02c.10 | ✏️ | La matrice de covariance de trois variables : la lire et la vérifier | ★★ | 20 | §8 | C | wbm | — |
+| M02c.11 | ∂ | Pourquoi diviser par n − 1 : E[S²] = σ² | ★★★ | 30 | §6 | C | manuel | — |
+| M02c.12 | ∂ | La variance de la moyenne : V(X̄) = σ²/n, et l'erreur type | ★★ | 20 | §5 §7 | C, E | manuel | — |
+| M02c.13 | 🔗 | Le 99e percentile d'une latence : l'estimer et dire son incertitude | ★★ | 20 | §1 §7 | C, E | wbm | — |
+| M02c.14 | 🔗 | Standardiser des features avec les statistiques du seul train | ★ | 15 | §2 | C | wbm | — |
+| M02c.15 | 📖 | MML §6.4 : moyennes et covariances empiriques, en anglais | ★★ | 30 | §1 §8 | C | manuel | — |
+| M02c.16 | ⚖️ | Le biais du survivant : des données qui ne montrent que ceux qui restent | ★ | 15 | §9 | C | manuel | — |
+| M02c.17 | 🗣️ | Expliquer le théorème central limite avec un histogramme | ★ | 10 | §5 | C, E | manuel | — |
+| M02c.E1 | 💼 | L'erreur type décroît en 1/√n : qu'est-ce que cela change pour un jeu de test ? | ★ | 10 | §7 | C, E | manuel | — |
+| M02c.18 | 🔨 | La distribution des moyennes d'échantillons · `sample_means` | ★ | 20 | §5 | C, E | pytest | — |
+| M02c.19 | 🔨 | Biais et erreur quadratique d'un estimateur, par simulation · `estimator_bias, estimator_mse` | ★★ | 25 | §6 | C | pytest | — |
+| M02c.20 | 🔨 | Erreur type et intervalle de confiance · `standard_error, confidence_interval_mean` | ★ | 20 | §7 | C, E | pytest | — |
+| M02c.21 | 📦 | NumPy et SciPy : `ddof`, `np.percentile`, `scipy.stats.sem` | ★ | 15 | §1 §7 | C | wbm | — |
+| M02c.22 | 🔮 | Prédire : l'histogramme des moyennes d'une loi exponentielle quand n grandit | ★ | 10 | §5 | C, E | wbm | — |
+| M02c.23 | 🔬 | Couverture : 95 % des intervalles contiennent-ils la vraie moyenne ? | ★★ | 20 | §7 | C, E | wbm | — |
+| M02c.24 | 🔬 | Grande dimension : le cube dont le centre est vide | ★★ | 20 | §9 | C | wbm | — |
+| M02c.25 | 🎨 | Voir le théorème central limite : histogrammes et densité normale | ★ | 20 | §5 | C | manuel | — |
+| M02c.26 | 🐛 | Chasse à l'erreur : un intervalle de confiance mal calculé | ★ | 15 | §7 | C | wbm | — |
+| M02c.27 | 🛠️ | Tester une fonction aléatoire : une tolérance en erreurs types | ★ | 15 | §5 §7 | C | manuel | — |
+| M02c.28 | 🏆 | Défi : un intervalle à 95 % avec dix valeurs d'une loi asymétrique | ★★★ | 30 | §7 | C | wbm | — |
+
+*Notes* : mymath étudie les estimateurs (biais, erreur quadratique, théorème central limite par simulation) ; les fonctions de statistiques descriptives et de bootstrap sont celles de `mylearn` en workbookIA 2. Le 🐛 ne repose pas sur le ddof (workbookIA 2.29), le quiz ne demande pas si une corrélation nulle implique l'indépendance (workbookIA 2.E4). Parcours essentiel : la démonstration de E[S²] = σ², les tirages sans remise et la grande dimension hors parcours.
 
 <a id="m03"></a>
 ## M03 · Probabilités conditionnelles
@@ -1001,15 +1186,79 @@ De la loi à l'échantillon : variables i.i.d., tirages avec et sans remise, loi
 
 Les probabilités jointes, marginales et conditionnelles, les tableaux de contingence, l'indépendance et la formule des probabilités totales ; puis les métriques de classification vues comme des probabilités conditionnelles, leurs moyennes, la prévalence, et l'AUC comme une aire et comme une probabilité.
 
-**Durée estimée** : ≈ 12 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 12,8 h en parcours complet, 7,2 h en parcours essentiel (lecture 150 min, 22 flashcards).
 
-**Notions enseignées** : probabilité jointe · probabilité marginale · tableau de contingence · probabilité conditionnelle · indépendance · probabilités totales (énoncée et utilisée) · precision, recall, spécificité, accuracy comme probabilités · F-beta (moyenne harmonique pondérée) · moyennes macro, micro et pondérée · prévalence et classes déséquilibrées : repondérer · courbe ROC et AUC · AUC comme probabilité de bien classer une paire · courbe precision-recall · average precision : une aire sous la courbe precision-recall · calibration et score de Brier · taux par groupe (équité, premier contact) · matrice de confusion : un tableau de contingence · balanced accuracy : la moyenne des rappels · MCC : une corrélation entre deux variables binaires · seuil de décision et compromis
+**Objectifs**
 
-**Après** : R8, M02a, M02c
+- Lire dans un tableau de contingence des probabilités jointes, marginales et conditionnelles.
+- Décider de l'indépendance de deux événements ou de deux variables par le calcul.
+- Utiliser la formule des probabilités totales.
+- Écrire accuracy, precision, recall et spécificité comme des probabilités, et calculer leurs moyennes.
+- Mesurer l'effet de la prévalence et du seuil de décision sur ces métriques.
+- Calculer une AUC comme une aire et comme une proportion de paires, une average precision et un score de Brier.
 
-**mymath** : `conditional.py` (fonctions prévues) : `joint_from_counts`, `marginal`, `conditional`, `are_independent`, `auc_by_pairs`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 3.4 ∂ Règle du produit et formule des probabilités totales · 3.8 ∂ F1, moyenne harmonique : pourquoi elle punit le maillon faible
+- §1 Probabilité jointe, marginale, tableau de contingence
+- §2 Probabilité conditionnelle et indépendance
+- §3 Probabilités totales
+- §4 La matrice de confusion, un tableau de contingence
+- §5 Moyennes de métriques : F-beta, macro, micro, pondérée ; balanced accuracy et MCC
+- §6 Prévalence, classes déséquilibrées et seuil de décision
+- §7 Courbe ROC et AUC, courbe precision-recall et average precision
+- §8 Calibration, score de Brier, taux par groupe
+
+**Notions enseignées** : probabilité jointe · probabilité marginale · tableau de contingence · probabilité conditionnelle · indépendance · probabilités totales (énoncée et utilisée) · precision, recall, spécificité, accuracy comme probabilités · F-beta (moyenne harmonique pondérée) · moyennes macro, micro et pondérée · prévalence et classes déséquilibrées : repondérer · courbe ROC et AUC · AUC comme probabilité de bien classer une paire · courbe precision-recall · average precision : une aire sous la courbe precision-recall · calibration et score de Brier · taux par groupe (équité, premier contact) · matrice de confusion : un tableau de contingence · balanced accuracy : la moyenne des rappels · MCC : une corrélation entre deux variables binaires · seuil de décision et compromis · paradoxe de Simpson
+
+**Prérequis** : probabilités, arbres, indépendance d'événements (R8) · moyenne harmonique et moyenne pondérée (R1) · aire, méthode des trapèzes (M02a) · corrélation (M02c)
+
+**mymath** : `conditional.py` (signatures figées) : `joint_from_counts`, `marginal`, `conditional`, `are_independent`, `auc_by_pairs`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 3.4 ∂ Règle du produit et formule des probabilités totales · 3.8 ∂ F1, moyenne harmonique : pourquoi elle punit le maillon faible · 3.1 ✏️ Fléchettes et aires : probabilités simples et conditionnelles · 3.2 ✏️ Les 20 points : matrice de confusion et quatre mesures · 3.3 ✏️ Le glacier : jointes, marginales et conditionnelles · 3.6 ✏️ Trois espèces : moyennes macro, micro et pondérée · 3.7 ✏️ Le test « fiable à 99 % » dans une ville à 1 % de malades · 3.13 🔮 Deux disques : P(A|B) = P(B|A) ? · 3.14 📦 Penguins : espèce × île avec pd.crosstab · 3.21 🔬 Simuler le dépistage : la prévalence fait la precision · 3.29 🏆 Recall ≥ 0,99 au meilleur prix · 3.E1 💼 99 % d'accuracy sur la détection de fraude : bonne nouvelle ? · 3.E3 💼 Expliquer la courbe ROC et l'AUC
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M03.Q1 | 🧠 | Jointe, marginale ou conditionnelle ? | ★ | 4 | §1 §2 | C, E | manuel | — |
+| M03.Q2 | 🧠 | P(A sachant B) et P(B sachant A) | ★ | 4 | §2 | C, E | manuel | — |
+| M03.Q3 | 🧠 | Indépendants ou incompatibles ? | ★ | 4 | §2 | C, E | manuel | — |
+| M03.Q4 | 🧠 | Quelle métrique pour quelle probabilité ? | ★ | 4 | §4 | C, E | manuel | — |
+| M03.Q5 | 🧠 | Moyennes de métriques | ★ | 4 | §5 | C | manuel | — |
+| M03.Q6 | 🧠 | ROC et AUC : vrai ou faux | ★ | 4 | §7 | C, E | manuel | — |
+| M03.Q7 | 🧠 | Calibré ou pas ? | ★ | 4 | §8 | C | manuel | — |
+| M03.R1 | 🔁 | Arbres pondérés (R8) | ★ | 5 | §3 | C, E | manuel | — |
+| M03.R2 | 🔁 | Moyenne harmonique et moyenne pondérée (R1) | ★ | 5 | §5 | C, E | manuel | — |
+| M03.R3 | 🔁 | Aire par la méthode des trapèzes (M02a) | ★ | 5 | §7 | C | manuel | — |
+| M03.1 | ✏️ | Un tableau de contingence : jointes, marginales, conditionnelles | ★ | 20 | §1 §2 | C, E | wbm | — |
+| M03.2 | ✏️ | L'indépendance, vérifiée dans un tableau | ★ | 15 | §2 | C, E | wbm | — |
+| M03.3 | ✏️ | Probabilités totales avec trois cas | ★ | 15 | §3 | C, E | wbm | — |
+| M03.4 | ✏️ | Une matrice de confusion lue comme des probabilités | ★ | 20 | §4 | C, E | wbm | — |
+| M03.5 | ✏️ | F-beta : quel β pour quel coût d'erreur ? | ★★ | 20 | §5 | C | wbm | — |
+| M03.6 | ✏️ | Balanced accuracy et MCC sur un problème déséquilibré | ★★ | 20 | §5 §6 | C | wbm | — |
+| M03.7 | ✏️ | Changer de population : recalculer la precision quand la prévalence change | ★★ | 20 | §6 | C, E | wbm | — |
+| M03.8 | ✏️ | Une courbe ROC à la main, et son aire par les trapèzes | ★★ | 20 | §7 | C, E | wbm | — |
+| M03.9 | ✏️ | L'AUC comme proportion de paires bien classées | ★★ | 20 | §7 | C, E | wbm | — |
+| M03.10 | ✏️ | Courbe precision-recall et average precision à la main | ★★ | 20 | §7 | C | wbm | — |
+| M03.11 | ✏️ | Score de Brier et calibration de huit prévisions | ★ | 15 | §8 | C | wbm | — |
+| M03.12 | ∂ | L'aire sous la courbe ROC compte les paires bien classées | ★★★ | 30 | §7 | C | manuel | — |
+| M03.13 | ∂ | En multiclasse, micro-precision, micro-recall et accuracy sont égaux | ★★ | 20 | §5 | C | manuel | — |
+| M03.14 | 🔗 | Un seuil sur un score : trois seuils, trois matrices de confusion | ★ | 20 | §6 | C, E | wbm | — |
+| M03.15 | 🔗 | Équité : les taux de faux positifs de deux groupes | ★★ | 15 | §8 | C | wbm | — |
+| M03.16 | 📖 | MML §6.3 : règle de la somme, règle du produit et vocabulaire, en anglais | ★★ | 30 | §1 §2 §3 | C | manuel | — |
+| M03.17 | ⚖️ | Un taux de réussite trompeur : le paradoxe de Simpson | ★★ | 20 | §2 §3 | C | manuel | — |
+| M03.18 | 🗣️ | Expliquer pourquoi P(A sachant B) n'est pas P(B sachant A) | ★ | 10 | §2 | C, E | manuel | — |
+| M03.E1 | 💼 | Une variable indépendante de la cible peut-elle aider un modèle ? | ★ | 10 | §2 | C | manuel | — |
+| M03.19 | 🔨 | Jointe, marginales et conditionnelles à partir d'un tableau de comptages · `joint_from_counts, marginal, conditional` | ★ | 20 | §1 §2 | C, E | pytest | — |
+| M03.20 | 🔨 | Tester l'indépendance avec une tolérance · `are_independent` | ★ | 15 | §2 | C | pytest | M03.19 |
+| M03.21 | 🔨 | L'AUC en comptant les paires · `auc_by_pairs` | ★★ | 20 | §7 | C, E | pytest | — |
+| M03.22 | 📦 | `sklearn.metrics.roc_auc_score` contre le comptage des paires, ex aequo compris | ★ | 15 | §7 | C | wbm | — |
+| M03.23 | 🔮 | Prédire : l'AUC après une transformation croissante des scores | ★ | 10 | §7 | C, E | wbm | — |
+| M03.24 | 🔬 | Simuler pour estimer une probabilité conditionnelle | ★★ | 20 | §2 | C | wbm | — |
+| M03.25 | 🎨 | La courbe ROC en escalier : une marche par paire | ★ | 20 | §7 | C | manuel | — |
+| M03.26 | 🐛 | Chasse à l'erreur : conditionnelle inversée, marginale oubliée | ★ | 15 | §2 §3 | C | wbm | — |
+| M03.27 | 🛠️ | Une fonction qui refuse un tableau invalide (`ValueError`) | ★ | 10 | §1 | C | manuel | — |
+| M03.28 | 🏆 | Défi : retrouver un tableau de contingence à partir de quelques probabilités | ★★★ | 25 | §1 §3 | C | wbm | — |
+
+*Notes* : workbookIA 3 calcule les métriques sur des données ; ce chapitre les écrit comme des probabilités conditionnelles, sur d'autres exemples, et démontre l'AUC comme probabilité. Ni fléchettes, ni glacier, ni test médical à 99 %, ni prévisions météo (workbookIA 3.1, 3.3, 3.7, 3.28). Parcours essentiel : MCC, average precision et taux par groupe hors parcours.
 
 <a id="m04"></a>
 ## M04 · Bayes, vraisemblance et loi Beta
@@ -1018,34 +1267,160 @@ Les probabilités jointes, marginales et conditionnelles, les tableaux de contin
 
 La formule de Bayes en profondeur : a priori, vraisemblance, évidence, a posteriori, mises à jour successives, hypothèses multiples ; la loi Beta, la conjugaison avec la binomiale et un aperçu de la famille exponentielle, le lissage de Laplace, le MAP, les log-probabilités et les intervalles de crédibilité.
 
-**Durée estimée** : ≈ 12 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 12,9 h en parcours complet, 8,2 h en parcours essentiel (lecture 150 min, 22 flashcards).
 
-**Notions enseignées** : formule de Bayes · a priori, vraisemblance, évidence, a posteriori · mise à jour séquentielle · hypothèses multiples · argmax et MAP · loi Beta · conjugaison Beta-binomiale · famille exponentielle (aperçu : Bernoulli, gaussienne, Beta) · lissage de Laplace · log-probabilités et underflow · intervalle de crédibilité · fréquentiste et bayésien · échantillonnage de Thompson (premier contact)
+**Objectifs**
 
-**Après** : M03, M02b
+- Appliquer la formule de Bayes à deux hypothèses ou plus, une fois ou en boucle.
+- Écrire une vraisemblance et trouver son maximum.
+- Calculer la densité, la moyenne, le mode et la variance d'une loi Beta.
+- Mettre à jour une loi Beta par conjugaison, et en déduire le MAP, la moyenne a posteriori et la probabilité prédictive.
+- Calculer avec des log-probabilités pour éviter l'underflow.
+- Distinguer les points de vue fréquentiste et bayésien.
 
-**mymath** : `bayes.py` (fonctions prévues) : `beta_pdf`, `beta_moments`, `conjugate_beta_update`, `posterior_predictive`, `map_estimate_beta`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 4.3 ∂ Retrouver la règle de Bayes en trois lignes · 4.7 ∂ Le posterior reste une distribution, un prior nul reste nul
+- §1 La formule de Bayes : a priori, vraisemblance, évidence, a posteriori
+- §2 Hypothèses multiples et mises à jour successives
+- §3 Vraisemblance et maximum de vraisemblance
+- §4 La loi Beta
+- §5 Conjugaison Beta-binomiale, lissage de Laplace, prédictive
+- §6 MAP et intervalle de crédibilité
+- §7 Log-probabilités, underflow et log-sum-exp ; famille exponentielle (aperçu)
+- §8 Fréquentiste et bayésien ; échantillonnage de Thompson (premier contact)
 
-*Notes* : mymath écrit les formules de la loi Beta et de la conjugaison ; le posterior sur une grille et l'intervalle de crédibilité sont les fonctions de `mylearn` en workbookIA 4.
+**Notions enseignées** : formule de Bayes · a priori, vraisemblance, évidence, a posteriori · mise à jour séquentielle · hypothèses multiples · argmax et MAP · maximum de vraisemblance (premier contact) · loi Beta · conjugaison Beta-binomiale · famille exponentielle (aperçu : Bernoulli, gaussienne, Beta) · lissage de Laplace · log-probabilités et underflow · log-sum-exp : normaliser des log-probabilités · intervalle de crédibilité · fréquentiste et bayésien · échantillonnage de Thompson (premier contact)
+
+**Prérequis** : probabilité conditionnelle, probabilités totales (M03) · loi binomiale (M02b) · densité, intégrale (M02a) · logarithmes (R6) · dériver, maximum (R7)
+
+**mymath** : `bayes.py` (signatures figées) : `beta_pdf`, `beta_moments`, `conjugate_beta_update`, `posterior_predictive`, `map_estimate_beta`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 4.3 ∂ Retrouver la règle de Bayes en trois lignes · 4.7 ∂ Le posterior reste une distribution, un prior nul reste nul · 4.1 ✏️ Une face : la pièce est-elle équilibrée ? · 4.2 ✏️ Une pile : le verdict s'inverse · 4.4 ✏️ Vie extraterrestre : lire la sonde avec Bayes · 4.5 ✏️ Deux faces : une mise à jour double ou deux simples ? · 4.6 ✏️ Cinq hypothèses de biais après face, pile, face · 4.8 ✏️ Combien de sondes pour descendre sous un sur un million ? · 4.12 🔮 Combien de lancers pour démasquer la pièce truquée ? · 4.21 🔮 Un prior trompeur centré sur 0,8 · 4.22 📦 Le posterior continu : vérifier avec scipy.stats.beta · 4.24 🔨 coin_bias_posterior : 500 hypothèses en log-probabilités · 4.25 🔨 Intervalle de crédibilité contre intervalle bootstrap · 4.E1 💼 Expliquer la règle de Bayes avec un test médical
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M04.Q1 | 🧠 | Les quatre termes de la formule de Bayes | ★ | 4 | §1 | C, E | manuel | — |
+| M04.Q2 | 🧠 | Mettre à jour deux fois | ★ | 4 | §2 | C, E | manuel | — |
+| M04.Q3 | 🧠 | La vraisemblance, une fonction du paramètre | ★ | 4 | §3 | C, E | manuel | — |
+| M04.Q4 | 🧠 | La loi Beta : forme et paramètres | ★ | 4 | §4 | C, E | manuel | — |
+| M04.Q5 | 🧠 | Conjuguée, Laplace, MAP | ★ | 4 | §5 §6 | C, E | manuel | — |
+| M04.Q6 | 🧠 | Logarithmes et underflow | ★ | 4 | §7 | C | manuel | — |
+| M04.Q7 | 🧠 | Fréquentiste ou bayésien ? | ★ | 4 | §8 | C | manuel | — |
+| M04.R1 | 🔁 | Probabilités conditionnelles (M03) | ★ | 5 | §1 | C, E | manuel | — |
+| M04.R2 | 🔁 | Intégrales et densités (M02a) | ★ | 5 | §4 | C, E | manuel | — |
+| M04.R3 | 🔁 | Loi binomiale (M02b) | ★ | 5 | §5 | C | manuel | — |
+| M04.1 | ✏️ | Bayes avec deux hypothèses : un détecteur de fumée | ★ | 20 | §1 | C, E | wbm | — |
+| M04.2 | ✏️ | Trois hypothèses et un tableau de mise à jour | ★★ | 20 | §2 | C, E | wbm | — |
+| M04.3 | ✏️ | La vraisemblance d'un taux de clic | ★ | 20 | §3 | C, E | wbm | — |
+| M04.4 | ✏️ | Maximiser une vraisemblance : dériver son logarithme | ★★ | 20 | §3 | C, E | wbm | — |
+| M04.5 | ✏️ | La loi Beta : normalisation, moyenne, mode, variance | ★★ | 20 | §4 | C, E | wbm | — |
+| M04.6 | ✏️ | Conjugaison : de Beta(a, b) à Beta(a + k, b + n − k) | ★ | 20 | §5 | C, E | wbm | — |
+| M04.7 | ✏️ | Lissage de Laplace : la prédictive avec Beta(1, 1) | ★ | 15 | §5 | C | wbm | — |
+| M04.8 | ✏️ | MAP, maximum de vraisemblance et moyenne a posteriori | ★★ | 20 | §6 | C, E | wbm | — |
+| M04.9 | ✏️ | Un intervalle de crédibilité d'une loi Beta | ★★ | 15 | §6 | C | wbm | — |
+| M04.10 | ✏️ | Log-probabilités : additionner au lieu de multiplier, normaliser par log-sum-exp | ★ | 20 | §7 | C, E | wbm | — |
+| M04.11 | ∂ | La conjugaison Beta-binomiale, démontrée | ★★ | 25 | §5 | C | manuel | — |
+| M04.12 | ∂ | Le maximum de vraisemblance d'une loi de Bernoulli est la fréquence | ★★ | 20 | §3 | C | manuel | — |
+| M04.13 | ∂ | Le mode de la loi Beta | ★★ | 20 | §4 §6 | C | manuel | — |
+| M04.14 | 🔗 | Un test A/B : deux taux de conversion et P(θB > θA) par simulation | ★★ | 20 | §5 §8 | C, E | wbm | — |
+| M04.15 | 📖 | MML §6.3 (relire le théorème de Bayes) et §6.6 : conjugaison et famille exponentielle (lecture guidée) | ★★ | 30 | §1 §5 §7 | C | manuel | — |
+| M04.16 | 📖 | MML §8.3 : maximum de vraisemblance et MAP (lecture guidée) | ★★ | 30 | §3 §6 | C | manuel | — |
+| M04.17 | 🗣️ | Expliquer la conjugaison avec des pseudo-observations | ★ | 10 | §5 | C, E | manuel | — |
+| M04.E1 | 💼 | Qu'est-ce que le lissage de Laplace, et pourquoi l'utiliser ? | ★ | 10 | §5 | C, E | manuel | — |
+| M04.18 | 🔨 | Densité et moments de la loi Beta (avec `math.lgamma`) · `beta_pdf, beta_moments` | ★ | 20 | §4 | C, E | pytest | — |
+| M04.19 | 🔨 | Mise à jour conjuguée et loi prédictive des prochains essais · `conjugate_beta_update, posterior_predictive` | ★★ | 25 | §5 | C, E | pytest | M04.18 |
+| M04.20 | 🔨 | Le MAP d'une loi Beta, cas limites compris · `map_estimate_beta` | ★★ | 15 | §6 | C | pytest | — |
+| M04.21 | 📦 | La fonction Beta avec `scipy.special` : `beta`, `betaln` et l'underflow | ★ | 15 | §4 §7 | C | wbm | — |
+| M04.22 | 🔮 | Prédire : le MAP avec Beta(1, 1) après trois échecs | ★ | 10 | §6 | C | wbm | — |
+| M04.23 | 🔬 | Le posterior se resserre : la largeur de l'intervalle en 1/√n | ★★ | 20 | §6 | C | wbm | — |
+| M04.24 | 🎨 | Prior, vraisemblance et posterior sur une même figure | ★ | 20 | §5 | C, E | manuel | — |
+| M04.25 | 🐛 | Chasse à l'erreur : évidence oubliée, mise à jour à l'envers, mode et moyenne | ★ | 15 | §1 §5 | C | wbm | — |
+| M04.26 | 🛠️ | Un calcul stable : comparer des vraisemblances en logarithmes (`math.lgamma`) | ★ | 15 | §7 | C | manuel | — |
+| M04.27 | 🏆 | Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart type, intervalle) | ★★★ | 25 | §4 §6 | C | wbm | — |
+
+*Notes* : mymath écrit les formules de la loi Beta et de la conjugaison ; le posterior sur une grille et l'intervalle de crédibilité sont les fonctions de `mylearn` en workbookIA 4. Aucun exemple de pièce de monnaie (workbookIA 4 les utilise tous) : taux de clic, capteurs, contrôle qualité. Le log-sum-exp est enseigné ici parce que workbookIA 4 s'en sert (posterior sur une grille en log-probabilités) ; M05a l'approfondit (flottants, encadrement, implémentation). §6.3 de MML est déjà lu en M03 : M04.15 n'en relit que le théorème de Bayes. Parcours essentiel : famille exponentielle, Thompson et les démonstrations hors parcours.
 
 <a id="m05a"></a>
 ## M05a · Dérivées, Taylor et calcul numérique
 
 **Partie** I · **prépare** workbookIA 5 · **dossier** `chapitres/m05a_derivees_taylor/` · **MML** §5.1 · **sessions de génération** 1
 
-La dérivée seconde et la convexité en une variable, les polynômes de Taylor, la méthode de Newton, l'erreur des différences finies et le choix du pas, les nombres flottants, les erreurs d'arrondi, l'overflow et l'underflow, et le log-sum-exp qui rend les calculs stables.
+La dérivée seconde et la convexité en une variable, les polynômes de Taylor, la méthode de Newton, l'erreur des différences finies, l'extrapolation de Richardson et le choix du pas, les nombres flottants, les erreurs d'arrondi, l'overflow et l'underflow, et le log-sum-exp qui rend les calculs stables.
 
-**Durée estimée** : ≈ 14 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 13,5 h en parcours complet, 8,9 h en parcours essentiel (lecture 180 min, 24 flashcards).
 
-**Notions enseignées** : dérivée seconde · convexité en une variable · extrema locaux et globaux · polynômes de Taylor, reste · méthode de Newton · différences finies avant et centrée : l'erreur par Taylor (cas général) · choix du pas h : troncature et arrondi · nombres flottants · erreurs d'arrondi · overflow et underflow · log-sum-exp et stabilité numérique
+**Objectifs**
 
-**Après** : R7, R5
+- Étudier la convexité d'une fonction et classer ses extrema locaux et globaux.
+- Écrire un polynôme de Taylor et borner son erreur.
+- Résoudre une équation par la méthode de Newton, et dire quand elle converge vite.
+- Calculer l'erreur d'une différence finie avant ou centrée, et choisir un pas.
+- Expliquer comment un ordinateur représente un nombre réel, et ses limites.
+- Calculer un log-sum-exp et une softmax sans overflow.
 
-**mymath** : `approx.py` (fonctions prévues) : `taylor_polynomial`, `newton`, `finite_difference_errors`, `best_step`, `logsumexp`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 5.6 ∂ Pourquoi la différence centrée est plus précise (calcul exact sur x³) · 5.7 ∂ Rosenbrock : gradient et minimum à la main
+- §1 Dérivée seconde et convexité en une variable
+- §2 Extrema locaux et globaux
+- §3 Polynômes de Taylor et reste
+- §4 La méthode de Newton
+- §5 Différences finies : l'erreur par Taylor
+- §6 Nombres flottants : représentation, epsilon machine, arrondis
+- §7 Le choix du pas h : troncature contre arrondi
+- §8 Overflow, underflow et log-sum-exp
+
+**Notions enseignées** : dérivée seconde · convexité en une variable · extrema locaux et globaux · polynômes de Taylor, reste · méthode de Newton · différences finies avant et centrée : l'erreur par Taylor (cas général) · extrapolation de Richardson · choix du pas h : troncature et arrondi · nombres flottants · erreurs d'arrondi · overflow et underflow · log-sum-exp et stabilité numérique
+
+**Prérequis** : dérivées, variations, tangente (R7) · suites, limites, récurrence (R5) · exp et ln, croissances comparées (R6) · notation scientifique (R1)
+
+**mymath** : `approx.py` (signatures figées) : `taylor_polynomial`, `newton`, `richardson_derivative`, `machine_epsilon`, `logsumexp`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 5.6 ∂ Pourquoi la différence centrée est plus précise (calcul exact sur x³) · 5.7 ∂ Rosenbrock : gradient et minimum à la main · 5.1 ✏️ La sécante qui se resserre sur la tangente · 5.4 ✏️ Tableau de variations : extrema locaux et globaux de x³ − 3x · 5.11 🔨 Dérivées numériques : première et seconde · 5.12 🔮 Quel pas h choisir ? Prédire la courbe d'erreur · 5.13 🔬 Erreur de troncature contre erreur d'arrondi
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M05a.Q1 | 🧠 | Le signe de la dérivée seconde | ★ | 4 | §1 | C, E | manuel | — |
+| M05a.Q2 | 🧠 | Local ou global ? | ★ | 4 | §2 | C, E | manuel | — |
+| M05a.Q3 | 🧠 | Taylor : quel ordre, quelle précision ? | ★ | 4 | §3 | C, E | manuel | — |
+| M05a.Q4 | 🧠 | Newton converge-t-il ? | ★ | 4 | §4 | C | manuel | — |
+| M05a.Q5 | 🧠 | Différence avant ou centrée ? | ★ | 4 | §5 | C, E | manuel | — |
+| M05a.Q6 | 🧠 | Les flottants : vrai ou faux | ★ | 4 | §6 | C, E | manuel | — |
+| M05a.Q7 | 🧠 | Overflow, underflow, log-sum-exp | ★ | 4 | §8 | C, E | manuel | — |
+| M05a.R1 | 🔁 | Dérivées et variations (R7) | ★ | 5 | §1 | C, E | manuel | — |
+| M05a.R2 | 🔁 | Suites définies par récurrence (R5) | ★ | 5 | §4 | C, E | manuel | — |
+| M05a.R3 | 🔁 | Log-probabilités et log-sum-exp (M04) | ★ | 5 | §8 | C | manuel | — |
+| M05a.1 | ✏️ | Dérivées secondes et convexité | ★ | 20 | §1 | C, E | wbm | — |
+| M05a.2 | ✏️ | Extrema locaux et globaux sur un intervalle fermé | ★★ | 20 | §2 | C, E | wbm | — |
+| M05a.3 | ✏️ | Points d'inflexion et test de la dérivée seconde | ★★ | 15 | §1 §2 | C | wbm | — |
+| M05a.4 | ✏️ | Polynômes de Taylor de trois fonctions usuelles | ★ | 20 | §3 | C, E | wbm | — |
+| M05a.5 | ✏️ | Le reste de Taylor : borner l'erreur d'une approximation | ★★ | 20 | §3 | C | wbm | — |
+| M05a.6 | ✏️ | Newton à la main : une racine carrée en trois pas | ★ | 20 | §4 | C, E | wbm | — |
+| M05a.7 | ✏️ | L'erreur d'une différence avant et d'une différence centrée, par Taylor | ★★ | 20 | §5 | C, E | wbm | — |
+| M05a.8 | ✏️ | Les flottants : 0,1 en binaire, epsilon machine, nombres représentables | ★★ | 20 | §6 | C | wbm | — |
+| M05a.9 | ✏️ | Le meilleur pas par le calcul : minimiser une borne d'erreur | ★★ | 20 | §7 | C, E | wbm | — |
+| M05a.10 | ✏️ | log-sum-exp à la main : la softmax stable de trois scores | ★ | 15 | §8 | C, E | wbm | — |
+| M05a.11 | ∂ | La différence centrée est d'ordre 2 : le calcul par Taylor (cas général) | ★★ | 25 | §5 | C | manuel | — |
+| M05a.12 | ∂ | Newton double les décimales justes : l'erreur au carré (racine simple) | ★★★ | 25 | §4 | C | manuel | — |
+| M05a.13 | ∂ | Encadrer le log-sum-exp : max ≤ LSE ≤ max + ln n | ★★ | 20 | §8 | C | manuel | — |
+| M05a.14 | 🔗 | Pourquoi les bibliothèques de ML calculent log(softmax) d'un seul coup | ★ | 15 | §8 | C, E | wbm | — |
+| M05a.15 | 📖 | MML §5.1 : dérivée d'une fonction d'une variable et série de Taylor (lecture guidée) | ★★ | 30 | §1 §3 | C, E | manuel | — |
+| M05a.16 | 🧮 | Fermi : l'erreur d'arrondi d'une somme d'un million de nombres | ★ | 10 | §6 | C | manuel | — |
+| M05a.17 | 🗣️ | Expliquer la convexité et pourquoi elle rassure quand on minimise | ★ | 10 | §1 | C, E | manuel | — |
+| M05a.E1 | 💼 | Pourquoi soustraire le maximum avant de calculer une softmax ? | ★ | 10 | §8 | C, E | manuel | — |
+| M05a.18 | 🔨 | Évaluer un polynôme de Taylor · `taylor_polynomial` | ★ | 20 | §3 | C, E | pytest | — |
+| M05a.19 | 🔨 | La méthode de Newton, avec ses cas d'échec · `newton` | ★ | 20 | §4 | C, E | pytest | — |
+| M05a.20 | 🔨 | L'extrapolation de Richardson : annuler le terme d'erreur en h² · `richardson_derivative` | ★★ | 20 | §5 | C | pytest | — |
+| M05a.21 | 🔨 | L'epsilon machine, en float64, float32 et float16 · `machine_epsilon` | ★ | 15 | §6 | C | pytest | — |
+| M05a.22 | 🔨 | Un log-sum-exp stable · `logsumexp` | ★ | 15 | §8 | C, E | pytest | — |
+| M05a.23 | 📦 | SymPy `series` et `numpy.finfo` contre tes fonctions | ★ | 15 | §3 §6 | C | wbm | — |
+| M05a.24 | 🔮 | Prédire : Newton depuis un mauvais point de départ | ★ | 10 | §4 | C | wbm | — |
+| M05a.25 | 🔬 | Taylor de plus en plus loin : où le polynôme décroche | ★★ | 20 | §3 | C | wbm | — |
+| M05a.26 | 🎨 | Une fonction et ses polynômes de Taylor d'ordre 1, 2 et 3 | ★ | 20 | §3 | C, E | manuel | — |
+| M05a.27 | 🐛 | Chasse à l'erreur : une softmax qui renvoie `nan` | ★ | 15 | §8 | C | wbm | — |
+| M05a.28 | 🛠️ | Erreur relative ou absolue : choisir la tolérance d'un test | ★ | 10 | §6 | C | manuel | — |
+| M05a.29 | 🏆 | Défi : une racine cubique à 10⁻¹² en le moins d'itérations possible | ★★★ | 25 | §4 | C | wbm | — |
+
+*Notes* : La dérivée numérique et la dérivée seconde numérique sont les fonctions de `mylearn` en workbookIA 5, et la courbe d'erreur en fonction du pas est son 🔮 5.12 et son 🔬 5.13 : M05a établit l'erreur par Taylor et le meilleur pas par le calcul d'une borne (✏️), sans tracer cette courbe ; mymath écrit Taylor, Newton, l'extrapolation de Richardson, l'epsilon machine et le log-sum-exp (vu en M04, approfondi ici). Pas de x³ − 3x (workbookIA 5.4). Parcours essentiel : le reste de Taylor, la convergence de Newton et la représentation binaire des flottants hors parcours.
 
 <a id="m05b"></a>
 ## M05b · Fonctions de plusieurs variables et gradient
@@ -1054,17 +1429,78 @@ La dérivée seconde et la convexité en une variable, les polynômes de Taylor,
 
 Les fonctions de deux variables et plus : surfaces et lignes de niveau, dérivées partielles, gradient et dérivée directionnelle, plan tangent, dérivées partielles secondes et classement d'un point critique en dimension 2, et la descente de gradient vue comme « descendre la plus grande pente ».
 
-**Durée estimée** : ≈ 14 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 13,3 h en parcours complet, 9,2 h en parcours essentiel (lecture 180 min, 24 flashcards).
+
+**Objectifs**
+
+- Lire une fonction de deux variables sur une surface et sur ses lignes de niveau.
+- Calculer des dérivées partielles, un gradient et une dérivée directionnelle.
+- Expliquer pourquoi le gradient donne la plus grande pente et coupe les lignes de niveau à angle droit.
+- Écrire le plan tangent et s'en servir pour approcher une valeur.
+- Trouver les points critiques d'une fonction de deux variables et les classer.
+- Expliquer le principe de la descente et de la montée de gradient.
+
+**Sections de la fiche**
+
+- §1 Fonctions de deux variables : surfaces et lignes de niveau
+- §2 Dérivées partielles
+- §3 Gradient et dérivée directionnelle
+- §4 La plus grande pente ; le gradient et les lignes de niveau
+- §5 Plan tangent et approximation linéaire
+- §6 Dérivées partielles secondes
+- §7 Points critiques : minimum, maximum, selle
+- §8 Descente et montée de gradient (principe) ; argmin et argmax
 
 **Notions enseignées** : fonctions de plusieurs variables · surfaces et lignes de niveau · dérivées partielles · gradient · dérivée directionnelle · plus grande pente · plan tangent · dérivées partielles secondes, courbure dans une direction · points critiques : minimum, maximum, selle (test en dimension 2) · descente et montée de gradient (principe) · argmin et argmax
 
-**Après** : M05a, R9
+**Prérequis** : dérivées, règle de la chaîne (R7) · produit scalaire, norme, angle (R9) · dérivée seconde, convexité (M05a) · différences finies (M05a)
 
-**mymath** : `multivar.py` (fonctions prévues) : `partial_derivative`, `directional_derivative`, `steepest_ascent_direction`, `tangent_plane`
+**mymath** : `multivar.py` (signatures figées) : `partial_derivative`, `directional_derivative`, `steepest_ascent_direction`, `tangent_plane`
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 5.6 ∂ Pourquoi la différence centrée est plus précise (calcul exact sur x³) · 5.7 ∂ Rosenbrock : gradient et minimum à la main
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 5.6 ∂ Pourquoi la différence centrée est plus précise (calcul exact sur x³) · 5.7 ∂ Rosenbrock : gradient et minimum à la main · 5.2 ✏️ Gradient à la main et direction de plus grande pente · 5.3 ✏️ Trois pas de descente de gradient à la main · 5.5 ✏️ Point selle : x² − y² vu dans deux directions · 5.15 🔨 numerical_gradient sur la vallée de Rosenbrock · 5.17 📈 Lire des lignes de niveau : où pointe le gradient ? · 5.18 🔨 gradient_descent, et sa version qui monte · 5.19 🔬 Learning rate sur un bol : trop petit, juste, trop grand · 5.20 🔮 Démarrer pile sur un point selle · 5.24 🔨 Minimum, maximum, selle ou plat : classify_critical_point · 5.25 🏆 Atteindre le fond de la vallée de Rosenbrock · 5.E1 💼 Descente de gradient : que se passe-t-il avec un learning rate trop grand, puis trop petit ? · 5.E3 💼 Comment vérifier un gradient calculé ? · 5.E4 💼 Point selle : définition et effet sur l'optimisation
 
-*Notes* : Le gradient numérique, la descente de gradient et le classement d'un point critique sont les fonctions de `mylearn` en workbookIA 5 ; mymath écrit les briques (dérivée partielle, dérivée directionnelle, plan tangent). Coût : 14 h au lieu de 12 (test du second ordre ajouté).
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M05b.Q1 | 🧠 | Lire des lignes de niveau | ★ | 4 | §1 | C, E | manuel | — |
+| M05b.Q2 | 🧠 | Dérivées partielles : vrai ou faux | ★ | 4 | §2 | C, E | manuel | — |
+| M05b.Q3 | 🧠 | Où pointe le gradient ? | ★ | 4 | §3 §4 | C, E | manuel | — |
+| M05b.Q4 | 🧠 | La dérivée directionnelle | ★ | 4 | §3 | C | manuel | — |
+| M05b.Q5 | 🧠 | Le plan tangent | ★ | 4 | §5 | C | manuel | — |
+| M05b.Q6 | 🧠 | Minimum, maximum ou selle ? | ★ | 4 | §7 | C, E | manuel | — |
+| M05b.Q7 | 🧠 | Descendre ou monter | ★ | 4 | §8 | C, E | manuel | — |
+| M05b.R1 | 🔁 | Dériver une composée (R7) | ★ | 5 | §2 | C, E | manuel | — |
+| M05b.R2 | 🔁 | Produit scalaire et norme (R9) | ★ | 5 | §3 | C, E | manuel | — |
+| M05b.R3 | 🔁 | Dérivée seconde et convexité (M05a) | ★ | 5 | §6 | C | manuel | — |
+| M05b.1 | ✏️ | Les lignes de niveau de trois fonctions | ★ | 20 | §1 | C, E | wbm | — |
+| M05b.2 | ✏️ | Dérivées partielles | ★ | 20 | §2 | C, E | wbm | — |
+| M05b.3 | ✏️ | Le gradient en un point et sa norme | ★ | 15 | §3 | C, E | wbm | — |
+| M05b.4 | ✏️ | La dérivée directionnelle dans trois directions | ★★ | 20 | §3 | C, E | wbm | — |
+| M05b.5 | ✏️ | Monter le plus vite : la direction et la valeur de la plus grande pente | ★★ | 15 | §4 | C, E | wbm | — |
+| M05b.6 | ✏️ | Le plan tangent et l'approximation d'une valeur | ★★ | 20 | §5 | C | wbm | — |
+| M05b.7 | ✏️ | Dérivées secondes croisées : le théorème de Schwarz vérifié | ★★ | 15 | §6 | C | wbm | — |
+| M05b.8 | ✏️ | Les points critiques et leur nature (test du second ordre) | ★★ | 25 | §7 | C, E | wbm | — |
+| M05b.9 | ✏️ | Pourquoi un petit pas contre le gradient fait baisser f : le calcul au premier ordre | ★★ | 20 | §5 §8 | C, E | wbm | — |
+| M05b.10 | ✏️ | argmin et argmax sur un segment | ★★ | 20 | §7 §8 | C | wbm | — |
+| M05b.11 | ∂ | La dérivée directionnelle vaut ∇f · u, et la plus grande pente | ★★ | 25 | §3 §4 | C | manuel | — |
+| M05b.12 | ∂ | Le gradient est orthogonal aux lignes de niveau | ★★ | 20 | §4 | C | manuel | — |
+| M05b.13 | ∂ | Le test du second ordre pour ax² + bxy + cy² | ★★★ | 30 | §7 | C | manuel | — |
+| M05b.14 | 🔗 | La loss d'un neurone à deux poids sur deux exemples : son gradient | ★★ | 20 | §2 §8 | C, E | wbm | — |
+| M05b.15 | 📖 | MML §5.2 : dérivées partielles et gradient, la convention en ligne (lecture guidée) | ★★ | 30 | §2 §3 | C, E | manuel | — |
+| M05b.16 | 📈 | Lire une carte de lignes de niveau : estimer une dérivée partielle | ★ | 15 | §1 §2 | C | wbm | — |
+| M05b.17 | 🗣️ | Expliquer ce que disent des lignes de niveau serrées | ★ | 10 | §1 §4 | C, E | manuel | — |
+| M05b.E1 | 💼 | Pourquoi le gradient est-il la direction de plus grande pente ? | ★ | 10 | §4 | C, E | manuel | — |
+| M05b.18 | 🔨 | Une dérivée partielle par différence centrée · `partial_derivative` | ★ | 20 | §2 | C, E | pytest | — |
+| M05b.19 | 🔨 | Dérivée directionnelle et direction de plus grande pente · `directional_derivative, steepest_ascent_direction` | ★★ | 20 | §3 §4 | C, E | pytest | M05b.18 |
+| M05b.20 | 🔨 | Le plan tangent · `tangent_plane` | ★ | 15 | §5 | C | pytest | M05b.18 |
+| M05b.21 | 📦 | SymPy : dérivées partielles, gradient, points critiques | ★ | 20 | §2 §7 | C, E | wbm | — |
+| M05b.22 | 🔮 | Prédire : la dérivée directionnelle le long d'une ligne de niveau | ★ | 10 | §4 | C, E | wbm | — |
+| M05b.23 | 🔬 | L'erreur du plan tangent quand on s'éloigne du point | ★★ | 20 | §5 | C | wbm | — |
+| M05b.24 | 🎨 | Lignes de niveau et flèches du gradient sur la même figure | ★ | 20 | §1 §4 | C, E | manuel | — |
+| M05b.25 | 🐛 | Chasse à l'erreur : la mauvaise variable dérivée, une direction non unitaire | ★ | 15 | §2 §3 | C | wbm | — |
+| M05b.26 | 🛠️ | Vectoriser : une fonction de deux variables sur une grille (`np.meshgrid`) | ★ | 15 | §1 | C | manuel | — |
+| M05b.27 | 🏆 | Défi : retrouver une fonction du second degré à partir de son gradient | ★★★ | 25 | §2 §3 | C | wbm | — |
+
+*Notes* : Le gradient numérique, la descente de gradient et le classement d'un point critique sont les fonctions de `mylearn` en workbookIA 5 ; mymath écrit les briques (dérivée partielle, dérivée directionnelle, plan tangent). Ni la fonction de Rosenbrock ni x² − y² (workbookIA 5) ; aucun réglage du learning rate (workbookIA 5, puis M19). Parcours essentiel : plan tangent, dérivées secondes et démonstrations hors parcours, sauf le test du second ordre appliqué.
 
 <a id="m06"></a>
 ## M06 · Théorie de l'information
@@ -1073,30 +1509,120 @@ Les fonctions de deux variables et plus : surfaces et lignes de niveau, dérivé
 
 La théorie de l'information : quantité d'information, entropie, entropies conjointe et conditionnelle, information mutuelle, cross-entropy, divergence KL et sa positivité (inégalité de Jensen), Jensen-Shannon, codes et inégalité de Kraft, perplexité. Référence libre : MacKay.
 
-**Durée estimée** : ≈ 12 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 11,4 h en parcours complet, 6,5 h en parcours essentiel (lecture 150 min, 22 flashcards).
+
+**Objectifs**
+
+- Calculer l'information d'un événement et l'entropie d'une loi, en bits et en nats.
+- Calculer des entropies conjointe et conditionnelle et une information mutuelle à partir d'un tableau.
+- Calculer une cross-entropy et une divergence KL, et démontrer que la KL est positive.
+- Décider si des longueurs de code sont possibles (inégalité de Kraft) et comparer un code à l'entropie.
+- Relier la log loss et la perplexité à la cross-entropy.
+
+**Sections de la fiche**
+
+- §1 Information de Shannon : bits et nats
+- §2 Entropie
+- §3 Entropies conjointe et conditionnelle
+- §4 Information mutuelle
+- §5 Cross-entropy et divergence KL
+- §6 Inégalité de Jensen, positivité de la KL, Jensen-Shannon
+- §7 Codes : longueur fixe ou variable, inégalité de Kraft
+- §8 Perplexité, et choisir des features par l'information mutuelle
 
 **Notions enseignées** : information de Shannon · bits et nats · entropie · entropie conjointe et conditionnelle · information mutuelle · cross-entropy, log loss · divergence KL · inégalité de Jensen · positivité de la divergence KL · divergence de Jensen-Shannon · codes de longueur fixe et variable · inégalité de Kraft, code de Huffman · perplexité · sélectionner des features par l'information mutuelle (idée)
 
-**Après** : M02b, M03, M05a, R6
+**Prérequis** : logarithmes, bits (R6) · probabilités jointes et conditionnelles (M03) · espérance d'une variable discrète (M02b) · convexité (M05a)
 
-**mymath** : `info.py` (fonctions prévues) : `joint_entropy`, `conditional_entropy`, `mutual_information`, `kraft_sum`, `jensen_gap`
+**mymath** : `info.py` (signatures figées) : `joint_entropy`, `conditional_entropy`, `mutual_information`, `kraft_sum`, `is_prefix_code`, `jensen_gap`
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 6.7 ∂ H(p, q) = H(p) + KL(p‖q), et KL(p‖p) = 0 · 6.8 ∂ L'entropie d'une pièce est maximale à p = 1/2
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 6.7 ∂ H(p, q) = H(p) + KL(p‖q), et KL(p‖p) = 0 · 6.8 ∂ L'entropie d'une pièce est maximale à p = 1/2 · 6.1 ✏️ Combien de bits pour une pièce, un dé, une lettre E ? · 6.2 ✏️ Bits par mot : Seuss, Holmes et l'alphabet · 6.3 ✏️ Entropie de quelques distributions · 6.4 ✏️ Morse contre code fixe : SHERLOCK HOLMES · 6.5 ✏️ Cross-entropy et KL dans les deux sens · 6.6 ✏️ Un code de Huffman à la main · 6.16 🔨 cross_entropy, kl_divergence et js_divergence · 6.17 🐛 La cross-entropy infinie : la lettre qui manque · 6.19 📦 scipy.stats.entropy et un vrai compresseur (zlib) · 6.23 🔨 Huffman : construire, encoder, décoder · 6.27 🏆 Passer sous la barre de Huffman lettre à lettre · 6.E1 💼 Pourquoi la cross-entropy comme loss de classification ? · 6.E2 💼 Entropie, cross-entropy, KL : les différences
 
-*Notes* : Entropie, cross-entropy, KL et perplexité sont les fonctions de `mylearn` en workbookIA 6 ; mymath écrit ce qui les entoure (entropies conjointe et conditionnelle, information mutuelle, Kraft, écart de Jensen).
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M06.Q1 | 🧠 | La surprise et la probabilité | ★ | 4 | §1 | C, E | manuel | — |
+| M06.Q2 | 🧠 | L'entropie : vrai ou faux | ★ | 4 | §2 | C, E | manuel | — |
+| M06.Q3 | 🧠 | Conjointe et conditionnelle | ★ | 4 | §3 | C, E | manuel | — |
+| M06.Q4 | 🧠 | L'information mutuelle | ★ | 4 | §4 | C | manuel | — |
+| M06.Q5 | 🧠 | La KL n'est pas une distance | ★ | 4 | §5 | C, E | manuel | — |
+| M06.Q6 | 🧠 | L'inégalité de Jensen | ★ | 4 | §6 | C | manuel | — |
+| M06.Q7 | 🧠 | Codes préfixes | ★ | 4 | §7 | C, E | manuel | — |
+| M06.R1 | 🔁 | Logarithmes en base 2 (R6) | ★ | 5 | §1 | C, E | manuel | — |
+| M06.R2 | 🔁 | Probabilités jointes et conditionnelles (M03) | ★ | 5 | §3 | C, E | manuel | — |
+| M06.R3 | 🔁 | Convexité (M05a) | ★ | 5 | §6 | C | manuel | — |
+| M06.1 | ✏️ | L'information d'événements et l'entropie d'une loi à quatre issues | ★ | 20 | §1 §2 | C, E | wbm | — |
+| M06.2 | ✏️ | L'entropie maximale : comparer trois lois à trois issues | ★★ | 15 | §2 | C | wbm | — |
+| M06.3 | ✏️ | Entropies conjointe et conditionnelle d'un tableau 2 × 3 | ★★ | 20 | §3 | C, E | wbm | — |
+| M06.4 | ✏️ | La règle de la chaîne de l'entropie, vérifiée | ★ | 15 | §3 | C | wbm | — |
+| M06.5 | ✏️ | L'information mutuelle de deux variables | ★★ | 20 | §4 | C, E | wbm | — |
+| M06.6 | ✏️ | Cross-entropy et KL en bits perdus : un code fait pour la mauvaise loi | ★★ | 20 | §5 | C, E | wbm | — |
+| M06.7 | ✏️ | L'inégalité de Jensen sur trois exemples | ★ | 15 | §6 | C | wbm | — |
+| M06.8 | ✏️ | Kraft : ces longueurs de code sont-elles possibles ? | ★ | 15 | §7 | C, E | wbm | — |
+| M06.9 | ✏️ | La longueur moyenne d'un code, comparée à l'entropie | ★★ | 20 | §7 | C | wbm | — |
+| M06.10 | ∂ | I(X ; Y) = H(X) − H(X | Y), et l'information mutuelle est positive | ★★ | 20 | §4 | C | manuel | — |
+| M06.11 | ∂ | La KL est positive : la preuve par l'inégalité de Jensen | ★★★ | 25 | §6 | C | manuel | — |
+| M06.12 | 🔗 | La log loss d'un classifieur, une cross-entropy moyenne | ★ | 15 | §5 §8 | C, E | wbm | — |
+| M06.13 | 🔗 | Choisir une feature par l'information mutuelle | ★★ | 20 | §8 | C | wbm | — |
+| M06.14 | 🧮 | Fermi : combien de bits pour un génome humain ? | ★ | 10 | §2 | C | manuel | — |
+| M06.15 | 🗣️ | Expliquer l'information mutuelle avec deux capteurs | ★ | 10 | §4 | C, E | manuel | — |
+| M06.E1 | 💼 | Information mutuelle ou corrélation : laquelle détecte quoi ? | ★ | 10 | §4 | C | manuel | — |
+| M06.16 | 🔨 | Entropies conjointe et conditionnelle d'un tableau · `joint_entropy, conditional_entropy` | ★ | 20 | §3 | C, E | pytest | — |
+| M06.17 | 🔨 | L'information mutuelle · `mutual_information` | ★ | 15 | §4 | C, E | pytest | M06.16 |
+| M06.18 | 🔨 | Codes préfixes et somme de Kraft · `kraft_sum, is_prefix_code` | ★ | 15 | §7 | C | pytest | — |
+| M06.19 | 🔨 | L'écart de Jensen d'une loi discrète · `jensen_gap` | ★ | 15 | §6 | C | pytest | — |
+| M06.20 | 📦 | `sklearn.metrics.mutual_info_score` contre ta fonction, en nats | ★ | 15 | §4 | C | wbm | — |
+| M06.21 | 🔮 | Prédire : l'information mutuelle de X et 2X, de X et X² | ★ | 10 | §4 | C, E | wbm | — |
+| M06.22 | 🔬 | Estimer une entropie à partir d'un échantillon : le biais des petits échantillons | ★★ | 20 | §2 | C | wbm | — |
+| M06.23 | 🎨 | Un diagramme de l'information : H(X), H(Y), H(X | Y), I(X ; Y) | ★ | 20 | §3 §4 | C | manuel | — |
+| M06.24 | 🐛 | Chasse à l'erreur : log en base 10, 0 log 0, KL à l'envers | ★ | 15 | §5 | C | wbm | — |
+| M06.25 | 🛠️ | Calculer 0 log 0 proprement (`scipy.special.xlogy`) | ★ | 10 | §2 | C | manuel | — |
+| M06.26 | 🏆 | Défi : deviner un nombre de 1 à 100 en un minimum de questions | ★★★ | 25 | §1 §2 | C | wbm | — |
+
+*Notes* : Entropie, cross-entropy, KL, Jensen-Shannon, Huffman et perplexité sont les fonctions de `mylearn` en workbookIA 6 ; mymath écrit ce qui les entoure (entropies conjointe et conditionnelle, information mutuelle, Kraft, codes préfixes, écart de Jensen). Le code de Huffman est énoncé, pas construit à la main ni programmé (workbookIA 6.6 et 6.23) ; ni Morse, ni pièce, ni dé, ni textes littéraires (workbookIA 6.1 à 6.4) ; la KL est calculée dans un seul sens, comme des bits perdus (workbookIA 6.5 la calcule dans les deux). COMPOSITION : pas de 📖 (MML ne traite pas l'information) ; lecture conseillée : MacKay, chapitres 1, 2 et 5. Parcours essentiel : Kraft, Jensen-Shannon et démonstrations hors parcours.
 
 <a id="cp1"></a>
 ## CP1 · Examen blanc de la partie I
 
 **Partie** I · **prépare** — · **dossier** `checkpoints/partie_1/` · **MML** — · **sessions de génération** 1
 
-Examen blanc de la partie I (M02a à M06) et synthèse, juste avant le checkpoint I de workbookIA.
+Le bilan de la partie I (M02a à M06), juste avant le checkpoint I de workbookIA : un examen blanc d'environ 2 heures (sujet, notebook de vérification, corrigé détaillé, barème sur 20), puis une synthèse (carte mentale et fiche d'une page). Pas de mini-projet.
 
-**Durée estimée** : ≈ 4 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 3,3 h en parcours complet, 3,3 h en parcours essentiel (lecture 15 min, 0 flashcards).
+
+**Objectifs**
+
+- Vérifier en temps limité que les notions de la partie I sont acquises.
+- Construire ta propre synthèse de la partie I.
+
+**Sections de la fiche**
+
+- §1 Examen blanc
+- §2 Synthèse
 
 **Notions enseignées** : révision de la partie I
 
-**Après** : M06
+**Prérequis** : toute la partie I (M06)
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 2.8 ∂ Changer d'unité : la covariance bouge, pas la corrélation · 3.4 ∂ Règle du produit et formule des probabilités totales · 3.8 ∂ F1, moyenne harmonique : pourquoi elle punit le maillon faible · 4.3 ∂ Retrouver la règle de Bayes en trois lignes · 4.7 ∂ Le posterior reste une distribution, un prior nul reste nul · 5.6 ∂ Pourquoi la différence centrée est plus précise (calcul exact sur x³) · 5.7 ∂ Rosenbrock : gradient et minimum à la main · 6.7 ∂ H(p, q) = H(p) + KL(p‖q), et KL(p‖p) = 0 · 6.8 ∂ L'entropie d'une pièce est maximale à p = 1/2
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| CP1.Q1 | 🧠 | Dix affirmations sur la partie I : vrai ou faux | ★ | 10 | §1 | C, E | manuel | — |
+| CP1.1 | ✏️ | Intégrales et densité : une aire, une fonction de répartition, un quantile | ★★ | 10 | §1 | C, E | wbm | — |
+| CP1.2 | ✏️ | Lois usuelles : binomiale, Poisson, normale | ★★ | 9 | §1 | C, E | wbm | — |
+| CP1.3 | ✏️ | Un couple de variables : marginales, indépendance, variance d'une somme | ★★ | 8 | §1 | C, E | wbm | — |
+| CP1.4 | ✏️ | Estimer une moyenne : erreur type et intervalle de confiance | ★★ | 9 | §1 | C, E | wbm | — |
+| CP1.5 | ✏️ | Un tableau de contingence et des métriques comme probabilités | ★★ | 9 | §1 | C, E | wbm | — |
+| CP1.6 | ✏️ | Bayes et la loi Beta : une mise à jour conjuguée | ★★ | 9 | §1 | C, E | wbm | — |
+| CP1.7 | ✏️ | Taylor, Newton et un calcul stable | ★★ | 9 | §1 | C, E | wbm | — |
+| CP1.8 | ✏️ | Gradient, dérivée directionnelle et point critique | ★★ | 10 | §1 | C, E | wbm | — |
+| CP1.9 | ✏️ | Entropie, information mutuelle et KL | ★★ | 9 | §1 | C, E | wbm | — |
+| CP1.10 | ∂ | Une démonstration courte, au choix parmi deux | ★★★ | 12 | §1 | C, E | manuel | — |
+| CP1.11 | 🐛 | Corriger une copie : cinq erreurs | ★★ | 8 | §1 | C, E | wbm | — |
+| CP1.12 | 🔗 | Problème de synthèse : estimer un paramètre de bout en bout (vraisemblance, maximum, Newton, incertitude) | ★★ | 12 | §1 | C, E | wbm | — |
+| CP1.13 | 🗣️ | Ta carte mentale et ta fiche d'une page | ★ | 60 | §2 | C, E | manuel | — |
+
+*Notes* : Fichiers comme CP0 : 01_examen_sujet.md, 02_examen_notebook.ipynb, 03_examen_corrige.md, 03_examen_solutions.ipynb, 04_mes_reponses.md, 05_synthese.md, README.md. Aucune question ne reprend le checkpoint I de workbookIA (`checkpoints/partie_1/` de workbookIA), qui se fait juste après.
 
 <a id="m07"></a>
 ## M07 · Vecteurs et géométrie de ℝⁿ

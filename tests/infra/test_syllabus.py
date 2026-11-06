@@ -47,10 +47,13 @@ def test_generated_documents_are_up_to_date(data):
     assert stale == [], f"run `python tools/syllabus.py build` (stale: {stale})"
 
 
-def test_part_0_is_detailed_and_later_parts_planned(data):
+DETAILED_PARTS = {"0", "I"}  # a part is detailed in its syllabus session (BIBLE §24): add it here then
+
+
+def test_detailed_parts_are_detailed_and_later_parts_planned(data):
     chapters, _, _ = data
     for cid, ch in chapters.items():
-        assert ch["detailed"] == (ch["part"] == "0"), cid
+        assert ch["detailed"] == (ch["part"] in DETAILED_PARTS), cid
 
 
 def test_every_ia_notion_with_maths_is_covered(data):
