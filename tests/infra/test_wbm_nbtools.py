@@ -581,6 +581,15 @@ def test_run_pytest_group_hides_what_exceeds_max_shown(group_root, capsys):
     assert "   … et 4 autre(s) test(s) en échec, dont 1 pas encore écrit(s)" in text
 
 
+def test_run_pytest_group_says_which_failures_are_only_pending(group_root, capsys):
+    """Tests of a function not written yet: the summary says they wait, not only « failed »."""
+    result = run_pytest_group("tests/test_group.py", "not_written", root=group_root)
+    assert result.pending == 1 and result.failed == 1
+    last = out(capsys).splitlines()[-1]
+    assert last.startswith("pytest: 1 failed, 7 deselected")
+    assert last.endswith("(dont 1 en attente ⏳ : fonction pas encore écrite)")
+
+
 def test_run_pytest_group_all_green(group_root, capsys):
     result = run_pytest_group(group_root / "tests" / "test_group.py", "passes", root=group_root)
     assert result.ok and result.passed == 1

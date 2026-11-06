@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §7 |
 | **Temps total estimé** | ≈ 3 h : lecture et essais de la fiche ≈ 45 min, exercices ≈ 2 h, flashcards ≈ 20 min (parcours essentiel ≈ 2 h 50) |
-| **Prérequis** | workbookIA 0A, sections §100.1.1 (cellules, noyau), §100.2.1 (nombres et opérateurs), §100.4.1 (conditions) et §100.5.1 (définir une fonction) |
+| **Prérequis** | workbookIA 0A, sections §100.1.1 (cellules, noyau), §100.2.1 (nombres et opérateurs), §100.2.2 (chaînes de caractères), §100.3.1 (listes), §100.4.1 (conditions) et §100.5.1 (définir une fonction) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `_example.py` : la fonction `mean` (R0.9) |
 
@@ -52,7 +52,7 @@ Parcours essentiel : tout sauf R0.Q4, R0.2 et R0.7.
 4. `**` passe avant le signe moins : `-3**2` vaut `-9`. `//` donne le quotient et `%` le reste de la division euclidienne.
 5. Les nombres à virgule sont des **flottants**, presque toujours arrondis : on ne compare jamais deux flottants avec `==`.
 6. `wbm.check("ID", ta_réponse)` dit si ta réponse est juste **sans jamais la révéler** ; ⏳ veut dire « pas encore fait ».
-7. Une fraction, une expression ou un intervalle se tapent **entre guillemets** : `"7/12"`, `"(x + 1)**2"`, `"]2 ; 5]"`.
+7. Une fraction, une expression ou un intervalle se tapent **entre guillemets** : `"5/8"`, `"(x + 1)**2"`, `"[0 ; 1["`.
 8. SymPy calcule **exactement**, avec des lettres : `expand`, `factor`, `simplify`, `subs` vérifient ton calcul à la main, ils ne le remplacent pas.
 9. En LaTeX, `$...$` encadre une formule, et les accolades groupent : `x^{10}`, `\frac{a}{b}`, `\sqrt{x}`.
 10. Une fonction de `mymath` part d'un squelette (`raise NotImplementedError`), et des tests la comparent à une bibliothèque de confiance.
@@ -91,7 +91,7 @@ L'ordre compte. Le notebook vérifie ton calcul, il ne le remplace pas : c'est e
 Un notebook est une suite de **cellules** : des cellules de texte (Markdown) et des cellules de code, que tu exécutes une par une avec Maj + Entrée. Le code s'exécute dans un **noyau** (*kernel*) : une mémoire qui garde les variables d'une cellule à l'autre. Le noyau ne lit pas la page : il garde ce que les cellules ont laissé, **dans l'ordre où tu les as exécutées**. Si tu exécutes une cellule du bas, puis une cellule du haut, la cellule du haut voit les variables créées par celle du bas.
 
 Trois règles en découlent :
-- la cellule **⚙️ SETUP**, la première de chaque notebook, s'exécute en premier, à chaque ouverture : elle prépare le dépôt, les bibliothèques et `wbm` ;
+- la cellule **⚙️ SETUP**, la première de chaque notebook, est celle que tu exécutes en premier, à chaque ouverture : elle prépare le dépôt, les bibliothèques et `wbm` ;
 - quand plus rien n'a de sens, **Redémarrer et tout exécuter** (*Restart and run all*) : le noyau repart d'une mémoire vide et exécute tout de haut en bas ;
 - avant de considérer un notebook comme fini, fais ce même test : il doit aller au bout.
 
@@ -108,12 +108,12 @@ Dans les notebooks du workbook, « Tout exécuter » va jusqu'au bout **même qu
 | addition, soustraction | $a + b$, $a - b$ | `a + b`, `a - b` | `7 - 10` | `-3` |
 | multiplication | $a \times b$, $ab$ | `a * b` | `6 * 7` | `42` |
 | division | $\frac{a}{b}$ | `a / b` | `7 / 2` | `3.5` |
-| quotient de la division euclidienne | | `a // b` | `17 // 5` | `3` |
-| reste de la division euclidienne | | `a % b` | `17 % 5` | `2` |
+| quotient de la division euclidienne | | `a // b` | `23 // 4` | `5` |
+| reste de la division euclidienne | | `a % b` | `23 % 4` | `3` |
 | puissance | $a^b$ | `a ** b` | `2 ** 10` | `1024` |
 | racine carrée | $\sqrt{a}$ | `a ** 0.5` ou `math.sqrt(a)` | `16 ** 0.5` | `4.0` |
 
-La **division euclidienne** de $a$ par $b > 0$ donne un quotient $q$ et un reste $r$ tels que $a = bq + r$ avec $0 \le r < b$. Pour 17 et 5 : $17 = 5 \times 3 + 2$, donc `17 // 5` vaut 3 et `17 % 5` vaut 2. Le reste sert partout : `n % 2 == 0` teste si `n` est pair.
+La **division euclidienne** de $a$ par $b > 0$ donne un quotient $q$ et un reste $r$ tels que $a = bq + r$ avec $0 \le r < b$. Pour 23 et 4 : $23 = 4 \times 5 + 3$, donc `23 // 4` vaut 5 et `23 % 4` vaut 3. Le reste sert partout : `n % 2 == 0` teste si `n` est pair.
 
 > ⚠️ **Piège : `^` n'est pas la puissance.** En Python, `2 ^ 3` vaut `1` (c'est une opération sur les bits, le « ou exclusif ») et ne donne aucun message d'erreur. La puissance s'écrit toujours `**`.
 
@@ -152,13 +152,13 @@ Deux lignes demandent une explication. `-3 ** 2` se lit $-(3^2)$ : la puissance 
 `//` arrondit **vers le bas**, c'est-à-dire vers $-\infty$, et pas vers zéro :
 
 ```python
->>> -17 // 5
--4
->>> -17 % 5
-3
+>>> -23 // 4
+-6
+>>> -23 % 4
+1
 ```
 
-En effet $-17 / 5 = -3{,}4$, et l'entier juste en dessous est $-4$. Le reste suit la règle $a = bq + r$ avec $0 \le r < b$ : $-17 = 5 \times (-4) + 3$. Le reste par un nombre positif est donc toujours positif ou nul.
+En effet $-23 / 4 = -5{,}75$, et l'entier juste en dessous est $-6$. Le reste suit la règle $a = bq + r$ avec $0 \le r < b$ : $-23 = 4 \times (-6) + 1$. Le reste par un nombre positif est donc toujours positif ou nul.
 
 ### Les flottants : pourquoi 0,1 + 0,2 ≠ 0,3
 
@@ -169,7 +169,7 @@ En effet $-17 / 5 = -3{,}4$, et l'entier juste en dessous est $-4$. Le reste sui
 False
 ```
 
-Ce n'est pas un défaut de Python. Un ordinateur range un nombre à virgule, ou **flottant** (*floating-point number*), dans un nombre fixe de chiffres **binaires** (en base 2). En base 10, $\frac{1}{3} = 0{,}333\ldots$ ne s'écrit pas avec un nombre fini de chiffres. De la même façon, en base 2, 0,1 ne s'écrit pas avec un nombre fini de chiffres : l'ordinateur garde le flottant le plus proche, avec 15 à 17 chiffres décimaux exacts. Les flottants forment donc une grille très fine, et chaque calcul tombe sur un point de la grille, parfois sur le voisin de celui qu'on attendait.
+Ce n'est pas un défaut de Python. Un ordinateur range un nombre à virgule, ou **flottant** (*floating-point number*), dans un nombre fixe de chiffres **binaires** (en base 2). En base 10, $\frac{1}{3} = 0{,}333\ldots$ ne s'écrit pas avec un nombre fini de chiffres. De la même façon, en base 2, 0,1 ne s'écrit pas avec un nombre fini de chiffres : l'ordinateur garde le flottant le plus proche, avec une précision d'environ 16 chiffres significatifs. Les flottants forment donc une grille très fine, et chaque calcul tombe sur un point de la grille, parfois sur le voisin de celui qu'on attendait.
 
 ![Les flottants près de 0,3 forment une grille ; 0.1 + 0.2 tombe sur le voisin du flottant que Python appelle 0.3](figures/grille_flottants.png)
 
@@ -191,11 +191,13 @@ En maths, la virgule sépare la partie entière des décimales : 3,5. En Python,
 - ❌ avec un message qui dit où chercher (« la puissance passe avant le signe moins », « fraction à l'envers »…), mais **jamais** la bonne réponse ;
 - ⏳ si tu n'as pas encore répondu (la variable vaut encore `...`).
 
-Comment peut-il vérifier sans connaître la réponse ? Le dépôt ne contient pas les réponses, seulement leur **empreinte** (*hash*) : un long code calculé à partir de la réponse, d'où l'on ne peut pas la retrouver. `wbm.check` calcule l'empreinte de **ta** réponse, de la même façon, et compare les deux codes. Deux réponses égales donnent la même empreinte ; un seul chiffre différent donne une empreinte complètement différente. Les messages d'erreur viennent des empreintes de quelques erreurs classiques, enregistrées avec la bonne réponse.
+Comment peut-il vérifier sans afficher la réponse ? Le fichier que lit `wbm.check` (`src/wbm/answers.json`) ne contient pas les réponses, seulement leur **empreinte** (*hash*) : un long code calculé à partir de la réponse, d'où l'on ne peut pas la retrouver. `wbm.check` calcule l'empreinte de **ta** réponse, de la même façon, et compare les deux codes. Deux réponses égales donnent la même empreinte ; un seul chiffre différent donne une empreinte complètement différente. Les messages d'erreur viennent des empreintes de quelques erreurs classiques, enregistrées avec la bonne réponse. Les réponses en clair existent ailleurs, dans les solutions du chapitre (`05_solutions.md`) : à lire **après** avoir cherché.
 
 > ⚠️ **Piège : taper l'expression Python au lieu de la valeur.** Dans la partie 0, tape **la valeur que tu as trouvée sur papier**, pas un calcul que Python ferait pour toi : `answer = 23`, pas `answer = 5 + 2 * 3 ** 2`. Sinon tu vérifies Python, pas toi.
 
 ### Comment taper chaque sorte de réponse
+
+Rappel de 0A (§100.2.2) : du texte entre guillemets, comme `"5/8"`, est une **chaîne de caractères** (*string*). Python ne le calcule pas : il le transmet tel quel à `wbm.check`, qui le lit lui-même.
 
 | Réponse attendue | Exemple d'énoncé | Ce que tu tapes |
 |---|---|---|
@@ -329,9 +331,11 @@ def mean(values):
 
 La docstring (le texte entre `"""`) est le **contrat** de la fonction : ce qu'elle reçoit (*Parameters*), ce qu'elle renvoie (*Returns*), les erreurs qu'elle lève (*Raises*) et un exemple (*Examples*). Lis-la entièrement avant d'écrire une ligne.
 
+Pour `mean`, trois outils de 0A (§100.3.1) suffisent : une liste s'écrit `[2, 4, 9]`, `len(values)` donne son nombre d'éléments et `sum(values)` leur somme (ils marchent aussi sur un tuple et sur un tableau NumPy).
+
 Deux recettes servent dès maintenant (le chapitre 0A les approfondit en §100.6.2 et §100.11.3) :
-- **lever une erreur** quand une entrée n'a pas de sens : `raise ValueError("mean() of an empty sequence")` arrête la fonction avec un message clair ;
-- **écrire un test** : `assert mean([2, 4]) == 3.0` ne fait rien si c'est vrai, et lève une `AssertionError` si c'est faux.
+- **lever une erreur** quand une entrée n'a pas de sens : `raise ValueError("cannot average an empty sequence")` arrête la fonction avec un message clair ;
+- **écrire un test** : dans le notebook, `assert mymath._example.mean([2, 4]) == 3.0` ne fait rien si c'est vrai, et lève une `AssertionError` si c'est faux. La fonction s'y appelle `mymath._example.mean` : le nom de la librairie, celui du module, puis celui de la fonction.
 
 > ⚠️ **Piège : tester une liste vide avec `if not values`.** Les tests de `mean` lui passent aussi des tableaux NumPy, et `if not values` sur un tableau de plusieurs nombres provoque une erreur (« *truth value of an array is ambiguous* »). Écris `if len(values) == 0:`, qui marche pour une liste, un tuple et un tableau.
 

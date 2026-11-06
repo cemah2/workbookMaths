@@ -25,6 +25,6 @@ def mean(values):
     2.5
     """
     values = list(values)
-    if not values:
-        raise ValueError("mean() of an empty sequence")
+    if len(values) == 0:
+        raise ValueError("cannot average an empty sequence")
     return float(sum(values)) / len(values)

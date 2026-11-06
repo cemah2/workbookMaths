@@ -40,7 +40,7 @@ Quelle opération donne toujours un flottant ? Pour 6, `//` arrondit vers le bas
 </details>
 <details><summary>Indice 3</summary>
 
-1 : `2 ** 3` vaut `8`, un `int` (une puissance d'entiers reste un entier). Pour 2, souviens-toi que `^` **n'est pas** la puissance ; la réponse est un entier, mais ce n'est pas 8. Pour 3 et 4, écris $20 = 3q + r$ avec $0 \le r < 3$. Pour 5, quel opérateur est utilisé ? Pour 6, $-7 / 2 = -3{,}5$ : quel est l'entier juste en dessous ?
+1 : `2 ** 3` vaut `8`, un `int` (une puissance d'entiers, à exposant positif ou nul, reste un entier). Pour 2, souviens-toi que `^` **n'est pas** la puissance ; la réponse est un entier, mais ce n'est pas 8. Pour 3 et 4, écris $20 = 3q + r$ avec $0 \le r < 3$. Pour 5, quel opérateur est utilisé ? Pour 6, $-9 / 2 = -4{,}5$ : quel est l'entier juste en dessous ?
 
 </details>
 
@@ -98,7 +98,7 @@ Pour chaque ligne, souligne l'opération qui passe en premier, calcule-la, et re
 </details>
 <details><summary>Indice 3</summary>
 
-a : `3 ** 2` d'abord (9), puis `2 * 9` (18), puis `5 + 18` : **23**. b : les parenthèses d'abord, puis la puissance. c et d : la différence entre les deux est le signe moins, que `**` précède ou non. Pour g et h : $-29 = 6 \times q + r$ avec $0 \le r < 6$ ; essaie $q = -4$ (le reste serait négatif : interdit), puis $q = -5$. Pour i : que vaut `3 ** 0` ? Pour j : de gauche à droite, `10 / 4` d'abord.
+a : `3 ** 2` d'abord (9), puis `2 * 9` (18), puis `5 + 18` : **23**. b : les parenthèses d'abord, puis la puissance. c et d : la différence entre les deux est le signe moins, que `**` précède ou non. Pour g et h : $-29 = 6 \times q + r$ avec $0 \le r < 6$ ; essaie $q = -4$ (le reste serait négatif : interdit), puis $q = -5$. Pour i : que vaut `3 ** 0` ? Pour j : de gauche à droite, `12 / 8` d'abord.
 
 </details>
 
@@ -164,21 +164,21 @@ a : $\frac{3}{4} = \frac{9}{12}$ et $\frac{1}{6} = \frac{2}{12}$ ; termine le ca
 
 </details>
 
-### Ex R0.4 — Prédire : 0,1 + 0,2 vaut-il 0,3 pour Python ?
+### Ex R0.4 — Prédire : 0,5 + 0,25 et dix fois 0,1, exacts ou arrondis ?
 
 <details><summary>Indice 1</summary>
 
-Pour la prédiction, réfléchis seul : il n'y a pas d'indice qui la donne. Une prédiction ratée t'apprend souvent plus qu'une prédiction réussie.
+Pour les prédictions, réfléchis seul : il n'y a pas d'indice qui les donne. Relis seulement la fiche §2, « Les flottants » : pourquoi 0,1 est-il arrondi ? Une prédiction ratée t'apprend souvent plus qu'une prédiction réussie.
 
 </details>
 <details><summary>Indice 2</summary>
 
-Après l'expérience, pour b : un nombre affiché `5.5e-17` se lit $5{,}5 \times 10^{-17}$. Pour c : regarde la dernière ligne affichée.
+Après l'expérience, pour c : un nombre affiché `3.2e-8` se lit $3{,}2 \times 10^{-8}$, et son exposant est $-8$. Pour d : regarde la dernière ligne affichée.
 
 </details>
 <details><summary>Indice 3</summary>
 
-b : dans l'écriture `m e k`, l'entier demandé est ce qui suit le `e`, avec son signe. Pour un nombre plus petit que 1, est-il positif ou négatif ? c : `Fraction` calcule exactement ; tape le résultat affiché entre guillemets, comme `"2/9"`. Puis lis la fiche §2, « Les flottants », pour comprendre ce que tu as vu.
+c : dans l'écriture `<m>e<k>`, l'entier demandé est ce qui suit le `e`, avec son signe ; pour un nombre plus petit que 1, il est négatif. d : `Fraction` calcule exactement ; réponds par `True` ou `False` selon la dernière ligne. Ensuite, relis la note de `05_solutions.md` : pourquoi 0,5 et 0,25 ne sont-ils pas arrondis ?
 
 </details>
 
@@ -191,12 +191,12 @@ Relis la fiche §4, « Vérifier son propre calcul » : on développe la différ
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque ligne, une seule instruction suffit : `sp.expand(depart - resultat)`. Si le résultat vaut 0, le développement est juste ; sinon, ce qui reste montre l'erreur. Pour 2, `sp.expand(depart)` donne le bon développement ; pour 3, `sp.simplify(...)`.
+Pour chaque ligne, une seule instruction suffit : `sp.expand(depart - resultat)`. Si le résultat vaut 0, la ligne est juste ; sinon, ce qui reste montre l'erreur. Pour b, `sp.expand(depart)` donne le bon développement : lis le nombre devant `x`. Pour c, `sp.simplify(...)`, puis lis $a$ et $b$ dans le résultat.
 
 </details>
 <details><summary>Indice 3</summary>
 
-La ligne a) se vérifie avec `sp.expand((x + 3)*(x - 7) - (x**2 - 4*x - 21))`, qui affiche `0` : a) est juste. Fais de même pour b), c) et d), en recopiant le départ et le résultat de chaque ligne du tableau. Pour la réponse 1, écris les lettres justes collées, dans l'ordre alphabétique, entre guillemets. Pour 2 et 3, recopie l'expression affichée par SymPy entre guillemets.
+La ligne 1 se vérifie avec `sp.expand((x + 3)*(x - 7) - (x**2 - 4*x - 21))`, qui affiche `0` : la ligne 1 est juste. Fais de même pour les lignes 2, 3 et 4, en recopiant le départ et le résultat de chaque ligne du tableau. Pour a, mets les numéros des lignes justes dans une liste. Pour b, un terme `-5*x` aurait pour coefficient $-5$ (avec son signe). Pour c, un résultat comme `x + 7` se lit $a = 1$ et $b = 7$.
 
 </details>
 
@@ -214,7 +214,7 @@ Il y a trois sortes de pièges : un symbole qui n'est pas la puissance, une mult
 </details>
 <details><summary>Indice 3</summary>
 
-La ligne (b) est fausse : `x^3` n'est pas une puissance en Python. Cherche maintenant les deux autres lignes fausses parmi (c), (e), (f) et (g) : pour chacune, calcule ce que Python fait avec `x = 2`, et compare à la formule avec $x = 2$. Pour `y3`, la fonction tient en une ligne : `return 1 / (...)`.
+La ligne 2 est fausse : `x^3` n'est pas une puissance en Python. Cherche maintenant les deux autres lignes fausses parmi les lignes 3, 5, 6 et 7 : pour chacune, calcule ce que Python fait avec `x = 2`, et compare à la formule avec $x = 2$. Pour `y3`, la fonction tient en une ligne : `return 1 / (...)`.
 
 </details>
 
@@ -227,7 +227,7 @@ Recopie la recette de la fiche §6 dans le corps de `plot_f` (à la place du `ra
 </details>
 <details><summary>Indice 2</summary>
 
-Trois choses changent par rapport à la recette : l'intervalle (`np.linspace(-2, 4, 200)`), la formule des ordonnées, et les textes (titre, légende). Ajoute `ax.axhline(0, linewidth=0.8)` avant `plt.show()`.
+Trois choses changent par rapport à la recette : l'intervalle (`np.linspace(-5, 3, 200)`), la formule des ordonnées, et les textes (titre, légende). Ajoute `ax.axhline(0, linewidth=0.8)` avant `plt.show()`.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -235,8 +235,8 @@ Trois choses changent par rapport à la recette : l'intervalle (`np.linspace(-2,
 Le début de la fonction :
 
 ```python
-xs = np.linspace(-2, 4, 200)
-ys = xs**2 - 2*xs - 3
+xs = np.linspace(-5, 3, 200)
+ys = xs**2 + 2*xs - 8
 fig, ax = plt.subplots(figsize=(6, 3.6))
 ```
 
@@ -263,10 +263,10 @@ Le squelette, à compléter :
 ```python
 def mean(values):
     if len(values) == 0:
-        raise ValueError("mean() of an empty sequence")
+        raise ValueError("cannot average an empty sequence")
     return ...
 ```
 
-Pour `my_tests`, une ligne a la forme `assert mymath._example.mean([...]) == ...` : choisis deux nombres dont tu connais la moyenne de tête, puis une liste d'un seul nombre.
+Pour `my_tests`, une ligne a la forme `assert mymath._example.mean([...]) == ...` (avec le nom complet : `mean` tout court provoque une `NameError` dans le notebook) : choisis deux nombres dont tu connais la moyenne de tête, puis une liste d'un seul nombre.
 
 </details>

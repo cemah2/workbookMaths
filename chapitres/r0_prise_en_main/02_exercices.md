@@ -20,7 +20,7 @@ Sans la fiche, en 3 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 
 Vrai ou faux ?
 1. Tu écris tes réponses dans les fichiers de `chapitres/r0_prise_en_main/`.
-2. La cellule ⚙️ SETUP s'exécute en premier, à chaque ouverture du notebook.
+2. Il faut exécuter la cellule ⚙️ SETUP en premier, à chaque ouverture du notebook.
 3. Une cellule qui affiche ⏳ contient une erreur dans ton code.
 4. « Redémarrer et tout exécuter » vérifie que le notebook fonctionne de haut en bas, à partir d'une mémoire vide.
 5. Pour un exercice ✏️, on tape d'abord une réponse dans le notebook, puis on refait le calcul sur papier pour comprendre.
@@ -34,7 +34,7 @@ Que vaut chaque expression en Python ? Donne la valeur **et** dis si c'est un en
 3. `20 // 3`
 4. `20 % 3`
 5. `20 / 4`
-6. `-7 // 2`
+6. `-9 // 2`
 
 ### R0.Q3 — Taper une réponse : fraction, expression, intervalle 🧠 ★ ⏱️ 3 min
 *Fiche §3 · parcours C, E*
@@ -66,7 +66,7 @@ Fais-le **à la main**, sans ordinateur, en écrivant ta démarche dans ta copie
 **Objectif :** prévoir ce que Python calcule en appliquant ses priorités, sa division euclidienne et ses puissances.
 **Prérequis :** fiche §2 · **Parcours :** C, E
 
-Sans ordinateur, donne la valeur que Python affiche pour chaque expression. Pour j, écris un flottant (avec un point).
+Sans ordinateur, donne la valeur que Python affiche pour chaque expression (pour j, Python affiche un flottant).
 
 | | Expression |
 |---|---|
@@ -79,7 +79,7 @@ Sans ordinateur, donne la valeur que Python affiche pour chaque expression. Pour
 | g | `-29 // 6` |
 | h | `-29 % 6` |
 | i | `4 ** 3 ** 0` |
-| j | `10 / 4 * 2` |
+| j | `12 / 8 * 2` |
 
 Pour g et h, écris d'abord la division euclidienne sous la forme $-29 = 6q + r$ avec $0 \le r < 6$.
 
@@ -117,7 +117,7 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | ID | Titre | Type | ★ | ⏱️ | Parcours |
 |---|---|---|---|---|---|
 | R0.3 | Taper une fraction exacte, une expression et un intervalle | 📦 | ★ | 10 | C, E |
-| R0.4 | Prédire : 0,1 + 0,2 vaut-il 0,3 pour Python ? | 🔮 | ★ | 10 | C, E |
+| R0.4 | Prédire : 0,5 + 0,25 et dix fois 0,1, exacts ou arrondis ? | 🔮 | ★ | 10 | C, E |
 | R0.5 | Vérifier un développement avec SymPy (`expand`, `simplify`) | 📦 | ★ | 15 | C, E |
 | R0.6 | Chasse à l'erreur : `x^2` et `2x` en Python | 🐛 | ★ | 10 | C, E |
 | R0.7 | Tracer une fonction avec matplotlib | 🎨 | ★ | 10 | C |

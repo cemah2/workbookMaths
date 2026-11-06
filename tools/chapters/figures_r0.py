@@ -51,8 +51,6 @@ def fig_first_plot() -> None:
     ys = xs ** 3 / 4 - xs
     fig, ax = plt.subplots(figsize=(6, 3.6))
     ax.plot(xs, ys, color=C[0], label="g(x) = x³/4 − x")
-    ax.axhline(0, color=wbplot.TEXT_MUTED, lw=0.8)
-    ax.axvline(0, color=wbplot.TEXT_MUTED, lw=0.8)
     ax.set_title("Un premier graphique")
     ax.set_xlabel("x")
     ax.set_ylabel("g(x)")
@@ -85,14 +83,14 @@ def fig_float_grid() -> None:
 
 
 def fig_r0_7_solution() -> None:
-    """The figure expected in exercise R0.7 (05_solutions.md): f(x) = x² − 2x − 3 on [−2, 4], with its readings."""
-    xs = np.linspace(-2, 4, 200)
-    ys = xs ** 2 - 2 * xs - 3
+    """The figure expected in exercise R0.7 (05_solutions.md): f(x) = x² + 2x − 8 on [−5, 3], with its readings."""
+    xs = np.linspace(-5, 3, 200)
+    ys = xs ** 2 + 2 * xs - 8
     fig, ax = plt.subplots(figsize=(6, 3.6))
-    ax.plot(xs, ys, color=C[0], label="f(x) = x² − 2x − 3")
+    ax.plot(xs, ys, color=C[0], label="f(x) = x² + 2x − 8")
     ax.axhline(0, color=wbplot.TEXT_MUTED, lw=0.8)
-    ax.scatter([-1, 3], [0, 0], color=C[1], zorder=3, label="la courbe coupe l'axe : x = −1 et x = 3")
-    ax.scatter([1], [-4], color=C[2], zorder=3, label="point le plus bas : (1 ; −4)")
+    ax.scatter([-4, 2], [0, 0], color=C[1], zorder=3, label="la courbe coupe l'axe : x = −4 et x = 2")
+    ax.scatter([-1], [-9], color=C[2], zorder=3, label="point le plus bas : (−1 ; −9)")
     ax.set_title("La parabole de f")
     ax.set_xlabel("x")
     ax.set_ylabel("f(x)")

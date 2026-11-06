@@ -137,7 +137,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] R0.1 ✏️ Calculer avec Python : priorités, division entière et reste ★ 10 min
 - [ ] R0.2 🗣️ Expliquer à quoi sert `wbm.check`, et pourquoi il ne montre jamais la réponse ★ 10 min (complet)
 - [ ] R0.3 📦 Taper une fraction exacte, une expression et un intervalle ★ 10 min
-- [ ] R0.4 🔮 Prédire : 0,1 + 0,2 vaut-il 0,3 pour Python ? ★ 10 min
+- [ ] R0.4 🔮 Prédire : 0,5 + 0,25 et dix fois 0,1, exacts ou arrondis ? ★ 10 min
 - [ ] R0.5 📦 Vérifier un développement avec SymPy (expand, simplify) ★ 15 min
 - [ ] R0.6 🐛 Chasse à l'erreur : `x^2` et `2x` en Python ★ 10 min
 - [ ] R0.7 🎨 Tracer une fonction avec matplotlib ★ 10 min (complet)

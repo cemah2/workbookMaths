@@ -4,7 +4,7 @@
 
 ## Prochaine étape
 
-➡️ **Fin de la session 3** : appliquer les corrections de la vérification indépendante de R0, puis **POS** (le test de positionnement, juste après R0 : il se répond dans `wbm.check`), puis **R1** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre.
+➡️ **Session 4 : POS** (le test de positionnement, juste après R0 : il se répond dans `wbm.check`), puis **R1** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre.
 
 Avant la génération de la partie I : **session de syllabus de la partie I** (détailler M02a à M06 et CP1 : exercices, stubs `mymath`, temps, frontières explicites), en tenant compte du calibrage de la partie 0. Rafraîchir d'abord la copie de workbookIA (`python tools/snapshot_workbookia.py <clone> --check`).
 
@@ -12,7 +12,7 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 
 | Partie | Chapitres | Statut |
 |---|---|---|
-| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | R0 🛠️ (écrit, vérification indépendante en cours) ; le reste 📅 |
+| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | R0 ✅ ; le reste 📅 |
 | I · Fondations | M02a à M06, CP1 | 📅 planifié |
 | II · Concepts | M07 à M11, CP2 | 📅 planifié |
 | III · ML classique | M12a à M14, CP3 | 📅 planifié |
@@ -36,12 +36,14 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 ## Écarts par rapport à la bible
 
 - R0.8 (🛠️ LaTeX) : drapeau `f:02` ajouté au syllabus (exercice de la feuille de réponses, pas du notebook) ; ID et contenu inchangés.
+- R0.4 : titre changé (« Prédire : 0,5 + 0,25 et dix fois 0,1, exacts ou arrondis ? ») ; le 🔮 portait sur un résultat que la fiche et workbookIA 0A montraient déjà. ID inchangé.
+- R0 : sections de workbookIA 0A supposées connues complétées (§100.2.2 chaînes, §100.3.1 listes).
 
-## Session 3 (2026-11-06) : chapitre R0 🛠️
+## Session 3 (2026-11-06) : chapitre R0 ✅
 
 **Fait** : `chapitres/r0_prise_en_main/` (fiche en 7 sections et 3 figures par `tools/chapters/figures_r0.py`, exercices, notebook et corrigé exécuté par `tools/chapters/build_r0.py`, indices, solutions, feuille de réponses, 10 flashcards) ; 24 réponses vérifiées dans `answers.json` ; corrigé exécuté en 2,8 s ; notebook vide « Run all » sans erreur ; glossaire et erreurs fréquentes complétés ; démo : la suite indique R0 puis POS.
 
-**En cours** : vérification indépendante (re-résolution à l'aveugle, apprenant simulé sur le notebook) ; ses corrections suivront dans un commit « R0: … ».
+**Vérification indépendante** (sous-agent : re-résolution à l'aveugle des quiz et de R0.1, toutes justes ; apprenant simulé, 28 vérifications ✅ avec d'autres écritures que le corrigé) : 26 points corrigés (BIBLE §24) : nombres repris de workbookIA 0A.1 et de l'exemple de 0B remplacés, 🔮 R0.4 refait, messages d'erreur sans chiffre de la réponse, R0.5 et R0.6 répondus par des nombres et des listes, messages des tests de `mean` (ce qui était attendu d'abord), `run_pytest_group` qui signale les tests en attente, Python supposé connu précisé (chaînes, listes, `len`, `sum`).
 
 ## Session 2 (2026-11-06) : syllabus ✅
 

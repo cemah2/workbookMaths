@@ -630,6 +630,8 @@ def run_pytest_group(test_file, keyword: str | None = None, impl: str = "learner
     counts = [line for line in lines if "Exit: " not in line and _SUMMARY.search(line)]
     summary = (counts[-1].strip("= ") if counts else lines[-1].strip("=! ")[:300] if lines
                else result.stderr.strip()[-300:])
-    print("pytest:", summary)
+    n_pending = sum(f[1] for f in failures)
+    waiting = f" (dont {n_pending} en attente ⏳ : fonction pas encore écrite)" if n_pending else ""
+    print("pytest:", summary + waiting)
     return GroupResult(passed=_count(summary, "passed"), failed=_count(summary, "failed"),
                        errors=_count(summary, "errors?"), pending=sum(f[1] for f in failures), summary=summary)

@@ -11,7 +11,7 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Oublier que `**` passe avant le signe moins | croire que `-3**2` vaut 9 | `-3**2` vaut -9 ; écrire `(-3)**2` pour 9 |
 | Mal parenthéser une fraction | `1/2*x` pour $\frac{1}{2x}$ | `1/(2*x)` ; `1/2*x` vaut $\frac{x}{2}$ |
 | Comparer deux flottants avec `==` | `0.1 + 0.2 == 0.3` (faux) | `math.isclose(0.1 + 0.2, 0.3)`, ou `Fraction` pour un calcul exact |
-| Croire que `//` arrondit vers zéro | `-17 // 5` vaut -3 | `//` arrondit vers $-\infty$ : -4 (et `-17 % 5` vaut 3) |
+| Croire que `//` arrondit vers zéro | `-23 // 4` vaut -5 | `//` arrondit vers $-\infty$ : -6 (et `-23 % 4` vaut 1) |
 | Appliquer `math` à un tableau NumPy | `math.exp(xs)` | `np.exp(xs)` |
 | Oublier les accolades en LaTeX | `x^10`, `\frac{a+b}2` | `x^{10}`, `\frac{a+b}{2}` |
 
