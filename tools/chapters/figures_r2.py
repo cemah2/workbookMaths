@@ -121,9 +121,9 @@ def fig_absolute_value() -> None:
 
 def fig_systems() -> None:
     """§7: one solution, no solution, infinitely many solutions."""
-    xs = np.linspace(-2, 5, 50)
+    xs = np.linspace(-2, 7, 50)
     fig, axes = plt.subplots(1, 3, figsize=(10, 3.3), sharey=True)
-    cases = [("une seule solution : (2 ; −1)", [(3, 2, 4, "3x + 2y = 4"), (1, -4, 6, "x − 4y = 6")], (2, -1)),
+    cases = [("une seule solution : (5 ; −2)", [(3, 2, 11, "3x + 2y = 11"), (1, -4, 13, "x − 4y = 13")], (5, -2)),
              ("aucune solution (parallèles)", [(1, -3, 3, "x − 3y = 3"), (1, -3, -3, "x − 3y = −3")], None),
              ("une infinité (même droite)", [(1, -3, 3, "x − 3y = 3"), (2, -6, 6, "2x − 6y = 6")], None)]
     for ax, (title, lines, point) in zip(axes, cases):
@@ -134,8 +134,8 @@ def fig_systems() -> None:
             ax.plot(*point, "o", color="black", markersize=7, zorder=3)
         ax.axhline(0, color="gray", linewidth=0.6)
         ax.axvline(0, color="gray", linewidth=0.6)
-        ax.set_xlim(-2, 5)
-        ax.set_ylim(-4, 4)
+        ax.set_xlim(-2, 7)
+        ax.set_ylim(-5, 6)
         ax.set_title(title, fontsize=10)
         ax.legend(fontsize=8, loc="upper right")
         ax.grid(True, alpha=0.3)

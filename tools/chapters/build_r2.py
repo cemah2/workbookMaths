@@ -25,6 +25,7 @@ CHAPTER = "R2"
 FOLDER = "chapitres/r2_calcul_litteral"
 
 CHOICES = "choices=[1, 2, 3]"
+EXACT = "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie"
 ORDER_XY = '"l\'ordre demandé est [x, y]"'
 
 # ---------------------------------------------------------------------------
@@ -108,7 +109,8 @@ PAPER = [
         ("b", "a number", "-3",
          'mistakes={"retire 3x aux deux membres : −2x − 3x": 15, "divise par −5 en gardant le signe": 3}'),
         ("c", "a number", "13",
-         'mistakes={"développe : le 3 multiplie les deux termes de la parenthèse": 5, '
+         'mistakes={"développe : le 3 multiplie les deux termes de la parenthèse": 9, '
+         '"développe les deux parenthèses : chaque facteur multiplie tous les termes de la sienne": 5, '
          '"un terme qui change de membre change de signe": 1}'),
         ("d", "a number", "18",
          'mistakes={"le 2 multiplie tout le numérateur x + 4 : mets des parenthèses": 10, '
@@ -122,23 +124,24 @@ PAPER = [
     ]),
     Paper("R2.6", "Équations produit nul et équations avec des fractions", [
         ("a", "a list of solutions", "[4, -1.5]",
-         'ordered=False, decimals=4, mistakes={"2x + 3 = 0 donne une solution négative": [4, 1.5], '
+         'ordered=False, decimals=6, mistakes={"2x + 3 = 0 donne une solution négative": [4, 1.5], '
          '"2x = −3 : divise par 2": [4, -3]}'),
         ("b", "a list of solutions", "[0, 9 / 4]",
-         'ordered=False, decimals=4, mistakes={"en divisant par x, on perd une solution : factorise": [9 / 4], '
+         'ordered=False, decimals=6, mistakes={"en divisant par x, on perd une solution : factorise": [9 / 4], '
          '"4x = 9 : divise 9 par 4, pas l\'inverse": [0, 4 / 9]}'),
         ("c", "a list of solutions", "[1 / 3]",
-         'ordered=False, decimals=4, mistakes={"3x = 1 : divise 1 par 3": [3], '
+         'ordered=False, decimals=6, mistakes={"3x = 1 : divise 1 par 3": [3], '
          '"un carré est nul seulement quand le nombre élevé au carré est nul : une seule solution": '
-         '[-1 / 3, 1 / 3]}'),
+         f'[-1 / 3, 1 / 3], "{EXACT} à deux décimales": [0.33], "{EXACT} à trois décimales": [0.333]}}'),
         ("d", "a list of solutions", "[-4 / 3, 4 / 3]",
-         'ordered=False, decimals=4, mistakes={"un carré égal à un nombre positif : deux solutions opposées": '
-         '[4 / 3], "x² est connu : il reste à prendre la racine carrée": [-16 / 9, 16 / 9]}'),
+         'ordered=False, decimals=6, mistakes={"un carré égal à un nombre positif : deux solutions opposées": '
+         '[4 / 3], "x² est connu : il reste à prendre la racine carrée": [-16 / 9, 16 / 9], '
+         f'"{EXACT} à deux décimales": [-1.33, 1.33], "{EXACT} à trois décimales": [-1.333, 1.333]}}'),
         ("e", "a number", "1", 'mistakes={"une valeur interdite annule un dénominateur": -2}'),
         ("f", "a list of solutions", "[5 / 2]",
-         'ordered=False, decimals=4, mistakes={"3 multiplie tout le dénominateur : 3(x − 1)": [3 / 2]}'),
+         'ordered=False, decimals=6, mistakes={"3 multiplie tout le dénominateur : 3(x − 1)": [3 / 2]}'),
         ("g", "a list of solutions", "[8]",
-         'ordered=False, decimals=4, mistakes={"le moins devant la fraction porte sur tout le numérateur x − 2": '
+         'ordered=False, decimals=6, mistakes={"le moins devant la fraction porte sur tout le numérateur x − 2": '
          '[16]}'),
     ]),
     Paper("R2.7", "Inéquations et intervalles", [
@@ -184,7 +187,8 @@ PAPER = [
          '"|x − 3| est la distance de x à 3, pas à −3": [-7, 1]}'),
         ("b", "a list of solutions", "[-5, 4]",
          'ordered=False, mistakes={"deux cas : 2x + 1 = 9 ou 2x + 1 = −9": [4]}'),
-        ("c", "an integer", "0", 'mistakes={"une valeur absolue n\'est jamais négative": 2}'),
+        ("c", "a list of solutions (empty if there is none)", "[]",
+         'ordered=False, mistakes={"une valeur absolue est une distance : elle n\'est jamais négative": [4, 8]}'),
         ("d", "an interval, as text", '"[-4 ; 2]"',
          'kind="interval", mistakes={"x + 1 = x − (−1) : c\'est la distance de x à −1": "[-2 ; 4]", '
          '"≤ : les points à distance au plus 3, donc entre les deux": "]-oo ; -4] U [2 ; +oo["}'),
@@ -227,7 +231,8 @@ PAPER = [
          'decimals=3, mistakes={"l\'ordre demandé est [a, b]": [-8.0, 25.0]}'),
         ("b", "a number (°C)", "25 * 1.4 - 8", 'decimals=2, mistakes={"T = a × u + b : n\'oublie pas b": 35.0}'),
         ("c", "a number (°C)", "51.5 - (25 * 2.4 - 8)",
-         'decimals=2, mistakes={"l\'écart est la mesure moins la prédiction : son signe compte": 0.5}'),
+         'decimals=2, mistakes={"l\'écart est la mesure moins la prédiction : son signe compte": 0.5, '
+         '"on demande l\'écart entre la mesure et la prédiction, pas la prédiction elle-même": 52.0}'),
         ("d", "1, 2 or 3", "1",
          f'{CHOICES}, mistakes={{"le point de la troisième mesure est-il sur la droite des deux premières ?": 2, '
          '"trois équations pour deux inconnues : une infinité seulement si elles disent toutes la même chose": 3}'),

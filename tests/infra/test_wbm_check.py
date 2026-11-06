@@ -119,7 +119,7 @@ def test_integer_arrays_accept_integers_computed_in_floating_point():
     e = entry("d.4e", [-1, 3])
     assert passes("d.4e", e, [-0.9999999999999998, 3.0000000000000004])   # np.roots, a grid read-out...
     ok, status, text = C.check_entry("d.4e", e, [-0.9, 3.2])
-    assert not ok and "entières" in text and "round" in text
+    assert not ok and "entiers" in text and "round" in text
 
 def test_integer_arrays_accept_bytes_and_bytearray():
     e = entry("d.4f", [0xC3, 0xAB], mistakes={"le premier octet commence par 110": [0x03, 0xAB]})
@@ -369,7 +369,7 @@ def test_integer_arrays_reject_probabilities():
     assert passes("g.1", e, np.array([0, 1, 1, 0, 1]))
     assert passes("g.1", e, [True, False, False, True, False]) is False
     assert not passes("g.1", e, [0.21, 0.74, 0.93, 0.08, 0.66])
-    assert "entières" in message("g.1", e, [0.21, 0.74, 0.93, 0.08, 0.66])
+    assert "entiers" in message("g.1", e, [0.21, 0.74, 0.93, 0.08, 0.66])
 
 
 def test_sets_of_floats_need_decimals():
@@ -873,6 +873,13 @@ def test_sets_of_integers_do_not_round_a_decimal_and_read_numbers_in_quotes():
     assert not passes("t.5", e, [2.4, -3])
     e = entry("t.6", [4, 5, 5.5], ordered=False, decimals=1)
     assert passes("t.6", e, ["4", "5", "5,5"])
+
+
+def test_a_set_reads_a_fraction_typed_between_quotes():
+    e = entry("t.8", [-4 / 3, 4 / 3], ordered=False, decimals=6)
+    assert passes("t.8", e, ["4/3", "-4/3"]) and passes("t.8", e, [4 / 3, "−4/3"]) and passes("t.8", e, ("4/3", -4 / 3))
+    assert not passes("t.8", e, ["4/3", "4/3"]) and not passes("t.8", e, ["1.33", "-1.33"])
+    assert not passes("t.8", e, ["4/0", "-4/3"])          # a zero denominator is not read as a number
 
 
 def test_a_string_order_may_be_written_with_its_signs():

@@ -45,8 +45,8 @@ import numbers
 import re
 import sys
 import unicodedata
-from fractions import Fraction
 from contextlib import contextmanager
+from fractions import Fraction
 from pathlib import Path
 
 from wbm.mathcheck import MATH_KINDS, check_math_entry, make_math_entry
@@ -299,11 +299,15 @@ def _norm_array(arr, decimals: int) -> str:
 
 
 _NUMERIC_TEXT = re.compile(r"[+-]?\d+(?:[.,]\d+)?")
+_FRACTION_TEXT = re.compile(r"([+-]?\d+)/([+-]?\d+)")
 
 
 def _numeric_text(text: str) -> float | int | None:
-    """The number written in ``text`` ("3", "−2", "5,5"), or None."""
+    """The number written in ``text`` ("3", "−2", "5,5", or a fraction "4/3", "-1/2"), or None."""
     cleaned = text.strip().replace("−", "-").replace(" ", "")
+    fraction = _FRACTION_TEXT.fullmatch(cleaned)
+    if fraction and int(fraction.group(2)) != 0:   # a fraction typed between quotes, as R0 teaches for one answer
+        return float(Fraction(int(fraction.group(1)), int(fraction.group(2))))
     if not _NUMERIC_TEXT.fullmatch(cleaned):
         return None
     cleaned = cleaned.replace(",", ".")
@@ -629,7 +633,7 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
                     "premier ou dernier élément, un pas de trop ?). Relis sa docstring ; si elle fait partie de "
                     "`mymath`, ses tests (`pytest`) disent quel cas pose problème.")
         return ("Tu es à 1 près : une petite erreur de calcul, ou, si tu comptes des éléments, "
-                "une erreur de bornes (off-by-one : bornes incluses ou exclues ?).")
+                "une borne comptée ou oubliée (incluse ou exclue ?).")
     # "exactly 100 times" only when the rounded answer keeps 2 significant digits: with 0.01 (2 decimals),
     # any value from 0.5 to 1.5 divided by 100 would "match"
     precise = entry["kind"] != "float" or (
@@ -917,9 +921,8 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
                 arr = np.round(arr)  # integers computed in floating point (2.9999999999999996): accept them
                 norm = normalize(arr, kind, decimals)
             else:
-                return False, "wrong", ("On attend des valeurs entières (des positions, des classes, des comptes…), "
-                                        "pas des nombres à virgule (des probabilités, des moyennes ?). Si tes valeurs "
-                                        "sont des entiers calculés, arrondis-les avec round().")
+                return False, "wrong", ("On attend des nombres entiers ici, pas des nombres à virgule. Si tes "
+                                        "valeurs sont des entiers calculés en Python, arrondis-les avec round().")
         if hash_answer(ex_id, kind, norm) == entry["hash"]:
             return True, "correct", _praise(ex_id)
         element_hashes = entry.get("element_hashes")

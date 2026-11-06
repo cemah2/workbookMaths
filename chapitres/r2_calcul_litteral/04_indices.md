@@ -112,7 +112,7 @@ Une valeur absolue n'est jamais négative ; $|a - b|$ est la distance entre $a$ 
 </details>
 <details><summary>Indice 3</summary>
 
-1 est **faux** : $|-7| = 7$. Pour 4, écris la distance entre $x$ et $-2$ : $|x - (-2)|$. Pour 6, essaie $a = 1$ et $b = -1$. Pour 7, sign ne rend que $-1$, 0 ou 1.
+1 est **vrai** : une valeur absolue n'est jamais négative. Pour 4, écris la distance entre $x$ et $-2$ : $|x - (-2)|$. Pour 6, essaie $a = 1$ et $b = -1$. Pour 7, sign ne rend que $-1$, 0 ou 1.
 
 </details>
 
@@ -484,7 +484,7 @@ Pour 1, $d \times (ax + by) - b \times (cx + dy) = de - bf$ ; développe et rega
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $(ad - bc)x + (bd - bd)y = ed - bf$. Pour 2, substitue $x = \frac{ed - bf}{D}$ et $y = \frac{af - ec}{D}$ dans $ax + by$, mets au même dénominateur $D$, et développe. Pour 5, $k = -\frac{9}{6}$ : quel $m$ rend $m = k \times 2$ ?
+1 : $(ad - bc)x + (bd - bd)y = ed - bf$. Pour 2, substitue $x = \frac{ed - bf}{D}$ et $y = \frac{af - ec}{D}$ dans $ax + by$, mets au même dénominateur $D$, et développe. Pour 5, calcule $k = \frac{c}{a}$, vérifie que $d = kb$, puis compare le second membre $m$ à $k \times e$ (question 4).
 
 </details>
 

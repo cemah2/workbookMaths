@@ -43,7 +43,7 @@
 
 ### R2.Q5 — Inéquations : quand le sens change
 1. **Faux** : multiplier par $-1$ retourne le sens, $-2 > -5$.
-2. **Vrai** : on divise par $-3$, négatif, le sens change : $x \ge -4$.
+2. **Vrai** : on divise par $-7$, négatif, le sens change : $x \ge -2$.
 3. **Vrai** : on multiplie par $-2$, le sens change : $x < -2$.
 4. **Vrai** : on retire 4, le sens ne change pas.
 5. **Faux** : $5 - x > 0 \iff -x > -5 \iff x < 5$. Vérifie avec $x = 0$ : $5 > 0$, vrai, et 0 n'est pas supérieur à 5.
@@ -51,13 +51,13 @@
 7. **Faux** : « et » donne l'intersection, $]1 \;;\; 4[$. La réunion écrite contient tous les réels.
 
 ### R2.Q6 — Valeur absolue et distance
-1. **Faux** : $|-7| = 7$ ; une valeur absolue n'est jamais négative.
+1. **Vrai** : $|-9| = 9$ ; une valeur absolue n'est jamais négative.
 2. **Vrai** : $|3 - 10| = |-7| = 7$, la distance entre 3 et 10.
 3. **Vrai** : $4$ et $-4$.
 4. **Faux** : c'est la distance entre $x$ et $2$. La distance à $-2$ s'écrit $|x - (-2)| = |x + 2|$.
 5. **Vrai**, par définition.
 6. **Faux** : avec $a = 1$ et $b = -1$, $|a + b| = 0$ et $|a| + |b| = 2$. (On a seulement $|a + b| \le |a| + |b|$, l'inégalité triangulaire.)
-7. **Faux** : $\operatorname{sign}(-0{,}5) = -1$ ; la fonction signe ne rend que $-1$, 0 ou 1.
+7. **Faux** : $\operatorname{sign}(-2{,}7) = -1$ ; la fonction signe ne rend que $-1$, 0 ou 1.
 
 ### R2.Q7 — Une, aucune ou une infinité de solutions ?
 1. **Aucune** : $x + y$ ne peut pas valoir 1 et 2 à la fois (deux droites parallèles).
@@ -69,7 +69,7 @@
 
 ### R2.Q8 — Quelle équation pour ce problème ?
 1. **b** : $x + 7 = 3x$.
-2. **b** : une baisse de 25 % multiplie par 0,75 ; la baisse porte sur $p$. (c calcule $30 + 25\,\%$ de 30, une hausse de 30 €, pas le prix de départ.)
+2. **b** : une baisse de 25 % multiplie par 0,75 ; la baisse porte sur $p$, donc $p = 40$ €. (c applique une hausse de 25 % à 30 €, ce qui donne 37,50 € : ce n'est pas le prix de départ, car la baisse portait sur $p$, pas sur 30 €.)
 3. **a**.
 4. **b** : le périmètre vaut $4c$.
 5. **b** : Pierre a $x + 5$ ans, donc $x + (x + 5) = 41$.
@@ -246,11 +246,11 @@
 
 ### Ex R2.8 — Réunion et intersection d'intervalles
 
-**Réponses** : a) `"[1 ; 5]"` · b) `"[0 ; 3["` · c) `"[-4 ; 6["` · d) l'ensemble vide · e) `"]-oo ; -2[ U [3 ; +oo["` · f) `"]2 ; 5["`.
+**Réponses** : a) `"[1 ; 5]"` · b) `"[0 ; 3["` · c) `"[-4 ; 6["` · d) `"vide"` · e) `"]-oo ; -2[ U [3 ; +oo["` · f) `"]2 ; 5["`.
 
 **Démarche.** Dessine chaque fois les deux intervalles sur une même droite (comme la figure de la fiche §5).
 - a) Les nombres à la fois dans $[-2 ; 5]$ et dans $[1 ; 8]$ : de 1 à 5, bornes comprises.
-- b) De 0 (inclus des deux côtés) à 3 (exclu de $]-\infty ; 3[$).
+- b) De 0 (inclus dans les deux intervalles) à 3 (exclu de $]-\infty ; 3[$).
 - c) Les deux intervalles se chevauchent sur $[0 ; 1]$ : leur réunion va de $-4$ (inclus) à 6 (exclu).
 - d) Aucun nombre n'est à la fois $\le -1$ et $\ge 2$ : $\varnothing$.
 - e) « ou » : la réunion de $]-\infty ; -2[$ et de $[3 ; +\infty[$, qui ne se simplifie pas.
@@ -262,12 +262,12 @@
 
 ### Ex R2.9 — Équations et inéquations avec une valeur absolue, et la fonction signe
 
-**Réponses** : a) `[-1, 7]` · b) `[-5, 4]` · c) `0` · d) `"[-4 ; 2]"` · e) `"]-oo ; -3[ U ]7 ; +oo["` · f) `6.5` · g) `-1`.
+**Réponses** : a) `[-1, 7]` · b) `[-5, 4]` · c) `[]` (aucune solution) · d) `"[-4 ; 2]"` · e) `"]-oo ; -3[ U ]7 ; +oo["` · f) `6.5` · g) `-1`.
 
 **Démarche.**
 - a) Les points à distance 4 de 3 : $3 - 4 = -1$ et $3 + 4 = 7$.
 - b) $2x + 1 = 9$ ou $2x + 1 = -9$ : $x = 4$ ou $x = -5$.
-- c) Une valeur absolue n'est jamais négative : aucune solution.
+- c) Une valeur absolue n'est jamais négative : aucune solution, la liste vide.
 - d) $|x + 1| = |x - (-1)|$ : les points à au plus 3 de $-1$, de $-4$ à 2.
 - e) Les points à plus de 5 de 2 : à gauche de $-3$ ou à droite de 7, bornes exclues.
 - f) $|-4{,}5 - 2| = |-6{,}5| = 6{,}5$.
@@ -334,6 +334,7 @@
 **Grille de relecture.**
 - 1 nomme la propriété utilisée (la commutativité) pour regrouper $ab$ et $ba$.
 - 2 **réutilise** 1 au lieu de redévelopper, en disant pourquoi c'est permis (1 vaut pour tous réels, donc pour $-b$).
+- 3 développe les quatre produits et montre que les deux termes du milieu s'annulent.
 - 4 écrit le résultat sous la forme $2k + 1$ et dit pourquoi c'est impair ; l'exemple $99 \times 101$ utilise 3 explicitement.
 - 5 explique pourquoi le carré $b^2$ revient (compté deux fois dans les bandes).
 
@@ -347,8 +348,8 @@
 1. $(b + c) - (a + c) = b - a > 0$, donc $a + c < b + c$.
 2. $kb - ka = k(b - a)$ : un produit de deux nombres strictement positifs, donc strictement positif. Ainsi $ka < kb$.
 3. $kb - ka = k(b - a)$ : un nombre strictement négatif fois un nombre strictement positif, donc strictement négatif. Ainsi $kb - ka < 0$, c'est-à-dire $ka - kb > 0$ : $ka > kb$.
-4. Si $0 < a < b$, alors $b > 0$ aussi, et $ab > 0$ (produit de deux positifs), donc $\frac{1}{ab} > 0$. D'après 2, multiplier $a < b$ par $\frac{1}{ab}$ garde le sens : $\frac{a}{ab} < \frac{b}{ab}$, soit $\frac{1}{b} < \frac{1}{a}$.
-5. Contre-exemple : $a = -3 < b = 1$, mais $a^2 = 9 > b^2 = 1$. Si $0 \le a < b$ : $b^2 - a^2 = (b - a)(b + a)$ ; $b - a > 0$, et $b + a > 0$ car $b > 0$ et $a \ge 0$. Le produit est positif, donc $a^2 < b^2$.
+4. Si $0 < a < b$, alors $b = a + (b - a)$ est la somme de deux nombres strictement positifs, donc $b > 0$. Puis $ab > 0$ (produit de deux positifs), et $\frac{1}{ab} > 0$ : il n'est pas nul, et s'il était négatif, le produit $ab \times \frac{1}{ab} = 1$ serait négatif. D'après 2, multiplier $a < b$ par $\frac{1}{ab}$ garde le sens : $\frac{a}{ab} < \frac{b}{ab}$, soit $\frac{1}{b} < \frac{1}{a}$.
+5. Contre-exemple : $a = -3 < b = 1$, mais $a^2 = 9 > b^2 = 1$. Si $0 \le a < b$ : $b^2 - a^2 = (b - a)(b + a)$ ; $b - a > 0$, et $b + a > 0$ (d'abord $b > 0$ : si $a = 0$, $b = b - a > 0$, sinon comme en 4 ; puis $b + a$ vaut $b$ si $a = 0$, et sinon c'est une somme de deux positifs). Le produit est positif, donc $a^2 < b^2$.
 
 **Grille de relecture.**
 - Chaque question revient à la **définition** : on calcule une différence et on étudie son signe.
@@ -367,7 +368,7 @@
 2. Si $D \ne 0$, toute solution vérifie $x = \frac{ed - bf}{D}$ et $y = \frac{af - ec}{D}$ : il y en a **au plus** une. Réciproquement, ce couple est solution : $a \cdot \frac{ed - bf}{D} + b \cdot \frac{af - ec}{D} = \frac{aed - abf + abf - bec}{D} = \frac{e(ad - bc)}{D} = e$. (La seconde : $c(ed - bf) + d(af - ec) = f(ad - bc)$, donc elle vaut $f$.) Le système a donc **exactement une** solution.
 3. On suppose $D = 0$ et $a \ne 0$ ; on pose $k = \frac{c}{a}$, donc $c = ka$. De $ad = bc = b \cdot ka$, on tire, en divisant par $a \ne 0$, $d = kb$. La seconde équation s'écrit $kax + kby = f$, soit $k(ax + by) = f$.
 4. Si $f = ke$ : tout couple qui vérifie $ax + by = e$ vérifie $k(ax + by) = ke = f$, donc la seconde équation. Or la première a une infinité de solutions (une droite, puisque $a \ne 0$ : pour chaque $y$, $x = \frac{e - by}{a}$). Une infinité de solutions. Si $f \ne ke$ : un couple solution donnerait $f = k(ax + by) = ke$, ce qui est faux. Aucune solution. (Le cas $k = 0$ est compris : la seconde équation devient $0 = f$.)
-5. Avec 2, 3 et 4 : si $D \ne 0$, une seule solution ; si $D = 0$ (et $a \ne 0$ ; si $a = 0$, on raisonne de même avec un autre coefficient non nul), aucune ou une infinité. Donc « une seule solution » équivaut à $D \ne 0$. Pour le système proposé, $D = 6 \times 6 - (-4) \times (-9) = 0$ et $k = -\frac{9}{6} = -\frac{3}{2}$ (on vérifie $d = kb$ : $-\frac{3}{2} \times (-4) = 6$). Une infinité de solutions exactement quand $m = ke = -\frac{3}{2} \times 2 = -3$.
+5. Avec 2, 3 et 4 : si $D \ne 0$, une seule solution ; si $D = 0$ et $a \ne 0$, aucune ou une infinité. Les cas admis se ramènent à celui-là : si $a = 0$ et $c \ne 0$, on échange les deux équations ; si $a = c = 0$, $x$ n'apparaît plus, et le système en $y$ seul ($by = e$, $dy = f$) a aucune solution ou une infinité (toutes les valeurs de $x$ conviennent dès qu'un $y$ convient). Donc « une seule solution » équivaut à $D \ne 0$. Pour le système proposé, $D = 6 \times 6 - (-4) \times (-9) = 0$ et $k = -\frac{9}{6} = -\frac{3}{2}$ (on vérifie $d = kb$ : $-\frac{3}{2} \times (-4) = 6$). Une infinité de solutions exactement quand $m = ke = -\frac{3}{2} \times 2 = -3$.
 
 **Grille de relecture.**
 - 1 écrit les deux combinaisons **et** montre que l'autre inconnue disparaît.

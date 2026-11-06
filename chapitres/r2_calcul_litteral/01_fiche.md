@@ -173,7 +173,7 @@ Elles se démontrent en développant (l'exercice R2.13 te le fait faire), et la 
 
 ### Ce que veut dire « résoudre »
 
-Une **équation** est une égalité qui contient une inconnue, par exemple $7x - 4 = 3x + 10$. Un nombre est **solution** quand l'égalité devient vraie en le substituant. **Résoudre**, c'est trouver **toutes** les solutions (il peut y en avoir aucune, une, plusieurs ou une infinité), et l'ensemble de ces solutions s'appelle l'**ensemble des solutions**.
+Une **équation** est une égalité qui contient une inconnue, par exemple $7x - 4 = 3x + 10$. Un nombre est **solution** quand l'égalité devient vraie en le substituant. **Résoudre**, c'est trouver **toutes** les solutions (il peut n'y en avoir aucune, comme il peut y en avoir une, plusieurs ou une infinité), et l'ensemble de ces solutions s'appelle l'**ensemble des solutions**.
 
 On transforme l'équation en équations **équivalentes** (qui ont exactement les mêmes solutions), de plus en plus simples. Deux opérations sont permises :
 - **ajouter** (ou soustraire) le même nombre, ou la même expression, aux deux membres ;
@@ -321,24 +321,24 @@ Avec elle, tout nombre s'écrit $x = \operatorname{sign}(x) \times |x|$ : $-8 = 
 
 Un **système de deux équations à deux inconnues** demande les couples $(x, y)$ qui vérifient **les deux** équations à la fois :
 
-$$\begin{cases} 3x + 2y = 4 \\ x - 4y = 6 \end{cases}$$
+$$\begin{cases} 3x + 2y = 11 \\ x - 4y = 13 \end{cases}$$
 
-Le couple $(2, -1)$ est solution : $3 \times 2 + 2 \times (-1) = 4$ et $2 - 4 \times (-1) = 6$. Trois méthodes pour le trouver.
+Le couple $(5, -2)$ est solution : $3 \times 5 + 2 \times (-2) = 11$ et $5 - 4 \times (-2) = 13$. Trois méthodes pour le trouver.
 
 ### Par substitution
 
 On exprime une inconnue avec la seconde équation, puis on la **remplace** dans la première :
-- la seconde donne $x = 6 + 4y$ ;
-- la première devient $3(6 + 4y) + 2y = 4$, soit $18 + 14y = 4$, donc $y = -1$ ;
-- on revient à $x = 6 + 4 \times (-1) = 2$.
+- la seconde donne $x = 13 + 4y$ ;
+- la première devient $3(13 + 4y) + 2y = 11$, soit $39 + 14y = 11$, donc $y = -2$ ;
+- on revient à $x = 13 + 4 \times (-2) = 5$.
 
 C'est la méthode la plus sûre quand une inconnue a le coefficient 1 ou −1.
 
 ### Par combinaison
 
 On multiplie les équations par des nombres bien choisis pour qu'une inconnue **disparaisse** quand on les soustrait (ou additionne) :
-- on multiplie la seconde par 3 : $3x - 12y = 18$ ;
-- on la soustrait de la première : $(3x + 2y) - (3x - 12y) = 4 - 18$, soit $14y = -14$, donc $y = -1$ ;
+- on multiplie la seconde par 3 : $3x - 12y = 39$ ;
+- on la soustrait de la première : $(3x + 2y) - (3x - 12y) = 11 - 39$, soit $14y = -28$, donc $y = -2$ ;
 - puis $x$ par l'une des équations.
 
 ### Par la formule de Cramer
@@ -351,15 +351,15 @@ s'appelle le **déterminant** du système. S'il n'est pas nul, le système a **u
 
 $$x = \frac{ed - bf}{D} \qquad\qquad y = \frac{af - ec}{D}$$
 
-Le numérateur de $x$ est le déterminant obtenu en remplaçant la colonne des coefficients de $x$ par celle des seconds membres ; de même pour $y$. Pour notre système, $a = 3$, $b = 2$, $c = 1$, $d = -4$, $e = 4$, $f = 6$ :
+Le numérateur de $x$ est le déterminant obtenu en remplaçant la colonne des coefficients de $x$ par celle des seconds membres ; de même pour $y$. Pour notre système, $a = 3$, $b = 2$, $c = 1$, $d = -4$, $e = 11$, $f = 13$ :
 
-$$D = 3 \times (-4) - 2 \times 1 = -14, \qquad x = \frac{4 \times (-4) - 2 \times 6}{-14} = \frac{-28}{-14} = 2, \qquad y = \frac{3 \times 6 - 4 \times 1}{-14} = \frac{14}{-14} = -1$$
+$$D = 3 \times (-4) - 2 \times 1 = -14, \qquad x = \frac{11 \times (-4) - 2 \times 13}{-14} = \frac{-70}{-14} = 5, \qquad y = \frac{3 \times 13 - 11 \times 1}{-14} = \frac{28}{-14} = -2$$
 
 C'est la méthode que programme `solve_2x2` (R2.21) : une formule, pas de choix à faire.
 
 ### Le regard géométrique : deux droites
 
-Chaque équation $ax + by = c$ (avec $a$ et $b$ non nuls tous les deux) est l'équation d'une **droite** du plan : l'ensemble des points $(x, y)$ qui la vérifient. Pour la tracer, deux points suffisent : pour $3x + 2y = 4$, $x = 0$ donne $y = 2$, et $y = 0$ donne $x = \frac{4}{3}$. Résoudre le système, c'est chercher le **point commun** des deux droites. Trois cas seulement :
+Chaque équation $px + qy = r$ (avec $p$ et $q$ non tous les deux nuls) est l'équation d'une **droite** du plan : l'ensemble des points $(x, y)$ qui la vérifient. Si $q = 0$, c'est une droite verticale ($2x = 6$ est la droite $x = 3$). Pour la tracer, deux points suffisent : pour $3x + 2y = 11$, $x = 1$ donne $y = 4$, et $x = 3$ donne $y = 1$. Résoudre le système, c'est chercher le **point commun** des deux droites. Trois cas seulement :
 
 ![Une seule solution, aucune solution, une infinité de solutions](figures/systemes_droites.png)
 
@@ -371,8 +371,8 @@ Quand $D = 0$, les coefficients de $x$ et de $y$ sont proportionnels d'une équa
 
 ```python
 >>> y = sp.Symbol("y")
->>> sp.solve([3*x + 2*y - 4, x - 4*y - 6], [x, y])
-{x: 2, y: -1}
+>>> sp.solve([3*x + 2*y - 11, x - 4*y - 13], [x, y])
+{x: 5, y: -2}
 ```
 
 > 🔗 **Dans workbookIA** — un système linéaire est la forme la plus simple d'un problème que le ML résout sans cesse : trouver les paramètres qui collent aux données. Le chapitre 0B l'écrit avec des matrices, et le chapitre 9 (moindres carrés) le généralise à plus d'équations que d'inconnues. Le déterminant y reviendra (M12c).

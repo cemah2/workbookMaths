@@ -64,7 +64,7 @@ Chaque opération est appliquée aux **deux membres** d'une équation d'inconnue
 
 Vrai ou faux ?
 1. $2 < 5$, donc $-2 < -5$.
-2. $-3x \le 12 \iff x \ge -4$.
+2. $-7x \le 14 \iff x \ge -2$.
 3. $\dfrac{x}{-2} > 1 \iff x < -2$.
 4. $x + 4 < 1 \iff x < -3$.
 5. $5 - x > 0 \iff x > 5$.
@@ -75,13 +75,13 @@ Vrai ou faux ?
 *Fiche §6 · parcours C*
 
 Vrai ou faux ?
-1. $|-7| = -7$.
+1. $|-9| = 9$.
 2. $|3 - 10| = 7$.
 3. L'équation $|x| = 4$ a deux solutions.
 4. $|x - 2|$ est la distance entre $x$ et $-2$.
 5. $|x| \ge 0$ pour tout réel $x$.
 6. $|a + b| = |a| + |b|$ pour tous réels $a$ et $b$.
-7. $\operatorname{sign}(-0{,}5) = -0{,}5$.
+7. $\operatorname{sign}(-2{,}7) = -2{,}7$.
 
 ### R2.Q7 — Une, aucune ou une infinité de solutions ? 🧠 ★ ⏱️ 4 min
 *Fiche §7 · parcours C, E*
@@ -135,7 +135,7 @@ Sans regarder R0, écris ce que tu taperais dans le notebook pour que `wbm.check
 1. l'intervalle $]-\infty \;;\; 5]$ ;
 2. les réels $x$ tels que $-1 < x \le 0$ ;
 3. l'expression $3x^2 - x$ ;
-4. les réels strictement négatifs **ou** strictement supérieurs à 2 ;
+4. les réels strictement négatifs **ou** strictement supérieurs à 2.
 
 Et une question à part :
 
@@ -148,7 +148,7 @@ Et une question à part :
 Fais-les **à la main**, en écrivant ta démarche dans ta copie de `06_mes_reponses.md`. Reporte ensuite **la valeur** trouvée dans la **partie 0 du notebook**, sous la forme demandée :
 - un nombre : `-1.5` (point décimal) ; une fraction exacte entre guillemets : `"5/7"` ;
 - une **liste de coefficients**, du plus haut degré au terme constant, sans oublier les zéros : pour $2x^2 - 5$, on écrirait `[2, 0, -5]` ;
-- une **liste de solutions**, dans l'ordre que tu veux ; une fraction s'y écrit comme un calcul, sans guillemets : `[-2/7, 6]` ;
+- une **liste de solutions**, dans l'ordre que tu veux (la liste vide s'il n'y en a aucune) ; une fraction s'y écrit comme un calcul, sans guillemets : `[-2/7, 6]` ;
 - un **intervalle** entre guillemets : `"]-1 ; 4]"`, `"[0 ; +oo["`, une réunion `"]-oo ; 0] U ]1 ; +oo["` ; l'ensemble vide s'écrit avec le mot vide entre guillemets ;
 - le **nombre de solutions** d'un système par son numéro : 1 pour aucune, 2 pour une seule, 3 pour une infinité.
 
@@ -272,7 +272,7 @@ Donne chaque ensemble sous la forme la plus simple : un seul intervalle quand c'
 |---|---|---|
 | a | les solutions de $\lvert x - 3 \rvert = 4$ | une liste de solutions |
 | b | les solutions de $\lvert 2x + 1 \rvert = 9$ | une liste de solutions |
-| c | le nombre de solutions de $\lvert x - 6 \rvert = -2$ | un entier |
+| c | les solutions de $\lvert x - 6 \rvert = -2$ | une liste de solutions |
 | d | les solutions de $\lvert x + 1 \rvert \le 3$ | un intervalle |
 | e | les solutions de $\lvert x - 2 \rvert > 5$ | un intervalle ou une réunion |
 | f | la distance entre $-4{,}5$ et $2$ | un nombre |
@@ -337,7 +337,7 @@ Soient $a$ et $b$ deux réels.
 **Objectif :** démontrer les règles de calcul sur les inégalités à partir d'une définition, et voir ce qui ne marche pas.
 **Prérequis :** fiche §5 · **Parcours :** C
 
-On prend comme **définition** : $a < b$ veut dire $b - a > 0$. On admet seulement les règles des signes : le produit de deux nombres strictement positifs est strictement positif, le produit d'un nombre strictement positif et d'un nombre strictement négatif est strictement négatif.
+On prend comme **définition** : $a < b$ veut dire $b - a > 0$. On admet seulement les règles des signes : la somme et le produit de deux nombres strictement positifs sont strictement positifs, le produit d'un nombre strictement positif et d'un nombre strictement négatif est strictement négatif.
 
 Soient $a$ et $b$ deux réels tels que $a < b$.
 1. Montre que $a + c < b + c$ pour tout réel $c$.
@@ -353,7 +353,7 @@ Soient $a$ et $b$ deux réels tels que $a < b$.
 On étudie le système $(S)$ : $\begin{cases} ax + by = e \\ cx + dy = f \end{cases}$, de déterminant $D = ad - bc$.
 1. Soit $(x, y)$ une solution de $(S)$. En multipliant la première équation par $d$, la seconde par $b$, puis en soustrayant, montre que $D\,x = ed - bf$. Montre de même que $D\,y = af - ec$.
 2. On suppose $D \ne 0$. Déduis de 1 que $(S)$ a **au plus** une solution, puis vérifie, en le substituant dans la **première** équation, que le couple de Cramer est bien solution (la seconde se vérifie de la même façon ; tu peux l'admettre). Conclus.
-3. On suppose $D = 0$, avec $a \ne 0$. Pose $k = \dfrac{c}{a}$. Montre que $c = ka$ et $d = kb$ (utilise $ad = bc$) : la seconde équation s'écrit $k(ax + by) = f$.
+3. On suppose $D = 0$, avec $a \ne 0$ (les cas où $a = 0$ se traitent en échangeant les rôles des équations ou des inconnues : tu peux les admettre). Pose $k = \dfrac{c}{a}$. Montre que $c = ka$ et $d = kb$ (utilise $ad = bc$) : la seconde équation s'écrit $k(ax + by) = f$.
 4. Toujours avec $D = 0$ et $a \ne 0$ : montre que si $f = ke$, tout couple qui vérifie la première équation vérifie aussi la seconde (une infinité de solutions), et que si $f \ne ke$, aucun couple ne vérifie les deux (aucune solution).
 5. Conclus : « $(S)$ a une seule solution si et seulement si $D \ne 0$ ». Applique le critère au système $\begin{cases} 6x - 4y = 2 \\ -9x + 6y = m \end{cases}$ : pour quelle valeur de $m$ a-t-il une infinité de solutions ?
 
@@ -372,7 +372,7 @@ Un capteur de température renvoie une tension $u$, en volts. Son fabricant indi
 | a | les paramètres du modèle, trouvés par un système de deux équations d'inconnues $a$ et $b$ | la liste $[a, b]$ |
 | b | la température prédite par le modèle quand le capteur renvoie $1{,}4$ V | un nombre (en °C) |
 | c | une troisième mesure donne $u = 2{,}4$ V et $T = 51{,}5$ °C : l'écart « température mesurée − température prédite » | un nombre (en °C) |
-| d | avec les trois mesures, le nombre de couples $(a, b)$ qui vérifient les **trois** équations | 1, 2 ou 3 |
+| d | avec les trois mesures, combien de couples $(a, b)$ vérifient les **trois** équations ? Réponds avec la légende : 1 pour aucun, 2 pour un seul, 3 pour une infinité | 1, 2 ou 3 |
 
 Dans ta copie, explique en deux phrases ce que les questions c et d disent d'un modèle qu'on ajuste à beaucoup de données.
 

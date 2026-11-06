@@ -2659,8 +2659,9 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
+        "0a9e1108e693638ab0313a957b8f518e3ae8eb790e4218c8902add4381854ab6": "développe : le 3 multiplie les deux termes de la parenthèse",
         "0c9f75a49cf740bd1a4d1e58db58291686f335380103b668df4a284329044459": "un terme qui change de membre change de signe",
-        "483b982325805aeaedbad73dd82bdab3373fdc27445340d6b98a827c634a27ae": "développe : le 3 multiplie les deux termes de la parenthèse"
+        "483b982325805aeaedbad73dd82bdab3373fdc27445340d6b98a827c634a27ae": "développe les deux parenthèses : chaque facteur multiplie tous les termes de la sienne"
       },
       "sign": 1,
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
@@ -2709,42 +2710,46 @@
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.6a": {
-      "decimals": 4,
-      "hash": "6d0707cf9515f69cdf27f31a90b86234e177d128eb1b8b3af28217c2738d7ce0",
+      "decimals": 6,
+      "hash": "5c62bc36429ed6ff977e334f30c529cc0f64559bdec32530a826ffd395a89c8f",
       "kind": "set",
       "mistakes": {
-        "482d55505da660f99b08ee352a9e34ea7ed7442933f82abc147f44c1c015cf6d": "2x = −3 : divise par 2",
-        "eadf80cc54b39bfd5f708af320a629456d2f02c7fd72a0a7a5fbaef7c7b2a839": "2x + 3 = 0 donne une solution négative"
+        "7957119a4ad2dfd9011aede89c9d8b78b9896e2b1ac8c7e856711544b4906ec4": "2x = −3 : divise par 2",
+        "b8e6ebed639c69c9f38fea6e06a644a92e5f76d3a3fd811b2ec2a9650df90b69": "2x + 3 = 0 donne une solution négative"
       },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.6b": {
-      "decimals": 4,
-      "hash": "ab8f740b0ef15f093574a48ddb78d7f61c8584e476540d9db3ae65ced340d20d",
+      "decimals": 6,
+      "hash": "fc571e3b4085471e6f7d6b8894999b81649993395a8dbba45410a2bdb20325cf",
       "kind": "set",
       "mistakes": {
-        "9e37fbb76cd5ce5b13c3c862bd8713ae17e8074747d81b3e7d0d84b91cf9edad": "4x = 9 : divise 9 par 4, pas l'inverse",
-        "d751f591166273684304a5d40da930141ab529ad1fa7e558593df2f203f1e55f": "en divisant par x, on perd une solution : factorise"
+        "94f0a24b7fff255607563c88de8eda67273eb48389d39d876312e38341a2e185": "4x = 9 : divise 9 par 4, pas l'inverse",
+        "f4c734e01b8f1cd7b47d8d16910300e329466a37953f3cfedef05994883bc840": "en divisant par x, on perd une solution : factorise"
       },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.6c": {
-      "decimals": 4,
-      "hash": "f036d0c588ba3338318a186fbdc046fbd3f6f82cbba14a3500189a0486f41fec",
+      "decimals": 6,
+      "hash": "5f90dc281b7bc19da761c73d35d9c91483bbfb2a8e65dd3a0f5a9357b7401873",
       "kind": "set",
       "mistakes": {
-        "3ee71deb0a5d856edad07569832fb5248f0365df87be1c5507298229581c8c3e": "3x = 1 : divise 1 par 3",
-        "5fb32263ace2ae9a39212a364453ffa2cd42eea00479c5ce3bf510bd6a3e6960": "un carré est nul seulement quand le nombre élevé au carré est nul : une seule solution"
+        "098351326b767f29208b6721161148b25f2ca62e3b7982096f3bffcce45c12e7": "3x = 1 : divise 1 par 3",
+        "129ed961ac2ef420e3c387b5127d657db7e3d23a4f20955f527ba9324b8f567b": "un carré est nul seulement quand le nombre élevé au carré est nul : une seule solution",
+        "4c65ae52261f0566cdea0e569edd37ebf6adcda51be30e03a73dc6d55c8e6968": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie à trois décimales",
+        "4c6d01674329cb3654c9454bdd63daee0583a77ab6b7cb4b8acdf638cd62b21e": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie à deux décimales"
       },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.6d": {
-      "decimals": 4,
-      "hash": "d9bdf110411be4b2402abcd4cd3fba196494d580b4c1df3d0bd2eaa734fc9e01",
+      "decimals": 6,
+      "hash": "15bca4252b731317716e333c9b467172d661bccf8da9bf0d1a9ad5cafe18f534",
       "kind": "set",
       "mistakes": {
-        "6790c87a21f302e83f3ed0943ba800e226d8e428053b97f610a9e33eb8ce5055": "un carré égal à un nombre positif : deux solutions opposées",
-        "b351f6a08162b3e3051de7ed8b5f402c42e3a144e1a2cfa52cd9445d39fc3486": "x² est connu : il reste à prendre la racine carrée"
+        "5e8ffdda326b8e0f3310c718037aca07d2ce3226113db515540fe716eeae86b4": "un carré égal à un nombre positif : deux solutions opposées",
+        "86976b3963d631bf1742a5f6807a09a98dcccc923a5232b9932df362f68c5489": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie à deux décimales",
+        "b35d5b5064693f2eb74ab9e46143a6deb144b92de7ac31096053f43e4e0e7114": "x² est connu : il reste à prendre la racine carrée",
+        "ccea27baacaa08d216780fb6d9db8b6c649f8ef5270a0e5db51ee28501c80869": "donne la valeur exacte, une fraction tapée comme un calcul, pas une valeur arrondie à trois décimales"
       },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
@@ -2759,20 +2764,20 @@
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.6f": {
-      "decimals": 4,
-      "hash": "5858064888288bb3fe322f0cf4abba139c475cfd5888aee470ad3c5c152f7d5d",
+      "decimals": 6,
+      "hash": "d9668fc0099a551213ad3132009dc79db232a634f327c4cf40fd8807872cd568",
       "kind": "set",
       "mistakes": {
-        "3aff158fc6a59179ab871e662ad5710fdb76470f04d74b689a461f3ca635e3e5": "3 multiplie tout le dénominateur : 3(x − 1)"
+        "3bad82b9c3e6145f237adeb8a22d8a252dba917256d0260e3a1843fac901164f": "3 multiplie tout le dénominateur : 3(x − 1)"
       },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.6g": {
-      "decimals": 4,
-      "hash": "0160355f28c12ba1db4a3572dfae8ca2d0668ee2d6132a8b8970f57e4f38aebd",
+      "decimals": 6,
+      "hash": "0d0c3db24fbdbcbd3483ca8435b89872d598281232450a69d91cf488bfdf5e7d",
       "kind": "set",
       "mistakes": {
-        "348e19d521156ae2d23f4b922edc6ccc5a45ac7a862e33aff8fbbc24e7daf143": "le moins devant la fraction porte sur tout le numérateur x − 2"
+        "f9eef2ea08dce1e2538efae270a153a3578fec14d6dca3b3b7a06a53a9b4a18c": "le moins devant la fraction porte sur tout le numérateur x − 2"
       },
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
@@ -2888,13 +2893,11 @@
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.9c": {
-      "hash": "bea5cd5e1bcbe5c764556bf889e649c529bf3b966c7fb6ee0b29137bfae8d56c",
-      "kind": "int",
-      "magnitude": null,
+      "hash": "a7f3346aed7e58e98b9a838a66d9ad4759ee900c3753b27dab470123d6f9951c",
+      "kind": "set",
       "mistakes": {
-        "f9f5a9d6a93fabd2035ee7408b504ca815f3f4557d6498cba28487c0e178eb03": "une valeur absolue n'est jamais négative"
+        "6654b1a969f46847e094c847b97c7e80e19b5226fabc901ff3de0518fc1da560": "une valeur absolue est une distance : elle n'est jamais négative"
       },
-      "sign": 0,
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
     },
     "R2.9d": {
@@ -3143,7 +3146,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "5768dc6a0abd84ce4e794e66da60ddaf7de1ce5b7c7b324e00385ee4c148ac4d": "l'écart est la mesure moins la prédiction : son signe compte"
+        "5768dc6a0abd84ce4e794e66da60ddaf7de1ce5b7c7b324e00385ee4c148ac4d": "l'écart est la mesure moins la prédiction : son signe compte",
+        "984e7d050ac12dcff4d2c7b11bf2e33613498df1c0005bb377a8392d176360cf": "on demande l'écart entre la mesure et la prédiction, pas la prédiction elle-même"
       },
       "sign": -1,
       "source": "chapitres/r2_calcul_litteral/05_solutions.ipynb"
