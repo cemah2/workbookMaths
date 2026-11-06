@@ -23,7 +23,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [R3](#r3) | Fonctions | 0B | — | 12,8 h | ✅ exercices | 1 |
 | [R4](#r4) | Logique, ensembles, Σ et Π | 0B | — | 13,2 h | ✅ exercices | 1 |
 | [R5](#r5) | Suites | 0B | — | 10,2 h | ✅ exercices | 1 |
-| [R6](#r6) | Exponentielle et logarithmes | 0B | — | 9,8 h | ✅ exercices | 1 |
+| [R6](#r6) | Exponentielle et logarithmes | 0B | — | 10,4 h | ✅ exercices | 1 |
 | [R7](#r7) | Limites et dérivation | 0B | — | 12,9 h | ✅ exercices | 2 |
 | [R8](#r8) | Probabilités de base | 0B | — | 10,9 h | ✅ exercices | 1 |
 | [R9](#r9) | Géométrie du plan, vecteurs et trigonométrie | 0B | — | 11,0 h | ✅ exercices | 1 |
@@ -79,7 +79,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 
 | Partie | Chapitres | Exercices détaillés | Durée (complet) | Durée (essentiel) |
 |---|---|---|---|---|
-| 0 · Remise à niveau | 12 | 363 | 115,6 h | 92,4 h |
+| 0 · Remise à niveau | 12 | 363 | 116,2 h | 93,0 h |
 | I · Fondations | 9 | — | ≈ 110 h (estimé) | à détailler |
 | II · Concepts | 7 | — | ≈ 78 h (estimé) | à détailler |
 | III · ML classique | 8 | — | ≈ 98 h (estimé) | à détailler |
@@ -595,7 +595,7 @@ Les suites : définies explicitement ou par récurrence, arithmétiques et géom
 
 L'exponentielle et le logarithme : leurs propriétés algébriques, le nombre e, le logarithme népérien comme réciproque de l'exponentielle, les bases 2 et 10 et le changement de base (les bits), les croissances comparées et les échelles logarithmiques. Puis la sigmoïde et la tangente hyperbolique, et pourquoi le ML calcule avec des log-probabilités.
 
-**Temps** : 9,8 h en parcours complet, 7,4 h en parcours essentiel (lecture 135 min, 22 flashcards).
+**Temps** : 10,4 h en parcours complet, 8,0 h en parcours essentiel (lecture 170 min, 22 flashcards).
 
 **Objectifs**
 
@@ -653,13 +653,13 @@ L'exponentielle et le logarithme : leurs propriétés algébriques, le nombre e,
 | R6.15 | 🔨 | Sigmoïde et tanh à partir de exp · `sigmoid, tanh` | ★★ | 20 | §7 | C, E | pytest | — |
 | R6.16 | 🔨 | Temps de doublement · `doubling_time` | ★ | 15 | §1 §3 | C | pytest | — |
 | R6.17 | 📦 | Sur tout un tableau : `np.exp`, `np.log2` et `scipy.special.expit` | ★ | 15 | §4 §7 | C | wbm | — |
-| R6.18 | 🔮 | Prédire : exp(1000) pour NumPy, et le produit de 1 000 probabilités de 0,01 | ★★ | 15 | §3 §5 | C, E | wbm | — |
+| R6.18 | 🔮 | Prédire : exp(800) avec math et NumPy, et le produit de 600 probabilités de 0,25 | ★★ | 15 | §3 §5 | C, E | wbm | — |
 | R6.19 | 🔬 | Croissances comparées : x¹⁰, 2ˣ et ln x de plus en plus loin | ★★ | 20 | §5 | C | wbm | — |
 | R6.20 | 🎨 | Les mêmes données en échelle linéaire et en échelle logarithmique | ★ | 15 | §6 | C, E | manuel | — |
 | R6.21 | 🐛 | Chasse à l'erreur : ln(a + b), e^(a + b) et log(0) | ★★ | 15 | §3 | C, E | wbm | — |
 | R6.22 | 🛠️ | Lire la documentation de `numpy.log`, `log2`, `log10`, `log1p` | ★ | 15 | §4 | C | manuel | — |
 
-*Notes* : exp est définie sans dérivée (la dérivation vient en R7) : e = lim (1 + 1/n)ⁿ (limite d'une suite, R5), eˣ prolonge les puissances, et ses propriétés algébriques en découlent ; les limites de fonctions restent intuitives (« quand x devient très grand »). R7 §5 démontre (eˣ)′ = eˣ à partir de cette définition. Le 🔨 R6.15 calcule σ et tanh pour |x| ≤ 30 (sans viser la stabilité numérique, que workbookIA 17.13 demande) ; R6.18 montre seulement le débordement de exp(1000).
+*Notes* : exp est définie sans dérivée (la dérivation vient en R7) : e = lim (1 + 1/n)ⁿ (limite d'une suite, R5), eˣ prolonge les puissances, et ses propriétés algébriques en découlent ; les limites de fonctions restent intuitives (« quand x devient très grand »). R7 §5 démontre (eˣ)′ = eˣ à partir de cette définition. Le 🔨 R6.15 calcule σ et tanh pour |x| ≤ 30 (sans viser la stabilité numérique, que workbookIA 17.13 demande) ; R6.18 montre seulement le débordement de exp(800) et le sous-dépassement d'un produit de probabilités.
 
 <a id="r7"></a>
 ## R7 · Limites et dérivation

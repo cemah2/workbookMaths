@@ -556,10 +556,10 @@ CHAPTERS = [
                  "eˣ prolonge les puissances, et ses propriétés algébriques en découlent ; les limites de fonctions "
                  "restent intuitives (« quand x devient très grand »). R7 §5 démontre (eˣ)′ = eˣ à partir de cette "
                  "définition. Le 🔨 R6.15 calcule σ et tanh pour |x| ≤ 30 (sans viser la stabilité numérique, que "
-                 "workbookIA 17.13 demande) ; R6.18 montre seulement le débordement de exp(1000).",
+                 "workbookIA 17.13 demande) ; R6.18 montre seulement le débordement de exp(800) et le sous-dépassement d'un produit de probabilités.",
         "frontieres": ["0B.15", "0B.16", "0B.17", "0B.E3", "17.4", "17.13"],
         "mymath": {"module": "explog.py", "functions": ["log_base", "sigmoid", "tanh", "doubling_time"]},
-        "reading_minutes": 135,
+        "reading_minutes": 170,
         "flashcards": 22,
         "exercises": [
             ("R6.Q1", "🧠", 1, 4, "Propriétés de l'exponentielle : vrai ou faux", "§1 §2", "E"),
@@ -590,7 +590,7 @@ CHAPTERS = [
             ("R6.15", "🔨", 2, 20, "Sigmoïde et tanh à partir de exp", "§7", "E m:sigmoid,tanh"),
             ("R6.16", "🔨", 1, 15, "Temps de doublement", "§1 §3", "m:doubling_time"),
             ("R6.17", "📦", 1, 15, "Sur tout un tableau : `np.exp`, `np.log2` et `scipy.special.expit`", "§4 §7", ""),
-            ("R6.18", "🔮", 2, 15, "Prédire : exp(1000) pour NumPy, et le produit de 1 000 probabilités de 0,01",
+            ("R6.18", "🔮", 2, 15, "Prédire : exp(800) avec math et NumPy, et le produit de 600 probabilités de 0,25",
              "§3 §5", "E"),
             ("R6.19", "🔬", 2, 20, "Croissances comparées : x¹⁰, 2ˣ et ln x de plus en plus loin", "§5", ""),
             ("R6.20", "🎨", 1, 15, "Les mêmes données en échelle linéaire et en échelle logarithmique", "§6", "E"),
