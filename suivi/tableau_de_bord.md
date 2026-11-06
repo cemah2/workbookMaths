@@ -460,3 +460,43 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] R7.25 🛠️ Tester une dérivée avec pytest et SymPy ★ 15 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (25 cartes)
 <!-- wbm:end R7 -->
+
+<!-- wbm:section R8 -->
+## R8 · Probabilités de base ⏱️ 10,9 h
+
+- [ ] R8.Q1 🧠 Univers, issue, événement ★ 4 min
+- [ ] R8.Q2 🧠 Propriétés d'une probabilité ★ 4 min
+- [ ] R8.Q3 🧠 Arrangement ou combinaison ? ★ 4 min
+- [ ] R8.Q4 🧠 Lire un arbre pondéré ★ 4 min
+- [ ] R8.Q5 🧠 Indépendants ou incompatibles ? ★ 4 min
+- [ ] R8.Q6 🧠 Espérance et variance : vrai ou faux ★ 4 min
+- [ ] R8.Q7 🧠 Ce que dit la loi des grands nombres ★ 4 min (complet)
+- [ ] R8.R1 🔁 Ensembles et complémentaire (R4) ★ 5 min
+- [ ] R8.R2 🔁 Σ et Π (R4) ★ 5 min
+- [ ] R8.R3 🔁 Fractions (R1) ★ 5 min (complet)
+- [ ] R8.1 ✏️ Décrire univers et événements : cartes et pièces ★ 10 min
+- [ ] R8.2 ✏️ Probabilités par équiprobabilité ★ 15 min
+- [ ] R8.3 ✏️ P(A ∪ B) et le complémentaire ★★ 15 min
+- [ ] R8.4 ✏️ Principe multiplicatif et factorielles ★ 15 min
+- [ ] R8.5 ✏️ Combinaisons et triangle de Pascal ★★ 20 min
+- [ ] R8.6 ✏️ Arbres pondérés : épreuves successives ★★ 20 min
+- [ ] R8.7 ✏️ Indépendant ou pas ? Le décider par le calcul, avec des cartes et des pièces ★★ 15 min
+- [ ] R8.8 ✏️ La loi d'une variable aléatoire ★ 15 min
+- [ ] R8.9 ✏️ Espérance, variance (avec V = E[X²] − E[X]²) et écart-type ★★ 20 min
+- [ ] R8.10 ✏️ Deux jeux de hasard : équité et risque ★★ 20 min (complet)
+- [ ] R8.11 ∂ Démontrer C(n, k) = C(n − 1, k − 1) + C(n − 1, k) ★★ 25 min (complet)
+- [ ] R8.12 ∂ L'espérance d'une somme : E[X + Y] = E[X] + E[Y], même pour des variables liées ★★ 25 min
+- [ ] R8.13 🔗 Comparer toutes les paires : un tournoi, C(n, 2) et une croissance en n² ★ 10 min
+- [ ] R8.14 🧮 Fermi : la probabilité de croiser quelqu'un que l'on connaît dans le métro ★★ 20 min (complet)
+- [ ] R8.15 🗣️ Expliquer la différence entre probabilité et fréquence ★ 10 min
+- [ ] R8.16 🔨 Factorielle et combinaisons ★ 15 min
+- [ ] R8.17 🔨 Une probabilité exacte par énumération ★★ 25 min (complet)
+- [ ] R8.18 🔨 Espérance et variance d'une loi ★ 15 min
+- [ ] R8.19 🔨 Estimer une probabilité par simulation ★★ 20 min
+- [ ] R8.20 🔮 Prédire : dans une classe de 30, deux élèves ont-ils le même anniversaire ? ★★ 15 min
+- [ ] R8.21 🔬 La loi des grands nombres : fréquence et nombre d'essais ★★ 20 min
+- [ ] R8.22 🎨 Le diagramme en bâtons d'une loi ★ 10 min (complet)
+- [ ] R8.23 🐛 Chasse à l'erreur : trois raisonnements de probabilités faux ★★ 20 min
+- [ ] R8.24 🛠️ Reproductibilité : générateur aléatoire et graine ★ 15 min
+- [ ] Flashcards du chapitre importées dans Anki (25 cartes)
+<!-- wbm:end R8 -->

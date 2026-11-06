@@ -14,7 +14,7 @@
 3. « Au plus un pile » : zéro pile ou un pile.
 4. **Vrai** : $A \cap \bar{A} = \varnothing$, une issue ne peut pas être à la fois dans $A$ et hors de $A$.
 5. **Faux** : sur un dé, « obtenir 1 » et « obtenir 2 » sont incompatibles, mais le contraire de « obtenir 1 » est « obtenir 2, 3, 4, 5 ou 6 ».
-6. $A = \{1, 3, 5, 7\}$ et $B = \{6, 7, 8\}$ : $A \cap B = \{7\}$ et $A \cup B = \{1, 3, 5, 6, 7, 8\}$.
+6. $C = \{1, 3, 5, 7\}$ et $D = \{6, 7, 8\}$ : $C \cap D = \{7\}$ et $C \cup D = \{1, 3, 5, 6, 7, 8\}$.
 
 ### R8.Q2 — Propriétés d'une probabilité
 1. **Non** et **non** : une probabilité est toujours entre 0 et 1.
@@ -29,7 +29,7 @@
 2. L'ordre ne compte pas, sans répétition : une **combinaison**, $\binom{32}{5}$ (R8.5 f).
 3. L'ordre compte, **avec** répétition (un caractère peut revenir) : $36^8$.
 4. L'ordre ne compte pas, sans répétition (une grille est un ensemble de 6 numéros) : $\binom{49}{6}$.
-5. On range les 7 chapitres : $7!$.
+5. On range les 7 chapitres, l'ordre compte et sans répétition : $7!$ (ce sont aussi les arrangements des 7 chapitres parmi 7, une réponse juste aussi).
 6. L'ordre compte, **avec** répétition (une boule remise peut ressortir) : $10^3$.
 
 ### R8.Q4 — Lire un arbre pondéré
@@ -228,7 +228,7 @@ Dans ta copie : f vaut 0,71, un peu plus que les 0,7 du premier lancer. La joueu
 **Réponses** : a) `0.25` · b) `1.5` · c) `5.5` · d) `1.225` · e) `-1` · f) `2.449` · g) `"1/3"` · h) `2`.
 
 **Démarche.**
-- a) Deux équations : la somme des probabilités, $0{,}5 + a + b = 1$, et l'espérance, $1 \times 0{,}5 + 2a + 4b = 2$. La première donne $a = 0{,}5 - b$ ; dans la seconde, $0{,}5 + 1 - 2b + 4b = 2$, donc $b = 0{,}25$ (et $a = 0{,}25$).
+- a) Deux équations : la somme des probabilités, $0{,}5 + p_2 + p_4 = 1$, et l'espérance, $1 \times 0{,}5 + 2p_2 + 4p_4 = 2$. La première donne $p_2 = 0{,}5 - p_4$ ; dans la seconde, $0{,}5 + 1 - 2p_4 + 4p_4 = 2$, donc $p_4 = 0{,}25$ (et $p_2 = 0{,}25$).
 - b) Les écarts à 2 valent −1, 0 et 2 : $\mathbb{V}(X) = 1 \times 0{,}5 + 0 \times 0{,}25 + 4 \times 0{,}25 = 1{,}5$.
 - c) $\mathbb{E}[X^2] = 1 \times 0{,}5 + 4 \times 0{,}25 + 16 \times 0{,}25 = 5{,}5$, et $5{,}5 - 2^2 = 1{,}5$ : les deux méthodes concordent.
 - d) $\sigma(X) = \sqrt{1{,}5} \approx 1{,}225$.

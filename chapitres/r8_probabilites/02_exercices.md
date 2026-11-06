@@ -23,7 +23,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 3. On lance une pièce quatre fois. Quel est le contraire de « au moins deux piles » ?
 4. Vrai ou faux : un événement et son contraire sont toujours incompatibles.
 5. Vrai ou faux : deux événements incompatibles sont toujours contraires l'un de l'autre.
-6. On fait tourner une roue de 8 secteurs égaux, numérotés de 1 à 8 ; $A$ = « impair » et $B$ = « au moins 6 ». Écris $A \cap B$ et $A \cup B$.
+6. On fait tourner une roue de 8 secteurs égaux, numérotés de 1 à 8 ; $C$ = « impair » et $D$ = « au moins 6 ». Écris $C \cap D$ et $C \cup D$.
 
 ### R8.Q2 — Propriétés d'une probabilité 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
@@ -41,7 +41,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 Pour chaque situation, dis si l'ordre compte, s'il peut y avoir des répétitions, et quel outil compte les possibilités ($n^k$, arrangements, $n!$ ou $\binom{n}{k}$). Ne calcule pas.
 1. Le podium (or, argent, bronze) d'une course de 10 coureurs.
 2. Une main de 5 cartes tirée d'un jeu de 32.
-3. Un mot de passe de 8 caractères, chacun choisi parmi 36 (26 lettres et 10 chiffres).
+3. Un mot de passe de 8 caractères, chacun choisi parmi 36 (26 lettres et 10 chiffres) ; un caractère peut revenir.
 4. Une grille de loto : 6 numéros cochés parmi 49.
 5. L'ordre dans lequel tu lis les 7 chapitres d'un livre.
 6. Trois boules tirées d'une urne de 10 boules numérotées, **avec remise**, en notant les numéros dans l'ordre de sortie.
@@ -243,7 +243,7 @@ Dans ta copie : compare f à la probabilité de réussir le **premier** lancer. 
 **Objectif :** décider de l'indépendance de deux événements par le calcul, et distinguer indépendance et incompatibilité.
 **Prérequis :** fiche §5 · **Parcours :** C, E
 
-On tire une carte au hasard dans un jeu de 32 cartes (celui de R8.1) : $A$ = « un as », $B$ = « un cœur », $C$ = « un roi » et $D$ = « une carte noire ». Puis on lance trois pièces : $E$ = « exactement un pile », $F$ = « la première pièce donne face », $G$ = « au moins un pile » et $H$ = « au moins un face ».
+On tire une carte au hasard dans un jeu de 32 cartes (celui de R8.1) : $A$ = « un as », $B$ = « un cœur », $C$ = « un roi » et $D$ = « une carte noire ». Puis on lance trois pièces équilibrées : $E$ = « exactement un pile », $F$ = « la première pièce donne face », $G$ = « au moins un pile » et $H$ = « au moins un face ».
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -284,11 +284,11 @@ Une variable $Z$ prend les valeurs 1, 2, 3 et 4, avec $P(Z = 1) = 0{,}15$, $P(Z 
 **Objectif :** calculer l'espérance, la variance et l'écart-type d'une variable discrète, de deux façons, et l'effet d'un changement d'échelle.
 **Prérequis :** fiche §7 · **Parcours :** C, E
 
-Une variable aléatoire $X$ prend les valeurs 1, 2 et 4, avec $P(X = 1) = 0{,}5$, $P(X = 2) = a$ et $P(X = 4) = b$ ; son espérance vaut $\mathbb{E}[X] = 2$. On pose $Y = 3 - 2X$. Enfin, une variable $W$ ne prend que les valeurs −1 et 2, avec $P(W = 2) = p$, et son espérance est nulle.
+Une variable aléatoire $X$ prend les valeurs 1, 2 et 4, avec $P(X = 1) = 0{,}5$, $P(X = 2) = p_2$ et $P(X = 4) = p_4$ ; son espérance vaut $\mathbb{E}[X] = 2$. On pose $Y = 3 - 2X$. Enfin, une variable $W$ ne prend que les valeurs −1 et 2, avec $P(W = 2) = p$, et son espérance est nulle.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $b$ (écris deux équations, en $a$ et $b$) | un nombre (2 décimales) |
+| a | $p_4$ (écris deux équations, en $p_2$ et $p_4$) | un nombre (2 décimales) |
 | b | $\mathbb{V}(X)$, avec la définition $\mathbb{E}\big[(X - \mathbb{E}[X])^2\big]$ | un nombre (2 décimales) |
 | c | $\mathbb{E}[X^2]$ (vérifie b avec la formule $\mathbb{E}[X^2] - \mathbb{E}[X]^2$) | un nombre (2 décimales) |
 | d | $\sigma(X)$ | un nombre (3 décimales) |
@@ -301,18 +301,18 @@ Une variable aléatoire $X$ prend les valeurs 1, 2 et 4, avec $P(X = 1) = 0{,}5$
 **Objectif :** juger un jeu par son espérance, trouver le gain qui le rend équitable, et comparer deux jeux par leur écart-type.
 **Prérequis :** fiche §7 · **Parcours :** C
 
-**Jeu A** : on lance deux pièces ; deux piles font gagner 3 €, deux faces font perdre 5 €, un pile et un face ne font ni gagner ni perdre. **Jeu B** : on lance deux dés à 4 faces ; un double (les deux dés donnent le même numéro) fait gagner 6 €, sinon on perd 1 €. Le **gain** d'une partie est positif ou négatif. Réponses à 2 décimales, en euros pour les gains.
+**Jeu A** : on lance deux pièces équilibrées ; deux piles font gagner 3 €, deux faces font perdre 5 €, un pile et un face ne font ni gagner ni perdre. **Jeu B** : on lance deux dés équilibrés à 4 faces ; un double (les deux dés donnent le même numéro) fait gagner 6 €, sinon on perd 1 €. Le **gain** d'une partie est positif ou négatif. Réponses à 2 décimales, en euros pour les gains.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | l'espérance du gain du jeu A | un nombre |
 | b | la variance du gain du jeu A | un nombre |
 | c | l'écart-type du gain du jeu A | un nombre |
-| d | le gain à offrir pour deux piles, le reste ne changeant pas, pour que le jeu A soit équitable | un nombre |
+| d | le nouveau gain à offrir pour deux piles (le montant, pas la hausse), le reste ne changeant pas, pour que le jeu A soit équitable | un nombre |
 | e | l'écart-type du gain du jeu A rendu équitable comme en d | un nombre |
 | f | l'espérance du gain du jeu B | un nombre |
 | g | l'écart-type du gain du jeu B | un nombre |
-| h | le gain à offrir pour un double, sans double le joueur perdant toujours 1 €, pour que le jeu B soit équitable | un nombre |
+| h | le nouveau gain à offrir pour un double (le montant), sans double le joueur perdant toujours 1 €, pour que le jeu B soit équitable | un nombre |
 
 Dans ta copie : calcule l'écart-type du jeu B rendu équitable comme en h, et compare-le à e. Les deux jeux équitables ont la même espérance : lequel est le plus risqué ? Lequel préfères-tu jouer, et pourquoi ?
 
@@ -338,11 +338,11 @@ Soient $n \ge 2$ et $k$ deux entiers, avec $1 \le k \le n - 1$.
 **Prérequis :** fiche §6 et §7 ; R4 (Σ, récurrence) · **Parcours :** C, E
 
 Un univers fini $\Omega$ porte une probabilité, de poids $p(\omega)$ pour chaque issue $\omega$, et une variable aléatoire $X$ associe un nombre $X(\omega)$ à chaque issue.
-1. On lance trois pièces, et $X$ est le nombre de piles. Calcule $\mathbb{E}[X]$ de deux façons : avec la loi de $X$ (la somme sur les valeurs de la fiche), puis avec la somme sur les 8 issues, $\sum_{\omega \in \Omega} X(\omega)\,p(\omega)$. Démontre ensuite que, pour toute variable aléatoire $X$ sur un univers fini, $\mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega)\,p(\omega)$ (regroupe les issues qui donnent la même valeur de $X$).
+1. On lance trois pièces équilibrées, et $X$ est le nombre de piles. Calcule $\mathbb{E}[X]$ de deux façons : avec la loi de $X$ (la somme sur les valeurs de la fiche), puis avec la somme sur les 8 issues, $\sum_{\omega \in \Omega} X(\omega)\,p(\omega)$. Démontre ensuite que, pour toute variable aléatoire $X$ sur un univers fini, $\mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega)\,p(\omega)$ (regroupe les issues qui donnent la même valeur de $X$).
 2. $X$ et $Y$ sont deux variables aléatoires définies sur le même univers. Démontre que $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$. As-tu supposé que $X$ et $Y$ sont indépendantes ?
 3. Démontre par récurrence sur $n \ge 2$ que $\mathbb{E}[X_1 + X_2 + \cdots + X_n] = \mathbb{E}[X_1] + \mathbb{E}[X_2] + \cdots + \mathbb{E}[X_n]$ pour $n$ variables aléatoires définies sur le même univers.
 4. Un QCM a 20 questions, chacune à 4 choix dont un seul est juste, et l'on répond à chacune au hasard. Pour $i$ de 1 à 20, $X_i$ vaut 1 si la réponse à la $i$-ème question est juste, 0 sinon. Écris le nombre $N$ de bonnes réponses à l'aide des $X_i$, et déduis $\mathbb{E}[N]$ de 3, sans calculer la loi de $N$.
-5. L'espérance d'un **produit** n'est pas toujours le produit des espérances : on lance une seule pièce, et $X = Y$ vaut 1 si elle donne pile, 0 sinon. Compare $\mathbb{E}[XY]$ et $\mathbb{E}[X]\,\mathbb{E}[Y]$.
+5. L'espérance d'un **produit** n'est pas toujours le produit des espérances : on lance une seule pièce équilibrée, et $X = Y$ vaut 1 si elle donne pile, 0 sinon. Compare $\mathbb{E}[XY]$ et $\mathbb{E}[X]\,\mathbb{E}[Y]$.
 
 <a id="reflexion"></a>
 
@@ -367,7 +367,7 @@ Dans ta copie : pourquoi $\binom{n}{2} \approx \frac{n^2}{2}$ quand $n$ est gran
 
 ### Ex R8.14 — Fermi : la probabilité de croiser quelqu'un que l'on connaît dans le métro 🧮 ★★ ⏱️ 20 min
 **Objectif :** estimer une probabilité par des ordres de grandeur, avec le complémentaire et des répétitions indépendantes.
-**Prérequis :** fiche §2 et §5 · **Parcours :** C
+**Prérequis :** fiche §2 et §5 ; R7 (approximations au voisinage de 0) · **Parcours :** C
 
 Tu prends le métro dans une grande ville. Quelle est la probabilité de croiser, pendant un trajet, au moins une personne que tu connais ? Fais une estimation de Fermi, en écrivant chaque hypothèse et son ordre de grandeur :
 1. combien de personnes connais-tu assez pour les reconnaître et les saluer, et combien d'entre elles prennent ce métro un jour donné ?

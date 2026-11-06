@@ -22,7 +22,7 @@ Une issue est un résultat précis de l'expérience ; un événement est un ense
 </details>
 <details><summary>Indice 3</summary>
 
-1 : chaque lancer double le nombre de suites. Pour 5, cherche deux événements sans issue commune qui ne couvrent pas tout l'univers. Pour 6, écris $A$ et $B$ comme des ensembles de numéros de 1 à 8.
+1 : chaque lancer double le nombre de suites. Pour 5, cherche deux événements sans issue commune qui ne couvrent pas tout l'univers. Pour 6, écris $C$ et $D$ comme des ensembles de numéros de 1 à 8.
 
 </details>
 
@@ -354,7 +354,7 @@ Pour a, deux équations : la somme des probabilités vaut 1, et l'espérance vau
 </details>
 <details><summary>Indice 3</summary>
 
-a : $0{,}5 + a + b = 1$ et $0{,}5 + 2a + 4b = 2$. Pour f, $Y = -2X + 3$ : l'écart-type est multiplié par $\lvert -2 \rvert$. Pour g, écris $\mathbb{E}[W] = 2p - (1 - p)$.
+a : $0{,}5 + p_2 + p_4 = 1$ et $0{,}5 + 2p_2 + 4p_4 = 2$. Pour f, $Y = -2X + 3$ : l'écart-type est multiplié par $\lvert -2 \rvert$. Pour g, écris $\mathbb{E}[W] = 2p - (1 - p)$.
 
 </details>
 

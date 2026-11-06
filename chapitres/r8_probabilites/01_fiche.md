@@ -123,6 +123,7 @@ $$P(A) = \sum_{\omega \in A} p(\omega).$$
 
 Les règles suivantes en découlent :
 - $0 \le P(A) \le 1$ pour tout événement ; $P(\varnothing) = 0$ et $P(\Omega) = 1$ ;
+- si $A \subset B$, alors $P(A) \le P(B)$ : $B$ a tous les poids de $A$, et peut-être d'autres ;
 - **complémentaire** : $P(\bar{A}) = 1 - P(A)$, car les poids de $A$ et de $\bar{A}$ font, ensemble, tous les poids ;
 - **incompatibles** : si $A \cap B = \varnothing$, alors $P(A \cup B) = P(A) + P(B)$ ;
 - **réunion**, dans tous les cas : $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
