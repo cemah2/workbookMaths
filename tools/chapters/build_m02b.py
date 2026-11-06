@@ -37,8 +37,8 @@ EY = 'kind="expr", variables=("y",)'
 PAPER = [
     Paper("M02b.1", "Loi de Bernoulli et loi binomiale", [
         ("a", "a number (4 decimals)", "0.8 ** 5",
-         'decimals=4, mistakes={"0,8 est la probabilité de réussir un lancer : cinq réussites, c\'est 0,8 à la '
-         'puissance 5": 0.2 ** 5, "les cinq lancers réussissent tous : les probabilités se multiplient, elles ne '
+         'decimals=4, mistakes={"0,2 est la probabilité de rater un lancer ; ici, on compte les réussites": '
+         '0.2 ** 5, "les cinq lancers réussissent tous : les probabilités se multiplient, elles ne '
          's\'additionnent pas": 4.0}'),
         ("b", "a number (4 decimals)", "math.comb(5, 3) * 0.8 ** 3 * 0.2 ** 2",
          'decimals=4, mistakes={"n\'oublie pas C(5, 3) : le nombre de façons de placer les 3 réussites parmi les 5 '
@@ -61,44 +61,44 @@ PAPER = [
          'decimals=4, mistakes={"c\'est P(aucun échec) ; « au moins un échec » est l\'événement contraire": 0.8 ** 5, '
          '"« au moins un échec » est le contraire de « cinq réussites », pas de « cinq échecs »": 1 - 0.2 ** 5}'),
         ("h", "an integer", "11",
-         'mistakes={"1 − 0,8ⁿ ≥ 0,9 équivaut à 0,8ⁿ ≤ 0,1 : avec ce n, 0,8ⁿ dépasse encore 0,1": 10, '
-         '"le plus petit n qui convient : vérifie aussi l\'entier juste en dessous": 12}'),
+         'fractional="le plus petit entier qui convient : l\'arrondi supérieur, pas l\'arrondi le plus proche", mistakes={"le plus petit entier n tel que 0,8ⁿ ≤ 0,1 : vérifie ton n et '
+         'l\'entier juste en dessous": {10, 12}}'),
     ]),
 
     Paper("M02b.2", "Loi géométrique : probabilités, et l'espérance par une série", [
         ("a", "a number (3 decimals)", "0.6 ** 2 * 0.4",
-         'decimals=3, mistakes={"X = 3 : deux échecs (probabilité 0,6 chacun), puis une réussite (0,4)": '
+         'decimals=3, mistakes={"X = 3 : décris ce qui arrive à chacune des trois premières tentatives, et la probabilité de '
+         'chaque issue": '
          '{0.4 ** 2 * 0.6, 0.4 ** 3}}'),
         ("b", "a number (3 decimals)", "0.6 ** 3",
-         'decimals=3, mistakes={"X > 3 : les trois premières tentatives échouent, chacune avec la probabilité 0,6, et '
-         'rien n\'est imposé à la quatrième": {0.4 ** 3, 0.6 ** 4}, "c\'est P(X ≤ 3) ; P(X > 3) est l\'événement '
+         'decimals=3, mistakes={"X > 3 : que doit-il arriver aux trois premières tentatives ? Rien n\'est imposé à la '
+         'quatrième": {0.4 ** 3, 0.6 ** 4}, "c\'est P(X ≤ 3) ; P(X > 3) est l\'événement '
          'contraire": 1 - 0.6 ** 3}'),
         ("c", "a number (2 decimals)", "1 - 0.6 ** 2",
          'decimals=2, mistakes={"X ≤ 2 : réussite à la première tentative ou à la deuxième, additionne les deux cas": '
          '{0.4, 0.24}}'),
         ("d", "a number (2 decimals)", "1 / (1 - 0.6) ** 2",
-         'decimals=2, mistakes={"S − qS est la série géométrique Σ q^(k−1), de somme 1/(1 − q) ; S s\'obtient en '
-         'divisant encore par 1 − q": 1 / (1 - 0.6), "S = 1/(1 − q)², sans facteur q au numérateur": '
-         '0.6 / (1 - 0.6) ** 2}'),
+         'decimals=2, mistakes={"c\'est la valeur de S − qS ; il reste à en déduire S": 1 / (1 - 0.6), '
+         '"recalcule S − qS terme à terme, rang par rang": 0.6 / (1 - 0.6) ** 2}'),
         ("e", "a number (1 decimal)", "0.4 / (1 - 0.6) ** 2",
          'decimals=1, mistakes={"E[X] = Σ k p q^(k−1) = p × S : n\'oublie pas le facteur p": 1 / (1 - 0.6) ** 2, '
          '"c\'est q/p, le nombre moyen d\'échecs ; X compte aussi la tentative réussie": 0.6 / 0.4, '
          '"E[X] = p × S, avec la somme S de d)": 1 / 0.6}'),
         ("f", "a number (1 decimal)", "0.6 / 0.4",
-         'decimals=1, mistakes={"les tentatives échouées sont X − 1 : toutes sauf la dernière": 0.4 / (1 - 0.6) ** 2}'),
+         'decimals=1, mistakes={"c\'est E[X], qui compte aussi la tentative réussie": 0.4 / (1 - 0.6) ** 2}'),
         ("g", "an integer", "2",
-         'mistakes={"P(X ≤ 1) = 0,4 n\'atteint pas 0,5 : la médiane est plus loin": 1, '
-         '"le plus petit k : P(X ≤ 2) atteint déjà 0,5": 3}'),
+         'fractional="le plus petit entier qui convient : l\'arrondi supérieur, pas l\'arrondi le plus proche", mistakes={"le plus petit k tel que P(X ≤ k) ≥ 0,5 : calcule P(X ≤ k) pour '
+         'k = 1, 2, 3…": {1, 3}}'),
         ("h", "an expression in p, as text", '"1/p"',
          EP + ', mistakes={"c\'est le nombre moyen d\'échecs ; X compte aussi la tentative réussie": "(1 - p)/p", '
-         '"1 − q = p : p × 1/(1 − q)² se simplifie en divisant par p": "1/(1 - p)", '
+         '"exprime 1 − q en fonction de p avant de simplifier": "1/(1 - p)", '
          '"n\'oublie pas le facteur p devant la somme S": "1/p**2"}'),
     ]),
 
     Paper("M02b.3", "Loi de Poisson : probabilités, espérance, et la somme de deux variables de Poisson "
                     "indépendantes", [
         ("a", "a number (4 decimals)", "math.exp(-1.5)",
-         'decimals=4, mistakes={"c\'est P(X ≥ 1) ; P(X = 0) = e^(−λ) λ⁰/0! = e^(−λ)": 1 - math.exp(-1.5)}'),
+         'decimals=4, mistakes={"c\'est P(X ≥ 1) ; applique la formule de Poisson avec k = 0": 1 - math.exp(-1.5)}'),
         ("b", "a number (4 decimals)", "math.exp(-1.5) * 1.5 ** 2 / 2",
          'decimals=4, mistakes={"λᵏ/k! avec k = 2 : n\'oublie pas de diviser par 2! = 2": math.exp(-1.5) * 1.5 ** 2, '
          '"λᵏ/k! avec k = 2 : λ au carré, divisé par 2": math.exp(-1.5) * 1.5}'),
@@ -118,31 +118,30 @@ PAPER = [
          'decimals=4, mistakes={"S = 2 : trois couples, (0, 2), (1, 1) et (2, 0) ; n\'oublie pas (1, 1)": '
          'math.exp(-4) * (2.5 ** 2 / 2 + 1.5 ** 2 / 2)}'),
         ("h", "a number (1 decimal)", "4.0",
-         'decimals=1, mistakes={"e^(−1,5) e^(−2,5) = e^(−λ) : λ est la somme des deux paramètres": 3.75}'),
+         'decimals=1, mistakes={"c\'est le produit des deux paramètres ; regarde l\'exposant de e dans e)": 3.75}'),
     ]),
 
     Paper("M02b.4", "Lois uniforme et exponentielle : probabilités et espérance", [
         ("a", "an irreducible fraction, as text", "Fraction(1, 15)",
-         F + ', mistakes={"la densité vaut 1/(b − a) sur [a ; b] : l\'inverse de la longueur de l\'intervalle": '
-         '"15", "b − a est la longueur de l\'intervalle : 25 − 10": "1/25"}'),
+         F + ', mistakes={"une densité a une aire totale de 1 : sur un intervalle de longueur L, sa hauteur n\'est '
+         'pas L": "15", "D commence à 10, pas à 0 : quelle est la longueur de l\'intervalle de ses valeurs ?": "1/25"}'),
         ("b", "an irreducible fraction, as text", "Fraction(1, 3)",
-         F + ', mistakes={"P(D ≤ 15) = (15 − 10)/(25 − 10) : D commence à 10, pas à 0": "3/5"}'),
+         F + ', mistakes={"D commence à 10, pas à 0": "3/5"}'),
         ("c", "an irreducible fraction, as text", "Fraction(8, 15)",
-         F + ', mistakes={"la longueur de [12 ; 20] divisée par celle de [10 ; 25]": "8/25"}'),
+         F + ', mistakes={"D commence à 10, pas à 0 : divise par la longueur de l\'intervalle de ses valeurs": "8/25"}'),
         ("d", "a number (1 decimal)", "17.5",
          'decimals=1, mistakes={"l\'espérance d\'une loi uniforme est le milieu de l\'intervalle, (a + b)/2": '
          '{7.5, 12.5}}'),
         ("e", "a number (3 decimals)", "15 / math.sqrt(12)",
          'decimals=3, mistakes={"c\'est la variance (b − a)²/12 ; l\'écart-type est sa racine": 15 ** 2 / 12, '
-         '"σ = (b − a)/√12, avec b − a = 15, la longueur de l\'intervalle": 25 / math.sqrt(12), '
-         '"(b − a)²/12, puis la racine : (b − a)/√12, pas (b − a)/12": 15 / 12}'),
+         '"b − a est la longueur de l\'intervalle, pas sa borne de droite": 25 / math.sqrt(12), '
+         '"prends la racine de toute la variance, dénominateur compris": 15 / 12}'),
         ("f", "a number (4 decimals)", "math.exp(-2)",
          'decimals=4, mistakes={"c\'est P(T ≤ 5) ; P(T > t) = e^(−λt)": 1 - math.exp(-2)}'),
         ("g", "a number (1 decimal)", "1 / 0.4",
          'decimals=1, mistakes={"E[T] = 1/λ, l\'inverse du paramètre": 0.4}'),
         ("h", "a number (4 decimals)", "math.exp(-1)",
-         'decimals=4, mistakes={"P(T > t) = e^(−λt) avec t = E[T] = 1/λ ; la loi exponentielle n\'est pas '
-         'symétrique": 0.5, "c\'est P(T ≤ E[T]) ; P(T > t) = e^(−λt)": 1 - math.exp(-1)}'),
+         'decimals=4, mistakes={"la loi exponentielle n\'est pas symétrique : utilise P(T > t) = e^(−λt)": 0.5, "c\'est P(T ≤ E[T]) ; P(T > t) = e^(−λt)": 1 - math.exp(-1)}'),
     ]),
 
     Paper("M02b.5", "Loi normale : standardiser et lire la fonction Φ", [
@@ -151,19 +150,18 @@ PAPER = [
          'variance 16)": 6 / 16}'),
         ("b", "a number (4 decimals)", "0.9332",
          'decimals=4, mistakes={"P(X ≤ 36) = Φ(z), l\'aire à gauche de z": 1 - 0.9332}'),
-        ("c", "a number (4 decimals)", "1 - 0.8413",
-         'decimals=4, mistakes={"z = −1 : Φ(−1) = 1 − Φ(1), l\'aire à gauche d\'un z négatif est petite": 0.8413, '
-         '"Φ(−z) = 1 − Φ(z), pas −Φ(z) : une probabilité n\'est jamais négative": -0.8413}'),
-        ("d", "a number (4 decimals)", "0.9332 - (1 - 0.8413)",
-         'decimals=4, mistakes={"P(26 ≤ X ≤ 36) = Φ(1,5) − Φ(−1), avec Φ(−1) = 1 − Φ(1)": 0.9332 - 0.8413}'),
+        ("c", "a number (4 decimals)", "1 - 0.7734",
+         'decimals=4, mistakes={"le z-score est négatif : l\'aire à gauche d\'un z négatif est petite": 0.7734, '
+         '"Φ(−z) = 1 − Φ(z), pas −Φ(z) : une probabilité n\'est jamais négative": -0.7734}'),
+        ("d", "a number (4 decimals)", "0.9332 - (1 - 0.7734)",
+         'decimals=4, mistakes={"la borne du bas a un z-score négatif : Φ(−z) n\'est pas Φ(z)": 0.9332 - 0.7734}'),
         ("e", "a number (4 decimals)", "1 - 0.9772",
          'decimals=4, mistakes={"c\'est P(X ≤ 38) ; P(X > 38) = 1 − Φ(z)": 0.9772}'),
         ("f", "a number (2 decimals)", "30 + 4 * 2.33",
-         'decimals=2, mistakes={"t = μ + z σ, avec l\'écart-type σ = 4": 30 + 16 * 2.33, '
-         '"c\'est z, lu dans la table ; ramène-le à une durée : t = μ + z σ": 2.33}'),
+         'decimals=2, mistakes={"multiplie z par l\'écart-type, pas par la variance": 30 + 16 * 2.33, '
+         '"c\'est le z-score lu dans la table ; la question demande une durée": 2.33}'),
         ("g", "a number (3 decimals)", "2 * 0.8944 - 1",
-         'decimals=3, mistakes={"|X − 30| ≤ 5 va de 25 à 35, des deux côtés de μ : Φ(1,25) − Φ(−1,25) = '
-         '2Φ(1,25) − 1": 0.8944}'),
+         'decimals=3, mistakes={"Φ(1,25) seul vaut P(X ≤ 35) : l\'événement a deux côtés de μ": 0.8944}'),
         ("h", "a number (4 decimals)", "1 - 0.9332",
          'decimals=4, mistakes={"N(31, 2²) a pour écart-type 2 : z = (34 − 31)/2": 1 - 0.7734, '
          '"c\'est P(Y ≤ 34) ; P(Y > 34) = 1 − Φ(z)": 0.9332}'),
@@ -179,18 +177,18 @@ PAPER = [
         ("c", "an irreducible fraction, as text", "Fraction(1, 6)",
          F + ', mistakes={"E[X²] = ∫ x² f(x) dx, la moyenne des carrés, pas le carré de la moyenne": "1/9"}'),
         ("d", "an irreducible fraction, as text", "Fraction(1, 18)",
-         F + ', mistakes={"V(X) = E[X²] − E[X]² : retire le carré de l\'espérance": "1/6"}'),
+         F + ', mistakes={"V(X) = E[X²] − E[X]² : retire le carré de l\'espérance": "1/6", '
+         '"une variance n\'est jamais négative : E[X²] − E[X]², dans cet ordre": "-1/18"}'),
         ("e", "an irreducible fraction, as text", "Fraction(11, 3)",
          F + ', mistakes={"E[5X + 2] = 5 E[X] + 2 : n\'oublie pas le + 2": "5/3"}'),
         ("f", "an irreducible fraction, as text", "Fraction(25, 18)",
          F + ', mistakes={"V(aX + b) = a² V(X) : le facteur compte au carré": "5/18", '
          '"la constante b ne change pas la dispersion : V(aX + b) = a² V(X)": "61/18"}'),
         ("g", "a number (4 decimals)", "2 * math.e - 4",
-         'decimals=4, mistakes={"par parties, une primitive de (1 − x)eˣ est (2 − x)eˣ ; n\'oublie pas le facteur 2 '
-         'de la densité": math.e - 2, "c\'est e^(E[X]) ; le théorème de transfert calcule ∫ eˣ f(x) dx": '
+         'decimals=4, mistakes={"n\'oublie pas le facteur 2 de la densité": math.e - 2, "c\'est e^(E[X]) ; le théorème de transfert calcule ∫ eˣ f(x) dx": '
          'math.exp(1 / 3)}'),
         ("h", "True or False", "True",
-         'mistakes={"compare g) à e^(1/3), calculé avec la valeur de b)": False}'),
+         'mistakes={"calcule e^(E[X]) avec ta valeur de b), puis compare-la à g)": False}'),
     ]),
 
     Paper("M02b.7", "Un couple de variables discrètes : loi jointe, marginales, indépendance", [
@@ -213,7 +211,7 @@ PAPER = [
          'mistakes={"compare P(X = 1, Y = 0) au produit P(X = 1) P(Y = 0) : une seule case suffit à conclure": '
          'True}'),
         ("g", "a number (2 decimals)", "0.7 * 0.3",
-         'decimals=2, mistakes={"X′ et Y′ sont indépendantes : P(X′ = 2, Y′ = 1) = P(X′ = 2) × P(Y′ = 1)": '
+         'decimals=2, mistakes={"X′ et Y′ sont indépendantes : relis ce que cela dit de leur loi jointe (fiche §5)": '
          '{0.09, 0.14, 1.0}}'),
         ("h", "True or False", "True",
          'mistakes={"complète la dernière case (la somme vaut 1), puis compare chaque case au produit des '
@@ -234,11 +232,10 @@ PAPER = [
          'différence": 0.0, "σ = √(V(T₃) + V(T₂)), pas σ(T₃) + σ(T₂)": 4.0, "c\'est la variance ; l\'écart-type est '
          'sa racine": 8.0}'),
         ("f", "a number (3 decimals)", "math.sqrt(50)",
-         'decimals=3, mistakes={"50 durées indépendantes : la variance est multipliée par 50, donc l\'écart-type par '
-         '√50": 50.0}'),
+         'decimals=3, mistakes={"c\'est la variance de la durée totale ; l\'écart-type est sa racine": 50.0}'),
         ("g", "a number (4 decimals)", "1 / math.sqrt(50)",
-         'decimals=4, mistakes={"σ(moyenne) = σ/√n, pas σ/n": 0.02, "la moyenne divise la somme par 50 : son '
-         'écart-type est celui de f) divisé par 50": math.sqrt(50)}'),
+         'decimals=4, mistakes={"l\'écart-type d\'une moyenne de n variables i.i.d. baisse comme √n, pas comme n": 0.02, '
+         '"c\'est l\'écart-type de la somme ; la question demande celui de la moyenne": math.sqrt(50)}'),
         ("h", "an integer", "4",
          'mistakes={"T₁ + T₁ = 2T₁ : V(2T₁) = 4 V(T₁) ; une variable n\'est pas indépendante d\'elle-même": 2}'),
     ]),
@@ -248,18 +245,18 @@ PAPER = [
          F + ', mistakes={"le produit des deux intégrales simples : ∫ de 0 à 1 de x dx, fois ∫ de 0 à 3 de y² dy": '
          '"9", "une primitive de y² est y³/3 : ∫ de 0 à 3 de y² dy vaut 3³/3": "27/2"}'),
         ("b", "a number (4 decimals)", "(math.e - 1) ** 2",
-         'decimals=4, mistakes={"e^(x + y) = eˣ eʸ : le produit de deux intégrales simples, chacune égale à e − 1": '
+         'decimals=4, mistakes={"e^(x + y) = eˣ eʸ : l\'intégrale double est le produit de deux intégrales simples": '
          'math.e - 1}'),
         ("c", "an irreducible fraction, as text", "Fraction(7, 12)",
          F + ', mistakes={"après l\'intégrale en x, qui vaut 1/3 + y/2, il reste à intégrer en y de 0 à 1": "5/6"}'),
         ("d", "an irreducible fraction, as text", "Fraction(2, 9)",
-         F + ', mistakes={"c × (l\'intégrale de a)) = 1 : c est l\'inverse de cette intégrale": "9/2"}'),
+         F + ', mistakes={"c\'est l\'intégrale de a) ; c doit rendre l\'intégrale de f égale à 1": "9/2"}'),
         ("e", "an expression in x, as text", '"2*x"',
-         EX + ', mistakes={"f_X(x) = ∫ de 0 à 3 de c x y² dy, avec la constante c de d)": "x", '
-         '"intègre la variable y seulement : x reste dans le résultat": "2"}'),
+         EX + ', mistakes={"n\'oublie pas la constante c de d)": "9*x", '
+         '"une primitive de y² est y³/3 : revois l\'intégrale en y": "x"}'),
         ("f", "an expression in y, as text", '"y**2/9"',
-         EY + ', mistakes={"f_Y(y) = ∫ de 0 à 1 de c x y² dx, et ∫ de 0 à 1 de x dx = 1/2": "2*y**2/9", '
-         '"intègre la variable x seulement : y reste dans le résultat": "1/3"}'),
+         EY + ', mistakes={"n\'oublie pas la constante c de d)": "y**2/2", '
+         '"intègre x de 0 à 1 : n\'oublie pas ce facteur": "2*y**2/9"}'),
         ("g", "True or False", "True",
          'mistakes={"compare f(x, y) au produit f_X(x) f_Y(y) de e) et f)": False}'),
         ("h", "an irreducible fraction, as text", "Fraction(1, 108)",
@@ -275,7 +272,7 @@ PAPER = [
          F + ', mistakes={"f_Y(y) = f_X((y + 1)/3) / 3 : la densité de X divisée par 3": "1/2", '
          '"divise par 3, ne multiplie pas : l\'aire doit rester 1": "3/2"}'),
         ("c", "an irreducible fraction, as text", "Fraction(1, 2)",
-         F + ', mistakes={"Y commence à −1 : P(Y ≤ 2) = (2 − (−1)) × la densité de b)": "1/3"}'),
+         F + ', mistakes={"Y commence à −1, pas à 0": "1/3"}'),
         ("d", "a number (4 decimals)", "1 / (6 * math.sqrt(2 * math.pi))",
          'decimals=4, mistakes={"Y = 2X + 5 a pour écart-type 2 × 3 : sa densité est deux fois plus basse que celle '
          'de X": 1 / (3 * math.sqrt(2 * math.pi)), "l\'écart-type de Y vaut 2 × 3, pas 2 × 3²": '
@@ -284,18 +281,18 @@ PAPER = [
          F + ', mistakes={"X² ≤ 4 équivaut à X ≤ 2 (X est positif), puis P(X ≤ 2) pour X uniforme sur [0 ; 3]": '
          '"4/9"}'),
         ("f", "an expression in y, as text", '"sqrt(y)/3"',
-         EY + ', mistakes={"F_Y(y) = P(X ≤ √y) : remplace t par √y dans P(X ≤ t) = t/3": "y/9", '
+         EY + ', mistakes={"Y n\'est pas uniforme sur [0 ; 9] : traduis Y ≤ y en une condition sur X": "y/9", '
          '"c\'est une densité ; la fonction de répartition est F_Y(y) = P(Y ≤ y)": "1/(6*sqrt(y))"}'),
         ("g", "an expression in y, as text", '"1/(6*sqrt(y))"',
-         EY + ', mistakes={"dérive √y/3 : la dérivée de √y vaut 1/(2√y)": "1/(3*sqrt(y))", '
+         EY + ', mistakes={"revois la dérivée de √y (R7)": "1/(3*sqrt(y))", '
+         '"dérive F_Y entièrement, constante comprise": "1/(2*sqrt(y))", '
          '"c\'est F_Y ; la densité est sa dérivée": "sqrt(y)/3"}'),
         ("h", "an integer", "3",
-         'mistakes={"E[X²] = ∫ de 0 à 3 de x² × (1/3) dx : n\'oublie pas la densité 1/3": 9, '
-         '"c\'est E[X]² ; E[X²] est la moyenne des carrés": 2}'),
+         'mistakes={"E[X²] = ∫ x² f(x) dx : n\'oublie pas la densité de X": 9}'),
     ]),
 
     Paper("M02b.14", "Combien d'erreurs d'annotation dans un dataset ? Binomiale et Poisson", [
-        ("a", "an integer", "4", 'mistakes={"E[X] = n p : 2 000 × 0,002": 8}'),
+        ("a", "an integer", "4", ''),
         ("b", "a number (3 decimals)", "math.sqrt(2000 * 0.002 * 0.998)",
          'decimals=3, mistakes={"c\'est la variance ; l\'écart-type est sa racine": 2000 * 0.002 * 0.998, '
          '"c\'est l\'écart-type de la loi de Poisson ; avec la binomiale, σ = √(n p (1 − p))": 2.0}'),
@@ -312,7 +309,7 @@ PAPER = [
          'decimals=4, mistakes={"c\'est P(Y = 0) ; P(Y ≥ 1) est l\'événement contraire": math.exp(-1), '
          '"Y porte sur 500 images : son paramètre est 500 × 0,002, pas celui de X": 1 - math.exp(-4)}'),
         ("g", "an integer", "1152",
-         'mistakes={"c\'est le résultat exact avec la binomiale, 0,998ⁿ ≤ 0,1 ; la question demande l\'approximation '
+         'fractional="le plus petit entier qui convient : l\'arrondi supérieur, pas l\'arrondi le plus proche", mistakes={"c\'est le résultat exact avec la binomiale, 0,998ⁿ ≤ 0,1 ; la question demande l\'approximation '
          'e^(−0,002 n) ≤ 0,1": 1151}'),
     ]),
 ]
@@ -462,7 +459,7 @@ M02B_19 = Ex(
 
 La vérification calcule :
 - a) `normal_pdf(1)` (6 décimales) ;
-- b) `normal_pdf(3, 3, 0.2)` (4 décimales) ;
+- b) `normal_pdf(3.1, 3, 0.2)` (4 décimales) ;
 - c) `normal_cdf(1.5)` (4 décimales), à comparer avec la table de la fiche ;
 - d) `normal_cdf(4, 7, 2)` (4 décimales) ;
 - e) `normal_cdf(2.5) - normal_cdf(0.5)` (4 décimales) ;
@@ -475,7 +472,7 @@ Dans ta copie : b) dépasse 1. Est-ce une erreur ? Compare h) avec `normal_pdf(0
     check='''with checked("M02b.19a"):
     wbm.check("M02b.19a", mymath.distributions.normal_pdf(1), computed=True)
 with checked("M02b.19b"):
-    wbm.check("M02b.19b", mymath.distributions.normal_pdf(3, 3, 0.2), computed=True)
+    wbm.check("M02b.19b", mymath.distributions.normal_pdf(3.1, 3, 0.2), computed=True)
 with checked("M02b.19c"):
     wbm.check("M02b.19c", mymath.distributions.normal_cdf(1.5), computed=True)
 with checked("M02b.19d"):
@@ -491,15 +488,15 @@ with checked("M02b.19h"):
     wbm.check("M02b.19h", slope, computed=True)''',
     solution=LOAD_REF + '''
 normal_pdf, normal_cdf = mymath.distributions.normal_pdf, mymath.distributions.normal_cdf
-print("a)", normal_pdf(1), " b)", normal_pdf(3, 3, 0.2), " c)", normal_cdf(1.5), " d)", normal_cdf(4, 7, 2))
+print("a)", normal_pdf(1), " b)", normal_pdf(3.1, 3, 0.2), " c)", normal_cdf(1.5), " d)", normal_cdf(4, 7, 2))
 print("e)", normal_cdf(2.5) - normal_cdf(0.5), " f)", raised(normal_pdf, 0, 0, 0), " g)", type(normal_cdf(0.3)).__name__)
 print("h)", (normal_cdf(0.7 + 1e-5) - normal_cdf(0.7 - 1e-5)) / 2e-5, " density:", normal_pdf(0.7))''',
     record=f'''wbm.record("M02b.19a", 0.241970725, decimals=6,
            mistakes={{"φ(z) = e^(−z²/2) / √(2π) : le carré est divisé par 2 dans l'exponentielle": 0.146762663,
                      "n'oublie pas le facteur 1/√(2π) devant l'exponentielle": 0.606530660}})
-wbm.record("M02b.19b", 1.994711402, decimals=4,
-           mistakes={{"sigma est l'écart-type : le facteur vaut 1/(σ√(2π)), avec σ, pas σ²": 9.973557010,
-                     "le facteur vaut 1/(σ√(2π)), avec σ lui-même, pas sa racine": 0.892062058}})
+wbm.record("M02b.19b", 1.760326634, decimals=4,
+           mistakes={{"sigma est l'écart-type : le facteur vaut 1/(σ√(2π)), avec σ, pas σ²": 8.801633169,
+                     "priorité des opérations : divise par (2 * sigma ** 2), parenthèses comprises": 1.994312527}})
 wbm.record("M02b.19c", 0.933192799, decimals=4,
            mistakes={{"Φ(z) = (1 + erf(z/√2)) / 2 : divise z par √2 dans erf": 0.983052573}})
 wbm.record("M02b.19d", 0.066807201, decimals=4,
@@ -512,8 +509,8 @@ wbm.record("M02b.19f", "ValueError",
 wbm.record("M02b.19g", "float", {PY_FLOAT.format()})
 wbm.record("M02b.19h", 0.312253933, decimals=5)''',
     after=tests_cells("test_normal_pdf_ or test_normal_cdf_"),
-    note="b) vaut environ 1,99 : une densité n'est pas une probabilité, et une cloche étroite ($\\sigma = 0{,}2$) est "
-         "haute. h) approche $\\varphi(0{,}7) \\approx 0{,}312254$ : la fonction de répartition a pour dérivée la "
+    note="b) vaut environ 1,76 : une densité n'est pas une probabilité, et une cloche étroite ($\\sigma = 0{,}2$) est "
+         "haute (son sommet, en 3, vaut environ 1,99). h) approche $\\varphi(0{,}7) \\approx 0{,}312254$ : la fonction de répartition a pour dérivée la "
          "densité (M02a §7), et le taux d'accroissement symétrique est précis à $10^{-11}$ près ici.",
 )
 
@@ -656,7 +653,9 @@ wbm.record("M02b.21e", 0.5, decimals=1,
                      "scale = 1/λ, l'inverse du paramètre": 2.0})
 wbm.record("M02b.21f", 1.959963985, decimals=4,
            mistakes={"ppf est la réciproque de cdf : ppf(0.975), pas cdf(0.975)": 0.835219870})
-wbm.record("M02b.21g", 4.4493, decimals=4)
+wbm.record("M02b.21g", 4.4493, decimals=4,
+           mistakes={"c'est l'espérance λ ; la question demande la moyenne des 10 000 tirages": 4.5,
+                     "random_state=0, un entier : un générateur default_rng(0) tire d'autres valeurs": 4.5117})
 wbm.record("M02b.21h", 3.0, decimals=1,
            mistakes={"stats.uniform(loc, scale) couvre [loc ; loc + scale] : scale est la largeur de l'intervalle":
                          5.333333})''',
@@ -790,7 +789,10 @@ def joint_axes():
     fig = plt.figure(figsize=(6.5, 5))
     grid = fig.add_gridspec(2, 2, width_ratios=(4, 1.3), height_ratios=(1.3, 4), wspace=0.08, hspace=0.08)
     ax = fig.add_subplot(grid[1, 0])
-    return fig, ax, fig.add_subplot(grid[0, 0], sharex=ax), fig.add_subplot(grid[1, 1], sharey=ax)'''
+    ax_top, ax_right = fig.add_subplot(grid[0, 0], sharex=ax), fig.add_subplot(grid[1, 1], sharey=ax)
+    ax_top.tick_params(labelbottom=False)
+    ax_right.tick_params(labelleft=False)
+    return fig, ax, ax_top, ax_right'''
 
 M02B_24_CHECK = '''with checked("M02b.24 vérifications"):
     problems = []
@@ -817,12 +819,18 @@ M02B_24_CHECK = '''with checked("M02b.24 vérifications"):
                 np.asarray(images[0].get_array()), test_joint.T):
             problems.append("draw_joint : la carte de chaleur ax.imshow(joint.T, origin=\\"lower\\"), les valeurs de "
                             "la première variable (les lignes de joint) à l'horizontale")
-        top = sorted(round(p.get_height(), 6) for p in ax_top.patches)
-        if top != [0.3, 0.7]:
+        top = sorted((round(p.get_x() + p.get_width() / 2, 6), round(p.get_height(), 6)) for p in ax_top.patches)
+        if [h for _, h in top] != [0.3, 0.7]:
             problems.append("draw_joint : au-dessus, les barres de la loi des lignes (ax_top.bar)")
-        right = sorted(round(p.get_width(), 6) for p in ax_right.patches)
-        if right != [0.15, 0.35, 0.5]:
+        elif [x for x, _ in top] != [0.0, 1.0]:
+            problems.append("draw_joint : chaque barre du haut doit être en face de sa colonne de la carte, centrée en "
+                            "0, 1, 2… comme les cases d'imshow (np.arange(len(p_rows)))")
+        right = sorted((round(p.get_y() + p.get_height() / 2, 6), round(p.get_width(), 6)) for p in ax_right.patches)
+        if [w for _, w in right] != [0.15, 0.35, 0.5]:
             problems.append("draw_joint : à droite, les barres horizontales de la loi des colonnes (ax_right.barh)")
+        elif [y for y, _ in right] != [0.0, 1.0, 2.0]:
+            problems.append("draw_joint : chaque barre de droite doit être en face de sa ligne de la carte, centrée en "
+                            "0, 1, 2… (np.arange(len(p_cols)))")
     if problems:
         print("❌ Ex M02b.24 : à revoir : " + " ; ".join(problems) + ".")
     else:
@@ -883,9 +891,7 @@ def draw_joint(ax, ax_top, ax_right, joint):
     p_rows, p_cols = marginals(joint)
     ax.imshow(np.asarray(joint).T, origin="lower", cmap="Blues", aspect="auto")
     ax_top.bar(np.arange(len(p_rows)), p_rows, color="C0")
-    ax_top.tick_params(labelbottom=False)
     ax_right.barh(np.arange(len(p_cols)), p_cols, color="C1")
-    ax_right.tick_params(labelleft=False)
 
 
 fig, ax, ax_top, ax_right = joint_axes()
@@ -894,12 +900,13 @@ ax.set(xlabel="X : le plus petit numéro", ylabel="Y : le plus grand numéro")
 ax.set_xticks(range(6), labels=range(1, 7))
 ax.set_yticks(range(6), labels=range(1, 7))
 plt.show()
-p_min, p_max = marginals(JOINT_24)
-max_gap_24 = float(np.max(np.abs(JOINT_24 - np.outer(p_min, p_max))))
-print("P(X = x) × 36:", np.round(p_min * 36, 6), "· P(Y = y) × 36:", np.round(p_max * 36, 6), "· max gap:",
+p_rows, p_cols = marginals(JOINT_24)
+max_gap_24 = float(np.max(np.abs(JOINT_24 - np.outer(p_rows, p_cols))))
+print("P(X = x) × 36:", np.round(p_rows * 36, 6), "· P(Y = y) × 36:", np.round(p_cols * 36, 6), "· max gap:",
       round(max_gap_24, 4))''',
     record='''wbm.record("M02b.24", 0.037808642, decimals=4,
-           mistakes={"le produit des marginales se calcule case par case : np.outer(p_rows, p_cols)": 0.0})''',
+           mistakes={"le produit des marginales se calcule case par case : np.outer(p_rows, p_cols)": 0.0,
+                     "le plus grand écart en valeur absolue : np.abs avant np.max": 0.030092593})''',
     after=[("md", "**Vérifications automatiques** (la figure elle-même se juge à l'œil)."), ("code", M02B_24_CHECK)],
     note="La moitié sous la diagonale est vide : le plus petit numéro ne dépasse jamais le plus grand. Une case de la "
          "diagonale vaut $\\frac{1}{36}$ (les deux dés égaux : un seul couple), une case au-dessus $\\frac{2}{36}$ "
@@ -914,15 +921,15 @@ print("P(X = x) × 36:", np.round(p_min * 36, 6), "· P(Y = y) × 36:", np.round
 # ---------------------------------------------------------------------------
 M02B_25_MISTAKES = bug_letters_mistakes(
     "ABD", "CE",
-    {"A": "relis chaque phrase qui compare une densité à 1 : seule l'aire d'une densité doit valoir 1",
-     "B": "relis chaque notation N(μ, ·) : le second paramètre est la variance, et l'on standardise par l'écart-type",
-     "D": "relis chaque probabilité d'une valeur exacte pour une variable à densité"})
+    {"A": "une conclusion peut être fausse même quand le nombre calculé est juste",
+     "B": "vérifie chaque paramètre utilisé dans un calcul, et ce qu'il représente",
+     "D": "vérifie chaque probabilité annoncée : est-ce bien une probabilité ?"})
 
 M02B_25 = Ex(
     "M02b.25", "🐛", 1, 15, "Chasse à l'erreur : une densité prise pour une probabilité, σ et σ²",
     "repérer trois confusions classiques sur les lois continues, puis calculer les bonnes valeurs.",
     "fiche §3, §4 et §6", tracks="C",
-    body="""Voici cinq affirmations, chacune avec le raisonnement de son auteur. Trois sont fausses. **Sans exécuter de code**, trouve-les.
+    body="""Voici cinq affirmations, chacune avec le raisonnement de son auteur. Trois raisonnements sont faux, dans un calcul ou dans une conclusion. **Sans exécuter de code**, trouve-les.
 
 - **(A)** « $X \\sim \\mathcal{N}(0 ;\\ 0{,}1^2)$ a pour densité en 0 environ 3,99. C'est impossible, car une probabilité ne dépasse jamais 1 : la formule doit être fausse. »
 - **(B)** « $X \\sim \\mathcal{N}(5, 4)$, donc $P(X \\le 7) = \\Phi\\left(\\frac{7 - 5}{4}\\right) = \\Phi(0{,}5) \\approx 0{,}6915$. »
@@ -931,7 +938,7 @@ M02B_25 = Ex(
 - **(E)** « $X$ et $Y$ sont indépendantes, d'écarts-types 3 et 4, donc $\\sigma(X + Y) = 5$. »
 
 Questions :
-- a) les lettres des affirmations fausses, dans l'ordre alphabétique (un texte) ;
+- a) les lettres des raisonnements faux, dans l'ordre alphabétique (un texte) ;
 - b) pour chacune des cinq, de (A) à (E), la bonne valeur de la grandeur dont parle son auteur : la densité en 0 pour (A), $P(X \\le 7)$ pour (B), l'écart-type pour (C), $P(T = 1)$ pour (D), $\\sigma(X + Y)$ pour (E) (une liste de 5 nombres, 4 décimales).
 
 Dans ta copie : pour chaque affirmation fausse, quelle confusion a été faite ? Dans (A), la valeur 3,99 est-elle juste ?""",
@@ -968,7 +975,7 @@ M02B_26_CHECK = '''with checked("M02b.26 vérifications"):
     for word in ("Parameters", "Returns", "Raises", "Examples"):
         if word not in doc:
             problems.append(f"la docstring n'a pas de section « {word} » (le format NumPy des docstrings de mymath)")
-    tests = doctest.DocTestFinder().find(geometric_pmf, "geometric_pmf", globs={"geometric_pmf": geometric_pmf})
+    tests = doctest.DocTestFinder().find(geometric_pmf, "geometric_pmf", globs=dict(globals()))   # as the advice below
     runner = doctest.DocTestRunner(optionflags=doctest.ELLIPSIS)
     for test in tests:
         runner.run(test, out=lambda text: None)
@@ -979,8 +986,10 @@ M02B_26_CHECK = '''with checked("M02b.26 vérifications"):
     if failed:
         problems.append(f"{failed} exemple(s) de la docstring échoue(nt) : exécute "
                         "doctest.run_docstring_examples(geometric_pmf, globals()) pour les voir")
-    if "ValueError" not in doc:
-        problems.append("aucun exemple ne montre la ValueError (un exemple peut afficher Traceback ... ValueError)")
+    if not any(example.exc_msg and "ValueError" in example.exc_msg for test in tests for example in test.examples):
+        problems.append("aucun exemple >>> ne montre la ValueError : un exemple dont la sortie est « Traceback (most "
+                        "recent call last): », « ... », puis « ValueError: ton message » (la section Raises ne suffit "
+                        "pas : elle n'est pas testée)")
     cases = [(1, 0.25), (4, 0.25), (10, 0.6), (3, 1.0)]
     wrong = [(k, p) for k, p in cases if abs(geometric_pmf(k, p) - float(stats.geom(p).pmf(k))) > 1e-12]
     if wrong:
@@ -1076,7 +1085,8 @@ M02B_27_GIVEN = '''class UniformOnly:
         return self._rng.random(size)
 
 
-FORBIDDEN_27 = ("normal", "standard_normal", "scipy", "ppf", "erfinv", "NormalDist", "default_rng", "Generator")'''
+FORBIDDEN_27 = ("normal", "standard_normal", "ppf", "erfinv", "NormalDist", "default_rng", "Generator")
+FORBIDDEN_MODULES_27 = ("scipy", "statistics")'''
 
 M02B_27_CHECK = '''with checked("M02b.27"):
     import ast
@@ -1084,31 +1094,37 @@ M02B_27_CHECK = '''with checked("M02b.27"):
     import time
 
     try:
-        source = inspect.getsource(normal_draws)
-    except (OSError, TypeError):
-        source = ""
-    names = {node.attr for node in ast.walk(ast.parse(source)) if isinstance(node, ast.Attribute)} | {
-        node.id for node in ast.walk(ast.parse(source)) if isinstance(node, ast.Name)} if source else set()
-    used = sorted(names & set(FORBIDDEN_27)) + sorted(word for word in ("scipy", "statistics") if word in source)
+        tree = ast.parse(inspect.getsource(normal_draws))
+    except (OSError, TypeError, SyntaxError):
+        tree = ast.Module(body=[], type_ignores=[])
+    used = set()
+    for node in ast.walk(tree):           # attributes and imports only: comments and local names do not count
+        if isinstance(node, ast.Attribute) and node.attr in FORBIDDEN_27:
+            used.add(node.attr)
+        elif isinstance(node, ast.Import):
+            used |= {alias.name.split(".")[0] for alias in node.names} & set(FORBIDDEN_MODULES_27)
+        elif isinstance(node, ast.ImportFrom):
+            used |= ({(node.module or "").split(".")[0]} & set(FORBIDDEN_MODULES_27)) | (
+                {alias.name for alias in node.names} & set(FORBIDDEN_27))
     start = time.perf_counter()
-    big = np.asarray(normal_draws(UniformOnly(2026), 1_000_000), dtype=float)
+    big = np.asarray(normal_draws(UniformOnly(2026), 8_000_000), dtype=float)
     seconds = time.perf_counter() - start
     small = np.asarray(normal_draws(UniformOnly(7), 200_000), dtype=float)
     p_value = stats.kstest(small, "norm").pvalue if small.shape == (200_000,) else 0.0
-    tail = float(np.mean(np.abs(big) > 4)) if big.shape == (1_000_000,) else 0.0
+    tail = float(np.mean(np.abs(big) > 4)) if big.shape == (8_000_000,) else 0.0
     print(f"forme : {big.shape} · test de Kolmogorov-Smirnov sur 200 000 valeurs : p = {p_value:.3f} · "
-          f"part des |z| > 4 sur un million : {tail:.1e} (loi normale : 6,3e-05) · temps : {seconds:.2f} s")
+          f"part des |z| > 4 sur 8 millions : {tail:.2e} (loi normale : 6,33e-05) · temps : {seconds:.2f} s")
     reasons = []
     if used:
-        reasons.append(f"des outils interdits ({', '.join(sorted(set(used)))}) : seulement rng.random")
-    if big.shape != (1_000_000,):
+        reasons.append(f"des outils interdits ({', '.join(sorted(used))}) : seulement rng.random")
+    if big.shape != (8_000_000,):
         reasons.append("un array de forme (n,)")
     if p_value <= 0.01:
         reasons.append("le test de Kolmogorov-Smirnov rejette la loi normale (p ≤ 0,01)")
-    if not 3e-5 <= tail <= 1e-4:
+    if not 5.5e-5 <= tail <= 7.2e-5:
         reasons.append("les queues ne sont pas celles d'une loi normale (valeurs au-delà de 4 écarts-types)")
-    if seconds > 3:
-        reasons.append("plus de 3 secondes pour un million de valeurs : vectorise avec NumPy")
+    if seconds > 10:
+        reasons.append("plus de 10 secondes pour 8 millions de valeurs : vectorise avec NumPy")
     for reason in reasons:
         print(f"❌ {reason}")
     wbm.check("M02b.27", not reasons, computed=True)'''
@@ -1117,10 +1133,10 @@ M02B_27 = Ex(
     "M02b.27", "🏆", 3, 30, "Défi : tirer des valeurs normales avec seulement des tirages uniformes",
     "fabriquer des tirages de la loi normale centrée réduite à partir de nombres uniformes, assez fidèles pour passer "
     "un test statistique et reproduire les queues de la loi.", "fiche §7 et §8 ; Ex M02b.12 et M02b.20", tracks="C",
-    body="""Écris `normal_draws(rng, n)`, qui renvoie un array de $n$ tirages de $\\mathcal{N}(0, 1)$ en n'utilisant **que** `rng.random(size)` : le générateur `UniformOnly` de la cellule fournie ne sait rien faire d'autre, et la vérification refuse `normal`, `scipy`, `ppf`, `erfinv`, `NormalDist` et un générateur à toi. **Objectifs**, vérifiés sur un million de valeurs :
+    body="""Écris `normal_draws(rng, n)`, qui renvoie un array de $n$ tirages de $\\mathcal{N}(0, 1)$ en n'utilisant **que** `rng.random(size)` : le générateur `UniformOnly` de la cellule fournie ne sait rien faire d'autre, et la vérification refuse `rng.normal`, les modules `scipy` et `statistics`, `ppf`, `erfinv`, `NormalDist` et un générateur à toi. **Objectifs** :
 1. le test de Kolmogorov-Smirnov (`stats.kstest`, qui compare la fonction de répartition des tirages à $\\Phi$) ne rejette pas la loi normale : $p > 0{,}01$ sur 200 000 valeurs ;
-2. les **queues** sont justes : la part des valeurs au-delà de 4 en valeur absolue est entre $3 \\times 10^{-5}$ et $10^{-4}$ (la loi normale donne $2(1 - \\Phi(4)) \\approx 6{,}3 \\times 10^{-5}$) ;
-3. moins de 3 secondes pour un million de valeurs.
+2. les **queues** sont justes : sur 8 millions de valeurs, la part de celles qui dépassent 4 en valeur absolue est entre $5{,}5 \\times 10^{-5}$ et $7{,}2 \\times 10^{-5}$ (la loi normale donne $2(1 - \\Phi(4)) \\approx 6{,}33 \\times 10^{-5}$, et l'aléa de 8 millions de tirages environ $0{,}3 \\times 10^{-5}$) ;
+3. moins de 10 secondes pour ces 8 millions de valeurs.
 
 Pistes, de la plus simple à la plus élégante (`04_indices.md` les détaille) :
 - additionner 12 uniformes et retrancher 6 (le théorème central limite) : tente-la, et regarde quel objectif elle manque, et pourquoi ;
@@ -1143,20 +1159,22 @@ Dans ta copie : quelle méthode as-tu retenue, et pourquoi la somme de 12 unifor
 
 clt = UniformOnly(1).random((1_000_000, 12)).sum(axis=1) - 6       # the first idea: 12 uniforms, minus 6
 print(f"12 uniforms: |z| > 4 for a share {np.mean(np.abs(clt) > 4):.1e}, max |z| = {np.abs(clt).max():.2f}")
-draws = normal_draws(UniformOnly(2026), 1_000_000)
+draws = normal_draws(UniformOnly(2026), 8_000_000)
 print(f"Box-Muller: mean {draws.mean():.4f}, std {draws.std():.4f}, |z| > 4 for a share {np.mean(np.abs(draws) > 4):.1e}")''',
     record='''wbm.record("M02b.27", True,
            mistakes={"un objectif au moins n'est pas atteint : relis les lignes ❌ et les pistes de 04_indices.md":
                          False})''',
     note="La somme de 12 uniformes a la bonne espérance et la bonne variance, et une forme de cloche presque parfaite au "
-         "centre, mais elle ne dépasse jamais 6 et ses queues sont bien trop minces : 1 à 2 valeurs sur 100 000 "
-         "au-delà de 4, au lieu de 6,3. La méthode de **Box-Muller** (1958) tire le carré de la distance au centre, "
-         "$R^2 = -2\\ln(1 - U_1)$, de loi exponentielle d'espérance 2 (fiche §8), et l'angle $\\Theta = 2\\pi U_2$, "
-         "uniforme, puis renvoie $R\\cos\\Theta$ et $R\\sin\\Theta$ : deux normales indépendantes, exactement, parce "
-         "que la densité jointe $\\frac{1}{2\\pi}e^{-r^2/2}$ ne dépend que de $r$ (M02b.12, question 6). L'inversion "
-         "de $\\Phi$ par dichotomie donne des tirages justes, mais un million d'appels à `math.erf` par étape de "
-         "dichotomie dépasse largement les 3 secondes.",
+         "centre, mais elle ne dépasse jamais 6 et ses queues sont trop minces : environ 2 valeurs sur 100 000 "
+         "au-delà de 4, au lieu de 6,3. Avec plus d'uniformes (une centaine par valeur), la somme finit par passer les "
+         "vérifications, mais elle reste une approximation, bornée et coûteuse. La méthode de **Box-Muller** (1958) "
+         "est exacte : elle tire le carré de la distance au centre, $R^2 = -2\\ln(1 - U_1)$, de loi exponentielle "
+         "d'espérance 2 (fiche §8), et l'angle $\\Theta = 2\\pi U_2$, uniforme, puis renvoie $R\\cos\\Theta$ et "
+         "$R\\sin\\Theta$ : deux normales indépendantes, parce que la densité jointe $\\frac{1}{2\\pi}e^{-r^2/2}$ ne "
+         "dépend que de $r$ (M02b.12, question 6). L'inversion de $\\Phi$ par dichotomie donne des tirages justes, mais "
+         "8 millions d'appels à `math.erf` par étape de dichotomie dépassent largement le temps permis.",
 )
+
 
 PART_A = Part("A", "Ta librairie : lois binomiale, de Poisson et normale, simulation par inversion",
               "Fiche §2, §3 et §8. Les cinq fonctions de `mymath/distributions.py`, puis les mêmes lois avec "

@@ -1219,6 +1219,10 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
         if isinstance(raw, str):  # say what was read: "an object of type str" is confusing when "vrai" is accepted
             shown = raw if len(raw) <= 40 else raw[:37] + "…"
             if kind in ("array", "set") and re.fullmatch(r"\s*[\[(].*[\])]\s*", raw):
+                if ";" in raw or re.search(r"\d,\d", raw):   # "[0,2 ; 0,4]": French writing, a SyntaxError unquoted
+                    return False, "type", (f"J'attends une liste, et j'ai reçu le texte « {shown} » : écris-la sans "
+                                           "guillemets, avec des points décimaux et des virgules entre les éléments, "
+                                           "comme `[0.25, 0.75]`.")
                 return False, "type", (f"J'attends une liste, et j'ai reçu le texte « {shown} » : enlève les "
                                        "guillemets (une liste s'écrit entre crochets, sans guillemets : `[-1.25, 1]`).")
             if kind in ("int", "float"):

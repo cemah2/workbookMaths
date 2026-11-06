@@ -180,6 +180,7 @@ def test_poisson_pmf_with_lambda_0(distributions, k, expected):
     assert got == expected, (
         f"expected poisson_pmf({k}, 0) = {expected} (λ = 0: no event, X = 0 is sure; in Python 0 ** 0 == 1), "
         f"got {got!r}")
+    _python_float(got)
 
 
 @pytest.mark.parametrize("k", [-1, -5], ids=["k-1", "k-5"])
@@ -333,9 +334,11 @@ def test_inverse_transform_sample_passes_one_float_at_a_time(distributions):
         return math.sqrt(u)      # math.sqrt refuses an array of several values
 
     got = _result(lambda: distributions.inverse_transform_sample(inverse_cdf, 3), "3 values, inverse_cdf called 3 times")
-    assert len(received) == 3 and all(np.ndim(u) == 0 for u in received), (
+    # np.vectorize calls the function once more on the first value, to guess the type of the output: allowed
+    assert len(received) in (3, 4) and all(np.ndim(u) == 0 for u in received), (
         f"expected inverse_cdf to be called once per uniform, with one float (the docstring: inverse_cdf(u) for one "
-        f"float u), got {len(received)} call(s)")
+        f"float u), got {len(received)} call(s)" + ("" if all(np.ndim(u) == 0 for u in received) else
+                                                    ", some with an array: apply inverse_cdf to each uniform"))
     assert np.allclose(np.asarray(got, dtype=float), np.sqrt(np.random.default_rng(0).random(3)), atol=1e-15), (
         "expected the square roots of the 3 uniforms of seed 0")
 

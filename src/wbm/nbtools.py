@@ -88,6 +88,14 @@ _BEGINNER_HINTS = (
     ("name 'plt' is not defined", "Matplotlib n'est pas importé : ajoute import matplotlib.pyplot as plt en haut du "
                                   "fichier"),
     ("division by zero", "une division par zéro : un cas particulier doit-il être traité avant la division ?"),
+    ("only length-1 arrays can be converted to Python scalars",
+     "une fonction de math (math.log, math.exp, math.sqrt…) a reçu un tableau NumPy : elle ne prend qu'un nombre ; "
+     "applique-la à chaque élément (une liste en compréhension), ou utilise la fonction de NumPy (np.log…)"),
+    ("only 0-dimensional arrays can be converted to Python scalars",
+     "une fonction de math (math.log, math.exp, math.sqrt…) a reçu un tableau NumPy : elle ne prend qu'un nombre ; "
+     "applique-la à chaque élément (une liste en compréhension), ou utilise la fonction de NumPy (np.log…)"),
+    ("'list' object has no attribute", "une liste Python n'a ni .mean(), ni .shape, ni .sum() : convertis-la en "
+                                       "tableau NumPy avec np.array(...) (une fonction doit-elle renvoyer un tableau ?)"),
     ("truth value of an array with more than one element is ambiguous",
      "sur des tableaux NumPy, pas de not, and ni or (ils attendent un seul booléen) : écris ~, & et |, avec des "
      "parenthèses autour de chaque comparaison"),

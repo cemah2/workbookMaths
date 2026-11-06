@@ -165,12 +165,12 @@ Pour la copie : la loi exponentielle est asymétrique ; de rares très longues d
 
 ### Ex M02b.5 — Loi normale : standardiser et lire la fonction Φ
 
-**Réponses** : a) `1.5` · b) `0.9332` · c) `0.1587` · d) `0.7745` · e) `0.0228` · f) `39.32` · g) `0.789` · h) `0.0668`.
+**Réponses** : a) `1.5` · b) `0.9332` · c) `0.2266` · d) `0.7066` · e) `0.0228` · f) `39.32` · g) `0.789` · h) `0.0668`.
 
 **Démarche.** $X \sim \mathcal{N}(30, 4^2)$, donc $\sigma = 4$ et $z = \frac{x - 30}{4}$.
 - a) $z = \frac{36 - 30}{4} = 1{,}5$. b) $\Phi(1{,}5) = 0{,}9332$.
-- c) $z = -1$ : $\Phi(-1) = 1 - \Phi(1) = 1 - 0{,}8413 = 0{,}1587$.
-- d) $\Phi(1{,}5) - \Phi(-1) = 0{,}9332 - 0{,}1587 = 0{,}7745$.
+- c) $z = \frac{27 - 30}{4} = -0{,}75$ : $\Phi(-0{,}75) = 1 - \Phi(0{,}75) = 1 - 0{,}7734 = 0{,}2266$.
+- d) $\Phi(1{,}5) - \Phi(-0{,}75) = 0{,}9332 - 0{,}2266 = 0{,}7066$.
 - e) $z = 2$ : $1 - \Phi(2) = 1 - 0{,}9772 = 0{,}0228$.
 - f) La table : $\Phi(2{,}33) = 0{,}9901$, donc $t = 30 + 2{,}33 \times 4 = 39{,}32$ minutes.
 - g) De 25 à 35, $z$ de $-1{,}25$ à $1{,}25$ : $2\Phi(1{,}25) - 1 = 2 \times 0{,}8944 - 1 = 0{,}7888$, soit 0,789.
@@ -178,7 +178,7 @@ Pour la copie : la loi exponentielle est asymétrique ; de rares très longues d
 
 Pour la copie : partir 34 minutes avant, c'est arriver à l'heure si la durée est au plus 34 : $P(X \le 34) = \Phi(1) = 0{,}8413$ contre $P(Y \le 34) = 0{,}9332$ : on prend $Y$, plus lent en moyenne mais plus régulier. Avec 28 minutes : $P(X \le 28) = \Phi(-0{,}5) = 0{,}3085$ contre $P(Y \le 28) = \Phi(-1{,}5) = 0{,}0668$ : on prend $X$. Quand le temps disponible est sous la moyenne, seule une grande dispersion laisse une chance d'arriver à l'heure ; quand il est au-dessus, la régularité protège du retard.
 
-**Erreurs fréquentes.** Diviser par la variance 16 au lieu de l'écart-type 4 ; écrire $\Phi(-1) = -0{,}8413$ ; en e, oublier « $1 -$ » ; en f, donner $z$ au lieu de la durée ; en h, prendre $\sigma = 4$.
+**Erreurs fréquentes.** Diviser par la variance 16 au lieu de l'écart-type 4 ; écrire $\Phi(-0{,}75) = -0{,}7734$, ou $\Phi(-0{,}75) = \Phi(0{,}75)$ ; en e, oublier « $1 -$ » ; en f, donner $z$ au lieu de la durée ; en h, prendre $\sigma = 4$.
 
 **Variante.** $P(X > 30)$ ? *Réponse* : $1 - \Phi(0) = 0{,}5$.
 
@@ -390,11 +390,11 @@ Pour la copie : $n$ est grand, $p$ petit et $np = 4$ modéré : la situation typ
 
 ### Ex M02b.19 — Densité et fonction de répartition de la loi normale (avec `math.erf`) · `normal_pdf`, `normal_cdf`
 
-**Réponses** : a) `0.241971` · b) `1.9947` · c) `0.9332` · d) `0.0668` · e) `0.3023` · f) `"ValueError"` · g) `"float"` · h) `0.31225`.
+**Réponses** : a) `0.241971` · b) `1.7603` · c) `0.9332` · d) `0.0668` · e) `0.3023` · f) `"ValueError"` · g) `"float"` · h) `0.31225`.
 
-**Démarche.** Tester `sigma <= 0` d'abord, puis standardiser, `z = (x - mu) / sigma` : `math.exp(-z * z / 2) / (sigma * math.sqrt(2 * math.pi))` et `(1 + math.erf(z / math.sqrt(2))) / 2`. Pour la copie : b) dépasse 1, et ce n'est pas une erreur (une cloche étroite est haute). h) approche $\varphi(0{,}7) \approx 0{,}312254$ : la dérivée de la fonction de répartition est la densité (M02a §7).
+**Démarche.** Tester `sigma <= 0` d'abord, puis standardiser, `z = (x - mu) / sigma` : `math.exp(-z * z / 2) / (sigma * math.sqrt(2 * math.pi))` et `(1 + math.erf(z / math.sqrt(2))) / 2`. Pour la copie : b) dépasse 1, et ce n'est pas une erreur (une cloche étroite est haute : son sommet, en 3, vaut environ 1,99). h) approche $\varphi(0{,}7) \approx 0{,}312254$ : la dérivée de la fonction de répartition est la densité (M02a §7).
 
-**Erreurs fréquentes.** Mettre $\sigma^2$ au dénominateur du facteur ; oublier $\sqrt{2}$ dans `erf` (c donne alors 0,9831) ; standardiser par la variance ; laisser `sigma = 0` provoquer une `ZeroDivisionError`.
+**Erreurs fréquentes.** Mettre $\sigma^2$ au dénominateur du facteur ; écrire `(x - mu) ** 2 / 2 * sigma ** 2` sans parenthèses (on multiplie par $\sigma^2$ au lieu de diviser : b le montre, car $x \ne \mu$) ; oublier $\sqrt{2}$ dans `erf` (c donne alors 0,9831) ; standardiser par la variance ; laisser `sigma = 0` provoquer une `ZeroDivisionError`.
 
 ### Ex M02b.20 — Simuler par inversion de la fonction de répartition · `inverse_transform_sample`
 
@@ -432,15 +432,15 @@ Pour la copie : $n$ est grand, $p$ petit et $np = 4$ modéré : la situation typ
 
 **Réponse** : `0.0378`.
 
-**Démarche.** `marginals` : `joint.sum(axis=1), joint.sum(axis=0)`. `draw_joint` : `ax.imshow(joint.T, origin="lower", cmap="Blues")`, `ax_top.bar(...)` des marginales des lignes, `ax_right.barh(...)` de celles des colonnes. `max_gap_24 = np.max(np.abs(JOINT_24 - np.outer(p_min, p_max)))`. Pour la copie : la moitié sous la diagonale est vide (le plus petit numéro ne dépasse jamais le plus grand) ; la diagonale vaut $\frac{1}{36}$ (un seul couple, les deux dés égaux), les cases au-dessus $\frac{2}{36}$ (deux couples). Les variables sont dépendantes : une case vide, comme $P(X = 6, Y = 1) = 0$, le montre sans calcul, puisque le produit de ses marginales est positif.
+**Démarche.** `marginals` : `joint.sum(axis=1), joint.sum(axis=0)`. `draw_joint` : `ax.imshow(joint.T, origin="lower", cmap="Blues")`, `ax_top.bar(...)` des marginales des lignes, `ax_right.barh(...)` de celles des colonnes. `max_gap_24 = np.max(np.abs(JOINT_24 - np.outer(p_rows, p_cols)))`, avec `p_rows, p_cols = marginals(JOINT_24)`. Pour la copie : la moitié sous la diagonale est vide (le plus petit numéro ne dépasse jamais le plus grand) ; la diagonale vaut $\frac{1}{36}$ (un seul couple, les deux dés égaux), les cases au-dessus $\frac{2}{36}$ (deux couples). Les variables sont dépendantes : une case vide, comme $P(X = 6, Y = 1) = 0$, le montre sans calcul, puisque le produit de ses marginales est positif.
 
-**Erreurs fréquentes.** Échanger `axis=0` et `axis=1` ; dessiner `joint` au lieu de `joint.T` (les axes sont alors inversés) ; ouvrir une nouvelle figure dans `draw_joint`.
+**Erreurs fréquentes.** Échanger `axis=0` et `axis=1` ; dessiner `joint` au lieu de `joint.T` (les axes sont alors inversés) ; placer les barres en 1, …, 6 au lieu de 0, …, 5, décalées d'une case par rapport à la carte ; oublier la valeur absolue dans l'écart ; ouvrir une nouvelle figure dans `draw_joint`.
 
 ### Ex M02b.25 — Chasse à l'erreur : une densité prise pour une probabilité, σ et σ²
 
 **Réponses** : a) `"ABD"` · b) `[3.9894, 0.8413, 1.1547, 0.0, 5.0]`.
 
-**Démarche.** (A) La valeur $\frac{1}{0{,}1\sqrt{2\pi}} \approx 3{,}9894$ est juste ; la conclusion est fausse : une densité n'est pas une probabilité. (B) $\mathcal{N}(5, 4)$ a pour écart-type 2 : $\Phi(1) \approx 0{,}8413$. (D) $P(T = 1) = 0$ pour une variable à densité. (C) $\sqrt{\frac{16}{12}} \approx 1{,}1547$ et (E) $\sqrt{9 + 16} = 5$ sont justes.
+**Démarche.** (A) La valeur $\frac{1}{0{,}1\sqrt{2\pi}} \approx 3{,}9894$ est juste ; la conclusion, donc le raisonnement, est fausse : une densité n'est pas une probabilité. (B) $\mathcal{N}(5, 4)$ a pour écart-type 2 : $\Phi(1) \approx 0{,}8413$. (D) $P(T = 1) = 0$ pour une variable à densité. (C) $\sqrt{\frac{16}{12}} \approx 1{,}1547$ et (E) $\sqrt{9 + 16} = 5$ sont justes.
 
 **Erreurs fréquentes.** Accuser (E), où les variances s'additionnent bien ; donner pour (A) la valeur 0 (la valeur était juste) ; garder $f(1)$ pour (D).
 
@@ -452,6 +452,6 @@ Pour la copie : $n$ est grand, $p$ petit et $np = 4$ modéré : la situation typ
 
 ### Ex M02b.27 — Défi : tirer des valeurs normales avec seulement des tirages uniformes
 
-**Démarche.** La méthode de **Box-Muller** : avec $m = \lceil n/2 \rceil$ paires d'uniformes, `radius = np.sqrt(-2 * np.log(1 - rng.random(m)))` et `angle = 2 * np.pi * rng.random(m)`, puis `np.concatenate([radius * np.cos(angle), radius * np.sin(angle)])[:n]`. Pourquoi : la densité jointe de deux normales indépendantes, $\frac{1}{2\pi}e^{-r^2/2}$, ne dépend que de $r$ (M02b.12) ; l'angle est uniforme, et $P(R^2 > t) = e^{-t/2}$ : $R^2$ suit la loi exponentielle d'espérance 2, qu'on tire par inversion (fiche §8). Pour la copie : la somme de 12 uniformes moins 6 a l'espérance 0 et la variance 1, et passe souvent le test de Kolmogorov-Smirnov, mais elle ne dépasse jamais 6 et ses queues sont trop minces (environ $1{,}4 \times 10^{-5}$ au-delà de 4 au lieu de $6{,}3 \times 10^{-5}$).
+**Démarche.** La méthode de **Box-Muller** : avec $m = \lceil n/2 \rceil$ paires d'uniformes, `radius = np.sqrt(-2 * np.log(1 - rng.random(m)))` et `angle = 2 * np.pi * rng.random(m)`, puis `np.concatenate([radius * np.cos(angle), radius * np.sin(angle)])[:n]`. Pourquoi : la densité jointe de deux normales indépendantes, $\frac{1}{2\pi}e^{-r^2/2}$, ne dépend que de $r$ (M02b.12) ; l'angle est uniforme, et $P(R^2 > t) = e^{-t/2}$ : $R^2$ suit la loi exponentielle d'espérance 2, qu'on tire par inversion (fiche §8). Pour la copie : la somme de 12 uniformes moins 6 a l'espérance 0 et la variance 1, et passe parfois le test de Kolmogorov-Smirnov, mais elle ne dépasse jamais 6 et ses queues sont trop minces (environ $2 \times 10^{-5}$ au-delà de 4 au lieu de $6{,}3 \times 10^{-5}$). Avec une centaine d'uniformes par valeur, la somme finit par passer les vérifications, mais reste une approximation bornée et coûteuse. $R^2 = X^2 + Y^2$ suit la loi exponentielle d'espérance 2.
 
-**Erreurs fréquentes.** Utiliser le même uniforme pour le rayon et l'angle (les deux normales ne sont plus indépendantes) ; `np.log(rng.random(m))` peut valoir $-\infty$ si un uniforme vaut exactement 0 (`1 - u` l'évite) ; une boucle Python sur un million de valeurs (trop lente).
+**Erreurs fréquentes.** Utiliser le même uniforme pour le rayon et l'angle (les deux normales ne sont plus indépendantes) ; `np.log(rng.random(m))` peut valoir $-\infty$ si un uniforme vaut exactement 0 (`1 - u` l'évite) ; une dichotomie de $\Phi$ valeur par valeur, avec `math.erf` (bien trop lente pour 8 millions de valeurs ; une boucle Box-Muller valeur par valeur passe, en quelques secondes).

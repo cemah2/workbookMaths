@@ -336,7 +336,7 @@ Espérances : elles s'additionnent toujours. Variances : elles s'additionnent po
 </details>
 <details><summary>Indice 3</summary>
 
-f : la variance de la somme de 50 copies indépendantes vaut $50 \times 1^2$. g : la moyenne divise la somme par 50, donc l'écart-type par 50. h : $T_1 + T_1 = 2T_1$.
+f : la variance de la somme de 50 copies indépendantes vaut $50 \times 1^2$. g : la moyenne vaut la somme de f) divisée par 50 : son écart-type est celui de la somme (trouvé en f), pas celui de $T_1$) divisé par 50. h : $T_1 + T_1 = 2T_1$.
 
 </details>
 
@@ -354,7 +354,7 @@ Un produit $g(x)h(y)$ : le produit de deux intégrales simples. Sinon, intègre 
 </details>
 <details><summary>Indice 3</summary>
 
-c : $\int_0^1 (x^2 + xy)\,dx = \frac{1}{3} + \frac{y}{2}$. d : $c \times \frac{9}{2} = 1$. e : $f_X(x) = \int_0^3 c\,x\,y^2\,dy$. h : le produit $\int_0^{1/2} f_X \times \int_0^1 f_Y$, puisque $X$ et $Y$ sont indépendantes.
+c : $\int_0^1 (x^2 + xy)\,dx = \frac{1}{3} + \frac{y}{2}$. d : l'intégrale de $f$ sur le rectangle vaut $c$ fois l'intégrale de a). e : $f_X(x) = \int_0^3 c\,x\,y^2\,dy$. h : le produit $\int_0^{1/2} f_X \times \int_0^1 f_Y$, puisque $X$ et $Y$ sont indépendantes.
 
 </details>
 
@@ -372,7 +372,7 @@ Relis « La loi d'une transformation : passer par $F$ » (fiche §8).
 </details>
 <details><summary>Indice 3</summary>
 
-b : $f_Y(y) = \frac{1}{3}f_X\big(\frac{y + 1}{3}\big)$. d : $Y$ suit $\mathcal{N}(25, 6^2)$, et l'on veut sa densité en son centre. f : $P(X^2 \le y) = P(X \le \sqrt{y}) = \frac{\sqrt{y}}{3}$.
+b : $f_Y(y) = \frac{1}{3}f_X\big(\frac{y + 1}{3}\big)$. d : quelle loi normale suit $Y = 2X + 5$ ? Sa densité se lit en son centre. f : $X$ est positif, donc $X^2 \le y$ équivaut à $X \le \sqrt{y}$ ; utilise la fonction de répartition de $X$.
 
 </details>
 
@@ -658,7 +658,7 @@ Relis « Les marginales : sommer l'autre variable » (fiche §5) et la figure de
 </details>
 <details><summary>Indice 3</summary>
 
-`ax_top.bar(np.arange(len(p_rows)), p_rows)` et `ax_right.barh(np.arange(len(p_cols)), p_cols)` ; puis `np.max(np.abs(JOINT_24 - np.outer(p_min, p_max)))`.
+`ax_top.bar(np.arange(len(p_rows)), p_rows)` et `ax_right.barh(np.arange(len(p_cols)), p_cols)` ; puis, avec `p_rows, p_cols = marginals(JOINT_24)`, `np.max(np.abs(JOINT_24 - np.outer(p_rows, p_cols)))`.
 
 </details>
 

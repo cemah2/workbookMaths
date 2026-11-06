@@ -216,8 +216,8 @@ La durée $X$ (en minutes) d'un trajet domicile-travail suit la loi normale $\ma
 |---|---|---|
 | a | le z-score d'une durée de 36 minutes | un nombre (1 décimale) |
 | b | $P(X \le 36)$ | un nombre (4 décimales) |
-| c | $P(X \le 26)$ | un nombre (4 décimales) |
-| d | $P(26 \le X \le 36)$ | un nombre (4 décimales) |
+| c | $P(X \le 27)$ | un nombre (4 décimales) |
+| d | $P(27 \le X \le 36)$ | un nombre (4 décimales) |
 | e | $P(X > 38)$ | un nombre (4 décimales) |
 | f | la durée $t$ telle que $P(X \le t) = 0{,}9901$ | un nombre (2 décimales) |
 | g | $P(\lvert X - 30 \rvert \le 5)$ | un nombre (3 décimales) |

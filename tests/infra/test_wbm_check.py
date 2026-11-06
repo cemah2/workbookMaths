@@ -1076,6 +1076,12 @@ def test_a_list_typed_in_quotes_is_told_to_drop_them():
     assert "enlève les guillemets" in message("s.7", entry("s.7", [-1, 3]), "[-1, 3]")
 
 
+def test_a_list_typed_in_quotes_the_french_way_gets_the_python_writing():
+    e = entry("s.7b", [0.2, 0.4, 0.4], decimals=2)
+    for text in ("[0,2 ; 0,4 ; 0,4]", "[0.2; 0.4; 0.4]"):
+        assert "points décimaux et des virgules" in message("s.7b", e, text), text
+
+
 def test_an_exact_form_where_a_decimal_is_asked():
     e = entry("s.8", math.log(2), decimals=3)
     assert "Ta valeur exacte est la bonne" in message("s.8", e, "ln(2)")

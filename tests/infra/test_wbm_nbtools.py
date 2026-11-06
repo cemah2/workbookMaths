@@ -709,6 +709,13 @@ def test_french_summary_translates_the_counts():
         "3 en échec, 2 réussi(s), 7 non sélectionné(s) en 0,25 s")
 
 
+def test_exception_hint_for_an_array_given_to_math_and_a_list_used_as_an_array():
+    from wbm.nbtools import exception_hint
+    assert "liste en compréhension" in exception_hint("only length-1 arrays can be converted to Python scalars")
+    assert "liste en compréhension" in exception_hint("only 0-dimensional arrays can be converted to Python scalars")
+    assert "np.array" in exception_hint("'list' object has no attribute 'mean'")
+
+
 def test_exception_hint_for_numpy_truth_values():
     from wbm.nbtools import exception_hint
     assert "~" in exception_hint("The truth value of an array with more than one element is ambiguous. Use a.any()")
