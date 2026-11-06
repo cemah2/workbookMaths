@@ -132,6 +132,15 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Oublier la dérivée de l'intérieur (composée) | $(e^{x^2})' = e^{x^2}$ | $(e^{x^2})' = 2x\,e^{x^2}$ : multiplier par la dérivée de ce qui est « dedans » |
 | Dériver un produit facteur par facteur | $(uv)' = u'v'$ | $(uv)' = u'v + uv'$ |
 | Dériver un quotient sans la formule | $\left(\frac{u}{v}\right)' = \frac{u'}{v'}$ | $\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}$ |
+| Inverser l'ordre au numérateur du quotient | $\left(\frac{u}{v}\right)' = \frac{uv' - u'v}{v^2}$ | $u'v$ en premier : le signe du résultat change sinon |
+| Lever une forme indéterminée « à l'œil » | $\infty - \infty = 0$, $\frac{\infty}{\infty} = 1$ | mettre en facteur le terme qui domine, ou factoriser |
+| Chercher l'asymptote verticale au numérateur | $\frac{3x - 2}{x + 1}$ : asymptote $x = \frac{2}{3}$ | là où le **dénominateur** s'annule (et pas le numérateur) |
+| Oublier $f(a)$ dans la tangente | $y = f'(a)(x - a)$ | $y = f(a) + f'(a)(x - a)$ |
+| Dériver $\sqrt{x}$ ou $\frac{1}{x}$ de travers | $(\sqrt{x})' = \frac{1}{\sqrt{x}}$, $\left(\frac{1}{x}\right)' = \ln x$ | $\frac{1}{2\sqrt{x}}$ et $-\frac{1}{x^2}$ |
+| Confondre l'ordre de deux composées | $(e^x)^2$ et $e^{x^2}$ : même dérivée | $2e^{2x}$ et $2x\,e^{x^2}$ |
+| Conclure à un extremum dès que $f' = 0$ | $(x^5)' = 0$ en 0, donc extremum | il faut que $f'$ change de signe |
+| Oublier les bords d'un intervalle fermé | maximum sur $[a ; b]$ cherché seulement où $f' = 0$ | comparer aussi $f(a)$ et $f(b)$ |
+| Donner l'abscisse au lieu de la valeur | « le maximum vaut 2 » quand il est atteint en $x = 2$ | le maximum est $f(2)$ ; l'abscisse est l'argmax |
 
 ## Matrices (M09a et suite)
 

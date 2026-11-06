@@ -55,15 +55,16 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\mathbb{R} \setminus \{a\}$ | « R privé de a » | R minus a | tous les réels sauf $a$ | $\mathbb{R} \setminus \{0\} = \,]-\infty ; 0[ \cup ]0 ; +\infty[$ | R3 |
 | $f^{-1}$ | « f moins un », « réciproque de f » | inverse of f | la fonction qui défait $f$ (attention : pas $1/f$) | $\exp^{-1} = \ln$ | R3 |
 | $e$, $\exp(x)$, $e^x$ | « e », « exponentielle de x » | e, exp of x | le nombre $e \approx 2{,}718$ et sa fonction puissance | $e^0 = 1$ | R6 |
-| $\ln x$, $\log_2 x$ | « logarithme népérien », « log en base 2 » | natural log, log base 2 | l'exposant qu'il faut donner à $e$ (ou à 2) pour obtenir $x$ ; dans MML, $\log$ = $\ln$ | $\log_2 8 = 3$ | R6 |
-| $\log_b x$, $\log_{10} x$ | « logarithme en base b de x », « log décimal » | log base b of x, common log | l'exposant qu'il faut donner à $b$ pour obtenir $x$ ; $\log_b x = \frac{\ln x}{\ln b}$ | $\log_{10} 1000 = 3$ | R6 |
+| $\ln x$, $\log_2 x$ | « logarithme népérien », « log en base 2 » | natural log, log base 2 | l'exposant qu'il faut donner à $e$ (ou à 2) pour obtenir $x$ ; dans MML, $\log$ = $\ln$ | $\log_2 32 = 5$ | R6 |
+| $\log_b x$, $\log_{10} x$ | « logarithme en base b de x », « log décimal » | log base b of x, common log | l'exposant qu'il faut donner à $b$ pour obtenir $x$ ; $\log_b x = \frac{\ln x}{\ln b}$ | $\log_{10} 100\,000 = 5$ | R6 |
 | $\sigma(x)$ | « sigma de x », « sigmoïde de x » | sigmoid of x | $\frac{1}{1 + e^{-x}}$ ; ailleurs, $\sigma$ est aussi un écart-type | $\sigma(0) = \frac{1}{2}$ | R6 |
 | $\tanh x$ | « tangente hyperbolique de x » | hyperbolic tangent, « tanch » | $\frac{e^x - e^{-x}}{e^x + e^{-x}}$ | $\tanh 0 = 0$ | R6 |
 | $\lfloor x \rfloor$ | « partie entière de x » | floor of x | le plus grand entier inférieur ou égal à $x$ | $\lfloor 4{,}7 \rfloor = 4$ | R1, R6 |
 | $u_n$, $(u_n)$ | « u indice n », « la suite u n » | u sub n, the sequence u_n | le terme de rang $n$ ; la suite entière | $u_n = n^2$ donne $u_3 = 9$ | R5 |
 | $\lim_{n \to +\infty} u_n = \ell$, $u_n \to \ell$ | « limite de u n quand n tend vers plus l'infini », « u n tend vers ℓ » | limit of u_n as n tends to infinity | les termes finissent par rester aussi près de $\ell$ qu'on veut | $\lim_{n \to +\infty} \frac{1}{n} = 0$ | R5 |
 | $\sum_{k=0}^{+\infty} u_k$ | « somme pour k allant de 0 à plus l'infini » | infinite sum, series | la limite des sommes partielles | $\sum_{k=0}^{+\infty} 0{,}6^k = 2{,}5$ | R5 |
-| $\lim_{x \to a} f(x)$ | « limite de f(x) quand x tend vers a » | limit as x tends to a | la valeur dont $f(x)$ s'approche | $\lim_{x \to 0} \frac{\sin x}{x} = 1$ | R7 |
+| $\lim_{x \to a} f(x)$ | « limite de f(x) quand x tend vers a » | limit as x tends to a | la valeur dont $f(x)$ s'approche | $\lim_{x \to 2} (x^2 + 1) = 5$ | R7 |
+| $\lim_{x \to a^+}$, $\lim_{x \to a^-}$ | « limite quand x tend vers a par la droite (par la gauche) » | right-hand (left-hand) limit | $x$ s'approche de $a$ en restant plus grand (plus petit) que $a$ | $\lim_{x \to 0^+} \frac{1}{x} = +\infty$ | R7 |
 | $f'(x)$, $\frac{df}{dx}$ | « f prime de x », « d f sur d x » | f prime, df by dx | dérivée : la pente de la tangente | $(x^2)' = 2x$ | R7 |
 | $\frac{\partial f}{\partial x}$ | « d rond f sur d rond x », « dérivée partielle de f par rapport à x » | partial f partial x | dérivée en $x$, les autres variables fixées | $\frac{\partial}{\partial x}(xy) = y$ | M05b |
 | $\nabla f$ | « nabla f », « gradient de f » | gradient of f, del f | le vecteur des dérivées partielles | $\nabla (x^2 + y^2) = (2x, 2y)$ | M05b |

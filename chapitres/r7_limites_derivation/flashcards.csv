@@ -1,0 +1,26 @@
+front;back;tags
+Que veut dire \(\lim_{x \to +\infty} f(x) = L\) ?;\(f(x)\) devient aussi proche de \(L\) qu'on veut, pourvu que \(x\) soit assez grand. Une limite finie en l'infini donne une asymptote horizontale \(y = L\).;mwb::r7::limite_infini
+Les quatre formes indéterminées ?;\(\infty - \infty\), \(\frac{\infty}{\infty}\), \(0 \times \infty\) et \(\frac{0}{0}\). On les lève en mettant en facteur le terme qui domine, en factorisant, ou par les croissances comparées.;mwb::r7::formes_indeterminees
+Limite en l'infini d'une fraction de polynômes ?;On met en facteur le terme de plus haut degré en haut et en bas. Même degré : le quotient des coefficients dominants. Degré plus grand en bas : 0. En haut : l'infini.;mwb::r7::fraction_polynomes
+Où chercher une asymptote verticale ?;Là où le dénominateur s'annule sans que le numérateur s'annule. Si les deux s'annulent, on factorise : ce peut être un simple trou.;mwb::r7::asymptote_verticale
+Que vaut \(\lim_{x \to 3^+} \frac{1}{x - 3}\) ? Et à gauche ?;\(+\infty\) par la droite (dénominateur petit et positif), \(-\infty\) par la gauche : deux limites différentes, donc pas de limite en 3 tout court.;mwb::r7::limite_un_cote
+Définition de la continuité en \(a\) ?;\(\lim_{x \to a} f(x) = f(a)\) : pas de saut en \(a\). La partie entière n'est pas continue aux entiers.;mwb::r7::continuite
+Le théorème des valeurs intermédiaires ?;Si \(f\) est continue sur l'intervalle de \(a\) à \(b\) et que \(f(a)\) et \(f(b)\) sont de signes contraires, alors \(f\) s'annule au moins une fois entre \(a\) et \(b\).;mwb::r7::valeurs_intermediaires
+Comment marche la dichotomie ?;On coupe l'intervalle en deux et on garde la moitié où le signe de \(f\) change. Après \(n\) coupes, la longueur est \(\frac{b - a}{2^n}\).;mwb::r7::dichotomie
+Le taux d'accroissement de \(f\) entre \(a\) et \(a + h\) ?;\(\frac{f(a + h) - f(a)}{h}\) : la pente de la sécante, une vitesse moyenne.;mwb::r7::taux_accroissement
+Définition du nombre dérivé \(f'(a)\) ?;\(f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}\), quand cette limite existe et est finie. C'est la pente de la tangente en \(a\).;mwb::r7::nombre_derive
+Une fonction continue est-elle toujours dérivable ?;Non : \(\lvert x \rvert\) et \(\max(0, x)\) sont continues en 0, mais y font un coin (pentes différentes à gauche et à droite).;mwb::r7::derivable
+Équation de la tangente en \(a\) ?;\(y = f(a) + f'(a)(x - a)\). Près de \(a\), \(f(a + h) \approx f(a) + f'(a)\,h\) (approximation affine).;mwb::r7::tangente
+Dérivées de \(x^n\), \(\frac{1}{x}\), \(\sqrt{x}\) ?;\((x^n)' = n x^{n-1}\), \(\left(\frac{1}{x}\right)' = -\frac{1}{x^2}\), \((\sqrt{x})' = \frac{1}{2\sqrt{x}}\).;mwb::r7::derivees_puissances
+Dérivées de \(e^x\), \(\ln x\) et \(a^x\) ?;\((e^x)' = e^x\), \((\ln x)' = \frac{1}{x}\) pour \(x > 0\), \((a^x)' = a^x \ln a\).;mwb::r7::derivees_exp_ln
+Pourquoi \((e^x)' = e^x\) ?;\(\frac{e^{x + h} - e^x}{h} = e^x \times \frac{e^h - 1}{h}\), et \(\frac{e^h - 1}{h} \to 1\) quand \(h \to 0\).;mwb::r7::derivee_exp
+Deux approximations affines en 0 ?;\(e^h \approx 1 + h\) et \(\ln(1 + h) \approx h\) pour \(h\) petit. La seconde explique la règle de 70.;mwb::r7::approximations
+La règle du produit ?;\((uv)' = u'v + uv'\). Pas le produit des dérivées : \((x \times x)' = 2x\), pas 1.;mwb::r7::regle_produit
+La règle du quotient ?;\(\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}\), avec \(u'v\) en premier. Cas particulier : \(\left(\frac{1}{v}\right)' = -\frac{v'}{v^2}\).;mwb::r7::regle_quotient
+La règle de la chaîne ?;\(\big(g(u(x))\big)' = g'(u(x)) \times u'(x)\), ou \(\frac{dz}{dx} = \frac{dz}{du} \times \frac{du}{dx}\) : on dérive chaque étage et on multiplie.;mwb::r7::regle_chaine
+Dérivées de \(u^n\), \(e^u\), \(\ln u\), \(\sqrt{u}\) ?;\(n u^{n-1} u'\), \(u' e^u\), \(\frac{u'}{u}\), \(\frac{u'}{2\sqrt{u}}\).;mwb::r7::formes_composees
+Dériver par rapport à une lettre, les autres fixées ?;Les autres lettres sont des constantes : elles restent en facteur, ou disparaissent si elles sont ajoutées. Par rapport à \(r\), \(\pi r^2 h\) a pour dérivée \(2\pi r h\).;mwb::r7::une_lettre
+Signe de \(f'\) et variations ?;Sur un intervalle : si \(f' > 0\), \(f\) croît, si \(f' < 0\), elle décroît, et si \(f' = 0\) partout, elle est constante.;mwb::r7::variations
+\(f'(c) = 0\) : extremum en \(c\) ?;Pas forcément : il faut que \(f'\) change de signe (\(x^5\) en 0 n'a pas d'extremum). Et un extremum peut être au bord de l'intervalle, ou en un coin.;mwb::r7::extremum
+La méthode d'un problème d'optimisation ?;Exprimer la grandeur avec une seule variable, préciser son domaine, dériver, résoudre \(f' = 0\) dans le domaine, vérifier le signe de \(f'\) (et comparer aux bords).;mwb::r7::optimisation
+Que veut dire \(f(n) = O(g(n))\) ?;\(\lvert f(n) \rvert \le C \lvert g(n) \rvert\) pour \(n\) assez grand : on garde le terme qui domine, sans son coefficient. La dichotomie est en \(O(\log n)\), deux boucles imbriquées en \(O(n^2)\).;mwb::r7::grand_o

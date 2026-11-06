@@ -114,7 +114,22 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | cote, logit | cote $\frac{p}{1 - p}$ ; $\operatorname{logit}(p) = \ln \frac{p}{1 - p}$, réciproque de $\sigma$ |
 | tanh | $\tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}} = 2\sigma(2x) - 1$, impaire, dans $]-1 \;;\; 1[$ |
 
-*(R7 à R9 ajoutés avec leurs chapitres)*
+### R7 · Limites et dérivation
+
+| Notion | Formule |
+|---|---|
+| limites | formes indéterminées $\infty - \infty$, $\frac{\infty}{\infty}$, $0 \times \infty$, $\frac{0}{0}$ ; fraction de polynômes en $\pm\infty$ : le quotient des termes de plus haut degré |
+| asymptotes | $\lim_{x \to \pm\infty} f(x) = L$ : $y = L$ ; $f(x) \to \pm\infty$ quand $x \to a$ : $x = a$ |
+| continuité, valeurs intermédiaires | $\lim_{x \to a} f(x) = f(a)$ ; $f$ continue sur $[a ; b]$ et $f(a) f(b) < 0$ : un zéro entre $a$ et $b$ ; dichotomie : longueur $\frac{b - a}{2^n}$ après $n$ coupes |
+| nombre dérivé, tangente | $f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}$ ; $y = f(a) + f'(a)(x - a)$ ; $f(a + h) \approx f(a) + f'(a)\,h$ |
+| dérivées usuelles | $(x^n)' = nx^{n-1}$, $(\frac{1}{x})' = -\frac{1}{x^2}$, $(\sqrt{x})' = \frac{1}{2\sqrt{x}}$, $(e^x)' = e^x$, $(\ln x)' = \frac{1}{x}$, $(a^x)' = a^x \ln a$ |
+| règles | $(u + v)' = u' + v'$, $(ku)' = ku'$, $(uv)' = u'v + uv'$, $(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$, $(\frac{1}{v})' = -\frac{v'}{v^2}$ |
+| règle de la chaîne | $(g(u))' = g'(u) \times u'$ ; $(u^n)' = nu^{n-1}u'$, $(e^u)' = u'e^u$, $(\ln u)' = \frac{u'}{u}$, $(\sqrt{u})' = \frac{u'}{2\sqrt{u}}$ |
+| variations, extremums | $f' > 0$ : croissante ; $f' < 0$ : décroissante ; extremum intérieur : $f' = 0$ et $f'$ change de signe ; comparer aussi les bords |
+| approximations en 0 | $e^h \approx 1 + h$, $\ln(1 + h) \approx h$ |
+| grand O | $f = O(g)$ : $\lvert f \rvert \le C \lvert g \rvert$ pour $n$ assez grand ; $1 \ll \log n \ll n \ll n \log n \ll n^2 \ll 2^n$ |
+
+*(R8 et R9 ajoutés avec leurs chapitres)*
 
 ## Partie I · Fondations
 
