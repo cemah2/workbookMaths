@@ -71,6 +71,9 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\frac{\partial f}{\partial x}$ | « d rond f sur d rond x », « dérivée partielle de f par rapport à x » | partial f partial x | dérivée en $x$, les autres variables fixées | $\frac{\partial}{\partial x}(xy) = y$ | M05b |
 | $\nabla f$ | « nabla f », « gradient de f » | gradient of f, del f | le vecteur des dérivées partielles | $\nabla (x^2 + y^2) = (2x, 2y)$ | M05b |
 | $\int_a^b f(x)\,dx$ | « intégrale de a à b de f(x) d x » | integral from a to b of f | aire (signée) sous la courbe | $\int_0^1 x\,dx = \frac{1}{2}$ | M02a |
+| $\int f(x)\,dx$ | « intégrale de f(x) d x », « primitive de f » | indefinite integral, antiderivative of f | une primitive quelconque, écrite avec une constante $+ C$ | $\int x^2\,dx = \frac{x^3}{3} + C$ | M02a |
+| $\big[F(x)\big]_a^b$ | « F(x) pris entre a et b » | F evaluated from a to b | $F(b) - F(a)$, la borne du haut d'abord | $\big[x^2\big]_1^3 = 9 - 1 = 8$ | M02a |
+| $\int_a^{+\infty} f(x)\,dx$ | « intégrale de a à plus l'infini » | improper integral to infinity | la limite de $\int_a^b f$ quand $b \to +\infty$ | $\int_1^{+\infty} \frac{dx}{x^2} = 1$ | M02a |
 | $\propto$ | « proportionnel à » | proportional to | égal à une constante près | $p(\theta \mid x) \propto p(x \mid \theta)\,p(\theta)$ | M04 |
 | $O(n^2)$ | « grand O de n carré » | big O of n squared | croît au plus comme $n^2$ | coût du produit de deux matrices $n \times n$ : $O(n^3)$ | R7 |
 | $\arg\max_x f(x)$, $\arg\min_x f(x)$ | « argument du maximum (du minimum) de f » | arg max, arg min | la valeur de $x$ (pas la valeur de $f$) où $f$ est maximale (minimale) | $\arg\min_x (x-3)^2 = 3$ | R3, M05b |
@@ -112,6 +115,8 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $P(A \mid B)$ (au lycée $P_B(A)$) | « probabilité de A sachant B » | probability of A given B | probabilité de $A$ quand on sait que $B$ s'est produit | la branche d'un arbre pondéré | R8, M03 |
 | $X \sim \mathcal{N}(\mu, \sigma^2)$ | « X suit une loi normale de moyenne mu et de variance sigma carré » | X is distributed as a normal | la loi de la variable aléatoire $X$ | | M02b |
 | $p(x)$ | « p de x », « densité en x » | density (or pmf) at x | la loi d'une variable, point par point | | M02a, M02b |
+| $F(x)$, $F_X(x)$ | « F de x », « fonction de répartition en x » | cdf at x | $P(X \le x)$, l'aire à gauche de $x$ sous la densité | $F(\text{médiane}) = \frac{1}{2}$ | M02a |
+| $q_p$ | « quantile d'ordre p » | p-quantile | le plus petit $x$ tel que $F(x) \ge p$ ; $q_{0{,}5}$ est la médiane | percentile 90 : $q_{0{,}9}$ | M02a |
 | $\mathbb{E}[X]$ | « espérance de X » | expected value of X | la moyenne théorique, pondérée par les probabilités | somme de deux dés à 4 faces : $\mathbb{E}[S] = 5$ | R8, M02b |
 | $\mathbb{V}(X)$, $\operatorname{Var}(X)$ | « variance de X » | variance | dispersion autour de l'espérance | $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ | R8, M02b |
 | $\sigma(X)$ | « sigma de X », « écart-type de X » | standard deviation | la racine carrée de la variance, dans l'unité de $X$ | $\mathbb{V}(X) = 9$ donne $\sigma(X) = 3$ | R8 |

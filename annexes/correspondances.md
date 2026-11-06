@@ -64,7 +64,7 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | §5.3 Gradients de fonctions à valeurs vectorielles (jacobienne) | M17 |
 | §5.4–5.6 Gradients de matrices, identités, rétropropagation et différentiation automatique | M18 |
 | §5.7–5.8 Dérivées d'ordre supérieur, Taylor multivariée | M19 |
-| §6.1–6.2 Espace probabilisé, lois discrètes et continues | M02b |
+| §6.1–6.2 Espace probabilisé, lois discrètes et continues | M02a (la partie continue de §6.2), M02b |
 | §6.3 Règles de la somme et du produit, Bayes | M03, M04 |
 | §6.4 Statistiques résumées et indépendance | M02b, M02c, M16 |
 | §6.5 Loi gaussienne | M25a (et la loi normale en 1D : M02b) |

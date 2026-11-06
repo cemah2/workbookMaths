@@ -161,7 +161,25 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 
 ## Partie I · Fondations
 
-*(ajouté avec les chapitres M02a à M06)*
+### M02a · Intégrales et densités
+
+| Notion | Formules |
+|---|---|
+| sommes de Riemann | $h = \frac{b - a}{n}$, $x_i = a + ih$ ; $L_n = h\sum_{i=0}^{n-1} f(x_i)$, $R_n = h\sum_{i=1}^{n} f(x_i)$, $M_n = h\sum_{i=0}^{n-1} f\big(x_i + \frac{h}{2}\big)$ ; $\int_a^b f = \lim L_n$ |
+| primitives | $x^n \to \frac{x^{n+1}}{n+1}$ ($n \ne -1$) ; $\frac{1}{x} \to \ln\lvert x \rvert$ ; $e^{ax} \to \frac{e^{ax}}{a}$ ; $\cos \to \sin$ ; $\sin \to -\cos$ ; $f(ax + b) \to \frac{1}{a}F(ax + b)$ |
+| théorème fondamental | $\int_a^b f(x)\,dx = \big[F(x)\big]_a^b = F(b) - F(a)$ ; $\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$ |
+| règles | linéarité ; Chasles $\int_a^b + \int_b^c = \int_a^c$ ; $\int_b^a = -\int_a^b$ ; aire entre deux courbes $\int_a^b (g - f)$ si $f \le g$ |
+| par parties | $\int_a^b u\,v' = \big[uv\big]_a^b - \int_a^b u'\,v$ |
+| changement de variable | $\int_a^b f(g(x))\,g'(x)\,dx = \int_{g(a)}^{g(b)} f(u)\,du$ |
+| intégrales impropres | $\int_1^{+\infty} \frac{dx}{x^p}$ converge $\iff p > 1$ (et vaut $\frac{1}{p - 1}$) ; $\int_0^1 \frac{dx}{x^p}$ converge $\iff p < 1$ ; $\int_0^{+\infty} e^{-\lambda x}\,dx = \frac{1}{\lambda}$ |
+| Gauss | $\int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi}$ ; $\int_{-\infty}^{+\infty} e^{-t^2/2}\,dt = \sqrt{2\pi}$ |
+| méthodes numériques | trapèzes $h\big(\frac{f_0}{2} + f_1 + \cdots + f_{n-1} + \frac{f_n}{2}\big)$ ; Simpson ($n$ pair) $\frac{h}{3}(f_0 + 4f_1 + 2f_2 + \cdots + 4f_{n-1} + f_n)$ ; erreurs en $h$, $h^2$ (milieu, trapèzes), $h^4$ (Simpson) |
+| densité | $f \ge 0$, $\int_{-\infty}^{+\infty} f = 1$, $P(a \le X \le b) = \int_a^b f$ ; $P(X = a) = 0$ ; $P(x \le X \le x + h) \approx f(x)\,h$ |
+| fonction de répartition | $F(x) = P(X \le x) = \int_{-\infty}^x f$ ; $F' = f$ ; $P(a < X \le b) = F(b) - F(a)$ |
+| quantiles | $q_p$ : le plus petit $x$ tel que $F(x) \ge p$ ; médiane $q_{0{,}5}$ ; percentile $k$ : $q_{k/100}$ ; densité $\lambda e^{-\lambda t}$ : $F(t) = 1 - e^{-\lambda t}$, $q_p = -\frac{\ln(1 - p)}{\lambda}$ |
+| AUC, valeur moyenne | $\text{AUC} = \int_0^1 \text{TPR}\,d(\text{FPR})$ ; $\bar{f} = \frac{1}{b - a}\int_a^b f$ |
+
+*(M02b à M06 : ajoutés avec leurs chapitres)*
 
 ## Partie II · Concepts
 

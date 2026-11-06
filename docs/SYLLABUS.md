@@ -983,7 +983,7 @@ L'intégrale comme aire sous une courbe, les primitives et les méthodes de calc
 | M02a.Q3 | 🧠 | Quelle méthode de calcul pour quelle intégrale ? | ★ | 4 | §3 | C | manuel | — |
 | M02a.Q4 | 🧠 | Converge ou diverge ? | ★ | 4 | §4 | C, E | manuel | — |
 | M02a.Q5 | 🧠 | Rectangles, trapèzes, Simpson | ★ | 4 | §5 | C, E | manuel | — |
-| M02a.Q6 | 🧠 | Une densité peut-elle dépasser 1 ? | ★ | 4 | §6 | C, E | manuel | — |
+| M02a.Q6 | 🧠 | Densité et probabilité : vrai ou faux | ★ | 4 | §6 | C, E | manuel | — |
 | M02a.Q7 | 🧠 | Lire une fonction de répartition | ★ | 4 | §7 | C, E | manuel | — |
 | M02a.R1 | 🔁 | Dériver une composée (R7) | ★ | 5 | §2 | C, E | manuel | — |
 | M02a.R2 | 🔁 | Sommes Σ (R4) | ★ | 5 | §1 | C, E | manuel | — |
@@ -1003,7 +1003,7 @@ L'intégrale comme aire sous une courbe, les primitives et les méthodes de calc
 | M02a.13 | 🔗 | L'aire sous une courbe ROC donnée par une formule | ★★ | 20 | §8 | C, E | wbm | — |
 | M02a.14 | 📖 | MML §6.2 (la partie continue) : densité et fonction de répartition, en anglais | ★★ | 25 | §6 §7 | C | manuel | — |
 | M02a.15 | 🗣️ | Expliquer pourquoi P(X = a) = 0 pour une variable continue | ★ | 10 | §6 | C, E | manuel | — |
-| M02a.E1 | 💼 | Une densité de probabilité peut-elle valoir plus que 1 ? | ★ | 10 | §6 | C, E | manuel | — |
+| M02a.E1 | 💼 | Chaque valeur a une probabilité nulle : comment dire qu'une valeur est plus probable qu'une autre ? | ★ | 10 | §6 | C, E | manuel | — |
 | M02a.16 | 🔨 | Rectangles et trapèzes · `riemann_sum, trapezoid` | ★ | 20 | §1 §5 | C, E | pytest | — |
 | M02a.17 | 🔨 | La méthode de Simpson · `simpson` | ★★ | 15 | §5 | C | pytest | M02a.16 |
 | M02a.18 | 🔨 | De la densité à la fonction de répartition, puis au quantile par dichotomie · `cdf_from_pdf, quantile` | ★★ | 25 | §7 | C, E | pytest | M02a.16 |

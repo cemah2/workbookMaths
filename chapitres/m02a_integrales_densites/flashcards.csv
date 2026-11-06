@@ -1,0 +1,23 @@
+front;back;tags
+Une somme de Riemann à gauche ?;\(L_n = h\sum_{i=0}^{n-1} f(x_i)\) avec \(h = \frac{b-a}{n}\) et \(x_i = a + ih\) : n rectangles de largeur h, de hauteur lue au début de chaque intervalle.;mwb::m02a::riemann
+Que représente \(\int_a^b f(x)\,dx\) ?;L'aire algébrique entre la courbe de f et l'axe des abscisses, de a à b : ce qui est sous l'axe compte négativement. C'est la limite des sommes de Riemann.;mwb::m02a::integrale
+Une primitive de f ?;Une fonction F telle que F' = f. Sur un intervalle, deux primitives diffèrent d'une constante. On vérifie une primitive en la dérivant.;mwb::m02a::primitive
+Le théorème fondamental de l'analyse ?;\(\int_a^b f(x)\,dx = F(b) - F(a)\) pour toute primitive F de f continue. La fonction aire \(A(x) = \int_a^x f\) vérifie A' = f.;mwb::m02a::theoreme_fondamental
+Primitives de \(x^n\) et de \(\frac{1}{x}\) ?;\(\frac{x^{n+1}}{n+1}\) pour \(n \ne -1\), et \(\ln|x|\) pour \(\frac{1}{x}\) (la formule des puissances exclut n = −1).;mwb::m02a::primitives_usuelles
+Primitive de \(e^{ax}\) et de \(f(ax+b)\) ?;\(\frac{e^{ax}}{a}\), et plus généralement \(\frac{1}{a}F(ax+b)\) : la règle de la chaîne fait apparaître le facteur a, qu'on compense.;mwb::m02a::primitives_usuelles
+La formule de l'intégration par parties ?;\(\int_a^b u\,v' = [uv]_a^b - \int_a^b u'\,v\). On dérive le facteur qui se simplifie (polynôme, ln), on intègre l'autre (exp, sin, cos).;mwb::m02a::parties
+La formule du changement de variable ?;\(\int_a^b f(g(x))\,g'(x)\,dx = \int_{g(a)}^{g(b)} f(u)\,du\) : on pose u = g(x), g'(x) dx devient du, et on change les bornes.;mwb::m02a::changement_de_variable
+Une intégrale impropre sur [a, +∞[ ?;La limite de \(\int_a^b f\) quand b tend vers +∞. Elle converge si cette limite est finie, sinon elle diverge.;mwb::m02a::impropre
+Quand \(\int_1^{+\infty} \frac{dx}{x^p}\) converge-t-elle ?;Si et seulement si p > 1 (elle vaut alors \(\frac{1}{p-1}\)). Près de 0, \(\int_0^1 \frac{dx}{x^p}\) converge si et seulement si p < 1.;mwb::m02a::impropre
+L'intégrale de Gauss ?;\(\int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi}\), sans primitive usuelle. Elle donne \(\int e^{-t^2/2}\,dt = \sqrt{2\pi}\), la constante de la loi normale.;mwb::m02a::gauss
+La méthode des trapèzes ?;\(T_n = h\left(\frac{f(x_0)}{2} + f(x_1) + \dots + f(x_{n-1}) + \frac{f(x_n)}{2}\right)\), la moyenne des sommes à gauche et à droite. Erreur en \(h^2\), exacte pour les fonctions affines.;mwb::m02a::trapezes
+La méthode de Simpson ?;n pair, \(S_n = \frac{h}{3}(f_0 + 4f_1 + 2f_2 + \dots + 4f_{n-1} + f_n)\) : des paraboles par trois points. Erreur en \(h^4\), exacte jusqu'au degré 3.;mwb::m02a::simpson
+Pas divisé par 2 : l'erreur des rectangles, des trapèzes, de Simpson ?;Divisée par environ 2, 4 et 16 (ordres 1, 2 et 4), pour une fonction régulière. Une dérivée infinie (comme celle de \(\sqrt{x}\) en 0) casse la règle.;mwb::m02a::ordre
+Une densité de probabilité ?;Une fonction f positive, d'aire totale 1, telle que \(P(a \le X \le b) = \int_a^b f(x)\,dx\).;mwb::m02a::densite
+Pour une variable à densité, que vaut P(X = a) ?;0 : l'aire au-dessus d'un seul point est nulle. Donc \(P(X \le a) = P(X < a)\). Un intervalle, lui, a une probabilité positive.;mwb::m02a::densite
+Une densité peut-elle dépasser 1 ?;Oui : seule l'aire totale vaut 1. La loi uniforme sur [2, 2,25] a une densité de 4. f(x) est une probabilité par unité de longueur : \(P(x \le X \le x + h) \approx f(x)\,h\).;mwb::m02a::densite
+La fonction de répartition F ?;\(F(x) = P(X \le x) = \int_{-\infty}^x f(t)\,dt\) : croissante, de 0 à 1, et F' = f. \(P(a < X \le b) = F(b) - F(a)\).;mwb::m02a::repartition
+Le quantile d'ordre p ?;Le plus petit x tel que \(F(x) \ge p\) : la solution de F(x) = p quand F est continue et croissante. Médiane : p = 0,5. Percentile k : p = k/100.;mwb::m02a::quantile
+Les quantiles de la loi de densité \(\lambda e^{-\lambda t}\) ?;\(F(t) = 1 - e^{-\lambda t}\), donc \(q_p = -\frac{\ln(1-p)}{\lambda}\). La médiane vaut \(\frac{\ln 2}{\lambda}\).;mwb::m02a::quantile
+L'AUC, comme intégrale ?;L'aire sous la courbe ROC : \(\int_0^1 \mathrm{TPR}\,d(\mathrm{FPR})\). 1/2 pour le hasard (la diagonale), 1 pour un classement parfait. Sur des données, on la calcule par les trapèzes.;mwb::m02a::auc
+La valeur moyenne de f sur [a, b] ?;\(\frac{1}{b-a}\int_a^b f(x)\,dx\) : la hauteur du rectangle de même aire. C'est aussi l'espérance de f(U) pour U uniforme sur [a, b].;mwb::m02a::valeur_moyenne

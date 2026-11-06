@@ -161,6 +161,25 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Oublier de diviser par les normes pour un angle | $\cos\theta = \vec{u} \cdot \vec{v}$ | $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$ |
 | Tester l'orthogonalité de flottants avec `==` | `0.1 * 2.1 + 0.7 * (-0.3) == 0` vaut `False` | comparer à 0 avec une tolérance absolue : `math.isclose(x, 0, abs_tol=1e-9)` |
 
+## Intégrales et densités (M02a)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Confondre intégrale et aire géométrique | $\int_0^{2\pi} \sin x\,dx = 0$, « donc l'aire est nulle » | les parties sous l'axe comptent négativement : découper là où $f$ change de signe, et additionner les valeurs absolues |
+| Inverser les bornes du crochet | $\big[x^3\big]_0^2 = 0 - 8$ | $F(b) - F(a)$ : la borne du haut d'abord |
+| Appliquer la formule des puissances à $x^{-1}$ | $\int \frac{dx}{x} = \frac{x^0}{0}$ | $\ln \lvert x \rvert$ |
+| Oublier le facteur d'une primitive composée | une primitive de $e^{3x}$ est $e^{3x}$ | $\frac{e^{3x}}{3}$ : dériver la réponse pour vérifier |
+| Intégrer un produit facteur par facteur | $\int x\,e^x\,dx = \frac{x^2}{2}e^x$ | par parties : $x\,e^x - e^x$ |
+| Changer de variable sans changer les bornes | $\int_0^1 2x\,(x^2 + 1)^3\,dx = \int_0^1 u^3\,du$ | $u = x^2 + 1$ va de 1 à 2 : $\int_1^2 u^3\,du$ |
+| Conclure qu'une intégrale converge parce que $f \to 0$ | $\int_1^{+\infty} \frac{dx}{x}$ converge | il faut décroître assez vite : $\frac{1}{x^p}$ converge vers $+\infty$ si et seulement si $p > 1$ |
+| Ignorer une fonction qui explose dans l'intervalle | $\int_{-1}^1 \frac{dx}{x^2} = -2$ | $\frac{1}{x^2}$ n'est pas définie en 0 : l'intégrale diverge |
+| Compter les extrémités entièrement dans les trapèzes | $h(f_0 + f_1 + \cdots + f_n)$ | les deux extrémités comptent pour moitié |
+| Appliquer Simpson avec $n$ impair, ou des poids faux | poids $1, 2, 4, 2, 1$ | $n$ pair, poids $1, 4, 2, 4, \ldots, 4, 1$, le tout fois $\frac{h}{3}$ |
+| Lire une densité comme une probabilité | $f(1) = 0{,}4$, « donc $P(X = 1) = 0{,}4$ » | $P(X = 1) = 0$ ; une probabilité est une aire sous $f$, et $f$ peut dépasser 1 |
+| Oublier une condition de densité | « $x - 1$ sur $[0 ; 2]$ a une intégrale positive » | positive partout **et** d'aire totale 1 |
+| Confondre $F(x)$ et $P(X > x)$ | $P(X > 2) = F(2)$ | $P(X > 2) = 1 - F(2)$ |
+| Prendre un percentile pour une probabilité | « le percentile 90 vaut 0,9 » | c'est une valeur $x$ telle que $F(x) = 0{,}9$ |
+
 ## Matrices (M09a et suite)
 
 | Erreur | Exemple faux | Ce qu'il faut faire |

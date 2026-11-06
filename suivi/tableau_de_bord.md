@@ -559,3 +559,45 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] CP0.12 🔗 Problème de synthèse : étudier une fonction de coût donnée par une formule ★★ 12 min
 - [ ] CP0.13 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
 <!-- wbm:end CP0 -->
+
+<!-- wbm:section M02a -->
+## M02a · Intégrales et densités ⏱️ 12,6 h
+
+- [ ] M02a.Q1 🧠 Aire, signe et intégrale ★ 4 min
+- [ ] M02a.Q2 🧠 Primitives : vrai ou faux ★ 4 min
+- [ ] M02a.Q3 🧠 Quelle méthode de calcul pour quelle intégrale ? ★ 4 min (complet)
+- [ ] M02a.Q4 🧠 Converge ou diverge ? ★ 4 min
+- [ ] M02a.Q5 🧠 Rectangles, trapèzes, Simpson ★ 4 min
+- [ ] M02a.Q6 🧠 Densité et probabilité : vrai ou faux ★ 4 min
+- [ ] M02a.Q7 🧠 Lire une fonction de répartition ★ 4 min
+- [ ] M02a.R1 🔁 Dériver une composée (R7) ★ 5 min
+- [ ] M02a.R2 🔁 Sommes Σ (R4) ★ 5 min
+- [ ] M02a.R3 🔁 Exponentielle et logarithme (R6) ★ 5 min (complet)
+- [ ] M02a.1 ✏️ Sommes de Riemann à la main : rectangles à gauche, à droite, au milieu ★ 20 min
+- [ ] M02a.2 ✏️ Primitives usuelles ★ 15 min
+- [ ] M02a.3 ✏️ Intégrales et aires : le signe, l'aire entre deux courbes ★★ 20 min
+- [ ] M02a.4 ✏️ Intégration par parties ★★ 20 min (complet)
+- [ ] M02a.5 ✏️ Changement de variable ★★ 20 min (complet)
+- [ ] M02a.6 ✏️ Intégrales impropres : converge, diverge, valeur ★★ 20 min
+- [ ] M02a.7 ✏️ Trapèzes et Simpson à la main, et leurs erreurs ★★ 20 min (complet)
+- [ ] M02a.8 ✏️ Vérifier qu'une fonction est une densité, trouver sa constante ★ 20 min
+- [ ] M02a.9 ✏️ La probabilité d'un intervalle, et la valeur moyenne d'une fonction ★★ 20 min
+- [ ] M02a.10 ✏️ Fonction de répartition, médiane et percentiles d'une loi donnée ★★ 20 min
+- [ ] M02a.11 ∂ Le théorème fondamental : la dérivée d'une aire ★★ 25 min (complet)
+- [ ] M02a.12 ∂ Encadrer une aire par des rectangles : pourquoi les sommes de Riemann convergent (fonction croissante) ★★ 25 min (complet)
+- [ ] M02a.13 🔗 L'aire sous une courbe ROC donnée par une formule ★★ 20 min
+- [ ] M02a.14 📖 MML §6.2 (la partie continue) : densité et fonction de répartition, en anglais ★★ 25 min (complet)
+- [ ] M02a.15 🗣️ Expliquer pourquoi P(X = a) = 0 pour une variable continue ★ 10 min
+- [ ] M02a.E1 💼 Chaque valeur a une probabilité nulle : comment dire qu'une valeur est plus probable qu'une autre ? ★ 10 min
+- [ ] M02a.16 🔨 Rectangles et trapèzes ★ 20 min
+- [ ] M02a.17 🔨 La méthode de Simpson ★★ 15 min (complet)
+- [ ] M02a.18 🔨 De la densité à la fonction de répartition, puis au quantile par dichotomie ★★ 25 min
+- [ ] M02a.19 📦 Vérifier avec `scipy.integrate.quad` et SymPy ★ 15 min
+- [ ] M02a.20 🔮 Prédire : le pas divisé par 2, l'erreur divisée par combien ? ★ 10 min
+- [ ] M02a.21 🔬 L'intégrale de Gauss par le calcul : la borne qui s'éloigne ★★ 20 min (complet)
+- [ ] M02a.22 🎨 L'aire qui se remplit : la courbe, les rectangles et la primitive ★ 20 min
+- [ ] M02a.23 🐛 Chasse à l'erreur : bornes inversées, primitive fausse, aire négative ★ 15 min (complet)
+- [ ] M02a.24 🛠️ Vérifier une primitive avec SymPy : dériver le résultat ★ 10 min (complet)
+- [ ] M02a.25 🏆 Défi : la meilleure précision avec dix évaluations de la fonction ★★★ 30 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (22 cartes)
+<!-- wbm:end M02a -->

@@ -13,7 +13,7 @@ La partie 0 est complète : R0, POS, R1 à R9 et CP0. L'apprenant enchaîne avec
 | Partie | Chapitres | Statut |
 |---|---|---|
 | 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | ✅ tout publié (R0, POS, R1 à R9, CP0) |
-| I · Fondations | M02a à M06, CP1 | 📅 détaillé (syllabus, session 16) : à générer, M02a d'abord |
+| I · Fondations | M02a à M06, CP1 | 🛠️ M02a écrit, vérification indépendante en cours (session 17) ; M02b à CP1 détaillés, à générer |
 | II · Concepts | M07 à M11, CP2 | 📅 planifié |
 | III · ML classique | M12a à M14, CP3 | 📅 planifié |
 | IV · Réseaux | M16 à M20, CP4 | 📅 planifié |

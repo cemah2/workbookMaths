@@ -56,7 +56,7 @@ CHAPTERS = [
             ("M02a.Q3", "🧠", 1, 4, "Quelle méthode de calcul pour quelle intégrale ?", "§3", ""),
             ("M02a.Q4", "🧠", 1, 4, "Converge ou diverge ?", "§4", "E"),
             ("M02a.Q5", "🧠", 1, 4, "Rectangles, trapèzes, Simpson", "§5", "E"),
-            ("M02a.Q6", "🧠", 1, 4, "Une densité peut-elle dépasser 1 ?", "§6", "E"),
+            ("M02a.Q6", "🧠", 1, 4, "Densité et probabilité : vrai ou faux", "§6", "E"),
             ("M02a.Q7", "🧠", 1, 4, "Lire une fonction de répartition", "§7", "E"),
             ("M02a.R1", "🔁", 1, 5, "Dériver une composée (R7)", "§2", "E"),
             ("M02a.R2", "🔁", 1, 5, "Sommes Σ (R4)", "§1", "E"),
@@ -79,7 +79,8 @@ CHAPTERS = [
             ("M02a.14", "📖", 2, 25, "MML §6.2 (la partie continue) : densité et fonction de répartition, en anglais",
              "§6 §7", ""),
             ("M02a.15", "🗣️", 1, 10, "Expliquer pourquoi P(X = a) = 0 pour une variable continue", "§6", "E"),
-            ("M02a.E1", "💼", 1, 10, "Une densité de probabilité peut-elle valoir plus que 1 ?", "§6", "E"),
+            ("M02a.E1", "💼", 1, 10, "Chaque valeur a une probabilité nulle : comment dire qu'une valeur est plus "
+             "probable qu'une autre ?", "§6", "E"),
             ("M02a.16", "🔨", 1, 20, "Rectangles et trapèzes", "§1 §5", "E m:riemann_sum,trapezoid"),
             ("M02a.17", "🔨", 2, 15, "La méthode de Simpson", "§5", "m:simpson p:M02a.16"),
             ("M02a.18", "🔨", 2, 25, "De la densité à la fonction de répartition, puis au quantile par dichotomie",
