@@ -298,6 +298,18 @@ def _norm_array(arr, decimals: int) -> str:
     return f"shape=({shape});{body}"
 
 
+_NUMERIC_TEXT = re.compile(r"[+-]?\d+(?:[.,]\d+)?")
+
+
+def _numeric_text(text: str) -> float | int | None:
+    """The number written in ``text`` ("3", "−2", "5,5"), or None."""
+    cleaned = text.strip().replace("−", "-").replace(" ", "")
+    if not _NUMERIC_TEXT.fullmatch(cleaned):
+        return None
+    cleaned = cleaned.replace(",", ".")
+    return float(cleaned) if "." in cleaned else int(cleaned)
+
+
 def _norm_set(value, decimals: int | None) -> str:
     value = _deep_to_python(value)
     if isinstance(value, (str, bytes)) or isinstance(value, numbers.Number):
@@ -310,9 +322,18 @@ def _norm_set(value, decimals: int | None) -> str:
     for item in elements:
         item = _to_python(item)
         if isinstance(item, str):
-            items.append("s:" + _norm_str(item))
-        elif isinstance(item, numbers.Real):
-            items.append("n:" + _fmt_float(item, decimals or 0))
+            number = _numeric_text(item)   # "2", "-3", "5,5": a number typed between quotes
+            if number is None:
+                items.append("s:" + _norm_str(item))
+                continue
+            item = number
+        if isinstance(item, numbers.Real):
+            x = float(item)
+            if decimals is None and math.isfinite(x) and x != round(x):
+                # a set of integers: 2.4 must not be rounded to 2 (it is another value)
+                items.append("n:" + repr(x))
+            else:
+                items.append("n:" + _fmt_float(item, decimals or 0))
         else:
             raise NormalizationError("un ensemble de nombres ou de chaînes")
     return "{" + ",".join(sorted(set(items))) + "}"

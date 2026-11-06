@@ -145,3 +145,26 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] R0.9 🔨 Ta première fonction : la moyenne (`mean`) ★ 25 min
 - [ ] Flashcards du chapitre importées dans Anki (10 cartes)
 <!-- wbm:end R0 -->
+
+<!-- wbm:section POS -->
+## POS · Test de positionnement ⏱️ 2,1 h
+
+- [ ] POS.1 ✏️ Calculer avec des priorités et des fractions ★ 6 min
+- [ ] POS.2 ✏️ Puissances, racines et notation scientifique ★ 6 min
+- [ ] POS.3 ✏️ Développer, factoriser, résoudre une équation et une inéquation ★ 7 min
+- [ ] POS.4 ✏️ Un système de deux équations à deux inconnues ★★ 8 min
+- [ ] POS.5 📈 Lire un graphique de fonction ★ 5 min
+- [ ] POS.6 ✏️ Racines et sommet d'un polynôme du second degré ★★ 8 min
+- [ ] POS.7 ✏️ Sommes avec Σ, somme double et produit avec Π ★ 7 min
+- [ ] POS.8 ✏️ La négation d'une phrase avec « pour tout » ★ 5 min
+- [ ] POS.9 ✏️ Terme et somme d'une suite géométrique ★ 6 min
+- [ ] POS.10 ✏️ Une suite définie par récurrence : premiers termes et limite ★ 6 min
+- [ ] POS.11 ✏️ Propriétés de l'exponentielle et du logarithme ★ 5 min
+- [ ] POS.12 ✏️ Résoudre des équations avec exp et ln ★ 6 min
+- [ ] POS.13 ✏️ Dériver trois fonctions, dont une composée ★ 7 min
+- [ ] POS.14 ✏️ Tangente, variations et une limite ★★ 10 min
+- [ ] POS.15 ✏️ Une probabilité avec un arbre ★ 6 min
+- [ ] POS.16 ✏️ L'espérance et la variance d'une variable aléatoire ★ 6 min
+- [ ] POS.17 ✏️ Distance et produit scalaire dans le plan ★ 6 min
+- [ ] POS.18 ✏️ Cosinus d'un angle et radians ★ 5 min
+<!-- wbm:end POS -->

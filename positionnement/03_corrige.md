@@ -31,9 +31,9 @@
 ## R2 · Calcul littéral et équations
 
 ### POS.3 — Développer, factoriser, résoudre une équation et une inéquation
-**Réponses** : a) `"2*x**2 + 5*x - 12"` · b) `5` · c) `5` · d) `"]-oo ; 2]"`.
+**Réponses** : a) `[2, 5, -12]` · b) `5` · c) `5` · d) `"]-oo ; 2]"`.
 
-- a) $2x \cdot x + 2x \cdot 4 - 3 \cdot x - 3 \cdot 4 = 2x^2 + 8x - 3x - 12 = 2x^2 + 5x - 12$.
+- a) $2x \cdot x + 2x \cdot 4 - 3 \cdot x - 3 \cdot 4 = 2x^2 + 8x - 3x - 12 = 2x^2 + 5x - 12$, d'où $a = 2$, $b = 5$, $c = -12$.
 - b) $(x - a)^2 = x^2 - 2ax + a^2$ ; le double produit $2a = 10$ donne $a = 5$, et $a^2 = 25$ confirme.
 - c) $5x - 2x = 8 + 7$, donc $3x = 15$ et $x = 5$.
 - d) $-3x \geq -6$ ; on divise par $-3$, un nombre **négatif** : l'inégalité se retourne, $x \leq 2$.

@@ -1,10 +1,10 @@
 # PROGRESS : état de la génération de workbookMaths
 
-*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-06, session 3 (R0).*
+*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-06, session 4 (POS).*
 
 ## Prochaine étape
 
-➡️ **Session 4 : POS** (le test de positionnement, juste après R0 : il se répond dans `wbm.check`), puis **R1** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre.
+➡️ **Session 5 : R1** (Nombres et calcul), puis **R2** à **R9** dans l'ordre (une session chacun, deux pour R7) et l'examen blanc **CP0**. Le contrat de chaque chapitre est sa section de `docs/SYLLABUS.md` : exercices, ID, ★, temps, parcours, sections de la fiche, fonctions `mymath` (stubs déjà publiés), sections de workbookIA 0A supposées connues, et **frontières** (exercices de workbookIA à ne pas résoudre). Avant d'écrire : relire le chapitre 0B de workbookIA (lecture seule) pour n'en reprendre ni exemple ni nombre.
 
 Avant la génération de la partie I : **session de syllabus de la partie I** (détailler M02a à M06 et CP1 : exercices, stubs `mymath`, temps, frontières explicites), en tenant compte du calibrage de la partie 0. Rafraîchir d'abord la copie de workbookIA (`python tools/snapshot_workbookia.py <clone> --check`).
 
@@ -12,7 +12,7 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 
 | Partie | Chapitres | Statut |
 |---|---|---|
-| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | R0 ✅ ; le reste 📅 |
+| 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | R0 ✅, POS ✅ ; le reste 📅 |
 | I · Fondations | M02a à M06, CP1 | 📅 planifié |
 | II · Concepts | M07 à M11, CP2 | 📅 planifié |
 | III · ML classique | M12a à M14, CP3 | 📅 planifié |
@@ -38,6 +38,15 @@ Avant la génération de la partie I : **session de syllabus de la partie I** (d
 - R0.8 (🛠️ LaTeX) : drapeau `f:02` ajouté au syllabus (exercice de la feuille de réponses, pas du notebook) ; ID et contenu inchangés.
 - R0.4 : titre changé (« Prédire : 0,5 + 0,25 et dix fois 0,1, exacts ou arrondis ? ») ; le 🔮 portait sur un résultat que la fiche et workbookIA 0A montraient déjà. ID inchangé.
 - R0 : sections de workbookIA 0A supposées connues complétées (§100.2.2 chaînes, §100.3.1 listes).
+- POS : titres changés pour POS.3 (« Développer, factoriser, résoudre une équation et une inéquation »), POS.7 (« Sommes avec Σ, somme double et produit avec Π », 7 min), POS.12 (« Résoudre des équations avec exp et ln ») et POS.14 (« Tangente, variations et une limite », 10 min) ; POS.4b répondu par un numéro (1, 2 ou 3) ; POS.3a par la liste des coefficients ; questions ajoutées POS.7d et POS.14d ; fichiers en plus de la note du syllabus : `README.md` (mode d'emploi) et `03_solutions.ipynb`. ID inchangés.
+
+**À retenir pour R1 à R9** : ne reprendre aucun nombre ni aucune donnée du test de positionnement (sujet : `positionnement/01_sujet.md`) ; en R5, le 🔮 prévu sur une suite uₙ₊₁ = ½uₙ + 1 est proche de POS.10 (vₙ₊₁ = ½vₙ + 3) : changer ses nombres. Les messages génériques de `wbm` hérités de workbookIA parlent parfois ML ou Python (« indice (1,) », « arrondis avec round() », « vérifie-le avec SymPy ») : les adapter à la partie 0 si un chapitre en souffre.
+
+## Session 4 (2026-11-06) : test de positionnement ✅
+
+**Fait** : `positionnement/` : sujet de 18 exercices (deux par chapitre de R1 à R9, 57 questions, ≈ 2 h), figure par `tools/chapters/figures_pos.py`, notebook de vérification et notebook de solutions par `tools/chapters/build_pos.py` (la dernière cellule calcule la grille ; messages des valeurs fausses retenus jusqu'à `FINISHED = True`), corrigé avec « où c'est enseigné » pour chaque exercice, feuille de réponses, grille des verdicts (`05_grille.md` : ce qu'il faut faire quand même pour un chapitre sauté), mode d'emploi. 57 réponses vérifiées dans `answers.json` (86 au total). Test `tests/infra/test_positionnement.py` : aucun exemple d'écriture n'est une réponse.
+
+**Vérification** : comparaison avec workbookIA 0A et 0B (lecture seule), dix questions changées ; relecture à l'aveugle (55 réponses justes, 13 remarques) ; apprenant simulé (scénarios vide, tout juste sous d'autres écritures, réponses fausses typiques ; 16 remarques). Corrigés : exemples qui donnaient des réponses, intervalles ouverts justes refusés, POS.17a qui acceptait ±0,5, forme factorisée acceptée en POS.3a, messages qui guidaient la correction, erreurs de forme comptées fausses ; `wbm` plus indulgent sur l'écriture (BIBLE §24).
 
 ## Session 3 (2026-11-06) : chapitre R0 ✅
 

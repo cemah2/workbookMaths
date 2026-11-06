@@ -145,31 +145,23 @@
       "source": "positionnement/03_solutions.ipynb"
     },
     "POS.3a": {
-      "hash": "4c348919581b2877f962375d27fdac2538944e4d945087ec69ec246becf308d6",
-      "kind": "expr",
-      "mistakes": {
-        "466d13b0438143d03f5ef2c220b9317c35103b0bf9d1efa8fc4dfe70a2fd7907": "réduis les termes en x avec leurs signes",
-        "53ea17de96c0a4a2409a62cf8f8ece1c05efd6f8550912d8f889a9291dd7a882": "le terme constant est le produit des deux nombres, avec son signe"
-      },
-      "points": [
-        [
-          "1/3"
-        ],
-        [
-          "5/7"
-        ],
-        [
-          "6/5"
-        ],
-        [
-          "-2/5"
-        ],
-        [
-          "9/4"
-        ]
+      "decimals": 0,
+      "element_hashes": [
+        "1b52bd4c1a6bfee3989a54a96cc143f45df3f597232f1e4a0918f6d964f0229e",
+        "4997f3399f59f3c0db5aaba56f9787cbb075a2f959f7453268faa7555fad5088",
+        "beeae56b4c7b7d3c743d0843bddbb2ff02a560e5d25932917525d8e520f59d2d"
       ],
-      "variables": [
-        "x"
+      "hash": "f59aa515015c995c34e801922629d0264992d231434c34c4dbd9c16bd6dd1619",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "43568a7f123867fa73818a27e2100b2d1e1e3a27e6eeb1f5e78eb57b1978b9bc": "réduis les termes en x avec leurs signes",
+        "54b3c059ca601e07952adac1690fa31152db5df6fbf515e16293c4376f824d60": "développe chaque terme de la première parenthèse par chaque terme de la seconde",
+        "560bd0497f57207a8a3f036e31acbbf7210c1a2cc9d2ee0bdbc5083eebef95c5": "le terme constant est le produit des deux nombres, avec son signe",
+        "67e7b576bae943188aba1006f881b9228e5fe1433eec2e73168e3a4bc8612e07": "l'ordre demandé est [a, b, c], du terme en x² au terme constant"
+      },
+      "shape": [
+        3
       ],
       "source": "positionnement/03_solutions.ipynb"
     },
@@ -283,7 +275,8 @@
       "hash": "346d2ea90f1ce4482c40c0dc75d6e3e6f9bf8700babbfebea7df35e884e3ae8a",
       "kind": "set",
       "mistakes": {
-        "065cbf5216864de8e2cd9fd60bd6ce343b28031b4ae1f1b2c43704401e8da9e5": "vérifie chaque racine en la remplaçant dans p(x)"
+        "065cbf5216864de8e2cd9fd60bd6ce343b28031b4ae1f1b2c43704401e8da9e5": "vérifie chaque racine en la remplaçant dans p(x)",
+        "607a0ae30ef9055d3a0ceccfdf54c198d7b76b50f6fa97a224273a7671d503a6": "le dénominateur de la formule des racines est 2a"
       },
       "source": "positionnement/03_solutions.ipynb"
     },
@@ -408,6 +401,7 @@
       "hash": "94703a70ec1e8a5c03c0cbe4758a6162131bde00ecb3679938819419c9d0ab2e",
       "kind": "array",
       "mistakes": {
+        "0cbcfe9bb09752a393df41ae497d63182af53334584eb4a2a89c4fd266d2ff86": "on demande v1, v2 et v3 : v0 n'en fait pas partie",
         "a732269a53b3668cdee5aee1bfa2fad40c5328660c110ba381d16695e73d925d": "chaque terme se calcule à partir du précédent : moitié, puis plus 3"
       },
       "shape": [
@@ -711,14 +705,13 @@
       "source": "positionnement/03_solutions.ipynb"
     },
     "POS.17a": {
-      "decimals": 0,
-      "hash": "8c43e1425615bd5741dd3261808d57173ac6fc5e630ca20fa81f16f8aa04a706",
-      "kind": "float",
+      "hash": "4e6d2f47f5b604929472bf6ed477e81ac51fdd38844c57498412cfcc2fdce681",
+      "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "48ca8822b27dca82ab017b647d9f6c26ecd4db6f570e36a0e2474d90d7817c5a": "la distance est la racine de la somme des carrés des écarts",
-        "53dfdb3b24991f4fccd366b96939635448d37da1eb76275dd95b76a02283441d": "n'oublie pas la racine carrée",
-        "8dc37c440591239613a15a703fbf4ca01f02c5215aafc69747e54f48526ae1e6": "attention au signe : soustraire une ordonnée négative revient à ajouter"
+        "4995584364512bc7c5370fa7006edb362cb37d48613f8090cd1c599df416edc8": "n'oublie pas la racine carrée",
+        "921bd2e9c36c02044a9edd5108298bae92b5fb33a408b6762fa7181df5dd7f2a": "la distance est la racine de la somme des carrés des écarts",
+        "9ec4d619e287efde8e40660b8cc22b933f45455313ad88f3d38515f54c7579a5": "attention au signe : soustraire une ordonnée négative revient à ajouter"
       },
       "sign": 1,
       "source": "positionnement/03_solutions.ipynb"

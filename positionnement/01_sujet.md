@@ -42,7 +42,7 @@ Donne les fractions sous forme **irréductible**.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | développe et réduis $(2x - 3)(x + 4)$ | une expression |
+| a | développe et réduis $(2x - 3)(x + 4)$ sous la forme $ax^2 + bx + c$ | la liste `[a, b, c]` |
 | b | $x^2 - 10x + 25 = (x - a)^2$ : donne $a$ | un nombre |
 | c | résous $5x - 7 = 2x + 8$ | un nombre |
 | d | résous $-3x + 6 \geq 0$ | un intervalle |

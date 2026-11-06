@@ -179,3 +179,47 @@ def test_record_refuses_math_options_without_a_math_kind():
 
 def test_infer_kind_of_a_fraction():
     assert checker.infer_kind(Fraction(1, 3)) == "fraction"
+
+
+# ------------------------------------------------------------------ writings found by the POS learner run (session 4)
+@pytest.mark.parametrize("value", [(0, 75), (-0, 5)])
+def test_fraction_a_decimal_comma_without_quotes_is_named(value):
+    entry = entry_of("F.6", Fraction(3, 4), kind="fraction")
+    passed, status, message = verdict("F.6", entry, value)
+    assert not passed and status == "type" and "avec un point" in message and "(0, 5)" in message, message
+
+
+@pytest.mark.parametrize("value", ["sqrt(3)/2", "√3/2", "pi/4"])
+def test_fraction_an_irrational_value_is_a_wrong_value_not_a_wrong_form(value):
+    entry = entry_of("F.7", Fraction(1, 2), kind="fraction")
+    passed, status, message = verdict("F.7", entry, value)
+    assert not passed and status == "wrong" and "rationnel" in message, message
+
+
+def test_fraction_an_exact_rational_expression_is_read():
+    entry = entry_of("F.8", Fraction(3, 4), kind="fraction")
+    assert verdict("F.8", entry, "(1 + 2)/4")[0]
+
+
+@pytest.mark.parametrize("value", ["10x⁴ - 6x", "10*x**4 - 6*x", "f'(x) = 10x^4 - 6x", "y = 10x^4 - 6x",
+                                   "10 x⁴ − 6 x"])
+def test_expr_superscripts_and_a_name_prefix(value):
+    entry = entry_of("X.20", "10*x**4 - 6*x", kind="expr", variables=("x",))
+    assert verdict("X.20", entry, value)[0], value
+
+
+@pytest.mark.parametrize("value", ["ln5", "Ln(5)", "LN 5", "log(5)"])
+def test_expr_function_names_without_parentheses_or_in_capitals(value):
+    entry = entry_of("X.21", "ln(5)", kind="expr", variables=("x",))
+    assert verdict("X.21", entry, value)[0], value
+
+
+def test_expr_superscript_with_several_digits_and_a_minus():
+    entry = entry_of("X.22", "x**10 + x**(-1)", kind="expr", variables=("x",))
+    assert verdict("X.22", entry, "x¹⁰ + x⁻¹")[0]
+
+
+@pytest.mark.parametrize("value", ["]-OO ; 2]", "]-Inf ; 2]", "]-INFINI ; 2]"])
+def test_interval_infinity_in_capitals(value):
+    entry = entry_of("I.20", "]-oo ; 2]", kind="interval")
+    assert verdict("I.20", entry, value)[0], value

@@ -30,7 +30,7 @@ Dans n'importe quel notebook où le setup a tourné, crée une cellule et exécu
 !python /content/drive/MyDrive/workbookMaths/tools/start_chapter.py R1
 ```
 
-(`… start_chapter.py 12` prépare tous les chapitres de maths à faire avant le chapitre 12 de workbookIA.) Puis, dans Google Drive, ouvre `workbookMaths/mon_travail/r1_…/03_notebook.ipynb` → clic droit → *Ouvrir avec → Google Colaboratory*. Ce notebook est **ta copie**, enregistrée automatiquement dans ton Drive. Le badge « Open in Colab » d'un notebook, lui, ouvre la version du dépôt sur GitHub : ce que tu y écris n'est pas enregistré.
+(`… start_chapter.py 12` prépare tous les chapitres de maths à faire avant le chapitre 12 de workbookIA.) Puis, dans Google Drive, ouvre `workbookMaths/mon_travail/r1_…/03_notebook.ipynb` → clic droit → *Ouvrir avec → Google Colaboratory*. Ce notebook est **ta copie**, enregistrée automatiquement dans ton Drive. Le badge « Open in Colab » d'un notebook, lui, ouvre la version du dépôt sur GitHub : ce que tu y écris n'est pas enregistré. De même pour le test de positionnement (`start_chapter.py POS`, ta copie : `mon_travail/positionnement/02_notebook.ipynb`) et pour un examen blanc (`start_chapter.py CP1`, ta copie : `mon_travail/checkpoints/partie_1/02_examen_notebook.ipynb`).
 
 La première fois (ou avec `--init`), `start_chapter.py` crée aussi `mon_travail/suivi/` (tableau de bord, journal, auto-évaluation) et `mon_travail/mymath/` (ta librairie).
 

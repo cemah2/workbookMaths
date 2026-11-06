@@ -865,3 +865,11 @@ def test_a_vector_written_with_floats_or_semicolons_is_read_as_its_tuple_text():
     for v in ("(2.5, 1.5)", "(3, 4)"):                   # a wrong vector gets the shape/vector hint, not spelling
         text = message("g.45", e, v)
         assert "vecteur" in text and "orthographe" not in text, (v, text)
+
+
+def test_sets_of_integers_do_not_round_a_decimal_and_read_numbers_in_quotes():
+    e = entry("t.5", [-3, 2], ordered=False)
+    assert passes("t.5", e, [2, -3]) and passes("t.5", e, ["2", "-3"]) and passes("t.5", e, ["2", "−3"])
+    assert not passes("t.5", e, [2.4, -3])
+    e = entry("t.6", [4, 5, 5.5], ordered=False, decimals=1)
+    assert passes("t.6", e, ["4", "5", "5,5"])

@@ -43,11 +43,21 @@ def _hash(ex_id: str, kind: str, normalized: str) -> str:
 
 def _clean_text(text: str) -> str:
     """Typographic signs a French keyboard or a copy-paste produces -> ASCII."""
-    table = {"−": "-", "–": "-", "—": "-", "×": "*", "·": "*", "⋅": "*", "÷": "/", "²": "**2", "³": "**3",
+    table = {"−": "-", "–": "-", "—": "-", "×": "*", "·": "*", "⋅": "*", "÷": "/",
              "√": "sqrt", "∞": "oo", "π": "pi", " ": " ", " ": " "}
     for old, new in table.items():
         text = text.replace(old, new)
+    # x², x⁴, x¹⁰, x⁻¹ -> x**(2), x**(4), x**(10), x**(-1)
+    text = _SUPERSCRIPTS.sub(lambda m: "**(" + m.group().translate(_SUPERSCRIPT_DIGITS) + ")", text)
     return text.strip()
+
+
+_SUPERSCRIPT_DIGITS = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁻", "0123456789-")
+_SUPERSCRIPTS = re.compile(r"⁻?[⁰¹²³⁴⁵⁶⁷⁸⁹]+")
+# "Ln(5)", "LOG(x)" -> lower case; "ln5", "ln2.5" -> "ln(5)", "ln(2.5)"; "f'(x) = ...", "y = ..." -> the right side
+_FUNCTION_CASE = re.compile(r"\b(ln|log|exp|sqrt|sin|cos|tan)\b", re.IGNORECASE)
+_FUNCTION_NUMBER = re.compile(r"\b(ln|log|exp|sqrt)(\d+(?:\.\d+)?)\b")
+_NAME_PREFIX = re.compile(r"\s*[A-Za-z]'*\s*(?:\(\s*[a-z]\s*\))?\s*")
 
 
 # ---------------------------------------------------------------------------
@@ -72,6 +82,9 @@ def _parse_fraction(value) -> tuple[Fraction, bool | None]:
         return value, None
     if isinstance(value, bool):
         raise MathNormalizationError("une fraction comme \"3/4\" (pas un booléen)")
+    if (isinstance(value, tuple) and len(value) == 2
+            and all(isinstance(v, numbers.Integral) and not isinstance(v, bool) for v in value)):
+        raise MathNormalizationError(_DECIMAL_COMMA)
     if isinstance(value, numbers.Integral):
         return Fraction(int(value)), None
     if isinstance(value, numbers.Real):
@@ -96,8 +109,33 @@ def _parse_fraction(value) -> tuple[Fraction, bool | None]:
         if _DECIMAL_TEXT.fullmatch(text):
             decimal = Decimal(text.replace(",", "."))
             return Fraction(decimal), None
+        number = _exact_number(text)
+        if number is not None:
+            if number.is_Rational:
+                return Fraction(int(number.p), int(number.q)), None
+            raise _IrrationalValue()
         raise MathNormalizationError("une fraction écrite comme \"3/4\" ou \"-5/2\" (ou un entier)")
     raise MathNormalizationError("une fraction écrite comme \"3/4\" (texte), ou Fraction(3, 4)")
+
+
+_DECIMAL_COMMA = ("un décimal écrit avec un point : en Python, `0,5` sans guillemets est un couple de deux nombres, "
+                  "`(0, 5)`. Écris `0.5`, ou `\"0,5\"` entre guillemets, ou une fraction entre guillemets")
+
+
+def _exact_number(text: str):
+    """The exact real number written in ``text`` ("sqrt(3)/2", "(1 + 2)/4"...), or None if it is not one."""
+    try:
+        number = parse_expression(text, [])
+    except MathNormalizationError:
+        return None
+    return number if number.is_number and number.is_real else None
+
+
+class _IrrationalValue(MathNormalizationError):
+    """A number typed as text that is not rational ("sqrt(3)/2"): a wrong value, not a wrong form."""
+
+    def __init__(self):
+        super().__init__("une fraction")
 
 
 class _ApproximateValue(MathNormalizationError):
@@ -134,6 +172,10 @@ def parse_expression(value, variables):
         expr = sympy.nsimplify(value) if isinstance(value, float) else sympy.Integer(int(value))
     elif isinstance(value, str):
         text = _clean_text(value)
+        if text.count("=") == 1 and _NAME_PREFIX.fullmatch(text.split("=")[0]):
+            text = text.split("=")[1].strip()   # "f'(x) = 2x", "y = 3x - 1": the expression is on the right
+        text = _FUNCTION_CASE.sub(lambda m: m.group().lower(), text)
+        text = _FUNCTION_NUMBER.sub(r"\1(\2)", text)
         if not text:
             raise MathNormalizationError("une expression, par exemple \"3*x**2 + exp(x)\"")
         local = {name: sympy.Symbol(name) for name in names}
@@ -241,9 +283,9 @@ def _endpoint(text: str):
     import sympy
 
     text = _clean_text(text).replace(" ", "")
-    if text in {"oo", "+oo", "inf", "+inf", "infini", "+infini"}:
+    if text.lower() in {"oo", "+oo", "inf", "+inf", "infini", "+infini"}:
         return sympy.oo
-    if text in {"-oo", "-inf", "-infini"}:
+    if text.lower() in {"-oo", "-inf", "-infini"}:
         return -sympy.oo
     try:
         value = parse_expression(text.replace(",", "."), [])
@@ -438,6 +480,9 @@ def _check_fraction(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
 
     try:
         q, irreducible = _parse_fraction(value)
+    except _IrrationalValue:
+        return False, "wrong", ("Ce n'est pas la bonne valeur : la réponse attendue est une fraction (un nombre "
+                                "rationnel), et ta valeur n'en est pas une. Relis ce que la question demande.")
     except _ApproximateValue as exc:
         if _approximates_answer(ex_id, entry, exc.x, min(_decimals_typed(value) or 12, 12)):
             return False, "near", _APPROXIMATE

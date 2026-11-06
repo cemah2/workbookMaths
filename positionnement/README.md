@@ -23,12 +23,12 @@ Tu peux aussi ne pas le passer et faire R1 à R9 en entier : c'est le parcours p
 4. **Calcule ta grille** : dans la cellule des outils, mets `FINISHED = True`, puis « Tout exécuter ». La dernière cellule affiche, pour chaque chapitre, un score sur 2 et un verdict.
 5. **Lis `05_grille.md`** : pour un chapitre « sauté », il reste quelques exercices à faire (les fonctions de ta librairie `mymath`), et les quiz.
 6. **Lis `03_corrige.md`** pour chaque question ratée : il dit quelle section du chapitre l'enseigne.
-7. **Recopie ta grille** à la fin de ta copie de `04_mes_reponses.md` et dans ton journal (`mon_travail/suivi/journal.md`), coche POS dans ton tableau de bord, puis passe à R1.
+7. **Recopie ta grille** à la fin de ta copie de `04_mes_reponses.md` et dans ton journal (`mon_travail/suivi/journal.md`), coche la case POS de « Ordre de travail commun » dans ton tableau de bord (les cases POS.1 à POS.18 plus bas servent à noter les exercices réussis, si tu le souhaites), puis passe à R1.
 
 ## Les messages du notebook
 
-Chaque cellule affiche ✅ ou un message, comme dans les chapitres. Ici, ne t'en sers pas pour corriger ta réponse et relancer : le test mesure ce que tu savais **sur papier**, et une réponse corrigée grâce au message te ferait sauter un chapitre dont tu as besoin. Les messages te serviront au corrigé, pour comprendre ton erreur.
+Tant que `FINISHED` vaut `False`, chaque question affiche seulement ✅ ou ❌ : le test mesure ce que tu savais **sur papier**, et un message d'erreur pourrait te souffler une correction qui te ferait sauter un chapitre dont tu as besoin. Quand tu mets `FINISHED = True`, les messages s'affichent : ils te serviront au corrigé, pour comprendre tes erreurs.
 
-Une seule exception : quand le message porte sur la **forme** (une virgule au lieu d'un point hors des guillemets, des guillemets oubliés, une expression que `wbm.check` ne sait pas lire), corrige la forme et relance, sans toucher à la valeur que tu avais écrite sur papier.
+Une seule chose s'explique tout de suite, signalée par ⚠️ : un problème de **forme** (une virgule hors des guillemets, une fraction tapée sans guillemets, une expression que `wbm.check` ne sait pas lire). Corrige l'écriture et relance, sans toucher à la valeur que tu avais écrite sur papier. Une erreur rouge (`SyntaxError`, `NameError`) qui arrête le notebook vient aussi de la forme : il manque sans doute des guillemets autour d'une expression ou d'une fraction.
 
 Si tu refais le test plus tard (après avoir travaillé un chapitre, par exemple), garde ta première grille : c'est elle qui mesure ce qui te restait du lycée.
