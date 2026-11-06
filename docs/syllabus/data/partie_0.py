@@ -196,7 +196,7 @@ CHAPTERS = [
             ("R1.24", "🔨", 1, 30, "Évolutions successives et moyenne pondérée", "§7 §8",
              "E m:successive_changes,weighted_mean"),
             ("R1.25", "📦", 1, 10, "Calculer exactement avec `fractions.Fraction`", "§3", "E"),
-            ("R1.26", "🔮", 1, 10, "Prédire : que donnent `round(2.5)` et `round(3.5)` en Python ?", "§6", ""),
+            ("R1.26", "🔮", 1, 10, "Prédire : arrondir deux fois, est-ce arrondir une fois ?", "§6", ""),
             ("R1.27", "🔬", 2, 20, "Après n hausses de 10 % : tracer et comparer à une hausse de 10n %", "§7", ""),
             ("R1.28", "🐛", 1, 15, "Chasse à l'erreur : cinq calculs de fractions et de puissances", "§3 §4", "E"),
             ("R1.29", "🐛", 1, 10, "Chasse à l'erreur : `-3**2` et les parenthèses", "§2", "E"),
