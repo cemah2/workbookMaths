@@ -214,3 +214,48 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] R1.31 🛠️ Écrire la docstring d'une fonction (format NumPy) ★ 15 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (25 cartes)
 <!-- wbm:end R1 -->
+
+<!-- wbm:section R2 -->
+## R2 · Calcul littéral et équations ⏱️ 13,6 h
+
+- [ ] R2.Q1 🧠 Variables et substitution ★ 4 min
+- [ ] R2.Q2 🧠 Développer ou factoriser ? ★ 4 min
+- [ ] R2.Q3 🧠 Identités remarquables : vrai ou faux ★ 4 min
+- [ ] R2.Q4 🧠 Équations : quelles opérations sont permises ? ★ 4 min
+- [ ] R2.Q5 🧠 Inéquations : quand le sens change ★ 4 min
+- [ ] R2.Q6 🧠 Valeur absolue et distance ★ 4 min (complet)
+- [ ] R2.Q7 🧠 Une, aucune ou une infinité de solutions ? ★ 4 min
+- [ ] R2.Q8 🧠 Quelle équation pour ce problème ? ★ 4 min (complet)
+- [ ] R2.R1 🔁 Fractions et puissances (R1) ★ 5 min
+- [ ] R2.R2 🔁 Pourcentages et coefficients multiplicateurs (R1) ★ 5 min (complet)
+- [ ] R2.R3 🔁 Saisir un intervalle et une expression (R0) ★ 5 min (complet)
+- [ ] R2.1 ✏️ Substituer et réduire ★ 10 min
+- [ ] R2.2 ✏️ Développer ★ 15 min
+- [ ] R2.3 ✏️ Factoriser par un facteur commun ★★ 15 min
+- [ ] R2.4 ✏️ Identités remarquables dans les deux sens ★★ 20 min
+- [ ] R2.5 ✏️ Équations du premier degré ★ 15 min
+- [ ] R2.6 ✏️ Équations produit nul et équations avec des fractions ★★ 20 min
+- [ ] R2.7 ✏️ Inéquations et intervalles ★ 15 min
+- [ ] R2.8 ✏️ Réunion et intersection d'intervalles ★★ 15 min (complet)
+- [ ] R2.9 ✏️ Équations et inéquations avec une valeur absolue, et la fonction signe ★★ 20 min
+- [ ] R2.10 ✏️ Système 2 × 2 par substitution et par combinaison ★★ 20 min
+- [ ] R2.11 ✏️ Système 2 × 2 par la formule de Cramer ★★ 15 min
+- [ ] R2.12 ✏️ Mettre en équation : trois problèmes ★★ 25 min
+- [ ] R2.13 ∂ Démontrer les identités remarquables ★★ 20 min
+- [ ] R2.14 ∂ Pourquoi multiplier par un nombre négatif retourne l'inégalité ★★ 20 min (complet)
+- [ ] R2.15 ∂ Quand un système 2 × 2 a-t-il une seule solution ? ★★★ 40 min (complet)
+- [ ] R2.16 🔗 Deux mesures, deux inconnues : retrouver a et b dans y = ax + b par un système ★★ 20 min
+- [ ] R2.17 🗣️ Expliquer ce que veut dire « résoudre une équation » ★ 10 min
+- [ ] R2.18 🔨 Résoudre ax + b = 0 dans tous les cas ★ 25 min
+- [ ] R2.19 🔨 Résoudre ax + b ≤ 0 et rendre l'intervalle des solutions ★★ 40 min (complet)
+- [ ] R2.20 🔨 Résoudre |x − a| = c ★★ 30 min (complet)
+- [ ] R2.21 🔨 Système 2 × 2 par la formule de Cramer ★★ 40 min
+- [ ] R2.22 📦 Vérifier développements et factorisations avec SymPy ★ 15 min
+- [ ] R2.23 📦 Résoudre avec `sympy.solve` et lire son résultat ★ 15 min (complet)
+- [ ] R2.24 🔮 Prédire le nombre de solutions de trois systèmes, puis tracer leurs droites ★ 15 min
+- [ ] R2.25 🔬 Expérience : un système presque dégénéré, un coefficient bouge de 0,001 et la solution s'envole ★★ 20 min (complet)
+- [ ] R2.26 🎨 Un système, deux droites : voir la solution ★★ 20 min
+- [ ] R2.27 🐛 Chasse à l'erreur : six erreurs de calcul littéral ★★ 20 min
+- [ ] R2.28 🛠️ Écrire un test pytest pour une fonction qui résout une équation ★ 15 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (25 cartes)
+<!-- wbm:end R2 -->
