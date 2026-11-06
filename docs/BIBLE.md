@@ -132,7 +132,7 @@ Les durées sont des estimations (lecture, exercices, flashcards) ; le syllabus 
 | R0 | Prise en main | le notebook du dépôt, `wbm.check`, Python comme calculatrice, SymPy, écrire une formule en LaTeX | `_example` | 3 |
 | POS | Test de positionnement | juste après R0 : deux exercices par chapitre de R1 à R9, et une grille qui dit ce que tu peux sauter | — | 2 |
 | R1 | Nombres et calcul | priorités, fractions, puissances, racines, notation scientifique, ordres de grandeur, arrondis, partie entière, pourcentages, proportionnalité, moyenne et moyenne pondérée, estimations de Fermi | `arith` | 12,7 |
-| R2 | Calcul littéral et équations | développer, factoriser, identités remarquables, équations et inéquations du 1ᵉʳ degré, valeur absolue et fonction signe, systèmes 2 × 2, mettre un problème en équation | `algebra` | 13,5 |
+| R2 | Calcul littéral et équations | développer, factoriser, identités remarquables, équations et inéquations du 1ᵉʳ degré, valeur absolue et fonction signe, systèmes 2 × 2, mettre un problème en équation | `algebra` | 13,6 |
 | R3 | Fonctions | notion de fonction, graphe, lecture graphique, fonctions affines, carré, inverse, racine, polynômes du second degré (forme canonique, discriminant), variations, composition, réciproque | `functions` | 13 |
 | R4 | Logique, ensembles, Σ et Π | propositions, quantificateurs, implication et équivalence, ensembles et intervalles, notations Σ et Π, raisonnements (direct, contraposée, absurde, contre-exemple, récurrence), rédiger une démonstration courte | `logic` | 12,5 |
 | R5 | Suites | suites arithmétiques et géométriques, sommes finies et infinies, limite d'une suite, moyennes mobiles et exponentielles | `sequences` | 9 |

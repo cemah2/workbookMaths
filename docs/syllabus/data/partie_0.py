@@ -210,7 +210,7 @@ CHAPTERS = [
     {
         "id": "R2",
         "dir": "r2_calcul_litteral",
-        "hours": 13.5,
+        "hours": 13.6,
         "generation_sessions": 1,
         "mml": [],
         "summary": "Le calcul avec des lettres : réduire, développer, factoriser, les identités remarquables ; les "
