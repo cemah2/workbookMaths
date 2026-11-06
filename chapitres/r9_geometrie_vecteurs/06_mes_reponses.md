@@ -235,7 +235,7 @@
 - f :
 - g :
 - h :
-- La recette la plus éloignée des crêpes, et l'explication par les ingrédients :
+- La recette la moins semblable aux crêpes, et l'explication par les ingrédients :
 
 ### Ex R9.14 — Un neurone trace une droite : w₁x₁ + w₂x₂ + b = 0
 
@@ -273,7 +273,7 @@
 
 - Angle aigu ou obtus, et comment le savoir dès b) :
 
-### Ex R9.20 — Prédire : multiplier ou décaler deux vecteurs change-t-il leur similarité cosinus ?
+### Ex R9.20 — Prédire : permuter, décaler ou retourner des coordonnées change-t-il la similarité cosinus ?
 
 - Mes prédictions avant l'expérience (et pourquoi), puis l'explication des trois résultats :
 

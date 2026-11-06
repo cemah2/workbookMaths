@@ -851,7 +851,7 @@ CHAPTERS = [
             ("R9.18", "🔨", 1, 15, "La droite qui passe par deux points, et les radians", "§4 §6",
              "m:line_through,deg_to_rad"),
             ("R9.19", "📦", 1, 15, "Les mêmes calculs avec NumPy (`np.linalg.norm`, `@`)", "§3 §5", "E"),
-            ("R9.20", "🔮", 1, 10, "Prédire : multiplier ou décaler deux vecteurs change-t-il leur similarité cosinus ?", "§7", "E"),
+            ("R9.20", "🔮", 1, 10, "Prédire : permuter, décaler ou retourner des coordonnées change-t-il la similarité cosinus ?", "§7", "E"),
             ("R9.21", "🎨", 2, 20, "Dessiner des vecteurs, leur somme et un angle", "§2 §7", "E"),
             ("R9.22", "🔬", 2, 20, "Le cercle trigonométrique : cos et sin d'un angle qui tourne", "§6", ""),
             ("R9.23", "🐛", 1, 15, "Chasse à l'erreur : radians et degrés", "§6", "E"),

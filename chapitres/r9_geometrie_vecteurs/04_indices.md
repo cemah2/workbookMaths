@@ -567,21 +567,21 @@ e : `x @ y / (np.linalg.norm(x) * np.linalg.norm(y))`. Pour f, la distance est l
 
 </details>
 
-### Ex R9.20 — Prédire : multiplier ou décaler deux vecteurs change-t-il leur similarité cosinus ?
+### Ex R9.20 — Prédire : permuter, décaler ou retourner des coordonnées change-t-il la similarité cosinus ?
 
 <details><summary>Indice 1</summary>
 
-Relis « La similarité cosinus » (fiche §7), les règles de calcul du produit scalaire (§5) et les propriétés de la norme (§3).
+Relis « La similarité cosinus » (fiche §7) et le produit scalaire en dimension $n$ (§8).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Écris tes prédictions, même incertaines : l'expérience tranchera. Demande-toi, pour chaque transformation, si elle change la direction des vecteurs.
+Écris tes prédictions, même incertaines : l'expérience tranchera. Écris le produit scalaire et les normes comme des sommes de cinq termes, un par coordonnée.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Pour a et c, écris le numérateur et le dénominateur de la similarité cosinus après la transformation. Pour b, regarde ce que deviennent les coordonnées : toutes positives, et proches les unes des autres ?
+Pour a, l'ordre des termes d'une somme compte-t-il ? Pour c, quels termes changent : ceux des normes, ceux du produit scalaire ? Pour b, regarde ce que deviennent les coordonnées : toutes positives, et proches les unes des autres ?
 
 </details>
 

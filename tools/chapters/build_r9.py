@@ -82,7 +82,8 @@ PAPER = [
     Paper("R9.3", "Normes (euclidienne, avec un aperçu de L1 et L∞) et vecteurs unitaires", [
         ("a", "a number (2 decimals)", "math.sqrt(34)",
          'decimals=2, mistakes={"le carré d\'un nombre négatif est positif : (−3)² = 9": 4, '
-         '"la norme est la racine de la somme des carrés": 34}'),
+         '"la norme est la racine de la somme des carrés": 34, "c\'est la norme L1 ; sans indice, la norme est '
+         'euclidienne": 8, "c\'est la norme L∞ ; sans indice, la norme est euclidienne": 5}'),
         ("b", "a list, in increasing order", "[-3, 3]",
          'mistakes={"t² = 9 a deux solutions, opposées": [3], '
          '"‖(t ; 2)‖² = t² + 4 : la norme vaut √13, donc son carré vaut 13": [-1, 1]}'),
@@ -109,10 +110,17 @@ PAPER = [
         ("b", "a number", "round(5 - (-1.5) * (-2))",
          'mistakes={"p = y_A − m x_A, avec les signes de m et de x_A": 8}'),
         ("c", "a list", "[2, -3]",
-         'mistakes={"un vecteur directeur (1 ; m) : la seconde coordonnée se lit avec le signe de la pente": [2, 3]}'),
+         'mistakes={"un vecteur directeur (1 ; m) : la seconde coordonnée se lit avec le signe de la pente": [2, 3], '
+         '"c\'est bien un vecteur directeur de (AB), mais l\'énoncé demande celui dont la première coordonnée vaut 2": '
+         '[-2, 3], "c\'est bien un vecteur directeur de (AB) ; multiplie-le pour que sa première coordonnée vaille 2": '
+         '[1, -1.5], "c\'est bien un vecteur directeur de (AB) ; divise-le pour que sa première coordonnée vaille 2": '
+         '[4, -6]}'),
         ("d", "a list [a, b, c]", "[3, 2, -4]",
          'mistakes={"vérifie ton équation avec les coordonnées de A et de B : chacune doit donner 0": [3, -2, -4], '
-         '"tout passer du même côté change le signe de p": [3, 2, 4]}'),
+         '"tout passer du même côté change le signe de p": [3, 2, 4], '
+         '"c\'est bien une équation de (AB) ; multiplie-la pour que le coefficient a vaille 3": [1.5, 1, -2], '
+         '"c\'est bien une équation de (AB) ; divise-la pour que le coefficient a vaille 3": [6, 4, -8], '
+         '"c\'est bien une équation de (AB) ; multiplie-la par −1 pour que le coefficient a vaille 3": [-3, -2, 4]}'),
         ("e", "an irreducible fraction, as text", "Fraction(4, 6)",
          F + ', mistakes={"isole y : 6y = 4x + 9": "-2/3", "pour ax + by + c = 0, la pente vaut −a/b, pas −b/a": '
          '"3/2"}'),
@@ -209,7 +217,8 @@ PAPER = [
         ("c", "an integer", "135",
          'mistakes={"le produit scalaire est négatif : l\'angle est obtus": 45}'),
         ("d", "an integer", "150",
-         'mistakes={"le produit scalaire est négatif : l\'angle est obtus": 30}'),
+         'mistakes={"le produit scalaire est négatif : l\'angle est obtus": 30, "l\'angle entre deux vecteurs est '
+         'entre 0° et 180° : c\'est celui que rend arccos": 210}'),
         ("e", "an exact value, as text", "sp.pi",
          XA + ', mistakes={"deux vecteurs de sens contraires font un angle plat, pas nul": "0"}'),
         ("f", "a number (1 decimal)", "math.degrees(math.acos(4 / (4 * math.sqrt(10))))",
@@ -270,7 +279,8 @@ PAPER = [
         ("e", "a list", "[3, -1]",
          'mistakes={"c\'est la direction de w, un vecteur normal ; un vecteur directeur de ax + by + c = 0 est '
          '(−b ; a)": [3, 9], "vérifie : en te déplaçant de ce vecteur à partir d\'un point de la frontière, z doit '
-         'rester nul": [3, 1]}'),
+         'rester nul": [3, 1], "c\'est bien un vecteur directeur, mais l\'énoncé demande celui dont la première '
+         'coordonnée vaut 3": [-3, 1], "c\'est bien un vecteur directeur ; ramène sa première coordonnée à 3": [-6, 2]}'),
         ("f", "True or False", "True",
          'mistakes={"calcule le produit scalaire de w et du vecteur directeur": False}'),
         ("g", "a list", "[12, 0]",
@@ -603,26 +613,28 @@ wbm.record("R9.19g", math.degrees(math.acos(-4 / (5 * math.sqrt(11.25)))), decim
 # ---------------------------------------------------------------------------
 R9_20_EXPERIMENT = '''u = np.array([3, -1, 4, 1, -5])
 v = np.array([2, 2, -1, 3, 0])
+reverse = [4, 3, 2, 1, 0]                  # the coordinates in the reverse order
+flip = np.array([-1, 1, 1, 1, 1])          # the sign of the first coordinate changed
 
 
 def cosine(a, b):
     return float(a @ b / (np.linalg.norm(a) * np.linalg.norm(b)))
 
 
-print("   cos(u, v)           =", round(cosine(u, v), 4))
-print("a) cos(u, 2v)          =", round(cosine(u, 2 * v), 4))
-print("b) cos(u + 10, v + 10) =", round(cosine(u + 10, v + 10), 4))
-print("c) cos(-u, -v)         =", round(cosine(-u, -v), 4))'''
+print("   cos(u, v)                   =", round(cosine(u, v), 4))
+print("a) cos(u[reverse], v[reverse]) =", round(cosine(u[reverse], v[reverse]), 4))
+print("b) cos(u + 10, v + 10)         =", round(cosine(u + 10, v + 10), 4))
+print("c) cos(flip * u, v)            =", round(cosine(flip * u, v), 4))'''
 
 R9_20 = Ex(
-    "R9.20", "🔮", 1, 10, "Prédire : multiplier ou décaler deux vecteurs change-t-il leur similarité cosinus ?",
-    "prévoir l'effet d'une multiplication par un nombre, d'un changement de signe et d'un décalage de toutes les "
-    "coordonnées sur la similarité cosinus.",
+    "R9.20", "🔮", 1, 10, "Prédire : permuter, décaler ou retourner des coordonnées change-t-il la similarité cosinus ?",
+    "prévoir l'effet d'un changement d'ordre des coordonnées, d'un décalage de toutes les coordonnées et d'un changement "
+    "de signe d'une seule coordonnée sur la similarité cosinus.",
     "fiche §5, §7 et §8", tracks="C, E", hypothesis=True,
     body="""Les vecteurs $\\mathbf{u} = (3, -1, 4, 1, -5)$ et $\\mathbf{v} = (2, 2, -1, 3, 0)$ ont cinq coordonnées, et une similarité cosinus proche de 0. **Avant d'exécuter quoi que ce soit**, prédis :
-- a) la similarité cosinus de $\\mathbf{u}$ et $2\\mathbf{v}$, comparée à celle de $\\mathbf{u}$ et $\\mathbf{v}$ : (1) deux fois plus petite ; (2) la même ; (3) deux fois plus grande ;
+- a) la similarité cosinus des deux vecteurs obtenus en écrivant les coordonnées de $\\mathbf{u}$ et celles de $\\mathbf{v}$ dans l'ordre inverse, $(-5, 1, 4, -1, 3)$ et $(0, 3, -1, 2, 2)$ : (1) l'opposée ; (2) la même ; (3) une autre valeur ;
 - b) la similarité cosinus des deux vecteurs obtenus en ajoutant 10 à **chaque** coordonnée de $\\mathbf{u}$ et de $\\mathbf{v}$ : (1) plus petite ; (2) la même ; (3) plus proche de 1 ;
-- c) la similarité cosinus de $-\\mathbf{u}$ et $-\\mathbf{v}$ : (1) l'opposée ; (2) la même ; (3) 0.
+- c) la similarité cosinus de $(-3, -1, 4, 1, -5)$, où seule la **première** coordonnée de $\\mathbf{u}$ a changé de signe, et de $\\mathbf{v}$ : (1) l'opposée ; (2) la même ; (3) une autre valeur.
 
 Réponds par le numéro du choix : 1, 2 ou 3. Écris tes trois prédictions, vérifie-les, puis lance l'expérience, qui calcule ces similarités avec NumPy.""",
     todo='''prediction_R9_20a = ...  # a) 1, 2 or 3, written BEFORE running the experiment below
@@ -632,25 +644,25 @@ prediction_R9_20c = ...  # c) 1, 2 or 3''',
     wbm.check(f"R9.20{letter}", prediction)''',
     record='''wbm.record("R9.20a", 2, prediction=True, choices=[1, 2, 3])
 wbm.record("R9.20b", 3, prediction=True, choices=[1, 2, 3])
-wbm.record("R9.20c", 2, prediction=True, choices=[1, 2, 3])''',
+wbm.record("R9.20c", 3, prediction=True, choices=[1, 2, 3])''',
     after=[
         ("md", "**L'expérience.** Elle ne s'exécute qu'une fois tes trois prédictions écrites."),
         ("todo", guarded(R9_20_EXPERIMENT, ["prediction_R9_20a", "prediction_R9_20b", "prediction_R9_20c"],
                          "⏳ Écris d'abord tes trois prédictions, puis exécute à nouveau.")),
         ("solution", R9_20_EXPERIMENT),
-        ("md", "**Après l'expérience**, dans ta copie : explique a) et c) avec les formules "
-               "$(k\\mathbf{u}) \\cdot \\mathbf{v} = k\\,(\\mathbf{u} \\cdot \\mathbf{v})$ et "
-               "$\\lVert k\\mathbf{v} \\rVert = \\lvert k \\rvert\\,\\lVert \\mathbf{v} \\rVert$. Pour b), "
-               "compare les directions de $\\mathbf{u} + 10$ et de $\\mathbf{v} + 10$ à celle du vecteur "
-               "$(1, 1, 1, 1, 1)$ : pourquoi ajouter un même nombre très grand à toutes les coordonnées rapprocherait-il "
-               "la similarité cosinus de 1 ?"),
+        ("md", "**Après l'expérience**, dans ta copie : explique a) et c) en écrivant le produit scalaire et les normes "
+               "comme des sommes de cinq termes : lesquels changent ? Que faudrait-il changer dans $\\mathbf{u}$ pour "
+               "obtenir l'opposée de la similarité ? Pour b), compare les directions de $\\mathbf{u} + 10$ et de "
+               "$\\mathbf{v} + 10$ à celle du vecteur $(1, 1, 1, 1, 1)$ : pourquoi ajouter un même nombre très grand à "
+               "toutes les coordonnées rapprocherait-il la similarité cosinus de 1 ?"),
     ],
-    note="Multiplier un des vecteurs par un nombre $k > 0$ multiplie le produit scalaire et une des normes par $k$ : "
-         "le quotient ne change pas. Changer le signe des deux vecteurs ne change ni le produit scalaire, "
-         "$(-\\mathbf{u}) \\cdot (-\\mathbf{v}) = \\mathbf{u} \\cdot \\mathbf{v}$, ni les normes. Ajouter 10 à "
-         "chaque coordonnée, en revanche, change les directions : les deux vecteurs penchent vers celle de "
-         "$(1, 1, 1, 1, 1)$, et leur similarité cosinus passe d'environ 0,10 à environ 0,95. La similarité cosinus "
-         "ignore la longueur, mais pas un décalage.",
+    note="Changer l'ordre des coordonnées, le même pour les deux vecteurs, change seulement l'ordre des termes des "
+         "sommes : le produit scalaire et les normes ne bougent pas, la similarité non plus. Changer le signe d'une "
+         "seule coordonnée de $\\mathbf{u}$ ne change pas les normes, mais un seul terme du produit scalaire change de "
+         "signe ($3 \\times 2$ devient $-3 \\times 2$) : la similarité passe d'environ 0,10 à environ $-0{,}29$, ni la "
+         "même ni l'opposée (pour l'opposée, il faut changer le signe de **toutes** les coordonnées de $\\mathbf{u}$). "
+         "Ajouter 10 à chaque coordonnée change les directions : les deux vecteurs penchent vers celle de "
+         "$(1, 1, 1, 1, 1)$, et leur similarité monte à environ 0,95.",
 )
 
 R9_21_CHECK = '''with checked("R9.21 vérifications"):
@@ -787,7 +799,7 @@ print("a)", close_to_1, " b)", first_sin_above, " c)", argmax_sin, " d)", round(
     record='''wbm.record("R9.22a", True, mistakes={"compare la plus grande valeur de |cos² + sin² − 1| à 1e-12": False})
 wbm.record("R9.22b", 45.5, decimals=1,
            mistakes={"np.sin et np.cos attendent des radians : convertis les degrés avec np.radians": 1.5,
-                     "c'est la position dans le tableau ; l'angle est degrees[position]": 45,
+                     "45 n'est pas dans la grille degrees (0,5°, 1,5°, …) : donne l'angle de la grille, degrees[position]": 45,
                      "c'est le premier angle où cos θ > sin θ : relis le sens de la comparaison": 0.5})
 wbm.record("R9.22c", 90, mistakes={"np.sin attend des radians : convertis les degrés avec np.radians": 322})
 wbm.record("R9.22d", (math.sin(1 + 1e-5) - math.sin(1)) / 1e-5, decimals=6,
@@ -834,9 +846,11 @@ R9_23 = Ex(
 
 Questions :
 - a) les lettres des lignes fausses, dans l'ordre alphabétique (un texte) ;
-- b) pour chacune des cinq lignes, de (A) à (E), la valeur exacte de ce que décrit la phrase de son auteur, calculée correctement (une liste de 5 nombres, 4 décimales).
+- b) pour chacune des cinq lignes, de (A) à (E), la bonne valeur de ce que décrit la phrase de son auteur (une liste de 5 nombres, 4 décimales).
 
-Tu peux exécuter les lignes après avoir répondu, pour vérifier. Dans ta copie : pour chaque ligne fausse, quelle règle a été oubliée ?""",
+Tu peux exécuter les lignes après avoir répondu, pour vérifier : une ligne juste peut afficher un résultat comme `59.99999999999999`, un arrondi des flottants (R0), pas une erreur.
+
+Dans ta copie : pour chaque ligne fausse, quelle règle a été oubliée ?""",
     todo='''answer_R9_23a = ...  # a) letters, as text
 answer_R9_23b = ...  # b) a list of 5 values (4 decimals)''',
     check='''wbm.check("R9.23a", answer_R9_23a)
@@ -924,8 +938,8 @@ PART_A = Part("A", "Ta librairie : vecteurs, norme, produit scalaire, angle, dro
               given=TOOLS, exercises=[R9_16, R9_17, R9_18, R9_19])
 
 PART_B = Part("B", "Une prédiction, une figure et une expérience",
-              "Fiche §2, §3, §6 et §7. La similarité cosinus d'un vecteur et de ses multiples, deux vecteurs et leur "
-              "somme en image, puis le cosinus et le sinus sur un tour complet.",
+              "Fiche §2, §6, §7 et §8. Ce qui change, ou non, la similarité cosinus de deux vecteurs, deux vecteurs "
+              "et leur somme en image, puis le cosinus et le sinus sur un tour complet.",
               exercises=[R9_20, R9_21, R9_22])
 
 PART_C = Part("C", "Radians, degrés et flottants",

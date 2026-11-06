@@ -443,9 +443,9 @@ _RADIAN_WORD = re.compile(r"\s*(?:rad|radians?)\s*$", re.IGNORECASE)
 
 def _exact_text(text: str) -> str:
     """An exact number as a learner may type it, made readable: "Pi" and "PI", "math.sqrt(3)", "np.pi", "racine(3)",
-    a final "rad", and LaTeX copied from the answer sheet ("-\\frac{\\sqrt{3}}{2}", "\\pi") (session 14, R9 learner
+    a final "rad", a degree sign ("180°": then read as degrees for an angle), and LaTeX copied from the answer sheet ("-\\frac{\\sqrt{3}}{2}", "\\pi") (session 14, R9 learner
     A1-A3)."""
-    text = text.replace("$", "").replace("\\left", "").replace("\\right", "")
+    text = text.replace("$", "").replace("\\left", "").replace("\\right", "").replace("°", "")
     for _ in range(5):                                    # nested \frac{\sqrt{3}}{2}: the innermost first
         text = _LATEX_SQRT.sub(r"sqrt(\1)", text)
         text = _LATEX_SQRT_TOKEN.sub(r"sqrt(\1)", text)

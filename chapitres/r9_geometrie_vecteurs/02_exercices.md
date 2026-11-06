@@ -321,7 +321,7 @@ Soit $ABC$ un triangle, $a = BC$, $b = CA$, $c = AB$, et $\hat{C}$ l'angle en $C
 1. On suppose d'abord l'angle $\hat{C}$ aigu, et le pied $H$ de la hauteur issue de $A$ situé sur le segment $[BC]$. Dans le triangle rectangle $AHC$, exprime $CH$ et $AH$ à l'aide de $b$ et de $\hat{C}$.
 2. Exprime $BH$ à l'aide de $a$, $b$ et $\cos\hat{C}$, puis applique le théorème de Pythagore dans le triangle $ABH$ et conclus, avec $\cos^2 + \sin^2 = 1$.
 3. On suppose maintenant l'angle $\hat{C}$ obtus : $H$ est sur la droite $(BC)$, au-delà de $C$. Que valent $CH$ et $BH$ ? Montre que la formule reste vraie (pense à $\cos(\pi - \hat{C}) = -\cos\hat{C}$).
-4. Il reste deux cas. Si $\hat{C}$ est droit, $H = C$ : montre que la formule redonne le théorème de Pythagore. Si l'angle $\hat{B}$ est obtus, $H$ est sur la droite $(BC)$, au-delà de $B$ : justifie que $BH = b\cos\hat{C} - a$, puis montre que la formule reste vraie.
+4. Il reste deux cas. Si $\hat{C}$ est droit, $H = C$ : montre que la formule se réduit au théorème de Pythagore, donc qu'elle est vraie dans ce cas. Si l'angle $\hat{B}$ est obtus ($\hat{C}$ est alors aigu), $H$ est sur la droite $(BC)$, au-delà de $B$ : justifie que $BH = b\cos\hat{C} - a$, puis montre que la formule reste vraie.
 5. Un triangle a des côtés de longueurs 5, 7 et 8. Calcule, avec la formule, l'angle opposé au côté de longueur 7 (une valeur exacte).
 
 <a id="reflexion"></a>
@@ -345,7 +345,7 @@ Chaque recette est décrite par le vecteur de ses quantités de farine, de sucre
 | g | parmi $\mathbf{c}$, $\mathbf{q}$ et $\mathbf{p}$, la recette la plus semblable aux sablés au sens de la similarité cosinus | une lettre entre guillemets : c, q ou p |
 | h | l'angle entre $\mathbf{c}$ et $\mathbf{q}$, en degrés | un nombre (1 décimale) |
 
-Dans ta copie : quelle recette est la plus éloignée des crêpes, au sens de la similarité cosinus ? Explique ce résultat en regardant les ingrédients.
+Dans ta copie : quelle recette est la moins semblable aux crêpes, au sens de la similarité cosinus ? Explique ce résultat en regardant les ingrédients.
 
 ### Ex R9.14 — Un neurone trace une droite : w₁x₁ + w₂x₂ + b = 0 🔗 ★ ⏱️ 15 min
 **Objectif :** relier le calcul d'un neurone à deux entrées à une droite du plan et à son vecteur normal.
@@ -386,7 +386,7 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | R9.17 | Produit scalaire et angle · `dot`, `angle_between` | 🔨 | ★ | 20 | C, E |
 | R9.18 | La droite qui passe par deux points, et les radians · `line_through`, `deg_to_rad` | 🔨 | ★ | 15 | C |
 | R9.19 | Les mêmes calculs avec NumPy (`np.linalg.norm`, `@`) | 📦 | ★ | 15 | C, E |
-| R9.20 | Prédire : multiplier ou décaler deux vecteurs change-t-il leur similarité cosinus ? | 🔮 | ★ | 10 | C, E |
+| R9.20 | Prédire : permuter, décaler ou retourner des coordonnées change-t-il la similarité cosinus ? | 🔮 | ★ | 10 | C, E |
 | R9.21 | Dessiner des vecteurs, leur somme et un angle | 🎨 | ★★ | 20 | C, E |
 | R9.22 | Le cercle trigonométrique : cos et sin d'un angle qui tourne | 🔬 | ★★ | 20 | C |
 | R9.23 | Chasse à l'erreur : radians et degrés | 🐛 | ★ | 15 | C, E |

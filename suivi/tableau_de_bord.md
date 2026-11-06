@@ -500,3 +500,43 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] R8.24 🛠️ Reproductibilité : générateur aléatoire et graine ★ 15 min
 - [ ] Flashcards du chapitre importées dans Anki (25 cartes)
 <!-- wbm:end R8 -->
+
+<!-- wbm:section R9 -->
+## R9 · Géométrie du plan, vecteurs et trigonométrie ⏱️ 11,0 h
+
+- [ ] R9.Q1 🧠 Coordonnées et distance ★ 4 min
+- [ ] R9.Q2 🧠 Vecteurs : vrai ou faux ★ 4 min
+- [ ] R9.Q3 🧠 Pente et vecteur directeur ★ 4 min
+- [ ] R9.Q4 🧠 Le signe du produit scalaire ★ 4 min
+- [ ] R9.Q5 🧠 Radians et valeurs remarquables ★ 4 min
+- [ ] R9.Q6 🧠 Le cosinus de deux vecteurs ★ 4 min
+- [ ] R9.Q7 🧠 Combien de composantes ? ★ 4 min (complet)
+- [ ] R9.R1 🔁 Fonctions affines (R3) ★ 5 min
+- [ ] R9.R2 🔁 Racines carrées (R1) ★ 5 min
+- [ ] R9.R3 🔁 Dériver une composée (R7) ★ 5 min (complet)
+- [ ] R9.1 ✏️ Coordonnées et distance ★ 15 min
+- [ ] R9.2 ✏️ Vecteurs : somme, différence, produit par un nombre ★ 15 min
+- [ ] R9.3 ✏️ Normes (euclidienne, avec un aperçu de L1 et L∞) et vecteurs unitaires ★ 15 min
+- [ ] R9.4 ✏️ Équations de droites ★★ 20 min
+- [ ] R9.5 ✏️ Le produit scalaire en coordonnées ★ 15 min
+- [ ] R9.6 ✏️ Orthogonalité et projections simples ★★ 20 min (complet)
+- [ ] R9.7 ✏️ Degrés et radians, cosinus et sinus remarquables ★ 15 min
+- [ ] R9.8 ✏️ Les courbes de cos et de sin : période, symétries, et arccos sur [0, π] ★★ 20 min
+- [ ] R9.9 ✏️ L'angle entre deux vecteurs ★★ 20 min
+- [ ] R9.10 ✏️ Distances et produits scalaires dans ℝ³ et ℝ⁴ ★★ 20 min
+- [ ] R9.11 ∂ Démontrer cos² + sin² = 1 avec Pythagore ★★ 20 min (complet)
+- [ ] R9.12 ∂ La formule d'Al-Kashi par la hauteur du triangle et Pythagore ★★ 35 min (complet)
+- [ ] R9.13 🔗 Deux recettes, deux vecteurs d'ingrédients : la similarité cosinus ★★ 20 min
+- [ ] R9.14 🔗 Un neurone trace une droite : w₁x₁ + w₂x₂ + b = 0 ★ 15 min
+- [ ] R9.15 🗣️ Expliquer ce que mesure un produit scalaire ★ 10 min
+- [ ] R9.16 🔨 Le vecteur entre deux points et sa norme ★ 15 min
+- [ ] R9.17 🔨 Produit scalaire et angle ★ 20 min
+- [ ] R9.18 🔨 La droite qui passe par deux points, et les radians ★ 15 min (complet)
+- [ ] R9.19 📦 Les mêmes calculs avec NumPy (`np.linalg.norm`, `@`) ★ 15 min
+- [ ] R9.20 🔮 Prédire : permuter, décaler ou retourner des coordonnées change-t-il la similarité cosinus ? ★ 10 min
+- [ ] R9.21 🎨 Dessiner des vecteurs, leur somme et un angle ★★ 20 min
+- [ ] R9.22 🔬 Le cercle trigonométrique : cos et sin d'un angle qui tourne ★★ 20 min (complet)
+- [ ] R9.23 🐛 Chasse à l'erreur : radians et degrés ★ 15 min
+- [ ] R9.24 🛠️ Comparer deux flottants : `np.isclose` ★ 10 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (25 cartes)
+<!-- wbm:end R9 -->

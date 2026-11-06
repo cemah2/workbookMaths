@@ -272,7 +272,7 @@ Les règles de calcul se vérifient directement sur les coordonnées :
 
 ### Orthogonalité
 
-Deux vecteurs sont **orthogonaux** (*orthogonal*) quand leurs directions sont perpendiculaires. Pour le reconnaître sur les coordonnées, fais tourner $\vec{u} = (x ; y)$ d'un quart de tour dans le sens inverse des aiguilles d'une montre : le déplacement « $x$ vers la droite, $y$ vers le haut » devient « $x$ vers le haut, $y$ vers la gauche », soit le vecteur $(-y ; x)$. Les vecteurs perpendiculaires à $\vec{u}$ sont donc les multiples $k(-y ; x)$, et leur produit scalaire avec $\vec{u}$ vaut $k(-xy + yx) = 0$. Réciproquement, si $xx' + yy' = 0$, le déterminant de $(x' ; y')$ et $(-y ; x)$ vaut $x'x - (-y)y' = xx' + yy' = 0$ : $(x' ; y')$ est colinéaire à $(-y ; x)$ (§2), donc perpendiculaire à $\vec{u}$. D'où le critère :
+Deux vecteurs sont **orthogonaux** (*orthogonal*) quand leurs directions sont perpendiculaires. Pour le reconnaître sur les coordonnées, fais tourner $\vec{u} = (x ; y)$ d'un quart de tour dans le sens inverse des aiguilles d'une montre : le déplacement « $x$ vers la droite, $y$ vers le haut » devient « $x$ vers le haut, $y$ vers la gauche », soit le vecteur $(-y ; x)$. Les vecteurs perpendiculaires à $\vec{u}$ sont donc les multiples $k(-y ; x)$, et leur produit scalaire avec $\vec{u}$ vaut $k(-xy + yx) = 0$. Réciproquement, pour $\vec{u}$ non nul, si $xx' + yy' = 0$, le déterminant de $(x' ; y')$ et $(-y ; x)$ vaut $x'x - (-y)y' = xx' + yy' = 0$ : $(x' ; y')$ est colinéaire à $(-y ; x)$ (§2), donc perpendiculaire à $\vec{u}$. D'où le critère :
 
 $$\vec{u} \perp \vec{v} \iff \vec{u} \cdot \vec{v} = 0.$$
 
@@ -295,7 +295,7 @@ Pour $\vec{u} \cdot \vec{v} = -10$ : un angle obtus, ce que confirme la figure d
 
 $$\vec{p} = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert^2}\,\vec{u}.$$
 
-C'est le seul multiple de $\vec{u}$ tel que le reste $\vec{v} - \vec{p}$ soit orthogonal à $\vec{u}$ : avec $\vec{p} = k\vec{u}$, la condition $(\vec{v} - k\vec{u}) \cdot \vec{u} = 0$ donne $\vec{u} \cdot \vec{v} - k\,\lVert \vec{u} \rVert^2 = 0$. Sa longueur est $\frac{\lvert \vec{u} \cdot \vec{v} \rvert}{\lVert \vec{u} \rVert}$ ; sans la valeur absolue, $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert}$ est positif quand $\vec{p}$ a le sens de $\vec{u}$ (un angle aigu), négatif sinon.
+C'est le seul multiple de $\vec{u}$ tel que le reste $\vec{v} - \vec{p}$ soit orthogonal à $\vec{u}$ : avec $\vec{p} = k\vec{u}$, la condition $(\vec{v} - k\vec{u}) \cdot \vec{u} = 0$ donne $\vec{u} \cdot \vec{v} - k\,\lVert \vec{u} \rVert^2 = 0$. Sa longueur est $\frac{\lvert \vec{u} \cdot \vec{v} \rvert}{\lVert \vec{u} \rVert}$ ; sans la valeur absolue, $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert}$ est positif quand $\vec{p}$ a le sens de $\vec{u}$ (un angle aigu), négatif pour un angle obtus, nul pour un angle droit.
 
 Exemple : $\vec{u} = (4 ; 2)$ et $\vec{v} = (1 ; 3)$. $\vec{u} \cdot \vec{v} = 4 + 6 = 10$ et $\lVert \vec{u} \rVert^2 = 20$, donc $\vec{p} = \frac{10}{20}(4 ; 2) = (2 ; 1)$. Le reste $\vec{v} - \vec{p} = (-1 ; 2)$ vérifie bien $(-1) \times 4 + 2 \times 2 = 0$.
 

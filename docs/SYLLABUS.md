@@ -889,7 +889,7 @@ La géométrie du plan avec des coordonnées : distances, vecteurs, normes, équ
 | R9.17 | 🔨 | Produit scalaire et angle · `dot, angle_between` | ★ | 20 | §5 §7 | C, E | pytest | R9.16 |
 | R9.18 | 🔨 | La droite qui passe par deux points, et les radians · `line_through, deg_to_rad` | ★ | 15 | §4 §6 | C | pytest | — |
 | R9.19 | 📦 | Les mêmes calculs avec NumPy (`np.linalg.norm`, `@`) | ★ | 15 | §3 §5 | C, E | wbm | — |
-| R9.20 | 🔮 | Prédire : multiplier ou décaler deux vecteurs change-t-il leur similarité cosinus ? | ★ | 10 | §7 | C, E | wbm | — |
+| R9.20 | 🔮 | Prédire : permuter, décaler ou retourner des coordonnées change-t-il la similarité cosinus ? | ★ | 10 | §7 | C, E | wbm | — |
 | R9.21 | 🎨 | Dessiner des vecteurs, leur somme et un angle | ★★ | 20 | §2 §7 | C, E | manuel | — |
 | R9.22 | 🔬 | Le cercle trigonométrique : cos et sin d'un angle qui tourne | ★★ | 20 | §6 | C | wbm | — |
 | R9.23 | 🐛 | Chasse à l'erreur : radians et degrés | ★ | 15 | §6 | C, E | wbm | — |

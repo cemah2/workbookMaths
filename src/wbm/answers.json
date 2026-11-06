@@ -16077,8 +16077,10 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "14bdaa875bd9230c1b454d1afbddc6586051e90e93a1ae3212da105ade906f31": "c'est la norme L∞ ; sans indice, la norme est euclidienne",
         "69f346c82978a562f0c81fc5eccc2551acfdd43a92bdece695b475eb19a49e2e": "le carré d'un nombre négatif est positif : (−3)² = 9",
-        "b8a6f29e5ede770515f10cfca6a6b7af324df46e8c0a15e600ad71b7b25e49d1": "la norme est la racine de la somme des carrés"
+        "b8a6f29e5ede770515f10cfca6a6b7af324df46e8c0a15e600ad71b7b25e49d1": "la norme est la racine de la somme des carrés",
+        "fae3e44fcf2a10bc62fd28e419fdad612269413de9f490be5104969bcf0474f4": "c'est la norme L1 ; sans indice, la norme est euclidienne"
       },
       "sign": 1,
       "source": "chapitres/r9_geometrie_vecteurs/05_solutions.ipynb"
@@ -16248,8 +16250,12 @@
       "hash": "9c7670a04eaa2974a7e84fbfeb5638a21ee17e5887af44d422bed0897f6a75b8",
       "integer": true,
       "kind": "array",
+      "mistake_decimals": 2,
       "mistakes": {
-        "ac08d06d3d7ff2cb1ded86b5b3074e43d1b895477603eff254159691ee204cab": "un vecteur directeur (1 ; m) : la seconde coordonnée se lit avec le signe de la pente"
+        "05287823d0edfd78d849ff689c36c6c13a1ef4cb2a2a31e9160703f3e0cd1f3b": "c'est bien un vecteur directeur de (AB) ; multiplie-le pour que sa première coordonnée vaille 2",
+        "ac08d06d3d7ff2cb1ded86b5b3074e43d1b895477603eff254159691ee204cab": "un vecteur directeur (1 ; m) : la seconde coordonnée se lit avec le signe de la pente",
+        "d02b57aaf151b28dfe3ae24d31c182878425459ef365356b0e7fb70796da4864": "c'est bien un vecteur directeur de (AB) ; divise-le pour que sa première coordonnée vaille 2",
+        "fb9c3f70d70a68ba0b78436ada9985cb9b0be4e34c55907f39a25e71d556b21d": "c'est bien un vecteur directeur de (AB), mais l'énoncé demande celui dont la première coordonnée vaut 2"
       },
       "shape": [
         2
@@ -16266,9 +16272,13 @@
       "hash": "74c0f352b6a227b66d7fa717ef78a39ab4f515a585af5d3fae8796b2ac30b3dd",
       "integer": true,
       "kind": "array",
+      "mistake_decimals": 2,
       "mistakes": {
+        "0b0bd58d1e945ef00ac79d6e820b5da904ca7d15ff12ee2eead535ff5f70afd0": "c'est bien une équation de (AB) ; multiplie-la par −1 pour que le coefficient a vaille 3",
         "141be5e6c65328890a0b6a8478de84192e512a4635386d6b161147bc84ae58b4": "vérifie ton équation avec les coordonnées de A et de B : chacune doit donner 0",
-        "5dd2d29f500f1aaa3862d9d6d0fe6d9faf9ab831b02fbdc86a190d52f4b23455": "tout passer du même côté change le signe de p"
+        "5dd2d29f500f1aaa3862d9d6d0fe6d9faf9ab831b02fbdc86a190d52f4b23455": "tout passer du même côté change le signe de p",
+        "5eacc75854823d891c4a439d03d6637a4fd6aeff20b426ea3f02e8893c356a3b": "c'est bien une équation de (AB) ; divise-la pour que le coefficient a vaille 3",
+        "8c22eba5c35ed3788aeee01782fa25ad1ed629417042fae43d7614fa2b4a6e3f": "c'est bien une équation de (AB) ; multiplie-la pour que le coefficient a vaille 3"
       },
       "shape": [
         3
@@ -16802,6 +16812,7 @@
       "kind": "int",
       "magnitude": 2,
       "mistakes": {
+        "1dd6264c68738490b4dd1f521f8302e8cff77a0781b0430b1b54c0d3deb0df2c": "l'angle entre deux vecteurs est entre 0° et 180° : c'est celui que rend arccos",
         "4fc9cf81118dd5db835da373027e95743d94cf9a421a1cea0b2a5117315fda16": "le produit scalaire est négatif : l'angle est obtus"
       },
       "sign": 1,
@@ -17132,6 +17143,8 @@
       "kind": "array",
       "mistakes": {
         "207678b6e92fc48e057b61aeb4dc0a28c55640cceaab003ab5c8b970cdf00e29": "c'est la direction de w, un vecteur normal ; un vecteur directeur de ax + by + c = 0 est (−b ; a)",
+        "b1bb9d728d31471f4bd93abfecfa16a7980a86c5ca7ee13785d9626145ba1bfe": "c'est bien un vecteur directeur, mais l'énoncé demande celui dont la première coordonnée vaut 3",
+        "c8ea2f9f1556562855ce3bf857c65535adf8f81d76d310f71275575c699c2e7c": "c'est bien un vecteur directeur ; ramène sa première coordonnée à 3",
         "caaf73151c9ac60d86eb8d871ccf55dedd46080db953c5fe9d07eabf49df27fd": "vérifie : en te déplaçant de ce vecteur à partir d'un point de la frontière, z doit rester nul"
       },
       "shape": [
@@ -17796,7 +17809,7 @@
         "2",
         "3"
       ],
-      "hash": "1963af9743433d5f32dc66dcb511b2f956fa01e5da221c3d3cef86a33590619e",
+      "hash": "68ca1a74f73460d2fc901cae3d04d253bc80801ae4e8f7aefc704d4f202fd9d0",
       "kind": "int",
       "magnitude": 0,
       "prediction": true,
@@ -17818,7 +17831,7 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "8802d0c6931ed75927bb45037c3287f94c50ee1c3c36de1f46ec6ac4e7a0a72f": "c'est la position dans le tableau ; l'angle est degrees[position]",
+        "8802d0c6931ed75927bb45037c3287f94c50ee1c3c36de1f46ec6ac4e7a0a72f": "45 n'est pas dans la grille degrees (0,5°, 1,5°, …) : donne l'angle de la grille, degrees[position]",
         "c69c1025a9fc9b108d0048e4093229a60671c2ec8b1fb7336bfb5080eeb30d9b": "np.sin et np.cos attendent des radians : convertis les degrés avec np.radians",
         "d3b427a3e7e5f9a7cee8d6a114ef02fbe07ef779673c69f6148d6c1509141eed": "c'est le premier angle où cos θ > sin θ : relis le sens de la comparaison"
       },
