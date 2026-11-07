@@ -26,14 +26,16 @@ def bayes(mymath_module):
     return mymath_module("bayes")
 
 
-def _result(call, expected):
-    """call(), any error other than NotImplementedError being reported with what was expected first."""
+def _result(call, expected, what="", hint=""):
+    """call(), any error other than NotImplementedError being reported with what was expected first (``what`` names
+    the call, ``hint`` says how to avoid the error)."""
     try:
         return call()
     except NotImplementedError:
         raise                 # a function not written yet: ⏳
     except Exception as exc:  # noqa: BLE001 - the learner's error, after what was expected
-        pytest.fail(f"expected {expected}, but it raised {type(exc).__name__}: {exc}")
+        pytest.fail(f"expected {expected}{' for ' + what if what else ''}, but it raised {type(exc).__name__}: {exc}"
+                    + (f" ({hint})" if hint else ""))
 
 
 def _expect_value_error(call, what, why):
@@ -113,14 +115,16 @@ def test_beta_pdf_at_the_ends(bayes, x, a, b, expected):
 
 def test_beta_pdf_with_large_parameters_does_not_overflow(bayes):
     expected = float(stats.beta(500, 700).pdf(0.42))
-    got = _result(lambda: bayes.beta_pdf(0.42, 500, 700), f"{expected:.10g}")
+    got = _result(lambda: bayes.beta_pdf(0.42, 500, 700), f"{expected:.10g}", "beta_pdf(0.42, 500, 700)",
+                  "Γ(1200) overflows: compute log B(a, b) with math.lgamma and take the exponential at the end")
     assert got == pytest.approx(expected, rel=1e-7), (
         f"expected {expected:.10g} for beta_pdf(0.42, 500, 700), got {got!r}: Γ(1200) overflows, compute log B(a, b) "
         "with math.lgamma and take the exponential at the end")
 
 
 def test_beta_pdf_returns_a_python_float(bayes):
-    _python_float(_result(lambda: bayes.beta_pdf(0.3, 2, 5), "a float"), "beta_pdf(0.3, 2, 5)")
+    for x, a, b in ((0.3, 2, 5), (1.5, 2, 5), (0.0, 3, 2), (1.0, 5, 1)):   # inside, outside, at the ends
+        _python_float(_result(lambda: bayes.beta_pdf(x, a, b), "a float"), f"beta_pdf({x}, {a}, {b})")
 
 
 @pytest.mark.parametrize("a, b", [(0, 2), (2, 0), (-1, 3), (2, -0.5)], ids=["a=0", "b=0", "a<0", "b<0"])
@@ -232,7 +236,9 @@ def test_posterior_predictive_impossible_counts(bayes):
 
 def test_posterior_predictive_with_many_trials_does_not_overflow(bayes):
     expected = float(stats.betabinom(2000, 30, 70).pmf(600))
-    got = _result(lambda: bayes.posterior_predictive(30, 70, 600, 2000), f"{expected:.10g}")
+    got = _result(lambda: bayes.posterior_predictive(30, 70, 600, 2000), f"{expected:.10g}",
+                  "posterior_predictive(30, 70, 600, 2000)",
+                  "Γ(2100) overflows: add the logarithms of C(n, k) and of the B values, then take the exponential")
     assert got == pytest.approx(expected, rel=1e-6), (
         f"expected {expected:.10g} for posterior_predictive(30, 70, 600, 2000), got {got!r}: compute the logarithms "
         "of C(n, k) and of the B values, add them, and take the exponential at the end")

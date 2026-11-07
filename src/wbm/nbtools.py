@@ -72,8 +72,9 @@ _PICKLE_ERRORS = ("Weights only load failed", "invalid load key")   # torch.load
 
 # Common errors of a beginner's code, explained in French (part 0 on): (text of the message, hint)
 _BEGINNER_HINTS = (
-    ("math domain error", "une fonction de math a reçu un nombre hors de son domaine : un négatif pour math.sqrt ou "
-                          "math.log, un nombre hors de [-1, 1] pour math.acos ou math.asin (un cosinus calculé en "
+    ("math domain error", "une fonction de math a reçu un nombre hors de son domaine : un négatif pour math.sqrt, "
+                          "un négatif ou 0 pour math.log, 0 ou un entier négatif pour math.lgamma, un nombre hors de "
+                          "[-1, 1] pour math.acos ou math.asin (un cosinus calculé en "
                           "flottants peut dépasser 1 de très peu) : traite ce cas avant l'appel"),
     ("object is not callable", "une valeur est appelée comme une fonction : une fonction qui doit renvoyer une "
                                "fonction la renvoie-t-elle sans l'appeler (return h, pas return h(x)) ?"),

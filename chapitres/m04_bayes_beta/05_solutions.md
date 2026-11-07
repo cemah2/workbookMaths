@@ -254,14 +254,14 @@ Pour la copie : $F(x) = \int_0^x 9(1 - t)^8\,dt = \big[-(1 - t)^9\big]_0^x = 1 -
 
 ### Ex M04.10 — Log-probabilités : additionner au lieu de multiplier, normaliser par log-sum-exp
 
-**Réponses** : a) `-804.72` · b) `-349.485` · c) `True` · d) `-999.651` · e) `[0.7054, 0.2595, 0.0351]` · f) `[0.501, 0.461, 0.037]`.
+**Réponses** : a) `-804.72` · b) `-349.485` · c) `True` · d) `-999.651` · e) `[0.7054, 0.2595, 0.0351]` · f) `[0.5014, 0.4611, 0.0374]`.
 
 **Démarche.**
 - a) $500\ln 0{,}2 \approx 500 \times (-1{,}60944)$. b) $500\log_{10} 0{,}2 \approx 500 \times (-0{,}69897)$.
 - c) $0{,}2^{500} \approx 10^{-349{,}5}$, bien moins que $5 \times 10^{-324}$ : oui, 0.0 en `float64`.
 - d) $-1000 + \ln(1 + e^{-1} + e^{-3}) = -1000 + \ln 1{,}41767 \approx -1000 + 0{,}349$.
 - e) $\frac{(1 ;\ e^{-1} ;\ e^{-3})}{1{,}41767} = (1 ;\ 0{,}36788 ;\ 0{,}04979) / 1{,}41767$.
-- f) Log-produits : $\ln 0{,}2 - 1000 \approx -1001{,}609$, $\ln 0{,}5 - 1001 \approx -1001{,}693$, $\ln 0{,}3 - 1003 \approx -1004{,}204$ ; moins le maximum : $(0 ;\ -0{,}084 ;\ -2{,}595)$ ; exponentielles : $(1 ;\ 0{,}920 ;\ 0{,}075)$, de somme 1,994 ; d'où $(0{,}501 ;\ 0{,}461 ;\ 0{,}037)$.
+- f) Log-produits : $\ln 0{,}2 - 1000 \approx -1001{,}609$, $\ln 0{,}5 - 1001 \approx -1001{,}693$, $\ln 0{,}3 - 1003 \approx -1004{,}204$ ; moins le maximum : $(0 ;\ -0{,}084 ;\ -2{,}595)$ ; exponentielles : $(1 ;\ 0{,}920 ;\ 0{,}075)$, de somme 1,994 ; d'où $(0{,}5014 ;\ 0{,}4611 ;\ 0{,}0374)$.
 
 Pour la copie : $e^{-1000} \approx 10^{-434}$ vaut 0 en `float64` : le calcul direct normaliserait $\frac{0}{0}$ et donnerait `nan`.
 
@@ -384,7 +384,7 @@ Pour la copie : la différence de deux variables normales indépendantes est nor
 
 **Démarche.** `_check_parameters(a, b)` lève une `ValueError` sauf si `a > 0 and b > 0` (écrit ainsi, il refuse aussi `nan`). `beta_pdf` : `0.0` hors de $[0, 1]$ ; aux bords, le facteur qui rencontre $0^{\text{exposant}}$ décide (0 si l'exposant est positif, `math.inf` s'il est négatif, $\frac{1}{B(1, \cdot)}$ s'il est nul) ; à l'intérieur, `math.exp((a - 1) * math.log(x) + (b - 1) * math.log1p(-x) - log_beta)` avec `log_beta = math.lgamma(a) + math.lgamma(b) - math.lgamma(a + b)`. `beta_moments` : `float(a / (a + b))` et `float(a * b / ((a + b) ** 2 * (a + b + 1)))`. Pour la copie : a) $42 \times 0{,}3 \times 0{,}7^5$ ; c) $\frac{1}{B(1, 6)} = 6$ ; f) $\frac{27}{1872}$ ; e) une loi très concentrée a une densité haute, son aire reste 1.
 
-**Erreurs fréquentes.** `math.gamma` (une `OverflowError` pour e) ; `x ** (a - 1)` en $x = 0$ avec $a < 1$ (`ZeroDivisionError`) ; oublier les bords ou l'extérieur ; renvoyer un `numpy.float64`.
+**Erreurs fréquentes.** `math.gamma` (une `OverflowError` pour e) ; `x ** (a - 1)` en $x = 0$ avec $a < 1$ (`ZeroDivisionError`), ou `math.log(0)` en $x = 1$ ; oublier les bords ou l'extérieur ; renvoyer un `numpy.float64`, ou l'entier `0` hors de $[0, 1]$ (h).
 
 ### Ex M04.19 — Mise à jour conjuguée et loi prédictive des prochains essais · `conjugate_beta_update, posterior_predictive`
 
@@ -422,7 +422,7 @@ Pour la copie : la différence de deux variables normales indépendantes est nor
 
 **Démarche.** `low, high = stats.beta(a + k, b + n - k).ppf([0.025, 0.975])`, puis `float(high - low)`. Pour la copie : multiplier $n$ par 4 divise la largeur par environ 2 (1,82 ; 1,95 ; 1,99 ; 2,00) ; l'écart-type de l'a posteriori est proche de $\sqrt{\frac{0{,}21}{n}}$, et la largeur de $2 \times 1{,}96 \times \sqrt{\frac{0{,}21}{n}}$, d'où e) $\approx 2 \times 1{,}96 \times \sqrt{0{,}21} \approx 1{,}80$. La pente n'est pas exactement $-0{,}5$ : pour $n = 10$, l'approximation normale est grossière et l'a priori pèse encore. g) L'a priori $\mathrm{Beta}(30, 70)$ vaut 100 essais imaginaires.
 
-**Erreurs fréquentes.** Les quantiles 0,05 et 0,95 (un intervalle à 90 %) ; oublier l'a priori ($\mathrm{Beta}(k, n - k)$) ; renvoyer les deux bornes au lieu de la largeur.
+**Erreurs fréquentes.** Les quantiles 0,05 et 0,95 (un intervalle à 90 %) ; oublier l'a priori ($\mathrm{Beta}(k, n - k)$) ; une mise à jour à l'envers, invisible avec l'a priori uniforme (les deux lois sont symétriques l'une de l'autre, de même largeur) mais pas en g) ; renvoyer les deux bornes au lieu de la largeur.
 
 ### Ex M04.24 — Prior, vraisemblance et posterior sur une même figure
 
@@ -440,9 +440,9 @@ Pour la copie : la différence de deux variables normales indépendantes est nor
 
 ### Ex M04.26 — Un calcul stable : comparer des vraisemblances en logarithmes (`math.lgamma`)
 
-**Démarche.** Dans cet ordre : `ValueError` si $p$ est hors de $[0, 1]$ ; `-math.inf` si $k < 0$ ou $k > n$ ; les cas $p = 0$ (0.0 si $k = 0$, sinon `-math.inf`) et $p = 1$ (0.0 si $k = n$) ; sinon `math.lgamma(n + 1) - math.lgamma(k + 1) - math.lgamma(n - k + 1) + k * math.log(p) + (n - k) * math.log1p(-p)`. Pour la copie : log-vraisemblances $-23{,}73$, $-6{,}89$ et $-6{,}87$ ; moins le maximum : $(-16{,}86 ;\ -0{,}02 ;\ 0)$ ; exponentielles $(4{,}7 \times 10^{-8} ;\ 0{,}980 ;\ 1)$ ; a posteriori $(2{,}4 \times 10^{-8} ;\ 0{,}495 ;\ 0{,}505)$. Un écart de 16,9 en logarithme est un rapport de $2 \times 10^7$.
+**Démarche.** Dans cet ordre : `ValueError` si $p$ est hors de $[0, 1]$ ; `-math.inf` si $k < 0$ ou $k > n$ ; les cas $p = 0$ (0.0 si $k = 0$, sinon `-math.inf`) et $p = 1$ (0.0 si $k = n$) ; sinon `math.lgamma(n + 1) - math.lgamma(k + 1) - math.lgamma(n - k + 1) + k * math.log(p) + (n - k) * math.log1p(-p)`. Pour la copie : log-vraisemblances $-23{,}73$, $-6{,}89$ et $-6{,}87$ ; moins le maximum : $(-16{,}86 ;\ -0{,}02 ;\ 0)$ ; exponentielles $(4{,}7 \times 10^{-8} ;\ 0{,}980 ;\ 1)$ ; a posteriori $(2{,}4 \times 10^{-8} ;\ 0{,}495 ;\ 0{,}505)$. Un écart de 16,9 en logarithme est un rapport de $e^{16{,}9} \approx 2 \times 10^7$ : la première hypothèse est écartée ; un écart de 0,02 est un rapport de $e^{0{,}02} \approx 1{,}02$ : les deux autres restent presque à égalité.
 
-**Erreurs fréquentes.** `k * math.log(p)` avec $p = 0$ (une `ValueError` même pour $k = 0$) ; `math.comb(n, k) * p ** k * ...` (une `OverflowError`) ; renvoyer `0` au lieu de `-math.inf` pour une probabilité nulle.
+**Erreurs fréquentes.** Ne pas vérifier $p$ (`math.log` refuse bien un négatif, mais laisse passer `nan`) ; `k * math.log(p)` avec $p = 0$ (une `ValueError` même pour $k = 0$) ; `math.comb(n, k) * p ** k * ...` (une `OverflowError`) ; renvoyer `0` au lieu de `-math.inf` pour une probabilité nulle.
 
 ### Ex M04.27 — Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart-type, intervalle)
 
@@ -450,4 +450,4 @@ Pour la copie : la différence de deux variables normales indépendantes est nor
 
 **Démarche.** a) $\frac{m(1 - m)}{s + 1} = 0{,}05^2$ donne $s + 1 = 64$, $s = 63$, puis $a = 0{,}2 \times 63$ et $b = 0{,}8 \times 63$. b) Deux équations, $F^{-1}(0{,}05) = 0{,}10$ et $F^{-1}(0{,}95) = 0{,}32$, résolues par `optimize.fsolve` (sur $\ln a$ et $\ln b$, pour rester positif) : $\mathrm{Beta}(6{,}87 ;\ 27{,}48)$. c) `cdf(0.32) - cdf(0.10)` pour la loi de a). d) $\frac{6{,}87 + 7}{34{,}34 + 50} \approx 0{,}164$. e) $6{,}87 + 27{,}48$. Pour la copie : même centre (0,20), mais le premier expert est plus sûr de lui (97 % dans l'intervalle du second, $a + b = 63$ contre 34) ; après 50 pièces, les données pèsent $\frac{50}{84{,}3} \approx 0{,}59$ face au second avis et $\frac{50}{113} \approx 0{,}44$ face au premier.
 
-**Erreurs fréquentes.** Prendre l'écart-type pour la variance ; les quantiles 0,025 et 0,975 (un intervalle à 95 %) ; partir de la loi de a) en d).
+**Erreurs fréquentes.** Prendre l'écart-type pour la variance ; les quantiles 0,025 et 0,975 (un intervalle à 95 %) ; partir de la loi de a) en d) ; calculer d) et e) avec les paramètres arrondis de b) (0,165 et 34,4) ; donner à `fsolve` le point de départ $(5, 15)$ pour $(\ln a, \ln b)$ au lieu de $(\ln 5, \ln 15)$.

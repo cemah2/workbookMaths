@@ -10695,7 +10695,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "5800f651d79371145eaad813f3f33996dd95858682df840c21dbb8830a69985d": "c'est l'a posteriori après un seul capteur : le second le met à jour encore"
+        "5800f651d79371145eaad813f3f33996dd95858682df840c21dbb8830a69985d": "c'est l'a posteriori après un seul capteur : le second le met à jour encore",
+        "c2121330e44a9849071b6cc0887566c48c7423c8240994331eab80019ecd82e1": "sans fuite aussi, les deux capteurs sonnent : la vraisemblance de « pas de fuite » est un produit de deux probabilités"
       },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
@@ -11907,8 +11908,8 @@
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
-        "7ba3ce5363ffca9d28cb8feea8c7969d3ee28c229f74d2b7dd3bb827a2fb9a22": "ln(eˣ + eʸ) n'est ni x + y, ni le plus grand des deux : mets e^(−1000) en facteur",
-        "a121ee4d4d51a06f3238dd91eac59603f8847d4deeb6905add8b2bae36a4d9e7": "ln(eˣ + eʸ) n'est ni x + y, ni le plus grand des deux : mets e^(−1000) en facteur"
+        "7ba3ce5363ffca9d28cb8feea8c7969d3ee28c229f74d2b7dd3bb827a2fb9a22": "ln(eˣ + eʸ) n'est ni x + y, ni le plus grand des deux : relis log-sum-exp (fiche §7)",
+        "a121ee4d4d51a06f3238dd91eac59603f8847d4deeb6905add8b2bae36a4d9e7": "ln(eˣ + eʸ) n'est ni x + y, ni le plus grand des deux : relis log-sum-exp (fiche §7)"
       },
       "sign": -1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
@@ -11956,37 +11957,41 @@
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
     },
     "M04.10f": {
-      "decimals": 3,
+      "decimals": 4,
       "element_coarse": [
         [
+          "288a3a9b5e58d0e645af29c16579e10d497cbca49451168cd1d4792890843b1c"
+        ],
+        [
+          "9ffa1a797eccd6e7492bb38c67678d9ff585a20a20d7b63afa68e6d9572a9286"
+        ],
+        [
+          "e97bb339f3b52054b35ed7df82ae0424ee36c6dc31d2706911762cd576b37d39"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "55abc910e708f88ff50dc31b011a88caed50be7a435a4b544f747712f33d53b9",
+          "d3009c6d1475e6ed9f8e7645b8d39c149cd8bcaa79be25794043938f22f84ca8",
           "16ae70640e1f57cda49b05adc2d910786292a4bf160943810a648955870cd713"
         ],
         [
+          "f37d2dd60565ec29dd417919d2f081bf2576c5eb5e722bb0ee9e7f6678773615",
           "a251fdcfbf9b86ec031ee88d01682b42e240db28ac260d6b0c7a62102eec549e"
         ],
         [
           "c61376c433d1cf3f905e6e72abe5afe8c33d7b39773191717c2736bfb7aeb2a8"
         ]
       ],
-      "element_coarse_any": [
-        [
-          "55abc910e708f88ff50dc31b011a88caed50be7a435a4b544f747712f33d53b9",
-          "d3009c6d1475e6ed9f8e7645b8d39c149cd8bcaa79be25794043938f22f84ca8"
-        ],
-        [
-          "f37d2dd60565ec29dd417919d2f081bf2576c5eb5e722bb0ee9e7f6678773615"
-        ],
-        []
-      ],
       "element_hashes": [
-        "288a3a9b5e58d0e645af29c16579e10d497cbca49451168cd1d4792890843b1c",
-        "9ffa1a797eccd6e7492bb38c67678d9ff585a20a20d7b63afa68e6d9572a9286",
-        "e97bb339f3b52054b35ed7df82ae0424ee36c6dc31d2706911762cd576b37d39"
+        "1a24015453381f5289a2c7564732afaf7b8f16a0cf9407b9dc63d72283c3b1d5",
+        "13111a9976c10b6df11a54d2597f983c4023f7a20299beff3c4ca04224cdffff",
+        "4eae069963385bdfcb6964f57da54cde0aafdf1a1597a8b1926eb77d7450c6e7"
       ],
-      "hash": "0e6f1d3f1be206abcba6e93d09af567c17fc6ad8abccc109ca6204cf63d07bc6",
+      "hash": "6a888172f19b569fc05be3c4c46275cc435bfb57aae32f5b8864b5fa7d48b6d9",
       "kind": "array",
       "mistakes": {
-        "3d566a022d464ac877ab16cee6513df6de802dbcd500a5fc108bb18b320c7368": "l'a priori compte : ajoute le logarithme de l'a priori à chaque log-vraisemblance"
+        "727c98e1e8c78f8683e052d41dc00ead35687829266986d61d082e295e4b393e": "l'a priori compte : ajoute le logarithme de l'a priori à chaque log-vraisemblance"
       },
       "shape": [
         3
@@ -12028,7 +12033,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "94053ccb101d1be8326fe31e30b4b91484a23a24857c87bdd7c191838d725f29": "la moyenne a posteriori tient compte de l'a priori uniforme"
+        "94053ccb101d1be8326fe31e30b4b91484a23a24857c87bdd7c191838d725f29": "si c'est la fréquence observée : la moyenne a posteriori tient compte de l'a priori uniforme ; sinon, garde 4 décimales"
       },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
@@ -12266,7 +12271,7 @@
       "kind": "str",
       "mistakes": {
         "02e72b186a260397e44c0bad106010b468650a4b88be284f4e0d7d0a8807971d": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy",
-        "ec8c1c9ffe65982ad328c811b46816f7aa5563cdd1a720d1ecb79bf866104042": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy"
+        "ec8c1c9ffe65982ad328c811b46816f7aa5563cdd1a720d1ecb79bf866104042": "la docstring demande un float de Python, même hors de [0, 1] : renvoie 0.0, pas 0"
       },
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
     },
@@ -12762,6 +12767,9 @@
       "hash_coarse": "8cc647392ae8d9324fb7e4e6312b9f30188b24908478dd2861ac51195a7d8b48",
       "kind": "float",
       "magnitude": 0,
+      "mistakes": {
+        "443b4622d505b4b26f39cdae5eca516c66542f49394c7d11ba8501e8f4d103ad": "un intervalle à 95 % laisse 2,5 % de chaque côté : les quantiles 0,025 et 0,975"
+      },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
     },
@@ -12809,6 +12817,9 @@
       "hash_coarse": "6a72eae7f7ee664c6ca10f33252a6b7b3c7ab62665955013fef8731a482d6b7b",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "51f52149b5fc42cadb19eccfd10b66bedfa15fb494e7a1cf381aa69b321afb71": "l'a posteriori est Beta(a + k, b + n − k) : a reçoit les succès, b les échecs"
+      },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
     },
@@ -13008,7 +13019,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "b825cd1b160d8663f07c9d2309c81553b9c82e7547299e156e7a2ce2a43ec073": "la moyenne a posteriori part de la loi de b), pas de celle de a)"
+        "b825cd1b160d8663f07c9d2309c81553b9c82e7547299e156e7a2ce2a43ec073": "la moyenne a posteriori part de la loi de b), pas de celle de a)",
+        "ce92535d0cf87e825757d61e80f21e170f2dfcc1985d970a8a916bc0d76a3bbd": "garde les paramètres non arrondis de b) pour ce calcul"
       },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
@@ -13019,6 +13031,9 @@
       "hash_coarse": "b741c49f2598979fb2a020d3d544b4fa7f11f763691b1797c576de96b672e149",
       "kind": "float",
       "magnitude": 1,
+      "mistakes": {
+        "8a12f46ea011d4f243c2277bf39c2b11f6e2eee232cb9e1973adb819761e2f48": "additionne les paramètres non arrondis de b), pas leurs arrondis"
+      },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
     },

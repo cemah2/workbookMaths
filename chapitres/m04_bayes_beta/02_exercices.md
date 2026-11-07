@@ -314,7 +314,7 @@ Dans ta copie : vérifie la formule de $F$ pour $\mathrm{Beta}(1, b)$ en intégr
 | c | `0.2 ** 500` vaut-il exactement 0 en `float64` (le plus petit nombre positif représentable vaut environ $5 \times 10^{-324}$) ? | `True` ou `False` |
 | d | $\ln\big(e^{-1000} + e^{-1001} + e^{-1003}\big)$ | un nombre (3 décimales) |
 | e | les probabilités obtenues en normalisant $(e^{-1000}, e^{-1001}, e^{-1003})$ | une liste de 3 nombres (4 décimales) |
-| f | trois hypothèses d'a priori $(0{,}2 ;\ 0{,}5 ;\ 0{,}3)$ ont pour log-vraisemblances $(-1000 ;\ -1001 ;\ -1003)$ : leurs a posteriori | une liste de 3 nombres (3 décimales) |
+| f | trois hypothèses d'a priori $(0{,}2 ;\ 0{,}5 ;\ 0{,}3)$ ont pour log-vraisemblances $(-1000 ;\ -1001 ;\ -1003)$ : leurs a posteriori | une liste de 3 nombres (4 décimales) |
 
 Dans ta copie : pour e) et f), écris les étapes : soustraire le maximum, prendre les exponentielles, normaliser. Que donnerait le calcul direct de $e^{-1000}$ en `float64` ?
 
@@ -383,7 +383,7 @@ Une boutique compare deux pages de commande. La page A a reçu 300 visites et 30
 | f | la même probabilité estimée par la simulation ci-dessous | un nombre (3 décimales) |
 | g | dans cette simulation, la moyenne de $\theta_B - \theta_A$ | un nombre (4 décimales) |
 
-La simulation (à exécuter dans une cellule de ton notebook, après avoir remplacé les `...` par les paramètres des deux a posteriori) :
+La simulation (sa cellule est dans la partie 0 du notebook ; remplace d'abord les `...` par les paramètres des deux a posteriori) :
 
 ```python
 import numpy as np

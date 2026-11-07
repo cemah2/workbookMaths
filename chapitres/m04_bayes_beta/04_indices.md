@@ -712,6 +712,6 @@ b) : deux inconnues, deux équations : le quantile 0,05 vaut 0,10, le quantile 0
 </details>
 <details><summary>Indice 3</summary>
 
-`optimize.fsolve` sur une fonction qui renvoie les deux écarts ; pour garder $a, b > 0$, prends comme inconnues $\ln a$ et $\ln b$. Pars de $(5, 15)$, par exemple.
+Écris `gaps(x)`, qui renvoie `[quantile_0.05 - 0.10, quantile_0.95 - 0.32]` pour la loi Beta de paramètres `x` (avec `stats.beta(a, b).ppf([0.05, 0.95])`), puis `optimize.fsolve(gaps, [5.0, 15.0])` : il part du point $(5, 15)$. Si le solveur essaie des paramètres négatifs, prends comme inconnues $\ln a$ et $\ln b$ (`a, b = np.exp(x)` dans `gaps`), et pars alors de `np.log([5.0, 15.0])`.
 
 </details>

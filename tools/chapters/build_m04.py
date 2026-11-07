@@ -20,8 +20,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from chapter_kit import (STARS, Ex, Paper, Part, badge, bug_letters_mistakes, check_unique_keys, guarded,  # noqa: E402
-                         md, paper_cells, part_cells, setup_cell, write_notebook)
+from chapter_kit import (STARS, Ex, Paper, Part, badge, bug_letters_mistakes, check_unique_keys, code,  # noqa: E402
+                         guarded, md, paper_cells, part_cells, setup_cell, write_notebook)
 
 CHAPTER = "M04"
 FOLDER = "chapitres/m04_bayes_beta"
@@ -49,7 +49,8 @@ PAPER = [
          'decimals=1, mistakes={"les fausses alertes viennent des seules nuits sans fuite": 30.0}'),
         ("f", "a number (3 decimals)", "0.01 * 0.95**2 / (0.01 * 0.95**2 + 0.99 * 0.03**2)",
          'decimals=3, mistakes={"c\'est l\'a posteriori après un seul capteur : le second le met à jour encore": '
-         '0.01 * 0.95 / (0.01 * 0.95 + 0.99 * 0.03)}'),
+         '0.01 * 0.95 / (0.01 * 0.95 + 0.99 * 0.03), "sans fuite aussi, les deux capteurs sonnent : la vraisemblance '
+         'de « pas de fuite » est un produit de deux probabilités": 0.01 * 0.95**2 / (0.01 * 0.95**2 + 0.99 * 0.03)}'),
         ("g", "an irreducible fraction, as text", "Fraction(95, 9900)",
          F + ', mistakes={"P(sonne | pas de fuite) ne concerne que les nuits sans fuite : dans l\'évidence, elle se '
          'pondère par 0,99": "19/2000"}'),
@@ -241,14 +242,14 @@ PAPER = [
         ("c", "True or False", "True",
          'mistakes={"compare la puissance de 10 trouvée en b) à celle du plus petit float positif": False}'),
         ("d", "a number (3 decimals)", "-1000 + math.log(1 + math.exp(-1) + math.exp(-3))",
-         'decimals=3, mistakes={"ln(eˣ + eʸ) n\'est ni x + y, ni le plus grand des deux : mets e^(−1000) en facteur": '
+         'decimals=3, mistakes={"ln(eˣ + eʸ) n\'est ni x + y, ni le plus grand des deux : relis log-sum-exp (fiche §7)": '
          '{-3004.0, -1000.0}}'),
         ("e", "a list of 3 numbers (4 decimals)",
          "list(np.exp(np.array([0, -1, -3]) - math.log(1 + math.exp(-1) + math.exp(-3))))",
          'decimals=4, mistakes={"des probabilités ont une somme de 1 : divise par la somme des exponentielles": '
          '[1.0, math.exp(-1), math.exp(-3)]}'),
-        ("f", "a list of 3 numbers (3 decimals)", "list(np.exp(LOG_10 - LOG_10.max()) / np.exp(LOG_10 - LOG_10.max()).sum())",
-         'decimals=3, mistakes={"l\'a priori compte : ajoute le logarithme de l\'a priori à chaque log-vraisemblance": '
+        ("f", "a list of 3 numbers (4 decimals)", "list(np.exp(LOG_10 - LOG_10.max()) / np.exp(LOG_10 - LOG_10.max()).sum())",
+         'decimals=4, mistakes={"l\'a priori compte : ajoute le logarithme de l\'a priori à chaque log-vraisemblance": '
          'list(np.exp(np.array([0, -1, -3]) - math.log(1 + math.exp(-1) + math.exp(-3))))}'),
     ]),
 
@@ -257,7 +258,8 @@ PAPER = [
          'mistakes={"l\'a priori uniforme est Beta(1, 1) : ajoute 1 aux deux comptages": [30, 270], '
          '"b compte les visites sans commande, pas toutes les visites": [31, 301]}'),
         ("b", "a number (4 decimals)", "46 / 302",
-         'decimals=4, mistakes={"la moyenne a posteriori tient compte de l\'a priori uniforme": 45 / 300}'),
+         'decimals=4, mistakes={"si c\'est la fréquence observée : la moyenne a posteriori tient compte de l\'a priori '
+         'uniforme ; sinon, garde 4 décimales": 45 / 300}'),
         ("c", "a number (4 decimals)", "SD_B",
          'decimals=4, mistakes={"l\'écart-type est la racine carrée de la variance": SD_B**2}'),
         ("d", "a number (4 decimals)", "SD_A",
@@ -297,6 +299,19 @@ rng = np.random.default_rng(14)                                                #
 THETA_A = rng.beta(31, 271, 100_000)
 THETA_B = rng.beta(46, 256, 100_000)'''
 
+SIMULATION_14 = '''# Ex M04.14 f) and g): the simulation of the statement (replace the ... by the parameters of the two posteriors)
+import numpy as np
+
+a_A, b_A = ..., ...                      # the parameters of the posterior of θA (your answer to a)
+a_B, b_B = ..., ...                      # the parameters of the posterior of θB
+if any(value is ... for value in (a_A, b_A, a_B, b_B)):
+    print("⏳ Remplis d'abord les paramètres des deux a posteriori, puis exécute à nouveau.")
+else:
+    rng = np.random.default_rng(14)
+    theta_A = rng.beta(a_A, b_A, 100_000)    # 100 000 draws from the posterior of A, first
+    theta_B = rng.beta(a_B, b_B, 100_000)    # then 100 000 draws from the posterior of B
+    print(np.mean(theta_B > theta_A), np.mean(theta_B - theta_A))'''
+
 PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M04.1 à M04.10, 🔗 M04.14)\n\n"
                "Fais d'abord les exercices de `02_exercices.md` **sur papier**, dans ta copie de "
                "`06_mes_reponses.md`. Reporte ensuite chaque réponse ici : **la valeur** que tu as trouvée, sous la "
@@ -304,7 +319,7 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M04.1 à M
                "- un entier, ou un nombre avec un point décimal, `-1.25`, arrondi comme le demande la question ;\n"
                "- une fraction irréductible entre guillemets, `\"7/9\"` ;\n"
                "- une liste `[-1.5, 2.5]`, `True` / `False`, ou une lettre entre guillemets, `\"B\"`.\n\n"
-               "Pour M04.14 f) et g), exécute d'abord la simulation de l'énoncé dans une cellule de ton choix. Les "
+               "Pour M04.14 f) et g), exécute d'abord la simulation de l'énoncé : sa cellule précède celle des réponses. Les "
                "réponses pas encore remplies affichent ⏳.")
 
 # ---------------------------------------------------------------------------
@@ -315,7 +330,7 @@ import math
 
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy import special, stats
+from scipy import optimize, special, stats
 
 from wbm.nbtools import checked, drawn, run_pytest_group
 
@@ -382,7 +397,7 @@ La vérification calcule :
 - e) `beta_pdf(0.43, 300, 400)` (3 décimales) ;
 - f) `beta_moments(3, 9)` (4 décimales) ;
 - g) le nom de l'erreur levée par `beta_pdf(0.3, -2, 3)` ;
-- h) le nom du type du résultat de a), en texte.
+- h) le nom du type de `beta_pdf(1.2, 2, 6)`, en texte.
 
 Dans ta copie : refais a), c) et f) à la main. Pourquoi la densité de e) dépasse-t-elle 20, alors qu'une probabilité ne dépasse jamais 1 ?""",
     todo=LOAD_LEARNER,
@@ -401,14 +416,14 @@ with checked("M04.18f"):
 with checked("M04.18g"):
     wbm.check("M04.18g", raised(mymath.bayes.beta_pdf, 0.3, -2, 3), computed=True)
 with checked("M04.18h"):
-    wbm.check("M04.18h", type(mymath.bayes.beta_pdf(0.3, 2, 6)).__name__, computed=True)''',
+    wbm.check("M04.18h", type(mymath.bayes.beta_pdf(1.2, 2, 6)).__name__, computed=True)''',
     solution=LOAD_REF + '''
 bayes = mymath.bayes
 print("a)", bayes.beta_pdf(0.3, 2, 6), " b)", bayes.beta_pdf(1.2, 2, 6), " c)", bayes.beta_pdf(0, 1, 6),
       " d)", math.isinf(bayes.beta_pdf(1, 2, 0.6)))
 print("e)", bayes.beta_pdf(0.43, 300, 400), "· scipy:", stats.beta(300, 400).pdf(0.43))
 print("f)", bayes.beta_moments(3, 9), " g)", raised(bayes.beta_pdf, 0.3, -2, 3),
-      " h)", type(bayes.beta_pdf(0.3, 2, 6)).__name__)''',
+      " h)", type(bayes.beta_pdf(1.2, 2, 6)).__name__)''',
     record=f'''wbm.record("M04.18a", 2.117682, decimals=4,
            mistakes={{"divise par B(a, b) : une densité a une aire de 1": 0.050421,
                      "les exposants de la densité sont a − 1 et b − 1": 0.44471322}})
@@ -425,8 +440,8 @@ wbm.record("M04.18g", "ValueError",
            mistakes={{"a = −2 n'est pas un paramètre d'une loi Beta : lève une ValueError": "aucune",
                      "{WRONG_ERROR}": {errors_source()}}})
 wbm.record("M04.18h", "float",
-           mistakes={{"la docstring demande un float de Python : float(...) convertit un nombre de NumPy":
-                         {{"float64", "int"}}}})''',
+           mistakes={{"la docstring demande un float de Python : float(...) convertit un nombre de NumPy": "float64",
+                     "la docstring demande un float de Python, même hors de [0, 1] : renvoie 0.0, pas 0": "int"}})''',
     after=tests_cells("test_beta_pdf_ or test_beta_moments_ or test_bayes_uses_"),
     note="a) $B(2, 6) = \\frac{1!\\,5!}{7!} = \\frac{1}{42}$, donc $42 \\times 0{,}3 \\times 0{,}7^5 \\approx 2{,}1177$. "
          "c) Avec $a = 1$, le facteur $x^0$ vaut 1 : la densité en 0 est $\\frac{1}{B(1, 6)} = 6$. d) $(1 - x)^{-0{,}4}$ "
@@ -445,7 +460,7 @@ M04_19 = Ex(
 - `conjugate_beta_update(a, b, successes, failures)` : les paramètres $(a + \\text{succès},\\ b + \\text{échecs})$ de l'a posteriori ; des entiers restent des entiers ; une `ValueError` pour des paramètres invalides ou un comptage négatif ;
 - `posterior_predictive(a, b, k=1, n=1)` : la probabilité de $k$ succès dans les $n$ prochains essais quand la proportion suit $\\mathrm{Beta}(a, b)$, $\\binom{n}{k}\\frac{B(a + k,\\ b + n - k)}{B(a, b)}$ ; `0.0` si $k < 0$ ou $k > n$ ; une `ValueError` si $a \\le 0$, $b \\le 0$ ou $n < 0$.
 
-Comme en M04.18, additionne des logarithmes ($\\ln\\binom{n}{k}$ par `math.lgamma`, puis $\\ln B$) et prends l'exponentielle à la fin.
+Attention : dans `posterior_predictive`, $k$ et $n$ comptent les essais **futurs** (notés $j$ et $m$ dans la fiche, §5), pas les données déjà vues. Comme en M04.18, additionne des logarithmes ($\\ln\\binom{n}{k}$ par `math.lgamma`, puis $\\ln B$) et prends l'exponentielle à la fin.
 
 La vérification calcule :
 - a) `conjugate_beta_update(2, 3, 5, 10)` ;
@@ -592,7 +607,7 @@ Calcule avec ces fonctions :
 Dans ta copie : e) est la probabilité que les deux prochains essais soient des succès quand la proportion suit $\\mathrm{Beta}(600, 900)$ (fiche §5). Retrouve-la avec la formule $\\frac{a(a + 1)}{(a + b)(a + b + 1)}$, puis avec ta fonction `posterior_predictive`. Que donne `special.beta(602, 900) / special.beta(600, 900)`, et pourquoi ? Que vaut $\\mathrm{e}^{f}$, où $f$ est la réponse f) ?""",
     todo='''answer_M04_21a = ...  # a) an integer
 answer_M04_21b = ...  # b) True or False
-answer_M04_21c = ...  # c) special.betaln(...)
+answer_M04_21c = ...  # c) a number (2 decimals)
 answer_M04_21d = ...  # d) a number (2 decimals)
 answer_M04_21e = ...  # e) a number (4 decimals)
 answer_M04_21f = ...  # f) a number (4 decimals)''',
@@ -747,12 +762,14 @@ print("f)", next(n for n in range(10, 5001, 10) if credible_width(3 * n // 10, n
                          0.5252389423})
 wbm.record("M04.23b", 0.0354838698, decimals=4,
            mistakes={"un intervalle à 95 % laisse 2,5 % de chaque côté : les quantiles 0,025 et 0,975": 0.0297820239})
-wbm.record("M04.23c", 1.9499296222, decimals=2)
+wbm.record("M04.23c", 1.9499296222, decimals=2,
+           mistakes={"un intervalle à 95 % laisse 2,5 % de chaque côté : les quantiles 0,025 et 0,975": 1.9589221591})
 wbm.record("M04.23d", -0.4795102559, decimals=2)
 wbm.record("M04.23e", 1.7953575820, decimals=2)
 wbm.record("M04.23f", 1290,
            mistakes={"un intervalle à 95 % laisse 2,5 % de chaque côté : les quantiles 0,025 et 0,975": 910})
-wbm.record("M04.23g", 0.1700663483, decimals=3)''',
+wbm.record("M04.23g", 0.1700663483, decimals=3,
+           mistakes={"l'a posteriori est Beta(a + k, b + n − k) : a reçoit les succès, b les échecs": 0.1753776755})''',
     note="Chaque fois que $n$ est multiplié par 4, la largeur est à peu près divisée par 2 (c : 1,95) : elle décroît "
          "comme $\\frac{1}{\\sqrt{n}}$ (d : pente $-0{,}48$). Pour $n$ grand, l'a posteriori ressemble à une loi "
          "normale d'écart-type $\\sqrt{\\frac{p(1 - p)}{n}}$, donc la largeur vaut environ $2 \\times 1{,}96 \\times "
@@ -791,7 +808,8 @@ M04_24_CHECK = '''with checked("M04.24 vérifications"):
                        and np.std(ys / (xs ** k_t * (1 - xs) ** (n_t - k_t))) < 1e-6 * np.mean(ys / (xs ** k_t * (1 - xs) ** (n_t - k_t)))]
                 problems.append(f"{name} : la vraisemblance θ^k (1 − θ)^(n − k) doit être divisée par "
                                 "B(k + 1, n − k + 1), pour avoir une aire de 1 comme les deux densités" if raw else
-                                f"il manque {name} (une courbe d'au moins 50 points sur ]0, 1[)")
+                                f"aucune courbe d'au moins 50 points sur ]0, 1[ n'est la densité de {name}"
+                                + (" (a reçoit les succès, b les échecs)" if name == "l'a posteriori" else ""))
             else:
                 if match[0].get_drawstyle() != "default" or match[0].get_linestyle() in ("None", "none", "", " "):
                     problems.append(f"{name} : trace une courbe continue (ax.plot), pas des points ni des marches")
@@ -955,7 +973,7 @@ M04_26_CHECK = '''with checked("M04.26 vérifications"):
                                 f"obtenu {got!r}")
         elif not math.isclose(got, expected, rel_tol=1e-9, abs_tol=1e-9):
             problems.append(f"log_binom_pmf({k}, {n}, {p}) : attendu {expected:.10g}, obtenu {got!r}")
-    for p in (1.2, -0.1):
+    for p in (1.2, -0.1, float("nan")):
         try:
             log_binom_pmf(2, 5, p)
         except ValueError:
@@ -988,11 +1006,11 @@ $$\\ln P(K = k) = \\ln\\Gamma(n + 1) - \\ln\\Gamma(k + 1) - \\ln\\Gamma(n - k + 
 Écris `log_binom_pmf(k, n, p)`, qui renvoie ce logarithme en `float`, avec ces cas particuliers :
 - $k < 0$ ou $k > n$ : la probabilité est nulle, renvoie `-math.inf` ;
 - $p = 0$ ou $p = 1$ : `math.log(0)` lève une `ValueError`, mais $0 \\times \\ln 0$ vaut 0 par convention ; la probabilité vaut alors 1 ou 0 selon $k$ ;
-- $p$ hors de $[0, 1]$ : une `ValueError`.
+- $p$ hors de $[0, 1]$, ou `nan` : une `ValueError` (teste `0 <= p <= 1` au début, ce qui refuse aussi `nan`).
 
 La vérification compare ta fonction à `stats.binom.logpmf` sur neuf cas, puis une dernière cellule compare trois hypothèses sur $p$ pour 4 100 succès en 10 000 essais.
 
-Dans ta copie : écris les trois log-vraisemblances, puis les a posteriori de la dernière cellule à la main, par log-sum-exp (fiche §7). Pourquoi des écarts de quelques unités entre log-vraisemblances donnent-ils des a posteriori si tranchés ?""",
+Dans ta copie : écris les trois log-vraisemblances, puis les a posteriori de la dernière cellule à la main, par log-sum-exp (fiche §7). Un écart $d$ entre deux log-vraisemblances fait un rapport $e^{d}$ entre leurs a posteriori (a priori égaux) : que donnent ici l'écart entre la première hypothèse et les deux autres, et l'écart entre les deux dernières ?""",
     given=M04_26_GIVEN,
     todo='''def log_binom_pmf(k, n, p):
     """The natural logarithm of the binomial probability P(K = k) for n trials of probability p; -math.inf when the
@@ -1048,10 +1066,10 @@ M04_27 = Ex(
 
 Traduis chaque avis en une loi Beta, puis calcule :
 - a) les paramètres `[a, b]` de la loi Beta de moyenne 0,2 et d'écart-type 0,05 (1 décimale) ; pense à écrire la variance d'une loi Beta avec $m = \\frac{a}{a + b}$ et $s = a + b$ : $\\frac{m(1 - m)}{s + 1}$ ;
-- b) les paramètres `[a, b]` de la loi Beta dont l'intervalle à 90 % à queues égales est $[0{,}10 ;\\ 0{,}32]$ (1 décimale) ; aucune formule ne les donne : cherche-les par le calcul (`scipy.optimize.fsolve` sur deux équations, ou une recherche sur une grille) ;
+- b) les paramètres `[a, b]` de la loi Beta dont l'intervalle à 90 % à queues égales est $[0{,}10 ;\\ 0{,}32]$ (1 décimale) ; aucune formule ne les donne : cherche-les par le calcul, par une recherche sur une grille ou avec `optimize.fsolve(f, x0)` (importé dans la cellule d'outils), qui part du point `x0` et cherche où la fonction `f`, qui renvoie une liste de deux nombres, vaut `[0, 0]` ;
 - c) la probabilité $P(0{,}10 \\le \\theta \\le 0{,}32)$ selon la loi de a) (4 décimales) ;
-- d) la moyenne a posteriori après 7 pièces défectueuses sur 50, à partir de la loi de b) (3 décimales) ;
-- e) le nombre de pseudo-observations $a + b$ de la loi de b) (1 décimale).
+- d) la moyenne a posteriori après 7 pièces défectueuses sur 50, à partir de la loi de b), avec ses paramètres **non arrondis** (3 décimales) ;
+- e) le nombre de pseudo-observations $a + b$ de la loi de b), avec ses paramètres non arrondis (1 décimale).
 
 La vérification affiche l'intervalle et la moyenne de ta loi de b), puis vérifie tes réponses.
 
@@ -1062,9 +1080,7 @@ answer_M04_27c = ...  # c) P(0.10 <= θ <= 0.32) for the law of a) (4 decimals)
 answer_M04_27d = ...  # d) the posterior mean after 7 defects in 50, from the law of b) (3 decimals)
 answer_M04_27e = ...  # e) a + b for the law of b) (1 decimal)''',
     check=M04_27_CHECK,
-    solution='''from scipy import optimize
-
-# a) The method of moments: s = a + b solves m(1 − m)/(s + 1) = sd², then a = m s and b = (1 − m) s
+    solution='''# a) The method of moments: s = a + b solves m(1 − m)/(s + 1) = sd², then a = m s and b = (1 − m) s
 m_27, sd_27 = 0.2, 0.05
 s_27 = m_27 * (1 - m_27) / sd_27 ** 2 - 1
 answer_M04_27a = [m_27 * s_27, (1 - m_27) * s_27]
@@ -1093,8 +1109,10 @@ wbm.record("M04.27b", [6.8673766, 27.4771525], decimals=1,
                          [9.6399566, 38.9785348]})
 wbm.record("M04.27c", 0.9744893644, decimals=4)
 wbm.record("M04.27d", (6.8673766 + 7) / (34.3445291 + 50), decimals=3,
-           mistakes={"la moyenne a posteriori part de la loi de b), pas de celle de a)": 19.6 / 113})
-wbm.record("M04.27e", 34.3445291, decimals=1)''',
+           mistakes={"la moyenne a posteriori part de la loi de b), pas de celle de a)": 19.6 / 113,
+                     "garde les paramètres non arrondis de b) pour ce calcul": (6.9 + 7) / (34.4 + 50)})
+wbm.record("M04.27e", 34.3445291, decimals=1,
+           mistakes={"additionne les paramètres non arrondis de b), pas leurs arrondis": 34.4})''',
     note="a) $s + 1 = \\frac{0{,}2 \\times 0{,}8}{0{,}05^2} = 64$, donc $s = 63$, $a = 12{,}6$ et $b = 50{,}4$. b) "
          "$\\mathrm{Beta}(6{,}9 ;\\ 27{,}5)$ environ, de moyenne 0,20 elle aussi : les deux experts sont d'accord sur "
          "le centre. c) La loi du premier met 97 % de probabilité dans l'intervalle du second, contre 90 % pour la loi "
@@ -1181,8 +1199,12 @@ def build(kind: str) -> list:
     cells = header_cells(kind)
     cells.append(setup_cell(kind, chapter=CHAPTER) if kind == "exercise" else setup_cell(kind))
     cells += objectives_cell()
-    cells += paper_cells(kind, PAPER, PAPER_CONTEXT, PAPER_INTRO,
-                         learner_context="from fractions import Fraction   # Fraction(3, 4) is accepted too, as \"3/4\"")
+    paper = paper_cells(kind, PAPER, PAPER_CONTEXT, PAPER_INTRO,
+                        learner_context="from fractions import Fraction   # Fraction(3, 4) is accepted too, as \"3/4\"")
+    if kind == "exercise":                       # the simulation of M04.14, before its answers
+        where = next(i for i, cell in enumerate(paper) if cell.source.startswith("**Ex M04.14"))
+        paper.insert(where + 1, code(SIMULATION_14))
+    cells += paper
     for part in PARTS:
         cells += part_cells(part, kind)
     cells += footer_cells(kind)
