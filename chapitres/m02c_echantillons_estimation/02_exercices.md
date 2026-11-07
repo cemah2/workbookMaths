@@ -39,7 +39,7 @@ Vrai ou faux ?
 ### M02c.Q3 — i.i.d. ou pas ? 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C, E*
 
-Pour chaque série, peut-on raisonnablement la modéliser comme un échantillon i.i.d. ? Si non, quelle hypothèse tombe : l'indépendance, ou la même loi ?
+Pour chaque série, peut-on raisonnablement la modéliser comme un échantillon i.i.d. ? Si non, quelle(s) hypothèse(s) tombe(nt) : l'indépendance, la même loi, ou les deux ?
 1. Les résultats de 100 lancers d'un dé.
 2. La température à midi, pendant 30 jours consécutifs.
 3. 10 cartes tirées sans remise d'un jeu de 52 cartes.
@@ -177,7 +177,7 @@ Dans ta copie : pourquoi c) et h) sont-ils si différents ? Avec 10 valeurs, que
 **Objectif :** mesurer ce qu'une imputation fait à la moyenne, à la médiane et à la dispersion d'une série.
 **Prérequis :** fiche §1 et §9 · **Parcours :** C
 
-On demande à 8 utilisateurs combien d'heures de vidéo ils ont regardé la semaine dernière. Six répondent :
+On demande à 8 utilisateurs combien d'heures de vidéo ils ont regardées la semaine dernière. Six répondent :
 
 $$4,\ 6,\ 7,\ 9,\ 10,\ 24,$$
 
@@ -200,7 +200,7 @@ Dans ta copie : retrouve e) et f) par la formule de la fiche, sans recalculer la
 **Objectif :** comparer la variance de la moyenne d'un échantillon tiré avec et sans remise, et calculer le facteur de correction de population finie.
 **Prérequis :** fiche §3 ; M02b §6 · **Parcours :** C
 
-Une urne contient 5 boules, numérotées $2, 4, 6, 8, 10$. On en tire $n = 2$ au hasard, et $\bar{X}$ est la moyenne des deux numéros.
+Une urne contient 5 boules, numérotées $2, 4, 6, 8, 10$. On en tire $n = 2$ au hasard, l'une après l'autre : $X_1$ est le numéro de la première, $X_2$ celui de la seconde, et $\bar{X} = \frac{X_1 + X_2}{2}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -244,7 +244,7 @@ Chaque jour, un système de recommandation fait gagner à une petite boutique un
 |---|---|---|---|
 | $P(X = x)$ | 0,5 | 0,3 | 0,2 |
 
-Les gains des différents jours sont indépendants, et $S$ est le gain total sur 100 jours.
+Les gains des différents jours sont indépendants, et $S$ est le gain total sur 100 jours. Pour e), f) et h), approche **directement** la loi de la somme par la loi normale de même espérance et de même écart-type, comme dans l'exemple de la fiche (§5), sans autre correction.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -255,7 +255,7 @@ Les gains des différents jours sont indépendants, et $S$ est le gain total sur
 | e | $P(S > 49)$, par le théorème central limite | un nombre (4 décimales) |
 | f | $P(11 \le S \le 49)$, par le théorème central limite | un nombre (3 décimales) |
 | g | l'écart-type du gain moyen par jour sur les 100 jours | un nombre (2 décimales) |
-| h | le plus petit nombre de jours $n$ pour lequel, d'après le théorème central limite, le gain total est positif avec une probabilité d'au moins 0,975 | un entier |
+| h | le plus petit nombre de jours $n$ pour lequel, d'après le théorème central limite, le gain total $S_n$ sur $n$ jours vérifie $P(S_n > 0) \ge 0{,}975$ | un entier |
 
 Dans ta copie : $X$ est très asymétrique. Pourquoi peut-on quand même utiliser la loi normale pour $S$ ? Pourquoi serait-ce une mauvaise idée pour le gain d'un seul jour ?
 

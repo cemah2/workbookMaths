@@ -26,7 +26,7 @@
 
 ### M02c.Q3 — i.i.d. ou pas ?
 1. **Oui** : des lancers indépendants d'un même dé.
-2. **Non** : la température d'un jour dépend de celle de la veille (l'**indépendance** tombe).
+2. **Non** : la température d'un jour dépend de celle de la veille (l'**indépendance** tombe) ; sur un mois, la saison peut aussi faire monter ou descendre les températures (la **même loi** tombe alors aussi).
 3. **Non** : chaque carte a la même loi, mais les tirages sont **dépendants** (une carte sortie ne ressort pas).
 4. **Oui, en pratique** : les tirages sont dépendants, mais le facteur $\frac{N - n}{N - 1}$ vaut 0,99998 : comme avec remise.
 5. **Non** : les 10 photos d'une même personne se ressemblent (l'**indépendance** tombe ; on découpe entraînement et test **par personne**).
@@ -198,6 +198,8 @@ Pour la copie : c) donne une probabilité d'environ 5 % de se tromper de plus de
 - h) $P(S_n > 0) \approx \Phi\big(\frac{0{,}3\,n}{1{,}9\sqrt{n}}\big) = \Phi\big(\frac{0{,}3\sqrt{n}}{1{,}9}\big) \ge 0{,}975 \iff \frac{0{,}3\sqrt{n}}{1{,}9} \ge 1{,}96 \iff n \ge 154{,}09$ : $n = 155$.
 
 Pour la copie : $S$ est une somme de 100 variables i.i.d. de variance finie : le théorème central limite s'applique, quelle que soit l'asymétrie de $X$ (100 termes suffisent largement ici). Un seul jour ne prend que trois valeurs : la loi normale n'a aucun sens pour lui.
+
+Pour aller plus loin : $S$ ne prend que des valeurs entières, et la valeur exacte de $P(S > 49)$ est environ 0,1529. Une **correction de continuité** (remplacer 49 par 49,5, à mi-chemin entre deux valeurs possibles) donne 0,1524, plus proche que 0,1587. L'énoncé demande l'approximation directe, celle de la fiche.
 
 **Erreurs fréquentes.** Oublier de retirer $\mathbb{E}[X]^2$ ; additionner les écarts-types (190) ; prendre $\Phi(1)$ pour $P(S > 49)$ ; en h, oublier que l'écart-type de $S_n$ grandit comme $\sqrt{n}$.
 

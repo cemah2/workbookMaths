@@ -66,7 +66,7 @@ Vocabulaire anglais de ce chapitre : *sample*, *population*, *i.i.d.* (*independ
 6. Un **estimateur** $\hat{\theta}$ est une fonction de l'échantillon. **Biais** $= \mathbb{E}[\hat{\theta}] - \theta$ ; **erreur quadratique** $\mathbb{E}\big[(\hat{\theta} - \theta)^2\big] = \text{biais}^2 + \mathbb{V}(\hat{\theta})$.
 7. La variance divisée par $n$ sous-estime $\sigma^2$ en moyenne : $\mathbb{E}[S_n^2] = \frac{n - 1}{n}\sigma^2$. Diviser par $n - 1$ (`ddof=1`) donne un estimateur **sans biais**, $S^2$.
 8. **Erreur type** de la moyenne : $\frac{s}{\sqrt{n}}$. **Intervalle de confiance** à 95 % : $\bar{x} \pm 1{,}96\,\frac{s}{\sqrt{n}}$ ; pour une proportion, $\hat{p} \pm 1{,}96\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$. « 95 % » décrit la **méthode** : 95 % des échantillons donnent un intervalle qui contient la vraie valeur.
-9. **Covariance** empirique $\frac{1}{n}\sum(x_i - \bar{x})(y_i - \bar{y})$ ; **corrélation** $r = \frac{\operatorname{Cov}}{\sigma_x\sigma_y} \in [-1 ; 1]$ (relation **linéaire** seulement). $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\operatorname{Cov}(X, Y)$.
+9. **Covariance** empirique $\frac{1}{n}\sum(x_i - \bar{x})(y_i - \bar{y})$ ; **corrélation** $r = \frac{\operatorname{Cov}(x, y)}{s_x s_y} \in [-1 ; 1]$ (relation **linéaire** seulement ; $\rho$ pour deux variables aléatoires). $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\operatorname{Cov}(X, Y)$.
 10. La **matrice de covariance** $\boldsymbol{\Sigma}$ range les variances sur sa diagonale et les covariances ailleurs ; elle est symétrique, et $\mathbb{V}\big(\sum_i w_iX_i\big) = \sum_i\sum_j w_iw_j\Sigma_{ij} \ge 0$.
 
 ---
@@ -191,7 +191,7 @@ Une **valeur aberrante** (*outlier*) est une valeur très éloignée des autres 
 
 Pour les durées : $\lvert z \rvert \approx 2{,}78 < 3$, donc le z-score **ne signale pas** 38. La règle de Tukey donne les barrières $12 - 1{,}5 \times 3 = 7{,}5$ et $15 + 1{,}5 \times 3 = 19{,}5$ : 38 est **signalée**.
 
-Pourquoi le z-score échoue-t-il ? Parce que la valeur aberrante **gonfle elle-même** l'écart-type qui sert à la juger : sans 38, les huit autres durées ont un écart-type d'environ 1,56 minute, et 38 serait à plus de 15 écarts-types de leur moyenne. C'est l'**effet de masque** (*masking*). Les quartiles, eux, ne bougent presque pas avec une valeur extrême : la règle de Tukey est **robuste**.
+Pourquoi le z-score échoue-t-il ? Parce que la valeur aberrante **gonfle elle-même** l'écart-type qui sert à la juger : sans 38, les huit autres durées ont un écart-type d'environ 1,56 minute (avec $s_n$), et 38 serait à plus de 15 de ces écarts-types de leur moyenne. C'est l'**effet de masque** (*masking*). Les quartiles, eux, ne bougent presque pas avec une valeur extrême : la règle de Tukey est **robuste**.
 
 Pire : avec peu de valeurs, le z-score ne **peut** pas dépasser 3. On montre (résultat admis) que, pour $n$ valeurs, $\lvert z \rvert \le \sqrt{n - 1}$ avec $s_n$, et $\lvert z \rvert \le \frac{n - 1}{\sqrt{n}}$ avec $s$. Pour $n = 9$ : au plus $\sqrt{8} \approx 2{,}83$ ou $\frac{8}{3} \approx 2{,}67$, quelle que soit la valeur extrême, même 380. La règle $\lvert z \rvert > 3$ est faite pour des séries assez longues, sans grosse valeur aberrante, à peu près normales.
 
@@ -511,7 +511,7 @@ La covariance dépend des unités : des durées en secondes au lieu de minutes l
 
 $$r = \frac{\operatorname{Cov}(x, y)}{s_x\,s_y}, \qquad \text{et pour des variables : } \rho(X, Y) = \frac{\operatorname{Cov}(X, Y)}{\sigma(X)\,\sigma(Y)}.$$
 
-C'est la **corrélation** (coefficient de corrélation linéaire de Pearson, *correlation*). Pour les quatre points : $s_x^2 = \frac{9 + 1 + 1 + 9}{4} = 5$, $s_y^2 = \frac{12{,}25 + 0{,}25 + 0{,}25 + 12{,}25}{4} = 6{,}25$, donc $r = \frac{5}{\sqrt{5 \times 6{,}25}} = \frac{5}{\sqrt{31{,}25}} = \frac{2}{\sqrt{5}} \approx 0{,}894$. Diviser partout par $n - 1$ donne le même $r$ : le facteur se simplifie.
+C'est la **corrélation** (coefficient de corrélation linéaire de Pearson, *correlation*), où la covariance et les deux écarts-types divisent par le même nombre ($n$, ou $n - 1$). Pour les quatre points, avec les variances divisées par $n$ comme la covariance : $\frac{9 + 1 + 1 + 9}{4} = 5$ pour $x$, $\frac{12{,}25 + 0{,}25 + 0{,}25 + 12{,}25}{4} = 6{,}25$ pour $y$, donc $r = \frac{5}{\sqrt{5 \times 6{,}25}} = \frac{5}{\sqrt{31{,}25}} = \frac{2}{\sqrt{5}} \approx 0{,}894$. Diviser partout par $n - 1$ donne le même $r$ : le facteur se simplifie.
 
 Ses propriétés :
 - $-1 \le r \le 1$ ;
@@ -555,7 +555,7 @@ Avec $\mathbf{w} = (1, 1, 0)$ : $\mathbb{V}(X_1 + X_2) = 49 + 100 + 2 \times 30 
 (5.0, 0.8944)
 ```
 
-**Pour le ML.** La matrice de corrélation sert à la **sélection de features** : deux features corrélées à 0,99 portent presque la même information, et l'on peut en retirer une ; une feature de variance presque nulle ne distingue aucun exemple. Le **MCC** du chapitre 3 (*Matthews correlation coefficient*) est la corrélation $r$ entre les labels vrais et prédits, codées par 0 et 1 (M03). Et la matrice de covariance est l'objet central de l'analyse en composantes principales (PCA, chapitre 12, préparée par M12c et M12d).
+**Pour le ML.** La matrice de corrélation sert à la **sélection de features** : deux features corrélées à 0,99 portent presque la même information, et l'on peut en retirer une ; une feature de variance presque nulle ne distingue aucun exemple. Le **MCC** du chapitre 3 (*Matthews correlation coefficient*) est la corrélation $r$ entre les labels vrais et prédits, codés par 0 et 1 (M03). Et la matrice de covariance est l'objet central de l'analyse en composantes principales (PCA, chapitre 12, préparée par M12c et M12d).
 
 📖 **Dans MML** — §6.4.2 définit la covariance empirique d'un dataset de vecteurs (avec $\frac{1}{N}$), directement sous forme de matrice ; §6.4.6 interprète la covariance comme un produit scalaire entre variables aléatoires, la variance comme le carré d'une norme, et la corrélation comme le cosinus d'un angle (le livre dessine deux variables comme deux vecteurs). Questions : M02c.15.
 
@@ -598,7 +598,7 @@ Les données de ML ont souvent des centaines ou des milliers de features : chaqu
 
 ![La part du volume du cube dans la boule inscrite (échelle logarithmique) et à moins de 0,05 du bord, en fonction de la dimension](figures/grande_dimension.png)
 
-**La loi des grands nombres en grande dimension.** Prenons un vecteur $\mathbf{X} = (X_1, \ldots, X_d)$ de coordonnées i.i.d. de loi $\mathcal{N}(0, 1)$. Sa norme au carré $\lVert \mathbf{X} \rVert^2 = X_1^2 + \cdots + X_d^2$ est une somme de $d$ variables i.i.d., d'espérance $\mathbb{E}[X_i^2] = 1$ et de variance $\mathbb{V}(X_i^2) = 2$ (admis). Donc $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = d$ et $\sigma\big(\lVert \mathbf{X} \rVert^2\big) = \sqrt{2d}$ : l'écart relatif $\frac{\sqrt{2d}}{d}$ tend vers 0. En dimension 100, $\lVert \mathbf{X} \rVert^2$ vaut $100 \pm 14$ environ, et $\lVert \mathbf{X} \rVert$ tombe 95 fois sur 100 entre 8,6 et 11,4 : les points d'une cloche en dimension 100 ne sont **pas** près du centre, mais sur une fine coquille de rayon $\sqrt{d} = 10$.
+**La loi des grands nombres en grande dimension.** Prenons un vecteur $\mathbf{X} = (X_1, \ldots, X_d)$ de coordonnées i.i.d. de loi $\mathcal{N}(0, 1)$. Sa norme au carré $\lVert \mathbf{X} \rVert^2 = X_1^2 + \cdots + X_d^2$ est une somme de $d$ variables i.i.d., d'espérance $\mathbb{E}[X_i^2] = 1$ et de variance $\mathbb{V}(X_i^2) = 2$ (admis). Donc $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = d$ et $\sigma\big(\lVert \mathbf{X} \rVert^2\big) = \sqrt{2d}$ : l'écart relatif $\frac{\sqrt{2d}}{d}$ tend vers 0. En dimension 100, $\lVert \mathbf{X} \rVert^2$ vaut $100 \pm 14$ environ, et $\lVert \mathbf{X} \rVert$ tombe 95 fois sur 100 entre 8,6 et 11,4 (d'après la simulation ci-dessous) : les points d'une cloche en dimension 100 ne sont **pas** près du centre, mais sur une fine coquille de rayon $\sqrt{d} = 10$.
 
 ```python
 >>> rng = np.random.default_rng(0)
