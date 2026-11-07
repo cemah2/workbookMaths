@@ -57,7 +57,7 @@ PAPER = [
 
     Paper("M05a.2", "Extrema locaux et globaux sur un intervalle fermé", [
         ("a", "a list", "[-1, 0, 2]",
-         '''mistakes={"f'(x) = 12x³ − 12x² − 24x se factorise par 12x : x = 0 est aussi un point critique": [-1, 2]}'''),
+         '''mistakes={"factorise entièrement f' : il manque une racine": [-1, 2]}'''),
         ("b", "a list", "[0, 5, -27]", ''),
         ("c", "an integer", "0",
          '''mistakes={"un maximum local a f'' < 0 : calcule f'' en chaque point critique": {-1, 2}}'''),
@@ -75,15 +75,15 @@ PAPER = [
 
     Paper("M05a.3", "Points d'inflexion et test de la dérivée seconde", [
         ("a", "a list", "[0, 4]",
-         '''mistakes={"p'(x) = 5x⁴ − 20x³ = 5x³(x − 4) : x = 0 est aussi un point critique": [4]}'''),
+         '''mistakes={"factorise entièrement p' : il manque une racine": [4]}'''),
         ("b", "an integer", "320",
          '''mistakes={"c'est p'(4) ; dérive encore une fois": 0}'''),
         ("c", "an integer", "0", ''),
         ("d", "a letter, as text", '"A"',
          '''mistakes={"p''(0) = 0 ne permet pas de conclure : étudie le signe de p' juste avant et juste après 0": "C", '''
-         '''"regarde le signe de p' juste avant et juste après 0 : p croît, puis décroît ?": "B"}'''),
+         '''"regarde le signe de p' juste avant et juste après 0 (par exemple en −1 et en 1)": "B"}'''),
         ("e", "a list", "[3]",
-         '''mistakes={"p''(x) = 20x²(x − 3) s'annule en 0 sans changer de signe (x² ≥ 0)": [0, 3]}'''),
+         '''mistakes={"un point d'inflexion demande que p'' change de signe : vérifie chacune de ses racines": [0, 3]}'''),
         ("f", "an integer", "-162", ''),
         ("g", "True or False", "False",
          '''mistakes={"(x⁴)'' = 12x² s'annule en 0 mais ne change pas de signe": True}'''),
@@ -94,10 +94,10 @@ PAPER = [
          X + ''', mistakes={"cos''(0) = −cos 0 = −1 : le terme d'ordre 2 est négatif": "1 + x**2/2", '''
              '''"divise le terme d'ordre 2 par 2! = 2": "1 - x**2"}'''),
         ("b", "an expression in x, as text", '"x - x**2/2 + x**3/3"',
-         X + ''', mistakes={"la dérivée troisième de ln(1 + x) en 0 vaut 2, et 2/3! = 1/3": "x - x**2/2 + x**3/6", '''
+         X + ''', mistakes={"recalcule f‴(0) pour ln(1 + x), puis divise-la par 3!": "x - x**2/2 + x**3/6", '''
              '''"les signes alternent": "x + x**2/2 + x**3/3"}'''),
         ("c", "an expression in x, as text", '"1 + x + x**2 + x**3"',
-         X + ''', mistakes={"la dérivée k-ième de 1/(1 − x) en 0 vaut k! : chaque coefficient f⁽ᵏ⁾(0)/k! vaut 1": '''
+         X + ''', mistakes={"recalcule f″(0) et f‴(0) pour 1/(1 − x) avant de les diviser par 2! et 3!": '''
              '''"1 + x + x**2/2 + x**3/6", "dérive 1/(1 − x) avec la règle de la chaîne : (1 − x)′ = −1": '''
              '''"1 - x + x**2 - x**3"}'''),
         ("d", "a number (4 decimals)", "math.e * (1 + 0.1 + 0.1 ** 2 / 2)",
@@ -123,15 +123,14 @@ PAPER = [
         ("c", "a number (7 decimals)", "0.5 ** 5 / 120",
          '''decimals=7, mistakes={"le reste d'ordre 4 utilise la dérivée cinquième, avec x⁵/5!": 0.5 ** 4 / 24}'''),
         ("d", "an integer", "9",
-         '''mistakes={"l'ordre n donne le reste avec (n + 1)! : n est un de moins que le nombre dont tu prends la '''
-         '''factorielle": 10}'''),
+         '''mistakes={"relis la borne : l'ordre n correspond à (n + 1)! au dénominateur": 10}'''),
         ("e", "a number (6 decimals)", "2 * 0.1 ** 3 / 6",
          '''decimals=6, mistakes={"le reste d'ordre 2 divise par 3! = 6": 2 * 0.1 ** 3 / 2}'''),
         ("f", "a number (7 decimals)", "0.2 ** 4 / 24",
          '''decimals=7, mistakes={"le terme en x³ de cos est nul : P₂ = P₃, et le reste d'ordre 3 utilise x⁴/4!": '''
          '''0.2 ** 3 / 6}'''),
         ("g", "a number (4 decimals)", "0.006 ** (1 / 3)",
-         '''decimals=4, mistakes={"x³/6 < 0,001 donne x³ < 0,006 : prends la racine cubique": 0.006 ** (1 / 2)}'''),
+         '''decimals=4, mistakes={"la borne est en x³ : quelle opération défait un cube ?": 0.006 ** (1 / 2)}'''),
     ]),
 
     Paper("M05a.6", "Newton à la main : une racine carrée en trois pas", [
@@ -177,7 +176,7 @@ PAPER = [
          '''(math.sqrt(4.2) - math.sqrt(3.8)) / 0.2}'''),
         ("f", "an irreducible fraction, as text", "Fraction(1, 12800)",
          F + ''', mistakes={"f‴(x) = 3/(8 x^(5/2)) est positive": "-1/12800", '''
-             '''"h² = 0,04 se divise par 6, et f‴(4) = 3/256": "1/2133"}'''),
+             '''"la prévision divise h² f‴(4) par 6": "3/6400"}'''),
         ("g", "an integer", "4",
          '''mistakes={"l'erreur de la différence centrée est proportionnelle à h²": 2}'''),
         ("h", "a number (5 decimals)", "(math.sqrt(4.2) - 4 + math.sqrt(3.8)) / 0.04",
@@ -198,16 +197,16 @@ PAPER = [
          '''{"0011", "0110", "1100"}}'''),
         ("d", "an integer", "-54",
          '''mistakes={"c'est l'écart après 1 ; entre deux puissances de 2, l'écart vaut ε fois la plus petite des deux": '''
-         '''-52, "repère la puissance de 2 juste en dessous de 0,3 (0,5 est au-dessus)": -53}'''),
+         '''-52, "0,3 est en dessous de 0,5 : l'écart y est plus petit": -53}'''),
         ("e", "an integer", "-42",
-         '''mistakes={"l'écart est ε fois la puissance de 2 du nombre : 1 024 = 2^10": -52, '''
-         '''"l'écart grandit avec le nombre : il est multiplié par 2^10, pas divisé": -62}'''),
+         '''mistakes={"l'écart après 1 024 n'est pas l'écart après 1 : il grandit avec le nombre": -52, '''
+         '''"l'écart grandit avec le nombre, il ne diminue pas": -62}'''),
         ("f", "an integer", "2 ** 24 + 1",
-         '''mistakes={"cette puissance de 2 elle-même est représentable : c'est l'entier suivant qui ne l'est pas": '''
+         '''mistakes={"vérifie que ton entier n'est pas lui-même représentable : une puissance de 2 l'est toujours": '''
          '''2 ** 24, "c'est pour float64 ; float32 garde 23 bits après la virgule": 2 ** 53 + 1}'''),
         ("g", "an irreducible fraction, as text", "Fraction(1, 2)",
          F + ''', mistakes={"l'écart est ε fois la puissance de 2 juste en dessous de 1 000, pas ε seul": "1/1024", '''
-             '''"1 000 est en dessous de 1 024 : prends la puissance de 2 juste en dessous": "1"}'''),
+             '''"1 000 est en dessous de 1 024 : l'écart y est plus petit": "1"}'''),
         ("h", "an integer", "-24",
          '''mistakes={"c'est l'epsilon de float32 ; la question demande sa moitié": -23, '''
          '''"c'est pour float64 ; la question porte sur float32": -53}'''),
@@ -219,7 +218,7 @@ PAPER = [
         ("b", "a number (3 decimals)", "2 * math.sqrt(2 * 1e-6) * 1000",
          '''decimals=3, mistakes={"E(h*) additionne la troncature et le bruit": math.sqrt(2) * 1e-3 * 1000}'''),
         ("c", "a number (3 decimals)", "(3 * 1e-6 / 3) ** (1 / 3)",
-         '''decimals=3, mistakes={"résous E′(h) = (M₃/3) h − δ/h² = 0 : h³ = 3δ/M₃": (1e-6) ** 0.5}'''),
+         '''decimals=3, mistakes={"la troncature de la différence centrée est en h², pas en h : dérive la bonne borne": (1e-6) ** 0.5}'''),
         ("d", "a number (2 decimals)", "(3 / 6 * 0.01 ** 2 + 1e-6 / 0.01) * 1e4",
          '''decimals=2, mistakes={"ajoute le terme de bruit δ/h": 3 / 6 * 0.01 ** 2 * 1e4, '''
          '''"ajoute la troncature (M₃/6) h²": 1e-6 / 0.01 * 1e4}'''),
@@ -230,8 +229,8 @@ PAPER = [
          '''comme δ": 0.001, "c'est le facteur sur h* ; la question demande celui sur l'erreur": 0.1, '''
          '''"un capteur plus précis donne une erreur plus petite : le facteur est inférieur à 1": 100.0}'''),
         ("g", "a number (4 decimals)", "(4 * 1e-6) ** 0.25",
-         '''decimals=4, mistakes={"la dérivée de 4δ/h² est −8δ/h³ : h⁴ = 4δ": (1e-6) ** 0.25, '''
-         '''"h⁴ = 4δ : prends la racine quatrième, pas la racine carrée": (4e-6) ** 0.5}'''),
+         '''decimals=4, mistakes={"dérive aussi le facteur 4 de 4δ/h²": (1e-6) ** 0.25, '''
+         '''"vérifie la puissance de h qui reste dans E′(h) = 0": (4e-6) ** 0.5}'''),
         ("h", "True or False", "True",
          '''mistakes={"compare les erreurs au meilleur pas, b) et d), avec les mêmes unités": False}'''),
     ]),
@@ -254,13 +253,12 @@ PAPER = [
          '''decimals=4, mistakes={"la cross-entropy est −ln p₃, un nombre positif": '''
          '''795 - (802 + math.log(1 + math.exp(-2) + math.exp(-7)))}'''),
         ("g", "a number (4 decimals)", "802 + math.log(3)",
-         '''decimals=4, mistakes={"trois termes égaux : la somme des exponentielles vaut 3 e^802": 802}'''),
+         '''decimals=4, mistakes={"le log-sum-exp de valeurs égales dépasse cette valeur (encadrement de la fiche §8)": 802}'''),
     ]),
 
     Paper("M05a.14", "Pourquoi les bibliothèques de ML calculent log(softmax) d'un seul coup", [
         ("a", "a number (2 decimals)", "780 + math.log(1 + math.exp(-760) + math.exp(-810))",
-         '''decimals=2, mistakes={"les deux autres scores sont très loin du maximum : leurs termes e^(z_j − m) sont '''
-         '''presque nuls, ce n'est pas 1 chacun": 780 + math.log(3)}'''),
+         '''decimals=2, mistakes={"compare les trois termes e^(z_j − m) : ils ne valent pas tous 1": 780 + math.log(3)}'''),
         ("b", "a number (2 decimals)", "20 - 780",
          '''decimals=2, mistakes={"le log-softmax est z₂ − LSE(z), un nombre négatif": 760}'''),
         ("c", "True or False", "True",
@@ -413,8 +411,9 @@ wbm.record("M05a.18g", 148.4131591026, decimals=4)''',
          "contre $\\sin 0{,}8 \\approx 0{,}717356$. b) celui d'ordre 4 de $\\cos$ : $1 - \\frac{1}{2} + \\frac{1}{24} = "
          "\\frac{13}{24}$, contre $\\cos 1 \\approx 0{,}5403$. c) celui d'ordre 3 de $\\ln$ en 1 : $0{,}5 - 0{,}125 + "
          "\\frac{2 \\times 0{,}125}{6} = \\frac{5}{12}$, contre $\\ln 1{,}5 \\approx 0{,}4055$. f) Un seul terme : la "
-         "constante $f(a)$. g) 30 termes de la série de $e^x$ suffisent à $x = 5$ : l'écart à $e^5$ est de l'ordre de "
-         "$\\frac{5^{30} e^5}{30!}$, environ $10^{-9}$.",
+         "constante $f(a)$. g) 30 termes de la série de $e^x$ suffisent à $x = 5$ : l'écart à $e^5$ vaut environ "
+         "$4 \\times 10^{-12}$, de l'ordre du premier terme négligé $\\frac{5^{30}}{30!}$ (la borne de Lagrange, $\\frac{5^{30} e^5}{30!}$, "
+         "donne $5 \\times 10^{-10}$).",
 )
 
 M05A_19 = Ex(
@@ -489,7 +488,7 @@ wbm.record("M05a.19g", "float",
            mistakes={{"renvoie un float de Python, même quand x₀ est déjà un zéro : float(x0)": "int"}})''',
     after=tests_cells("test_newton_ or test_approx_uses_"),
     note="a) $x_1 = 3 - \\frac{2}{6} = \\frac{8}{3}$, $x_2 = \\frac{127}{48} \\approx 2{,}645833$, $x_3 \\approx "
-         "2{,}6457513$ : $\\sqrt{7}$ à $10^{-9}$ près dès le troisième pas. b) Le nombre $x$ tel que $e^{-x} = x$, "
+         "2{,}6457513$ : $\\sqrt{7}$ à $1{,}3 \\times 10^{-9}$ près dès le troisième pas. b) Le nombre $x$ tel que $e^{-x} = x$, "
          "environ 0,567. c) $f'(1) = 0$ ; le polynôme $x^2 - 2x + 5 = (x - 1)^2 + 4$ n'a d'ailleurs aucune racine "
          "réelle. d) Trois pas ne suffisent pas pour $\\text{tol} = 10^{-12}$. e) $f(2) = 0$ **et** $f'(2) = 0$ : "
          "tester la pente d'abord lèverait une erreur sur un zéro déjà trouvé. f) Le deuxième pas ne bouge que de "
@@ -561,8 +560,8 @@ wbm.record("M05a.20g", 1.1759884333, decimals=2,
     after=tests_cells("test_richardson_derivative_ or test_approx_uses_"),
     note="a) La dérivée exacte est $-\\sin 0{,}6 \\approx -0{,}56464247$ ; $D(0{,}1)$ se trompe d'environ "
          "$9{,}4 \\times 10^{-4}$, Richardson d'environ $1{,}2 \\times 10^{-7}$, 8 000 fois moins. b) $\\frac{1}{3}$ à "
-         "$2 \\times 10^{-12}$ près. d) Pour un polynôme de degré 4, $D(h) = f'(x) + c_2 h^2$ exactement ($f^{(5)} = "
-         "0$, et les termes impairs se compensent) : la combinaison annule $c_2 h^2$ et donne $4x^3 = 32$, alors que "
+         "$2 \\times 10^{-12}$ près. d) Pour un polynôme de degré 4, $D(h) = f'(x) + c_2 h^2$ exactement ($D(h)$ n'a "
+         "que des puissances paires de $h$, et $f^{(5)} = 0$) : la combinaison annule $c_2 h^2$ et donne $4x^3 = 32$, alors que "
          "$D(0{,}5) = 34$. e) Diviser $h$ par 2 divise l'erreur par $2^4 = 16$ : la méthode est d'ordre 4.",
 )
 
@@ -910,10 +909,10 @@ wbm.record("M05a.25f", 0.0049750012, decimals=6,
            mistakes={"n termes : k va de 1 à n inclus, range(1, n + 1)": 0.0050249988})''',
     after=[("md", "**La figure** (elle utilise ta fonction)."),
            ("code", M05A_25_FIGURE)],
-    note="Pour $|x| < 1$, l'erreur décroît comme le premier terme négligé, $\\frac{|x|^{n+1}}{n+1}$ (une série alternée "
+    note="Pour $0 < x < 1$, l'erreur décroît comme le premier terme négligé, $\\frac{|x|^{n+1}}{n+1}$ (une série alternée "
          "dont les termes décroissent : l'erreur est plus petite que le premier terme négligé) : 15 termes de plus "
          "gagnent 5 décimales en 0,5, mais il en faut 28 en 0,9. En $x = 1$, l'erreur ne décroît que comme "
-         "$\\frac{1}{n + 1}$ : $0{,}005$ pour 100 termes, et il faudrait un million de termes pour $10^{-6}$. En "
+         "$\\frac{1}{2n}$ environ : $0{,}005$ pour 100 termes, et il faudrait environ 500 000 termes pour $10^{-6}$. En "
          "$x = 1{,}5$, le terme $\\frac{1{,}5^k}{k}$ grandit sans limite : chaque terme ajouté éloigne davantage la "
          "somme, qui oscille de plus en plus fort (97,7 pour 20 termes).",
 )
@@ -1059,7 +1058,7 @@ Questions :
 - a) les lettres des lignes fausses, dans l'ordre alphabétique (un texte) ;
 - b) pour chacune des six lignes, de (A) à (F), la bonne valeur de ce que dit son commentaire (une liste de 6 nombres, 3 décimales).
 
-Dans ta copie : pour chaque ligne fausse, quelle erreur a été faite, et comment la corriger ? Laquelle donne une erreur à l'exécution plutôt qu'une valeur fausse ? D'où vient le `nan` du titre, quand la ligne (A) est fausse (calcule `math.exp(1000 - 200)` en NumPy, puis `inf / inf`) ?""",
+Dans ta copie : pour chaque ligne fausse, quelle erreur a été faite, et comment la corriger ? Laquelle donne une erreur à l'exécution plutôt qu'une valeur fausse ? D'où peut venir le `nan` du titre (pense à `inf / inf` en NumPy) ?""",
     todo='''answer_M05a_27a = ...  # a) letters, as text
 answer_M05a_27b = ...  # b) a list of 6 values (3 decimals)''',
     check='''wbm.check("M05a.27a", answer_M05a_27a)

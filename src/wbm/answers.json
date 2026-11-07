@@ -13174,7 +13174,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "91b71cb747c0e1d9fc5e51242774e881a43ecd942347f5e73247656c1d860cf2": "f'(x) = 12x³ − 12x² − 24x se factorise par 12x : x = 0 est aussi un point critique"
+        "91b71cb747c0e1d9fc5e51242774e881a43ecd942347f5e73247656c1d860cf2": "factorise entièrement f' : il manque une racine"
       },
       "shape": [
         3
@@ -13283,7 +13283,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "cf597634cbb15dfca25d57dfeb813a9e7b41df25147b97573325c15fe7bb1487": "p'(x) = 5x⁴ − 20x³ = 5x³(x − 4) : x = 0 est aussi un point critique"
+        "cf597634cbb15dfca25d57dfeb813a9e7b41df25147b97573325c15fe7bb1487": "factorise entièrement p' : il manque une racine"
       },
       "shape": [
         2
@@ -13311,7 +13311,7 @@
       "hash": "072a33140b6be0af94c79070edede830fd2e48ccf3bd352cc8bedd14860624e8",
       "kind": "str",
       "mistakes": {
-        "347551f0a5bd060a55dc2499a4415f0878711adb48ec1ff1e1304ced3bbe3577": "regarde le signe de p' juste avant et juste après 0 : p croît, puis décroît ?",
+        "347551f0a5bd060a55dc2499a4415f0878711adb48ec1ff1e1304ced3bbe3577": "regarde le signe de p' juste avant et juste après 0 (par exemple en −1 et en 1)",
         "e8f7f74fba1e741e6522a266a2fcbd6262ff2931504516f6217d8da3e8988ca1": "p''(0) = 0 ne permet pas de conclure : étudie le signe de p' juste avant et juste après 0"
       },
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -13322,7 +13322,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "3e28f8562ce09a430ecae4c3d2ff4825153b79eede7d6bab23898e93479a268b": "p''(x) = 20x²(x − 3) s'annule en 0 sans changer de signe (x² ≥ 0)"
+        "3e28f8562ce09a430ecae4c3d2ff4825153b79eede7d6bab23898e93479a268b": "un point d'inflexion demande que p'' change de signe : vérifie chacune de ses racines"
       },
       "shape": [
         1
@@ -13378,7 +13378,7 @@
       "kind": "expr",
       "mistakes": {
         "9ba3cd8a7c86cf74cb7b71508f09fb17dbec7efc0ee651a1f2113f8f3a08459a": "les signes alternent",
-        "f14cf1a4d474699163a2245b83189252afb615733cd76ef8ef684c1b02144460": "la dérivée troisième de ln(1 + x) en 0 vaut 2, et 2/3! = 1/3"
+        "f14cf1a4d474699163a2245b83189252afb615733cd76ef8ef684c1b02144460": "recalcule f‴(0) pour ln(1 + x), puis divise-la par 3!"
       },
       "points": [
         [
@@ -13406,7 +13406,7 @@
       "hash": "2444506e0184964f33b70145be22595623f6bdb0ad446e63fbc542b94553fb4c",
       "kind": "expr",
       "mistakes": {
-        "0c8d6b6fc89931993ae5e6b29507f8b4b304382c32681486af2a2f987718460b": "la dérivée k-ième de 1/(1 − x) en 0 vaut k! : chaque coefficient f⁽ᵏ⁾(0)/k! vaut 1",
+        "0c8d6b6fc89931993ae5e6b29507f8b4b304382c32681486af2a2f987718460b": "recalcule f″(0) et f‴(0) pour 1/(1 − x) avant de les diviser par 2! et 3!",
         "f32dfcce188254eebdc921603699949e5e515a30e466751b7cb73d0dcadee520": "dérive 1/(1 − x) avec la règle de la chaîne : (1 − x)′ = −1"
       },
       "points": [
@@ -13603,7 +13603,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "b1b56700b552be97567271917b08a047959b3200f6fbf12e3afab4d1cd494117": "l'ordre n donne le reste avec (n + 1)! : n est un de moins que le nombre dont tu prends la factorielle"
+        "b1b56700b552be97567271917b08a047959b3200f6fbf12e3afab4d1cd494117": "relis la borne : l'ordre n correspond à (n + 1)! au dénominateur"
       },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -13662,7 +13662,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "405602a0e0bb0c8c11e62b7b0efd245047d288b658f503ecfd16d25ad0b0ee7d": "x³/6 < 0,001 donne x³ < 0,006 : prends la racine cubique"
+        "405602a0e0bb0c8c11e62b7b0efd245047d288b658f503ecfd16d25ad0b0ee7d": "la borne est en x³ : quelle opération défait un cube ?"
       },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -13933,7 +13933,7 @@
       "hash": "f8ef6fdfaf55436b320af114658cf0d8f64ceebf3e7bbd793544eb35390a0cb2",
       "kind": "fraction",
       "mistakes": {
-        "035a5b86edbeaad31d675b09d0a79bd179b0f23c3d39075d4ef3b03f8868ac89": "h² = 0,04 se divise par 6, et f‴(4) = 3/256",
+        "4ba2871ef8f834eeb553741d67367806c503fe0d4c09e95099dc87b25f64250e": "la prévision divise h² f‴(4) par 6",
         "d161984ba931d53735337ef420f087e864523c29c40c4c4ca3818f5de8e3539f": "f‴(x) = 3/(8 x^(5/2)) est positive"
       },
       "sign": 1,
@@ -14010,7 +14010,7 @@
       "magnitude": 1,
       "mistakes": {
         "70afaaa0ff5ece46157861e35f38c212b888ba3c9b38ef302903c79467208434": "c'est l'écart après 1 ; entre deux puissances de 2, l'écart vaut ε fois la plus petite des deux",
-        "a3781fcdfef83a27d19dd428323b15c158a1fda1d279fc79bd051046ca5857a1": "repère la puissance de 2 juste en dessous de 0,3 (0,5 est au-dessus)"
+        "a3781fcdfef83a27d19dd428323b15c158a1fda1d279fc79bd051046ca5857a1": "0,3 est en dessous de 0,5 : l'écart y est plus petit"
       },
       "sign": -1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -14020,8 +14020,8 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "8f5e1a537726f52c120ebd2f4c9d246372d311cf105eaf017eeb78f299f5f9ab": "l'écart est ε fois la puissance de 2 du nombre : 1 024 = 2^10",
-        "9df1c950de8cb49caf058d991cd5371d7e5461406945308bd32f8f52cd1bc58d": "l'écart grandit avec le nombre : il est multiplié par 2^10, pas divisé"
+        "8f5e1a537726f52c120ebd2f4c9d246372d311cf105eaf017eeb78f299f5f9ab": "l'écart après 1 024 n'est pas l'écart après 1 : il grandit avec le nombre",
+        "9df1c950de8cb49caf058d991cd5371d7e5461406945308bd32f8f52cd1bc58d": "l'écart grandit avec le nombre, il ne diminue pas"
       },
       "sign": -1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -14032,7 +14032,7 @@
       "magnitude": 7,
       "mistakes": {
         "d0b12cddbc3216c59a3dd629f008e4b9033e362e4ba660d06731c8f88f712004": "c'est pour float64 ; float32 garde 23 bits après la virgule",
-        "d8ac111cdb263e9c81ee2a87d41b23f36daacdfafcc853ca0ae176e7721486db": "cette puissance de 2 elle-même est représentable : c'est l'entier suivant qui ne l'est pas"
+        "d8ac111cdb263e9c81ee2a87d41b23f36daacdfafcc853ca0ae176e7721486db": "vérifie que ton entier n'est pas lui-même représentable : une puissance de 2 l'est toujours"
       },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -14041,7 +14041,7 @@
       "hash": "49427bf5b2d618982132d35ab0bb9fd212eaf0d41f5253fef9f08d026493fe0c",
       "kind": "fraction",
       "mistakes": {
-        "43a594055aa3faab7e0627bc8404d7ca3a415e700662877dec654b2db5a48fe4": "1 000 est en dessous de 1 024 : prends la puissance de 2 juste en dessous",
+        "43a594055aa3faab7e0627bc8404d7ca3a415e700662877dec654b2db5a48fe4": "1 000 est en dessous de 1 024 : l'écart y est plus petit",
         "58e6206dbcb77aeb7fc96a24616d5c52340f4131028f30048bd53b98b37c6c37": "l'écart est ε fois la puissance de 2 juste en dessous de 1 000, pas ε seul"
       },
       "sign": 1,
@@ -14110,7 +14110,7 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "055a626438d7f503e0a30f291c643e36b23aaa415a8a1d4942f71e48c16624f6": "résous E′(h) = (M₃/3) h − δ/h² = 0 : h³ = 3δ/M₃"
+        "055a626438d7f503e0a30f291c643e36b23aaa415a8a1d4942f71e48c16624f6": "la troncature de la différence centrée est en h², pas en h : dérive la bonne borne"
       },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -14172,8 +14172,8 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "174c80d7a039a9b14aea450bfb641f48aa64c507b2a8f73602e1709e62d9c3c3": "h⁴ = 4δ : prends la racine quatrième, pas la racine carrée",
-        "311e59970f060607325fd0713af0703c01c6190442ab43dd3182aedfd998b5cd": "la dérivée de 4δ/h² est −8δ/h³ : h⁴ = 4δ"
+        "174c80d7a039a9b14aea450bfb641f48aa64c507b2a8f73602e1709e62d9c3c3": "vérifie la puissance de h qui reste dans E′(h) = 0",
+        "311e59970f060607325fd0713af0703c01c6190442ab43dd3182aedfd998b5cd": "dérive aussi le facteur 4 de 4δ/h²"
       },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -14338,7 +14338,7 @@
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
-        "34593779d9ba9b29f0372f65443ce2c12fd6c8359c6bed10cc8aec3a2441c934": "trois termes égaux : la somme des exponentielles vaut 3 e^802"
+        "34593779d9ba9b29f0372f65443ce2c12fd6c8359c6bed10cc8aec3a2441c934": "le log-sum-exp de valeurs égales dépasse cette valeur (encadrement de la fiche §8)"
       },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -14355,7 +14355,7 @@
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
-        "a66b1fb2e6322cc471c5ad24ac3651435a03ecd7e1b81e116eb60e567a28e0e8": "les deux autres scores sont très loin du maximum : leurs termes e^(z_j − m) sont presque nuls, ce n'est pas 1 chacun"
+        "a66b1fb2e6322cc471c5ad24ac3651435a03ecd7e1b81e116eb60e567a28e0e8": "compare les trois termes e^(z_j − m) : ils ne valent pas tous 1"
       },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"

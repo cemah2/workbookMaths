@@ -461,7 +461,7 @@ Pour la copie : la loss est énorme parce que le modèle est sûr de lui et se t
 
 **Réponses** : a) `0.001827` · b) `1.54` · c) `0.8368` · d) `97.7` · e) `28` · f) `0.004975`.
 
-**Démarche.** `float(sum((-1) ** (k + 1) * x ** k / k for k in range(1, n + 1)))`. Pour $|x| < 1$, l'erreur est plus petite que le premier terme négligé $\frac{|x|^{n+1}}{n + 1}$ (série alternée) et décroît géométriquement ; en $x = 1$, elle ne décroît que comme $\frac{1}{n + 1}$ (un million de termes pour $10^{-6}$) ; en $x = 1{,}5$, le terme $\frac{1{,}5^k}{k}$ grandit sans limite : la somme oscille de plus en plus fort et la série diverge.
+**Démarche.** `float(sum((-1) ** (k + 1) * x ** k / k for k in range(1, n + 1)))`. Pour $0 < x < 1$, l'erreur est plus petite que le premier terme négligé $\frac{|x|^{n+1}}{n + 1}$ (série alternée) et décroît géométriquement ; en $x = 1$, elle ne décroît que comme $\frac{1}{2n}$ environ (quelque 500 000 termes pour $10^{-6}$) ; en $x = 1{,}5$, le terme $\frac{1{,}5^k}{k}$ grandit sans limite : la somme oscille de plus en plus fort et la série diverge.
 
 **Erreurs fréquentes.** Oublier l'alternance des signes ; `range(1, n)` ($n - 1$ termes : e) donne 29) ; croire qu'ajouter des termes améliore toujours l'approximation.
 

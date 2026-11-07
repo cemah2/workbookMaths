@@ -298,7 +298,7 @@ avec 52 chiffres binaires $b_i$ après la virgule (la **mantisse**, *significand
 | `float32` | 23 | $2^{-23} \approx 1{,}2 \times 10^{-7}$ | $\approx 3{,}4 \times 10^{38}$ |
 | `float16` | 10 | $2^{-10} \approx 9{,}8 \times 10^{-4}$ | 65 504 |
 
-Au-delà du plus grand nombre, le résultat **déborde** (*overflow*) : NumPy rend `inf`, et `math.exp` lève une `OverflowError`. Sous le plus petit nombre positif « normal », $\approx 2{,}2 \times 10^{-308}$, viennent quelques nombres de moins en moins précis (les *sous-normaux*), jusqu'à $\approx 4{,}9 \times 10^{-324}$ ; en dessous, le résultat **s'efface** et vaut 0 (*underflow*, M04 §7).
+Au-delà du plus grand nombre, le résultat **déborde** (*overflow*) : NumPy rend `inf`, et `math.exp` lève une `OverflowError`. Sous le plus petit nombre positif « normal », $\approx 2{,}2 \times 10^{-308}$, viennent des nombres de moins en moins précis (les *sous-normaux*), jusqu'à $\approx 4{,}9 \times 10^{-324}$ ; en dessous, le résultat **s'efface** et vaut 0 (*underflow*, M04 §7).
 
 ### Les erreurs d'arrondi
 

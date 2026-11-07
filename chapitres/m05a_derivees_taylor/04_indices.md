@@ -336,7 +336,7 @@ Pour la partie après la virgule : multiplie par 2, note la partie entière (0 o
 </details>
 <details><summary>Indice 3</summary>
 
-b) Écris chaque nombre en fraction irréductible : le dénominateur doit être une puissance de 2. d), e) et g) L'écart vaut $\varepsilon$ fois la puissance de 2 juste **en dessous** du nombre ($0{,}25 \le 0{,}3 < 0{,}5$). f) Avec 23 bits après la virgule, combien de bits significatifs ? h) L'erreur relative d'arrondi est $\frac{\varepsilon}{2}$.
+b) Écris chaque nombre en fraction irréductible : le dénominateur doit être une puissance de 2. d), e) et g) L'écart vaut $\varepsilon$ fois la puissance de 2 juste **en dessous** du nombre, ou égale à lui. f) Avec 23 bits après la virgule, combien de bits significatifs ? h) L'erreur relative d'arrondi est $\frac{\varepsilon}{2}$.
 
 </details>
 
@@ -354,7 +354,7 @@ Dérive chaque borne par rapport à $h$ et résous $E'(h) = 0$ : $\big(\frac{1}{
 </details>
 <details><summary>Indice 3</summary>
 
-a) $h^2 = \frac{4\delta}{M_2}$. c) $h^3 = \frac{3\delta}{M_3}$. e) et f) Écris $h^*$ et $E(h^*)$ comme des puissances de $\delta$. g) $h^4 = 4\delta$.
+a) $h^2 = \frac{4\delta}{M_2}$. c) $h^3 = \frac{3\delta}{M_3}$. e) et f) Écris $h^*$ et $E(h^*)$ comme des puissances de $\delta$. g) Dérive $h^2 + \frac{4\delta}{h^2}$ et annule la dérivée : la puissance de $h$ qui apparaît dit quelle racine prendre.
 
 </details>
 
@@ -372,7 +372,7 @@ Soustrais le maximum : $(0, -2, -7)$. Il ne reste que des exponentielles d'expos
 </details>
 <details><summary>Indice 3</summary>
 
-c) $802 + \ln(1 + e^{-2} + e^{-7})$. e) Le log-softmax est $v_2 - \text{LSE}(\mathbf{v})$. g) Trois termes égaux à $e^{802}$.
+c) Le maximum, plus le logarithme de la somme des trois exponentielles de l'indice 2. e) Le log-softmax est $v_2 - \text{LSE}(\mathbf{v})$. g) Trois termes égaux à $e^{802}$.
 
 </details>
 
@@ -452,7 +452,7 @@ a) Après soustraction du maximum, les deux autres termes valent $e^{-760}$ et $
 </details>
 <details><summary>Indice 3</summary>
 
-c) Compare $e^{-760}$ à $5 \times 10^{-324} \approx e^{-744}$. e) Que fait `math.log(0.0)` ? f) $\text{LSE}(2, 0, -1) = 2 + \ln(1 + e^{-2} + e^{-3})$.
+c) Compare $e^{-760}$ à $5 \times 10^{-324} \approx e^{-744}$. e) Que fait `np.log(0.0)` ? f) Même méthode qu'en a), avec $m = 2$.
 
 </details>
 
