@@ -9286,6 +9286,9 @@
       "hash_coarse": "6a4311e241f4598af88da3e3e647e71c817fd179598b01d97a38927ecbe76340",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "9523953fc2193e01d63ab479855306c38c95359de64c2af4b570a644bae9775e": "c'est le F1 ; la question demande le seuil qui le donne"
+      },
       "sign": 1,
       "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
     },
@@ -9524,7 +9527,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "26a6965845325a7548e23428571a67af6b29b755ea6c642e3f3ef5ef1cb43fca": "compare les coûts totaux des trois seuils, pas leurs F1"
+        "26a6965845325a7548e23428571a67af6b29b755ea6c642e3f3ef5ef1cb43fca": "compare les coûts totaux des trois seuils (pas leurs F1), chaque sorte d'erreur avec son propre coût"
       },
       "sign": 1,
       "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
@@ -10211,7 +10214,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "175e498fe8e8a13302671f52e65ee3a620b32c3f250e5cb9172ac9cf501050e0": "compte len(thresholds) renvoyé par roc_curve, et regarde son premier seuil"
+        "175e498fe8e8a13302671f52e65ee3a620b32c3f250e5cb9172ac9cf501050e0": "compte len(thresholds) renvoyé par roc_curve, et regarde son premier seuil",
+        "b45ac0d6fadcc66a61bee6e12b38adc19f744ada9a6376a2c4ff448de95cdbed": "roc_curve renvoie un seuil par score distinct (plus un premier seuil), pas un par exemple"
       },
       "sign": 1,
       "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"

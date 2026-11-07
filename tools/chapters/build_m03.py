@@ -224,7 +224,7 @@ PAPER = [
          '"seuls les seuils où le recall augmente comptent": (1 + 0.5 + 2 / 3 + 0.5 + 0.6 + 0.5 + 3 / 7) / 7}'),
         ("e", "an irreducible fraction, as text", "Fraction(34, 45)", F),
         ("f", "a number (2 decimals)", "0.75", 'decimals=2'),
-        ("g", "a number (2 decimals)", "0.5", 'decimals=2'),
+        ("g", "a number (2 decimals)", "0.5", 'decimals=2, mistakes={"c\'est le F1 ; la question demande le seuil qui le donne": 0.75}'),
         ("h", "a number (4 decimals)", "(1 + 1 + 3 / 4) / 3", 'decimals=4'),
     ]),
 
@@ -255,7 +255,8 @@ PAPER = [
         ("g", "an integer", "4",
          'mistakes={"chaque sorte d\'erreur se multiplie par son propre coût": 2}'),
         ("h", "a number (1 decimal)", "0.3",
-         'decimals=1, mistakes={"compare les coûts totaux des trois seuils, pas leurs F1": 0.5}'),
+         'decimals=1, mistakes={"compare les coûts totaux des trois seuils (pas leurs F1), chaque sorte d\'erreur avec son '
+         'propre coût": 0.5}'),
     ]),
 
     Paper("M03.15", "Équité : les taux de faux positifs de deux groupes", [
@@ -450,7 +451,7 @@ La vérification calcule :
 - e) pour la loi `[[0.1, 0.2, 0.2], [0.1, 0.1, 0.3]]` ;
 - f) `isinstance(résultat, bool)` : le résultat est-il un `bool` de Python ? (Le nom du type ne suffit pas : depuis NumPy 2, celui d'un booléen de NumPy s'écrit aussi `bool`.)
 - g) le nom de l'erreur levée pour `[[0.5, 0.5], [0.5, 0.5]]` ;
-- h) `are_independent` pour `TABLE_20H`, dont chaque case s'écarte de $2 \times 10^{-6}$ du produit de ses marges, avec la tolérance par défaut.
+- h) `are_independent` pour `TABLE_20H`, dont chaque case s'écarte de $2 \\times 10^{-6}$ du produit de ses marges, avec la tolérance par défaut.
 
 Dans ta copie : pour la loi de e), compare la première case au produit de ses marges, puis les autres. Pour `TABLE_20`, de combien chaque case s'écarte-t-elle du produit ? Sur des données réelles, pourquoi ne trouve-t-on jamais une indépendance exacte, et que faudrait-il pour décider (fiche §2) ?""",
     given=("TABLE_20 = np.array([[61, 139], [239, 561]]) / 1000   # a sample of 1 000 people: a joint law estimated from counts\n"
@@ -629,7 +630,8 @@ wbm.record("M03.22c", 0.6666666667, decimals=4,
            mistakes={"c) donne à roc_auc_score les prédictions 0/1 au seuil 0,5, pas les scores": 0.7222222222})
 wbm.record("M03.22d", 0.6666666667, decimals=4)
 wbm.record("M03.22e", 9,
-           mistakes={"compte len(thresholds) renvoyé par roc_curve, et regarde son premier seuil": 8})
+           mistakes={"compte len(thresholds) renvoyé par roc_curve, et regarde son premier seuil": 8,
+                     "roc_curve renvoie un seuil par score distinct (plus un premier seuil), pas un par exemple": 12})
 wbm.record("M03.22f", 0.7335016835, decimals=4,
            mistakes={"c'est la prévalence, l'average precision d'un classement au hasard": 0.5,
                      "l'average precision se calcule sur les scores, pas sur les prédictions 0/1": 0.6111111111})''',

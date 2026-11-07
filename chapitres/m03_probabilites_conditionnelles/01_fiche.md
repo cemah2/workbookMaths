@@ -434,13 +434,13 @@ Calibration et classement sont deux qualités différentes : la prévision const
 Un modèle est utilisé sur deux groupes de personnes $G_1$ et $G_2$ (deux langues, deux tranches d'âge…). Les mesures du §4 se calculent **par groupe** : ce sont des probabilités conditionnelles sachant aussi le groupe, comme $P(\hat{Y} = 1 \mid Y = 0, G = g)$, le taux de faux positifs du groupe $g$. Trois critères d'équité courants comparent les groupes :
 - la **parité des décisions** : le même taux de décisions positives $P(\hat{Y} = 1 \mid G = g)$ ;
 - l'**égalité des taux d'erreur** (*equalized odds*) : le même recall et le même taux de faux positifs dans chaque groupe ;
-- la **parité des precisions** (*predictive parity*) : la même precision $P(Y = 1 \mid \hat{Y} = 1, G = g)$. Elle ressemble à la calibration dans chaque groupe, mais n'en découle pas : la precision au seuil $t$ est la moyenne des scores (calibrés) supérieurs à $t$, qui dépend de la répartition des scores dans le groupe.
+- la **parité des precisions** (*predictive parity*) : la même precision $P(Y = 1 \mid \hat{Y} = 1, G = g)$. Elle ressemble à la calibration dans chaque groupe, mais n'en découle pas : la precision au seuil $t$ est la moyenne des scores (calibrés) supérieurs ou égaux à $t$, qui dépend de la répartition des scores dans le groupe.
 
 Ces critères ne peuvent pas tous être vrais à la fois quand les prévalences des groupes diffèrent. En écrivant $FP$ à partir de la precision ($\text{PPV} = \frac{TP}{TP + FP}$, donc $FP = TP\,\frac{1 - \text{PPV}}{\text{PPV}}$) et $TP = r\,n_+$ :
 
 $$\text{FPR} = \frac{FP}{n_-} = \frac{\pi}{1 - \pi}\cdot\frac{1 - \text{PPV}}{\text{PPV}}\cdot r.$$
 
-Si deux groupes ont la même precision (0,6) et le même recall (0,8), mais des prévalences de 30 % et 10 %, leurs taux de faux positifs sont forcément différents : environ 0,229 et 0,059. On ne peut égaliser les trois quantités que si les prévalences sont égales, ou dans des cas extrêmes (aucun faux positif dans les deux groupes, comme pour un modèle parfait). C'est le **théorème d'impossibilité** (A. Chouldechova, et J. Kleinberg et ses coauteurs, 2016-2017) : choisir un critère d'équité est un choix, pas un calcul.
+Si deux groupes ont la même precision (0,6) et le même recall (0,8), mais des prévalences de 30 % et 10 %, leurs taux de faux positifs sont forcément différents : environ 0,229 et 0,059. On ne peut égaliser les trois quantités que si les prévalences sont égales, ou dans des cas extrêmes (aucun faux positif dans les deux groupes, comme pour un modèle parfait). C'est le **théorème d'impossibilité**, démontré sous deux formes voisines (A. Chouldechova, et J. Kleinberg et ses coauteurs, 2016-2017) : choisir un critère d'équité est un choix, pas un calcul.
 
 ![Avec la même precision et le même recall, le taux de faux positifs dépend de la prévalence du groupe](figures/equite.png)
 
