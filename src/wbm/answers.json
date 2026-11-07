@@ -3293,13 +3293,12 @@
       "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
     },
     "M02b.1h": {
-      "fractional": "le plus petit entier qui convient : l'arrondi supérieur, pas l'arrondi le plus proche",
+      "fractional": "le plus petit entier qui convient : l'arrondi supérieur, pas l'arrondi le plus proche.",
       "hash": "3cb3efef6822b470f6ccd2c2081fb4583ecf258fdbd9f35c52c21fa19b2c5671",
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "56e07ba890fa0c24b6452badf49cbc215c8560c5b5bd8e8e78f8af48bc81fea9": "le plus petit entier n tel que 0,8ⁿ ≤ 0,1 : vérifie ton n et l'entier juste en dessous",
-        "e51e2bdf296e8f93697b5b541dc6fbf8e3e1a0e0733e32d901e83e0fa90f6bcb": "le plus petit entier n tel que 0,8ⁿ ≤ 0,1 : vérifie ton n et l'entier juste en dessous"
+        "56e07ba890fa0c24b6452badf49cbc215c8560c5b5bd8e8e78f8af48bc81fea9": "avec ce n, 0,8ⁿ dépasse encore 0,1"
       },
       "sign": 1,
       "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
@@ -3413,13 +3412,12 @@
       "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
     },
     "M02b.2g": {
-      "fractional": "le plus petit entier qui convient : l'arrondi supérieur, pas l'arrondi le plus proche",
+      "fractional": "le plus petit entier qui convient : l'arrondi supérieur, pas l'arrondi le plus proche.",
       "hash": "109b3e00ec699a9f97a07b1a3778b925535d893cbdf3b488fa96f4ff3756d997",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "c0c6a9ca19559a7b065673769fd68e8e55b9204669c36146fe5816ab6591fee6": "le plus petit k tel que P(X ≤ k) ≥ 0,5 : calcule P(X ≤ k) pour k = 1, 2, 3…",
-        "e5fe16cee0b5482b91536c291edfd3d8948717cb5be084a841ea561f301da839": "le plus petit k tel que P(X ≤ k) ≥ 0,5 : calcule P(X ≤ k) pour k = 1, 2, 3…"
+        "c0c6a9ca19559a7b065673769fd68e8e55b9204669c36146fe5816ab6591fee6": "avec ce k, P(X ≤ k) n'atteint pas encore 0,5"
       },
       "sign": 1,
       "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
@@ -3493,8 +3491,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "02e9ab9430b7293259dfdbf749a762a22904bdafa2dfe269fbdb4cf0289fd3a7": "λᵏ/k! avec k = 2 : n'oublie pas de diviser par 2! = 2",
-        "5704dafbba9134ff6090f6447c9aec9b8d55b3b455eeb8be639269ed32fcf5c1": "λᵏ/k! avec k = 2 : λ au carré, divisé par 2"
+        "02e9ab9430b7293259dfdbf749a762a22904bdafa2dfe269fbdb4cf0289fd3a7": "λᵏ/k! : n'oublie pas de diviser par k!",
+        "5704dafbba9134ff6090f6447c9aec9b8d55b3b455eeb8be639269ed32fcf5c1": "λᵏ/k! avec k = 2 : revois la puissance de λ"
       },
       "sign": 1,
       "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
@@ -3566,8 +3564,8 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "21f890f75d0b08b38c50807d036b4dcbf2cf564bbbd12e5273b7ba13648a73c0": "S = 1 : (X, Y) vaut (0, 1) ou (1, 0) ; additionne les deux cas",
-        "c8200bfa421e37f9b405d159d770d80c0aad502f12987ab6d720e1bfc922f34a": "S = 1 : (X, Y) vaut (0, 1) ou (1, 0) ; additionne les deux cas",
+        "21f890f75d0b08b38c50807d036b4dcbf2cf564bbbd12e5273b7ba13648a73c0": "S = 1 : il y a deux cas ; additionne-les",
+        "c8200bfa421e37f9b405d159d770d80c0aad502f12987ab6d720e1bfc922f34a": "S = 1 : il y a deux cas ; additionne-les",
         "fc7ecef275a10df747008f82201c4ee951030890d6e6dc261f6d9275773b2bd8": "(X, Y) = (1, 1) donne S = 2, pas S = 1"
       },
       "sign": 1,
@@ -3590,7 +3588,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "9aedc784fdc1ea879d7b8d63de0edcd3f974e3de8f08da4ece7632608f96f97c": "S = 2 : trois couples, (0, 2), (1, 1) et (2, 0) ; n'oublie pas (1, 1)"
+        "9aedc784fdc1ea879d7b8d63de0edcd3f974e3de8f08da4ece7632608f96f97c": "S = 2 : il y a trois couples ; en as-tu oublié un ?"
       },
       "sign": 1,
       "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
@@ -3890,7 +3888,7 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "2b9f02ee99564a33ac9e7294604a6c05306c5cbfc59af12f4512b9f6339838d7": "N(31, 2²) a pour écart-type 2 : z = (34 − 31)/2",
+        "2b9f02ee99564a33ac9e7294604a6c05306c5cbfc59af12f4512b9f6339838d7": "N(31, 2²) a pour écart-type 2, pas 4",
         "976200d74f7fc1f92724b2ff4dc24c857b2f4f82cffd6c9bb8de32dd51583741": "c'est P(Y ≤ 34) ; P(Y > 34) = 1 − Φ(z)"
       },
       "sign": 1,
@@ -4252,8 +4250,8 @@
       "hash": "5626e4481a79fe0fabd127b21e4a9cc28c809905ba315e477ed3ebaacd1b6be1",
       "kind": "fraction",
       "mistakes": {
-        "6489ac445082811c60330e973d0c5d399b9fb2e8e28a39378f3af83ec60f535d": "le produit des deux intégrales simples : ∫ de 0 à 1 de x dx, fois ∫ de 0 à 3 de y² dy",
-        "9dfff727f14eef85d30c712cef13f5b08d3f12c878c9a0ec80f6153e08b3ba15": "une primitive de y² est y³/3 : ∫ de 0 à 3 de y² dy vaut 3³/3"
+        "6489ac445082811c60330e973d0c5d399b9fb2e8e28a39378f3af83ec60f535d": "n'oublie pas l'intégrale en x",
+        "9dfff727f14eef85d30c712cef13f5b08d3f12c878c9a0ec80f6153e08b3ba15": "revois la primitive de y²"
       },
       "sign": 1,
       "simplified": true,
@@ -4288,7 +4286,7 @@
       "hash": "943b8321ddd1cc8b35bb9b84a5a9d83924c7c98dfa7021c950e49d975b573de9",
       "kind": "fraction",
       "mistakes": {
-        "159f18899460bec1e2c65f11e478ae024db41fee9425850e43a6da683f693b18": "après l'intégrale en x, qui vaut 1/3 + y/2, il reste à intégrer en y de 0 à 1"
+        "159f18899460bec1e2c65f11e478ae024db41fee9425850e43a6da683f693b18": "il reste à intégrer en y le résultat de l'intégrale en x"
       },
       "sign": 1,
       "simplified": true,
@@ -4374,8 +4372,8 @@
       "hash": "58946194698ae310eae27e3ee38df87fda4ba192114acf5d966407e2635c650f",
       "kind": "fraction",
       "mistakes": {
-        "c8cd6aa40d5723b5039a2bb0cd423ddb219c5de12538b88e3714018b032e5b5e": "une probabilité de densité produit : ∫ de 0 à 1/2 de f_X, fois ∫ de 0 à 1 de f_Y",
-        "e18927fa661fef413ff0afa7dd9b034e140d86121ea868c036809ad7565591ef": "il manque le second facteur, ∫ de 0 à 1 de f_Y(y) dy"
+        "c8cd6aa40d5723b5039a2bb0cd423ddb219c5de12538b88e3714018b032e5b5e": "il manque un facteur : la condition sur X compte aussi",
+        "e18927fa661fef413ff0afa7dd9b034e140d86121ea868c036809ad7565591ef": "il manque un facteur : la condition sur Y compte aussi"
       },
       "sign": 1,
       "simplified": true,
@@ -4385,7 +4383,7 @@
       "hash": "b61cd564ddbbbb61e80995fa61eb01fb9b76e949312d0cb2dc606f36bba5b3f2",
       "kind": "interval",
       "mistakes": {
-        "29466ffa978465f298eaa57a566f6ae6441473546eaf673aa59b37853460e16f": "c'est l'intervalle des valeurs de X ; Y = 3X − 1 va de 3 × 0 − 1 à 3 × 2 − 1"
+        "29466ffa978465f298eaa57a566f6ae6441473546eaf673aa59b37853460e16f": "c'est l'intervalle des valeurs de X, pas celui de Y"
       },
       "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
     },
@@ -4393,8 +4391,8 @@
       "hash": "1d0469d8eda2a4003318c7a11ecf30b48e3ce2f6380d650a9a124fd2efddf8b7",
       "kind": "fraction",
       "mistakes": {
-        "b7a0e4900353a3c4ff51635121235b61905e0df02680d8ae52d430a88645b9fa": "divise par 3, ne multiplie pas : l'aire doit rester 1",
-        "d89b0bb6d694e6542a6b315d86c0deb0ecc1d6f6736fe0dbad40d630361b06ca": "f_Y(y) = f_X((y + 1)/3) / 3 : la densité de X divisée par 3"
+        "b7a0e4900353a3c4ff51635121235b61905e0df02680d8ae52d430a88645b9fa": "l'aire sous la densité de Y doit rester 1 : Y est plus étalée que X",
+        "d89b0bb6d694e6542a6b315d86c0deb0ecc1d6f6736fe0dbad40d630361b06ca": "c'est la densité de X ; Y est plus étalée que X, donc sa densité est plus basse"
       },
       "sign": 1,
       "simplified": true,
@@ -4425,8 +4423,8 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "14737436019eb83eadf5ad61701107342ec8e535ff4a5c224adb260399bc40c3": "Y = 2X + 5 a pour écart-type 2 × 3 : sa densité est deux fois plus basse que celle de X",
-        "50fae9167c775bdadf89605771c09ddd7da9ad83a9ff99e3be77796b1fd706b0": "l'écart-type de Y vaut 2 × 3, pas 2 × 3²"
+        "14737436019eb83eadf5ad61701107342ec8e535ff4a5c224adb260399bc40c3": "c'est la densité de X en son centre ; quel est l'écart-type de Y ?",
+        "50fae9167c775bdadf89605771c09ddd7da9ad83a9ff99e3be77796b1fd706b0": "aX + b a pour écart-type |a| σ, avec σ l'écart-type de X, pas sa variance"
       },
       "sign": 1,
       "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
@@ -4435,7 +4433,7 @@
       "hash": "b316f7125c32ee2a3036d4f621f6d8a80379b669f405680ac7bc281fd0b331fa",
       "kind": "fraction",
       "mistakes": {
-        "d4ae4a64b1a506bfb2c90a956a7f85f9d83d8baf42f9ca4f2df09c4033cc2bf8": "X² ≤ 4 équivaut à X ≤ 2 (X est positif), puis P(X ≤ 2) pour X uniforme sur [0 ; 3]"
+        "d4ae4a64b1a506bfb2c90a956a7f85f9d83d8baf42f9ca4f2df09c4033cc2bf8": "Y n'est pas uniforme sur [0 ; 9] : traduis X² ≤ 4 en une condition sur X"
       },
       "sign": 1,
       "simplified": true,
@@ -4569,7 +4567,7 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "9d6628f57ff5a10eaa469033cc833b7bc482b9f5e0c1a33accfe58a97a89d9c6": "c'est la valeur exacte de la binomiale ; l'approximation de Poisson donne e^(−λ), avec λ = n p"
+        "9d6628f57ff5a10eaa469033cc833b7bc482b9f5e0c1a33accfe58a97a89d9c6": "c'est la valeur exacte de la binomiale ; la question demande l'approximation de Poisson"
       },
       "sign": 1,
       "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
@@ -4618,19 +4616,19 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "3c6e599624a796d52e0a7b2c1071cca30c61f3e9f5065bddb834e649db2b83b1": "Y porte sur 500 images : son paramètre est 500 × 0,002, pas celui de X",
+        "3c6e599624a796d52e0a7b2c1071cca30c61f3e9f5065bddb834e649db2b83b1": "Y porte sur 500 images, pas sur 2 000 : recalcule son paramètre",
         "a4a4b12ffb286d4de64de2140b8c789a14044733582e870711740e94348a6fe1": "c'est P(Y = 0) ; P(Y ≥ 1) est l'événement contraire"
       },
       "sign": 1,
       "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
     },
     "M02b.14g": {
-      "fractional": "le plus petit entier qui convient : l'arrondi supérieur, pas l'arrondi le plus proche",
+      "fractional": "le plus petit entier qui convient : l'arrondi supérieur, pas l'arrondi le plus proche.",
       "hash": "a70285cbe22a64ffc93d7383558f31d561dfa5817022d746d4b9a4794c4146bf",
       "kind": "int",
       "magnitude": 3,
       "mistakes": {
-        "9e3853c8a3957c154e55bf27fa572d64c2732473a60ba7abc302af6962cc572d": "c'est le résultat exact avec la binomiale, 0,998ⁿ ≤ 0,1 ; la question demande l'approximation e^(−0,002 n) ≤ 0,1"
+        "9e3853c8a3957c154e55bf27fa572d64c2732473a60ba7abc302af6962cc572d": "avec ce n, e^(−0,002 n) dépasse encore 0,1 : as-tu arrondi au plus proche, ou utilisé la binomiale exacte 0,998ⁿ ?"
       },
       "sign": 1,
       "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"

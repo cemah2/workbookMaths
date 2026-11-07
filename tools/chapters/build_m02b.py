@@ -61,8 +61,7 @@ PAPER = [
          'decimals=4, mistakes={"c\'est P(aucun échec) ; « au moins un échec » est l\'événement contraire": 0.8 ** 5, '
          '"« au moins un échec » est le contraire de « cinq réussites », pas de « cinq échecs »": 1 - 0.2 ** 5}'),
         ("h", "an integer", "11",
-         'fractional="le plus petit entier qui convient : l\'arrondi supérieur, pas l\'arrondi le plus proche", mistakes={"le plus petit entier n tel que 0,8ⁿ ≤ 0,1 : vérifie ton n et '
-         'l\'entier juste en dessous": {10, 12}}'),
+         'fractional="le plus petit entier qui convient : l\'arrondi supérieur, pas l\'arrondi le plus proche.", mistakes={"avec ce n, 0,8ⁿ dépasse encore 0,1": 10}'),
     ]),
 
     Paper("M02b.2", "Loi géométrique : probabilités, et l'espérance par une série", [
@@ -87,8 +86,7 @@ PAPER = [
         ("f", "a number (1 decimal)", "0.6 / 0.4",
          'decimals=1, mistakes={"c\'est E[X], qui compte aussi la tentative réussie": 0.4 / (1 - 0.6) ** 2}'),
         ("g", "an integer", "2",
-         'fractional="le plus petit entier qui convient : l\'arrondi supérieur, pas l\'arrondi le plus proche", mistakes={"le plus petit k tel que P(X ≤ k) ≥ 0,5 : calcule P(X ≤ k) pour '
-         'k = 1, 2, 3…": {1, 3}}'),
+         'fractional="le plus petit entier qui convient : l\'arrondi supérieur, pas l\'arrondi le plus proche.", mistakes={"avec ce k, P(X ≤ k) n\'atteint pas encore 0,5": 1}'),
         ("h", "an expression in p, as text", '"1/p"',
          EP + ', mistakes={"c\'est le nombre moyen d\'échecs ; X compte aussi la tentative réussie": "(1 - p)/p", '
          '"exprime 1 − q en fonction de p avant de simplifier": "1/(1 - p)", '
@@ -100,8 +98,8 @@ PAPER = [
         ("a", "a number (4 decimals)", "math.exp(-1.5)",
          'decimals=4, mistakes={"c\'est P(X ≥ 1) ; applique la formule de Poisson avec k = 0": 1 - math.exp(-1.5)}'),
         ("b", "a number (4 decimals)", "math.exp(-1.5) * 1.5 ** 2 / 2",
-         'decimals=4, mistakes={"λᵏ/k! avec k = 2 : n\'oublie pas de diviser par 2! = 2": math.exp(-1.5) * 1.5 ** 2, '
-         '"λᵏ/k! avec k = 2 : λ au carré, divisé par 2": math.exp(-1.5) * 1.5}'),
+         'decimals=4, mistakes={"λᵏ/k! : n\'oublie pas de diviser par k!": math.exp(-1.5) * 1.5 ** 2, '
+         '"λᵏ/k! avec k = 2 : revois la puissance de λ": math.exp(-1.5) * 1.5}'),
         ("c", "a number (4 decimals)", "1 - math.exp(-1.5) * (1 + 1.5)",
          'decimals=4, mistakes={"X ≥ 2 exclut X = 0 et X = 1 : retire les deux probabilités": 1 - math.exp(-1.5), '
          '"c\'est P(X ≤ 1) ; X ≥ 2 est l\'événement contraire": math.exp(-1.5) * 2.5}'),
@@ -112,10 +110,10 @@ PAPER = [
          'decimals=4, mistakes={"S = 0 demande X = 0 et Y = 0 : pour des variables indépendantes, les probabilités se '
          'multiplient": math.exp(-1.5) + math.exp(-2.5)}'),
         ("f", "a number (4 decimals)", "math.exp(-4) * (2.5 + 1.5)",
-         'decimals=4, mistakes={"S = 1 : (X, Y) vaut (0, 1) ou (1, 0) ; additionne les deux cas": '
+         'decimals=4, mistakes={"S = 1 : il y a deux cas ; additionne-les": '
          '{math.exp(-4) * 2.5, math.exp(-4) * 1.5}, "(X, Y) = (1, 1) donne S = 2, pas S = 1": math.exp(-4) * 3.75}'),
         ("g", "a number (4 decimals)", "math.exp(-4) * (2.5 ** 2 / 2 + 1.5 * 2.5 + 1.5 ** 2 / 2)",
-         'decimals=4, mistakes={"S = 2 : trois couples, (0, 2), (1, 1) et (2, 0) ; n\'oublie pas (1, 1)": '
+         'decimals=4, mistakes={"S = 2 : il y a trois couples ; en as-tu oublié un ?": '
          'math.exp(-4) * (2.5 ** 2 / 2 + 1.5 ** 2 / 2)}'),
         ("h", "a number (1 decimal)", "4.0",
          'decimals=1, mistakes={"c\'est le produit des deux paramètres ; regarde l\'exposant de e dans e)": 3.75}'),
@@ -163,7 +161,7 @@ PAPER = [
         ("g", "a number (3 decimals)", "2 * 0.8944 - 1",
          'decimals=3, mistakes={"Φ(1,25) seul vaut P(X ≤ 35) : l\'événement a deux côtés de μ": 0.8944}'),
         ("h", "a number (4 decimals)", "1 - 0.9332",
-         'decimals=4, mistakes={"N(31, 2²) a pour écart-type 2 : z = (34 − 31)/2": 1 - 0.7734, '
+         'decimals=4, mistakes={"N(31, 2²) a pour écart-type 2, pas 4": 1 - 0.7734, '
          '"c\'est P(Y ≤ 34) ; P(Y > 34) = 1 − Φ(z)": 0.9332}'),
     ]),
 
@@ -242,13 +240,12 @@ PAPER = [
 
     Paper("M02b.9", "Une intégrale double sur un rectangle, et une densité jointe", [
         ("a", "an irreducible fraction, as text", "Fraction(9, 2)",
-         F + ', mistakes={"le produit des deux intégrales simples : ∫ de 0 à 1 de x dx, fois ∫ de 0 à 3 de y² dy": '
-         '"9", "une primitive de y² est y³/3 : ∫ de 0 à 3 de y² dy vaut 3³/3": "27/2"}'),
+         F + ', mistakes={"n\'oublie pas l\'intégrale en x": "9", "revois la primitive de y²": "27/2"}'),
         ("b", "a number (4 decimals)", "(math.e - 1) ** 2",
          'decimals=4, mistakes={"e^(x + y) = eˣ eʸ : l\'intégrale double est le produit de deux intégrales simples": '
          'math.e - 1}'),
         ("c", "an irreducible fraction, as text", "Fraction(7, 12)",
-         F + ', mistakes={"après l\'intégrale en x, qui vaut 1/3 + y/2, il reste à intégrer en y de 0 à 1": "5/6"}'),
+         F + ', mistakes={"il reste à intégrer en y le résultat de l\'intégrale en x": "5/6"}'),
         ("d", "an irreducible fraction, as text", "Fraction(2, 9)",
          F + ', mistakes={"c\'est l\'intégrale de a) ; c doit rendre l\'intégrale de f égale à 1": "9/2"}'),
         ("e", "an expression in x, as text", '"2*x"',
@@ -260,26 +257,24 @@ PAPER = [
         ("g", "True or False", "True",
          'mistakes={"compare f(x, y) au produit f_X(x) f_Y(y) de e) et f)": False}'),
         ("h", "an irreducible fraction, as text", "Fraction(1, 108)",
-         F + ', mistakes={"une probabilité de densité produit : ∫ de 0 à 1/2 de f_X, fois ∫ de 0 à 1 de f_Y": "1/27", '
-         '"il manque le second facteur, ∫ de 0 à 1 de f_Y(y) dy": "1/4"}'),
+         F + ', mistakes={"il manque un facteur : la condition sur X compte aussi": "1/27", '
+         '"il manque un facteur : la condition sur Y compte aussi": "1/4"}'),
     ]),
 
     Paper("M02b.10", "Changement de variable : la loi de aX + b, et celle de X²", [
         ("a", "an interval, as text", '"[-1 ; 5]"',
-         'kind="interval", mistakes={"c\'est l\'intervalle des valeurs de X ; Y = 3X − 1 va de 3 × 0 − 1 à '
-         '3 × 2 − 1": "[0 ; 2]"}'),
+         'kind="interval", mistakes={"c\'est l\'intervalle des valeurs de X, pas celui de Y": "[0 ; 2]"}'),
         ("b", "an irreducible fraction, as text", "Fraction(1, 6)",
-         F + ', mistakes={"f_Y(y) = f_X((y + 1)/3) / 3 : la densité de X divisée par 3": "1/2", '
-         '"divise par 3, ne multiplie pas : l\'aire doit rester 1": "3/2"}'),
+         F + ', mistakes={"c\'est la densité de X ; Y est plus étalée que X, donc sa densité est plus basse": "1/2", '
+         '"l\'aire sous la densité de Y doit rester 1 : Y est plus étalée que X": "3/2"}'),
         ("c", "an irreducible fraction, as text", "Fraction(1, 2)",
          F + ', mistakes={"Y commence à −1, pas à 0": "1/3"}'),
         ("d", "a number (4 decimals)", "1 / (6 * math.sqrt(2 * math.pi))",
-         'decimals=4, mistakes={"Y = 2X + 5 a pour écart-type 2 × 3 : sa densité est deux fois plus basse que celle '
-         'de X": 1 / (3 * math.sqrt(2 * math.pi)), "l\'écart-type de Y vaut 2 × 3, pas 2 × 3²": '
-         '1 / (18 * math.sqrt(2 * math.pi))}'),
+         'decimals=4, mistakes={"c\'est la densité de X en son centre ; quel est l\'écart-type de Y ?": '
+         '1 / (3 * math.sqrt(2 * math.pi)), "aX + b a pour écart-type |a| σ, avec σ l\'écart-type de X, pas sa '
+         'variance": 1 / (18 * math.sqrt(2 * math.pi))}'),
         ("e", "an irreducible fraction, as text", "Fraction(2, 3)",
-         F + ', mistakes={"X² ≤ 4 équivaut à X ≤ 2 (X est positif), puis P(X ≤ 2) pour X uniforme sur [0 ; 3]": '
-         '"4/9"}'),
+         F + ', mistakes={"Y n\'est pas uniforme sur [0 ; 9] : traduis X² ≤ 4 en une condition sur X": "4/9"}'),
         ("f", "an expression in y, as text", '"sqrt(y)/3"',
          EY + ', mistakes={"Y n\'est pas uniforme sur [0 ; 9] : traduis Y ≤ y en une condition sur X": "y/9", '
          '"c\'est une densité ; la fonction de répartition est F_Y(y) = P(Y ≤ y)": "1/(6*sqrt(y))"}'),
@@ -299,18 +294,18 @@ PAPER = [
         ("c", "a number (4 decimals)", "0.998 ** 2000",
          'decimals=4, mistakes={"c\'est l\'approximation de Poisson ; la binomiale donne (1 − p)ⁿ": math.exp(-4)}'),
         ("d", "a number (4 decimals)", "math.exp(-4)",
-         'decimals=4, mistakes={"c\'est la valeur exacte de la binomiale ; l\'approximation de Poisson donne e^(−λ), '
-         'avec λ = n p": 0.998 ** 2000}'),
+         'decimals=4, mistakes={"c\'est la valeur exacte de la binomiale ; la question demande '
+         'l\'approximation de Poisson": 0.998 ** 2000}'),
         ("e", "a number (4 decimals)", "13 * math.exp(-4)",
          'decimals=4, mistakes={"P(X ≤ 2) additionne k = 0, 1 et 2 : n\'oublie pas k = 0": 12 * math.exp(-4), '
          '"λᵏ/k! avec k = 2 : 4²/2, pas 4²": 21 * math.exp(-4), '
          '"c\'est P(X = 2) seule ; X ≤ 2 additionne k = 0, 1 et 2": 8 * math.exp(-4)}'),
         ("f", "a number (4 decimals)", "1 - math.exp(-1)",
          'decimals=4, mistakes={"c\'est P(Y = 0) ; P(Y ≥ 1) est l\'événement contraire": math.exp(-1), '
-         '"Y porte sur 500 images : son paramètre est 500 × 0,002, pas celui de X": 1 - math.exp(-4)}'),
+         '"Y porte sur 500 images, pas sur 2 000 : recalcule son paramètre": 1 - math.exp(-4)}'),
         ("g", "an integer", "1152",
-         'fractional="le plus petit entier qui convient : l\'arrondi supérieur, pas l\'arrondi le plus proche", mistakes={"c\'est le résultat exact avec la binomiale, 0,998ⁿ ≤ 0,1 ; la question demande l\'approximation '
-         'e^(−0,002 n) ≤ 0,1": 1151}'),
+         'fractional="le plus petit entier qui convient : l\'arrondi supérieur, pas l\'arrondi le plus proche.", mistakes={"avec ce n, e^(−0,002 n) dépasse encore 0,1 : as-tu arrondi au plus proche, ou '
+         'utilisé la binomiale exacte 0,998ⁿ ?": 1151}'),
     ]),
 ]
 
