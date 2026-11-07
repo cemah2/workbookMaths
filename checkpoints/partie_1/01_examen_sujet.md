@@ -211,7 +211,7 @@ Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 - **(E)** Avec l'a priori $\mathrm{Beta}(2, 2)$, après 3 succès en 5 essais, l'a posteriori est $\mathrm{Beta}(5, 4)$.
 - **(F)** Pour résoudre $x^2 - 5 = 0$ par la méthode de Newton depuis $x_0 = 2$ : $x_1 = 2 - \frac{4}{-1} = 6$.
 - **(G)** Pour $p = (0{,}6 ;\ 0{,}4)$ et $q = (0{,}3 ;\ 0{,}7)$ : $\mathrm{KL}(p \,\|\, q) = 0{,}6 \log_2 \frac{0{,}3}{0{,}6} + 0{,}4 \log_2 \frac{0{,}7}{0{,}4} \approx -0{,}277$ bit.
-- **(H)** La dérivée partielle de $x^2 y^3$ par rapport à $y$ vaut $3x^2 y^2$.
+- **(H)** Pour $y > 0$, la dérivée partielle de $x \ln y$ par rapport à $y$ vaut $\frac{x}{y}$.
 
 a) Les lettres des cinq lignes fausses, dans l'ordre alphabétique (un texte, comme `"ABCDE"`). **[0,5]**
 b) Pour chaque ligne fausse, écris le résultat juste et la règle oubliée, en une ligne. **[0,75]** (0,15 par ligne)

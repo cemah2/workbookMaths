@@ -912,3 +912,22 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M06.26 🏆 Défi : localiser une panne parmi 100 serveurs en un minimum de questions ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)
 <!-- wbm:end M06 -->
+
+<!-- wbm:section CP1 -->
+## CP1 · Examen blanc de la partie I ⏱️ 3,3 h
+
+- [ ] CP1.Q1 🧠 Dix affirmations sur la partie I : vrai ou faux ★ 10 min
+- [ ] CP1.1 ✏️ Intégrales et densité : une aire, une fonction de répartition, un quantile ★★ 10 min
+- [ ] CP1.2 ✏️ Lois usuelles : binomiale, Poisson, normale ★★ 9 min
+- [ ] CP1.3 ✏️ Un couple de variables : marginales, indépendance, variance d'une somme ★★ 8 min
+- [ ] CP1.4 ✏️ Estimer une moyenne : erreur type et intervalle de confiance ★★ 9 min
+- [ ] CP1.5 ✏️ Un tableau de contingence et des métriques comme probabilités ★★ 9 min
+- [ ] CP1.6 ✏️ Bayes et la loi Beta : une mise à jour conjuguée ★★ 9 min
+- [ ] CP1.7 ✏️ Taylor, Newton et un calcul stable ★★ 9 min
+- [ ] CP1.8 ✏️ Gradient, dérivée directionnelle et point critique ★★ 10 min
+- [ ] CP1.9 ✏️ Entropie, information mutuelle et KL ★★ 9 min
+- [ ] CP1.10 ∂ Une démonstration courte, au choix parmi deux ★★★ 12 min
+- [ ] CP1.11 🐛 Corriger une copie : cinq erreurs ★★ 8 min
+- [ ] CP1.12 🔗 Problème de synthèse : estimer un paramètre de bout en bout (vraisemblance, maximum, Newton, incertitude) ★★ 12 min
+- [ ] CP1.13 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
+<!-- wbm:end CP1 -->
