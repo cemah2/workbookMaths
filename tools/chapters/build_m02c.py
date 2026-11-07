@@ -1124,7 +1124,7 @@ M02C_28_CHECK = '''with checked("M02c.28"):
               + " / ".join(f"{c:.3f}" for c in per_scale) + f") · largeur moyenne : {width:.3f} μ · temps : {seconds:.1f} s")
         if not 0.94 <= overall <= 0.96:
             reasons.append("la couverture n'est pas entre 0,94 et 0,96")
-        if not all(0.93 <= c <= 0.97 for c in per_scale):
+        elif not all(0.93 <= c <= 0.97 for c in per_scale):
             reasons.append("la couverture doit tenir pour chaque valeur de μ (entre 0,93 et 0,97) : ton intervalle ne "
                            "doit pas dépendre d'une échelle choisie d'avance")
         if not width <= 1.6:

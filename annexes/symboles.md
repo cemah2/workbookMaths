@@ -126,8 +126,14 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\mathbb{V}(X)$, $\operatorname{Var}(X)$ | « variance de X » | variance | dispersion autour de l'espérance | $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ | R8, M02b |
 | $\sigma(X)$ | « sigma de X », « écart-type de X » | standard deviation | la racine carrée de la variance, dans l'unité de $X$ | $\mathbb{V}(X) = 9$ donne $\sigma(X) = 3$ | R8 |
 | $\operatorname{Cov}(X, Y)$ | « covariance de X et Y » | covariance | $\mathbb{E}[XY] - \mathbb{E}[X]\,\mathbb{E}[Y]$ : tendance à varier ensemble ; nulle pour des variables indépendantes | | M02b, M02c |
-| $\hat{\theta}$ | « théta chapeau » | theta hat | une estimation de $\theta$ calculée sur des données (et $\hat{y}$, une prédiction) | | M02c |
-| $\bar{x}$ | « x barre » | x bar | la moyenne de l'échantillon | | M02c |
+| $\hat{\theta}$ | « théta chapeau » | theta hat | une estimation de $\theta$ calculée sur des données (et $\hat{y}$, une prédiction) | $\hat{p} = \frac{360}{400}$, une accuracy | M02c |
+| $\bar{x}$, $\bar{X}_n$ | « x barre », « X barre n » | x bar, sample mean | la moyenne de l'échantillon (une valeur) ; la moyenne de $n$ variables (une variable aléatoire) | $\mathbb{E}[\bar{X}_n] = \mu$ | M02c |
+| $s_n^2$, $s^2$ | « s n carré », « s carré » | sample variance | la variance d'une série divisée par $n$, ou par $n - 1$ (sans biais) | $s^2 = \frac{n}{n - 1}s_n^2$ | M02c |
+| $Q_1$, $Q_3$, EI | « premier quartile », « troisième quartile », « écart interquartile » | first and third quartiles, IQR | les quantiles d'ordre 0,25 et 0,75 d'une série, et leur écart | barrières de Tukey : $Q_1 - 1{,}5\,\text{EI}$ et $Q_3 + 1{,}5\,\text{EI}$ | M02c |
+| $x_{(k)}$ | « x indice k entre parenthèses » | k-th order statistic | la $k$-ième valeur de la série triée (numérotée à partir de 0 dans le workbook) | $x_{(0)}$ est le minimum | M02c |
+| SE | « erreur type » | standard error | l'écart-type d'un estimateur ; pour une moyenne, $\frac{s}{\sqrt{n}}$ | | M02c |
+| $\rho(X, Y)$, $r$ | « rhô de X et Y », « r » | correlation | la corrélation de deux variables, ou de deux séries (coefficient de Pearson) | entre $-1$ et 1 | M02c |
+| $\boldsymbol{\Sigma}$, $\Sigma_{ij}$ | « grand sigma (gras) », « sigma i j » | covariance matrix | la matrice de covariance, et sa case $(i, j)$ : $\operatorname{Cov}(X_i, X_j)$ | $\Sigma_{ii} = \mathbb{V}(X_i)$ | M02c |
 | $\theta$ | « thêta » | theta | les paramètres d'un modèle | | M04 |
 | $\mathcal{L}(\theta)$ | « L de thêta », « vraisemblance » | likelihood | à quel point les paramètres expliquent les données | | M04, M13a |
 | $H(p)$, $D_{\mathrm{KL}}(p \parallel q)$ | « entropie de p », « divergence KL de p à q » | entropy, KL divergence | incertitude d'une loi ; écart entre deux lois | | M06 |

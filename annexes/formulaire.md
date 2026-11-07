@@ -197,7 +197,26 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | changement de variable | $Y = aX + b$ : $f_Y(y) = \frac{1}{\lvert a \rvert}f_X\big(\frac{y - b}{a}\big)$ ; $g$ monotone : $f_Y(y) = f_X(g^{-1}(y))\,\lvert (g^{-1})'(y) \rvert$ ; $X = \mu + \sigma Z$ |
 | simulation | $U \sim \mathcal{U}([0 ; 1])$ : $F^{-1}(U)$ suit la loi de $F$ ; exponentielle $-\frac{\ln(1 - U)}{\lambda}$ ; discrète : segments de longueurs $p_k$, bornes aux sommes cumulées |
 
-*(M02c à M06 : ajoutés avec leurs chapitres)*
+### M02c · Échantillons et estimation
+
+| Notion | Formules |
+|---|---|
+| position | $\bar{x} = \frac{1}{n}\sum x_i$ ; médiane : la valeur du milieu de la série triée ; $\sum (x_i - c)^2 = \sum (x_i - \bar{x})^2 + n(\bar{x} - c)^2$ (la moyenne minimise la somme des carrés, la médiane celle des écarts absolus) |
+| dispersion | $s_n^2 = \frac{1}{n}\sum (x_i - \bar{x})^2 = \overline{x^2} - \bar{x}^2$ (`ddof=0`) ; $s^2 = \frac{1}{n - 1}\sum (x_i - \bar{x})^2 = \frac{n}{n - 1}s_n^2$ (`ddof=1`) ; $y = ax + b$ : $\bar{y} = a\bar{x} + b$, $s_y = \lvert a \rvert s_x$ |
+| quantiles d'une série | série triée $x_{(0)} \le \cdots \le x_{(n-1)}$, position $h = p(n - 1)$, $q_p = x_{(k)} + (h - k)(x_{(k+1)} - x_{(k)})$ avec $k = \lfloor h \rfloor$ ; $\text{EI} = Q_3 - Q_1$ |
+| valeurs aberrantes | $z = \frac{x - \bar{x}}{s}$, signal si $\lvert z \rvert > 3$ ; Tukey : hors de $[Q_1 - 1{,}5\,\text{EI} ;\ Q_3 + 1{,}5\,\text{EI}]$ ; avec $n$ valeurs, $\lvert z \rvert \le \sqrt{n - 1}$ (avec $s_n$) |
+| échantillon i.i.d. | $\mathbb{E}[\bar{X}_n] = \mu$, $\mathbb{V}(\bar{X}_n) = \frac{\sigma^2}{n}$, $\sigma(\bar{X}_n) = \frac{\sigma}{\sqrt{n}}$ ; sans remise : $\operatorname{Cov}(X_i, X_j) = -\frac{\sigma^2}{N - 1}$, $\mathbb{V}(\bar{X}) = \frac{\sigma^2}{n}\cdot\frac{N - n}{N - 1}$ |
+| inégalités | Markov : $P(X \ge a) \le \frac{\mathbb{E}[X]}{a}$ ($X \ge 0$) ; Bienaymé-Tchebychev : $P(\lvert X - \mu \rvert \ge \varepsilon) \le \frac{\sigma^2}{\varepsilon^2}$ ; pour la moyenne : $\le \frac{\sigma^2}{n\varepsilon^2}$ |
+| théorème central limite | $\bar{X}_n \approx \mathcal{N}\big(\mu, \frac{\sigma^2}{n}\big)$, $S_n \approx \mathcal{N}(n\mu, n\sigma^2)$ ; proportion : $\hat{p} \approx \mathcal{N}\big(p, \frac{p(1 - p)}{n}\big)$ |
+| estimateurs | $\text{biais} = \mathbb{E}[\hat{\theta}] - \theta$ ; $\text{EQM} = \mathbb{E}[(\hat{\theta} - \theta)^2] = \text{biais}^2 + \mathbb{V}(\hat{\theta})$ ; $\mathbb{E}[S_n^2] = \frac{n - 1}{n}\sigma^2$, $\mathbb{E}[S^2] = \sigma^2$ ; données normales : $\mathbb{V}(S^2) = \frac{2\sigma^4}{n - 1}$ |
+| erreur type, intervalle | $\text{SE} = \frac{s}{\sqrt{n}}$ ; intervalle à 95 % : $\bar{x} \pm 1{,}96\,\text{SE}$ ($z$ = 1,645 à 90 %, 2,576 à 99 %) ; proportion : $\hat{p} \pm 1{,}96\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$ ; taille : $n \ge \big(\frac{z\sigma}{E}\big)^2$ |
+| bootstrap | $B$ rééchantillons de $n$ valeurs tirées avec remise ; erreur type : l'écart-type des $B$ valeurs ; intervalle à 95 % : leurs percentiles 2,5 et 97,5 |
+| covariance, corrélation | $\operatorname{Cov}(x, y) = \frac{1}{n}\sum (x_i - \bar{x})(y_i - \bar{y}) = \overline{xy} - \bar{x}\bar{y}$ ; $r = \frac{\operatorname{Cov}(x, y)}{s_x s_y} \in [-1 ; 1]$ ; $\operatorname{Cov}(aX + b, cY + d) = ac\operatorname{Cov}(X, Y)$ |
+| variance d'une combinaison | $\mathbb{V}(aX + bY) = a^2\mathbb{V}(X) + b^2\mathbb{V}(Y) + 2ab\operatorname{Cov}(X, Y)$ ; $\mathbb{V}\big(\sum_i w_iX_i\big) = \sum_i\sum_j w_iw_j\Sigma_{ij}$, $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$ |
+| imputation | par la moyenne de $m$ valeurs observées sur $n$ : moyenne inchangée, variance multipliée par $\frac{m}{n}$ |
+| grande dimension | cube $[-1 ; 1]^d$ : part à moins de $\varepsilon$ du bord $1 - (1 - \varepsilon)^d$ ; boule inscrite $\frac{\pi}{4}$ ($d = 2$), $\frac{\pi}{6}$ ($d = 3$) ; $\mathbf{X} \sim \mathcal{N}(0, 1)^d$ : $\mathbb{E}\lVert \mathbf{X} \rVert^2 = d$ |
+
+*(M03 à M06 : ajoutés avec leurs chapitres)*
 
 ## Partie II · Concepts
 

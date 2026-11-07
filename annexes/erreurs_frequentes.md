@@ -199,6 +199,27 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Oublier le facteur d'un changement de variable | $Y = 3X - 1$ : $f_Y(y) = f_X\big(\frac{y + 1}{3}\big)$ | multiplier par $\frac{1}{3}$ : l'aire de la densité doit rester 1 |
 | Se tromper sur `loc` et `scale` de `scipy.stats` | `stats.expon(2)` pour $\lambda = 2$ ; `stats.uniform(2, 8)` pour $[2 ; 8]$ | `stats.expon(scale=1/2)` ; `stats.uniform(loc=2, scale=6)` |
 
+## Échantillons et estimation (M02c)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Lire la médiane sur la série non triée | la médiane de $42, 38, 51, 45$ est $\frac{38 + 51}{2}$ | trier d'abord : $38, 42, 45, 51$, médiane $\frac{42 + 45}{2} = 43{,}5$ |
+| Ne pas dire par quoi on divise une variance | « la variance vaut 41 » sans préciser | $s_n^2$ divise par $n$ (`ddof=0`), $s^2$ par $n - 1$ (`ddof=1`) : les deux sont des réponses différentes |
+| Une seule convention de quantile | « le premier quartile de 8 valeurs est la médiane de la première moitié » | plusieurs conventions existent ; NumPy interpole à la position $p(n - 1)$ |
+| Se fier au seul z-score pour une valeur aberrante | « $\lvert z \rvert = 2{,}8 < 3$, donc rien d'anormal » | la valeur gonfle $s$ (effet de masque) ; vérifier avec la règle de Tukey, qui repose sur les quartiles |
+| Standardiser le test avec ses propres statistiques | `(x_test - x_test.mean()) / x_test.std()` | utiliser la moyenne et l'écart-type du jeu d'entraînement |
+| Oublier la racine de $n$ | $\sigma(\bar{X}) = \frac{\sigma}{n}$ | $\frac{\sigma}{\sqrt{n}}$ : 4 fois plus de données divisent l'erreur par 2 |
+| Croire que le hasard compense | « après dix piles, face est plus probable » | les tirages sont indépendants ; la loi des grands nombres dilue les écarts, elle ne les corrige pas |
+| Appliquer le théorème central limite aux données | « avec 10 000 valeurs, les durées sont normales » | il porte sur la **moyenne** (ou la somme) ; les données gardent leur loi |
+| Oublier le carré du biais | $\text{EQM} = \text{biais} + \text{variance}$ | $\text{EQM} = \text{biais}^2 + \text{variance}$ |
+| Confondre écart-type et erreur type | un intervalle $\bar{x} \pm 1{,}96\,s$ « pour la moyenne » | l'intervalle de la moyenne utilise $\frac{s}{\sqrt{n}}$ ; $\bar{x} \pm 1{,}96\,s$ décrit à peu près les valeurs elles-mêmes |
+| Garder 1,96 pour tous les niveaux | intervalle à 99 % : $\bar{x} \pm 1{,}96\,\text{SE}$ | 1,645 à 90 %, 1,96 à 95 %, 2,576 à 99 % |
+| Mal interpréter un intervalle de confiance | « $\mu$ a 95 % de chances d'être dans $[39 ; 41]$ » | 95 % des intervalles construits ainsi contiennent $\mu$ ; celui-ci la contient ou non |
+| Diviser la covariance par le produit des variances | $r = \frac{\operatorname{Cov}}{\mathbb{V}(X)\mathbb{V}(Y)}$ | $r = \frac{\operatorname{Cov}}{\sigma_X\sigma_Y}$, les écarts-types |
+| Oublier la covariance dans une variance de somme | $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y)$ pour des variables corrélées | ajouter $2\operatorname{Cov}(X, Y)$ (et le retrancher pour une différence) |
+| Conclure à une causalité | « corrélées à 0,6, donc l'une cause l'autre » | chercher une variable de confusion ; seule une expérience contrôlée établit une cause |
+| Croire que plus de données corrigent un biais d'échantillonnage | « un million d'exemples, donc l'estimation est fiable » | $n$ réduit la variance, pas le biais : se demander qui manque dans les données |
+
 ## Matrices (M09a et suite)
 
 | Erreur | Exemple faux | Ce qu'il faut faire |
