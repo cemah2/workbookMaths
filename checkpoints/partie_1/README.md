@@ -15,7 +15,7 @@ Le bilan clôt la partie I, juste avant le checkpoint I de workbookIA. Il vérif
 
 1. **Prépare** : `python tools/start_chapter.py CP1` copie dans `mon_travail/checkpoints/partie_1/` le notebook de vérification et ta copie (`04_mes_reponses.md`). Ce sont ces copies que tu remplis : les fichiers de ce dossier sont mis à jour par Claude.
 2. **Fais la synthèse** (`05_synthese.md`, environ 75 minutes), un autre jour que l'examen si possible.
-3. **Passe l'examen en conditions réelles** : 124 minutes d'une traite, fiches, flashcards, annexes et corrigés fermés, sans assistant IA (les règles sont en tête du sujet). Tout se fait sur papier ou dans ta copie de `04_mes_reponses.md` ; la calculatrice est permise, et les valeurs de la loi normale utiles sont dans l'énoncé.
+3. **Passe l'examen en conditions réelles** : 124 minutes d'une traite, fiches, flashcards, annexes et corrigés fermés, sans assistant IA (les règles sont en tête du sujet). Tout se fait sur papier ou dans ta copie de `04_mes_reponses.md` ; la calculatrice est permise, et les valeurs utiles de la loi normale et des logarithmes sont dans l'énoncé.
 4. **Vérifie** : dans ta copie du notebook, passe `EXAM_OVER` à `True`, puis reporte les réponses de ta copie. Chaque réponse chiffrée reçoit ✅ ou ❌ avec une piste.
 5. **Note ta copie** avec le barème du corrigé : il donne aussi les points des démarches, des justifications, du quiz, de la démonstration et des corrections, que le notebook ne voit pas. Remplis le tableau en fin de copie, avec le temps réellement passé sur chaque question.
 6. **Remédie** : pour chaque question où tu as eu moins de la moitié des points, refais les exercices indiqués par le corrigé ; une semaine plus tard, refais ces questions sans le corrigé.

@@ -17,7 +17,7 @@ The data are new: none comes from the exercises, fiches, quizzes or flashcards o
 test, from CP0, from workbookIA chapters 2 to 6, its checkpoint I or its mini-project I (no screening test at
 0.90/0.92, no coin with three biases, no (x - 1)² - (y + 2)²/2 nor x² - y², no 3x², no law [0.4, 0.3, 0.2, 0.1], no
 c(3 - x) or c/x² density, no Beta(2, 8) nor Beta(3, 7), no log-sum-exp of -1000, 710 or -760, no Poisson of parameter
-2.5 or 3, no p = 0.1, no 1 - Φ(2) nor Φ(1) as an answer, no N(10, 4), no Newton on x² - 5 or x² - 10, no point (1, 2)
+2.5 or 3, no p = 0.1 nor 0.08, no 1 - Φ(2) nor 1 - Φ(1) as an answer, no N(10, 4) nor N(20, 9), no Newton on x² - 5 or x² - 10, no point (1, 2)
 nor direction (8, 15), no churn, no defective parts, no click rate, no customer service, no thermometers, no bugs per
 file, no random-alarm precision, no « 95 times out of 100 » reading of an interval).
 """
@@ -72,7 +72,7 @@ def H(*probs):
 
 
 # CP1.2: the binomial B(12, 0.08), the Poisson law of 1.8 alerts per hour, and the table values of Φ
-P_2 = 0.08
+P_2 = 0.07
 PHI_1, PHI_2 = 0.8413, 0.9772
 
 # CP1.3: the joint law of (X, Y), X = 0, 1, 2 (rows), Y = 0, 1 (columns)
@@ -243,7 +243,7 @@ PAPER = [
          '"c\'est le mode de la loi ; la question demande sa moyenne": "3/10"}'),
         ("b", "[a, b]", "[A_6 + 7, B_6 + 23]",
          'mistakes={"b reçoit le nombre d\'échecs, pas le nombre d\'essais": [11, 38], '
-         '"a reçoit les succès, b les échecs": [31, 11], '
+         '"a reçoit les succès, b les échecs": [27, 15], "la liste demandée est [a, b], dans cet ordre": [31, 11], '
          '"ajoute les succès et les échecs aux paramètres de l\'a priori": [7, 23]}'),
         ("c", FRACTION, "Fraction(A_6 + 7, A_6 + B_6 + 30)",
          F + ', mistakes={"c\'est la fréquence observée ; la moyenne a posteriori tient compte aussi de '
@@ -279,8 +279,8 @@ PAPER = [
          'decimals=3, mistakes={"le log-sum-exp est un peu plus grand que le plus grand des scores": -785, '
          '"le terme du plus grand score compte aussi : e⁰ = 1 dans la somme des écarts": '
          '-785 + math.log(math.exp(-2) + math.exp(-5))}'),
-        ("f", "a number (4 decimals)", "math.exp(-785 - LSE_7)",
-         'decimals=4, mistakes={"c\'est la probabilité d\'un autre score : relis lequel est −785": '
+        ("f", "a number (3 decimals)", "math.exp(-785 - LSE_7)",
+         'decimals=3, mistakes={"c\'est la probabilité d\'un autre score : relis lequel est −785": '
          'math.exp(-787 - LSE_7), "la softmax prend l\'exponentielle des scores avant de normaliser": '
          '785 / (790 + 787 + 785)}'),
     ]),
@@ -333,8 +333,8 @@ PAPER = [
     ]),
     Paper("CP1.12", "Problème de synthèse : estimer un paramètre de bout en bout", [
         ("a", "a number (3 decimals)", "2 * math.exp(-2) / (1 - math.exp(-2))",
-         'decimals=3, mistakes={"le journal ne garde que les jours qui ont au moins un signalement : divise par '
-         '1 − e^(−λ)": 2 * math.exp(-2)}'),
+         'decimals=3, mistakes={"le journal ne garde que les jours qui ont au moins un signalement : relis le '
+         'dénominateur de la loi de l\'énoncé": 2 * math.exp(-2)}'),
         ("b", 'an expression in lam (between quotes, exp(-lam) for e^(−λ))', '"32/lam - 20/(1 - exp(-lam))"',
          'kind="expr", variables=("lam",), mistakes={"dérive aussi le terme −20 ln(1 − e^(−λ))": "32/lam - 20", '
          '"la dérivée de ln(1 − e^(−λ)) est e^(−λ) / (1 − e^(−λ)) : attention au signe": '
@@ -417,7 +417,7 @@ INTRO = r'''## Après l'examen : vérification automatique
 
 1. Passe `EXAM_OVER` à `True` dans la cellule ci-dessous, puis exécute-la.
 2. Reporte chaque réponse de ta feuille : **la valeur** que tu as écrite, pas un nouveau calcul (sinon tu ne vérifies plus ta copie). Laisse `...` pour une question que tu n'as pas faite.
-3. Les formes d'écriture : en Python, le séparateur décimal est un **point** (`2.5`) : une virgule (`0,023`) arrête toute la cellule, et aucune réponse de la question n'est vérifiée ; une fraction et une expression s'écrivent **entre guillemets** (`"-7/3"`, `"2*x**2 - 1"`, `"exp(-lam)"`) ; une liste entre crochets, sans guillemets (`[-1.5, 4]`) ; vrai ou faux par `True` ou `False`.
+3. Les formes d'écriture : en Python, le séparateur décimal est un **point** (`2.5`) : une virgule arrête toute la cellule (`0,023`), et aucune réponse de la question n'est vérifiée, ou donne un couple de nombres (`0,25`) ; une fraction et une expression s'écrivent **entre guillemets** (`"-7/3"`, `"2*x**2 - 1"`, `"exp(-lam)"`) ; une liste entre crochets, sans guillemets (`[-1.5, 4]`) ; vrai ou faux par `True` ou `False`.
 4. Le bilan, à la fin, dit aussi quelles réponses n'ont pas été vérifiées.'''
 
 

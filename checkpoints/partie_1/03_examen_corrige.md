@@ -57,17 +57,17 @@ La médiane (1,236) est plus grande que la moyenne (1,167) : la densité croît,
 
 ## CP1.2 — Lois usuelles : binomiale, Poisson, normale ✏️ · 1,5 point
 
-**Réponses** : a) `0.3677` · b) `0.2487` · c) `0.2678` · d) `0.4512` · e) `0.82` · f) `12.08`.
+**Réponses** : a) `0.4186` · b) `0.2033` · c) `0.2678` · d) `0.4512` · e) `0.82` · f) `12.08`.
 
-Le nombre d'erreurs $X$ suit la loi binomiale $\mathcal{B}(12 ; 0{,}08)$.
-a) $P(X = 0) = 0{,}92^{12} \approx 0{,}3677$. **[0,25]**
-b) $P(X \ge 2) = 1 - P(X = 0) - P(X = 1) = 1 - 0{,}92^{12} - 12 \times 0{,}08 \times 0{,}92^{11} \approx 1 - 0{,}3677 - 0{,}3837 = 0{,}2487$. **[0,25]**
+Le nombre d'erreurs $X$ suit la loi binomiale $\mathcal{B}(12 ; 0{,}07)$.
+a) $P(X = 0) = 0{,}93^{12} \approx 0{,}4186$. **[0,25]**
+b) $P(X \ge 2) = 1 - P(X = 0) - P(X = 1) = 1 - 0{,}93^{12} - 12 \times 0{,}07 \times 0{,}93^{11} \approx 1 - 0{,}4186 - 0{,}3781 = 0{,}2033$. **[0,25]**
 c) Le nombre d'alertes en une heure suit la loi de Poisson de paramètre 1,8 : $P(N = 2) = e^{-1{,}8}\,\frac{1{,}8^2}{2!} \approx 0{,}1653 \times 1{,}62 \approx 0{,}2678$. **[0,25]**
 d) En 20 minutes, un tiers d'heure, le paramètre vaut $\frac{1{,}8}{3} = 0{,}6$ : $P(N \ge 1) = 1 - e^{-0{,}6} \approx 0{,}4512$. **[0,25]**
 e) $z = \frac{12{,}5 - 14}{1{,}5} = -1$ et $z = \frac{17 - 14}{1{,}5} = 2$ : $P(12{,}5 < T < 17) = \Phi(2) - \Phi(-1) = 0{,}9772 - (1 - 0{,}8413) = 0{,}8185 \approx 0{,}82$. **[0,25]**
 f) On cherche $t$ tel que $P(T > t) = 0{,}9$, soit $P(T \le t) = 0{,}1$ : $\frac{t - 14}{1{,}5} = -1{,}2816$, donc $t = 14 - 1{,}9224 \approx 12{,}08$ minutes (le 10ᵉ percentile). **[0,25]**
 
-**Erreurs fréquentes** : en b), oublier le coefficient binomial 12 devant $P(X = 1)$, ou ne retrancher que $P(X = 0)$ ; en c), oublier $2!$, ou calculer $P(N \le 2)$ ; en d), garder le paramètre 1,8 pour 20 minutes ; en e), prendre $z = +1$ pour la borne 12,5 ($0{,}9772 - 0{,}8413$) ; en f), donner le 90ᵉ percentile (15,92), au-dessus de la moyenne, ou oublier de multiplier $z$ par $\sigma$ (12,72).
+**Erreurs fréquentes** : en b), oublier le coefficient binomial 12 devant $P(X = 1)$, ou ne retrancher que $P(X = 0)$ (0,5814) ; en c), oublier $2!$, ou calculer $P(N \le 2)$ ; en d), garder le paramètre 1,8 pour 20 minutes ; en e), prendre $z = +1$ pour la borne 12,5 ($0{,}9772 - 0{,}8413$) ; en f), donner le 90ᵉ percentile (15,92), au-dessus de la moyenne, ou oublier de multiplier $z$ par $\sigma$ (12,72).
 **Remédiation** : M02b.1, M02b.3, M02b.5, M02b.Q4.
 
 ## CP1.3 — Un couple de variables ✏️ · 1,25 point
@@ -135,14 +135,14 @@ f) La probabilité que la prochaine proposition soit acceptée est la moyenne a 
 
 ## CP1.7 — Taylor, Newton et un calcul stable ✏️ · 1,5 point
 
-**Réponses** : a) `"2 + x/4 - x**2/64"` · b) `2.0975` · c) `1.25` · d) `1.2143` · e) `-784.867` · f) `0.8756`.
+**Réponses** : a) `"2 + x/4 - x**2/64"` · b) `2.0975` · c) `1.25` · d) `1.2143` · e) `-784.867` · f) `0.876`.
 
 a) $f(0) = 2$ ; $f'(x) = \frac{1}{2\sqrt{4 + x}}$, $f'(0) = \frac{1}{4}$ ; $f''(x) = -\frac{1}{4(4 + x)^{3/2}}$, $f''(0) = -\frac{1}{32}$. Donc $T_2(x) = 2 + \frac{x}{4} - \frac{1}{32} \times \frac{x^2}{2} = 2 + \frac{x}{4} - \frac{x^2}{64}$. **[0,25]**
 b) Avec $x = 0{,}4$ : $2 + 0{,}1 - 0{,}0025 = 2{,}0975$, pour $\sqrt{4{,}4} \approx 2{,}09762$ : l'erreur, environ $1{,}2 \times 10^{-4}$, est de l'ordre du terme suivant. **[0,25]**
 c) $g(x) = x^3 + x - 3$, $g'(x) = 3x^2 + 1$ : $g(1) = -1$ et $g'(1) = 4$, donc $x_1 = 1 - \frac{-1}{4} = 1{,}25$. **[0,25]**
 d) $g(1{,}25) = 0{,}203125$ et $g'(1{,}25) = 5{,}6875$ : $x_2 = 1{,}25 - 0{,}035714 \approx 1{,}2143$ (la racine vaut environ 1,2134). **[0,25]**
 e) On met le plus grand score en facteur : $\ln\left(e^{-785}\left(e^{-5} + e^{-2} + 1\right)\right) = -785 + \ln(1{,}142073) \approx -785 + 0{,}132845 = -784{,}867$. **[0,25]** Sur la copie : chaque `math.exp` vaut 0 en `float64` (au-dessous d'environ $e^{-745}$, c'est l'underflow), la somme vaut 0, et `math.log(0)` lève une erreur (`ValueError`) ; on ne calcule que des exponentielles d'écarts au maximum, toutes entre 0 et 1, dont une vaut exactement 1.
-f) $\frac{e^{-785}}{e^{-790} + e^{-787} + e^{-785}} = \frac{1}{e^{-5} + e^{-2} + 1} \approx 0{,}8756$. **[0,25]**
+f) $\frac{e^{-785}}{e^{-790} + e^{-787} + e^{-785}} = \frac{1}{e^{-5} + e^{-2} + 1} \approx 0{,}876$. **[0,25]**
 
 **Erreurs fréquentes** : en a), oublier le $\frac{1}{2}$ du terme d'ordre 2 ($-\frac{x^2}{32}$), ou prendre les coefficients de $\sqrt{1 + x}$ ; en c), le pas $\frac{g'}{g}$ au lieu de $\frac{g}{g'}$ ; en e), répondre $-785$ (le maximum seul), ou oublier le terme $e^0 = 1$ du maximum ; en f), donner la probabilité d'un autre score.
 **Remédiation** : M05a.4, M05a.6, M05a.10, M05a.Q7, M05a.14.
@@ -170,8 +170,8 @@ a) $H(p) = 0{,}45 \times 1{,}1520 + 0{,}4 \times 1{,}3219 + 0{,}15 \times 2{,}73
 b) $H(p, q) = -\sum p_i \log_2 q_i \approx 0{,}45 \times 0{,}7370 + 0{,}4 \times 1{,}5146 + 0{,}15 \times 4{,}3219 \approx 0{,}3317 + 0{,}6058 + 0{,}6483 = 1{,}5858$, soit 1,586 bit. **[0,25]**
 c) $\mathrm{KL}(p \,\|\, q) = H(p, q) - H(p) \approx 1{,}5858 - 1{,}4578 = 0{,}128$ bit (ou directement $\sum p_i \log_2 \frac{p_i}{q_i}$). Le gros terme vient des annonces : l'ancien modèle leur donnait 0,05, alors que leur fréquence est 0,15. **[0,25]**
 d) $P(\text{question} \mid F = 1) = \frac{0{,}35}{0{,}35 + 0{,}05} = \frac{7}{8}$. **[0,25]**
-e) Les lois conditionnelles de $Y$ : $\left(\frac{7}{8}, \frac{1}{8}\right)$ si $F = 1$, d'entropie $\frac{7}{8}(3 - \log_2 7) + \frac{1}{8} \times 3 \approx 0{,}5436$ ; $\left(\frac{1}{6}, \frac{5}{6}\right)$ si $F = 0$, d'entropie $\frac{1}{6}\log_2 6 + \frac{5}{6}\log_2 \frac{6}{5} \approx 0{,}6500$ (avec $\log_2 6 = 1 + \log_2 3$). Pondérées par $P(F = 1) = 0{,}4$ et $P(F = 0) = 0{,}6$ : $H(Y \mid F) \approx 0{,}2174 + 0{,}3900 = 0{,}6074$, soit 0,61 bit. **[0,25]**
-f) $Y$ a la loi $(0{,}45 ;\ 0{,}55)$, d'entropie $\approx 0{,}5184 + 0{,}4744 = 0{,}9928$ ; $I(F ; Y) = H(Y) - H(Y \mid F) \approx 0{,}9928 - 0{,}6074 = 0{,}385$, soit 0,39 bit : le point d'interrogation enlève presque 40 % de l'incertitude sur « question ou non ». **[0,25]**
+e) Les lois conditionnelles de $Y$ : $\left(\frac{7}{8}, \frac{1}{8}\right)$ si $F = 1$, d'entropie $\frac{7}{8}(3 - \log_2 7) + \frac{1}{8} \times 3 \approx 0{,}5435$ ; $\left(\frac{1}{6}, \frac{5}{6}\right)$ si $F = 0$, d'entropie $\frac{1}{6}\log_2 6 + \frac{5}{6}\log_2 \frac{6}{5} \approx 0{,}6501$ (avec $\log_2 6 = 1 + \log_2 3$). Pondérées par $P(F = 1) = 0{,}4$ et $P(F = 0) = 0{,}6$ : $H(Y \mid F) \approx 0{,}2174 + 0{,}3901 = 0{,}6075$ avec les valeurs de la table (0,6074 en valeurs exactes), soit 0,61 bit. **[0,25]**
+f) $Y$ a la loi $(0{,}45 ;\ 0{,}55)$, d'entropie $\approx 0{,}5184 + 0{,}4744 = 0{,}9928$ ; $I(F ; Y) = H(Y) - H(Y \mid F) \approx 0{,}9928 - 0{,}6075 = 0{,}385$, soit 0,39 bit : le point d'interrogation enlève presque 40 % de l'incertitude sur « question ou non ». **[0,25]**
 
 **Erreurs fréquentes** : en a), $\ln$ au lieu de $\log_2$ (1,010) ; en b), pondérer par $q$ (1,291) ; en c), calculer $\mathrm{KL}(q \,\|\, p)$ (0,102) ; en d), diviser par la colonne ($\frac{7}{9}$) ; en e), additionner les entropies des lignes sans les pondérer, ou calculer $H(F \mid Y)$ (0,59) ; en f), soustraire des valeurs arrondies trop tôt.
 **Remédiation** : M06.1, M06.3, M06.5, M06.6, M06.Q5.
@@ -207,7 +207,7 @@ Un seul sujet est noté. Barème entre crochets ; une rédaction qui affirme san
 **Réponse de a)** : `"ACDFG"`. **[0,5]** (0,1 par lettre juste, −0,1 par lettre en trop, sans descendre sous 0)
 
 b) Une ligne par erreur **[0,15 chacune]** :
-- **(A)** La variance vaut 9, donc l'écart-type 3 : $P(X > 23) = P\left(Z > \frac{23 - 20}{3}\right) = P(Z > 1) \approx 0{,}159$. On standardise avec l'écart-type, pas avec la variance.
+- **(A)** La variance vaut 0,25, donc l'écart-type 0,5 : $P(X > 12{,}6) = P\left(Z > \frac{12{,}6 - 12}{0{,}5}\right) = P(Z > 1{,}2) \approx 0{,}115$. On standardise avec l'écart-type, pas avec la variance (diviser par une variance plus petite que 1 gonfle $z$).
 - **(C)** L'erreur type vaut $\frac{10}{\sqrt{25}} = 2$ : on divise par $\sqrt{n}$, pas par $n$.
 - **(D)** $P(A \mid B) = \frac{P(B \mid A)\,P(A)}{P(B)} = \frac{0{,}6 \times 0{,}2}{0{,}5} = 0{,}24$ : la formule de Bayes ; une probabilité conditionnelle ne se retourne pas sans elle.
 - **(F)** Avec $f(x) = x^3 - 2$ et $f'(x) = 3x^2$ : $x_1 = 1 - \frac{f(1)}{f'(1)} = 1 - \frac{-1}{3} = \frac{4}{3} \approx 1{,}333$ : le pas de Newton est $\frac{f}{f'}$, pas $\frac{f'}{f}$.

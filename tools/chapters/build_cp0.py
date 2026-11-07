@@ -289,7 +289,7 @@ INTRO = r'''## Après l'examen : vérification automatique
 
 1. Passe `EXAM_OVER` à `True` dans la cellule ci-dessous, puis exécute-la.
 2. Reporte chaque réponse de ta feuille : **la valeur** que tu as écrite, pas un nouveau calcul (sinon tu ne vérifies plus ta copie). Laisse `...` pour une question que tu n'as pas faite.
-3. Les formes d'écriture : en Python, le séparateur décimal est un **point** (`2.5`) : une virgule (`0,25`) arrête toute la cellule, et aucune réponse de la question n'est vérifiée (le bilan, à la fin, le signale) ; une fraction, une valeur exacte, une expression et un intervalle s'écrivent **entre guillemets** (`"-7/3"`, `"sqrt(5)/3"`, `"2*x**2 - 1"`, `"]-oo ; 0]"`) ; une liste entre crochets, sans guillemets (`[-1.5, 4]`) ; vrai ou faux par `True` ou `False`.'''
+3. Les formes d'écriture : en Python, le séparateur décimal est un **point** (`2.5`) : une virgule arrête toute la cellule (`0,05`), et aucune réponse de la question n'est vérifiée (le bilan, à la fin, le signale), ou donne un couple de nombres (`0,25`) ; une fraction, une valeur exacte, une expression et un intervalle s'écrivent **entre guillemets** (`"-7/3"`, `"sqrt(5)/3"`, `"2*x**2 - 1"`, `"]-oo ; 0]"`) ; une liste entre crochets, sans guillemets (`[-1.5, 4]`) ; vrai ou faux par `True` ou `False`.'''
 
 
 SUMMARY = SUMMARY.replace("__EXPECTED__", repr([f"{p.id}{letter}" for p in PAPER for letter, *_ in p.subs]))

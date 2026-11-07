@@ -67,7 +67,7 @@ La question a) est indépendante de la suite. Pour b) à f), on pose $f(x) = c\,
 
 ### CP1.2 — Lois usuelles : binomiale, Poisson, normale ✏️ ★★ ⏱️ 9 min · 1,5 point
 
-Un modèle de lecture d'écriture manuscrite lit un formulaire de 12 cases ; il se trompe sur chaque case avec la probabilité 0,08, indépendamment des autres cases. Un serveur reçoit en moyenne 1,8 alerte par heure ; le nombre d'alertes sur une durée donnée suit une loi de Poisson. L'autonomie d'une batterie de drone suit la loi normale de moyenne 14 minutes et d'écart-type 1,5 minute.
+Un modèle de lecture d'écriture manuscrite lit un formulaire de 12 cases ; il se trompe sur chaque case avec la probabilité 0,07, indépendamment des autres cases. Un serveur reçoit en moyenne 1,8 alerte par heure ; le nombre d'alertes sur une durée donnée suit une loi de Poisson. L'autonomie d'une batterie de drone suit la loi normale de moyenne 14 minutes et d'écart-type 1,5 minute.
 
 Valeurs utiles de la fonction de répartition $\Phi$ de la loi normale centrée réduite : $\Phi(1) \approx 0{,}8413$ ; $\Phi(1{,}2816) \approx 0{,}90$ ; $\Phi(1{,}645) \approx 0{,}95$ ; $\Phi(1{,}96) \approx 0{,}975$ ; $\Phi(2) \approx 0{,}9772$ ; et $\Phi(-z) = 1 - \Phi(z)$.
 
@@ -146,7 +146,7 @@ Un outil propose des correctifs de code ; $\theta$ est la probabilité qu'un dé
 | c | pour résoudre $x^3 + x - 3 = 0$, le premier pas de la méthode de Newton depuis $x_0 = 1$ : $x_1$ | un nombre (2 décimales) |
 | d | le deuxième pas, $x_2$ | un nombre (4 décimales) |
 | e | $\ln\left(e^{-790} + e^{-787} + e^{-785}\right)$ | un nombre (3 décimales) |
-| f | la probabilité que la softmax des scores $(-790, -787, -785)$ donne au score $-785$ | un nombre (4 décimales) |
+| f | la probabilité que la softmax des scores $(-790, -787, -785)$ donne au score $-785$ | un nombre (3 décimales) |
 
 Sur ta copie, pour e) : que se passe-t-il si l'on calcule en Python `math.log(math.exp(-790) + math.exp(-787) + math.exp(-785))`, et comment l'éviter ?
 
@@ -172,7 +172,7 @@ Un forum d'entraide classe ses messages en trois catégories, question, réponse
 | $F = 1$ | 0,35 | 0,05 |
 | $F = 0$ | 0,10 | 0,50 |
 
-Toutes les entropies sont en bits. Tu peux utiliser : $\log_2 3 \approx 1{,}5850$ ; $\log_2 5 \approx 2{,}3219$ ; $\log_2 7 \approx 2{,}8074$ ; $-\log_2 0{,}45 \approx 1{,}1520$ ; $-\log_2 0{,}4 \approx 1{,}3219$ ; $-\log_2 0{,}15 \approx 2{,}7370$ ; $-\log_2 0{,}6 \approx 0{,}7370$ ; $-\log_2 0{,}35 \approx 1{,}5146$ ; $-\log_2 0{,}05 \approx 4{,}3219$ ; $-\log_2 0{,}55 \approx 0{,}8625$.
+Les entropies se calculent en bits. Valeurs utiles : $\log_2 3 \approx 1{,}5850$ ; $\log_2 5 \approx 2{,}3219$ ; $\log_2 7 \approx 2{,}8074$ ; $-\log_2 0{,}45 \approx 1{,}1520$ ; $-\log_2 0{,}4 \approx 1{,}3219$ ; $-\log_2 0{,}15 \approx 2{,}7370$ ; $-\log_2 0{,}6 \approx 0{,}7370$ ; $-\log_2 0{,}35 \approx 1{,}5146$ ; $-\log_2 0{,}05 \approx 4{,}3219$ ; $-\log_2 0{,}55 \approx 0{,}8625$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -204,7 +204,7 @@ Traite **un seul** des deux sujets. Rédige en phrases : ce que tu supposes, cha
 
 Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 
-- **(A)** Si $X$ suit la loi normale de moyenne 20 et de variance 9, alors $P(X > 23) = P\left(Z > \frac{1}{3}\right)$, où $Z$ suit la loi normale centrée réduite.
+- **(A)** Si $X$ suit la loi normale de moyenne 12 et de variance 0,25, alors $P(X > 12{,}6) = P(Z > 2{,}4)$, où $Z$ suit la loi normale centrée réduite.
 - **(B)** $\displaystyle\int_0^1 2x\,e^{x^2}\,dx = e - 1$.
 - **(C)** 25 mesures indépendantes ont un écart-type de 10 : l'erreur type de leur moyenne vaut $\frac{10}{25} = 0{,}4$.
 - **(D)** $P(A) = 0{,}2$, $P(B) = 0{,}5$ et $P(B \mid A) = 0{,}6$, donc $P(A \mid B) = 0{,}6$.

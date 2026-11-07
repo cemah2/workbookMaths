@@ -1043,12 +1043,12 @@
       },
       "coarser": {
         "2": [
-          "eae6d431acef2521ac7de0c0b3798e06c2183c7a740ff36f8c6de4ed1ec5f13c"
+          "564bf3804468f7a76fce9438c9892be971c1e25ba5b234ca78d8e4c7b82958e1"
         ]
       },
       "decimals": 4,
-      "hash": "ddef4b7e443fd2a8de9b75ef05732d2360bbfcd06d02db159efe54d5e3111c01",
-      "hash_coarse": "1e3b342195f91410ceecb4c5925dd66729ecc0d35fd2b69386ef1d7ad94aa3a1",
+      "hash": "2f0a89668dce060b4dae24ed26fee46e48fe05dc153bb20aedab0fa529684227",
+      "hash_coarse": "ea068d971fed932fb45509fba25585e394583f67522a5926036981e0969a0b7f",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
@@ -1065,18 +1065,18 @@
       },
       "coarser": {
         "2": [
-          "f9caaf0923b2ba535aa1f806d29f12ece5438875e719fcc837d430f09c339c9d"
+          "4a0d7fba6870d7ed02434aa5b8ece5440a7d3cb06db6efc4a5bc347c71b12518"
         ]
       },
       "decimals": 4,
-      "hash": "3bfe58826fb9061e9438f49f2b38ddcd30a160a485548c73c4689db93c18cd8b",
-      "hash_coarse": "e34eac0c373e284482e0e5a246f5a2b44ce0817a6f541c60fd2146b758b04709",
+      "hash": "e6b2a2a5fd9f8caa5261ed8f1aaa148e37673ac06a72df8009dd0bd7c51ccd5c",
+      "hash_coarse": "378d8991126cfb79801253e8514a7b9e755101f9b26bc362f5c4d00f00c58432",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "142256c692aabd2d1a7a152b912e4aab61688d303d6e5731a81edbbb6c64d88f": "« au moins deux » compte aussi 3, 4… erreurs : passe par l'événement contraire",
-        "adcc06e0b6ad0ab568eb33d32239f79df8de530c1113d21de26095d0a6a0b650": "l'erreur unique peut être sur n'importe laquelle des 12 cases : le coefficient binomial",
-        "ec30dd416f63f00f68f1b682cbe949b48759797751766036ec341375427338c6": "« au moins deux » exclut aussi le cas d'une seule erreur"
+        "462668d3eea4faea281ee65099805bdb6fc29c4877d1acfa1add0dde351d5e17": "« au moins deux » exclut aussi le cas d'une seule erreur",
+        "a19ff94c030cc536297da35b91eadbd6cae97af170e1c5bafbf7c9447ac6bf5f": "« au moins deux » compte aussi 3, 4… erreurs : passe par l'événement contraire",
+        "f54830c0572533e5477f800735099fc2ec5622e85b2312ce7d018681ee03e287": "l'erreur unique peut être sur n'importe laquelle des 12 cases : le coefficient binomial"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1499,8 +1499,9 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
+        "210a2ce22296f0cf0db12a43115ff516808d0128bf0e8df7bc59dbf27a159c8c": "a reçoit les succès, b les échecs",
         "36f3d2e708996b193f69f007dfd9f9f62aa793f30255b8fc2f334a23768342d4": "b reçoit le nombre d'échecs, pas le nombre d'essais",
-        "a2cc760d3da931bd463c8ee0ef9de76e2e7f19955796d04ae4a571dfdf2cade7": "a reçoit les succès, b les échecs",
+        "a2cc760d3da931bd463c8ee0ef9de76e2e7f19955796d04ae4a571dfdf2cade7": "la liste demandée est [a, b], dans cet ordre",
         "b8b46a5bfeeb5cc9538c9e595104f5898b04d1583fe877d0f80fc5aa5a8d937c": "ajoute les succès et les échecs aux paramètres de l'a priori"
       },
       "shape": [
@@ -1699,19 +1700,15 @@
           "c052ec5dfdf0b118a1f101c370cdfaafad27beaf287a0ad6f0d608ecee3f6149"
         ]
       },
-      "coarser": {
-        "2": [
-          "19eabf02f3edc8e5ab1d21561120c36391c4ed14ecc24697490ef02567279b69"
-        ]
-      },
-      "decimals": 4,
-      "hash": "990a6565a2d2382d14c656c27ef452a7cbc3e9cb03b42d341540ac2a036ad285",
-      "hash_coarse": "a9ca888b664aec6e80b7ff211255b9426fb0fb985490e0fb051548ddcf5ebf0d",
+      "decimals": 3,
+      "hash": "a9ca888b664aec6e80b7ff211255b9426fb0fb985490e0fb051548ddcf5ebf0d",
+      "hash_coarse": "19eabf02f3edc8e5ab1d21561120c36391c4ed14ecc24697490ef02567279b69",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "9d3bf0082c30997d71b7f3949038a356b463e6f21f8e8b0a8722b2623e9b6af3": "la softmax prend l'exponentielle des scores avant de normaliser",
-        "e9fcb04e25461d35d66ff8a7c5ddfca6ceba56ecaa90feab74a2222aa5e8b8ac": "c'est la probabilité d'un autre score : relis lequel est −785"
+        "832aa85cd43aa05cacb97ebaf7e5c0ce02a166d05fa943670343ee4d2377e88c": "c'est la probabilité d'un autre score : relis lequel est −785",
+        "a8cc53f3b8e12c4b590c3e6c1b476f8122e38318c53c62d14b0457deda557840": "la softmax prend l'exponentielle des scores avant de normaliser",
+        "ded4b3b9a7659bf679a7ee5b5f3a46ac13d1f1b79f3511c193895495bd266412": "c'est la probabilité d'un autre score : relis lequel est −785"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1966,7 +1963,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "20e4fd00adaea955f19ad1d493e5037f7fa5acc3170f3f34b902f0cccc256e9f": "le journal ne garde que les jours qui ont au moins un signalement : divise par 1 − e^(−λ)"
+        "20e4fd00adaea955f19ad1d493e5037f7fa5acc3170f3f34b902f0cccc256e9f": "le journal ne garde que les jours qui ont au moins un signalement : relis le dénominateur de la loi de l'énoncé"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
