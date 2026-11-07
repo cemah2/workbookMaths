@@ -40,7 +40,7 @@ Deux hypothèses $H_1$ et $H_2$, d'a priori 0,5 chacune. Une observation $O$ a l
 ### M04.Q3 — La vraisemblance, une fonction du paramètre 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C, E*
 
-1. On observe 4 succès en 10 essais indépendants (dans un ordre donné). Écris la vraisemblance $L(\theta)$.
+1. On observe 4 succès en 10 essais indépendants (dans un ordre donné), de probabilité de succès $\theta$. Écris la vraisemblance $L(\theta)$.
 2. Où est son maximum ?
 3. Vrai ou faux : $\int_0^1 L(\theta)\,d\theta = 1$.
 4. Vrai ou faux : multiplier $L$ par une constante qui ne dépend pas de $\theta$ ne change pas son maximum.
@@ -80,7 +80,7 @@ Deux hypothèses $H_1$ et $H_2$, d'a priori 0,5 chacune. Une observation $O$ a l
 ### M04.Q7 — Fréquentiste ou bayésien ? 🧠 ★ ⏱️ 4 min
 *Fiche §8 · parcours C*
 
-Pour chaque phrase, dis si elle se place du point de vue fréquentiste, bayésien, ou si les deux peuvent l'écrire.
+Pour les phrases 1 à 4, dis si elle se place du point de vue fréquentiste, bayésien, ou si les deux peuvent l'écrire ; puis réponds aux questions 5 et 6.
 1. « Sachant ces données, le taux de clic a 95 % de chances d'être entre 4 % et 7 %. »
 2. « Si l'on répétait l'étude, 95 % des intervalles calculés ainsi contiendraient le vrai taux de clic. »
 3. « Avant de voir les données, je pense que le taux de clic est proche de 5 %, à 2 points près. »
@@ -144,7 +144,7 @@ Un capteur surveille une cave. Une nuit donnée, une fuite d'eau se produit avec
 | d | sur 1 000 nuits, le nombre moyen de nuits où le capteur sonne | un nombre (1 décimale) |
 | e | sur ces 1 000 nuits, le nombre moyen de fausses alertes (il sonne, sans fuite) | un nombre (1 décimale) |
 | f | un second capteur identique, indépendant du premier sachant qu'il y a une fuite ou non, sonne aussi : $P(\text{fuite} \mid \text{les deux sonnent})$ | un nombre (3 décimales) |
-| g | avec un seul capteur, la probabilité de fausse alerte maximale pour que $P(\text{fuite} \mid \text{sonne}) \ge 0{,}5$ | un nombre (4 décimales) |
+| g | avec un seul capteur, la plus grande valeur de $P(\text{sonne} \mid \text{pas de fuite})$ (au lieu de 0,03) pour laquelle $P(\text{fuite} \mid \text{sonne}) \ge 0{,}5$ | une fraction irréductible |
 | h | dans une vieille maison où la probabilité d'une fuite par nuit est 0,05 : $P(\text{fuite} \mid \text{sonne})$, avec un seul capteur | un nombre (3 décimales) |
 
 Dans ta copie : refais b) avec les effectifs de d) et e). Pourquoi b) est-il si petit alors que le capteur détecte 95 % des fuites ? Que vaut-il mieux améliorer : la détection (0,95) ou les fausses alertes (0,03) ?
@@ -188,7 +188,7 @@ Une publicité a été affichée 20 fois et cliquée 3 fois. On note $\theta$ so
 Dans ta copie : trace l'allure de $L$ sur $[0 ; 0{,}5]$. Que veut dire b) en une phrase ? Pourquoi la probabilité de d) est-elle plus grande que $L(0{,}15)$, et pourquoi cela ne change-t-il pas le maximum ?
 
 ### Ex M04.4 — Maximiser une vraisemblance : dériver son logarithme ✏️ ★★ ⏱️ 20 min
-**Objectif :** trouver un maximum de vraisemblance en dérivant une log-vraisemblance, pour une loi exponentielle puis pour une loi de Poisson.
+**Objectif :** trouver un maximum de vraisemblance en dérivant une log-vraisemblance, pour une loi exponentielle, puis pour une loi de Poisson et une loi de Bernoulli.
 **Prérequis :** fiche §3 ; R7 ; M02b (lois exponentielle et de Poisson) · **Parcours :** C, E
 
 Un serveur reçoit des requêtes ; on a mesuré 5 durées (en secondes) entre deux requêtes consécutives : $2{,}0$ ; $0{,}5$ ; $1{,}5$ ; $3{,}0$ ; $1{,}0$. On les suppose indépendantes, de loi exponentielle de paramètre $\lambda > 0$ (densité $\lambda e^{-\lambda x}$), si bien que $L(\lambda) = \lambda^5 e^{-8\lambda}$.
@@ -207,9 +207,9 @@ Un autre serveur compte ses erreurs par jour pendant 5 jours : $2, 0, 3, 1, 4$, 
 | | Question | Réponse attendue |
 |---|---|---|
 | g | le maximum de vraisemblance $\hat{\mu}$ | un nombre (2 décimales) |
-| h | pour une loi de Bernoulli, le maximum de vraisemblance après 7 succès sur 25 essais | un nombre (2 décimales) |
+| h | sans rapport avec les serveurs : pour une loi de Bernoulli, le maximum de vraisemblance après 7 succès sur 25 essais | un nombre (2 décimales) |
 
-Dans ta copie : écris $\ell(\lambda)$ et $\ell'(\lambda)$ pour des durées $x_1, \ldots, x_n$ quelconques, et la formule générale de $\hat{\lambda}$. Fais de même pour $\hat{\mu}$ (la loi de Poisson). Pourquoi le signe de e) prouve-t-il que c) est un maximum ?
+Dans ta copie : écris $\ell(\lambda)$ et $\ell'(\lambda)$ pour des durées $x_1, \ldots, x_n$ quelconques, et la formule générale de $\hat{\lambda}$. Fais de même pour $\hat{\mu}$ (la loi de Poisson). Pourquoi le signe de $\ell''(\lambda)$, pour **tout** $\lambda > 0$ (pas seulement en $\hat{\lambda}$), prouve-t-il que c) est le maximum ?
 
 ### Ex M04.5 — La loi Beta : normalisation, moyenne, mode, variance ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer la constante, la densité, la moyenne, le mode, la variance et une probabilité d'une loi Beta à paramètres entiers.
@@ -240,12 +240,12 @@ Une boutique en ligne veut estimer le taux de retour $\theta$ d'un nouveau produ
 |---|---|---|
 | a | les paramètres de l'a posteriori, `[a, b]` | une liste de 2 entiers |
 | b | la moyenne a posteriori | un nombre (4 décimales) |
-| c | le poids des données dans cette moyenne, $\frac{n}{a + b + n}$ (pour l'a priori de départ) | un nombre (3 décimales) |
+| c | le poids des données dans cette moyenne, $\frac{n}{a + b + n}$, où $a$ et $b$ sont les paramètres de l'a priori de départ | un nombre (3 décimales) |
 | d | 50 ventes plus tard, 6 nouveaux retours : les paramètres de l'a posteriori, `[a, b]` | une liste de 2 entiers |
 | e | la moyenne de cet a posteriori | un nombre (4 décimales) |
 | f | l'écart-type de l'a posteriori de a) | un nombre (4 décimales) |
 | g | avec l'a priori $\mathrm{Beta}(1{,}5 ;\ 13{,}5)$, de même moyenne mais deux fois moins sûr, la moyenne a posteriori après les 50 premières ventes | un nombre (4 décimales) |
-| h | avec l'a priori de départ, le nombre minimal de ventes pour que le poids des données atteigne 0,9 | un entier |
+| h | avec l'a priori de départ, le nombre total de ventes $n$ pour lequel le poids des données $\frac{n}{a + b + n}$ atteint 0,9 | un entier |
 
 Dans ta copie : écris la moyenne a posteriori de b) comme une moyenne pondérée de la moyenne a priori et de la fréquence observée. Compare b) et g) : que change un a priori moins sûr ?
 
@@ -281,7 +281,7 @@ Une équipe teste une nouvelle fonctionnalité auprès de 10 utilisateurs ; 9 l'
 | e | la moyenne a posteriori avec l'a priori uniforme | un nombre (4 décimales) |
 | f | avec l'a priori $\mathrm{Beta}(5, 5)$, la plus petite des trois estimations (maximum de vraisemblance, MAP, moyenne a posteriori) | un nombre (2 décimales) |
 | g | avec l'a priori $\mathrm{Beta}(2, 2)$, le MAP après 0 adoption sur 3 utilisateurs | un nombre (2 décimales) |
-| h | avec l'a priori $\mathrm{Beta}(5, 5)$, le nombre minimal d'utilisateurs qui adoptent **tous** pour que le MAP dépasse strictement 0,8 | un entier |
+| h | pour un **autre** groupe d'utilisateurs, à partir du seul a priori $\mathrm{Beta}(5, 5)$ (sans les 10 premiers), le nombre minimal d'utilisateurs qui adoptent **tous** pour que le MAP dépasse strictement 0,8 | un entier |
 
 Dans ta copie : range les trois estimations de b), c) et a), et explique l'ordre. Que deviennent-elles si 900 utilisateurs sur 1 000 adoptent ?
 
@@ -295,7 +295,7 @@ Un nouveau procédé de fabrication a tourné 8 fois sans défaut. On note $\the
 |---|---|---|
 | a | les paramètres de l'a posteriori, `[a, b]` | une liste de 2 entiers |
 | b | $P(\theta \le 0{,}1)$ selon l'a posteriori | un nombre (4 décimales) |
-| c | la borne basse de l'intervalle de crédibilité à 95 % à queues égales | un nombre (4 décimales) |
+| c | la borne basse de l'intervalle de crédibilité à 95 % à queues égales | un nombre (5 décimales) |
 | d | sa borne haute | un nombre (4 décimales) |
 | e | la borne $u$ telle que $P(\theta \le u) = 0{,}95$ (une borne supérieure à 95 %) | un nombre (4 décimales) |
 | f | la médiane de l'a posteriori | un nombre (4 décimales) |
@@ -311,7 +311,7 @@ Dans ta copie : vérifie la formule de $F$ pour $\mathrm{Beta}(1, b)$ en intégr
 |---|---|---|
 | a | $\ln\big(0{,}2^{500}\big)$ | un nombre (2 décimales) |
 | b | $\log_{10}\big(0{,}2^{500}\big)$ | un nombre (3 décimales) |
-| c | `0.2 ** 500` est-il différent de 0 en `float64` (le plus petit nombre positif représentable vaut environ $5 \times 10^{-324}$) ? | `True` ou `False` |
+| c | `0.2 ** 500` vaut-il exactement 0 en `float64` (le plus petit nombre positif représentable vaut environ $5 \times 10^{-324}$) ? | `True` ou `False` |
 | d | $\ln\big(e^{-1000} + e^{-1001} + e^{-1003}\big)$ | un nombre (3 décimales) |
 | e | les probabilités obtenues en normalisant $(e^{-1000}, e^{-1001}, e^{-1003})$ | une liste de 3 nombres (4 décimales) |
 | f | trois hypothèses d'a priori $(0{,}2 ;\ 0{,}5 ;\ 0{,}3)$ ont pour log-vraisemblances $(-1000 ;\ -1001 ;\ -1003)$ : leurs a posteriori | une liste de 3 nombres (3 décimales) |
@@ -328,21 +328,21 @@ Une démonstration se rédige en phrases : ce qu'on suppose, chaque étape et sa
 **Objectif :** démontrer que l'a posteriori d'une loi Beta après des essais binomiaux est une loi Beta, et en tirer la loi prédictive.
 **Prérequis :** fiche §4 et §5 ; M02b (loi binomiale) · **Parcours :** C
 
-Une proportion $\Theta$ a pour a priori $\mathrm{Beta}(a, b)$. Sachant $\Theta = \theta$, on observe $K$ succès en $n$ essais indépendants, de loi binomiale $\mathcal{B}(n, \theta)$. La formule de Bayes pour une densité s'écrit $f(\theta \mid k) = \frac{P(K = k \mid \theta)\,f(\theta)}{P(K = k)}$, avec $P(K = k) = \int_0^1 P(K = k \mid \theta)\,f(\theta)\,d\theta$.
+Une proportion $\Theta$ a pour a priori $\mathrm{Beta}(a, b)$. Sachant $\Theta = \theta$, on fait $n \ge 1$ essais indépendants de probabilité de succès $\theta$ : le nombre $K$ de succès suit la loi binomiale $\mathcal{B}(n, \theta)$. La formule de Bayes pour une densité s'écrit $f(\theta \mid k) = \frac{P(K = k \mid \theta)\,f(\theta)}{P(K = k)}$, avec $P(K = k) = \int_0^1 P(K = k \mid \theta)\,f(\theta)\,d\theta$.
 1. Écris $P(K = k \mid \theta)$ et $f(\theta)$, puis le produit $P(K = k \mid \theta)\,f(\theta)$.
 2. Montre que $f(\theta \mid k)$ est proportionnelle à $\theta^{a + k - 1}(1 - \theta)^{b + n - k - 1}$, avec un coefficient qui ne dépend pas de $\theta$.
 3. Déduis-en, sans calculer d'intégrale, que l'a posteriori est $\mathrm{Beta}(a + k,\ b + n - k)$. Quel argument fixe la constante ?
-4. Calcule $P(K = k)$ et reconnais la loi prédictive de la fiche (§5).
+4. Calcule $P(K = k)$ et reconnais la loi bêta-binomiale de la fiche (§5) : la loi prédictive, calculée ici avec l'a priori.
 5. Montre que la moyenne a posteriori est une moyenne pondérée de la moyenne a priori et de la fréquence $\frac{k}{n}$, et donne les poids.
 6. On fait tendre $n$ vers $+\infty$ avec $\frac{k}{n} \to p$, pour $p$ dans $]0, 1[$. Que deviennent la moyenne et la variance a posteriori ? Interprète.
-7. Pour aller plus loin : un taux $\Lambda$ a pour a priori la loi Gamma de densité proportionnelle à $\lambda^{\alpha - 1}e^{-\beta\lambda}$ ; sachant $\Lambda = \lambda$, on observe $x_1, \ldots, x_n$, indépendants de loi de Poisson de paramètre $\lambda$. Montre que l'a posteriori est encore une loi Gamma, et donne ses paramètres.
+7. Pour aller plus loin : un taux $\Lambda$ a pour a priori la **loi Gamma** de paramètres $\alpha > 0$ et $\beta > 0$, dont la densité sur $]0, +\infty[$ est proportionnelle à $\lambda^{\alpha - 1}e^{-\beta\lambda}$ (ici, $\beta$ n'a rien à voir avec la loi Beta) ; sachant $\Lambda = \lambda$, on observe $x_1, \ldots, x_n$, indépendants de loi de Poisson de paramètre $\lambda$. Montre que l'a posteriori est encore une loi Gamma, et donne ses paramètres.
 
 ### Ex M04.12 — Le maximum de vraisemblance d'une loi de Bernoulli est la fréquence ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer que la fréquence observée maximise la vraisemblance, cas limites compris, et étudier cet estimateur.
-**Prérequis :** fiche §3 ; R7 ; M02c §6 (biais, variance) · **Parcours :** C
+**Prérequis :** fiche §3 ; R7 ; M02c §6 et §7 (biais, variance, erreur type) · **Parcours :** C
 
 $X_1, \ldots, X_n$ sont indépendantes, de loi de Bernoulli de paramètre $\theta \in [0, 1]$ ; on observe $x_1, \ldots, x_n$ dans $\{0, 1\}$, et l'on note $k = \sum_i x_i$.
-1. Montre que $L(\theta) = \prod_i \theta^{x_i}(1 - \theta)^{1 - x_i} = \theta^k(1 - \theta)^{n - k}$. Que faut-il retenir des données pour connaître $L$ ?
+1. Montre que $L(\theta) = \prod_i \theta^{x_i}(1 - \theta)^{1 - x_i} = \theta^k(1 - \theta)^{n - k}$ (avec la convention $0^0 = 1$, pour $\theta = 0$ ou 1). Que faut-il retenir des données pour connaître $L$ ?
 2. On suppose $0 < k < n$. Calcule $\ell'(\theta)$ sur $]0, 1[$, résous $\ell'(\theta) = 0$, et démontre que la solution est le maximum de $L$ sur $[0, 1]$ (pense aussi aux bords, où $L$ vaut 0).
 3. Traite les cas $k = 0$ et $k = n$ sans dériver $\ell$ : où $L$ est-elle maximale ? Conclus que, dans tous les cas, $\hat{\theta} = \frac{k}{n}$.
 4. On voit maintenant $\hat{\theta} = \frac{1}{n}\sum_i X_i$ comme une variable aléatoire. Démontre qu'il est sans biais, et calcule sa variance.
@@ -354,14 +354,14 @@ $X_1, \ldots, X_n$ sont indépendantes, de loi de Bernoulli de paramètre $\thet
 **Objectif :** démontrer la formule du mode d'une loi Beta, la comparer à la moyenne, et traiter les cas limites.
 **Prérequis :** fiche §4 et §6 ; R7 · **Parcours :** C
 
-On note $g(\theta) = (a - 1)\ln\theta + (b - 1)\ln(1 - \theta)$ sur $]0, 1[$, le logarithme de la densité de $\mathrm{Beta}(a, b)$ à une constante près.
+On note $g(\theta) = (a - 1)\ln\theta + (b - 1)\ln(1 - \theta)$ sur $]0, 1[$, le logarithme de la densité de $\mathrm{Beta}(a, b)$ à une constante près. Convention (celle de la docstring de `map_estimate_beta`) : quand la densité est monotone sur $]0, 1[$, son mode est le bord vers lequel elle croît, même si elle y tend vers l'infini.
 1. On suppose $a > 1$ et $b > 1$. Calcule $g'(\theta)$, trouve son unique zéro, et démontre que c'est le maximum de la densité. Que vaut la densité aux bords 0 et 1 ?
 2. Toujours pour $a > 1$ et $b > 1$, démontre que le mode est plus petit que la moyenne si et seulement si $a < b$. Que se passe-t-il pour $a = b$ ?
 3. Cas $a = 1 < b$ : écris la densité et montre qu'elle est décroissante. Quel est son mode ?
 4. Cas $a < 1 < b$ : que vaut la limite de la densité en $0^+$ ? Montre qu'elle est décroissante, et conclus.
-5. Cas $a < 1$ et $b < 1$ : montre que $g'$ s'annule en un point, et que ce point est un **minimum**. Où sont les modes ?
+5. Cas $a < 1$ et $b < 1$ : montre que $g'$ s'annule en un unique point, et que ce point est un **minimum**. Où sont les modes ?
 6. Cas $a = b = 1$ : pourquoi n'y a-t-il pas un mode unique ?
-7. Applique 1 et 3 à l'a posteriori $\mathrm{Beta}(k + 1,\ n - k + 1)$ (a priori uniforme, $k$ succès sur $n$) : retrouve le maximum de vraisemblance, cas $k = 0$ compris.
+7. Applique 1 et 3 à l'a posteriori $\mathrm{Beta}(k + 1,\ n - k + 1)$ (a priori uniforme, $k$ succès sur $n \ge 1$ essais) : retrouve le maximum de vraisemblance, cas $k = 0$ et $k = n$ compris (pour $k = n$, utilise la symétrie $\theta \mapsto 1 - \theta$).
 
 <a id="reflexion"></a>
 
@@ -383,17 +383,19 @@ Une boutique compare deux pages de commande. La page A a reçu 300 visites et 30
 | f | la même probabilité estimée par la simulation ci-dessous | un nombre (3 décimales) |
 | g | dans cette simulation, la moyenne de $\theta_B - \theta_A$ | un nombre (4 décimales) |
 
-La simulation (à exécuter dans une cellule de ton notebook) :
+La simulation (à exécuter dans une cellule de ton notebook, après avoir remplacé les `...` par les paramètres des deux a posteriori) :
 
 ```python
 import numpy as np
+a_A, b_A = ..., ...                      # the parameters of the posterior of θA (your answer to a)
+a_B, b_B = ..., ...                      # the parameters of the posterior of θB
 rng = np.random.default_rng(14)
-theta_A = rng.beta(31, 271, 100_000)     # 100 000 draws from the posterior of A
-theta_B = rng.beta(46, 256, 100_000)     # then 100 000 draws from the posterior of B
+theta_A = rng.beta(a_A, b_A, 100_000)    # 100 000 draws from the posterior of A, first
+theta_B = rng.beta(a_B, b_B, 100_000)    # then 100 000 draws from the posterior of B
 print(np.mean(theta_B > theta_A), np.mean(theta_B - theta_A))
 ```
 
-Dans ta copie : pourquoi la différence de deux lois normales indépendantes est-elle normale, et de quelle variance (M02b, M02c) ? Rédige en une phrase, pour l'équipe produit, ce que dit e) ou f). L'équipe doit-elle passer toutes les visites sur la page B ? Que ferait l'échantillonnage de Thompson ?
+Dans ta copie : pourquoi la différence de deux lois normales indépendantes est-elle normale, et de quelle variance (M02b, M02c) ? e) et f) diffèrent un peu : de combien une proportion estimée sur 100 000 tirages peut-elle s'écarter de sa vraie valeur (l'erreur type d'une proportion, M02c §7) ? Rédige en une phrase, pour l'équipe produit, ce que dit e) ou f). L'équipe doit-elle passer toutes les visites sur la page B ? Que ferait l'échantillonnage de Thompson ?
 
 ### Ex M04.15 — MML §6.3 (relire le théorème de Bayes) et §6.6 : conjugaison et famille exponentielle (lecture guidée) 📖 ★★ ⏱️ 30 min
 **Objectif :** lire en anglais le théorème de Bayes, la définition d'un a priori conjugué et la famille exponentielle, et les relier à la fiche.
@@ -457,6 +459,6 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | M04.24 | Prior, vraisemblance et posterior sur une même figure | 🎨 | ★ | 20 | C, E |
 | M04.25 | Chasse à l'erreur : évidence oubliée, mise à jour à l'envers, mode et moyenne | 🐛 | ★ | 15 | C |
 | M04.26 | Un calcul stable : comparer des vraisemblances en logarithmes (`math.lgamma`) | 🛠️ | ★ | 15 | C |
-| M04.27 | Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart type, intervalle) | 🏆 | ★★★ | 25 | C |
+| M04.27 | Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart-type, intervalle) | 🏆 | ★★★ | 25 | C |
 
 Indices : `04_indices.md` (section « Notebook ») ; solutions commentées : `05_solutions.md` et `05_solutions.ipynb`.

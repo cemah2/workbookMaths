@@ -95,7 +95,7 @@
 
 ### Ex M04.1 — Bayes avec deux hypothèses : un capteur de fuite d'eau
 
-**Réponses** : a) `0.0392` · b) `0.242` · c) `5.2` · d) `39.2` · e) `29.7` · f) `0.91` · g) `0.0096` · h) `0.625`.
+**Réponses** : a) `0.0392` · b) `0.242` · c) `5.2` · d) `39.2` · e) `29.7` · f) `0.91` · g) `"19/1980"` · h) `0.625`.
 
 **Démarche.**
 
@@ -109,12 +109,12 @@
 - c) Avec « ne sonne pas » : produits $0{,}01 \times 0{,}05 = 0{,}0005$ et $0{,}99 \times 0{,}97$, évidence $1 - 0{,}0392 = 0{,}9608$ ; $\frac{0{,}0005}{0{,}9608} \approx 0{,}00052$, soit 5,2 pour 10 000.
 - d) $1000 \times 0{,}0392$. e) $1000 \times 0{,}99 \times 0{,}03$.
 - f) Les deux capteurs sonnent : vraisemblances $0{,}95^2 = 0{,}9025$ et $0{,}03^2 = 0{,}0009$ ; $\frac{0{,}009025}{0{,}009025 + 0{,}000891} \approx 0{,}910$. On obtient la même chose en reprenant b) comme a priori pour le second capteur.
-- g) $\frac{0{,}0095}{0{,}0095 + 0{,}99\,x} \ge 0{,}5 \iff 0{,}99\,x \le 0{,}0095 \iff x \le 0{,}0096$.
+- g) Avec $x = P(\text{sonne} \mid \text{pas de fuite})$ : $\frac{0{,}0095}{0{,}0095 + 0{,}99\,x} \ge 0{,}5 \iff 0{,}99\,x \le 0{,}0095 \iff x \le \frac{0{,}0095}{0{,}99} = \frac{19}{1980} \approx 0{,}0096$ (arrondir par excès franchirait la limite : d'où la fraction).
 - h) $\frac{0{,}05 \times 0{,}95}{0{,}05 \times 0{,}95 + 0{,}95 \times 0{,}03} = \frac{0{,}0475}{0{,}076} = 0{,}625$.
 
 Pour la copie : sur 1 000 nuits, 10 fuites, dont 9,5 font sonner le capteur, et 29,7 fausses alertes : parmi les 39,2 alertes, $\frac{9{,}5}{39{,}2} \approx 0{,}242$. Les fuites sont si rares que les fausses alertes, même à 3 %, sont trois fois plus nombreuses que les vraies. Une détection parfaite (1 au lieu de 0,95) ne donnerait que $\frac{0{,}01}{0{,}0397} \approx 0{,}252$ ; des fausses alertes dix fois plus rares (0,003) donneraient $\frac{0{,}0095}{0{,}0095 + 0{,}00297} \approx 0{,}762$ : c'est elles qu'il faut améliorer.
 
-**Erreurs fréquentes.** Répondre 0,95 en b) (confondre $P(\text{fuite} \mid \text{sonne})$ et $P(\text{sonne} \mid \text{fuite})$) ; oublier la part « sans fuite » de l'évidence (0,0095) ; en c), ne pas diviser par l'évidence de « ne sonne pas » ; en g), oublier le facteur 0,99.
+**Erreurs fréquentes.** Répondre 0,95 en b) (confondre $P(\text{fuite} \mid \text{sonne})$ et $P(\text{sonne} \mid \text{fuite})$) ; oublier la part « sans fuite » de l'évidence (0,0095) ; en c), ne pas diviser par l'évidence de « ne sonne pas » ; en g), oublier le facteur 0,99 ($\frac{19}{2000}$).
 
 **Variante.** Trois capteurs identiques et indépendants sonnent tous : $P(\text{fuite} \mid \ldots)$ ? *Réponse* : $\frac{0{,}01 \times 0{,}95^3}{0{,}01 \times 0{,}95^3 + 0{,}99 \times 0{,}03^3} \approx 0{,}997$.
 
@@ -238,11 +238,11 @@ Pour la copie : moyenne $<$ MAP $<$ maximum de vraisemblance. L'a priori tire ve
 
 ### Ex M04.9 — Un intervalle de crédibilité d'une loi Beta
 
-**Réponses** : a) `[1, 9]` · b) `0.6126` · c) `0.0028` · d) `0.3363` · e) `0.2831` · f) `0.0741` · g) `[0.2924, 0.9916]`.
+**Réponses** : a) `[1, 9]` · b) `0.6126` · c) `0.00281` · d) `0.3363` · e) `0.2831` · f) `0.0741` · g) `[0.2924, 0.9916]`.
 
 **Démarche.**
 - a) 0 défaut, 8 fabrications sans défaut : $\mathrm{Beta}(1 + 0,\ 1 + 8)$. b) $F(0{,}1) = 1 - 0{,}9^9 \approx 0{,}6126$.
-- c) $1 - (1 - x)^9 = 0{,}025 \iff x = 1 - 0{,}975^{1/9} \approx 0{,}0028$. d) $x = 1 - 0{,}025^{1/9} \approx 0{,}3363$.
+- c) $1 - (1 - x)^9 = 0{,}025 \iff x = 1 - 0{,}975^{1/9} \approx 0{,}00281$. d) $x = 1 - 0{,}025^{1/9} \approx 0{,}3363$.
 - e) $x = 1 - 0{,}05^{1/9} \approx 0{,}2831$. f) $x = 1 - 0{,}5^{1/9} \approx 0{,}0741$.
 - g) $x^3 = 0{,}025$ et $x^3 = 0{,}975$ : $0{,}2924$ et $0{,}9916$.
 
@@ -254,11 +254,11 @@ Pour la copie : $F(x) = \int_0^x 9(1 - t)^8\,dt = \big[-(1 - t)^9\big]_0^x = 1 -
 
 ### Ex M04.10 — Log-probabilités : additionner au lieu de multiplier, normaliser par log-sum-exp
 
-**Réponses** : a) `-804.72` · b) `-349.485` · c) `False` · d) `-999.651` · e) `[0.7054, 0.2595, 0.0351]` · f) `[0.501, 0.461, 0.037]`.
+**Réponses** : a) `-804.72` · b) `-349.485` · c) `True` · d) `-999.651` · e) `[0.7054, 0.2595, 0.0351]` · f) `[0.501, 0.461, 0.037]`.
 
 **Démarche.**
 - a) $500\ln 0{,}2 \approx 500 \times (-1{,}60944)$. b) $500\log_{10} 0{,}2 \approx 500 \times (-0{,}69897)$.
-- c) $0{,}2^{500} \approx 10^{-349{,}5}$, bien moins que $5 \times 10^{-324}$ : 0.0 en `float64`.
+- c) $0{,}2^{500} \approx 10^{-349{,}5}$, bien moins que $5 \times 10^{-324}$ : oui, 0.0 en `float64`.
 - d) $-1000 + \ln(1 + e^{-1} + e^{-3}) = -1000 + \ln 1{,}41767 \approx -1000 + 0{,}349$.
 - e) $\frac{(1 ;\ e^{-1} ;\ e^{-3})}{1{,}41767} = (1 ;\ 0{,}36788 ;\ 0{,}04979) / 1{,}41767$.
 - f) Log-produits : $\ln 0{,}2 - 1000 \approx -1001{,}609$, $\ln 0{,}5 - 1001 \approx -1001{,}693$, $\ln 0{,}3 - 1003 \approx -1004{,}204$ ; moins le maximum : $(0 ;\ -0{,}084 ;\ -2{,}595)$ ; exponentielles : $(1 ;\ 0{,}920 ;\ 0{,}075)$, de somme 1,994 ; d'où $(0{,}501 ;\ 0{,}461 ;\ 0{,}037)$.
@@ -284,7 +284,7 @@ Pour la copie : $e^{-1000} \approx 10^{-434}$ vaut 0 en `float64` : le calcul di
 6. Le poids des données tend vers 1 : la moyenne tend vers $p$. La variance $\frac{(a + k)(b + n - k)}{(a + b + n)^2(a + b + n + 1)}$ se comporte comme $\frac{np \cdot n(1 - p)}{n^3} = \frac{p(1 - p)}{n}$ : elle tend vers 0. L'a priori est oublié, et l'a posteriori se concentre autour de la fréquence, avec un écart-type en $\frac{1}{\sqrt{n}}$.
 7. $\prod_i e^{-\lambda}\frac{\lambda^{x_i}}{x_i!} \propto \lambda^{\sum_i x_i}e^{-n\lambda}$, donc l'a posteriori est proportionnel à $\lambda^{\alpha + \sum_i x_i - 1}e^{-(\beta + n)\lambda}$ : la loi Gamma de paramètres $\alpha + \sum_i x_i$ et $\beta + n$ (même argument qu'en 3).
 
-**Grille.** (1) le produit, avec les exposants regroupés ; (2) l'évidence ne dépend pas de $\theta$ ; (3) l'argument de la constante fixée par l'aire 1 (sans calculer d'intégrale) ; (4) la prédictive obtenue en égalant les constantes ; (5) la moyenne pondérée, avec ses poids ; (6) les limites de la moyenne et de la variance, et l'interprétation ; (7) Gamma-Poisson : $\alpha + \sum x_i$ et $\beta + n$.
+**Grille.** (1) le produit, avec les exposants regroupés ; (2) l'évidence ne dépend pas de $\theta$ ; (3) l'argument de la constante fixée par l'aire 1 (sans calculer d'intégrale) ; (4) la loi bêta-binomiale obtenue en égalant les constantes ; (5) la moyenne pondérée, avec ses poids ; (6) les limites de la moyenne et de la variance, et l'interprétation ; (7) Gamma-Poisson : $\alpha + \sum x_i$ et $\beta + n$.
 
 ### Ex M04.12 — Le maximum de vraisemblance d'une loi de Bernoulli est la fréquence
 
@@ -324,9 +324,9 @@ Pour la copie : $e^{-1000} \approx 10^{-434}$ vaut 0 en `float64` : le calcul di
 - a) $\mathrm{Beta}(1 + 30,\ 1 + 270)$ ; pour B, $\mathrm{Beta}(46, 256)$. b) $\frac{46}{302}$.
 - c) $\sqrt{\frac{46 \times 256}{302^2 \times 303}} = \sqrt{0{,}000426} \approx 0{,}0206$. d) $\sqrt{\frac{31 \times 271}{302^2 \times 303}} = \sqrt{0{,}000304} \approx 0{,}0174$.
 - e) $\theta_B - \theta_A$ est approchée par une loi normale de moyenne $\frac{46 - 31}{302} \approx 0{,}0497$ et d'écart-type $\sqrt{0{,}000426 + 0{,}000304} \approx 0{,}0270$ ; $P(\theta_B - \theta_A > 0) = \Phi\big(\frac{0{,}0497}{0{,}0270}\big) = \Phi(1{,}84) \approx 0{,}97$.
-- f) et g) La simulation : 0,9687 et 0,04976. (La valeur exacte, par intégration numérique, est 0,9674.)
+- f) et g) La simulation : 0,9687 et 0,04976. La valeur exacte, par intégration numérique, est 0,9674 : l'approximation normale (0,9670) en est ici plus proche que la simulation, dont l'erreur type vaut $\sqrt{\frac{0{,}967 \times 0{,}033}{100\,000}} \approx 0{,}0006$ ; l'écart de 0,0013 fait un peu plus de deux erreurs types, ce qui arrive (une fois sur vingt environ).
 
-Pour la copie : la différence de deux variables normales indépendantes est normale (M02b), de variance la somme des variances (M02c, l'indépendance). Pour l'équipe : « Sachant ces données, la page B a environ 97 % de chances d'avoir un meilleur taux de conversion que la page A, avec un gain moyen d'environ 5 points. » Tout basculer sur B reste un pari : 3 % de chances qu'elle soit moins bonne, et un gain encore incertain (écart-type de 2,7 points). L'échantillonnage de Thompson montrerait B environ 97 % du temps et A environ 3 % : il exploite déjà B tout en continuant d'apprendre.
+Pour la copie : la différence de deux variables normales indépendantes est normale (M02b), de variance la somme des variances (M02c, l'indépendance). Une proportion estimée sur 100 000 tirages a une erreur type d'environ 0,0006 : e) et f) diffèrent de 0,0017, de l'ordre de quelques erreurs types, et la simulation n'est pas « plus exacte » par principe. Pour l'équipe : « Sachant ces données, la page B a environ 97 % de chances d'avoir un meilleur taux de conversion que la page A, avec un gain moyen d'environ 5 points. » Tout basculer sur B reste un pari : 3 % de chances qu'elle soit moins bonne, et un gain encore incertain (écart-type de 2,7 points). L'échantillonnage de Thompson montrerait B environ 97 % du temps et A environ 3 % : il exploite déjà B tout en continuant d'apprendre.
 
 **Erreurs fréquentes.** Oublier l'a priori (`[30, 270]`) ; additionner les écarts-types au lieu des variances (0,90) ; taper en f) la valeur de e) ou la valeur exacte au lieu du résultat de la simulation.
 
@@ -444,10 +444,10 @@ Pour la copie : la différence de deux variables normales indépendantes est nor
 
 **Erreurs fréquentes.** `k * math.log(p)` avec $p = 0$ (une `ValueError` même pour $k = 0$) ; `math.comb(n, k) * p ** k * ...` (une `OverflowError`) ; renvoyer `0` au lieu de `-math.inf` pour une probabilité nulle.
 
-### Ex M04.27 — Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart type, intervalle)
+### Ex M04.27 — Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart-type, intervalle)
 
 **Réponses** : a) `[12.6, 50.4]` · b) `[6.9, 27.5]` · c) `0.9745` · d) `0.164` · e) `34.3`.
 
 **Démarche.** a) $\frac{m(1 - m)}{s + 1} = 0{,}05^2$ donne $s + 1 = 64$, $s = 63$, puis $a = 0{,}2 \times 63$ et $b = 0{,}8 \times 63$. b) Deux équations, $F^{-1}(0{,}05) = 0{,}10$ et $F^{-1}(0{,}95) = 0{,}32$, résolues par `optimize.fsolve` (sur $\ln a$ et $\ln b$, pour rester positif) : $\mathrm{Beta}(6{,}87 ;\ 27{,}48)$. c) `cdf(0.32) - cdf(0.10)` pour la loi de a). d) $\frac{6{,}87 + 7}{34{,}34 + 50} \approx 0{,}164$. e) $6{,}87 + 27{,}48$. Pour la copie : même centre (0,20), mais le premier expert est plus sûr de lui (97 % dans l'intervalle du second, $a + b = 63$ contre 34) ; après 50 pièces, les données pèsent $\frac{50}{84{,}3} \approx 0{,}59$ face au second avis et $\frac{50}{113} \approx 0{,}44$ face au premier.
 
-**Erreurs fréquentes.** Prendre l'écart type pour la variance ; les quantiles 0,025 et 0,975 (un intervalle à 95 %) ; partir de la loi de a) en d).
+**Erreurs fréquentes.** Prendre l'écart-type pour la variance ; les quantiles 0,025 et 0,975 (un intervalle à 95 %) ; partir de la loi de a) en d).

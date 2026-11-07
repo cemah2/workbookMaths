@@ -330,6 +330,6 @@
 
 - Les trois log-vraisemblances et les a posteriori à la main ; pourquoi des a posteriori si tranchés :
 
-### Ex M04.27 — Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart type, intervalle)
+### Ex M04.27 — Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart-type, intervalle)
 
 - Les experts sont-ils d'accord ? lequel est le plus sûr ? ce que pèse chaque avis après 50 pièces :

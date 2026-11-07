@@ -1336,7 +1336,7 @@ La formule de Bayes en profondeur : a priori, vraisemblance, évidence, a poster
 | M04.24 | 🎨 | Prior, vraisemblance et posterior sur une même figure | ★ | 20 | §5 | C, E | manuel | — |
 | M04.25 | 🐛 | Chasse à l'erreur : évidence oubliée, mise à jour à l'envers, mode et moyenne | ★ | 15 | §1 §5 | C | wbm | — |
 | M04.26 | 🛠️ | Un calcul stable : comparer des vraisemblances en logarithmes (`math.lgamma`) | ★ | 15 | §7 | C | manuel | — |
-| M04.27 | 🏆 | Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart type, intervalle) | ★★★ | 25 | §4 §6 | C | wbm | — |
+| M04.27 | 🏆 | Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart-type, intervalle) | ★★★ | 25 | §4 §6 | C | wbm | — |
 
 *Notes* : mymath écrit les formules de la loi Beta et de la conjugaison ; le posterior sur une grille et l'intervalle de crédibilité sont les fonctions de `mylearn` en workbookIA 4. Aucun exemple de pièce de monnaie (workbookIA 4 les utilise tous) : taux de clic, capteurs, contrôle qualité. Le log-sum-exp est enseigné ici parce que workbookIA 4 s'en sert (posterior sur une grille en log-probabilités) ; M05a l'approfondit (flottants, encadrement, implémentation). §6.3 de MML est déjà lu en M03 : M04.15 n'en relit que le théorème de Bayes. Parcours essentiel : famille exponentielle, Thompson et les démonstrations hors parcours.
 

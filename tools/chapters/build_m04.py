@@ -50,9 +50,9 @@ PAPER = [
         ("f", "a number (3 decimals)", "0.01 * 0.95**2 / (0.01 * 0.95**2 + 0.99 * 0.03**2)",
          'decimals=3, mistakes={"c\'est l\'a posteriori après un seul capteur : le second le met à jour encore": '
          '0.01 * 0.95 / (0.01 * 0.95 + 0.99 * 0.03)}'),
-        ("g", "a number (4 decimals)", "0.01 * 0.95 / 0.99",
-         'decimals=4, mistakes={"les fausses alertes ne concernent que les nuits sans fuite : leur probabilité se '
-         'pondère par 0,99": 0.0095}'),
+        ("g", "an irreducible fraction, as text", "Fraction(95, 9900)",
+         F + ', mistakes={"P(sonne | pas de fuite) ne concerne que les nuits sans fuite : dans l\'évidence, elle se '
+         'pondère par 0,99": "19/2000"}'),
         ("h", "a number (3 decimals)", "0.05 * 0.95 / (0.05 * 0.95 + 0.95 * 0.03)",
          'decimals=3, mistakes={"l\'a priori a changé : refais l\'évidence avec la nouvelle probabilité d\'une fuite": '
          '0.01 * 0.95 / (0.01 * 0.95 + 0.99 * 0.03)}'),
@@ -218,8 +218,8 @@ PAPER = [
          'mistakes={"θ est la probabilité de défaut : a compte les défauts, b les fabrications sans défaut": [9, 1]}'),
         ("b", "a number (4 decimals)", "1 - 0.9**9",
          'decimals=4, mistakes={"P(θ ≤ 0,1) = F(0,1) = 1 − (1 − 0,1)^b": 0.9**9}'),
-        ("c", "a number (4 decimals)", "1 - 0.975**(1 / 9)",
-         'decimals=4, mistakes={"la borne basse laisse 2,5 % à sa gauche : elle résout F(x) = 0,025": '
+        ("c", "a number (5 decimals)", "1 - 0.975**(1 / 9)",
+         'decimals=5, mistakes={"la borne basse laisse 2,5 % à sa gauche : elle résout F(x) = 0,025": '
          '1 - 0.025**(1 / 9)}'),
         ("d", "a number (4 decimals)", "1 - 0.025**(1 / 9)",
          'decimals=4, mistakes={"la borne haute laisse 2,5 % à sa droite : elle résout F(x) = 0,975": '
@@ -238,8 +238,8 @@ PAPER = [
          'decimals=2, mistakes={"ln(0,2^500) = 500 ln 0,2, avec le logarithme népérien": 500 * math.log10(0.2)}'),
         ("b", "a number (3 decimals)", "500 * math.log10(0.2)",
          'decimals=3, mistakes={"log₁₀, pas ln : log₁₀ x = ln x / ln 10": 500 * math.log(0.2)}'),
-        ("c", "True or False", "False",
-         'mistakes={"compare la puissance de 10 trouvée en b) à celle du plus petit float positif": True}'),
+        ("c", "True or False", "True",
+         'mistakes={"compare la puissance de 10 trouvée en b) à celle du plus petit float positif": False}'),
         ("d", "a number (3 decimals)", "-1000 + math.log(1 + math.exp(-1) + math.exp(-3))",
          'decimals=3, mistakes={"ln(eˣ + eʸ) n\'est ni x + y, ni le plus grand des deux : mets e^(−1000) en facteur": '
          '{-3004.0, -1000.0}}'),
@@ -1039,15 +1039,15 @@ for letter, answer in zip("abcde", [answer_M04_27a, answer_M04_27b, answer_M04_2
     wbm.check(f"M04.27{letter}", answer)'''
 
 M04_27 = Ex(
-    "M04.27", "🏆", 3, 25, "Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart type, intervalle)",
-    "construire un a priori Beta à partir d'une moyenne et d'un écart type, puis à partir d'un intervalle, et mesurer "
+    "M04.27", "🏆", 3, 25, "Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart-type, intervalle)",
+    "construire un a priori Beta à partir d'une moyenne et d'un écart-type, puis à partir d'un intervalle, et mesurer "
     "ce qu'il pèse face aux données.", "fiche §4 à §6 ; M02a §6 (quantiles)", tracks="C",
     body="""Avant de lancer une nouvelle ligne de production, l'atelier interroge deux experts sur son taux de défaut $\\theta$.
-- Le premier dit : « environ 20 %, avec un écart type de 5 points ».
+- Le premier dit : « environ 20 %, avec un écart-type de 5 points ».
 - Le second dit : « j'ai 90 % de chances de ne pas me tromper en disant entre 10 % et 32 % », et l'on comprend que chaque queue laisse 5 %.
 
 Traduis chaque avis en une loi Beta, puis calcule :
-- a) les paramètres `[a, b]` de la loi Beta de moyenne 0,2 et d'écart type 0,05 (1 décimale) ; pense à écrire la variance d'une loi Beta avec $m = \\frac{a}{a + b}$ et $s = a + b$ : $\\frac{m(1 - m)}{s + 1}$ ;
+- a) les paramètres `[a, b]` de la loi Beta de moyenne 0,2 et d'écart-type 0,05 (1 décimale) ; pense à écrire la variance d'une loi Beta avec $m = \\frac{a}{a + b}$ et $s = a + b$ : $\\frac{m(1 - m)}{s + 1}$ ;
 - b) les paramètres `[a, b]` de la loi Beta dont l'intervalle à 90 % à queues égales est $[0{,}10 ;\\ 0{,}32]$ (1 décimale) ; aucune formule ne les donne : cherche-les par le calcul (`scipy.optimize.fsolve` sur deux équations, ou une recherche sur une grille) ;
 - c) la probabilité $P(0{,}10 \\le \\theta \\le 0{,}32)$ selon la loi de a) (4 décimales) ;
 - d) la moyenne a posteriori après 7 pièces défectueuses sur 50, à partir de la loi de b) (3 décimales) ;
@@ -1087,7 +1087,7 @@ print("a)", [round(v, 3) for v in answer_M04_27a], " b)", [round(float(v), 3) fo
       " c)", round(float(answer_M04_27c), 4), " d)", round(answer_M04_27d, 4), " e)", round(float(answer_M04_27e), 3))
 print("check of b):", stats.beta(a_b, b_b).ppf([0.05, 0.95]), "· mean of b):", a_b / (a_b + b_b))''',
     record='''wbm.record("M04.27a", [12.6, 50.4], decimals=1,
-           mistakes={"l'écart type est 0,05 : la variance est son carré": [0.44, 1.76]})
+           mistakes={"l'écart-type est 0,05 : la variance est son carré": [0.44, 1.76]})
 wbm.record("M04.27b", [6.8673766, 27.4771525], decimals=1,
            mistakes={"un intervalle à 90 % à queues égales laisse 5 % de chaque côté : les quantiles 0,05 et 0,95":
                          [9.6399566, 38.9785348]})

@@ -698,7 +698,7 @@ Pour $p = 0$ : la probabilité vaut 1 si $k = 0$ (logarithme 0.0), et 0 sinon (`
 
 </details>
 
-### Ex M04.27 — Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart type, intervalle)
+### Ex M04.27 — Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart-type, intervalle)
 
 <details><summary>Indice 1</summary>
 

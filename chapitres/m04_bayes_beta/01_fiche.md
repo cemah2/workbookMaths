@@ -189,7 +189,9 @@ La méthode est générale. Pour des durées $x_1, \ldots, x_n$ supposées tiré
 
 Une proportion inconnue $\theta$ vit dans $[0, 1]$. Pour dire ce qu'on en croit, on lui donne une densité sur $[0, 1]$ (M02a §6). La famille la plus utilisée est la **loi Beta** (*Beta distribution*) : pour deux paramètres $a > 0$ et $b > 0$,
 
-$$f(\theta) = \frac{\theta^{a-1}(1 - \theta)^{b-1}}{B(a, b)} \quad \text{pour } 0 \le \theta \le 1, \qquad B(a, b) = \int_0^1 t^{a-1}(1 - t)^{b-1}\,dt.$$
+$$f(\theta) = \frac{\theta^{a-1}(1 - \theta)^{b-1}}{B(a, b)} \quad \text{pour } 0 < \theta < 1, \qquad B(a, b) = \int_0^1 t^{a-1}(1 - t)^{b-1}\,dt.$$
+
+Aux bords, la densité vaut 0 si l'exposant est positif ($a > 1$ en 0, $b > 1$ en 1), et tend vers l'infini s'il est négatif ($a < 1$ en 0, $b < 1$ en 1). On note $\Theta$ la proportion vue comme une variable aléatoire et $\theta$ ses valeurs ; quand il n'y a pas d'ambiguïté, on écrit aussi $P(\theta \le 0{,}1)$ ou $P(\theta_B > \theta_A)$.
 
 La **fonction Beta** $B(a, b)$ (*Beta function*) est la constante qui donne à la densité une aire de 1. On la calcule avec la **fonction Gamma** (*Gamma function*), qui prolonge la factorielle aux réels positifs : $\Gamma(x + 1) = x\,\Gamma(x)$, $\Gamma(1) = 1$, donc $\Gamma(n) = (n - 1)!$ pour un entier $n \ge 1$ (et $\Gamma(\frac{1}{2}) = \sqrt{\pi}$, la constante de l'intégrale de Gauss de M02a). On admet que
 

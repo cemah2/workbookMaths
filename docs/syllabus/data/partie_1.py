@@ -467,7 +467,7 @@ CHAPTERS = [
              "§1 §5", ""),
             ("M04.26", "🛠️", 1, 15, "Un calcul stable : comparer des vraisemblances en logarithmes (`math.lgamma`)",
              "§7", ""),
-            ("M04.27", "🏆", 3, 25, "Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart type, "
+            ("M04.27", "🏆", 3, 25, "Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart-type, "
              "intervalle)", "§4 §6", ""),
         ],
     },

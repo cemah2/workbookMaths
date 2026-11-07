@@ -776,6 +776,6 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M04.24 🎨 Prior, vraisemblance et posterior sur une même figure ★ 20 min
 - [ ] M04.25 🐛 Chasse à l'erreur : évidence oubliée, mise à jour à l'envers, mode et moyenne ★ 15 min (complet)
 - [ ] M04.26 🛠️ Un calcul stable : comparer des vraisemblances en logarithmes (`math.lgamma`) ★ 15 min (complet)
-- [ ] M04.27 🏆 Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart type, intervalle) ★★★ 25 min (complet)
+- [ ] M04.27 🏆 Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart-type, intervalle) ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)
 <!-- wbm:end M04 -->

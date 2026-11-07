@@ -10701,20 +10701,13 @@
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
     },
     "M04.1g": {
-      "coarse_any": {
-        "2": [
-          "79735fa59ccc683c1f335d329b3c9f58db18fc43f068a92dfbe7d2f3803b9408"
-        ]
-      },
-      "decimals": 4,
-      "hash": "53f343dbd07ad50ac6cf7471676a1a18820b30b8c24ac88dc84329795e16e311",
-      "hash_coarse": "af6177ff163595cbd34ab6397b2b9cd99d6c940fa7408b9216c8af7aba9d9685",
-      "kind": "float",
-      "magnitude": -3,
+      "hash": "2838605917e0d3685f2ca60bffe9a19a4958a21935f00f3a34a3c23a54bd9b2b",
+      "kind": "fraction",
       "mistakes": {
-        "9b26ae427a89ee750f326c2c8477484b64b0e5465bc5a93c2a60440fce0efc6f": "les fausses alertes ne concernent que les nuits sans fuite : leur probabilité se pondère par 0,99"
+        "75335b68db2d5e3d369ab7b993fd5ce65219eb057182d8b523abe11985161bb9": "P(sonne | pas de fuite) ne concerne que les nuits sans fuite : dans l'évidence, elle se pondère par 0,99"
       },
       "sign": 1,
+      "simplified": true,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
     },
     "M04.1h": {
@@ -11735,13 +11728,18 @@
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
     },
     "M04.9c": {
-      "decimals": 4,
-      "hash": "1cda2896b4df1bd6dd9efe652dfc5fc7639f56487917746a20b2fd4cfa92a8d3",
-      "hash_coarse": "5a2ef07406ffee27642075243a70ccea7b13b71be77c05e674deafd1482eff48",
+      "coarse_any": {
+        "3": [
+          "5a2ef07406ffee27642075243a70ccea7b13b71be77c05e674deafd1482eff48"
+        ]
+      },
+      "decimals": 5,
+      "hash": "3d1967fac48487f5e9bb834285334b6027fc445047200c033eb09972e85dd39e",
+      "hash_coarse": "1cda2896b4df1bd6dd9efe652dfc5fc7639f56487917746a20b2fd4cfa92a8d3",
       "kind": "float",
       "magnitude": -3,
       "mistakes": {
-        "8781bfdaa0e7db55a95cc4e0ffa46e7425bfc78cc4b9a3888ccc64ea3b9d8a02": "la borne basse laisse 2,5 % à sa gauche : elle résout F(x) = 0,025"
+        "85ec9f6435ac37a1228e4cc4184986932b6747ddf98820313762d0e60eb2ae26": "la borne basse laisse 2,5 % à sa gauche : elle résout F(x) = 0,025"
       },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
@@ -11885,10 +11883,10 @@
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
     },
     "M04.10c": {
-      "hash": "15610516aa1a4803a42260e215d9d34a372ea10416a3882b087d1c35fa7d41d0",
+      "hash": "828290a1af99a5a4c9c507d8801de4f3140182f45b93a5a3526af19d83e3ef4c",
       "kind": "bool",
       "mistakes": {
-        "828290a1af99a5a4c9c507d8801de4f3140182f45b93a5a3526af19d83e3ef4c": "compare la puissance de 10 trouvée en b) à celle du plus petit float positif"
+        "15610516aa1a4803a42260e215d9d34a372ea10416a3882b087d1c35fa7d41d0": "compare la puissance de 10 trouvée en b) à celle du plus petit float positif"
       },
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
     },
@@ -12953,7 +12951,7 @@
       "hash": "7aef1b625076d45506459c5c6e494c994b4ce00a68bcc13ad071f55a881f1770",
       "kind": "array",
       "mistakes": {
-        "2b7281079d89ca33e866192a20f78503d4e45ea1b46e4ba1050cba89032163ab": "l'écart type est 0,05 : la variance est son carré"
+        "2b7281079d89ca33e866192a20f78503d4e45ea1b46e4ba1050cba89032163ab": "l'écart-type est 0,05 : la variance est son carré"
       },
       "shape": [
         2
