@@ -13080,31 +13080,35 @@
     },
     "M05a.1d": {
       "coarse_any": {
-        "1": [
-          "15a539bd3481dac37acb9164d4a0261f1dfedb71034e8547237b483593bb37fd"
+        "0": [
+          "cf9aed783e448e6ad5ba0d8be44b62ad49b63995492d0115fa3d32f8e4f924bf"
         ]
       },
       "coarser": {
+        "1": [
+          "e170a6bf6f2f170caf1f32579ecf39f74ed733c746c692ceeeaaf3d080c1c766"
+        ],
         "2": [
-          "fc05824bf5ef7cdec426fda7b1472c7d2c3d5aab8b181d11a6777ed09e2fa2c0"
+          "2c7f7f2c7d165c29a8b69fbbc1d6aea94dc4abb29f3420a89ad8f4ab4dcffa09"
         ]
       },
       "decimals": 4,
-      "hash": "c8f20419fc737335dd8917bceed3d5fe997c99f20c6dca06f5f948b6a7e99815",
-      "hash_coarse": "6c3786fa400b6665d50604f3835a00ed32c198cc4dc777aa15ab23051df1f8bc",
+      "hash": "aeef4257fc3aafdb04aae936c2e1e22c96bd3fa01a694530a1d2f1080b9e8a25",
+      "hash_coarse": "c3713455fbf730806a55686abc87860d10acd01cd255bf06e8922db08305d404",
       "kind": "float",
-      "magnitude": -1,
+      "magnitude": 1,
       "mistakes": {
-        "cbe78fdc1df30f5b6b8d5959703daebd5d43f180caf9741bd8f3a8c61bae7221": "c'est u'(1) ; dérive encore une fois, par la règle du quotient"
+        "1b9a413d01bbee17afcad07ada8b90f7b3ff2fd7323199b27bf51999d01c8093": "w'(x) = 2x e^(x²) est un produit : sa dérivée a deux termes",
+        "a1b1f2cdfb4867d8cdb50df86dcde10cb397c2a9f05ddfcbed9acde40c38741e": "c'est w'(1) ; dérive encore une fois, par la règle du produit"
       },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
     "M05a.1e": {
-      "hash": "a74d9fff4f4cdaa4eeb7194006c38b90cb9bc80d6f8e3a446b8333cc198af084",
+      "hash": "d7538871e797b4f62171b39b9cecfb12836ed7c1d2e30f00573a8f302150b4ee",
       "kind": "bool",
       "mistakes": {
-        "d7538871e797b4f62171b39b9cecfb12836ed7c1d2e30f00573a8f302150b4ee": "u''(x) = 1/(1 + x²)^(3/2) : quel est son signe ?"
+        "a74d9fff4f4cdaa4eeb7194006c38b90cb9bc80d6f8e3a446b8333cc198af084": "calcule la dérivée seconde de 1/(1 + x²) et étudie son signe, par exemple en 0"
       },
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
@@ -13974,30 +13978,32 @@
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
     "M05a.8b": {
-      "hash": "3e0ab1962df96d98b636f90489b252ab53ae1e8e3d013002b65f301988f51b1f",
-      "kind": "bool",
+      "hash": "42769d5411d18f916419fad3bf325f0a11030ee5fea64b6ae17a213f4651fb28",
+      "kind": "str",
       "mistakes": {
-        "539bd68a7fc4bdc73cfb97ae0bb8a84d86f9a35869669b7b134835ebb1d4dc66": "0,1 = 1/10, et 10 a le facteur 5 : son développement binaire ne s'arrête jamais"
+        "4fca79c51a2bc0d18ded245dfb576a07b2cfa555c947c593904c32f784df16e9": "écris chaque nombre comme une fraction irréductible : un développement binaire fini demande un dénominateur qui est une puissance de 2",
+        "59f49b3b26d3f14b80be5f6fb198d8be03cdd55f1fdbc663158ce233cd0e0389": "écris chaque nombre comme une fraction irréductible : un développement binaire fini demande un dénominateur qui est une puissance de 2",
+        "7a3e80644c44d29d3befc9a6f1c37e2a2c1b722a85b5d7d2f95e07efdda16de5": "écris chaque nombre comme une fraction irréductible : un développement binaire fini demande un dénominateur qui est une puissance de 2"
       },
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
     "M05a.8c": {
-      "hash": "db147057dba5b02e2cc4bab8594b5ab86d0592e98c13acbb7ce7f3fa75720d0b",
+      "hash": "ca21149a6c7ae0e76881f291d10f35af46cd052aed8e45998284124bf021770f",
       "kind": "str",
       "mistakes": {
         "04a7184afa12a3018e440ac019d1f99a7f438ce856a9d97bcf9a8dd094e007d6": "le bloc commence juste après le « 0,0 » : reprends les multiplications par 2",
         "888fea28961dcca328a9c4c98454eb630f70be1a20c7a38ab3bfb2345cd139bc": "le bloc commence juste après le « 0,0 » : reprends les multiplications par 2",
-        "ca21149a6c7ae0e76881f291d10f35af46cd052aed8e45998284124bf021770f": "le bloc commence juste après le « 0,0 » : reprends les multiplications par 2"
+        "db147057dba5b02e2cc4bab8594b5ab86d0592e98c13acbb7ce7f3fa75720d0b": "le bloc commence juste après le « 0,0 » : reprends les multiplications par 2"
       },
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
     "M05a.8d": {
-      "hash": "70afaaa0ff5ece46157861e35f38c212b888ba3c9b38ef302903c79467208434",
+      "hash": "86233ce6f65ed024765b6b283323d79187cb3b2a7a244908fc8b6c053e58d206",
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "160dea3454842e7c7ca0173869e63cead45a670e720c7de4f0fbc37d23560c84": "float64 garde 52 bits après la virgule",
-        "a3781fcdfef83a27d19dd428323b15c158a1fda1d279fc79bd051046ca5857a1": "c'est l'erreur relative d'arrondi ε/2 ; l'epsilon est l'écart entre 1 et le flottant suivant"
+        "70afaaa0ff5ece46157861e35f38c212b888ba3c9b38ef302903c79467208434": "c'est l'écart après 1 ; entre deux puissances de 2, l'écart vaut ε fois la plus petite des deux",
+        "a3781fcdfef83a27d19dd428323b15c158a1fda1d279fc79bd051046ca5857a1": "repère la puissance de 2 juste en dessous de 0,3 (0,5 est au-dessus)"
       },
       "sign": -1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -14014,22 +14020,22 @@
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
     "M05a.8f": {
-      "hash": "d0b12cddbc3216c59a3dd629f008e4b9033e362e4ba660d06731c8f88f712004",
+      "hash": "755c9a523863db5ab2c809f3d3c01298db516f5263761895c017373fd02f5aa4",
       "kind": "int",
-      "magnitude": 15,
+      "magnitude": 7,
       "mistakes": {
-        "f4e7d2bc077d33b6c6e65a96dce9d9ad66df33fd61bedcaaa22aea15b04f9bc1": "2^53 lui-même est représentable : c'est l'entier suivant qui ne l'est pas",
-        "fcd2db379114d58a892f9c492f533aeb3af1f65a75bdbe3d76afe80426789a03": "2^53 − 1 tient sur 53 bits"
+        "d0b12cddbc3216c59a3dd629f008e4b9033e362e4ba660d06731c8f88f712004": "c'est pour float64 ; float32 garde 23 bits après la virgule",
+        "d8ac111cdb263e9c81ee2a87d41b23f36daacdfafcc853ca0ae176e7721486db": "cette puissance de 2 elle-même est représentable : c'est l'entier suivant qui ne l'est pas"
       },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
     "M05a.8g": {
-      "hash": "58e6206dbcb77aeb7fc96a24616d5c52340f4131028f30048bd53b98b37c6c37",
+      "hash": "49427bf5b2d618982132d35ab0bb9fd212eaf0d41f5253fef9f08d026493fe0c",
       "kind": "fraction",
       "mistakes": {
-        "cb67a62cf02a058dcfda34ec751cedbacd999b96539f679c9c84ea80a43b1ddf": "float16 garde 10 bits après la virgule",
-        "fcebe76f1469849656bbd94aef622d48caebac833acc994533f7628c91076959": "c'est la moitié de l'epsilon (l'erreur relative d'arrondi)"
+        "43a594055aa3faab7e0627bc8404d7ca3a415e700662877dec654b2db5a48fe4": "1 000 est en dessous de 1 024 : prends la puissance de 2 juste en dessous",
+        "58e6206dbcb77aeb7fc96a24616d5c52340f4131028f30048bd53b98b37c6c37": "l'écart est ε fois la puissance de 2 juste en dessous de 1 000, pas ε seul"
       },
       "sign": 1,
       "simplified": true,
@@ -14141,6 +14147,7 @@
       "magnitude": -2,
       "mistakes": {
         "621cacb0dace96586c0b218f7b66fb17dc310c61d1ae51565faba1f6ab15debd": "remplace h* par son expression dans E : l'erreur au meilleur pas ne varie pas comme δ",
+        "6569fe3a32839bf425ab6e76a44137b897e1f5bef9750d4d8723e563d3fc8582": "un capteur plus précis donne une erreur plus petite : le facteur est inférieur à 1",
         "7e1c0b8ba45c59dc09a17f1d009dc6ec2fe0adb97dab622073a358799a4ed886": "c'est le facteur sur h* ; la question demande celui sur l'erreur"
       },
       "sign": 1,
@@ -14378,7 +14385,7 @@
       "hash": "2bf8b1524d4013934bc291c0c895ecf9197ad16c884172a1a765f7ea4bab3fe8",
       "kind": "bool",
       "mistakes": {
-        "d9250d786478b4f320a5b1e58787b016c38d9158f73769c2d6a943c91d8133a0": "le logarithme de 0 : math.log(0) lève une ValueError, np.log(0) donne -inf"
+        "d9250d786478b4f320a5b1e58787b016c38d9158f73769c2d6a943c91d8133a0": "regarde ce que vaut p2 en float64 (question c)), puis son logarithme"
       },
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
@@ -15176,13 +15183,16 @@
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
     "M05a.23c": {
-      "hash": "a74d755fefea3e62f31a2c358633bd994606e086ed0e4510d637c7af87969ec2",
-      "kind": "int",
-      "magnitude": 4,
+      "decimals": 1,
+      "hash": "2f24c7a1b53c70ae536086b54a9928d041923eba6d3c0ae93f1c23d1a73e146c",
+      "hash_coarse": "e8dd28bdc7a72742fd1b2db388d19873a61a1d10fc022aaef902de16fc2c0b1b",
+      "kind": "float",
+      "magnitude": 1,
       "mistakes": {
-        "88483e9ee319dfb164137abef2fa08bcb32c112b1144ae090d5c5b666a7024d0": "c'est l'affichage arrondi de NumPy ; int(...) donne la valeur exacte"
+        "3e70a262c1f15f48cd17ef4ed328f5efc675b9d4355f444ffc84b0096f676eed": "c'est l'epsilon de float16 ; tiny est le plus petit nombre positif normal",
+        "b24c917709244e429f9d62399ece9173371f56b1efcb673ed1a05b8be92efd5a": "tiny est le plus petit float16 normal ; les nombres « sous-normaux » descendent plus bas"
       },
-      "sign": 1,
+      "sign": -1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
     "M05a.23d": {

@@ -164,7 +164,7 @@
 - f :
 - g :
 - h :
-- L'itération écrite à partir de la formule de Newton ; e) comparé à 1/(2√10), et l'identité exacte de l'erreur ; la racine que cherche h) :
+- L'itération écrite à partir de la formule de Newton ; l'identité exacte de l'erreur, et ce qu'elle explique pour e) ; la racine que cherche h) :
 
 ### Ex M05a.7 — L'erreur d'une différence avant et d'une différence centrée, par Taylor
 
@@ -188,7 +188,7 @@
 - f :
 - g :
 - h :
-- Les multiplications par 2 de a) et c) ; pourquoi l'écart double à chaque puissance de 2 ; le nombre de float64 entre 1 et 2 :
+- Les multiplications par 2 de a) et c), les fractions de b) ; pourquoi l'écart double à chaque puissance de 2 ; le nombre de float64 dans [1, 2[ :
 
 ### Ex M05a.9 — Le meilleur pas par le calcul : minimiser une borne d'erreur
 
@@ -211,7 +211,7 @@
 - e :
 - f :
 - g :
-- Les étapes de c) ; l'encadrement m ≤ LSE ≤ m + ln 3, et g) sur la borne de droite :
+- Les étapes de c) ; c) et g) dans l'encadrement m ≤ LSE ≤ m + ln 3 : lequel touche une borne, et pourquoi :
 
 ## ∂ Démonstrations
 
@@ -254,7 +254,7 @@
 - d :
 - e :
 - f :
-- Pourquoi la loss de d) est si grande, et pourquoi elle reste utile ; pourquoi une bibliothèque part des scores, en deux phrases :
+- Ce que fait -math.log(p2) ; pourquoi la loss de d) est si grande, et pourquoi elle reste utile ; pourquoi une bibliothèque part des scores, en deux phrases :
 
 ### Ex M05a.15 — MML §5.1 : dérivée d'une fonction d'une variable et série de Taylor (lecture guidée)
 
@@ -315,7 +315,7 @@
 
 ### Ex M05a.23 — SymPy `series` et `numpy.finfo` contre tes fonctions
 
-- Le développement de tan affiché ; les dérivées de f) ; f) comparé à e^(sin 0,3) ; le plus grand float16 ; ce qu'il y a entre 0 et tiny :
+- Le développement de tan affiché ; les dérivées de f) ; f) comparé à e^(sin 0,3) ; pourquoi le plus grand float16 est si petit ; ce qu'il y a entre 0 et tiny :
 
 ### Ex M05a.24 — Prédire : Newton depuis un mauvais point de départ
 

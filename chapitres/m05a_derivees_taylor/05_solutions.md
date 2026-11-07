@@ -95,7 +95,7 @@
 
 ### Ex M05a.1 — Dérivées secondes et convexité
 
-**Réponses** : a) `4` · b) `"[-1 ; 1]"` · c) `[-1, 1]` · d) `0.3536` · e) `True` · f) `0.5` · g) `-6` · h) `1.4762`.
+**Réponses** : a) `4` · b) `"[-1 ; 1]"` · c) `[-1, 1]` · d) `16.3097` · e) `False` · f) `0.5` · g) `-6` · h) `1.4762`.
 
 **Démarche.**
 - a) $f'(x) = e^{2x} + 2x e^{2x} = (1 + 2x)e^{2x}$, puis $f''(x) = 2e^{2x} + 2(1 + 2x)e^{2x} = (4 + 4x)e^{2x}$, et $f''(0) = 4$.
@@ -107,14 +107,15 @@
 | $g$ | convexe | | concave | | convexe |
 
   $g$ est concave sur $[-1, 1]$ (aux bornes, $g'' = 0$ ne gêne pas), et $g''$ change de signe en $-1$ et en 1 : ce sont les deux points d'inflexion.
-- d) et e) $u''(x) = \frac{1}{(1 + x^2)^{3/2}}$ (fiche §1), donc $u''(1) = 2^{-3/2} = \frac{1}{2\sqrt{2}} \approx 0{,}3536$, et $u'' > 0$ partout : $u$ est convexe sur $\mathbb{R}$.
+- d) $w'(x) = 2x\,e^{x^2}$, puis, par la règle du produit, $w''(x) = 2e^{x^2} + 2x \cdot 2x\,e^{x^2} = (2 + 4x^2)e^{x^2}$, donc $w''(1) = 6e \approx 16{,}3097$ (et $w'' > 0$ partout : $w$ est convexe).
+- e) $v(x) = \frac{1}{1 + x^2}$ : $v'(x) = -\frac{2x}{(1 + x^2)^2}$, puis $v''(x) = \frac{6x^2 - 2}{(1 + x^2)^3}$. En 0, $v''(0) = -2 < 0$ : $v$ est concave près de 0, donc pas convexe sur $\mathbb{R}$ (elle ne l'est que pour $|x| \ge \frac{1}{\sqrt{3}}$). Sa courbe est une bosse : une corde entre $-1$ et 1 passe sous le sommet.
 - f) $h'(x) = \ln x + 1$, $h''(x) = \frac{1}{x}$ : $h''(2) = 0{,}5$.
 - g) $(x^3 + kx^2 + 1)'' = 6x + 2k$ ; elle s'annule en 2 si $12 + 2k = 0$, soit $k = -6$, et elle change alors bien de signe (c'est une fonction affine).
 - h) $\frac{1 + e^2}{2} - e = \frac{(e - 1)^2}{2} \approx 1{,}4762 > 0$ : le milieu de la corde est au-dessus de la courbe, comme pour toute fonction convexe.
 
 Pour la copie : avec $\ln$ et les points 1 et 3, $\frac{\ln 1 + \ln 3}{2} - \ln 2 \approx 0{,}5493 - 0{,}6931 = -0{,}1438 < 0$ : pour une fonction concave, la corde est au-dessous.
 
-**Erreurs fréquentes.** Oublier le facteur 2 de la dérivée de $e^{2x}$ (a) ; donner l'intervalle où $g'' > 0$ en b) ; prendre les points critiques de $g$ ($0$, $\pm\sqrt{3}$) pour ses points d'inflexion ; écrire $h''(2) = \ln 2 + 1$ (c'est $h'(2)$) ; annuler $f'$ au lieu de $f''$ en g) ($k = -3$).
+**Erreurs fréquentes.** Oublier le facteur 2 de la dérivée de $e^{2x}$ (a) ; donner l'intervalle où $g'' > 0$ en b) ; prendre les points critiques de $g$ ($0$, $\pm\sqrt{3}$) pour ses points d'inflexion ; oublier un des deux termes de la dérivée du produit $2x\,e^{x^2}$ en d) ; répondre `True` en e) parce que $\frac{1}{1 + x^2}$ est positive ; écrire $h''(2) = \ln 2 + 1$ (c'est $h'(2)$) ; annuler $f'$ au lieu de $f''$ en g) ($k = -3$).
 
 **Variante.** Sur quel intervalle $x^3 - 6x^2 + 2$ est-elle convexe ? *Réponse* : $f''(x) = 6x - 12 \ge 0 \iff x \ge 2$ : sur $[2, +\infty[$, avec un point d'inflexion en 2.
 
@@ -191,8 +192,8 @@ Pour la copie : en développant h), $-x + 1 + x^2 - 2x + 1 + x^3 - 3x^2 + 3x - 1
 - c) Le coefficient de $x^4$ est nul ($\sin^{(4)}(0) = \sin 0 = 0$), donc $P_3 = P_4$ et l'on peut utiliser le reste d'ordre 4 : $\frac{0{,}5^5}{5!} \approx 0{,}0002604$, à peine au-dessus de l'erreur vraie. Le reste d'ordre 3 donnerait $\frac{0{,}5^4}{4!} \approx 0{,}0026$, dix fois trop large.
 - d) Il faut $(n + 1)! > 3 \times 10^6$ : $9! = 362\,880$ ne suffit pas, $10! = 3\,628\,800$ suffit, donc $n + 1 = 10$, **$n = 9$**.
 - e) $\frac{2}{3!} \times 0{,}1^3 \approx 0{,}000333$ (l'erreur vraie : $|\ln 1{,}1 - 0{,}095| \approx 0{,}000310$).
-- f) $P_2 = P_3$ pour $\cos$, et $|\cos^{(4)}| \le 1$ : $\frac{0{,}2^4}{4!} \approx 0{,}0000667$.
-- g) $\frac{x^3}{6} < 0{,}001 \iff x^3 < 0{,}006 \iff x < 0{,}006^{1/3} \approx 0{,}1817$.
+- f) $P_2 = P_3$ pour $\cos$, et $|\cos^{(4)}| \le 1$ : $\frac{0{,}2^4}{4!} \approx 0{,}0000667$ (le reste d'ordre 2 donnerait $\frac{0{,}2^3}{3!} \approx 0{,}0013$, vingt fois plus large).
+- g) $\frac{x^3}{6} \le 0{,}001 \iff x^3 \le 0{,}006 \iff x \le 0{,}006^{1/3} \approx 0{,}1817$ : au-delà, la borne dépasse 0,001.
 
 Pour la copie : en b) et c), la borne est très proche de l'erreur vraie (0,0002604 contre 0,0002589), parce que $|\sin^{(5)}| = |\cos|$ reste proche de 1 entre 0 et 0,5. Ce n'est pas toujours le cas : une borne est une garantie, pas une estimation.
 
@@ -236,20 +237,21 @@ Pour la copie : $x_{k+1} - \sqrt{10} = \frac{x_k^2 + 10 - 2\sqrt{10}\,x_k}{2x_k}
 
 ### Ex M05a.8 — Les flottants : 0,1 en binaire, epsilon machine, nombres représentables
 
-**Réponses** : a) `"0.101"` · b) `False` · c) `"0011"` · d) `-52` · e) `-42` · f) `9007199254740993` · g) `"1/1024"` · h) `-24`.
+**Réponses** : a) `"0.101"` · b) `"C"` · c) `"1001"` · d) `-54` · e) `-42` · f) `16777217` · g) `"1/2"` · h) `-24`.
 
 **Démarche.**
 - a) $0{,}625 \times 2 = 1{,}25$ (chiffre 1), $0{,}25 \times 2 = 0{,}5$ (chiffre 0), $0{,}5 \times 2 = 1$ (chiffre 1, fin) : $0{,}101$ ; en effet $\frac{1}{2} + \frac{1}{8} = 0{,}625$.
-- b) et c) $0{,}1 \to 0{,}2 \to 0{,}4 \to 0{,}8 \to 1{,}6 \to 1{,}2 \to 0{,}4 \to \ldots$ donne les chiffres $0, 0, 0, 1, 1$, puis le cycle reprend à $0{,}4$ : $0{,}0\,0011\,0011\ldots$ Le développement ne s'arrête jamais : seules les fractions dont le dénominateur est une puissance de 2 ont un développement binaire fini, et $\frac{1}{10}$ a le facteur 5.
-- d) 52 bits après la virgule : $\varepsilon = 2^{-52}$.
+- b) $0{,}2 = \frac{1}{5}$, $0{,}3 = \frac{3}{10}$, $0{,}6 = \frac{3}{5}$ ont le facteur 5 au dénominateur ; $0{,}4375 = \frac{7}{16}$ a pour dénominateur $2^4$ : $(0{,}0111)_2$. Seules les fractions dont le dénominateur (irréductible) est une puissance de 2 ont un développement binaire fini.
+- c) $0{,}3 \to 0{,}6$ (chiffre 0) $\to 1{,}2$ (1, on garde 0,2) $\to 0{,}4$ (0) $\to 0{,}8$ (0) $\to 1{,}6$ (1, on garde 0,6) $\to 1{,}2$ (1) $\to \ldots$ : les chiffres $0, 1, 0, 0, 1, 1, 0, 0, 1, \ldots$, soit $0{,}0\,1001\,1001\ldots$
+- d) $0{,}25 = 2^{-2} \le 0{,}3 < 2^{-1}$ : l'écart vaut $2^{-2} \times 2^{-52} = 2^{-54}$.
 - e) $1024 = 2^{10}$ : entre $2^{10}$ et $2^{11}$, l'écart vaut $2^{10} \times 2^{-52} = 2^{-42}$.
-- f) Tous les entiers jusqu'à $2^{53}$ tiennent sur 53 bits significatifs ; le suivant, $2^{53} + 1 = 9\,007\,199\,254\,740\,993$, demanderait 54 bits.
-- g) 10 bits après la virgule : $2^{-10} = \frac{1}{1024}$.
+- f) `float32` garde 23 bits après la virgule, donc 24 bits significatifs : tous les entiers jusqu'à $2^{24}$ sont exacts ; le suivant, $2^{24} + 1 = 16\,777\,217$, demanderait 25 bits.
+- g) $512 = 2^9 \le 1000 < 2^{10}$, et $\varepsilon = 2^{-10}$ en `float16` : l'écart vaut $2^9 \times 2^{-10} = \frac{1}{2}$. En `float16`, 1 000,25 n'existe pas.
 - h) $\frac{2^{-23}}{2} = 2^{-24}$.
 
-Pour la copie : entre $2^e$ et $2^{e+1}$, les flottants sont $(1 + \frac{m}{2^{52}}) \times 2^e$ pour $m = 0, \ldots, 2^{52} - 1$ : autant de nombres dans chaque intervalle, qui est deux fois plus long que le précédent ; l'écart double donc (figure du §6). Entre 1 et 2, il y a $2^{52} \approx 4{,}5 \times 10^{15}$ `float64`.
+Pour la copie : entre $2^e$ et $2^{e+1}$, les flottants sont $(1 + \frac{m}{2^{52}}) \times 2^e$ pour $m = 0, \ldots, 2^{52} - 1$ : autant de nombres dans chaque intervalle, qui est deux fois plus long que le précédent ; l'écart double donc (figure du §6). Dans $[1, 2[$, il y a $2^{52} \approx 4{,}5 \times 10^{15}$ `float64`.
 
-**Erreurs fréquentes.** Confondre $\varepsilon$ et $\frac{\varepsilon}{2}$ (d, h) ; en e), croire que l'écart est toujours $\varepsilon$ ; en f), répondre $2^{53}$, qui est représentable.
+**Erreurs fréquentes.** Croire que l'écart est toujours $\varepsilon$ (d, e, g) ; prendre la puissance de 2 juste **au-dessus** du nombre ; confondre $\varepsilon$ et $\frac{\varepsilon}{2}$ (h) ; en f), répondre $2^{24}$, qui est représentable, ou la valeur de `float64`.
 
 **Variante.** 0,8125 en binaire ? *Réponse* : $0{,}8125 = \frac{1}{2} + \frac{1}{4} + \frac{1}{16}$, soit $0{,}1101$.
 
@@ -282,7 +284,7 @@ Pour la copie : entre $2^e$ et $2^{e+1}$, les flottants sont $(1 + \frac{m}{2^{5
 - e) $800 - 802{,}1277 = -2{,}1277$ ; f) $-(795 - 802{,}1277) = 7{,}1277$.
 - g) $\ln(3e^{802}) = 802 + \ln 3 \approx 803{,}0986$.
 
-Pour la copie : $802 \le 802{,}1277 \le 802 + \ln 3 \approx 803{,}0986$, et g) atteint la borne de droite parce que les trois scores sont égaux (M05a.13).
+Pour la copie : $802 \le 802{,}1277 \le 802 + \ln 3 \approx 803{,}0986$ ; g) touche la borne de droite, parce que les trois scores sont égaux (M05a.13).
 
 **Erreurs fréquentes.** Oublier de rajouter $m$ (c = 0,1277) ; oublier de normaliser en d) ; un signe en e) ou f).
 
@@ -343,7 +345,7 @@ Pour la copie : $802 \le 802{,}1277 \le 802 + \ln 3 \approx 803{,}0986$, et g) a
 - b) $20 - 780 = -760$, sans aucune exponentielle.
 - c) $e^{-760}$ est plus petit que le plus petit `float64` positif (environ $5 \times 10^{-324} \approx e^{-744{,}4}$) : il vaut exactement 0.
 - d) $-(-760) = 760$.
-- e) `-math.log(0.0)` lève une `ValueError` (`np.log(0.0)` donne `-inf`, donc une loss infinie, puis des gradients `nan`).
+- e) `-np.log(0.0)` donne `inf` (avec un avertissement) : une loss infinie, puis des gradients `nan`. Et `-math.log(0.0)` ne renvoie même pas de nombre : il lève une `ValueError` (*math domain error*).
 - f) $\text{LSE}(2, 0, -1) = 2 + \ln(1 + e^{-2} + e^{-3}) \approx 2{,}1698$, donc $-1 - 2{,}1698 = -3{,}1698$.
 
 Pour la copie : la loss est énorme parce que le modèle est sûr de lui et se trompe : il donne à la bonne classe une probabilité de $e^{-760}$. C'est justement l'exemple dont il doit le plus apprendre ; une loss finie (760) garde ce signal, alors qu'une loss infinie ou `nan` casse l'entraînement. Les bibliothèques prennent donc les **scores** en entrée et calculent $z_y - \text{LSE}(\mathbf{z})$ d'un seul coup (le log-softmax), sans jamais former la probabilité qui s'efface.
@@ -443,11 +445,11 @@ Pour la copie : la loss est énorme parce que le modèle est sûr de lui et se t
 
 ### Ex M05a.23 — SymPy `series` et `numpy.finfo` contre tes fonctions
 
-**Réponses** : a) `"2/15"` · b) `"1/16"` · c) `65504` · d) `-307.65` · e) `True` · f) `1.34399`.
+**Réponses** : a) `"2/15"` · b) `"1/16"` · c) `-14.0` · d) `-307.65` · e) `True` · f) `1.34399`.
 
-**Démarche.** a) `sp.series(sp.tan(x), x, 0, 7).removeO().coeff(x, 5)` ; b) de même avec `sp.sqrt(1 + x)` et `coeff(x, 3)` ; c) `int(np.finfo(np.float16).max)` (NumPy affiche `65500.0`, la valeur arrondie au format `float16`, mais l'entier exact est 65 504) ; d) `math.log10(np.finfo(float).tiny)` ; f) les dérivées de $e^{\sin x}$ en 0 valent $1, 1, 1, 0, -3$, et `mymath.approx.taylor_polynomial(derivatives, 0, 0.3)` donne $1{,}3439875$, contre $e^{\sin 0{,}3} \approx 1{,}34383$. Pour la copie : `float16` n'a que 5 bits d'exposant, d'où un maximum de $(2 - 2^{-10}) \times 2^{15} = 65\,504$ ; entre 0 et `tiny`, les nombres sous-normaux perdent peu à peu leurs chiffres significatifs.
+**Démarche.** a) `sp.series(sp.tan(x), x, 0, 7).removeO().coeff(x, 5)` ; b) de même avec `sp.sqrt(1 + x)` et `coeff(x, 3)` ; c) `math.log2(np.finfo(np.float16).tiny)` : le plus petit `float16` normal vaut $2^{-14} \approx 6{,}1 \times 10^{-5}$ ; d) `math.log10(np.finfo(float).tiny)` ; f) les dérivées de $e^{\sin x}$ en 0 valent $1, 1, 1, 0, -3$, et `mymath.approx.taylor_polynomial(derivatives, 0, 0.3)` donne $1{,}3439875$, contre $e^{\sin 0{,}3} \approx 1{,}34383$. Pour la copie : `float16` n'a que 5 bits d'exposant, d'où un maximum de $(2 - 2^{-10}) \times 2^{15} = 65\,504$ ; entre 0 et `tiny`, les nombres sous-normaux perdent peu à peu leurs chiffres significatifs.
 
-**Erreurs fréquentes.** Lire le coefficient du mauvais degré ; recopier le `65500.0` affiché ; confondre `tiny` et le plus petit sous-normal ($-323{,}31$) ; donner $e^{\sin 0{,}3}$ au lieu du polynôme en f).
+**Erreurs fréquentes.** Lire le coefficient du mauvais degré ; confondre `tiny` et le plus petit sous-normal ($-24$ en c), $-323{,}31$ en d)) ou l'epsilon ; donner $e^{\sin 0{,}3}$ au lieu du polynôme en f).
 
 ### Ex M05a.24 — Prédire : Newton depuis un mauvais point de départ
 

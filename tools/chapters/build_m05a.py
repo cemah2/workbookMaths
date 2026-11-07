@@ -40,10 +40,11 @@ PAPER = [
          '''kind="interval", mistakes={"l'intervalle demandé est fermé : g est concave aussi à ses bornes": "]-1 ; 1[", '''
          '''"g est concave là où g'' est négative ou nulle, pas là où elle est positive": "]-oo ; -1] U [1 ; +oo["}'''),
         ("c", "a list", "[-1, 1]", ''),
-        ("d", "a number (4 decimals)", "2 ** -1.5",
-         '''decimals=4, mistakes={"c'est u'(1) ; dérive encore une fois, par la règle du quotient": 2 ** -0.5}'''),
-        ("e", "True or False", "True",
-         '''mistakes={"u''(x) = 1/(1 + x²)^(3/2) : quel est son signe ?": False}'''),
+        ("d", "a number (4 decimals)", "6 * math.e",
+         '''decimals=4, mistakes={"c'est w'(1) ; dérive encore une fois, par la règle du produit": 2 * math.e, '''
+         '''"w'(x) = 2x e^(x²) est un produit : sa dérivée a deux termes": 4 * math.e}'''),
+        ("e", "True or False", "False",
+         '''mistakes={"calcule la dérivée seconde de 1/(1 + x²) et étudie son signe, par exemple en 0": True}'''),
         ("f", "a number (1 decimal)", "1 / 2",
          '''decimals=1, mistakes={"c'est h'(2) = ln 2 + 1 ; dérive encore une fois": 1.0 + 0.6931471806}'''),
         ("g", "an integer", "-6",
@@ -183,23 +184,24 @@ PAPER = [
         ("a", "a text, such as \"0.11\"", '"0.101"',
          '''mistakes={"écris le point décimal comme en Python": "0,101", "0,625 = 1/2 + 1/8 : le chiffre de 1/4 est 0": '''
          '''"0.11"}'''),
-        ("b", "True or False", "False",
-         '''mistakes={"0,1 = 1/10, et 10 a le facteur 5 : son développement binaire ne s'arrête jamais": True}'''),
-        ("c", "a text of 4 digits", '"0011"',
+        ("b", "a letter, as text", '"C"',
+         '''mistakes={"écris chaque nombre comme une fraction irréductible : un développement binaire fini demande un '''
+         '''dénominateur qui est une puissance de 2": {"A", "B", "D"}}'''),
+        ("c", "a text of 4 digits", '"1001"',
          '''mistakes={"le bloc commence juste après le « 0,0 » : reprends les multiplications par 2": '''
-         '''{"1100", "0110", "1001"}}'''),
-        ("d", "an integer", "-52",
-         '''mistakes={"c'est l'erreur relative d'arrondi ε/2 ; l'epsilon est l'écart entre 1 et le flottant suivant": '''
-         '''-53, "float64 garde 52 bits après la virgule": -23}'''),
+         '''{"0011", "0110", "1100"}}'''),
+        ("d", "an integer", "-54",
+         '''mistakes={"c'est l'écart après 1 ; entre deux puissances de 2, l'écart vaut ε fois la plus petite des deux": '''
+         '''-52, "repère la puissance de 2 juste en dessous de 0,3 (0,5 est au-dessus)": -53}'''),
         ("e", "an integer", "-42",
          '''mistakes={"l'écart est ε fois la puissance de 2 du nombre : 1 024 = 2^10": -52, '''
          '''"l'écart grandit avec le nombre : il est multiplié par 2^10, pas divisé": -62}'''),
-        ("f", "an integer", "2 ** 53 + 1",
-         '''mistakes={"2^53 lui-même est représentable : c'est l'entier suivant qui ne l'est pas": 2 ** 53, '''
-         '''"2^53 − 1 tient sur 53 bits": 2 ** 53 - 1}'''),
-        ("g", "an irreducible fraction, as text", "Fraction(1, 1024)",
-         F + ''', mistakes={"c'est la moitié de l'epsilon (l'erreur relative d'arrondi)": "1/2048", '''
-             '''"float16 garde 10 bits après la virgule": "1/8388608"}'''),
+        ("f", "an integer", "2 ** 24 + 1",
+         '''mistakes={"cette puissance de 2 elle-même est représentable : c'est l'entier suivant qui ne l'est pas": '''
+         '''2 ** 24, "c'est pour float64 ; float32 garde 23 bits après la virgule": 2 ** 53 + 1}'''),
+        ("g", "an irreducible fraction, as text", "Fraction(1, 2)",
+         F + ''', mistakes={"l'écart est ε fois la puissance de 2 juste en dessous de 1 000, pas ε seul": "1/1024", '''
+             '''"1 000 est en dessous de 1 024 : prends la puissance de 2 juste en dessous": "1"}'''),
         ("h", "an integer", "-24",
          '''mistakes={"c'est l'epsilon de float32 ; la question demande sa moitié": -23, '''
          '''"c'est pour float64 ; la question porte sur float32": -53}'''),
@@ -219,7 +221,8 @@ PAPER = [
          '''decimals=1, mistakes={"un capteur plus précis permet un pas plus petit": 10.0}'''),
         ("f", "a number (2 decimals)", "0.01",
          '''decimals=2, mistakes={"remplace h* par son expression dans E : l'erreur au meilleur pas ne varie pas '''
-         '''comme δ": 0.001, "c'est le facteur sur h* ; la question demande celui sur l'erreur": 0.1}'''),
+         '''comme δ": 0.001, "c'est le facteur sur h* ; la question demande celui sur l'erreur": 0.1, '''
+         '''"un capteur plus précis donne une erreur plus petite : le facteur est inférieur à 1": 100.0}'''),
         ("g", "a number (4 decimals)", "(4 * 1e-6) ** 0.25",
          '''decimals=4, mistakes={"la dérivée de 4δ/h² est −8δ/h³ : h⁴ = 4δ": (1e-6) ** 0.25, '''
          '''"h⁴ = 4δ : prends la racine quatrième, pas la racine carrée": (4e-6) ** 0.5}'''),
@@ -259,7 +262,7 @@ PAPER = [
         ("d", "a number (1 decimal)", "760",
          '''decimals=1, mistakes={"la loss est −log-softmax, un nombre positif": -760}'''),
         ("e", "True or False", "False",
-         '''mistakes={"le logarithme de 0 : math.log(0) lève une ValueError, np.log(0) donne -inf": True}'''),
+         '''mistakes={"regarde ce que vaut p2 en float64 (question c)), puis son logarithme": True}'''),
         ("f", "a number (4 decimals)", "-1 - math.log(math.exp(2) + 1 + math.exp(-1))",
          '''decimals=4, mistakes={"le log-softmax retire le log-sum-exp, pas le seul maximum": -3, '''
          '''"le log-softmax est z₃ − LSE(z), un nombre négatif": 1 + math.log(math.exp(2) + 1 + math.exp(-1))}'''),
@@ -688,7 +691,7 @@ M05A_23 = Ex(
 Calcule :
 - a) le coefficient de $x^5$ dans le développement de $\\tan x$ en 0 (une fraction irréductible, en texte) ;
 - b) le coefficient de $x^3$ dans le développement de $\\sqrt{1 + x}$ en 0 (une fraction irréductible, en texte) ;
-- c) le plus grand `float16` (un entier) ;
+- c) $\\log_2$ du plus petit `float16` positif normal (1 décimale) ;
 - d) $\\log_{10}$ du plus petit `float64` positif normal (2 décimales) ;
 - e) `np.nextafter(1.0, 2.0) - 1.0 == np.finfo(float).eps` (`True` ou `False`) ;
 - f) la valeur en $x = 0{,}3$ du polynôme de Taylor d'ordre 4 de $e^{\\sin x}$ en 0, avec ses dérivées en 0 calculées par SymPy et ta fonction `taylor_polynomial` (5 décimales).
@@ -696,7 +699,7 @@ Calcule :
 Dans ta copie : comment SymPy affiche-t-il le développement de $\\tan x$ ? Que valent les dérivées de f) ? Compare f) à $e^{\\sin 0{,}3}$. Pourquoi le plus grand `float16` est-il si petit ? Qu'y a-t-il entre 0 et `tiny` ?""",
     todo='''answer_M05a_23a = ...  # a) an irreducible fraction, as text
 answer_M05a_23b = ...  # b) an irreducible fraction, as text
-answer_M05a_23c = ...  # c) an integer
+answer_M05a_23c = ...  # c) a number (1 decimal)
 answer_M05a_23d = ...  # d) a number (2 decimals)
 answer_M05a_23e = ...  # e) True or False
 answer_M05a_23f = ...  # f) a number (5 decimals)''',
@@ -707,20 +710,23 @@ answer_M05a_23f = ...  # f) a number (5 decimals)''',
 print(sp.series(sp.tan(x), x, 0, 8))
 answer_M05a_23a = str(sp.series(sp.tan(x), x, 0, 7).removeO().coeff(x, 5))
 answer_M05a_23b = str(sp.series(sp.sqrt(1 + x), x, 0, 5).removeO().coeff(x, 3))
-answer_M05a_23c = int(np.finfo(np.float16).max)
+answer_M05a_23c = math.log2(np.finfo(np.float16).tiny)
 answer_M05a_23d = math.log10(np.finfo(float).tiny)
 answer_M05a_23e = bool(np.nextafter(1.0, 2.0) - 1.0 == np.finfo(float).eps)
 derivatives_23 = [float(sp.diff(sp.exp(sp.sin(x)), x, k).subs(x, 0)) for k in range(5)]
 answer_M05a_23f = mymath.approx.taylor_polynomial(derivatives_23, 0, 0.3)
 print(answer_M05a_23a, answer_M05a_23b, answer_M05a_23c, round(answer_M05a_23d, 4), answer_M05a_23e,
       derivatives_23, answer_M05a_23f, "· exp(sin 0.3):", math.exp(math.sin(0.3)))
-print("smallest positive float64 (subnormal):", np.nextafter(0.0, 1.0), "· tiny:", np.finfo(float).tiny)''',
+print("smallest positive float64 (subnormal):", np.nextafter(0.0, 1.0), "· tiny:", np.finfo(float).tiny)
+print("float16: largest", int(np.finfo(np.float16).max), "· tiny", float(np.finfo(np.float16).tiny),
+      "· smallest subnormal", float(np.finfo(np.float16).smallest_subnormal))''',
     record='''wbm.record("M05a.23a", Fraction(2, 15), kind="fraction", simplified=True,
            mistakes={"c'est le coefficient de x³ ; la question demande celui de x⁵": "1/3"})
 wbm.record("M05a.23b", Fraction(1, 16), kind="fraction", simplified=True,
            mistakes={"c'est le coefficient de x² ; la question demande celui de x³": "-1/8"})
-wbm.record("M05a.23c", 65504,
-           mistakes={"c'est l'affichage arrondi de NumPy ; int(...) donne la valeur exacte": 65500})
+wbm.record("M05a.23c", -14.0, decimals=1,
+           mistakes={"tiny est le plus petit float16 normal ; les nombres « sous-normaux » descendent plus bas": -24.0,
+                     "c'est l'epsilon de float16 ; tiny est le plus petit nombre positif normal": -10.0})
 wbm.record("M05a.23d", -307.6526555686, decimals=2,
            mistakes={"tiny est le plus petit flottant normal ; les nombres « sous-normaux » descendent plus bas":
                          -323.3062153431,
@@ -730,8 +736,9 @@ wbm.record("M05a.23e", True,
 wbm.record("M05a.23f", 1.3439875, decimals=5,
            mistakes={"la question demande la valeur du polynôme d'ordre 4, pas celle de la fonction": 1.3438252437})''',
     note="a) $\\tan x = x + \\frac{x^3}{3} + \\frac{2x^5}{15} + O(x^7)$. b) $\\sqrt{1 + x} = 1 + \\frac{x}{2} - "
-         "\\frac{x^2}{8} + \\frac{x^3}{16} + \\cdots$. c) `float16` n'a que 5 bits d'exposant : le plus grand vaut "
-         "$(2 - 2^{-10}) \\times 2^{15} = 65\\,504$, d'où les débordements faciles en demi-précision. d) `tiny` vaut "
+         "\\frac{x^2}{8} + \\frac{x^3}{16} + \\cdots$. c) `float16` n'a que 5 bits d'exposant : son plus petit normal vaut "
+         "$2^{-14} \\approx 6{,}1 \\times 10^{-5}$ et son plus grand $(2 - 2^{-10}) \\times 2^{15} = 65\\,504$, d'où les "
+         "débordements et les effacements faciles en demi-précision. d) `tiny` vaut "
          "environ $2{,}2 \\times 10^{-308}$ ; en dessous, les nombres « sous-normaux » perdent peu à peu leurs chiffres, "
          "jusqu'à environ $4{,}9 \\times 10^{-324}$. f) Les dérivées valent $1, 1, 1, 0, -3$ : $1 + 0{,}3 + 0{,}045 - "
          "\\frac{3 \\times 0{,}3^4}{24} \\approx 1{,}34399$, contre $e^{\\sin 0{,}3} \\approx 1{,}34383$.",

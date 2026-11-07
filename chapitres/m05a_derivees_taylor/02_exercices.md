@@ -136,8 +136,8 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 | a | pour $f(x) = x\,e^{2x}$ : $f''(0)$ | un entier |
 | b | pour $g(x) = x^4 - 6x^2 + 1$ : le plus grand intervalle **fermé** sur lequel $g$ est concave | un intervalle entre guillemets |
 | c | les abscisses des points d'inflexion de $g$, dans l'ordre croissant | une liste |
-| d | pour $u(x) = \sqrt{1 + x^2}$ : $u''(1)$ | un nombre (4 décimales) |
-| e | $u$ est-elle convexe sur tout $\mathbb{R}$ ? | `True` ou `False` |
+| d | pour $w(x) = e^{x^2}$ : $w''(1)$ | un nombre (4 décimales) |
+| e | $\frac{1}{1 + x^2}$ est-elle convexe sur tout $\mathbb{R}$ ? | `True` ou `False` |
 | f | pour $h(x) = x\ln x$ sur $]0, +\infty[$ : $h''(2)$ | un nombre (1 décimale) |
 | g | la valeur de $k$ pour laquelle $x^3 + k\,x^2 + 1$ a un point d'inflexion en $x = 2$ | un entier |
 | h | pour l'exponentielle : l'écart $\frac{e^0 + e^2}{2} - e^1$, entre le milieu de la corde et la courbe | un nombre (4 décimales) |
@@ -209,8 +209,8 @@ Dans ta copie : compare d), e) et g) aux valeurs exactes ($e^{1{,}1}$, $\ln 1{,}
 | c | la borne de Lagrange de cette erreur, avec le reste d'ordre 4 (le terme en $x^4$ de $\sin$ est nul, donc $P_3 = P_4$) et $\lvert \sin^{(5)} \rvert \le 1$ | un nombre (7 décimales) |
 | d | pour $e^x$ en 0, évalué en $x = 1$, avec $e^\xi \le 3$ : le plus petit ordre $n$ pour lequel la borne $\frac{3}{(n+1)!}$ est inférieure à $10^{-6}$ | un entier |
 | e | pour $\ln(1 + x)$ en 0, d'ordre 2, évalué en $x = 0{,}1$ : la borne de Lagrange, avec $\lvert f'''(t) \rvert = \frac{2}{(1 + t)^3} \le 2$ pour $t \ge 0$ | un nombre (6 décimales) |
-| f | pour $\cos$ en 0 d'ordre 2 (et donc 3) : la borne de Lagrange pour $\lvert x \rvert \le 0{,}2$ | un nombre (7 décimales) |
-| g | le plus grand $x > 0$ pour lequel la borne $\frac{x^3}{6}$ de l'erreur de $\sin x \approx x$ reste inférieure à 0,001 | un nombre (4 décimales) |
+| f | pour $\cos$ en 0 : la borne de Lagrange du reste d'ordre 3 (le terme en $x^3$ est nul, donc $P_2 = P_3$), avec $\lvert \cos^{(4)} \rvert \le 1$, pour $\lvert x \rvert \le 0{,}2$ | un nombre (7 décimales) |
+| g | la valeur de $x > 0$ au-delà de laquelle la borne $\frac{x^3}{6}$ de l'erreur de $\sin x \approx x$ dépasse 0,001 | un nombre (4 décimales) |
 
 Dans ta copie : pour b) et c), la borne est-elle loin de l'erreur vraie ? Pour d), écris les factorielles jusqu'à la bonne. Pourquoi peut-on utiliser le reste d'ordre 4 en c), et qu'y gagne-t-on ?
 
@@ -231,7 +231,7 @@ On cherche $\sqrt{10}$ en résolvant $f(x) = x^2 - 10 = 0$ par la méthode de Ne
 | g | peut-on partir de $x_0 = 0$ ? | `True` ou `False` |
 | h | un pas de Newton pour $g(x) = \ln x - 1$ depuis $x_0 = 2$ : $x_1$ | un nombre (4 décimales) |
 
-Dans ta copie : écris l'itération $x_{k+1} = \frac{1}{2}\big(x_k + \frac{10}{x_k}\big)$ à partir de la formule de Newton. Compare e) à $\frac{1}{2\sqrt{10}}$ (fiche §4) ; montre même que $x_{k+1} - \sqrt{10} = \frac{(x_k - \sqrt{10})^2}{2x_k}$ exactement. Quelle racine h) cherche-t-elle ?
+Dans ta copie : écris l'itération $x_{k+1} = \frac{1}{2}\big(x_k + \frac{10}{x_k}\big)$ à partir de la formule de Newton. Après avoir répondu à e), exprime $x_{k+1} - \sqrt{10}$ en fonction de $x_k - \sqrt{10}$ et de $x_k$ (une identité remarquable apparaît) : qu'explique-t-elle pour e) ? Compare à la constante de la convergence quadratique (fiche §4). Quelle racine h) cherche-t-elle ?
 
 ### Ex M05a.7 — L'erreur d'une différence avant et d'une différence centrée, par Taylor ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer deux différences finies, et comparer leurs erreurs aux prévisions de Taylor.
@@ -259,15 +259,15 @@ Dans ta copie : écris $f'$, $f''$ et $f'''$. Calcule l'erreur de e), et compare
 | | Question | Réponse attendue |
 |---|---|---|
 | a | 0,625 écrit en binaire | un texte avec un point, comme `"0.11"` |
-| b | 0,1 a-t-il un développement binaire fini ? | `True` ou `False` |
-| c | 0,1 s'écrit en binaire « 0,0 » suivi d'un bloc de 4 chiffres répété sans fin : ce bloc | un texte de 4 chiffres |
-| d | l'exposant $k$ tel que l'epsilon machine de `float64` vaut $2^k$ | un entier |
+| b | lequel de ces nombres a un développement binaire fini : `"A"` 0,2 ; `"B"` 0,3 ; `"C"` 0,4375 ; `"D"` 0,6 ? | une lettre |
+| c | 0,3 s'écrit en binaire « 0,0 » suivi d'un bloc de 4 chiffres répété sans fin : ce bloc | un texte de 4 chiffres |
+| d | l'exposant $k$ tel que l'écart entre 0,3 et le `float64` suivant vaut $2^k$ | un entier |
 | e | l'exposant $k$ tel que l'écart entre 1 024 et le `float64` suivant vaut $2^k$ | un entier |
-| f | le plus petit entier positif qui n'est pas exactement représentable en `float64` | un entier |
-| g | l'epsilon machine de `float16` | une fraction irréductible |
+| f | le plus petit entier positif qui n'est pas exactement représentable en `float32` | un entier |
+| g | l'écart entre 1 000 et le `float16` suivant | une fraction irréductible |
 | h | l'exposant $k$ tel que l'erreur relative d'arrondi maximale d'une opération en `float32` (la moitié de son epsilon) vaut $2^k$ | un entier |
 
-Dans ta copie : écris les multiplications par 2 qui donnent a) et c). Pourquoi l'écart entre deux flottants consécutifs double-t-il à chaque puissance de 2 ? Combien y a-t-il de `float64` entre 1 et 2 ?
+Dans ta copie : écris les multiplications par 2 qui donnent a) et c), et chaque nombre de b) comme une fraction irréductible. Pourquoi l'écart entre deux flottants consécutifs double-t-il à chaque puissance de 2 ? Combien y a-t-il de `float64` dans $[1, 2[$ ?
 
 ### Ex M05a.9 — Le meilleur pas par le calcul : minimiser une borne d'erreur ✏️ ★★ ⏱️ 20 min
 **Objectif :** trouver le pas qui minimise une borne d'erreur (troncature + bruit), pour une différence avant et une différence centrée.
@@ -306,7 +306,7 @@ Un modèle donne trois scores (*logits*) $\mathbf{v} = (802,\ 800,\ 795)$.
 | f | la cross-entropy si la bonne classe est la troisième : $-\ln \text{softmax}(\mathbf{v})_3$ | un nombre (4 décimales) |
 | g | $\text{LSE}(802, 802, 802)$ | un nombre (4 décimales) |
 
-Dans ta copie : écris les étapes de c) (soustraire le maximum, les exponentielles, la somme, le logarithme, rajouter le maximum). Vérifie que c) est entre $m$ et $m + \ln 3$, et que g) atteint la borne de droite.
+Dans ta copie : écris les étapes de c) (soustraire le maximum, les exponentielles, la somme, le logarithme, rajouter le maximum). Vérifie que c) et g) sont entre $m$ et $m + \ln 3$ : lequel des deux touche une borne, et pourquoi ?
 
 <a id="demonstrations"></a>
 
@@ -368,10 +368,10 @@ Un classifieur à trois classes donne les scores $\mathbf{z} = (780,\ 20,\ -30)$
 | b | le log-softmax de la deuxième classe, $z_2 - \text{LSE}(\mathbf{z})$ | un nombre (2 décimales) |
 | c | la probabilité $\text{softmax}(\mathbf{z})_2$, calculée **sans overflow** par $\frac{e^{z_2 - m}}{\sum_j e^{z_j - m}}$ en `float64` : vaut-elle exactement 0 ? | `True` ou `False` |
 | d | la loss calculée par le log-softmax | un nombre (1 décimale) |
-| e | la loss calculée en deux temps, `-math.log(p2)` avec la probabilité de c) : est-elle un nombre fini ? | `True` ou `False` |
+| e | la loss calculée en deux temps, `-np.log(p2)` avec la probabilité de c) : est-elle un nombre fini ? | `True` ou `False` |
 | f | pour des scores plus raisonnables, $\mathbf{z}' = (2,\ 0,\ -1)$ : le log-softmax de la troisième classe | un nombre (4 décimales) |
 
-Dans ta copie : pourquoi la loss de d) est-elle si grande, et pourquoi est-elle quand même utile à l'entraînement (le modèle se trompe lourdement sur cet exemple) ? Explique en deux phrases pourquoi une bibliothèque calcule la loss à partir des scores, par un log-softmax, plutôt qu'à partir des probabilités.
+Dans ta copie : que fait `-math.log(p2)` ? Pourquoi la loss de d) est-elle si grande, et pourquoi est-elle quand même utile à l'entraînement (le modèle se trompe lourdement sur cet exemple) ? Explique en deux phrases pourquoi une bibliothèque calcule la loss à partir des scores, par un log-softmax, plutôt qu'à partir des probabilités.
 
 ### Ex M05a.15 — MML §5.1 : dérivée d'une fonction d'une variable et série de Taylor (lecture guidée) 📖 ★★ ⏱️ 30 min
 **Objectif :** lire en anglais la définition de la dérivée et des polynômes de Taylor, et refaire les exemples du livre avec d'autres fonctions.

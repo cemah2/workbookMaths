@@ -205,7 +205,7 @@ Relis « La dérivée de la dérivée » et « Points d'inflexion » (fiche §1)
 </details>
 <details><summary>Indice 2</summary>
 
-a) Dérive $x e^{2x}$ comme un produit, deux fois. b) Factorise $g''(x) = 12x^2 - 12$ et dresse son tableau de signes. d) La fiche calcule $u''$.
+a) Dérive $x e^{2x}$ comme un produit, deux fois. b) Factorise $g''(x) = 12x^2 - 12$ et dresse son tableau de signes. d) $w'(x) = 2x\,e^{x^2}$ est un produit. e) Dérive $(1 + x^2)^{-1}$ deux fois et regarde le signe en 0.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -336,7 +336,7 @@ Pour la partie après la virgule : multiplie par 2, note la partie entière (0 o
 </details>
 <details><summary>Indice 3</summary>
 
-e) $1024 = 2^{10}$ : l'écart vaut $2^{10}\,\varepsilon$. f) Jusqu'à $2^{53}$, tous les entiers sont représentables. h) L'erreur relative d'arrondi est $\frac{\varepsilon}{2}$.
+b) Écris chaque nombre en fraction irréductible : le dénominateur doit être une puissance de 2. d), e) et g) L'écart vaut $\varepsilon$ fois la puissance de 2 juste **en dessous** du nombre ($0{,}25 \le 0{,}3 < 0{,}5$). f) Avec 23 bits après la virgule, combien de bits significatifs ? h) L'erreur relative d'arrondi est $\frac{\varepsilon}{2}$.
 
 </details>
 
@@ -635,12 +635,12 @@ Commence par `x = sp.Symbol("x")` et affiche `sp.series(sp.tan(x), x, 0, 8)`.
 </details>
 <details><summary>Indice 2</summary>
 
-`.removeO().coeff(x, k)` lit un coefficient ; `np.finfo(np.float16).max`, `np.finfo(float).tiny`.
+`.removeO().coeff(x, k)` lit un coefficient ; `np.finfo(np.float16).tiny`, `np.finfo(float).tiny`, puis `math.log2` ou `math.log10`.
 
 </details>
 <details><summary>Indice 3</summary>
 
-f) `[float(sp.diff(sp.exp(sp.sin(x)), x, k).subs(x, 0)) for k in range(5)]`, puis `mymath.approx.taylor_polynomial(..., 0, 0.3)`. c) `int(...)` donne l'entier exact.
+f) `[float(sp.diff(sp.exp(sp.sin(x)), x, k).subs(x, 0)) for k in range(5)]`, puis `mymath.approx.taylor_polynomial(..., 0, 0.3)`. c) `tiny` est le plus petit nombre **normal** (pas un sous-normal, pas l'epsilon).
 
 </details>
 

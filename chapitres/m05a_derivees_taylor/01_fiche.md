@@ -62,7 +62,7 @@ Vocabulaire anglais de ce chapitre : *second derivative*, *convex*, *concave*, *
 4. $e^x = \sum_{k \ge 0} \frac{x^k}{k!}$ pour tout $x$ ; $\ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots$ seulement pour $-1 < x \le 1$.
 5. **Newton** : $x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$, l'intersection de la tangente avec l'axe. Près d'une racine simple, l'erreur est **élevée au carré** à chaque pas : le nombre de décimales justes double. Elle peut échouer : tangente horizontale, cycle, départ trop loin.
 6. **Différences finies** (Taylor) : la différence **avant** $\frac{f(x + h) - f(x)}{h}$ a une erreur $\approx \frac{h}{2}f''(x)$ (ordre 1), la différence **centrée** $\frac{f(x + h) - f(x - h)}{2h}$ une erreur $\approx \frac{h^2}{6}f'''(x)$ (ordre 2). **Richardson** : $\frac{4D(h/2) - D(h)}{3}$ annule le terme en $h^2$.
-7. **Flottants** (`float64`) : $\pm 1{,}b_1 b_2 \ldots b_{52} \times 2^e$ en base 2. **Epsilon machine** $\varepsilon = 2^{-52} \approx 2{,}2 \times 10^{-16}$ : l'écart entre 1 et le flottant suivant ; chaque opération arrondit avec une erreur relative d'au plus $\frac{\varepsilon}{2}$. `float32` : $\varepsilon = 2^{-23}$ ; `float16` : $2^{-10}$.
+7. **Flottants** (`float64`) : $\pm 1{,}b_1 b_2 \ldots b_{52} \times 2^e$ en base 2. **Epsilon machine** $\varepsilon = 2^{-52} \approx 2{,}2 \times 10^{-16}$ : l'écart entre 1 et le flottant suivant ; chaque opération arrondit avec une erreur relative d'au plus $\frac{\varepsilon}{2}$ (hors overflow et underflow). `float32` : $\varepsilon = 2^{-23}$ ; `float16` : $2^{-10}$.
 8. **Annulation** : soustraire deux nombres presque égaux fait perdre des chiffres ; on réécrit la formule pour l'éviter.
 9. **Le pas $h$** : l'erreur d'une différence finie additionne une troncature (qui diminue avec $h$) et un arrondi en $\frac{\delta}{h}$ (qui augmente) ; le meilleur pas minimise leur somme : $h^* = \big(\frac{3\delta}{M_3}\big)^{1/3}$ pour la différence centrée.
 10. **log-sum-exp** : $\ln \sum_i e^{v_i} = m + \ln \sum_i e^{v_i - m}$ avec $m = \max_i v_i$, compris entre $m$ et $m + \ln n$. **Softmax** stable : $\frac{e^{v_i - m}}{\sum_j e^{v_j - m}}$ ; log-softmax : $v_i - \text{LSE}(\mathbf{v})$.
@@ -244,11 +244,13 @@ C'est pourquoi une bonne implémentation teste $f'(x_k)$ avant de diviser, et s'
 
 Une **différence finie** (*finite difference*) approche une dérivée avec un pas $h > 0$ fixé, sans limite. Pour savoir combien elle se trompe, on écrit Taylor en $x$ :
 
-$$f(x + h) = f(x) + h\,f'(x) + \frac{h^2}{2}f''(x) + \frac{h^3}{6}f'''(x) + O(h^4), \qquad f(x - h) = f(x) - h\,f'(x) + \frac{h^2}{2}f''(x) - \frac{h^3}{6}f'''(x) + O(h^4).$$
+$$f(x \pm h) = f(x) \pm h\,f'(x) + \frac{h^2}{2}f''(x) \pm \frac{h^3}{6}f'''(x) + \frac{h^4}{24}f^{(4)}(x) \pm \cdots$$
+
+(le signe du haut pour $x + h$, celui du bas pour $x - h$ : les termes de degré impair en $h$ changent de signe, les autres non).
 
 - **Différence avant** (*forward*) : $\frac{f(x + h) - f(x)}{h} = f'(x) + \frac{h}{2}f''(x) + O(h^2)$. L'erreur est proportionnelle à $h$ : **ordre 1**.
-- **Différence centrée** (*central*) : en soustrayant les deux lignes, les termes pairs ($f(x)$, $f''$) disparaissent, et $\frac{f(x + h) - f(x - h)}{2h} = f'(x) + \frac{h^2}{6}f'''(x) + O(h^4)$ : **ordre 2**.
-- **Différence seconde** : en les additionnant, $\frac{f(x + h) - 2f(x) + f(x - h)}{h^2} = f''(x) + \frac{h^2}{12}f^{(4)}(x) + O(h^4)$ : ordre 2 (M05a.11 le démontre en même temps que la centrée).
+- **Différence centrée** (*central*) : en soustrayant les deux développements, les termes de degré pair ($f(x)$, $f''$, $f^{(4)}$) disparaissent, et $\frac{f(x + h) - f(x - h)}{2h} = f'(x) + \frac{h^2}{6}f'''(x) + O(h^4)$ : **ordre 2**.
+- **Différence seconde** : en les additionnant, ce sont les termes de degré impair qui disparaissent, et $\frac{f(x + h) - 2f(x) + f(x - h)}{h^2} = f''(x) + \frac{h^2}{12}f^{(4)}(x) + O(h^4)$ : ordre 2 (M05a.11 le démontre en même temps que la centrée).
 
 Une méthode d'**ordre $p$** a une erreur qui se comporte comme $C h^p$ : diviser $h$ par 2 divise l'erreur par environ $2^p$. Cette erreur, qui vient de la formule elle-même (on a « tronqué » la série de Taylor), s'appelle l'**erreur de troncature** (*truncation error*).
 
@@ -281,14 +283,14 @@ Un `float` de Python (un `float64` de NumPy) est écrit en notation scientifique
 
 $$x = \pm\,(1{,}b_1 b_2 \ldots b_{52})_2 \times 2^e,$$
 
-avec 52 chiffres binaires $b_i$ après la virgule (la **mantisse**, *significand*), et un **exposant** entier $e$ entre $-1022$ et $1023$ ; avec le signe, cela fait 64 bits. Trois conséquences :
+avec 52 chiffres binaires $b_i$ après la virgule (la **mantisse**, *significand*), et un **exposant** entier $e$ entre $-1022$ et $1023$, rangé sur 11 bits ; avec le bit de signe, cela fait $1 + 11 + 52 = 64$ bits (le 1 avant la virgule n'est pas rangé : il est toujours là). Trois conséquences :
 1. Entre deux puissances de 2 consécutives, il y a exactement $2^{52}$ flottants, **également espacés** ; l'écart double à chaque puissance de 2 (figure, sur un format jouet à 3 bits). Les flottants sont serrés près de 0 et espacés loin de 0 : leur précision est **relative**.
-2. L'écart entre 1 et le flottant suivant, $1 + 2^{-52}$, est l'**epsilon machine** (*machine epsilon*) : $\varepsilon = 2^{-52} \approx 2{,}22 \times 10^{-16}$. Un réel est arrondi au flottant le plus proche, avec une erreur relative d'au plus $u = \frac{\varepsilon}{2} = 2^{-53} \approx 1{,}1 \times 10^{-16}$ (l'*unit roundoff*) : environ 16 chiffres significatifs.
+2. L'écart entre 1 et le flottant suivant, $1 + 2^{-52}$, est l'**epsilon machine** (*machine epsilon*) : $\varepsilon = 2^{-52} \approx 2{,}22 \times 10^{-16}$. Un réel est arrondi au flottant le plus proche, avec une erreur relative d'au plus $u = \frac{\varepsilon}{2} = 2^{-53} \approx 1{,}1 \times 10^{-16}$ (l'*unit roundoff*) : environ 16 chiffres significatifs. Cette garantie vaut tant que le nombre reste dans la zone des flottants « normaux », entre $2{,}2 \times 10^{-308}$ et $1{,}8 \times 10^{308}$ en valeur absolue (voir plus bas).
 3. Tous les entiers jusqu'à $2^{53}$ sont exacts ; au-delà, l'écart vaut 2 ou plus, et $2^{53} + 1$ n'est pas représentable.
 
 ![Les nombres positifs d'un format jouet (un 1, puis 3 bits après la virgule) : 8 nombres également espacés entre deux puissances de 2, et l'écart double à chaque puissance](figures/flottants.png)
 
-**Pourquoi 0,1 n'est pas exact.** $0{,}375 = \frac{1}{4} + \frac{1}{8} = (0{,}011)_2$ s'écrit avec trois chiffres binaires. Mais 0,1 : en multipliant par 2 et en gardant la partie entière à chaque fois, on obtient $0{,}2 \to 0$, $0{,}4 \to 0$, $0{,}8 \to 0$, $1{,}6 \to 1$, $1{,}2 \to 1$ (on garde 0,2), puis tout recommence : $0{,}1 = (0{,}0\,0011\,0011\,0011\ldots)_2$, un développement infini, comme $\frac{1}{3} = 0{,}333\ldots$ en base 10. Il est coupé après 52 chiffres : c'est l'arrondi que R0 a rencontré avec `0.1 + 0.2`.
+**Pourquoi 0,1 n'est pas exact.** $0{,}375 = \frac{1}{4} + \frac{1}{8} = (0{,}011)_2$ s'écrit avec trois chiffres binaires. Mais 0,1 : en multipliant par 2 et en gardant la partie entière à chaque fois, on obtient $0{,}2 \to 0$, $0{,}4 \to 0$, $0{,}8 \to 0$, $1{,}6 \to 1$, $1{,}2 \to 1$ (on garde 0,2), puis tout recommence : $0{,}1 = (0{,}0\,0011\,0011\,0011\ldots)_2$, un développement infini, comme $\frac{1}{3} = 0{,}333\ldots$ en base 10. Il est arrondi au flottant le plus proche, qui garde 52 chiffres après le premier 1 (et vaut ici un peu plus que 0,1, de $5{,}6 \times 10^{-18}$ environ) : c'est l'arrondi que R0 a rencontré avec `0.1 + 0.2`.
 
 | type | bits de mantisse | $\varepsilon$ | plus grand nombre |
 |---|---|---|---|
@@ -360,7 +362,7 @@ M04 §7 l'a utilisée pour normaliser des log-vraisemblances ; voici pourquoi el
 
 $$\text{LSE}(\mathbf{v}) = \ln \sum_i e^{v_i} = \ln\Big(e^m \sum_i e^{v_i - m}\Big) = m + \ln \sum_i e^{v_i - m}.$$
 
-Tous les exposants $v_i - m$ sont négatifs ou nuls, donc aucune exponentielle ne déborde ; le plus grand terme vaut exactement $e^0 = 1$, donc la somme est entre 1 et $n$, et son logarithme ne peut pas valoir $-\infty$. Les termes qui s'effacent à 0 sont ceux qui comptent moins que $10^{-300}$ par rapport au plus grand : les perdre ne change rien au résultat. De la même façon :
+Tous les exposants $v_i - m$ sont négatifs ou nuls, donc aucune exponentielle ne déborde ; le plus grand terme vaut exactement $e^0 = 1$, donc la somme est entre 1 et $n$, et son logarithme ne peut pas valoir $-\infty$. Un terme ne s'efface à 0 que s'il est plus petit qu'environ $5 \times 10^{-324}$ fois le plus grand (et il perd ses derniers chiffres un peu avant, sous $2{,}2 \times 10^{-308}$) : le perdre ne change rien à une somme qui vaut au moins 1. De la même façon :
 
 $$\text{softmax}(\mathbf{v})_i = \frac{e^{v_i - m}}{\sum_j e^{v_j - m}}, \qquad \ln \text{softmax}(\mathbf{v})_i = v_i - \text{LSE}(\mathbf{v}).$$
 
