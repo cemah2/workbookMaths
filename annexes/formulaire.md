@@ -236,7 +236,25 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | calibration, Brier | calibré : $P(Y = 1 \mid \text{score} = p) = p$ ; $\text{Brier} = \frac{1}{n}\sum (p_i - y_i)^2$ ; prévision constante $\pi$ : $\pi(1 - \pi)$ |
 | taux par groupe | $\text{FPR} = \frac{\pi}{1 - \pi}\cdot\frac{1 - \text{PPV}}{\text{PPV}}\cdot\text{recall}$ : prévalences différentes, impossible d'égaliser PPV, recall et FPR à la fois (sauf cas extrêmes, sans faux positif) |
 
-*(M04 à M06 : ajoutés avec leurs chapitres)*
+### M04 · Bayes, vraisemblance et loi Beta
+
+| Notion | Formules |
+|---|---|
+| formule de Bayes | $P(H \mid O) = \frac{P(O \mid H)\,P(H)}{P(O)}$, évidence $P(O) = \sum_j P(O \mid H_j)\,P(H_j)$ ; a posteriori $\propto$ vraisemblance × a priori |
+| mises à jour successives | l'a posteriori devient l'a priori ; observations indépendantes sachant l'hypothèse : $P(H \mid O_1, \ldots, O_m) \propto P(H)\prod_i P(O_i \mid H)$, dans n'importe quel ordre ; rapport de deux hypothèses multiplié par $\frac{P(O \mid H_1)}{P(O \mid H_2)}$ à chaque observation |
+| vraisemblance | $L(\theta) = \prod_i p(x_i \mid \theta)$, $\ell(\theta) = \ln L(\theta) = \sum_i \ln p(x_i \mid \theta)$ ; maximum de vraisemblance : $\ell'(\theta) = 0$ et $\ell'' < 0$ |
+| maximums de vraisemblance usuels | Bernoulli : $\hat{\theta} = \frac{k}{n}$ ; exponentielle : $\hat{\lambda} = \frac{n}{\sum_i x_i} = \frac{1}{\bar{x}}$ ; Poisson : $\hat{\mu} = \bar{x}$ |
+| fonctions Gamma et Beta | $\Gamma(n) = (n - 1)!$, $\Gamma(x + 1) = x\,\Gamma(x)$, $\Gamma(\frac{1}{2}) = \sqrt{\pi}$ ; $B(a, b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a + b)} = \int_0^1 \theta^{a - 1}(1 - \theta)^{b - 1}\,d\theta$ ; $\ln B$ par `math.lgamma` ou `scipy.special.betaln` |
+| loi Beta | densité $\frac{\theta^{a - 1}(1 - \theta)^{b - 1}}{B(a, b)}$ sur $[0, 1]$ ; moyenne $\frac{a}{a + b}$ ; variance $\frac{ab}{(a + b)^2(a + b + 1)}$ ; mode $\frac{a - 1}{a + b - 2}$ si $a, b > 1$ (0 si la densité décroît, 1 si elle croît) ; $\mathrm{Beta}(1, 1)$ uniforme |
+| conjugaison Beta-binomiale | a priori $\mathrm{Beta}(a, b)$, $k$ succès et $n - k$ échecs : a posteriori $\mathrm{Beta}(a + k,\ b + n - k)$ ; moyenne a posteriori $\frac{a + k}{a + b + n} = \frac{a + b}{a + b + n}\cdot\frac{a}{a + b} + \frac{n}{a + b + n}\cdot\frac{k}{n}$ |
+| lissage de Laplace | $\frac{k + 1}{n + 2}$ ; $K$ catégories : $\frac{n_j + 1}{n + K}$ ; additif : $\frac{n_j + \alpha}{n + K\alpha}$ |
+| loi prédictive | succès suivant : $\frac{a}{a + b}$ ; $k$ succès dans les $n$ prochains essais : $\binom{n}{k}\frac{B(a + k,\ b + n - k)}{B(a, b)}$ |
+| MAP | $\hat{\theta}_{\text{MAP}} = \arg\max_\theta f(\theta \mid \text{données})$ ; Beta-binomial : $\frac{a + k - 1}{a + b + n - 2}$ ; avec $\mathrm{Beta}(1, 1)$, le maximum de vraisemblance |
+| intervalle de crédibilité | à 95 % à queues égales : $[F^{-1}(0{,}025) ;\ F^{-1}(0{,}975)]$ de l'a posteriori ; largeur $\approx 2 \times 1{,}96\sqrt{\frac{\hat{\theta}(1 - \hat{\theta})}{n}}$ pour $n$ grand |
+| log-sum-exp | $\ln\sum_j e^{\ell_j} = m + \ln\sum_j e^{\ell_j - m}$, $m = \max_j \ell_j$ ; probabilités : $\frac{e^{\ell_j - m}}{\sum_i e^{\ell_i - m}}$ ; plus petit `float64` positif $\approx 5 \times 10^{-324}$ |
+| famille exponentielle | $p(x \mid \eta) = h(x)\exp\big(\eta\,T(x) - A(\eta)\big)$ ; Bernoulli : $\eta = \ln\frac{\theta}{1 - \theta}$, $T(x) = x$, $A(\eta) = \ln(1 + e^\eta)$ |
+
+*(M05a à M06 : ajoutés avec leurs chapitres)*
 
 ## Partie II · Concepts
 

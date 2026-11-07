@@ -735,3 +735,47 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M03.28 🏆 Défi : retrouver un tableau de contingence à partir de quelques probabilités ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)
 <!-- wbm:end M03 -->
+
+<!-- wbm:section M04 -->
+## M04 · Bayes, vraisemblance et loi Beta ⏱️ 12,9 h
+
+- [ ] M04.Q1 🧠 Les quatre termes de la formule de Bayes ★ 4 min
+- [ ] M04.Q2 🧠 Mettre à jour deux fois ★ 4 min
+- [ ] M04.Q3 🧠 La vraisemblance, une fonction du paramètre ★ 4 min
+- [ ] M04.Q4 🧠 La loi Beta : forme et paramètres ★ 4 min
+- [ ] M04.Q5 🧠 Conjuguée, Laplace, MAP ★ 4 min
+- [ ] M04.Q6 🧠 Logarithmes et underflow ★ 4 min (complet)
+- [ ] M04.Q7 🧠 Fréquentiste ou bayésien ? ★ 4 min (complet)
+- [ ] M04.R1 🔁 Probabilités conditionnelles (M03) ★ 5 min
+- [ ] M04.R2 🔁 Intégrales et densités (M02a) ★ 5 min
+- [ ] M04.R3 🔁 Loi binomiale (M02b) ★ 5 min (complet)
+- [ ] M04.1 ✏️ Bayes avec deux hypothèses : un capteur de fuite d'eau ★ 20 min
+- [ ] M04.2 ✏️ Trois hypothèses et un tableau de mise à jour ★★ 20 min
+- [ ] M04.3 ✏️ La vraisemblance d'un taux de clic ★ 20 min
+- [ ] M04.4 ✏️ Maximiser une vraisemblance : dériver son logarithme ★★ 20 min
+- [ ] M04.5 ✏️ La loi Beta : normalisation, moyenne, mode, variance ★★ 20 min
+- [ ] M04.6 ✏️ Conjugaison : de Beta(a, b) à Beta(a + k, b + n − k) ★ 20 min
+- [ ] M04.7 ✏️ Lissage de Laplace : la prédictive avec Beta(1, 1) ★ 15 min (complet)
+- [ ] M04.8 ✏️ MAP, maximum de vraisemblance et moyenne a posteriori ★★ 20 min
+- [ ] M04.9 ✏️ Un intervalle de crédibilité d'une loi Beta ★★ 15 min (complet)
+- [ ] M04.10 ✏️ Log-probabilités : additionner au lieu de multiplier, normaliser par log-sum-exp ★ 20 min
+- [ ] M04.11 ∂ La conjugaison Beta-binomiale, démontrée ★★ 25 min (complet)
+- [ ] M04.12 ∂ Le maximum de vraisemblance d'une loi de Bernoulli est la fréquence ★★ 20 min (complet)
+- [ ] M04.13 ∂ Le mode de la loi Beta ★★ 20 min (complet)
+- [ ] M04.14 🔗 Un test A/B : deux taux de conversion et P(θB > θA) par simulation ★★ 20 min
+- [ ] M04.15 📖 MML §6.3 (relire le théorème de Bayes) et §6.6 : conjugaison et famille exponentielle (lecture guidée) ★★ 30 min (complet)
+- [ ] M04.16 📖 MML §8.3 : maximum de vraisemblance et MAP (lecture guidée) ★★ 30 min (complet)
+- [ ] M04.17 🗣️ Expliquer la conjugaison avec des pseudo-observations ★ 10 min
+- [ ] M04.E1 💼 Qu'est-ce que le lissage de Laplace, et pourquoi l'utiliser ? ★ 10 min
+- [ ] M04.18 🔨 Densité et moments de la loi Beta (avec `math.lgamma`) ★ 20 min
+- [ ] M04.19 🔨 Mise à jour conjuguée et loi prédictive des prochains essais ★★ 25 min
+- [ ] M04.20 🔨 Le MAP d'une loi Beta, cas limites compris ★★ 15 min (complet)
+- [ ] M04.21 📦 La fonction Beta avec `scipy.special` : `beta`, `betaln` et l'underflow ★ 15 min (complet)
+- [ ] M04.22 🔮 Prédire : le MAP avec Beta(1, 1) après trois échecs ★ 10 min (complet)
+- [ ] M04.23 🔬 Le posterior se resserre : la largeur de l'intervalle en 1/√n ★★ 20 min (complet)
+- [ ] M04.24 🎨 Prior, vraisemblance et posterior sur une même figure ★ 20 min
+- [ ] M04.25 🐛 Chasse à l'erreur : évidence oubliée, mise à jour à l'envers, mode et moyenne ★ 15 min (complet)
+- [ ] M04.26 🛠️ Un calcul stable : comparer des vraisemblances en logarithmes (`math.lgamma`) ★ 15 min (complet)
+- [ ] M04.27 🏆 Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart type, intervalle) ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (22 cartes)
+<!-- wbm:end M04 -->

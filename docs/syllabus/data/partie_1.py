@@ -432,7 +432,7 @@ CHAPTERS = [
             ("M04.R1", "🔁", 1, 5, "Probabilités conditionnelles (M03)", "§1", "E"),
             ("M04.R2", "🔁", 1, 5, "Intégrales et densités (M02a)", "§4", "E"),
             ("M04.R3", "🔁", 1, 5, "Loi binomiale (M02b)", "§5", ""),
-            ("M04.1", "✏️", 1, 20, "Bayes avec deux hypothèses : un détecteur de fumée", "§1", "E"),
+            ("M04.1", "✏️", 1, 20, "Bayes avec deux hypothèses : un capteur de fuite d'eau", "§1", "E"),
             ("M04.2", "✏️", 2, 20, "Trois hypothèses et un tableau de mise à jour", "§2", "E"),
             ("M04.3", "✏️", 1, 20, "La vraisemblance d'un taux de clic", "§3", "E"),
             ("M04.4", "✏️", 2, 20, "Maximiser une vraisemblance : dériver son logarithme", "§3", "E"),

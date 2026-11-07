@@ -1309,7 +1309,7 @@ La formule de Bayes en profondeur : a priori, vraisemblance, évidence, a poster
 | M04.R1 | 🔁 | Probabilités conditionnelles (M03) | ★ | 5 | §1 | C, E | manuel | — |
 | M04.R2 | 🔁 | Intégrales et densités (M02a) | ★ | 5 | §4 | C, E | manuel | — |
 | M04.R3 | 🔁 | Loi binomiale (M02b) | ★ | 5 | §5 | C | manuel | — |
-| M04.1 | ✏️ | Bayes avec deux hypothèses : un détecteur de fumée | ★ | 20 | §1 | C, E | wbm | — |
+| M04.1 | ✏️ | Bayes avec deux hypothèses : un capteur de fuite d'eau | ★ | 20 | §1 | C, E | wbm | — |
 | M04.2 | ✏️ | Trois hypothèses et un tableau de mise à jour | ★★ | 20 | §2 | C, E | wbm | — |
 | M04.3 | ✏️ | La vraisemblance d'un taux de clic | ★ | 20 | §3 | C, E | wbm | — |
 | M04.4 | ✏️ | Maximiser une vraisemblance : dériver son logarithme | ★★ | 20 | §3 | C, E | wbm | — |

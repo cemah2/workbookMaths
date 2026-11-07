@@ -76,7 +76,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\int_a^{+\infty} f(x)\,dx$ | « intégrale de a à plus l'infini » | improper integral to infinity | la limite de $\int_a^b f$ quand $b \to +\infty$ | $\int_1^{+\infty} \frac{dx}{x^2} = 1$ | M02a |
 | $\propto$ | « proportionnel à » | proportional to | égal à une constante près | $p(\theta \mid x) \propto p(x \mid \theta)\,p(\theta)$ | M04 |
 | $O(n^2)$ | « grand O de n carré » | big O of n squared | croît au plus comme $n^2$ | coût du produit de deux matrices $n \times n$ : $O(n^3)$ | R7 |
-| $\arg\max_x f(x)$, $\arg\min_x f(x)$ | « argument du maximum (du minimum) de f » | arg max, arg min | la valeur de $x$ (pas la valeur de $f$) où $f$ est maximale (minimale) | $\arg\min_x (x-3)^2 = 3$ | R3, M05b |
+| $\arg\max_x f(x)$, $\arg\min_x f(x)$ | « argument du maximum (du minimum) de f » | arg max, arg min | la valeur de $x$ (pas la valeur de $f$) où $f$ est maximale (minimale) | $\arg\min_x (x-3)^2 = 3$ | R3, M04, M05b |
 | $\cos\theta$, $\sin\theta$ | « cosinus de thêta », « sinus de thêta » | cosine, sine of theta | l'abscisse et l'ordonnée du point d'angle $\theta$ du cercle trigonométrique | $\cos\frac{\pi}{3} = \frac{1}{2}$ | R9 |
 | $\cos^2\theta$ | « cosinus carré de thêta » | cos squared theta | $(\cos\theta)^2$ | $\cos^2\theta + \sin^2\theta = 1$ | R9 |
 | $\arccos x$ | « arc cosinus de x » | arccosine of x | l'angle de $[0 ; \pi]$ dont le cosinus vaut $x$ | $\arccos 0 = \frac{\pi}{2}$ | R9 |
@@ -141,7 +141,12 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\rho(X, Y)$, $r$ | « rhô de X et Y », « r » | correlation | la corrélation de deux variables, ou de deux séries (coefficient de Pearson) | entre $-1$ et 1 | M02c |
 | $\boldsymbol{\Sigma}$, $\Sigma_{ij}$ | « grand sigma (gras) », « sigma i j » | covariance matrix | la matrice de covariance, et sa case $(i, j)$ : $\operatorname{Cov}(X_i, X_j)$ | $\Sigma_{ii} = \mathbb{V}(X_i)$ | M02c |
 | $\theta$ | « thêta » | theta | les paramètres d'un modèle | | M04 |
-| $\mathcal{L}(\theta)$ | « L de thêta », « vraisemblance » | likelihood | à quel point les paramètres expliquent les données | | M04, M13a |
+| $L(\theta)$, $\mathcal{L}(\theta)$ | « L de thêta », « vraisemblance » | likelihood | la probabilité des données observées, vue comme une fonction des paramètres | $L(\theta) = \theta^2(1 - \theta)^{10}$ | M04, M13a |
+| $\ell(\theta)$ | « petit l de thêta », « log-vraisemblance » | log-likelihood | $\ln L(\theta)$ : même maximum que $L$, et une somme au lieu d'un produit | $\ell(\theta) = 2\ln\theta + 10\ln(1 - \theta)$ | M04 |
+| $\hat{\theta}_{\text{MAP}}$ | « thêta chapeau MAP » | MAP estimate | le maximum de l'a posteriori, $\arg\max_\theta f(\theta \mid \text{données})$ | $\frac{3}{20}$ pour $\mathrm{Beta}(4, 18)$ | M04 |
+| $\Gamma(x)$ | « gamma de x » | Gamma function | prolonge la factorielle : $\Gamma(n) = (n - 1)!$, $\Gamma(x + 1) = x\,\Gamma(x)$ | $\Gamma(5) = 24$ | M04 |
+| $B(a, b)$ | « B de a, b », « fonction bêta » | Beta function | $\frac{\Gamma(a)\Gamma(b)}{\Gamma(a + b)} = \int_0^1 \theta^{a - 1}(1 - \theta)^{b - 1}\,d\theta$ | $B(3, 6) = \frac{1}{168}$ | M04 |
+| $\Theta \sim \mathrm{Beta}(a, b)$ | « thêta suit une loi bêta a, b » | Beta distribution | une proportion de densité $\frac{\theta^{a - 1}(1 - \theta)^{b - 1}}{B(a, b)}$ sur $[0, 1]$ | $\mathrm{Beta}(1, 1)$ est uniforme | M04 |
 | $H(p)$, $D_{\mathrm{KL}}(p \parallel q)$ | « entropie de p », « divergence KL de p à q » | entropy, KL divergence | incertitude d'une loi ; écart entre deux lois | | M06 |
 
 ## Les lettres grecques

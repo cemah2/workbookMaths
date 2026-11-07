@@ -257,3 +257,24 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Compter un ex æquo comme bien ou mal classé | AUC des paires avec un ex æquo compté 1 (ou 0) | un ex æquo compte $\frac{1}{2}$ |
 | Croire que l'AUC mesure les probabilités | AUC 0,95, donc des probabilités fiables | l'AUC ne voit que l'ordre ; la calibration se juge au diagramme de fiabilité et au score de Brier |
 | Calculer l'average precision par les trapèzes | relier les points (recall, precision) par des segments | des rectangles : $\sum_j (R_j - R_{j-1})\,P_j$ |
+
+## Bayes, vraisemblance et loi Beta (M04)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Prendre la vraisemblance pour l'a posteriori | « le capteur détecte 90 % des roulements usés, donc une alerte signifie 90 % de chances d'usure » | diviser vraisemblance × a priori par l'évidence ; un événement rare donne surtout de fausses alertes |
+| Oublier une partie de l'évidence | $P(\text{alerte}) = 0{,}02 \times 0{,}9$ | additionner toutes les façons d'observer : $\sum_j P(O \mid H_j)\,P(H_j)$ |
+| Repartir de l'a priori de départ à chaque observation | trois mises à jour, chacune avec l'a priori 0,5 | l'a posteriori d'une étape est l'a priori de la suivante |
+| Croire que la vraisemblance est une densité en $\theta$ | « $\theta = \frac{1}{6}$ a la probabilité 0,0045 » | c'est la probabilité des données ; son intégrale en $\theta$ ne vaut pas 1 |
+| Confondre $B(a, b)$ avec des factorielles de $a$ et $b$ | $B(3, 6) = \frac{3!\,6!}{9!}$ | $\Gamma(n) = (n - 1)!$ : $B(3, 6) = \frac{2!\,5!}{8!}$ |
+| Confondre le mode et la moyenne d'une loi Beta | MAP de $\mathrm{Beta}(4, 18)$ : $\frac{4}{22}$ | mode $\frac{a - 1}{a + b - 2} = \frac{3}{20}$ ; moyenne $\frac{a}{a + b}$ |
+| Appliquer la formule du mode hors de son domaine | mode de $\mathrm{Beta}(0{,}6 ;\ 3)$ : $\frac{-0{,}4}{1{,}6}$ | la formule vaut pour $a, b > 1$ ; sinon étudier la monotonie (mode 0 ou 1, ou pas de mode unique) |
+| Mettre à jour une loi Beta à l'envers | 5 défauts sur 60 : $\mathrm{Beta}(a + 55,\ b + 5)$ pour le taux de défaut | dire d'abord ce que compte $a$ : ici les défauts ; $\mathrm{Beta}(a + 5,\ b + 55)$ |
+| Ajouter $n$ à $b$ au lieu des échecs | $\mathrm{Beta}(a + k,\ b + n)$ | $\mathrm{Beta}(a + k,\ b + n - k)$ |
+| Croire que deux succès futurs ont la probabilité « moyenne au carré » | $\big(\frac{a}{a + b}\big)^2$ | mettre à jour entre les deux : $\frac{a}{a + b}\cdot\frac{a + 1}{a + b + 1}$ |
+| Annoncer un maximum de vraisemblance sur très peu de données | 0 achat sur 9 visites : « taux nul » | un a priori, par exemple Laplace : $\frac{1}{11}$ |
+| Multiplier de nombreuses probabilités en flottants | $0{,}3^{700}$ donne 0 | additionner les logarithmes, normaliser par log-sum-exp |
+| Prendre les exponentielles de log-probabilités sans soustraire le maximum | `np.exp([-1000, -1001])` donne `[0, 0]` | soustraire d'abord le maximum : `np.exp(l - l.max())` |
+| Calculer $\Gamma$ ou $B$ directement pour de grands paramètres | `math.gamma(700)` : `OverflowError` | `math.lgamma`, `scipy.special.betaln`, et l'exponentielle à la fin |
+| Écrire `k * math.log(p)` avec $p = 0$ | `ValueError` même pour $k = 0$ | traiter $p = 0$ et $p = 1$ à part : $0 \times \ln 0 = 0$ par convention |
+| Lire un intervalle de crédibilité comme un intervalle de confiance (ou l'inverse) | « 95 % des études répétées contiendraient θ », pour un intervalle de crédibilité | crédibilité : une probabilité sur le paramètre, sachant les données ; confiance : une propriété de la méthode |
