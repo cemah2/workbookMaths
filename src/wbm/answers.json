@@ -7926,6 +7926,2664 @@
       "kind": "bool",
       "source": "chapitres/m02c_echantillons_estimation/05_solutions.ipynb"
     },
+    "M03.1a": {
+      "decimals": 2,
+      "hash": "5f44ba5675c5d83f7f7d6ee6c8b105fd42d310fd06d166184ef6ec07eae42b8a",
+      "hash_coarse": "3bd7ecbf090980c9100425d87914acd530482d0dc62de7b1391d9a50f0b5b77e",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "ab8d9f77d229839c4b026fbd2aadc31570e6a773697f2259bdaac59674efdad1": "« avec photo » : la première colonne du tableau"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.1b": {
+      "coarse_any": {
+        "0": [
+          "8b589ba62b27ecdf18546abe253d96744ad84367652be440e1b39f588d0b6bda"
+        ]
+      },
+      "decimals": 2,
+      "hash": "bcd8d201219e26a81b4c0d23aad48fa3098f7f99b56b00698cf42bf1af53f0fe",
+      "hash_coarse": "e0333cfc9a65600ed23594be989ee2c747cb8384790d0794e458343886c43b45",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "e738af82049903855e5910bef0a1d77835648db829bd42db80d5a7bd4d6c3675": "« 4 ou 5 étoiles » : la dernière ligne du tableau",
+        "ef3bc95fb2da4b7909c9dd238142c32f4440047f8e790cc36281414e242aee75": "« 4 ou 5 étoiles » : la dernière ligne du tableau"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.1c": {
+      "alt_coarse": [
+        "573a3a16eb4dc59e00e822db453c2d5b780f8d055d34cf61f6782c0191138981"
+      ],
+      "coarse_any": {
+        "1": [
+          "135980d3cf83f928190473f4a2e6867ebc1642f4b1da9ba6e3ed54324d5a9579"
+        ]
+      },
+      "decimals": 3,
+      "hash": "c129afc0bafd3db013c1066401e2fcc5458e423fe4d6c40a70c46e4aa478d924",
+      "hash_coarse": "96c6a5d64eda1ac8380f526d0476dfa615f0b263bba5652f2e8bdb03fcbfef01",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "272ca903b6b1948d4386e26ca97cd7b423635fa288fc19b4b590e6b615ccb0c9": "une probabilité jointe divise la case par le total du tableau, pas par le total d'une ligne ou d'une colonne",
+        "9d07235c73b8a8b8138fbd03bf5d51ec72516554b7ec36167cdc541a44066f58": "une probabilité jointe divise la case par le total du tableau, pas par le total d'une ligne ou d'une colonne"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.1d": {
+      "coarse_any": {
+        "0": [
+          "7e23a817efa4663ae39050a35dfb2ef6e5bcefaca2d84f8cab9c42e5de6b63f6"
+        ],
+        "1": [
+          "77b93cb69fa6ace02d2d187895c0ff88bb231a4f5c63c9104943597be4aa4608"
+        ]
+      },
+      "decimals": 3,
+      "hash": "18c5341ceea54ad601693f83defbaa4cdb4c69c04017a9975cd9fadfc0680207",
+      "hash_coarse": "1b7cb103d5ab45eaeffe0d93f5d4e82937ece3150845de274df9fd592c8c2f94",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "7838edb25146f43d5462944dad5693a8790eee048ddf53234b4ab3aad1ce09dd": "« sachant avec photo » : on ne garde que les avis avec photo, donc on divise par le total de leur colonne",
+        "f4ebfcabebaea63f7478b6447e53a1db261f6e6ad2f05d137ee396369d25164f": "une probabilité conditionnelle divise par la probabilité de l'événement « sachant », pas par le total du tableau"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.1e": {
+      "coarse_any": {
+        "1": [
+          "fdc3266c4a2281da5d725a2bd38d99790e0250455fdf63e15744d84214a0460c"
+        ]
+      },
+      "decimals": 3,
+      "hash": "3feb8fa9cab7f795832f8bcbee0433b3ee7d5bcece891602e7fedede87904371",
+      "hash_coarse": "7c81725d6f654ce9c163efd1bb2623ef7945c1ab8479e1ac7cbb2621b0483fd1",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "46e41488d22d8a20df6d5b582acaa208c0e6afab066cf70881ff62a1426caeb7": "une probabilité conditionnelle divise par la probabilité de l'événement « sachant », pas par le total du tableau",
+        "5a582403f9ef29edbf50487f112229facde425320f92a852b9116982dec320cd": "« sachant 4 ou 5 étoiles » : on ne garde que ces avis, donc on divise par le total de leur ligne"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.1f": {
+      "coarse_any": {
+        "1": [
+          "3bd8bf0385182922bcaf6a99e61d27c43c2ec4e071083a8ab6942f153ad6d2e9"
+        ]
+      },
+      "decimals": 3,
+      "hash": "792ecc7cec485b98c704eff1278999ff611132a10468887c48e5a3a54341b554",
+      "hash_coarse": "0a3cd228eef64833624de0f555b10a8c58fa56d6a734f39563234bcd33f8632a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "103580707ba7840f9d7d6be255c9a095efc7fc460c73a31cd5a4d0f8a3ebe620": "« sachant 1 ou 2 étoiles » : on ne garde que ces avis, donc on divise par le total de leur ligne",
+        "9ea56209186d3f4fc2071d9ccf4af72dff426dfe2c7a9e9e6b74f2ff475767c4": "une probabilité conditionnelle divise par la probabilité de l'événement « sachant », pas par le total du tableau"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.1g": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "1df2ace44cc0642fbffd1401b09822128cb9fed59239df03a2194f522e89fe08"
+        ],
+        [
+          "1f8f20deee8c3579867538ebe2392993a217db5458b716a7cdf0611e9c19a1c3"
+        ],
+        [
+          "04494a56999743945ec9e0cc946c0101e53817aebfe0f61f88c7ce27acca50a3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "798060de583e1282ac8d3557fd02b4480c56a85e6c7fce143b39f86968f59e42",
+          "6f0612a278274873087a44d7f5550404704e34e7a6821747eb68f4a7637b1386"
+        ],
+        [
+          "c8f15aca25498f0f426555e2eec020a1177c30eaea4463ef96f9f57abb51aaa4"
+        ],
+        [
+          "6ca35fc5a0221dd246c0ceeaafcf57f32d30e54ead1126f6c52e1c22fbd1ccf8",
+          "221264952728a0e2e75cbeb3fc0a31fe14e39711b26637fca877058dd0ecf48a"
+        ]
+      ],
+      "element_hashes": [
+        "c0dc52c9d66e4cccd99543b07df1911da70af159355e90a9ac8c409e7cdc5df4",
+        "6da4d5de3cc84b35388d8fa0d7b2662e37b0daabc03e5b9101314098063e7c1a",
+        "294b91203c6db257d456800c9f3ff49825c021d0520af93055df362ec3bd8408"
+      ],
+      "hash": "507d060e26a87675dea3071b3855431846796c623400bbf95e119bc15d5c113d",
+      "kind": "array",
+      "mistakes": {
+        "b31f50c8518e3035e553320f33d50ae1c8d2e76844268ffb6d6e6ac5f5ac0ac1": "chaque case de la colonne se divise par le total de la colonne, pas par celui de sa ligne",
+        "fc1da3a07fa4db3557bd40c7e4552e3c679e5741a4301f2361c05a7862ef754c": "une loi conditionnelle a une somme de 1 : divise la colonne « avec photo » par son total, pas par le total du tableau"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.1h": {
+      "alt_coarse": [
+        "696fd8b8c1e5ba824d31bef7d80054c0ba7b16a9d3eea097c320beeb5bda3aa2"
+      ],
+      "coarse_any": {
+        "1": [
+          "2eab601f002d7d030bbbf02567d4aaeb2b758ca221ab4e57d6d8bbf5d4d67b10"
+        ]
+      },
+      "decimals": 3,
+      "hash": "cb0e5f46718f4fa63bbab3c3b8db8112c73810689a739db7c752e58325d17945",
+      "hash_coarse": "9484e7e65fa3d10dc6af6357ebb157a36a97794f66de72fc9c1a750ac372cb79",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2ad8648e85026eb5b2e907c88dbe00eb0e7a1f04cc9ff738b49b08c3b94f8c87": "les avis à la fois 1 ou 2 étoiles et avec photo ont été comptés deux fois",
+        "86ca45f5490b016bee169ad39c512591eacc4810cabe0731de282f80884ce6f5": "« ou » contient aussi les avis qui ont les deux"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.2a": {
+      "decimals": 2,
+      "hash": "06435ce5f73cac309019e48bf7b7aa0d49442e0cf2a7371b40670ee27038e529",
+      "hash_coarse": "39bfe23fb7d9f982285fccca7ffea5dcafd90851b0750b856bc55b3ad1fcfebd",
+      "kind": "float",
+      "magnitude": -2,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.2b": {
+      "decimals": 2,
+      "hash": "e1f32f8d55cf1447fe350a0b244674b0762ea7e1a6d280bd9372dfea1fdc5396",
+      "hash_coarse": "6ddf1f8cdb1b58c4168ff9ec48ab99cbdddc9409cb8214fc01692ffe037cd0bb",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "21e9ca22931bae31dca839ba8d081f42ec6348b2cd108a8ce064ab93c0e356a8": "une probabilité conditionnelle divise par la probabilité de l'événement « sachant », pas par le total du tableau",
+        "322bfbb49ce847bfbde2d947af2ff5b633144da58f050a4534c6e8efea71c12b": "« sachant version B » : on ne garde que les visiteurs de la version B, donc on divise par le total de leur ligne"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.2c": {
+      "hash": "c2098f4b241c3bbfff999ec68d8a26eda497c8f5b6202b77fd36ab89991cb7ec",
+      "kind": "bool",
+      "mistakes": {
+        "42bbdb1a51caf0b45e12a0c450a4b3a0d8d5073d98fdd796c20cc626714f15fe": "compare la probabilité de clic dans chaque version à la probabilité de clic globale"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.2d": {
+      "decimals": 2,
+      "hash": "ab2f6fb0ec4752b2952120e7df9e26104f38166adfed0f25eb8a87fca2717326",
+      "hash_coarse": "1ebc3e2ed2e791c2ba3a1e0eb30f39d125222694a38e99daaafd5f41a20a5a4b",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.2e": {
+      "coarse_any": {
+        "1": [
+          "f8e0ad604b269f5385cb8732b05d2c1daccd2bc2897e709da1cc9641beafc0cb"
+        ]
+      },
+      "decimals": 3,
+      "hash": "3a3fb81bec6a4b751865fe80206a81c176bb44b87bccb5975267a03063be4520",
+      "hash_coarse": "4f4d487e7bf017d3df94a5d45bf9cf75e82f2c718dfd7b838cc43e3134a8b5b5",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "9f17b2b748ddec8f84768cc2c0f4f0ec76bbe21ed395199c7a12ca741bc94dd2": "« matin » : la première ligne du tableau 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.2f": {
+      "decimals": 2,
+      "hash": "d9716f851135ab6eebba8bbbfd5545a288e63880cd510479cb996d1e8e8be6ef",
+      "hash_coarse": "33078b833cdde7f3be33b476107dcb11498f6dfa8785b6101fa1677ca8a4dff5",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "295ea6ca85be244912cbd64d8e996afa6d6373fa307f72ddd57fd790aaf1268f": "une probabilité jointe divise la case par le total du tableau",
+        "9a9e94bac8c8602ed51b8b339f9cfc0dfe931d4039799f773d4dff192788aa76": "une probabilité jointe divise la case par le total du tableau"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.2g": {
+      "hash": "bd2b9739c663846be2ea12a07733082e5df8e6460aec6c021b6ece99e58c45da",
+      "kind": "bool",
+      "mistakes": {
+        "00514a398cd1921db9ce51c48ed4a3d7100ce63974c2ac2999f740cb1f4119e5": "compare f) à e) : la case et le produit des marges"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.2h": {
+      "hash": "611373451cfed915914e2637a3e21a214dd9e5adbeffade2dcec53317cbbad97",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "7b6603061e58184ae5694cf0bcef8a57d344bbf7fd6badbfcf806715a310ceca": "c'est l'effectif observé ; l'effectif attendu se calcule avec les seuls totaux"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.3a": {
+      "alt_coarse": [
+        "d05cc023e5821f860d4b211c5e07757f62a53c286bf3b7c8ab064e2d60fdd100"
+      ],
+      "coarse_any": {
+        "2": [
+          "4a200ccc052a93369aeeaeeef2707ce8b95abcfa718d0bd6a9dafcdc9860b0e8"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a8fb6965dd86593edb50698766485ef7c6493bc1cef9cbc16740f60bc57f3ed2",
+      "hash_coarse": "ae654fcd8a673b3aedb331c14184d61aab5afe54d572def6b9f0c0803a2297c8",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "5f34d6948f64af027a2d22494d94b7549901e0242d61be422292d6a58de9008a": "additionner les taux oublie les parts du trafic : chaque taux est une probabilité sachant le serveur",
+        "69bfe4b7dd1f720811bf99e6441ce49c18424499fd45ba2d5ba075556d46893c": "les taux se pondèrent par la part du trafic de chaque serveur, pas par 1/3"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.3b": {
+      "decimals": 3,
+      "hash": "4353bed8f8d2848fc8b26c8eacb13e22e57d6c942c560816672a410c0e0a0705",
+      "hash_coarse": "12b76178a9114935cc631e35397b0587f1de2152b9ac6d7678dfe9f3f4c4dd96",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "24e2fa9d39c9cb24edf0ceaf7ec81d13305d976f7f5132debfeb2a6d15b4f5b2": "c'est P(E | S₃) ; la probabilité de l'intersection utilise la règle du produit"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.3c": {
+      "coarse_any": {
+        "0": [
+          "f589458f8b7a564e873634d1290beef636c97f27b6d5ab110585729061d6b179"
+        ],
+        "1": [
+          "bcd5358731a426c751ddb8b36c97bc40011f75fe5df69e58cdd4303040313a09"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "abbdd2579221446ae89d35b7f8244ca2ea2ef48cf7e31ce2d957526a231c70d9"
+        ]
+      },
+      "decimals": 4,
+      "hash": "462ff741b62e0382dc99979415db9cff2c9694a74489bd8e4256abfb7e1498db",
+      "hash_coarse": "deaa1bb47863ed2885f487beaa5607104a95b74c40c024bcd8af0112794dc5bc",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "9fc5c963b1223ea77f9fafaf701d42faea3175ff75e8b724823d6d66d3925da0": "l'événement contraire de E, sur toutes les requêtes"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.3d": {
+      "hash": "3ff5407d0e6c13cbb054531f207a176b61ced451bea6a88d959934b8b82fdfca",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "4287f0735cf289ef725d4f6536535e40d2e47899e5cae41e14d04b264ea78a29": "une moyenne sur toutes les requêtes, avec les parts du trafic",
+        "c55066e97ff481ee3f3b68d13f22699f1eb005c12e06ac0b6d26ff18cdaaeacc": "les requêtes en erreur, pas celles qui réussissent"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.3e": {
+      "decimals": 2,
+      "hash": "074ce9ab55d640e52bbab0a493ab1f1a311e46185fde8acaad1df706e9c1336d",
+      "hash_coarse": "3564448a86f564c8270b4d0c5afac784b7059dd1c3055be466baf6471192b3ec",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "d555cfb3400b5d84b6186902e00dbe42f7b39f790ee8fcb938d98779f833a0a7": "P(S₃ | E) n'est pas P(E | S₃) : parmi les requêtes en erreur, quelle part vient de S₃ ?",
+        "f925f09d6788c9a5588d450773af6332d8ae240690b18288d27f546bf6a178f7": "la part de S₃ dans le trafic n'est pas sa part parmi les requêtes en erreur"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.3f": {
+      "alt_coarse": [
+        "227cf551976fe45fe17c6c6bad4087f6db62c328cba234040f9828c8f2b86aa5"
+      ],
+      "coarse_any": {
+        "2": [
+          "54705bd57c9e3e61a56e9228c59ba8aae4b0c4cb22d0a58567435c07165c3839"
+        ]
+      },
+      "decimals": 4,
+      "hash": "07cbc01b3d56d2e20dc61f3f1c58391bea5900f7088392007819ab4dcc533a7d",
+      "hash_coarse": "b6cad27743ae93d0c9d1a5da7770f3e14d1272576569921016f1c10e042f0f59",
+      "kind": "float",
+      "magnitude": -2,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.3g": {
+      "coarse_any": {
+        "2": [
+          "bb95d66b4818bf4bb1879ffe36a5df56aecc6a25e0d04cdd128f38d36b02c08a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3b7bbbff0e5be4b8cbad7f7bca975f0f484f5f1516453285ef568be520c8b2a2",
+      "hash_coarse": "718c189d46897a03e01e021d69a6180aeffdc596b6da845fc24ddd8eb8ababca",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "404b6426a6b0c4df5541a547b247eb2a4ac7546f07bbf1f354f0ff603e75a794": "la moitié seulement du trafic de S₃ change de serveur"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.3h": {
+      "hash": "30540ab39724fd7124e5cb29bfff903c41c62c9e5f5fc1c773e4bd5196baf280",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "3c41a4ce4205ad568dd29939b9a91c5acdc7f532228d7fecd6299f68891835e6": "S₁ ne traite qu'une partie des 10 000 requêtes"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.4a": {
+      "decimals": 2,
+      "hash": "274880c623ee366a49f6dd9ec7c777d9385eac7fbfe15cbd408d5508d0684b41",
+      "hash_coarse": "cbff622458811350aeddf8177d93ac86b4bd585bc8438c4a84cef51a94ebd0d3",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "75538762315f705ecea92e18d54ec038a2fa19636a36d957112ca470053e3e66": "la prévalence compte les pièces vraiment défectueuses, pas les pièces signalées"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.4b": {
+      "coarse_any": {
+        "0": [
+          "819553a5d099bf3c039f4891f3d1ea6e9439835c75513d205b95ae7ae3d10b52"
+        ]
+      },
+      "decimals": 2,
+      "hash": "686e9b60da01afadbc2f3e8d4c30f2cb40ddf9a96320cd765ac86ed1fb3ed39e",
+      "hash_coarse": "687f21abe9fdb8688ac13a975365c663b1436073cddd4518c0108e0806f8acac",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "130d8edb3fa92518e4ee066e4880e63c15f9ddcb9067cbe52779f3b2f2897312": "le recall conditionne par la vérité : parmi les pièces vraiment défectueuses"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.4c": {
+      "alt_coarse": [
+        "85fc48ad6168e69a29f2c8dfe824078fc94ff584411732a94698fad3e2778aaa"
+      ],
+      "coarse_any": {
+        "0": [
+          "098fe9154773c5aed3f8373017611eb6887b80621d21a7f9937e48243735081f"
+        ]
+      },
+      "decimals": 2,
+      "hash": "6b39f909682aaba89b6b07c529b768354e22548bcf3e4e23c2f53263694e691f",
+      "hash_coarse": "87848af669e504dc4a3fae33cd42921f07ca55e47abd7fd7928e9e9b7ab41886",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "85efc812e15c0d17ed30d88c2bb49c1de09ce0bc198952baf33009dba61f99d7": "la spécificité conditionne par la vérité : parmi les pièces vraiment saines",
+        "ee2e702d4b7e1f1d4b0941cc1b820a876a301f5662e7b9f60e8886fd92294ab4": "c'est le taux de faux positifs ; la spécificité est son complément"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.4d": {
+      "decimals": 2,
+      "hash": "670a1afa6bdb26bb484fdf444bd119b0431862383819499455b2ba804e8191f5",
+      "hash_coarse": "03355ac87fa37dd3ebf75a39cbd3bd1e195dbe237d54815e18763b58abe61360",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "9b8ee771a5ac0f23eac859b3f878728050a80be614721ac476ac7a273b166f53": "la precision conditionne par la prédiction : parmi les pièces signalées"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.4e": {
+      "coarse_any": {
+        "0": [
+          "060785ee2edc0a5e0a1f9ac6462b4c9de0639cc082101cb8254694f5cd0effd6"
+        ],
+        "1": [
+          "ce644c1784f0a8656c6416b903c639e8fb6629936394324e1b410777a99368a8"
+        ]
+      },
+      "decimals": 3,
+      "hash": "759a0bbe03eeb59d201387412c702cbca2494e45600b2071f314ce4ec4c94a70",
+      "hash_coarse": "6d9b2ba8e6273ed529b5979458d53a0ca8ad8e51d66e12bc93e302d879baa174",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "971f6601cf7a0e6844dff645148b4581071ed1a03305142eef902dc1310e68f5": "l'accuracy compte les bonnes réponses des deux sortes : les vrais positifs et les vrais négatifs",
+        "c0864cf6c2ec8c69fcbeeafbb6a7a6c267dbe8fbe7a0f7fa15d49447bb28771b": "l'accuracy compte les bonnes réponses des deux sortes : les vrais positifs et les vrais négatifs"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.4f": {
+      "coarse_any": {
+        "0": [
+          "c9453a49183acaff71141a6ca0b16036b223f10485eb95cd9d91ab9e4177fe37"
+        ],
+        "1": [
+          "0f8b7277df274a61dae483ca2892f568a7175763227bbe2c9a9a4a1c91e5eb1b"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "2f055e1b1c479054f29150246ee9c73918b0478cef2867f201fb14d9a704284e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e85b4ac60065550d718587da25e235f9105b644ff3ea1af145070d6ae68824c3",
+      "hash_coarse": "df6bbf207aa5f3927e54a36364a5c551973271b88dbf46b581cc663bf37b79cb",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "7a243d1ec9272e1c850f3f69a6fe9337a40bc3de1f7b2fe2f62a63c17333d586": "la valeur prédictive négative conditionne par la prédiction : parmi les pièces non signalées"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.4g": {
+      "decimals": 2,
+      "hash": "1ba08daa45123adbbc306bf58c42e931092f41c05ca8782187bd9daa95043696",
+      "hash_coarse": "cc0f3fb84dcb035a44b5f43f28179715e8f5be145c3bea65a0c391dab60fe87a",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "b57099df00bddd9d50ef14fa455d79fc794677a99383d09f5c1ed2d57e3ff832": "les pièces signalées, pas les pièces défectueuses"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.4h": {
+      "coarse_any": {
+        "0": [
+          "eb43d7c9e6faf6eb9c4c5a0464c8cb2d59b6fa84d4b499f3a0bb904533c0d61b"
+        ],
+        "1": [
+          "456ea93b23be19e06fa41a0d818cd7691844818c3dff292cbea47c18fd6e0cdf"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "6ccc9f1d32725fbafb2d4d9c225647154cb9d36d6eb053ec83b3ed891a89b029"
+        ]
+      },
+      "decimals": 4,
+      "hash": "10b347804fed49d0d677e2a8815d8e6610451d5ab122a5c8fa70b77d553b9328",
+      "hash_coarse": "7ab93be6f4fdca982bceee8b97457ef32c229e10903e4a4cded5155c5687dc00",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "01d3eaef1a1a7b43bdca4bf03c7e4095d3fc0076419b925babd5e8abd1aedc4f": "le F1 est la moyenne harmonique de la precision et du recall, pas leur moyenne arithmétique"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.5a": {
+      "coarse_any": {
+        "0": [
+          "1f61d219ff12d1b15e07395389f9011e64911e80e6c73aec7916b27de16ac3a0"
+        ],
+        "1": [
+          "2441d6f33014b11ece593c99a372d49c7974fbd401b096b49999850a95c1b603"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "f7787d1934d300486ca8f123b3631b5c0f7b3b5c16760b423646c708803dfe5f"
+        ]
+      },
+      "decimals": 4,
+      "hash": "97c4ad4b9c6084cdf52ca3beb4bb7165f9efa673335775a6454ef1bfb0f8d608",
+      "hash_coarse": "959219f98ccde1090e477ef83dae818f1b0bf73609fb63206fa3826c6d8de914",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "64880576c5625c5a658e3c940fc94013b61a33806d85fd93858fe74b8fce3370": "le F1 est la moyenne harmonique, pas la moyenne arithmétique"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.5b": {
+      "coarse_any": {
+        "0": [
+          "53c76711538f3ccc81c501f7420e2821478c773fb84c35fa6ec2202d9bbf5d82"
+        ],
+        "1": [
+          "9d9092642a404e729d809aef6222277f447175dff4be7bbf4a6fb97441ba69d8"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "a1e792b18f1909aabbf8855b7ab1a28131da56ba301c5097666b4ae769d635e9"
+        ]
+      },
+      "decimals": 4,
+      "hash": "9d4487bda249e4e5633a58e36c953a13d3aae12ffa9e82fe62b0fd7a9c0f5a13",
+      "hash_coarse": "43a999981500a3dc3d71c0bbe6ab7ce748698780619204d87c225bef4fbead83",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "70dc637637f0bc763dc019640fbb79bd801eb5b4ca2e537213946b44a5f749a6": "au dénominateur de la formule avec P et R, β² multiplie la precision",
+        "ea4e9b07ba98806cc8d239f63e688eb3b205979db5dd4e1dd047a2fec5330612": "relis la formule de F_β : β y apparaît au carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.5c": {
+      "coarse_any": {
+        "0": [
+          "aa3644602b60b1051268012d485a850f664e93381c8fdaed289aea67895c335d"
+        ],
+        "1": [
+          "526260bca15afa7fcfe37ab87d52027ef84716d51d19e796e423a689e4331a5e"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "3391f37dc186fedec2a6b53638ed9f9020848667f6df76ee3c64f6a12436e585"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a3eab19af73339489aa0da576a7131da8df992329c0969053825ea193b3c1b67",
+      "hash_coarse": "bb0ac004110da4b3dad1c8973285fab8d619ace51f4c80440ad8e51c684fb2db",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "d72a974907c34276284eb730a7820af742e77203f84d48630324ef5b17c012ab": "relis la formule de F_β : β y apparaît au carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.5d": {
+      "hash": "31d62ec58a4bb34e831cea30edbc8f06faeb8f8db64be14e29bccc2bcca193fc",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0ea69b7a94f21bf5e87a3d440b9d9cfca72cab07e910e2d1167a40378c0b32e0": "relis la formule avec les comptages : comment β intervient-il devant FN ?"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.5e": {
+      "coarse_any": {
+        "0": [
+          "a5d424c6dc825ba5816cab054908f7bfdc251435bcf27e4da2388729d4b6d337"
+        ]
+      },
+      "decimals": 2,
+      "hash": "71a5773d9aa63352308a55aa3ee3aed6d9fc681eb01e0865567b0732896789f1",
+      "hash_coarse": "f62629811662028274794360e4dd26a69ac792c5f1734a40573433ba22f0fd78",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "f1283383e0009234ec4d34a9e251b160b45485b8c7362192b6d7169c47bf4a3d": "c'est le poids de la precision ; celui du recall est l'autre"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.5f": {
+      "coarse_any": {
+        "0": [
+          "d9920d83d59794ccbeae192593be5784e890e071c915e394883554c33be1a2d1"
+        ]
+      },
+      "decimals": 2,
+      "hash": "02527649e7c546083921107161b43d958fabd95834b8236b24e6c61bbc31b78a",
+      "hash_coarse": "b9b33b222a34491224c71b1e76d5bea0b4ebe715587e416d6772fa045cf66dae",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "cf89f287cc8878d62dc3fd27297734c17ba49dab6f11921709861b93f2721043": "F_β reste entre la precision et le recall",
+        "da977487e16759ae32de7ab555b4ca4314d7440c77451b634b0fbf592af5d74f": "quand β grandit, tout le poids va au recall, pas à la precision"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.5g": {
+      "coarse_any": {
+        "0": [
+          "895b0d301208bbe07420b0bdc85e09fc624316e7b0bca19de7139af6edfcc437"
+        ],
+        "1": [
+          "dcd65833f44f3bda154cc9272cf576bb509e0771ecc0c3127bbde60faa4e7cc7"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "9c0d1577b33e71279b9f8f7f27b1dfdddcc37c61f766aeadab53ee39fea873bf"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c6cb91426d4789034b4c46255c3b7024fbe711072ff4dfa9bbc3cb0d3a9b7a58",
+      "hash_coarse": "16c4c3bc62f4c559a725d05969c6cb89db479eb901a311ad74a83d103f245ac1",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "cb677b7deebf40ebd13d770deed0cc82012e7713bbdb56e2ff4e97d9306ba2f8": "recalcule avec la precision et le recall du modèle B"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.5h": {
+      "hash": "8f83562b5dbc9880cc23fbcfcd0d5cc2ced2e49c0843b690a37933de797de3c8",
+      "kind": "str",
+      "mistakes": {
+        "76fe3b27b5c1c09373dfda65125eb462686ccc282691574a96e611644aff2b8e": "compare les F_β des deux modèles pour un β plus grand que 1"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.6a": {
+      "alt_coarse": [
+        "b2620f98529c5e17a5a8e345afcad65540d4d09346713874e15e72fa724fe1f6"
+      ],
+      "coarse_any": {
+        "0": [
+          "59d8205da0b68e2b88a2f093a52cc2fb279caa0d33d720ceb08355954e19f722"
+        ]
+      },
+      "decimals": 2,
+      "hash": "8a14cf8c8556ef956825156282e4034573116542144ec00be2cf425b7e05e365",
+      "hash_coarse": "93490194198057472442d19eb8655d11180f8bbd8e667e3da08de7a00a36f13a",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.6b": {
+      "decimals": 2,
+      "hash": "888868e2ee0eb039fd459c7a0ee44b8b1622317582024799935d23a3a2470ecb",
+      "hash_coarse": "433854fdf3598dedc3e6dfeffdbd8f44612d3e415407c775319009da5fb8c65c",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "684d2a7b8e32d563be857a15602807e341a29c7c087c9f5411f4d42762e8f668": "la balanced accuracy fait la moyenne des recalls des deux classes, pas la proportion de bonnes réponses"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.6c": {
+      "coarse_any": {
+        "0": [
+          "009d0607188c76e9c6c1bb2ae7dac6fcdf7f99bcad979a1b06063129f7b7ad21"
+        ]
+      },
+      "decimals": 2,
+      "hash": "c0bf3891f71faa6f63530ef6c3321bb6cd5e9a9b183d787bf37e9b2cd72cc37a",
+      "hash_coarse": "0ba29fabf228cc0bee14603446b7d5abcf70a4f80c795590cb3d854b543e816c",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6e05e4930da4c25e8373482983f4991e68e03c274ed57baf5872b0b85f1f41d2": "le modèle B signale 120 clients : les 85 signalés à tort sont des erreurs"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.6d": {
+      "coarse_any": {
+        "0": [
+          "2e6b9367da555864d03ff6049ca8c3bfaead0909b2512c83105bf2cfb083ac85"
+        ]
+      },
+      "decimals": 2,
+      "hash": "00113d73fcf20c5327a7f515f41e4758bf1bddce5c234ba0513da3c7dd10752a",
+      "hash_coarse": "fa608f246c15dbdf1d86e43e15324ef576bf54fcf7b7a032b5156cdf348f9b69",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8540d31e4d06335ed559ddd533e9051e497ece2c336cac44360fe30dd70fe25c": "le recall conditionne par la vérité : parmi les 50 clients qui ont résilié"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.6e": {
+      "coarse_any": {
+        "0": [
+          "75b5f497d6a3d100c0fb48c372d76af2c9726a0335a2769faea84c01fec27668"
+        ],
+        "1": [
+          "ead4c4e3d1b763845c231da3cd144c78d22a67e4cae997ca4a3c30126421f90c"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "0de25121a2772e670baa1bce05304c596436e5c028b391e9c19483dbcccea97d"
+        ]
+      },
+      "decimals": 4,
+      "hash": "48259d01b70886079b18da875c59c7c4176a4294200f78b513020033fee78e2b",
+      "hash_coarse": "0f990afe9348cde82e66db604e747e589443451b171a0a3c0bd8bb5e8a177922",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8923505264a61d57b4f7f2fb89e5099adfcfa6a4d13dc80506d7bcfb5d9165de": "la spécificité conditionne par la vérité : parmi les 950 clients restés"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.6f": {
+      "coarse_any": {
+        "0": [
+          "cd33c9a3ac653309658a27e44aa0f16a32179b4a509feb970614c8b63f3ec143"
+        ],
+        "1": [
+          "449e23f3f76d4ddfc048b6aa4ac00b95598680c88f8ad43ad4217d93e789006d"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "7c30ef286e454eebb1f27951e50ecf3e14aa100e329f4786404a135347556d48"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3967cb7ea4bcd0da4040be90ef8b00d22d34ab5abc96031685b2370a21bd885d",
+      "hash_coarse": "a6379a91a85a8a1e5053b8142cde6d06dd4f9c9d7c46b35637c5e9f66a94e8be",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "441ff7bf19c2c9ad625761f4e9f18c8c3b772b26476517d56077d6006ccc78e3": "la moyenne du recall de chaque classe : le recall des positifs et la spécificité"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.6g": {
+      "coarse_any": {
+        "1": [
+          "93016e174251728676bbb0505900f8729c1d9374e8e173f4715930c8de93534b"
+        ]
+      },
+      "decimals": 3,
+      "hash": "da21b6d249db703707e69f8482fbf53ac4e9d87df43a7f32876a7cf6948abb9a",
+      "hash_coarse": "4a0fcd4e02e72c4ed48548de96b640accf818692527ab56381e43a92e569aeab",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "b16357b8fe0108d2cfc87b4ed6cea4214053ab2247e39cdf8d329f6c4d55e1e4": "au numérateur, TP × TN moins FP × FN"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.6h": {
+      "coarse_any": {
+        "1": [
+          "c7d7ae78f33b8d12c105f25d09b32b3527cca08f6e7060368c7169d67bc8318c"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "0085b73ed3482b8ebdc60feb7439eb23229334995ecd8c28cfc8f7dbc19551e0"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8ff50c301736dc0e1cdc3f9d443a4c479e296d5d676d5d279e22d068f687a1c8",
+      "hash_coarse": "82939068690e29ce78d049d003aab008a7fcdb12b7aabb9d06e981b68c2515bf",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6e3a9e9dd185608f9fec2e6decc88907e39bce7cf4fe0a1389b007e24a8021e9": "la precision conditionne par la prédiction : parmi les 120 clients signalés"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.7a": {
+      "coarse_any": {
+        "0": [
+          "d98d1e31343ed2642ac62322b2141fb331ed0981c2d3ad7399b1b950a1bf5928"
+        ],
+        "1": [
+          "2ba20fcf095d3d249e55bb0f1aedbf35f984096bbf2f94548f009f81d5f5d08b"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "bd6c551280d424bccd459250cb4a7ff0e46500b8017f2053d71b01b1252820a2"
+        ]
+      },
+      "decimals": 4,
+      "hash": "00a53a0b449584757617a20883c92919287eeb1b2e504bdf4cfb5bc6de5e9c26",
+      "hash_coarse": "0a39d4a1cfce4970429ce36af0405f21bdf797e2186355720ad9e2d72665de73",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "1c41482eb596307300ed361919a165e0c946de4496f0a9e4410dff002de2187c": "la precision n'est ni le recall ni la spécificité",
+        "940e7a5682faf837c9a6e1fc77fca0dd7e3cfb6673e1456a1bdb83c75d046eca": "la precision n'est ni le recall ni la spécificité"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.7b": {
+      "coarse_any": {
+        "1": [
+          "4ad5a6d65a3ea125a7e4cfece88d7790d9c474b9e12372e08af2ea70d4e4d368"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "65ae1722586770baf252128c9a5d178c258bca3e3f0e7c5c384621d2024a8b35"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e7ec0f26b13c829b0a3a0b8e143a7fc4f90ed2680c3dfec4614b87d5563768bf",
+      "hash_coarse": "d0750a1102998a442a48270d6a521acd2e89a4f9db0d99e37240890f1fc1e42c",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "0a4b72522b2ffc6284675d01b2ddf7a1674e16add58a4fa8f04b2abc4b4fe7f6": "la precision n'est ni le recall ni la spécificité",
+        "6d3f8d4c2af4e02df58e0bf1da00867f59cd7c2704cc3607a4caacc0c7b9b71d": "la precision n'est ni le recall ni la spécificité",
+        "b652fe9e8025a63bd24bba6dd1fb362d2ba0c4aa7ddc45f56bf3c5a0af5b3bfc": "recalcule avec la prévalence de la production"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.7c": {
+      "hash": "b696ea7a1f1de30b165599b0ebd3e5804040b63621b5fc9fac3657fe2e2cb9de",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "90b87b9adc79ce0862f821948df9f1a82e4aaddae43e17924ee3da16856b7390": "le recall s'applique aux seuls comptes piratés"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.7d": {
+      "hash": "574d85269a6082cb133cf9c825799b46da7b66bb10e88b1aac369833b44e58f1",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "1d0cdc124acf55bbe5a1fd0a3d1356ad45d79e0db30bd0f2b8290c75acf7a296": "les faux positifs viennent des seuls comptes non piratés"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.7e": {
+      "coarse_any": {
+        "0": [
+          "40af28dbffdf4228f230a481f4b96f43d3bab5c623d598e139bfb1960d41e996"
+        ],
+        "1": [
+          "6cad0fd46b4d6ca9cd2090fad2f61d9cb0b7acd8e0b15c5cf688f2a859baf380"
+        ]
+      },
+      "decimals": 3,
+      "hash": "03d5d808bc243b2496ec683cc335a8eafb06b7c30f37c8724f92614ef4a0d6fc",
+      "hash_coarse": "15b0d0dde5206d12782dab8f4da0e24ec38e8cecdb16b9a4b1f6c230c05a5642",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.7f": {
+      "coarse_any": {
+        "0": [
+          "f38b8bac2760aa47f3b8bc2bf2e490d4151f54e913eb747dd683aeada8be5a86"
+        ],
+        "1": [
+          "668d06e322d940c8caee6e104c285498dd94baf643f6bb4d407c322355f89aca"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "0ca9e5ead044ab345ea853d31c095d01668fa44c2779238c2c1308efab3c7787"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ac8b8b7f2596124751e401fb7e5d5217cffac31f73f2ca72436db95bab527474",
+      "hash_coarse": "957cca6e7082ee7b7160bc05c302c79af9a5eeaf1d0ce429bf768ec4b517174a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "446c2fd62a2d506ddc76b120002b3d79e47b0ea5daa21b9d0669983f58983507": "l'accuracy compte les vrais positifs et les vrais négatifs"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.7g": {
+      "coarse_any": {
+        "1": [
+          "0967bd623af5047009e52d758439c38a84c4ae45add6a15a7dc65d78edae64cd"
+        ],
+        "2": [
+          "388cc40be5483b78ecdd0b2e9f6a56c2a638ff11de1f4b0b563f78066ced3457"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ee911e69bdf3f5a09f563e05164bf29de3e8299b03317555c92fc1a364506d26",
+      "hash_coarse": "12941ef9d9ba777d0793244894af2f2d6ea27ec60c8c425271888fae3b165fa8",
+      "kind": "float",
+      "magnitude": -2,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.7h": {
+      "coarse_any": {
+        "0": [
+          "053597c6ede23e185b6e3f1e24790958cded9894811ef062f683b55d047d0c10"
+        ],
+        "1": [
+          "800a4e535b04489a512855be329004ef5177c5c45dcd334e53349e95af96ba68"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "2ca4077ba27f7ac5fe5ea2cfcf6df4a7905aa5b17d397b2057b76a8e35edadf8"
+        ]
+      },
+      "decimals": 4,
+      "hash": "f0789d6b2baa6cfd9437d1da53a5cd0a5a8d460459bd572708a7bd037f975836",
+      "hash_coarse": "04e6618f0a59d2ba449bdf1253b4ec82caec887bee1d03ad1415c097609be24d",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6a36fcf0d6fb3b92b216faaddfbe5b7b09552bcf4f4804897ea6b9543687858b": "c'est le taux de faux positifs ; la spécificité est son complément"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.8a": {
+      "hash": "36cf90bbf5066c7501fcfa74d319c6680112a44e94f37ae5075c63708675f604",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "41187a2c4c509a83995a543c718e9a776358571f8e1a3ab897379c0045c2eb8e": "compte un point par score, et le point de départ (0, 0) avant tout seuil",
+        "57a505967a794a72e6514fe5d71034dd76fad27f0a87b33baec8451949586d07": "compte un point par score, et le point de départ (0, 0) avant tout seuil"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.8b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "e0b060046fbcc1ba385fc6d23ff6f7cbae89daa6d422b7947ecf85d1bc8741f3"
+        ],
+        [
+          "f543e19124075199b7cd6e791f0c682eeedc9657ab3a00e27b1440d15c1caa74"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "802f620c6a9c869d20db19e144b0bc3a228463fabef7d9b857fc79e206dc7496"
+        ]
+      ],
+      "element_hashes": [
+        "1a171454477514f22d41b628e7fcbb1abc7856431dc0bea0f22a6a4faccad1c4",
+        "b45fada266f462be736bd5c3f3b0a3f1da1c72ef7391dedcc1547bf087534fa1"
+      ],
+      "hash": "171ba84a5c1ce1347bcf74ac9626e321a746c3c7939e9096f4358b10e59a939c",
+      "kind": "array",
+      "mistakes": {
+        "6015c0938a3e6243bad88754dfd8a05556ab8a6cfe31a1c12f9a1f95ee5343cb": "l'ordre est [FPR, recall] : l'abscisse d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.8c": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "326e27022178a796f6d0d4dc55248cf76f73c9b2992106ff7206b20dbe47f460"
+        ],
+        [
+          "eb3bfbd482b245b70da47a0e5d94edd6903d1ad6458204ef77a32b8538ac7467"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "f5d045596f04f1caac83c8c5a581c5a5107c904f02a0b69fb63016dadf24a8f5"
+        ]
+      ],
+      "element_hashes": [
+        "263e56aa398b68bbebce01bc8817df1fcd2c0cd48848e598de16fb5821911a31",
+        "7efaac515ed505e6025694495188206f0e02e7be05052e1503e78d514b5da23d"
+      ],
+      "hash": "4734b92962f68853dda48249c1c1e6839a604d1d9f187c45d238d036e3666a35",
+      "kind": "array",
+      "mistakes": {
+        "a180527e327dbab50b67b71eeedf1b14db2783e694d34c5f6ee786933590f89f": "l'ordre est [FPR, recall] : l'abscisse d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.8d": {
+      "coarse_any": {
+        "0": [
+          "81f3c45f96a7d62cf01f7288434b963340714347ea2ba8e91d2985d20a63f944"
+        ]
+      },
+      "decimals": 2,
+      "hash": "528efc482b1ae1ebc3a8c7844a8cd3f2b546227c199377f4288c95be987821ce",
+      "hash_coarse": "e59994ecaf9f9da052da36b2b31db1ed56c3443dba1ed50c8d1f869bd18041d5",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.8e": {
+      "decimals": 2,
+      "hash": "de069bccc8abd538c63081d5afdf8662337c7f64227f5487a85ff99355c6648d",
+      "hash_coarse": "372f70b2c4b0239061d2bb621102b72ddc83a6a96178d264725e0591d4cf8427",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.8f": {
+      "coarse_any": {
+        "0": [
+          "f2615c2dde61779473c7d5791a37a92bd7a46ed28b4bb7c77b133ed699436755"
+        ]
+      },
+      "decimals": 2,
+      "hash": "24db66fff351e2758924772abc93b77cffb14c508a45114bfdfde0ae95f31a72",
+      "hash_coarse": "ecd950efdf486446313227fb9dc54216d23d9f6526a89b2a6f1fe42b8cd38a61",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.8g": {
+      "coarse_any": {
+        "0": [
+          "8e1aa0d92378fe22b3fdff5a7fbb2e9cacfc515ddde89888a7d3419f8c39b0b4"
+        ],
+        "1": [
+          "53fc25b04ecc751bec526cbaab910fdbd7b33da44f13863bce84be77face1999"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "0015945b544e2ff2a077c144d5f9c54831de87ad887670edc9701922fd04e8ca"
+        ]
+      },
+      "decimals": 4,
+      "hash": "f6b133b339ebc3723e0381533c3319563875656ff52e938fc5a34472a8f33e20",
+      "hash_coarse": "0bff98b17dfb39a78d580fb934d0ada03399fbd74e4407ca8bb454874a41c2c5",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "f9a4df6ad80cef94245603f68c0ff241c12a708d2eb4e7539fffbba471887f4f": "le nouveau négatif a un score plus élevé que des positifs : l'AUC ne peut pas rester la même"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.8h": {
+      "coarse_any": {
+        "0": [
+          "fb9ff1bc6cfff26e7940280b2b671fedfb9a56fbdc242ec23baccc6290e84e6b"
+        ]
+      },
+      "decimals": 2,
+      "hash": "90aa33b73f4ea96e5a5ac7b9feba621ffb0a3a748bd9331edaeb120e62aa400c",
+      "hash_coarse": "522e2ed38759d20be180f5e499e91acc1971dffd0342ac165d21141469b9c32d",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.9a": {
+      "hash": "85e90a3d3f854e368dd2f98fc95c5426c1f341c390d0ba095045c026e18fca8c",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "fa6424afd4049ab3c9f14185ef41a7f2768435cbf3740faecf200a01b2da8f51": "une paire associe un positif et un négatif : 4 × 3 paires"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.9b": {
+      "hash": "0b901288d472afe0f923b70c8e4980e5ac2e4265063712b003c860cac8eb4ad4",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.9c": {
+      "hash": "c63d5a13fbaa19a55062d798102ab836dc1314208375912cf3413c3391f1bb24",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.9d": {
+      "coarse_any": {
+        "0": [
+          "1eccb12329cae4d539eeadcf880b1cfc588c6ad24aaa5ee1387b54c2d98fa2f0"
+        ]
+      },
+      "decimals": 2,
+      "hash": "a02779ad2ede89785507d0606429f254f3c22bed2eb243fd8aa0879c575d2b1e",
+      "hash_coarse": "08d0afdfd5edcca73460e483e1ce424de7d4dbcdb8e255bf9af39b4724645184",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "b238e339224538485f64ba3aa5ca48bf302c17e7453e4c7e3438cc35ca54996a": "relis la fiche : combien compte une paire ex æquo ?",
+        "be32d43817423cff0e492ae5264d267f9dc13b49d1bd79b1a3bd2f9bf894ea1a": "relis la fiche : combien compte une paire ex æquo ?"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.9e": {
+      "alt_coarse": [
+        "541631fac097538e454e12ab312456fef611f62c71e0a18d57a00df8b0ed4fa7"
+      ],
+      "decimals": 2,
+      "hash": "d8f422f971315cdd383a14b25c4bf8e00dfff660fb46b684d1d0bb6edf9aae2c",
+      "hash_coarse": "dc2fe4762711ae7e6e097056e67990fbd9b506c7b9bce84f168b2fd94c31398e",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.9f": {
+      "coarse_any": {
+        "0": [
+          "1823d2ec3ef85d1c23c52b9b09a42bf8c7574f198fe0f536e3367702720716ba"
+        ],
+        "1": [
+          "b029689d7c51a10efc85e2d3940bc1679aa73203d5c3506c37729c00d6e0f3f8"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "b43ec9cc5889e2fe45998fd1e97a782651dd8ce2d07d084c9db576f7b6fbd1eb"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c28cc6c57e2094699294bfeeebc1d502a6cecc66fdf2f65fec43852e60473e91",
+      "hash_coarse": "3059c46531c9269827f4cdf4e6cf57fefb609010ff1e719e29bb84fc26bc4ab0",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.9g": {
+      "coarse_any": {
+        "1": [
+          "022f8bec8f1a42142b188a832fba91548321d902c12d4cbe6988a14197ccfd45"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "2e6e41ad49aeaa0e00750197fe8fa58dc8fcbaa1ecf172d4422cac86c98d3512"
+        ]
+      },
+      "decimals": 4,
+      "hash": "5157e5680368b90706b09e6b367bd7da18e743108cc32317a9130a7e6b500f25",
+      "hash_coarse": "58fbbff6502f925514ac7ad76918571625fce6ea4a7e2160fc58d38219300161",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.10a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "5ca636a679c7d54e06889a6f58edb4a8676514bf726df9f004906de278779fd2"
+        ],
+        [
+          "6c493ae3e6b1a28c55cdf443a59f0d97099756e5efd1416b70a6134e592fc465"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "aab0b2050e5f6cae2b40eeb3038ff2e7d329eb84048bf64924e4d8ca0606d3af",
+          "fcb5ef165b33894413c4bff338c912045d10b7931e3691fd50cabb83fc5f311f",
+          "9c5d749830efba849fcbc70f952a11570d1031efed38425b512dce4fd102a4ba"
+        ],
+        [
+          "5c44e37beb426a8ad10a604c1406ce2955818edc50552a2e7af5fbb337d6ca88",
+          "0b99d6e3e30c97dc4e84e33bd2463c9da433b2e65dbbce3737dae1b5d7a52f58",
+          "515387eb104889223f9ea30b31ab051e7e3a7b554da5c902a4b478b0c30bd9ea"
+        ]
+      ],
+      "element_hashes": [
+        "0ad3fc6dbd77033e8ecf12c0829781fb1683f72b85da308a8b4038d55e71606b",
+        "7d3f3de594bf97bde8856403c9ad9eb14985a0a418d5e0b69f969aed51ae3890"
+      ],
+      "hash": "9b6684342b347de49f560ddfb1b65133066ff6f0c45aa27521b162b325f9a8be",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.10b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "877437192cdd7ae636082b331ef055ee4586ca6c29aa32fdde88b282ba56057f"
+        ],
+        [
+          "ec14e813c77f3517f9e9a53350fbd619ce2aa519cf208cd915bffb2c31d8895a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b95b934694336a9e3f51b40109e0dfd22a5a0397201f12084de4af4d9e4763d3",
+          "475916dafb3d0f52a4d083899114cfdc9f7e9b05c91a81401314738f198d5abf",
+          "fbf703d868d820dffc19e3469e0be88de91df55bb02d52aca1b68f86813da465"
+        ],
+        [
+          "8feb9817084f1c73c569dc9d15f3e6e0a845d2cffe1839fc714942711185cab4",
+          "f656038eda44e7a0ff14a919851a5febdea032e6c500efe991d377e8b670e12f",
+          "d2772915dc38af6a5c4ea11a2e653eecdb3e9337750d307f344fe448aec2282e"
+        ]
+      ],
+      "element_hashes": [
+        "1550d959d0063263c34005ece539a3945a713f91224d43282a444c58007a60af",
+        "73e16bae99fcbd82a80bee7cef373e4697e4f088485b5341afec3872ef5120f7"
+      ],
+      "hash": "6c5d60d6d1d0a8975fbe90ed7e55fc668940fbfc2258c44b7cbad6c5798bf928",
+      "kind": "array",
+      "mistakes": {
+        "45ac2101fb3f1132856e6d5e21400b2c67020b58622d18cc2e249fbd45a461bc": "l'ordre est [precision, recall]"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.10c": {
+      "hash": "23e5bf742929dbb9629d00bf9b229242b304868f72d38464b5ffb66a6e448def",
+      "kind": "fraction",
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.10d": {
+      "coarse_any": {
+        "0": [
+          "bcf4ce8bebd634100d4259be37112c1b394d5284042fbeab8b04ee31f82f2d8c"
+        ],
+        "1": [
+          "a88bd6928bfb93e13644e04a0e24831a0fe0bdbb25ae3b526040f2310fde5aa0"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "c99292db1829b0cc6cfe5a20a757e8412e8e1934aa2dc30336a8339238c40bf3"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a315e8f3c2911f18e4b31afe5db3ed7f5031f23c8950717055d6f7d198967a15",
+      "hash_coarse": "d9805fbf5861067bd65805c4b64e6091382cf0a998fc96f86cede697e7c207c3",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "40d858f7620ceec1045892bf9dbb206686c2f59cf6f2731d5da5c086baca4cf3": "l'average precision utilise des rectangles (chaque gain de recall fois la precision atteinte), pas des trapèzes",
+        "75c04a91526a899b45a45b9114c6dbfd16a8a86057dc4fd1e77be9b77c4cf89e": "seuls les seuils où le recall augmente comptent"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.10e": {
+      "hash": "54f54c0265ad26d05a2c3e3c7a14aba5cfd7dea4aceccaf3b7f8d9b5a6c7f158",
+      "kind": "fraction",
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.10f": {
+      "coarse_any": {
+        "0": [
+          "219714a74729b946277cabb94acd128d14306d48c14ac93f08d5eab15b8db4d6"
+        ]
+      },
+      "decimals": 2,
+      "hash": "59537911bec570e91803e38a9d9e05ca427f978e848468ec1cbf29f2563ba575",
+      "hash_coarse": "2a4099a9377bb65909f8d39e5ad99fab933cd1fdbfefbc6d880af15208cd63e6",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.10g": {
+      "decimals": 2,
+      "hash": "36d41c4ad6cb456c4e02dd21e67571b85792c02741171dfdd164fbde9b329e71",
+      "hash_coarse": "6a4311e241f4598af88da3e3e647e71c817fd179598b01d97a38927ecbe76340",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.10h": {
+      "coarse_any": {
+        "0": [
+          "5051b36d03c1599a114839606411a41644c5aba510bc0c0e6d7e835b4fc77c40"
+        ],
+        "1": [
+          "eecd4efb1b727b72e1d956ca5fca0c7e3f9a9d22728860a317948af7dc9ad7db"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "cd0dcb8fb1acb9e97855b0cd86ddb9ccf59df134eadab503798367b012a87a73"
+        ]
+      },
+      "decimals": 4,
+      "hash": "bfae02e52f9985e0fa9ee6af3f46e694ccb54639bfaf8e5894dfa9274933cff4",
+      "hash_coarse": "7db5f038d28f2659538b229bed42e47dd43afc7c41735099710a4c220aee58c6",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.11a": {
+      "alt_coarse": [
+        "033250aa4eb4f8bab0285435ac152eae1debaec05f15a3a9e8b732c69c80d82f"
+      ],
+      "coarse_any": {
+        "1": [
+          "129ead608c97f8b6560e4c97519cc3cd958a546325fac1bf16a01474a7c15bd5"
+        ]
+      },
+      "decimals": 3,
+      "hash": "6f89fa16118eafd8444dfab83f0f0caebb7562a33572aa9d004f522c0238135a",
+      "hash_coarse": "2f225d774b09367c77913cc3ceaf336dde916619531ae8cc0f5dc8b8ddd81944",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "f13821602f0e96a28404243e2305a349539e881c8529700d600ea8e1ddc23cd5": "le score de Brier fait la moyenne des carrés des écarts, pas des écarts"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.11b": {
+      "coarse_any": {
+        "1": [
+          "d2ce672b093fffbc51fe9c77a4734d9c1afd5961154d67b21cec11701372592a",
+          "a7f55b7cb329e0c550a536f144f1220a32848c6fc35d25ff8f99da93de821cee"
+        ]
+      },
+      "decimals": 3,
+      "hash": "47490a38588d1d63e981f8f6168e589401710bb93fe4df1394064012fda68e4b",
+      "hash_coarse": "69305f66af6cd9b00a35b0992ca0d99193eeb45a9688f07431837aeb02da54be",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.11c": {
+      "coarse_any": {
+        "1": [
+          "8dd985bcbfa9c52e2a46a098b1c1d363c4fef196b80aa5496968447e3ac4b516"
+        ]
+      },
+      "decimals": 3,
+      "hash": "83f4f352afb167b578f5aebf3eadad8a596e5474bbfd8571b4234064a78e59b2",
+      "hash_coarse": "034b42b8e788bd9c98bea6862d0ef9b18ad834c8845980272d6333c4ecccdbc4",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.11d": {
+      "coarse_any": {
+        "0": [
+          "2666c90d4c638c7c5aca27457a7c1d993f6ccddc5696d9856a0293bbdcf10560"
+        ]
+      },
+      "decimals": 2,
+      "hash": "3caf20b95a9617b1914aa6c2bd302eb356f83498df58cf05ffc04c07e1c5f300",
+      "hash_coarse": "fe76b6299899251a44b08d8ee4591426f968376d41ec3751329adb819d069b88",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.11e": {
+      "coarse_any": {
+        "0": [
+          "2c3b5c85ed33909cbcfe4054c294175f2a8368bb530bc91c25cdea4dd1466b7c"
+        ]
+      },
+      "decimals": 2,
+      "hash": "f08726be87b706c5b4cbf9273f626ffd33e5fc1e38ae31e03b4ce5f63da280ee",
+      "hash_coarse": "4c9c181821fba41105a005f8514ee7cd3fe2ceaf1b0fc63e2a57ace5927d8d81",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.11f": {
+      "alt_coarse": [
+        "8587ee4e41c9ffb446ea05960ed2eb8d98d44f19fd597db2f87bb749d2af94d3"
+      ],
+      "decimals": 2,
+      "hash": "ed014641da9206da23f23a8d1c29f697bb82ce01e83582fabd3fbcb6f43cb96c",
+      "hash_coarse": "08d1380a801d090dadc1a134f3859cd7bffb3a2b4217ef27132bb29ec88d5e03",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.11g": {
+      "decimals": 2,
+      "hash": "13158c4645e8af5d1d0f24bb7ac11230df5d9e09a6a2c7e2e9cf3f34affe99d2",
+      "hash_coarse": "a13d8869e1800b611e88048b470195d59f00fae3c3ae56f66d09553bd7d8255c",
+      "kind": "float",
+      "magnitude": null,
+      "sign": 0,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.11h": {
+      "decimals": 2,
+      "hash": "ba07f0f496058bbcf6d50f01ac6588ed5ab92f7418ecc530551d5b2e5d910229",
+      "hash_coarse": "3eedf488e2e08972f7c68d75b5015e9da4e5e6d48e36f25e7e74f65e7867177d",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "442c3326c918ebb02eb0ba92b958904a19ff43dc7fe2b054ab198381f969fa6e": "une contribution est un carré : (p_i − y_i)²"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.14a": {
+      "hash": "cf03e683078f071a3d0a4c7ac7fc4633624b100423faa306347470b3b38187b4",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "fd5f6846e30f68946eaebe652d21e03040a077dddc81ea025c7fff454a6bcbe6": "au seuil 0,5, un score égal ou supérieur à 0,5 est déclaré positif"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.14b": {
+      "hash": "570970fe1fd87ecf5e9e5e9c4c06144778ff9e0199150b51a9811e8a6c401e1d",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.14c": {
+      "hash": "ca0086aaa6ed15b8f3367dfcd0f422ad2dd4e614c168066a06d4587be1ef2b77",
+      "kind": "fraction",
+      "mistakes": {
+        "77e46b801a97b2774dedd4d629d1fc5eae4ff477552c4cf5b80d3a08543c9932": "la precision divise par le nombre de colis signalés, pas par celui des colis mal adressés"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.14d": {
+      "decimals": 2,
+      "hash": "a439b821f927906ce6d723c8db023ef4001bb75b03e3a1fa7320f388ca956346",
+      "hash_coarse": "7d483dbb71b043950d5a9d96ecd3377db71ed00730bc44eb7e50360bbe34c8b6",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "54971629ba18023800b37f5ba9a250b866b1c75aee29759cee2d3d7c6b11f01d": "le recall divise par le nombre de colis vraiment mal adressés"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.14e": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "86c666cafc4ff17a3a7cb5100a17df314834975f33f61baf599ee29d9cfbc337",
+          "c6b9e7ff33fd63c5c818b5a7f20e9c9ed4f2d6526fa2e5f7f7558d82823ddd30"
+        ],
+        [
+          "651adbfbb7cd442fb3e6d02acad7cb87363e06da717340b61c5b66fcdff028ce"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "57446bbfba049dff7562f1498944d4c6873952cca999494e5858ba8d42e857b6",
+          "53d291fbb504044dc36ec4656fe34d52453eb09649ee7b4ec89827e114a534b5"
+        ],
+        [
+          "54aa3e125df7447214ee9a2372b9c0d3c4de6fc70ed4aee7f26e71adf48ed73a",
+          "a5dcc38f7381166a885ff6db1913d6815bf04fc6733ed53cdae91f35d352468c"
+        ]
+      ],
+      "element_hashes": [
+        "1b40e3fdbe44243baf92010014dc55f9abda065001ab4480b0affba8fed28e18",
+        "3214c3c2d1212bdc36ac887d4a08033be405e210c677215b30f9b9ce45be09af"
+      ],
+      "hash": "41b82df54c1312144f22fee2b43a049a368cc296fa8c8ba7b34fb3a654d38d78",
+      "kind": "array",
+      "mistakes": {
+        "77306275dd0aaf307b7f3a60c494390dfb05a4afa2484cd41d54405e6943d937": "l'ordre est [precision, recall]"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.14f": {
+      "alt_coarse": [
+        "11ef3d8914de231df5bc7007e7ab3929618d18de7a81ef3b0724978668c2ba82"
+      ],
+      "decimals": 1,
+      "hash": "0498d68459311f16c66d7902e538b5d0c296fe8d1dcc1339abb07a565443883f",
+      "hash_coarse": "cf9a34e6391cf55c8d67ef502a5357a2977116edc1df44e75b300f5dfcbc0b7f",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.14g": {
+      "hash": "45244084d4ae4e14af6c648e9c7afe1b8cc4b2be84f4cf8fa695b502e063bf7a",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "aeeac12dbeba207d5155d03f65d88e27ad98f16764fd9063b06888a26b0a9a66": "chaque sorte d'erreur se multiplie par son propre coût"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.14h": {
+      "decimals": 1,
+      "hash": "6654a23c0c36ab4cc74fa8a560dd523d78a0db94652cf522a330f69d18ea3a8c",
+      "hash_coarse": "36317a4016136ed10a6196fa2b5bfe5554c7c3695551de09004cb84ea9d8a165",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "26a6965845325a7548e23428571a67af6b29b755ea6c642e3f3ef5ef1cb43fca": "compare les coûts totaux des trois seuils, pas leurs F1"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.15a": {
+      "decimals": 2,
+      "hash": "94e6b205eb2a6ce96686a90e26877fff7de57ff4698d542b4ed705e1c1b456da",
+      "hash_coarse": "804980d853ea5ef22713799081865039e77c9a51f2e433c6ae7c253aecb2ec1a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8e948f9ba985d6ddfecc991ce5e6ecef1774fcf7eaf689f44eafaca7d4e80900": "le taux de faux positifs conditionne par la vérité : parmi les comptes qui ne sont pas des robots"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.15b": {
+      "decimals": 2,
+      "hash": "27ca518ffaccd5425127a5a9c817d90b8ee9ed82e806899ce5210459a83e0b91",
+      "hash_coarse": "15eaec35374933d1ffffc78618ccbe41bc1a417eaf2279ffc547f768a0439c36",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3b408e3420826cd55743373301ed2b552a2d8d463814d583ab4ba8b5aa047449": "le taux de faux positifs conditionne par la vérité : parmi les comptes qui ne sont pas des robots"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.15c": {
+      "coarse_any": {
+        "0": [
+          "2e0613d15d2bf3d69e0e004bdf59b0e08bf89a6466215701bcaedecb761620c7"
+        ]
+      },
+      "decimals": 2,
+      "hash": "7aae2209ca39a9c17cdb81cc9a0943a0fafcb592b9fff947f75471d5321d8ffa",
+      "hash_coarse": "1874e2fb5fac4deea32b5f85dc3b2eb769ab4f6497a8902e47d6371bf69a5e6c",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.15d": {
+      "coarse_any": {
+        "0": [
+          "685e0b69bccfb175fa407d78d5acca1fda0235be895a168615b98d4dce8b9ffb"
+        ],
+        "1": [
+          "88fc46b5e914128e6787b2b569f4ad91f4352586342dfb6ffe56289f88b868ba"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "e13d906b7270f829a15d4d461fb6aa20f93f230048c218bb4e299065384c679a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "939b8d0bee2207e162c23cabda5127ca5058ee0e76c95a3637c3c1463e4e267e",
+      "hash_coarse": "75e7789bc387570defb9ea6da018fa2da41f21df06ddb2e3489460599b77cebf",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a43c142ed07483b4bd39ae2e4435c3cd81ef1d05ab0db9d1f27fee8b15d506cf": "la precision conditionne par la prédiction : parmi les comptes signalés"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.15e": {
+      "coarse_any": {
+        "1": [
+          "8e4e4a3fc518e7bac7d6c98efe93244207819f7432d4e12d0c28083490f2cb6a"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "7a0dae63b259b502a616a66da1912372106dc4c400fd436763f1814fa87c847a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "aff75f7d2e679afd81d9799c8afa95e0f6e92a92e0174c34aa91728ac0ab4df3",
+      "hash_coarse": "9ba034d153cf2744162e9ceeeee0d6e20448865e0d94c9a372a59328c7ff074b",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "22763bc60e834d2ce5b60507ffeab9e467c0d0612037288ce229f658f6133735": "la precision conditionne par la prédiction : parmi les comptes signalés"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.15f": {
+      "decimals": 2,
+      "hash": "5363ad99072deacba60d6627266ccdae9541aaa01c0fa7e3e2787c8094b1ac8e",
+      "hash_coarse": "4126e170b34895a5a1a7491c9c78d53456004ec65c6b94785b7d7b8b51bf64b2",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a709744dd72d8232ba026474e86d709f31bcab84af8908cfb1e12b5c16f27b4e": "les comptes signalés, vrais positifs et faux positifs ensemble"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.15g": {
+      "hash": "ccacedea8f830b5ce9a3b1be6892fcf36395f0fe078a2d8d0bec391f3837770a",
+      "kind": "bool",
+      "mistakes": {
+        "aba0799f37e940c1dba4905093475f2c4b5f8bc07394d8e7eb8d52c852263453": "compare les deux taux, recall et taux de faux positifs, groupe par groupe"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.15h": {
+      "alt_hashes": [
+        "3c83107c66234d667745a772ca58631afd676de63f3d67d62f86b85be518a496"
+      ],
+      "coarse_any": {
+        "1": [
+          "a05562ef72cdfc8a214117711e3d798975dec5af1417f90a536da8ba4ec3ba70"
+        ],
+        "2": [
+          "4bd9053f44f11b62c39451932385364b2412899c740ff9f10161830b302d8655"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8fb5ae4d7b304635b8f242b6a51b081429e6470f03a6ce92e535c7e915b139d9",
+      "hash_coarse": "f421166815478f43ce0c44cfb191922caaa81d4e292e551499873e91308103e5",
+      "kind": "float",
+      "magnitude": -2,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.19a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "f008472d901ed4b864b2b2cd20706df633addf8a12ad3816df605de1239ee307"
+        ],
+        [
+          "64ee732ab3dc92962533dacce62d5a32abf3873581edd4664e12f2588c2c1d44"
+        ],
+        [
+          "f2967d73a20e9a7f5ea35e861466ac9e554e7eda2def30f419e4e3548d378a39",
+          "f38b068161c26229a6ac6e478d4bb62b11a77428fcfe761a3d5eadad414fe5ac"
+        ],
+        [
+          "36f7990859087cfa4ee5188f57fbf0c00fc095fc97169d78f6af8d784f0eeca0",
+          "b0a96431194590c4a6a52c3e48f3d20d2b4cf11bdd146b7be5401da6cbc6d554"
+        ],
+        [
+          "6c573c614aaea9c8cb289b5ae8144e4a6c60d6930ed22e564d82648827eec9c1"
+        ],
+        [
+          "28168245e06760cf5c25149a0f07d8a2904267be46a2cc49cd054ed7529c2709"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "cbbb5a2b31aadb770d611a34e37e7a9336fa9b29cefe83ef60305f708b3ecee6"
+        ],
+        [
+          "45a7766ad68106eeda1daec8eef3391240bc34d1c05e699a1007d56b861a91c1",
+          "59f2c67aacc9da61f6223b54ff152927b8285f4deed52df23f0e8e22f50c673e"
+        ],
+        [
+          "41ea338657c9faef56447091a944a6391900033a4866f0930ba914e68892d7f9"
+        ],
+        [
+          "3975454341e59d7778a8dd046edb835bd1fd8139f1b18a3d2eefc3be4d1e0e3d"
+        ],
+        [
+          "ef2d7dc8a4001f8c7a24c5609075dfd513d39716443f44f4ea6a18732e8cca1a"
+        ],
+        [
+          "c8e4a78a977fdf5e85e7673d9b21f5dd3c195ba3bb2fbf6f4eb4a53e981a0012"
+        ]
+      ],
+      "element_hashes": [
+        "20a795172dc0698ba9810c8e24bda49f0f79e4afab1a7d9f309a9cc0b83a96cb",
+        "6f74c9389acd72fe913170df156526723d9510450fe161fe524a35014ccb1087",
+        "91b93fa0e6b3e5688aba20a02348dd619c07a496c769a9c967b9363dfc043724",
+        "d07d0a07569303d7bd0f97bd436674f4aa7444745c78c088a67421aa06d3fb99",
+        "3821d3a31fee524c722285b1fa21d7c752c18c6e2832eadda0dfa63a1f4dfe4e",
+        "ca37a2ad8f57e3cd379073646dabf770482986c769a5e77aa9d7a792166cd0c5"
+      ],
+      "hash": "0a194eb0c975dba3c1350cf47eec9adff1f972707dff8d4beabb01c40752fbee",
+      "kind": "array",
+      "mistakes": {
+        "79b043c627b34203f93d9e5e1561671d2710f64234d77d65fc3c5b84573d8a73": "chaque comptage se divise par le total du tableau, pas par celui de sa colonne",
+        "865f4d8dd3082a8020fe80c118b1fa4dd8e828df5e8c3164ccfe38ce7ba97efe": "chaque comptage se divise par le total du tableau, pas par celui de sa ligne"
+      },
+      "shape": [
+        2,
+        3
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.19b": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "2d2b2e487a5a00b97f6a05810d79b9aeed85933877d1595757acde0fa1b3f8fb"
+        ],
+        [
+          "a12a346eb082d8adf4d1ce972677f77d801fccae9896e89d9af4d3885d18d80f"
+        ],
+        [
+          "383cc1c7f0b7b657fb3e410dd9426e74d1554a5c25f26e01e13cfd82f0a66fe3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "3db4adb5be67bd101524b47047f187645b4cb17091d253a0f34583f019088a28"
+        ],
+        [
+          "027dccc1fa9a449e6aed18d0e36818908cff491ca08ab2b665f9324d168df2ec"
+        ],
+        [
+          "5650ab50fba59edfa3ea9ec29c851b52f7ba4cbaa7063b95364a50c2fc538de2"
+        ]
+      ],
+      "element_hashes": [
+        "1325056f94821c06eb3af19cdde87ab26bbb5d47f020e80fbae91c4c7afdcb36",
+        "2b3a7336ab9ecd0393ca98a63190340c6d8dca830c8251f1a25c1c65d65cf0a0",
+        "2e53f1245d984418cffa02b697ca04c124547913357703886de19e30badaf707"
+      ],
+      "hash": "e1d285288a4171c2ca5f1e2b378d731fa0fc2636614a34740d6fdaa226af585e",
+      "kind": "array",
+      "mistakes": {
+        "91be1f74f78c2dd3efe135a118b66b6d5f486b6d7757f8f52a81204c22d765b2": "axis=0 donne la loi de Y : une probabilité par colonne (la convention de np.sum)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.19c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "60381a4d7967543ab23bfda0a235b7e656c7a33a462a9a164ef386147739ccf1"
+        ],
+        [
+          "5d8ff59a339dddec5ecae03e34c5b6c056cd2aec6fdc51f5228907f6e9b5d46d"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "cbd78f456873e68e5c056aefa1419729a75e41b4a6b6938189ed5d6d09538fd7"
+        ],
+        [
+          "c28c3c89177ec2cfbd6a88aa9e625695f3a6f75a85083741ed65ef9ac076ad6a"
+        ]
+      ],
+      "element_hashes": [
+        "fad3c1e1a2c06f8344c46c80a2b3202d13ced39b773a209f8ad7206453c78b1f",
+        "6077f5abfc2c8dff298620cf3dbfb427a9db651dadec4e14cbaf04b56041dedc"
+      ],
+      "hash": "211b8ed2fc85bcbe9ab3980d86532441407294101cd799193019fc104993d07a",
+      "kind": "array",
+      "mistakes": {
+        "27c5d209e5d4ebd741be45c4b48a922c175515e2acf9a4bc0a73db3e8a2d78ad": "axis=1 donne la loi de X : une probabilité par ligne (la convention de np.sum)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.19d": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "1aa2042abe83a82cf73f26f328cd6eed9e5ab178ec80952eedcd33b31a57def4"
+        ],
+        [
+          "ee52c342fa854b8e6439297230bb92db1d21494b96c70fc5ed3d0c5a07585b5e"
+        ],
+        [
+          "9ae3a441779c1a8f193edccddb3db12186c0a892ba128348ad804d28cade75ed"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "433fbbb31ec86ebbd00bb139e14890e18994c14419b57683beaca6f810520a54"
+        ],
+        [
+          "205f48753d52affe24c167340e1ed85c75ec48e367501490ce7eada47a996a3e"
+        ],
+        [
+          "bd18d146e9020c24733fa9b359c04e06cce06909324a04d3b752ddea5f499d45",
+          "3151014c9a3557b23ef6e6ce89877100a1ed77b9e8ed9b1efbd0f719614b3b3a"
+        ]
+      ],
+      "element_hashes": [
+        "fdfea17d6ad57ee47a7a9cccc1fbc0614b68ed04ea3a0622e31e080f314e5252",
+        "353787a7d6795a956bf84d8bf2c89b2900ebe738c061aab79d8b9b18259d798b",
+        "7a01c5f9b19a583192911f82b2ade20979dbe316a8c391a4012a3ef813860aa7"
+      ],
+      "hash": "52e21d95a08c833fd7810984bc78bc3d0e254e79b978693d28fd46666b211453",
+      "kind": "array",
+      "mistakes": {
+        "cfe2e4aba2f91a234e4dbfff0708f412d12e4463de05c173f6f91f360be065f9": "une loi conditionnelle a une somme de 1 : divise la ligne par sa somme, P(X = x_i)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.19e": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "bb687f83e020ab17082bd652d885ad93ccef5161a08f54b18295f4920038bdfc"
+        ],
+        [
+          "9bf788785d9501ab25813f75128c2fe40d661b6b7921e961425eb14c94e7b661"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "41f7f1386f6b78a83fda758a33314ff13d8137538c4591fa1f78d45280e1c8c6"
+        ],
+        [
+          "b92bd3c38a3278f15a9ced5b4bbd29d115e4a3c5ed9b89cdd62940169fe644e6",
+          "01c755edef975c3e4920c20da84966b6b8f839c1b1786dd5fd302869c6f90a99"
+        ]
+      ],
+      "element_hashes": [
+        "009b564bfaca9362780b535fd566117f95ed7a06bef7c5b0a57d5db5d2d9760c",
+        "010c63fabfc6e5dc246d6a6d3eebcaf20635664e2968bede6e0edb2ccab71b2a"
+      ],
+      "hash": "114c7e69f858ea5526a0d1569ecf5192085a3e1cb4682b35b1e0f365349ddabf",
+      "kind": "array",
+      "mistakes": {
+        "ff081d5201f0b61aeb0394f18b766c5380a2bb80aa6bfb0fcbfc66ab9702ed9f": "une loi conditionnelle a une somme de 1 : divise la colonne par sa somme, P(Y = y_j)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.19f": {
+      "hash": "6dc57f9cf037ec1b4820cd226f142ef7b7c7bb3db1b4a62735d5468dbcc17452",
+      "kind": "str",
+      "mistakes": {
+        "014275f640c097283feaf86304a224573ea86ebe6245d42c12b8b6544326e53e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "0af581066333f5efb792dbd5a1f9533d6594dfe8580c2fb1d6ca654aaf0842ec": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "37234b21f7be66ab75401d8062d98e014a5c93f35c0eacb90a6e440ccf830559": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5150f8967fa1677abc157bdbf8467e3c97a6110426de620d5e00bbcc009b10c2": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6be3dbe18ecf102144a96fabfcc5ee72535ca0bbdbe3086b346a7d4a4681aae4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7144fac23996e52e672e2ae3caa0bd7f6695c37019e13bfa68f51b44fac0ec34": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9d1dbc655ecc0746349ef8d01a82b5e3f4d2e4629052d43cbd025ac98c7b0c0d": "un comptage négatif est impossible : lève une ValueError",
+        "e58925d4848dc22f0d52e19b8fb757c2cc0c828f428f08f11ef1ede637929292": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e9f54b98ff0780f13ba2f7dde0fd2eb402670bfc430ee74ff85ce5ddf8b1294a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.19g": {
+      "hash": "7e0a0f59c86ff2488e9085608ef9d9f5ddac032448b3c9db16c017eedca61583",
+      "kind": "str",
+      "mistakes": {
+        "1123e78397bf2974d50437684e136f1d330a674c2b66b469f1e4621aed4ce12c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "3879ebdc74e3e1991078d60dce21847cce134b1e5081357d3d046715890b4177": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "3ff87651e744da60af06a3e4a83ad23b1ff5fafef8cd88033cd75092ea8ece8d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "496e0c850723cb903f55ece9a12b0f22dcff014a3896eb017d1c8b48e2a9df67": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4afb1b4af8a22e7360d178c3bfa0c89f2d5deadb7bd74a1d387b3a1165db7c1c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "77a7919c3445ca7562fd80f6862e7a4551060a445bd12121bfec8bb735901e4d": "la docstring demande exactement un des deux indices : avec les deux, lève une ValueError",
+        "923fb073ecad05db1e2f433bf83c9c35718c2de214da61419f97dc5b215bf083": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "bf7e6bb9dec453b1af5ce308e778b124b1f782f40b673ab2793a66452462ab86": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fef157390c6e2a32a4ec0d461e7be6f12c37df8cbb1de1c98377d883fd76ac0d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.19h": {
+      "hash": "7b369149d5e1d6f8888c156b230c81826499959d13995dc6e9a3061dde593064",
+      "kind": "str",
+      "mistakes": {
+        "35f0d9f0539366d302cbaadf589486a4616463ae7c4d1f2dd040abc722e45e22": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "41415a11f83219f4a40968078d4c8f59eff9eeecf227a782ea9446cc0edcfa23": "une loi jointe a une somme de 1 : vérifie-la avant de calculer la marginale",
+        "63e62dc01aca14ff409293e6681d733dba0f021323caf0792a5f3a74cdfad580": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6e4b608dbc900151185a48831a9d42d7d78905c00e953e9ea21f6c8d97fdc7d0": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6f39b8cd7a37b7ff7c962760365ab7121b8c6c1b160ee0f6c0750bb39dffce03": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9b6a151e3c590c919bb6ca5af197ebcad217f0f10a54cc73db778c1850759b48": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a74f4f6938e86f65cd0d7e468ac9acf558148ebc8f8abef855ce1e3238c9188a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b85dedce212851cdd9b7c88dc8f4efde87ff83b4c1393d512bf47f821ba05971": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c49d62cb1526b74019cafa790c4d3b9cf003e951c437418841ba14c089bf152a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.20a": {
+      "hash": "625889ac21b007cc100443d5a1af6efa317ebfe1d460688ce979849229a75582",
+      "kind": "bool",
+      "mistakes": {
+        "fc4cdca4cf030225a342af13a883128a55a0438ad6f5d48775321cb3553dded2": "compare chaque case de la loi jointe au produit de ses deux marginales"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.20b": {
+      "hash": "47710776799f25126285862f729c6453322158e55086b8964d9891d3b340ee35",
+      "kind": "bool",
+      "mistakes": {
+        "d7f6136a5fbca8f37fec8f0a237d9b552a09ef67eb34cf55d9d40dce049ca6c8": "des produits calculés en flottants ne sont pas exactement égaux : compare l'écart à tol, pas avec =="
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.20c": {
+      "hash": "405618842607c0a89dc1045db9bcc1747f2b020906a5055015979ca95b31809e",
+      "kind": "bool",
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.20d": {
+      "hash": "42018c7b1101e3fbbc9d6354dd2ecf843556a054fdf4deb22feef33131df49e3",
+      "kind": "bool",
+      "mistakes": {
+        "ac6f9837bf33e31ae203cc14d3c631fbaad08c338567d59fe45517b1584f1358": "tol est l'écart permis dans chaque case : |case − produit des marges| ≤ tol"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.20e": {
+      "hash": "81a6b440e83fa18860bd035e76952d29d1e347e024c4eecf808a009cd0777249",
+      "kind": "bool",
+      "mistakes": {
+        "973c56e047ff5eb8ec1621d85618d59bf14560a7f987266a67035a08c5d33650": "la première case vaut bien le produit de ses marges ; vérifie toutes les cases"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.20f": {
+      "hash": "2f1616ec13fceceaa635167ce5e2b5b355d2bdaf47fc38bdf2d7c1c75ffefc28",
+      "kind": "bool",
+      "mistakes": {
+        "f41936e42a4eb83c6deaccf3c0462a6e7639c756f4ac3af8fc7b810a28386847": "la docstring demande un bool de Python : bool(...) convertit un booléen de NumPy"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.20g": {
+      "hash": "a50e9517043bcc22b03d24cad593c2f3e1cbb5f97bbb8eb37ba71013b8e577dd",
+      "kind": "str",
+      "mistakes": {
+        "00b7bb582f61429a3b4f8710c022cbda82eae0d0688fe2ed3ce34a9c3f4be60c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "33421a5a6449f519b88773f961be335ae23e98db2e8cd1be98b23172f65b8a6e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4c991daddff995aadc9366a794b4dfc6002f938f2d9fddf76e3349c485ea2267": "une somme de 2 n'est pas une loi jointe : lève une ValueError",
+        "4f5bd156885f61895fbd7c39490ae7bcb6c3666ff4759479d5a5cf29ab0561b3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "57695a2750eb84a766a85ab4544bfdd5d3f784a9ca4a7b49950f6825efa9d5a2": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7286232783419bf4d6668356f39c8d1575236498eae4ff9df757b0d5750f6a61": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a003cbee1be50160abdd98cc81c51b1779d0de4463df4f75d69b611f1cc200ae": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "bd159a30f6d1f2504199a34e1b7581ff93c655fd1e661f8bc085b603deb50ed2": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c760b66b6aa04b0e0f4e206c9ccdc4dff0e06f0c9a5b7d15580906e3808a9a0d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.21a": {
+      "coarse_any": {
+        "0": [
+          "4d5263a0f27f200c49b87d3565014f879e0661d2e618cf09793c197885063edb"
+        ],
+        "1": [
+          "0ef1ff7860a33f536e7728d1edbb9d9f150073c5806f065278fb5bdcbee60b31"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "fc4b111ba6f6b77da7012631da35e04c70f508780e462b043235516ceba578ec"
+        ]
+      },
+      "decimals": 4,
+      "hash": "83057f6f3e5467d597c95fc4ec8b0d6aad1702e87a2f1cffee1ce456f4436eb6",
+      "hash_coarse": "7e73c6d89b7caeb08f5b548082addf032a306f319c7398d20a34771fa1e3eb9a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6c8f3272de099ba8f22ac5e6e74a6dd57d3134b7e76f4342b5742e23a1b2eea2": "une paire compte quand le positif a le score le plus élevé, pas le négatif"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.21b": {
+      "coarse_any": {
+        "0": [
+          "9b60d648d4a312fc8039680ce28f053f6a70fd168d34ca4fd3349755275df2ef"
+        ],
+        "1": [
+          "2c4a67f3419152a3b246d6c5391d26d9c50f8cc45be74592929dd4d020c96c9a"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "96e75a4e6167ad9ce785c55d66f2edf701783021810d355ca1183aa429bfd9d5"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3ea1f8dfd5269723b221eae6d94f71a71fd36ec4cdbf8784b8467e6778db6880",
+      "hash_coarse": "b1e260edc5e17c021e3ef7dafabfd4a1587f8159596d3f98852c4b2df89899b9",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "18e236c0bf5c7c5e085f45b35cb9a29ca0ab8248555f6deb83095dded5748b4c": "relis la docstring : combien compte une paire ex æquo ?",
+        "c623a41da3e798b8a06ade5f73ae7a5c0343ea6a5dbf4e40169af22e03b93e18": "relis la docstring : combien compte une paire ex æquo ?"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.21c": {
+      "coarse_any": {
+        "0": [
+          "26ae3b43ba59978741da0fd5ad3c902f5e87b538ebe06a9e469412b911dc7221"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "e19e1405a977e1c82ba13003e3bc2b54a8ad6e33f98306a75b54f187e4d069c4"
+        ],
+        "2": [
+          "6093244fb1fef53adc2aff60d8cd06b5f942e1bbfbe3d0c87456b1802e40b92a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8026959f90ad6bcd39431240cdd38cbbf4f743f63bcbbe319ed8a4c9949df50a",
+      "hash_coarse": "d7891b6c051379eea122242a4b4755e44183a8f09958d4d715b71b8537795ebd",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.21d": {
+      "decimals": 4,
+      "hash": "bc21fc23688b59c517fe7aa02702decc2a86b95f1d2a4a6b96b5accc41a2d880",
+      "hash_coarse": "afde2d7d122bfda50dd430383c7a159b9c356efeab91f61f5d0250c832cc903d",
+      "kind": "float",
+      "magnitude": null,
+      "sign": 0,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.21e": {
+      "hash": "a9a272253f0b450ec35365ff3224c91b40728e872e6c6ef2d11196ea09b3cac4",
+      "kind": "str",
+      "mistakes": {
+        "33ab1776922f87c347f9be82d168626b546a59a99518f3fa0b6dbadfda9eb01e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7a11a4d99c97a48551e93e9136d03223b0cdead926efeff12e641533bb7825c1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7e493cee774dbc7fce5f1fa08e825a1a5306f7460052e4e0a16044a6ac03fd90": "une liste vide : aucune paire, lève une ValueError",
+        "95c388638bc89168233d0e743b98432c4dba92b02f36fd6e7772d54461319e2d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9e10c36f2bb548d4c46dfd38423411ec79228696051d14ec2931dc4eb3062ec6": "une liste vide : aucune paire, lève une ValueError",
+        "bba8683b0670d81c484d6ff30ecf338a2e27894663930cc441a5cc729ace33a6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d07e5a3cbff8f44ed0ab51abd7c87b8e2d74b14ffc43e5e54e80a8a430b242b1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d2f77ab9df6e16b7c893390beec5d801ce889e442f14eec8664fd6eb0924fd28": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e98115afbf3c082856b1a19b36f0fb2a12a9658c12674d8bad79662ffddcd1af": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.21f": {
+      "hash": "1f6aae3a9c2650fa72a12cb1257773ad4290278264ec1704ec0b3d4d261fa8f7",
+      "kind": "str",
+      "mistakes": {
+        "62d1db62b30d62a1a9262bc3966c0a4e4846f456d17615a1bdbfb9067b456026": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy",
+        "95d83b87e0b4af0cb87df7bc2801a6ce59f505cb8213c82aff549774e272395b": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy",
+        "d99252fc09d9d02f1ac8bd8bc4071966293d6a0987735c63132fd0dc58bc9ca3": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.21g": {
+      "coarse_any": {
+        "0": [
+          "6c6a9763e2b3c1ab3b5e9dc54f6cb40c95a64f3e53fd9a92d7cc82038d051639"
+        ],
+        "1": [
+          "5eeba647a3956786343b1aac0abe5fa3e433880c80fb81b9ac325b52c8164717"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "942a2c5b570f1589419b9480dd7b11a481afabaee698251473b8c79933859fd6"
+        ]
+      },
+      "decimals": 4,
+      "hash": "44f20767e4762ad9b14a92170ab86590cf314968dc07818d1d8429f5b5998e46",
+      "hash_coarse": "a360cc97f75091501cfe590a0e6f0d23675d7f032fc7360d4d5c651a9dded01f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "85cb45cb895d1501cc0a0d2991d647d6296f7a67e8710c0f9f1b16d29e546fcc": "une paire compte quand le positif a le score le plus élevé, pas le négatif"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.22a": {
+      "coarse_any": {
+        "0": [
+          "adcf3021df8330e3cd6875722a4ee3f9555644b188f747c9c8aa7475913ce131"
+        ],
+        "1": [
+          "56e42f59f636bebe4d1bb7c06090c76bc6ecee969084be615dfd3a710350441d"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "0ca9b41abcbf7a1d2da552e06fae97202ca6d2c53beac6e4834a4b3aae24f4ef"
+        ]
+      },
+      "decimals": 4,
+      "hash": "0e3645d43cd483f637dcbe42655ec47e862093b89712c6566b1c6a69605901e0",
+      "hash_coarse": "74f6ef97f985a9dc1ae8fe221343c4aeebd9bb023c957df5726072570372073f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "94821638f290659103de298d83ffff571f8ef2f47e5d42734cff690033f28324": "les labels d'abord, les scores ensuite ; et des scores, pas les prédictions 0/1",
+        "c5d66012896974cb514c63a1898fbd43aa41f613bc6c143e5ed2a80dc3bd243b": "les labels d'abord, les scores ensuite ; et des scores, pas les prédictions 0/1"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.22b": {
+      "coarse_any": {
+        "1": [
+          "90deba2dcf76371e314fb2b02a472832890ba8c55e4f8c39537fd8fd1e11ab84"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "acb7c864a0ab475efdc45f5bf7dd23b2f3db675870ca511f732c1def777bdbbe"
+        ]
+      },
+      "decimals": 4,
+      "hash": "66853307bd843e4e379f3ecd1ece431d99ba02b5f456ccf386902552a669e58c",
+      "hash_coarse": "6c51f44f282bc8f47fba3cb4a41070e65d78d7d14b3dfad7203cdbae33ff9e61",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.22c": {
+      "coarse_any": {
+        "0": [
+          "1f654dfe35f5a506c4e9a984c54484c3400dfa243d58c34305b1e0fb14c3a901"
+        ],
+        "1": [
+          "930c8dc5d87a7520a0db97959d7be97d567d4fcdfa22604d8727394749d84e84"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "64e4896ba60c00a29da8d5f2f8c762701932662dc8f2c42b6f6a3aa6de6f7cf2"
+        ]
+      },
+      "decimals": 4,
+      "hash": "747d784d4af6a86e25bb5ad1a297ff85193b36f622ee217fa13e26fefb3d5d40",
+      "hash_coarse": "a3fcc662a7422152ffeffd83bbb4306326b8b002c6740e7ec5cb23e04ad08ce1",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "c7a6ae5244d49be1c08a7b63c909ea8a877fb5422e9f4566afe9d86e123a9d2e": "c) donne à roc_auc_score les prédictions 0/1 au seuil 0,5, pas les scores"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.22d": {
+      "coarse_any": {
+        "0": [
+          "fbe14f53aebe4ec2984c598217948f4491a2b8de4b52caf6b7c15b2affccfec4"
+        ],
+        "1": [
+          "39c0d32346e32e9fa962a8f7969e145a0dfc75f98c1913a7dc9ff156577e3b11"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "dc639ffb5713fc6bf3799b35adcc5ebdfa424626b7b971a84dc956b8f75d14a5"
+        ]
+      },
+      "decimals": 4,
+      "hash": "13b75a1afaf31d5f865e9dc52777f708ff23ac2f9adaa27de8dde2c8b5856b47",
+      "hash_coarse": "725f59f3329e57543f9e6262344ed04d7ef550d4790d9bf3ef69b89ff6b120e5",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.22e": {
+      "hash": "87b81987c1254af6aad810144e06f1313c1de359faf81ab2ef0ed2dcf906272b",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "175e498fe8e8a13302671f52e65ee3a620b32c3f250e5cb9172ac9cf501050e0": "roc_curve ajoute un premier seuil, au-dessus de tous les scores : le point (0, 0)"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.22f": {
+      "coarse_any": {
+        "0": [
+          "cb4831a5d11f1ef217252a9c0478ed08280168834bbd3daceafb98dcbd725091"
+        ],
+        "1": [
+          "a8f698ce9ded523b8bc3848d9bd9bf657a753f9776d4f60cf089d05ce2dbb4ae"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "b246d53d6f973c6a0caae1e3694c0ad9086cd31f9f76ddc5699574106363a298"
+        ]
+      },
+      "decimals": 4,
+      "hash": "89b026ecc0ebb37a514f316874477378bc7de7d7ce09b8dc6f8bbc6ae92f143a",
+      "hash_coarse": "a0353a13c4860135d9576cec10822443472e655848477de9ce450132ad29869f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "89d692bb9fc8079bb6295db514fa2994386f6dc0764c641f0baab2c0964f2043": "c'est la prévalence, l'average precision d'un classement au hasard"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.23a": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "265648bd60c7c479231bf63351dca8ca0b193e8b57192da2cfbfc1905a120d46",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.23b": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "3174f1dcb3084735fa7e84017427d73187fba3bfd09aba7cb679b9cae4bf78fa",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.23c": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "64b6352ab2472228a0e39a28f6115d359c9e0d2ca634a2725800e447b41e77f5",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.23d": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "ee036f7dba36bd3e1a44fd133880c3b959d45057fbcf22a7819987d0edc637ab",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.23e": {
+      "choices": [
+        "1",
+        "2"
+      ],
+      "hash": "7178ab035beb42cdcd7c9b92ef38909133ed16bbf35f4f000180ad865a2e32fc",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.24a": {
+      "coarse_any": {
+        "1": [
+          "f2e95a6e7225d3fbfc55f0d6b013a9c55fef866ab8f05c75c897cfc174d57334"
+        ]
+      },
+      "decimals": 3,
+      "hash": "e2936cd887c4321d355993198a3d207b2844a400923da91451eebd84c5faada2",
+      "hash_coarse": "96f0ad2c93ca2e0d7a8ea51a2c2c062845bf783a0bd6e6a980eab17eb4566ee9",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "0d0588b3958d04933469f1c41f218f0e8006a1e981a2e8128d1f43f5e54f8f8f": "c'est l'autre probabilité conditionnelle : l'événement d'abord, la condition ensuite",
+        "70295141cdd474f0d2cc7f26cfc03e05069f92a3bd47be2edfd6522f96d08bc4": "divise par le nombre de tirages où la condition est vraie, pas par le nombre total de tirages"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.24b": {
+      "alt_hashes": [
+        "aa32e8f4ab67b58c8e37978bba6b39326c36cb7aee59c9761ac75b1d73686038"
+      ],
+      "coarse_any": {
+        "0": [
+          "fffc9057a5e2e288cc21db6624ef0879e29b07f7fb043a3e5ee01883935aa2dc"
+        ],
+        "1": [
+          "7927b7eb60a6b674493d0b81bb7756970eeaf5fbfd8feab852824dc99131d65a"
+        ]
+      },
+      "decimals": 3,
+      "hash": "9f409eca143517dda0fd9c069ceff839c1a729d161f7660e7c70504d106f5f71",
+      "hash_coarse": "05704124c371168eada7439629d0affde104bbd08a60fc496372121ae4784976",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "ab0a18c2ab29a17b80b196f5f891a150eab25cff51647ee39678542654b6b66f": "divise par le nombre de tirages où la condition est vraie, pas par le nombre total de tirages",
+        "ea8a364c78fd197ec3c223961e60f35d75234af5f2b21f9e7039ee904b5ef21f": "c'est l'autre probabilité conditionnelle : l'événement d'abord, la condition ensuite"
+      },
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.24c": {
+      "coarse_any": {
+        "0": [
+          "e14ba61252e0a1ca7653e5cd6ddfb65a9ab44e8cd8331f7d3bdad9e791dfabd0"
+        ],
+        "1": [
+          "e0bbe98cc3ed735dd53894931c89c41de3d286a2ba20a0dd292090bac1f9b802"
+        ]
+      },
+      "decimals": 3,
+      "hash": "4d94a4f196173909955356620c67ba8e1f10cba7cfd6196d3a5c5c8cd5561621",
+      "hash_coarse": "a4824fe214a9c7e2795ad5faffb0ea71808f9a5a18d98c756757fe6d94488b2e",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.24d": {
+      "coarse_any": {
+        "0": [
+          "bfb594f4ec7cd17bb5e286621c3b3edfe7a6f28942f7e50854e66080ab779d54"
+        ],
+        "1": [
+          "75cf22466ce3ae7a1ae4ac858b2d10576321d0ef747eaa827d1ed85f55a1a181"
+        ]
+      },
+      "decimals": 3,
+      "hash": "73fc8fd10e3c60006f3f600e7d30db9071ff4626c8c3c6eaf85a0fafb38a8a3e",
+      "hash_coarse": "b4325830ed0bea0d95408f134388db2603c74774c31c7ab1f6c8340c5c7da844",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.24e": {
+      "coarse_any": {
+        "0": [
+          "bc10b1e986df4cbccfc87a6cb9b434512291df1e470e9e74b9255999de249a5a"
+        ],
+        "1": [
+          "a44f2ce31d971b3563a6560539d3ae094a47bfa60891fba92e71137ffc035c4e"
+        ]
+      },
+      "decimals": 3,
+      "hash": "3884bebdd1950ab741edb8ebcae385e6f7acd0b0bd904d83fd1a8e68c6c30925",
+      "hash_coarse": "9df3615eef5a44375daed2e5a9fc90608324b8adbb28b9176667631a7c000d28",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.24f": {
+      "hash": "ef1d84d056d63a374c2dd50a22c028f8d597392fe3d34a896280b9bcbe71fe65",
+      "kind": "str",
+      "mistakes": {
+        "1fcd396ffb5dd73e28e14213c710a57dc07e95caa8babf87910a63bc97fdb6e9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "259a0b503af4e1b4c41699fad13c518f74f011fc9c8af466b4268af20d5caf33": "la condition n'est jamais vraie : lève une ValueError plutôt que de renvoyer nan",
+        "2815d09c236a69782ac7989e76e730787c808faf68de7e354c1282e717a8b9ee": "la condition n'est jamais vraie : lève une ValueError plutôt que de renvoyer nan",
+        "517f2bac9abd1e92d11fdf26f880a21cd11758cc515fc0a77cb635121bd6f662": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "79cfe43fa0c8b88800f6dff8d191ab6f7bd36c2a58ec2a6ecd7d5b84faea21e6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9430ae531b352d9f637bd9a970e99199f81503f12af59ed80939117f0218442f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9937816cda7368e5ea051733a2b7845c51f662a0968d3541cea918679ecfec51": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d9ef696081efeddf603c3f672ab755ebc2cb0a6eaf2d3ec9ee1d5cca620327b1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fbb0bd1c9d7468af4a53ec43947405f096707ec7fe6a605ee13cdadec3a39f9b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.24g": {
+      "coarse_any": {
+        "1": [
+          "3336b8cf629a7155fc62dc37be70c955bfba286f4d09bcddda3969dfc6ed35d6"
+        ]
+      },
+      "decimals": 3,
+      "hash": "9bd4011ad143026d990c162dab8c4db42f699590fe4d2552c8b6b15ecdefbc7d",
+      "hash_coarse": "e24073823b1c929a53bcd9c0839aaf95f58203ab2448f4b2aed71ec618531e97",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.26a": {
+      "hash": "9e91803184908863da62b75ea7ea21cee5f4efd914a659a0d1fbf9c4a3dad577",
+      "kind": "str",
+      "mistakes": {
+        "00fc9100609c404a529501b10b0109297ff5dd65ed35171eede9d27c299859e1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "01cf5acf71cb02b4b5bfe65fe1cbb4bb0f86a4bddcb4b0d33b3e4cccf19a6cba": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0a9cbd55fd208f29fe86c71908f83108dc7b6478fe216aa7cf7d7ef9b950274b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0acecc3791cfec39d2e39bb7c6c68b6d262cb9fdd0dc75024f8a01ef61e73727": "la ligne (F) est correcte, et il manque une ligne fautive : vérifie que chaque probabilité conditionnelle divise par la probabilité de sa condition",
+        "123022741702b2b38d3ee9905ab3da487e82e74bb6fdfdb54ee9912a98de87c1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "18b07f6b9a6329e3a48044cbad9c7ca0a24ee6cf9daab23ca9ffe83d0e90f144": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "25e4830a39346e10db73d8fdd045ba192031995a7f9c59d624cb9df6263ae6f8": "une ligne de trop : la ligne (F) est correcte ; relis ce qu'elle fait",
+        "3111d7c3f26aefcb0a2ca21f37b6754728006e07c5333cae12048cb97e85595d": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "33c0df21845a41846bdf056531375d116207c19935702508ef94d9fd6dbf35da": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "34e962133f8235efcb94af0bd1b3ece7e8493f967de8a3991e9169cadf9c8ea1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3521ea63e4261549ef0edc9285a3305788b15d355b001c9ef127001c587d1d36": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "36cd89c702db55d1812983c8a322083cd2cbe83c70e81466de4dc292c4568464": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "36ebb57b15bbce75a6b06dd1c1624e712d7023833978f3634d36e66a749899e9": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "3b17911edbb7f7b99637d2b1c5951843e6c30519c2043fe0fceaf3a893629d91": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3ca53afd9f33f4fe494f6c7912fb5ff0ff752e847284152112e62c851837b916": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "453faacd26bf461742aaf7cc46721dc688e984eb332b360057779d2164235e9d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "45422150a752745c2e1a1da7435814bbfba33c1f899456b667af47df8970c90c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "491e84dc10efab6eb3a89ea6088721e064eabb52eb21029df656a2aafc35200d": "il manque une ligne fautive : vérifie qu'aucune ligne n'additionne des probabilités sachant des conditions différentes",
+        "4e3b278e17d3b0e818298017bb9e045afc140a358058684b86c2b6c9df2ce0a4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4e6c4f2f38081a68d30ab0ab9e4d15eb5784f6c8ccad6b9dcf671d3cd5e4693c": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "5802e156ab488f746077fffe738e7caac39525bd355fa29f280711e504d37b2d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5985504ad120e648542af0c8c350474efdb2b8a147c900976239794415f8b444": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5d51fb192b673236ab03a074b5fa99a76d86b634e0a1fadd8ee5ebd923ce2701": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5d93ca34343d28fa599ed7cf2719502e959d6899f1883c50c1dff995b5b5a8cf": "la ligne (F) est correcte, et il manque une ligne fautive : vérifie qu'un taux global tient compte de la taille de chaque groupe",
+        "5dc7eb137e4976f3c74b2dcf4bac4720c1283cad5108a639d20f92efedadb1a4": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "615eec942a932823c607f99c1565d92323b44126bb2749b963c3661a38b23ac5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "642bc5bfb5389a9319d2bf0878d4bf11e265173e73c020a34c51a3bc19619f90": "il manque une ligne fautive : vérifie, pour chaque conditionnelle, que l'événement « sachant » est bien celui du dénominateur",
+        "65cd4795844917c58df4a41ef326e35a2a87b433d3a03b4431fda6a4182d7c3f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "65ed9901f14c8572f488a128e1529d4abe8b4af96b3d0a349f1c50ace733b04b": "il manque une ligne fautive : vérifie que chaque probabilité conditionnelle divise par la probabilité de sa condition",
+        "67cd2e8bb1918751cfa53778e16b6c26f0d841be9f02a71e80888d7cc19e18ca": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6827d1590025d16a9e6c1a58a3a65f29586b4d70b30f109be7e1df9f0f0dc470": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6d10fcb31346200f1d4001a2b7e17fe8c561e6f5b5fc98d1dd78236a88489db0": "une ligne de trop : la ligne (B) est correcte ; relis ce qu'elle fait",
+        "72f0d20346392f797cb89f2fedd33b6a59bb960dacd69d3521190cdc7cce6c9d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "771ed856269caf74f9e3e7fa79118c837ac83ec76cff72d54ca13f3ecafe70f2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "794679134f471fdc93263bea8b120dc6f4c40aedd628466dbad38e3e1f3ba21b": "il manque une ligne fautive : vérifie qu'un taux global tient compte de la taille de chaque groupe",
+        "7992264ff7ee50ea3b58f871e3f0413dd0e40975c5f8713b71e8d7d57cb99285": "la ligne (F) est correcte, et il manque une ligne fautive : vérifie, pour chaque conditionnelle, que l'événement « sachant » est bien celui du dénominateur",
+        "7de4257df0cfc9aa4bb00a55b0b73942a18ac355f2aac89622791e426448b518": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7e8a05c5612ce1b10405ba61d94845fd2c80c94225c9a4684b311c5545a914a7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7ea665dda536457f9a4a902cc9896425a95d91370430363db6f847694d1a0927": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "849f9df3cd96621764db74e749dec67c9abf8f7c37071f2454429ecd85616eaa": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8ec626ad83e7a5ab556db4117478e2b79ffd47c2d080f11f3ea1ad34c8a98295": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "90ea2ba1ed723275a7e201b04f79c8bba7ebe0385e94729d16f227885457d78a": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "9b680fed084a514cfe2b05ff8c13108fbe7eb24ba44c77ddf44f9b322cc3594d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9fb4145e15e345f1561acadfde607ef9f871d0d6b87fb7985f828742b5c5d07b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a42c9f29ca30f195fb2eb3269cad9e34d4a6d7f9b4ba4f35c15aef9a390e265b": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "a9a928c5a030dd6b91744ffb153274a22c39bc09ad1ff6f9f05b26bdefc5dd20": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ab25bd14574428e9a7b8a90394820b58bdc66dd881b82539e9cd016abf7ed23b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b61476752bb6bb80229ae385fe4a5fbfad94fd9e8c0203312d55c19d4a310bf1": "la ligne (B) est correcte, et il manque une ligne fautive : vérifie qu'un taux global tient compte de la taille de chaque groupe",
+        "b61e9f0203de3fd395eeea875fce1abd0224a34bbed1e0d746dced6df6ba65e6": "la ligne (F) est correcte, et il manque une ligne fautive : vérifie qu'aucune ligne n'additionne des probabilités sachant des conditions différentes",
+        "c4d61958dc916127239910a684468a9f2bcb16fac95940f5265b3a4862080714": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "cac66bfcdd2eeeede9136fff119b354bb66fe7a69850b5740382b83f0513f982": "la ligne (B) est correcte, et il manque une ligne fautive : vérifie, pour chaque conditionnelle, que l'événement « sachant » est bien celui du dénominateur",
+        "ce0d075482031935749b7dc6216b50934a4ceaa0453c6f8886d0708deb4126a2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "cf18d61762c3342d10d2b190e759f789818c008c98119bf5450b72ed41d0ab2c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d48bf48b38cf02ef09decc55f32b76ac6d7c4acdfdfa2587a2c42e1b0cdb5ccb": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d5d93f49ffd55f1ddefee82885e048a64ebb9f7c81c7cb2550c827744895d273": "la ligne (B) est correcte, et il manque une ligne fautive : vérifie que chaque probabilité conditionnelle divise par la probabilité de sa condition",
+        "da2e2b091693c43edd41740cdcbdece00c19c3ccbd9ed6907067c73e37d7a481": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "dd89443e203474b6c3060101620563124fd935281131988e801be7b7f7982335": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "df20530a559544abe73562e63aac9efb05feadbe7d69af74c99b22ed1bac8e2a": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "e1aba92f0bd112d521d1d2e31c9a792186512c72fce7fbba8ead3d746a1245fd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e2dc3c9ea1b5add3517bb11912dc89c4dc63fbedc975c6bcfe9278c7534dc89f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e527a012773dc4688484d7f76d56e9581fd53bba1c235543d9e5f9d43766f9d4": "la ligne (B) est correcte, et il manque une ligne fautive : vérifie qu'aucune ligne n'additionne des probabilités sachant des conditions différentes",
+        "e5549f223a2ebf7e96cb7ad66a01b923fd4fde441cf6bd0caa80ff4c15d1e04b": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.26b": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "f0bbd5ea8cccbb95072e055b7ed3cf70b01241195fd7fb9f23b21cd171c49ebe"
+        ],
+        [
+          "31e7d439e1c20d81ad1a1a1aa1803078d3fddb56a2a3529219832d38069dfcea"
+        ],
+        [
+          "ee2d6742dee928b9c70b947e66488e9c4ca3e82ec20c99efd8a6ca1571844e9a"
+        ],
+        [
+          "693a603d0e14b32a9e8969f051c72c84b2e013759d67b333a9de646bb926979a",
+          "e88ae1fdf2a66a953ea0abbb85890be8cb1e085df04c3db965d81567e6e72412"
+        ],
+        [
+          "8eef52fcee1036b21134a63700ec33aff1ced5fa73c47129325a7bfaa42a2a1f"
+        ],
+        [
+          "318951db72c61db70606228fec7e8d2d479ca267b915665cdf072f33bc0c24ae"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "53ba51525ca4bdd4fac7b7186a4a9b464a6655bfb9e39ecfd1d6786fcf5fc18c"
+        ],
+        [
+          "36107cc337647f630542eeb126ccf892a0d5b8f7984303f7e94e587c5f6bbb64"
+        ],
+        [
+          "7c2cf6ff640f1d42e44997041e083042b60d1bb31d5ba5f46618bcb2eceee5a4"
+        ],
+        [
+          "2eeb354e93284cdab2395004d138ccf6411afbf10e6f3950f26ab0e6640cd5c2",
+          "0b1332fb360a371a0768832485c3c057bcf0805db7202b49f71cd51ff05ebb77"
+        ],
+        [
+          "ab1515ca0bfef7d7f68f772c3cdc5c6b660a1f29311be382502cb80116518c44",
+          "4965b7bd13f2c533c1d6cd397c1be4bc6553492253b3984260e65a624fa2281a"
+        ],
+        [
+          "a141e12ed7c9951a09ddba8b3aa478702b2ec5e52edf2e06eb6178ec03bbc995"
+        ]
+      ],
+      "element_hashes": [
+        "75982e31aa1f6500bbd688b9ca8d5e0400b43067db858a2f95466a7a35e326fd",
+        "cacd548b95791f7bb7e4fb4499ffdca48f9d081bb73dbcbaa0db430e03599229",
+        "9e25e4e5dcb7a2fd963f5682cc51f82780a903d0ead3193b4365592dc90ca91d",
+        "849a7fb0a287a7f9f47fd18413f9b3f1ce2d2269d8907b5867c7f5d6f81b6749",
+        "5061eb500cff943d46f470e7f390fabb4968ebed1faccfdb107ff3247f4f3592",
+        "b98c597205e72cc9daa234b237e43aac91b002eb9bda3d2f2faca4d7a60cb870"
+      ],
+      "hash": "359679106bc20256f303ccfee6a406e74c68d0ad2f09ef464984c5de4cf93b16",
+      "kind": "array",
+      "mistakes": {
+        "0e6301b3a8b4336dcc42cbb4152a4895738e2b40424ac88e7e5fcac3a9f77132": "ce sont les valeurs des lignes ; donne les bonnes valeurs de ce que disent les commentaires"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.28a": {
+      "decimals": 0,
+      "element_hashes": [
+        "88fc963e11e80ff8039b710ff9470b4ad119e496daf90ae396936755a6ff476d",
+        "a0b0e743cd32cad2136a8c2f2c4899317c24ca18ef23063c4feeb6c6dbd98d3a",
+        "c736d83444989ff0a8ce77cd0b3e7327082088a251c0c1e4b83f37a6e3266c4e",
+        "8b686f31a02f77e85e667a623425f3c1140dc77463195d0e0e62e599580dc3b8",
+        "34ec2109d51db2f76ba2877e3f3f74f23f714f97886777e16167929a52d288c3",
+        "c43cd2da89a01898503977257f57d742656b5df0d22e03eb531d1dbb017c3cd8"
+      ],
+      "hash": "4034f7c60c1c3d8e97cdd35c3590103524d2fd0c8b00a80edeca4f8371174146",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2,
+        3
+      ],
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.28b": {
+      "hash": "1ea6fd2d0547461145b8152b75d5db9f57aa2e13c5419155042d3743199802b9",
+      "kind": "fraction",
+      "mistakes": {
+        "429bbc6c824d3666f29ed4701bbba0d945b686e26d9c5142ac91bfe4eed20781": "« sachant achat ou abandon » : divise par le nombre de visites avec un achat ou un abandon"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",

@@ -113,6 +113,12 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\Omega$ | « oméga », « l'univers » | sample space | l'ensemble des issues d'une expérience aléatoire | trois pièces : $\lvert \Omega \rvert = 8$ | R8 |
 | $P(A)$ | « probabilité de A » | probability of A | entre 0 et 1 | $P(\text{pile}) = \frac{1}{2}$ | R8 |
 | $P(A \mid B)$ (au lycée $P_B(A)$) | « probabilité de A sachant B » | probability of A given B | probabilité de $A$ quand on sait que $B$ s'est produit | la branche d'un arbre pondéré | R8, M03 |
+| $P(A \cap B)$, $P(A, B)$ | « probabilité de A et B » | probability of A and B, joint probability | la probabilité que $A$ et $B$ se produisent ensemble | $P(\text{mobile}, \text{premium}) = 0{,}06$ | R8, M03 |
+| $Y$, $\hat{Y}$ | « Y », « Y chapeau » | true label, predicted label | la vraie classe d'un exemple et la classe prédite par un modèle | recall $= P(\hat{Y} = 1 \mid Y = 1)$ | M03 |
+| TP, FP, FN, TN | « vrais positifs, faux positifs, faux négatifs, vrais négatifs » | true / false positives / negatives | les quatre cases d'une matrice de confusion binaire | precision $= \frac{TP}{TP + FP}$ | M03 |
+| $F_\beta$ | « F bêta » | F-beta score | moyenne harmonique pondérée de la precision et du recall | $F_1 = \frac{2PR}{P + R}$ | M03 |
+| TPR, FPR | « taux de vrais positifs », « taux de faux positifs » | true / false positive rate | le recall, et $1 - $ spécificité : les deux axes de la courbe ROC | | M03 |
+| $\pi$ (en classification) | « pi », « la prévalence » | prevalence, base rate | $P(Y = 1)$, la proportion de positifs (pas le nombre 3,14…) | precision $= \frac{r\pi}{r\pi + (1 - s)(1 - \pi)}$ | M03 |
 | $X \sim \mathcal{N}(\mu, \sigma^2)$ | « X suit une loi normale de moyenne mu et de variance sigma carré » | X is distributed as a normal | la loi de la variable aléatoire $X$ | $\mathcal{N}(505, 5^2)$ : écart-type 5 | M02b |
 | $\mathcal{B}(n, p)$, $\mathcal{P}(\lambda)$, $\mathcal{E}(\lambda)$, $\mathcal{U}([a ; b])$ | « binomiale n p », « Poisson lambda », « exponentielle lambda », « uniforme sur a b » | binomial, Poisson, exponential, uniform | les lois usuelles et leurs paramètres | $X \sim \mathcal{P}(3)$ : 3 événements en moyenne | M02b |
 | $\varphi(z)$, $\Phi(z)$ | « phi de z », « grand phi de z » | standard normal pdf and cdf | la densité et la fonction de répartition de $\mathcal{N}(0, 1)$ | $\Phi(0) = \frac{1}{2}$, $\Phi(-z) = 1 - \Phi(z)$ | M02b |

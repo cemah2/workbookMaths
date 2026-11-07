@@ -216,7 +216,27 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | imputation | par la moyenne de $m$ valeurs observées sur $n$ : moyenne inchangée, variance multipliée par $\frac{m}{n}$ |
 | grande dimension | cube $[-1 ; 1]^d$ : part à moins de $\varepsilon$ du bord $1 - (1 - \varepsilon)^d$ ; boule inscrite $\frac{\pi}{4}$ ($d = 2$), $\frac{\pi}{6}$ ($d = 3$) ; $\mathbf{X} \sim \mathcal{N}(0, 1)^d$ : $\mathbb{E}\lVert \mathbf{X} \rVert^2 = d$ |
 
-*(M03 à M06 : ajoutés avec leurs chapitres)*
+### M03 · Probabilités conditionnelles
+
+| Notion | Formules |
+|---|---|
+| tableau de contingence | jointe : case / total ; marginale : total de ligne (ou de colonne) / total ; $P(X = x) = \sum_y P(X = x, Y = y)$ (règle de la somme) |
+| probabilité conditionnelle | $P(A \mid B) = \frac{P(A \cap B)}{P(B)}$ ($P(B) > 0$) : une case divisée par le total de sa ligne ou de sa colonne ; $P(A \mid B) \ne P(B \mid A)$ en général |
+| règle du produit | $P(A \cap B) = P(A \mid B)\,P(B) = P(B \mid A)\,P(A)$ ; $P(A \cap B \cap C) = P(A)\,P(B \mid A)\,P(C \mid A \cap B)$ |
+| indépendance | $P(A \cap B) = P(A)\,P(B) \iff P(A \mid B) = P(A)$ ; variables : chaque case $=$ produit des marginales ; effectif attendu $= \frac{\text{ligne} \times \text{colonne}}{\text{total}}$ |
+| probabilités totales | $B_1, \ldots, B_K$ partition : $P(A) = \sum_k P(A \mid B_k)\,P(B_k)$ (un taux global est une moyenne pondérée des taux par groupe) |
+| matrice de confusion | prévalence $\pi = P(Y = 1)$ ; recall $= P(\hat{Y} = 1 \mid Y = 1) = \frac{TP}{TP + FN}$ ; spécificité $= \frac{TN}{TN + FP}$ ; FPR $= \frac{FP}{FP + TN}$ ; precision $= \frac{TP}{TP + FP}$ ; NPV $= \frac{TN}{TN + FN}$ ; accuracy $= \frac{TP + TN}{n}$ |
+| F-beta | $F_\beta = \frac{(1 + \beta^2)PR}{\beta^2 P + R} = \frac{(1 + \beta^2)TP}{(1 + \beta^2)TP + \beta^2 FN + FP}$ ; $F_1 = \frac{2PR}{P + R}$ ; poids du recall $\frac{\beta^2}{1 + \beta^2}$ |
+| moyennes multiclasses | macro : moyenne simple des classes ; pondérée : par les effectifs ; micro : sur les comptages additionnés (micro-P $=$ micro-R $=$ accuracy, un seul label par exemple) |
+| balanced accuracy, MCC | BA $=$ moyenne des recalls (binaire : $\frac{\text{recall} + \text{spécificité}}{2}$) ; MCC $= \frac{TP \cdot TN - FP \cdot FN}{\sqrt{(TP + FP)(TP + FN)(TN + FP)(TN + FN)}}$ |
+| prévalence | precision $= \frac{r\pi}{r\pi + (1 - s)(1 - \pi)}$ ; `class_weight="balanced"` : $w_k = \frac{n}{K\,n_k}$ |
+| seuil de décision | probabilités calibrées : positif si $p > \frac{c_{FP}}{c_{FP} + c_{FN}}$ |
+| AUC | aire sous la courbe ROC (points (FPR, recall)) $= \frac{\#\{s_+ > s_-\} + \frac{1}{2}\#\{s_+ = s_-\}}{n_+ n_-} = P(S_+ > S_-) + \frac{1}{2}P(S_+ = S_-)$ ; inchangée par une fonction strictement croissante ; $1 - $ AUC pour $-s$ |
+| average precision | $\text{AP} = \sum_j (R_j - R_{j-1})\,P_j$, aux seuils décroissants ($R_0 = 0$) ; hasard : la prévalence |
+| calibration, Brier | calibré : $P(Y = 1 \mid \text{score} = p) = p$ ; $\text{Brier} = \frac{1}{n}\sum (p_i - y_i)^2$ ; prévision constante $\pi$ : $\pi(1 - \pi)$ |
+| taux par groupe | $\text{FPR} = \frac{\pi}{1 - \pi}\cdot\frac{1 - \text{PPV}}{\text{PPV}}\cdot\text{recall}$ : prévalences différentes, impossible d'égaliser PPV, recall et FPR à la fois |
+
+*(M04 à M06 : ajoutés avec leurs chapitres)*
 
 ## Partie II · Concepts
 

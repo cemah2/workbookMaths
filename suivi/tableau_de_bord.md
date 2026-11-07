@@ -690,3 +690,48 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M02c.28 🏆 Défi : un intervalle à 95 % avec dix valeurs d'une loi asymétrique ★★★ 30 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (25 cartes)
 <!-- wbm:end M02c -->
+
+<!-- wbm:section M03 -->
+## M03 · Probabilités conditionnelles ⏱️ 12,8 h
+
+- [ ] M03.Q1 🧠 Jointe, marginale ou conditionnelle ? ★ 4 min
+- [ ] M03.Q2 🧠 P(A sachant B) et P(B sachant A) ★ 4 min
+- [ ] M03.Q3 🧠 Indépendants ou incompatibles ? ★ 4 min
+- [ ] M03.Q4 🧠 Quelle métrique pour quelle probabilité ? ★ 4 min
+- [ ] M03.Q5 🧠 Moyennes de métriques ★ 4 min (complet)
+- [ ] M03.Q6 🧠 ROC et AUC : vrai ou faux ★ 4 min
+- [ ] M03.Q7 🧠 Calibré ou pas ? ★ 4 min (complet)
+- [ ] M03.R1 🔁 Arbres pondérés (R8) ★ 5 min
+- [ ] M03.R2 🔁 Moyenne harmonique et moyenne pondérée (R1) ★ 5 min
+- [ ] M03.R3 🔁 Aire par la méthode des trapèzes (M02a) ★ 5 min (complet)
+- [ ] M03.1 ✏️ Un tableau de contingence : jointes, marginales, conditionnelles ★ 20 min
+- [ ] M03.2 ✏️ L'indépendance, vérifiée dans un tableau ★ 15 min
+- [ ] M03.3 ✏️ Probabilités totales avec trois cas ★ 15 min
+- [ ] M03.4 ✏️ Une matrice de confusion lue comme des probabilités ★ 20 min
+- [ ] M03.5 ✏️ F-beta : quel β pour quel coût d'erreur ? ★★ 20 min (complet)
+- [ ] M03.6 ✏️ Balanced accuracy et MCC sur un problème déséquilibré ★★ 20 min (complet)
+- [ ] M03.7 ✏️ Changer de population : recalculer la precision quand la prévalence change ★★ 20 min
+- [ ] M03.8 ✏️ Une courbe ROC à la main, et son aire par les trapèzes ★★ 20 min
+- [ ] M03.9 ✏️ L'AUC comme proportion de paires bien classées ★★ 20 min
+- [ ] M03.10 ✏️ Courbe precision-recall et average precision à la main ★★ 20 min (complet)
+- [ ] M03.11 ✏️ Score de Brier et calibration de huit prévisions ★ 15 min (complet)
+- [ ] M03.12 ∂ L'aire sous la courbe ROC compte les paires bien classées ★★★ 30 min (complet)
+- [ ] M03.13 ∂ En multiclasse, micro-precision, micro-recall et accuracy sont égaux ★★ 20 min (complet)
+- [ ] M03.14 🔗 Un seuil sur un score : trois seuils, trois matrices de confusion ★ 20 min
+- [ ] M03.15 🔗 Équité : les taux de faux positifs de deux groupes ★★ 15 min (complet)
+- [ ] M03.16 📖 MML §6.3 : règle de la somme, règle du produit et vocabulaire, en anglais ★★ 30 min (complet)
+- [ ] M03.17 ⚖️ Un taux de réussite trompeur : le paradoxe de Simpson ★★ 20 min (complet)
+- [ ] M03.18 🗣️ Expliquer pourquoi P(A sachant B) n'est pas P(B sachant A) ★ 10 min
+- [ ] M03.E1 💼 Une variable indépendante de la cible peut-elle aider un modèle ? ★ 10 min (complet)
+- [ ] M03.19 🔨 Jointe, marginales et conditionnelles à partir d'un tableau de comptages ★ 20 min
+- [ ] M03.20 🔨 Tester l'indépendance avec une tolérance ★ 15 min (complet)
+- [ ] M03.21 🔨 L'AUC en comptant les paires ★★ 20 min
+- [ ] M03.22 📦 `sklearn.metrics.roc_auc_score` contre le comptage des paires, ex aequo compris ★ 15 min (complet)
+- [ ] M03.23 🔮 Prédire : l'AUC après une transformation croissante des scores ★ 10 min
+- [ ] M03.24 🔬 Simuler pour estimer une probabilité conditionnelle ★★ 20 min (complet)
+- [ ] M03.25 🎨 La courbe ROC en escalier : une marche par paire ★ 20 min (complet)
+- [ ] M03.26 🐛 Chasse à l'erreur : conditionnelle inversée, marginale oubliée ★ 15 min (complet)
+- [ ] M03.27 🛠️ Une fonction qui refuse un tableau invalide (`ValueError`) ★ 10 min (complet)
+- [ ] M03.28 🏆 Défi : retrouver un tableau de contingence à partir de quelques probabilités ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (22 cartes)
+<!-- wbm:end M03 -->

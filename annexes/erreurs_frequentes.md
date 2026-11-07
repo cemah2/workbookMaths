@@ -245,3 +245,15 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Confondre $\mathbb{E}[X^2]$ et $\mathbb{E}[X]^2$ | $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]$ | $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2$, la moyenne des carrés moins le carré de la moyenne |
 | Mal changer d'échelle une variance | $\mathbb{V}(10X - 4) = 10\,\mathbb{V}(X) - 4$ | $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ |
 | Croire que le hasard compense | après cinq piles, face est « dû » | les lancers sont indépendants ; la loi des grands nombres dilue les écarts |
+| Diviser une conditionnelle par le total du tableau | $P(\text{premium} \mid \text{mobile}) = \frac{30}{500}$ | diviser par le total de l'événement « sachant » : $\frac{30}{300}$ |
+| Conclure à l'indépendance sur une seule case | une case égale au produit de ses marges, donc « indépendantes » | vérifier toutes les cases, ou que toutes les lignes ont la même loi conditionnelle |
+| Croire que l'indépendance deux à deux suffit | trois événements indépendants deux à deux, donc mutuellement | deux pièces et « même côté » : $P(A \cap B \cap C) = \frac{1}{4} \ne \frac{1}{8}$ |
+| Moyenner des taux sans les poids des groupes | 2 %, 5 % et 8 % : « 5 % en moyenne » | probabilités totales : $\sum_k P(A \mid B_k)\,P(B_k)$ ; et attention au paradoxe de Simpson |
+| Lire la matrice de scikit-learn à l'envers | TP en haut à gauche | labels triés : `[[TN, FP], [FN, TP]]`, la vérité en lignes |
+| Échanger recall et precision | recall $= \frac{TP}{TP + FP}$ | recall : sachant la vérité, $\frac{TP}{TP + FN}$ ; precision : sachant la prédiction, $\frac{TP}{TP + FP}$ |
+| Garder la precision du test pour une autre population | 0,92 en test (20 % de positifs), donc 0,92 en production (2 %) | recalculer $\frac{r\pi}{r\pi + (1 - s)(1 - \pi)}$ : 0,48 |
+| Juger sur l'accuracy quand une classe est rare | « rien n'est positif » : 95 %, un bon modèle | regarder la balanced accuracy, le MCC, le recall et la precision |
+| Utiliser $\beta$ au lieu de $\beta^2$ dans $F_\beta$ | $F_2 = \frac{3PR}{2P + R}$ | $F_2 = \frac{5PR}{4P + R}$ |
+| Compter un ex æquo comme bien ou mal classé | AUC des paires avec un ex æquo compté 1 (ou 0) | un ex æquo compte $\frac{1}{2}$ |
+| Croire que l'AUC mesure les probabilités | AUC 0,95, donc des probabilités fiables | l'AUC ne voit que l'ordre ; la calibration se juge au diagramme de fiabilité et au score de Brier |
+| Calculer l'average precision par les trapèzes | relier les points (recall, precision) par des segments | des rectangles : $\sum_j (R_j - R_{j-1})\,P_j$ |
