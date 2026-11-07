@@ -931,3 +931,55 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] CP1.12 🔗 Problème de synthèse : estimer un paramètre de bout en bout (vraisemblance, maximum, Newton, incertitude) ★★ 14 min
 - [ ] CP1.13 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
 <!-- wbm:end CP1 -->
+
+<!-- wbm:section M07 -->
+## M07 · Vecteurs et géométrie de ℝⁿ ⏱️ 15,3 h
+
+- [ ] M07.Q1 🧠 Vecteurs, coordonnées et one-hot ★ 4 min
+- [ ] M07.Q2 🧠 Ce que mesure un produit scalaire ★ 4 min
+- [ ] M07.Q3 🧠 Trois normes, trois boules unités ★ 4 min
+- [ ] M07.Q4 🧠 Similarité cosinus : vrai ou faux ★ 4 min
+- [ ] M07.Q5 🧠 Hyperplans : vecteur normal et côtés ★ 4 min
+- [ ] M07.Q6 🧠 Moyenne, barycentre et inertie ★ 4 min (complet)
+- [ ] M07.Q7 🧠 Intuitions de la grande dimension ★ 4 min
+- [ ] M07.R1 🔁 Produit scalaire et angle dans le plan (R9) ★ 5 min
+- [ ] M07.R2 🔁 Moyenne et variance empiriques (M02c) ★ 5 min
+- [ ] M07.R3 🔁 Gradient et point critique (M05b) ★ 5 min (complet)
+- [ ] M07.1 ✏️ Combinaisons linéaires et vecteurs one-hot dans ℝ⁴ ★ 15 min
+- [ ] M07.2 ✏️ Produits scalaires, ‖u + v‖² et l'identité du parallélogramme ★ 15 min
+- [ ] M07.3 ✏️ Normes L1, L2, L∞ et distances entre trois profils ★ 20 min
+- [ ] M07.4 ✏️ Similarité cosinus entre des profils d'écoute musicale ★★ 20 min
+- [ ] M07.5 ✏️ Projeter sur une droite : composante parallèle et composante orthogonale ★★ 20 min
+- [ ] M07.6 ✏️ Un plan de ℝ³ : vecteur normal, côté, distance signée ★★ 20 min
+- [ ] M07.7 ✏️ Un score linéaire w · x + b : calculer, décider, lire le vecteur normal ★ 15 min
+- [ ] M07.8 ✏️ Centroïde, inertie et formule de König-Huygens ★★ 20 min
+- [ ] M07.9 ✏️ Où placer un dépôt : le barycentre pondéré des livraisons ★★ 15 min (complet)
+- [ ] M07.10 ✏️ La silhouette d'un point, à la main, en dimension 2 ★★ 15 min (complet)
+- [ ] M07.11 ✏️ k-means++ : des probabilités de tirage proportionnelles à D² ★★ 15 min (complet)
+- [ ] M07.12 ✏️ La diagonale du cube unité et son angle avec les axes, quand d grandit ★ 15 min
+- [ ] M07.13 ✏️ La distance au carré moyenne de deux points tirés dans le cube [0, 1]ᵈ ★★ 15 min (complet)
+- [ ] M07.14 ∂ L'inégalité de Cauchy-Schwarz, par le discriminant ★★ 25 min
+- [ ] M07.15 ∂ L'inégalité triangulaire pour L2, L1 et L∞ ★★ 20 min (complet)
+- [ ] M07.16 ∂ La moyenne minimise la somme des carrés des distances, en dimension n ★★ 20 min
+- [ ] M07.17 ∂ La distance d'un point à un hyperplan vaut |w · x + b| / ‖w‖ ★★ 20 min
+- [ ] M07.18 ∂ Les deux étapes de k-means font baisser l'inertie, ou la laissent égale ★★★ 20 min (complet)
+- [ ] M07.19 🔗 Pont : changer l'unité d'une feature change le plus proche voisin ★ 15 min
+- [ ] M07.20 📖 MML §3.1 et §3.2.1 : normes et produit scalaire, en anglais ★★ 30 min (complet)
+- [ ] M07.21 📖 MML §3.3 et §3.4 : longueurs, distances, angles et orthogonalité ★★ 30 min (complet)
+- [ ] M07.22 🧮 Fermi : la mémoire d'un million d'embeddings ★ 10 min (complet)
+- [ ] M07.23 🗣️ Expliquer la similarité cosinus à quelqu'un qui a fait le lycée ★ 10 min
+- [ ] M07.E1 💼 Distance euclidienne ou similarité cosinus : laquelle pour comparer des textes ? ★ 10 min (complet)
+- [ ] M07.24 🔨 Normes Lp et similarité cosinus ★ 20 min
+- [ ] M07.25 🔨 La projection sur une droite ★ 15 min
+- [ ] M07.26 🔨 Barycentre et somme des carrés des distances ★ 20 min
+- [ ] M07.27 🔨 Côté d'un hyperplan et distance à un hyperplan ★ 20 min
+- [ ] M07.28 📦 `np.linalg.norm` (ord = 1, 2, inf) et `scipy.spatial.distance` contre tes fonctions ★ 10 min (complet)
+- [ ] M07.29 🔮 Prédire : l'angle de deux vecteurs tirés au hasard en dimension 1 000 ★ 10 min
+- [ ] M07.30 🔬 La norme d'un vecteur gaussien se concentre autour de √d ★★ 20 min (complet)
+- [ ] M07.31 🔬 Médiane ou moyenne : le centre qui minimise les distances L1 ou leurs carrés, face à des points aberrants ★★ 20 min (complet)
+- [ ] M07.32 🎨 Les boules unités L1, L2, L∞ et Lp dans le plan ★ 20 min (complet)
+- [ ] M07.33 🐛 Chasse à l'erreur : une distance sans racine, un cosinus mal normalisé, une projection sur un vecteur non unitaire ★ 15 min (complet)
+- [ ] M07.34 🛠️ Les normes de toutes les lignes d'un tableau : axis, keepdims et broadcasting ★ 15 min (complet)
+- [ ] M07.35 🏆 Défi : le point qui minimise la somme des distances (non au carré) à 60 villes, à 0,1 % près ★★★ 30 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (24 cartes)
+<!-- wbm:end M07 -->
