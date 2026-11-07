@@ -307,10 +307,11 @@ from wbm.nbtools import checked, drawn, run_pytest_group, verdict
 def raised(function, *args):
     """The name of the exception that function(*args) raises, or "aucune" if it returns.
 
-    NotImplementedError (a TODO not done yet) goes through, for wbm.attempt to show ⏳."""
+    NotImplementedError (a TODO not done yet) goes through, for wbm.attempt to show ⏳; so do the errors of a code
+    that cannot run (a missing import, a misspelt name such as ValueErorr), for the check to name them."""
     try:
         function(*args)
-    except NotImplementedError:
+    except (NotImplementedError, NameError, AttributeError, ImportError):
         raise
     except Exception as exc:  # noqa: BLE001 - any other error is the answer
         return type(exc).__name__
@@ -357,7 +358,7 @@ M03_19 = Ex(
 Écris, dans cet ordre (fiche §1 et §2) :
 - `joint_from_counts(counts)` : chaque comptage divisé par le total ; une `ValueError` si le tableau n'a pas deux dimensions, a un comptage négatif, ou ne contient que des zéros ;
 - `marginal(joint, axis)` : la convention de `np.sum(joint, axis=axis)`, donc `axis=0` donne la loi de $Y$ (une probabilité par **colonne**) et `axis=1` celle de $X$ (une par **ligne**) ; une `ValueError` si `joint` n'est pas une loi jointe valide (des cases positives de somme 1, à $10^{-9}$ près) ou si `axis` ne vaut ni 0 ni 1 ;
-- `conditional(joint, given_row=None, given_column=None)` : la loi de $Y$ sachant $X = x_i$ (la ligne `i` divisée par sa somme), ou celle de $X$ sachant $Y = y_j$ ; une `ValueError` si l'on donne les deux indices ou aucun, si l'indice sort du tableau, ou si l'événement de la condition a une probabilité nulle.
+- `conditional(joint, given_row=None, given_column=None)` : la loi de $Y$ sachant $X = x_i$ (la ligne `i` divisée par sa somme), ou celle de $X$ sachant $Y = y_j$ ; une `ValueError` si l'on donne les deux indices ou aucun, si l'indice sort du tableau, ou si l'événement de la condition a une probabilité nulle. Un indice est dans le tableau s'il va de 0 au nombre de lignes (ou de colonnes) moins 1.
 
 Une fonction auxiliaire `_check_joint(joint)`, qui convertit et vérifie une loi jointe, évite d'écrire trois fois les mêmes vérifications.
 
@@ -411,7 +412,8 @@ wbm.record("M03.19c", [0.5, 0.5], decimals=3,
                          [0.3, 0.375, 0.325]}})
 wbm.record("M03.19d", [0.45, 0.3, 0.25], decimals=3,
            mistakes={{"une loi conditionnelle a une somme de 1 : divise la ligne par sa somme, P(X = x_i)":
-                         [0.225, 0.15, 0.125]}})
+                         [0.225, 0.15, 0.125],
+                     "given_row=i conditionne par X = x_i : la ligne i du tableau, pas sa colonne i": [0.75, 0.25]}})
 wbm.record("M03.19e", [25 / 65, 40 / 65], decimals=3,
            mistakes={{"une loi conditionnelle a une somme de 1 : divise la colonne par sa somme, P(Y = y_j)":
                          [0.125, 0.2]}})
@@ -447,10 +449,12 @@ La vérification calcule :
 - d) pour `TABLE_20` avec `tol=0.005` ;
 - e) pour la loi `[[0.1, 0.2, 0.2], [0.1, 0.1, 0.3]]` ;
 - f) `isinstance(résultat, bool)` : le résultat est-il un `bool` de Python ? (Le nom du type ne suffit pas : depuis NumPy 2, celui d'un booléen de NumPy s'écrit aussi `bool`.)
-- g) le nom de l'erreur levée pour `[[0.5, 0.5], [0.5, 0.5]]`.
+- g) le nom de l'erreur levée pour `[[0.5, 0.5], [0.5, 0.5]]` ;
+- h) `are_independent` pour `TABLE_20H`, dont chaque case s'écarte de $2 \times 10^{-6}$ du produit de ses marges, avec la tolérance par défaut.
 
 Dans ta copie : pour la loi de e), compare la première case au produit de ses marges, puis les autres. Pour `TABLE_20`, de combien chaque case s'écarte-t-elle du produit ? Sur des données réelles, pourquoi ne trouve-t-on jamais une indépendance exacte, et que faudrait-il pour décider (fiche §2) ?""",
-    given="TABLE_20 = np.array([[61, 139], [239, 561]]) / 1000   # a sample of 1 000 people: a joint law estimated from counts",
+    given=("TABLE_20 = np.array([[61, 139], [239, 561]]) / 1000   # a sample of 1 000 people: a joint law estimated from counts\n"
+           "TABLE_20H = np.outer([0.5, 0.5], [0.5, 0.5]) + np.array([[2e-6, -2e-6], [-2e-6, 2e-6]])   # gaps of 2e-6"),
     todo=LOAD_LEARNER,
     check='''joint_19 = np.array(TABLE_19) / np.sum(TABLE_19)
 with checked("M03.20a"):
@@ -466,7 +470,9 @@ with checked("M03.20e"):
 with checked("M03.20f"):
     wbm.check("M03.20f", isinstance(mymath.conditional.are_independent(joint_19), bool), computed=True)
 with checked("M03.20g"):
-    wbm.check("M03.20g", raised(mymath.conditional.are_independent, [[0.5, 0.5], [0.5, 0.5]]), computed=True)''',
+    wbm.check("M03.20g", raised(mymath.conditional.are_independent, [[0.5, 0.5], [0.5, 0.5]]), computed=True)
+with checked("M03.20h"):
+    wbm.check("M03.20h", mymath.conditional.are_independent(TABLE_20H), computed=True)''',
     solution=LOAD_REF + '''
 indep = mymath.conditional.are_independent
 joint_19 = np.array(TABLE_19) / np.sum(TABLE_19)
@@ -474,7 +480,7 @@ outer = np.outer([0.3, 0.7], [0.2, 0.5, 0.3])
 products = np.outer(TABLE_20.sum(axis=1), TABLE_20.sum(axis=0))
 print("a)", indep(joint_19), " b)", indep(outer), " c)", indep(TABLE_20), " d)", indep(TABLE_20, 0.005),
       " e)", indep([[0.1, 0.2, 0.2], [0.1, 0.1, 0.3]]), " f)", isinstance(indep(joint_19), bool),
-      " g)", raised(indep, [[0.5, 0.5], [0.5, 0.5]]))
+      " g)", raised(indep, [[0.5, 0.5], [0.5, 0.5]]), " h)", indep(TABLE_20H))
 print("TABLE_20 minus the products of its marginals:", (TABLE_20 - products).round(4).tolist())
 print("outer: largest gap to the products, in floats:",
       np.abs(outer - np.outer(outer.sum(axis=1), outer.sum(axis=0))).max())''',
@@ -492,7 +498,10 @@ wbm.record("M03.20f", True,
            mistakes={{"la docstring demande un bool de Python : bool(...) convertit un booléen de NumPy": False}})
 wbm.record("M03.20g", "ValueError",
            mistakes={{"une somme de 2 n'est pas une loi jointe : lève une ValueError": "aucune",
-                     "{WRONG_ERROR}": {errors_source()}}})''',
+                     "{WRONG_ERROR}": {errors_source()}}})
+wbm.record("M03.20h", False,
+           mistakes={{"np.allclose et np.isclose ajoutent une tolérance relative (rtol=1e-5) : compare "
+                      "np.abs(table - produits) <= tol, ou passe rtol=0": True}})''',
     after=tests_cells("test_are_independent_"),
     note="b) Les sommes en flottants donnent des marges comme 0,30000000000000004 : un test `==` dirait « dépendantes » "
          "pour une loi construite indépendante, d'où la tolérance. c) et d) Chaque case de `TABLE_20` s'écarte de "
@@ -620,9 +629,10 @@ wbm.record("M03.22c", 0.6666666667, decimals=4,
            mistakes={"c) donne à roc_auc_score les prédictions 0/1 au seuil 0,5, pas les scores": 0.7222222222})
 wbm.record("M03.22d", 0.6666666667, decimals=4)
 wbm.record("M03.22e", 9,
-           mistakes={"roc_curve ajoute un premier seuil, au-dessus de tous les scores : le point (0, 0)": 8})
+           mistakes={"compte len(thresholds) renvoyé par roc_curve, et regarde son premier seuil": 8})
 wbm.record("M03.22f", 0.7335016835, decimals=4,
-           mistakes={"c'est la prévalence, l'average precision d'un classement au hasard": 0.5})''',
+           mistakes={"c'est la prévalence, l'average precision d'un classement au hasard": 0.5,
+                     "l'average precision se calcule sur les scores, pas sur les prédictions 0/1": 0.6111111111})''',
     note="a) En comptant les paires : $\\frac{26}{36} \\approx 0{,}7222$ (4 paires ex æquo comptent pour moitié). "
          "b) $1 - 0{,}7222$ : inverser les scores échange paires bien et mal classées. c) Avec des prédictions 0/1, "
          "la courbe ROC n'a que trois points, $(0, 0)$, $(\\text{FPR}, \\text{TPR})$ et $(1, 1)$, et l'aire sous ces "
@@ -757,14 +767,20 @@ wbm.record("M03.24b", 0.8344844010, decimals=3,
                          0.14016,
                      "c'est l'autre probabilité conditionnelle : l'événement d'abord, la condition ensuite":
                          0.4585487143}})
-wbm.record("M03.24c", 0.5027982853, decimals=3)
-wbm.record("M03.24d", 0.5011389522, decimals=3)
+wbm.record("M03.24c", 0.5027982853, decimals=3,
+           mistakes={{"divise par le nombre de tirages où la condition est vraie, pas par le nombre total de tirages":
+                         0.08445}})
+wbm.record("M03.24d", 0.5011389522, decimals=3,
+           mistakes={{"divise par le nombre de tirages où la condition est vraie, pas par le nombre total de tirages":
+                         0.2508}})
 wbm.record("M03.24e", 0.50073, decimals=3)
 wbm.record("M03.24f", "ValueError",
            mistakes={{"la condition n'est jamais vraie : lève une ValueError plutôt que de renvoyer nan":
                          {{"aucune", "ZeroDivisionError"}},
                      "{WRONG_ERROR}": {errors_source("ZeroDivisionError")}}})
-wbm.record("M03.24g", 0.14016, decimals=3)''',
+wbm.record("M03.24g", 0.14016, decimals=3,
+           mistakes={{"conditional_frequency divise par le nombre de tirages où la condition est vraie, pas par le "
+                      "nombre total de tirages": 0.0428413056}})''',
     note="Valeurs exactes, sur les 36 issues : « au moins un 6 » en compte 11, dont 5 de somme au moins 10 ((4, 6), "
          "(5, 6), (6, 6), (6, 5), (6, 4)), d'où a) $\\frac{5}{11} \\approx 0{,}455$ ; « somme au moins 10 » en compte 6, "
          "dont 5 avec un 6, d'où b) $\\frac{5}{6} \\approx 0{,}833$ ; c) $\\frac{3}{6} = 0{,}5$. a) et b) ont le même "
@@ -784,12 +800,19 @@ M03_25_CHECK = '''with checked("M03.25 vérifications"):
     y_t = np.r_[np.ones(len(pos_t)), np.zeros(len(neg_t))]
     fpr_t, tpr_t, _ = roc_curve(y_t, np.r_[pos_t, neg_t], drop_intermediate=False)
     expected = [(float(f), float(t)) for f, t in zip(fpr_t, tpr_t)]
-    points = [tuple(float(v) for v in point) for point in roc_points(pos_t, neg_t)]
-    if len(points) != len(expected) or any(abs(a - c) > 1e-9 or abs(b - d) > 1e-9
-                                           for (a, b), (c, d) in zip(points, expected)):
-        problems.append("roc_points : un point (0, 0), puis un point par score distinct, du plus grand au plus petit, "
-                        "chacun (FPR, recall) avec la règle « score ≥ seuil » ; un ex æquo fait avancer les deux "
-                        "coordonnées à la fois")
+    result = list(roc_points(pos_t, neg_t))
+    if (len(result) == 2 and all(np.ndim(part) == 1 and len(part) == len(expected) for part in result)):
+        problems.append("roc_points renvoie deux listes (fpr, tpr), comme roc_curve : la docstring demande une liste de "
+                        "couples (fpr, tpr), par exemple list(zip(fpr, tpr))")
+    else:
+        points = [tuple(float(v) for v in point) for point in result]
+        if len(points) == len(pos_t) + len(neg_t) + 1:
+            problems.append("roc_points : un point par score distinct, pas un par exemple ; des ex æquo passent le "
+                            "seuil ensemble et font avancer les deux coordonnées d'un coup")
+        elif len(points) != len(expected) or any(abs(a - c) > 1e-9 or abs(b - d) > 1e-9
+                                                 for (a, b), (c, d) in zip(points, expected)):
+            problems.append("roc_points : un point (0, 0), puis un point par score distinct, du plus grand au plus "
+                            "petit, chacun (FPR, recall) avec la règle « score ≥ seuil »")
     fig, ax = plt.subplots(figsize=(4, 4))
     try:
         created = drawn(draw_roc, ax, pos_t, neg_t)
@@ -811,13 +834,15 @@ M03_25_CHECK = '''with checked("M03.25 vérifications"):
             problems.append("la courbe ROC doit passer par tous ses points (FPR, recall) : trace roc_points avec ax.plot")
         else:
             if curve.get_drawstyle() != "default":
-                problems.append("relie les points par des segments (ax.plot) : un ex æquo donne un segment en "
-                                "diagonale, que ax.step dessinerait en marche")
+                problems.append("relie les points par des segments (ax.plot) : un ex æquo donne un segment oblique, "
+                                "que ax.step dessinerait en marche")
+            if curve.get_linestyle() in ("None", "none", "", " "):
+                problems.append("relie les points par des segments : ax.plot(fpr, tpr), pas des points seuls (le format « o »)")
             xs, ys = np.asarray(curve.get_xdata(), dtype=float), np.asarray(curve.get_ydata(), dtype=float)
             area = float(np.sum((xs[1:] - xs[:-1]) * (ys[1:] + ys[:-1]) / 2))
             if abs(area - roc_auc_score(y_t, np.r_[pos_t, neg_t])) > 1e-9:
-                problems.append("l'aire sous la courbe tracée doit être l'AUC : relie les points dans l'ordre, de (0, 0) "
-                                "à (1, 1)")
+                problems.append("l'aire sous la courbe tracée doit être l'AUC : relie dans l'ordre, de (0, 0) à (1, 1), "
+                                "les seuls points de roc_points (un par score distinct)")
         if not diagonals:
             problems.append("il manque la diagonale du hasard, de (0, 0) à (1, 1)")
         if not ax.get_xlabel() or not ax.get_ylabel():
@@ -830,7 +855,7 @@ M03_25_CHECK = '''with checked("M03.25 vérifications"):
         print("✅ Ex M03.25 : une courbe ROC juste, ex æquo compris, avec la diagonale, les axes nommés et l'AUC.")'''
 
 M03_25 = Ex(
-    "M03.25", "🎨", 1, 20, "La courbe ROC en escalier : une marche par paire",
+    "M03.25", "🎨", 1, 20, "La courbe ROC en escalier : une case par paire",
     "calculer les sommets d'une courbe ROC, ex æquo compris, et la tracer avec la diagonale du hasard et son AUC.",
     "fiche §7 ; R0 (matplotlib)", tracks="C",
     body="""Écris deux fonctions :
@@ -907,9 +932,10 @@ print(roc_points(POS_25, NEG_25))''',
 M03_26_MISTAKES = bug_letters_mistakes(
     "ACDE", "BF",
     {"A": "vérifie qu'un taux global tient compte de la taille de chaque groupe",
-     "C": "vérifie, pour chaque conditionnelle, que l'événement « sachant » est bien celui du dénominateur",
-     "D": "vérifie que chaque probabilité conditionnelle divise par la probabilité de sa condition",
-     "E": "vérifie qu'aucune ligne n'additionne des probabilités sachant des conditions différentes"})
+     "C": "vérifie, pour chaque conditionnelle, quel événement est la condition",
+     "D": "vérifie que chaque conditionnelle divise par la probabilité de sa condition",
+     "E": "vérifie que chaque résultat est bien une probabilité, calculée sachant la bonne condition"},
+    name_correct=False)
 
 M03_26 = Ex(
     "M03.26", "🐛", 1, 15, "Chasse à l'erreur : conditionnelle inversée, marginale oubliée",

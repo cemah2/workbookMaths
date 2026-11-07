@@ -9823,6 +9823,7 @@
       "hash": "52e21d95a08c833fd7810984bc78bc3d0e254e79b978693d28fd46666b211453",
       "kind": "array",
       "mistakes": {
+        "3d9dd7bbbcd66516b615cd2b3de977bc64a921ccdccd7122566eff25527a96f7": "given_row=i conditionne par X = x_i : la ligne i du tableau, pas sa colonne i",
         "cfe2e4aba2f91a234e4dbfff0708f412d12e4463de05c173f6f91f360be065f9": "une loi conditionnelle a une somme de 1 : divise la ligne par sa somme, P(X = x_i)"
       },
       "shape": [
@@ -9969,6 +9970,14 @@
         "a003cbee1be50160abdd98cc81c51b1779d0de4463df4f75d69b611f1cc200ae": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
         "bd159a30f6d1f2504199a34e1b7581ff93c655fd1e661f8bc085b603deb50ed2": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
         "c760b66b6aa04b0e0f4e206c9ccdc4dff0e06f0c9a5b7d15580906e3808a9a0d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
+    },
+    "M03.20h": {
+      "hash": "3cf94e643a5ddc158c8bd0fa4a2185337f263fd8278dbe1ba2075777ba1c424e",
+      "kind": "bool",
+      "mistakes": {
+        "e899f72bd0781683bf8ef631022ded30438d85882215ad32eff213bac8af9930": "np.allclose et np.isclose ajoutent une tolérance relative (rtol=1e-5) : compare np.abs(table - produits) <= tol, ou passe rtol=0"
       },
       "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
     },
@@ -10202,7 +10211,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "175e498fe8e8a13302671f52e65ee3a620b32c3f250e5cb9172ac9cf501050e0": "roc_curve ajoute un premier seuil, au-dessus de tous les scores : le point (0, 0)"
+        "175e498fe8e8a13302671f52e65ee3a620b32c3f250e5cb9172ac9cf501050e0": "compte len(thresholds) renvoyé par roc_curve, et regarde son premier seuil"
       },
       "sign": 1,
       "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
@@ -10227,6 +10236,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "6d0a32596e46db9ec7f88a955f540991ffda5cb1b52e8496bc1adb7748c42f5f": "l'average precision se calcule sur les scores, pas sur les prédictions 0/1",
         "89d692bb9fc8079bb6295db514fa2994386f6dc0764c641f0baab2c0964f2043": "c'est la prévalence, l'average precision d'un classement au hasard"
       },
       "sign": 1,
@@ -10356,6 +10366,9 @@
       "hash_coarse": "a4824fe214a9c7e2795ad5faffb0ea71808f9a5a18d98c756757fe6d94488b2e",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "a233f44a5d22a37f723dfbcb9323d2e98b78dc4fb3bf83be9c6463a80d95fe1c": "divise par le nombre de tirages où la condition est vraie, pas par le nombre total de tirages"
+      },
       "sign": 1,
       "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
     },
@@ -10373,6 +10386,9 @@
       "hash_coarse": "b4325830ed0bea0d95408f134388db2603c74774c31c7ab1f6c8340c5c7da844",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "6b608f95e1fc9dac0cf11b21b5daf3948bbf7e71f3daf0eb5c0604e0730a99eb": "divise par le nombre de tirages où la condition est vraie, pas par le nombre total de tirages"
+      },
       "sign": 1,
       "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
     },
@@ -10420,6 +10436,9 @@
       "hash_coarse": "e24073823b1c929a53bcd9c0839aaf95f58203ab2448f4b2aed71ec618531e97",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "2028d728c9e2d990c08c67322ecfa7804edf6f7fc4e283190a47e985dcbb9453": "conditional_frequency divise par le nombre de tirages où la condition est vraie, pas par le nombre total de tirages"
+      },
       "sign": 1,
       "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
     },
@@ -10430,10 +10449,10 @@
         "00fc9100609c404a529501b10b0109297ff5dd65ed35171eede9d27c299859e1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "01cf5acf71cb02b4b5bfe65fe1cbb4bb0f86a4bddcb4b0d33b3e4cccf19a6cba": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "0a9cbd55fd208f29fe86c71908f83108dc7b6478fe216aa7cf7d7ef9b950274b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "0acecc3791cfec39d2e39bb7c6c68b6d262cb9fdd0dc75024f8a01ef61e73727": "la ligne (F) est correcte, et il manque une ligne fautive : vérifie que chaque probabilité conditionnelle divise par la probabilité de sa condition",
+        "0acecc3791cfec39d2e39bb7c6c68b6d262cb9fdd0dc75024f8a01ef61e73727": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie que chaque conditionnelle divise par la probabilité de sa condition",
         "123022741702b2b38d3ee9905ab3da487e82e74bb6fdfdb54ee9912a98de87c1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "18b07f6b9a6329e3a48044cbad9c7ca0a24ee6cf9daab23ca9ffe83d0e90f144": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "25e4830a39346e10db73d8fdd045ba192031995a7f9c59d624cb9df6263ae6f8": "une ligne de trop : la ligne (F) est correcte ; relis ce qu'elle fait",
+        "25e4830a39346e10db73d8fdd045ba192031995a7f9c59d624cb9df6263ae6f8": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
         "3111d7c3f26aefcb0a2ca21f37b6754728006e07c5333cae12048cb97e85595d": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
         "33c0df21845a41846bdf056531375d116207c19935702508ef94d9fd6dbf35da": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "34e962133f8235efcb94af0bd1b3ece7e8493f967de8a3991e9169cadf9c8ea1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
@@ -10444,25 +10463,25 @@
         "3ca53afd9f33f4fe494f6c7912fb5ff0ff752e847284152112e62c851837b916": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
         "453faacd26bf461742aaf7cc46721dc688e984eb332b360057779d2164235e9d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "45422150a752745c2e1a1da7435814bbfba33c1f899456b667af47df8970c90c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "491e84dc10efab6eb3a89ea6088721e064eabb52eb21029df656a2aafc35200d": "il manque une ligne fautive : vérifie qu'aucune ligne n'additionne des probabilités sachant des conditions différentes",
+        "491e84dc10efab6eb3a89ea6088721e064eabb52eb21029df656a2aafc35200d": "il manque une ligne fautive : vérifie que chaque résultat est bien une probabilité, calculée sachant la bonne condition",
         "4e3b278e17d3b0e818298017bb9e045afc140a358058684b86c2b6c9df2ce0a4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "4e6c4f2f38081a68d30ab0ab9e4d15eb5784f6c8ccad6b9dcf671d3cd5e4693c": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
         "5802e156ab488f746077fffe738e7caac39525bd355fa29f280711e504d37b2d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "5985504ad120e648542af0c8c350474efdb2b8a147c900976239794415f8b444": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "5d51fb192b673236ab03a074b5fa99a76d86b634e0a1fadd8ee5ebd923ce2701": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "5d93ca34343d28fa599ed7cf2719502e959d6899f1883c50c1dff995b5b5a8cf": "la ligne (F) est correcte, et il manque une ligne fautive : vérifie qu'un taux global tient compte de la taille de chaque groupe",
+        "5d93ca34343d28fa599ed7cf2719502e959d6899f1883c50c1dff995b5b5a8cf": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie qu'un taux global tient compte de la taille de chaque groupe",
         "5dc7eb137e4976f3c74b2dcf4bac4720c1283cad5108a639d20f92efedadb1a4": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
         "615eec942a932823c607f99c1565d92323b44126bb2749b963c3661a38b23ac5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "642bc5bfb5389a9319d2bf0878d4bf11e265173e73c020a34c51a3bc19619f90": "il manque une ligne fautive : vérifie, pour chaque conditionnelle, que l'événement « sachant » est bien celui du dénominateur",
+        "642bc5bfb5389a9319d2bf0878d4bf11e265173e73c020a34c51a3bc19619f90": "il manque une ligne fautive : vérifie, pour chaque conditionnelle, quel événement est la condition",
         "65cd4795844917c58df4a41ef326e35a2a87b433d3a03b4431fda6a4182d7c3f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "65ed9901f14c8572f488a128e1529d4abe8b4af96b3d0a349f1c50ace733b04b": "il manque une ligne fautive : vérifie que chaque probabilité conditionnelle divise par la probabilité de sa condition",
+        "65ed9901f14c8572f488a128e1529d4abe8b4af96b3d0a349f1c50ace733b04b": "il manque une ligne fautive : vérifie que chaque conditionnelle divise par la probabilité de sa condition",
         "67cd2e8bb1918751cfa53778e16b6c26f0d841be9f02a71e80888d7cc19e18ca": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "6827d1590025d16a9e6c1a58a3a65f29586b4d70b30f109be7e1df9f0f0dc470": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "6d10fcb31346200f1d4001a2b7e17fe8c561e6f5b5fc98d1dd78236a88489db0": "une ligne de trop : la ligne (B) est correcte ; relis ce qu'elle fait",
+        "6d10fcb31346200f1d4001a2b7e17fe8c561e6f5b5fc98d1dd78236a88489db0": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
         "72f0d20346392f797cb89f2fedd33b6a59bb960dacd69d3521190cdc7cce6c9d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "771ed856269caf74f9e3e7fa79118c837ac83ec76cff72d54ca13f3ecafe70f2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "794679134f471fdc93263bea8b120dc6f4c40aedd628466dbad38e3e1f3ba21b": "il manque une ligne fautive : vérifie qu'un taux global tient compte de la taille de chaque groupe",
-        "7992264ff7ee50ea3b58f871e3f0413dd0e40975c5f8713b71e8d7d57cb99285": "la ligne (F) est correcte, et il manque une ligne fautive : vérifie, pour chaque conditionnelle, que l'événement « sachant » est bien celui du dénominateur",
+        "7992264ff7ee50ea3b58f871e3f0413dd0e40975c5f8713b71e8d7d57cb99285": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie, pour chaque conditionnelle, quel événement est la condition",
         "7de4257df0cfc9aa4bb00a55b0b73942a18ac355f2aac89622791e426448b518": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "7e8a05c5612ce1b10405ba61d94845fd2c80c94225c9a4684b311c5545a914a7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "7ea665dda536457f9a4a902cc9896425a95d91370430363db6f847694d1a0927": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
@@ -10474,20 +10493,20 @@
         "a42c9f29ca30f195fb2eb3269cad9e34d4a6d7f9b4ba4f35c15aef9a390e265b": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
         "a9a928c5a030dd6b91744ffb153274a22c39bc09ad1ff6f9f05b26bdefc5dd20": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "ab25bd14574428e9a7b8a90394820b58bdc66dd881b82539e9cd016abf7ed23b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "b61476752bb6bb80229ae385fe4a5fbfad94fd9e8c0203312d55c19d4a310bf1": "la ligne (B) est correcte, et il manque une ligne fautive : vérifie qu'un taux global tient compte de la taille de chaque groupe",
-        "b61e9f0203de3fd395eeea875fce1abd0224a34bbed1e0d746dced6df6ba65e6": "la ligne (F) est correcte, et il manque une ligne fautive : vérifie qu'aucune ligne n'additionne des probabilités sachant des conditions différentes",
+        "b61476752bb6bb80229ae385fe4a5fbfad94fd9e8c0203312d55c19d4a310bf1": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie qu'un taux global tient compte de la taille de chaque groupe",
+        "b61e9f0203de3fd395eeea875fce1abd0224a34bbed1e0d746dced6df6ba65e6": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie que chaque résultat est bien une probabilité, calculée sachant la bonne condition",
         "c4d61958dc916127239910a684468a9f2bcb16fac95940f5265b3a4862080714": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "cac66bfcdd2eeeede9136fff119b354bb66fe7a69850b5740382b83f0513f982": "la ligne (B) est correcte, et il manque une ligne fautive : vérifie, pour chaque conditionnelle, que l'événement « sachant » est bien celui du dénominateur",
+        "cac66bfcdd2eeeede9136fff119b354bb66fe7a69850b5740382b83f0513f982": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie, pour chaque conditionnelle, quel événement est la condition",
         "ce0d075482031935749b7dc6216b50934a4ceaa0453c6f8886d0708deb4126a2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "cf18d61762c3342d10d2b190e759f789818c008c98119bf5450b72ed41d0ab2c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "d48bf48b38cf02ef09decc55f32b76ac6d7c4acdfdfa2587a2c42e1b0cdb5ccb": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "d5d93f49ffd55f1ddefee82885e048a64ebb9f7c81c7cb2550c827744895d273": "la ligne (B) est correcte, et il manque une ligne fautive : vérifie que chaque probabilité conditionnelle divise par la probabilité de sa condition",
+        "d5d93f49ffd55f1ddefee82885e048a64ebb9f7c81c7cb2550c827744895d273": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie que chaque conditionnelle divise par la probabilité de sa condition",
         "da2e2b091693c43edd41740cdcbdece00c19c3ccbd9ed6907067c73e37d7a481": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
         "dd89443e203474b6c3060101620563124fd935281131988e801be7b7f7982335": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "df20530a559544abe73562e63aac9efb05feadbe7d69af74c99b22ed1bac8e2a": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
         "e1aba92f0bd112d521d1d2e31c9a792186512c72fce7fbba8ead3d746a1245fd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "e2dc3c9ea1b5add3517bb11912dc89c4dc63fbedc975c6bcfe9278c7534dc89f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "e527a012773dc4688484d7f76d56e9581fd53bba1c235543d9e5f9d43766f9d4": "la ligne (B) est correcte, et il manque une ligne fautive : vérifie qu'aucune ligne n'additionne des probabilités sachant des conditions différentes",
+        "e527a012773dc4688484d7f76d56e9581fd53bba1c235543d9e5f9d43766f9d4": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie que chaque résultat est bien une probabilité, calculée sachant la bonne condition",
         "e5549f223a2ebf7e96cb7ad66a01b923fd4fde441cf6bd0caa80ff4c15d1e04b": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple"
       },
       "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"

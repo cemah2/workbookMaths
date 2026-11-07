@@ -336,7 +336,7 @@
 
 - Les valeurs exactes de a) à e) ; pourquoi a) et b) diffèrent ; ce que montrent d) et e) ; les écarts comparés aux erreurs types :
 
-### Ex M03.25 — La courbe ROC en escalier : une marche par paire
+### Ex M03.25 — La courbe ROC en escalier : une case par paire
 
 - Le nombre de cases sous la courbe ; le segment en diagonale et ses paires :
 

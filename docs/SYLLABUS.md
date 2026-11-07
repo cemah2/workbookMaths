@@ -1253,7 +1253,7 @@ Les probabilités jointes, marginales et conditionnelles, les tableaux de contin
 | M03.22 | 📦 | `sklearn.metrics.roc_auc_score` contre le comptage des paires, ex aequo compris | ★ | 15 | §7 | C | wbm | — |
 | M03.23 | 🔮 | Prédire : l'AUC après une transformation croissante des scores | ★ | 10 | §7 | C, E | wbm | — |
 | M03.24 | 🔬 | Simuler pour estimer une probabilité conditionnelle | ★★ | 20 | §2 | C | wbm | — |
-| M03.25 | 🎨 | La courbe ROC en escalier : une marche par paire | ★ | 20 | §7 | C | manuel | — |
+| M03.25 | 🎨 | La courbe ROC en escalier : une case par paire | ★ | 20 | §7 | C | manuel | — |
 | M03.26 | 🐛 | Chasse à l'erreur : conditionnelle inversée, marginale oubliée | ★ | 15 | §2 §3 | C | wbm | — |
 | M03.27 | 🛠️ | Une fonction qui refuse un tableau invalide (`ValueError`) | ★ | 10 | §1 | C | manuel | — |
 | M03.28 | 🏆 | Défi : retrouver un tableau de contingence à partir de quelques probabilités | ★★★ | 25 | §1 §3 | C | wbm | — |

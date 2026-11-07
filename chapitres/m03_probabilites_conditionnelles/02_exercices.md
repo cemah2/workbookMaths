@@ -525,7 +525,7 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | M03.22 | `sklearn.metrics.roc_auc_score` contre le comptage des paires, ex æquo compris | 📦 | ★ | 15 | C |
 | M03.23 | Prédire : l'AUC après une transformation croissante des scores | 🔮 | ★ | 10 | C, E |
 | M03.24 | Simuler pour estimer une probabilité conditionnelle | 🔬 | ★★ | 20 | C |
-| M03.25 | La courbe ROC en escalier : une marche par paire | 🎨 | ★ | 20 | C |
+| M03.25 | La courbe ROC en escalier : une case par paire | 🎨 | ★ | 20 | C |
 | M03.26 | Chasse à l'erreur : conditionnelle inversée, marginale oubliée | 🐛 | ★ | 15 | C |
 | M03.27 | Une fonction qui refuse un tableau invalide (`ValueError`) | 🛠️ | ★ | 10 | C |
 | M03.28 | Défi : retrouver un tableau de contingence à partir de quelques probabilités | 🏆 | ★★★ | 25 | C |

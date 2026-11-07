@@ -369,7 +369,7 @@ CHAPTERS = [
              "§7", ""),
             ("M03.23", "🔮", 1, 10, "Prédire : l'AUC après une transformation croissante des scores", "§7", "E"),
             ("M03.24", "🔬", 2, 20, "Simuler pour estimer une probabilité conditionnelle", "§2", ""),
-            ("M03.25", "🎨", 1, 20, "La courbe ROC en escalier : une marche par paire", "§7", ""),
+            ("M03.25", "🎨", 1, 20, "La courbe ROC en escalier : une case par paire", "§7", ""),
             ("M03.26", "🐛", 1, 15, "Chasse à l'erreur : conditionnelle inversée, marginale oubliée", "§2 §3", ""),
             ("M03.27", "🛠️", 1, 10, "Une fonction qui refuse un tableau invalide (`ValueError`)", "§1", ""),
             ("M03.28", "🏆", 3, 25, "Défi : retrouver un tableau de contingence à partir de quelques probabilités",

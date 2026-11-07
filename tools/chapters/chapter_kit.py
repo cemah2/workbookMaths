@@ -207,37 +207,46 @@ def guarded(code_text: str, names: list[str], message: str) -> str:
 
 
 def bug_letters_mistakes(answer: str, others: str, missing_hints: dict, special: dict | None = None,
-                         many: bool = True) -> str:
+                         many: bool = True, name_correct: bool = True) -> str:
     """The ``mistakes`` dict (as source code) of a 🐛 answered by the letters of its faulty lines: one message for each
     set that misses one faulty line, has one line too many, or swaps one faulty line for a correct one. Each message is
     unique (a duplicate key of a dict literal would silently drop an entry); ``special`` maps (missing, extra) to a
     message of its own. Raises ValueError on a duplicate message.
 
     ``many`` (R3 on): every other non-empty set of letters gets one of three shared messages (several faulty lines
-    missing, several correct lines cited, or both), which name no line: a set of values for one message."""
+    missing, several correct lines cited, or both), which name no line: a set of values for one message.
+
+    ``name_correct=False`` (from M03 on): a correct line cited by mistake is never named (« une des lignes que tu cites
+    est correcte »), so that two tries cannot reveal the answer; the hints of the missing lines stay."""
     answer_set, entries = set(answer), {}
 
-    def add(message: str, letters: str) -> None:
-        if message in entries:
+    def add(message: str, letters: str, shared: bool = False) -> None:
+        if message in entries and not shared:
             raise ValueError(f"duplicate mistakes message: {message!r}")
-        entries[message] = letters
+        entries.setdefault(message, []).append(letters)
 
     for removed in sorted(answer_set):
         add(f"il manque une ligne fautive : {missing_hints[removed]}", "".join(sorted(answer_set - {removed})))
     for extra in others:
-        add(f"une ligne de trop : la ligne ({extra}) est correcte ; relis ce qu'elle fait",
-            "".join(sorted(answer_set | {extra})))
+        if name_correct:
+            add(f"une ligne de trop : la ligne ({extra}) est correcte ; relis ce qu'elle fait",
+                "".join(sorted(answer_set | {extra})))
+        else:
+            add("une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un "
+                "petit exemple", "".join(sorted(answer_set | {extra})), shared=True)
     for removed in sorted(answer_set):
         for extra in others:
             message = (special or {}).get((removed, extra)) or (
-                f"la ligne ({extra}) est correcte, et il manque une ligne fautive : {missing_hints[removed]}")
-            add(message, "".join(sorted((answer_set - {removed}) | {extra})))
+                f"la ligne ({extra}) est correcte, et il manque une ligne fautive : {missing_hints[removed]}"
+                if name_correct else
+                f"une des lignes que tu cites est correcte, et il manque une ligne fautive : {missing_hints[removed]}")
+            add(message, "".join(sorted((answer_set - {removed}) | {extra})), shared=not name_correct)
     groups: dict[str, list[str]] = {}
     if many:
         import itertools
 
         letters = sorted(answer_set | set(others))
-        known = set(entries.values()) | {"".join(sorted(answer_set))}
+        known = {v for values in entries.values() for v in values} | {"".join(sorted(answer_set))}
         for size in range(1, len(letters) + 1):
             for chosen in itertools.combinations(letters, size):
                 text = "".join(chosen)
@@ -250,7 +259,9 @@ def bug_letters_mistakes(answer: str, others: str, missing_hints: dict, special:
                        "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque "
                        "ligne avec un petit exemple")
                 groups.setdefault(key, []).append(text)
-    parts = [f"{json.dumps(m, ensure_ascii=False)}: {json.dumps(v)}" for m, v in entries.items()]
+    parts = [f"{json.dumps(m, ensure_ascii=False)}: " + (json.dumps(v[0]) if len(v) == 1 else
+                                                          "{" + ", ".join(json.dumps(x) for x in v) + "}")
+             for m, v in entries.items()]
     parts += [f"{json.dumps(m, ensure_ascii=False)}: {{{', '.join(json.dumps(v) for v in values)}}}"
               for m, values in groups.items()]
     return "{" + ",\n                     ".join(parts) + "}"

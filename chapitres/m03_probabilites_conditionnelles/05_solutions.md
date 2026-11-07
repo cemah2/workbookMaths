@@ -415,11 +415,11 @@ Pour la copie : l'identité donne $\frac{60}{140} \times \frac{28}{48} \times 0{
 
 ### Ex M03.20 — Tester l'indépendance avec une tolérance · `are_independent`
 
-**Réponses** : a) `False` · b) `True` · c) `False` · d) `True` · e) `False` · f) `True` · g) `"ValueError"`.
+**Réponses** : a) `False` · b) `True` · c) `False` · d) `True` · e) `False` · f) `True` · g) `"ValueError"` · h) `False`.
 
 **Démarche.** `table = _check_joint(joint)`, puis `products = np.outer(table.sum(axis=1), table.sum(axis=0))` et `bool(np.all(np.abs(table - products) <= tol))`. Pour la copie : dans la loi de e), la première case vaut le produit de ses marges ($0{,}5 \times 0{,}2$) mais pas la deuxième (0,2 contre 0,15) ; `TABLE_20` s'écarte de 0,001 dans chaque case.
 
-**Erreurs fréquentes.** Comparer avec `==` (b) devient faux à cause des arrondis en flottants) ; ne vérifier qu'une case ; renvoyer `np.True_` (un booléen de NumPy, dont le nom de type s'écrit aussi `bool` depuis NumPy 2 : seul `isinstance(..., bool)` les distingue).
+**Erreurs fréquentes.** Comparer avec `==` (b) devient faux à cause des arrondis en flottants) ; `np.allclose(table, produits, atol=tol)`, qui ajoute une tolérance relative `rtol=1e-5` (h) devient vrai) ; ne vérifier qu'une case ; renvoyer `np.True_` (un booléen de NumPy, dont le nom de type s'écrit aussi `bool` depuis NumPy 2 : seul `isinstance(..., bool)` les distingue).
 
 ### Ex M03.21 — L'AUC en comptant les paires · `auc_by_pairs`
 
@@ -451,11 +451,11 @@ Pour la copie : l'identité donne $\frac{60}{140} \times \frac{28}{48} \times 0{
 
 **Erreurs fréquentes.** Diviser par le nombre total de tirages (on obtient la fréquence de l'intersection, 0,140) ; échanger l'événement et la condition ; taper la valeur exacte au lieu de la fréquence simulée.
 
-### Ex M03.25 — La courbe ROC en escalier : une marche par paire
+### Ex M03.25 — La courbe ROC en escalier : une case par paire
 
 **Démarche.** `roc_points` : les scores distincts par ordre décroissant (`np.unique(...)[::-1]`), et pour chaque seuil `(np.mean(neg >= t), np.mean(pos >= t))`, après le point `(0.0, 0.0)`. `draw_roc` : `ax.plot` des points, la diagonale `ax.plot([0, 1], [0, 1], "--")`, `ax.set_xlabel`, `ax.set_ylabel`, et le titre avec l'AUC. Pour la copie : 33 cases sur 48 sont sous la courbe, en comptant pour moitié les 2 cases traversées par le segment diagonal du seuil 0,71 (les paires de ses deux positifs avec le négatif de même score) : $\frac{33}{48} = 0{,}6875$.
 
-**Erreurs fréquentes.** `ax.step` (qui dessine une marche à la place du segment diagonal) ; un point par exemple au lieu d'un point par score distinct (deux points superposés pour les ex æquo, et un passage par un coin faux) ; la règle « score > seuil » au lieu de « $\ge$ » ; oublier $(0, 0)$.
+**Erreurs fréquentes.** `ax.step` (qui dessine une marche à la place du segment oblique) ; des points sans segments (`ax.plot(fpr, tpr, "o")`) ; renvoyer deux listes `(fpr, tpr)` au lieu d'une liste de couples ; un point par exemple au lieu d'un point par score distinct (deux points superposés pour les ex æquo, et un passage par un coin faux) ; la règle « score > seuil » au lieu de « $\ge$ » ; oublier $(0, 0)$.
 
 ### Ex M03.26 — Chasse à l'erreur : conditionnelle inversée, marginale oubliée
 

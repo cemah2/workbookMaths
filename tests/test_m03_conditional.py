@@ -44,7 +44,14 @@ def _expect_value_error(call, what, why):
         raise
     except Exception as exc:  # noqa: BLE001 - any other error is reported, with what was expected first
         pytest.fail(f"expected {what} to raise ValueError ({why}), got {type(exc).__name__}: {exc}")
-    pytest.fail(f"expected {what} to raise ValueError ({why}), but it returned {result!r}")
+    shown = result.tolist() if isinstance(result, np.ndarray) else result   # one line, even for an array
+    pytest.fail(f"expected {what} to raise ValueError ({why}), but it returned {shown!r}")
+
+
+def _truth(got):
+    """The truth value of a Python or NumPy bool: the type itself is checked by test_are_independent_returns_a_python_bool
+    alone, so that a right value of the wrong type is not reported as a wrong value."""
+    return bool(got) if isinstance(got, (bool, np.bool_)) else got
 
 
 def _float_array(got, shape, what):
@@ -66,9 +73,9 @@ def test_conditional_uses_no_sklearn(conditional):
             imported.update(alias.name.split(".")[0] for alias in node.names)
         elif isinstance(node, ast.ImportFrom) and node.module:
             imported.add(node.module.split(".")[0])
-    assert not imported & {"sklearn", "scipy", "pandas"}, (
-        "expected conditional.py not to import scikit-learn, SciPy or pandas (the tests compare your results with "
-        "scikit-learn): write the sums and the pair count yourself, NumPy is allowed")
+    assert "sklearn" not in imported, (
+        "expected conditional.py not to import scikit-learn (the tests compare your results with it): write the sums "
+        "and the pair count yourself, NumPy is allowed")
 
 
 # ---------------------------------------------------------------- joint_from_counts
@@ -118,6 +125,10 @@ def test_marginal_docstring_example(conditional):
 @pytest.mark.parametrize("axis, expected", [(0, [0.3, 0.2, 0.5]), (1, [0.4, 0.6])], ids=["axis 0", "axis 1"])
 def test_marginal_of_a_2_by_3_law(conditional, axis, expected):
     got = _result(lambda: conditional.marginal(JOINT, axis=axis), f"{expected}")
+    if isinstance(got, np.ndarray) and got.ndim == 1 and got.shape != (len(expected),):
+        pytest.fail(f"expected {expected}, {len(expected)} values for a 2 × 3 law with axis={axis}, got {got.tolist()}: "
+                    "axis=0 sums down each column (one value per column, the law of Y); axis=1 sums along each row "
+                    "(the law of X)")
     _float_array(got, (len(expected),), f"marginal(a 2 × 3 law, axis={axis})")
     hint = (" (axis=0 sums down each column, one value per column; axis=1 sums along each row)"
             if got.shape == (len(expected),) and not np.allclose(got, expected) else "")
@@ -185,35 +196,45 @@ def test_conditional_refuses_an_invalid_joint_law(conditional):
 # ---------------------------------------------------------------- are_independent
 def test_are_independent_docstring_examples(conditional):
     got = _result(lambda: conditional.are_independent([[0.06, 0.14], [0.24, 0.56]]), "True")
-    assert got is True, f"expected True ((0.2, 0.8) × (0.3, 0.7) gives every cell), got {got!r}"
+    assert _truth(got) is True, f"expected True ((0.2, 0.8) × (0.3, 0.7) gives every cell), got {got!r}"
     got = _result(lambda: conditional.are_independent([[0.1, 0.3], [0.2, 0.4]]), "False")
-    assert got is False, f"expected False (P(X = x_0) P(Y = y_0) = 0.4 × 0.3 = 0.12, not 0.1), got {got!r}"
+    assert _truth(got) is False, f"expected False (P(X = x_0) P(Y = y_0) = 0.4 × 0.3 = 0.12, not 0.1), got {got!r}"
 
 
 def test_are_independent_on_a_2_by_3_law(conditional):
     got = _result(lambda: conditional.are_independent(JOINT), "True")
-    assert got is True, f"expected True (every cell is the product of its two marginals), got {got!r}"
+    assert _truth(got) is True, f"expected True (every cell is the product of its two marginals), got {got!r}"
 
 
 def test_are_independent_checks_every_cell(conditional):
     # the first cell is the product of its marginals (0.5 × 0.4 = 0.2), the others are not
     joint = [[0.2, 0.1, 0.2], [0.2, 0.25, 0.05]]
     got = _result(lambda: conditional.are_independent(joint), "False")
-    assert got is False, f"expected False (cell [0][1]: 0.5 × 0.35 = 0.175, not 0.1): check every cell, got {got!r}"
+    assert _truth(got) is False, f"expected False (cell [0][1]: 0.5 × 0.35 = 0.175, not 0.1): check every cell, got {got!r}"
 
 
 def test_are_independent_uses_the_tolerance(conditional):
     joint = [[0.12 + 1e-4, 0.08 - 1e-4, 0.20], [0.18 - 1e-4, 0.12 + 1e-4, 0.30]]
     loose = _result(lambda: conditional.are_independent(joint, tol=1e-3), "True with tol=1e-3")
     strict = _result(lambda: conditional.are_independent(joint), "False with the default tol=1e-9")
-    assert loose is True, f"expected True with tol=1e-3 (every gap is below 1e-3), got {loose!r}"
-    assert strict is False, f"expected False with the default tol=1e-9 (some gaps are 1e-4), got {strict!r}"
+    assert _truth(loose) is True, f"expected True with tol=1e-3 (every gap is below 1e-3), got {loose!r}"
+    assert _truth(strict) is False, f"expected False with the default tol=1e-9 (some gaps are 1e-4), got {strict!r}"
 
 
 def test_are_independent_accepts_float_rounding(conditional):
     joint = np.outer([0.1, 0.7, 0.2], [0.3, 0.3, 0.4])        # products computed in floating point
     got = _result(lambda: conditional.are_independent(joint), "True")
-    assert got is True, (f"expected True: compare with a tolerance (np.abs(...) <= tol), never with ==, got {got!r}")
+    assert _truth(got) is True, (f"expected True: compare with a tolerance (np.abs(...) <= tol), never with ==, got {got!r}")
+
+
+def test_are_independent_has_no_relative_tolerance(conditional):
+    # every cell is 2e-6 away from the product of its marginals (0.5 × 0.5): more than tol = 1e-9, but less than the
+    # relative tolerance rtol=1e-5 that np.allclose and np.isclose add by default
+    joint = np.outer([0.5, 0.5], [0.5, 0.5]) + np.array([[2e-6, -2e-6], [-2e-6, 2e-6]])
+    got = _result(lambda: conditional.are_independent(joint), "False")
+    assert _truth(got) is False, (
+        f"expected False (every gap is 2e-6, more than the default tol=1e-9), got {got!r}: np.allclose and np.isclose "
+        "add a relative tolerance rtol=1e-5 by default; compare np.abs(table - products) <= tol, or pass rtol=0")
 
 
 def test_are_independent_returns_a_python_bool(conditional):

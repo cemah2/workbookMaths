@@ -662,7 +662,7 @@ Relis la définition de la probabilité conditionnelle (fiche §2) : on restrein
 
 </details>
 
-### Ex M03.25 — La courbe ROC en escalier : une marche par paire
+### Ex M03.25 — La courbe ROC en escalier : une case par paire
 
 <details><summary>Indice 1</summary>
 
@@ -702,7 +702,7 @@ Une conditionnelle se calcule par $\frac{P(\text{intersection})}{P(\text{conditi
 
 <details><summary>Indice 1</summary>
 
-Relis la docstring de `marginal` dans `mymath/conditional.py` : elle dit ce qu'est une loi jointe valide.
+Relis la docstring du module, en tête de `mymath/conditional.py` : elle dit ce qu'est une loi jointe valide.
 
 </details>
 <details><summary>Indice 2</summary>
