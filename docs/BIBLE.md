@@ -49,7 +49,7 @@ Sommaire de MML (vérifié le 2026-11-05) : partie I, ch. 2 *Linear Algebra* (§
 - probabilités : J. K. Blitzstein et J. Hwang, *Introduction to Probability* (2ᵉ éd.), version en ligne gratuite annoncée par le cours Stat 110 de Harvard (vérifié le 2026-11-05) ;
 - statistique : *OpenIntro Statistics*, licence CC BY-SA 3.0 (vérifié le 2026-11-06) ;
 - démonstrations : R. Hammack, *Book of Proof*, PDF gratuit sous licence CC BY-NC-ND 4.0 (vérifié le 2026-11-06) ;
-- information : D. J. C. MacKay, *Information Theory, Inference, and Learning Algorithms* : page officielle trouvée, conditions de téléchargement à confirmer avant M06 ;
+- information : D. J. C. MacKay, *Information Theory, Inference, and Learning Algorithms* : PDF gratuit pour la lecture à l'écran, mis en ligne par l'auteur (vérifié le 2026-11-07 par deux sources secondaires, la page officielle n'étant pas lisible depuis l'environnement de génération ; détail dans `annexes/ressources.md`) ;
 - remise à niveau et lycée, en français : Maths et tiques (Yvan Monka, gratuit, vérifié le 2026-11-06), Khan Academy en français (existence vérifiée), manuels Sésamath (licence à confirmer avant R1) ; niveau licence : Exo7 (Université de Lille, vérifié le 2026-11-06).
 
 ## 4. Stack technique

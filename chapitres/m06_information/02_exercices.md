@@ -19,7 +19,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 *Fiche §1 · parcours C, E*
 
 1. Combien de bits apporte un événement de probabilité $\frac{1}{256}$ ?
-2. Un événement apporte 4 bits d'information. Quelle est sa probabilité ?
+2. Un événement apporte 11 bits d'information. Quelle est sa probabilité ?
 3. Deux événements indépendants apportent 1,5 bit et 2 bits. Combien apportent-ils ensemble ?
 4. Vrai ou faux : l'information d'un événement peut être négative.
 5. Un événement apporte 2 bits. Combien de nats (2 décimales) ?
@@ -32,7 +32,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 2. Une loi sur 8 issues a une entropie d'au plus 3 bits.
 3. Ajouter à une loi une issue de probabilité 0 change son entropie.
 4. Si l'on multiplie toutes les valeurs de $X$ par 2, l'entropie de $X$ double.
-5. L'entropie de $(0{,}95 ;\ 0{,}05)$ est plus grande que celle de $(0{,}55 ;\ 0{,}45)$.
+5. L'entropie de $(0{,}97 ;\ 0{,}03)$ est plus grande que celle de $(0{,}53 ;\ 0{,}47)$.
 6. L'entropie de $X$ est l'espérance de $-\log_2 p(X)$.
 
 ### M06.Q3 — Conjointe et conditionnelle 🧠 ★ ⏱️ 4 min
@@ -92,7 +92,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M06.R1 — Logarithmes en base 2 (R6) 🔁 ★ ⏱️ 5 min
 *Fiche §1 · parcours C, E*
 
-1. Calcule sans calculatrice $\log_2 512$, $\log_2 \frac{1}{64}$ et $\log_2 \sqrt{2}$.
+1. Calcule sans calculatrice $\log_2 512$, $\log_2 \frac{1}{4096}$ et $\log_2 \sqrt{2}$.
 2. Calcule $\log_2 10$ (3 décimales) avec la touche $\ln$.
 3. Simplifie $\log_2 24 - \log_2 3$.
 4. Résous $2^x = 12$ (2 décimales).
@@ -164,7 +164,7 @@ Trois lois sur trois issues : $A = (\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$, $B 
 | c | $H(C)$ | un nombre (3 décimales) |
 | d | la loi qui a la plus grande entropie | une lettre |
 | e | l'entropie de $(0{,}45 ;\ 0{,}35 ;\ 0{,}2)$ | un nombre (3 décimales) |
-| f | l'entropie de $(0{,}6 ;\ 0{,}25 ;\ 0{,}15)$, obtenue à partir de $C$ en déplaçant 0,1 de la première issue vers la troisième et 0,05 vers la deuxième | un nombre (3 décimales) |
+| f | l'entropie de $(0{,}6 ;\ 0{,}25 ;\ 0{,}15)$, obtenue à partir de $C$ en retirant 0,1 à la première issue pour en donner 0,05 à chacune des deux autres | un nombre (3 décimales) |
 | g | la plus grande entropie possible pour une loi sur trois issues, en **nats** | un nombre (3 décimales) |
 
 Dans ta copie : range les lois $A$, $B$, $C$, celle de e) et celle de f) par entropie croissante. Que fait l'entropie quand on rapproche les probabilités les unes des autres ? Quelle est la plus petite entropie possible sur trois issues, et pour quelles lois ?
@@ -237,7 +237,7 @@ Dans ta copie : vérifie que $H(X) + H(Y \mid X)$ et $H(Y) + H(X \mid Y)$ redonn
 | g | $H(X \mid Y)$ | un nombre (3 décimales) |
 | h | $X$ et $Y$ sont-elles indépendantes ? | `True` ou `False` |
 
-Dans ta copie : calcule aussi $I(X ; Y)$ par $H(X) + H(Y) - H(X, Y)$. Quelle case du tableau contribue le plus à la somme $\sum p(x, y) \log_2 \frac{p(x, y)}{p(x)\,p(y)}$, et quelle case y contribue négativement ?
+Dans ta copie : calcule aussi $I(X ; Y)$ par $H(X) + H(Y) - H(X, Y)$. Quelle case du tableau contribue le plus à la somme $\sum p(x, y) \log_2 \frac{p(x, y)}{p(x)\,p(y)}$, et quelles cases y contribuent négativement ?
 
 ### Ex M06.6 — Cross-entropy et KL en bits perdus : un code fait pour la mauvaise loi ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer une cross-entropy et une divergence KL, et les lire comme des bits par symbole et des bits perdus.

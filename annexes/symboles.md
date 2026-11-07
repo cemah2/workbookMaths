@@ -156,7 +156,14 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\Gamma(x)$ | « gamma de x » | Gamma function | prolonge la factorielle : $\Gamma(n) = (n - 1)!$, $\Gamma(x + 1) = x\,\Gamma(x)$ | $\Gamma(5) = 24$ | M04 |
 | $B(a, b)$ | « B de a, b », « fonction bêta » | Beta function | $\frac{\Gamma(a)\Gamma(b)}{\Gamma(a + b)} = \int_0^1 \theta^{a - 1}(1 - \theta)^{b - 1}\,d\theta$ | $B(3, 6) = \frac{1}{168}$ | M04 |
 | $\Theta \sim \mathrm{Beta}(a, b)$ | « thêta suit une loi bêta a, b » | Beta distribution | une proportion de densité $\frac{\theta^{a - 1}(1 - \theta)^{b - 1}}{B(a, b)}$ sur $[0, 1]$ | $\mathrm{Beta}(1, 1)$ est uniforme | M04 |
-| $H(p)$, $D_{\mathrm{KL}}(p \parallel q)$ | « entropie de p », « divergence KL de p à q » | entropy, KL divergence | incertitude d'une loi ; écart entre deux lois | | M06 |
+| $H(X)$, $H(p)$ | « H de X », « entropie de p » | entropy of X, of p | l'incertitude moyenne d'une variable ou d'une loi, en bits (ou en nats) | $H\big(\frac{1}{2}, \frac{1}{2}\big) = 1$ bit | M06 |
+| $H(X, Y)$ | « H de X, Y », « entropie conjointe de X et Y » | joint entropy of X and Y | l'entropie de la loi jointe du couple | $H(X, Y) \le H(X) + H(Y)$ | M06 |
+| $H(Y \mid X)$ | « H de Y sachant X » | conditional entropy of Y given X | l'incertitude qui reste sur $Y$ quand on connaît $X$, en moyenne | 0 si $Y$ est une fonction de $X$ | M06 |
+| $I(X ; Y)$ | « information mutuelle de X et Y » | mutual information of X and Y | ce que l'une des deux variables apprend sur l'autre | $I(X ; X) = H(X)$ | M06 |
+| $H(p, q)$ | « cross-entropy de p et q » | cross-entropy of p and q | la longueur moyenne d'un code fait pour $q$, sur des données de loi $p$ | $H(p, p) = H(p)$ | M06 |
+| $D_{\mathrm{KL}}(p \parallel q)$, $\mathrm{KL}(p \parallel q)$ | « divergence KL de p à q » | KL divergence of p from q | l'écart de $q$ à $p$, en bits perdus par symbole ; pas symétrique | $\mathrm{KL}(p \parallel p) = 0$ | M06 |
+| $\mathrm{JS}(p, q)$ | « divergence de Jensen-Shannon de p et q » | Jensen-Shannon divergence | une divergence symétrique et toujours finie | $\mathrm{JS}(p, p) = 0$ | M06 |
+| $\bar{L}$ | « L barre », « longueur moyenne » | expected (code) length | la longueur moyenne $\sum p_i \ell_i$ des mots d'un code | $\bar{L} \ge H$ pour un code préfixe | M06 |
 
 ## Les lettres grecques
 

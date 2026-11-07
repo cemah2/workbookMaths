@@ -316,3 +316,20 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Se tromper de signe dans le pas de descente | $\mathbf{x} + \eta\,\nabla f(\mathbf{x})$ pour minimiser | descendre : $\mathbf{x} - \eta\,\nabla f(\mathbf{x})$ ; $+$ monte |
 | Confondre $\min f$ et $\arg\min f$ | pour $(x - 3)^2 + 2(y + 1)^2$ : « $\arg\min f = 0$ » | $\min f = 0$ (une valeur), $\arg\min f = (3, -1)$ (un point) |
 
+## Théorie de l'information (M06)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Calculer en nats en croyant calculer en bits | « $-\ln \frac{1}{8} \approx 2{,}08$ bits » | bits : $\log_2$, soit $-\log_2 \frac{1}{8} = 3$ bits ; nats : $\ln$ ; scikit-learn et PyTorch calculent en nats |
+| Laisser $0 \log 0$ donner `nan` | `-np.sum(p * np.log2(p))` avec une probabilité nulle : `nan` | $0 \log 0 = 0$ : ne garder que les $p > 0$, ou utiliser `scipy.special.xlogy` |
+| Prendre l'entropie d'une ligne sans la diviser par sa probabilité | pour la ligne $(0{,}12 ;\ 0{,}28)$, l'entropie « de 0,12 et 0,28 » | la loi conditionnelle est la ligne divisée par $p(x) = 0{,}4$ : $(0{,}3 ;\ 0{,}7)$ |
+| Faire la moyenne simple des entropies des lignes | $H(Y \mid X) = \frac{H_1 + H_2}{2}$ alors que $p(x_1) = 0{,}8$ | pondérer par les probabilités des lignes : $0{,}8\,H_1 + 0{,}2\,H_2$ |
+| Croire que chaque valeur de $X$ diminue l'incertitude sur $Y$ | « $H(Y \mid X = x) \le H(Y)$ pour tout $x$ » | c'est vrai seulement en moyenne, $H(Y \mid X) \le H(Y)$ ; une valeur particulière peut l'augmenter |
+| Prendre $H(X) + H(Y)$ pour $H(X, Y)$ | sans vérifier que $X$ et $Y$ sont indépendantes | $H(X, Y) = H(X) + H(Y) - I(X ; Y)$ : l'égalité n'a lieu que pour des variables indépendantes |
+| Conclure à l'indépendance d'une corrélation nulle | $X$ uniforme sur $\{-1, 0, 1\}$ et $Y = X^2$ : « corrélation nulle, donc $I(X ; Y) = 0$ » | la corrélation ne voit que les liens linéaires ; ici $I(X ; Y) = H(Y) > 0$ |
+| Échanger les deux lois de la divergence KL | $D_{\mathrm{KL}}(\text{modèle} \parallel \text{données})$ au lieu de $D_{\mathrm{KL}}(\text{données} \parallel \text{modèle})$ | l'ordre compte : les poids sont ceux des données ; l'autre sens peut même être infini |
+| Appeler la divergence KL une distance | « la distance KL entre $p$ et $q$ » | une divergence : pas symétrique, pas d'inégalité triangulaire ; Jensen-Shannon, elle, est symétrique |
+| Écrire l'inégalité de Jensen dans le mauvais sens | « $\mathbb{E}[\ln X] \ge \ln \mathbb{E}[X]$ » | $\ln$ est concave : $\mathbb{E}[\ln X] \le \ln \mathbb{E}[X]$ ; le sens « $\ge$ » est celui des fonctions convexes |
+| Croire qu'une somme de Kraft au plus 1 rend un code préfixe | « $\{0, 01, 11\}$ : $\frac{1}{2} + \frac{1}{4} + \frac{1}{4} = 1$, donc préfixe » | Kraft dit qu'**il existe** un code préfixe de ces longueurs (0, 10, 11), pas que celui-ci l'est : 0 est le début de 01 |
+| Arrondir les longueurs de Shannon à l'entier le plus proche | $-\log_2 0{,}4 \approx 1{,}32$, « donc 1 » | à l'entier supérieur, $\lceil 1{,}32 \rceil = 2$ : sinon la somme de Kraft peut dépasser 1 |
+| Croire sans biais l'entropie des fréquences observées | l'entropie des fréquences de 10 tirages prise pour la vraie entropie | elle la sous-estime en moyenne (et l'information mutuelle estimée la surestime) : plus de données, ou une correction |

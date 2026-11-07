@@ -31,7 +31,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | biais d'échantillonnage | sampling bias | un échantillon qui ne représente pas la population visée, à cause de la façon dont il a été collecté ; plus de données ne le corrigent pas | M02c |
 | biais du survivant | survivorship bias | n'observer que ce qui a passé un filtre (les avions rentrés de mission, les prêts accordés), et conclure comme si c'était tout | M02c |
 | Bienaymé-Tchebychev (inégalité de) | Chebyshev's inequality | $P(\lvert X - \mu \rvert \ge \varepsilon) \le \frac{\sigma^2}{\varepsilon^2}$, pour toute loi de variance finie | M02c |
-| bit, nat | bit, nat | unités d'information : un événement de probabilité $p$ apporte $-\log_2 p$ bits, ou $-\ln p$ nats ; 1 bit ≈ 0,693 nat | R6 |
+| bit, nat | bit, nat | unités d'information : un événement de probabilité $p$ apporte $-\log_2 p$ bits, ou $-\ln p$ nats ; 1 bit ≈ 0,693 nat | R6, M06 |
 | boîte à moustaches | boxplot, box-and-whisker plot | dessin d'une série : une boîte de $Q_1$ à $Q_3$ coupée par la médiane, des moustaches jusqu'aux valeurs non aberrantes les plus extrêmes | M02c |
 | bootstrap | bootstrap | estimer la dispersion d'une statistique en la recalculant sur des milliers de rééchantillons tirés avec remise dans les données | M02c |
 | borne, intervalle | bound, interval | ensemble des réels compris entre deux bornes, incluses (crochet fermé) ou non (crochet ouvert) ; une borne peut être infinie | R2 |
@@ -45,6 +45,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | changement de variable | change of variables, substitution | $\int_a^b f(g(x))\,g'(x)\,dx = \int_{g(a)}^{g(b)} f(u)\,du$ | M02a |
 | chiffres significatifs | significant figures | les chiffres d'un nombre à partir du premier chiffre non nul | R1 |
 | classe positive | positive class | la classe que l'on cherche à détecter (la panne, le défaut), codée 1 | M03 |
+| code de longueur fixe, de longueur variable | fixed-length code, variable-length code | un code dont tous les mots ont la même longueur ($\lceil \log_2 N \rceil$ bits pour $N$ issues) ; un code qui donne des mots plus courts aux issues fréquentes | M06 |
+| code préfixe | prefix code, prefix-free code | un code où aucun mot n'est le début d'un autre : il se lit sans séparateur | M06 |
 | coefficient | coefficient | nombre qui multiplie la partie littérale d'un terme : 7 dans $7x^2$ | R2 |
 | coefficient binomial | binomial coefficient | $\binom{n}{k}$, « k parmi n » : le nombre de façons de choisir $k$ objets parmi $n$, sans ordre | R8 |
 | coefficient multiplicateur | multiplier, growth factor | nombre $1 + t$ par lequel une évolution de taux $t$ multiplie une valeur | R1 |
@@ -74,6 +76,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | covariance empirique | empirical (sample) covariance | $\frac{1}{n}\sum (x_i - \bar{x})(y_i - \bar{y})$ (ou divisée par $n - 1$) : la moyenne des produits des écarts | M02c |
 | croissances comparées | growth rates comparison | pour $x$ très grand, $\ln x \ll x^k \ll a^x$ ($k > 0$, $a > 1$) | R6 |
 | croissante, décroissante | increasing, decreasing | qui conserve (retourne) l'ordre sur un intervalle : $a < b \Rightarrow f(a) \le f(b)$ ($\ge$) | R3 |
+| cross-entropy | cross-entropy | $H(p, q) = -\sum p \log_2 q$ : la longueur moyenne d'un code fait pour la loi $q$, sur des données de loi $p$ ; la log loss en est une | M06 |
 | ddof | ddof (delta degrees of freedom) | le nombre retranché à $n$ au dénominateur d'une variance : `ddof=0` divise par $n$, `ddof=1` par $n - 1$ | M02c |
 | débordement, sous-dépassement | overflow, underflow | un résultat trop grand (ou trop petit) pour un flottant ; NumPy rend `inf` (ou 0) | R6, M05a |
 | décade, échelle logarithmique | decade, logarithmic scale | sur un axe logarithmique, des écarts égaux sont des rapports égaux ; une décade est un facteur 10 | R6 |
@@ -99,6 +102,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | discriminant | discriminant | $\Delta = b^2 - 4ac$ ; son signe donne le nombre de racines de $ax^2 + bx + c$ | R3 |
 | disjonction de cas | proof by cases | découper en cas qui couvrent toutes les possibilités, et traiter chacun | R4 |
 | distance (entre deux points) | distance | $AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$, la norme du vecteur $\overrightarrow{AB}$ | R9 |
+| divergence de Jensen-Shannon | Jensen-Shannon divergence | $\frac{1}{2}\mathrm{KL}(p \parallel m) + \frac{1}{2}\mathrm{KL}(q \parallel m)$ avec $m = \frac{p + q}{2}$ : une divergence symétrique et toujours finie | M06 |
+| divergence KL (de Kullback-Leibler) | KL divergence, Kullback-Leibler divergence, relative entropy | $\mathrm{KL}(p \parallel q) = \sum p \log_2 \frac{p}{q} = H(p, q) - H(p)$ : les bits perdus par symbole ; positive, nulle si $p = q$, pas symétrique | M06 |
 | division euclidienne | Euclidean division, integer division | $a = bq + r$ avec $0 \le r < b$ ; en Python, `a // b` donne $q$ et `a % b` donne $r$ | R0 |
 | écart interquartile | interquartile range (IQR) | $Q_3 - Q_1$ : la dispersion de la moitié centrale d'une série, insensible aux valeurs extrêmes | M02c |
 | écart-type | standard deviation | racine carrée de la variance | R8 |
@@ -112,6 +117,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | ensemble de définition | domain | l'ensemble des $x$ pour lesquels $f(x)$ a un sens | R3 |
 | ensemble des solutions | solution set | l'ensemble de toutes les valeurs qui rendent une équation (ou une inéquation) vraie | R2 |
 | entier naturel, entier relatif | natural number, integer | ℕ = {0, 1, 2…} ; ℤ ajoute les entiers négatifs | R1 |
+| entropie | entropy | $H(p) = -\sum p_i \log_2 p_i$, la surprise moyenne d'une loi ; entre 0 (loi certaine) et $\log_2 n$ (loi uniforme sur $n$ issues) | M06 |
+| entropie conditionnelle | conditional entropy | $H(Y \mid X) = \sum_x p(x)\,H(Y \mid X = x)$ : l'incertitude qui reste sur $Y$ quand on connaît $X$, en moyenne | M06 |
+| entropie conjointe | joint entropy | $H(X, Y) = -\sum p(x, y) \log_2 p(x, y)$, l'entropie de la loi jointe d'un couple | M06 |
 | epsilon machine | machine epsilon | l'écart entre 1 et le flottant suivant : $2^{-52} \approx 2{,}2 \times 10^{-16}$ en `float64` | M05a |
 | équation | equation | égalité qui contient une inconnue ; la résoudre, c'est trouver toutes ses solutions | R2 |
 | équation cartésienne, équation réduite | Cartesian equation, slope-intercept form | $ax + by + c = 0$, qui convient à toute droite ; $y = mx + p$, pour une droite non verticale | R9 |
@@ -124,7 +132,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | espace probabilisé | probability space | le triplet (univers, événements, probabilité) d'une expérience aléatoire | M02b |
 | espace vectoriel | vector space | ensemble où l'on peut additionner des vecteurs et les multiplier par des nombres | M12a |
 | espérance | expected value, expectation | moyenne théorique d'une variable aléatoire | R8 |
-| estimateur | estimator | formule qui estime un paramètre à partir de données | M02c |
+| estimateur | estimator | formule qui estime un paramètre à partir de données | M02c, M06 |
+| estimateur plug-in (de l'entropie) | plug-in estimator | l'entropie des fréquences observées ; elle sous-estime l'entropie, surtout sur de petits échantillons (correction de Miller-Madow : $+\frac{k - 1}{2n\ln 2}$ bit) | M06 |
 | estimation (valeur) | estimate | la valeur d'un estimateur calculée sur les données observées | M02c |
 | estimation de Fermi | Fermi estimate | ordre de grandeur obtenu en découpant une question en facteurs faciles à estimer | R1 |
 | événement | event | partie de l'univers : les issues pour lesquelles une phrase est vraie | R8 |
@@ -174,8 +183,13 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | indicatrice | indicator (variable) | variable qui vaut 1 si un événement se produit, 0 sinon (une Bernoulli) | M02b |
 | indice (d'une somme) | index (of a sum) | la variable muette de $\sum_{k=m}^{n}$, qui va de $m$ à $n$ | R4 |
 | inégalité de Cauchy-Schwarz | Cauchy-Schwarz inequality | $\lvert \vec{u} \cdot \vec{v} \rvert \le \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert$ | R9, M05b, M07 |
+| inégalité de Gibbs | Gibbs' inequality | $\mathrm{KL}(p \parallel q) \ge 0$, avec égalité si et seulement si $p = q$ ; d'où $H(p, q) \ge H(p)$ | M06 |
+| inégalité de Jensen | Jensen's inequality | pour $f$ convexe, $f(\mathbb{E}[X]) \le \mathbb{E}[f(X)]$ ; l'inverse pour $f$ concave | M06 |
+| inégalité de Kraft | Kraft inequality, Kraft-McMillan inequality | les longueurs $\ell_i$ d'un code préfixe binaire vérifient $\sum 2^{-\ell_i} \le 1$, et des longueurs qui la vérifient sont celles d'un code préfixe | M06 |
 | inégalité triangulaire | triangle inequality | $\lVert \vec{u} + \vec{v} \rVert \le \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ : un côté d'un triangle est plus court que la somme des deux autres | R9 |
 | inégalité, inéquation | inequality | comparaison avec $<$, $\le$, $>$ ou $\ge$ ; une inéquation est une inégalité qui contient une inconnue | R2 |
+| information (de Shannon), surprise | self-information, surprisal, information content | $-\log_2 p$ bits : ce qu'apprend un événement de probabilité $p$ ; s'additionne pour des événements indépendants | M06 |
+| information mutuelle | mutual information | $I(X ; Y) = H(X) - H(X \mid Y)$ : ce que l'une des variables apprend sur l'autre ; symétrique, nulle seulement pour des variables indépendantes | M06 |
 | intégrale | integral | $\int_a^b f(x)\,dx$ : l'aire algébrique entre la courbe et l'axe, limite des sommes de Riemann | M02a |
 | intégrale de Gauss | Gaussian integral | $\int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi}$ | M02a |
 | intégrale double | double integral | le volume sous une surface $z = f(x, y)$ au-dessus d'une région ; sur un rectangle, on intègre une variable après l'autre | M02b |
@@ -194,7 +208,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | limite d'une suite | limit of a sequence | le nombre $\ell$ dont les termes finissent par rester aussi près qu'on veut | R5 |
 | linéarité de l'espérance | linearity of expectation | $\mathbb{E}[aX + bY + c] = a\,\mathbb{E}[X] + b\,\mathbb{E}[Y] + c$, même pour des variables dépendantes | R8, M02b |
 | lissage de Laplace | Laplace smoothing, additive smoothing | $\frac{k + 1}{n + 2}$, ou $\frac{n_j + 1}{n + K}$ : la moyenne a posteriori sous un a priori uniforme ; plus de probabilité nulle | M04 |
-| log-probabilité, log-vraisemblance | log-probability, log-likelihood | le logarithme d'une probabilité, d'une vraisemblance : un produit devient une somme | R6 |
+| log-probabilité, log-vraisemblance | log-probability, log-likelihood | le logarithme d'une probabilité, d'une vraisemblance : un produit devient une somme | R6, M06 |
 | log-sum-exp | log-sum-exp | $\ln\sum_j e^{\ell_j} = m + \ln\sum_j e^{\ell_j - m}$ avec $m = \max_j \ell_j$ : normaliser des log-probabilités sans underflow | M04, M05a |
 | logarithme décimal, binaire | common logarithm, binary logarithm | $\log_{10}$ (compte les chiffres), $\log_2$ (compte les doublements, les bits) | R6 |
 | logarithme népérien | natural logarithm | $\ln$, la réciproque de exp : $\ln x$ est l'exposant $y$ tel que $e^y = x$ ; « log » en ML et en Python | R6 |
@@ -216,6 +230,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | loi prédictive (a posteriori) | posterior predictive distribution | la loi des prochaines observations, sachant les données, en moyennant sur le paramètre | M04 |
 | loi uniforme | uniform distribution | densité constante $\frac{1}{b - a}$ sur $[a ; b]$ : une probabilité proportionnelle à la longueur | M02b |
 | lois de De Morgan | De Morgan's laws | non (P et Q) = (non P) ou (non Q) ; non (P ou Q) = (non P) et (non Q) | R4 |
+| longueur moyenne (d'un code) | expected code length | $\bar{L} = \sum p_i \ell_i$ ; pour un code préfixe, $\bar{L} \ge H$, et le meilleur code vérifie $\bar{L} < H + 1$ | M06 |
 | mal conditionné | ill-conditioned | se dit d'un problème dont la solution change beaucoup quand les données changent un peu | R2 |
 | malédiction de la dimension | curse of dimensionality | les surprises de la grande dimension : le volume se concentre près du bord, les distances se ressemblent | M02c |
 | mantisse | significand, mantissa | le nombre $m$ de la notation scientifique $m \times 10^k$, avec $1 \le |m| < 10$ | R1 |
@@ -267,6 +282,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | pente, ordonnée à l'origine | slope, intercept | dans $mx + c$, $m$ est la variation pour $x + 1$, et $c = f(0)$ | R3 |
 | percentile, quartile | percentile, quartile | le percentile $k$ est le quantile d'ordre $\frac{k}{100}$ ; les quartiles, les quantiles d'ordre 0,25, 0,5 et 0,75 | M02a |
 | périodique, période | periodic, period | une fonction qui se répète : $f(x + T) = f(x)$ ; cos et sin ont pour période $2\pi$ | R9 |
+| perplexité | perplexity | $2^{H(p, q)}$ (en bits) : le nombre de choix également probables entre lesquels un modèle hésite en moyenne | M06 |
 | PGCD, PPCM | GCD (greatest common divisor), LCM (least common multiple) | plus grand diviseur commun, plus petit multiple commun de deux entiers | R1 |
 | pivot | pivotal quantity | une fonction des données et du paramètre dont la loi ne dépend pas du paramètre ($\frac{\bar{X}}{\mu}$ pour une loi exponentielle) | M02c |
 | plan tangent | tangent plane | $z = f(a, b) + f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b)$ : le plan qui touche la surface en un point, avec les mêmes pentes | M05b |
@@ -311,6 +327,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | récurrence (suite définie par) | recursively defined sequence, recurrence relation | un premier terme et une règle $u_{n+1} = f(u_n)$ | R5 |
 | rééchantillon | resample | $n$ valeurs tirées avec remise parmi les $n$ données (bootstrap) | M02c |
 | règle de la chaîne | chain rule | $(g(u(x)))' = g'(u(x)) \times u'(x)$ : on dérive chaque étage d'une composée et on multiplie | R7, M05b |
+| règle de la chaîne (de l'entropie) | chain rule for entropy | $H(X, Y) = H(X) + H(Y \mid X)$ : l'incertitude d'un couple, c'est celle de l'un plus ce qui reste sur l'autre | M06 |
 | règle de la somme | sum rule | on obtient une marginale en sommant la loi jointe sur l'autre variable | M02b, M03 |
 | règle du produit (probabilités) | product rule | $P(A \cap B) = P(A \mid B)\,P(B)$ ; MML : $p(\mathbf{x}, \mathbf{y}) = p(\mathbf{y} \mid \mathbf{x})\,p(\mathbf{x})$ | M03 |
 | règle du produit, du quotient | product rule, quotient rule | $(uv)' = u'v + uv'$ ; $(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$ | R7 |
