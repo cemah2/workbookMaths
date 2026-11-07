@@ -616,6 +616,8 @@ def make_entry(
     if mistakes:
         entry["mistakes"] = {}
         seen: dict[str, str] = {}  # normalized wrong value -> its message
+        alternates: set[str] = set()   # the other rounding of a float mistake at a boundary (0.625 read as 0.63)
+        accepted = {entry["hash"], *entry.get("alt_hashes", [])}
         for message, wrong_values in mistakes.items():
             if not isinstance(message, str) or " " not in message.strip():
                 # {wrong value: message} instead of {message: wrong value} would store the wrong choice in clear
@@ -637,12 +639,23 @@ def make_entry(
                     raise ValueError(f"Ex {ex_id}: mistake {message!r} has the wrong kind") from exc
                 if wrong_norm == norm:
                     raise ValueError(f"Ex {ex_id}: mistake {message!r} equals the right answer")
-                if wrong_norm in seen:
+                if wrong_norm in seen and wrong_norm not in alternates:
                     # two classic mistakes that give the same value: the learner would read only one of the messages
                     raise ValueError(f"Ex {ex_id}: mistakes {seen[wrong_norm]!r} and {message!r} give the same value "
                                      f"({wrong_norm}); merge them into one message")
+                alternates.discard(wrong_norm)
                 seen[wrong_norm] = str(message)
                 entry["mistakes"][hash_answer(ex_id, kind, wrong_norm)] = str(message)
+                if kind == "float":
+                    # a mistake at a rounding boundary (5/8 at 2 decimals): the other rounding gets the message too,
+                    # unless it is the right answer or another mistake
+                    other_wrong = _other_rounding(_as_number(wrong_value), decimals, wrong_norm)
+                    if other_wrong is not None and other_wrong not in seen:
+                        other_hash = hash_answer(ex_id, kind, other_wrong)
+                        if other_hash not in accepted:
+                            seen[other_wrong] = str(message)
+                            alternates.add(other_wrong)
+                            entry["mistakes"][other_hash] = str(message)
     if fractional is not None:
         if kind != "int":
             raise ValueError(f"Ex {ex_id}: `fractional` is only for a whole-number answer (kind 'int'), not {kind!r}")

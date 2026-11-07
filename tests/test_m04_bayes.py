@@ -105,7 +105,8 @@ def test_beta_pdf_is_zero_outside_the_interval(bayes):
     (1.0, 2, 3, 0.0), (1.0, 5, 1, 5.0), (1.0, 2, 0.3, math.inf),
 ], ids=["x0 a>1", "x0 a=1", "x0 a<1", "x1 b>1", "x1 b=1", "x1 b<1"])
 def test_beta_pdf_at_the_ends(bayes, x, a, b, expected):
-    got = _result(lambda: bayes.beta_pdf(x, a, b), f"{expected}")
+    got = _result(lambda: bayes.beta_pdf(x, a, b), "math.inf" if math.isinf(expected) else f"{expected}",
+                  f"beta_pdf({x}, {a}, {b})", "see the docstring for the ends 0 and 1")
     if math.isinf(expected):
         assert got == math.inf, f"expected math.inf for beta_pdf({x}, {a}, {b}) (exponent below 0 at {x}), got {got!r}"
     else:
@@ -113,13 +114,16 @@ def test_beta_pdf_at_the_ends(bayes, x, a, b, expected):
             f"expected {expected} for beta_pdf({x}, {a}, {b}) (see the docstring for the ends 0 and 1), got {got!r}")
 
 
+LARGE_HINT = ("Γ(1200) overflows, and the product x**499 (1 - x)**699 underflows: compute the logarithm of the whole "
+              "density (math.log, math.log1p, math.lgamma), and take the exponential at the end")
+
+
 def test_beta_pdf_with_large_parameters_does_not_overflow(bayes):
     expected = float(stats.beta(500, 700).pdf(0.42))
     got = _result(lambda: bayes.beta_pdf(0.42, 500, 700), f"{expected:.10g}", "beta_pdf(0.42, 500, 700)",
-                  "Γ(1200) overflows: compute log B(a, b) with math.lgamma and take the exponential at the end")
+                  LARGE_HINT)
     assert got == pytest.approx(expected, rel=1e-7), (
-        f"expected {expected:.10g} for beta_pdf(0.42, 500, 700), got {got!r}: Γ(1200) overflows, compute log B(a, b) "
-        "with math.lgamma and take the exponential at the end")
+        f"expected {expected:.10g} for beta_pdf(0.42, 500, 700), got {got!r}: {LARGE_HINT}")
 
 
 def test_beta_pdf_returns_a_python_float(bayes):

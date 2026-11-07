@@ -157,6 +157,19 @@ def test_common_mistakes_are_reported():
         entry("d.6", 10.0, decimals=1, mistakes={"identique": 10.0})
 
 
+def test_a_mistake_at_a_rounding_boundary_gets_both_roundings():
+    """5/8 at 2 decimals is formatted 0.62, the school rounding gives 0.63: both read the classic mistake (M04.4f)."""
+    e = entry("d.6b", 1.6, decimals=2, mistakes={"la durée moyenne est l'inverse du taux": 5 / 8})
+    for typed in (0.62, 0.63):
+        assert "la durée moyenne est l'inverse du taux" in message("d.6b", e, typed)
+    # the other rounding is never the right answer, and a real mistake on it keeps its own message
+    e = entry("d.6c", 0.63, decimals=2, mistakes={"un arrondi trop tôt": 0.625})
+    assert passes("d.6c", e, 0.63) and "un arrondi trop tôt" in message("d.6c", e, 0.62)
+    e = entry("d.6d", 2.0, decimals=2, mistakes={"première erreur classique": 0.625, "seconde erreur classique": 0.63})
+    assert "première erreur classique" in message("d.6d", e, 0.62)
+    assert "seconde erreur classique" in message("d.6d", e, 0.63)
+
+
 def test_a_missed_prediction_is_not_called_a_classic_mistake():
     """The prediction of a 🔮 (prediction=True): its wrong value says « Prédiction ratée », with the same hint."""
     e = entry("d.7", False, mistakes={"relis la dernière ligne du tableau": True}, prediction=True)

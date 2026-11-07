@@ -287,7 +287,7 @@ Dans ta copie : range les trois estimations de b), c) et a), et explique l'ordre
 
 ### Ex M04.9 — Un intervalle de crédibilité d'une loi Beta ✏️ ★★ ⏱️ 15 min
 **Objectif :** calculer à la main les quantiles et un intervalle de crédibilité de lois Beta dont la fonction de répartition est simple.
-**Prérequis :** fiche §4 et §6 ; M02a §6 (quantiles) · **Parcours :** C
+**Prérequis :** fiche §4 et §6 ; M02a §7 (quantiles) · **Parcours :** C
 
 Un nouveau procédé de fabrication a tourné 8 fois sans défaut. On note $\theta$ sa probabilité de défaut, avec l'a priori uniforme. La fonction de répartition de $\mathrm{Beta}(1, b)$ vaut $F(x) = 1 - (1 - x)^b$, et celle de $\mathrm{Beta}(a, 1)$, $F(x) = x^a$.
 

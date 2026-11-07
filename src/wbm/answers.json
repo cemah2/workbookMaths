@@ -10638,7 +10638,8 @@
       "magnitude": -1,
       "mistakes": {
         "6513ee21a6165294baaf69f8f8c81d538780969d2e4a06acf7c038eacaaa9f1e": "le produit a priori × vraisemblance se divise par l'évidence",
-        "85d25583b1f0bd817c5c9758e123534afb06b5b403796f1438368237edaf92aa": "P(fuite | sonne) n'est pas P(sonne | fuite) : parmi les nuits où il sonne, quelle part a une fuite ?"
+        "85d25583b1f0bd817c5c9758e123534afb06b5b403796f1438368237edaf92aa": "P(fuite | sonne) n'est pas P(sonne | fuite) : parmi les nuits où il sonne, quelle part a une fuite ?",
+        "df7b09593e943e73902c370be6605f90a1830376e55c0eb74b7bf578bee52970": "le produit a priori × vraisemblance se divise par l'évidence"
       },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
@@ -11181,7 +11182,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "28eda9ae25a061fcf579458cad65ba2767afa9c64f499873f8cac07b0f5e97da": "la durée moyenne estimée est 1/λ̂, pas λ̂"
+        "28eda9ae25a061fcf579458cad65ba2767afa9c64f499873f8cac07b0f5e97da": "la durée moyenne estimée est 1/λ̂, pas λ̂",
+        "91d632b488688dbb053b7ab147d21b001e76fd50de2710a0d5be376d51584638": "la durée moyenne estimée est 1/λ̂, pas λ̂"
       },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
@@ -11856,6 +11858,7 @@
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
+        "3ba9d0f45e68bfd70eea7220e49c69f8557c726900572c1ee227f6e02c9b3b92": "ln(0,2^500) = 500 ln 0,2, avec le logarithme népérien",
         "b2f96ab866888a88fcc367f364476dbb8040e0dcce29f10192bc28e5d231336e": "ln(0,2^500) = 500 ln 0,2, avec le logarithme népérien"
       },
       "sign": -1,
@@ -12793,6 +12796,9 @@
       "hash_coarse": "2101c06f1e548bbb94f39e892d0542a20a1e7bfbe5e90b77369bf9cd0cb5d9b4",
       "kind": "float",
       "magnitude": 0,
+      "mistakes": {
+        "24424fe263982b032ebb7cbbc4e7cb41f97d9a630250daa9117facc07222de7c": "un intervalle à 95 % laisse 2,5 % de chaque côté : les quantiles 0,025 et 0,975"
+      },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
     },
@@ -12818,7 +12824,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "51f52149b5fc42cadb19eccfd10b66bedfa15fb494e7a1cf381aa69b321afb71": "l'a posteriori est Beta(a + k, b + n − k) : a reçoit les succès, b les échecs"
+        "51f52149b5fc42cadb19eccfd10b66bedfa15fb494e7a1cf381aa69b321afb71": "l'a posteriori est Beta(a + k, b + n − k) : a reçoit les succès, b les échecs",
+        "bb9dae7b3bac0c83681ed91b795898e82ec2817afaa331ea0c4dff21f42f2b60": "un intervalle à 95 % laisse 2,5 % de chaque côté : les quantiles 0,025 et 0,975"
       },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"

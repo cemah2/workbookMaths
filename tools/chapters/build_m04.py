@@ -765,11 +765,13 @@ wbm.record("M04.23b", 0.0354838698, decimals=4,
 wbm.record("M04.23c", 1.9499296222, decimals=2,
            mistakes={"un intervalle à 95 % laisse 2,5 % de chaque côté : les quantiles 0,025 et 0,975": 1.9589221591})
 wbm.record("M04.23d", -0.4795102559, decimals=2)
-wbm.record("M04.23e", 1.7953575820, decimals=2)
+wbm.record("M04.23e", 1.7953575820, decimals=2,
+           mistakes={"un intervalle à 95 % laisse 2,5 % de chaque côté : les quantiles 0,025 et 0,975": 1.5068644641})
 wbm.record("M04.23f", 1290,
            mistakes={"un intervalle à 95 % laisse 2,5 % de chaque côté : les quantiles 0,025 et 0,975": 910})
 wbm.record("M04.23g", 0.1700663483, decimals=3,
-           mistakes={"l'a posteriori est Beta(a + k, b + n − k) : a reçoit les succès, b les échecs": 0.1753776755})''',
+           mistakes={"l'a posteriori est Beta(a + k, b + n − k) : a reçoit les succès, b les échecs": 0.1753776755,
+                     "un intervalle à 95 % laisse 2,5 % de chaque côté : les quantiles 0,025 et 0,975": 0.1430608427})''',
     note="Chaque fois que $n$ est multiplié par 4, la largeur est à peu près divisée par 2 (c : 1,95) : elle décroît "
          "comme $\\frac{1}{\\sqrt{n}}$ (d : pente $-0{,}48$). Pour $n$ grand, l'a posteriori ressemble à une loi "
          "normale d'écart-type $\\sqrt{\\frac{p(1 - p)}{n}}$, donc la largeur vaut environ $2 \\times 1{,}96 \\times "
@@ -954,6 +956,7 @@ M04_26_CHECK = '''with checked("M04.26 vérifications"):
     problems = []
     cases = [(3, 10, 0.2), (0, 6, 0.0), (2, 6, 0.0), (7, 7, 1.0), (6, 7, 1.0), (4100, 10_000, 0.4),
              (12, 10, 0.3), (-1, 5, 0.5), (0, 0, 0.7)]
+    hinted = False                                   # the hint about 0 × ln 0 is given once
     for k, n, p in cases:
         expected = float(stats.binom.logpmf(k, n, p))
         try:
@@ -962,8 +965,9 @@ M04_26_CHECK = '''with checked("M04.26 vérifications"):
             raise
         except Exception as exc:  # noqa: BLE001
             problems.append(f"log_binom_pmf({k}, {n}, {p}) lève {type(exc).__name__} ({exc}) ; attendu {expected:.6g}"
-                            + (" : 0 × ln 0 vaut 0 par convention, traite p = 0 et p = 1 à part" if p in (0.0, 1.0)
-                               else ""))
+                            + (" : 0 × ln 0 vaut 0 par convention, traite p = 0 et p = 1 à part"
+                               if p in (0.0, 1.0) and not hinted else ""))
+            hinted = hinted or p in (0.0, 1.0)
             continue
         if not isinstance(got, float):
             problems.append(f"log_binom_pmf({k}, {n}, {p}) doit renvoyer un float de Python, pas {type(got).__name__}")
@@ -983,7 +987,8 @@ M04_26_CHECK = '''with checked("M04.26 vérifications"):
         except Exception as exc:  # noqa: BLE001
             problems.append(f"p = {p} : lève {type(exc).__name__} ; une probabilité hors de [0, 1] demande une ValueError")
         else:
-            problems.append(f"p = {p} est accepté : une probabilité hors de [0, 1] demande une ValueError")
+            problems.append(f"p = {p} est accepté : une probabilité hors de [0, 1] demande une ValueError"
+                            + (" ; teste 0 <= p <= 1 au début, ce qui refuse aussi nan" if math.isnan(p) else ""))
     if problems:
         print("❌ Ex M04.26 : à revoir : " + " ; ".join(problems[:5]) + ("…" if len(problems) > 5 else "."))
     else:
@@ -1059,7 +1064,7 @@ for letter, answer in zip("abcde", [answer_M04_27a, answer_M04_27b, answer_M04_2
 M04_27 = Ex(
     "M04.27", "🏆", 3, 25, "Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart-type, intervalle)",
     "construire un a priori Beta à partir d'une moyenne et d'un écart-type, puis à partir d'un intervalle, et mesurer "
-    "ce qu'il pèse face aux données.", "fiche §4 à §6 ; M02a §6 (quantiles)", tracks="C",
+    "ce qu'il pèse face aux données.", "fiche §4 à §6 ; M02a §7 (quantiles)", tracks="C",
     body="""Avant de lancer une nouvelle ligne de production, l'atelier interroge deux experts sur son taux de défaut $\\theta$.
 - Le premier dit : « environ 20 %, avec un écart-type de 5 points ».
 - Le second dit : « j'ai 90 % de chances de ne pas me tromper en disant entre 10 % et 32 % », et l'on comprend que chaque queue laisse 5 %.

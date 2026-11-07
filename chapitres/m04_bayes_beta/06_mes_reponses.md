@@ -142,7 +142,7 @@
 - f :
 - g :
 - h :
-- ℓ(λ), ℓ'(λ) et λ̂ pour des durées quelconques ; de même pour μ̂ (Poisson) ; pourquoi le signe de e) prouve un maximum :
+- ℓ(λ), ℓ'(λ) et λ̂ pour des durées quelconques ; de même pour μ̂ (Poisson) ; pourquoi le signe de ℓ''(λ) pour tout λ > 0 prouve que c) est le maximum :
 
 ### Ex M04.5 — La loi Beta : normalisation, moyenne, mode, variance
 
@@ -254,7 +254,7 @@
 - e :
 - f :
 - g :
-- La différence de deux lois normales indépendantes ; ma phrase pour l'équipe produit ; tout passer sur B ? ; ce que ferait Thompson :
+- La différence de deux lois normales indépendantes ; de combien e) et f) peuvent s'écarter (l'erreur type) ; ma phrase pour l'équipe produit ; tout passer sur B ? ; ce que ferait Thompson :
 
 ### Ex M04.15 — MML §6.3 (relire le théorème de Bayes) et §6.6 : conjugaison et famille exponentielle (lecture guidée)
 

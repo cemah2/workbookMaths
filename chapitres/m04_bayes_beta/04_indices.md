@@ -344,7 +344,7 @@ h) : l'a posteriori est $\mathrm{Beta}(5 + n, 5)$ ; écris le MAP en fonction de
 
 <details><summary>Indice 1</summary>
 
-Relis « L'intervalle de crédibilité » (fiche §6) et les quantiles de M02a §6.
+Relis « L'intervalle de crédibilité » (fiche §6) et les quantiles de M02a §7.
 
 </details>
 <details><summary>Indice 2</summary>
