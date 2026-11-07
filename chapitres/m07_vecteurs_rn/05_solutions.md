@@ -210,7 +210,7 @@ Pour la copie : $O$ et $C$ donnent des scores négatifs, ils sont du même côt�
 
 Pour la copie : $M_3$ est sur la frontière, la décision se joue à rien. Le poids négatif de la troisième feature dit que, toutes choses égales par ailleurs, une révision ancienne fait **baisser** le score : c'est le contraire de ce qu'on attendrait, et un poids de signe surprenant mérite toujours d'être questionné (des features corrélées, un biais des données). Multiplier $\mathbf{w}$ et $b$ par 10 multiplie tous les scores par 10 : les décisions ne changent pas, ni la distance de g) ($\frac{25}{10\sqrt{6{,}5}}$).
 
-**Erreurs fréquentes.** Oublier le biais (a : 1,5 ; b : 4,5) ; prendre $\mathbf{w}$ lui-même pour la direction unitaire (f) ; donner le score au lieu de la distance (g : 2,5) ; diviser par $\lVert \mathbf{w} \rVert^2$ (g : 0,385).
+**Erreurs fréquentes.** Oublier le biais (a : 1,5 ; b : 4,5) ; prendre $\mathbf{w}$ lui-même pour la direction unitaire (f) ; donner le score au lieu de la distance (g : 2,5) ; diviser par $\lVert \mathbf{w} \rVert^2$ (g : 0,3846).
 
 **Variante.** Quelle valeur de la température met $M_1$ sur la frontière, les autres features fixées ? *Réponse* : $1{,}5\,x_1 + 1 - 1 - 2 = 0$, soit $x_1 = \frac{4}{3}$.
 
@@ -243,7 +243,7 @@ Pour la copie : un point lointain ajoute le **carré** de sa distance (50 à lui
 - d) Le barycentre non pondéré est $\big(\frac{8}{3}, \frac{4}{3}\big)$, à la distance 1 du barycentre pondéré ; König-Huygens avec des poids : $\frac{146}{3} + 6 \times 1^2 = \frac{164}{3}$.
 - e) **Faux** : doubler les poids double le numérateur et le dénominateur du barycentre pondéré.
 
-Pour la copie : la formule pondérée s'écrit $\sum_i \omega_i \lVert S_i - \mathbf{c} \rVert^2 = \sum_i \omega_i \lVert S_i - \bar{S}_\omega \rVert^2 + \Omega\,\lVert \bar{S}_\omega - \mathbf{c} \rVert^2$, avec $\Omega = \sum \omega_i$ (M07.16). Un coût en carrés fait payer très cher les magasins lointains ; pour des trajets, la somme des distances (non au carré) est plus réaliste. Elle est minimisée par la médiane géométrique (M07.35), ou, si l'on roule sur un quadrillage de rues, par la médiane coordonnée par coordonnée, qui minimise la somme des distances L1 (M07.31).
+Pour la copie : la formule pondérée s'écrit $\sum_i \omega_i \lVert S_i - \mathbf{c} \rVert^2 = \sum_i \omega_i \lVert S_i - \bar{S}_\omega \rVert^2 + \Omega\,\lVert \bar{S}_\omega - \mathbf{c} \rVert^2$, avec $\Omega = \sum \omega_i$ (M07.16). Un coût en carrés fait payer très cher les magasins lointains ; pour des trajets, la somme des distances (non au carré) est plus réaliste. Avec les livraisons comme poids, elle est minimisée par la médiane géométrique **pondérée** (M07.35, avec des poids), ou, si l'on roule sur un quadrillage de rues, par la médiane pondérée coordonnée par coordonnée, qui minimise la somme pondérée des distances L1 (M07.31).
 
 **Erreurs fréquentes.** Oublier les poids (b : $\big(\frac{8}{3}, \frac{4}{3}\big)$) ; oublier de multiplier le terme de König-Huygens par la somme des poids (d : $\frac{149}{3}$).
 
@@ -251,7 +251,7 @@ Pour la copie : la formule pondérée s'écrit $\sum_i \omega_i \lVert S_i - \ma
 
 ### Ex M07.10 — La silhouette d'un point, à la main, en dimension 2
 
-**Réponses** : a) `2.118` · b) `6.8493` · c) `0.691` · d) `0.562` · e) `-0.574` · f) `0`.
+**Réponses** : a) `2.1180` · b) `6.8493` · c) `0.691` · d) `0.562` · e) `-0.574` · f) `0`.
 
 **Démarche.** Les distances utiles : $AB = 2$, $AC = \sqrt{5}$, $AD = \sqrt{37}$, $AF = \sqrt{58}$, $BC = \sqrt{5}$, $BD = \sqrt{17}$, $BF = \sqrt{34}$, $CD = \sqrt{26}$, $CF = \sqrt{37}$, $DF = \sqrt{5}$.
 - a) $a(A) = \frac{2 + \sqrt{5}}{2} \approx 2{,}1180$.
@@ -296,7 +296,7 @@ Pour la copie : $P_2$ est collé à $P_1$ ; deux centres si proches se partagera
 
 Pour la copie : en dimension $d$, ce cosinus vaut $\frac{d - 2}{d}$, qui tend vers 1 : les deux directions se rapprochent. Vus depuis le centre du cube, deux sommets voisins diffèrent par une seule coordonnée sur $d$ : ils font un angle qui tend vers 0, alors que chaque sommet fait un angle qui tend vers 90° avec chaque axe.
 
-**Erreurs fréquentes.** Oublier la racine (a : 4 ; b : 50) ; l'angle en radians ; s'arrêter à 33 en e) ; compter la coordonnée $-1$ comme $+1$ en f) ($\frac{9}{10}$).
+**Erreurs fréquentes.** Oublier la racine (a : 4 ; b : 50) ; l'angle en radians ; s'arrêter à 33 en e) ; oublier le dernier produit $1 \times (-1)$ en f) ($\frac{9}{10}$), ou compter la coordonnée $-1$ comme $+1$ (les deux vecteurs seraient égaux, de cosinus 1).
 
 **Variante.** La longueur de la diagonale du cube $[0, 2]^{25}$ ? *Réponse* : $\lVert (2, \ldots, 2) \rVert = 2\sqrt{25} = 10$.
 
@@ -383,7 +383,7 @@ Pour la copie : $\mathbb{E}[U - V] = 0$ et $\mathbb{V}(U - V) = \mathbb{V}(U) + 
 
 ### Ex M07.19 — Pont : changer l'unité d'une feature change le plus proche voisin
 
-**Réponses** : a) `10.02` · b) `30.0` · c) `"A"` · d) `"B"` · e) `[2.844, 1.513]` · f) `"B"`.
+**Réponses** : a) `10.02` · b) `30.00` · c) `"A"` · d) `"B"` · e) `[2.844, 1.513]` · f) `"B"`.
 
 **Démarche.**
 - a) $\sqrt{10^2 + 0{,}7^2} = \sqrt{100{,}49} \approx 10{,}02$ ; b) $\sqrt{30^2 + 0{,}05^2} \approx 30{,}00$ : $A$ est plus proche.
@@ -415,7 +415,7 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 2. L'inégalité de Cauchy-Schwarz apparaît au §3.3, pour un produit scalaire quelconque. Au §3.4, elle garantit que le quotient du produit scalaire par le produit des longueurs est entre $-1$ et 1 : c'est ce qui permet de **définir** l'angle comme l'arccosinus de ce quotient (la même démarche que la fiche §4).
 3. $(1, 2, 2) \cdot (2, -1, 2) = 2 - 2 + 4 = 4$, les deux normes valent 3 : $\cos\theta = \frac{4}{9}$ et $\theta \approx 63{,}61°$.
 4. Deux vecteurs sont orthogonaux quand leur produit scalaire est nul ; orthonormés quand, en plus, ils sont tous deux de longueur 1.
-5. Pour le produit usuel : $1 - 1 = 0$, orthogonaux. Pour $\langle \mathbf{x}, \mathbf{y} \rangle = 2x_1y_1 + x_2y_2$ : $2 - 1 = 1 \ne 0$, pas orthogonaux. Les longueurs valent alors $\sqrt{\langle \mathbf{x}, \mathbf{x} \rangle} = \sqrt{3}$ et $\sqrt{\langle \mathbf{y}, \mathbf{y} \rangle} = \sqrt{3}$, d'où $\cos\theta = \frac{1}{3}$ et $\theta \approx 70{,}53°$. L'orthogonalité dépend du produit scalaire choisi.
+5. Pour le produit usuel : $2 - 2 = 0$, orthogonaux. Pour $\langle \mathbf{a}, \mathbf{b} \rangle = a_1b_1 + 3a_2b_2$ : $\langle \mathbf{x}, \mathbf{y} \rangle = 2 + 3 \times 2 \times (-1) = -4 \ne 0$, pas orthogonaux. Les longueurs valent alors $\sqrt{\langle \mathbf{x}, \mathbf{x} \rangle} = \sqrt{1 + 12} = \sqrt{13}$ et $\sqrt{\langle \mathbf{y}, \mathbf{y} \rangle} = \sqrt{4 + 3} = \sqrt{7}$, d'où $\cos\theta = \frac{-4}{\sqrt{91}} \approx -0{,}419$ et $\theta \approx 114{,}79°$. L'orthogonalité, les longueurs et les angles dépendent du produit scalaire choisi.
 6. Par exemple *metric* (distance), *orthonormal* (orthonormé), *angle between two vectors* (angle entre deux vecteurs), *orthogonal matrix* (matrice orthogonale, M12).
 
 **Grille.** (1) longueur et distance à partir du produit scalaire, le mot *metric* et ses trois propriétés ; (2) le rôle de Cauchy-Schwarz dans la définition de l'angle ; (3) le calcul juste ; (4) les deux définitions ; (5) les deux produits, les longueurs pour le second, l'angle, la conclusion ; (6) trois mots traduits.
@@ -423,7 +423,7 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 ### Ex M07.22 — Fermi : la mémoire d'un million d'embeddings
 
 **Réponse modèle.**
-1. $10^6 \times 768 \times 4 \approx 3 \times 10^9$ octets, soit environ **3 Go** ; en `float16`, environ 1,5 Go. Cela tient dans la mémoire d'un ordinateur portable récent, mais de justesse en `float32`.
+1. $10^6 \times 768 \times 4 \approx 3 \times 10^9$ octets, soit environ **3 Go** ; en `float16`, environ 1,5 Go. Cela tient dans la mémoire d'un ordinateur portable récent (8 à 16 Go), mais en occupe une bonne part en `float32`.
 2. $10^6 \times 768 \approx 8 \times 10^8$ multiplications (autant d'additions).
 3. $\frac{8 \times 10^8}{10^{10}} \approx 0{,}08$ seconde : une recherche exacte est rapide pour un million de documents. Pour un milliard, 1 000 fois plus de documents : environ **80 secondes** par question, et 3 To de mémoire. D'où les méthodes de recherche **approchée**, qui ne comparent la question qu'à une petite partie des vecteurs.
 4. La norme de chaque document coûte autant que le produit scalaire lui-même (768 multiplications) : la calculer à chaque question doublerait le travail. Normaliser une fois pour toutes ramène le cosinus à un simple produit scalaire.
@@ -464,7 +464,7 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 ### Ex M07.25 — La projection sur une droite · `project_onto_line`
 
-**Réponses** : a) `[1.3333, 1.3333, 1.3333]` · b) `0.0` · c) `[0.0, 5.0]` · d) `[4.0, 0.0, 0.0, 0.0]` · e) `"ValueError"` · f) `"ndarray"`.
+**Réponses** : a) `[1.3333, 1.3333, 1.3333]` · b) `0.0000` · c) `[0.0, 5.0]` · d) `[4.0, 0.0, 0.0, 0.0]` · e) `"ValueError"` · f) `"ndarray"`.
 
 **Démarche.** `x` et `u` en flottants, une `ValueError` si les longueurs diffèrent ou si `u · u == 0`, puis `(np.sum(x * u) / np.sum(u * u)) * u`. Pour la copie : a) $\frac{4}{3}(1, 1, 1)$ ; c) $\frac{-15}{9}(0, -3) = (0, 5)$ : projeter sur un axe garde la coordonnée de cet axe ; le sens de $\mathbf{u}$ ne compte pas, car $\mathbf{u}$ apparaît deux fois dans la formule (les deux signes moins se compensent).
 
@@ -480,7 +480,7 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 ### Ex M07.27 — Côté d'un hyperplan et distance à un hyperplan · `side_of_hyperplane, distance_to_hyperplane`
 
-**Réponses** : a) `[1, 1, -1, -1]` · b) `[0.6667, 0.3333, 0.6667, 1.0]` · c) `[0.6667, 0.3333, -0.6667, -1.0]` · d) `"int"` · e) `0.6667` · f) `"ValueError"`.
+**Réponses** : a) `[1, 1, -1, -1]` · b) `[0.6667, 0.3333, 0.6667, 1.0000]` · c) `[0.6667, 0.3333, -0.6667, -1.0000]` · d) `"int"` · e) `0.6667` · f) `"ValueError"`.
 
 **Démarche.** Une fonction auxiliaire calcule les scores : `w` en vecteur (une `ValueError` s'il est nul), `x` en tableau, une `ValueError` si `x.shape[-1] != w.size`, puis `np.sum(x * w, axis=-1) + b`, qui donne un nombre pour un point et un tableau pour plusieurs. `side_of_hyperplane` : `np.sign(scores).astype(int)`, puis `int(...)` pour un point. `distance_to_hyperplane` : `scores / sqrt(w · w)`, `np.abs` sauf si `signed`, puis `float(...)` pour un point. Pour la copie : les scores valent $2, 1, -2, -3$ et $\lVert \mathbf{w} \rVert = 3$. L'origine a le score $b = 1 > 0$ : côté positif, à la distance $\frac{1}{3}$.
 
@@ -488,7 +488,7 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 ### Ex M07.28 — `np.linalg.norm` (ord = 1, 2, inf) et `scipy.spatial.distance` contre tes fonctions
 
-**Réponses** : a) `10` · b) `3` · c) `5.099` · d) `0.7631` · e) `3` · f) `True`.
+**Réponses** : a) `10` · b) `3` · c) `5.0990` · d) `0.7631` · e) `3` · f) `True`.
 
 **Démarche.** `spd.cityblock(a, b)`, `spd.chebyshev(a, b)`, `spd.euclidean(a, b)`, `spd.cosine(a, b)`, `np.linalg.norm(a, ord=np.inf)` ; puis une boucle sur 20 vecteurs et quatre valeurs de $p$, avec `np.isclose(mymath.vectors.norm_p(x, p), np.linalg.norm(x, ord=p))`. Pour la copie : $\mathbf{a} \cdot \mathbf{b} = 4$, $\cos\theta = \frac{4}{\sqrt{15}\sqrt{19}} \approx 0{,}2369$, et la distance cosinus vaut $1 - 0{,}2369 \approx 0{,}7631$. Une **distance** vaut 0 entre deux points identiques et grandit quand ils s'éloignent : c'est ce qu'attendent les fonctions qui cherchent des plus proches voisins ou regroupent des points.
 
@@ -502,7 +502,7 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 ### Ex M07.30 — La norme d'un vecteur gaussien se concentre autour de √d
 
-**Réponses** : a) `1.0` · b) `0.71` · c) `0.6` · d) `-0.5`.
+**Réponses** : a) `1.00` · b) `0.71` · c) `0.60` · d) `-0.5`.
 
 **Démarche.** `norms = np.sqrt(np.sum(X ** 2, axis=1))`, puis `(float(norms.mean() / math.sqrt(X.shape[1])), float(norms.std()))`. Pour la copie : d) la dispersion relative (l'écart-type divisé par $\sqrt{d}$) décroît comme $d^{-1/2}$ : en dimension 1 000, la norme est connue à environ 2 % près. c) En dimension 1, la norme est $|Z|$, d'écart-type $\sqrt{1 - \frac{2}{\pi}} \approx 0{,}603$. b) L'écart-type de la norme tend vers $\frac{1}{\sqrt{2}} \approx 0{,}707$ : $\lVert \mathbf{X} \rVert^2$ a un écart-type $\sqrt{2d}$, et la racine divise l'écart par environ $2\sqrt{d}$.
 
@@ -510,7 +510,7 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 ### Ex M07.31 — Médiane ou moyenne : le centre qui minimise les distances L1 ou leurs carrés, face à des points aberrants
 
-**Réponses** : a) `[2.0, 2.0]` · b) `[2.5556, 2.5556]` · c) `[3.0, 2.0]` · d) `[9.1818, 2.3636]` · e) `6.629` · f) `1.0` · g) `1.417`.
+**Réponses** : a) `[2.0, 2.0]` · b) `[2.5556, 2.5556]` · c) `[3.0, 2.0]` · d) `[9.1818, 2.3636]` · e) `6.6290` · f) `1.0` · g) `1.4170`.
 
 **Démarche.** `l1_center` : `np.median(points, axis=0)` ; `l1_cost` : `float(np.sum(np.abs(points - c)))`. Pour la copie : la médiane ne dépend que du **rang** des valeurs : deux valeurs extrêmes, aussi grandes soient-elles, ne la décalent que d'une place ou deux. La moyenne, elle, additionne les valeurs : 40 et 38 l'attirent loin du troupeau. La médiane décrit mieux le troupeau. g) confirme que la médiane fait mieux que le barycentre pour la somme des distances L1 : le barycentre coûte 42 % de plus.
 

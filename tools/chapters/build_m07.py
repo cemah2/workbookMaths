@@ -94,7 +94,7 @@ PAPER = [
         ("c", "a number (2 decimals)", "math.degrees(math.acos(8 / 15))", "decimals=2"),
         ("d", "a number (4 decimals)", "29 ** 0.5", f'''decimals=4, mistakes={{"{ROOT_L2}": 29}}'''),
         ("e", "a number", "1"),
-        ("f", "a number", "6", f'''mistakes={{"{ROOT_L2}": 36}}'''),
+        ("f", "a number", "6", f'''mistakes={{"{ROOT_L2}": 36, "un cosinus de 1 dit que les directions sont les mêmes, pas les longueurs : calcule E − A": 0}}'''),
         ("g", '"C" or "E"', '"C"'),
         ("h", '"C" or "E"', '"E"'),
     ]),
@@ -214,7 +214,7 @@ PAPER = [
         ("e", "an integer", "34",
          '''mistakes={"en dimension 33, l'angle reste juste sous 80° : vérifie l'entier suivant": 33}'''),
         ("f", "an irreducible fraction", '"4/5"',
-         f'''{F}, mistakes={{"la coordonnée −1 enlève 1 au lieu d'ajouter 1 : le produit scalaire vaut d − 2": "9/10"}}'''),
+         f'''{F}, mistakes={{"le dernier produit vaut 1 × (−1) = −1 : le produit scalaire vaut (d − 1) − 1": "9/10", "compter −1 comme +1 rendrait les deux vecteurs égaux : le dernier produit vaut 1 × (−1)": "1"}}'''),
     ]),
 
     Paper("M07.13", "La distance au carré moyenne de deux points tirés dans le cube [0, 1]ᵈ", [
@@ -222,7 +222,7 @@ PAPER = [
          f'''{F}, mistakes={{"E[U²] n'est pas E[U]² : intègre x² sur [0, 1]": "1/4"}}'''),
         ("b", "an irreducible fraction", '"1/4"', F),
         ("c", "an irreducible fraction", '"1/6"',
-         f'''{F}, mistakes={{"développe : E[U²] − 2 E[UV] + E[V²]": "1/12", '''
+         f'''{F}, mistakes={{"1/12 est la variance de U ; développe (U − V)² : E[U²] − 2 E[UV] + E[V²]": "1/12", "le double produit −2 E[UV] manque : (U − V)² = U² − 2UV + V²": "2/3", '''
          '''"c'est E[U − V]² ; la question demande E[(U − V)²]": "0"}'''),
         ("d", "a number", "2"),
         ("e", "a number", "10"),

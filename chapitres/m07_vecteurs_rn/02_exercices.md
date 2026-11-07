@@ -349,7 +349,7 @@ On note $\mathbf{1} = (1, \ldots, 1)$ le vecteur de $\mathbb{R}^d$ dont toutes l
 | e | la plus petite dimension $d$ pour laquelle cet angle dépasse 80° | un entier |
 | f | le cosinus de l'angle entre $\mathbf{1}$ et le vecteur $(1, \ldots, 1, -1)$ (la dernière coordonnée change de signe), en dimension 10 | une fraction irréductible |
 
-Dans ta copie : écris le cosinus de f) en fonction de $d$ ; vers quoi tend-il ? Deux sommets voisins d'une même face du cube, vus depuis son centre, font-ils un grand ou un petit angle en grande dimension ?
+Dans ta copie : écris le cosinus de f) en fonction de $d$ ; vers quoi tend-il ? Deux sommets voisins d'une même face du cube, vus depuis le centre du cube, font-ils un grand ou un petit angle en grande dimension ?
 
 ### Ex M07.13 — La distance au carré moyenne de deux points tirés dans le cube [0, 1]ᵈ ✏️ ★★ ⏱️ 15 min
 **Objectif :** calculer l'espérance du carré de la distance entre deux points uniformes du cube, et la comparer à la diagonale.
@@ -384,7 +384,7 @@ Soit $\mathbf{u}$ et $\mathbf{v}$ deux vecteurs de $\mathbb{R}^n$, avec $\mathbf
 3. Que se passe-t-il quand $\mathbf{v} = \mathbf{0}$ ?
 4. Montre que l'égalité a lieu si et seulement si $\mathbf{u}$ et $\mathbf{v}$ sont colinéaires. (Indication : un discriminant nul signifie que $q$ s'annule pour un certain $t$.)
 5. Avec $\mathbf{v} = (1, \ldots, 1)$ et $\mathbf{u} = (|x_1|, \ldots, |x_n|)$, montre que $\lVert \mathbf{x} \rVert_1 \le \sqrt{n}\,\lVert \mathbf{x} \rVert_2$. Pour quels vecteurs y a-t-il égalité ?
-6. Vérifie l'inégalité de 2 et celle de 5 sur $\mathbf{u} = (1, -1, 3)$ et $\mathbf{v} = (2, 0, 1)$.
+6. Vérifie l'inégalité de 2 sur $\mathbf{u} = (1, -1, 3)$ et $\mathbf{v} = (2, 0, 1)$, puis celle de 5 avec $\mathbf{x} = \mathbf{u}$.
 
 ### Ex M07.15 — L'inégalité triangulaire pour L2, L1 et L∞ ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer l'inégalité triangulaire des trois normes, sa forme renversée, et l'échec de la formule pour $p = \frac{1}{2}$.
@@ -471,7 +471,7 @@ Lis MML §3.3, puis §3.4 (jusqu'aux matrices orthogonales, que tu peux survoler
 2. Où l'inégalité de Cauchy-Schwarz apparaît-elle, et à quoi sert-elle au §3.4 ?
 3. Le livre calcule l'angle entre deux vecteurs du plan. Refais le calcul avec $(1, 2, 2)$ et $(2, -1, 2)$ de $\mathbb{R}^3$ : que vaut l'angle ?
 4. Comment le livre définit-il deux vecteurs orthogonaux, et deux vecteurs orthonormés ?
-5. Le livre montre que deux vecteurs orthogonaux pour le produit scalaire usuel peuvent ne pas l'être pour un autre produit scalaire. Vérifie-le avec $\mathbf{x} = (1, 1)$, $\mathbf{y} = (1, -1)$ et le produit scalaire $\langle \mathbf{x}, \mathbf{y} \rangle = 2x_1y_1 + x_2y_2$ : $\mathbf{x}$ et $\mathbf{y}$ sont-ils orthogonaux pour l'un, pour l'autre ? Quel angle font-ils pour le second ?
+5. Le livre montre que deux vecteurs orthogonaux pour le produit scalaire usuel peuvent ne pas l'être pour un autre produit scalaire. Vérifie-le avec $\mathbf{x} = (1, 2)$, $\mathbf{y} = (2, -1)$ et le produit scalaire $\langle \mathbf{a}, \mathbf{b} \rangle = a_1b_1 + 3a_2b_2$ de $\mathbb{R}^2$ : $\mathbf{x}$ et $\mathbf{y}$ sont-ils orthogonaux pour l'un, pour l'autre ? Quel angle font-ils pour le second (longueurs comprises) ?
 6. Note trois mots ou tournures en anglais de ces sections, avec leur traduction.
 
 ### Ex M07.22 — Fermi : la mémoire d'un million d'embeddings 🧮 ★ ⏱️ 10 min

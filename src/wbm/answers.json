@@ -21826,6 +21826,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
+        "8092eee461a0ca14b3fda7208444c3534604fc14f7ed85338aed12df992c1ee0": "un cosinus de 1 dit que les directions sont les mêmes, pas les longueurs : calcule E − A",
         "a92da19719f9d37198cde1d5481afe31d7af382778aeea312a3c8cad991b1d83": "la norme L2 est la racine de la somme des carrés : n'oublie pas la racine"
       },
       "sign": 1,
@@ -22600,7 +22601,8 @@
       "hash": "2adb641a56774950397126bd17cc6e7534c9212327c94caafa09a2ba52c5f8a3",
       "kind": "fraction",
       "mistakes": {
-        "f904223f0ed2424affcb6a4edb7c531ac4c742456f152c3a0a529cb32254c92e": "la coordonnée −1 enlève 1 au lieu d'ajouter 1 : le produit scalaire vaut d − 2"
+        "17ee4111ef0c76df8382cd51a8694bf6af6e74be83f3598a630f7a7b51959343": "compter −1 comme +1 rendrait les deux vecteurs égaux : le dernier produit vaut 1 × (−1)",
+        "f904223f0ed2424affcb6a4edb7c531ac4c742456f152c3a0a529cb32254c92e": "le dernier produit vaut 1 × (−1) = −1 : le produit scalaire vaut (d − 1) − 1"
       },
       "sign": 1,
       "simplified": true,
@@ -22627,8 +22629,9 @@
       "hash": "0486e1c240bf87c71b73110990bc2c7a0adabf67ab6da260e6b3282edaacf599",
       "kind": "fraction",
       "mistakes": {
+        "b2065562490cf53b25c17c5491b519e0bf22a259da7d4e2ce9b8416bc87df83d": "le double produit −2 E[UV] manque : (U − V)² = U² − 2UV + V²",
         "d1e99d7011905e0aa3c9019d795c73b5f9671a3043e7136d5147b970391a62bc": "c'est E[U − V]² ; la question demande E[(U − V)²]",
-        "e376bf66f3a7fd2773387fc634cbf90856dcf14f584cce16a76144394cff01d4": "développe : E[U²] − 2 E[UV] + E[V²]"
+        "e376bf66f3a7fd2773387fc634cbf90856dcf14f584cce16a76144394cff01d4": "1/12 est la variance de U ; développe (U − V)² : E[U²] − 2 E[UV] + E[V²]"
       },
       "sign": 1,
       "simplified": true,
