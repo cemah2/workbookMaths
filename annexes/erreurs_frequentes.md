@@ -238,6 +238,26 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Oublier `axis` ou `keepdims` | `X / np.sqrt(np.sum(X ** 2, axis=1))` | `keepdims=True` (forme `(n, 1)`) pour diviser chaque **ligne** ; sans lui, NumPy divise les colonnes quand `X` est carré |
 | Croire que l'intuition de la dimension 2 vaut en dimension 1 000 | « deux vecteurs au hasard font un angle quelconque » | en grande dimension, ils sont presque orthogonaux, et toutes les distances se ressemblent |
 
+## Tests statistiques (M08)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Lire la p-valeur comme la probabilité que $H_0$ soit vraie | « $p = 0{,}03$ : 3 % de chances que le changement soit inutile » | elle se calcule **en supposant** $H_0$ vraie : la probabilité d'un écart au moins aussi grand, si rien ne changeait |
+| Conclure à l'absence d'effet après un test non significatif | « $p = 0{,}4$, donc la mise à jour ne change rien » | « pas d'effet détecté » ; regarder la puissance et l'intervalle de confiance, qui peut contenir de grands effets |
+| Confondre significatif et important | « $p = 10^{-6}$, donc un gain énorme » | une p-valeur mélange la taille de l'effet et la quantité de données : donner l'effet et son intervalle |
+| Choisir le sens du test après avoir vu les données | un test unilatéral dans le sens observé, sans l'avoir prévu | fixer $H_1$ avant ; sinon le risque de type I réel est le double du seuil annoncé |
+| Doubler une p-valeur binomiale unilatérale pour une loi dissymétrique | $2P(K \ge 5)$ pour $p_0 = 0{,}1$ | additionner les issues au plus aussi probables que l'observation, des deux côtés |
+| Annoncer une p-valeur nulle après un test par permutation | « aucune des 999 permutations n'atteint l'écart : $p = 0$ » | $\frac{C + 1}{B + 1}$ : la répartition observée compte ; $p \ge \frac{1}{B + 1}$ |
+| Rebattre des mesures appariées comme deux groupes | mélanger les serveurs « avant » et « après » | échanger les deux mesures **dans** chaque paire (changer le signe des différences) |
+| Traiter des mesures appariées comme indépendantes | l'erreur type $\sqrt{s_a^2/n + s_b^2/n}$ pour des mesures avant et après | travailler sur les différences : $\frac{s_d}{\sqrt{n}}$, bien plus petite |
+| Prendre 1,96 avec peu de mesures | $\bar{d} \pm 1{,}96\,\frac{s_d}{\sqrt{5}}$ | le quantile de Student à $n - 1$ degrés de liberté (2,776 pour 5 mesures) |
+| Utiliser l'intervalle de Wald avec peu de succès | $[0, 0]$ après 0 succès sur 10, ou une borne négative | l'intervalle de Wilson, toujours dans $[0, 1]$ |
+| Diviser les p-valeurs par $m$ au lieu de les multiplier | p-valeur ajustée $\frac{p}{m}$ | $\min(1, m\,p)$ ; ou garder $p$ et comparer au seuil $\frac{\alpha}{m}$ |
+| Prendre pour $m$ le nombre de résultats montrés | Bonferroni avec les 3 plus petites p-valeurs sur 50 tests faits | $m$ = le nombre de tests **faits** |
+| Arrondir au-dessous une taille d'échantillon | $n = 68{,}7$ arrondi à 68 | arrondir au-dessus : avec moins de mesures, la puissance n'est pas atteinte |
+| Préférer le plus grand AIC, ou prendre $\log_{10}$ dans le BIC | « AIC = 464,8 contre 461,8 : le premier gagne » | le plus **petit** critère gagne ; $\ln$ népérien |
+| Annoncer le score qui a servi à choisir le modèle | le meilleur de 30 scores de validation présenté comme la performance attendue | le confirmer sur des données qui n'ont pas servi au choix (jeu de test, validation croisée imbriquée) |
+
 ## Matrices (M09a et suite)
 
 | Erreur | Exemple faux | Ce qu'il faut faire |

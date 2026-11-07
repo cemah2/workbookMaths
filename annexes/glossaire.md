@@ -9,6 +9,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | absorption | absorption (swamping) | un petit nombre ajouté à un grand disparaît à l'arrondi : $10^{16} + 1$ donne $10^{16}$ en `float64` | M05a |
 | accuracy | accuracy | $P(\hat{Y} = Y)$ : la proportion de prédictions justes ; trompeuse quand une classe est rare | M03 |
 | actualiser, valeur actuelle | discount, present value | ramener une somme future à sa valeur d'aujourd'hui : la diviser par $(1 + t)^n$ | R5 |
+| AIC, BIC (critères d'information) | Akaike information criterion, Bayesian information criterion | $\mathrm{AIC} = 2k - 2\ln L$, $\mathrm{BIC} = k\ln n - 2\ln L$ ; le plus petit gagne ; le BIC pénalise davantage chaque paramètre dès $n \ge 8$ | M08 |
 | aire algébrique | signed area | aire comptée positivement au-dessus de l'axe, négativement en dessous : c'est ce que mesure une intégrale | M02a |
 | angle entre deux vecteurs | angle between two vectors | l'angle $\theta \in [0 ; \pi]$ tel que $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert\cos\theta$ | R9, M07 |
 | annulation (catastrophique) | catastrophic cancellation | la perte de chiffres justes quand on soustrait deux nombres presque égaux : l'erreur relative explose | M05a |
@@ -35,6 +36,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | Bienaymé-Tchebychev (inégalité de) | Chebyshev's inequality | $P(\lvert X - \mu \rvert \ge \varepsilon) \le \frac{\sigma^2}{\varepsilon^2}$, pour toute loi de variance finie | M02c |
 | bit, nat | bit, nat | unités d'information : un événement de probabilité $p$ apporte $-\log_2 p$ bits, ou $-\ln p$ nats ; 1 bit ≈ 0,693 nat | R6, M06 |
 | boîte à moustaches | boxplot, box-and-whisker plot | dessin d'une série : une boîte de $Q_1$ à $Q_3$ coupée par la médiane, des moustaches jusqu'aux valeurs non aberrantes les plus extrêmes | M02c |
+| Bonferroni (correction de) | Bonferroni correction | chaque test au seuil $\frac{\alpha}{m}$, ou les p-valeurs ajustées $\min(1, m\,p_i)$ comparées à $\alpha$ : la probabilité d'au moins un faux positif reste sous $\alpha$, sans hypothèse d'indépendance | M08 |
 | bootstrap | bootstrap | estimer la dispersion d'une statistique en la recalculant sur des milliers de rééchantillons tirés avec remise dans les données | M02c |
 | borne, intervalle | bound, interval | ensemble des réels compris entre deux bornes, incluses (crochet fermé) ou non (crochet ouvert) ; une borne peut être infinie | R2 |
 | boule unité | unit ball | les vecteurs de norme au plus 1 ; dans le plan, un losange pour L1, un disque pour L2, un carré pour L∞ ; toujours convexe | M07 |
@@ -56,11 +58,13 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | coefficient multiplicateur | multiplier, growth factor | nombre $1 + t$ par lequel une évolution de taux $t$ multiplie une valeur | R1 |
 | colinéaires (vecteurs) | collinear vectors | l'un est un multiple de l'autre : $xy' - x'y = 0$ | R9 |
 | combinaison linéaire | linear combination | somme de vecteurs multipliés par des nombres | M07, M12a |
+| comparaisons multiples | multiple comparisons, multiple testing | faire beaucoup de tests, ou essayer beaucoup de modèles : $m\alpha$ faux positifs en moyenne si aucun effet n'existe | M08 |
 | complémentaire (d'un ensemble) | complement | $\bar{A}$ : les éléments de l'univers qui ne sont pas dans $A$ | R4 |
 | composée (de deux fonctions) | composition, composite function | $(f \circ g)(x) = f(g(x))$ : on applique $g$, puis $f$ | R3 |
 | concave | concave | dont toute corde est au-dessous de la courbe ; pour $f$ deux fois dérivable, $f'' \le 0$ | M05a |
 | concentration (de la norme) | concentration of measure | en grande dimension, une quantité qui dépend de beaucoup de coordonnées indépendantes varie peu autour de sa valeur typique : la norme d'un vecteur gaussien de $\mathbb{R}^n$ vaut $\sqrt{n}$ à environ 0,7 près | M07 |
 | condition nécessaire, suffisante | necessary, sufficient condition | dans $P \Rightarrow Q$, P est suffisante pour Q et Q nécessaire pour P | R4 |
+| conservateur (test) | conservative test | un test dont le risque de type I réel est plus petit que le seuil annoncé, comme un test à statistique discrète | M08 |
 | continuité | continuity | $f$ est continue en $a$ si $\lim_{x \to a} f(x) = f(a)$ : pas de saut | R7 |
 | contraposée | contrapositive | $\text{non } Q \Rightarrow \text{non } P$, de même valeur que $P \Rightarrow Q$ | R4 |
 | contre-exemple | counterexample | un cas qui rend fausse une phrase « pour tout » | R4 |
@@ -115,6 +119,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | division euclidienne | Euclidean division, integer division | $a = bq + r$ avec $0 \le r < b$ ; en Python, `a // b` donne $q$ et `a % b` donne $r$ | R0 |
 | écart interquartile | interquartile range (IQR) | $Q_3 - Q_1$ : la dispersion de la moitié centrale d'une série, insensible aux valeurs extrêmes | M02c |
 | écart-type | standard deviation | racine carrée de la variance | R8 |
+| échangeabilité | exchangeability | sous $H_0$, toutes les répartitions des valeurs entre les groupes sont aussi probables : ce qui justifie un test par permutation | M08 |
 | échantillon i.i.d. | i.i.d. sample | variables $X_1, \ldots, X_n$ indépendantes et de même loi : le modèle de base des données en statistique et en ML | M02c |
 | échantillonnage de Thompson | Thompson sampling | choisir à chaque essai l'option dont un tirage dans l'a posteriori est le plus grand : explorer et exploiter à la fois | M04 |
 | effectif attendu | expected count | l'effectif d'une case d'un tableau de contingence si les variables étaient indépendantes : $\frac{\text{total de la ligne} \times \text{total de la colonne}}{\text{total}}$ | M03 |
@@ -135,6 +140,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | équiprobabilité | equally likely outcomes | toutes les issues ont la même probabilité : $P(A) = \frac{\lvert A \rvert}{\lvert \Omega \rvert}$ | R8 |
 | équivalence (logique) | equivalence, if and only if | $P \Leftrightarrow Q$ : $P \Rightarrow Q$ et $Q \Rightarrow P$ | R4 |
 | erreur d'arrondi, erreur de troncature | rounding error, truncation error | l'erreur due à la précision finie des flottants ; l'erreur due à une formule approchée (un développement coupé, un pas $h$ non nul) | M05a |
+| erreur de type I, de type II | type I error (false positive), type II error (false negative) | rejeter $H_0$ alors qu'elle est vraie (probabilité $\alpha$) ; ne pas la rejeter alors que l'effet existe (probabilité $\beta$) | M08 |
 | erreur quadratique moyenne (d'un estimateur) | mean squared error (MSE) | $\mathbb{E}[(\hat{\theta} - \theta)^2] = \text{biais}^2 + \text{variance}$ | M02c |
 | erreur type | standard error (SE) | l'écart-type d'un estimateur ; pour une moyenne, $\frac{s}{\sqrt{n}}$ ; pour une proportion, $\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$ | M02c |
 | espace probabilisé | probability space | le triplet (univers, événements, probabilité) d'une expérience aléatoire | M02b |
@@ -147,13 +153,14 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | événement | event | partie de l'univers : les issues pour lesquelles une phrase est vraie | R8 |
 | événements incompatibles | mutually exclusive events, disjoint events | événements sans issue commune : $A \cap B = \varnothing$ | R8 |
 | événements indépendants | independent events | $P(A \cap B) = P(A)\,P(B)$ : savoir que l'un s'est réalisé ne change pas la probabilité de l'autre | R8 |
-| évidence (vraisemblance marginale) | evidence, marginal likelihood | $P(O) = \sum_j P(O \mid H_j)\,P(H_j)$ : le dénominateur de la formule de Bayes | M04 |
+| évidence (vraisemblance marginale) | evidence, marginal likelihood | $P(O) = \sum_j P(O \mid H_j)\,P(H_j)$ : le dénominateur de la formule de Bayes | M04, M08 |
 | exponentielle (fonction) | exponential function | $x \mapsto a^x$ ($a > 0$) ; la fonction exponentielle est $\exp(x) = e^x$ | R6 |
 | exposant | exponent | le nombre $n$ de $a^n$ ; en notation scientifique, la puissance de 10 | R1 |
 | expression littérale, variable | algebraic expression, variable | expression où des lettres, les variables, représentent des nombres | R2 |
 | extrapolation de Richardson | Richardson extrapolation | combiner deux approximations de pas $h$ et $\frac{h}{2}$ pour annuler le premier terme d'erreur : $\frac{4D(h/2) - D(h)}{3}$ | M05a |
 | extremum local, global | local, global extremum | maximum ou minimum au voisinage d'un point (local) ou sur tout le domaine (global) | R7, M05a |
 | F-beta | F-beta score | $\frac{(1 + \beta^2)PR}{\beta^2 P + R}$ : moyenne harmonique pondérée de la precision et du recall ; $\beta > 1$ favorise le recall | M03 |
+| facteur de Bayes | Bayes factor | $\mathrm{BF}_{12} = \frac{p(\mathcal{D} \mid M_1)}{p(\mathcal{D} \mid M_2)}$, le rapport des évidences de deux modèles ; cote a posteriori = facteur de Bayes × cote a priori | M08 |
 | facteur de correction de population finie | finite population correction | $\frac{N - n}{N - 1}$ : le facteur de la variance de la moyenne pour des tirages sans remise | M02c |
 | factorielle | factorial | $n! = n \times (n - 1) \times \cdots \times 1$, le nombre de rangements de $n$ objets ; $0! = 1$ | R8 |
 | famille exponentielle | exponential family | les lois de la forme $h(x)\exp(\eta\,T(x) - A(\eta))$ : Bernoulli, gaussienne, Beta, Poisson… | M04 |
@@ -185,8 +192,10 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | hessienne | Hessian | matrice des dérivées secondes | M05b, M19 |
 | homogénéité (d'une norme) | absolute homogeneity | $\lVert \lambda\mathbf{x} \rVert = \lvert \lambda \rvert\,\lVert \mathbf{x} \rVert$ : multiplier un vecteur par $\lambda$ multiplie sa longueur par $\lvert \lambda \rvert$ | M07 |
 | hyperplan | hyperplane | les $\mathbf{x}$ de $\mathbb{R}^n$ tels que $\mathbf{w} \cdot \mathbf{x} + b = 0$, avec $\mathbf{w} \ne \mathbf{0}$ (le vecteur normal) : une droite du plan, un plan de l'espace | M07 |
+| hypothèse nulle, hypothèse alternative | null hypothesis, alternative hypothesis | $H_0$, souvent « pas d'effet », que le test cherche à mettre en défaut ; $H_1$, ce qu'on veut montrer ; toutes deux fixées avant de voir les données | M08 |
 | identité remarquable | special product, algebraic identity | égalité vraie pour tous $a$ et $b$, comme $(a + b)^2 = a^2 + 2ab + b^2$ | R2 |
 | implication | implication, conditional | $P \Rightarrow Q$, fausse seulement si P est vraie et Q fausse | R4 |
+| importance par permutation | permutation importance | le score d'un modèle entraîné, moins son score quand on mélange la colonne d'une feature, sur un jeu de validation | M08 |
 | imputation | imputation | remplacer une valeur manquante par une valeur choisie (la moyenne, la médiane de la colonne…) | M02c |
 | inclusion | inclusion, subset | $A \subset B$ : tout élément de $A$ est dans $B$ | R4 |
 | indépendance (de variables aléatoires) | independence | la loi jointe est le produit des marginales : $P(X = x, Y = y) = P(X = x)\,P(Y = y)$ pour toutes les valeurs | M02b |
@@ -212,6 +221,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | intervalle de confiance | confidence interval | intervalle calculé sur les données qui contient la vraie valeur pour 95 % (le niveau) des échantillons : $\bar{x} \pm 1{,}96\,\frac{s}{\sqrt{n}}$ | M02c |
 | intervalle de crédibilité | credible interval | un intervalle qui contient le paramètre avec une probabilité donnée, selon l'a posteriori | M04 |
 | intervalle de prédiction | prediction interval | intervalle où tombera une **nouvelle** observation ; plus large qu'un intervalle de confiance de la moyenne | M02c |
+| intervalle de Wald, de Wilson | Wald interval, Wilson (score) interval | deux intervalles d'une proportion : $\hat{p} \pm z\sqrt{\hat{p}(1 - \hat{p})/n}$, faux avec peu de succès ; celui de Wilson, qui inverse un test, reste dans $[0, 1]$ | M08 |
 | issue | outcome | un résultat possible d'une expérience aléatoire | R8 |
 | jacobienne | Jacobian | matrice des dérivées partielles d'une fonction à valeurs vectorielles | M17 |
 | k-means, k-means++ | k-means, k-means++ | regrouper des points en $k$ clusters en alternant l'affectation au centre le plus proche et le remplacement de chaque centre par le barycentre de son cluster ; k-means++ tire les centres de départ avec une probabilité proportionnelle à $D^2$ | M07 |
@@ -241,6 +251,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | loi marginale | marginal distribution | la loi d'une seule variable d'un couple, obtenue en sommant (ou en intégrant) l'autre | M02b |
 | loi normale (gaussienne) | normal (Gaussian) distribution | loi en cloche $\mathcal{N}(\mu, \sigma^2)$, de centre $\mu$ et d'écart-type $\sigma$ (le second paramètre est la variance) | M02b |
 | loi normale centrée réduite | standard normal distribution | $\mathcal{N}(0, 1)$, de densité $\varphi$ et de fonction de répartition $\Phi$ | M02b |
+| loi nulle | null distribution | la loi de la statistique de test quand $H_0$ est vraie | M08 |
 | loi prédictive (a posteriori) | posterior predictive distribution | la loi des prochaines observations, sachant les données, en moyennant sur le paramètre | M04 |
 | loi uniforme | uniform distribution | densité constante $\frac{1}{b - a}$ sur $[a ; b]$ : une probabilité proportionnelle à la longueur | M02b |
 | lois de De Morgan | De Morgan's laws | non (P et Q) = (non P) ou (non Q) ; non (P ou Q) = (non P) et (non Q) | R4 |
@@ -260,6 +271,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | MCC (coefficient de Matthews) | Matthews correlation coefficient | la corrélation entre la vérité et la prédiction codées 0 et 1, entre $-1$ et 1 | M03 |
 | médiane | median | la valeur du milieu d'une série triée (la moyenne des deux du milieu si $n$ est pair) ; robuste aux valeurs extrêmes | M02c |
 | médiane géométrique | geometric median | le point qui minimise la somme des distances euclidiennes (non au carré) à des points ; sans formule, l'algorithme de Weiszfeld la calcule | M07 |
+| mesures appariées | paired measurements | deux mesures de la même unité (avant et après) : on travaille sur leurs différences, et la variabilité entre unités disparaît | M08 |
 | méthode de Monte-Carlo | Monte Carlo method | estimer une probabilité, une espérance ou une intégrale par la moyenne d'un grand nombre de tirages au hasard | R8, M02a |
 | méthode de Newton | Newton's method, Newton-Raphson | $x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$ : suivre la tangente jusqu'à l'axe pour approcher une racine | M05a |
 | méthode de Simpson | Simpson's rule | intégration numérique par des paraboles : $\frac{h}{3}(f_0 + 4f_1 + 2f_2 + \cdots + 4f_{n-1} + f_n)$, $n$ pair ; erreur en $h^4$ | M02a |
@@ -291,6 +303,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | ordre d'une méthode numérique | order of a numerical method | l'exposant $k$ d'une erreur proportionnelle à $h^k$ : diviser le pas par 2 divise l'erreur par $2^k$ | M02a |
 | ordre de grandeur | order of magnitude | la puissance de 10 la plus proche d'un nombre | R1 |
 | orthogonaux (vecteurs) | orthogonal vectors | de directions perpendiculaires : leur produit scalaire est nul | R9, M07 |
+| p-valeur | p-value | la probabilité, calculée en supposant $H_0$ vraie, d'une statistique au moins aussi extrême que celle observée ; pas la probabilité que $H_0$ soit vraie | M08 |
 | parabole, sommet | parabola, vertex | la courbe d'un second degré ; son sommet $(\alpha, \beta)$ est son point le plus bas (ou le plus haut) | R3 |
 | paradoxe de Simpson | Simpson's paradox | une tendance présente dans chaque groupe s'inverse quand on réunit les groupes, à cause de leurs poids différents | M03 |
 | partie entière, plancher, plafond | floor, ceiling | $\lfloor x \rfloor$, le plus grand entier $\le x$ ; $\lceil x \rceil$, le plus petit entier $\ge x$ | R1 |
@@ -327,6 +340,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | proposition | proposition, statement | une phrase qui est soit vraie, soit fausse | R4 |
 | pseudo-observations | pseudo-counts | les paramètres $a$ et $b$ d'un a priori Beta, lus comme des succès et des échecs déjà vus | M04 |
 | puissance | power | $a^n$, produit de $n$ facteurs égaux à $a$ | R1 |
+| puissance d'un test | power (of a test) | $1 - \beta$, la probabilité de rejeter $H_0$ quand l'effet existe ; elle grandit avec l'effet, avec $n$ et avec $\alpha$ | M08 |
 | quantificateur | quantifier | « pour tout » ($\forall$) ou « il existe » ($\exists$) | R4 |
 | quantile | quantile | le plus petit $x$ tel que $F(x) \ge p$ ; la médiane est le quantile d'ordre 0,5 | M02a |
 | quantité conjuguée | conjugate | multiplier $\sqrt{A} - \sqrt{B}$ par $\sqrt{A} + \sqrt{B}$ pour obtenir $A - B$ | R7 |
@@ -336,6 +350,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | radian | radian | unité d'angle : la longueur de l'arc sur le cercle de rayon 1 ; $180° = \pi$ rad | R9 |
 | raison (d'une suite) | common difference, common ratio | ce qu'on ajoute (suite arithmétique) ou ce par quoi on multiplie (suite géométrique) à chaque pas | R5 |
 | rang | rank | nombre de directions indépendantes d'une matrice | M12a |
+| rasoir d'Occam | Occam's razor | à ajustement égal, préférer le modèle le plus simple ; l'évidence bayésienne le fait d'elle-même | M08 |
 | réalisation, tirage | realization, sample, draw | une valeur obtenue d'une variable aléatoire, à distinguer de la variable elle-même | M02b |
 | recall (sensibilité) | recall, sensitivity, true positive rate (TPR) | $P(\hat{Y} = 1 \mid Y = 1)$ : la part des positifs détectés | M03 |
 | réciproque (d'une implication) | converse | $Q \Rightarrow P$ pour l'implication $P \Rightarrow Q$ : une autre phrase | R4 |
@@ -356,6 +371,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | score de Brier | Brier score | $\frac{1}{n}\sum (p_i - y_i)^2$ : l'erreur quadratique moyenne des probabilités annoncées | M03 |
 | sécante | secant line | droite qui passe par deux points de la courbe ; sa pente est le taux d'accroissement | R7 |
 | second degré (polynôme du) | quadratic (polynomial, function) | $ax^2 + bx + c$ avec $a \ne 0$ | R3 |
+| seuil d'un test | significance level | $\alpha$, le risque de type I accepté : on rejette $H_0$ quand la p-valeur est au plus $\alpha$ (souvent 0,05) | M08 |
 | seuil de décision | decision threshold | le score à partir duquel on déclare un exemple positif ; $\frac{c_{FP}}{c_{FP} + c_{FN}}$ minimise le coût pour des probabilités calibrées | M03 |
 | sigmoïde (fonction logistique) | sigmoid, logistic function | $\sigma(x) = \frac{1}{1 + e^{-x}}$, à valeurs dans $]0 \;;\; 1[$ | R6 |
 | silhouette | silhouette (coefficient) | $s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}$, entre $-1$ et 1 : positive quand le point est en moyenne plus près des points de son cluster que de ceux du cluster voisin, négative quand il est plus près de ceux du cluster voisin, nulle à égalité | M07 |
@@ -370,8 +386,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | spécificité | specificity, true negative rate | $P(\hat{Y} = 0 \mid Y = 0)$ : la part des négatifs bien reconnus | M03 |
 | standardiser | standardize | passer de $X \sim \mathcal{N}(\mu, \sigma^2)$ à $Z = \frac{X - \mu}{\sigma} \sim \mathcal{N}(0, 1)$ | M02b, M02c |
 | statistique | statistic | une fonction de l'échantillon (moyenne, médiane, maximum) : une variable aléatoire | M02c |
+| statistique de test | test statistic | un nombre calculé sur les données qui mesure l'écart à $H_0$ (un nombre de succès, un écart de moyennes) | M08 |
 | statistique suffisante | sufficient statistic | un résumé des données qui contient toute leur information sur le paramètre ; pour $n$ essais de Bernoulli, le nombre de succès | M04 |
-| Student (loi de) | Student's t distribution | loi qui remplace la loi normale pour la moyenne standardisée de peu de données normales, quand $\sigma$ est estimé (quantile 2,262 pour $n = 10$ à 95 %) | M02c |
+| Student (loi de) | Student's t distribution | loi qui remplace la loi normale pour la moyenne standardisée de peu de données normales, quand $\sigma$ est estimé (quantile 2,262 pour $n = 10$ à 95 %) | M02c, M08 |
 | substituer | substitute, plug in | remplacer une lettre par une valeur (ou par une expression) | R2 |
 | suite | sequence | liste infinie de nombres $u_0, u_1, \dots$ | R5 |
 | suite arithmétique | arithmetic sequence, arithmetic progression | on ajoute la même raison $r$ à chaque pas : $u_n = u_0 + n\,r$ | R5 |
@@ -382,6 +399,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | table de vérité | truth table | la valeur d'une proposition pour chaque combinaison des valeurs de ses propositions | R4 |
 | tableau de contingence | contingency table | le tableau des effectifs de deux variables catégorielles observées ensemble, avec ses totaux dans les marges | M03 |
 | tableau de variations | variation table | tableau du signe de $f'$ et du sens de variation de $f$, avec les valeurs aux points où $f'$ s'annule | R7 |
+| taille d'échantillon (calcul de) | sample size calculation | le nombre d'observations qui donne une puissance voulue : $n \ge \big(\frac{(z_{1-\alpha} + z_{1-\beta})\,\sigma}{\delta}\big)^2$ pour une moyenne | M08 |
 | taille du pas, learning rate | step size, learning rate | le nombre $\eta > 0$ qui règle la longueur d'un pas de descente de gradient | M05b |
 | tangente | tangent line | droite qui touche la courbe en un point avec la même pente : $y = f(a) + f'(a)(x - a)$ | R7 |
 | tangente hyperbolique | hyperbolic tangent | $\tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}}$, à valeurs dans $]-1 \;;\; 1[$ | R6 |
@@ -391,7 +409,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | temps de doublement, demi-vie | doubling time, half-life | la durée au bout de laquelle une grandeur double (ou est divisée par 2) : $\frac{\ln 2}{\ln(1 + r)}$ | R6 |
 | terme, rang (d'une suite) | term, index | $u_n$ est le terme de rang (ou d'indice) $n$ | R5 |
 | termes semblables, réduire | like terms, collect like terms | termes de même partie littérale ; réduire, c'est les additionner en additionnant leurs coefficients | R2 |
+| test binomial exact | exact binomial test | test de $H_0 : p = p_0$ par la loi $\mathcal{B}(n, p_0)$ du nombre de succès ; bilatéral : la somme des issues au plus aussi probables que l'observation | M08 |
 | test du second ordre | second-derivative test | en un point critique, le signe de $D = f_{xx}f_{yy} - f_{xy}^2$ (et celui de $f_{xx}$) dit minimum, maximum ou point selle ; $D = 0$ : il ne conclut pas | M05b |
+| test par permutation | permutation test | la loi nulle obtenue en rebattant les valeurs entre les groupes ; p-valeur $\frac{C + 1}{B + 1}$ avec $B$ permutations tirées au hasard | M08 |
 | théorème central limite | central limit theorem (CLT) | pour $n$ grand, la moyenne de $n$ variables i.i.d. suit à peu près $\mathcal{N}\big(\mu, \frac{\sigma^2}{n}\big)$, quelle que soit leur loi | M02c |
 | théorème de Fubini | Fubini's theorem | une intégrale double sur un rectangle se calcule en intégrant une variable après l'autre, dans n'importe quel ordre | M02b |
 | théorème de Schwarz | Schwarz's theorem, symmetry of second derivatives | les dérivées croisées sont égales, $f_{xy} = f_{yx}$, quand les dérivées secondes sont continues | M05b |
@@ -402,6 +422,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | tirage avec remise, sans remise | sampling with replacement, without replacement | avec remise, l'objet tiré est remis avant le tirage suivant ; sans remise, la composition change | R8 |
 | tranche (d'une surface) | slice, cross-section | la courbe obtenue en figeant une variable, comme $x \mapsto f(x, b)$ ; $\frac{\partial f}{\partial x}(a, b)$ est sa pente en $a$ | M05b |
 | triangle de Pascal | Pascal's triangle | les coefficients binomiaux rangés en triangle : chaque nombre est la somme des deux au-dessus | R8 |
+| unilatéral, bilatéral (test) | one-sided, two-sided test | l'alternative dans un seul sens, fixé à l'avance, ou dans les deux | M08 |
 | unité d'arrondi | unit roundoff | l'erreur relative maximale d'une opération en flottants, $u = \frac{\varepsilon}{2}$ ($2^{-53}$ en `float64`) | M05a |
 | univers | sample space | $\Omega$, l'ensemble des issues d'une expérience aléatoire | R8 |
 | valeur aberrante | outlier | valeur très éloignée des autres ; signalée par $\lvert z \rvert > 3$ ou par la règle de Tukey | M02c |
@@ -410,6 +431,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | valeur moyenne d'une fonction | mean value of a function | $\frac{1}{b - a}\int_a^b f$ : la hauteur du rectangle de même aire | M02a |
 | valeur prédictive négative | negative predictive value (NPV) | $P(Y = 0 \mid \hat{Y} = 0)$ : la part des « négatif » prédits qui le sont vraiment | M03 |
 | valeur propre, vecteur propre | eigenvalue, eigenvector | $\mathbf{A}\mathbf{v} = \lambda\mathbf{v}$ : une direction que $\mathbf{A}$ ne fait qu'étirer | M12c |
+| validation croisée imbriquée | nested cross-validation | une boucle intérieure choisit le modèle, une boucle extérieure estime la performance de toute la procédure, choix compris | M08 |
 | variable aléatoire | random variable | grandeur dont la valeur dépend du hasard | R8 |
 | variable de confusion | confounder, confounding variable | une troisième grandeur qui fait varier deux autres, et crée entre elles une corrélation sans causalité | M02c |
 | variance | variance | moyenne des carrés des écarts à l'espérance | R8 |

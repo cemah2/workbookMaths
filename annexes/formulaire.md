@@ -323,6 +323,19 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | silhouette | $a(i)$ : distance moyenne aux autres points du cluster ; $b(i)$ : distance moyenne aux points du cluster voisin le plus proche ; $s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))} \in [-1, 1]$, 0 pour un point seul dans son cluster |
 | grande dimension | $\lVert \mathbf{1} \rVert = \sqrt{n}$ ; $\cos(\mathbf{1}, \mathbf{e}_1) = \frac{1}{\sqrt{n}}$ ; deux directions gaussiennes au hasard : $\cos\theta$ d'écart-type $\approx \frac{1}{\sqrt{n}}$ ; pour $\mathbf{X} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$ : $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = n$, $\mathbb{V}\big(\lVert \mathbf{X} \rVert^2\big) = 2n$ (avec $\mathbb{E}[Z^4] = 3$), donc $\lVert \mathbf{X} \rVert \approx \sqrt{n}$ à environ $\frac{1}{\sqrt{2}} \approx 0{,}71$ près |
 
+### M08 · Tests statistiques
+
+| Notion | Formules |
+|---|---|
+| p-valeur | $p = P_{H_0}(T \text{ au moins aussi extrême que } t_{\text{obs}})$ ; rejeter $H_0$ si $p \le \alpha$ ; sous $H_0$, une p-valeur continue suit la loi uniforme sur $[0, 1]$ ($P(P \le u) = u$), une p-valeur discrète vérifie $P(P \le u) \le u$ |
+| test binomial exact | $K \sim \mathcal{B}(n, p_0)$ sous $H_0$ ; unilatéral : $P(K \ge k)$ ou $P(K \le k)$ ; bilatéral : $\sum_{j : P(K = j) \le P(K = k)} P(K = j)$ (le double de l'unilatéral si $p_0 = \frac{1}{2}$) ; approximation normale : $z = \frac{k - np_0}{\sqrt{np_0(1 - p_0)}}$ |
+| test par permutation | $t = \bar{x} - \bar{y}$ ; exact : la part des $\binom{m + n}{m}$ répartitions au moins aussi extrêmes ; tiré au hasard : $\frac{C + 1}{B + 1}$ ; apparié : changer au hasard le signe de chaque différence ; importance par permutation : score − score après mélange de la colonne |
+| erreurs et puissance | $\alpha = P_{H_0}(\text{rejeter})$, $\beta = P_{H_1}(\text{ne pas rejeter})$, puissance $1 - \beta$ ; test sur une moyenne : $1 - \beta = \Phi\big(\frac{\delta\sqrt{n}}{\sigma} - z_{1-\alpha}\big)$ et $n \ge \Big(\frac{(z_{1-\alpha} + z_{1-\beta})\,\sigma}{\delta}\Big)^2$ ($z_{1-\alpha/2}$ en bilatéral) ; deux groupes de $n$ : $\delta\sqrt{n/2}$ |
+| proportion | Wald : $\hat{p} \pm z\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$ ; Wilson : $\frac{\hat{p} + \frac{z^2}{2n} \pm z\sqrt{\frac{\hat{p}(1 - \hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}}$, pour $k = 0$ : $\big[0 ;\ \frac{z^2}{n + z^2}\big]$ ; $z = z_{(1 + \text{niveau})/2}$ |
+| différence appariée | $d_i = a_i - b_i$ : $\bar{d} \pm t_{n-1}\,\frac{s_d}{\sqrt{n}}$ ($s_d$ en $\mathrm{ddof} = 1$) ; il exclut 0 exactement quand le test de Student apparié bilatéral a $p < 1 - \text{niveau}$ |
+| comparaisons multiples | $m$ tests vrais au seuil $\alpha$ : $m\alpha$ faux positifs en moyenne, $1 - (1 - \alpha)^m$ d'en avoir au moins un (tests indépendants) ; Boole : $P(\bigcup A_i) \le \sum P(A_i)$ ; Bonferroni : seuil $\frac{\alpha}{m}$, ou $\min(1, m\,p_i) \le \alpha$ |
+| sélection de modèle | $\mathrm{AIC} = 2k - 2\ln L$, $\mathrm{BIC} = k\ln n - 2\ln L$ (le plus petit gagne) ; $\mathrm{BF}_{12} = \frac{p(\mathcal{D} \mid M_1)}{p(\mathcal{D} \mid M_2)}$, cote a posteriori = $\mathrm{BF}_{12}$ × cote a priori ; loi a priori uniforme sur $p$ : $p(k \text{ succès sur } n) = \frac{1}{n + 1}$ ; $-\frac{1}{2}\mathrm{BIC} \approx \ln p(\mathcal{D} \mid M)$ pour $n$ grand |
+
 ## Partie III · ML classique
 
 *(ajouté avec les chapitres M12a à M14)*

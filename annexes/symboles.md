@@ -171,6 +171,12 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $D_{\mathrm{KL}}(p \parallel q)$, $\mathrm{KL}(p \parallel q)$ | « divergence KL de p à q » | KL divergence of p from q | l'écart de $q$ à $p$, en bits perdus par symbole ; pas symétrique | $\mathrm{KL}(p \parallel p) = 0$ | M06 |
 | $\mathrm{JS}(p, q)$ | « divergence de Jensen-Shannon de p et q » | Jensen-Shannon divergence | une divergence symétrique et toujours finie | $\mathrm{JS}(p, p) = 0$ | M06 |
 | $\bar{L}$ | « L barre », « longueur moyenne » | expected (code) length | la longueur moyenne $\sum p_i \ell_i$ des mots d'un code | $\bar{L} \ge H$ pour un code préfixe | M06 |
+| $H_0$, $H_1$ | « H zéro », « H un » | null hypothesis, alternative hypothesis | l'hypothèse nulle d'un test et son alternative | $H_0 : p = \frac{1}{2}$ | M08 |
+| $\alpha$, $\beta$, $1 - \beta$ | « alpha », « bêta », « un moins bêta » | significance level, type II error rate, power | le risque de type I, le risque de type II, la puissance d'un test | $\alpha = 0{,}05$ | M08 |
+| $z_{1-\alpha}$ | « z un moins alpha » | standard normal quantile | le quantile d'ordre $1 - \alpha$ de la loi normale centrée réduite : $\Phi(z_{1-\alpha}) = 1 - \alpha$ | $z_{0{,}975} \approx 1{,}96$ | M08 |
+| $t_{n-1}$ | « t à n moins un degrés de liberté » | Student t quantile | un quantile de la loi de Student à $n - 1$ degrés de liberté (celui d'ordre 0,975 pour un intervalle à 95 %) | $t_4 \approx 2{,}776$ | M08 |
+| $\mathrm{AIC}$, $\mathrm{BIC}$ | « A I C », « B I C » | Akaike, Bayesian information criterion | $2k - 2\ln L$ et $k\ln n - 2\ln L$ : le plus petit gagne | $k = 3$, $\ln L = -10$, $n = 50$ : $\mathrm{AIC} = 26$ | M08 |
+| $\mathrm{BF}_{12}$ | « facteur de Bayes de 1 contre 2 » | Bayes factor | $\frac{p(\mathcal{D} \mid M_1)}{p(\mathcal{D} \mid M_2)}$, le rapport des évidences | $\mathrm{BF}_{12} = 3$ : les données favorisent $M_1$ | M08 |
 
 ## Les lettres grecques
 
