@@ -983,3 +983,45 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M07.35 🏆 Défi : le point qui minimise la somme des distances (non au carré) à 60 villes, à 0,1 % près ★★★ 30 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (24 cartes)
 <!-- wbm:end M07 -->
+
+<!-- wbm:section M08 -->
+## M08 · Tests statistiques ⏱️ 12,1 h
+
+- [ ] M08.Q1 🧠 Ce qu'une p-valeur est, et ce qu'elle n'est pas ★ 4 min
+- [ ] M08.Q2 🧠 Unilatéral ou bilatéral ? ★ 4 min (complet)
+- [ ] M08.Q3 🧠 Permuter quoi, et sous quelle hypothèse ? ★ 4 min
+- [ ] M08.Q4 🧠 Erreurs de type I et II, puissance : associer ★ 4 min
+- [ ] M08.Q5 🧠 Comparaisons multiples : vrai ou faux ★ 4 min
+- [ ] M08.Q6 🧠 AIC, BIC, facteur de Bayes : qui pénalise quoi ? ★ 4 min (complet)
+- [ ] M08.R1 🔁 La loi binomiale (M02b) ★ 5 min
+- [ ] M08.R2 🔁 L'intervalle de confiance d'une moyenne (M02c) ★ 5 min
+- [ ] M08.R3 🔁 Vraisemblance et log-vraisemblance (M04) ★ 5 min (complet)
+- [ ] M08.1 ✏️ Un test binomial à la main : un algorithme de compression est-il plus rapide sur douze fichiers ? ★ 20 min
+- [ ] M08.2 ✏️ Un test par permutation exhaustif : deux groupes de trois mesures, vingt répartitions ★★ 25 min
+- [ ] M08.3 ✏️ Erreur de type I, erreur de type II et puissance d'un test binomial ★★ 20 min
+- [ ] M08.4 ✏️ Combien d'observations pour une puissance de 80 % ? (approximation normale) ★★ 20 min (complet)
+- [ ] M08.5 ✏️ L'intervalle d'une proportion : Wald contre Wilson, avec peu de succès ★★ 20 min
+- [ ] M08.6 ✏️ L'intervalle de Student d'une différence appariée : un serveur avant et après une mise à jour ★★ 20 min
+- [ ] M08.7 ✏️ Vingt tests au seuil de 5 % : les faux positifs attendus, puis Bonferroni ★ 15 min
+- [ ] M08.8 ✏️ L'AIC et le BIC de deux modèles, à partir de leurs log-vraisemblances ★ 15 min
+- [ ] M08.9 ✏️ Un facteur de Bayes entre deux taux de clics ★★ 15 min (complet)
+- [ ] M08.10 ∂ Sous H0, une p-valeur continue suit la loi uniforme ★★ 20 min (complet)
+- [ ] M08.11 ∂ L'inégalité de Boole et la garantie de Bonferroni, sans hypothèse d'indépendance ★★ 20 min
+- [ ] M08.12 ∂ L'intervalle de Wilson, en inversant le test d'une proportion ★★★ 25 min (complet)
+- [ ] M08.13 🔗 Pont : l'importance d'une feature par permutation, sur un petit tableau ★ 15 min (complet)
+- [ ] M08.14 📖 MML §8.6 : validation croisée imbriquée, sélection bayésienne de modèle et facteur de Bayes ★★ 30 min (complet)
+- [ ] M08.15 🗣️ Expliquer une p-valeur sans dire « la probabilité que H0 soit vraie » ★ 10 min
+- [ ] M08.E1 💼 « Votre test donne p = 0,03 : que concluez-vous, et que dites-vous à l'équipe produit ? » ★ 10 min (complet)
+- [ ] M08.16 🔨 Le test binomial exact ★ 15 min
+- [ ] M08.17 🔨 Le test par permutation à deux échantillons ★★ 25 min
+- [ ] M08.18 🔨 Les intervalles de Wilson et de Student ★ 20 min
+- [ ] M08.19 🔨 Bonferroni, l'AIC et le BIC ★ 10 min (complet)
+- [ ] M08.20 📦 `scipy.stats.binomtest`, `permutation_test` et `ttest_rel` contre tes fonctions ★ 15 min (complet)
+- [ ] M08.21 🔮 Prédire : sous H0, quelle part de 1 000 p-valeurs tombe sous 0,05 ? ★ 10 min
+- [ ] M08.22 🔬 La puissance d'un test par permutation, selon l'effet et la taille des groupes ★★ 25 min (complet)
+- [ ] M08.23 🎨 La loi de la statistique sous H0, et la p-valeur comme une aire ★ 15 min (complet)
+- [ ] M08.24 🐛 Chasse à l'erreur : une p-valeur nulle, un test unilatéral choisi après coup, Bonferroni à l'envers ★ 15 min (complet)
+- [ ] M08.25 🛠️ Tester un test : un pytest qui vérifie l'uniformité des p-valeurs sous H0 ★ 15 min (complet)
+- [ ] M08.26 🏆 Défi : retrouver les trois vraies features parmi cinquante, avec au plus un faux positif ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (22 cartes)
+<!-- wbm:end M08 -->

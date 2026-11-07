@@ -88,7 +88,7 @@ def permutation() -> None:
     ax.axvline(observed, color="black", lw=1.5)
     ax.text(observed - 0.05, 5.6, "écart observé\n1,6 cm", fontsize=9, ha="right")
     ax.set(xlabel="écart des moyennes (engrais − témoin), en cm", ylabel="nombre de répartitions",
-           title="La loi nulle obtenue en rebattant les étiquettes (126 répartitions)")
+           title="La loi nulle obtenue en rebattant les groupes (126 répartitions)")
     ax.legend(fontsize=8, loc="upper left")
     save(fig, "permutation.png")
 

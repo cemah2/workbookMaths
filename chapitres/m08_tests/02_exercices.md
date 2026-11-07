@@ -38,7 +38,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M08.Q3 — Permuter quoi, et sous quelle hypothèse ? 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C, E*
 
-1. Sous quelle hypothèse nulle a-t-on le droit de rebattre les étiquettes de deux groupes de mesures ?
+1. Sous quelle hypothèse nulle a-t-on le droit de rebattre la répartition des mesures entre deux groupes ?
 2. Combien y a-t-il de façons de répartir 7 valeurs en un groupe de 3 et un groupe de 4 ?
 3. Avec $B = 999$ permutations tirées au hasard, dont $C = 12$ sont au moins aussi extrêmes que l'observation, quelle p-valeur annonce-t-on ?
 4. Vrai ou faux : le test par permutation suppose que les mesures suivent une loi normale.
@@ -163,10 +163,10 @@ Une dégustatrice affirme reconnaître un thé de son producteur parmi deux tass
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le risque de type I de la règle $K \ge 11$ | une fraction irréductible |
-| b | la puissance de la règle $K \ge 11$ contre $p = 0{,}8$ | un nombre (4 décimales) |
-| c | le risque de type II $\beta$ de cette règle, contre $p = 0{,}8$ | un nombre (4 décimales) |
+| b | la puissance de la règle $K \ge 11$ contre $p = 0{,}8$ | un nombre (3 décimales) |
+| c | le risque de type II $\beta$ de cette règle, contre $p = 0{,}8$ | un nombre (3 décimales) |
 | d | le risque de type I de la règle $K \ge 10$ | une fraction irréductible |
-| e | la puissance de la règle $K \ge 10$ contre $p = 0{,}8$ | un nombre (4 décimales) |
+| e | la puissance de la règle $K \ge 10$ contre $p = 0{,}8$ | un nombre (3 décimales) |
 | f | le plus petit seuil $c$ dont le risque de type I est au plus 0,05 | un entier |
 
 Dans ta copie : que gagne-t-on et que perd-on en passant de $K \ge 11$ à $K \ge 10$ ? Pourquoi ne peut-on pas obtenir un risque de type I d'exactement 0,05 ? Comment augmenter la puissance sans augmenter le risque de type I ?
@@ -184,9 +184,9 @@ Le temps de démarrage d'un service a un écart-type connu $\sigma = 8$ ms. Apr�
 | c | le nombre minimal de mesures | un entier |
 | d | le nombre minimal de mesures pour un test **bilatéral** au même seuil, avec la même puissance | un entier |
 | e | le nombre minimal de mesures pour détecter une baisse de 1 ms (test unilatéral, puissance 80 %) | un entier |
-| f | la puissance du test unilatéral avec seulement 25 mesures, pour $\delta = 2$ ms | un nombre (3 décimales) |
+| f | la puissance du test unilatéral avec seulement 36 mesures, pour $\delta = 2$ ms | un nombre (2 décimales) |
 
-Dans ta copie : pourquoi le nombre de mesures est-il multiplié par 4 quand l'effet à détecter est divisé par 2 ? Que conclurais-tu d'un test non significatif fait avec 25 mesures ?
+Dans ta copie : pourquoi le nombre de mesures est-il multiplié par 4 quand l'effet à détecter est divisé par 2 ? Que conclurais-tu d'un test non significatif fait avec 36 mesures ?
 
 ### Ex M08.5 — L'intervalle d'une proportion : Wald contre Wilson, avec peu de succès ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer les intervalles de Wald et de Wilson d'une proportion petite, et voir où Wald échoue.
@@ -201,7 +201,7 @@ Un détecteur de pannes s'est trompé 3 fois sur 50 cas. On cherche un intervall
 | c | l'intervalle de Wald, ramené dans $[0, 1]$ | une liste de 2 nombres (4 décimales) |
 | d | l'intervalle de Wilson | une liste de 2 nombres (4 décimales) |
 | e | le centre de l'intervalle de Wilson | un nombre (4 décimales) |
-| f | sur un autre lot, le détecteur ne s'est jamais trompé en 60 cas : la borne haute de l'intervalle de Wilson | un nombre (4 décimales) |
+| f | sur une autre série de cas, le détecteur ne s'est jamais trompé en 60 cas : la borne haute de l'intervalle de Wilson | un nombre (4 décimales) |
 
 Dans ta copie : que donnerait l'intervalle de Wald pour f) ? Pourquoi est-ce absurde ? Compare la borne haute de f) à $\frac{3}{n}$, une règle empirique pour zéro erreur.
 
@@ -222,10 +222,10 @@ On note $d_i$ = avant − après.
 |---|---|---|
 | a | la moyenne $\bar{d}$ des différences | un nombre |
 | b | l'écart-type $s_d$ des différences, avec $\mathrm{ddof} = 1$ | un nombre (4 décimales) |
-| c | l'erreur type $\frac{s_d}{\sqrt{6}}$ | un nombre (4 décimales) |
+| c | l'erreur type $\frac{s_d}{\sqrt{6}}$ | un nombre (3 décimales) |
 | d | le quantile de Student utilisé pour un intervalle à 95 % | un nombre (3 décimales) |
 | e | l'intervalle à 95 % de la différence moyenne | une liste de 2 nombres (2 décimales) |
-| f | l'erreur type si l'on oubliait l'appariement, $\sqrt{\frac{s_{\text{avant}}^2}{6} + \frac{s_{\text{après}}^2}{6}}$ | un nombre (3 décimales) |
+| f | l'erreur type si l'on oubliait l'appariement, $\sqrt{\frac{s_{\text{avant}}^2}{6} + \frac{s_{\text{après}}^2}{6}}$ | un nombre (2 décimales) |
 | g | vrai ou faux : 0 est dans l'intervalle de e) | `True` ou `False` |
 
 Dans ta copie : pourquoi l'erreur type de f) est-elle plus de trois fois plus grande que celle de c) ? Que dirait-on de la mise à jour si l'on avait oublié l'appariement ?
@@ -278,12 +278,12 @@ Une bannière a été affichée 40 fois et a reçu 6 clics. Trois modèles sont 
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | l'évidence de $M_A$, $P(6 \text{ clics} \mid M_A)$ | un nombre (4 décimales) |
-| b | l'évidence de $M_B$ | un nombre (4 décimales) |
-| c | le facteur de Bayes $\mathrm{BF}_{BA}$ | un nombre (3 décimales) |
-| d | la probabilité a posteriori de $M_B$, si l'on ne compare que $M_A$ et $M_B$ et que la cote a priori de $M_B$ contre $M_A$ vaut $\frac{1}{3}$ | un nombre (3 décimales) |
+| a | l'évidence de $M_A$, $P(6 \text{ clics} \mid M_A)$ | un nombre (3 décimales) |
+| b | l'évidence de $M_B$ | un nombre (3 décimales) |
+| c | le facteur de Bayes $\mathrm{BF}_{BA}$ | un nombre (2 décimales) |
+| d | la probabilité a posteriori de $M_B$, si l'on ne compare que $M_A$ et $M_B$ et que la cote a priori de $M_B$ contre $M_A$ vaut $\frac{1}{3}$ | un nombre (2 décimales) |
 | e | l'évidence de $M_C$ (raisonne comme pour la pièce de la fiche, §7) | une fraction irréductible |
-| f | le facteur de Bayes $\mathrm{BF}_{AC}$ | un nombre (2 décimales) |
+| f | le facteur de Bayes $\mathrm{BF}_{AC}$ | un nombre (1 décimale) |
 
 Dans ta copie : où se situe le taux de clics qui maximise la vraisemblance ? Pourquoi $M_C$, qui contient ce taux, a-t-il pourtant une évidence plus petite que $M_A$ et $M_B$ ? Que conclure de c) ?
 

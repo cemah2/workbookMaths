@@ -59,7 +59,7 @@ Vocabulaire anglais de ce chapitre : *hypothesis test*, *null hypothesis*, *alte
 1. Un **test** part d'une **hypothèse nulle** $H_0$ (« pas d'effet ») et d'une **alternative** $H_1$, choisit une **statistique** $T$ et calcule sa loi **si $H_0$ est vraie** (la loi nulle).
 2. La **p-valeur** est la probabilité, sous $H_0$, d'observer une statistique **au moins aussi extrême** que celle observée. Petite, elle rend $H_0$ peu crédible ; elle n'est **pas** la probabilité que $H_0$ soit vraie.
 3. **Test binomial** : $k$ succès sur $n$ essais, $K \sim \mathcal{B}(n, p_0)$ sous $H_0$ ; p-valeur unilatérale $P(K \ge k)$, bilatérale = somme des issues au plus aussi probables que celle observée.
-4. **Test par permutation** : sous $H_0$ (« même loi »), les étiquettes des deux groupes sont interchangeables ; on rebat la répartition des valeurs et l'on compte les répartitions au moins aussi extrêmes ; p-valeur $\frac{C + 1}{B + 1}$ avec $B$ permutations tirées au hasard.
+4. **Test par permutation** : sous $H_0$ (« même loi »), les deux groupes sont interchangeables ; on rebat la répartition des valeurs et l'on compte les répartitions au moins aussi extrêmes ; p-valeur $\frac{C + 1}{B + 1}$ avec $B$ permutations tirées au hasard.
 5. **Type I** : rejeter $H_0$ à tort (probabilité $\alpha$, le seuil). **Type II** : ne pas la rejeter alors qu'elle est fausse (probabilité $\beta$). **Puissance** $= 1 - \beta$ ; elle grandit avec l'effet et avec $n$.
 6. Taille d'échantillon (moyenne, $\sigma$ connu, test unilatéral) : $n \ge \big(\frac{(z_{1-\alpha} + z_{1-\beta})\,\sigma}{\delta}\big)^2$.
 7. **Wald** : $\hat{p} \pm z\sqrt{\hat{p}(1 - \hat{p})/n}$, faux quand il y a peu de succès ; **Wilson** l'améliore en inversant un test. **Mesures appariées** : on travaille sur les différences, $\bar{d} \pm t\,\frac{s_d}{\sqrt{n}}$ (Student).
@@ -139,19 +139,19 @@ Avec 12 votes sur 15 : $z = \frac{12 - 7{,}5}{\sqrt{3{,}75}} \approx 2{,}32$, d'
 
 ## §3 · Le test par permutation
 
-### L'idée : sous $H_0$, les étiquettes sont interchangeables
+### L'idée : sous $H_0$, les groupes sont interchangeables
 
 Deux groupes de mesures : 5 plants qui ont reçu un engrais, de hauteurs 14,2 ; 15,1 ; 13,8 ; 16,0 ; 15,4 cm, et 4 plants témoins, de hauteurs 13,1 ; 12,6 ; 14,0 ; 13,5 cm. La statistique naturelle est l'écart des moyennes,
 
 $$t = \bar{x}_{\text{engrais}} - \bar{x}_{\text{témoin}} = 14{,}9 - 13{,}3 = 1{,}6 \text{ cm}.$$
 
-L'hypothèse nulle est cette fois : « l'engrais ne change rien, les 9 hauteurs viennent de la même loi ». Si elle est vraie, l'étiquette « engrais » ou « témoin » de chaque plant ne dit rien de sa hauteur : n'importe quelle répartition des 9 valeurs en un groupe de 5 et un groupe de 4 était **aussi probable** que celle qu'on observe (les valeurs sont **échangeables**, *exchangeable*). On obtient la loi nulle de $t$ sans aucune hypothèse de loi normale : on **rebat** les étiquettes.
+L'hypothèse nulle est cette fois : « l'engrais ne change rien, les 9 hauteurs viennent de la même loi ». Si elle est vraie, le groupe d'un plant, « engrais » ou « témoin », ne dit rien de sa hauteur : n'importe quelle répartition des 9 valeurs en un groupe de 5 et un groupe de 4 était **aussi probable** que celle qu'on observe (les valeurs sont **échangeables**, *exchangeable*). On obtient la loi nulle de $t$ sans aucune hypothèse de loi normale : on **rebat** la répartition des valeurs entre les deux groupes.
 
 ### Le test exact
 
 Il y a $\binom{9}{5} = 126$ façons de choisir les 5 plants « engrais » parmi 9. Pour chacune, on calcule l'écart des moyennes : ces 126 valeurs, équiprobables sous $H_0$, forment la loi nulle exacte. On compte celles qui sont au moins aussi extrêmes que l'observée : 2 répartitions ont un écart d'au moins 1,6 cm (l'observée, et une autre), d'où la p-valeur unilatérale $\frac{2}{126} = \frac{1}{63} \approx 0{,}016$ ; en valeur absolue, 4 répartitions, d'où la p-valeur bilatérale $\frac{4}{126} \approx 0{,}032$.
 
-![Les 126 écarts de moyennes obtenus en rebattant les étiquettes : l'écart observé, 1,6 cm, est dans la queue de la loi nulle](figures/permutation.png)
+![Les 126 écarts de moyennes obtenus en rebattant la répartition des valeurs entre les groupes : l'écart observé, 1,6 cm, est dans la queue de la loi nulle](figures/permutation.png)
 
 Avec de petits groupes, la plus petite p-valeur possible est $\frac{1}{\binom{n}{n_1}}$ : avec 3 et 3 valeurs, $\binom{6}{3} = 20$ répartitions seulement, et aucun test bilatéral ne peut descendre sous $\frac{2}{20} = 0{,}1$. M08.2 le vérifie à la main.
 
