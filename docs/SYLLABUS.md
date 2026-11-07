@@ -37,13 +37,13 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M05b](#m05b) | Fonctions de plusieurs variables et gradient | 5 | §5.2 | 13,3 h | ✅ exercices | 1 |
 | [M06](#m06) | Théorie de l'information | 6 | — | 11,4 h | ✅ exercices | 1 |
 | [CP1](#cp1) | Examen blanc de la partie I | — | — | 3,3 h | ✅ exercices | 1 |
-| [M07](#m07) | Vecteurs et géométrie de ℝⁿ | 7 | §3.1, §3.2.1, §3.3, §3.4 | ≈ 14 h (estimé) | plan | 1 |
-| [M08](#m08) | Tests statistiques | 8 | §8.6 | ≈ 10 h (estimé) | plan | 1 |
-| [M09a](#m09a) | Matrices et systèmes linéaires | 9 | §2.1, §2.2, §2.3 | ≈ 16 h (estimé) | plan | 2 |
-| [M09b](#m09b) | Moindres carrés et régularisation | 9 | §8.1, §8.2, §9.1, §9.2 | ≈ 16 h (estimé) | plan | 2 |
-| [M10](#m10) | Séparabilité linéaire et convexité | 10 | §12.1 | ≈ 8 h (estimé) | plan | 1 |
-| [M11](#m11) | Logique, induction et inégalités de concentration | 11 | — | ≈ 10 h (estimé) | plan | 1 |
-| [CP2](#cp2) | Examen blanc de la partie II | — | — | ≈ 4 h (estimé) | plan | 1 |
+| [M07](#m07) | Vecteurs et géométrie de ℝⁿ | 7 | §3.1, §3.2.1, §3.3, §3.4 | 15,3 h | ✅ exercices | 1 |
+| [M08](#m08) | Tests statistiques | 8 | §8.6 | 12,1 h | ✅ exercices | 1 |
+| [M09a](#m09a) | Matrices et systèmes linéaires | 9 | §2.1, §2.2, §2.3 | 16,7 h | ✅ exercices | 2 |
+| [M09b](#m09b) | Moindres carrés et régularisation | 9 | §5.5, §8.1, §8.2, §9.1, §9.2 | 17,0 h | ✅ exercices | 2 |
+| [M10](#m10) | Séparabilité linéaire et convexité | 10 | §12.1 | 7,9 h | ✅ exercices | 1 |
+| [M11](#m11) | Logique, induction et inégalités de concentration | 11 | — | 11,4 h | ✅ exercices | 1 |
+| [CP2](#cp2) | Examen blanc de la partie II | — | — | 3,2 h | ✅ exercices | 1 |
 | [M12a](#m12a) | Espaces vectoriels et applications linéaires | 12 | §2.4, §2.5, §2.6, §2.7, §2.8 | ≈ 16 h (estimé) | plan | 2 |
 | [M12b](#m12b) | Orthogonalité et projections | 12 | §3.2.2, §3.2.3, §3.5, §3.6, §3.7, §3.8, §9.4 | ≈ 14 h (estimé) | plan | 1 |
 | [M12c](#m12c) | Valeurs propres et matrices symétriques | 12 | §4.1, §4.2, §4.3, §4.4 | ≈ 16 h (estimé) | plan | 2 |
@@ -81,7 +81,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 |---|---|---|---|---|
 | 0 · Remise à niveau | 12 | 363 | 116,5 h | 93,3 h |
 | I · Fondations | 9 | 319 | 107,6 h | 69,7 h |
-| II · Concepts | 7 | — | ≈ 78 h (estimé) | à détailler |
+| II · Concepts | 7 | 256 | 83,5 h | 53,8 h |
 | III · ML classique | 8 | — | ≈ 98 h (estimé) | à détailler |
 | IV · Réseaux | 6 | — | ≈ 58 h (estimé) | à détailler |
 | V · Architectures | 3 | — | ≈ 24 h (estimé) | à détailler |
@@ -1629,123 +1629,531 @@ Le bilan de la partie I (M02a à M06), juste avant le checkpoint I de workbookIA
 
 **Partie** II · **prépare** workbookIA 7 · **dossier** `chapitres/m07_vecteurs_rn/` · **MML** §3.1, §3.2.1, §3.3, §3.4 · **sessions de génération** 1
 
-Les vecteurs de ℝⁿ : normes L1, L2, L∞, distances, produit scalaire, angle et similarité cosinus, inégalité de Cauchy-Schwarz, hyperplans et demi-espaces ; le barycentre (rappel : la moyenne minimise la somme des carrés des distances, cœur de k-means) ; et les surprises de la grande dimension.
+Les vecteurs de ℝⁿ : produit scalaire, normes L1, L2, L∞ et distances, angle et similarité cosinus, inégalité de Cauchy-Schwarz, projection sur une droite, hyperplans et demi-espaces ; le barycentre (la moyenne minimise la somme des carrés des distances), l'inertie, la silhouette et le principe de k-means ; et les surprises de la grande dimension.
 
-**Durée estimée** : ≈ 14 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 15,3 h en parcours complet, 9,9 h en parcours essentiel (lecture 180 min, 24 flashcards).
 
-**Notions enseignées** : vecteurs de ℝⁿ · normes L1, L2, L∞ · distances · produit scalaire · angle · similarité cosinus · inégalité de Cauchy-Schwarz · inégalité triangulaire · projection sur une droite · hyperplans et demi-espaces, distance à un hyperplan · frontière de décision linéaire · barycentre et centroïde · k-means : affectation et mise à jour (le principe) · inertie et silhouette · grande dimension, concentration des distances · le neurone comme produit scalaire plus biais · vecteurs one-hot et base canonique · k-means++ : tirer selon le carré des distances
+**Objectifs**
 
-**Après** : R9, M02c, R4
+- Calculer avec des vecteurs de ℝⁿ : combinaisons linéaires, produit scalaire, vecteurs one-hot.
+- Calculer les normes L1, L2 et L∞ et les distances associées, et démontrer l'inégalité triangulaire.
+- Calculer un angle et une similarité cosinus, démontrer l'inégalité de Cauchy-Schwarz, projeter sur une droite.
+- Décrire un hyperplan par son vecteur normal, dire de quel côté est un point et calculer sa distance.
+- Démontrer que le barycentre minimise la somme des carrés des distances, et calculer une inertie, une silhouette et les probabilités de k-means++.
+- Mesurer, à la main et par simulation, ce qui change quand la dimension grandit.
 
-**mymath** : `vectors.py` (fonctions prévues) : `norm_p`, `project_onto_line`, `centroid`, `sum_sq_distances_to`, `side_of_hyperplane`, `distance_to_hyperplane`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 7.5 ∂ Le rayon de l'hyper-orange : r(d) = √d − 1 · 7.6 ∂ Boule dans un cube : rapport des volumes par récurrence · 7.7 ∂ La frontière du centroïde le plus proche est une droite
+- §1 Vecteurs de ℝⁿ : un exemple est un vecteur
+- §2 Produit scalaire
+- §3 Normes et distances : L1, L2, L∞
+- §4 Angle, similarité cosinus, Cauchy-Schwarz et projection
+- §5 Hyperplans et demi-espaces
+- §6 Barycentres : la moyenne, l'inertie, la silhouette et k-means
+- §7 La grande dimension
 
-*Notes* : Coût : 14 h au lieu de 12 (18 notions). Les distances par paires, k-means et la silhouette sont les fonctions de `mylearn` en workbookIA 7.
+**Notions enseignées** : vecteurs de ℝⁿ · normes L1, L2, L∞ · distances · produit scalaire · angle · similarité cosinus · inégalité de Cauchy-Schwarz · inégalité triangulaire · projection sur une droite · hyperplans et demi-espaces, distance à un hyperplan · frontière de décision linéaire · barycentre et centroïde · classifieur du centroïde le plus proche (définition) · k-means : affectation et mise à jour (le principe) · inertie et silhouette · grande dimension : diagonale du cube, vecteurs presque orthogonaux, norme d'un vecteur gaussien · le neurone comme produit scalaire plus biais · vecteurs one-hot et base canonique · k-means++ : tirer selon le carré des distances
+
+**Prérequis** : vecteurs du plan, norme, produit scalaire, angle (R9) · Σ, raisonnements (R4) · polynôme du second degré, discriminant (R3) · moyenne et variance empiriques (M02c) · espérance, variance, loi uniforme, loi normale (M02b) · gradient, point critique (M05b)
+
+**mymath** : `vectors.py` (signatures figées) : `norm_p`, `cosine_similarity`, `project_onto_line`, `centroid`, `sum_sq_distances_to`, `side_of_hyperplane`, `distance_to_hyperplane`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 7.5 ∂ Le rayon de l'hyper-orange : r(d) = √d − 1 · 7.6 ∂ Boule dans un cube : rapport des volumes par récurrence · 7.7 ∂ La frontière du centroïde le plus proche est une droite · 7.1 ✏️ Compter les classifieurs OvR et OvO · 7.2 ✏️ Dépouiller les votes d'un un-contre-un à quatre classes · 7.3 ✏️ Une itération de k-means à la main · 7.4 ✏️ Densité d'échantillons et nombre d'œufs nécessaires · 7.13 🔨 Distances au carré vectorisées : pairwise_sq_distances · 7.14 🔨 Le classifieur du centroïde le plus proche · 7.19 🔮 Distance au plus proche voisin quand la dimension grimpe · 7.20 🔬 Densité, plus proche voisin et concentration des distances · 7.21 🎨 Reproduire les figures 7.27 et 7.30 (boule/cube, hyper-orange) · 7.25 🔨 Initialisation k-means++ · 7.26 🔨 k-means de Lloyd : la classe KMeans · 7.28 🔨 Coefficient de silhouette · 7.R3 🔁 Développer ‖a − b‖² avec le produit scalaire
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M07.Q1 | 🧠 | Vecteurs, coordonnées et one-hot | ★ | 4 | §1 | C, E | manuel | — |
+| M07.Q2 | 🧠 | Ce que mesure un produit scalaire | ★ | 4 | §2 | C, E | manuel | — |
+| M07.Q3 | 🧠 | Trois normes, trois boules unités | ★ | 4 | §3 | C, E | manuel | — |
+| M07.Q4 | 🧠 | Similarité cosinus : vrai ou faux | ★ | 4 | §4 | C, E | manuel | — |
+| M07.Q5 | 🧠 | Hyperplans : vecteur normal et côtés | ★ | 4 | §5 | C, E | manuel | — |
+| M07.Q6 | 🧠 | Moyenne, barycentre et inertie | ★ | 4 | §6 | C | manuel | — |
+| M07.Q7 | 🧠 | Intuitions de la grande dimension | ★ | 4 | §7 | C, E | manuel | — |
+| M07.R1 | 🔁 | Produit scalaire et angle dans le plan (R9) | ★ | 5 | §2 | C, E | manuel | — |
+| M07.R2 | 🔁 | Moyenne et variance empiriques (M02c) | ★ | 5 | §6 | C, E | manuel | — |
+| M07.R3 | 🔁 | Gradient et point critique (M05b) | ★ | 5 | §6 | C | manuel | — |
+| M07.1 | ✏️ | Combinaisons linéaires et vecteurs one-hot dans ℝ⁴ | ★ | 15 | §1 | C, E | wbm | — |
+| M07.2 | ✏️ | Produits scalaires, ‖u + v‖² et l'identité du parallélogramme | ★ | 15 | §2 | C, E | wbm | — |
+| M07.3 | ✏️ | Normes L1, L2, L∞ et distances entre trois profils | ★ | 20 | §3 | C, E | wbm | — |
+| M07.4 | ✏️ | Similarité cosinus entre des profils d'écoute musicale | ★★ | 20 | §4 | C, E | wbm | — |
+| M07.5 | ✏️ | Projeter sur une droite : composante parallèle et composante orthogonale | ★★ | 20 | §4 | C, E | wbm | — |
+| M07.6 | ✏️ | Un plan de ℝ³ : vecteur normal, côté, distance signée | ★★ | 20 | §5 | C, E | wbm | — |
+| M07.7 | ✏️ | Un score linéaire w · x + b : calculer, décider, lire le vecteur normal | ★ | 15 | §2 §5 | C, E | wbm | — |
+| M07.8 | ✏️ | Centroïde, inertie et formule de König-Huygens | ★★ | 20 | §6 | C, E | wbm | — |
+| M07.9 | ✏️ | Où placer un dépôt : le barycentre pondéré des livraisons | ★★ | 15 | §6 | C | wbm | — |
+| M07.10 | ✏️ | La silhouette d'un point, à la main, en dimension 2 | ★★ | 15 | §6 | C | wbm | — |
+| M07.11 | ✏️ | k-means++ : des probabilités de tirage proportionnelles à D² | ★★ | 15 | §6 | C | wbm | — |
+| M07.12 | ✏️ | La diagonale du cube unité et son angle avec les axes, quand d grandit | ★ | 15 | §7 | C, E | wbm | — |
+| M07.13 | ✏️ | La distance au carré moyenne de deux points tirés dans le cube [0, 1]ᵈ | ★★ | 15 | §7 | C | wbm | — |
+| M07.14 | ∂ | L'inégalité de Cauchy-Schwarz, par le discriminant | ★★ | 25 | §4 | C, E | manuel | — |
+| M07.15 | ∂ | L'inégalité triangulaire pour L2, L1 et L∞ | ★★ | 20 | §3 §4 | C | manuel | — |
+| M07.16 | ∂ | La moyenne minimise la somme des carrés des distances, en dimension n | ★★ | 20 | §6 | C, E | manuel | — |
+| M07.17 | ∂ | La distance d'un point à un hyperplan vaut |w · x + b| / ‖w‖ | ★★ | 20 | §5 | C, E | manuel | — |
+| M07.18 | ∂ | Les deux étapes de k-means font baisser l'inertie, ou la laissent égale | ★★★ | 20 | §6 | C | manuel | — |
+| M07.19 | 🔗 | Pont : changer l'unité d'une feature change le plus proche voisin | ★ | 15 | §3 | C, E | wbm | — |
+| M07.20 | 📖 | MML §3.1 et §3.2.1 : normes et produit scalaire, en anglais | ★★ | 30 | §2 §3 | C | manuel | — |
+| M07.21 | 📖 | MML §3.3 et §3.4 : longueurs, distances, angles et orthogonalité | ★★ | 30 | §4 | C | manuel | — |
+| M07.22 | 🧮 | Fermi : la mémoire d'un million d'embeddings | ★ | 10 | §1 | C | manuel | — |
+| M07.23 | 🗣️ | Expliquer la similarité cosinus à quelqu'un qui a fait le lycée | ★ | 10 | §4 | C, E | manuel | — |
+| M07.E1 | 💼 | Distance euclidienne ou similarité cosinus : laquelle pour comparer des textes ? | ★ | 10 | §3 §4 | C | manuel | — |
+| M07.24 | 🔨 | Normes Lp et similarité cosinus · `norm_p, cosine_similarity` | ★ | 20 | §3 §4 | C, E | pytest | — |
+| M07.25 | 🔨 | La projection sur une droite · `project_onto_line` | ★ | 15 | §4 | C, E | pytest | — |
+| M07.26 | 🔨 | Barycentre et somme des carrés des distances · `centroid, sum_sq_distances_to` | ★ | 20 | §6 | C, E | pytest | — |
+| M07.27 | 🔨 | Côté d'un hyperplan et distance à un hyperplan · `side_of_hyperplane, distance_to_hyperplane` | ★ | 20 | §5 | C, E | pytest | M07.24 |
+| M07.28 | 📦 | `np.linalg.norm` (ord = 1, 2, inf) et `scipy.spatial.distance` contre tes fonctions | ★ | 10 | §3 | C | wbm | — |
+| M07.29 | 🔮 | Prédire : l'angle de deux vecteurs tirés au hasard en dimension 1 000 | ★ | 10 | §7 | C, E | wbm | — |
+| M07.30 | 🔬 | La norme d'un vecteur gaussien se concentre autour de √d | ★★ | 20 | §7 | C | wbm | — |
+| M07.31 | 🔬 | Médiane ou moyenne : le centre qui minimise les distances L1 ou leurs carrés, face à des points aberrants | ★★ | 20 | §3 §6 | C | wbm | — |
+| M07.32 | 🎨 | Les boules unités L1, L2, L∞ et Lp dans le plan | ★ | 20 | §3 | C | manuel | — |
+| M07.33 | 🐛 | Chasse à l'erreur : une distance sans racine, un cosinus mal normalisé, une projection sur un vecteur non unitaire | ★ | 15 | §3 §4 | C | wbm | — |
+| M07.34 | 🛠️ | Les normes de toutes les lignes d'un tableau : axis, keepdims et broadcasting | ★ | 15 | §1 §3 | C | manuel | — |
+| M07.35 | 🏆 | Défi : le point qui minimise la somme des distances (non au carré) à 60 villes, à 0,1 % près | ★★★ | 30 | §3 §6 | C | wbm | — |
+
+*Notes* : Évités (règle de partage) : les œufs, les manchots, les deux lunes et les autres données de workbookIA 7, et les mini-exemples de sa fiche (centroïdes (1, 1) et (3, 5) avec x = (6, 0) ; a = (1, 2) et b = (3, 4) ; les points 0, 2, 3, 9, 11, 12 ; 0, 1, 5, 9 ; les clusters {0, 1, 2} et {6, 7} ; la pureté 40 Adélie et 10 Chinstrap). Frontières : la densité n / bᵈ et le nombre d'échantillons nécessaires (7.4), la boule dans le cube (7.6), l'hyper-orange (7.5), l'écorce 1 − (1 − ε)ᵈ, la distance au plus proche voisin et la concentration des distances (7.19, 7.20) : M07 étudie la diagonale du cube, l'angle de deux vecteurs aléatoires et la norme d'un vecteur gaussien ; la médiatrice comme frontière du centroïde le plus proche (7.7) est énoncée, pas démontrée ; pas d'itération complète de k-means (7.3) : M07 démontre que l'inertie ne peut pas augmenter et place un seul dépôt au barycentre ; pas de développement de ‖a − b‖² (7.R3) ni de distances par paires vectorisées (7.13). Les distances par paires, le centroïde le plus proche, k-means, k-means++ et la silhouette sont les fonctions de `mylearn` en workbookIA 7 ; `vectors` écrit les briques (normes, cosinus, projection, barycentre, inertie, hyperplans). Coût : environ 15 h au lieu de 14 (19 notions).
 
 <a id="m08"></a>
 ## M08 · Tests statistiques
 
 **Partie** II · **prépare** workbookIA 8 · **dossier** `chapitres/m08_tests/` · **MML** §8.6 · **sessions de génération** 1
 
-Les tests statistiques : hypothèses, statistique de test, p-valeur, test par permutation, erreurs de type I et II, intervalle d'une accuracy, comparaisons multiples ; puis la sélection de modèle (AIC, BIC, facteur de Bayes) et la validation croisée vues comme des estimations bruitées.
+Les tests statistiques : hypothèses, statistique de test, p-valeur, test binomial exact, test par permutation, erreurs de type I et II, puissance, intervalles d'une proportion (Wald, Wilson) et d'une différence appariée (Student), comparaisons multiples (Bonferroni) ; puis la sélection de modèle (AIC, BIC, facteur de Bayes) et la validation croisée vue comme une estimation bruitée.
 
-**Durée estimée** : ≈ 10 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 12,1 h en parcours complet, 7,6 h en parcours essentiel (lecture 150 min, 22 flashcards).
 
-**Notions enseignées** : hypothèse nulle et alternative · statistique de test · p-valeur · test par permutation · erreurs de type I et II · puissance d'un test · intervalle d'une accuracy · comparaisons multiples (Bonferroni) · comparer deux modèles · sélection de modèle : AIC, BIC, facteur de Bayes (aperçu) · validation croisée : principe statistique · importance par permutation (principe) · évaluation sur plusieurs graines
+**Objectifs**
 
-**Après** : M02c, M03, M04
+- Poser une hypothèse nulle et une alternative, choisir une statistique et interpréter une p-valeur sans contresens.
+- Calculer à la main la p-valeur exacte d'un test binomial et d'un petit test par permutation.
+- Calculer les erreurs de type I et II et la puissance d'un test, et dimensionner un échantillon.
+- Calculer un intervalle de Wald et de Wilson pour une proportion, et un intervalle de Student pour des mesures appariées.
+- Corriger des comparaisons multiples par Bonferroni et en démontrer la garantie.
+- Comparer des modèles par l'AIC, le BIC et un facteur de Bayes.
 
-**mymath** : `testing.py` (fonctions prévues) : `permutation_test`, `proportion_ci`, `bonferroni`, `paired_difference_ci`, `aic_bic`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 8.6 ∂ Le biais d'optimisme du meilleur de K modèles
+- §1 Le raisonnement d'un test : hypothèses, statistique, p-valeur
+- §2 Un test exact : le test binomial
+- §3 Le test par permutation
+- §4 Erreurs de type I et II, puissance, taille d'échantillon
+- §5 Intervalles : une proportion (Wald, Wilson), une différence appariée (Student)
+- §6 Comparaisons multiples : Bonferroni
+- §7 Choisir un modèle : AIC, BIC, facteur de Bayes, validation croisée
+
+**Notions enseignées** : hypothèse nulle et alternative · statistique de test · p-valeur · test binomial exact · test par permutation · erreurs de type I et II · puissance d'un test · taille d'échantillon · intervalle d'une proportion : Wald et Wilson · intervalle d'une accuracy · loi de Student (aperçu) et mesures appariées · comparaisons multiples (Bonferroni) · comparer deux modèles (principe) · sélection de modèle : AIC, BIC, facteur de Bayes (aperçu) · validation croisée : principe statistique · importance par permutation (principe) · évaluation sur plusieurs graines
+
+**Prérequis** : dénombrement, combinaisons (R8) · loi binomiale, loi normale, Φ (M02b) · erreur type, intervalle de confiance, bootstrap (M02c) · vraisemblance, Bayes (M04) · logarithmes (R6) · polynôme du second degré (R3)
+
+**mymath** : `testing.py` (signatures figées) : `binomial_test`, `permutation_test`, `proportion_ci`, `paired_difference_ci`, `bonferroni`, `aic_bic`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 8.6 ∂ Le biais d'optimisme du meilleur de K modèles · 8.1 ✏️ Découper 344 manchots : hold-out, validation et folds · 8.2 ✏️ Compter les entraînements d'une recherche d'hyperparamètres · 8.4 ✏️ Quelle confiance accorder à une accuracy de test ? Erreur type et taille du test · 8.5 ✏️ Moyenne et écart-type de scores de validation croisée · 8.23 🔬 Variabilité de l'évaluation : hold-out répétés contre k-fold · 8.25 🔬 Sélectionner des features avant la validation croisée : 90 % sur du bruit · 8.26 🔬 Comparer deux modèles honnêtement : test par permutation, p-valeur et bootstrap apparié · 8.E2 💼 Qu'est-ce qu'une p-valeur ? Comment savoir si le modèle B bat vraiment le modèle A ? · 8.E3 💼 Validation croisée ou simple hold-out : quand choisir quoi ?
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M08.Q1 | 🧠 | Ce qu'une p-valeur est, et ce qu'elle n'est pas | ★ | 4 | §1 | C, E | manuel | — |
+| M08.Q2 | 🧠 | Unilatéral ou bilatéral ? | ★ | 4 | §2 | C | manuel | — |
+| M08.Q3 | 🧠 | Permuter quoi, et sous quelle hypothèse ? | ★ | 4 | §3 | C, E | manuel | — |
+| M08.Q4 | 🧠 | Erreurs de type I et II, puissance : associer | ★ | 4 | §4 | C, E | manuel | — |
+| M08.Q5 | 🧠 | Comparaisons multiples : vrai ou faux | ★ | 4 | §6 | C, E | manuel | — |
+| M08.Q6 | 🧠 | AIC, BIC, facteur de Bayes : qui pénalise quoi ? | ★ | 4 | §7 | C | manuel | — |
+| M08.R1 | 🔁 | La loi binomiale (M02b) | ★ | 5 | §2 | C, E | manuel | — |
+| M08.R2 | 🔁 | L'intervalle de confiance d'une moyenne (M02c) | ★ | 5 | §5 | C, E | manuel | — |
+| M08.R3 | 🔁 | Vraisemblance et log-vraisemblance (M04) | ★ | 5 | §7 | C | manuel | — |
+| M08.1 | ✏️ | Un test binomial à la main : un algorithme de compression est-il plus rapide sur douze fichiers ? | ★ | 20 | §1 §2 | C, E | wbm | — |
+| M08.2 | ✏️ | Un test par permutation exhaustif : deux groupes de trois mesures, vingt répartitions | ★★ | 25 | §3 | C, E | wbm | — |
+| M08.3 | ✏️ | Erreur de type I, erreur de type II et puissance d'un test binomial | ★★ | 20 | §4 | C, E | wbm | — |
+| M08.4 | ✏️ | Combien d'observations pour une puissance de 80 % ? (approximation normale) | ★★ | 20 | §4 | C | wbm | — |
+| M08.5 | ✏️ | L'intervalle d'une proportion : Wald contre Wilson, avec peu de succès | ★★ | 20 | §5 | C, E | wbm | — |
+| M08.6 | ✏️ | L'intervalle de Student d'une différence appariée : un serveur avant et après une mise à jour | ★★ | 20 | §5 | C, E | wbm | — |
+| M08.7 | ✏️ | Vingt tests au seuil de 5 % : les faux positifs attendus, puis Bonferroni | ★ | 15 | §6 | C, E | wbm | — |
+| M08.8 | ✏️ | L'AIC et le BIC de deux modèles, à partir de leurs log-vraisemblances | ★ | 15 | §7 | C, E | wbm | — |
+| M08.9 | ✏️ | Un facteur de Bayes entre deux taux de clics | ★★ | 15 | §7 | C | wbm | — |
+| M08.10 | ∂ | Sous H0, une p-valeur continue suit la loi uniforme | ★★ | 20 | §1 §4 | C | manuel | — |
+| M08.11 | ∂ | L'inégalité de Boole et la garantie de Bonferroni, sans hypothèse d'indépendance | ★★ | 20 | §6 | C, E | manuel | — |
+| M08.12 | ∂ | L'intervalle de Wilson, en inversant le test d'une proportion | ★★★ | 25 | §5 | C | manuel | — |
+| M08.13 | 🔗 | Pont : l'importance d'une feature par permutation, sur un petit tableau | ★ | 15 | §3 | C | wbm | — |
+| M08.14 | 📖 | MML §8.6 : validation croisée imbriquée, sélection bayésienne de modèle et facteur de Bayes | ★★ | 30 | §7 | C | manuel | — |
+| M08.15 | 🗣️ | Expliquer une p-valeur sans dire « la probabilité que H0 soit vraie » | ★ | 10 | §1 | C, E | manuel | — |
+| M08.E1 | 💼 | « Votre test donne p = 0,03 : que concluez-vous, et que dites-vous à l'équipe produit ? » | ★ | 10 | §1 §4 | C | manuel | — |
+| M08.16 | 🔨 | Le test binomial exact · `binomial_test` | ★ | 15 | §2 | C, E | pytest | — |
+| M08.17 | 🔨 | Le test par permutation à deux échantillons · `permutation_test` | ★★ | 25 | §3 | C, E | pytest | — |
+| M08.18 | 🔨 | Les intervalles de Wilson et de Student · `proportion_ci, paired_difference_ci` | ★ | 20 | §5 | C, E | pytest | — |
+| M08.19 | 🔨 | Bonferroni, l'AIC et le BIC · `bonferroni, aic_bic` | ★ | 10 | §6 §7 | C | pytest | — |
+| M08.20 | 📦 | `scipy.stats.binomtest`, `permutation_test` et `ttest_rel` contre tes fonctions | ★ | 15 | §2 §3 §5 | C | wbm | — |
+| M08.21 | 🔮 | Prédire : sous H0, quelle part de 1 000 p-valeurs tombe sous 0,05 ? | ★ | 10 | §1 §4 | C, E | wbm | — |
+| M08.22 | 🔬 | La puissance d'un test par permutation, selon l'effet et la taille des groupes | ★★ | 25 | §4 | C | wbm | — |
+| M08.23 | 🎨 | La loi de la statistique sous H0, et la p-valeur comme une aire | ★ | 15 | §1 §3 | C | manuel | — |
+| M08.24 | 🐛 | Chasse à l'erreur : une p-valeur nulle, un test unilatéral choisi après coup, Bonferroni à l'envers | ★ | 15 | §3 §6 | C | wbm | — |
+| M08.25 | 🛠️ | Tester un test : un pytest qui vérifie l'uniformité des p-valeurs sous H0 | ★ | 15 | §1 | C | manuel | — |
+| M08.26 | 🏆 | Défi : retrouver les trois vraies features parmi cinquante, avec au plus un faux positif | ★★★ | 25 | §6 | C | wbm | — |
+
+*Notes* : Évités (règle de partage) : les manchots, l'accuracy de 0,92 sur 250 exemples et la taille de test minimale (8.4), les scores de deux modèles sur cinq folds (8.5), la loi du maximum de K scores (∂ 8.6), les cinq désaccords (4 contre 1) du mini-exemple de la fiche, la comparaison de deux modèles sur le même jeu de test par leurs désaccords et le bootstrap apparié (8.26, 8.E2 : M08 définit la p-valeur et teste d'autres situations), la sélection de features sur du bruit avant la validation croisée (8.25), le contexte « 91,2 % contre 90,5 % ». M08 enseigne le test binomial, le test par permutation à deux échantillons (on rebat la répartition des valeurs entre les deux groupes), Wald et Wilson, Student pour des mesures appariées (pas des folds), Bonferroni et l'AIC et le BIC, dans d'autres cadres (temps de calcul, mesures physiques, taux de clics). La loi de Student n'est vue qu'en aperçu (une table, ou `scipy.stats.t.ppf`). Coût : environ 12 h au lieu de 10 (17 notions).
 
 <a id="m09a"></a>
 ## M09a · Matrices et systèmes linéaires
 
 **Partie** II · **prépare** workbookIA 9 · **dossier** `chapitres/m09a_matrices/` · **MML** §2.1, §2.2, §2.3 · **sessions de génération** 2
 
-Les matrices et les systèmes linéaires : produit et formes, transposée, produit de Hadamard, systèmes, pivot de Gauss et forme échelonnée, inverse, premier contact avec le rang ; la passe avant d'un réseau écrite comme un produit matriciel.
+Les matrices et les systèmes linéaires : formes, produit matrice-vecteur et produit matriciel, produit de Hadamard, transposée et matrice XᵀX, systèmes, pivot de Gauss et forme échelonnée réduite, inverse, premier contact avec le rang ; la passe avant d'un réseau écrite comme un produit matriciel.
 
-**Durée estimée** : ≈ 16 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 16,7 h en parcours complet, 10,6 h en parcours essentiel (lecture 210 min, 26 flashcards).
 
-**Notions enseignées** : matrices, formes · produit matrice-vecteur et matriciel · produit de Hadamard · transposée et ses règles · systèmes linéaires · pivot de Gauss, forme échelonnée · inverse d'une matrice · rang (premier contact) · matrice identité, matrices diagonales · un dataset est une matrice : opérer par ligne, par colonne, élément par élément · Z = XW + b : la convention des poids · un embedding est un produit one-hot × matrice
+**Objectifs**
 
-**Après** : R2, M07
+- Lire un tableau de données comme une matrice et prévoir la forme de chaque produit.
+- Calculer des produits matrice-vecteur et matriciels à la main, sous leurs deux lectures, et en compter le coût.
+- Écrire une couche Z = XW + b et un embedding comme des produits matriciels.
+- Appliquer les règles de la transposée et démontrer (AB)ᵀ = BᵀAᵀ.
+- Résoudre un système par le pivot de Gauss et décrire toutes ses solutions.
+- Calculer une inverse, un rang, et relier le rang au nombre de solutions.
 
-**mymath** : `matrices.py` (fonctions prévues) : `matmul`, `transpose`, `row_echelon`, `solve`, `inverse`, `rank`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 9.2 ∂ Moindres carrés : la meilleure droite par dérivées partielles · 9.3 ∂ Ridge en dimension 1 : w* = Σxy / (Σx² + λ) · 9.6 ∂ Lasso en dimension 1 : le seuillage doux et les zéros exacts
+- §1 Matrices : un tableau de données est une matrice
+- §2 Le produit matrice-vecteur : deux lectures
+- §3 Le produit matriciel, le produit de Hadamard et Z = XW + b
+- §4 La transposée et la matrice XᵀX
+- §5 Systèmes linéaires : zéro, une ou une infinité de solutions
+- §6 Le pivot de Gauss et la forme échelonnée réduite
+- §7 L'inverse d'une matrice
+- §8 Le rang : premier contact
+
+**Notions enseignées** : matrices, formes · produit matrice-vecteur et matriciel · coût d'un produit matriciel · produit de Hadamard · transposée et ses règles · systèmes linéaires · pivot de Gauss, forme échelonnée et forme échelonnée réduite · inverse d'une matrice · rang (premier contact) · matrice identité, matrices diagonales · un dataset est une matrice : opérer par ligne, par colonne, élément par élément · Z = XW + b : la convention des poids · un embedding est un produit one-hot × matrice
+
+**Prérequis** : systèmes 2 × 2, calcul littéral (R2) · Σ (R4) · vecteurs de ℝⁿ, produit scalaire, one-hot (M07) · moyenne, écart-type (M02c)
+
+**mymath** : `matrices.py` (signatures figées) : `matmul`, `transpose`, `rref`, `rank`, `solve`, `inverse`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 9.2 ∂ Moindres carrés : la meilleure droite par dérivées partielles · 9.3 ∂ Ridge en dimension 1 : w* = Σxy / (Σx² + λ) · 9.6 ∂ Lasso en dimension 1 : le seuillage doux et les zéros exacts · 9.16 🔨 LinearRegression par moindres carrés · 9.17 🔨 Ridge en forme fermée, intercept non pénalisé · 10.14 🔨 neuron_forward : un neurone appliqué à tout un batch · 10.15 🔨 Des noms de poids (AD, BE…) à la matrice W
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M09a.Q1 | 🧠 | Formes : ce qui se multiplie et ce qui ne se multiplie pas | ★ | 4 | §1 §3 | C, E | manuel | — |
+| M09a.Q2 | 🧠 | Le produit matrice-vecteur, deux lectures | ★ | 4 | §2 | C, E | manuel | — |
+| M09a.Q3 | 🧠 | Produit matriciel : vrai ou faux | ★ | 4 | §3 | C, E | manuel | — |
+| M09a.Q4 | 🧠 | Hadamard ou produit matriciel ? | ★ | 4 | §3 | C | manuel | — |
+| M09a.Q5 | 🧠 | Les règles de la transposée | ★ | 4 | §4 | C, E | manuel | — |
+| M09a.Q6 | 🧠 | Combien de solutions ? | ★ | 4 | §5 | C, E | manuel | — |
+| M09a.Q7 | 🧠 | Les opérations permises sur les lignes | ★ | 4 | §6 | C, E | manuel | — |
+| M09a.Q8 | 🧠 | Inverse et rang | ★ | 4 | §7 §8 | C, E | manuel | — |
+| M09a.R1 | 🔁 | Les systèmes 2 × 2 (R2) | ★ | 5 | §5 | C, E | manuel | — |
+| M09a.R2 | 🔁 | Produit scalaire et normes (M07) | ★ | 5 | §2 | C, E | manuel | — |
+| M09a.R3 | 🔁 | Moyenne et écart-type empiriques (M02c) | ★ | 5 | §1 | C | manuel | — |
+| M09a.1 | ✏️ | Un tableau de données vu comme une matrice : forme, lignes, colonnes, moyennes | ★ | 15 | §1 | C, E | wbm | — |
+| M09a.2 | ✏️ | Le produit matrice-vecteur, par les lignes puis par les colonnes | ★ | 15 | §2 | C, E | wbm | — |
+| M09a.3 | ✏️ | Produits matriciels à la main : formes compatibles et calculs | ★ | 20 | §3 | C, E | wbm | — |
+| M09a.4 | ✏️ | Le coût d'un produit, et l'ordre des parenthèses dans ABC | ★★ | 15 | §3 | C | wbm | — |
+| M09a.5 | ✏️ | Une couche dense Z = XW + b à la main : deux exemples, trois entrées, deux sorties | ★ | 20 | §3 | C, E | wbm | — |
+| M09a.6 | ✏️ | Un embedding : une ligne one-hot fois une matrice | ★ | 10 | §3 | C | wbm | — |
+| M09a.7 | ✏️ | Transposées de produits, et la matrice symétrique XᵀX | ★ | 15 | §4 | C, E | wbm | — |
+| M09a.8 | ✏️ | Le pivot de Gauss sur un système 3 × 3 à solution unique | ★★ | 25 | §5 §6 | C, E | wbm | — |
+| M09a.9 | ✏️ | Un système sans solution, un système à une infinité de solutions | ★★ | 25 | §5 §6 | C, E | wbm | — |
+| M09a.10 | ✏️ | La forme échelonnée réduite d'une matrice 3 × 4 et la solution générale | ★★ | 20 | §6 | C | wbm | — |
+| M09a.11 | ✏️ | L'inverse d'une matrice 2 × 2, par la formule, puis vérifiée | ★ | 15 | §7 | C, E | wbm | — |
+| M09a.12 | ✏️ | L'inverse d'une matrice 3 × 3 par Gauss-Jordan | ★★ | 25 | §7 | C | wbm | — |
+| M09a.13 | ✏️ | Le rang de quatre matrices, et les colonnes redondantes | ★★ | 20 | §8 | C, E | wbm | — |
+| M09a.14 | ✏️ | Mettre un problème en système : trois engrais pour trois nutriments | ★★ | 20 | §5 | C | wbm | — |
+| M09a.15 | ∂ | (AB)ᵀ = BᵀAᵀ, coefficient par coefficient | ★ | 15 | §4 | C, E | manuel | — |
+| M09a.16 | ∂ | L'inverse est unique, et (AB)⁻¹ = B⁻¹A⁻¹ | ★★ | 15 | §7 | C | manuel | — |
+| M09a.17 | ∂ | Deux solutions distinctes entraînent une infinité de solutions | ★★ | 15 | §5 | C, E | manuel | — |
+| M09a.18 | ∂ | Une matrice dont une colonne combine les autres n'est pas inversible | ★★ | 20 | §7 §8 | C | manuel | — |
+| M09a.19 | 🔗 | Pont : une passe avant à deux couches, deux produits matriciels et leurs formes | ★ | 15 | §3 | C, E | wbm | — |
+| M09a.20 | 🔗 | Pont : centrer et réduire un tableau en écriture matricielle | ★★ | 15 | §1 §3 | C | wbm | — |
+| M09a.21 | 📖 | MML §2.1 et §2.2 : systèmes et matrices, en anglais | ★★ | 30 | §1 §3 §5 | C | manuel | — |
+| M09a.22 | 📖 | MML §2.3 : résoudre un système, la forme échelonnée et le « Minus-1 trick » | ★★ | 30 | §6 §8 | C | manuel | — |
+| M09a.23 | 🧮 | Fermi : combien de multiplications pour une passe avant sur un million d'images ? | ★ | 10 | §3 | C | manuel | — |
+| M09a.24 | 🗣️ | Expliquer pourquoi on ne calcule pas l'inverse pour résoudre un système | ★ | 10 | §7 | C, E | manuel | — |
+| M09a.E1 | 💼 | « Combien coûte un produit matriciel, et pourquoi les GPU l'accélèrent-ils ? » | ★ | 10 | §3 | C | manuel | — |
+| M09a.25 | 🔨 | Le produit matriciel et la transposée · `matmul, transpose` | ★ | 20 | §3 §4 | C, E | pytest | — |
+| M09a.26 | 🔨 | La forme échelonnée réduite et le rang · `rref, rank` | ★★ | 35 | §6 §8 | C, E | pytest | — |
+| M09a.27 | 🔨 | Résoudre un système par le pivot de Gauss · `solve` | ★★ | 30 | §6 | C, E | pytest | — |
+| M09a.28 | 🔨 | L'inverse par Gauss-Jordan · `inverse` | ★ | 20 | §7 | C | pytest | M09a.26 |
+| M09a.29 | 📦 | `@`, `*`, `.T`, `np.linalg.solve`, `matrix_rank` et `sympy.Matrix.rref` contre tes fonctions | ★ | 15 | §3 §6 §8 | C, E | wbm | — |
+| M09a.30 | 🔮 | Prédire la forme du résultat : `@`, `*` et broadcasting | ★ | 10 | §1 §3 | C, E | wbm | — |
+| M09a.31 | 🔬 | Le temps d'un produit matriciel en fonction de n : une pente de 3 en échelle log-log | ★★ | 20 | §3 | C | wbm | — |
+| M09a.32 | 🔬 | Pourquoi le pivot partiel : un petit pivot et les arrondis | ★★ | 20 | §6 | C | wbm | — |
+| M09a.33 | 🎨 | Une matrice 2 × 2 comme transformation du plan : la grille et le carré unité | ★ | 20 | §2 §3 | C | manuel | — |
+| M09a.34 | 🐛 | Chasse à l'erreur : `*` au lieu de `@`, une transposée oubliée, un pivot nul | ★ | 15 | §3 §6 | C | wbm | — |
+| M09a.35 | 🛠️ | Tester une propriété : un pytest pour (AB)ᵀ = BᵀAᵀ sur des matrices aléatoires | ★ | 15 | §4 | C | manuel | — |
+| M09a.36 | 🏆 | Défi : un système 200 × 200 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde | ★★★ | 30 | §6 | C | wbm | — |
+
+*Notes* : Évités (règle de partage) : le tempo de la boutique et California (workbookIA 9), le mini-exemple (0 ; 1), (1 ; 2), (2 ; 4) de sa fiche, les poids nommés AD, BE… et la conversion vers PyTorch (workbookIA 10.14, 10.15). M09a ne forme pas les équations normales (M09b). Z = XW + b suit la convention de `mylearn` (W de forme (n_in, n_out)) et signale celle de PyTorch. `mymath` écrit `rref` (la forme réduite, unique, donc testable contre SymPy) au lieu de `row_echelon` prévu. Deux sessions de génération : §1 à §4 (matrices et produits), puis §5 à §8 (systèmes, Gauss, inverse, rang).
 
 <a id="m09b"></a>
 ## M09b · Moindres carrés et régularisation
 
-**Partie** II · **prépare** workbookIA 9 · **dossier** `chapitres/m09b_moindres_carres/` · **MML** §8.1, §8.2, §9.1, §9.2 · **sessions de génération** 2
+**Partie** II · **prépare** workbookIA 9 · **dossier** `chapitres/m09b_moindres_carres/` · **MML** §5.5, §8.1, §8.2, §9.1, §9.2 · **sessions de génération** 2
 
-La régression linéaire par les moindres carrés : gradients de aᵀw et de wᵀAw, équations normales, régularisation ridge (et ridge vue comme MAP), lasso, MSE, MAE, Huber et R², décomposition biais-variance, régression vue comme maximum de vraisemblance, features polynomiales, aperçu de la double descente.
+La régression linéaire par les moindres carrés : risque empirique, MSE, MAE, Huber et R², gradients de aᵀw et de wᵀAw, équations normales, projection et matrice chapeau, features polynomiales, régularisation ridge (et ridge vue comme MAP), principe du lasso, régression vue comme maximum de vraisemblance, décomposition biais-variance, aperçu de la double descente.
 
-**Durée estimée** : ≈ 16 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 17,0 h en parcours complet, 9,9 h en parcours essentiel (lecture 210 min, 26 flashcards).
 
-**Notions enseignées** : risque empirique · gradients de aᵀw et de wᵀAw (calcul matriciel minimal) · moindres carrés · équations normales · features polynomiales : combien de monômes (combinaisons avec répétition) · régularisation ridge · ridge comme MAP · lasso (principe) · MSE, MAE, loss de Huber, R², RMSE · décomposition biais-variance · overfitting et underfitting vus par le biais et la variance · régression comme maximum de vraisemblance · double descente (aperçu) · pénalité L2 et weight decay
+**Objectifs**
 
-**Après** : M09a, M05b, M02c, M04
+- Calculer les losses d'une régression (MSE, RMSE, MAE, Huber) et un R², et décomposer la variance.
+- Calculer les gradients de aᵀw, de wᵀAw et de ‖y − Xw‖², et en déduire les équations normales en dimension n.
+- Interpréter les moindres carrés comme une projection, avec la matrice chapeau.
+- Compter les colonnes de features polynomiales.
+- Résoudre un problème ridge, démontrer qu'il a toujours une solution et le relier à un prior gaussien.
+- Démontrer que le bruit gaussien mène aux moindres carrés, et décomposer une erreur en biais², variance et bruit.
 
-**mymath** : `linreg.py` (fonctions prévues) : `normal_equations`, `solve_least_squares`, `hat_matrix`, `residual_decomposition`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 9.2 ∂ Moindres carrés : la meilleure droite par dérivées partielles · 9.3 ∂ Ridge en dimension 1 : w* = Σxy / (Σx² + λ) · 9.6 ∂ Lasso en dimension 1 : le seuillage doux et les zéros exacts
+- §1 Le problème : modèle linéaire, risque empirique et losses (MSE, MAE, Huber, R²)
+- §2 Calcul matriciel minimal : les gradients de aᵀw, wᵀAw et ‖y − Xw‖²
+- §3 Les équations normales, la projection et la matrice chapeau
+- §4 Features polynomiales : compter les monômes
+- §5 La régression ridge, et ridge vue comme un MAP
+- §6 Le lasso : le principe de la parcimonie
+- §7 La régression comme maximum de vraisemblance
+- §8 Biais, variance et double descente
 
-*Notes* : Frontières : les moindres carrés par dérivées partielles en dimension 1, ridge et lasso en dimension 1 (workbookIA 9.2, 9.3, 9.6) ne sont pas démontrés ici ; M09b travaille en dimension n, par les gradients matriciels. La régression bayésienne (MML §9.3) se lit en M25a, la projection (MML §9.4) en M12b.
+**Notions enseignées** : risque empirique · gradients de aᵀw et de wᵀAw (calcul matriciel minimal) · moindres carrés · équations normales · projection et matrice chapeau · features polynomiales : combien de monômes (combinaisons avec répétition) · régularisation ridge · ridge comme MAP · lasso (principe) · MSE, MAE, loss de Huber, R², RMSE · décomposition biais-variance · overfitting et underfitting vus par le biais et la variance · régression comme maximum de vraisemblance · double descente (aperçu) · pénalité L2 et weight decay
+
+**Prérequis** : matrices, transposée, inverse, pivot de Gauss, rang (M09a) · normes, produit scalaire, projection sur une droite (M07) · gradient, point critique (M05b) · vraisemblance, MAP (M04) · loi normale (M02b) · biais et variance d'un estimateur (M02c) · combinaisons (R8)
+
+**mymath** : `linreg.py` (signatures figées) : `normal_equations`, `solve_least_squares`, `hat_matrix`, `residual_decomposition`, `count_monomials`, `huber_loss`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 9.2 ∂ Moindres carrés : la meilleure droite par dérivées partielles · 9.3 ∂ Ridge en dimension 1 : w* = Σxy / (Σx² + λ) · 9.6 ∂ Lasso en dimension 1 : le seuillage doux et les zéros exacts · 9.1 ✏️ MSE et R² à la main sur cinq points · 9.4 ✏️ Biais² et variance à partir d'un tableau de prédictions · 9.7 ✏️ Mise à jour bayésienne d'une droite sur une grille 3 × 3 · 9.14 🔨 mean_squared_error, mean_absolute_error et r2_score · 9.15 🔨 polynomial_features, interactions comprises · 9.16 🔨 LinearRegression par moindres carrés · 9.17 🔨 Ridge en forme fermée, intercept non pénalisé · 9.19 🔮 Que deviennent les coefficients quand λ grandit ? · 9.23 🔨 Lasso par descente de coordonnées et soft_threshold · 9.24 🔨 Biais et variance mesurés : 50 sous-échantillons de 30 points · 9.26 🔨 Le posterior des droites sur une grille pente-ordonnée · 9.E3 💼 Régularisation L1 ou L2 : différences et usages
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M09b.Q1 | 🧠 | MSE, RMSE, MAE, R² : ce que mesure chacune | ★ | 4 | §1 | C, E | manuel | — |
+| M09b.Q2 | 🧠 | Gradients matriciels : associer chaque fonction à son gradient | ★ | 4 | §2 | C, E | manuel | — |
+| M09b.Q3 | 🧠 | Équations normales : quand la solution est-elle unique ? | ★ | 4 | §3 | C, E | manuel | — |
+| M09b.Q4 | 🧠 | Linéaire en x ou linéaire en w ? | ★ | 4 | §4 | C, E | manuel | — |
+| M09b.Q5 | 🧠 | Ridge : vrai ou faux sur la pénalité L2 | ★ | 4 | §5 | C, E | manuel | — |
+| M09b.Q6 | 🧠 | Lasso ou ridge : qui annule des poids ? | ★ | 4 | §6 | C | manuel | — |
+| M09b.Q7 | 🧠 | Bruit gaussien et moindres carrés | ★ | 4 | §7 | C, E | manuel | — |
+| M09b.Q8 | 🧠 | Biais, variance, bruit : ce qui change quand le modèle se complique | ★ | 4 | §8 | C, E | manuel | — |
+| M09b.R1 | 🔁 | Le pivot de Gauss et l'inverse (M09a) | ★ | 5 | §3 | C, E | manuel | — |
+| M09b.R2 | 🔁 | Maximum de vraisemblance et MAP (M04) | ★ | 5 | §5 §7 | C, E | manuel | — |
+| M09b.R3 | 🔁 | Gradient et point critique (M05b) | ★ | 5 | §2 | C, E | manuel | — |
+| M09b.1 | ✏️ | MSE, RMSE, MAE et loss de Huber de quatre résidus | ★ | 15 | §1 | C, E | wbm | — |
+| M09b.2 | ✏️ | La décomposition SCT = SCE + SCR et le R² d'un ajustement donné | ★ | 20 | §1 §3 | C | wbm | — |
+| M09b.3 | ✏️ | Les gradients de aᵀw, wᵀAw et ‖y − Xw‖², composante par composante en dimension 2 | ★★ | 20 | §2 | C, E | wbm | — |
+| M09b.4 | ✏️ | Les équations normales d'un modèle à deux features, sans ordonnée à l'origine | ★★ | 20 | §3 | C, E | wbm | — |
+| M09b.5 | ✏️ | La colonne de 1 : l'ordonnée à l'origine et des résidus de moyenne nulle | ★★ | 20 | §3 | C, E | wbm | — |
+| M09b.6 | ✏️ | La matrice chapeau d'un petit tableau : H² = H et sa trace | ★★ | 20 | §3 | C | wbm | — |
+| M09b.7 | ✏️ | Compter les monômes des features polynomiales | ★ | 15 | §4 | C, E | wbm | — |
+| M09b.8 | ✏️ | Ridge en dimension 2 : résoudre (XᵀX + λI)w = Xᵀy pour trois valeurs de λ | ★★ | 20 | §5 | C, E | wbm | — |
+| M09b.9 | ✏️ | Ridge comme MAP : un prior gaussien et λ = σ²/τ² | ★★ | 20 | §5 §7 | C | wbm | — |
+| M09b.10 | ✏️ | Les pénalités L1 et L2 de trois vecteurs de poids, et leurs boules | ★ | 15 | §6 | C | wbm | — |
+| M09b.11 | ✏️ | La log-vraisemblance gaussienne d'un modèle linéaire et l'estimation de σ² | ★★ | 20 | §7 | C | wbm | — |
+| M09b.12 | ✏️ | L'estimateur rétréci c·x̄ : biais, variance et erreur quadratique | ★★ | 20 | §8 | C | wbm | — |
+| M09b.13 | ∂ | Le gradient de wᵀAw vaut (A + Aᵀ)w | ★★ | 20 | §2 | C, E | manuel | — |
+| M09b.14 | ∂ | Les équations normales en dimension n, par le gradient | ★★ | 25 | §2 §3 | C, E | manuel | — |
+| M09b.15 | ∂ | Le résidu est orthogonal aux colonnes de X ; H est symétrique et idempotente | ★★ | 20 | §3 | C | manuel | — |
+| M09b.16 | ∂ | XᵀX + λI est inversible pour tout λ > 0 | ★★ | 20 | §5 | C, E | manuel | — |
+| M09b.17 | ∂ | Un bruit gaussien mène aux moindres carrés : le maximum de vraisemblance | ★★ | 20 | §7 | C, E | manuel | — |
+| M09b.18 | ∂ | La décomposition biais² + variance + bruit, démontrée | ★★★ | 25 | §8 | C | manuel | — |
+| M09b.19 | ∂ | Le nombre de monômes de degré au plus d en p variables : C(p + d, d) | ★★★ | 25 | §4 | C | manuel | — |
+| M09b.20 | 🔗 | Pont : la loss d'un modèle linéaire et son gradient pour un batch, prêts pour la descente de gradient | ★ | 15 | §2 | C, E | wbm | — |
+| M09b.21 | 🔗 | Pont : pourquoi standardiser les colonnes avant ridge | ★ | 15 | §5 | C | wbm | — |
+| M09b.22 | 📖 | MML §5.5, §8.1 et §8.2 : identités de gradients et minimisation du risque empirique | ★★ | 30 | §1 §2 | C | manuel | — |
+| M09b.23 | 📖 | MML §9.1 et §9.2 : régression linéaire, maximum de vraisemblance et MAP | ★★ | 30 | §3 §5 §7 | C | manuel | — |
+| M09b.24 | 🧮 | Fermi : la taille de XᵀX pour des features polynomiales de degré 3 sur 100 variables | ★ | 10 | §4 | C | manuel | — |
+| M09b.25 | 🗣️ | Expliquer la matrice chapeau : ce que veut dire « projeter y » | ★ | 10 | §3 | C, E | manuel | — |
+| M09b.E1 | 💼 | « Pourquoi ne pas inverser XᵀX, et que faire si des features sont colinéaires ? » | ★ | 10 | §3 §5 | C | manuel | — |
+| M09b.E2 | 💼 | « Quel lien entre la régularisation L2 et un prior gaussien ? » | ★ | 10 | §5 §7 | C | manuel | — |
+| M09b.26 | 🔨 | Équations normales et résolution, avec ou sans ridge · `normal_equations, solve_least_squares` | ★ | 25 | §3 §5 | C, E | pytest | — |
+| M09b.27 | 🔨 | La matrice chapeau et les trois sommes de carrés · `hat_matrix, residual_decomposition` | ★ | 20 | §1 §3 | C, E | pytest | M09b.26 |
+| M09b.28 | 🔨 | Compter les monômes, et la loss de Huber · `count_monomials, huber_loss` | ★ | 15 | §1 §4 | C | pytest | — |
+| M09b.29 | 📦 | `np.linalg.lstsq` et scikit-learn contre tes équations normales | ★ | 15 | §3 | C, E | wbm | — |
+| M09b.30 | 🔮 | Prédire : le R² d'entraînement quand on ajoute une feature de pur bruit | ★ | 10 | §1 §4 | C, E | wbm | — |
+| M09b.31 | 🔬 | Simuler l'estimateur rétréci c·x̄ : le c qui minimise l'erreur quadratique | ★★ | 20 | §8 | C | wbm | — |
+| M09b.32 | 🔬 | Le conditionnement de XᵀX avec des puissances non standardisées | ★★ | 20 | §4 | C | wbm | — |
+| M09b.33 | 🎨 | Les lignes de niveau de la loss des moindres carrés en dimension 2, et son gradient | ★ | 20 | §2 §3 | C | manuel | — |
+| M09b.34 | 🐛 | Chasse à l'erreur : XXᵀ au lieu de XᵀX, un gradient de mauvais signe, un R² sans centrer | ★ | 15 | §1 §2 §3 | C | wbm | — |
+| M09b.35 | 🛠️ | Vérifier un gradient matriciel avec SymPy et par différences finies | ★ | 15 | §2 | C | manuel | — |
+| M09b.36 | 🏆 | Défi : approcher une fonction par un polynôme de degré au plus 5, avec une erreur maximale sous 1e−3 | ★★★ | 25 | §3 §4 | C | wbm | — |
+
+*Notes* : Frontières : les moindres carrés d'une droite par dérivées partielles (9.2), ridge (9.3) et lasso (9.6) en dimension 1 ne sont pas démontrés ici : M09b travaille en dimension n, par les gradients matriciels, et énonce le seuillage doux sans le dériver. Évités : le tempo de la boutique, California, les mini-exemples de la fiche de workbookIA 9 (les points (0 ; 1), (1 ; 2), (2 ; 4) ; les cibles 1, 4, 6 et les prédictions 2, 4, 3 ; Σxy = 6 et Σx² = 4 ; S(1,8 ; 0,5) ; les prédictions 1, 2 et 4 du biais-variance ; les dénombrements 9 pour p = 3 et d = 2, 285 pour p = 10 et d = 3), la grille 3 × 3 de droites (9.7), les MSE et R² sur cinq points (9.1), le tableau de prédictions de 9.4. La régression bayésienne (MML §9.3) se lit en M25a, la projection sur un sous-espace (MML §9.4) en M12b. MSE, MAE, R², features polynomiales, LinearRegression, Ridge, Lasso, soft_threshold et la décomposition biais-variance sont les fonctions de `mylearn` en workbookIA 9 ; `linreg` écrit les briques (équations normales, ridge qui pénalise tous les coefficients, matrice chapeau, sommes de carrés, nombre de monômes, Huber). Deux sessions de génération : §1 à §4, puis §5 à §8.
 
 <a id="m10"></a>
 ## M10 · Séparabilité linéaire et convexité
 
 **Partie** II · **prépare** workbookIA 10 · **dossier** `chapitres/m10_separabilite_convexite/` · **MML** §12.1 · **sessions de génération** 1
 
-Les ensembles convexes et l'enveloppe convexe, la séparation de deux nuages par un hyperplan, l'astuce du biais, et les outils de la preuve de convergence du perceptron (Cauchy-Schwarz, récurrence sur ‖w‖²), que workbookIA 10 assemble.
+Les ensembles convexes et l'enveloppe convexe, la séparation de deux nuages par un hyperplan, l'astuce du biais et la marge géométrique, les récurrences sur une norme, et les fonctions d'activation appliquées à un score linéaire : les outils que workbookIA 10 assemble pour le perceptron.
 
-**Durée estimée** : ≈ 8 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 7,9 h en parcours complet, 5,5 h en parcours essentiel (lecture 110 min, 15 flashcards).
 
-**Notions enseignées** : ensembles convexes · enveloppe convexe · séparabilité linéaire (enveloppes convexes disjointes) · astuce du biais (une coordonnée en plus) · inégalités de récurrence sur une norme · fonctions d'activation : des fonctions d'une variable (rappel R3, R6)
+**Objectifs**
 
-**Après** : M07, R4
+- Reconnaître et démontrer qu'un ensemble est convexe.
+- Construire l'enveloppe convexe d'un nuage du plan, à la main et en code.
+- Démontrer que deux nuages séparables ont des enveloppes convexes disjointes, et tester la séparabilité.
+- Calculer une marge géométrique, et passer d'un hyperplan affine à un hyperplan par l'origine (astuce du biais).
+- Borner une suite de normes pas à pas.
 
-**mymath** : `convex.py` (fonctions prévues) : `convex_hull_2d`, `is_linearly_separable`, `margin_of_separator`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 10.4 ∂ Pourquoi un seul perceptron ne peut pas calculer XOR · 10.7 ∂ Le théorème de convergence du perceptron, guidé pas à pas
+- §1 Ensembles convexes
+- §2 L'enveloppe convexe
+- §3 Séparer deux nuages : séparabilité linéaire, astuce du biais, marge
+- §4 Récurrences sur une norme : croissance linéaire contre croissance en √k
+- §5 Activations : des fonctions d'une variable appliquées à un score
 
-*Notes* : Frontières : XOR n'est pas séparable et la convergence du perceptron sont démontrés en workbookIA 10 (10.4, 10.7).
+**Notions enseignées** : ensembles convexes · enveloppe convexe · séparabilité linéaire (enveloppes convexes disjointes) · astuce du biais (une coordonnée en plus) · marge géométrique · inégalités de récurrence sur une norme · fonctions d'activation : des fonctions d'une variable (rappel R3, R6)
+
+**Prérequis** : hyperplans, distance à un hyperplan, Cauchy-Schwarz (M07) · produit matriciel (M09a) · raisonnement par récurrence (R4) · sigmoïde, tanh (R6) · fonctions, composition (R3) · convexité d'une fonction (M05a)
+
+**mymath** : `convex.py` (signatures figées) : `convex_hull_2d`, `is_linearly_separable`, `margin_of_separator`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 10.4 ∂ Pourquoi un seul perceptron ne peut pas calculer XOR · 10.7 ∂ Le théorème de convergence du perceptron, guidé pas à pas · 10.1 ✏️ Sortie d'un perceptron à quatre entrées, avec et sans biais · 10.2 ✏️ L'astuce du biais : même neurone, une entrée de plus · 10.3 ✏️ Portes logiques à la main : AND, OR, NOT, NAND · 10.5 ✏️ XOR en deux couches : câbler et nommer les poids · 10.6 ✏️ Une epoch de la règle du perceptron à la main · 10.13 🔮 AND, OR, XOR : le perceptron va-t-il converger ? · 10.19 📈 Erreurs par epoch : séparable ou pas ? · 10.23 🔬 Marge et vitesse de convergence : la borne (R/γ)² à l'épreuve
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M10.Q1 | 🧠 | Convexe ou non ? | ★ | 4 | §1 | C, E | manuel | — |
+| M10.Q2 | 🧠 | L'enveloppe convexe : vrai ou faux | ★ | 4 | §2 | C, E | manuel | — |
+| M10.Q3 | 🧠 | Séparable ou non ? | ★ | 4 | §3 | C, E | manuel | — |
+| M10.Q4 | 🧠 | Marge et astuce du biais | ★ | 4 | §3 | C | manuel | — |
+| M10.R1 | 🔁 | Hyperplans et distance à un hyperplan (M07) | ★ | 5 | §3 | C, E | manuel | — |
+| M10.R2 | 🔁 | L'inégalité de Cauchy-Schwarz (M07) | ★ | 5 | §4 | C, E | manuel | — |
+| M10.R3 | 🔁 | La sigmoïde et tanh (R6) | ★ | 5 | §5 | C | manuel | — |
+| M10.1 | ✏️ | Convexe ou non : segments, demi-plans, intersections | ★ | 15 | §1 | C, E | wbm | — |
+| M10.2 | ✏️ | L'enveloppe convexe de huit points, à la main | ★ | 15 | §2 | C, E | wbm | — |
+| M10.3 | ✏️ | Une droite qui sépare deux petits nuages, et sa marge | ★★ | 20 | §3 | C, E | wbm | — |
+| M10.4 | ✏️ | L'astuce du biais : une droite du plan devient un plan de ℝ³ passant par l'origine | ★ | 15 | §3 | C | wbm | — |
+| M10.5 | ✏️ | Borner une norme pas à pas : ‖v_{k+1}‖² ≤ ‖v_k‖² + c | ★★ | 15 | §4 | C | wbm | — |
+| M10.6 | ∂ | Un demi-espace est convexe, et une intersection de convexes aussi | ★ | 15 | §1 | C, E | manuel | — |
+| M10.7 | ∂ | Deux nuages séparés par un hyperplan ont des enveloppes convexes disjointes | ★★ | 20 | §2 §3 | C, E | manuel | — |
+| M10.8 | ∂ | La marge géométrique ne change pas quand on multiplie (w, b) par un réel positif | ★ | 15 | §3 | C | manuel | — |
+| M10.9 | 🔗 | Pont : seuil, sigmoïde, tanh et ReLU appliqués à un même score linéaire | ★ | 15 | §5 | C, E | wbm | — |
+| M10.10 | 📖 | MML §12.1 : les hyperplans séparateurs, en anglais | ★★ | 20 | §3 | C | manuel | — |
+| M10.11 | 🗣️ | Expliquer la convexité et l'enveloppe convexe avec un élastique | ★ | 10 | §1 §2 | C, E | manuel | — |
+| M10.E1 | 💼 | « Que veut dire « linéairement séparable », et comment le vérifier ? » | ★ | 10 | §3 | C | manuel | — |
+| M10.12 | 🔨 | L'enveloppe convexe dans le plan : la chaîne monotone d'Andrew · `convex_hull_2d` | ★★ | 25 | §2 | C, E | pytest | — |
+| M10.13 | 🔨 | Séparabilité par programmation linéaire, et marge géométrique · `is_linearly_separable, margin_of_separator` | ★★ | 25 | §3 | C, E | pytest | — |
+| M10.14 | 🔮 | Prédire : n points aux labels tirés au hasard en dimension d sont-ils séparables ? | ★ | 10 | §3 | C, E | wbm | — |
+| M10.15 | 🎨 | Deux nuages, leurs enveloppes convexes et un hyperplan séparateur avec sa marge | ★ | 15 | §2 §3 | C | manuel | — |
+| M10.16 | 🐛 | Chasse à l'erreur : un produit vectoriel de signe inversé, une marge non normalisée | ★ | 10 | §2 §3 | C | wbm | — |
+| M10.17 | 🛠️ | Des tests de propriétés pour l'enveloppe convexe | ★ | 15 | §2 | C | manuel | — |
+| M10.18 | 🏆 | Défi : la plus grande marge possible entre deux nuages donnés, à 1 % près | ★★★ | 20 | §3 | C | wbm | — |
+
+*Notes* : Frontières : XOR n'est pas séparable (10.4) et la convergence du perceptron (10.7) sont démontrés en workbookIA 10 : M10 démontre l'énoncé général (deux nuages séparables ont des enveloppes convexes disjointes) sans l'appliquer aux portes logiques, et enseigne les récurrences sur une norme sur une suite quelconque, sans la règle du perceptron ni la borne (R/γ)². Évités : les portes logiques (AND, OR, NOT, NAND, XOR), le perceptron et sa règle, les manchots, les chiffres de 20 × 20 pixels ; la marge et l'astuce du biais sont vues en géométrie (10.2 et 10.23 restent à workbookIA). Chapitre court (8 h) : la moitié de la composition, papier d'abord ; pas de 🔬 ni de 📦 (le 🔮 sur le théorème de Cover et les deux 🔨 suffisent).
 
 <a id="m11"></a>
 ## M11 · Logique, induction et inégalités de concentration
 
 **Partie** II · **prépare** workbookIA 11 · **dossier** `chapitres/m11_logique_concentration/` · **MML** — · **sessions de génération** 1
 
-La logique au service du raisonnement (déduction, validité, syllogismes, induction et ses sophismes) ; puis les inégalités de Markov, Tchebychev et Hoeffding, les rayons de confiance et l'idée des bornes supérieures de confiance, ε-greedy et regret.
+La logique au service du raisonnement (implication, contraposée, négation, validité, ensembles et contre-exemples, induction et ses pièges) ; puis les inégalités de Markov, Tchebychev et Hoeffding, le rayon de confiance d'une moyenne, et ce qu'elles disent des bandits : bornes supérieures de confiance, ε-greedy, regret, échantillonnage de Thompson.
 
-**Durée estimée** : ≈ 10 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 11,4 h en parcours complet, 7,1 h en parcours essentiel (lecture 150 min, 22 flashcards).
 
-**Notions enseignées** : déduction, validité, solidité · syllogismes et sophismes · induction et ses pièges · inégalité de Markov · inégalité de Tchebychev · inégalité de Hoeffding · rayon de confiance d'une moyenne · bornes supérieures de confiance (UCB, principe) · ε-greedy · regret · échantillonnage de Thompson
+**Objectifs**
 
-**Après** : R4, M02c, M04
+- Écrire la contraposée et la négation d'un énoncé, et décider par une table de vérité si un argument est valide.
+- Traduire des phrases en inclusions d'ensembles et construire un contre-exemple.
+- Repérer les pièges d'une induction (taux de base, échantillon biaisé, corrélation).
+- Démontrer et appliquer les inégalités de Markov et de Tchebychev, et en déduire la loi faible des grands nombres.
+- Appliquer l'inégalité de Hoeffding : rayon de confiance et taille d'échantillon.
+- Expliquer d'où vient le bonus d'une borne supérieure de confiance, et calculer le regret attendu d'ε-greedy.
 
-**mymath** : `concentration.py` (fonctions prévues) : `markov_bound`, `chebyshev_bound`, `hoeffding_bound`, `hoeffding_radius`, `empirical_tail`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 11.2 ∂ Moyenne incrémentale : Qₙ₊₁ = Qₙ + (Rₙ − Qₙ)/n
+- §1 Raisonner juste : implication, contraposée, négation, validité
+- §2 Ensembles, diagrammes de Venn et contre-exemples
+- §3 L'induction et ses pièges
+- §4 L'inégalité de Markov
+- §5 L'inégalité de Tchebychev et la loi des grands nombres
+- §6 L'inégalité de Hoeffding et le rayon de confiance
+- §7 Explorer ou exploiter : bornes supérieures de confiance, ε-greedy, regret, Thompson
 
-*Notes* : Frontière : la moyenne incrémentale (workbookIA 11.2) est démontrée par workbookIA ; M11 s'appuie sur les suites de R5.
+**Notions enseignées** : déduction, validité, solidité · modus ponens, modus tollens et sophismes formels · ensembles et contre-exemples · induction et ses pièges · inégalité de Markov · inégalité de Tchebychev · loi faible des grands nombres (démontrée) · inégalité de Hoeffding · rayon de confiance d'une moyenne · bornes supérieures de confiance (UCB, principe) · ε-greedy · regret · échantillonnage de Thompson
+
+**Prérequis** : propositions, quantificateurs, implication, ensembles, raisonnements (R4) · suites, moyenne incrémentale (R5) · exp et ln (R6) · espérance, variance, lois exponentielle et binomiale (M02b) · moyenne empirique, TCL, intervalle de confiance (M02c) · taux de base, Bayes (M03) · loi Beta a posteriori (M04)
+
+**mymath** : `concentration.py` (signatures figées) : `markov_bound`, `chebyshev_bound`, `hoeffding_bound`, `hoeffding_radius`, `empirical_tail`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 11.2 ∂ Moyenne incrémentale : Qₙ₊₁ = Qₙ + (Rₙ − Qₙ)/n · 11.1 ✏️ Représentable sur n bits : compter, puis conclure · 11.3 ✏️ Syllogismes : valides ? solides ? · 11.4 ✏️ Six raisonnements fautifs à diagnostiquer et à réfuter · 11.5 ✏️ Enquête au phare : réduire le domaine du discours · 11.6 ✏️ Syllogisme statistique et prédiction : 15 % de pommes mûres · 11.7 ✏️ Renforcement ou punition, positif ou négatif : classer huit situations · 11.8 ✏️ Un bandit à la main : ε-greedy, moyennes et regret · 11.15 🔨 Valider un syllogisme par force brute : 256 mondes de Venn · 11.20 🔨 argmax_random_tie, epsilon_greedy_action et incremental_update · 11.23 🔨 ucb_action et thompson_action · 11.E2 💼 A/B test ou bandit : lequel choisir ?
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M11.Q1 | 🧠 | Réciproque, contraposée, négation | ★ | 4 | §1 | C, E | manuel | — |
+| M11.Q2 | 🧠 | Un argument valide peut-il avoir une conclusion fausse ? | ★ | 4 | §1 | C, E | manuel | — |
+| M11.Q3 | 🧠 | Diagrammes de Venn et quantificateurs | ★ | 4 | §2 | C | manuel | — |
+| M11.Q4 | 🧠 | Les pièges de l'induction | ★ | 4 | §3 | C, E | manuel | — |
+| M11.Q5 | 🧠 | Markov ou Tchebychev : quelle borne s'applique ? | ★ | 4 | §4 §5 | C, E | manuel | — |
+| M11.Q6 | 🧠 | Ce que garantit l'inégalité de Hoeffding, et ce qu'elle suppose | ★ | 4 | §6 | C, E | manuel | — |
+| M11.Q7 | 🧠 | Explorer ou exploiter : vrai ou faux | ★ | 4 | §7 | C | manuel | — |
+| M11.R1 | 🔁 | Implication et contraposée (R4) | ★ | 5 | §1 | C, E | manuel | — |
+| M11.R2 | 🔁 | Espérance et variance (M02b) | ★ | 5 | §4 §5 | C, E | manuel | — |
+| M11.R3 | 🔁 | La loi Beta a posteriori (M04) | ★ | 5 | §7 | C | manuel | — |
+| M11.1 | ✏️ | Tables de vérité : modus ponens, modus tollens et l'affirmation du conséquent | ★ | 15 | §1 | C, E | wbm | — |
+| M11.2 | ✏️ | Nier des phrases quantifiées sur des modèles et des features | ★ | 15 | §1 | C, E | wbm | — |
+| M11.3 | ✏️ | Des phrases traduites en inclusions d'ensembles, et un contre-exemple | ★★ | 15 | §2 | C | wbm | — |
+| M11.4 | ✏️ | Une induction trompeuse par oubli du taux de base, recalculée avec Bayes | ★★ | 15 | §3 | C, E | wbm | — |
+| M11.5 | ✏️ | Markov : la queue d'une durée positive | ★ | 15 | §4 | C, E | wbm | — |
+| M11.6 | ✏️ | Tchebychev : combien d'observations pour une moyenne à ± 0,1 ? | ★★ | 20 | §5 | C, E | wbm | — |
+| M11.7 | ✏️ | Hoeffding : rayon de confiance et taille d'échantillon d'une proportion | ★★ | 20 | §6 | C, E | wbm | — |
+| M11.8 | ✏️ | Trois bornes pour une même question : Markov, Tchebychev, Hoeffding, et l'approximation normale | ★★ | 20 | §4 §5 §6 | C | wbm | — |
+| M11.9 | ✏️ | D'où vient le bonus d'UCB : Hoeffding avec un risque qui décroît avec t | ★★★ | 20 | §6 §7 | C | wbm | — |
+| M11.10 | ✏️ | ε-greedy : la loi du bras joué et le regret attendu par pas | ★★ | 15 | §7 | C | wbm | — |
+| M11.11 | ∂ | L'inégalité de Markov | ★ | 15 | §4 | C, E | manuel | — |
+| M11.12 | ∂ | Tchebychev à partir de Markov, puis la loi faible des grands nombres | ★★ | 20 | §5 | C, E | manuel | — |
+| M11.13 | ∂ | Avec ε fixé, le regret attendu d'ε-greedy croît au moins linéairement | ★★ | 20 | §7 | C | manuel | — |
+| M11.14 | 🔗 | Pont : combien d'exemples de test pour connaître une accuracy à ± 2 points, garanti par Hoeffding ? | ★ | 15 | §6 | C, E | wbm | — |
+| M11.15 | ⚖️ | Corrélation, causalité et induction : trois titres de presse à démonter | ★★ | 15 | §3 | C | manuel | — |
+| M11.16 | 🗣️ | Expliquer « l'optimisme face à l'incertitude » à partir d'un intervalle de confiance | ★ | 10 | §7 | C, E | manuel | — |
+| M11.E1 | 💼 | « À quoi sert l'inégalité de Hoeffding en apprentissage, et que suppose-t-elle ? » | ★ | 10 | §6 | C | manuel | — |
+| M11.17 | 🔨 | Les bornes de Markov et de Tchebychev · `markov_bound, chebyshev_bound` | ★ | 15 | §4 §5 | C, E | pytest | — |
+| M11.18 | 🔨 | La borne et le rayon de Hoeffding · `hoeffding_bound, hoeffding_radius` | ★ | 15 | §6 | C, E | pytest | — |
+| M11.19 | 🔨 | La queue empirique d'un échantillon · `empirical_tail` | ★ | 10 | §4 | C | pytest | — |
+| M11.20 | 📦 | Les vraies queues d'une loi exponentielle et d'une binomiale (`scipy.stats`) contre les bornes | ★ | 15 | §4 §5 §6 | C | wbm | — |
+| M11.21 | 🔮 | Prédire : laquelle des trois bornes est la plus serrée pour n = 100 ? | ★ | 10 | §6 | C, E | wbm | — |
+| M11.22 | 🔬 | La fréquence des écarts |x̄ − p| ≥ t comparée à la borne de Hoeffding, quand n grandit | ★★ | 20 | §6 | C | wbm | — |
+| M11.23 | 🔬 | La probabilité qu'un tirage d'une loi Beta dépasse celui d'une autre, par simulation | ★★ | 15 | §7 | C | wbm | — |
+| M11.24 | 🎨 | Les bornes de Markov, de Tchebychev et de Hoeffding contre la vraie queue, en échelle log | ★ | 15 | §4 §5 §6 | C | manuel | — |
+| M11.25 | 🐛 | Chasse à l'erreur : Markov pour une variable négative, Hoeffding sans bornes, un rayon sans racine | ★ | 15 | §4 §6 | C | wbm | — |
+| M11.26 | 🛠️ | Un test paramétré qui vérifie l'inégalité de Markov sur dix lois | ★ | 15 | §4 | C | manuel | — |
+| M11.27 | 🏆 | Défi : la plus petite taille d'échantillon qui garantit une moyenne à ± 0,05 avec 99 %, vérifiée sur une loi défavorable | ★★★ | 25 | §6 | C | wbm | — |
+
+*Notes* : Frontière : la moyenne incrémentale (11.2) est démontrée par workbookIA ; M11 s'appuie sur les suites de R5. Évités (règle de partage) : les syllogismes catégoriques de workbookIA 11 (Barbara, les chats carnivores, Socrate, les formes A, E, I, O et leurs règles, les 256 mondes de Venn de 11.15), le phare (11.5), les pommes mûres (11.6), Holmes, le renforcement et la punition (11.7), le bandit à la main de 11.8 et les nombres de la fiche (récompenses 4, 2, 6 ; ε = 0,1 et K = 4, qui donnent 0,925 ; UCB avec c = 2 et t = 25 ; les moyennes 0,1, 0,4 et 0,7 du regret ; 48 spams sur 400). M11 enseigne la logique propositionnelle (tables de vérité, R4) et les ensembles plutôt que les syllogismes, et les bandits par leurs outils (bornes, regret attendu, loi d'un tirage Beta), sans agent ni boucle de jeu (les fonctions de `mylearn` en workbookIA 11). Pas de 📖 : MML ne traite ni la logique ni les inégalités de concentration. Coût : environ 11 h au lieu de 10.
 
 <a id="cp2"></a>
 ## CP2 · Examen blanc de la partie II
 
 **Partie** II · **prépare** — · **dossier** `checkpoints/partie_2/` · **MML** — · **sessions de génération** 1
 
-Examen blanc de la partie II (M07 à M11) et synthèse, juste avant le checkpoint II de workbookIA.
+Le bilan de la partie II (M07 à M11), juste avant le checkpoint II de workbookIA : un examen blanc d'environ 2 heures (sujet, notebook de vérification, corrigé détaillé, barème sur 20), puis une synthèse (carte mentale et fiche d'une page). Pas de mini-projet.
 
-**Durée estimée** : ≈ 4 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 3,2 h en parcours complet, 3,2 h en parcours essentiel (lecture 15 min, 0 flashcards).
+
+**Objectifs**
+
+- Vérifier en temps limité que les notions de la partie II sont acquises.
+- Construire ta propre synthèse de la partie II.
+
+**Sections de la fiche**
+
+- §1 Examen blanc
+- §2 Synthèse
 
 **Notions enseignées** : révision de la partie II
 
-**Après** : M11
+**Prérequis** : toute la partie II (M11)
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 7.5 ∂ Le rayon de l'hyper-orange : r(d) = √d − 1 · 7.6 ∂ Boule dans un cube : rapport des volumes par récurrence · 7.7 ∂ La frontière du centroïde le plus proche est une droite · 8.6 ∂ Le biais d'optimisme du meilleur de K modèles · 9.2 ∂ Moindres carrés : la meilleure droite par dérivées partielles · 9.3 ∂ Ridge en dimension 1 : w* = Σxy / (Σx² + λ) · 9.6 ∂ Lasso en dimension 1 : le seuillage doux et les zéros exacts · 10.4 ∂ Pourquoi un seul perceptron ne peut pas calculer XOR · 10.7 ∂ Le théorème de convergence du perceptron, guidé pas à pas · 11.2 ∂ Moyenne incrémentale : Qₙ₊₁ = Qₙ + (Rₙ − Qₙ)/n
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| CP2.Q1 | 🧠 | Dix affirmations sur la partie II : vrai ou faux | ★ | 10 | §1 | C, E | manuel | — |
+| CP2.1 | ✏️ | Normes, cosinus, projection et distance à un hyperplan | ★★ | 10 | §1 | C, E | wbm | — |
+| CP2.2 | ✏️ | Un test binomial et un intervalle de Wilson | ★★ | 10 | §1 | C, E | wbm | — |
+| CP2.3 | ✏️ | Comparaisons multiples, AIC et BIC | ★★ | 8 | §1 | C, E | wbm | — |
+| CP2.4 | ✏️ | Pivot de Gauss, rang et inverse | ★★ | 10 | §1 | C, E | wbm | — |
+| CP2.5 | ✏️ | Les équations normales d'un petit modèle, avec et sans ridge | ★★ | 10 | §1 | C, E | wbm | — |
+| CP2.6 | ✏️ | Biais, variance et erreur quadratique d'un estimateur | ★★ | 8 | §1 | C, E | wbm | — |
+| CP2.7 | ✏️ | Convexité, enveloppe convexe et marge | ★★ | 8 | §1 | C, E | wbm | — |
+| CP2.8 | ✏️ | Markov, Tchebychev et Hoeffding | ★★ | 9 | §1 | C, E | wbm | — |
+| CP2.9 | ∂ | Une démonstration courte, au choix parmi deux | ★★★ | 12 | §1 | C, E | manuel | — |
+| CP2.10 | 🐛 | Corriger une copie : cinq erreurs | ★★ | 8 | §1 | C, E | wbm | — |
+| CP2.11 | 🔗 | Problème de synthèse : ajuster un modèle, mesurer son erreur, décider | ★★ | 14 | §1 | C, E | wbm | — |
+| CP2.12 | 🗣️ | Ta carte mentale et ta fiche d'une page | ★ | 60 | §2 | C, E | manuel | — |
+
+*Notes* : Fichiers comme CP1 : 01_examen_sujet.md, 02_examen_notebook.ipynb, 03_examen_corrige.md, 03_examen_solutions.ipynb, 04_mes_reponses.md, 05_synthese.md, README.md. Aucune question ne reprend le checkpoint II de workbookIA (`checkpoints/partie_2/` de workbookIA : un-contre-tous et un-contre-un, une itération de k-means, densité et hyper-orange, plan d'évaluation, ridge en dimension 1, courbes d'apprentissage, perceptron sur NAND, syllogismes, fuite d'une validation croisée, ε-greedy et moyenne incrémentale), qui se fait juste après, ni son mini-projet II (California).
 
 <a id="m12a"></a>
 ## M12a · Espaces vectoriels et applications linéaires

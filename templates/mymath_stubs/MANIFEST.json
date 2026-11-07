@@ -1,5 +1,5 @@
 {
-  "_doc": "Stub files copied by tools/start_chapter.py, per chapter (paths relative to templates/mymath_stubs). Additive only: a published entry is never renamed, edited or removed (BIBLE §7). Part 0 published in session 2, part I in session 16; the modules of a later part are added in the syllabus session that details it.",
+  "_doc": "Stub files copied by tools/start_chapter.py, per chapter (paths relative to templates/mymath_stubs). Additive only: a published entry is never renamed, edited or removed (BIBLE §7). Part 0 published in session 2, part I in session 16, part II in session 26; the modules of a later part are added in the syllabus session that details it.",
   "base": ["__init__.py", "_example.py"],
   "chapters": {
     "R1": ["arith.py"],
@@ -18,6 +18,12 @@
     "M04": ["bayes.py"],
     "M05a": ["approx.py"],
     "M05b": ["multivar.py"],
-    "M06": ["info.py"]
+    "M06": ["info.py"],
+    "M07": ["vectors.py"],
+    "M08": ["testing.py"],
+    "M09a": ["matrices.py"],
+    "M09b": ["linreg.py"],
+    "M10": ["convex.py"],
+    "M11": ["concentration.py"]
   }
 }
