@@ -21580,14 +21580,14 @@
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
     "M07.2d": {
-      "hash": "ca7e7705f7c6f687910a7b90c79d2232b5eccd4be0987bc182950c75b4c3f65a",
+      "hash": "f4cfc4eddaa388ef90eb58131a065f79fa99f86f0de92b09e9ca6d1b0c8ee610",
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "493ed3c0431f448e79aaacb9b441a64f9e7e766f54ce7a85f43efdc583166e6f": "regarde le signe du double produit dans (2u − v) · (2u − v)",
-        "5bcd4fa0ea3cf8c5662a3e59bb653c9ebe474b15f1b3810f1c8d89ac01847723": "le coefficient 2 s'élève au carré : ‖2u‖² = 4 ‖u‖²",
-        "7a71c1aba123ae82b5f4675185ef078b275aac23b3af3165599d3a311b1cef15": "le produit croisé compte deux fois : −2 (2u) · v = −4 u · v",
-        "c1d987fd50a9b8cf9e09c6f93297a4384675f88fd7af8f177eff6f53e6474e12": "le double produit −2 (2u) · v manque"
+        "04c1bee3c54d6a431a397ca54702a5ccb76711379fcecf3b7502b5da4cdc36b3": "regarde le signe du double produit dans (u − 2v) · (u − 2v)",
+        "47dcdf8d535444eae1a5510b557469e4ba7e30602a9e3508524d526084eae1c1": "le double produit −2 u · (2v) manque",
+        "7d94ef0cbf1e4eb47eb8fe19300e0dc6de0c41436f8798d58fe6473345b0aecc": "le coefficient 2 s'élève au carré : ‖2v‖² = 4 ‖v‖²",
+        "fc2813e61de1af64776f6dafd1c3502ddbee4b18461136366eb2a1acc11a976a": "le produit croisé compte deux fois : −2 u · (2v) = −4 u · v"
       },
       "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
@@ -22615,59 +22615,62 @@
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
     "M07.13a": {
-      "hash": "8019a6ef01a99c40c6625c3984e579ef0b4f8137f963d32e2a15f72a861708b1",
+      "hash": "75083f303cf83410612e7ccf84b41874f0c8da6fcabae340a4f3adfb4cb6a4af",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "75083f303cf83410612e7ccf84b41874f0c8da6fcabae340a4f3adfb4cb6a4af": "la variance retranche le carré de l'espérance : E[Z⁴] − E[Z²]²",
-        "b13dce07a2572edabdf6b9fcb42291e5d941dd65dffdf1f153d21a0e8ce81f2f": "V(Z²) n'est pas V(Z)² : calcule E[Z⁴] − E[Z²]²"
+        "b13dce07a2572edabdf6b9fcb42291e5d941dd65dffdf1f153d21a0e8ce81f2f": "c'est E[Z²] ; intègre z³ · z φ(z) par parties, avec φ'(z) = −z φ(z)"
       },
       "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
     "M07.13b": {
-      "hash": "1ccba03aeac2130c0b665ab8acf78631101160509142b896ca956772c1560220",
+      "hash": "4f022baaed5274a8d0dca2a331ff1b0bbb35cf2ede7a5793650882c33034aa1b",
       "kind": "int",
-      "magnitude": 1,
+      "magnitude": 0,
+      "mistakes": {
+        "67ec42d884947ff1ded04a5e554bfbf126ca08a87333c3abc9491d8e5f0210f4": "V(Z²) n'est pas V(Z)² : calcule E[Z⁴] − E[Z²]²",
+        "7d16c9275cf42e019beb0607f2db009a70794a9b141c1f692e3e9f16ca024aab": "la variance retranche le carré de l'espérance : E[Z⁴] − E[Z²]²"
+      },
       "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
     "M07.13c": {
-      "hash": "453364cec9d3082860e51ac47c7e3dc2bfaa0ef9ddaaa073e2a5f3ff036b9702",
+      "hash": "c3a5ecbe1ffcd7a0952ae66c0355529c39bde0cdae4d487d518614624008c102",
       "kind": "int",
       "magnitude": 2,
       "mistakes": {
-        "427e589c9e2b0555533712619e7d9e9d0fc3ca0dfb890b694a61fba12bda1d87": "c'est l'écart-type ; la question demande la variance",
-        "eee0789d24655e624b980aeb0fae6488d3eab8bb766f4d0034cf1410247e0fbf": "chaque X_i² a la variance de a), pas 1"
+        "388f0e1266481621d0ebefbbaab66928fae2203173b34213041f39381c75b444": "X_i² = (3 Z_i)² : le facteur 3 s'élève au carré",
+        "eee0789d24655e624b980aeb0fae6488d3eab8bb766f4d0034cf1410247e0fbf": "les coordonnées ont l'écart-type 3 : E[X_i²] = 9, pas 1"
       },
       "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
     "M07.13d": {
-      "coarse_any": {
-        "1": [
-          "9152ab87f323eadfd6f3aa835592295caf418fb4729947075a7181cf8cbd6573"
-        ]
-      },
-      "decimals": 3,
-      "hash": "1e149604f75fa2e95c78ee65a03863ab532a9317a035700d196372cb0fc50d78",
-      "hash_coarse": "246b4d2edfec0b10087e5d8733c1e4e9576b74e41e15cd06673c1997ba372897",
-      "kind": "float",
-      "magnitude": -1,
+      "hash": "070f041b543b4cc56f7b27e7d4e364f847c6498172b1c84486508dd02622383f",
+      "kind": "int",
+      "magnitude": 3,
       "mistakes": {
-        "c538203b9208b8521b2583b7c0e32a1416b3c7633d6ee7ed8681192edccedef5": "divise l'écart-type, la racine de c), pas la variance",
-        "e2aaec44158a61f6b61cc7509e028c7a620497bfff54d2569bb4c5c3799154a8": "l'écart-type est la racine de c), pas √n"
+        "15cd69d0a02c68b5dc2fcbf840aa50a10f4398e5e35c42455686d54bb55d3ea4": "V(aY) = a² V(Y) : avec Y = Z_i², ici a = 9",
+        "ba5047c983d8035e0138c579afb110d51d861305df6250e2a7088983974e3133": "les coordonnées ont l'écart-type 3, pas 1"
       },
       "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
     "M07.13e": {
-      "hash": "2f33b30b4d04327e3ea81fa1659910b0a9c16b82792abe453bb9d702ed3a6e27",
-      "kind": "int",
-      "magnitude": 4,
+      "coarse_any": {
+        "1": [
+          "218e28ad026ef541be9f1f4dec62ad3bde068c41d133c7032fd50235dc5117df"
+        ]
+      },
+      "decimals": 3,
+      "hash": "c80fb1fab49275e3a040184730c5ac142562a41f0850d0ae0382823fefdd7cd1",
+      "hash_coarse": "b3032cd18e35488d560d470633f06b0f75868352757145b29c1b84f028d50e43",
+      "kind": "float",
+      "magnitude": -1,
       "mistakes": {
-        "68c325641ecb02cde29edc59001ac4bcd45e15839f67851ac9f49a38a2b6604d": "√(2/n) ≤ 0,01 : élève les deux membres au carré",
-        "6ee7977b8def5976e0afcabfef6f62afd629a963f48cec40fb9b7257ff4ef06c": "le facteur 2 de la variance compte : √(2/n) ≤ 0,01"
+        "84aeba84cdea632d8da36d847d61363ab104e53ee0e20ca5ae6ada64433320f3": "V(Z²) vaut 2, pas 1",
+        "bc23e096b4e26becc815ab307d43fa4ae159a30102a731675fa710d91a98c422": "divise l'écart-type, la racine de d), pas la variance"
       },
       "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
@@ -22675,16 +22678,17 @@
     "M07.13f": {
       "coarse_any": {
         "2": [
-          "cf29fefb8bc7d192cefe691db0b771e65e352994a71631c00f5764cfdcb3f57b"
+          "9b90c506ee869a6aaf07576dcb730e83d0b16ed399d02cab78477dc8b106ce36"
         ]
       },
       "decimals": 4,
-      "hash": "ea18ed68a6232abe7a53a9df5c5fafbf733684c3570f79cab346d5e5526816fd",
-      "hash_coarse": "a24c75d0a7bfad655323f8d31ade7228fa486df7c483a0843f7857db4c8383d8",
+      "hash": "4e6185197ab57c0a67c6ce4c3e8dceea7d4300451cf83b18efbb7150f53e99b1",
+      "hash_coarse": "fc4378911e0c96ac7ebede7ddf2d48fb836879568da08ec627439c7433814f30",
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "f77ab1c31b02dbc6d4e8a49fc8f1f95a16be47ac60611c68b9c2f07dab6565e1": "Bienaymé-Tchebychev divise la variance par ε², le carré de l'écart"
+        "32abdac4c9626733eb4f4ae2e333d1c63e0d93a4d03a2a46526f46b0c0e177fc": "Bienaymé-Tchebychev divise la variance par ε², le carré de l'écart",
+        "65a2b3b45102dfb93956a33f771795cdf66af21283efa7fca5641ec8e99342d0": "Bienaymé-Tchebychev utilise la variance, pas l'écart-type"
       },
       "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
@@ -23985,7 +23989,7 @@
       "hash": "7caf74af4ca0b6ab8a45684bca8ee7709ad45460c51b0dab98e02e247da6b08e",
       "kind": "bool",
       "mistakes": {
-        "749585d83d8c68622e9f145f59cc383ad370141edbabb5ef17c6709fcf8e8919": "ton point fait plus de 0,1 % de plus que le minimum pour CITIES_35 : la cellule du défi dit de combien"
+        "749585d83d8c68622e9f145f59cc383ad370141edbabb5ef17c6709fcf8e8919": "l'objectif n'est pas atteint sur les cinq ensembles de villes : la cellule du défi dit pourquoi"
       },
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },

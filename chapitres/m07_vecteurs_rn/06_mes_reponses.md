@@ -116,7 +116,7 @@
 - e :
 - f :
 - g :
-- d) développé par linéarité, puis vérifié avec les coordonnées de 2u − v ; un contre-exemple ou une démonstration pour g) :
+- d) développé par linéarité, puis vérifié avec les coordonnées de u − 2v ; un contre-exemple ou une démonstration pour g) :
 
 ### Ex M07.3 — Normes L1, L2, L∞ et distances entre trois profils
 
@@ -174,7 +174,7 @@
 - e :
 - f :
 - g :
-- La position de M₃ ; le sens du poids négatif ; les décisions et la distance de g) si w et b sont multipliés par 10 :
+- La position de M₃ ; le sens du poids négatif ; l'équation de la frontière et son point de la forme (0, 0, t) :
 
 ### Ex M07.8 — Centroïde, inertie et formule de König-Huygens
 
@@ -234,7 +234,7 @@
 - d :
 - e :
 - f :
-- Pourquoi les variances des X_i² s'additionnent ; d) en fonction de n ; l'écart-type approximatif de ‖X‖ (par la tangente), comparé à la fiche et à M07.30 :
+- Pourquoi les variances des X_i² s'additionnent ; e) en fonction de n, et pourquoi e) et f) ne dépendent pas de l'écart-type 3 ; la dimension à partir de laquelle la dispersion relative est au plus 1 % ; l'écart-type approximatif de ‖X‖ (par la tangente), comparé au cas d'écart-type 1 :
 
 ## ∂ Démonstrations
 

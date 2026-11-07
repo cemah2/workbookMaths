@@ -63,11 +63,11 @@ PAPER = [
          '''mistakes={"attention aux signes : (−2) × 1 est négatif": 7}'''),
         ("b", "an integer", "9", f'''mistakes={{"{SQUARED}": 3}}'''),
         ("c", "an integer", "12", ""),
-        ("d", "an integer", "36",
-         '''mistakes={"le coefficient 2 s'élève au carré : ‖2u‖² = 4 ‖u‖²": 18, '''
-         '''"le double produit −2 (2u) · v manque": 48, '''
-         '''"regarde le signe du double produit dans (2u − v) · (2u − v)": 60, '''
-         '''"le produit croisé compte deux fois : −2 (2u) · v = −4 u · v": 42}'''),
+        ("d", "an integer", "45",
+         '''mistakes={"le coefficient 2 s'élève au carré : ‖2v‖² = 4 ‖v‖²": 21, '''
+         '''"le double produit −2 u · (2v) manque": 57, '''
+         '''"regarde le signe du double produit dans (u − 2v) · (u − 2v)": 69, '''
+         '''"le produit croisé compte deux fois : −2 u · (2v) = −4 u · v": 51}'''),
         ("e", "an irreducible fraction", '"-1/4"',
          f'''{F}, mistakes={{"(u + t v) · v = u · v + t v · v : isole t, avec son signe": "1/4", '''
          '''"la condition porte sur v : c'est v · v qui apparaît, pas u · u": "-1/3"}'''),
@@ -222,21 +222,23 @@ PAPER = [
     ]),
 
     Paper("M07.13", "La norme d'un vecteur gaussien : espérance, variance et concentration", [
-        ("a", "an integer", "2",
+        ("a", "an integer", "3",
+         '''mistakes={"c'est E[Z²] ; intègre z³ · z φ(z) par parties, avec φ'(z) = −z φ(z)": 1}'''),
+        ("b", "an integer", "2",
          '''mistakes={"la variance retranche le carré de l'espérance : E[Z⁴] − E[Z²]²": 3, '''
          '''"V(Z²) n'est pas V(Z)² : calcule E[Z⁴] − E[Z²]²": 1}'''),
-        ("b", "an integer", "50"),
-        ("c", "an integer", "100",
-         '''mistakes={"chaque X_i² a la variance de a), pas 1": 50, '''
-         '''"c'est l'écart-type ; la question demande la variance": 10}'''),
-        ("d", "a number", "0.2",
-         '''decimals=3, mistakes={"divise l'écart-type, la racine de c), pas la variance": 2.0, '''
-         '''"l'écart-type est la racine de c), pas √n": 50 ** 0.5 / 50}'''),
-        ("e", "an integer", "20000",
-         '''mistakes={"√(2/n) ≤ 0,01 : élève les deux membres au carré": 200, '''
-         '''"le facteur 2 de la variance compte : √(2/n) ≤ 0,01": 10000}'''),
-        ("f", "a number", "0.01",
-         '''decimals=4, mistakes={"Bienaymé-Tchebychev divise la variance par ε², le carré de l'écart": 20.0}'''),
+        ("c", "an integer", "450",
+         '''mistakes={"X_i² = (3 Z_i)² : le facteur 3 s'élève au carré": 150, '''
+         '''"les coordonnées ont l'écart-type 3 : E[X_i²] = 9, pas 1": 50}'''),
+        ("d", "an integer", "8100",
+         '''mistakes={"V(aY) = a² V(Y) : avec Y = Z_i², ici a = 9": 900, '''
+         '''"les coordonnées ont l'écart-type 3, pas 1": 100}'''),
+        ("e", "a number", "0.2",
+         '''decimals=3, mistakes={"divise l'écart-type, la racine de d), pas la variance": 18.0, '''
+         '''"V(Z²) vaut 2, pas 1": (81 * 50) ** 0.5 / 450}'''),
+        ("f", "a number", "0.025",
+         '''decimals=4, mistakes={"Bienaymé-Tchebychev divise la variance par ε², le carré de l'écart": 180.0, '''
+         '''"Bienaymé-Tchebychev utilise la variance, pas l'écart-type": (162 * 8000) ** 0.5 / 7200}'''),
     ]),
 
     Paper("M07.19", "Pont : changer l'unité d'une feature change le plus proche voisin", [
@@ -1110,7 +1112,7 @@ M07_34 = Ex(
 
 Écris, **sans boucle** :
 - `row_norms(X, p=2)`, qui renvoie le tableau des normes $L^p$ des lignes de `X` (`p = float("inf")` pour L∞) ;
-- `normalize_rows(X)`, qui renvoie le tableau de même forme dont chaque ligne est divisée par sa norme L2 ; une ligne nulle reste nulle, sans division par zéro (astuce : divise par `np.where(norms > 0, norms, 1.0)`, puis remets 0 sur les lignes nulles avec un second `np.where`).
+- `normalize_rows(X)`, qui renvoie le tableau de même forme dont chaque ligne est divisée par sa norme L2 ; une ligne nulle reste nulle, sans division par zéro (astuce : divise par `np.where(norms > 0, norms, 1.0)` ; une ligne nulle, divisée par 1, reste nulle).
 
 Une cellule de vérification compare tes fonctions à une boucle (ligne nulle comprise) et vérifie qu'elles n'en contiennent pas ; une autre compare les temps de calcul.
 
@@ -1135,7 +1137,7 @@ def normalize_rows(X):
     """Each row of X divided by its L2 norm (a zero row stays zero), without a Python loop."""
     X = np.asarray(X, dtype=float)
     norms = np.sqrt(np.sum(X ** 2, axis=1, keepdims=True))
-    return np.where(norms > 0, X / np.where(norms > 0, norms, 1.0), 0.0)''',
+    return X / np.where(norms > 0, norms, 1.0)                 # a zero row, divided by 1, stays zero''',
     after=[("code", M07_34_CHECK),
            ("md", "**Le temps de calcul** (cette cellule utilise ta fonction)."),
            ("todo", 'with checked("M07.34 temps"):\n' + "\n".join("    " + line for line in M07_34_TIME.splitlines())),
@@ -1206,10 +1208,8 @@ M07_35_CHECK = '''with checked("M07.35 défi"):
         print(f"✅ Ex M07.35 : défi réussi, à {100 * (worst_ratio - 1):.4f} % du minimum au pire, sur cinq ensembles de "
               "villes.")
 with checked("M07.35"):
-    from scipy.optimize import minimize
-    best_cities = minimize(lambda c: total_distance(CITIES_35, c), np.median(CITIES_35, axis=0), method="Nelder-Mead",
-                           options={"xatol": 1e-10, "fatol": 1e-10, "maxiter": 20000}).fun
-    wbm.check("M07.35", bool(total_distance(CITIES_35, geometric_median(CITIES_35)) <= 1.001 * best_cities),
+    geometric_median(CITIES_35)                       # ⏳ while the function is not written
+    wbm.check("M07.35", bool(worst_ratio >= 1 and not problems and worst_ratio <= 1.001 and slowest <= 5),
               computed=True)'''
 
 M07_35 = Ex(
@@ -1222,7 +1222,7 @@ M07_35 = Ex(
 
 Écris `geometric_median(points)`, qui renvoie le point `[x, y]` (deux nombres). **L'objectif** : une somme des distances à 0,1 % au plus du minimum, en moins de 5 secondes, sur les villes `CITIES_35` et sur quatre autres ensembles de villes. NumPy suffit ; `scipy.optimize` est interdit (c'est lui que la vérification utilise pour trouver le minimum).
 
-La vérification essaie ta fonction sur cinq ensembles de villes ; une dernière cellule enregistre si l'objectif est atteint pour `CITIES_35`.
+La vérification essaie ta fonction sur cinq ensembles de villes ; une dernière cellule enregistre si l'objectif (0,1 % et 5 secondes) est atteint sur les cinq.
 
 Dans ta copie : de combien (en %) le barycentre et la médiane coordonnée par coordonnée manquent-ils l'objectif pour `CITIES_35` ? Explique l'idée de ta méthode. Le point trouvé est-il plus proche du groupe de 26 villes ou des deux autres, et pourquoi ?""",
     given=M07_35_GIVEN,
@@ -1253,8 +1253,8 @@ print("centroid: +", round(100 * (total_distance(CITIES_35, CITIES_35.mean(axis=
                                            2), "%")''',
     after=[("solution", M07_35_CHECK.split('with checked("M07.35"):')[0].rstrip())],
     record='''wbm.record("M07.35", True,
-           mistakes={"ton point fait plus de 0,1 % de plus que le minimum pour CITIES_35 : la cellule du défi dit de "
-                     "combien": False})''',
+           mistakes={"l'objectif n'est pas atteint sur les cinq ensembles de villes : la cellule du défi dit pourquoi":
+                         False})''',
     note="Le barycentre manque l'objectif d'environ 0,6 %, et la médiane coordonnée par coordonnée de près de 2 %. "
          "L'algorithme de Weiszfeld (1937) part du barycentre, puis remplace $\\mathbf{c}$ par le barycentre des villes "
          "pondérées par $\\frac{1}{\\lVert \\mathbf{x}_i - \\mathbf{c} \\rVert}$ : une ville lointaine tire moins fort que "

@@ -46,7 +46,9 @@ CHAPTERS = [
                     "k-means++ : tirer selon le carré des distances"],
         "requires": [("vecteurs du plan, norme, produit scalaire, angle", "R9"), ("Σ, raisonnements", "R4"),
                      ("polynôme du second degré, discriminant", "R3"), ("moyenne et variance empiriques", "M02c"),
-                     ("espérance, variance, loi uniforme, loi normale", "M02b"), ("gradient, point critique", "M05b")],
+                     ("espérance, variance, loi uniforme, loi normale", "M02b"), ("gradient, point critique", "M05b"),
+                     ("intégration par parties", "M02a"), ("inégalité de Bienaymé-Tchebychev", "M02c"),
+                     ("approximation par la tangente", "M05a")],
         "frontieres": ["7.1", "7.2", "7.3", "7.4", "7.13", "7.14", "7.19", "7.20", "7.21", "7.25", "7.26", "7.28",
                        "7.R3"],
         "mymath": {"module": "vectors.py",
@@ -61,8 +63,9 @@ CHAPTERS = [
                  "d'échantillons nécessaires (7.4), la boule dans le cube (7.6), l'hyper-orange (7.5), l'écorce "
                  "1 − (1 − ε)ᵈ, la distance au plus proche voisin et la concentration des distances (7.19, 7.20) : "
                  "M07 étudie la diagonale du cube, l'angle de deux vecteurs aléatoires (sans calculer la variance de leur "
-                 "produit scalaire, ∂ B3.6) et la norme d'un vecteur gaussien (M07.13), et renvoie à workbookIA 7 pour "
-                 "les distances ; pas de choix de k (7.Q8, 7.E3), et M07.E1 ne reprend pas 0B.E2 (cosinus ou distance "
+                 "produit scalaire, ∂ B3.6) et la norme d'un vecteur gaussien (M07.13, qui démontre la variance de Z² "
+                 "admise en M02c), d'où la concentration des distances entre deux vecteurs gaussiens, sans plus proche "
+                 "voisin ni cube uniforme ; pas de changement d'échelle de (w, b) en entretien (10.3 f, 13.4 i) ; pas de choix de k (7.Q8, 7.E3), et M07.E1 ne reprend pas 0B.E2 (cosinus ou distance "
                  "euclidienne) ; la médiatrice comme frontière du centroïde le plus proche (7.7) est énoncée, pas "
                  "démontrée ; pas d'itération complète de k-means (7.3) : M07 démontre que l'inertie ne peut pas "
                  "augmenter et place un seul dépôt au barycentre ; pas de développement de ‖a − b‖² (7.R3) ni de "

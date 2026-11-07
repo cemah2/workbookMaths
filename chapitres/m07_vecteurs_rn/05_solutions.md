@@ -45,7 +45,7 @@
 2. $(2, -1, 5)$, ou n'importe quel multiple non nul.
 3. Du côté **négatif** : en $(0, 0, 0)$, l'expression vaut $-1$.
 4. **Vrai** : $3\mathbf{w} \cdot \mathbf{x} + 3b = 0$ équivaut à $\mathbf{w} \cdot \mathbf{x} + b = 0$.
-5. **Faux** : c'est le même hyperplan, mais les côtés positif et négatif sont **échangés**.
+5. **Faux** : en $(2, 0, 0)$, $2x_1 - x_2 + 5x_3 - 7 = -3 < 0$ ; en $(0, 0, 3)$, il vaut $15 - 7 = 8 > 0$. Les deux points sont de part et d'autre.
 6. $\frac{|b|}{\lVert \mathbf{w} \rVert}$ : la formule de la distance appliquée à $\mathbf{x} = \mathbf{0}$.
 
 ### M07.Q6 — Moyenne, barycentre et inertie
@@ -111,18 +111,18 @@ Pour la copie : deux équations suffisent à trouver $a$ et $b$ ; les deux autre
 
 ### Ex M07.2 — Produits scalaires, ‖u + v‖² et l'identité du parallélogramme
 
-**Réponses** : a) `3` · b) `9` · c) `12` · d) `36` · e) `"-1/4"` · f) `8` · g) `False`.
+**Réponses** : a) `3` · b) `9` · c) `12` · d) `45` · e) `"-1/4"` · f) `8` · g) `False`.
 
 **Démarche.**
 - a) $2 + 3 - 2 + 0 = 3$ ; b) $4 + 1 + 4 + 0 = 9$ ; c) $1 + 9 + 1 + 1 = 12$.
-- d) Par linéarité : $(2\mathbf{u} - \mathbf{v}) \cdot (2\mathbf{u} - \mathbf{v}) = 4\,\mathbf{u} \cdot \mathbf{u} - 4\,\mathbf{u} \cdot \mathbf{v} + \mathbf{v} \cdot \mathbf{v} = 36 - 12 + 12 = 36$. Vérification : $2\mathbf{u} - \mathbf{v} = (3, -1, -5, 1)$, et $9 + 1 + 25 + 1 = 36$.
+- d) Par linéarité : $(\mathbf{u} - 2\mathbf{v}) \cdot (\mathbf{u} - 2\mathbf{v}) = \mathbf{u} \cdot \mathbf{u} - 4\,\mathbf{u} \cdot \mathbf{v} + 4\,\mathbf{v} \cdot \mathbf{v} = 9 - 12 + 48 = 45$. Vérification : $\mathbf{u} - 2\mathbf{v} = (0, -5, -4, 2)$, et $0 + 25 + 16 + 4 = 45$.
 - e) $(\mathbf{u} + t\mathbf{v}) \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{v} + t\,\mathbf{v} \cdot \mathbf{v} = 3 + 12t = 0$, d'où $t = -\frac{1}{4}$.
 - f) $\lVert \mathbf{a} + \mathbf{b} \rVert^2 - \lVert \mathbf{a} - \mathbf{b} \rVert^2 = 4\,\mathbf{a} \cdot \mathbf{b}$, donc $\mathbf{a} \cdot \mathbf{b} = \frac{50 - 18}{4} = 8$.
 - g) **Faux** : $\mathbf{u} \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{w}$ dit seulement que $\mathbf{u} \cdot (\mathbf{v} - \mathbf{w}) = 0$. Contre-exemple : $\mathbf{u} = (1, 0)$, $\mathbf{v} = (0, 1)$, $\mathbf{w} = (0, 2)$ ; les deux produits valent 0.
 
-**Erreurs fréquentes.** Un signe perdu dans $(-2) \times 1$ (a : 7) ; donner la norme au lieu de son carré (b : 3) ; oublier d'élever le coefficient 2 au carré (d : 18), oublier le double produit (d : 48), se tromper de signe (d : 60) ou ne le compter qu'une fois (d : 42) ; utiliser $\mathbf{u} \cdot \mathbf{u}$ au lieu de $\mathbf{v} \cdot \mathbf{v}$ en e) ; oublier de diviser par 4 en f).
+**Erreurs fréquentes.** Un signe perdu dans $(-2) \times 1$ (a : 7) ; donner la norme au lieu de son carré (b : 3) ; oublier d'élever le coefficient 2 au carré (d : 21), oublier le double produit (d : 57), se tromper de signe (d : 69) ou ne le compter qu'une fois (d : 51) ; utiliser $\mathbf{u} \cdot \mathbf{u}$ au lieu de $\mathbf{v} \cdot \mathbf{v}$ en e) ; oublier de diviser par 4 en f).
 
-**Variante.** Avec les mêmes $\mathbf{u}$ et $\mathbf{v}$, $\lVert \mathbf{u} - 3\mathbf{v} \rVert^2$ ? *Réponse* : $9 - 6 \times 3 + 9 \times 12 = 99$.
+**Variante.** Avec les mêmes $\mathbf{u}$ et $\mathbf{v}$, $\lVert 2\mathbf{u} + \mathbf{v} \rVert^2$ ? *Réponse* : $4 \times 9 + 4 \times 3 + 12 = 60$.
 
 ### Ex M07.3 — Normes L1, L2, L∞ et distances entre trois profils
 
@@ -208,7 +208,7 @@ Pour la copie : $O$ et $C$ donnent des scores négatifs, ils sont du même côt�
 - f) $\lVert \mathbf{w} \rVert = \sqrt{2{,}25 + 4 + 0{,}25} = \sqrt{6{,}5} \approx 2{,}550$, et $\frac{\mathbf{w}}{\lVert \mathbf{w} \rVert} \approx (0{,}588 ;\ 0{,}784 ;\ -0{,}196)$.
 - g) $\frac{2{,}5}{\sqrt{6{,}5}} \approx 0{,}9806$.
 
-Pour la copie : $M_3$ est sur la frontière, la décision se joue à rien. Le poids négatif de la troisième feature dit que, toutes choses égales par ailleurs, une révision ancienne fait **baisser** le score : c'est le contraire de ce qu'on attendrait, et un poids de signe surprenant mérite toujours d'être questionné (des features corrélées, un biais des données). Multiplier $\mathbf{w}$ et $b$ par 10 multiplie tous les scores par 10 : les décisions ne changent pas, ni la distance de g) ($\frac{25}{10\sqrt{6{,}5}}$).
+Pour la copie : $M_3$ est sur la frontière, la décision se joue à rien. Le poids négatif de la troisième feature dit que, toutes choses égales par ailleurs, une révision ancienne fait **baisser** le score : c'est le contraire de ce qu'on attendrait, et un poids de signe surprenant mérite toujours d'être questionné (des features corrélées, un biais des données). La frontière a pour équation $1{,}5\,x_1 + 2\,x_2 - 0{,}5\,x_3 - 2 = 0$ ; avec $x_1 = x_2 = 0$, $-0{,}5\,t - 2 = 0$ donne le point $(0, 0, -4)$.
 
 **Erreurs fréquentes.** Oublier le biais (a : 1,5 ; b : 4,5) ; prendre $\mathbf{w}$ lui-même pour la direction unitaire (f) ; donner le score au lieu de la distance (g : 2,5) ; diviser par $\lVert \mathbf{w} \rVert^2$ (g : 0,3846).
 
@@ -302,21 +302,25 @@ Pour la copie : en dimension $d$, ce cosinus vaut $\frac{d - 2}{d}$, qui tend ve
 
 ### Ex M07.13 — La norme d'un vecteur gaussien : espérance, variance et concentration
 
-**Réponses** : a) `2` · b) `50` · c) `100` · d) `0.2` · e) `20000` · f) `0.01`.
+**Réponses** : a) `3` · b) `2` · c) `450` · d) `8100` · e) `0.2` · f) `0.025`.
 
 **Démarche.**
-- a) $\mathbb{V}(Z^2) = \mathbb{E}[Z^4] - \mathbb{E}[Z^2]^2 = 3 - 1 = 2$ (avec $\mathbb{E}[Z^2] = \mathbb{V}(Z) = 1$).
-- b) $\lVert \mathbf{X} \rVert^2 = \sum_{i=1}^{n} X_i^2$ et l'espérance est linéaire : $n \times 1 = 50$.
-- c) Les $X_i^2$ sont indépendantes (chacune ne dépend que de sa coordonnée), donc leurs variances s'additionnent : $n \times 2 = 100$.
-- d) $\frac{\sqrt{100}}{50} = 0{,}2$ ; en général $\frac{\sqrt{2n}}{n} = \sqrt{\frac{2}{n}}$.
-- e) $\sqrt{\frac{2}{n}} \le 0{,}01$ équivaut à $\frac{2}{n} \le 10^{-4}$, soit $n \ge 20\,000$.
-- f) $P\big(\big\lvert \lVert \mathbf{X} \rVert^2 - n \big\rvert \ge \frac{n}{10}\big) \le \frac{2n}{(n/10)^2} = \frac{200}{n} = 0{,}01$.
+- a) Avec $u = z^3$ et $v' = z\,\varphi(z)$, donc $v = -\varphi(z)$ : $\mathbb{E}[Z^4] = \big[-z^3\varphi(z)\big]_{-\infty}^{+\infty} + \int 3z^2\,\varphi(z)\,dz = 0 + 3\,\mathbb{E}[Z^2] = 3$.
+- b) $\mathbb{V}(Z^2) = \mathbb{E}[Z^4] - \mathbb{E}[Z^2]^2 = 3 - 1 = 2$ : la valeur que M02c admettait.
+- c) $X_i^2 = 9Z_i^2$, d'espérance 9 ; par linéarité, $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = 9n = 450$.
+- d) $\mathbb{V}(X_i^2) = 81\,\mathbb{V}(Z_i^2) = 162$ ; les $X_i^2$ sont indépendantes, leurs variances s'additionnent : $162n = 8\,100$.
+- e) $\frac{\sqrt{8\,100}}{450} = \frac{90}{450} = 0{,}2$ ; en général $\frac{9\sqrt{2n}}{9n} = \sqrt{\frac{2}{n}}$.
+- f) $\mathbb{V} = 162 \times 8\,000 = 1\,296\,000$ et $\varepsilon = \frac{9 \times 8\,000}{10} = 7\,200$ : $\frac{1\,296\,000}{7\,200^2} = 0{,}025$ (en général $\frac{200}{n}$).
 
-Pour la copie : la variance d'une somme est la somme des variances quand les termes sont indépendants (M02b). Avec la tangente, $\lVert \mathbf{X} \rVert \approx \sqrt{n} + \frac{\lVert \mathbf{X} \rVert^2 - n}{2\sqrt{n}}$, d'où un écart-type d'environ $\frac{\sqrt{2n}}{2\sqrt{n}} = \frac{1}{\sqrt{2}} \approx 0{,}707$, quelle que soit la dimension : c'est l'écart-type d'environ 0,71 de la fiche, et ce que mesure M07.30. La norme vaut donc $\sqrt{n}$ à environ 0,7 près : rapportée à $\sqrt{n}$, sa dispersion tend vers 0. C'est la concentration de la norme.
+Pour la copie : la variance d'une somme est la somme des variances quand les termes sont indépendants (M02b), et chaque $X_i^2$ ne dépend que de sa coordonnée. L'écart-type 3 multiplie l'espérance par 9 et l'écart-type de $\lVert \mathbf{X} \rVert^2$ par 9 aussi : leur quotient ne change pas, et f) non plus. La dispersion relative $\sqrt{\frac{2}{n}}$ est au plus 1 % dès $n = 20\,000$. Avec la tangente, $\lVert \mathbf{X} \rVert \approx \sqrt{m} + \frac{\lVert \mathbf{X} \rVert^2 - m}{2\sqrt{m}}$ avec $m = 9n$, d'où un écart-type d'environ $\frac{9\sqrt{2n}}{2 \times 3\sqrt{n}} = \frac{3}{\sqrt{2}} \approx 2{,}12$, quelle que soit la dimension : trois fois l'écart-type d'environ 0,71 du cas $\mathcal{N}(0, 1)$ (fiche §7, M07.30). La norme vaut donc $3\sqrt{n}$ à environ 2 près : rapportée à sa taille, sa dispersion tend vers 0.
 
-**Erreurs fréquentes.** Oublier de retrancher $\mathbb{E}[Z^2]^2$ (a : 3) ou prendre $\mathbb{V}(Z)^2$ (a : 1) ; donner à chaque $X_i^2$ la variance 1 (c : 50) ; donner l'écart-type au lieu de la variance (c : 10) ; diviser la variance par l'espérance (d : 2) ; oublier le facteur 2 (d : 0,141 ; e : 10 000) ; oublier d'élever au carré en e) (200) ; diviser par $\varepsilon$ au lieu de $\varepsilon^2$ en f) (20, une « probabilité » plus grande que 1).
+**Erreurs fréquentes.** S'arrêter à $\mathbb{E}[Z^2]$ (a : 1) ; oublier de retrancher $\mathbb{E}[Z^2]^2$ (b : 3) ou prendre $\mathbb{V}(Z)^2$ (b : 1) ; oublier l'écart-type 3 (c : 50 ; d : 100) ou ne le compter qu'une fois (c : 150 ; d : 900) ; diviser la variance par l'espérance (e : 18) ; oublier le 2 de $\mathbb{V}(Z^2)$ (e : 0,141) ; diviser par $\varepsilon$ au lieu de $\varepsilon^2$ en f) (180, une « probabilité » plus grande que 1), ou l'écart-type au lieu de la variance (f : 0,158).
 
 **Variante.** La dispersion relative de $\lVert \mathbf{X} \rVert^2$ en dimension 800 ? *Réponse* : $\sqrt{\frac{2}{800}} = 0{,}05$.
+
+<a id="demonstrations"></a>
+
+## ∂ Démonstrations
 
 ### Ex M07.14 — L'inégalité de Cauchy-Schwarz, par le discriminant
 
@@ -442,9 +446,9 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 **Réponse modèle (60 secondes).**
 
-> La frontière de décision est l'ensemble des points où le score $\mathbf{w} \cdot \mathbf{x} + b$ vaut zéro : c'est un hyperplan, une droite en dimension 2, et $\mathbf{w}$ lui est perpendiculaire, c'est son vecteur normal. Il indique aussi la direction dans laquelle le score augmente le plus vite, vers le côté de la classe 1. Le score divisé par la norme de $\mathbf{w}$ est la distance signée d'un point à la frontière : il dit si le point est classé de justesse ou largement. Si je multiplie $\mathbf{w}$ et $b$ par 10, l'hyperplan et toutes les décisions restent les mêmes, mais tous les scores sont multipliés par 10 : si le score passe ensuite par une sigmoïde, les probabilités deviennent plus tranchées. Les distances, elles, ne changent pas, puisqu'on divise par la norme. Avec un facteur négatif, l'hyperplan reste le même, mais les deux côtés sont échangés : toutes les décisions s'inversent. La norme de $\mathbf{w}$ règle donc la pente du score, pas la place de la frontière.
+> La frontière de décision est l'ensemble des points où le score $\mathbf{w} \cdot \mathbf{x} + b$ est nul : un hyperplan, une droite en dimension 2. Le vecteur $\mathbf{w}$ en est un vecteur normal, et c'est aussi le gradient du score : la direction dans laquelle il monte le plus vite. Si je m'éloigne de la frontière d'une distance $\delta$ dans cette direction, le score augmente de $\lVert \mathbf{w} \rVert$ fois $\delta$. Le score est donc la distance signée à la frontière, multipliée par $\lVert \mathbf{w} \rVert$ : divisé par $\lVert \mathbf{w} \rVert$, il dit si un point est classé de justesse ou largement. Et la norme de $\mathbf{w}$ mesure la pente du score quand on traverse la frontière : plus elle est grande, plus le score change vite près d'elle.
 
-**Grille.** (1) la frontière, un hyperplan, et $\mathbf{w}$ normal à elle ; (2) $\mathbf{w}$, direction de plus forte croissance du score ; (3) $\frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert}$ comme distance à la frontière ; (4) un facteur positif : mêmes décisions et mêmes distances, scores multipliés ; (5) un facteur négatif : côtés échangés ; (6) la conclusion : $\lVert \mathbf{w} \rVert$ règle la pente, pas la frontière.
+**Grille.** (1) la frontière, un hyperplan, et $\mathbf{w}$ normal à elle ; (2) $\mathbf{w}$, direction de plus forte croissance du score ; (3) un pas $\delta$ perpendiculaire à la frontière change le score de $\lVert \mathbf{w} \rVert\,\delta$ ; (4) $\frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert}$ comme distance à la frontière ; (5) $\lVert \mathbf{w} \rVert$, la pente du score de part et d'autre de la frontière.
 
 <a id="notebook"></a>
 
@@ -528,13 +532,13 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 ### Ex M07.34 — Les normes de toutes les lignes d'un tableau : axis, keepdims et broadcasting
 
-**Démarche.** `row_norms` : `A = np.abs(np.asarray(X, dtype=float))`, puis `np.max(A, axis=1)` pour L∞, sinon `np.sum(A ** p, axis=1) ** (1 / p)`. `normalize_rows` : `norms = np.sqrt(np.sum(X ** 2, axis=1, keepdims=True))` (forme `(n, 1)`), puis `np.where(norms > 0, X / np.where(norms > 0, norms, 1.0), 0.0)` : le `np.where` intérieur évite la division par zéro, l'extérieur laisse la ligne nulle à zéro. Pour la copie : `axis=0` additionne les **colonnes** (une valeur par feature) ; sans `keepdims`, les normes, de forme `(n,)`, s'alignent sur la **dernière** dimension de `X` : une erreur de forme si $p \ne n$, et une division des colonnes sans message d'erreur quand `X` est carré. La version vectorisée est en général une dizaine de fois plus rapide que la boucle, souvent davantage (la mesure de la dernière cellule).
+**Démarche.** `row_norms` : `A = np.abs(np.asarray(X, dtype=float))`, puis `np.max(A, axis=1)` pour L∞, sinon `np.sum(A ** p, axis=1) ** (1 / p)`. `normalize_rows` : `norms = np.sqrt(np.sum(X ** 2, axis=1, keepdims=True))` (forme `(n, 1)`), puis `X / np.where(norms > 0, norms, 1.0)` : une ligne nulle est divisée par 1 et reste nulle, sans division par zéro. Pour la copie : `axis=0` additionne les **colonnes** (une valeur par feature) ; sans `keepdims`, les normes, de forme `(n,)`, s'alignent sur la **dernière** dimension de `X` : une erreur de forme si $p \ne n$, et une division des colonnes sans message d'erreur quand `X` est carré. La version vectorisée est en général une dizaine de fois plus rapide que la boucle, souvent davantage (la mesure de la dernière cellule).
 
 **Erreurs fréquentes.** `axis=0` ; oublier `keepdims=True` ; diviser par une norme nulle (des `nan`) ; une boucle Python.
 
 ### Ex M07.35 — Défi : le point qui minimise la somme des distances (non au carré) à 60 villes, à 0,1 % près
 
-**Réponse** : `True` (l'objectif est atteint pour `CITIES_35`, dont la somme des distances minimale vaut environ 328,25 km).
+**Réponse** : `True` (l'objectif, 0,1 % et 5 secondes, est atteint sur les cinq ensembles de villes ; pour `CITIES_35`, la somme des distances minimale vaut environ 328,25 km).
 
 **Démarche.** L'algorithme de Weiszfeld (1937) : partir du barycentre $\mathbf{c}$, puis répéter $\mathbf{c} \leftarrow \frac{\sum_i \mathbf{x}_i / d_i}{\sum_i 1 / d_i}$, où $d_i = \lVert \mathbf{x}_i - \mathbf{c} \rVert$ (avec un plancher, par exemple $10^{-12}$, si $\mathbf{c}$ tombe sur une ville). Quelques centaines d'itérations suffisent largement. L'idée : le gradient de $\sum_i \lVert \mathbf{c} - \mathbf{x}_i \rVert$ est $\sum_i \frac{\mathbf{c} - \mathbf{x}_i}{\lVert \mathbf{c} - \mathbf{x}_i \rVert}$, une somme de vecteurs **unitaires** ; l'annuler revient à écrire $\mathbf{c}$ comme le barycentre des villes pondérées par $\frac{1}{d_i}$, et l'on itère cette équation. Pour la copie : pour `CITIES_35`, le barycentre fait environ 0,6 % de plus que le minimum, la médiane coordonnée par coordonnée environ 1,9 %. Le point trouvé est plus près du groupe de 26 villes (à environ 3,8 km de son centre, contre 6,2 et 6,7 km pour les deux autres groupes) que ne l'est le barycentre (4,9 km) : chaque ville tire avec une force égale (un vecteur unitaire), quelle que soit sa distance, et le groupe le plus nombreux l'emporte ; dans le barycentre, au contraire, chaque ville tire en proportion de sa distance, et les groupes lointains comptent davantage.
 

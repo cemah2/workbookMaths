@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §7 |
 | **Temps total estimé** | ≈ 15,3 h : lecture et calculs de la fiche ≈ 3 h, exercices ≈ 11 h 30, flashcards ≈ 50 min (parcours essentiel ≈ 9,9 h) |
-| **Prérequis** | R9 (vecteurs du plan, norme, produit scalaire, angle, droites) ; R4 (Σ, raisonnements) ; R3 (discriminant) ; M02b (espérance, variance, lois uniforme et normale) ; M02c (moyenne et variance empiriques) ; M05b (gradient, point critique) |
+| **Prérequis** | R9 (vecteurs du plan, norme, produit scalaire, angle, droites) ; R4 (Σ, raisonnements) ; R3 (discriminant) ; M02a (intégration par parties) ; M02b (espérance, variance, lois uniforme et normale) ; M02c (moyenne et variance empiriques, inégalité de Bienaymé-Tchebychev, §9 sur la grande dimension) ; M05a (approximation par la tangente) ; M05b (gradient, point critique) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `vectors.py` : `norm_p`, `cosine_similarity`, `project_onto_line`, `centroid`, `sum_sq_distances_to`, `side_of_hyperplane`, `distance_to_hyperplane` |
 | **MML** | §3.1, §3.2.1, §3.3 et §3.4 (voir le guide de lecture ci-dessous) |
@@ -365,7 +365,7 @@ Exemple : les points $(0, 0)$, $(1, 1)$, $(3, 0)$ et $(4, 2)$, premier centre $(
 
 🔗 **Dans workbookIA** — le chapitre 7 programme le centroïde le plus proche, k-means, k-means++ et la silhouette, choisit $k$ avec le coude de l'inertie et la silhouette, et montre quand k-means échoue.
 
-⚠️ **Erreur classique.** Oublier que k-means, la silhouette et le centroïde le plus proche comparent des distances euclidiennes : leurs résultats dépendent de l'unité de chaque feature (§3, M07.19), et une feature mesurée en grands nombres décide presque seule.
+⚠️ **Erreur classique.** Oublier que k-means, la silhouette et le centroïde le plus proche reposent sur des distances euclidiennes : ce que le §3 dit des unités des features (M07.19) vaut pour eux.
 
 ## §7 · La grande dimension
 
@@ -385,9 +385,13 @@ Tirons deux vecteurs $\mathbf{X}$ et $\mathbf{Y}$ de $\mathbb{R}^n$ dont les coo
 
 ### La norme d'un vecteur gaussien
 
-Pour $\mathbf{X}$ comme ci-dessus, $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = \sum_i \mathbb{E}[X_i^2] = n$ : la norme est de l'ordre de $\sqrt{n}$. Mieux : $\lVert \mathbf{X} \rVert^2$ est une somme de $n$ termes indépendants, donc sa variance est proportionnelle à $n$ (M07.13 la calcule) : son écart-type n'est que de l'ordre de $\sqrt{n}$, très petit devant sa moyenne $n$ quand $n$ est grand. La norme se **concentre** : en dimension 1 000, elle a un écart-type d'environ 0,71, et 99 % des tirages ont une norme entre 29,8 et 33,5, autour de $\sqrt{1000} \approx 31{,}6$.
+M02c (§9) l'a déjà rencontrée. Pour $\mathbf{X}$ comme ci-dessus, $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = \sum_i \mathbb{E}[X_i^2] = n$ : la norme est de l'ordre de $\sqrt{n}$. Mieux : $\lVert \mathbf{X} \rVert^2$ est une somme de $n$ termes indépendants, donc sa variance est proportionnelle à $n$ (M07.13 la calcule, et démontre la variance de $X_i^2$ que M02c admettait) : son écart-type n'est que de l'ordre de $\sqrt{n}$, très petit devant sa moyenne $n$ quand $n$ est grand. La norme se **concentre** : en dimension 1 000, elle a un écart-type d'environ 0,71, et 99 % des tirages ont une norme entre 29,8 et 33,5, autour de $\sqrt{1000} \approx 31{,}6$.
 
 ![À gauche, l'angle entre la diagonale du cube et un axe, selon la dimension ; à droite, la norme divisée par √n de vecteurs gaussiens, de plus en plus concentrée autour de 1](figures/grande_dimension.png)
+
+### Les distances entre points tirés au hasard
+
+Tirons maintenant deux vecteurs gaussiens $\mathbf{X}$ et $\mathbf{Y}$ indépendants. Chaque coordonnée de $\mathbf{X} - \mathbf{Y}$ est la différence de deux variables indépendantes de loi $\mathcal{N}(0, 1)$, donc de loi $\mathcal{N}(0, 2)$ (M02b) : $\mathbf{X} - \mathbf{Y}$ a la loi de $\sqrt{2}\,\mathbf{Z}$, pour un vecteur gaussien $\mathbf{Z}$. Sa norme, la distance entre les deux points, vaut donc environ $\sqrt{2n}$, à environ $\sqrt{2} \times 0{,}71 \approx 1$ près, quelle que soit la dimension. Rapportées à leur taille, les distances entre points tirés ainsi sont presque toutes égales : c'est la **concentration des distances**. WorkbookIA 7 rassemble ces surprises sous le nom de **malédiction de la dimension** (*curse of dimensionality*), en tire les conséquences pour les méthodes fondées sur les distances, et discute ce qui change pour de vraies données.
 
 🔗 **Dans workbookIA** — le chapitre 7 mesure la densité des échantillons, les bizarreries de la grande dimension et la concentration des distances ; les *embeddings* des chapitres bonus vivent dans des espaces de centaines de dimensions, où l'on compare des cosinus.
 

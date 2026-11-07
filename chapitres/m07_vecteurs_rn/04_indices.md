@@ -94,7 +94,7 @@ L'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ a pour vecteur normal $\mathbf
 </details>
 <details><summary>Indice 3</summary>
 
-3 : remplace $\mathbf{x}$ par $(0, 0, 0)$. 5 : en un point donné, le signe de $-\mathbf{w} \cdot \mathbf{x} - b$ est l'opposé de celui de $\mathbf{w} \cdot \mathbf{x} + b$. 6 : la formule de la distance en $\mathbf{x} = \mathbf{0}$.
+3 : remplace $\mathbf{x}$ par $(0, 0, 0)$. 5 : calcule $2x_1 - x_2 + 5x_3 - 7$ en chacun des deux points, et compare les signes. 6 : la formule de la distance en $\mathbf{x} = \mathbf{0}$.
 
 </details>
 
@@ -228,7 +228,7 @@ $\lVert \mathbf{u} + \mathbf{v} \rVert^2 = \lVert \mathbf{u} \rVert^2 + 2\,\math
 </details>
 <details><summary>Indice 3</summary>
 
-d) Développe $(2\mathbf{u} - \mathbf{v}) \cdot (2\mathbf{u} - \mathbf{v})$ par linéarité : quatre termes, dont deux égaux. e) Écris $(\mathbf{u} + t\,\mathbf{v}) \cdot \mathbf{v} = 0$ et développe. f) Soustrais les deux développements : il reste $4\,\mathbf{a} \cdot \mathbf{b}$. g) L'égalité dit seulement $\mathbf{u} \cdot (\mathbf{v} - \mathbf{w}) = 0$.
+d) Développe $(\mathbf{u} - 2\mathbf{v}) \cdot (\mathbf{u} - 2\mathbf{v})$ par linéarité : quatre termes, dont deux égaux. e) Écris $(\mathbf{u} + t\,\mathbf{v}) \cdot \mathbf{v} = 0$ et développe. f) Soustrais les deux développements : il reste $4\,\mathbf{a} \cdot \mathbf{b}$. g) L'égalité dit seulement $\mathbf{u} \cdot (\mathbf{v} - \mathbf{w}) = 0$.
 
 </details>
 
@@ -416,17 +416,17 @@ e) Résous $\frac{1}{\sqrt{d}} < \cos 80°$, puis vérifie $d$ et $d - 1$. f) Le
 
 <details><summary>Indice 1</summary>
 
-Relis « La norme d'un vecteur gaussien » (fiche §7), M02b (variance d'une somme de variables indépendantes) et M02c (inégalité de Bienaymé-Tchebychev).
+Relis « La norme d'un vecteur gaussien » (fiche §7), M02c §9 (le même calcul, avec $\mathbb{V}(Z^2) = 2$ admis), M02a (intégration par parties) et M02b (variance d'une somme de variables indépendantes).
 
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{V}(Z^2) = \mathbb{E}[Z^4] - \mathbb{E}[Z^2]^2$ ; $\lVert \mathbf{X} \rVert^2 = \sum_i X_i^2$ est une somme de $n$ variables indépendantes, de même loi que $Z^2$.
+a) Par parties, avec $u = z^3$ et $v' = z\,\varphi(z)$, donc $v = -\varphi(z)$. b) $\mathbb{V}(Z^2) = \mathbb{E}[Z^4] - \mathbb{E}[Z^2]^2$. c) et d) $X_i^2 = 9Z_i^2$ : son espérance est 9 fois celle de $Z^2$, sa variance 81 fois celle de $Z^2$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-c) $n$ fois la variance de a). d) La racine de c), divisée par b). f) $P(|Y - \mathbb{E}[Y]| \ge \varepsilon) \le \frac{\mathbb{V}(Y)}{\varepsilon^2}$, avec $\varepsilon = \frac{n}{10}$.
+d) $n$ fois la variance de $X_i^2$. e) La racine de d), divisée par c). f) $P(|Y - \mathbb{E}[Y]| \ge \varepsilon) \le \frac{\mathbb{V}(Y)}{\varepsilon^2}$, avec $\varepsilon$ égal au dixième de l'espérance.
 
 </details>
 
@@ -626,17 +626,17 @@ Le cosinus mesure l'écart entre les directions des deux flèches, pas leurs lon
 
 <details><summary>Indice 1</summary>
 
-Relis « Frontières de décision linéaires » (fiche §5) et « Le neurone : un produit scalaire plus un biais » (fiche §2).
+Relis « Frontières de décision linéaires » et « La distance à un hyperplan » (fiche §5).
 
 </details>
 <details><summary>Indice 2</summary>
 
-La frontière est l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ : quel est son vecteur normal ? Et quelle est la distance d'un point à cette frontière ?
+La frontière est l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ : quel est son vecteur normal ? Et quel est le gradient du score $\mathbf{w} \cdot \mathbf{x} + b$ (M05b) ?
 
 </details>
 <details><summary>Indice 3</summary>
 
-Remplace $(\mathbf{w}, b)$ par $(\lambda\mathbf{w}, \lambda b)$ : que deviennent l'équation de la frontière, le score, son signe et la distance, pour $\lambda = 10$, puis pour $\lambda = -1$ ?
+Pars d'un point $\mathbf{x}_0$ de la frontière et avance de $\delta\,\frac{\mathbf{w}}{\lVert \mathbf{w} \rVert}$ : calcule le nouveau score. Que relie-t-il, la distance à la frontière et $\lVert \mathbf{w} \rVert$ ?
 
 </details>
 
@@ -838,7 +838,7 @@ Relis l'énoncé (axis et keepdims) et le broadcasting de 0A.
 </details>
 <details><summary>Indice 3</summary>
 
-`normalize_rows` : `norms = np.sqrt(np.sum(X ** 2, axis=1, keepdims=True))`, puis `np.where(norms > 0, X / np.where(norms > 0, norms, 1.0), 0.0)`.
+`normalize_rows` : `norms = np.sqrt(np.sum(X ** 2, axis=1, keepdims=True))`, puis `X / np.where(norms > 0, norms, 1.0)`.
 
 </details>
 

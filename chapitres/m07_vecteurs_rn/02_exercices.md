@@ -62,7 +62,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 2. Donne un vecteur normal à l'hyperplan $2x_1 - x_2 + 5x_3 = 7$ de $\mathbb{R}^3$.
 3. De quel côté de l'hyperplan $x_1 + x_2 + x_3 - 1 = 0$ est l'origine : du côté où l'expression est positive ou négative ?
 4. Vrai ou faux : $(\mathbf{w}, b)$ et $(3\mathbf{w}, 3b)$ décrivent le même hyperplan.
-5. Vrai ou faux : $(\mathbf{w}, b)$ et $(-\mathbf{w}, -b)$ décrivent le même hyperplan, avec le même côté positif.
+5. Vrai ou faux : les points $(2, 0, 0)$ et $(0, 0, 3)$ sont du même côté de l'hyperplan $2x_1 - x_2 + 5x_3 = 7$.
 6. À quelle distance de l'origine passe l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ ?
 
 ### M07.Q6 — Moyenne, barycentre et inertie 🧠 ★ ⏱️ 4 min
@@ -161,12 +161,12 @@ Soit $\mathbf{u} = (2, 1, -2, 0)$ et $\mathbf{v} = (1, 3, 1, -1)$.
 | a | $\mathbf{u} \cdot \mathbf{v}$ | un entier |
 | b | $\lVert \mathbf{u} \rVert^2$ | un entier |
 | c | $\lVert \mathbf{v} \rVert^2$ | un entier |
-| d | $\lVert 2\mathbf{u} - \mathbf{v} \rVert^2$, à partir de a), b) et c) seulement | un entier |
+| d | $\lVert \mathbf{u} - 2\mathbf{v} \rVert^2$, à partir de a), b) et c) seulement | un entier |
 | e | le réel $t$ pour lequel $\mathbf{u} + t\,\mathbf{v}$ est orthogonal à $\mathbf{v}$ | une fraction irréductible |
 | f | deux vecteurs $\mathbf{a}$ et $\mathbf{b}$ vérifient $\lVert \mathbf{a} + \mathbf{b} \rVert^2 = 50$ et $\lVert \mathbf{a} - \mathbf{b} \rVert^2 = 18$ : que vaut $\mathbf{a} \cdot \mathbf{b}$ ? | un entier |
 | g | vrai ou faux : si $\mathbf{u} \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{w}$ et $\mathbf{u} \ne \mathbf{0}$, alors $\mathbf{v} = \mathbf{w}$ | `True` ou `False` |
 
-Dans ta copie : pour d), développe $(2\mathbf{u} - \mathbf{v}) \cdot (2\mathbf{u} - \mathbf{v})$ par linéarité, puis vérifie le résultat en calculant les coordonnées de $2\mathbf{u} - \mathbf{v}$. Pour g), donne un contre-exemple dans $\mathbb{R}^2$ ou une démonstration.
+Dans ta copie : pour d), développe $(\mathbf{u} - 2\mathbf{v}) \cdot (\mathbf{u} - 2\mathbf{v})$ par linéarité, puis vérifie le résultat en calculant les coordonnées de $\mathbf{u} - 2\mathbf{v}$. Pour g), donne un contre-exemple dans $\mathbb{R}^2$ ou une démonstration.
 
 ### Ex M07.3 — Normes L1, L2, L∞ et distances entre trois profils ✏️ ★ ⏱️ 20 min
 **Objectif :** calculer des normes et des distances L1, L2 et L∞ en dimension 4, et voir que le plus proche voisin dépend de la norme.
@@ -259,7 +259,7 @@ Une usine décide d'arrêter une machine pour maintenance quand le score $z = \m
 | f | le vecteur unitaire dans la direction où le score augmente le plus vite | une liste (3 décimales) |
 | g | la distance de $M_2$ à la frontière $z = 0$ | un nombre (4 décimales) |
 
-Dans ta copie : où est $M_3$ par rapport à la frontière ? Que signifie le poids négatif de la troisième feature ? Si l'on multiplie $\mathbf{w}$ et $b$ par 10, que deviennent les décisions et la distance de g) ?
+Dans ta copie : où est $M_3$ par rapport à la frontière ? Que signifie le poids négatif de la troisième feature ? Écris l'équation de la frontière, et donne le point de cette frontière de la forme $(0, 0, t)$.
 
 ### Ex M07.8 — Centroïde, inertie et formule de König-Huygens ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer un barycentre et des inerties, à la main puis avec la formule de König-Huygens.
@@ -352,21 +352,21 @@ On note $\mathbf{1} = (1, \ldots, 1)$ le vecteur de $\mathbb{R}^d$ dont toutes l
 Dans ta copie : écris le cosinus de f) en fonction de $d$ ; vers quoi tend-il ? Deux sommets voisins d'une même face du cube, vus depuis le centre du cube, font-ils un grand ou un petit angle en grande dimension ?
 
 ### Ex M07.13 — La norme d'un vecteur gaussien : espérance, variance et concentration ✏️ ★★ ⏱️ 15 min
-**Objectif :** calculer l'espérance et la variance du carré de la norme d'un vecteur gaussien, et voir que sa dispersion relative diminue comme $\frac{1}{\sqrt{n}}$.
-**Prérequis :** fiche §7 ; M02b (variance d'une somme de variables indépendantes) ; M02c (inégalité de Bienaymé-Tchebychev) · **Parcours :** C
+**Objectif :** calculer le moment d'ordre 4 d'une loi normale, puis l'espérance et la variance du carré de la norme d'un vecteur gaussien, et voir que sa dispersion relative diminue comme $\frac{1}{\sqrt{n}}$.
+**Prérequis :** fiche §7 ; M02a (intégration par parties) ; M02b (variance d'une somme de variables indépendantes) ; M02c (§9, inégalité de Bienaymé-Tchebychev) · **Parcours :** C
 
-$Z$ est une variable de loi $\mathcal{N}(0, 1)$ ; on admet que $\mathbb{E}[Z^4] = 3$. $\mathbf{X} = (X_1, \ldots, X_n)$ est un vecteur de $\mathbb{R}^n$ dont les coordonnées sont des variables indépendantes de loi $\mathcal{N}(0, 1)$.
+$Z$ est une variable de loi $\mathcal{N}(0, 1)$, de densité $\varphi(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}$, qui vérifie $\varphi'(z) = -z\,\varphi(z)$ ; on rappelle que $\mathbb{E}[Z^2] = 1$. M02c (§9) a admis que $\mathbb{V}(Z^2) = 2$ : a) et b) le démontrent. Ensuite, $\mathbf{X} = (X_1, \ldots, X_n)$ est un vecteur de $\mathbb{R}^n$ dont les coordonnées sont des variables indépendantes de loi $\mathcal{N}(0, 9)$, d'écart-type 3 : $X_i = 3Z_i$, avec des $Z_i$ indépendantes de loi $\mathcal{N}(0, 1)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $\mathbb{V}(Z^2)$ | un entier |
-| b | $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big]$ en dimension 50 | un entier |
-| c | $\mathbb{V}\big(\lVert \mathbf{X} \rVert^2\big)$ en dimension 50 | un entier |
-| d | la dispersion relative de $\lVert \mathbf{X} \rVert^2$, son écart-type divisé par son espérance, en dimension 50 | un nombre |
-| e | la plus petite dimension $n$ pour laquelle cette dispersion relative est au plus 0,01 | un entier |
-| f | en dimension 20 000, la majoration de $P\big(\big\lvert \lVert \mathbf{X} \rVert^2 - n \big\rvert \ge \frac{n}{10}\big)$ que donne l'inégalité de Bienaymé-Tchebychev | un nombre |
+| a | $\mathbb{E}[Z^4] = \int_{-\infty}^{+\infty} z^3 \cdot z\,\varphi(z)\,dz$, par une intégration par parties (le terme de bord est nul) | un entier |
+| b | $\mathbb{V}(Z^2)$ | un entier |
+| c | $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big]$ en dimension 50 | un entier |
+| d | $\mathbb{V}\big(\lVert \mathbf{X} \rVert^2\big)$ en dimension 50 | un entier |
+| e | la dispersion relative de $\lVert \mathbf{X} \rVert^2$, son écart-type divisé par son espérance, en dimension 50 | un nombre |
+| f | en dimension 8 000, la majoration de $P\big(\big\lvert \lVert \mathbf{X} \rVert^2 - \mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] \big\rvert \ge \frac{1}{10}\,\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big]\big)$ que donne l'inégalité de Bienaymé-Tchebychev | un nombre |
 
-Dans ta copie : pourquoi les variances des $X_i^2$ s'additionnent-elles ? Écris d) en fonction de $n$. Avec l'approximation $\sqrt{t} \approx \sqrt{n} + \frac{t - n}{2\sqrt{n}}$ pour $t$ proche de $n$ (la tangente de M05a), déduis de c) l'écart-type approximatif de $\lVert \mathbf{X} \rVert$, et compare-le à la fiche (§7) et à M07.30.
+Dans ta copie : pourquoi les variances des $X_i^2$ s'additionnent-elles ? Écris e) en fonction de $n$ : pourquoi e) et f) ne dépendent-ils pas de l'écart-type 3 ? Quelle est la plus petite dimension pour laquelle la dispersion relative est au plus 1 % ? Avec l'approximation $\sqrt{t} \approx \sqrt{m} + \frac{t - m}{2\sqrt{m}}$ pour $t$ proche de $m = \mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big]$ (la tangente de M05a), déduis de d) l'écart-type approximatif de $\lVert \mathbf{X} \rVert$, et compare-le au cas d'écart-type 1 de la fiche (§7) et de M07.30.
 
 <a id="demonstrations"></a>
 
@@ -501,9 +501,9 @@ Réponds-lui **en huit lignes au plus**, sans formule. Ta réponse doit dire ce 
 ### M07.E1 — Que représente géométriquement le vecteur de poids d'un modèle linéaire ? 💼 ★ ⏱️ 10 min
 *Fiche §2 et §5 · parcours C*
 
-« Un modèle linéaire décide selon le signe de $\mathbf{w} \cdot \mathbf{x} + b$. Que représente géométriquement le vecteur $\mathbf{w}$ ? Et si l'on multiplie $\mathbf{w}$ et $b$ par 10, qu'est-ce qui change, et qu'est-ce qui ne change pas ? »
+« Un modèle linéaire décide selon le signe du score $\mathbf{w} \cdot \mathbf{x} + b$. Que représente géométriquement le vecteur $\mathbf{w}$ ? Et que mesure sa norme $\lVert \mathbf{w} \rVert$ ? »
 
-Prépare une réponse orale de **60 secondes**, que tu dirais à voix haute en entretien. Elle doit dire où est la frontière de décision et quel est le rôle de $\mathbf{w}$ par rapport à elle, ce que mesure $\frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert}$, et l'effet d'un changement d'échelle de $(\mathbf{w}, b)$, y compris par un nombre négatif. Compare ensuite avec la réponse modèle de `05_solutions.md`.
+Prépare une réponse orale de **60 secondes**, que tu dirais à voix haute en entretien. Elle doit dire où est la frontière de décision et quel est le rôle de $\mathbf{w}$ par rapport à elle, ce que mesure $\frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert}$, et de combien le score change quand on s'éloigne de la frontière d'une distance $\delta$, perpendiculairement à elle. Compare ensuite avec la réponse modèle de `05_solutions.md`.
 
 <a id="notebook"></a>
 
