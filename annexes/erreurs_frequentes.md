@@ -220,6 +220,24 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Conclure à une causalité | « corrélées à 0,6, donc l'une cause l'autre » | chercher une variable de confusion ; seule une expérience contrôlée établit une cause |
 | Croire que plus de données corrigent un biais d'échantillonnage | « un million d'exemples, donc l'estimation est fiable » | $n$ réduit la variance, pas le biais : se demander qui manque dans les données |
 
+## Vecteurs et géométrie de ℝⁿ (M07)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Oublier la racine d'une distance euclidienne | `np.sum((a - b) ** 2)` pris pour $\lVert \mathbf{a} - \mathbf{b} \rVert$ | c'est son **carré** : `np.sqrt(np.sum((a - b) ** 2))` ; le carré suffit pour comparer des distances, pas pour les additionner |
+| Diviser par une seule norme dans un cosinus | `(u @ v) / np.sqrt(u @ u)` | diviser par les **deux** normes : $\frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert}$ |
+| Projeter avec $\lVert \mathbf{u} \rVert$ au lieu de $\lVert \mathbf{u} \rVert^2$ | $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert}\,\mathbf{u}$ avec $\mathbf{u}$ non unitaire | $\frac{\mathbf{x} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}}\,\mathbf{u}$ ; $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert}$ est la **composante** (une longueur), $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}$ le **coefficient** |
+| Croire qu'un cosinus de 1 veut dire des vecteurs égaux | $\mathbf{u}$ et $2\mathbf{u}$ « identiques » car de cosinus 1 | même direction, longueurs différentes : à la distance $\lVert \mathbf{u} \rVert$ |
+| Prendre le score pour la distance à l'hyperplan | la distance de $\mathbf{x}$ à $\mathbf{w} \cdot \mathbf{x} + b = 0$ vaut « $\lvert \mathbf{w} \cdot \mathbf{x} + b \rvert$ » | diviser par $\lVert \mathbf{w} \rVert$ ; sinon multiplier $\mathbf{w}$ et $b$ par 10 changerait la distance |
+| Croire que $(-\mathbf{w}, -b)$ garde le même côté positif | « même hyperplan, donc mêmes côtés » | même hyperplan, mais les côtés sont échangés |
+| Additionner des distances au lieu de leurs carrés pour l'inertie | $\sum_i \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert$ | l'inertie est $\sum_i \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2$ ; c'est elle que minimise le barycentre |
+| Oublier le facteur $m$ dans König-Huygens | $\sum \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + \lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$ | $+\,m\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$ (ou $\Omega$ avec des poids) : chaque point compte |
+| Compter le point lui-même dans $a(i)$ | $a(i)$ divisé par la taille du cluster, avec une distance nulle | la moyenne sur les **autres** points du cluster |
+| Comparer des distances avec des features d'unités différentes | puissance en chevaux et masse en tonnes dans la même distance | standardiser chaque feature (avec les statistiques du jeu d'entraînement) avant de calculer des distances |
+| Coder des catégories par des entiers | vélo 1, bus 2, métro 3, marche 4 | un vecteur one-hot : sinon on invente un ordre et des distances entre catégories |
+| Oublier `axis` ou `keepdims` | `X / np.sqrt(np.sum(X ** 2, axis=1))` | `keepdims=True` (forme `(n, 1)`) pour diviser chaque **ligne** ; sans lui, NumPy divise les colonnes quand `X` est carré |
+| Croire que l'intuition de la dimension 2 vaut en dimension 1 000 | « deux vecteurs au hasard font un angle quelconque » | en grande dimension, ils sont presque orthogonaux, et toutes les distances se ressemblent |
+
 ## Matrices (M09a et suite)
 
 | Erreur | Exemple faux | Ce qu'il faut faire |

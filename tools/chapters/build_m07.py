@@ -1130,7 +1130,7 @@ def normalize_rows(X):
          "`keepdims`, les normes ont la forme `(n,)`, que NumPy aligne sur la **dernière** dimension de `X` : une erreur "
          "de forme si $p \\ne n$, et, pire, une division des **colonnes** sans message d'erreur quand `X` est carré. La "
          "ligne nulle demande un `np.where` : $\\frac{0}{0}$ donnerait `nan`. Sur 20 000 lignes, la version vectorisée "
-         "est en général des centaines de fois plus rapide que la boucle.",
+         "est en général une dizaine de fois plus rapide que la boucle, souvent davantage.",
 )
 
 M07_35_GIVEN = '''def make_cities(seed, angle):
@@ -1234,8 +1234,9 @@ print("centroid: +", round(100 * (total_distance(CITIES_35, CITIES_35.mean(axis=
          "pondérées par $\\frac{1}{\\lVert \\mathbf{x}_i - \\mathbf{c} \\rVert}$ : une ville lointaine tire moins fort que "
          "dans le barycentre, où chaque ville tire proportionnellement à sa distance. Le point fixe annule le gradient "
          "de la somme des distances, $\\sum_i \\frac{\\mathbf{c} - \\mathbf{x}_i}{\\lVert \\mathbf{c} - \\mathbf{x}_i \\rVert}$, "
-         "une somme de vecteurs unitaires. Le point trouvé est dans le groupe de 26 villes : avec les distances non "
-         "élevées au carré, chaque ville « vote » avec une force égale, et le groupe le plus nombreux l'emporte.",
+         "une somme de vecteurs unitaires. Le point trouvé est plus près du groupe de 26 villes que le barycentre (à "
+         "environ 3,8 km de son centre, contre 4,9 km) : avec les distances non élevées au carré, chaque ville "
+         "« vote » avec une force égale, et le groupe le plus nombreux l'emporte.",
 )
 
 

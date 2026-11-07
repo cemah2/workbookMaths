@@ -104,7 +104,14 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\lVert \mathbf{x} \rVert$ | « norme de x » | norm of x | longueur du vecteur | $\lVert (3, 4) \rVert = 5$ | R9, M07 |
 | $\lVert \mathbf{x} \rVert_1$, $\lVert \mathbf{x} \rVert_\infty$ | « norme un de x », « norme infinie de x » | L1 norm, infinity norm | $\sum_i \lvert x_i \rvert$ ; $\max_i \lvert x_i \rvert$ | $\lVert (-6, 2) \rVert_1 = 8$ | R9, M07 |
 | $\mathbf{x} \cdot \mathbf{y}$, $\langle \mathbf{x}, \mathbf{y} \rangle$ | « x scalaire y », « produit scalaire de x et y » | dot product, inner product | $\sum_i x_i y_i$ | $(1,2) \cdot (3,4) = 11$ | R9, M07 |
-| $\perp$ | « orthogonal à », « perpendiculaire à » | orthogonal to, perpendicular to | de produit scalaire nul | $(3, -1) \perp (1, 3)$ | R9 |
+| $\perp$ | « orthogonal à », « perpendiculaire à » | orthogonal to, perpendicular to | de produit scalaire nul | $(3, -1) \perp (1, 3)$ | R9, M07 |
+| $\lVert \mathbf{x} \rVert_p$ | « norme p de x » | p-norm of x | $\big(\sum_i \lvert x_i \rvert^p\big)^{1/p}$, une norme pour $p \ge 1$ | $\lVert (1, -1) \rVert_4 = 2^{1/4}$ | M07 |
+| $\mathbf{e}_i$ | « e i » | i-th standard basis vector | le vecteur de $\mathbb{R}^n$ qui a un 1 à la place $i$ et des 0 ailleurs | $\mathbf{e}_2 = (0, 1, 0)$ dans $\mathbb{R}^3$ | M07 |
+| $\mathbf{0}$, $\mathbf{1}$ | « vecteur nul », « vecteur des uns » | zero vector, all-ones vector | le vecteur dont toutes les coordonnées valent 0, ou 1 | $\lVert \mathbf{1} \rVert = \sqrt{n}$ dans $\mathbb{R}^n$ | M07 |
+| $\mathbf{x}^\top \mathbf{y}$ | « x transposé y » | x transpose y | le produit scalaire $\mathbf{x} \cdot \mathbf{y}$, écrit comme un produit de matrices (la notation de MML) | $(1, 2)^\top (3, 4) = 11$ | M07, M09a |
+| $\bar{\mathbf{x}}$ | « x barre » (en gras) | centroid, mean vector | le barycentre d'un nuage de points, la moyenne coordonnée par coordonnée | le barycentre de $(0, 0)$ et $(2, 4)$ est $(1, 2)$ | M07 |
+| $d(\mathbf{x}, H)$ | « distance de x à H » | distance from x to H | la distance d'un point à un hyperplan : $\frac{\lvert \mathbf{w} \cdot \mathbf{x} + b \rvert}{\lVert \mathbf{w} \rVert}$ | $d(\mathbf{0}, H) = \frac{\lvert b \rvert}{\lVert \mathbf{w} \rVert}$ | M07 |
+| $a(i)$, $b(i)$, $s(i)$ | « a de i », « b de i », « silhouette de i » | silhouette components | les distances moyennes du point $i$ aux autres points de son cluster, et au cluster voisin ; sa silhouette $\frac{b - a}{\max(a, b)}$ | $s(i) < 0$ : mieux dans le cluster voisin | M07 |
 | $\mathbf{A}$ (gras majuscule) | « la matrice A » | matrix A | un tableau de nombres | | M09a |
 | $\mathbf{A}^\top$ ou $\mathbf{A}^T$ | « A transposée » | A transpose | lignes et colonnes échangées | | M09a |
 | $\mathbf{A}\mathbf{B}$ | « A B », « produit de A par B » | matrix product | produit matriciel (l'ordre compte) | | M09a |

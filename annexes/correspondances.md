@@ -14,12 +14,12 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 4 · Règle de Bayes | M04 | §6.3, §6.6, §8.3 |
 | 5 · Courbes et surfaces | M05a, M05b | §5.1 ; §5.2 |
 | 6 · Théorie de l'information | M06 | — (MacKay) |
-| 7 · Classification | M07 | §3.1, §3.3–3.4 |
+| 7 · Classification | M07 | §3.1, §3.2.1, §3.3–3.4 |
 | 8 · Entraînement et test | M08 | §8.6 |
 | 9 · Overfitting et underfitting | M09a, M09b | §2.1–2.3 ; §8.1–8.2, ch. 9 |
 | 10 · Neurones | M10 | §12.1 |
 | 11 · Apprentissage et raisonnement | M11 | — |
-| 12 · Préparation des données | M12a, M12b, M12c, M12d | §2.4–2.8 ; §3.2, §3.5–3.8 ; §4.1–4.4 ; §4.5–4.7, ch. 10 |
+| 12 · Préparation des données | M12a, M12b, M12c, M12d | §2.4–2.8 ; §3.2.2–3.2.3, §3.5–3.8 ; §4.1–4.4 ; §4.5–4.7, ch. 10 |
 | 13 · Classifieurs | M13a, M13b | §8.3 ; §7.2–7.3, ch. 12 |
 | 14 · Ensembles | M14 | — |
 | 15 · scikit-learn | — (rien de nouveau) | — |
@@ -54,8 +54,8 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 |---|---|
 | §2.1–2.3 Systèmes linéaires, matrices, résolution | M09a |
 | §2.4–2.8 Espaces vectoriels, indépendance, base, rang, applications linéaires, espaces affines | M12a |
-| §3.1, §3.3–3.4 Normes, longueurs et distances, angles et orthogonalité | M07 |
-| §3.2, §3.5–3.8 Produits scalaires, bases orthonormées, complément orthogonal, produit scalaire de fonctions, projections | M12b |
+| §3.1, §3.2.1, §3.3–3.4 Normes, produit scalaire usuel, longueurs et distances, angles et orthogonalité | M07 |
+| §3.2.2–3.2.3, §3.5–3.8 Produits scalaires généraux, bases orthonormées, complément orthogonal, produit scalaire de fonctions, projections | M12b |
 | §3.9 Rotations | MB3 |
 | §4.1–4.4 Déterminant et trace, valeurs propres, Cholesky, diagonalisation | M12c |
 | §4.5–4.7 SVD, approximation de matrices, « phylogénie » des matrices | M12d |

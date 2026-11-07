@@ -315,7 +315,7 @@ Un découpage en deux clusters : $\{A = (0, 0),\ B = (2, 0),\ C = (1, 2)\}$ et $
 | e | on déplace $B$ dans le second cluster, sans bouger aucun point : la nouvelle silhouette de $B$ | un nombre (3 décimales) |
 | f | la silhouette d'un point seul dans son cluster (la convention de la fiche) | un nombre |
 
-Dans ta copie : le signe de e) était-il prévisible avant tout calcul ? Pourquoi $s(D)$ est-elle plus petite que $s(A)$, alors que $D$ a le cluster le plus serré ?
+Dans ta copie : le signe de e) était-il prévisible avant tout calcul ? Compare $a(D)$ à $a(A)$, puis $b(D)$ à $b(A)$ : lequel des deux nombres explique que $s(D)$ soit plus petite que $s(A)$ ?
 
 ### Ex M07.11 — k-means++ : des probabilités de tirage proportionnelles à D² ✏️ ★★ ⏱️ 15 min
 **Objectif :** calculer les probabilités de tirage de k-means++ pour le deuxième et le troisième centre, et les comparer à un tirage uniforme.
