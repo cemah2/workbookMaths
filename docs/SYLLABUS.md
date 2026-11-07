@@ -1550,8 +1550,8 @@ La théorie de l'information : quantité d'information, entropie, entropies conj
 | M06.R1 | 🔁 | Logarithmes en base 2 (R6) | ★ | 5 | §1 | C, E | manuel | — |
 | M06.R2 | 🔁 | Probabilités jointes et conditionnelles (M03) | ★ | 5 | §3 | C, E | manuel | — |
 | M06.R3 | 🔁 | Convexité (M05a) | ★ | 5 | §6 | C | manuel | — |
-| M06.1 | ✏️ | L'information d'événements et l'entropie d'une loi à quatre issues | ★ | 20 | §1 §2 | C, E | wbm | — |
-| M06.2 | ✏️ | L'entropie maximale : comparer des lois à quatre issues | ★★ | 15 | §2 | C | wbm | — |
+| M06.1 | ✏️ | L'information d'événements et l'entropie d'une loi à quatre issues | ★ | 20 | §1 §2 §3 | C, E | wbm | — |
+| M06.2 | ✏️ | L'entropie maximale : comparer des lois à quatre issues | ★★ | 15 | §2 §3 | C | wbm | — |
 | M06.3 | ✏️ | Entropies conjointe et conditionnelle d'un tableau 2 × 3 | ★★ | 20 | §3 | C, E | wbm | — |
 | M06.4 | ✏️ | La règle de la chaîne de l'entropie, vérifiée | ★ | 15 | §3 | C | wbm | — |
 | M06.5 | ✏️ | L'information mutuelle de deux variables | ★★ | 20 | §4 | C, E | wbm | — |
@@ -1576,7 +1576,7 @@ La théorie de l'information : quantité d'information, entropie, entropies conj
 | M06.23 | 🎨 | Un diagramme de l'information : H(X), H(Y), H(X | Y), I(X ; Y) | ★ | 20 | §3 §4 | C | manuel | — |
 | M06.24 | 🐛 | Chasse à l'erreur : log en base 10, 0 log 0, KL à l'envers | ★ | 15 | §5 | C | wbm | — |
 | M06.25 | 🛠️ | Calculer 0 log 0 proprement (`scipy.special.xlogy`) | ★ | 10 | §2 §3 | C | manuel | — |
-| M06.26 | 🏆 | Défi : localiser une panne parmi 100 serveurs en un minimum de questions | ★★★ | 25 | §1 §2 | C | wbm | — |
+| M06.26 | 🏆 | Défi : localiser une panne parmi 100 serveurs en un minimum de questions | ★★★ | 25 | §2 §7 | C | wbm | — |
 
 *Notes* : Entropie, cross-entropy, KL, Jensen-Shannon, Huffman et perplexité sont les fonctions de `mylearn` en workbookIA 6 ; mymath écrit ce qui les entoure (entropies conjointe et conditionnelle, information mutuelle, Kraft, codes préfixes, écart de Jensen). Le code de Huffman est énoncé, pas construit à la main ni programmé (workbookIA 6.6 et 6.23) ; ni Morse, ni pièce, ni dé, ni textes littéraires (workbookIA 6.1 à 6.4) ; la KL est calculée dans un seul sens, comme des bits perdus (workbookIA 6.5 la calcule dans les deux). COMPOSITION : pas de 📖 (MML ne traite pas l'information) ; lecture conseillée : MacKay, chapitres 1, 2, 5 et 8. Parcours essentiel : Jensen, la fin du §7 (longueur moyenne), Jensen-Shannon et démonstrations hors parcours ; Kraft y est, par Q7 et M06.8.
 

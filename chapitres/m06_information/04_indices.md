@@ -12,7 +12,7 @@
 
 <details><summary>Indice 1</summary>
 
-Relis « Plus c'est rare, plus ça informe » (fiche §1).
+Relis « Mesurer la surprise » (fiche §1).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -40,7 +40,7 @@ L'entropie est la moyenne des surprises $-\log_2 p(x)$, pondérée par les proba
 </details>
 <details><summary>Indice 3</summary>
 
-2 : la plus grande entropie sur $n$ issues est $\log_2 n$ ; combien vaut $\log_2 12$ ? 5 : laquelle des deux lois est la plus prévisible ?
+2 : la plus grande entropie sur $n$ issues est $\log_2 n$ ; compare $\log_2 7$ à $\log_2 8$. 5 : laquelle des deux lois est la plus prévisible ?
 
 </details>
 
@@ -130,7 +130,7 @@ Un code est préfixe si aucun mot n'est le début d'un autre ; des longueurs son
 </details>
 <details><summary>Indice 3</summary>
 
-2 : compare chaque paire de mots, puis calcule la somme de Kraft. 5 : la plus petite puissance de 2 au moins égale à 1 000.
+2 : compare chaque paire de mots, puis calcule la somme de Kraft. 5 : la plus petite puissance de 2 au moins égale à 300.
 
 </details>
 
@@ -147,12 +147,12 @@ Relis R6 (logarithmes) : $\log_2 x$ est l'exposant $y$ tel que $2^y = x$.
 </details>
 <details><summary>Indice 2</summary>
 
-$\log_2 \frac{1}{x} = -\log_2 x$, $\log_2(ab) = \log_2 a + \log_2 b$, $\log_2 \sqrt{x} = \frac{1}{2}\log_2 x$, $\log_2 x = \frac{\ln x}{\ln 2}$, et $\log_2 x = a$ équivaut à $x = 2^a$.
+$\log_2 \frac{x}{y} = \log_2 x - \log_2 y$, $\log_2(x^k) = k \log_2 x$, $\log_2$ est croissante, $\log_a b = \frac{1}{\log_b a}$, et $\log_2 x = a$ équivaut à $x = 2^a$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $4096 = 2^{12}$ et $2\sqrt{2} = 2^1 \times 2^{1/2}$. 3 : $48 = 16 \times 3$. 5 : pour quelle valeur de $p$ le logarithme est-il nul ?
+1 : $4096 = 2^{12}$ et $2\sqrt{2} = 2^1 \times 2^{1/2}$. 2 : $2^{5/2} = 2^2 \times \sqrt{2}$. 3 : $\frac{p}{8} = p \times 2^{-3}$. 5 : $\log_2 10 = \frac{1}{\log_{10} 2}$.
 
 </details>
 
@@ -200,7 +200,7 @@ Une fonction deux fois dérivable est convexe là où sa dérivée seconde est p
 
 <details><summary>Indice 1</summary>
 
-Relis la fiche §1 (bits et nats) et §2 (l'entropie).
+Relis la fiche §1 (bits et nats), §2 (l'entropie) et « La règle du regroupement » (fiche §3).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -218,12 +218,12 @@ a) $-\log_2 0{,}55 = \frac{-\ln 0{,}55}{\ln 2}$. e) Les deux erreurs regroupées
 
 <details><summary>Indice 1</summary>
 
-Relis « Ses valeurs extrêmes » (fiche §2), et le regroupement de M06.1.
+Relis « Ses valeurs extrêmes » (fiche §2) et « La règle du regroupement » (fiche §3).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque loi, la somme $\sum -p \log_2 p$. Pour e), sépare l'issue fixée des trois autres, comme le regroupement de M06.1 : $H = H(0{,}45 ;\ 0{,}55) + 0{,}55 \times (\ldots)$.
+Pour chaque loi, la somme $\sum -p \log_2 p$. d) Commence par la plus grande entropie possible sur quatre issues. Pour e), sépare l'issue fixée des trois autres, par la règle du regroupement : $H = H(0{,}45 ;\ 0{,}55) + 0{,}55 \times (\ldots)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -604,7 +604,7 @@ Que vaut $H(X^3 \mid X)$ ? Et $H(X \mid X^3)$ ? Écris $I(X ; X^2)$ avec une ent
 </details>
 <details><summary>Indice 3</summary>
 
-$X^3$ prend 7 valeurs différentes, $X^2$ seulement 4. Pour la corrélation de $X$ et $X^2$ : $\mathbb{E}[X^3] = 0$ par symétrie.
+$X^3$ prend 7 valeurs différentes, $X^2$ seulement 4. b) La corrélation ne vaut 1 que si les points $(x, x^3)$ sont alignés sur une droite croissante : le sont-ils ? Et quel est son signe, quand $x^3$ croît avec $x$ ?
 
 </details>
 
@@ -622,7 +622,7 @@ Relis la définition du biais d'un estimateur (M02c).
 </details>
 <details><summary>Indice 3</summary>
 
-`np.bincount(sample, minlength=k)` compte chaque valeur : $m$ est le nombre de comptes non nuls (`np.count_nonzero`). La correction est en bits : n'oublie pas le $\ln 2$.
+`np.bincount(sample, minlength=k)` compte chaque valeur : $m$ est le nombre de comptes non nuls (`np.count_nonzero`). La correction est en bits : $\ln 2$ au dénominateur, avec $2n$, et $m - 1$ au numérateur.
 
 </details>
 
@@ -684,7 +684,7 @@ Somme chaque ligne (`axis=1`), change le signe, et divise par `math.log(base)`.
 
 <details><summary>Indice 1</summary>
 
-Relis « Longueur moyenne et entropie » (fiche §7).
+Relis « Des questions à réponse oui ou non » (fiche §2) et « Longueur moyenne et entropie » (fiche §7).
 
 </details>
 <details><summary>Indice 2</summary>

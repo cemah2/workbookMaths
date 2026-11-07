@@ -46,6 +46,8 @@ MEAN = "H(Y | X) est une moyenne des entropies des lignes, pondérée par P(X = 
 WEIGHT = "pondère l'entropie de chaque ligne par sa probabilité P(X = x)"
 CONVERT_NATS = "la question demande des nats : convertis les bits en nats (fiche §1)"
 NAT_SMALLER = "1 nat vaut plus qu'un bit : le nombre de nats est plus petit que le nombre de bits"
+ROUNDED = ('"chaque terme −p log₂ p arrondi à 3 décimales décale le dernier chiffre de la somme : garde au moins 4 '
+           'décimales par terme"')
 
 PAPER = [
     Paper("M06.1", "L'information d'événements et l'entropie d'une loi à quatre issues", [
@@ -56,6 +58,8 @@ PAPER = [
          '''decimals=3, mistakes={"l'entropie est la moyenne des informations, pondérée par les probabilités, pas '''
          '''leur somme": INFO_SUM_1, "l'entropie pondère chaque information par la probabilité de son issue, pas par '''
          '''1/4": INFO_SUM_1 / 4, '''
+         '''"tes informations, arrondies à 2 décimales, décalent la moyenne : pour b), garde au moins 4 décimales '''
+         '''pour chaque information": sum(p * round(-math.log2(p), 2) for p in (0.55, 0.35, 0.07, 0.03)), '''
          f'''"{BITS}": H1 * math.log(2)}}'''),
         ("c", "a number (2 decimals)", "H1 * math.log(2)",
          f'''decimals=2, mistakes={{"{CONVERT_NATS}": H1, "{NAT_SMALLER}": H1 / math.log(2)}}'''),
@@ -65,7 +69,7 @@ PAPER = [
          '''probabilités, pas leur somme": -math.log2(0.58)}'''),
         ("e", "a number (3 decimals)", "H(0.55, 0.35, 0.1)",
          '''decimals=3, mistakes={"c'est l'entropie de la loi à quatre issues : regroupe d'abord les deux erreurs '''
-         '''en une seule issue, de probabilité la somme des deux": H1}'''),
+         '''en une seule issue, de probabilité la somme des deux": H1, ''' + ROUNDED + ''': 1.336}'''),
         ("f", "a number (3 decimals)", "2 * H1",
          '''decimals=3, mistakes={"c'est l'entropie d'une seule requête : le couple des codes de deux requêtes a '''
          '''seize issues possibles": H1}'''),
@@ -75,13 +79,16 @@ PAPER = [
         ("a", "a number (3 decimals)", "H(0.45, 0.3, 0.15, 0.1)",
          f'''decimals=3, mistakes={{"{BITS}": H(0.45, 0.3, 0.15, 0.1) * math.log(2)}}'''),
         ("b", "a number (3 decimals)", "H(0.4, 0.3, 0.15, 0.15)",
-         f'''decimals=3, mistakes={{"{BITS}": H(0.4, 0.3, 0.15, 0.15) * math.log(2)}}'''),
+         f'''decimals=3, mistakes={{"{BITS}": H(0.4, 0.3, 0.15, 0.15) * math.log(2), {ROUNDED}: 1.872}}'''),
         ("c", "a number (2 decimals)", "H(0.45, 0.3, 0.25)",
          f'''decimals=2, mistakes={{"{BITS}": H(0.45, 0.3, 0.25) * math.log(2)}}'''),
-        ("d", "an integer", "2",
-         '''mistakes={"l'entropie maximale sur n issues n'est pas n : relis « Ses valeurs extrêmes » (fiche §2)": 4}'''),
-        ("e", "a number (2 decimals)", "HMAX_2",
-         '''decimals=2, mistakes={"la contrainte fixe la probabilité de la première issue : la loi uniforme sur '''
+        ("d", "a number (3 decimals)", "2 - H(0.45, 0.3, 0.15, 0.1)",
+         '''decimals=3, mistakes={"l'entropie maximale sur n issues n'est pas n : relis « Ses valeurs extrêmes » (fiche '''
+         '''§2)": 4 - H(0.45, 0.3, 0.15, 0.1), "ce qu'il manque est le maximum moins H(A) : un nombre positif": '''
+         '''H(0.45, 0.3, 0.15, 0.1) - 2, "la question demande l'écart entre ce maximum et H(A), pas l'une des deux '''
+         '''entropies": {2, H(0.45, 0.3, 0.15, 0.1)}}'''),
+        ("e", "a number (3 decimals)", "HMAX_2",
+         '''decimals=3, mistakes={"la contrainte fixe la probabilité de la première issue : la loi uniforme sur '''
          '''quatre issues ne la respecte pas": 2}'''),
         ("f", "a number (2 decimals)", "HMAX_2 * math.log(2)",
          f'''decimals=2, mistakes={{"{CONVERT_NATS}": HMAX_2, "{NAT_SMALLER}": HMAX_2 / math.log(2)}}'''),
@@ -206,7 +213,8 @@ PAPER = [
          f'''decimals=3, mistakes={{"{BITS}": H(*P_9) * math.log(2)}}'''),
         ("b", "a number (2 decimals)", "L_9",
          '''decimals=2, mistakes={"la longueur moyenne pondère chaque longueur par la probabilité de son symbole": '''
-         '''sum(LENGTHS_9) / 6}'''),
+         '''sum(LENGTHS_9) / 6, "le code donne ses mots aux symboles dans l'ordre de l'énoncé : associe chaque '''
+         '''longueur à la probabilité de son symbole": sum(pi * li for pi, li in zip(P_9, sorted(LENGTHS_9)))}'''),
         ("c", "an integer", "3",
          '''mistakes={"avec ce nombre de chiffres binaires, combien de mots différents peut-on écrire ?": 2}'''),
         ("d", "a list of 6 integers", "[2, 3, 3, 4, 4, 5]",
@@ -292,7 +300,7 @@ CROSS_6 = sum(pi * -math.log2(qi) for pi, qi in zip(P_6, Q_6))                  
 P_9 = [0.4, 0.2, 0.15, 0.1, 0.1, 0.05]                                          # M06.9
 LENGTHS_9 = [2, 3, 2, 3, 3, 3]                                                  # the code {00, 100, 01, 101, 110, 111}
 L_9 = sum(pi * li for pi, li in zip(P_9, LENGTHS_9))
-LOSS_12 = -sum(math.log(p) for p in (0.5, 0.8, 0.35, 0.9, 0.4)) / 5            # M06.12, in nats'''
+LOSS_12 = -sum(math.log(p) for p in (0.5, 0.8, 0.35, 0.9, 0.45)) / 5            # M06.12, in nats'''
 
 PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M06.1 à M06.9, 🔗 M06.12 et M06.13)\n\n"
                "Fais d'abord les exercices de `02_exercices.md` **sur papier**, dans ta copie de "
@@ -563,7 +571,8 @@ wbm.record("M06.18c", "ValueError",
            mistakes={{"un mot de longueur 0 n'existe pas : la docstring demande une ValueError": "aucune",
                      "{wrong_error("ValueError")}": {errors_source("ValueError")}}})
 wbm.record("M06.18d", True,
-           mistakes={{"compare chaque paire de mots, dans les deux sens, avec str.startswith": False}})
+           mistakes={{"ne compare que des mots de positions différentes (un mot est toujours le début de lui-même), avec "
+                     "str.startswith (un mot contenu au milieu d'un autre n'en est pas le début)": False}})
 wbm.record("M06.18e", False,
            mistakes={{"compare chaque paire de mots, dans les deux sens : un mot court peut être le début d'un mot "
                      "long placé avant ou après lui dans la liste": True}})
@@ -760,7 +769,7 @@ M06_21 = Ex(
 - a) $I(X ; X^3)$ : (1) égale à $H(X)$ ; (2) 0 ; (3) strictement entre 0 et $H(X)$ ; (4) plus grande que $H(X)$ ;
 - b) la corrélation de $X$ et $X^3$ : (1) 0 ; (2) 1 ; (3) strictement entre 0 et 1 ; (4) négative ;
 - c) $I(X ; X^2)$ : (1) 0 ; (2) égale à $H(X)$ ; (3) strictement entre 0 et $H(X)$ ; (4) plus grande que $H(X)$ ;
-- d) $I(X ; X^2)$ est égale à : (1) $H(X) - H(X^2)$ ; (2) $H(X^2)$ ; (3) $H(X \mid X^2)$ ; (4) $2\,H(X^2)$.
+- d) $I(X ; X^2)$ est égale à : (1) $H(X) - H(X^2)$ ; (2) $H(X^2)$ ; (3) $H(X)$ ; (4) $2\,H(X^2)$.
 
 **Avant d'exécuter quoi que ce soit**, écris tes quatre prédictions (le **numéro du choix**), vérifie-les, puis lance l'expérience. Elle utilise les fonctions de la référence (les tiennes, M06.16 et M06.17, font la même chose).""",
     todo='''prediction_M06_21a = ...  # a) 1, 2, 3 or 4, written BEFORE running the experiment below
@@ -879,13 +888,23 @@ wbm.record("M06.22c", -0.1540643442201861, decimals=3,
            mistakes={"m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues "
                      "possibles": -0.041786602663002714,
                      "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur":
-                         -0.23028536288524393})
+                         {-0.23028536288524393, -0.2831177470723354},
+                     "la correction ajoute m − 1, pas m : une seule valeur observée ne corrige rien":
+                         -0.08192959217573792})
 wbm.record("M06.22d", 0.0013370553470379853, decimals=4,
            mistakes={"m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues "
-                     "possibles": 0.0014488642127066242})
+                     "possibles": 0.0014488642127066242,
+                     "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur":
+                         {-0.009696011809517291, -0.01734355120201192},
+                     "la correction ajoute m − 1, pas m : une seule valeur observée ne corrige rien":
+                         0.008550530551482804})
 wbm.record("M06.22e", 1.5731839055803842, decimals=4,
            mistakes={"m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues "
-                     "possibles": 1.3567796494470397 + 5 / (20 * math.log(2))})''',
+                     "possibles": 1.3567796494470397 + 5 / (20 * math.log(2)),
+                     "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur":
+                         {1.5067796494470396, 1.4607517265310315},
+                     "la correction ajoute m − 1, pas m : une seule valeur observée ne corrige rien":
+                         1.6453186576248324})''',
     after=[("md", "**Les biais pour les cinq tailles** (cette cellule utilise tes fonctions)."),
            ("todo", 'with checked("M06.22 tableau"):\n' + "\n".join("    " + line for line in M06_22_TABLE.splitlines())),
            ("solution", M06_22_TABLE)],
@@ -1085,8 +1104,9 @@ wbm.record("M06.24b", [1.4056390622295665, 0.9743147528693494, 1.75, 0.344360937
 )
 
 M06_25_CHECK = """with checked("M06.25 vérifications"):
+    import ast
     import inspect
-    import re
+    import textwrap
     import warnings
     problems = []
     tables_t = [[[0.5, 0.0], [0.2, 0.3]], [[0.1, 0.1, 0.0], [0.0, 0.0, 0.8]], [[0.25], [0.75]],
@@ -1124,12 +1144,22 @@ M06_25_CHECK = """with checked("M06.25 vérifications"):
             source_t = inspect.getsource(row_entropies)
         except (OSError, TypeError):
             source_t = ""
-        code_t = "\\n".join(line.split("#")[0] for line in source_t.splitlines()[1:])
-        if source_t and "xlogy" not in code_t:
-            problems.append("l'exercice demande xlogy : sers-t'en pour les termes p log p")
-        elif source_t and (re.search(r"\\bfor\\b|\\bwhile\\b", code_t) or re.search(r"[<>]=?\\s*0\\b", code_t)):
-            problems.append("ni boucle ni filtre : xlogy s'occupe des probabilités nulles, et NumPy de toutes les lignes "
-                            "à la fois (axis=1)")
+        try:
+            tree_t = ast.parse(textwrap.dedent(source_t)) if source_t else None
+        except SyntaxError:
+            tree_t = None
+        if tree_t is not None:
+            nodes_t = list(ast.walk(tree_t))
+            names_t = ({node.id for node in nodes_t if isinstance(node, ast.Name)}
+                       | {node.attr for node in nodes_t if isinstance(node, ast.Attribute)})
+            loop_t = any(isinstance(node, (ast.For, ast.While, ast.comprehension)) for node in nodes_t)
+            mask_t = any(isinstance(node, ast.Subscript)
+                         and any(isinstance(part, ast.Compare) for part in ast.walk(node.slice)) for node in nodes_t)
+            if "xlogy" not in names_t:
+                problems.append("l'exercice demande xlogy : sers-t'en pour les termes p log p")
+            elif loop_t or mask_t:
+                problems.append("ni boucle ni filtre : xlogy s'occupe des probabilités nulles, et NumPy de toutes les "
+                                "lignes à la fois (axis=1)")
     if problems:
         print("❌ Ex M06.25 : à revoir : " + " ; ".join(problems) + ".")
     else:
@@ -1279,7 +1309,7 @@ print("entropy of the 1/n law:", bound_26, "· of the uniform law:", math.log2(1
          r"7 questions pour certains ; au mieux, 28 serveurs en demandent 6 et 72 en demandent 7, soit $\frac{28 \times 6 "
          r"+ 72 \times 7}{100} = 6{,}72$ en moyenne (l'entropie vaut $\log_2 100 \approx 6{,}64$). Pour la loi en "
          r"$\frac{1}{n}$, couper la liste en deux moitiés de même longueur pose autant de questions pour le serveur 1, très "
-         r"probable, que pour le 100, très rare : environ 6,83 en moyenne. Couper la **probabilité** restante en deux "
+         r"probable, que pour le 100, très rare : 6,6 à 6,8 en moyenne. Couper la **probabilité** restante en deux "
          r"parts aussi égales que possible donne environ 5,37 questions en moyenne, tout près de l'entropie, environ "
          r"5,31 bits : les serveurs probables reçoivent des mots courts, comme dans un bon code.",
 )

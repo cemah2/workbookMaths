@@ -17946,7 +17946,8 @@
       "mistakes": {
         "14e84df199b09b71e64e874a356a891abb32677d3a8209eda8dfcca58a497964": "l'entropie est la moyenne des informations, pondérée par les probabilités, pas leur somme",
         "15bd802ac48fb7ef3b58493a96d7e467a975ae753159beb5fa7b6cea02b03bc1": "l'entropie pondère chaque information par la probabilité de son issue, pas par 1/4",
-        "71906a768eb37cc6b37fb76d4607f869e955aaa9a578723bf723da7fdc4bdd05": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
+        "71906a768eb37cc6b37fb76d4607f869e955aaa9a578723bf723da7fdc4bdd05": "la question demande des bits : log₂ x = ln x / ln 2, pas ln",
+        "d3b65ccb660a1f59fb2d9726cd6a915983d3c66423afd92f02e51e3bcd4273e4": "tes informations, arrondies à 2 décimales, décalent la moyenne : pour b), garde au moins 4 décimales pour chaque information"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18009,7 +18010,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "61f0f446aa2609f73d16f4ec5e32f347dfaa8e87cd092e4e4bb9d4b0e58d86a7": "c'est l'entropie de la loi à quatre issues : regroupe d'abord les deux erreurs en une seule issue, de probabilité la somme des deux"
+        "61f0f446aa2609f73d16f4ec5e32f347dfaa8e87cd092e4e4bb9d4b0e58d86a7": "c'est l'entropie de la loi à quatre issues : regroupe d'abord les deux erreurs en une seule issue, de probabilité la somme des deux",
+        "aa0fe8098aa3b1e8cb88d4c2a8a98c08e2e78a3b4cd56d1c53b2ea64be9430f9": "chaque terme −p log₂ p arrondi à 3 décimales décale le dernier chiffre de la somme : garde au moins 4 décimales par terme"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18075,6 +18077,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "529bc07f521516cc12b794afd4ebd1ed2c63e4fc07a6d0763052cecb1ee47de5": "chaque terme −p log₂ p arrondi à 3 décimales décale le dernier chiffre de la somme : garde au moins 4 décimales par terme",
         "ac4c42e24b1b96269a8615de78498753b51b411a69fc05ac6b5b4640db0469de": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
       },
       "sign": 1,
@@ -18098,28 +18101,46 @@
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.2d": {
-      "hash": "812eb292e560e03f23d3ab2e9512f0f6fe870d1ff353ce0d4a023365b8784931",
-      "kind": "int",
-      "magnitude": 0,
+      "coarse_any": {
+        "1": [
+          "5934ac9808ecbc77458f90a54d009ec93df5feecbc429bc70cee643005fedd72"
+        ]
+      },
+      "decimals": 3,
+      "hash": "d610c44029dd5700f4c044ed208f50cb87301677697063aebb75820ddf06bf56",
+      "hash_coarse": "95f971df34ada0ec2aada27c4c6dd0f65960ac72861ed4285dc0a8a1fa0928d6",
+      "kind": "float",
+      "magnitude": -1,
       "mistakes": {
-        "63c59533604bdbf914f0a33e43ad276c522817d3a384ac0fbab9eae2ab28b69a": "l'entropie maximale sur n issues n'est pas n : relis « Ses valeurs extrêmes » (fiche §2)"
+        "0916b29e1b0bc109c124d8b606047e756c091a0e437db679deef21fb32f1b9ea": "l'entropie maximale sur n issues n'est pas n : relis « Ses valeurs extrêmes » (fiche §2)",
+        "306911255b1eca0f01aed09d2da4fa5e1bd11d5ed6494fc3e8329681161eb911": "la question demande l'écart entre ce maximum et H(A), pas l'une des deux entropies",
+        "33d473212265e2dde81c913e53fe99057103ebc59fb57bea11df68c0333d5544": "la question demande l'écart entre ce maximum et H(A), pas l'une des deux entropies",
+        "d5d3e871ead245b4fb9fe1ab78e6d49e32e02ef13558760c154945c9efe09269": "ce qu'il manque est le maximum moins H(A) : un nombre positif"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.2e": {
+      "alt_hashes": [
+        "d816d0daeed1b28d583064410a465144635cf9cb1794a2776f401f7ef5490378"
+      ],
       "coarse_any": {
         "0": [
           "7e1b3926ade2940129f9f2dbc0b83489e50a78b937aa18da70b519799c8037a5"
         ]
       },
-      "decimals": 2,
-      "hash": "51e9ee70bd442aea77b5ec24e2407c6cff0ad3046fd7236c4c4f9537365b00f6",
-      "hash_coarse": "2cc33e873dd591fd1814aea853f39dcbe875fbe6232de5bd057d28eb420f571d",
+      "coarser": {
+        "1": [
+          "2cc33e873dd591fd1814aea853f39dcbe875fbe6232de5bd057d28eb420f571d"
+        ]
+      },
+      "decimals": 3,
+      "hash": "0a725d0bd97f9ec8f612a39f1bf630749980e918c115f45bd7f1b91f662dc959",
+      "hash_coarse": "51e9ee70bd442aea77b5ec24e2407c6cff0ad3046fd7236c4c4f9537365b00f6",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "09e8b25c4f28812adcbbca68de8878dfb6ca3ff91b5743052a9bde5a3096e7ea": "la contrainte fixe la probabilité de la première issue : la loi uniforme sur quatre issues ne la respecte pas"
+        "a00657239f786020f23a10b636e39da67b7c952d1355a9d79de71122e8f4d3ba": "la contrainte fixe la probabilité de la première issue : la loi uniforme sur quatre issues ne la respecte pas"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18844,6 +18865,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "0e1126c985e89c3b40e66e09dcdc6d22d433eff9c7d07f02a0f050aac761b35b": "le code donne ses mots aux symboles dans l'ordre de l'énoncé : associe chaque longueur à la probabilité de son symbole",
         "e4237554dc330d7db7bd4f76b68aa069b6034a9abbf556405647679863ec02cf": "la longueur moyenne pondère chaque longueur par la probabilité de son symbole"
       },
       "sign": 1,
@@ -18969,13 +18991,13 @@
         ]
       },
       "decimals": 3,
-      "hash": "5355212b843a666fbd7cfb3d87646fd216d25ac76f11f758a9893441b5ab4ea5",
-      "hash_coarse": "fc97013b8c8f6b7999c116b03fb6dea64b44699ee2eeebfb1431ad2289ccb25e",
+      "hash": "f427367e323274aafd8a79259d8073e2c1398f08f3c7fc658cd08f5a31518caa",
+      "hash_coarse": "52866acf36638d0977b12da8d4ff54e1f70b1a020af533d6cbf85774cfad0e46",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "47e248327f658536d56581919c15c2bc6a944dc6af22bbf95124d025d70c7e83": "la log loss est une moyenne sur les images, pas une somme",
-        "c26dad28cd7b101569ebd51a9e5fe32cdf7766c6ea29e74270280862728f3783": "la question demande des nats : ln, pas log₂"
+        "d5b015c3cacb0cacf20d13024105531a008b4d8618bdefd80538f2bc7d4d38bb": "la log loss est une moyenne sur les images, pas une somme",
+        "dbc63f3307ffaa2ff823cd06a0e2afaf02854eb3c00ccac219ce054a46771073": "la question demande des nats : ln, pas log₂"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18987,13 +19009,13 @@
         ]
       },
       "decimals": 2,
-      "hash": "f99a3dfda1216f3d6160961d6827edfd0731bfeb88dd8d6e7e9e2754bfd80752",
-      "hash_coarse": "bc00346273e9ac497751b1e77d1ca94df4bec7b120b785f1f5f789e1616fa64f",
+      "hash": "db62bd5e850620bb7ca9dd24048b26ae647a1939f73a25532f9b028325d3d385",
+      "hash_coarse": "ab59b5f0b7243d3595a9b4eac560b6ce32a5a1f01128595c82551ad391e8e4b8",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "44672c84c244f003ca42c59771ad783d93f841a033d08b9e32e42a1c5837bc1b": "la question demande des bits : convertis les nats en bits",
-        "f98993ce6fe67a53f683ede6a34d25e65058804d3aa63ff9555a002542340838": "1 nat vaut plus qu'un bit : le nombre de bits est plus grand que le nombre de nats"
+        "19e06eeff5ea4e12295ba769103a77f38f2d8dcb24db679b1924d3f5a1145bb3": "1 nat vaut plus qu'un bit : le nombre de bits est plus grand que le nombre de nats",
+        "cd583df88b2ad29c0a82f72daaa6e3aa94ccda3dd0f1142e3ecf6f312daf8a24": "la question demande des bits : convertis les nats en bits"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19040,12 +19062,12 @@
         ]
       },
       "decimals": 3,
-      "hash": "6afd95e34090c2e908de3e210d36f8dc61ca833c5bd8c0fb2fdf84e9464a7fa2",
-      "hash_coarse": "8e1c666fac8b8b60a41e91f3b71704858b192c42051183db45bde8d94f8627a6",
+      "hash": "9de318b27c0fdeab40c1683d098635737c35a0144c94d2f539a3bc7b9fca3656",
+      "hash_coarse": "0a87a214aa30b89f1740d66f5a123376ec014454f06a42c326df383e020b7aa6",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "78cea205328ef9dbfec9569fbf157732e4fd4341ef147f4776977949d3bbc2e4": "la log loss est en nats : son exponentielle est en base e, pas 2"
+        "46e0b64f2a805783036f83ca7f0dbfdbf15435d778f5fc6184b40555a8fafb55": "la log loss est en nats : son exponentielle est en base e, pas 2"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19541,7 +19563,7 @@
       "hash": "02598e11eabc013f5c07b95036b6a11a7ac51448dd6fa7ce8d9434bd84c555ad",
       "kind": "bool",
       "mistakes": {
-        "d78985b19b568dcbed5f6b93c913c8c257aede1fa4f16571aa7dc5db1684bbe1": "compare chaque paire de mots, dans les deux sens, avec str.startswith"
+        "d78985b19b568dcbed5f6b93c913c8c257aede1fa4f16571aa7dc5db1684bbe1": "ne compare que des mots de positions différentes (un mot est toujours le début de lui-même), avec str.startswith (un mot contenu au milieu d'un autre n'en est pas le début)"
       },
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
@@ -19924,8 +19946,10 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "6e308542b9ab2319416a6c3c111cef49f3bfb1e71243afde15cbf8b2c7516b07": "la correction ajoute m − 1, pas m : une seule valeur observée ne corrige rien",
         "ad9cd80d65521cf88e2b23831af791e172321d4286723b608a02253286a1620a": "m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues possibles",
-        "bbc93c45968f096dcdd39d0a167d83267f7cbd3c1681e55c010af1de288003f5": "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur"
+        "bbc93c45968f096dcdd39d0a167d83267f7cbd3c1681e55c010af1de288003f5": "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur",
+        "bfea874ab2fd62a671d59edd48c4f6c64ed3725fb43234c61607bd8b67488ac4": "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur"
       },
       "sign": -1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19937,7 +19961,11 @@
       "kind": "float",
       "magnitude": -3,
       "mistakes": {
+        "0b01c404a773c9386fb3ba0b336270671092d2996f0fed67bff58b0c7536d9eb": "la correction ajoute m − 1, pas m : une seule valeur observée ne corrige rien",
+        "1071c47cff782f76fa4fffed28a15749788bb0498152ba110be2b5235e3c4076": "la correction ajoute m − 1, pas m : une seule valeur observée ne corrige rien",
+        "2a2a02913ae1b8db5c9fce4f7a0eacd2bd2b8d1dfa860f022ec421e0c1cf794d": "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur",
         "3d3896e3ef89681c113f244ce92015d6fc42b6611b5296e049ee06f2936aff8d": "m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues possibles",
+        "836d86a975a826f216233d28104e7934966349c6963822dcda12f17fb569d186": "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur",
         "b13b888cf2760c63eadcdfdf64483ffc5e0734773b88744ee39640f045358856": "m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues possibles"
       },
       "sign": 1,
@@ -19963,7 +19991,11 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "41168c8c4cddb2e6fcf992399fc6ef963d0fffe64f688fde48bca80207192575": "m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues possibles"
+        "41168c8c4cddb2e6fcf992399fc6ef963d0fffe64f688fde48bca80207192575": "m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues possibles",
+        "4281ae27961fc43182b0f46cc7a71f4f8f420e0b59399604f703a16b126cf41f": "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur",
+        "4c5ea7f1cb5862114cff40cfde3f3c4dc984c56345a5b29b67bc6693a576b075": "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur",
+        "bac3eca13f4d04c912ebeccb91d763463584e32618b0dfb52475208a50686808": "la correction ajoute m − 1, pas m : une seule valeur observée ne corrige rien",
+        "ec6bc6ee263f8518a5fa4104acdb1918898ab76fde76bf5892d96325a1523b43": "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"

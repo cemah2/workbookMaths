@@ -46,7 +46,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | chiffres significatifs | significant figures | les chiffres d'un nombre à partir du premier chiffre non nul | R1 |
 | classe positive | positive class | la classe que l'on cherche à détecter (la panne, le défaut), codée 1 | M03 |
 | code de longueur fixe, de longueur variable | fixed-length code, variable-length code | un code dont tous les mots ont la même longueur ($\lceil \log_2 N \rceil$ bits pour $N$ issues) ; un code qui donne des mots plus courts aux issues fréquentes | M06 |
-| code préfixe | prefix code, prefix-free code | un code où aucun mot n'est le début d'un autre : il se lit sans séparateur | M06 |
+| code préfixe | prefix code, prefix-free code | un code où aucun mot n'est le début d'un autre : des mots écrits bout à bout se découpent sans ambiguïté | M06 |
 | coefficient | coefficient | nombre qui multiplie la partie littérale d'un terme : 7 dans $7x^2$ | R2 |
 | coefficient binomial | binomial coefficient | $\binom{n}{k}$, « k parmi n » : le nombre de façons de choisir $k$ objets parmi $n$, sans ordre | R8 |
 | coefficient multiplicateur | multiplier, growth factor | nombre $1 + t$ par lequel une évolution de taux $t$ multiplie une valeur | R1 |

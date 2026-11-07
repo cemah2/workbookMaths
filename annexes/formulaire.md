@@ -292,13 +292,14 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | entropie | $H(p) = -\sum p_i \log_2 p_i = \mathbb{E}[-\log_2 p(X)]$, avec $0 \log 0 = 0$ ; $0 \le H(p) \le \log_2 n$, le maximum pour la loi uniforme |
 | conjointe, conditionnelle | $H(X, Y) = -\sum p(x, y) \log_2 p(x, y)$ ; $H(Y \mid X) = \sum_x p(x)\,H(Y \mid X = x)$, où la loi de $Y$ sachant $X = x$ est la ligne $x$ divisée par $p(x)$ |
 | règle de la chaîne | $H(X, Y) = H(X) + H(Y \mid X) = H(Y) + H(X \mid Y)$ ; $H(Y \mid X) \le H(Y)$ et $H(X, Y) \le H(X) + H(Y)$, égalités pour des variables indépendantes |
+| regroupement | regrouper des issues en une seule, de probabilité $s$ : $H(X) = H(G) + s\,H(\text{loi des issues regroupées, divisées par } s)$ |
 | information mutuelle | $I(X ; Y) = H(X) - H(X \mid Y) = H(Y) - H(Y \mid X) = H(X) + H(Y) - H(X, Y) = D_{\mathrm{KL}}(p_{XY} \parallel p_X\,p_Y) \ge 0$ ; nulle si et seulement si $X$ et $Y$ sont indépendantes ; $I(X ; X) = H(X)$ |
 | cross-entropy, KL | $H(p, q) = -\sum p_i \log_2 q_i$ ; $D_{\mathrm{KL}}(p \parallel q) = \sum p_i \log_2 \frac{p_i}{q_i} = H(p, q) - H(p) \ge 0$ (Gibbs), nulle si et seulement si $p = q$ ; pas symétrique ; infinie si $q_i = 0$ là où $p_i > 0$ |
 | log loss, perplexité | log loss $= \frac{1}{n}\sum_k -\ln \hat{p}_k$, où $\hat{p}_k$ est la probabilité donnée à la vraie classe de l'exemple $k$ (en nats) ; perplexité $2^{H(p, q)}$ (en bits) |
 | inégalité de Jensen | $f$ convexe : $f(\mathbb{E}[X]) \le \mathbb{E}[f(X)]$ ; $f$ concave : l'inverse ; pour $f$ strictement convexe, égalité seulement si $X$ est constante ; $f(x) = x^2$ : l'écart est la variance |
 | Jensen-Shannon | $\mathrm{JS}(p, q) = \frac{1}{2}D_{\mathrm{KL}}(p \parallel m) + \frac{1}{2}D_{\mathrm{KL}}(q \parallel m)$, avec $m = \frac{p + q}{2}$ : symétrique, finie, nulle si et seulement si $p = q$ |
 | codes | longueur fixe : $\lceil \log_2 N \rceil$ bits pour $N$ issues ; code préfixe : Kraft $\sum_i D^{-\ell_i} \le 1$ ($D = 2$ en binaire), et réciproquement ; $\bar{L} = \sum p_i \ell_i \ge H(p)$ ; longueurs de Shannon $\lceil -\log_2 p_i \rceil$ : $\bar{L} < H(p) + 1$ |
-| estimer une entropie | l'estimateur plug-in (les fréquences) a un biais $\approx -\frac{k - 1}{2n\ln 2}$ bit pour $k$ issues et $n$ observations ; correction de Miller-Madow : ajouter $\frac{k - 1}{2n\ln 2}$ |
+| estimer une entropie | l'estimateur plug-in (les fréquences) a un biais $\approx -\frac{k - 1}{2n\ln 2}$ bit pour $k$ issues et $n$ observations ; correction de Miller-Madow : ajouter $\frac{m - 1}{2n\ln 2}$, où $m$ est le nombre de valeurs différentes observées |
 
 ## Partie II · Concepts
 

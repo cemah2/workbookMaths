@@ -22,13 +22,13 @@
 
 | Section | Quiz 🧠 | Papier et réflexion | Notebook |
 |---|---|---|---|
-| §1 Information de Shannon | Q1, R1 🔁 | M06.1 ✏️ | M06.26 🏆 |
+| §1 Information de Shannon | Q1, R1 🔁 | M06.1 ✏️ | |
 | §2 Entropie | Q2 | M06.1 ✏️, M06.2 ✏️, M06.14 🧮 | M06.22 🔬, M06.25 🛠️, M06.26 🏆 |
-| §3 Entropies conjointe et conditionnelle | Q3, R2 🔁 | M06.3 ✏️, M06.4 ✏️ | M06.16 🔨, M06.23 🎨, M06.25 🛠️ |
+| §3 Entropies conjointe et conditionnelle | Q3, R2 🔁 | M06.1 ✏️, M06.2 ✏️, M06.3 ✏️, M06.4 ✏️ | M06.16 🔨, M06.23 🎨, M06.25 🛠️ |
 | §4 Information mutuelle | Q4 | M06.5 ✏️, M06.10 ∂, M06.15 🗣️, M06.E1 💼 | M06.17 🔨, M06.20 📦, M06.21 🔮, M06.23 🎨 |
 | §5 Cross-entropy et divergence KL | Q5 | M06.6 ✏️, M06.12 🔗 | M06.24 🐛 |
 | §6 Jensen, positivité de la KL, Jensen-Shannon | Q6, R3 🔁 | M06.7 ✏️, M06.11 ∂ | M06.19 🔨 |
-| §7 Codes et inégalité de Kraft | Q7 | M06.8 ✏️, M06.9 ✏️ | M06.18 🔨 |
+| §7 Codes et inégalité de Kraft | Q7 | M06.8 ✏️, M06.9 ✏️ | M06.18 🔨, M06.26 🏆 |
 | §8 Perplexité, choisir des features | | M06.12 🔗, M06.13 🔗 | |
 
 Parcours essentiel : tout sauf M06.Q4, M06.Q6, M06.R3, M06.2, M06.4, M06.7, M06.9 à M06.11, M06.13, M06.14, M06.E1, M06.18 à M06.20 et M06.22 à M06.26. L'inégalité de Jensen (§6) et la fin du §7 (longueur moyenne et entropie) se lisent en survol ; la divergence de Jensen-Shannon et les démonstrations sont hors parcours.
@@ -65,8 +65,8 @@ Vocabulaire anglais de ce chapitre : *information content* (*self-information*, 
 6. **Cross-entropy** : $H(p, q) = -\sum_x p(x) \log_2 q(x)$, le coût moyen de données tirées de $p$ codées pour $q$ ; **divergence KL** : $\mathrm{KL}(p \,\|\, q) = \sum_x p(x) \log_2 \frac{p(x)}{q(x)} = H(p, q) - H(p)$, les bits perdus. Elle n'est pas symétrique.
 7. **Jensen** : pour $f$ convexe, $f(\mathbb{E}[X]) \le \mathbb{E}[f(X)]$ (l'inverse pour $f$ concave). Avec $\log$ concave, il donne $\mathrm{KL}(p \,\|\, q) \ge 0$, nulle seulement si $p = q$ ; d'où $H(p, q) \ge H(p)$ et $I(X ; Y) \ge 0$.
 8. **Jensen-Shannon** : $\mathrm{JS}(p, q) = \frac{1}{2}\mathrm{KL}(p \,\|\, m) + \frac{1}{2}\mathrm{KL}(q \,\|\, m)$ avec $m = \frac{p + q}{2}$ : symétrique, toujours finie, nulle seulement si $p = q$.
-9. **Codes** : un code **préfixe** se lit sans séparateur ; des longueurs $\ell_i$ sont possibles pour un code préfixe binaire si et seulement si $\sum_i 2^{-\ell_i} \le 1$ (**Kraft**). La longueur moyenne $\bar{L} = \sum_i p_i \ell_i$ vérifie $\bar{L} \ge H$, et l'on peut atteindre $\bar{L} < H + 1$.
-10. **Log loss** = cross-entropy moyenne avec des cibles *one-hot* ; **perplexité** $= 2^{\text{cross-entropy en bits}}$, le nombre d'options entre lesquelles le modèle hésite, en moyenne ; on classe des features par leur information mutuelle avec la cible.
+9. **Codes** : un code **préfixe** (aucun mot n'est le début d'un autre) se découpe en mots sans ambiguïté ; des longueurs $\ell_i$ sont possibles pour un code préfixe binaire si et seulement si $\sum_i 2^{-\ell_i} \le 1$ (**Kraft**). La longueur moyenne $\bar{L} = \sum_i p_i \ell_i$ vérifie $\bar{L} \ge H$, et l'on peut atteindre $\bar{L} < H + 1$.
+10. **Log loss** = cross-entropy moyenne avec des cibles *one-hot* ; **perplexité** $= 2^{\text{cross-entropy en bits}}$, comparable à un tirage au hasard entre autant de tokens à chaque position ; on classe des features par leur information mutuelle avec la cible.
 
 ---
 
@@ -74,24 +74,24 @@ Vocabulaire anglais de ce chapitre : *information content* (*self-information*, 
 
 ### Mesurer la surprise
 
-Shannon laisse de côté le **sens** d'un message : ce qui compte, pour mesurer l'information qu'il apporte, c'est sa **probabilité**. Apprendre qu'un événement presque certain s'est produit n'apprend presque rien ; apprendre qu'un événement rare s'est produit apprend beaucoup. On veut donc une mesure $I(p)$ de l'information d'un événement de probabilité $p$ qui :
+Shannon laisse de côté le **sens** d'un message : ce qui compte, pour mesurer l'information qu'il apporte, c'est sa **probabilité**. Un message qui annonce ce que tout le monde attendait ne change aucune prévision ; celui qui annonce un événement improbable oblige à revoir ce que l'on croyait. On veut donc une mesure $I(p)$ de l'information d'un événement de probabilité $p$ qui :
 - vaut 0 pour un événement certain ($p = 1$) ;
 - **augmente** quand $p$ diminue ;
 - **s'additionne** pour deux événements indépendants : si $A$ et $B$ sont indépendants, $P(A \cap B) = P(A)\,P(B)$ (M03), et l'on veut $I(P(A)\,P(B)) = I(P(A)) + I(P(B))$.
 
-La troisième condition demande une fonction qui change un produit en somme : un logarithme (R6). Le signe « moins » la rend positive, puisque $\log p \le 0$ pour $p \le 1$. L'**information** (*information content*, ou *surprisal*, la « surprise ») d'un événement de probabilité $p$ est
+La troisième condition demande une fonction qui change un produit en somme : un logarithme (R6). Une probabilité ne dépasse pas 1, donc son logarithme est négatif ou nul : on en prend l'opposé. L'**information** (*information content*, ou *surprisal*, la « surprise ») d'un événement de probabilité $p$ est
 
 $$\boxed{I = -\log_2 p = \log_2 \frac{1}{p} \quad \text{bits.}}$$
 
 Par exemple, $-\log_2 \frac{1}{64} = \log_2 64 = 6$ bits, puisque $2^6 = 64$. Si l'on répète deux fois, de façon indépendante, une expérience où cet événement a la probabilité $\frac{1}{64}$, le voir sortir les deux fois a la probabilité $\frac{1}{4096}$, et apporte $\log_2 4096 = 12 = 6 + 6$ bits. Plus généralement, passer de $p$ à $\frac{p}{2}$ ajoute $\log_2 2 = 1$ bit. Un événement de probabilité $0{,}3$ apporte $-\log_2 0{,}3 = \frac{-\ln 0{,}3}{\ln 2} \approx \frac{1{,}204}{0{,}693} \approx 1{,}737$ bit : l'information n'a aucune raison d'être un nombre entier.
 
-**Deux sens du mot « bit ».** En théorie de l'information, 1 bit est la quantité apportée par un événement de probabilité $\frac{1}{2}$, comme la réponse à une question dont les deux réponses sont également probables. En informatique, un bit est une case mémoire qui contient 0 ou 1. Les deux ne coïncident que si cette case est imprévisible : une case qui vaut presque toujours 0 transporte bien moins d'un bit d'information.
+**Deux sens du mot « bit ».** En théorie de l'information, le bit est une unité de mesure : 1 bit est ce qu'apporte un événement de probabilité $\frac{1}{2}$. En informatique, un bit est un chiffre binaire stocké, 0 ou 1. Un chiffre stocké apporte au plus 1 bit d'information, souvent moins : une suite de 1 000 chiffres binaires où chacun recopie le précédent occupe 1 000 bits de mémoire, mais n'apporte pas plus d'information que son premier chiffre, soit au plus 1 bit.
 
 Attention à la lettre $I$ : elle désigne ici l'information d'un événement, et au §4 l'information mutuelle $I(X ; Y)$ de deux variables ; le contexte (un nombre $p$, ou deux variables séparées par un point-virgule) les distingue.
 
 ### Bits et nats
 
-Avec le logarithme népérien, on mesure l'information en **nats** : $I = -\ln p$. C'est l'unité des calculs (les dérivées de $\ln$ sont plus simples) et des bibliothèques de machine learning. On passe d'une unité à l'autre par un facteur constant, puisque $\log_2 x = \frac{\ln x}{\ln 2}$ :
+Avec le logarithme népérien, on mesure l'information en **nats** : $I = -\ln p$. C'est l'unité des calculs (les dérivées de $\ln$ sont plus simples) et des bibliothèques de machine learning. Les deux unités ne diffèrent que d'un facteur, le même pour toutes les probabilités, puisque $\log_2 x = \frac{\ln x}{\ln 2}$ :
 
 $$1 \text{ nat} = \frac{1}{\ln 2} \approx 1{,}443 \text{ bit}, \qquad 1 \text{ bit} = \ln 2 \approx 0{,}693 \text{ nat}.$$
 
@@ -128,11 +128,11 @@ $$0 \le H(X) \le \log_2 n.$$
 - $H(X) = 0$ si et seulement si une issue est **certaine** : chaque terme $-p_i \log_2 p_i$ est positif ou nul, et il est nul seulement pour $p_i = 0$ ou $p_i = 1$.
 - $H(X) = \log_2 n$ si et seulement si la loi est **uniforme** : chacune des $n$ issues apporte alors $\log_2 n$ bits. On admet ici que c'est le maximum (la démonstration est un exercice du chapitre 6 de workbookIA).
 
-L'entropie mesure donc l'**incertitude** avant l'expérience : nulle quand on sait déjà, maximale quand toutes les issues se valent. Une source très prévisible a une entropie faible.
+L'entropie mesure donc ce que l'on **ignore** de l'issue avant de la voir : rien pour une loi certaine, le plus possible pour une loi uniforme. Plus une loi se concentre sur peu d'issues, plus son entropie baisse.
 
 ![Trois lois sur neuf issues : la loi uniforme a l'entropie maximale, log₂ 9 ≈ 3,17 bits ; une loi inégale en a moins ; une loi certaine, aucune](figures/trois_lois.png)
 
-**Une lecture par les questions.** L'entropie se lit aussi comme le nombre moyen de questions oui/non qu'il faut poser pour trouver l'issue, avec la meilleure stratégie : une question bien choisie coupe les chances en deux et rapporte 1 bit. Ce nombre moyen est toujours au moins $H(X)$, et il en est proche (le §7 le précise avec les codes ; M06.26 en fait un défi).
+**Des questions à réponse oui ou non.** Pour identifier l'issue, on peut poser des questions dont la réponse est oui ou non. Une réponse est un événement de probabilité $P$ ou $1 - P$ : elle apporte en moyenne $H(P, 1 - P) \le 1$ bit, avec égalité pour $P = \frac{1}{2}$. Quelle que soit la stratégie, il faut donc, en moyenne, au moins $H(X)$ questions ; le §7 montre, avec les codes, qu'on peut s'en approcher (M06.26 en fait un défi).
 
 ⚠️ **Erreur classique.** Laisser l'ordinateur calculer $0 \times \log 0$ : NumPy calcule $\log 0 = -\infty$, puis $0 \times (-\infty)$, qui n'est pas un nombre (`nan`), et toute la somme devient `nan`. On écarte d'abord les probabilités nulles, ou l'on utilise une fonction qui applique la convention (M06.25).
 
@@ -172,7 +172,7 @@ Deux cas extrêmes :
 - $H(Y \mid X) = 0$ si et seulement si $Y$ est une **fonction** de $X$ : chaque ligne du tableau n'a qu'une case non nulle, et connaître $X$ donne $Y$ ;
 - $H(Y \mid X) = H(Y)$ si $X$ et $Y$ sont **indépendantes** : chaque ligne, divisée par sa somme, est la loi de $Y$.
 
-En moyenne, savoir quelque chose ne rend jamais moins sûr : $H(Y \mid X) \le H(Y)$ (§6). Mais attention, c'est vrai **en moyenne** : pour une valeur particulière $x$, $H(Y \mid X = x)$ peut dépasser $H(Y)$, si cette valeur est rare.
+En moyenne, conditionner par une autre variable ne peut qu'abaisser l'entropie, ou la laisser égale : $H(Y \mid X) \le H(Y)$ (§6). Mais attention, c'est vrai **en moyenne** : pour une valeur particulière $x$, $H(Y \mid X = x)$ peut dépasser $H(Y)$, si cette valeur est rare.
 
 ### La règle de la chaîne
 
@@ -181,6 +181,12 @@ Puisque $p(x, y) = p(x)\, p(y \mid x)$, on a $\log_2 p(x, y) = \log_2 p(x) + \lo
 $$\boxed{H(X, Y) = H(X) + H(Y \mid X) = H(Y) + H(X \mid Y).}$$
 
 Décrire le couple coûte autant que décrire $X$, puis $Y$ sachant $X$ ; ou $Y$, puis $X$ sachant $Y$. Dans l'exemple : $0{,}934 + 0{,}732 \approx 1{,}666$ et $0{,}910 + 0{,}756 \approx 1{,}666$. En pratique, c'est souvent la façon la plus rapide de calculer une entropie conditionnelle : $H(Y \mid X) = H(X, Y) - H(X)$ (`conditional_entropy`, M06.16).
+
+**La règle du regroupement.** Regroupons plusieurs issues de $X$ en une seule, dont la probabilité $s$ est la somme des leurs, et appelons $G$ la variable regroupée. $G$ est une fonction de $X$, donc $H(G \mid X) = 0$ et $H(X, G) = H(X)$ ; la règle de la chaîne donne alors $H(X) = H(G) + H(X \mid G)$. Or connaître $G$ ne laisse une incertitude sur $X$ que si $G$ prend la valeur regroupée, ce qui arrive avec la probabilité $s$ ; $X$ suit alors la loi des issues regroupées, chacune divisée par $s$. D'où
+
+$$H(X) = H(G) + s\, H\big(\text{loi des issues regroupées, divisées par } s\big).$$
+
+Regrouper fait perdre l'incertitude sur l'issue précise du groupe, pondérée par la probabilité du groupe. Exemple : regrouper les deux issues les moins probables de $(0{,}62 ;\ 0{,}3 ;\ 0{,}08)$ (§2) donne $(0{,}62 ;\ 0{,}38)$, d'entropie $\approx 0{,}958$ bit ; on perd $0{,}38\, H\big(\frac{0{,}3}{0{,}38}, \frac{0{,}08}{0{,}38}\big) \approx 0{,}38 \times 0{,}742 \approx 0{,}282$ bit, et l'on retrouve $0{,}958 + 0{,}282 \approx 1{,}240$ bit.
 
 ## §4 · Information mutuelle
 
@@ -230,7 +236,7 @@ les sommes ne portant que sur les issues où $p(x) > 0$.
 Exemple : des données suivent $p = (0{,}6 ;\ 0{,}25 ;\ 0{,}15)$, et l'on utilise un code fait pour $q = (0{,}25 ;\ 0{,}25 ;\ 0{,}5)$, dont les mots ont 2, 2 et 1 bits. Alors $H(p) \approx 1{,}353$ bit, $H(p, q) = 0{,}6 \times 2 + 0{,}25 \times 2 + 0{,}15 \times 1 = 1{,}85$ bit, et $\mathrm{KL}(p \,\|\, q) \approx 0{,}497$ bit perdu par symbole : sur un million de symboles, environ 497 000 bits de trop.
 
 Deux propriétés à retenir :
-- **l'infini** : si $q(x) = 0$ pour une issue que $p$ produit, alors $H(p, q) = \mathrm{KL}(p \,\|\, q) = +\infty$ : la longueur $-\log_2 0$ n'est pas finie, aucun mot n'est réservé à cette issue ; et pour un modèle, $-\log 0 = +\infty$ est la surprise d'un événement qu'il déclarait impossible ;
+- **l'infini** : si $q$ donne la probabilité 0 à une issue de probabilité positive sous $p$, alors $H(p, q) = \mathrm{KL}(p \,\|\, q) = +\infty$ : la longueur $-\log_2 0$ n'est pas finie, aucun mot n'est réservé à cette issue ; et pour un modèle, $-\log 0 = +\infty$ est la surprise d'un événement qu'il déclarait impossible ;
 - **l'asymétrie** : en général $\mathrm{KL}(p \,\|\, q) \ne \mathrm{KL}(q \,\|\, p)$. Le cas extrême le montre : si $q$ donne une probabilité positive à une issue que $p$ ne produit jamais, $\mathrm{KL}(q \,\|\, p)$ est infinie alors que $\mathrm{KL}(p \,\|\, q)$ peut être finie. D'où son nom de *divergence* : elle mesure un écart, mais n'a pas les propriétés d'une distance.
 
 On écrit toujours la loi des **données** en premier : $H(\text{données}, \text{modèle})$ et $\mathrm{KL}(\text{données} \,\|\, \text{modèle})$.
@@ -239,17 +245,17 @@ On écrit toujours la loi des **données** en premier : $H(\text{données}, \tex
 
 ### La log loss d'un classifieur
 
-Un classifieur prédit, pour un exemple, une loi $q$ sur les classes. La « vraie » loi $p$ met toute sa masse sur la bonne classe $y$ (un vecteur *one-hot*). La cross-entropy se réduit alors à un seul terme :
+Un classifieur prédit, pour un exemple, une loi $q$ sur les classes. Pour la cible, on prend la loi $p$ qui vaut 1 pour la classe observée $y$ et 0 pour les autres (son vecteur de probabilités est dit *one-hot*). Un seul terme de la cross-entropy reste alors :
 
 $$H(p, q) = -\log q(y),$$
 
-l'information, selon le modèle, de la bonne réponse. Un modèle qui donnait $0{,}6$ à la bonne classe paie $-\log_2 0{,}6 \approx 0{,}737$ bit, soit $-\ln 0{,}6 \approx 0{,}511$ nat. La **log loss** d'un classifieur sur $n$ exemples est la moyenne de ces termes, en nats dans les bibliothèques :
+l'information, selon le modèle, de la bonne réponse. Par exemple, si la classe observée avait reçu la probabilité 0,85, cet exemple compte pour $-\ln 0{,}85 \approx 0{,}163$ nat, soit environ 0,234 bit. La **log loss** d'un classifieur sur $n$ exemples est la moyenne de ces termes, en nats dans les bibliothèques :
 
 $$\text{log loss} = -\frac{1}{n} \sum_{k=1}^{n} \ln q_k(y_k).$$
 
 Elle est faible quand le modèle donne de fortes probabilités aux bonnes réponses, et devient énorme quand il se trompe avec assurance (M06.12).
 
-**Le cas de deux classes.** Un classifieur binaire ne donne souvent qu'un nombre, $\hat{p}$, la probabilité de la classe 1 ; la classe 0 reçoit $1 - \hat{p}$. Le terme de l'exemple $k$, de vraie classe $y_k \in \{0, 1\}$, s'écrit alors d'un coup $-\big[y_k \ln \hat{p}_k + (1 - y_k) \ln (1 - \hat{p}_k)\big]$ : seul l'un des deux termes est non nul, celui de la vraie classe. C'est la *binary cross-entropy*.
+**Le cas de deux classes.** Avec deux classes, notées 0 et 1, un modèle renvoie souvent un seul nombre $\hat{p}$, sa probabilité pour 1, et $1 - \hat{p}$ va à 0. Pour une classe observée $y \in \{0, 1\}$, la formule $-\big[y \ln \hat{p} + (1 - y) \ln (1 - \hat{p})\big]$ réunit les deux cas : elle vaut $-\ln \hat{p}$ si $y = 1$, et $-\ln(1 - \hat{p})$ si $y = 0$. Sa moyenne sur les exemples est la *binary cross-entropy*.
 
 🔗 **Dans workbookIA** — le chapitre 6 programme l'entropie, la cross-entropy et la KL, et les applique à des textes ; la cross-entropy devient la loss des réseaux aux chapitres 18 et 20, et la KL revient avec les autoencodeurs variationnels (chapitre 25).
 
@@ -278,9 +284,9 @@ Le logarithme est strictement **concave** ($(\ln x)'' = -\frac{1}{x^2} < 0$). Ap
 > **Inégalité de Gibbs.** $\mathrm{KL}(p \,\|\, q) \ge 0$, avec égalité si et seulement si $p = q$.
 
 La démonstration tient en trois lignes : elle fait l'objet de M06.11. Ses conséquences :
-- $H(p, q) \ge H(p)$ : aucun code ne bat, en moyenne, le code fait pour la vraie loi ;
+- $H(p, q) \ge H(p)$ : coder avec une loi fausse coûte toujours, en moyenne, au moins autant que coder avec la bonne ;
 - $I(X ; Y) \ge 0$, puisque c'est une KL (§5), avec égalité si et seulement si la loi jointe est le produit des marges, c'est-à-dire si $X$ et $Y$ sont indépendantes ;
-- donc $H(Y \mid X) = H(Y) - I(X ; Y) \le H(Y)$ : en moyenne, savoir ne rend pas moins sûr.
+- donc $H(Y \mid X) = H(Y) - I(X ; Y) \le H(Y)$ : conditionner abaisse l'entropie en moyenne, ou la laisse égale.
 
 ### Jensen-Shannon : une divergence symétrique et toujours finie
 
@@ -288,7 +294,7 @@ La KL n'est pas symétrique, et elle est infinie dès qu'une loi s'annule là o�
 
 $$\mathrm{JS}(p, q) = \tfrac{1}{2}\,\mathrm{KL}(p \,\|\, m) + \tfrac{1}{2}\,\mathrm{KL}(q \,\|\, m).$$
 
-La **divergence de Jensen-Shannon** est symétrique par construction, toujours **finie** (là où $p$ ou $q$ est positive, $m$ l'est aussi), positive ou nulle, et nulle seulement si $p = q$ (Gibbs). Avec les lois $p$ et $q$ du §5 : $m = (0{,}425 ;\ 0{,}25 ;\ 0{,}325)$ et $\mathrm{JS}(p, q) \approx 0{,}125$ bit.
+La **divergence de Jensen-Shannon** est symétrique par construction, toujours **finie** (puisque $m(x) \ge \frac{1}{2}\,p(x)$, chaque rapport $\frac{p(x)}{m(x)}$ est au plus 2), positive ou nulle, et nulle seulement si $p = q$ (Gibbs). Avec les lois $p$ et $q$ du §5 : $m = (0{,}425 ;\ 0{,}25 ;\ 0{,}325)$ et $\mathrm{JS}(p, q) \approx 0{,}125$ bit.
 
 🔗 **Dans workbookIA** — la divergence de Jensen-Shannon est ce que minimise, en théorie, le générateur d'un GAN (chapitre 27).
 
@@ -304,7 +310,7 @@ où $\lceil \cdot \rceil$ arrondit à l'entier supérieur. Pour 20 issues : $\lo
 
 ### Codes de longueur variable, codes préfixes
 
-Un code de **longueur variable** donne des mots courts aux issues fréquentes et des mots longs aux issues rares. Il faut alors pouvoir découper une suite de bits en mots sans séparateur. C'est garanti si le code est **préfixe** (*prefix code*) : aucun mot n'est le début d'un autre. On lit les bits un à un ; au premier moment où ceux que l'on a lus forment un mot du code, ce mot est forcément celui qui a été envoyé, puisqu'aucun autre mot ne commence ainsi ; puis on repart du bit suivant.
+Pour faire mieux, un code de **longueur variable** adapte la longueur de chaque mot à la probabilité de son issue : plus l'issue est probable, plus son mot est court. Il faut alors pouvoir découper une suite de bits en mots sans séparateur. C'est garanti si le code est **préfixe** (*prefix code*) : aucun mot n'est le début d'un autre. On lit les bits un à un ; au premier moment où ceux que l'on a lus forment un mot du code, ce mot est forcément celui qui a été envoyé, puisqu'aucun autre mot ne commence ainsi ; puis on repart du bit suivant.
 - $\{00, 01, 10, 110, 111\}$ est préfixe : la suite `1100100111` se lit `110 | 01 | 00 | 111`, sans hésitation.
 - $\{1, 00, 001\}$ ne l'est pas : `00` est le début de `001`, et après avoir lu `00`, on ne sait pas encore si le mot est fini.
 
@@ -330,7 +336,7 @@ Si l'issue $i$ a la probabilité $p_i$ et un mot de longueur $\ell_i$, la **long
 - **la borne inférieure** : tout code préfixe vérifie $\bar{L} \ge H$. C'est une conséquence de Kraft et de Gibbs (§6) : on l'admet ici (MacKay, chapitre 5) ;
 - **on peut s'en approcher à moins d'un bit** : les longueurs de Shannon $\ell_i = \lceil -\log_2 p_i \rceil$ vérifient Kraft, puisque $2^{-\ell_i} \le 2^{\log_2 p_i} = p_i$ et que la somme des $p_i$ vaut 1 ; et comme $\ell_i < -\log_2 p_i + 1$, leur longueur moyenne vérifie $\bar{L} < H + 1$.
 
-Exemple : $p = (0{,}4 ;\ 0{,}3 ;\ 0{,}2 ;\ 0{,}1)$, d'entropie $H \approx 1{,}846$ bit. Les longueurs de Shannon valent $(2, 2, 3, 4)$, de somme de Kraft $\frac{1}{4} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} = 0{,}6875$ et de longueur moyenne $\bar{L} = 0{,}8 + 0{,}6 + 0{,}6 + 0{,}4 = 2{,}4$ bits. Le code est possible, mais il laisse de la place inutilisée : les longueurs $(1, 2, 3, 3)$, de somme de Kraft $\frac{1}{2} + \frac{1}{4} + \frac{2}{8} = 1$, donnent $\bar{L} = 0{,}4 + 0{,}6 + 0{,}6 + 0{,}3 = 1{,}9$ bit, plus près de l'entropie. Le meilleur code préfixe pour une loi donnée s'obtient par l'algorithme de **Huffman** : on réunit les deux issues les moins probables en une seule, on recommence jusqu'à n'avoir plus qu'une issue, puis on redescend en ajoutant un 0 ou un 1 à chaque réunion (on admet que le code obtenu est optimal) ; le chapitre 6 de workbookIA le construit et le programme.
+Exemple : $p = (0{,}4 ;\ 0{,}3 ;\ 0{,}2 ;\ 0{,}1)$, d'entropie $H \approx 1{,}846$ bit. Les longueurs de Shannon valent $(2, 2, 3, 4)$, de somme de Kraft $\frac{1}{4} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} = 0{,}6875$ et de longueur moyenne $\bar{L} = 0{,}8 + 0{,}6 + 0{,}6 + 0{,}4 = 2{,}4$ bits. Le code est possible, mais il laisse de la place inutilisée : les longueurs $(1, 2, 3, 3)$, de somme de Kraft $\frac{1}{2} + \frac{1}{4} + \frac{2}{8} = 1$, donnent $\bar{L} = 0{,}4 + 0{,}6 + 0{,}6 + 0{,}3 = 1{,}9$ bit, plus près de l'entropie. Pour une loi donnée, le code préfixe de plus petite longueur moyenne se construit par l'algorithme de **Huffman**, que le chapitre 6 de workbookIA décrit et programme.
 
 **Coder par blocs.** La borne $\bar{L} < H + 1$ coûte jusqu'à un bit par symbole, beaucoup quand $H$ est petite. On code alors les symboles par blocs de $k$ : pour des symboles indépendants, un bloc a l'entropie $k\,H$ (§3), et un bon code pour les blocs a une longueur moyenne inférieure à $k\,H + 1$, soit moins de $H + \frac{1}{k}$ bit par symbole. En allongeant les blocs, on s'approche de l'entropie autant qu'on veut : c'est le théorème du codage de source de Shannon.
 
@@ -344,7 +350,7 @@ Un modèle de langage donne, à chaque position d'un texte, une probabilité au 
 
 $$\text{perplexité} = 2^{\text{cross-entropy en bits}} = e^{\text{cross-entropy en nats}}.$$
 
-Elle ne dépend pas de la base. Pour un modèle qui répartirait toujours sa probabilité également sur $k$ tokens, dont le bon, chaque information vaut $\log_2 k$, et la perplexité vaut $k$ : la perplexité se lit comme le nombre d'options entre lesquelles le modèle hésite, en moyenne ; elle vaut 1 pour un modèle qui ne se trompe jamais. Exemple : sur quatre tokens, un modèle a donné les probabilités $\frac{1}{2}$, $\frac{1}{4}$, $\frac{1}{8}$ et $\frac{1}{4}$ aux tokens observés. Leurs informations valent 1, 2, 3 et 2 bits, de moyenne 2 bits : la perplexité vaut $2^2 = 4$, comme un modèle qui hésiterait à chaque fois entre quatre tokens équiprobables.
+Les deux écritures donnent le même nombre, puisque la cross-entropy en nats est celle en bits multipliée par $\ln 2$. Pour l'interpréter, prends un modèle qui donne toujours la probabilité $\frac{1}{k}$ au token observé : sa cross-entropy vaut $\log_2 k$, et sa perplexité, $k$. Une perplexité de $k$ se compare donc à un tirage au hasard entre $k$ tokens à chaque position ; sa plus petite valeur, 1, est celle d'un modèle qui donne la probabilité 1 à chaque token observé. Exemple : sur quatre tokens, un modèle a donné les probabilités $\frac{1}{2}$, $\frac{1}{4}$, $\frac{1}{8}$ et $\frac{1}{4}$ aux tokens observés. Leurs informations valent 1, 2, 3 et 2 bits, de moyenne 2 bits : la perplexité vaut $2^2 = 4$, comme un modèle qui hésiterait à chaque fois entre quatre tokens équiprobables.
 
 ### Choisir des features par l'information mutuelle
 
@@ -377,7 +383,7 @@ Trois précautions :
 | un modèle qui donne 0 à une issue observée | sa cross-entropy sur ces données | elle est infinie : un modèle ne donne jamais exactement 0 à ce qui peut arriver |
 | Jensen dans le mauvais sens | « $\mathbb{E}[\ln X] \ge \ln \mathbb{E}[X]$ » | convexe : $f(\mathbb{E}[X]) \le \mathbb{E}[f(X)]$ ; concave, comme $\ln$ : l'inverse |
 | « Kraft est vérifiée, donc ce code est préfixe » | $\{0, 01, 11\}$, de somme 1 | Kraft dit quelles longueurs sont possibles ; un code donné se vérifie mot à mot |
-| une longueur de code non entière | « 12 issues : 3,58 chiffres binaires » | un code de longueur fixe a $\lceil \log_2 N \rceil$ chiffres |
+| une longueur de code non entière | « 12 issues : 3,58 chiffres binaires » | arrondir à l'entier supérieur : $\lceil \log_2 12 \rceil = 4$ chiffres pour chaque issue |
 | une feature à beaucoup de valeurs jugée excellente | un identifiant de client | l'information mutuelle sur les données la surestime ; vérifier sur d'autres données |
 
 ## Et maintenant

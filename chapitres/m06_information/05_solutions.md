@@ -18,7 +18,7 @@
 
 ### M06.Q2 — L'entropie : vrai ou faux
 1. **Faux** : c'est une moyenne de termes $-\log_2 p \ge 0$.
-2. **Faux** : une loi sur 12 issues a une entropie d'au plus $\log_2 12 \approx 3{,}58$ bits, atteinte par la loi uniforme ; elle peut donc dépasser 3 bits.
+2. **Vrai** : une loi sur 7 issues a une entropie d'au plus $\log_2 7 \approx 2{,}81$ bits (la loi uniforme), donc moins de 3 bits. Il faudrait plus de 8 issues pour qu'elle puisse dépasser 3 bits.
 3. **Faux** : une issue de probabilité 0 ajoute $0 \log 0 = 0$.
 4. **Faux** : l'entropie ne dépend que des probabilités, pas des valeurs. Multiplier les valeurs par 2 ne change aucune probabilité.
 5. **Faux** : $(0{,}97 ;\ 0{,}03)$ est presque certaine, son entropie est petite (environ 0,19 bit) ; $(0{,}53 ;\ 0{,}47)$ est presque équilibrée, son entropie est proche de 1 bit.
@@ -61,7 +61,7 @@
 2. **Préfixe** : ni 01, ni 10, ni 11 n'est le début de 001, et 001 n'est le début d'aucun mot. **Pas complet** : sa somme de Kraft vaut $\frac{3}{4} + \frac{1}{8} = \frac{7}{8} < 1$ ; on pourrait ajouter le mot 000.
 3. **Non** : 1 est le début de 10 (la suite « 10 » se lit « 1, 0 » ou « 10 »).
 4. **Oui** : $\frac{1}{2} + 3 \times \frac{1}{8} = \frac{7}{8} \le 1$ ; par exemple 0, 100, 101, 110.
-5. 10 : $2^9 = 512 < 1\,000 \le 1\,024 = 2^{10}$.
+5. 9 : $2^8 = 256 < 300 \le 512 = 2^9$.
 6. **Vrai** : deux mots de même longueur ne peuvent être le début l'un de l'autre que s'ils sont égaux.
 
 <a id="rappels"></a>
@@ -70,10 +70,10 @@
 
 ### M06.R1 — Logarithmes en base 2 (R6)
 1. $2^{12} = 4096$, $2^{-9} = \frac{1}{512}$, $2^{3/2} = 2\sqrt{2}$ : les exposants sont 12, $-9$ et $\frac{3}{2}$.
-2. $\log_2 x = \frac{\ln x}{\ln 2}$, donc $\log_2 11 \approx \frac{2{,}3979}{0{,}6931} \approx 3{,}459$.
-3. $48 = 16 \times 3$, donc $\log_2 48 = \log_2 16 + \log_2 3 = 4 + \log_2 3$.
+2. $2^{5/2} = 4\sqrt{2} \approx 5{,}66 < 6$, donc $\frac{5}{2} < \log_2 6$ ; et comme $\log_2$ est croissante et $6 < 7 < 8 = 2^3$ : $\frac{5}{2} < \log_2 6 < \log_2 7 < 3$.
+3. $-\log_2 \frac{p}{8} = -\log_2 p + \log_2 8 = -\log_2 p + 3$ : 3 bits de plus. $-\log_2(p^2) = -2\log_2 p$ : l'information double (deux événements indépendants de probabilité $p$).
 4. $x = 2^{-2{,}5} = \frac{1}{4\sqrt{2}} = \frac{\sqrt{2}}{8} \approx 0{,}177$.
-5. Pour $p = 1$ seulement : $\log_2 1 = 0$, et $\log_2 p < 0$ pour $p < 1$. Pour $p = \frac{1}{4}$ : $-\frac{1}{4}\log_2 \frac{1}{4} = \frac{1}{4} \times 2 = \frac{1}{2}$.
+5. $\log_2 10 = \frac{\log_{10} 10}{\log_{10} 2} = \frac{1}{\log_{10} 2} \approx \frac{1}{0{,}30103} \approx 3{,}322$. Un chiffre décimal, parmi dix également probables, apporte $\log_2 10 \approx 3{,}32$ bits : il en faut environ 3,3 par chiffre (et 4 avec un code de longueur fixe).
 
 ### M06.R2 — Probabilités jointes et conditionnelles (M03)
 1. En divisant par 100 : 0,12 ; 0,18 ; 0,28 ; 0,42.
@@ -105,27 +105,27 @@
 - e) La loi $(0{,}55 ;\ 0{,}35 ;\ 0{,}1)$ : $0{,}4744 + 0{,}5301 + 0{,}1 \times 3{,}3219 \approx 1{,}337$ bit.
 - f) Les codes de deux requêtes indépendantes forment un couple dont l'entropie est la somme des entropies (§3, la règle de la chaîne avec $H(Y \mid X) = H(Y)$) : $2 \times 1{,}4248 \approx 2{,}850$ bits.
 
-Pour la copie : en regroupant les deux erreurs, on perd l'information « laquelle des deux erreurs ». La règle de la chaîne le chiffre : $b) - e) = 0{,}1 \times H(0{,}7 ;\ 0{,}3) \approx 0{,}088$ bit, la probabilité 0,1 d'une erreur fois l'incertitude qui reste sur son type, de loi $(0{,}7 ;\ 0{,}3)$ une fois qu'on sait qu'il y a une erreur.
+Pour la copie : en regroupant les deux erreurs, on perd l'information « laquelle des deux erreurs ». La règle du regroupement (fiche §3) le chiffre : $b) - e) = 0{,}1 \times H(0{,}7 ;\ 0{,}3) \approx 0{,}088$ bit, la probabilité 0,1 d'une erreur fois l'incertitude qui reste sur son type, de loi $(0{,}7 ;\ 0{,}3)$ une fois qu'on sait qu'il y a une erreur.
 
-**Erreurs fréquentes.** Utiliser $\ln$ au lieu de $\log_2$ (a : `[0.6, 1.05, 2.66, 3.51]`) ; additionner les informations sans les pondérer (b : 11,272) ou en faire la moyenne simple (b : 2,818) ; diviser par $\ln 2$ au lieu de multiplier (c : 2,06) ; multiplier les informations au lieu de les additionner (d : 4,363) ; répondre l'entropie d'une seule requête en f).
+**Erreurs fréquentes.** Utiliser $\ln$ au lieu de $\log_2$ (a : `[0.6, 1.05, 2.66, 3.51]`) ; additionner les informations sans les pondérer (b : 11,272) ou en faire la moyenne simple (b : 2,818) ; arrondir les informations à 2 décimales avant d'en faire la moyenne (b : 1,422) ; arrondir chaque terme à 3 décimales (e : 1,336) ; diviser par $\ln 2$ au lieu de multiplier (c : 2,06) ; multiplier les informations au lieu de les additionner (d : 4,363) ; répondre l'entropie d'une seule requête en f).
 
 **Variante.** Combien de bits apporte un événement de probabilité $\frac{3}{8}$ ? Quelle est l'entropie de $(\frac{3}{4}, \frac{1}{8}, \frac{1}{8})$ ? *Réponse* : $3 - \log_2 3 \approx 1{,}415$ bit ; $\frac{3}{4}\log_2 \frac{4}{3} + \frac{1}{4} \times 3 \approx 1{,}061$ bit.
 
 ### Ex M06.2 — L'entropie maximale : comparer des lois à quatre issues
 
-**Réponses** : a) `1.782` · b) `1.871` · c) `1.54` · d) `2` · e) `1.86` · f) `1.29`.
+**Réponses** : a) `1.782` · b) `1.871` · c) `1.54` · d) `0.218` · e) `1.865` · f) `1.29`.
 
 **Démarche.**
 - a) $0{,}45 \times 1{,}1520 + 0{,}3 \times 1{,}7370 + 0{,}15 \times 2{,}7370 + 0{,}1 \times 3{,}3219 \approx 0{,}5184 + 0{,}5211 + 0{,}4106 + 0{,}3322 = 1{,}7822$.
 - b) $0{,}4 \times 1{,}3219 + 0{,}3 \times 1{,}7370 + 2 \times 0{,}15 \times 2{,}7370 \approx 0{,}5288 + 0{,}5211 + 0{,}8211 = 1{,}8710$.
 - c) $0{,}5184 + 0{,}5211 + 0{,}25 \times 2 \approx 1{,}5395$, soit 1,54.
-- d) $\log_2 4 = 2$, pour la loi uniforme.
-- e) La première issue est fixée à 0,45 ; les trois autres se partagent 0,55. Par la règle du regroupement (M06.1), $H = H(0{,}45 ;\ 0{,}55) + 0{,}55 \times H(\text{loi des trois dernières, sachant que la première n'est pas sortie})$, et le second terme est le plus grand pour la loi uniforme sur trois issues : $H_{\max} = H(0{,}45 ;\ 0{,}55) + 0{,}55 \log_2 3 \approx 0{,}9928 + 0{,}8717 = 1{,}8645$, soit 1,86, atteint par $(0{,}45 ;\ 0{,}1\overline{83} ;\ 0{,}1\overline{83} ;\ 0{,}1\overline{83})$.
+- d) Le maximum sur quatre issues est $\log_2 4 = 2$ (la loi uniforme) : il manque $2 - 1{,}7822 \approx 0{,}218$ bit à $A$.
+- e) La première issue est fixée à 0,45 ; les trois autres se partagent 0,55. Par la règle du regroupement (fiche §3), $H = H(0{,}45 ;\ 0{,}55) + 0{,}55 \times H(\text{loi des trois dernières, sachant que la première n'est pas sortie})$, et le second terme est le plus grand pour la loi uniforme sur trois issues : $H_{\max} = H(0{,}45 ;\ 0{,}55) + 0{,}55 \log_2 3 \approx 0{,}9928 + 0{,}8717 = 1{,}8645$, soit 1,865 (la valeur exacte, 1,86450…, est à la limite de l'arrondi : 1,864 est aussi accepté), atteint par $(0{,}45 ;\ 0{,}1\overline{83} ;\ 0{,}1\overline{83} ;\ 0{,}1\overline{83})$.
 - f) $1{,}8645 \times \ln 2 \approx 1{,}292$ nat.
 
 Pour la copie : donner de la probabilité d'une issue probable à une issue rare (sans les inverser) rapproche les probabilités, et l'entropie monte (1,782 → 1,871). Regrouper deux issues efface une distinction, et l'entropie baisse (1,782 → 1,54). Sous la contrainte de e), le maximum répartit le reste également.
 
-**Erreurs fréquentes.** Répondre 4 en d) (le nombre d'issues, pas son logarithme) ; ignorer la contrainte en e) (2) ; calculer f) en divisant par $\ln 2$.
+**Erreurs fréquentes.** Prendre le nombre d'issues pour l'entropie maximale en d) ($4 - H(A) \approx 2{,}218$) ; arrondir chaque terme à 3 décimales en b) (1,872) ; ignorer la contrainte en e) (2) ; calculer f) en divisant par $\ln 2$.
 
 **Variante.** La plus grande entropie possible sur quatre issues dont la première a la probabilité 0,7 ? *Réponse* : $H(0{,}7 ;\ 0{,}3) + 0{,}3 \log_2 3 \approx 0{,}881 + 0{,}475 = 1{,}357$ bit.
 
@@ -141,7 +141,7 @@ Pour la copie : donner de la probabilité d'une issue probable à une issue rare
 - e) $H(X \mid Y) = H(X, Y) - H(Y) \approx 1{,}9197 - 1{,}4015 = 0{,}5183$, soit 0,52.
 - f) $1{,}5813 - 1{,}4015 \approx 0{,}180$, soit 0,18.
 
-Pour la copie : $H(X) + H(Y \mid X) \approx 0{,}9710 + 0{,}9488 = 1{,}9198$ et $H(Y) + H(X \mid Y) \approx 1{,}4015 + 0{,}5183 = 1{,}9198$. $H(Y \mid X = \text{gratuit}) = 0$ : tous les gratuits ont un usage faible. f) est positif : savoir qu'un utilisateur est payant **augmente** l'incertitude sur son usage. Mais $H(Y \mid X) - H(Y) \approx -0{,}45 < 0$ : **en moyenne**, savoir ne rend pas moins sûr, car la valeur « gratuit » supprime toute incertitude. Le théorème porte sur la moyenne, pas sur chaque valeur (M06.10, question 6).
+Pour la copie : $H(X) + H(Y \mid X) \approx 0{,}9710 + 0{,}9488 = 1{,}9198$ et $H(Y) + H(X \mid Y) \approx 1{,}4015 + 0{,}5183 = 1{,}9198$. $H(Y \mid X = \text{gratuit}) = 0$ : tous les gratuits ont un usage faible. f) est positif : savoir qu'un utilisateur est payant **augmente** l'incertitude sur son usage. Mais $H(Y \mid X) - H(Y) \approx -0{,}45 < 0$ : **en moyenne**, conditionner abaisse l'entropie, car la valeur « gratuit » supprime toute incertitude. Le théorème porte sur la moyenne, pas sur chaque valeur (M06.10, question 6).
 
 **Erreurs fréquentes.** Calculer l'entropie des cases de la ligne sans les diviser par $P(\text{payant})$ (b : 1,391), ou diviser l'entropie par $P(\text{payant})$ (b : 2,318) ; oublier la ligne « gratuit » dans la moyenne (c : 1,581) ; répondre $H(Y \mid X)$ ou $I(X ; Y)$ en e) ; l'écart dans le mauvais ordre en f).
 
@@ -258,7 +258,7 @@ Pour la copie : a) oui (0, 10, 110, 1110, avec de la place libre) ; b) et c) non
 
 Pour la copie : un code de longueurs h) : 0, 100, 101, 110, 1110, 1111 (somme de Kraft $\frac{1}{2} + \frac{3}{8} + \frac{2}{16} = 1$). Par longueur moyenne : h) (2,35) $<$ code donné (2,45) $<$ Shannon (2,9) $<$ longueur fixe (3) ; tous sont au-dessus de $H \approx 2{,}284$ et au-dessous de $H + 1 \approx 3{,}284$. Le code donné met un mot de 3 chiffres sur le deuxième symbole et un mot de 2 sur le troisième, moins probable : en échangeant 100 et 01, sa longueur moyenne passe à $0{,}8 + 0{,}4 + 0{,}45 + 0{,}3 + 0{,}3 + 0{,}15 = 2{,}40$. Les longueurs de Shannon laissent $1 - \frac{21}{32} = \frac{11}{32}$ de la somme de Kraft inutilisés.
 
-**Erreurs fréquentes.** Faire la moyenne simple des longueurs (b : 2,67) ; arrondir $-\log_2 p_i$ à l'entier le plus proche (d : `[1, 2, 3, 3, 3, 4]`) ou à l'entier inférieur (d : `[1, 2, 2, 3, 3, 4]`), dont les sommes de Kraft dépassent 1 ; l'écart dans le mauvais ordre (g).
+**Erreurs fréquentes.** Faire la moyenne simple des longueurs (b : 2,67) ; ranger les longueurs du code par ordre croissant au lieu de les associer, dans l'ordre, aux symboles (b : 2,40) ; arrondir $-\log_2 p_i$ à l'entier le plus proche (d : `[1, 2, 3, 3, 3, 4]`) ou à l'entier inférieur (d : `[1, 2, 2, 3, 3, 4]`), dont les sommes de Kraft dépassent 1 ; l'écart dans le mauvais ordre (g).
 
 **Variante.** Pour $p = (0{,}75 ;\ 0{,}15 ;\ 0{,}1)$, quelles sont les longueurs de Shannon et leur longueur moyenne ? *Réponse* : $(1, 3, 4)$, $\bar{L} = 1{,}6$ ; le code 0, 10, 11 fait mieux, $\bar{L} = 1{,}25$, pour $H \approx 1{,}054$.
 
@@ -296,19 +296,19 @@ Pour la copie : un code de longueurs h) : 0, 100, 101, 110, 1110, 1111 (somme de
 
 ### Ex M06.12 — La log loss d'un classifieur, une cross-entropy moyenne
 
-**Réponses** : a) `1.05` · b) `0.598` · c) `0.86` · d) `1.099` · e) `True` · f) `1.818`.
+**Réponses** : a) `1.05` · b) `0.574` · c) `0.83` · d) `1.099` · e) `True` · f) `1.775`.
 
 **Démarche.** La cross-entropy d'une image entre la loi « vraie » (toute la probabilité sur sa vraie classe) et la prédiction ne garde qu'un terme : $-\ln(\text{probabilité donnée à la vraie classe})$.
 - a) L'image 3 est de classe C, prédite avec 0,35 : $-\ln 0{,}35 \approx 1{,}050$.
-- b) $\frac{-\ln 0{,}5 - \ln 0{,}8 - \ln 0{,}35 - \ln 0{,}9 - \ln 0{,}4}{5} \approx \frac{0{,}6931 + 0{,}2231 + 1{,}0498 + 0{,}1054 + 0{,}9163}{5} \approx 0{,}5976$, soit 0,598 nat.
-- c) $\frac{0{,}5976}{\ln 2} \approx 0{,}862$, soit 0,86 bit.
+- b) $\frac{-\ln 0{,}5 - \ln 0{,}8 - \ln 0{,}35 - \ln 0{,}9 - \ln 0{,}45}{5} \approx \frac{0{,}6931 + 0{,}2231 + 1{,}0498 + 0{,}1054 + 0{,}7985}{5} \approx 0{,}5740$, soit 0,574 nat.
+- c) $\frac{0{,}5740}{\ln 2} \approx 0{,}828$, soit 0,83 bit.
 - d) Chaque image coûte $-\ln \frac{1}{3} = \ln 3 \approx 1{,}099$ nat.
-- e) **Vrai** : $0{,}598 < 1{,}099$.
-- f) $e^{0{,}5976} \approx 1{,}818$.
+- e) **Vrai** : $0{,}574 < 1{,}099$.
+- f) $e^{0{,}5740} \approx 1{,}775$.
 
-Pour la copie : l'image 3 coûte le plus cher : le classifieur y donne 0,5 à la mauvaise classe A et seulement 0,35 à la bonne. f) se lit comme une perplexité : le classifieur hésite en moyenne comme s'il choisissait au hasard entre 1,82 classes également probables (le modèle uniforme, lui, hésite entre 3). Avec la probabilité 0 pour la classe C, la cross-entropy de l'image 3 serait $-\ln 0 = +\infty$ : une seule erreur certaine rend la log loss infinie (d'où les probabilités jamais tout à fait nulles en pratique).
+Pour la copie : l'image 3 coûte le plus cher : le classifieur y donne 0,5 à la mauvaise classe A et seulement 0,35 à la bonne. f) se lit comme une perplexité : le classifieur hésite en moyenne comme s'il choisissait au hasard entre 1,78 classe également probable (le modèle uniforme, lui, hésite entre 3). Avec la probabilité 0 pour la classe C, la cross-entropy de l'image 3 serait $-\ln 0 = +\infty$ : une seule erreur certaine rend la log loss infinie (d'où les probabilités jamais tout à fait nulles en pratique).
 
-**Erreurs fréquentes.** Prendre la plus grande probabilité prédite au lieu de celle de la vraie classe (a : 0,693) ; faire la somme au lieu de la moyenne (b : 2,988) ; $\log_2$ au lieu de $\ln$ (a : 1,515) ; $2^{0{,}598}$ au lieu de $e^{0{,}598}$ (f : 1,513).
+**Erreurs fréquentes.** Prendre la plus grande probabilité prédite au lieu de celle de la vraie classe (a : 0,693) ; faire la somme au lieu de la moyenne (b : 2,870) ; $\log_2$ au lieu de $\ln$ (a : 1,515) ; $2^{0{,}574}$ au lieu de $e^{0{,}574}$ (f : 1,489).
 
 **Variante.** Un modèle qui donne toujours 0,95 à la vraie classe : sa log loss ? *Réponse* : $-\ln 0{,}95 \approx 0{,}051$ nat.
 
@@ -389,7 +389,7 @@ Pour la copie : le numéro de client, avec 20 valeurs, a sur ces données $H(Y \
 
 **Démarche.** `kraft_sum` : les vérifications (liste non vide, `alphabet >= 2`, chaque longueur `>= 1`), puis `float(sum(Fraction(1, int(alphabet) ** int(length)) for length in lengths))` (les fractions évitent les erreurs d'arrondi des grandes longueurs, et `int(...)` évite le refus de NumPy pour un entier à une puissance négative) ou `sum(float(alphabet) ** -int(length) ...)`. `is_prefix_code` : `words = [str(w) for w in codewords]` (un texte de NumPy devient un `str`), une `ValueError` si un mot est vide, puis soit deux boucles (`words[j].startswith(words[i])` pour $i \ne j$), soit le tri : après `words.sort()`, un mot qui en commence un autre est juste avant un mot qu'il commence, et il suffit de comparer les voisins. Pour la copie : a) $\frac{13}{16} \le 1$ et b) $\frac{2}{3} + \frac{1}{9} + \frac{1}{27} = \frac{22}{27} \le 1$ : des codes préfixes de ces longueurs existent. Le mot vide de g) serait le début de tous les mots.
 
-**Erreurs fréquentes.** Comparer chaque paire dans un seul sens (e : « 10 », placé après « 101 », en est le début) ; oublier qu'un mot répété est le début de sa copie (f) ; renvoyer un booléen de NumPy (h) ; ignorer `alphabet` (b : 1,375) ; `np.array(lengths)` puis `2 ** -lengths` (NumPy refuse un entier à une puissance entière négative).
+**Erreurs fréquentes.** Comparer un mot avec lui-même (d : `False`, car un mot est toujours le début de lui-même), ou chercher un mot **dans** un autre avec `in` au lieu de `startswith` (d : « 10 » est dans « 110 », sans en être le début) ; comparer chaque paire dans un seul sens (e : « 10 », placé après « 101 », en est le début) ; oublier qu'un mot répété est le début de sa copie (f) ; renvoyer un booléen de NumPy (h) ; ignorer `alphabet` (b : 1,375) ; `np.array(lengths)` puis `2 ** -lengths` (NumPy refuse un entier à une puissance entière négative).
 
 ### Ex M06.19 — L'écart de Jensen d'une loi discrète · `jensen_gap`
 
@@ -411,7 +411,7 @@ Pour la copie : le numéro de client, avec 20 valeurs, a sur ces données $H(Y \
 
 **Réponses** : a) `1` · b) `3` · c) `3` · d) `2`.
 
-**Démarche.** a) $X^3$ est une fonction injective de $X$ : chacune détermine l'autre, $H(X \mid X^3) = 0$, donc $I(X ; X^3) = H(X) = \log_2 7 \approx 2{,}807$. b) La relation n'est pas linéaire : la corrélation vaut environ 0,930, entre 0 et 1, alors que la dépendance est totale. c) et d) $X^2$ est une fonction de $X$ : $H(X^2 \mid X) = 0$, donc $I(X ; X^2) = H(X^2) - 0 = H\big(\frac{1}{7}, \frac{2}{7}, \frac{2}{7}, \frac{2}{7}\big) \approx 1{,}950$, strictement entre 0 et $H(X)$. Ce qui reste inconnu sur $X$ quand on connaît $X^2$, c'est son signe : $H(X \mid X^2) = \frac{1}{7} \times 0 + \frac{6}{7} \times 1 \approx 0{,}857$ bit. La corrélation de $X$ et $X^2$ est nulle, par symétrie : elle mesure l'alignement des points sur une droite, l'information mutuelle la dépendance, quelle que soit sa forme.
+**Démarche.** a) $X^3$ est une fonction injective de $X$ : chacune détermine l'autre, $H(X \mid X^3) = 0$, donc $I(X ; X^3) = H(X) = \log_2 7 \approx 2{,}807$. b) La relation n'est pas linéaire : la corrélation vaut environ 0,930, entre 0 et 1, alors que la dépendance est totale. c) et d) $X^2$ est une fonction de $X$ : $H(X^2 \mid X) = 0$, donc $I(X ; X^2) = H(X^2) - 0 = H\big(\frac{1}{7}, \frac{2}{7}, \frac{2}{7}, \frac{2}{7}\big) \approx 1{,}950$, strictement entre 0 et $H(X)$. Ce qui reste inconnu sur $X$ quand on connaît $X^2$, c'est son signe : $H(X \mid X^2) = \frac{1}{7} \times 0 + \frac{6}{7} \times 1 \approx 0{,}857$ bit. En d), (1) et (3) sont faux : $H(X) - H(X^2) \approx 0{,}857$ est justement $H(X \mid X^2)$, ce qui reste inconnu, et $H(X) \approx 2{,}807$ supposerait que $X^2$ détermine $X$. La corrélation de $X$ et $X^2$ est nulle, par symétrie : elle mesure l'alignement des points sur une droite, l'information mutuelle la dépendance, quelle que soit sa forme.
 
 ### Ex M06.22 — Estimer une entropie à partir d'un échantillon : le biais des petits échantillons
 
@@ -419,7 +419,7 @@ Pour la copie : le numéro de client, avec 20 valeurs, a sur ces données $H(Y \
 
 **Démarche.** `mean_bias` : `float(np.mean([estimator(sample, 6) for sample in SAMPLES_22[n]]) - H_22)`. `miller_madow` : `m = np.count_nonzero(np.bincount(sample, minlength=k))` (ou `len(np.unique(sample))`), puis `plugin_entropy(sample, k) + (m - 1) / (2 * len(sample) * math.log(2))`. Pour la copie : le plug-in **sous-estime** l'entropie. Une issue de probabilité 0,04 est absente d'un échantillon de taille 10 environ deux fois sur trois ($0{,}96^{10} \approx 0{,}66$) : elle compte alors pour 0 ; et, plus généralement, les fréquences observées sont en moyenne plus inégales que les vraies probabilités. Le biais passe de $-0{,}402$ ($n = 10$) à $-0{,}035$ ($n = 100$) ; l'approximation $-\frac{k - 1}{2n\ln 2}$ donne $-0{,}361$ et $-0{,}036$ : elle est bonne pour les grands échantillons. Miller-Madow ajoute $\frac{m - 1}{2n\ln 2}$ avec $m$ les valeurs observées : pour $n = 10$, $m$ est souvent plus petit que 6, la correction est trop faible, et il reste un biais de $-0{,}154$ ; pour $n = 100$, il ne reste presque rien. L'information mutuelle estimée se calcule avec des entropies estimées : sur peu de données, elle est biaisée elle aussi, mais vers le haut (M06.20 e)).
 
-**Erreurs fréquentes.** Le biais dans le mauvais ordre (a et b positifs) ; $m = k = 6$ au lieu du nombre de valeurs observées (c : $-0{,}042$) ; oublier le $\ln 2$ de la correction (c : $-0{,}230$).
+**Erreurs fréquentes.** Le biais dans le mauvais ordre (a et b positifs) ; $m = k = 6$ au lieu du nombre de valeurs observées (c : $-0{,}042$) ; oublier le $\ln 2$ de la correction (c : $-0{,}230$) ou le mettre au numérateur (c : $-0{,}283$) ; ajouter $\frac{m}{2n\ln 2}$ au lieu de $\frac{m - 1}{2n\ln 2}$ (c : $-0{,}082$).
 
 ### Ex M06.23 — Un diagramme de l'information : H(X), H(Y), H(X | Y), I(X ; Y)
 
@@ -441,12 +441,12 @@ Pour la copie : le numéro de client, avec 20 valeurs, a sur ces données $H(Y \
 
 **Démarche.** `table = np.asarray(joint, dtype=float)`, `conditional = table / table.sum(axis=1, keepdims=True)`, puis `-xlogy(conditional, conditional).sum(axis=1) / math.log(base)`. Pour la copie : $x \ln x \to 0$ quand $x \to 0^+$ (avec $x = \frac{1}{t}$, $x \ln x = -\frac{\ln t}{t}$, croissances comparées, R6) : une issue impossible n'apporte rien à l'entropie, et la convention prolonge $x \ln x$ par continuité. $H(Y \mid X) \approx 0{,}3 \times 0{,}9183 + 0{,}4 \times 1{,}4406 + 0{,}3 \times 0 \approx 0{,}8517$. La troisième ligne, $(0, 1, 0)$ une fois divisée, est une loi certaine.
 
-**Erreurs fréquentes.** Oublier de diviser par $\ln(\text{base})$ (des nats : `[0.6365, 0.9986, 0.0]`) ; oublier de diviser chaque ligne par sa somme (`[0.7966, 1.105, 0.5211]`) ; `sum()` sans `axis=1` (un seul nombre) ; un filtre `p[p > 0]`, qui aplatit le tableau.
+**Erreurs fréquentes.** Oublier de diviser par $\ln(\text{base})$ (des nats : `[0.6365, 0.9986, 0.0]`) ; oublier de diviser chaque ligne par sa somme (`[0.7966, 1.105, 0.5211]`) ; `sum()` sans `axis=1` (un seul nombre) ; un filtre `p[p > 0]`, qui aplatit le tableau. (Une validation comme `if np.any(table < 0): raise ValueError(...)` est permise : la vérification ne refuse que les boucles et les filtres par masque.)
 
 ### Ex M06.26 — Défi : localiser une panne parmi 100 serveurs en un minimum de questions
 
 **Réponse** : `5.3102`.
 
-**Démarche.** On garde l'intervalle `lo..hi` des serveurs encore possibles, et l'on choisit le seuil `t` qui coupe la **probabilité** restante en deux parts aussi égales que possible : avec les probabilités cumulées `cumulative[k] = P(serveur ≤ k)`, le `t` de `lo..hi − 1` dont `cumulative[t]` est le plus proche de `(cumulative[lo − 1] + cumulative[hi]) / 2`. Pour la loi uniforme, c'est la dichotomie : 7 questions au plus, 6,72 en moyenne. Pour la loi en $\frac{1}{n}$, environ 5,37 questions en moyenne, contre 6,83 pour la dichotomie, et `bound_26` $\approx 5{,}3102$ bits. Pour la copie : avec 6 questions, on distingue au plus $2^6 = 64$ serveurs, avec 7, $2^7 = 128$ ; pour 100 serveurs, au mieux 28 demandent 6 questions et 72 en demandent 7, soit $\frac{28 \times 6 + 72 \times 7}{100} = 6{,}72$ (pour une entropie de $\log_2 100 \approx 6{,}64$). Pour la seconde loi, couper la liste en deux moitiés de même longueur pose autant de questions pour le serveur 1, très probable, que pour le 100, très rare ; couper la probabilité en deux donne des réponses courtes aux serveurs probables, comme un bon code donne des mots courts aux symboles fréquents. Le score, 5,37, est à moins de 0,06 question de l'entropie.
+**Démarche.** On garde l'intervalle `lo..hi` des serveurs encore possibles, et l'on choisit le seuil `t` qui coupe la **probabilité** restante en deux parts aussi égales que possible : avec les probabilités cumulées `cumulative[k] = P(serveur ≤ k)`, le `t` de `lo..hi − 1` dont `cumulative[t]` est le plus proche de `(cumulative[lo − 1] + cumulative[hi]) / 2`. Pour la loi uniforme, c'est la dichotomie : 7 questions au plus, 6,72 en moyenne. Pour la loi en $\frac{1}{n}$, environ 5,37 questions en moyenne, contre 6,6 à 6,8 pour la dichotomie (selon que l'on arrondit le milieu vers le bas ou vers le haut), et `bound_26` $\approx 5{,}3102$ bits. Pour la copie : avec 6 questions, on distingue au plus $2^6 = 64$ serveurs, avec 7, $2^7 = 128$ ; pour 100 serveurs, au mieux 28 demandent 6 questions et 72 en demandent 7, soit $\frac{28 \times 6 + 72 \times 7}{100} = 6{,}72$ (pour une entropie de $\log_2 100 \approx 6{,}64$). Pour la seconde loi, couper la liste en deux moitiés de même longueur pose autant de questions pour le serveur 1, très probable, que pour le 100, très rare ; couper la probabilité en deux donne des réponses courtes aux serveurs probables, comme un bon code donne des mots courts aux symboles fréquents. Le score, 5,37, est à moins de 0,06 question de l'entropie.
 
-**Erreurs fréquentes.** Couper la liste en deux moitiés de même longueur (6,83 pour la seconde loi) ; une boucle qui ne réduit pas l'intervalle quand la réponse est « non » (`lo = t` au lieu de `lo = t + 1` : elle tourne en rond) ; calculer `bound_26` en nats (3,6808) ou pour la loi uniforme (6,6439).
+**Erreurs fréquentes.** Couper la liste en deux moitiés de même longueur (6,6 à 6,8 pour la seconde loi) ; une boucle qui ne réduit pas l'intervalle quand la réponse est « non » (`lo = t` au lieu de `lo = t + 1` : elle tourne en rond) ; calculer `bound_26` en nats (3,6808) ou pour la loi uniforme (6,6439).

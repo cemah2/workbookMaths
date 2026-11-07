@@ -29,7 +29,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 *Fiche §2 · parcours C, E*
 
 1. L'entropie d'une loi peut être négative.
-2. Une loi sur 12 issues a une entropie d'au plus 3 bits.
+2. Une loi sur 7 issues a une entropie d'au plus 3 bits.
 3. Ajouter à une loi une issue de probabilité 0 change son entropie.
 4. Si l'on multiplie toutes les valeurs de $X$ par 2, l'entropie de $X$ double.
 5. L'entropie de $(0{,}97 ;\ 0{,}03)$ est plus grande que celle de $(0{,}53 ;\ 0{,}47)$.
@@ -78,11 +78,11 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M06.Q7 — Codes préfixes 🧠 ★ ⏱️ 4 min
 *Fiche §7 · parcours C, E*
 
-1. Qu'est-ce qu'un code préfixe ? Pourquoi se lit-il sans séparateur ?
+1. Qu'est-ce qu'un code préfixe ? Pourquoi peut-on découper une suite de ses mots, écrits bout à bout, sans hésiter ?
 2. Le code $\{01, 10, 11, 001\}$ est-il préfixe ? Est-il complet ?
 3. Le code $\{0, 1, 10\}$ est-il préfixe ?
 4. Des longueurs $(1, 3, 3, 3)$ sont-elles possibles pour un code préfixe binaire ?
-5. Combien de chiffres binaires faut-il à un code de longueur fixe pour 1 000 issues ?
+5. Combien de chiffres binaires faut-il à un code de longueur fixe pour 300 issues ?
 6. Vrai ou faux : un code de longueur fixe dont les mots sont tous différents est toujours préfixe.
 
 <a id="rappels"></a>
@@ -93,10 +93,10 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 *Fiche §1 · parcours C, E*
 
 1. Complète sans calculatrice : $2^{?} = 4096$, $2^{?} = \frac{1}{512}$, $2^{?} = 2\sqrt{2}$.
-2. Écris $\log_2 x$ avec la fonction $\ln$, puis calcule $\log_2 11$ (3 décimales).
-3. Montre que $\log_2 48 = 4 + \log_2 3$.
+2. Range sans calculatrice, du plus petit au plus grand : $\log_2 7$, $\frac{5}{2}$, $\log_2 6$ et $3$ (compare $2^{5/2}$ à 6).
+3. On divise une probabilité $p$ par 8 : de combien de bits augmente $-\log_2 p$ ? Et si l'on remplace $p$ par $p^2$, que devient $-\log_2 p$ ?
 4. Résous $\log_2 x = -2{,}5$ : donne $x$ sous forme exacte, puis à 3 décimales.
-5. Pour quelles valeurs de $p \in\ ]0, 1]$ le nombre $-p \log_2 p$ est-il nul ? Que vaut-il pour $p = \frac{1}{4}$ ?
+5. Sachant que $\log_{10} 2 \approx 0{,}30103$, calcule $\log_2 10$ (3 décimales), sans la touche $\ln$. Combien de bits faut-il, environ, pour écrire un chiffre décimal ?
 
 ### M06.R2 — Probabilités jointes et conditionnelles (M03) 🔁 ★ ⏱️ 5 min
 *Fiche §3 · parcours C, E*
@@ -134,7 +134,7 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 
 ### Ex M06.1 — L'information d'événements et l'entropie d'une loi à quatre issues ✏️ ★ ⏱️ 20 min
 **Objectif :** calculer l'information d'événements, l'additionner pour des événements indépendants, et calculer l'entropie d'une loi, en bits et en nats.
-**Prérequis :** fiche §1 et §2 ; R6 · **Parcours :** C, E
+**Prérequis :** fiche §1 à §3 ; R6 · **Parcours :** C, E
 
 Un serveur web répond à chaque requête par l'un de quatre codes : succès avec la probabilité 0,55, redirection avec 0,35, erreur du client avec 0,07, erreur du serveur avec 0,03.
 
@@ -147,11 +147,11 @@ Un serveur web répond à chaque requête par l'un de quatre codes : succès ave
 | e | l'entropie de la loi à trois issues obtenue en regroupant les deux erreurs en une seule issue « erreur » | un nombre (3 décimales) |
 | f | l'entropie du couple formé par les codes de deux requêtes indépendantes | un nombre (3 décimales) |
 
-Dans ta copie : vérifie que b) est la moyenne des informations de a), pondérée par les probabilités. Qu'a-t-on perdu en regroupant les deux erreurs ? Écris l'écart b) − e) comme 0,1 fois l'entropie d'une loi à deux issues, que tu préciseras. Justifie f) avec la règle de la chaîne (§3).
+Dans ta copie : vérifie que b) est la moyenne des informations de a) (non arrondies), pondérée par les probabilités. Qu'a-t-on perdu en regroupant les deux erreurs ? Écris l'écart b) − e) comme 0,1 fois l'entropie d'une loi à deux issues, que tu préciseras (la règle du regroupement, fiche §3). Justifie f) avec la règle de la chaîne (§3).
 
 ### Ex M06.2 — L'entropie maximale : comparer des lois à quatre issues ✏️ ★★ ⏱️ 15 min
 **Objectif :** voir comment l'entropie change quand on rapproche les probabilités ou quand on regroupe des issues, et trouver une entropie maximale sous une contrainte.
-**Prérequis :** fiche §2 ; Ex M06.1 · **Parcours :** C
+**Prérequis :** fiche §2 et §3 ; Ex M06.1 · **Parcours :** C
 
 Une loi sur quatre issues : $A = (0{,}45 ;\ 0{,}3 ;\ 0{,}15 ;\ 0{,}1)$.
 
@@ -160,8 +160,8 @@ Une loi sur quatre issues : $A = (0{,}45 ;\ 0{,}3 ;\ 0{,}15 ;\ 0{,}1)$.
 | a | $H(A)$ | un nombre (3 décimales) |
 | b | l'entropie de $A_1 = (0{,}4 ;\ 0{,}3 ;\ 0{,}15 ;\ 0{,}15)$, obtenue en donnant 0,05 de la première issue à la dernière | un nombre (3 décimales) |
 | c | l'entropie de $A_2 = (0{,}45 ;\ 0{,}3 ;\ 0{,}25)$, obtenue en regroupant les deux dernières issues de $A$ | un nombre (2 décimales) |
-| d | la plus grande entropie possible pour une loi sur quatre issues | un entier |
-| e | la plus grande entropie possible pour une loi sur quatre issues dont la première a la probabilité 0,45 | un nombre (2 décimales) |
+| d | ce qu'il manque à $H(A)$ pour atteindre la plus grande entropie possible d'une loi sur quatre issues | un nombre (3 décimales) |
+| e | la plus grande entropie possible pour une loi sur quatre issues dont la première a la probabilité 0,45 | un nombre (3 décimales) |
 | f | cette entropie maximale e), en **nats** | un nombre (2 décimales) |
 
 Dans ta copie : quel effet a le transfert de b), d'une issue probable vers une issue rare ? Et le regroupement de c) ? Pour e), quelle loi atteint le maximum, et pourquoi (regarde la loi des trois dernières issues, sachant que la première n'est pas sortie) ?
@@ -320,7 +320,7 @@ Dans ta copie : écris un code préfixe qui a les longueurs de h). Range les qua
 Une démonstration se rédige en phrases : ce qu'on suppose, chaque étape et sa justification, ce qu'on conclut (R4 §8). La solution donne une **grille de relecture** pour juger la tienne.
 
 ### Ex M06.10 — I(X ; Y) = H(X) − H(X | Y), et l'information mutuelle est positive ∂ ★★ ⏱️ 20 min
-**Objectif :** relier les trois écritures de l'information mutuelle, et en déduire qu'en moyenne, savoir ne rend pas moins sûr.
+**Objectif :** relier les trois écritures de l'information mutuelle, et en déduire qu'en moyenne, conditionner ne peut qu'abaisser l'entropie.
 **Prérequis :** fiche §3 à §6 · **Parcours :** C
 
 On part de la définition $I(X ; Y) = \sum_{x, y} p(x, y) \log_2 \frac{p(x, y)}{p(x)\,p(y)}$, la somme portant sur les cases où $p(x, y) > 0$.
@@ -359,7 +359,7 @@ Un classifieur range des images en trois classes (A, B, C). Sur cinq images, il 
 | 2 | B | (0,1 ; 0,8 ; 0,1) |
 | 3 | C | (0,5 ; 0,15 ; 0,35) |
 | 4 | A | (0,9 ; 0,05 ; 0,05) |
-| 5 | B | (0,35 ; 0,4 ; 0,25) |
+| 5 | B | (0,3 ; 0,45 ; 0,25) |
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -450,7 +450,7 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | M06.18 | Codes préfixes et somme de Kraft · `kraft_sum, is_prefix_code` | 🔨 | ★ | 15 | C |
 | M06.19 | L'écart de Jensen d'une loi discrète · `jensen_gap` | 🔨 | ★ | 15 | C |
 | M06.20 | `sklearn.metrics.mutual_info_score` contre ta fonction, en nats | 📦 | ★ | 15 | C |
-| M06.21 | Prédire : l'information mutuelle de X et 2X, de X et X² | 🔮 | ★ | 10 | C, E |
+| M06.21 | Prédire : l'information mutuelle de X et X³, de X et X² | 🔮 | ★ | 10 | C, E |
 | M06.22 | Estimer une entropie à partir d'un échantillon : le biais des petits échantillons | 🔬 | ★★ | 20 | C |
 | M06.23 | Un diagramme de l'information : H(X), H(Y), H(X \| Y), I(X ; Y) | 🎨 | ★ | 20 | C |
 | M06.24 | Chasse à l'erreur : log en base 10, 0 log 0, KL à l'envers | 🐛 | ★ | 15 | C |
