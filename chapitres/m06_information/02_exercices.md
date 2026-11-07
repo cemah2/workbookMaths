@@ -163,7 +163,7 @@ Trois lois sur trois issues : $A = (\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$, $B 
 | b | $H(B)$ | un entier |
 | c | $H(C)$ | un nombre (3 décimales) |
 | d | la loi qui a la plus grande entropie | une lettre |
-| e | l'entropie de $(0{,}4 ;\ 0{,}4 ;\ 0{,}2)$ | un nombre (3 décimales) |
+| e | l'entropie de $(0{,}45 ;\ 0{,}35 ;\ 0{,}2)$ | un nombre (3 décimales) |
 | f | l'entropie de $(0{,}6 ;\ 0{,}25 ;\ 0{,}15)$, obtenue à partir de $C$ en déplaçant 0,1 de la première issue vers la troisième et 0,05 vers la deuxième | un nombre (3 décimales) |
 | g | la plus grande entropie possible pour une loi sur trois issues, en **nats** | un nombre (3 décimales) |
 
@@ -256,14 +256,14 @@ Une application enregistre cinq types d'événements. Son compresseur a été r�
 | g | le terme du premier type dans la somme $\sum_i p_i \log_2 \frac{p_i}{q_i}$ | un nombre (2 décimales) |
 | h | si l'ancienne loi avait donné la probabilité 0 au cinquième type, $H(p, q)$ serait-elle infinie ? | `True` ou `False` |
 
-Dans ta copie : quels types coûtent plus cher qu'avec le meilleur code, et lesquels moins ? Pourquoi le total d) reste-t-il positif alors que g) est négatif ?
+Dans ta copie : quels types coûtent plus cher qu'avec le meilleur code, et lesquels moins ? Quel est le signe de chaque terme de la somme de d), et pourquoi le total ne peut-il pas être négatif ?
 
 ### Ex M06.7 — L'inégalité de Jensen sur trois exemples ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer $\mathbb{E}[f(X)]$ et $f(\mathbb{E}[X])$ pour des fonctions convexes et concaves, et lire le signe de l'écart de Jensen.
 **Prérequis :** fiche §6 ; M02b · **Parcours :** C
 
 Trois variables discrètes :
-- $X_1$ vaut 0, 2 ou 4 avec les probabilités $\frac{1}{4}$, $\frac{1}{2}$, $\frac{1}{4}$, et $f(x) = x^2$ ;
+- $X_1$ vaut 1, 3 ou 5 avec les probabilités $\frac{1}{4}$, $\frac{1}{2}$, $\frac{1}{4}$, et $f(x) = x^2$ ;
 - $X_2$ vaut 0 ou 1 avec la probabilité $\frac{1}{2}$ chacun, et $f(x) = e^x$ ;
 - $X_3$ vaut 1 ou 4 avec la probabilité $\frac{1}{2}$ chacun, et $f(x) = \log_2 x$.
 
@@ -288,7 +288,7 @@ Dans ta copie : pour chaque exemple, dis si $f$ est convexe ou concave, et véri
 |---|---|---|
 | a | la somme de Kraft $\sum_i 2^{-\ell_i}$ des longueurs $(1, 2, 3, 4)$ | une fraction irréductible |
 | b | celle des longueurs $(2, 2, 2, 2, 3)$ | une fraction irréductible |
-| c | celle des longueurs $(1, 1, 2)$ | une fraction irréductible |
+| c | celle des longueurs $(1, 2, 2, 3, 4)$ | une fraction irréductible |
 | d | celle des longueurs $(1, 3, 3, 3, 4, 4)$ | un entier |
 | e | la somme de Kraft $\sum_i 3^{-\ell_i}$ des longueurs $(1, 1, 2, 2, 2)$, pour un alphabet de trois symboles | un entier |
 | f | un code préfixe binaire a déjà deux mots, de longueurs 1 et 2 : combien de mots de longueur 3 peut-on lui ajouter, au plus ? | un entier |

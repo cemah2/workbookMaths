@@ -869,3 +869,46 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M05b.27 🏆 Défi : retrouver une fonction du second degré à partir de son gradient ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (24 cartes)
 <!-- wbm:end M05b -->
+
+<!-- wbm:section M06 -->
+## M06 · Théorie de l'information ⏱️ 11,4 h
+
+- [ ] M06.Q1 🧠 La surprise et la probabilité ★ 4 min
+- [ ] M06.Q2 🧠 L'entropie : vrai ou faux ★ 4 min
+- [ ] M06.Q3 🧠 Conjointe et conditionnelle ★ 4 min
+- [ ] M06.Q4 🧠 L'information mutuelle ★ 4 min (complet)
+- [ ] M06.Q5 🧠 La KL n'est pas une distance ★ 4 min
+- [ ] M06.Q6 🧠 L'inégalité de Jensen ★ 4 min (complet)
+- [ ] M06.Q7 🧠 Codes préfixes ★ 4 min
+- [ ] M06.R1 🔁 Logarithmes en base 2 (R6) ★ 5 min
+- [ ] M06.R2 🔁 Probabilités jointes et conditionnelles (M03) ★ 5 min
+- [ ] M06.R3 🔁 Convexité (M05a) ★ 5 min (complet)
+- [ ] M06.1 ✏️ L'information d'événements et l'entropie d'une loi à quatre issues ★ 20 min
+- [ ] M06.2 ✏️ L'entropie maximale : comparer trois lois à trois issues ★★ 15 min (complet)
+- [ ] M06.3 ✏️ Entropies conjointe et conditionnelle d'un tableau 2 × 3 ★★ 20 min
+- [ ] M06.4 ✏️ La règle de la chaîne de l'entropie, vérifiée ★ 15 min (complet)
+- [ ] M06.5 ✏️ L'information mutuelle de deux variables ★★ 20 min
+- [ ] M06.6 ✏️ Cross-entropy et KL en bits perdus : un code fait pour la mauvaise loi ★★ 20 min
+- [ ] M06.7 ✏️ L'inégalité de Jensen sur trois exemples ★ 15 min (complet)
+- [ ] M06.8 ✏️ Kraft : ces longueurs de code sont-elles possibles ? ★ 15 min
+- [ ] M06.9 ✏️ La longueur moyenne d'un code, comparée à l'entropie ★★ 20 min (complet)
+- [ ] M06.10 ∂ I(X ; Y) = H(X) − H(X | Y), et l'information mutuelle est positive ★★ 20 min (complet)
+- [ ] M06.11 ∂ La KL est positive : la preuve par l'inégalité de Jensen ★★★ 25 min (complet)
+- [ ] M06.12 🔗 La log loss d'un classifieur, une cross-entropy moyenne ★ 15 min
+- [ ] M06.13 🔗 Choisir une feature par l'information mutuelle ★★ 20 min (complet)
+- [ ] M06.14 🧮 Fermi : combien de bits pour un génome humain ? ★ 10 min (complet)
+- [ ] M06.15 🗣️ Expliquer l'information mutuelle avec deux capteurs ★ 10 min
+- [ ] M06.E1 💼 Information mutuelle ou corrélation : laquelle détecte quoi ? ★ 10 min (complet)
+- [ ] M06.16 🔨 Entropies conjointe et conditionnelle d'un tableau ★ 20 min
+- [ ] M06.17 🔨 L'information mutuelle ★ 15 min
+- [ ] M06.18 🔨 Codes préfixes et somme de Kraft ★ 15 min (complet)
+- [ ] M06.19 🔨 L'écart de Jensen d'une loi discrète ★ 15 min (complet)
+- [ ] M06.20 📦 `sklearn.metrics.mutual_info_score` contre ta fonction, en nats ★ 15 min (complet)
+- [ ] M06.21 🔮 Prédire : l'information mutuelle de X et 2X, de X et X² ★ 10 min
+- [ ] M06.22 🔬 Estimer une entropie à partir d'un échantillon : le biais des petits échantillons ★★ 20 min (complet)
+- [ ] M06.23 🎨 Un diagramme de l'information : H(X), H(Y), H(X | Y), I(X ; Y) ★ 20 min (complet)
+- [ ] M06.24 🐛 Chasse à l'erreur : log en base 10, 0 log 0, KL à l'envers ★ 15 min (complet)
+- [ ] M06.25 🛠️ Calculer 0 log 0 proprement (`scipy.special.xlogy`) ★ 10 min (complet)
+- [ ] M06.26 🏆 Défi : deviner un nombre de 1 à 100 en un minimum de questions ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (22 cartes)
+<!-- wbm:end M06 -->

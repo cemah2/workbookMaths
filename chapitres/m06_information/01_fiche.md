@@ -209,7 +209,7 @@ La corrélation (M02c) ne mesure qu'un lien **linéaire** : elle peut être null
 
 ![À gauche, un lien linéaire : la corrélation vaut presque 1. À droite, Y ≈ X² : la corrélation est presque nulle, alors que Y dépend fortement de X](figures/information_correlation.png)
 
-💻 **Aujourd'hui en pratique** — scikit-learn calcule l'information mutuelle de deux étiquettes (`sklearn.metrics.mutual_info_score`, en **nats**, M06.20), et l'estime entre des features continues et une cible (`mutual_info_classif`, `mutual_info_regression`) pour choisir des features (§8).
+💻 **Aujourd'hui en pratique** — scikit-learn calcule l'information mutuelle de deux variables catégorielles à partir de leurs observations (`sklearn.metrics.mutual_info_score`, en **nats**, M06.20), et l'estime entre des features continues et une cible (`mutual_info_classif`, `mutual_info_regression`) pour choisir des features (§8).
 
 ## §5 · Cross-entropy et divergence KL
 
