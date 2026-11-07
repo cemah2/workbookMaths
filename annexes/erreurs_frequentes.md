@@ -300,3 +300,19 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Prendre l'exponentielle de grands scores | `math.exp(710)` : `OverflowError` ; `np.exp(710)` : `inf`, puis `nan` dans la softmax | soustraire le **maximum** des scores, puis le rajouter au log-sum-exp |
 | Calculer le log-softmax par le logarithme de la softmax | une probabilité qui s'efface donne `math.log(0.0)` | $\ln\text{softmax}(\mathbf{v})_i = v_i - \text{LSE}(\mathbf{v})$, directement à partir des scores |
 
+## Fonctions de plusieurs variables et gradient (M05b)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Oublier la variable « fixée » dans une dérivée partielle | $\frac{\partial}{\partial x}(x^3 y) = 3x^2$ | $y$ est une constante qui reste en facteur : $3x^2 y$ |
+| Prendre une direction donnée par un vecteur non unitaire | la pente de $f$ dans la direction $(3, 4)$, avec $\nabla f = (6, 9)$ : « $18 + 36 = 54$ » | diviser d'abord par la norme : $\mathbf{u} = (0{,}6 ;\ 0{,}8)$, et la pente vaut $10{,}8$ |
+| Croire que le gradient vise le sommet, ou suit les lignes de niveau | sur le dôme $100 - x^2 - 2y^2$, « en $(3, 1)$, le gradient pointe vers $(0, 0)$ » | il suit la montée la plus raide sur le moment, à angle droit des lignes de niveau : $(-6, -4)$ passe à côté de l'origine |
+| Écrire le plan tangent sans les décalages | $z = f(a, b) + f_x(a, b)\,x + f_y(a, b)\,y$ | $z = f(a, b) + f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b)$ : le plan passe par le point de contact |
+| Prendre $f_{xy}$ pour le produit $f_x \times f_y$ | pour $x^3 y + 2y^2$ en $(1, 2)$ : « $f_{xy} = 6 \times 9$ » | $f_{xy}$ est la dérivée de $f_x$ par rapport à $y$ : $3x^2 = 3$ |
+| Oublier le facteur 2 du terme croisé dans la courbure | dans la direction $\frac{(1, -1)}{\sqrt{2}}$ : « $\frac{12 - 3 + 4}{2}$ » | $f_{xx}u_1^2 + 2f_{xy}u_1u_2 + f_{yy}u_2^2 = \frac{12 - 6 + 4}{2} = 5$ |
+| Conclure « minimum » parce que $f_{xx} > 0$ et $f_{yy} > 0$ | $f_{xx} = f_{yy} = 1$, $f_{xy} = 2$ | calculer $D = f_{xx}f_{yy} - f_{xy}^2 = 1 - 4 < 0$ : un point selle |
+| Appliquer le test du second ordre quand $D = 0$ | « $x^4 + y^2$ n'a pas de minimum en $(0, 0)$, puisque $D = 0$ » | $D = 0$ : le test ne dit rien, regarder la fonction ($x^4 + y^2 \ge 0$ : c'est un minimum) |
+| Oublier les bords pour un extremum global sur un domaine borné | le minimum de $f$ sur un segment cherché seulement là où $\nabla f = \mathbf{0}$ | paramétrer le segment, se ramener à une variable, comparer les points critiques **et** les extrémités |
+| Se tromper de signe dans le pas de descente | $\mathbf{x} + \eta\,\nabla f(\mathbf{x})$ pour minimiser | descendre : $\mathbf{x} - \eta\,\nabla f(\mathbf{x})$ ; $+$ monte |
+| Confondre $\min f$ et $\arg\min f$ | pour $(x - 3)^2 + 2(y + 1)^2$ : « $\arg\min f = 0$ » | $\min f = 0$ (une valeur), $\arg\min f = (3, -1)$ (un point) |
+

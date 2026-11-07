@@ -872,7 +872,7 @@ wbm.record("M05b.25b", [9, -11, 202 ** 0.5, -3.4, -0.02, 0.1], decimals=3,
          "est $\\frac{\\partial f}{\\partial y} = x^3 - 4y = -11$. (D) oublie de diviser $(3, 4)$ par sa norme 5 : "
          "$\\frac{27 - 44}{5} = -3{,}4$, et non $-17$. (F) monte au lieu de descendre : $x - 0{,}1 \\times 9 = 0{,}1$. "
          "(A), (C) et (E) sont justes ; (E) est l'approximation linéaire $\\nabla f \\cdot (0{,}01 ;\\ 0{,}01) = "
-         "0{,}01 \\times (9 - 11) = -0{,}02$ (la vraie variation vaut environ $-0{,}0206$).",
+         "0{,}01 \\times (9 - 11) = -0{,}02$ (la vraie variation vaut environ $-0{,}019$).",
 )
 
 M05B_26_CHECK = '''with checked("M05b.26 vérifications"):

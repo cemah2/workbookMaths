@@ -269,7 +269,22 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | overflow, underflow | `float64` : $e^x$ déborde pour $x > 709{,}78$ ; plus grand $\approx 1{,}8 \times 10^{308}$ ; plus petit normal $\approx 2{,}2 \times 10^{-308}$, sous-normal $\approx 5 \times 10^{-324}$ |
 | log-sum-exp et softmax | $\text{LSE}(\mathbf{v}) = m + \ln\sum_i e^{v_i - m}$, $m = \max_i v_i$ ; $m \le \text{LSE}(\mathbf{v}) \le m + \ln n$ ; $\text{softmax}(\mathbf{v})_i = \frac{e^{v_i - m}}{\sum_j e^{v_j - m}}$ ; $\ln\text{softmax}(\mathbf{v})_i = v_i - \text{LSE}(\mathbf{v})$ |
 
-*(M05b à M06 : ajoutés avec leurs chapitres)*
+### M05b · Fonctions de plusieurs variables et gradient
+
+| Notion | Formules |
+|---|---|
+| ligne de niveau | $\{(x, y) : f(x, y) = c\}$ ; deux lignes de valeurs différentes ne se croisent pas ; écart entre deux lignes voisines $\approx \frac{\Delta c}{\lVert \nabla f \rVert}$ |
+| dérivée partielle | $\frac{\partial f}{\partial x}(a, b)$ : la dérivée de $x \mapsto f(x, b)$ en $a$ ; différence centrée $\frac{f(\mathbf{p} + h\mathbf{e}_i) - f(\mathbf{p} - h\mathbf{e}_i)}{2h}$ |
+| gradient | $\nabla f = \big(\frac{\partial f}{\partial x_1}, \ldots, \frac{\partial f}{\partial x_n}\big)$ (en colonne ici, en ligne dans MML) |
+| règle de la chaîne | $\frac{d}{dt} f\big(x(t), y(t)\big) = f_x\,x'(t) + f_y\,y'(t)$ |
+| dérivée directionnelle | $D_{\mathbf{u}} f(\mathbf{p}) = \nabla f(\mathbf{p}) \cdot \mathbf{u} = \lVert \nabla f(\mathbf{p}) \rVert \cos\theta$, avec $\lVert \mathbf{u} \rVert = 1$ |
+| plus grande pente | montée la plus raide : $\frac{\nabla f}{\lVert \nabla f \rVert}$, de pente $\lVert \nabla f \rVert$ ; descente : $-\nabla f$ ; pente nulle à angle droit du gradient, le long de la ligne de niveau |
+| plan tangent | $z = f(a, b) + f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b)$ ; développé : $A = f_x$, $B = f_y$, $C = f(a, b) - Aa - Bb$ ; $f(\mathbf{p} + \mathbf{h}) \approx f(\mathbf{p}) + \nabla f(\mathbf{p}) \cdot \mathbf{h}$, erreur d'ordre 2 |
+| dérivées secondes | $f_{xx}$, $f_{yy}$, $f_{xy} = f_{yx}$ (Schwarz) ; courbure dans la direction $\mathbf{u}$ : $f_{xx}u_1^2 + 2f_{xy}u_1u_2 + f_{yy}u_2^2$ |
+| test du second ordre | en un point critique ($\nabla f = \mathbf{0}$), $D = f_{xx}f_{yy} - f_{xy}^2$ : $D > 0$ et $f_{xx} > 0$ minimum local ; $D > 0$ et $f_{xx} < 0$ maximum local ; $D < 0$ point selle ; $D = 0$ on ne conclut pas |
+| descente de gradient | $\mathbf{x}_{k+1} = \mathbf{x}_k - \eta\,\nabla f(\mathbf{x}_k)$ ; au premier ordre $f(\mathbf{x} - \eta\nabla f) \approx f(\mathbf{x}) - \eta\,\lVert \nabla f(\mathbf{x}) \rVert^2$ ; montée : $\mathbf{x} + \eta\,\nabla f$ |
+
+*(M06 : ajouté avec son chapitre)*
 
 ## Partie II · Concepts
 

@@ -40,6 +40,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | cardinal | cardinality | le nombre d'éléments d'un ensemble fini, noté $\lvert A \rvert$ | R4 |
 | cellule (d'un notebook) | cell | bloc de code ou de texte qu'on exécute d'un coup | R0 |
 | cercle trigonométrique | unit circle | le cercle de centre $O$ et de rayon 1, parcouru dans le sens inverse des aiguilles d'une montre | R9 |
+| champ de vecteurs | vector field | une flèche en chaque point du plan (ou de l'espace) ; le gradient d'une fonction en est un | M05b |
 | changement de base (formule de) | change of base formula | $\log_b x = \frac{\ln x}{\ln b}$ | R6 |
 | changement de variable | change of variables, substitution | $\int_a^b f(g(x))\,g'(x)\,dx = \int_{g(a)}^{g(b)} f(u)\,du$ | M02a |
 | chiffres significatifs | significant figures | les chiffres d'un nombre à partir du premier chiffre non nul | R1 |
@@ -83,14 +84,18 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | densité de probabilité | probability density function (pdf) | fonction positive d'aire totale 1 : $P(a \le X \le b) = \int_a^b f$ ; une probabilité par unité de longueur, qui peut dépasser 1 | M02a |
 | densité jointe | joint density | fonction $f(x, y) \ge 0$ d'intégrale double 1, telle que $P((X, Y) \in D) = \iint_D f$ | M02b |
 | dérivée | derivative | pente de la tangente, taux de variation instantané | R7 |
+| dérivée directionnelle | directional derivative | la pente de $f$ en un point quand on avance dans la direction d'un vecteur unitaire $\mathbf{u}$ : $D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u}$ | M05b |
 | dérivée partielle | partial derivative | dérivée par rapport à une variable, les autres fixées | M05b |
 | dérivée seconde | second derivative | la dérivée de $f'$, notée $f''$ : son signe dit si la pente augmente (courbe convexe) ou diminue (concave) | M05a |
 | dérivée, fonction dérivée | derivative | la fonction $x \mapsto f'(x)$ qui donne la pente de la tangente en chaque point | R7 |
+| dérivées partielles secondes, dérivée croisée | second partial derivatives, mixed partial derivative | $f_{xx}$, $f_{yy}$, et $f_{xy}$, la dérivée de $f_x$ par rapport à $y$ | M05b |
+| descente de gradient, montée de gradient | gradient descent, gradient ascent | $\mathbf{x}_{k+1} = \mathbf{x}_k - \eta\,\nabla f(\mathbf{x}_k)$ : de petits pas dans la direction de plus grande descente, pour minimiser ; avec $+$, pour maximiser | M05b |
 | déterminant | determinant | le nombre $ad - bc$ d'un système 2 × 2, non nul exactement quand il a une seule solution (R2) ; facteur de changement d'aire ou de volume d'une application linéaire (M12c) | R2, M12c |
 | développer, factoriser | expand, factor | transformer un produit en somme ; transformer une somme en produit | R2 |
 | diagramme de fiabilité | reliability diagram | pour des paquets de scores, la probabilité moyenne annoncée contre la fréquence observée ; la diagonale si le modèle est calibré | M03 |
 | dichotomie | bisection | trouver un zéro en coupant l'intervalle en deux et en gardant la moitié où le signe change | R7 |
 | différence finie (avant, centrée) | finite difference (forward, central) | une approximation de $f'(x)$ par $\frac{f(x + h) - f(x)}{h}$ (ordre 1) ou $\frac{f(x + h) - f(x - h)}{2h}$ (ordre 2) | M05a |
+| direction de plus grande pente | steepest ascent direction | $\frac{\nabla f}{\lVert \nabla f \rVert}$, la direction où $f$ monte le plus vite, avec la pente $\lVert \nabla f \rVert$ ; l'opposée est celle de plus grande descente | M05b |
 | discriminant | discriminant | $\Delta = b^2 - 4ac$ ; son signe donne le nombre de racines de $ax^2 + bx + c$ | R3 |
 | disjonction de cas | proof by cases | découper en cas qui couvrent toutes les possibilités, et traiter chacun | R4 |
 | distance (entre deux points) | distance | $AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$, la norme du vecteur $\overrightarrow{AB}$ | R9 |
@@ -142,6 +147,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | fonction Beta, fonction Gamma | Beta function, Gamma function | $B(a, b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a + b)}$ ; $\Gamma(n) = (n - 1)!$ pour un entier $n \ge 1$ | M04 |
 | fonction d'erreur | error function, erf | $\operatorname{erf}(x) = \frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2}\,dt$, un nom donné à cette intégrale sans primitive usuelle | M02a |
 | fonction de masse | probability mass function (pmf) | $p(x) = P(X = x)$ pour une variable discrète : positive, de somme 1 | M02b |
+| fonction de plusieurs variables | multivariate function, function of several variables | une fonction qui prend plusieurs nombres et en renvoie un, comme $f(x, y)$ ; son graphe est une surface | M05b |
 | fonction de répartition | cumulative distribution function (cdf) | $F(x) = P(X \le x)$ : croissante de 0 à 1, et $F' = f$ pour une densité $f$ | M02a |
 | fonction définie par morceaux | piecewise function | une formule sur chaque partie de l'ensemble de définition : $\max(0, x)$, la marche, $\lvert x \rvert$ | R3 |
 | fonction quantile | quantile function | la réciproque $F^{-1}$ de la fonction de répartition : $F^{-1}(u) = q_u$ | M02a, M02b |
@@ -158,7 +164,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | gradient | gradient | vecteur des dérivées partielles | M05b |
 | grand O | big O | $f = O(g)$ : $f$ ne croît pas plus vite que $g$, à une constante près ; mesure le coût d'un algorithme | R7 |
 | hérédité, initialisation | inductive step, base case | les deux étapes d'une récurrence : $P(n) \Rightarrow P(n + 1)$, et $P(n_0)$ | R4 |
-| hessienne | Hessian | matrice des dérivées secondes | M19 |
+| hessienne | Hessian | matrice des dérivées secondes | M05b, M19 |
 | identité remarquable | special product, algebraic identity | égalité vraie pour tous $a$ et $b$, comme $(a + b)^2 = a^2 + 2ab + b^2$ | R2 |
 | implication | implication, conditional | $P \Rightarrow Q$, fausse seulement si P est vraie et Q fausse | R4 |
 | imputation | imputation | remplacer une valeur manquante par une valeur choisie (la moyenne, la médiane de la colonne…) | M02c |
@@ -167,7 +173,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | indépendance deux à deux, mutuelle | pairwise, mutual independence | chaque paire d'événements est indépendante ; ou tous ensemble le sont : $P(A \cap B \cap C) = P(A)P(B)P(C)$ en plus. La première n'entraîne pas la seconde | M03 |
 | indicatrice | indicator (variable) | variable qui vaut 1 si un événement se produit, 0 sinon (une Bernoulli) | M02b |
 | indice (d'une somme) | index (of a sum) | la variable muette de $\sum_{k=m}^{n}$, qui va de $m$ à $n$ | R4 |
-| inégalité de Cauchy-Schwarz | Cauchy-Schwarz inequality | $\lvert \vec{u} \cdot \vec{v} \rvert \le \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert$ | R9, M07 |
+| inégalité de Cauchy-Schwarz | Cauchy-Schwarz inequality | $\lvert \vec{u} \cdot \vec{v} \rvert \le \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert$ | R9, M05b, M07 |
 | inégalité triangulaire | triangle inequality | $\lVert \vec{u} + \vec{v} \rVert \le \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ : un côté d'un triangle est plus court que la somme des deux autres | R9 |
 | inégalité, inéquation | inequality | comparaison avec $<$, $\le$, $>$ ou $\ge$ ; une inéquation est une inégalité qui contient une inconnue | R2 |
 | intégrale | integral | $\int_a^b f(x)\,dx$ : l'aire algébrique entre la courbe et l'axe, limite des sommes de Riemann | M02a |
@@ -182,6 +188,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | intervalle de prédiction | prediction interval | intervalle où tombera une **nouvelle** observation ; plus large qu'un intervalle de confiance de la moyenne | M02c |
 | issue | outcome | un résultat possible d'une expérience aléatoire | R8 |
 | jacobienne | Jacobian | matrice des dérivées partielles d'une fonction à valeurs vectorielles | M17 |
+| ligne de niveau | level curve, contour line | l'ensemble des points où $f(x, y)$ prend une valeur donnée $c$ ; une carte de lignes de niveau est une carte topographique de la surface | M05b |
 | limite à droite, à gauche | right-hand, left-hand limit | limite quand $x$ s'approche de $a$ en restant plus grand (plus petit) que $a$ | R7 |
 | limite d'une fonction | limit of a function | la valeur dont $f(x)$ s'approche quand $x$ tend vers $a$ ou vers $\pm\infty$ | R7 |
 | limite d'une suite | limit of a sequence | le nombre $\ell$ dont les termes finissent par rester aussi près qu'on veut | R5 |
@@ -262,10 +269,12 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | périodique, période | periodic, period | une fonction qui se répète : $f(x + T) = f(x)$ ; cos et sin ont pour période $2\pi$ | R9 |
 | PGCD, PPCM | GCD (greatest common divisor), LCM (least common multiple) | plus grand diviseur commun, plus petit multiple commun de deux entiers | R1 |
 | pivot | pivotal quantity | une fonction des données et du paramètre dont la loi ne dépend pas du paramètre ($\frac{\bar{X}}{\mu}$ pour une loi exponentielle) | M02c |
-| point critique | critical point, stationary point | un point où la dérivée s'annule | M05a |
+| plan tangent | tangent plane | $z = f(a, b) + f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b)$ : le plan qui touche la surface en un point, avec les mêmes pentes | M05b |
+| point critique | critical point, stationary point | un point où la dérivée s'annule | M05a, M05b |
 | point d'inflexion | inflection point | un point où la courbe passe de convexe à concave, ou l'inverse : $f''$ y change de signe | M05a |
 | point de pourcentage | percentage point | écart entre deux pourcentages, obtenu en les soustrayant (de 4 % à 5 % : un point) | R1 |
 | point fixe | fixed point | un $\ell$ tel que $f(\ell) = \ell$ : la limite possible d'une suite $u_{n+1} = f(u_n)$ | R5 |
+| point selle | saddle point | un point critique où $f$ monte dans certaines directions et descend dans d'autres, comme un col de montagne | M05b |
 | polynôme de Taylor, série de Taylor | Taylor polynomial, Taylor series | $\sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x - a)^k$, le polynôme qui a les mêmes $n$ premières dérivées que $f$ en $a$ ; la série, quand $n \to \infty$ | M05a |
 | polynôme, degré | polynomial, degree | somme de puissances entières de $x$ multipliées par des coefficients ; le degré est la plus grande puissance | R3 |
 | population | population | l'ensemble (ou la loi) dont les données sont tirées, et dont on veut connaître les paramètres | M02c |
@@ -301,7 +310,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | récurrence (raisonnement par) | (proof by) induction | démontrer $P(n_0)$, puis $P(n) \Rightarrow P(n + 1)$ pour tout $n \ge n_0$ | R4 |
 | récurrence (suite définie par) | recursively defined sequence, recurrence relation | un premier terme et une règle $u_{n+1} = f(u_n)$ | R5 |
 | rééchantillon | resample | $n$ valeurs tirées avec remise parmi les $n$ données (bootstrap) | M02c |
-| règle de la chaîne | chain rule | $(g(u(x)))' = g'(u(x)) \times u'(x)$ : on dérive chaque étage d'une composée et on multiplie | R7 |
+| règle de la chaîne | chain rule | $(g(u(x)))' = g'(u(x)) \times u'(x)$ : on dérive chaque étage d'une composée et on multiplie | R7, M05b |
 | règle de la somme | sum rule | on obtient une marginale en sommant la loi jointe sur l'autre variable | M02b, M03 |
 | règle du produit (probabilités) | product rule | $P(A \cap B) = P(A \mid B)\,P(B)$ ; MML : $p(\mathbf{x}, \mathbf{y}) = p(\mathbf{y} \mid \mathbf{x})\,p(\mathbf{x})$ | M03 |
 | règle du produit, du quotient | product rule, quotient rule | $(uv)' = u'v + uv'$ ; $(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$ | R7 |
@@ -338,6 +347,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | table de vérité | truth table | la valeur d'une proposition pour chaque combinaison des valeurs de ses propositions | R4 |
 | tableau de contingence | contingency table | le tableau des effectifs de deux variables catégorielles observées ensemble, avec ses totaux dans les marges | M03 |
 | tableau de variations | variation table | tableau du signe de $f'$ et du sens de variation de $f$, avec les valeurs aux points où $f'$ s'annule | R7 |
+| taille du pas, learning rate | step size, learning rate | le nombre $\eta > 0$ qui règle la longueur d'un pas de descente de gradient | M05b |
 | tangente | tangent line | droite qui touche la courbe en un point avec la même pente : $y = f(a) + f'(a)(x - a)$ | R7 |
 | tangente hyperbolique | hyperbolic tangent | $\tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}}$, à valeurs dans $]-1 \;;\; 1[$ | R6 |
 | taux d'accroissement | rate of change, difference quotient | $\frac{f(a + h) - f(a)}{h}$ : la pente de la sécante, une vitesse moyenne | R7 |
@@ -346,13 +356,16 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | temps de doublement, demi-vie | doubling time, half-life | la durée au bout de laquelle une grandeur double (ou est divisée par 2) : $\frac{\ln 2}{\ln(1 + r)}$ | R6 |
 | terme, rang (d'une suite) | term, index | $u_n$ est le terme de rang (ou d'indice) $n$ | R5 |
 | termes semblables, réduire | like terms, collect like terms | termes de même partie littérale ; réduire, c'est les additionner en additionnant leurs coefficients | R2 |
+| test du second ordre | second-derivative test | en un point critique, le signe de $D = f_{xx}f_{yy} - f_{xy}^2$ (et celui de $f_{xx}$) dit minimum, maximum ou point selle ; $D = 0$ : il ne conclut pas | M05b |
 | théorème central limite | central limit theorem (CLT) | pour $n$ grand, la moyenne de $n$ variables i.i.d. suit à peu près $\mathcal{N}\big(\mu, \frac{\sigma^2}{n}\big)$, quelle que soit leur loi | M02c |
 | théorème de Fubini | Fubini's theorem | une intégrale double sur un rectangle se calcule en intégrant une variable après l'autre, dans n'importe quel ordre | M02b |
+| théorème de Schwarz | Schwarz's theorem, symmetry of second derivatives | les dérivées croisées sont égales, $f_{xy} = f_{yx}$, quand les dérivées secondes sont continues | M05b |
 | théorème de transfert | law of the unconscious statistician (LOTUS) | $\mathbb{E}[g(X)] = \sum g(x)\,P(X = x)$ ou $\int g(x)\,f(x)\,dx$, sans chercher la loi de $g(X)$ | M02b |
 | théorème des valeurs intermédiaires | intermediate value theorem | une fonction continue sur $[a ; b]$ prend toutes les valeurs entre $f(a)$ et $f(b)$ | R7 |
 | théorème fondamental de l'analyse | fundamental theorem of calculus | $\int_a^b f = F(b) - F(a)$ pour une primitive $F$ ; la fonction aire a pour dérivée $f$ | M02a |
 | tirage avec / sans remise | sampling with / without replacement | remettre ou non chaque valeur tirée : avec remise, les tirages sont i.i.d. ; sans remise, ils sont dépendants | M02c |
 | tirage avec remise, sans remise | sampling with replacement, without replacement | avec remise, l'objet tiré est remis avant le tirage suivant ; sans remise, la composition change | R8 |
+| tranche (d'une surface) | slice, cross-section | la courbe obtenue en figeant une variable, comme $x \mapsto f(x, b)$ ; $\frac{\partial f}{\partial x}(a, b)$ est sa pente en $a$ | M05b |
 | triangle de Pascal | Pascal's triangle | les coefficients binomiaux rangés en triangle : chaque nombre est la somme des deux au-dessus | R8 |
 | unité d'arrondi | unit roundoff | l'erreur relative maximale d'une opération en flottants, $u = \frac{\varepsilon}{2}$ ($2^{-53}$ en `float64`) | M05a |
 | univers | sample space | $\Omega$, l'ensemble des issues d'une expérience aléatoire | R8 |
