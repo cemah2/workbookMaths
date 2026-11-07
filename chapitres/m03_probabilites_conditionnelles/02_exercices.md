@@ -153,7 +153,7 @@ On tire un avis au hasard parmi les 400.
 | e | $P(\text{avec photo} \mid \text{4 ou 5 étoiles})$ | un nombre (3 décimales) |
 | f | $P(\text{avec photo} \mid \text{1 ou 2 étoiles})$ | un nombre (3 décimales) |
 | g | la loi de la note sachant « avec photo », dans l'ordre du tableau | une liste de 3 nombres (3 décimales) |
-| h | $P(\text{1 ou 2 étoiles ou avec photo})$ | un nombre (3 décimales) |
+| h | $P(\text{« 1 ou 2 étoiles »} \cup \text{« avec photo »})$ | un nombre (3 décimales) |
 
 Dans ta copie : complète le tableau avec ses totaux. Compare f) à a) : la présence d'une photo est-elle indépendante de la note ? Vérifie que la liste de g) a une somme de 1.
 
@@ -297,7 +297,7 @@ On déclare positif un utilisateur dont le score est **supérieur ou égal** au 
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | le nombre de points de la courbe ROC en escalier, $(0, 0)$ et $(1, 1)$ compris | un entier |
+| a | le nombre de points de la courbe ROC en escalier : un point par score pris comme seuil, plus le point de départ $(0, 0)$ (les points intermédiaires d'une même marche comptent) | un entier |
 | b | le point de la courbe pour le seuil 0,6 : `[FPR, recall]` | une liste de 2 nombres (2 décimales) |
 | c | le point pour le seuil 0,45 | une liste de 2 nombres (2 décimales) |
 | d | l'AUC, par la méthode des trapèzes | un nombre (2 décimales) |
@@ -319,14 +319,14 @@ Un modèle trie des candidatures ; ses scores (arrondis à 0,1) :
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le nombre de paires (positif, négatif) | un entier |
-| b | le nombre de paires ex æquo | un entier |
+| b | le nombre de paires (positif, négatif) ex æquo | un entier |
 | c | le nombre de paires où le positif a **strictement** le score le plus élevé | un entier |
 | d | l'AUC | un nombre (2 décimales) |
 | e | l'AUC si l'on remplace chaque score $s$ par $-s$ | un nombre (2 décimales) |
 | f | l'AUC si l'on ajoute une cinquième candidature positive, de score 0,6 | un nombre (4 décimales) |
 | g | la proportion des paires de départ où le négatif a strictement le score le plus élevé | un nombre (4 décimales) |
 
-Dans ta copie : écris le tableau des 12 paires (une ligne par positif, une colonne par négatif) avec 1, $\frac{1}{2}$ ou 0 dans chaque case. Vérifie que d), c), b) et g) sont liés par une relation simple. Trace la courbe ROC : où se trouve le segment en diagonale, et quelle aire a-t-il sous lui ?
+Dans ta copie : écris le tableau des 12 paires (une ligne par positif, une colonne par négatif) avec 1, $\frac{1}{2}$ ou 0 dans chaque case. Vérifie que d), c), b) et g) sont liés par une relation simple. Trace la courbe ROC : où se trouve le segment oblique dû aux ex æquo, et quelle aire a-t-il sous lui ?
 
 ### Ex M03.10 — Courbe precision-recall et average precision à la main ✏️ ★★ ⏱️ 20 min
 **Objectif :** construire les points d'une courbe precision-recall, calculer l'average precision, et trouver le seuil du meilleur F1.
@@ -348,7 +348,7 @@ On recommande un film dont le score est supérieur ou égal au seuil.
 | d | l'average precision | un nombre (4 décimales) |
 | e | l'average precision, en fraction | une fraction irréductible |
 | f | le plus grand F1 sur tous les seuils | un nombre (2 décimales) |
-| g | le seuil qui donne ce F1 | un nombre (2 décimales) |
+| g | le seuil, parmi les 7 scores pris comme seuils, qui donne ce F1 | un nombre (2 décimales) |
 | h | l'average precision si le film non aimé de score 0,8 avait eu le score 0,4 | un nombre (4 décimales) |
 
 Dans ta copie : écris le tableau (seuil, TP, FP, precision, recall, F1) pour les 7 seuils, puis trace la courbe precision-recall. Pourquoi la precision monte-t-elle parfois quand on baisse le seuil, alors que le recall ne diminue jamais ?
@@ -392,7 +392,7 @@ Un classifieur donne des scores à $n_+$ exemples positifs, de scores $s_1, \ldo
 2. Montre que l'aire sous cet escalier est la somme, sur les négatifs $j$, de $\frac{1}{n_-}$ fois la hauteur de la courbe au moment où le seuil passe $t_j$.
 3. Que vaut cette hauteur ? Écris-la à l'aide de $\#\{i : s_i > t_j\}$.
 4. Déduis-en que l'aire vaut $\frac{1}{n_+ n_-}\sum_{j}\#\{i : s_i > t_j\}$, la proportion des paires (positif, négatif) bien classées.
-5. On autorise maintenant des ex æquo. Un groupe de scores égaux contient $a$ positifs et $b$ négatifs ($a, b \ge 1$) : montre que la courbe y fait un segment en diagonale, et que l'aire sous ce segment, dans le rectangle de $a \times b$ cases de taille $\frac{1}{n_+} \times \frac{1}{n_-}$ qu'il traverse, vaut la moitié du rectangle. Conclus que chaque paire ex æquo compte pour $\frac{1}{2}$.
+5. On autorise maintenant des ex æquo. Un groupe de scores égaux contient $a$ positifs et $b$ négatifs ($a, b \ge 1$) : montre que la courbe y suit la diagonale du rectangle qu'elle traverse, et que l'aire sous ce segment, dans le rectangle de $a \times b$ cases de taille $\frac{1}{n_+} \times \frac{1}{n_-}$ qu'il traverse, vaut la moitié du rectangle. Conclus que chaque paire ex æquo compte pour $\frac{1}{2}$.
 6. Déduis-en que l'AUC ne change pas si l'on remplace chaque score $s$ par $f(s)$, pour une fonction $f$ strictement croissante. Que devient-elle pour une fonction strictement décroissante ?
 7. Pour aller plus loin : la statistique $U$ de Mann et Whitney (un test de comparaison de deux groupes) compte les paires où un élément du premier groupe dépasse un élément du second, ex æquo comptés pour moitié. Relie $U$ à l'AUC.
 
@@ -406,8 +406,8 @@ Un classifieur range $n$ exemples dans $K \ge 2$ classes. Sa matrice de confusio
 3. Déduis-en que la micro-precision, le micro-recall et le micro-F1 sont égaux à l'accuracy.
 4. Interprète l'étape 2 en une phrase : que représente une case hors de la diagonale pour la classe prédite, et pour la vraie classe ?
 5. Vérifie le résultat sur la matrice des feuilles de vigne de la fiche (§5).
-6. En classification binaire, scikit-learn ne calcule par défaut la precision et le recall que pour la classe positive (`average="binary"`). Pourquoi ne sont-ils pas égaux en général ? Et dans un problème **multi-label** (un exemple peut avoir plusieurs labels, ou aucun), quelle étape de la démonstration tombe ?
-7. Montre que le recall macro (la moyenne simple des recalls des classes) est la balanced accuracy, et donne un exemple de matrice $2 \times 2$ où il diffère de l'accuracy.
+6. En classification binaire, scikit-learn ne calcule par défaut la precision et le recall que pour la classe positive (`average="binary"`). Pourquoi ne sont-ils en général ni égaux entre eux, ni égaux à l'accuracy ? Et dans un problème **multi-label** (un exemple peut avoir plusieurs labels, ou aucun), quelle étape de la démonstration tombe ?
+7. En binaire, montre que le recall macro (la moyenne simple des recalls des deux classes) vaut $\frac{\text{recall} + \text{spécificité}}{2}$, et donne un exemple de matrice $2 \times 2$ où il diffère de l'accuracy. Quand sont-ils égaux ?
 
 <a id="reflexion"></a>
 
@@ -431,7 +431,7 @@ On déclare positif un colis dont le score est supérieur ou égal au seuil, et 
 | d | au seuil 0,7 : le recall | un nombre (2 décimales) |
 | e | au seuil 0,3 : `[precision, recall]` | une liste de 2 nombres (3 décimales) |
 | f | le seuil, parmi 0,3, 0,5 et 0,7, qui donne le meilleur F1 | un nombre (1 décimale) |
-| g | un colis mal adressé envoyé coûte 3 et une vérification inutile coûte 1 : le coût total au seuil 0,5 | un entier |
+| g | un colis mal adressé envoyé (un faux négatif) coûte 3, et la vérification d'un colis bien adressé (un faux positif) coûte 1 ; un colis mal adressé détecté ne coûte rien : le coût total au seuil 0,5 | un entier |
 | h | avec ces coûts, le seuil le moins coûteux parmi les trois | un nombre (1 décimale) |
 
 Dans ta copie : écris les trois matrices de confusion. Comment évoluent la precision et le recall quand le seuil baisse ? Avec un coût de 1 pour chaque erreur, quel seuil choisirais-tu ? Pourquoi ne faudrait-il pas choisir le seuil sur ces mêmes 10 colis de test ?

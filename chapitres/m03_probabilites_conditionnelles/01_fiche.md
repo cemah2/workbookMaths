@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §8 |
 | **Temps total estimé** | ≈ 12,8 h : lecture et calculs de la fiche ≈ 2 h 30, exercices ≈ 9 h 30, flashcards ≈ 45 min (parcours essentiel ≈ 7,2 h) |
-| **Prérequis** | R1 (moyenne harmonique, moyenne pondérée) ; R8 (probabilités, arbres pondérés, indépendance de deux événements) ; M02a (aire, méthode des trapèzes) ; M02c (covariance, corrélation) ; workbookIA 0A (arrays NumPy) |
+| **Prérequis** | R1 (moyenne harmonique, moyenne pondérée) ; R8 (probabilités, arbres pondérés, indépendance de deux événements) ; M02a (aire, méthode des trapèzes) ; M02b (loi jointe, indépendance de deux variables, loi de Bernoulli) ; M02c (covariance, corrélation) ; workbookIA 0A (arrays NumPy) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `conditional.py` : `joint_from_counts`, `marginal`, `conditional`, `are_independent`, `auc_by_pairs` |
 | **MML** | §6.3, sa première moitié (voir le guide de lecture ci-dessous) |
@@ -26,7 +26,7 @@
 | §2 Probabilité conditionnelle, indépendance | Q1, Q2, Q3 | M03.1 ✏️, M03.2 ✏️, M03.16 📖, M03.17 ⚖️, M03.18 🗣️, M03.E1 💼 | M03.19 🔨, M03.20 🔨, M03.24 🔬, M03.26 🐛 |
 | §3 Probabilités totales | R1 🔁 | M03.3 ✏️, M03.16 📖, M03.17 ⚖️ | M03.26 🐛, M03.28 🏆 |
 | §4 La matrice de confusion | Q4 | M03.4 ✏️ | |
-| §5 Moyennes de métriques, balanced accuracy, MCC | Q5, R2 🔁 | M03.5 ✏️, M03.6 ✏️, M03.13 ∂ | |
+| §5 Moyennes de métriques, balanced accuracy, MCC | Q5, R2 🔁 | M03.4 ✏️ (h), M03.5 ✏️, M03.6 ✏️, M03.13 ∂ | |
 | §6 Prévalence et seuil de décision | | M03.6 ✏️, M03.7 ✏️, M03.14 🔗 | |
 | §7 ROC et AUC, precision-recall | Q6, R3 🔁 | M03.8 ✏️, M03.9 ✏️, M03.10 ✏️, M03.12 ∂ | M03.21 🔨, M03.22 📦, M03.23 🔮, M03.25 🎨 |
 | §8 Calibration, score de Brier, taux par groupe | Q7 | M03.11 ✏️, M03.15 🔗 | |
@@ -64,7 +64,7 @@ Vocabulaire anglais de ce chapitre : *joint probability*, *marginal probability*
 7. Le recall et la spécificité ne dépendent pas de la **prévalence** $\pi = P(Y = 1)$ ; la precision, si : $\frac{r\pi}{r\pi + (1 - s)(1 - \pi)}$. Pour des probabilités calibrées, le seuil qui minimise le coût est $\frac{c_{FP}}{c_{FP} + c_{FN}}$.
 8. La **courbe ROC** relie les points (FPR, recall) de tous les seuils ; son aire, l'**AUC**, est la probabilité qu'un positif ait un score plus élevé qu'un négatif (un ex æquo compte pour moitié). Elle ne change pas quand on transforme les scores par une fonction strictement croissante.
 9. La courbe **precision-recall** et l'**average precision** $\sum_j (R_j - R_{j-1})P_j$ montrent la qualité des alertes, qui dépend de la prévalence.
-10. Un modèle est **calibré** si $P(Y = 1 \mid \text{score} = p) = p$ ; le **score de Brier** $\frac{1}{n}\sum (p_i - y_i)^2$ mesure l'erreur de ses probabilités. Par groupe, des taux d'erreur égaux et des precisions égales sont incompatibles quand les prévalences diffèrent.
+10. Un modèle est **calibré** si $P(Y = 1 \mid \text{score} = p) = p$ ; le **score de Brier** $\frac{1}{n}\sum (p_i - y_i)^2$ mesure l'erreur de ses probabilités. Par groupe, des taux d'erreur égaux et des precisions égales sont incompatibles quand les prévalences diffèrent (sauf cas extrêmes, comme un modèle sans aucun faux positif).
 
 ---
 
@@ -93,7 +93,7 @@ En divisant tout le tableau par 500, on obtient la **loi jointe** de $(X, Y)$ (M
 | **ordinateur** | 0,14 | 0,16 | 0,10 | **0,4** |
 | **loi de $Y$** | **0,5** | **0,34** | **0,16** | **1** |
 
-Ses cases sont positives et ont une somme de 1. Chaque **marginale** est la somme des probabilités jointes de sa ligne ou de sa colonne : $P(X = \text{mobile}) = 0{,}36 + 0{,}18 + 0{,}06 = 0{,}6$. On dit qu'on **marginalise** : pour obtenir la loi de $X$, on « oublie » $Y$ en additionnant sur toutes ses valeurs,
+Ses cases sont positives ou nulles et ont une somme de 1. Chaque **marginale** est la somme des probabilités jointes de sa ligne ou de sa colonne : $P(X = \text{mobile}) = 0{,}36 + 0{,}18 + 0{,}06 = 0{,}6$. On dit qu'on **marginalise** : pour obtenir la loi de $X$, on « oublie » $Y$ en additionnant sur toutes ses valeurs,
 
 $$P(X = x) = \sum_y P(X = x, Y = y).$$
 
@@ -291,7 +291,7 @@ Trois façons de les résumer :
 
 L'accuracy est trompeuse quand une classe est rare : un modèle qui ne signale **rien** aurait ici une accuracy de $\frac{880}{1000} = 0{,}88$. Deux mesures résistent mieux.
 
-La **balanced accuracy** est la moyenne des recalls de chaque classe. En binaire, c'est la moyenne du recall et de la spécificité : $\frac{0{,}75 + 0{,}955}{2} \approx 0{,}852$. Le modèle qui ne signale rien obtient $\frac{0 + 1}{2} = 0{,}5$, comme le hasard.
+La **balanced accuracy** est la moyenne des recalls de chaque classe. En binaire, c'est la moyenne du recall et de la spécificité : $\frac{1}{2}\big(0{,}75 + \frac{21}{22}\big) \approx 0{,}852$. Le modèle qui ne signale rien obtient $\frac{0 + 1}{2} = 0{,}5$, comme le hasard.
 
 Le **MCC** (*Matthews correlation coefficient*) est la **corrélation** (M02c §8) entre la vérité $Y$ et la prédiction $\hat{Y}$, codées par 0 et 1 :
 
@@ -335,7 +335,7 @@ Conséquence pratique : une precision mesurée sur un jeu de test ne vaut que po
 
 ### Classes déséquilibrées : repondérer à l'entraînement
 
-Un modèle entraîné à minimiser une erreur moyenne sur des données où 88 % des exemples sont négatifs apprend surtout à reconnaître les négatifs. On **repondère** souvent les exemples : chaque exemple de la classe $k$ reçoit le poids $w_k = \frac{n}{K\,n_k}$ ($n$ exemples, $K$ classes, $n_k$ exemples dans la classe $k$ ; l'option `class_weight="balanced"` de scikit-learn). Pour le modèle de pannes : $w_1 = \frac{1000}{2 \times 120} \approx 4{,}17$ et $w_0 = \frac{1000}{2 \times 880} \approx 0{,}57$. Les deux classes pèsent alors autant au total ($120 \times 4{,}17 = 880 \times 0{,}57 = 500$) : tout se passe comme si la prévalence valait $\frac{1}{2}$. Rééchantillonner (dupliquer des positifs, retirer des négatifs) a le même effet. Le prix : les probabilités du modèle sont alors celles d'un monde à 50 % de positifs, et ne sont plus **calibrées** pour la vraie prévalence (§8) ; M04 donnera la formule pour les corriger.
+Un modèle entraîné à minimiser une erreur moyenne sur des données où 88 % des exemples sont négatifs apprend surtout à reconnaître les négatifs. On **repondère** souvent les exemples : chaque exemple de la classe $k$ reçoit le poids $w_k = \frac{n}{K\,n_k}$ ($n$ exemples, $K$ classes, $n_k$ exemples dans la classe $k$ ; l'option `class_weight="balanced"` de scikit-learn). Pour le modèle de pannes : $w_1 = \frac{1000}{2 \times 120} = \frac{25}{6} \approx 4{,}17$ et $w_0 = \frac{1000}{2 \times 880} = \frac{25}{44} \approx 0{,}57$. Les deux classes pèsent alors autant au total ($120 \times \frac{25}{6} = 880 \times \frac{25}{44} = 500$) : tout se passe comme si la prévalence valait $\frac{1}{2}$. Rééchantillonner (dupliquer des positifs, retirer des négatifs) a le même effet. Le prix : les probabilités du modèle sont alors celles d'un monde à 50 % de positifs, et ne sont plus **calibrées** pour la vraie prévalence (§8) ; M04 donnera la formule pour les corriger.
 
 ### Le seuil de décision
 
@@ -403,7 +403,7 @@ où $(R_j, P_j)$ est le couple (recall, precision) au $j$-ième seuil, du plus h
 
 Contrairement à la courbe ROC, la courbe precision-recall **dépend de la prévalence** (la precision en dépend, §6). Quand les positifs sont rares et que ce qui compte est la qualité des alertes, elle montre ce que la ROC cache : une AUC élevée peut aller avec une majorité de fausses alertes.
 
-⚠️ **Erreur classique.** Calculer l'aire sous la courbe precision-recall par les trapèzes en reliant les points par des segments : la precision ne varie pas linéairement entre deux seuils, et les trapèzes surestiment l'aire. L'average precision utilise des rectangles.
+⚠️ **Erreur classique.** Calculer l'aire sous la courbe precision-recall par les trapèzes en reliant les points par des segments : la precision ne varie pas linéairement entre deux seuils, et cette interpolation donne une aire fausse, souvent trop optimiste quand les points sont espacés. L'average precision utilise des rectangles, sans interpolation.
 
 🔗 **Dans workbookIA** — le chapitre 3 trace les courbes ROC et precision-recall et calcule l'AUC et l'average precision (`roc_curve`, `roc_auc_score`, `average_precision_score`) ; elles reviennent pour comparer des modèles aux chapitres 13 à 15.
 
@@ -417,7 +417,7 @@ Un modèle qui annonce des probabilités est **calibré** (*calibrated*) si elle
 
 $$P(Y = 1 \mid \text{score} = p) = p.$$
 
-On le vérifie par un **diagramme de fiabilité** (*reliability diagram*) : on regroupe les exemples par intervalles de score (par exemple 10 intervalles de largeur 0,1), et pour chaque intervalle on place la probabilité moyenne annoncée et la fréquence observée des positifs. Un modèle calibré suit la diagonale ; un modèle trop sûr de lui annonce 0,9 là où 75 % seulement des cas sont positifs.
+On le vérifie par un **diagramme de fiabilité** (*reliability diagram*) : on regroupe les exemples par intervalles de score (par exemple 10 intervalles de largeur 0,1), et pour chaque intervalle on place la probabilité moyenne annoncée et la fréquence observée des positifs. Un modèle calibré suit la diagonale ; un modèle trop sûr de lui annonce plus de 0,9 là où les trois quarts seulement des cas sont positifs, et moins de 0,1 là où un cas sur cinq l'est.
 
 ![Diagramme de fiabilité d'un modèle calibré et d'un modèle trop sûr de lui, qui classe pourtant les exemples dans le même ordre](figures/calibration.png)
 
@@ -434,13 +434,13 @@ Calibration et classement sont deux qualités différentes : la prévision const
 Un modèle est utilisé sur deux groupes de personnes $G_1$ et $G_2$ (deux langues, deux tranches d'âge…). Les mesures du §4 se calculent **par groupe** : ce sont des probabilités conditionnelles sachant aussi le groupe, comme $P(\hat{Y} = 1 \mid Y = 0, G = g)$, le taux de faux positifs du groupe $g$. Trois critères d'équité courants comparent les groupes :
 - la **parité des décisions** : le même taux de décisions positives $P(\hat{Y} = 1 \mid G = g)$ ;
 - l'**égalité des taux d'erreur** (*equalized odds*) : le même recall et le même taux de faux positifs dans chaque groupe ;
-- la **parité des precisions** (*predictive parity*) : la même precision $P(Y = 1 \mid \hat{Y} = 1, G = g)$ ; elle découle de la calibration dans chaque groupe.
+- la **parité des precisions** (*predictive parity*) : la même precision $P(Y = 1 \mid \hat{Y} = 1, G = g)$. Elle ressemble à la calibration dans chaque groupe, mais n'en découle pas : la precision au seuil $t$ est la moyenne des scores (calibrés) supérieurs à $t$, qui dépend de la répartition des scores dans le groupe.
 
 Ces critères ne peuvent pas tous être vrais à la fois quand les prévalences des groupes diffèrent. En écrivant $FP$ à partir de la precision ($\text{PPV} = \frac{TP}{TP + FP}$, donc $FP = TP\,\frac{1 - \text{PPV}}{\text{PPV}}$) et $TP = r\,n_+$ :
 
 $$\text{FPR} = \frac{FP}{n_-} = \frac{\pi}{1 - \pi}\cdot\frac{1 - \text{PPV}}{\text{PPV}}\cdot r.$$
 
-Si deux groupes ont la même precision (0,6) et le même recall (0,8), mais des prévalences de 30 % et 10 %, leurs taux de faux positifs sont forcément différents : environ 0,229 et 0,059. On ne peut égaliser les trois quantités que pour un modèle parfait, ou des prévalences égales. C'est le **théorème d'impossibilité** (A. Chouldechova, et J. Kleinberg et ses coauteurs, 2016-2017) : choisir un critère d'équité est un choix, pas un calcul.
+Si deux groupes ont la même precision (0,6) et le même recall (0,8), mais des prévalences de 30 % et 10 %, leurs taux de faux positifs sont forcément différents : environ 0,229 et 0,059. On ne peut égaliser les trois quantités que si les prévalences sont égales, ou dans des cas extrêmes (aucun faux positif dans les deux groupes, comme pour un modèle parfait). C'est le **théorème d'impossibilité** (A. Chouldechova, et J. Kleinberg et ses coauteurs, 2016-2017) : choisir un critère d'équité est un choix, pas un calcul.
 
 ![Avec la même precision et le même recall, le taux de faux positifs dépend de la prévalence du groupe](figures/equite.png)
 

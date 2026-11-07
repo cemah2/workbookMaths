@@ -317,10 +317,10 @@ Pour la copie : le paquet haut est sur la diagonale ; le paquet bas annonce 25 %
 3. $\sum_k (TP_k + FP_k) = \sum_k C_{kk} + n - \sum_k C_{kk} = n$, et de même $\sum_k (TP_k + FN_k) = n$. Les deux fractions valent $\frac{\sum_k C_{kk}}{n}$, l'accuracy. Le micro-F1, moyenne harmonique de deux nombres égaux, vaut ce nombre.
 4. Une erreur (vraie classe $k$, prédite $l \ne k$) est à la fois un faux positif pour la classe prédite $l$ et un faux négatif pour la vraie classe $k$ : elle est comptée une fois de chaque côté.
 5. Diagonale $50 + 22 + 7 = 79$, $n = 100$ : 0,79 ; $\sum FP_k = (5 + 2) + (4 + 1) + (6 + 3) = 21 = 100 - 79$.
-6. En binaire avec `average="binary"`, on ne garde que la classe positive : precision $\frac{TP}{TP + FP}$ et recall $\frac{TP}{TP + FN}$ diffèrent dès que $FP \ne FN$ (l'égalité de 3 venait de ce qu'on additionnait **toutes** les classes, la négative comprise). En multi-label, un exemple peut avoir plusieurs vrais labels ou plusieurs prédictions : une erreur n'est plus forcément à la fois un FP et un FN, et $\sum_k (TP_k + FP_k)$ (le nombre de prédictions) n'est plus égal à $\sum_k (TP_k + FN_k)$ (le nombre de vrais labels) : l'étape 2 tombe.
-7. Par définition, la balanced accuracy est la moyenne des recalls par classe, c'est-à-dire le recall macro. Exemple : $\begin{pmatrix} 90 & 0 \\ 10 & 0 \end{pmatrix}$ (vérité en lignes, 90 négatifs, 10 positifs, tout prédit négatif) : accuracy 0,9, recall macro $\frac{1 + 0}{2} = 0{,}5$.
+6. En binaire avec `average="binary"`, on ne garde que la classe positive : precision $\frac{TP}{TP + FP}$ et recall $\frac{TP}{TP + FN}$ diffèrent dès que $FP \ne FN$, et aucun des deux n'est l'accuracy $\frac{TP + TN}{n}$, qui compte aussi les vrais négatifs. L'égalité de 3 venait de ce qu'on additionnait les comptages de **toutes** les classes, la négative comprise. En multi-label, un exemple peut avoir plusieurs vrais labels ou plusieurs prédictions : une erreur n'est plus forcément à la fois un FP et un FN, et $\sum_k (TP_k + FP_k)$ (le nombre de prédictions) n'est plus égal à $\sum_k (TP_k + FN_k)$ (le nombre de vrais labels) : l'étape 2 tombe.
+7. En binaire, le recall de la classe positive est le recall, et celui de la classe négative est $\frac{TN}{TN + FP}$, la spécificité : leur moyenne simple est $\frac{\text{recall} + \text{spécificité}}{2}$, la balanced accuracy. Exemple : $\begin{pmatrix} 90 & 0 \\ 10 & 0 \end{pmatrix}$ (vérité en lignes, 90 négatifs puis 10 positifs, tout prédit négatif) : accuracy 0,9, recall macro $\frac{1 + 0}{2} = 0{,}5$. Comme l'accuracy vaut $\pi \cdot \text{recall} + (1 - \pi) \cdot \text{spécificité}$ (probabilités totales), les deux sont égaux quand $\pi = \frac{1}{2}$ ou quand recall et spécificité sont égaux.
 
-**Grille.** (1) la trace et l'accuracy ; (2) l'argument « chaque case hors diagonale est comptée une fois » pour FP et pour FN ; (3) la conclusion, avec le F1 ; (4) l'interprétation (une erreur, un FP et un FN) ; (5) la vérification numérique ; (6) pourquoi l'égalité tombe en binaire « classe positive seule » et en multi-label ; (7) recall macro = balanced accuracy, avec un exemple chiffré.
+**Grille.** (1) la trace et l'accuracy ; (2) l'argument « chaque case hors diagonale est comptée une fois » pour FP et pour FN ; (3) la conclusion, avec le F1 ; (4) l'interprétation (une erreur, un FP et un FN) ; (5) la vérification numérique ; (6) pourquoi l'égalité tombe en binaire « classe positive seule » (ni entre elles, ni avec l'accuracy) et en multi-label ; (7) le recall macro binaire égal à la balanced accuracy, un exemple chiffré, et le cas d'égalité avec l'accuracy.
 
 <a id="reflexion"></a>
 
@@ -334,11 +334,11 @@ Pour la copie : le paquet haut est sur la diagonale ; le paquet bas annonce 25 %
 - a), b) Au seuil 0,5 : 0,95, 0,81, 0,66, 0,52 (positifs) et 0,74 (négatif).
 - c) $\frac{2}{3}$. d) $\frac{2}{5}$. e) $\frac{5}{8}$ et 1.
 - f) F1 : 0,5 (seuil 0,7), 0,8 (seuil 0,5), $\frac{2 \times 0{,}625}{1{,}625} \approx 0{,}769$ (seuil 0,3).
-- g) $3 \times 1 + 1 \times 1 = 4$. h) Coûts : $3 \times 3 + 1 = 10$, $4$, $3 \times 0 + 3 = 3$ : le seuil 0,3.
+- g) Un faux négatif (coût 3) et un faux positif (coût 1) : $3 \times 1 + 1 \times 1 = 4$ ; les colis mal adressés détectés ne coûtent rien. h) Coûts : $3 \times 3 + 1 = 10$, $4$, $3 \times 0 + 3 = 3$ : le seuil 0,3.
 
 Pour la copie : quand le seuil baisse, le recall monte (0,4 ; 0,8 ; 1) et la precision baisse ici (0,667 ; 0,8 ; 0,625, pas tout à fait monotone). Avec un coût de 1 par erreur, on compte les erreurs : 4, 2, 3 : le seuil 0,5. Choisir le seuil sur les données de test, c'est l'ajuster à elles : l'évaluation devient trop optimiste ; on le choisit sur un jeu de validation.
 
-**Erreurs fréquentes.** Oublier qu'un score égal au seuil est positif ; diviser la precision par le nombre de positifs ; additionner les erreurs sans leurs coûts.
+**Erreurs fréquentes.** Oublier qu'un score égal au seuil est positif ; diviser la precision par le nombre de positifs ; additionner les erreurs sans leurs coûts ; faire payer la vérification des colis mal adressés détectés (l'énoncé dit qu'ils ne coûtent rien).
 
 **Variante.** Avec un coût de 5 pour un colis mal adressé envoyé ? *Réponse* : 16, 6 et 3 : le seuil 0,3 encore, plus nettement.
 

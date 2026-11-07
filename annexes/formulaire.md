@@ -234,7 +234,7 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | AUC | aire sous la courbe ROC (points (FPR, recall)) $= \frac{\#\{s_+ > s_-\} + \frac{1}{2}\#\{s_+ = s_-\}}{n_+ n_-} = P(S_+ > S_-) + \frac{1}{2}P(S_+ = S_-)$ ; inchangée par une fonction strictement croissante ; $1 - $ AUC pour $-s$ |
 | average precision | $\text{AP} = \sum_j (R_j - R_{j-1})\,P_j$, aux seuils décroissants ($R_0 = 0$) ; hasard : la prévalence |
 | calibration, Brier | calibré : $P(Y = 1 \mid \text{score} = p) = p$ ; $\text{Brier} = \frac{1}{n}\sum (p_i - y_i)^2$ ; prévision constante $\pi$ : $\pi(1 - \pi)$ |
-| taux par groupe | $\text{FPR} = \frac{\pi}{1 - \pi}\cdot\frac{1 - \text{PPV}}{\text{PPV}}\cdot\text{recall}$ : prévalences différentes, impossible d'égaliser PPV, recall et FPR à la fois |
+| taux par groupe | $\text{FPR} = \frac{\pi}{1 - \pi}\cdot\frac{1 - \text{PPV}}{\text{PPV}}\cdot\text{recall}$ : prévalences différentes, impossible d'égaliser PPV, recall et FPR à la fois (sauf cas extrêmes, sans faux positif) |
 
 *(M04 à M06 : ajoutés avec leurs chapitres)*
 

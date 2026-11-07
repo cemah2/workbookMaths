@@ -92,8 +92,8 @@ def fig_simpson() -> None:
     ax.bar(x - 0.18, team_a, width=0.36, color=C[0], label="équipe A (100 faciles, 100 difficiles)")
     ax.bar(x + 0.18, team_b, width=0.36, color=C[1], label="équipe B (200 faciles, 20 difficiles)")
     for xi, a, b in zip(x, team_a, team_b):
-        ax.text(xi - 0.18, a + 0.02, french(a), ha="center", fontsize=9)
-        ax.text(xi + 0.18, b + 0.02, french(b), ha="center", fontsize=9)
+        for xpos, value in ((xi - 0.18, a), (xi + 0.18, b)):     # exact rates: 0,9 ; 0,85 ; 0,795
+            ax.text(xpos, value + 0.02, f"{value:.3f}".rstrip("0").replace(".", ","), ha="center", fontsize=9)
     ax.set_xticks(x, labels=labels)
     ax.xaxis.keep_labels = True
     ax.set(ylim=(0, 1.05), ylabel="taux de résolution", title="Paradoxe de Simpson : A gagne dans chaque groupe, B au total")
@@ -183,6 +183,8 @@ def fig_roc_pairs() -> None:
     ax1.plot(fpr, tpr, color=C[1], linewidth=2.5, marker="o", markersize=4)
     ax1.plot([0, 1], [0, 1], color="gray", linestyle=":")
     ax1.text(0.55, 0.15, "AUC = 13 cases sur 16\n= 0,8125", fontsize=10)
+    ax1.set_xticks(np.linspace(0, 1, 5))                          # one tick per column (negative) and per row
+    ax1.set_yticks(np.linspace(0, 1, 5))
     ax1.set(xlim=(0, 1), ylim=(0, 1), aspect="equal", xlabel="taux de faux positifs (FPR)",
             ylabel="taux de vrais positifs (recall)", title="ROC : une marche par exemple, une case par paire")
     recall, precision, ap_parts = [], [], []
@@ -197,7 +199,7 @@ def fig_roc_pairs() -> None:
         if r > previous:
             ax2.add_patch(plt.Rectangle((previous, 0), r - previous, p, facecolor=C[2], alpha=0.25, edgecolor=C[2]))
             previous = r
-    ax2.plot(recall, precision, color=C[0], marker="o", linewidth=2)
+    ax2.plot(recall, precision, color=C[0], marker="o", linestyle="none")   # points only: no interpolation
     ax2.axhline(0.5, color="gray", linestyle=":", label="hasard : la prévalence 0,5")
     ax2.text(0.05, 0.12, "AP = somme des rectangles\n≈ 0,854", fontsize=10)
     ax2.set(xlim=(0, 1.02), ylim=(0, 1.05), xlabel="recall", ylabel="precision",
