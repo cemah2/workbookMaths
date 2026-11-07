@@ -259,6 +259,8 @@ def exam_over():
 SUMMARY = r'''# Summary of the automatic checks
 import re
 
+EXPECTED = __EXPECTED__
+
 
 def natural(sub_id):
     """CP0.2a before CP0.10a: the question number as a number, then the letter."""
@@ -271,9 +273,13 @@ if exam_over():
     right = sorted((k for k, r in done.items() if r), key=natural)
     wrong = sorted((k for k, r in done.items() if not r), key=natural)
     pending = sorted((k for k, r in RESULTS.items() if r.status == "pending"), key=natural)
+    missing = [k for k in EXPECTED if k not in RESULTS]
     print(f"Réponses vérifiées : {len(right)} juste(s) sur {len(done)} ; pas remplies : {len(pending)}.")
     if wrong:
         print("À revoir avec le corrigé :", ", ".join(wrong))
+    if missing:
+        print("⚠️ Pas vérifiées (cellule pas exécutée, ou arrêtée par une erreur, par exemple une virgule décimale) :",
+              ", ".join(missing))
     print("Note ensuite ta copie avec le barème de 03_examen_corrige.md : il donne aussi les points des démarches, "
           "des justifications et des questions rédigées, que cette vérification ne voit pas.")'''
 
@@ -283,7 +289,10 @@ INTRO = r'''## Après l'examen : vérification automatique
 
 1. Passe `EXAM_OVER` à `True` dans la cellule ci-dessous, puis exécute-la.
 2. Reporte chaque réponse de ta feuille : **la valeur** que tu as écrite, pas un nouveau calcul (sinon tu ne vérifies plus ta copie). Laisse `...` pour une question que tu n'as pas faite.
-3. Les formes d'écriture : en Python, le séparateur décimal est un **point** (`2.5`) ; une fraction, une valeur exacte, une expression et un intervalle s'écrivent **entre guillemets** (`"-7/3"`, `"sqrt(5)/3"`, `"2*x**2 - 1"`, `"]-oo ; 0]"`) ; une liste entre crochets, sans guillemets (`[-1.5, 4]`) ; vrai ou faux par `True` ou `False`.'''
+3. Les formes d'écriture : en Python, le séparateur décimal est un **point** (`2.5`) : une virgule (`0,25`) arrête toute la cellule, et aucune réponse de la question n'est vérifiée (le bilan, à la fin, le signale) ; une fraction, une valeur exacte, une expression et un intervalle s'écrivent **entre guillemets** (`"-7/3"`, `"sqrt(5)/3"`, `"2*x**2 - 1"`, `"]-oo ; 0]"`) ; une liste entre crochets, sans guillemets (`[-1.5, 4]`) ; vrai ou faux par `True` ou `False`.'''
+
+
+SUMMARY = SUMMARY.replace("__EXPECTED__", repr([f"{p.id}{letter}" for p in PAPER for letter, *_ in p.subs]))
 
 
 def paper_cell(kind: str, paper: Paper) -> list:

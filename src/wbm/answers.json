@@ -939,7 +939,9 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "64d1dff2cf44db59be9045d1774fd76af217b4facf052aa7a7c2e2b889741910": "une primitive de e^(x/2) est 2 e^(x/2) : dérive-la pour vérifier",
+        "135cd31f5e526249f2baa3010394a92e70049d2791ac6d1c4d9b169745926680": "l'intégration par parties laisse une seconde intégrale à calculer",
+        "64d1dff2cf44db59be9045d1774fd76af217b4facf052aa7a7c2e2b889741910": "une primitive de e^(x/2) n'est pas e^(x/2) : dérive ta primitive pour vérifier",
+        "75c1466e93e664d34f3ddb7af112235d667bb18db742ae30d523aba6731124a5": "évalue aussi chaque crochet en 0 : e⁰ = 1",
         "aa7f0d27f74db923e1029cb476cc51e0496a2010a919ea8296c5fced3fec5852": "par parties : ∫u v' = [u v] − ∫u' v, avec le signe moins"
       },
       "sign": 1,
@@ -949,7 +951,7 @@
       "hash": "467ef6d09b51c9c4222f620607a86ea3e633b5cb4ee9d6183e1c58f2089013a7",
       "kind": "fraction",
       "mistakes": {
-        "93c1269ac44f6d0ebbd6824b90b41f35c17730b451e66f1d1dbb14a1c7f20e66": "c est l'inverse de l'aire sous x + 1 : l'aire totale de f doit valoir 1",
+        "93c1269ac44f6d0ebbd6824b90b41f35c17730b451e66f1d1dbb14a1c7f20e66": "c'est l'aire sous x + 1 ; l'aire sous f = c (x + 1) doit valoir 1",
         "b3514980388518da480f5ff44b9f3a758b0cc9117e81ae1d463d8d1a0af55133": "intègre les deux termes de x + 1 sur [0 ; 2]"
       },
       "sign": 1,
@@ -962,7 +964,7 @@
       "mistakes": {
         "1412e1985c4269fb456afa99e1ebdf5d1ecf2de9437f0a70d7600dabe7cb159f": "F est la primitive de f qui vaut 0 en 0, pas f elle-même",
         "2af3fb0a663ceabd0dbfe6aaa7931db90ed8c2c787c6abba163375ba68756e59": "F(0) doit valoir 0 : choisis la primitive qui s'annule en 0",
-        "60341bedb35e154def5e5d411e96645a26b3e734639b9bab607aae40287cd242": "multiplie par la constante c : F(2) doit valoir 1"
+        "60341bedb35e154def5e5d411e96645a26b3e734639b9bab607aae40287cd242": "la densité est c (x + 1), pas x + 1 : F(2) doit valoir 1"
       },
       "points": [
         [
@@ -990,8 +992,8 @@
       "hash": "2b25e3a99591576d8cab3cc94f0878cbeb96922cd812578440ca6643674daa3b",
       "kind": "fraction",
       "mistakes": {
-        "477e008132fbf7d37f67d6bee56b8a183c382964f343c88bae739af5dd8f4aec": "P(1 < X ≤ 2) = F(2) − F(1)",
-        "7ebf17a879ff87d5e9fb2c6fa7d5ad2069f9d6508bc4b199b5a2f60eaa86ff8a": "c'est une différence de valeurs de la fonction de répartition, pas de la densité"
+        "477e008132fbf7d37f67d6bee56b8a183c382964f343c88bae739af5dd8f4aec": "c'est P(X ≤ 1) ; la question demande la probabilité de l'intervalle ]1 ; 2]",
+        "7ebf17a879ff87d5e9fb2c6fa7d5ad2069f9d6508bc4b199b5a2f60eaa86ff8a": "c'est une différence de valeurs de la densité, pas de la fonction de répartition"
       },
       "sign": 1,
       "simplified": true,
@@ -1016,7 +1018,7 @@
       "mistakes": {
         "5993bd45ed7c2b0aeba69b0008c8327b39c51ee16b05be6c1ab2dab53d43f814": "résous F(m) = 1/2 avec la fonction de répartition de c), constante comprise",
         "6d3f396639798a95817650693aebd17a1644ed97daa350ce019d59ed5f927df1": "la médiane vérifie F(m) = 1/2 ; ce n'est pas l'espérance",
-        "daed45dd294c0bfb1848ab2c3f94f146c9d08790a689479c9b959c13c012b2e9": "la médiane est dans [0 ; 2] : garde la racine de ce côté",
+        "daed45dd294c0bfb1848ab2c3f94f146c9d08790a689479c9b959c13c012b2e9": "une médiane est une valeur que X peut prendre : dans quel intervalle doit-elle tomber ?",
         "f6c479abcb805f87eb8eb17acdd17d31b2c8f4d5441f1e44a04b2e9245569ba7": "la densité n'est pas constante : la médiane n'est pas le milieu de l'intervalle"
       },
       "sign": 1,
@@ -1027,7 +1029,7 @@
       "kind": "fraction",
       "mistakes": {
         "3bafb8c549919df11e0da3c145fb351f93a4c34e298f6845c8c8aced50172395": "E[X] = ∫ x f(x) dx : la densité n'est pas constante",
-        "c191b8e74193ad212ff87d0668c08b800aa697c7a2e0ae0c2664690ccdf1e1a0": "multiplie par la constante c"
+        "c191b8e74193ad212ff87d0668c08b800aa697c7a2e0ae0c2664690ccdf1e1a0": "la densité est c (x + 1), pas x + 1"
       },
       "sign": 1,
       "simplified": true,
@@ -1036,21 +1038,21 @@
     "CP1.2a": {
       "coarse_any": {
         "1": [
-          "42a5c3578ecdc9f8951849162f2d1f712f708eaf3932070ad32f615a6e900826"
+          "553225cefc8ad3560361b7d9d50c0ba2889731b92f6de11bc7f7961cda6efca1"
         ]
       },
       "coarser": {
         "2": [
-          "4582a2ad6450aa0251474aea8cfff785d993870847f077967620b50997007e14"
+          "eae6d431acef2521ac7de0c0b3798e06c2183c7a740ff36f8c6de4ed1ec5f13c"
         ]
       },
       "decimals": 4,
-      "hash": "c5a63883c808045a7eeff71e0264b6ca97e90aa0a121d8b7504f6202f26f4c9b",
-      "hash_coarse": "df6d90aa8c19e3a9a70a06713c6609e5e41515515633d41997f656c4b6f50af2",
+      "hash": "ddef4b7e443fd2a8de9b75ef05732d2360bbfcd06d02db159efe54d5e3111c01",
+      "hash_coarse": "1e3b342195f91410ceecb4c5925dd66729ecc0d35fd2b69386ef1d7ad94aa3a1",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "bd69c8239c8b3d9db751f19333ca4be39ba241ede694761c4c72a1a60310218a": "aucune erreur sur une case a la probabilité 1 − 0,1, pour chacune des 12 cases"
+        "bd69c8239c8b3d9db751f19333ca4be39ba241ede694761c4c72a1a60310218a": "aucune erreur : chaque case doit être lue juste"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1058,23 +1060,23 @@
     "CP1.2b": {
       "coarse_any": {
         "1": [
-          "71c8999161ac9b673c055ef24bd19b9f7c01bda38739493cf524273a3f824e93"
+          "28a22adc1bd74fd71359f68d1a4315ff970e54ac2de44c6394cbd1fe2828691f"
         ]
       },
       "coarser": {
         "2": [
-          "9ecaede61ae156d543e4b9a217ce6bb34387ef269786175cd3d1232bc2e51065"
+          "f9caaf0923b2ba535aa1f806d29f12ece5438875e719fcc837d430f09c339c9d"
         ]
       },
       "decimals": 4,
-      "hash": "431640fed126c37f3b5fe8d0eca1a7d0d8316788bdc1bab460e5a955843602ac",
-      "hash_coarse": "29498d51804aa073a94090843539404f3bb8ed1b4b314747389700f0af75acb0",
+      "hash": "3bfe58826fb9061e9438f49f2b38ddcd30a160a485548c73c4689db93c18cd8b",
+      "hash_coarse": "e34eac0c373e284482e0e5a246f5a2b44ce0817a6f541c60fd2146b758b04709",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "4ffec2cbfec82eeba1cfe44c02ee0265741c6431e3ceacc1de3ad3311f7aa04d": "l'erreur unique peut être sur n'importe laquelle des 12 cases : le coefficient binomial",
-        "543eb41bea09b26c9ebeda92108a4992d4a8335a2ba2842fc51fd7108e48ab6c": "« au moins deux » compte aussi 3, 4… erreurs : passe par l'événement contraire",
-        "a8ddc6bdd9ec72f26edd53d5aa185cf1a82ae63fe7312ec73bafb3b8287c0194": "« au moins deux » exclut aussi le cas d'une seule erreur"
+        "142256c692aabd2d1a7a152b912e4aab61688d303d6e5731a81edbbb6c64d88f": "« au moins deux » compte aussi 3, 4… erreurs : passe par l'événement contraire",
+        "adcc06e0b6ad0ab568eb33d32239f79df8de530c1113d21de26095d0a6a0b650": "l'erreur unique peut être sur n'importe laquelle des 12 cases : le coefficient binomial",
+        "ec30dd416f63f00f68f1b682cbe949b48759797751766036ec341375427338c6": "« au moins deux » exclut aussi le cas d'une seule erreur"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1096,7 +1098,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "20eda776ef2095ab1126836737d9c2b8344fb5a03290f7fe994c90fa97f3cb40": "la loi de Poisson divise par k!"
+        "20eda776ef2095ab1126836737d9c2b8344fb5a03290f7fe994c90fa97f3cb40": "la loi de Poisson divise par k!",
+        "b6eb6e18a7cfc7546b432532dfff844f629bb30968c2223520b27c98a16e3e8a": "« exactement 2 » ne compte pas les heures à 0 ou 1 alerte"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1118,21 +1121,27 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "495eb3462e1a64d90c377d12634509ecd90e91b8f0166930e4e60d18829f8c2c": "en 20 minutes, le nombre moyen d'alertes n'est plus 1,8 : proportionnel à la durée",
-        "9710f3b7dbba6506ea53c6462747c4ce9b4b835f8826d0063dfc6d75c02ea237": "20 minutes sont un tiers d'heure : le paramètre est proportionnel à la durée"
+        "495eb3462e1a64d90c377d12634509ecd90e91b8f0166930e4e60d18829f8c2c": "le paramètre 1,8 est celui d'une heure : quel est le nombre moyen d'alertes sur une autre durée ?",
+        "9710f3b7dbba6506ea53c6462747c4ce9b4b835f8826d0063dfc6d75c02ea237": "le paramètre est proportionnel à la durée : quelle fraction d'heure font 20 minutes ?",
+        "c4cb69a5c1cbd90a0aa862763c3f42a1e9ef360edcd7a9da1e7c0ee8fdd80a67": "« au moins une » compte aussi 2, 3… alertes"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
     },
     "CP1.2e": {
-      "decimals": 3,
-      "hash": "7ab835092fc86f02ef905b72a6f5470e44b37c7b4cd19f401a06272d91218f8b",
-      "hash_coarse": "e55739dcf6823aa7d5406d103776e01b39b5eb26ba4fb873953c7d1c8d4bac7c",
+      "coarse_any": {
+        "0": [
+          "534b173587175bd3c1c9fe265b718ee429c36e3485f2d6fc67ab02a8513dcd9e"
+        ]
+      },
+      "decimals": 2,
+      "hash": "895d5a6bdabcfb132b3f6f8ff0cc5cc7c60c85518faa396064c18bccdb883076",
+      "hash_coarse": "0548c9e8c850438c02e756e72140e4671caa32f3a0d3a3149b4937fe953c5867",
       "kind": "float",
-      "magnitude": -2,
+      "magnitude": -1,
       "mistakes": {
-        "56725880963685906d49de2a1f34df310729ca329387b4ca1085bca68623465d": "1,5 est l'écart-type : z = (x − μ)/σ, sans élever au carré",
-        "eff01e686c45d3a0ba94d291a7eae2de668d23656b136752c7b8e24bf84950fe": "P(X < 11) ne regarde qu'un côté de la cloche"
+        "16e1ddffc3cf0804527f6fadc827a28e5a4dd2f99af44e5d36d934c4c915cecd": "12,5 minutes est sous la moyenne : son z est négatif",
+        "f84537b3b3168f0ae358da6a00a1b02f43b574c3b13e4de0ffef2bf03a441abb": "c'est la probabilité d'être en dehors de l'intervalle"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1149,6 +1158,7 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
+        "38b3406519e921af8f5c7b553fcf4f8dd983b4dcf49dae9d9723cba382321dbb": "z s'exprime en écarts-types : repasse en minutes",
         "93853bce05b37e496426a95e53f1881cc830d0a3619d2088def3248febb3965a": "dépassée par 90 % des batteries : seules 10 % font moins, la valeur est sous la moyenne",
         "a36f2e3ae30c172e50feeca9642a6b0d1ca5c709e87f4193041789448974122a": "90 % au-dessus laisse 10 % en dessous : cherche z tel que Φ(z) = 0,10"
       },
@@ -1203,7 +1213,7 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "ee07e85656a9a390976b50b8b0306b127102d361288ae656ae372118eaf908d9": "la covariance est E[XY] − E[X] E[Y]",
+        "ee07e85656a9a390976b50b8b0306b127102d361288ae656ae372118eaf908d9": "c'est E[XY] ; la covariance compare E[XY] à ce que donneraient des variables indépendantes",
         "f07ad20b1f7ae8b4304d3434df7675452125e3b5df07b360844c95562f4ea435": "X et Y ne sont pas indépendantes : calcule E[XY] avec la loi jointe"
       },
       "sign": 1,
@@ -1221,8 +1231,9 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "457ff260c0ed51822a1deaeb0c3b14d378ad2cb89027c3e23fd0b54d52d7c191": "V(X) = E[X²] − E[X]² : retranche le carré de l'espérance",
-        "8e6e822ab283a563bcc5f57ee32801ed983b06dc4e749c250553c724f6a2f794": "c'est l'espérance ; la variance mesure l'écart à l'espérance"
+        "457ff260c0ed51822a1deaeb0c3b14d378ad2cb89027c3e23fd0b54d52d7c191": "c'est E[X²] ; la variance mesure la dispersion autour de l'espérance",
+        "8e6e822ab283a563bcc5f57ee32801ed983b06dc4e749c250553c724f6a2f794": "c'est l'espérance ; la variance mesure l'écart à l'espérance",
+        "fd8a57570791fb681fd1513662ec2bd99161859e65bba061b71244a9f070e24d": "la variance retranche le carré de l'espérance, pas l'espérance"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1240,7 +1251,8 @@
       "magnitude": 0,
       "mistakes": {
         "1027c9a7abc01ff61c15243ad425c0183270efcc6e0d2260e06107852a1cb1c4": "X et Y ne sont pas indépendantes : la variance d'une somme ajoute 2 Cov(X, Y)",
-        "57c66469e860411f240afcb5722346d2d6f61130a64f091dee46f715c4dda0ce": "la variance d'une somme compte la covariance deux fois"
+        "57c66469e860411f240afcb5722346d2d6f61130a64f091dee46f715c4dda0ce": "relis la formule de la variance d'une somme : combien de fois la covariance y apparaît-elle ?",
+        "e59469ec9b8447fffd0f8fe97d947c21938c037c8c960d0f0a427ae8bcd6b791": "la variance de Y n'est pas E[Y²] : Y vaut 0 ou 1, c'est une Bernoulli"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1265,17 +1277,17 @@
       },
       "coarser": {
         "1": [
-          "0eec1c5bada728a668f45313a8ca2d076d35af1cad55448d7d4e5e5b7eef7d98"
+          "a9ccf9eaee10ef4d7b31c2c98127693ad2506f40c9ffa392e582d7360ce59139"
         ]
       },
       "decimals": 3,
-      "hash": "6f1dda8634791d7b496b534aab90fc239b87cd4834ec0d6e7ad7c78522ce4693",
-      "hash_coarse": "2be5d1bd34cbff06c000849852a306f9168a0787321c4243e29843244c774bfa",
+      "hash": "b2a767e7008bfb36a901c67ec09279e7a4223bc7f8e5cd34c47ac8712f792b13",
+      "hash_coarse": "1dce54841fc4edaa436834f895cbddad570589bc8971ef3a4655d54fbf6ad847",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "3013d850c28d87a82f35add9ab89bac9b7db210a6af7fafbc6bdc5926f197e6a": "c'est la variance ; l'écart-type est sa racine carrée",
-        "850c0771581a2e84bfcc75d5831233a8d4615ba927d362e0940c35ee654714cb": "ddof = 1 : divise la somme des carrés des écarts par n − 1"
+        "4aa949a03339e6e16cc3b7088d286f0d6426f5053037ccd3660102a86eaaaa7d": "c'est la variance ; la question demande l'écart-type",
+        "c654388e76e5cf8414868b96b89a74cd908e5934d13c91709a5606a19f521552": "ddof = 1 : divise la somme des carrés des écarts par n − 1"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1290,15 +1302,15 @@
         ]
       },
       "decimals": 3,
-      "hash": "bc5d2d527916c1c1f423e96b28eafef7e879dfd5df42c3973e8bb26844474191",
-      "hash_coarse": "ecf2cf5404b21022eed5ab4c6d5c288a6fd1018ea52e4f96ed7ff7fcde6ddd5f",
+      "hash": "6130b42b20c077d6fd9fa3e96e7bffb0d8faf2d0306444084105375d03189e24",
+      "hash_coarse": "b38f2c50a6b7d09b695798a23b782d0344f3b5cf5fe1d959fdabab5e9a1bc169",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "3a5b9c841978864d58f5e790bd6f0b3c757cf356036ba582a4f8ad33d23e46f3": "l'erreur type divise l'écart-type par √n, pas par n",
-        "569c5d16cc412916d2e0664653ff4009af51cbd40ffb31cfce66b47ef39f7153": "prends l'écart-type avec ddof = 1",
-        "5c989762079007ee07d55353ee9cc30b9d825d9f65132c39934daf470cd7fe7c": "l'erreur type divise l'écart-type par √n, pas par n",
-        "65117070cfa980b3a0d325cedd1cf41bdf07bff14b0fd6a7ad8d920a58b23c0c": "l'erreur type part de l'écart-type s, pas de la variance"
+        "02020572e1594314e7d5147f935d1ddb36d38cae0b6abeea7ecfe1ab9ddb6c26": "l'erreur type divise par √n, avec n = 50 mesures",
+        "0e15309e4218744d7be878006b632efad5924337ceef6ece56176cb63d75c42c": "l'erreur type divise l'écart-type par √n, pas par n",
+        "88403d00f6dfc3c5892d84d87bbd4e3f26e19c2292a2943795704659b7c374df": "prends l'écart-type avec ddof = 1",
+        "909810e5b127230e8119898a6948986162f733a3d3bd3821497e7b068ddf0a03": "l'erreur type part de l'écart-type s, pas de la variance"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1307,10 +1319,10 @@
       "decimals": 2,
       "element_coarse": [
         [
-          "e526b5707bbb63969a10e8fd1734c131d149c1df2ae85ab0c6fb95c1721734e4"
+          "6931c2ca9b7176a8a57a6afb4eefeae0b73214fc74f7362bb52a29327b4cb59b"
         ],
         [
-          "330ded356d2c59096cd6465e21373c393c93c5b70c2cdead4fc2c532741df949"
+          "a4f1dbfe438a56a752104fad663aba1aef9ed715ee8e4a56a3190cf719b1d0c5"
         ]
       ],
       "element_coarse_any": [
@@ -1322,14 +1334,15 @@
         ]
       ],
       "element_hashes": [
-        "0a2094fbd1ab8a76cf4d7ae29e9208bb656cbe92e83275990af7c917a85a6880",
-        "efb01778cfd7771728ce009a2113d7adc5f08032f6f1b23013c101307ff5bcf8"
+        "2e788e3ad6784bbf2bf4946e9348c8d76675717997b19796fa814749c7d99283",
+        "519e4c4286ee49f279c96b09f3c800be118770a751b75039a3bd7b1303a069b8"
       ],
-      "hash": "ba4080f06d532fd269ab6b2b5c759ac1354a8fe0138078b2c08ecb2e232e9e0d",
+      "hash": "27e0bc7fc67239edf4b64235784a1be4e98b182ec49f5044f5eaa783910db67e",
       "kind": "array",
       "mistakes": {
-        "653a3852e8cab857c7b9a32491ad8b7a5286e34f3eafb89c7b5b49f324467942": "l'intervalle de la moyenne utilise l'erreur type, pas l'écart-type des données",
-        "7c8a25815ef1e5e2beba96f45a73504c5310f6710c8e9f1df640a2c4c319e24e": "à 95 %, le quantile est 1,96"
+        "316cd253e4d36b531ce292eb8e27ba1aec5a297d68178c548117bf9cf32888df": "à 95 %, le quantile est 1,96",
+        "627ce6b15483067608e86dfd60608ddc4d28afadb700b11863a3dccf57bdde48": "l'intervalle de la moyenne utilise l'erreur type, pas l'écart-type des données",
+        "8dc5f197feacafa446a598ef03eec53e16d6b46928d67238087fa35d73610842": "un intervalle à 95 % s'étend de combien d'erreurs types de part et d'autre ?"
       },
       "shape": [
         2
@@ -1337,12 +1350,20 @@
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
     },
     "CP1.4e": {
-      "hash": "e1053da896033efd094861bd434aae625b19eaebe440b002fa9ac5eb105e13ee",
-      "kind": "int",
-      "magnitude": 2,
+      "coarse_any": {
+        "0": [
+          "be844fc8e1e4ca38aeab3a3aacad2c062fcb3f79766cbcfe882805afa44ccac0"
+        ]
+      },
+      "decimals": 2,
+      "hash": "841b93a8420271525f5e1d51e9ac93015d08cc2a2d654e8b3a7739c34a528ba4",
+      "hash_coarse": "8b30f1e4ff4d6e9fda5c873707dc8447c6007b39b14fc95e4e8dbdd1df4a3992",
+      "kind": "float",
+      "magnitude": 0,
       "mistakes": {
-        "adffa6820b5e83b34743e242d9548bc490a6f302a90d85b0b36475981c917e84": "un intervalle plus étroit demande plus de données, pas moins",
-        "bea05e45f2f6c95bda3eef8ede3f7364fe97d6477db1677fe7e957f0fa09f697": "la largeur varie comme 1/√n : pour la diviser par 2, que faut-il faire à n ?"
+        "5f7685230ebd9adbef47dae8cabf0439469d0a4b48cc4d9b612508995bf0594c": "l'intervalle de la moyenne utilise l'erreur type, pas l'écart-type des données",
+        "77e95b6cbcf70af381066d97714e55de63249a2c9ab12088217604864e10cda5": "à 90 %, le quantile est 1,645",
+        "dcc4f7073eb569d15e60a76722720a720acf37dfe8fbdb7631a6ec57edd5e1f1": "la demi-largeur est la moitié de la largeur de l'intervalle"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1372,7 +1393,8 @@
       "hash": "f215acb1c4c36bcd179915ff7d4fc4e74eda0dccc4bab20bf777aab87daf95bb",
       "kind": "array",
       "mistakes": {
-        "08b6716ec97637044e1dafea7a6d88c1cbeea8a87cf8896e716d850c99fe350e": "l'erreur type d'une proportion est √(p̂ (1 − p̂) / n)"
+        "08b6716ec97637044e1dafea7a6d88c1cbeea8a87cf8896e716d850c99fe350e": "l'erreur type d'une proportion est la racine de p̂ (1 − p̂) / n",
+        "8e7e5811fa3fef58b1e67e7e7ccd137a784d60c5c6bd9433ddf325eeb476df16": "l'erreur type d'une proportion divise par n, pas par n − 1"
       },
       "shape": [
         2
@@ -1384,7 +1406,7 @@
       "kind": "fraction",
       "mistakes": {
         "27a07922c9b794bb01d30e3efef3deb87b8e7a296a6b2a03af180503acaa8847": "c'est la part des vraies chutes ; la question demande la part des alertes",
-        "5f324467f9073034066bf6b09a6afe2c59068a886d1472f0c9877a956e8b35fa": "les alertes sont tous les événements signalés, vrais et faux"
+        "5f324467f9073034066bf6b09a6afe2c59068a886d1472f0c9877a956e8b35fa": "compte toutes les alertes, vraies et fausses"
       },
       "sign": 1,
       "simplified": true,
@@ -1414,8 +1436,9 @@
       "hash": "6576805e28da62604bb75fedd22787de09d509d5a50ba9b1e950bee082d6a1e2",
       "kind": "fraction",
       "mistakes": {
+        "b203cde0e077e1cc61b095710147bd85a2e60852d436fe893a5a8561684683ca": "relis la formule du F1 : il manque une partie de la fraction",
         "c408e9fe6e43d096d2ecedb3cc81a81e9649a0af0f652cb2f69d04eeeaca7171": "le F1 est la moyenne harmonique de la precision et du recall, pas leur moyenne arithmétique",
-        "d2719ece74a2eadffd31feb239dd78dab5b592e38937546e028c98c1a8bf8803": "F1 = 2PR / (P + R) : n'oublie pas le dénominateur"
+        "d2719ece74a2eadffd31feb239dd78dab5b592e38937546e028c98c1a8bf8803": "le produit de la precision et du recall n'est pas le F1 : relis la formule de la moyenne harmonique"
       },
       "sign": 1,
       "simplified": true,
@@ -1441,28 +1464,26 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "3edb28016b2680bc088d970db453bea7c25ce7236cdb804d8385567ddee7ad51": "la spécificité conditionne par l'absence de chute : les 440 autres événements"
+        "a4af636b66b8d1333d196ff56d08fa060e73af5af348bf2923263fb542b52247": "la spécificité conditionne par la vérité (pas de chute), pas par la réponse de la montre (pas d'alerte)",
+        "a9c72c3fca235d77ac1995065f50b720f96d1f43b455a797a56bdf1c63c35eb0": "la spécificité est une probabilité conditionnelle : parmi quels événements ?"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
     },
     "CP1.5f": {
-      "hash": "7bf3468c66475b8686c81b4f4f1a1efa608a14dcb58d0adda03cb06792464c82",
-      "kind": "fraction",
+      "hash": "5f24a4e6e64875fe43d989fbe219f3681fc4fa8aaeb31abd290f50dd881193ee",
+      "kind": "bool",
       "mistakes": {
-        "1fa3d99a826d043389c9585b24bfb1326a77a43ddc12b13f83023de53d74dfc6": "une alerte indépendante de ce qui s'est passé ne sait rien : parmi ses alertes, quelle part de chutes ?",
-        "543f6ad60bbbd82aa552bc6262521895c6055376de88423986faff9e927194bb": "c'est la proportion d'alertes ; la question demande la precision"
+        "323c83c52e3c06230fab700b6f9b0e96a666eeb9c79e1695eaeb157c7483938a": "compare P(alerte et chute) au produit P(alerte) × P(chute)"
       },
-      "sign": 1,
-      "simplified": true,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
     },
     "CP1.6a": {
-      "hash": "4a9c4c3496a026c02ef9f1fedc9d062206f319d3417c7fb15062b7d0807fe320",
+      "hash": "7f0e2b8b3e3ad6a5d8117605ed5f3587412c38716f062582aea6d4ae7f9b5d30",
       "kind": "fraction",
       "mistakes": {
-        "310680ed2d8ee82fea73173eb7a14890b734cb18b20917ae303d4154b1758aa3": "la moyenne de Beta(a, b) est a / (a + b)",
-        "4f71a5cb0c7ff7ac143cd0c5a349301b57312c96f1daffa12a8a5dc2d03939f7": "c'est le mode ; la moyenne est a / (a + b)"
+        "4a9c4c3496a026c02ef9f1fedc9d062206f319d3417c7fb15062b7d0807fe320": "c'est le mode de la loi ; la question demande sa moyenne",
+        "6a425f33fe7f65a1c8f7d3a6f42e6ba8e86d8f05713fddfaf27e6eb9d1e473e9": "la moyenne de Beta(a, b) n'est pas a/b : relis sa formule (M04 §4)"
       },
       "sign": 1,
       "simplified": true,
@@ -1471,16 +1492,16 @@
     "CP1.6b": {
       "decimals": 0,
       "element_hashes": [
-        "fd6e2cd8d6d83a18390cb59c71fba51b27663b4b93333f17879c93d2d741bf32",
-        "875343ce93b0e2b78e90b1ca71db44fec892e0312e063c554ad4ff9411c4a301"
+        "746738b0c9854efe3dbf13ed653b033fd3df5b0944ce0d41a76ea68e1de0d9a8",
+        "e6504e97dbbeea06a9517223ff09e766670f82e4f3abc97fa6576ab4f579c957"
       ],
-      "hash": "cba747fd02b1a47d394a651eccb4cb4a03aa6c229e299ac278beb115f61de57d",
+      "hash": "46cec59ed9ab059c8d2d5d4430f362f31e84592e603f3686a9d02acccdf2d84a",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "53ef97295d8f19da7e1ffbd9b76ea1dae4d91c515dd280b39e4ee5125990fe5c": "b reçoit le nombre d'échecs, pas le nombre d'essais",
-        "b8b46a5bfeeb5cc9538c9e595104f5898b04d1583fe877d0f80fc5aa5a8d937c": "ajoute les succès et les échecs aux paramètres de l'a priori",
-        "ba195e8955d512a4cdadac484708dbe58fa70b44692114c56f1a053027e18d4f": "a reçoit les succès, b les échecs"
+        "36f3d2e708996b193f69f007dfd9f9f62aa793f30255b8fc2f334a23768342d4": "b reçoit le nombre d'échecs, pas le nombre d'essais",
+        "a2cc760d3da931bd463c8ee0ef9de76e2e7f19955796d04ae4a571dfdf2cade7": "a reçoit les succès, b les échecs",
+        "b8b46a5bfeeb5cc9538c9e595104f5898b04d1583fe877d0f80fc5aa5a8d937c": "ajoute les succès et les échecs aux paramètres de l'a priori"
       },
       "shape": [
         2
@@ -1488,33 +1509,34 @@
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
     },
     "CP1.6c": {
-      "hash": "711d4e272d4d125c0fcf4441427beff3d400981ca46a42fd2d98b0c484f957c9",
+      "hash": "80e436644333ccf23375edc37b7240cdd7a04ccb04fb95dd886fd6afb2f9856a",
       "kind": "fraction",
       "mistakes": {
-        "4d905b4740c6b850251bdc233d6e9aa325e7b748f5932eaa8a1211c5d666352b": "c'est le mode ; la moyenne est a / (a + b)",
-        "e40d02d4e2bd072fe367fbce2f9719cd9d775bacf798ae980ce819f44c6bebe3": "la moyenne a posteriori tient compte de l'a priori : a / (a + b) avec les paramètres de b)"
+        "711d4e272d4d125c0fcf4441427beff3d400981ca46a42fd2d98b0c484f957c9": "c'est le mode ; la question demande la moyenne",
+        "e40d02d4e2bd072fe367fbce2f9719cd9d775bacf798ae980ce819f44c6bebe3": "c'est la fréquence observée ; la moyenne a posteriori tient compte aussi de l'a priori"
       },
       "sign": 1,
       "simplified": true,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
     },
     "CP1.6d": {
-      "hash": "634f9504c6e413200d9dd532c3af561b1343cfaed7a0c92ddfc1b441c3422f7b",
+      "hash": "d2d025f657c0e22fdc14a495398a91939dfbc4721a469fb07275589d869c522d",
       "kind": "fraction",
       "mistakes": {
         "57771ed413319580937150de98ccdb7d4f252cf5a4b9a20eb61270cb13c195a4": "le MAP tient compte de l'a priori : c'est le mode de la loi a posteriori",
-        "d2d025f657c0e22fdc14a495398a91939dfbc4721a469fb07275589d869c522d": "le mode de Beta(a, b) est (a − 1) / (a + b − 2)"
+        "dcfa1a37c9cde95e2d97362e22722f5a6a5cfd3984d81fc787959b814e8eb72f": "c'est la moyenne ; le MAP est le mode de la loi a posteriori"
       },
       "sign": 1,
       "simplified": true,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
     },
     "CP1.6e": {
-      "hash": "49f9aca9c19f29d2eabb5240fbea0b3bc055a380fb917f445e698e3c03c2320e",
+      "hash": "3313c71105b04eba1e4748802b6f44ac93feefe7376281d93a973eb1ceb39343",
       "kind": "fraction",
       "mistakes": {
-        "83779b63f2bf1539191b2d4aefab8bb452de66d1238736935488102692eb037e": "ajoute aussi les 10 nouvelles propositions",
-        "d2aceb0f188f7ba926210f31e0284805e896f7978b0346d25c138b1c7f1877f2": "l'a priori de la deuxième mise à jour est l'a posteriori de la première"
+        "07626bb0dedc80244582ae4b5bfe272ff5e45b33cc9a8258ac3d79ed729fba94": "ajoute aussi les 10 nouvelles propositions",
+        "3c07981cf95c4f5b3d94f042b8e98bce47f6925b7f5986c892a30210c6c123b7": "b reçoit le nombre d'échecs, pas le nombre d'essais",
+        "d2b12cc9eba2f2030afcd9ca69b78c92d78908ac5f5343b0979f5ba83c9bba40": "l'a priori de la deuxième mise à jour est l'a posteriori de la première"
       },
       "sign": 1,
       "simplified": true,
@@ -1526,17 +1548,17 @@
           "1c45201b8fc91569eb082a5b012e3342354810670ade8570c74cad553cb0495e"
         ],
         "2": [
-          "547f3c2329c4ae2cf3e477901fd408dcff2f3e3044c8e95d0458e9c52185cd74"
+          "6ca457479ed05a01f60bdc872d5a907506ee8fe25b9f8b7e744bf04972893793"
         ]
       },
       "decimals": 4,
-      "hash": "3d5df4ce695565e11529d6144be49012d46ee60031a1c1b523a5690f9728c865",
-      "hash_coarse": "495e6a813e9ad46cd24a12c433a77d2c973faf718bf21891ad9349a3e16f91d5",
+      "hash": "f818ccd382c46a75386e6cae32fbc116644bf805453c8a35a34a9ef5f26c7eaf",
+      "hash_coarse": "94ca43832a87196eae396ae2dc2e21707b6f9ab9974d8dcd2979d576925bc7b9",
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "3bd5e30a69dad2bdf2dab1365d61db263075fade8ed906aac79fefbec07280bd": "la deuxième acceptation se calcule avec la loi mise à jour par la première, pas avec la même moyenne",
-        "3ce74c9adba1d922b597ab971767dcea30b870ba772c00b43fc84094d1c10880": "la question demande que les deux soient acceptées"
+        "964564c256559bce0f736edbffa022b53714a9e18b3abcb2c94c7641daf2e756": "la question demande que les deux soient acceptées",
+        "a8e40bbc2cbd46e763d86f72e675378ca33c0340ec3f7e3851ffdcbda4a6eb03": "la deuxième acceptation se calcule avec la loi mise à jour par la première, pas avec la même moyenne"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1545,7 +1567,8 @@
       "hash": "08750caf423d6003298837db6ea55fbf1346203324aea67b47a85f27dcef85cb",
       "kind": "expr",
       "mistakes": {
-        "4405c5e8a68358f3525a01e0d9c2f8ad9419bf31ac86d22da8b3389b56e85315": "dérive √(4 + x) avec la règle de la chaîne, puis prends x = 0",
+        "4405c5e8a68358f3525a01e0d9c2f8ad9419bf31ac86d22da8b3389b56e85315": "ce sont les coefficients de √(1 + x) : ici la racine porte sur 4 + x",
+        "93f3e11b46dc784d13a02783838305e6bda41a389ebf8b341c9454ff616183c0": "la dérivée seconde de √(4 + x) est négative",
         "e541dd20eaf8b24dce8c9316c050d3f178c51f41a2cb96f8ab198ec5cf307e30": "le terme d'ordre 2 est f''(0) x² / 2 : n'oublie pas le 2",
         "f91aabffcfc3e2f84a478e71fb054e9ac5173af67bfaef0757389035c5b9ab38": "l'ordre 2 ajoute un terme en x²"
       },
@@ -1599,28 +1622,22 @@
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
     },
     "CP1.7c": {
+      "alt_coarse": [
+        "9aabc2f9adc1639f09166488d3f5072cc2969863fa04aee2dcdb1c461b121fd5"
+      ],
       "coarse_any": {
         "0": [
           "b8d3d98e2e11531aef3cb8acff9202733163b8d29e47a71e8088262b77be42cb"
         ]
       },
-      "coarser": {
-        "1": [
-          "353a214f7568c93e95e9a52caf96374670b090c7c317418a289740e6d784e06d",
-          "9aabc2f9adc1639f09166488d3f5072cc2969863fa04aee2dcdb1c461b121fd5"
-        ],
-        "2": [
-          "8977292deaf853148855c2f9774f230efdd82c741c0b0d8c55fb99ef9ff90181"
-        ]
-      },
-      "decimals": 4,
-      "hash": "336cf269d9147150964caede3a0d4d71707fa1c71d62cb83929cb00467c1a9b8",
-      "hash_coarse": "3cc4306eea4ef9fe8b87b16c652f41ed67d96c9c04e89ee8c1287c7317cdcf31",
+      "decimals": 2,
+      "hash": "8977292deaf853148855c2f9774f230efdd82c741c0b0d8c55fb99ef9ff90181",
+      "hash_coarse": "353a214f7568c93e95e9a52caf96374670b090c7c317418a289740e6d784e06d",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "0c2b4839ba48ba65cebca701696f66728e4bdd0612c514daf34ae253da14694f": "x₁ = x₀ − f(x₀)/f'(x₀) : attention au signe de f(1)",
-        "889af483b4e43ec2b960fc243cd2d98d21215554219297c24348610292d6fb43": "le pas de Newton est f(x)/f'(x), pas l'inverse"
+        "18243066657d630d1c56d9ed2b47c10dea8fc20379b53144640f0b432a7ae459": "le pas de Newton est f(x)/f'(x), pas l'inverse",
+        "93d128ab6a563d090ad641aa8c74d00c0cbf26407c0ccdb6386a0f7c01bab1e8": "x₁ = x₀ − f(x₀)/f'(x₀) : attention au signe de f(1)"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1653,23 +1670,24 @@
     "CP1.7e": {
       "coarse_any": {
         "0": [
-          "54346ef73c93e2562a0157d536953903b4b6923753f0da7212dda8448392a35d"
+          "d804414fa74db1c5989d1acbf0770bebc08224af6c208a8726ae00614fe2ba02"
         ]
       },
       "coarser": {
         "1": [
-          "f618b555e067e478cb17fb6dd09de0e66d69ee991a7c513f51830c5326c27f2e"
+          "41e2de571e4c71bca2e135cdbda58893846296bb5710a95d10822cdd7b54ffeb"
         ]
       },
       "decimals": 3,
-      "hash": "e88fcbf10ade63761e076dc3fbcd456e45d8a76f349a3f4e555e97802293fb8d",
-      "hash_coarse": "0c8089c20b05afdfa12319ccda4599755baca1f34012889c79742b8b49dc1aaa",
+      "hash": "5b3e72eae1b68a57239d280e575c262d491e85fe309180718a1abf0ab0cbc846",
+      "hash_coarse": "4bbae51f9d67ba534874ecde4cbf84e52df39c7a52ad92ce8bcf40adb6b2b06d",
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
-        "667832aef24329cdafee8855fd67a5e52dc2d1f773f3f96aa70396e2cdd97baf": "le log-sum-exp vaut le maximum plus le logarithme d'une somme d'exponentielles des écarts au maximum"
+        "89c0153155d231ddddde818f7cfcf8b056db81ee0afe4c681bd504c825438960": "le terme du plus grand score compte aussi : e⁰ = 1 dans la somme des écarts",
+        "daa680318afe7fc389fada4c0e7e82e303be72350438ef88aff22a771ccbb9f4": "le log-sum-exp est un peu plus grand que le plus grand des scores"
       },
-      "sign": 1,
+      "sign": -1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
     },
     "CP1.7f": {
@@ -1683,17 +1701,17 @@
       },
       "coarser": {
         "2": [
-          "351838a3b5e09c0a0b51e09a9a8ec80164f19d1da325c2712a9d98272e449c50"
+          "19eabf02f3edc8e5ab1d21561120c36391c4ed14ecc24697490ef02567279b69"
         ]
       },
       "decimals": 4,
-      "hash": "f73eb7c458073142e727a80fe792faf249556f6dd7d5e6cc99f68b6b2069d8cc",
-      "hash_coarse": "8c8eba2ddf523b80c82484c2c2054d81c8259b9aad9ee636ae50fe13203a39e1",
+      "hash": "990a6565a2d2382d14c656c27ef452a7cbc3e9cb03b42d341540ac2a036ad285",
+      "hash_coarse": "a9ca888b664aec6e80b7ff211255b9426fb0fb985490e0fb051548ddcf5ebf0d",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "01c8cf4d3c15a13107133f2950182efb68a8fcadd06995f7cf74d778cbc06c85": "c'est la probabilité d'un autre score : relis lequel est 715",
-        "e252f0eea6fe61b853f8acbe04abf8e9dc5bd0275375597f22366b3dde7706b3": "la softmax prend l'exponentielle des scores avant de normaliser"
+        "9d3bf0082c30997d71b7f3949038a356b463e6f21f8e8b0a8722b2623e9b6af3": "la softmax prend l'exponentielle des scores avant de normaliser",
+        "e9fcb04e25461d35d66ff8a7c5ddfca6ceba56ecaa90feab74a2222aa5e8b8ac": "c'est la probabilité d'un autre score : relis lequel est −785"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1701,15 +1719,16 @@
     "CP1.8a": {
       "decimals": 0,
       "element_hashes": [
-        "e19a9aabd8d6a73d347198d916a2a098aa572cafb5e10da50c29b33f6bfb172e",
-        "53b9f617a9f01a404c7383fc0724f39508aa97613c22775ec2a8b0eb34206797"
+        "00c36a97bbed43fc66b0607bcfcca073a878d1dad861b34b3cde3a691820f526",
+        "cb765d78c5a8ad1e155e3dc04a5508f35050fe11509f559709b8c2ea4fa3a690"
       ],
-      "hash": "07bbe95f28e797ba397db75a3f0584e5a63e430424d92d4b60aba61333fa53c3",
+      "hash": "cf22e3c561d3bf42cb91697615b2a9596ace3be79b2059170c4d697b67c39dc9",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "3c9404f649ec5e806327006d970f4f86378edd96551f3c91469da4f9ffbba762": "∂f/∂x dérive aussi −6xy, où y est une constante",
-        "9c341813dd08d86464f9b8531353fb07e2ab83f00d47214d2e01d6d79b39d180": "le gradient est [∂f/∂x, ∂f/∂y], dans cet ordre"
+        "62a9e4c764ec7dac02f12655437d4c95f2b1f955919cd47629495b113d0f84e0": "le gradient est [∂f/∂x, ∂f/∂y], dans cet ordre",
+        "95c7afd42be9fa897938f30847912c79761e74c734a724484f44c54fbc1d2fc1": "attention aux signes : y vaut −1",
+        "a167f22765336abc365cb452c3c5a12a6cdc1d6f9f74a428703a59ea4e906c8c": "∂f/∂x dérive aussi −6xy, où y est une constante"
       },
       "shape": [
         2
@@ -1717,34 +1736,34 @@
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
     },
     "CP1.8b": {
-      "hash": "214ee95e328a61e0a3bf439d574a90cc64f575ff37eb4a09fe29652e8cfb6f15",
+      "hash": "3d29528b85ded1d45f12b00d1ac96d01076b288183aa1c8b9c9c8faff9a5e6a7",
       "kind": "fraction",
       "mistakes": {
-        "4e697a098841f91fa739dcd650a03ca09ebaec65ce516b5be2f04af9b208b2cf": "divise le vecteur direction par sa norme : la direction est un vecteur unitaire"
+        "87e53164007956bb5b06671f035884802ede7fece0e0223e9093395d0a940a99": "une dérivée directionnelle se calcule avec un vecteur de norme 1"
       },
-      "sign": 1,
+      "sign": -1,
       "simplified": true,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
     },
     "CP1.8c": {
       "coarse_any": {
         "0": [
-          "bba48aea7b460401231aeea420f328ad4144af9b760a8e8fca4b8f1fc3ef4704"
+          "887844c46cf06c85cc8f612ae43d02766fc26fd6c6fe48bd98624ecd052cb520"
         ]
       },
       "coarser": {
         "1": [
-          "af688565c7e4793edbf884524646965a99c841c02886fefbb942d7eb677f6fce"
+          "3a503d88fe0094e780a1ce9275dde8cd67414043f8ea3fe2851b7cf0a05596cf"
         ]
       },
       "decimals": 3,
-      "hash": "74f67db7664f9d0b8cdc71b3c0f462a90a589755f2bc04f52c42cf746b7bb4d2",
-      "hash_coarse": "f3c097b70b18e0eafd338fe16ef9d64f60fd0a459e133f1c384d14dd2adbeca7",
+      "hash": "5e60aefbb96f6e291311018033780c26323aa39fedfcfb82ae825e6d02eb6e2c",
+      "hash_coarse": "29c31b395efcefaf733dac9d9c585fcd4438d1e14d90bbaf9c2a9a4f5d3c1aca",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "5e60aefbb96f6e291311018033780c26323aa39fedfcfb82ae825e6d02eb6e2c": "la norme est √(a² + b²), pas |a| + |b|",
-        "ff1beb3028eae2d9812283bf0efb4672f92ebb4b9466a0c446f4d5411ebf05d7": "la plus grande pente est la norme du gradient, une racine carrée"
+        "5db3d4cfb2f8e97b3df400d5c78996c680bc77aade19f66d3e61719ae8ecd7c3": "la norme d'un vecteur n'est pas la somme des valeurs absolues de ses coordonnées",
+        "e84dd313f4b036f1d5096553dac10eaf9259fd52794d8813b20f8f16af425cea": "la plus grande pente est la norme du gradient, pas son carré"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1778,7 +1797,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "c1b03ebb929778a010de9f2d8f7524d528edc93e46a705cc4609543c6d7ea8cb": "en (0, 0), calcule f_xx f_yy − (f_xy)² : son signe décide"
+        "c1b03ebb929778a010de9f2d8f7524d528edc93e46a705cc4609543c6d7ea8cb": "calcule f_xx f_yy − (f_xy)² en ce point : son signe décide"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1788,7 +1807,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "3d3483e309918a10d3b67458f85e228abdd0d567cebdcfdc6517d88d3cb4c20c": "c'est la valeur en (0, 0) ; la question porte sur l'autre point critique",
+        "3d3483e309918a10d3b67458f85e228abdd0d567cebdcfdc6517d88d3cb4c20c": "c'est la valeur au premier point critique ; la question porte sur le second",
         "d5507e886d0c3bc46a100502cbdc8045861430ffcd068df4e5a76efe45bfd181": "attention au signe du terme −6xy"
       },
       "sign": -1,
@@ -1834,6 +1853,7 @@
       "magnitude": 0,
       "mistakes": {
         "2622b072808473732900bf7a22061b10582365f283cef8568ffb0bcae561ca8d": "c'est l'entropie de q ; la question demande la cross-entropy",
+        "9015ceee2264d03715c008c747467cd2a042dfc5ac59f9f6471ecb5baccf907c": "les entropies sont en bits : log₂, pas ln",
         "94f163e6085b7e5b1f364f70be5e54293967d11e2b889b40af690d33acfe7b3d": "H(p, q) pondère par p les longueurs −log₂ q"
       },
       "sign": 1,
@@ -1852,6 +1872,7 @@
       "magnitude": -1,
       "mistakes": {
         "0a5297695cd1c58f44703fa7ba8d145e30743cdc25e7565e862e842531017d06": "KL(p ‖ q) pondère par p : l'ordre des deux lois compte",
+        "604a0c98b0f0b44c4de84a69cdb232de9180e0975c51afe8ab06b76185531102": "les entropies sont en bits : log₂, pas ln",
         "a238f71b05343c6a852cc5e88979cae00d952827aeaa34013f7caa2e83f2166d": "une divergence KL est positive ou nulle"
       },
       "sign": 1,
@@ -1861,8 +1882,8 @@
       "hash": "6cf8bb9145f7617a89e0e1f9799024bcb04c5c4277b467ee3f6ae36c37a105a0",
       "kind": "fraction",
       "mistakes": {
-        "9680404ce954bf9d15a707b0200f12fdd806410a3a99f28c971d0e4a9bc3a55c": "P(question | F = 1) divise par P(F = 1), la somme de la ligne",
-        "d3587b880f484aba5efaaeb57748925ed5145b5bff80493204ab0cfff3e59c1c": "c'est la probabilité jointe ; une probabilité conditionnelle divise par P(F = 1)"
+        "9680404ce954bf9d15a707b0200f12fdd806410a3a99f28c971d0e4a9bc3a55c": "P(question | F = 1) se lit dans la ligne F = 1, pas dans la colonne « question »",
+        "d3587b880f484aba5efaaeb57748925ed5145b5bff80493204ab0cfff3e59c1c": "c'est la probabilité jointe P(question et F = 1)"
       },
       "sign": 1,
       "simplified": true,
@@ -1872,38 +1893,32 @@
       "coarse_any": {
         "0": [
           "24354e3491e25edc1df9f1f4ccaba672205bcfff41220a7763d5cb34d88370d7"
-        ],
-        "1": [
-          "ba61f41884a37240a58590b7d7089f3f2b4de1d71d4506d074835664a4f6de7f"
         ]
       },
-      "decimals": 3,
-      "hash": "f5c3f4d0fef064dee0b6b814c552ed1612c10d7724ccc9e287a6a65a3ee2411a",
-      "hash_coarse": "7eb956ce35052cb17857e5a45dac014cf2ab94bd9827e2117dd20414b993857b",
+      "decimals": 2,
+      "hash": "7eb956ce35052cb17857e5a45dac014cf2ab94bd9827e2117dd20414b993857b",
+      "hash_coarse": "ba61f41884a37240a58590b7d7089f3f2b4de1d71d4506d074835664a4f6de7f",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "2d772ec3700220cf462745dbd07f84eb5ccd4c1e68761bab339ca97b42869714": "pondère par P(F = 1) et P(F = 0), pas par 1/2",
-        "6b33ac2387f47f29cc791b9daea51a0a40aabd2f772b1a25a17f02f0af494e56": "c'est H(F) ; la question demande H(Y | F)",
-        "9cef4d911c453fb5e1c28254d095a4cda2c98ed2697d09e53c47bebd391eadcf": "H(Y | F) est une moyenne des entropies des lignes, pondérée par P(F), pas leur somme"
+        "30f2e316e4ca22815a7c8300017a03f9414344cfbcbc5012baa3dc1a8182a4ae": "c'est H(F) ; la question demande H(Y | F)",
+        "459ed9f66bb36505595211f2feeb5482039f23bd5c7d590a50b5892053cee043": "c'est H(F | Y) : la variable connue est à droite de la barre",
+        "579bf4cb78c70ed2cd786f3cc820146c324cc7c328bc6de9a1bf5ddf3872a0cb": "H(Y | F) est une moyenne des entropies des lignes, pondérée par P(F), pas leur somme",
+        "d276e4e94a45182fccdf8b02ffd696dd9701b19a3b3de28dad64ab781ad7c852": "les entropies sont en bits : log₂, pas ln"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
     },
     "CP1.9f": {
-      "coarse_any": {
-        "1": [
-          "d446443db6d8d91d3f53e9b0add7e225845d4431ea8550f39fe6836acfcbc189"
-        ]
-      },
-      "decimals": 3,
-      "hash": "212059c81ac7063b751ac5ae960d4d2ab8188fd36bee8d5aa4e02e95396656d4",
-      "hash_coarse": "370a479fa5ac1651003444aefcea27c75c0731b2d19d722409929007e3599d5b",
+      "decimals": 2,
+      "hash": "370a479fa5ac1651003444aefcea27c75c0731b2d19d722409929007e3599d5b",
+      "hash_coarse": "d446443db6d8d91d3f53e9b0add7e225845d4431ea8550f39fe6836acfcbc189",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "481208586f32e78d8a6ba438ab75c8cf0aa5e4c127fda9b6397dc401562bddad": "I(F ; Y) = H(Y) − H(Y | F) : c'est la baisse de l'incertitude",
-        "9bdc783f9076a300b28319e259c5e907006b3e75e3110d1681534ed0e1833e7b": "H(Y) se calcule avec la loi de Y, la somme de chaque colonne"
+        "5473aabc80395bd1f045860e1f142bf3b8e7286307135b4a9991e0483625b8aa": "c'est H(Y | F), l'incertitude qui reste ; la question demande ce que F apprend sur Y",
+        "6a5b7816e1bc2d96b30c88b44e51417762b36850e2bb1cfa71916b1c1328f52a": "les entropies sont en bits : log₂, pas ln",
+        "acd34610df733f73fca3d57b84e875f95f1fd18aca494d9867ee5394e9d6a809": "garde au moins 3 décimales dans H(Y) et H(Y | F) avant de les soustraire"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1924,6 +1939,7 @@
         "79cdc2cd1a5b542873f87a7dea8777cd0161b059a0f1852e23ca15f044558a8e": "une ligne juste est citée à la place d'une ligne fausse",
         "7e38101d5f1e59331616ee3a9fccb911568a50128202d005172cd2998bad42db": "il manque une des lignes fausses : il y en a exactement cinq",
         "83e156cb77f5772c9b3bd6d36a36cf74af7a87d66ee6127aad540df2a3ab2ad5": "une ligne juste est citée à la place d'une ligne fausse",
+        "8f5820538474d55fe06278f197bbf02960e82a2c38c4d5fcef738b4bd807c348": "ce sont les trois lignes justes ; la question demande les cinq lignes fausses",
         "8f9bda3c43f5177fb7374675065147bfb853e50e0f92157c55505c2de80a47ad": "une ligne juste est citée à la place d'une ligne fausse",
         "995588d7362eb2bffa6fe21dca076f7d3eb98af524a1bd9a38a98cbb731d8c68": "une des lignes citées est juste : relis-les une par une, avec la règle qu'elle utilise",
         "a4d95772a8949ffee32c0a49ef775581b76e017621b0f9cb304ebd588c945706": "une ligne juste est citée à la place d'une ligne fausse",
@@ -1940,20 +1956,17 @@
     },
     "CP1.12a": {
       "coarse_any": {
-        "0": [
-          "e83ff021df369169f18be4172b328de3a6cd297f78e6766ad51ee3464a94e438"
-        ],
         "1": [
-          "642e781ce030fbb50ba949d15df167cb980cb3488e42aafb3c85a21b1673e941"
+          "f34d4a59de3b6ffa8c6c4cde854c63ec45e1c115ce18e972a3fc97b1c97d35dd"
         ]
       },
       "decimals": 3,
-      "hash": "60ade46276d76e1d834efcdec7f494adc8a1d3dd2ad327f7ddc07223ee4f6313",
-      "hash_coarse": "e54aeaba9f579c50040f216b532cb337df799a9906ddb995a48d4d5aa3a5921f",
+      "hash": "5836f50537beda76fe177aba47dcfca7b3d5903988283c43a056c8b1870023c3",
+      "hash_coarse": "8dd3c854ce6727a47fa189cbd58f26dcd6dfdd1e745c2b09ffcfe43782eb51cc",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "1dd49df8f847758d2c2b5648b6be0fbde172b437bb615a59ff1f78951f1b8bf0": "la liste ne garde que les fichiers qui ont au moins un bug : divise par 1 − e^(−λ)"
+        "20e4fd00adaea955f19ad1d493e5037f7fa5acc3170f3f34b902f0cccc256e9f": "le journal ne garde que les jours qui ont au moins un signalement : divise par 1 − e^(−λ)"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -1962,7 +1975,7 @@
       "hash": "de4091b6811317ef915595d881e3844939336c96141b61bd0d33885c797a254d",
       "kind": "expr",
       "mistakes": {
-        "2a7614cfc37e1739afd188b0e5eb1a94aacc275268e5d2acfd455abb69d75379": "la log-vraisemblance somme les 20 fichiers",
+        "2a7614cfc37e1739afd188b0e5eb1a94aacc275268e5d2acfd455abb69d75379": "la log-vraisemblance somme les 20 jours",
         "4ad7ae7e48a8f339698ca09e0cfb2b75f1d4f297f140d6ecb3d225bacf49e23c": "la dérivée de ln(1 − e^(−λ)) est e^(−λ) / (1 − e^(−λ)) : attention au signe",
         "d1c7e5e1bd213c109a507c593434b570a63525aa14579ffaa8f0f15394bd8615": "dérive aussi le terme −20 ln(1 − e^(−λ))"
       },
@@ -1997,19 +2010,16 @@
       "coarser": {
         "1": [
           "be9cdfea90416ee389d14209f5c512ce1c9047a96568a206fe4ea9b053d5ed40"
-        ],
-        "2": [
-          "5dfe3f700364e23a40983419b6db85fd1a6a36bc09b3767728b050aa65f91d9e"
         ]
       },
-      "decimals": 4,
-      "hash": "9a0c713535083198cea3fe9aa7b18df2619e40547e7fb512c69fff8be63345f1",
-      "hash_coarse": "ee6629619432c26a5843d20617553e191c612cfe3cf70064299c228ab4f31127",
+      "decimals": 3,
+      "hash": "ee6629619432c26a5843d20617553e191c612cfe3cf70064299c228ab4f31127",
+      "hash_coarse": "5dfe3f700364e23a40983419b6db85fd1a6a36bc09b3767728b050aa65f91d9e",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "2beed0893bdda73e9f20bd49dd24a3ab39798d1659c09c6fca005f4774367029": "un pas de Newton retranche g(λ)/g'(λ)",
-        "fb542d60c17ba2884c7088c806b836f9d6376bca19984503b73b550d9f3a32f0": "la dérivée de −1,6 (1 − e^(−λ)) est −1,6 e^(−λ)"
+        "4160137f0bfab30cb8faadc2a15dd9660ce4564f0b9e81823f2f235b72e035ff": "la dérivée de −1,6 (1 − e^(−λ)) est −1,6 e^(−λ)",
+        "e88e146137e079b1ff7511a548c25601e1d6b0001bbd5006fd4c62e6440f3d61": "un pas de Newton retranche g(λ)/g'(λ)"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -2023,18 +2033,15 @@
       "coarser": {
         "1": [
           "d9395c18dbcc3e141b8cc969243947e1c4ac84d84c043b6f56bdd51fd38e095e"
-        ],
-        "2": [
-          "c5ac4034bf31525a6aaef9f2cd97a28f4f96c3f765cb167675adbaaebf40c700"
         ]
       },
-      "decimals": 4,
-      "hash": "f50fff682ee22d6fc44c454ffc507765040d3a3ed1202aa216aaf61e5274b6c5",
-      "hash_coarse": "c554d7637834c1d203c645de9ff1c37df80eb1614a3b5f73714fe03d5bde76b4",
+      "decimals": 3,
+      "hash": "c554d7637834c1d203c645de9ff1c37df80eb1614a3b5f73714fe03d5bde76b4",
+      "hash_coarse": "c5ac4034bf31525a6aaef9f2cd97a28f4f96c3f765cb167675adbaaebf40c700",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "43ec38a332513a77d51444bc01fb09497e28cd9fcfb354010a387371c3c6c18c": "le deuxième pas part de λ₁, avec g et g' recalculés en λ₁"
+        "a2f03eeec871c05f736feee5a37b3ea7e4b91f4c9818b1fc4e8e72a0e3b56af9": "le deuxième pas part de λ₁, avec g et g' recalculés en λ₁"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -2056,7 +2063,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "e41e2e3c10fd0b93bdc6d1b185d7312ae9c6994dd321f28062539a525c7cbc60": "la moyenne des fichiers de la liste ne compte pas les fichiers sans bug : résous g(λ) = 0"
+        "c93b79195a51435457fe6a3cea81a60833240edc5822e7c8faac023e31a88c3e": "continue les pas jusqu'à ce que les trois décimales ne bougent plus",
+        "e41e2e3c10fd0b93bdc6d1b185d7312ae9c6994dd321f28062539a525c7cbc60": "la moyenne des jours du journal ne compte pas les jours sans signalement : résous g(λ) = 0"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -2081,7 +2089,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "bc27862176be4fa4890d818c1ec4e460fee666e50004ab04371d3ace44b1343e": "avec l'estimation de e), pas avec la moyenne des fichiers de la liste"
+        "bc27862176be4fa4890d818c1ec4e460fee666e50004ab04371d3ace44b1343e": "la proportion de jours sans signalement se calcule avec le paramètre estimé, pas avec la moyenne observée"
       },
       "sign": 1,
       "source": "checkpoints/partie_1/03_examen_solutions.ipynb"
@@ -2109,8 +2117,9 @@
       "hash": "16a8d158c89472f1d39d91874c335edb2a2a4249a11ee01b276ef90539a483fa",
       "kind": "array",
       "mistakes": {
-        "c679e8848b4ebcd637096601138ed498f71e6c06b28e2ae1de4613b6913d7317": "multiplie l'écart-type du bootstrap par 1,96",
-        "f2a06ee038c24e4e732c5cb48c3c0b98db1740bd0c082c8d8f6ea30da7c4d279": "l'intervalle est centré sur l'estimation de e)"
+        "c679e8848b4ebcd637096601138ed498f71e6c06b28e2ae1de4613b6913d7317": "un intervalle à 95 % s'étend de combien d'écarts-types de part et d'autre ?",
+        "d56dcb50ee7816a2f1629e9e45f20bdefd897eb7e0f75a91ee1a4e84f9b54687": "0,28 est déjà l'écart-type de l'estimation : ne le divise pas par √n",
+        "f2a06ee038c24e4e732c5cb48c3c0b98db1740bd0c082c8d8f6ea30da7c4d279": "l'intervalle est centré sur l'estimation de λ, pas sur la moyenne observée"
       },
       "shape": [
         2

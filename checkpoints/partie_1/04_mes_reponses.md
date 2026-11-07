@@ -50,7 +50,7 @@
 - b) s =
 - c) erreur type =
 - d) intervalle : [ ; ]
-- e) nombre de questions :
+- e) demi-largeur à 90 % =
 - f) intervalle de la proportion : [ ; ]
 
 ## CP1.5 — Un tableau de contingence et des métriques
@@ -67,7 +67,7 @@ Matrice de confusion :
 - c) recall =
 - d) F1 =
 - e) spécificité =
-- f) precision d'une alerte au hasard =
+- f) indépendants ? — parce que
 
 ## CP1.6 — Bayes et la loi Beta
 
@@ -84,16 +84,16 @@ Matrice de confusion :
 - b) ≈
 - c) x₁ =
 - d) x₂ =
-- e) = — et `math.exp(715)` :
+- e) = — et le calcul direct en Python :
 - f) =
 
 ## CP1.8 — Gradient, dérivée directionnelle et point critique
 
-- a) ∇f(1, 2) =
+- a) ∇f(1, −1) =
 - b) =
 - c) =
 - d) points critiques :
-- e) nature de (0, 0) :
+- e) nature du premier point critique :
 - f) = — nature de ce point :
 
 ## CP1.9 — Entropie, information mutuelle et KL
@@ -137,7 +137,7 @@ Matrice de confusion :
 - f) Vrai / Faux — ce que dit le signe de ℓ′ :
 - g) =
 - h) [ ; ]
-- Pourquoi 1,6 surestime λ :
+- Pourquoi 1,6 surestime λ (avec e) :
 
 ---
 

@@ -1611,15 +1611,15 @@ Le bilan de la partie I (M02a à M06), juste avant le checkpoint I de workbookIA
 | CP1.1 | ✏️ | Intégrales et densité : une aire, une fonction de répartition, un quantile | ★★ | 10 | §1 | C, E | wbm | — |
 | CP1.2 | ✏️ | Lois usuelles : binomiale, Poisson, normale | ★★ | 9 | §1 | C, E | wbm | — |
 | CP1.3 | ✏️ | Un couple de variables : marginales, indépendance, variance d'une somme | ★★ | 8 | §1 | C, E | wbm | — |
-| CP1.4 | ✏️ | Estimer une moyenne : erreur type et intervalle de confiance | ★★ | 9 | §1 | C, E | wbm | — |
-| CP1.5 | ✏️ | Un tableau de contingence et des métriques comme probabilités | ★★ | 9 | §1 | C, E | wbm | — |
-| CP1.6 | ✏️ | Bayes et la loi Beta : une mise à jour conjuguée | ★★ | 9 | §1 | C, E | wbm | — |
+| CP1.4 | ✏️ | Estimer une moyenne : erreur type et intervalle de confiance | ★★ | 8 | §1 | C, E | wbm | — |
+| CP1.5 | ✏️ | Un tableau de contingence et des métriques comme probabilités | ★★ | 8 | §1 | C, E | wbm | — |
+| CP1.6 | ✏️ | Bayes et la loi Beta : une mise à jour conjuguée | ★★ | 8 | §1 | C, E | wbm | — |
 | CP1.7 | ✏️ | Taylor, Newton et un calcul stable | ★★ | 9 | §1 | C, E | wbm | — |
 | CP1.8 | ✏️ | Gradient, dérivée directionnelle et point critique | ★★ | 10 | §1 | C, E | wbm | — |
-| CP1.9 | ✏️ | Entropie, information mutuelle et KL | ★★ | 9 | §1 | C, E | wbm | — |
+| CP1.9 | ✏️ | Entropie, information mutuelle et KL | ★★ | 10 | §1 | C, E | wbm | — |
 | CP1.10 | ∂ | Une démonstration courte, au choix parmi deux | ★★★ | 12 | §1 | C, E | manuel | — |
 | CP1.11 | 🐛 | Corriger une copie : cinq erreurs | ★★ | 8 | §1 | C, E | wbm | — |
-| CP1.12 | 🔗 | Problème de synthèse : estimer un paramètre de bout en bout (vraisemblance, maximum, Newton, incertitude) | ★★ | 12 | §1 | C, E | wbm | — |
+| CP1.12 | 🔗 | Problème de synthèse : estimer un paramètre de bout en bout (vraisemblance, maximum, Newton, incertitude) | ★★ | 14 | §1 | C, E | wbm | — |
 | CP1.13 | 🗣️ | Ta carte mentale et ta fiche d'une page | ★ | 60 | §2 | C, E | manuel | — |
 
 *Notes* : Fichiers comme CP0 : 01_examen_sujet.md, 02_examen_notebook.ipynb, 03_examen_corrige.md, 03_examen_solutions.ipynb, 04_mes_reponses.md, 05_synthese.md, README.md. Aucune question ne reprend le checkpoint I de workbookIA (`checkpoints/partie_1/` de workbookIA), qui se fait juste après.
