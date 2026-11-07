@@ -264,7 +264,7 @@ $\ell(\lambda) = 5\ln\lambda - 8\lambda$ ; dérive deux fois. Pour Poisson, $\el
 </details>
 <details><summary>Indice 3</summary>
 
-c) : résous $\frac{5}{\lambda} - 8 = 0$. f) : résous $-5 + \frac{\sum_i x_i}{\mu} = 0$.
+c) : résous $\frac{5}{\lambda} - 8 = 0$. g) : résous $-5 + \frac{\sum_i x_i}{\mu} = 0$.
 
 </details>
 

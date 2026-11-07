@@ -162,11 +162,11 @@ Pour la copie : $L$ monte jusqu'à 0,15 puis redescend, presque nulle au-delà d
 
 ### Ex M04.4 — Maximiser une vraisemblance : dériver son logarithme
 
-**Réponses** : a) `-8.0` · b) `-3.0` · c) `0.625` · d) `-7.35` · e) `-12.8` · f) `2.0` · g) `1.6` · h) `0.28`.
+**Réponses** : a) `-8.0` · b) `-3.0` · c) `0.625` · d) `-7.35` · e) `-12.8` · f) `1.6` · g) `2.0` · h) `0.28`.
 
 **Démarche.** $\ell(\lambda) = 5\ln\lambda - 8\lambda$, $\ell'(\lambda) = \frac{5}{\lambda} - 8$, $\ell''(\lambda) = -\frac{5}{\lambda^2}$.
-- a) $0 - 8$. b) $5 - 8$. c) $\ell'(\lambda) = 0 \iff \lambda = \frac{5}{8}$. d) $5\ln 0{,}625 - 5 \approx -7{,}350$. e) $-\frac{5}{0{,}625^2} = -12{,}8$. g) $\frac{8}{5} = 1{,}6$ s, la moyenne des durées.
-- f) $\ell(\mu) = -5\mu + 10\ln\mu - \sum_i \ln(x_i!)$, $\ell'(\mu) = -5 + \frac{10}{\mu} = 0 \iff \mu = 2$, la moyenne des comptages. h) $\frac{7}{25}$.
+- a) $0 - 8$. b) $5 - 8$. c) $\ell'(\lambda) = 0 \iff \lambda = \frac{5}{8}$. d) $5\ln 0{,}625 - 5 \approx -7{,}350$. e) $-\frac{5}{0{,}625^2} = -12{,}8$. f) $\frac{8}{5} = 1{,}6$ s, la moyenne des durées.
+- g) $\ell(\mu) = -5\mu + 10\ln\mu - \sum_i \ln(x_i!)$, $\ell'(\mu) = -5 + \frac{10}{\mu} = 0 \iff \mu = 2$, la moyenne des comptages. h) $\frac{7}{25}$.
 
 Pour la copie : $\ell(\lambda) = n\ln\lambda - \lambda\sum_i x_i$, $\ell'(\lambda) = \frac{n}{\lambda} - \sum_i x_i$, donc $\hat{\lambda} = \frac{n}{\sum_i x_i} = \frac{1}{\bar{x}}$ ; pour la loi de Poisson, $\hat{\mu} = \bar{x}$. $\ell''$ est négative partout : $\ell$ est concave, et son unique point critique est son maximum.
 

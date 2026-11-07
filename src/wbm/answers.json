@@ -11182,12 +11182,12 @@
         ]
       },
       "decimals": 2,
-      "hash": "f3d03464742955c552035866975c3e240f9f1b633ca682c22a7cd513dbea4fb8",
-      "hash_coarse": "1c73eabe4953d8ed4a470ebc166481d2f1184fc6d56249c61b632f22e4e8c53b",
+      "hash": "cc7885809c1473148e6614de645b798b1ff12377704930f457966f8657f0792e",
+      "hash_coarse": "6beff83aedebb8beebbb6e5ddb79d6604714bc35a718fb16bd2046ab8009f0eb",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "f49a4a51fbd7ba77356aac22d494883c075a31e0c39485a2482f8d8a45e953df": "pour une loi de Poisson, μ̂ est la moyenne des comptages, pas son inverse"
+        "28eda9ae25a061fcf579458cad65ba2767afa9c64f499873f8cac07b0f5e97da": "la durée moyenne estimée est 1/λ̂, pas λ̂"
       },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
@@ -11199,12 +11199,12 @@
         ]
       },
       "decimals": 2,
-      "hash": "24bd2b923fa9dacccd0d3669dac56a2d760faf59ea005f6f98adde113d9901cb",
-      "hash_coarse": "475aec4da2380f479f3738d8c5a0ebcc810d6ae0651be9ab33d26966892bfbac",
+      "hash": "2469d7f78db319886326f24239df00607e820091281ddb04fbc8b0756529c39f",
+      "hash_coarse": "a14c73328d9267902582b2f6def12921a0b2dd88d8d12d7239a2b7a7f622509a",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "7564551ad02a594a5cf4adf693b2c6876ff421240cf6af7ae369e62d4d049e20": "la durée moyenne estimée est 1/λ̂, pas λ̂"
+        "fc62d5f59155413bda406df752da2f8d93bb4a8216d6d01e80dc87c3c64da5aa": "pour une loi de Poisson, μ̂ est la moyenne des comptages, pas son inverse"
       },
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"

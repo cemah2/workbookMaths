@@ -200,13 +200,13 @@ Un serveur reçoit des requêtes ; on a mesuré 5 durées (en secondes) entre de
 | c | le maximum de vraisemblance $\hat{\lambda}$ | un nombre (3 décimales) |
 | d | $\ell(\hat{\lambda})$ | un nombre (3 décimales) |
 | e | la dérivée seconde $\ell''(\hat{\lambda})$ | un nombre (2 décimales) |
-| g | la durée moyenne entre deux requêtes estimée par $\frac{1}{\hat{\lambda}}$ | un nombre (2 décimales) |
+| f | la durée moyenne entre deux requêtes estimée par $\frac{1}{\hat{\lambda}}$ | un nombre (2 décimales) |
 
 Un autre serveur compte ses erreurs par jour pendant 5 jours : $2, 0, 3, 1, 4$, supposées indépendantes, de loi de Poisson de paramètre $\mu$ ($P(X = x) = e^{-\mu}\frac{\mu^x}{x!}$).
 
 | | Question | Réponse attendue |
 |---|---|---|
-| f | le maximum de vraisemblance $\hat{\mu}$ | un nombre (2 décimales) |
+| g | le maximum de vraisemblance $\hat{\mu}$ | un nombre (2 décimales) |
 | h | pour une loi de Bernoulli, le maximum de vraisemblance après 7 succès sur 25 essais | un nombre (2 décimales) |
 
 Dans ta copie : écris $\ell(\lambda)$ et $\ell'(\lambda)$ pour des durées $x_1, \ldots, x_n$ quelconques, et la formule générale de $\hat{\lambda}$. Fais de même pour $\hat{\mu}$ (la loi de Poisson). Pourquoi le signe de e) prouve-t-il que c) est un maximum ?
