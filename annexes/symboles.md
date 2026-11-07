@@ -68,6 +68,12 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\lim_{x \to a} f(x)$ | « limite de f(x) quand x tend vers a » | limit as x tends to a | la valeur dont $f(x)$ s'approche | $\lim_{x \to 2} (x^2 + 1) = 5$ | R7 |
 | $\lim_{x \to a^+}$, $\lim_{x \to a^-}$ | « limite quand x tend vers a par la droite (par la gauche) » | right-hand (left-hand) limit | $x$ s'approche de $a$ en restant plus grand (plus petit) que $a$ | $\lim_{x \to 0^+} \frac{1}{x} = +\infty$ | R7 |
 | $f'(x)$, $\frac{df}{dx}$ | « f prime de x », « d f sur d x » | f prime, df by dx | dérivée : la pente de la tangente | $(x^2)' = 2x$ | R7 |
+| $f''(x)$, $\frac{d^2 f}{dx^2}$ | « f seconde de x », « d deux f sur d x deux » | f double prime, second derivative | la dérivée de $f'$ : son signe dit si la courbe est convexe ou concave | $(x^3)'' = 6x$ | M05a |
+| $f^{(k)}(x)$ | « f indice k entre parenthèses », « dérivée k-ième de f » | k-th derivative of f | $f$ dérivée $k$ fois ; $f^{(0)} = f$ | $\sin^{(4)} = \sin$ | M05a |
+| $P_n(x)$, $T_n(x)$ | « P n de x », « polynôme de Taylor d'ordre n » | Taylor polynomial of degree n | $\sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x - a)^k$ | $e^x \approx 1 + x + \frac{x^2}{2}$ | M05a |
+| $\text{fl}(x)$ | « flottant de x » | float of x | le flottant le plus proche de $x$, celui que la machine range | $\text{fl}(0{,}1) \ne 0{,}1$ | M05a |
+| $\varepsilon$ (machine), $u$ | « epsilon machine », « unité d'arrondi » | machine epsilon, unit roundoff | l'écart entre 1 et le flottant suivant ; la moitié, l'erreur relative maximale d'une opération | $\varepsilon = 2^{-52}$ en `float64` | M05a |
+| $\text{LSE}(\mathbf{v})$ | « log-sum-exp de v » | log-sum-exp of v | $\ln \sum_i e^{v_i}$, calculé comme $m + \ln\sum_i e^{v_i - m}$ avec $m = \max_i v_i$ | $\text{LSE}(0, 0) = \ln 2$ | M04, M05a |
 | $\frac{\partial f}{\partial x}$ | « d rond f sur d rond x », « dérivée partielle de f par rapport à x » | partial f partial x | dérivée en $x$, les autres variables fixées | $\frac{\partial}{\partial x}(xy) = y$ | M05b |
 | $\nabla f$ | « nabla f », « gradient de f » | gradient of f, del f | le vecteur des dérivées partielles | $\nabla (x^2 + y^2) = (2x, 2y)$ | M05b |
 | $\int_a^b f(x)\,dx$ | « intégrale de a à b de f(x) d x » | integral from a to b of f | aire (signée) sous la courbe | $\int_0^1 x\,dx = \frac{1}{2}$ | M02a |

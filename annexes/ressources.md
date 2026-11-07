@@ -17,6 +17,12 @@ Les ressources que les fiches citent. Chaque lien a été vérifié avant d'êtr
 | A. Chouldechova, « Fair prediction with disparate impact: A study of bias in recidivism prediction instruments » (2017) | l'article qui montre qu'on ne peut pas égaliser à la fois precisions et taux d'erreur de groupes de prévalences différentes ; cité par M03 (§8) | prépublication gratuite sur arXiv ([arxiv.org/abs/1703.00056](https://arxiv.org/abs/1703.00056)) | 2026-11-07 (page arXiv) |
 | D. J. C. MacKay, *Information Theory, Inference, and Learning Algorithms* | la référence libre en théorie de l'information, reliée à l'apprentissage | page officielle du livre trouvée ([inference.org.uk/mackay/itila/book.html](http://www.inference.org.uk/mackay/itila/book.html)) ; conditions de téléchargement **à confirmer** (la page n'a pas pu être lue le 2026-11-06) | à confirmer (M06) |
 
+## Calcul numérique
+
+| Ressource | Ce que c'est | Accès et licence | Vérifié |
+|---|---|---|---|
+| Documentation de Python, tutoriel, chapitre 15 : *Floating-Point Arithmetic: Issues and Limitations* | pourquoi 0,1 n'est pas exact en binaire, l'erreur de représentation, `math.fsum` ; cité par M05a | gratuit, documentation officielle ([docs.python.org/3/tutorial/floatingpoint.html](https://docs.python.org/3/tutorial/floatingpoint.html)) | 2026-11-07 |
+
 ## Démonstrations
 
 | Ressource | Ce que c'est | Accès et licence | Vérifié |

@@ -278,3 +278,25 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Calculer $\Gamma$ ou $B$ directement pour de grands paramètres | `math.gamma(700)` : `OverflowError` | `math.lgamma`, `scipy.special.betaln`, et l'exponentielle à la fin |
 | Écrire `k * math.log(p)` avec $p = 0$ | `ValueError` même pour $k = 0$ | traiter $p = 0$ et $p = 1$ à part : $0 \times \ln 0 = 0$ par convention |
 | Lire un intervalle de crédibilité comme un intervalle de confiance (ou l'inverse) | « 95 % des études répétées contiendraient θ », pour un intervalle de crédibilité | crédibilité : une probabilité sur le paramètre, sachant les données ; confiance : une propriété de la méthode |
+
+## Dérivées, Taylor et calcul numérique (M05a)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Prendre tout point où $f'' = 0$ pour un point d'inflexion | « $(x^4)''(0) = 0$, donc 0 est un point d'inflexion » | vérifier que $f''$ change de signe : $12x^2$ ne change pas de signe, $x^4$ est convexe partout |
+| Conclure « ni maximum ni minimum » quand $f''(c) = 0$ | $x^4$ en 0 | le test de la dérivée seconde ne conclut pas : étudier le signe de $f'$ autour de $c$ |
+| Chercher les extrema globaux parmi les seuls points critiques | $x^2 e^{-x}$ sur $[-1, 4]$ : « maximum global $4e^{-2}$, en 2 » | comparer aussi les bords : $f(-1) = e$ est plus grand |
+| Confondre convexe et croissante | « $e^{-x}$ décroît, donc elle n'est pas convexe » | la convexité dit que la pente augmente : $(e^{-x})'' = e^{-x} > 0$ |
+| Oublier les factorielles, ou centrer en 0 au lieu de $a$ | $\cos x \approx 1 - x^2$ ; $P_2$ de $e^x$ en 1 avec des puissances de $x$ | $\frac{f^{(k)}(a)}{k!}(x - a)^k$ |
+| Croire qu'une série de Taylor converge partout | $\ln 3 = 2 - \frac{4}{2} + \frac{8}{3} - \cdots$ | la série de $\ln(1 + x)$ ne converge que pour $-1 < x \le 1$ |
+| Écrire le pas de Newton à l'envers | $x_{k+1} = x_k - \frac{f'(x_k)}{f(x_k)}$ | $x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$, avec un test de $f'(x_k) \ne 0$ et un nombre maximal d'itérations |
+| Croire que Newton converge toujours | $x^3 - 2x + 2$ depuis 0 | la suite cycle entre 0 et 1 : changer de point de départ, ou encadrer la racine d'abord |
+| Diviser la différence centrée par $h$ | $\frac{f(x + h) - f(x - h)}{h}$ | les deux points sont à $2h$ l'un de l'autre : diviser par $2h$ |
+| Prendre un pas $h$ minuscule « pour être précis » | $h = 10^{-15}$ dans une différence finie | l'arrondi grandit en $\frac{\delta}{h}$ : prendre le pas qui minimise la borne d'erreur |
+| Prendre l'epsilon machine pour le plus petit flottant | « en `float64`, rien n'est plus petit que $2{,}2 \times 10^{-16}$ » | $\varepsilon$ est l'écart après 1 ; le plus petit `float64` positif est vers $5 \times 10^{-324}$ |
+| Comparer des flottants calculés avec `==` | `0.1 + 0.2 == 0.3` donne `False` | une tolérance : `math.isclose(a, b, rel_tol=..., abs_tol=...)` |
+| Soustraire deux nombres presque égaux | `(1e8 + 0.1) - 1e8` en `float32` ; $\sqrt{x + 1} - \sqrt{x}$ pour $x = 10^{12}$ | réécrire la formule : $\frac{1}{\sqrt{x + 1} + \sqrt{x}}$, `math.log1p`, `math.expm1` |
+| Calculer $\ln(1 + x)$ par `math.log(1 + x)` pour $x$ minuscule | `math.log(1 + 1e-10)` n'a que 7 chiffres justes | `math.log1p(1e-10)` |
+| Prendre l'exponentielle de grands scores | `math.exp(710)` : `OverflowError` ; `np.exp(710)` : `inf`, puis `nan` dans la softmax | soustraire le **maximum** des scores, puis le rajouter au log-sum-exp |
+| Calculer le log-softmax par le logarithme de la softmax | une probabilité qui s'efface donne `math.log(0.0)` | $\ln\text{softmax}(\mathbf{v})_i = v_i - \text{LSE}(\mathbf{v})$, directement à partir des scores |
+

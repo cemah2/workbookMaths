@@ -779,3 +779,49 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M04.27 🏆 Défi : traduire l'avis d'un expert en une loi Beta (moyenne, écart-type, intervalle) ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)
 <!-- wbm:end M04 -->
+
+<!-- wbm:section M05a -->
+## M05a · Dérivées, Taylor et calcul numérique ⏱️ 13,5 h
+
+- [ ] M05a.Q1 🧠 Le signe de la dérivée seconde ★ 4 min
+- [ ] M05a.Q2 🧠 Local ou global ? ★ 4 min
+- [ ] M05a.Q3 🧠 Taylor : quel ordre, quelle précision ? ★ 4 min
+- [ ] M05a.Q4 🧠 Newton converge-t-il ? ★ 4 min (complet)
+- [ ] M05a.Q5 🧠 Différence avant ou centrée ? ★ 4 min
+- [ ] M05a.Q6 🧠 Les flottants : vrai ou faux ★ 4 min
+- [ ] M05a.Q7 🧠 Overflow, underflow, log-sum-exp ★ 4 min
+- [ ] M05a.R1 🔁 Dérivées et variations (R7) ★ 5 min
+- [ ] M05a.R2 🔁 Suites définies par récurrence (R5) ★ 5 min
+- [ ] M05a.R3 🔁 Log-probabilités et log-sum-exp (M04) ★ 5 min (complet)
+- [ ] M05a.1 ✏️ Dérivées secondes et convexité ★ 20 min
+- [ ] M05a.2 ✏️ Extrema locaux et globaux sur un intervalle fermé ★★ 20 min
+- [ ] M05a.3 ✏️ Points d'inflexion et test de la dérivée seconde ★★ 15 min (complet)
+- [ ] M05a.4 ✏️ Polynômes de Taylor de trois fonctions usuelles ★ 20 min
+- [ ] M05a.5 ✏️ Le reste de Taylor : borner l'erreur d'une approximation ★★ 20 min (complet)
+- [ ] M05a.6 ✏️ Newton à la main : une racine carrée en trois pas ★ 20 min
+- [ ] M05a.7 ✏️ L'erreur d'une différence avant et d'une différence centrée, par Taylor ★★ 20 min
+- [ ] M05a.8 ✏️ Les flottants : 0,1 en binaire, epsilon machine, nombres représentables ★★ 20 min (complet)
+- [ ] M05a.9 ✏️ Le meilleur pas par le calcul : minimiser une borne d'erreur ★★ 20 min
+- [ ] M05a.10 ✏️ log-sum-exp à la main : la softmax stable de trois scores ★ 15 min
+- [ ] M05a.11 ∂ La différence centrée est d'ordre 2 : le calcul par Taylor (cas général) ★★ 25 min (complet)
+- [ ] M05a.12 ∂ Newton double les décimales justes : l'erreur au carré (racine simple) ★★★ 25 min (complet)
+- [ ] M05a.13 ∂ Encadrer le log-sum-exp : max ≤ LSE ≤ max + ln n ★★ 20 min (complet)
+- [ ] M05a.14 🔗 Pourquoi les bibliothèques de ML calculent log(softmax) d'un seul coup ★ 15 min
+- [ ] M05a.15 📖 MML §5.1 : dérivée d'une fonction d'une variable et série de Taylor (lecture guidée) ★★ 30 min
+- [ ] M05a.16 🧮 Fermi : l'erreur d'arrondi d'une somme d'un million de nombres ★ 10 min (complet)
+- [ ] M05a.17 🗣️ Expliquer la convexité et pourquoi elle rassure quand on minimise ★ 10 min
+- [ ] M05a.E1 💼 Pourquoi soustraire le maximum avant de calculer une softmax ? ★ 10 min
+- [ ] M05a.18 🔨 Évaluer un polynôme de Taylor ★ 20 min
+- [ ] M05a.19 🔨 La méthode de Newton, avec ses cas d'échec ★ 20 min
+- [ ] M05a.20 🔨 L'extrapolation de Richardson : annuler le terme d'erreur en h² ★★ 20 min (complet)
+- [ ] M05a.21 🔨 L'epsilon machine, en float64, float32 et float16 ★ 15 min (complet)
+- [ ] M05a.22 🔨 Un log-sum-exp stable ★ 15 min
+- [ ] M05a.23 📦 SymPy `series` et `numpy.finfo` contre tes fonctions ★ 15 min (complet)
+- [ ] M05a.24 🔮 Prédire : Newton depuis un mauvais point de départ ★ 10 min (complet)
+- [ ] M05a.25 🔬 Taylor de plus en plus loin : où le polynôme décroche ★★ 20 min (complet)
+- [ ] M05a.26 🎨 Une fonction et ses polynômes de Taylor d'ordre 1, 2 et 3 ★ 20 min
+- [ ] M05a.27 🐛 Chasse à l'erreur : une softmax qui renvoie `nan` ★ 15 min (complet)
+- [ ] M05a.28 🛠️ Erreur relative ou absolue : choisir la tolérance d'un test ★ 10 min (complet)
+- [ ] M05a.29 🏆 Défi : une racine cubique à 10⁻¹² en le moins d'itérations possible ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (24 cartes)
+<!-- wbm:end M05a -->

@@ -13044,6 +13044,2557 @@
       "sign": 1,
       "source": "chapitres/m04_bayes_beta/05_solutions.ipynb"
     },
+    "M05a.1a": {
+      "hash": "cedd4c843e5de7368c99fb82b8eba4eaa52e1011ab8294acd11c0b472d915d17",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "6491767f3008a303fcdb65d8b5df6ab45f848e1ba2f4971e476d1dac95e7e85c": "c'est f'(0) ; dérive encore une fois",
+        "d6942664efb7168360ab039731b5d53983e7858826fd63e8e8d53e7a79ddc3a5": "la dérivée de e^(2x) est 2 e^(2x) : n'oublie pas le facteur 2 de la règle de la chaîne"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.1b": {
+      "hash": "255143e76984d62414dee80f0d52d88fa097c8ac87cf3df686b6d41d101f07a7",
+      "kind": "interval",
+      "mistakes": {
+        "393148580726314e377eee5289ef26f9f37130948d7b2d7fe31aa429597f5698": "l'intervalle demandé est fermé : g est concave aussi à ses bornes",
+        "74265f33a89a5570e6471c3fcb610e549c3673510eff80f2ece7f6a3a3f3da03": "g est concave là où g'' est négative ou nulle, pas là où elle est positive"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.1c": {
+      "decimals": 0,
+      "element_hashes": [
+        "e25f5d26d4f2fdb65518f6c00b2e303b220833c4b63719533d0f3be9dfeaf8f7",
+        "798d82b90ca3918f76eb731b089ee4d1d280afec20b3b436b07ac520a24021e2"
+      ],
+      "hash": "e2e12712126eb2cb22ad09293e31a61e656ebeb6f41f5a2752d899b5368574e4",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.1d": {
+      "coarse_any": {
+        "1": [
+          "15a539bd3481dac37acb9164d4a0261f1dfedb71034e8547237b483593bb37fd"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "fc05824bf5ef7cdec426fda7b1472c7d2c3d5aab8b181d11a6777ed09e2fa2c0"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c8f20419fc737335dd8917bceed3d5fe997c99f20c6dca06f5f948b6a7e99815",
+      "hash_coarse": "6c3786fa400b6665d50604f3835a00ed32c198cc4dc777aa15ab23051df1f8bc",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "cbe78fdc1df30f5b6b8d5959703daebd5d43f180caf9741bd8f3a8c61bae7221": "c'est u'(1) ; dérive encore une fois, par la règle du quotient"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.1e": {
+      "hash": "a74d9fff4f4cdaa4eeb7194006c38b90cb9bc80d6f8e3a446b8333cc198af084",
+      "kind": "bool",
+      "mistakes": {
+        "d7538871e797b4f62171b39b9cecfb12836ed7c1d2e30f00573a8f302150b4ee": "u''(x) = 1/(1 + x²)^(3/2) : quel est son signe ?"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.1f": {
+      "alt_coarse": [
+        "4d22b540377210fb81b12e1304fcecdcc88cd3efd9e8c9a04a4ab4309e3d3ead"
+      ],
+      "decimals": 1,
+      "hash": "0369dead2b6d7b0ee09699e6dbfe5b98c74bcc22580cb7edbff429b87442052d",
+      "hash_coarse": "1e64b4a9b59e1864e4894fdb85a2407c6c4beee675f50f62670b00abe730039e",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "92c22d65acba63751ee1d3315c7a87205866d2d32d5fe2bbd5e1a812c4786666": "c'est h'(2) = ln 2 + 1 ; dérive encore une fois"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.1g": {
+      "hash": "c743434faef7866fd0782a18485975e17fe5a702053a3e0d52a441dd6a3a85af",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2035e57e2f216eba7611e20029fe0f01e2bc0b6348bf56cd474180316e199cf1": "un point d'inflexion annule la dérivée seconde, pas la dérivée première",
+        "489acea8b4f33bac6120dd0c005643e9330bc3beedc1430fa8864160162bd347": "la dérivée seconde de k x² est 2k"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.1h": {
+      "coarse_any": {
+        "0": [
+          "587ac1224d22b35f541a5f911655fdcdb767eda9e6f6cff6275c87162b6966c5"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "26a0ea6ac9362a7b5be6fa56938ae68f89e2f42ecd7dd40ece05c002471621c7"
+        ],
+        "2": [
+          "cd1e60e34435f96195c0fd8cbacce23b0af6a27cececc9ab39046ab1e9952c43"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b2384ef2f16b2fe857428f4dae7eebd341f953a512a6717508c8eb497ac2cb8f",
+      "hash_coarse": "cdb7e0dff5d238d535882147a1c4ca3fe3f8847c71b6c5ad74ae662eed4db8e4",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "9604c3526459ea24051393315af4ef790574cc452ce855c9d310fb9dddda953f": "l'écart demandé est le milieu de la corde moins la courbe : son signe compte"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.2a": {
+      "decimals": 0,
+      "element_hashes": [
+        "14e5b1dae11ad31a3b12e672bd07bd907e10ba29bd8731f137c21b59815ebcc0",
+        "a9ee6502b262876d386dae764fcdf28d3bed5526cecbc81973aab52fb37e261e",
+        "5db97abe0d56a1e4b05bd027cea683f08dfaa1945521c0d197367cb0ebdcd190"
+      ],
+      "hash": "aaad61f952ff2ea3519c2ffcaac3e13f6772ed7539ef8abb66804919ba56fa80",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "91b71cb747c0e1d9fc5e51242774e881a43ecd942347f5e73247656c1d860cf2": "f'(x) = 12x³ − 12x² − 24x se factorise par 12x : x = 0 est aussi un point critique"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.2b": {
+      "decimals": 0,
+      "element_hashes": [
+        "746d2a4254134d8723e24f662f927fe0cdb444aae97c44ebe1b268df2fa81ba0",
+        "01c9d061b9e6c2e86f6b69eeea0362fa9f4c8d6e0c94af2a1c9d31ec65825759",
+        "7c4cce959af8ba058b2f37f54fd803722b8b98dda3f787f41ba4f2180209ad93"
+      ],
+      "hash": "4faa159872a463e4d58ec9c68449cb62d974a7e67e53876d1ea808bee9f7a639",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.2c": {
+      "hash": "a9fe34a7bdd6f04077be00807149f6b3ab2187f681d459c6b442cedf6435b3b8",
+      "kind": "int",
+      "magnitude": null,
+      "mistakes": {
+        "2ff20558254aef7b8776fcd86ddaa9ef5a0632713be47944b6db57df3c2a9c23": "un maximum local a f'' < 0 : calcule f'' en chaque point critique",
+        "c24597ab946da58dc194a5a2aed8329b601bc4a0323e2788ca379d25b9f4c9d8": "un maximum local a f'' < 0 : calcule f'' en chaque point critique"
+      },
+      "sign": 0,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.2d": {
+      "hash": "c1f2a3828e09fccbf3f87368010564862b9118a2ab0a12c98465bc98d2a8ff4a",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "160e505e5938d7aa09477613388f9cbdff5c495afc19b9000106fb2c8cfeb613": "compare toutes les valeurs : les points critiques et les deux bords",
+        "4bd5ff50444bdf7165440a64e4eb6629ae722c84d60664acf6c9c5514292510b": "compare toutes les valeurs : les points critiques et les deux bords"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.2e": {
+      "hash": "aa20424e17c925e58da23c5c55318823912134893ff480d8678406b339b97c69",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2001b69a6bda6bc9e57cfa203df59ba2a2607b792316b360a848d285b27bf364": "compare toutes les valeurs : les points critiques et les deux bords",
+        "8630f24410c10a310be8c9e6d74ea9b1ec2e0e1d9565c1987d1b0770e503e2e0": "compare toutes les valeurs : les points critiques et les deux bords"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.2f": {
+      "hash": "61ff0e20e3f77a6daa7fa57e7f6773aac58961e13efc06a95c8ff3b10b09481d",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "004b830e2741c27af020bbff346b4e1f557944caf001fca3f725d88f770b470e": "compare les deux minimums locaux, et les bords",
+        "35d19b6145b32c1bd402a6a51b841f48247c68ec0a956703f922b411281b7253": "compare les deux minimums locaux, et les bords"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.2g": {
+      "coarse_any": {
+        "0": [
+          "d51f345b584a07e80720a9da63f98408ebd42b990df9aab1d20712b27d85ad67"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c096eef16b6e91f80cb32e30c5921902769137e4adac92a987ca3e74fbed4ffa"
+        ],
+        "2": [
+          "759d512a1f7cb0ac7394531ea4647176f54ea993142bcb70bdd1eee13c4c3723"
+        ]
+      },
+      "decimals": 4,
+      "hash": "9bede91cd9a09cdd95ea485b8dba170101330fb8e1d3586989f25ae67ef16952",
+      "hash_coarse": "0b6caf421fe4fe0ccd769643249e4c5160441f8d20585973fc326d1176d131a0",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "627420a5da42c633e2ef1f6ffa88b14c272311740e509b95f8ab697afcde4c88": "compare aussi avec les bords de [−1,5 ; 1,5]"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.2h": {
+      "hash": "405e0d44773efb28136972cf360c2516a7617f6e594979f19a0495cb4aa34879",
+      "kind": "bool",
+      "mistakes": {
+        "86fcd28d0b3ab6c5aa7565683c939e85d67c48fe61d6df4020a60ee672d98ea6": "quand x tend vers ±∞, le terme 3x⁴ l'emporte : f n'est pas bornée"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.3a": {
+      "decimals": 0,
+      "element_hashes": [
+        "363f9d60ecb13eee644cd825f11e6e24253b59c1ff213a4d3f211133e19b0f19",
+        "659cf685d6cc26b61936f0e700e53d83b0b314813289959e18ae85f63d2e4352"
+      ],
+      "hash": "61a4b403824ebb9e9d581ecf6d0e65473345e2b70b42f6267a470af180d26198",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "cf597634cbb15dfca25d57dfeb813a9e7b41df25147b97573325c15fe7bb1487": "p'(x) = 5x⁴ − 20x³ = 5x³(x − 4) : x = 0 est aussi un point critique"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.3b": {
+      "hash": "16c890e4d4a5c1c63b1d2f667e1088755dd612219809b4a4435c7169ec089dc0",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "f248f97eec09a8e906e88d0db1df1ddb3eff85b0a7bb9a754e4cd9e5dc145762": "c'est p'(4) ; dérive encore une fois"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.3c": {
+      "hash": "a892768b0e697ec932d7673c6073bec2e6d1a874bc1ef393e4efc045dc2a4e7b",
+      "kind": "int",
+      "magnitude": null,
+      "sign": 0,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.3d": {
+      "hash": "072a33140b6be0af94c79070edede830fd2e48ccf3bd352cc8bedd14860624e8",
+      "kind": "str",
+      "mistakes": {
+        "347551f0a5bd060a55dc2499a4415f0878711adb48ec1ff1e1304ced3bbe3577": "regarde le signe de p' juste avant et juste après 0 : p croît, puis décroît ?",
+        "e8f7f74fba1e741e6522a266a2fcbd6262ff2931504516f6217d8da3e8988ca1": "p''(0) = 0 ne permet pas de conclure : étudie le signe de p' juste avant et juste après 0"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.3e": {
+      "decimals": 0,
+      "hash": "23475bff48bc9167d37329a215273033126fa9baf9a07629b74877ff7a44434d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3e28f8562ce09a430ecae4c3d2ff4825153b79eede7d6bab23898e93479a268b": "p''(x) = 20x²(x − 3) s'annule en 0 sans changer de signe (x² ≥ 0)"
+      },
+      "shape": [
+        1
+      ],
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.3f": {
+      "hash": "a1afa4918aad72aa4b703e5feaae7ec2607e49980159a7514eadcceefcea1257",
+      "kind": "int",
+      "magnitude": 2,
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.3g": {
+      "hash": "ea39f80147e8c3dd174f225284ad69afa494a489d72b5bb77c64f79684e37140",
+      "kind": "bool",
+      "mistakes": {
+        "848ecbcabd60a1fa94d73d75a1c22669b3be360b0556d176d02f8dfbd888136c": "(x⁴)'' = 12x² s'annule en 0 mais ne change pas de signe"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.4a": {
+      "hash": "c484acc4772a9d3c9f429f3c32fa87239377d757d9c8dca4ac436b5ffb34cf0d",
+      "kind": "expr",
+      "mistakes": {
+        "53ed4480da077e3c670457656095a4b8ed8bcb14e457585b2f68bb293b1a00e1": "divise le terme d'ordre 2 par 2! = 2",
+        "c82e07762ba94a63e300d55a51edaef98c63d0a5b9b6b9217cb7d5ac7c11359c": "cos''(0) = −cos 0 = −1 : le terme d'ordre 2 est négatif"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.4b": {
+      "hash": "a665659b1f51e3d1407736a2da852d868ad1a8229ffbb24fbf1e044db5e7a873",
+      "kind": "expr",
+      "mistakes": {
+        "9ba3cd8a7c86cf74cb7b71508f09fb17dbec7efc0ee651a1f2113f8f3a08459a": "les signes alternent",
+        "f14cf1a4d474699163a2245b83189252afb615733cd76ef8ef684c1b02144460": "la dérivée troisième de ln(1 + x) en 0 vaut 2, et 2/3! = 1/3"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.4c": {
+      "hash": "2444506e0184964f33b70145be22595623f6bdb0ad446e63fbc542b94553fb4c",
+      "kind": "expr",
+      "mistakes": {
+        "0c8d6b6fc89931993ae5e6b29507f8b4b304382c32681486af2a2f987718460b": "la dérivée k-ième de 1/(1 − x) en 0 vaut k! : chaque coefficient f⁽ᵏ⁾(0)/k! vaut 1",
+        "f32dfcce188254eebdc921603699949e5e515a30e466751b7cb73d0dcadee520": "dérive 1/(1 − x) avec la règle de la chaîne : (1 − x)′ = −1"
+      },
+      "points": [
+        [
+          "1/3"
+        ],
+        [
+          "5/7"
+        ],
+        [
+          "6/5"
+        ],
+        [
+          "-2/5"
+        ],
+        [
+          "9/4"
+        ]
+      ],
+      "variables": [
+        "x"
+      ],
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.4d": {
+      "coarse_any": {
+        "0": [
+          "17e862c2f5a0fa903abdcb7f8522c36c116248ecefc02f9428230bf04a525e75"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "713e30cc2db911a907725a99a10e699955674ae20e0b6f5e20c193e684cac7cb"
+        ],
+        "2": [
+          "5552e3310a71aadd3a837d9be55546734379e527279f87acad0afbdce5ca4038"
+        ]
+      },
+      "decimals": 4,
+      "hash": "32c0b964e140642c6b94d21f48de0cc6956b352b6f772cb0459fb6160e075427",
+      "hash_coarse": "2704387bf8dfec678be958ca9c6f711a3a31dccbbd1aecda9d29fb1c99bde019",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "248422dd7495e860775c639e57823c8479ef1afed93c4c17cd242e2a4b3d9a7a": "en a = 1, les dérivées de eˣ valent e, pas 1",
+        "aec3b29beaa393570a4151833e1a1d5ebe4757be5797cc40a4488384a94d5e1e": "le polynôme est centré en a = 1 : les puissances sont celles de (x − 1)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.4e": {
+      "coarse_any": {
+        "1": [
+          "9ed197956d46a9a099374d9278df36bb1f97873c4db547810dd149c817d98264"
+        ],
+        "2": [
+          "88391b98ed1f7eceb67aeba2386dee4fe10027d58771ccf336c83341286d0896"
+        ]
+      },
+      "coarser": {
+        "3": [
+          "74da98f064324cb7d833da3b7867795294d9bdb9a79e62f91f819d2a77b8c4cd"
+        ]
+      },
+      "decimals": 5,
+      "hash": "ddf2e2b62f985c4e35ea4264df8ba6e8a72d2145cbbb4f77535c6812fb7656d5",
+      "hash_coarse": "e67dc9c98b992a2952dfa693c15fe2b2c95095c10b11b000e501c58f25d242b0",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "3abcd0ff400e950119077faacb767f7129d4d9c0bb6b0e19049f6fe7546d74fd": "le coefficient de x³ est 1/3"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.4f": {
+      "hash": "0e40246dafd5f4b23ac7f59fee072ac62db2cbe57f0d1528b39ec475f8ee0cd1",
+      "kind": "fraction",
+      "mistakes": {
+        "2e3a7d190c2398e5839642fc3595de035dcedb0b83e3e30c34c15372bef2a316": "divise par 4!, et non par 4",
+        "91494fc22f18416f773f0d97289c99a746bf03e8c7907178c1418f75d964c183": "cos⁽⁴⁾(0) = cos 0 = 1 : le terme est positif",
+        "e10814b1a88b3a1988321001f26dec71d10db3e996dc8d0658ddd789bff4aa74": "4! = 4 × 3 × 2 × 1"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.4g": {
+      "alt_coarse": [
+        "784d01eb2fbc13e47d7b829c793917bebc7c774580e549ebf68a693e429ca735"
+      ],
+      "coarse_any": {
+        "0": [
+          "257685ffcf13da2922940d98a326ffb23f23cb4f7a22d29c26f993b1158876ac"
+        ],
+        "1": [
+          "9d6ff00eff28429eb117e7c883e848b99325a960ba22cf00872e22d78bc65bcd"
+        ]
+      },
+      "decimals": 3,
+      "hash": "f80461829758adaec782b9533771581c32c13f4ee0c01075b850b6475f1faf64",
+      "hash_coarse": "7586ff0bafef06803d3fa2202279e51eac58a1c60faea0e6463599252ed521ec",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "0c1adee4147cbded8443c0f578e99a74042d551eb9e14406740c4dc7523a41f5": "divise le terme d'ordre 2 par 2! = 2",
+        "36b3dbb4a41b16c1902bb426c469599f43ffcaab8c5231d7a9a6f2872ed82ab2": "sin′(π/2) = cos(π/2) = 0 : pas de terme d'ordre 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.4h": {
+      "hash": "c444e0efff62a94d65e899ea9904b59ef3f44955531e64f925b89af6335c8c95",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a6c9681d561f5cfa5b7abc73debb61253388e4aa9375cb69d73ebed0db48ccca": "le coefficient de (x − 1)² est q''(1)/2!"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.5a": {
+      "coarse_any": {
+        "1": [
+          "4672f07af7510fc07163d850429b885605ea7f5c1854300863abab229ef053eb"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "f574a713550521edc6c4072116d7b95b32c2183d16ba97ea299326e973aa8e9a"
+        ],
+        "3": [
+          "0f3fab5e9e755a7ba88afb234e9534ec15f3cc40ca2797c2e7015f3d45367d6d"
+        ],
+        "4": [
+          "dd573e858864cf829054bf8356a88a3f98a241e2b963acda78bef8aaa66da9b5"
+        ]
+      },
+      "decimals": 6,
+      "hash": "a25b4c5bcc6f5548d0edf0fb3e3077b840c1ba6758b2a1dcdfadc66d4e2478e3",
+      "hash_coarse": "569c2f63157ad5e4846b2ef70cefff9e7e22d7e18f8d44e5fbce8bbf04199317",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3c1966a10b90e01a6f83a6bd8558936b3707c642ead48e3692d4b2be72e967af": "l'ordre 3 contient le terme en x³, divisé par 3! = 6"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.5b": {
+      "coarse_any": {
+        "4": [
+          "7129a0d40b76613eae67c9f5da9fc1dc9ff91cfb000701a73c87cf28b7d54428"
+        ]
+      },
+      "coarser": {
+        "5": [
+          "b4a4f105cdd94bd4619c414b24ed31a067e341fc50f8720d16e330db483157c7"
+        ]
+      },
+      "decimals": 7,
+      "hash": "316de0257cd83620208d3067c0da62177b4e02bac867fe4c74b5945d9c78638b",
+      "hash_coarse": "26b840962c145bbe65ebd4fedd5a269876528b7ea3ebd0599a8ccab16ca88925",
+      "kind": "float",
+      "magnitude": -4,
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.5c": {
+      "coarse_any": {
+        "4": [
+          "999c9594fa77ceb2b4036f2f5592208c05d6730943dd9cf13b4b500cceaff2e9"
+        ]
+      },
+      "coarser": {
+        "5": [
+          "d50cc71c28b7a41f39555b6ae74a3d2a8e539527a8eb6d2c512d159856f9480a"
+        ]
+      },
+      "decimals": 7,
+      "hash": "b2d4c44c7c34336e8f1a5bc35375aa26247f16025bffb8c1c6140d1b0075d4ce",
+      "hash_coarse": "67f5e7c8a234d9a99e642a3ad9d5c45857d18ffc7f4bd64685cfe815b48604cb",
+      "kind": "float",
+      "magnitude": -4,
+      "mistakes": {
+        "4443ebb4be63cc08bd296a7ba19686354055045b32fa99cb61f7163dee019b86": "le reste d'ordre 4 utilise la dérivée cinquième, avec x⁵/5!"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.5d": {
+      "hash": "305dec36a6682a7e95225f5d305d3758b89564d70bde37d29c343e17d2d1a9b3",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "b1b56700b552be97567271917b08a047959b3200f6fbf12e3afab4d1cd494117": "l'ordre n donne le reste avec (n + 1)! : n est un de moins que le nombre dont tu prends la factorielle"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.5e": {
+      "coarse_any": {
+        "4": [
+          "a412648bad07c1dd2c62d7bb6043ab9d08b4938eb136369ca5d99eb4a9eb6f78"
+        ]
+      },
+      "decimals": 6,
+      "hash": "949647a84b24e2a53e99c18eec74fd3198607a4537928b5033391ef22be1fd2c",
+      "hash_coarse": "5b27ed5aeb9e6c0dba08c65651e48bee05a662dea93bfa1272035bd3995913cb",
+      "kind": "float",
+      "magnitude": -4,
+      "mistakes": {
+        "734cb086a2af18591d666bfd588bc7f9ff7b9c0dff47986de29f485ab35a99ca": "le reste d'ordre 2 divise par 3! = 6"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.5f": {
+      "coarse_any": {
+        "4": [
+          "f05ec010b55b79cf87d707da294d6ca8d02172baca32cb1c8f15556a8806f1b5"
+        ],
+        "5": [
+          "0f7a980cf978a268212c931fcaa3a45c5c185f1045f86004afa13abec19070aa"
+        ]
+      },
+      "decimals": 7,
+      "hash": "724bf70f880cb3852f7ede8d69e9395122fd7692595f5fc380b85083a7cee15b",
+      "hash_coarse": "7bb01eddf70498747cb266bda0a9635cdeb8471ff23bf2d01ac612471b22246b",
+      "kind": "float",
+      "magnitude": -5,
+      "mistakes": {
+        "405140aed8e59f9a30d175758d62a66869e6fa0ecd0fd591c355e6a9f32a885c": "le terme en x³ de cos est nul : P₂ = P₃, et le reste d'ordre 3 utilise x⁴/4!"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.5g": {
+      "coarse_any": {
+        "1": [
+          "f5ff2754cc1167bf62dab9233e3e577a0a64598374f4cb2015d20cc681e4e329"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "28aaa233b7ffd74802661d5229e052a8cf473902fcc477aa8504265acb36a575"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b488246837827ee3a59d9b7ebaa4e6c9252e61e6becb9fa5545dee69600f8716",
+      "hash_coarse": "7e95a0ac2a01fc9c89a85fa19c15109f6ea5020d46fe9e73f9b50efd049147a5",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "405602a0e0bb0c8c11e62b7b0efd245047d288b658f503ecfd16d25ad0b0ee7d": "x³/6 < 0,001 donne x³ < 0,006 : prends la racine cubique"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.6a": {
+      "hash": "3ed01d25096a2b613b35e724a769574eb176163031fc19302b9af66e14fccdd8",
+      "kind": "fraction",
+      "mistakes": {
+        "01ab4d42e7bfb8d90f08dc31fbd3735a58b67bb3eda307dc332a18e77740d09e": "x₁ = x₀ − f(x₀)/f′(x₀) avec f(3) = −1 : le pas va vers la droite"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.6b": {
+      "hash": "8023544270f1acbe5f6031cac1ad2c6daa4a961b8280e013f7e96f656863cc18",
+      "kind": "fraction",
+      "mistakes": {
+        "cef48d6f642d2649beaf57a3c469db0a092952505c5e8efe97eb3ff975f53d1b": "x₂ part de x₁, avec f′(x₁) = 2x₁"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.6c": {
+      "coarse_any": {
+        "0": [
+          "f36606f88035b05d91942abf58c8a50e50419aec368f861ed198fa4096fbaf45"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "2501e4317cac08730a27c3333d30038531dd49db93261f7432302a7ef3690b6f"
+        ],
+        "2": [
+          "9f4100e08ae2833065dd7c4bdb6a156db9c3a35c8417a1c1e2411772e9517ee2"
+        ],
+        "3": [
+          "49af55cd0359af462354be815694a99e71d4d2f3733a99f57efcbbee4fe398b5"
+        ],
+        "4": [
+          "659c3bdefe5e303ffad8e0dd8ce68429dc93984f0db573fcc33791152f8ec818"
+        ],
+        "5": [
+          "7469bbe27c8e69fe347a43b4f370907abc9ad201d35a8b631f90df68ad98faf5"
+        ],
+        "6": [
+          "d9d157bf050f2f4fdbbd6bfe95704ef94ec9314579cf551c01d7224ab963a619"
+        ],
+        "7": [
+          "7f3ca944ad9734f7cf9e9ac7186fe0fa6273e45ac325220fd88e722eba831e79"
+        ],
+        "8": [
+          "6c2be78b776599fb43416f0edf141f8af1b3be08244d6cd22170d06329416540"
+        ]
+      },
+      "decimals": 10,
+      "hash": "097caf823095aced281bd2e46e31dd53def439d9dd9c802a2b7a74a6a52def85",
+      "hash_coarse": "c5d71cdcf561eb35edce4b3635575ec80101ab0eb027977cdb07f2219e4aea6c",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "9a483554ffe8ecbaae7c323882d7135a3f8494b3c937828bf80d2a8e3bc54ad5": "c'est x₂ ; fais encore un pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.6d": {
+      "coarse_any": {
+        "0": [
+          "90400d387e14d98ad16f5081fa2f8294601d11e00062c7df8a325ca54cf6ec84"
+        ]
+      },
+      "decimals": 2,
+      "hash": "78cc6bb180a638b16249c1ae6a4347f8c9d3aaf39fa0b8980908ef8e556d6631",
+      "hash_coarse": "e2f3929d591874db536a1e76d0f761ac33f64d2b02284139356e8a53d3630f5e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "89c31b81bc9390cb0343a662b1e95eb75cbced2bf88eb9880982ffe2e825d90c": "l'erreur demandée est x₂ − √10 : x₂ est au-dessus de √10"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.6e": {
+      "coarse_any": {
+        "1": [
+          "6d245fcf13a6c3cb5d3b6008844155bbb630f2b71e80baee8369d67d1e4b8a47"
+        ]
+      },
+      "decimals": 3,
+      "hash": "1c0275bdb22883346e3fc84d49852e190ec6ada327498eecccbbaf118f778476",
+      "hash_coarse": "4bf20a1afba34346e31d7d196b70b81a610cc5c220fb4a0691aa646cbccd8745",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "5871fbe5237d59b00834fb880ea9b9d823ee09c3a8e116c155b431ffa82c993a": "le dénominateur est le carré de l'erreur de x₁"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.6f": {
+      "coarse_any": {
+        "0": [
+          "b146b08fbd4948fad04565b4e32664322022a00ade62c3c9075510a8133f44ea"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "9184d00ccc3e0b9c3f452535f9e4953b3a58cfc92a14ee2db00fcec4c0f6a7ae"
+        ],
+        "2": [
+          "1e32202ef731db2ac819dfa715dfcb5dbf618c1e4972a49766ba9d65d40f94e5"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8adcdac0410b2f051cb6b3391cab96a328d55dacccb717c88b3fc5bfe80bdc0c",
+      "hash_coarse": "2a8964be31d64fad16d5fda6004ccabcf45a651d771493a1fe8d0f10ab486e0b",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "83a4c1fa4ba20a3746de789eff6ef6cf6cb28b02c0fbdd99f6fe973375eaea8f": "depuis un point négatif, la suite reste négative : elle va vers l'autre racine"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.6g": {
+      "hash": "162e2b1d859af003cbb0f760c6664d79570b37605795c6d5537dbff95ec85e1a",
+      "kind": "bool",
+      "mistakes": {
+        "becda46dce44ba46696193079be86b696dfeba017da09164abb70de2fc01d23f": "en 0, f′(0) = 0 : la tangente est horizontale et ne coupe pas l'axe"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.6h": {
+      "coarse_any": {
+        "0": [
+          "5742a3f37d2d8681c2cb34ba09d9a1fd5e7fba710374a4c256047925ece0aa36"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5b512f82d3ab32933f6d9ff6c04041c6adcaec176ec9e861c34684247485cc7d"
+        ],
+        "2": [
+          "4dbde5aaa5b344984c33082144d4a21caba9356e09550521499ccc4fc3a8b5c0"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e23472df8f02d9310dac82f0e09f479f187eee4b6bb6a7d865650f418c2f355d",
+      "hash_coarse": "3de10120ad9482fd16091be75f4f4515a79b44426c2180580fa3f2e2902cd32f",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "519c6acaee44c505ed7f99d5909f8c98bbcbd625a990b39581496d9ce63a9996": "x₁ = x₀ − g(x₀)/g′(x₀) : vérifie le signe",
+        "e02378200ab5210afb2c3697eaa190e2b9c598b3ea122614d5c6f7dd8e04b2fa": "le pas est g(x₀)/g′(x₀) avec g′(2) = 1/2 : diviser par 1/2, c'est multiplier par 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.7a": {
+      "hash": "b95a67e0a4b4fa7e39d850c4bca0c1d944dd08d29c14f5e4ecb850a19a4af68a",
+      "kind": "fraction",
+      "mistakes": {
+        "94568328fc0eb98b0ac68d3304a9a4b2f24776c192105c5e77c7b026a6d410d4": "(√x)′ = 1/(2√x)"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.7b": {
+      "coarse_any": {
+        "1": [
+          "32e9eb6bc741f0f15aee1b12c359f5994d76fea239b880901402c1feda0169e4"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "2e02cd113786ee4ff7a4befdc22673da38c7932985106d4ffbd566ea4fe041ff"
+        ],
+        "3": [
+          "febc0cb1b296250cba427cbebadb78bac70376e407a54d39583dfbf8e998c311"
+        ]
+      },
+      "decimals": 5,
+      "hash": "a0fda737e04e09cd2e855860c446ae7690f5673371d8d2a199f6e011069cf535",
+      "hash_coarse": "78f3145b091c0b5d946eefe7ce2c0e60e5e489b03971b48ab3cff5daebb8188a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "bf4e5554efae21b84ef9713650a9ec726e7fd87ec3b385886f34b9162515296d": "divise la différence des deux valeurs par h"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.7c": {
+      "coarse_any": {
+        "3": [
+          "899bf284f3635d50b4b39f4c173d10647e5f275179ffe255030fd25dca151ffe"
+        ]
+      },
+      "decimals": 5,
+      "hash": "cd3757b693290a86fc21092cd5f9a6722705736630886968548abc9829001fd8",
+      "hash_coarse": "ce7cba3631946aac8cc62d9e6368034855f7bf41e765a4bdeea7075c7f38ba36",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "e18bf2e85ef070d81087f24797d6191c8dcfc7abfae3b0c04d1f7e36cb4da093": "l'erreur est la différence avant moins f′(4) : son signe compte"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.7d": {
+      "coarse_any": {
+        "3": [
+          "10a755a37ed4efc3abd721fdeadeb0dedef3320c6882815aef40a831f08e47ae"
+        ]
+      },
+      "coarser": {
+        "4": [
+          "066423781ae6fe467657d051af2941d59ac454bdf5f49cdb836bdc06ac46ff81"
+        ]
+      },
+      "decimals": 6,
+      "hash": "b54d22f59f50d1a41e8db0ba18dc4d8de7ad36f99ee63800bc0cccb1af89fef8",
+      "hash_coarse": "ff2d82a4e8fcef417571118f540c112d862c2b17224cdf4d33d7a25d23abced9",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "5d3c5a34f842124259dd59608fd9bfedd8a702c042406d6ba333fe7b6f38c94c": "f″(x) = −1/(4 x^(3/2)) est négative",
+        "f623cd0f10523e346b8e9741a49459fdc8372647d0e4e48d19dc8aaec4657fe1": "la prévision est (h/2) f″(4), avec h/2 = 0,1"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.7e": {
+      "coarse_any": {
+        "1": [
+          "98a109b59fde4036f5bcaf02f6058fd43fe1162aeb4ce3588709d34256655c4c"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "efdd66095515a8bac2d803eed41858a5db57963f317d261f618db4904e14495c"
+        ],
+        "3": [
+          "b3cbe728671237be43b7b24fe2a0629ec516311cedd857734e7aca92fccd3fde"
+        ],
+        "4": [
+          "adb392856fc78ee7302b1ac2be81b6ef6dffec3e626efb3dede747e9ce4d5f84"
+        ]
+      },
+      "decimals": 6,
+      "hash": "7d78224224eef8b95e28d2a3349371f4cfab717a9f6f085a024c23991e148226",
+      "hash_coarse": "21cd2a88d9bcd75f6f5290374a1edba639b33292fb6e60ddc5ac26941df43f70",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "00108e4ea395e91dff64905ff5ed266cef21956c88beef3dbb574198cedd0be1": "la différence centrée divise par 2h, l'écart entre les deux points"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.7f": {
+      "hash": "f8ef6fdfaf55436b320af114658cf0d8f64ceebf3e7bbd793544eb35390a0cb2",
+      "kind": "fraction",
+      "mistakes": {
+        "035a5b86edbeaad31d675b09d0a79bd179b0f23c3d39075d4ef3b03f8868ac89": "h² = 0,04 se divise par 6, et f‴(4) = 3/256",
+        "d161984ba931d53735337ef420f087e864523c29c40c4c4ca3818f5de8e3539f": "f‴(x) = 3/(8 x^(5/2)) est positive"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.7g": {
+      "hash": "5bb9d648acdd0acf11ae6d68e92d101ab89c5780b4918eab99517ea694ea352a",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "4435423873cf0e8ed9bc7602c69c9b518e9aebbe3d75443ec7b7451fb9741f3c": "l'erreur de la différence centrée est proportionnelle à h²"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.7h": {
+      "coarse_any": {
+        "2": [
+          "26a8c6857792b2953056b27ffab88814753f11f1dfdee9d74734a8f5238f4d8f"
+        ]
+      },
+      "coarser": {
+        "3": [
+          "ce636bbabd71794b3181f0bd094c0628def59a840f285a0f581716cc83fe1fa7"
+        ]
+      },
+      "decimals": 5,
+      "hash": "ddfe1631fce8252903ac5a5bf79738cde2e93a9126eb9e3df040888d6fe4e094",
+      "hash_coarse": "48ead96b8e12c60508f7459739d7d8f3e4614582ee558bc58c2fc1fb8f470f52",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "b40cb201c02c480363bf7137b4e0349a8397143f4e920c6c8787df98a5498128": "la question demande la différence seconde, calculée avec les trois valeurs, pas f″(4)"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.8a": {
+      "hash": "d1b22071a122e9c01819fc5651a7f91a28a80c1c53ad205a3bf3d00ac6abbed4",
+      "kind": "str",
+      "mistakes": {
+        "1dac261a459bd95927db70cb655d4b60037a52c2e8c94b7d47402fde41467555": "0,625 = 1/2 + 1/8 : le chiffre de 1/4 est 0",
+        "627754fc1a635b8eec403a7a0f441ee691c5214640d0129ce1748a264c4a1e34": "écris le point décimal comme en Python"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.8b": {
+      "hash": "3e0ab1962df96d98b636f90489b252ab53ae1e8e3d013002b65f301988f51b1f",
+      "kind": "bool",
+      "mistakes": {
+        "539bd68a7fc4bdc73cfb97ae0bb8a84d86f9a35869669b7b134835ebb1d4dc66": "0,1 = 1/10, et 10 a le facteur 5 : son développement binaire ne s'arrête jamais"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.8c": {
+      "hash": "db147057dba5b02e2cc4bab8594b5ab86d0592e98c13acbb7ce7f3fa75720d0b",
+      "kind": "str",
+      "mistakes": {
+        "04a7184afa12a3018e440ac019d1f99a7f438ce856a9d97bcf9a8dd094e007d6": "le bloc commence juste après le « 0,0 » : reprends les multiplications par 2",
+        "888fea28961dcca328a9c4c98454eb630f70be1a20c7a38ab3bfb2345cd139bc": "le bloc commence juste après le « 0,0 » : reprends les multiplications par 2",
+        "ca21149a6c7ae0e76881f291d10f35af46cd052aed8e45998284124bf021770f": "le bloc commence juste après le « 0,0 » : reprends les multiplications par 2"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.8d": {
+      "hash": "70afaaa0ff5ece46157861e35f38c212b888ba3c9b38ef302903c79467208434",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "160dea3454842e7c7ca0173869e63cead45a670e720c7de4f0fbc37d23560c84": "float64 garde 52 bits après la virgule",
+        "a3781fcdfef83a27d19dd428323b15c158a1fda1d279fc79bd051046ca5857a1": "c'est l'erreur relative d'arrondi ε/2 ; l'epsilon est l'écart entre 1 et le flottant suivant"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.8e": {
+      "hash": "86582dda54df1d5b116f9122ea8bd6cf9734ff1ef5d35a0a96a676d8fabd23ab",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "8f5e1a537726f52c120ebd2f4c9d246372d311cf105eaf017eeb78f299f5f9ab": "l'écart est ε fois la puissance de 2 du nombre : 1 024 = 2^10",
+        "9df1c950de8cb49caf058d991cd5371d7e5461406945308bd32f8f52cd1bc58d": "l'écart grandit avec le nombre : il est multiplié par 2^10, pas divisé"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.8f": {
+      "hash": "d0b12cddbc3216c59a3dd629f008e4b9033e362e4ba660d06731c8f88f712004",
+      "kind": "int",
+      "magnitude": 15,
+      "mistakes": {
+        "f4e7d2bc077d33b6c6e65a96dce9d9ad66df33fd61bedcaaa22aea15b04f9bc1": "2^53 lui-même est représentable : c'est l'entier suivant qui ne l'est pas",
+        "fcd2db379114d58a892f9c492f533aeb3af1f65a75bdbe3d76afe80426789a03": "2^53 − 1 tient sur 53 bits"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.8g": {
+      "hash": "58e6206dbcb77aeb7fc96a24616d5c52340f4131028f30048bd53b98b37c6c37",
+      "kind": "fraction",
+      "mistakes": {
+        "cb67a62cf02a058dcfda34ec751cedbacd999b96539f679c9c84ea80a43b1ddf": "float16 garde 10 bits après la virgule",
+        "fcebe76f1469849656bbd94aef622d48caebac833acc994533f7628c91076959": "c'est la moitié de l'epsilon (l'erreur relative d'arrondi)"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.8h": {
+      "hash": "cda86220b23b60d47baadbb8ec00199f999e4316c614f57783fa0cbc196ac2a0",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "3dfc6e97b84eb9fea61ef3c461cb32e9f5306c78a796502995ec002d4ed6a651": "c'est pour float64 ; la question porte sur float32",
+        "9b2adbab11b0a13a8938c1eb5cc23677aa29627a138f8ee15f3062d48e6c5aac": "c'est l'epsilon de float32 ; la question demande sa moitié"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.9a": {
+      "coarse_any": {
+        "0": [
+          "178ad808d084dbdb97aa273008b98be70c36284d798db860e0461153701aa119"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "4cd22926353de58d9295f1c675de191607df2c81c126591f722778d8d5bb5f7c"
+        ]
+      },
+      "decimals": 3,
+      "hash": "cbfca88baa5246374030a03a3ff6aafd14ffae98fafb89dcb6ec5556355f3243",
+      "hash_coarse": "8ca531c29ce57eb5d1ca9b3e09888fdfedb21dc217a9355d7bd6ac98fef9f855",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1b69c72498cea0c6ee16a13f664c08129a13bb9a62823f14208d724936bb51a2": "le terme de bruit de la différence avant est 2δ/h"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.9b": {
+      "coarse_any": {
+        "0": [
+          "0789dfaff5e7da38e3b8e7266d8149b183a239c9243fc7130b54cab17bbc2d63"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "d5cabff89ced92f1599cf4ece7905d6931a91e50e383e0ae5152dd797e2e042d"
+        ]
+      },
+      "decimals": 3,
+      "hash": "f1bc04f7ecf116027fe73d8902ef113bf6e634d1af9f0536008ec12a7fc489ee",
+      "hash_coarse": "e1c8beeca4aa199e8755dd3d70c24ee1ed6f5cadc7a284e73c2b1fc98f02323b",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "790f3cc643ff746d6cf71a7c3df097a7f3cf49cdbac6c0560175af986d842a58": "E(h*) additionne la troncature et le bruit"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.9c": {
+      "decimals": 3,
+      "hash": "36c3a7616830997504b4671466fba976e0ba3ead4a3a8867c9e8f0ee2464eff6",
+      "hash_coarse": "ae0fc183c3b01f152422bd7dc9c64c6a414abe4fa8fd927ee1ebbf0676ba40d5",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "055a626438d7f503e0a30f291c643e36b23aaa415a8a1d4942f71e48c16624f6": "résous E′(h) = (M₃/3) h − δ/h² = 0 : h³ = 3δ/M₃"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.9d": {
+      "coarse_any": {
+        "0": [
+          "39719e69b7aac1a6e1a32149a3c862ee9c6484db54ed531f1dfdaff92162c3f3",
+          "28c8dd1c55a8a7bdd5993e5efc9d9e752a26777a91b1e435683aeb36fb230444"
+        ]
+      },
+      "decimals": 2,
+      "hash": "22a0b118cbe26f396f81b2300356f1af371616fb5050f037b5592553acd17d04",
+      "hash_coarse": "799639ef63eb7b149e6fce0e62c44bea5dd0a83e0a4e6e9bc141f1dac5a8a7c9",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "131aebae183c847cb469643b2ee301598ac193da94a0c759c06c752e556da3cc": "ajoute la troncature (M₃/6) h²",
+        "a2443a0b8c9425af37d8cefa397d7c1d45efbf7f90bd1daf2b8355d08deb64e0": "ajoute le terme de bruit δ/h"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.9e": {
+      "decimals": 1,
+      "hash": "cc754ab0db27261e1957f6f21b1660628709986338bb0522f2ac43a9c90d56e0",
+      "hash_coarse": "85713d569a975fdd9b2e3936f849bc21c68954c51c03e0f33bd76189e804e1d8",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "717721878dc3a26250d136d73feede113c7d51c097553859ee63d94c6d87e9e8": "un capteur plus précis permet un pas plus petit"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.9f": {
+      "decimals": 2,
+      "hash": "587a46b899bc39aa982374318554be4c2f35db01a443ca474cb7066b4282aa2b",
+      "hash_coarse": "f8a64efb3903efa677d0680b2e6e27917f7632d6447d334eb416fec542b868da",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "621cacb0dace96586c0b218f7b66fb17dc310c61d1ae51565faba1f6ab15debd": "remplace h* par son expression dans E : l'erreur au meilleur pas ne varie pas comme δ",
+        "7e1c0b8ba45c59dc09a17f1d009dc6ec2fe0adb97dab622073a358799a4ed886": "c'est le facteur sur h* ; la question demande celui sur l'erreur"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.9g": {
+      "coarse_any": {
+        "2": [
+          "50b2d5098c94af7b9d71773980b76ab2151ac91f382cffce292d670910cc37f5"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ce4d1f29e86b457f719b895583c927e2a3ab09e6a87d116bf7d134c55bf8129e",
+      "hash_coarse": "84a03975b0293ee423842f4572ecb5aecbdaae1166cdb3ca6705d78377109071",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "174c80d7a039a9b14aea450bfb641f48aa64c507b2a8f73602e1709e62d9c3c3": "h⁴ = 4δ : prends la racine quatrième, pas la racine carrée",
+        "311e59970f060607325fd0713af0703c01c6190442ab43dd3182aedfd998b5cd": "la dérivée de 4δ/h² est −8δ/h³ : h⁴ = 4δ"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.9h": {
+      "hash": "69e8b2c34b41330ad545921026932690cd31ea8c1edfb4e010e6f08af3ca5d3b",
+      "kind": "bool",
+      "mistakes": {
+        "882a5786a62900775ab10b59c410e832f9066d32d3759d35f167c039a51898e0": "compare les erreurs au meilleur pas, b) et d), avec les mêmes unités"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.10a": {
+      "hash": "12d7c2a41ac04e0b9d2e29aeb1d0e6d50e48b5d16e4679f90d86e47b59b45e39",
+      "kind": "bool",
+      "mistakes": {
+        "b22ad4ca81c4b666d28dee151fd74987e615e8eb1eb70ea9cff45b42b8733e53": "le plus grand float vaut environ 1,8 × 10^308, soit e^709,78"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.10b": {
+      "hash": "5ef0289641f9cf3f5ca1d7c1878ca374339132737adae9a4354bfee9aceddcf7",
+      "kind": "int",
+      "magnitude": 2,
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.10c": {
+      "coarse_any": {
+        "0": [
+          "7b6aa9d360e0e42ed7c96114aaae818b8e36728cfa7fae63a6e640bcdd579693"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "642f9384352df114ec1f243d71037d7235548478b3055cd48a54255fe7cee6aa"
+        ],
+        "2": [
+          "0441d3d1413c85aa86f33db1afc3b27f57ac1fd4e97cdae45b689380b9948617"
+        ]
+      },
+      "decimals": 4,
+      "hash": "1acc1189bce849c5b2748b913fd15c53a7b88aa173c0b8e13c08472690d7d38e",
+      "hash_coarse": "afb91d08e70d54bf6698030d4f4074568bd2aa837c77efdfe371c10c238cfc43",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "60bcdc622163ce95743f2f4aa9c64254a5efb1aa4e9f4e8a2af6e87d180f913e": "le log-sum-exp dépasse le maximum : ajoute ln Σ e^(v_i − m)",
+        "f3ffc3992fe1ed2b6cea66a90cabba5dabfbdca86eb10ff4d886381afdc58605": "rajoute le maximum m à la fin"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.10d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1eec9433608ae779592009d1a2417ceafe63015c537a8c4ac97e92e5b67633d6"
+        ],
+        [
+          "af3a1df81cb61d71e35ba687e1798fab77e3eb9ac011fd89f7966bd173c0573d"
+        ],
+        [
+          "d3fa71d6fabc85bbfdbcf93130c5806160ad73290223096e6c9a38c8d356b270"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "36d67e3a3b6de9495f49f757026c7315d19d8f553d116374b22c00b222cc6e30",
+          "2e0eb257beeb87a741ae574d0305fd94b66fd6dd7e50f04d90ba1e233be4a27c",
+          "650b493a3459ebc99eadb6587e4f3eabfc2511554d706503f130106559bbfe0d"
+        ],
+        [
+          "12d3e80417ff786b8cf1b1b65c59985afdedb09ed1bd6613dba662d4fd606c1e",
+          "4927931a9ed99460d64f5f1b3486f2ad8ad0ab5f67203af82ce5b1684fac6855"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "597f494c416c2b1cbd3abb52d6db602ad785b312c0afa21b5fa8830c818defa9",
+        "6387f1fdbc6900d00e592778fd80c167f79f5af5e121b5b8f46b740513798258",
+        "cf172e6f79195212e13f2d71db559aedcfe9f39aa97ed885016356a494ed8798"
+      ],
+      "hash": "a85d61609c377395b64521091ecdd401ed9ecfa816270ccc8fcc16968bf28cac",
+      "kind": "array",
+      "mistakes": {
+        "817b30a779f70bfbc152bbf7bf95671755fd448864050a10d3a100366238132c": "des probabilités ont une somme de 1 : divise par la somme des exponentielles"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.10e": {
+      "coarse_any": {
+        "0": [
+          "8f7ce4e4b07fabcfef9bded38128e6e5a089fddc44f065ff7cb7554ea3354a60"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "7017f253fd5cf10d30880c370f468786c3f8719353431f9f992428aca351e84c"
+        ],
+        "2": [
+          "3716cba1c1fc96d11710a0c56a29ac6e0b20c91d67bb1f4d5a0c2c22170c80e4"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ab5a2b88a8089ae5eb67df956ae5734b53b2c3dfebfd7c6e84be61cca4099e26",
+      "hash_coarse": "3d7ef08ca30fe49cc6989096e34e1fa25a0d5d3e3fc39896ff92185e8c361c32",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "121df5dc5070c224f699c6f8a60bff994ac5e4366e2271a5801439266462f134": "le log-softmax retire le log-sum-exp, pas le seul maximum",
+        "878fc76f37ff40f50dca22b329e65acb0405ef0c3ce31c4b9d86b0018fb7735d": "le log-softmax est v₂ − LSE(v), un nombre négatif"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.10f": {
+      "coarse_any": {
+        "0": [
+          "71c7cba82b43532ea3a038fe3f2c0b5c44873b3705346a787f3140424846cf36"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "e38fcf015352bc2eef21cc7ea2637682b0c0afa933addc60af7525c0c74d2602"
+        ],
+        "2": [
+          "d25e15ac635140fdc43a18a356cc8fe854ebd23a404ba8a3dd61898784cfe892"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b0c2cabe00ade472efcd6db941b3be671517a8efe86919088c0c51a6fe39e62d",
+      "hash_coarse": "f6d783e3b8cb0c22737e25c54d4a2c6f3cf663b1d50bc39374940a4bbb97696c",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "677ca2b3ac1262d849c0f7be53ea92a1f224f1dbaa3de811a091e17db5b64ca2": "la cross-entropy est −ln p₃, un nombre positif"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.10g": {
+      "coarse_any": {
+        "0": [
+          "663b665ad18ab5c75b67f992454ebfe2d8bc773109ed8ce3a547ac9fb375a402"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "63e359f83906e0185c3f7f134c136230b4d09c39bb83b5d8832fa9abfe713bbc"
+        ],
+        "2": [
+          "f198c48096d2ef979b224d5e4227961e5654cb43fbe2eb0f51b32947b14877e2"
+        ]
+      },
+      "decimals": 4,
+      "hash": "2677dbe4136ea930da9950ddf4cfd646416896f3f985067ac2ff6443159c4e66",
+      "hash_coarse": "bb9986bd2bf18b3bd70c43b8fa90c111a5e1bae0fb8f1faf888035056fef1190",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "34593779d9ba9b29f0372f65443ce2c12fd6c8359c6bed10cc8aec3a2441c934": "trois termes égaux : la somme des exponentielles vaut 3 e^802"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.14a": {
+      "coarse_any": {
+        "0": [
+          "ab5d5fc4ab52287b09db528ca098aa4a64e7a5e732473c13211cf2bdc5f0ea96"
+        ]
+      },
+      "decimals": 2,
+      "hash": "f7ba645ff573836998fe1e44ab0af6de5cb90ce90618865b9a42965a83894c14",
+      "hash_coarse": "f0ccfb9640661eeae854378bdfce94a90e7a5ad4cec46f6a56b754fcf7bfddde",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "a66b1fb2e6322cc471c5ad24ac3651435a03ecd7e1b81e116eb60e567a28e0e8": "les deux autres scores sont très loin du maximum : leurs termes e^(z_j − m) sont presque nuls, ce n'est pas 1 chacun"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.14b": {
+      "hash": "0b2b31d199ba2d0751b0f7da97fd02a502574b28b95195de8861f44552639ec9",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "13a414352fc952fe4d3596da0662bd9739c0c01edfa571ad3378f30878aab32a": "le log-softmax est z₂ − LSE(z), un nombre négatif"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.14c": {
+      "hash": "eb6b8c92efe4e57420ab86fff8d43dc82a04a1f097fbbc1c3e72d11463236ce7",
+      "kind": "bool",
+      "mistakes": {
+        "6b7ff5dcacd470000117267d938541d4f5983d93d0d79bcad177b10c0839aded": "e^(−760) est plus petit que le plus petit float positif, environ 5 × 10^−324 ≈ e^−744"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.14d": {
+      "hash": "94478944cef3b9150f86fa1ffaa5dd37cf07d695433f5c8384a48a9f0f22fc08",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "39d9f83622c999cc4100ee9ea663cd93cc5753946999bf1d16869289d0161e7f": "la loss est −log-softmax, un nombre positif"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.14e": {
+      "hash": "2bf8b1524d4013934bc291c0c895ecf9197ad16c884172a1a765f7ea4bab3fe8",
+      "kind": "bool",
+      "mistakes": {
+        "d9250d786478b4f320a5b1e58787b016c38d9158f73769c2d6a943c91d8133a0": "le logarithme de 0 : math.log(0) lève une ValueError, np.log(0) donne -inf"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.14f": {
+      "coarse_any": {
+        "0": [
+          "ed8a8fbe067fb2897a3dbf94a77087424a6a05191f7e1a2aad3321be19cc1ec4"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "8866415c15d6578e4575c5577b5fb819406bfb146e69f5f5dfc0fecf473cbb7b"
+        ],
+        "2": [
+          "14d5d726ab0e60ef83be89e4a78fd7db05c9e4f852f4489f74deebfbba06b706"
+        ]
+      },
+      "decimals": 4,
+      "hash": "d10d31f5a7aa43b696bafee4dc828345ded81eec09626199102fd202136a9786",
+      "hash_coarse": "43f48e0b1cf0462524123613218b162021564cf9b25be739071a3563b412cf20",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "3eb23ce5d32390367b2c4fe7c3a66bbb7463fa4d82a43491b68257f353af3c1b": "le log-softmax retire le log-sum-exp, pas le seul maximum",
+        "5a6e2d8778b5d7dae59dfc09dbd2579e2ea42d5a94f88f48d059c4622416bc7f": "le log-softmax est z₃ − LSE(z), un nombre négatif"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.18a": {
+      "coarse_any": {
+        "0": [
+          "15ea36b609c3a245db3016bcdfd06879178bed0c14f7a79ac93df5aff60f57ba"
+        ],
+        "1": [
+          "9ff4ba00710c025955df4f519c8f450bed45b46850336890dfdc5b1b10ec7118"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "1709d5f158c4c35df540263d8f4b8ec374ab8e33db40991ba9517aee45c0f7e0"
+        ],
+        "3": [
+          "f6e237afc70ffc962fd3f3a0716f738efc0a1ef7ed581e32946435213bb718f8"
+        ],
+        "4": [
+          "158b91161914ed02989b3b7161d6aa85c53fa945fef70f16e37e41930b017d47"
+        ]
+      },
+      "decimals": 6,
+      "hash": "4a016ea0cdb8c6def98930723639ef956d5e5026bfae1100c3799cd5132a0840",
+      "hash_coarse": "86d50e532160f61d5c4597446f3e723a7e96acdf4f5294db9e16d57353fec3d8",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8e7ae0b6bd160d1667f5cc2d46e8c0384098c51f8c7439a2f0d0b11d37acc473": "divise chaque terme par k!"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.18b": {
+      "coarse_any": {
+        "0": [
+          "d284687b1ec22bc62298aaa55c68855f74081628015fea312a4342e70e3fea15"
+        ],
+        "1": [
+          "294a7aa13c698f773063f6a08e5d5ade1fe65e36e92049d5a96d5bb05a3d2dac"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "7315f176653b9e28b32db2f2951210cae09ed10fcabc4a1a58bc45bed170cffd"
+        ],
+        "3": [
+          "bb88e103d434203b37812a64b3eec21112e4dd0911f2cbf58d107f8ffbed84fd"
+        ],
+        "4": [
+          "dc25fa411c3ad99a019261b72384d81f41cda94c55536aa5e68a13f71e6da011"
+        ]
+      },
+      "decimals": 6,
+      "hash": "304f89edf0ea36f0dcc8efc7e51b045fd709ace300d0699a9f26eb319a7dbce1",
+      "hash_coarse": "b4ce8974b4f5e9c5d582e54e98bdafa2e998f9ecfd28ecd3f4188e1785f20fe6",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2485b4a81bb320cff0e0ea3bd977ca04e6e9aca543898d5527a4fad4a8caae1c": "divise chaque terme par k!"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.18c": {
+      "coarse_any": {
+        "1": [
+          "b976a75804e66b44ea43657842b8e69a8a8f8109b0c195dbbb0ff19f00dd1c38"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "feddfd4f88eafc513c82429b5a30d77d38b53ec5a3e8ad030aa72eaa72757e99"
+        ],
+        "3": [
+          "79c437ee57d7053ddfefd2728a14099b42a131d1e807bdb5c3b80f3e75763a4a"
+        ],
+        "4": [
+          "9bd5d3c74e684a197934b758e53ccbdeb76e687da132342db5b12e9251a49d05"
+        ]
+      },
+      "decimals": 6,
+      "hash": "4a432b0590caf1a46116daa106df2c03ec2b40782ba4e299a3f68af0d6945613",
+      "hash_coarse": "79bfd1d08a7a8aa76610f3ea74f311f85aa664967267af4e66432b725946c316",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "97fdd15352b17bdd593e890303db31ae37cb829457f0446d38cd2de584aaf7bd": "les puissances sont celles de (x − a), pas de x"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.18d": {
+      "hash": "d75d4d6d11bf5e811a6d53ce7d455e9f157325494ad5fbface93d86ada93f811",
+      "kind": "str",
+      "mistakes": {
+        "09117d9d77520661923cd6ed62c562b053d17ab1a1e50498ac6e5d478f144926": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "24c678238b6b2681a4febf6058eb71706d41b63441f48c50e26c182656105b27": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "527b8d7cbf22335a92a452b3ff97fcd0e7c0b533f4a8f0923e5953c4a2834cb3": "une liste vide ne définit aucun polynôme : lève une ValueError",
+        "771f0aa5fcc439847c94171fb2063b1bebddbf0909760024b08bd3a4358786e0": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8eef896bbf65fd81b2a11a8359f2b342678fde42659d65e6959d7505c2ecbbf7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a75154a86b4e9be34b1677118c755489686dfbbd5acd68a43f78591ba4b75c3b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "adb07f8b306585a501fee895e78b8c0813034c7a7e00b1a5aa489156f6b14f55": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c4b58f108a055e932ea729d90caf7833144ef14462b3f3074978ef7afc2553ad": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "def36e0c777130ce302cb2afe54a8be5134b43106d486056b8967d7e754d1a99": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f0b59452b99f0638d03b2c8121884b929594ce804391a49a982f7812dd898b6e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.18e": {
+      "hash": "693712c7cfc5f259e14e4be60eb36b4283eeb218d462278c11dc23d11bf44113",
+      "kind": "str",
+      "mistakes": {
+        "2c4545f66d5f524f65874394684fc38c797c23aeadb769fd8240c761561f58fb": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy",
+        "da56141d197cb4e36c9d6bd17d5ace881b33ae3e11e3283091abaa7e9e5699c6": "la docstring demande un float de Python : float(...) convertit le résultat"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.18f": {
+      "coarse_any": {
+        "0": [
+          "cbfcc6f02322b97f7fb41bb3e43b46c949fd674962520135bef77f1caed4e0aa"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "4b52bf0a8c317197f181b39b655da166f469131da2684be7b62eff3936c7b497"
+        ],
+        "2": [
+          "31cfa7a4228a71503e51d8565f93b7cf017d9dc98415e9cdd3766a2c2ab50037"
+        ]
+      },
+      "decimals": 4,
+      "hash": "af5061ee18ac008fc7b27f730d53079a0d05bfbcc18540d9e6bf5281e007fd9a",
+      "hash_coarse": "79c7fe823634df7f4b0b4a2c3536408912e267187c7bd82eb0a334bc59f069e3",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "fecef07edf4ffbfbd9ce34e65ea53e74cd49fb748db06c3dc70947b5297e1987": "le terme d'ordre 0 est f(a) lui-même : (x − a)⁰/0! = 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.18g": {
+      "coarse_any": {
+        "0": [
+          "59700cfe7230233277c59743b268bc518bdfeeeee85977070d7f0dba09fa2ec5"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "74647ac92c29a1eeedfcc1adbe9bc8603f38494ae766bd33508a444c06247c78"
+        ],
+        "2": [
+          "51ce00a79c084e380240733eac8430ec1884a28d548b952ceb7f3720f8012d72"
+        ]
+      },
+      "decimals": 4,
+      "hash": "615415d77148a957c6664ab928f6b4ea03b4cc6af6be3a260f89c42cf0c5b99b",
+      "hash_coarse": "d8360567176102930c398a44521c37f955c73b30db23c05d37ef69313593ad7f",
+      "kind": "float",
+      "magnitude": 2,
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.19a": {
+      "coarse_any": {
+        "0": [
+          "c84485b9f80ebf64ebf3e732650f4e1efd8215e481e3e80004adf22b34ff103e"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "0a4be466662a7f05176994dd3d91f29b8aea2c4085f2ba51257a56ca46ba80cc"
+        ],
+        "2": [
+          "9af5a1da6a004fd97d4f6781863cbd1488d5244d1bb311e16654cf95367862ae"
+        ],
+        "3": [
+          "3494d338f94aa9b13845386b8e661e94c231438fad2b0f461d1185243b8ba5c4"
+        ],
+        "4": [
+          "f7efa1462a56c63603432a6b86e63f2ff2e3e1a9918cdcd218d801331b1a6dba"
+        ],
+        "5": [
+          "da5b8472ade50d567dad82ef378858a962b69f223a965f5b8a9fb7ea039029e9"
+        ],
+        "6": [
+          "6b24c0bf6a7baff858bb6a088172a7bd99c327d59d7f4caac363fcd8279c1bd0"
+        ],
+        "7": [
+          "1dfbcff476c7006cf5e4ab06d7b124b1b85d3789fd150a0392239f57e5d186b5"
+        ],
+        "8": [
+          "bcfa1b75053f0a57bd1e0b4e3a138892bcfbcfc052fdb2c65778acd1593962d3"
+        ]
+      },
+      "decimals": 10,
+      "hash": "37b42d6e0f9aa108e37580b92e2d93e578f0f925c6af2af22755bdabbb019600",
+      "hash_coarse": "a36423dbcdffd5c61065e9d1100d4feb4bfd99b6652f9423112fcded6b4191e0",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.19b": {
+      "coarse_any": {
+        "0": [
+          "fe197066bdec54a292f9e6a8ca4f8ad519c41c4c950165c6e34bd31b50a72421"
+        ],
+        "1": [
+          "0c1216cf7e3a2081ab153df4d9ac0408a0b407b36fccc1dc98a49b96688dd435"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "68a9549ac84df94ee1a4ba593ed20eb375a009e1b21073c0ad410f7d12f5f925"
+        ],
+        "3": [
+          "ed0969dfbfbc90d5f4e8ac5fb6617e10e8b9ba2ff869a41f42a18dd8066e73bb"
+        ],
+        "4": [
+          "231c58b26b8aa9c18a91ca932b92550849385b195650b7a825debd4def4a79fe"
+        ],
+        "5": [
+          "9721d79b080fa525becb322cc8c1502122cb309391a1df54ebdb028d648d1afe"
+        ],
+        "6": [
+          "74be9228c28a2ea96ca36c54303f7960d688c3a0a6ebe2f29245a5403ba74355"
+        ],
+        "7": [
+          "96ee30b94ff2671b6f8a7cc4f7dc8d6a34afaae1301483af7dd5e304d0c21c3f"
+        ],
+        "8": [
+          "47ccb1a9adb7f9a717d3ad7d07b46912c8e927539c5b76402031f45819da0bd5"
+        ]
+      },
+      "decimals": 10,
+      "hash": "d855fe9c6b01fffa12a12fa5ef8be329c06216ebdda8fc34cb9a577d48c906b0",
+      "hash_coarse": "a40ec2a8a56d7f20c518d90fb1ed4b10430138d1fd0446a4b023920194c2d575",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.19c": {
+      "hash": "512b0af50b9ce802736a668e2c11786ef630467b91ed0ea9e8414b77b8c05d6b",
+      "kind": "str",
+      "mistakes": {
+        "2d4dfe7ed06140f38919ff1ebc0b4318766c9372d2ffb4d9de7379d7ae703199": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4a80549c7a1c150f90e169db0463a08f85d57d808b8d419dd7f5324e5670aede": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5e4c8594375de99c0558c8999f57034fc9343bed6ccea68426cf66172898f1be": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "60789bfa81b0e3eef5cfc4583cfa8a5a289b2ea04d1b9ea3f6203311678a774d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "78adefc85858aba759028f193eae1cddc133a8f196eda8ab88d4e262a4b6d390": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "83906d6f75256b9c587f47e6038c0a083e6b08707d3b6f7883c473cdba35658b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "90d921e7d1556238dceaafef4e20ed12c5319e134661f3bdcc49f0179c8097b3": "en x = 1, la tangente est horizontale : lève une ValueError",
+        "a54aee8c40288127b7d744b4e7e17b57a20587a7f0a3a2abfd9410503a19682c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cd2333ed5aa0b0ee0f504874e72dea01555ed0a627d741081a750a778ecda1dc": "teste la pente avant de diviser : si f′(x) = 0, lève une ValueError",
+        "e1b1f0ba982fe8df11e08524d5139ecad39441aedac4147bcef3974a73c4c9e7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.19d": {
+      "hash": "0a1c389170d0a36a859e2600ce197281341d39e2b8b87b27434525ee38e180fe",
+      "kind": "str",
+      "mistakes": {
+        "1fcdfd80ed8f44e3e385917226875370d250272f33a01c047af0b20759757876": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
+        "2907c5434c719120f3fa949babd670d9a052e32305e01f8b60e5ad8d9da6241a": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
+        "40d73f4291b2b7f1e499f110d4d433c4d59359ac8fefb6f268f7d7076563f911": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
+        "479187224b7a6aa866d70b72446ab05fc76c1e00bfc80c4f31d8c3ca0e779359": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
+        "4ca25e762a01e91d5628355da48ace86e335e5eda96930159cd92b274c056fdc": "après max_iter pas sans s'arrêter, lève une RuntimeError",
+        "639becf76489526b21382baccb8f982086141ed9721d3ceae476396163e69824": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
+        "8fd3a4dee6ecfe6951723d594b7e03af04eb88323b7693ecaa10850e409bf0c7": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
+        "d910b0375b1bf6fa043b1a94b43490bf3cd2b1aafb496b15e7affb6d06c8218e": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
+        "da67c20f8c169faaca9ff97b53bf1486e7c9b53d7883419ed5cc4abf7233c86c": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
+        "f307457aa26c9c82fddf4521f68bd338548db3a75cf7fb9a2c348a3927978634": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.19e": {
+      "hash": "fb4ae953ddb6e94daad19b039dd6ded0544f212284e381761d24a550b36d51ae",
+      "kind": "str",
+      "mistakes": {
+        "141589b037337cb6e002b8616fe59b383c861043d9b897c72f8736f7a0abefb1": "x₀ est déjà un zéro de f : renvoie-le avant tout calcul",
+        "142feb7204656dfd591fbc14f646bf3ac0aa80bfd5bbefc862ddb6308e4fd9c5": "x₀ est déjà un zéro de f : renvoie-le avant tout calcul",
+        "4ad1a547af49a386beeb7afe0b588b5de2b6e8d459267bb6190a9a235d2ba55e": "x₀ est déjà un zéro de f : renvoie-le avant tout calcul",
+        "5d0286a12382c73860c83a454ea98444b93a278d9d5a4c2d153a48fa25993af0": "x₀ est déjà un zéro de f : renvoie-le avant tout calcul",
+        "62bf29e8ca8efcdb03740589f79cdb4407a83e0377fb6e637993adcdca6d3abd": "x₀ est déjà un zéro de f : renvoie-le avant tout calcul",
+        "6382cad86b4d3ddfdf34b425ac77cf6e13aebacc17b0031801f176692779849d": "x₀ = 2 est déjà un zéro de f : renvoie-le avant de regarder la pente",
+        "6c3ac03f3fecf1a465e74ce06c0ef251d4182214310ed28428e43f82b00f0f84": "x₀ est déjà un zéro de f : renvoie-le avant tout calcul",
+        "6f990d0ce79c21be1ab0fe6c14b641f1f2649b86954ceae1ac6ef9b1668c4342": "x₀ est déjà un zéro de f : renvoie-le avant tout calcul",
+        "a3553bc72f15c6facec4027215e7bd5366c9d8bf68d9d7736955c5fac7cef028": "x₀ est déjà un zéro de f : renvoie-le avant tout calcul",
+        "a96dbc69dd93a33ae56b95565ee9497da9f41f1b44c7674cc7f4190d021bedf6": "x₀ est déjà un zéro de f : renvoie-le avant tout calcul"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.19f": {
+      "coarse_any": {
+        "0": [
+          "bfad7c147c81d7fe63d622af1a31abe0de0628c581c1985ed72fe22c51a967de"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "cbea027538780408816e3c9e492cfb5cb2064d5445b9649bb52bce993c2fa1b7"
+        ],
+        "2": [
+          "40524223aa6987fd5a8866c6f39b42f0ad2436948cc6519697a6317c0f842167"
+        ],
+        "3": [
+          "adb4b2bc2243eb17608a06fdf475330d8b1e499d2fb0c059c66489417324f591"
+        ],
+        "4": [
+          "0ac99c0ca11acd17166f67fde7687d0a6e6ee624c4d89379100e373a1e772dc5"
+        ],
+        "5": [
+          "76fdc8f7de654803e36e72daea7af026afa827fce2d55ba55eb724e844fd6424"
+        ]
+      },
+      "decimals": 7,
+      "hash": "ea68293af45e186b8515dfdcea07a2eb78bc866363ba9e67603e94d42f71d2dc",
+      "hash_coarse": "a536042784a3e8d498bb1a9da6ead393605b34aad06ff97e70b893dd141e1326",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "315e7efc4d4840e975e7de828c42111623e8e324d90020ea7ab0c027f398ac46": "arrête-toi dès que deux valeurs successives sont à moins de tol",
+        "f53ea5ede86f77aeb97605eca47af3637ea376cfe47ced704519e1e0f85e9056": "tu renvoies la valeur d'avant : renvoie la nouvelle valeur dès que |x_(k+1) − x_k| < tol"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.19g": {
+      "hash": "6a42c4e831f8fdbfcb6c76ddeb841262a37e256341d0c402542248d6441edc44",
+      "kind": "str",
+      "mistakes": {
+        "f41ec386f7298b92fd40bc403ae06726acadcdc3297b97060e7e77e952835e46": "renvoie un float de Python, même quand x₀ est déjà un zéro : float(x0)"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.20a": {
+      "coarse_any": {
+        "0": [
+          "8871d0351ca86cd5f863902f4b8b61f845668f183b76d35561827a89064a8cd4"
+        ],
+        "1": [
+          "6ae5f564548ed564f55275e969dcd35bbd8ee1e907a7a838dad8e9cbde0cb924"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "ecf4868bd35dd4dbbc243f52e190a043a9d56997d2ed17aecf37dcdcbff6cb71"
+        ],
+        "3": [
+          "ec646df949d7bef28c0f5b4ce1313d786da3b928a39d2a270e4072635fa54003"
+        ],
+        "4": [
+          "2ee9ebce5dea4398020b59b3287b05c5d7bc0c47d0aa035e633e13fd1d1bf35d"
+        ],
+        "5": [
+          "69d1a885c5c5ce84fe8a6d1dd051b7b6f23a8928556e9e7edfff5e90dae8f1cd"
+        ],
+        "6": [
+          "d26bab97f64222448b6b077c744e97083cfa2d530903acfb80b9690037bed924"
+        ]
+      },
+      "decimals": 8,
+      "hash": "202badb535afc27e54db131e2acac43763f8a44b13f44b46c78e8270c69e75ba",
+      "hash_coarse": "6ae38a3c1a8fd81abc9f7ac016774e013fa0f3238207da6162538139cb3aa83d",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6bfadabb363aa1a332e85d9f4e364b9dc6bb3e77501a17e8661482ccc1625ef4": "c'est la différence centrée D(h) ; combine D(h) et D(h/2)",
+        "caa9035df8187c4b58268c9da396adbeb6c4618eee05fb1a7779c1890c618d6b": "le poids 4 va à D(h/2), le plus petit pas"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.20b": {
+      "coarse_any": {
+        "1": [
+          "db9a8847552817a6d6d505e2dd72b95865064bbb3e4141004925e794a8ab8cb0"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "e4def0450e7b471c7377441a52bb35e3a8b5d1d3357c9e79b505e236667502c6"
+        ],
+        "3": [
+          "f799d958f73ccfcb0e99bf414a916e1e897342a74b0b7e9b1a831a57ab86b79a"
+        ],
+        "4": [
+          "9eb12fb723f19e4cba0b88792d1f3116232b4021fe02b336d6e3f552c585f686"
+        ],
+        "5": [
+          "0e48eb17c1dff556aaaeca3c874cceaabeebb951dcf8b985c158840362d41a0d"
+        ],
+        "6": [
+          "8b30b9259284e26a620419d69c25fc178f783c3c4bf160b6f10c97bc75c43e9a"
+        ],
+        "7": [
+          "f02b7fde6bf567de4062c9d58ca9c9dfc523bff1c82e4edd52f8eb6bc0d9ec21"
+        ],
+        "8": [
+          "6529ee152e8ce3e6b026e8248d0e01169910038e53a008a488945bb8b666b3a0"
+        ]
+      },
+      "decimals": 10,
+      "hash": "b22282ae9771fa029359370f8e122467c0a691adf8d8a3236de0731b964d11a9",
+      "hash_coarse": "f43d39e3efc6c36f8e6b173cc7e91b33591f6069de1c132063c144b2142703d4",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.20c": {
+      "hash": "91116b8212acb3fbeba106a8c4be292d3a6a2c0382e97b12b4b2b536fa36eade",
+      "kind": "str",
+      "mistakes": {
+        "0eaae222dceee37c3f95b6f7b8fb6c1a685cfa84f5ab087147fb5dd2062ecf40": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "10c34189a3297ecaf7f00be37a35bee52e4b078af2e63ca58e0a7410b1a3cd6c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4675fd05754b883998c2fed4da537834aa8e5d05c81c3a71fb9cd5a868b5a453": "un pas négatif ou nul est refusé : lève une ValueError",
+        "71fd20e148095e379bf00600bc02d4d018125f9a09dea1e7dc099626c961d3c7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c294115f704bb25efdb2a42ea3077b3d4e21cec6cf8db4ec99448bd9ee442a68": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c7ba9be2af14bc506949e97ba0dfdb489cc3deff20a7dc5d83949b699541b800": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "dbe3f519552899f243d39f0a711c98fac27fb7e67c89ef0c755fada61be163fe": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e51acb755fe17640efd9837d2caffb4439585f39a5c6e86b47e37e7cba490761": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f75c0fb519e8b742899cdf4e2600f8ef7b298bd6e3c3b18226d1e3cfa9fea4ec": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f895e6454fd6b1663eb84402fda87988b9a1ce871417e8122fbbbd214a9dd395": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.20d": {
+      "coarse_any": {
+        "0": [
+          "81833a4f74c66b92f065300555cda24fd5bdb24f4dff2fe1efd65f7e91bc7d3e"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "e961af32d7c6da3fce1efe15e0c4f3a4f98cce739f0daa87767df2b89539b0d0"
+        ],
+        "2": [
+          "551087a08ea6a0c217077c41e85400f4267d6e8ad7b0da34a7c0e100a4e71445"
+        ]
+      },
+      "decimals": 4,
+      "hash": "7d810e703957dd8957787c0b39d1feb81cc4623851d6543a8673d6f41af4dd9f",
+      "hash_coarse": "c57b7bda1a01da7139e7a2cee4eb0097e486a468427965c3ab1027924bacf3ae",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "ae9b8385fdce7e2902edd3c5519bf1edb505b4493fa5d17ced5f185dec76d709": "c'est la différence centrée D(h) ; combine D(h) et D(h/2)",
+        "bdea92c64066d675ae2c34756b4308d7cdb26c32ffb240b960704f3b2f50a6c6": "le poids 4 va à D(h/2), le plus petit pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.20e": {
+      "decimals": 1,
+      "hash": "81b9ffe33174bbd87bdf347c5c41a6bf3545aad6d0fd635eb7744acc4f6eea3c",
+      "hash_coarse": "b2c90dfd7d138070a72830beb473ab55e726b945a6543a1c99275d0f4968116f",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "bfebe3639666d23330f4ec35fbd62dd4b0e70ab3c9c6cb4402f5d769da0cf1bb": "c'est le rapport d'une différence centrée, d'ordre 2 : combine D(h) et D(h/2)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.20f": {
+      "hash": "7d40a8fe417570966597013f8fe25fc10272e1ee8d1c4906dfe706f5071222b5",
+      "kind": "str",
+      "mistakes": {
+        "37cf83fa9dd1926890e5da5e2f2140c6ef39777bf4ba1a68c574b9a8df40d8ce": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.20g": {
+      "coarse_any": {
+        "0": [
+          "dea4f94b0cab8ec79cedda0b45aec6bf98ea52ae5704b5216c70cd6fc11af9c7"
+        ]
+      },
+      "decimals": 2,
+      "hash": "e2c94ddf5d9e74c147112ff2f8c702d956c54c61972a3e1d9acdbd3fd6dccbab",
+      "hash_coarse": "edcd5b6e1372102d53fb00f8465630c717cbb05ef0b861fc4c09b34fff2bf509",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "99000d71c453fe6c569be7bceda7a0ebc5e97192ed1bc86b36ec6e534ccffc33": "c'est l'erreur de la différence centrée D(h) ; combine D(h) et D(h/2)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.21a": {
+      "hash": "3bbb393df49ae9677ce2454f897daa6f7e329e788d38889d847c8478d573f997",
+      "kind": "bool",
+      "mistakes": {
+        "e62348c8415a7d4a29413f561561f021d6a86957714be588dd6f6a8beaf2125f": "divise eps par 2 tant que 1 + eps/2 est différent de 1, et renvoie le dernier eps"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.21b": {
+      "decimals": 1,
+      "hash": "4e405e8dadd3b359490f3daad997fb953b915624981c4856e95f4ab9ef9d73e1",
+      "hash_coarse": "ae5bce96d31f53a99061aad11f2bb72515ae29f7ca3439dc63e6922dd001bb1a",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "c18f2384284599a046c811f0ff76a42ad7201bb9338ef857ec5cdf30b6e268e8": "renvoie eps, pas eps/2 : l'epsilon est l'écart entre 1 et le flottant suivant",
+        "c1c5ee0e5a6bbce700a65d1ee6546723ae19f1f266ba28cbcab6e141f9748451": "fais chaque calcul dans le type demandé : one = dtype(1), et dtype(...) autour de chaque résultat"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.21c": {
+      "alt_coarse": [
+        "688ae3c077328f2b7245649de345505201a5b1a976122f9c7185d0af898598b0"
+      ],
+      "coarse_any": {
+        "3": [
+          "6122c0e77998212098a169426da3d88356dbf6a583ff3f852a40718c9395ee8d"
+        ],
+        "4": [
+          "b8299c429432b9c0e60c16c6dd7a8476c3403f663eb473f897584412fe1afa6f"
+        ]
+      },
+      "coarser": {
+        "5": [
+          "ffe12b7d57eb29e8acb00d86f52ecdff8878eaf8d4709141c98b9c5591dfc9f4"
+        ],
+        "6": [
+          "e22d0b44acdcf86e48ac69148c566e98725c809e4e54cb48fbe814466313d4ce"
+        ],
+        "7": [
+          "b4a39c144c37b4c0ba4e540d12a13496a83895ab7275637481ccdf45fbaa4f00"
+        ],
+        "8": [
+          "32801a06d59b95ebfe23996efee4aa9da18cbe8c9deec66f6ba8530118c28ef2"
+        ]
+      },
+      "decimals": 10,
+      "hash": "1d840c4e15e091ecdc3adfbf531de7d5cb8b478989115da51b11f73b6f1229ce",
+      "hash_coarse": "82f9dacda694fda3e060376e897e74e31a4b6afe872b38580875b35c7b5958c8",
+      "kind": "float",
+      "magnitude": -4,
+      "mistakes": {
+        "4a8c4b39faf3dfeef827c135ab5b68188e7f41a66df56132c52d860dd3af3ef2": "renvoie eps, pas eps/2 : l'epsilon est l'écart entre 1 et le flottant suivant",
+        "59e8cc93790ed7dfdb259ba53d58eacd8369784a293a9ba7084c85555a5f6886": "renvoie eps, pas eps/2 : l'epsilon est l'écart entre 1 et le flottant suivant",
+        "d78c8b53269ab8526479dc4b0ed4330643b98a4200de0f3f55ca56d9fdd213c1": "fais chaque calcul dans le type demandé : one = dtype(1), et dtype(...) autour de chaque résultat"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.21d": {
+      "hash": "3a149d5bcabe38432bf10fbbabb99c4479d3c4de81075601ec781e1e55c46bae",
+      "kind": "str",
+      "mistakes": {
+        "4e812fc9bf391ad2cefa44860ac8df256a7204e8f02b9ed55add99cfb84d187b": "la docstring demande un float de Python : float(eps) convertit un nombre de NumPy"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.21e": {
+      "hash": "40992f00413368d7e8d920dd88aca46600ee6ed6316ad6dd57f73f5123e5ba82",
+      "kind": "bool",
+      "mistakes": {
+        "39315f3cbb3e855e955f1e76082c4b294289e8b4a39234e7e92b0bcbaf330bfe": "renvoie l'écart entre 1 et le flottant suivant, pas son double"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.21f": {
+      "decimals": 1,
+      "hash": "c777abc26f6dacbcc323018105fa0222cfc3c51cd0e2ad6c777709a31c5cad43",
+      "hash_coarse": "efd62fbc9ef665567315ba5f64c8fae0dbd156b35fa632aa07aab4948b21fe99",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "7acee91dbd0f967a5a9f15d22d6eb07866d6c82c02bd583c9a228ba1fe07ec98": "vérifie d'abord ton epsilon (question a)) : l'écart après 1 000 est ε fois une puissance de 2",
+        "f4a128bc3d47e6063037aa9e879aa19f1923bc21a0f9a196cecd6fea14dc2acf": "vérifie d'abord ton epsilon (question a)) : l'écart après 1 000 est ε fois une puissance de 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.22a": {
+      "coarse_any": {
+        "0": [
+          "584fc11213caedcb819688a96d53515e096d3de3611fb31b4ce56878ec288f5a"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "90a68469ca5177595ba235b6a9b12f04981a7577070ca693108f26752e746df0"
+        ],
+        "2": [
+          "c79e9513618a07c6412523f535f7d3ba7b04f5430167eadde1a29bf5c95c31b0"
+        ],
+        "3": [
+          "68fed94aa17f3d4b9bbd7170fa675aa7b60b598379934bb5f1b344d0d95f6fe7"
+        ],
+        "4": [
+          "70fa54efc4032f95d4ca42108779876c77af7a2a0e0a60d9e1eb5203829f3600"
+        ]
+      },
+      "decimals": 6,
+      "hash": "791d41ed82d3325e2303c8a22261fdabbdb7fb86776b4ed735d6e2817ffc0e57",
+      "hash_coarse": "5c9dd16dcc0732ce42b5cf776ef97412cac8a46a271972ce18d404dcbebb9a9e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "ee7e73595a7b529d2af2006fe85c41d6f70305a5950faf074c445515984fa997": "rajoute m à la fin : ln Σ e^(v_i − m) n'est que l'écart au maximum"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.22b": {
+      "coarse_any": {
+        "0": [
+          "0474d742eb3bbd5b279eaabce43e7aaa3ac8bc390465cb91540b1afb9aa0b093"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "dc34755405c3f6b72ada6c385b952460ae5427643b2f2cd672d61ef3447da367"
+        ],
+        "2": [
+          "59ae128227c314c6cae3d3df0cca2e1ec81e2a3ca572cc8f9ad833f657b12512"
+        ],
+        "3": [
+          "850cacde00b825288cf8fb22f41562a8350286b3db2ea780568c5dcd99eba2bc"
+        ],
+        "4": [
+          "60f7acee763b96bf61647a0940081838d0b7ddce99aa0943058e74af13206e1d"
+        ]
+      },
+      "decimals": 6,
+      "hash": "8e7fe078e1499da327189c2118c6aee4d78c522e030932ebdd702fd4a5c0587c",
+      "hash_coarse": "025b6a6f55048ab0cb91a177c76fa4bce5a05a9e05f59f0483ce9669b24339c8",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "a3f434282446af1008749355cae21c5a7a5a21acd8c1a36bdcff32e8361aa814": "rajoute m à la fin : ln Σ e^(v_i − m) n'est que l'écart au maximum"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.22c": {
+      "coarse_any": {
+        "0": [
+          "4cf84b26584f40c7f20b7b6f8f7fde870367a0881354e90209e4530622301cfd"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "846d6010a0c205903bee99bed18d947084cb1f8b2f62f32217ede8fe42558b95"
+        ],
+        "2": [
+          "5befa5bdc3cb1fa4d0fe28ff4c85e3a312bf9961978070fc4184374972b4ddbc"
+        ],
+        "3": [
+          "163494a723bad6e19832e0402b175dbf65f2cda332ce68db5cdb15fed51f9385"
+        ],
+        "4": [
+          "79e4c2711e814a244521fca96d475ef2ea57903ab1924f93daff2c0ad45f3ae7"
+        ]
+      },
+      "decimals": 6,
+      "hash": "3501bb8988bea9220e13339b542d62ddcf0ce358d691fb120c4261c5ad1f2437",
+      "hash_coarse": "17614e1aab05e42f8afae8c29be0ce9fb3e2ebfb8a154b9194b601b11e858cc7",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "1f12746aa702d4d57a0093bd87056be23d0638dfae34217e874262c1904e251c": "rajoute m à la fin : ln Σ e^(v_i − m) n'est que l'écart au maximum"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.22d": {
+      "decimals": 4,
+      "hash": "71cb48231081d22d3cff821b4706223a4505e12a2ec6ca6acb09b6b3a884de57",
+      "hash_coarse": "ba1d55d6feeb2081601467d89f5182438d9f9fd84bdf685138f41430453ef113",
+      "kind": "float",
+      "magnitude": null,
+      "sign": 0,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.22e": {
+      "hash": "e0d64919baf08fd7d093191d1f161ac10cd98708ea65def708350610f93803ca",
+      "kind": "bool",
+      "mistakes": {
+        "1e345b5a4c492d70c33cf41b8bc4c0f88a7c17bb43a3706cf1f1250c4abbe752": "si toutes les valeurs valent -inf, renvoie -math.inf tout de suite : -inf − (-inf) donne nan"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.22f": {
+      "hash": "77b5c91b3eaa468408c45f84178579d7de175174ebdb602475377b96cc62d364",
+      "kind": "str",
+      "mistakes": {
+        "0624cfd275bb2913b9d441cfdd40d4c6c4f9c41ac895d5f42db55c111aa4d9fd": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "079dee1fa231b577f8f1fce275717c76a2b860bd2542daede2297142a082b2f9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "3ed34718060f837136a0137ed8fd45bb2d4f286774dc4616f7be376c406484b7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5e97134695ba7d837ce498ecc32d8225391b2d114e7187d828896dd62b0c03c7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5f83a682ba000d5eb48c752e5dac268656405695b9dd8f41b739047577dc0df7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7029d53961a7fd4c09cd2ec621a076ef0f9523efba15d7aed6420e4a3554f7fb": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7ba73b5b3abbe4474cf1f9cffa048131081c78dbb8564fc262ab3dd2ff1b6101": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b4531c6bd31ca3d41759c54a75e443a4db6bac860dbcac7b81b8d71d5cf57f9f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c5f9226a8e6f44e40ae9b61a8d7ac4e9c339497c309b80fe754f25ff86887b3e": "une liste vide n'a pas de log-sum-exp : lève une ValueError",
+        "d87f69ab223368e1efaf87c6735dae606e59eb39920001b61211d823d7a98965": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.22g": {
+      "hash": "79152879f318d758c0f64bca8fbd2b6243c577925a57331725c43eb8f3c6a5c0",
+      "kind": "str",
+      "mistakes": {
+        "8c2878afa1a77cdd68f4fceda5037e3e24d03780d67bc0b58700afe5824c866b": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.22h": {
+      "coarse_any": {
+        "0": [
+          "cfada48fb2b6fa6df68f5aea1739161e1f1c9821602569e2eaea31189815a42d"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "be9d71528d2279cec17b01d3ae6de58e518305618316a75f4777e995970a4a7c"
+        ],
+        "2": [
+          "4d55421fb51024da1b1691e55d9b1a84602c76f3c370d6c5ae1d852db496e30a"
+        ],
+        "3": [
+          "44bf2e3f7830b79eb5cb00956282eb78246b59565045aa14e31a862323d4deab"
+        ],
+        "4": [
+          "f65baeed58ba9301791e871e61f0176f83034e23e985384a5a6ac62432892f9c"
+        ]
+      },
+      "decimals": 6,
+      "hash": "9e44449a6781357190c92847ed2dbf4c1d2385dbc77d85601f83edc86339537f",
+      "hash_coarse": "d896179bfdef2db91cef5e72f8255cc12a5fbae1c67232330a86965ea6bd0d40",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "0b83096d8926ce74007b89e455952b10df589a68433fb8cc5f531d4acc38ba01": "les 1 000 valeurs s'additionnent : le résultat dépasse le maximum"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.23a": {
+      "hash": "29855e9ae469710a94cac1f2df32a46a58d64be56f0461bbc8d4781021de70dc",
+      "kind": "fraction",
+      "mistakes": {
+        "ad944ea17e4a39921b53f1da2ad2d739645b15fdeaa45f27f78d963e1c6d030e": "c'est le coefficient de x³ ; la question demande celui de x⁵"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.23b": {
+      "hash": "8a6c096d76c564cd8555a5207c957c8b5376829c5d6c35b9522efa49d3d50bb1",
+      "kind": "fraction",
+      "mistakes": {
+        "337f264174b09e25c96a4931f44fd1027d509be4f4bdc4a7a5f9fbcef23f50fb": "c'est le coefficient de x² ; la question demande celui de x³"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.23c": {
+      "hash": "a74d755fefea3e62f31a2c358633bd994606e086ed0e4510d637c7af87969ec2",
+      "kind": "int",
+      "magnitude": 4,
+      "mistakes": {
+        "88483e9ee319dfb164137abef2fa08bcb32c112b1144ae090d5c5b666a7024d0": "c'est l'affichage arrondi de NumPy ; int(...) donne la valeur exacte"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.23d": {
+      "coarse_any": {
+        "0": [
+          "036b83eb9548441d8f4750315ab90c24be7c7b6549bc0d475fb5b32070caeb50"
+        ]
+      },
+      "decimals": 2,
+      "hash": "80298483fd56ba08c98a8d0bf77806dcf58aa0556237e5e94d753cde158a2fd9",
+      "hash_coarse": "cbe74a4ca4d7d3b18a7f29e2ee02e08a14bf393ecb687166c45b5fe09516c3e8",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "0c737dc83f23580f2dc1ab0730e9e789c24cd408cb6a7b7a9ba9a5f2ba6d91f4": "log₁₀, pas ln : log₁₀ x = ln x / ln 10",
+        "8feba98b60e54776b30c4c0e42fa2d7ffc5d70eec15c4087cda4915963396556": "tiny est le plus petit flottant normal ; les nombres « sous-normaux » descendent plus bas"
+      },
+      "sign": -1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.23e": {
+      "hash": "50d99e2012664f20d1d4310542e7c7b5aea630cc3145185e58e697f5371d2ccc",
+      "kind": "bool",
+      "mistakes": {
+        "ad64b5c17c7ecd22053eb093a09fda6a4b3c1a8b4442ddbe0ce74de1db275a5f": "np.nextafter(1.0, 2.0) est le flottant qui suit 1 : relis la définition de l'epsilon"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.23f": {
+      "coarse_any": {
+        "0": [
+          "7e7959216c427aa6c9c43ba3563de40265218e91c45aecf049ae13aaedadd735"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "382362acf0a9c5ef797c2413bdc891e609f362bc02895f19e7cae0b2716d97e6"
+        ],
+        "2": [
+          "a8a21f295e140a8b09e2b9e2bc282ec9dc12a57b631bf4130dbca0a10a471953"
+        ],
+        "3": [
+          "0d71c18b5bb5aec53bfaa17a4ca9031995249b875a242f83220aeef0c323d877"
+        ]
+      },
+      "decimals": 5,
+      "hash": "3b303eca289acc963a3e60907ccede7a55c9beb1e0aa3fd44aafc6bdf7883eac",
+      "hash_coarse": "bc5436843902958ad8e194ce1ca2d516d71dd05a47c373fdb4f64549b90e20d1",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "344eadc39cf062349558bc941ae97b04926898558f88693d527652e816c6e143": "la question demande la valeur du polynôme d'ordre 4, pas celle de la fonction"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.24a": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "45e836aa2ace92e92eea698ec577795e753c571786aa0251dcd9eb6035f90289",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.24b": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "28b4ac260c41bfdcc12b63d8f331a16d8cc601c4e5846f326de44b44a3c5d069",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.24c": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "55380941f040cec3f9ce7129396340af2dae91b27be660e2d7239f7c4f481aae",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.24d": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "78204b0ad17cd61d2e35fb881fc2583bd5eb6a9b163cd2db42af525174fe420c",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.24e": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "9483a7d747c1344091f10aa559130dc4f391b3d1deb97375050234daae8e5c75",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.25a": {
+      "coarse_any": {
+        "3": [
+          "3f2e55283e34fa9a4b00d8ca5c4035297fae9d21b9f84c2b85e81e28851436a8"
+        ]
+      },
+      "coarser": {
+        "4": [
+          "4d684489dc2bf78c5f322240559257f74a9f5e541ee3704e90202e136df22377"
+        ]
+      },
+      "decimals": 6,
+      "hash": "cfdda968eabdadb1403c653095bfd991270d1e914ebf82ee7e731b80824d80db",
+      "hash_coarse": "71e14d2d4be3e10e732627a763af4250beb7d79682dd61ea93be44467aa3c072",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "b74aabe76e650541fe26ca77906af6cd50a64796e10730b39feab3f21b0b4205": "n termes : k va de 1 à n inclus, range(1, n + 1)",
+        "d58c6cd6d53d4d33e6b9f8494428d55845d267558602c9d799856fbb469ded09": "les signes alternent : (−1)^(k+1)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.25b": {
+      "coarse_any": {
+        "0": [
+          "2a4cd0eebfa2dc7ea344e5cd2f15ed0863703f85011cd1ca9b9b3f8ac6045002"
+        ]
+      },
+      "decimals": 2,
+      "hash": "3b4acdfdcf62f9e4aa88ac2aa786c83e776d4e07e79d069c9628bcd516607412",
+      "hash_coarse": "c77451a197cff032c1dcd7575dca19c829756da4222597266ce7731da8069a2a",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "a581dd0edb72a11d8e371af02d6d4e583247524b67f9899a02c8b3c2824128e6": "n termes : k va de 1 à n inclus, range(1, n + 1)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.25c": {
+      "coarse_any": {
+        "0": [
+          "e16fe3726bd86133d96d984439f6d7769d281053618d126cdd149efbe94d93e0"
+        ],
+        "1": [
+          "3465ba962fe48da6d71ea327e02d548a5996629044aa12a73701888b8fec947d"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "9e503f6fa11990b115d0c8e8244c871fd2c6e790a6e8bf1e3d274c9da418f7e8"
+        ]
+      },
+      "decimals": 4,
+      "hash": "24e80be79ec242aa7aff0ecf4f9935af0bc51785ec7fd13029999f32f42f4ae2",
+      "hash_coarse": "42e5e8b27e07034cfb3abe4d3e01c46e4ce6c46cf54d0afa14592ab7a5c01400",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "23afc8132bd97eb98fc51d44e5bca78891900d3965fa208a20ed41954338a83f": "les signes alternent : (−1)^(k+1)",
+        "b933a4f4c936cf1036f3da0bf8a7b061b2acd8a5674ab1fda86be37a90da39f9": "n termes : k va de 1 à n inclus, range(1, n + 1)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.25d": {
+      "decimals": 1,
+      "hash": "25473947ccadd957f4b0b38085dab86a6218163e09dcceaee46106651ea30830",
+      "hash_coarse": "22137f5c7b9871dee6e01ece420dc4b197b8b2b8f904c4448d772782b950f72a",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "fbf4bd85b9021f88151d35a133d6c9160f11c88c6b537bef0fe19245833804ab": "n termes : k va de 1 à n inclus, range(1, n + 1)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.25e": {
+      "hash": "b928509a464e495decd6318b9c6fdfe1d96ed8af865718bc4b9c97991db03213",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "8a78dec2853d3f98d85c3c7d2d718228f8cedd8ea112d890000a69a7b96e3542": "n termes : k va de 1 à n inclus, range(1, n + 1)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.25f": {
+      "coarse_any": {
+        "3": [
+          "3d09ef7690aa967d7b72d4edc3ba59c41a8ce8781deaf1b6761ca0510aeb9f37"
+        ]
+      },
+      "coarser": {
+        "4": [
+          "2d71533611d3439c01c03379b759c12d42830f25f38791a440717a4f903b44c7"
+        ]
+      },
+      "decimals": 6,
+      "hash": "f378aee42e38c10378867a7d80ce1c0801d10fb55ec9ebe47da4891de1218a76",
+      "hash_coarse": "10fa14d0e26ab73352b41b3dcb502dcf9f52584eb97e2c3a72a0c955d10195bd",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "f54adcad7c347b625f2fb009890372058d9fec893439855c81489d6c0589ecaa": "n termes : k va de 1 à n inclus, range(1, n + 1)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.27a": {
+      "hash": "b0020a7efe219c27dcf8cdac9f15479d243044ada729d4bd832782f3be42463b",
+      "kind": "str",
+      "mistakes": {
+        "027c2fe9a2f4d835b8b6db06df3a241738be187472a9b7c42cb91a431279b05e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "08f0edae817e7c5d63da9b479a8e236fda284830819388ceebcc3e290d90e08c": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "0900c56004d37291e3f469d2f048b989464e5bc578cfe8e90e2a0c131233c692": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0a0271887206f9f2a0ee3cad67173657b262ec11a28c6e361c6968c4eee3608c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0cd94104436d165c9543639dfdb02c1faef1d8f424b5ce28dd4df092f3c73944": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0ff439fd6ce09355e4ab40a2b7ea3e99b53eb102cb50ac09a99ace720231b989": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "11f61554141d6ab73e4c998416ee89b7c9ef120ca6053327dad87c23653b3774": "il manque une ligne fautive : vérifie que chaque log-sum-exp revient à l'échelle des scores",
+        "17ae4b7a7184088f13c27a268ccafc82b792a37c4dda2952cc1d81bb40589842": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "18bbfd19458775397e6f57d895333ddabc4fb4c01fb7a7a56da675a9aafd8eb7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1b1806fefc1772ee037281893d9d8a2a82a05188b11ac17ef091941b5860d038": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "223b882b6cd55e424c6a3cc5080d715f8c9d243d3233c8929ba7a788f05950c5": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "293b4da2ffdfd6f9cb1562ad4cd9ab654c4721ee5d4febd7ac8d0f90da23398f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2a1925d11d4cb735c100644c3ccb04b52756f2dbf552227a1c6dd9d1d7f934cb": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "2b4864671af45fb6b0b09efeef5d49d259099cfbbcae61bd8c0aff4f3a54aab9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "39326dc883141e61c7a150462e7e610fd3b2092c49cf3b105d8635fbb37707d9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3a070d760477244121852cfa443b93a84480da812beda4223e0e370e76fa2747": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "485af0ca9407efa7e573b5a4c83a7ee7572b661adeae2bd6621f53d8e161c001": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie quel score chaque ligne retire avant de prendre l'exponentielle",
+        "4acdcc279c73026e26526ca3759a2238c94d4405b3b9f1a0a8e68042a3107612": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie que chaque calcul reste représentable en float64 à chaque étape",
+        "4b1213b93c081338af322ff91e747b34fae073c24d61217a65e982d477b49359": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "4c963a5903e0dd2e519778e01af20f634e3c4e505905dbb3f8092a2f7c0bbf9e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "51cec968cc4f8a362ac71448f57cb12522de40aadcecaf74beb41343a06ed3b9": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie que chaque log-sum-exp revient à l'échelle des scores",
+        "53903ae6e86bba396d4356b312f116192e4a6907b7953f60f3d9a755e35bdd4b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "57202cd6a10bde47844ce7009b5ca18b0a94ff594ff7a802c11dac13a0754b2f": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie ce que somme chaque ligne, et par quoi elle divise",
+        "593f255b23f017c44865ec70b0830dc9e01295afd2092fba8787544e61272923": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5c11fb07df85fa7ecba23dcf39ee3f4393ee80b81e64b81c316c3a19bdd69ab9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6193147fd72b51e4067e54516c3c90fc3d9759baca42f3af27ddc0265e38751c": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "64d8c8080d33ad1187d37581bbdcaf31c5fc7b36cfa093d5e3efeb8b14d4818c": "il manque une ligne fautive : vérifie quel score chaque ligne retire avant de prendre l'exponentielle",
+        "6b28d69616988503bf94514f6643d26116771b21cc733a20888debd2be5c4303": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "70a1eb409d5bdca679579ad481226281e036960b52241c116d1ae804a8cf5623": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "73bf202745c22f576c6850234bde99749600cfefe5712a2f3511f85d7764000b": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "7570dde0fbc00837916c2ddec815831480b4860a254ee127fdb4ccfb313d0c5a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "773c5785640a36ed6b12d67424ed60b7cf719d9e4faf9c9fd3e2c9323c0698ae": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7c0d70d0b747d53ca5390d38db9c4b09d0f76f160fcf5206a73ebdb20cb8198a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "806739cc34609fe8b256ee0d15f7b446a443420414397a71754326c0c6c70a04": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "808eb053fe72453e583b7ac1342db294a8ce0f3200c8221d76cb6ca4493aec64": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "848ea678648f0eb44b511064213260f6ab9cc335ea575a98126018ee6bb7c748": "il manque une ligne fautive : vérifie ce que somme chaque ligne, et par quoi elle divise",
+        "94cf0ab8f3ee53b999ff7447a1a2f7ee59a763d8f6ead2d39d81debe6485bae3": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie que chaque log-sum-exp revient à l'échelle des scores",
+        "96faac1b474279ff60a96a036bafacc4d1817bcb43199e6faa44ba2d3d0489a1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "983b16c2452f4f21fd152348f6c92c56a722601abe5198ca28bd25c8331cc14c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9ad7651123686ad8de078b860ac7eddf03763e3f508081bf18b6dca71e63b995": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9af53554ec97f268ba9f5c69d46c78125df0db85c52ea601430833f0cc97a5d8": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie que chaque calcul reste représentable en float64 à chaque étape",
+        "a1ca5c980f855f1581ac08fae92065a5d1d2072cc37c7fb9964584d4cb6f9915": "il manque une ligne fautive : vérifie que chaque calcul reste représentable en float64 à chaque étape",
+        "a26115a45d225359b6c45cfa7ff8211aa1d5cd0314146f98548c707bccfc5628": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "a5906046c5eee59838d657c7fb2a481d78e2b0107e88d6a08fbbd6e94da45d78": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a7ba4ec56828ccb84725ca2f00d7da0a277ea038b17691cb48b38be308f11f94": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie quel score chaque ligne retire avant de prendre l'exponentielle",
+        "a9905b7dea89581403ebbbb22652f56a5abefd01e34c03a81219d47181a3b3e2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a9aaaa2af9c6e09673b3e84dacbe1375a36e4e43469261725db32e86ae59c919": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "b2bb0ce2df930790400eace770af001760d33ad405e3ca089a6420e4cf3ac83f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "bf922b9df8dbb509924a883766951641bfc2c399144bceb2798004b1dcec7982": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c3d6b7998bcef2e6069ee0e07900237924e4db572a003c2626cf8325f9938b6b": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "cface7290f56249294b184f1fafc0a3133f25cc97e1eae6f9d74b15ae135ec7a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d06cfb9cef460807992b7c30d3b38f05e27b1e537da03aef76bb3ed8a02eeb31": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "d7484d0b1856331e24429beffea1fa493e08ccbd8ebbf2500d469791f185b6cd": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "de656c4817d4cfdecf7a6695fd17d4054cbb96b9babfde37a11ec8da447de461": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e41e3a259e493550c1d76c8cb9489d27fdec3739df98557f7c31bca7ba27fe2b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e6549b1a41fee24989930cdba0b1400000acac0d536c06de85acf097fe1c7d3b": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie ce que somme chaque ligne, et par quoi elle divise",
+        "e710a527813c6e308ba664c035bb6715495da52dd264a5c9a8942e0b61995800": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ea7cfb548d5cce2539f9736b42d7a686fc747033da53d330d6e9aa25f4ff6942": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ede78012bf59656916e101ca0dfda0d37c2d61e839e77f83bbdac24c5d6631d4": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "efa8d66727daa8789220e8a20ce6f9cdbd6b9b1740364f3c3a875f68e00dea7f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f60bb7c839729f93b5e1c2298c64fd8ec2f333178550e0467f3b9aaab455061e": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "fa9671a43c2f18d54e1f72409820496b7be4038ab5596802f3bd5d5c70442051": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple"
+      },
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.27b": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "8c20d2f1c8dbab9a44cc023324cf9f8a0ae61cfe04cd65069c458f54b1c9b54a"
+        ],
+        [
+          "79c945963971472222a225418a72bb1bc9a167b94d7c4710a19f3cb41d676d08"
+        ],
+        [
+          "ecaead5bbc56f2c78fba6ae241d2994c9f4a196796d53ec01bbce5820a1d070a"
+        ],
+        [
+          "ec6173dd9c9376a4c8cc089d8246ce63b24d57d381a03991b41eb4f72b5ce3e4"
+        ],
+        [
+          "a7d8a7c609a2be3b154f564e8ccc719f557dad44bf4bc4c6c360cad87ab475bd"
+        ],
+        [
+          "f734e89c7e32733a9d845650ba6d3301da2d9f5395d2332bf52bb5d7870387c1"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "3a7e6c04f3ab0a8aee3c1bd3ffb16d202d6bd5390f4f5767223ee5ebb8264c96",
+          "5085de7d19c5558f66fdc28cf3bbc10c9a51130c6ef847bbc49bc2e20b2237d3"
+        ],
+        [
+          "6714d309fbbcf6bb817c84a019c374ae78280292b8ad484677ed0984ec2ac975",
+          "c649c58fba37a167c4b75c3c6995ecec5d2761fe79580a735585b56cf9dacc9c"
+        ],
+        [
+          "6c31189fb4b30e8cea4e71d9a1e943bcc28ab8cf20b872bb2d10067ee52436b8",
+          "913373d52f126201e3de6a6776c4b6c318f2052c52be91d4dc7cc718ce2b7125"
+        ],
+        [
+          "aeea91327855470864558ed3511b7d6420be775ca5813abd28b75dfaf07100bf",
+          "d9ad49f4822b2ba76751c1e5c44585beff6d10a19ca6c28da6d8ccfafcdf65ac"
+        ],
+        [
+          "e9bf964e4fc3708555dcdefce9dac11c6d07c809de1728c87be215613fde8ba0",
+          "ce161a31488b48b41a580c2bdbed9557ff773d4e6917eba353a5b90b306e7bf8"
+        ],
+        [
+          "1fb56ca348773484a9d2aedd51dcc129fb32514658fd21c3dba46f448830e391",
+          "4a440c605a895b55459be75161b1e92c1963bf09b2b54e5777af9e07bc9b42b5"
+        ]
+      ],
+      "element_hashes": [
+        "572cfc62a7eb8e6753aa01b4d2713f3457e3ec8ee0882e3445b4cd7715b74d28",
+        "42b541a4de7c740960484acf237d33a165047303fc7c474b27d4ad3454a682e5",
+        "3a2c7b637497275e232791b63fb1ab5be897aa7cc065eb26aee39b191324031f",
+        "7e57f9422e075f6fe2e17ee4dcbfe7167ba4482c1a194de4dae32635b29fc624",
+        "65d4014fad38f458bdf80a67d9af237b20b5dd861fd0e10f8901dc81a9f5e9e2",
+        "41e6ccbd5979805841eef5ccf6fa2af02659ad116b3c6a71c250d8155eb755c8"
+      ],
+      "hash": "79bb3d8284dfdf212fa6a86a4e11dd4f9dc7f928ed0fcf85b485767b21785703",
+      "kind": "array",
+      "mistakes": {
+        "56eb8e1ee465d0542f500805c02e3f68e4f9b4a1d7747bfea9d85ca721de5616": "(C) : le log-sum-exp de v rajoute le maximum m",
+        "64126656b38678179361f22a9faa0be4b48caddb580c263a727bfa17b2a1c4d7": "(E) : le log-softmax est v₃ − LSE(v), et LSE(v) n'est pas le seul maximum"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
+    "M05a.29": {
+      "coarse_any": {
+        "0": [
+          "bb945bbe20a30e805dbe7682c8e6e34c218029469364d6a1f8827f6f8ab074c3"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "181d94184c9a39f93e9f9660bc451ec1204433fe3b7fc8c2027996a1acf664cd"
+        ],
+        "2": [
+          "5319c557ef8a654d9bd4fd341667c140e4ab6273d739238691fc44c3a67900a4"
+        ],
+        "3": [
+          "47b0e0701f71d28653d22a40d5dd56764a67e48d29a8d712b9be3d2de41201be"
+        ],
+        "4": [
+          "e5f9b328bb3a1fcfaecf1e8a99a20588fcfb4a48eb4c333413e2f116ae28f060"
+        ],
+        "5": [
+          "da412554ce3d34d08a0ec6dc402ac13b239a5eaa0984217bbfb5dfadfaeeeb7c"
+        ],
+        "6": [
+          "5d9ae798fec2f00c87b8c7d447558f92843f1ababb37e604fd069d74866c0e10"
+        ],
+        "7": [
+          "c8e3a243333f3151efd2d5097039c65184a954e46fc02c21ee23d331d4a7c445"
+        ],
+        "8": [
+          "27aec3d41eac316d140f9d2facac8e9264df02e2f58b7c41d0900bd31d3e2c45"
+        ]
+      },
+      "decimals": 10,
+      "hash": "9b1904744baaa6c1133ed2b9bfa8dff1585bff894a36e333ce1bac7101fb0129",
+      "hash_coarse": "60fb8b65217c8be954675387e723705df78a6a574f99944a5567de0796d71eb2",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",

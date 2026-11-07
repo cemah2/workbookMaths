@@ -254,7 +254,22 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | log-sum-exp | $\ln\sum_j e^{\ell_j} = m + \ln\sum_j e^{\ell_j - m}$, $m = \max_j \ell_j$ ; probabilités : $\frac{e^{\ell_j - m}}{\sum_i e^{\ell_i - m}}$ ; plus petit `float64` positif $\approx 5 \times 10^{-324}$ |
 | famille exponentielle | $p(x \mid \eta) = h(x)\exp\big(\eta\,T(x) - A(\eta)\big)$ ; Bernoulli : $\eta = \ln\frac{\theta}{1 - \theta}$, $T(x) = x$, $A(\eta) = \ln(1 + e^\eta)$ |
 
-*(M05a à M06 : ajoutés avec leurs chapitres)*
+### M05a · Dérivées, Taylor et calcul numérique
+
+| Notion | Formules |
+|---|---|
+| dérivée seconde et convexité | $f'' \ge 0$ sur $I$ $\iff$ $f$ convexe sur $I$ ; alors $f(x) \ge f(c) + f'(c)(x - c)$ (tangente au-dessous) ; point d'inflexion : $f''$ change de signe |
+| extrema | intérieur : $f'(c) = 0$ ; $f''(c) > 0$ minimum local, $f''(c) < 0$ maximum local, $f''(c) = 0$ on ne conclut pas ; sur $[a, b]$ : comparer les points critiques et les bords ; $f$ convexe : un point critique est un minimum global |
+| polynôme de Taylor | $P_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x - a)^k$ ; reste de Lagrange : $\lvert f(x) - P_n(x) \rvert \le \frac{M}{(n+1)!}\lvert x - a \rvert^{n+1}$ si $\lvert f^{(n+1)} \rvert \le M$ entre $a$ et $x$ |
+| développements en 0 | $e^x = \sum_k \frac{x^k}{k!}$ ; $\cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \cdots$ ; $\sin x = x - \frac{x^3}{6} + \frac{x^5}{120} - \cdots$ ; $\ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots$ ($-1 < x \le 1$) ; $\frac{1}{1 - x} = 1 + x + x^2 + \cdots$ ($\lvert x \rvert < 1$) ; $\sqrt{1 + x} \approx 1 + \frac{x}{2} - \frac{x^2}{8}$ |
+| méthode de Newton | $x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$ ; racine simple : $e_{k+1} \approx \frac{f''(r)}{2f'(r)}e_k^2$ (quadratique) ; racine double : linéaire ; $\sqrt{c}$ : $x_{k+1} = \frac{1}{2}\big(x_k + \frac{c}{x_k}\big)$ |
+| différences finies | avant $\frac{f(x + h) - f(x)}{h}$ : erreur $\approx \frac{h}{2}f''(x)$ ; centrée $\frac{f(x + h) - f(x - h)}{2h}$ : $\approx \frac{h^2}{6}f'''(x)$ ; seconde $\frac{f(x + h) - 2f(x) + f(x - h)}{h^2}$ : $\approx \frac{h^2}{12}f^{(4)}(x)$ ; Richardson $\frac{4D(h/2) - D(h)}{3}$ : ordre 4 |
+| flottants | `float64` : $\pm 1{,}b_1 \ldots b_{52} \times 2^e$, $\varepsilon = 2^{-52} \approx 2{,}2 \times 10^{-16}$, $u = \frac{\varepsilon}{2}$ ; `float32` : $\varepsilon = 2^{-23}$ ; `float16` : $2^{-10}$ ; écart entre $2^e$ et $2^{e+1}$ : $2^e\varepsilon$ ; entiers exacts jusqu'à $2^{53}$ ; $\text{fl}(a \circ b) = (a \circ b)(1 + \delta)$, $\lvert \delta \rvert \le u$ |
+| meilleur pas | $E(h) \le \frac{M_3}{6}h^2 + \frac{\delta}{h}$ (centrée) : $h^* = \big(\frac{3\delta}{M_3}\big)^{1/3}$, $E^* \propto \delta^{2/3}$ ; $E(h) \le \frac{M_2}{2}h + \frac{2\delta}{h}$ (avant) : $h^* = 2\sqrt{\frac{\delta}{M_2}}$, $E^* = 2\sqrt{M_2\delta}$ |
+| overflow, underflow | `float64` : $e^x$ déborde pour $x > 709{,}78$ ; plus grand $\approx 1{,}8 \times 10^{308}$ ; plus petit normal $\approx 2{,}2 \times 10^{-308}$, sous-normal $\approx 5 \times 10^{-324}$ |
+| log-sum-exp et softmax | $\text{LSE}(\mathbf{v}) = m + \ln\sum_i e^{v_i - m}$, $m = \max_i v_i$ ; $m \le \text{LSE}(\mathbf{v}) \le m + \ln n$ ; $\text{softmax}(\mathbf{v})_i = \frac{e^{v_i - m}}{\sum_j e^{v_j - m}}$ ; $\ln\text{softmax}(\mathbf{v})_i = v_i - \text{LSE}(\mathbf{v})$ |
+
+*(M05b à M06 : ajoutés avec leurs chapitres)*
 
 ## Partie II · Concepts
 
