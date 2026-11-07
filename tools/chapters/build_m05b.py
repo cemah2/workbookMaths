@@ -95,7 +95,7 @@ PAPER = [
         ("a", "an integer", "10",
          '''mistakes={"dans la direction (1, 0), c'est la dérivée partielle par rapport à x": -2}'''),
         ("b", "an integer", "2",
-         '''mistakes={"la direction est (0, −1), pas (0, 1)": -2}'''),
+         '''mistakes={"relis la direction demandée, avec son signe": -2}'''),
         ("c", "a number (2 decimals)", "(70 - 48) / 25",
          '''decimals=2, mistakes={"divise le vecteur (7, 24) par sa norme avant le produit scalaire": 22}'''),
         ("d", "a number (4 decimals)", "8 / 2 ** 0.5",
@@ -122,12 +122,13 @@ PAPER = [
          '''"l'angle est demandé en degrés": math.atan2(-3, -5) % (2 * math.pi)}'''),
         ("d", "a number (3 decimals)", "18 / 10 ** 0.5",
          '''decimals=3, mistakes={"divise le vecteur qui va de P vers O par sa norme": 18, '''
-         '''"la direction va de P vers O : c'est O − P": -18 / 10 ** 0.5}'''),
+         '''"la direction va de P vers O : c'est O − P": -18 / 10 ** 0.5, '''
+         '''"on demande le taux en P, la dérivée directionnelle, pas le taux moyen sur le trajet": 9 / 10 ** 0.5}'''),
         ("e", "a number (2 decimals)", "math.degrees(math.acos(18 / 340 ** 0.5))",
          '''decimals=2, mistakes={"l'angle est demandé en degrés": math.acos(18 / 340 ** 0.5)}'''),
         ("f", "an irreducible fraction, as text", "Fraction(-5, 3)",
          F + ''', mistakes={"la tangente à l'isotherme est orthogonale au gradient, pas parallèle": "3/5", '''
-             '''"attention au signe de la pente": "5/3"}'''),
+             '''"une droite dirigée par (p, q) a pour pente q/p : refais ce quotient avec les signes des composantes": "5/3"}'''),
     ]),
 
     Paper("M05b.6", "Le plan tangent et l'approximation d'une valeur", [
@@ -421,7 +422,7 @@ La vérification calcule, pour $f(x, y) = x^2 y + 2y$ au point $(1, 3)$ :
 - e) le nom de l'erreur levée par `directional_derivative(f, (1.0, 3.0), (0, 0))` ;
 
 puis :
-- f) le nom de l'erreur levée par `steepest_ascent_direction(lambda p: p[0] ** 3 + p[0] ** 2 + p[1] ** 2, (0.0, 0.0))` ;
+- f) le nom de l'erreur levée par `steepest_ascent_direction(lambda p: p[0] ** 2 + 2 * p[1] ** 2 + p[1] ** 3, (0.0, 0.0))` ;
 - g) le nom du type de `steepest_ascent_direction(f, (1.0, 3.0))`, en texte ;
 - h) la norme de `steepest_ascent_direction(lambda p: np.exp(p[0] - p[1]) + p[2] ** 2, (0.0, 1.0, 1.5))` (4 décimales).
 
@@ -441,7 +442,7 @@ with checked("M05b.19e"):
     wbm.check("M05b.19e", raised(mymath.multivar.directional_derivative, F_19, (1.0, 3.0), (0, 0)), computed=True)
 with checked("M05b.19f"):
     wbm.check("M05b.19f", raised(mymath.multivar.steepest_ascent_direction,
-                                 lambda p: p[0] ** 3 + p[0] ** 2 + p[1] ** 2, (0.0, 0.0)), computed=True)
+                                 lambda p: p[0] ** 2 + 2 * p[1] ** 2 + p[1] ** 3, (0.0, 0.0)), computed=True)
 with checked("M05b.19g"):
     wbm.check("M05b.19g", type(mymath.multivar.steepest_ascent_direction(F_19, (1.0, 3.0))).__name__, computed=True)
 with checked("M05b.19h"):
@@ -452,7 +453,7 @@ F_19 = lambda p: p[0] ** 2 * p[1] + 2 * p[1]                # noqa: E731 - gradi
 dd, steep = mymath.multivar.directional_derivative, mymath.multivar.steepest_ascent_direction
 print("a)", dd(F_19, (1.0, 3.0), (1, 0)), " b)", dd(F_19, (1.0, 3.0), (2, 2)), " c)", dd(F_19, (1.0, 3.0), (-1, 2)))
 print("d)", steep(F_19, (1.0, 3.0)), " e)", raised(dd, F_19, (1.0, 3.0), (0, 0)),
-      " f)", raised(steep, lambda p: p[0] ** 3 + p[0] ** 2 + p[1] ** 2, (0.0, 0.0)),
+      " f)", raised(steep, lambda p: p[0] ** 2 + 2 * p[1] ** 2 + p[1] ** 3, (0.0, 0.0)),
       " g)", type(steep(F_19, (1.0, 3.0))).__name__,
       " h)", np.linalg.norm(steep(lambda p: np.exp(p[0] - p[1]) + p[2] ** 2, (0.0, 1.0, 1.5))))''',
     record=f'''wbm.record("M05b.19a", 6.0, decimals=4)
@@ -480,9 +481,9 @@ wbm.record("M05b.19h", 1.0, decimals=4,
          "\\cdot (2, 2)}{\\|(2, 2)\\|} = \\frac{18}{2\\sqrt{2}} \\approx 6{,}3640$ (et 18 si l'on oublie de normaliser). c) "
          "$(6, 3) \\cdot (-1, 2) = 0$ : la direction $(-1, 2)$ est orthogonale au gradient, c'est celle de la ligne de "
          "niveau de $f$ qui passe par $(1, 3)$. d) $\\frac{(6, 3)}{\\sqrt{45}} = \\frac{(2, 1)}{\\sqrt{5}} \\approx "
-         "(0{,}8944 ;\\ 0{,}4472)$. f) Le point $(0, 0)$ est un minimum local de $x^3 + x^2 + y^2$ : le gradient y est "
+         "(0{,}8944 ;\\ 0{,}4472)$. f) Le point $(0, 0)$ est un minimum local de $x^2 + 2y^2 + y^3$ : le gradient y est "
          "nul, aucune direction ne monte plus qu'une autre au premier ordre. Les différences centrées y donnent "
-         "$(h^2, 0) \\approx (10^{-10}, 0)$, pas exactement $(0, 0)$ : d'où la tolérance $10^{-8}$ de la docstring.",
+         "$(0, h^2) \\approx (0, 10^{-10})$, pas exactement $(0, 0)$ : d'où la tolérance $10^{-8}$ de la docstring.",
 )
 
 M05B_20 = Ex(
@@ -590,9 +591,10 @@ print(answer_M05b_21a, answer_M05b_21b, answer_M05b_21c, answer_M05b_21d, answer
     record='''wbm.record("M05b.21a", 3,
            mistakes={"compte toutes les solutions que renvoie sp.solve, une par dictionnaire": {1, 2}})
 wbm.record("M05b.21b", "-1/4", kind="fraction", simplified=True,
-           mistakes={"attention au signe": "1/4", "c'est la valeur de k en un point selle": "0"})
+           mistakes={"refais le calcul de k au point critique, terme par terme": "1/4",
+                     "c'est la valeur de k en un point selle": "0"})
 wbm.record("M05b.21c", -4,
-           mistakes={"D = k_xx k_yy − k_xy², avec le carré de k_xy": 4})
+           mistakes={"le terme k_xy² se retranche dans D": 4, "k_xy est au carré dans D": -2})
 wbm.record("M05b.21d", 6)
 wbm.record("M05b.21e", [4, 5],
            mistakes={"l'ordre est [∂k/∂x, ∂k/∂y]": [5, 4]})

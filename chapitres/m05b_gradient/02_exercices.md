@@ -211,7 +211,7 @@ La température d'une plaque vaut $T(x, y) = 50 - x^2 - 3y^2 + xy$ (en °C, avec
 | a | $\nabla T(P)$ | une liste de 2 entiers |
 | b | le taux d'augmentation de $T$ le plus rapide en $P$, en °C par cm | un nombre (3 décimales) |
 | c | l'angle de la direction où $T$ augmente le plus vite, mesuré depuis l'axe des $x$ dans le sens inverse des aiguilles d'une montre, en degrés entre 0 et 360 | un nombre (2 décimales) |
-| d | le taux de variation de $T$ quand on part de $P$ en ligne droite vers $O$, en °C par cm | un nombre (3 décimales) |
+| d | le taux de variation de $T$ en $P$ dans la direction de $O$ (la dérivée directionnelle), en °C par cm | un nombre (3 décimales) |
 | e | l'angle entre la direction de d) et celle de plus grande montée, en degrés | un nombre (2 décimales) |
 | f | la pente $m$ de la tangente en $P$ à l'isotherme de $T$ (sa ligne de niveau) qui passe par $P$, écrite $y = m\,x + p$ | une fraction irréductible |
 

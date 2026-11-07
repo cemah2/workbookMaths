@@ -177,7 +177,7 @@ Pour la copie : $\|\nabla f\|\cos\theta = 10{,}198 \times 0{,}5547 \approx 5{,}6
 
 Pour la copie : vers $O$, la pente vaut $\|\nabla T\|\cos 12{,}53° = 5{,}831 \times 0{,}9762 \approx 5{,}692$, un peu moins que la plus grande pente. Le gradient ne vise pas le point le plus chaud : il suit la montée la plus raide **sur le moment**, à angle droit de l'isotherme, et l'isotherme, une ellipse inclinée, n'est pas un cercle centré en $O$ (fiche §4).
 
-**Erreurs fréquentes.** Oublier le terme $xy$ en dérivant (a : `[-6, -6]`) ; donner $\|\nabla T\|^2$ en b) ; en c), donner l'angle aigu $30{,}96°$ sans regarder le quadrant, ou un angle négatif ; ne pas normaliser $O - P$ (d : 18), ou partir de $O$ vers $P$ ; en f), prendre la pente de la droite dirigée par le gradient ($\frac{3}{5}$) au lieu de celle de la tangente.
+**Erreurs fréquentes.** Oublier le terme $xy$ en dérivant (a : `[-6, -6]`) ; donner $\|\nabla T\|^2$ en b) ; en c), donner l'angle aigu $30{,}96°$ sans regarder le quadrant, ou un angle négatif ; ne pas normaliser $O - P$ (d : 18), partir de $O$ vers $P$, ou calculer le taux moyen $\frac{T(O) - T(P)}{\|OP\|}$ au lieu du taux en $P$ ; en f), prendre la pente de la droite dirigée par le gradient ($\frac{3}{5}$) au lieu de celle de la tangente.
 
 **Variante.** En $(1, 2)$ ? *Réponse* : $\nabla T(1, 2) = (0, -11)$ : la montée la plus rapide suit $(0, -1)$, d'angle 270°, au taux de 11 °C/cm, et la tangente à l'isotherme est horizontale.
 
@@ -355,7 +355,7 @@ Pour la copie : chaque exemple pèse dans le gradient en proportion de **son err
 
 **Démarche.** On lit sur la carte $f(A) = 3$, $f(B) = 6$ et $f(C) = 5$. c) $\frac{6 - 3}{2 - 1} = 3$ ; e) $\frac{5 - 3}{2 - 1} = 2$. f) $P$ est entre les lignes $-2$ et $-1$, $Q$ entre les lignes 4 et 5 : le segment traverse les lignes $-1$, 0, 1, 2, 3 et 4, une fois chacune.
 
-Pour la copie : le long de $[PQ]$, les lignes se resserrent quand on va vers $Q$, c'est-à-dire quand $x$ grandit : $\frac{\partial f}{\partial x}$ grandit avec $x$. Dans la direction de $y$, les lignes sont régulièrement espacées (une ligne tous les 0,5 en $y$) : $\frac{\partial f}{\partial y}$ semble constante, égale à 2. Dans la direction de $x$, elles se resserrent quand $|x|$ grandit, et sont horizontales sur l'axe des $y$, où $\frac{\partial f}{\partial x}$ s'annule. La fonction $f(x, y) = x^2 + 2y$ a ces lignes de niveau (les paraboles $y = \frac{c - x^2}{2}$) : $f(1, 1) = 3$ et $f(2, 1) = 6$ ; $f(P) = -1{,}75$ et $f(Q) = 4{,}5$.
+Pour la copie : le long de $[PQ]$, les lignes se resserrent quand on va vers $Q$, c'est-à-dire quand $x$ grandit : $\frac{\partial f}{\partial x}$ grandit avec $x$. Dans la direction de $y$, les lignes sont régulièrement espacées (une ligne tous les 0,5 en $y$) : $\frac{\partial f}{\partial y}$ semble constante, égale à 2. Dans la direction de $x$, elles se resserrent quand $|x|$ grandit, et sont horizontales sur l'axe des $y$, où $\frac{\partial f}{\partial x}$ s'annule. La fonction $f(x, y) = x^2 + 2y$ a ces lignes de niveau (les paraboles $y = \frac{c - x^2}{2}$) : $f(1, 1) = 3$ et $f(2, 1) = 6$ ; $f(P) = -1{,}5$ et $f(Q) = 4{,}5$.
 
 **Erreurs fréquentes.** Lire la valeur de la ligne voisine ; diviser par la différence des valeurs au lieu de la distance ; en f), oublier la ligne 0 ou compter une ligne que le segment ne fait que frôler.
 
@@ -397,7 +397,7 @@ Pour la copie : le long de $[PQ]$, les lignes se resserrent quand on va vers $Q$
 
 **Réponses** : a) `6.0` · b) `6.364` · c) `0.0` · d) `[0.8944, 0.4472]` · e) `"ValueError"` · f) `"ValueError"` · g) `"ndarray"` · h) `1.0`.
 
-**Démarche.** `directional_derivative` : `p` et `d` en flottants, une `ValueError` si `p.shape != d.shape`, si `np.linalg.norm(d) == 0` ou si `h <= 0`, puis `u = d / norm` et `float((f(p + h * u) - f(p - h * u)) / (2 * h))`. `steepest_ascent_direction` : le gradient, une coordonnée à la fois avec `partial_derivative`, une `ValueError` si sa norme est inférieure à $10^{-8}$, puis `grad / norm`. Pour la copie : $\nabla f(1, 3) = (2xy,\ x^2 + 2) = (6, 3)$ ; a) 6 ; b) $\frac{18}{2\sqrt{2}} \approx 6{,}3640$ ; c) $(6, 3) \cdot (-1, 2) = 0$ : $(-1, 2)$ dirige la ligne de niveau de $f$ qui passe par $(1, 3)$. f) $(0, 0)$ est un minimum local de $x^3 + x^2 + y^2$ : le gradient y est nul, aucune direction ne monte plus qu'une autre. Numériquement, les différences centrées donnent $(h^2, 0) \approx (10^{-10}, 0)$ : un test `norm == 0` laisserait passer ce point, d'où la tolérance $10^{-8}$.
+**Démarche.** `directional_derivative` : `p` et `d` en flottants, une `ValueError` si `p.shape != d.shape`, si `np.linalg.norm(d) == 0` ou si `h <= 0`, puis `u = d / norm` et `float((f(p + h * u) - f(p - h * u)) / (2 * h))`. `steepest_ascent_direction` : le gradient, une coordonnée à la fois avec `partial_derivative`, une `ValueError` si sa norme est inférieure à $10^{-8}$, puis `grad / norm`. Pour la copie : $\nabla f(1, 3) = (2xy,\ x^2 + 2) = (6, 3)$ ; a) 6 ; b) $\frac{18}{2\sqrt{2}} \approx 6{,}3640$ ; c) $(6, 3) \cdot (-1, 2) = 0$ : $(-1, 2)$ dirige la ligne de niveau de $f$ qui passe par $(1, 3)$. f) $(0, 0)$ est un minimum local de $x^2 + 2y^2 + y^3$ : le gradient y est nul, aucune direction ne monte plus qu'une autre. Numériquement, les différences centrées donnent $(0, h^2) \approx (0, 10^{-10})$ : un test `norm == 0` laisserait passer ce point, d'où la tolérance $10^{-8}$.
 
 **Erreurs fréquentes.** Oublier de normaliser la direction (b : 18) ; renvoyer le gradient au lieu du vecteur unitaire (d : `[6, 3]` ; h : la norme du gradient) ; tester `norm == 0` au lieu de `norm < 1e-8` (f : aucune erreur) ; diviser par une norme nulle sans lever d'erreur (e : des `nan`, ou une `ZeroDivisionError`) ; renvoyer une liste (g).
 
@@ -423,7 +423,7 @@ Pour la copie : le long de $[PQ]$, les lignes se resserrent quand on va vers $Q$
 
 $\nabla k = (2xy,\ x^2 + 2y - 1)$ s'annule si $x = 0$ (et alors $y = \frac{1}{2}$) ou si $y = 0$ (et alors $x = \pm 1$). Le minimum local n'est pas global : $k(x, -1) = 2 - x^2$ tend vers $-\infty$.
 
-**Erreurs fréquentes.** Oublier une des solutions de $2xy = 0$ (a : 1 ou 2) ; donner $k$ en un point selle (b : 0) ; oublier le carré de $k_{xy}$ dans $D$ (c : 4) ; inverser l'ordre du gradient (e) ; donner $\frac{\partial k}{\partial x}$ en f).
+**Erreurs fréquentes.** Oublier une des solutions de $2xy = 0$ (a : 1 ou 2) ; donner $k$ en un point selle (b : 0) ; ajouter $k_{xy}^2$ au lieu de le retrancher (c : 4), ou oublier son carré (c : $-2$) ; inverser l'ordre du gradient (e) ; donner $\frac{\partial k}{\partial x}$ en f).
 
 ### Ex M05b.22 — Prédire : la dérivée directionnelle le long d'une ligne de niveau
 

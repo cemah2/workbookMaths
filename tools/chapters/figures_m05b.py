@@ -189,7 +189,7 @@ def exercise_16_map() -> None:
     cs = ax.contour(X, Y, F, levels=levels, colors="tab:blue", linewidths=1, linestyles="solid")
     spots = [(0.0, c / 2) for c in range(-4, 7)] + [(float(np.sqrt(c - 6)), 3.0) for c in range(7, 16)]
     ax.clabel(cs, fmt=lambda v: french_number(round(v)), fontsize=10, inline_spacing=2, manual=spots)
-    points = {"A": (1, 1), "B": (2, 1), "C": (1, 2), "P": (0.5, -1), "Q": (2.5, -0.875)}
+    points = {"A": (1, 1), "B": (2, 1), "C": (1, 2), "P": (0.5, -0.875), "Q": (2.5, -0.875)}
     for name, (px, py) in points.items():
         ax.plot(px, py, "o", color=C[3], markersize=6)
         ax.annotate(name, (px, py), xytext=(5, 5), textcoords="offset points", fontsize=10, color=C[3],

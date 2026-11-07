@@ -15990,7 +15990,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "06c0d05d1dc205e7ed807b08b577b6d07a8a971c9f54240962fdaf3f48f046e3": "la direction est (0, −1), pas (0, 1)"
+        "06c0d05d1dc205e7ed807b08b577b6d07a8a971c9f54240962fdaf3f48f046e3": "relis la direction demandée, avec son signe"
       },
       "sign": 1,
       "source": "chapitres/m05b_gradient/05_solutions.ipynb"
@@ -16167,6 +16167,7 @@
       "magnitude": 0,
       "mistakes": {
         "75405c34c87ae9199e6503aa53a07877a26d2dd6854b3b39d8215548d09f253a": "divise le vecteur qui va de P vers O par sa norme",
+        "a3df38e6881df3e351e8972d957d001ab6055a2c24703c675f4f30add161e22e": "on demande le taux en P, la dérivée directionnelle, pas le taux moyen sur le trajet",
         "e31cd3b8798c8a9d8ef5872734f27de8cbda1b8d832b44d2cff39ff7ee9ed47c": "la direction va de P vers O : c'est O − P"
       },
       "sign": 1,
@@ -16193,7 +16194,7 @@
       "hash": "a0d8f5547c9b669f91e5e9ede4cafef3e03f8fd3971911ac3423a6ec67f34215",
       "kind": "fraction",
       "mistakes": {
-        "4cf566c4a8b518d98496b169fff4a5018d37331e27b8295da35afd2123d2f865": "attention au signe de la pente",
+        "4cf566c4a8b518d98496b169fff4a5018d37331e27b8295da35afd2123d2f865": "une droite dirigée par (p, q) a pour pente q/p : refais ce quotient avec les signes des composantes",
         "6ca03e15d6010fb61243f0ab487a92854303309682b1e8447eaae84b29acaf25": "la tangente à l'isotherme est orthogonale au gradient, pas parallèle"
       },
       "sign": -1,
@@ -17466,7 +17467,7 @@
       "kind": "fraction",
       "mistakes": {
         "0025ddd2ec837e5b6a57b8ce6b2165104d9cf12444b027934810e47b33b6ee38": "c'est la valeur de k en un point selle",
-        "203ca7614125428eb1dcf50dd742279cce39aa0b28f1035bf1c6441e259fe382": "attention au signe"
+        "203ca7614125428eb1dcf50dd742279cce39aa0b28f1035bf1c6441e259fe382": "refais le calcul de k au point critique, terme par terme"
       },
       "sign": -1,
       "simplified": true,
@@ -17477,7 +17478,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "2b2cf27c09180bec1e2924c873e024f7b36c33d26bd081143ca690f6a356c7fc": "D = k_xx k_yy − k_xy², avec le carré de k_xy"
+        "2b2cf27c09180bec1e2924c873e024f7b36c33d26bd081143ca690f6a356c7fc": "le terme k_xy² se retranche dans D",
+        "756e114b33bd8c0d6fbb02b6fd090de46fdb8e97303348c41eb699f250c7e0eb": "k_xy est au carré dans D"
       },
       "sign": -1,
       "source": "chapitres/m05b_gradient/05_solutions.ipynb"

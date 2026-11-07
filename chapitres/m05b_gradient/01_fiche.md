@@ -281,7 +281,7 @@ Si la parenthèse est positive dans toutes les directions, $f$ monte autour de $
 Exemple : $f(x, y) = x^3 + y^3 - 3xy$.
 - Le gradient : $f_x = 3x^2 - 3y$ et $f_y = 3y^2 - 3x$. Il s'annule si $y = x^2$ et $x = y^2$, donc $x = x^4$, soit $x = 0$ ou $x = 1$ : deux points critiques, $(0, 0)$ et $(1, 1)$.
 - Les dérivées secondes : $f_{xx} = 6x$, $f_{yy} = 6y$, $f_{xy} = -3$.
-- En $(0, 0)$ : $D = 0 \times 0 - 9 = -9 < 0$, un **point selle**. On le vérifie : le long de la droite $y = -x$, $f = 3x^2$ monte ; le long de $y = x$, $f = 2x^3 - 3x^2$ descend près de 0.
+- En $(0, 0)$ : $D = 0 \times 0 - 9 = -9 < 0$, un **point selle**. On le vérifie sur la fonction : $f(x, x) = 2x^3 - 3x^2 = x^2(2x - 3)$ est négatif près de 0, et $f(x, 0) = x^3$ est positif pour $x > 0$ : autour de $(0, 0)$, $f$ prend des valeurs des deux signes.
 - En $(1, 1)$ : $D = 36 - 9 = 27 > 0$ et $f_{xx} = 6 > 0$, un **minimum local**, où $f(1, 1) = -1$. Il n'est pas global : le long de l'axe des $x$, $f(x, 0) = x^3$ tend vers $-\infty$.
 
 ![Les lignes de niveau de x³ + y³ − 3xy : un col en (0, 0), un creux en (1, 1)](figures/points_critiques.png)
