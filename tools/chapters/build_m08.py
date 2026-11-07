@@ -128,10 +128,12 @@ PAPER = [
         ("a", "a number", "3 / 50", "decimals=2"),
         ("b", "a number (4 decimals)", "0.06 - WALD_5",
          '''decimals=4, mistakes={"la demi-largeur de Wald est z √(p̂(1 − p̂)/n) : n'oublie pas la racine": '''
-         '''0.06 - 1.96 * 0.06 * 0.94 / 50, "la borne basse retranche la demi-largeur à p̂": 0.06 + WALD_5}'''),
+         '''0.06 - 1.96 * 0.06 * 0.94 / 50, "la borne basse retranche la demi-largeur à p̂": 0.06 + WALD_5, '''
+         '''"tu as arrondi trop tôt : garde la racine √(p̂(1 − p̂)/n) avec tous ses chiffres jusqu'à la fin": -0.0059}'''),
         ("c", "a list of 2 numbers (4 decimals)", "[0, 0.06 + WALD_5]",
          '''decimals=4, mistakes={"une proportion ne peut pas être négative : ramène la borne basse dans [0, 1]": '''
-         '''[0.06 - WALD_5, 0.06 + WALD_5]}'''),
+         '''[0.06 - WALD_5, 0.06 + WALD_5], "tu as arrondi trop tôt : garde la racine √(p̂(1 − p̂)/n) avec tous ses '''
+         '''chiffres jusqu'à la fin": [0, 0.1259]}'''),
         ("d", "a list of 2 numbers (4 decimals)", "wilson(3, 50)",
          '''decimals=4, mistakes={"c'est l'intervalle de Wald : l'intervalle de Wilson a la formule de la fiche, §5": '''
          '''[0, 0.06 + WALD_5]}'''),

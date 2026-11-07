@@ -92,11 +92,11 @@ $K$ suit la loi binomiale $\mathcal{B}(5 ;\ 0{,}4)$.
 ### M08.R2 — L'intervalle de confiance d'une moyenne (M02c) 🔁 ★ ⏱️ 5 min
 *Fiche §5 · parcours C, E*
 
-36 mesures ont une moyenne $\bar{x} = 18{,}5$ et un écart-type $s = 4{,}2$.
+36 mesures ont une moyenne $\bar{x} = 18{,}5$ et un écart-type $s = 4{,}2$. Utilise l'approximation normale ($z = 1{,}96$ à 95 %, $z = 1{,}645$ à 90 %).
 1. L'erreur type de la moyenne ?
 2. La demi-largeur de l'intervalle à 95 % ?
 3. L'intervalle à 95 % ?
-4. La demi-largeur de l'intervalle à 90 % ?
+4. La demi-largeur de l'intervalle à 90 % (2 décimales) ?
 5. Combien de mesures faudrait-il pour une demi-largeur de 0,5 à 95 %, si $s$ reste voisin de 4,2 ?
 
 ### M08.R3 — Vraisemblance et log-vraisemblance (M04) 🔁 ★ ⏱️ 5 min
@@ -106,8 +106,8 @@ Huit essais indépendants de même probabilité de succès $p$ donnent 3 succès
 1. Écris la vraisemblance $L(p)$ (sans le coefficient binomial, qui ne dépend pas de $p$).
 2. Écris la log-vraisemblance $\ln L(p)$.
 3. La valeur de $p$ qui la maximise ?
-4. La log-vraisemblance maximale (3 décimales) ?
-5. De combien la log-vraisemblance est-elle plus basse en $p = \frac{1}{2}$ ?
+4. La log-vraisemblance maximale (4 décimales) ?
+5. De combien la log-vraisemblance est-elle plus basse en $p = \frac{1}{2}$ (calcule à partir des valeurs non arrondies) ?
 
 <a id="papier"></a>
 
@@ -167,7 +167,7 @@ Une dégustatrice affirme reconnaître un thé de son producteur parmi deux tass
 | c | le risque de type II $\beta$ de cette règle, contre $p = 0{,}8$ | un nombre (3 décimales) |
 | d | le risque de type I de la règle $K \ge 10$ | une fraction irréductible |
 | e | la puissance de la règle $K \ge 10$ contre $p = 0{,}8$ | un nombre (3 décimales) |
-| f | le plus petit seuil $c$ dont le risque de type I est au plus 0,05 | un entier |
+| f | la plus petite valeur critique $c$ dont le risque de type I est au plus 0,05 | un entier |
 
 Dans ta copie : que gagne-t-on et que perd-on en passant de $K \ge 11$ à $K \ge 10$ ? Pourquoi ne peut-on pas obtenir un risque de type I d'exactement 0,05 ? Comment augmenter la puissance sans augmenter le risque de type I ?
 
@@ -266,7 +266,7 @@ Deux modèles sont ajustés par maximum de vraisemblance sur les mêmes $n = 200
 | d | le BIC du modèle 2 | un nombre (1 décimale) |
 | e | le modèle choisi par l'AIC | 1 ou 2 |
 | f | le modèle choisi par le BIC | 1 ou 2 |
-| g | le gain minimal de log-vraisemblance, $\ln L_2 - \ln L_1$, pour que le BIC préfère le modèle 2 | un nombre (3 décimales) |
+| g | le gain de log-vraisemblance, $\ln L_2 - \ln L_1$, au-delà duquel le BIC préfère le modèle 2 (garde $\ln 200$ avec 4 décimales au moins) | un nombre (3 décimales) |
 
 Dans ta copie : écris la différence des AIC comme un gain d'ajustement moins une pénalité. Pourquoi les deux critères ne sont-ils pas d'accord ici ?
 
@@ -312,7 +312,7 @@ Un test rejette $H_0$ pour les grandes valeurs d'une statistique $T$. Sous $H_0$
 2. Démontre par récurrence que $P(A_1 \cup \cdots \cup A_m) \le P(A_1) + \cdots + P(A_m)$.
 3. On fait $m$ tests, chacun au seuil $\frac{\alpha}{m}$ ; $m_0$ des hypothèses nulles sont vraies. Montre que la probabilité de rejeter à tort au moins l'une d'elles est au plus $\alpha$. Où as-tu utilisé l'indépendance des tests ?
 4. Quand l'inégalité de Boole est-elle une égalité ?
-5. Si les tests sont indépendants, la probabilité d'au moins un faux positif vaut $1 - \big(1 - \frac{\alpha}{m}\big)^m$. Montre par récurrence que $(1 - x)^m \ge 1 - mx$ pour $x \in [0, 1]$, et retrouve la garantie de 3.
+5. Si les $m$ hypothèses nulles sont vraies, que les tests sont indépendants et que chacun rejette à tort avec la probabilité $\frac{\alpha}{m}$, la probabilité d'au moins un faux positif vaut $1 - \big(1 - \frac{\alpha}{m}\big)^m$. Montre par récurrence que $(1 - x)^m \ge 1 - mx$ pour $x \in [0, 1]$, et retrouve la garantie de 3.
 6. Montre que, pour $\alpha < 1$, « $\min(1, m\,p_i) \le \alpha$ » équivaut à « $p_i \le \frac{\alpha}{m}$ » : les p-valeurs ajustées et les seuils divisés prennent les mêmes décisions.
 
 ### Ex M08.12 — L'intervalle de Wilson, en inversant le test d'une proportion ∂ ★★★ ⏱️ 25 min
@@ -323,7 +323,7 @@ Après $k$ succès en $n$ essais, $\hat{p} = \frac{k}{n}$. L'intervalle de Wilso
 1. Montre que cette condition équivaut à $(\hat{p} - p_0)^2 \le \frac{z^2}{n}\,p_0(1 - p_0)$.
 2. Écris-la sous la forme $a\,p_0^2 + b\,p_0 + c \le 0$, avec $a$, $b$ et $c$ en fonction de $\hat{p}$, $z$ et $n$.
 3. Calcule le discriminant, vérifie qu'il est positif ou nul, et déduis-en les deux bornes : retrouve la formule de la fiche.
-4. Montre que les deux bornes sont dans $[0, 1]$ (indication : le signe du trinôme en 0 et en 1).
+4. Montre que les deux bornes sont dans $[0, 1]$ (indication : le signe du trinôme en 0 et en 1, et la position de son sommet).
 5. Que deviennent les bornes quand $k = 0$ ?
 6. Vérifie la formule sur l'exemple de la fiche (2 erreurs sur 25).
 

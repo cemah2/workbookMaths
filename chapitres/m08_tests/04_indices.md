@@ -394,7 +394,7 @@ Relis « Le lien entre tests et intervalles » et « L'intervalle de Wilson » (
 </details>
 <details><summary>Indice 3</summary>
 
-$a = 1 + \frac{z^2}{n}$, $b = -\big(2\hat{p} + \frac{z^2}{n}\big)$, $c = \hat{p}^2$ ; le discriminant se simplifie en $\frac{4z^2}{n}\big(\hat{p}(1 - \hat{p}) + \frac{z^2}{4n}\big)$. 4 : évalue le trinôme en 0 et en 1.
+$a = 1 + \frac{z^2}{n}$, $b = -\big(2\hat{p} + \frac{z^2}{n}\big)$, $c = \hat{p}^2$ ; le discriminant se simplifie en $\frac{4z^2}{n}\big(\hat{p}(1 - \hat{p}) + \frac{z^2}{4n}\big)$. 4 : évalue le trinôme en 0 et en 1, et situe son sommet $-\frac{b}{2a}$ par rapport à 0 et à 1.
 
 </details>
 

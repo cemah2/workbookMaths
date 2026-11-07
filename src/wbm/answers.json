@@ -24337,6 +24337,7 @@
       "kind": "float",
       "magnitude": -3,
       "mistakes": {
+        "407a1597b416ef049e5d90652133554dc16691f45e34ec1b3435cf92252c9fc2": "tu as arrondi trop tôt : garde la racine √(p̂(1 − p̂)/n) avec tous ses chiffres jusqu'à la fin",
         "61ede3c73599701097df5dc17ab933465ba3b1bd17bacff6513e8e4cf4aa2830": "la borne basse retranche la demi-largeur à p̂",
         "81330a89046c31f50b8c607894e0d028592dce322a0ad1301ebec83e9bc7057e": "la demi-largeur de Wald est z √(p̂(1 − p̂)/n) : n'oublie pas la racine"
       },
@@ -24367,7 +24368,8 @@
       "hash": "9437e98150d650ba590d62f94300d931081de380a660ff401b7f5917ecdd1c96",
       "kind": "array",
       "mistakes": {
-        "1f0461110e733e1e8689455acfbe63cc28ccdace8e225131cf1143a9fead1320": "une proportion ne peut pas être négative : ramène la borne basse dans [0, 1]"
+        "1f0461110e733e1e8689455acfbe63cc28ccdace8e225131cf1143a9fead1320": "une proportion ne peut pas être négative : ramène la borne basse dans [0, 1]",
+        "4fac28ec243cf825eed509585a6567abea98694e33b87075e9005a281910525b": "tu as arrondi trop tôt : garde la racine √(p̂(1 − p̂)/n) avec tous ses chiffres jusqu'à la fin"
       },
       "shape": [
         2

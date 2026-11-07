@@ -78,8 +78,8 @@
 1. $L(p) = p^3(1 - p)^5$.
 2. $\ln L(p) = 3\ln p + 5\ln(1 - p)$.
 3. La dérivée $\frac{3}{p} - \frac{5}{1 - p}$ s'annule en $p = \frac{3}{8}$ (la proportion observée).
-4. $3\ln\frac{3}{8} + 5\ln\frac{5}{8} \approx -5{,}293$.
-5. $\ln L(\frac{1}{2}) = 8\ln\frac{1}{2} \approx -5{,}545$ : plus bas d'environ **0,253**.
+4. $3\ln\frac{3}{8} + 5\ln\frac{5}{8} \approx -5{,}2925$.
+5. $\ln L(\frac{1}{2}) = 8\ln\frac{1}{2} \approx -5{,}5452$ : plus bas d'environ **0,2527** (en partant de valeurs arrondies à 3 décimales, on trouverait 0,252 ou 0,253).
 
 <a id="papier"></a>
 
@@ -149,7 +149,7 @@ Pour la copie : passer de $K \ge 11$ à $K \ge 10$ gagne de la puissance (0,698 
 - a) $z_{0{,}95} \approx 1{,}645$ ; b) $z_{0{,}80} \approx 0{,}842$.
 - c) $\big((1{,}645 + 0{,}842) \times \frac{8}{2}\big)^2 = (9{,}948)^2 \approx 98{,}96$ : on arrondit **au-dessus**, 99.
 - d) En bilatéral, $z_{0{,}975} = 1{,}960$ : $\big(2{,}802 \times 4\big)^2 \approx 125{,}6$, soit 126.
-- e) $\delta = 1$ : $\big(2{,}487 \times 8\big)^2 \approx 395{,}7$, soit 396.
+- e) $\delta = 1$ : $\big(2{,}487 \times 8\big)^2 \approx 395{,}9$, soit 396.
 - f) Puissance $= \Phi\big(\frac{\delta\sqrt{n}}{\sigma} - z_{0{,}95}\big) = \Phi(1{,}5 - 1{,}645) = \Phi(-0{,}145) \approx 0{,}44$.
 
 Pour la copie : $n$ dépend de $\frac{\sigma^2}{\delta^2}$ ; diviser l'effet par 2 multiplie $n$ par 4. Avec 36 mesures, la puissance n'est que de 44 % : un test non significatif ne dit presque rien (on manquerait l'effet plus d'une fois sur deux). Il faut le dire : « pas d'effet détecté », pas « pas d'effet ».
@@ -189,7 +189,7 @@ Pour la copie : Wald donne $[0, 0]$ pour 0 erreur sur 60, comme si l'on était s
 - f) $s^2_{\text{avant}} \approx 28{,}67$, $s^2_{\text{après}} \approx 18{,}97$ : $\sqrt{\frac{28{,}67 + 18{,}97}{6}} \approx 2{,}82$.
 - g) **Faux** : les deux bornes sont positives.
 
-Pour la copie : les routes diffèrent beaucoup entre elles (de 45 à 61 ms) ; sans appariement, cette variabilité entre routes entre dans l'erreur type, alors qu'elle n'a rien à voir avec la mise à jour. En travaillant sur les différences, chaque route sert de témoin à elle-même. Sans appariement, l'intervalle (de Welch) serait environ $[-2{,}8 ;\ 9{,}8]$ : il contient 0, et l'on conclurait à tort qu'on ne voit pas d'effet.
+Pour la copie : les routes diffèrent beaucoup entre elles (de 45 à 61 ms) ; sans appariement, cette variabilité entre routes entre dans l'erreur type, alors qu'elle n'a rien à voir avec la mise à jour. En travaillant sur les différences, chaque route sert de témoin à elle-même. Sans appariement, l'intervalle serait $3{,}5 \pm t \times 2{,}82$, environ $[-2{,}8 ;\ 9{,}8]$ avec $t \approx 2{,}23$ (la méthode de Welch, hors programme) : il contient 0 quel que soit le quantile choisi, et l'on conclurait à tort qu'on ne voit pas d'effet.
 
 **Erreurs fréquentes.** $\mathrm{ddof} = 0$ (b : 1,893) ; diviser par $n$ au lieu de $\sqrt{n}$ ; prendre 1,96 ou 6 degrés de liberté (d) ; prendre le quantile d'ordre 0,95.
 
@@ -279,7 +279,7 @@ Pour la copie : la vraisemblance est maximale en $\hat{p} = \frac{6}{40} = 0{,}1
 **Réponse modèle.**
 1. Les deux membres de $|\hat{p} - p_0| \le z\sqrt{\frac{p_0(1 - p_0)}{n}}$ sont positifs ou nuls : on peut les élever au carré sans changer le sens, $(\hat{p} - p_0)^2 \le \frac{z^2}{n}\,p_0(1 - p_0)$.
 2. $\hat{p}^2 - 2\hat{p}p_0 + p_0^2 \le \frac{z^2}{n}p_0 - \frac{z^2}{n}p_0^2$, soit $a\,p_0^2 + b\,p_0 + c \le 0$ avec $a = 1 + \frac{z^2}{n}$, $b = -\big(2\hat{p} + \frac{z^2}{n}\big)$, $c = \hat{p}^2$.
-3. $\Delta = \big(2\hat{p} + \frac{z^2}{n}\big)^2 - 4\big(1 + \frac{z^2}{n}\big)\hat{p}^2 = \frac{4z^2}{n}\hat{p}(1 - \hat{p}) + \frac{z^4}{n^2} = \frac{4z^2}{n}\Big(\frac{\hat{p}(1 - \hat{p})}{n}\,n + \frac{z^2}{4n}\Big) \ge 0$. Comme $a > 0$, le trinôme est négatif ou nul entre ses racines : $p_0 = \frac{-b \pm \sqrt{\Delta}}{2a} = \frac{\hat{p} + \frac{z^2}{2n} \pm z\sqrt{\frac{\hat{p}(1 - \hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}}$, la formule de la fiche.
+3. $\Delta = \big(2\hat{p} + \frac{z^2}{n}\big)^2 - 4\big(1 + \frac{z^2}{n}\big)\hat{p}^2 = \frac{4z^2}{n}\hat{p}(1 - \hat{p}) + \frac{z^4}{n^2} = 4z^2\Big(\frac{\hat{p}(1 - \hat{p})}{n} + \frac{z^2}{4n^2}\Big) \ge 0$. Comme $a > 0$, le trinôme est négatif ou nul entre ses racines : $p_0 = \frac{-b \pm \sqrt{\Delta}}{2a} = \frac{\hat{p} + \frac{z^2}{2n} \pm z\sqrt{\frac{\hat{p}(1 - \hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}}$, la formule de la fiche.
 4. Le trinôme vaut $c = \hat{p}^2 \ge 0$ en 0 et $a + b + c = (1 - \hat{p})^2 \ge 0$ en 1. Son sommet, $-\frac{b}{2a} = \frac{2\hat{p} + z^2/n}{2(1 + z^2/n)}$, est entre 0 et 1 (car $2\hat{p} \le 2 + \frac{z^2}{n}$). Le trinôme est négatif entre les racines et positif ou nul en 0 et en 1, de part et d'autre du sommet : 0 est à gauche de la petite racine, et 1 à droite de la grande. Les deux bornes sont dans $[0, 1]$.
 5. Pour $k = 0$, $c = 0$ : les racines sont 0 et $\frac{z^2/n}{1 + z^2/n} = \frac{z^2}{n + z^2}$. L'intervalle est $\big[0 ;\ \frac{z^2}{n + z^2}\big]$, de largeur non nulle (Wald donnait $[0, 0]$).
 6. $\hat{p} = 0{,}08$, $\frac{z^2}{n} = 0{,}1537$ : centre $\frac{0{,}08 + 0{,}0768}{1{,}1537} \approx 0{,}1359$, demi-largeur $\frac{1{,}96\sqrt{0{,}002944 + 0{,}001537}}{1{,}1537} \approx 0{,}1137$, d'où $[0{,}022 ;\ 0{,}250]$, comme dans la fiche.
