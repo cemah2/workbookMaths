@@ -15617,6 +15617,2274 @@
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
+    "M05b.1a": {
+      "hash": "47ea0c89c38bd41ae4cf78ee1da441580f26a7c8c383c42f598d1ee2332bcbcb",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "ea4dd0c6deb080e09e9e3f6028165fad81287b19b4cf086bde211c21852b3bf0": "isole y dans 3x − y + 2 = 5 : attention au signe devant y"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.1b": {
+      "hash": "42e6442af2134fa9fc8ca3cb209a7c36ae17381f9b47e02df85495b6f9ea6bb5",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "094d0b91e03efb944af38682c4536eef1a4ea173fd827e6805f4545cf7f4bbc6": "isole y dans 3x − y + 2 = c : attention au signe devant y"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.1c": {
+      "hash": "0d81c4368d8a444752b8644aff817994f07cff145248e88dabc56cc251661d25",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "d9591afbcf9915eb129e8a8afeb183c487f56045364c4fa4200b8de35b7e0c83": "la ligne de niveau coupe l'axe des x là où y = 0 : résous l'équation en x jusqu'au bout"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.1d": {
+      "hash": "333bfc238f58ad2e0769e83099dbca21e6302c5f11e51acd57590bfd38da0427",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "29739abbb23c9c30fc7021e36a9fd53ebd2904f8c66b8da882d5e547e3854cd9": "la ligne de niveau coupe l'axe des y là où x = 0 : résous l'équation en y jusqu'au bout (une racine carrée)",
+        "519df24ad06b6393e2b4aab3184865acf6f750779361773d3f59f2c3b8a8482f": "c'est l'intersection avec l'axe des x ; la question porte sur l'axe des y"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.1e": {
+      "hash": "e7d7f6a85b97ccac6559229212a18ea89e0ac6d2684bd89fdb77643c08d4dd34",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "fe24c7edf198d3ca6f9c4ce2a3595624f1386f16195f9eed41e77325f56311a0": "x est au carré dans f₂"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.1f": {
+      "hash": "2e6d402b6277588ecd416846a09d626596da5a032c09f8b5d865b13f93329cf9",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "3d94549f870936033be570a4bdaba2a1aced43ff3dc5f080ec15fecd7bf2e62a": "isole y dans y − x² = −2 : attention au signe"
+      },
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.1g": {
+      "hash": "c6213f3e92c4b19fbe21e72fb80929cf6c0ae52694eade77c89cb20c59711329",
+      "kind": "bool",
+      "mistakes": {
+        "80d79488d023bcbd05758932037955d48a144fc1e1bd5593c76721be05d6d2f1": "(−2)² est positif"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.1h": {
+      "hash": "c0caab7f42978dccd51e70658aab6684d3fe1a3847c5e692be8085860ae6f088",
+      "kind": "bool",
+      "mistakes": {
+        "b26ed80a4790ff024f2b86e09592c79b26a6b8e01b689881cb546a3ed772661f": "x² + 9y² est une somme de carrés : quel est son signe ?"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.2a": {
+      "hash": "b56cf629419054678cfbfb127fb6f458e8c024bc5562da14d575addb38bc0c74",
+      "kind": "expr",
+      "mistakes": {
+        "0510e989d003f64002356191aa44b4af5c3c80945a0c14af3be829601418c19f": "la dérivée de 7x par rapport à x n'est pas nulle",
+        "65471d442d6a31fc5544b9b5219675ebb655a3865b6041409fe58ed635b79bcd": "−y² ne dépend pas de x : sa dérivée par rapport à x est nulle"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5"
+        ],
+        [
+          "5/7",
+          "9/4"
+        ],
+        [
+          "6/5",
+          "-7/3"
+        ],
+        [
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "9/4",
+          "13/6"
+        ]
+      ],
+      "variables": [
+        "x",
+        "y"
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.2b": {
+      "hash": "acb0a69b0b44ddf502424af552c4223b2460c8485cd75881335d40b39bc4cfc3",
+      "kind": "expr",
+      "mistakes": {
+        "88e797df798b6cbe206697f8cedaad35a724f07dd585154964a248396a6d3426": "x³ est une constante quand on dérive par rapport à y, mais y, lui, se dérive",
+        "8ab325f26bf6684fc07367f0ab771e6b80c50572cbceefd35b299c9269be8beb": "7x ne dépend pas de y : sa dérivée par rapport à y est nulle"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5"
+        ],
+        [
+          "5/7",
+          "9/4"
+        ],
+        [
+          "6/5",
+          "-7/3"
+        ],
+        [
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "9/4",
+          "13/6"
+        ]
+      ],
+      "variables": [
+        "x",
+        "y"
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.2c": {
+      "hash": "163e2cbb8073bef0771cbd74c1b87bf2ebcb36cd930cf5fdcf9791e9809fa869",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "db3ee356eb452759cde716782aa69d28845dcc2f82d9c31c0c680baba2a7a882": "remplace y par −2, avec son signe"
+      },
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.2d": {
+      "hash": "2d0cd4bce7fe3c60d235128376b2370cad1d2bb18887c3f1478bdd7bd6a4250d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "235a9136b0d3b9a7a06ee4043d8d860777f74add21a81197e4dcfa417e9856cb": "remplace y par −2, avec son signe"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.2e": {
+      "hash": "536e08081de36c72a779d999efdb7e26c260fc4a230d3d303d0f19173de78034",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "fd0aab5cba3e3afe8e5d7fc6a2fba5ca3e8d7924408a25a6c4c684aec4d30f41": "applique la règle de la chaîne : dérive aussi l'exposant 2x − y par rapport à x"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.2f": {
+      "hash": "cf36a5f342a1a5921206e29c20f2dffec9eec43a4b20a975e4d89ccb2c6c9eae",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0cfdc2a37fd33d85de0dcc32620da65698f2bdf2e0bed0620bb903d4b54dd10a": "la dérivée de l'exposant 2x − y par rapport à y est négative"
+      },
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.2g": {
+      "hash": "46a2d6429b63487cf2a1f9c18525ef140a36ae9a84091b9ee423882a71ddba32",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "9ed79fc637df7440806bab24dc97f3ec08d8387864dcc36865ebdcfa11dbed6c": "z² est positif même si z est négatif"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.2h": {
+      "hash": "8bb3e9c663e7c505207635c18ec2e10c8f50149b276aabac1ac3de29983a58f8",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "10c0450dc8460bb3afce80f531e24996d70e464286b12379b00f4016136bc895": "z³ garde le signe de z"
+      },
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.3a": {
+      "decimals": 0,
+      "element_hashes": [
+        "4ab4dcf2b342c1f2ef070782679ca852afbd276f26b5de639e1fe4d6ed62135d",
+        "7556854ab77562a575c354d81b8ef22a4cf11c8226cb434401dbe7229b0b21ca"
+      ],
+      "hash": "636f1263955ccbd8edd0056868167715cb541417dc42bc90141c0e7a092ec539",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "488e7a1c447a91645602ff3fc4756338936f05ad0deb11ed692ad4b06be3a936": "∂f/∂y contient aussi la dérivée du terme −3y"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.3b": {
+      "coarse_any": {
+        "0": [
+          "a5792ee36e4cd13c6e4c387a42de627ed63e0fa21bfaf58eb214861616501745"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "87cbeb8071be29b1826d7f0190ba3d2a41a55636d63b6ef8cfe04018890a5ddf"
+        ],
+        "2": [
+          "d37aeb42fd679da5e2d69b81219c75aa61eebdd3b5366252d2dd4e2cd55f9e9e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "2f691027686ef0661b995eded6dec2e52a58f9600e38631c297f79e431944f1e",
+      "hash_coarse": "ef11c7d553a9458c8f5aada729845a48062c9ed17112ba911bbc9ee2b2171ae2",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "570258dbeb8ae159031f58d799262d6f5a53ee4e67ec8f9c573749e926451547": "la norme n'est pas la somme des composantes",
+        "c75d6fb1a85bece58a534b66443befe577d891f3376200b28b11cb18e4562f58": "la norme est la racine carrée de la somme des carrés"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.3c": {
+      "decimals": 0,
+      "element_hashes": [
+        "78380296650db95f0ce8c1e004014e2046356279a86eaf8f4673aea9a190777d",
+        "e6e32a81e83a281597b5ecc7db0713e60b5995e75c8b28e6d48d1a4435582221"
+      ],
+      "hash": "d676826e95658038c393c20068f8f5d109bf9df615a2b4797e505fa9a8e946bc",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.3d": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "9b16fa435f2bb84f3f75a4618e4f0e719effe45951802a0ba3de4e2e7622c2b6"
+        ],
+        [
+          "2dd127776ffbc3b1e125d8fcdd955a12aeb0bcfbf7dfeeaf1020521da19a2730"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f94147a09b95f0c6755866415277fc68a31222f0a31266e0ef074f0e11aa09c6",
+          "fa9aaf441e0a46aa5371aacadcade1ef8494847bfbc106a88ddfacf8b23b9611"
+        ],
+        [
+          "1d924ff1a73b3e69af891ea081376111bb52806db604865aab34e8f62c7aa944",
+          "33a2a674e5f142710f3eeb7c8cf03137509995beb0b99c82e06649c8855d3114"
+        ]
+      ],
+      "element_hashes": [
+        "f6679fad7587e92acafff05a9ed43803a4f986916b2aaea0cd6962d76009cd53",
+        "0ace95059cf175530ea8fef9e9ac1bd67a670d56192ab066770e71fb40aa3776"
+      ],
+      "hash": "61f284e9e80536bedf0a1f80f6887c7d4a7f6cf46b0147b80afee02250b48daf",
+      "kind": "array",
+      "mistakes": {
+        "a1fee752c93b62c2641175e1138252a3af19e83d86fb93606fe30b60b564d019": "l'équation en x a deux solutions"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.3e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "f3d2d27e509721bf1fa79aa27ed87caf3a895b4f2199e84c34d535b3055df899"
+        ],
+        [
+          "a9857fd6fa465846182c4c12a2b5ef3387ec726a45ab6778fe508dee6faad766"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "69e5b02a39fa101a34f6ea2601decf54e378296df601ebac498cfad56bdd6610",
+          "5561db863d5ac33b4db9ba288ec01c68cdd43f5c84eea883a87e4b2345fc157d",
+          "776b39ad2ce1018f53cd89b584bf40264ca02cc6ba6848025bacca3f030f314e"
+        ],
+        [
+          "fa61539989f935d6e5441c338e46d46bf198ece44569fd8a1c382ffba1cb06f5",
+          "21541f05af400af98cf4a79f09ddc5489a6244bf34a9f7cb7128ef26fc7c2693"
+        ]
+      ],
+      "element_hashes": [
+        "e8166d0a649bc45164df8c65f36051480e6e0779ddd7258181033057a79251a9",
+        "94d26dc63165090a00ca81cc35f177fd118c97a6254fa53615204654a99dc914"
+      ],
+      "hash": "f7d6063ae76f9550530cdaae2c821edf063ae19543fbd227331339f542926219",
+      "kind": "array",
+      "mistakes": {
+        "d07dc0055c7839d7ba40bec705b4827552264c37428ce66bfca4c0298c86a52b": "divise le gradient par sa norme pour obtenir un vecteur unitaire"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.3f": {
+      "coarse_any": {
+        "0": [
+          "e04809ce2e65a4eea941d275d3d4edadc1002c97200d2846098e0304868a9198"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "f584742fc92a48da5763f4b17b1fdf504020620f12c47732fe977886ecc93c01"
+        ],
+        "2": [
+          "32338b0ac2aa6175be9f8c4008824c2de49ca0674978d18306a9b43f3804291e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3c1f23de320a21b201ef1139b4a857edf1db5e619d7b6fec727168803b1014a4",
+      "hash_coarse": "1197b0f5a6287b491b7c1f260a09d7f0b4520e06dad1ada8b01158d3a777f07f",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "5d9d7cdea81f77da8e6f0c7719128581e86c086a3d4466cee2c158978d5225ea": "la norme est la racine carrée de la somme des carrés"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.4a": {
+      "hash": "cafe904343a34d64715bf250fc93c402f17ea6c05d338b5c0591ccb3b6813132",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "f4366b4d2a4a074f281e065d14b022fa40808fe917a91a01f9a9bbb0c9197ed6": "dans la direction (1, 0), c'est la dérivée partielle par rapport à x"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.4b": {
+      "hash": "cc996c74177a579fd84b1b089e21f892e51d2df3a0896861dae87077d1740de3",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "06c0d05d1dc205e7ed807b08b577b6d07a8a971c9f54240962fdaf3f48f046e3": "la direction est (0, −1), pas (0, 1)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.4c": {
+      "decimals": 1,
+      "hash": "dc8e208ec1cb1e9e87ed57cdbc12a027a9fb9fe73843dd56fdddbb79ee9662dd",
+      "hash_coarse": "77080dc218c03ce5cf887d2b4fba1ce7b684865b8336ba6e60549321df4c76c6",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "6a6f86fce1458be2c2b70f574d867341bd40e62713e583ae1b7e67966e0997d0": "divise le vecteur (3, 4) par sa norme avant le produit scalaire"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.4d": {
+      "coarse_any": {
+        "0": [
+          "f303b56436b6e63e6599167a36b91afb0203bb23d30a1d6c8a0c6d3e7d8a5f6e"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "531f5407236a1c1392bfbd9d4f2fa5f7a07f1b45c848fcd3db4289e0d9ffbb2f"
+        ],
+        "2": [
+          "68bd009d3604971ee33911cfe2705f9a46feb41895950690947985563fff00db"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c69549d0e41b49a777783456e666e27ddbec807fb19e3d724094301f2ea0ce78",
+      "hash_coarse": "d2c855f051ceba9a3d4a785ba75c4eb786bd1f1d515675924e4a1ce9cc4f3385",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "61553df3230c80a4eb72e57382ec49b27d8395aacba8b9547691bb06ad9b248e": "divise le vecteur (1, 1) par sa norme avant le produit scalaire"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.4e": {
+      "decimals": 1,
+      "hash": "61144e1cf76d666a6d0ca9fbc3d9a576939405c28fd4b4757d251f4ef7b0d416",
+      "hash_coarse": "79fa78ce20cc11d622ea77776a003bfe66513f571227a32da9539de36d42ecab",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "e021dcbbc3adbbaec79988900ed84477384f4e5c76aad2e1d2e51ee45211c497": "la direction va de P vers Q : c'est Q − P",
+        "f44e0593dc46463a3706780b7894c88fa6613a694c8eff3e35ed846477e31d96": "divise le vecteur Q − P par sa norme"
+      },
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.4f": {
+      "coarse_any": {
+        "0": [
+          "f325874b53c77d06db9ac3aade5b0567b1754ee9a819ef81cf603fc38803db5f"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "7b6574268aedfa4e92b29b908667a11df506971530b888335e1cb72a163d1ac9"
+        ]
+      },
+      "decimals": 3,
+      "hash": "cbeb767a1e64381f1d05e88cb89c3c8e766cb3ff457cf905d4cd242bea3a263d",
+      "hash_coarse": "c79c23e66c92e997386e573620755d978c2c57e9027a57a741938efea21460c7",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "a33afe1661a8cb9c9a930a4f8af096a63373922a4ddef9350ca3ce7979a91e98": "la norme est la racine carrée de la somme des carrés"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.4g": {
+      "coarse_any": {
+        "0": [
+          "8079909dd27da173d40bb3a4ddd5f2a35fd903c7ba28494bde7ab6f6b4ec39ec"
+        ]
+      },
+      "decimals": 2,
+      "hash": "96e478e1caf18a5520c2876c6d18d6ec9e4498240cc3cd14783d599340b7cc33",
+      "hash_coarse": "9fea736ed08494eac3e4fa60520dcf7db98c320d732662baa3d902407f005a5f",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "bb8f0ddbf31d88391e41a71033886d8dd3ea1fd8501a23fcdae69e549d47067e": "l'angle est demandé en degrés"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.5a": {
+      "decimals": 0,
+      "element_hashes": [
+        "084160349052cdbf68161cdd38e28be32c721272755b66ab5871672d8e7f1407",
+        "766e80efe3e369ebfab4b4806174da0b37a83596f73579464a351d70883dde8d"
+      ],
+      "hash": "d1902b3124d1c6dec14d4a9f758cc42b63f31cf0b8366bd70dda6f4a07f65625",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.5b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "d8675bdf0accd97554c0a800732e9d8d69ce7c98ef7802b174ac53910a4efa63"
+        ],
+        [
+          "cbc4a4d98eb3bcc2dcdeca8b3552ef500d426f2d445e095e39cbafa7bbbd51da"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f639b6afeffe7a509dde1fe03e1599bff03f027b2e8f4744e7da3cc02fb4bc6e",
+          "cc20b3e7c2fe96bbab50fc475a65e85236efb02a1dc52b4fed999848e65b5f72",
+          "db446ed298ec9bba44d1539c3d74cdd0eda62abc4b6c7e472b497d0cae2ddbd8"
+        ],
+        [
+          "71699d67cd2bf1cf6165d0c21e09de2dbe81dcf81952db7e85bad51f74a1bd94",
+          "beddeb6eb82ffe3df77c470dc1fb97fc33973c35b061cbca2b50f1594dd5d47e",
+          "35b732eaa008c665018ff49a5ddc0296e6fd67f7b9f4a1236a902789b7962024"
+        ]
+      ],
+      "element_hashes": [
+        "4b2e69a4a4045964e99652a9ccf7c6aee00316653339660b90e7a4893baf6e27",
+        "2103103ef7dca0739e17c7e6fd4d359166e1dc1d64f95ff234f8f7d3ef8c83f8"
+      ],
+      "hash": "3d28e48ce1c9ea23ed9dae7cbc3af8ceae9252235460629efbf41a6010212124",
+      "kind": "array",
+      "mistakes": {
+        "21b7f2da583bd4e163895d363d34c1e57c760db5ca7d1a0532c05b39b7ae1490": "c'est la direction où T diminue le plus vite",
+        "dd1a6d462ce855de51c2704a343b6fe08365bc077add9fb15d95bf0338955e8b": "divise le gradient par sa norme pour obtenir un vecteur unitaire"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.5c": {
+      "coarse_any": {
+        "0": [
+          "a10877e650c0975e81eec5aede6949b89dd552af777451f52bdcebabb225fb89"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "9b1073602c35df193215af4f2c289bd4f37a6e745d9c5388dc1062426befdaad"
+        ]
+      },
+      "decimals": 3,
+      "hash": "a9f1e76b2fe9f7367bbc5b69527a410d41f8a90b5954fdcfe03e8ea5b5f53aa0",
+      "hash_coarse": "ecf4f8a8178f04a16296e859c215071513efde7e304a3755f4c8fb438aaebc5d",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "004aafb2a12199873ad02afb61f48b2a193d37bd84807fb614dfe53a92dec0b6": "la norme est la racine carrée de la somme des carrés",
+        "3c4ef0ee9533193c79bac0f5914280d8b8849edd2ac0811b21dea53b64350c55": "la norme n'est pas la somme des valeurs absolues des composantes"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.5d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "f5604a400a2039a80029998d0df04e7ba066947f174287f2f350b566377b5b4e"
+        ],
+        [
+          "7a9c308d1d204ee5a65880753601161b412372080de2f797368753ff51358d8a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c664d336e4509854b0e350cd088a785614d32dcba49dfaee319a10b784f26871",
+          "d94dae2f22bc67c26c6741f01bf0c61521f1a5cc401180a669cbc2b4bc919d3b",
+          "231f4cdc6bd7bb834ef32365d03edaeee3273dfe4fe6e72e60e40a244581fafa"
+        ],
+        [
+          "60e1b236642609757a72f3fe6d7cb2a67955e4e14ea44a8e53cd7508dea5d59c",
+          "067f7a86a312f03c7ea582387fcf5d220304602d7aa21dbec75f59ff346addd2",
+          "ffb3ee4178eef8354923d98d402698859ffb720ccf447d64804f50f10d494e2a"
+        ]
+      ],
+      "element_hashes": [
+        "7be874e3edcb5b565d9f887450cb810ce438d97c7e717e385ce32ad2345a08a5",
+        "f70f2dbcef79e50c53c5bb46611dba77ba20e883360af2094a48e952de763a75"
+      ],
+      "hash": "ebd7fe3dd5de0e402ed5adce540bb06745f467151657c1035894780c580ffd1b",
+      "kind": "array",
+      "mistakes": {
+        "36a9550398ef85083792647ad8ecd14e80ddb897fb4898e44dbf7275524834a9": "c'est la direction où T augmente le plus vite"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.5e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "5300c12d5619520351f69c5d7b042fe3f220cee7abdb156959db910987924325"
+        ],
+        [
+          "d4f154da1ed36b0ee9ac014ef4e09281f2412ded85ec84adb16c9261af385590"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0a6e68542159c915f8cb0e795fa37d5b4ddf6401a33e1ad7b1a91b309b46d8ae",
+          "6c66cf1044ba739e9e4d5e80edd901937a68d271dcad48e005550a560b2075c8",
+          "6f7a7ce993e61db166509c5cabcaae480e0b658468742e1441be90d76f6a16ec"
+        ],
+        [
+          "a79d26d60d956af27cf10be6d381a47a03933353decd5d7ad802bc5abe37f20f",
+          "026501225e4b58c6746c937179f8f4140aa3bf124ed97bc7c5935839376fa697",
+          "d5c4f97e148581471f8345b09bf1c8b4b8afcfd44c412fc16a3e0a373bf5027b"
+        ]
+      ],
+      "element_hashes": [
+        "d470414617aeabd0cd031c114c72bfe228203e1f29c2717c8656eb61d068c46d",
+        "08982d8ff214c46fe3ba1bc85f26c97259f1496a5a0010c886975c239dba731f"
+      ],
+      "hash": "f48696231534b865f0ab5eeef944cc031aa3716bf77bdefddff7b2063703baf3",
+      "kind": "array",
+      "mistakes": {
+        "949c2f129394059d930b1f90c37d000e8dd8cbc03828cdee340931af71cbed4c": "la première composante doit être positive",
+        "facbdd9ebe220ce3a883a773452a71c29364077fe543403d3ac43198f584101d": "vérifie que ton vecteur est orthogonal au gradient : leur produit scalaire doit être nul"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.5f": {
+      "coarse_any": {
+        "0": [
+          "08a3608e90bfa0d39028288b3cc5090829ecad720a0dbb6c4bb6ba915ddc33da"
+        ]
+      },
+      "decimals": 2,
+      "hash": "767a74b48b2f567f49da0c01cd778015d47cda1e8b57815e907d549efd1e2003",
+      "hash_coarse": "2918b454ff85814d12047624ac48dad837563e9321324b8dbb2763e97a990df0",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3ee955ebbac454abea56f5586b6fac4bdaff559c9234f1b8b5347f9f3dec4547": "multiplie la pente par le déplacement, 0,1 cm"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.6a": {
+      "hash": "86ca8b184b6331491f6a618e1b7e057020c9d0a0925b6a22c79d09652e7e96fe",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "b7e8ac7074b632b2706b282163bd8b0fa5d5ca02796a3fede5c060a73745f89b": "n'oublie pas la racine carrée de y"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.6b": {
+      "hash": "704d86dbd2ddf12ae95891991f52282c5f9a35063900a3fa9d9e5e95a6b76b7a",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "e940e8a18a0a373378012c1f3fa1c8e111c47a66a474525bd275e74c3823b74a": "√y est une constante quand on dérive par rapport à x : elle reste en facteur"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.6c": {
+      "alt_coarse": [
+        "8dc8b278cbdb97a107f446a51c4e8db63f84d52c2e5f30f76c1d0edc93873f67"
+      ],
+      "coarse_any": {
+        "0": [
+          "305a6d18eea4c1b6ab779ce9fd7c6323e381deb49cd3a9c58a786965107c70d6"
+        ]
+      },
+      "decimals": 2,
+      "hash": "91829a9524ef3efe17697a7522a7be05fd9dda5073cd7a7e5f53cb4b909f54bb",
+      "hash_coarse": "343dfb9c49c0807b865d6a2e2ba1f40afba4b647156e713b51edc5697b2df188",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "035efc289f19f5cd7230ae2ade027e20009357e6d4437a3d2a19d84e9bc2d077": "x² est une constante quand on dérive par rapport à y : il reste en facteur",
+        "df80e09b237de222006f22c80133c823401b784939379f56115e696d5b306b8f": "la dérivée de √y est 1/(2√y)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.6d": {
+      "hash": "ecb3ad3aaddcdab6b7fd7890f8d351d4d9a517a74c386abdef3d482a13e1ee70",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "ac257d7228f4c86049735f6af839ba2ac7ad9977c34fb94ff6ea8acc9b2b3ab5": "C n'est pas f(3, 4) : développe z = f(3, 4) + A(x − 3) + B(y − 4)"
+      },
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.6e": {
+      "alt_coarse": [
+        "eee04c749ae8ed58894d56f6e322b41fd1e020d94876f15ad0020ba6f6bb0f46"
+      ],
+      "coarse_any": {
+        "0": [
+          "89b3badf2c8c55432d675bc72bfe5c25f6c11a4e70bea07c4de9028b1fbcb86c"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "8a8239ee5c235594d72c284fe41bdbe5079133f587776cc6031f94457a033637"
+        ]
+      },
+      "decimals": 3,
+      "hash": "cf63c37e585d9aed3f4f9ebd2cee3e0e66786399a55545a3ce7a1c0b76ba3ff9",
+      "hash_coarse": "2550d9283b95020ff81a4a4ac34a4713c1743298b7654f233270d6c5c5ad16c3",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "3bd65b99aaa7f3b9c4e97962ed900a60e4bd5486bb15b69cb94c5514ce855170": "le déplacement en y est négatif : de 4 à 3,9"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.6f": {
+      "coarse_any": {
+        "0": [
+          "5df8259bbc34d38741b1b10f4798f9c93763e4ed0be8224388f6ccc47c4e3e34"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "e57e5907907d299a4a6c7372ba1452713f2592257742cdcbe89c36b1dfbdd8f3"
+        ],
+        "2": [
+          "0c8ea3f4ac921847960669fc487b300464fb531e2a1e2f126788377d97a2ba7b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b0dfc8040d444d88083c75ef29bba1bc62449d61b541c33c072d30dc8a19400a",
+      "hash_coarse": "fa05bc2f71dd88756c83f6827e072e78a15014c3da4a8c6afa751a3c9fd640ab",
+      "kind": "float",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.6g": {
+      "decimals": 4,
+      "hash": "d1fa39b74848cdb34fdf214f5423a93d2dc4bcc06fa33c13e07b75e7500ac14b",
+      "hash_coarse": "f5482f0c3f68d4a4060e901cd0de56cdb0c9a2a3e91b38c1abb234d72c33e7c8",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "8e96ec257ab0d85f42aeeecfbb87df71c3b763a3b17b2eed1d7b6417b202446b": "l'erreur demandée est la valeur exacte moins l'approximation"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.7a": {
+      "hash": "05aed26aa76160c69724d58a4596c67f9df5409d30c9807096fb9a2a02e446e3",
+      "kind": "expr",
+      "mistakes": {
+        "3d099fae44925f226b9fe25f8e0eb8a6cb366fe3b27c3daf1b76bd2dd9ead5dc": "y e^(xy) est un produit : il manque un des deux termes de sa dérivée",
+        "a687997500aeb45f4b01fa2fb0a148f8b6fd50810d9f43e3ce140a4a1c143183": "y e^(xy) est un produit de deux fonctions de y : sa dérivée a deux termes"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5"
+        ],
+        [
+          "5/7",
+          "9/4"
+        ],
+        [
+          "6/5",
+          "-7/3"
+        ],
+        [
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "9/4",
+          "13/6"
+        ]
+      ],
+      "variables": [
+        "x",
+        "y"
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.7b": {
+      "hash": "3ccbdc2066e79d1e54f0c046f4298d94f80b3d124399fb77d4d37504ec320176",
+      "kind": "expr",
+      "mistakes": {
+        "13b9ddd061ff6170a8fe074246beee17fcd01560f0d319ff48367633964cd5a2": "applique la règle de la chaîne à e^(xy), à chacune des deux dérivations",
+        "824a569fc4a9f505f37c19de934958ca4681f64cab5bb9813e2a7ab349df7f77": "dérive encore une fois par rapport à y"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5"
+        ],
+        [
+          "5/7",
+          "9/4"
+        ],
+        [
+          "6/5",
+          "-7/3"
+        ],
+        [
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "9/4",
+          "13/6"
+        ]
+      ],
+      "variables": [
+        "x",
+        "y"
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.7c": {
+      "coarse_any": {
+        "0": [
+          "b9d8816c3977bf2f5329f1ef8e75b006e0032367e001b93e904dfa31438e8c6f"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "3595890fcb1b75eda90186a1f6a507e08d939e8f7b3b26cf13431f0c8de1f6bc"
+        ],
+        "2": [
+          "f41ad61f60a9266fefd6f447bdde1935bc74132236f0413a0dfb880698fa6bc3"
+        ]
+      },
+      "decimals": 4,
+      "hash": "97127b6e51aac915103c60769ec941a488c7150db714ee42be372f8f58b4f968",
+      "hash_coarse": "81afe6d67cee0394e84fab0dddea9404f16f3b99224726c2377f493c19704d7c",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.7d": {
+      "coarse_any": {
+        "0": [
+          "34b892d0bd9a94eb38364d96de09205107e3b9348adcb192b7057cee7004293a"
+        ],
+        "1": [
+          "eb30193eaf4b3ced303a06d3336952e4bf05374c7de435a8b94ea8174bee87a1"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "a9693d0deac57e5cad526a230bb8789c0acaf9291082b5bdfc08fb2cff1ab9a3"
+        ]
+      },
+      "decimals": 4,
+      "hash": "05779f0684737ffc232f7c66de61be8ddc8864b31482b674b9cb841952b950bd",
+      "hash_coarse": "b0b551f690757c9ae8584e9f0948a2f875d57eaaad153f6bb17ab94befaf8986",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.7e": {
+      "coarse_any": {
+        "1": [
+          "e175d1867cbe8969fdb37d1c00f607ad4769e54a81e197b4e3047f69455786f7"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "fa45b3f18c156cb5d207082feb4ca434b28f9aca0a89f7307b11f0c140ac71ed"
+        ]
+      },
+      "decimals": 4,
+      "hash": "f0578cd3a744fb2a2c47d826b845e06292bde87febd5f1ed1751e48b0e5e27f2",
+      "hash_coarse": "d28e2621431b6d519bfccf1e72ad709aa494ca4852169f12d7630306092bd851",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.7f": {
+      "coarse_any": {
+        "0": [
+          "156ebe2527c818128eb73d56e6c91651f95d7477fe16710ed7b77c415f98ceda"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b5eaf22614c547551d787a84b27d2336e0eafb9942d341c9bc2780780988ff01"
+        ],
+        "2": [
+          "2296371d19354d394a5faea13ebfb451452cbe66c7ba6bf0340a7830d363f1a0"
+        ]
+      },
+      "decimals": 4,
+      "hash": "dd1e4bfe3eaea5abe04fdfeddce29beb157e286aef2221ad1740b13aa363d193",
+      "hash_coarse": "8b80ac14b940615bf71b403ea6dc23ff48f3c55e05c4b07439c957e081cf4a08",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "0847e188e20124e6fa4378ee1fd3ad464853bdbf4c4819293df417d67c357248": "le terme croisé compte deux fois : 2 f_xy u₁ u₂",
+        "eab54d3da72484fea037029f7b35453bcb4ee7f4240319103ee074294459c8b2": "la direction est donnée par un vecteur unitaire : u = (1, 1)/√2"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.7g": {
+      "coarse_any": {
+        "1": [
+          "307cce8dc890007a8d872a25807b94495d0a07b748959e7f027c74e6b93892bf"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "99f3051b299afcdbf09f853a9dc4ed2dbb7d7d7a3f4ef3b73f541db5c096beb8"
+        ]
+      },
+      "decimals": 4,
+      "hash": "194fd387e04e9fdf323f68ab0697451f95cfd5d1631268d7a35e3b257b1db23b",
+      "hash_coarse": "eb167920c077b009fb5c3a8eb2d3b2a90ecd192346f2c82b38686c7249187065",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "075f0ade7b16cffcaf00013f5f3bb1c23fb28c108e370756f8b570b5b89baa36": "avec u = (1, −1)/√2, le produit u₁ u₂ est négatif",
+        "0fe05e4458c6626ee70e86fce557dafe20aedb9faed68d440c4cc6b4d85e4dbd": "le terme croisé compte deux fois : 2 f_xy u₁ u₂",
+        "1f649a06ca752953baaec943dcc58559274c4f929c351aa8ba7cbb5f439255ba": "la direction est donnée par un vecteur unitaire : u = (1, −1)/√2"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.8a": {
+      "hash": "c08d7262329c7eff0cf97289ac48d1902058b6c89b91a8bd67bb8cbce9e08ee0",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "38a8c977b1583ab7d755d913da7b5554283b671e19fefb5eb42cede3172dd42b": "l'équation en x a deux solutions"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.8b": {
+      "hash": "110d822fc54c3cd0328764d757457cefa8c26670467a41acf505930148040c1d",
+      "kind": "str",
+      "mistakes": {
+        "06460ecfa4306d5a39209983da1aa744418a1960418e2512c2e3ce9e7f552366": "D n'est pas nul en ce point : le test conclut",
+        "56e1b2b3868e8ded1e161e2d3af4f27daa92671aa80be964f434edc1afc1e527": "regarde le signe de f_xx en ce point",
+        "e407613c2ba47b0109286077304709bbd697acf21b4f16c04dc9e48ad4ee803d": "calcule D = f_xx f_yy − f_xy² en ce point : son signe décide"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.8c": {
+      "hash": "f7b37879bb43edb0911481ce5b020d15bb200aa24c71b98c40e64912b722d036",
+      "kind": "str",
+      "mistakes": {
+        "07819edbb6bcbcdc15bde241b1d9f410b2a420ff4858143cbce33932542b6af5": "calcule D = f_xx f_yy − f_xy² en (−2, 2) : son signe passe avant celui de f_xx",
+        "14cece70ca16d156211ca5cd9ae528707f5ad2df2e76d8d2c8b992aca509ccda": "calcule D = f_xx f_yy − f_xy² en (−2, 2) : son signe passe avant celui de f_xx",
+        "a61a89a3dae79d57e12cc893973faac92c164477a25a404e8b81efc8ab6982a9": "D n'est pas nul en ce point : le test conclut"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.8d": {
+      "hash": "da9bee29098074e04232771e49466f81fc5238149dad4ebb3d83d32c0e83ba74",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.8e": {
+      "hash": "e4f4a69d01e6b3b91bac2291a75fcc9eaa6ca87dbfbd2dbec38655328b7b7c7d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "51917ad4d0abd43c15dc6f0d1ee65e151a742a6fdbc20442cd3838abab88d4d8": "le système x² + y² = 5, xy = 2 a aussi des solutions négatives"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.8f": {
+      "hash": "7d75d904353a199eced2fc41f5abd66cf841d75379b7b5eda0f5c05826ea4940",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "83feeb3b6021eb13f100155fa205a8c8db670cff800e8807ac88782be63613fc": "calcule D = 36(x² − y²) en chacun des points critiques",
+        "9d2a7822019c90a9e6835c63209eef815922afa0a853d40494ccdb6dd6dc1d85": "calcule D = 36(x² − y²) en chacun des points critiques"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.8g": {
+      "hash": "71c137ac810f6c5d2580bafd128fd21ecf71ccf750bee122218856fa281211c1",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "11cafe679e213b659edf47cd553b9aec221229bb814c80cfa5f4d8d13fc0ce40": "c'est la valeur du minimum local ; la question demande celle du maximum local"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.8h": {
+      "hash": "006531f0859fe15965c4b6ab3c77dff3e6f7133812df8f58e292b7090989f5ca",
+      "kind": "str",
+      "mistakes": {
+        "2aebd3de1e34651ea86c6cb41e6cb145e9974c8d4175367fa7448831752012a5": "le test ne voit que D et f_xx : calcule D en (0, 0)",
+        "58a78dd95bdd060093c7bb03fc39f9e38e371ea6fa29a197c0d3ee574abd7cb8": "le test ne voit que D et f_xx : calcule D en (0, 0)",
+        "71e7354054551d4e09b0614f0f8e464764785078676d6cdb63405e0c63a8457a": "le test ne voit que D et f_xx : calcule D en (0, 0)"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.9a": {
+      "decimals": 0,
+      "element_hashes": [
+        "44c27ce7f089e732b15b60c5c3b1819d82f43cac932998683537941b964f47ad",
+        "68d30ab63ad4ba85b6b72894dd4c2966ee716b1366c9bc34125ef43b0d974caf"
+      ],
+      "hash": "276d276710bb31895a48652a196084ad9ffef34885e5e280b063b2ce107b3659",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a884e00236f622f9d55dfcd8b7104e877f97b3f0ab80129bdf5a7b970ea60d9a": "∂f/∂y contient aussi la dérivée du terme y²"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.9b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "42b04313f6f7a030c04addb9780b8a3f5c62c528287fa38ed8afe48e46b7edcf"
+        ],
+        [
+          "94ef65fad7080bbf16b76cf1206b4fe82b302847fe98e6d0a560ad0b76e72d5b",
+          "7cc2dcb52b3eba9000697b3f80f39ceec43d55541bf37a2f0db7d0679cc416fb"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "98e8e5469edbf946edadf68fbf35fa525ff27bab80130e1b61e75942a1742e58"
+        ],
+        [
+          "09148fefded6c3b231dd20b9e8e81ff15a8eb06ccb06312016112058f6f9990f"
+        ]
+      ],
+      "element_hashes": [
+        "b8c4be0de1f72490220624e99819246e294adb546d57cf820309884d907d617f",
+        "5009ed049023d2d743aa46ef124d09be20a6b96a651aa205d502cf0755e1f200"
+      ],
+      "hash": "37cc6af1569eaf96da6013a6d299df4ed0aca92a8db0fb1e1c932733fe1769e0",
+      "kind": "array",
+      "mistakes": {
+        "15277dac87fda56ee0acb5a4b1f35e32e3420fa72f79a152cd588344cf5c39e5": "pour descendre, on retire η ∇f(P)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.9c": {
+      "coarse_any": {
+        "0": [
+          "85c5093dc8c24bba45c521b5cd5c4e8ef0da998a77f682a0ce0aaf9a88d0a75c"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "39199e0ae95e4fdbd98fefc67ee512ae38856dac7cad11e698132bdc2be3631b"
+        ]
+      },
+      "decimals": 3,
+      "hash": "c38bf49c2de3d7e52a03f591e3d63ec219bcdeac4e40707d8786913187f07679",
+      "hash_coarse": "68bc6755fcf2ba5685f9420114ff0a5fb704f6e10afb6038d896cc07a56feea0",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.9d": {
+      "coarse_any": {
+        "0": [
+          "cb54c4e25df2d2c25c11f08af4289a9dfd9ccae2697bc0101e2e87ccc20ce05e"
+        ]
+      },
+      "decimals": 2,
+      "hash": "09ba2c1baf6ef30b4afae770d62bb60df9e5e9c62551f966ff85c67ffc0e54f7",
+      "hash_coarse": "e62e01efcfae4931d98fb3e41aafda399b25577aa8ab33dc4211076cb0195a88",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "ff2f1df0e2780c32321af2939b10cf7b04227d96b528c2c44ad23b74a7a0d3d0": "la prévision utilise le carré de la norme du gradient"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.9e": {
+      "coarse_any": {
+        "0": [
+          "37ac5762e6a7c38b6c22612f17fc8fe6adf08a7e9024317ab638eabd7dc789b4"
+        ],
+        "1": [
+          "6d65873f8f5a4c6f980bed675fde15e85df8d442de0529027a3bc45490af55c7"
+        ]
+      },
+      "decimals": 3,
+      "hash": "fce6bb6a8693c46fc01105ee11a1294b4c168dc88a2fd0a2d447464c16d252cf",
+      "hash_coarse": "e7d5c74ad6b29c3d4971f0cc9a3d1b1291d32cc726223ccc0bec3749c536c54e",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.9f": {
+      "coarse_any": {
+        "0": [
+          "2289a3eae75c35dc74c0de08d26ec101413bb5cdb46b93a2618ebd34d0302e29"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "169e3e772b54cf5f465f6a0b2d09815a41467b00a2c1f32d257952fd931fb8d8"
+        ]
+      },
+      "decimals": 3,
+      "hash": "5853339c436bc4bd8a1bbbc270452fe912328a5661a3f321b8bb1130348e0fb1",
+      "hash_coarse": "a1670976d0bacd67b6f45255019c9e584cb06a1a9e46955324c11539d0c691ea",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "c2476c59f19fbe17ec5e4a88f0cda84879f243a8dcd357dc787cc5dcaa2deece": "pour monter, on ajoute η ∇f(P)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.9g": {
+      "hash": "f478799b6eeb83b34ab9a608202851fe48ad41068cf02d69731ab4ee2b7841a1",
+      "kind": "fraction",
+      "mistakes": {
+        "0c1934bebc009fa4d344bb91af94d5b2388a5a8976526afc10f30a2b3a99afcb": "la baisse voulue est 0,1, pas 1"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.10a": {
+      "decimals": 1,
+      "hash": "84e6b4f0bc4a7a2a66983e1c1b62e5ab53664270d3f747443fcded01796e8eb3",
+      "hash_coarse": "d86915fefd8c469ed3fb33b2c14486df392dedad30abda35362b897ac86fb119",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.10b": {
+      "decimals": 1,
+      "element_hashes": [
+        "5dc49967aa164f28d225ad7af809d1a40702cd70b6173eb101a96431a45ef3c2",
+        "ac31a17a207f97a42eac4177f28d825cb19c6227494c82ade275ac616c9f96ec"
+      ],
+      "hash": "26b7bbca22a714b7e35298b61721706a2f1c2f45e84eadb04bb20448db32ae3d",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.10c": {
+      "decimals": 1,
+      "hash": "c0382cf4779036b13aafbf924298c2e445b44aa36812f870457aba89082e36ac",
+      "hash_coarse": "0fac6d2b6a92f7147f451b650db13f73f9ac2f51db2d038b8207c7173d2c5025",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "835f98c651581ce04862d23d3f7e4cca2945b51f2171a1b34e3f71dffa5d67cb": "c'est la valeur de t ; la question demande la valeur de f"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.10d": {
+      "decimals": 0,
+      "element_hashes": [
+        "c97fb0c6d1977be2ec8c97c66b3407165910355c81ca3cb3ba8e6020087ba62a",
+        "8e04ef7ae2f3def06ec784b6c30f14c0e38aabf78bb6198f2cc43f7a0aa920d9"
+      ],
+      "hash": "892983a2eb2c1d0b9aa5fb5c6b946e89948391ef0dc92491673305a033841177",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "e839716767b05adc1d06117fef5a6b17f777f17630211c31ca5f3b6d0d4a01dc": "compare les valeurs de f aux deux extrémités du segment"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.10e": {
+      "hash": "49ce8038514eb4c7f8118bedcf4058e197da893db76b981087d6556e82c5d361",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "f0a215d54ca8c70dc194c0bd0a99c663302410c9b9543f63ffac171c40cfa9d2": "compare les valeurs de f aux deux extrémités du segment"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.10f": {
+      "decimals": 0,
+      "element_hashes": [
+        "15eeb2fb95f47ab2cd19844ee9a13feadea7c9c9ff4dfedc39093264c901569f",
+        "5c528233e4f0fa8613fb00d0da95e72fd0d6801d2698f2a0fd3493ea3101c97b"
+      ],
+      "hash": "228abaaaff77a517542f4e9b5a72972dcd7d86540beecc3447a32483a626af91",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.10g": {
+      "hash": "8590123c838d4823efd1dc005ffd6cbfce73015b0d004b35d209a59b5b66d3cd",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.10h": {
+      "hash": "2f53753656a46301735e769e300e81ad2433983d714e20726d5a460ed69f006a",
+      "kind": "int",
+      "magnitude": null,
+      "sign": 0,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.14a": {
+      "alt_coarse": [
+        "54462618d27c78f67c3028a5f74443e25773b0155fa7c171dd34b9bf7adf66ee"
+      ],
+      "coarse_any": {
+        "0": [
+          "eef504e08ae4b0a1d58e5416f667b3294d9249cb137313d703fbad5391ab641e"
+        ],
+        "1": [
+          "d170e24361ebd58103ce9f2b4f3bf77e97d2964e68f0d2b2b5baba53946592b8"
+        ]
+      },
+      "decimals": 3,
+      "hash": "0df5633b2ab5df980ae3cfc58b4f0856e5953be15edba74c51c51ff40ceca428",
+      "hash_coarse": "3e182b177338ac2158aad1fa9df78e42f4caae28279907bb325e73cd67fa9e25",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a60f287879280ddd12904bc3f31c259d8131b6bd61e5de779c23c6fb3f5d3056": "n'oublie pas le facteur 1/2 devant la somme"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.14b": {
+      "alt_coarse": [
+        "6041d587f558bb45038a76ce1cb29ccae869f6c3dd676e662f5c2f621f6cf4ef"
+      ],
+      "decimals": 1,
+      "hash": "67be10f6fc3db92da58d4655b1401a6b1145dbbaf35e5cfad4b9023139da52e8",
+      "hash_coarse": "0d0f5bcc835b1665d5f1836770c3cc000d1aee7ba5744145467ae5bf710c54ab",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "777a8b0734900c9a9bb318d8bda44e7ccb379d1b32db6d5514420ab541cdc0e2": "le facteur 1/2 de L compense le 2 de la dérivée d'un carré"
+      },
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.14c": {
+      "decimals": 1,
+      "hash": "755fd7b8584a1a3aa44efd9ad4960dac07d5470432638db4df148a831c081e15",
+      "hash_coarse": "82acc952d88efba357bb1b1e24a608a2202e04d4861875867396296862aecd1a",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "42418aae39c4e52eb465f61d0acb5e25b8c788a50149a40a6fc16b81f501e088": "le facteur 1/2 de L compense le 2 de la dérivée d'un carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.14d": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "74293262a0d74d51a805d15083742bfa1e1254a30dd0bdc51a6eced2c51f5669"
+        ],
+        [
+          "757e61a8d1e1946dcb1378ecdc5d328374834def6fcf66f1c427b3ba72c6a68d"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4834c9d46972b44b709c0402b7128eda883f2f8237ec5bcde51d2408cb7aee35"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "804dccfda2a571b43931ac6b6d9538a41a68861ad2fec0e99c4b2ed7d901e0f5",
+        "0e606ca7dd633ff48f159dc27e3a1edf4ae770c3cf2cc5d1fbcc9a61e6424cfa"
+      ],
+      "hash": "49ac25f7b277524e5531e81c8b334df061d9beeb3d65c3236423e9f302c11bcc",
+      "kind": "array",
+      "mistakes": {
+        "1eaffa787b2bec822b92d3f1ee1a63025bc462699b13863b503340e110184145": "pour descendre, on retire η ∇L"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.14e": {
+      "alt_coarse": [
+        "7d33e41c532315fbe50baec641c9c05fd03ba816c11875c8af8c8622b965fdf6"
+      ],
+      "coarse_any": {
+        "1": [
+          "b97f0f01df3253123bf285b990f3ab5dc0139b2682c96489c3b0b23e93b6dc3c"
+        ],
+        "2": [
+          "013e2edf10339133a470c51d9fecab70e9a80b3305dd338bd768839d78389b9a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3cefc147e1e47ffaa3a962ce4c7bc10c60171aed4728dffb670453d02b224db5",
+      "hash_coarse": "506244543b04fc2d9c78c585150daf2a1960f63ef41dcff3ddaf1e3b4ed4b6e1",
+      "kind": "float",
+      "magnitude": -2,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.14f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "4855cfaca4192200c29f04f91553c4575d92b93f473a6ee7c41add1e3d314a25"
+        ],
+        [
+          "6fa66f9876fc6f000fea39250518d2ba82b931c3e54114ac46d9322b14c381c0"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "236b9d2cf4ea87a39e40dcbbccdeb2ccb2e0330147a565bb1833b540f91d870a",
+          "d21a362633cd9e18f0482054f07367028cba22012cdaf4624a159727a18be037",
+          "650ebd6826dad8b322ab44a26e94c740defd05ba9f2a4ded77865bbe510ddcaa"
+        ],
+        [
+          "5664f87bf6ead84dda7855abbbd1c710827a3de5e05713d930c0418d181fde2d",
+          "a5f87f91a3ffccc124ac793f02ccf0ea014ea864504cb099c597c89758fdf908"
+        ]
+      ],
+      "element_hashes": [
+        "f12fc6ebce26ae0c4578489600dbb5fbd009a3d7e9e873956839fd2ea753364f",
+        "a011faa3174b62f919e5c52585c5d8b3293ff99a7c0813d3203d4eec45b41bfe"
+      ],
+      "hash": "44d5c5559fa6bda811e6b99cbe9fdd6a7958a17309652acdba211cd9de075052",
+      "kind": "array",
+      "mistakes": {
+        "7b3e55fd61ac077baf2120cccf56d2397fe599964b616c2d157114d75f30f935": "l'ordre est [w₁, w₂]"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.16a": {
+      "hash": "f45f195d0d6a6a5d7b76a52232ee8bc0f4844324da4d878e3e16faed44d83a2f",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.16b": {
+      "hash": "f80da988b4b76f06145bb71cad4e684d56d409a3585b12125d9f9e007f6667b8",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.16c": {
+      "hash": "38f9915b5c7e42e0b6c00dd49c852951fe9f22a501e036e12500a262091b6d45",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.16d": {
+      "hash": "d0d9a9188d1fda2122823ed0514f2a7bbd1cded53fe1dde36310037a1ccc67d0",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.16e": {
+      "hash": "4fa1da833b40ebfded73045b7d34d2eca831d3e7c4fb2ba9e987a14356b97c8e",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.16f": {
+      "hash": "d67a89ead0a3117f21b7074644b8b2e27be1c4fa431c6a200df73cb186f21f6e",
+      "kind": "str",
+      "mistakes": {
+        "b96ea08b1192f87311bcc9aebec91a5ece323b851a890f696dcf5e22178df421": "compare l'écart entre les lignes de niveau autour des deux points"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.18a": {
+      "coarse_any": {
+        "0": [
+          "8729fff50fca5b895ca8c6a39ba4e676272517b98430150b3088e82c5c769a10"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "d4a5387966337850d0e8b4c4869e27317178b516d58359aa1bf16ff48f3af885"
+        ],
+        "2": [
+          "52caa614e3c7ee73cbd3dc64278d90a8296f7b95cef07d7bee6fa582210f841f"
+        ],
+        "3": [
+          "6cbe7dc3b7f88a17e48d68c011296d10cf78dd745eecdb4d24424341b4c632a7"
+        ],
+        "4": [
+          "27850bc18f67f290e53d2ddd735e0f94680ea7b4ec12f66f3946f2aa14481844"
+        ]
+      },
+      "decimals": 6,
+      "hash": "a67bf18484a488d0ce00a9145b6662c4d93ebec9d153aca4f7900e43f47d0821",
+      "hash_coarse": "6671f9237dd793f8815b96e7036ddfedd52bea9b431031f86746afabcb08dcf3",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.18b": {
+      "coarse_any": {
+        "0": [
+          "00b46d9b799f7de2ea7e532bcaef7aa93225247c5544c6ab66817d46c1a9d03e"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "abd3eb781168df19c919303916d63a3aa75eca77b21a61c472600a495fbf4724",
+          "c2248a33772214ccfa9dcb78482eda37f1cf235ba5691f2e0bc67f8211bac9e2"
+        ],
+        "2": [
+          "497d4ee543ae06d52806331da0ceded5f9e5cafc5e715ae3dbe446de9dc2144b"
+        ],
+        "3": [
+          "3a668128d6c8a193a1d63f3c892e28e6a2596f2496a49da3aa85050d7b9b8463"
+        ],
+        "4": [
+          "d25b4fbd5e6ec95cb3f7a47f9b0a19e1970dda0012ce5f467176fce7d2fec09b"
+        ]
+      },
+      "decimals": 6,
+      "hash": "42aebda07910f109f34319826212c1701cb281c3f554ec167ae54d8ecee59ee1",
+      "hash_coarse": "1de41fb6080b3e8a30034cfe501b0145c912f94557117a05cf1f044236a5c6db",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.18c": {
+      "coarse_any": {
+        "0": [
+          "12ecf5ddcb8993c909b3141d8bc080b593b11e47e08c6482363ab504b0f157b2"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5ea4fcafa377053e32423761228f80a7535b1064c04fdab084c10ffaf4d7a345"
+        ],
+        "2": [
+          "a180a7820a06eb681ef28c4067a1e558ded987de0d131017516236fa126b43a7"
+        ],
+        "3": [
+          "6957ac3cba743344fdc6abcc2008b666f981c48f2e612f7fdd00a4e78c75d42d"
+        ],
+        "4": [
+          "e14d727e2d6c06bbe0003fd81c82fd774bc8a797e9f8a10650b68ed1a03a0b05"
+        ]
+      },
+      "decimals": 6,
+      "hash": "e292dd0d3b34ca3379ae3d39cf60b6cc5b4848df201254275882c2409f0f42dd",
+      "hash_coarse": "7388d49b365671b19d8c1ddfed3949c267517c96a26875e515725ca3b3fae7c4",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "d24d2fc1d3c7fda0386afbc6b4f98c76b643f2989291bf04f76ed4bd089c4ca1": "ne bouge que la coordonnée i : les autres restent fixées",
+        "dcc87b260f4cd3df25e952c8d485ed7a5f1589a34513a9cd95da345ee5d4fcb3": "les indices de Python commencent à 0 : i = 2 désigne la troisième coordonnée"
+      },
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.18d": {
+      "hash": "a19a7fdf6175721004040516317b0dbf75fbe31b421e728160dcdb25015c3b32",
+      "kind": "str",
+      "mistakes": {
+        "5a54e63864e35979c7149b08a057bf32b074a7543dd890bd5c0cf3d24c021db3": "un point de trois coordonnées a les indices 0, 1 et 2 : lève une ValueError",
+        "9d5cc2dd41bbfea5fe04cbeb9a2854b9d2c7cb7a6f0d13731fc636486d3af378": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9d610805a0c364e47d09cd6a7c5ba4e085d8db69bc060c098c59c6dc9703e8ec": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "afdc92833b409591cd0f26c405b210fba8a529507024714e41af887bfd7579ea": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b22bea4f004a54f8d6186b725bab441580d0296fb696030b8579af56162d2244": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c46bf624ffc626ff8004cc570dc49cc7cfdd7106d3e0fa56cec882b6ffdf7420": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cc44c2ca430c597c76e207de4bb27c476ea2445f30676debce170b38ebc24e85": "vérifie i avant de t'en servir : un indice hors de 0, …, len(point) − 1 demande une ValueError",
+        "d513b05e6f747b5c52f101879a486d0e9f70687b62f4693f99e61a349ab335a3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e31616d0088661b86a7b78a81cad7db839acb386a3a2edb2a7d94076a67ccbd4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fdfc995ab035236efc7f6a9e39a6f43e17ea45a378a5bc0155a7e044de5a9bc3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.18e": {
+      "hash": "054680ae5e6cf24e64a3dbf8dd31ff04cb2ea3301d8c7bf73c1d0ce458c223bd",
+      "kind": "str",
+      "mistakes": {
+        "61d94ccf41ba41102eec976c37dabd65e609ba00ce3a4880afeb5714dae4abd7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "69fe1f81c7a3b84d0cdd8c06d4a7932dea07bf82e704f1ee2114e9f9e0eda804": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "876e15e950ad14f3e3dfdadd09f451dba55e8c2dd815dab21ab948500833a02a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "88a657975c2d5e5ab622a830e127df8e16e6c6159b534b8390dafe7b198bb62d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "943ef2ccff5f91aa79032e67624733ae3ff9af329c26557c324f9774dfd3471b": "un pas nul est refusé : lève une ValueError",
+        "aee91be13cdc2576f50f948ef185c2f8476690dd4f759434505645e84eefe5be": "vérifie h avant de diviser : un pas nul ou négatif demande une ValueError",
+        "b1fba77a2ed9a4a8e7fc73af14f4dd200bf7b304d9fc7447de74c913a2dc518e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b9ca28c645d731202807d1924b98d5d20fca34afe3e616d9aaaa3bd820043e42": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "be147d9b08653bb59647b852c2199e2144d2331e9d7df95d8a4eb18cee8f7f9d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ce18c197734c440c33a42841989aef1f2e94b13d47008e73a1f2a40de9fb2780": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.18f": {
+      "coarse_any": {
+        "0": [
+          "27e2c26a59cfd0bb3d9d1eccc4a42847f7ba572bf5e6547dd784ed0408904810"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "29b328a9d707f27a19372c6cbb475a716e3dc2b10727826460f603c866269421"
+        ],
+        "2": [
+          "ce64e0fd01eb769f9999a0202be8f2b5469472275f828728d0ead26f888a7446"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a0e692f59bfbf4099d32e34197d1945e2927d26c6f025a096ba9a67f7e00c3d5",
+      "hash_coarse": "a4acd46c58fa7fd62ffed3f1afbf68e1d0ca6a28655503f8244b714a2fb6823c",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "8eee9c26e94d2889d4e6e8350ce34a883e8d39019f47bb0a4ea6bf54baeba906": "copie le point dans un tableau de flottants, np.array(point, dtype=float) : dans un tableau d'entiers, le petit h ajouté disparaît"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.18g": {
+      "hash": "08a671c82130a136a620558f395e7d490da711eff6a286d13e85e085d136bb3a",
+      "kind": "str",
+      "mistakes": {
+        "4109ab384533f4f80ee3dffa306c83bf66b94984fe88eb18738a42ab0f2eb7c4": "la docstring demande un float de Python, pas un tableau : f renvoie ici un nombre de NumPy, à convertir par float(...)",
+        "69887f5444baf0bc4261b53f1265a8ade20041c7940803ac2f5318962784f07b": "la docstring demande un float de Python : float(...) convertit un nombre de NumPy"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.19a": {
+      "coarse_any": {
+        "0": [
+          "a7e93315829f268ac15abb7637054d517cf56cd92a6e70ecd7238340a3f16e35"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "9fb9ed7e1fd778dddbac580dc6e8f5f3aa63c23cb8e7fc3c5bb1e4efa639e7f4"
+        ],
+        "2": [
+          "ec0c2f7b41ab9a3d228a83f1121607441b36a82f5ff2788fa411d36fa73a86b9"
+        ]
+      },
+      "decimals": 4,
+      "hash": "4952220a682b70c201c8795d65a35e0f8934982614f8d22aeb1bbc5c8e91ffb5",
+      "hash_coarse": "9dd897598f0ec19422d29cc232022bb9af60a7b1803d872c98e60052b5987cd2",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.19b": {
+      "coarse_any": {
+        "0": [
+          "76c7d9f77a8990457929ad4203c8edd90f17d55e24bce1eeb78f970bdf9fc852"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "af432d804c97920c230743717608b59f6f75d03c7938b08eb58ee0ebaea676fe"
+        ],
+        "2": [
+          "c78f0826bfa7cd6481cd3cd1fc6f636c5e0f0eb3b8777d8eee176c208bfed2d1"
+        ]
+      },
+      "decimals": 4,
+      "hash": "16230723fd85824fa9b2100ce9771161f0145a838e8c241ecda502b2fe0a4cf9",
+      "hash_coarse": "a9a8ede877e09996fa93a511a9df23895a3d0aa977a9727b852c4e1dacc24e1d",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "3b8394ebd134f77432f7cf0568b1ec4811f76611474505c8d784d9547d52d021": "divise la direction par sa norme avant de dériver"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.19c": {
+      "decimals": 4,
+      "hash": "684cf9b1dd35c4095068480bdbc0df0bacb286cfd386a2e6427b3f8c72a38702",
+      "hash_coarse": "f2af03c46271791009b9d57ac63408d10ce092274c70b2cd8e19322a4295e979",
+      "kind": "float",
+      "magnitude": null,
+      "sign": 0,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.19d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "2ce50920fb0b4016caf30f35a526ea70417657b3893e8cd161209e622be7d1d1"
+        ],
+        [
+          "96d75fafdcb0dce95836c82032bc657637eb37460155322892bcc65be3a7eb1f"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fde2526502491e2344593f0a412507b19ff4dc3881df46923b56e0cabb281a01",
+          "c666ab97e5a4df901b465127798c6baac33ecc7e86a52e6a8201c899ce4d300c",
+          "eed46f76ac4553f3e1bc26f749f77cfced91138b09ed9d63419f721bd00968c4"
+        ],
+        [
+          "f2bf9f33c02cbddf18dd4e0dd3411170458b50e989de944a4db3b120770ebe42",
+          "819d633f31c89c960079951270c69aff8a79eb02a54ceafb096465e7999c4fa4"
+        ]
+      ],
+      "element_hashes": [
+        "7a0878ac68c2d887c5ceb3676362b28184e3b0e1528098f3f721778e227df268",
+        "d3e101a4f8828d62c03c8761aea11a5e56370cd612f259bf5d820aaa1d074735"
+      ],
+      "hash": "ce244395a6052c61c7d4b280ba278f283f68c50d9ea7ce6bdc14878dc8476406",
+      "kind": "array",
+      "mistakes": {
+        "6dbf84cc7d34c0d4b8d98fcdad9e4f604041f55f387ea3f3ad49062be52f87ed": "divise le gradient par sa norme : la docstring demande un vecteur unitaire"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.19e": {
+      "hash": "6f60c6ee2978c57395e07f907b8d98afb5f9bd9bf70c1ebd1e08d95f2271d1e8",
+      "kind": "str",
+      "mistakes": {
+        "06761bd1ee7f4ed9181da85b0211dd2c0aebfd61afd87339a2cd4ea196fc6cc0": "le vecteur nul ne donne aucune direction : lève une ValueError avant de diviser par sa norme",
+        "0b4c361c1d5b636da9ea7127b04cd07af30f4ef9b1fe5c11f51336426e692900": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "29f17235d5415e9743e901c6382a6b85fbec3f3419d36eeeb4f22a6a81f9140c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5df56caa68109fc886c8964f5b8bda5e2e37d7975fd34cf9142f415128ff9ee6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6517b8442d321917c33d5d050b0feea9058ff7f70446b19782424575a36cf7b5": "le vecteur nul ne donne aucune direction : lève une ValueError avant de diviser par sa norme",
+        "836667e8732f76f81e12ae516cabf995ccd235907bafe07b4366269a7405717f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d8a592548df918103d612e6486fb239e5acb3c456e9ef8e4c7f66a1459238a33": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "efa4953dbf837a5aaabfe948436253fee9d9ee908900ca037a442c3a8949752f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fb47cc8a6ee54bf2dc84b6aab66b87c6f2244771aafec0bec50f47bef2eb6de6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fc413378b7dff01b1a918faad6828fad444ebcda300503e958871fc07ec4bdba": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.19f": {
+      "hash": "63d2929f9c620a3c51fe543e06d2341a8cd47e95e3a85a6bb352495f120a0f4d",
+      "kind": "str",
+      "mistakes": {
+        "4d7437aee4640e634c3add4eb6f2608f5a7320a84caf52cf1ec6226929a1106c": "le gradient est nul en ce point : il n'y a pas de direction de plus grande pente, lève une ValueError",
+        "54e261556bcde8a47348fa710fd9d48ac3923d8629ff3a60ec24a73b1ee35b57": "le gradient est nul en ce point : il n'y a pas de direction de plus grande pente, lève une ValueError",
+        "5826effabd5e1f53fc3627cf41f48a543130de3972f4d73b6744f96f15a0c103": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8e240da82d65a51be428d20db948ad9a30c1bd1dd22b10c41371609a9cfe9cfd": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "96c28f6a3d7e64d18d259a468c048e3a32a3f323c833e9561208418cc7b390e1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ac6c97c23428d698fdacd3a56377e4d0fa8dc540822615f93bf91db1011f6b8d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ae69fc70bc487fc8567dc025e31b22b7686bdca853008835a867df8d95aaa482": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c249ba89ac6a9baddb9ebbe4bd5fcf2bf145320003687de55e086cb0a540da56": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "de8a1b17a36bf9c005010d6b57d625dffe869d7f8fab6119f5818d3e3c42c58a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fee11aaf941b99fc9ba23722791e899b2d2169d83eb29a7fff77541b039692b6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.19g": {
+      "hash": "2e6b4ad7c13b3126a560f1b30cc9280891790ccbdc5d85a6ef75f665593c3abf",
+      "kind": "str",
+      "mistakes": {
+        "5dc0914dc791b515cbc742950d28e01b626a3ef877f671a366b0939f7bb208c9": "la docstring demande un tableau NumPy : np.array(...)",
+        "847bd7fa1163bb1babcf36a9ae0924985db680b7332b9eb0c30d37698d57a069": "la docstring demande un tableau NumPy : np.array(...)"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.19h": {
+      "coarse_any": {
+        "0": [
+          "02554c0669f9121a76faa2ebe6e9850e367d7cb3bf7885f26d11386a2486ba34"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "4837f4b359585b239dc3a0c2574de4c2374cef8d5116631ced3c4d194187183e"
+        ],
+        "2": [
+          "d5357fa593f5cb6db8a915dad7cd421d2910cc6568039d9e9697a2697b0eb938"
+        ]
+      },
+      "decimals": 4,
+      "hash": "d1401ee3af87522c4bb89935f52ef16821e8c1d586fd3cb6852beb0010814d47",
+      "hash_coarse": "7e66fd0530ba6c00528d5b3d37272d847647fe370569dce2c4c3c907d8a913c5",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "d0997527593dc9ffa743201a7a43bd0c669648044c6bc77589a2319e9537a101": "divise le gradient par sa norme : la docstring demande un vecteur unitaire"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.20a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1740f7cca5e32fbc58a75f5ff7f81a3bd452a9d2734dc4036f58822157f6c4e3"
+        ],
+        [
+          "52c2410807cae2a335eb20adfb2f667f2c8a706d8c0f938fe407e9012a83b5ae"
+        ],
+        [
+          "b9ed31a95fbebf29f63254179451bb4a2761991831bc77ac34e051df3e5ad031"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "d8efa7c07ecd585a82d637e23f50f0d80865efde95ff3a54284ab710014e7251",
+          "1153843e2e85384013d6e0e38215ea4b8cc3404618a2a094af4c55db0180fb00",
+          "5b60ce19e18a76734da1b2a5ec5ffc4b600a0fea3b732db6d795bcbfc0a6726b"
+        ],
+        [
+          "83904111df76b3e1f27786f189c403aa3915667b8255d3e802cad34b0ed47d64",
+          "cfb979a30a80755558b8a807c5eb2d741f9a63f42d5a54766017bfbd14d9f1ea",
+          "25bba7a48c6ae077b00c5850db2707714c72430d185489c40f48e7011016e700"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "d54c2350d5991205f8fd49aeca30f80a3f940dc8f54f55df7f775646c1987f5a",
+        "4f31e95ca624ae3f663211cfc873dbbc2ee5ad2e980f08d4dfc4848ea40b3318",
+        "0d9d64fb4f89d26771ac69c418d3c6461c1fd5717f0cd0c91e553fe62c3a4710"
+      ],
+      "hash": "876995ab47ca7b47a60203afc08353b00c157d5883c145601baa4ab8911b1c0d",
+      "kind": "array",
+      "mistakes": {
+        "50c5a467f813e968037f48ba53d86a37a6a1c470aa3d8ca16d0cb32c7c05f4a2": "C fait passer le plan par le point de contact : C = f(x₀, y₀) − A x₀ − B y₀, pas f(x₀, y₀)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.20b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "7cf522ad4bae429b16fe3cc20d8dff5a426659eb576828f7d0a63aeb10af9eeb"
+        ],
+        [
+          "25bcc44d2c9965bc3ccc9c9fcfb8b569d119fecdeb390cc06292faa6eaa6681b"
+        ],
+        [
+          "462050c3b26da545dee6537fc3779ffe84393de52dca00d50b987f634e5482c5"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "313323729b64dcc0ac657a4e4b67b0ec8af7ad8ebd5274eb497d52d8d8a3d7b6",
+          "3f1b9159fd945838ed741939529ac942d45ec8f467bca489bd3060b4a004c4bc",
+          "8c0a12246c5c5ab8afa5f1c8a8fe0d8d2f7bd64d4816fdab20248912692e9828"
+        ],
+        [
+          "708813b0d7c4e1c3449f8ba316ac82ca7359c3e900da49d3d459da90e62391e6",
+          "71bcb6130352553606ccd1121378ff59613cfc22a375d058ee292a656fbe1977",
+          "16a7fee3d54951d41c39cc696bd3d550c1e80afceffd9daf671df3039afe686c"
+        ],
+        [
+          "1ae582c8460b7f65cef7420f5f0bd267cea92845bee3518ffa37abbf3efcb83b",
+          "149b7a4305a62e3188d60a1f6cc3d6685515300ba554ba9287c6c391b45606dd",
+          "19ee5c9f20af6507f0bd816f4b87bf0a07c85c782b10d6a9a63ebd82a5ae1487"
+        ]
+      ],
+      "element_hashes": [
+        "a982c0d54034657ec6412e90d08d0459fd51a8f34fbfa280c779bf9c2a84aa22",
+        "28bbe49fb7113b19a344e2d72b4959cfa77b149aee1c03f0ed9ab2c4aa19565d",
+        "d3bc2060619e29c8dda5b689166e66d97e863a8d4c4898047f45ca769257cb17"
+      ],
+      "hash": "717c89e780ac4f8f34ced07c351c192da27693094cf90f56f144b339fd66bd0c",
+      "kind": "array",
+      "mistakes": {
+        "59654986fc2a62882c239b0fbde8d9f19ec7d77b4d37df07afa932ed9b7e7cc7": "C fait passer le plan par le point de contact : C = f(x₀, y₀) − A x₀ − B y₀, pas f(x₀, y₀)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.20c": {
+      "hash": "ae48974d6dc09886c062d01eacc6fb196920a6e2e39b9a9153adcf00874930f0",
+      "kind": "str",
+      "mistakes": {
+        "1fe36c690378f9226ef433e8a53bc8daa36cb7fd2b89c6af5053618fb9b1a2e8": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "304db2e44facfe248cd0b2398933077844c6f034e6af267766442b896a0fe3c3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "587fb1a52e726d834c6a2a09f408e4556f9b2daa6c0bc3658a58eee47da1ead1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6abc606754860d8699bdcd0b42af20f8d803d307804d47d5e8fab02cf76c903f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "70af4c397e7f93274d378bb9a769ee354a77e0ee501ac0a5b7ead8f43bd33725": "un plan tangent est celui d'une surface z = f(x, y) : un point de trois coordonnées demande une ValueError",
+        "887caad8f962f577b245b1ea5a48c8e0d160291c1fd6ffa7b2f03ad26ecb365c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a3dcbc16aa1e561a1c2d539e6a967510c43c7bef814642e03e3a20d641da27ad": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a52bb1fa1525aea4fd1fcf9e8806133c8f3cba2b994d0812ac48d8d7b1955c9a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a6e1f843247b498dc485123fb2847ca62ea49e5e786c976322c77cbf360476ec": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e8020bd74a85ad1a5571ca517d8c54743fddc1c821f3137e888f98650db7ae3e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.20d": {
+      "coarse_any": {
+        "0": [
+          "2a7286728ad87168203755a3bf2b8a4ef7e281f9253c1ccd100563e450b41267"
+        ]
+      },
+      "decimals": 2,
+      "hash": "5e5180b00146f545cbe1d1a470de321b7bbfd91521d3eac26ab9a5e78da93faf",
+      "hash_coarse": "f0a435bd5ec3c4709b897a2b27af41ede764cb2dd1f8dde0405c8ad2f0b51868",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.20e": {
+      "hash": "c514f3f8b048a2a3f798033083853a9c163bcd299669a3ceaab9e95bb69fd9ca",
+      "kind": "bool",
+      "mistakes": {
+        "396d2605371318c16945d41da1886e09bcb70f70ba9a9ef1d119bcf84f0418cf": "la docstring demande des float de Python : float(...) convertit un nombre de NumPy"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.21a": {
+      "hash": "2a4b83a0bd73eadee6a7def14e4c16fe97aa09c019b554af8557908bd0fa00dd",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "d267c9dc8f4860265b59c57c1f779db9785a95a52b68377b4996964ef685a568": "x³ = x a trois solutions réelles : regarde la liste que renvoie sp.solve"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.21b": {
+      "hash": "54026b8f4ee2ffe7211e094f577d5f14f5834d60863068adc75ef8058c3c7b47",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.21c": {
+      "hash": "7034b070048352f339311cf49207aeb9f7240ceae0f05c581b1794c629a4fff6",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "a4f21285265fd19a2ee9f5d6227200a94656de2172337f0f83372048c45bece2": "D = k_xx k_yy − k_xy², avec le carré de k_xy"
+      },
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.21d": {
+      "hash": "db5c5b8ea25fbc32af181610d02b29709d3e3dc07ec9b5b5de53779fcdb427a4",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": -1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.21e": {
+      "decimals": 0,
+      "element_hashes": [
+        "a64a0ab58e9dccf145a15f9e1cee8205600dba5200953f037ed099ae01766a18",
+        "46d61e5122cf050f56620dcba62e7c6ad1931426773f980e3bfb93b5b3e5293c"
+      ],
+      "hash": "a5ffea5f5a6be0fa2ac85c4175a8bafac056cca3b5fd87303a6cfa2798cc96d0",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "13ae198cbb1a9ee45c77dc08a6a93076c4cf421e01399913f2b1351a6f2c50c2": "l'ordre est [∂k/∂x, ∂k/∂y]"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.21f": {
+      "hash": "83f0b0f0abc592d2c071acab06e4b14ee8ed94d128fae7715c9eae26ca05eec0",
+      "kind": "expr",
+      "mistakes": {
+        "2d5c630c46413e1a47e925bf18c61ba31543abc90d1868777ee2c7387875d92b": "c'est ∂k/∂y ; la question demande ∂k/∂x"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5"
+        ],
+        [
+          "5/7",
+          "9/4"
+        ],
+        [
+          "6/5",
+          "-7/3"
+        ],
+        [
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "9/4",
+          "13/6"
+        ]
+      ],
+      "variables": [
+        "x",
+        "y"
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.22a": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "10877a9b05f41bc31bb4902984bdb1a022fe0b56089bad5934f26121ce16438d",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.22b": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "5f666342725a0ff06b14b8f3951d127dbc2ea16f0bd15ed9ac40b4eb3c70465c",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.22c": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "44f02ea31173fa8f0f33b798ccd02dafb5f1a22dcb5b23cd16e048c578eaae53",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.22d": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "b55996e7ec0d336dded005e96717dd37083402a7338c88262100efe605fc8103",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.23a": {
+      "coarse_any": {
+        "2": [
+          "919299c01174e2afc97ab3bf47605e044904111fa5de0207f9c64a6dee0f8fb8"
+        ],
+        "3": [
+          "836934e0b7d66676d542737b922742e67df61355bf91478421919bc36b93fabe"
+        ]
+      },
+      "coarser": {
+        "4": [
+          "cbc20f961b4f1fd9ca31c6884ebde7a8cb9f69956dc3a4080c6cc1c11f8938c0"
+        ]
+      },
+      "decimals": 6,
+      "hash": "da23590f3cb18e49ca8da8607507f7107b9a88c4f360aad68e3c2523ac05e498",
+      "hash_coarse": "8cf03369948a33a0a25e4617fd775b13c104fe9f9514fc6ed17fd1e9d5a29060",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "f46d75d2547f6925dad94d0e94405639268771acd8d5ae417b6aa23b07158c74": "l'erreur est l'écart entre f et son plan tangent, pas entre f et f(point)"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.23b": {
+      "coarse_any": {
+        "0": [
+          "5d102a368e54c73ca37d8fe161473f6a0e444b15cc9170e9d896a4c960620aa9"
+        ]
+      },
+      "decimals": 2,
+      "hash": "764d4c2f4633ad166735f907bcc2e7c006d6124653108a34316e0310952f4d03",
+      "hash_coarse": "ea97bd5805c1dcdaf06ee2645a46d27a54d1a85500b7b0b0baf342d67673ab16",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.23c": {
+      "coarse_any": {
+        "0": [
+          "66c22f750086544f20d33bc32a9e435e4cad4a78b065985ea3a9c8dcbd0988cb"
+        ]
+      },
+      "decimals": 2,
+      "hash": "ed1b1c58d29d834e6b4e0924aa37aa04fa48ec82412e14fd57f965568d42333d",
+      "hash_coarse": "1a1c843b2c94b93d823e669ec60dbcd9e458f5e4f77c77e82045dec4614c64ea",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.23d": {
+      "decimals": 6,
+      "hash": "95c82e1a35cb232e6ca5881960f113a5ad9a83a2972f1a136a098dfb2a739eb8",
+      "hash_coarse": "f90383a83a7aa135200df5358d6e15c7bedd312d6ea2d12e384640c57d74ff52",
+      "kind": "float",
+      "magnitude": null,
+      "sign": 0,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.23e": {
+      "coarse_any": {
+        "2": [
+          "de8bf15dea2e89802f855f674a74f132ef280fb239c1fc7c8dc707a138dbda5d"
+        ]
+      },
+      "coarser": {
+        "3": [
+          "118bf0ad7608ece02ee5aa3d5e71b30c143f5d3f6f1919826a92ff79c0059fc6"
+        ],
+        "4": [
+          "58230ef57d5ecc8f11587295000ec29a000006fef6ce3bf8af133eb69b6e7872"
+        ]
+      },
+      "decimals": 6,
+      "hash": "227ee0ac0130bd46aad79861f8723452f0b43fd7e7c98c448e576a57e264bf76",
+      "hash_coarse": "17fccd60b528bb3728ba3b2a2e744df7b1e153347a09ab43344d027632121f51",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "29f580682e41d24b6c3925f7d7c393fb58cde9de9ed6ba52a62f291b61e8786f": "divise la direction par sa norme : le point est à la distance r du point de départ"
+      },
+      "sign": 1,
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.25a": {
+      "hash": "051cdcbc8654a1622fb8de31731fc2ff94ea24fb4ee7de806aff9cc8f9d7bbb6",
+      "kind": "str",
+      "mistakes": {
+        "0827967bdc44fed56be7d9387ddcc2acfb5049c7d752523f9566f4657a7f345b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0a782a1247b0d41a05aca9faaf8bea126f2bdce90faff275a1ef8ab241472063": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie quelle coordonnée chaque différence finie déplace",
+        "0ccb13880f1ad181d01ddd2c57c4ceb89ac85e0ff1162b7d9fdf632e3dfb6070": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie que chaque direction est donnée par un vecteur unitaire",
+        "0d3be3c14fd2df8ed2c41770b6cb59d1f24ed8fd5dbbebaf2e831da46659da6e": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "0d5a37f00beb497c1c575b0c66fabc6dec411eef1247891f47d5fafe291bcbf5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0edcef05ce6798bfa6f26300c319bbbaaef6d63df153a08ed18d96beed586dda": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "111ddf91a1635839796374ba6cdbb9f5638dbf52e2aa872a71f2c81e49945cf0": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1253d0745c3acdd5bd9b9f8f7b5e9eebd9dbc7dc8c207df3d40f2dbc423154c5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "17bba274cd45a65b3a5e5f3cedc07acd29e8511911af94750282682375b1c29a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1b87d13fea157f803a4cadd8d8f2109ede416c53b58599526bfb8755df792f8f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "20045d8a6cd4b67e0761b11a4bbdea3ddccc1b59306e98c798465f94926c4540": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "27ebeb1ce3294e91eea23629fe623e773bfc96c9d9402cab33c1e15237bcbce6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "33b70a93b2fb258e25f0ed3b58197ee6c3b9454258a682491b09742386a5de03": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "343a55978338c24541aa51d39dd1ba08700d3fb7a4d2e1da318256e9aeb9cf55": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "38ea915d0c70b7019b5355f316ce15ac3f74cd44ab7cd6eb9430f0beb1ba1f22": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "3a277f3e07ab9393219cdb14a85bbb04ef4d41ac4840ec755067caae18810953": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3bfd4c28fe3d5f2ae69d4f922a2a25e527b638cba63585fbb8069990381e7cbc": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3de7eaec34ae284f3faf35c09dc96914f33f632939a3af029043263e772ec47a": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie le sens de chaque pas de descente",
+        "4b36c12e29de9e958b11ce27f69cb825db255f90aeac34e13a82d21fca036c51": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "4c1bf9966fd4a708cde6bce425ff8b9018c58ac890ebb027d25a8621dcc3f016": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4d3c566b3c13960d4de1b7b957f7866387de0b70a80cef5b87d86cbcab27919d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "50ec39081e7df6e22cac7b902283e96f60afd9c2bb18c46aaef67b6c1533370b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "52695f9ed943971647e799c16a340f611bb5c4060336ae91084f812824e232ae": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "55e035b15efcfb2ff01162a9152cb0a0a75a79d7db95282f90aaa494e0cb1de5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "64b344ebbdd5f43253d4be5983fe437b6309272dc9cb65353ece5655fe8c5f76": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "707dcbb494055a154c8fccd3e90a35965e49ef614e24fa5283c26f0f221e8c5b": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "721be6a8d7a4d4ee3b218df2b661b11bc5455e0d8f5e15ad6b2c0cd65cdb60bb": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie que chaque direction est donnée par un vecteur unitaire",
+        "74d5cc246a8950e56e74b9ee719c01cbe84f74890cef31786501c0fa3ec0836a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "762849d77b19dbfee72c4391c422e16ab16a72d41b71888004b6c4061804983c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7d1c3fd102614ce0075c29ebeaa05bdd41236d635dcad38eeea29baa4b5f50cb": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7ed1f32e5738a9269e45a7ce610e7c90d809594e433148a58468067dd1e1e977": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "7f10597c85cf741b2267a97cdf0f48d58f8bf67930c5055f2fd99d49addf71d6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8a67f6282d6aab2b87de46cc3c5b1272f9cb5ef4a08d3c2f05c8efd019c1c64d": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie quelle coordonnée chaque différence finie déplace",
+        "8bc328e8f2f93ca0e1c7c17d1869375f377d3145d1827859517ea0b2a9d309fd": "il manque une ligne fautive : vérifie le sens de chaque pas de descente",
+        "8e3f63ab3f3acbc3c1a52752d8f661decb3acc618449aa02fa06be02295bd825": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8f42d65c1afd61ff25168ab43d570ead0c8d544e739dbba9398d4319b4a279ad": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "906def90362c9ca395ca92c2e74f37c37b72212949a85bc63f3c4db574bdfd28": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9103c7ddda17192aceece5504e99288f96255e9f6c1ef37e987723d54a252336": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "942263ff10e4facbfabfba907cdc53cfb591c910be91dc679e143dbd99595672": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "96b036fd02837243056183248ffa25c36f421f103535b01c277f3fbde0029a88": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "980e9c7826175cd2ef5f1f71bad357c15d98d4142846a0c9836a7376abdc5652": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "99dffddd487daba73d2748a311b2e7a85e4dc7ffa527843e38ca87eca551df64": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9db1f6c8332b7005b7bb7050eea9414e38427a331c55079d05239218aab97b9a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9ea4f4dd7582a96f3cf2355b36ae4b256370291391ab66a2c11724450d888319": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie que chaque direction est donnée par un vecteur unitaire",
+        "a107f481e28aac10d645c1108cbb4334f35ecb01f0a7c38c606bba6aa5d7dcc4": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "a11d7a3be958c0aba0a11aa2a6a67e55f51ebe51f405133bf46c03b0d238b030": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b5cc59350970f06416721d2c0b494a05ee192d7c3a5c8ab5fa13689b269e1ba0": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b7046951dda2f28e82ee4bf906bbc204d02222106b8620a822f73eb70e4d1d1b": "il manque une ligne fautive : vérifie quelle coordonnée chaque différence finie déplace",
+        "c36fbcc1e127a0f06a41d33b671213b8fce20d2e95c10a1b470d36a93b3b4621": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c3ff6342db651171dd8207a65e4875c7075dedebbd3c0e95ca078dc0c2a0556e": "il manque une ligne fautive : vérifie que chaque direction est donnée par un vecteur unitaire",
+        "c6d265bece0d46aac8b8aa70b1211231ffa08ca90c4e07bfb133a9c0d41ed5da": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c7189a3fad6319d41349b3b9a4f2933b2b283695caa577f920e85606d8212ba3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d50bf981d75453ccc8a617c8f0ad52c2eb6cbfe49e8bbb0627d53d704bb75664": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d5b8d696fa767f4087fcd3695b7e181ee1e719770fd66702b6c1788d42defcd9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d6d5a7f3341ebfb0ce598399b7bf7d2105947e951b4348a9e74472775b150b93": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "d7be1bda7d4252002c0eaafdc606bc69d94ff4e76334f678dfdf3d4dd5a3da38": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie le sens de chaque pas de descente",
+        "dc1998671c66fd14a8951d8d4d8b5ae87666123028c09ee7a98bb8f1dad11146": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "de97707598bdcb53b924db3d8ebc08f2db1cd1bf2b6dc0e23d02585fa6057a15": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e684e12920c70469c99245b78533050f17c5c143edd5aa829520173a334a8e41": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f4624e995cde03e1882a5794a2347f99d56d0770ec234c2979b2c384aa6d95ac": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie le sens de chaque pas de descente",
+        "f605be7d7b0db1e73660384f57de906446aa607a9dd0430590ad0095a4c1e2cd": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie quelle coordonnée chaque différence finie déplace",
+        "fb77c1c28394bc16bd997da6a548cc53c37bd7385ade5dff72f50808b4a39e38": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple"
+      },
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.25b": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "488accc5541361e688cceefe38f9f5ba1ca6222daf5edbc08be93844ff7aed95"
+        ],
+        [
+          "4a94062ad7f890170215bf5171770d58efc644d7761701535e44b73ce1ce94f0"
+        ],
+        [
+          "1425d75a9e392c8c1714e1e606015d3308481217de0d211229424b29b1a5a98d"
+        ],
+        [
+          "63c0f1181c4ae1f25f1314369fc50b7a2eeb7bb14031a7a3d4e5b35031eab70b"
+        ],
+        [
+          "b2eac8c82ddcd1c5ea44cc8d948eaab54f9e1f715f21d4fc12cb82a257abccf8"
+        ],
+        [
+          "094a9a4e910570bde22b5229cdd6de4f66bf5c226914fa126ae088a3e7797686"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "95ece6ca5f0c02c632384e177b8e5dcd7ad2087dd02539f2b05db7f84cb35833",
+          "466bef595a1de2de8a7c4409ab2cb439dda2511ed03a74b378775343186f7556"
+        ],
+        [
+          "e9ec42fb79f45a68b92b7bdb972ec2397a1fa3b2e7b0fd137e8bd3ea2f277343",
+          "a991f7b6846258a20276c0ace37fde13ab9c684def1d2b7b3a53549912a03e88"
+        ],
+        [
+          "b6deb4677b36893970a1a2d324786a29eed670edf9b1f2851e18a435bd61a0b3",
+          "3d8fd4a86472d62269c2afbba17a4489a8234537cced70c5d41598c1123e7b95"
+        ],
+        [
+          "98d0167c8fae48aeaa0ae59700dc9be070c2755054cc188585a9f649e2fe25d8",
+          "90c34879ff5df183ba907f473557ac966dba7f2f6654bdbf644e673cf670b732"
+        ],
+        [],
+        [
+          "bf0a43ab8f9969061cdfdd71419ebca7aa9e730a27315a9e854e229d0f88d3fd"
+        ]
+      ],
+      "element_hashes": [
+        "21a340926c3404d70969c0488a1beb301c233927ecd531189196cc35fb25c912",
+        "691450d7ff1b70461800f878141457baecdaa01fac6a53dc9c5ad7aad9ed0720",
+        "3c6fa670e3a523cef60fc4a6a47f3e662553f15348aefdee624f7ae73e223722",
+        "346ffc55971dcd387a412a1baf3c903168c8707cd7a9b626d1f970fddb6c87d5",
+        "9bc4da1f32f6c09acc1a5ea3bcd9e8d809df428b05ee76a265eb7cfb9e9b6d9c",
+        "1eaa7bce0ec8dedf1a31dd392e1866d5a76d8dc12ec90666c88b350f1f7db1c6"
+      ],
+      "hash": "794d0c17800d6d0a3d270fa821d63c6f57b03758332fc9555d378b66d7c9f2b2",
+      "kind": "array",
+      "mistakes": {
+        "4ba6f923d123731faa34d5f1a834582964b0030b2ccb5fbce1b6ae242efe3643": "(B) : ∂f/∂y demande de déplacer y",
+        "62b1359c3244392b924e70590395053d80ff7129556cd6fa152d384bbb13014d": "(F) : un pas de descente retire η ∂f/∂x",
+        "94135a4298daed2eedaf76b9e3fa5404a13d938258a5c1c2174f04d0fc40ffdc": "(D) : la direction (3, 4) se divise par sa norme"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
+    "M05b.27": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "737e4d894081edc2eae08ac6c0df64cd3ef0367f22a552c6bed0463d90a2184b"
+        ],
+        [
+          "a41d0dcbcf58d8f2939b84bb2b92faec5d8b4590df19072c51237b297849bec3"
+        ],
+        [
+          "42eacd446fb0ff3f1086b4df1f04bb15ff711fb2b7be992b1181f889889f2f34"
+        ],
+        [
+          "a787cf728561d6c0df245c982137ef54c8f7d2f9436b4c86da8db2b1b7bb3941"
+        ],
+        [
+          "02a9e8772bf41fa1ae7b0aed0352bd489e259fbd35b12626052c3fc59639022a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "3f280e1c4e685681a8e379df1ea5045261713556ec88efe8bd544192224f3dc2",
+          "ef90ae6ce8ffcaa5d93b509361b6acc79c185ffa0d1a4bafadcf943985b91946",
+          "dfb5246bf0a68275d54c4e829b3ba48e703717731b3422c51134e21a7dc15001"
+        ],
+        [
+          "0683517768216843b08e927f6b9ae0ff8e0595facf0530017a73f484918e5334",
+          "7152b5033866d3c7a4788548b5250ac7e884368d9b25e89f8140563efdc6bc12",
+          "3fb8e589203113fe5cd905a7525309baa90970be30e8fb586818d09b7d5e6780"
+        ],
+        [
+          "104281f671aea34d60cd833706c8b8a37e475a88519419fe7a56566394a8c5e8",
+          "b18c228adab7c87bf60fc569620ae65337933dd844ac94f2fc01387e28c037ce",
+          "fdf229cab6bf94c0b35906aa2b210f255a2670bcd123c0f50cc7539ec304acff"
+        ],
+        [
+          "1d789c56b0617d75b6f4cde3388d298c96460bc005a8deb088b224feda445f79",
+          "47e2ae05d1f694e39b5ecaed8b654db769f0862b57bc60891241512d87c60c33"
+        ],
+        [
+          "9139a3d4bcc710c1f0839a94d0964f9bda762ec6b8eff78e2440f00e90ce0c32",
+          "c134c8f26c31807c00a8f4587eea27f14329deb93497bc4c6835f8dab2e00d66",
+          "2829856d7513e3fa9ce02fcf4d4f59724ab6c2e6a6a0dce8484034f02ae925d8"
+        ]
+      ],
+      "element_hashes": [
+        "4e19c429d42c005dcd73aff268d7011df18c295483ec787d10e71b6bff6055f9",
+        "4e22c4b3cb2b175603416891b0420ca5a37b160845d1304f61f4bd4cfc43b647",
+        "e6dddbe94883fde7875ae77dc31aa24ee892e3a66372d4f8528f95cc04c8da0a",
+        "e616ba090e7a8e2a5eb22c7dc8e85454888d05da892e1a72348ccad1631ae7a0",
+        "5f9863fc92aecfff0af413d4b5c384423af46aac64090f15014ab61c1522e8c4"
+      ],
+      "hash": "d74b9cec49fd39fcc846c3b90f3ede280eb7f06862be43eefb8b75fc4f19fe6d",
+      "kind": "array",
+      "mistakes": {
+        "3fcbcd8c397079dc552d4203fb0a5ef5d7b468dbfea14f891ce81ed9a8bc9a2a": "∂f/∂x = 2a x + b y + d : le coefficient de x dans le gradient est 2a, pas a"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m05b_gradient/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",

@@ -825,3 +825,47 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M05a.29 🏆 Défi : une racine cubique à 10⁻¹² en le moins d'itérations possible ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (24 cartes)
 <!-- wbm:end M05a -->
+
+<!-- wbm:section M05b -->
+## M05b · Fonctions de plusieurs variables et gradient ⏱️ 13,3 h
+
+- [ ] M05b.Q1 🧠 Lire des lignes de niveau ★ 4 min
+- [ ] M05b.Q2 🧠 Dérivées partielles : vrai ou faux ★ 4 min
+- [ ] M05b.Q3 🧠 Où pointe le gradient ? ★ 4 min
+- [ ] M05b.Q4 🧠 La dérivée directionnelle ★ 4 min (complet)
+- [ ] M05b.Q5 🧠 Le plan tangent ★ 4 min (complet)
+- [ ] M05b.Q6 🧠 Minimum, maximum ou selle ? ★ 4 min
+- [ ] M05b.Q7 🧠 Descendre ou monter ★ 4 min
+- [ ] M05b.R1 🔁 Dériver une composée (R7) ★ 5 min
+- [ ] M05b.R2 🔁 Produit scalaire et norme (R9) ★ 5 min
+- [ ] M05b.R3 🔁 Dérivée seconde et convexité (M05a) ★ 5 min (complet)
+- [ ] M05b.1 ✏️ Les lignes de niveau de trois fonctions ★ 20 min
+- [ ] M05b.2 ✏️ Dérivées partielles ★ 20 min
+- [ ] M05b.3 ✏️ Le gradient en un point et sa norme ★ 15 min
+- [ ] M05b.4 ✏️ La dérivée directionnelle dans trois directions ★★ 20 min
+- [ ] M05b.5 ✏️ Monter le plus vite : la direction et la valeur de la plus grande pente ★★ 15 min
+- [ ] M05b.6 ✏️ Le plan tangent et l'approximation d'une valeur ★★ 20 min (complet)
+- [ ] M05b.7 ✏️ Dérivées secondes croisées : le théorème de Schwarz vérifié ★★ 15 min (complet)
+- [ ] M05b.8 ✏️ Les points critiques et leur nature (test du second ordre) ★★ 25 min
+- [ ] M05b.9 ✏️ Pourquoi un petit pas contre le gradient fait baisser f : le calcul au premier ordre ★★ 20 min
+- [ ] M05b.10 ✏️ argmin et argmax sur un segment ★★ 20 min (complet)
+- [ ] M05b.11 ∂ La dérivée directionnelle vaut ∇f · u, et la plus grande pente ★★ 25 min (complet)
+- [ ] M05b.12 ∂ Le gradient est orthogonal aux lignes de niveau ★★ 20 min (complet)
+- [ ] M05b.13 ∂ Le test du second ordre pour ax² + bxy + cy² ★★★ 30 min (complet)
+- [ ] M05b.14 🔗 La loss d'un neurone à deux poids sur deux exemples : son gradient ★★ 20 min
+- [ ] M05b.15 📖 MML §5.2 : dérivées partielles et gradient, la convention en ligne (lecture guidée) ★★ 30 min
+- [ ] M05b.16 📈 Lire une carte de lignes de niveau : estimer une dérivée partielle ★ 15 min (complet)
+- [ ] M05b.17 🗣️ Expliquer ce que disent des lignes de niveau serrées ★ 10 min
+- [ ] M05b.E1 💼 Pourquoi le gradient est-il la direction de plus grande pente ? ★ 10 min
+- [ ] M05b.18 🔨 Une dérivée partielle par différence centrée ★ 20 min
+- [ ] M05b.19 🔨 Dérivée directionnelle et direction de plus grande pente ★★ 20 min
+- [ ] M05b.20 🔨 Le plan tangent ★ 15 min (complet)
+- [ ] M05b.21 📦 SymPy : dérivées partielles, gradient, points critiques ★ 20 min
+- [ ] M05b.22 🔮 Prédire : la dérivée directionnelle le long d'une ligne de niveau ★ 10 min
+- [ ] M05b.23 🔬 L'erreur du plan tangent quand on s'éloigne du point ★★ 20 min (complet)
+- [ ] M05b.24 🎨 Lignes de niveau et flèches du gradient sur la même figure ★ 20 min
+- [ ] M05b.25 🐛 Chasse à l'erreur : la mauvaise variable dérivée, une direction non unitaire ★ 15 min (complet)
+- [ ] M05b.26 🛠️ Vectoriser : une fonction de deux variables sur une grille (`np.meshgrid`) ★ 15 min (complet)
+- [ ] M05b.27 🏆 Défi : retrouver une fonction du second degré à partir de son gradient ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (24 cartes)
+<!-- wbm:end M05b -->
