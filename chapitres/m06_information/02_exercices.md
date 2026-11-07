@@ -29,7 +29,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 *Fiche §2 · parcours C, E*
 
 1. L'entropie d'une loi peut être négative.
-2. Une loi sur 8 issues a une entropie d'au plus 3 bits.
+2. Une loi sur 12 issues a une entropie d'au plus 3 bits.
 3. Ajouter à une loi une issue de probabilité 0 change son entropie.
 4. Si l'on multiplie toutes les valeurs de $X$ par 2, l'entropie de $X$ double.
 5. L'entropie de $(0{,}97 ;\ 0{,}03)$ est plus grande que celle de $(0{,}53 ;\ 0{,}47)$.
@@ -60,7 +60,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 
 1. Écris $\mathrm{KL}(p \,\|\, q)$ comme une différence d'une cross-entropy et d'une entropie.
 2. Que vaut $\mathrm{KL}(p \,\|\, q)$ quand $q = p$ ?
-3. $p = (\frac{1}{2}, \frac{1}{2}, 0)$ et $q = (\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$ : $\mathrm{KL}(p \,\|\, q)$ est-elle finie ? Et $\mathrm{KL}(q \,\|\, p)$ ?
+3. $p = (\frac{2}{3}, \frac{1}{3}, 0)$ et $q = (\frac{1}{2}, \frac{1}{4}, \frac{1}{4})$ : $\mathrm{KL}(p \,\|\, q)$ est-elle finie ? Et $\mathrm{KL}(q \,\|\, p)$ ?
 4. Cite deux propriétés d'une distance que la divergence KL ne vérifie pas en général.
 5. Vrai ou faux : $\mathrm{KL}(p \,\|\, q)$ peut être négative.
 6. Dans $\mathrm{KL}(\text{données} \,\|\, \text{modèle})$, que mesure la KL, en bits par symbole ?
@@ -82,7 +82,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 2. Le code $\{01, 10, 11, 001\}$ est-il préfixe ? Est-il complet ?
 3. Le code $\{0, 1, 10\}$ est-il préfixe ?
 4. Des longueurs $(1, 3, 3, 3)$ sont-elles possibles pour un code préfixe binaire ?
-5. Combien de chiffres binaires faut-il à un code de longueur fixe pour 50 issues ?
+5. Combien de chiffres binaires faut-il à un code de longueur fixe pour 1 000 issues ?
 6. Vrai ou faux : un code de longueur fixe dont les mots sont tous différents est toujours préfixe.
 
 <a id="rappels"></a>
@@ -92,11 +92,11 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M06.R1 — Logarithmes en base 2 (R6) 🔁 ★ ⏱️ 5 min
 *Fiche §1 · parcours C, E*
 
-1. Calcule sans calculatrice $\log_2 512$, $\log_2 \frac{1}{4096}$ et $\log_2 \sqrt{2}$.
-2. Calcule $\log_2 10$ (3 décimales) avec la touche $\ln$.
-3. Simplifie $\log_2 24 - \log_2 3$.
-4. Résous $2^x = 12$ (2 décimales).
-5. Quel est le signe de $\log_2 p$ pour $0 < p < 1$ ? Que vaut $-p \log_2 p$ pour $p = \frac{1}{2}$ ?
+1. Complète sans calculatrice : $2^{?} = 4096$, $2^{?} = \frac{1}{512}$, $2^{?} = 2\sqrt{2}$.
+2. Écris $\log_2 x$ avec la fonction $\ln$, puis calcule $\log_2 11$ (3 décimales).
+3. Montre que $\log_2 48 = 4 + \log_2 3$.
+4. Résous $\log_2 x = -2{,}5$ : donne $x$ sous forme exacte, puis à 3 décimales.
+5. Pour quelles valeurs de $p \in\ ]0, 1]$ le nombre $-p \log_2 p$ est-il nul ? Que vaut-il pour $p = \frac{1}{4}$ ?
 
 ### M06.R2 — Probabilités jointes et conditionnelles (M03) 🔁 ★ ⏱️ 5 min
 *Fiche §3 · parcours C, E*
@@ -133,63 +133,60 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 - une liste entre crochets, comme `[-1.5, 2.5]` ; vrai ou faux par `True` ou `False` ; une lettre ou un nom entre guillemets, comme `"B"`.
 
 ### Ex M06.1 — L'information d'événements et l'entropie d'une loi à quatre issues ✏️ ★ ⏱️ 20 min
-**Objectif :** calculer l'information d'événements en bits et en nats, l'additionner pour des événements indépendants, et calculer l'entropie d'une loi.
+**Objectif :** calculer l'information d'événements, l'additionner pour des événements indépendants, et calculer l'entropie d'une loi, en bits et en nats.
 **Prérequis :** fiche §1 et §2 ; R6 · **Parcours :** C, E
 
-Un serveur web répond à chaque requête par l'un de quatre codes : succès avec la probabilité $\frac{1}{2}$, redirection avec $\frac{1}{4}$, erreur du client avec $\frac{3}{16}$, erreur du serveur avec $\frac{1}{16}$.
+Un serveur web répond à chaque requête par l'un de quatre codes : succès avec la probabilité 0,55, redirection avec 0,35, erreur du client avec 0,07, erreur du serveur avec 0,03.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | l'information apportée par « erreur du serveur » | un entier |
-| b | l'information apportée par « succès » | un entier |
-| c | l'information apportée par « erreur du client » | un nombre (3 décimales) |
-| d | l'information apportée par « erreur du serveur », en **nats** | un nombre (3 décimales) |
-| e | l'information apportée par deux requêtes indépendantes : un succès, puis une erreur du serveur | un entier |
-| f | l'entropie de la loi des quatre codes | un nombre (3 décimales) |
-| g | cette entropie, en nats | un nombre (3 décimales) |
-| h | l'entropie de la loi à trois issues obtenue en regroupant les deux erreurs en une seule issue « erreur » | un nombre (1 décimale) |
+| a | l'information apportée par chacun des quatre codes, dans cet ordre | une liste de 4 nombres (2 décimales) |
+| b | l'entropie de la loi des quatre codes | un nombre (3 décimales) |
+| c | cette entropie, en **nats** | un nombre (2 décimales) |
+| d | l'information apportée par deux requêtes indépendantes : un succès, puis une erreur du serveur | un nombre (3 décimales) |
+| e | l'entropie de la loi à trois issues obtenue en regroupant les deux erreurs en une seule issue « erreur » | un nombre (3 décimales) |
+| f | l'entropie du couple formé par les codes de deux requêtes indépendantes | un nombre (3 décimales) |
 
-Dans ta copie : pourquoi f) est-elle plus petite que 2 bits ? Pourquoi h) est-elle plus petite que f) : qu'a-t-on perdu en regroupant les deux erreurs ? Écris l'écart f) − h) comme $\frac{1}{4}$ fois l'entropie d'une loi à deux issues, que tu préciseras.
+Dans ta copie : vérifie que b) est la moyenne des informations de a), pondérée par les probabilités. Qu'a-t-on perdu en regroupant les deux erreurs ? Écris l'écart b) − e) comme 0,1 fois l'entropie d'une loi à deux issues, que tu préciseras. Justifie f) avec la règle de la chaîne (§3).
 
-### Ex M06.2 — L'entropie maximale : comparer trois lois à trois issues ✏️ ★★ ⏱️ 15 min
-**Objectif :** comparer les entropies de plusieurs lois sur le même nombre d'issues, et voir quand l'entropie augmente.
-**Prérequis :** fiche §2 · **Parcours :** C
+### Ex M06.2 — L'entropie maximale : comparer des lois à quatre issues ✏️ ★★ ⏱️ 15 min
+**Objectif :** voir comment l'entropie change quand on rapproche les probabilités ou quand on regroupe des issues, et trouver une entropie maximale sous une contrainte.
+**Prérequis :** fiche §2 ; Ex M06.1 · **Parcours :** C
 
-Trois lois sur trois issues : $A = (\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$, $B = (\frac{1}{2}, \frac{1}{2}, 0)$ et $C = (0{,}7 ;\ 0{,}2 ;\ 0{,}1)$.
+Une loi sur quatre issues : $A = (0{,}45 ;\ 0{,}3 ;\ 0{,}15 ;\ 0{,}1)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $H(A)$ | un nombre (3 décimales) |
-| b | $H(B)$ | un entier |
-| c | $H(C)$ | un nombre (3 décimales) |
-| d | la loi qui a la plus grande entropie | une lettre |
-| e | l'entropie de $(0{,}45 ;\ 0{,}35 ;\ 0{,}2)$ | un nombre (3 décimales) |
-| f | l'entropie de $(0{,}6 ;\ 0{,}25 ;\ 0{,}15)$, obtenue à partir de $C$ en retirant 0,1 à la première issue pour en donner 0,05 à chacune des deux autres | un nombre (3 décimales) |
-| g | la plus grande entropie possible pour une loi sur trois issues, en **nats** | un nombre (3 décimales) |
+| b | l'entropie de $A_1 = (0{,}4 ;\ 0{,}3 ;\ 0{,}15 ;\ 0{,}15)$, obtenue en donnant 0,05 de la première issue à la dernière | un nombre (3 décimales) |
+| c | l'entropie de $A_2 = (0{,}45 ;\ 0{,}3 ;\ 0{,}25)$, obtenue en regroupant les deux dernières issues de $A$ | un nombre (2 décimales) |
+| d | la plus grande entropie possible pour une loi sur quatre issues | un entier |
+| e | la plus grande entropie possible pour une loi sur quatre issues dont la première a la probabilité 0,45 | un nombre (2 décimales) |
+| f | cette entropie maximale e), en **nats** | un nombre (2 décimales) |
 
-Dans ta copie : range les lois $A$, $B$, $C$, celle de e) et celle de f) par entropie croissante. Que fait l'entropie quand on rapproche les probabilités les unes des autres ? Quelle est la plus petite entropie possible sur trois issues, et pour quelles lois ?
+Dans ta copie : quel effet a le transfert de b), d'une issue probable vers une issue rare ? Et le regroupement de c) ? Pour e), quelle loi atteint le maximum, et pourquoi (regarde la loi des trois dernières issues, sachant que la première n'est pas sortie) ?
 
 ### Ex M06.3 — Entropies conjointe et conditionnelle d'un tableau 2 × 3 ✏️ ★★ ⏱️ 20 min
-**Objectif :** calculer une entropie conjointe, des entropies conditionnelles à une valeur et en moyenne, et voir que connaître une valeur particulière peut augmenter l'incertitude.
+**Objectif :** calculer une entropie conjointe, des entropies conditionnelles à une valeur et en moyenne, et comparer chacune à l'entropie de $Y$.
 **Prérequis :** fiche §3 ; M03 · **Parcours :** C, E
 
 Une application a des utilisateurs gratuits et payants ($X$), dont on mesure l'usage ($Y$ : faible, moyen ou fort). La loi jointe :
 
 | | faible | moyen | fort |
 |---|---|---|---|
-| gratuit | $\frac{1}{2}$ | 0 | 0 |
-| payant | $\frac{1}{8}$ | $\frac{1}{8}$ | $\frac{1}{4}$ |
+| gratuit | 0,4 | 0 | 0 |
+| payant | 0,18 | 0,21 | 0,21 |
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $H(X, Y)$ | un nombre (2 décimales) |
-| b | $H(Y \mid X = \text{payant})$ | un nombre (1 décimale) |
-| c | $H(Y \mid X)$ | un nombre (2 décimales) |
-| d | $H(Y)$ | un nombre (3 décimales) |
-| e | $H(X \mid Y)$ | un nombre (3 décimales) |
-| f | savoir qu'un utilisateur est payant augmente-t-il l'incertitude sur son usage, par rapport à ne rien savoir ? | `True` ou `False` |
+| a | $H(X, Y)$ | un nombre (3 décimales) |
+| b | $H(Y \mid X = \text{payant})$ | un nombre (3 décimales) |
+| c | $H(Y \mid X)$ | un nombre (3 décimales) |
+| d | $H(Y)$ | un nombre (2 décimales) |
+| e | $H(X \mid Y)$ | un nombre (2 décimales) |
+| f | l'écart $H(Y \mid X = \text{payant}) - H(Y)$ | un nombre (2 décimales) |
 
-Dans ta copie : vérifie la règle de la chaîne de deux façons. Pourquoi $H(Y \mid X = \text{gratuit})$ est-elle nulle ? Comment f) se concilie-t-il avec le fait que, en moyenne, savoir ne rend pas moins sûr ?
+Dans ta copie : vérifie la règle de la chaîne de deux façons. Pourquoi $H(Y \mid X = \text{gratuit})$ est-elle nulle ? Que dit le signe de f) ? Compare-le à celui de $H(Y \mid X) - H(Y)$.
 
 ### Ex M06.4 — La règle de la chaîne de l'entropie, vérifiée ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer les deux entropies conditionnelles d'un tableau 2 × 2 et vérifier la règle de la chaîne dans les deux sens.
@@ -222,8 +219,8 @@ Dans ta copie : vérifie que $H(X) + H(Y \mid X)$ et $H(Y) + H(X \mid Y)$ redonn
 
 | | freine | ne freine pas |
 |---|---|---|
-| vert | $\frac{1}{16}$ | $\frac{7}{16}$ |
-| orange | $\frac{1}{8}$ | $\frac{1}{8}$ |
+| vert | $\frac{1}{16}$ | $\frac{1}{2}$ |
+| orange | $\frac{1}{8}$ | $\frac{1}{16}$ |
 | rouge | $\frac{1}{4}$ | 0 |
 
 | | Question | Réponse attendue |
@@ -232,9 +229,9 @@ Dans ta copie : vérifie que $H(X) + H(Y \mid X)$ et $H(Y) + H(X \mid Y)$ redonn
 | b | $H(Y)$ | un nombre (3 décimales) |
 | c | $H(Y \mid X = \text{vert})$ | un nombre (3 décimales) |
 | d | $H(Y \mid X)$ | un nombre (3 décimales) |
-| e | $I(X ; Y)$ | un nombre (3 décimales) |
-| f | $H(X)$ | un nombre (1 décimale) |
-| g | $H(X \mid Y)$ | un nombre (3 décimales) |
+| e | $I(X ; Y)$ | un nombre (2 décimales) |
+| f | $H(X)$ | un nombre (3 décimales) |
+| g | $H(X \mid Y)$ | un nombre (2 décimales) |
 | h | $X$ et $Y$ sont-elles indépendantes ? | `True` ou `False` |
 
 Dans ta copie : calcule aussi $I(X ; Y)$ par $H(X) + H(Y) - H(X, Y)$. Quelle case du tableau contribue le plus à la somme $\sum p(x, y) \log_2 \frac{p(x, y)}{p(x)\,p(y)}$, et quelles cases y contribuent négativement ?
@@ -243,20 +240,19 @@ Dans ta copie : calcule aussi $I(X ; Y)$ par $H(X) + H(Y) - H(X, Y)$. Quelle cas
 **Objectif :** calculer une cross-entropy et une divergence KL, et les lire comme des bits par symbole et des bits perdus.
 **Prérequis :** fiche §5 · **Parcours :** C, E
 
-Une application enregistre cinq types d'événements. Son compresseur a été réglé sur l'ancienne version, où ils suivaient la loi $q = (\frac{1}{2}, \frac{1}{8}, \frac{1}{8}, \frac{1}{8}, \frac{1}{8})$ : chaque type $i$ y reçoit un mot de $-\log_2 q_i$ bits. Aujourd'hui, les événements suivent la loi $p = (\frac{1}{4}, \frac{1}{4}, \frac{1}{4}, \frac{1}{8}, \frac{1}{8})$.
+Une application enregistre cinq types d'événements. Son compresseur a été réglé sur l'ancienne version, où ils suivaient la loi $q = (\frac{1}{2}, \frac{1}{4}, \frac{1}{16}, \frac{1}{16}, \frac{1}{8})$ : chaque type $i$ y reçoit un mot de $-\log_2 q_i$ bits. Aujourd'hui, les événements suivent la loi $p = (\frac{1}{4}, \frac{1}{4}, \frac{1}{4}, \frac{1}{8}, \frac{1}{8})$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $H(p)$ | un nombre (2 décimales) |
 | b | la longueur du mot du premier type, avec ce compresseur | un entier |
-| c | $H(p, q)$, la longueur moyenne d'un mot avec ce compresseur, sur les données d'aujourd'hui | un nombre (1 décimale) |
-| d | $\mathrm{KL}(p \,\|\, q)$ | un nombre (2 décimales) |
+| c | $H(p, q)$, la longueur moyenne d'un mot avec ce compresseur, sur les données d'aujourd'hui | un nombre (3 décimales) |
+| d | $\mathrm{KL}(p \,\|\, q)$ | un nombre (3 décimales) |
 | e | le nombre de bits perdus, par rapport au meilleur code, sur 1 000 événements d'aujourd'hui | un entier |
-| f | $\mathrm{KL}(p \,\|\, q)$, en **nats** | un nombre (4 décimales) |
+| f | $\mathrm{KL}(p \,\|\, q)$, en **nats** | un nombre (3 décimales) |
 | g | le terme du premier type dans la somme $\sum_i p_i \log_2 \frac{p_i}{q_i}$ | un nombre (2 décimales) |
-| h | si l'ancienne loi avait donné la probabilité 0 au cinquième type, $H(p, q)$ serait-elle infinie ? | `True` ou `False` |
 
-Dans ta copie : quels types coûtent plus cher qu'avec le meilleur code, et lesquels moins ? Quel est le signe de chaque terme de la somme de d), et pourquoi le total ne peut-il pas être négatif ?
+Dans ta copie : vérifie que les longueurs du compresseur vérifient l'inégalité de Kraft (§7). Quels types coûtent plus cher qu'avec le meilleur code, et lesquels moins ? Quel est le signe de chaque terme de la somme de d), et pourquoi le total ne peut-il pas être négatif ?
 
 ### Ex M06.7 — L'inégalité de Jensen sur trois exemples ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer $\mathbb{E}[f(X)]$ et $f(\mathbb{E}[X])$ pour des fonctions convexes et concaves, et lire le signe de l'écart de Jensen.
@@ -276,7 +272,6 @@ Trois variables discrètes :
 | e | $\mathbb{E}[\log_2 X_3]$ | un nombre (1 décimale) |
 | f | $\log_2 \mathbb{E}[X_3]$ | un nombre (4 décimales) |
 | g | l'écart de Jensen pour $X_3$ et $\log_2$ | un nombre (4 décimales) |
-| h | l'écart de c) est-il égal à la variance de $X_1$ ? | `True` ou `False` |
 
 Dans ta copie : pour chaque exemple, dis si $f$ est convexe ou concave, et vérifie que le signe de l'écart est celui qu'annonce Jensen.
 
@@ -284,37 +279,39 @@ Dans ta copie : pour chaque exemple, dis si $f$ est convexe ou concave, et véri
 **Objectif :** calculer des sommes de Kraft, décider si des longueurs sont possibles pour un code préfixe, et distinguer cette question de celle d'un code donné.
 **Prérequis :** fiche §7 · **Parcours :** C, E
 
+Une somme de Kraft se donne en fraction irréductible, ou en entier si elle en est un.
+
 | | Question | Réponse attendue |
 |---|---|---|
-| a | la somme de Kraft $\sum_i 2^{-\ell_i}$ des longueurs $(1, 2, 3, 4)$ | une fraction irréductible |
-| b | celle des longueurs $(2, 2, 2, 2, 3)$ | une fraction irréductible |
-| c | celle des longueurs $(1, 2, 2, 3, 4)$ | une fraction irréductible |
-| d | celle des longueurs $(1, 3, 3, 3, 4, 4)$ | un entier |
-| e | la somme de Kraft $\sum_i 3^{-\ell_i}$ des longueurs $(1, 1, 2, 2, 2)$, pour un alphabet de trois symboles | un entier |
+| a | la somme de Kraft $\sum_i 2^{-\ell_i}$ des longueurs $(1, 2, 3, 4)$ | une fraction |
+| b | celle des longueurs $(2, 2, 2, 2, 4)$ | une fraction |
+| c | celle des longueurs $(1, 2, 2, 3, 4)$ | une fraction |
+| d | celle des longueurs $(1, 3, 3, 3, 4, 4)$ | une fraction |
+| e | la somme de Kraft $\sum_i 3^{-\ell_i}$ des longueurs $(1, 1, 2, 2, 2)$, pour un alphabet de trois symboles | une fraction |
 | f | un code préfixe binaire a déjà deux mots, de longueurs 1 et 2 : combien de mots de longueur 3 peut-on lui ajouter, au plus ? | un entier |
 | g | le code $\{1, 10, 01\}$ est-il préfixe ? | `True` ou `False` |
-| h | la somme de Kraft des longueurs du code de g) | un entier |
+| h | la somme de Kraft des longueurs des mots du code de g) | une fraction |
 
-Dans ta copie : pour a) à e), dis si un code préfixe de ces longueurs existe ; pour ceux qui existent, écris-en un. Pourquoi h) ne contredit-il pas g) ?
+Dans ta copie : pour a) à e), dis si un code préfixe de ces longueurs existe ; pour ceux qui existent, écris-en un. Compare g) et h) : que dit l'inégalité de Kraft, et que ne dit-elle pas ?
 
 ### Ex M06.9 — La longueur moyenne d'un code, comparée à l'entropie ✏️ ★★ ⏱️ 20 min
-**Objectif :** calculer la longueur moyenne d'un code, la comparer à l'entropie, et construire les longueurs de Shannon.
+**Objectif :** calculer la longueur moyenne de plusieurs codes, la comparer à l'entropie, et construire les longueurs de Shannon.
 **Prérequis :** fiche §7 · **Parcours :** C
 
-Une source émet cinq symboles avec les probabilités $p = (0{,}45 ;\ 0{,}25 ;\ 0{,}15 ;\ 0{,}10 ;\ 0{,}05)$, codés par le code préfixe $\{0, 10, 110, 1110, 1111\}$, dans cet ordre.
+Une source émet six symboles avec les probabilités $p = (0{,}4 ;\ 0{,}2 ;\ 0{,}15 ;\ 0{,}1 ;\ 0{,}1 ;\ 0{,}05)$, codés, dans cet ordre, par le code préfixe $\{00, 100, 01, 101, 110, 111\}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $H(p)$ | un nombre (3 décimales) |
-| b | la longueur moyenne $\bar{L}$ de ce code | un nombre (1 décimale) |
-| c | la somme de Kraft de ce code | un entier |
-| d | les longueurs de Shannon $\lceil -\log_2 p_i \rceil$, dans l'ordre des symboles | une liste de 5 entiers |
+| b | la longueur moyenne $\bar{L}$ du code donné | un nombre (2 décimales) |
+| c | le nombre de chiffres binaires d'un code de longueur fixe pour six symboles | un entier |
+| d | les longueurs de Shannon $\lceil -\log_2 p_i \rceil$, dans l'ordre des symboles | une liste de 6 entiers |
 | e | leur somme de Kraft | une fraction irréductible |
-| f | la longueur moyenne d'un code qui a les longueurs de Shannon | un nombre (1 décimale) |
-| g | a-t-on $H(p) \le$ f) $< H(p) + 1$ ? | `True` ou `False` |
-| h | l'écart $\bar{L} - H(p)$ du code donné | un nombre (3 décimales) |
+| f | la longueur moyenne d'un code qui a les longueurs de Shannon | un nombre (2 décimales) |
+| g | l'écart $\bar{L} - H(p)$ du code donné | un nombre (3 décimales) |
+| h | la longueur moyenne d'un code préfixe qui donne aux six symboles, dans l'ordre, les longueurs $(1, 3, 3, 3, 4, 4)$ | un nombre (2 décimales) |
 
-Dans ta copie : écris un code préfixe qui a les longueurs de Shannon. Lequel des deux codes est le meilleur, et pourquoi le code de Shannon laisse-t-il de la place inutilisée (regarde e)) ?
+Dans ta copie : écris un code préfixe qui a les longueurs de h). Range les quatre codes (longueur fixe, code donné, longueurs de Shannon, longueurs de h)) par longueur moyenne, et situe-les par rapport à $H(p)$ et à $H(p) + 1$. Le code donné peut-il être amélioré en échangeant deux de ses mots, sans changer l'ensemble des mots ?
 
 <a id="demonstrations"></a>
 
@@ -338,13 +335,13 @@ On part de la définition $I(X ; Y) = \sum_{x, y} p(x, y) \log_2 \frac{p(x, y)}{
 **Objectif :** démontrer l'inégalité de Gibbs avec l'inégalité de Jensen, étudier son cas d'égalité, et en tirer des conséquences.
 **Prérequis :** fiche §5 et §6 ; M05a §1 · **Parcours :** C
 
-Soit $p$ et $q$ deux lois sur les mêmes issues, $S$ l'ensemble des issues où $p(x) > 0$, et l'on suppose $q(x) > 0$ sur $S$. On admet l'inégalité de Jensen (fiche §6), avec son cas d'égalité pour une fonction strictement concave.
+Soit $p$ et $q$ deux lois sur les mêmes issues, telles que $q(x) > 0$ pour toute issue $x$ où $p(x) > 0$. On admet l'inégalité de Jensen (fiche §6), avec son cas d'égalité pour une fonction strictement concave.
 1. Montre que $\log_2$ est strictement concave sur $]0, +\infty[$.
-2. On considère la variable $Z$ qui vaut $\frac{q(x)}{p(x)}$ avec la probabilité $p(x)$, pour $x \in S$. Écris $\mathbb{E}[\log_2 Z]$ et $\log_2 \mathbb{E}[Z]$ avec des sommes sur $S$.
-3. Avec l'inégalité de Jensen, montre que $-\mathrm{KL}(p \,\|\, q) \le \log_2 \sum_{x \in S} q(x) \le 0$.
-4. Montre que $\mathrm{KL}(p \,\|\, q) = 0$ si et seulement si $p = q$ : étudie les deux inégalités de la question 3, et à quelle condition chacune est une égalité.
+2. Soit $X$ une variable de loi $p$, et $Z = \frac{q(X)}{p(X)}$ (bien définie : $X$ ne prend que des valeurs où $p > 0$). Écris $\mathbb{E}[\log_2 Z]$ à l'aide de $\mathrm{KL}(p \,\|\, q)$, puis montre que $\mathbb{E}[Z] \le 1$.
+3. Déduis-en que $\mathrm{KL}(p \,\|\, q) \ge 0$.
+4. À quelles conditions les inégalités utilisées en 3. sont-elles des égalités ? Déduis-en que $\mathrm{KL}(p \,\|\, q) = 0$ seulement si $p = q$.
 5. En déduire que la divergence de Jensen-Shannon est positive ou nulle, et nulle seulement si $p = q$.
-6. Que devient la question 3 si l'on ne suppose plus $q(x) > 0$ sur $S$ ? Que vaut alors $\mathrm{KL}(p \,\|\, q)$ ?
+6. (L'inégalité log-somme.) Soit $a_1, \ldots, a_n$ et $b_1, \ldots, b_n$ des nombres strictement positifs, de sommes $A$ et $B$. En appliquant 3. aux lois $\big(\frac{a_i}{A}\big)_i$ et $\big(\frac{b_i}{B}\big)_i$, montre que $\sum_i a_i \log_2 \frac{a_i}{b_i} \ge A \log_2 \frac{A}{B}$.
 
 <a id="reflexion"></a>
 
@@ -354,23 +351,24 @@ Soit $p$ et $q$ deux lois sur les mêmes issues, $S$ l'ensemble des issues où $
 **Objectif :** calculer la log loss d'un classifieur à trois classes comme une moyenne de cross-entropies, en nats et en bits, et la comparer à celle d'un modèle qui ne sait rien.
 **Prérequis :** fiche §5 et §8 · **Parcours :** C, E
 
-Un classifieur range des images en trois classes (A, B, C). Sur quatre images, il a prédit :
+Un classifieur range des images en trois classes (A, B, C). Sur cinq images, il a prédit :
 
 | image | vraie classe | probabilités prédites (A, B, C) |
 |---|---|---|
 | 1 | A | (0,5 ; 0,3 ; 0,2) |
 | 2 | B | (0,1 ; 0,8 ; 0,1) |
-| 3 | C | (0,6 ; 0,15 ; 0,25) |
+| 3 | C | (0,5 ; 0,15 ; 0,35) |
 | 4 | A | (0,9 ; 0,05 ; 0,05) |
+| 5 | B | (0,35 ; 0,4 ; 0,25) |
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | la cross-entropy de l'image 3, en nats | un nombre (4 décimales) |
-| b | la log loss sur les quatre images, en nats | un nombre (4 décimales) |
-| c | cette log loss, en bits | un nombre (4 décimales) |
-| d | la log loss, en nats, d'un modèle qui prédirait toujours $(\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$ | un nombre (4 décimales) |
+| a | la cross-entropy de l'image 3, en nats | un nombre (3 décimales) |
+| b | la log loss sur les cinq images, en nats | un nombre (3 décimales) |
+| c | cette log loss, en bits | un nombre (2 décimales) |
+| d | la log loss, en nats, d'un modèle qui prédirait toujours $(\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$ | un nombre (3 décimales) |
 | e | le classifieur fait-il mieux que ce modèle ? | `True` ou `False` |
-| f | l'exponentielle de b) | un nombre (4 décimales) |
+| f | l'exponentielle de b) | un nombre (3 décimales) |
 
 Dans ta copie : quelle image coûte le plus cher, et pourquoi ? Comment se lit f), à la manière d'une perplexité (fiche §8) ? Que vaudrait la cross-entropy de l'image 3 si le modèle avait donné la probabilité 0 à la classe C ?
 
@@ -404,9 +402,9 @@ Sur 20 clients d'une boutique, on note s'ils achètent ($Y$) et trois features :
 | d | la feature la plus informative sur l'achat | un nom, comme `"F2"` |
 | e | $H(Y \mid F_3)$ | un nombre (4 décimales) |
 | f | $I(F_1 ; Y)$, en **nats** (l'unité de scikit-learn) | un nombre (4 décimales) |
-| g | une feature qui serait le numéro de chaque client (20 valeurs différentes) aurait-elle, sur ces données, une information mutuelle avec $Y$ égale à $H(Y)$ ? | `True` ou `False` |
+| g | en regroupant les tranches « moyen » et « senior » de $F_3$ en une seule valeur, l'information mutuelle avec $Y$ deviendrait-elle plus grande que c) ? | `True` ou `False` |
 
-Dans ta copie : pourquoi la feature de g) serait-elle pourtant inutile pour prédire l'achat d'un nouveau client ? Pourquoi $F_3$ part-elle avec un avantage sur $F_1$ et $F_2$ ?
+Dans ta copie : justifie g) par un calcul. Une feature qui serait le numéro de chaque client (20 valeurs différentes) : que vaudrait son information mutuelle avec $Y$ sur ces données, et servirait-elle à prédire l'achat d'un nouveau client ? Est-il équitable de comparer des features qui n'ont pas le même nombre de valeurs ?
 
 ### Ex M06.14 — Fermi : combien de bits pour un génome humain ? 🧮 ★ ⏱️ 10 min
 **Objectif :** estimer la taille d'un génome selon la façon de le coder, du code de longueur fixe à la description des différences.
@@ -457,6 +455,6 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | M06.23 | Un diagramme de l'information : H(X), H(Y), H(X \| Y), I(X ; Y) | 🎨 | ★ | 20 | C |
 | M06.24 | Chasse à l'erreur : log en base 10, 0 log 0, KL à l'envers | 🐛 | ★ | 15 | C |
 | M06.25 | Calculer 0 log 0 proprement (`scipy.special.xlogy`) | 🛠️ | ★ | 10 | C |
-| M06.26 | Défi : deviner un nombre de 1 à 100 en un minimum de questions | 🏆 | ★★★ | 25 | C |
+| M06.26 | Défi : localiser une panne parmi 100 serveurs en un minimum de questions | 🏆 | ★★★ | 25 | C |
 
 Indices : `04_indices.md` (section « Notebook ») ; solutions commentées : `05_solutions.md` et `05_solutions.ipynb`.

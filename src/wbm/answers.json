@@ -17881,21 +17881,72 @@
       "source": "chapitres/m05b_gradient/05_solutions.ipynb"
     },
     "M06.1a": {
-      "hash": "bba26926a44099853a3974da697617b4ea7954d972e3ef7133b9da70ef0c3b33",
-      "kind": "int",
-      "magnitude": 0,
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "ee8a4952f5c84b2f9f6851e4a016f76bd3fb755d67ab8bbe840ce28a6a66c145"
+        ],
+        [
+          "4ce30c195d166ced9e5161afecd681cb84bb436874a1e92193b51751e8825c2c"
+        ],
+        [
+          "536332df36d2cfeb655cf3c5113cf1230eee7a77f9f1c03ce3b9b314cd5e10c8"
+        ],
+        [
+          "e7e1b555c6e89085ccfcba930e8cc2c50496f4103f76e157be89c2e67754eae1"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "07d8edd3555eb4454a57338b1458547d95d1de2b4d87f9b89745eead5a4a9708"
+        ],
+        [
+          "48c2a863ca79af66660a0813f0153a1927b611d8b20e45640f8ad927d04a3603"
+        ],
+        [
+          "58669e2c319a8a4ef413f3decd5d3044c6086858a8dd9ef6b1fc6a75d07fcba7"
+        ],
+        [
+          "5497c72b0867512511c41ccade5cae584f55e5a2abaaa615554c9b2ffd230721"
+        ]
+      ],
+      "element_hashes": [
+        "cacd2d5f276167e8714378c76e1b40c610d4dcc321875844464b1387f223dcdb",
+        "2a7c784086c8cf567172ecc92d4f77770f8b3e8352207ad28e4c421c97e85848",
+        "05b4fe30ef675958dc890ef6ba630a90ba3af68204226267301bd61a69353f66",
+        "6c08f4e5c617142b6f051657536ebf72984518a5bb4eda5114900fa3c9d31695"
+      ],
+      "hash": "a8a635df1ed8b7d4a92cc6d0cf348be9789b2143ff7753cf49e1396791635631",
+      "kind": "array",
       "mistakes": {
-        "1c4e6718aedcc28f9e1b2cc9611df9aee8cc5e5f4a10e5a9df7035a3294d7535": "l'information d'un événement de probabilité p < 1 est positive : c'est −log₂ p"
+        "b0adcd92a52ed45da305c09a2a7c1eb6ff3360fd867b8efed97db7993963793b": "la question demande des bits : log₂ x = ln x / ln 2, pas ln",
+        "bb7967e3d63fd6a36755529d1bb77e6779a8b4a8994824ee132f7352caa90c6a": "l'information d'un événement de probabilité p < 1 est positive : c'est −log₂ p"
       },
-      "sign": 1,
+      "shape": [
+        4
+      ],
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.1b": {
-      "hash": "7ccd7dc8bd6483125336a7effae6853fd6884c32b780c3f8426a361d4ac68f40",
-      "kind": "int",
+      "coarse_any": {
+        "0": [
+          "017e9b09b3ab2635b13df963281950ce19afcd92228d3aa738c55334a6c2f416"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "cba789c60c93f5444aaf6ba9ffff7dda06c58978f2314a5e3c1c8641db1fe28f"
+        ]
+      },
+      "decimals": 3,
+      "hash": "aa80e9b16aef4965af426229371406811c5025c2b44daf971359fbacd345dca6",
+      "hash_coarse": "a330cecc49aacefd23f2dce8199e2da0eb83288ecbdab45a962eb56758ecc1c3",
+      "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "7e2092467c21e82de16f44e625782d5ce450b8f22ff19c551a0700c52427bff0": "l'information d'un événement de probabilité p < 1 est positive : c'est −log₂ p"
+        "14e84df199b09b71e64e874a356a891abb32677d3a8209eda8dfcca58a497964": "l'entropie est la moyenne des informations, pondérée par les probabilités, pas leur somme",
+        "15bd802ac48fb7ef3b58493a96d7e467a975ae753159beb5fa7b6cea02b03bc1": "l'entropie pondère chaque information par la probabilité de son issue, pas par 1/4",
+        "71906a768eb37cc6b37fb76d4607f869e955aaa9a578723bf723da7fdc4bdd05": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -17903,22 +17954,17 @@
     "M06.1c": {
       "coarse_any": {
         "0": [
-          "e37bbe7ea4a6fdc9e4fc38717b786d46e2ae75de2fc78c1e04eefa2f21e43616"
+          "9c78e80d89e7428554287d35f21e4c11dd8efd8d119f35a0832b5c9ff68c1287"
         ]
       },
-      "coarser": {
-        "1": [
-          "a4d4c08b9afef518f01074392d021a7a4997fd38dfae9ceba13945bedae61f2f"
-        ]
-      },
-      "decimals": 3,
-      "hash": "1a0708a20ae407fd5605a7dc81916b8f72ae460547daeac914ad9deb4bfe484b",
-      "hash_coarse": "248016f210756ea1557ec6581852c4f9ea780be1f867e994dd6b5512ed57a0e4",
+      "decimals": 2,
+      "hash": "d1b475d64efc106daf664a7695364f470cc22464c963ebb81d25f06f8fa3d0d4",
+      "hash_coarse": "e01ff331a6631ac6e704ebb4db421b7dc98c5462e357e965f18487ef3c4942b9",
       "kind": "float",
-      "magnitude": 0,
+      "magnitude": -1,
       "mistakes": {
-        "3e7c56d49c52380574a256e7d8350ef4e5ba1e36640e6a6bb8896adbd8af05f9": "l'information d'un événement de probabilité p < 1 est positive : c'est −log₂ p",
-        "e191f56b1519dbccd185bd380ff9c37b1429a3ec1ec1bc64ecec3dad32b5dcb9": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
+        "18d93a183199c534e2c0d91ea468f88c339a1cfba4aae4a6bffcad55f484c2d4": "1 nat vaut plus qu'un bit : le nombre de nats est plus petit que le nombre de bits",
+        "e7217068e504559f8a46cf2bc81a702eb97f0466c0077f1adc0240343a20cd11": "la question demande des nats : convertis les bits en nats (fiche §1)"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -17926,31 +17972,44 @@
     "M06.1d": {
       "coarse_any": {
         "0": [
-          "a04494d4f9a3703bcad2ed623bea582337099a991c52d48e3a09fbe206e0e5d6"
+          "929c5bacf3f1c7295513b3f376b159d6c05f459eb25df8702955316ecdafb4eb"
         ]
       },
       "coarser": {
         "1": [
-          "b225d34281b77e17a7de40dc195ad49b7b264fec8017ef7bba5efa7bf300c508"
+          "7a9b59d13f1e5e25225b52bca56496fc5c7a848f379ce73f6e88eb43fe2c9e37"
         ]
       },
       "decimals": 3,
-      "hash": "05a79d8e3b7ea97a3a8b4c28168f9e6b1e0c6e381d8a16353ccc890477e811fe",
-      "hash_coarse": "871a4722d8e9ee696bcfc9cc91a1e4cc7ab01c07c64e11e73f68e1d88dac81d5",
+      "hash": "24e95b43cbdb2fc787b60f89130f44fb853d0f6e3ff698b0a86640ff68ba3ce1",
+      "hash_coarse": "8998f68ee1ad86dedc661edd063eca3813d6cd2f2e72d669895889eb451eb79c",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "d4ae9b716c5026ed5968680e5c42be885417fd7b3cd543f54c043b7f329239c6": "en nats, le logarithme est ln, pas log₂"
+        "44a3109baefd9d0f8ce61bf6f91808003d7470275d6c3493fe971976f11bed4c": "les informations d'événements indépendants s'additionnent",
+        "4d9cc2dfec41f9deb3ca56b47653f7034b1174294a361b490030eb37e5b81748": "la probabilité de deux événements indépendants est le produit des probabilités, pas leur somme"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.1e": {
-      "hash": "f72bb853af55a8ea0fd80215ec854a4f70e3ffd93a0b5096adadcfc300416e7b",
-      "kind": "int",
+      "coarse_any": {
+        "0": [
+          "95ee769b16576a1db8f6e92f3e0b3f2f529cba3cc7f184cec9cec5a870ecc396"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "6a3527dd7912b6a50f01ea025502f898f117d88e6486bce08217331eb7d2c667"
+        ]
+      },
+      "decimals": 3,
+      "hash": "a12f260e7603a51c1b0b5d3714c5b1cdc6103ea411278fd0a733264669817eb9",
+      "hash_coarse": "11ca63c02cbb0c6e18ea3cbcf203860bec73e1881b78d5e776e5b7895ec14ad1",
+      "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "6c01ea4a94fe2aaa26d2c09729c0754fc90273be3adfd440cec36100e8c9baf3": "les informations d'événements indépendants s'additionnent (la probabilité des deux est le produit des probabilités)"
+        "61f0f446aa2609f73d16f4ec5e32f347dfaa8e87cd092e4e4bb9d4b0e58d86a7": "c'est l'entropie de la loi à quatre issues : regroupe d'abord les deux erreurs en une seule issue, de probabilité la somme des deux"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -17958,57 +18017,21 @@
     "M06.1f": {
       "coarse_any": {
         "0": [
-          "102ea0328346f1c5ca7ad9c2e52637c20518b1e4931fe87f4ae60d06aef0b84b"
+          "b55ee94c401f6a813d90f2343fe653aba93bb855f77e695861774433fdee51aa"
         ]
       },
       "coarser": {
         "1": [
-          "ded332f4568f872c28f02d0bc0ce5c898328b5b97f138673870c913a758a0d6a"
+          "a9f568b8aefc62618ad7df62eb4c4dfa86aedef1a97c7451f5afaa27294ef4f4"
         ]
       },
       "decimals": 3,
-      "hash": "f67872542c4887dba2418d908a593b1df0c48e83d12750acc3e65f418f43a901",
-      "hash_coarse": "af2691c51acb2859607a5490dcd83d9a1000ce93e7b5fd5f6664e2418cf6deab",
+      "hash": "8763401a20d72c076154940c1819d6dd3545cdc1bcdd252c4162ada1d0a2ef9f",
+      "hash_coarse": "5eab4255b31e01fdf6dd9ee17d0cc208858287f21ff052a664cde23a7786bb9a",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "1cbb1768410c5e2c4f8c77b1e05ee8df855e6e459f9518229edf5308010b8088": "la question demande des bits : log₂ x = ln x / ln 2, pas ln",
-        "e8621ddfe914fea3fc6b96089568e535a030a10b08b924e9e7c5c7ba4f374b3b": "l'entropie est la moyenne des informations, pondérée par les probabilités, pas leur somme"
-      },
-      "sign": 1,
-      "source": "chapitres/m06_information/05_solutions.ipynb"
-    },
-    "M06.1g": {
-      "coarse_any": {
-        "0": [
-          "f34a03be0904dbe75afff4f299ff7a1573848ca33408644ee37f55ea878831b0"
-        ]
-      },
-      "coarser": {
-        "1": [
-          "c88dabf66480d2c12afbcea55474eb0ea53bc5deb0fb9d0923c26d459ef82e25"
-        ]
-      },
-      "decimals": 3,
-      "hash": "3f75b5f3143ba6b95d63e90a82edce257252543d747d3987631de88d95dc4983",
-      "hash_coarse": "f94a09c0e45f2ab94e00cfcb1050829a9a6c4be63071b3c321a549e78c69cb40",
-      "kind": "float",
-      "magnitude": 0,
-      "mistakes": {
-        "48009f493ea7e7af2cca2c1fbac5d8aa5894d0af07b4b7e8631486227dffabb2": "1 nat vaut plus qu'un bit : le nombre de nats est plus petit que le nombre de bits",
-        "abdf4a53f8e3c120fae9914402eb95419ace3221b818f90c3812566cff42c490": "la question demande des nats : convertis les bits en nats (fiche §1)"
-      },
-      "sign": 1,
-      "source": "chapitres/m06_information/05_solutions.ipynb"
-    },
-    "M06.1h": {
-      "decimals": 1,
-      "hash": "de3f994e17ff9fec71f0bce7a1c31c09022b5609deb1bcd7cf822362ce2a662d",
-      "hash_coarse": "12f05e7a5bcbb81554263fbc5b1c23afd60217c91a9fdeafb24fac47e9d34058",
-      "kind": "float",
-      "magnitude": 0,
-      "mistakes": {
-        "8440b11c2da8837ce712388ea743f1050b12a304e350bab7db0d53522c82b910": "c'est l'entropie de la loi à quatre issues : regroupe d'abord les deux erreurs en une seule issue, de probabilité la somme des deux"
+        "de086dea1e48687becf843c0fc7ec612712af7e195327014bc803beda1f1d9d2": "c'est l'entropie d'une seule requête : le couple des codes de deux requêtes a seize issues possibles"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18021,58 +18044,67 @@
       },
       "coarser": {
         "1": [
-          "4229d18c026a40b72310354b76ad7a7ad4939a4a35ed2dc3e4106bc61667d2f0"
+          "586bfb98a0cc05305feaf941428a6936cc82a3b8e6b18e2e4521ce924504c60c"
         ]
       },
       "decimals": 3,
-      "hash": "5573bb9506a6406998a9cb119a0c824c88b51c541e35ce90336e524c576ba84b",
-      "hash_coarse": "f0816a99103d719196b8aef5d1c937b56ed030d62712e996406872e8c117457d",
+      "hash": "11a6b20215f1fe2a347742141f534ee7b2b5c0b277dd3514999397f828e682b3",
+      "hash_coarse": "cae8b65c474201ee5ea0cfda335f68da1b362f30ce3ae305d3e52af69935a2a2",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "ee6a399f8dc03dadeb0958db910e6225fbe28d75e510d7ec182d6c987dc7c583": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
+        "c0d5cda2a5c457b394fdb02035ec18485203fbe0172a1f009d4d2f8d222cb331": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.2b": {
-      "hash": "0950bd9a100db3b031ea6ac77dc58e3047be6859f40a3733ceb9bdafe0ef2d9e",
-      "kind": "int",
+      "coarse_any": {
+        "0": [
+          "56a4ca5c732070c2f133e6fdcfc87ff6301d046d6da8f0cb9b0d41817b8a173a"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "f6ad7b078978c7992e52bb59ab89023271daee4a21b1295da99fb2b6f2e49b1f"
+        ]
+      },
+      "decimals": 3,
+      "hash": "310176f21ee54fc7adf6c009780c6bbbdc6db1dc016ab1769992cdc0b99612ce",
+      "hash_coarse": "e8e283184bff47c52cbb15562d7d6f988bd00d643abf164e40d91f422462d0f2",
+      "kind": "float",
       "magnitude": 0,
+      "mistakes": {
+        "ac4c42e24b1b96269a8615de78498753b51b411a69fc05ac6b5b4640db0469de": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
+      },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.2c": {
       "coarse_any": {
         "0": [
-          "699ffe148f604068c3dc9d33787ef1b65ad9665b234c80bc413ff5242283dd5e"
+          "3aa524d3b717836c5929b0c92bdd887ed6f08b2d7937cc63de8ad6a57ddc9550"
         ]
       },
-      "coarser": {
-        "1": [
-          "e3afe05fbb121e9f551485a9325e353f9cffc5fd178baebefa2daf2c2fcc6be6"
-        ]
-      },
-      "decimals": 3,
-      "hash": "8e724996c3a6e6dfb3fa4cbfacbe0eec8c56da2d236124b79d74f33f92de16b8",
-      "hash_coarse": "bb633391280913cd03f8dc9caa1b42a6cf1ca07790906e59319a88949b48485b",
+      "decimals": 2,
+      "hash": "9967affedd136ea34384f22264d2b9c22422d45210cbc0e14ff20588636087f2",
+      "hash_coarse": "041622bf5a7e4f1922414a6b17afd13aab2abc4a010395237468bb724e32f41e",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "b999be0e7be228995c51baca9478643e4dfab436972068d79049b97618205d13": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
+        "6c8021ab7497465d7d6f42731c8c65245911e3ccefc77fda475dc799f49784d7": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.2d": {
-      "hash": "a86e14de3446d7c3f9447d33e2de97023d73c6f29da7cd77f5bf209e5b168982",
-      "kind": "str",
+      "hash": "812eb292e560e03f23d3ab2e9512f0f6fe870d1ff353ce0d4a023365b8784931",
+      "kind": "int",
+      "magnitude": 0,
       "mistakes": {
-        "223e39adcb5d81f41c7fe4097621b47310fe4b163e4a9e8a98779290fa832f66": "réponds par une lettre : A, B ou C",
-        "2f6656dbb5f893388166ad854cad3285b55dc5d57e48ee28cbb8ae71ad05ec67": "réponds par une lettre : A, B ou C",
-        "45c905331cdaea7b3d9b9632739376692325b3da4ef28701e2b753541727655c": "compare les trois entropies a), b) et c)",
-        "887107d89233f293396885956be4cd945417d0221e097f3ec156b9113f98aa5f": "compare les trois entropies a), b) et c)"
+        "63c59533604bdbf914f0a33e43ad276c522817d3a384ac0fbab9eae2ab28b69a": "l'entropie maximale sur n issues n'est pas n : relis « Ses valeurs extrêmes » (fiche §2)"
       },
+      "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.2e": {
@@ -18081,18 +18113,13 @@
           "7e1b3926ade2940129f9f2dbc0b83489e50a78b937aa18da70b519799c8037a5"
         ]
       },
-      "coarser": {
-        "1": [
-          "3e63b3ce227fe9ded0450c14a8fa047a8aea74a3a9a096fc56a2250369c20148"
-        ]
-      },
-      "decimals": 3,
-      "hash": "e418485eaa8f4bd0df4ca62a1a7b813c3a0717dc56421b10a254b6c809079ae8",
-      "hash_coarse": "a809500253bfad4a2287bc27737de893f560f9313c08ee5cdb029da6c16bc6e0",
+      "decimals": 2,
+      "hash": "51e9ee70bd442aea77b5ec24e2407c6cff0ad3046fd7236c4c4f9537365b00f6",
+      "hash_coarse": "2cc33e873dd591fd1814aea853f39dcbe875fbe6232de5bd057d28eb420f571d",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "e38064c92facceeee6b1ea3451dcd7d03053fc50f1beea0d78c7abf9dfc26b50": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
+        "09e8b25c4f28812adcbbca68de8878dfb6ca3ff91b5743052a9bde5a3096e7ea": "la contrainte fixe la probabilité de la première issue : la loi uniforme sur quatre issues ne la respecte pas"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18103,40 +18130,14 @@
           "43536e1332f9ef4fea53600b014bfd3e1a43fa69d0e0a39243fe546d4f83f291"
         ]
       },
-      "coarser": {
-        "1": [
-          "96303f2da576bc819b2efd9a81139f5e1fa8ea2c0f00dd96e5523d4d22cf2b7e"
-        ]
-      },
-      "decimals": 3,
-      "hash": "9504698f5a00c379d5183acdea36ce1d076279f6c8ff81199cf90af525ec54b8",
-      "hash_coarse": "550269dfd75e7b8c0d8accb86c7ca1bd5688abd034298b8c11338c872e7c30da",
+      "decimals": 2,
+      "hash": "0d88c2563ef782b0144817f0845818a694215949775590435380939febd81f0b",
+      "hash_coarse": "8e58fd83efa4aea8697346ec51be72bac199a34e60a08c2e5aa6bd081094236e",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "94bf61b36b9434e2d59a856af04b3e9060f427924d398df2e7033b8de05525fe": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
-      },
-      "sign": 1,
-      "source": "chapitres/m06_information/05_solutions.ipynb"
-    },
-    "M06.2g": {
-      "coarse_any": {
-        "0": [
-          "c6b1a0ebf1feced116920cc8808d14cb98d05ae05b20bd132d324aad9734ca02"
-        ]
-      },
-      "coarser": {
-        "1": [
-          "5b0176cd1c134e131b2cb41778e7e431cb6287dfad12cbd94c04d89b6dc9d248"
-        ]
-      },
-      "decimals": 3,
-      "hash": "3e178a66bc4b844bf76c60dba22834017fd3527bb3f0780772de5a24d8d22364",
-      "hash_coarse": "50e31622afc54f3860b64ce2efc9a9c3f8f42fd500205cc724e05a26d255c289",
-      "kind": "float",
-      "magnitude": 0,
-      "mistakes": {
-        "f5e47af877fa72fd204f0e6127d992b685e9356b06733a6c7c799bd26e8a5e5f": "la question demande des nats : ln, pas log₂"
+        "6e90ea2c2d1a8ad4bf960186e4592047db5b3df5da4cc289c3b48e24f71e93f0": "1 nat vaut plus qu'un bit : le nombre de nats est plus petit que le nombre de bits",
+        "f9cea993d26e409d689fba6f309374e23a8bd34673bf3d3917a5b6670fb9c09c": "la question demande des nats : convertis les bits en nats (fiche §1)"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18147,26 +18148,41 @@
           "268bbf8bece26b36446ff666178a872c0e3f157cc739c972b2f04229ef7584c5"
         ]
       },
-      "decimals": 2,
-      "hash": "1e2db9bc59604d9c5c664f3b7e63e8ea2a420b987ae4bd921e734a3454009201",
-      "hash_coarse": "2620d58cb17056e7f3f077303ef6b5e70b13564c266a0eca62bac1f8405efc38",
+      "coarser": {
+        "1": [
+          "ee44c9c43c827b4dc787b775e0e2c5d4bfbef5c87633752c6fa7ee0996d6ee70"
+        ]
+      },
+      "decimals": 3,
+      "hash": "456f84b154d3280117b56f39e2523c721967b32ebf5f45360424a913e63ddb45",
+      "hash_coarse": "ed710eb1c695ffa0408daf90c82e6ca3e8eaeb3c273d627d724ccccc8f617550",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "82779b04ef876b3e3ddedba57937b1f49527d2509c04503bf651a5c5e8776145": "H(X, Y) se calcule sur les cases du tableau : elle ne vaut H(X) + H(Y) que pour des variables indépendantes"
+        "f747d92576491c1be7535cf741912e3a4d55761f60a9e254c3f8a5da3f263cd3": "H(X, Y) se calcule sur les cases du tableau : elle ne vaut H(X) + H(Y) que pour des variables indépendantes"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.3b": {
-      "decimals": 1,
-      "hash": "6f2087a867ba946f997af80a3a2ac63ce4977af0e7d0a3da9cc339c81cbd100a",
-      "hash_coarse": "10cf889b9535ebd2888d8ee44699a36516e8fde8b60e15cc3af44c4cea5aa7ba",
+      "coarse_any": {
+        "0": [
+          "10cf889b9535ebd2888d8ee44699a36516e8fde8b60e15cc3af44c4cea5aa7ba"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c89e2b0af7660e64afa95ee3003c25d0200a4fb15519dd1ecd76b38aead2fa48"
+        ]
+      },
+      "decimals": 3,
+      "hash": "f78b4eccd2856a71dc8dc13459a835f7df4b870c6bfc87bd6a5f1eef0009fbad",
+      "hash_coarse": "07a82e266897d4d0a53f72c4c5ed9e87e2d40f61bfca1c2d0bd4dab4cf2070a8",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "780ffb4fb20235f7679a5ddb107c5602c8ee3a5b11cda04f18f4e2509fc5f05c": "divise les cases de la ligne par P(X = payant) : la loi conditionnelle doit sommer à 1",
-        "7ff0dc510582ed040887b628e4f38ae6803f7fd5b5db42be1bbb7cd2a7f21b68": "divise les cases de la ligne par P(X = payant) : la loi conditionnelle doit sommer à 1"
+        "0b8ad36a189433ab745ae63061a116177e29fa66d41fe192df1ee22801126208": "divise les cases de la ligne par P(X = payant) : la loi conditionnelle doit sommer à 1",
+        "514665dc41a4143f3a29e83a7373886873c6ee291e335cb479597c33b51b16eb": "divise d'abord les cases de la ligne par P(X = payant), puis calcule l'entropie de cette loi"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18175,15 +18191,20 @@
       "coarse_any": {
         "0": [
           "2440f771b689f3e3c762b3394733cab3dc55dc90aa698dd9e1f20a2b3796f964"
+        ],
+        "1": [
+          "7ba707ce2159d33e5bcf81955d1c7ac7e562810e623bf9b5d4d9f888d1988935"
         ]
       },
-      "decimals": 2,
-      "hash": "d5672848be4eeb42b3c8254e843afed0be95938c564fd4c0113ba652da3d8657",
-      "hash_coarse": "abc5ec1104d553de6d83fd058bcb636bcad40cca3efab91f4291406777ef9f99",
+      "decimals": 3,
+      "hash": "e06647ebdbd005022f5460f99afbcd30ea17162a7730f5b039ec1f69f06d1f01",
+      "hash_coarse": "aa98db51c0df28ce0cf2790af7a1969c6fde38ce943f6263ac27c77698e652d9",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "3ecaef4c171c561b48163285783c4af55d51a7952af47bf1c7453a0d933a9e14": "H(Y | X) est une moyenne sur les valeurs de X, pondérée par leurs probabilités : la ligne « gratuit » compte aussi"
+        "706dada7f0081da6cb567c04954816ff0cbb02a3ac1f45b62e08d5241f4f2345": "pondère l'entropie de chaque ligne par sa probabilité P(X = x)",
+        "8fc47cc82e51d768dbdd518a5f2ab1d2aca46730a2c34d1f0d9c6f3de4e22e68": "H(Y | X) est une moyenne sur les valeurs de X, pondérée par leurs probabilités : la ligne « gratuit » compte aussi",
+        "cac6538585707225f279ec5e461fb7012a81bfcdd1e65dd5b648cd0dbad38f05": "ta valeur est H(X) ; la question demande H(Y | X)"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18194,45 +18215,45 @@
           "df7e3c09d456bb66650d408bc6f5febe00458c97e81465e89e2314dccbfa7b75"
         ]
       },
-      "coarser": {
-        "1": [
-          "d43f31e161e7e820ece9e92f45bfd4d7e5db76615b29ea4b32805f8567d17426"
-        ]
-      },
-      "decimals": 3,
-      "hash": "03d5e452a3ae6f23f35e4e6f4cd83bacffd90c3a3e524ad64fe3a8f24616f2db",
-      "hash_coarse": "ac59a43cbaba48b9bc8b228e82cf88b7c1a1401c5a5c10d80233b5905da8a40e",
+      "decimals": 2,
+      "hash": "4b3b746f349ef5592a19fa31067aec72fd06d9964c60aa44e14cfe23e323b391",
+      "hash_coarse": "c294bc6d3a19baafd841c25bb9c8255f4d8b60cea194c2d2abe882fec3256b60",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "f6ccca52ad01f8112ba5b522f6a3f9132dff30ea594910913ab0e6a5ac582213": "c'est l'entropie de X : Y est la variable des colonnes"
+        "12ca35b404426038205a52eb615729e421343065f50054201680b5c3744c9957": "ta valeur est H(X) ; Y est la variable des colonnes"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.3e": {
       "coarse_any": {
-        "1": [
-          "5fe5eb07add638aa4c043be6eafa648c9b30d1980dfd63e0708ac4f9cfc35029"
+        "0": [
+          "8ce8c2b3f2bdb3b2505446604459b0a25523803c0218413058e9cee55251c4df"
         ]
       },
-      "decimals": 3,
-      "hash": "c95817b152a8b38a4b542e86dd025b460075140b866e1d9f1b238e6d93f19c03",
-      "hash_coarse": "717b3b19537b0fdcc35c72a878590fde5c16d2d606f264f0eeb2d97c821229f5",
+      "decimals": 2,
+      "hash": "9744ee3a653e8ecbe9d0cd7b66013d0479af0180e6cbd88416a83c8c5bdee0b4",
+      "hash_coarse": "5fe5eb07add638aa4c043be6eafa648c9b30d1980dfd63e0708ac4f9cfc35029",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "b3bd9a5e5333c5b0ed2eb5199271972e0de5e6196d429bc97430421675bc5ece": "c'est H(Y | X) : relis l'ordre des variables"
+        "717b3b19537b0fdcc35c72a878590fde5c16d2d606f264f0eeb2d97c821229f5": "ta valeur est I(X ; Y) ; la question demande H(X | Y)",
+        "772f305d9e5f97e90f41daeb0e90a041ed290b72d79c60550335aac877c7fcb0": "ta valeur est H(Y | X) ; la question demande H(X | Y), l'entropie de X quand Y est connue"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.3f": {
-      "hash": "08fdb0b8cecf2a3f5c1d860a3401fd7571854d46a71a0a741f33e00a0318d7b0",
-      "kind": "bool",
+      "decimals": 2,
+      "hash": "c79ecc79cb643e68ae2477618a3b30d7da3c0b4ac1d9f661614c3296c53f5e80",
+      "hash_coarse": "9574fa33abb906cf90188b8022064e897ee2d132631b175aff661b0261095335",
+      "kind": "float",
+      "magnitude": -1,
       "mistakes": {
-        "5f6505945561071772165dcf3ae8f548cfd5af18fa4d67c2f9a1eed4ab5bb820": "compare H(Y | X = payant) avec H(Y)"
+        "517d3a740634ec39b33b1fb3a7c609d8d4614ae9d9faf95f63148f563cba785a": "l'écart demandé est H(Y | X = payant) moins H(Y), dans cet ordre"
       },
+      "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.4a": {
@@ -18257,7 +18278,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "2412d8d77c413895ef4105c3d2d65161e30e7c270268a4ed69392d61cc3a591b": "divise les cases de la ligne par P(X = e-mail) : la loi conditionnelle doit sommer à 1"
+        "2412d8d77c413895ef4105c3d2d65161e30e7c270268a4ed69392d61cc3a591b": "divise les cases de la ligne par P(X = e-mail) : la loi conditionnelle doit sommer à 1",
+        "8a1a5f54067021a67d9175940d89a3e524a10ca933b88369a718670242165d5d": "divise d'abord les cases de la ligne par P(X = e-mail), puis calcule l'entropie de cette loi"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18277,6 +18299,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "00481021c4f0e56c283c98e74184b97928654b62126b79637b39c474fc858e7b": "divise d'abord les cases de la ligne par P(X = SMS), puis calcule l'entropie de cette loi",
         "97ecfd56be4fe9035851194eb1ce3b1b265d45ed793c518618bdb68f990daf89": "divise les cases de la ligne par P(X = SMS) : la loi conditionnelle doit sommer à 1"
       },
       "sign": 1,
@@ -18359,7 +18382,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "fafa3c8a14eb2849353ce1f6e21a67a2c2b4287fdd2538e659abfef6edf77368": "c'est H(Y | X) : relis l'ordre des variables"
+        "bf2fa6872aab1db0c148672d38382fe936c03067ca2189380bc3b8e19055ee7f": "ta valeur est I(X ; Y) ; la question demande H(X | Y)",
+        "fafa3c8a14eb2849353ce1f6e21a67a2c2b4287fdd2538e659abfef6edf77368": "ta valeur est H(Y | X) ; la question demande H(X | Y), l'entropie de X quand Y est connue"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18368,7 +18392,7 @@
       "hash": "c2e330302c66521d93bb252ac738a90b6b304e40bdeb94a966719dc57e231cd4",
       "kind": "fraction",
       "mistakes": {
-        "05fe5741fcea6e05e585c40db1d1badf586f6750bc7bf200f88e1f16b28194af": "« freine » est la première colonne : additionne ses trois cases"
+        "05fe5741fcea6e05e585c40db1d1badf586f6750bc7bf200f88e1f16b28194af": "« freine » est la première colonne"
       },
       "sign": 1,
       "simplified": true,
@@ -18401,58 +18425,66 @@
         ]
       },
       "decimals": 3,
-      "hash": "74c598a8516b79cc768d1f4b071516adcae373ac115f23c4e83fd18a3d31e34f",
-      "hash_coarse": "78a87be48de68b41ae4805131e6327581aa2dc993e2e3dd97ac168cdbc585c23",
+      "hash": "e9fa13f331b6dc482deb717f2781ccca97011b38c3fa89ddd856ed249f29823a",
+      "hash_coarse": "e028cf8e5c66f0e1db731d3fa464a38f5c6550d5443407aa485e1f0044c493e0",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "6debbb064d3525fb44d154f60b59923c944799b8f0d00218f79324d128ab8075": "divise les cases de la ligne par P(X = vert) : la loi conditionnelle doit sommer à 1"
+        "664a32df0c8b63bd2ce8d30c49b91819ec88c3c714d67af8e519be5cecbc4d15": "divise les cases de la ligne par P(X = vert) : la loi conditionnelle doit sommer à 1",
+        "a61a9c21e5ce87bd7a9ff886b6c202f02e71a85b0f917cdffa4cea049078260d": "divise d'abord les cases de la ligne par P(X = vert), puis calcule l'entropie de cette loi"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.5d": {
       "coarse_any": {
-        "0": [
-          "8ed0f3ab134715e3a50dc2e61d22bca4752f06db104394604e84dbadfccc6c3d"
-        ],
         "1": [
           "6fc48517038c3e4a4855f51e9c1174bf5c90a8bbfe0f529b11d8ee75400f3a52"
         ]
       },
       "decimals": 3,
-      "hash": "afc3d25aaeb67cf1489a78c3f7114bb7d4049ec95b450b7dd5c7a488b5a44508",
-      "hash_coarse": "59d4e533737434e24e0a5f03d077a6a634e72f0b620f19f751fae03f90fbdc49",
+      "hash": "4a3ae5abe4a4797e5f0c76dcd47117252c063df960cf8f021d252cfe946f3078",
+      "hash_coarse": "fbd70d3f8c656292156d139abbb45f6249a43df16cea2309f52c31f9cc9380b1",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "29c07d9f4781d72fdee07448136bbf6503e8cbb9c500661a096e59e7f3b4b457": "H(Y | X) est une moyenne des entropies des lignes, pas leur somme",
-        "5e0d80e4ce1e3ae7109d748a0e3bf5d412106c72fbda7b5d26e70171a3366748": "pondère l'entropie de chaque ligne par sa probabilité P(X = x)"
+        "35595162c4432e8843751aa46a3dbb209c1e9559107e9918b19ae656a71c7a3d": "pondère l'entropie de chaque ligne par sa probabilité P(X = x)",
+        "6b17a49ce1b194141c032d86e224893d15fc169c763bf70035596a3d64416fa7": "H(Y | X) est une moyenne des entropies des lignes, pondérée par P(X = x), pas leur somme"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.5e": {
       "coarse_any": {
-        "1": [
-          "c138c99aa38cb8e1f318d71b3a07de0c7060db9b19040f38a95e535452453efa"
+        "0": [
+          "00ea96335eb82b732ab3a2484b620e099c76c337a18d38ca7d46673301384d33"
         ]
       },
-      "decimals": 3,
-      "hash": "3077f4fce4e99e857038b92f457ec3679a688fa5ea531ab59952f5732347c087",
-      "hash_coarse": "4ef676191fd0feda8dd5aace30a182ef95d5fc191a812db0e180efb13e51fb5d",
+      "decimals": 2,
+      "hash": "87c8b43f3c0f388adb4a968f3ccdcd115c463036cf0076ca8547dc1921f09715",
+      "hash_coarse": "c138c99aa38cb8e1f318d71b3a07de0c7060db9b19040f38a95e535452453efa",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "f55f8f4d80d6fe0da0319dc48ddb5f9a251e44961a93db3461a523175acc1c82": "I(X ; Y) est la baisse de l'incertitude sur Y quand on apprend X : elle est positive ou nulle"
+        "23613bde56602ebb5bfe2beadcb9d50a8818bb3d2c9da366f132c3037f0b006d": "I(X ; Y) est la baisse de l'incertitude sur Y quand on apprend X : elle est positive ou nulle"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.5f": {
-      "decimals": 1,
-      "hash": "e27f9456284812f4f2d60582db6cc6998168c2266167afbcb6eb4a3c14615071",
-      "hash_coarse": "1a74017b11d687d3eb82c08104f93a7f840d01582e2b737c618974a3f115a9cc",
+      "coarse_any": {
+        "0": [
+          "dad5d78a9b26ea64bdfe232ce0313b3586d96db0c85d63f914273da5f66a8936"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "ffffcd2a944b955491b0601ae4b372d05abf2931237af52365921041c097c913"
+        ]
+      },
+      "decimals": 3,
+      "hash": "86fbc6f8ed0b4ff98d010edb2899cba990b71ac9218c4e2c9a0f8ee6b33ec721",
+      "hash_coarse": "b683f9b9181a8f2fb1543bf78564f0dc5018b85683658ba8bace98cb99adb0bd",
       "kind": "float",
       "magnitude": 0,
       "sign": 1,
@@ -18464,18 +18496,13 @@
           "b19e24a5c6f3a6bfc60f07a87cac4e06dfd7ebe5d3ccb0805366a40cf7a6c6a0"
         ]
       },
-      "coarser": {
-        "1": [
-          "fdffdfa3bf4de9fbfd1d675b37e52567b1f4d911c95a28a76dc08a2565d07000"
-        ]
-      },
-      "decimals": 3,
-      "hash": "a5ab392177f4a63716504170e2136efa2c5ddc82276a377124c3036714f1cc09",
-      "hash_coarse": "bcc36914db95b3d9059145e109e4094f3b1639d82c8323ef14c3df00b18d554d",
+      "decimals": 2,
+      "hash": "f748cac0331314d46c03f723bca50b85d10448646d8b23112a19f9f4dd629611",
+      "hash_coarse": "856b5247a1c6d95c34956b15a39bcd6db4d579243d8ef2734f4d6bca93e4d393",
       "kind": "float",
-      "magnitude": 0,
+      "magnitude": -1,
       "mistakes": {
-        "169dd2e219fe80307b8ea51136bfe6fc93e6e9b1a1f266f8b4dee6a35f0a8654": "c'est H(Y | X) : relis l'ordre des variables"
+        "88d76581b406f9d5c3bad1a4aba2822fbbf6c0f1cd4039dc9e0cc52cc747b91a": "ta valeur est H(Y | X) ; la question demande H(X | Y), l'entropie de X quand Y est connue"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18502,6 +18529,10 @@
       "hash_coarse": "b64009ba08a6b0525fb2b1bbef5e04972eb5f680d8a325762969e21fa5f75d1a",
       "kind": "float",
       "magnitude": 0,
+      "mistakes": {
+        "40553677b1cc1d67020b00280aaf72e979ab454f24ebc8352737a9575a3b275b": "c'est l'entropie de l'ancienne loi q ; la question demande celle de p",
+        "9a5c1dbb626661493929428756fd4611348d7eeed1c9c8a4539bac0b4035d693": "c'est l'entropie de l'ancienne loi q ; la question demande celle de p"
+      },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
@@ -18517,43 +18548,58 @@
     },
     "M06.6c": {
       "alt_coarse": [
-        "555996b75a3bd24b2a3afe7a7564c2bad38a751f1bebebdb5ba380535965e793"
+        "6e353def395282ed27eafbc5083eb6910fb8ba22c88d91754e9b5211b2852218"
       ],
-      "decimals": 1,
-      "hash": "1e280db3bd8f8d977446f5be760ab97a79f7c2d674df82b96f9b031ff987e063",
-      "hash_coarse": "e780f25d0da043a6604388a5f620199a5436e7c7fbdd3bee98a5307974f820fb",
+      "coarse_any": {
+        "0": [
+          "555996b75a3bd24b2a3afe7a7564c2bad38a751f1bebebdb5ba380535965e793"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5daaf6b083f85cbf17e3830d52566fad1822c64f8d697a4d5a9df4457e200b4f"
+        ]
+      },
+      "decimals": 3,
+      "hash": "45fcda6a74832ff1b4ee85424cceacef238efc488e4b6d96bd771b697f26e483",
+      "hash_coarse": "5824241742eab37c693d3d7f78e7910fea07acf4d1454afda61ee5d7184e4558",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "20e45b2825fbb42a591e7b6afab90a9d5b06c5e1140eaaaab7d90201eaa6a792": "H(p, q) utilise les longueurs du compresseur, −log₂ q, pas −log₂ p",
-        "3b9b89b1e76da014a81d40a7f68fb5cb92a46b22554e003a30d4523f2382528c": "H(p, q) utilise les longueurs du compresseur, −log₂ q, pas −log₂ p",
-        "944a0887195f13c152f05b2564795f88d5e57d99df819a5d22e0aeb82b13979d": "H(p, q) pondère les longueurs −log₂ q par les probabilités d'aujourd'hui, p"
+        "04fb80be53a6885253e540914d792eec42fd0640bbf3cf6a6e8f299899097ba3": "H(p, q) utilise les longueurs du compresseur, −log₂ q, pas −log₂ p",
+        "0b7c24900836b905e4a896258f397dbfcb329edf33670e9d933f77d6fcf033c2": "H(p, q) pondère les longueurs −log₂ q par les probabilités d'aujourd'hui, p",
+        "52d658347c81e2338439a4bf9b2be67325a40f9ad49c97e8e98a1d0160dd4203": "c'est H(q, p) : les poids sont les probabilités d'aujourd'hui, p, et les longueurs celles du compresseur",
+        "a9ed35b3d5c91807f5ccec409740b2bf1374bc72020e687a6ffcdb6753f86a84": "c'est H(q, p) : les poids sont les probabilités d'aujourd'hui, p, et les longueurs celles du compresseur"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.6d": {
-      "alt_coarse": [
-        "27be3a614a69b29ed8af1c0d4e5857b6423fbbf7806c8c12b6b61b8c63f9320a"
-      ],
-      "decimals": 2,
-      "hash": "29e951a65cba41019338dba8b4a5b2d8fcf49cee5531ecf065f65d9fdcac113d",
-      "hash_coarse": "6cb5c5f1f2c7fd79922ea6ccd68be9c9e3698fca62a85bbb194b0993a4199167",
+      "coarse_any": {
+        "1": [
+          "f55b746ebce39c33b39bb6df64cc8fb9910a6f6d985504dc181ea7e39548babf"
+        ]
+      },
+      "decimals": 3,
+      "hash": "a19ea4cecfc42c4dd0970d59293bf0895c0d3bb3b79cd366fb337b4cc6edbba8",
+      "hash_coarse": "9f0790e8712fdf0e55637527b1c478429460095aee6d06542920c3a0b4b1eae7",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "5adbcae7a6103f57822845140c23d2f1cc67989426cac463adf91c8c8da52838": "la divergence KL est positive ou nulle"
+        "59e0c6b1c541c0e4db5883678a08e24093f5cdea48042cf049d7bb917995e6b6": "c'est KL(q ‖ p) : l'ordre des deux lois compte",
+        "b2f1f13897f5cd7d08b31a3a2a77038bec102089177f9f05f47099ef529a478b": "la divergence KL est positive ou nulle",
+        "dc4f19094353d8c34a415daf9311122167289daa3cd9dd839047516cbd16869e": "c'est KL(q ‖ p) : l'ordre des deux lois compte"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.6e": {
-      "hash": "b059fde4718aedf21948df0e0088f2e0e4f21c208d66a397892b15b449c20d61",
+      "hash": "3f8a4529cb8098de7019494d7dc6047613d0994e158284d0102d323bf7474568",
       "kind": "int",
       "magnitude": 2,
       "mistakes": {
-        "6d3d666c9168af204dc3052442515eca8a18fe9b43f728cb7618af164972062e": "c'est la longueur totale avec ce compresseur ; la question demande les bits perdus par rapport au meilleur code",
-        "98af274ec20fb3764984634290229c50912eb1f5c608279fc77ab39d7c348456": "c'est la longueur totale avec le meilleur code ; la question demande les bits perdus"
+        "98af274ec20fb3764984634290229c50912eb1f5c608279fc77ab39d7c348456": "c'est la longueur totale avec le meilleur code ; la question demande les bits perdus",
+        "a000951571cb2e2615a27f7f22b301b77cb64744d369b1526a132183c7f35de1": "c'est la longueur totale avec ce compresseur ; la question demande les bits perdus par rapport au meilleur code"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18561,22 +18607,17 @@
     "M06.6f": {
       "coarse_any": {
         "1": [
-          "eefdda6b0267f08b2f76897b30011d4e1ffdbb893e3066f1e9c8f41376f28493"
+          "619748d6c66786aadff184cb7110e163470e1a98b0f5cc7c23d7cfc0a4a52fbc"
         ]
       },
-      "coarser": {
-        "2": [
-          "7bce1af9606eedfbbe8ec82631a26836ebba92e6b49842856e46e4386802a2d4"
-        ]
-      },
-      "decimals": 4,
-      "hash": "2fa657e88fc09d1fc601a75e5838718d51246b4d24e34169c25d7bf30984a6aa",
-      "hash_coarse": "4d39dfdacc1448ce5de3778d09b1415d82a8513edcfc2dccb250e3af70ee54ed",
+      "decimals": 3,
+      "hash": "790d0b43b66b0836790cfd3b8e57f0aff799d8e212814783d380fe6c836e0f5c",
+      "hash_coarse": "3984ddb6947db21aef1a1a923f5857be4ceab9f525b04c96d3a40427631e5431",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "7f7beb5fe45313665b8315203a6dd4adee1953f432f4da29000e80128aed57d8": "1 nat vaut plus qu'un bit : le nombre de nats est plus petit que le nombre de bits",
-        "b75960c6d06e12ba7f8cad8237d2d4697f584eb246d915d9c68b9fa88f19c943": "la question demande des nats : convertis les bits en nats (fiche §1)"
+        "840a4863a94d446da66529c5a3fb9c24be7c48a54daaf488b864a4874ed079f0": "1 nat vaut plus qu'un bit : le nombre de nats est plus petit que le nombre de bits",
+        "9f2aead0b621c99ae2d55ddbcea6b3654f474838c23371f32fec37db64bb41a5": "la question demande des nats : convertis les bits en nats (fiche §1)"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18595,14 +18636,6 @@
         "ceebe5be0093f8745e3b6f30b72eb40c0621d8cb340c4e45adf2862ccd643c70": "p₁ / q₁ est-il plus grand ou plus petit que 1 ? Le signe du logarithme en dépend"
       },
       "sign": -1,
-      "source": "chapitres/m06_information/05_solutions.ipynb"
-    },
-    "M06.6h": {
-      "hash": "0a35487c3288f096045f38b8a88a4e7e561e07d79628ae61d83568bac77a7b3e",
-      "kind": "bool",
-      "mistakes": {
-        "4f48b9293eca421203fcf5b4ac84005138618ffd063575abf8bbe8dfa7fe57f4": "que vaudrait −log₂ q pour ce type ?"
-      },
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.7a": {
@@ -18710,14 +18743,6 @@
       "sign": -1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
-    "M06.7h": {
-      "hash": "0c9a29207d287601ef36e3d611dc0b1174cfc24cd61258c92b3c743983d4a785",
-      "kind": "bool",
-      "mistakes": {
-        "52e0248834d9f037da11963b2725020d0a055def8ee4b5d49611fe54e05d86e7": "compare c) avec la variance de X₁, E[X₁²] − (E[X₁])²"
-      },
-      "source": "chapitres/m06_information/05_solutions.ipynb"
-    },
     "M06.8a": {
       "hash": "9c6c7700d6b28fda478707d11a2fc2c36716bd7d3ee449d99930252740a0e870",
       "kind": "fraction",
@@ -18729,7 +18754,7 @@
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.8b": {
-      "hash": "2b23d0593ca9eaa4189a10a0f6712a62085b6fbdb07869edcfbe15585fa9cbc3",
+      "hash": "95a937cdc5376bea190187ddb444a613029e61877df8a85dee4bbdb0c9a46b7c",
       "kind": "fraction",
       "sign": 1,
       "simplified": true,
@@ -18743,17 +18768,20 @@
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.8d": {
-      "hash": "db75f6f69752f258ff048bfcf14a089dde2f93127309372b056a56bd4c8e5a8e",
-      "kind": "int",
-      "magnitude": 0,
+      "hash": "d20592b035f788823ffff8d5fdbae44a6284d8ae1982637f17691c3d0a09797b",
+      "kind": "fraction",
       "sign": 1,
+      "simplified": true,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.8e": {
-      "hash": "dde0a34766a52b8e649a840604731af2d574f0074f6fa670a659903acf52f7d7",
-      "kind": "int",
-      "magnitude": 0,
+      "hash": "c6d93e98c4fd8c15f383de4326a5f111c0d7c69d861b0f977e2aa2c913d860ce",
+      "kind": "fraction",
+      "mistakes": {
+        "1e68ff85cb6d99c9cc9f3355964162d46be249fca26c208e743352839360e05c": "l'alphabet a trois symboles : un mot de longueur ℓ compte pour 3^(−ℓ)"
+      },
       "sign": 1,
+      "simplified": true,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.8f": {
@@ -18776,10 +18804,10 @@
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.8h": {
-      "hash": "f8b42202190bd79cee53b21417b0bf4eb016859327cbe5383490f944f73a5906",
-      "kind": "int",
-      "magnitude": 0,
+      "hash": "1183e5bb08dae767ca8c677b0aa713b3939489a709bb7373287068aba3f0dcb3",
+      "kind": "fraction",
       "sign": 1,
+      "simplified": true,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.9a": {
@@ -18790,37 +18818,44 @@
       },
       "coarser": {
         "1": [
-          "b5f50dda62bf11cdb6a1044f3ccb4aaa8922ffb18d033089a65af7372e390001"
+          "07f20867471592bcfac8417e57d64cabe166b4b751d41ec11260e4dd175e1c23"
         ]
       },
       "decimals": 3,
-      "hash": "7119cebe1507d17848e08c55ec0665398281b25076a19317a1b4161d4ae54226",
-      "hash_coarse": "5dc8623932a8a71b747503161722da13960f03d3e025621d839a1c8263f92b82",
+      "hash": "2df7fdf14fd014869e5c665aaf9a06c4b27e25810406b81bd4bab943904fac02",
+      "hash_coarse": "6c87cf5d574fef1f0bf3d1f078633c600e7daba831417d9ff0abf7e7633044e4",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "887d12f5daf3314e5a0ea9a679980bb27bf19303f4336857099e561bfaa548d7": "la question demande des bits : log₂ x = ln x / ln 2, pas ln",
-        "eb9d58c9f7593d58d1f22695453468fe12d85c9d8cae53264d15213ae405512c": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
+        "b494bb44bcc61b11f058dbfde2f84572c1d3821170823c2eca8565d36504996b": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.9b": {
-      "decimals": 1,
-      "hash": "71ea5a6f838c8cb19e480c4802ab2a00584da45d6f2cdae025ecc5fd0be33d80",
-      "hash_coarse": "3b90743c6a7b81b330600b5c972c239501b93ee31b68b270a165fc617216d174",
+      "coarse_any": {
+        "0": [
+          "3b90743c6a7b81b330600b5c972c239501b93ee31b68b270a165fc617216d174"
+        ]
+      },
+      "decimals": 2,
+      "hash": "ac798231deb9e9305b4ee85148b0aa4ae818881ca4d6fc8727987665ba0b7fb3",
+      "hash_coarse": "3df0af27ae24db60255855105a1f39f11130d23865cba1e6909cea5bf4a5c928",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "fd35d187da6cb0622659e708cebc72d005eeb983154a6aa1b1df8e030cccd530": "la longueur moyenne pondère chaque longueur par la probabilité de son symbole"
+        "e4237554dc330d7db7bd4f76b68aa069b6034a9abbf556405647679863ec02cf": "la longueur moyenne pondère chaque longueur par la probabilité de son symbole"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.9c": {
-      "hash": "03b23c7cdc31bfbd3b0c02141377095741f493d5fd48d85b95fe8eb520fb5dfb",
+      "hash": "5f8be0c992adb29d259b1198594a0549ae63816ba877465f6679cd290d2e367a",
       "kind": "int",
       "magnitude": 0,
+      "mistakes": {
+        "4fe3a1308d0e62154e3c4670cf45fc17b6ababe7d03f65c950db4630759d8529": "avec ce nombre de chiffres binaires, combien de mots différents peut-on écrire ?"
+      },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
@@ -18828,54 +18863,75 @@
       "decimals": 0,
       "element_hashes": [
         "26f39c7cc9cd5467a8177d3cea3f66d141a9d471e06ef8add8bca5f9fe6a6569",
-        "29a21cdd53ac57284fb4d93582844aaee2fb29a6b4a2c74a5074ed343c90ace8",
+        "9eff633b7e019a20a9bfcb7f705267886a9044d3689e322f1995bf1ce9d0901b",
         "c4248d97fd35b7b56e5a5235664bbb0894dde9c6f93824c1f254bfb27355f66e",
         "07e9bb6bb3b7b9d57fb5f95379ec671fac3ced15e43c343f621a3d5c77411fe9",
-        "b167d841dbcf7cc1e635102d056b75202427e8e3d5f839fa24b426011e139543"
+        "3db7a26c9e1c0dcb010f842479ae365205117bf0233e1d9efd910e7132941046",
+        "5c712fa7e28048c4058f88007ca6aec01a55e18adf1f5e471a46b5ee2e870441"
       ],
-      "hash": "8da34a33a296c9ce2529e9170ae8855f1e9150c6c62efa0a65325d0f69b31903",
+      "hash": "e28e0ec9ad666739d40686d271b69be7278303c1901931fef8a1617453a382e2",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "420745b0a1d779897d71928b020cc1d30a5df6078dbfe0ab548da120f69193c4": "arrondis −log₂ pᵢ à l'entier supérieur, même quand il est proche de l'entier inférieur"
+        "5ec9efe861fcff8d280b2edd3bd7972e6eb4ef8df743008a242f15d81b4c702c": "arrondis −log₂ pᵢ à l'entier supérieur, pas à l'entier inférieur",
+        "9f70a8583fc6a4c301e3117a01cd9867721dc82ec8d8b50b270ae983cb91b2ec": "arrondis −log₂ pᵢ à l'entier supérieur, pas à l'entier le plus proche"
       },
       "shape": [
-        5
+        6
       ],
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.9e": {
-      "hash": "bc48ba06741e70ab79c25a680aeb53266ff88c37c5737684de680a48c60a895a",
+      "hash": "cea50f9690b7e9373f12161719ce8c636b09133af42d2bb0ad61c853beaedfe8",
       "kind": "fraction",
       "sign": 1,
       "simplified": true,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.9f": {
-      "alt_coarse": [
-        "23c4cbeaf46671e46826f5a35954b38c2aa5527fdc4444d75387db3cd5d59e78"
-      ],
-      "decimals": 1,
-      "hash": "87b98f90c28de1c19dfe8eda0cdaaf43f29bf95009bec700bddcbcc0aef3e8f9",
-      "hash_coarse": "397f51fb00761011153e005829834756cb1f9d7beb631b8f78bb849eb09dc6ee",
+      "coarse_any": {
+        "0": [
+          "23c4cbeaf46671e46826f5a35954b38c2aa5527fdc4444d75387db3cd5d59e78"
+        ]
+      },
+      "decimals": 2,
+      "hash": "00e956e70644914d82ea702e7b73e1ff8dcabeb17c16be44e4f52890a13d5c9b",
+      "hash_coarse": "6a827fc135d4dcd079cd91416f1289772a80578a77dc8c170a91163057f99f68",
       "kind": "float",
       "magnitude": 0,
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.9g": {
-      "hash": "86a110e0250005bb3380a1ffb862ab2a8d961220245674b05dc0e21204110c0d",
-      "kind": "bool",
+      "coarse_any": {
+        "1": [
+          "c7accdc804cc3a0a7aeab16e493dca4b6893be7ee7a1bed2eb744c789c86bb42"
+        ]
+      },
+      "decimals": 3,
+      "hash": "d666c00ba4f00604a582c2aebd6eed80b797b65732e0782d5d99da6209294559",
+      "hash_coarse": "d576aa4f6669f5a8e7798af8a309ff20404f5c1e0635a6f661a124d87fa1ea21",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "423ed0a7b0b92f1fc2fbfac2bcd8e439f57aab6257609084c13a156a0696579f": "l'écart est la longueur moyenne moins l'entropie, dans cet ordre"
+      },
+      "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.9h": {
-      "decimals": 3,
-      "hash": "34d351bd83d81e14c8fbc4cf52e2e3ae9f3208d7d5329cf8a97ddce85d167d56",
-      "hash_coarse": "360ec89c6e528d4852dd772ea97c90ee6579f566bbba26befbf0b02add41a5c0",
+      "coarse_any": {
+        "0": [
+          "bcf8a93625943e262ebc7a2cbcd1598fccc55b5102be0e1efcb2adf67f71c4c4"
+        ]
+      },
+      "decimals": 2,
+      "hash": "cbe1eafe6c749e212dc367b231c36210e1464f0820d22ffd4ae467bd8e3ef659",
+      "hash_coarse": "2e581ae8254aa28f22f62eaf2a440002aeb5fad9af9c0050a9f15d0154f1cd37",
       "kind": "float",
-      "magnitude": -2,
+      "magnitude": 0,
       "mistakes": {
-        "70c6505f16a32b32be510231feac82faaf7f2a4c0eb89388bcb37ea69d31040d": "l'écart est la longueur moyenne moins l'entropie, dans cet ordre"
+        "2fe4c8b72697fb428afc8853b6ab129bf5315ac56db0deff3f741aac5a09c252": "la longueur moyenne pondère chaque longueur par la probabilité de son symbole"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18888,20 +18944,17 @@
       },
       "coarser": {
         "1": [
-          "d00037ecf3341dd76e71f07a9025986560ba4cb6156e7f0687a7c1dfd07b6ed7"
-        ],
-        "2": [
-          "95e585e8fd3aeddec28cba345fa1df06d45a590ee7d6592a1e740ec85e1ff972"
+          "41ae194dd37890a893e8b437501099f98268faac7f487f02e538a4cb243bf030"
         ]
       },
-      "decimals": 4,
-      "hash": "15b0a4686f23049f513701249602376f9745d2835708e858ae3a8203def61c6c",
-      "hash_coarse": "d8bd5ae29694b89198d8d5c9d27a05164492b95d075549217cd2534c74f0f41e",
+      "decimals": 3,
+      "hash": "4bf6261b3de26fc49cecc664027da57f8a518b38214db8cac63454398e1957d3",
+      "hash_coarse": "7b206ecf97b326f1354b3a767f92006ac75067f5a0d36d90e4b2a476d4ff7898",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "241e47d2609255ad23fb10850052969a2b7652854ec8e646b2838059eeac1f6c": "la question demande des nats : ln, pas log₂",
-        "9bbd9b982f20ca0af5544397b7028e881e7a8d2a07b1079726e85bb401c8f452": "la cross-entropy d'une image ne retient que la probabilité donnée à sa vraie classe"
+        "07962207d952b444ae4f695f192115da3b52694f8f86cea347a503ff717ed940": "la cross-entropy d'une image ne retient que la probabilité donnée à sa vraie classe",
+        "48459ca2effcfad4bd24ef0a2bb60b2fa294c45fa5c9e799211e2c7c40de6b6f": "la question demande des nats : ln, pas log₂"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18915,19 +18968,14 @@
           "b13ae9b7aa988e2b139415f75366721550b7803800e90898fe815073eda8fdc8"
         ]
       },
-      "coarser": {
-        "2": [
-          "fc97013b8c8f6b7999c116b03fb6dea64b44699ee2eeebfb1431ad2289ccb25e"
-        ]
-      },
-      "decimals": 4,
-      "hash": "ff38a6977ba8eeedf4f550bed2706792dbc6fbe7593972cb587b10b5de968327",
-      "hash_coarse": "dedf595e026616d88b420787ded0d1ac7ac7f2965a495cbe892d64fce1042485",
+      "decimals": 3,
+      "hash": "5355212b843a666fbd7cfb3d87646fd216d25ac76f11f758a9893441b5ab4ea5",
+      "hash_coarse": "fc97013b8c8f6b7999c116b03fb6dea64b44699ee2eeebfb1431ad2289ccb25e",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "18ee2019bda59863ca2c1f8e4f4529ceac3de8ed1ff092de6660430f3c6b2a4d": "la log loss est une moyenne sur les images, pas une somme",
-        "1a353b622a9ec886838054a0803b36dd8a9e009e51906303916a8000fca7889a": "la question demande des nats : ln, pas log₂"
+        "47e248327f658536d56581919c15c2bc6a944dc6af22bbf95124d025d70c7e83": "la log loss est une moyenne sur les images, pas une somme",
+        "c26dad28cd7b101569ebd51a9e5fe32cdf7766c6ea29e74270280862728f3783": "la question demande des nats : ln, pas log₂"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18936,24 +18984,16 @@
       "coarse_any": {
         "0": [
           "09693be18b126c095a2f68c67831bbb7f64ac3dbf15e6168351bad68ee4e0fc6"
-        ],
-        "1": [
-          "bc00346273e9ac497751b1e77d1ca94df4bec7b120b785f1f5f789e1616fa64f"
         ]
       },
-      "coarser": {
-        "2": [
-          "290106f9358cb1143c1453d0f4dadd645f265bc84ebe0ec2f46f9fae2864b26a"
-        ]
-      },
-      "decimals": 4,
-      "hash": "c35e5bcd64464545ee124fd7e80c6a4e8edb2fd795c3e6318431fef5f7474a9e",
-      "hash_coarse": "7b8fba95f72bb9867d98fd33a78ed274fb6af5869b7a5f600a56f0c77555d6c7",
+      "decimals": 2,
+      "hash": "f99a3dfda1216f3d6160961d6827edfd0731bfeb88dd8d6e7e9e2754bfd80752",
+      "hash_coarse": "bc00346273e9ac497751b1e77d1ca94df4bec7b120b785f1f5f789e1616fa64f",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "1278c790e08d0867de215559ac9bc0cb72a9b4442db3a857d73621ab90ef08fe": "la question demande des bits : convertis les nats en bits",
-        "962f5f35cc9354c1f7f4ced04edea37ae185bef308ca82ec1831c83634aa3150": "1 nat vaut plus qu'un bit : le nombre de bits est plus grand que le nombre de nats"
+        "44672c84c244f003ca42c59771ad783d93f841a033d08b9e32e42a1c5837bc1b": "la question demande des bits : convertis les nats en bits",
+        "f98993ce6fe67a53f683ede6a34d25e65058804d3aa63ff9555a002542340838": "1 nat vaut plus qu'un bit : le nombre de bits est plus grand que le nombre de nats"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -18967,18 +19007,15 @@
       "coarser": {
         "1": [
           "156c968aad373f40bfd310d10841ef9541daa160796db96239bc8f1921ea548f"
-        ],
-        "2": [
-          "c779fdcc8228afe75586cf2a53557c7a51a2d2ab74669bf960c79c8805c769c5"
         ]
       },
-      "decimals": 4,
-      "hash": "cc534c05c1e311259f70d115d3ad5b909d3e72b48c8b03f6f7b1f336a70485b4",
-      "hash_coarse": "dc080883a544bf8ee123f0448c12498281259c1dde7589c9b057e3c6020548d5",
+      "decimals": 3,
+      "hash": "dc080883a544bf8ee123f0448c12498281259c1dde7589c9b057e3c6020548d5",
+      "hash_coarse": "c779fdcc8228afe75586cf2a53557c7a51a2d2ab74669bf960c79c8805c769c5",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "f02c51435c833af571e7ad12622041448ea316c236e211631b41b225c5037a06": "la question demande des nats : ln, pas log₂"
+        "e48ebc97874b70f04d1c1cc1e9ac863625ed07ac8ca0a5b3ed6aae3c131035f2": "la question demande des nats : ln, pas log₂"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19000,18 +19037,15 @@
       "coarser": {
         "1": [
           "aaff80d24a9450f7db1270a72f819ebe8faef2be8d78ff6b7691a3e210659504"
-        ],
-        "2": [
-          "b8719a297a6081cd723cbb166bc097137eaf7debc22671b5f28920d2e9c5e037"
         ]
       },
-      "decimals": 4,
-      "hash": "b6b1838a5b29b08b70d36688bc5bb905b8998cf23ee9151a1c3ed9e0c64853f6",
-      "hash_coarse": "bf5f3dda73c03bb052ae9a922ba5d0d0b602a45e0b49137c9338ad2dad200403",
+      "decimals": 3,
+      "hash": "6afd95e34090c2e908de3e210d36f8dc61ca833c5bd8c0fb2fdf84e9464a7fa2",
+      "hash_coarse": "8e1c666fac8b8b60a41e91f3b71704858b192c42051183db45bde8d94f8627a6",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "4aed53ec3e4bd085086ff7daf64cc8c615e564cca585860e3ac00fbfceb3442b": "la log loss est en nats : son exponentielle est en base e, pas 2"
+        "78cea205328ef9dbfec9569fbf157732e4fd4341ef147f4776977949d3bbc2e4": "la log loss est en nats : son exponentielle est en base e, pas 2"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19033,7 +19067,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "16be3f80fba6d3f3106a31dff4111e04ba8d090a164531f817a2393754318d90": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
+        "16be3f80fba6d3f3106a31dff4111e04ba8d090a164531f817a2393754318d90": "la question demande des bits : log₂ x = ln x / ln 2, pas ln",
+        "460d9cd9696e691da9ae68859ec7f6cd6ac7b96f5f670c516e07cdc4d15aa352": "ta valeur est H(Y | F₁), l'incertitude qui reste ; la question demande I(F₁ ; Y)"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19053,7 +19088,9 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "27ba4c92896a50e6095095193c039cd7a163738390843ade3bf2cdf00d56cabb": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
+        "0ba4ffcec65f6c6d6229c9414220e3b348aec10e27269f65be8b9f971d762b0b": "ta valeur est H(Y | F₂), l'incertitude qui reste ; la question demande I(F₂ ; Y)",
+        "27ba4c92896a50e6095095193c039cd7a163738390843ade3bf2cdf00d56cabb": "la question demande des bits : log₂ x = ln x / ln 2, pas ln",
+        "b85fad826a58c049e62af8b1dc9aad228bf56626684e3c09c77d26785ee4bce5": "ta valeur est H(Y | F₂), l'incertitude qui reste ; la question demande I(F₂ ; Y)"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19075,6 +19112,9 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "6e73b2d67ef6883ee6b19d6caffb85174d6becc17100c85de4dddad71dd68238": "ta valeur est H(Y | F₃), l'incertitude qui reste ; la question demande I(F₃ ; Y)",
+        "8aec1a9d2e160c9165890c8617a8e6d7dc5b29d2a0e6455f2056e76e61e11500": "pondère l'entropie de chaque ligne par la probabilité de sa valeur de F₃",
+        "926da299bd2ef39a2739ea4f56ee999176382c3640786f171361b79df356340e": "pondère l'entropie de chaque ligne par la probabilité de sa valeur de F₃",
         "eada9de2e07f3d0715fbf14e0104cf9b74323640435e095b15814075e3b22cc7": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
       },
       "sign": 1,
@@ -19111,7 +19151,9 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "c8161d5b86fa100f4a8b52da458dd72d0ff2a35622aa458ef7e4787d6670e105": "H(Y | F₃) est l'incertitude qui reste sur l'achat une fois l'âge connu : ce n'est pas ce que l'âge apprend"
+        "97ed48af5f382f05b8a1bc1d70709fde99ab1a2f50e3b5622342b58b603261e6": "pondère l'entropie de chaque ligne par la probabilité de sa valeur de F₃",
+        "ad4e25503d16b503ab466866baed640fd7d2dc8c526d770cb65b343050399d25": "pondère l'entropie de chaque ligne par la probabilité de sa valeur de F₃",
+        "c8161d5b86fa100f4a8b52da458dd72d0ff2a35622aa458ef7e4787d6670e105": "ta valeur est I(F₃ ; Y), ce que l'âge apprend ; la question demande l'incertitude qui reste, H(Y | F₃)"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19137,10 +19179,10 @@
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.13g": {
-      "hash": "6aa05d61eb57f186511827569de31952b228f01410e8c3a17edf9d7e2bb4b6c0",
+      "hash": "914ad1d4eb86552a3c9cb773eb3a80b0e6a8080c95e02b968562b4527bcd40e0",
       "kind": "bool",
       "mistakes": {
-        "914ad1d4eb86552a3c9cb773eb3a80b0e6a8080c95e02b968562b4527bcd40e0": "avec 20 valeurs différentes, que vaut H(Y | F) sur ces données ?"
+        "6aa05d61eb57f186511827569de31952b228f01410e8c3a17edf9d7e2bb4b6c0": "regrouper deux valeurs efface une distinction : calcule l'information mutuelle du tableau regroupé"
       },
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
@@ -19152,19 +19194,19 @@
       },
       "coarser": {
         "1": [
-          "5677a88f93ffa9d5f58f8bdf6dbb1e5629777b27f3768e30492850d1dc8ef37e"
+          "f6d22ebc706c8298065c1c9bb1c5c2ce942c76bd16b7e3b7c4f4404fc1ebeb18"
         ],
         "2": [
-          "4d30034d41b04aee89ba3aa7a697ced91378d42850b66a80b1aa6269703ad63f"
+          "dcc0338dc6a2bb98901c65bfbc586f39a9d14f261753b21eec514e60de584ca2"
         ]
       },
       "decimals": 4,
-      "hash": "23c75c87f7f9a89b1a28a83fc4c716dd96650e1b6d478c935935e83148253a8a",
-      "hash_coarse": "d3da109dfe1de0444b08da7fdb27fc9bfa12563b0dc157eaf38c9f180e623f32",
+      "hash": "4c110b80b714470a9523d62137e035483b377980007c1095180635e98e186c31",
+      "hash_coarse": "8f0d1c1a62db7ba40b800ecefbbbd95fb477957d465e3e1a923fa6b5f6a37aa4",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "8b223b76b0633cb12babc129e59d815dc7bd47f3450c388f7ac3f0b41a446163": "la docstring demande des bits par défaut (base=2)"
+        "7827daf68f9f92f3f1cc25251f98e3b895527f4503cefe04bb36ceff9d58dd6d": "la docstring demande des bits par défaut (base=2)"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19177,21 +19219,22 @@
       },
       "coarser": {
         "1": [
-          "54f4630b5166f1a7ca2d0ccda90117a9a9b9f450a543f14dfe27935579a6c2d7"
+          "cfe89cb7f5594d70ff4abb8fd329ea79a4af4498036e85d25e84dbf9d2d800db"
         ],
         "2": [
-          "af3b9919c82a1c0dbd3613db178b84cffb392d98db9d1c16b2366075d8af8a1c"
+          "a124c389d9954c75a231df4eda3b8d2f5eed60336cebd8edefb7e4cedc3e9c53"
         ]
       },
       "decimals": 4,
-      "hash": "865813ca8293eb1e5a9f0961cb6d0605cd195ecf1258cd276abe52bad018c71b",
-      "hash_coarse": "7aed62fa4a4d7c7c422a8d33c5efcf88930da165fc8b52409fb89122cd6c760c",
+      "hash": "8074dda3888d21cf5378cd7e7fd2e2a4657b588a3fad27dd5cd36a28bf16b816",
+      "hash_coarse": "859e4d336bd1baa58b63886b946ff4de4689b2cb342e8cee9817d7d63d8d1306",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "3844faa026303fe57c6df6e9403dd4179344b0b3721f31c1c0f902fc2ff6783a": "c'est l'entropie conjointe : retire l'entropie de la loi des lignes",
-        "4e2fce30199116ef615940389004c9c701c1cd87470a90053781626f359ea654": "c'est l'entropie de Y seule : connaître X doit la faire baisser",
-        "f7b02033f37e18031716a1556239d319c863cc06ee1b76b41f85cef6e25a7ba4": "la fonction conditionne par la variable des lignes, X : tu as calculé H(X | Y)"
+        "30d411ccc749653df81af5d08a5e19400c50de9040919587f6091aa2b1993bbd": "c'est l'entropie de Y seule : connaître X doit la faire baisser",
+        "70fb0814c5c76374ce0a69c3a192e01305453404fc1090c079b33ca63c185ad9": "la fonction conditionne par la variable des lignes, X : tu as calculé H(X | Y)",
+        "8e170c56f5316d191ae618ba9d43eb2d508e39c75a5e70b7dc9358ecd82192d9": "c'est l'entropie de Y seule : connaître X doit la faire baisser",
+        "fb99d6515fa58403c20cc357784117fc0cf95476c0e0baa1a6158a052a440766": "c'est l'entropie conjointe : retire l'entropie de la loi des lignes"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19202,21 +19245,21 @@
           "424bd02f3c724214bc2690ad735767d094f18ea3011ffd991727424e48f84ba4"
         ],
         "1": [
-          "c0cff14ecd254ddbe11c30fdbd443eb066a8a55880ebdc0047b99dde709fc318"
+          "8a4d4cac0cdb359d33f907e631976f0d18c052feffba4b873a8cb010f208b37d"
         ]
       },
       "coarser": {
         "2": [
-          "88a4d3658ce91d14c8a8652c5670b3641a40709e6230a911e7b071c0f41e7fd0"
+          "94a8db6658da9ceb74276d2c177f8c0986392c08d1bbfefe19c289b97f8dbcd4"
         ]
       },
       "decimals": 4,
-      "hash": "9cd55e31ddc12c21ee3aa05d0c3fb3854c93545007a6c7924794a6ff310466de",
-      "hash_coarse": "eac15e006ced3aa9c45173ff135173008dfe9a0af30d5f617d69ad7e8d324951",
+      "hash": "7b61c23e118fe76fbd150e05a1da35df23809bd8bf77ad7bd592901c9e22ece9",
+      "hash_coarse": "c7db27fccda2e364fab2c7bd47a26c95987ec6159b31ab2b942a5b8f090439c0",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "397efd27e9df79dd5fa944f5df65746ded325b2c12081939ca0dbe53e8f82712": "en transposant, les colonnes deviennent les lignes : la fonction conditionne alors par Y"
+        "2d115800df15e080f01e1e2adb9c3435af009c998064669b9048962774d1dc16": "en transposant, les colonnes deviennent les lignes : la fonction conditionne alors par Y"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19232,16 +19275,16 @@
           "4242aa06a1aa4ec312508739fe9ee127c82889e2abba44a15e7ae8e5d247183a"
         ],
         "2": [
-          "eaf8d481b74a20b5e9cc3db90daa09874c9c945d1cbb5fd27d6c6d335747ec1e"
+          "def34c245f8171471fbe1a7f7f6e75ea036b9dd2bc98cc0998e26f0c3b242c43"
         ]
       },
       "decimals": 4,
-      "hash": "1b0a6db98918af168ff3e5649ae5fe2b04d78e4b1e51a4381ee0068992ed1306",
-      "hash_coarse": "97404e347c66f53b92e6a7d56d395dc09e24ce2ee4748d9611abcfa73d859d5a",
+      "hash": "0aa93d8f3b019fa6e3af54fc11315581107f74c48f7af7e53e1b6799dda9565f",
+      "hash_coarse": "1cd4c7f1418ccdefcf14071fcfb9ef4ab5e636f08cc70394f7a98554334be4c6",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "b37118820d078a5fb176c6e2c199af0ca8ce372ee63a7ab0f06ab91e1f633a67": "base=math.e donne des nats : le logarithme de base e"
+        "15fcb55aed6767c7a9642bb54f699862c4e0211f5df5d38ad35fd656576d9718": "base=math.e donne des nats : le logarithme de base e"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19331,7 +19374,7 @@
       "magnitude": -1,
       "mistakes": {
         "0e2ed950b7b9dcfec0f4510fa23442978a3614d94f11e41563d0b7da99716a2d": "I(X ; Y) = H(X) + H(Y) − H(X, Y) : il manque un terme",
-        "c8d6ba4a0b452275ca2944405d30de256b70a3fe8133417323b2c9a546878d11": "I(X ; Y) = H(Y) − H(Y | X) : la condition porte sur l'autre variable que celle dont on prend l'entropie",
+        "c8d6ba4a0b452275ca2944405d30de256b70a3fe8133417323b2c9a546878d11": "I(X ; Y) est une entropie moins l'entropie conditionnelle de la même variable, sachant l'autre : H(Y) − H(Y | X)",
         "cdd2467375fa8c588d4833daa270d7b1ab1f4907ca98237aaf25fa40bf31f816": "I(X ; Y) = H(X) + H(Y) − H(X, Y) : il manque un terme",
         "d99f8adb516effe91e28a736cbf9b16a6028e757c27228626f3fb45c9e3f4f27": "la docstring demande des bits par défaut (base=2)"
       },
@@ -19458,21 +19501,21 @@
           "cdf14258b9da328c02d78ff9801d30997234f0dcfc6612fc374351936ef6fa5d"
         ],
         "1": [
-          "9bb7f7a82852337cae91958533423d85b0f28447497edfc0883470149ebbf143"
+          "d46def3135b7e9c8c1085e777cc73609995b6b7590d241ad9aea0b90c0921a1d"
         ]
       },
       "coarser": {
         "2": [
-          "7d5537cd8a896274e923464be47dd7c5c6388bf037cc509c678bbc56dc31a213"
+          "76dab063cc9cc2bd819529e4c5f705a767a2dca015bf776ba4e8968b6338561f"
         ]
       },
       "decimals": 4,
-      "hash": "d0ca44fd338bc69c8e306700e35c681bad482541ab8cb8ce21caba125d2cf3d1",
-      "hash_coarse": "8bc487e7e54f0be62fc4b4cafd7675aea9300b2239b4a21e92edffcca421394d",
+      "hash": "13305ad989347af2377ec3f12b648c44b68cf11bd6208f09da534fb472ae353c",
+      "hash_coarse": "0afb73ad32dad20db2b8b0c339b3e4ebbb8e272cc3576382ff2a5769a3c5f12f",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "21c4fff2527296dfbed8d176d93ff659dd30698e1fc7ed321700f3d9b4f5c24f": "alphabet=3 : un mot de longueur ℓ compte pour 3^(−ℓ)"
+        "95faacee697621e61cb4bc435f200f476736e0b9a37bf01a2cb0df4bcf51c0d2": "alphabet=3 : un mot de longueur ℓ compte pour 3^(−ℓ)"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19506,7 +19549,7 @@
       "hash": "fd7f409b5083afcfb233c50e6e89933869c0b8c4cf08aec8efd44b5f44dc4d4d",
       "kind": "bool",
       "mistakes": {
-        "c338532b5e27916f92fa6b30d470d7765edee5daf8fcc27874438a3c04c4601e": "compare chaque paire de mots, dans les deux sens : un mot court peut être le début d'un mot long placé avant lui dans la liste"
+        "c338532b5e27916f92fa6b30d470d7765edee5daf8fcc27874438a3c04c4601e": "compare chaque paire de mots, dans les deux sens : un mot court peut être le début d'un mot long placé avant ou après lui dans la liste"
       },
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
@@ -19777,7 +19820,9 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "55cef26924f28f336682c29278e9b0282ab22f8d660e904a439a62f4adb0c7b3": "mélange les observations de Y par rng.permutation(y_20), une seule fois, juste après avoir créé rng avec la graine 620 : le résultat n'est pas nul"
+        "4a8f322052036fd2836c206fc01a819aaf59c8ad3fd467fee78ec18f86579c12": "mélange les observations de Y, pas celles de X",
+        "55cef26924f28f336682c29278e9b0282ab22f8d660e904a439a62f4adb0c7b3": "le résultat n'est pas nul : mélange les observations de Y par rng.permutation(y_20), juste après avoir créé rng avec la graine 620",
+        "a13b52220bc45bf40764485d2fcdc7550a34341e70f74f7aa062558507ea0a45": "appelle rng.permutation une seule fois, juste après avoir créé rng : un second appel donne un autre mélange"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
@@ -19789,7 +19834,7 @@
         "3",
         "4"
       ],
-      "hash": "ab6dfae6857e6fbf698298be409890c6a7736a1e0e2b05781fb8365183c8ae89",
+      "hash": "712fb9183103ae36aa0ab7981060a69e97bcd7aa68f7fbc533d2c79d55c93ddd",
       "kind": "int",
       "magnitude": 0,
       "prediction": true,
@@ -19817,7 +19862,7 @@
         "3",
         "4"
       ],
-      "hash": "d4f0c1a14db5ae6ed43183c45408dded5c7da3e9471887ce28eeda1ecac13671",
+      "hash": "f3163428f48ec4635f9bc5119f8ae3417f2cdefba4395020cbe09d38b8147781",
       "kind": "int",
       "magnitude": 0,
       "prediction": true,
@@ -19840,82 +19885,87 @@
     },
     "M06.22a": {
       "coarse_any": {
-        "0": [
-          "ffa8ec707ca265fdc229aae034f04ffa10bd78040c992857f6d06605b42ed1ff"
-        ]
-      },
-      "coarser": {
         "1": [
-          "962f45f668d2fce47ec50169680686149c2e6cc9de58ef5a58f34104b5b17f4b"
+          "369be6919c6543295a01b85db02d5c224360a7dead9774ab7faf547953b87fc6"
         ]
       },
       "decimals": 3,
-      "hash": "d77d7fea826e686384d7da92bd8d53666f69d250b9de45b949c62dc5f371bd7d",
-      "hash_coarse": "b9fd8113f5aae72b76fffd140a4f068b8738fd017b5813ff751300c51d936d16",
-      "kind": "float",
-      "magnitude": 0,
-      "mistakes": {
-        "450a61d27d2d0aa23378395b6c511a9fe9d857eb9f3cc3002d8b8399dad5fe49": "l'entropie est demandée en bits : log₂"
-      },
-      "sign": 1,
-      "source": "chapitres/m06_information/05_solutions.ipynb"
-    },
-    "M06.22b": {
-      "coarse_any": {
-        "1": [
-          "01881b15cab9afd5b9fda154443e926d5b45234d3c82a58c82bcf9b49a6bb793"
-        ]
-      },
-      "decimals": 3,
-      "hash": "d5a816878edb83ad5faa0910b4cb8ef24608d6388e93325c414587b6a90b0fdd",
-      "hash_coarse": "c9854006afe5d9b6b11bf9098910b53d0a6dfd60317b7df43e830c40054b8291",
+      "hash": "575ce798bf77e012408edc2c82504c4fb30dbad6bcf0401fe78e685cc9e14f7b",
+      "hash_coarse": "1a6f1ad9ded4ece3c57a6810c6aeb33f1ad3d223b09294712d81d4d4f20abef4",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "c6015498b6f50b7a4f3a4b7768dc6543c3a493655a293f4cf882ba49daa6d628": "le biais est la moyenne des estimations moins la vraie entropie, dans cet ordre"
+        "43af9738e7a361ece2d8ce88d886124d40a8152964da58d719b86c783dde928e": "le biais est la moyenne des estimations moins la vraie entropie, dans cet ordre"
+      },
+      "sign": -1,
+      "source": "chapitres/m06_information/05_solutions.ipynb"
+    },
+    "M06.22b": {
+      "decimals": 3,
+      "hash": "ca714d984d4c506f9d8482435fa2c9ba737a7dc146a3340be6e71401b6ed3e7b",
+      "hash_coarse": "425bf22e79cfec7a3a643e221728655cb5906ab1b0a3d04a1566cd45a4bb7442",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "27c46dbb4b198aeb51062e8f9a322f7dce69ebe507ef1097d639f4fdd737a98b": "le biais est la moyenne des estimations moins la vraie entropie, dans cet ordre"
       },
       "sign": -1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.22c": {
+      "coarse_any": {
+        "1": [
+          "ed216ab2da9d6bf11478051d630efea16ea556bae51f4a6f655010928a2b916f"
+        ]
+      },
       "decimals": 3,
-      "hash": "00ed6dc74f26eb9b4e553d936c87686cdb6b1dcf5edb760203d93085baaeaa67",
-      "hash_coarse": "c8b3cab7c8da48f9568340215ef0a4c546f3aab0fe585b48112fefb04abe18b3",
+      "hash": "f96d06ac7d69babad32c2d8a1c7c5b0c160f0a72e7c1950d59c08f351c1f8845",
+      "hash_coarse": "a889b9d98d15f8f94d85439387b316f88de8ede3fb425fb47ad4aa318e04be06",
       "kind": "float",
-      "magnitude": -2,
+      "magnitude": -1,
       "mistakes": {
-        "d2a5ec9b87b78111e8107c2edefd0f7ed95e747e1e61553e0cdc4b22f3f2d87c": "le biais est la moyenne des estimations moins la vraie entropie, dans cet ordre"
+        "ad9cd80d65521cf88e2b23831af791e172321d4286723b608a02253286a1620a": "m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues possibles",
+        "bbc93c45968f096dcdd39d0a167d83267f7cbd3c1681e55c010af1de288003f5": "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur"
       },
       "sign": -1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.22d": {
-      "coarse_any": {
-        "0": [
-          "2809a0d8c76e018a8835e2fc85b06a87c31a385bb9362d53b9e5ca03309059e7"
-        ]
-      },
-      "decimals": 2,
-      "hash": "a74a29d28fe7ca8768822dd5971c9705b3cb0d026d1e7e5f249b6138f152ccff",
-      "hash_coarse": "d0b3b16e3f3a85eca8f9bb0ac50af484cbd615f9879b5c3713605dd964a2c0c7",
+      "decimals": 4,
+      "hash": "4b5af56b82e53d57edf82493b3b2367dda8eddf1e974188e73fdc4c23489193d",
+      "hash_coarse": "4b134022f6f4c32537e27d662cdaf1cdced23b091d9609529771a283a0921e6a",
       "kind": "float",
-      "magnitude": -1,
+      "magnitude": -3,
       "mistakes": {
-        "a8a9395a8aba2fd3ba14f240b8edcee6ffbfd82f1ba334b1b225d788e7153059": "la proportion est une fraction des 2 000 échantillons, entre 0 et 1, pas un nombre d'échantillons"
+        "3d3896e3ef89681c113f244ce92015d6fc42b6611b5296e049ee06f2936aff8d": "m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues possibles",
+        "b13b888cf2760c63eadcdfdf64483ffc5e0734773b88744ee39640f045358856": "m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues possibles"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.22e": {
-      "decimals": 3,
-      "hash": "c18345a2b40e6c047d7df33f958b16b2ffb9e4686737d072af3416ea971aacd5",
-      "hash_coarse": "c266c6cf4ee523aa37b3c126c0c23860b0f966abb8dbaf5a2b6fd5cb909eecf6",
-      "kind": "float",
-      "magnitude": -2,
-      "mistakes": {
-        "cf82c213ab28b95d643e8e2290d226945c68911398882382492a1cceec1f26b0": "la correction est en bits : (k − 1)/(2n ln 2), avec le ln 2 au dénominateur"
+      "coarse_any": {
+        "0": [
+          "6fe6cdc772c867870d9519a97a768cf04b3640851c559918698b6b6425f3eb73"
+        ]
       },
-      "sign": -1,
+      "coarser": {
+        "1": [
+          "0c4371c55f716721e2ec664cc2624f69d79c89e949115c837f7f39ebe7ab9fca"
+        ],
+        "2": [
+          "d2ad56a971129f0981b32f06643945803ee7af19d800f3b3a2d76478e02dbdc5"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e70b510dae070a29516146f828307072c0e221bd0cbf27f8898a785c2b6cf75e",
+      "hash_coarse": "04ccec349e8a682525031c569b5cb5680650c7ea9b291e63112fa0aeb8dcce2a",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "41168c8c4cddb2e6fcf992399fc6ef963d0fffe64f688fde48bca80207192575": "m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues possibles"
+      },
+      "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.24a": {
@@ -20045,8 +20095,8 @@
       "hash": "d220312ac9a1c825b2b60a85dcb65daf0f4adb3ff0f13b3eaa1ba2759e7e8b35",
       "kind": "array",
       "mistakes": {
-        "643ddd40eeecca56f1b5e7d8f2d4a7bc5fdefed7510078d3fac1866b3adddf69": "(C) : une cross-entropy en bits se calcule avec log₂",
-        "c8b4ded14224dab9a3d9a6456c60ec8ede99a39c558acb01335489f1e7243bd3": "(F) : la perplexité est 2 à la puissance de la cross-entropy en bits"
+        "643ddd40eeecca56f1b5e7d8f2d4a7bc5fdefed7510078d3fac1866b3adddf69": "une de tes valeurs reprend ce que calcule une ligne fausse, pas ce que dit son commentaire : refais le calcul de chaque ligne fausse à partir de son commentaire",
+        "c8b4ded14224dab9a3d9a6456c60ec8ede99a39c558acb01335489f1e7243bd3": "une de tes valeurs utilise l'entropie là où le commentaire demande une autre quantité : relis chaque commentaire"
       },
       "shape": [
         6
@@ -20054,28 +20104,45 @@
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.25": {
-      "coarse_any": {
-        "0": [
-          "e78860b93dfe1f4527ec93d7908b645dc7650d5191960c042b850316bbe3a34d"
-        ]
-      },
-      "coarser": {
-        "1": [
-          "31de92d9ac68c580c77a6a3faa988449f9189daef06d1ba54e012ac4b24b6a56"
-        ],
-        "2": [
-          "35241d6f5c56e8dd76fd98af9e7586fd32a706548348153d022249db2e26db4a"
-        ]
-      },
       "decimals": 4,
-      "hash": "3ea4ff1641859a5f58f88de9e47bc7bb5356b3efc6aa6ac91e69fb81c8d2b8f7",
-      "hash_coarse": "ed233413c8e7a0514dfab16dd1c11f77a3d19cd3026087f8518a2b532e69fee8",
-      "kind": "float",
-      "magnitude": 0,
+      "element_coarse": [
+        [
+          "bb199c8a1a5768149847def8b8dc4f4642a15f63cf3a8c8fa60ea4d8489fa4d5"
+        ],
+        [
+          "52121f88b8c26bb180d16b0bf85753929882a916e33415aafc82a86bae1854ec"
+        ],
+        [
+          "30753c26a6f1f81de37a2e4c2872928a41f365c123305b3aeb9de43846a02090"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8e7084fe621d771dad62d3438be7901fedc24519eb0571e2dbff86856819a5f3",
+          "7f823959d07fc1ff596f7d94616e05d8085f485bcc790f0317a0908352bd17d2",
+          "f0d215b20586bb59f811a2ec5541825648efccfd66d8e8b6b756e3e31112a983"
+        ],
+        [
+          "d47cde5d252ff1303ebafbdf5f03bb9656ed8bbf32b9ac8852bd9a51e55ea2bf",
+          "c80f603c9db20efc0ef89e05ec771e7de894c395bf13d0a66d801ce1c4e27a71",
+          "43443a11affc6eefdde87dbbc6e189cdc74d4fbf5707af1c4e3b4d8461af7b20"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "ca27231e30c56d310336b06e9219bbe0f7f76630cb38c6c92496a5d01555a563",
+        "f12e043ae10f610393d5b1feb556d238eec3875e23ce124c635058f2c9d45a2b",
+        "91b0560606d537a51efadde77162b4f3e601a87d9cae67f7ecc66133a5f03fae"
+      ],
+      "hash": "69218e6d9ea380c2bd3405a03d82c972ad3840aa9446327cdadeb8e64b3d515a",
+      "kind": "array",
       "mistakes": {
-        "7f2c75fd38a6a26ef1a1cde617eb0b3a1d61c6d6cd1ba5e4cfe36316ed81c077": "la fonction donne des bits par défaut (base=2) : divise par ln 2"
+        "3b9b886462eab6e76ba609b5f8e1810ca8717d63c5921cf15f9af06e96bfaa52": "divise d'abord chaque ligne par sa somme : les entropies portent sur les lois conditionnelles",
+        "84b1f1403c52457536cb9cd1a0eb29e020c07a90526d123194f396a938c7333b": "la fonction donne des bits par défaut (base=2) : divise par ln 2"
       },
-      "sign": 1,
+      "shape": [
+        3
+      ],
       "source": "chapitres/m06_information/05_solutions.ipynb"
     },
     "M06.26": {
@@ -20099,7 +20166,7 @@
       "magnitude": 0,
       "mistakes": {
         "28eb19c1249aaae8fafce7ae5be46daeca4de0b34669658cfeff7a1c3dcb79e2": "la question demande des bits : log₂, pas ln",
-        "5ad339f7100fb5b8799711345e30c60d8c59253a5002fe36581c171a1ff06ce4": "c'est l'entropie de la loi uniforme : calcule celle de PROBS_HARMONIC_26"
+        "5ad339f7100fb5b8799711345e30c60d8c59253a5002fe36581c171a1ff06ce4": "c'est l'entropie de la loi uniforme : calcule celle de PROBS_AGE_26"
       },
       "sign": 1,
       "source": "chapitres/m06_information/05_solutions.ipynb"

@@ -780,7 +780,7 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
     decimals = entry.get("decimals")
     if math.isnan(x):
         return ("Ta valeur est NaN (« pas un nombre ») : division 0/0, logarithme d'un nombre "
-                "négatif ou valeur manquante dans le calcul ?")
+                "négatif, produit 0 × log 0 (qui vaut 0 × (−∞) pour NumPy) ou valeur manquante dans le calcul ?")
     if math.isinf(x):
         if _hash_value(ex_id, entry, -x) == entry["hash"]:
             return "Le signe est inversé : l'infini attendu est de l'autre signe."

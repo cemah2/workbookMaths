@@ -884,7 +884,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M06.R2 🔁 Probabilités jointes et conditionnelles (M03) ★ 5 min
 - [ ] M06.R3 🔁 Convexité (M05a) ★ 5 min (complet)
 - [ ] M06.1 ✏️ L'information d'événements et l'entropie d'une loi à quatre issues ★ 20 min
-- [ ] M06.2 ✏️ L'entropie maximale : comparer trois lois à trois issues ★★ 15 min (complet)
+- [ ] M06.2 ✏️ L'entropie maximale : comparer des lois à quatre issues ★★ 15 min (complet)
 - [ ] M06.3 ✏️ Entropies conjointe et conditionnelle d'un tableau 2 × 3 ★★ 20 min
 - [ ] M06.4 ✏️ La règle de la chaîne de l'entropie, vérifiée ★ 15 min (complet)
 - [ ] M06.5 ✏️ L'information mutuelle de deux variables ★★ 20 min
@@ -904,11 +904,11 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M06.18 🔨 Codes préfixes et somme de Kraft ★ 15 min (complet)
 - [ ] M06.19 🔨 L'écart de Jensen d'une loi discrète ★ 15 min (complet)
 - [ ] M06.20 📦 `sklearn.metrics.mutual_info_score` contre ta fonction, en nats ★ 15 min (complet)
-- [ ] M06.21 🔮 Prédire : l'information mutuelle de X et 2X, de X et X² ★ 10 min
+- [ ] M06.21 🔮 Prédire : l'information mutuelle de X et X³, de X et X² ★ 10 min
 - [ ] M06.22 🔬 Estimer une entropie à partir d'un échantillon : le biais des petits échantillons ★★ 20 min (complet)
 - [ ] M06.23 🎨 Un diagramme de l'information : H(X), H(Y), H(X | Y), I(X ; Y) ★ 20 min (complet)
 - [ ] M06.24 🐛 Chasse à l'erreur : log en base 10, 0 log 0, KL à l'envers ★ 15 min (complet)
 - [ ] M06.25 🛠️ Calculer 0 log 0 proprement (`scipy.special.xlogy`) ★ 10 min (complet)
-- [ ] M06.26 🏆 Défi : deviner un nombre de 1 à 100 en un minimum de questions ★★★ 25 min (complet)
+- [ ] M06.26 🏆 Défi : localiser une panne parmi 100 serveurs en un minimum de questions ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)
 <!-- wbm:end M06 -->

@@ -694,8 +694,8 @@ CHAPTERS = [
                  "construit à la main ni programmé (workbookIA 6.6 et 6.23) ; ni Morse, ni pièce, ni dé, ni textes "
                  "littéraires (workbookIA 6.1 à 6.4) ; la KL est calculée dans un seul sens, comme des bits perdus "
                  "(workbookIA 6.5 la calcule dans les deux). COMPOSITION : pas de 📖 (MML ne traite pas "
-                 "l'information) ; lecture conseillée : MacKay, chapitres 1, 2 et 5. Parcours essentiel : Kraft, "
-                 "Jensen-Shannon et démonstrations hors parcours.",
+                 "l'information) ; lecture conseillée : MacKay, chapitres 1, 2, 5 et 8. Parcours essentiel : Jensen, la fin du §7 "
+                 "(longueur moyenne), Jensen-Shannon et démonstrations hors parcours ; Kraft y est, par Q7 et M06.8.",
         "exercises": [
             ("M06.Q1", "🧠", 1, 4, "La surprise et la probabilité", "§1", "E"),
             ("M06.Q2", "🧠", 1, 4, "L'entropie : vrai ou faux", "§2", "E"),
@@ -709,7 +709,7 @@ CHAPTERS = [
             ("M06.R3", "🔁", 1, 5, "Convexité (M05a)", "§6", ""),
             ("M06.1", "✏️", 1, 20, "L'information d'événements et l'entropie d'une loi à quatre issues", "§1 §2",
              "E"),
-            ("M06.2", "✏️", 2, 15, "L'entropie maximale : comparer trois lois à trois issues", "§2", ""),
+            ("M06.2", "✏️", 2, 15, "L'entropie maximale : comparer des lois à quatre issues", "§2", ""),
             ("M06.3", "✏️", 2, 20, "Entropies conjointe et conditionnelle d'un tableau 2 × 3", "§3", "E"),
             ("M06.4", "✏️", 1, 15, "La règle de la chaîne de l'entropie, vérifiée", "§3", ""),
             ("M06.5", "✏️", 2, 20, "L'information mutuelle de deux variables", "§4", "E"),
@@ -731,13 +731,13 @@ CHAPTERS = [
             ("M06.18", "🔨", 1, 15, "Codes préfixes et somme de Kraft", "§7", "m:kraft_sum,is_prefix_code"),
             ("M06.19", "🔨", 1, 15, "L'écart de Jensen d'une loi discrète", "§6", "m:jensen_gap"),
             ("M06.20", "📦", 1, 15, "`sklearn.metrics.mutual_info_score` contre ta fonction, en nats", "§4", ""),
-            ("M06.21", "🔮", 1, 10, "Prédire : l'information mutuelle de X et 2X, de X et X²", "§4", "E"),
+            ("M06.21", "🔮", 1, 10, "Prédire : l'information mutuelle de X et X³, de X et X²", "§4", "E"),
             ("M06.22", "🔬", 2, 20, "Estimer une entropie à partir d'un échantillon : le biais des petits "
              "échantillons", "§2", ""),
             ("M06.23", "🎨", 1, 20, "Un diagramme de l'information : H(X), H(Y), H(X | Y), I(X ; Y)", "§3 §4", ""),
             ("M06.24", "🐛", 1, 15, "Chasse à l'erreur : log en base 10, 0 log 0, KL à l'envers", "§5", ""),
-            ("M06.25", "🛠️", 1, 10, "Calculer 0 log 0 proprement (`scipy.special.xlogy`)", "§2", ""),
-            ("M06.26", "🏆", 3, 25, "Défi : deviner un nombre de 1 à 100 en un minimum de questions", "§1 §2", ""),
+            ("M06.25", "🛠️", 1, 10, "Calculer 0 log 0 proprement (`scipy.special.xlogy`)", "§2 §3", ""),
+            ("M06.26", "🏆", 3, 25, "Défi : localiser une panne parmi 100 serveurs en un minimum de questions", "§1 §2", ""),
         ],
     },
     {

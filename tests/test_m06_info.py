@@ -120,8 +120,9 @@ def test_joint_entropy_in_another_base(info, base):
     table = TABLES["3x4"]
     expected = _scipy_h(table, base=base)
     got = _result(lambda: info.joint_entropy(table, base=base), f"{expected:.6f}", f"base {base}")
-    assert got == pytest.approx(expected, abs=1e-10), (
-        f"expected {expected:.10f} in base {base}, got {got!r}: divide the natural logarithms by ln(base)")
+    hint = ("0 log 0 counts as 0: keep only the positive cells (this table has a zero cell)"
+            if isinstance(got, float) and math.isnan(got) else "divide the natural logarithms by ln(base)")
+    assert got == pytest.approx(expected, abs=1e-10), f"expected {expected:.10f} in base {base}, got {got!r}: {hint}"
 
 
 def test_joint_entropy_with_zero_cells_has_no_nan(info):
@@ -141,8 +142,9 @@ def test_joint_entropy_refuses_an_invalid_table(info, table, why):
 
 @pytest.mark.parametrize("base", [1, 0.5, -2, float("nan")], ids=["1", "0.5", "-2", "nan"])
 def test_joint_entropy_refuses_a_base_not_above_1(info, base):
-    _expect_value_error(lambda: info.joint_entropy(TABLES["2x2"], base=base), f"joint_entropy(..., base={base})",
-                        "the base must be greater than 1")
+    why = "the base must be greater than 1" + (
+        "; nan <= 1 is False, so test `not base > 1`" if math.isnan(base) else "")
+    _expect_value_error(lambda: info.joint_entropy(TABLES["2x2"], base=base), f"joint_entropy(..., base={base})", why)
 
 
 def test_joint_entropy_returns_a_python_float(info):
@@ -240,11 +242,12 @@ def test_mutual_information_is_symmetric(info):
     assert a == pytest.approx(b, abs=1e-12), f"expected I(X ; Y) = I(Y ; X): got {a!r} and, transposed, {b!r}"
 
 
-def test_mutual_information_of_independent_variables_is_exactly_zero(info):
+def test_mutual_information_of_independent_variables_is_zero(info):
     table = np.outer([0.15, 0.35, 0.5], [0.6, 0.1, 0.3])
     got = _result(lambda: info.mutual_information(table), "0.0")
-    assert got == 0.0, (f"expected exactly 0.0 for independent variables, got {got!r}: a tiny negative rounding "
-                        f"error, above -1e-12, is returned as 0.0 (the docstring)")
+    assert 0.0 <= got <= 1e-12, (f"expected 0.0 (up to 1e-12) and never negative for independent variables, got "
+                                 f"{got!r}: a tiny negative rounding error, above -1e-12, is returned as 0.0 (the "
+                                 f"docstring)")
 
 
 def test_mutual_information_of_y_equal_to_x_is_the_entropy_of_x(info):
@@ -283,7 +286,7 @@ def test_kraft_sum_docstring_example(info):
     assert got == 1.0, f"expected 1.0, got {got!r}"
 
 
-@pytest.mark.parametrize("lengths, alphabet", [([2, 3, 3, 4, 4, 5], 2), ([1, 4, 4, 4, 6], 2), ([2, 2, 2, 3, 3], 2),
+@pytest.mark.parametrize("lengths, alphabet", [([2, 3, 3, 3, 4, 5], 2), ([1, 4, 4, 4, 6], 2), ([2, 2, 2, 3, 3], 2),
                                                ([1, 2, 2, 2, 3], 3), ([3] * 20, 4), ([40, 40], 2)],
                          ids=["binary-a", "binary-b", "complete", "ternary", "quaternary", "long"])
 def test_kraft_sum_matches_fractions(info, lengths, alphabet):
@@ -295,7 +298,18 @@ def test_kraft_sum_matches_fractions(info, lengths, alphabet):
 
 
 def test_kraft_sum_accepts_a_numpy_array(info):
-    got = _result(lambda: info.kraft_sum(np.array([2, 2, 3, 3, 3])), "0.875")
+    try:
+        got = info.kraft_sum(np.array([2, 2, 3, 3, 3]))
+    except NotImplementedError:
+        raise
+    except ValueError as exc:
+        if "negative integer powers" in str(exc):
+            pytest.fail("expected 0.875 for np.array([2, 2, 3, 3, 3]), but NumPy refuses an integer to a negative "
+                        "integer power (np.int64(2) ** -3): convert each length with int(...), or the base with "
+                        "float(...)")
+        pytest.fail(f"expected 0.875 for np.array([2, 2, 3, 3, 3]), but it raised ValueError: {exc}")
+    except Exception as exc:  # noqa: BLE001 - the learner's error, after what was expected
+        pytest.fail(f"expected 0.875 for np.array([2, 2, 3, 3, 3]), but it raised {type(exc).__name__}: {exc}")
     assert got == pytest.approx(0.875, abs=1e-15), f"expected 0.875, got {got!r}"
 
 

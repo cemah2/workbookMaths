@@ -3,7 +3,7 @@
 
     python tools/chapters/figures_m06.py
 
-Writes small PNG files into chapitres/m06_information/figures/: three laws on five outcomes with their entropies,
+Writes small PNG files into chapitres/m06_information/figures/: three laws on nine outcomes with their entropies,
 the information diagram of two variables, Jensen's inequality for a concave and a convex function, the tree of a
 prefix code with the Kraft shares of its words, and two clouds of points (a linear link, and a link that the
 correlation misses). None comes from workbookIA 6 (no coin, no die, no letters, no weather, no Morse, no Huffman
@@ -56,12 +56,15 @@ def entropy_bits(p) -> float:
 
 
 def three_laws() -> None:
-    """Three laws on five outcomes: uniform, uneven, certain, and their entropies in bits."""
-    laws = [("uniforme", [0.2] * 5), ("inégale", [0.5, 0.2, 0.15, 0.1, 0.05]), ("certaine", [0, 0, 1, 0, 0])]
+    """Three laws on nine outcomes: uniform, uneven, certain, and their entropies in bits."""
+    laws = [("uniforme", [1 / 9] * 9), ("inégale", [0.3, 0.2, 0.15, 0.1, 0.08, 0.07, 0.05, 0.03, 0.02]),
+            ("certaine", [0, 0, 0, 0, 1, 0, 0, 0, 0])]
     fig, axes = plt.subplots(1, 3, figsize=(10.5, 3.2), sharey=True)
     for ax, (name, p), color in zip(axes, laws, C):
-        ax.bar(range(1, 6), p, color=color, width=0.6)
-        ax.set(title=f"Loi {name} : H = {french_number(round(entropy_bits(p), 3))} bit(s)", xticks=range(1, 6),
+        ax.bar(range(1, 10), p, color=color, width=0.6)
+        h = entropy_bits(p)
+        sign = "=" if abs(h - round(h)) < 1e-12 else "≈"
+        ax.set(title=f"Loi {name} : H {sign} {french_number(round(h, 2))} bit(s)", xticks=range(1, 10),
                xlabel="issue", ylim=(0, 1.05))
         ax.grid(axis="y", alpha=0.3)
     axes[0].set_ylabel("probabilité")

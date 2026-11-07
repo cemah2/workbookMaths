@@ -9,9 +9,11 @@
 Part 0 checks the paper exercises (✏️ M06.1 to M06.9, 🔗 M06.12 and M06.13); parts A to C are the notebook
 exercises. Wrong-answer messages state a rule, never a number of the answer nor the last step that gives it. The
 laws and tables are new: none is a test case of tests/test_m06_info.py, an example of the fiche, or an example of
-workbookIA 6 (no coin, no die, no letters or words, no weather, no Morse, no Huffman code, no rhubarb, no
-[1/2, 1/4, 1/8, 1/8], no p = [0.8, 0.2] against the uniform law, no 0.7 or 0.01 log loss, no h(0.2), h(0.1) or
-h(0.25)), nor of its later chapters (no 8-example node split into (3, 1) and (1, 3)).
+workbookIA 6 (no coin, no die, no letters or words, no weather, no Morse, no Huffman code or law, no rhubarb, no
+law of entropy 1.75 such as [1/2, 1/4, 1/8, 1/8], no (1/2, 1/4, 1/4), no (1/2, 1/2, 0) nor (0.7, 0.2, 0.1), no
+p = [0.8, 0.2] against the uniform law, no 0.7 or 0.01 log loss, no log loss of 4 examples and 3 classes, no h(0.2),
+h(0.1) or h(0.25), no guess-the-number story), nor of its later chapters (no 8-example node split into (3, 1) and
+(1, 3), no 50/30/20 leaf, no KL of (0.5, 0.5) and (0.25, 0.75)).
 """
 
 from __future__ import annotations
@@ -36,128 +38,139 @@ POSITIVE = "l'information d'un événement de probabilité p < 1 est positive : 
 # ---------------------------------------------------------------------------
 # Part 0: the paper exercises (02_exercices.md)
 # ---------------------------------------------------------------------------
+YX = "ta valeur est H(Y | X) ; la question demande H(X | Y), l'entropie de X quand Y est connue"
+IXY = "ta valeur est I(X ; Y) ; la question demande H(X | Y)"
+ROW = "divise les cases de la ligne par P(X = {x}) : la loi conditionnelle doit sommer à 1"
+ROW_THEN = "divise d'abord les cases de la ligne par P(X = {x}), puis calcule l'entropie de cette loi"
+MEAN = "H(Y | X) est une moyenne des entropies des lignes, pondérée par P(X = x), pas leur somme"
+WEIGHT = "pondère l'entropie de chaque ligne par sa probabilité P(X = x)"
+CONVERT_NATS = "la question demande des nats : convertis les bits en nats (fiche §1)"
+NAT_SMALLER = "1 nat vaut plus qu'un bit : le nombre de nats est plus petit que le nombre de bits"
+
 PAPER = [
     Paper("M06.1", "L'information d'événements et l'entropie d'une loi à quatre issues", [
-        ("a", "an integer", "4", f'''mistakes={{"{POSITIVE}": -4}}'''),
-        ("b", "an integer", "1", f'''mistakes={{"{POSITIVE}": -1}}'''),
-        ("c", "a number (3 decimals)", "-math.log2(3 / 16)",
-         f'''decimals=3, mistakes={{"{BITS}": -math.log(3 / 16), "{POSITIVE}": math.log2(3 / 16)}}'''),
-        ("d", "a number (3 decimals)", "-math.log(1 / 16)",
-         '''decimals=3, mistakes={"en nats, le logarithme est ln, pas log₂": 4}'''),
-        ("e", "an integer", "5",
-         '''mistakes={"les informations d'événements indépendants s'additionnent (la probabilité des deux est le '''
-         '''produit des probabilités)": 4}'''),
-        ("f", "a number (3 decimals)", "H(1 / 2, 1 / 4, 3 / 16, 1 / 16)",
+        ("a", "a list (2 decimals)", "[-math.log2(0.55), -math.log2(0.35), -math.log2(0.07), -math.log2(0.03)]",
+         f'''decimals=2, mistakes={{"{BITS}": [-math.log(0.55), -math.log(0.35), -math.log(0.07), -math.log(0.03)], '''
+         f'''"{POSITIVE}": [math.log2(0.55), math.log2(0.35), math.log2(0.07), math.log2(0.03)]}}'''),
+        ("b", "a number (3 decimals)", "H1",
          '''decimals=3, mistakes={"l'entropie est la moyenne des informations, pondérée par les probabilités, pas '''
-         '''leur somme": 1 + 2 - math.log2(3 / 16) + 4, '''
-         f'''"{BITS}": H(1 / 2, 1 / 4, 3 / 16, 1 / 16) * math.log(2)}}'''),
-        ("g", "a number (3 decimals)", "H(1 / 2, 1 / 4, 3 / 16, 1 / 16) * math.log(2)",
-         '''decimals=3, mistakes={"la question demande des nats : convertis les bits en nats (fiche §1)": '''
-         '''H(1 / 2, 1 / 4, 3 / 16, 1 / 16), "1 nat vaut plus qu'un bit : le nombre de nats est plus petit que le '''
-         '''nombre de bits": H(1 / 2, 1 / 4, 3 / 16, 1 / 16) / math.log(2)}'''),
-        ("h", "a number (1 decimal)", "H(1 / 2, 1 / 4, 1 / 4)",
-         '''decimals=1, mistakes={"c'est l'entropie de la loi à quatre issues : regroupe d'abord les deux erreurs '''
-         '''en une seule issue, de probabilité la somme des deux": H(1 / 2, 1 / 4, 3 / 16, 1 / 16)}'''),
+         '''leur somme": INFO_SUM_1, "l'entropie pondère chaque information par la probabilité de son issue, pas par '''
+         '''1/4": INFO_SUM_1 / 4, '''
+         f'''"{BITS}": H1 * math.log(2)}}'''),
+        ("c", "a number (2 decimals)", "H1 * math.log(2)",
+         f'''decimals=2, mistakes={{"{CONVERT_NATS}": H1, "{NAT_SMALLER}": H1 / math.log(2)}}'''),
+        ("d", "a number (3 decimals)", "-math.log2(0.55) - math.log2(0.03)",
+         '''decimals=3, mistakes={"les informations d'événements indépendants s'additionnent": '''
+         '''math.log2(0.55) * math.log2(0.03), "la probabilité de deux événements indépendants est le produit des '''
+         '''probabilités, pas leur somme": -math.log2(0.58)}'''),
+        ("e", "a number (3 decimals)", "H(0.55, 0.35, 0.1)",
+         '''decimals=3, mistakes={"c'est l'entropie de la loi à quatre issues : regroupe d'abord les deux erreurs '''
+         '''en une seule issue, de probabilité la somme des deux": H1}'''),
+        ("f", "a number (3 decimals)", "2 * H1",
+         '''decimals=3, mistakes={"c'est l'entropie d'une seule requête : le couple des codes de deux requêtes a '''
+         '''seize issues possibles": H1}'''),
     ]),
 
-    Paper("M06.2", "L'entropie maximale : comparer trois lois à trois issues", [
-        ("a", "a number (3 decimals)", "math.log2(3)", f'''decimals=3, mistakes={{"{BITS}": math.log(3)}}'''),
-        ("b", "an integer", "1", ''),
-        ("c", "a number (3 decimals)", "H(0.7, 0.2, 0.1)",
-         f'''decimals=3, mistakes={{"{BITS}": H(0.7, 0.2, 0.1) * math.log(2)}}'''),
-        ("d", "a letter, as text", '"A"',
-         '''mistakes={"compare les trois entropies a), b) et c)": {"B", "C"}, '''
-         '''"réponds par une lettre : A, B ou C": {"uniforme", "la loi A"}}'''),
-        ("e", "a number (3 decimals)", "H(0.45, 0.35, 0.2)",
-         f'''decimals=3, mistakes={{"{BITS}": H(0.45, 0.35, 0.2) * math.log(2)}}'''),
-        ("f", "a number (3 decimals)", "H(0.6, 0.25, 0.15)",
-         f'''decimals=3, mistakes={{"{BITS}": H(0.6, 0.25, 0.15) * math.log(2)}}'''),
-        ("g", "a number (3 decimals)", "math.log(3)", f'''decimals=3, mistakes={{"{NATS}": math.log2(3)}}'''),
+    Paper("M06.2", "L'entropie maximale : comparer des lois à quatre issues", [
+        ("a", "a number (3 decimals)", "H(0.45, 0.3, 0.15, 0.1)",
+         f'''decimals=3, mistakes={{"{BITS}": H(0.45, 0.3, 0.15, 0.1) * math.log(2)}}'''),
+        ("b", "a number (3 decimals)", "H(0.4, 0.3, 0.15, 0.15)",
+         f'''decimals=3, mistakes={{"{BITS}": H(0.4, 0.3, 0.15, 0.15) * math.log(2)}}'''),
+        ("c", "a number (2 decimals)", "H(0.45, 0.3, 0.25)",
+         f'''decimals=2, mistakes={{"{BITS}": H(0.45, 0.3, 0.25) * math.log(2)}}'''),
+        ("d", "an integer", "2",
+         '''mistakes={"l'entropie maximale sur n issues n'est pas n : relis « Ses valeurs extrêmes » (fiche §2)": 4}'''),
+        ("e", "a number (2 decimals)", "HMAX_2",
+         '''decimals=2, mistakes={"la contrainte fixe la probabilité de la première issue : la loi uniforme sur '''
+         '''quatre issues ne la respecte pas": 2}'''),
+        ("f", "a number (2 decimals)", "HMAX_2 * math.log(2)",
+         f'''decimals=2, mistakes={{"{CONVERT_NATS}": HMAX_2, "{NAT_SMALLER}": HMAX_2 / math.log(2)}}'''),
     ]),
 
     Paper("M06.3", "Entropies conjointe et conditionnelle d'un tableau 2 × 3", [
-        ("a", "a number (2 decimals)", "H(1 / 2, 1 / 8, 1 / 8, 1 / 4)",
-         '''decimals=2, mistakes={"H(X, Y) se calcule sur les cases du tableau : elle ne vaut H(X) + H(Y) que pour '''
-         '''des variables indépendantes": 1 + H(5 / 8, 1 / 8, 1 / 4)}'''),
-        ("b", "a number (1 decimal)", "H(1 / 4, 1 / 4, 1 / 2)",
-         '''decimals=1, mistakes={"divise les cases de la ligne par P(X = payant) : la loi conditionnelle doit '''
-         '''sommer à 1": H(1 / 8, 1 / 8, 1 / 4)}'''),
-        ("c", "a number (2 decimals)", "H(1 / 4, 1 / 4, 1 / 2) / 2",
-         '''decimals=2, mistakes={"H(Y | X) est une moyenne sur les valeurs de X, pondérée par leurs probabilités : '''
-         '''la ligne « gratuit » compte aussi": H(1 / 4, 1 / 4, 1 / 2)}'''),
-        ("d", "a number (3 decimals)", "H(5 / 8, 1 / 8, 1 / 4)",
-         '''decimals=3, mistakes={"c'est l'entropie de X : Y est la variable des colonnes": 1}'''),
-        ("e", "a number (3 decimals)", "H(1 / 2, 1 / 8, 1 / 8, 1 / 4) - H(5 / 8, 1 / 8, 1 / 4)",
-         '''decimals=3, mistakes={"c'est H(Y | X) : relis l'ordre des variables": H(1 / 4, 1 / 4, 1 / 2) / 2}'''),
-        ("f", "True or False", "True",
-         '''mistakes={"compare H(Y | X = payant) avec H(Y)": False}'''),
+        ("a", "a number (3 decimals)", "H(0.4, 0.18, 0.21, 0.21)",
+         '''decimals=3, mistakes={"H(X, Y) se calcule sur les cases du tableau : elle ne vaut H(X) + H(Y) que pour '''
+         '''des variables indépendantes": H(0.4, 0.6) + H(0.58, 0.21, 0.21)}'''),
+        ("b", "a number (3 decimals)", "H(0.3, 0.35, 0.35)",
+         f'''decimals=3, mistakes={{"{ROW.format(x="payant")}": H(0.18, 0.21, 0.21), '''
+         f'''"{ROW_THEN.format(x="payant")}": H(0.18, 0.21, 0.21) / 0.6}}'''),
+        ("c", "a number (3 decimals)", "0.6 * H(0.3, 0.35, 0.35)",
+         '''decimals=3, mistakes={"H(Y | X) est une moyenne sur les valeurs de X, pondérée par leurs probabilités : '''
+         '''la ligne « gratuit » compte aussi": H(0.3, 0.35, 0.35), '''
+         f'''"{WEIGHT}": H(0.3, 0.35, 0.35) / 2, "ta valeur est H(X) ; la question demande H(Y | X)": H(0.4, 0.6)}}'''),
+        ("d", "a number (2 decimals)", "H(0.58, 0.21, 0.21)",
+         '''decimals=2, mistakes={"ta valeur est H(X) ; Y est la variable des colonnes": H(0.4, 0.6)}'''),
+        ("e", "a number (2 decimals)", "H(0.4, 0.18, 0.21, 0.21) - H(0.58, 0.21, 0.21)",
+         f'''decimals=2, mistakes={{"{YX}": 0.6 * H(0.3, 0.35, 0.35), '''
+         f'''"{IXY}": H(0.4, 0.6) - (H(0.4, 0.18, 0.21, 0.21) - H(0.58, 0.21, 0.21))}}'''),
+        ("f", "a number (2 decimals)", "H(0.3, 0.35, 0.35) - H(0.58, 0.21, 0.21)",
+         '''decimals=2, mistakes={"l'écart demandé est H(Y | X = payant) moins H(Y), dans cet ordre": '''
+         '''H(0.58, 0.21, 0.21) - H(0.3, 0.35, 0.35)}'''),
     ]),
 
     Paper("M06.4", "La règle de la chaîne de l'entropie, vérifiée", [
         ("a", "an integer", "1", ''),
         ("b", "a number (3 decimals)", "H(0.7, 0.3)",
-         '''decimals=3, mistakes={"divise les cases de la ligne par P(X = e-mail) : la loi conditionnelle doit '''
-         '''sommer à 1": H(0.35, 0.15)}'''),
+         f'''decimals=3, mistakes={{"{ROW.format(x="e-mail")}": H(0.35, 0.15), '''
+         f'''"{ROW_THEN.format(x="e-mail")}": H(0.35, 0.15) / 0.5}}'''),
         ("c", "a number (3 decimals)", "H(0.4, 0.6)",
-         '''decimals=3, mistakes={"divise les cases de la ligne par P(X = SMS) : la loi conditionnelle doit '''
-         '''sommer à 1": H(0.2, 0.3)}'''),
+         f'''decimals=3, mistakes={{"{ROW.format(x="SMS")}": H(0.2, 0.3), '''
+         f'''"{ROW_THEN.format(x="SMS")}": H(0.2, 0.3) / 0.5}}'''),
         ("d", "a number (3 decimals)", "(H(0.7, 0.3) + H(0.4, 0.6)) / 2",
-         '''decimals=3, mistakes={"H(Y | X) est une moyenne des entropies des lignes, pondérée par P(X = x), pas '''
-         '''leur somme": H(0.7, 0.3) + H(0.4, 0.6)}'''),
+         f'''decimals=3, mistakes={{"{MEAN}": H(0.7, 0.3) + H(0.4, 0.6)}}'''),
         ("e", "a number (3 decimals)", "H(0.35, 0.15, 0.2, 0.3)",
          '''decimals=3, mistakes={"H(X, Y) ne vaut H(X) + H(Y) que si X et Y sont indépendantes : calcule-la sur '''
          '''les quatre cases": 1 + H(0.55, 0.45)}'''),
         ("f", "a number (3 decimals)", "H(0.55, 0.45)",
          '''decimals=3, mistakes={"la loi de Y : additionne les cases de chaque colonne": 1}'''),
         ("g", "a number (3 decimals)", "H(0.35, 0.15, 0.2, 0.3) - H(0.55, 0.45)",
-         '''decimals=3, mistakes={"c'est H(Y | X) : relis l'ordre des variables": (H(0.7, 0.3) + H(0.4, 0.6)) / 2}'''),
+         f'''decimals=3, mistakes={{"{YX}": (H(0.7, 0.3) + H(0.4, 0.6)) / 2, '''
+         f'''"{IXY}": 1 - (H(0.35, 0.15, 0.2, 0.3) - H(0.55, 0.45))}}'''),
     ]),
 
     Paper("M06.5", "L'information mutuelle de deux variables", [
         ("a", "an irreducible fraction, as text", "Fraction(7, 16)",
-         F + ''', mistakes={"« freine » est la première colonne : additionne ses trois cases": "9/16"}'''),
+         F + ''', mistakes={"« freine » est la première colonne": "9/16"}'''),
         ("b", "a number (3 decimals)", "H(7 / 16, 9 / 16)", 'decimals=3'),
-        ("c", "a number (3 decimals)", "H(1 / 8, 7 / 8)",
-         '''decimals=3, mistakes={"divise les cases de la ligne par P(X = vert) : la loi conditionnelle doit '''
-         '''sommer à 1": H(1 / 16, 7 / 16)}'''),
+        ("c", "a number (3 decimals)", "H(1 / 9, 8 / 9)",
+         f'''decimals=3, mistakes={{"{ROW.format(x="vert")}": H(1 / 16, 1 / 2), '''
+         f'''"{ROW_THEN.format(x="vert")}": H(1 / 16, 1 / 2) / (9 / 16)}}'''),
         ("d", "a number (3 decimals)", "HYX_5",
-         '''decimals=3, mistakes={"H(Y | X) est une moyenne des entropies des lignes, pas leur somme": '''
-         '''H(1 / 8, 7 / 8) + 1, "pondère l'entropie de chaque ligne par sa probabilité P(X = x)": '''
-         '''(H(1 / 8, 7 / 8) + 1) / 3}'''),
-        ("e", "a number (3 decimals)", "H(7 / 16, 9 / 16) - HYX_5",
-         '''decimals=3, mistakes={"I(X ; Y) est la baisse de l'incertitude sur Y quand on apprend X : elle est '''
+         f'''decimals=3, mistakes={{"{MEAN}": H(1 / 9, 8 / 9) + H(1 / 3, 2 / 3), '''
+         f'''"{WEIGHT}": (H(1 / 9, 8 / 9) + H(1 / 3, 2 / 3)) / 3}}'''),
+        ("e", "a number (2 decimals)", "H(7 / 16, 9 / 16) - HYX_5",
+         '''decimals=2, mistakes={"I(X ; Y) est la baisse de l'incertitude sur Y quand on apprend X : elle est '''
          '''positive ou nulle": HYX_5 - H(7 / 16, 9 / 16)}'''),
-        ("f", "a number (1 decimal)", "H(1 / 2, 1 / 4, 1 / 4)", 'decimals=1'),
-        ("g", "a number (3 decimals)", "H(1 / 2, 1 / 4, 1 / 4) - (H(7 / 16, 9 / 16) - HYX_5)",
-         '''decimals=3, mistakes={"c'est H(Y | X) : relis l'ordre des variables": HYX_5}'''),
+        ("f", "a number (3 decimals)", "H(9 / 16, 3 / 16, 1 / 4)", 'decimals=3'),
+        ("g", "a number (2 decimals)", "H(9 / 16, 3 / 16, 1 / 4) - (H(7 / 16, 9 / 16) - HYX_5)",
+         f'''decimals=2, mistakes={{"{YX}": HYX_5}}'''),
         ("h", "True or False", "False",
          '''mistakes={"compare p(x, y) avec p(x) p(y), case par case": True}'''),
     ]),
 
     Paper("M06.6", "Cross-entropy et KL en bits perdus : un code fait pour la mauvaise loi", [
-        ("a", "a number (2 decimals)", "H(1 / 4, 1 / 4, 1 / 4, 1 / 8, 1 / 8)", 'decimals=2'),
+        ("a", "a number (2 decimals)", "H(*P_6)",
+         '''decimals=2, mistakes={"c'est l'entropie de l'ancienne loi q ; la question demande celle de p": H(*Q_6)}'''),
         ("b", "an integer", "1",
          '''mistakes={"le compresseur a été réglé sur l'ancienne loi : la longueur est −log₂ q": 2}'''),
-        ("c", "a number (1 decimal)", "CROSS_6",
-         '''decimals=1, mistakes={"H(p, q) pondère les longueurs −log₂ q par les probabilités d'aujourd'hui, p": '''
-         '''H(1 / 2, 1 / 8, 1 / 8, 1 / 8, 1 / 8), "H(p, q) utilise les longueurs du compresseur, −log₂ q, pas '''
-         '''−log₂ p": H(1 / 4, 1 / 4, 1 / 4, 1 / 8, 1 / 8)}'''),
-        ("d", "a number (2 decimals)", "CROSS_6 - H(1 / 4, 1 / 4, 1 / 4, 1 / 8, 1 / 8)",
-         '''decimals=2, mistakes={"la divergence KL est positive ou nulle": '''
-         '''H(1 / 4, 1 / 4, 1 / 4, 1 / 8, 1 / 8) - CROSS_6}'''),
-        ("e", "an integer", "250",
+        ("c", "a number (3 decimals)", "CROSS_6",
+         '''decimals=3, mistakes={"H(p, q) pondère les longueurs −log₂ q par les probabilités d'aujourd'hui, p": '''
+         '''H(*Q_6), "H(p, q) utilise les longueurs du compresseur, −log₂ q, pas −log₂ p": H(*P_6), '''
+         '''"c'est H(q, p) : les poids sont les probabilités d'aujourd'hui, p, et les longueurs celles du '''
+         '''compresseur": sum(qi * -math.log2(pi) for pi, qi in zip(P_6, Q_6))}'''),
+        ("d", "a number (3 decimals)", "CROSS_6 - H(*P_6)",
+         '''decimals=3, mistakes={"la divergence KL est positive ou nulle": H(*P_6) - CROSS_6, '''
+         '''"c'est KL(q ‖ p) : l'ordre des deux lois compte": sum(qi * math.log2(qi / pi) for pi, qi in zip(P_6, Q_6))}'''),
+        ("e", "an integer", "375",
          '''mistakes={"c'est la longueur totale avec ce compresseur ; la question demande les bits perdus par '''
-         '''rapport au meilleur code": 2500, "c'est la longueur totale avec le meilleur code ; la question demande '''
+         '''rapport au meilleur code": 2625, "c'est la longueur totale avec le meilleur code ; la question demande '''
          '''les bits perdus": 2250}'''),
-        ("f", "a number (4 decimals)", "(CROSS_6 - H(1 / 4, 1 / 4, 1 / 4, 1 / 8, 1 / 8)) * math.log(2)",
-         '''decimals=4, mistakes={"la question demande des nats : convertis les bits en nats (fiche §1)": 0.25, '''
-         '''"1 nat vaut plus qu'un bit : le nombre de nats est plus petit que le nombre de bits": 0.25 / math.log(2)}'''),
+        ("f", "a number (3 decimals)", "(CROSS_6 - H(*P_6)) * math.log(2)",
+         f'''decimals=3, mistakes={{"{CONVERT_NATS}": CROSS_6 - H(*P_6), "{NAT_SMALLER}": (CROSS_6 - H(*P_6)) / math.log(2)}}'''),
         ("g", "a number (2 decimals)", "0.25 * math.log2(0.25 / 0.5)",
          '''decimals=2, mistakes={"le terme d'un type est p log₂(p / q) : p devant, et p au numérateur": '''
          '''0.5 * math.log2(0.5 / 0.25), "p₁ / q₁ est-il plus grand ou plus petit que 1 ? Le signe du logarithme en '''
          '''dépend": 0.25}'''),
-        ("h", "True or False", "True",
-         '''mistakes={"que vaudrait −log₂ q pour ce type ?": False}'''),
     ]),
 
     Paper("M06.7", "L'inégalité de Jensen sur trois exemples", [
@@ -171,74 +184,82 @@ PAPER = [
         ("f", "a number (4 decimals)", "math.log2(2.5)",
          '''decimals=4, mistakes={"la question demande log₂, pas ln": math.log(2.5)}'''),
         ("g", "a number (4 decimals)", "1 - math.log2(2.5)", f'''decimals=4, mistakes={{"{ORDER}": math.log2(2.5) - 1}}'''),
-        ("h", "True or False", "True",
-         '''mistakes={"compare c) avec la variance de X₁, E[X₁²] − (E[X₁])²": False}'''),
     ]),
 
     Paper("M06.8", "Kraft : ces longueurs de code sont-elles possibles ?", [
-        ("a", "an irreducible fraction, as text", "Fraction(15, 16)",
+        ("a", "a fraction (or an integer), as text", "Fraction(15, 16)",
          F + ''', mistakes={"un mot de longueur ℓ compte pour 2^(−ℓ), pas pour 1/ℓ": "25/12"}'''),
-        ("b", "an irreducible fraction, as text", "Fraction(9, 8)", F),
-        ("c", "an irreducible fraction, as text", "Fraction(19, 16)", F),
-        ("d", "an integer", "1", ''),
-        ("e", "an integer", "1", ''),
+        ("b", "a fraction (or an integer), as text", "Fraction(17, 16)", F),
+        ("c", "a fraction (or an integer), as text", "Fraction(19, 16)", F),
+        ("d", "a fraction (or an integer), as text", "Fraction(1, 1)", F),
+        ("e", "a fraction (or an integer), as text", "Fraction(1, 1)",
+         F + ''', mistakes={"l'alphabet a trois symboles : un mot de longueur ℓ compte pour 3^(−ℓ)": "7/4"}'''),
         ("f", "an integer", "2",
          '''mistakes={"les deux mots déjà là prennent chacun leur part de la somme de Kraft": {4, 6}}'''),
         ("g", "True or False", "False",
          '''mistakes={"un des mots est-il le début d'un autre ?": True}'''),
-        ("h", "an integer", "1", ''),
+        ("h", "a fraction (or an integer), as text", "Fraction(1, 1)", F),
     ]),
 
     Paper("M06.9", "La longueur moyenne d'un code, comparée à l'entropie", [
-        ("a", "a number (3 decimals)", "H(0.45, 0.25, 0.15, 0.10, 0.05)",
-         f'''decimals=3, mistakes={{"{BITS}": H(0.45, 0.25, 0.15, 0.10, 0.05) * math.log(2)}}'''),
-        ("b", "a number (1 decimal)", "0.45 * 1 + 0.25 * 2 + 0.15 * 3 + 0.10 * 4 + 0.05 * 4",
-         '''decimals=1, mistakes={"la longueur moyenne pondère chaque longueur par la probabilité de son symbole": '''
-         '''(1 + 2 + 3 + 4 + 4) / 5}'''),
-        ("c", "an integer", "1", ''),
-        ("d", "a list of 5 integers", "[2, 2, 3, 4, 5]",
-         '''mistakes={"arrondis −log₂ pᵢ à l'entier supérieur, même quand il est proche de l'entier inférieur": '''
-         '''[1, 2, 3, 3, 4]}'''),
-        ("e", "an irreducible fraction, as text", "Fraction(23, 32)", F),
-        ("f", "a number (1 decimal)", "0.45 * 2 + 0.25 * 2 + 0.15 * 3 + 0.10 * 4 + 0.05 * 5", 'decimals=1'),
-        ("g", "True or False", "True", ''),
-        ("h", "a number (3 decimals)", "2 - H(0.45, 0.25, 0.15, 0.10, 0.05)",
-         '''decimals=3, mistakes={"l'écart est la longueur moyenne moins l'entropie, dans cet ordre": '''
-         '''H(0.45, 0.25, 0.15, 0.10, 0.05) - 2}'''),
+        ("a", "a number (3 decimals)", "H(*P_9)",
+         f'''decimals=3, mistakes={{"{BITS}": H(*P_9) * math.log(2)}}'''),
+        ("b", "a number (2 decimals)", "L_9",
+         '''decimals=2, mistakes={"la longueur moyenne pondère chaque longueur par la probabilité de son symbole": '''
+         '''sum(LENGTHS_9) / 6}'''),
+        ("c", "an integer", "3",
+         '''mistakes={"avec ce nombre de chiffres binaires, combien de mots différents peut-on écrire ?": 2}'''),
+        ("d", "a list of 6 integers", "[2, 3, 3, 4, 4, 5]",
+         '''mistakes={"arrondis −log₂ pᵢ à l'entier supérieur, pas à l'entier le plus proche": [1, 2, 3, 3, 3, 4], '''
+         '''"arrondis −log₂ pᵢ à l'entier supérieur, pas à l'entier inférieur": [1, 2, 2, 3, 3, 4]}'''),
+        ("e", "an irreducible fraction, as text", "Fraction(21, 32)", F),
+        ("f", "a number (2 decimals)", "sum(pi * li for pi, li in zip(P_9, [2, 3, 3, 4, 4, 5]))", 'decimals=2'),
+        ("g", "a number (3 decimals)", "L_9 - H(*P_9)",
+         '''decimals=3, mistakes={"l'écart est la longueur moyenne moins l'entropie, dans cet ordre": H(*P_9) - L_9}'''),
+        ("h", "a number (2 decimals)", "sum(pi * li for pi, li in zip(P_9, [1, 3, 3, 3, 4, 4]))",
+         '''decimals=2, mistakes={"la longueur moyenne pondère chaque longueur par la probabilité de son symbole": '''
+         '''18 / 6}'''),
     ]),
 
     Paper("M06.12", "La log loss d'un classifieur, une cross-entropy moyenne", [
-        ("a", "a number (4 decimals)", "-math.log(0.25)",
-         '''decimals=4, mistakes={"la cross-entropy d'une image ne retient que la probabilité donnée à sa vraie '''
-         '''classe": -math.log(0.6), "la question demande des nats : ln, pas log₂": -math.log2(0.25)}'''),
-        ("b", "a number (4 decimals)", "LOSS_12",
-         '''decimals=4, mistakes={"la log loss est une moyenne sur les images, pas une somme": 4 * LOSS_12, '''
+        ("a", "a number (3 decimals)", "-math.log(0.35)",
+         '''decimals=3, mistakes={"la cross-entropy d'une image ne retient que la probabilité donnée à sa vraie '''
+         '''classe": -math.log(0.5), "la question demande des nats : ln, pas log₂": -math.log2(0.35)}'''),
+        ("b", "a number (3 decimals)", "LOSS_12",
+         '''decimals=3, mistakes={"la log loss est une moyenne sur les images, pas une somme": 5 * LOSS_12, '''
          '''"la question demande des nats : ln, pas log₂": LOSS_12 / math.log(2)}'''),
-        ("c", "a number (4 decimals)", "LOSS_12 / math.log(2)",
-         '''decimals=4, mistakes={"la question demande des bits : convertis les nats en bits": LOSS_12, '''
+        ("c", "a number (2 decimals)", "LOSS_12 / math.log(2)",
+         '''decimals=2, mistakes={"la question demande des bits : convertis les nats en bits": LOSS_12, '''
          '''"1 nat vaut plus qu'un bit : le nombre de bits est plus grand que le nombre de nats": LOSS_12 * math.log(2)}'''),
-        ("d", "a number (4 decimals)", "math.log(3)", f'''decimals=4, mistakes={{"{NATS}": math.log2(3)}}'''),
+        ("d", "a number (3 decimals)", "math.log(3)", f'''decimals=3, mistakes={{"{NATS}": math.log2(3)}}'''),
         ("e", "True or False", "True", '''mistakes={"compare b) et d)": False}'''),
-        ("f", "a number (4 decimals)", "math.exp(LOSS_12)",
-         '''decimals=4, mistakes={"la log loss est en nats : son exponentielle est en base e, pas 2": 2 ** LOSS_12}'''),
+        ("f", "a number (3 decimals)", "math.exp(LOSS_12)",
+         '''decimals=3, mistakes={"la log loss est en nats : son exponentielle est en base e, pas 2": 2 ** LOSS_12}'''),
     ]),
 
     Paper("M06.13", "Choisir une feature par l'information mutuelle", [
         ("a", "a number (4 decimals)", "MI([[7, 3], [3, 7]])",
-         f'''decimals=4, mistakes={{"{BITS}": MI([[7, 3], [3, 7]]) * math.log(2)}}'''),
+         f'''decimals=4, mistakes={{"{BITS}": MI([[7, 3], [3, 7]]) * math.log(2), '''
+         '''"ta valeur est H(Y | F₁), l'incertitude qui reste ; la question demande I(F₁ ; Y)": 1 - MI([[7, 3], [3, 7]])}'''),
         ("b", "a number (4 decimals)", "MI([[6, 4], [4, 6]])",
-         f'''decimals=4, mistakes={{"{BITS}": MI([[6, 4], [4, 6]]) * math.log(2)}}'''),
+         f'''decimals=4, mistakes={{"{BITS}": MI([[6, 4], [4, 6]]) * math.log(2), '''
+         '''"ta valeur est H(Y | F₂), l'incertitude qui reste ; la question demande I(F₂ ; Y)": 1 - MI([[6, 4], [4, 6]])}'''),
         ("c", "a number (4 decimals)", "MI([[4, 0], [2, 4], [4, 6]])",
-         f'''decimals=4, mistakes={{"{BITS}": MI([[4, 0], [2, 4], [4, 6]]) * math.log(2)}}'''),
+         f'''decimals=4, mistakes={{"{BITS}": MI([[4, 0], [2, 4], [4, 6]]) * math.log(2), '''
+         '''"ta valeur est H(Y | F₃), l'incertitude qui reste ; la question demande I(F₃ ; Y)": '''
+         '''1 - MI([[4, 0], [2, 4], [4, 6]]), "pondère l'entropie de chaque ligne par la probabilité de sa valeur de '''
+         '''F₃": 1 - (H(1 / 3, 2 / 3) + H(0.4, 0.6)) / 3}'''),
         ("d", "a name, as text", '"F3"',
          '''mistakes={"compare a), b) et c)": {"F1", "F2"}, "réponds par un nom : F1, F2 ou F3": {"3", "la feature F3"}}'''),
         ("e", "a number (4 decimals)", "1 - MI([[4, 0], [2, 4], [4, 6]])",
-         '''decimals=4, mistakes={"H(Y | F₃) est l'incertitude qui reste sur l'achat une fois l'âge connu : ce '''
-         '''n'est pas ce que l'âge apprend": MI([[4, 0], [2, 4], [4, 6]])}'''),
+         '''decimals=4, mistakes={"ta valeur est I(F₃ ; Y), ce que l'âge apprend ; la question demande l'incertitude qui '''
+         '''reste, H(Y | F₃)": MI([[4, 0], [2, 4], [4, 6]]), "pondère l'entropie de chaque ligne par la probabilité de '''
+         '''sa valeur de F₃": (H(1 / 3, 2 / 3) + H(0.4, 0.6)) / 3}'''),
         ("f", "a number (4 decimals)", "MI([[7, 3], [3, 7]]) * math.log(2)",
          f'''decimals=4, mistakes={{"{NATS}": MI([[7, 3], [3, 7]])}}'''),
-        ("g", "True or False", "True",
-         '''mistakes={"avec 20 valeurs différentes, que vaut H(Y | F) sur ces données ?": False}'''),
+        ("g", "True or False", "False",
+         '''mistakes={"regrouper deux valeurs efface une distinction : calcule l'information mutuelle du tableau '''
+         '''regroupé": True}'''),
     ]),
 ]
 
@@ -261,10 +282,17 @@ def MI(counts):
                for i, row in enumerate(counts) for j, c in enumerate(row) if c > 0)
 
 
-HYX_5 = H(1 / 8, 7 / 8) / 2 + H(1 / 2, 1 / 2) / 4 + 0 / 4                     # M06.5: H(Y | X)
-CROSS_6 = sum(pi * -math.log2(qi) for pi, qi in zip([1 / 4, 1 / 4, 1 / 4, 1 / 8, 1 / 8],
-                                                     [1 / 2, 1 / 8, 1 / 8, 1 / 8, 1 / 8]))   # M06.6: H(p, q)
-LOSS_12 = -(math.log(0.5) + math.log(0.8) + math.log(0.25) + math.log(0.9)) / 4  # M06.12, in nats'''
+H1 = H(0.55, 0.35, 0.07, 0.03)                                                  # M06.1
+INFO_SUM_1 = -sum(math.log2(p) for p in (0.55, 0.35, 0.07, 0.03))
+HMAX_2 = H(0.45, 0.55 / 3, 0.55 / 3, 0.55 / 3)                                  # M06.2 e)
+HYX_5 = 9 / 16 * H(1 / 9, 8 / 9) + 3 / 16 * H(1 / 3, 2 / 3) + 1 / 4 * 0        # M06.5: H(Y | X)
+P_6 = [1 / 4, 1 / 4, 1 / 4, 1 / 8, 1 / 8]                                       # M06.6
+Q_6 = [1 / 2, 1 / 4, 1 / 16, 1 / 16, 1 / 8]
+CROSS_6 = sum(pi * -math.log2(qi) for pi, qi in zip(P_6, Q_6))                  # H(p, q)
+P_9 = [0.4, 0.2, 0.15, 0.1, 0.1, 0.05]                                          # M06.9
+LENGTHS_9 = [2, 3, 2, 3, 3, 3]                                                  # the code {00, 100, 01, 101, 110, 111}
+L_9 = sum(pi * li for pi, li in zip(P_9, LENGTHS_9))
+LOSS_12 = -sum(math.log(p) for p in (0.5, 0.8, 0.35, 0.9, 0.4)) / 5            # M06.12, in nats'''
 
 PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M06.1 à M06.9, 🔗 M06.12 et M06.13)\n\n"
                "Fais d'abord les exercices de `02_exercices.md` **sur papier**, dans ta copie de "
@@ -347,7 +375,7 @@ M06_16 = Ex(
 
 Les deux lèvent une `ValueError` si le tableau n'est pas une loi jointe (pas deux dimensions, une case négative ou `nan`, une somme différente de 1 à $10^{-9}$ près), ou si `base` n'est pas plus grande que 1.
 
-La vérification calcule, avec `T16 = [[0.2, 0.1, 0.1], [0.05, 0.25, 0.3]]` :
+La vérification calcule, avec `T16 = [[0.25, 0.1, 0.05], [0.05, 0.2, 0.35]]` :
 - a) `joint_entropy(T16)` (4 décimales) ;
 - b) `conditional_entropy(T16)` (4 décimales) ;
 - c) `conditional_entropy(np.array(T16).T)` : le tableau transposé (4 décimales) ;
@@ -359,7 +387,7 @@ La vérification calcule, avec `T16 = [[0.2, 0.1, 0.1], [0.05, 0.25, 0.3]]` :
 
 Dans ta copie : quelle entropie conditionnelle c) calcule-t-elle, et pourquoi la transposition suffit-elle ? Vérifie b) à la main, ligne par ligne. Pourquoi le tableau de e) est-il refusé alors que sa somme vaut 1 ? À quelle entropie d'une loi à deux issues g) est-elle égale ?""",
     todo=LOAD_LEARNER,
-    check='''T16 = [[0.2, 0.1, 0.1], [0.05, 0.25, 0.3]]
+    check='''T16 = [[0.25, 0.1, 0.05], [0.05, 0.2, 0.35]]
 with checked("M06.16a"):
     wbm.check("M06.16a", mymath.info.joint_entropy(T16), computed=True)
 with checked("M06.16b"):
@@ -377,23 +405,23 @@ with checked("M06.16g"):
 with checked("M06.16h"):
     wbm.check("M06.16h", type(mymath.info.conditional_entropy(T16)).__name__, computed=True)''',
     solution=LOAD_REF + '''
-T16 = [[0.2, 0.1, 0.1], [0.05, 0.25, 0.3]]
+T16 = [[0.25, 0.1, 0.05], [0.05, 0.2, 0.35]]
 info = mymath.info
 print("a)", info.joint_entropy(T16), " b)", info.conditional_entropy(T16),
       " c)", info.conditional_entropy(np.array(T16).T), " d)", info.joint_entropy(T16, base=math.e))
 print("e)", raised(info.joint_entropy, [[0.5, 0.4], [0.2, -0.1]]), " f)", raised(info.conditional_entropy, T16, base=1),
       " g)", info.joint_entropy([[0.15, 0], [0, 0.85]]), " h)", type(info.conditional_entropy(T16)).__name__)''',
-    record=f'''wbm.record("M06.16a", 2.365957320949175, decimals=4,
-           mistakes={{"la docstring demande des bits par défaut (base=2)": 1.6399566463410822}})
-wbm.record("M06.16b", 1.3950067264945063, decimals=4,
-           mistakes={{"la fonction conditionne par la variable des lignes, X : tu as calculé H(X | Y)": 0.8070854725038147,
-                     "c'est l'entropie de Y seule : connaître X doit la faire baisser": 1.55887184844536,
-                     "c'est l'entropie conjointe : retire l'entropie de la loi des lignes": 2.365957320949175}})
-wbm.record("M06.16c", 0.8070854725038147, decimals=4,
+    record=f'''wbm.record("M06.16a", 2.2588718484453607, decimals=4,
+           mistakes={{"la docstring demande des bits par défaut (base=2)": 1.5657306529961337}})
+wbm.record("M06.16b", 1.2879212539906917, decimals=4,
+           mistakes={{"la fonction conditionne par la variable des lignes, X : tu as calculé H(X | Y)": 0.6879212539906918,
+                     "c'est l'entropie de Y seule : connaître X doit la faire baisser": 1.5709505944546687,
+                     "c'est l'entropie conjointe : retire l'entropie de la loi des lignes": 2.2588718484453607}})
+wbm.record("M06.16c", 0.6879212539906918, decimals=4,
            mistakes={{"en transposant, les colonnes deviennent les lignes : la fonction conditionne alors par Y":
-                         1.3950067264945063}})
-wbm.record("M06.16d", 1.6399566463410822, decimals=4,
-           mistakes={{"base=math.e donne des nats : le logarithme de base e": 2.365957320949175}})
+                         1.2879212539906917}})
+wbm.record("M06.16d", 1.5657306529961337, decimals=4,
+           mistakes={{"base=math.e donne des nats : le logarithme de base e": 2.2588718484453607}})
 wbm.record("M06.16e", "ValueError",
            mistakes={{"une case négative n'est pas une probabilité : la docstring demande une ValueError, même si la "
                      "somme vaut 1": "aucune",
@@ -408,13 +436,13 @@ wbm.record("M06.16g", 0.6098403047164005, decimals=4,
 wbm.record("M06.16h", "float",
            mistakes={{"la docstring demande un float de Python : float(...) convertit un nombre de NumPy": "float64"}})''',
     after=tests_cells("test_joint_entropy_ or test_conditional_entropy_"),
-    note=r"a) Les six cases donnent $H(X, Y) \approx 2{,}3660$ bits. b) La ligne 1, divisée par 0,4, est $(\frac{1}{2}, "
-         r"\frac{1}{4}, \frac{1}{4})$, d'entropie 1,5 ; la ligne 2, divisée par 0,6, est $(\frac{1}{12}, \frac{5}{12}, \frac{1}{2})$, d'entropie 1,3250 ; $H(Y \mid X) "
-         r"= 0{,}4 \times 1{,}5 + 0{,}6 \times 1{,}3250 \approx 1{,}3950$. c) Transposé, le tableau a $Y$ en lignes : la "
-         r"fonction calcule $H(X \mid Y) = H(X, Y) - H(Y) \approx 0{,}8071$. d) En nats : $2{,}3660 \times \ln 2 "
-         r"\approx 1{,}6400$. e) Une case négative n'est pas une probabilité, même si la somme vaut 1 ; sans "
-         r"vérification, son logarithme donnerait `nan`. f) $\ln 1 = 0$ serait au dénominateur. g) Les cases nulles "
-         r"comptent pour 0 : c'est l'entropie de $(0{,}15 ;\ 0{,}85)$, environ 0,6098 bit.",
+    note=r"a) Les six cases donnent $H(X, Y) \approx 2{,}2589$ bits. b) La ligne 1, divisée par 0,4, est $(\frac{5}{8}, "
+         r"\frac{1}{4}, \frac{1}{8})$, d'entropie 1,2988 ; la ligne 2, divisée par 0,6, est $(\frac{1}{12}, \frac{1}{3}, "
+         r"\frac{7}{12})$, d'entropie 1,2807 ; $H(Y \mid X) = 0{,}4 \times 1{,}2988 + 0{,}6 \times 1{,}2807 \approx 1{,}2879$. "
+         r"c) Transposé, le tableau a $Y$ en lignes : la fonction calcule $H(X \mid Y) = H(X, Y) - H(Y) \approx 0{,}6879$. "
+         r"d) En nats : $2{,}2589 \times \ln 2 \approx 1{,}5657$. e) Une case négative n'est pas une probabilité, même si "
+         r"la somme vaut 1 ; sans vérification, son logarithme donnerait `nan`. f) $\ln 1 = 0$ serait au dénominateur. g) "
+         r"Les cases nulles comptent pour 0 : c'est l'entropie de $(0{,}15 ;\ 0{,}85)$, environ 0,6098 bit.",
 )
 
 M06_17 = Ex(
@@ -459,8 +487,8 @@ print("a)", mi(T17), " b)", math.isclose(mi(T17), mi(np.array(T17).T), abs_tol=1
 print("e)", mi(T17, base=math.e), " f)", raised(mi, [[0.5, np.nan], [0.25, 0.25]]), " g)", type(mi(T17)).__name__)''',
     record=f'''wbm.record("M06.17a", 0.18048202372184055, decimals=4,
            mistakes={{"la docstring demande des bits par défaut (base=2)": 0.12510060588454694,
-                     "I(X ; Y) = H(Y) − H(Y | X) : la condition porte sur l'autre variable que celle dont on prend "
-                     "l'entropie": -0.3904685707328279,
+                     "I(X ; Y) est une entropie moins l'entropie conditionnelle de la même variable, sachant "
+                     "l'autre : H(Y) − H(Y | X)": -0.3904685707328279,
                      "I(X ; Y) = H(X) + H(Y) − H(X, Y) : il manque un terme": 2.5709505944546684}})
 wbm.record("M06.17b", True,
            mistakes={{"I(X ; Y) est symétrique : refais la double somme, avec la somme de la ligne et celle de la "
@@ -489,15 +517,15 @@ M06_18 = Ex(
     "programmer la somme de Kraft de longueurs de code pour un alphabet quelconque, et le test qui dit si un code "
     "est préfixe.", "fiche §7", tracks="C", mymath="info.py",
     body=r"""Écris (fiche §7) :
-- `kraft_sum(lengths, alphabet=2)` : $\sum_i D^{-\ell_i}$, où $D$ est le nombre de symboles de l'alphabet du code ; une `ValueError` si la liste est vide, si une longueur est plus petite que 1, ou si $D < 2$ ;
+- `kraft_sum(lengths, alphabet=2)` : $\sum_i D^{-\ell_i}$, où $D$ est le nombre de symboles de l'alphabet du code ; une `ValueError` si la liste est vide, si une longueur est plus petite que 1, ou si $D < 2$. Les longueurs peuvent arriver dans un tableau NumPy : NumPy refuse un entier à une puissance entière négative (`np.int64(2) ** -3`), alors convertis avec `int(...)` ou `float(...)`, ou utilise `Fraction` ;
 - `is_prefix_code(codewords)` : `True` si aucun mot n'est le début d'un autre (`str.startswith`), un mot répété deux fois rendant le code non préfixe ; une `ValueError` si un mot est le texte vide.
 
 La vérification calcule :
 - a) `kraft_sum([2, 2, 3, 4, 4, 4])` (4 décimales) ;
-- b) `kraft_sum([1, 2, 2, 3], alphabet=3)` (4 décimales) ;
+- b) `kraft_sum([1, 1, 2, 3], alphabet=3)` (4 décimales) ;
 - c) le nom de l'erreur levée par `kraft_sum([2, 0, 1])` ;
 - d) `is_prefix_code(["10", "110", "00", "111", "01"])` ;
-- e) `is_prefix_code(["0", "10", "101", "11"])` ;
+- e) `is_prefix_code(["0", "101", "11", "10"])` ;
 - f) `is_prefix_code(["1", "01", "1"])` ;
 - g) le nom de l'erreur levée par `is_prefix_code(["0", ""])` ;
 - h) `isinstance(is_prefix_code(np.array(["0", "10"])), bool)`.
@@ -507,13 +535,13 @@ Dans ta copie : pour a) et b), un code préfixe de ces longueurs existe-t-il ? P
     check='''with checked("M06.18a"):
     wbm.check("M06.18a", mymath.info.kraft_sum([2, 2, 3, 4, 4, 4]), computed=True)
 with checked("M06.18b"):
-    wbm.check("M06.18b", mymath.info.kraft_sum([1, 2, 2, 3], alphabet=3), computed=True)
+    wbm.check("M06.18b", mymath.info.kraft_sum([1, 1, 2, 3], alphabet=3), computed=True)
 with checked("M06.18c"):
     wbm.check("M06.18c", raised(mymath.info.kraft_sum, [2, 0, 1]), computed=True)
 with checked("M06.18d"):
     wbm.check("M06.18d", mymath.info.is_prefix_code(["10", "110", "00", "111", "01"]), computed=True)
 with checked("M06.18e"):
-    wbm.check("M06.18e", mymath.info.is_prefix_code(["0", "10", "101", "11"]), computed=True)
+    wbm.check("M06.18e", mymath.info.is_prefix_code(["0", "101", "11", "10"]), computed=True)
 with checked("M06.18f"):
     wbm.check("M06.18f", mymath.info.is_prefix_code(["1", "01", "1"]), computed=True)
 with checked("M06.18g"):
@@ -522,15 +550,15 @@ with checked("M06.18h"):
     wbm.check("M06.18h", isinstance(mymath.info.is_prefix_code(np.array(["0", "10"])), bool), computed=True)''',
     solution=LOAD_REF + '''
 info = mymath.info
-print("a)", info.kraft_sum([2, 2, 3, 4, 4, 4]), " b)", info.kraft_sum([1, 2, 2, 3], alphabet=3),
+print("a)", info.kraft_sum([2, 2, 3, 4, 4, 4]), " b)", info.kraft_sum([1, 1, 2, 3], alphabet=3),
       " c)", raised(info.kraft_sum, [2, 0, 1]))
-print("d)", info.is_prefix_code(["10", "110", "00", "111", "01"]), " e)", info.is_prefix_code(["0", "10", "101", "11"]),
+print("d)", info.is_prefix_code(["10", "110", "00", "111", "01"]), " e)", info.is_prefix_code(["0", "101", "11", "10"]),
       " f)", info.is_prefix_code(["1", "01", "1"]), " g)", raised(info.is_prefix_code, ["0", ""]),
       " h)", isinstance(info.is_prefix_code(np.array(["0", "10"])), bool))''',
     record=f'''wbm.record("M06.18a", 0.8125, decimals=4,
            mistakes={{"un mot de longueur ℓ compte pour 2^(−ℓ), pas pour 1/ℓ": 1 / 2 + 1 / 2 + 1 / 3 + 3 / 4}})
-wbm.record("M06.18b", 16 / 27, decimals=4,
-           mistakes={{"alphabet=3 : un mot de longueur ℓ compte pour 3^(−ℓ)": 1.125}})
+wbm.record("M06.18b", 22 / 27, decimals=4,
+           mistakes={{"alphabet=3 : un mot de longueur ℓ compte pour 3^(−ℓ)": 1.375}})
 wbm.record("M06.18c", "ValueError",
            mistakes={{"un mot de longueur 0 n'existe pas : la docstring demande une ValueError": "aucune",
                      "{wrong_error("ValueError")}": {errors_source("ValueError")}}})
@@ -538,7 +566,7 @@ wbm.record("M06.18d", True,
            mistakes={{"compare chaque paire de mots, dans les deux sens, avec str.startswith": False}})
 wbm.record("M06.18e", False,
            mistakes={{"compare chaque paire de mots, dans les deux sens : un mot court peut être le début d'un mot "
-                     "long placé avant lui dans la liste": True}})
+                     "long placé avant ou après lui dans la liste": True}})
 wbm.record("M06.18f", False,
            mistakes={{"un mot répété deux fois : relis ce que dit la docstring de ce cas": True}})
 wbm.record("M06.18g", "ValueError",
@@ -549,10 +577,10 @@ wbm.record("M06.18h", True,
                      "un texte de NumPy": False}})''',
     after=tests_cells("test_kraft_sum_ or test_is_prefix_code_"),
     note=r"a) $2 \times \frac{1}{4} + \frac{1}{8} + 3 \times \frac{1}{16} = \frac{13}{16} = 0{,}8125 \le 1$ : un code "
-         r"préfixe de ces longueurs existe, avec de la place libre. b) $\frac{1}{3} + \frac{2}{9} + \frac{1}{27} = "
-         r"\frac{16}{27} \approx 0{,}5926$. c) Une longueur 0 serait le mot vide. d) Aucun mot n'est le début d'un "
-         r"autre : vrai (ce code a les longueurs du code de la fiche, dans un autre ordre). e) « 10 » est le début de "
-         r"« 101 ». f) Un mot répété est le début de sa copie : on ne saurait pas lequel des deux symboles on lit. g) "
+         r"préfixe de ces longueurs existe, avec de la place libre. b) $\frac{2}{3} + \frac{1}{9} + \frac{1}{27} = "
+         r"\frac{22}{27} \approx 0{,}8148$. c) Une longueur 0 serait le mot vide. d) Aucun mot n'est le début d'un "
+         r"autre : vrai (ce code a les longueurs du code de la fiche, dans un autre ordre). e) « 10 », placé après lui, est "
+         r"le début de « 101 » : il faut comparer dans les deux sens. f) Un mot répété est le début de sa copie : on ne saurait pas lequel des deux symboles on lit. g) "
          r"Le mot vide est le début de tous les mots. h) Un booléen de NumPy n'est pas un `bool` de Python.",
 )
 
@@ -614,8 +642,8 @@ wbm.record("M06.19g", "float",
            mistakes={{"la docstring demande un float de Python : float(...) convertit un nombre de NumPy": "float64"}})''',
     after=tests_cells("test_jensen_gap_"),
     note=r"a) $\mathbb{E}[X] = 1{,}6$, $\mathbb{E}[X^2] = 0{,}3 \times 4 + 0{,}2 \times 25 = 6{,}2$ : l'écart vaut "
-         r"$6{,}2 - 2{,}56 = 3{,}64$, la variance de $X$ (M02b). b) $\ln$ est concave : $\frac{\ln 2 + \ln 8}{3} - "
-         r"\ln\frac{11}{3} = \ln 2 - \ln\frac{11}{3} \approx -0{,}3751 < 0$. c) $\frac{e^{-1} + e}{2} - e^0 \approx "
+         r"$6{,}2 - 2{,}56 = 3{,}64$, la variance de $X$ (M02b). b) $\ln$ est concave : $\frac{\ln 1 + \ln 2 + \ln 8}{3} - "
+         r"\ln\frac{11}{3} = \frac{4}{3}\ln 2 - \ln\frac{11}{3} \approx -0{,}3751 < 0$. c) $\frac{e^{-1} + e}{2} - e^0 \approx "
          r"0{,}5431 > 0$ ($\exp$ est convexe). d) $\frac{2 + 2}{2} - |0| = 2$ : `abs` est convexe, et l'écart n'est "
          r"nul que si toutes les valeurs ont le même signe, là où `abs` est affine.",
 )
@@ -680,8 +708,11 @@ wbm.record("M06.20c", 1.0888999753452235, decimals=4,
 wbm.record("M06.20d", False,
            mistakes={"essaie-le : remplace les valeurs, puis recalcule l'information mutuelle": True})
 wbm.record("M06.20e", 0.09233151537307269, decimals=4,
-           mistakes={"mélange les observations de Y par rng.permutation(y_20), une seule fois, juste après avoir créé "
-                     "rng avec la graine 620 : le résultat n'est pas nul": 0.0})''',
+           mistakes={"le résultat n'est pas nul : mélange les observations de Y par rng.permutation(y_20), juste "
+                     "après avoir créé rng avec la graine 620": 0.0,
+                     "appelle rng.permutation une seule fois, juste après avoir créé rng : un second appel donne un "
+                     "autre mélange": 0.0635433181921396,
+                     "mélange les observations de Y, pas celles de X": 0.14811740320162506})''',
     after=[("md", "**Ta fonction contre scikit-learn** (cette cellule utilise ta fonction de M06.17)."),
            ("todo", 'with checked("M06.20 comparaison"):\n'
                     + "\n".join("    " + line for line in M06_20_COMPARE.splitlines())),
@@ -700,7 +731,7 @@ wbm.record("M06.20e", 0.09233151537307269, decimals=4,
 # Notebook exercises: a prediction, an experiment, a figure (M06.21 to M06.23)
 # ---------------------------------------------------------------------------
 M06_21_EXPERIMENT = '''ref_21 = wbm.load_mymath("ref")                        # the reference library: the same results as yours
-values_21 = np.arange(-2, 3)                            # X is uniform on {-2, -1, 0, 1, 2}
+values_21 = np.arange(-3, 4)                            # X is uniform on {-3, ..., 3}
 
 
 def joint_21(g):
@@ -712,9 +743,9 @@ def joint_21(g):
     return table
 
 
-H_X_21 = ref_21.info.joint_entropy([np.full(5, 0.2)])  # the entropy of X: a table with a single row
+H_X_21 = ref_21.info.joint_entropy([np.full(7, 1 / 7)])  # the entropy of X: a table with a single row
 print(f"H(X) = {H_X_21:.4f} bits")
-for name, g in [("2X", lambda v: 2 * v), ("X²", lambda v: v ** 2)]:
+for name, g in [("X³", lambda v: v ** 3), ("X²", lambda v: v ** 2)]:
     table = joint_21(g)
     r = round(float(np.corrcoef(values_21, [g(v) for v in values_21])[0, 1]), 10) + 0.0
     print(f"I(X ; {name}) = {ref_21.info.mutual_information(table):.4f} · "
@@ -722,14 +753,14 @@ for name, g in [("2X", lambda v: 2 * v), ("X²", lambda v: v ** 2)]:
           f"H(X | {name}) = {ref_21.info.conditional_entropy(table.T):.4f} · correlation of X and {name}: {r:.4f}")'''
 
 M06_21 = Ex(
-    "M06.21", "🔮", 1, 10, "Prédire : l'information mutuelle de X et 2X, de X et X²",
+    "M06.21", "🔮", 1, 10, "Prédire : l'information mutuelle de X et X³, de X et X²",
     "prévoir l'information mutuelle d'une variable avec une fonction d'elle-même, et la comparer à la corrélation.",
     "fiche §4", tracks="C, E", hypothesis=True,
-    body=r"""Soit $X$ uniforme sur $\{-2, -1, 0, 1, 2\}$, d'entropie $H(X) = \log_2 5$. Choisis, pour chaque question :
-- a) $I(X ; 2X)$ : (1) 0 ; (2) strictement entre 0 et $H(X)$ ; (3) égale à $H(X)$ ; (4) égale à $2\,H(X)$ ;
-- b) $I(X ; X^2)$ : (1) 0, car la corrélation de $X$ et $X^2$ est nulle ; (2) égale à $H(X)$ ; (3) strictement entre 0 et $H(X)$ ; (4) plus grande que $H(X)$ ;
-- c) la corrélation de $X$ et $X^2$ : (1) 0 ; (2) 1 ; (3) strictement entre 0 et 1 ; (4) négative ;
-- d) $I(X ; X^2)$ est égale à : (1) $H(X) - H(X^2)$ ; (2) $H(X^2)$ ; (3) $H(X) + H(X^2)$ ; (4) $H(X \mid X^2)$.
+    body=r"""Soit $X$ uniforme sur $\{-3, -2, \ldots, 3\}$ (sept valeurs), d'entropie $H(X) = \log_2 7$. Choisis, pour chaque question :
+- a) $I(X ; X^3)$ : (1) égale à $H(X)$ ; (2) 0 ; (3) strictement entre 0 et $H(X)$ ; (4) plus grande que $H(X)$ ;
+- b) la corrélation de $X$ et $X^3$ : (1) 0 ; (2) 1 ; (3) strictement entre 0 et 1 ; (4) négative ;
+- c) $I(X ; X^2)$ : (1) 0 ; (2) égale à $H(X)$ ; (3) strictement entre 0 et $H(X)$ ; (4) plus grande que $H(X)$ ;
+- d) $I(X ; X^2)$ est égale à : (1) $H(X) - H(X^2)$ ; (2) $H(X^2)$ ; (3) $H(X \mid X^2)$ ; (4) $2\,H(X^2)$.
 
 **Avant d'exécuter quoi que ce soit**, écris tes quatre prédictions (le **numéro du choix**), vérifie-les, puis lance l'expérience. Elle utilise les fonctions de la référence (les tiennes, M06.16 et M06.17, font la même chose).""",
     todo='''prediction_M06_21a = ...  # a) 1, 2, 3 or 4, written BEFORE running the experiment below
@@ -739,9 +770,9 @@ prediction_M06_21d = ...  # d) 1, 2, 3 or 4''',
     check='''for letter, prediction in zip("abcd", [prediction_M06_21a, prediction_M06_21b, prediction_M06_21c,
                                       prediction_M06_21d]):
     wbm.check(f"M06.21{letter}", prediction)''',
-    record='''wbm.record("M06.21a", 3, prediction=True, choices=[1, 2, 3, 4])
+    record='''wbm.record("M06.21a", 1, prediction=True, choices=[1, 2, 3, 4])
 wbm.record("M06.21b", 3, prediction=True, choices=[1, 2, 3, 4])
-wbm.record("M06.21c", 1, prediction=True, choices=[1, 2, 3, 4])
+wbm.record("M06.21c", 3, prediction=True, choices=[1, 2, 3, 4])
 wbm.record("M06.21d", 2, prediction=True, choices=[1, 2, 3, 4])''',
     after=[
         ("md", "**L'expérience.** Elle ne s'exécute qu'une fois tes quatre prédictions écrites."),
@@ -749,105 +780,122 @@ wbm.record("M06.21d", 2, prediction=True, choices=[1, 2, 3, 4])''',
                                               "prediction_M06_21d"],
                          "⏳ Écris d'abord tes quatre prédictions, puis exécute à nouveau.")),
         ("solution", M06_21_EXPERIMENT),
-        ("md", r"**Après l'expérience**, dans ta copie : pourquoi $I(X ; 2X) = H(X)$ (que vaut $H(X \mid 2X)$) ? "
-               r"Pourquoi $I(X ; X^2) = H(X^2)$ (que vaut $H(X^2 \mid X)$) ? Que reste-t-il d'inconnu sur $X$ quand on "
-               r"connaît $X^2$, et combien de bits cela fait-il ? Pourquoi la corrélation ne voit-elle rien, et quelle "
-               r"figure de la fiche le montre ?"),
+        ("md", r"**Après l'expérience**, dans ta copie : pourquoi $I(X ; X^3) = H(X)$, alors que la corrélation n'est pas "
+               r"1 ? Pourquoi $I(X ; X^2) = H(X^2)$ (que vaut $H(X^2 \mid X)$) ? Que reste-t-il d'inconnu sur $X$ quand on "
+               r"connaît $X^2$, et combien de bits cela fait-il ? Que mesure la corrélation, que l'information mutuelle "
+               r"ne mesure pas, et inversement ?"),
     ],
-    note=r"a) $2X$ détermine $X$ et $X$ détermine $2X$ : $H(X \mid 2X) = 0$, donc $I = H(X) = \log_2 5 \approx 2{,}322$. "
-         r"b) et d) $X^2$ est une fonction de $X$ : $H(X^2 \mid X) = 0$, donc $I(X ; X^2) = H(X^2) - 0 = "
-         r"H(\frac{1}{5}, \frac{2}{5}, \frac{2}{5}) \approx 1{,}522$, strictement entre 0 et $H(X)$ : connaître $X^2$ "
-         r"laisse inconnu le signe de $X$, soit $H(X \mid X^2) = \frac{4}{5} \times 1 = 0{,}8$ bit. c) "
-         r"$\mathrm{Cov}(X, X^2) = \mathbb{E}[X^3] - \mathbb{E}[X]\,\mathbb{E}[X^2] = 0$ par symétrie : la corrélation, "
-         r"qui ne voit que les liens linéaires, est nulle, alors que la dépendance est forte (fiche §4, la figure du "
-         r"nuage $Y \approx X^2$).",
+    note=r"a) $X^3$ est une fonction injective de $X$ : chacune détermine l'autre, $H(X \mid X^3) = 0$ et $I = H(X) = "
+         r"\log_2 7 \approx 2{,}807$. b) La relation n'est pas linéaire : la corrélation vaut environ 0,930, entre 0 et 1, "
+         r"alors que la dépendance est totale. c) et d) $X^2$ est une fonction de $X$ : $H(X^2 \mid X) = 0$, donc "
+         r"$I(X ; X^2) = H(X^2) = H(\frac{1}{7}, \frac{2}{7}, \frac{2}{7}, \frac{2}{7}) \approx 1{,}950$, strictement "
+         r"entre 0 et $H(X)$ : connaître $X^2$ laisse inconnu le signe de $X$, soit $H(X \mid X^2) = \frac{6}{7} \approx "
+         r"0{,}857$ bit. La corrélation de $X$ et $X^2$ est nulle, par symétrie : elle ne voit que les liens linéaires.",
 )
 
-M06_22_GIVEN = '''P_22 = np.array([0.3, 0.25, 0.2, 0.12, 0.08, 0.05])     # a law on 6 outcomes, 0 to 5
+M06_22_GIVEN = '''P_22 = np.array([0.34, 0.24, 0.16, 0.13, 0.09, 0.04])    # a law on 6 outcomes, 0 to 5
 H_22 = float(-np.sum(P_22 * np.log2(P_22)))                 # its entropy, in bits
 rng_22 = np.random.default_rng(622)
 SAMPLES_22 = {n: rng_22.choice(6, size=(2000, n), p=P_22) for n in (10, 20, 50, 100, 1000)}   # 2000 samples of each size
-print(f"H = {H_22:.4f} bits ·", {n: samples.shape for n, samples in SAMPLES_22.items()})'''
-
-M06_22_CHECK = '''def mean_estimate_22(n):
-    """The mean of the plug-in estimates of the 2000 samples of size n."""
-    return float(np.mean([plugin_entropy(sample, 6) for sample in SAMPLES_22[n]]))
 
 
-with checked("M06.22a"):
-    wbm.check("M06.22a", mean_estimate_22(10), computed=True)
-with checked("M06.22b"):
-    wbm.check("M06.22b", mean_estimate_22(10) - H_22, computed=True)
-with checked("M06.22c"):
-    wbm.check("M06.22c", mean_estimate_22(100) - H_22, computed=True)
-with checked("M06.22d"):
-    wbm.check("M06.22d", float(np.mean([plugin_entropy(sample, 6) < H_22 for sample in SAMPLES_22[10]])), computed=True)
-with checked("M06.22e"):
-    wbm.check("M06.22e", mean_estimate_22(10) + (6 - 1) / (2 * 10 * math.log(2)) - H_22, computed=True)'''
-
-M06_22_TABLE = '''print("    n · mean estimate ·    bias · −(k − 1)/(2n ln 2) · bias after Miller-Madow")
-for n_22 in SAMPLES_22:
-    mean_22 = float(np.mean([plugin_entropy(sample, 6) for sample in SAMPLES_22[n_22]]))
-    theory_22 = -(6 - 1) / (2 * n_22 * math.log(2))
-    print(f"{n_22:5d} · {mean_22:13.4f} · {mean_22 - H_22:7.4f} · {theory_22:18.4f} · {mean_22 - theory_22 - H_22:10.4f}")'''
-
-M06_22 = Ex(
-    "M06.22", "🔬", 2, 20, "Estimer une entropie à partir d'un échantillon : le biais des petits échantillons",
-    "mesurer le biais de l'entropie estimée par les fréquences d'un échantillon, voir comment il diminue avec la "
-    "taille de l'échantillon, et le corriger.", "fiche §2 ; M04 (estimation)", tracks="C",
-    body=r"""On estime souvent une entropie à partir d'un échantillon : on remplace chaque probabilité par sa fréquence observée, puis on applique la formule. C'est l'estimateur « plug-in ». Il se trompe en moyenne, et toujours dans le même sens. Mesure ce biais.
-
-Écris `plugin_entropy(sample, k)`, l'entropie en bits des fréquences de l'échantillon `sample`, un tableau d'entiers de 0 à `k − 1` (`np.bincount(sample, minlength=k)` compte les valeurs ; une fréquence nulle compte pour 0), en `float`.
-
-La cellule donnée tire, pour la loi `P_22` (6 issues, d'entropie `H_22`), 2 000 échantillons de chaque taille $n$ = 10, 20, 50, 100 et 1 000 : `SAMPLES_22[n]` est un tableau de forme `(2000, n)`, un échantillon par ligne. La vérification calcule, avec ta fonction :
-- a) la moyenne des 2 000 estimations pour $n = 10$ (3 décimales) ;
-- b) le biais pour $n = 10$ : cette moyenne moins la vraie entropie `H_22` (3 décimales) ;
-- c) le biais pour $n = 100$ (3 décimales) ;
-- d) la proportion des 2 000 échantillons de taille 10 dont l'estimation est plus petite que `H_22` (2 décimales) ;
-- e) le biais pour $n = 10$ après la correction de Miller-Madow, qui ajoute $\frac{k - 1}{2n\ln 2}$ à chaque estimation (3 décimales).
-
-Une dernière cellule affiche le biais pour les cinq tailles.
-
-Dans ta copie : dans quel sens l'estimateur plug-in se trompe-t-il, et pourquoi (que devient une issue rare, de probabilité 0,05, qui n'apparaît pas dans un échantillon de taille 10) ? Compare les biais b) et c) avec l'approximation $-\frac{k - 1}{2n\ln 2}$ : pour quelle taille l'approximation est-elle la meilleure ? Qu'en conclure pour une information mutuelle estimée sur peu de données (M06.20 e)) ?""",
-    given=M06_22_GIVEN,
-    todo='''def plugin_entropy(sample, k):
-    """The entropy, in bits, of the frequencies of sample, an array of integers from 0 to k - 1 (0 log 0 = 0)."""
-    raise NotImplementedError("np.bincount(sample, minlength=k), les fréquences, les seules non nulles, puis la somme")''',
-    check=M06_22_CHECK,
-    solution='''def plugin_entropy(sample, k):
-    """The entropy, in bits, of the frequencies of sample, an array of integers from 0 to k - 1 (0 log 0 = 0)."""
+def plugin_entropy(sample, k):
+    """The plug-in estimate: the entropy, in bits, of the frequencies of sample (integers from 0 to k - 1)."""
     freq = np.bincount(sample, minlength=k) / len(sample)
     freq = freq[freq > 0]
     return float(-np.sum(freq * np.log2(freq)))
 
 
-estimates_10 = np.array([plugin_entropy(sample, 6) for sample in SAMPLES_22[10]])
-print("n = 10: mean", estimates_10.mean(), "· bias", estimates_10.mean() - H_22,
-      "· share below H", np.mean(estimates_10 < H_22))''',
-    record='''wbm.record("M06.22a", 1.9552129961023426, decimals=3,
-           mistakes={"l'entropie est demandée en bits : log₂": 1.9552129961023426 * math.log(2)})
-wbm.record("M06.22b", 1.9552129961023426 - 2.3601474398401088, decimals=3,
+print(f"H = {H_22:.4f} bits ·", {n: samples.shape for n, samples in SAMPLES_22.items()})'''
+
+M06_22_CHECK = '''with checked("M06.22a"):
+    wbm.check("M06.22a", mean_bias(plugin_entropy, 10), computed=True)
+with checked("M06.22b"):
+    wbm.check("M06.22b", mean_bias(plugin_entropy, 100), computed=True)
+with checked("M06.22c"):
+    wbm.check("M06.22c", mean_bias(miller_madow, 10), computed=True)
+with checked("M06.22d"):
+    wbm.check("M06.22d", mean_bias(miller_madow, 100), computed=True)
+with checked("M06.22e"):
+    wbm.check("M06.22e", miller_madow(SAMPLES_22[10][0], 6), computed=True)'''
+
+M06_22_TABLE = '''rows_22 = []
+for n_22 in SAMPLES_22:
+    rows_22.append((n_22, mean_bias(plugin_entropy, n_22), -(6 - 1) / (2 * n_22 * math.log(2)),
+                    mean_bias(miller_madow, n_22)))
+print("    n · plug-in bias · −(k − 1)/(2n ln 2) · Miller-Madow bias")
+for n_22, plug_22, approx_22, mm_22 in rows_22:
+    print(f"{n_22:5d} · {plug_22:14.4f} · {approx_22:18.4f} · {mm_22:17.4f}")'''
+
+M06_22 = Ex(
+    "M06.22", "🔬", 2, 20, "Estimer une entropie à partir d'un échantillon : le biais des petits échantillons",
+    "mesurer le biais de l'entropie estimée par les fréquences d'un échantillon, voir comment il diminue avec la "
+    "taille de l'échantillon, et le corriger.", "fiche §2 ; M02c (biais d'un estimateur)", tracks="C",
+    body=r"""On estime souvent une entropie à partir d'un échantillon : on remplace chaque probabilité par sa fréquence observée, puis on applique la formule. C'est l'estimateur « plug-in », donné dans la cellule ci-dessous (`plugin_entropy`). Il se trompe en moyenne, et toujours dans le même sens : mesure ce biais (M02c), puis corrige-le.
+
+La cellule donnée tire aussi, pour la loi `P_22` (6 issues, d'entropie `H_22`), 2 000 échantillons de chaque taille $n$ = 10, 20, 50, 100 et 1 000 : `SAMPLES_22[n]` est un tableau de forme `(2000, n)`, un échantillon par ligne. Écris :
+- `mean_bias(estimator, n)` : la moyenne des 2 000 estimations `estimator(sample, 6)` sur les échantillons de taille `n`, moins la vraie entropie `H_22`, en `float` ;
+- `miller_madow(sample, k)` : l'estimation corrigée de Miller-Madow, `plugin_entropy(sample, k)` plus $\frac{m - 1}{2n\ln 2}$ bit, où $n$ est la taille de l'échantillon et $m$ le nombre de valeurs **différentes** qu'il contient.
+
+La vérification calcule, avec tes fonctions :
+- a) le biais du plug-in pour $n = 10$ (3 décimales) ;
+- b) le biais du plug-in pour $n = 100$ (3 décimales) ;
+- c) le biais de Miller-Madow pour $n = 10$ (3 décimales) ;
+- d) le biais de Miller-Madow pour $n = 100$ (4 décimales) ;
+- e) `miller_madow(SAMPLES_22[10][0], 6)`, l'estimation corrigée du premier échantillon de taille 10 (4 décimales).
+
+Une dernière cellule affiche les biais pour les cinq tailles.
+
+Dans ta copie : dans quel sens le plug-in se trompe-t-il, et pourquoi (que devient une issue de probabilité 0,04 dans un échantillon de taille 10) ? Compare a) et b) avec l'approximation $-\frac{k - 1}{2n\ln 2}$ : pour quelle taille est-elle la meilleure ? Pourquoi la correction de Miller-Madow, qui compte les valeurs observées, laisse-t-elle un biais pour $n = 10$ ? Qu'en conclure pour une information mutuelle estimée sur peu de données (M06.20 e)) ?""",
+    given=M06_22_GIVEN,
+    todo='''def mean_bias(estimator, n):
+    """The mean of estimator(sample, 6) over the 2000 samples of size n of SAMPLES_22, minus H_22."""
+    raise NotImplementedError("relis la définition du biais d'un estimateur (M02c)")
+
+
+def miller_madow(sample, k):
+    """plugin_entropy(sample, k) + (m - 1) / (2 n ln 2), with n the size of sample and m its number of distinct values."""
+    raise NotImplementedError("relis la formule de l'énoncé : que valent n et m pour un échantillon ?")''',
+    check=M06_22_CHECK,
+    solution='''def mean_bias(estimator, n):
+    """The mean of estimator(sample, 6) over the 2000 samples of size n of SAMPLES_22, minus H_22."""
+    return float(np.mean([estimator(sample, 6) for sample in SAMPLES_22[n]]) - H_22)
+
+
+def miller_madow(sample, k):
+    """plugin_entropy(sample, k) + (m - 1) / (2 n ln 2), with n the size of sample and m its number of distinct values."""
+    m = np.count_nonzero(np.bincount(sample, minlength=k))
+    return plugin_entropy(sample, k) + (m - 1) / (2 * len(sample) * math.log(2))
+
+
+print("plug-in bias, n = 10:", mean_bias(plugin_entropy, 10), "· Miller-Madow:", mean_bias(miller_madow, 10))''',
+    record='''wbm.record("M06.22a", -0.4024603628852439, decimals=3,
            mistakes={"le biais est la moyenne des estimations moins la vraie entropie, dans cet ordre":
-                         2.3601474398401088 - 1.9552129961023426})
-wbm.record("M06.22c", 2.3265634412268974 - 2.3601474398401088, decimals=3,
+                         0.4024603628852439})
+wbm.record("M06.22b", -0.034618511809517916, decimals=3,
            mistakes={"le biais est la moyenne des estimations moins la vraie entropie, dans cet ordre":
-                         2.3601474398401088 - 2.3265634412268974})
-wbm.record("M06.22d", 0.9185, decimals=2,
-           mistakes={"la proportion est une fraction des 2 000 échantillons, entre 0 et 1, pas un nombre d'échantillons":
-                         1837})
-wbm.record("M06.22e", 1.9552129961023426 + 5 / (20 * math.log(2)) - 2.3601474398401088, decimals=3,
-           mistakes={"la correction est en bits : (k − 1)/(2n ln 2), avec le ln 2 au dénominateur":
-                         1.9552129961023426 + 5 / 20 - 2.3601474398401088})''',
-    after=[("md", "**Le biais pour les cinq tailles** (cette cellule utilise ta fonction)."),
+                         0.034618511809517916})
+wbm.record("M06.22c", -0.1540643442201861, decimals=3,
+           mistakes={"m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues "
+                     "possibles": -0.041786602663002714,
+                     "la correction est en bits : (m − 1)/(2n ln 2), avec le ln 2 au dénominateur":
+                         -0.23028536288524393})
+wbm.record("M06.22d", 0.0013370553470379853, decimals=4,
+           mistakes={"m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues "
+                     "possibles": 0.0014488642127066242})
+wbm.record("M06.22e", 1.5731839055803842, decimals=4,
+           mistakes={"m est le nombre de valeurs différentes observées dans l'échantillon, pas le nombre k d'issues "
+                     "possibles": 1.3567796494470397 + 5 / (20 * math.log(2))})''',
+    after=[("md", "**Les biais pour les cinq tailles** (cette cellule utilise tes fonctions)."),
            ("todo", 'with checked("M06.22 tableau"):\n' + "\n".join("    " + line for line in M06_22_TABLE.splitlines())),
            ("solution", M06_22_TABLE)],
     note=r"Le plug-in sous-estime l'entropie : une issue rare, absente d'un petit échantillon, compte pour 0, et les "
-         r"fréquences observées sont en moyenne plus inégales que les vraies probabilités. Pour $n = 10$, la moyenne "
-         r"vaut environ 1,955 bit, un biais d'environ $-0{,}405$, et 92 % des estimations sont trop petites ; pour "
-         r"$n = 100$, le biais n'est plus que d'environ $-0{,}034$. L'approximation $-\frac{k - 1}{2n\ln 2}$ "
-         r"($-0{,}361$ et $-0{,}036$) est bonne pour les grands échantillons, moins pour $n = 10$, où la correction de "
-         r"Miller-Madow laisse un biais d'environ $-0{,}044$. L'information mutuelle estimée, qui se calcule avec des "
-         r"entropies estimées, a un biais du même ordre, mais vers le haut (M06.20 e)).",
+         r"fréquences observées sont en moyenne plus inégales que les vraies probabilités. Son biais vaut environ "
+         r"$-0{,}402$ pour $n = 10$ et $-0{,}035$ pour $n = 100$ ; l'approximation $-\frac{k - 1}{2n\ln 2}$ ($-0{,}361$ "
+         r"et $-0{,}036$) décrit bien les grands échantillons. Miller-Madow, avec $m$ valeurs observées, ramène le "
+         r"biais à environ $-0{,}154$ pour $n = 10$ (il reste des issues jamais vues, que la correction ne compte pas) et à "
+         r"presque rien pour $n = 100$. L'information mutuelle estimée, qui se calcule avec des entropies estimées, a un "
+         r"biais du même ordre, mais vers le haut (M06.20 e)).",
 )
 
 M06_23_CHECK = '''with checked("M06.23 vérifications"):
@@ -870,6 +918,9 @@ M06_23_CHECK = '''with checked("M06.23 vérifications"):
         labels = " ".join(t.get_text() for t in [*ax.get_yticklabels(), *ax.texts]).replace(" ", "")
         xlabel = ax.get_xlabel()
         rows = {}
+        widths = [abs(patch.get_width()) for patch in ax.patches if isinstance(patch, Rectangle)]
+        heights = [abs(patch.get_height()) for patch in ax.patches if isinstance(patch, Rectangle)]
+        vertical = bool(widths) and max(heights) > hxy - 1e-6 and max(widths) < hxy - 1e-6
         for patch in ax.patches:
             if isinstance(patch, Rectangle) and abs(patch.get_width()) > 1e-9:
                 key = round(patch.get_y() + patch.get_height() / 2, 6)
@@ -886,6 +937,8 @@ M06_23_CHECK = '''with checked("M06.23 vérifications"):
         problems.append("draw_information_bars ouvre sa propre figure : dessine dans l'axe reçu")
     elif not rows:
         problems.append("il manque les barres horizontales (ax.barh)")
+    elif vertical:
+        problems.append("les barres doivent être horizontales : ax.barh(position, largeur, left=début), pas ax.bar")
     else:
         if not has_row((0, hxy - hy), (hxy - hy, hx)):
             problems.append("la barre de H(X) a deux morceaux : H(X | Y), de 0 à H(X | Y), puis I(X ; Y), jusqu'à H(X)")
@@ -896,7 +949,7 @@ M06_23_CHECK = '''with checked("M06.23 vérifications"):
             problems.append("la barre de H(X, Y) va de 0 à H(X, Y)")
         if not all(name in labels for name in ("H(X)", "H(Y)", "H(X,Y)")):
             problems.append("écris le nom de chaque barre sur l'axe vertical : H(X), H(Y), H(X, Y)")
-        if "bit" not in xlabel:
+        if "bit" not in xlabel.lower():
             problems.append("l'axe horizontal est en bits : écris-le (ax.set_xlabel)")
     if problems:
         print("❌ Ex M06.23 : à revoir : " + " ; ".join(problems) + ".")
@@ -1014,10 +1067,12 @@ print(answer_M06_24a, [round(value, 4) for value in answer_M06_24b])''',
            mistakes={M06_24_MISTAKES})
 wbm.record("M06.24b", [1.4056390622295665, 0.9743147528693494, 1.75, 0.34436093777043353, 3.0, 3.363585661014858],
            decimals=3,
-           mistakes={{"(C) : une cross-entropy en bits se calcule avec log₂":
+           mistakes={{"une de tes valeurs reprend ce que calcule une ligne fausse, pas ce que dit son commentaire : "
+                     "refais le calcul de chaque ligne fausse à partir de son commentaire":
                          [1.4056390622295665, 0.9743147528693494, 0.5268024924119671, 0.34436093777043353, 3.0,
                           3.363585661014858],
-                     "(F) : la perplexité est 2 à la puissance de la cross-entropy en bits":
+                     "une de tes valeurs utilise l'entropie là où le commentaire demande une autre quantité : relis "
+                     "chaque commentaire":
                          [1.4056390622295665, 0.9743147528693494, 1.75, 0.34436093777043353, 3.0, 2 ** 1.4056390622295665]}})''',
     note=r"(A) $0 \times \log_2 0$ vaut `nan` pour NumPy ($0 \times (-\infty)$) : la somme est `nan` ; il faut ne garder "
          r"que les probabilités non nulles (ou `xlogy`, M06.25). La bonne valeur : $0{,}5 + 0{,}375\log_2\frac{8}{3} + "
@@ -1029,103 +1084,127 @@ wbm.record("M06.24b", [1.4056390622295665, 0.9743147528693494, 1.75, 0.344360937
          r"fausse qui renvoie un nombre plausible, comme (C), passe facilement inaperçue ; `nan` et `inf` se voient.",
 )
 
-M06_25_CHECK = '''with checked("M06.25 vérifications"):
+M06_25_CHECK = """with checked("M06.25 vérifications"):
+    import inspect
+    import re
     import warnings
     problems = []
-    laws_t = [[0.5, 0.5], [0.0, 1.0], [0.2, 0.0, 0.3, 0.5], [[0.1, 0.0], [0.35, 0.55]], [[0.25, 0.25], [0.25, 0.25]]]
-    for law in laws_t:
-        array_t = np.asarray(law, dtype=float)
-        positive_t = array_t[array_t > 0]
-        expected = float(-np.sum(positive_t * np.log2(positive_t)))
+    tables_t = [[[0.5, 0.0], [0.2, 0.3]], [[0.1, 0.1, 0.0], [0.0, 0.0, 0.8]], [[0.25], [0.75]],
+                [[0.05, 0.15, 0.2], [0.3, 0.1, 0.2]]]
+    for table in tables_t:
+        array_t = np.asarray(table, dtype=float)
+        expected = []
+        for row in array_t:
+            law = row[row > 0] / row.sum()
+            expected.append(float(-np.sum(law * np.log2(law))) + 0.0)
         with warnings.catch_warnings(record=True) as caught:
             warnings.simplefilter("always")
-            got = entropy_xlogy(law)
+            got = row_entropies(table)
         if got is None:
-            problems.append("entropy_xlogy ne renvoie rien : il manque return")
+            problems.append("row_entropies ne renvoie rien : il manque return")
             break
         if caught:
-            problems.append(f"entropy_xlogy({law}) émet un avertissement ({caught[0].category.__name__}) : xlogy n'en "
-                            "émet pas, même pour une probabilité nulle")
+            problems.append(f"row_entropies({table}) émet un avertissement ({caught[0].category.__name__}) : xlogy "
+                            "n'en émet pas, même pour une probabilité nulle")
             break
-        if not isinstance(got, float):
-            problems.append(f"renvoie un float de Python (float(...)), pas un {type(got).__name__}")
+        if not isinstance(got, np.ndarray) or got.dtype != float:
+            problems.append(f"renvoie un tableau NumPy de flottants, pas un {type(got).__name__}")
             break
-        if not math.isclose(got, expected, abs_tol=1e-12):
-            problems.append(f"entropy_xlogy({law}) devrait valoir {expected:.6f} bit(s), pas {got:.6f}"
-                            + (" : la somme porte sur toutes les cases du tableau" if np.ndim(law) == 2 else ""))
+        if got.shape != (len(table),) or not np.allclose(got, expected, atol=1e-12):
+            problems.append(f"row_entropies({table}) devrait valoir {np.round(expected, 6).tolist()}, pas "
+                            f"{np.round(np.asarray(got, dtype=float), 6).tolist()} : chaque ligne divisée par sa somme, "
+                            "puis son entropie")
             break
     if not problems:
-        nats_t = entropy_xlogy([0.2, 0.3, 0.5], base=math.e)
-        if not math.isclose(nats_t, -sum(v * math.log(v) for v in (0.2, 0.3, 0.5)), abs_tol=1e-12):
+        nats_t = row_entropies([[0.2, 0.3, 0.5]], base=math.e)
+        if not np.allclose(nats_t, [-sum(v * math.log(v) for v in (0.2, 0.3, 0.5))], atol=1e-12):
             problems.append("avec base=math.e, le résultat est en nats : divise par ln(base)")
+    if not problems:
+        try:
+            source_t = inspect.getsource(row_entropies)
+        except (OSError, TypeError):
+            source_t = ""
+        code_t = "\\n".join(line.split("#")[0] for line in source_t.splitlines()[1:])
+        if source_t and "xlogy" not in code_t:
+            problems.append("l'exercice demande xlogy : sers-t'en pour les termes p log p")
+        elif source_t and (re.search(r"\\bfor\\b|\\bwhile\\b", code_t) or re.search(r"[<>]=?\\s*0\\b", code_t)):
+            problems.append("ni boucle ni filtre : xlogy s'occupe des probabilités nulles, et NumPy de toutes les lignes "
+                            "à la fois (axis=1)")
     if problems:
         print("❌ Ex M06.25 : à revoir : " + " ; ".join(problems) + ".")
     else:
-        print("✅ Ex M06.25 : entropy_xlogy est juste, pour des vecteurs et des lois jointes, sans aucun avertissement.")'''
+        print("✅ Ex M06.25 : row_entropies est juste, avec xlogy, sans boucle ni avertissement.")"""
 
 M06_25 = Ex(
     "M06.25", "🛠️", 1, 10, "Calculer 0 log 0 proprement (`scipy.special.xlogy`)",
-    "calculer une entropie sans `nan` ni avertissement quand des probabilités sont nulles, avec la fonction de SciPy "
-    "faite pour cela, sur un vecteur comme sur une loi jointe.", "fiche §2 ; Ex M06.24", tracks="C",
-    body=r"""`p * np.log2(p)` vaut `nan` dès qu'une probabilité est nulle ($0 \times (-\infty)$), avec un avertissement. Le filtre `p[p > 0]` règle le problème, mais il aplatit le tableau, ce qui gêne quand on veut garder sa forme (pour une somme par ligne, par exemple). SciPy a une fonction faite pour cela : `scipy.special.xlogy(x, y)` calcule $x \ln y$ case par case, et renvoie 0 quand $x = 0$, même si $y = 0$, sans avertissement.
+    "calculer d'un coup les entropies des lignes d'une loi jointe, sans `nan` ni avertissement quand des "
+    "probabilités sont nulles, avec la fonction de SciPy faite pour cela.", "fiche §2 et §3 ; Ex M06.24", tracks="C",
+    body=r"""`p * np.log2(p)` vaut `nan` dès qu'une probabilité est nulle ($0 \times (-\infty)$), avec un avertissement. Le filtre `p[p > 0]` règle le problème pour un vecteur, mais il aplatit le tableau : il ne convient plus quand on veut une entropie **par ligne**. SciPy a une fonction faite pour cela : `scipy.special.xlogy(x, y)` calcule $x \ln y$ case par case, et renvoie 0 quand $x = 0$, même si $y = 0$, sans avertissement.
 
-Écris `entropy_xlogy(p, base=2)`, l'entropie de la loi `p` (un vecteur, ou un tableau à deux dimensions : une loi jointe) avec `xlogy`, sans filtre ni boucle, en `float`. La vérification compare ta fonction à un calcul de référence sur plusieurs lois, dont des lois jointes et des probabilités nulles, et vérifie qu'elle n'émet aucun avertissement ; puis elle calcule `entropy_xlogy(P25)` pour `P25 = [0, 0.05, 0.55, 0, 0.4]` (4 décimales).
+Écris `row_entropies(joint, base=2)`, qui renvoie, pour une loi jointe `joint` dont aucune ligne n'est nulle, le tableau NumPy des entropies $H(Y \mid X = x)$ de ses lignes, chacune divisée par sa somme (fiche §3) : avec `xlogy`, sans boucle ni filtre (`keepdims=True` garde la forme d'une somme par ligne, `axis=1` somme chaque ligne). La vérification compare ta fonction à un calcul de référence sur plusieurs tableaux, dont des probabilités nulles, vérifie qu'elle n'émet aucun avertissement et qu'elle utilise `xlogy` sans boucle ni filtre ; puis elle calcule `row_entropies(T25)` pour `T25 = [[0.2, 0, 0.1], [0.14, 0.2, 0.06], [0, 0.3, 0]]` (une liste de 3 nombres, 4 décimales).
 
-Dans ta copie : pourquoi la convention $0 \log 0 = 0$ est-elle la bonne (quelle est la limite de $x \ln x$ quand $x$ tend vers 0 ?) ? Que calcule `scipy.special.entr(x)`, une autre fonction de SciPy ? Comment obtiendrais-tu, avec `xlogy` et `axis=1`, l'entropie de chaque ligne d'un tableau ?""",
+Dans ta copie : pourquoi la convention $0 \log 0 = 0$ est-elle la bonne (quelle est la limite de $x \ln x$ quand $x$ tend vers 0 ?) ? Calcule $H(Y \mid X)$ pour `T25` à partir de ta liste. Pourquoi la troisième ligne a-t-elle une entropie nulle ?""",
     todo='''from scipy.special import xlogy
 
 
-def entropy_xlogy(p, base=2):
-    """The entropy of the law p (a vector, or a 2-D joint law) in the given base, with xlogy: no filter, no loop."""
-    raise NotImplementedError("-xlogy(p, p), sa somme, divisée par ln(base), en float")''',
-    check=M06_25_CHECK + '''
+def row_entropies(joint, base=2):
+    """The entropies H(Y | X = x) of the rows of joint, each divided by its sum, with xlogy: no loop, no filter."""
+    raise NotImplementedError("relis ce que calcule xlogy(x, y), puis pense à une somme par ligne")''',
+    check=M06_25_CHECK + """
 with checked("M06.25"):
-    wbm.check("M06.25", entropy_xlogy([0, 0.05, 0.55, 0, 0.4]), computed=True)''',
+    wbm.check("M06.25", [float(v) for v in row_entropies([[0.2, 0, 0.1], [0.14, 0.2, 0.06], [0, 0.3, 0]])],
+              computed=True)""",
     solution='''from scipy.special import xlogy
 
 
-def entropy_xlogy(p, base=2):
-    """The entropy of the law p (a vector, or a 2-D joint law) in the given base, with xlogy: no filter, no loop."""
-    p = np.asarray(p, dtype=float)
-    return float(-np.sum(xlogy(p, p)) / math.log(base)) + 0.0
+def row_entropies(joint, base=2):
+    """The entropies H(Y | X = x) of the rows of joint, each divided by its sum, with xlogy: no loop, no filter."""
+    table = np.asarray(joint, dtype=float)
+    conditional = table / table.sum(axis=1, keepdims=True)
+    return -xlogy(conditional, conditional).sum(axis=1) / math.log(base) + 0.0
 
 
-print(entropy_xlogy([0, 0.05, 0.55, 0, 0.4]), entropy_xlogy([[0.1, 0.0], [0.35, 0.55]]))''',
+T25 = [[0.2, 0, 0.1], [0.14, 0.2, 0.06], [0, 0.3, 0]]
+print(row_entropies(T25), "· H(Y | X) =", float(np.sum(np.sum(T25, axis=1) * row_entropies(T25))))''',
     after=[("solution", M06_25_CHECK)],
-    record='''wbm.record("M06.25", 1.219240704636849, decimals=4,
-           mistakes={"la fonction donne des bits par défaut (base=2) : divise par ln 2": 0.8451132568429528})''',
-    note=r"$x \ln x \to 0$ quand $x \to 0^+$ (R7, M05a) : une issue impossible n'apporte rien à l'entropie, d'où "
-         r"la convention. `xlogy(p, p)` renvoie $p \ln p$, et 0 pour $p = 0$ ; `scipy.special.entr(p)` renvoie "
-         r"directement $-p \ln p$. Pour `P25`, on trouve environ 1,2192 bit. L'entropie de chaque ligne d'un tableau : "
-         r"`-xlogy(t, t).sum(axis=1) / math.log(2)`, si chaque ligne est une loi.",
+    record='''wbm.record("M06.25", [0.9182958340544894, 1.440645449615346, 0.0], decimals=4,
+           mistakes={"la fonction donne des bits par défaut (base=2) : divise par ln 2":
+                         [0.6365141682948128, 0.9985793315873919, 0.0],
+                     "divise d'abord chaque ligne par sa somme : les entropies portent sur les lois conditionnelles":
+                         [0.7965784284662087, 1.1050294178010835, 0.5210896782498619]})''',
+    note=r"$x \ln x \to 0$ quand $x \to 0^+$ (avec $x = \frac{1}{t}$, $x \ln x = -\frac{\ln t}{t}$ tend vers 0, R6) : "
+         r"une issue impossible n'apporte rien à l'entropie, d'où la convention. Les lignes de `T25`, divisées par leur "
+         r"somme, sont $(\frac{2}{3}, 0, \frac{1}{3})$, $(0{,}35 ;\ 0{,}5 ;\ 0{,}15)$ et $(0, 1, 0)$ : leurs entropies "
+         r"valent environ 0,9183, 1,4406 et 0 (la troisième loi est certaine). $H(Y \mid X) \approx 0{,}3 \times 0{,}9183 "
+         r"+ 0{,}4 \times 1{,}4406 \approx 0{,}8517$.",
 )
 
-M06_26_GIVEN = '''PROBS_UNIFORM_26 = np.full(100, 0.01)                      # probs[k]: the probability of the number k + 1
-PROBS_HARMONIC_26 = 1 / np.arange(1, 101)
-PROBS_HARMONIC_26 = PROBS_HARMONIC_26 / PROBS_HARMONIC_26.sum()   # the probability of n is proportional to 1/n'''
+M06_26_GIVEN = """PROBS_UNIFORM_26 = np.full(100, 0.01)                      # probs[k]: the probability of the server k + 1
+PROBS_AGE_26 = 1 / np.arange(1, 101)
+PROBS_AGE_26 = PROBS_AGE_26 / PROBS_AGE_26.sum()               # the probability of server n is proportional to 1/n"""
 
-M06_26_CHECK = '''with checked("M06.26 défi"):
+M06_26_CHECK = """with checked("M06.26 défi"):
     problems, results = [], {}
-    for law_name, probs_t in [("uniforme", PROBS_UNIFORM_26), ("en 1/n", PROBS_HARMONIC_26)]:
+    for law_name, probs_t in [("uniforme", PROBS_UNIFORM_26), ("en 1/n", PROBS_AGE_26)]:
         counts_t = []
-        for secret in range(1, 101):
+        for faulty in range(1, 101):
             questions = []
 
-            def is_at_most(t, secret=secret, questions=questions):
+            def is_at_most(t, faulty=faulty, questions=questions):
                 questions.append(t)
                 if len(questions) > 200:
                     raise RuntimeError("plus de 200 questions : ta stratégie tourne en rond")
-                return secret <= t
+                return faulty <= t
 
             try:
-                got = guess_number(is_at_most, list(probs_t))
+                got = locate_fault(is_at_most, list(probs_t))
             except NotImplementedError:
                 raise
             except Exception as exc:  # noqa: BLE001
-                problems.append(f"loi {law_name}, nombre {secret} : guess_number lève {type(exc).__name__} ({exc})")
+                problems.append(f"loi {law_name}, serveur {faulty} : locate_fault lève {type(exc).__name__} ({exc})")
                 break
-            if got != secret:
-                problems.append(f"loi {law_name} : pour le nombre {secret}, guess_number renvoie {got!r}")
+            if got != faulty:
+                problems.append(f"loi {law_name} : pour une panne sur le serveur {faulty}, locate_fault renvoie {got!r}")
                 break
             counts_t.append(len(questions))
         if problems:
@@ -1135,48 +1214,49 @@ M06_26_CHECK = '''with checked("M06.26 défi"):
         print("❌ Ex M06.26 : " + problems[0] + ".")
     else:
         worst_u, mean_u = results["uniforme"]
-        mean_h = results["en 1/n"][1]
-        print(f"loi uniforme : {worst_u} questions au plus, {mean_u:.3f} en moyenne · loi en 1/n : {mean_h:.3f} en "
+        mean_a = results["en 1/n"][1]
+        print(f"loi uniforme : {worst_u} questions au plus, {mean_u:.3f} en moyenne · loi en 1/n : {mean_a:.3f} en "
               "moyenne")
         failures = []
         if worst_u > 7:
-            failures.append("plus de 7 questions pour un des nombres, avec la loi uniforme")
+            failures.append("plus de 7 questions pour un des serveurs, avec la loi uniforme")
         if mean_u > 6.72 + 1e-9:
             failures.append("plus de 6,72 questions en moyenne avec la loi uniforme")
-        if mean_h > 5.40 + 1e-9:
-            failures.append("plus de 5,40 questions en moyenne avec la loi en 1/n : sers-toi des probabilités")
+        if mean_a > 5.50 + 1e-9:
+            failures.append("plus de 5,50 questions en moyenne avec la loi en 1/n : sers-toi des probabilités pour "
+                            "choisir chaque question")
         if failures:
             print("❌ Ex M06.26 : objectif pas encore atteint : " + " ; ".join(failures) + ".")
         else:
-            print("✅ Ex M06.26 : défi réussi, les deux objectifs sont atteints.")'''
+            print("✅ Ex M06.26 : défi réussi, les deux objectifs sont atteints.")"""
 
 M06_26 = Ex(
-    "M06.26", "🏆", 3, 25, "Défi : deviner un nombre de 1 à 100 en un minimum de questions",
+    "M06.26", "🏆", 3, 25, "Défi : localiser une panne parmi 100 serveurs en un minimum de questions",
     "concevoir une stratégie de questions par oui ou non qui approche l'entropie, pour une loi uniforme et pour une "
     "loi inégale.", "fiche §2 et §7", tracks="C",
-    body=r"""Je pense à un nombre entre 1 et 100, et tu poses des questions de la forme « ton nombre est-il inférieur ou égal à $t$ ? », auxquelles je réponds par oui ou par non. Chaque suite de réponses est un mot d'un code préfixe binaire (fiche §7) : en moyenne, il faut donc au moins $H$ questions, où $H$ est l'entropie de la loi du nombre, et l'on peut faire moins de $H + 1$… à condition de bien choisir ses questions.
+    body=r"""Cent serveurs, numérotés de 1 à 100, sont branchés à la suite ; l'un d'eux est en panne. Un test indique si la panne est sur l'un des serveurs 1 à $t$ (« oui » ou « non ») : chaque test est une question. Chaque suite de réponses est un mot d'un code préfixe binaire (fiche §7) : en moyenne, il faut donc au moins $H$ questions, où $H$ est l'entropie de la loi du serveur en panne. Des questions de cette forme, qui coupent toujours la liste en deux morceaux, permettent toujours de faire moins de $H + 2$ en moyenne, et souvent bien mieux… à condition de bien les choisir.
 
-Écris `guess_number(is_at_most, probs)`, qui trouve le nombre en appelant `is_at_most(t)` (qui renvoie `True` si le nombre est inférieur ou égal à `t`), et le renvoie. `probs[k]` est la probabilité du nombre `k + 1` : ta stratégie peut s'en servir. **Les objectifs** :
-- pour la loi uniforme sur 1, …, 100 : au plus 7 questions pour chaque nombre, et au plus 6,72 en moyenne ;
-- pour la loi où la probabilité du nombre $n$ est proportionnelle à $\frac{1}{n}$ (les petits nombres sont les plus probables) : au plus 5,40 questions en moyenne, pondérée par les probabilités.
+Écris `locate_fault(is_at_most, probs)`, qui trouve le serveur en panne en appelant `is_at_most(t)` (qui renvoie `True` si la panne est sur l'un des serveurs 1 à `t`), et renvoie son numéro. `probs[k]` est la probabilité que la panne soit sur le serveur `k + 1` : ta stratégie peut s'en servir. **Les objectifs** :
+- quand tous les serveurs ont la même probabilité : au plus 7 questions pour chaque serveur, et au plus 6,72 en moyenne ;
+- quand la probabilité du serveur $n$ est proportionnelle à $\frac{1}{n}$ (les premiers, les plus anciens, tombent plus souvent en panne) : au plus 5,50 questions en moyenne, pondérée par les probabilités.
 
-La vérification essaie ta fonction sur les 100 nombres, pour les deux lois, en comptant les questions. Elle vérifie aussi `bound_26`, l'entropie en bits de la seconde loi, que tu calcules (4 décimales) : le nombre moyen de questions ne peut pas descendre en dessous.
+La vérification essaie ta fonction sur les 100 serveurs, pour les deux lois, en comptant les questions. Elle vérifie aussi `bound_26`, l'entropie en bits de la seconde loi, que tu calcules (4 décimales) : le nombre moyen de questions ne peut pas descendre en dessous.
 
-Dans ta copie : pourquoi 6,72 est-il le mieux possible pour la loi uniforme (combien de nombres peut-on distinguer avec 6 questions ? avec 7 ?) ? Pourquoi couper l'intervalle en deux moitiés de même longueur ne suffit-il pas pour la seconde loi ? Compare ton score à `bound_26`.""",
+Dans ta copie : pourquoi 6,72 est-il le mieux possible pour la loi uniforme (combien de serveurs peut-on distinguer avec 6 questions ? avec 7 ?) ? Pourquoi couper la liste en deux moitiés de même longueur ne suffit-il pas pour la seconde loi ? Compare ton score à `bound_26`.""",
     given=M06_26_GIVEN,
-    todo='''def guess_number(is_at_most, probs):
-    """Find the number (1 to len(probs)) with questions is_at_most(t) -> bool; probs[k] is the probability of k + 1."""
-    raise NotImplementedError("garde l'intervalle des nombres possibles, et coupe-le en deux parts bien choisies")
+    todo='''def locate_fault(is_at_most, probs):
+    """The faulty server (1 to len(probs)), found with tests is_at_most(t) -> bool; probs[k] is the probability of k + 1."""
+    raise NotImplementedError("garde la liste des serveurs encore possibles, et coupe-la en deux parts bien choisies")
 
 
-bound_26 = ...  # the entropy, in bits, of PROBS_HARMONIC_26 (4 decimals)''',
-    check=M06_26_CHECK + '''
+bound_26 = ...  # the entropy, in bits, of PROBS_AGE_26 (4 decimals)''',
+    check=M06_26_CHECK + """
 with checked("M06.26"):
-    wbm.check("M06.26", bound_26)''',
-    solution='''def guess_number(is_at_most, probs):
-    """Find the number (1 to len(probs)) with questions is_at_most(t) -> bool; probs[k] is the probability of k + 1."""
-    lo, hi = 1, len(probs)                                   # the number is in lo..hi
-    cumulative = np.concatenate([[0.0], np.cumsum(probs)])   # cumulative[k] = P(number <= k)
+    wbm.check("M06.26", bound_26)""",
+    solution='''def locate_fault(is_at_most, probs):
+    """The faulty server (1 to len(probs)), found with tests is_at_most(t) -> bool; probs[k] is the probability of k + 1."""
+    lo, hi = 1, len(probs)                                   # the faulty server is in lo..hi
+    cumulative = np.concatenate([[0.0], np.cumsum(probs)])   # cumulative[k] = P(faulty server <= k)
     while lo < hi:
         middle = (cumulative[lo - 1] + cumulative[hi]) / 2   # half of the probability left
         candidates = np.arange(lo, hi)
@@ -1188,22 +1268,21 @@ with checked("M06.26"):
     return lo
 
 
-p_26 = PROBS_HARMONIC_26
+p_26 = PROBS_AGE_26
 bound_26 = float(-np.sum(p_26 * np.log2(p_26)))
 print("entropy of the 1/n law:", bound_26, "· of the uniform law:", math.log2(100))''',
     after=[("solution", M06_26_CHECK)],
     record='''wbm.record("M06.26", 5.310239799410162, decimals=4,
            mistakes={"la question demande des bits : log₂, pas ln": 3.680777745058364,
-                     "c'est l'entropie de la loi uniforme : calcule celle de PROBS_HARMONIC_26": 6.643856189774724})''',
-    note=r"Avec 6 questions, on distingue au plus $2^6 = 64$ nombres, avec 7, $2^7 = 128$ : pour 100 nombres, il faut "
-         r"7 questions pour certains ; au mieux, 28 nombres en demandent 6 et 72 en demandent 7, soit $\frac{28 \times 6 "
+                     "c'est l'entropie de la loi uniforme : calcule celle de PROBS_AGE_26": 6.643856189774724})''',
+    note=r"Avec 6 questions, on distingue au plus $2^6 = 64$ serveurs, avec 7, $2^7 = 128$ : pour 100 serveurs, il faut "
+         r"7 questions pour certains ; au mieux, 28 serveurs en demandent 6 et 72 en demandent 7, soit $\frac{28 \times 6 "
          r"+ 72 \times 7}{100} = 6{,}72$ en moyenne (l'entropie vaut $\log_2 100 \approx 6{,}64$). Pour la loi en "
-         r"$\frac{1}{n}$, couper l'intervalle en deux moitiés de même longueur pose autant de questions pour 1, très "
-         r"probable, que pour 100, très rare : environ 6,83 en moyenne. Couper la **probabilité** restante en deux "
+         r"$\frac{1}{n}$, couper la liste en deux moitiés de même longueur pose autant de questions pour le serveur 1, très "
+         r"probable, que pour le 100, très rare : environ 6,83 en moyenne. Couper la **probabilité** restante en deux "
          r"parts aussi égales que possible donne environ 5,37 questions en moyenne, tout près de l'entropie, environ "
-         r"5,31 bits : les nombres probables reçoivent des mots courts, comme dans un bon code.",
+         r"5,31 bits : les serveurs probables reçoivent des mots courts, comme dans un bon code.",
 )
-
 
 PART_A = Part("A", "Ta librairie : entropies d'un tableau, information mutuelle, Kraft, Jensen ; scikit-learn",
               "Fiche §3, §4, §6 et §7. Les six fonctions de `mymath/info.py`, puis l'information mutuelle de "
@@ -1216,7 +1295,7 @@ PART_B = Part("B", "Une prédiction, une expérience et une figure",
               exercises=[M06_21, M06_22, M06_23])
 
 PART_C = Part("C", "Erreurs classiques, savoir-faire et défi",
-              "Fiche §1, §2, §5 et §7. Trois erreurs à trouver, 0 log 0 calculé proprement, puis un nombre à deviner "
+              "Fiche §1, §2, §5 et §7. Trois erreurs à trouver, 0 log 0 calculé proprement, puis une panne à localiser "
               "en un minimum de questions.",
               exercises=[M06_24, M06_25, M06_26])
 
@@ -1256,9 +1335,9 @@ def objectives_cell() -> list:
                "conditionnelle, information mutuelle, cross-entropy et KL, inégalité de Jensen, Kraft, longueur "
                "moyenne d'un code, log loss d'un classifieur, choix d'une feature.\n"
                "- Écrire les six fonctions de `mymath/info.py` et les tester, puis utiliser scikit-learn.\n"
-               "- Prédire l'information mutuelle de $X$ avec $2X$ et $X^2$, mesurer le biais de l'entropie estimée, "
-               "dessiner le diagramme de l'information, chasser des erreurs, calculer $0 \\log 0$ proprement, deviner "
-               "un nombre en un minimum de questions.\n\n"
+               "- Prédire l'information mutuelle de $X$ avec $X^3$ et $X^2$, mesurer le biais de l'entropie estimée, "
+               "dessiner le diagramme de l'information, chasser des erreurs, calculer $0 \\log 0$ proprement, localiser "
+               "une panne en un minimum de questions.\n\n"
                "**Rappel express.** $H(X) = -\\sum p \\log_2 p$ ; $H(X, Y) = H(X) + H(Y \\mid X)$ ; $I(X ; Y) = "
                "H(Y) - H(Y \\mid X) = H(X) + H(Y) - H(X, Y) \\ge 0$ ; $H(p, q) = -\\sum p \\log_2 q = H(p) + "
                "\\mathrm{KL}(p \\,\\|\\, q)$ ; Jensen : $\\mathbb{E}[f(X)] \\ge f(\\mathbb{E}[X])$ pour $f$ convexe ; "

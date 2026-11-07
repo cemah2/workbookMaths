@@ -104,11 +104,9 @@
 - d :
 - e :
 - f :
-- g :
-- h :
-- Pourquoi f) est plus petite que 2 bits ; ce qu'on perd en regroupant les deux erreurs ; f) − h) écrit comme ¼ fois l'entropie d'une loi à deux issues :
+- b) comme moyenne pondérée des informations de a) ; ce qu'on perd en regroupant les deux erreurs ; b) − e) écrit comme 0,1 fois l'entropie d'une loi à deux issues ; f) justifiée par la règle de la chaîne :
 
-### Ex M06.2 — L'entropie maximale : comparer trois lois à trois issues
+### Ex M06.2 — L'entropie maximale : comparer des lois à quatre issues
 
 - a :
 - b :
@@ -116,8 +114,7 @@
 - d :
 - e :
 - f :
-- g :
-- Les cinq lois rangées par entropie croissante ; ce que fait l'entropie quand on rapproche les probabilités ; la plus petite entropie possible, et pour quelles lois :
+- L'effet du transfert de b) et du regroupement de c) ; la loi qui atteint le maximum de e), et pourquoi :
 
 ### Ex M06.3 — Entropies conjointe et conditionnelle d'un tableau 2 × 3
 
@@ -127,7 +124,7 @@
 - d :
 - e :
 - f :
-- La règle de la chaîne vérifiée de deux façons ; pourquoi H(Y | X = gratuit) = 0 ; comment f) se concilie avec « en moyenne, savoir ne rend pas moins sûr » :
+- La règle de la chaîne vérifiée de deux façons ; pourquoi H(Y | X = gratuit) = 0 ; le signe de f), comparé à celui de H(Y | X) − H(Y) :
 
 ### Ex M06.4 — La règle de la chaîne de l'entropie, vérifiée
 
@@ -161,8 +158,7 @@
 - e :
 - f :
 - g :
-- h :
-- Les types plus chers et moins chers qu'avec le meilleur code ; le signe de chaque terme de la somme de d), et pourquoi le total ne peut pas être négatif :
+- L'inégalité de Kraft pour les longueurs du compresseur ; les types plus chers et moins chers qu'avec le meilleur code ; le signe de chaque terme de la somme de d), et pourquoi le total ne peut pas être négatif :
 
 ### Ex M06.7 — L'inégalité de Jensen sur trois exemples
 
@@ -173,7 +169,6 @@
 - e :
 - f :
 - g :
-- h :
 - Pour chaque exemple : f convexe ou concave, et le signe de l'écart :
 
 ### Ex M06.8 — Kraft : ces longueurs de code sont-elles possibles ?
@@ -186,7 +181,7 @@
 - f :
 - g :
 - h :
-- Pour a) à e) : un code préfixe existe-t-il ? (en écrire un) ; pourquoi h) ne contredit pas g) :
+- Pour a) à e) : un code préfixe existe-t-il ? (en écrire un) ; ce que dit l'inégalité de Kraft, et ce qu'elle ne dit pas (g) et h)) :
 
 ### Ex M06.9 — La longueur moyenne d'un code, comparée à l'entropie
 
@@ -198,7 +193,7 @@
 - f :
 - g :
 - h :
-- Un code préfixe qui a les longueurs de Shannon ; le meilleur des deux codes, et la place inutilisée du code de Shannon :
+- Un code préfixe de longueurs h) ; les quatre codes rangés par longueur moyenne, situés par rapport à H(p) et H(p) + 1 ; l'échange de deux mots qui améliore le code donné :
 
 ## ∂ Démonstrations
 
@@ -241,7 +236,7 @@
 - e :
 - f :
 - g :
-- Pourquoi la feature de g) serait inutile pour un nouveau client ; pourquoi F₃ part avec un avantage :
+- g) justifié par un calcul ; l'information mutuelle d'un numéro de client sur ces données, et son utilité pour un nouveau client ; comparer des features qui n'ont pas le même nombre de valeurs :
 
 ### Ex M06.14 — Fermi : combien de bits pour un génome humain ?
 
@@ -290,13 +285,13 @@
 
 - L'entropie que donne c) ; pourquoi e) n'est pas nulle, et ce qu'elle deviendrait avec 4 000 observations ; le piège pour classer des features sur peu de données :
 
-### Ex M06.21 — Prédire : l'information mutuelle de X et 2X, de X et X²
+### Ex M06.21 — Prédire : l'information mutuelle de X et X³, de X et X²
 
-- Mes prédictions avant l'expérience (et pourquoi) ; H(X | 2X) et H(X² | X) ; ce qui reste inconnu sur X quand on connaît X², en bits ; pourquoi la corrélation ne voit rien :
+- Mes prédictions avant l'expérience (et pourquoi) ; pourquoi I(X ; X³) = H(X) alors que la corrélation n'est pas 1 ; pourquoi I(X ; X²) = H(X²) ; ce qui reste inconnu sur X quand on connaît X², en bits ; ce que mesurent la corrélation et l'information mutuelle :
 
 ### Ex M06.22 — Estimer une entropie à partir d'un échantillon : le biais des petits échantillons
 
-- Le sens de l'erreur du plug-in, et pourquoi ; b) et c) comparés à −(k − 1)/(2n ln 2) ; la conséquence pour l'information mutuelle estimée :
+- Le sens de l'erreur du plug-in, et pourquoi ; a) et b) comparés à −(k − 1)/(2n ln 2) ; pourquoi Miller-Madow laisse un biais pour n = 10 ; la conséquence pour l'information mutuelle estimée :
 
 ### Ex M06.23 — Un diagramme de l'information : H(X), H(Y), H(X | Y), I(X ; Y)
 
@@ -308,8 +303,8 @@
 
 ### Ex M06.25 — Calculer 0 log 0 proprement (`scipy.special.xlogy`)
 
-- La limite de x ln x en 0 ; ce que calcule scipy.special.entr ; l'entropie de chaque ligne d'un tableau avec xlogy et axis=1 :
+- La limite de x ln x en 0 ; H(Y | X) pour T25, à partir de ma liste ; pourquoi la troisième ligne a une entropie nulle :
 
-### Ex M06.26 — Défi : deviner un nombre de 1 à 100 en un minimum de questions
+### Ex M06.26 — Défi : localiser une panne parmi 100 serveurs en un minimum de questions
 
-- Pourquoi 6,72 est le mieux possible pour la loi uniforme ; pourquoi couper l'intervalle en deux ne suffit pas pour la seconde loi ; mon score comparé à bound_26 :
+- Pourquoi 6,72 est le mieux possible pour la loi uniforme ; pourquoi couper la liste en deux moitiés ne suffit pas pour la seconde loi ; mon score comparé à bound_26 :

@@ -40,7 +40,7 @@ L'entropie est la moyenne des surprises $-\log_2 p(x)$, pondérée par les proba
 </details>
 <details><summary>Indice 3</summary>
 
-2 : la plus grande entropie sur $n$ issues est $\log_2 n$. 5 : laquelle des deux lois est la plus prévisible ?
+2 : la plus grande entropie sur $n$ issues est $\log_2 n$ ; combien vaut $\log_2 12$ ? 5 : laquelle des deux lois est la plus prévisible ?
 
 </details>
 
@@ -130,7 +130,7 @@ Un code est préfixe si aucun mot n'est le début d'un autre ; des longueurs son
 </details>
 <details><summary>Indice 3</summary>
 
-2 : compare chaque paire de mots, puis calcule la somme de Kraft. 5 : la plus petite puissance de 2 au moins égale à 50.
+2 : compare chaque paire de mots, puis calcule la somme de Kraft. 5 : la plus petite puissance de 2 au moins égale à 1 000.
 
 </details>
 
@@ -147,12 +147,12 @@ Relis R6 (logarithmes) : $\log_2 x$ est l'exposant $y$ tel que $2^y = x$.
 </details>
 <details><summary>Indice 2</summary>
 
-$\log_2 \frac{1}{x} = -\log_2 x$, $\log_2 \sqrt{x} = \frac{1}{2}\log_2 x$, et $\log_2 x = \frac{\ln x}{\ln 2}$.
+$\log_2 \frac{1}{x} = -\log_2 x$, $\log_2(ab) = \log_2 a + \log_2 b$, $\log_2 \sqrt{x} = \frac{1}{2}\log_2 x$, $\log_2 x = \frac{\ln x}{\ln 2}$, et $\log_2 x = a$ équivaut à $x = 2^a$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $4096 = 2^{12}$. 3 : $\log_2 a - \log_2 b = \log_2 \frac{a}{b}$.
+1 : $4096 = 2^{12}$ et $2\sqrt{2} = 2^1 \times 2^{1/2}$. 3 : $48 = 16 \times 3$. 5 : pour quelle valeur de $p$ le logarithme est-il nul ?
 
 </details>
 
@@ -210,25 +210,25 @@ L'information d'une issue est $-\log_2 p$ ; l'entropie est la moyenne de ces inf
 </details>
 <details><summary>Indice 3</summary>
 
-c) $-\log_2 \frac{3}{16} = \log_2 16 - \log_2 3$. f) Garde $\log_2 3$ jusqu'au bout. h) Les deux erreurs regroupées ont la probabilité $\frac{3}{16} + \frac{1}{16}$.
+a) $-\log_2 0{,}55 = \frac{-\ln 0{,}55}{\ln 2}$. e) Les deux erreurs regroupées ont la probabilité $0{,}07 + 0{,}03$. f) Pour deux variables indépendantes, la règle de la chaîne s'écrit avec $H(Y \mid X) = H(Y)$.
 
 </details>
 
-### Ex M06.2 — L'entropie maximale : comparer trois lois à trois issues
+### Ex M06.2 — L'entropie maximale : comparer des lois à quatre issues
 
 <details><summary>Indice 1</summary>
 
-Relis « Ses valeurs extrêmes » (fiche §2).
+Relis « Ses valeurs extrêmes » (fiche §2), et le regroupement de M06.1.
 
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque loi, la somme $\sum -p \log_2 p$ ; une issue de probabilité 0 compte pour 0.
+Pour chaque loi, la somme $\sum -p \log_2 p$. Pour e), sépare l'issue fixée des trois autres, comme le regroupement de M06.1 : $H = H(0{,}45 ;\ 0{,}55) + 0{,}55 \times (\ldots)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-d) Compare a), b) et c). g) La plus grande entropie sur trois issues est celle de la loi uniforme ; en nats, $\ln$ au lieu de $\log_2$.
+e) Le terme entre parenthèses est l'entropie de la loi des trois dernières issues, sachant que la première n'est pas sortie : pour quelle loi est-il le plus grand ?
 
 </details>
 
@@ -236,17 +236,17 @@ d) Compare a), b) et c). g) La plus grande entropie sur trois issues est celle d
 
 <details><summary>Indice 1</summary>
 
-Relis l'exemple des 200 étudiants (fiche §3).
+Relis l'exemple des 200 élèves (fiche §3).
 
 </details>
 <details><summary>Indice 2</summary>
 
-$H(Y \mid X = x)$ est l'entropie de la ligne $x$ divisée par $P(X = x)$ ; $H(Y \mid X)$ est la moyenne de ces entropies, pondérée par $P(X = x)$.
+La loi de $Y$ sachant $X = x$ est la ligne $x$ dont chaque case est divisée par $P(X = x)$ ; $H(Y \mid X)$ est la moyenne des entropies de ces lois, pondérée par $P(X = x)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-b) La ligne « payant » divisée par $\frac{1}{2}$. d) La loi de $Y$ : les sommes des colonnes. e) La règle de la chaîne : $H(X \mid Y) = H(X, Y) - H(Y)$.
+b) La ligne « payant » divisée par 0,6. d) La loi de $Y$ : les sommes des colonnes. e) La règle de la chaîne : $H(X \mid Y) = H(X, Y) - H(Y)$.
 
 </details>
 
@@ -272,7 +272,7 @@ f) La loi de $Y$ : $(0{,}35 + 0{,}2 ;\ 0{,}15 + 0{,}3)$. g) $H(X, Y) - H(Y)$.
 
 <details><summary>Indice 1</summary>
 
-Relis l'exemple des étudiants (fiche §3 et §4).
+Relis l'exemple des élèves (fiche §3 et §4).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -282,7 +282,7 @@ $I(X ; Y) = H(Y) - H(Y \mid X)$ : calcule d'abord $H(Y)$ avec la loi de $Y$, pui
 </details>
 <details><summary>Indice 3</summary>
 
-d) Les trois lignes, une fois divisées, sont $(\frac{1}{8}, \frac{7}{8})$, $(\frac{1}{2}, \frac{1}{2})$ et $(1, 0)$, de poids $\frac{1}{2}$, $\frac{1}{4}$, $\frac{1}{4}$. g) $H(X \mid Y) = H(X) - I(X ; Y)$.
+d) Les trois lignes, une fois divisées, sont $(\frac{1}{9}, \frac{8}{9})$, $(\frac{2}{3}, \frac{1}{3})$ et $(1, 0)$, de poids $\frac{9}{16}$, $\frac{3}{16}$, $\frac{1}{4}$. g) $H(X \mid Y) = H(X) - I(X ; Y)$.
 
 </details>
 
@@ -300,7 +300,7 @@ La longueur du mot du type $i$ est $-\log_2 q_i$ ; la longueur moyenne sur les d
 </details>
 <details><summary>Indice 3</summary>
 
-c) Les longueurs du compresseur sont $(1, 3, 3, 3, 3)$. d) $H(p, q) - H(p)$. g) $p_1 = \frac{1}{4}$ et $q_1 = \frac{1}{2}$.
+c) Écris d'abord la longueur de chacun des cinq mots, puis pondère par $p_i$. d) $H(p, q) - H(p)$. g) $p_1 = \frac{1}{4}$ et $q_1 = \frac{1}{2}$.
 
 </details>
 
@@ -336,7 +336,7 @@ Un mot de longueur $\ell$ prend la part $2^{-\ell}$ (ou $3^{-\ell}$ pour un alph
 </details>
 <details><summary>Indice 3</summary>
 
-f) Il reste $1 - \frac{1}{2} - \frac{1}{4}$ ; combien de parts de $\frac{1}{8}$ y tiennent ? g) Compare 1 et 10.
+f) Il reste $1 - \frac{1}{2} - \frac{1}{4}$ ; combien de parts de $\frac{1}{8}$ y tiennent ? g) Compare les mots deux à deux.
 
 </details>
 
@@ -349,12 +349,12 @@ Relis « Longueur moyenne et entropie » et l'exemple des longueurs de Shannon (
 </details>
 <details><summary>Indice 2</summary>
 
-$\bar{L} = \sum p_i \ell_i$ ; les longueurs de Shannon sont $\lceil -\log_2 p_i \rceil$, arrondies **vers le haut**.
+$\bar{L} = \sum p_i \ell_i$, avec les longueurs des mots du code, dans l'ordre des symboles ; les longueurs de Shannon sont $\lceil -\log_2 p_i \rceil$, arrondies **vers le haut**.
 
 </details>
 <details><summary>Indice 3</summary>
 
-d) $-\log_2 0{,}45 \approx 1{,}15$ donne 2, même si 1,15 est proche de 1. e) $\frac{1}{4} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32}$.
+b) Le deuxième symbole a un mot de 3 chiffres, le troisième un mot de 2. d) $-\log_2 0{,}4 \approx 1{,}32$ donne 2, même si 1,32 est proche de 1.
 
 </details>
 
@@ -389,12 +389,12 @@ Relis l'inégalité de Jensen et son cas d'égalité (fiche §6).
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{E}[\log_2 Z] = \sum_{x \in S} p(x) \log_2 \frac{q(x)}{p(x)}$ : c'est $-\mathrm{KL}(p \,\|\, q)$. Et $\mathbb{E}[Z]$ se simplifie.
+$\mathbb{E}[\log_2 Z] = \sum_{p(x) > 0} p(x) \log_2 \frac{q(x)}{p(x)}$ : c'est $-\mathrm{KL}(p \,\|\, q)$. Et $\mathbb{E}[Z]$ se simplifie en une somme de valeurs de $q$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Question 3 : Jensen pour une fonction concave, puis $\sum_{x \in S} q(x) \le 1$. Question 4 : chacune des deux inégalités doit être une égalité ; que dit chacune ?
+Question 3 : Jensen pour une fonction concave, puis la croissance de $\log_2$. Question 6 : écris $\mathrm{KL}(P \,\|\, Q)$ pour $P_i = \frac{a_i}{A}$ et $Q_i = \frac{b_i}{B}$, et sépare le logarithme du quotient en deux.
 
 </details>
 
@@ -434,7 +434,7 @@ Ici $H(Y) = 1$ : calcule $H(Y \mid F)$ pour chaque feature, ligne par ligne, pui
 </details>
 <details><summary>Indice 3</summary>
 
-a) Chaque ligne de $F_1$, divisée par 10, vaut $(0{,}7 ;\ 0{,}3)$. c) Les lignes de $F_3$ ont les poids $\frac{4}{20}$, $\frac{6}{20}$, $\frac{10}{20}$. g) Que vaut $H(Y \mid F)$ si chaque valeur de $F$ ne concerne qu'un client ?
+a) Chaque ligne de $F_1$, divisée par 10, vaut $(0{,}7 ;\ 0{,}3)$. c) Les lignes de $F_3$ ont les poids $\frac{4}{20}$, $\frac{6}{20}$, $\frac{10}{20}$. g) Écris le tableau regroupé (jeune ; moyen ou senior), puis calcule son information mutuelle.
 
 </details>
 
@@ -540,12 +540,12 @@ Sur les cases `table > 0` : `np.sum(p * np.log(p / product[positive])) / math.lo
 
 <details><summary>Indice 1</summary>
 
-Relis la fiche §7.
+Relis la fiche §7, et la remarque de l'énoncé sur les tableaux NumPy.
 
 </details>
 <details><summary>Indice 2</summary>
 
-Kraft : un terme `alphabet ** -length` par mot (ou `Fraction(1, alphabet ** length)`). Préfixe : `str.startswith`, dans les deux sens.
+Kraft : un terme par mot, `float(alphabet) ** -int(length)` (ou `Fraction(1, int(alphabet) ** int(length))`). Préfixe : `str.startswith`, dans les deux sens.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -590,21 +590,21 @@ b) Divise par `math.log(2)`. d) Compare les deux résultats. e) `rng = np.random
 
 </details>
 
-### Ex M06.21 — Prédire : l'information mutuelle de X et 2X, de X et X²
+### Ex M06.21 — Prédire : l'information mutuelle de X et X³, de X et X²
 
 <details><summary>Indice 1</summary>
 
-Relis « Ce que $X$ apprend sur $Y$ » (fiche §4).
+Relis « Ce que $X$ apprend sur $Y$ » et « Information mutuelle et corrélation » (fiche §4).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Si $Y$ est une fonction de $X$, $H(Y \mid X) = 0$, donc $I(X ; Y) = H(Y)$.
+Que vaut $H(X^3 \mid X)$ ? Et $H(X \mid X^3)$ ? Écris $I(X ; X^2)$ avec une entropie conditionnelle bien choisie.
 
 </details>
 <details><summary>Indice 3</summary>
 
-$2X$ prend 5 valeurs différentes, $X^2$ seulement 3. Pour la corrélation : $\mathbb{E}[X^3] = 0$ par symétrie.
+$X^3$ prend 7 valeurs différentes, $X^2$ seulement 4. Pour la corrélation de $X$ et $X^2$ : $\mathbb{E}[X^3] = 0$ par symétrie.
 
 </details>
 
@@ -612,17 +612,17 @@ $2X$ prend 5 valeurs différentes, $X^2$ seulement 3. Pour la corrélation : $\m
 
 <details><summary>Indice 1</summary>
 
-Relis l'énoncé : il dit comment compter les valeurs.
+Relis la définition du biais d'un estimateur (M02c).
 
 </details>
 <details><summary>Indice 2</summary>
 
-`np.bincount(sample, minlength=k) / len(sample)` donne les fréquences ; garde les non nulles.
+`mean_bias` : la moyenne des estimations sur les échantillons de `SAMPLES_22[n]`, moins `H_22`. `miller_madow` : $n$ est la taille de l'échantillon, et $m$ le nombre de valeurs qui y apparaissent au moins une fois.
 
 </details>
 <details><summary>Indice 3</summary>
 
-`freq = freq[freq > 0]`, puis `float(-np.sum(freq * np.log2(freq)))`.
+`np.bincount(sample, minlength=k)` compte chaque valeur : $m$ est le nombre de comptes non nuls (`np.count_nonzero`). La correction est en bits : n'oublie pas le $\ln 2$.
 
 </details>
 
@@ -671,16 +671,16 @@ Relis l'énoncé : il dit ce que calcule `xlogy(x, y)`.
 </details>
 <details><summary>Indice 2</summary>
 
-`xlogy(p, p)` donne $p \ln p$ case par case, avec 0 pour $p = 0$.
+Divise d'abord chaque ligne par sa somme (`table.sum(axis=1, keepdims=True)` garde la forme) ; `xlogy(c, c)` donne alors $c \ln c$ case par case.
 
 </details>
 <details><summary>Indice 3</summary>
 
-`float(-np.sum(xlogy(p, p)) / math.log(base))`, après `p = np.asarray(p, dtype=float)`.
+Somme chaque ligne (`axis=1`), change le signe, et divise par `math.log(base)`.
 
 </details>
 
-### Ex M06.26 — Défi : deviner un nombre de 1 à 100 en un minimum de questions
+### Ex M06.26 — Défi : localiser une panne parmi 100 serveurs en un minimum de questions
 
 <details><summary>Indice 1</summary>
 
@@ -689,7 +689,7 @@ Relis « Longueur moyenne et entropie » (fiche §7).
 </details>
 <details><summary>Indice 2</summary>
 
-Garde l'intervalle `lo..hi` des nombres possibles. Pour la loi uniforme, couper l'intervalle en deux suffit ; pour l'autre, que faut-il couper en deux parts égales ?
+Garde l'intervalle `lo..hi` des serveurs encore possibles. Pour la loi uniforme, couper l'intervalle en deux suffit ; pour l'autre, que faut-il couper en deux parts égales ?
 
 </details>
 <details><summary>Indice 3</summary>

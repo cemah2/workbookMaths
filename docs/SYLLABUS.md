@@ -1551,7 +1551,7 @@ La théorie de l'information : quantité d'information, entropie, entropies conj
 | M06.R2 | 🔁 | Probabilités jointes et conditionnelles (M03) | ★ | 5 | §3 | C, E | manuel | — |
 | M06.R3 | 🔁 | Convexité (M05a) | ★ | 5 | §6 | C | manuel | — |
 | M06.1 | ✏️ | L'information d'événements et l'entropie d'une loi à quatre issues | ★ | 20 | §1 §2 | C, E | wbm | — |
-| M06.2 | ✏️ | L'entropie maximale : comparer trois lois à trois issues | ★★ | 15 | §2 | C | wbm | — |
+| M06.2 | ✏️ | L'entropie maximale : comparer des lois à quatre issues | ★★ | 15 | §2 | C | wbm | — |
 | M06.3 | ✏️ | Entropies conjointe et conditionnelle d'un tableau 2 × 3 | ★★ | 20 | §3 | C, E | wbm | — |
 | M06.4 | ✏️ | La règle de la chaîne de l'entropie, vérifiée | ★ | 15 | §3 | C | wbm | — |
 | M06.5 | ✏️ | L'information mutuelle de deux variables | ★★ | 20 | §4 | C, E | wbm | — |
@@ -1571,14 +1571,14 @@ La théorie de l'information : quantité d'information, entropie, entropies conj
 | M06.18 | 🔨 | Codes préfixes et somme de Kraft · `kraft_sum, is_prefix_code` | ★ | 15 | §7 | C | pytest | — |
 | M06.19 | 🔨 | L'écart de Jensen d'une loi discrète · `jensen_gap` | ★ | 15 | §6 | C | pytest | — |
 | M06.20 | 📦 | `sklearn.metrics.mutual_info_score` contre ta fonction, en nats | ★ | 15 | §4 | C | wbm | — |
-| M06.21 | 🔮 | Prédire : l'information mutuelle de X et 2X, de X et X² | ★ | 10 | §4 | C, E | wbm | — |
+| M06.21 | 🔮 | Prédire : l'information mutuelle de X et X³, de X et X² | ★ | 10 | §4 | C, E | wbm | — |
 | M06.22 | 🔬 | Estimer une entropie à partir d'un échantillon : le biais des petits échantillons | ★★ | 20 | §2 | C | wbm | — |
 | M06.23 | 🎨 | Un diagramme de l'information : H(X), H(Y), H(X | Y), I(X ; Y) | ★ | 20 | §3 §4 | C | manuel | — |
 | M06.24 | 🐛 | Chasse à l'erreur : log en base 10, 0 log 0, KL à l'envers | ★ | 15 | §5 | C | wbm | — |
-| M06.25 | 🛠️ | Calculer 0 log 0 proprement (`scipy.special.xlogy`) | ★ | 10 | §2 | C | manuel | — |
-| M06.26 | 🏆 | Défi : deviner un nombre de 1 à 100 en un minimum de questions | ★★★ | 25 | §1 §2 | C | wbm | — |
+| M06.25 | 🛠️ | Calculer 0 log 0 proprement (`scipy.special.xlogy`) | ★ | 10 | §2 §3 | C | manuel | — |
+| M06.26 | 🏆 | Défi : localiser une panne parmi 100 serveurs en un minimum de questions | ★★★ | 25 | §1 §2 | C | wbm | — |
 
-*Notes* : Entropie, cross-entropy, KL, Jensen-Shannon, Huffman et perplexité sont les fonctions de `mylearn` en workbookIA 6 ; mymath écrit ce qui les entoure (entropies conjointe et conditionnelle, information mutuelle, Kraft, codes préfixes, écart de Jensen). Le code de Huffman est énoncé, pas construit à la main ni programmé (workbookIA 6.6 et 6.23) ; ni Morse, ni pièce, ni dé, ni textes littéraires (workbookIA 6.1 à 6.4) ; la KL est calculée dans un seul sens, comme des bits perdus (workbookIA 6.5 la calcule dans les deux). COMPOSITION : pas de 📖 (MML ne traite pas l'information) ; lecture conseillée : MacKay, chapitres 1, 2 et 5. Parcours essentiel : Kraft, Jensen-Shannon et démonstrations hors parcours.
+*Notes* : Entropie, cross-entropy, KL, Jensen-Shannon, Huffman et perplexité sont les fonctions de `mylearn` en workbookIA 6 ; mymath écrit ce qui les entoure (entropies conjointe et conditionnelle, information mutuelle, Kraft, codes préfixes, écart de Jensen). Le code de Huffman est énoncé, pas construit à la main ni programmé (workbookIA 6.6 et 6.23) ; ni Morse, ni pièce, ni dé, ni textes littéraires (workbookIA 6.1 à 6.4) ; la KL est calculée dans un seul sens, comme des bits perdus (workbookIA 6.5 la calcule dans les deux). COMPOSITION : pas de 📖 (MML ne traite pas l'information) ; lecture conseillée : MacKay, chapitres 1, 2, 5 et 8. Parcours essentiel : Jensen, la fin du §7 (longueur moyenne), Jensen-Shannon et démonstrations hors parcours ; Kraft y est, par Q7 et M06.8.
 
 <a id="cp1"></a>
 ## CP1 · Examen blanc de la partie I
