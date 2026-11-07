@@ -9,8 +9,9 @@
 Part 0 checks the paper exercises (✏️ M05b.1 to M05b.10, 🔗 M05b.14, 📈 M05b.16); parts A to C are the notebook
 exercises. Wrong-answer messages state a rule, never a number of the answer nor the last step that gives it. The
 functions are new: none is a test case of tests/test_m05b_multivar.py, an answer of the paper exercises, or an
-example of workbookIA 5 (no Rosenbrock, no x² − y², no xy, no x² + xy + 2y², no x³ − 3x − y³ + 3y, no bowl
-x² + 10y², no learning-rate study).
+example of workbookIA 5 (no Rosenbrock, no x² − y², no xy, no x² + xy (its fiche, at (1, 2), with u = (0.6, 0.8)),
+no x² + 3xy (its PyTorch box), no x² + xy + 2y², no x³ − 3x − y³ + 3y, no x⁴ + y⁴ − 4xy, no x³ + y², no bowl
+x² + 10y², no learning-rate study, no integer point losing h).
 """
 
 from __future__ import annotations
@@ -42,7 +43,7 @@ PAPER = [
          '''mistakes={"la ligne de niveau coupe l'axe des x là où y = 0 : résous l'équation en x jusqu'au bout": 36}'''),
         ("d", "an integer", "2",
          '''mistakes={"la ligne de niveau coupe l'axe des y là où x = 0 : résous l'équation en y jusqu'au bout (une '''
-         '''racine carrée)": 4, "c'est l'intersection avec l'axe des x ; la question porte sur l'axe des y": 6}'''),
+         '''racine carrée)": 4, "tu as répondu pour l'autre axe": 6}'''),
         ("e", "an integer", "13",
          '''mistakes={"x est au carré dans f₂": 11}'''),
         ("f", "an integer", "-2",
@@ -75,32 +76,33 @@ PAPER = [
     ]),
 
     Paper("M05b.3", "Le gradient en un point et sa norme", [
-        ("a", "a list of 2 integers", "[4, 1]",
-         '''mistakes={"∂f/∂y contient aussi la dérivée du terme −3y": [4, 4]}'''),
-        ("b", "a number (4 decimals)", "17 ** 0.5",
-         '''decimals=4, mistakes={"la norme est la racine carrée de la somme des carrés": 17, '''
-         '''"la norme n'est pas la somme des composantes": 5}'''),
+        ("a", "a list of 2 integers", "[12, 1]",
+         '''mistakes={"∂f/∂y contient aussi la dérivée du terme −3y": [12, 4]}'''),
+        ("b", "a number (4 decimals)", "145 ** 0.5",
+         '''decimals=4, mistakes={"la norme est la racine carrée de la somme des carrés": 145, '''
+         '''"la norme n'est pas la somme des composantes": 13}'''),
         ("c", "a list of 2 integers", "[0, -3]", ''),
         ("d", "a list (3 decimals)", "[-3 ** 0.5, 3 ** 0.5]",
-         '''decimals=3, mistakes={"l'équation en x a deux solutions": [3 ** 0.5]}'''),
-        ("e", "a list (4 decimals)", "[4 / 17 ** 0.5, 1 / 17 ** 0.5]",
-         '''decimals=4, mistakes={"divise le gradient par sa norme pour obtenir un vecteur unitaire": [4, 1]}'''),
+         '''decimals=3, mistakes={"un nombre positif a deux racines carrées : garde toutes les solutions": '''
+         '''[3 ** 0.5]}'''),
+        ("e", "a list (4 decimals)", "[12 / 145 ** 0.5, 1 / 145 ** 0.5]",
+         '''decimals=4, mistakes={"divise le gradient par sa norme pour obtenir un vecteur unitaire": [12, 1]}'''),
         ("f", "a number (4 decimals)", "8 ** 0.5",
          '''decimals=4, mistakes={"la norme est la racine carrée de la somme des carrés": 8}'''),
     ]),
 
-    Paper("M05b.4", "La dérivée directionnelle dans trois directions", [
+    Paper("M05b.4", "La dérivée directionnelle dans plusieurs directions", [
         ("a", "an integer", "10",
          '''mistakes={"dans la direction (1, 0), c'est la dérivée partielle par rapport à x": -2}'''),
         ("b", "an integer", "2",
          '''mistakes={"la direction est (0, −1), pas (0, 1)": -2}'''),
-        ("c", "a number (1 decimal)", "(30 - 8) / 5",
-         '''decimals=1, mistakes={"divise le vecteur (3, 4) par sa norme avant le produit scalaire": 22}'''),
+        ("c", "a number (2 decimals)", "(70 - 48) / 25",
+         '''decimals=2, mistakes={"divise le vecteur (7, 24) par sa norme avant le produit scalaire": 22}'''),
         ("d", "a number (4 decimals)", "8 / 2 ** 0.5",
          '''decimals=4, mistakes={"divise le vecteur (1, 1) par sa norme avant le produit scalaire": 8}'''),
-        ("e", "a number (1 decimal)", "(-30 - 8) / 5",
-         '''decimals=1, mistakes={"la direction va de P vers Q : c'est Q − P": 7.6, '''
-         '''"divise le vecteur Q − P par sa norme": -38}'''),
+        ("e", "a number (1 decimal)", "(-50 - 24) / 13",
+         '''decimals=1, mistakes={"la direction va de P vers Q : c'est Q − P": 74 / 13, '''
+         '''"divise le vecteur Q − P par sa norme": -74}'''),
         ("f", "a number (3 decimals)", "104 ** 0.5",
          '''decimals=3, mistakes={"la norme est la racine carrée de la somme des carrés": 104}'''),
         ("g", "a number (2 decimals)", "math.degrees(math.acos(8 / (104 ** 0.5 * 2 ** 0.5)))",
@@ -108,23 +110,24 @@ PAPER = [
     ]),
 
     Paper("M05b.5", "Monter le plus vite : la direction et la valeur de la plus grande pente", [
-        ("a", "a list of 2 integers", "[-5, -3]", ''),
-        ("b", "a list (4 decimals)", "[-5 / 34 ** 0.5, -3 / 34 ** 0.5]",
-         '''decimals=4, mistakes={"divise le gradient par sa norme pour obtenir un vecteur unitaire": [-5, -3], '''
-         '''"c'est la direction où T diminue le plus vite": [5 / 34 ** 0.5, 3 / 34 ** 0.5]}'''),
-        ("c", "a number (3 decimals)", "34 ** 0.5",
+        ("a", "a list of 2 integers", "[-5, -3]",
+         '''mistakes={"le terme xy compte dans les deux dérivées partielles": [-6, -6]}'''),
+        ("b", "a number (3 decimals)", "34 ** 0.5",
          '''decimals=3, mistakes={"la norme est la racine carrée de la somme des carrés": 34, '''
          '''"la norme n'est pas la somme des valeurs absolues des composantes": 8}'''),
-        ("d", "a list (4 decimals)", "[5 / 34 ** 0.5, 3 / 34 ** 0.5]",
-         '''decimals=4, mistakes={"c'est la direction où T augmente le plus vite": [-5 / 34 ** 0.5, -3 / 34 ** 0.5]}'''),
-        ("e", "a list (4 decimals)", "[3 / 34 ** 0.5, -5 / 34 ** 0.5]",
-         '''decimals=4, mistakes={"vérifie que ton vecteur est orthogonal au gradient : leur produit scalaire doit être '''
-         '''nul": [5 / 34 ** 0.5, -3 / 34 ** 0.5], "la première composante doit être positive": '''
-         '''[-3 / 34 ** 0.5, 5 / 34 ** 0.5]}'''),
-        ("f", "a number (2 decimals)", "0.1 * 34 ** 0.5",
-         '''decimals=2, mistakes={"multiplie la pente par le déplacement, 0,1 cm": 34 ** 0.5, '''
-         '''"c'est la variation exacte ; la question demande l'estimation au premier ordre, avec le taux de c)": '''
-         '''0.57}'''),
+        ("c", "a number (2 decimals)", "math.degrees(math.atan2(-3, -5)) % 360",
+         '''decimals=2, mistakes={"les deux composantes du gradient sont négatives : dans quel quadrant pointe-t-il ?": '''
+         '''{math.degrees(math.atan(3 / 5)), 180 - math.degrees(math.atan(3 / 5))}, '''
+         '''"donne l'angle entre 0 et 360 degrés": math.degrees(math.atan2(-3, -5)), '''
+         '''"l'angle est demandé en degrés": math.atan2(-3, -5) % (2 * math.pi)}'''),
+        ("d", "a number (3 decimals)", "18 / 10 ** 0.5",
+         '''decimals=3, mistakes={"divise le vecteur qui va de P vers O par sa norme": 18, '''
+         '''"la direction va de P vers O : c'est O − P": -18 / 10 ** 0.5}'''),
+        ("e", "a number (2 decimals)", "math.degrees(math.acos(18 / 340 ** 0.5))",
+         '''decimals=2, mistakes={"l'angle est demandé en degrés": math.acos(18 / 340 ** 0.5)}'''),
+        ("f", "an irreducible fraction, as text", "Fraction(-5, 3)",
+         F + ''', mistakes={"la tangente à l'isotherme est orthogonale au gradient, pas parallèle": "3/5", '''
+             '''"attention au signe de la pente": "5/3"}'''),
     ]),
 
     Paper("M05b.6", "Le plan tangent et l'approximation d'une valeur", [
@@ -166,24 +169,24 @@ PAPER = [
     ]),
 
     Paper("M05b.8", "Les points critiques et leur nature (test du second ordre)", [
-        ("a", "an integer", "2",
-         '''mistakes={"l'équation en x a deux solutions": 1}'''),
+        ("a", "an integer", "-24",
+         '''mistakes={"calcule f_xx en (−2, 2), avec son signe": 24}'''),
         ("b", "a letter, as text", '"A"',
          '''mistakes={"regarde le signe de f_xx en ce point": "B", '''
          '''"calcule D = f_xx f_yy − f_xy² en ce point : son signe décide": "C", '''
-         '''"D n'est pas nul en ce point : le test conclut": "D"}'''),
+         '''"D n'est pas nul en ce point : le test conclut": "D", "réponds par une lettre : A, B, C ou D": {"minimum", "maximum", "selle", "point selle", "min", "max"}}'''),
         ("c", "a letter, as text", '"C"',
          '''mistakes={"calcule D = f_xx f_yy − f_xy² en (−2, 2) : son signe passe avant celui de f_xx": {"A", "B"}, '''
-         '''"D n'est pas nul en ce point : le test conclut": "D"}'''),
+         '''"D n'est pas nul en ce point : le test conclut": "D", "réponds par une lettre : A, B, C ou D": {"minimum", "maximum", "selle", "point selle", "min", "max"}}'''),
         ("d", "an integer", "-20", ''),
         ("e", "an integer", "4",
          '''mistakes={"le système x² + y² = 5, xy = 2 a aussi des solutions négatives": 2}'''),
         ("f", "an integer", "2",
-         '''mistakes={"calcule D = 36(x² − y²) en chacun des points critiques": {0, 4}}'''),
+         '''mistakes={"calcule D = 36(x² − y²) en chacun des points critiques": {0, 1, 3, 4}}'''),
         ("g", "an integer", "28",
-         '''mistakes={"c'est la valeur du minimum local ; la question demande celle du maximum local": -28}'''),
+         '''mistakes={"c'est la valeur de g en un autre point critique": -28}'''),
         ("h", "a letter, as text", '"D"',
-         '''mistakes={"le test ne voit que D et f_xx : calcule D en (0, 0)": {"A", "B", "C"}}'''),
+         '''mistakes={"le test ne voit que D et f_xx : calcule D en (0, 0)": {"A", "B", "C"}, "réponds par une lettre : A, B, C ou D": {"minimum", "maximum", "selle", "point selle", "min", "max"}}'''),
     ]),
 
     Paper("M05b.9", "Pourquoi un petit pas contre le gradient fait baisser f : le calcul au premier ordre", [
@@ -211,8 +214,10 @@ PAPER = [
         ("e", "an integer", "8",
          '''mistakes={"compare les valeurs de f aux deux extrémités du segment": 4}'''),
         ("f", "a list of 2 integers", "[1, 0]", ''),
-        ("g", "an integer", "-1", ''),
-        ("h", "an integer", "0", ''),
+        ("g", "an integer", "-1",
+         '''mistakes={"refais le calcul de f en ce point, terme par terme": 0}'''),
+        ("h", "an integer", "0",
+         '''mistakes={"refais le produit scalaire, composante par composante": {1, -1}}'''),
     ]),
 
     Paper("M05b.14", "La loss d'un neurone à deux poids sur deux exemples : son gradient", [
@@ -235,8 +240,8 @@ PAPER = [
         ("c", "an integer", "3", ''),
         ("d", "an integer", "5", ''),
         ("e", "an integer", "2", ''),
-        ("f", "a letter, as text", '"Q"',
-         '''mistakes={"compare l'écart entre les lignes de niveau autour des deux points": "P"}'''),
+        ("f", "an integer", "6",
+         '''mistakes={"recompte les lignes traversées une à une, en suivant le segment de P à Q": {5, 7}}'''),
     ]),
 ]
 
@@ -294,8 +299,8 @@ HOWTO = ("> **Mode d'emploi `mymath`** (comme en M03). Ouvre ta copie `mon_trava
          "code, **enregistre** le fichier, puis exécute les cellules ci-dessous : la première recharge ta librairie. "
          "Une fonction de plusieurs variables prend **un seul** argument, un tableau NumPy `p` (`p[0]` est $x$, "
          "`p[1]` est $y$…) : par exemple `lambda p: p[0] ** 2 * p[1]`. NumPy suffit ; SymPy et `numpy.gradient` sont "
-         "interdits : les tests comparent tes résultats à eux, et un test vérifie que tu ne t'en sers pas. Les "
-         "nombres renvoyés sont des `float` de Python, les vecteurs des tableaux NumPy.")
+         "interdits : les tests comparent tes résultats aux dérivées exactes calculées par SymPy, et un test vérifie "
+         "que tu ne te sers d'aucun des deux. Les nombres renvoyés sont des `float` de Python, les vecteurs des tableaux NumPy.")
 
 OTHER_ERRORS = ["AssertionError", "Exception", "IndexError", "KeyError", "OverflowError", "RecursionError",
                 "TypeError", "ValueError", "RuntimeError", "ZeroDivisionError"]
@@ -324,7 +329,7 @@ M05B_18 = Ex(
     "point.", "fiche §2 ; M05a §5", tracks="C, E", mymath="multivar.py",
     body=HOWTO + """
 
-Écris `partial_derivative(f, point, i, h=1e-5)` (fiche §2) : $\\frac{f(\\mathbf{p} + h\\,\\mathbf{e}_i) - f(\\mathbf{p} - h\\,\\mathbf{e}_i)}{2h}$, où $\\mathbf{e}_i$ vaut 1 à la place $i$ et 0 ailleurs ; une `ValueError` si `i` n'est pas entre 0 et `len(point) - 1`, ou si $h \\le 0$. Travaille sur une **copie en flottants** du point, `np.array(point, dtype=float)` : le point de l'appelant ne doit jamais changer, et un point écrit en entiers, comme `np.array([2, 5])`, ne doit pas perdre le petit $h$ qu'on lui ajoute.
+Écris `partial_derivative(f, point, i, h=1e-5)` (fiche §2) : $\\frac{f(\\mathbf{p} + h\\,\\mathbf{e}_i) - f(\\mathbf{p} - h\\,\\mathbf{e}_i)}{2h}$, où $\\mathbf{e}_i$ vaut 1 à la place $i$ et 0 ailleurs ; une `ValueError` si `i` n'est pas entre 0 et `len(point) - 1`, ou si $h \\le 0$. Le point de l'appelant ne doit pas changer (relis le commentaire `TODO` de la fonction).
 
 La vérification calcule :
 - a) `partial_derivative(lambda p: p[0] ** 2 * np.exp(p[1]), (1.5, 0.0), 0)` (6 décimales) ;
@@ -332,10 +337,10 @@ La vérification calcule :
 - c) `partial_derivative(lambda p: p[0] * p[1] * p[2], (2.0, -1.0, 4.0), 2)` (6 décimales) ;
 - d) le nom de l'erreur levée par `partial_derivative(lambda p: p[0] + p[1] + p[2], (1.0, 2.0, 3.0), 3)` ;
 - e) le nom de l'erreur levée par `partial_derivative(lambda p: p[0], (1.0, 2.0), 0, h=0)` ;
-- f) `partial_derivative(lambda p: p[0] ** 3 + p[1], np.array([2, 5]), 0)` (4 décimales) ;
+- f) `partial_derivative(lambda p: np.log(p[0] + p[1] ** 2), (1.0, 2.0), 1)` (4 décimales) ;
 - g) le nom du type de `partial_derivative(lambda p: np.sin(p[0]), np.array([0.5]), 0)`, en texte.
 
-Dans ta copie : calcule a), b) et c) à la main avec les règles de la fiche. Pourquoi f) demande-t-il une copie en flottants ?""",
+Dans ta copie : calcule a), b), c) et f) à la main avec les règles de la fiche. Pourquoi les vérifications de `i` et de `h` doivent-elles passer **avant** tout calcul (regarde d) et e)) ?""",
     todo=LOAD_LEARNER,
     check='''with checked("M05b.18a"):
     wbm.check("M05b.18a", mymath.multivar.partial_derivative(lambda p: p[0] ** 2 * np.exp(p[1]), (1.5, 0.0), 0),
@@ -353,7 +358,7 @@ with checked("M05b.18e"):
     wbm.check("M05b.18e", raised(mymath.multivar.partial_derivative, lambda p: p[0], (1.0, 2.0), 0, h=0),
               computed=True)
 with checked("M05b.18f"):
-    wbm.check("M05b.18f", mymath.multivar.partial_derivative(lambda p: p[0] ** 3 + p[1], np.array([2, 5]), 0),
+    wbm.check("M05b.18f", mymath.multivar.partial_derivative(lambda p: np.log(p[0] + p[1] ** 2), (1.0, 2.0), 1),
               computed=True)
 with checked("M05b.18g"):
     wbm.check("M05b.18g", type(mymath.multivar.partial_derivative(lambda p: np.sin(p[0]), np.array([0.5]), 0)).__name__,
@@ -365,10 +370,14 @@ print("a)", partial(lambda p: p[0] ** 2 * np.exp(p[1]), (1.5, 0.0), 0),
       " c)", partial(lambda p: p[0] * p[1] * p[2], (2.0, -1.0, 4.0), 2))
 print("d)", raised(partial, lambda p: p[0] + p[1] + p[2], (1.0, 2.0, 3.0), 3),
       " e)", raised(partial, lambda p: p[0], (1.0, 2.0), 0, h=0),
-      " f)", partial(lambda p: p[0] ** 3 + p[1], np.array([2, 5]), 0),
+      " f)", partial(lambda p: np.log(p[0] + p[1] ** 2), (1.0, 2.0), 1),
       " g)", type(partial(lambda p: np.sin(p[0]), np.array([0.5]), 0)).__name__)''',
-    record=f'''wbm.record("M05b.18a", 3.0, decimals=6)
-wbm.record("M05b.18b", 2.25, decimals=6)
+    record=f'''wbm.record("M05b.18a", 3.0, decimals=6,
+           mistakes={{"une différence avant n'est que d'ordre 1 : la docstring demande une différence centrée":
+                         3.00001}})
+wbm.record("M05b.18b", 2.25, decimals=6,
+           mistakes={{"une différence avant n'est que d'ordre 1 : la docstring demande une différence centrée":
+                         2.2500113}})
 wbm.record("M05b.18c", -2.0, decimals=6,
            mistakes={{"ne bouge que la coordonnée i : les autres restent fixées": 2.0,
                      "les indices de Python commencent à 0 : i = 2 désigne la troisième coordonnée": 8.0}})
@@ -381,9 +390,8 @@ wbm.record("M05b.18e", "ValueError",
            mistakes={{"vérifie h avant de diviser : un pas nul ou négatif demande une ValueError": "ZeroDivisionError",
                      "un pas nul est refusé : lève une ValueError": "aucune",
                      "{wrong_error("ValueError")}": {errors_source("ValueError", "ZeroDivisionError")}}})
-wbm.record("M05b.18f", 12.0, decimals=4,
-           mistakes={{"copie le point dans un tableau de flottants, np.array(point, dtype=float) : dans un tableau "
-                      "d'entiers, le petit h ajouté disparaît": 0.0}})
+wbm.record("M05b.18f", 0.8, decimals=4,
+           mistakes={{"i = 1 désigne la deuxième variable, y : c'est elle qui bouge": 0.2}})
 wbm.record("M05b.18g", "float",
            mistakes={{"la docstring demande un float de Python : float(...) convertit un nombre de NumPy": "float64",
                      "la docstring demande un float de Python, pas un tableau : f renvoie ici un nombre de NumPy, "
@@ -391,9 +399,8 @@ wbm.record("M05b.18g", "float",
     after=tests_cells("test_partial_derivative_"),
     note="a) $\\frac{\\partial}{\\partial x}\\big(x^2 e^y\\big) = 2x\\,e^y = 3$ en $(1{,}5 ;\\ 0)$. b) $x^2 e^y = 2{,}25$. "
          "c) $\\frac{\\partial}{\\partial z}(xyz) = xy = -2$. d) et e) Les vérifications passent **avant** tout calcul : "
-         "sans elles, d) lève une `IndexError` et e) une `ZeroDivisionError`. f) Dans `np.array([2, 5])`, de type "
-         "entier, `p[0] += 1e-5` laisse 2 : les deux évaluations sont égales et la différence vaut 0 au lieu de "
-         "$3x^2 = 12$.",
+         "sans elles, d) lève une `IndexError` et e) une `ZeroDivisionError`. f) $\\frac{\\partial}{\\partial y}\\ln(x + y^2) "
+         "= \\frac{2y}{x + y^2} = \\frac{4}{5}$ en $(1, 2)$.",
 )
 
 M05B_19 = Ex(
@@ -404,63 +411,64 @@ M05B_19 = Ex(
     mymath="multivar.py",
     body="""Écris (fiche §3 et §4) :
 - `directional_derivative(f, point, direction, h=1e-5)` : la pente de `f` en `point` dans la direction du vecteur `direction`, **divisé d'abord par sa norme** ; une seule différence centrée le long du vecteur unitaire $\\mathbf{u}$ suffit, $\\frac{f(\\mathbf{p} + h\\mathbf{u}) - f(\\mathbf{p} - h\\mathbf{u})}{2h}$ (ou le produit scalaire du gradient avec $\\mathbf{u}$) ; une `ValueError` si les longueurs diffèrent, si la direction est le vecteur nul, ou si $h \\le 0$ ;
-- `steepest_ascent_direction(f, point, h=1e-5)` : le vecteur unitaire $\\frac{\\nabla f(\\mathbf{p})}{\\|\\nabla f(\\mathbf{p})\\|}$, en tableau NumPy, avec le gradient calculé par ta fonction `partial_derivative` (une coordonnée à la fois) ; une `ValueError` si la norme du gradient est inférieure à $10^{-8}$ (un point critique n'a pas de direction de plus grande pente).
+- `steepest_ascent_direction(f, point, h=1e-5)` : le vecteur unitaire $\\frac{\\nabla f(\\mathbf{p})}{\\|\\nabla f(\\mathbf{p})\\|}$, en tableau NumPy, avec le gradient calculé par ta fonction `partial_derivative` (une coordonnée à la fois) ; une `ValueError` si la norme du gradient calculé est inférieure à $10^{-8}$ (un point critique n'a pas de direction de plus grande pente ; numériquement, le gradient y est minuscule, pas forcément exactement nul), ou si $h \\le 0$.
 
-La vérification calcule, pour $f(x, y) = x^2 + 3xy$ au point $(1, 2)$ :
-- a) `directional_derivative(f, (1.0, 2.0), (1, 0))` (4 décimales) ;
-- b) `directional_derivative(f, (1.0, 2.0), (2, 2))` (4 décimales) ;
-- c) `directional_derivative(f, (1.0, 2.0), (-3, 8))` (4 décimales) ;
-- d) `steepest_ascent_direction(f, (1.0, 2.0))` (une liste, 4 décimales) ;
-- e) le nom de l'erreur levée par `directional_derivative(f, (1.0, 2.0), (0, 0))` ;
+La vérification calcule, pour $f(x, y) = x^2 y + 2y$ au point $(1, 3)$ :
+- a) `directional_derivative(f, (1.0, 3.0), (1, 0))` (4 décimales) ;
+- b) `directional_derivative(f, (1.0, 3.0), (2, 2))` (4 décimales) ;
+- c) `directional_derivative(f, (1.0, 3.0), (-1, 2))` (4 décimales) ;
+- d) `steepest_ascent_direction(f, (1.0, 3.0))` (une liste, 4 décimales) ;
+- e) le nom de l'erreur levée par `directional_derivative(f, (1.0, 3.0), (0, 0))` ;
 
 puis :
-- f) le nom de l'erreur levée par `steepest_ascent_direction(lambda p: p[0] ** 2 + p[1] ** 2 - 4 * p[1], (0.0, 2.0))` ;
-- g) le nom du type de `steepest_ascent_direction(f, (1.0, 2.0))`, en texte ;
+- f) le nom de l'erreur levée par `steepest_ascent_direction(lambda p: p[0] ** 3 + p[0] ** 2 + p[1] ** 2, (0.0, 0.0))` ;
+- g) le nom du type de `steepest_ascent_direction(f, (1.0, 3.0))`, en texte ;
 - h) la norme de `steepest_ascent_direction(lambda p: np.exp(p[0] - p[1]) + p[2] ** 2, (0.0, 1.0, 1.5))` (4 décimales).
 
-Dans ta copie : calcule $\\nabla f(1, 2)$ à la main, puis a), b) et c). Que représente la direction de c) sur la carte des lignes de niveau de $f$ ? Pourquoi f) n'a-t-il pas de réponse ?""",
+Dans ta copie : calcule $\\nabla f(1, 3)$ à la main, puis a), b) et c). Que représente la direction de c) sur la carte des lignes de niveau de $f$ ? Pourquoi f) n'a-t-il pas de réponse ?""",
     todo=LOAD_LEARNER,
-    check='''F_19 = lambda p: p[0] ** 2 + 3 * p[0] * p[1]                  # noqa: E731
+    check='''F_19 = lambda p: p[0] ** 2 * p[1] + 2 * p[1]                # noqa: E731
 with checked("M05b.19a"):
-    wbm.check("M05b.19a", mymath.multivar.directional_derivative(F_19, (1.0, 2.0), (1, 0)), computed=True)
+    wbm.check("M05b.19a", mymath.multivar.directional_derivative(F_19, (1.0, 3.0), (1, 0)), computed=True)
 with checked("M05b.19b"):
-    wbm.check("M05b.19b", mymath.multivar.directional_derivative(F_19, (1.0, 2.0), (2, 2)), computed=True)
+    wbm.check("M05b.19b", mymath.multivar.directional_derivative(F_19, (1.0, 3.0), (2, 2)), computed=True)
 with checked("M05b.19c"):
-    wbm.check("M05b.19c", mymath.multivar.directional_derivative(F_19, (1.0, 2.0), (-3, 8)), computed=True)
+    wbm.check("M05b.19c", mymath.multivar.directional_derivative(F_19, (1.0, 3.0), (-1, 2)), computed=True)
 with checked("M05b.19d"):
-    wbm.check("M05b.19d", np.asarray(mymath.multivar.steepest_ascent_direction(F_19, (1.0, 2.0))).tolist(),
+    wbm.check("M05b.19d", np.asarray(mymath.multivar.steepest_ascent_direction(F_19, (1.0, 3.0))).tolist(),
               computed=True)
 with checked("M05b.19e"):
-    wbm.check("M05b.19e", raised(mymath.multivar.directional_derivative, F_19, (1.0, 2.0), (0, 0)), computed=True)
+    wbm.check("M05b.19e", raised(mymath.multivar.directional_derivative, F_19, (1.0, 3.0), (0, 0)), computed=True)
 with checked("M05b.19f"):
     wbm.check("M05b.19f", raised(mymath.multivar.steepest_ascent_direction,
-                                 lambda p: p[0] ** 2 + p[1] ** 2 - 4 * p[1], (0.0, 2.0)), computed=True)
+                                 lambda p: p[0] ** 3 + p[0] ** 2 + p[1] ** 2, (0.0, 0.0)), computed=True)
 with checked("M05b.19g"):
-    wbm.check("M05b.19g", type(mymath.multivar.steepest_ascent_direction(F_19, (1.0, 2.0))).__name__, computed=True)
+    wbm.check("M05b.19g", type(mymath.multivar.steepest_ascent_direction(F_19, (1.0, 3.0))).__name__, computed=True)
 with checked("M05b.19h"):
     wbm.check("M05b.19h", float(np.linalg.norm(mymath.multivar.steepest_ascent_direction(
         lambda p: np.exp(p[0] - p[1]) + p[2] ** 2, (0.0, 1.0, 1.5)))), computed=True)''',
     solution=LOAD_REF + '''
-F_19 = lambda p: p[0] ** 2 + 3 * p[0] * p[1]                  # noqa: E731 - gradient (2x + 3y, 3x) = (8, 3) at (1, 2)
+F_19 = lambda p: p[0] ** 2 * p[1] + 2 * p[1]                # noqa: E731 - gradient (2xy, x² + 2) = (6, 3) at (1, 3)
 dd, steep = mymath.multivar.directional_derivative, mymath.multivar.steepest_ascent_direction
-print("a)", dd(F_19, (1.0, 2.0), (1, 0)), " b)", dd(F_19, (1.0, 2.0), (2, 2)), " c)", dd(F_19, (1.0, 2.0), (-3, 8)))
-print("d)", steep(F_19, (1.0, 2.0)), " e)", raised(dd, F_19, (1.0, 2.0), (0, 0)),
-      " f)", raised(steep, lambda p: p[0] ** 2 + p[1] ** 2 - 4 * p[1], (0.0, 2.0)),
-      " g)", type(steep(F_19, (1.0, 2.0))).__name__,
+print("a)", dd(F_19, (1.0, 3.0), (1, 0)), " b)", dd(F_19, (1.0, 3.0), (2, 2)), " c)", dd(F_19, (1.0, 3.0), (-1, 2)))
+print("d)", steep(F_19, (1.0, 3.0)), " e)", raised(dd, F_19, (1.0, 3.0), (0, 0)),
+      " f)", raised(steep, lambda p: p[0] ** 3 + p[0] ** 2 + p[1] ** 2, (0.0, 0.0)),
+      " g)", type(steep(F_19, (1.0, 3.0))).__name__,
       " h)", np.linalg.norm(steep(lambda p: np.exp(p[0] - p[1]) + p[2] ** 2, (0.0, 1.0, 1.5))))''',
-    record=f'''wbm.record("M05b.19a", 8.0, decimals=4)
-wbm.record("M05b.19b", 11 / 2 ** 0.5, decimals=4,
-           mistakes={{"divise la direction par sa norme avant de dériver": 22.0}})
+    record=f'''wbm.record("M05b.19a", 6.0, decimals=4)
+wbm.record("M05b.19b", 9 / 2 ** 0.5, decimals=4,
+           mistakes={{"divise la direction par sa norme avant de dériver": 18.0}})
 wbm.record("M05b.19c", 0.0, decimals=4)
-wbm.record("M05b.19d", [8 / 73 ** 0.5, 3 / 73 ** 0.5], decimals=4,
-           mistakes={{"divise le gradient par sa norme : la docstring demande un vecteur unitaire": [8.0, 3.0]}})
+wbm.record("M05b.19d", [2 / 5 ** 0.5, 1 / 5 ** 0.5], decimals=4,
+           mistakes={{"divise le gradient par sa norme : la docstring demande un vecteur unitaire": [6.0, 3.0]}})
 wbm.record("M05b.19e", "ValueError",
            mistakes={{"le vecteur nul ne donne aucune direction : lève une ValueError avant de diviser par sa norme":
                          {{"aucune", "ZeroDivisionError"}},
                      "{wrong_error("ValueError")}": {errors_source("ValueError", "ZeroDivisionError")}}})
 wbm.record("M05b.19f", "ValueError",
-           mistakes={{"le gradient est nul en ce point : il n'y a pas de direction de plus grande pente, lève une "
-                      "ValueError": {{"aucune", "ZeroDivisionError"}},
+           mistakes={{"le gradient est nul en ce point : la docstring demande une ValueError quand la norme du "
+                      "gradient calculé est inférieure à 1e-8 (numériquement, elle n'est pas forcément exactement 0)":
+                         {{"aucune", "ZeroDivisionError"}},
                      "{wrong_error("ValueError")}": {errors_source("ValueError", "ZeroDivisionError")}}})
 wbm.record("M05b.19g", "ndarray",
            mistakes={{"la docstring demande un tableau NumPy : np.array(...)": {{"list", "tuple"}}}})
@@ -468,12 +476,13 @@ wbm.record("M05b.19h", 1.0, decimals=4,
            mistakes={{"divise le gradient par sa norme : la docstring demande un vecteur unitaire":
                          float(np.linalg.norm([math.exp(-1), -math.exp(-1), 3.0]))}})''',
     after=tests_cells("test_directional_derivative_ or test_steepest_ascent_direction_"),
-    note="$\\nabla f = (2x + 3y,\\ 3x) = (8, 3)$ en $(1, 2)$. a) $\\frac{\\partial f}{\\partial x} = 8$. b) $\\frac{(8, 3) "
-         "\\cdot (2, 2)}{\\|(2, 2)\\|} = \\frac{22}{2\\sqrt{2}} \\approx 7{,}7782$ (et 22 si l'on oublie de normaliser). c) "
-         "$(8, 3) \\cdot (-3, 8) = 0$ : la direction $(-3, 8)$ est orthogonale au gradient, c'est celle de la ligne de "
-         "niveau de $f$ qui passe par $(1, 2)$. d) $\\frac{(8, 3)}{\\sqrt{73}} \\approx (0{,}9363 ;\\ 0{,}3511)$. f) Le "
-         "point $(0, 2)$ est le minimum de $x^2 + (y - 2)^2 - 4$ : le gradient y est nul, aucune direction ne monte plus "
-         "qu'une autre au premier ordre.",
+    note="$\\nabla f = (2xy,\\ x^2 + 2) = (6, 3)$ en $(1, 3)$. a) $\\frac{\\partial f}{\\partial x} = 6$. b) $\\frac{(6, 3) "
+         "\\cdot (2, 2)}{\\|(2, 2)\\|} = \\frac{18}{2\\sqrt{2}} \\approx 6{,}3640$ (et 18 si l'on oublie de normaliser). c) "
+         "$(6, 3) \\cdot (-1, 2) = 0$ : la direction $(-1, 2)$ est orthogonale au gradient, c'est celle de la ligne de "
+         "niveau de $f$ qui passe par $(1, 3)$. d) $\\frac{(6, 3)}{\\sqrt{45}} = \\frac{(2, 1)}{\\sqrt{5}} \\approx "
+         "(0{,}8944 ;\\ 0{,}4472)$. f) Le point $(0, 0)$ est un minimum local de $x^3 + x^2 + y^2$ : le gradient y est "
+         "nul, aucune direction ne monte plus qu'une autre au premier ordre. Les différences centrées y donnent "
+         "$(h^2, 0) \\approx (10^{-10}, 0)$, pas exactement $(0, 0)$ : d'où la tolérance $10^{-8}$ de la docstring.",
 )
 
 M05B_20 = Ex(
@@ -486,10 +495,10 @@ La vérification calcule :
 - a) `tangent_plane(lambda p: p[0] * np.exp(p[1]), (2.0, 0.0))` (une liste, 4 décimales) ;
 - b) `tangent_plane(lambda p: np.log(p[0] ** 2 + p[1] ** 2), (1.0, 1.0))` (une liste, 4 décimales) ;
 - c) le nom de l'erreur levée par `tangent_plane(lambda p: p[0] + p[1] + p[2], (1.0, 2.0, 3.0))` ;
-- d) l'écart entre la surface de a) et son plan tangent au point $(2{,}1 ;\\ -0{,}1)$, $f - (Ax + By + C)$, multiplié par $10^4$ (2 décimales) ;
+- d) l'écart entre la surface de a) et son plan tangent au point $(2 ;\\ 0{,}1)$, $f - (Ax + By + C)$ (5 décimales) ;
 - e) les trois nombres renvoyés en a) sont-ils des `float` de Python ? (`True` ou `False`)
 
-Dans ta copie : écris les deux plans à la main, sous la forme $z = f(x_0, y_0) + \\ldots$, puis développés. L'écart de d) est-il positif ou négatif, et que dit son signe sur la surface près du point ?""",
+Dans ta copie : écris les deux plans à la main, sous la forme $z = f(x_0, y_0) + \\ldots$, puis développés. L'écart de d) est-il positif ou négatif, et que dit son signe sur la surface près du point, dans la direction de $y$ ? Calcule $D = f_{xx}f_{yy} - f_{xy}^2$ en $(2, 0)$ : la surface reste-t-elle du même côté de son plan dans toutes les directions ?""",
     todo=LOAD_LEARNER,
     check='''with checked("M05b.20a"):
     wbm.check("M05b.20a", list(mymath.multivar.tangent_plane(lambda p: p[0] * np.exp(p[1]), (2.0, 0.0))),
@@ -502,7 +511,7 @@ with checked("M05b.20c"):
               computed=True)
 with checked("M05b.20d"):
     A_20, B_20, C_20 = mymath.multivar.tangent_plane(lambda p: p[0] * np.exp(p[1]), (2.0, 0.0))
-    wbm.check("M05b.20d", (2.1 * math.exp(-0.1) - (A_20 * 2.1 + B_20 * (-0.1) + C_20)) * 1e4, computed=True)
+    wbm.check("M05b.20d", 2 * math.exp(0.1) - (A_20 * 2 + B_20 * 0.1 + C_20), computed=True)
 with checked("M05b.20e"):
     wbm.check("M05b.20e", all(type(v) is float for v in mymath.multivar.tangent_plane(
         lambda p: p[0] * np.exp(p[1]), (2.0, 0.0))), computed=True)''',
@@ -511,27 +520,30 @@ plane = mymath.multivar.tangent_plane
 A_20, B_20, C_20 = plane(lambda p: p[0] * np.exp(p[1]), (2.0, 0.0))
 print("a)", (A_20, B_20, C_20), " b)", plane(lambda p: np.log(p[0] ** 2 + p[1] ** 2), (1.0, 1.0)),
       " c)", raised(plane, lambda p: p[0] + p[1] + p[2], (1.0, 2.0, 3.0)))
-print("d)", (2.1 * math.exp(-0.1) - (A_20 * 2.1 + B_20 * (-0.1) + C_20)) * 1e4,
+print("d)", 2 * math.exp(0.1) - (A_20 * 2 + B_20 * 0.1 + C_20),
       " e)", all(type(v) is float for v in (A_20, B_20, C_20)))''',
     record=f'''wbm.record("M05b.20a", [1.0, 2.0, 0.0], decimals=4,
-           mistakes={{"C fait passer le plan par le point de contact : C = f(x₀, y₀) − A x₀ − B y₀, pas f(x₀, y₀)":
+           mistakes={{"C n'est pas f(x₀, y₀) : développe z = f(x₀, y₀) + A (x − x₀) + B (y − y₀)":
                          [1.0, 2.0, 2.0]}})
 wbm.record("M05b.20b", [1.0, 1.0, math.log(2) - 2], decimals=4,
-           mistakes={{"C fait passer le plan par le point de contact : C = f(x₀, y₀) − A x₀ − B y₀, pas f(x₀, y₀)":
+           mistakes={{"C n'est pas f(x₀, y₀) : développe z = f(x₀, y₀) + A (x − x₀) + B (y − y₀)":
                          [1.0, 1.0, math.log(2)]}})
 wbm.record("M05b.20c", "ValueError",
            mistakes={{"un plan tangent est celui d'une surface z = f(x, y) : un point de trois coordonnées demande une "
                       "ValueError": "aucune",
                      "{wrong_error("ValueError")}": {errors_source("ValueError")}}})
-wbm.record("M05b.20d", 1.5857787552, decimals=2)
+wbm.record("M05b.20d", 2 * math.exp(0.1) - 2.2, decimals=5,
+           mistakes={{"l'écart demandé est f moins le plan, pas le plan moins f": 2.2 - 2 * math.exp(0.1)}})
 wbm.record("M05b.20e", True,
            mistakes={{"la docstring demande des float de Python : float(...) convertit un nombre de NumPy": False}})''',
     after=tests_cells("test_tangent_plane_"),
     note="a) $f(2, 0) = 2$, $f_x = e^y = 1$, $f_y = x\\,e^y = 2$ : $z = 2 + (x - 2) + 2y$, soit $z = x + 2y$, et $C = 0$. "
          "b) $f(1, 1) = \\ln 2$, $f_x = \\frac{2x}{x^2 + y^2} = 1$, $f_y = 1$ : $z = \\ln 2 + (x - 1) + (y - 1)$, donc "
-         "$C = \\ln 2 - 2 \\approx -1{,}3069$. d) $2{,}1\\,e^{-0{,}1} \\approx 1{,}900159$ contre $2{,}1 - 0{,}2 = 1{,}9$ : "
-         "un écart d'environ $1{,}6 \\times 10^{-4}$, positif ; la surface est au-dessus de son plan près du point, dans "
-         "cette direction (le terme d'ordre 2, en $\\Delta x\\,\\Delta y$ et $\\Delta y^2$, y est positif).",
+         "$C = \\ln 2 - 2 \\approx -1{,}3069$. d) $2\\,e^{0{,}1} \\approx 2{,}210342$ contre $2 + 0{,}2 = 2{,}2$ : un "
+         "écart d'environ $0{,}01034$, positif. Dans la direction de $y$, la tranche $y \\mapsto 2e^y$ est convexe "
+         "($f_{yy} = 2 > 0$) : la surface est au-dessus de son plan, l'écart valant environ $\\frac{1}{2}f_{yy}\\,\\Delta y^2 "
+         "= 0{,}01$. Mais $D = 0 \\times 2 - 1^2 = -1 < 0$ : dans d'autres directions, comme $(2, -1)$, la surface passe "
+         "au-dessous de son plan (elle le traverse, comme une selle).",
 )
 
 M05B_21 = Ex(
@@ -543,17 +555,17 @@ M05B_21 = Ex(
 - `sp.solve([kx, ky], [x, y], dict=True)` résout le système $\\nabla k = \\mathbf{0}$ : une liste de dictionnaires `{x: ..., y: ...}` ;
 - `sp.hessian(k, (x, y))` donne la matrice des dérivées secondes, `.det()` son déterminant $D$, et `.subs({x: 1, y: 2})` remplace les variables par des nombres.
 
-Avec $k(x, y) = x^4 - 4xy + 2y^2$, calcule :
+Avec $k(x, y) = x^2 y + y^2 - y$, calcule :
 - a) le nombre de points critiques de $k$ (un entier) ;
-- b) la valeur de $k$ en ses minima locaux (un entier) ;
-- c) le déterminant $D$ de la matrice des dérivées secondes en $(0, 0)$ (un entier) ;
-- d) $\\frac{\\partial^2 k}{\\partial x\\,\\partial y}$ (un entier) ;
+- b) la valeur de $k$ en son minimum local (une fraction irréductible, en texte) ;
+- c) le déterminant $D$ de la matrice des dérivées secondes en $(1, 0)$ (un entier) ;
+- d) $\\frac{\\partial^2 k}{\\partial x\\,\\partial y}(3, 1)$ (un entier) ;
 - e) $\\nabla k(2, 1)$ (une liste de 2 entiers) ;
-- f) $\\frac{\\partial k}{\\partial x}$ (une expression en $x$ et $y$, en texte).
+- f) $\\frac{\\partial k}{\\partial y}$ (une expression en $x$ et $y$, en texte).
 
-Dans ta copie : classe les trois points critiques par le test du second ordre (un tableau : point, $k_{xx}$, $k_{yy}$, $k_{xy}$, $D$, nature). Vérifie a) et c) à la main.""",
+Dans ta copie : classe les points critiques par le test du second ordre (un tableau : point, $k_{xx}$, $k_{yy}$, $k_{xy}$, $D$, nature). Vérifie a) et c) à la main. Le minimum local est-il global (regarde $k(x, -1)$) ?""",
     todo='''answer_M05b_21a = ...  # a) an integer
-answer_M05b_21b = ...  # b) an integer
+answer_M05b_21b = ...  # b) an irreducible fraction, as text
 answer_M05b_21c = ...  # c) an integer
 answer_M05b_21d = ...  # d) an integer
 answer_M05b_21e = ...  # e) a list of 2 integers
@@ -562,46 +574,49 @@ answer_M05b_21f = ...  # f) an expression in x and y, as text''',
                                      answer_M05b_21e, answer_M05b_21f]):
     wbm.check(f"M05b.21{letter}", answer)''',
     solution='''x, y = sp.symbols("x y")
-k = x ** 4 - 4 * x * y + 2 * y ** 2
+k = x ** 2 * y + y ** 2 - y
 kx, ky = sp.diff(k, x), sp.diff(k, y)
 critical = sp.solve([kx, ky], [x, y], dict=True)
 H = sp.hessian(k, (x, y))
 for point in critical:
     print(point, "· k =", k.subs(point), "· D =", H.det().subs(point), "· k_xx =", H[0, 0].subs(point))
 answer_M05b_21a = len(critical)
-answer_M05b_21b = int(k.subs({x: 1, y: 1}))
-answer_M05b_21c = int(H.det().subs({x: 0, y: 0}))
-answer_M05b_21d = int(sp.diff(k, x, y))
+answer_M05b_21b = str(k.subs({x: 0, y: sp.Rational(1, 2)}))
+answer_M05b_21c = int(H.det().subs({x: 1, y: 0}))
+answer_M05b_21d = int(sp.diff(k, x, y).subs({x: 3, y: 1}))
 answer_M05b_21e = [int(kx.subs({x: 2, y: 1})), int(ky.subs({x: 2, y: 1}))]
-answer_M05b_21f = str(kx)
+answer_M05b_21f = str(ky)
 print(answer_M05b_21a, answer_M05b_21b, answer_M05b_21c, answer_M05b_21d, answer_M05b_21e, answer_M05b_21f)''',
     record='''wbm.record("M05b.21a", 3,
-           mistakes={"x³ = x a trois solutions réelles : regarde la liste que renvoie sp.solve": 2})
-wbm.record("M05b.21b", -1)
-wbm.record("M05b.21c", -16,
-           mistakes={"D = k_xx k_yy − k_xy², avec le carré de k_xy": 16})
-wbm.record("M05b.21d", -4)
-wbm.record("M05b.21e", [28, -4],
-           mistakes={"l'ordre est [∂k/∂x, ∂k/∂y]": [-4, 28]})
-wbm.record("M05b.21f", "4*x**3 - 4*y", kind="expr", variables=("x", "y"),
-           mistakes={"c'est ∂k/∂y ; la question demande ∂k/∂x": "-4*x + 4*y"})''',
-    note="$\\nabla k = (4x^3 - 4y,\\ -4x + 4y)$ s'annule si $y = x$ et $x^3 = x$ : trois points critiques, $(0, 0)$, "
-         "$(1, 1)$ et $(-1, -1)$. La matrice des dérivées secondes est $\\begin{pmatrix} 12x^2 & -4 \\\\ -4 & 4 \\end{pmatrix}$ : "
-         "en $(0, 0)$, $D = 0 \\times 4 - 16 = -16 < 0$, un point selle ; en $(\\pm 1, \\pm 1)$, $D = 48 - 16 = 32 > 0$ et "
-         "$k_{xx} = 12 > 0$, deux minima locaux, où $k = 1 - 4 + 2 = -1$ (ce sont même les minima globaux).",
+           mistakes={"compte toutes les solutions que renvoie sp.solve, une par dictionnaire": {1, 2}})
+wbm.record("M05b.21b", "-1/4", kind="fraction", simplified=True,
+           mistakes={"attention au signe": "1/4", "c'est la valeur de k en un point selle": "0"})
+wbm.record("M05b.21c", -4,
+           mistakes={"D = k_xx k_yy − k_xy², avec le carré de k_xy": 4})
+wbm.record("M05b.21d", 6)
+wbm.record("M05b.21e", [4, 5],
+           mistakes={"l'ordre est [∂k/∂x, ∂k/∂y]": [5, 4]})
+wbm.record("M05b.21f", "x**2 + 2*y - 1", kind="expr", variables=("x", "y"),
+           mistakes={"c'est ∂k/∂x ; la question demande ∂k/∂y": "2*x*y"})''',
+    note="$\\nabla k = (2xy,\\ x^2 + 2y - 1)$ s'annule si $x = 0$ et $y = \\frac{1}{2}$, ou si $y = 0$ et $x = \\pm 1$ : "
+         "trois points critiques. La matrice des dérivées secondes est $\\begin{pmatrix} 2y & 2x \\\\ 2x & 2 "
+         "\\end{pmatrix}$ : en $(0, \\frac{1}{2})$, $D = 2 > 0$ et $k_{xx} = 1 > 0$, un minimum local, où $k = \\frac{1}{4} "
+         "- \\frac{1}{2} = -\\frac{1}{4}$ ; en $(\\pm 1, 0)$, $D = 0 \\times 2 - 4 = -4 < 0$, deux points selles. Le minimum "
+         "n'est pas global : $k(x, -1) = 2 - x^2$ tend vers $-\\infty$.",
 )
 
 # ---------------------------------------------------------------------------
 # Notebook exercises: a prediction, an experiment, a figure (M05b.22 to M05b.24)
 # ---------------------------------------------------------------------------
-M05B_22_EXPERIMENT = '''f_22 = lambda p: p[0] ** 2 + 3 * p[1] ** 2          # noqa: E731
+M05B_22_EXPERIMENT = '''ref_22 = wbm.load_mymath("ref")                        # the reference library: the same results as yours
+f_22 = lambda p: p[0] ** 2 + 3 * p[1] ** 2          # noqa: E731
 P_22 = np.array([3.0, 1.0])
 grad_22 = np.array([2 * P_22[0], 6 * P_22[1]])            # (6, 6)
 tangent_22 = np.array([1.0, -1.0]) / math.sqrt(2)          # orthogonal to the gradient
-print("a) slope along the level line:", mymath.multivar.directional_derivative(f_22, P_22, tangent_22))
+print("a) slope along the level line:", round(ref_22.multivar.directional_derivative(f_22, P_22, tangent_22), 6) + 0.0)
 print("b) f(P) =", f_22(P_22), "· f(P + 0.5 u) =", f_22(P_22 + 0.5 * tangent_22))
-print("c) slope along the gradient:", mymath.multivar.directional_derivative(f_22, P_22, grad_22),
-      "· ||grad f|| =", np.linalg.norm(grad_22))
+print("c) slope along the gradient:", round(ref_22.multivar.directional_derivative(f_22, P_22, grad_22), 6),
+      "· ||grad f|| =", round(float(np.linalg.norm(grad_22)), 6))
 angles_22 = np.linspace(0, 2 * np.pi, 3601)[:-1]
 slopes_22 = grad_22[0] * np.cos(angles_22) + grad_22[1] * np.sin(angles_22)
 print("d) angles (in degrees) where the slope is zero:",
@@ -617,7 +632,7 @@ M05B_22 = Ex(
 - c) la dérivée directionnelle de $f$ en $P$ dans la direction du gradient : (1) 0 ; (2) $\\|\\nabla f(P)\\| \\approx 8{,}49$ ; (3) 1 ; (4) 6 ;
 - d) combien de directions (vecteurs unitaires) donnent une dérivée directionnelle nulle en $P$ : (1) aucune ; (2) exactement une ; (3) exactement deux ; (4) une infinité.
 
-**Avant d'exécuter quoi que ce soit**, écris tes quatre prédictions (le **numéro du choix**), vérifie-les, puis lance l'expérience. Elle utilise ta fonction `directional_derivative` (ou la référence, si la tienne n'est pas encore écrite).""",
+**Avant d'exécuter quoi que ce soit**, écris tes quatre prédictions (le **numéro du choix**), vérifie-les, puis lance l'expérience. Elle utilise la fonction `directional_derivative` de la référence (la tienne, M05b.19, fait la même chose).""",
     todo='''prediction_M05b_22a = ...  # a) 1, 2, 3 or 4, written BEFORE running the experiment below
 prediction_M05b_22b = ...  # b) 1, 2, 3 or 4
 prediction_M05b_22c = ...  # c) 1, 2, 3 or 4
@@ -669,7 +684,7 @@ M05B_23 = Ex(
     "direction.", "fiche §5 ; Ex M05b.20 ; M05a §3", tracks="C",
     body="""La fiche (§5) annonce que l'erreur de l'approximation par le plan tangent est d'ordre 2 : elle se comporte comme le carré de la distance au point. Vérifie-le.
 
-Écris `plane_error(f, point, direction, r)`, qui renvoie l'écart, en valeur absolue, entre $f$ et son plan tangent en `point` (la fonction `mymath.multivar.tangent_plane`, la tienne ou la référence), au point situé à la distance `r` de `point` dans la direction du vecteur `direction` (à normaliser), en `float`.
+Écris `plane_error(f, point, direction, r)`, qui renvoie l'écart, en valeur absolue, entre $f$ et son plan tangent en `point` (ta fonction `mymath.multivar.tangent_plane` : écris d'abord M05b.20), au point situé à la distance `r` de `point` dans la direction du vecteur `direction` (à normaliser), en `float`.
 
 La vérification prend $f(x, y) = e^{x - y}$, dont le plan tangent en $(0, 0)$ est $z = 1 + x - y$, et calcule :
 - a) l'erreur dans la direction $(1, 0)$, à la distance $r = 0{,}1$ (6 décimales) ;
@@ -678,7 +693,7 @@ La vérification prend $f(x, y) = e^{x - y}$, dont le plan tangent en $(0, 0)$ e
 - d) l'erreur dans la direction $(1, 1)$, à la distance $r = 0{,}5$ (6 décimales) ;
 - e) l'erreur dans la direction $(1, -1)$, à la distance $r = 0{,}1$ (6 décimales).
 
-Dans ta copie : que dit c) de l'ordre de l'erreur ? Pourquoi d) est-il nul, même loin du point (regarde $f$ le long de la droite $y = x$) ? Compare e) et a) avec le terme d'ordre 2 de Taylor, $\\frac{s^2}{2}$, où $s = x - y$ au point d'arrivée.""",
+Dans ta copie : que dit c) de l'ordre de l'erreur ? Que vaut d), et pourquoi, même loin du point (regarde $f$ le long de la droite $y = x$) ? Compare e) et a) avec le terme d'ordre 2 de Taylor, $\\frac{s^2}{2}$, où $s = x - y$ au point d'arrivée.""",
     todo='''def plane_error(f, point, direction, r):
     """|f(q) - plane(q)| where q is at distance r from point in the direction of the vector direction, and plane is
     the tangent plane of f at point (mymath.multivar.tangent_plane)."""
@@ -735,6 +750,8 @@ M05B_24_CHECK = '''with checked("M05b.24 vérifications"):
             problems.append("il manque les lignes de niveau (ax.contour)")
         elif len(contours[0].levels) < 5:
             problems.append("trace au moins 5 lignes de niveau")
+        elif not getattr(contours[0], "labelTexts", None):
+            problems.append("écris la valeur des lignes de niveau (ax.clabel)")
         if not quivers:
             problems.append("il manque les flèches du gradient (ax.quiver)")
         else:
@@ -747,6 +764,9 @@ M05B_24_CHECK = '''with checked("M05b.24 vérifications"):
             cosines = (u * gx + v * gy)[keep] / norms[keep]
             if xy.shape[0] < 20:
                 problems.append("dessine au moins 20 flèches, sur une grille")
+            elif xy.shape[0] > 1000:
+                problems.append("dessine les flèches sur une grille plus grossière que celle des lignes de niveau "
+                                "(quelques centaines au plus) : sinon elles se recouvrent")
             elif cosines.size == 0 or np.min(cosines) < 0.999:
                 problems.append("les flèches doivent avoir la direction et le sens du gradient en leur point de départ "
                                 "(ax.quiver(X, Y, U, V), avec U et V les deux composantes du gradient)")
@@ -754,8 +774,8 @@ M05B_24_CHECK = '''with checked("M05b.24 vérifications"):
                             or xy[:, 1].max() < 1.5):
                 problems.append("répartis les flèches sur tout le rectangle reçu")
         if ax.get_aspect() not in (1.0, "equal"):
-            problems.append("prends la même échelle sur les deux axes (ax.set_aspect(\\"equal\\")), sinon les angles "
-                            "droits ne se voient pas")
+            problems.append("prends la même échelle sur les deux axes (ax.set_aspect(\\"equal\\")) : sans elle, un "
+                            "cercle paraît ovale et les angles sont déformés")
     if problems:
         print("❌ Ex M05b.24 : à revoir : " + " ; ".join(problems) + ".")
     else:
@@ -768,11 +788,11 @@ M05B_24 = Ex(
     body="""Écris `draw_gradient_map(ax, f, grad, xlim, ylim)`, qui dessine dans l'axe `ax`, sur le rectangle $[x_{\\min}, x_{\\max}] \\times [y_{\\min}, y_{\\max}]$ donné par `xlim` et `ylim` :
 - au moins 5 lignes de niveau de `f` (`ax.contour(X, Y, Z, levels=...)`, sur une grille fine faite par `np.meshgrid`), avec leurs valeurs (`ax.clabel`) ;
 - les flèches du gradient sur une grille plus grossière, d'au moins 20 points répartis sur tout le rectangle (`ax.quiver(X, Y, U, V)`, où `U` et `V` sont les deux composantes du gradient) ;
-- la même échelle sur les deux axes (`ax.set_aspect("equal")`), sans quoi les angles droits ne se voient pas.
+- la même échelle sur les deux axes (`ax.set_aspect("equal")`) : sans elle, un cercle paraît ovale, et l'angle entre une flèche et une ligne de niveau est déformé.
 
 Ici, `f(x, y)` et `grad(x, y)` prennent **deux** arguments, qui peuvent être des tableaux : `f` renvoie un tableau de valeurs, et `grad` un couple de tableaux `(U, V)`.
 
-Puis trace la carte de $f(x, y) = \\sin x + \\cos y$, de gradient $(\\cos x, -\\sin y)$, sur $[-3, 3] \\times [-3, 3]$.
+Puis trace la carte de $f(x, y) = \\sin x + \\cos y$, de gradient $(\\cos x, -\\sin y)$, sur $[-4, 4] \\times [-4, 4]$.
 
 Dans ta copie : repère sur ta figure les maxima, les minima et les points selles de $f$ (que font les flèches autour de chacun ?). Où les flèches sont-elles les plus longues, et que font les lignes de niveau à cet endroit ?""",
     todo='''def draw_gradient_map(ax, f, grad, xlim, ylim):
@@ -783,7 +803,7 @@ Dans ta copie : repère sur ta figure les maxima, les minima et les points selle
     fig, ax = plt.subplots(figsize=(6.5, 6))
     try:
         created = drawn(draw_gradient_map, ax, lambda x, y: np.sin(x) + np.cos(y),
-                        lambda x, y: (np.cos(x), -np.sin(y)), (-3, 3), (-3, 3))
+                        lambda x, y: (np.cos(x), -np.sin(y)), (-4, 4), (-4, 4))
     except BaseException:
         plt.close(fig)                                     # no empty figure while the function is not written yet
         raise
@@ -807,16 +827,16 @@ Dans ta copie : repère sur ta figure les maxima, les minima et les points selle
 
 
 fig, ax = plt.subplots(figsize=(6.5, 6))
-draw_gradient_map(ax, lambda x, y: np.sin(x) + np.cos(y), lambda x, y: (np.cos(x), -np.sin(y)), (-3, 3), (-3, 3))
+draw_gradient_map(ax, lambda x, y: np.sin(x) + np.cos(y), lambda x, y: (np.cos(x), -np.sin(y)), (-4, 4), (-4, 4))
 plt.show()''',
     after=[("md", "**Vérifications automatiques** (sur un autre exemple ; la figure elle-même se juge à l'œil)."),
            ("code", M05B_24_CHECK)],
-    note="Sur $[-3, 3]^2$, $\\sin x + \\cos y$ a un maximum en $(\\frac{\\pi}{2}, 0)$ (où $f = 2$), un minimum en "
-         "$(-\\frac{\\pi}{2}, \\pm\\pi)$… au bord, et des points selles en $(-\\frac{\\pi}{2}, 0)$ et $(\\frac{\\pi}{2}, "
-         "\\pm\\pi)$. Les flèches convergent vers le maximum, s'éloignent des minima, et, près d'une selle, arrivent de "
-         "deux côtés et repartent des deux autres. Elles coupent toutes les lignes de niveau à angle droit, et elles "
-         "sont les plus longues là où les lignes se serrent (vers $x = 0$, où $\\cos x$ est le plus grand, et vers "
-         "$y = \\pm\\frac{\\pi}{2}$).",
+    note="Sur $[-4, 4]^2$, $\\sin x + \\cos y$ a un maximum en $(\\frac{\\pi}{2}, 0)$ (où $f = 2$), deux minima en "
+         "$(-\\frac{\\pi}{2}, \\pm\\pi)$ (où $f = -2$) et trois points selles, en $(-\\frac{\\pi}{2}, 0)$ et "
+         "$(\\frac{\\pi}{2}, \\pm\\pi)$ (où $f = 0$). Les flèches convergent vers le maximum, s'éloignent des minima, "
+         "et, près d'une selle, arrivent de deux côtés et repartent des deux autres. Elles coupent toutes les lignes de "
+         "niveau à angle droit, et elles sont les plus longues là où les lignes se serrent : $\\|\\nabla f\\|^2 = "
+         "\\cos^2 x + \\sin^2 y$ est le plus grand vers $x = 0$ ou $\\pm\\pi$ et $y = \\pm\\frac{\\pi}{2}$.",
 )
 
 # ---------------------------------------------------------------------------
@@ -824,9 +844,9 @@ plt.show()''',
 # ---------------------------------------------------------------------------
 M05B_25_MISTAKES = bug_letters_mistakes(
     "BDF", "ACE",
-    {"B": "vérifie quelle coordonnée chaque différence finie déplace",
-     "D": "vérifie que chaque direction est donnée par un vecteur unitaire",
-     "F": "vérifie le sens de chaque pas de descente"},
+    {"B": "refais chaque calcul de dérivée sur un petit exemple",
+     "D": "refais chaque calcul de pente sur un petit exemple",
+     "F": "refais chaque mise à jour de coordonnée sur un petit exemple"},
     name_correct=False)
 
 M05B_25 = Ex(
@@ -890,15 +910,20 @@ M05B_26_CHECK = '''with checked("M05b.26 vérifications"):
         except Exception as exc:  # noqa: BLE001
             problems.append(f"grid_values pour {name} lève {type(exc).__name__} ({exc})")
             continue
+        if got is None:
+            problems.append("grid_values ne renvoie rien : il manque return")
+            break
         got = np.asarray(got)
         if got.shape != expected.shape:
             problems.append(f"pour {name}, la forme attendue est (len(ys), len(xs)) = {expected.shape}, pas {got.shape}"
                             + (" : la ligne j correspond à ys[j] (np.meshgrid fait cela par défaut)"
                                if got.shape == expected.T.shape else ""))
+            break
         elif not np.allclose(got, expected):
             problems.append(f"pour {name}, Z[j, i] doit valoir f(xs[i], ys[j])"
                             + (" : tu as échangé x et y" if np.allclose(got, np.array(
                                 [[f_t(yv, xv) for xv in xs_t] for yv in ys_t]), equal_nan=True) else ""))
+            break
     if problems:
         print("❌ Ex M05b.26 : à revoir : " + " ; ".join(problems) + ".")
     else:
@@ -911,10 +936,12 @@ start = time.perf_counter()
 Z_loop = np.array([[f_26(xv, yv) for xv in xs_26] for yv in ys_26])
 loop_seconds = time.perf_counter() - start
 start = time.perf_counter()
-Z_grid = grid_values(f_26, xs_26, ys_26)
+Z_grid = np.asarray(grid_values(f_26, xs_26, ys_26))
 grid_seconds = time.perf_counter() - start
-print(f"double loop: {loop_seconds:.3f} s · grid_values: {grid_seconds:.4f} s · same values: "
-      f"{np.allclose(Z_loop, Z_grid)}")'''
+same = Z_grid.shape == Z_loop.shape and np.allclose(Z_loop, Z_grid)
+print(f"double loop: {loop_seconds:.3f} s · grid_values: {grid_seconds:.4f} s · same values: {same}")
+if same and grid_seconds > loop_seconds / 5:
+    print("💡 grid_values n'est guère plus rapide qu'une double boucle : calcule f sur toute la grille d'un coup.")'''
 
 M05B_26 = Ex(
     "M05b.26", "🛠️", 1, 15, "Vectoriser : une fonction de deux variables sur une grille (`np.meshgrid`)",
@@ -1019,7 +1046,7 @@ critical_27 = np.linalg.solve([[2 * a, b], [b, 2 * c]], [-d, -e])
 print("coefficients:", coefs_27, "· critical point:", critical_27, "· D =", (2 * a) * (2 * c) - b ** 2)''',
     after=[("solution", M05B_27_CHECK.split('with checked("M05b.27"):')[0].rstrip())],
     record='''wbm.record("M05b.27", [1.5, -2.0, 3.0, 0.5, -4.0], decimals=4,
-           mistakes={"∂f/∂x = 2a x + b y + d : le coefficient de x dans le gradient est 2a, pas a":
+           mistakes={"dérive a x² par rapport à x : quel coefficient obtiens-tu devant x ?":
                          [3.0, -2.0, 6.0, 0.5, -4.0]})''',
     note="$\\nabla f = (2ax + by + d,\\ bx + 2cy + e)$. En $(0, 0)$ : $(d, e)$ ; en $(1, 0)$ : $(2a + d,\\ b + e)$ ; en "
          "$(0, 1)$ : $(b + d,\\ 2c + e)$. Trois appels donnent six nombres, assez pour les cinq coefficients (avec une "

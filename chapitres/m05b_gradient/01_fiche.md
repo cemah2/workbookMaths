@@ -1,6 +1,6 @@
 # M05b · Fonctions de plusieurs variables et gradient — fiche de cours
 
-> Jusqu'ici, une fonction avait **une** entrée : une loss dépendait d'un seul poids, une courbe se lisait sur un axe. Un modèle de machine learning a des milliers ou des millions de poids, et sa loss est une fonction de **tous** à la fois. Ce chapitre passe de une à plusieurs variables, en restant presque toujours en dimension 2, où tout se dessine. On représente une fonction de deux variables par une **surface** et par une **carte de lignes de niveau**. On la dérive une variable à la fois : ce sont les **dérivées partielles**, rangées dans un vecteur, le **gradient**. Le gradient dit tout de la pente au premier ordre : la pente dans n'importe quelle direction (la **dérivée directionnelle**), la direction de la **plus grande pente**, et le **plan tangent** qui approche la surface. Les dérivées secondes classent les **points critiques** : minimum, maximum ou point selle. Enfin, la **descente de gradient**, le moteur de l'apprentissage, apparaît comme une conséquence directe : un petit pas contre le gradient fait baisser la fonction.
+> Jusqu'ici, une fonction avait **une** entrée : une loss dépendait d'un seul poids, une courbe se lisait sur un axe. Un modèle de machine learning a des milliers ou des millions de poids, et sa loss est une fonction de **tous** à la fois. Ce chapitre passe d'une à plusieurs variables, en restant presque toujours en dimension 2, où tout se dessine. On représente une fonction de deux variables par une **surface** et par une **carte de lignes de niveau**. On la dérive une variable à la fois : ce sont les **dérivées partielles**, rangées dans un vecteur, le **gradient**. Le gradient dit tout de la pente au premier ordre : la pente dans n'importe quelle direction (la **dérivée directionnelle**), la direction de la **plus grande pente**, et le **plan tangent** qui approche la surface. Les dérivées secondes classent les **points critiques** : minimum, maximum ou point selle. Enfin, la **descente de gradient**, le moteur de l'apprentissage, apparaît comme une conséquence directe : un petit pas contre le gradient fait baisser la fonction.
 
 | | |
 |---|---|
@@ -24,12 +24,12 @@
 |---|---|---|---|
 | §1 Surfaces et lignes de niveau | Q1 | M05b.1 ✏️, M05b.16 📈, M05b.17 🗣️ | M05b.24 🎨, M05b.26 🛠️ |
 | §2 Dérivées partielles | Q2, R1 🔁 | M05b.2 ✏️, M05b.14 🔗, M05b.15 📖, M05b.16 📈 | M05b.18 🔨, M05b.21 📦, M05b.25 🐛, M05b.27 🏆 |
-| §3 Gradient et dérivée directionnelle | Q3, Q4, R2 🔁 | M05b.3 ✏️, M05b.4 ✏️, M05b.11 ∂, M05b.15 📖 | M05b.19 🔨, M05b.25 🐛, M05b.27 🏆 |
+| §3 Gradient et dérivée directionnelle | Q3, Q4, R2 🔁 | M05b.3 ✏️, M05b.4 ✏️, M05b.11 ∂, M05b.15 📖 | M05b.19 🔨, M05b.22 🔮, M05b.25 🐛, M05b.27 🏆 |
 | §4 La plus grande pente | Q3 | M05b.5 ✏️, M05b.11 ∂, M05b.12 ∂, M05b.17 🗣️, M05b.E1 💼 | M05b.19 🔨, M05b.22 🔮, M05b.24 🎨 |
 | §5 Plan tangent | Q5 | M05b.6 ✏️, M05b.9 ✏️ | M05b.20 🔨, M05b.23 🔬 |
-| §6 Dérivées partielles secondes | R3 🔁 | M05b.7 ✏️ | |
-| §7 Points critiques | Q6 | M05b.8 ✏️, M05b.10 ✏️, M05b.13 ∂ | M05b.21 📦 |
-| §8 Descente et montée de gradient | Q7 | M05b.9 ✏️, M05b.10 ✏️, M05b.14 🔗 | |
+| §6 Dérivées partielles secondes | R3 🔁 | M05b.7 ✏️, M05b.13 ∂ | M05b.21 📦 |
+| §7 Points critiques | Q6 | M05b.8 ✏️, M05b.10 ✏️, M05b.13 ∂ | M05b.21 📦, M05b.27 🏆 |
+| §8 Descente et montée de gradient | Q7 | M05b.9 ✏️, M05b.10 ✏️, M05b.14 🔗 | M05b.25 🐛 |
 
 Parcours essentiel : tout sauf M05b.Q4, M05b.Q5, M05b.R3, M05b.6, M05b.7, M05b.10 à M05b.13, M05b.16, M05b.20, M05b.23 et M05b.25 à M05b.27. Le plan tangent (§5) et les dérivées secondes (§6) se lisent en survol ; le test du second ordre (§7) se lit en entier.
 
@@ -169,12 +169,12 @@ Chaque variable contribue par sa dérivée partielle, multipliée par la vitesse
 
 Exemples, avec $\nabla f(1, 2) = (6, 9)$ :
 - $\mathbf{u} = (1, 0)$ : $D_{\mathbf{u}} f = 6$, la dérivée partielle en $x$ ; $\mathbf{u} = (0, 1)$ : 9 ;
-- $\mathbf{u} = (0{,}6 ;\ 0{,}8)$, qui est bien unitaire ($0{,}36 + 0{,}64 = 1$) : $6 \times 0{,}6 + 9 \times 0{,}8 = 10{,}8$ ;
+- $\mathbf{u} = (0{,}28 ;\ 0{,}96)$, qui est bien unitaire ($0{,}0784 + 0{,}9216 = 1$) : $6 \times 0{,}28 + 9 \times 0{,}96 = 10{,}32$ ;
 - la direction du vecteur $(1, -1)$, qui n'est **pas** unitaire : on le divise d'abord par sa norme $\sqrt{2}$, et $D_{\mathbf{u}} f = \frac{6 - 9}{\sqrt{2}} \approx -2{,}12$. La fonction descend dans cette direction.
 
 **Sur ordinateur**, il y a deux façons : calculer le gradient (une différence centrée par variable) puis le produit scalaire avec $\mathbf{u}$, ou faire **une seule** différence centrée le long de $\mathbf{u}$, $\frac{f(\mathbf{p} + h\mathbf{u}) - f(\mathbf{p} - h\mathbf{u})}{2h}$. La seconde ne coûte que deux évaluations de $f$, quel que soit le nombre de variables (`directional_derivative`, M05b.19).
 
-⚠️ **Erreur classique.** Calculer $\nabla f \cdot \mathbf{v}$ avec un vecteur $\mathbf{v}$ qui n'est pas unitaire. Le résultat est multiplié par $\|\mathbf{v}\|$ : avec $\mathbf{v} = (3, 4)$ au lieu de $(0{,}6 ;\ 0{,}8)$, on trouverait 54 au lieu de 10,8. Une **direction** se donne par un vecteur unitaire.
+⚠️ **Erreur classique.** Calculer $\nabla f \cdot \mathbf{v}$ avec un vecteur $\mathbf{v}$ qui n'est pas unitaire. Le résultat est multiplié par $\|\mathbf{v}\|$ : avec $\mathbf{v} = (7, 24)$ au lieu de $(0{,}28 ;\ 0{,}96)$, on trouverait 258 au lieu de 10,32. Une **direction** se donne par un vecteur unitaire.
 
 ## §4 · La plus grande pente ; le gradient et les lignes de niveau
 
@@ -286,7 +286,7 @@ Exemple : $f(x, y) = x^3 + y^3 - 3xy$.
 
 ![Les lignes de niveau de x³ + y³ − 3xy : un col en (0, 0), un creux en (1, 1)](figures/points_critiques.png)
 
-**Quand $D = 0$.** Le test ne dit rien, et il faut regarder la fonction elle-même : $x^4 + y^2$ et $x^3 + y^2$ ont toutes deux $D = 0$ en $(0, 0)$, la première y a un minimum, la seconde ni minimum ni maximum (le long de l'axe des $x$, $x^3$ change de signe).
+**Quand $D = 0$.** Le test ne dit rien, et il faut regarder la fonction elle-même : $x^4 + y^2$ et $x^3 - 3xy^2$ ont toutes deux $D = 0$ en $(0, 0)$, la première y a un minimum, la seconde ni minimum ni maximum (le long de l'axe des $x$, elle vaut $x^3$, qui change de signe).
 
 **Extrema globaux sur une partie bornée.** Comme en M05a §2, sur un domaine fermé et borné (un rectangle, un segment, un disque), les extrema globaux sont parmi les points critiques intérieurs **et** les points du bord. Sur un segment, on paramètre le segment et l'on se ramène à une variable (M05b.10).
 

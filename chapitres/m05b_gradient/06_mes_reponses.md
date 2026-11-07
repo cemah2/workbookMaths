@@ -1,7 +1,7 @@
 # M05b · Mes réponses
 
 > Ta copie de ce fichier est dans `mon_travail/m05b_gradient/06_mes_reponses.md` (créée par `python tools/start_chapter.py M05b`) : c'est **elle** que tu remplis, et c'est elle que Claude lit s'il corrige ton travail.
-> Écris ta démarche, pas seulement le résultat : une réponse juste pour une mauvaise raison ne t'apprend rien. Écris les dérivées partielles avant de les évaluer, un gradient comme un vecteur $(\ldots, \ldots)$, une direction par un vecteur unitaire, et pour un point critique le tableau $f_{xx}$, $f_{yy}$, $f_{xy}$, $D$ ; garde les valeurs exactes ($\sqrt{34}$, $e^{0{,}5}$, $\frac{1}{130}$) jusqu'au bout. Les formules s'écrivent en LaTeX entre `$` (R0 §5) ; une démonstration s'écrit en phrases (R4 §8).
+> Écris ta démarche, pas seulement le résultat : une réponse juste pour une mauvaise raison ne t'apprend rien. Écris les dérivées partielles avant de les évaluer, un gradient comme un vecteur $(\ldots, \ldots)$, une direction par un vecteur unitaire, et pour un point critique le tableau $f_{xx}$, $f_{yy}$, $f_{xy}$, $D$ ; garde les valeurs exactes ($\sqrt{7}$, $e^{0{,}2}$, $\frac{3}{11}$) jusqu'au bout. Les formules s'écrivent en LaTeX entre `$` (R0 §5) ; une démonstration s'écrit en phrases (R4 §8).
 
 ## 🧠 Quiz
 
@@ -130,7 +130,7 @@
 - f :
 - Le système ∇f = 0 et ses solutions ; la valeur de f aux points de d) :
 
-### Ex M05b.4 — La dérivée directionnelle dans trois directions
+### Ex M05b.4 — La dérivée directionnelle dans plusieurs directions
 
 - a :
 - b :
@@ -149,7 +149,7 @@
 - d :
 - e :
 - f :
-- Le croquis (P, la flèche de b), la direction de e)) ; ce que représente la direction de e) sur la carte de T :
+- Le croquis (P, O, la flèche du gradient, la tangente de f)) ; pourquoi aller droit vers O n'est pas la montée la plus rapide ; d) vérifiée par ‖∇T‖ cos θ :
 
 ### Ex M05b.6 — Le plan tangent et l'approximation d'une valeur
 
@@ -183,7 +183,7 @@
 - f :
 - g :
 - h :
-- Le système ∇g = 0 et ses quatre solutions ; le tableau point, g_xx, g_yy, g_xy, D, nature ; la vraie nature de (0, 0) en h), et comment je la vois :
+- Le système ∇g = 0 et ses solutions ; le tableau point, g_xx, g_yy, g_xy, D, nature ; la vraie nature de (0, 0) en h), et comment je la vois :
 
 ### Ex M05b.9 — Pourquoi un petit pas contre le gradient fait baisser f : le calcul au premier ordre
 
@@ -267,7 +267,7 @@
 - d :
 - e :
 - f :
-- La justification de f) par l'écart entre les lignes ; ∂f/∂y et ∂f/∂x sur la carte ; ma formule pour f, vérifiée sur deux points :
+- Où les lignes sont les plus serrées le long de [PQ], et ce que cela dit de ∂f/∂x ; ∂f/∂y et ∂f/∂x sur la carte ; ma formule pour f, vérifiée sur deux points :
 
 ### Ex M05b.17 — Expliquer ce que disent des lignes de niveau serrées
 
@@ -289,19 +289,19 @@
 
 ### Ex M05b.18 — Une dérivée partielle par différence centrée · `partial_derivative`
 
-- a), b) et c) calculés à la main ; pourquoi f) demande une copie en flottants :
+- a), b), c) et f) calculés à la main ; pourquoi les vérifications de i et de h passent avant tout calcul :
 
 ### Ex M05b.19 — Dérivée directionnelle et direction de plus grande pente · `directional_derivative, steepest_ascent_direction`
 
-- ∇f(1, 2) à la main, puis a), b) et c) ; ce que représente la direction de c) ; pourquoi f) n'a pas de réponse :
+- ∇f(1, 3) à la main, puis a), b) et c) ; ce que représente la direction de c) ; pourquoi f) n'a pas de réponse :
 
 ### Ex M05b.20 — Le plan tangent · `tangent_plane`
 
-- Les deux plans, sous la forme z = f(x₀, y₀) + …, puis développés ; le signe de l'écart de d), et ce qu'il dit de la surface :
+- Les deux plans, sous la forme z = f(x₀, y₀) + …, puis développés ; le signe de l'écart de d), et ce qu'il dit de la surface ; D en (2, 0), et ce qu'il dit des autres directions :
 
 ### Ex M05b.21 — SymPy : dérivées partielles, gradient, points critiques
 
-- Le tableau des trois points critiques (k_xx, k_yy, k_xy, D, nature) ; a) et c) vérifiés à la main :
+- Le tableau des points critiques (k_xx, k_yy, k_xy, D, nature) ; a) et c) vérifiés à la main ; le minimum local est-il global ? :
 
 ### Ex M05b.22 — Prédire : la dérivée directionnelle le long d'une ligne de niveau
 
@@ -309,7 +309,7 @@
 
 ### Ex M05b.23 — L'erreur du plan tangent quand on s'éloigne du point
 
-- Ce que dit c) de l'ordre de l'erreur ; pourquoi d) est nul ; e) et a) comparés au terme s²/2 :
+- Ce que dit c) de l'ordre de l'erreur ; la valeur de d), et pourquoi ; e) et a) comparés au terme s²/2 :
 
 ### Ex M05b.24 — Lignes de niveau et flèches du gradient sur la même figure
 

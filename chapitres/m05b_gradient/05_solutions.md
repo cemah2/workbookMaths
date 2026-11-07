@@ -30,7 +30,7 @@
 3. $\|\nabla f(\mathbf{p})\|$, la plus grande pente possible en $\mathbf{p}$.
 4. $\nabla f = (-2x, -2y)$, donc $\nabla f(1, 0) = (-2, 0)$ : il pointe vers l'**origine**, le sommet de ce dôme rond. (Sur un dôme allongé, il ne viserait pas le sommet, fiche §4.)
 5. **Vrai** : un sommet lisse est un maximum local, donc un point critique.
-6. Dans la direction de $-\nabla f(\mathbf{p})$.
+6. La direction ne change pas, la norme double : $\nabla(2f) = 2\,\nabla f$ (toutes les pentes doublent).
 
 ### M05b.Q4 — La dérivée directionnelle
 1. $D_{\mathbf{u}} f(\mathbf{p}) = \nabla f(\mathbf{p}) \cdot \mathbf{u}$, avec $\|\mathbf{u}\| = 1$.
@@ -60,7 +60,7 @@
 1. $\mathbf{x}_{k+1} = \mathbf{x}_k - \eta\,\nabla f(\mathbf{x}_k)$, avec $\eta > 0$.
 2. Un pas de **montée**, $\mathbf{x} + \eta\,\nabla f(\mathbf{x})$ ; ou, ce qui revient au même, un pas de descente sur $-\ln$ de la vraisemblance.
 3. $\nabla f = (2x, 8y) = (2, 8)$ : $(1, 1) - 0{,}1 \times (2, 8) = (0{,}8 ;\ 0{,}2)$.
-4. **Faux** : elle peut s'arrêter dans un minimum local, ou ralentir près d'un point selle ; c'est garanti pour une fonction convexe, avec un pas bien réglé.
+4. Le pas vaut $\eta\,\|\nabla f(\mathbf{x})\|$ : près d'un minimum (un point critique), le gradient tend vers $\mathbf{0}$, et les pas raccourcissent d'eux-mêmes.
 5. De $\eta\,\|\nabla f(\mathbf{x})\|^2$ environ.
 6. $\arg\min f = (-2, 1)$ et $\min f = 0$ : une somme de carrés, nulle seulement en ce point.
 
@@ -70,7 +70,7 @@
 
 ### M05b.R1 — Dériver une composée (R7)
 1. $5(3x^2 + 1)^4 \times 6x = 30x\,(3x^2 + 1)^4$.
-2. $-x\,e^{-x^2/2}$.
+2. $(6x - 1)\,e^{3x^2 - x}$.
 3. $\frac{2x}{1 + x^2}$.
 4. $-\frac{1}{2\sqrt{4 - x}}$.
 5. $2\cos(2x + 1)$.
@@ -78,7 +78,7 @@
 ### M05b.R2 — Produit scalaire et norme (R9)
 1. $6 - 4 = 2$.
 2. $\sqrt{4 + 1} = \sqrt{5} \approx 2{,}236$.
-3. $\frac{(3, 4)}{5} = (0{,}6 ;\ 0{,}8)$.
+3. $\frac{(8, 15)}{17} \approx (0{,}471 ;\ 0{,}882)$ ($\sqrt{64 + 225} = 17$).
 4. $\cos\theta = \frac{1}{1 \times \sqrt{2}}$, donc $\theta = 45°$.
 5. $(5, -2)$, ou tout multiple non nul : $2 \times 5 + 5 \times (-2) = 0$.
 
@@ -86,7 +86,7 @@
 1. $f''(x) = 6x \ge 0 \iff x \ge 0$ : sur $[0, +\infty[$.
 2. $c$ est un **minimum local** (test de la dérivée seconde, M05a §2).
 3. **Oui** : $(e^{2x})'' = 4e^{2x} > 0$ partout.
-4. $(x^4)'' = 12x^2$ vaut 0 en 0 : le test **ne conclut pas**, il faut regarder le signe de $f'$ ou la fonction elle-même.
+4. $f'(x) = -\sin x + x$ et $f''(x) = 1 - \cos x$ valent 0 en 0 : le test **ne conclut pas**. (En fait, $\cos x \ge 1 - \frac{x^2}{2}$ pour tout $x$ : $f \ge 1 = f(0)$, un minimum.)
 5. La façon dont la courbe tourne : $f'' > 0$, elle tourne vers le haut (convexe, une cuvette) ; $f'' < 0$, vers le bas (concave). Le §6 de la fiche en fait une courbure **dans une direction**.
 
 <a id="papier"></a>
@@ -125,59 +125,61 @@ Pour la copie : les lignes 9, 36 et 81 de $f_2$ coupent l'axe des $x$ en 3, 6, 9
 
 Pour la copie : la tranche $x \mapsto f(x, -2) = -8x^3 - 4 + 7x$ a pour dérivée $-24x^2 + 7$, qui vaut $-17$ en 1 : c'est bien c). Les deux dérivées de $g$ ont le facteur $e^{2x - y}$ parce que la dérivée de $e^{u}$ est $e^{u}$ fois la dérivée de $u$ ; seul ce dernier facteur change (2 ou $-1$).
 
-**Erreurs fréquentes.** Dériver aussi la variable figée ($4x^3 y \to 12x^2$ en a), ou $4x^3 y \to 4x^3 y$ en b)) ; garder $7$ en b) ou supprimer $-y^2$ à tort ; oublier le facteur de la règle de la chaîne (e et f) ; perdre le signe de $z$ en h).
+**Erreurs fréquentes.** Dériver aussi la variable figée ($12x^2$ au lieu de $12x^2 y$ en a)), ou ne pas dériver $4x^3 y$ par rapport à $y$ en b) (le garder tel quel) ; garder $7$ en b) ou supprimer $-y^2$ à tort ; oublier le facteur de la règle de la chaîne (e et f) ; perdre le signe de $z$ en h).
 
 **Variante.** $\frac{\partial}{\partial y}\big(x\,e^{xy}\big)$ ? *Réponse* : $x \times x\,e^{xy} = x^2 e^{xy}$.
 
 ### Ex M05b.3 — Le gradient en un point et sa norme
 
-**Réponses** : a) `[4, 1]` · b) `4.1231` · c) `[0, -3]` · d) `[-1.732, 1.732]` · e) `[0.9701, 0.2425]` · f) `2.8284`.
+**Réponses** : a) `[12, 1]` · b) `12.0416` · c) `[0, -3]` · d) `[-1.732, 1.732]` · e) `[0.9965, 0.083]` · f) `2.8284`.
 
 **Démarche.** $f_x = 2xy$ et $f_y = x^2 - 3$.
-- a) $\nabla f(2, 1) = (4, 4 - 3) = (4, 1)$ ; b) $\sqrt{16 + 1} = \sqrt{17} \approx 4{,}1231$.
+- a) $\nabla f(2, 3) = (12, 4 - 3) = (12, 1)$ ; b) $\sqrt{144 + 1} = \sqrt{145} \approx 12{,}0416$.
 - c) $\nabla f(0, 5) = (0, -3)$.
 - d) $2xy = 0$ et $x^2 = 3$ : $x = \pm\sqrt{3}$, donc $x \ne 0$ et $y = 0$. Deux points critiques, $(-\sqrt{3}, 0)$ et $(\sqrt{3}, 0)$.
-- e) $\frac{(4, 1)}{\sqrt{17}} \approx (0{,}9701 ;\ 0{,}2425)$.
+- e) $\frac{(12, 1)}{\sqrt{145}} \approx (0{,}9965 ;\ 0{,}0830)$ : presque la direction de l'axe des $x$.
 - f) $\nabla f(1, 1) = (2, -2)$, de norme $\sqrt{8} = 2\sqrt{2} \approx 2{,}8284$.
 
 Pour la copie : aux deux points de d), $f = 0 - 0 + 1 = 1$.
 
-**Erreurs fréquentes.** Oublier la dérivée de $-3y$ dans $f_y$ (a : `[4, 4]`) ; donner $\|\nabla f\|^2$ au lieu de $\|\nabla f\|$ (b, f) ; oublier la solution négative en d) ; donner le gradient lui-même en e).
+**Erreurs fréquentes.** Oublier la dérivée de $-3y$ dans $f_y$ (a : `[12, 4]`) ; donner $\|\nabla f\|^2$ au lieu de $\|\nabla f\|$ (b, f) ; oublier la solution négative en d) ; donner le gradient lui-même en e).
 
 **Variante.** $\nabla(x y^2)$ en $(1, 2)$ et sa norme ? *Réponse* : $(y^2, 2xy) = (4, 4)$, de norme $4\sqrt{2} \approx 5{,}657$.
 
-### Ex M05b.4 — La dérivée directionnelle dans trois directions
+### Ex M05b.4 — La dérivée directionnelle dans plusieurs directions
 
-**Réponses** : a) `10` · b) `2` · c) `4.4` · d) `5.6569` · e) `-7.6` · f) `10.198` · g) `56.31`.
+**Réponses** : a) `10` · b) `2` · c) `0.88` · d) `5.6569` · e) `-5.7` · f) `10.198` · g) `56.31`.
 
 **Démarche.** $f_x = 6x - 2y$ et $f_y = -2x + 2y$, donc $\nabla f(2, 1) = (10, -2)$.
 - a) $(10, -2) \cdot (1, 0) = 10$ ; b) $(10, -2) \cdot (0, -1) = 2$.
-- c) $\frac{(3, 4)}{5} = (0{,}6 ;\ 0{,}8)$ : $6 - 1{,}6 = 4{,}4$.
+- c) $\|(7, 24)\| = 25$, donc $\mathbf{u} = (0{,}28 ;\ 0{,}96)$ : $2{,}8 - 1{,}92 = 0{,}88$.
 - d) $\frac{10 - 2}{\sqrt{2}} = 4\sqrt{2} \approx 5{,}6569$.
-- e) $Q - P = (-3, 4)$, de norme 5 : $\frac{-30 - 8}{5} = -7{,}6$. $f$ descend quand on va vers $Q$.
+- e) $Q - P = (-5, 12)$, de norme 13 : $\frac{-50 - 24}{13} = -\frac{74}{13} \approx -5{,}7$. $f$ descend quand on va vers $Q$.
 - f) $\|\nabla f(P)\| = \sqrt{104} = 2\sqrt{26} \approx 10{,}198$.
 - g) $\cos\theta = \frac{(10, -2) \cdot (1, 1)}{\sqrt{104}\,\sqrt{2}} = \frac{8}{\sqrt{208}} \approx 0{,}5547$, donc $\theta \approx 56{,}31°$.
 
-Pour la copie : $\|\nabla f\|\cos\theta = 10{,}198 \times 0{,}5547 \approx 5{,}657$, c'est d). La pente est nulle dans la direction orthogonale au gradient, de première composante positive : $\frac{(2, 10)}{\sqrt{104}} = \frac{(1, 5)}{\sqrt{26}} \approx (0{,}1961 ;\ 0{,}9806)$.
+Pour la copie : $\|\nabla f\|\cos\theta = 10{,}198 \times 0{,}5547 \approx 5{,}657$, c'est d). La pente est nulle dans les deux directions orthogonales au gradient, $\pm\frac{(1, 5)}{\sqrt{26}} \approx \pm(0{,}1961 ;\ 0{,}9806)$ : celles de la ligne de niveau qui passe par $P$.
 
-**Erreurs fréquentes.** Ne pas diviser par la norme (c : 22 ; d : 8 ; e : $-38$) ; prendre $P - Q$ au lieu de $Q - P$ (e : 7,6) ; donner l'angle en radians (g : 0,98).
+**Erreurs fréquentes.** Ne pas diviser par la norme (c : 22 ; d : 8 ; e : $-74$) ; prendre $P - Q$ au lieu de $Q - P$ (e : 5,7) ; donner l'angle en radians (g : 0,98).
 
 **Variante.** La pente de $x^2 + y^2$ en $(1, 2)$ dans la direction du vecteur $(1, -1)$ ? *Réponse* : $\frac{(2, 4) \cdot (1, -1)}{\sqrt{2}} = -\sqrt{2} \approx -1{,}414$.
 
 ### Ex M05b.5 — Monter le plus vite : la direction et la valeur de la plus grande pente
 
-**Réponses** : a) `[-5, -3]` · b) `[-0.8575, -0.5145]` · c) `5.831` · d) `[0.8575, 0.5145]` · e) `[0.5145, -0.8575]` · f) `0.58`.
+**Réponses** : a) `[-5, -3]` · b) `5.831` · c) `210.96` · d) `5.692` · e) `12.53` · f) `"-5/3"`.
 
 **Démarche.** $T_x = -2x + y$ et $T_y = -6y + x$, donc $\nabla T(3, 1) = (-5, -3)$.
-- b) $\frac{(-5, -3)}{\sqrt{34}} \approx (-0{,}8575 ;\ -0{,}5145)$ ; c) $\sqrt{34} \approx 5{,}831$ °C/cm ; d) l'opposé de b).
-- e) Un vecteur orthogonal à $(-5, -3)$ : $(3, -5)$ (produit scalaire $-15 + 15 = 0$), de norme $\sqrt{34}$ ; divisé par sa norme, $\approx (0{,}5145 ;\ -0{,}8575)$.
-- f) Au premier ordre, la hausse vaut la pente fois le déplacement : $5{,}831 \times 0{,}1 \approx 0{,}58$ °C. La variation exacte, $T(P + 0{,}1\,\mathbf{u}) - T(P)$, vaut environ 0,572 : la courbure de $T$ (négative ici) se fait déjà sentir à cette distance.
+- b) La plus grande pente vaut $\|\nabla T(P)\| = \sqrt{34} \approx 5{,}831$ °C/cm.
+- c) Le gradient $(-5, -3)$ pointe vers le bas et vers la gauche (troisième quadrant). L'angle aigu avec l'axe vaut $\arctan\frac{3}{5} \approx 30{,}96°$, donc l'angle cherché vaut $180° + 30{,}96° \approx 210{,}96°$.
+- d) $O - P = (-3, -1)$, de norme $\sqrt{10}$ : $\frac{(-5, -3) \cdot (-3, -1)}{\sqrt{10}} = \frac{18}{\sqrt{10}} \approx 5{,}692$ °C/cm.
+- e) $\cos\theta = \frac{18}{\sqrt{34}\,\sqrt{10}} = \frac{18}{\sqrt{340}} \approx 0{,}9762$, donc $\theta \approx 12{,}53°$.
+- f) La tangente à l'isotherme est orthogonale au gradient : elle est dirigée par $(3, -5)$ (produit scalaire $-15 + 15 = 0$), de pente $\frac{-5}{3}$. Avec l'équation de M05b.12, $-5(x - 3) - 3(y - 1) = 0$, soit $y = -\frac{5}{3}x + 6$.
 
-Pour la copie : la direction de e) est celle de la **ligne de niveau** (l'isotherme) de $T$ qui passe par $P$ : on y reste, au premier ordre, à la même température.
+Pour la copie : vers $O$, la pente vaut $\|\nabla T\|\cos 12{,}53° = 5{,}831 \times 0{,}9762 \approx 5{,}692$, un peu moins que la plus grande pente. Le gradient ne vise pas le point le plus chaud : il suit la montée la plus raide **sur le moment**, à angle droit de l'isotherme, et l'isotherme, une ellipse inclinée, n'est pas un cercle centré en $O$ (fiche §4).
 
-**Erreurs fréquentes.** Oublier le terme $xy$ en dérivant ; ne pas normaliser b) ; confondre la direction de plus grande montée et celle de plus grande descente ; un vecteur de e) qui n'est pas orthogonal au gradient ($(5, -3)$, par exemple) ; oublier de multiplier par 0,1 en f), ou y donner la variation exacte (0,57) au lieu de l'estimation au premier ordre.
+**Erreurs fréquentes.** Oublier le terme $xy$ en dérivant (a : `[-6, -6]`) ; donner $\|\nabla T\|^2$ en b) ; en c), donner l'angle aigu $30{,}96°$ sans regarder le quadrant, ou un angle négatif ; ne pas normaliser $O - P$ (d : 18), ou partir de $O$ vers $P$ ; en f), prendre la pente de la droite dirigée par le gradient ($\frac{3}{5}$) au lieu de celle de la tangente.
 
-**Variante.** En $(1, 2)$ ? *Réponse* : $\nabla T(1, 2) = (0, -11)$ : la montée la plus rapide suit $(0, -1)$, au taux de 11 °C/cm.
+**Variante.** En $(1, 2)$ ? *Réponse* : $\nabla T(1, 2) = (0, -11)$ : la montée la plus rapide suit $(0, -1)$, d'angle 270°, au taux de 11 °C/cm, et la tangente à l'isotherme est horizontale.
 
 ### Ex M05b.6 — Le plan tangent et l'approximation d'une valeur
 
@@ -190,7 +192,7 @@ Pour la copie : la direction de e) est celle de la **ligne de niveau** (l'isothe
 - e) $18 + 12 \times 0{,}1 + 2{,}25 \times (-0{,}1) = 18{,}975$.
 - f) $3{,}1^2 \times \sqrt{3{,}9} = 9{,}61 \times 1{,}97484 \approx 18{,}9782$ ; g) $18{,}9782 - 18{,}975 \approx 0{,}0032$.
 
-Pour la copie : avec un déplacement de $(0{,}2 ;\ -0{,}2)$, l'erreur vaut environ $0{,}0114$, à peu près 4 fois plus (3,5 exactement) : l'erreur est d'ordre 2, elle se comporte comme le carré du déplacement (fiche §5). L'écart à 4 vient du terme d'ordre 3, encore visible ici parce que, dans cette direction, les termes d'ordre 2 se compensent en partie ($f_{xx}\,\Delta x^2$ et $2f_{xy}\,\Delta x\,\Delta y$ sont de signes opposés).
+Pour la copie : avec un déplacement de $(0{,}2 ;\ -0{,}2)$, l'erreur vaut environ $0{,}0114$, à peu près 4 fois plus (3,54 exactement) : l'erreur est d'ordre 2, elle se comporte comme le carré du déplacement (fiche §5). L'écart à 4 vient du terme d'ordre 3, encore visible ici parce que, dans cette direction, les termes d'ordre 2 se compensent en partie ($f_{xx}\,\Delta x^2$ et $2f_{xy}\,\Delta x\,\Delta y$ sont de signes opposés).
 
 **Erreurs fréquentes.** Oublier la racine en a) (36) ; dériver $\sqrt{y}$ quand on dérive par rapport à $x$ ; oublier le facteur $x^2$, ou écrire $\frac{1}{\sqrt{y}}$ au lieu de $\frac{1}{2\sqrt{y}}$ en c) ; donner $C = f(3, 4) = 18$ en d), sans développer ; un déplacement en $y$ de $+0{,}1$ en e).
 
@@ -216,10 +218,10 @@ Pour la copie : $f_{yx} = \frac{\partial}{\partial x}(2x^3 y - x\,e^{xy}) = 6x^2
 
 ### Ex M05b.8 — Les points critiques et leur nature (test du second ordre)
 
-**Réponses** : a) `2` · b) `"A"` · c) `"C"` · d) `-20` · e) `4` · f) `2` · g) `28` · h) `"D"`.
+**Réponses** : a) `-24` · b) `"A"` · c) `"C"` · d) `-20` · e) `4` · f) `2` · g) `28` · h) `"D"`.
 
 **Démarche.**
-- a) à d) $f_x = 3x^2 - 12$ et $f_y = 2y - 4$ s'annulent en $x = \pm 2$ et $y = 2$ : deux points critiques. $f_{xx} = 6x$, $f_{yy} = 2$, $f_{xy} = 0$. En $(2, 2)$ : $D = 12 \times 2 = 24 > 0$ et $f_{xx} = 12 > 0$, un minimum local, où $f = 8 - 24 + 4 - 8 = -20$. En $(-2, 2)$ : $D = -24 < 0$, un point selle.
+- a) à d) $f_x = 3x^2 - 12$ et $f_y = 2y - 4$ s'annulent en $x = \pm 2$ et $y = 2$ : deux points critiques. $f_{xx} = 6x$, $f_{yy} = 2$, $f_{xy} = 0$. En $(-2, 2)$ : $D = (-12) \times 2 - 0 = -24 < 0$, un point selle. En $(2, 2)$ : $D = 12 \times 2 = 24 > 0$ et $f_{xx} = 12 > 0$, un minimum local, où $f = 8 - 24 + 4 - 8 = -20$.
 - e) à g) $g_x = 3x^2 + 3y^2 - 15$ et $g_y = 6xy - 12$ : le système se ramène à $x^2 + y^2 = 5$ et $xy = 2$. Alors $(x + y)^2 = 9$ et $(x - y)^2 = 1$, d'où quatre points : $(1, 2)$, $(2, 1)$, $(-1, -2)$, $(-2, -1)$. Avec $g_{xx} = g_{yy} = 6x$ et $g_{xy} = 6y$, $D = 36(x^2 - y^2)$ :
 
 | point | $g_{xx}$ | $g_{yy}$ | $g_{xy}$ | $D$ | nature |
@@ -231,7 +233,7 @@ Pour la copie : $f_{yx} = \frac{\partial}{\partial x}(2x^3 y - x\,e^{xy}) = 6x^2
 
 - h) Pour $(x + y)^2$ en $(0, 0)$ : $f_{xx} = f_{yy} = f_{xy} = 2$, donc $D = 4 - 4 = 0$ : le test ne conclut pas. Pourtant $(x + y)^2 \ge 0 = f(0, 0)$ : c'est un minimum (global, mais pas strict : $f$ vaut 0 sur toute la droite $y = -x$, un fond de vallée plat), que l'on voit sur la fonction elle-même.
 
-**Erreurs fréquentes.** Oublier $x = -2$ (a) ; conclure d'après le seul signe de $f_{xx}$ en $(-2, 2)$ (B) au lieu de calculer $D$ ; ne garder que les solutions positives du système de $g$ (e : 2) ; donner la valeur du minimum local en g) ($-28$) ; répondre « minimum » en h) : c'est la vraie nature, mais pas la réponse du test.
+**Erreurs fréquentes.** Oublier le signe de $f_{xx}(-2, 2)$ (a : 24) ; conclure d'après le seul signe de $f_{xx}$ en $(-2, 2)$ (B) au lieu de calculer $D$ ; ne garder que les solutions positives du système de $g$ (e : 2) ; donner la valeur du minimum local en g) ($-28$) ; répondre « minimum » en h) : c'est la vraie nature, mais pas la réponse du test.
 
 **Variante.** La nature de $(0, 0)$ pour $x^2 - 4xy + y^2$ ? *Réponse* : $D = 2 \times 2 - 16 = -12 < 0$ : un point selle (le long de $y = x$, $f = -2x^2$ ; le long de $y = -x$, $f = 6x^2$).
 
@@ -285,7 +287,7 @@ Pour la copie : h) dit qu'au minimum sur le segment, le gradient est orthogonal 
 3. Par l'inégalité de Cauchy-Schwarz (ou avec $\nabla f \cdot \mathbf{u} = \|\nabla f\|\,\|\mathbf{u}\|\cos\theta$, R9) : $|\nabla f(\mathbf{p}) \cdot \mathbf{u}| \le \|\nabla f(\mathbf{p})\|\,\|\mathbf{u}\| = \|\nabla f(\mathbf{p})\|$, car $\|\mathbf{u}\| = 1$.
 4. Pour $\mathbf{u}^* = \frac{\nabla f(\mathbf{p})}{\|\nabla f(\mathbf{p})\|}$ (unitaire) : $\nabla f \cdot \mathbf{u}^* = \frac{\|\nabla f\|^2}{\|\nabla f\|} = \|\nabla f\|$. Unicité : si $\mathbf{u}$ est unitaire et $\nabla f \cdot \mathbf{u} = \|\nabla f\|$, alors $\mathbf{u} \cdot \mathbf{u}^* = 1$, et $\|\mathbf{u} - \mathbf{u}^*\|^2 = \|\mathbf{u}\|^2 - 2\,\mathbf{u} \cdot \mathbf{u}^* + \|\mathbf{u}^*\|^2 = 1 - 2 + 1 = 0$ : $\mathbf{u} = \mathbf{u}^*$. (Avec l'angle : $\cos\theta = 1$ impose $\theta = 0$.)
 5. Notons $\nabla f(\mathbf{p}) = (A, B) \ne (0, 0)$. On cherche $\mathbf{u} = (u_1, u_2)$ avec $A u_1 + B u_2 = 0$ et $u_1^2 + u_2^2 = 1$. Les vecteurs orthogonaux à $(A, B)$ sont les multiples $\lambda\,(B, -A)$ (si $A \ne 0$, $u_1 = -\frac{B}{A}u_2$, donc $\mathbf{u} = -\frac{u_2}{A}(B, -A)$ ; de même si $B \ne 0$). La condition $\|\lambda (B, -A)\| = 1$ donne $|\lambda| = \frac{1}{\|\nabla f\|}$ : exactement deux vecteurs, $\pm\frac{(B, -A)}{\sqrt{A^2 + B^2}}$.
-6. $g(t) = (1 + 0{,}6t)\,e^{0{,}8t}$, donc $g'(t) = 0{,}6\,e^{0{,}8t} + 0{,}8\,(1 + 0{,}6t)\,e^{0{,}8t}$ et $g'(0) = 0{,}6 + 0{,}8 = 1{,}4$. Par la formule : $\nabla f = (e^y, x\,e^y) = (1, 1)$ en $(1, 0)$, et $(1, 1) \cdot (0{,}6 ;\ 0{,}8) = 1{,}4$.
+6. $g(t) = (1 + 0{,}28t)\,e^{0{,}96t}$, donc $g'(t) = 0{,}28\,e^{0{,}96t} + 0{,}96\,(1 + 0{,}28t)\,e^{0{,}96t}$ et $g'(0) = 0{,}28 + 0{,}96 = 1{,}24$. Par la formule : $\nabla f = (e^y, x\,e^y) = (1, 1)$ en $(1, 0)$, et $(1, 1) \cdot (0{,}28 ;\ 0{,}96) = 1{,}24$.
 
 **Grille.** (1) le lien entre la définition de $D_{\mathbf{u}} f$ et celle de $g'(0)$ ; (2) la règle de la chaîne avec $x' = u_1$, $y' = u_2$, évaluée en $t = 0$ ; (3) Cauchy-Schwarz (ou le cosinus) et l'usage de $\|\mathbf{u}\| = 1$ ; (4) la valeur atteinte **et** l'unicité ; (5) la droite des vecteurs orthogonaux, coupée par le cercle unité : deux vecteurs ; (6) le calcul direct de $g'(0)$ et la comparaison.
 
@@ -328,7 +330,7 @@ Pour la copie : h) dit qu'au minimum sur le segment, le gradient est orthogonal 
 - e) $\hat{y}^{(1)} = 0{,}75 + 0{,}6 = 1{,}35$ (erreur 0,35), $\hat{y}^{(2)} = 2{,}25 - 0{,}3 = 1{,}95$ (erreur $-0{,}05$) : $L = \frac{1}{2}(0{,}1225 + 0{,}0025) = 0{,}0625$, dix fois moins.
 - f) Les deux erreurs s'annulent si $w_1 + 2w_2 = 1$ et $3w_1 - w_2 = 2$ : $w_2 = 3w_1 - 2$, puis $7w_1 = 5$, soit $\big(\frac{5}{7}, \frac{1}{7}\big) \approx (0{,}7143 ;\ 0{,}1429)$. Le gradient y est nul, puisque chaque terme contient une erreur.
 
-Pour la copie : chaque exemple pèse dans le gradient en proportion de **son erreur** fois son entrée : un exemple bien prédit ne pousse presque pas les poids. Aux poids de f), $L = 0$ : deux équations, deux inconnues, le neurone prédit les deux exemples exactement, et c'est le minimum global ($L \ge 0$). Avec trois exemples incompatibles, aucun poids n'annule toutes les erreurs : le minimum de $L$ est strictement positif (c'est la méthode des moindres carrés, M10).
+Pour la copie : chaque exemple pèse dans le gradient en proportion de **son erreur** fois son entrée : un exemple bien prédit ne pousse presque pas les poids. Aux poids de f), $L = 0$ : deux équations, deux inconnues, le neurone prédit les deux exemples exactement, et c'est le minimum global ($L \ge 0$). Avec trois exemples incompatibles, aucun poids n'annule toutes les erreurs : le minimum de $L$ est strictement positif (c'est la méthode des moindres carrés, M09b).
 
 **Erreurs fréquentes.** Oublier le $\frac{1}{2}$ (a : 1,25) ou garder le 2 de la dérivée (b : $-5$, c : 4) ; ajouter le gradient au lieu de le retirer (d : `[0.25, 0.7]`) ; inverser l'ordre des poids en f).
 
@@ -349,13 +351,13 @@ Pour la copie : chaque exemple pèse dans le gradient en proportion de **son err
 
 ### Ex M05b.16 — Lire une carte de lignes de niveau : estimer une dérivée partielle
 
-**Réponses** : a) `3` · b) `6` · c) `3` · d) `5` · e) `2` · f) `"Q"`.
+**Réponses** : a) `3` · b) `6` · c) `3` · d) `5` · e) `2` · f) `6`.
 
-**Démarche.** On lit sur la carte $f(A) = 3$, $f(B) = 6$ et $f(C) = 5$. c) $\frac{6 - 3}{2 - 1} = 3$ ; e) $\frac{5 - 3}{2 - 1} = 2$. f) Autour de $Q$, les lignes de niveau sont beaucoup plus serrées qu'autour de $P$ : la pente y est plus forte.
+**Démarche.** On lit sur la carte $f(A) = 3$, $f(B) = 6$ et $f(C) = 5$. c) $\frac{6 - 3}{2 - 1} = 3$ ; e) $\frac{5 - 3}{2 - 1} = 2$. f) $P$ est entre les lignes $-2$ et $-1$, $Q$ entre les lignes 4 et 5 : le segment traverse les lignes $-1$, 0, 1, 2, 3 et 4, une fois chacune.
 
-Pour la copie : dans la direction de $y$, les lignes sont régulièrement espacées (une ligne tous les 0,5 en $y$) : $\frac{\partial f}{\partial y}$ semble constante, égale à 2. Dans la direction de $x$, elles se resserrent quand $|x|$ grandit : $\frac{\partial f}{\partial x}$ grandit avec $|x|$, et s'annule sur l'axe des $y$, où les lignes sont horizontales. La fonction $f(x, y) = x^2 + 2y$ a ces lignes de niveau (les paraboles $y = \frac{c - x^2}{2}$) : $f(1, 1) = 3$ et $f(2, 1) = 6$. En $P$, $\nabla f = (1, 2)$, de norme $\sqrt{5} \approx 2{,}2$ ; en $Q$, $(5, 2)$, de norme $\sqrt{29} \approx 5{,}4$.
+Pour la copie : le long de $[PQ]$, les lignes se resserrent quand on va vers $Q$, c'est-à-dire quand $x$ grandit : $\frac{\partial f}{\partial x}$ grandit avec $x$. Dans la direction de $y$, les lignes sont régulièrement espacées (une ligne tous les 0,5 en $y$) : $\frac{\partial f}{\partial y}$ semble constante, égale à 2. Dans la direction de $x$, elles se resserrent quand $|x|$ grandit, et sont horizontales sur l'axe des $y$, où $\frac{\partial f}{\partial x}$ s'annule. La fonction $f(x, y) = x^2 + 2y$ a ces lignes de niveau (les paraboles $y = \frac{c - x^2}{2}$) : $f(1, 1) = 3$ et $f(2, 1) = 6$ ; $f(P) = -1{,}75$ et $f(Q) = 4{,}5$.
 
-**Erreurs fréquentes.** Lire la valeur de la ligne voisine ; diviser par la différence des valeurs au lieu de la distance ; choisir $P$ parce que les lignes y sont plus courbées (c'est l'écart qui compte, pas la courbure).
+**Erreurs fréquentes.** Lire la valeur de la ligne voisine ; diviser par la différence des valeurs au lieu de la distance ; en f), oublier la ligne 0 ou compter une ligne que le segment ne fait que frôler.
 
 **Variante.** Le taux d'accroissement entre $B$ et le point $(2, 2)$ ? *Réponse* : $f(2, 2) = 8$, donc $\frac{8 - 6}{1} = 2$ : la même estimation de $\frac{\partial f}{\partial y}$ qu'entre $A$ et $C$.
 
@@ -363,9 +365,9 @@ Pour la copie : dans la direction de $y$, les lignes sont régulièrement espac�
 
 **Réponse modèle.**
 
-> Deux courbes voisines sont à des altitudes qui diffèrent toujours de la même quantité, disons 10 mètres. Là où elles sont collées, on monte de 10 mètres en quelques pas : la pente est raide. Là où elles sont espacées, il faut marcher longtemps pour monter autant : c'est presque plat. Le gradient, en chaque point, c'est une flèche qui pointe vers la montée la plus raide : elle traverse les courbes à angle droit, jamais le long d'elles, puisque suivre une courbe, c'est rester à la même altitude. Sa longueur, c'est la pente dans cette direction : grande là où les courbes sont serrées, petite là où elles s'écartent. Une goutte d'eau posée sur la carte part dans le sens opposé à la flèche, perpendiculairement aux courbes, vers le bas : elle fait une descente de gradient.
+> Deux courbes voisines sont à des altitudes qui diffèrent toujours de la même quantité, disons 10 mètres. Là où elles sont collées, on monte de 10 mètres en quelques pas : la pente est raide. Là où elles sont espacées, il faut marcher longtemps pour monter autant : c'est presque plat. Le gradient, en chaque point, c'est une flèche qui pointe vers la montée la plus raide : elle traverse les courbes à angle droit, jamais le long d'elles. Sa longueur, c'est la pente dans cette direction : grande là où les courbes sont serrées, petite là où elles s'écartent. Et un sentier qui ne monte ni ne descend, c'est une courbe de niveau elle-même : on la suit, toujours à angle droit de la flèche du gradient, et l'altitude ne change pas.
 
-**Grille.** (1) l'écart entre deux courbes lié à la pente (serré = raide) ; (2) le gradient perpendiculaire aux courbes, vers la montée ; (3) sa longueur grande où les courbes sont serrées ; (4) la goutte d'eau qui suit l'opposé du gradient ; (5) huit lignes au plus, sans formule.
+**Grille.** (1) l'écart entre deux courbes lié à la pente (serré = raide) ; (2) le gradient perpendiculaire aux courbes, vers la montée ; (3) sa longueur grande où les courbes sont serrées ; (4) le sentier plat qui suit une courbe de niveau, à angle droit du gradient ; (5) huit lignes au plus, sans formule.
 
 <a id="entretien"></a>
 
@@ -385,43 +387,43 @@ Pour la copie : dans la direction de $y$, les lignes sont régulièrement espac�
 
 ### Ex M05b.18 — Une dérivée partielle par différence centrée · `partial_derivative`
 
-**Réponses** : a) `3.0` · b) `2.25` · c) `-2.0` · d) `"ValueError"` · e) `"ValueError"` · f) `12.0` · g) `"float"`.
+**Réponses** : a) `3.0` · b) `2.25` · c) `-2.0` · d) `"ValueError"` · e) `"ValueError"` · f) `0.8` · g) `"float"`.
 
-**Démarche.** `p = np.array(point, dtype=float)`, puis les vérifications **avant** tout calcul : `if not 0 <= i < p.size: raise ValueError(...)` et `if not h > 0: raise ValueError(...)` (ce test refuse aussi `nan`). Ensuite `step = np.zeros_like(p)`, `step[i] = h`, et `return float((f(p + step) - f(p - step)) / (2 * h))`. Pour la copie : a) $2x\,e^y = 3$ ; b) $x^2 e^y = 2{,}25$ ; c) $\frac{\partial}{\partial z}(xyz) = xy = -2$. f) Dans un tableau d'entiers, `p[0] += 1e-5` laisse 2 : les deux évaluations sont égales et la différence vaut 0 ; la copie en flottants garde le petit pas.
+**Démarche.** `p = np.array(point, dtype=float)` (la copie que demande le commentaire `TODO`), puis les vérifications **avant** tout calcul : `if not 0 <= i < p.size: raise ValueError(...)` et `if not h > 0: raise ValueError(...)` (ce test refuse aussi `nan`). Ensuite `step = np.zeros_like(p)`, `step[i] = h`, et `return float((f(p + step) - f(p - step)) / (2 * h))`. Pour la copie : a) $2x\,e^y = 3$ ; b) $x^2 e^y = 2{,}25$ ; c) $\frac{\partial}{\partial z}(xyz) = xy = -2$ ; f) $\frac{2y}{x + y^2} = \frac{4}{5}$. Sans les vérifications faites d'abord, d) lève une `IndexError` (l'indice 3 n'existe pas) et e) une `ZeroDivisionError`.
 
-**Erreurs fréquentes.** Déplacer toutes les coordonnées (c : 2, la somme des trois dérivées partielles) ; compter les indices à partir de 1 (c : 8) ; vérifier `i` après s'en être servi (d : `IndexError`) ; diviser avant de vérifier `h` (e : `ZeroDivisionError`) ; modifier le point de l'appelant en place ; renvoyer le `numpy.float64` de `f` (g).
+**Erreurs fréquentes.** Une différence avant au lieu d'une différence centrée (a : 3,00001) ; déplacer toutes les coordonnées (c : 2, la somme des trois dérivées partielles) ; compter les indices à partir de 1 (c : 8 ; f : 0,2) ; vérifier `i` après s'en être servi (d : `IndexError`) ; diviser avant de vérifier `h` (e : `ZeroDivisionError`) ; modifier le point de l'appelant ; renvoyer le `numpy.float64` de `f` (g).
 
 ### Ex M05b.19 — Dérivée directionnelle et direction de plus grande pente · `directional_derivative, steepest_ascent_direction`
 
-**Réponses** : a) `8.0` · b) `7.7782` · c) `0.0` · d) `[0.9363, 0.3511]` · e) `"ValueError"` · f) `"ValueError"` · g) `"ndarray"` · h) `1.0`.
+**Réponses** : a) `6.0` · b) `6.364` · c) `0.0` · d) `[0.8944, 0.4472]` · e) `"ValueError"` · f) `"ValueError"` · g) `"ndarray"` · h) `1.0`.
 
-**Démarche.** `directional_derivative` : `p` et `d` en flottants, une `ValueError` si `p.shape != d.shape`, si `np.linalg.norm(d) == 0` ou si `h <= 0`, puis `u = d / norm` et `float((f(p + h * u) - f(p - h * u)) / (2 * h))`. `steepest_ascent_direction` : le gradient, une coordonnée à la fois avec `partial_derivative`, une `ValueError` si sa norme est inférieure à $10^{-8}$, puis `grad / norm`. Pour la copie : $\nabla f(1, 2) = (2x + 3y,\ 3x) = (8, 3)$ ; a) 8 ; b) $\frac{22}{2\sqrt{2}} \approx 7{,}7782$ ; c) $(8, 3) \cdot (-3, 8) = 0$ : $(-3, 8)$ dirige la ligne de niveau de $f$ qui passe par $(1, 2)$. f) $(0, 2)$ est le minimum de $x^2 + (y - 2)^2 - 4$ : le gradient y est nul, aucune direction ne monte plus qu'une autre.
+**Démarche.** `directional_derivative` : `p` et `d` en flottants, une `ValueError` si `p.shape != d.shape`, si `np.linalg.norm(d) == 0` ou si `h <= 0`, puis `u = d / norm` et `float((f(p + h * u) - f(p - h * u)) / (2 * h))`. `steepest_ascent_direction` : le gradient, une coordonnée à la fois avec `partial_derivative`, une `ValueError` si sa norme est inférieure à $10^{-8}$, puis `grad / norm`. Pour la copie : $\nabla f(1, 3) = (2xy,\ x^2 + 2) = (6, 3)$ ; a) 6 ; b) $\frac{18}{2\sqrt{2}} \approx 6{,}3640$ ; c) $(6, 3) \cdot (-1, 2) = 0$ : $(-1, 2)$ dirige la ligne de niveau de $f$ qui passe par $(1, 3)$. f) $(0, 0)$ est un minimum local de $x^3 + x^2 + y^2$ : le gradient y est nul, aucune direction ne monte plus qu'une autre. Numériquement, les différences centrées donnent $(h^2, 0) \approx (10^{-10}, 0)$ : un test `norm == 0` laisserait passer ce point, d'où la tolérance $10^{-8}$.
 
-**Erreurs fréquentes.** Oublier de normaliser la direction (b : 22) ; renvoyer le gradient au lieu du vecteur unitaire (d : `[8, 3]` ; h : la norme du gradient) ; diviser par une norme nulle sans lever d'erreur (e et f : des `nan`, ou une `ZeroDivisionError`) ; renvoyer une liste (g).
+**Erreurs fréquentes.** Oublier de normaliser la direction (b : 18) ; renvoyer le gradient au lieu du vecteur unitaire (d : `[6, 3]` ; h : la norme du gradient) ; tester `norm == 0` au lieu de `norm < 1e-8` (f : aucune erreur) ; diviser par une norme nulle sans lever d'erreur (e : des `nan`, ou une `ZeroDivisionError`) ; renvoyer une liste (g).
 
 ### Ex M05b.20 — Le plan tangent · `tangent_plane`
 
-**Réponses** : a) `[1.0, 2.0, 0.0]` · b) `[1.0, 1.0, -1.3069]` · c) `"ValueError"` · d) `1.59` · e) `True`.
+**Réponses** : a) `[1.0, 2.0, 0.0]` · b) `[1.0, 1.0, -1.3069]` · c) `"ValueError"` · d) `0.01034` · e) `True`.
 
-**Démarche.** `p = np.array(point, dtype=float)`, une `ValueError` si `p.shape != (2,)` ou si `h <= 0` ; `a` et `b` les deux dérivées partielles, `c = float(f(p)) - a * p[0] - b * p[1]`, et `return (float(a), float(b), float(c))`. Pour la copie : a) $z = 2 + (x - 2) + 2y = x + 2y$ ; b) $z = \ln 2 + (x - 1) + (y - 1)$, donc $C = \ln 2 - 2 \approx -1{,}3069$ ; d) $2{,}1\,e^{-0{,}1} \approx 1{,}900159$ contre $2{,}1 - 0{,}2 = 1{,}9$ : un écart positif d'environ $1{,}6 \times 10^{-4}$, la surface est au-dessus de son plan près du point, dans cette direction.
+**Démarche.** `p = np.array(point, dtype=float)`, une `ValueError` si `p.shape != (2,)` ou si `h <= 0` ; `a` et `b` les deux dérivées partielles, `c = float(f(p)) - a * p[0] - b * p[1]`, et `return (float(a), float(b), float(c))`. Pour la copie : a) $z = 2 + (x - 2) + 2y = x + 2y$ ; b) $z = \ln 2 + (x - 1) + (y - 1)$, donc $C = \ln 2 - 2 \approx -1{,}3069$ ; d) $2\,e^{0{,}1} \approx 2{,}210342$ contre $2 + 0{,}2 = 2{,}2$ : un écart positif d'environ $0{,}01034$. Dans la direction de $y$, la tranche $y \mapsto 2e^y$ est convexe ($f_{yy} = 2 > 0$) : la surface est au-dessus de son plan, avec un écart proche de $\frac{1}{2}f_{yy}\,\Delta y^2 = 0{,}01$. Mais $D = f_{xx}f_{yy} - f_{xy}^2 = 0 \times 2 - 1 = -1 < 0$ : dans d'autres directions, comme $(2, -1)$, la surface passe au-dessous de son plan ; elle le traverse, comme une selle.
 
-**Erreurs fréquentes.** $C = f(x_0, y_0)$, sans retirer $A x_0 + B y_0$ (a : `[1.0, 2.0, 2.0]`) ; accepter un point de trois coordonnées (c) ; renvoyer des `numpy.float64` (e).
+**Erreurs fréquentes.** $C = f(x_0, y_0)$, sans développer le plan (a : `[1.0, 2.0, 2.0]`) ; accepter un point de trois coordonnées (c) ; l'écart pris dans l'autre sens, plan moins $f$ (d) ; renvoyer des `numpy.float64` (e).
 
 ### Ex M05b.21 — SymPy : dérivées partielles, gradient, points critiques
 
-**Réponses** : a) `3` · b) `-1` · c) `-16` · d) `-4` · e) `[28, -4]` · f) `"4*x**3 - 4*y"`.
+**Réponses** : a) `3` · b) `"-1/4"` · c) `-4` · d) `6` · e) `[4, 5]` · f) `"x**2 + 2*y - 1"`.
 
-**Démarche.** `x, y = sp.symbols("x y")`, `k = x**4 - 4*x*y + 2*y**2`, `sp.solve([sp.diff(k, x), sp.diff(k, y)], [x, y], dict=True)` donne les trois points, `sp.hessian(k, (x, y))` la matrice $\begin{pmatrix} 12x^2 & -4 \\ -4 & 4 \end{pmatrix}$. Pour la copie :
+**Démarche.** `x, y = sp.symbols("x y")`, `k = x**2*y + y**2 - y`, `sp.solve([sp.diff(k, x), sp.diff(k, y)], [x, y], dict=True)` donne les trois points, `sp.hessian(k, (x, y))` la matrice $\begin{pmatrix} 2y & 2x \\ 2x & 2 \end{pmatrix}$. Pour la copie :
 
 | point | $k_{xx}$ | $k_{yy}$ | $k_{xy}$ | $D$ | nature |
 |---|---|---|---|---|---|
-| $(0, 0)$ | 0 | 4 | $-4$ | $-16$ | selle |
-| $(1, 1)$ | 12 | 4 | $-4$ | 32 | minimum local, $k = -1$ |
-| $(-1, -1)$ | 12 | 4 | $-4$ | 32 | minimum local, $k = -1$ |
+| $(0, \frac{1}{2})$ | 1 | 2 | 0 | 2 | minimum local, $k = -\frac{1}{4}$ |
+| $(1, 0)$ | 0 | 2 | 2 | $-4$ | selle |
+| $(-1, 0)$ | 0 | 2 | $-2$ | $-4$ | selle |
 
-$\nabla k = (4x^3 - 4y,\ -4x + 4y)$ s'annule si $y = x$ et $x^3 = x$ : trois solutions. Les deux minima sont même globaux.
+$\nabla k = (2xy,\ x^2 + 2y - 1)$ s'annule si $x = 0$ (et alors $y = \frac{1}{2}$) ou si $y = 0$ (et alors $x = \pm 1$). Le minimum local n'est pas global : $k(x, -1) = 2 - x^2$ tend vers $-\infty$.
 
-**Erreurs fréquentes.** Oublier une racine de $x^3 = x$ (a : 2) ; oublier le carré de $k_{xy}$ dans $D$ (c : 16) ; inverser l'ordre du gradient (e) ; donner $\frac{\partial k}{\partial y}$ en f).
+**Erreurs fréquentes.** Oublier une des solutions de $2xy = 0$ (a : 1 ou 2) ; donner $k$ en un point selle (b : 0) ; oublier le carré de $k_{xy}$ dans $D$ (c : 4) ; inverser l'ordre du gradient (e) ; donner $\frac{\partial k}{\partial x}$ en f).
 
 ### Ex M05b.22 — Prédire : la dérivée directionnelle le long d'une ligne de niveau
 
@@ -439,9 +441,9 @@ $\nabla k = (4x^3 - 4y,\ -4x + 4y)$ s'annule si $y = x$ et $x^3 = x$ : trois sol
 
 ### Ex M05b.24 — Lignes de niveau et flèches du gradient sur la même figure
 
-**Démarche.** Une grille fine `X, Y = np.meshgrid(np.linspace(*xlim, 200), np.linspace(*ylim, 200))`, `contours = ax.contour(X, Y, f(X, Y), levels=10)` et `ax.clabel(contours)` ; une grille grossière de $13 \times 13$ points, `U, V = grad(XA, YA)` et `ax.quiver(XA, YA, U, V)` ; enfin `ax.set_aspect("equal")`. Pour la copie : sur $[-3, 3]^2$, $\sin x + \cos y$ a un maximum en $\big(\frac{\pi}{2}, 0\big)$ ($f = 2$), des minima au bord en $\big(-\frac{\pi}{2}, \pm\pi\big)$, et des points selles en $\big(-\frac{\pi}{2}, 0\big)$ et $\big(\frac{\pi}{2}, \pm\pi\big)$. Les flèches convergent vers le maximum, s'éloignent des minima et, près d'une selle, arrivent de deux côtés et repartent des deux autres. Elles coupent toutes les lignes à angle droit, et sont les plus longues là où les lignes se serrent.
+**Démarche.** Une grille fine `X, Y = np.meshgrid(np.linspace(*xlim, 200), np.linspace(*ylim, 200))`, `contours = ax.contour(X, Y, f(X, Y), levels=10)` et `ax.clabel(contours)` ; une grille grossière de $13 \times 13$ points, `U, V = grad(XA, YA)` et `ax.quiver(XA, YA, U, V)` ; enfin `ax.set_aspect("equal")`. Pour la copie : sur $[-4, 4]^2$, $\sin x + \cos y$ a un maximum en $\big(\frac{\pi}{2}, 0\big)$ ($f = 2$), deux minima en $\big(-\frac{\pi}{2}, \pm\pi\big)$ ($f = -2$), et trois points selles, en $\big(-\frac{\pi}{2}, 0\big)$ et $\big(\frac{\pi}{2}, \pm\pi\big)$ ($f = 0$). Les flèches convergent vers le maximum, s'éloignent des minima et, près d'une selle, arrivent de deux côtés et repartent des deux autres. Elles coupent toutes les lignes à angle droit, et sont les plus longues là où les lignes se serrent : $\|\nabla f\|^2 = \cos^2 x + \sin^2 y$.
 
-**Erreurs fréquentes.** Une seule grille, fine, pour les flèches (illisible) ; oublier `set_aspect("equal")` (les angles droits ne se voient plus) ; appeler `plt.figure()` dans la fonction au lieu de dessiner dans `ax`.
+**Erreurs fréquentes.** Les flèches sur la grille fine (des milliers de flèches qui se recouvrent) ; oublier `ax.clabel` ou `set_aspect("equal")` (les angles sont déformés) ; appeler `plt.figure()` dans la fonction au lieu de dessiner dans `ax`.
 
 ### Ex M05b.25 — Chasse à l'erreur : la mauvaise variable dérivée, une direction non unitaire
 

@@ -305,7 +305,7 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Erreur | Exemple faux | Ce qu'il faut faire |
 |---|---|---|
 | Oublier la variable « fixée » dans une dérivée partielle | $\frac{\partial}{\partial x}(x^3 y) = 3x^2$ | $y$ est une constante qui reste en facteur : $3x^2 y$ |
-| Prendre une direction donnée par un vecteur non unitaire | la pente de $f$ dans la direction $(3, 4)$, avec $\nabla f = (6, 9)$ : « $18 + 36 = 54$ » | diviser d'abord par la norme : $\mathbf{u} = (0{,}6 ;\ 0{,}8)$, et la pente vaut $10{,}8$ |
+| Prendre une direction donnée par un vecteur non unitaire | la pente de $f$ dans la direction $(7, 24)$, avec $\nabla f = (6, 9)$ : « $42 + 216 = 258$ » | diviser d'abord par la norme : $\mathbf{u} = (0{,}28 ;\ 0{,}96)$, et la pente vaut $10{,}32$ |
 | Croire que le gradient vise le sommet, ou suit les lignes de niveau | sur le dôme $100 - x^2 - 2y^2$, « en $(3, 1)$, le gradient pointe vers $(0, 0)$ » | il suit la montée la plus raide sur le moment, à angle droit des lignes de niveau : $(-6, -4)$ passe à côté de l'origine |
 | Écrire le plan tangent sans les décalages | $z = f(a, b) + f_x(a, b)\,x + f_y(a, b)\,y$ | $z = f(a, b) + f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b)$ : le plan passe par le point de contact |
 | Prendre $f_{xy}$ pour le produit $f_x \times f_y$ | pour $x^3 y + 2y^2$ en $(1, 2)$ : « $f_{xy} = 6 \times 9$ » | $f_{xy}$ est la dérivée de $f_x$ par rapport à $y$ : $3x^2 = 3$ |

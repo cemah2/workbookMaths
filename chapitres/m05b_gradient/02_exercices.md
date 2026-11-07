@@ -7,7 +7,7 @@
 
 Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · ⏱️ durée indicative · parcours C = complet, E = essentiel.
 
-**Calculatrice** (ou Python) permise pour les valeurs approchées. Garde les valeurs exactes ($\sqrt{17}$, $e$, les fractions) jusqu'au bout, et n'arrondis qu'à la fin. Un **gradient** et un **point** s'écrivent comme une liste de deux nombres, `[x, y]`.
+**Calculatrice** (ou Python) permise pour les valeurs approchées. Garde les valeurs exactes ($\sqrt{7}$, $e$, les fractions) jusqu'au bout, et n'arrondis qu'à la fin. Un **gradient** et un **point** s'écrivent comme une liste de deux nombres, `[x, y]`.
 
 <a id="quiz"></a>
 
@@ -43,7 +43,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 3. Que vaut la pente de $f$ dans la direction du gradient ?
 4. Pour $f(x, y) = 5 - x^2 - y^2$, calcule $\nabla f(1, 0)$. Vers quel point pointe-t-il ?
 5. Vrai ou faux : au sommet d'une colline lisse, le gradient est nul.
-6. Dans quelle direction faut-il partir pour descendre le plus vite ?
+6. On remplace $f$ par $2f$ : que deviennent la direction et la norme du gradient ?
 
 ### M05b.Q4 — La dérivée directionnelle 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C*
@@ -82,7 +82,7 @@ En un point critique, on connaît les dérivées secondes. Donne la nature du po
 1. Écris un pas de descente de gradient.
 2. Pour maximiser une vraisemblance, quel pas fait-on ?
 3. $f(x, y) = x^2 + 4y^2$, depuis $(1, 1)$ avec $\eta = 0{,}1$ : le point après un pas de descente ?
-4. Vrai ou faux : la descente de gradient trouve toujours le minimum global.
+4. Avec un $\eta$ fixé, pourquoi les pas de descente raccourcissent-ils à l'approche d'un minimum ?
 5. Au premier ordre, de combien $f$ baisse-t-elle après un pas de descente de taille $\eta$ ?
 6. Pour $f(x, y) = (x + 2)^2 + 3(y - 1)^2$ : $\arg\min f$ et $\min f$ ?
 
@@ -95,7 +95,7 @@ En un point critique, on connaît les dérivées secondes. Donne la nature du po
 
 Dérive :
 1. $(3x^2 + 1)^5$ ;
-2. $e^{-x^2/2}$ ;
+2. $e^{3x^2 - x}$ ;
 3. $\ln(1 + x^2)$ ;
 4. $\sqrt{4 - x}$ ;
 5. $\sin(2x + 1)$.
@@ -105,7 +105,7 @@ Dérive :
 
 1. $(2, -1) \cdot (3, 4)$ ?
 2. $\|(2, -1)\|$ ?
-3. Le vecteur unitaire de même direction et de même sens que $(3, 4)$ ?
+3. Le vecteur unitaire de même direction et de même sens que $(8, 15)$ ?
 4. L'angle entre $(1, 0)$ et $(1, 1)$, en degrés ?
 5. Un vecteur non nul orthogonal à $(2, 5)$ ?
 
@@ -115,7 +115,7 @@ Dérive :
 1. Sur quel intervalle $x^3 - 6x$ est-elle convexe ?
 2. $f'(c) = 0$ et $f''(c) > 0$ : que peut-on dire de $c$ ?
 3. $e^{2x}$ est-elle convexe ? Justifie avec sa dérivée seconde.
-4. $x^4$ a un minimum en 0 : que vaut sa dérivée seconde en 0 ? Que dit alors le test de la dérivée seconde ?
+4. Pour $\cos x + \frac{x^2}{2}$ en 0 : que valent $f'(0)$ et $f''(0)$ ? Que dit alors le test de la dérivée seconde ?
 5. Que représente géométriquement le signe de $f''$ ?
 
 <a id="papier"></a>
@@ -169,7 +169,7 @@ Dans ta copie : écris la tranche $x \mapsto f(x, -2)$ et dérive-la en $x = 1$ 
 **Objectif :** calculer un gradient, sa norme, son vecteur unitaire, et trouver où il s'annule.
 **Prérequis :** fiche §3 ; R9 · **Parcours :** C, E
 
-Soit $f(x, y) = x^2 y - 3y + 1$ et le point $P = (2, 1)$.
+Soit $f(x, y) = x^2 y - 3y + 1$ et le point $P = (2, 3)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -182,7 +182,7 @@ Soit $f(x, y) = x^2 y - 3y + 1$ et le point $P = (2, 1)$.
 
 Dans ta copie : écris le système $\frac{\partial f}{\partial x} = 0$, $\frac{\partial f}{\partial y} = 0$ et résous-le. Que vaut $f$ aux points trouvés en d) ?
 
-### Ex M05b.4 — La dérivée directionnelle dans trois directions ✏️ ★★ ⏱️ 20 min
+### Ex M05b.4 — La dérivée directionnelle dans plusieurs directions ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer des dérivées directionnelles, avec des vecteurs unitaires ou non, et l'angle avec le gradient.
 **Prérequis :** fiche §3 ; R9 · **Parcours :** C, E
 
@@ -192,30 +192,30 @@ Soit $f(x, y) = 3x^2 - 2xy + y^2$ et le point $P = (2, 1)$.
 |---|---|---|
 | a | la dérivée directionnelle de $f$ en $P$ dans la direction de $(1, 0)$ | un entier |
 | b | dans la direction de $(0, -1)$ | un entier |
-| c | dans la direction du vecteur $(3, 4)$ | un nombre (1 décimale) |
+| c | dans la direction du vecteur $(7, 24)$ | un nombre (2 décimales) |
 | d | dans la direction du vecteur $(1, 1)$ | un nombre (4 décimales) |
-| e | dans la direction qui va de $P$ vers le point $Q = (-1, 5)$ | un nombre (1 décimale) |
+| e | dans la direction qui va de $P$ vers le point $Q = (-3, 13)$ | un nombre (1 décimale) |
 | f | la plus grande dérivée directionnelle de $f$ en $P$ | un nombre (3 décimales) |
 | g | l'angle entre $\nabla f(P)$ et le vecteur $(1, 1)$, en degrés | un nombre (2 décimales) |
 
-Dans ta copie : vérifie d) par la formule $\|\nabla f\|\cos\theta$, avec l'angle de g). Dans quelle direction (vecteur unitaire, première composante positive) la pente est-elle nulle ?
+Dans ta copie : vérifie d) par la formule $\|\nabla f\|\cos\theta$, avec l'angle de g). Dans quelles directions la pente est-elle nulle ? Dessine-les, avec le gradient.
 
 ### Ex M05b.5 — Monter le plus vite : la direction et la valeur de la plus grande pente ✏️ ★★ ⏱️ 15 min
-**Objectif :** trouver les directions de plus grande montée, de plus grande descente et de pente nulle, et estimer une variation.
-**Prérequis :** fiche §4 · **Parcours :** C, E
+**Objectif :** situer la direction de plus grande montée par son angle, la comparer à une autre direction, et écrire la tangente à une ligne de niveau.
+**Prérequis :** fiche §4 ; R9 (angles) · **Parcours :** C, E
 
-La température d'une plaque vaut $T(x, y) = 50 - x^2 - 3y^2 + xy$ (en °C, avec $x$ et $y$ en cm). On se place au point $P = (3, 1)$.
+La température d'une plaque vaut $T(x, y) = 50 - x^2 - 3y^2 + xy$ (en °C, avec $x$ et $y$ en cm). Son point le plus chaud est l'origine $O$, où $T = 50$. On se place au point $P = (3, 1)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $\nabla T(P)$ | une liste de 2 entiers |
-| b | le vecteur unitaire de la direction où $T$ augmente le plus vite en $P$ | une liste (4 décimales) |
-| c | ce taux d'augmentation, en °C par cm | un nombre (3 décimales) |
-| d | le vecteur unitaire de la direction où $T$ diminue le plus vite | une liste (4 décimales) |
-| e | un vecteur unitaire, de première composante positive, dans la direction duquel $T$ ne change pas (au premier ordre) | une liste (4 décimales) |
-| f | de combien $T$ augmente-t-elle, au premier ordre (avec le taux de c)), si l'on se déplace de 0,1 cm depuis $P$ dans la direction de b) ? | un nombre (2 décimales) |
+| b | le taux d'augmentation de $T$ le plus rapide en $P$, en °C par cm | un nombre (3 décimales) |
+| c | l'angle de la direction où $T$ augmente le plus vite, mesuré depuis l'axe des $x$ dans le sens inverse des aiguilles d'une montre, en degrés entre 0 et 360 | un nombre (2 décimales) |
+| d | le taux de variation de $T$ quand on part de $P$ en ligne droite vers $O$, en °C par cm | un nombre (3 décimales) |
+| e | l'angle entre la direction de d) et celle de plus grande montée, en degrés | un nombre (2 décimales) |
+| f | la pente $m$ de la tangente en $P$ à l'isotherme de $T$ (sa ligne de niveau) qui passe par $P$, écrite $y = m\,x + p$ | une fraction irréductible |
 
-Dans ta copie : sur un croquis, place $P$, la flèche de b) et la direction de e). Que représente la direction de e) sur une carte des lignes de niveau de $T$ ?
+Dans ta copie : sur un croquis, place $P$, $O$, la flèche du gradient et la tangente de f). Pourquoi aller droit vers le point le plus chaud n'est-il pas la montée la plus rapide ? Vérifie d) par la formule $\|\nabla T\|\cos\theta$, avec l'angle de e).
 
 ### Ex M05b.6 — Le plan tangent et l'approximation d'une valeur ✏️ ★★ ⏱️ 20 min
 **Objectif :** écrire un plan tangent, s'en servir pour approcher une valeur, et mesurer l'erreur.
@@ -261,7 +261,7 @@ Soit $f(x, y) = x^3 - 12x + y^2 - 4y$ et $g(x, y) = x^3 + 3xy^2 - 15x - 12y$. Po
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | le nombre de points critiques de $f$ | un entier |
+| a | $D = f_{xx}f_{yy} - f_{xy}^2$ au point $(-2, 2)$ | un entier |
 | b | la nature du point critique $(2, 2)$ de $f$ | une lettre |
 | c | la nature du point critique $(-2, 2)$ de $f$ | une lettre |
 | d | $f(2, 2)$ | un entier |
@@ -325,7 +325,7 @@ Soit $f$ une fonction de deux variables dont les dérivées partielles sont cont
 3. Montre que $-\|\nabla f(\mathbf{p})\| \le D_{\mathbf{u}} f(\mathbf{p}) \le \|\nabla f(\mathbf{p})\|$ pour tout vecteur unitaire $\mathbf{u}$.
 4. On suppose $\nabla f(\mathbf{p}) \ne \mathbf{0}$. Montre que la borne de droite est atteinte pour $\mathbf{u} = \frac{\nabla f(\mathbf{p})}{\|\nabla f(\mathbf{p})\|}$, et pour ce seul vecteur unitaire.
 5. Montre que, si $\nabla f(\mathbf{p}) \ne \mathbf{0}$, il y a exactement deux vecteurs unitaires $\mathbf{u}$ pour lesquels $D_{\mathbf{u}} f(\mathbf{p}) = 0$, et donne-les en fonction des composantes du gradient.
-6. Vérifie la formule de 2 sur $f(x, y) = x\,e^{y}$ en $(1, 0)$, avec $\mathbf{u} = (0{,}6 ;\ 0{,}8)$ : calcule $g(t)$ explicitement et dérive-la.
+6. Vérifie la formule de 2 sur $f(x, y) = x\,e^{y}$ en $(1, 0)$, avec $\mathbf{u} = (0{,}28 ;\ 0{,}96)$ : calcule $g(t)$ explicitement et dérive-la.
 
 ### Ex M05b.12 — Le gradient est orthogonal aux lignes de niveau ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer que le gradient est perpendiculaire aux lignes de niveau, en déduire l'équation d'une tangente à une ligne de niveau, et relier l'écart des lignes à la norme du gradient.
@@ -391,7 +391,7 @@ Lis MML §5.2 (le début, puis §5.2.1 et §5.2.2). Réponds dans ta copie, **av
 **Objectif :** lire des valeurs sur une carte de lignes de niveau, en déduire des taux de variation dans la direction des axes, et comparer des pentes.
 **Prérequis :** fiche §1 et §2 · **Parcours :** C
 
-La carte représente une fonction $f$ par ses lignes de niveau entières (la valeur de chaque ligne est écrite à gauche ou en haut). Cinq points sont marqués. Toutes les valeurs demandées se lisent exactement sur la carte.
+La carte représente une fonction $f$ par ses lignes de niveau de valeurs entières (la valeur de chaque ligne est écrite à gauche ou en haut). Cinq points sont marqués. Toutes les valeurs demandées se lisent exactement sur la carte.
 
 ![Les lignes de niveau d'une fonction f, aux valeurs entières, et les points A, B, C, P et Q](figures/m05b_16_carte.png)
 
@@ -402,9 +402,9 @@ La carte représente une fonction $f$ par ses lignes de niveau entières (la val
 | c | le taux d'accroissement de $f$ entre $A$ et $B$, $\frac{f(B) - f(A)}{x_B - x_A}$, une estimation de $\frac{\partial f}{\partial x}$ au milieu de $[AB]$ | un entier |
 | d | $f(C)$ | un entier |
 | e | le taux d'accroissement de $f$ entre $A$ et $C$, une estimation de $\frac{\partial f}{\partial y}$ au milieu de $[AC]$ | un entier |
-| f | en lequel des deux points $P$ et $Q$ la pente de $f$ est-elle la plus forte ? | une lettre |
+| f | combien de lignes de niveau le segment $[PQ]$ traverse-t-il ? | un entier |
 
-Dans ta copie : justifie f) par l'écart entre les lignes de niveau. Sur la carte, la dérivée partielle par rapport à $y$ semble-t-elle la même partout ? Et celle par rapport à $x$ ? Propose une formule pour $f$ qui a ces lignes de niveau, et vérifie-la sur deux points.
+Dans ta copie : le long de $[PQ]$, où les lignes sont-elles les plus serrées, et que dit cet écart de $\frac{\partial f}{\partial x}$ ? Sur la carte, la dérivée partielle par rapport à $y$ semble-t-elle la même partout ? Et celle par rapport à $x$ ? Propose une formule pour $f$ qui a ces lignes de niveau, et vérifie-la sur deux points.
 
 ### Ex M05b.17 — Expliquer ce que disent des lignes de niveau serrées 🗣️ ★ ⏱️ 10 min
 **Objectif :** expliquer, sans formule, le lien entre l'écart des lignes de niveau, la pente et le gradient.
@@ -412,7 +412,7 @@ Dans ta copie : justifie f) par l'écart entre les lignes de niveau. Sur la cart
 
 Un ami randonneur te montre une carte topographique : « Ici, les courbes sont collées les unes aux autres ; là, elles sont très espacées. Et ton gradient, il serait où sur la carte ? »
 
-Réponds-lui **en huit lignes au plus**, sans formule. Ta réponse doit dire ce que signifie l'écart entre deux courbes, où pointe le gradient par rapport aux courbes, ce que vaut sa longueur là où les courbes sont serrées, et ce que ferait une goutte d'eau posée sur la carte.
+Réponds-lui **en huit lignes au plus**, sans formule. Ta réponse doit dire ce que signifie l'écart entre deux courbes, où pointe le gradient par rapport aux courbes, ce que vaut sa longueur là où les courbes sont serrées, et comment tracer sur la carte un sentier qui ne monte ni ne descend.
 
 <a id="entretien"></a>
 

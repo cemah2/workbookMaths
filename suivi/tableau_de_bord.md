@@ -842,7 +842,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M05b.1 ✏️ Les lignes de niveau de trois fonctions ★ 20 min
 - [ ] M05b.2 ✏️ Dérivées partielles ★ 20 min
 - [ ] M05b.3 ✏️ Le gradient en un point et sa norme ★ 15 min
-- [ ] M05b.4 ✏️ La dérivée directionnelle dans trois directions ★★ 20 min
+- [ ] M05b.4 ✏️ La dérivée directionnelle dans plusieurs directions ★★ 20 min
 - [ ] M05b.5 ✏️ Monter le plus vite : la direction et la valeur de la plus grande pente ★★ 15 min
 - [ ] M05b.6 ✏️ Le plan tangent et l'approximation d'une valeur ★★ 20 min (complet)
 - [ ] M05b.7 ✏️ Dérivées secondes croisées : le théorème de Schwarz vérifié ★★ 15 min (complet)

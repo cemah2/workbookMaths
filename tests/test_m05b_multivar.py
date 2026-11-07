@@ -132,8 +132,10 @@ def test_partial_derivative_with_an_integer_point(multivar):
     point = np.array([3, 2])                       # integers: h added in place would be lost
     got = _result(lambda: multivar.partial_derivative(lambda p: p[0] ** 2 * p[1], point, 0), "about 12.0",
                   "an integer point np.array([3, 2])")
+    hint = ("with integer coordinates, p + h must not be rounded back to p" if abs(got) < 1e-6 else
+             "for this f, the centred difference is exact up to rounding (a forward difference is not)")
     assert got == pytest.approx(12.0, rel=1e-8), (
-        f"expected 12.0 (2xy at (3, 2)), got {got!r}: copy the point into a float array, np.array(point, dtype=float)")
+        f"expected 12.0 (2xy at (3, 2)) for the integer point np.array([3, 2]), got {got!r}: {hint}")
 
 
 def test_partial_derivative_leaves_the_point_unchanged(multivar):
@@ -259,7 +261,9 @@ def test_steepest_ascent_direction_is_a_unit_numpy_vector(multivar):
 def test_steepest_ascent_direction_refuses_a_critical_point(multivar):
     f = lambda p: (p[0] - 1) ** 2 + (p[1] + 2) ** 2     # noqa: E731 - minimum at (1, -2)
     _expect_error(ValueError, lambda: multivar.steepest_ascent_direction(f, (1.0, -2.0)),
-                  "steepest_ascent_direction at a minimum", "the gradient is zero: there is no direction of ascent")
+                  "steepest_ascent_direction at a minimum",
+                  "the gradient is zero: there is no direction of ascent (the computed gradient is tiny, maybe not "
+                  "exactly 0: compare its norm with 1e-8, as the docstring says)")
 
 
 def test_steepest_ascent_direction_refuses_a_step_that_is_not_positive(multivar):

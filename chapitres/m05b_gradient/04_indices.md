@@ -58,7 +58,7 @@ La pente dans la direction $\mathbf{u}$ vaut $\|\nabla f\|\cos\theta$ : quand es
 </details>
 <details><summary>Indice 3</summary>
 
-4 : $\nabla f = (-2x, -2y)$. 5 : un sommet est un point critique.
+4 : $\nabla f = (-2x, -2y)$. 6 : dérive $2f$ : que deviennent les dérivées partielles ?
 
 </details>
 
@@ -130,7 +130,7 @@ Descendre : retirer $\eta\,\nabla f$ ; monter : l'ajouter. La baisse prévue vie
 </details>
 <details><summary>Indice 3</summary>
 
-3 : $\nabla f = (2x, 8y)$ en $(1, 1)$. 6 : une somme de carrés est nulle quand chaque carré l'est.
+3 : $\nabla f = (2x, 8y)$ en $(1, 1)$. 4 : de quoi dépend la longueur d'un pas, $\eta\,\nabla f$ ? 6 : une somme de carrés est nulle quand chaque carré l'est.
 
 </details>
 
@@ -152,7 +152,7 @@ $(g(u))' = g'(u)\,u'$ : la dérivée de l'extérieur, prise en $u$, fois la dér
 </details>
 <details><summary>Indice 3</summary>
 
-2 : l'intérieur $-\frac{x^2}{2}$ a pour dérivée $-x$. 4 : l'intérieur $4 - x$ a pour dérivée $-1$.
+2 : $(e^u)' = u'\,e^u$, avec $u = 3x^2 - x$. 4 : l'intérieur $4 - x$ a pour dérivée $-1$.
 
 </details>
 
@@ -188,7 +188,7 @@ Convexe là où $f'' \ge 0$.
 </details>
 <details><summary>Indice 3</summary>
 
-4 : $(x^4)'' = 12x^2$ ; le test ne conclut que si $f''(c) \ne 0$.
+4 : $(\cos x)' = -\sin x$ ; le test ne conclut que si $f''(c) \ne 0$.
 
 </details>
 
@@ -241,7 +241,7 @@ Relis « Le gradient » (fiche §3) ; une norme, R9.
 </details>
 <details><summary>Indice 2</summary>
 
-$f_x = 2xy$, $f_y = x^2 - 3$ : remplace par les coordonnées du point.
+Dérive par rapport à $x$ en traitant $y$ comme un nombre, puis l'inverse ; remplace ensuite par les coordonnées du point.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -250,7 +250,7 @@ d) Le système $2xy = 0$, $x^2 - 3 = 0$ : la seconde équation donne $x$, puis l
 
 </details>
 
-### Ex M05b.4 — La dérivée directionnelle dans trois directions
+### Ex M05b.4 — La dérivée directionnelle dans plusieurs directions
 
 <details><summary>Indice 1</summary>
 
@@ -264,7 +264,7 @@ $\nabla f(P)$ d'abord ; puis, pour chaque direction, un vecteur **unitaire** et 
 </details>
 <details><summary>Indice 3</summary>
 
-e) La direction de $P$ vers $Q$ est celle du vecteur $Q - P$. g) $\cos\theta = \frac{\nabla f \cdot (1, 1)}{\|\nabla f\|\,\sqrt{2}}$, puis l'arc cosinus, en degrés.
+c) $\|(7, 24)\| = 25$. e) La direction de $P$ vers $Q$ est celle du vecteur $Q - P$. g) $\cos\theta = \frac{\nabla f \cdot (1, 1)}{\|\nabla f\|\,\sqrt{2}}$, puis l'arc cosinus, en degrés.
 
 </details>
 
@@ -272,17 +272,17 @@ e) La direction de $P$ vers $Q$ est celle du vecteur $Q - P$. g) $\cos\theta = \
 
 <details><summary>Indice 1</summary>
 
-Relis « La direction de plus grande pente » et l'exemple du dôme (fiche §4).
+Relis « La direction de plus grande pente » et l'exemple du dôme (fiche §4) ; les angles, R9.
 
 </details>
 <details><summary>Indice 2</summary>
 
-Le terme $xy$ compte dans les deux dérivées partielles. La plus grande montée suit $\frac{\nabla T}{\|\nabla T\|}$, au taux $\|\nabla T\|$.
+Le terme $xy$ compte dans les deux dérivées partielles. La plus grande pente vaut $\|\nabla T\|$. Pour d), un vecteur unitaire qui va de $P$ vers $O$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e) Un vecteur orthogonal à $(a, b)$ est $(b, -a)$ ou $(-b, a)$ ; garde celui dont la première composante est positive. f) La pente fois la distance parcourue.
+c) Dans quel quadrant pointe le gradient ? Pars de l'angle aigu $\arctan\frac{3}{5}$. e) $\cos\theta = \frac{\nabla T \cdot \mathbf{w}}{\|\nabla T\|\,\|\mathbf{w}\|}$. f) La tangente à l'isotherme est orthogonale au gradient : trouve un vecteur qui la dirige.
 
 </details>
 
@@ -295,7 +295,7 @@ Relis « Le plan qui touche la surface » et l'exemple de $\sqrt{x^2 + y^2}$ (fi
 </details>
 <details><summary>Indice 2</summary>
 
-$f_x = 2x\sqrt{y}$ et $f_y = \frac{x^2}{2\sqrt{y}}$. Le plan : $z = f(3, 4) + f_x\,(x - 3) + f_y\,(y - 4)$.
+Dérive $x^2\sqrt{y}$ par rapport à chaque variable, l'autre restant un nombre ($\sqrt{y}$ se dérive comme $y^{1/2}$). Le plan : $z = f(3, 4) + f_x\,(x - 3) + f_y\,(y - 4)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -349,7 +349,7 @@ Relis « Pourquoi la fonction baisse » (fiche §8).
 </details>
 <details><summary>Indice 2</summary>
 
-$\nabla f = (2xy,\ x^2 + 2y)$ ; un pas de descente retire $\eta\,\nabla f(P)$, un pas de montée l'ajoute.
+Calcule $\nabla f(P)$ (les deux dérivées partielles en $P$) ; un pas de descente retire $\eta\,\nabla f(P)$, un pas de montée l'ajoute.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -372,7 +372,7 @@ Remplace $x$ par $4t$ et $y$ par $2 - 2t$ dans $f$ : $g(t)$ est un trinôme. Ét
 </details>
 <details><summary>Indice 3</summary>
 
-f) Écris $f$ sous la forme $(x - 1)^2 + y^2 - 1$. h) $\nabla f = (2x - 2,\ 2y)$, au point trouvé en b).
+f) Complète le carré en $x$ (R2). h) Calcule $\nabla f$ au point trouvé en b).
 
 </details>
 
@@ -483,12 +483,12 @@ Relis « Lignes serrées, gradient long » (fiche §4).
 </details>
 <details><summary>Indice 2</summary>
 
-Chaque point marqué est sur une ligne de niveau : lis sa valeur. Un taux d'accroissement : la différence des valeurs divisée par la distance.
+Chacun des points $A$, $B$ et $C$ est sur une ligne de niveau : lis sa valeur. Un taux d'accroissement : la différence des valeurs divisée par la distance.
 
 </details>
 <details><summary>Indice 3</summary>
 
-f) Compte combien de lignes on traverse en se déplaçant d'une petite distance autour de chaque point.
+f) Trace le segment $[PQ]$ à la règle et compte les lignes qu'il coupe, une à une, de $P$ à $Q$.
 
 </details>
 
@@ -501,12 +501,12 @@ Relis le §4 de la fiche, puis ferme-la.
 </details>
 <details><summary>Indice 2</summary>
 
-Quatre idées : l'écart et la pente, la direction du gradient, sa longueur, la goutte d'eau.
+Quatre idées : l'écart et la pente, la direction du gradient, sa longueur, le sentier plat.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Une goutte d'eau descend le plus vite possible : dans quel sens par rapport au gradient ?
+Sur quel chemin l'altitude ne change-t-elle pas ? Quel angle fait-il avec le gradient ?
 
 </details>
 
@@ -545,7 +545,7 @@ Relis « Sur ordinateur » (fiche §2) et la différence centrée de M05a §5.
 </details>
 <details><summary>Indice 2</summary>
 
-Dans l'ordre : la copie en flottants, les deux vérifications (`i`, puis `h`), puis la différence centrée.
+Dans l'ordre : la copie que demande le commentaire `TODO`, les deux vérifications (`i`, puis `h`), puis la différence centrée.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -568,7 +568,7 @@ Relis « Sur ordinateur » (fiche §3) et le §4.
 </details>
 <details><summary>Indice 3</summary>
 
-`u = d / np.linalg.norm(d)` après avoir vérifié que la norme n'est pas nulle ; `np.array([partial_derivative(f, p, i, h) for i in range(p.size)])`, puis la norme et la division.
+`u = d / np.linalg.norm(d)` après avoir vérifié que la norme n'est pas nulle ; `np.array([partial_derivative(f, p, i, h) for i in range(p.size)])`, puis la norme, comparée à `1e-8` (pas à 0 : en un point critique, le gradient calculé est minuscule, pas forcément nul), et la division.
 
 </details>
 
@@ -604,7 +604,7 @@ Relis l'énoncé : il donne les quatre outils de SymPy.
 </details>
 <details><summary>Indice 3</summary>
 
-b) Remplace un des minima dans `k` avec `.subs`. c) `sp.hessian(k, (x, y)).det().subs({x: 0, y: 0})`.
+b) Classe les points par le signe de $D$ et de $k_{xx}$, puis remplace le minimum dans `k` avec `.subs`. c) `sp.hessian(k, (x, y)).det().subs({x: 1, y: 0})`.
 
 </details>
 
@@ -653,7 +653,7 @@ Relis la figure du dôme (fiche §4).
 </details>
 <details><summary>Indice 2</summary>
 
-Deux grilles : une fine pour `ax.contour`, une grossière pour `ax.quiver`, toutes deux faites par `np.meshgrid`.
+Deux grilles : une fine pour `ax.contour`, une grossière pour `ax.quiver` (quelques centaines de flèches au plus), toutes deux faites par `np.meshgrid`.
 
 </details>
 <details><summary>Indice 3</summary>
