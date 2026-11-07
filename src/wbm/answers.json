@@ -5992,7 +5992,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "76f0da1b79b458d9fb220e51edb140354acf53cda65ca74083f268fcc05bda9e": "sans remise, un grand numéro tiré en laisse moins de grands : la covariance est négative"
+        "76f0da1b79b458d9fb220e51edb140354acf53cda65ca74083f268fcc05bda9e": "sans remise, un grand numéro tiré en laisse moins de grands : la covariance est négative",
+        "8ca7833125bf065767fe7262e39b7c12e878295dd4bf648a666e4c62680b5b1b": "sans remise, les deux tirages sont dépendants : leur covariance n'est pas nulle"
       },
       "sign": -1,
       "source": "chapitres/m02c_echantillons_estimation/05_solutions.ipynb"
@@ -6026,6 +6027,9 @@
       "hash_coarse": "96c2e8f14564e67f30880fad589b72128b9ad268f4ba6411a981e17e0dc66f86",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "10561c0f6a59d6f604a68e5e171838ee7de3ce90c2fbb5c287540ad8db6f18bb": "(N − n)/N, ou la bonne valeur trop arrondie : le dénominateur est N − 1, et l'énoncé demande 4 décimales"
+      },
       "sign": 1,
       "source": "chapitres/m02c_echantillons_estimation/05_solutions.ipynb"
     },
@@ -6200,7 +6204,10 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "177c349713a620448670218988205ce13f418da9e3a42fb40ddef374aee8559f": "c'est P(S ≤ 49) ; P(S > 49) est l'événement contraire"
+        "177c349713a620448670218988205ce13f418da9e3a42fb40ddef374aee8559f": "c'est P(S ≤ 49) ; P(S > 49) est l'événement contraire",
+        "6c399e4c0c6e60a220fc413132e725c522e3b4ad753f579eb59d342319887318": "l'énoncé demande l'approximation directe, sans correction de continuité ni décalage de la borne",
+        "c2da12354afee71efa9c4e48d559b178c570a92c35ecff54c882c9d41f676aae": "l'énoncé demande l'approximation directe, sans correction de continuité ni décalage de la borne",
+        "e8219fc4b6ab3522f3f7d1e4b5e78528e2d79036867355446ab82eb5b28ea360": "l'énoncé demande l'approximation directe, sans correction de continuité ni décalage de la borne"
       },
       "sign": 1,
       "source": "chapitres/m02c_echantillons_estimation/05_solutions.ipynb"
@@ -6220,6 +6227,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "4c40eec06f7cc4f299f089c75ff007a58cac645e4a79817cadcd5bff0622144b": "l'énoncé demande l'approximation directe, sans correction de continuité",
         "d528c035199d172621bf58f9931ed0b925e5c3bbfd1b9600be6b8d3b278b77a0": "l'événement a deux côtés de l'espérance : retire la queue de gauche aussi"
       },
       "sign": 1,
@@ -7695,7 +7703,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "3b0053c1ef8949d401cf255717b74164126466b602a2d299462c6f1019d50755": "c'est la valeur exacte ; la question demande la proportion de tes 100 000 points",
+        "3b0053c1ef8949d401cf255717b74164126466b602a2d299462c6f1019d50755": "c'est la valeur exacte ; ball_fraction compte la proportion des 100 000 points tirés",
         "96d692ea9ca75afff0100e32790ae51ce9b4f653aa4f2cd3d6f8e2ec75d1e85f": "la boule de rayon 1 : la somme des carrés des coordonnées est au plus 1, pas 1/4"
       },
       "sign": 1,
@@ -7721,7 +7729,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "191ffa2b0cd421ff29db6fa4a8c7add2d0bb0aeafa22237e306bdf680f59d2fb": "c'est la valeur exacte ; la question demande la proportion de tes 100 000 points"
+        "191ffa2b0cd421ff29db6fa4a8c7add2d0bb0aeafa22237e306bdf680f59d2fb": "c'est la valeur exacte ; ball_fraction compte la proportion des 100 000 points tirés"
       },
       "sign": 1,
       "source": "chapitres/m02c_echantillons_estimation/05_solutions.ipynb"
@@ -7750,6 +7758,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "190af6c849c6b8525f01fa1c9321e09baafeb2e58115b7309a70ba97b7d4cdf3": "c'est la valeur exacte ; border_fraction compte la proportion des 100 000 points tirés",
         "4502571d4b82df255311621ce0ca81719685ac47a5a32dd8bc488de2d40cf105": "près du bord dès qu'**au moins une** coordonnée dépasse 1 − eps : le maximum des valeurs absolues, pas le minimum"
       },
       "sign": 1,

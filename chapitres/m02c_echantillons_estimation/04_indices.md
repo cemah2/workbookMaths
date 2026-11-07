@@ -725,7 +725,7 @@ Commence par le bootstrap des percentiles (fiche §7) : regarde sa couverture. P
 </details>
 <details><summary>Indice 2</summary>
 
-La loi de $\frac{\bar{X}}{\mu}$ est donc celle de la moyenne de 10 exponentielles de moyenne 1 : elle ne dépend pas de $\mu$. Simule-la une fois pour toutes, avec **au moins 100 000** moyennes de 10 tirages `rng.exponential(1.0, ...)` (avec quelques milliers seulement, l'aléa sur les percentiles suffit à faire sortir la couverture de la fenêtre), et lis ses percentiles 2,5 et 97,5.
+La loi de $\frac{\bar{X}}{\mu}$ est donc celle de la moyenne de 10 exponentielles de moyenne 1 : elle ne dépend pas de $\mu$. Simule-la une fois pour toutes, avec **au moins 100 000** moyennes de 10 tirages `rng.exponential(1.0, ...)` (avec quelques milliers seulement, l'aléa sur les percentiles peut faire sortir la couverture de la fenêtre : environ une fois sur 13 avec 2 000, une fois sur 4 avec 1 000), et lis ses percentiles 2,5 et 97,5.
 
 </details>
 <details><summary>Indice 3</summary>

@@ -112,11 +112,13 @@ PAPER = [
         ("e", "an integer", "3",
          'mistakes={"c\'est la variance avec remise ; sans remise, les tirages sont dépendants": 4}'),
         ("f", "an integer", "-2",
-         'mistakes={"sans remise, un grand numéro tiré en laisse moins de grands : la covariance est négative": 2}'),
+         'mistakes={"sans remise, un grand numéro tiré en laisse moins de grands : la covariance est négative": 2, '
+         '"sans remise, les deux tirages sont dépendants : leur covariance n\'est pas nulle": 0}'),
         ("g", "an irreducible fraction, as text", "Fraction(3, 4)",
          F + ', mistakes={"sans remise divisé par avec remise, dans cet ordre": "4/3"}'),
         ("h", "a number (4 decimals)", "(10_000 - 100) / (10_000 - 1)",
-         'decimals=4'),
+         'decimals=4, mistakes={"(N − n)/N, ou la bonne valeur trop arrondie : le dénominateur est N − 1, et '
+         'l\'énoncé demande 4 décimales": 0.99}'),
     ]),
 
     Paper("M02c.5", "Combien d'observations pour une moyenne précise à 1 % ?", [
@@ -151,9 +153,12 @@ PAPER = [
          'decimals=1, mistakes={"les variances s\'additionnent, pas les écarts-types": 190.0, '
          '"c\'est la variance de S ; l\'écart-type est sa racine": 361.0}'),
         ("e", "a number (4 decimals)", "1 - 0.8413",
-         'decimals=4, mistakes={"c\'est P(S ≤ 49) ; P(S > 49) est l\'événement contraire": 0.8413}'),
+         'decimals=4, mistakes={"c\'est P(S ≤ 49) ; P(S > 49) est l\'événement contraire": 0.8413, '
+         '"l\'énoncé demande l\'approximation directe, sans correction de continuité ni décalage de la borne": '
+         '{0.1524, 0.1463, 0.1651}}'),
         ("f", "a number (3 decimals)", "2 * 0.8413 - 1",
-         'decimals=3, mistakes={"l\'événement a deux côtés de l\'espérance : retire la queue de gauche aussi": 0.8413}'),
+         'decimals=3, mistakes={"l\'événement a deux côtés de l\'espérance : retire la queue de gauche aussi": 0.8413, '
+         '"l\'énoncé demande l\'approximation directe, sans correction de continuité": 0.695}'),
         ("g", "a number (2 decimals)", "1.9 / 10",
          'decimals=2, mistakes={"c\'est σ(S) ; le gain moyen divise S par 100": 19.0, '
          '"l\'écart-type d\'une moyenne divise σ par √n, pas par n": 1.9 / 100}'),
@@ -716,7 +721,7 @@ M02C_23 = Ex(
 
 Écris `coverage(samples, true_mean, z=1.96)`, qui calcule pour **chaque ligne** l'intervalle $\\bar{x} \\pm z\\,\\frac{s}{\\sqrt{n}}$ (avec $s$ divisé par $n - 1$) et renvoie la proportion des lignes dont l'intervalle contient `true_mean`. Vectorise : `samples.mean(axis=1)` et `samples.std(axis=1, ddof=1)` traitent toutes les lignes d'un coup.
 
-Puis calcule (3 décimales) :
+La vérification appelle ta fonction et calcule (3 décimales) :
 - a) la couverture à 95 % pour `NORMAL_20` ;
 - b) pour `EXPO_10` ;
 - c) pour `EXPO_100` ;
@@ -727,16 +732,17 @@ Dans ta copie : l'aléa d'une proportion estimée sur 10 000 échantillons est d
     given=M02C_23_GIVEN,
     todo='''def coverage(samples, true_mean, z=1.96):
     """The share of the rows of samples whose interval mean ± z s/√n (s with ddof=1) contains true_mean."""
-    raise NotImplementedError("samples.mean(axis=1), samples.std(axis=1, ddof=1), puis la proportion des lignes")
-
-
-coverage_a = ...   # a) NORMAL_20
-coverage_b = ...   # b) EXPO_10
-coverage_c = ...   # c) EXPO_100
-coverage_d = ...   # d) NORMAL_20 with z = 1.645
-coverage_e = ...   # e) NORMAL_20 with z = stats.t.ppf(0.975, 19)''',
-    check='''for letter, value in zip("abcde", [coverage_a, coverage_b, coverage_c, coverage_d, coverage_e]):
-    wbm.check(f"M02c.23{letter}", value, computed=True)''',
+    raise NotImplementedError("une moyenne et un écart-type par ligne, puis la proportion des lignes qui conviennent")''',
+    check='''with checked("M02c.23a"):
+    wbm.check("M02c.23a", coverage(NORMAL_20, 10), computed=True)
+with checked("M02c.23b"):
+    wbm.check("M02c.23b", coverage(EXPO_10, 2), computed=True)
+with checked("M02c.23c"):
+    wbm.check("M02c.23c", coverage(EXPO_100, 2), computed=True)
+with checked("M02c.23d"):
+    wbm.check("M02c.23d", coverage(NORMAL_20, 10, z=1.645), computed=True)
+with checked("M02c.23e"):
+    wbm.check("M02c.23e", coverage(NORMAL_20, 10, z=stats.t.ppf(0.975, 19)), computed=True)''',
     solution='''def coverage(samples, true_mean, z=1.96):
     """The share of the rows of samples whose interval mean ± z s/√n (s with ddof=1) contains true_mean."""
     samples = np.asarray(samples, dtype=float)
@@ -745,12 +751,9 @@ coverage_e = ...   # e) NORMAL_20 with z = stats.t.ppf(0.975, 19)''',
     return float(np.mean((means - half <= true_mean) & (true_mean <= means + half)))
 
 
-coverage_a = coverage(NORMAL_20, 10)
-coverage_b = coverage(EXPO_10, 2)
-coverage_c = coverage(EXPO_100, 2)
-coverage_d = coverage(NORMAL_20, 10, z=1.645)
-coverage_e = coverage(NORMAL_20, 10, z=stats.t.ppf(0.975, 19))
-print(coverage_a, coverage_b, coverage_c, coverage_d, coverage_e, "· Student quantile:", stats.t.ppf(0.975, 19))''',
+print("a)", coverage(NORMAL_20, 10), " b)", coverage(EXPO_10, 2), " c)", coverage(EXPO_100, 2),
+      " d)", coverage(NORMAL_20, 10, z=1.645), " e)", coverage(NORMAL_20, 10, z=stats.t.ppf(0.975, 19)),
+      "· Student quantile:", stats.t.ppf(0.975, 19))''',
     record='''wbm.record("M02c.23a", 0.9329, decimals=3,
            mistakes={"l'écart-type s divise par n − 1 (ddof=1)": 0.9246,
                      "l'erreur type divise s par √n, pas par n": 0.3315})
@@ -786,13 +789,13 @@ M02C_24 = Ex(
 - `border_fraction(points, eps=0.05)` : la proportion des points à moins de `eps` du bord du cube, c'est-à-dire dont **au moins une** coordonnée dépasse $1 - \\varepsilon$ en valeur absolue ;
 - `exact_ball_fraction(d)` : la valeur exacte, $\\frac{\\pi^{d/2}}{\\Gamma(d/2 + 1)\\,2^d}$ (la formule admise par la fiche ; `math.gamma` calcule $\\Gamma$).
 
-Puis calcule :
+La vérification appelle tes fonctions et calcule :
 - a) `ball_fraction` pour $d = 2$ (4 décimales) ;
 - b) pour $d = 3$ (4 décimales) ;
 - c) pour $d = 10$ (4 décimales) ;
 - d) `border_fraction` pour $d = 20$ (3 décimales) ;
 - e) `exact_ball_fraction(10)` (5 décimales) ;
-- f) le **nombre** de points de `CUBES_24[20]` dans la boule (un entier).
+- f) le **nombre** de points de `CUBES_24[20]` dans la boule : la proportion de `ball_fraction` multipliée par 100 000 (un entier).
 
 Dans ta copie : compare a), b), d) aux valeurs exactes de la fiche ($\\frac{\\pi}{4}$, $\\frac{\\pi}{6}$, $1 - 0{,}95^{20}$). L'écart entre c) et e) est-il normal, compte tenu de l'erreur type d'une proportion ? Combien de points faudrait-il, en moyenne, pour en voir **un seul** dans la boule en dimension 20 (`exact_ball_fraction(20)`) ? Que dit f) des limites de Monte-Carlo pour un événement très rare ?""",
     given=M02C_24_GIVEN,
@@ -808,18 +811,19 @@ def border_fraction(points, eps=0.05):
 
 def exact_ball_fraction(d):
     """The volume of the unit ball of dimension d divided by the volume 2^d of the cube [−1, 1]^d."""
-    raise NotImplementedError("la formule de l'énoncé, avec math.pi et math.gamma")
-
-
-answer_M02c_24a = ...  # a) d = 2
-answer_M02c_24b = ...  # b) d = 3
-answer_M02c_24c = ...  # c) d = 10
-answer_M02c_24d = ...  # d) border_fraction for d = 20
-answer_M02c_24e = ...  # e) exact_ball_fraction(10)
-answer_M02c_24f = ...  # f) the number of points of CUBES_24[20] inside the ball''',
-    check='''for letter, answer in zip("abcdef", [answer_M02c_24a, answer_M02c_24b, answer_M02c_24c, answer_M02c_24d,
-                                      answer_M02c_24e, answer_M02c_24f]):
-    wbm.check(f"M02c.24{letter}", answer, computed=True)''',
+    raise NotImplementedError("la formule de l'énoncé, avec math.pi et math.gamma")''',
+    check='''with checked("M02c.24a"):
+    wbm.check("M02c.24a", ball_fraction(CUBES_24[2]), computed=True)
+with checked("M02c.24b"):
+    wbm.check("M02c.24b", ball_fraction(CUBES_24[3]), computed=True)
+with checked("M02c.24c"):
+    wbm.check("M02c.24c", ball_fraction(CUBES_24[10]), computed=True)
+with checked("M02c.24d"):
+    wbm.check("M02c.24d", border_fraction(CUBES_24[20]), computed=True)
+with checked("M02c.24e"):
+    wbm.check("M02c.24e", exact_ball_fraction(10), computed=True)
+with checked("M02c.24f"):
+    wbm.check("M02c.24f", round(ball_fraction(CUBES_24[20]) * len(CUBES_24[20])), computed=True)''',
     solution='''def ball_fraction(points):
     """The share of the points (one per row) inside the ball of radius 1 centred at 0."""
     return float(np.mean(np.sum(np.asarray(points) ** 2, axis=1) <= 1))
@@ -835,24 +839,20 @@ def exact_ball_fraction(d):
     return math.pi ** (d / 2) / math.gamma(d / 2 + 1) / 2 ** d
 
 
-answer_M02c_24a = ball_fraction(CUBES_24[2])
-answer_M02c_24b = ball_fraction(CUBES_24[3])
-answer_M02c_24c = ball_fraction(CUBES_24[10])
-answer_M02c_24d = border_fraction(CUBES_24[20])
-answer_M02c_24e = exact_ball_fraction(10)
-answer_M02c_24f = int(np.sum(np.sum(CUBES_24[20] ** 2, axis=1) <= 1))
-print(answer_M02c_24a, math.pi / 4, "·", answer_M02c_24b, math.pi / 6, "·", answer_M02c_24c, answer_M02c_24e)
-print(answer_M02c_24d, 1 - 0.95 ** 20, "·", answer_M02c_24f, "· d = 20:", exact_ball_fraction(20),
-      "· points for one inside:", 1 / exact_ball_fraction(20))''',
+print("a)", ball_fraction(CUBES_24[2]), math.pi / 4, " b)", ball_fraction(CUBES_24[3]), math.pi / 6,
+      " c)", ball_fraction(CUBES_24[10]), " e)", exact_ball_fraction(10))
+print("d)", border_fraction(CUBES_24[20]), 1 - 0.95 ** 20, " f)", round(ball_fraction(CUBES_24[20]) * 100_000),
+      "· d = 20:", exact_ball_fraction(20), "· points for one inside:", 1 / exact_ball_fraction(20))''',
     record='''wbm.record("M02c.24a", 0.78493, decimals=4,
            mistakes={"la boule de rayon 1 : la somme des carrés des coordonnées est au plus 1, pas 1/4": 0.19629,
-                     "c'est la valeur exacte ; la question demande la proportion de tes 100 000 points": 0.785398163})
+                     "c'est la valeur exacte ; ball_fraction compte la proportion des 100 000 points tirés": 0.785398163})
 wbm.record("M02c.24b", 0.52423, decimals=4,
-           mistakes={"c'est la valeur exacte ; la question demande la proportion de tes 100 000 points": 0.523598776})
+           mistakes={"c'est la valeur exacte ; ball_fraction compte la proportion des 100 000 points tirés": 0.523598776})
 wbm.record("M02c.24c", 0.0023, decimals=4)
 wbm.record("M02c.24d", 0.63911, decimals=3,
            mistakes={"près du bord dès qu'**au moins une** coordonnée dépasse 1 − eps : le maximum des valeurs absolues, "
-                     "pas le minimum": 0.0})
+                     "pas le minimum": 0.0,
+                     "c'est la valeur exacte ; border_fraction compte la proportion des 100 000 points tirés": 0.641514078})
 wbm.record("M02c.24e", 0.002490395, decimals=5,
            mistakes={"divise le volume de la boule par celui du cube, 2^d": 2.550164040})
 wbm.record("M02c.24f", 0)''',
@@ -870,7 +870,18 @@ M02C_25_GIVEN = '''EXPO_DRAW = lambda rng, n: rng.exponential(1.0, n)     # the 
 NS_25 = [1, 2, 10, 50]'''
 
 M02C_25_CHECK = '''with checked("M02c.25 vérifications"):
-    from matplotlib.patches import Rectangle
+    from matplotlib.patches import Polygon, Rectangle
+
+    def histogram_bars(ax):
+        """(left, width, height) of the bars of the histograms of ax: filled bars, or the steps of histtype="step"."""
+        bars = [(p.get_x(), p.get_width(), p.get_height()) for p in ax.patches
+                if isinstance(p, Rectangle) and p.get_height() > 0]
+        for patch in ax.patches:
+            if isinstance(patch, Polygon):
+                xy = np.asarray(patch.get_xy(), dtype=float)
+                bars += [(x0, x1 - x0, y0) for (x0, y0), (x1, y1) in zip(xy[:-1], xy[1:])
+                         if y0 == y1 and y0 > 0 and x1 > x0]
+        return bars
 
     problems = []
     uniform_draw = lambda rng, n: rng.random(n)            # another law: uniform on [0, 1], mean 0.5, std √(1/12)
@@ -883,22 +894,20 @@ M02C_25_CHECK = '''with checked("M02c.25 vérifications"):
     if created:
         problems.append("draw_clt ouvre sa propre figure : dessine dans les axes reçus")
     else:
-        for ax, n in zip(axes, [1, 9]):
+        all_bars = [histogram_bars(ax) for ax in axes]
+        if not all(all_bars):
+            problems.append("un axe n'a aucun histogramme : dessine chaque histogramme avec ax.hist dans l'axe reçu (pas "
+                            "plt.hist, qui dessine tout dans le dernier axe)")
+        for ax, n, bars in zip(axes, [1, 9], all_bars if all(all_bars) else []):
             width_t = sigma_t / math.sqrt(n)
-            bars = [p for p in ax.patches if isinstance(p, Rectangle) and p.get_height() > 0]
-            if not bars:
-                problems.append(f"n = {n} : aucune barre d'histogramme dans cet axe : dessine avec ax.hist dans l'axe "
-                                "reçu (pas plt.hist), avec le style de barres par défaut (sans histtype=\\"step\\")")
-                continue
-            area = sum(p.get_width() * p.get_height() for p in bars)
+            area = sum(w * h for _, w, h in bars)
             if abs(area - 1) > 0.02:
                 problems.append(f"n = {n} : l'histogramme doit avoir une aire de 1 (density=True)")
                 continue
-            centre = sum((p.get_x() + p.get_width() / 2) * p.get_width() * p.get_height() for p in bars) / area
+            centre = sum((x + w / 2) * w * h for x, w, h in bars) / area
             if abs(centre - mu_t) > 0.05:
                 problems.append(f"n = {n} : l'histogramme doit être celui des moyennes de n tirages, centré sur mu")
-            spread = math.sqrt(sum((p.get_x() + p.get_width() / 2 - centre) ** 2 * p.get_width() * p.get_height()
-                                   for p in bars) / area)
+            spread = math.sqrt(sum((x + w / 2 - centre) ** 2 * w * h for x, w, h in bars) / area)
             if abs(spread / width_t - 1) > 0.15:
                 problems.append(f"n = {n} : la largeur de l'histogramme doit être celle des moyennes de n tirages, "
                                 "sigma / √n")
@@ -1063,6 +1072,10 @@ M02C_27_CHECK = '''with checked("M02c.27 vérifications"):
     se = pi_standard_error(100_000)
     if not isinstance(se, (int, float)) or abs(se - 4 * math.sqrt(math.pi / 4 * (1 - math.pi / 4) / 100_000)) > 1e-6:
         problems.append("pi_standard_error(n) : l'erreur type de 4 fois une proportion (relis l'énoncé : pourquoi 4 ?)")
+    if TOLERANCE_K is ...:
+        raise NotImplementedError("choisis TOLERANCE_K, le nombre d'erreurs types que ton test tolère")
+    if not isinstance(TOLERANCE_K, (int, float)):
+        raise TypeError(f"TOLERANCE_K doit être un nombre, pas {type(TOLERANCE_K).__name__}")
     seen = []
 
     def spy(n, rng):                                       # records the first number of the generator it receives
@@ -1204,7 +1217,7 @@ Dans ta copie : quelle méthode as-tu retenue ? Pourquoi ton intervalle n'est-il
     given=M02C_28_GIVEN,
     todo='''def interval_10(sample):
     """A 95 % confidence interval (low, high) for the mean of an exponential law, from 10 values."""
-    raise NotImplementedError("le bootstrap, ou mieux : la loi de mean(sample) / μ ne dépend pas de μ")''',
+    raise NotImplementedError("le bootstrap des percentiles d'abord, puis la remarque clé de l'énoncé")''',
     check=M02C_28_CHECK,
     solution='''# The law of mean(X) / μ is the same for every μ (it is the mean of 10 exponentials of mean 1): simulate it once,
 # take its quantiles q_low and q_high, and invert q_low ≤ mean / μ ≤ q_high into mean / q_high ≤ μ ≤ mean / q_low.
