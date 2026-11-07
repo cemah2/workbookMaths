@@ -101,7 +101,7 @@ def test_taylor_polynomial_matches_sympy_series(approx, name, expr, a, order, at
     got = _result(lambda: approx.taylor_polynomial(derivatives, a, at), f"{expected:.12g}", f"{name} at x = {at}")
     assert got == pytest.approx(expected, rel=1e-10, abs=1e-12), (
         f"expected {expected:.12g} for {name} at x = {at} (the Taylor polynomial of SymPy), got {got!r}: each term is "
-        "f⁽ᵏ⁾(a) (x - a)**k / k!, with the powers of (x - a), not of x")
+        "f⁽ᵏ⁾(a) (x - a)**k / k! (check the factorial k! and the powers of x - a)")
 
 
 def test_taylor_polynomial_at_its_centre_is_the_value(approx):
@@ -165,7 +165,9 @@ def test_newton_stops_as_soon_as_two_values_are_close(approx):
     assert got == pytest.approx(1.7320508100147276, abs=1e-12), (
         f"expected 1.73205081 (the first value whose step from the previous one is below tol = 0.01), got {got!r}: "
         "return the new value as soon as |x_new - x| < tol")
-    assert len(calls) <= 4, f"expected at most 4 evaluations of f with tol = 0.01, got {len(calls)}: stop as soon as |x_new - x| < tol"
+    points = len(set(calls))                       # f evaluated twice at the same point is fine; one step too many is not
+    assert points <= 4, (f"expected f to be evaluated at no more than 4 different points with tol = 0.01, got {points}: "
+                         "stop as soon as |x_new - x| < tol, without taking one more step")
 
 
 def test_newton_returns_a_zero_found_exactly(approx):

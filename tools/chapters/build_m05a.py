@@ -102,7 +102,8 @@ PAPER = [
              '''"1 - x + x**2 - x**3"}'''),
         ("d", "a number (4 decimals)", "math.e * (1 + 0.1 + 0.1 ** 2 / 2)",
          '''decimals=4, mistakes={"le polynôme est centré en a = 1 : les puissances sont celles de (x − 1)": '''
-         '''1 + 1.1 + 1.1 ** 2 / 2, "en a = 1, les dérivées de eˣ valent e, pas 1": 1 + 0.1 + 0.1 ** 2 / 2}'''),
+         '''{1 + 1.1 + 1.1 ** 2 / 2, math.e * (1 + 1.1 + 1.1 ** 2 / 2)}, '''
+         '''"en a = 1, les dérivées de eˣ valent e, pas 1": 1 + 0.1 + 0.1 ** 2 / 2}'''),
         ("e", "a number (5 decimals)", "0.1 - 0.1 ** 2 / 2 + 0.1 ** 3 / 3",
          '''decimals=5, mistakes={"le coefficient de x³ est 1/3": 0.1 - 0.1 ** 2 / 2 + 0.1 ** 3 / 6}'''),
         ("f", "an irreducible fraction, as text", "Fraction(1, 24)",
@@ -142,10 +143,14 @@ PAPER = [
          '''decimals=10, mistakes={"c'est x₂ ; fais encore un pas": 721 / 228}'''),
         ("d", "a number (2 decimals)", "(721 / 228 - math.sqrt(10)) * 1e6",
          '''decimals=2, mistakes={"l'erreur demandée est x₂ − √10 : x₂ est au-dessus de √10": '''
-         '''-(721 / 228 - math.sqrt(10)) * 1e6}'''),
+         '''-(721 / 228 - math.sqrt(10)) * 1e6, "calcule l'erreur avec la fraction exacte de b), pas avec x₂ arrondi : '''
+         '''un arrondi à 4 ou 5 décimales change complètement une erreur de l'ordre de 10⁻⁶": '''
+         '''{(3.1623 - math.sqrt(10)) * 1e6, (3.16228 - math.sqrt(10)) * 1e6}}'''),
         ("e", "a number (3 decimals)", "(721 / 228 - math.sqrt(10)) / (19 / 6 - math.sqrt(10)) ** 2",
          '''decimals=3, mistakes={"le dénominateur est le carré de l'erreur de x₁": '''
-         '''(721 / 228 - math.sqrt(10)) / (19 / 6 - math.sqrt(10))}'''),
+         '''(721 / 228 - math.sqrt(10)) / (19 / 6 - math.sqrt(10)), "garde les valeurs exactes de x₁ et x₂ (les '''
+         '''fractions de a) et b)) : arrondir x₁ à 4 décimales change son erreur de quelques pour cent": '''
+         '''(721 / 228 - math.sqrt(10)) / (3.1667 - math.sqrt(10)) ** 2}'''),
         ("f", "a number (4 decimals)", "-math.sqrt(10)",
          '''decimals=4, mistakes={"depuis un point négatif, la suite reste négative : elle va vers l'autre racine": '''
          '''math.sqrt(10)}'''),
@@ -181,13 +186,14 @@ PAPER = [
     ]),
 
     Paper("M05a.8", "Les flottants : 0,1 en binaire, epsilon machine, nombres représentables", [
-        ("a", "a text, such as \"0.11\"", '"0.101"',
-         '''mistakes={"écris le point décimal comme en Python": "0,101", "0,625 = 1/2 + 1/8 : le chiffre de 1/4 est 0": '''
-         '''"0.11"}'''),
+        ("a", "a text of 3 digits, between quotes", '"101"',
+         '''mistakes={"donne seulement les trois chiffres qui suivent la virgule": {"0.101", "0,101", ".101", ",101"}, '''
+         '''"le premier chiffre après la virgule compte les demis, le deuxième les quarts, le troisième les huitièmes": '''
+         '''"011"}'''),
         ("b", "a letter, as text", '"C"',
          '''mistakes={"écris chaque nombre comme une fraction irréductible : un développement binaire fini demande un '''
          '''dénominateur qui est une puissance de 2": {"A", "B", "D"}}'''),
-        ("c", "a text of 4 digits", '"1001"',
+        ("c", "a text of 4 digits, between quotes", '"1001"',
          '''mistakes={"le bloc commence juste après le « 0,0 » : reprends les multiplications par 2": '''
          '''{"0011", "0110", "1100"}}'''),
         ("d", "an integer", "-54",
@@ -281,7 +287,7 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M05a.1 à 
                "- une fraction irréductible entre guillemets, `\"7/9\"` ; une expression en $x$ entre guillemets, "
                "`\"2*x**3 - x\"` ;\n"
                "- une liste `[-1.5, 2.5]`, un intervalle entre guillemets `\"[-4, 6]\"`, `True` / `False`, une lettre "
-               "entre guillemets, `\"B\"`, ou un texte entre guillemets, `\"10.01\"`.\n\n"
+               "entre guillemets, `\"B\"`, ou un texte de chiffres entre guillemets, `\"0111\"`.\n\n"
                "Les réponses pas encore remplies affichent ⏳.")
 
 # ---------------------------------------------------------------------------
@@ -323,6 +329,10 @@ HOWTO = ("> **Mode d'emploi `mymath`** (comme en M03). Ouvre ta copie `mon_trava
 
 OTHER_ERRORS = ["AssertionError", "Exception", "IndexError", "KeyError", "OverflowError", "RecursionError",
                 "TypeError", "ValueError", "RuntimeError", "ZeroDivisionError"]
+
+
+H_NOT_2H = ("ton résultat vaut le double de la dérivée : chaque différence centrée divise par 2h, l'écart entre "
+            "x − h et x + h")
 
 
 def wrong_error(name: str) -> str:
@@ -464,7 +474,9 @@ wbm.record("M05a.19c", "ValueError",
                      "{wrong_error("ValueError")}": {errors_source("ValueError", "ZeroDivisionError")}}})
 wbm.record("M05a.19d", "RuntimeError",
            mistakes={{"après max_iter pas sans s'arrêter, lève une RuntimeError": "aucune",
-                     "{wrong_error("RuntimeError")}": {errors_source("RuntimeError")}}})
+                     "pour x² − 7 depuis 3, la pente 2x ne s'annule jamais le long de la suite de Newton : vérifie le "
+                     "pas, x − f(x)/f′(x), puis lève la RuntimeError après max_iter pas": "ValueError",
+                     "{wrong_error("RuntimeError")}": {errors_source("RuntimeError", "ValueError")}}})
 wbm.record("M05a.19e", "aucune",
            mistakes={{"x₀ = 2 est déjà un zéro de f : renvoie-le avant de regarder la pente": "ValueError",
                      "x₀ est déjà un zéro de f : renvoie-le avant tout calcul":
@@ -475,7 +487,7 @@ wbm.record("M05a.19f", 2.6458333333, decimals=7,
                      "arrête-toi dès que deux valeurs successives sont à moins de tol": 2.6457513123}})
 wbm.record("M05a.19g", "float",
            mistakes={{"renvoie un float de Python, même quand x₀ est déjà un zéro : float(x0)": "int"}})''',
-    after=tests_cells("test_newton_"),
+    after=tests_cells("test_newton_ or test_approx_uses_"),
     note="a) $x_1 = 3 - \\frac{2}{6} = \\frac{8}{3}$, $x_2 = \\frac{127}{48} \\approx 2{,}645833$, $x_3 \\approx "
          "2{,}6457513$ : $\\sqrt{7}$ à $10^{-9}$ près dès le troisième pas. b) Le nombre $x$ tel que $e^{-x} = x$, "
          "environ 0,567. c) $f'(1) = 0$ ; le polynôme $x^2 - 2x + 5 = (x - 1)^2 + 4$ n'a d'ailleurs aucune racine "
@@ -529,21 +541,24 @@ print("g)", (richardson(math.cos, 0.6, 0.1) + math.sin(0.6)) * 1e7,
       "· error of D(0.1) × 1e7:", (centred_20 + math.sin(0.6)) * 1e7)''',
     record=f'''wbm.record("M05a.20a", -0.5646423558, decimals=8,
            mistakes={{"c'est la différence centrée D(h) ; combine D(h) et D(h/2)": -0.5637018730,
-                     "le poids 4 va à D(h/2), le plus petit pas": -0.5634667523}})
-wbm.record("M05a.20b", 0.3333333333, decimals=10)
+                     "le poids 4 va à D(h/2), le plus petit pas": -0.5634667523,
+                     "{H_NOT_2H}": -1.1292847116}})
+wbm.record("M05a.20b", 0.3333333333, decimals=10,
+           mistakes={{"{H_NOT_2H}": 0.6666666667}})
 wbm.record("M05a.20c", "ValueError",
            mistakes={{"un pas négatif ou nul est refusé : lève une ValueError": "aucune",
                      "{wrong_error("ValueError")}": {errors_source("ValueError")}}})
 wbm.record("M05a.20d", 32.0, decimals=4,
            mistakes={{"c'est la différence centrée D(h) ; combine D(h) et D(h/2)": 34.0,
-                     "le poids 4 va à D(h/2), le plus petit pas": 34.5}})
+                     "le poids 4 va à D(h/2), le plus petit pas": 34.5,
+                     "{H_NOT_2H}": 64.0}})
 wbm.record("M05a.20e", 16.0142919864, decimals=1,
            mistakes={{"c'est le rapport d'une différence centrée, d'ordre 2 : combine D(h) et D(h/2)": 4.0060041442}})
 wbm.record("M05a.20f", "float",
            mistakes={{"la docstring demande un float de Python : float(...) convertit un nombre de NumPy": "float64"}})
 wbm.record("M05a.20g", 1.1759884333, decimals=2,
            mistakes={{"c'est l'erreur de la différence centrée D(h) ; combine D(h) et D(h/2)": 9406.0036561405}})''',
-    after=tests_cells("test_richardson_derivative_"),
+    after=tests_cells("test_richardson_derivative_ or test_approx_uses_"),
     note="a) La dérivée exacte est $-\\sin 0{,}6 \\approx -0{,}56464247$ ; $D(0{,}1)$ se trompe d'environ "
          "$9{,}4 \\times 10^{-4}$, Richardson d'environ $1{,}2 \\times 10^{-7}$, 8 000 fois moins. b) $\\frac{1}{3}$ à "
          "$2 \\times 10^{-12}$ près. d) Pour un polynôme de degré 4, $D(h) = f'(x) + c_2 h^2$ exactement ($f^{(5)} = "
@@ -604,7 +619,7 @@ wbm.record("M05a.21e", True,
 wbm.record("M05a.21f", 9.0, decimals=1,
            mistakes={"vérifie d'abord ton epsilon (question a)) : l'écart après 1 000 est ε fois une puissance de 2":
                          {8.0, 10.0}})''',
-    after=tests_cells("test_machine_epsilon_"),
+    after=tests_cells("test_machine_epsilon_ or test_approx_uses_"),
     note="La boucle tourne 52 fois pour `float64`, 23 pour `float32` et 10 pour `float16` : autant que de bits après "
          "la virgule. e) $1 + \\frac{\\varepsilon}{2}$ tombe exactement au milieu de 1 et $1 + \\varepsilon$ ; "
          "l'arrondi « au plus proche, à égalité vers le chiffre pair » le ramène à 1, dont le dernier bit est 0. f) "
@@ -673,7 +688,7 @@ wbm.record("M05a.22g", "float",
            mistakes={{"la docstring demande un float de Python : float(...) convertit un nombre de NumPy": "float64"}})
 wbm.record("M05a.22h", 11.907755279, decimals=6,
            mistakes={{"les 1 000 valeurs s'additionnent : le résultat dépasse le maximum": 5.0}})''',
-    after=tests_cells("test_logsumexp_"),
+    after=tests_cells("test_logsumexp_ or test_approx_uses_"),
     note="a) $2 + \\ln(1 + e^{-3} + e^{-1{,}5}) \\approx 2{,}2413$. b) Le calcul direct lève une `OverflowError` "
          "(`math.exp(1200)`) ; la version stable donne $1200 + \\ln(1 + e^{-1}) \\approx 1200{,}3133$, entre 1 200 et "
          "$1200 + \\ln 2$. c) Le calcul direct donne $\\ln 0$, une `ValueError` (*math domain error*) : les deux "
@@ -965,7 +980,7 @@ chaque courbe avec un label, puis la légende. Ta fonction `mymath.approx.taylor
 
 Puis trace $\\sin$ et ses polynômes d'ordre 1, 2 et 3 en $a = \\frac{\\pi}{4}$, dont les dérivées valent $\\frac{\\sqrt{2}}{2}, \\frac{\\sqrt{2}}{2}, -\\frac{\\sqrt{2}}{2}, -\\frac{\\sqrt{2}}{2}$.
 
-Dans ta copie : sur quelle largeur autour de $\\frac{\\pi}{4}$ chaque polynôme reste-t-il proche de la courbe, à l'œil ? Le polynôme d'ordre 2 est-il au-dessus ou au-dessous de la courbe, et pourquoi (signe de $f''$, §1) ? Pourquoi chaque ordre de plus améliore-t-il l'approximation près de $a$ et pas forcément loin de $a$ ?""",
+Dans ta copie : sur quelle largeur autour de $\\frac{\\pi}{4}$ chaque polynôme reste-t-il proche de la courbe, à l'œil ? La tangente (l'ordre 1) est-elle au-dessus ou au-dessous de la courbe près de $\\frac{\\pi}{4}$, et pourquoi (signe de $f''$, §1) ? Et le polynôme d'ordre 2 : de quel côté de la courbe est-il juste à gauche de $\\frac{\\pi}{4}$, puis juste à droite (regarde le premier terme négligé, en $(x - a)^3$) ? Pourquoi chaque ordre de plus améliore-t-il l'approximation près de $a$ et pas forcément loin de $a$ ?""",
     todo='''def draw_taylor(ax, f, derivatives, a, orders):
     """In ax, on [a - 2, a + 2]: f, its Taylor polynomials at a of the given orders (from derivatives = [f(a), f'(a),
     ...]) and the point (a, f(a)), each with a label; then the legend."""
@@ -1004,9 +1019,11 @@ plt.show()''',
     after=[("md", "**Vérifications automatiques** (sur un autre exemple ; la figure elle-même se juge à l'œil)."),
            ("code", M05A_26_CHECK)],
     note="Près de $\\frac{\\pi}{4}$, les trois polynômes collent à la courbe, et chaque ordre de plus élargit la zone où "
-         "l'écart reste invisible (environ $\\pm 0{,}3$, $\\pm 0{,}6$ et $\\pm 1$ à l'œil). Le polynôme d'ordre 2 est "
-         "au-dessus de la courbe juste à gauche de $\\frac{\\pi}{4}$ et au-dessous juste à droite : l'erreur commence "
-         "par le terme $-\\frac{\\sqrt{2}}{12}(x - a)^3$, qui change de signe en $a$. Loin de $a$, chaque polynôme part "
+         "l'écart reste invisible (environ $\\pm 0{,}3$, $\\pm 0{,}6$ et $\\pm 1$ à l'œil). La tangente est au-dessus "
+         "de la courbe : $\\sin'' = -\\sin < 0$ près de $\\frac{\\pi}{4}$, la courbe y est concave (§1). Le polynôme "
+         "d'ordre 2, lui, traverse la courbe en $\\frac{\\pi}{4}$ : $\\sin x - P_2(x)$ commence par le terme "
+         "$-\\frac{\\sqrt{2}}{12}(x - a)^3$, positif à gauche de $a$ (le polynôme est au-dessous) et négatif à droite "
+         "(il est au-dessus). Loin de $a$, chaque polynôme part "
          "vers l'infini (un polynôme non constant n'est pas borné), alors que $\\sin$ reste entre $-1$ et 1 : Taylor "
          "est une approximation **locale**.",
 )
@@ -1154,20 +1171,32 @@ print(close_enough(1e20, 1e20 + 1e5), close_enough(0.0, 1e-17), close_enough(0.0
 
 M05A_29_DEFI = '''CASES_29 = [50.0, 2.0, 0.008, 1e-30, 3.7e25, 123456.789, 1e300, 5e-300, 0.9999, 7.0e-5, 1.0]
 with checked("M05a.29 défi"):
-    worst_error, worst_steps = 0.0, 0
+    worst_error, worst_steps, failed = 0.0, 0, []
     for a in CASES_29:
-        root, steps = cube_root(a)
-        exact = a ** (1 / 3)
+        try:
+            root, steps = cube_root(a)
+        except NotImplementedError:
+            raise
+        except Exception as exc:  # noqa: BLE001 - reported below, case by case
+            failed.append(f"cube_root({a!r}) lève {type(exc).__name__} ({exc})")
+            continue
+        exact = float(np.cbrt(a))                      # the cube root to the last bit (a ** (1/3) loses 1e-14)
         worst_error = max(worst_error, abs(root - exact) / exact)
         worst_steps = max(worst_steps, steps)
-    print(f"Pire erreur relative : {worst_error:.1e} · pire nombre d'itérations : {worst_steps}")
-    if not worst_error < 1e-12:
+    if failed:
+        print("❌ Ex M05a.29 : " + " ; ".join(failed[:3]) + ". Pour un nombre extrême, x * x peut s'effacer à 0 ou "
+              "déborder quand x est loin de la racine : un point de départ proche de la racine (math.frexp) évite ces "
+              "valeurs, sans test particulier.")
+    elif not worst_error < 1e-12:
+        print(f"Pire erreur relative : {worst_error:.1e} · pire nombre d'itérations : {worst_steps}")
         print("❌ Ex M05a.29 : la précision n'est pas atteinte (objectif : erreur relative < 1e-12) : continue les pas "
               "de Newton jusqu'à ce que deux valeurs successives soient presque égales.")
     elif worst_steps > 6:
+        print(f"Pire erreur relative : {worst_error:.1e} · pire nombre d'itérations : {worst_steps}")
         print("❌ Ex M05a.29 : précision atteinte, mais trop d'itérations (objectif : 6 au plus) : soigne le point de "
               "départ (math.frexp).")
     else:
+        print(f"Pire erreur relative : {worst_error:.1e} · pire nombre d'itérations : {worst_steps}")
         print("✅ Ex M05a.29 : défi réussi, une précision de 1e-12 en 6 itérations au plus, de 1e-300 à 1e300.")'''
 
 M05A_29_CHECK = M05A_29_DEFI + '''
@@ -1182,7 +1211,7 @@ M05A_29 = Ex(
 
 **L'objectif** : une erreur relative inférieure à $10^{-12}$ en **6 pas au plus**, pour des nombres de $10^{-300}$ à $10^{300}$. Tout se joue au point de départ : la convergence quadratique (M05a.12) n'opère que près de la racine, et partir de $x_0 = a$ ou de $x_0 = 1$ coûte plus de cent pas pour $a = 10^{30}$. Une piste : `m, e = math.frexp(a)` écrit $a = m \\times 2^e$ avec $0{,}5 \\le m < 1$ ; avec $e = 3q + r$ (`divmod(e, 3)`), $\\sqrt[3]{a} = \\sqrt[3]{m \\times 2^r} \\times 2^q$, et il ne reste qu'à approcher $\\sqrt[3]{y}$ pour $y = m \\times 2^r$ entre 0,5 et 4, par exemple par une droite.
 
-La vérification calcule ta racine pour onze nombres, de $5 \\times 10^{-300}$ à $10^{300}$, affiche la pire erreur relative et le pire nombre de pas, puis vérifie `cube_root(50.0)[0]` (10 décimales).
+La vérification calcule ta racine pour onze nombres, de $5 \\times 10^{-300}$ à $10^{300}$, affiche la pire erreur relative (mesurée par rapport à `np.cbrt`, la racine cubique de NumPy) et le pire nombre de pas, puis vérifie `cube_root(50.0)[0]` (10 décimales).
 
 Dans ta copie : l'erreur relative de ton point de départ, au pire ? Combien de pas faut-il alors, d'après $\\varepsilon_{k+1} \\approx \\varepsilon_k^2$ (pour $x^3 - a$, l'erreur relative est à peu près élevée au carré à chaque pas) ? Pourquoi, depuis $x_0 = 1$ et pour $a = 10^{30}$, la suite ne fait-elle que se multiplier par environ $\\frac{2}{3}$ pendant des dizaines de pas ?""",
     todo='''def cube_root(a):
@@ -1216,7 +1245,7 @@ def steps_from(a, x):
         x = x_new
 
 
-print("cube_root(50):", cube_root(50.0), "· 50 ** (1/3):", 50 ** (1 / 3))
+print("cube_root(50):", cube_root(50.0), "· np.cbrt(50):", float(np.cbrt(50.0)))
 print("steps from x0 = 1 for a = 1e30:", steps_from(1e30, 1.0), "· with the good start:", cube_root(1e30)[1])''',
     after=[("solution", M05A_29_DEFI)],
     record='''wbm.record("M05a.29", 3.6840314986, decimals=10)''',

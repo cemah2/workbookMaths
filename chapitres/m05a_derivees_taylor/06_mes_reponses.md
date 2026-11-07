@@ -327,7 +327,7 @@
 
 ### Ex M05a.26 — Une fonction et ses polynômes de Taylor d'ordre 1, 2 et 3
 
-- La largeur où chaque polynôme colle ; la position du polynôme d'ordre 2 ; pourquoi un ordre de plus n'aide pas loin de a :
+- La largeur où chaque polynôme colle ; la position de la tangente, puis celle du polynôme d'ordre 2 de chaque côté de π/4 ; pourquoi un ordre de plus n'aide pas loin de a :
 
 ### Ex M05a.27 — Chasse à l'erreur : une softmax qui renvoie `nan`
 

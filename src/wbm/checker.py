@@ -1378,6 +1378,8 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
     if kind == "str" and (_shape_reading(value) is not None or (   # a wrong shape or vector: no spelling hint
             isinstance(value, str) and _NUMBER_TUPLE_TEXT.fullmatch(value))):
         return False, "wrong", _WRONG_SHAPE
+    if kind == "str" and isinstance(value, str) and _DIGITS_TEXT.fullmatch(value):   # "0100": no spelling hint
+        return False, "wrong", _WRONG_DIGITS
     return False, "wrong", (
         "Ce n'est pas la réponse attendue. Si tu as choisi parmi les réponses proposées dans l'énoncé, ton choix "
         "n'est pas le bon : relis l'énoncé (ou l'expérience) ; sinon, vérifie l'orthographe du terme demandé "
@@ -1481,6 +1483,10 @@ _WRONG_SHAPE = ("Ce n'est pas la bonne forme (ou le bon vecteur) : vérifie chaq
                 "d'un tenseur, vérifie chaque axe (lequel vient en premier, et sa taille), et n'oublie ni l'axe des "
                 "exemples ni celui des canaux ou des features.")
 
+# a text answer made of digits only (binary digits "0110", a code "0042"): spelling advice would make no sense
+_DIGITS_TEXT = re.compile(r"\s*[+-]?[\d.,\s]*\d[\d.,\s]*")
+_WRONG_DIGITS = ("Ce n'est pas la réponse attendue : refais le calcul, puis écris le résultat sous la forme que demande "
+                 "l'énoncé (le nombre de chiffres, la place de la virgule).")
 _NUMBER_TUPLE_TEXT = re.compile(r"[\s(\[]*-?\d+(?:[.,]\d+)?(?:\s*[,;]\s*-?\d+(?:[.,]\d+)?)+[\s)\]]*")
 
 _CHOICE_WRAPPERS = "()[]{}«»\"'“”‘’.,:;!? "

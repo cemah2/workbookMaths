@@ -125,7 +125,7 @@ Soit $u_0 = 5$ et $u_{n+1} = 0{,}4\,u_n + 1{,}2$.
 Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en écrivant ta démarche dans ta copie de `06_mes_reponses.md`. Reporte ensuite **la valeur** trouvée dans la **partie 0 du notebook**, sous la forme demandée :
 - un nombre entier, ou un nombre avec un point décimal, comme `-1.25`, arrondi comme le demande la question ;
 - une fraction irréductible entre guillemets, comme `"7/9"` ; une expression en $x$ entre guillemets, comme `"2*x**3 - x"` ;
-- une liste entre crochets, comme `[-1.5, 2.5]` ; un intervalle entre guillemets, comme `"[-4, 6]"` ; vrai ou faux par `True` ou `False` ; une lettre entre guillemets, comme `"B"` ; un texte entre guillemets, comme `"10.01"`.
+- une liste entre crochets, comme `[-1.5, 2.5]` ; un intervalle entre guillemets, comme `"[-4, 6]"` ; vrai ou faux par `True` ou `False` ; une lettre entre guillemets, comme `"B"` ; un texte de chiffres entre guillemets, comme `"0111"`.
 
 ### Ex M05a.1 — Dérivées secondes et convexité ✏️ ★ ⏱️ 20 min
 **Objectif :** calculer des dérivées secondes, en déduire où une fonction est convexe ou concave, et vérifier l'inégalité de convexité sur un exemple.
@@ -258,7 +258,7 @@ Dans ta copie : écris $f'$, $f''$ et $f'''$. Calcule l'erreur de e), et compare
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | 0,625 écrit en binaire | un texte avec un point, comme `"0.11"` |
+| a | 0,625 s'écrit en binaire « 0, » suivi de trois chiffres : ces trois chiffres | un texte de 3 chiffres |
 | b | lequel de ces nombres a un développement binaire fini : `"A"` 0,2 ; `"B"` 0,3 ; `"C"` 0,4375 ; `"D"` 0,6 ? | une lettre |
 | c | 0,3 s'écrit en binaire « 0,0 » suivi d'un bloc de 4 chiffres répété sans fin : ce bloc | un texte de 4 chiffres |
 | d | l'exposant $k$ tel que l'écart entre 0,3 et le `float64` suivant vaut $2^k$ | un entier |

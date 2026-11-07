@@ -712,7 +712,7 @@ Pour chaque ligne, demande-toi : la formule est-elle juste ? Et chaque nombre in
 </details>
 <details><summary>Indice 3</summary>
 
-(A) : quel score faut-il retirer ? (C) : $\text{LSE} = m + \ln(\ldots)$. (E) : que vaut `math.exp(-800)` ? (F) : des probabilités se divisent par le total.
+Pour chaque ligne, calcule à la main ce qu'elle donne avec $\mathbf{v} = (1000, 999, 200)$, puis ce que dit son commentaire. Trois questions utiles : quel score faut-il retirer avant l'exponentielle ? Que vaut `math.exp(-800)` en `float64` ? Par quoi divise-t-on pour obtenir des probabilités, et que vaut leur somme ?
 
 </details>
 

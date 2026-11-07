@@ -237,10 +237,10 @@ Pour la copie : $x_{k+1} - \sqrt{10} = \frac{x_k^2 + 10 - 2\sqrt{10}\,x_k}{2x_k}
 
 ### Ex M05a.8 — Les flottants : 0,1 en binaire, epsilon machine, nombres représentables
 
-**Réponses** : a) `"0.101"` · b) `"C"` · c) `"1001"` · d) `-54` · e) `-42` · f) `16777217` · g) `"1/2"` · h) `-24`.
+**Réponses** : a) `"101"` · b) `"C"` · c) `"1001"` · d) `-54` · e) `-42` · f) `16777217` · g) `"1/2"` · h) `-24`.
 
 **Démarche.**
-- a) $0{,}625 \times 2 = 1{,}25$ (chiffre 1), $0{,}25 \times 2 = 0{,}5$ (chiffre 0), $0{,}5 \times 2 = 1$ (chiffre 1, fin) : $0{,}101$ ; en effet $\frac{1}{2} + \frac{1}{8} = 0{,}625$.
+- a) $0{,}625 \times 2 = 1{,}25$ (chiffre 1), $0{,}25 \times 2 = 0{,}5$ (chiffre 0), $0{,}5 \times 2 = 1$ (chiffre 1, fin) : $0{,}101$, soit les trois chiffres `"101"` ; en effet $\frac{1}{2} + \frac{1}{8} = 0{,}625$.
 - b) $0{,}2 = \frac{1}{5}$, $0{,}3 = \frac{3}{10}$, $0{,}6 = \frac{3}{5}$ ont le facteur 5 au dénominateur ; $0{,}4375 = \frac{7}{16}$ a pour dénominateur $2^4$ : $(0{,}0111)_2$. Seules les fractions dont le dénominateur (irréductible) est une puissance de 2 ont un développement binaire fini.
 - c) $0{,}3 \to 0{,}6$ (chiffre 0) $\to 1{,}2$ (1, on garde 0,2) $\to 0{,}4$ (0) $\to 0{,}8$ (0) $\to 1{,}6$ (1, on garde 0,6) $\to 1{,}2$ (1) $\to \ldots$ : les chiffres $0, 1, 0, 0, 1, 1, 0, 0, 1, \ldots$, soit $0{,}0\,1001\,1001\ldots$
 - d) $0{,}25 = 2^{-2} \le 0{,}3 < 2^{-1}$ : l'écart vaut $2^{-2} \times 2^{-52} = 2^{-54}$.
@@ -425,7 +425,7 @@ Pour la copie : la loss est énorme parce que le modèle est sûr de lui et se t
 
 **Démarche.** `if not h > 0: raise ValueError(...)` (refuse aussi `nan`), une fonction interne `centred(step)`, puis `float((4 * centred(h / 2) - centred(h)) / 3)`. Pour la copie : la dérivée exacte de a) est $-\sin 0{,}6 \approx -0{,}56464247$ ; $D(0{,}1)$ se trompe d'environ $9{,}4 \times 10^{-4}$, Richardson d'environ $1{,}2 \times 10^{-7}$, 8 000 fois moins. d) Pour un polynôme de degré 4, $D(h) = f'(x) + c_2h^2$ exactement : la combinaison donne $4 \times 2^3 = 32$, alors que $D(0{,}5) = 34$. e) Un rapport de 16 : l'erreur est en $h^4$, la méthode d'ordre 4.
 
-**Erreurs fréquentes.** Mettre le poids 4 sur $D(h)$ au lieu de $D(\frac{h}{2})$ ; refuser seulement $h = 0$ et accepter un $h$ négatif (c) ; renvoyer le `numpy.float64` que donne `np.sin` (f).
+**Erreurs fréquentes.** Diviser chaque différence centrée par $h$ au lieu de $2h$ (le résultat vaut alors le double de la dérivée : b) donne $\frac{2}{3}$) ; mettre le poids 4 sur $D(h)$ au lieu de $D(\frac{h}{2})$ ; refuser seulement $h = 0$ et accepter un $h$ négatif (c) ; renvoyer le `numpy.float64` que donne `np.sin` (f).
 
 ### Ex M05a.21 — L'epsilon machine, en float64, float32 et float16 · `machine_epsilon`
 
@@ -467,7 +467,7 @@ Pour la copie : la loss est énorme parce que le modèle est sûr de lui et se t
 
 ### Ex M05a.26 — Une fonction et ses polynômes de Taylor d'ordre 1, 2 et 3
 
-**Démarche.** Une grille `xs = np.linspace(a - 2, a + 2, 401)`, `ax.plot(xs, f(xs), label=...)`, puis pour chaque ordre la liste des valeurs `taylor_polynomial(derivatives[:order + 1], a, x)`, tracée avec un label, le point `ax.plot(a, f(a), "o")` et `ax.legend()`. Pour la copie : près de $\frac{\pi}{4}$, la zone où l'écart reste invisible s'élargit avec l'ordre (environ $\pm 0{,}3$, $\pm 0{,}6$, $\pm 1$) ; le polynôme d'ordre 2 passe au-dessus de la courbe à gauche de $\frac{\pi}{4}$ et au-dessous à droite, car l'erreur commence par $-\frac{\sqrt{2}}{12}(x - a)^3$ ; loin de $a$, chaque polynôme part vers l'infini alors que $\sin$ reste bornée : l'approximation est locale.
+**Démarche.** Une grille `xs = np.linspace(a - 2, a + 2, 401)`, `ax.plot(xs, f(xs), label=...)`, puis pour chaque ordre la liste des valeurs `taylor_polynomial(derivatives[:order + 1], a, x)`, tracée avec un label, le point `ax.plot(a, f(a), "o")` et `ax.legend()`. Pour la copie : près de $\frac{\pi}{4}$, la zone où l'écart reste invisible s'élargit avec l'ordre (environ $\pm 0{,}3$, $\pm 0{,}6$, $\pm 1$) ; la tangente est au-dessus de la courbe, qui est concave près de $\frac{\pi}{4}$ ($\sin'' = -\sin < 0$) ; le polynôme d'ordre 2 traverse la courbe en $\frac{\pi}{4}$ : $\sin x - P_2(x)$ commence par $-\frac{\sqrt{2}}{12}(x - a)^3$, positif à gauche (le polynôme est au-dessous) et négatif à droite (il est au-dessus) ; loin de $a$, chaque polynôme part vers l'infini alors que $\sin$ reste bornée : l'approximation est locale.
 
 **Erreurs fréquentes.** Prendre toutes les dérivées pour chaque ordre (`derivatives` au lieu de `derivatives[:order + 1]`) ; ouvrir une nouvelle figure dans la fonction ; oublier le point de contact ou la légende.
 
@@ -491,4 +491,4 @@ Pour la copie : la loss est énorme parce que le modèle est sûr de lui et se t
 
 **Démarche.** `m, e = math.frexp(a)`, `q, r = divmod(e, 3)`, puis le départ $x_0 = (0{,}6 + 0{,}4\,m) \times 2^{r/3} \times 2^q$ (les trois valeurs $2^{r/3}$ calculées une fois) ; $0{,}6 + 0{,}4\,m$ approche $\sqrt[3]{m}$ à moins de 1 % près sur $[0{,}5 ;\ 1[$. Puis `x_new = (2 * x + a / (x * x)) / 3` jusqu'à `abs(x_new - x) <= 1e-15 * x_new`, en comptant les pas. Pour la copie : l'erreur relative est à peu près élevée au carré à chaque pas : $10^{-2} \to 10^{-4} \to 10^{-8} \to 10^{-16}$, trois pas, plus un quatrième qui constate que la valeur ne bouge plus. Depuis $x_0 = 1$ et pour $a = 10^{30}$, il en faut 118 : tant que $x^3 \gg a$, le pas vaut à peu près $x \leftarrow \frac{2x}{3}$, une décroissance géométrique lente, et la convergence quadratique ne commence qu'une fois arrivé près de $10^{10}$.
 
-**Erreurs fréquentes.** Partir de $x_0 = a$ ou $x_0 = 1$ (plus de cent pas pour les nombres extrêmes) ; un critère d'arrêt absolu (`abs(x_new - x) < 1e-12`), jamais atteint pour $a = 10^{300}$ (des racines de l'ordre de $10^{100}$, espacées de bien plus que $10^{-12}$) et trop lâche pour $a = 10^{-30}$ ; compter les pas de travers.
+**Erreurs fréquentes.** Partir de $x_0 = a$ ou $x_0 = 1$ (plus de cent pas pour les nombres extrêmes, et même une `ZeroDivisionError` pour $a = 5 \times 10^{-300}$, où `x * x` s'efface à 0 : la vraie correction est le point de départ, pas un test de plus) ; un critère d'arrêt absolu (`abs(x_new - x) < 1e-12`), jamais atteint pour $a = 10^{300}$ (des racines de l'ordre de $10^{100}$, espacées de bien plus que $10^{-12}$) et trop lâche pour $a = 10^{-30}$ ; compter les pas de travers.

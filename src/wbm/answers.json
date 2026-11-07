@@ -13452,7 +13452,8 @@
       "magnitude": 0,
       "mistakes": {
         "248422dd7495e860775c639e57823c8479ef1afed93c4c17cd242e2a4b3d9a7a": "en a = 1, les dérivées de eˣ valent e, pas 1",
-        "aec3b29beaa393570a4151833e1a1d5ebe4757be5797cc40a4488384a94d5e1e": "le polynôme est centré en a = 1 : les puissances sont celles de (x − 1)"
+        "aec3b29beaa393570a4151833e1a1d5ebe4757be5797cc40a4488384a94d5e1e": "le polynôme est centré en a = 1 : les puissances sont celles de (x − 1)",
+        "b7f227dabcccc94bcf3d3374d02239a57539283c207ffb6fbb18e3e77c602d95": "le polynôme est centré en a = 1 : les puissances sont celles de (x − 1)"
       },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -13741,7 +13742,9 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "89c31b81bc9390cb0343a662b1e95eb75cbced2bf88eb9880982ffe2e825d90c": "l'erreur demandée est x₂ − √10 : x₂ est au-dessus de √10"
+        "89c31b81bc9390cb0343a662b1e95eb75cbced2bf88eb9880982ffe2e825d90c": "l'erreur demandée est x₂ − √10 : x₂ est au-dessus de √10",
+        "b822bfed53c93aa6171b25df656ae691c18c53ce789f187b907e6c7208d598f1": "calcule l'erreur avec la fraction exacte de b), pas avec x₂ arrondi : un arrondi à 4 ou 5 décimales change complètement une erreur de l'ordre de 10⁻⁶",
+        "d0bbd2aec378bacc52eff45e29cd491d95fdd1f122ae02fc32ebe746e13783db": "calcule l'erreur avec la fraction exacte de b), pas avec x₂ arrondi : un arrondi à 4 ou 5 décimales change complètement une erreur de l'ordre de 10⁻⁶"
       },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -13758,7 +13761,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "5871fbe5237d59b00834fb880ea9b9d823ee09c3a8e116c155b431ffa82c993a": "le dénominateur est le carré de l'erreur de x₁"
+        "5871fbe5237d59b00834fb880ea9b9d823ee09c3a8e116c155b431ffa82c993a": "le dénominateur est le carré de l'erreur de x₁",
+        "87ff07287446d04f3863e960119f5aa656481935f2869078d7b8f4f3c1ba3a6e": "garde les valeurs exactes de x₁ et x₂ (les fractions de a) et b)) : arrondir x₁ à 4 décimales change son erreur de quelques pour cent"
       },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
@@ -13969,11 +13973,14 @@
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
     "M05a.8a": {
-      "hash": "d1b22071a122e9c01819fc5651a7f91a28a80c1c53ad205a3bf3d00ac6abbed4",
+      "hash": "39f17cd3183db2efbb177afdefe5cca8061bcdd67795f22a04849b5f50dc5aaa",
       "kind": "str",
       "mistakes": {
-        "1dac261a459bd95927db70cb655d4b60037a52c2e8c94b7d47402fde41467555": "0,625 = 1/2 + 1/8 : le chiffre de 1/4 est 0",
-        "627754fc1a635b8eec403a7a0f441ee691c5214640d0129ce1748a264c4a1e34": "écris le point décimal comme en Python"
+        "018e39fc80fe51ff9b513ec0c6b15f377ace529db123f48e6d193a1a547723af": "le premier chiffre après la virgule compte les demis, le deuxième les quarts, le troisième les huitièmes",
+        "627754fc1a635b8eec403a7a0f441ee691c5214640d0129ce1748a264c4a1e34": "donne seulement les trois chiffres qui suivent la virgule",
+        "805a03bd2deb0f363dd096e2fd7050fa4ed319f43d81fe23472e163c6f5f2940": "donne seulement les trois chiffres qui suivent la virgule",
+        "d1b22071a122e9c01819fc5651a7f91a28a80c1c53ad205a3bf3d00ac6abbed4": "donne seulement les trois chiffres qui suivent la virgule",
+        "fa11f67821f5246fed01cf686b70d56deea258bcaa66f42a9502732e8d85f06d": "donne seulement les trois chiffres qui suivent la virgule"
       },
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
@@ -14682,7 +14689,7 @@
         "1fcdfd80ed8f44e3e385917226875370d250272f33a01c047af0b20759757876": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
         "2907c5434c719120f3fa949babd670d9a052e32305e01f8b60e5ad8d9da6241a": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
         "40d73f4291b2b7f1e499f110d4d433c4d59359ac8fefb6f268f7d7076563f911": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
-        "479187224b7a6aa866d70b72446ab05fc76c1e00bfc80c4f31d8c3ca0e779359": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
+        "479187224b7a6aa866d70b72446ab05fc76c1e00bfc80c4f31d8c3ca0e779359": "pour x² − 7 depuis 3, la pente 2x ne s'annule jamais le long de la suite de Newton : vérifie le pas, x − f(x)/f′(x), puis lève la RuntimeError après max_iter pas",
         "4ca25e762a01e91d5628355da48ace86e335e5eda96930159cd92b274c056fdc": "après max_iter pas sans s'arrêter, lève une RuntimeError",
         "639becf76489526b21382baccb8f982086141ed9721d3ceae476396163e69824": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
         "8fd3a4dee6ecfe6951723d594b7e03af04eb88323b7693ecaa10850e409bf0c7": "lève précisément une RuntimeError, le type d'erreur que demande la docstring : raise RuntimeError(...)",
@@ -14785,6 +14792,7 @@
       "magnitude": -1,
       "mistakes": {
         "6bfadabb363aa1a332e85d9f4e364b9dc6bb3e77501a17e8661482ccc1625ef4": "c'est la différence centrée D(h) ; combine D(h) et D(h/2)",
+        "81d51716ab39d8d3c478ac9cda71cbbd9bd25679e4be2ed9a6b76e42c7983139": "ton résultat vaut le double de la dérivée : chaque différence centrée divise par 2h, l'écart entre x − h et x + h",
         "caa9035df8187c4b58268c9da396adbeb6c4618eee05fb1a7779c1890c618d6b": "le poids 4 va à D(h/2), le plus petit pas"
       },
       "sign": -1,
@@ -14824,6 +14832,9 @@
       "hash_coarse": "f43d39e3efc6c36f8e6b173cc7e91b33591f6069de1c132063c144b2142703d4",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "91ac4e040b2168e6114ce4d0f43a20621fb657caaec86e9616a73fe68a5dd9f1": "ton résultat vaut le double de la dérivée : chaque différence centrée divise par 2h, l'écart entre x − h et x + h"
+      },
       "sign": 1,
       "source": "chapitres/m05a_derivees_taylor/05_solutions.ipynb"
     },
@@ -14864,6 +14875,7 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
+        "0799352e41da6a77dc95883ee5ac8f837b8b62f96565dda750fccb4154d8e5b0": "ton résultat vaut le double de la dérivée : chaque différence centrée divise par 2h, l'écart entre x − h et x + h",
         "ae9b8385fdce7e2902edd3c5519bf1edb505b4493fa5d17ced5f185dec76d709": "c'est la différence centrée D(h) ; combine D(h) et D(h/2)",
         "bdea92c64066d675ae2c34756b4308d7cdb26c32ffb240b960704f3b2f50a6c6": "le poids 4 va à D(h/2), le plus petit pas"
       },

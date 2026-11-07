@@ -1007,6 +1007,14 @@ def test_a_truth_table_column_typed_as_letters_is_read():
     assert "ordre inverse" in message("t4.1", e, "VVVF")
 
 
+def test_a_wrong_text_of_digits_gets_no_spelling_hint():
+    e = entry("g.45", "1001")
+    for v in ("0100", "1.01", "10001"):
+        text = message("g.45", e, v)
+        assert "calcul" in text and "orthographe" not in text, (v, text)
+    assert "orthographe" in message("g.45", e, "neuf")             # a word keeps the spelling hint
+
+
 def test_a_none_inside_a_list_is_named():
     e = entry("t4.2", [85, 0, 1024, 1])
     assert "None" in C.check_entry("t4.2", e, [85, None, 1024, 1], computed=True)[2]
