@@ -89,7 +89,7 @@ $$11,\ 12,\ 12,\ 13,\ 13,\ 14,\ 15,\ 16,\ 38,$$
 
 et la cinquième des neuf vaut 13 : la médiane est 13 minutes. Quand $n$ est pair, on prend la moyenne des deux valeurs du milieu.
 
-Huit entraînements sur neuf ont duré moins que la moyenne de 16 minutes : la seule valeur 38 la tire vers le haut. Sans elle, la moyenne tombe à $\frac{106}{8} = 13{,}25$, et la médiane reste 13. On dit que la médiane est **robuste** : une valeur extrême, même énorme, ne la déplace presque pas. La moyenne, elle, suit la valeur extrême : remplace 38 par 380, et elle passe à 54.
+Sept entraînements sur neuf ont duré moins que la moyenne de 16 minutes, un seul plus longtemps : la valeur 38 tire la moyenne vers le haut. Sans elle, la moyenne tombe à $\frac{106}{8} = 13{,}25$, et la médiane reste 13. On dit que la médiane est **robuste** : une valeur extrême, même énorme, ne la déplace presque pas. La moyenne, elle, suit la valeur extrême : remplace 38 par 380, et elle passe à 54.
 
 Le **mode** est la valeur la plus fréquente (ici 12 et 13, deux fois chacune) ; il sert surtout pour des catégories.
 
