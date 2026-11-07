@@ -1,10 +1,10 @@
 # PROGRESS : état de la génération de workbookMaths
 
-*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-07, session 23 (M05b).*
+*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-07, session 24 (M06).*
 
 ## Prochaine étape
 
-➡️ **Session 24 : chapitre M06** (Théorie de l'information, `chapitres/m06_information/`, 37 exercices, 11,4 h, pas de 📖 : MML ne traite pas l'information ; lecture conseillée MacKay ch. 1, 2 et 5), d'après sa section de `docs/SYLLABUS.md` : fiche, exercices, notebooks par `tools/chapters/build_m06.py`, `solutions/mymath_ref/info.py` et `tests/test_m06_info.py` (`joint_entropy`, `conditional_entropy`, `mutual_information`, `kraft_sum`, `is_prefix_code`, `jensen_gap`). Relire avant d'écrire **la fiche, les énoncés et les solutions** de workbookIA 6 — fiche comprise : la seconde relecture de M05b a trouvé dans les premières versions des nombres des mini-exemples de la fiche de workbookIA 5 — et ses frontières (6.1 à 6.8, 6.16, 6.17, 6.19, 6.23 et la suite de la liste du syllabus : ni Morse, ni pièce, ni dé, ni textes littéraires ; Huffman énoncé, pas construit ; la KL dans un seul sens). Ne reprendre aucune donnée de M03 et M04 (logs, log-vraisemblances, Beta). Vérifier `python tools/snapshot_workbookia.py /home/claude/cemah2/workbookia --check` au début de la session. Après M06 : l'examen blanc CP1.
+➡️ **Session 25 : examen blanc CP1** (`checkpoints/partie_1/`, 14 éléments, 3,3 h : 10 affirmations, 9 ✏️ d'environ 9 min, une ∂ au choix, un 🐛, un 🔗 de synthèse et la carte mentale), d'après sa section de `docs/SYLLABUS.md` et le modèle de CP0 (`checkpoints/partie_0/` : sujet, notebook de vérification, corrigé détaillé, barème sur 20, synthèse). Un examen blanc reprend des notions, jamais des nombres : relire les exercices de M02a à M06 (et `positionnement/01_sujet.md`) avant d'écrire, ainsi que les frontières du syllabus (2.8, 3.4, 3.8, 4.3, 4.7, 5.6, 5.7, 6.7 et 6.8 de workbookIA : la ∂ au choix ne les reprend pas). Après CP1 : la partie II (syllabus détaillé de M07 à M11, puis M07).
 
 La partie 0 est complète : R0, POS, R1 à R9 et CP0. L'apprenant enchaîne avec workbookIA 0B, puis workbookIA 1.
 
@@ -13,7 +13,7 @@ La partie 0 est complète : R0, POS, R1 à R9 et CP0. L'apprenant enchaîne avec
 | Partie | Chapitres | Statut |
 |---|---|---|
 | 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | ✅ tout publié (R0, POS, R1 à R9, CP0) |
-| I · Fondations | M02a à M06, CP1 | ✅ M02a, M02b, M02c, M03, M04, M05a et M05b publiés ; M06 et CP1 détaillés (syllabus), à générer |
+| I · Fondations | M02a à M06, CP1 | ✅ M02a, M02b, M02c, M03, M04, M05a, M05b et M06 publiés ; CP1 détaillé (syllabus), à générer |
 | II · Concepts | M07 à M11, CP2 | 📅 planifié |
 | III · ML classique | M12a à M14, CP3 | 📅 planifié |
 | IV · Réseaux | M16 à M20, CP4 | 📅 planifié |
