@@ -6026,9 +6026,6 @@
       "hash_coarse": "96c2e8f14564e67f30880fad589b72128b9ad268f4ba6411a981e17e0dc66f86",
       "kind": "float",
       "magnitude": -1,
-      "mistakes": {
-        "10561c0f6a59d6f604a68e5e171838ee7de3ce90c2fbb5c287540ad8db6f18bb": "le dénominateur est N − 1, pas N"
-      },
       "sign": 1,
       "source": "chapitres/m02c_echantillons_estimation/05_solutions.ipynb"
     },
@@ -7589,8 +7586,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "54651bb6d7a17b513cf8551d1167296ad9a87acafacce5eca928fb53b20c4b85": "l'intervalle utilise l'erreur type s/√n, pas l'écart-type s des données",
-        "7bef620e659eea716a2e3057f5b417163e1ec73042b2e3d7bd1c5ecb37f25eed": "l'écart-type s divise par n − 1 (ddof=1)"
+        "7bef620e659eea716a2e3057f5b417163e1ec73042b2e3d7bd1c5ecb37f25eed": "l'écart-type s divise par n − 1 (ddof=1)",
+        "818fc12b642e00ee5fae35d6e4b854a03af28869812c237f0d7a37ea2cdd5b51": "l'erreur type divise s par √n, pas par n"
       },
       "sign": 1,
       "source": "chapitres/m02c_echantillons_estimation/05_solutions.ipynb"
@@ -7610,6 +7607,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "29ae6553b21dfda381b6fff293abaaf8478b9dea41153f2b1e36f1048085118d": "l'erreur type divise s par √n, pas par n",
         "dcfa42967a3176139852db551eddd1fce93a216590de6abd9b8ab6336da98315": "l'écart-type s divise par n − 1 (ddof=1)"
       },
       "sign": 1,
@@ -7629,6 +7627,9 @@
       "hash_coarse": "86de0734f1aa79f9d8f4525fd5041c07ccd88148ddd5c4de459fe6f6d4beee98",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "1d22d7fdb0a1b5dc828713fd4f2e907c30220c5830e3f71b9b01f6a4b2c46277": "l'erreur type divise s par √n, pas par n"
+      },
       "sign": 1,
       "source": "chapitres/m02c_echantillons_estimation/05_solutions.ipynb"
     },
@@ -7647,6 +7648,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "739c8c516ced8814215c2209c1c4640f975271ca5b671aec2b039322422210ab": "l'erreur type divise s par √n, pas par n",
         "cc4ee28e706a1c36ac77a0c1c1e9d91563dfe198c28e8a0598f2b4b40edf5f36": "l'écart-type s divise par n − 1 (ddof=1)"
       },
       "sign": 1,
@@ -7667,7 +7669,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "0c6a832ebcc31069a8633584753adfbfc695fe67f18e6c85a3fa566cad4d3f65": "l'écart-type s divise par n − 1 (ddof=1)"
+        "0c6a832ebcc31069a8633584753adfbfc695fe67f18e6c85a3fa566cad4d3f65": "l'écart-type s divise par n − 1 (ddof=1)",
+        "9cc2d9b04443a97035ea3ce621e3ddc07e4cbef513c643142e46b66f58a6fa4e": "l'erreur type divise s par √n, pas par n"
       },
       "sign": 1,
       "source": "chapitres/m02c_echantillons_estimation/05_solutions.ipynb"
@@ -7681,13 +7684,19 @@
           "658f63568727f6acd3fbcd0ed7680a3fbf43eb7bd48ebd3f2fe90c04b137cd43"
         ]
       },
-      "decimals": 3,
-      "hash": "a95a2427c3519db689ace086d8d09765f532d75073d35c0649e0f10932d9f752",
-      "hash_coarse": "336f88b7d081701bba3eff3b9fdaa727c68ef80f5091cf759ca2f121bbed9e21",
+      "coarser": {
+        "2": [
+          "336f88b7d081701bba3eff3b9fdaa727c68ef80f5091cf759ca2f121bbed9e21"
+        ]
+      },
+      "decimals": 4,
+      "hash": "6a907060b41c8724e17b90fbabe3d6669652703937d2ecab3d81a27b6a8510b0",
+      "hash_coarse": "a95a2427c3519db689ace086d8d09765f532d75073d35c0649e0f10932d9f752",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "e7edeaf17f4f144c728b6331485b472614632c2f3a9f8eed12fa8f10b9265838": "la boule de rayon 1 : la somme des carrés des coordonnées est au plus 1, pas 1/4"
+        "3b0053c1ef8949d401cf255717b74164126466b602a2d299462c6f1019d50755": "c'est la valeur exacte ; la question demande la proportion de tes 100 000 points",
+        "96d692ea9ca75afff0100e32790ae51ce9b4f653aa4f2cd3d6f8e2ec75d1e85f": "la boule de rayon 1 : la somme des carrés des coordonnées est au plus 1, pas 1/4"
       },
       "sign": 1,
       "source": "chapitres/m02c_echantillons_estimation/05_solutions.ipynb"
@@ -7701,11 +7710,19 @@
           "74f7d2cfe0128a5b10247c66a670b8224ec5d264c8dc1859c447cec263f8f1b1"
         ]
       },
-      "decimals": 3,
-      "hash": "2413520924c83e85eec567c9e35569788f37786b69adc49c846327a3ad1c5f5d",
-      "hash_coarse": "e09a61d6c97bd74eb8107baf38a32c5e4eb721ccafd0da57a738e7242dfb166c",
+      "coarser": {
+        "2": [
+          "e09a61d6c97bd74eb8107baf38a32c5e4eb721ccafd0da57a738e7242dfb166c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b57179adba9f322f04e58360db21899cc5d9b8f7bf9afcd889b90794e990051b",
+      "hash_coarse": "2413520924c83e85eec567c9e35569788f37786b69adc49c846327a3ad1c5f5d",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "191ffa2b0cd421ff29db6fa4a8c7add2d0bb0aeafa22237e306bdf680f59d2fb": "c'est la valeur exacte ; la question demande la proportion de tes 100 000 points"
+      },
       "sign": 1,
       "source": "chapitres/m02c_echantillons_estimation/05_solutions.ipynb"
     },
@@ -7898,9 +7915,6 @@
     "M02c.28": {
       "hash": "2335f636c7b51936eb254e8f9d6d599319397fa222a9646c01f3358c586ff640",
       "kind": "bool",
-      "mistakes": {
-        "c50786586bd49c13b5d17080ef72af014088a285333f2612621e93e359305751": "un objectif au moins n'est pas atteint : relis les lignes ❌ et les pistes de 04_indices.md"
-      },
       "source": "chapitres/m02c_echantillons_estimation/05_solutions.ipynb"
     },
     "POS.1a": {

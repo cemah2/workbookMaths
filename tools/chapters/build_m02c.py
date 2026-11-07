@@ -116,7 +116,7 @@ PAPER = [
         ("g", "an irreducible fraction, as text", "Fraction(3, 4)",
          F + ', mistakes={"sans remise divisé par avec remise, dans cet ordre": "4/3"}'),
         ("h", "a number (4 decimals)", "(10_000 - 100) / (10_000 - 1)",
-         'decimals=4, mistakes={"le dénominateur est N − 1, pas N": (10_000 - 100) / 10_000}'),
+         'decimals=4'),
     ]),
 
     Paper("M02c.5", "Combien d'observations pour une moyenne précise à 1 % ?", [
@@ -293,7 +293,7 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M02c.1 à 
                "forme indiquée en commentaire, jamais le calcul qui y mène :\n"
                "- un entier, ou un nombre avec un point décimal, `-1.25`, arrondi comme le demande la question ;\n"
                "- une fraction irréductible entre guillemets, `\"5/9\"` ;\n"
-               "- une liste `[116.5, 124.5]`, `True` / `False`, ou une lettre entre guillemets, `\"B\"`.\n\n"
+               "- une liste `[0.25, 0.75]`, `True` / `False`, ou une lettre entre guillemets, `\"B\"`.\n\n"
                "Pour la loi normale, utilise la table de $\\Phi$ de M02b (§3) : les réponses attendues sont arrondies de "
                "sorte que la table et un calcul exact donnent la même valeur. Les quantiles d'une série suivent la "
                "convention de la fiche (§1). Les réponses pas encore remplies affichent ⏳.")
@@ -736,7 +736,7 @@ coverage_c = ...   # c) EXPO_100
 coverage_d = ...   # d) NORMAL_20 with z = 1.645
 coverage_e = ...   # e) NORMAL_20 with z = stats.t.ppf(0.975, 19)''',
     check='''for letter, value in zip("abcde", [coverage_a, coverage_b, coverage_c, coverage_d, coverage_e]):
-    wbm.check(f"M02c.23{letter}", value)''',
+    wbm.check(f"M02c.23{letter}", value, computed=True)''',
     solution='''def coverage(samples, true_mean, z=1.96):
     """The share of the rows of samples whose interval mean ± z s/√n (s with ddof=1) contains true_mean."""
     samples = np.asarray(samples, dtype=float)
@@ -753,14 +753,18 @@ coverage_e = coverage(NORMAL_20, 10, z=stats.t.ppf(0.975, 19))
 print(coverage_a, coverage_b, coverage_c, coverage_d, coverage_e, "· Student quantile:", stats.t.ppf(0.975, 19))''',
     record='''wbm.record("M02c.23a", 0.9329, decimals=3,
            mistakes={"l'écart-type s divise par n − 1 (ddof=1)": 0.9246,
-                     "l'intervalle utilise l'erreur type s/√n, pas l'écart-type s des données": 1.0})
+                     "l'erreur type divise s par √n, pas par n": 0.3315})
 wbm.record("M02c.23b", 0.87, decimals=3,
-           mistakes={"l'écart-type s divise par n − 1 (ddof=1)": 0.856})
-wbm.record("M02c.23c", 0.9406, decimals=3)
+           mistakes={"l'écart-type s divise par n − 1 (ddof=1)": 0.856,
+                     "l'erreur type divise s par √n, pas par n": 0.4268})
+wbm.record("M02c.23c", 0.9406, decimals=3,
+           mistakes={"l'erreur type divise s par √n, pas par n": 0.1499})
 wbm.record("M02c.23d", 0.8772, decimals=3,
-           mistakes={"l'écart-type s divise par n − 1 (ddof=1)": 0.868})
+           mistakes={"l'écart-type s divise par n − 1 (ddof=1)": 0.868,
+                     "l'erreur type divise s par √n, pas par n": 0.285})
 wbm.record("M02c.23e", 0.947, decimals=3,
-           mistakes={"l'écart-type s divise par n − 1 (ddof=1)": 0.9417})''',
+           mistakes={"l'écart-type s divise par n − 1 (ddof=1)": 0.9417,
+                     "l'erreur type divise s par √n, pas par n": 0.3507})''',
     note="a) 0,933 : même pour des données normales, 1,96 est un peu trop petit avec 20 valeurs, parce que $s$ varie "
          "d'un échantillon à l'autre. b) 0,870 : avec 10 valeurs d'une loi très asymétrique, la moyenne n'est pas "
          "encore normale, et $s$ est souvent trop petit quand $\\bar{x}$ l'est (les deux dépendent des rares grandes "
@@ -783,8 +787,8 @@ M02C_24 = Ex(
 - `exact_ball_fraction(d)` : la valeur exacte, $\\frac{\\pi^{d/2}}{\\Gamma(d/2 + 1)\\,2^d}$ (la formule admise par la fiche ; `math.gamma` calcule $\\Gamma$).
 
 Puis calcule :
-- a) `ball_fraction` pour $d = 2$ (3 décimales) ;
-- b) pour $d = 3$ (3 décimales) ;
+- a) `ball_fraction` pour $d = 2$ (4 décimales) ;
+- b) pour $d = 3$ (4 décimales) ;
 - c) pour $d = 10$ (4 décimales) ;
 - d) `border_fraction` pour $d = 20$ (3 décimales) ;
 - e) `exact_ball_fraction(10)` (5 décimales) ;
@@ -794,17 +798,17 @@ Dans ta copie : compare a), b), d) aux valeurs exactes de la fiche ($\\frac{\\pi
     given=M02C_24_GIVEN,
     todo='''def ball_fraction(points):
     """The share of the points (one per row) inside the ball of radius 1 centred at 0."""
-    raise NotImplementedError("la somme des carrés des coordonnées de chaque ligne, comparée à 1")
+    raise NotImplementedError("une condition sur chaque ligne de points, puis la proportion des lignes qui la vérifient")
 
 
 def border_fraction(points, eps=0.05):
     """The share of the points with at least one coordinate beyond 1 − eps in absolute value."""
-    raise NotImplementedError("le maximum des |coordonnées| de chaque ligne, comparé à 1 − eps")
+    raise NotImplementedError("« au moins une coordonnée » : quelle fonction de NumPy le dit pour chaque ligne ?")
 
 
 def exact_ball_fraction(d):
     """The volume of the unit ball of dimension d divided by the volume 2^d of the cube [−1, 1]^d."""
-    raise NotImplementedError("math.pi ** (d / 2) / math.gamma(d / 2 + 1) / 2 ** d")
+    raise NotImplementedError("la formule de l'énoncé, avec math.pi et math.gamma")
 
 
 answer_M02c_24a = ...  # a) d = 2
@@ -815,7 +819,7 @@ answer_M02c_24e = ...  # e) exact_ball_fraction(10)
 answer_M02c_24f = ...  # f) the number of points of CUBES_24[20] inside the ball''',
     check='''for letter, answer in zip("abcdef", [answer_M02c_24a, answer_M02c_24b, answer_M02c_24c, answer_M02c_24d,
                                       answer_M02c_24e, answer_M02c_24f]):
-    wbm.check(f"M02c.24{letter}", answer)''',
+    wbm.check(f"M02c.24{letter}", answer, computed=True)''',
     solution='''def ball_fraction(points):
     """The share of the points (one per row) inside the ball of radius 1 centred at 0."""
     return float(np.mean(np.sum(np.asarray(points) ** 2, axis=1) <= 1))
@@ -840,9 +844,11 @@ answer_M02c_24f = int(np.sum(np.sum(CUBES_24[20] ** 2, axis=1) <= 1))
 print(answer_M02c_24a, math.pi / 4, "·", answer_M02c_24b, math.pi / 6, "·", answer_M02c_24c, answer_M02c_24e)
 print(answer_M02c_24d, 1 - 0.95 ** 20, "·", answer_M02c_24f, "· d = 20:", exact_ball_fraction(20),
       "· points for one inside:", 1 / exact_ball_fraction(20))''',
-    record='''wbm.record("M02c.24a", 0.78493, decimals=3,
-           mistakes={"la boule de rayon 1 : la somme des carrés des coordonnées est au plus 1, pas 1/4": 0.19629})
-wbm.record("M02c.24b", 0.52423, decimals=3)
+    record='''wbm.record("M02c.24a", 0.78493, decimals=4,
+           mistakes={"la boule de rayon 1 : la somme des carrés des coordonnées est au plus 1, pas 1/4": 0.19629,
+                     "c'est la valeur exacte ; la question demande la proportion de tes 100 000 points": 0.785398163})
+wbm.record("M02c.24b", 0.52423, decimals=4,
+           mistakes={"c'est la valeur exacte ; la question demande la proportion de tes 100 000 points": 0.523598776})
 wbm.record("M02c.24c", 0.0023, decimals=4)
 wbm.record("M02c.24d", 0.63911, decimals=3,
            mistakes={"près du bord dès qu'**au moins une** coordonnée dépasse 1 − eps : le maximum des valeurs absolues, "
@@ -864,6 +870,8 @@ M02C_25_GIVEN = '''EXPO_DRAW = lambda rng, n: rng.exponential(1.0, n)     # the 
 NS_25 = [1, 2, 10, 50]'''
 
 M02C_25_CHECK = '''with checked("M02c.25 vérifications"):
+    from matplotlib.patches import Rectangle
+
     problems = []
     uniform_draw = lambda rng, n: rng.random(n)            # another law: uniform on [0, 1], mean 0.5, std √(1/12)
     mu_t, sigma_t = 0.5, math.sqrt(1 / 12)
@@ -876,9 +884,14 @@ M02C_25_CHECK = '''with checked("M02c.25 vérifications"):
         problems.append("draw_clt ouvre sa propre figure : dessine dans les axes reçus")
     else:
         for ax, n in zip(axes, [1, 9]):
-            bars = [p for p in ax.patches if p.get_height() > 0]
+            width_t = sigma_t / math.sqrt(n)
+            bars = [p for p in ax.patches if isinstance(p, Rectangle) and p.get_height() > 0]
+            if not bars:
+                problems.append(f"n = {n} : aucune barre d'histogramme dans cet axe : dessine avec ax.hist dans l'axe "
+                                "reçu (pas plt.hist), avec le style de barres par défaut (sans histtype=\\"step\\")")
+                continue
             area = sum(p.get_width() * p.get_height() for p in bars)
-            if not bars or abs(area - 1) > 0.02:
+            if abs(area - 1) > 0.02:
                 problems.append(f"n = {n} : l'histogramme doit avoir une aire de 1 (density=True)")
                 continue
             centre = sum((p.get_x() + p.get_width() / 2) * p.get_width() * p.get_height() for p in bars) / area
@@ -886,21 +899,32 @@ M02C_25_CHECK = '''with checked("M02c.25 vérifications"):
                 problems.append(f"n = {n} : l'histogramme doit être celui des moyennes de n tirages, centré sur mu")
             spread = math.sqrt(sum((p.get_x() + p.get_width() / 2 - centre) ** 2 * p.get_width() * p.get_height()
                                    for p in bars) / area)
-            if abs(spread / (sigma_t / math.sqrt(n)) - 1) > 0.15:
+            if abs(spread / width_t - 1) > 0.15:
                 problems.append(f"n = {n} : la largeur de l'histogramme doit être celle des moyennes de n tirages, "
                                 "sigma / √n")
-            lines = [line for line in ax.get_lines() if len(line.get_xdata()) > 20]
-            if not lines:
+            curves = [line for line in ax.get_lines() if len(line.get_xdata()) > 20]
+            if not curves:
                 problems.append(f"n = {n} : il manque la courbe de la densité normale (ax.plot sur une grille)")
                 continue
-            xs, ys = (np.asarray(lines[0].get_xdata(), dtype=float), np.asarray(lines[0].get_ydata(), dtype=float))
-            peak_x, peak_y = xs[np.argmax(ys)], ys.max()
-            expected = 1 / (sigma_t / math.sqrt(n) * math.sqrt(2 * math.pi))
-            if abs(peak_x - mu_t) > 0.02 * (1 + sigma_t):
-                problems.append(f"n = {n} : le sommet de la densité normale doit être en mu (il est en {peak_x:.3f})")
-            if abs(peak_y / expected - 1) > 0.02:
-                problems.append(f"n = {n} : la densité normale doit avoir l'écart-type sigma / √n (sa hauteur au "
-                                "sommet n'est pas la bonne)")
+            expected = 1 / (width_t * math.sqrt(2 * math.pi))
+            issues = []
+            for line in curves:                              # one right curve is enough, whatever else is drawn
+                xs = np.asarray(line.get_xdata(), dtype=float)
+                ys = np.asarray(line.get_ydata(), dtype=float)
+                found = []
+                if abs(xs[np.argmax(ys)] - mu_t) > 0.02 * (1 + sigma_t):
+                    found.append(f"n = {n} : le sommet de la densité normale doit être en mu (il est en "
+                                 f"{xs[np.argmax(ys)]:.3f})")
+                if abs(ys.max() / expected - 1) > 0.02:
+                    found.append(f"n = {n} : la densité normale doit avoir l'écart-type sigma / √n (sa hauteur au "
+                                 "sommet n'est pas la bonne)")
+                if xs.min() > mu_t - 3.5 * width_t or xs.max() < mu_t + 3.5 * width_t:
+                    found.append(f"n = {n} : la grille de la densité doit couvrir au moins mu ± 4 sigma / √n")
+                if not found:
+                    issues = []
+                    break
+                issues = issues or found
+            problems += issues
             if str(n) not in ax.get_title():
                 problems.append(f"n = {n} : le titre de chaque axe doit indiquer n")
     if problems:
@@ -991,7 +1015,7 @@ se_F = math.sqrt(acc * (1 - acc) / n_test)           # (F) standard error of the
 
 Questions :
 - a) les lettres des lignes fausses, dans l'ordre alphabétique (un texte) ;
-- b) pour chacune des six lignes, de (A) à (F), la bonne valeur de ce que dit son commentaire : la demi-largeur demandée pour (A) à (E), l'erreur type pour (F) (une liste de 6 nombres, 3 décimales).
+- b) pour chacune des six lignes, de (A) à (F), la bonne valeur de ce que dit son commentaire : la demi-largeur demandée pour (A) à (D), la demi-largeur de l'intervalle correct pour (E), l'erreur type pour (F) (une liste de 6 nombres, 3 décimales).
 
 Dans ta copie : pour chaque ligne fausse, quelle confusion a été faite ? L'intervalle de (E) a-t-il quand même un sens ?""",
     todo='''answer_M02c_26a = ...  # a) letters, as text
@@ -1038,17 +1062,32 @@ M02C_27_CHECK = '''with checked("M02c.27 vérifications"):
     problems = []
     se = pi_standard_error(100_000)
     if not isinstance(se, (int, float)) or abs(se - 4 * math.sqrt(math.pi / 4 * (1 - math.pi / 4) / 100_000)) > 1e-6:
-        problems.append("pi_standard_error(n) : 4 × √(p (1 − p) / n), avec p = π/4 la probabilité d'un point dans le "
-                        "quart de disque")
-    passed = [bool(pi_test(estimate_pi, seed)) for seed in range(100)]
-    caught = [not pi_test(estimate_pi_shrunk, seed) for seed in range(100)]
-    print(f"la bonne fonction passe ton test pour {sum(passed)} graines sur 100 ; la fonction fausse est attrapée "
-          f"{sum(caught)} fois sur 100")
-    if sum(passed) < 100:
-        problems.append("ton test échoue sur la bonne fonction pour certaines graines : la tolérance est trop étroite "
-                        "(un test qui échoue sans bug est un test « instable », flaky)")
-    if sum(caught) < 100:
-        problems.append("ton test laisse passer la fonction au rayon de 0,99 : la tolérance est trop large")
+        problems.append("pi_standard_error(n) : l'erreur type de 4 fois une proportion (relis l'énoncé : pourquoi 4 ?)")
+    seen = []
+
+    def spy(n, rng):                                       # records the first number of the generator it receives
+        seen.append(float(rng.random()))
+        return math.pi
+
+    answer = pi_test(spy, 7)
+    if not isinstance(answer, (bool, np.bool_)):
+        problems.append(f"pi_test doit renvoyer True ou False, pas {type(answer).__name__} ({answer!r})")
+    elif not seen or seen[0] != float(np.random.default_rng(7).random()):
+        problems.append("pi_test doit appeler estimate(n, np.random.default_rng(seed)) avec la graine reçue : un test "
+                        "doit être reproductible")
+    else:
+        passed = [bool(pi_test(estimate_pi, seed)) for seed in range(100)]
+        caught = [not pi_test(estimate_pi_shrunk, seed) for seed in range(100)]
+        print(f"k = {TOLERANCE_K} : la bonne fonction passe ton test pour {sum(passed)} graines sur 100 ; la fonction "
+              f"fausse est attrapée {sum(caught)} fois sur 100")
+        if sum(passed) < 100:
+            problems.append("ton test échoue sur la bonne fonction pour certaines graines : la tolérance est trop "
+                            "étroite (un test qui échoue sans bug est un test « instable », flaky)")
+        if sum(caught) < 100:
+            problems.append("ton test laisse passer la fonction au rayon de 0,99 : la tolérance est trop large")
+        if not problems and not 3.5 <= TOLERANCE_K <= 10:
+            problems.append("ces 100 graines passent, mais ce k serait instable ou trop large sur des milliers de "
+                            "tests : relis l'énoncé pour le choisir")
     if problems:
         print("❌ Ex M02c.27 : à revoir : " + " ; ".join(problems) + ".")
     else:
@@ -1059,47 +1098,56 @@ M02C_27_CHECK = '''with checked("M02c.27 vérifications"):
 M02C_27 = Ex(
     "M02c.27", "🛠️", 1, 15, "Tester une fonction aléatoire : une tolérance en erreurs types",
     "écrire le test d'une fonction aléatoire avec une tolérance fixée en erreurs types, ni trop étroite (test "
-    "instable) ni trop large (bugs invisibles).", "fiche §4 et §7 ; Ex M02c.18", tracks="C",
-    body="""Comment tester une fonction dont le résultat est aléatoire ? Comparer à la valeur exacte avec `==` échoue toujours ; avec une tolérance prise au hasard (`abs(x - pi) < 0.1`), le test laisse passer des bugs, ou échoue sans bug (on dit qu'il est **instable**, *flaky*). La bonne tolérance se compte en **erreurs types** : une estimation juste tombe à moins de $4$ erreurs types de la vraie valeur, sauf avec une probabilité de l'ordre de $10^{-4}$ (fiche §5).
+    "instable) ni trop large (bugs invisibles).", "fiche §4, §5 et §7 ; Ex M02c.18", tracks="C",
+    body="""Comment tester une fonction dont le résultat est aléatoire ? Comparer à la valeur exacte avec `==` échoue toujours ; avec une tolérance prise au hasard (`abs(x - pi) < 0.1`), le test laisse passer des bugs, ou échoue sans bug (on dit qu'il est **instable**, *flaky*). La bonne tolérance se compte en **erreurs types** : par le théorème central limite, une estimation juste s'écarte de plus de $k$ erreurs types de la vraie valeur avec la probabilité $2\\big(1 - \\Phi(k)\\big)$ environ.
 
 La cellule fournie définit `estimate_pi(n, rng)`, qui estime $\\pi$ par Monte-Carlo (4 fois la proportion de $n$ points uniformes du carré $[0 ; 1]^2$ tombés dans le quart de disque de rayon 1), et deux copies fausses. Écris :
-- `pi_standard_error(n)` : l'erreur type de `estimate_pi` pour $n$ points, $4\\sqrt{\\frac{p(1 - p)}{n}}$ avec $p = \\frac{\\pi}{4}$ (pourquoi 4 ?) ;
-- `pi_test(estimate, seed, n=100_000, k=4)` : renvoie `True` si `estimate(n, np.random.default_rng(seed))` est à moins de `k` erreurs types de $\\pi$, `False` sinon.
+- `pi_standard_error(n)` : l'erreur type de `estimate_pi` pour $n$ points (pourquoi est-ce 4 fois celle d'une proportion ?) ;
+- `TOLERANCE_K` : le nombre $k$ d'erreurs types que tu tolères. Choisis-le : un vrai projet lance ses tests des milliers de fois, donc une estimation juste ne doit presque jamais échouer ($2(1 - \\Phi(k))$ minuscule) ; et la copie fausse au rayon de 0,99 a un biais de 12 erreurs types environ, qu'il faut attraper à coup sûr ;
+- `pi_test(estimate, seed, n=100_000)` : renvoie `True` si `estimate(n, np.random.default_rng(seed))` est à moins de `TOLERANCE_K` erreurs types de $\\pi$, `False` sinon.
 
-La vérification lance ton test sur la bonne fonction et sur la copie fausse au rayon de 0,99, pour 100 graines : il doit accepter la bonne fonction **toutes** les fois, et refuser la fausse **toutes** les fois.
+La vérification lance ton test sur la bonne fonction et sur la copie au rayon de 0,99, pour 100 graines : il doit accepter la bonne fonction **toutes** les fois, et refuser la fausse **toutes** les fois.
 
-Dans ta copie : que se passerait-il avec `k=1` ? Avec `k=50` ? Pourquoi la fonction décalée de $+0{,}002$ passe-t-elle presque toujours, et combien de points faudrait-il pour l'attraper ?""",
+Dans ta copie : justifie ton choix de $k$. Que se passerait-il avec $k = 1$ ? Avec $k = 50$ ? Pourquoi la fonction décalée de $+0{,}002$ passe-t-elle presque toujours, et combien de points faudrait-il pour l'attraper ?""",
     given=M02C_27_GIVEN,
     todo='''def pi_standard_error(n):
     """The standard error of estimate_pi for n points."""
-    raise NotImplementedError("4 × √(p (1 − p) / n) avec p = π/4")
+    raise NotImplementedError("l'erreur type d'une proportion p = π/4, puis l'effet du facteur 4")
 
 
-def pi_test(estimate, seed, n=100_000, k=4):
-    """True if estimate(n, rng) is within k standard errors of π, with rng = np.random.default_rng(seed)."""
-    raise NotImplementedError("abs(estimate(...) - math.pi) <= k * pi_standard_error(n)")''',
+TOLERANCE_K = ...   # your choice: the number of standard errors your test tolerates
+
+
+def pi_test(estimate, seed, n=100_000):
+    """True if estimate(n, rng) is within TOLERANCE_K standard errors of π, with rng = np.random.default_rng(seed)."""
+    raise NotImplementedError("l'écart à math.pi, comparé à une tolérance comptée en erreurs types")''',
     solution='''def pi_standard_error(n):
     """The standard error of estimate_pi for n points."""
     p = math.pi / 4                          # the probability that one point falls inside the quarter disc
     return 4 * math.sqrt(p * (1 - p) / n)    # estimate_pi multiplies a proportion by 4
 
 
-def pi_test(estimate, seed, n=100_000, k=4):
-    """True if estimate(n, rng) is within k standard errors of π, with rng = np.random.default_rng(seed)."""
-    return abs(estimate(n, np.random.default_rng(seed)) - math.pi) <= k * pi_standard_error(n)
+TOLERANCE_K = 5      # 2 (1 − Φ(5)) ≈ 6e-7: never flaky in practice, and the 12-standard-error bias is caught
+
+
+def pi_test(estimate, seed, n=100_000):
+    """True if estimate(n, rng) is within TOLERANCE_K standard errors of π, with rng = np.random.default_rng(seed)."""
+    return abs(estimate(n, np.random.default_rng(seed)) - math.pi) <= TOLERANCE_K * pi_standard_error(n)
 
 
 print("standard error for 100 000 points:", pi_standard_error(100_000),
-      "· bias of the shrunk copy:", math.pi * (0.99 ** 2 - 1))''',
+      "· bias of the shrunk copy:", math.pi * (0.99 ** 2 - 1), "· false alarm rate for k = 5:", 2 * stats.norm.sf(5))''',
     after=[("code", M02C_27_CHECK)],
     note="L'erreur type vaut $4\\sqrt{\\frac{0{,}785 \\times 0{,}215}{100\\,000}} \\approx 0{,}0052$ (le 4 vient de ce "
          "que l'estimation est 4 fois une proportion, et $\\sigma(4Y) = 4\\sigma(Y)$). La copie au rayon de 0,99 a un "
-         "biais de $\\pi(0{,}99^2 - 1) \\approx -0{,}063$, soit 12 erreurs types : toujours attrapée. Avec `k=1`, la "
-         "bonne fonction échouerait environ une fois sur trois ($2(1 - \\Phi(1)) \\approx 0{,}32$) ; avec `k=50`, "
-         "même la copie fausse passerait. Le décalage de 0,002 vaut 0,4 erreur type : pour l'attraper à "
-         "4 erreurs types, il faudrait au moins $4\\,\\text{SE} < 0{,}002$, soit $n$ de l'ordre de 11 millions "
-         "de points ($\\text{SE}$ en $\\frac{1}{\\sqrt{n}}$), et davantage pour l'attraper à coup sûr. Les tests de `mymath` qui portent sur des simulations, comme celui du "
-         "biais de $S_n^2$, sont construits ainsi.",
+         "biais de $\\pi(0{,}99^2 - 1) \\approx -0{,}063$, soit 12 erreurs types. Un $k$ entre 4 et 6 convient : "
+         "$2(1 - \\Phi(4)) \\approx 6 \\times 10^{-5}$, $2(1 - \\Phi(5)) \\approx 6 \\times 10^{-7}$, et le biais de 12 "
+         "erreurs types reste toujours dehors. Avec $k = 1$, la bonne fonction échouerait environ une fois sur trois "
+         "($2(1 - \\Phi(1)) \\approx 0{,}32$) ; avec $k = 50$, même la copie fausse passerait. Le décalage de 0,002 vaut "
+         "0,4 erreur type : pour l'attraper à 4 erreurs types, il faudrait au moins $4\\,\\text{SE} < 0{,}002$, soit $n$ "
+         "de l'ordre de 11 millions de points ($\\text{SE}$ en $\\frac{1}{\\sqrt{n}}$), et davantage pour l'attraper à "
+         "coup sûr. Les tests de `mymath` qui portent sur des simulations, comme celui du biais de $S_n^2$, sont "
+         "construits ainsi.",
 )
 
 M02C_28_GIVEN = '''rng_28 = np.random.default_rng(28)
@@ -1130,11 +1178,14 @@ M02C_28_CHECK = '''with checked("M02c.28"):
         if not width <= 1.6:
             reasons.append("les intervalles sont trop larges (plus de 1,6 μ en moyenne)")
     if seconds > 20:
-        reasons.append("plus de 20 secondes pour 4 500 intervalles : calcule une seule fois ce qui ne dépend pas de "
-                       "l'échantillon")
+        reasons.append("plus de 20 secondes pour 4 500 intervalles : vectorise avec NumPy, et calcule une seule fois "
+                       "ce qui ne dépend pas de l'échantillon")
     for reason in reasons:
         print(f"❌ {reason}")
-    wbm.check("M02c.28", not reasons, computed=True)'''
+    if reasons:
+        print("❌ Ex M02c.28 : un objectif au moins n'est pas atteint : relis les pistes de l'énoncé et de 04_indices.md.")
+    else:
+        wbm.check("M02c.28", True, computed=True)'''
 
 M02C_28 = Ex(
     "M02c.28", "🏆", 3, 30, "Défi : un intervalle à 95 % avec dix valeurs d'une loi asymétrique",
@@ -1146,7 +1197,7 @@ M02C_28 = Ex(
 3. moins de 20 secondes pour les 4 500 intervalles.
 
 Tous les outils sont permis (NumPy, SciPy, une simulation). Pistes (`04_indices.md` les détaille) :
-- le bootstrap des percentiles (fiche §7) : tente-le, et regarde quel objectif il manque ;
+- le bootstrap des percentiles (fiche §7) : tente-le, et regarde quel objectif il manque (vectorise-le : `sample[rng.integers(0, 10, (2000, 10))]` tire d'un coup les 2 000 rééchantillons ; une boucle Python sur les rééchantillons prendrait plus d'une minute ici) ;
 - une remarque clé : si $X$ suit une loi exponentielle de moyenne $\\mu$, alors $\\frac{X}{\\mu}$ suit la loi exponentielle de moyenne 1. Que peux-tu en dire de la loi de $\\frac{\\bar{X}}{\\mu}$ ? Dépend-elle de $\\mu$ ? Comment connaître ses quantiles, même sans formule ?
 
 Dans ta copie : quelle méthode as-tu retenue ? Pourquoi ton intervalle n'est-il pas symétrique autour de $\\bar{x}$ ? Pourquoi le bootstrap des percentiles couvre-t-il mal avec 10 valeurs ?""",
@@ -1179,8 +1230,7 @@ def bootstrap_percentile(sample, resamples=2000, rng=np.random.default_rng(0)):
 
 boot = np.array([bootstrap_percentile(sample) for sample in SAMPLES_28])
 print("bootstrap percentile coverage:", np.mean((boot[:, 0] <= SCALES_28) & (SCALES_28 <= boot[:, 1])))''',
-    record='''wbm.record("M02c.28", True,
-           mistakes={"un objectif au moins n'est pas atteint : relis les lignes ❌ et les pistes de 04_indices.md": False})''',
+    record='''wbm.record("M02c.28", True)''',
     note="Le bootstrap des percentiles couvre environ 86 fois sur 100 : avec 10 valeurs, la loi empirique n'a pas la "
          "longue queue de la vraie loi (aucune des 10 valeurs n'est très grande, le plus souvent), et ses intervalles "
          "sont trop étroits. La remarque clé : $\\frac{X_i}{\\mu}$ suit la loi exponentielle de moyenne 1, donc "

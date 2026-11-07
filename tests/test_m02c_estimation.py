@@ -127,7 +127,9 @@ def test_sample_means_accepts_a_draw_that_returns_a_list(estimation):
     expected = _replayed_means(draw, 3, 5, 2)
     got = _result(lambda: estimation.sample_means(draw, 3, 5, seed=2), "5 means of lists")
     assert np.allclose(np.asarray(got, dtype=float), expected, rtol=1e-12, atol=0), (
-        "expected the same means when draw returns a list (the docstring: a list or an array)")
+        f"expected {expected.tolist()} (draw returns a list here: the docstring allows a list or an array), got "
+        f"{np.asarray(got).tolist()}: np.mean accepts a list; check also the single generator "
+        f"np.random.default_rng(seed), created once before the loop")
 
 
 def test_sample_means_returns_an_array_of_floats(estimation):
@@ -212,9 +214,11 @@ def test_estimator_mse_is_bias_squared_plus_variance(estimation):
     estimates = _replayed_estimates(_var_1, _normal_5, 500, 13)
     expected = float(np.var(estimates) + (estimates.mean() - 4.0) ** 2)
     got = _result(lambda: estimation.estimator_mse(_var_1, _normal_5, 4.0, 500, seed=13), f"{expected}")
+    spread = float(np.var(estimates))
+    hint = (": the mean of (θ̂ − θ)², not of (θ̂ − mean of the estimates)²"
+            if isinstance(got, (int, float)) and got == pytest.approx(spread, rel=1e-9) else "")
     assert got == pytest.approx(expected, rel=1e-9), (
-        f"expected {expected} = (variance of the estimates) + bias², got {got!r}: the mean of (θ̂ − θ)², not of "
-        f"(θ̂ − mean)²")
+        f"expected {expected} = (variance of the estimates) + bias², got {got!r}{hint}")
 
 
 def test_estimator_mse_returns_a_float(estimation):
@@ -239,7 +243,8 @@ def test_standard_error_matches_scipy(estimation, sample):
     expected = float(stats.sem(sample))
     got = _result(lambda: estimation.standard_error(sample), f"{expected} (scipy.stats.sem)")
     with_n = float(np.std(sample) / math.sqrt(len(sample)))
-    hint = " (that is s divided by n, ddof = 0)" if got == pytest.approx(with_n, rel=1e-9) else ""
+    hint = (" (that is the standard deviation with ddof = 0: the sum of squared deviations divided by n instead of "
+            "n − 1)" if len(sample) > 2 and got == pytest.approx(with_n, rel=1e-9) else "")
     assert got == pytest.approx(expected, rel=1e-12), (
         f"expected {expected} = s / √n with s divided by n − 1 (ddof = 1 by default), got {got!r}{hint}")
 

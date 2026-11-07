@@ -1032,6 +1032,17 @@ def test_a_computed_value_right_only_at_zero_decimals_is_not_almost_right():
     assert "Tout près" not in message and "//" in message, message
 
 
+def test_a_computed_proportion_of_one_names_the_condition_and_the_generator():
+    """Session 19 (M02c learner): a coverage of exactly 1.0 (every case passes, or identical simulated samples) gets
+    the integer-division hint and the proportion and generator hints; a near value names the seed and the order."""
+    import wbm.checker as checker
+    entry = checker.make_entry("C.p", 0.9489, decimals=2)
+    message = checker.check_entry("C.p", entry, 1.0, computed=True)[2]
+    assert "//" in message and "proportion" in message and "générateur" in message, message
+    near = checker.check_entry("C.p", checker.make_entry("C.p", 1.994470280, decimals=2), 2.0013, computed=True)[2]
+    assert "Tout près" in near and "graine" in near, near
+
+
 def test_the_right_values_in_another_order_name_no_order():
     """Session 13 (R8 learner, C9): the order asked may be that of the letters A, B, E, not the increasing order."""
     import wbm.checker as checker

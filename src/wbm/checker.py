@@ -683,8 +683,15 @@ _COMPUTED_INTEGER = ("Ta fonction renvoie un nombre entier, alors que le bon ré
 
 _COMPUTED_NEAR = ("Tout près, mais pas égal : cette valeur vient de ta fonction, ce n'est donc pas une question "
                   "d'arrondi. Ta fonction s'écarte un peu du bon résultat dans un cas particulier (ex-æquo, bord "
-                  "d'intervalle, division par zéro…) : relis sa docstring ; si elle fait partie de `mymath`, ses "
-                  "tests (`pytest`) disent quel cas pose problème.")
+                  "d'intervalle, division par zéro…), ou, pour une simulation, ses tirages ne suivent pas la graine "
+                  "et l'ordre que demande sa docstring (un seul générateur, créé une fois) : relis sa docstring ; si "
+                  "elle fait partie de `mymath`, ses tests (`pytest`) disent quel cas pose problème.")
+
+_COMPUTED_ONE = ("Ta fonction renvoie exactement 1 (ou −1), alors que le bon résultat a des décimales : une division "
+                 "entière `//`, un `round(...)` ou un `int(...)` dans le calcul ? Ou, si c'est une proportion, tous "
+                 "les cas passent ta condition : relis-la, et pour une simulation, vérifie que les tirages changent "
+                 "bien d'un échantillon à l'autre (un seul générateur, créé une fois). Si la fonction fait partie de "
+                 "`mymath`, ses tests (`pytest`) disent quel cas pose problème.")
 
 
 def _coarse_texts(x: float, decimals: int) -> list[str]:
@@ -822,6 +829,8 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
                 hashes |= {entry.get("hash_coarse"), *entry.get("alt_coarse", ())}
             if hash_answer(ex_id, "float", _fmt_float(x, typed)) in hashes:
                 if computed:   # right at 0 decimals only (1 for 0.706): never « tout près » (R8 learner, C2)
+                    if typed == 0 and abs(x) == 1:   # a proportion of 1 (every case passes), not an integer division
+                        return _COMPUTED_ONE         # (M02c learner)
                     return _COMPUTED_INTEGER if typed == 0 else _COMPUTED_NEAR
                 return (f"Ta valeur n'a que {_count(typed, 'décimale')}, et l'énoncé en demande {decimals} : "
                         "refais l'arrondi avec plus de chiffres (arrondis seulement à la fin du calcul).")

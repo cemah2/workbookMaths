@@ -334,7 +334,7 @@
 
 ### Ex M02c.27 — Tester une fonction aléatoire : une tolérance en erreurs types
 
-- Ce qui se passe avec k = 1 et k = 50 ; pourquoi la fonction décalée de 0,002 passe ; combien de points pour l'attraper :
+- Mon choix de k et sa justification ; ce qui se passe avec k = 1 et k = 50 ; pourquoi la fonction décalée de 0,002 passe ; combien de points pour l'attraper :
 
 ### Ex M02c.28 — Défi : un intervalle à 95 % avec dix valeurs d'une loi asymétrique
 

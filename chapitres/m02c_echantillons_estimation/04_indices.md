@@ -702,17 +702,17 @@ Les quantiles : 1,645 à 90 %, 1,96 à 95 %, 2,576 à 99 %. (E) : un intervalle 
 
 <details><summary>Indice 1</summary>
 
-Relis la fin du §4 (la vitesse en $\frac{1}{\sqrt{n}}$) et l'erreur type d'une proportion (fiche §7).
+Relis la fin du §4 (la vitesse en $\frac{1}{\sqrt{n}}$), le théorème central limite (§5) et l'erreur type d'une proportion (fiche §7).
 
 </details>
 <details><summary>Indice 2</summary>
 
-`estimate_pi` renvoie 4 fois une proportion $\hat{p}$ : son erreur type est 4 fois celle de $\hat{p}$, $\sqrt{\frac{p(1 - p)}{n}}$ avec $p = \frac{\pi}{4}$.
+`estimate_pi` renvoie 4 fois une proportion $\hat{p}$ : son erreur type est 4 fois celle de $\hat{p}$, $\sqrt{\frac{p(1 - p)}{n}}$ avec $p = \frac{\pi}{4}$. Pour $k$, calcule $2(1 - \Phi(k))$ pour $k = 2, 3, 4, 5$ (`2 * stats.norm.sf(k)`), et compare $k$ au biais de 12 erreurs types de la copie fausse.
 
 </details>
 <details><summary>Indice 3</summary>
 
-`abs(estimate(n, np.random.default_rng(seed)) - math.pi) <= k * pi_standard_error(n)`.
+`abs(estimate(n, np.random.default_rng(seed)) - math.pi) <= TOLERANCE_K * pi_standard_error(n)`. Avec $k = 4$ ou 5, une fausse alarme arrive moins d'une fois sur dix mille tests, et la copie fausse, à 12 erreurs types, est toujours attrapée.
 
 </details>
 
@@ -725,7 +725,7 @@ Commence par le bootstrap des percentiles (fiche §7) : regarde sa couverture. P
 </details>
 <details><summary>Indice 2</summary>
 
-La loi de $\frac{\bar{X}}{\mu}$ est donc celle de la moyenne de 10 exponentielles de moyenne 1 : elle ne dépend pas de $\mu$. Simule-la une fois pour toutes (beaucoup de moyennes de 10 tirages `rng.exponential(1.0, ...)`), et lis ses percentiles 2,5 et 97,5.
+La loi de $\frac{\bar{X}}{\mu}$ est donc celle de la moyenne de 10 exponentielles de moyenne 1 : elle ne dépend pas de $\mu$. Simule-la une fois pour toutes, avec **au moins 100 000** moyennes de 10 tirages `rng.exponential(1.0, ...)` (avec quelques milliers seulement, l'aléa sur les percentiles suffit à faire sortir la couverture de la fenêtre), et lis ses percentiles 2,5 et 97,5.
 
 </details>
 <details><summary>Indice 3</summary>
