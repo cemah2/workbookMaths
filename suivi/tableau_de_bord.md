@@ -645,3 +645,48 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M02b.27 🏆 Défi : tirer des valeurs normales avec seulement des tirages uniformes ★★★ 30 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (25 cartes)
 <!-- wbm:end M02b -->
+
+<!-- wbm:section M02c -->
+## M02c · Échantillons et estimation ⏱️ 13,8 h
+
+- [ ] M02c.Q1 🧠 Résumer une série : vrai ou faux ★ 4 min
+- [ ] M02c.Q2 🧠 z-scores et valeurs aberrantes ★ 4 min
+- [ ] M02c.Q3 🧠 i.i.d. ou pas ? ★ 4 min
+- [ ] M02c.Q4 🧠 Grands nombres et TCL : ce qu'ils disent, ce qu'ils ne disent pas ★ 4 min
+- [ ] M02c.Q5 🧠 Biais, variance et ddof ★ 4 min
+- [ ] M02c.Q6 🧠 Lire un intervalle de confiance ★ 4 min
+- [ ] M02c.Q7 🧠 Covariance et corrélation : vrai ou faux ★ 4 min
+- [ ] M02c.R1 🔁 Espérance et variance d'une somme (M02b) ★ 5 min
+- [ ] M02c.R2 🔁 Loi normale et fonction Φ (M02b) ★ 5 min
+- [ ] M02c.R3 🔁 Racines et puissances (R1) ★ 5 min (complet)
+- [ ] M02c.1 ✏️ Les statistiques d'une petite série : moyenne, médiane, quartiles, variance ★ 20 min
+- [ ] M02c.2 ✏️ z-scores, écart interquartile et valeurs aberrantes ★ 15 min
+- [ ] M02c.3 ✏️ Imputer par la moyenne ou la médiane : ce qui change ★ 15 min (complet)
+- [ ] M02c.4 ✏️ Avec ou sans remise : la variance de la moyenne ★★ 20 min (complet)
+- [ ] M02c.5 ✏️ Combien d'observations pour une moyenne précise à 1 % ? ★★ 20 min
+- [ ] M02c.6 ✏️ Le théorème central limite à la main : une somme de 100 variables ★★ 20 min
+- [ ] M02c.7 ✏️ Biais, variance et erreur quadratique de trois estimateurs ★★ 25 min
+- [ ] M02c.8 ✏️ Erreur type et intervalle de confiance d'une moyenne ★★ 20 min
+- [ ] M02c.9 ✏️ La variance d'une somme et la covariance : V(X + Y), V(X − Y) ★★ 20 min
+- [ ] M02c.10 ✏️ La matrice de covariance de trois variables : la lire et la vérifier ★★ 20 min (complet)
+- [ ] M02c.11 ∂ Pourquoi diviser par n − 1 : E[S²] = σ² ★★★ 30 min (complet)
+- [ ] M02c.12 ∂ La variance de la moyenne : V(X̄) = σ²/n, et l'erreur type ★★ 20 min
+- [ ] M02c.13 🔗 Le 99e percentile d'une latence : l'estimer et dire son incertitude ★★ 20 min
+- [ ] M02c.14 🔗 Standardiser des features avec les statistiques du seul train ★ 15 min (complet)
+- [ ] M02c.15 📖 MML §6.4 : moyennes et covariances empiriques, en anglais ★★ 30 min (complet)
+- [ ] M02c.16 ⚖️ Le biais du survivant : des données qui ne montrent que ceux qui restent ★ 15 min (complet)
+- [ ] M02c.17 🗣️ Expliquer le théorème central limite avec un histogramme ★ 10 min
+- [ ] M02c.E1 💼 L'erreur type décroît en 1/√n : qu'est-ce que cela change pour un jeu de test ? ★ 10 min
+- [ ] M02c.18 🔨 La distribution des moyennes d'échantillons ★ 20 min
+- [ ] M02c.19 🔨 Biais et erreur quadratique d'un estimateur, par simulation ★★ 25 min (complet)
+- [ ] M02c.20 🔨 Erreur type et intervalle de confiance ★ 20 min
+- [ ] M02c.21 📦 NumPy et SciPy : `ddof`, `np.percentile`, `scipy.stats.sem` ★ 15 min (complet)
+- [ ] M02c.22 🔮 Prédire : l'histogramme des moyennes d'une loi exponentielle quand n grandit ★ 10 min
+- [ ] M02c.23 🔬 Couverture : 95 % des intervalles contiennent-ils la vraie moyenne ? ★★ 20 min
+- [ ] M02c.24 🔬 Grande dimension : le cube dont le centre est vide ★★ 20 min (complet)
+- [ ] M02c.25 🎨 Voir le théorème central limite : histogrammes et densité normale ★ 20 min (complet)
+- [ ] M02c.26 🐛 Chasse à l'erreur : un intervalle de confiance mal calculé ★ 15 min (complet)
+- [ ] M02c.27 🛠️ Tester une fonction aléatoire : une tolérance en erreurs types ★ 15 min (complet)
+- [ ] M02c.28 🏆 Défi : un intervalle à 95 % avec dix valeurs d'une loi asymétrique ★★★ 30 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (25 cartes)
+<!-- wbm:end M02c -->
