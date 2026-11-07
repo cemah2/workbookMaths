@@ -124,7 +124,7 @@ Dérive :
 
 Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en écrivant ta démarche dans ta copie de `06_mes_reponses.md`. Reporte ensuite **la valeur** trouvée dans la **partie 0 du notebook**, sous la forme demandée :
 - un nombre entier, ou un nombre avec un point décimal, comme `-1.25`, arrondi comme le demande la question ;
-- une fraction irréductible entre guillemets, comme `"7/9"` ; une expression en $x$ et $y$ entre guillemets, comme `"3*x**2*y - y"` ;
+- une fraction irréductible entre guillemets, comme `"7/9"` ; une expression en $x$ et $y$ entre guillemets, comme `"3*x**2*y - y"`, avec `exp(u)` pour $e^u$ et `sqrt(u)` pour $\sqrt{u}$ ;
 - une liste entre crochets, comme `[-1.5, 2.5]` (un gradient, un point, un vecteur) ; vrai ou faux par `True` ou `False` ; une lettre entre guillemets, comme `"B"`.
 
 ### Ex M05b.1 — Les lignes de niveau de trois fonctions ✏️ ★ ⏱️ 20 min
@@ -213,7 +213,7 @@ La température d'une plaque vaut $T(x, y) = 50 - x^2 - 3y^2 + xy$ (en °C, avec
 | c | ce taux d'augmentation, en °C par cm | un nombre (3 décimales) |
 | d | le vecteur unitaire de la direction où $T$ diminue le plus vite | une liste (4 décimales) |
 | e | un vecteur unitaire, de première composante positive, dans la direction duquel $T$ ne change pas (au premier ordre) | une liste (4 décimales) |
-| f | de combien $T$ augmente-t-elle, à peu près, si l'on se déplace de 0,1 cm depuis $P$ dans la direction de b) ? | un nombre (2 décimales) |
+| f | de combien $T$ augmente-t-elle, au premier ordre (avec le taux de c)), si l'on se déplace de 0,1 cm depuis $P$ dans la direction de b) ? | un nombre (2 décimales) |
 
 Dans ta copie : sur un croquis, place $P$, la flèche de b) et la direction de e). Que représente la direction de e) sur une carte des lignes de niveau de $T$ ?
 
@@ -248,8 +248,8 @@ Soit $f(x, y) = x^3 y^2 - e^{xy}$.
 | c | $f_{xx}(1 ;\ 0{,}5)$ | un nombre (4 décimales) |
 | d | $f_{xy}(1 ;\ 0{,}5)$ | un nombre (4 décimales) |
 | e | $f_{yy}(1 ;\ 0{,}5)$ | un nombre (4 décimales) |
-| f | la courbure de $f$ en $(1 ;\ 0{,}5)$ dans la direction du vecteur $(1, 1)$ | un nombre (4 décimales) |
-| g | la courbure dans la direction du vecteur $(1, -1)$ | un nombre (4 décimales) |
+| f | la courbure de $f$ en $(1 ;\ 0{,}5)$ dans la direction du vecteur $(1, 1)$ | un nombre (3 décimales) |
+| g | la courbure dans la direction du vecteur $(1, -1)$ | un nombre (3 décimales) |
 
 Dans ta copie : calcule aussi $f_{yx}$ en dérivant $f_y$ par rapport à $x$, et compare-la à a). Pourquoi les deux courbures f) et g) sont-elles différentes ?
 
@@ -268,7 +268,7 @@ Soit $f(x, y) = x^3 - 12x + y^2 - 4y$ et $g(x, y) = x^3 + 3xy^2 - 15x - 12y$. Po
 | e | le nombre de points critiques de $g$ | un entier |
 | f | le nombre de points selles de $g$ | un entier |
 | g | la valeur du maximum local de $g$ | un entier |
-| h | pour $x^4 + y^2$ au point critique $(0, 0)$ : la réponse du test | une lettre |
+| h | pour $(x + y)^2$ au point critique $(0, 0)$ : la réponse du test | une lettre |
 
 Dans ta copie : pour $g$, écris le système $\nabla g = \mathbf{0}$ (il se ramène à $x^2 + y^2 = 5$ et $xy = 2$) et ses solutions, puis un tableau : point, $g_{xx}$, $g_{yy}$, $g_{xy}$, $D$, nature. Pour h), quelle est la vraie nature de $(0, 0)$, et comment le vois-tu ?
 
@@ -334,7 +334,7 @@ Soit $f$ une fonction de deux variables dont les dérivées partielles sont cont
 Soit $f$ comme en M05b.11, et $\boldsymbol{\gamma}(t) = (x(t), y(t))$ une courbe dérivable tracée sur la ligne de niveau $c$ : $f(\boldsymbol{\gamma}(t)) = c$ pour tout $t$, et $\boldsymbol{\gamma}'(t) \ne \mathbf{0}$.
 1. Montre que $\nabla f(\boldsymbol{\gamma}(t)) \cdot \boldsymbol{\gamma}'(t) = 0$ pour tout $t$. Conclus.
 2. Vérifie-le sur $f(x, y) = \frac{x^2}{4} + y^2$, la ligne de niveau 2 et $\boldsymbol{\gamma}(t) = (2\sqrt{2}\cos t,\ \sqrt{2}\sin t)$.
-3. Montre que la tangente à la ligne de niveau de $f$ qui passe par $(a, b)$ a pour équation $f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b) = 0$, si $\nabla f(a, b) \ne \mathbf{0}$.
+3. On admet que, près de $(a, b)$, la ligne de niveau qui passe par $(a, b)$ est une courbe $\boldsymbol{\gamma}$ comme en 1, avec $\boldsymbol{\gamma}(t_0) = (a, b)$. Montre que sa tangente en $(a, b)$ a pour équation $f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b) = 0$, si $\nabla f(a, b) \ne \mathbf{0}$.
 4. Applique-le à la ligne de niveau de $k(x, y) = x^2 y + y^3$ qui passe par $(1, 1)$ : écris sa tangente sous la forme $y = mx + p$.
 5. Deux lignes de niveau voisines, $c$ et $c + \Delta c$, avec $\Delta c$ petit. En partant de $\mathbf{p}$ dans la direction du gradient, montre avec l'approximation linéaire que la distance à parcourir pour passer de l'une à l'autre vaut environ $\frac{\Delta c}{\|\nabla f(\mathbf{p})\|}$. Pourquoi est-ce la plus courte, parmi toutes les directions ?
 

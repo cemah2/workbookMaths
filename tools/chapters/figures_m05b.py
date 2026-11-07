@@ -50,7 +50,7 @@ def save(fig, name: str) -> None:
 
 
 def two_hills(x, y):
-    return 3 * np.exp(-((x - 1) ** 2 + y ** 2) / 2) + 2 * np.exp(-((x + 1.5) ** 2 + (y - 1) ** 2))
+    return 3 * np.exp(-((x - 1) ** 2 + y ** 2) / 2) + 2 * np.exp(-((x + 1.5) ** 2 + (y - 1) ** 2) / 0.4)
 
 
 def surface_and_levels() -> None:
@@ -180,16 +180,16 @@ def descent() -> None:
 
 def exercise_16_map() -> None:
     """The map of exercise M05b.16: integer level lines of an unnamed function, five marked points."""
-    fig, ax = plt.subplots(figsize=(6.4, 5.4))
+    fig, ax = plt.subplots(figsize=(7.6, 9.4))
     x = np.linspace(-0.5, 3.2, 300)
     y = np.linspace(-2.2, 3.2, 300)
     X, Y = np.meshgrid(x, y)
     F = X ** 2 + 2 * Y
-    levels = np.arange(-4, 13, 1)
+    levels = np.arange(-4, 17, 1)
     cs = ax.contour(X, Y, F, levels=levels, colors="tab:blue", linewidths=1, linestyles="solid")
-    spots = [(0.0, c / 2) for c in range(-4, 7)] + [(float(np.sqrt(c - 6)), 3.0) for c in range(7, 13)]
-    ax.clabel(cs, fmt=lambda v: french_number(round(v)), fontsize=8, inline_spacing=2, manual=spots)
-    points = {"A": (1, 1), "B": (2, 1), "C": (1, 2), "P": (0.5, -1), "Q": (2.5, -1)}
+    spots = [(0.0, c / 2) for c in range(-4, 7)] + [(float(np.sqrt(c - 6)), 3.0) for c in range(7, 16)]
+    ax.clabel(cs, fmt=lambda v: french_number(round(v)), fontsize=10, inline_spacing=2, manual=spots)
+    points = {"A": (1, 1), "B": (2, 1), "C": (1, 2), "P": (0.5, -1), "Q": (2.5, -0.875)}
     for name, (px, py) in points.items():
         ax.plot(px, py, "o", color=C[3], markersize=6)
         ax.annotate(name, (px, py), xytext=(5, 5), textcoords="offset points", fontsize=10, color=C[3],

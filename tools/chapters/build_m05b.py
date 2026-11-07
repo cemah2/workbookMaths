@@ -122,7 +122,9 @@ PAPER = [
          '''nul": [5 / 34 ** 0.5, -3 / 34 ** 0.5], "la première composante doit être positive": '''
          '''[-3 / 34 ** 0.5, 5 / 34 ** 0.5]}'''),
         ("f", "a number (2 decimals)", "0.1 * 34 ** 0.5",
-         '''decimals=2, mistakes={"multiplie la pente par le déplacement, 0,1 cm": 34 ** 0.5}'''),
+         '''decimals=2, mistakes={"multiplie la pente par le déplacement, 0,1 cm": 34 ** 0.5, '''
+         '''"c'est la variation exacte ; la question demande l'estimation au premier ordre, avec le taux de c)": '''
+         '''0.57}'''),
     ]),
 
     Paper("M05b.6", "Le plan tangent et l'approximation d'une valeur", [
@@ -154,11 +156,11 @@ PAPER = [
         ("c", "a number (4 decimals)", "6 * 0.25 - 0.25 * math.exp(0.5)", 'decimals=4'),
         ("d", "a number (4 decimals)", "3 - math.exp(0.5) - 0.5 * math.exp(0.5)", 'decimals=4'),
         ("e", "a number (4 decimals)", "2 - math.exp(0.5)", 'decimals=4'),
-        ("f", "a number (4 decimals)", "(FXX_7 + 2 * FXY_7 + FYY_7) / 2",
-         '''decimals=4, mistakes={"la direction est donnée par un vecteur unitaire : u = (1, 1)/√2": '''
+        ("f", "a number (3 decimals)", "(FXX_7 + 2 * FXY_7 + FYY_7) / 2",
+         '''decimals=3, mistakes={"la direction est donnée par un vecteur unitaire : u = (1, 1)/√2": '''
          '''FXX_7 + 2 * FXY_7 + FYY_7, "le terme croisé compte deux fois : 2 f_xy u₁ u₂": (FXX_7 + FXY_7 + FYY_7) / 2}'''),
-        ("g", "a number (4 decimals)", "(FXX_7 - 2 * FXY_7 + FYY_7) / 2",
-         '''decimals=4, mistakes={"la direction est donnée par un vecteur unitaire : u = (1, −1)/√2": '''
+        ("g", "a number (3 decimals)", "(FXX_7 - 2 * FXY_7 + FYY_7) / 2",
+         '''decimals=3, mistakes={"la direction est donnée par un vecteur unitaire : u = (1, −1)/√2": '''
          '''FXX_7 - 2 * FXY_7 + FYY_7, "le terme croisé compte deux fois : 2 f_xy u₁ u₂": (FXX_7 - FXY_7 + FYY_7) / 2, '''
          '''"avec u = (1, −1)/√2, le produit u₁ u₂ est négatif": (FXX_7 + 2 * FXY_7 + FYY_7) / 2}'''),
     ]),
@@ -252,7 +254,7 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M05b.1 à 
                "forme indiquée en commentaire, jamais le calcul qui y mène :\n"
                "- un entier, ou un nombre avec un point décimal, `-1.25`, arrondi comme le demande la question ;\n"
                "- une fraction irréductible entre guillemets, `\"7/9\"` ; une expression en $x$ et $y$ entre "
-               "guillemets, `\"3*x**2*y - y\"` ;\n"
+               "guillemets, `\"3*x**2*y - y\"`, avec `exp(u)` pour $e^u$ et `sqrt(u)` pour $\\sqrt{u}$ ;\n"
                "- une liste `[-1.5, 2.5]` (un gradient, un point, un vecteur), `True` / `False`, ou une lettre entre "
                "guillemets, `\"B\"`.\n\n"
                "Les réponses pas encore remplies affichent ⏳.")

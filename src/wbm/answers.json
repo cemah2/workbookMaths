@@ -16243,7 +16243,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "3ee955ebbac454abea56f5586b6fac4bdaff559c9234f1b8b5347f9f3dec4547": "multiplie la pente par le déplacement, 0,1 cm"
+        "3ee955ebbac454abea56f5586b6fac4bdaff559c9234f1b8b5347f9f3dec4547": "multiplie la pente par le déplacement, 0,1 cm",
+        "e47c3e90fd60bf11e808f16eb7fa4b246d1483d4e48a81082e456a7678c2090e": "c'est la variation exacte ; la question demande l'estimation au premier ordre, avec le taux de c)"
       },
       "sign": 1,
       "source": "chapitres/m05b_gradient/05_solutions.ipynb"
@@ -16500,19 +16501,16 @@
       "coarser": {
         "1": [
           "b5eaf22614c547551d787a84b27d2336e0eafb9942d341c9bc2780780988ff01"
-        ],
-        "2": [
-          "2296371d19354d394a5faea13ebfb451452cbe66c7ba6bf0340a7830d363f1a0"
         ]
       },
-      "decimals": 4,
-      "hash": "dd1e4bfe3eaea5abe04fdfeddce29beb157e286aef2221ad1740b13aa363d193",
-      "hash_coarse": "8b80ac14b940615bf71b403ea6dc23ff48f3c55e05c4b07439c957e081cf4a08",
+      "decimals": 3,
+      "hash": "8b80ac14b940615bf71b403ea6dc23ff48f3c55e05c4b07439c957e081cf4a08",
+      "hash_coarse": "2296371d19354d394a5faea13ebfb451452cbe66c7ba6bf0340a7830d363f1a0",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "0847e188e20124e6fa4378ee1fd3ad464853bdbf4c4819293df417d67c357248": "le terme croisé compte deux fois : 2 f_xy u₁ u₂",
-        "eab54d3da72484fea037029f7b35453bcb4ee7f4240319103ee074294459c8b2": "la direction est donnée par un vecteur unitaire : u = (1, 1)/√2"
+        "27a5c7ac3407b4281feb33b58c7c0b1fa1c98495449d63b0c9bea1b9ce994ce6": "la direction est donnée par un vecteur unitaire : u = (1, 1)/√2",
+        "d247a1cd10e387cd43b8c3352286b923a19998f51659e017c8bdb20a765b0022": "le terme croisé compte deux fois : 2 f_xy u₁ u₂"
       },
       "sign": 1,
       "source": "chapitres/m05b_gradient/05_solutions.ipynb"
@@ -16523,20 +16521,15 @@
           "307cce8dc890007a8d872a25807b94495d0a07b748959e7f027c74e6b93892bf"
         ]
       },
-      "coarser": {
-        "2": [
-          "99f3051b299afcdbf09f853a9dc4ed2dbb7d7d7a3f4ef3b73f541db5c096beb8"
-        ]
-      },
-      "decimals": 4,
-      "hash": "194fd387e04e9fdf323f68ab0697451f95cfd5d1631268d7a35e3b257b1db23b",
-      "hash_coarse": "eb167920c077b009fb5c3a8eb2d3b2a90ecd192346f2c82b38686c7249187065",
+      "decimals": 3,
+      "hash": "eb167920c077b009fb5c3a8eb2d3b2a90ecd192346f2c82b38686c7249187065",
+      "hash_coarse": "99f3051b299afcdbf09f853a9dc4ed2dbb7d7d7a3f4ef3b73f541db5c096beb8",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "075f0ade7b16cffcaf00013f5f3bb1c23fb28c108e370756f8b570b5b89baa36": "avec u = (1, −1)/√2, le produit u₁ u₂ est négatif",
-        "0fe05e4458c6626ee70e86fce557dafe20aedb9faed68d440c4cc6b4d85e4dbd": "le terme croisé compte deux fois : 2 f_xy u₁ u₂",
-        "1f649a06ca752953baaec943dcc58559274c4f929c351aa8ba7cbb5f439255ba": "la direction est donnée par un vecteur unitaire : u = (1, −1)/√2"
+        "54187b80e96fa749d1e12852728598cedb88c8b193fad65a94a9f2409fa5a87e": "le terme croisé compte deux fois : 2 f_xy u₁ u₂",
+        "db01fcb915180fa78550c7ae014503f06c6306d423a8c6ec5c3046cb8460858a": "la direction est donnée par un vecteur unitaire : u = (1, −1)/√2",
+        "e6473001787b2a1608dce247c5aa277ce7e64e39582e4f170cf9d315fa0ae168": "avec u = (1, −1)/√2, le produit u₁ u₂ est négatif"
       },
       "sign": 1,
       "source": "chapitres/m05b_gradient/05_solutions.ipynb"

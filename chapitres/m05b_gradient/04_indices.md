@@ -336,7 +336,7 @@ Résous $f_x = 0$ et $f_y = 0$, puis calcule $f_{xx}$, $f_{yy}$, $f_{xy}$ et $D$
 </details>
 <details><summary>Indice 3</summary>
 
-e) et f) Avec $x^2 + y^2 = 5$ et $xy = 2$ : calcule $(x + y)^2$ et $(x - y)^2$. $D = 36(x^2 - y^2)$. h) Calcule les trois dérivées secondes de $x^4 + y^2$ en $(0, 0)$.
+e) et f) Avec $x^2 + y^2 = 5$ et $xy = 2$ : calcule $(x + y)^2$ et $(x - y)^2$. $D = 36(x^2 - y^2)$. h) Calcule les trois dérivées secondes de $(x + y)^2$ en $(0, 0)$.
 
 </details>
 

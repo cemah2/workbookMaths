@@ -171,11 +171,11 @@ Pour la copie : $\|\nabla f\|\cos\theta = 10{,}198 \times 0{,}5547 \approx 5{,}6
 **Démarche.** $T_x = -2x + y$ et $T_y = -6y + x$, donc $\nabla T(3, 1) = (-5, -3)$.
 - b) $\frac{(-5, -3)}{\sqrt{34}} \approx (-0{,}8575 ;\ -0{,}5145)$ ; c) $\sqrt{34} \approx 5{,}831$ °C/cm ; d) l'opposé de b).
 - e) Un vecteur orthogonal à $(-5, -3)$ : $(3, -5)$ (produit scalaire $-15 + 15 = 0$), de norme $\sqrt{34}$ ; divisé par sa norme, $\approx (0{,}5145 ;\ -0{,}8575)$.
-- f) Au premier ordre, la hausse vaut la pente fois le déplacement : $5{,}831 \times 0{,}1 \approx 0{,}58$ °C.
+- f) Au premier ordre, la hausse vaut la pente fois le déplacement : $5{,}831 \times 0{,}1 \approx 0{,}58$ °C. La variation exacte, $T(P + 0{,}1\,\mathbf{u}) - T(P)$, vaut environ 0,572 : la courbure de $T$ (négative ici) se fait déjà sentir à cette distance.
 
 Pour la copie : la direction de e) est celle de la **ligne de niveau** (l'isotherme) de $T$ qui passe par $P$ : on y reste, au premier ordre, à la même température.
 
-**Erreurs fréquentes.** Oublier le terme $xy$ en dérivant ; ne pas normaliser b) ; confondre la direction de plus grande montée et celle de plus grande descente ; un vecteur de e) qui n'est pas orthogonal au gradient ($(5, -3)$, par exemple) ; oublier de multiplier par 0,1 en f).
+**Erreurs fréquentes.** Oublier le terme $xy$ en dérivant ; ne pas normaliser b) ; confondre la direction de plus grande montée et celle de plus grande descente ; un vecteur de e) qui n'est pas orthogonal au gradient ($(5, -3)$, par exemple) ; oublier de multiplier par 0,1 en f), ou y donner la variation exacte (0,57) au lieu de l'estimation au premier ordre.
 
 **Variante.** En $(1, 2)$ ? *Réponse* : $\nabla T(1, 2) = (0, -11)$ : la montée la plus rapide suit $(0, -1)$, au taux de 11 °C/cm.
 
@@ -190,7 +190,7 @@ Pour la copie : la direction de e) est celle de la **ligne de niveau** (l'isothe
 - e) $18 + 12 \times 0{,}1 + 2{,}25 \times (-0{,}1) = 18{,}975$.
 - f) $3{,}1^2 \times \sqrt{3{,}9} = 9{,}61 \times 1{,}97484 \approx 18{,}9782$ ; g) $18{,}9782 - 18{,}975 \approx 0{,}0032$.
 
-Pour la copie : avec un déplacement de $(0{,}2 ;\ -0{,}2)$, l'erreur vaut environ $0{,}0114$, à peu près 4 fois plus (3,5 exactement) : l'erreur est d'ordre 2, elle se comporte comme le carré du déplacement (fiche §5).
+Pour la copie : avec un déplacement de $(0{,}2 ;\ -0{,}2)$, l'erreur vaut environ $0{,}0114$, à peu près 4 fois plus (3,5 exactement) : l'erreur est d'ordre 2, elle se comporte comme le carré du déplacement (fiche §5). L'écart à 4 vient du terme d'ordre 3, encore visible ici parce que, dans cette direction, les termes d'ordre 2 se compensent en partie ($f_{xx}\,\Delta x^2$ et $2f_{xy}\,\Delta x\,\Delta y$ sont de signes opposés).
 
 **Erreurs fréquentes.** Oublier la racine en a) (36) ; dériver $\sqrt{y}$ quand on dérive par rapport à $x$ ; oublier le facteur $x^2$, ou écrire $\frac{1}{\sqrt{y}}$ au lieu de $\frac{1}{2\sqrt{y}}$ en c) ; donner $C = f(3, 4) = 18$ en d), sans développer ; un déplacement en $y$ de $+0{,}1$ en e).
 
@@ -198,15 +198,15 @@ Pour la copie : avec un déplacement de $(0{,}2 ;\ -0{,}2)$, l'erreur vaut envir
 
 ### Ex M05b.7 — Dérivées secondes croisées : le théorème de Schwarz vérifié
 
-**Réponses** : a) `"6*x**2*y - exp(x*y) - x*y*exp(x*y)"` · b) `"2*x**3 - x**2*exp(x*y)"` · c) `1.0878` · d) `0.5269` · e) `0.3513` · f) `1.2465` · g) `0.1926`.
+**Réponses** : a) `"6*x**2*y - exp(x*y) - x*y*exp(x*y)"` · b) `"2*x**3 - x**2*exp(x*y)"` · c) `1.0878` · d) `0.5269` · e) `0.3513` · f) `1.246` · g) `0.193`.
 
 **Démarche.** $f_x = 3x^2 y^2 - y\,e^{xy}$ et $f_y = 2x^3 y - x\,e^{xy}$.
 - a) $f_{xy} = \frac{\partial}{\partial y}(3x^2 y^2) - \frac{\partial}{\partial y}(y\,e^{xy}) = 6x^2 y - \big(e^{xy} + y \times x\,e^{xy}\big)$ : $y\,e^{xy}$ est un produit de deux fonctions de $y$.
 - b) $f_{yy} = 2x^3 - x \times x\,e^{xy} = 2x^3 - x^2 e^{xy}$.
 - c) $f_{xx} = 6xy^2 - y^2 e^{xy}$ : $1{,}5 - 0{,}25\,e^{0{,}5} \approx 1{,}0878$.
 - d) $3 - e^{0{,}5} - 0{,}5\,e^{0{,}5} = 3 - 1{,}5\,e^{0{,}5} \approx 0{,}5269$ ; e) $2 - e^{0{,}5} \approx 0{,}3513$.
-- f) Avec $\mathbf{u} = \frac{(1, 1)}{\sqrt{2}}$, $u_1^2 = u_2^2 = u_1 u_2 = \frac{1}{2}$ : $\frac{f_{xx} + 2f_{xy} + f_{yy}}{2} \approx \frac{1{,}0878 + 1{,}0538 + 0{,}3513}{2} \approx 1{,}2465$.
-- g) Avec $\mathbf{u} = \frac{(1, -1)}{\sqrt{2}}$, $u_1 u_2 = -\frac{1}{2}$ : $\frac{f_{xx} - 2f_{xy} + f_{yy}}{2} \approx 0{,}1926$.
+- f) Avec $\mathbf{u} = \frac{(1, 1)}{\sqrt{2}}$, $u_1^2 = u_2^2 = u_1 u_2 = \frac{1}{2}$ : $\frac{f_{xx} + 2f_{xy} + f_{yy}}{2} \approx 1{,}24647$, soit 1,246 (avec les valeurs arrondies de c), d) et e), on trouve $1{,}24645$ : c'est pourquoi la question ne demande que 3 décimales).
+- g) Avec $\mathbf{u} = \frac{(1, -1)}{\sqrt{2}}$, $u_1 u_2 = -\frac{1}{2}$ : $\frac{f_{xx} - 2f_{xy} + f_{yy}}{2} \approx 0{,}19263$, soit 0,193.
 
 Pour la copie : $f_{yx} = \frac{\partial}{\partial x}(2x^3 y - x\,e^{xy}) = 6x^2 y - e^{xy} - xy\,e^{xy}$, la même expression qu'en a) (Schwarz). Les deux courbures diffèrent par le terme croisé $2f_{xy}u_1u_2$, qui change de signe avec la direction : la courbure d'une surface dépend de la direction.
 
@@ -229,7 +229,7 @@ Pour la copie : $f_{yx} = \frac{\partial}{\partial x}(2x^3 y - x\,e^{xy}) = 6x^2
 | $(-1, -2)$ | $-6$ | $-6$ | $-12$ | $-108$ | selle |
 | $(-2, -1)$ | $-12$ | $-12$ | $-6$ | 108 | maximum local, $g = 28$ |
 
-- h) Pour $x^4 + y^2$ en $(0, 0)$ : $f_{xx} = 12x^2 = 0$, $f_{yy} = 2$, $f_{xy} = 0$, donc $D = 0$ : le test ne conclut pas. Pourtant $x^4 + y^2 \ge 0 = f(0, 0)$ : c'est un minimum (global), que l'on voit sur la fonction elle-même.
+- h) Pour $(x + y)^2$ en $(0, 0)$ : $f_{xx} = f_{yy} = f_{xy} = 2$, donc $D = 4 - 4 = 0$ : le test ne conclut pas. Pourtant $(x + y)^2 \ge 0 = f(0, 0)$ : c'est un minimum (global, mais pas strict : $f$ vaut 0 sur toute la droite $y = -x$, un fond de vallée plat), que l'on voit sur la fonction elle-même.
 
 **Erreurs fréquentes.** Oublier $x = -2$ (a) ; conclure d'après le seul signe de $f_{xx}$ en $(-2, 2)$ (B) au lieu de calculer $D$ ; ne garder que les solutions positives du système de $g$ (e : 2) ; donner la valeur du minimum local en g) ($-28$) ; répondre « minimum » en h) : c'est la vraie nature, mais pas la réponse du test.
 
@@ -294,7 +294,7 @@ Pour la copie : h) dit qu'au minimum sur le segment, le gradient est orthogonal 
 **Réponse modèle.**
 1. La fonction $h(t) = f(\boldsymbol{\gamma}(t))$ est constante, égale à $c$ : $h'(t) = 0$. Par la règle de la chaîne, $h'(t) = f_x(\boldsymbol{\gamma}(t))\,x'(t) + f_y(\boldsymbol{\gamma}(t))\,y'(t) = \nabla f(\boldsymbol{\gamma}(t)) \cdot \boldsymbol{\gamma}'(t)$. Donc $\nabla f(\boldsymbol{\gamma}(t)) \cdot \boldsymbol{\gamma}'(t) = 0$ : le gradient est orthogonal au vecteur vitesse $\boldsymbol{\gamma}'(t)$, qui est tangent à la ligne de niveau. Le gradient est perpendiculaire à la ligne de niveau en chacun de ses points.
 2. $f(\boldsymbol{\gamma}(t)) = \frac{8\cos^2 t}{4} + 2\sin^2 t = 2$ : la courbe est bien sur la ligne de niveau 2. $\boldsymbol{\gamma}'(t) = (-2\sqrt{2}\sin t,\ \sqrt{2}\cos t)$ et $\nabla f = \big(\frac{x}{2}, 2y\big) = (\sqrt{2}\cos t,\ 2\sqrt{2}\sin t)$ : le produit scalaire vaut $-4\sin t\cos t + 4\sin t\cos t = 0$.
-3. La tangente en $(a, b)$ passe par $(a, b)$, et sa direction est orthogonale à $\nabla f(a, b) \ne \mathbf{0}$ (question 1). Dans le plan, les vecteurs orthogonaux à un vecteur non nul forment une droite : la direction de la tangente est donc déterminée. Un point $(x, y)$ est sur la tangente si et seulement si $(x - a, y - b)$ est orthogonal à $\nabla f(a, b)$, c'est-à-dire $f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b) = 0$.
+3. Par l'hypothèse admise, la ligne de niveau est, près de $(a, b)$, une courbe $\boldsymbol{\gamma}$ avec $\boldsymbol{\gamma}(t_0) = (a, b)$ : sa tangente passe par $(a, b)$, dirigée par $\boldsymbol{\gamma}'(t_0)$, qui est orthogonal à $\nabla f(a, b) \ne \mathbf{0}$ (question 1). Dans le plan, les vecteurs orthogonaux à un vecteur non nul forment une droite : la direction de la tangente est donc déterminée. Un point $(x, y)$ est sur la tangente si et seulement si $(x - a, y - b)$ est orthogonal à $\nabla f(a, b)$, c'est-à-dire $f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b) = 0$.
 4. $k_x = 2xy = 2$ et $k_y = x^2 + 3y^2 = 4$ en $(1, 1)$ : $2(x - 1) + 4(y - 1) = 0$, soit $y = -\frac{1}{2}x + \frac{3}{2}$.
 5. Partons de $\mathbf{p}$, sur la ligne $c$, et avançons d'une distance $s$ dans la direction d'un vecteur unitaire $\mathbf{u}$. Au premier ordre, $f(\mathbf{p} + s\mathbf{u}) \approx c + s\,\nabla f(\mathbf{p}) \cdot \mathbf{u}$. On atteint la ligne $c + \Delta c$ quand $s\,\nabla f \cdot \mathbf{u} = \Delta c$, soit $s = \frac{\Delta c}{\nabla f \cdot \mathbf{u}}$. Dans la direction du gradient, $\nabla f \cdot \mathbf{u} = \|\nabla f\|$ et $s = \frac{\Delta c}{\|\nabla f\|}$. Dans une autre direction qui monte, $\nabla f \cdot \mathbf{u} = \|\nabla f\|\cos\theta < \|\nabla f\|$ (M05b.11) : $s$ est plus grand. Le gradient donne le chemin le plus court entre deux lignes voisines, d'où « lignes serrées, gradient long ».
 
@@ -311,7 +311,7 @@ Pour la copie : h) dit qu'au minimum sur le segment, le gradient est orthogonal 
 6. Avec $a = f_{xx}$, $b = 2f_{xy}$ et $c = f_{yy}$ (les dérivées prises en $\mathbf{p}$), $q(\Delta x, \Delta y)$ est la parenthèse de la fiche, et $4ac - b^2 = 4\,(f_{xx}f_{yy} - f_{xy}^2) = 4D$, du signe de $D$. Les questions 3 à 5 donnent : $D > 0$ et $f_{xx} > 0$, le terme d'ordre 2 est positif dans toutes les directions (minimum local) ; $D > 0$ et $f_{xx} < 0$, négatif partout (maximum local) ; $D < 0$, des deux signes (selle).
 7. Pour $x^2 + y^4$ et $x^2 - y^4$ : $f_{xx} = 2$, $f_{xy} = 0$, $f_{yy} = \pm 12y^2 = 0$ en $(0, 0)$, donc $D = 0$. $x^2 + y^4 \ge 0$ : minimum. $x^2 - y^4$ vaut $x^2 > 0$ sur l'axe des $x$ et $-y^4 < 0$ sur l'axe des $y$ : point selle. Les deux fonctions ont le même terme d'ordre 2, $x^2$, nul dans la direction de $y$ : tout se joue au terme d'ordre 4 ($\pm y^4$), que les dérivées secondes ne voient pas. Le test, qui n'utilise que les dérivées secondes, ne peut donc pas trancher.
 
-**Grille.** (1) le point critique et $D = 4ac - b^2$ ; (2) le développement de l'identité ; (3) les deux cas $y \ne 0$ et $y = 0$, et la conclusion selon le signe de $a$ ; (4) deux points explicites de signes opposés, et l'argument $q(tx, ty) = t^2 q$ pour s'approcher de l'origine ; (5) la factorisation et le choix de $k$ ; (6) la correspondance $a, b, c$, le facteur 4 ; (7) $D = 0$ pour les deux, deux natures différentes, et l'idée que l'ordre 2 ne voit pas le terme qui décide.
+**Grille.** (1) le point critique et $D = 4ac - b^2$ ; (2) le développement de l'identité ; (3) les deux cas $y \ne 0$ et $y = 0$, et la conclusion selon le signe de $a$ ; (4) deux points explicites de signes opposés, et l'argument $q(tx, ty) = t^2 q$ pour s'approcher de l'origine ; (5) la factorisation et le choix de $k$ ; (6) la correspondance $a, b, c$, le facteur 4 (ce n'est pas encore une démonstration complète du test pour $f$ : le « $\approx$ » néglige un reste, qu'il faudrait majorer ; la question 7 montre justement où cela peut échouer) ; (7) $D = 0$ pour les deux, deux natures différentes, et l'idée que l'ordre 2 ne voit pas le terme qui décide.
 
 <a id="reflexion"></a>
 

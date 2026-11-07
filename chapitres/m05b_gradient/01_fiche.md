@@ -95,7 +95,7 @@ La **ligne de niveau** $c$ de $f$ est l'ensemble des points $(x, y)$ du plan où
 
 ![À gauche, une surface à deux collines ; à droite, la même fonction en lignes de niveau](figures/surface_niveaux.png)
 
-**Lire une carte.** Les sommets et les creux sont entourés de lignes fermées emboîtées ; entre deux sommets, les lignes forment un col (une **selle**, §7). Et surtout : là où les lignes de niveau sont **serrées**, la fonction change vite, la pente est forte ; là où elles sont espacées, elle est douce. Sur la figure, la colline de droite descend plus doucement vers l'est que celle de gauche vers l'ouest. Le §4 dira pourquoi, avec le gradient.
+**Lire une carte.** Les sommets et les creux sont entourés de lignes fermées emboîtées ; entre deux sommets, les lignes forment un col (une **selle**, §7). Et surtout : là où les lignes de niveau sont **serrées**, la fonction change vite, la pente est forte ; là où elles sont espacées, elle est douce. Sur la figure, la colline de gauche, plus étroite, a des lignes bien plus serrées que celle de droite : ses flancs sont plus raides. Le §4 dira pourquoi, avec le gradient.
 
 **En machine learning.** La loss d'un modèle à deux poids, $L(w_1, w_2)$, se dessine ainsi : chaque point du plan est un choix des poids, et sa hauteur est l'erreur du modèle. Entraîner le modèle, c'est chercher le point le plus bas de cette carte. Avec des millions de poids, on ne dessine plus rien, mais les mots restent : surface de la loss, lignes de niveau, pente, creux, selle.
 
@@ -191,7 +191,7 @@ Comme $\cos\theta$ varie entre $-1$ et 1 :
 
 Le gradient a donc une **direction** (celle de la montée la plus raide) et une **longueur** (la pente dans cette direction). Si $\nabla f(\mathbf{p}) = \mathbf{0}$, toutes les pentes sont nulles : $\mathbf{p}$ est un point critique (§7), et il n'y a pas de direction de plus grande pente (`steepest_ascent_direction` lève alors une erreur).
 
-Exemple : un dôme, $T(x, y) = 100 - x^2 - 2y^2$ (une altitude en mètres, par exemple). En $(3, 1)$ : $\nabla T = (-2x, -4y) = (-6, -4)$, de norme $\sqrt{52} \approx 7{,}21$. La montée la plus raide suit $\frac{(-6, -4)}{\sqrt{52}} \approx (-0{,}832 ;\ -0{,}555)$, vers le sommet $(0, 0)$, avec une pente d'environ 7,21 m par unité de longueur ; la descente la plus raide suit l'opposé ; et dans la direction $\frac{(4, -6)}{\sqrt{52}}$, orthogonale au gradient, la pente est nulle.
+Exemple : un dôme, $T(x, y) = 100 - x^2 - 2y^2$ (une altitude en mètres, par exemple). En $(3, 1)$ : $\nabla T = (-2x, -4y) = (-6, -4)$, de norme $\sqrt{52} \approx 7{,}21$. La montée la plus raide suit $\frac{(-6, -4)}{\sqrt{52}} \approx (-0{,}832 ;\ -0{,}555)$, du côté du sommet $(0, 0)$ (sans le viser exactement), avec une pente d'environ 7,21 m par unité de longueur ; la descente la plus raide suit l'opposé ; et dans la direction $\frac{(4, -6)}{\sqrt{52}}$, orthogonale au gradient, la pente est nulle.
 
 ### Le gradient est orthogonal aux lignes de niveau
 
@@ -252,7 +252,7 @@ Comme pour la pente, on regarde la tranche $g(t) = f(\mathbf{p} + t\,\mathbf{u})
 
 $$g''(0) = f_{xx}\,u_1^2 + 2\,f_{xy}\,u_1 u_2 + f_{yy}\,u_2^2,$$
 
-les dérivées secondes étant prises en $\mathbf{p}$. C'est la **courbure** de la surface dans la direction $\mathbf{u}$ : positive, la tranche tourne vers le haut (M05a §1) ; négative, vers le bas. Dans l'exemple, en $(1, 2)$ : dans la direction $(1, 0)$, $g''(0) = 12$ ; dans la direction $(0, 1)$, 4 ; dans la direction $\frac{(1, -1)}{\sqrt{2}}$, $\frac{12 - 2 \times 3 + 4}{2} = 5$. La courbure dépend de la direction.
+les dérivées secondes étant prises en $\mathbf{p}$. C'est la **courbure** de la surface dans la direction $\mathbf{u}$, au sens de ce chapitre (la dérivée seconde de la tranche ; la courbure géométrique d'une courbe est une notion voisine, mais différente) : positive, la tranche tourne vers le haut (M05a §1) ; négative, vers le bas. Dans l'exemple, en $(1, 2)$ : dans la direction $(1, 0)$, $g''(0) = 12$ ; dans la direction $(0, 1)$, 4 ; dans la direction $\frac{(1, -1)}{\sqrt{2}}$, $\frac{12 - 2 \times 3 + 4}{2} = 5$. La courbure dépend de la direction.
 
 On range les dérivées secondes dans la **matrice hessienne** $H = \begin{pmatrix} f_{xx} & f_{xy} \\ f_{xy} & f_{yy} \end{pmatrix}$, symétrique grâce à Schwarz ; la courbure dans la direction $\mathbf{u}$ s'écrit alors $\mathbf{u}^\top H\,\mathbf{u}$. Les matrices et ce produit viendront en M09a, puis la hessienne elle-même en M19 ; ici, on garde la formule développée.
 
@@ -270,7 +270,7 @@ Près d'un point critique $\mathbf{p}$, le terme d'ordre 1 de Taylor s'annule, e
 
 $$f(\mathbf{p} + \mathbf{h}) \approx f(\mathbf{p}) + \tfrac{1}{2}\big(f_{xx}\,\Delta x^2 + 2\,f_{xy}\,\Delta x\,\Delta y + f_{yy}\,\Delta y^2\big).$$
 
-Si la parenthèse est positive dans toutes les directions, $f$ monte autour de $\mathbf{p}$ : c'est un **minimum local**. Si elle est négative partout, un **maximum local**. Si elle est positive dans certaines directions et négative dans d'autres, $f$ monte d'un côté et descend de l'autre : c'est un **point selle** (*saddle point*), comme un col de montagne ou une selle de cheval. M05b.13 montre que le signe de la parenthèse se lit sur un seul nombre, $D = f_{xx}\,f_{yy} - f_{xy}^2$ (le déterminant de la hessienne).
+Si la parenthèse est positive dans toutes les directions, $f$ monte autour de $\mathbf{p}$ : c'est un **minimum local**. Si elle est négative partout, un **maximum local**. Si elle est positive dans certaines directions et négative dans d'autres, $f$ monte d'un côté et descend de l'autre : c'est un **point selle** (*saddle point*), comme un col de montagne ou une selle de cheval. Plus généralement, on appelle point selle tout point critique près duquel $f$ prend, aussi près de $\mathbf{p}$ qu'on le veut, des valeurs plus grandes **et** des valeurs plus petites que $f(\mathbf{p})$ : ni minimum, ni maximum local. M05b.13 montre que le signe de la parenthèse se lit sur un seul nombre, $D = f_{xx}\,f_{yy} - f_{xy}^2$ (le déterminant de la hessienne).
 
 > **Test du second ordre.** En un point critique $\mathbf{p}$, avec $D = f_{xx}(\mathbf{p})\,f_{yy}(\mathbf{p}) - f_{xy}(\mathbf{p})^2$ :
 > - $D > 0$ et $f_{xx}(\mathbf{p}) > 0$ : **minimum local** ;
