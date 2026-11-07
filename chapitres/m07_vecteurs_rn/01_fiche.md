@@ -23,10 +23,10 @@
 | Section | Quiz 🧠 | Papier et réflexion | Notebook |
 |---|---|---|---|
 | §1 Vecteurs de ℝⁿ | Q1 | M07.1 ✏️, M07.22 🧮 | M07.34 🛠️ |
-| §2 Produit scalaire | Q2, R1 🔁 | M07.2 ✏️, M07.7 ✏️, M07.20 📖 | |
-| §3 Normes et distances | Q3 | M07.3 ✏️, M07.15 ∂, M07.19 🔗, M07.20 📖, M07.E1 💼 | M07.24 🔨, M07.28 📦, M07.31 🔬, M07.32 🎨, M07.33 🐛, M07.34 🛠️, M07.35 🏆 |
-| §4 Angle, cosinus, Cauchy-Schwarz, projection | Q4 | M07.4 ✏️, M07.5 ✏️, M07.14 ∂, M07.15 ∂, M07.21 📖, M07.23 🗣️, M07.E1 💼 | M07.24 🔨, M07.25 🔨, M07.33 🐛 |
-| §5 Hyperplans et demi-espaces | Q5 | M07.6 ✏️, M07.7 ✏️, M07.17 ∂ | M07.27 🔨 |
+| §2 Produit scalaire | Q2, R1 🔁 | M07.2 ✏️, M07.7 ✏️, M07.20 📖, M07.E1 💼 | |
+| §3 Normes et distances | Q3 | M07.3 ✏️, M07.15 ∂, M07.19 🔗, M07.20 📖 | M07.24 🔨, M07.28 📦, M07.31 🔬, M07.32 🎨, M07.33 🐛, M07.34 🛠️, M07.35 🏆 |
+| §4 Angle, cosinus, Cauchy-Schwarz, projection | Q4 | M07.4 ✏️, M07.5 ✏️, M07.14 ∂, M07.15 ∂, M07.21 📖, M07.23 🗣️ | M07.24 🔨, M07.25 🔨, M07.33 🐛 |
+| §5 Hyperplans et demi-espaces | Q5 | M07.6 ✏️, M07.7 ✏️, M07.17 ∂, M07.E1 💼 | M07.27 🔨 |
 | §6 Barycentres, inertie, silhouette, k-means | Q6, R2 🔁, R3 🔁 | M07.8 ✏️ à M07.11 ✏️, M07.16 ∂, M07.18 ∂ | M07.26 🔨, M07.31 🔬, M07.35 🏆 |
 | §7 La grande dimension | Q7 | M07.12 ✏️, M07.13 ✏️ | M07.29 🔮, M07.30 🔬 |
 
@@ -66,7 +66,7 @@ Vocabulaire anglais de ce chapitre : *vector*, *real-valued vector*, *component*
 7. **Hyperplan** : $\mathbf{w} \cdot \mathbf{x} + b = 0$, de vecteur normal $\mathbf{w}$ ; le signe de $\mathbf{w} \cdot \mathbf{x} + b$ dit de quel côté est $\mathbf{x}$, et la distance vaut $\frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert}$.
 8. **Barycentre** : $\bar{\mathbf{x}} = \frac{1}{n}\sum \mathbf{x}_i$ minimise $\sum \lVert \mathbf{x}_i - \mathbf{c} \rVert^2$, et $\sum \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + n\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$ (König-Huygens).
 9. **k-means** alterne une affectation au centre le plus proche et une mise à jour au barycentre ; aucune des deux étapes n'augmente l'**inertie**. La **silhouette** $s = \frac{b - a}{\max(a, b)}$ juge un découpage ; **k-means++** tire chaque nouveau centre avec une probabilité proportionnelle à $D^2$.
-10. **Grande dimension** : la diagonale du cube unité mesure $\sqrt{n}$ et fait avec chaque axe un angle qui tend vers 90° ; deux vecteurs aléatoires sont presque orthogonaux ; un vecteur gaussien a une norme proche de $\sqrt{n}$ ; les distances se ressemblent toutes.
+10. **Grande dimension** : la diagonale du cube unité mesure $\sqrt{n}$ et fait avec chaque axe un angle qui tend vers 90° ; deux vecteurs aléatoires sont presque orthogonaux ; un vecteur gaussien a une norme proche de $\sqrt{n}$, à peu près la même pour tous les tirages.
 
 ---
 
@@ -337,7 +337,7 @@ Avec des exemples étiquetés en plusieurs classes, le **classifieur du centroï
 
 Sans labels, **k-means** cherche $k$ groupes, ou **clusters**, chacun représenté par un **centre** $\boldsymbol{\mu}_j$. Il part de $k$ centres et répète deux étapes :
 1. **affectation** : chaque point rejoint le centre le plus proche ;
-2. **mise à jour** : chaque centre devient le barycentre des points qui l'ont rejoint.
+2. **mise à jour** : chaque centre est remplacé par le barycentre de son cluster.
 
 Exemple d'affectation, avec les centres $(0, 1)$ et $(4, 2)$ : le point $(1, 0)$ est à la distance au carré $1 + 1 = 2$ du premier et $9 + 4 = 13$ du second, il rejoint le premier ; le point $(5, 1)$ est à 25 et 2, il rejoint le second.
 
@@ -345,13 +345,15 @@ La qualité d'un découpage se mesure par son **inertie** : la somme, sur tous l
 
 ### Juger un découpage : la silhouette
 
-Sans labels, comment savoir si un découpage est bon ? Le **coefficient de silhouette** (*silhouette coefficient*) compare, pour chaque point $i$, deux distances moyennes :
-- $a(i)$, la distance moyenne de $i$ aux **autres** points de son cluster (petite si le cluster est serré) ;
-- $b(i)$, la plus petite des distances moyennes de $i$ aux points d'un **autre** cluster (grande si les clusters sont bien séparés) ;
+Sans labels, comment savoir si un découpage est bon ? Le **coefficient de silhouette** (*silhouette coefficient*) du point $i$, dont le cluster $C$ compte $|C|$ points, se calcule avec deux moyennes de distances :
+
+$$a(i) = \frac{1}{|C| - 1}\sum_{j \in C,\ j \ne i} d(i, j), \qquad b(i) = \min_{C' \ne C}\ \frac{1}{|C'|}\sum_{j \in C'} d(i, j).$$
+
+La première ne compte pas le point lui-même ; la seconde retient, parmi les autres clusters, celui dont les points sont en moyenne les plus proches de $i$. Puis
 
 $$s(i) = \frac{b(i) - a(i)}{\max\big(a(i), b(i)\big)} \in [-1, 1].$$
 
-Proche de 1, le point est bien au cœur de son cluster ; proche de 0, il est à la frontière ; négatif, il serait mieux dans le cluster voisin. Par convention, $s(i) = 0$ pour un point seul dans son cluster. Exemple : les clusters $\{(0, 0), (0, 2)\}$ et $\{(3, 0), (4, 1)\}$. Pour $(0, 0)$ : $a = 2$, $b = \frac{3 + \sqrt{17}}{2} \approx 3{,}562$, d'où $s \approx \frac{1{,}562}{3{,}562} \approx 0{,}438$. La moyenne des $s(i)$ juge tout le découpage ; on compare ainsi plusieurs valeurs de $k$.
+Le signe de $s(i)$ est celui de $b(i) - a(i)$ : positif quand $i$ est en moyenne plus près des points de son cluster que de ceux du cluster voisin, négatif dans le cas contraire. Quand $b(i) \ge a(i)$, $s(i) = 1 - \frac{a(i)}{b(i)}$, qui approche 1 quand $a(i)$ est petit devant $b(i)$. Un cluster d'un seul point n'a pas de $a(i)$ : on pose alors $s(i) = 0$. Exemple : les clusters $\{(0, 0), (0, 2)\}$ et $\{(3, 0), (4, 1)\}$. Pour $(0, 0)$ : $a = 2$, $b = \frac{3 + \sqrt{17}}{2} \approx 3{,}562$, d'où $s \approx \frac{1{,}562}{3{,}562} \approx 0{,}438$. La moyenne des $s(i)$ sur tous les points résume le découpage en un seul nombre.
 
 ### Bien partir : k-means++
 
@@ -359,11 +361,11 @@ Pour éviter les mauvais départs, **k-means++** choisit les centres initiaux un
 
 $$P(\mathbf{x} \text{ est choisi}) = \frac{D(\mathbf{x})^2}{\sum_{\mathbf{x}'} D(\mathbf{x}')^2}.$$
 
-Exemple : les points $(0, 0)$, $(1, 1)$, $(3, 0)$ et $(4, 2)$, premier centre $(0, 0)$. Les $D^2$ valent 0, 2, 9 et 20, de somme 31 : le point $(4, 2)$ sera choisi avec la probabilité $\frac{20}{31} \approx 0{,}65$, le point $(1, 1)$, tout proche du premier centre, avec $\frac{2}{31} \approx 0{,}06$ seulement. Un point déjà choisi a $D = 0$ : il ne peut pas l'être deux fois.
+Exemple : les points $(0, 0)$, $(1, 1)$, $(3, 0)$ et $(4, 2)$, premier centre $(0, 0)$. Les $D^2$ valent 0, 2, 9 et 20, de somme 31 : le point $(4, 2)$ sera choisi avec la probabilité $\frac{20}{31} \approx 0{,}65$, le point $(1, 1)$, tout proche du premier centre, avec $\frac{2}{31} \approx 0{,}06$ seulement.
 
 🔗 **Dans workbookIA** — le chapitre 7 programme le centroïde le plus proche, k-means, k-means++ et la silhouette, choisit $k$ avec le coude de l'inertie et la silhouette, et montre quand k-means échoue.
 
-⚠️ **Erreur classique.** Croire que la plus petite inertie désigne le meilleur nombre de clusters : la meilleure inertie possible baisse toujours quand $k$ augmente, jusqu'à 0 quand chaque point est seul. Et oublier que k-means compare des distances euclidiennes : ses résultats dépendent de l'échelle des features (§3).
+⚠️ **Erreur classique.** Oublier que k-means, la silhouette et le centroïde le plus proche comparent des distances euclidiennes : leurs résultats dépendent de l'unité de chaque feature (§3, M07.19), et une feature mesurée en grands nombres décide presque seule.
 
 ## §7 · La grande dimension
 
@@ -383,15 +385,9 @@ Tirons deux vecteurs $\mathbf{X}$ et $\mathbf{Y}$ de $\mathbb{R}^n$ dont les coo
 
 ### La norme d'un vecteur gaussien
 
-Pour $\mathbf{X}$ comme ci-dessus, $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = \sum_i \mathbb{E}[X_i^2] = n$ : la norme est de l'ordre de $\sqrt{n}$. Mieux : $\lVert \mathbf{X} \rVert^2$ est une somme de $n$ termes indépendants de variance 2, son écart-type vaut $\sqrt{2n}$, très petit devant sa moyenne $n$ quand $n$ est grand. La norme se **concentre** : en dimension 1 000, elle a un écart-type d'environ 0,71, et 99 % des tirages ont une norme entre 29,8 et 33,5, autour de $\sqrt{1000} \approx 31{,}6$. Les vecteurs gaussiens vivent presque tous sur une mince coquille, loin du centre où leur densité est pourtant la plus forte : il y a beaucoup plus de place loin du centre qu'au centre.
+Pour $\mathbf{X}$ comme ci-dessus, $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = \sum_i \mathbb{E}[X_i^2] = n$ : la norme est de l'ordre de $\sqrt{n}$. Mieux : $\lVert \mathbf{X} \rVert^2$ est une somme de $n$ termes indépendants, donc sa variance est proportionnelle à $n$ (M07.13 la calcule) : son écart-type n'est que de l'ordre de $\sqrt{n}$, très petit devant sa moyenne $n$ quand $n$ est grand. La norme se **concentre** : en dimension 1 000, elle a un écart-type d'environ 0,71, et 99 % des tirages ont une norme entre 29,8 et 33,5, autour de $\sqrt{1000} \approx 31{,}6$.
 
 ![À gauche, l'angle entre la diagonale du cube et un axe, selon la dimension ; à droite, la norme divisée par √n de vecteurs gaussiens, de plus en plus concentrée autour de 1](figures/grande_dimension.png)
-
-### Toutes les distances se ressemblent
-
-Le même calcul vaut pour la distance entre deux points tirés au hasard. Pour deux points uniformes dans le cube, $\mathbb{E}\big[\lVert \mathbf{X} - \mathbf{Y} \rVert^2\big]$ est une somme de $n$ termes identiques, donc proportionnelle à $n$ (M07.13 calcule chaque terme), alors que sa dispersion ne croît que comme $\sqrt{n}$. Rapportées à leur taille, les distances entre points pris au hasard deviennent **presque toutes égales** : c'est la **concentration des distances**. Pour une méthode qui cherche « le point le plus proche », c'est une mauvaise nouvelle : le plus proche n'est guère plus proche que les autres.
-
-**Pourquoi le machine learning marche quand même.** Ces calculs supposent des points répartis au hasard dans tout l'espace. Les vraies données ont de la **structure** : les images de visages, les phrases d'une langue n'occupent qu'une infime partie de l'espace, où les distances gardent un sens. WorkbookIA 7 discute ces constats sous le nom de **malédiction de la dimension**, avec ses parades.
 
 🔗 **Dans workbookIA** — le chapitre 7 mesure la densité des échantillons, les bizarreries de la grande dimension et la concentration des distances ; les *embeddings* des chapitres bonus vivent dans des espaces de centaines de dimensions, où l'on compare des cosinus.
 
@@ -409,7 +405,7 @@ Le même calcul vaut pour la distance entre deux points tirés au hasard. Pour d
 | La projection divisée par $\lVert \mathbf{u} \rVert$ | $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\,\mathbf{u}$, ou la composante fois le vecteur unitaire |
 | Le score $\mathbf{w} \cdot \mathbf{x} + b$ pris pour une distance | le diviser par $\lVert \mathbf{w} \rVert$ |
 | $(\mathbf{w}, b)$ et $(-\mathbf{w}, -b)$ jugés identiques en tout | même hyperplan, côtés échangés |
-| La plus petite inertie pour choisir $k$ | elle baisse toujours avec $k$ : coude, silhouette, besoin métier |
+| L'inertie calculée avec les distances, sans les carrés | la somme des **carrés** des distances : c'est elle que minimise le barycentre |
 | L'intuition du plan en dimension 100 | calculer ou simuler |
 
 ## Et maintenant

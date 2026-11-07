@@ -59,7 +59,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | complémentaire (d'un ensemble) | complement | $\bar{A}$ : les éléments de l'univers qui ne sont pas dans $A$ | R4 |
 | composée (de deux fonctions) | composition, composite function | $(f \circ g)(x) = f(g(x))$ : on applique $g$, puis $f$ | R3 |
 | concave | concave | dont toute corde est au-dessous de la courbe ; pour $f$ deux fois dérivable, $f'' \le 0$ | M05a |
-| concentration des distances | distance concentration | en grande dimension, les distances entre points pris au hasard sont presque toutes égales, rapportées à leur taille | M07 |
+| concentration (de la norme) | concentration of measure | en grande dimension, une quantité qui dépend de beaucoup de coordonnées indépendantes varie peu autour de sa valeur typique : la norme d'un vecteur gaussien de $\mathbb{R}^n$ vaut $\sqrt{n}$ à environ 0,7 près | M07 |
 | condition nécessaire, suffisante | necessary, sufficient condition | dans $P \Rightarrow Q$, P est suffisante pour Q et Q nécessaire pour P | R4 |
 | continuité | continuity | $f$ est continue en $a$ si $\lim_{x \to a} f(x) = f(a)$ : pas de saut | R7 |
 | contraposée | contrapositive | $\text{non } Q \Rightarrow \text{non } P$, de même valeur que $P \Rightarrow Q$ | R4 |
@@ -358,7 +358,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | second degré (polynôme du) | quadratic (polynomial, function) | $ax^2 + bx + c$ avec $a \ne 0$ | R3 |
 | seuil de décision | decision threshold | le score à partir duquel on déclare un exemple positif ; $\frac{c_{FP}}{c_{FP} + c_{FN}}$ minimise le coût pour des probabilités calibrées | M03 |
 | sigmoïde (fonction logistique) | sigmoid, logistic function | $\sigma(x) = \frac{1}{1 + e^{-x}}$, à valeurs dans $]0 \;;\; 1[$ | R6 |
-| silhouette | silhouette (coefficient) | $s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}$, entre $-1$ et 1 : proche de 1, le point est bien dans son cluster ; négative, il serait mieux dans le cluster voisin | M07 |
+| silhouette | silhouette (coefficient) | $s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}$, entre $-1$ et 1 : positive quand le point est en moyenne plus près des points de son cluster que de ceux du cluster voisin, négative sinon | M07 |
 | similarité cosinus | cosine similarity | $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$, le cosinus de l'angle entre deux vecteurs : compare leurs directions | R9, M07 |
 | simulation par inversion | inverse transform sampling | si $U$ est uniforme sur $[0 ; 1]$, $F^{-1}(U)$ suit la loi de fonction de répartition $F$ | M02b |
 | softmax, log-softmax | softmax, log-softmax | $\frac{e^{v_i}}{\sum_j e^{v_j}}$, calculée stablement avec $e^{v_i - m}$ ; son logarithme $v_i - \text{LSE}(\mathbf{v})$, qui reste fini | M05a |

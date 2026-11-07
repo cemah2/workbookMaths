@@ -957,7 +957,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M07.10 ✏️ La silhouette d'un point, à la main, en dimension 2 ★★ 15 min (complet)
 - [ ] M07.11 ✏️ k-means++ : des probabilités de tirage proportionnelles à D² ★★ 15 min (complet)
 - [ ] M07.12 ✏️ La diagonale du cube unité et son angle avec les axes, quand d grandit ★ 15 min
-- [ ] M07.13 ✏️ La distance au carré moyenne de deux points tirés dans le cube [0, 1]ᵈ ★★ 15 min (complet)
+- [ ] M07.13 ✏️ La norme d'un vecteur gaussien : espérance, variance et concentration ★★ 15 min (complet)
 - [ ] M07.14 ∂ L'inégalité de Cauchy-Schwarz, par le discriminant ★★ 25 min
 - [ ] M07.15 ∂ L'inégalité triangulaire pour L2, L1 et L∞ ★★ 20 min (complet)
 - [ ] M07.16 ∂ La moyenne minimise la somme des carrés des distances, en dimension n ★★ 20 min
@@ -968,7 +968,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M07.21 📖 MML §3.3 et §3.4 : longueurs, distances, angles et orthogonalité ★★ 30 min (complet)
 - [ ] M07.22 🧮 Fermi : la mémoire d'un million d'embeddings ★ 10 min (complet)
 - [ ] M07.23 🗣️ Expliquer la similarité cosinus à quelqu'un qui a fait le lycée ★ 10 min
-- [ ] M07.E1 💼 Distance euclidienne ou similarité cosinus : laquelle pour comparer des textes ? ★ 10 min (complet)
+- [ ] M07.E1 💼 Que représente géométriquement le vecteur de poids d'un modèle linéaire ? ★ 10 min (complet)
 - [ ] M07.24 🔨 Normes Lp et similarité cosinus ★ 20 min
 - [ ] M07.25 🔨 La projection sur une droite ★ 15 min
 - [ ] M07.26 🔨 Barycentre et somme des carrés des distances ★ 20 min

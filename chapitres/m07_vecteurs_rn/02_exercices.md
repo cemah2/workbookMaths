@@ -42,7 +42,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 2. Quelle forme a la boule unité de L1 dans le plan ? Et celle de L∞ ?
 3. Vrai ou faux : $\lVert \mathbf{x} \rVert_\infty \le \lVert \mathbf{x} \rVert_2 \le \lVert \mathbf{x} \rVert_1$ pour tout vecteur $\mathbf{x}$.
 4. Exprime $\lVert -3\mathbf{x} \rVert$ en fonction de $\lVert \mathbf{x} \rVert$.
-5. Quelle est la distance L1 entre $(1, 2)$ et $(6, 0)$ ?
+5. Quelle est la distance L1 entre $(-1, 3)$ et $(4, 1)$ ?
 6. Pourquoi la formule $\big(\sum_i |x_i|^{1/2}\big)^2$ ne définit-elle pas une norme ?
 
 ### M07.Q4 — Similarité cosinus : vrai ou faux 🧠 ★ ⏱️ 4 min
@@ -73,7 +73,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 3. En quel point $\mathbf{c}$ l'inertie $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2$ est-elle la plus petite ?
 4. Que fait l'étape d'affectation de k-means ? Et l'étape de mise à jour ?
 5. Vrai ou faux : une silhouette négative signale un point qui serait mieux dans le cluster voisin.
-6. Avec k-means++, un point déjà choisi comme centre peut-il être tiré une seconde fois ?
+6. Le barycentre pondéré de $(0, 0)$ et $(6, 3)$, avec les poids 2 et 1 ?
 
 ### M07.Q7 — Intuitions de la grande dimension 🧠 ★ ⏱️ 4 min
 *Fiche §7 · parcours C, E*
@@ -82,8 +82,8 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 2. Vrai ou faux : quand la dimension grandit, l'angle entre la diagonale du cube et un axe tend vers 90°.
 3. On tire deux vecteurs de $\mathbb{R}^{10\,000}$ à coordonnées gaussiennes indépendantes. Leur cosinus est plutôt : (A) proche de 1 ; (B) proche de 0 ; (C) proche de $-1$ ; (D) n'importe quelle valeur entre $-1$ et 1, avec la même probabilité.
 4. Un vecteur $\mathbf{X}$ de $\mathbb{R}^n$ a des coordonnées indépendantes de loi $\mathcal{N}(0, 1)$. Sa norme est d'environ combien ?
-5. Vrai ou faux : en grande dimension, les distances entre points tirés au hasard dans le cube sont presque toutes égales, rapportées à leur taille.
-6. Pourquoi ces constats gênent-ils les méthodes qui cherchent le plus proche voisin ?
+5. Vrai ou faux : si l'écart-type du cosinus de deux directions tirées au hasard vaut environ $\frac{1}{\sqrt{n}}$, il faut 100 fois plus de dimensions pour le diviser par 10.
+6. Un vecteur de $\mathbb{R}^n$ a toutes ses coordonnées égales à $\frac{1}{\sqrt{n}}$. Que vaut sa norme ?
 
 <a id="rappels"></a>
 
@@ -151,7 +151,7 @@ Une application de covoiturage code le mode de chaque trajet en one-hot, dans l'
 Dans ta copie : pour d), écris le système de quatre équations ; combien d'équations suffisaient à trouver $a$ et $b$, et à quoi servent les autres ? Pourquoi ne code-t-on pas les quatre modes par 1, 2, 3, 4 ?
 
 ### Ex M07.2 — Produits scalaires, ‖u + v‖² et l'identité du parallélogramme ✏️ ★ ⏱️ 15 min
-**Objectif :** calculer des produits scalaires et des normes au carré, développer $\lVert \mathbf{u} + \mathbf{v} \rVert^2$, et retrouver un produit scalaire à partir de longueurs.
+**Objectif :** calculer des produits scalaires et des normes au carré, développer le carré de la norme d'une combinaison linéaire, et retrouver un produit scalaire à partir de longueurs.
 **Prérequis :** fiche §2 · **Parcours :** C, E
 
 Soit $\mathbf{u} = (2, 1, -2, 0)$ et $\mathbf{v} = (1, 3, 1, -1)$.
@@ -161,12 +161,12 @@ Soit $\mathbf{u} = (2, 1, -2, 0)$ et $\mathbf{v} = (1, 3, 1, -1)$.
 | a | $\mathbf{u} \cdot \mathbf{v}$ | un entier |
 | b | $\lVert \mathbf{u} \rVert^2$ | un entier |
 | c | $\lVert \mathbf{v} \rVert^2$ | un entier |
-| d | $\lVert \mathbf{u} + \mathbf{v} \rVert^2$ | un entier |
+| d | $\lVert 2\mathbf{u} - \mathbf{v} \rVert^2$, à partir de a), b) et c) seulement | un entier |
 | e | le réel $t$ pour lequel $\mathbf{u} + t\,\mathbf{v}$ est orthogonal à $\mathbf{v}$ | une fraction irréductible |
 | f | deux vecteurs $\mathbf{a}$ et $\mathbf{b}$ vérifient $\lVert \mathbf{a} + \mathbf{b} \rVert^2 = 50$ et $\lVert \mathbf{a} - \mathbf{b} \rVert^2 = 18$ : que vaut $\mathbf{a} \cdot \mathbf{b}$ ? | un entier |
 | g | vrai ou faux : si $\mathbf{u} \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{w}$ et $\mathbf{u} \ne \mathbf{0}$, alors $\mathbf{v} = \mathbf{w}$ | `True` ou `False` |
 
-Dans ta copie : calcule d) de deux façons, directement et avec le développement de la fiche. Pour g), donne un contre-exemple dans $\mathbb{R}^2$ ou une démonstration.
+Dans ta copie : pour d), développe $(2\mathbf{u} - \mathbf{v}) \cdot (2\mathbf{u} - \mathbf{v})$ par linéarité, puis vérifie le résultat en calculant les coordonnées de $2\mathbf{u} - \mathbf{v}$. Pour g), donne un contre-exemple dans $\mathbb{R}^2$ ou une démonstration.
 
 ### Ex M07.3 — Normes L1, L2, L∞ et distances entre trois profils ✏️ ★ ⏱️ 20 min
 **Objectif :** calculer des normes et des distances L1, L2 et L∞ en dimension 4, et voir que le plus proche voisin dépend de la norme.
@@ -351,22 +351,22 @@ On note $\mathbf{1} = (1, \ldots, 1)$ le vecteur de $\mathbb{R}^d$ dont toutes l
 
 Dans ta copie : écris le cosinus de f) en fonction de $d$ ; vers quoi tend-il ? Deux sommets voisins d'une même face du cube, vus depuis le centre du cube, font-ils un grand ou un petit angle en grande dimension ?
 
-### Ex M07.13 — La distance au carré moyenne de deux points tirés dans le cube [0, 1]ᵈ ✏️ ★★ ⏱️ 15 min
-**Objectif :** calculer l'espérance du carré de la distance entre deux points uniformes du cube, et la comparer à la diagonale.
-**Prérequis :** fiche §7 ; M02a (intégrales) ; M02b (espérance, variance, loi uniforme) · **Parcours :** C
+### Ex M07.13 — La norme d'un vecteur gaussien : espérance, variance et concentration ✏️ ★★ ⏱️ 15 min
+**Objectif :** calculer l'espérance et la variance du carré de la norme d'un vecteur gaussien, et voir que sa dispersion relative diminue comme $\frac{1}{\sqrt{n}}$.
+**Prérequis :** fiche §7 ; M02b (variance d'une somme de variables indépendantes) ; M02c (inégalité de Bienaymé-Tchebychev) · **Parcours :** C
 
-$U$ et $V$ sont deux variables indépendantes de loi uniforme sur $[0, 1]$. $\mathbf{X}$ et $\mathbf{Y}$ sont deux points indépendants du cube $[0, 1]^d$, dont les $2d$ coordonnées sont des variables indépendantes de loi uniforme sur $[0, 1]$.
+$Z$ est une variable de loi $\mathcal{N}(0, 1)$ ; on admet que $\mathbb{E}[Z^4] = 3$. $\mathbf{X} = (X_1, \ldots, X_n)$ est un vecteur de $\mathbb{R}^n$ dont les coordonnées sont des variables indépendantes de loi $\mathcal{N}(0, 1)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $\mathbb{E}[U^2]$ | une fraction irréductible |
-| b | $\mathbb{E}[UV]$ | une fraction irréductible |
-| c | $\mathbb{E}[(U - V)^2]$ | une fraction irréductible |
-| d | $\mathbb{E}\big[\lVert \mathbf{X} - \mathbf{Y} \rVert^2\big]$ en dimension 12 | un nombre |
-| e | la distance typique $\sqrt{\mathbb{E}\big[\lVert \mathbf{X} - \mathbf{Y} \rVert^2\big]}$ en dimension 600 | un nombre |
-| f | le rapport de cette distance typique à la longueur de la diagonale, $\sqrt{d}$ | un nombre (3 décimales) |
+| a | $\mathbb{V}(Z^2)$ | un entier |
+| b | $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big]$ en dimension 50 | un entier |
+| c | $\mathbb{V}\big(\lVert \mathbf{X} \rVert^2\big)$ en dimension 50 | un entier |
+| d | la dispersion relative de $\lVert \mathbf{X} \rVert^2$, son écart-type divisé par son espérance, en dimension 50 | un nombre |
+| e | la plus petite dimension $n$ pour laquelle cette dispersion relative est au plus 0,01 | un entier |
+| f | en dimension 20 000, la majoration de $P\big(\big\lvert \lVert \mathbf{X} \rVert^2 - n \big\rvert \ge \frac{n}{10}\big)$ que donne l'inégalité de Bienaymé-Tchebychev | un nombre |
 
-Dans ta copie : retrouve c) d'une seconde façon, avec $\mathbb{E}[U - V]$ et $\mathbb{V}(U - V)$. Le rapport f) dépend-il de $d$ ? Qu'en conclus-tu sur la place qu'occupent deux points pris au hasard dans un cube de grande dimension ?
+Dans ta copie : pourquoi les variances des $X_i^2$ s'additionnent-elles ? Écris d) en fonction de $n$. Avec l'approximation $\sqrt{t} \approx \sqrt{n} + \frac{t - n}{2\sqrt{n}}$ pour $t$ proche de $n$ (la tangente de M05a), déduis de c) l'écart-type approximatif de $\lVert \mathbf{X} \rVert$, et compare-le à la fiche (§7) et à M07.30.
 
 <a id="demonstrations"></a>
 
@@ -498,12 +498,12 @@ Réponds-lui **en huit lignes au plus**, sans formule. Ta réponse doit dire ce 
 
 ## 💼 Entretien
 
-### M07.E1 — Distance euclidienne ou similarité cosinus : laquelle pour comparer des textes ? 💼 ★ ⏱️ 10 min
-*Fiche §3 et §4 · parcours C*
+### M07.E1 — Que représente géométriquement le vecteur de poids d'un modèle linéaire ? 💼 ★ ⏱️ 10 min
+*Fiche §2 et §5 · parcours C*
 
-« Pour retrouver des documents proches d'une requête, vous utiliseriez la distance euclidienne ou la similarité cosinus ? Pourquoi ? Et si les vecteurs sont normalisés ? »
+« Un modèle linéaire décide selon le signe de $\mathbf{w} \cdot \mathbf{x} + b$. Que représente géométriquement le vecteur $\mathbf{w}$ ? Et si l'on multiplie $\mathbf{w}$ et $b$ par 10, qu'est-ce qui change, et qu'est-ce qui ne change pas ? »
 
-Prépare une réponse orale de **60 secondes**, que tu dirais à voix haute en entretien. Elle doit dire ce que chaque mesure compare, l'effet de la longueur des documents, et ce qui se passe quand tous les vecteurs ont la norme 1 (développe $\lVert \mathbf{u} - \mathbf{v} \rVert^2$ pour deux vecteurs unitaires). Compare ensuite avec la réponse modèle de `05_solutions.md`.
+Prépare une réponse orale de **60 secondes**, que tu dirais à voix haute en entretien. Elle doit dire où est la frontière de décision et quel est le rôle de $\mathbf{w}$ par rapport à elle, ce que mesure $\frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert}$, et l'effet d'un changement d'échelle de $(\mathbf{w}, b)$, y compris par un nombre négatif. Compare ensuite avec la réponse modèle de `05_solutions.md`.
 
 <a id="notebook"></a>
 

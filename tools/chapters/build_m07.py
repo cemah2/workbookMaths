@@ -63,9 +63,11 @@ PAPER = [
          '''mistakes={"attention aux signes : (−2) × 1 est négatif": 7}'''),
         ("b", "an integer", "9", f'''mistakes={{"{SQUARED}": 3}}'''),
         ("c", "an integer", "12", ""),
-        ("d", "an integer", "27",
-         '''mistakes={"le double produit 2 u · v manque : ‖u + v‖² = ‖u‖² + 2 u · v + ‖v‖²": 21, '''
-         '''"le produit croisé compte deux fois : 2 u · v, pas u · v": 24}'''),
+        ("d", "an integer", "36",
+         '''mistakes={"le coefficient 2 s'élève au carré : ‖2u‖² = 4 ‖u‖²": 18, '''
+         '''"le double produit −2 (2u) · v manque": 48, '''
+         '''"regarde le signe du double produit dans (2u − v) · (2u − v)": 60, '''
+         '''"le produit croisé compte deux fois : −2 (2u) · v = −4 u · v": 42}'''),
         ("e", "an irreducible fraction", '"-1/4"',
          f'''{F}, mistakes={{"(u + t v) · v = u · v + t v · v : isole t, avec son signe": "1/4", '''
          '''"la condition porte sur v : c'est v · v qui apparaît, pas u · u": "-1/3"}'''),
@@ -183,8 +185,10 @@ PAPER = [
         ("b", "a number (4 decimals)", "(37 ** 0.5 + 58 ** 0.5) / 2", "decimals=4"),
         ("c", "a number (3 decimals)", "S10_A",
          '''decimals=3, mistakes={"divise par le plus grand des deux nombres, max(a, b)": (B10_A - A10_A) / A10_A, '''
-         '''"c'est b − a sur max(a, b), pas a − b": -S10_A}'''),
-        ("d", "a number (3 decimals)", "S10_D", "decimals=3"),
+         '''"c'est b − a sur max(a, b), pas a − b": -S10_A, "c'est a/b ; la silhouette vaut (b − a)/max(a, b), soit 1 − a/b quand b > a": A10_A / B10_A}'''),
+        ("d", "a number (3 decimals)", "S10_D",
+         '''decimals=3, mistakes={"c'est a/b ; la silhouette vaut (b − a)/max(a, b), soit 1 − a/b quand b > a": '''
+         '''A10_D / B10_D}'''),
         ("e", "a number (3 decimals)", "S10_B",
          '''decimals=3, mistakes={"B est maintenant plus loin des points de son cluster que de ceux de l'autre : le '''
          '''signe de b − a le dit": -S10_B}'''),
@@ -217,16 +221,22 @@ PAPER = [
          f'''{F}, mistakes={{"le dernier produit vaut 1 × (−1) = −1 : le produit scalaire vaut (d − 1) − 1": "9/10", "compter −1 comme +1 rendrait les deux vecteurs égaux : le dernier produit vaut 1 × (−1)": "1"}}'''),
     ]),
 
-    Paper("M07.13", "La distance au carré moyenne de deux points tirés dans le cube [0, 1]ᵈ", [
-        ("a", "an irreducible fraction", '"1/3"',
-         f'''{F}, mistakes={{"E[U²] n'est pas E[U]² : intègre x² sur [0, 1]": "1/4"}}'''),
-        ("b", "an irreducible fraction", '"1/4"', F),
-        ("c", "an irreducible fraction", '"1/6"',
-         f'''{F}, mistakes={{"1/12 est la variance de U ; développe (U − V)² : E[U²] − 2 E[UV] + E[V²]": "1/12", "le double produit −2 E[UV] manque : (U − V)² = U² − 2UV + V²": "2/3", '''
-         '''"c'est E[U − V]² ; la question demande E[(U − V)²]": "0"}'''),
-        ("d", "a number", "2"),
-        ("e", "a number", "10"),
-        ("f", "a number (3 decimals)", "1 / 6 ** 0.5", "decimals=3"),
+    Paper("M07.13", "La norme d'un vecteur gaussien : espérance, variance et concentration", [
+        ("a", "an integer", "2",
+         '''mistakes={"la variance retranche le carré de l'espérance : E[Z⁴] − E[Z²]²": 3, '''
+         '''"V(Z²) n'est pas V(Z)² : calcule E[Z⁴] − E[Z²]²": 1}'''),
+        ("b", "an integer", "50"),
+        ("c", "an integer", "100",
+         '''mistakes={"chaque X_i² a la variance de a), pas 1": 50, '''
+         '''"c'est l'écart-type ; la question demande la variance": 10}'''),
+        ("d", "a number", "0.2",
+         '''decimals=3, mistakes={"divise l'écart-type, la racine de c), pas la variance": 2.0, '''
+         '''"l'écart-type est la racine de c), pas √n": 50 ** 0.5 / 50}'''),
+        ("e", "an integer", "20000",
+         '''mistakes={"√(2/n) ≤ 0,01 : élève les deux membres au carré": 200, '''
+         '''"le facteur 2 de la variance compte : √(2/n) ≤ 0,01": 10000}'''),
+        ("f", "a number", "0.01",
+         '''decimals=4, mistakes={"Bienaymé-Tchebychev divise la variance par ε², le carré de l'écart": 20.0}'''),
     ]),
 
     Paper("M07.19", "Pont : changer l'unité d'une feature change le plus proche voisin", [
@@ -264,7 +274,7 @@ def silhouette_10(labels, i):
 
 
 S10_A, A10_A, B10_A = silhouette_10([1, 1, 1, 2, 2], 0)
-S10_D = silhouette_10([1, 1, 1, 2, 2], 3)[0]
+S10_D, A10_D, B10_D = silhouette_10([1, 1, 1, 2, 2], 3)
 S10_B = silhouette_10([1, 2, 1, 2, 2], 1)[0]'''
 
 PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M07.1 à M07.13, 🔗 M07.19)\n\n"
@@ -345,7 +355,7 @@ M07_24 = Ex(
     body=HOWTO + """
 
 Écris (fiche §3 et §4) :
-- `norm_p(x, p=2)` : $\\big(\\sum_i |x_i|^p\\big)^{1/p}$, et $\\max_i |x_i|$ pour `p = float("inf")` ; une `ValueError` si `x` est vide ou si $p < 1$ (la formule n'est alors pas une norme) ;
+- `norm_p(x, p=2)` : $\\big(\\sum_i |x_i|^p\\big)^{1/p}$, et $\\max_i |x_i|$ pour `p = float("inf")` ; une `ValueError` si `x` est vide ou n'est pas à une dimension, ou si $p$ n'est pas au moins 1 (la formule n'est alors pas une norme ; le test `not p >= 1` refuse aussi `nan`) ;
 - `cosine_similarity(u, v)` : $\\frac{\\mathbf{u} \\cdot \\mathbf{v}}{\\lVert \\mathbf{u} \\rVert\\,\\lVert \\mathbf{v} \\rVert}$, ramené dans $[-1, 1]$ par `np.clip` (un arrondi peut donner 1,0000000000000002) ; une `ValueError` si les longueurs diffèrent ou si un vecteur est nul.
 
 La vérification calcule, pour $\\mathbf{x} = (1, -2, 2, -4)$ :
@@ -356,7 +366,7 @@ La vérification calcule, pour $\\mathbf{x} = (1, -2, 2, -4)$ :
 - e) le nom de l'erreur levée par `norm_p([1, 2], 0.5)` ;
 
 puis :
-- f) `cosine_similarity([1, 2, 0, -1], [2, 1, 1, 0])` (4 décimales) ;
+- f) `cosine_similarity([1, 2, 0, -1], [3, 1, 1, 1])` (4 décimales) ;
 - g) le nom de l'erreur levée par `cosine_similarity([0, 0, 0], [1, 2, 3])` ;
 - h) le nom du type de `norm_p(np.array([1.5, 2.0]), 3)`, en texte.
 
@@ -374,7 +384,7 @@ with checked("M07.24d"):
 with checked("M07.24e"):
     wbm.check("M07.24e", raised(mymath.vectors.norm_p, [1, 2], 0.5), computed=True)
 with checked("M07.24f"):
-    wbm.check("M07.24f", mymath.vectors.cosine_similarity([1, 2, 0, -1], [2, 1, 1, 0]), computed=True)
+    wbm.check("M07.24f", mymath.vectors.cosine_similarity([1, 2, 0, -1], [3, 1, 1, 1]), computed=True)
 with checked("M07.24g"):
     wbm.check("M07.24g", raised(mymath.vectors.cosine_similarity, [0, 0, 0], [1, 2, 3]), computed=True)
 with checked("M07.24h"):
@@ -383,7 +393,7 @@ with checked("M07.24h"):
 norm_p, cosine = mymath.vectors.norm_p, mymath.vectors.cosine_similarity
 X_24 = [1, -2, 2, -4]
 print("a)", norm_p(X_24, 1), " b)", norm_p(X_24), " c)", norm_p(X_24, float("inf")), " d)", norm_p(X_24, 3))
-print("e)", raised(norm_p, [1, 2], 0.5), " f)", cosine([1, 2, 0, -1], [2, 1, 1, 0]),
+print("e)", raised(norm_p, [1, 2], 0.5), " f)", cosine([1, 2, 0, -1], [3, 1, 1, 1]),
       " g)", raised(cosine, [0, 0, 0], [1, 2, 3]), " h)", type(norm_p(np.array([1.5, 2.0]), 3)).__name__)''',
     record=f'''wbm.record("M07.24a", 9.0, decimals=6,
            mistakes={{"la norme L1 additionne les valeurs absolues : les signes ne comptent pas": -3.0}})
@@ -397,9 +407,11 @@ wbm.record("M07.24d", 81 ** (1 / 3), decimals=3,
 wbm.record("M07.24e", "ValueError",
            mistakes={{"p < 1 ne définit pas une norme : la docstring demande une ValueError": "aucune",
                      "{wrong_error("ValueError")}": {errors_source("ValueError")}}})
-wbm.record("M07.24f", 4 / 6, decimals=4,
-           mistakes={{"divise le produit scalaire par le produit des deux normes": 4.0,
-                     "divise par le produit des deux normes, pas par le carré d'une seule": 4 / 36}})
+wbm.record("M07.24f", 4 / 72 ** 0.5, decimals=4,
+           mistakes={{"ton quotient dépassait 1 et np.clip l'a ramené à 1 : divise le produit scalaire par le produit "
+                      "des deux normes": 1.0,
+                     "divise par ‖u‖ ‖v‖, pas par le carré d'une seule des deux normes": {{4 / 6, 4 / 12}},
+                     "les normes sont des racines : divise par √6 × √12, pas par 6 × 12": 4 / 72}})
 wbm.record("M07.24g", "ValueError",
            mistakes={{"{ZERO_DIVISION}": {{"aucune", "ZeroDivisionError"}},
                      "{wrong_error("ValueError")}": {errors_source("ValueError", "ZeroDivisionError")}}})
@@ -408,7 +420,7 @@ wbm.record("M07.24h", "float",
     after=tests_cells("test_norm_p_ or test_cosine_similarity_"),
     note="a) $1 + 2 + 2 + 4 = 9$. b) $\\sqrt{1 + 4 + 4 + 16} = 5$. c) $\\max |x_i| = 4$. d) $(1 + 8 + 8 + 64)^{1/3} = "
          "81^{1/3} \\approx 4{,}3267$. La norme diminue quand $p$ augmente : la plus grande coordonnée pèse de plus en "
-         "plus, jusqu'à rester seule (L∞). f) $\\frac{2 + 2 + 0 + 0}{\\sqrt{6}\\sqrt{6}} = \\frac{4}{6} \\approx 0{,}6667$. "
+         "plus, jusqu'à rester seule (L∞). f) $\\frac{3 + 2 + 0 - 1}{\\sqrt{6}\\,\\sqrt{12}} = \\frac{4}{\\sqrt{72}} \\approx 0{,}4714$. "
          "Sans `np.clip`, le cosinus d'un vecteur avec lui-même peut valoir 1,0000000000000002 à cause des arrondis, et "
          "`math.acos` lève alors une erreur.",
 )
@@ -420,7 +432,7 @@ M07_25 = Ex(
     body="""Écris `project_onto_line(x, u)` (fiche §4) : $\\frac{\\mathbf{x} \\cdot \\mathbf{u}}{\\mathbf{u} \\cdot \\mathbf{u}}\\,\\mathbf{u}$, en tableau NumPy ; une `ValueError` si les longueurs diffèrent ou si $\\mathbf{u}$ est nul. Le vecteur $\\mathbf{u}$ n'a pas besoin d'être unitaire.
 
 La vérification calcule :
-- a) `project_onto_line([3, -1, 2], [1, 1, 1])` (une liste, 4 décimales) ;
+- a) `project_onto_line([4, -1, 2], [1, 1, 1])` (une liste, 4 décimales) ;
 - b) le produit scalaire du reste $\\mathbf{x} - \\mathbf{p}$ de a) avec $\\mathbf{u} = (1, 1, 1)$ (4 décimales) ;
 - c) `project_onto_line([2, 5], [0, -3])` (une liste) ;
 - d) `project_onto_line([4, 1, 0, -2], [2, 0, 0, 0])` (une liste) ;
@@ -430,11 +442,11 @@ La vérification calcule :
 Dans ta copie : calcule a), c) et d) à la main. Que fait la projection sur un axe (regarde c) et d)) ? Pourquoi le signe de $\\mathbf{u} = (0, -3)$ ne change-t-il rien en c) ?""",
     todo=LOAD_LEARNER,
     check='''with checked("M07.25a"):
-    wbm.check("M07.25a", np.asarray(mymath.vectors.project_onto_line([3, -1, 2], [1, 1, 1])).tolist(),
+    wbm.check("M07.25a", np.asarray(mymath.vectors.project_onto_line([4, -1, 2], [1, 1, 1])).tolist(),
               computed=True)
 with checked("M07.25b"):
-    p_25 = np.asarray(mymath.vectors.project_onto_line([3, -1, 2], [1, 1, 1]), dtype=float)
-    wbm.check("M07.25b", float((np.array([3, -1, 2]) - p_25) @ np.array([1, 1, 1])), computed=True)
+    p_25 = np.asarray(mymath.vectors.project_onto_line([4, -1, 2], [1, 1, 1]), dtype=float)
+    wbm.check("M07.25b", float((np.array([4, -1, 2]) - p_25) @ np.array([1, 1, 1])), computed=True)
 with checked("M07.25c"):
     wbm.check("M07.25c", np.asarray(mymath.vectors.project_onto_line([2, 5], [0, -3])).tolist(), computed=True)
 with checked("M07.25d"):
@@ -446,13 +458,13 @@ with checked("M07.25f"):
     wbm.check("M07.25f", type(mymath.vectors.project_onto_line([1, 2], [1, 1])).__name__, computed=True)''',
     solution=LOAD_REF + '''
 proj = mymath.vectors.project_onto_line
-p_25 = proj([3, -1, 2], [1, 1, 1])
-print("a)", p_25, " b)", (np.array([3, -1, 2]) - p_25) @ np.array([1, 1, 1]), " c)", proj([2, 5], [0, -3]),
+p_25 = proj([4, -1, 2], [1, 1, 1])
+print("a)", p_25, " b)", (np.array([4, -1, 2]) - p_25) @ np.array([1, 1, 1]), " c)", proj([2, 5], [0, -3]),
       " d)", proj([4, 1, 0, -2], [2, 0, 0, 0]))
 print("e)", raised(proj, [1, 2], [0, 0]), " f)", type(proj([1, 2], [1, 1])).__name__)''',
-    record=f'''wbm.record("M07.25a", [4 / 3, 4 / 3, 4 / 3], decimals=4,
-           mistakes={{"divise par u · u = ‖u‖², pas par ‖u‖": [4 / 3 ** 0.5] * 3,
-                     "divise x · u par u · u avant de multiplier u": [4.0, 4.0, 4.0]}})
+    record=f'''wbm.record("M07.25a", [5 / 3, 5 / 3, 5 / 3], decimals=4,
+           mistakes={{"divise par u · u = ‖u‖², pas par ‖u‖": [5 / 3 ** 0.5] * 3,
+                     "divise x · u par u · u avant de multiplier u": [5.0, 5.0, 5.0]}})
 wbm.record("M07.25b", 0.0, decimals=4)
 wbm.record("M07.25c", [0.0, 5.0], decimals=6,
            mistakes={{"divise par u · u = 9 : le coefficient est (x · u)/(u · u)": [0.0, 45.0],
@@ -466,9 +478,9 @@ wbm.record("M07.25e", "ValueError",
 wbm.record("M07.25f", "ndarray",
            mistakes={{"la docstring demande un tableau NumPy : np.array(...)": {{"list", "tuple"}}}})''',
     after=tests_cells("test_project_onto_line_"),
-    note="a) $\\mathbf{x} \\cdot \\mathbf{u} = 3 - 1 + 2 = 4$ et $\\mathbf{u} \\cdot \\mathbf{u} = 3$ : $\\mathbf{p} = "
-         "\\frac{4}{3}(1, 1, 1)$. b) Le reste $\\big(\\frac{5}{3}, -\\frac{7}{3}, \\frac{2}{3}\\big)$ est orthogonal à "
-         "$\\mathbf{u}$ : $\\frac{5 - 7 + 2}{3} = 0$. c) $\\frac{-15}{9}(0, -3) = (0, 5)$ : projeter sur un axe garde la "
+    note="a) $\\mathbf{x} \\cdot \\mathbf{u} = 4 - 1 + 2 = 5$ et $\\mathbf{u} \\cdot \\mathbf{u} = 3$ : $\\mathbf{p} = "
+         "\\frac{5}{3}(1, 1, 1)$. b) Le reste $\\big(\\frac{7}{3}, -\\frac{8}{3}, \\frac{1}{3}\\big)$ est orthogonal à "
+         "$\\mathbf{u}$ : $\\frac{7 - 8 + 1}{3} = 0$. c) $\\frac{-15}{9}(0, -3) = (0, 5)$ : projeter sur un axe garde la "
          "coordonnée de cet axe et annule les autres, quel que soit le sens du vecteur directeur. d) De même, $(4, 0, 0, 0)$.",
 )
 
@@ -479,12 +491,12 @@ M07_26 = Ex(
     "programmer le barycentre, pondéré ou non, et l'inertie d'un nuage autour d'un point, et vérifier la formule de "
     "König-Huygens.", "fiche §6", tracks="C, E", mymath="vectors.py",
     body=f"""Écris (fiche §6) :
-- `centroid(points, weights=None)` : la moyenne des lignes de `points`, ou $\\frac{{\\sum_i \\omega_i \\mathbf{{x}}_i}}{{\\sum_i \\omega_i}}$ avec des poids ; une `ValueError` si `points` est vide, ou si les poids n'ont pas la bonne longueur, ont une valeur négative ou une somme nulle ;
-- `sum_sq_distances_to(points, c)` : $\\sum_i \\lVert \\mathbf{{x}}_i - \\mathbf{{c}} \\rVert^2$, en `float` ; une `ValueError` si `c` n'a pas une coordonnée par colonne.
+- `centroid(points, weights=None)` : la moyenne des lignes de `points`, ou $\\frac{{\\sum_i \\omega_i \\mathbf{{x}}_i}}{{\\sum_i \\omega_i}}$ avec des poids ; une `ValueError` si `points` n'est pas un tableau à deux dimensions (un point par ligne) ou est vide, ou si les poids n'ont pas la bonne longueur, ont une valeur négative ou une somme nulle ;
+- `sum_sq_distances_to(points, c)` : $\\sum_i \\lVert \\mathbf{{x}}_i - \\mathbf{{c}} \\rVert^2$, en `float` ; une `ValueError` si `points` est vide ou n'est pas à deux dimensions, ou si `c` n'a pas une coordonnée par colonne.
 
 La vérification calcule, pour les quatre points `{POINTS_26}` :
 - a) `centroid(points)` (une liste) ;
-- b) `centroid(points, weights=[1, 1, 2, 0])` (une liste) ;
+- b) `centroid(points, weights=[1, 1, 3, 0])` (une liste) ;
 - c) `sum_sq_distances_to(points, centroid(points))` ;
 - d) `sum_sq_distances_to(points, [0, 0])` ;
 - e) le nom de l'erreur levée par `centroid(points, weights=[1, -1, 1, 1])` ;
@@ -496,7 +508,7 @@ Dans ta copie : calcule a) à d) à la main, et vérifie d) avec la formule de K
 with checked("M07.26a"):
     wbm.check("M07.26a", np.asarray(mymath.vectors.centroid(POINTS_26)).tolist(), computed=True)
 with checked("M07.26b"):
-    wbm.check("M07.26b", np.asarray(mymath.vectors.centroid(POINTS_26, weights=[1, 1, 2, 0])).tolist(),
+    wbm.check("M07.26b", np.asarray(mymath.vectors.centroid(POINTS_26, weights=[1, 1, 3, 0])).tolist(),
               computed=True)
 with checked("M07.26c"):
     wbm.check("M07.26c", mymath.vectors.sum_sq_distances_to(POINTS_26, mymath.vectors.centroid(POINTS_26)),
@@ -510,12 +522,13 @@ with checked("M07.26f"):
     solution=LOAD_REF + f'''
 centroid, inertia = mymath.vectors.centroid, mymath.vectors.sum_sq_distances_to
 POINTS_26 = {POINTS_26}
-print("a)", centroid(POINTS_26), " b)", centroid(POINTS_26, weights=[1, 1, 2, 0]),
+print("a)", centroid(POINTS_26), " b)", centroid(POINTS_26, weights=[1, 1, 3, 0]),
       " c)", inertia(POINTS_26, centroid(POINTS_26)), " d)", inertia(POINTS_26, [0, 0]))
 print("e)", raised(centroid, POINTS_26, weights=[1, -1, 1, 1]), " f)", type(inertia(POINTS_26, [0, 0])).__name__)''',
     record=f'''wbm.record("M07.26a", [2.0, 3.0], decimals=6)
-wbm.record("M07.26b", [0.5, 2.0], decimals=6,
-           mistakes={{"multiplie chaque point par son poids avant d'additionner": [2.0, 3.0]}})
+wbm.record("M07.26b", [0.2, 2.0], decimals=6,
+           mistakes={{"multiplie chaque point par son poids avant d'additionner": [2.0, 3.0],
+                     "divise par la somme des poids, pas par le nombre de points": [0.25, 2.5]}})
 wbm.record("M07.26c", 40.0, decimals=6,
            mistakes={{"additionne les carrés des distances, sans racine": float(sum(np.sqrt([2, 10, 10, 18])))}})
 wbm.record("M07.26d", 92.0, decimals=6)
@@ -525,8 +538,9 @@ wbm.record("M07.26e", "ValueError",
 wbm.record("M07.26f", "float",
            mistakes={{"la docstring demande un float de Python : float(...) convertit un nombre de NumPy": "float64"}})''',
     after=tests_cells("test_centroid_ or test_sum_sq_distances_to_"),
-    note="a) $\\big(\\frac{1 + 3 - 1 + 5}{4}, \\frac{4 + 0 + 2 + 6}{4}\\big) = (2, 3)$. b) $\\frac{(1, 4) + (3, 0) + 2(-1, 2) "
-         "+ 0 \\times (5, 6)}{4} = (0{,}5 ;\\ 2)$ : un poids nul retire le point. c) $2 + 10 + 10 + 18 = 40$. d) $17 + 9 + "
+    note="a) $\\big(\\frac{1 + 3 - 1 + 5}{4}, \\frac{4 + 0 + 2 + 6}{4}\\big) = (2, 3)$. b) $\\frac{(1, 4) + (3, 0) + 3(-1, 2) "
+         "+ 0 \\times (5, 6)}{5} = (0{,}2 ;\\ 2)$ : un poids nul retire le point, et l'on divise par la somme des "
+         "poids, 5. c) $2 + 10 + 10 + 18 = 40$. d) $17 + 9 + "
          "5 + 61 = 92$, et König-Huygens donne $40 + 4 \\times \\lVert (2, 3) \\rVert^2 = 40 + 52 = 92$.",
 )
 
@@ -900,7 +914,7 @@ M07_32 = Ex(
     "s'emboîter.", "fiche §3 ; R0 (matplotlib)", tracks="C",
     body="""Écris `draw_unit_circle(ax, p, **style)`, qui trace dans l'axe `ax` la courbe des vecteurs du plan de norme $L^p$ égale à 1. Une méthode simple : prends 400 directions $\\mathbf{d}_k = (\\cos t_k, \\sin t_k)$ régulièrement réparties de 0 à $2\\pi$, divise chacune par sa norme $L^p$ (ta fonction `norm_p`, ou la formule, avec `float("inf")` pour L∞), et relie les points obtenus par `ax.plot(xs, ys, **style)`. Les arguments `**style` (couleur, épaisseur, légende) passent tels quels à `ax.plot`.
 
-Puis trace sur la même figure les courbes de $p = 1$, $1{,}5$, $2$, $4$ et $\\infty$, avec une légende, la même échelle sur les deux axes (`ax.set_aspect("equal")`) et les axes de coordonnées. Ajoute, en pointillés, la courbe de $p = \\frac{1}{2}$ : pour elle, `norm_p` lève une erreur, utilise la formule.
+La cellule de la figure s'en sert pour tracer, sur un même axe, les courbes de $p = 1$, $1{,}5$, $2$, $4$ et $\\infty$, puis, en pointillés, celle de $p = \\frac{1}{2}$ : ta fonction doit donc accepter aussi $0 < p < 1$, que `norm_p` refuse (utilise alors la formule).
 
 Une cellule de vérification essaie ta fonction pour cinq valeurs de $p$ (la figure elle-même se juge à l'œil).
 
@@ -1096,7 +1110,7 @@ M07_34 = Ex(
 
 Écris, **sans boucle** :
 - `row_norms(X, p=2)`, qui renvoie le tableau des normes $L^p$ des lignes de `X` (`p = float("inf")` pour L∞) ;
-- `normalize_rows(X)`, qui renvoie le tableau de même forme dont chaque ligne est divisée par sa norme L2 ; une ligne nulle reste nulle (pas de division par zéro : `np.where`).
+- `normalize_rows(X)`, qui renvoie le tableau de même forme dont chaque ligne est divisée par sa norme L2 ; une ligne nulle reste nulle, sans division par zéro (astuce : divise par `np.where(norms > 0, norms, 1.0)`, puis remets 0 sur les lignes nulles avec un second `np.where`).
 
 Une cellule de vérification compare tes fonctions à une boucle (ligne nulle comprise) et vérifie qu'elles n'en contiennent pas ; une autre compare les temps de calcul.
 
@@ -1153,7 +1167,7 @@ CITIES_35 = make_cities(735, 20)'''
 M07_35_CHECK = '''with checked("M07.35 défi"):
     import time
     from scipy.optimize import minimize
-    problems, worst_ratio, slowest = [], 0.0, 0.0
+    problems, worst_ratio, slowest, worst_kind = [], 0.0, 0.0, ""
     for seed_t, angle_t in [(735, 20), (11, 75), (12, 140), (13, 200), (14, 290)]:
         towns_t = make_cities(seed_t, angle_t)
         best_t = minimize(lambda c: total_distance(towns_t, c), np.median(towns_t, axis=0), method="Nelder-Mead",
@@ -1170,19 +1184,33 @@ M07_35_CHECK = '''with checked("M07.35 défi"):
         if got_t is None or np.shape(got_t) != (2,) or not np.all(np.isfinite(np.asarray(got_t, dtype=float))):
             problems.append("geometric_median doit renvoyer un point du plan : deux nombres finis")
             break
-        worst_ratio = max(worst_ratio, total_distance(towns_t, got_t) / best_t)
+        ratio_t = total_distance(towns_t, got_t) / best_t
+        if ratio_t > worst_ratio:
+            worst_ratio, g_t = ratio_t, np.asarray(got_t, dtype=float)
+            if np.allclose(g_t, towns_t.mean(axis=0), atol=1e-6):
+                worst_kind = "le barycentre, qui ne minimise que la somme des carrés des distances"
+            elif np.allclose(g_t, np.median(towns_t, axis=0), atol=1e-6):
+                worst_kind = "la médiane coordonnée par coordonnée, qui minimise la somme des distances L1"
+            else:
+                worst_kind = ""
     if problems:
         print("❌ Ex M07.35 : " + problems[0] + ".")
     elif worst_ratio > 1.001:
+        detail = (f"Ton point est {worst_kind}." if worst_kind else
+                  "Ta méthode approche le minimum sans l'atteindre : vérifie chaque étape, ou itère davantage.")
         print(f"❌ Ex M07.35 : ton point fait jusqu'à {100 * (worst_ratio - 1):.3f} % de plus que le minimum (objectif : "
-              "0,1 % au plus). Le barycentre ne minimise que la somme des carrés : regarde les indices.")
+              f"0,1 % au plus). {detail}")
     elif slowest > 5:
         print(f"❌ Ex M07.35 : objectif atteint, mais en {slowest:.1f} s pour un ensemble de villes (objectif : 5 s).")
     else:
         print(f"✅ Ex M07.35 : défi réussi, à {100 * (worst_ratio - 1):.4f} % du minimum au pire, sur cinq ensembles de "
               "villes.")
 with checked("M07.35"):
-    wbm.check("M07.35", round(total_distance(CITIES_35, geometric_median(CITIES_35)), 1), computed=True)'''
+    from scipy.optimize import minimize
+    best_cities = minimize(lambda c: total_distance(CITIES_35, c), np.median(CITIES_35, axis=0), method="Nelder-Mead",
+                           options={"xatol": 1e-10, "fatol": 1e-10, "maxiter": 20000}).fun
+    wbm.check("M07.35", bool(total_distance(CITIES_35, geometric_median(CITIES_35)) <= 1.001 * best_cities),
+              computed=True)'''
 
 M07_35 = Ex(
     "M07.35", "🏆", 3, 30, "Défi : le point qui minimise la somme des distances (non au carré) à 60 villes, à 0,1 % "
@@ -1194,13 +1222,13 @@ M07_35 = Ex(
 
 Écris `geometric_median(points)`, qui renvoie le point `[x, y]` (deux nombres). **L'objectif** : une somme des distances à 0,1 % au plus du minimum, en moins de 5 secondes, sur les villes `CITIES_35` et sur quatre autres ensembles de villes. NumPy suffit ; `scipy.optimize` est interdit (c'est lui que la vérification utilise pour trouver le minimum).
 
-La vérification essaie ta fonction sur cinq ensembles de villes, puis vérifie la somme des distances, arrondie à 0,1 km, pour `CITIES_35`.
+La vérification essaie ta fonction sur cinq ensembles de villes ; une dernière cellule enregistre si l'objectif est atteint pour `CITIES_35`.
 
 Dans ta copie : de combien (en %) le barycentre et la médiane coordonnée par coordonnée manquent-ils l'objectif pour `CITIES_35` ? Explique l'idée de ta méthode. Le point trouvé est-il plus proche du groupe de 26 villes ou des deux autres, et pourquoi ?""",
     given=M07_35_GIVEN,
     todo='''def geometric_median(points):
     """The point [x, y] that minimises the sum of the Euclidean distances to the rows of points (within 0.1 %)."""
-    raise NotImplementedError("pars du barycentre, puis améliore : un barycentre pondéré par l'inverse des distances")''',
+    raise NotImplementedError("remplace cette ligne par ta méthode")''',
     check=M07_35_CHECK,
     solution='''def geometric_median(points, iterations=500):
     """The point [x, y] that minimises the sum of the Euclidean distances to the rows of points (within 0.1 %).
@@ -1224,11 +1252,9 @@ print("centroid: +", round(100 * (total_distance(CITIES_35, CITIES_35.mean(axis=
       "· coordinate-wise median: +", round(100 * (total_distance(CITIES_35, np.median(CITIES_35, axis=0)) / best_35 - 1),
                                            2), "%")''',
     after=[("solution", M07_35_CHECK.split('with checked("M07.35"):')[0].rstrip())],
-    record='''wbm.record("M07.35", round(total_distance(CITIES_35, geometric_median(CITIES_35)), 1), decimals=1,
-           mistakes={"c'est la somme des distances au barycentre, qui ne minimise que la somme des carrés":
-                         round(total_distance(CITIES_35, CITIES_35.mean(axis=0)), 1),
-                     "c'est la somme des distances à la médiane coordonnée par coordonnée, qui minimise la somme des "
-                     "distances L1": round(total_distance(CITIES_35, np.median(CITIES_35, axis=0)), 1)})''',
+    record='''wbm.record("M07.35", True,
+           mistakes={"ton point fait plus de 0,1 % de plus que le minimum pour CITIES_35 : la cellule du défi dit de "
+                     "combien": False})''',
     note="Le barycentre manque l'objectif d'environ 0,6 %, et la médiane coordonnée par coordonnée de près de 2 %. "
          "L'algorithme de Weiszfeld (1937) part du barycentre, puis remplace $\\mathbf{c}$ par le barycentre des villes "
          "pondérées par $\\frac{1}{\\lVert \\mathbf{x}_i - \\mathbf{c} \\rVert}$ : une ville lointaine tire moins fort que "

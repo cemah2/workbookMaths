@@ -60,8 +60,10 @@ CHAPTERS = [
                  "{6, 7} ; la pureté 40 Adélie et 10 Chinstrap). Frontières : la densité n / bᵈ et le nombre "
                  "d'échantillons nécessaires (7.4), la boule dans le cube (7.6), l'hyper-orange (7.5), l'écorce "
                  "1 − (1 − ε)ᵈ, la distance au plus proche voisin et la concentration des distances (7.19, 7.20) : "
-                 "M07 étudie la diagonale du cube, l'angle de deux vecteurs aléatoires et la norme d'un vecteur "
-                 "gaussien ; la médiatrice comme frontière du centroïde le plus proche (7.7) est énoncée, pas "
+                 "M07 étudie la diagonale du cube, l'angle de deux vecteurs aléatoires (sans calculer la variance de leur "
+                 "produit scalaire, ∂ B3.6) et la norme d'un vecteur gaussien (M07.13), et renvoie à workbookIA 7 pour "
+                 "les distances ; pas de choix de k (7.Q8, 7.E3), et M07.E1 ne reprend pas 0B.E2 (cosinus ou distance "
+                 "euclidienne) ; la médiatrice comme frontière du centroïde le plus proche (7.7) est énoncée, pas "
                  "démontrée ; pas d'itération complète de k-means (7.3) : M07 démontre que l'inertie ne peut pas "
                  "augmenter et place un seul dépôt au barycentre ; pas de développement de ‖a − b‖² (7.R3) ni de "
                  "distances par paires vectorisées (7.13). Les distances par paires, le centroïde le plus proche, "
@@ -94,7 +96,7 @@ CHAPTERS = [
             ("M07.11", "✏️", 2, 15, "k-means++ : des probabilités de tirage proportionnelles à D²", "§6", ""),
             ("M07.12", "✏️", 1, 15, "La diagonale du cube unité et son angle avec les axes, quand d grandit", "§7",
              "E"),
-            ("M07.13", "✏️", 2, 15, "La distance au carré moyenne de deux points tirés dans le cube [0, 1]ᵈ", "§7",
+            ("M07.13", "✏️", 2, 15, "La norme d'un vecteur gaussien : espérance, variance et concentration", "§7",
              ""),
             ("M07.14", "∂", 2, 25, "L'inégalité de Cauchy-Schwarz, par le discriminant", "§4", "E"),
             ("M07.15", "∂", 2, 20, "L'inégalité triangulaire pour L2, L1 et L∞", "§3 §4", ""),
@@ -106,8 +108,8 @@ CHAPTERS = [
             ("M07.21", "📖", 2, 30, "MML §3.3 et §3.4 : longueurs, distances, angles et orthogonalité", "§4", ""),
             ("M07.22", "🧮", 1, 10, "Fermi : la mémoire d'un million d'embeddings", "§1", ""),
             ("M07.23", "🗣️", 1, 10, "Expliquer la similarité cosinus à quelqu'un qui a fait le lycée", "§4", "E"),
-            ("M07.E1", "💼", 1, 10, "Distance euclidienne ou similarité cosinus : laquelle pour comparer des textes ?",
-             "§3 §4", ""),
+            ("M07.E1", "💼", 1, 10, "Que représente géométriquement le vecteur de poids d'un modèle linéaire ?",
+             "§2 §5", ""),
             ("M07.24", "🔨", 1, 20, "Normes Lp et similarité cosinus", "§3 §4", "E m:norm_p,cosine_similarity"),
             ("M07.25", "🔨", 1, 15, "La projection sur une droite", "§4", "E m:project_onto_line"),
             ("M07.26", "🔨", 1, 20, "Barycentre et somme des carrés des distances", "§6",

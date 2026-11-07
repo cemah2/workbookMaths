@@ -21580,12 +21580,14 @@
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
     "M07.2d": {
-      "hash": "9253b022797c3cb5c52fc4caf6b1136a89f5f2611664f584e676e52718e3da8f",
+      "hash": "ca7e7705f7c6f687910a7b90c79d2232b5eccd4be0987bc182950c75b4c3f65a",
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "11c53027be7c03a99e71cbe7ab018260aeef90135ece1fe1b7408bae6cd168c0": "le produit croisé compte deux fois : 2 u · v, pas u · v",
-        "7d94ef0cbf1e4eb47eb8fe19300e0dc6de0c41436f8798d58fe6473345b0aecc": "le double produit 2 u · v manque : ‖u + v‖² = ‖u‖² + 2 u · v + ‖v‖²"
+        "493ed3c0431f448e79aaacb9b441a64f9e7e766f54ce7a85f43efdc583166e6f": "regarde le signe du double produit dans (2u − v) · (2u − v)",
+        "5bcd4fa0ea3cf8c5662a3e59bb653c9ebe474b15f1b3810f1c8d89ac01847723": "le coefficient 2 s'élève au carré : ‖2u‖² = 4 ‖u‖²",
+        "7a71c1aba123ae82b5f4675185ef078b275aac23b3af3165599d3a311b1cef15": "le produit croisé compte deux fois : −2 (2u) · v = −4 u · v",
+        "c1d987fd50a9b8cf9e09c6f93297a4384675f88fd7af8f177eff6f53e6474e12": "le double produit −2 (2u) · v manque"
       },
       "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
@@ -22401,6 +22403,7 @@
       "magnitude": -1,
       "mistakes": {
         "1bb21bf9117af7f7c108b285db4289837e79762e4e98107d169e91b12448d317": "divise par le plus grand des deux nombres, max(a, b)",
+        "9dbbf8c80bbd090c6f107f225cc1a1affda80f2a2a56bd012fed3fbb203c09b7": "c'est a/b ; la silhouette vaut (b − a)/max(a, b), soit 1 − a/b quand b > a",
         "9e3b902a3f86fdfff70795b0f15090db66dcb972e5976feab6c22fe285692eb5": "c'est b − a sur max(a, b), pas a − b"
       },
       "sign": 1,
@@ -22420,6 +22423,9 @@
       "hash_coarse": "de7c27419ee92fe91c59a5273c415e81b3884aea3f4aec150e1727b0c103efbe",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "39219e98b63427b0cb55c4e23070d2f7b1474e1629c7efbe50382ea0be8ad6e8": "c'est a/b ; la silhouette vaut (b − a)/max(a, b), soit 1 − a/b quand b > a"
+      },
       "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
@@ -22609,59 +22615,77 @@
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
     "M07.13a": {
-      "hash": "119c1d1384977e3022dc040aa917204609253a70c9808565561243fb3939c5e8",
-      "kind": "fraction",
+      "hash": "8019a6ef01a99c40c6625c3984e579ef0b4f8137f963d32e2a15f72a861708b1",
+      "kind": "int",
+      "magnitude": 0,
       "mistakes": {
-        "294f6430ad05c6f40719b6f4db53a05076a8b70f6f742d63f75a48320a28e339": "E[U²] n'est pas E[U]² : intègre x² sur [0, 1]"
+        "75083f303cf83410612e7ccf84b41874f0c8da6fcabae340a4f3adfb4cb6a4af": "la variance retranche le carré de l'espérance : E[Z⁴] − E[Z²]²",
+        "b13dce07a2572edabdf6b9fcb42291e5d941dd65dffdf1f153d21a0e8ce81f2f": "V(Z²) n'est pas V(Z)² : calcule E[Z⁴] − E[Z²]²"
       },
       "sign": 1,
-      "simplified": true,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
     "M07.13b": {
-      "hash": "a59a121abec180be2aef1ee3054b2d6f5833809d4e74cba7c9aefc1c70b6ae4e",
-      "kind": "fraction",
-      "sign": 1,
-      "simplified": true,
-      "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
-    },
-    "M07.13c": {
-      "hash": "0486e1c240bf87c71b73110990bc2c7a0adabf67ab6da260e6b3282edaacf599",
-      "kind": "fraction",
-      "mistakes": {
-        "b2065562490cf53b25c17c5491b519e0bf22a259da7d4e2ce9b8416bc87df83d": "le double produit −2 E[UV] manque : (U − V)² = U² − 2UV + V²",
-        "d1e99d7011905e0aa3c9019d795c73b5f9671a3043e7136d5147b970391a62bc": "c'est E[U − V]² ; la question demande E[(U − V)²]",
-        "e376bf66f3a7fd2773387fc634cbf90856dcf14f584cce16a76144394cff01d4": "1/12 est la variance de U ; développe (U − V)² : E[U²] − 2 E[UV] + E[V²]"
-      },
-      "sign": 1,
-      "simplified": true,
-      "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
-    },
-    "M07.13d": {
-      "hash": "ee9db93734c8dc2406b3905a4c92ae710a0245c5132406d0772ab07557d96409",
-      "kind": "int",
-      "magnitude": 0,
-      "sign": 1,
-      "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
-    },
-    "M07.13e": {
-      "hash": "66ccdeaa7f1b7752f36e0039a0b753eddbd86dea5a5cd031d5319d8c8a66f421",
+      "hash": "1ccba03aeac2130c0b665ab8acf78631101160509142b896ca956772c1560220",
       "kind": "int",
       "magnitude": 1,
       "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
-    "M07.13f": {
+    "M07.13c": {
+      "hash": "453364cec9d3082860e51ac47c7e3dc2bfaa0ef9ddaaa073e2a5f3ff036b9702",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "427e589c9e2b0555533712619e7d9e9d0fc3ca0dfb890b694a61fba12bda1d87": "c'est l'écart-type ; la question demande la variance",
+        "eee0789d24655e624b980aeb0fae6488d3eab8bb766f4d0034cf1410247e0fbf": "chaque X_i² a la variance de a), pas 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
+    },
+    "M07.13d": {
       "coarse_any": {
         "1": [
-          "82eed5699ca86d256b0a65e65e3a979c704dc278e7c7a3f341104277807826d7"
+          "9152ab87f323eadfd6f3aa835592295caf418fb4729947075a7181cf8cbd6573"
         ]
       },
       "decimals": 3,
-      "hash": "23807ef1195f96af8371f93052aac9fe98c7928db73f8df4a424b97a5edf267c",
-      "hash_coarse": "4dc64cce479e752437e154faaad75f0683696ffae064ac687d51ac3fc775a7ac",
+      "hash": "1e149604f75fa2e95c78ee65a03863ab532a9317a035700d196372cb0fc50d78",
+      "hash_coarse": "246b4d2edfec0b10087e5d8733c1e4e9576b74e41e15cd06673c1997ba372897",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "c538203b9208b8521b2583b7c0e32a1416b3c7633d6ee7ed8681192edccedef5": "divise l'écart-type, la racine de c), pas la variance",
+        "e2aaec44158a61f6b61cc7509e028c7a620497bfff54d2569bb4c5c3799154a8": "l'écart-type est la racine de c), pas √n"
+      },
+      "sign": 1,
+      "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
+    },
+    "M07.13e": {
+      "hash": "2f33b30b4d04327e3ea81fa1659910b0a9c16b82792abe453bb9d702ed3a6e27",
+      "kind": "int",
+      "magnitude": 4,
+      "mistakes": {
+        "68c325641ecb02cde29edc59001ac4bcd45e15839f67851ac9f49a38a2b6604d": "√(2/n) ≤ 0,01 : élève les deux membres au carré",
+        "6ee7977b8def5976e0afcabfef6f62afd629a963f48cec40fb9b7257ff4ef06c": "le facteur 2 de la variance compte : √(2/n) ≤ 0,01"
+      },
+      "sign": 1,
+      "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
+    },
+    "M07.13f": {
+      "coarse_any": {
+        "2": [
+          "cf29fefb8bc7d192cefe691db0b771e65e352994a71631c00f5764cfdcb3f57b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ea18ed68a6232abe7a53a9df5c5fafbf733684c3570f79cab346d5e5526816fd",
+      "hash_coarse": "a24c75d0a7bfad655323f8d31ade7228fa486df7c483a0843f7857db4c8383d8",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "f77ab1c31b02dbc6d4e8a49fc8f1f95a16be47ac60611c68b9c2f07dab6565e1": "Bienaymé-Tchebychev divise la variance par ε², le carré de l'écart"
+      },
       "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
@@ -22877,26 +22901,25 @@
     },
     "M07.24f": {
       "coarse_any": {
-        "0": [
-          "7f0d83cb4dc409827ed18349a687801fa99f62caf069954808493a39a3851fce"
-        ],
         "1": [
-          "35f2e0eef2e44429d2244b5d3e0bff4379c1eb1ab9d1267b2fc8c399c211207f"
+          "72507b9e71c1e3e55c87d44412879c03ae5551d39bddff7e85addd3ea21a2296"
         ]
       },
       "coarser": {
         "2": [
-          "df439798c40e0ac7d468b8cbfbd50b1681da4afb40ed5bdf8a31e59ba8065656"
+          "beebbd46721c9b81980a31e6e892205b13512e8e319d71bd2592a4e204065c07"
         ]
       },
       "decimals": 4,
-      "hash": "47b445f4d74e0cc621360448394aa7287c0a215048e5fe0d54d0d621301bbc1c",
-      "hash_coarse": "7a68268b20d5662b467dee10f2b8a8a09f7adbc7dc3c30c247c4f4b7ace90d94",
+      "hash": "5b353c77ec84c56535141f90b136fa7afd14a95256f8094eef8e1d10490b2f07",
+      "hash_coarse": "a335322c60d730f745cb0b4c5646cb250597e13f8ffc62fa6a2157c90297f555",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "02bb4485db1847a7794e96eb0bb2eab6583320d60f9f331d58123845bea42743": "divise le produit scalaire par le produit des deux normes",
-        "40c2771f84b1e23155bf5ee730486e55d2105b2c0fd4383a6062d23b33bc6188": "divise par le produit des deux normes, pas par le carré d'une seule"
+        "02a920fb65ffe1ced86bf2f9068d859fa9e65723bc6af3a7864d87124f152fd5": "ton quotient dépassait 1 et np.clip l'a ramené à 1 : divise le produit scalaire par le produit des deux normes",
+        "47b445f4d74e0cc621360448394aa7287c0a215048e5fe0d54d0d621301bbc1c": "divise par ‖u‖ ‖v‖, pas par le carré d'une seule des deux normes",
+        "497f9afaa196bf593b482b23dd8c5b63af334e7a96081e7aa9c5e8fd18d28de4": "les normes sont des racines : divise par √6 × √12, pas par 6 × 12",
+        "9ae77bdeac87780e30e8876086767bedca433676dcab3609d1fe0a12bd158dd3": "divise par ‖u‖ ‖v‖, pas par le carré d'une seule des deux normes"
       },
       "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
@@ -22930,42 +22953,42 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "863639bac63753a8a359cfc27fba42d984e788478a52839bdd06eb91eb6e5a50"
+          "293492733e566186c3948fee156cccd06cf0ffd523a3b2a107cdc12281dde0c2"
         ],
         [
-          "b03b9d1bd23facb55cb721ce839c8b584cc21b83f630ea7b42934f4f3259c2c8"
+          "0067505ed9f8d98a5ac16ddd37de85391afb7c2a07e1e7b241e790e1d233c02e"
         ],
         [
-          "ec59a19909358bec8f11b35a1eb05135a44f27f8344db333808d2e8ebc75026e"
+          "58fc8659c40a729a7cf6f2b6bc38f5d22a5d94f350805cf51c751ceaffff445f"
         ]
       ],
       "element_coarse_any": [
         [
-          "979ac7914063c11a6b7b7b45f6d21037bee1f64b9f443db731d57fee17ee93fd",
-          "350b0a15a34d8eac0bd4a288b9ee6f08e137259b8a634ff1ce1b254d4c47499e",
-          "b467d0107040e46983b7d1c138f627c203e7f8db7f602c27557b002a6428d832"
+          "ff55f546c26c4a209ca9cf7593632e3246ccbed909420b29e0a66b02881e4cdf",
+          "5aa953f1a7d2ed97fb8cc20e33ec4865fa74bf8622940a87ca48c176ae83f752",
+          "d00c536ae80de07a3eb9f47b1853638cc07a915bed5b68ff83c1e0316f4d00be"
         ],
         [
-          "a8a5662b1beaa4caad7b977562e0ab1700c35951342c5605ac869906e343af09",
-          "83872273a5928110134edd86e35dc9c3ce1d18a14b185ca3079d07b63b2bd431",
-          "62aa75635214df80a24f92c9ac254e58f41c5d259ff85abdb7373d1de16d62d5"
+          "8fcb0e0373b015c8c30930dc8547da62a98bccc4c66efa43e904eff6cda118cd",
+          "92ef8c15e344c72c49d2757bc52e417c89458d342df8d0d4b4f8f9dca21a0ade",
+          "5e14196a779a848c2e23c9507ff4e84fedb175e9597c704dd1d61c7f2140d9ac"
         ],
         [
-          "e62206cdf6c297bdf4492544e3941a767fa764e863a048396f487b2e912facbd",
-          "a6bbf8f2e363bdac96f700e865b4b52cbcec9e4e36486b1592ab900528adbac6",
-          "3f673804a7a7485021e8fd4188795ad52e5e35926cc420c5986c68782b366d59"
+          "bafe1a963d4fc65d06aff84445172ae6904dbbd4ca1370bafdbd89ff9b0333bc",
+          "2fe1261ba3d8d59af276d61eb8e4d7e59c698aec8b24b3353a5b5cb1902b825c",
+          "79cdc4ffba07032ca588463e64a0fba474983db92dcaf0ee41fe1b8942e899b2"
         ]
       ],
       "element_hashes": [
-        "f23e290323e82f043f9da2dee47142c25be8c5c15d195a4467bcbfe53313d1a0",
-        "d275a2a8123886a8c28e672cfdbf27e00105a9edccdeb1492eae1f1469e268b3",
-        "e355fab9debb02830f2abf6190057ec0d3c0534e04627335228dd61ca5ddaa39"
+        "bba3d704076cd92ad5da1f71c2736f6c6266f314a693c198ab14c97458e666a1",
+        "cc93e1265c6e133ba657f9e97d0ff047e0cebea792f2f060e2386aa3e61e4bee",
+        "410db84773ea910265b230d2997f82b9ade4294bcbf243b37a1a0d6fdc77fb6c"
       ],
-      "hash": "3d5daa47af381312d8ab0f30a7c514fa7780985020ed79aa51914129af1888ce",
+      "hash": "7326c73e0b883a98501ce4f7c24fce4c82571a72c398a2bd77368cae3495af05",
       "kind": "array",
       "mistakes": {
-        "4e10e10ff54d23bc8051139c3d9f6193dd5e373721562d2d54689773d33cd5a3": "divise par u · u = ‖u‖², pas par ‖u‖",
-        "9aca244c4883c07be848535ddeb9e8dbbcb61f13d96a233123d74d77669c9302": "divise x · u par u · u avant de multiplier u"
+        "2dd2bb0d09da0990bddac93abc0ae054c6681217f62add39ab765e9a4bd4a194": "divise par u · u = ‖u‖², pas par ‖u‖",
+        "8b0fcb99931dfbc46dfeb051f1a9aa235d583d1ff0ca2dd850dd4fe3c13d7b57": "divise x · u par u · u avant de multiplier u"
       },
       "shape": [
         3
@@ -23127,7 +23150,7 @@
       "decimals": 6,
       "element_coarse": [
         [
-          "dfc3914d385a9400d2854d0fd59d99692138fd5638db3d0f75cac638ccc8c061"
+          "c2116fb1d58a4a15d486c9b80801e18e79955d2c6f61d903c03cd2e4e35e19b6"
         ],
         [
           "f3b96320e0fcaa6477e2fcdc019d1f43a01f856f7146e68bd9b57fd41eae2769"
@@ -23135,10 +23158,10 @@
       ],
       "element_coarse_any": [
         [
-          "c28be59a862e56766d55a7f965ede67d7ad558b5a67a1fd269ac930ae1a9d3c9",
-          "ccff5594cd425a22b85c675c207a8e5c64dedd62323eadc41a2ded2d94fe06b0",
-          "0ffb2c139704e307b18168bc4cd6b1e6dcdfa555b61632071da29bf7848394bd",
-          "4adfe5e11a46a58a8a94a3013d2341cc496e9ba6157c0c33774c3cbac0b0c366"
+          "5af97271ecc799c06715954e4b1f32ec597426c6c2159d88dcc41390932aa284",
+          "e04286c806694e46e79e27db3c0516ae2f6dde62dae8c1bc1e1eb20983791131",
+          "8ecedc2e29b7a3e4f89c5fb98d64a6e4a428ba8de78d00cca433226995f8fae9",
+          "3895d56c66ba3b63d365204a221973f711e9cdc5fdbff761a0184992e76c6480"
         ],
         [
           "8815f65611fe9b0b03234729f0d55e88d0479a73a78c9ba35ebdc633fa34d01a",
@@ -23149,12 +23172,13 @@
         ]
       ],
       "element_hashes": [
-        "36ddbfc339985e78b17e61ed7ea4b65fb643223e63b697c769e9c936e70077ce",
+        "20c84b868b62c9a233a48d390bbb1f537dfc7adbc03042247e0eb40aafd360e7",
         "cbba30bcfd990b348929a6b513638edb224062bdc7750c05390402cebc11ade2"
       ],
-      "hash": "ea3e9ce3af6f58dcd5ef16a59974e5a439bab2b75aa569cc6288c809543001ad",
+      "hash": "40e441b53035ff6c0507a61126f3ee6534cb76eebba0173ef3d04b4b09302ee1",
       "kind": "array",
       "mistakes": {
+        "697d37eb2f53db962178410f058ffac240aa31ef9596e0700c061460b1d1275a": "divise par la somme des poids, pas par le nombre de points",
         "e84b9fdca784b5c6a2d2c9a64575d0f1a12932bf76519137db2d1c9521b7c06f": "multiplie chaque point par son poids avant d'additionner"
       },
       "shape": [
@@ -23958,16 +23982,11 @@
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
     "M07.35": {
-      "decimals": 1,
-      "hash": "7d1f156cd07a7ad18df7ddee64d80361d7373e874db992af77dadabb40756386",
-      "hash_coarse": "1415b0e16cdadde1914eca83c16999f8730aa1b981cdd8beb7dd9203cc300579",
-      "kind": "float",
-      "magnitude": 2,
+      "hash": "7caf74af4ca0b6ab8a45684bca8ee7709ad45460c51b0dab98e02e247da6b08e",
+      "kind": "bool",
       "mistakes": {
-        "18269e183fea6a97760ee4ec2fdd9448709b2def8fef459e243686e669326ab9": "c'est la somme des distances au barycentre, qui ne minimise que la somme des carrés",
-        "8f99de69637bc190eb13747d81923074c798ed6b47308dde1383a4b193b7faec": "c'est la somme des distances à la médiane coordonnée par coordonnée, qui minimise la somme des distances L1"
+        "749585d83d8c68622e9f145f59cc383ad370141edbabb5ef17c6709fcf8e8919": "ton point fait plus de 0,1 % de plus que le minimum pour CITIES_35 : la cellule du défi dit de combien"
       },
-      "sign": 1,
       "source": "chapitres/m07_vecteurs_rn/05_solutions.ipynb"
     },
     "POS.1a": {

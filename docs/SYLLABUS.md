@@ -1684,7 +1684,7 @@ Les vecteurs de ℝⁿ : produit scalaire, normes L1, L2, L∞ et distances, ang
 | M07.10 | ✏️ | La silhouette d'un point, à la main, en dimension 2 | ★★ | 15 | §6 | C | wbm | — |
 | M07.11 | ✏️ | k-means++ : des probabilités de tirage proportionnelles à D² | ★★ | 15 | §6 | C | wbm | — |
 | M07.12 | ✏️ | La diagonale du cube unité et son angle avec les axes, quand d grandit | ★ | 15 | §7 | C, E | wbm | — |
-| M07.13 | ✏️ | La distance au carré moyenne de deux points tirés dans le cube [0, 1]ᵈ | ★★ | 15 | §7 | C | wbm | — |
+| M07.13 | ✏️ | La norme d'un vecteur gaussien : espérance, variance et concentration | ★★ | 15 | §7 | C | wbm | — |
 | M07.14 | ∂ | L'inégalité de Cauchy-Schwarz, par le discriminant | ★★ | 25 | §4 | C, E | manuel | — |
 | M07.15 | ∂ | L'inégalité triangulaire pour L2, L1 et L∞ | ★★ | 20 | §3 §4 | C | manuel | — |
 | M07.16 | ∂ | La moyenne minimise la somme des carrés des distances, en dimension n | ★★ | 20 | §6 | C, E | manuel | — |
@@ -1695,7 +1695,7 @@ Les vecteurs de ℝⁿ : produit scalaire, normes L1, L2, L∞ et distances, ang
 | M07.21 | 📖 | MML §3.3 et §3.4 : longueurs, distances, angles et orthogonalité | ★★ | 30 | §4 | C | manuel | — |
 | M07.22 | 🧮 | Fermi : la mémoire d'un million d'embeddings | ★ | 10 | §1 | C | manuel | — |
 | M07.23 | 🗣️ | Expliquer la similarité cosinus à quelqu'un qui a fait le lycée | ★ | 10 | §4 | C, E | manuel | — |
-| M07.E1 | 💼 | Distance euclidienne ou similarité cosinus : laquelle pour comparer des textes ? | ★ | 10 | §3 §4 | C | manuel | — |
+| M07.E1 | 💼 | Que représente géométriquement le vecteur de poids d'un modèle linéaire ? | ★ | 10 | §2 §5 | C | manuel | — |
 | M07.24 | 🔨 | Normes Lp et similarité cosinus · `norm_p, cosine_similarity` | ★ | 20 | §3 §4 | C, E | pytest | — |
 | M07.25 | 🔨 | La projection sur une droite · `project_onto_line` | ★ | 15 | §4 | C, E | pytest | — |
 | M07.26 | 🔨 | Barycentre et somme des carrés des distances · `centroid, sum_sq_distances_to` | ★ | 20 | §6 | C, E | pytest | — |
@@ -1709,7 +1709,7 @@ Les vecteurs de ℝⁿ : produit scalaire, normes L1, L2, L∞ et distances, ang
 | M07.34 | 🛠️ | Les normes de toutes les lignes d'un tableau : axis, keepdims et broadcasting | ★ | 15 | §1 §3 | C | manuel | — |
 | M07.35 | 🏆 | Défi : le point qui minimise la somme des distances (non au carré) à 60 villes, à 0,1 % près | ★★★ | 30 | §3 §6 | C | wbm | — |
 
-*Notes* : Évités (règle de partage) : les œufs, les manchots, les deux lunes et les autres données de workbookIA 7, et les mini-exemples de sa fiche (centroïdes (1, 1) et (3, 5) avec x = (6, 0) ; a = (1, 2) et b = (3, 4) ; les points 0, 2, 3, 9, 11, 12 ; 0, 1, 5, 9 ; les clusters {0, 1, 2} et {6, 7} ; la pureté 40 Adélie et 10 Chinstrap). Frontières : la densité n / bᵈ et le nombre d'échantillons nécessaires (7.4), la boule dans le cube (7.6), l'hyper-orange (7.5), l'écorce 1 − (1 − ε)ᵈ, la distance au plus proche voisin et la concentration des distances (7.19, 7.20) : M07 étudie la diagonale du cube, l'angle de deux vecteurs aléatoires et la norme d'un vecteur gaussien ; la médiatrice comme frontière du centroïde le plus proche (7.7) est énoncée, pas démontrée ; pas d'itération complète de k-means (7.3) : M07 démontre que l'inertie ne peut pas augmenter et place un seul dépôt au barycentre ; pas de développement de ‖a − b‖² (7.R3) ni de distances par paires vectorisées (7.13). Les distances par paires, le centroïde le plus proche, k-means, k-means++ et la silhouette sont les fonctions de `mylearn` en workbookIA 7 ; `vectors` écrit les briques (normes, cosinus, projection, barycentre, inertie, hyperplans). Coût : environ 15 h au lieu de 14 (19 notions).
+*Notes* : Évités (règle de partage) : les œufs, les manchots, les deux lunes et les autres données de workbookIA 7, et les mini-exemples de sa fiche (centroïdes (1, 1) et (3, 5) avec x = (6, 0) ; a = (1, 2) et b = (3, 4) ; les points 0, 2, 3, 9, 11, 12 ; 0, 1, 5, 9 ; les clusters {0, 1, 2} et {6, 7} ; la pureté 40 Adélie et 10 Chinstrap). Frontières : la densité n / bᵈ et le nombre d'échantillons nécessaires (7.4), la boule dans le cube (7.6), l'hyper-orange (7.5), l'écorce 1 − (1 − ε)ᵈ, la distance au plus proche voisin et la concentration des distances (7.19, 7.20) : M07 étudie la diagonale du cube, l'angle de deux vecteurs aléatoires (sans calculer la variance de leur produit scalaire, ∂ B3.6) et la norme d'un vecteur gaussien (M07.13), et renvoie à workbookIA 7 pour les distances ; pas de choix de k (7.Q8, 7.E3), et M07.E1 ne reprend pas 0B.E2 (cosinus ou distance euclidienne) ; la médiatrice comme frontière du centroïde le plus proche (7.7) est énoncée, pas démontrée ; pas d'itération complète de k-means (7.3) : M07 démontre que l'inertie ne peut pas augmenter et place un seul dépôt au barycentre ; pas de développement de ‖a − b‖² (7.R3) ni de distances par paires vectorisées (7.13). Les distances par paires, le centroïde le plus proche, k-means, k-means++ et la silhouette sont les fonctions de `mylearn` en workbookIA 7 ; `vectors` écrit les briques (normes, cosinus, projection, barycentre, inertie, hyperplans). Coût : environ 15 h au lieu de 14 (19 notions).
 
 <a id="m08"></a>
 ## M08 · Tests statistiques

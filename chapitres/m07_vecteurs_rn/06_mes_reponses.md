@@ -116,7 +116,7 @@
 - e :
 - f :
 - g :
-- d) calculé de deux façons ; un contre-exemple ou une démonstration pour g) :
+- d) développé par linéarité, puis vérifié avec les coordonnées de 2u − v ; un contre-exemple ou une démonstration pour g) :
 
 ### Ex M07.3 — Normes L1, L2, L∞ et distances entre trois profils
 
@@ -226,7 +226,7 @@
 - f :
 - Le cosinus de f) en fonction de d, et sa limite ; l'angle de deux sommets voisins vus depuis le centre, en grande dimension :
 
-### Ex M07.13 — La distance au carré moyenne de deux points tirés dans le cube [0, 1]ᵈ
+### Ex M07.13 — La norme d'un vecteur gaussien : espérance, variance et concentration
 
 - a :
 - b :
@@ -234,7 +234,7 @@
 - d :
 - e :
 - f :
-- c) retrouvé avec 𝔼[U − V] et 𝕍(U − V) ; f) dépend-il de d ? Ce que j'en conclus :
+- Pourquoi les variances des X_i² s'additionnent ; d) en fonction de n ; l'écart-type approximatif de ‖X‖ (par la tangente), comparé à la fiche et à M07.30 :
 
 ## ∂ Démonstrations
 
@@ -323,7 +323,7 @@
 
 ## 💼 Entretien
 
-### M07.E1 — Distance euclidienne ou similarité cosinus : laquelle pour comparer des textes ?
+### M07.E1 — Que représente géométriquement le vecteur de poids d'un modèle linéaire ?
 
 *Ta réponse orale de 60 secondes, écrite ici après l'avoir dite à voix haute.*
 

@@ -29,7 +29,7 @@
 2. L1 : un **losange** (un carré posé sur la pointe, de sommets $(\pm 1, 0)$ et $(0, \pm 1)$) ; L∞ : un **carré** de côté 2 centré à l'origine.
 3. **Vrai** (fiche §3) : un maximum est au plus la racine de la somme des carrés, qui est au plus la somme des valeurs absolues.
 4. $\lVert -3\mathbf{x} \rVert = 3\,\lVert \mathbf{x} \rVert$ (homogénéité : la valeur absolue de $-3$).
-5. $|1 - 6| + |2 - 0| = 5 + 2 = 7$.
+5. $|-1 - 4| + |3 - 1| = 5 + 2 = 7$.
 6. Elle viole l'**inégalité triangulaire** : $\mathbf{e}_1$ et $\mathbf{e}_2$ ont chacun la valeur 1, mais $\mathbf{e}_1 + \mathbf{e}_2$ a la valeur $(1 + 1)^2 = 4 > 2$.
 
 ### M07.Q4 — Similarité cosinus : vrai ou faux
@@ -54,15 +54,15 @@
 3. Au **barycentre** du nuage, et seulement là (König-Huygens).
 4. L'affectation rattache chaque point au centre le plus proche ; la mise à jour remplace chaque centre par le barycentre des points qui lui sont rattachés.
 5. **Vrai** : $b(i) < a(i)$, le point est en moyenne plus près de l'autre cluster que du sien.
-6. **Non** : sa distance au centre le plus proche (lui-même) est nulle, donc sa probabilité aussi.
+6. $\frac{2\,(0, 0) + 1\,(6, 3)}{2 + 1} = \frac{(6, 3)}{3} = (2, 1)$ : le barycentre est deux fois plus près du point de poids 2.
 
 ### M07.Q7 — Intuitions de la grande dimension
 1. $\sqrt{100} = 10$.
 2. **Vrai** : $\cos\theta = \frac{1}{\sqrt{n}}$ tend vers 0.
 3. (B) : le cosinus est de l'ordre de $\frac{1}{\sqrt{10\,000}} = 0{,}01$.
 4. Environ $\sqrt{n}$ : $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = n$, et la norme se concentre autour de $\sqrt{n}$.
-5. **Vrai** : c'est la concentration des distances (fiche §7).
-6. Le « plus proche voisin » n'est alors guère plus proche que les autres points : la notion de voisinage perd son sens, sauf si les données ont de la structure.
+5. **Vrai** : diviser $\frac{1}{\sqrt{n}}$ par 10 demande de multiplier $\sqrt{n}$ par 10, donc $n$ par 100.
+6. $\sqrt{n \times \frac{1}{n}} = 1$ : un vecteur unitaire de grande dimension peut n'avoir que de toutes petites coordonnées.
 
 <a id="rappels"></a>
 
@@ -111,18 +111,18 @@ Pour la copie : deux équations suffisent à trouver $a$ et $b$ ; les deux autre
 
 ### Ex M07.2 — Produits scalaires, ‖u + v‖² et l'identité du parallélogramme
 
-**Réponses** : a) `3` · b) `9` · c) `12` · d) `27` · e) `"-1/4"` · f) `8` · g) `False`.
+**Réponses** : a) `3` · b) `9` · c) `12` · d) `36` · e) `"-1/4"` · f) `8` · g) `False`.
 
 **Démarche.**
 - a) $2 + 3 - 2 + 0 = 3$ ; b) $4 + 1 + 4 + 0 = 9$ ; c) $1 + 9 + 1 + 1 = 12$.
-- d) Avec le développement : $9 + 2 \times 3 + 12 = 27$. Directement : $\mathbf{u} + \mathbf{v} = (3, 4, -1, -1)$, et $9 + 16 + 1 + 1 = 27$.
+- d) Par linéarité : $(2\mathbf{u} - \mathbf{v}) \cdot (2\mathbf{u} - \mathbf{v}) = 4\,\mathbf{u} \cdot \mathbf{u} - 4\,\mathbf{u} \cdot \mathbf{v} + \mathbf{v} \cdot \mathbf{v} = 36 - 12 + 12 = 36$. Vérification : $2\mathbf{u} - \mathbf{v} = (3, -1, -5, 1)$, et $9 + 1 + 25 + 1 = 36$.
 - e) $(\mathbf{u} + t\mathbf{v}) \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{v} + t\,\mathbf{v} \cdot \mathbf{v} = 3 + 12t = 0$, d'où $t = -\frac{1}{4}$.
 - f) $\lVert \mathbf{a} + \mathbf{b} \rVert^2 - \lVert \mathbf{a} - \mathbf{b} \rVert^2 = 4\,\mathbf{a} \cdot \mathbf{b}$, donc $\mathbf{a} \cdot \mathbf{b} = \frac{50 - 18}{4} = 8$.
 - g) **Faux** : $\mathbf{u} \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{w}$ dit seulement que $\mathbf{u} \cdot (\mathbf{v} - \mathbf{w}) = 0$. Contre-exemple : $\mathbf{u} = (1, 0)$, $\mathbf{v} = (0, 1)$, $\mathbf{w} = (0, 2)$ ; les deux produits valent 0.
 
-**Erreurs fréquentes.** Un signe perdu dans $(-2) \times 1$ (a : 7) ; donner la norme au lieu de son carré (b : 3) ; oublier le double produit (d : 21) ou son facteur 2 (d : 24) ; utiliser $\mathbf{u} \cdot \mathbf{u}$ au lieu de $\mathbf{v} \cdot \mathbf{v}$ en e) ; oublier de diviser par 4 en f).
+**Erreurs fréquentes.** Un signe perdu dans $(-2) \times 1$ (a : 7) ; donner la norme au lieu de son carré (b : 3) ; oublier d'élever le coefficient 2 au carré (d : 18), oublier le double produit (d : 48), se tromper de signe (d : 60) ou ne le compter qu'une fois (d : 42) ; utiliser $\mathbf{u} \cdot \mathbf{u}$ au lieu de $\mathbf{v} \cdot \mathbf{v}$ en e) ; oublier de diviser par 4 en f).
 
-**Variante.** Avec les mêmes $\mathbf{u}$ et $\mathbf{v}$, $\lVert 2\mathbf{u} + \mathbf{v} \rVert^2$ ? *Réponse* : $4 \times 9 + 4 \times 3 + 12 = 60$.
+**Variante.** Avec les mêmes $\mathbf{u}$ et $\mathbf{v}$, $\lVert \mathbf{u} - 3\mathbf{v} \rVert^2$ ? *Réponse* : $9 - 6 \times 3 + 9 \times 12 = 99$.
 
 ### Ex M07.3 — Normes L1, L2, L∞ et distances entre trois profils
 
@@ -263,7 +263,7 @@ Pour la copie : la formule pondérée s'écrit $\sum_i \omega_i \lVert S_i - \ma
 
 Pour la copie : le signe de e) se prévoit : $B$ est bien plus près de $A$ et $C$ que de $D$ et $F$, donc $b(B) < a(B)$. Pour $D$, $a(D) \approx 2{,}24$ est voisin de $a(A) \approx 2{,}12$ ; c'est $b$ qui fait la différence : $D$ est bien plus près du premier cluster ($b(D) \approx 5{,}10$) que $A$ ne l'est du second ($b(A) \approx 6{,}85$).
 
-**Erreurs fréquentes.** Compter le point lui-même dans $a(i)$ (a : 1,412) ; diviser par $a$ au lieu de $\max(a, b)$ (c : 2,234) ; inverser $a$ et $b$ (un signe changé).
+**Erreurs fréquentes.** Compter le point lui-même dans $a(i)$ (a : 1,412) ; diviser par $a$ au lieu de $\max(a, b)$ (c : 2,234) ; donner $\frac{a}{b}$ au lieu de $1 - \frac{a}{b}$ (c : 0,309 ; d : 0,438) ; inverser $a$ et $b$ (un signe changé).
 
 **Variante.** $s(F)$ ? *Réponse* : $a(F) = \sqrt{5}$, $b(F) = \frac{\sqrt{58} + \sqrt{34} + \sqrt{37}}{3} \approx 6{,}5098$, d'où $s(F) \approx 0{,}657$.
 
@@ -300,27 +300,23 @@ Pour la copie : en dimension $d$, ce cosinus vaut $\frac{d - 2}{d}$, qui tend ve
 
 **Variante.** La longueur de la diagonale du cube $[0, 2]^{25}$ ? *Réponse* : $\lVert (2, \ldots, 2) \rVert = 2\sqrt{25} = 10$.
 
-### Ex M07.13 — La distance au carré moyenne de deux points tirés dans le cube [0, 1]ᵈ
+### Ex M07.13 — La norme d'un vecteur gaussien : espérance, variance et concentration
 
-**Réponses** : a) `"1/3"` · b) `"1/4"` · c) `"1/6"` · d) `2` · e) `10` · f) `0.408`.
+**Réponses** : a) `2` · b) `50` · c) `100` · d) `0.2` · e) `20000` · f) `0.01`.
 
 **Démarche.**
-- a) $\mathbb{E}[U^2] = \int_0^1 x^2\,dx = \frac{1}{3}$ (M02a).
-- b) Par indépendance, $\mathbb{E}[UV] = \mathbb{E}[U]\,\mathbb{E}[V] = \frac{1}{4}$ (M02b).
-- c) $\mathbb{E}[(U - V)^2] = \mathbb{E}[U^2] - 2\,\mathbb{E}[UV] + \mathbb{E}[V^2] = \frac{1}{3} - \frac{1}{2} + \frac{1}{3} = \frac{1}{6}$.
-- d) $\lVert \mathbf{X} - \mathbf{Y} \rVert^2 = \sum_{j=1}^{d} (X_j - Y_j)^2$ : par linéarité, $\mathbb{E} = \frac{d}{6}$, soit 2 pour $d = 12$.
-- e) $\sqrt{\frac{600}{6}} = 10$.
-- f) $\frac{\sqrt{d/6}}{\sqrt{d}} = \frac{1}{\sqrt{6}} \approx 0{,}408$.
+- a) $\mathbb{V}(Z^2) = \mathbb{E}[Z^4] - \mathbb{E}[Z^2]^2 = 3 - 1 = 2$ (avec $\mathbb{E}[Z^2] = \mathbb{V}(Z) = 1$).
+- b) $\lVert \mathbf{X} \rVert^2 = \sum_{i=1}^{n} X_i^2$ et l'espérance est linéaire : $n \times 1 = 50$.
+- c) Les $X_i^2$ sont indépendantes (chacune ne dépend que de sa coordonnée), donc leurs variances s'additionnent : $n \times 2 = 100$.
+- d) $\frac{\sqrt{100}}{50} = 0{,}2$ ; en général $\frac{\sqrt{2n}}{n} = \sqrt{\frac{2}{n}}$.
+- e) $\sqrt{\frac{2}{n}} \le 0{,}01$ équivaut à $\frac{2}{n} \le 10^{-4}$, soit $n \ge 20\,000$.
+- f) $P\big(\big\lvert \lVert \mathbf{X} \rVert^2 - n \big\rvert \ge \frac{n}{10}\big) \le \frac{2n}{(n/10)^2} = \frac{200}{n} = 0{,}01$.
 
-Pour la copie : $\mathbb{E}[U - V] = 0$ et $\mathbb{V}(U - V) = \mathbb{V}(U) + \mathbb{V}(V) = \frac{1}{12} + \frac{1}{12} = \frac{1}{6}$, donc $\mathbb{E}[(U - V)^2] = \mathbb{V}(U - V) + \mathbb{E}[U - V]^2 = \frac{1}{6}$. Le rapport f) ne dépend pas de $d$ : deux points pris au hasard sont typiquement à 41 % de la diagonale l'un de l'autre, en toute dimension. Mais la dispersion de $\lVert \mathbf{X} - \mathbf{Y} \rVert^2$ ne grandit que comme $\sqrt{d}$ : en grande dimension, presque toutes les distances sont proches de $\sqrt{d/6}$ (fiche §7).
+Pour la copie : la variance d'une somme est la somme des variances quand les termes sont indépendants (M02b). Avec la tangente, $\lVert \mathbf{X} \rVert \approx \sqrt{n} + \frac{\lVert \mathbf{X} \rVert^2 - n}{2\sqrt{n}}$, d'où un écart-type d'environ $\frac{\sqrt{2n}}{2\sqrt{n}} = \frac{1}{\sqrt{2}} \approx 0{,}707$, quelle que soit la dimension : c'est l'écart-type d'environ 0,71 de la fiche, et ce que mesure M07.30. La norme vaut donc $\sqrt{n}$ à environ 0,7 près : rapportée à $\sqrt{n}$, sa dispersion tend vers 0. C'est la concentration de la norme.
 
-**Erreurs fréquentes.** Prendre $\mathbb{E}[U]^2$ pour $\mathbb{E}[U^2]$ (a : $\frac{1}{4}$) ; oublier le double produit (c : $\frac{2}{3}$) ou prendre la variance de $U$ ($\frac{1}{12}$) ; oublier la racine en e).
+**Erreurs fréquentes.** Oublier de retrancher $\mathbb{E}[Z^2]^2$ (a : 3) ou prendre $\mathbb{V}(Z)^2$ (a : 1) ; donner à chaque $X_i^2$ la variance 1 (c : 50) ; donner l'écart-type au lieu de la variance (c : 10) ; diviser la variance par l'espérance (d : 2) ; oublier le facteur 2 (d : 0,141 ; e : 10 000) ; oublier d'élever au carré en e) (200) ; diviser par $\varepsilon$ au lieu de $\varepsilon^2$ en f) (20, une « probabilité » plus grande que 1).
 
-**Variante.** $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big]$, pour un point uniforme du cube $[0, 1]^{30}$ ? *Réponse* : $30 \times \frac{1}{3} = 10$.
-
-<a id="demonstrations"></a>
-
-## ∂ Démonstrations
+**Variante.** La dispersion relative de $\lVert \mathbf{X} \rVert^2$ en dimension 800 ? *Réponse* : $\sqrt{\frac{2}{800}} = 0{,}05$.
 
 ### Ex M07.14 — L'inégalité de Cauchy-Schwarz, par le discriminant
 
@@ -442,13 +438,13 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 ## 💼 Entretien
 
-### M07.E1 — Distance euclidienne ou similarité cosinus : laquelle pour comparer des textes ?
+### M07.E1 — Que représente géométriquement le vecteur de poids d'un modèle linéaire ?
 
 **Réponse modèle (60 secondes).**
 
-> La distance euclidienne compare des positions : elle dépend à la fois de la direction et de la longueur des vecteurs. La similarité cosinus ne compare que la direction, l'angle entre les deux vecteurs. Pour des textes, la longueur du vecteur reflète surtout la longueur du document : un long article et un court résumé sur le même sujet ont des vecteurs presque alignés, mais très éloignés au sens euclidien. Je prendrais donc la similarité cosinus. Et si les vecteurs sont normalisés à la norme 1, la question disparaît : pour deux vecteurs unitaires, le carré de la distance vaut deux moins deux fois leur produit scalaire, donc deux fois un moins le cosinus. Les deux mesures classent alors les documents exactement dans le même ordre ; c'est pour cela qu'on normalise souvent les embeddings, puis qu'on utilise un simple produit scalaire, plus rapide.
+> La frontière de décision est l'ensemble des points où le score $\mathbf{w} \cdot \mathbf{x} + b$ vaut zéro : c'est un hyperplan, une droite en dimension 2, et $\mathbf{w}$ lui est perpendiculaire, c'est son vecteur normal. Il indique aussi la direction dans laquelle le score augmente le plus vite, vers le côté de la classe 1. Le score divisé par la norme de $\mathbf{w}$ est la distance signée d'un point à la frontière : il dit si le point est classé de justesse ou largement. Si je multiplie $\mathbf{w}$ et $b$ par 10, l'hyperplan et toutes les décisions restent les mêmes, mais tous les scores sont multipliés par 10 : si le score passe ensuite par une sigmoïde, les probabilités deviennent plus tranchées. Les distances, elles, ne changent pas, puisqu'on divise par la norme. Avec un facteur négatif, l'hyperplan reste le même, mais les deux côtés sont échangés : toutes les décisions s'inversent. La norme de $\mathbf{w}$ règle donc la pente du score, pas la place de la frontière.
 
-**Grille.** (1) ce que compare chaque mesure (position, ou direction seule) ; (2) l'effet de la longueur des documents ; (3) le développement $\lVert \mathbf{u} - \mathbf{v} \rVert^2 = 2 - 2\,\mathbf{u} \cdot \mathbf{v} = 2(1 - \cos\theta)$ pour des vecteurs unitaires, et la conséquence (même classement) ; (4) la pratique : normaliser, puis un produit scalaire.
+**Grille.** (1) la frontière, un hyperplan, et $\mathbf{w}$ normal à elle ; (2) $\mathbf{w}$, direction de plus forte croissance du score ; (3) $\frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert}$ comme distance à la frontière ; (4) un facteur positif : mêmes décisions et mêmes distances, scores multipliés ; (5) un facteur négatif : côtés échangés ; (6) la conclusion : $\lVert \mathbf{w} \rVert$ règle la pente, pas la frontière.
 
 <a id="notebook"></a>
 
@@ -456,27 +452,27 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 ### Ex M07.24 — Normes Lp et similarité cosinus · `norm_p, cosine_similarity`
 
-**Réponses** : a) `9.0` · b) `5.0` · c) `4.0` · d) `4.327` · e) `"ValueError"` · f) `0.6667` · g) `"ValueError"` · h) `"float"`.
+**Réponses** : a) `9.0` · b) `5.0` · c) `4.0` · d) `4.327` · e) `"ValueError"` · f) `0.4714` · g) `"ValueError"` · h) `"float"`.
 
-**Démarche.** `norm_p` : `x = np.array(x, dtype=float)`, une `ValueError` si `x.ndim != 1` ou `x.size == 0`, ou si `not p >= 1` (ce test refuse aussi `nan`) ; puis trois cas : `p` infini (`math.isinf(p)`) donne `float(np.max(np.abs(x)))`, `p == 1` donne la somme des valeurs absolues, sinon `float(np.sum(np.abs(x) ** p) ** (1 / p))`. `cosine_similarity` : les deux vecteurs en flottants, une `ValueError` si les longueurs diffèrent ou si une norme est nulle, puis `float(np.clip(np.sum(u * v) / (nu * nv), -1, 1))`. Pour la copie : a) $1 + 2 + 2 + 4 = 9$ ; b) $\sqrt{25} = 5$ ; c) 4 ; d) $81^{1/3} \approx 4{,}327$ ; f) $\frac{4}{\sqrt{6}\sqrt{6}} = \frac{2}{3}$. La norme diminue quand $p$ augmente : la plus grande coordonnée pèse de plus en plus. Sans `np.clip`, le cosinus d'un vecteur avec lui-même vaut souvent 1,0000000000000002 (les arrondis du numérateur et du dénominateur ne se compensent pas exactement : environ un vecteur gaussien sur quatre en dimension 5), et `np.arccos` de ce nombre donne `nan`.
+**Démarche.** `norm_p` : `x = np.array(x, dtype=float)`, une `ValueError` si `x.ndim != 1` ou `x.size == 0`, ou si `not p >= 1` (ce test refuse aussi `nan`) ; puis trois cas : `p` infini (`math.isinf(p)`) donne `float(np.max(np.abs(x)))`, `p == 1` donne la somme des valeurs absolues, sinon `float(np.sum(np.abs(x) ** p) ** (1 / p))`. `cosine_similarity` : les deux vecteurs en flottants, une `ValueError` si les longueurs diffèrent ou si une norme est nulle, puis `float(np.clip(np.sum(u * v) / (nu * nv), -1, 1))`. Pour la copie : a) $1 + 2 + 2 + 4 = 9$ ; b) $\sqrt{25} = 5$ ; c) 4 ; d) $81^{1/3} \approx 4{,}327$ ; f) $\frac{3 + 2 + 0 - 1}{\sqrt{6}\,\sqrt{12}} = \frac{4}{\sqrt{72}} \approx 0{,}4714$. La norme diminue quand $p$ augmente : la plus grande coordonnée pèse de plus en plus. Sans `np.clip`, le cosinus d'un vecteur avec lui-même vaut souvent 1,0000000000000002 (les arrondis du numérateur et du dénominateur ne se compensent pas exactement : environ un vecteur gaussien sur quatre en dimension 5), et `np.arccos` de ce nombre donne `nan`.
 
-**Erreurs fréquentes.** Oublier les valeurs absolues (d : avec des signes, $|1 - 8 + 8 - 64|^{1/3}$) ; oublier la puissance $\frac{1}{p}$ (d : 81) ; tester `p == float("inf")` sur un `np.inf` (cela marche, mais `math.isinf` est plus sûr) ; diviser par une seule des deux normes (f) ; laisser passer un vecteur nul (g : `nan` ou `ZeroDivisionError`) ; renvoyer un `numpy.float64` (h).
+**Erreurs fréquentes.** Oublier les valeurs absolues (d : avec des signes, $|1 - 8 + 8 - 64|^{1/3}$) ; oublier la puissance $\frac{1}{p}$ (d : 81) ; tester `p == float("inf")` sur un `np.inf` (cela marche, mais `math.isinf` est plus sûr) ; diviser par une seule des deux normes (f : 1, ramené par `np.clip`) ou par le carré d'une seule (f : 0,6667 ou 0,3333) ; laisser passer un vecteur nul (g : `nan` ou `ZeroDivisionError`) ; renvoyer un `numpy.float64` (h).
 
 ### Ex M07.25 — La projection sur une droite · `project_onto_line`
 
-**Réponses** : a) `[1.3333, 1.3333, 1.3333]` · b) `0.0000` · c) `[0.0, 5.0]` · d) `[4.0, 0.0, 0.0, 0.0]` · e) `"ValueError"` · f) `"ndarray"`.
+**Réponses** : a) `[1.6667, 1.6667, 1.6667]` · b) `0.0000` · c) `[0.0, 5.0]` · d) `[4.0, 0.0, 0.0, 0.0]` · e) `"ValueError"` · f) `"ndarray"`.
 
-**Démarche.** `x` et `u` en flottants, une `ValueError` si les longueurs diffèrent ou si `u · u == 0`, puis `(np.sum(x * u) / np.sum(u * u)) * u`. Pour la copie : a) $\frac{4}{3}(1, 1, 1)$ ; c) $\frac{-15}{9}(0, -3) = (0, 5)$ : projeter sur un axe garde la coordonnée de cet axe ; le sens de $\mathbf{u}$ ne compte pas, car $\mathbf{u}$ apparaît deux fois dans la formule (les deux signes moins se compensent).
+**Démarche.** `x` et `u` en flottants, une `ValueError` si les longueurs diffèrent ou si `u · u == 0`, puis `(np.sum(x * u) / np.sum(u * u)) * u`. Pour la copie : a) $\frac{5}{3}(1, 1, 1)$ ; c) $\frac{-15}{9}(0, -3) = (0, 5)$ : projeter sur un axe garde la coordonnée de cet axe ; le sens de $\mathbf{u}$ ne compte pas, car $\mathbf{u}$ apparaît deux fois dans la formule (les deux signes moins se compensent).
 
-**Erreurs fréquentes.** Diviser par $\lVert \mathbf{u} \rVert$ au lieu de $\mathbf{u} \cdot \mathbf{u}$ (a : $\frac{4}{\sqrt{3}}$ ; c : `[0, 15]`) ; oublier de diviser (c : `[0, 45]`) ; renvoyer une liste (f).
+**Erreurs fréquentes.** Diviser par $\lVert \mathbf{u} \rVert$ au lieu de $\mathbf{u} \cdot \mathbf{u}$ (a : $\frac{5}{\sqrt{3}}$ ; c : `[0, 15]`) ; oublier de diviser (c : `[0, 45]`) ; renvoyer une liste (f).
 
 ### Ex M07.26 — Barycentre et somme des carrés des distances · `centroid, sum_sq_distances_to`
 
-**Réponses** : a) `[2.0, 3.0]` · b) `[0.5, 2.0]` · c) `40.0` · d) `92.0` · e) `"ValueError"` · f) `"float"`.
+**Réponses** : a) `[2.0, 3.0]` · b) `[0.2, 2.0]` · c) `40.0` · d) `92.0` · e) `"ValueError"` · f) `"float"`.
 
-**Démarche.** `centroid` : `points` en tableau 2-D (une `ValueError` s'il est vide), des poids égaux à 1 par défaut, une `ValueError` si leur forme n'est pas `(n,)`, si l'un est négatif (`not np.all(w >= 0)`, qui refuse aussi `nan`) ou si leur somme n'est pas positive ; puis `np.sum(w[:, None] * points, axis=0) / w.sum()`. `sum_sq_distances_to` : `float(np.sum((points - c) ** 2))`, après avoir vérifié que `c` a une coordonnée par colonne. Pour la copie : a) $\big(\frac{8}{4}, \frac{12}{4}\big) = (2, 3)$ ; b) $\frac{(1, 4) + (3, 0) + 2\,(-1, 2)}{4} = (0{,}5 ;\ 2)$ : le dernier point a un poids nul, il disparaît du numérateur comme du dénominateur ; c) $2 + 10 + 10 + 18 = 40$ ; d) $17 + 9 + 5 + 61 = 92 = 40 + 4 \times 13$ (König-Huygens, avec $\lVert (2, 3) \rVert^2 = 13$).
+**Démarche.** `centroid` : `points` en tableau 2-D (une `ValueError` s'il est vide), des poids égaux à 1 par défaut, une `ValueError` si leur forme n'est pas `(n,)`, si l'un est négatif (`not np.all(w >= 0)`, qui refuse aussi `nan`) ou si leur somme n'est pas positive ; puis `np.sum(w[:, None] * points, axis=0) / w.sum()`. `sum_sq_distances_to` : `float(np.sum((points - c) ** 2))`, après avoir vérifié que `c` a une coordonnée par colonne. Pour la copie : a) $\big(\frac{8}{4}, \frac{12}{4}\big) = (2, 3)$ ; b) $\frac{(1, 4) + (3, 0) + 3\,(-1, 2)}{5} = (0{,}2 ;\ 2)$ : le dernier point a un poids nul, il disparaît du numérateur, et le dénominateur est la somme des poids, 5 ; c) $2 + 10 + 10 + 18 = 40$ ; d) $17 + 9 + 5 + 61 = 92 = 40 + 4 \times 13$ (König-Huygens, avec $\lVert (2, 3) \rVert^2 = 13$).
 
-**Erreurs fréquentes.** Oublier `[:, None]` (les poids ne se multiplient pas ligne par ligne) ; diviser par le nombre de points au lieu de la somme des poids ; additionner des distances au lieu de leurs carrés (c) ; accepter un poids négatif (e).
+**Erreurs fréquentes.** Oublier `[:, None]` (les poids ne se multiplient pas ligne par ligne) ; diviser par le nombre de points au lieu de la somme des poids (b : `[0.25, 2.5]`) ; additionner des distances au lieu de leurs carrés (c) ; accepter un poids négatif (e).
 
 ### Ex M07.27 — Côté d'un hyperplan et distance à un hyperplan · `side_of_hyperplane, distance_to_hyperplane`
 
@@ -538,7 +534,7 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 ### Ex M07.35 — Défi : le point qui minimise la somme des distances (non au carré) à 60 villes, à 0,1 % près
 
-**Réponse** : `328.2` (la somme des distances au point trouvé, pour `CITIES_35`).
+**Réponse** : `True` (l'objectif est atteint pour `CITIES_35`, dont la somme des distances minimale vaut environ 328,25 km).
 
 **Démarche.** L'algorithme de Weiszfeld (1937) : partir du barycentre $\mathbf{c}$, puis répéter $\mathbf{c} \leftarrow \frac{\sum_i \mathbf{x}_i / d_i}{\sum_i 1 / d_i}$, où $d_i = \lVert \mathbf{x}_i - \mathbf{c} \rVert$ (avec un plancher, par exemple $10^{-12}$, si $\mathbf{c}$ tombe sur une ville). Quelques centaines d'itérations suffisent largement. L'idée : le gradient de $\sum_i \lVert \mathbf{c} - \mathbf{x}_i \rVert$ est $\sum_i \frac{\mathbf{c} - \mathbf{x}_i}{\lVert \mathbf{c} - \mathbf{x}_i \rVert}$, une somme de vecteurs **unitaires** ; l'annuler revient à écrire $\mathbf{c}$ comme le barycentre des villes pondérées par $\frac{1}{d_i}$, et l'on itère cette équation. Pour la copie : pour `CITIES_35`, le barycentre fait environ 0,6 % de plus que le minimum, la médiane coordonnée par coordonnée environ 1,9 %. Le point trouvé est plus près du groupe de 26 villes (à environ 3,8 km de son centre, contre 6,2 et 6,7 km pour les deux autres groupes) que ne l'est le barycentre (4,9 km) : chaque ville tire avec une force égale (un vecteur unitaire), quelle que soit sa distance, et le groupe le plus nombreux l'emporte ; dans le barycentre, au contraire, chaque ville tire en proportion de sa distance, et les groupes lointains comptent davantage.
 

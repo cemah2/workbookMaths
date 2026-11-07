@@ -112,7 +112,7 @@ Le barycentre est la moyenne coordonnée par coordonnée ; il minimise l'inertie
 </details>
 <details><summary>Indice 3</summary>
 
-5 : une silhouette négative veut dire $b(i) < a(i)$. 6 : k-means++ tire un point avec une probabilité proportionnelle à $D^2$ ; que vaut $D$ pour un centre déjà choisi ?
+5 : une silhouette négative veut dire $b(i) < a(i)$. 6 : multiplie chaque point par son poids, additionne, puis divise par la somme des poids.
 
 </details>
 
@@ -130,7 +130,7 @@ La diagonale du cube unité de $\mathbb{R}^n$ mesure $\sqrt{n}$ ; son cosinus av
 </details>
 <details><summary>Indice 3</summary>
 
-3 : $\frac{1}{\sqrt{10\,000}}$. 4 : $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = \sum_i \mathbb{E}[X_i^2]$. 6 : si toutes les distances sont presque égales, que vaut « le plus proche » ?
+3 : $\frac{1}{\sqrt{10\,000}}$. 4 : $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = \sum_i \mathbb{E}[X_i^2]$. 5 : pour que $\frac{1}{\sqrt{n}}$ soit 10 fois plus petit, par combien faut-il multiplier $\sqrt{n}$ ? 6 : la norme au carré est la somme des $n$ carrés des coordonnées.
 
 </details>
 
@@ -228,7 +228,7 @@ $\lVert \mathbf{u} + \mathbf{v} \rVert^2 = \lVert \mathbf{u} \rVert^2 + 2\,\math
 </details>
 <details><summary>Indice 3</summary>
 
-e) Écris $(\mathbf{u} + t\,\mathbf{v}) \cdot \mathbf{v} = 0$ et développe. f) Soustrais les deux développements : il reste $4\,\mathbf{a} \cdot \mathbf{b}$. g) L'égalité dit seulement $\mathbf{u} \cdot (\mathbf{v} - \mathbf{w}) = 0$.
+d) Développe $(2\mathbf{u} - \mathbf{v}) \cdot (2\mathbf{u} - \mathbf{v})$ par linéarité : quatre termes, dont deux égaux. e) Écris $(\mathbf{u} + t\,\mathbf{v}) \cdot \mathbf{v} = 0$ et développe. f) Soustrais les deux développements : il reste $4\,\mathbf{a} \cdot \mathbf{b}$. g) L'égalité dit seulement $\mathbf{u} \cdot (\mathbf{v} - \mathbf{w}) = 0$.
 
 </details>
 
@@ -412,21 +412,21 @@ e) Résous $\frac{1}{\sqrt{d}} < \cos 80°$, puis vérifie $d$ et $d - 1$. f) Le
 
 </details>
 
-### Ex M07.13 — La distance au carré moyenne de deux points tirés dans le cube [0, 1]ᵈ
+### Ex M07.13 — La norme d'un vecteur gaussien : espérance, variance et concentration
 
 <details><summary>Indice 1</summary>
 
-Relis « Toutes les distances se ressemblent » (fiche §7), M02a (intégrales) et M02b (espérance, indépendance).
+Relis « La norme d'un vecteur gaussien » (fiche §7), M02b (variance d'une somme de variables indépendantes) et M02c (inégalité de Bienaymé-Tchebychev).
 
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{E}[U^2] = \int_0^1 x^2\,dx$ ; pour des variables indépendantes, $\mathbb{E}[UV] = \mathbb{E}[U]\,\mathbb{E}[V]$ ; développe $(U - V)^2$.
+$\mathbb{V}(Z^2) = \mathbb{E}[Z^4] - \mathbb{E}[Z^2]^2$ ; $\lVert \mathbf{X} \rVert^2 = \sum_i X_i^2$ est une somme de $n$ variables indépendantes, de même loi que $Z^2$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-d) $\lVert \mathbf{X} - \mathbf{Y} \rVert^2 = \sum_{j=1}^{d} (X_j - Y_j)^2$ et l'espérance est linéaire : $d \times \frac{1}{6}$. f) $\frac{\sqrt{d/6}}{\sqrt{d}}$ ne dépend pas de $d$.
+c) $n$ fois la variance de a). d) La racine de c), divisée par b). f) $P(|Y - \mathbb{E}[Y]| \ge \varepsilon) \le \frac{\mathbb{V}(Y)}{\varepsilon^2}$, avec $\varepsilon = \frac{n}{10}$.
 
 </details>
 
@@ -622,21 +622,21 @@ Le cosinus mesure l'écart entre les directions des deux flèches, pas leurs lon
 
 ## 💼 Entretien
 
-### M07.E1 — Distance euclidienne ou similarité cosinus : laquelle pour comparer des textes ?
+### M07.E1 — Que représente géométriquement le vecteur de poids d'un modèle linéaire ?
 
 <details><summary>Indice 1</summary>
 
-Relis « Angle et similarité cosinus » (fiche §4) et « Distances » (fiche §3).
+Relis « Frontières de décision linéaires » (fiche §5) et « Le neurone : un produit scalaire plus un biais » (fiche §2).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Un long document a souvent un vecteur plus long ; laquelle des deux mesures y est sensible ?
+La frontière est l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ : quel est son vecteur normal ? Et quelle est la distance d'un point à cette frontière ?
 
 </details>
 <details><summary>Indice 3</summary>
 
-Pour $\lVert \mathbf{u} \rVert = \lVert \mathbf{v} \rVert = 1$ : $\lVert \mathbf{u} - \mathbf{v} \rVert^2 = 1 - 2\,\mathbf{u} \cdot \mathbf{v} + 1$. Qu'en déduis-tu sur l'ordre des documents selon les deux mesures ?
+Remplace $(\mathbf{w}, b)$ par $(\lambda\mathbf{w}, \lambda b)$ : que deviennent l'équation de la frontière, le score, son signe et la distance, pour $\lambda = 10$, puis pour $\lambda = -1$ ?
 
 </details>
 
