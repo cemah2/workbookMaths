@@ -77,6 +77,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | corrélation (coefficient de) | correlation coefficient (Pearson) | $r = \frac{\operatorname{Cov}(x, y)}{s_x s_y}$, entre $-1$ et 1 : la force d'une relation **linéaire** ; le cosinus de l'angle entre les vecteurs d'écarts | M02c |
 | cosinus, sinus | cosine, sine | l'abscisse et l'ordonnée du point d'angle $\theta$ du cercle trigonométrique | R9 |
 | cote, log-cote | odds, log-odds | la cote d'une probabilité $p$ est $\frac{p}{1 - p}$ ; la log-cote, son logarithme | R6 |
+| couche dense (linéaire) | dense (fully connected, linear) layer | $\mathbf{Z} = \mathbf{X}\mathbf{W} + \mathbf{b}$ : une ligne par exemple, une colonne de $\mathbf{W}$ par neurone, un biais par neurone ajouté à chaque ligne | M09a |
 | couple de variables aléatoires | pair of random variables, random vector | deux variables définies sur le même univers, étudiées ensemble par leur loi jointe | M02b |
 | courbe precision-recall | precision-recall curve | pour chaque seuil, le point (recall, precision) ; elle dépend de la prévalence | M03 |
 | courbe représentative | graph (of a function) | l'ensemble des points $(x, f(x))$ | R3 |
@@ -125,6 +126,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | effectif attendu | expected count | l'effectif d'une case d'un tableau de contingence si les variables étaient indépendantes : $\frac{\text{total de la ligne} \times \text{total de la colonne}}{\text{total}}$ | M03 |
 | effet de masque | masking effect | une valeur aberrante gonfle l'écart-type et cache ainsi son propre z-score | M02c |
 | égalité des taux d'erreur | equalized odds | critère d'équité : le même recall et le même taux de faux positifs dans chaque groupe | M03 |
+| embedding (table d') | embedding (table) | une matrice d'une ligne par mot (ou par catégorie) : l'embedding du mot $k$ est la ligne $k$, le produit de son vecteur one-hot par la table | M09a |
 | empreinte | hash | code calculé à partir d'une donnée, d'où l'on ne peut pas la retrouver ; sert à comparer sans stocker | R0 |
 | ensemble | set | collection d'éléments distincts | R4 |
 | ensemble de définition | domain | l'ensemble des $x$ pour lesquels $f(x)$ a un sens | R3 |
@@ -177,6 +179,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | fonction quantile | quantile function | la réciproque $F^{-1}$ de la fonction de répartition : $F^{-1}(u) = q_u$ | M02a, M02b |
 | fonction signe | sign function | $\operatorname{sign}(x)$ vaut $-1$, 0 ou 1 selon que $x$ est négatif, nul ou positif | R2 |
 | forme canonique | vertex form, completed-square form | $a(x - \alpha)^2 + \beta$, qui montre le sommet d'une parabole | R3 |
+| forme d'une matrice | shape | le couple (nombre de lignes, nombre de colonnes), lignes d'abord : $(n, p)$ pour un dataset de $n$ exemples à $p$ features | M09a |
+| forme échelonnée, forme échelonnée réduite | row echelon form, reduced row echelon form | un escalier : les lignes nulles en bas, chaque pivot à droite de celui du dessus ; réduite : chaque pivot vaut 1 et est seul dans sa colonne (elle est unique) | M09a |
 | forme indéterminée | indeterminate form | $\infty - \infty$, $\frac{\infty}{\infty}$, $0 \times \infty$, $\frac{0}{0}$ : une limite qui ne se décide pas d'avance | R7 |
 | formule d'Al-Kashi | law of cosines | $c^2 = a^2 + b^2 - 2ab\cos\hat{C}$ dans un triangle quelconque : Pythagore corrigé par l'angle | R9 |
 | formule de Bayes | Bayes' theorem | $P(H \mid O) = \frac{P(O \mid H)\,P(H)}{P(O)}$ : a posteriori = vraisemblance × a priori / évidence | M04 |
@@ -185,9 +189,11 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | fréquence | (relative) frequency | nombre de fois où un événement se réalise, divisé par le nombre d'essais | R8 |
 | fréquentiste, bayésien | frequentist, Bayesian | deux lectures des probabilités : une fréquence à long terme, le paramètre étant fixe ; un degré de croyance sur le paramètre | M04 |
 | frontière de décision linéaire | linear decision boundary | l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ qui sépare les points classés 1 de ceux classés 0 par un score linéaire | M07 |
+| Gauss-Jordan (méthode de) | Gauss-Jordan elimination | réduire $[\mathbf{A} \mid \mathbf{I}]$ en forme échelonnée réduite : on obtient $[\mathbf{I} \mid \mathbf{A}^{-1}]$, ou une ligne nulle à gauche si $\mathbf{A}$ est singulière | M09a |
 | générateur pseudo-aléatoire, graine | pseudo-random number generator, seed | programme qui calcule une suite d'apparence aléatoire à partir d'une graine ; la même graine redonne la même suite | R8 |
 | gradient | gradient | vecteur des dérivées partielles | M05b |
 | grand O | big O | $f = O(g)$ : $f$ ne croît pas plus vite que $g$, à une constante près ; mesure le coût d'un algorithme | R7 |
+| Hadamard (produit de) | Hadamard product, element-wise product | $\mathbf{A} \odot \mathbf{B}$, les produits des éléments de même position (`A * B` en NumPy) ; même forme, commutatif | M09a |
 | hérédité, initialisation | inductive step, base case | les deux étapes d'une récurrence : $P(n) \Rightarrow P(n + 1)$, et $P(n_0)$ | R4 |
 | hessienne | Hessian | matrice des dérivées secondes | M05b, M19 |
 | homogénéité (d'une norme) | absolute homogeneity | $\lVert \lambda\mathbf{x} \rVert = \lvert \lambda \rvert\,\lVert \mathbf{x} \rVert$ : multiplier un vecteur par $\lambda$ multiplie sa longueur par $\lvert \lambda \rvert$ | M07 |
@@ -222,6 +228,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | intervalle de crédibilité | credible interval | un intervalle qui contient le paramètre avec une probabilité donnée, selon l'a posteriori | M04 |
 | intervalle de prédiction | prediction interval | intervalle où tombera une **nouvelle** observation ; plus large qu'un intervalle de confiance de la moyenne | M02c |
 | intervalle de Wald, de Wilson | Wald interval, Wilson (score) interval | deux intervalles d'une proportion : $\hat{p} \pm z\sqrt{\hat{p}(1 - \hat{p})/n}$, faux avec peu de succès ; celui de Wilson, qui inverse un test, reste dans $[0, 1]$ | M08 |
+| inverse d'une matrice | inverse matrix | la matrice $\mathbf{A}^{-1}$ telle que $\mathbf{A}\mathbf{A}^{-1} = \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$ ; unique quand elle existe, seulement pour une matrice carrée | M09a |
 | issue | outcome | un résultat possible d'une expérience aléatoire | R8 |
 | jacobienne | Jacobian | matrice des dérivées partielles d'une fonction à valeurs vectorielles | M17 |
 | k-means, k-means++ | k-means, k-means++ | regrouper des points en $k$ clusters en alternant l'affectation au centre le plus proche et le remplacement de chaque centre par le barycentre de son cluster ; k-means++ tire les centres de départ avec une probabilité proportionnelle à $D^2$ | M07 |
@@ -263,9 +270,14 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | marche (fonction de Heaviside) | step function, Heaviside function | vaut 0 avant 0 et 1 après ; la valeur en 0 est une convention | R3 |
 | Markov (inégalité de) | Markov's inequality | $P(X \ge a) \le \frac{\mathbb{E}[X]}{a}$ pour une variable $X \ge 0$ et $a > 0$ | M02c |
 | matrice | matrix | tableau de nombres à lignes et colonnes | M09a |
+| matrice augmentée | augmented matrix | $[\mathbf{A} \mid \mathbf{b}]$, la matrice des coefficients suivie de la colonne des seconds membres, sur laquelle on fait le pivot de Gauss | M09a |
 | matrice de confusion | confusion matrix | le tableau de contingence de la vérité et de la prédiction d'un classifieur (TP, FN, FP, TN en binaire) | M03 |
 | matrice de corrélation | correlation matrix | la matrice des corrélations $\rho_{ij} = \frac{\Sigma_{ij}}{\sigma_i\sigma_j}$, avec des 1 sur la diagonale | M02c |
 | matrice de covariance | covariance matrix | $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$ : les variances sur la diagonale, symétrique, et $\sum_i\sum_j w_iw_j\Sigma_{ij} \ge 0$ | M02c |
+| matrice diagonale | diagonal matrix | une matrice carrée dont les nombres hors de la diagonale sont nuls ; elle s'inverse nombre par nombre | M09a |
+| matrice identité | identity matrix | $\mathbf{I}_n$ : des 1 sur la diagonale, des 0 ailleurs ; $\mathbf{I}\mathbf{A} = \mathbf{A}\mathbf{I} = \mathbf{A}$ | M09a |
+| matrice inversible, singulière | invertible (regular, nonsingular) matrix, singular matrix | une matrice carrée qui a une inverse, ou qui n'en a pas (quand une colonne combine les autres, ou que le rang est plus petit que la taille) | M09a |
+| matrice symétrique | symmetric matrix | une matrice égale à sa transposée : $a_{ij} = a_{ji}$ ; $\mathbf{X}^\top\mathbf{X}$ l'est toujours | M09a |
 | maximum de vraisemblance (estimation du) | maximum likelihood estimate (MLE) | la valeur du paramètre qui rend les données observées les plus probables ; pour une proportion, la fréquence | M04 |
 | maximum, minimum, extremum | maximum, minimum, extremum (extrema) | la plus grande (petite) valeur d'une fonction sur un ensemble | R3 |
 | MCC (coefficient de Matthews) | Matthews correlation coefficient | la corrélation entre la vérité et la prédiction codées 0 et 1, entre $-1$ et 1 | M03 |
@@ -299,6 +311,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | noyau (d'une application linéaire) | kernel, null space | vecteurs envoyés sur zéro | M12a |
 | numérateur, dénominateur | numerator, denominator | le nombre du haut et celui du bas d'une fraction | R1 |
 | octet | byte | 8 bits ; 1 ko = $10^3$ octets, 1 Mo = $10^6$, 1 Go = $10^9$ | R1 |
+| opérations élémentaires sur les lignes | elementary row operations | échanger deux lignes, multiplier une ligne par un nombre non nul, ajouter à une ligne un multiple d'une autre : elles ne changent pas les solutions | M09a |
 | oracle (d'un test) | test oracle | bibliothèque de confiance à laquelle un test compare ta fonction | R0 |
 | ordre d'une méthode numérique | order of a numerical method | l'exposant $k$ d'une erreur proportionnelle à $h^k$ : diviser le pas par 2 divise l'erreur par $2^k$ | M02a |
 | ordre de grandeur | order of magnitude | la puissance de 10 la plus proche d'un nombre | R1 |
@@ -314,6 +327,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | perplexité | perplexity | $2^{H(p, q)}$ (en bits) : le nombre de choix également probables entre lesquels un modèle hésite en moyenne | M06 |
 | PGCD, PPCM | GCD (greatest common divisor), LCM (least common multiple) | plus grand diviseur commun, plus petit multiple commun de deux entiers | R1 |
 | pivot | pivotal quantity | une fonction des données et du paramètre dont la loi ne dépend pas du paramètre ($\frac{\bar{X}}{\mu}$ pour une loi exponentielle) | M02c |
+| pivot d'une forme échelonnée | pivot, leading coefficient | le premier nombre non nul d'une ligne ; le rang est le nombre de pivots | M09a |
+| pivot de Gauss (élimination de Gauss) | Gaussian elimination | annuler les inconnues colonne par colonne par des opérations élémentaires (une forme échelonnée), puis remonter de la dernière équation à la première | M09a |
+| pivot partiel | partial pivoting | prendre pour pivot, dans chaque colonne, l'élément de plus grande valeur absolue (en échangeant les lignes) : évite d'amplifier les erreurs d'arrondi | M09a |
 | plan tangent | tangent plane | $z = f(a, b) + f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b)$ : le plan qui touche la surface en un point, avec les mêmes pentes | M05b |
 | plus proche voisin | nearest neighbor | le point d'un ensemble le plus proche d'un point donné ; il dépend de la distance choisie et des unités des features | M07 |
 | point critique | critical point, stationary point | un point où la dérivée s'annule (en plusieurs variables : où le gradient s'annule) | M05a, M05b |
@@ -334,6 +350,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | probabilité marginale | marginal probability | la probabilité d'un événement sur une seule variable, en oubliant l'autre : un total de ligne ou de colonne divisé par le total | M03 |
 | probabilités totales (formule des) | law of total probability | $P(A) = \sum_k P(A \mid B_k)\,P(B_k)$ pour une partition $B_1, \ldots, B_K$ | M03 |
 | produit cartésien, couple | Cartesian product, ordered pair | $A \times B$ : les couples $(a, b)$ avec $a \in A$, $b \in B$ | R4 |
+| produit matrice-vecteur | matrix-vector product | $\mathbf{A}\mathbf{x}$ : un produit scalaire par ligne de $\mathbf{A}$, ou la combinaison des colonnes de $\mathbf{A}$ de coefficients les $x_j$ | M09a |
+| produit matriciel | matrix product, matrix multiplication | $(\mathbf{A}\mathbf{B})_{ij} = \sum_k a_{ik}b_{kj}$, pour $(n, p) \times (p, m) \to (n, m)$ ; associatif, pas commutatif, $n\,p\,m$ multiplications | M09a |
 | produit nul (règle du) | zero-product property | un produit est nul si et seulement si l'un au moins de ses facteurs est nul | R2 |
 | produit scalaire | dot product, inner product | $\sum_i x_i y_i$ ; mesure d'alignement de deux vecteurs | R9, M07 |
 | projection (sur une direction) | projection | l'ombre de $\vec{v}$ sur la direction de $\vec{u}$ : $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert^2}\vec{u}$ | R9, M07, M12b |
@@ -349,7 +367,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | racine carrée | square root | nombre positif ou nul dont le carré vaut $a$ | R1 |
 | radian | radian | unité d'angle : la longueur de l'arc sur le cercle de rayon 1 ; $180° = \pi$ rad | R9 |
 | raison (d'une suite) | common difference, common ratio | ce qu'on ajoute (suite arithmétique) ou ce par quoi on multiplie (suite géométrique) à chaque pas | R5 |
-| rang | rank | nombre de directions indépendantes d'une matrice | M12a |
+| rang | rank | nombre de directions indépendantes d'une matrice | M09a, M12a |
 | rasoir d'Occam | Occam's razor | à ajustement égal, préférer le modèle le plus simple ; l'évidence bayésienne le fait d'elle-même | M08 |
 | réalisation, tirage | realization, sample, draw | une valeur obtenue d'une variable aléatoire, à distinguer de la variable elle-même | M02b |
 | recall (sensibilité) | recall, sensitivity, true positive rate (TPR) | $P(\hat{Y} = 1 \mid Y = 1)$ : la part des positifs détectés | M03 |
@@ -378,6 +396,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | similarité cosinus | cosine similarity | $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$, le cosinus de l'angle entre deux vecteurs : compare leurs directions | R9, M07 |
 | simulation par inversion | inverse transform sampling | si $U$ est uniforme sur $[0 ; 1]$, $F^{-1}(U)$ suit la loi de fonction de répartition $F$ | M02b |
 | softmax, log-softmax | softmax, log-softmax | $\frac{e^{v_i}}{\sum_j e^{v_j}}$, calculée stablement avec $e^{v_i - m}$ ; son logarithme $v_i - \text{LSE}(\mathbf{v})$, qui reste fini | M05a |
+| solution particulière, solution générale | particular solution, general solution | une solution d'un système ; toutes ses solutions, une solution particulière plus n'importe quelle solution du système homogène | M09a |
 | somme de Riemann | Riemann sum | somme des aires de $n$ rectangles de largeur $h = \frac{b - a}{n}$, de hauteur lue à gauche, à droite ou au milieu | M02a |
 | somme infinie, série | infinite sum, series | la limite des sommes partielles ; $\sum_{k=0}^{+\infty} u_0\,q^k = \frac{u_0}{1 - q}$ si $\lvert q \rvert < 1$ | R5 |
 | somme partielle | partial sum | la somme des $n$ premiers termes d'une suite | R5 |
@@ -395,7 +414,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | suite géométrique | geometric sequence, geometric progression | on multiplie par la même raison $q$ à chaque pas : $u_n = u_0\,q^n$ | R5 |
 | support (d'une loi) | support | l'ensemble des valeurs où la densité n'est pas nulle | M02a |
 | surdispersion | overdispersion | des comptages dont la variance dépasse nettement la moyenne : la loi de Poisson ne convient pas | M02b |
-| système linéaire | system of linear equations, linear system | plusieurs équations du premier degré à résoudre ensemble ; leurs solutions communes | R2 |
+| système homogène | homogeneous system | un système de second membre nul, $\mathbf{A}\mathbf{x} = \mathbf{0}$ ; il a toujours la solution $\mathbf{0}$ | M09a |
+| système linéaire | system of linear equations, linear system | plusieurs équations du premier degré à résoudre ensemble ; leurs solutions communes | R2, M09a |
 | table de vérité | truth table | la valeur d'une proposition pour chaque combinaison des valeurs de ses propositions | R4 |
 | tableau de contingence | contingency table | le tableau des effectifs de deux variables catégorielles observées ensemble, avec ses totaux dans les marges | M03 |
 | tableau de variations | variation table | tableau du signe de $f'$ et du sens de variation de $f$, avec les valeurs aux points où $f'$ s'annule | R7 |
@@ -421,6 +441,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | tirage avec / sans remise | sampling with / without replacement | remettre ou non chaque valeur tirée : avec remise, les tirages sont i.i.d. ; sans remise, ils sont dépendants | M02c |
 | tirage avec remise, sans remise | sampling with replacement, without replacement | avec remise, l'objet tiré est remis avant le tirage suivant ; sans remise, la composition change | R8 |
 | tranche (d'une surface) | slice, cross-section | la courbe obtenue en figeant une variable, comme $x \mapsto f(x, b)$ ; $\frac{\partial f}{\partial x}(a, b)$ est sa pente en $a$ | M05b |
+| transposée | transpose | $\mathbf{A}^\top$, les lignes devenues colonnes : $(\mathbf{A}^\top)_{ij} = a_{ji}$, et $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$ | M09a |
 | triangle de Pascal | Pascal's triangle | les coefficients binomiaux rangés en triangle : chaque nombre est la somme des deux au-dessus | R8 |
 | unilatéral, bilatéral (test) | one-sided, two-sided test | l'alternative dans un seul sens, fixé à l'avance, ou dans les deux | M08 |
 | unité d'arrondi | unit roundoff | l'erreur relative maximale d'une opération en flottants, $u = \frac{\varepsilon}{2}$ ($2^{-53}$ en `float64`) | M05a |
@@ -433,6 +454,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | valeur propre, vecteur propre | eigenvalue, eigenvector | $\mathbf{A}\mathbf{v} = \lambda\mathbf{v}$ : une direction que $\mathbf{A}$ ne fait qu'étirer | M12c |
 | validation croisée imbriquée | nested cross-validation | une boucle intérieure choisit le modèle, une boucle extérieure estime la performance de toute la procédure, choix compris | M08 |
 | variable aléatoire | random variable | grandeur dont la valeur dépend du hasard | R8 |
+| variable de base, variable libre | basic variable, free variable | une inconnue dont la colonne porte un pivot, ou n'en porte pas ; on choisit les libres, les autres s'en déduisent | M09a |
 | variable de confusion | confounder, confounding variable | une troisième grandeur qui fait varier deux autres, et crée entre elles une corrélation sans causalité | M02c |
 | variance | variance | moyenne des carrés des écarts à l'espérance | R8 |
 | variance d'échantillon | sample variance | $s^2 = \frac{1}{n - 1}\sum (x_i - \bar{x})^2$, estimateur sans biais de $\sigma^2$ ; $s_n^2$ divise par $n$ | M02c |

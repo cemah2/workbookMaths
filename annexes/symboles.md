@@ -112,12 +112,18 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\bar{\mathbf{x}}$ | « x barre » (en gras) | centroid, mean vector | le barycentre d'un nuage de points, la moyenne coordonnée par coordonnée | le barycentre de $(0, 0)$ et $(2, 4)$ est $(1, 2)$ | M07 |
 | $d(\mathbf{x}, H)$ | « distance de x à H » | distance from x to H | la distance d'un point à un hyperplan : $\frac{\lvert \mathbf{w} \cdot \mathbf{x} + b \rvert}{\lVert \mathbf{w} \rVert}$ | $d(\mathbf{0}, H) = \frac{\lvert b \rvert}{\lVert \mathbf{w} \rVert}$ | M07 |
 | $a(i)$, $b(i)$, $s(i)$ | « a de i », « b de i », « silhouette de i » | silhouette components | les distances moyennes du point $i$ aux autres points de son cluster, et au cluster voisin ; sa silhouette $\frac{b - a}{\max(a, b)}$ | $s(i) < 0$ : mieux dans le cluster voisin | M07 |
-| $\mathbf{A}$ (gras majuscule) | « la matrice A » | matrix A | un tableau de nombres | | M09a |
-| $\mathbf{A}^\top$ ou $\mathbf{A}^T$ | « A transposée » | A transpose | lignes et colonnes échangées | | M09a |
-| $\mathbf{A}\mathbf{B}$ | « A B », « produit de A par B » | matrix product | produit matriciel (l'ordre compte) | | M09a |
+| $\mathbf{A}$ (gras majuscule) | « la matrice A » | matrix A | un tableau de nombres | $\mathbf{A} \in \mathbb{R}^{2 \times 3}$ : 2 lignes, 3 colonnes | M09a |
+| $\mathbf{A}^\top$ ou $\mathbf{A}^T$ | « A transposée » | A transpose | lignes et colonnes échangées | une forme $(2, 3)$ devient $(3, 2)$ | M09a |
+| $\mathbf{A}\mathbf{B}$ | « A B », « produit de A par B » | matrix product | produit matriciel (l'ordre compte) | $(n, p) \times (p, m) \to (n, m)$ | M09a |
 | $\odot$ | « produit terme à terme » | Hadamard product | multiplier élément par élément | $(1,2) \odot (3,4) = (3, 8)$ | M09a |
-| $\mathbf{A}^{-1}$ | « A inverse » | A inverse | la matrice qui défait $\mathbf{A}$ : $\mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$ | | M09a |
-| $\mathbf{I}$ | « la matrice identité » | identity matrix | des 1 sur la diagonale, 0 ailleurs | | M09a |
+| $\mathbf{A}^{-1}$ | « A inverse » | A inverse | la matrice qui défait $\mathbf{A}$ : $\mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$ | l'inverse de $\operatorname{diag}(2, 4)$ est $\operatorname{diag}(0{,}5 ;\ 0{,}25)$ | M09a |
+| $\mathbf{I}$, $\mathbf{I}_n$ | « la matrice identité (de taille n) » | identity matrix | des 1 sur la diagonale, 0 ailleurs | $\mathbf{I}_n\mathbf{A} = \mathbf{A}$ pour $\mathbf{A}$ à $n$ lignes | M09a |
+| $a_{ij}$ | « a i j » | entry (i, j) | l'élément de la ligne $i$ et de la colonne $j$ (indices à partir de 1 ; `A[i - 1, j - 1]` en Python) | $a_{23}$ : ligne 2, colonne 3 | M09a |
+| $\mathbb{R}^{m \times n}$, $(m, n)$ | « R m fois n », « forme m, n » | m by n matrices, shape | les matrices de $m$ lignes et $n$ colonnes ; leur forme, lignes d'abord | un dataset de 500 exemples à 12 features : $(500, 12)$ | M09a |
+| $\operatorname{diag}(d_1, \ldots, d_n)$ | « diag d un… d n » | diagonal matrix | la matrice diagonale de diagonale $d_1, \ldots, d_n$ | $\operatorname{diag}(1, 1) = \mathbf{I}_2$ | M09a |
+| $[\mathbf{A} \mid \mathbf{b}]$ | « A augmentée de b » | augmented matrix | la matrice des coefficients suivie de la colonne des seconds membres | $x - y = 1$, $3y = 6$ : $\left(\begin{array}{cc|c} 1 & -1 & 1 \\ 0 & 3 & 6 \end{array}\right)$ | M09a |
+| $L_i \leftarrow L_i - \lambda L_j$ | « L i devient L i moins lambda L j » | row operation | remplacer la ligne $i$ par elle-même moins $\lambda$ fois la ligne $j$ (une opération élémentaire) | $L_2 \leftarrow L_2 - 2L_1$ | M09a |
+| $\operatorname{rg}(\mathbf{A})$, $\operatorname{rk}(\mathbf{A})$ | « rang de A » | rank of A | le nombre de pivots, au plus $\min(m, n)$ | $\operatorname{rg}(\mathbf{I}_3) = 3$ | M09a |
 | $\det(\mathbf{A})$ | « déterminant de A » | determinant | facteur de changement d'aire (ou de volume) | $\det \mathbf{I} = 1$ | M12c |
 | $\operatorname{tr}(\mathbf{A})$ | « trace de A » | trace | somme des éléments de la diagonale | $\operatorname{tr} \mathbf{I}_3 = 3$ | M12c |
 | $\lambda$ | « lambda » | lambda | souvent une valeur propre (*eigenvalue*), ou la force d'une régularisation | $\mathbf{A}\mathbf{v} = \lambda \mathbf{v}$ | M12c |

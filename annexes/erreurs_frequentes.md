@@ -265,6 +265,20 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Croire que le produit est commutatif | $\mathbf{AB} = \mathbf{BA}$ | en général $\mathbf{AB} \ne \mathbf{BA}$ : l'ordre compte |
 | Transposer un produit sans inverser l'ordre | $(\mathbf{AB})^\top = \mathbf{A}^\top\mathbf{B}^\top$ | $(\mathbf{AB})^\top = \mathbf{B}^\top\mathbf{A}^\top$ |
 | Multiplier des matrices de formes incompatibles | $(2 \times 3)$ fois $(2 \times 3)$ | le nombre de colonnes de la première doit égaler le nombre de lignes de la seconde |
+| Lire $a_{ij}$ colonne d'abord | $a_{32}$ lu à la ligne 2, colonne 3 | la ligne d'abord, puis la colonne ; en Python, `A[i - 1, j - 1]` |
+| Écrire `*` pour un produit matriciel | `X * W` pour une couche dense | `X @ W` ; `*` multiplie élément par élément, et le broadcasting peut cacher l'erreur |
+| Ajouter le biais d'une couche à une seule ligne, ou dans le mauvais sens | $b_1$ ajouté à l'exemple 1 et $b_2$ à l'exemple 2 | $b_j$ s'ajoute à la colonne $j$ (le neurone $j$), sur chaque ligne |
+| Calculer $\mathbf{X}\mathbf{X}^\top$ au lieu de $\mathbf{X}^\top\mathbf{X}$ | `X @ X.T` pour la matrice des features | `X.T @ X`, de forme $(p, p)$ ; `X @ X.T` est $(n, n)$, une case par paire d'exemples |
+| Choisir les parenthèses au hasard dans un produit de trois matrices | $\mathbf{A}(\mathbf{B}\mathbf{C})$ avec $\mathbf{B}\mathbf{C}$ énorme | compter $n\,p\,m$ pour chaque ordre ; devant un vecteur, multiplier de droite à gauche |
+| Simplifier $\mathbf{A}\mathbf{B} = \mathbf{A}\mathbf{C}$ en $\mathbf{B} = \mathbf{C}$ | $\mathbf{A}$ singulière, $\mathbf{B} \ne \mathbf{C}$ | on ne simplifie que par une matrice inversible : multiplier à gauche par $\mathbf{A}^{-1}$ |
+| Inverser un produit ou une somme terme à terme | $(\mathbf{A}\mathbf{B})^{-1} = \mathbf{A}^{-1}\mathbf{B}^{-1}$, $(\mathbf{A} + \mathbf{B})^{-1} = \mathbf{A}^{-1} + \mathbf{B}^{-1}$ | $(\mathbf{A}\mathbf{B})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}$ ; pas de règle pour une somme |
+| Oublier le second membre dans une opération sur les lignes | $L_2 - 2L_1$ appliqué aux seuls coefficients | travailler sur la matrice augmentée : chaque opération porte sur toute la ligne |
+| Faire deux opérations en même temps, ou multiplier une ligne par 0 | $L_1 \leftarrow L_1 - L_2$ et $L_2 \leftarrow L_2 - L_1$ d'un coup | une opération à la fois, avec une **autre** ligne, et un facteur non nul |
+| S'arrêter à la forme échelonnée quand on veut la réduite | un nombre non nul au-dessus d'un pivot | annuler aussi au-dessus de chaque pivot, et diviser chaque ligne par son pivot |
+| Garder un pivot minuscule | éliminer avec $\varepsilon = 10^{-18}$ comme pivot | le pivot partiel : la plus grande valeur absolue de la colonne |
+| Lire une ligne nulle comme « pas de solution » | $(0 \;\; 0 \;\; 0 \mid 0)$ : « impossible » | $0 = 0$ est toujours vrai : une équation de moins ; seule $(0 \cdots 0 \mid c)$ avec $c \ne 0$ est impossible |
+| Compter les lignes non nulles pour le rang avant l'élimination | rang 3 pour trois lignes dont l'une est la somme des deux autres | échelonner d'abord, puis compter les pivots |
+| Résoudre un système par l'inverse | `np.linalg.inv(A) @ b` | `np.linalg.solve(A, b)` : moins de calculs et moins d'arrondis |
 
 ## Probabilités (R8, M03)
 

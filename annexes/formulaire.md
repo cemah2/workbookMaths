@@ -336,6 +336,20 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | comparaisons multiples | $m$ tests vrais au seuil $\alpha$ : $m\alpha$ faux positifs en moyenne, $1 - (1 - \alpha)^m$ d'en avoir au moins un (tests indépendants) ; Boole : $P(\bigcup A_i) \le \sum P(A_i)$ ; Bonferroni : seuil $\frac{\alpha}{m}$, ou $\min(1, m\,p_i) \le \alpha$ |
 | sélection de modèle | $\mathrm{AIC} = 2k - 2\ln L$, $\mathrm{BIC} = k\ln n - 2\ln L$ (le plus petit gagne) ; $\mathrm{BF}_{12} = \frac{p(\mathcal{D} \mid M_1)}{p(\mathcal{D} \mid M_2)}$, cote a posteriori = $\mathrm{BF}_{12}$ × cote a priori ; loi a priori uniforme sur $p$ : $p(k \text{ succès sur } n) = \frac{1}{n + 1}$ ; $-\frac{1}{2}\mathrm{BIC} \approx \ln p(\mathcal{D} \mid M)$ pour $n$ grand |
 
+### M09a · Matrices et systèmes linéaires
+
+| Notion | Formules |
+|---|---|
+| formes | $(n, p) \times (p, m) \to (n, m)$ ; $\mathbf{A}\mathbf{x}$ a autant de coordonnées que $\mathbf{A}$ a de lignes ; un dataset : $(n, p)$, une ligne par exemple |
+| produit matrice-vecteur | $(\mathbf{A}\mathbf{x})_i = \sum_j a_{ij}x_j$ (lignes) $= x_1\mathbf{a}_1 + \cdots + x_n\mathbf{a}_n$ (colonnes) ; $\mathbf{A}\mathbf{e}_j = \mathbf{a}_j$ ; prédictions $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b$ |
+| produit matriciel | $(\mathbf{A}\mathbf{B})_{ij} = \sum_k a_{ik}b_{kj}$ ; associatif, distributif, pas commutatif ; $\mathbf{I}\mathbf{A} = \mathbf{A}\mathbf{I} = \mathbf{A}$ ; coût $n\,p\,m$ multiplications, $n^3$ pour des carrées |
+| Hadamard | $(\mathbf{A} \odot \mathbf{B})_{ij} = a_{ij}b_{ij}$ (même forme) ; `A * B` contre `A @ B` |
+| couche, embedding | $\mathbf{Z} = \mathbf{X}\mathbf{W} + \mathbf{b}$, $\mathbf{X}$ $(n, d_{\text{in}})$, $\mathbf{W}$ $(d_{\text{in}}, d_{\text{out}})$, $\mathbf{Z}$ $(n, d_{\text{out}})$, $d_{\text{in}}d_{\text{out}} + d_{\text{out}}$ paramètres ; PyTorch : $\mathbf{X}\mathbf{W}^\top + \mathbf{b}$ ; embedding : $\mathbf{e}_k^\top\mathbf{E}$ = ligne $k$ de $\mathbf{E}$ |
+| transposée | $(\mathbf{A}^\top)_{ij} = a_{ji}$ ; $(\mathbf{A}^\top)^\top = \mathbf{A}$, $(\mathbf{A} + \mathbf{B})^\top = \mathbf{A}^\top + \mathbf{B}^\top$, $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$ ; $\mathbf{X}^\top\mathbf{X}$ $(p, p)$ symétrique, $(\mathbf{X}^\top\mathbf{X})_{ij}$ = produit scalaire des colonnes $i$ et $j$ |
+| systèmes | 0, 1 ou une infinité de solutions ; solution générale = solution particulière + solutions de $\mathbf{A}\mathbf{h} = \mathbf{0}$ ; opérations élémentaires : $L_i \leftrightarrow L_j$, $L_i \leftarrow \lambda L_i$ ($\lambda \ne 0$), $L_i \leftarrow L_i + \lambda L_j$ ; pivot de Gauss $\approx \frac{2}{3}n^3$ opérations |
+| inverse | $\mathbf{A}\mathbf{A}^{-1} = \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$ ; $\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$ ; $(\mathbf{A}\mathbf{B})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}$, $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$, $(\lambda\mathbf{A})^{-1} = \frac{1}{\lambda}\mathbf{A}^{-1}$ ; Gauss-Jordan : $[\mathbf{A} \mid \mathbf{I}] \to [\mathbf{I} \mid \mathbf{A}^{-1}]$ |
+| rang | $\operatorname{rg}(\mathbf{A})$ = nombre de pivots $\le \min(m, n)$ ; carrée de taille $n$ : inversible $\iff \operatorname{rg} = n$ ; système : aucune solution si $\operatorname{rg}([\mathbf{A} \mid \mathbf{b}]) > \operatorname{rg}(\mathbf{A})$, sinon $n - \operatorname{rg}(\mathbf{A})$ paramètres libres |
+
 ## Partie III · ML classique
 
 *(ajouté avec les chapitres M12a à M14)*
