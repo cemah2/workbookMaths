@@ -94,7 +94,7 @@ Chaque test vrai donne un faux positif avec la probabilité $\alpha$ ; Bonferron
 </details>
 <details><summary>Indice 3</summary>
 
-2 : sur quelle inégalité repose la garantie (M08.11) ? 6 : combien de scores compare-t-on pour garder le meilleur ?
+2 : sur quelle inégalité repose la garantie (M08.11) ? 6 : combien de tests a-t-on faits, même si un seul est publié ?
 
 </details>
 
@@ -282,7 +282,7 @@ Travaille sur les six différences $d_i$ : leur moyenne, leur écart-type ($\mat
 </details>
 <details><summary>Indice 3</summary>
 
-Les différences : 4, 1, 6, 1, 4, 5. d) La table de la fiche, ligne 5 degrés de liberté. f) Calcule la variance de chaque colonne, puis la racine de leur somme divisée par 6.
+Les différences : 4, 1, 6, 1, 4, 5. d) La table de la fiche, ligne 5 degrés de liberté. f) Calcule la variance de chaque colonne, puis la racine de leur somme divisée par 6. h) $2^6$ combinaisons de signes : lesquelles donnent une moyenne au moins égale à 3,5 ?
 
 </details>
 
@@ -474,7 +474,7 @@ Quatre temps : le sens de $p = 0{,}03$, la décision au seuil prévu, les vérif
 </details>
 <details><summary>Indice 3</summary>
 
-Les vérifications : un protocole fixé d'avance (pas d'arrêt au premier résultat favorable), le nombre de tests faits, la taille de l'effet et son intervalle.
+Les vérifications : un protocole fixé d'avance (pas d'arrêt dès que la p-valeur passe sous 0,05), la taille de l'effet et son intervalle.
 
 </details>
 
@@ -658,7 +658,7 @@ La part des p-valeurs sous `alpha` est une proportion estimée sur `n_sims` tira
 </details>
 <details><summary>Indice 3</summary>
 
-`assert abs(share - alpha) <= K_SE * se, f\"expected ... got {share:.4f}\"` : la valeur absolue attrape les deux sens d'erreur. $K_{SE}$ entre 4 et 6.
+`assert abs(share - alpha) <= K_SE * se, f\"expected ... got {share:.4f}\"` : la valeur absolue attrape les deux sens d'erreur. $K_{SE}$ entre 4 et 8.
 
 </details>
 

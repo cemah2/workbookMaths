@@ -762,7 +762,8 @@ def _angle_unit_slip(ex_id: str, entry: dict, x: float) -> str | None:
     if entry.get("kind") not in ("int", "float") or x == 0 or not math.isfinite(x):
         return None
     tolerance = _typed_tolerance(x)
-    if abs(x) <= 2 * math.pi + 0.01 and not float(x).is_integer():
+    # an angle of less than one degree is no angle anyone asks for: 0.00046 is not 0.026° (M08 learner, session 28)
+    if 0.0175 <= abs(x) <= 2 * math.pi + 0.01 and not float(x).is_integer():
         if _near_answer(ex_id, entry, math.degrees(x), math.degrees(tolerance)):
             return _RADIANS_FOR_DEGREES
     if entry["kind"] == "float" and 6.3 < abs(x) <= 360:

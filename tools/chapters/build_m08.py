@@ -67,7 +67,7 @@ PAPER = [
          '''mistakes={"t = x̄_A − x̄_B, dans cet ordre : le groupe A d'abord": 5}'''),
         ("c", "an irreducible fraction", '"1/20"',
          f'''{F}, mistakes={{"la répartition observée compte parmi les 20 : elle est au moins aussi extrême '''
-         '''qu'elle-même": "0"}'''),
+         '''qu'elle-même": "0", "la question c) est unilatérale : compte seulement les répartitions où t est au moins aussi petit que la valeur observée": "1/10"}'''),
         ("d", "an irreducible fraction", '"1/10"',
          f'''{F}, mistakes={{"en bilatéral, compte aussi les répartitions extrêmes de l'autre côté, où t est grand et '''
          '''positif": "1/20"}'''),
@@ -112,13 +112,13 @@ PAPER = [
         ("c", "an integer", "math.ceil(((Z95 + Z80) * 8 / 2) ** 2)",
          '''mistakes={"arrondis à l'entier supérieur : avec moins de mesures, la puissance n'atteint pas 80 %": 98, '''
          '''"le nombre de mesures est le carré de (z_{1−α} + z_{1−β}) σ/δ": 10, '''
-         '''"le test est unilatéral : z_{1−α}, pas z_{1−α/2}": 126}'''),
+         '''"le test est unilatéral : z_{1−α}, pas z_{1−α/2}": 126}, fractional="arrondis à l'entier supérieur : avec moins de mesures, la puissance n'atteint pas 80 %"'''),
         ("d", "an integer", "math.ceil(((NormalDist().inv_cdf(0.975) + Z80) * 8 / 2) ** 2)",
          '''mistakes={"un test bilatéral au seuil α utilise z_{1−α/2}": 99, '''
-         '''"arrondis à l'entier supérieur : avec moins de mesures, la puissance n'atteint pas 80 %": 125}'''),
+         '''"arrondis à l'entier supérieur : avec moins de mesures, la puissance n'atteint pas 80 %": 125}, fractional="arrondis à l'entier supérieur : avec moins de mesures, la puissance n'atteint pas 80 %"'''),
         ("e", "an integer", "math.ceil(((Z95 + Z80) * 8) ** 2)",
          '''mistakes={"le nombre de mesures varie comme 1/δ², pas comme 1/δ": 198, '''
-         '''"arrondis à l'entier supérieur : avec moins de mesures, la puissance n'atteint pas 80 %": 395}'''),
+         '''"arrondis à l'entier supérieur : avec moins de mesures, la puissance n'atteint pas 80 %": 395}, fractional="arrondis à l'entier supérieur : avec moins de mesures, la puissance n'atteint pas 80 %"'''),
         ("f", "a number (2 decimals)", "NormalDist().cdf(2 * math.sqrt(36) / 8 - Z95)",
          '''decimals=2, mistakes={"la puissance est Φ(δ√n/σ − z_{1−α}) : n'oublie pas √n": NormalDist().cdf(2 / 8 - Z95), '''
          '''"la puissance est Φ(…), pas 1 − Φ(…)": 1 - NormalDist().cdf(2 * math.sqrt(36) / 8 - Z95)}'''),
@@ -129,7 +129,8 @@ PAPER = [
         ("b", "a number (4 decimals)", "0.06 - WALD_5",
          '''decimals=4, mistakes={"la demi-largeur de Wald est z √(p̂(1 − p̂)/n) : n'oublie pas la racine": '''
          '''0.06 - 1.96 * 0.06 * 0.94 / 50, "la borne basse retranche la demi-largeur à p̂": 0.06 + WALD_5, '''
-         '''"tu as arrondi trop tôt : garde la racine √(p̂(1 − p̂)/n) avec tous ses chiffres jusqu'à la fin": -0.0059}'''),
+         '''"tu as arrondi trop tôt : garde la racine √(p̂(1 − p̂)/n) avec tous ses chiffres jusqu'à la fin": -0.0059, '''
+         '''"la question demande la borne basse avant de la ramener dans [0, 1]": 0}'''),
         ("c", "a list of 2 numbers (4 decimals)", "[0, 0.06 + WALD_5]",
          '''decimals=4, mistakes={"une proportion ne peut pas être négative : ramène la borne basse dans [0, 1]": '''
          '''[0.06 - WALD_5, 0.06 + WALD_5], "tu as arrondi trop tôt : garde la racine √(p̂(1 − p̂)/n) avec tous ses '''
@@ -150,7 +151,8 @@ PAPER = [
          '''decimals=4, mistakes={"ddof = 1 : divise la somme des carrés des écarts par n − 1 = 5": D6.std(), '''
          '''"l'écart-type est la racine de la variance": D6.var(ddof=1)}'''),
         ("c", "a number (3 decimals)", "SE6",
-         '''decimals=3, mistakes={"l'erreur type divise l'écart-type par √n, pas par n": D6.std(ddof=1) / 6}'''),
+         '''decimals=3, mistakes={"l'erreur type divise l'écart-type par √n, pas par n": D6.std(ddof=1) / 6, '''
+         '''"l'écart-type des différences se calcule avec ddof = 1": D6.std() / math.sqrt(6)}'''),
         ("d", "a number (3 decimals)", "T6",
          '''decimals=3, mistakes={"le nombre de degrés de liberté est n − 1, avec n = 6 paires": '''
          '''student.ppf(0.975, 6), "avec six paires, le quantile de la loi de Student remplace celui de la loi '''
@@ -162,6 +164,8 @@ PAPER = [
         ("f", "a number (2 decimals)", "math.sqrt(A6.var(ddof=1) / 6 + B6.var(ddof=1) / 6)", "decimals=2"),
         ("g", "True or False", "False",
          '''mistakes={"regarde le signe des deux bornes de l'intervalle": True}'''),
+        ("h", "an irreducible fraction", '"1/64"',
+         f'''{F}, mistakes={{"la question h) est unilatérale : compte seulement les combinaisons de signes dont la moyenne est au moins aussi grande que celle observée": "1/32", "la combinaison observée compte parmi les possibles": "0"}}'''),
     ]),
 
     Paper("M08.7", "Vingt tests au seuil de 5 % : les faux positifs attendus, puis Bonferroni", [
@@ -174,7 +178,8 @@ PAPER = [
          '''d'aucun faux positif": 1.0}'''),
         ("c", "a number", "0.05 / 20",
          '''decimals=4, mistakes={"Bonferroni divise le seuil par le nombre de tests, il ne le multiplie pas": 1.0}'''),
-        ("d", "a number (4 decimals)", "1 - (1 - 0.05 / 20) ** 20", "decimals=4"),
+        ("d", "a number (4 decimals)", "1 - (1 - 0.05 / 20) ** 20",
+         '''decimals=4, mistakes={"Bonferroni garantit au plus 0,05 ; avec des tests indépendants, la probabilité se calcule exactement, comme en b)": 0.05}'''),
         ("e", "a list of 3 numbers", "[0.001 * 20, 0.004 * 20, 0.03 * 20]",
          '''decimals=4, mistakes={"la p-valeur ajustée de Bonferroni multiplie p par m, elle ne la divise pas": '''
          '''[0.001 / 20, 0.004 / 20, 0.03 / 20], "m est le nombre de tests faits, pas le nombre de p-valeurs citées": '''
@@ -185,9 +190,11 @@ PAPER = [
 
     Paper("M08.8", "L'AIC et le BIC de deux modèles, à partir de leurs log-vraisemblances", [
         ("a", "a number", "2 * 3 - 2 * (-412.6)",
-         '''decimals=1, mistakes={"AIC = 2k − 2 ln L : quand ln L est négatif, −2 ln L est positif": 2 * 3 - 825.2}'''),
+         '''decimals=1, mistakes={"AIC = 2k − 2 ln L : quand ln L est négatif, −2 ln L est positif": 2 * 3 - 825.2, '''
+         '''"AIC = 2k − 2 ln L : n'oublie pas la pénalité 2k": 825.2}'''),
         ("b", "a number", "2 * 7 - 2 * (-405.1)",
-         '''decimals=1, mistakes={"AIC = 2k − 2 ln L : quand ln L est négatif, −2 ln L est positif": 2 * 7 - 810.2}'''),
+         '''decimals=1, mistakes={"AIC = 2k − 2 ln L : quand ln L est négatif, −2 ln L est positif": 2 * 7 - 810.2, '''
+         '''"AIC = 2k − 2 ln L : n'oublie pas la pénalité 2k": 810.2}'''),
         ("c", "a number (1 decimal)", "3 * math.log(200) + 825.2",
          f'''decimals=1, mistakes={{"{LN}": 3 * math.log10(200) + 825.2}}'''),
         ("d", "a number (1 decimal)", "7 * math.log(200) + 810.2",
@@ -427,7 +434,7 @@ Un ancien outil a demandé $x = (8{,}1 ;\ 9{,}4 ;\ 7{,}7 ;\ 9{,}0)$ minutes pour
 - d) le nom de l'erreur levée par `permutation_test([], [4, 5])` ;
 - e) le nom du type de la p-valeur de a), en texte.
 
-Dans ta copie : la p-valeur exacte de a), calculée sur les 126 répartitions, vaut $\frac{2}{126}$ (M08.20 la retrouve). De combien a) s'en écarte-t-il ? Est-ce compatible avec l'erreur type d'une proportion estimée sur 1 999 tirages ? Pourquoi c) ne peut-il pas descendre sous $\frac{1}{500}$, et que faudrait-il pour une p-valeur plus petite ?""",
+Dans ta copie : M08.20 calcule la p-valeur exacte de a), sur les 126 répartitions ; une fois M08.20 fait, dis de combien a) s'en écarte, et si c'est compatible avec l'erreur type d'une proportion estimée sur 1 999 tirages. Pourquoi c) ne peut-il pas descendre sous $\frac{1}{500}$, et que faudrait-il pour une p-valeur plus petite ?""",
     todo=LOAD_LEARNER,
     check=f'''X_17, Y_17 = {X_17}, {Y_17}
 U_17 = {U_17}
@@ -485,7 +492,7 @@ M08_18 = Ex(
     "programmer les intervalles de Wald et de Wilson d'une proportion, et l'intervalle de Student d'une différence "
     "appariée.", "fiche §5", tracks="C, E", mymath="testing.py",
     body=r"""Écris (fiche §5) :
-- `proportion_ci(k, n, level=0.95, method="wilson")` : l'intervalle `(low, high)` d'une proportion après $k$ succès en $n$ essais, par la méthode de Wilson ou de Wald (`method="wald"`), avec $z$ le quantile d'ordre $\frac{1 + \text{level}}{2}$ de la loi normale ; les bornes sont ramenées dans $[0, 1]$ ; une `ValueError` si $k$, $n$ ou `level` sort de son domaine, ou si `method` est inconnue ;
+- `proportion_ci(k, n, level=0.95, method="wilson")` : l'intervalle `(low, high)` d'une proportion après $k$ succès en $n$ essais, par la méthode de Wilson ou de Wald (`method="wald"`), avec $z$ le quantile d'ordre $\frac{1 + \text{level}}{2}$ de la loi normale ; les deux bornes sont ramenées dans $[0, 1]$ (`min` et `max`), **pour les deux méthodes** : même celles de Wilson peuvent en sortir d'un arrondi, comme 1,0000000000000002 pour $k = n$ ; une `ValueError` si $k$, $n$ ou `level` sort de son domaine, ou si `method` est inconnue ;
 - `paired_difference_ci(a, b, level=0.95)` : l'intervalle de Student $\bar{d} \pm t\,\frac{s_d}{\sqrt{n}}$ de la moyenne des différences $d_i = a_i - b_i$, avec $s_d$ l'écart-type des différences ($\mathrm{ddof} = 1$) et $t$ le quantile d'ordre $\frac{1 + \text{level}}{2}$ de la loi de Student à $n - 1$ degrés de liberté (`scipy.stats.t.ppf(q, n - 1)`) ; une `ValueError` si les longueurs diffèrent, s'il y a moins de deux paires ou si `level` sort de $]0, 1[$.
 
 Les deux fonctions renvoient un `tuple` de deux `float`.
@@ -774,9 +781,9 @@ with checked("M08.22c"):
 with checked("M08.22d"):
     wbm.check("M08.22d", next((n for n in (5, 10, 20) if power(1.0, n) >= 0.8), None), computed=True)'''
 
-M08_22_GRID = '''print("effect · measured power for n = 5, 10, 20 · power of the z-test, Φ(δ√(n/2) − 1.645)")
-for effect in (0, 0.5, 1.0):
-    measured = [power(effect, n) for n in (5, 10, 20)]
+M08_22_GRID = '''grid_22 = {effect: [power(effect, n) for n in (5, 10, 20)] for effect in (0, 0.5, 1.0)}
+print("effect · measured power for n = 5, 10, 20 · power of the z-test, Φ(δ√(n/2) − 1.645)")
+for effect, measured in grid_22.items():
     theory = [NormalDist().cdf(effect * math.sqrt(n / 2) - NormalDist().inv_cdf(0.95)) for n in (5, 10, 20)]
     print(f"{effect:3.1f} · " + "  ".join(f"{m:.2f}" for m in measured) + " · "
           + "  ".join(f"{t:.2f}" for t in theory))'''
@@ -816,12 +823,36 @@ Dans ta copie : que mesure a) ? Pourquoi ne vaut-il pas exactement 0,05 (pense �
 
 
 print("a)", power(0, 10), " b)", power(1.0, 10), " c)", power(0.5, 20))''',
-    record='''wbm.record("M08.22a", power(0, 10), decimals=2)
+    record='''def power_variant_22(effect, n, swap=False, same_seed=False, n_sims=100, n_permutations=199, seed=0):
+    """power() with a classic slip: y drawn before x, or the same seed for every permutation test."""
+    rng = np.random.default_rng(seed)
+    rejected = 0
+    for sim in range(n_sims):
+        if swap:
+            y = rng.normal(0, 1, n)
+            x = rng.normal(effect, 1, n)
+        else:
+            x = rng.normal(effect, 1, n)
+            y = rng.normal(0, 1, n)
+        p = mymath.testing.permutation_test(x, y, n_permutations, alternative="greater", seed=0 if same_seed else sim)
+        rejected += p <= 0.05
+    return float(rejected / n_sims)
+
+
+SWAP_22 = "tire x, puis y, dans cet ordre, avec le même générateur"
+SEED_22 = "chaque simulation appelle permutation_test avec sa propre graine : seed=sim"
+wbm.record("M08.22a", power(0, 10), decimals=2,
+           mistakes={SEED_22: power_variant_22(0, 10, same_seed=True)})
 wbm.record("M08.22b", power(1.0, 10), decimals=2,
            mistakes={"la puissance est la part des p-valeurs au plus égales à 0,05, pas au-dessus":
-                         1 - power(1.0, 10)})
-wbm.record("M08.22c", power(0.5, 20), decimals=2)
-wbm.record("M08.22d", 20, choices=[5, 10, 20])''',
+                         1 - power(1.0, 10),
+                     SWAP_22: power_variant_22(1.0, 10, swap=True),
+                     SEED_22: power_variant_22(1.0, 10, same_seed=True)})
+wbm.record("M08.22c", power(0.5, 20), decimals=2,
+           mistakes={SWAP_22 + " ; et compte les p-valeurs au plus égales à 0,05 (<=, pas <)":
+                         power_variant_22(0.5, 20, swap=True),
+                     SEED_22: power_variant_22(0.5, 20, same_seed=True)})
+wbm.record("M08.22d", 20)''',
     after=[("md", "**La grille complète** (cette cellule utilise ta fonction)."),
            ("todo", 'with checked("M08.22 grille"):\n' + "\n".join("    " + line
                                                                    for line in M08_22_GRID.splitlines())),
@@ -1072,9 +1103,12 @@ M08_25_CHECK = '''with checked("M08.25 vérifications"):
         if not problems and any(not message.strip() for message in messages_1 + messages_2):
             problems.append("ajoute un message à ton assert (assert condition, message) : il dit ce qui était attendu "
                             "et ce qui a été obtenu")
-        if not problems and not 3.5 <= K_SE <= 7:
-            problems.append("ces 30 graines passent, mais ce K_SE serait instable ou trop large sur des milliers de "
-                            "lancements : relis l'énoncé pour le choisir")
+        if not problems and K_SE < 3.5:
+            problems.append("ces 30 graines passent, mais ce K_SE est trop petit : sur des milliers de lancements, la "
+                            "bonne fonction échouerait de temps en temps (avec la probabilité 2(1 − Φ(K_SE)))")
+        if not problems and K_SE > 8:
+            problems.append("ces 30 graines passent, mais ce K_SE est trop grand : sur des milliers de lancements, une "
+                            "copie qui rejette deux fois trop souvent passerait de temps en temps")
         if not problems:
             try:
                 test_z_test_is_calibrated()
@@ -1134,7 +1168,7 @@ for name, function in [("z_test_p_values", z_test_p_values), ("copy 1", z_test_c
     share = np.mean(function(np.random.default_rng(0).normal(0, 1, size=(4000, 20))) <= 0.05)
     print(f"{name}: share of p-values <= 0.05 under H0 = {share:.4f}")''',
     after=[("code", M08_25_CHECK)],
-    note=r"L'erreur type vaut $\sqrt{0{,}05 \times 0{,}95 / 4000} \approx 0{,}0034$. Un $K_{SE}$ entre 4 et 6 convient : "
+    note=r"L'erreur type vaut $\sqrt{0{,}05 \times 0{,}95 / 4000} \approx 0{,}0034$. Un $K_{SE}$ entre 4 et 8 convient : "
          r"la bonne fonction échoue avec la probabilité $2\big(1 - \Phi(K_{SE})\big)$, $6 \times 10^{-5}$ pour 4 et "
          r"$6 \times 10^{-7}$ pour 5. La copie 1 oublie le facteur 2 : elle renvoie la p-valeur unilatérale du côté "
          r"observé, et rejette dans 10 % des cas (l'erreur (E) de M08.24) ; elle se trompe dans le sens dangereux, celui "
@@ -1181,9 +1215,14 @@ M08_26_CHECK = f'''with checked("M08.26 défi"):
         results_26.append((len(set(true_t.tolist()) - chosen_t), len(chosen_t - set(true_t.tolist()))))
     if not problems:
         print("par dataset (vraies features manquées, faux positifs) :", results_26)
-        if any(missed > 0 for missed, _ in results_26):
+        missing_26 = any(missed > 0 for missed, _ in results_26)
+        extra_26 = any(false > 1 for _, false in results_26)
+        if missing_26 and extra_26:
+            problems.append("ta règle manque des vraies features sur certains datasets et garde plus d'un faux positif "
+                            "sur d'autres : elle ne s'adapte pas au nombre de vraies features")
+        elif missing_26:
             problems.append("des vraies features manquent : ta règle est trop sévère")
-        if any(false > 1 for _, false in results_26):
+        elif extra_26:
             problems.append("plus d'un faux positif sur un dataset : ta règle est trop permissive")
         if slowest > 10:
             problems.append(f"objectif atteint, mais en {{slowest:.1f}} s pour un dataset (objectif : 10 s)")

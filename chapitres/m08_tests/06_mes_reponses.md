@@ -148,7 +148,8 @@
 - e :
 - f :
 - g :
-- Pourquoi l'erreur type de f) est plus de trois fois celle de c) ; ce qu'on aurait dit de la mise à jour sans l'appariement :
+- h :
+- Pourquoi l'erreur type de f) est plus de trois fois celle de c) ; ce qu'on aurait dit de la mise à jour sans l'appariement ; le nombre de combinaisons de signes en h), et pourquoi aucune p-valeur plus petite n'est possible :
 
 ### Ex M08.7 — Vingt tests au seuil de 5 % : les faux positifs attendus, puis Bonferroni
 

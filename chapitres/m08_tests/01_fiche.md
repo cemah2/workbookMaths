@@ -65,7 +65,7 @@ Vocabulaire anglais de ce chapitre : *hypothesis test*, *null hypothesis*, *alte
 7. **Wald** : $\hat{p} \pm z\sqrt{\hat{p}(1 - \hat{p})/n}$, faux quand il y a peu de succès ; **Wilson** l'améliore en inversant un test. **Mesures appariées** : on travaille sur les différences, $\bar{d} \pm t\,\frac{s_d}{\sqrt{n}}$ (Student).
 8. Avec $m$ tests au seuil $\alpha$, la probabilité d'au moins un faux positif peut atteindre $1 - (1 - \alpha)^m$ ; **Bonferroni** teste chacun au seuil $\frac{\alpha}{m}$ et garantit $\le \alpha$, sans hypothèse d'indépendance.
 9. **AIC** $= 2k - 2\ln L$, **BIC** $= k \ln n - 2\ln L$ : le plus petit gagne ; le BIC pénalise plus les paramètres dès $n \ge 8$. Le **facteur de Bayes** est le rapport des évidences de deux modèles.
-10. Une validation croisée est une **estimation bruitée** : comparer deux modèles demande les mêmes folds, plusieurs graines, et un test apparié.
+10. Un score de validation est une **estimation bruitée** : il change avec les exemples, le découpage et la graine, et un écart entre deux modèles se juge face à cette variabilité.
 
 ---
 
@@ -110,7 +110,7 @@ C'est la notion la plus mal comprise de toute la statistique. Une p-valeur de 0,
 
 Elle est seulement ceci : un nombre entre 0 et 1, d'autant plus petit que les données seraient surprenantes si $H_0$ était vraie. Une propriété la rend utile : si $H_0$ est vraie et que la statistique est continue, la p-valeur suit la **loi uniforme** sur $[0, 1]$ (M08.10 le démontre). Rejeter quand $p \le \alpha$ se trompe alors exactement avec la probabilité $\alpha$.
 
-⚠️ **Erreur classique.** Choisir $H_1$ ou le seuil **après** avoir vu les données (« le résultat va dans ce sens, je fais donc un test unilatéral dans ce sens »). La p-valeur suppose un protocole fixé à l'avance ; le changer après coup la rend trop optimiste.
+⚠️ **Erreur classique.** Choisir $H_1$ ou le seuil **après** avoir vu les données (« le résultat va dans ce sens, je fais donc un test unilatéral dans ce sens »). La p-valeur suppose un protocole fixé à l'avance ; le changer après coup la rend trop optimiste. Il en va de même du nombre de données : regarder la p-valeur chaque jour et s'arrêter dès qu'elle passe sous 0,05 donne beaucoup plus de 5 % de faux positifs (on s'offre plusieurs essais).
 
 ## §2 · Un test exact : le test binomial
 
@@ -167,13 +167,13 @@ Le « +1 » compte la répartition observée parmi les répartitions possibles :
 
 **Ce que le test suppose.** L'échangeabilité sous $H_0$ : des unités indépendantes, réparties au hasard entre les groupes. Il ne suppose ni loi normale, ni grands échantillons ; c'est pourquoi il est si utile en machine learning, où les scores n'ont pas de loi connue.
 
-**Mesures appariées.** Quand chaque unité est mesurée **deux fois** (un même serveur avant et après une mise à jour), on ne mélange pas les unités : on échange, dans chaque paire, les deux mesures (ce qui change le signe de leur différence). WorkbookIA 8 se sert de cette version pour comparer deux modèles sur les mêmes exemples.
+**Mesures appariées.** Quand chaque unité est mesurée **deux fois** (un même serveur avant et après une mise à jour), on ne mélange pas les unités : on échange, dans chaque paire, les deux mesures (ce qui change le signe de leur différence).
 
 ### L'importance d'une feature par permutation
 
 La même idée sert à mesurer l'importance d'une feature dans un modèle **déjà entraîné** : on **mélange** la colonne de cette feature dans un jeu de validation, ce qui casse son lien avec la cible sans changer sa loi, et l'on regarde de combien le score baisse. Une feature dont le mélange ne change rien n'est pas utilisée ; une feature dont le mélange fait chuter le score compte beaucoup. M08.13 le fait à la main sur un petit tableau ; workbookIA s'en servira avec les forêts aléatoires (ch. 14).
 
-🔗 **Dans workbookIA** — le chapitre 8 compare deux modèles notés sur le même jeu de test par un test par permutation sur leurs désaccords, et complète la p-valeur par un bootstrap apparié.
+🔗 **Dans workbookIA** — le chapitre 8 se sert d'un test par permutation, et d'un bootstrap, pour comparer deux modèles notés sur le même jeu de test.
 
 ## §4 · Erreurs de type I et II, puissance, taille d'échantillon
 
@@ -282,7 +282,7 @@ On présente souvent la correction sous forme de **p-valeurs ajustées** $\min(1
 
 ⚠️ **Erreur classique.** Diviser la p-valeur par $m$ au lieu de la multiplier (ou multiplier le seuil au lieu de le diviser) : la correction rend alors les tests plus laxistes au lieu de plus stricts.
 
-💼 **En entreprise** — « On a testé 40 variantes de la page d'accueil, et l'une fait 6 % de clics en plus, significatif ! » Avec 40 tests au seuil de 5 %, on attend deux faux positifs. Avant d'y croire, on corrige, ou l'on **confirme** le résultat sur de nouvelles données.
+💼 **En entreprise** — « On a testé 25 variantes de la page d'accueil, et l'une fait 6 % de clics en plus, significatif ! » Avec 25 tests au seuil de 5 %, on attend plus d'un faux positif (1,25 en moyenne). Avant d'y croire, on corrige, ou l'on **confirme** le résultat sur de nouvelles données.
 
 ## §7 · Choisir un modèle : AIC, BIC, facteur de Bayes, validation croisée
 
@@ -317,9 +317,9 @@ Quand un modèle a un paramètre libre, son évidence est la **moyenne** de la v
 ### La validation croisée, une estimation bruitée
 
 En machine learning, on compare le plus souvent des modèles par leur score sur des données qu'ils n'ont pas vues : un jeu de validation, ou une **validation croisée** à $k$ folds (chaque fold sert une fois de validation). Statistiquement, ce score est une **estimation** de la performance future : il a une variabilité, qui vient des exemples tirés et des hasards de l'entraînement (l'initialisation, l'ordre des exemples, la **graine**). Trois conséquences :
-- un écart de score entre deux modèles se juge face à cette variabilité, avec les outils de ce chapitre : les **mêmes** exemples ou les mêmes folds pour les deux modèles, et un test **apparié** ;
-- quand l'entraînement dépend du hasard, on répète l'évaluation sur **plusieurs graines** et l'on donne la moyenne et l'écart-type des scores (ou un intervalle), plutôt qu'un seul nombre ;
-- choisir un réglage parmi beaucoup en regardant leurs scores de validation est une **comparaison multiple** : le meilleur score est flatteur. Pour estimer honnêtement toute la procédure (« choisir, puis entraîner »), on la place dans une boucle extérieure de validation : c'est la **validation croisée imbriquée** (*nested cross-validation*) du §8.6.1 de MML.
+- un écart de score entre deux modèles se juge face à cette variabilité : deux modèles qui diffèrent de moins que les fluctuations du score ne sont pas départagés. Comment comparer honnêtement deux modèles (sur quelles données, avec quel test, et quels pièges éviter) est l'objet du chapitre 8 de workbookIA ;
+- quand l'entraînement dépend du hasard, un seul nombre ne suffit pas : on répète l'évaluation sur **plusieurs graines**, et l'on regarde de combien le score varie d'une graine à l'autre ;
+- pour estimer honnêtement une procédure qui choisit un réglage puis entraîne le modèle, on la place tout entière dans une boucle extérieure de validation : c'est la **validation croisée imbriquée** (*nested cross-validation*) du §8.6.1 de MML.
 
 🔗 **Dans workbookIA** — le chapitre 8 met tout cela en pratique : jeux d'entraînement, de validation et de test, validation croisée à $k$ folds, incertitude d'un score, comparaison honnête de deux modèles. Ce chapitre t'a donné la p-valeur, les tests et les intervalles qu'il utilise.
 
@@ -338,7 +338,7 @@ En machine learning, on compare le plus souvent des modèles par leur score sur 
 | Deux groupes indépendants pour des mesures appariées | travailler sur les différences |
 | Beaucoup de tests, chacun au seuil de 5 % | corriger (Bonferroni : seuil $\frac{\alpha}{m}$, p-valeurs $\times m$) |
 | Comparer des AIC calculés sur des données différentes | seulement des différences, sur les mêmes données |
-| Un seul score de validation, une seule graine | plusieurs graines, les mêmes folds, un test apparié |
+| Un seul score de validation, une seule graine | répéter sur plusieurs graines, et juger un écart face à la variabilité du score |
 
 ## Et maintenant
 

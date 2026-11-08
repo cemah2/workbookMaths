@@ -46,7 +46,7 @@
 3. $\frac{0{,}05}{25} = 0{,}002$.
 4. $\min(1, 5 \times 0{,}012) = 0{,}06$.
 5. **Faux** : chaque test devient plus sévère, donc **moins** puissant. C'est le prix de la garantie sur la famille.
-6. **Vrai** : retenir le meilleur de 30 scores, c'est faire 30 comparaisons ; le meilleur score est trop optimiste, et se confirme sur des données qui n'ont pas servi à choisir.
+6. **Vrai** : 25 tests ont été faits, même si un seul est publié. Avec 25 tests au seuil de 5 %, on attend plus d'un faux positif si aucun indicateur n'a d'effet : le plus significatif a de bonnes chances d'en être un. Il faut compter les 25 tests (Bonferroni) ou confirmer sur de nouvelles données.
 
 ### M08.Q6 — AIC, BIC, facteur de Bayes : qui pénalise quoi ?
 1. $\mathrm{AIC} = 2k - 2\ln L$ et $\mathrm{BIC} = k\ln n - 2\ln L$.
@@ -178,7 +178,7 @@ Pour la copie : Wald donne $[0, 0]$ pour 0 erreur sur 60, comme si l'on était s
 
 ### Ex M08.6 — L'intervalle de Student d'une différence appariée : un serveur avant et après une mise à jour
 
-**Réponses** : a) `3.5` · b) `2.0736` · c) `0.847` · d) `2.571` · e) `[1.32, 5.68]` · f) `2.82` · g) `False`.
+**Réponses** : a) `3.5` · b) `2.0736` · c) `0.847` · d) `2.571` · e) `[1.32, 5.68]` · f) `2.82` · g) `False` · h) `"1/64"`.
 
 **Démarche.** Les différences valent $d = (4, 1, 6, 1, 4, 5)$.
 - a) $\bar{d} = \frac{21}{6} = 3{,}5$.
@@ -188,10 +188,11 @@ Pour la copie : Wald donne $[0, 0]$ pour 0 erreur sur 60, comme si l'on était s
 - e) $3{,}5 \pm 2{,}571 \times 0{,}8466 = 3{,}5 \pm 2{,}18$ : $[1{,}32 ;\ 5{,}68]$.
 - f) $s^2_{\text{avant}} \approx 28{,}67$, $s^2_{\text{après}} \approx 18{,}97$ : $\sqrt{\frac{28{,}67 + 18{,}97}{6}} \approx 2{,}82$.
 - g) **Faux** : les deux bornes sont positives.
+- h) Sous $H_0$, chacune des six différences peut prendre un signe ou l'autre : $2^6 = 64$ combinaisons, aussi probables. Les six différences observées sont toutes positives : changer un seul signe fait baisser la moyenne. Seule la combinaison observée atteint 3,5 : $p = \frac{1}{64} \approx 0{,}016$.
 
-Pour la copie : les routes diffèrent beaucoup entre elles (de 45 à 61 ms) ; sans appariement, cette variabilité entre routes entre dans l'erreur type, alors qu'elle n'a rien à voir avec la mise à jour. En travaillant sur les différences, chaque route sert de témoin à elle-même. Sans appariement, l'intervalle serait $3{,}5 \pm t \times 2{,}82$, environ $[-2{,}8 ;\ 9{,}8]$ avec $t \approx 2{,}23$ (la méthode de Welch, hors programme) : il contient 0 quel que soit le quantile choisi, et l'on conclurait à tort qu'on ne voit pas d'effet.
+Pour la copie : les routes diffèrent beaucoup entre elles (de 45 à 61 ms) ; sans appariement, cette variabilité entre routes entre dans l'erreur type, alors qu'elle n'a rien à voir avec la mise à jour. En travaillant sur les différences, chaque route sert de témoin à elle-même. Sans appariement, l'intervalle serait $3{,}5 \pm t \times 2{,}82$, environ $[-2{,}8 ;\ 9{,}8]$ avec $t \approx 2{,}23$ (la méthode de Welch, hors programme) : il contient 0 quel que soit le quantile choisi, et l'on conclurait à tort qu'on ne voit pas d'effet. En h), il y a 64 combinaisons de signes, et l'observation est la plus extrême possible : $\frac{1}{64}$ est la plus petite p-valeur unilatérale que ce test peut donner avec six paires.
 
-**Erreurs fréquentes.** $\mathrm{ddof} = 0$ (b : 1,893) ; diviser par $n$ au lieu de $\sqrt{n}$ ; prendre 1,96 ou 6 degrés de liberté (d) ; prendre le quantile d'ordre 0,95.
+**Erreurs fréquentes.** $\mathrm{ddof} = 0$ (b : 1,893) ; diviser par $n$ au lieu de $\sqrt{n}$ ; prendre 1,96 ou 6 degrés de liberté (d) ; prendre le quantile d'ordre 0,95 ; compter les deux côtés en h) ($\frac{2}{64}$), ou oublier la combinaison observée (0).
 
 **Variante.** L'intervalle à 90 % ? *Réponse* : $t_{5 ;\ 0{,}95} \approx 2{,}015$, d'où $3{,}5 \pm 1{,}71$, soit $[1{,}79 ;\ 5{,}21]$.
 
@@ -311,7 +312,7 @@ Pour la copie : mélanger une colonne garde ses valeurs (sa moyenne, sa dispersi
 ### Ex M08.14 — MML §8.6 : validation croisée imbriquée, sélection bayésienne de modèle et facteur de Bayes
 
 **Réponse modèle.**
-1. La boucle **intérieure** choisit le modèle (ou ses hyperparamètres) par validation croisée sur la partie d'entraînement ; la boucle **extérieure** estime, sur des parties qui n'ont servi ni à entraîner ni à choisir, la performance de toute la procédure, choix compris. Le score qui a servi à choisir est le meilleur de plusieurs scores : il est trop optimiste (Q5, question 6), et ne peut pas être annoncé comme la performance attendue.
+1. La boucle **intérieure** choisit le modèle (ou ses hyperparamètres) par validation croisée sur la partie d'entraînement ; la boucle **extérieure** estime, sur des parties qui n'ont servi ni à entraîner ni à choisir, la performance de toute la procédure, choix compris. Le score qui a servi à choisir a été retenu parce qu'il était le meilleur : il est trop optimiste, et ne peut pas être annoncé comme la performance attendue.
 2. Le livre met une loi a priori sur les **modèles** eux-mêmes, en plus de celle des paramètres de chaque modèle. Il compare les modèles par leur probabilité a posteriori, proportionnelle à la loi a priori du modèle fois $p(\mathcal{D} \mid M_k)$, la vraisemblance moyennée sur les paramètres : l'*evidence* (*model evidence*) ou *marginal likelihood*.
 3. Un modèle très souple peut expliquer beaucoup de datasets différents : sa probabilité, qui fait 1 au total, est répartie sur eux tous, et chacun en reçoit peu. Pour la pièce de la fiche (7 faces sur 10), le modèle « probabilité inconnue » donne $\frac{1}{11}$ à chacun des 11 résultats, alors que le modèle « pièce équilibrée » concentre sa probabilité près de 5 faces et donne 0,117 à 7 faces : le modèle simple l'emporte, sans pénalité ajoutée à la main.
 4. Cote a posteriori $=$ facteur de Bayes $\times$ cote a priori : $4 \times \frac{1}{2} = 2$, et la probabilité a posteriori du premier modèle vaut $\frac{2}{1 + 2} = \frac{2}{3}$.
@@ -336,9 +337,9 @@ Pour la copie : mélanger une colonne garde ses valeurs (sa moyenne, sa dispersi
 
 **Réponse modèle (60 secondes).**
 
-> Si l'hypothèse nulle était vraie, si le changement n'avait aucun effet, un écart au moins aussi grand que le nôtre n'arriverait que 3 fois sur 100. Ce n'est pas la probabilité que le changement soit inutile. Au seuil de 5 % fixé avant le test, je rejette l'hypothèse nulle. Mais avant d'y croire, je vérifie trois choses : que le protocole, la métrique et la taille d'échantillon étaient fixés à l'avance, sans regarder les résultats en cours de route ; combien de tests ont été faits (avec vingt métriques, en trouver une à 3 % n'a rien d'étonnant) ; et la taille de l'effet, avec son intervalle de confiance. À l'équipe produit, je ne dis pas « c'est prouvé » : je dis que l'effet est probablement réel, qu'il vaut entre telle et telle valeur, et je recommande de le confirmer si la décision coûte cher.
+> Si l'hypothèse nulle était vraie, si le changement n'avait aucun effet, un écart au moins aussi grand que le nôtre n'arriverait que 3 fois sur 100. Ce n'est pas la probabilité que le changement soit inutile. Au seuil de 5 % fixé avant le test, je rejette l'hypothèse nulle. Mais avant d'y croire, je vérifie deux choses. D'abord le protocole : la métrique et la taille d'échantillon étaient-elles fixées à l'avance, ou s'est-on arrêté dès que la p-valeur est passée sous 0,05 en regardant les résultats chaque jour ? Cet arrêt-là gonfle beaucoup le risque de faux positif. Ensuite la taille de l'effet, avec son intervalle de confiance : un effet réel peut être trop petit pour compter. À l'équipe produit, je ne dis pas « c'est prouvé » : je dis que l'effet est probablement réel, qu'il vaut entre telle et telle valeur, et je recommande de le confirmer si la décision coûte cher.
 
-**Grille.** (1) le sens exact de $p = 0{,}03$ et le contresens à éviter ; (2) la décision au seuil prévu à l'avance ; (3) les questions sur le protocole, les comparaisons multiples et la taille de l'effet ; (4) un message pour l'équipe produit en termes d'effet et d'intervalle, pas de « significatif ».
+**Grille.** (1) le sens exact de $p = 0{,}03$ et le contresens à éviter ; (2) la décision au seuil prévu à l'avance ; (3) les questions sur le protocole (fixé à l'avance, sans arrêt au premier résultat favorable) et sur la taille de l'effet ; (4) un message pour l'équipe produit en termes d'effet et d'intervalle, pas de « significatif ».
 
 <a id="notebook"></a>
 
@@ -414,7 +415,7 @@ Sous $H_0$, la p-valeur d'un test à statistique continue est uniforme (M08.10) 
 
 ### Ex M08.25 — Tester un test : un pytest qui vérifie l'uniformité des p-valeurs sous H0
 
-**Démarche.** `assert_calibrated` : `samples = np.random.default_rng(seed).normal(0, 1, size=(n_sims, n))`, `share = np.mean(p_value_function(samples) <= alpha)`, `se = math.sqrt(alpha * (1 - alpha) / n_sims)`, puis `assert abs(share - alpha) <= K_SE * se, f"expected … got {share}"`. `test_z_test_is_calibrated` appelle `assert_calibrated(z_test_p_values, seed=2025)`. Pour la copie : l'erreur type vaut $\sqrt{0{,}05 \times 0{,}95/4000} \approx 0{,}0034$ ; un $K_{SE}$ entre 4 et 6 convient (la bonne fonction échoue avec la probabilité $2(1 - \Phi(K_{SE}))$, $6 \times 10^{-5}$ pour 4). La copie 1 oublie le facteur 2 : elle rejette dans 10 % des cas, le sens dangereux (des faux positifs). La copie 2 divise par $\sqrt{n}$ au lieu de multiplier : $z$ est 20 fois trop petit, et le test ne rejette presque jamais (pas de faux positifs, mais plus de puissance). Les deux s'écartent de 0,05 d'environ 14 erreurs types, dans un sens ou dans l'autre : il faut comparer l'écart **en valeur absolue**. Une copie `1 - p` passerait : si $P$ est uniforme, $1 - P$ l'est aussi. Elle ne se trahit que sous $H_1$, où elle ne rejette presque jamais : un test complet vérifie aussi la puissance sur un cas où l'effet existe.
+**Démarche.** `assert_calibrated` : `samples = np.random.default_rng(seed).normal(0, 1, size=(n_sims, n))`, `share = np.mean(p_value_function(samples) <= alpha)`, `se = math.sqrt(alpha * (1 - alpha) / n_sims)`, puis `assert abs(share - alpha) <= K_SE * se, f"expected … got {share}"`. `test_z_test_is_calibrated` appelle `assert_calibrated(z_test_p_values, seed=2025)`. Pour la copie : l'erreur type vaut $\sqrt{0{,}05 \times 0{,}95/4000} \approx 0{,}0034$ ; un $K_{SE}$ entre 4 et 8 convient (la bonne fonction échoue avec la probabilité $2(1 - \Phi(K_{SE}))$, $6 \times 10^{-5}$ pour 4). La copie 1 oublie le facteur 2 : elle rejette dans 10 % des cas, le sens dangereux (des faux positifs). La copie 2 divise par $\sqrt{n}$ au lieu de multiplier : $z$ est 20 fois trop petit, et le test ne rejette presque jamais (pas de faux positifs, mais plus de puissance). Les deux s'écartent de 0,05 d'environ 14 erreurs types, dans un sens ou dans l'autre : il faut comparer l'écart **en valeur absolue**. Une copie `1 - p` passerait : si $P$ est uniforme, $1 - P$ l'est aussi. Elle ne se trahit que sous $H_1$, où elle ne rejette presque jamais : un test complet vérifie aussi la puissance sur un cas où l'effet existe.
 
 **Erreurs fréquentes.** Un test à sens unique (`share <= alpha + tol`), qui laisse passer la copie 2 ; une tolérance fixe (`0.01`) au lieu d'une tolérance en erreurs types ; un générateur sans graine (un test qui n'est pas reproductible) ; un `assert` sans message.
 

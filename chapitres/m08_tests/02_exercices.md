@@ -63,7 +63,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 3. Quel seuil Bonferroni donne-t-il à chacun de 25 tests, pour $\alpha = 0{,}05$ ?
 4. Quelle est la p-valeur ajustée de Bonferroni d'un test de p-valeur 0,012, parmi 5 tests ?
 5. Vrai ou faux : la correction de Bonferroni augmente la puissance de chaque test.
-6. Vrai ou faux : essayer 30 réglages et ne retenir que le meilleur score de validation est une comparaison multiple.
+6. Vrai ou faux : tester 25 indicateurs de santé et ne publier que le plus significatif est une comparaison multiple.
 
 ### M08.Q6 — AIC, BIC, facteur de Bayes : qui pénalise quoi ? 🧠 ★ ⏱️ 4 min
 *Fiche §7 · parcours C*
@@ -227,8 +227,9 @@ On note $d_i$ = avant − après.
 | e | l'intervalle à 95 % de la différence moyenne | une liste de 2 nombres (2 décimales) |
 | f | l'erreur type si l'on oubliait l'appariement, $\sqrt{\frac{s_{\text{avant}}^2}{6} + \frac{s_{\text{après}}^2}{6}}$ | un nombre (2 décimales) |
 | g | vrai ou faux : 0 est dans l'intervalle de e) | `True` ou `False` |
+| h | la p-valeur exacte unilatérale du test par permutation apparié : sous $H_0$, chaque différence garde sa valeur absolue mais prend un signe au hasard (fiche §3) ; on compare la moyenne des différences à celle observée | une fraction irréductible |
 
-Dans ta copie : pourquoi l'erreur type de f) est-elle plus de trois fois plus grande que celle de c) ? Que dirait-on de la mise à jour si l'on avait oublié l'appariement ?
+Dans ta copie : pourquoi l'erreur type de f) est-elle plus de trois fois plus grande que celle de c) ? Que dirait-on de la mise à jour si l'on avait oublié l'appariement ? Combien de combinaisons de signes y a-t-il en h), et pourquoi aucune p-valeur plus petite n'est-elle possible avec six paires ?
 
 ### Ex M08.7 — Vingt tests au seuil de 5 % : les faux positifs attendus, puis Bonferroni ✏️ ★ ⏱️ 15 min
 **Objectif :** chiffrer le risque des comparaisons multiples, puis appliquer la correction de Bonferroni.
@@ -386,7 +387,7 @@ Réponds-lui **en huit lignes au plus**, sans formule. Ta réponse doit dire ce 
 
 « Votre test donne $p = 0{,}03$. Que concluez-vous, et que dites-vous à l'équipe produit ? »
 
-Prépare une réponse orale de **60 secondes**, que tu dirais à voix haute en entretien. Elle doit dire ce que signifie $p = 0{,}03$ (et ce qu'il ne signifie pas), la décision au seuil prévu, les questions à poser avant d'y croire (le protocole fixé à l'avance, le nombre de tests faits, la taille de l'effet et son intervalle), et ce qu'on dit à l'équipe produit. Compare ensuite avec la réponse modèle de `05_solutions.md`.
+Prépare une réponse orale de **60 secondes**, que tu dirais à voix haute en entretien. Elle doit dire ce que signifie $p = 0{,}03$ (et ce qu'il ne signifie pas), la décision au seuil prévu, les questions à poser avant d'y croire (la métrique et la taille d'échantillon fixées à l'avance, sans s'arrêter dès que la p-valeur passe sous 0,05 ; la taille de l'effet et son intervalle), et ce qu'on dit à l'équipe produit. Compare ensuite avec la réponse modèle de `05_solutions.md`.
 
 <a id="notebook"></a>
 

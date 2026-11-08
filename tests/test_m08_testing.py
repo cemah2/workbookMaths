@@ -93,6 +93,7 @@ def test_testing_uses_no_ready_made_test(testing):
 BINOMIAL_CASES = [   # (k, n, p): none is an exercise of the chapter
     (3, 17, 0.5), (14, 20, 0.5), (0, 25, 0.5), (25, 25, 0.5), (7, 40, 0.1), (2, 9, 0.35), (120, 300, 0.37),
     (1, 1, 0.5), (11, 30, 0.6), (600, 600, 0.999),
+    (1, 2, 1 / 3), (3, 4, 0.6),   # two outcomes equally likely up to rounding: the tolerance 1 + 1e-7 matters
 ]
 ALTERNATIVES = ["two-sided", "greater", "less"]
 
@@ -129,9 +130,12 @@ def test_binomial_test_returns_a_python_float_in_0_1(testing):
     assert 0 < got <= 1, f"expected a p-value in ]0, 1], got {got!r}"
 
 
-def test_binomial_test_two_sided_is_capped_at_one(testing):
-    got = _result(lambda: testing.binomial_test(10, 20), "1.0", "binomial_test(10, 20)")
-    assert got <= 1.0, f"expected a p-value at most 1 for binomial_test(10, 20) (cap the sum at 1), got {got!r}"
+@pytest.mark.parametrize("case", [(10, 20, 0.5), (0, 2, 0.2)], ids=["k10-n20-p0.5", "k0-n2-p0.2"])
+def test_binomial_test_two_sided_is_capped_at_one(testing, case):
+    k, n, p = case
+    got = _result(lambda: testing.binomial_test(k, n, p), "1.0", f"binomial_test({k}, {n}, {p})")
+    assert got <= 1.0, (f"expected a p-value at most 1 for binomial_test({k}, {n}, {p}) (cap the sum at 1: rounding "
+                        f"can push it just above), got {got!r}")
 
 
 BINOMIAL_INVALID = {
@@ -304,7 +308,9 @@ def test_proportion_ci_wilson_contains_p_hat_inside_0_1(testing, case):
     got = _result(lambda: testing.proportion_ci(k, n), "an interval", f"k = {k}, n = {n}")
     low, high = got
     assert 0 <= low <= k / n <= high <= 1, (
-        f"expected 0 ≤ low ≤ p̂ = {k / n:.4f} ≤ high ≤ 1 for the Wilson interval with k = {k}, n = {n}, got {got!r}")
+        f"expected 0 ≤ low ≤ p̂ = {k / n:.4f} ≤ high ≤ 1 for the Wilson interval with k = {k}, n = {n}, got {got!r} "
+        f"(clip each bound to [0, 1] with min and max: rounding can push a bound just outside, such as "
+        f"1.0000000000000002 for k = n)")
 
 
 PROPORTION_INVALID = {

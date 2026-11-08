@@ -256,7 +256,7 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Prendre pour $m$ le nombre de résultats montrés | Bonferroni avec les 3 plus petites p-valeurs sur 50 tests faits | $m$ = le nombre de tests **faits** |
 | Arrondir au-dessous une taille d'échantillon | $n = 68{,}7$ arrondi à 68 | arrondir au-dessus : avec moins de mesures, la puissance n'est pas atteinte |
 | Préférer le plus grand AIC, ou prendre $\log_{10}$ dans le BIC | « AIC = 464,8 contre 461,8 : le premier gagne » | le plus **petit** critère gagne ; $\ln$ népérien |
-| Annoncer le score qui a servi à choisir le modèle | le meilleur de 30 scores de validation présenté comme la performance attendue | le confirmer sur des données qui n'ont pas servi au choix (jeu de test, validation croisée imbriquée) |
+| Ne publier que le test le plus significatif | 25 indicateurs testés, seul celui de p-valeur 0,02 est publié | compter les 25 tests (Bonferroni), ou confirmer sur de nouvelles données |
 
 ## Matrices (M09a et suite)
 

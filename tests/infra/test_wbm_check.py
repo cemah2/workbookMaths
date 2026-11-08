@@ -135,6 +135,9 @@ def test_angles_in_radians_where_degrees_are_asked():
     assert "en radians" in C.check_entry("d.4t", e, [1.57, 4.71])[2]
     e = entry("d.4u", 0.5236, decimals=4)
     assert "en degrés" in C.check_entry("d.4u", e, 30)[2]
+    e = entry("d.4p", 0.026, decimals=4)          # a p-value, not an angle: 0.000454 rad is 0.026° (session 28)
+    assert "radians" not in C.check_entry("d.4p", e, 0.000454, computed=True)[2]
+    assert "radians" not in C.check_entry("d.4p", e, 0.000454)[2]
 
 
 def test_an_equation_typed_where_its_coefficients_are_asked():

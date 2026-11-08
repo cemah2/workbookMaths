@@ -24090,6 +24090,7 @@
       "hash": "e01303fb196b03544e689c4951e624cea57830efc61cdb4ecf68d9364a0c729a",
       "kind": "fraction",
       "mistakes": {
+        "0f2ccb0e21577407026d9836344eebd40028cdaeeb5e2ebf7bd8fbd1cf8a2e3d": "la question c) est unilatérale : compte seulement les répartitions où t est au moins aussi petit que la valeur observée",
         "1ae95d54aa8028e07100f8d827d229e6acbc05e1a7483b739285e4f5758d0fda": "la répartition observée compte parmi les 20 : elle est au moins aussi extrême qu'elle-même"
       },
       "sign": 1,
@@ -24270,6 +24271,7 @@
       "source": "chapitres/m08_tests/05_solutions.ipynb"
     },
     "M08.4c": {
+      "fractional": "arrondis à l'entier supérieur : avec moins de mesures, la puissance n'atteint pas 80 %",
       "hash": "f5197e0fa232a28ddccafa9a28cf98716f6547c0752d31b2b233d55b196961cf",
       "kind": "int",
       "magnitude": 1,
@@ -24282,6 +24284,7 @@
       "source": "chapitres/m08_tests/05_solutions.ipynb"
     },
     "M08.4d": {
+      "fractional": "arrondis à l'entier supérieur : avec moins de mesures, la puissance n'atteint pas 80 %",
       "hash": "096c3b42113b1a1b71633cf34c30025eaea7f5027cc165992cd6217ea4da03ed",
       "kind": "int",
       "magnitude": 2,
@@ -24293,6 +24296,7 @@
       "source": "chapitres/m08_tests/05_solutions.ipynb"
     },
     "M08.4e": {
+      "fractional": "arrondis à l'entier supérieur : avec moins de mesures, la puissance n'atteint pas 80 %",
       "hash": "273219fbc07e4c71955be025ba6baa350aa97c8b7a9c3ee831f7d78e2ba50f38",
       "kind": "int",
       "magnitude": 2,
@@ -24338,6 +24342,7 @@
       "magnitude": -3,
       "mistakes": {
         "407a1597b416ef049e5d90652133554dc16691f45e34ec1b3435cf92252c9fc2": "tu as arrondi trop tôt : garde la racine √(p̂(1 − p̂)/n) avec tous ses chiffres jusqu'à la fin",
+        "44fdb42c8d5321826daa379ae51f56266acdcf210376907752199d93c69a9797": "la question demande la borne basse avant de la ramener dans [0, 1]",
         "61ede3c73599701097df5dc17ab933465ba3b1bd17bacff6513e8e4cf4aa2830": "la borne basse retranche la demi-largeur à p̂",
         "81330a89046c31f50b8c607894e0d028592dce322a0ad1301ebec83e9bc7057e": "la demi-largeur de Wald est z √(p̂(1 − p̂)/n) : n'oublie pas la racine"
       },
@@ -24504,6 +24509,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "7e7ed8987c210267d0307bd3f59ccaa170f40036e6670d14575e87a13dc920a2": "l'écart-type des différences se calcule avec ddof = 1",
         "8e11d19ebe05cbe4ecdf2e281ef57f008dc1adee4f51fbcd9ec6275be6e07104": "l'erreur type divise l'écart-type par √n, pas par n"
       },
       "sign": 1,
@@ -24587,6 +24593,17 @@
       },
       "source": "chapitres/m08_tests/05_solutions.ipynb"
     },
+    "M08.6h": {
+      "hash": "f12382210b6d7cf6af6f87954c8e3c28aae710aaaf0e568af427272d83e99528",
+      "kind": "fraction",
+      "mistakes": {
+        "1f048507ca78bb80ba519151538d3ccd105d00b5575cc180489fad3597436881": "la combinaison observée compte parmi les possibles",
+        "5fdd746971d77d97aba2d48395709398f1a0fe67903734b996aef2ce461488ed": "la question h) est unilatérale : compte seulement les combinaisons de signes dont la moyenne est au moins aussi grande que celle observée"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m08_tests/05_solutions.ipynb"
+    },
     "M08.7a": {
       "coarse_any": {
         "0": [
@@ -24653,6 +24670,9 @@
       "hash_coarse": "cfe28360838c11e69f997373edc9f279253bdf16df7a8278ef10b9f80bda4417",
       "kind": "float",
       "magnitude": -2,
+      "mistakes": {
+        "1010c0e02fc1975c336353a04d949a4f79d5361c771e98589b82ef286aba7076": "Bonferroni garantit au plus 0,05 ; avec des tests indépendants, la probabilité se calcule exactement, comme en b)"
+      },
       "sign": 1,
       "source": "chapitres/m08_tests/05_solutions.ipynb"
     },
@@ -24717,6 +24737,7 @@
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
+        "1f53e40369f3b5659beb999551ab0b363b505f9001900d729555c41bf7326549": "AIC = 2k − 2 ln L : n'oublie pas la pénalité 2k",
         "330010081dd8220044ff61d174eb88762ef47198470587e483ac0b7e29dd267c": "AIC = 2k − 2 ln L : quand ln L est négatif, −2 ln L est positif"
       },
       "sign": 1,
@@ -24729,6 +24750,7 @@
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
+        "6d34feb745fb10eb8d3336970f527ad757d6c46becefc21bce500ffcadbb42a4": "AIC = 2k − 2 ln L : n'oublie pas la pénalité 2k",
         "fbc1b57381296b3664b117c8212bc339cbb1f2ca768416d1df5afbbd2694859c": "AIC = 2k − 2 ln L : quand ln L est négatif, −2 ln L est positif"
       },
       "sign": 1,
@@ -25603,6 +25625,9 @@
       "hash_coarse": "03e2d8a98dbdc49591ab3dc081abb70dd6eec94f820ceacc7ba6cc1e4bb96c35",
       "kind": "float",
       "magnitude": -2,
+      "mistakes": {
+        "26b1fc0e7da32c505a20d91c04537495d11e5645c3bd512b382fdb6c00f19432": "chaque simulation appelle permutation_test avec sa propre graine : seed=sim"
+      },
       "sign": 1,
       "source": "chapitres/m08_tests/05_solutions.ipynb"
     },
@@ -25618,7 +25643,9 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "2ca627ddb61663c58db88176c72a10e93e0fc3e9adab0e2a5104ebd9b045ef04": "la puissance est la part des p-valeurs au plus égales à 0,05, pas au-dessus"
+        "2ca627ddb61663c58db88176c72a10e93e0fc3e9adab0e2a5104ebd9b045ef04": "la puissance est la part des p-valeurs au plus égales à 0,05, pas au-dessus",
+        "a507f23efdcd2c8de3e9da21e516af94a17dc7b1284fcc36a8c1de41cf759829": "tire x, puis y, dans cet ordre, avec le même générateur",
+        "b9e16026c21ce7caa2a058087c644a291a5f23849b41e08810d7d7eeb672e981": "chaque simulation appelle permutation_test avec sa propre graine : seed=sim"
       },
       "sign": 1,
       "source": "chapitres/m08_tests/05_solutions.ipynb"
@@ -25629,15 +25656,14 @@
       "hash_coarse": "f7f51f5710f4da3fb447706d1cbd5509d5742312191878374727efdc524f171e",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "3a080d3a277304cfc0d908dcde04fa073edfacb04c11eb681643eaaadcdf0aaf": "chaque simulation appelle permutation_test avec sa propre graine : seed=sim",
+        "be22037895ac2dbf00a11065fbfe9343969a2f145ed1743651de2414fdfae431": "tire x, puis y, dans cet ordre, avec le même générateur ; et compte les p-valeurs au plus égales à 0,05 (<=, pas <)"
+      },
       "sign": 1,
       "source": "chapitres/m08_tests/05_solutions.ipynb"
     },
     "M08.22d": {
-      "choices": [
-        "5",
-        "10",
-        "20"
-      ],
       "hash": "a73dd8115d70e5cf70c26b183075c25ababadc3b842b19badc0b518d8dd6d3be",
       "kind": "int",
       "magnitude": 1,
