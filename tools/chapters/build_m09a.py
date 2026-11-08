@@ -45,9 +45,9 @@ PAPER = [
         ("d", "a list of 3 numbers", "[24, 65, 15]",
          '''mistakes={"les lignes sont numérotées à partir de 1 : la ligne 4 est la quatrième": [20, 50, 7]}'''),
         ("e", "a list of 3 numbers", "X1.mean(axis=0)",
-         '''decimals=4, mistakes={"une moyenne par colonne (axis=0), pas par ligne": X1.mean(axis=1)}'''),
+         '''decimals=1, mistakes={"une moyenne par colonne (axis=0), pas par ligne": X1.mean(axis=1)}'''),
         ("f", "a list of 3 numbers", "X1[1] - X1.mean(axis=0)",
-         '''decimals=4, mistakes={"centrer retire la moyenne de chaque colonne, pas l'inverse": X1.mean(axis=0) - X1[1]}'''),
+         '''decimals=1, mistakes={"centrer retire la moyenne de chaque colonne, pas l'inverse": X1.mean(axis=0) - X1[1]}'''),
         ("g", "a number (4 decimals)", "X1[:, 0].std()",
          '''decimals=4, mistakes={"ddof = 0 : divise la somme des carrés des écarts par n = 5": X1[:, 0].std(ddof=1), '''
          '''"l'écart-type est la racine de la variance": X1[:, 0].var()}'''),
@@ -62,13 +62,14 @@ PAPER = [
         ("c", "an integer", "12",
          '''mistakes={"chaque coordonnée de Ax demande une multiplication par élément de sa ligne de A": 7}'''),
         ("d", "a list of 3 numbers", "A2[:, 2].tolist()",
-         '''mistakes={"A e_3 sélectionne la colonne 3 de A, pas sa ligne 3": [-2, 0, 1, 3]}'''),
+         '''mistakes={"A e_3 sélectionne la colonne 3 de A, pas sa ligne 3": [-2, 0, 1, 3], '''
+         '''"e_3 a son 1 en position 3, en comptant à partir de 1": [0, 5, 3]}'''),
         ("e", "a list of 4 numbers", "[1, 0, 0, 2]",
          '''mistakes={"Ay = y₁a₁ + … + y₄a₄ : y_j est le coefficient de la colonne j": [2, 0, 0, 1]}'''),
         ("f", "True or False", "False",
          '''mistakes={"A a 4 colonnes : le vecteur doit avoir 4 coordonnées": True}'''),
         ("g", "a list of 3 numbers", "(XG2 @ WG2 - 1).tolist()",
-         '''decimals=4, mistakes={"le biais b = −1 s'ajoute à chaque prédiction": (XG2 @ WG2).tolist()}'''),
+         '''decimals=1, mistakes={"le biais b = −1 s'ajoute à chaque prédiction": (XG2 @ WG2).tolist()}'''),
     ]),
 
     Paper("M09a.3", "Produits matriciels à la main : formes compatibles et calculs", [
@@ -94,22 +95,26 @@ PAPER = [
          '''mistakes={"le second produit est A fois BC, de forme (400, 300) : (20, 400) × (400, 300)": 400 * 5 * 300}'''),
         ("d", "a number (1 decimal)", "(400 * 5 * 300 + 20 * 400 * 300) / (20 * 400 * 5 + 20 * 5 * 300)",
          '''decimals=1, mistakes={"le rapport est le coût de A(BC) divisé par celui de (AB)C": '''
-         '''(20 * 400 * 5 + 20 * 5 * 300) / (400 * 5 * 300 + 20 * 400 * 300)}'''),
+         '''(20 * 400 * 5 + 20 * 5 * 300) / (400 * 5 * 300 + 20 * 400 * 300), '''
+         '''"le rapport des deux coûts, pas le surcoût relatif (rapport − 1)": '''
+         '''(400 * 5 * 300 + 20 * 400 * 300) / (20 * 400 * 5 + 20 * 5 * 300) - 1}'''),
         ("e", "a list of 2 integers", "[20, 300]"),
         ("f", "an integer", "5 * 300 + 400 * 5 + 20 * 400",
-         '''mistakes={"un produit matrice-vecteur (n, p) × (p,) coûte n p : additionne les trois": 5 * 300}'''),
+         '''mistakes={"un produit matrice-vecteur (n, p) × (p,) coûte n p : additionne les trois": 5 * 300, '''
+         '''"suis les parenthèses : C v d'abord, puis B fois ce vecteur, puis A": '''
+         '''20 * 400 * 5 + 20 * 5 * 300 + 20 * 300}'''),
         ("g", "an integer", "27", '''mistakes={"le coût d'un produit carré varie comme n³": {3, 9}}'''),
     ]),
 
     Paper("M09a.5", "Une couche dense Z = XW + b à la main : deux exemples, trois entrées, deux sorties", [
         ("a", "a list of 2 integers", "[3, 2]", f'''mistakes={{"{SHAPE} : 3 entrées, 2 neurones": [2, 3]}}'''),
         ("b", "a matrix", "(X5 @ W5 + B5).tolist()",
-         '''decimals=4, mistakes={"le biais b s'ajoute à chaque ligne de XW": (X5 @ W5).tolist(), '''
+         '''decimals=1, mistakes={"le biais b s'ajoute à chaque ligne de XW": (X5 @ W5).tolist(), '''
          '''"le biais b_j s'ajoute à la colonne j (le neurone j), sur chaque ligne": (X5 @ W5 + B5[::-1]).tolist()}'''),
         ("c", "a number", "float((X5 @ W5 + B5)[1, 0])",
-         '''decimals=4, mistakes={"z_21 : ligne 2 (l'exemple 2), colonne 1 (le neurone 1)": float((X5 @ W5 + B5)[0, 1])}'''),
+         '''decimals=1, mistakes={"z_21 : ligne 2 (l'exemple 2), colonne 1 (le neurone 1)": float((X5 @ W5 + B5)[0, 1])}'''),
         ("d", "a matrix", "np.maximum(X5 @ W5 + B5, 0).tolist()",
-         '''decimals=4, mistakes={"ReLU met à zéro les nombres négatifs et garde les autres": np.abs(X5 @ W5 + B5).tolist()}'''),
+         '''decimals=1, mistakes={"ReLU met à zéro les nombres négatifs et garde les autres": np.abs(X5 @ W5 + B5).tolist()}'''),
         ("e", "an integer", "8",
          '''mistakes={"compte aussi les biais, un par neurone": 6}'''),
         ("f", "a list of 2 integers", "[2, 3]",
@@ -121,11 +126,11 @@ PAPER = [
         ("a", "a list of 5 numbers", "[0, 0, 0, 1, 0]",
          '''mistakes={"le mot 4 a son 1 à la quatrième place (en comptant à partir de 1)": [0, 0, 0, 0, 1]}'''),
         ("b", "a list of 3 numbers", "E6[3].tolist()",
-         '''decimals=4, mistakes={"les lignes de E sont numérotées à partir de 1, comme les mots": E6[2].tolist()}'''),
+         '''decimals=1, mistakes={"les lignes de E sont numérotées à partir de 1, comme les mots": E6[2].tolist()}'''),
         ("c", "an integer", "15"),
         ("d", "an integer", "15", '''mistakes={"sans raccourci, chaque élément de E est multiplié une fois": 3}'''),
         ("e", "a list of 3 numbers", "(E6[1] + E6[4]).tolist()",
-         '''decimals=4, mistakes={"un 1 en position j sélectionne la ligne j de E, en comptant à partir de 1": (E6[0] + E6[3]).tolist()}'''),
+         '''decimals=1, mistakes={"un 1 en position j sélectionne la ligne j de E, en comptant à partir de 1": (E6[0] + E6[3]).tolist()}'''),
         ("f", "a list of 3 numbers (4 decimals)", "((E6[0] + 2 * E6[2]) / 3).tolist()",
          '''decimals=4, mistakes={"le mot 3 compte deux fois : le coefficient 2": ((E6[0] + E6[2]) / 3).tolist(), '''
          '''"divise la somme par 3, le nombre de mots": (E6[0] + 2 * E6[2]).tolist()}'''),
@@ -144,7 +149,9 @@ PAPER = [
          '''(X7 @ X7.T).tolist()}'''),
         ("f", "a list of 2 integers", "[4, 4]",
          '''mistakes={"écris les formes des deux facteurs de XXᵀ, X puis Xᵀ": [3, 3]}'''),
-        ("g", "a number", "int((X7 @ X7.T)[0, 1])"),
+        ("g", "a number", "int((X7 @ X7.T)[0, 1])",
+         '''mistakes={"c'est un élément de XᵀX (colonnes) : XXᵀ fait les produits scalaires des lignes": '''
+         '''int((X7.T @ X7)[0, 1])}'''),
     ]),
 
     Paper("M09a.8", "Le pivot de Gauss sur un système 3 × 3 à solution unique", [
@@ -166,7 +173,7 @@ PAPER = [
         ("a", "a list of 4 numbers", "[0, 0, 0, 1]",
          '''mistakes={"applique aussi chaque opération au second membre": [0, 0, 0, 0]}'''),
         ("b", "an integer", "0",
-         '''mistakes={"la dernière ligne dit 0 = 1 : aucune valeur de x, y, z ne la vérifie": 1}'''),
+         '''mistakes={"relis la dernière ligne de a) comme une équation en x, y, z": 1}'''),
         ("c", "a matrix", "[[1, 0, -7, -3], [0, 1, 3, 2], [0, 0, 0, 0]]",
          '''mistakes={"c'est une forme échelonnée : la forme réduite annule aussi le nombre au-dessus du pivot de la '''
          '''deuxième ligne": [[1, 2, -1, 1], [0, 1, 3, 2], [0, 0, 0, 0]]}'''),
@@ -197,19 +204,19 @@ PAPER = [
     ]),
 
     Paper("M09a.11", "L'inverse d'une matrice 2 × 2, par la formule, puis vérifiée", [
-        ("a", "a number", "2", '''mistakes={"ad − bc : une soustraction entre les deux produits": 14}'''),
-        ("b", "a matrix", "[[1, -1], [-1.5, 2]]",
-         '''decimals=4, mistakes={"divise par ad − bc": [[2, -2], [-3, 4]], '''
-         '''"échange a et d, et change le signe de b et de c": [[1, 1], [1.5, 2]]}'''),
-        ("c", "a list of 2 numbers", "[3, -1]", '''mistakes={"l'ordre est (x, y)": [-1, 3]}'''),
-        ("d", "a number", "3", '''mistakes={"écris ad − bc = 0, attention au signe du produit bc": -3}'''),
+        ("a", "a number", "2", '''mistakes={"ad − bc : une soustraction entre les deux produits": 18}'''),
+        ("b", "a matrix", "[[1, -2], [-1, 2.5]]",
+         '''decimals=1, mistakes={"divise par ad − bc": [[2, -4], [-2, 5]], '''
+         '''"échange a et d, et change le signe de b et de c": [[1, 2], [1, 2.5]]}'''),
+        ("c", "a list of 2 numbers", "[2, -1]", '''mistakes={"l'ordre est (x, y)": [-1, 2]}'''),
+        ("d", "a number", "4", '''mistakes={"écris ad − bc = 0, attention au signe du produit bc": -4}'''),
         ("e", "a matrix", "[[0.25, 0], [0, -2]]",
-         '''decimals=4, mistakes={"l'inverse d'une matrice diagonale a pour diagonale les inverses des nombres": '''
+         '''decimals=2, mistakes={"l'inverse d'une matrice diagonale a pour diagonale les inverses des nombres": '''
          '''[[-0.25, 0], [0, 2]]}'''),
-        ("f", "a matrix", "[[0.5, -0.5], [-0.75, 1]]",
-         '''decimals=4, mistakes={"(λA)⁻¹ = A⁻¹ / λ, pas λ A⁻¹": [[2, -2], [-3, 4]]}'''),
-        ("g", "a matrix", "[[1, -1.5], [-1, 2]]",
-         '''decimals=4, mistakes={"(Aᵀ)⁻¹ = (A⁻¹)ᵀ : transpose l'inverse": [[1, -1], [-1.5, 2]]}'''),
+        ("f", "a matrix", "[[0.5, -1], [-0.5, 1.25]]",
+         '''decimals=2, mistakes={"(λA)⁻¹ = A⁻¹ / λ, pas λ A⁻¹": [[2, -4], [-2, 5]]}'''),
+        ("g", "a matrix", "[[1, -1], [-2, 2.5]]",
+         '''decimals=1, mistakes={"(Aᵀ)⁻¹ = (A⁻¹)ᵀ : transpose l'inverse": [[1, -2], [-1, 2.5]]}'''),
     ]),
 
     Paper("M09a.12", "L'inverse d'une matrice 3 × 3 par Gauss-Jordan", [
@@ -219,19 +226,19 @@ PAPER = [
         ("c", "a list of 3 numbers", "[1, -1, 1]",
          '''mistakes={"la solution de A x = e_2 est la colonne 2 de A⁻¹, pas sa ligne 2": [2, -1, -2]}'''),
         ("d", "a list of 3 numbers", "[-2, 2, -1]",
-         '''mistakes={"(Aᵀ)⁻¹ = (A⁻¹)ᵀ : sa première ligne est la première colonne de A⁻¹": [-2, 1, 3]}'''),
+         '''mistakes={"(Aᵀ)⁻¹ = (A⁻¹)ᵀ : transpose ton inverse de a)": [-2, 1, 3]}'''),
         ("e", "True or False", "False",
          '''mistakes={"regarde la troisième ligne : combine-t-elle les deux autres ?": True}'''),
     ]),
 
     Paper("M09a.13", "Le rang de quatre matrices, et les colonnes redondantes", [
-        ("a", "an integer", "1"),
+        ("a", "an integer", "1", '''mistakes={"le rang compte les pivots, pas les colonnes": 2}'''),
         ("b", "an integer", "2", '''mistakes={"cherche si une colonne combine les deux autres": 3}'''),
         ("c", "an integer", "2",
          '''mistakes={"cherche si les colonnes 3 et 4 combinent les colonnes 1 et 2": 3}'''),
         ("d", "an integer", "3"),
         ("e", "a list of 2 numbers", "[2, -1]", '''mistakes={"l'ordre est [a, b], a pour la colonne 1": [-1, 2]}'''),
-        ("f", "True or False", "False", '''mistakes={"une matrice carrée de rang 2 sur 3 n'est pas inversible": True}'''),
+        ("f", "True or False", "False", '''mistakes={"relie le rang trouvé en b) à l'inversibilité (fiche §8)": True}'''),
         ("g", "an integer", "2", '''mistakes={"le rang des lignes est égal au rang des colonnes": 3}'''),
     ]),
 
@@ -253,9 +260,11 @@ PAPER = [
         ("d", "an integer", "64 * 3 * 5 + 64 * 5 * 2",
          '''mistakes={"le batch compte : chaque produit est (64, n_in) × (n_in, n_out)": 3 * 5 + 5 * 2}'''),
         ("e", "a list of 3 numbers", "H19.tolist()",
-         '''decimals=4, mistakes={"ReLU met à zéro les nombres négatifs": (np.array([1, -1]) @ W19 + B19).tolist(), '''
+         '''decimals=1, mistakes={"ReLU met à zéro les nombres négatifs": (np.array([1, -1]) @ W19 + B19).tolist(), '''
          '''"ajoute le biais b₁ avant ReLU": np.maximum(np.array([1, -1]) @ W19, 0).tolist()}'''),
-        ("f", "a number", "float(H19 @ V19 + 0.5)", "decimals=4"),
+        ("f", "a number", "float(H19 @ V19 + 0.5)",
+         '''decimals=1, mistakes={"h passe par ReLU avant la couche de sortie : prends le h de e)": '''
+         '''float((np.array([1, -1]) @ W19 + B19) @ V19 + 0.5), "ajoute le biais de sortie b₂": float(H19 @ V19)}'''),
         ("g", "True or False", "True",
          '''mistakes={"sans activation, développe (X W₁ + b₁) W₂ + b₂ par distributivité": False}'''),
     ]),
@@ -268,12 +277,16 @@ PAPER = [
         ("d", "a list of 2 numbers (4 decimals)", "(1 / X20.std(axis=0)).tolist()",
          '''decimals=4, mistakes={"ddof = 0 : divise par n = 3": (1 / X20.std(axis=0, ddof=1)).tolist(), '''
          '''"la question demande les inverses des écarts-types": X20.std(axis=0).tolist()}'''),
-        ("e", "a list of 2 numbers (4 decimals)", "((X20[0] - X20.mean(axis=0)) / X20.std(axis=0)).tolist()",
-         "decimals=4"),
+        ("e", "a list of 2 numbers (3 decimals)", "((X20[0] - X20.mean(axis=0)) / X20.std(axis=0)).tolist()",
+         '''decimals=3, mistakes={"ddof = 0 : divise par n = 3": '''
+         '''((X20[0] - X20.mean(axis=0)) / X20.std(axis=0, ddof=1)).tolist()}'''),
         ("f", "a matrix (4 decimals)", "((X20 - X20.mean(axis=0)).T @ (X20 - X20.mean(axis=0)) / 3).tolist()",
          '''decimals=4, mistakes={"divise par n = 3 : la question demande (1/3) X_cᵀ X_c": '''
-         '''((X20 - X20.mean(axis=0)).T @ (X20 - X20.mean(axis=0))).tolist()}'''),
-        ("g", "a number", "0.5", "decimals=4"),
+         '''((X20 - X20.mean(axis=0)).T @ (X20 - X20.mean(axis=0))).tolist(), '''
+         '''"la question divise par n = 3, pas par n − 1": '''
+         '''((X20 - X20.mean(axis=0)).T @ (X20 - X20.mean(axis=0)) / 2).tolist(), '''
+         '''"centre d'abord : la formule utilise X_c, pas X": (X20.T @ X20 / 3).tolist()}'''),
+        ("g", "a number", "0.5", "decimals=1"),
     ]),
 ]
 

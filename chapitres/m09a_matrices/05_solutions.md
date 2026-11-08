@@ -29,7 +29,7 @@
 3. **Faux** : $\mathbf{N} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ n'est pas nulle, et $\mathbf{N}\mathbf{N} = \mathbf{0}$.
 4. **Faux** : $(\mathbf{A} + \mathbf{B})^2 = \mathbf{A}^2 + \mathbf{A}\mathbf{B} + \mathbf{B}\mathbf{A} + \mathbf{B}^2$ ; l'identité remarquable ne vaut que si $\mathbf{A}\mathbf{B} = \mathbf{B}\mathbf{A}$.
 5. **Vrai** : $n\,m$ éléments, chacun un produit scalaire de longueur $p$.
-6. **Faux** : le résultat est le même, le coût peut changer énormément (M09a.4 : un facteur 43).
+6. **Faux** : le résultat est le même, le coût peut changer énormément (M09a.4 : un facteur de près de 43).
 
 ### M09a.Q4 — Hadamard ou produit matriciel ?
 1. Le produit de **Hadamard** $\odot$ (sans broadcasting) : il multiplie les éléments de même position.
@@ -160,13 +160,13 @@ Pour la copie : $\mathbf{B}\mathbf{C} = \begin{pmatrix} 1 & 5 \\ -1 & -2 \\ -3 &
 - a) $20 \times 400 \times 5 = 40\,000$.
 - b) $\mathbf{A}\mathbf{B}$ a la forme $(20, 5)$ ; $(\mathbf{A}\mathbf{B})\mathbf{C}$ coûte $20 \times 5 \times 300 = 30\,000$ de plus.
 - c) $\mathbf{B}\mathbf{C}$ coûte $400 \times 5 \times 300 = 600\,000$ et a la forme $(400, 300)$ ; $\mathbf{A}(\mathbf{B}\mathbf{C})$ coûte $20 \times 400 \times 300 = 2\,400\,000$ de plus.
-- d) $\frac{3\,000\,000}{70\,000} \approx 42{,}9$.
+- d) $\frac{3\,000\,000}{70\,000} \approx 42{,}9$ : le rapport des deux coûts.
 - f) $\mathbf{C}\mathbf{v}$ : $5 \times 300 = 1\,500$ ; puis $400 \times 5 = 2\,000$ ; puis $20 \times 400 = 8\,000$.
 - g) $(3n)^3 = 27\,n^3$.
 
 Pour la copie : la règle simple est d'éviter de fabriquer une grande matrice intermédiaire ; ici, $\mathbf{B}\mathbf{C}$, de forme $(400, 300)$, est énorme, alors que $\mathbf{A}\mathbf{B}$, $(20, 5)$, est minuscule. Et, quand le dernier facteur est un vecteur, on multiplie de droite à gauche : chaque étape est un produit matrice-vecteur. $((\mathbf{A}\mathbf{B})\mathbf{C})\mathbf{v}$ coûte $40\,000 + 30\,000 + 6\,000 = 76\,000$, plus de six fois f). Le résultat est le même dans tous les ordres : le produit est associatif.
 
-**Erreurs fréquentes.** Compter $n \times m$ (le nombre d'éléments du résultat) au lieu de $n\,p\,m$ ; oublier le second produit ; inverser le rapport en d) (0,023) ; répondre 9 en g).
+**Erreurs fréquentes.** Compter $n \times m$ (le nombre d'éléments du résultat) au lieu de $n\,p\,m$ ; oublier le second produit ; inverser le rapport en d) (0,023), ou donner le surcoût relatif (41,9) ; calculer $((\mathbf{A}\mathbf{B})\mathbf{C})\mathbf{v}$ en f) (76 000) ; répondre 9 en g).
 
 **Variante.** Avec $\mathbf{C}$ de forme $(5, 3000)$ ? *Réponse* : $(\mathbf{A}\mathbf{B})\mathbf{C}$ coûte $40\,000 + 300\,000 = 340\,000$, $\mathbf{A}(\mathbf{B}\mathbf{C})$ coûte $6\,000\,000 + 24\,000\,000 = 30\,000\,000$, 88 fois plus.
 
@@ -184,7 +184,7 @@ Pour la copie : la règle simple est d'éviter de fabriquer une grande matrice i
 
 Pour la copie : la colonne 2 de $\mathbf{W}$, $(-1, 1, 3)$, contient les poids du neurone 2. Le biais est le même pour tous les exemples : un nombre par neurone, ajouté à chaque ligne (le broadcasting). Pour un batch de 128 exemples, $\mathbf{Z}$ a la forme $(128, 2)$ ; $\mathbf{W}$ et $\mathbf{b}$ ne changent pas.
 
-**Erreurs fréquentes.** Calculer $\mathbf{W}\mathbf{X}$ (qui n'existe pas) ; ajouter $b_1$ à la ligne 1 et $b_2$ à la ligne 2 ; oublier les biais en e) ; confondre la forme de NumPy et celle de PyTorch en f).
+**Erreurs fréquentes.** Calculer $\mathbf{W}\mathbf{X}$ (il existe ici, de forme $(3, 3)$, mais ne veut rien dire : ni une ligne par exemple, ni une colonne par neurone) ; ajouter $b_1$ à la ligne 1 et $b_2$ à la ligne 2 ; oublier les biais en e) ; confondre la forme de NumPy et celle de PyTorch en f).
 
 **Variante.** Un troisième exemple $(0, 1, -1)$ : sa ligne de $\operatorname{ReLU}(\mathbf{Z})$ ? *Réponse* : $\mathbf{z} = (-1 - 1,\ -2 + 0{,}5) = (-2 ;\ -1{,}5)$, d'où $(0, 0)$ : aucun des deux neurones ne s'active.
 
@@ -198,7 +198,7 @@ Pour la copie : la colonne 2 de $\mathbf{W}$, $(-1, 1, 3)$, contient les poids d
 - e) La somme des lignes 2 et 5.
 - f) $\frac{1}{3}\big((0{,}1 ;\ -0{,}4 ;\ 1{,}2) + 2(-1{,}1 ;\ 0{,}6 ;\ 0{,}2)\big) = \frac{1}{3}(-2{,}1 ;\ 0{,}8 ;\ 1{,}6)$.
 
-Pour la copie : en pratique, on lit la ligne (`E[3]` en Python) : sélectionner coûte zéro multiplication, alors que le produit en ferait autant qu'il y a de nombres dans la table (des milliers de millions pour un grand vocabulaire). La ligne de comptage $(1, 0, 2, 0, 0)$ compte les occurrences de chaque mot de la phrase : c'est un **sac de mots**.
+Pour la copie : en pratique, on lit la ligne (`E[3]` en Python) : sélectionner coûte zéro multiplication, alors que le produit en ferait autant qu'il y a de nombres dans la table (des dizaines de millions, voire des milliards, pour un grand vocabulaire). La ligne de comptage $(1, 0, 2, 0, 0)$ compte les occurrences de chaque mot de la phrase : c'est un **sac de mots**.
 
 **Erreurs fréquentes.** Numéroter les mots à partir de 0 (a, b) ; additionner les lignes 1 et 4 en e) ; oublier le coefficient 2 ou la division par 3 en f).
 
@@ -274,22 +274,22 @@ Pour la copie : la solution générale est $(3, 2, 0) + t\,(-3, -1, 1)$. La vari
 
 ### Ex M09a.11 — L'inverse d'une matrice 2 × 2, par la formule, puis vérifiée
 
-**Réponses** : a) `2` · b) `[[1, -1], [-1.5, 2]]` · c) `[3, -1]` · d) `3` · e) `[[0.25, 0], [0, -2]]` · f) `[[0.5, -0.5], [-0.75, 1]]` · g) `[[1, -1.5], [-1, 2]]`.
+**Réponses** : a) `2` · b) `[[1, -2], [-1, 2.5]]` · c) `[2, -1]` · d) `4` · e) `[[0.25, 0], [0, -2]]` · f) `[[0.5, -1], [-0.5, 1.25]]` · g) `[[1, -1], [-2, 2.5]]`.
 
 **Démarche.**
-- a) $4 \times 2 - 2 \times 3 = 2$.
-- b) $\frac{1}{2}\begin{pmatrix} 2 & -2 \\ -3 & 4 \end{pmatrix}$ : on échange $a$ et $d$, on change le signe de $b$ et de $c$, on divise par $ad - bc$.
-- c) $\mathbf{A}^{-1}\begin{pmatrix} 10 \\ 7 \end{pmatrix} = \begin{pmatrix} 10 - 7 \\ -15 + 14 \end{pmatrix}$.
-- d) $2k - 6 = 0$.
+- a) $5 \times 2 - 4 \times 2 = 2$.
+- b) $\frac{1}{2}\begin{pmatrix} 2 & -4 \\ -2 & 5 \end{pmatrix}$ : on échange $a$ et $d$, on change le signe de $b$ et de $c$, on divise par $ad - bc$.
+- c) $\mathbf{A}^{-1}\begin{pmatrix} 6 \\ 2 \end{pmatrix} = \begin{pmatrix} 6 - 4 \\ -6 + 5 \end{pmatrix}$.
+- d) $2k - 8 = 0$.
 - e) Une matrice diagonale s'inverse nombre par nombre : $\frac{1}{4}$ et $\frac{1}{-0{,}5} = -2$.
 - f) $(2\mathbf{A})^{-1} = \frac{1}{2}\mathbf{A}^{-1}$, car $(2\mathbf{A})(\frac{1}{2}\mathbf{A}^{-1}) = \mathbf{I}$.
 - g) $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$ (M09a.16).
 
-Pour la copie : $\mathbf{A}\mathbf{A}^{-1} = \begin{pmatrix} 4 - 3 & -4 + 4 \\ 3 - 3 & -3 + 4 \end{pmatrix} = \mathbf{I}$ et $\mathbf{A}^{-1}\mathbf{A} = \begin{pmatrix} 4 - 3 & 2 - 2 \\ -6 + 6 & -3 + 4 \end{pmatrix} = \mathbf{I}$. Pour $k = 3$, les deux colonnes, $(3, 3)$ et $(2, 2)$, sont proportionnelles.
+Pour la copie : $\mathbf{A}\mathbf{A}^{-1} = \begin{pmatrix} 5 - 4 & -10 + 10 \\ 2 - 2 & -4 + 5 \end{pmatrix} = \mathbf{I}$ et $\mathbf{A}^{-1}\mathbf{A} = \begin{pmatrix} 5 - 4 & 4 - 4 \\ -5 + 5 & -4 + 5 \end{pmatrix} = \mathbf{I}$. Pour $k = 4$, les deux colonnes sont égales à $(4, 2)$ : proportionnelles.
 
-**Erreurs fréquentes.** $ad + bc$ (14) ; oublier de diviser par $ad - bc$, ou de changer les signes ; $2\mathbf{A}^{-1}$ en f) ; oublier de transposer en g).
+**Erreurs fréquentes.** $ad + bc$ (18) ; oublier de diviser par $ad - bc$, ou de changer les signes ; $2\mathbf{A}^{-1}$ en f) ; oublier de transposer en g).
 
-**Variante.** L'inverse de $\begin{pmatrix} 5 & 2 \\ 2 & 1 \end{pmatrix}$ ? *Réponse* : $ad - bc = 1$, d'où $\begin{pmatrix} 1 & -2 \\ -2 & 5 \end{pmatrix}$.
+**Variante.** L'inverse de $\begin{pmatrix} 3 & 5 \\ 1 & 2 \end{pmatrix}$ ? *Réponse* : $ad - bc = 1$, d'où $\begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix}$.
 
 ### Ex M09a.12 — L'inverse d'une matrice 3 × 3 par Gauss-Jordan
 
@@ -415,18 +415,18 @@ Pour la copie : la couche unique aurait le biais $\mathbf{b}_1\mathbf{W}_2 + \ma
 
 ### Ex M09a.20 — Pont : centrer et réduire un tableau en écriture matricielle
 
-**Réponses** : a) `[4, 20]` · b) `[3, 2]` · c) `[[-2, -10], [0, 10], [2, 0]]` · d) `[0.6124, 0.1225]` · e) `[-1.2247, -1.2247]` · f) `[[2.6667, 6.6667], [6.6667, 66.6667]]` · g) `0.5`.
+**Réponses** : a) `[4, 20]` · b) `[3, 2]` · c) `[[-2, -10], [0, 10], [2, 0]]` · d) `[0.6124, 0.1225]` · e) `[-1.225, -1.225]` · f) `[[2.6667, 6.6667], [6.6667, 66.6667]]` · g) `0.5`.
 
 **Démarche.**
 - b) $\mathbf{1}\boldsymbol{\mu}^\top$ : $(3, 1) \times (1, 2) = (3, 2)$, chaque ligne vaut $\boldsymbol{\mu}^\top$.
 - d) $\sigma_1 = \sqrt{\frac{4 + 0 + 4}{3}} = \sqrt{\frac{8}{3}} \approx 1{,}633$ et $\sigma_2 = \sqrt{\frac{100 + 100 + 0}{3}} \approx 8{,}165$ ; $\mathbf{D}^{-1}$ a pour diagonale leurs inverses.
-- e) $(-2 \times 0{,}6124 ;\ -10 \times 0{,}12247)$.
+- e) $-\frac{2}{\sigma_1} = -\frac{2}{\sqrt{8/3}} = -\sqrt{\frac{3}{2}}$ et $-\frac{10}{\sigma_2} = -\frac{10}{\sqrt{200/3}} = -\sqrt{\frac{3}{2}}$, soit $-1{,}225$ deux fois.
 - f) $\frac{1}{3}\begin{pmatrix} 4 + 0 + 4 & 20 + 0 + 0 \\ 20 & 100 + 100 + 0 \end{pmatrix}$.
 - g) $\frac{20/3}{\sigma_1\sigma_2} = \frac{6{,}667}{13{,}333} = 0{,}5$.
 
 Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}(\mathbf{D}^{-1})_{kj} = \frac{(\mathbf{X}_c)_{ij}}{\sigma_j}$ : seul le terme $k = j$ reste, et la colonne $j$ est divisée par $\sigma_j$ (multiplier à gauche diviserait les **lignes**). La diagonale de $\frac{1}{3}\mathbf{X}_s^\top\mathbf{X}_s$ vaut 1 : la variance d'une colonne standardisée. L'élément de g) est le **coefficient de corrélation** des deux features.
 
-**Erreurs fréquentes.** $\mathrm{ddof} = 1$ en d) ; centrer avec la moyenne des lignes ; oublier le facteur $\frac{1}{3}$ en f) ; écrire $\mathbf{D}^{-1}\mathbf{X}_c$, qui n'existe pas ici.
+**Erreurs fréquentes.** $\mathrm{ddof} = 1$ en d) et e) (e : $(-1, -1)$) ; centrer avec la moyenne des lignes ; oublier le facteur $\frac{1}{3}$ en f) ; écrire $\mathbf{D}^{-1}\mathbf{X}_c$, qui n'existe pas ici.
 
 **Variante.** La troisième ligne devient $(6, 40)$ : la corrélation ? *Réponse* : la covariance vaut 20, les écarts-types $1{,}633$ et $12{,}47$, d'où environ $0{,}982$.
 
@@ -436,7 +436,7 @@ Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}
 1. À deux inconnues, chaque équation est une droite du plan ; les solutions sont les points communs : aucun (droites parallèles), un seul (droites sécantes) ou une droite entière (droites confondues). À trois inconnues, chaque équation est un plan de l'espace, et l'intersection peut être vide, un point, une droite ou un plan. Dans tous les cas : aucune, une ou une infinité de solutions.
 2. L'élément $(i, j)$ du produit est la somme des produits des éléments de la ligne $i$ de la première matrice par ceux de la colonne $j$ de la seconde ; le nombre de colonnes de la première doit être égal au nombre de lignes de la seconde (les dimensions « voisines »). Le produit élément par élément est le produit de **Hadamard**.
 3. *Regular*, *invertible* ou *nonsingular* pour une matrice inversible ; *singular* ou *noninvertible* sinon. Pour une matrice $2 \times 2$, la formule de la fiche §7, avec le nombre $a_{11}a_{22} - a_{12}a_{21}$.
-4. Une matrice est symétrique quand elle est égale à sa transposée. Parmi les règles : $(\mathbf{A}\mathbf{B})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}$, $(\mathbf{A}^\top)^\top = \mathbf{A}$, $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$, $(\mathbf{A} + \mathbf{B})^\top = \mathbf{A}^\top + \mathbf{B}^\top$, et l'avertissement $(\mathbf{A} + \mathbf{B})^{-1} \ne \mathbf{A}^{-1} + \mathbf{B}^{-1}$ (fiche §4 et §7).
+4. Une matrice est symétrique quand elle est égale à sa transposée. Parmi les règles : $(\mathbf{A}\mathbf{B})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}$, $(\mathbf{A}^\top)^\top = \mathbf{A}$, $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$, $(\mathbf{A} + \mathbf{B})^\top = \mathbf{A}^\top + \mathbf{B}^\top$, et l'avertissement $(\mathbf{A} + \mathbf{B})^{-1} \ne \mathbf{A}^{-1} + \mathbf{B}^{-1}$ (fiche §4 et §7, qui les donne aussi).
 5. Le système s'écrit $\mathbf{A}\mathbf{x} = \mathbf{b}$, et le livre lit $\mathbf{A}\mathbf{x}$ comme une **combinaison linéaire des colonnes** de $\mathbf{A}$ (fiche §2).
 6. Par exemple : *row* (ligne), *column* (colonne), *identity matrix* (matrice identité), *element-wise* (élément par élément), *neighboring dimensions* (dimensions voisines, nos dimensions intérieures).
 
@@ -461,7 +461,7 @@ Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}
 2. $3{,}4 \times 10^{12}$, de l'ordre de $10^{12}$.
 3. GPU : $\frac{3{,}4 \times 10^{12}}{10^{14}} \approx 0{,}03$ s. Processeur : environ 30 s. Triple boucle Python : $3{,}4 \times 10^5$ s, environ 4 jours.
 4. La première couche : plus de 90 % du coût, car elle relie les plus grands nombres d'entrées et de sorties ($3\,072 \times 1\,024$).
-5. Environ $3{,}4 \times 10^6$ poids (plus 1 290 biais), à 4 octets : de l'ordre de $1{,}4 \times 10^7$ octets, une quinzaine de mégaoctets.
+5. Environ $3{,}4 \times 10^6$ poids (plus 1 290 biais), à 4 octets : de l'ordre de $1{,}4 \times 10^7$ octets, environ 14 Mo.
 
 **Grille.** (1) le nombre d'entrées et les trois produits, avec le total ; (2) la multiplication par $10^6$ ; (3) trois durées, de la bonne puissance de 10 ; (4) la première couche, avec sa raison ; (5) le nombre de poids fois 4 octets.
 
@@ -469,7 +469,7 @@ Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}
 
 **Réponse modèle.**
 
-> `np.linalg.solve` ne calcule pas l'inverse : il élimine les inconnues une à une (le pivot de Gauss, avec échanges de lignes), puis remonte. Calculer l'inverse revient à résoudre 5 000 systèmes, un par colonne de l'identité, puis à faire encore un produit : environ trois fois plus de calculs pour obtenir la même solution. C'est aussi moins précis : chaque opération ajoute une petite erreur d'arrondi, et le chemin par l'inverse en accumule davantage, surtout quand la matrice est presque singulière. L'inverse reste utile quand on la veut elle-même, pour l'étudier ou dans une formule, et sur le papier pour de petites matrices. Pour résoudre, on factorise une fois et on réutilise la factorisation pour chaque nouveau second membre.
+> `np.linalg.solve` ne calcule pas l'inverse : il élimine les inconnues une à une (le pivot de Gauss, avec échanges de lignes), puis remonte. Calculer l'inverse revient à résoudre 5 000 systèmes, un par colonne de l'identité (ils partagent la même élimination), puis à faire encore un produit : environ trois fois plus de calculs pour obtenir la même solution. C'est aussi moins précis : chaque opération ajoute une petite erreur d'arrondi, et le chemin par l'inverse en accumule davantage, surtout quand la matrice est presque singulière. L'inverse reste utile quand on la veut elle-même, pour l'étudier ou dans une formule, et sur le papier pour de petites matrices. Pour résoudre, on factorise une fois et on réutilise la factorisation pour chaque nouveau second membre.
 
 **Grille.** (1) ce que fait `solve` (élimination et remontée, sans inverse) ; (2) le coût, plus élevé par l'inverse ; (3) la précision, et le cas presque singulier ; (4) un usage légitime de l'inverse ; huit lignes au plus, sans formule.
 

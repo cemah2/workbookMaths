@@ -408,7 +408,7 @@ $\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pma
 </details>
 <details><summary>Indice 3</summary>
 
-c) $\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$ avec $\mathbf{b} = (10, 7)$. d) $ad - bc = 2k - 6$. f) Que vaut $(2\mathbf{A})(\frac{1}{2}\mathbf{A}^{-1})$ ? g) Les règles de la fiche §7.
+c) $\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$ avec $\mathbf{b} = (6, 2)$. d) $ad - bc = 2k - 8$. f) Que vaut $(2\mathbf{A})(\frac{1}{2}\mathbf{A}^{-1})$ ? g) Les règles de la fiche §7.
 
 </details>
 
@@ -578,7 +578,7 @@ $\mathbf{1}\boldsymbol{\mu}^\top$ répète $\boldsymbol{\mu}^\top$ sur chaque li
 </details>
 <details><summary>Indice 3</summary>
 
-d) $\sigma_1 = \sqrt{\frac{8}{3}}$, $\sigma_2 = \sqrt{\frac{200}{3}}$. f) Les colonnes centrées sont $(-2, 0, 2)$ et $(-10, 10, 0)$. g) Divise la covariance par le produit des écarts-types.
+d) $\sigma_1 = \sqrt{\frac{8}{3}}$, $\sigma_2 = \sqrt{\frac{200}{3}}$. e) Garde les valeurs exactes de $\sigma_1$ et $\sigma_2$ jusqu'à l'arrondi final. f) Les colonnes centrées sont $(-2, 0, 2)$ et $(-10, 10, 0)$. g) Divise la covariance par le produit des écarts-types.
 
 </details>
 
@@ -874,7 +874,7 @@ Un générateur créé une fois ; dans la boucle, trois dimensions au hasard, de
 </details>
 <details><summary>Indice 3</summary>
 
-`n, p, m = rng.integers(1, 6, size=3)` ; `assert left.shape == right.shape and np.allclose(left, right, rtol=0, atol=1e-12), f\"expected ...\"`.
+`n, p, m = rng.integers(1, 6, size=3)` ; `assert left.shape == right.shape and np.allclose(left, right, rtol=0, atol=1e-12), f"expected ..."`.
 
 </details>
 

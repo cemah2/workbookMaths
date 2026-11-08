@@ -226,7 +226,7 @@ La **transposée** $\mathbf{A}^\top$ de $\mathbf{A}$, de forme $(m, n)$, est la 
 
 $$(\mathbf{A}^\top)^\top = \mathbf{A}, \qquad (\mathbf{A} + \mathbf{B})^\top = \mathbf{A}^\top + \mathbf{B}^\top, \qquad (\lambda\mathbf{A})^\top = \lambda\mathbf{A}^\top, \qquad (\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top.$$
 
-La dernière **inverse l'ordre** (M09a.15 la démontre). Les formes le disent déjà : si $\mathbf{A}$ est $(n, p)$ et $\mathbf{B}$ est $(p, m)$, $(\mathbf{A}\mathbf{B})^\top$ est $(m, n)$, et seul $\mathbf{B}^\top\mathbf{A}^\top$, $(m, p) \times (p, n)$, a cette forme. Avec les matrices de l'exemple du §3, $\big(\mathbf{A}\mathbf{B}\big)^\top = \begin{pmatrix} 3 & -2 \\ -4 & 12 \\ 3 & 5 \end{pmatrix} = \mathbf{B}^\top\mathbf{A}^\top$.
+La dernière **inverse l'ordre** (M09a.15 la démontre). Les formes le disent déjà : si $\mathbf{A}$ est $(n, p)$ et $\mathbf{B}$ est $(p, m)$, $(\mathbf{A}\mathbf{B})^\top$ est $(m, n)$, et seul $\mathbf{B}^\top\mathbf{A}^\top$, $(m, p) \times (p, n)$, a cette forme. Avec les matrices de l'exemple du §3, $\big(\mathbf{A}\mathbf{B}\big)^\top = \begin{pmatrix} 4 & -1 \\ -4 & 8 \\ 5 & 4 \end{pmatrix} = \mathbf{B}^\top\mathbf{A}^\top$.
 
 **Vecteurs lignes et colonnes.** En écrivant un vecteur comme une colonne, de forme $(n, 1)$, le produit scalaire devient un produit matriciel : $\mathbf{u} \cdot \mathbf{v} = \mathbf{u}^\top\mathbf{v}$, de forme $(1, n) \times (n, 1) \to (1, 1)$ (c'est la notation de MML). Dans l'autre ordre, $\mathbf{u}\mathbf{v}^\top$ est une matrice $(n, n)$, le **produit extérieur**.
 
@@ -309,9 +309,9 @@ Une matrice carrée $\mathbf{A}$ de taille $n$ est **inversible** s'il existe un
 
 $$\mathbf{A}\mathbf{A}^{-1} = \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}_n.$$
 
-Cette inverse est **unique** (M09a.16). Une matrice qui n'a pas d'inverse est dite **singulière**. Si $\mathbf{A}$ est inversible, le système $\mathbf{A}\mathbf{x} = \mathbf{b}$ a une solution unique pour **tout** $\mathbf{b}$ : $\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$. Une matrice diagonale est inversible si aucun nombre de sa diagonale n'est nul, et son inverse est la matrice diagonale des inverses.
+Cette inverse est **unique** (M09a.16). Une matrice qui n'a pas d'inverse est dite **singulière**. Si $\mathbf{A}$ est inversible, le système $\mathbf{A}\mathbf{x} = \mathbf{b}$ a une solution unique pour **tout** $\mathbf{b}$ : $\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$. Une matrice diagonale est inversible si et seulement si aucun nombre de sa diagonale n'est nul, et son inverse est la matrice diagonale des inverses.
 
-**Règles** : $(\mathbf{A}^{-1})^{-1} = \mathbf{A}$, $(\lambda\mathbf{A})^{-1} = \frac{1}{\lambda}\mathbf{A}^{-1}$ pour $\lambda \ne 0$, $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$, et, comme pour la transposée, l'ordre s'inverse : $(\mathbf{A}\mathbf{B})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}$ (M09a.16).
+**Règles** : $(\mathbf{A}^{-1})^{-1} = \mathbf{A}$, $(\lambda\mathbf{A})^{-1} = \frac{1}{\lambda}\mathbf{A}^{-1}$ pour $\lambda \ne 0$, $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$, et, comme pour la transposée, l'ordre s'inverse : $(\mathbf{A}\mathbf{B})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}$ (M09a.16). Mais il n'y a pas de règle pour une somme : en général, $(\mathbf{A} + \mathbf{B})^{-1} \ne \mathbf{A}^{-1} + \mathbf{B}^{-1}$ (avec $\mathbf{A} = \mathbf{B} = \mathbf{I}$ : $(2\mathbf{I})^{-1} = \frac{1}{2}\mathbf{I}$, pas $2\mathbf{I}$).
 
 ### Le cas $2 \times 2$
 
@@ -327,7 +327,7 @@ $$\left(\begin{array}{ccc|ccc} 1 & 0 & 2 & 1 & 0 & 0 \\ 0 & 1 & 0 & 0 & 1 & 0 \\
 
 ### Pourquoi on ne calcule pas l'inverse pour résoudre un système
 
-$\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$ est une formule, pas une méthode. Calculer $\mathbf{A}^{-1}$ coûte environ trois fois plus que résoudre le système par Gauss (on résout $n$ systèmes au lieu d'un), et accumule davantage d'arrondis. En pratique, on écrit `np.linalg.solve(A, b)`, jamais `np.linalg.inv(A) @ b` ; l'inverse sert à raisonner et à écrire des formules (M09a.24).
+$\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$ est une formule, pas une méthode. Calculer $\mathbf{A}^{-1}$ coûte environ trois fois plus que résoudre le système par Gauss (on résout $n$ systèmes, qui partagent la même élimination, au lieu d'un), et accumule davantage d'arrondis. En pratique, on écrit `np.linalg.solve(A, b)`, jamais `np.linalg.inv(A) @ b` ; l'inverse sert à raisonner et à écrire des formules (M09a.24).
 
 ⚠️ **Erreur classique.** Parler de l'inverse d'une matrice non carrée, ou « diviser » par une matrice. $\mathbf{A}\mathbf{X} = \mathbf{B}$ donne $\mathbf{X} = \mathbf{A}^{-1}\mathbf{B}$ (en multipliant **à gauche**), et non $\mathbf{B}\mathbf{A}^{-1}$ : le produit n'est pas commutatif.
 

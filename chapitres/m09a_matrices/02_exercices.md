@@ -207,7 +207,7 @@ $\mathbf{A}$ a la forme $(20, 400)$, $\mathbf{B}$ la forme $(400, 5)$, $\mathbf{
 | a | le nombre de multiplications de $\mathbf{A}\mathbf{B}$ | un entier |
 | b | le nombre de multiplications de $(\mathbf{A}\mathbf{B})\mathbf{C}$, en tout | un entier |
 | c | le nombre de multiplications de $\mathbf{A}(\mathbf{B}\mathbf{C})$, en tout | un entier |
-| d | combien de fois $\mathbf{A}(\mathbf{B}\mathbf{C})$ coûte plus que $(\mathbf{A}\mathbf{B})\mathbf{C}$ | un nombre (1 décimale) |
+| d | le rapport du coût de $\mathbf{A}(\mathbf{B}\mathbf{C})$ à celui de $(\mathbf{A}\mathbf{B})\mathbf{C}$ | un nombre (1 décimale) |
 | e | la forme de $\mathbf{A}\mathbf{B}\mathbf{C}$ | une liste de 2 entiers |
 | f | le nombre de multiplications de $\mathbf{A}(\mathbf{B}(\mathbf{C}\mathbf{v}))$, en tout | un entier |
 | g | pour deux matrices carrées de taille $n$, par combien le nombre de multiplications est-il multiplié quand $n$ est multiplié par 3 | un entier |
@@ -336,14 +336,14 @@ Dans ta copie : écris la solution générale, sous la forme « une solution par
 **Objectif :** calculer l'inverse d'une matrice $2 \times 2$, la vérifier, et s'en servir pour résoudre un système.
 **Prérequis :** fiche §7 · **Parcours :** C, E
 
-Soit $\mathbf{A} = \begin{pmatrix} 4 & 2 \\ 3 & 2 \end{pmatrix}$.
+Soit $\mathbf{A} = \begin{pmatrix} 5 & 4 \\ 2 & 2 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le nombre $ad - bc$ de $\mathbf{A}$ | un nombre |
 | b | $\mathbf{A}^{-1}$ | une matrice |
-| c | la solution $(x, y)$ de $4x + 2y = 10$, $3x + 2y = 7$ | une liste de 2 nombres |
-| d | la valeur de $k$ pour laquelle $\begin{pmatrix} k & 2 \\ 3 & 2 \end{pmatrix}$ n'est pas inversible | un nombre |
+| c | la solution $(x, y)$ de $5x + 4y = 6$, $2x + 2y = 2$ | une liste de 2 nombres |
+| d | la valeur de $k$ pour laquelle $\begin{pmatrix} k & 4 \\ 2 & 2 \end{pmatrix}$ n'est pas inversible | un nombre |
 | e | l'inverse de la matrice diagonale $\begin{pmatrix} 4 & 0 \\ 0 & -0{,}5 \end{pmatrix}$ | une matrice |
 | f | $(2\mathbf{A})^{-1}$ | une matrice |
 | g | $(\mathbf{A}^\top)^{-1}$ | une matrice |
@@ -500,7 +500,7 @@ On note $\boldsymbol{\mu}$ le vecteur des moyennes des colonnes, $\mathbf{X}_c =
 | b | la forme de $\mathbf{1}\boldsymbol{\mu}^\top$ | une liste de 2 entiers |
 | c | $\mathbf{X}_c$ | une matrice |
 | d | les deux nombres de la diagonale de $\mathbf{D}^{-1}$ | une liste de 2 nombres (4 décimales) |
-| e | la première ligne de $\mathbf{X}_s$ | une liste de 2 nombres (4 décimales) |
+| e | la première ligne de $\mathbf{X}_s$ | une liste de 2 nombres (3 décimales) |
 | f | $\frac{1}{3}\mathbf{X}_c^\top\mathbf{X}_c$, la matrice de covariance des deux features | une matrice (4 décimales) |
 | g | l'élément hors diagonale de $\frac{1}{3}\mathbf{X}_s^\top\mathbf{X}_s$ | un nombre |
 
