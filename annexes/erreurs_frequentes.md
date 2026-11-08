@@ -280,6 +280,26 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Compter les lignes non nulles pour le rang avant l'élimination | rang 3 pour trois lignes dont l'une est la somme des deux autres | échelonner d'abord, puis compter les pivots |
 | Résoudre un système par l'inverse | `np.linalg.inv(A) @ b` | `np.linalg.solve(A, b)` : moins de calculs et moins d'arrondis |
 
+## Moindres carrés et régularisation (M09b)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Calculer un $R^2$ sans centrer | $1 - \frac{\sum r_i^2}{\sum y_i^2}$ | $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$, avec $\mathrm{SCT} = \sum (y_i - \bar{y})^2$ |
+| Comparer une MSE à une MAE | « MSE 25, MAE 4 : la MAE est meilleure » | la MSE est dans l'unité au carré : comparer la RMSE (5) et la MAE |
+| Croire que $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ pour toute droite | la décomposition appliquée à une droite tracée à la main | elle ne vaut que pour les moindres carrés avec une colonne de 1 |
+| Prendre $2\mathbf{A}\mathbf{w}$ pour le gradient de $\mathbf{w}^\top\mathbf{A}\mathbf{w}$ | $\mathbf{A}$ non symétrique | $(\mathbf{A} + \mathbf{A}^\top)\mathbf{w}$ |
+| Oublier le signe moins du gradient des moindres carrés | $\nabla\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 = 2\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w})$ | $-2\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w})$ : un pas de descente ajoute $2\eta\mathbf{X}^\top\mathbf{r}$ |
+| Inverser $\mathbf{X}^\top\mathbf{X}$ pour résoudre | `np.linalg.inv(X.T @ X) @ X.T @ y` | `np.linalg.solve(X.T @ X, X.T @ y)`, ou `np.linalg.lstsq(X, y)` |
+| Oublier la colonne de 1 | une droite forcée à passer par l'origine | ajouter une colonne de 1 (ou centrer $\mathbf{X}$ et $\mathbf{y}$) |
+| Croire qu'un modèle polynomial n'est pas linéaire | « $w_0 + w_1x + w_2x^2$ ne se résout pas par les équations normales » | il est linéaire en $\mathbf{w}$ : les colonnes $1, x, x^2$, mêmes équations |
+| Combiner des puissances non standardisées | $x$ entre 0 et 20, colonnes $x, \ldots, x^6$ | ramener $x$ à $[-1, 1]$, ou standardiser : sinon $\mathbf{X}^\top\mathbf{X}$ est presque singulière |
+| Appliquer ridge sans standardiser | une distance en mètres à côté d'une feature sans unité | standardiser les colonnes : la pénalité dépend de l'unité |
+| Pénaliser l'ordonnée à l'origine sans le vouloir | ridge sur $\mathbf{X}$ avec sa colonne de 1 | centrer, résoudre sans colonne de 1, puis $b = \bar{y} - \bar{\mathbf{x}} \cdot \mathbf{w}$ |
+| Écrire $\lambda = \frac{\sigma}{\tau}$ ou $\frac{\tau^2}{\sigma^2}$ | un prior large qui renforce la pénalité | $\lambda = \frac{\sigma^2}{\tau^2}$ : des variances, bruit au numérateur |
+| Prendre $\frac{\mathrm{SCR}}{n}$ pour un estimateur sans biais de $\sigma^2$ | « $\hat{\sigma}^2 = \frac{\mathrm{SCR}}{n}$ est sans biais » | il sous-estime ; $\frac{\mathrm{SCR}}{n - p}$ est sans biais |
+| Juger un modèle à son $R^2$ d'entraînement | ajouter des features de bruit, et voir le $R^2$ monter | le $R^2$ d'entraînement ne baisse jamais : mesurer sur des données de validation |
+| Attendre des zéros exacts d'une descente de gradient sur le lasso | prendre le signe de $w$ pour dérivée de $\lvert w \rvert$ | le seuillage doux, un poids à la fois |
+
 ## Probabilités (R8, M03)
 
 | Erreur | Exemple faux | Ce qu'il faut faire |

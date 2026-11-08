@@ -55,12 +55,14 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | code préfixe | prefix code, prefix-free code | un code où aucun mot n'est le début d'un autre : des mots écrits bout à bout se découpent sans ambiguïté | M06 |
 | coefficient | coefficient | nombre qui multiplie la partie littérale d'un terme : 7 dans $7x^2$ | R2 |
 | coefficient binomial | binomial coefficient | $\binom{n}{k}$, « k parmi n » : le nombre de façons de choisir $k$ objets parmi $n$, sans ordre | R8 |
+| coefficient de détermination ($R^2$) | coefficient of determination | $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$ : la part de la variation des cibles que le modèle fait disparaître ; 1 s'il est parfait, négatif possible sur de nouvelles données | M09b |
 | coefficient multiplicateur | multiplier, growth factor | nombre $1 + t$ par lequel une évolution de taux $t$ multiplie une valeur | R1 |
 | colinéaires (vecteurs) | collinear vectors | l'un est un multiple de l'autre : $xy' - x'y = 0$ | R9 |
 | combinaison linéaire | linear combination | somme de vecteurs multipliés par des nombres | M07, M12a |
 | comparaisons multiples | multiple comparisons, multiple testing | faire beaucoup de tests, ou essayer beaucoup de modèles : $m\alpha$ faux positifs en moyenne si aucun effet n'existe | M08 |
 | complémentaire (d'un ensemble) | complement | $\bar{A}$ : les éléments de l'univers qui ne sont pas dans $A$ | R4 |
 | composée (de deux fonctions) | composition, composite function | $(f \circ g)(x) = f(g(x))$ : on applique $g$, puis $f$ | R3 |
+| compromis biais-variance | bias-variance trade-off | un modèle plus souple a moins de biais et plus de variance ; une pénalité comme ridge règle cet équilibre | M09b |
 | concave | concave | dont toute corde est au-dessous de la courbe ; pour $f$ deux fois dérivable, $f'' \le 0$ | M05a |
 | concentration (de la norme) | concentration of measure | en grande dimension, une quantité qui dépend de beaucoup de coordonnées indépendantes varie peu autour de sa valeur typique : la norme d'un vecteur gaussien de $\mathbb{R}^n$ vaut $\sqrt{n}$ à environ 0,7 près | M07 |
 | condition nécessaire, suffisante | necessary, sufficient condition | dans $P \Rightarrow Q$, P est suffisante pour Q et Q nécessaire pour P | R4 |
@@ -91,6 +93,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | débordement, sous-dépassement | overflow, underflow | un résultat trop grand (ou trop petit) pour un flottant ; NumPy rend `inf` (ou 0) | R6, M05a |
 | décade, échelle logarithmique | decade, logarithmic scale | sur un axe logarithmique, des écarts égaux sont des rapports égaux ; une décade est un facteur 10 | R6 |
 | décibel | decibel (dB) | un rapport $R$ exprimé par $10 \log_{10} R$ ; le PSNR se mesure en décibels | R6 |
+| décomposition biais-variance | bias-variance decomposition | l'erreur quadratique attendue sur une nouvelle mesure vaut biais² + variance + bruit $\sigma^2$ | M09b |
 | degrés de liberté | degrees of freedom | le nombre de valeurs libres : les $n$ écarts à la moyenne ont une somme nulle, donc $n - 1$ degrés de liberté | M02c |
 | demi-espace | half-space | l'un des deux côtés d'un hyperplan : les $\mathbf{x}$ tels que $\mathbf{w} \cdot \mathbf{x} + b > 0$ (ou $< 0$) | M07 |
 | démonstration par l'absurde | proof by contradiction | supposer la conclusion fausse et aboutir à une contradiction | R4 |
@@ -118,6 +121,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | divergence de Jensen-Shannon | Jensen-Shannon divergence | $\frac{1}{2}\mathrm{KL}(p \parallel m) + \frac{1}{2}\mathrm{KL}(q \parallel m)$ avec $m = \frac{p + q}{2}$ : une divergence symétrique et toujours finie | M06 |
 | divergence KL (de Kullback-Leibler) | KL divergence, Kullback-Leibler divergence, relative entropy | $\mathrm{KL}(p \parallel q) = \sum p \log_2 \frac{p}{q} = H(p, q) - H(p)$ : les bits perdus par symbole ; positive, nulle si $p = q$, pas symétrique | M06 |
 | division euclidienne | Euclidean division, integer division | $a = bq + r$ avec $0 \le r < b$ ; en Python, `a // b` donne $q$ et `a % b` donne $r$ | R0 |
+| double descente | double descent | l'erreur de test culmine près de $p = n$ (poids instables), puis peut redescendre au-delà avec la solution de plus petite norme | M09b |
 | écart interquartile | interquartile range (IQR) | $Q_3 - Q_1$ : la dispersion de la moitié centrale d'une série, insensible aux valeurs extrêmes | M02c |
 | écart-type | standard deviation | racine carrée de la variance | R8 |
 | échangeabilité | exchangeability | sous $H_0$, toutes les répartitions des valeurs entre les groupes sont aussi probables : ce qui justifie un test par permutation | M08 |
@@ -139,6 +143,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | équation | equation | égalité qui contient une inconnue ; la résoudre, c'est trouver toutes ses solutions | R2 |
 | équation cartésienne, équation réduite | Cartesian equation, slope-intercept form | $ax + by + c = 0$, qui convient à toute droite ; $y = mx + p$, pour une droite non verticale | R9 |
 | équations équivalentes | equivalent equations | équations qui ont exactement les mêmes solutions | R2 |
+| équations normales | normal equations | $\mathbf{X}^\top\mathbf{X}\,\mathbf{w} = \mathbf{X}^\top\mathbf{y}$ : les poids qui annulent le gradient de la somme des carrés des résidus ; une seule solution si $\mathbf{X}$ est de rang $p$ | M09b |
 | équiprobabilité | equally likely outcomes | toutes les issues ont la même probabilité : $P(A) = \frac{\lvert A \rvert}{\lvert \Omega \rvert}$ | R8 |
 | équivalence (logique) | equivalence, if and only if | $P \Leftrightarrow Q$ : $P \Rightarrow Q$ et $Q \Rightarrow P$ | R4 |
 | erreur d'arrondi, erreur de troncature | rounding error, truncation error | l'erreur due à la précision finie des flottants ; l'erreur due à une formule approchée (un développement coupé, un pas $h$ non nul) | M05a |
@@ -167,6 +172,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | factorielle | factorial | $n! = n \times (n - 1) \times \cdots \times 1$, le nombre de rangements de $n$ objets ; $0! = 1$ | R8 |
 | famille exponentielle | exponential family | les lois de la forme $h(x)\exp(\eta\,T(x) - A(\eta))$ : Bernoulli, gaussienne, Beta, Poisson… | M04 |
 | faux positif, faux négatif | false positive, false negative (FP, FN) | un négatif prédit positif (fausse alerte) ; un positif prédit négatif (cas manqué) | M03 |
+| features polynomiales | polynomial features | les monômes des features jusqu'à un degré $d$, interactions comprises : $\binom{p + d}{d}$ colonnes, constante comprise | M09b |
 | flottant (nombre à virgule flottante) | floating-point number, float | nombre à virgule rangé avec un nombre fixe de chiffres binaires, donc souvent arrondi | R0, M05a |
 | fonction | function | règle qui associe à chaque élément de son ensemble de définition une seule image | R3 |
 | fonction affine, linéaire | affine function, linear function | $x \mapsto mx + c$ ; linéaire quand $c = 0$ | R3 |
@@ -182,6 +188,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | forme d'une matrice | shape | le couple (nombre de lignes, nombre de colonnes), lignes d'abord : $(n, p)$ pour un dataset de $n$ exemples à $p$ features | M09a |
 | forme échelonnée, forme échelonnée réduite | row echelon form, reduced row echelon form | un escalier : les lignes nulles en bas, chaque pivot à droite de celui du dessus ; réduite : chaque pivot vaut 1 et est seul dans sa colonne (elle est unique) | M09a |
 | forme indéterminée | indeterminate form | $\infty - \infty$, $\frac{\infty}{\infty}$, $0 \times \infty$, $\frac{0}{0}$ : une limite qui ne se décide pas d'avance | R7 |
+| forme quadratique | quadratic form | $\mathbf{w}^\top\mathbf{A}\mathbf{w} = \sum_{i,j} a_{ij}w_iw_j$, de gradient $(\mathbf{A} + \mathbf{A}^\top)\mathbf{w}$ | M09b |
 | formule d'Al-Kashi | law of cosines | $c^2 = a^2 + b^2 - 2ab\cos\hat{C}$ dans un triangle quelconque : Pythagore corrigé par l'angle | R9 |
 | formule de Bayes | Bayes' theorem | $P(H \mid O) = \frac{P(O \mid H)\,P(H)}{P(O)}$ : a posteriori = vraisemblance × a priori / évidence | M04 |
 | formule de Cramer | Cramer's rule | la solution d'un système de déterminant non nul, écrite comme quotients de déterminants | R2 |
@@ -199,6 +206,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | homogénéité (d'une norme) | absolute homogeneity | $\lVert \lambda\mathbf{x} \rVert = \lvert \lambda \rvert\,\lVert \mathbf{x} \rVert$ : multiplier un vecteur par $\lambda$ multiplie sa longueur par $\lvert \lambda \rvert$ | M07 |
 | hyperplan | hyperplane | les $\mathbf{x}$ de $\mathbb{R}^n$ tels que $\mathbf{w} \cdot \mathbf{x} + b = 0$, avec $\mathbf{w} \ne \mathbf{0}$ (le vecteur normal) : une droite du plan, un plan de l'espace | M07 |
 | hypothèse nulle, hypothèse alternative | null hypothesis, alternative hypothesis | $H_0$, souvent « pas d'effet », que le test cherche à mettre en défaut ; $H_1$, ce qu'on veut montrer ; toutes deux fixées avant de voir les données | M08 |
+| idempotente (matrice) | idempotent matrix | $\mathbf{H}\mathbf{H} = \mathbf{H}$ : l'appliquer deux fois ne change rien, comme une projection | M09b |
 | identité remarquable | special product, algebraic identity | égalité vraie pour tous $a$ et $b$, comme $(a + b)^2 = a^2 + 2ab + b^2$ | R2 |
 | implication | implication, conditional | $P \Rightarrow Q$, fausse seulement si P est vraie et Q fausse | R4 |
 | importance par permutation | permutation importance | le score d'un modèle entraîné, moins son score quand on mélange la colonne d'une feature, sur un jeu de validation | M08 |
@@ -233,6 +241,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | jacobienne | Jacobian | matrice des dérivées partielles d'une fonction à valeurs vectorielles | M17 |
 | k-means, k-means++ | k-means, k-means++ | regrouper des points en $k$ clusters en alternant l'affectation au centre le plus proche et le remplacement de chaque centre par le barycentre de son cluster ; k-means++ tire les centres de départ avec une probabilité proportionnelle à $D^2$ | M07 |
 | König-Huygens (formule de) | König-Huygens theorem | $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum_i \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + m\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$ | M07 |
+| lasso | lasso | les moindres carrés pénalisés par $\lambda\lVert \mathbf{w} \rVert_1$ : des poids exactement nuls, pas de formule close | M09b |
+| levier | leverage | $h_{ii}$, le nombre de la diagonale de la matrice chapeau : le poids de $y_i$ dans sa propre prédiction ; grand pour un point isolé | M09b |
 | ligne de niveau | level curve, contour line | l'ensemble des points où $f(x, y)$ prend une valeur donnée $c$ ; une carte de lignes de niveau est une carte topographique de la surface | M05b |
 | limite à droite, à gauche | right-hand, left-hand limit | limite quand $x$ s'approche de $a$ en restant plus grand (plus petit) que $a$ | R7 |
 | limite d'une fonction | limit of a function | la valeur dont $f(x)$ s'approche quand $x$ tend vers $a$ ou vers $\pm\infty$ | R7 |
@@ -263,6 +273,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | loi uniforme | uniform distribution | densité constante $\frac{1}{b - a}$ sur $[a ; b]$ : une probabilité proportionnelle à la longueur | M02b |
 | lois de De Morgan | De Morgan's laws | non (P et Q) = (non P) ou (non Q) ; non (P ou Q) = (non P) et (non Q) | R4 |
 | longueur moyenne (d'un code) | expected code length | $\bar{L} = \sum p_i \ell_i$ ; pour un code préfixe, $\bar{L} \ge H$, et le meilleur code vérifie $\bar{L} < H + 1$ | M06 |
+| loss de Huber | Huber loss | $\frac{r^2}{2}$ si $\lvert r \rvert \le \delta$, $\delta(\lvert r \rvert - \frac{\delta}{2})$ sinon : quadratique pour les petits résidus, linéaire pour les grands, dérivable partout | M09b |
+| MAE | mean absolute error (MAE) | $\frac{1}{n}\sum \lvert r_i \rvert$, l'erreur absolue moyenne d'une régression, dans l'unité de la cible | M09b |
 | mal conditionné | ill-conditioned | se dit d'un problème dont la solution change beaucoup quand les données changent un peu | R2 |
 | malédiction de la dimension | curse of dimensionality | les surprises de la grande dimension : le volume se concentre près du bord, les distances se ressemblent | M02c, M07 |
 | mantisse | significand, mantissa | le nombre $m$ de la notation scientifique $m \times 10^k$, avec $1 \le |m| < 10$ | R1 |
@@ -271,6 +283,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | Markov (inégalité de) | Markov's inequality | $P(X \ge a) \le \frac{\mathbb{E}[X]}{a}$ pour une variable $X \ge 0$ et $a > 0$ | M02c |
 | matrice | matrix | tableau de nombres à lignes et colonnes | M09a |
 | matrice augmentée | augmented matrix | $[\mathbf{A} \mid \mathbf{b}]$, la matrice des coefficients suivie de la colonne des seconds membres, sur laquelle on fait le pivot de Gauss | M09a |
+| matrice chapeau | hat matrix | $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, qui envoie $\mathbf{y}$ sur $\hat{\mathbf{y}}$ : symétrique, idempotente, de trace $p$ | M09b |
 | matrice de confusion | confusion matrix | le tableau de contingence de la vérité et de la prédiction d'un classifieur (TP, FN, FP, TN en binaire) | M03 |
 | matrice de corrélation | correlation matrix | la matrice des corrélations $\rho_{ij} = \frac{\Sigma_{ij}}{\sigma_i\sigma_j}$, avec des 1 sur la diagonale | M02c |
 | matrice de covariance | covariance matrix | $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$ : les variances sur la diagonale, symétrique, et $\sum_i\sum_j w_iw_j\Sigma_{ij} \ge 0$ | M02c |
@@ -292,12 +305,14 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | mise à jour séquentielle | sequential updating | l'a posteriori d'une observation devient l'a priori de la suivante | M04 |
 | mise en équation | setting up an equation, translating a word problem | traduire un énoncé en équation (ou en système) en choisissant les inconnues | R2 |
 | mode | mode | la valeur la plus fréquente d'une série, ou le maximum d'une densité | M02c |
-| moindres carrés | least squares | méthode qui minimise la somme des carrés des écarts | M09b |
+| moindres carrés | least squares | choisir les poids qui minimisent la somme des carrés des résidus, $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$ : la solution des équations normales, et le maximum de vraisemblance d'un bruit gaussien | M09b |
+| monôme | monomial | un produit de puissances de variables, $x_1^{k_1}\cdots x_p^{k_p}$, de degré $k_1 + \cdots + k_p$ | M09b |
 | moyenne exponentielle | exponential moving average (EMA) | $v_t = \beta\,v_{t-1} + (1 - \beta)\,x_t$ : une moyenne qui oublie le passé progressivement | R5 |
 | moyenne harmonique | harmonic mean | inverse de la moyenne des inverses ; vitesse moyenne, score F1 | R1 |
 | moyenne macro, micro, pondérée | macro, micro, weighted average | moyenne simple des classes ; mesure calculée sur les comptages additionnés ; moyenne pondérée par les effectifs | M03 |
 | moyenne mobile | moving average | la moyenne des $k$ dernières valeurs, recalculée à chaque instant | R5 |
 | moyenne pondérée | weighted mean, weighted average | $\frac{\sum w_i x_i}{\sum w_i}$ : chaque valeur compte selon son poids | R1 |
+| MSE, RMSE (d'une régression) | mean squared error, root mean squared error | $\frac{1}{n}\sum r_i^2$ (dans l'unité de la cible au carré) et sa racine (dans l'unité de la cible) | M09b |
 | négation | negation | la proposition « non P », vraie quand P est fausse | R4 |
 | nombre décimal | decimal number, terminating decimal | nombre qui s'écrit avec un nombre fini de chiffres après la virgule (ensemble 𝔻) | R1 |
 | nombre dérivé | derivative at a point | $f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}$, la pente de la tangente en $a$ | R7 |
@@ -316,9 +331,11 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | ordre d'une méthode numérique | order of a numerical method | l'exposant $k$ d'une erreur proportionnelle à $h^k$ : diviser le pas par 2 divise l'erreur par $2^k$ | M02a |
 | ordre de grandeur | order of magnitude | la puissance de 10 la plus proche d'un nombre | R1 |
 | orthogonaux (vecteurs) | orthogonal vectors | de directions perpendiculaires : leur produit scalaire est nul | R9, M07 |
+| overfitting, underfitting | overfitting, underfitting | un modèle trop souple, qui colle au bruit des données d'entraînement (grande variance) ; un modèle trop simple, qui rate la forme des données (grand biais) | M09b |
 | p-valeur | p-value | la probabilité, calculée en supposant $H_0$ vraie, d'une statistique au moins aussi extrême que celle observée ; pas la probabilité que $H_0$ soit vraie | M08 |
 | parabole, sommet | parabola, vertex | la courbe d'un second degré ; son sommet $(\alpha, \beta)$ est son point le plus bas (ou le plus haut) | R3 |
 | paradoxe de Simpson | Simpson's paradox | une tendance présente dans chaque groupe s'inverse quand on réunit les groupes, à cause de leurs poids différents | M03 |
+| parcimonieux (modèle) | sparse model | un modèle dont beaucoup de poids sont exactement nuls, comme ceux du lasso | M09b |
 | partie entière, plancher, plafond | floor, ceiling | $\lfloor x \rfloor$, le plus grand entier $\le x$ ; $\lceil x \rceil$, le plus petit entier $\ge x$ | R1 |
 | partition (de l'univers) | partition | des événements deux à deux incompatibles dont la réunion est l'univers entier | M03 |
 | pente, ordonnée à l'origine | slope, intercept | dans $mx + c$, $m$ est la variation pour $x + 1$, et $c = f(0)$ | R3 |
@@ -355,6 +372,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | produit nul (règle du) | zero-product property | un produit est nul si et seulement si l'un au moins de ses facteurs est nul | R2 |
 | produit scalaire | dot product, inner product | $\sum_i x_i y_i$ ; mesure d'alignement de deux vecteurs | R9, M07 |
 | projection (sur une direction) | projection | l'ombre de $\vec{v}$ sur la direction de $\vec{u}$ : $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert^2}\vec{u}$ | R9, M07, M12b |
+| projection orthogonale (sur un sous-espace) | orthogonal projection | le point d'un sous-espace le plus proche d'un vecteur : l'écart est orthogonal au sous-espace ; les moindres carrés projettent $\mathbf{y}$ sur l'espace des colonnes | M09b |
 | proposition | proposition, statement | une phrase qui est soit vraie, soit fausse | R4 |
 | pseudo-observations | pseudo-counts | les paramètres $a$ et $b$ d'un a priori Beta, lus comme des succès et des échecs déjà vus | M04 |
 | puissance | power | $a^n$, produit de $n$ facteurs égaux à $a$ | R1 |
@@ -381,8 +399,12 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | règle de la somme | sum rule | on obtient une marginale en sommant la loi jointe sur l'autre variable | M02b, M03 |
 | règle du produit (probabilités) | product rule | $P(A \cap B) = P(A \mid B)\,P(B)$ ; MML : $p(\mathbf{x}, \mathbf{y}) = p(\mathbf{y} \mid \mathbf{x})\,p(\mathbf{x})$ | M03 |
 | règle du produit, du quotient | product rule, quotient rule | $(uv)' = u'v + uv'$ ; $(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$ | R7 |
+| régression ridge | ridge regression | les moindres carrés pénalisés par $\lambda\lVert \mathbf{w} \rVert^2$ : $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{w} = \mathbf{X}^\top\mathbf{y}$, toujours soluble pour $\lambda > 0$ ; le MAP d'un prior gaussien | M09b |
+| régularisation | regularization | ajouter à la loss une pénalité sur les poids (ridge, lasso) pour préférer les modèles simples | M09b |
 | relation de Chasles | Chasles' relation | $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$ | R9 |
+| résidu | residual | $r_i = y_i - \hat{y}_i$ : la cible moins la prédiction | M09b |
 | reste de Lagrange | Lagrange remainder | $f(x) - P_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - a)^{n+1}$ pour un $\xi$ entre $a$ et $x$ : il borne l'erreur d'un polynôme de Taylor | M05a |
+| risque empirique | empirical risk | la moyenne d'une loss sur les exemples d'entraînement ; apprendre, c'est choisir les paramètres qui le minimisent | M09b |
 | sans biais (estimateur) | unbiased estimator | estimateur dont l'espérance est la vraie valeur du paramètre | M02c |
 | sans mémoire | memoryless | $P(T > s + t) = P(T > s)\,P(T > t)$ : avoir attendu ne rapproche pas l'événement (lois géométrique et exponentielle) | M02b |
 | schéma de Horner | Horner's method | évaluer un polynôme en multipliant par $x$ et en ajoutant le coefficient suivant, sans puissances | R3 |
@@ -391,6 +413,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | second degré (polynôme du) | quadratic (polynomial, function) | $ax^2 + bx + c$ avec $a \ne 0$ | R3 |
 | seuil d'un test | significance level | $\alpha$, le risque de type I accepté : on rejette $H_0$ quand la p-valeur est au plus $\alpha$ (souvent 0,05) | M08 |
 | seuil de décision | decision threshold | le score à partir duquel on déclare un exemple positif ; $\frac{c_{FP}}{c_{FP} + c_{FN}}$ minimise le coût pour des probabilités calibrées | M03 |
+| seuillage doux | soft thresholding | $S(z, \gamma) = \operatorname{signe}(z)\max(\lvert z \rvert - \gamma, 0)$ : rapprocher $z$ de 0 de $\gamma$, ou le mettre à 0 ; la solution du lasso en dimension 1 | M09b |
 | sigmoïde (fonction logistique) | sigmoid, logistic function | $\sigma(x) = \frac{1}{1 + e^{-x}}$, à valeurs dans $]0 \;;\; 1[$ | R6 |
 | silhouette | silhouette (coefficient) | $s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}$, entre $-1$ et 1 : positive quand le point est en moyenne plus près des points de son cluster que de ceux du cluster voisin, négative quand il est plus près de ceux du cluster voisin, nulle à égalité | M07 |
 | similarité cosinus | cosine similarity | $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$, le cosinus de l'angle entre deux vecteurs : compare leurs directions | R9, M07 |
@@ -402,6 +425,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | somme partielle | partial sum | la somme des $n$ premiers termes d'une suite | R5 |
 | somme pondérée | weighted sum | $\sum w_i x_i + b$, sans division ; le calcul d'un neurone | R1 |
 | somme télescopique | telescoping sum | $\sum (b_{k+1} - b_k) = b_{n+1} - b_1$ | R4 |
+| sommes de carrés (totale, expliquée, résiduelle) | total, explained, residual sum of squares (SST, SSE, SSR) | $\mathrm{SCT} = \sum (y_i - \bar{y})^2$, $\mathrm{SCE} = \sum (\hat{y}_i - \bar{y})^2$, $\mathrm{SCR} = \sum r_i^2$ ; $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ pour les moindres carrés avec ordonnée à l'origine | M09b |
 | spécificité | specificity, true negative rate | $P(\hat{Y} = 0 \mid Y = 0)$ : la part des négatifs bien reconnus | M03 |
 | standardiser | standardize | passer de $X \sim \mathcal{N}(\mu, \sigma^2)$ à $Z = \frac{X - \mu}{\sigma} \sim \mathcal{N}(0, 1)$ | M02b, M02c |
 | statistique | statistic | une fonction de l'échantillon (moyenne, médiane, maximum) : une variable aléatoire | M02c |
@@ -464,4 +488,5 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | vecteur unitaire | unit vector | un vecteur de norme 1 ; $\frac{\vec{u}}{\lVert \vec{u} \rVert}$ normalise $\vec{u}$ | R9, M07 |
 | vrai positif, vrai négatif | true positive, true negative (TP, TN) | un positif prédit positif ; un négatif prédit négatif | M03 |
 | vraisemblance | likelihood | probabilité des données, vue comme fonction des paramètres | M04 |
+| weight decay | weight decay | la pénalité L2 vue dans une descente de gradient : $\mathbf{w} \leftarrow (1 - 2\eta\lambda)\mathbf{w} - \eta\nabla L(\mathbf{w})$ | M09b |
 | z-score (score standard) | standard score, z-score | $z = \frac{x - \bar{x}}{s}$ : le nombre d'écarts-types entre une valeur et la moyenne | M02c |

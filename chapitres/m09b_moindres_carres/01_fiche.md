@@ -197,7 +197,7 @@ la **matrice chapeau** (*hat matrix* : elle « met un chapeau » sur $\mathbf{y}
 - sa **trace** (la somme de sa diagonale) vaut $p$, le nombre de colonnes : c'est le nombre de « degrés de liberté » du modèle ;
 - $\mathbf{I} - \mathbf{H}$ donne les résidus : $\mathbf{r} = (\mathbf{I} - \mathbf{H})\mathbf{y}$.
 
-Exemple avec une seule colonne $\mathbf{v} = (1, 2, 2)$ : $\mathbf{H} = \frac{\mathbf{v}\mathbf{v}^\top}{\mathbf{v}^\top\mathbf{v}} = \frac{1}{9}\begin{pmatrix} 1 & 2 & 2 \\ 2 & 4 & 4 \\ 2 & 4 & 4 \end{pmatrix}$, de trace $\frac{1 + 4 + 4}{9} = 1$. Le nombre $h_{ii}$ de la diagonale, le **levier** (*leverage*) de l'exemple $i$, dit combien $y_i$ pèse sur sa propre prédiction : un point isolé, loin des autres en $x$, a un grand levier.
+Exemple avec une seule colonne $\mathbf{v} = (1, -1, 2)$ : $\mathbf{H} = \frac{\mathbf{v}\mathbf{v}^\top}{\mathbf{v}^\top\mathbf{v}} = \frac{1}{6}\begin{pmatrix} 1 & -1 & 2 \\ -1 & 1 & -2 \\ 2 & -2 & 4 \end{pmatrix}$, de trace $\frac{1 + 1 + 4}{6} = 1$. Le nombre $h_{ii}$ de la diagonale, le **levier** (*leverage*) de l'exemple $i$, dit combien $y_i$ pèse sur sa propre prédiction : un point isolé, loin des autres en $x$, a un grand levier.
 
 ## §4 · Features polynomiales : compter les monômes
 

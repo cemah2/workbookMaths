@@ -350,6 +350,21 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | inverse | $\mathbf{A}\mathbf{A}^{-1} = \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$ ; $\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$ ; $(\mathbf{A}\mathbf{B})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}$, $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$, $(\lambda\mathbf{A})^{-1} = \frac{1}{\lambda}\mathbf{A}^{-1}$ ; Gauss-Jordan : $[\mathbf{A} \mid \mathbf{I}] \to [\mathbf{I} \mid \mathbf{A}^{-1}]$ |
 | rang | $\operatorname{rg}(\mathbf{A})$ = nombre de pivots $\le \min(m, n)$ ; carrée de taille $n$ : inversible $\iff \operatorname{rg} = n$ ; système : aucune solution si $\operatorname{rg}([\mathbf{A} \mid \mathbf{b}]) > \operatorname{rg}(\mathbf{A})$, sinon $n - \operatorname{rg}(\mathbf{A})$ paramètres libres |
 
+### M09b · Moindres carrés et régularisation
+
+| Notion | Formules |
+|---|---|
+| losses | $\mathbf{r} = \mathbf{y} - \hat{\mathbf{y}}$ ; $\mathrm{MSE} = \frac{1}{n}\sum r_i^2$, $\mathrm{RMSE} = \sqrt{\mathrm{MSE}}$, $\mathrm{MAE} = \frac{1}{n}\sum \lvert r_i \rvert$ ; Huber : $\frac{r^2}{2}$ si $\lvert r \rvert \le \delta$, $\delta(\lvert r \rvert - \frac{\delta}{2})$ sinon |
+| $R^2$ | $\mathrm{SCT} = \sum (y_i - \bar{y})^2$, $\mathrm{SCE} = \sum (\hat{y}_i - \bar{y})^2$, $\mathrm{SCR} = \sum r_i^2$ ; $R^2 = 1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$ ; $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ pour les moindres carrés avec une colonne de 1 |
+| gradients | $\nabla(\mathbf{a}^\top\mathbf{w}) = \mathbf{a}$ ; $\nabla(\mathbf{w}^\top\mathbf{A}\mathbf{w}) = (\mathbf{A} + \mathbf{A}^\top)\mathbf{w}$ ($2\mathbf{A}\mathbf{w}$ si symétrique) ; $\nabla\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 = -2\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w})$ ; $\nabla\mathrm{MSE} = -\frac{2}{n}\mathbf{X}^\top\mathbf{r}$ |
+| équations normales | $\mathbf{X}^\top\mathbf{X}\,\mathbf{w} = \mathbf{X}^\top\mathbf{y}$ ; unique si $\mathbf{X}$ est de rang $p$ ; $\mathbf{X}^\top\mathbf{r} = \mathbf{0}$ ; colonne de 1 : $\sum r_i = 0$ et la droite passe par $(\bar{x}, \bar{y})$ |
+| matrice chapeau | $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, $\hat{\mathbf{y}} = \mathbf{H}\mathbf{y}$ ; $\mathbf{H}^\top = \mathbf{H}$, $\mathbf{H}\mathbf{H} = \mathbf{H}$, $\operatorname{tr}\mathbf{H} = p$, $\mathbf{H}\mathbf{X} = \mathbf{X}$ ; $\mathbf{r} = (\mathbf{I} - \mathbf{H})\mathbf{y}$ |
+| features polynomiales | $\binom{p + d}{d}$ monômes de degré au plus $d$ en $p$ variables, constante comprise ; $\binom{k + p - 1}{k}$ de degré exactement $k$ |
+| ridge | $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{w} = \mathbf{X}^\top\mathbf{y}$, inversible pour $\lambda > 0$ ; weight decay : $\mathbf{w} \leftarrow (1 - 2\eta\lambda)\mathbf{w} - \eta\nabla L$ ; MAP : $\lambda = \frac{\sigma^2}{\tau^2}$ ; colonnes orthogonales : facteur $\frac{\lVert \mathbf{x}_j \rVert^2}{\lVert \mathbf{x}_j \rVert^2 + \lambda}$ |
+| lasso | pénalité $\lambda\lVert \mathbf{w} \rVert_1$ ; seuillage doux $S(z, \gamma) = \operatorname{signe}(z)\max(\lvert z \rvert - \gamma, 0)$ |
+| vraisemblance | $\ln L = -\frac{n}{2}\ln(2\pi\sigma^2) - \frac{\mathrm{SCR}}{2\sigma^2}$ : $\hat{\mathbf{w}}$ = moindres carrés, $\hat{\sigma}^2 = \frac{\mathrm{SCR}}{n}$ (sans biais : $\frac{\mathrm{SCR}}{n - p}$) ; bruit de Laplace : minimiser $\sum \lvert r_i \rvert$ |
+| biais et variance | $\mathbb{E}[(\hat{\theta} - \theta)^2] = (\mathbb{E}[\hat{\theta}] - \theta)^2 + \mathbb{V}(\hat{\theta})$ ; $\mathbb{E}[(y - \hat{f}_D(x))^2] = \text{biais}^2 + \text{variance} + \sigma^2$ ; $c\,\bar{x}$ : $c^* = \frac{\mu^2}{\mu^2 + \sigma^2/n}$ |
+
 ## Partie III · ML classique
 
 *(ajouté avec les chapitres M12a à M14)*

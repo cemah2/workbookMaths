@@ -124,6 +124,9 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $[\mathbf{A} \mid \mathbf{b}]$ | « A augmentée de b » | augmented matrix | la matrice des coefficients suivie de la colonne des seconds membres | $x - y = 1$, $3y = 6$ : $\left(\begin{array}{cc|c} 1 & -1 & 1 \\ 0 & 3 & 6 \end{array}\right)$ | M09a |
 | $L_i \leftarrow L_i - \lambda L_j$ | « L i devient L i moins lambda L j » | row operation | remplacer la ligne $i$ par elle-même moins $\lambda$ fois la ligne $j$ (une opération élémentaire) | $L_2 \leftarrow L_2 - 2L_1$ | M09a |
 | $\operatorname{rg}(\mathbf{A})$, $\operatorname{rk}(\mathbf{A})$ | « rang de A » | rank of A | le nombre de pivots, au plus $\min(m, n)$ | $\operatorname{rg}(\mathbf{I}_3) = 3$ | M09a |
+| $\nabla_{\mathbf{w}} f$ | « gradient de f par rapport à w » | gradient with respect to w | le vecteur des dérivées partielles de $f$ par rapport aux coordonnées de $\mathbf{w}$, de la forme de $\mathbf{w}$ | $\nabla_{\mathbf{w}}(\mathbf{a}^\top\mathbf{w}) = \mathbf{a}$ | M09b |
+| $\hat{\mathbf{y}}$ | « y chapeau » (en gras) | fitted values, predictions | le vecteur des prédictions d'un modèle, $\mathbf{X}\mathbf{w}$ | $\hat{\mathbf{y}} = \mathbf{H}\mathbf{y}$ | M09b |
+| $\mathbf{H}$, $h_{ii}$ | « la matrice chapeau », « h i i » | hat matrix, leverage | $\mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, la projection sur l'espace des colonnes de $\mathbf{X}$ ; ses nombres diagonaux sont les leviers | $\operatorname{tr}\mathbf{H} = p$ | M09b |
 | $\det(\mathbf{A})$ | « déterminant de A » | determinant | facteur de changement d'aire (ou de volume) | $\det \mathbf{I} = 1$ | M12c |
 | $\operatorname{tr}(\mathbf{A})$ | « trace de A » | trace | somme des éléments de la diagonale | $\operatorname{tr} \mathbf{I}_3 = 3$ | M12c |
 | $\lambda$ | « lambda » | lambda | souvent une valeur propre (*eigenvalue*), ou la force d'une régularisation | $\mathbf{A}\mathbf{v} = \lambda \mathbf{v}$ | M12c |
@@ -183,6 +186,9 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $t_{n-1}$ | « t à n moins un degrés de liberté » | Student t quantile | un quantile de la loi de Student à $n - 1$ degrés de liberté (celui d'ordre 0,975 pour un intervalle à 95 %) | $t_4 \approx 2{,}776$ | M08 |
 | $\mathrm{AIC}$, $\mathrm{BIC}$ | « A I C », « B I C » | Akaike, Bayesian information criterion | $2k - 2\ln L$ et $k\ln n - 2\ln L$ : le plus petit gagne | $k = 3$, $\ln L = -10$, $n = 50$ : $\mathrm{AIC} = 26$ | M08 |
 | $\mathrm{BF}_{12}$ | « facteur de Bayes de 1 contre 2 » | Bayes factor | $\frac{p(\mathcal{D} \mid M_1)}{p(\mathcal{D} \mid M_2)}$, le rapport des évidences | $\mathrm{BF}_{12} = 3$ : les données favorisent $M_1$ | M08 |
+| $R^2$ | « R deux » | R squared, coefficient of determination | $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$, la part de la variation des cibles expliquée par le modèle | $R^2 = 0{,}8$ : 80 % de la variation expliquée | M09b |
+| $\mathrm{SCT}$, $\mathrm{SCE}$, $\mathrm{SCR}$ | « somme des carrés totale, expliquée, résiduelle » | SST, SSE, SSR | les trois sommes de carrés d'un ajustement, autour de $\bar{y}$ | $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ avec une colonne de 1 | M09b |
+| $\ell_\delta(r)$ | « loss de Huber de r » | Huber loss | $\frac{r^2}{2}$ si $\lvert r \rvert \le \delta$, $\delta(\lvert r \rvert - \frac{\delta}{2})$ sinon | $\ell_1(3) = 2{,}5$ | M09b |
 
 ## Les lettres grecques
 

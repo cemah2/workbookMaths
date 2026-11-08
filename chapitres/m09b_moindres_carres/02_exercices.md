@@ -182,7 +182,7 @@ Cinq points : $x = 0, 1, 2, 3, 4$ et $y = 2, 2, 5, 4, 7$. La droite des moindres
 | f | $\mathrm{SCR}$ et $\mathrm{SCE}$ de la droite $\hat{y} = 2 + x$ | une liste de 2 nombres |
 | g | le $R^2 = 1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$ de la droite $\hat{y} = 2 + x$ | une fraction irréductible |
 
-Dans ta copie : vérifie que $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ pour la première droite, et pas pour la seconde. Calcule la somme des résidus de chacune : laquelle est nulle, et pourquoi (fiche §3) ? Pour la seconde droite, compare $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$ et $\frac{\mathrm{SCE}}{\mathrm{SCT}}$.
+Dans ta copie : vérifie que $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ pour la première droite, et pas pour la seconde. Pour chaque droite, calcule $\sum_i r_i$ et $\sum_i x_ir_i$ : laquelle des deux conditions d'orthogonalité de la fiche §3 manque à la seconde droite ? Pour la seconde droite, compare $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$ et $\frac{\mathrm{SCE}}{\mathrm{SCT}}$.
 
 ### Ex M09b.3 — Les gradients de aᵀw, wᵀAw et ‖y − Xw‖², composante par composante en dimension 2 ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer trois gradients en dérivant coordonnée par coordonnée, et vérifier les trois identités de la fiche.
@@ -417,7 +417,7 @@ Soit $\mathbf{X}$ de forme $(n, p)$, quelconque, et $\lambda > 0$.
 2. Soit $\mathbf{v}$ tel que $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{v} = \mathbf{0}$. En multipliant à gauche par $\mathbf{v}^\top$, montre que $\mathbf{v} = \mathbf{0}$.
 3. Conclus que $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ est inversible (M09a : une matrice carrée dont le seul vecteur envoyé sur $\mathbf{0}$ est $\mathbf{0}$ est inversible).
 4. Calcule le gradient de $L_\lambda(\mathbf{w}) = \lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \lambda\lVert \mathbf{w} \rVert^2$ et montre que son unique point critique est la solution de ridge.
-5. Avec $\mathbf{X} = \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$, montre que $\mathbf{X}^\top\mathbf{X}$ n'est pas inversible, et que $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ l'est pour $\lambda = 1$.
+5. Avec $\mathbf{X} = \begin{pmatrix} 1 & 3 \\ 2 & 6 \end{pmatrix}$, montre que $\mathbf{X}^\top\mathbf{X}$ n'est pas inversible, et que $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ l'est pour $\lambda = 1$.
 6. Trouve, pour cette matrice, une valeur de $\lambda < 0$ pour laquelle $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ n'est pas inversible.
 
 ### Ex M09b.17 — Un bruit gaussien mène aux moindres carrés : le maximum de vraisemblance ∂ ★★ ⏱️ 20 min
