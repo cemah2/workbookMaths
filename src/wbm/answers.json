@@ -2126,16 +2126,16 @@
     "CP2.1a": {
       "decimals": 0,
       "element_hashes": [
-        "216fd405a4fd05b08453594476a6aefca01217756549828b5b29aad190e5187e",
-        "3cb9747226596f0ee635a4f0166f3320cfc998cccd7341ca45f3b16331f149ee",
-        "4da62392b7242c810b6881f98cbf9cb5be4e214973727490daea691697f9bcd5"
+        "2bb4279d0c4cca567c2f2ebefe435793e2aa605b70b15297e33e68aaa75c404e",
+        "72a5305d51ea1a2f58c290ea4684ef447edb8849bbd6246c44a4e3e491af38a3",
+        "fb2241fc139d11cddca4d4929243b9059c3cece8bbb6959ed98587a40bd938ab"
       ],
-      "hash": "d745bd4b544e29b6f55901e1d2850e56f30bdd651a6cbb68f7edc0346dff9fb1",
+      "hash": "5b95f89d2a8fc5e7c9be0748b5084c54e86aa93dadd5d5d122eddb7064fce039",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "80a8355522f14857564701c1cf969c8f80cc5f69fd57f84cb189d87b9fbd63e2": "‖u‖₁ additionne les valeurs absolues des coordonnées",
-        "c5926025b8659f3eba975fa506ceab4b8e0235746dbd35ccbd16918d817e6ded": "‖u‖₂ est la racine de la somme des carrés"
+        "0a1a5c9a013f98c5b9ec91eced603d9b893791bdc80cae46d537e3d5d2214078": "‖u‖₁ additionne les valeurs absolues des coordonnées",
+        "d0a68ec0a830accc525bbcd2e791bb942d0384f54ff455256791111b823f75b5": "‖u‖₂ est la racine de la somme des carrés"
       },
       "shape": [
         3
@@ -2143,9 +2143,9 @@
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.1b": {
-      "hash": "44277aca63d3ff3ed1249042dddb13bcb8a06f1b640c682bcaa172f6664c07ae",
+      "hash": "e6ed7ae9bf30b96d69bfcd3af577ce2162f96f7b03e6f2ce8dc09e7de45cce63",
       "kind": "int",
-      "magnitude": 1,
+      "magnitude": 0,
       "mistakes": {
         "ebabd8d1b39fcb54a5ce951834651784265a9167239a6dcafd94e963eb8f41ab": "attention au signe de la deuxième coordonnée de u"
       },
@@ -2154,22 +2154,19 @@
     },
     "CP2.1c": {
       "coarse_any": {
-        "0": [
-          "7743fd120d42575e3e11d9ef1d07288c7687302cc3ed3c840704bbaa3c39c598"
-        ],
         "1": [
-          "0f30d85e99017652156fe6d37e216fc923878b651ae6241f213fdce4cfd34da4"
+          "512296ce2b79d9801fb46c21bd83b05aa83475bb00aec48b94ed6fdec9de09d6"
         ]
       },
       "decimals": 3,
-      "hash": "db3827e82a57e99556f8fcc5c11c591d162e12cbf61a491b6d2352434dfb76f1",
-      "hash_coarse": "6d5c1d73e27b696bf7b3ec3cc971dfd39466f368a35bef6b75d22f3d14abef8a",
+      "hash": "e0516ec61db96182186e89849a8f7a0be2f0b8280f0ae9bdb5d67ffa01268274",
+      "hash_coarse": "775865ffb80e8059665a0ede3e6b25b336d479019610260c4ab0ce7b3d6b85dd",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "47daac56c1e2fd406d084bc84b26464860c70127ab4cd3b32ca5c92b9290b58d": "les normes sont des racines carrées : ‖v‖ n'est pas la somme des carrés",
-        "83f46ec65bed435e447e504dcc8a2953a31940b86b44c4f73f0e865890cbc8f8": "le cosinus divise le produit scalaire par le produit des deux normes",
-        "b3a7cfd6624469f4fe7ce16a429b5481170f0f4d4d74fdf5906d5ffa06f88572": "le cosinus divise le produit scalaire par le produit des deux normes"
+        "747343af69d7c4cc025a3fcfec9de1972d6356958b2e324332453e81f019454e": "les normes sont des racines carrées : ‖v‖ n'est pas la somme des carrés",
+        "db24675a0dd99a8900709b60bc7a422deb3828af5161a0580391bc53d3f53490": "le cosinus divise le produit scalaire par le produit des deux normes",
+        "e487ed4eb95faaac188cd7b35613d9c1995971238f5f9dd5127a45a601dd06d8": "le cosinus divise le produit scalaire par le produit des deux normes"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
@@ -2178,44 +2175,40 @@
       "decimals": 2,
       "element_coarse": [
         [
-          "d425385776f4ed0019459014f70aa385f80a060ea2e213395d5bf3bf98b2eb91"
+          "e925bf5f5c5bb975a4b1a5cb98997f98f52a14bfe86aa94edd6be083cb4a1eb5"
         ],
         [
-          "688ac20d95a60fd808416aebec7bae9f985a6dba2611bfefc4f2dd7e1d99be8a"
+          "ac73143f2072f84b0b1b17590debe7139d12bb506f568cb74f0ff4b9a1faf2fa"
         ],
         [
-          "53e61d4732c621d2c9ccffc89a162efc4ee50d0305dfabe828e6da9abecc3507"
+          "d4d04af0a99567038f4748505b465a055c3564d6adcaeb26f62d5c34d88859e2"
         ],
         [
-          "070be32fa9064399fb3467aae821cca08e3a39001e775d7cc02b0e9dc4908fa8"
+          "9d78cfbd1a0187c7740b193c02604d8d9814e68da81c2d78771d12d8fc5d8ebc"
         ]
       ],
       "element_coarse_any": [
         [
           "116242baca33b9a64b5da525bfee5e391f3b5f3b3c4d5dc81808466332422799"
         ],
+        [],
+        [],
         [
-          "7e1a4be12993b03235599c9d0078c50b1f86f883822a0080cc63b42a4bd8a145"
-        ],
-        [
-          "9e4b32c9cccc3c84ea59126262896cb46b4dfadc13e3afba2faf9afdbfbf2465"
-        ],
-        [
-          "464561b5976218861e9c7c9ae737cf277894271311c45b15c733c1b3f03f9268"
+          "12e736a7929d2a21eac94c1d66bcf962fc0dcb561e4c21811d0050d337822a12"
         ]
       ],
       "element_hashes": [
-        "fe9228bf7f4a8147a7af0579582d56d964958ac865f930af88bf27f0b601d0db",
-        "e9cdcb74f9d1ccf01535426e301bd22f2fe42c1d759e0239ae59b9ea27902fde",
-        "290558be0431df8c5d9692e32fbf3335e91546800f78007c79d95f9f5a707145",
-        "1c2900f35a7e163c8c935fcac23e5542090a7055298fc49585a7842891e83b66"
+        "6d5d2871820ae278b4614e8744535693f02a57cf176a8214e3520b2ec0b7ed0a",
+        "125d52fc752f9a4779f96e61cf342f08def5aba85f3ccf6079c08b95eb11d147",
+        "665d1f41761c1ab567cd40f0c1f94080536097c4530cbbf3e4aa3f26893f0332",
+        "6afb3ec6ca3f73feb15ad432454a77536969f5603971a634c5c8f8837293b8aa"
       ],
-      "hash": "61fd19826844eeca8d83a07a96a3770f628c55967ebefa04c89fef9d71790064",
+      "hash": "f53ad3a4929dcb0e54999cfec946868a487aceacb33d546c2bd87fb1c61d684d",
       "kind": "array",
       "mistakes": {
-        "723b8dd4a590c246e5fea9bab359576862d254168e6b22c5d1024871083f883d": "c'est la composante orthogonale ; la question demande la projection",
-        "9bf6cb3eb0fe5c101ea3d4d011846e641466453c57adf67c80630209a30a1d86": "c'est la projection de u sur v ; la question projette v sur u",
-        "b9bc268f25f48221adf446319a4813f4d6f1c15a83bac27d8a0efbb502f4a8dc": "projeter sur la droite dirigée par u divise u · v par ‖u‖², pas par ‖u‖"
+        "3341fe6f93d334a6676799ce4b1a76c0ac115df43d508c4be3d363c7e4d16cd0": "c'est la projection de u sur v ; la question projette v sur u",
+        "341f8897150582bc8a59a49190cd658adf00932d06a250554966afe56e73a38f": "c'est la composante orthogonale ; la question demande la projection",
+        "3e0d0e988697ef6150306569dbf8b036c5f9feff93fa42082edddea6801682b8": "projeter sur la droite dirigée par u divise u · v par ‖u‖², pas par ‖u‖"
       },
       "shape": [
         4
@@ -2225,84 +2218,80 @@
     "CP2.1e": {
       "coarse_any": {
         "0": [
-          "cf0255846b018a61c8d194b3cfaa60cb3566dac615a2caae15fc2e11498d09d5"
+          "12163fbcda4935a7b47a057300a048e74f45ae58e71fbb7a496c3cc678d736b9"
         ]
       },
       "coarser": {
         "1": [
-          "97e7e91fc393eceab4e82db7ecb98e191b07a4e552ce009657f18d5e7c1759f7"
+          "5a772bddd3efc9d6a4f05a225bd2756be1c34bd13f5854fc6e9615e63e26c506"
         ]
       },
       "decimals": 3,
-      "hash": "d9abc4c5a01e5066afa4450f0e6fea92d33bcb4cd702c2284ca3975a73df926b",
-      "hash_coarse": "e42564a9ee2bee4097d1c96bba157432f23db554237a1856f75830ba96cde4eb",
+      "hash": "9fb86a2b46691c614715bf59990fbc4969c44e189c8e03d7a3abdad11f71ad17",
+      "hash_coarse": "68dd390440deca6524a59d0dcdcbecbed40fa1e2c9d876fdab64a5760993a1ec",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "53a1f02dee5c0af8c6fdf5e7ceca9f1d4e613755d9f79902a2d8c61015aae5fc": "c'est la norme de la projection ; la distance est celle de v à sa projection",
-        "7e41df9ec1c7e4856b81867dd70f99a17a2f039f10a43621bcf1d66b5ffa0b5c": "c'est le carré de la distance"
+        "412a4147ae16100aef39c487343d5a94b09b6a57c1eb890b8265d656e5afe23f": "c'est la norme de la projection ; la distance est celle de v à sa projection",
+        "fe7d2a4b637fbf5a0eed794c404dc5e76e52e0738d9af568fa2637ef60f61424": "c'est le carré de la distance"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.1f": {
-      "coarse_any": {
-        "0": [
-          "bbc9a37c89db0a0436831357b87ee0d81b32a1b3c58b1f23f3a2a9e74141b51e"
-        ]
-      },
-      "decimals": 2,
-      "hash": "ca4f0df63d81635c865c65a97a4ba332c891643433191bd1b8b3769cb1414c4e",
-      "hash_coarse": "cf50d9fae0ee0fe69f05b75a8a55d89a9cd4397a7e0c464c5eeb75ffbdbc46a3",
+      "decimals": 1,
+      "hash": "573d6103133c19776326b422b046adf89959c69c625a2658035ef361975a1152",
+      "hash_coarse": "5c86595ca50f4ada8b3874caaac4e361ffdf32fc244c74abecaf37da0368e90d",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "04913095e511fd080a8b2f7e500cd5ae958b646ada92fbfce6d46abb7e97d302": "la distance signée divise w · P + b par ‖w‖, pas par ‖w‖²",
-        "0b61ef397a6f4a015ee2edc71bb322e7828c19a989c4f8ab36dedad638a14fbd": "divise w · P + b par la norme de w",
-        "3014e612cb6f066e5500bdaba1a5b8a0f37f8f841b1deccf4bbe6736b767b9c7": "l'équation s'écrit w · x + b = 0, avec b = −7"
+        "60014ac8c03743d4daa85a4daf3ff41ea6b2a8377ca94ad1a49cbb47329af02f": "divise w · P + b par la norme de w",
+        "acb014ae6577f36ee0c0d1b15876cb6ae0a9e629d1fa05ed712284db05ca6051": "l'équation s'écrit w · x + b = 0, avec b = −39",
+        "d13d3fdf76d8cc390b2a7854fe32dc2b0094462203b2838cfc616afab3447bfa": "la distance signée divise w · P + b par ‖w‖, pas par ‖w‖²",
+        "d5bbf0272d7a9436005aac9847a88fe5bce5228dae58ecf8f24109def25b2924": "la distance est signée : le signe de w · P + b dit de quel côté de H est P"
       },
-      "sign": 1,
+      "sign": -1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.1g": {
       "decimals": 2,
       "element_coarse": [
         [
-          "9366a4a12990e3c39ee2cfbebd985556afd1c9a6c8b9799363ce9f6c514138d1"
+          "0dd9a01e1fef3c154a68921ad2b8c782a7abfb3bb3c97fe1d9197de78b2f8828"
         ],
         [
-          "1ca3e96055ab3e1efb080d69768d8a37143b272a1bce452e6929f05d89eb4422"
+          "2823bbd9180ba103749ad3147a8da6444f7f06e03e239e94a4a77627056619b3"
         ],
         [
-          "c32d37938b9a0b2f0c2e876e1b9c725b7f25ada24fc9d65dadd8bad7e736d425"
+          "b218912025d7711aac726cec09bf70591eb0522a2c3c17f61413fa1726d0e0e5"
         ],
         [
-          "df885f6e2c3cf8c90cf97476b4a87c6f50c2fe437c5e94230095a0076a5f233b"
+          "3efc0b730a2e4c418163c58be81e6d98a0e654fff2ad8cf0d79a176f58f384e2"
         ]
       ],
       "element_coarse_any": [
         [
           "ab3e2244be529d5293f28784736c3eeb305202d7fc7fb61382858e3d41e450c8"
         ],
-        [
-          "9c02d289bacf93b38adfd3dd26bb3f7229e0e6e2665a1d8571c14f50a11e6b97"
-        ],
         [],
+        [
+          "93872abb456dff117e8dc316c385e291a88e8400a72692ef31c852294aa7b11b"
+        ],
         [
           "2461bad194f9a99db15d774bd0024c741e89caaa813d7c22f914387605b84ac0"
         ]
       ],
       "element_hashes": [
-        "4f6c167148cfaac3cefc2ef0d5396b38d619ff8af709a5618366b4e734b7eb73",
-        "4e3012595f1ce0a1cb30cf2cabb706ff09e38a7832cab45147154f07eb512b82",
-        "3fef3f76f559de8b2684b54e2f40ab77669e6a21b1595aa126c83c5c59729b9a",
-        "c5b401965709cda615537d93d7d1a80d5031655b2552696b6973ac24cb2603ce"
+        "0b5eca9f84e3a127017ebddbb04d6ccec18c3d277dd67285d6ed7fc693e080a5",
+        "986bdc45d154499b491adba3abfc5d164abfdc1136f5030e37eba0bc46a43fc6",
+        "d6a8d186ef918e3e22bcfad068b705ec23ce1bfe17918c0482828e0cd11220ac",
+        "9f3f105ddf05c73fb01c38258f3b7604b3bd3347e0547c0c9ab3a0cb87c3d970"
       ],
-      "hash": "a1c7ed728dbaad8c0bd38b69e70d260767b4910623a3e45af9e15e53a5d8ea14",
+      "hash": "fccee59d0a1d85e98a30275faff156667347afb88e80ed51a849f4c98ac55f95",
       "kind": "array",
       "mistakes": {
-        "5d8f3dba2c73fd14811ea5b544b18e691b25453a0d85023c77b160d30603bf68": "le coefficient de w est (w · P + b) / ‖w‖², pour arriver sur H",
-        "db706e82371ffe548e72284a5ae75455c7f5ae26f90b8364261e0066c4dba622": "P est du côté où w · x + b > 0 : on recule dans le sens de −w"
+        "070d936bfeaf1a50e9f26d7ad767e8d62c11e91a27100691cb88ea03597b9450": "P est du côté où w · x + b < 0 : on avance dans le sens de w",
+        "2bd026eb0edc73ddfc27c01db2a3e8f17c5c3e326154382d334ee178e02d1efb": "le coefficient de w est (w · P + b) / ‖w‖², pour arriver sur H"
       },
       "shape": [
         4
@@ -2310,144 +2299,117 @@
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.2a": {
-      "coarse_any": {
-        "2": [
-          "40e227084e55931c1e519f2d7c6431ec37e04efb46bdbeef35ba0cecab070136"
-        ]
-      },
       "decimals": 4,
-      "hash": "3fa81f2a341fa75b90962da3a18673fea98eb05d0517f71ffba2d7a4f7be0546",
-      "hash_coarse": "a639a53cd0d4bf39946c93687fd0be92d1ce9bf7ca79cdfce9dfdd6ae25b70a5",
+      "hash": "5a9915595c81e30909d289a7541d06411f2662f58cf106cf145d9497658e2274",
+      "hash_coarse": "8ba7c3ec3912bc94eaeb0cb9cd9843480d1cf421b23159c5a06ad20bbeed8fe5",
       "kind": "float",
-      "magnitude": -2,
+      "magnitude": -3,
       "mistakes": {
-        "dcf3d235facc5ea9932ea8c32f541c76b61dd4f73ed8a9b9096d51eba4c3e06f": "compte toutes les façons de placer les 12 parties gagnantes : le coefficient binomial"
+        "0f69848a7263983af8c983ce8fe0272be33aba3825fc6383cba4b1782eb79ee0": "« au moins 16 » compte aussi 17, 18 et 19 parties gagnantes",
+        "404b44b4c3b4d3827e7df878f3aaf00434166a8dd7013d78eef564bb8fa1043f": "P(K ≥ 16) contient le cas K = 16",
+        "916debd113d13959378b74df3d381b3260b72e3a7869331ff67c049998ee9ab4": "« au moins 16 » compte aussi 17, 18 et 19 parties gagnantes",
+        "dcf3d235facc5ea9932ea8c32f541c76b61dd4f73ed8a9b9096d51eba4c3e06f": "compte toutes les façons de placer les parties gagnantes : les coefficients binomiaux"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.2b": {
-      "coarse_any": {
-        "2": [
-          "b29bb41f86ca1332c966993ec740c4fda252843e0819960546e8084aa2bfffe6"
-        ]
-      },
       "decimals": 4,
-      "hash": "75f3b4e13763b87b85878d3083f955754d52f8795c20baf6559c58afef2a255a",
-      "hash_coarse": "6c84c123066fbc0f8a6dde49c307ba4ab4815ed110409b6fa7caabb3386510dd",
+      "hash": "4372559a2aac1920c7c284b9758badd771cb2873bf7bd71233c83353e481c1c7",
+      "hash_coarse": "616d7f0d1afe909f26870024e9211d2c6d86b9a8a63abd4ba1166e06a915ab8a",
       "kind": "float",
-      "magnitude": -2,
+      "magnitude": -3,
       "mistakes": {
-        "77dbb410f5ea718f55e0aa77bf18ff6698188cac6962c00ed67e90c992e63a5a": "« au moins 12 » compte aussi 13, 14 et 15 parties gagnantes",
-        "89542496461ccc18069b62e300d02c0925d779556be54e8a01133b9ad9b787d9": "P(K ≥ 12) contient le cas K = 12"
+        "315002c5f7ee61f88da1f063217b6af4c79a4df724001efc9cf1f0e16cfdcb71": "le test bilatéral compte aussi le côté opposé, aussi extrême",
+        "6ef02fa8d90adb0fcfd97ab02b40a716c0229c725c6caddd4394d07263f67e9d": "la loi de K est symétrique sous H0 : les deux côtés ont la même probabilité"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.2c": {
-      "coarse_any": {
-        "2": [
-          "00e770e6cfb74296c7c54d9a14a1d9c02100f6e2fdc55fb7f58f962ecfda7ef0"
-        ]
-      },
-      "decimals": 4,
-      "hash": "9506c4c4ecbef44eb194ae54adf222bdc2516c19076538ee5e2d884c72b87f40",
-      "hash_coarse": "09aa5978f74939bef059966a1c46afd40687a12730b0e4555d12f710a399fd1a",
-      "kind": "float",
-      "magnitude": -2,
+      "hash": "1b805a98a1997fc128e96d018e6227d8941e1a4483cdd91b80ca559f33b1f2fb",
+      "kind": "bool",
       "mistakes": {
-        "3b912d38732de7fc2f40661975cee3b8a8b3775cbdc6a074e642b8162927a775": "la loi de K est symétrique sous H0 : le test bilatéral compte les deux côtés"
+        "52c3bd75f857940003da921680878482a7734544c6ac8e039c680f9c7f41609f": "compare la p-valeur bilatérale au seuil de 0,05"
       },
-      "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.2d": {
-      "hash": "5bc7076ffd934dd3aba0c134292a3b3abfb0515c45771a8751e72ee0e85e153f",
-      "kind": "bool",
-      "mistakes": {
-        "15ea1d32d07b5ed5885911b8a214d1402138f7ebc22fa87a431048a317fe1aec": "compare la p-valeur bilatérale au seuil de 0,05"
-      },
-      "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
-    },
-    "CP2.2e": {
-      "hash": "d00fec1d8fdbb6acdc35a8e8a972f3506b38a19b3e593c4dfa28fd27adc1f591",
+      "hash": "d8471b26337462dc5abfcbf7b202ad13e0738e755f7142703a7f9e27da859b1c",
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "b74d9f6b8444b231aa5c5b0646e68744d7ad6d1ca500d115b9ad81cb2d933e58": "P(K ≥ 12) est-elle déjà sous 0,05 ?",
-        "c919ca487133dd4500cee2a5193e92137b63e1d3822b2af89c7823bd75f70ed7": "calcule P(K ≥ 11) sous H0 et compare-la à 0,05"
+        "ce7d30e2f3192a582dbb2af1a486b50244581eef4588ed1fa006beea241a35aa": "P(K ≥ 14) est-elle déjà sous 0,05 ?",
+        "e09f80aef04c81a09b4eb4b085c72a54a65a5b39a74b14ff6b4b3706fec15000": "calcule P(K ≥ 13) sous H0 et compare-la à 0,05"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
-    "CP2.2f": {
-      "decimals": 4,
+    "CP2.2e": {
+      "decimals": 3,
       "element_coarse": [
         [
-          "0a1b33b91d5cae9066ff42112c05b020fd5fa4085182a0eb4294c3432c00e2eb"
+          "7361809b3729121b0a7f08a200e2448b0d0dc553b7ee95bfe28539b3915e8d30"
         ],
         [
-          "7c6c85f317f714dd0fec3cb505644bc3b994e7c0425c0009323b73d8aab87ba6"
+          "4f8481c2a3ad659e084e7351152fe30ee8f503e0373896102da781e1daec7855"
         ]
       ],
       "element_coarse_any": [
         [
-          "2c32116c9c1c79a68a144050085c3dd190d64e2ba8c999b3cd54afb4fdb2fecd",
-          "1ac7002eb083bde872f35d633060150313992d4deb68a97a6e726d0ae7d51d5a",
-          "171a8548f44a3e82ac38a9e90dbae82c0d1f746218f58c4b3c88057e8587db70"
+          "37997de53987664e0ccf9cfcd9dcebe89713c90b7fedc360a26d413444fddae3",
+          "a7ab93ae9d34d05af38f56102d64743796f7074fee5db5b27bd14d1ce0ca2209"
         ],
         [
-          "a3299ed3aadab48cb26f5eb86854ffeeab5a146c192e5bef3a7236743298e9bb",
-          "74f8b35447b37657ed2b32fa79a659e22f6448ce2f253caa49c11585b0b123ec",
-          "9832f2fdf047a73e8f95f2345ab4873c5f65d1cc2f195220508ce06871b5e420"
+          "e86b8af18fecc53180ce28b3c58cc9c5788ca9a763f7beb726259800e2d95305",
+          "f0d46ff7cb0984c4d312060d970a50c25b21797ac7c364e8f84908f8b79a68d6"
         ]
       ],
       "element_hashes": [
-        "5a05c93a9d0dfe7a726056e42152e7d8bab18af512ca876f8f5f946117a3c145",
-        "1788806500c0d01fd0ef3b009435709a904def2048673d6500e1f1a9fc3c2827"
+        "f0b5d36048f8a3ab9a98a17ba3c8a6ac7acf9266cdb099983df63bb3f1c68e70",
+        "7603a12ea4fd2be54d2659a09e2a7c9fea1a4625665f5b23c51cbf2c93bcaaf5"
       ],
-      "hash": "767aa85c9fce7f6ecdbd11163dd8e91d04c595cc4218ff4f35906a890a5bd694",
+      "hash": "47f3fd7fe15fe3fd874c2fa7643d5f178683f0c7180001988e68d5b0e955e3bd",
       "kind": "array",
       "mistakes": {
-        "57596fb42fdc515aa992f9957a9b4a183efdae8065af8ffd9dd71b02822400ea": "c'est l'intervalle de Wald ; Wilson décale le centre vers 1/2 et change la demi-largeur"
+        "0f428bfc3c8673527888ac62a432e13077066af4d3557b812b7ace39ab28ee16": "c'est l'intervalle de Wald ; Wilson décale le centre vers 1/2 et change la demi-largeur"
       },
       "shape": [
         2
       ],
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
-    "CP2.2g": {
+    "CP2.2f": {
       "coarse_any": {
         "0": [
-          "4aa081a955f4b940af2f14f9ca0014c3ccbd07237da2580481a09f8ff9262644"
+          "d604c0fb16eb0443e4d692ac654b1c7e02185be6304e55b91c535b754e2edc38"
         ]
       },
       "coarser": {
         "1": [
-          "dbece605084e37c590291a6cf93ef689b9afd5e0573980f4f59d9e43cf5298ba"
-        ],
-        "2": [
-          "84a6eb1d788adc8eae6c36a61c5063d5d9d0d4fb57638f82d387a46bbd0197ed"
+          "9809eb81d919e41461ae97d8d77764e80e35a251dcd07df07d5e89730b3f8ec0"
         ]
       },
-      "decimals": 4,
-      "hash": "e8c2be15cfeae54d772ff0c674a2569a897075d699756d210a79dc3473a615c3",
-      "hash_coarse": "01f6a61e7a6736ef685cb59bf74a7b9d387a2edeb9c4474d25355efb3eaa4e3e",
+      "decimals": 3,
+      "hash": "fa015d97dffa98d312cffea617591ed875f15af69ba1c2a883e090a387d7e365",
+      "hash_coarse": "d9c9087aad29371cc27700be9013a9069c907846e09609b8e184e1ea7d86feb2",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "8d9dae0d04986ff9dd3f87f829e247debeab8a87e8d4742c5459341255fc7676": "l'erreur type de Wald divise p̂ (1 − p̂) par n",
-        "d8b13e023db6fc8a5c1155475ec4c7dcc3b358587d5fcef78ecda05718aa4980": "c'est la borne haute de Wilson ; la question demande celle de Wald"
+        "2136fe742a19d9945dc6475748741693c2143aab38395d2a288d4ceb4490e94d": "c'est la borne haute de Wilson ; la question demande celle de Wald",
+        "97521fe766a50cc0dfab466cbf382bbb9e9972dee051d09342bf47461e65b7f7": "l'erreur type de Wald divise p̂ (1 − p̂) par n",
+        "bdb940230d417a67ae9b44e7830c6a28acd6a4aaf13e0bff8b9e42cbe178df6f": "la borne de Wald se donne telle que la formule la calcule, sans la couper à 1 : c'est elle que la copie commente"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.3a": {
-      "hash": "2c284c4d39acda8ddb5c64324398e87d87ef5cdc1924b6a8cca866a5d9f38c59",
+      "hash": "79b9f6dada00447abc4ccb50b9d0e6b29255f1fad9b3c1917c6df61ee10ab2d1",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "658250d62b2d90ff2a26db7af5c9415e4078ba5bc92c473d7179b6922058fc70": "« significatif au seuil de 5 % » veut dire p ≤ 0,05 : compte-les toutes"
+        "2c284c4d39acda8ddb5c64324398e87d87ef5cdc1924b6a8cca866a5d9f38c59": "compte toutes les p-valeurs inférieures à 0,05, la plus grande comprise",
+        "d3aca4bffb6c665cd9028db39951777602c8bf61832c2cba3bf85facaab5adb0": "0,058 dépasse 0,05"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
@@ -2457,7 +2419,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "1b49e6a48bce0a5bab5585dfa22e4ba19b0277d8331297bb62c0bad8e7937278": "Bonferroni compare chaque p-valeur au seuil divisé par le nombre de tests",
+        "8fff07034863aabb0880a51a96294031ce2ba120bb2d4ba95e715ef4e4de1141": "Bonferroni compare chaque p-valeur au seuil divisé par le nombre de tests",
+        "9e684d5b573506040a6ff53bbbde46aad349336a5a874d7f471e0614489d6834": "Bonferroni utilise le même seuil α/m pour toutes les p-valeurs, pas un seuil qui grandit avec le rang",
         "d5b14a8f5ae3381ffe9de30fb58fc1430be20d281830c10a58821f261149c122": "Bonferroni compare chaque p-valeur au seuil divisé par le nombre de tests"
       },
       "sign": 1,
@@ -2470,13 +2433,13 @@
         ]
       },
       "decimals": 3,
-      "hash": "1ee61535c0cac8469adc503eccbaa66a61b7b55727b703131132673c420b3486",
-      "hash_coarse": "18ee16e48bbdd8042a87e8f81ffc3c810aaf68d8ae44037028f2a3e3ddd08450",
+      "hash": "b30afeb165def527debc12a5e4565e56c1d81de46989d6a44607c832eb0a9c6e",
+      "hash_coarse": "13f5a5b9605a49db1f0a6241e356a1c0e0411568150d8c601ee7061bb0c6ae63",
       "kind": "float",
-      "magnitude": -1,
+      "magnitude": -2,
       "mistakes": {
-        "82b6f0e27f19ef7ee0c4895f1d10241f048b5ca26f5cfa51befce6d6a375419f": "la p-valeur ajustée de Bonferroni multiplie la p-valeur (sans dépasser 1)",
-        "9e604d98f3db52824111e230424687f700405811ab6949204f4c7c2c45b4813f": "Bonferroni multiplie par le nombre total de tests, pas par le rang"
+        "1f6011544c2d10c371194f94e8dc1345bf2961f3d8a782a47ac9c995d2333f7d": "la p-valeur ajustée de Bonferroni multiplie la p-valeur (sans dépasser 1)",
+        "960a217e616a8bfffbd5a145c8159aaaa3caf801f3979e30ba27c0d65f20932d": "Bonferroni multiplie par le nombre total de tests, pas par le rang"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
@@ -2484,15 +2447,17 @@
     "CP2.3d": {
       "decimals": 1,
       "element_hashes": [
-        "428bc76a1e5b264d3325cfea88f8adc3cf8e250c6fdfd6d327dea48db9adb153",
-        "9ed7c9084199b4b0e41286d9155e91ad7631b7fb8fce20c9ed16cd3da1349ede",
-        "88336b0fb930c66ca6c388f391823c9d8a5e1da8b188a2e2eea3c38c15e88cff"
+        "3127a48604d1d56cc519cc7e96b2cff3d0bd77512dc116e64102975d0effcf3b",
+        "b76cdf2c4dfe002d3b58b332371c8ad78bfe8cf506ff719eeb5e19af75274cee",
+        "8f93e3a56a3a279da7ddbd14996950a78f60011b3c515930cfba602b0d4060c7"
       ],
-      "hash": "4e332cccf6c4a85422395e51b0242c4774bc274911fb1626d6c0ff53e0c58876",
+      "hash": "d85392367a1105c90ee26eef9023325a8582427a67142869d0277324593d8527",
       "kind": "array",
       "mistakes": {
-        "c7d80c5b677751ef2bdc029689ccf618006424478791e6042249621fd800f1e8": "la pénalité de l'AIC est 2k",
-        "e202ea62f166832086b0d267ac5c9aae529ae65003484324880a7b3e9879bb17": "AIC = 2k − 2 ln L : la log-vraisemblance est multipliée par −2"
+        "2e96e13bf9f2df7e92ea9ebf3db37dd306039146f538b43f8dad869906fa504c": "la log-vraisemblance entre avec le signe moins",
+        "3b4c1288b8a35c1b46c5349b95ca6f5a56248230bd3b105342de2ee52bd22b67": "la pénalité de l'AIC est 2k",
+        "e8a76c561849a43c8fc864ffe0b6d62469413916ef4d13f8d956afcd65d4a969": "AIC = 2k − 2 ln L : les deux termes ont un facteur 2",
+        "ff26488d2424a832f8d1ce9b58460e10f3954ee51fb07e7186b3dc6d4aede5a1": "AIC = 2k − 2 ln L : la log-vraisemblance est multipliée par −2"
       },
       "shape": [
         3
@@ -2502,15 +2467,16 @@
     "CP2.3e": {
       "decimals": 1,
       "element_hashes": [
-        "a7e907e3f2af0510a3b90b2163acc6e81a3f300556032c10c3adebab2dcb9c80",
-        "ec8a3360ed827d3c4841e602345b140c37a566e48574cbaf09a13cf923064f7f",
-        "87475f04e2ebff22c84cb9df9c5290dbde3df32542acf449cef6c57980378a73"
+        "ff53551b21d6b19eccacd5694cbbd2fc076416ed11395e06c230c01cd2e9dcea",
+        "9fa90bc84dd9a9232265485b87db8951e0e85265a123fcc26b9bf4b4ea7a4818",
+        "6ddd1917e1aa334716bb3f780cc1e41a6598926cb4512602a7d275bd1b74e79c"
       ],
-      "hash": "679905eba3b43ff4ae3d0dbaad2c1decef4d000d8c5db5e4421944a45d28bf21",
+      "hash": "c4ba8f4afadd4cdf64e804b8a6fccb7454811d4f5817f4e66900bd8899126aac",
       "kind": "array",
       "mistakes": {
-        "97a85610795652882645a441e2a9c12069dec92c0b8df2a8d978f0056b8075bf": "le BIC utilise le logarithme népérien de n",
-        "a87bfa936bcc5def0af5a801282ae615e1ca6e477c986a000d1b34294764cf4a": "la pénalité du BIC est k ln n"
+        "5908c744592bd946783b4524eb7207daf85bd4ce1483066923d92d79bc6124fd": "le BIC utilise le logarithme népérien de n",
+        "a067f5dcdcf9fc811d5957b1685cd9854a073cd2feeab2669c905701e67ac6de": "la pénalité du BIC est k ln n",
+        "ec49dd3dd46500da171dbdced5d6bb5cec7ad692a0a4713524b4d5a04f50af6a": "BIC = k ln n − 2 ln L : la log-vraisemblance a un facteur 2"
       },
       "shape": [
         3
@@ -2520,15 +2486,15 @@
     "CP2.3f": {
       "decimals": 0,
       "element_hashes": [
-        "9b8a53cfef1fab10a2f71d31fe749bd4f0dd1bd8500f49a0969170918be76d6a",
-        "e6cad1311f2d44a71941fcb84821e6c9040dc9ee8ede27dfc48b3041c1af47de"
+        "6bdc57abca56b52985931cc7450bb0c3a8b95cf9dc67c8aa608e8ef37674190b",
+        "251b2542f7c2a205ca9b9fb98b3161dfc61274980f5248247bcf0bb26a5cac1e"
       ],
-      "hash": "6cc122a369cfdd1d83320d2d8dba3b247e83560368fdbd07a90b3d2637eba9a1",
+      "hash": "1a9e6198b39dc8f3b30d96d1ace29f26cf0596a6f15004a835d937a85badfd77",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "5052720f312eb9251b11822d50f60a551fa3e389e4c455cfeccb6f2f8e18102d": "le BIC pénalise chaque paramètre plus fort que l'AIC : compare tes trois BIC",
-        "71444f549779fb270da608340b59643a0761e3d08e26db914c44476a370845b6": "on retient le modèle de plus petit AIC, et de plus petit BIC"
+        "33e8e706af10b32c41867915acd9be3ff0c6e74d754c4643e66f82145dccecf4": "le BIC pénalise chaque paramètre plus fort que l'AIC : compare tes trois BIC",
+        "d63138f8c49e0b57d49286e13eaedcef8dbfd0ce5a186616fdc29f56141f65c0": "on retient le modèle de plus petit AIC, et de plus petit BIC"
       },
       "shape": [
         2
@@ -2540,15 +2506,15 @@
       "element_hashes": [
         "6c65e098e9d7b164aa4d66a213814e4f2525e0d7ff028855639cb13e5ed8aaa4",
         "03b789aef90f8c9009f6cc36c59622e3a3038b170355498e40a2050fc6383ff4",
-        "42a2816a2737c0c9d9c966cb505447339633ecece6c86afa3d22f043a2dd99be",
-        "ea8f3745a3cc2885c2a8745c9eb94f27e70ea349647dc25c02355d46b3d190e3"
+        "229c0b258d4661ba0c84674921ef3e88feb34936ed37a0a370e1c93ad0e8f442",
+        "89d561ca500ae45dbaaabf9a09a6c703ed094ccc32c1a298eeb2068a4154544a"
       ],
-      "hash": "3dce7bc178f4082d83a9fa938a64df6ed30c113da9b82bc01733ecd5e56f8289",
+      "hash": "44b7cab8462128aa699f5c848726df416f822f3a7191a3365907ef7e4498187d",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "783c6e78d13b27ee020daa27c3a53631ec753b5e87677dc666b7c6974d41b00e": "l'opération porte aussi sur le second membre",
-        "88ac1d83822d917f642892b9e619df469f5a1e9551c9bb178ef69f3db4518229": "L₃ ← L₃ + L₁ : on ajoute la première ligne"
+        "3499df342216d0cb9d003685b7d4db67dd503fdc5081524952907a2e321230d6": "L₃ ← L₃ + 2L₁ : on ajoute deux fois la première ligne",
+        "5e69cbd7774346a8548b6d9cec9fb7322639dbe69b7dad8e726f6aa30d2ac56e": "l'opération porte aussi sur le second membre"
       },
       "shape": [
         4
@@ -2560,14 +2526,14 @@
       "element_hashes": [
         "78cba0029ba41102bc256bcb5a7be7dbc7d7d0ed12ec2e7d8b9bf13576c40a36",
         "594656260b00b61ed9d99a6c882ab8a09ad835ab6cf343a8231a3fe95b49b523",
-        "bc15119a29a55e4fc306403eee5aa3424d67e7be5d3f0f3ae27e685fb58348b3",
-        "d000264ea9498c1393ccf5ef13025256622afca8c0128cc6745912f85526f54e"
+        "ace7773400aab57886a94dcd07d9c28cf35fc81bb6adaeeafb07a59b8ce031e0",
+        "0e2882d5952fe911a0bfd5052bde4b14fcc6709d997a1ee46157cb70abd36ddc"
       ],
-      "hash": "1c51ba1d77668e881e636640db6814a370a06e6a5373ff955ead05e9efbd98e1",
+      "hash": "50c703f10a8e72abaf1d4e77c22b9a3c691f31cce1d5c0928be8d8c11bb05a1e",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "825d12ae1f8b8c970a9577291c4b18dea098cc9cc967e79a8261331d1c5811c3": "le multiplicateur de L₂ doit annuler le coefficient de y dans L₃"
+        "1981a259762be535962cdcfb71aa7daf92dad968ca789765d8a9c13a8cd7d2a4": "la troisième ligne est L₃ − 3 L₂, avec la ligne L₂ obtenue après l'élimination de x : vérifie le signe de chaque coefficient"
       },
       "shape": [
         4
@@ -2577,15 +2543,15 @@
     "CP2.4c": {
       "decimals": 0,
       "element_hashes": [
-        "97b71d44c319ff6e779608fac60c243f33a1378b84c602e6d9b46f33b0da55cc",
-        "02b57aadddc320ca9acc354d16f519cea78f9137e79ad48e9fcff6043a0d61f1",
-        "5e7ad248955e5d59dcbaa4fe160f01ff7d4d550fdb15e2a1b22e34544feff3cc"
+        "345185157cf752f8602d75b02ca7dc453d1ff54d9acaf56918fe7bc9637ca097",
+        "193217a7c7755f4b723c2e96ad0250b7f1944b2e9a9fa91664f79bd56886cfda",
+        "2ab4080357f7efcfa9bad5c9505534ad546fc1d72e3bc90a972435a0e40c043c"
       ],
-      "hash": "9349517395c33f5779eca71b0c60013cd993af7ee1a935e08cd5a4004e2d31cf",
+      "hash": "4311e8492dabb35dc4ee791e5cd8664794313f701795462614d4c14e64778dff",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "c277f71e9b1390f301e43dee5110764ceb1fa395792c568a7988810dabb96457": "la liste est [x, y, z], dans cet ordre"
+        "e09a6ae8bd1f25cb6527936592b6409e104413eb55e901f7e048f0de6a54033b": "la liste est [x, y, z], dans cet ordre"
       },
       "shape": [
         3
@@ -2632,6 +2598,8 @@
       "hash": "17c88ac93c2d42419cbfee0aaa68d7cae540b7abfbd37368b3a892057118df8f",
       "kind": "array",
       "mistakes": {
+        "8201ce0278dce106360d74716dd96e07379c4be99773efd84bae9e859ccdb303": "la formule échange les coefficients a et d",
+        "8d8c40b5e8c9720c517418ee6de18eb5cd89139f5fc62ca2cf8f3127f8395bae": "la formule change le signe de b et de c",
         "adceb10704f6c1ca1ebd62200897fede071b3495d7dc1b29be8b550790fa1d96": "la formule de l'inverse divise par le déterminant ad − bc",
         "bc461ba8f773343ca62e942cec41853f4604644aca212330f1b2c94c20b22bb1": "la formule échange a et d et change le signe de b et c, sans transposer"
       },
@@ -2703,7 +2671,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "e320dbf345b6b4ef7ebfa7285b7266bdb2e4103346c337273bd58d9dcc825733": "XᵀY multiplie chaque colonne de X par y, exemple par exemple"
+        "e320dbf345b6b4ef7ebfa7285b7266bdb2e4103346c337273bd58d9dcc825733": "Xᵀy multiplie chaque colonne de X par y, exemple par exemple"
       },
       "shape": [
         2
@@ -2854,6 +2822,8 @@
       "hash": "09edeb9fc20f270f01b8be800fe9902b5480bb60e124355eebd5d968dbfcb49b",
       "kind": "array",
       "mistakes": {
+        "01fc4e9a85fab8c5de9d3cd9e31d6d4215ed59297f9400345549a66b95f2b209": "la loss ‖y − Xw‖² + λ‖w‖² donne (XᵀX + λI) w = Xᵀy, sans facteur 2 sur λ",
+        "171b935f02adb4b1afdb8fbee15ecf546fdb7c1a608a2e8faeb3c8b7ae46620c": "ce sont les poids sans pénalité : λ change la matrice à inverser",
         "5ab74fc39641f214f1484656119a33fc2021ff722f59db6b0ca905a6e4985fb2": "λI n'ajoute λ que sur la diagonale de XᵀX"
       },
       "shape": [
@@ -2862,20 +2832,39 @@
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.5g": {
-      "coarse_any": {
-        "0": [
-          "ec4285696dff3746f090032bfe80edd4c989b420aec37b23ef5b33889135721d"
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "a7f9bb86e62d77d3ee37151b60075724d029379d4fe6a38627e9e260e0894153"
+        ],
+        [
+          "b1ec8743e75ff6e2410c9f15715f5aa0ccbf5c61292a57bf6493b83ad01814fd",
+          "becd6f981c384f95ede25b0c195df86259f256a1a3ace00ea8ea4905619bb054"
         ]
-      },
-      "decimals": 2,
-      "hash": "af34759795ee10a5d69805c6e77153d1fd9cfda741dc70881d9f4d60ac667521",
-      "hash_coarse": "9096fa884f6275093f3c43d7de45e29074ac1d88f707775fdc4b2a3bc56e2a0b",
-      "kind": "float",
-      "magnitude": 0,
+      ],
+      "element_coarse_any": [
+        [
+          "2e745d9316d6f1a831600ef422e5f449b2e52b0ffd80ed8ed07b4e8cd1eed7a8",
+          "37da66dee1ab7db4b60999c25877226f1bed08683ca2a357efe0205c5ffc536f"
+        ],
+        [
+          "4f49861607f61a06582df5f0d4e2f800a59ba7c71e22ef8db2767295c72bc890",
+          "c184cf967d29493f714d227099409fb546069eeccb3ded2a7a65def6203a7057"
+        ]
+      ],
+      "element_hashes": [
+        "75510d778d5111581765170feaee47ce74f985662ef98d184807c8bd4c749492",
+        "c54a85f7469bf5469d362e02b36eb1026db286a27d537fb2222f4e5ad6ef6145"
+      ],
+      "hash": "5ea7bd8dc51c15202cfebbcee98ef6fb31ccd837fe2cc490cbfe397a9e289337",
+      "kind": "array",
       "mistakes": {
-        "4fc62c659559b5a63c355c36484cc3e5239d866b407aee28610a156e88aa0677": "la SCR d'entraînement ne compte pas la pénalité λ ‖w‖²"
+        "2f7aa895dc16c51cc06f9f60c51905e6bcbd2dfdfaf21009259f840b21923fea": "le résidu est y − X w_ridge, pas X w_ridge − y",
+        "3bd6c669b0c9b60c42f6a7bd2d2fee8942a992f09c8cbb69d2dc0978e13627be": "le calcul demande les poids de ridge, pas ceux des moindres carrés"
       },
-      "sign": 1,
+      "shape": [
+        2
+      ],
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.6a": {
@@ -2885,6 +2874,7 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
+        "41430d126ce0d19d80131fc311644c7a2906c302fc8dbfcc4b35df649b5fc59d": "la question porte sur p̃ = (K + 1)/(n + 2)",
         "9cb32789bd99acd037f9bbbcc253191d74a4a75e45c269d145eaf18fb0972e86": "le biais est E[p̃] − p, pas E[p̃]",
         "c4e5ac0a0ddb9697f1a57e83a6a19753e52e9928495000b3aa39dff463024b12": "le biais est E[p̃] − p, dans cet ordre"
       },
@@ -2904,7 +2894,8 @@
       "magnitude": -2,
       "mistakes": {
         "561548da36a89efaf7c07e39bc6311bf18ddac9d1dfc2dc0dcb734d0d392d0f0": "V(K) = n p (1 − p), avec n = 8",
-        "85fb3ac61ad19e5e787e60e428866dae58fb8916020d12f942dd922c99ea639f": "V(K + 1) = V(K) = n p (1 − p), et diviser par n + 2 divise la variance par (n + 2)²"
+        "85fb3ac61ad19e5e787e60e428866dae58fb8916020d12f942dd922c99ea639f": "V(K + 1) = V(K) = n p (1 − p), et diviser par n + 2 divise la variance par (n + 2)²",
+        "c35e61b9e17b7d696ab635a88c44e7e974933d68e52ea43384528d9cbd4f8ab3": "la question porte sur p̃ = (K + 1)/(n + 2)"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
@@ -2956,6 +2947,7 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
+        "00db9062d2c5661787df13359bf11fd6f875c5849e6aed8a4f0730a6a2739231": "la question porte sur p̃ = (K + 1)/(n + 2)",
         "0491af01ea98ffdfdc7b533a1441af240f3f2ff4bc6eb985aaff4319d27f5867": "l'erreur quadratique ajoute le carré du biais à la variance",
         "75bf744a9ae00e0e08a2550db035c22c4fb6615cba69b8711bbbe7512aa9f09b": "le biais entre au carré"
       },
@@ -3002,107 +2994,91 @@
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.7b": {
-      "coarse_any": {
-        "0": [
-          "5d5e90a7ed07e9463f36668d61551b9fad1f784edc2b23a684f341f0555029e4"
-        ]
-      },
-      "decimals": 2,
-      "hash": "f55dbafbb67be6d923a2354c9077c497d93b30f284ebfe213fb19fad8e201715",
-      "hash_coarse": "ac5b080f9c085a52d7db101394d0f76358a27cc8b8167fd7b8baa8952b6f93f9",
-      "kind": "float",
-      "magnitude": 1,
+      "hash": "1c6e9ad0c53d85256428b9f93d53e0d3ac0daeb5065c4c81a254e3fa76e7e88e",
+      "kind": "bool",
       "mistakes": {
-        "76d0bfeb72c4c33c364094500b8dd80fda33be3f6da189ce0126f72678e543b9": "l'aire d'un triangle est la moitié de la valeur absolue du produit vectoriel"
+        "5855bb08a332a51f08c74833a455bedf170dccdef80bb4f630b7dded02f2c642": "teste (3, 4) contre chaque côté avec un produit vectoriel, sens direct : il est dedans s'il est à gauche de chacun"
       },
-      "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.7c": {
-      "hash": "e957d4ad72785d1b0b6f30a044ceb34cdbbdf432e0aa2903d35ffcde90acd0b2",
-      "kind": "bool",
-      "mistakes": {
-        "811c82595c809b92aec476dca9649b04254c8826b92c94388fdb853c5b03e3b8": "teste (1, 3) contre chaque côté avec un produit vectoriel, sens direct : il doit être à gauche de chacun"
+      "coarse_any": {
+        "0": [
+          "dcfe846d93c4f32f25f4e0148bd1b75e13601cb46e1518d546cf85b27b0362ea"
+        ]
       },
+      "coarser": {
+        "1": [
+          "f052f55fed752747340c711381ff0880c6fcfdc34d3126a6a12abbf6ee7b31f8"
+        ]
+      },
+      "decimals": 3,
+      "hash": "8cbe4cf5453fbc1fd9a4b888a14314e613d5dbf514e1b12d223825f3cf3a5f06",
+      "hash_coarse": "1a9e523e10ea1dc56fe2e3092af23f1d015af2ce6f6e13db2da60dde8d847fbf",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "98476d61481b0ead9f3c1b302f6cbae142643edf52151e74afe2d7fda507fa95": "‖w‖ est la racine de 2² + (−1)²",
+        "e5f60d3cfe8394e79231c3f98adb09ae30513c194e12cdfd4813230c2d7fcd63": "la marge géométrique divise par ‖w‖"
+      },
+      "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.7d": {
       "coarse_any": {
         "0": [
-          "a2fae5d831617ab6bdc306dd20a4444f4ead36babe1516b5fb1a40c279319375"
+          "53c8a89be7a20bd5ef931d4dd039dffce1b0971e51a93cf70f9e6a04497efd56"
         ]
       },
       "coarser": {
         "1": [
-          "f8e0027b9cc7471987bed26201a0fb3fa7feff76e54ecdf97858d5bf5acd8018"
+          "c55f0321fa6037f55a2d087229c367e78a1558d8813e22894177e895da92030d"
         ]
       },
       "decimals": 3,
-      "hash": "016245865cb9aa7924663e5196f2d84c528cdad62d0dd6c6b2bff0b035c4e29e",
-      "hash_coarse": "a2df5c1dd91963f121dbb674f292ed9b2fc20c669c737c1517f37c174b875995",
+      "hash": "6ac47e20406bd8ee7617244574c793d3efe3986b7a30537107d39d3daa2bec49",
+      "hash_coarse": "504fe793fc596057553c6f92ee8dd466ee10c3b9959a8348e3ea3d41e53d7975",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "f1356bdb735a851389c26ad6369de19904127547b32c553a6aa57d892a3ab077": "la marge géométrique divise par ‖w‖",
-        "fa98431d41d96ad601f2e6304a1a963ce37f8231d65680e34eb3cc5fd912efe5": "‖w‖ est la racine de 1² + 1²"
+        "bf352966ab66dbb59bdcaaf42b9963c4978b8e29773966549239b9fc0a4cb9d3": "la distance entre deux enveloppes peut être celle d'un sommet à un côté, pas seulement entre deux sommets",
+        "e68d629003446e5d85a781917d3fb6c8aab7bdc08d1900a4ea36d22640522f67": "la marge maximale est la moitié de la distance entre les deux enveloppes"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.7e": {
-      "coarse_any": {
-        "0": [
-          "42228222d5afe8f9009184112b53d42827acb0e5e42e2c3fa3b0e7923c6ec9ac"
-        ]
-      },
-      "coarser": {
-        "1": [
-          "e73b3923bc63de637db5f7200f9a88e1e92b7bceb47721f2082de7f4a889da1d"
-        ]
-      },
-      "decimals": 3,
-      "hash": "012dbc9fdec041577dd6330c2beb25ad92f75aa0a5d5184f331ca55b0f30ed45",
-      "hash_coarse": "37d8260e85c428012eba81c759c1ebb4770670a7f51c94dcb6474ac982275512",
-      "kind": "float",
-      "magnitude": 0,
-      "mistakes": {
-        "f6752083de7b68de28659cb33a71e54f80a16a7d42325956342f4c7e42836933": "la marge maximale est la moitié de la distance entre les deux enveloppes"
-      },
-      "sign": 1,
-      "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
-    },
-    "CP2.7f": {
       "decimals": 2,
       "element_coarse": [
         [
-          "fe9924904df5d76f84d4490e42ddf9ccc5d00d05ba959ab2422b724dd2ecc5b0"
+          "cf2b4fbf5499bdad7437941b3b3d65a89048ab0003fe8aab85ba2907fc1cef5e"
         ],
         [
-          "cdf901b82362e2b521955277e0c8cce69467630fec1b6a98600db804ff65ecc7"
+          "9887a71eab86069e709ff89d3cfd0103fe4565ce06c9bf09c812ebc65b1e2c83"
         ],
         [
-          "df6fd95412564bfbd5bed4a844fc74893dec87c6b4e778025c9e4ad0e9fce42b"
+          "4d22a55519f3ca21337b0e1b87e50e30037dfdec502a1f556bea6125c40a0a3a"
         ]
       ],
       "element_coarse_any": [
         [
-          "a824c21f8b6a6b661850532d296269018ba2e2b52b535c24d80244a2cc4cd14f"
+          "5f5d7971c8be45eca795c185e16767a19ba5fdfbcced02a3ff1c17577afcbe62"
         ],
         [],
         [
-          "217283771e410a59cad93b232d272ec41ab275c89281b81805b3b6f3ad63752c"
+          "ea925c0495b58a4d7bd588a9c33b38095d013e77f1fb220c11ad9317d2470ebe"
         ]
       ],
       "element_hashes": [
-        "bad2180abc693f51603c54dd7ced4d839799c76fba5102d88b09a024b871d40b",
-        "c50269b498d8be42c162bc8fe24a17c4e6c2b1258545f42766e98291f2a6275a",
-        "ca7bad9fcfa1872a1e10cf806efdb3fe1a17d07f4913250b22c3185fc72c4a7a"
+        "546305007e2596c7f6f15005123bc2601b008196a5ba54460ecc7797f34592c1",
+        "b7d923c4be104e0af07c6ac93725202e41188255b303c38fee1cd5ad4c9fff58",
+        "536c5ccc2ff105672a8e0833c6321dc4c2f87990a323cee65531391969115f80"
       ],
-      "hash": "dd0f34dd73595ff6dd2907bc20359eda37af22ffabd851d51c8a29612730d1de",
+      "hash": "9af93fbf1619a88cf156b53fe06b5665afbd81ca8039db43620a76ff248d5859",
       "kind": "array",
       "mistakes": {
-        "21217570d29906e424db78d9cf82bcd14be03ea7f582a91fcda87abb160b7197": "la classe +1 doit être du côté où w · x + b > 0",
-        "39cea1821dfa776129e7f169e3636f5722ebcc27748d79e6e1b6a87104523d09": "forme canonique : divise (w, b) par le plus petit yᵢ (w · xᵢ + b)"
+        "826c1b25e25abfa0d9da70a82a1873dc12e13b3804cc8e5b13909adeec47f8c5": "dans ta forme, le plus petit yᵢ (w · xᵢ + b) vaut-il 1 ?",
+        "8e830f22530114e668c19ac1e10c2d0796f8b2cd7286a5d6a01e964eaedb9e03": "la classe +1 doit être du côté où w · x + b > 0"
       },
       "shape": [
         3
@@ -3110,13 +3086,13 @@
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.8a": {
-      "decimals": 2,
-      "hash": "b19347423b49b1032dded5881656144ca6ece1785e1dc46494aa30c81b1354fc",
-      "hash_coarse": "d991b2e1b67c406532cd95cc08bcf5a9023f6126458dd227d57b256e6181b380",
+      "decimals": 1,
+      "hash": "d991b2e1b67c406532cd95cc08bcf5a9023f6126458dd227d57b256e6181b380",
+      "hash_coarse": "992e722fde15dbf0dfcd2ad26d086e9fd52bd88d4fdea178da1159cdafb5b83f",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "5e72f78455beb87d259aa1b530517021b15a22062d3c87deb21eb52e2c13039a": "Markov divise la moyenne par le seuil"
+        "ad2be7c99e4509c1214a08a8a732480c868ea06ee92a0499020b29f1fe9e6ebb": "Markov divise la moyenne par le seuil"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
@@ -3133,6 +3109,7 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
+        "74697579a44489e3763536ce810b025c07827b4e24ad3a3f5773d7eee49a8fd7": "la question demande Tchebychev : P(|T − μ| ≥ t) ≤ σ²/t²",
         "9f91b7d24aa956c0510535723f7af78db79374e9ec24e6c6226061d4eb9c9e11": "Tchebychev divise la variance par le carré de l'écart",
         "af3d9edb5cc631955dcefbc1c38265f32815bb9d095a686e53debc156da7c2f0": "l'écart à la moyenne est 300 − 120"
       },
@@ -3144,27 +3121,22 @@
       "kind": "int",
       "magnitude": 2,
       "mistakes": {
-        "3e89ad7817890fd929b1e51b50009803b67a7f04435ef1d09f32455361961a69": "l'écart entre au carré : t² = 25",
-        "79a3e865f503cc50e7a7f8b4435d07597ca4ed4375efe859c9879f56a173d07a": "Tchebychev utilise la variance σ² = 900"
+        "3e89ad7817890fd929b1e51b50009803b67a7f04435ef1d09f32455361961a69": "Tchebychev divise par le carré de l'écart",
+        "79a3e865f503cc50e7a7f8b4435d07597ca4ed4375efe859c9879f56a173d07a": "Tchebychev utilise la variance de T̄, σ²/n, avec σ² = 900",
+        "8a8918899ac42b046ec295b0b0511b66d04557e4676608a66cfd5ec97fbcde79": "Tchebychev utilise la variance de T̄, σ²/n, avec σ² = 900"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.8d": {
-      "coarse_any": {
-        "2": [
-          "eb5437ce5e2579ef7e6f942f2a4959442c06746b9f586aba8668288e769df094"
-        ]
-      },
-      "decimals": 4,
-      "hash": "5ab47717fe6e8219b0d5837bfd1e585e900706516402e67b5d766cfc67917e29",
-      "hash_coarse": "d5d89e52e8f159b1fcef51264d407f6fcad00844b7ab4bf51508be28a9cab28a",
+      "decimals": 3,
+      "hash": "d5d89e52e8f159b1fcef51264d407f6fcad00844b7ab4bf51508be28a9cab28a",
+      "hash_coarse": "eb5437ce5e2579ef7e6f942f2a4959442c06746b9f586aba8668288e769df094",
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "503673f37976eda02a4473fbda08026e711ebdcef11458796d8e5b2b71cab91d": "ln(2/δ) se divise par 2n",
-        "8a762d27ff7a1d741223bbc8e3c1021cdc464f09abe77ae0463eeb8da915e085": "ln(2/δ) se divise par 2n",
-        "d3c4f2e770814e84504fe69d8336b5db120c933f3ec7d2990ab35f446ee4b0c6": "le rayon bilatéral utilise ln(2/δ)"
+        "73b8257babe41f1bb88a4b7f1683111b2b01ec388a814b18a2cd8b66000a0880": "ln(2/δ) se divise par 2n",
+        "ba0498b614b9203b1d2a9fb2fce6474edb6efa5648a65f8b6638adef5b8e1dbc": "le rayon bilatéral utilise ln(2/δ)"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
@@ -3187,7 +3159,8 @@
       "magnitude": 3,
       "mistakes": {
         "3863d748c06eeef4a0249a69b8cad999f41159f91962d6dd1006531fc74152f8": "n doit être au moins égal à la formule : arrondis au-dessus",
-        "63825228c28e9390f2fa46570c42f60c959810aca449c7a25433e44430571f15": "le rayon bilatéral utilise ln(2/δ)"
+        "63825228c28e9390f2fa46570c42f60c959810aca449c7a25433e44430571f15": "le rayon bilatéral utilise ln(2/δ)",
+        "e02930fe35651b670413b7826be7e6977a1d0419f3312cb3ecb6e6735c3d3730": "ln(2/δ) se divise par 2 t²"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
@@ -3279,16 +3252,16 @@
     "CP2.11c": {
       "coarse_any": {
         "0": [
-          "29589adf974fd54b720d0732550ede9cdc8b65b93f6cc3f79b1a211505ee8af3"
+          "82a521907ebbaf7ff290b89a09c545cba5dbc5b82383769f626c11438aac62fb"
         ]
       },
       "decimals": 2,
-      "hash": "5ab8f1796c4b2f50deb5ecdbb33230c3e76837e0e4ba257e4b321474444207f8",
-      "hash_coarse": "2f0d7457c2c7f22dd249a3fdbc69db56cc716f21984e619cb5caa0802bbcebe6",
+      "hash": "c34f7403e59349bf98b6768377e2c00e75ff3f3eb86860d91b617a475bf56841",
+      "hash_coarse": "c28baad6f4c4a0c1d489d4f8cc8dd28e199f51eb1dbbdf07d09c973054c2ece5",
       "kind": "float",
-      "magnitude": 1,
+      "magnitude": 0,
       "mistakes": {
-        "e33958a8d9360d86e769f49a016a5879981fe106987dd0bc0d1a46d26f187dfe": "la prédiction est a + b x, avec a l'ordonnée à l'origine"
+        "7c09028a37edf1f7b479602ed22c65a41be9d3438631b3e12ad4264b26416005": "la SCR mesure les résidus du modèle, pas les écarts à la moyenne de y"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
@@ -3296,110 +3269,81 @@
     "CP2.11d": {
       "coarse_any": {
         "0": [
-          "9d75ed72d06800c7b485ad4ab747f5286ed5952db66482975376dfbed6244509"
-        ]
-      },
-      "coarser": {
+          "f5721eb5ea380a0aee052ce9abcfa8f33393f266892b7fb52953197d3960cfbb"
+        ],
         "1": [
-          "e298171842596f5e72df010be209c5eea7b613b63ba3195d0830077999a721d3"
+          "014c721f3b20e8be4734b03932ba0681d3576b87097d8ae59d0624d311dd2575"
         ]
       },
       "decimals": 3,
-      "hash": "399628c68bc77d50834bd4cc57718f5e1f0ee520d121576fcb71c1887ac0617a",
-      "hash_coarse": "ee3b41b3002c60db39b89703eeab8503044ab9c3596524ba759564cd259eacea",
+      "hash": "c608dea6d8570cffb5a25687c0f3019f5aa9f1687cbbe7f1f197025fd77e7b5e",
+      "hash_coarse": "af00c8432ce27c0df3efa8a77514c0bee7aa1a5648f65b878475e5fd13dbd748",
       "kind": "float",
-      "magnitude": 0,
+      "magnitude": -1,
       "mistakes": {
-        "dc3c19a13ec8d4f9903f569687107ff9108d6b91f2e6c476e8f72463f83af8a2": "la SCR mesure les résidus du modèle, pas les écarts à la moyenne de y"
+        "3e6ee448ca220c3978b46edab869a261cb0d0bc98329bc61338b14cd231abac9": "R² = 1 − SCR / SCT, pas sa racine",
+        "f41807d1b66f0b7f2cc35561e249b60b4f097f0f9f8013072532c753989f820f": "R² = 1 − SCR / SCT"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.11e": {
-      "coarse_any": {
-        "0": [
-          "745a7f724b8ddb14448377d7235a8f4640f489730850f55e613b0ca99c8d9963"
-        ],
-        "1": [
-          "60f21c9c08628eedb6f2a06df2d55459e8d249af9dfcfc318b09f5adfda1fc71"
-        ]
-      },
-      "coarser": {
-        "2": [
-          "53424bb8961e5e115e4f056daf0e0f765c50bece0531da795dda1b0c4785f1e7"
-        ]
-      },
-      "decimals": 4,
-      "hash": "d700e5c5cedf6101f44d2fbf890fa2c2e96443cf5b6c8889c8fcc13318b4e408",
-      "hash_coarse": "dba5bb9b43e30a7a2c646a0d0a0c7085bfe31874153ffce6b0e590e7a9a504e4",
-      "kind": "float",
-      "magnitude": -1,
-      "mistakes": {
-        "1d031713294642e550af4e18ead2c1cf91b4b5c4202cfa388b6fb24ba8b92fa2": "R² = 1 − SCR / SCT"
-      },
-      "sign": 1,
-      "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
-    },
-    "CP2.11f": {
       "decimals": 1,
-      "hash": "d04af3f03ac16bd8441681db2b94916403894650c2779aed93de0263bcc216be",
-      "hash_coarse": "8c370d9d14a5b8c44a2c1baa7e6de609c09f0617b471914cc52d479d0ff9daed",
+      "hash": "d20dfb1eba3bd27e81ebe839b2557bf774aafd5fc524f82a4730d6b40cc33791",
+      "hash_coarse": "046d00cb53d19cb878f9dd76723594ee4cd733260c1b6e82acad02595d0a7525",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "2dc182574c7d8b00b70458e39255dcb38e459047277a5e5d2b8690144632cd1a": "l'AIC prend le logarithme de SCR / n",
-        "da10f13832e1dfca878511ac9ecc943741de55e8b30989e0c772907387e2e40b": "ln est le logarithme népérien"
+        "60f21c9c08628eedb6f2a06df2d55459e8d249af9dfcfc318b09f5adfda1fc71": "ln est le logarithme népérien",
+        "8367722d68c7597263ca208b0368e00550d4f8704b92520461fd886fbd660658": "l'AIC ajoute 2k",
+        "ae71123f8e69706a4a8adcd486d2aac0af3bf514c6441c238d0727e53e943c79": "l'AIC prend le logarithme de SCR / n"
       },
       "sign": -1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
-    "CP2.11g": {
+    "CP2.11f": {
       "choices": [
         "0",
         "1",
         "2"
       ],
-      "hash": "2cb6a26b357304e83b04a3e3d9612ca8a783108b1b407137420ff430eec865d4",
+      "hash": "c0b81800a48c512b7b374066ed48e9bc322ea6bb42b8853e3c05e4eefd28fc5d",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "7208bbc9aab0aedfcba398478dda0bd0e4175b69f50444f08870ee9cf60be27d": "compare les trois AIC : le plus petit est retenu",
-        "f71eb2e52007ed12d894eddc5490e4c23c7add12be1b3c84e4a15613b88ffd13": "un coefficient de plus coûte 2 dans l'AIC : la SCR baisse-t-elle assez ?"
+        "49d19c17c69237811c9734e22c1c37207c3f08008b1bfd6da1af350db763fe7d": "un coefficient de plus coûte 2 dans l'AIC : la SCR baisse-t-elle assez ?",
+        "7f178bec830f61115dad97c79cc0f4d92e99a1225497445a9fc29b0db048cea3": "compare les trois AIC : le plus petit est retenu"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
+    },
+    "CP2.11g": {
+      "coarse_any": {
+        "0": [
+          "a5b01133f1be50a33b0736aa03432ee5759afadaffce4e20cda992eaf65ce6e5"
+        ],
+        "1": [
+          "7c3691dd0c2608fa301182193ad7c61cda497e7e4bc3e3c061718635ffb26d64"
+        ]
+      },
+      "decimals": 3,
+      "hash": "4599e2e9a44b31a4df1ed07345946dd7c65143399e08b4be8545d95a546fa2fd",
+      "hash_coarse": "b1bc30398068c16055771edaa4f1b3006b0bc0db5c6a3144ef602041c6b61a4b",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a592ab91c011e87448b66dd58c7b706c202f3e0d5068023d4109b9cc81682784": "ln(1/δ) se divise par 2n",
+        "caeb163300886c5c93bb46fb0b5ce797653b065b2f72af659ea6a9b2280eefa5": "une borne d'un seul côté utilise ln(1/δ), pas ln(2/δ)",
+        "f28c9fc2f49b5c8336e1145cc07ab23a787ec26c651a3562aa68b9078888096e": "garde les décimales jusqu'à la comparaison : ici, c'est la troisième décimale qui décide de la question suivante"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.11h": {
-      "coarse_any": {
-        "0": [
-          "2ebaa232f920b541f6772e1d32c9dfe201fbb6faff6a695e9ef7255468a7f5fa"
-        ],
-        "1": [
-          "58dbbd5692b667cb965cbd47a46120503a07f214db939727391c965830b7b8eb"
-        ]
-      },
-      "coarser": {
-        "2": [
-          "87c4586bf0a2d214cbcaf854437bdef51a661aebe6b1f4c590d9466964f146bc"
-        ]
-      },
-      "decimals": 4,
-      "hash": "d5c1edf1a645c7e0b23a6ba6a54bd1f6d411ec0f54accd7c828a79d1618e0d2c",
-      "hash_coarse": "e0a02647f22976856e29f771e6e7539befe82cebb5bd239fd4a296e93f8c89ac",
-      "kind": "float",
-      "magnitude": -1,
-      "mistakes": {
-        "0f7f805f306518e907229d7b7e63dca99d3d53bde6338de1ab0560116616ede9": "ln(1/δ) se divise par 2n",
-        "98d5963b7287c942bae373e17661ee45c0cfef0e14062785f007a3ffc1fb2b99": "une borne d'un seul côté utilise ln(1/δ), pas ln(2/δ)"
-      },
-      "sign": 1,
-      "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
-    },
-    "CP2.11i": {
-      "hash": "3a721ef990ea3fdd89382c66ea40d3d57f8177a90eb27a1fbe06cea41ee1faf6",
+      "hash": "a71b7ff790ec06e53dee92f5b2b6f0ebaadee50dd0e20b16b21049fb3e7b23dd",
       "kind": "bool",
       "mistakes": {
-        "6ff341e5a08ba68e0b7a024487994f79c60a8aa64f91d7f6bcefdfabf4ded10f": "compare h) à 0,80"
+        "bd2108a5e9c6e9088ae074e44824848741af6a2bdb4bbe4f6cf1ae92dce8aa18": "compare à 0,80 la borne de g) sans l'arrondir davantage"
       },
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },

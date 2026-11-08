@@ -30,14 +30,13 @@
 
 ## CP2.2 — Un test binomial et un intervalle de Wilson
 
-- a) P(K = 12) =
-- b) P(K ≥ 12) =
-- c) p-valeur bilatérale =
-- d) rejet de H₀ au seuil de 5 % (bilatéral) :
-- e) plus petit nombre de parties gagnantes qui fait rejeter (unilatéral) =
-- f) intervalle de Wilson = [ ; ]
-- g) borne haute de Wald =
-- Ce que dit g), et pourquoi Wilson :
+- a) P(K ≥ 16) =
+- b) p-valeur bilatérale =
+- c) rejet de H₀ au seuil de 5 % (bilatéral) :
+- d) plus petit nombre de parties gagnantes qui fait rejeter (unilatéral) =
+- e) intervalle de Wilson = [ ; ]
+- f) borne haute de Wald =
+- Ce que dit f), et pourquoi Wilson :
 
 ## CP2.3 — Comparaisons multiples, AIC et BIC
 
@@ -66,8 +65,8 @@
 - d) r =
 - e) SCR =
 - f) w ridge (λ = 3) =
-- g) SCR du modèle ridge =
-- Vérification de Xᵀr = 0, et pourquoi g) > e) :
+- g) Xᵀ(y − X w_ridge) =
+- Vérification de Xᵀr = 0 ; g) comparé à λ w_ridge, et pourquoi :
 
 ## CP2.6 — Biais, variance et erreur quadratique d'un estimateur
 
@@ -82,11 +81,11 @@
 ## CP2.7 — Convexité, enveloppe convexe et marge
 
 - a) sommets de l'enveloppe :
-- b) aire =
-- c) (1, 3) dans l'enveloppe ? — calcul :
-- d) marge de w = (1, 1), b = −6,5 :
-- e) marge maximale =
-- f) [w₁, w₂, b] canonique =
+- b) (3, 4) dans l'enveloppe ? — calculs :
+- c) marge de w = (2, −1), b = −2 :
+- d) marge maximale =
+- e) [w₁, w₂, b] canonique =
+- Les points les plus proches, et le séparateur est-il une médiatrice ?
 
 ## CP2.8 — Markov, Tchebychev et Hoeffding
 
@@ -120,14 +119,13 @@ Sujet choisi :
 
 - a) [Σx², Σxy] =
 - b) [a, b] =
-- c) prédiction pour x = 9 :
-- d) SCR =
-- e) R² =
-- f) AIC de la droite =
-- g) modèle retenu (0, 1 ou 2) :
-- h) borne basse de Hoeffding =
-- i) garantie d'au moins 80 % ?
-- Pourquoi pas le polynôme de degré 2 ; les hypothèses de Hoeffding :
+- c) SCR =
+- d) R² =
+- e) AIC de la droite =
+- f) modèle retenu (0, 1 ou 2) :
+- g) borne basse de Hoeffding =
+- h) garantie d'au moins 80 % ?
+- Justification de f) (gain en SCR contre coût en coefficients) ; les hypothèses de Hoeffding :
 
 ---
 

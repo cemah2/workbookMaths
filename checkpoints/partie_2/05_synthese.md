@@ -70,16 +70,16 @@ Dix erreurs fréquentes de la partie II, avec leur correction (le détail, chapi
 | test choisi après coup | regarder les données, puis choisir le côté du test ou le sous-groupe qui donne $p < 0{,}05$ | fixer l'hypothèse, le test et le seuil **avant** de regarder ; sinon, corriger pour tous les essais |
 | produit de matrices commuté | « $\mathbf{A}\mathbf{B} = \mathbf{B}\mathbf{A}$ » | le produit n'est pas commutatif ; $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$, l'ordre s'inverse |
 | inverser pour résoudre | calculer $(\mathbf{X}^\top\mathbf{X})^{-1}$ puis le multiplier par $\mathbf{X}^\top\mathbf{y}$ en code | résoudre le système (`np.linalg.solve`, ou `lstsq`) : plus précis et plus rapide |
-| $R^2$ d'entraînement pour choisir | ajouter des features tant que le $R^2$ d'entraînement monte | il monte toujours : choisir sur des données de validation, ou avec un critère pénalisé (AIC, BIC) |
-| ridge sans standardiser | pénaliser $\lVert \mathbf{w} \rVert^2$ avec des features d'unités différentes | standardiser les colonnes avant ridge : sinon la pénalité dépend de l'unité choisie |
+| $R^2$ d'entraînement pour choisir | ajouter des features tant que le $R^2$ d'entraînement monte | il monte toujours : comparer les modèles avec un critère pénalisé (AIC, BIC) |
+| $\mathbf{X}\mathbf{X}^\top$ au lieu de $\mathbf{X}^\top\mathbf{X}$ | des équations normales écrites avec une matrice $n \times n$ | $\mathbf{X}^\top\mathbf{X}$, de forme $(p, p)$ : les produits scalaires des colonnes |
 | Hoeffding sans ses hypothèses | appliquer le rayon de Hoeffding à des mesures successives d'une série temporelle | il faut des variables **indépendantes** et bornées dans un intervalle connu d'avance |
-| le meilleur de plusieurs | rapporter l'accuracy du meilleur de nombreux modèles comme celle d'un modèle fixé d'avance | elle est optimiste : un jeu de test à part, ou la borne de l'union sur les modèles essayés |
+| Tchebychev avec l'écart-type | « $P(\lvert X - \mu \rvert \ge t) \le \frac{\sigma}{t^2}$ » | diviser la **variance** $\sigma^2$ par $t^2$ (et, pour une moyenne de $n$ variables, par $n t^2$) |
 
 ## 4. Ce qui sert dans workbookIA
 
 Le checkpoint II de workbookIA se fait juste après cet examen blanc. Ce qui t'y attend, et ensuite, sans en dévoiler les exercices :
-- **les distances et les produits scalaires (M07)** sont le cœur des méthodes fondées sur la proximité, et la raison pour laquelle on met les features à la même échelle ;
-- **les tests et les intervalles (M08)** disent si une différence de score entre deux modèles est réelle, et **la borne de l'union (M08, M11)** pourquoi chercher longtemps le meilleur réglage rend le score optimiste ;
+- **les distances et les produits scalaires (M07)** sont le cœur des méthodes fondées sur la proximité ;
+- **les tests et les intervalles (M08)** disent si une différence de score entre deux modèles est réelle, et **la borne de l'union (M08, M11)** ce que coûte une garantie sur plusieurs quantités à la fois ;
 - **l'écriture matricielle (M09a)** et **les équations normales (M09b)** sont ce que calcule une bibliothèque quand elle ajuste un modèle linéaire, et **ridge et lasso** ce qu'elle ajoute pour régulariser ;
 - **la convexité (M10)** explique pourquoi certains modèles s'entraînent sans risque de minimum local, et **la marge** prépare les machines à vecteurs de support de la partie III ;
 - **les inégalités de concentration (M11)** disent combien d'exemples il faut pour croire un score.
