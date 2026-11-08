@@ -152,7 +152,7 @@ $$(\mathbf{A}\mathbf{B})_{ij} = \sum_{k=1}^{p} a_{ik}\,b_{kj} = (\text{ligne } i
 
 **Règle des formes** : $(n, p) \times (p, m) \to (n, m)$. Les deux dimensions **intérieures** doivent être égales ; il reste les deux extérieures. Exemple, $(2, 2) \times (2, 3) \to (2, 3)$ :
 
-$$\begin{pmatrix} 2 & -1 \\ 1 & 3 \end{pmatrix}\begin{pmatrix} 1 & 0 & 2 \\ -1 & 4 & 1 \end{pmatrix} = \begin{pmatrix} 2 + 1 & 0 - 4 & 4 - 1 \\ 1 - 3 & 0 + 12 & 2 + 3 \end{pmatrix} = \begin{pmatrix} 3 & -4 & 3 \\ -2 & 12 & 5 \end{pmatrix},$$
+$$\begin{pmatrix} 3 & -1 \\ 1 & 2 \end{pmatrix}\begin{pmatrix} 1 & 0 & 2 \\ -1 & 4 & 1 \end{pmatrix} = \begin{pmatrix} 3 + 1 & 0 - 4 & 6 - 1 \\ 1 - 2 & 0 + 8 & 2 + 2 \end{pmatrix} = \begin{pmatrix} 4 & -4 & 5 \\ -1 & 8 & 4 \end{pmatrix},$$
 
 et le produit dans l'autre ordre, $(2, 3) \times (2, 2)$, n'existe pas.
 
@@ -163,7 +163,7 @@ et le produit dans l'autre ordre, $(2, 3) \times (2, 2)$, n'existe pas.
 
 ### Les règles de calcul
 
-- **Pas commutatif** : en général $\mathbf{A}\mathbf{B} \ne \mathbf{B}\mathbf{A}$, même quand les deux existent. Avec $\mathbf{C} = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ et $\mathbf{D} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}$ : $\mathbf{C}\mathbf{D} = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ mais $\mathbf{D}\mathbf{C} = \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix}$.
+- **Pas commutatif** : en général $\mathbf{A}\mathbf{B} \ne \mathbf{B}\mathbf{A}$, même quand les deux existent. Avec $\mathbf{C} = \begin{pmatrix} 1 & 3 \\ 0 & 2 \end{pmatrix}$ et $\mathbf{D} = \begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix}$ : $\mathbf{C}\mathbf{D} = \begin{pmatrix} 5 & 3 \\ 2 & 2 \end{pmatrix}$ mais $\mathbf{D}\mathbf{C} = \begin{pmatrix} 2 & 6 \\ 1 & 5 \end{pmatrix}$.
 - **Associatif** : $(\mathbf{A}\mathbf{B})\mathbf{C} = \mathbf{A}(\mathbf{B}\mathbf{C})$ ; **distributif** : $\mathbf{A}(\mathbf{B} + \mathbf{C}) = \mathbf{A}\mathbf{B} + \mathbf{A}\mathbf{C}$ ; $(\lambda\mathbf{A})\mathbf{B} = \lambda(\mathbf{A}\mathbf{B})$.
 - **Identité** : $\mathbf{I}_n\mathbf{A} = \mathbf{A}\mathbf{I}_p = \mathbf{A}$ pour $\mathbf{A}$ de forme $(n, p)$ : l'identité doit avoir la bonne taille de chaque côté.
 - On **ne simplifie pas** : $\mathbf{A}\mathbf{B} = \mathbf{A}\mathbf{C}$ n'entraîne pas $\mathbf{B} = \mathbf{C}$, et $\mathbf{A}\mathbf{B} = \mathbf{0}$ n'entraîne pas $\mathbf{A} = \mathbf{0}$ ou $\mathbf{B} = \mathbf{0}$ (sauf si $\mathbf{A}$ est inversible, §7).

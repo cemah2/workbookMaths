@@ -29,7 +29,7 @@ $\mathbf{A}$ a la forme $(3, 4)$, $\mathbf{B}$ la forme $(4, 2)$, $\mathbf{C}$ l
 ### M09a.Q2 — Le produit matrice-vecteur, deux lectures 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 2 & 1 \\ -1 & 3 \end{pmatrix}$ et $\mathbf{x} = (3, -2)$.
+$\mathbf{A} = \begin{pmatrix} 3 & 1 \\ -2 & 4 \end{pmatrix}$ et $\mathbf{x} = (2, -1)$.
 1. La première coordonnée de $\mathbf{A}\mathbf{x}$, par la lecture en lignes ?
 2. $\mathbf{A}\mathbf{x}$, écrit comme une combinaison des colonnes de $\mathbf{A}$, puis calculé ?
 3. $\mathbf{A}\mathbf{e}_2$, avec $\mathbf{e}_2 = (0, 1)$ ?
@@ -336,14 +336,14 @@ Dans ta copie : écris la solution générale, sous la forme « une solution par
 **Objectif :** calculer l'inverse d'une matrice $2 \times 2$, la vérifier, et s'en servir pour résoudre un système.
 **Prérequis :** fiche §7 · **Parcours :** C, E
 
-Soit $\mathbf{A} = \begin{pmatrix} 3 & 4 \\ 1 & 2 \end{pmatrix}$.
+Soit $\mathbf{A} = \begin{pmatrix} 4 & 2 \\ 3 & 2 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le nombre $ad - bc$ de $\mathbf{A}$ | un nombre |
 | b | $\mathbf{A}^{-1}$ | une matrice |
-| c | la solution $(x, y)$ de $3x + 4y = 10$, $x + 2y = 4$ | une liste de 2 nombres |
-| d | la valeur de $k$ pour laquelle $\begin{pmatrix} k & 4 \\ 1 & 2 \end{pmatrix}$ n'est pas inversible | un nombre |
+| c | la solution $(x, y)$ de $4x + 2y = 10$, $3x + 2y = 7$ | une liste de 2 nombres |
+| d | la valeur de $k$ pour laquelle $\begin{pmatrix} k & 2 \\ 3 & 2 \end{pmatrix}$ n'est pas inversible | un nombre |
 | e | l'inverse de la matrice diagonale $\begin{pmatrix} 4 & 0 \\ 0 & -0{,}5 \end{pmatrix}$ | une matrice |
 | f | $(2\mathbf{A})^{-1}$ | une matrice |
 | g | $(\mathbf{A}^\top)^{-1}$ | une matrice |

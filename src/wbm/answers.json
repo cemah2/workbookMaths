@@ -25804,6 +25804,3280 @@
       },
       "source": "chapitres/m08_tests/05_solutions.ipynb"
     },
+    "M09a.1a": {
+      "decimals": 0,
+      "element_hashes": [
+        "38aaf607865f23d8c9d1018c2b3fc7f17e4f322de007f9b65144f651be0988f2",
+        "0011139ea662ecf353053770c7eb65f50ee3b8ddd287607b6ad1e1d0f9d9c9a0"
+      ],
+      "hash": "19111d978f0e8e54a9b25f57c7bf953abebc4cd05938ddff4a69972115c4aa01",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "ed65186dc13edb818f87e0ff50ec8db9d2c92bfccfefa35f80c8e43cd81a6545": "la forme s'écrit (lignes, colonnes), dans cet ordre"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.1b": {
+      "hash": "6b92da2e37f330b89f22c697c8f213748d33e2754b1383420d4d3f4fdbf61991",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "f29626e3ccb92a099b9bef52dcd3f6fd368fee8e84ca8b2eefbbfe2c27a3e5cd": "x_32 est à la ligne 3 et à la colonne 2 : la ligne d'abord"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.1c": {
+      "decimals": 0,
+      "element_hashes": [
+        "60af734db80f39b2adaec0c04c6f153cb4cc90c393b237b1354297a771ca3cd4",
+        "3fa354f2c1bb1f2ca0d43296e7c43e17fe964063b104bde3666b1ce3555cb554"
+      ],
+      "hash": "b31e6b875715b1a316f2e3f0dcbe8ef27e022f0048143035e4c6b55baa99292e",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "67f449ec0773b1389082b685420fbe23c86b68bf562d170e86d0148446181351": "la ligne d'abord, puis la colonne",
+        "7420038074d2be58b175d98f4e27df153fa5b699d2fd87d76ff15d5ed4e017d7": "en Python, les indices commencent à 0 : retire 1 à chaque indice mathématique"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.1d": {
+      "decimals": 0,
+      "element_hashes": [
+        "c07d988495509aba88d20c32d6aa0b0c3a2657fb7c80bcecd4604051943c130d",
+        "ddcb090ee265e6135b0c786c95551f7483ff0d409f7df859016e826e440c0ffc",
+        "868bc65d2400ace41531d25e2eed9f770c6b6da4a13056359fb056066d95d021"
+      ],
+      "hash": "a26085da0b6801f7a37c106ce552fe104d43b20a0ac06d6e70a50e67deccecbb",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5c8b7cec72d5e87de833fb6deef6421c266072fd7e04831580ccaa41e752eb15": "les lignes sont numérotées à partir de 1 : la ligne 4 est la quatrième"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.1e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1872bd69b29b22c17d685d72c5d844be8b7d75e05d248d10684fff63d2fec6b5"
+        ],
+        [
+          "bb90ae98fbbddac08698479b08f5958ed312f95264db4e1a75f55e1553361c73"
+        ],
+        [
+          "70bef3e2b89371f84b1905d1b35ba5d1d1e87528bb246b934de264e2329fc4e6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4f910f3b45ef3fd302c1e575699616574844159ff1a3a0d22748c4b2a2443879",
+          "41f122f9e2997cce19e557037e0990cd898c3d122f6667321353c36ea63e5f0a",
+          "af9a699573b20ac931f22cc3a6ca85ec52648f2b15aaf78bd1f619c361a754c2"
+        ],
+        [
+          "69d082b707eb1f0ec9cac7e763a8b5d7e9191d948b4c993c0588c1e5aa554fc9",
+          "3b36bc2959620205fa505fe11cf78856fbaaa1b643a522d102cd868eef5cf490",
+          "4e68c79db41e369b242f99a9b55d63801132dd2a21bf3f46911e3dc1fa45df5b"
+        ],
+        [
+          "188a8d280cfec4aaef95e6d0adc6a846fd664f790c69d6ffe01a2f095aa0c8a0",
+          "ef072d1e46d6c4a28b9c35808886cb4febb26b818a3b570f422943eea289bf2d",
+          "48ca12f4836d21be19b488c04acf17a891500479b8399e449d3256355a6ccbf2"
+        ]
+      ],
+      "element_hashes": [
+        "3b3e150a6a2a9ff38aebcafad469c7a066869bf18ec004eefde33f121b680332",
+        "2569a3c878368c0877fce85f6b213aa6e903d8aad82069075cab29dfac8dbf4c",
+        "50d1ea14e90651ef979bb47d507e8aca6c154c829078458dadf62eade79cd75f"
+      ],
+      "hash": "848580c29e0b5a7e625a1b3d2852da9c9c2ca6c0f1cbba93f11feb6ce588ea51",
+      "kind": "array",
+      "mistakes": {
+        "6be36029befe685c85609302b9217472781e58e91e34f79f991d7ffb7760bcad": "une moyenne par colonne (axis=0), pas par ligne"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.1f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "f4f0d5d2362abe22be038ad26bb7005ce7783ac087309a54541dff25ef7c1a55"
+        ],
+        [
+          "7d83454566a41e577391235953139ecc689013825e4a521f732eacedfa914843"
+        ],
+        [
+          "84f37ece2039a5a248228138466679263a3ef182d74c90243b0c622aafe61203"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "927b8c32351fe9761c1bab5e8bf599b7dc371279a3601b5de664c93a02931913",
+          "2cd407dab66eea2491a1cd975b91f76c9180ae6f62c40246dd0491b567fbc2b8",
+          "84476f6295a145b87a9a34ed4df067e99882e5006b8dd629a450d3eee58377ff"
+        ],
+        [
+          "c38d9682fe42fdddfbcc559b02668c6646028da0b2354ff5623cc9031fd2d53f",
+          "370c53c39afa09d9b8feca6e40c56f054893d2793a98de358e17fbdc170aaeb9",
+          "e10c98858c1cd15ebbb18ec17cecf5c3b3e2d543c743bee6fae0e5b14766a1d7"
+        ],
+        [
+          "69358e6a747365f546877928a803ebe528ebf8f3b9d7bfa13665be6da100ef3f",
+          "957ae4c62589ceb1d7ef596ed8fd612ab0388f65109586240f01314266c613d5",
+          "2a47a5ef96507dc47af17c0b0a2b8ea25e7eba84e1935112acd3c177071d87a9"
+        ]
+      ],
+      "element_hashes": [
+        "0bd43d14dceae4aba6d4f2879a840d26f64c634960ae431d946f0af10f6299a1",
+        "af63c3122c3d2a3ba363bdd2c052e2f0e07fcf51ec8930f4fe689f344a8aadd6",
+        "df8e489e1a369451d39acf874f3f835f39706b2cd7f909abfc4437940f50f381"
+      ],
+      "hash": "104aa6e2065e5833c1a7675147195a4855c1fd153b4f50801f61b5f58520e07f",
+      "kind": "array",
+      "mistakes": {
+        "ccaeb884c35bd951398ea7a88968b0e39154b1f7f589ef2e32b099611bee0444": "centrer retire la moyenne de chaque colonne, pas l'inverse"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.1g": {
+      "alt_hashes": [
+        "cea88576b12ec6f91fa97b6e59e073de6d8f26d7314b81ed5d56b560da5cb537"
+      ],
+      "coarse_any": {
+        "0": [
+          "d2851ae7c4f769ec50cdb4902ee59c72c47ccb70d5ba05dd0e7dba9cc15a44db"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c8ad1744d368497d0b91e8f6a8fcbc14b6f479e0503ca2c4a661d4b7440759ed"
+        ],
+        "2": [
+          "c74e0f31705c2b894445f2b820878d93af573c78263ec9bb2b7d9150ba675ce2"
+        ]
+      },
+      "decimals": 4,
+      "hash": "7fc1355fea2a8208a9e60869fe73fd3a2f8cc9d6e240f2bb5b8f41f5963318f7",
+      "hash_coarse": "11eb2bf2bfe4a8b5b52dea0997c38ae83e28be25df7caa050ee51bb655ac6ecc",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "8147af122f9e4e3e3a5b48fa3b03c4ccd8c866607534ca74005aeca85903bac6": "l'écart-type est la racine de la variance",
+        "8901136385a9ea9cad74716ffcf26e3c74eac0e97c33482b2c829f140c217691": "ddof = 0 : divise la somme des carrés des écarts par n = 5"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.2a": {
+      "hash": "b0d5b869b77bffa368d0121d01b32068e3b26201c843cc9254d500ef08db09d1",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "eb60942b43007b4ec654a5cf51e0f9bb84972635f44cb320c9200768585d60db": "Ax a autant de coordonnées que A a de lignes"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.2b": {
+      "decimals": 0,
+      "element_hashes": [
+        "6b2b3564e81cea444bef768653e774562a8fe14964794c553a9ed017a9a28edf",
+        "f3917ed77a4f061e78d2e1421004d3219dcf4f72414f56cbb16269daf9ac9f97",
+        "52eef7dd8a28975e5774eb226a63485055a6351775691040d0ee20f96e43ca14"
+      ],
+      "hash": "2ae145d121dffb2d7060754f19b30926f474160453545a6d01d8dc5bffd66ffd",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1ba96e221ddc7402fed644b1066482aa99e53f26f31a94b76aab3c48937493f0": "la coordonnée i est le produit scalaire de la ligne i de A avec x, en respectant les signes"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.2c": {
+      "hash": "b6559a4066ecc3a4f8ff511e3228a30064a48ad3c732e0cbb4adbffdc3d14a57",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "719fe72fb75058daf7bda51b169e9b2ab99627912387c59cf497a70cbfd3167f": "chaque coordonnée de Ax demande une multiplication par élément de sa ligne de A"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.2d": {
+      "decimals": 0,
+      "element_hashes": [
+        "2e6f2ba82dc63cc69ffff32012d76665ea421c7387528a8728e0209a55cb42ac",
+        "0818ecef3027ec16f4cb131bc7c2133fd0ac3f5205aeb85f63bd942789f57f48",
+        "0d7fe9d12d70d8dc521f42f340cd12e43f272ee0c20e8dbf0da5fd69be7fc02b"
+      ],
+      "hash": "6daa9a8ce4a19296426ea3ad933f06d67f5700de50047efc95406d54c292ddfa",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "905011e89169f56330732e76300f53a8cc19b87fdbae67909f5da01c4c82fca0": "A e_3 sélectionne la colonne 3 de A, pas sa ligne 3"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.2e": {
+      "decimals": 0,
+      "element_hashes": [
+        "ab5087c776b0c7483319bb1ae1de979420a73255b459d5d681c6bf2ce66ebdbf",
+        "439cd670d26dab99b4e64b053cce8abe255a9029095fead72c1bee810487d574",
+        "deb636d2f63d1cfdbca42e37aaf7f37b24a67b585e58b7c292071ae4ec2c3973",
+        "73ff09dbfb3dc40a659770a57d9174f8462dd368b5eea93bbb953d49582ca8b1"
+      ],
+      "hash": "b40a896933ae09336537384b41565df6581c31554e9b3b649fcb0151e7d5c6c6",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a6938c3a11c25768cd244bd47ac205ef3cb43d4b16e85d95d4d11cd381cc36dd": "Ay = y₁a₁ + … + y₄a₄ : y_j est le coefficient de la colonne j"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.2f": {
+      "hash": "d5e68b454e5b04f02517a86dc376867935764aea3b9cdc410a2121ddd0905629",
+      "kind": "bool",
+      "mistakes": {
+        "35a9ac1e655eb5d990c1c3c7d69bf25c9a417581d0d8d7999ebaea202ebee8c5": "A a 4 colonnes : le vecteur doit avoir 4 coordonnées"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.2g": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "30507767777a76bf0952068ca9ecab9ca1e223d7caa416040f989b029389ec1b"
+        ],
+        [
+          "7f25e616f3845433c41bbb636fe844a8f784ba3812eb201cbddef858875be867"
+        ],
+        [
+          "a1b1d796566d022b7d8701ca9df23ed00665f741303a05d0641e268caa072372"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "69201fe61bdf4d8d6b443115a65ef33ee3716b7712a8f889e5367d29693621db",
+          "da8e9cb1c2ada3a8003ed39f2785275c48ee8e3913a4fe33b5dae3885a6de7dc",
+          "13fdcbffdf4d0b797c7ce91ee14099896bf63fea3d058b215f094c2893a97236"
+        ],
+        [
+          "b364b4098d862a6a982289c6c7f895604fd264ad8830ecbd77af7ea508b92a7e",
+          "32fbea428223b305101abfff46cd58f47dfeba87438303af81b4f1352d3b0534",
+          "19ea419e5666ba3e035aeb9a0ad5e59eebb94abb7bbc961021267f297c24cff0"
+        ],
+        [
+          "a8567a30d77c1819260aaa231570d7e62dcecdde3501c5058ed369d28ef0b837",
+          "2e7b2f1d2ed3da3379e7f1334bf1808c05a2dcd5c754db25251e301434da6e65",
+          "46ac0e195fe01d9d336d163771168de86b4626728f45faaf63345d13732ee97d",
+          "7d488aa059d091127e537f35c0057710fcc7d3f46a09892bbb9ac72b37ada8e0"
+        ]
+      ],
+      "element_hashes": [
+        "310c09320321ff627a5ae7f342bce9997ace9233489fb72b74aeea7edbcaf778",
+        "5e49cb37afc937843cdd17d221c9c0b48743333b244f211fefa755a411a86532",
+        "1d4e6ce8dc592e733853eff053e6d49acc88e97fdcc050d10465ab5a06f1311a"
+      ],
+      "hash": "c738402fb4c24206b773577c28d10df93c5d4b031eca5f5c572faf98532bc048",
+      "kind": "array",
+      "mistakes": {
+        "a1c54efab02edc3a0a0d164ceae719e3778bf174604cbf8d2c3a7b48df9c2446": "le biais b = −1 s'ajoute à chaque prédiction"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.3a": {
+      "decimals": 0,
+      "element_hashes": [
+        "a6ea55b5e15f137ad03c7b4efeef9be210d0b806a4ae858affaea26ef1d83f44",
+        "146d51d1652289cf4d558c5b684fd379195567c4e8f03ec115a49a1571460fa8"
+      ],
+      "hash": "08090edc762ff89cd9ebb98ff677553e3f44dc2ddb6003558d8a312814980ec6",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.3b": {
+      "decimals": 0,
+      "element_hashes": [
+        "62b2b0aab59b3540cf4d742f430145cd7ae9e2d1da42d3070234979b23abebd2",
+        "15249884c9a0979d448a09321bd540f9e3c6e36a66904ed922cfbb9416fe9759",
+        "831b8a9feedb852943e2bc9a8397baea495b2e4483c56695ef344a3f2ae44143",
+        "d59d27b34b168fc8f3cf45b0e500d0ea2ec250fac589d1017600e071ddc3b698"
+      ],
+      "hash": "6db90f9c2d814d3ef52867e727a285f5525530d5fdfa5cc0af6e41d9602ef315",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a16a7e3e9e80877b145fcedd627939cdc7f58ee874b3808687493b7c3c3fd079": "le produit n'est pas commutatif : garde l'ordre des matrices de l'énoncé : AB, pas BA"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.3c": {
+      "decimals": 0,
+      "element_hashes": [
+        "8441a86d89b9a788320c2169d14f5a7717c748187ac9991920e745e419539d53",
+        "3a3003d0130967731ff521e7ab9a8c8e860822d04623a38a02684c45e82cdcaa"
+      ],
+      "hash": "b29e1b157cc14e98dbbe38d71c1f00d177accdc647778eb7d7a3b2ad4714c8aa",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.3d": {
+      "hash": "fd8e49cf3ae02e18b0f93a558a39067b2c35db9a60b6adc5a8d923a79cfe4874",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "e6511f477b3bb29c63a7ed1d61e17bd15f3af707405405afb9ea1c7958e60b6b": "(BA)_23 : la ligne 2 de B avec la colonne 3 de A"
+      },
+      "sign": -1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.3e": {
+      "hash": "f1a33b6f156df84c78771337498f62ef664e6361c77774e432760925edf0a2a9",
+      "kind": "bool",
+      "mistakes": {
+        "f5754ba35323240a3d2fea80fc1a16dcea97292213f3c945ce048a11f5ed061c": "A a 3 colonnes et C a 2 lignes : les dimensions intérieures diffèrent"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.3f": {
+      "decimals": 0,
+      "element_hashes": [
+        "047add6715db7fe6e647439a94fd5693863443b0a0cf7ff31eb09146804ec875",
+        "dbdbda06a797274d9f9856458debadbeb8997b043f55d12f719aecf9dd0c509f",
+        "eba81bdb9919f0da3320b8d16068ef61628e76456772a754853210a2d4e51535",
+        "a2b95c83d98faa8d63df442bc3c1602b74a7e5a90e80306b708b0651f9a7f459",
+        "9f4f1d3f5d64a3110e76deccfeb265b55fa37641bd0cd726bbd31f9eba81d33c",
+        "43132ab19495acab3b4eedfbb34d4537138d692dcc3504189ca6e25601b8090e"
+      ],
+      "hash": "63fa95bb3c347f02a8d3805a892ec71854f87272978ec5bc912b814f77055c10",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2,
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.3g": {
+      "decimals": 0,
+      "element_hashes": [
+        "795f489db7c86bd74c68e7fda9d9363a0d6909b5f47e3eab88c9ca86c56ba5b8",
+        "6922b0a86264c0486dea51287cd0b006d9d5931dbb8c449f8258e22302f9ffe2",
+        "d40bc3b07e40aabfcb59482fcea745e6fd128f51e158c87e78049b94bdaf54d6",
+        "91d20330fc7044d270011c4f282c8d24f8f457e7a8b5c63c7f19cd304ae6f1ca"
+      ],
+      "hash": "9dafd520b79446bf3f69a0264c0a444da34c9e3285659de7510fab05323aca3f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "32008ba52c85b430379ea9c6e58a8e83cf6fbe9813861f34f38a64b782c064f5": "le produit n'est pas commutatif : garde l'ordre des matrices de l'énoncé : (AB)C, avec C à droite"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.4a": {
+      "hash": "dc11fb2e851a59e6a2e620e4371d4ba2084e21a9f2e678f18fe0197ee767fc7a",
+      "kind": "int",
+      "magnitude": 4,
+      "mistakes": {
+        "38369dc4b355c7f20a84ace7f8dd5b4979cd822f2b9c7305b2e2198c20ddf5ba": "un produit (n, p) × (p, m) coûte n p m multiplications : les trois dimensions"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.4b": {
+      "hash": "6b129000643d10dd9c683eb0f8f71aa8bf9b63b96df781ec361d0b39efae2fa4",
+      "kind": "int",
+      "magnitude": 4,
+      "mistakes": {
+        "59fa75626e929ac1089451ff30db5c0bd660b89df8c8ccee27464e2d0d6eb557": "le second produit, (AB)C, coûte aussi : (20, 5) × (5, 300)"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.4c": {
+      "hash": "af1709b3538e28214e8c223cf07de3bdda7f69f9b9dd6769e581d4f9d427360c",
+      "kind": "int",
+      "magnitude": 6,
+      "mistakes": {
+        "dfa6bc2d2dd0becdd701b1bf40b3e7bb7f42a85459f4e265a9530ce31daf0334": "le second produit est A fois BC, de forme (400, 300) : (20, 400) × (400, 300)"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.4d": {
+      "decimals": 1,
+      "hash": "5c5e3fd19be2706d8ee2627e4c9e169dbebec1f9d2b09c7960aad8e9e552a31d",
+      "hash_coarse": "ba82e882aa2eded8e189681283db8d1fa68ee3e71bd67137680a07181408aa28",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "47f6bc141cd80a9353438d90f4c52365a6fd7b829323d201c46e001f1fd8c10f": "le rapport est le coût de A(BC) divisé par celui de (AB)C"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.4e": {
+      "decimals": 0,
+      "element_hashes": [
+        "576d6b4306660a96f8552288135b9eb69c14c1b7e613c21172240ff297a12399",
+        "04a3a72b8ecade721285bd23b3dbbb3e9f4fa79ec9b3e951b4afee278520fdca"
+      ],
+      "hash": "f71ec5c986d79fb3210092d84e8fa328d48aea96c2e1428a53e2e43c64f35120",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.4f": {
+      "hash": "673ec5f90607bc9ab7da093142deb4e365f880f7a0dfc9eb63901370b1e4e97c",
+      "kind": "int",
+      "magnitude": 4,
+      "mistakes": {
+        "88d0d60d6dbc76432c58782cefb48942758e182a2d05a4677b5070d50be9f96b": "un produit matrice-vecteur (n, p) × (p,) coûte n p : additionne les trois"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.4g": {
+      "hash": "d82b7c643b5bd4170ae76e98fc448df9783ebd2892436e9d2e1de3f6688592ae",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "bd6f7e4378186868eed7cce446de6de275439222729c59fe862304f25afa0d04": "le coût d'un produit carré varie comme n³",
+        "f0e87f5893314bcb2695c045017e095b7aef3d87590572e3401b6db3c09e210d": "le coût d'un produit carré varie comme n³"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.5a": {
+      "decimals": 0,
+      "element_hashes": [
+        "fd8a63043ea746a892a03d9eb3719526c7220b8cc3719e94d9cadaf524af6bf8",
+        "067090353f65e0cbeac384c885e405e7cbc393cff6ad1e308d9c72d09567230c"
+      ],
+      "hash": "3eee293340f9393a5394d3982ec523ec8b24060cbfa997f594c6b870d1cb5fab",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0758d1312cc71b1dc1ede9031de7d6bf42e02a0c1805b8a4ef475a938e02b2e7": "la forme s'écrit (lignes, colonnes), dans cet ordre : 3 entrées, 2 neurones"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.5b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "8cdd5f2d61072c5e998899eed8dba43ee794a5360823a853d05432fdfeda94c5"
+        ],
+        [
+          "364bb4772ee0210afa351af4f89eef7bfccde4ed952baf0b8d309dd22d809a56"
+        ],
+        [
+          "92c42881dbcad2bb6025ee21a677931891eca1a816b9af244fcd9e3f70725993"
+        ],
+        [
+          "518410dbbf4182b82deb31c711602956d105bd685f21eaa3d5922ebc1c8082e0"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b7761c4abd4f6a5e3c305cf406489d8249816848accab99fe3a35531a453a710",
+          "de8a2e39416dbc5e9a3410ccb0e954f01739e7490fc01e4c9cf6b8c11c01bc5a",
+          "f42d811bc1170a8a3b1e083f18c09527a6561e5b11531a44cd6d184940a39e4c"
+        ],
+        [
+          "4d260450ab148ebd9a1a39e429867d9d935abab4604eaae42254f3218b5ca5ee",
+          "1ca1f1e23064ec7a5d31a9c5ae82ee2e4435ee3c71b04fc09f06f7fa98ee5471",
+          "5d3fdc86899f8543c996be9b7cff30109d34fd4b6ed641faca35458924f8d45b"
+        ],
+        [
+          "8e2855bd8c477b8a7cf1c7f4ef6d4a72759303440751db0af7fe942e618ca895",
+          "d631c193afe86951e9a060aa8eb7aba4e3215a33401756f534ee999f932dec19",
+          "9121e263f071ccb8fb49383cd636bb78b2b821fc91e9f6859d974154a8486683"
+        ],
+        [
+          "83b264b0bed5e5e4a6c7fa5bce0c2d7d10c12d0d01c72a3b5be95728d7020297",
+          "0c06b9cace85849c6ed15119c56e75fafb593027be9a6921a2c4fcb05cdb3882",
+          "ac95c7857b2affd15f87ce6e78b90d88056471a95f801e738485777d7c710647"
+        ]
+      ],
+      "element_hashes": [
+        "eb13ba47af7d9cb50849ac098b09d8022d3ee0e7e5ed795208d5f071af309356",
+        "4e55ae1122bed02db55f7bfcd2af8bd208d6d2a3de666ca4f1244e97200407b0",
+        "80e94a86919b69e9d5ae871f1f25b3037bb35e24c110d309bcedd373ff2f9160",
+        "4bc25c3cb65ff86b4d007bbf3b6286ca1a47aaca1243c6e127b23d67541cac17"
+      ],
+      "hash": "cb16c946ece3f25f6068b32731e943637e4e2ee0ffad57f61fd669592abaf6a3",
+      "kind": "array",
+      "mistakes": {
+        "5d7eba412bac256b0c90e50a493a52c7da4304f64a5b2c56df2f80a55bc30477": "le biais b s'ajoute à chaque ligne de XW",
+        "cc6a8e174120ab1ed49b82b4da8e98cb0ab4f68671f5d27f88188171addad23e": "le biais b_j s'ajoute à la colonne j (le neurone j), sur chaque ligne"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.5c": {
+      "coarse_any": {
+        "0": [
+          "9f73ccb8bc3147f5b3ea4b043d3c392ea8c4b1f132b6ff729e4ffaa1ad723c47"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "f85e8c028ac80ec61611f9be10ecdb36ac1dec219627ce193a4fb993f8fc5442"
+        ],
+        "2": [
+          "b11da5fc1bb47c8eb211a22d548d838ea719a4206bccb1c8427ccfd40a11dda8"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3b1ce0d6bdd765e4ba5b61d374c3f03300bd0f2837ccfef0317e515316748df9",
+      "hash_coarse": "2a2ee8c205713b120c62f5fc7ed15927c6b6c30497e827618fe7ce0c09f292b6",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "775bce1e336c821b62741485d010b9231ee4d7dc9d37e71ce29a7d665df9baf7": "z_21 : ligne 2 (l'exemple 2), colonne 1 (le neurone 1)"
+      },
+      "sign": -1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.5d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "eb1d630d5a5ee606a464d9704ef77d342ade4e7bf9703c0dc846216828d590e6"
+        ],
+        [
+          "6b2353b44e24c6641985581e3486da400648f87d7e4fa0e759558839d5c66172"
+        ],
+        [
+          "1b072e6666f44e5fa5d21bdd1279da91ea0f897c7f239a4360bca1fff30b65c7"
+        ],
+        [
+          "e03b2465748987afd03aede64a6d24efc20733df6c6ff758bf78f8c5df34eed4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e86c459d3b1102dffe4be99ac8f38d411db12c81e14ff3c67e9220ca764837a1",
+          "e390783c380a6ab9562fa856a04e7deadeaa48320630fffcd6dc9fa2533667a7",
+          "fd5bf278e37c3164fc2ccb09e598f48a156a3c1ceec430bd2418eb5635ec34a1"
+        ],
+        [
+          "dbb184ca4d49a78d12cdcb8a5fd5d6414e280a4f7ffc6002a2a6ee8f56caea54",
+          "2b2700c4b8e0785084e650ea72d97dd25cc95976b90ffb695e54c53e3aa3aca3",
+          "910686842ae5bc32254783ae77bc019f215ac7b47aa2e1c4587b8a361ddd049f"
+        ],
+        [],
+        [
+          "681f71ca21b48e367688d0fadc49a4f27fdaa806102064460681b8ea200376d0",
+          "e292c42a3adfd90173743acd10608e3631c4149edb43659a700e508c92e5d393",
+          "fa103c5fd3459e4d8acda94795fc7fc7896b8c90cf62c451798c1aa76679d641"
+        ]
+      ],
+      "element_hashes": [
+        "1e1c8e4862869f7d4e4946dd7a57c4e6cfe55499e78f56e288c1027670a8f5c2",
+        "cd99897921e6f538d764f8399b1accccbf58233580107aa0135987ef86c0386a",
+        "3ea9c03321c6c5e2ba819cc11b473b3f1a72d898c8ad55be429b4bfd64b8bbfc",
+        "425f5e426ead091723695cf80435fd23a7ef15265801e2df66f2382627d466e9"
+      ],
+      "hash": "3e9c2b3edb6279779802db3992cddb509e502e819c4e397bbfb7564e545cc801",
+      "kind": "array",
+      "mistakes": {
+        "3e98ef94cc1dbb346bd9894a3ba33e831dc2507b88697cff3ce2f820165b9128": "ReLU met à zéro les nombres négatifs et garde les autres"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.5e": {
+      "hash": "ebb0f2a776ffe2717fa5cdfecad921bd059dbabebbdd4d01762a851dc110a5a4",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "26d39aa68a7d944cb8075563674f130aedab5f5c3fbf560994bbd1eab8b26228": "compte aussi les biais, un par neurone"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.5f": {
+      "decimals": 0,
+      "element_hashes": [
+        "04aba8f34a4e474e19ea625b737103b11df0bb2954230e5927f845dfca7a91d4",
+        "680255a4da928b3f536e42bce4f31d8cafb8854b27f640cc4944625866eb935f"
+      ],
+      "hash": "00b1c7e68164a7731ac45b2c609a9b5868d69338a8779c39cc83ee56e5cddc27",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "371bc894f524951be575cc8180c8081d30dbcb53d43c233ebd87e75e2f6b6a7b": "PyTorch range les poids de nn.Linear en (n_out, n_in)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.5g": {
+      "hash": "97dd11668c860c9536e4968463c47ba396fd2d6486bed24a2193677e1478e44e",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "86c3ecb8e249446913d563e1ab109342230a71a7dcb759b845b45c026c4aedba": "un produit (n, p) × (p, m) coûte n p m multiplications"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.6a": {
+      "decimals": 0,
+      "element_hashes": [
+        "e56aa31b38aea1f0d5f84724aadf5322e27b1478b3b89901efaa723b5cc95d22",
+        "07ff033e98855cd4ae43c374b7503640f32dd67df1c1a564f2f66249c49284bb",
+        "b6b435e539e9a13093eb78dc1dadba21b26ded13a7876b61a1e8f9dbec849a48",
+        "f5e99567982200683cfee90143b489c7874a04037b3cfb2255a8ec45f5e63eed",
+        "855a607350c26684891ab14df9f988f6b9a35e182929233c36a494f5677be964"
+      ],
+      "hash": "75893cf26491140e5cbc1ead408130d72cd792201a406e633378f83bdc61e199",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3ce54c10ef301dcd5982ef9d36a4c9f97a34c6ec2c3ad597c0a973e700d961c0": "le mot 4 a son 1 à la quatrième place (en comptant à partir de 1)"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.6b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "411a23a360b1787624e4956ac0acecddb4b2ebea1a6d9c29e04afcb520bfdf93"
+        ],
+        [
+          "403d5d29f7d0b4831854fd2c1bf666d2f0749529b331d715252302b2234d9305"
+        ],
+        [
+          "d93581017c53def61ea5d932d269e0dc8a5c30f9a84384bd3957ad9d903da415"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "eaa92b23876ef3acd8bc994cb6d5ca33dbd4ffa59ae1152179c5b10b1f095869",
+          "6ad93fc314b0533bee75bbe68f00003ad2ce5212874c701c9d14168d7177e354"
+        ],
+        [
+          "5b944a104b3e3ad82cd356d3377811d5b6e2efb867da61a91fa4e93cccb280ac",
+          "a40bb6033aa3216c6854c2cf2f6aa3194b7be1c9d94cad5f4c86b2a33441c9d5",
+          "b2f73d37300f94f61094307fd7d41895d6f55af65f4506ea7ede0ff26230fbbd"
+        ],
+        [
+          "269d419104f3ca095b19fb6a58e0f2d83a569df13caa1a152b3424e6efbbaa2f",
+          "c3cea0ca7a5e56d55746a1595df113f6d212d74c7faba5ef7a50974599ef62aa",
+          "61190e17566b5336d9bf5f888b885e425a3fbe9efd130557a9eefc725db89133"
+        ]
+      ],
+      "element_hashes": [
+        "5a2e56a1f971b87f8dbf77d300bc1c0b383fe399eef7c6a7b96a74d6baacdfc3",
+        "0a8fc6fbbe1dc9564aae246efb600ead280989de021df930662851376f29e8e4",
+        "5c3a30b673975c2a61dc80a64b6cc984e31ab46b6c44eb65cfc74426edabc5c4"
+      ],
+      "hash": "cabb931ee954a93c214c4c78cd49ea606c96a20e8512c86811d485d3511b2628",
+      "kind": "array",
+      "mistakes": {
+        "34f051cea3ac3b61996c8f207ca1d877300dcb612987022e1ed7745f84792d37": "les lignes de E sont numérotées à partir de 1, comme les mots"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.6c": {
+      "hash": "8e3daef905fa3811d2a89d0be721d9d6e835bc9761f049231577d5d247c68dcb",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.6d": {
+      "hash": "298c534f1e1164d3094018d5207e4d34ead7b7a11886fd9c4a1a5cf0e0486244",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "aa7664f6401901b17a1362820f4ec402bd9c8044a7d69b5c19dca8dbf89647ee": "sans raccourci, chaque élément de E est multiplié une fois"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.6e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "75852ebf0b33166154f7c287bb502d01c923e3ffdfcfca3ef5ffaffb49237be4"
+        ],
+        [
+          "e37968a311c35f1631610ec6ee619fa4de65653d3fa6a2ae67de3035036ee4e5"
+        ],
+        [
+          "b0aec1f601c292094b191582a7e962466a3ccc02f9f409034b0437bbf90b3661"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9e378963175587765a26c1b83f69a4e4566c4664f907a5e511ece52abc03994e",
+          "5721207ca403b5cfc5c68b01b07626e277e3007efeca4ebdb297e473744b5c5b",
+          "1b302a077a9cc113cc844a7e14f3f5c8dd4c7b48581d20c5325ab7859d6976e4"
+        ],
+        [
+          "6d6de865311cdefd14e415115e1373d27edf88c661d9028d06ec02cfa7a5e50f",
+          "4b8eb3aa4fc9a13520b780a3e2d8126fb343a9c55206a646d863b3c9cb16da2b"
+        ],
+        [
+          "b51db6d70e6870fa9e6900b37a6a662b569f3f326b25b0003d4367f9c7c6084b",
+          "5ae48d1a3600eeaef94b77af447313abf0ab29f43d1d87824bdc0b66c63a9334"
+        ]
+      ],
+      "element_hashes": [
+        "2eb202d178f342c0fe98ef0697612897e3feb64b26ae3b070c17bcfe78d78af2",
+        "4e6eab31613bd78afc5d8cb7b2809bd3ca281745e72143e9ae2261054548ce64",
+        "06cb2ae52d973e35ce8c933beec734d1cac00c02177c516c27cbb059e4b8a31f"
+      ],
+      "hash": "fbc025d300dd2b6ae140047ad0012df10aa2e8e3a0af6a01ce7e0ecc887839bc",
+      "kind": "array",
+      "mistakes": {
+        "0174188187acd28e1df7fdd7e55e81dbf8694aefaf2d3ba29fd4a5772d2a2960": "un 1 en position j sélectionne la ligne j de E, en comptant à partir de 1"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.6f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "6cccfb12cc63aaa87e34424216462778f7bf86c7417a44d68866922fbf63d6af"
+        ],
+        [
+          "34863e22b649550b1260e69980b8d8302c81e099da23e877ecce2c91b4e2b7d9"
+        ],
+        [
+          "24608913e62dbeb13be15ad68418144c6ef666b88839453e19f9f46d9d2ef828"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8924ab56c158d6db30589422f9660b4cea1603c2b293b37d86500659080aca2a",
+          "fb6d2589bf1d8853aeed5d2014ac4b3c0a145e4e6302f3810b1641a4998f4d4c",
+          "4af93fbff6a006aa81b1ccb48d713c117adf73d450c69a24153fc6c8a12c99fc"
+        ],
+        [
+          "770b777ad55f7016d9bdc5da3b476bd5fab44a0f42a4d78e17308b2aee8d9139",
+          "8e3a8856e8074fe5b095fb58b05087d159560cc42ceb601c6190292eaae59b13"
+        ],
+        [
+          "8b7d3af9a313e9c11a5e74f062160e56ec48f259aeb075dbf961de36362fbc1b",
+          "0f3ffee4018d9ec178178ef480669723a4ad608c4803302926cc993b19febfdc",
+          "3410b477bec9a39689f91b4d2cc42ef8f4424b08ba920f8f24b1588523079d5a"
+        ]
+      ],
+      "element_hashes": [
+        "6cf66627f7576f44d93feec899f16b7271a3c265ef218131769ebd1baa56f3be",
+        "6cead418cac71b19f15a846d1b70b9ddea45fd8c339bab001137db93059cd4ed",
+        "4185630a12ff09dd9640c006e34db38d98a3c8ab1052d87b62de22a7eaf68019"
+      ],
+      "hash": "8fe8bb877421165ed3eb96460e4dc0e8feeacead1a89021fca44ebf21bba677d",
+      "kind": "array",
+      "mistakes": {
+        "797d8721db2a0fcf36fe8e01621fedab6d372b6c897f1bb66cc41a399bda5365": "le mot 3 compte deux fois : le coefficient 2",
+        "c94a2cb9f14b86e406b471a252abd799cec31de9cf8de5eb8fff05f3e7d6ec69": "divise la somme par 3, le nombre de mots"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.7a": {
+      "decimals": 0,
+      "element_hashes": [
+        "5678e2b130138c1ec011718cc17700172a283e96da94a4d4f824db67cae78a56",
+        "6be99af28481c5d327b9f73bc4e1a40f22d611a7668d3af475842087f2f90d58"
+      ],
+      "hash": "50525a923ff4d90dba92fbb0e5f9790b2064a763c6b93398f6f2274863d8252e",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.7b": {
+      "decimals": 0,
+      "element_hashes": [
+        "ab4ce1a59313a1c37671ce56059b427e49f633ca41646e9de100d9784ea47c18",
+        "0d72c2d2184f61d4bfd39d75a82357c5cb69144a715d06614473a233a5a09c56",
+        "32bf9281608e7737d40db53cf8d325a476cfa0e2f2dc45d3f1eae06b4ecb34e7",
+        "7fd8812df6c6efb4739dd761e6d37168f5e205952c7f6bacc6287399b8d0b4dd",
+        "a18d8dade52c216593d13dffb847de331d493f65f50311c5d66082165ccc1fe8",
+        "f3430a785e8c168fbbce73c976334c08a65532e35e6f5390faa5c2e523f1ef18",
+        "326f38fd3d1a7e3ac416f7beef67e76c61e342bfc9d6ad491b97741f56f3f008",
+        "469bb087ae418281424e0bcbaa7f3ba8eba2db87ab0be5d43ad6a709760eccd4",
+        "ca9480281e6044859729e67bd557f1d7101ae69c48b0243cd65217d5a03ea408"
+      ],
+      "hash": "b1b25a1d2c7cc73bec0948119a8cc90c664baf94b586c26a378c8f1d16d715c2",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "46c4943b2e5a6a53e9a7d0560814af32e94f7d6b6cf985d93cfcf460bd211b18": "la transposée échange lignes et colonnes : ce résultat est AB lui-même"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.7c": {
+      "decimals": 0,
+      "element_hashes": [
+        "02c370755897350e624c42fe6be9bcae66751d0f6715021bc414a11edbd56bb6",
+        "23f66103a45f68a2b7fb20279bc8d66a664b5d0237ea58705d06d22550ba4a0b",
+        "5d205f6405f19972ebdf29f428e5c5aba8d8b59bc3cf9f6736d94a859b06f69f",
+        "6b2277bf6c2f30f793a80dc87524471b8a9f49ca325899fa08df0fab6d87fb32"
+      ],
+      "hash": "8138740ce08e5f72f8d22a9ed196ceb392b63c541bc9e6efc49f5c7dd9e5120b",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "eaaeca953c38c1c4bb1c0c77a9c68c09e0e96eebbeffadb1f4cf6e8915e945f2": "la transposée échange lignes et colonnes : ce résultat est BA lui-même"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.7d": {
+      "hash": "f586e0f16975455d45b18b6d671bf80ee8e0f29bece32987ef7f64428cfb2eda",
+      "kind": "bool",
+      "mistakes": {
+        "5e782e37997fbf359607e8785984272312fb0798b63c17348a95c35e3c1256b4": "compare les formes : AᵀBᵀ est (2, 3) × (3, 2)"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.7e": {
+      "decimals": 0,
+      "element_hashes": [
+        "8c0513cea55fec4a030e34440b517f07bac6361d0c33409b7ad86ebb9f3ff83d",
+        "65b867b6610d0bbdbdb8f8b53d9d7adfa9b819e7a2155afb174428ca106f092c",
+        "b780ec10d7c7c91f918452a6cd6825fbdf945fb757b69a79a9b2ebc6ed65c005",
+        "8b6671eb93ab90c72a968058bf620c58381f32b918aa25d02ebc495388bf56a8",
+        "ec87c6a423028b372588f8bb31b7c99ce96c7ea6f19ea16f90a3e9f2033604bc",
+        "7123447de8fccac2ffffd3ccd8a01858b3071b3bd01d19e25cb3052fd3f28912",
+        "255e10c312f8898cb682e3221679147263d70b6833b4ac2f6baaa004b20ade9e",
+        "b430180542362efd891e15bc5a3e05e5d8276d0e97102251c8c72d93a8e17582",
+        "7b4069ee36f853a1655740ef4b9f00a14cae532a9d5527f883ee83d4c52a9902"
+      ],
+      "hash": "452deca947ad7c2997d8f033ec5e9978c057782d7fa1b4085b4160d9d274c573",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "dfbe432192f6886a583b7cae153e3eaf02200fdbe1aceff933c7f5a565ef5688": "XᵀX est (3, 4) × (4, 3) : une ligne et une colonne par feature, pas par exemple"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.7f": {
+      "decimals": 0,
+      "element_hashes": [
+        "e7ef37913436fb0eb913705f1c5ca1da55bc336e90ffb79642471a98f78bf6ff",
+        "b5a8743a7e39c90ffe1506f63d4175414e20bbfc7863e6886a77685dafc1c747"
+      ],
+      "hash": "55f2d6ed382500b75a221e1da58a57a7ec040441ad4b8637499d6ef930ccfb41",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1455bf2dc79e1bb7128745a99974ff4d6470761c954fd832f397925503285696": "écris les formes des deux facteurs de XXᵀ, X puis Xᵀ"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.7g": {
+      "hash": "f21a22ad7fe0815d20ac5d25fb3748b97feb75bca9369ee1e91eb9745f364ffc",
+      "kind": "int",
+      "magnitude": null,
+      "sign": 0,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.8a": {
+      "fractional": "le multiple est le nombre à annuler divisé par le pivot, pas l'inverse",
+      "hash": "aa9559b97be767dc272303c718486dd486f187ca23d9d9b83d8c47b04cce57b2",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.8b": {
+      "decimals": 0,
+      "element_hashes": [
+        "1421f63922f1997041880cf7beb413cfa0a40afe6effd7bbeedccf271301101e",
+        "733eeb3cee35e0442bc344e19312ef8e16923d7a7cef60b5ab39049a8cd14721",
+        "ef690cdd48d359a3dcae19401e680cc2c94d5f50e2a464aa76f5680d1cdb9071",
+        "b7860dc54a6f8a8440d8b3327e73a955e87e281cb9152baeab52bf67c6235b94"
+      ],
+      "hash": "a7bada37331ae023331f5b47ebcb4a0e477d8541885bc6a79e1251433532cc8a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "76651d3e73538c910337e96a3188282449806ebcfa5ed7e2b620aae8501f1c1e": "retranche 2 fois la nouvelle première ligne, second membre compris",
+        "f8dc6eef464a6aef8f24a8b74624fc30c4fbb183155826f1974fefdc1b85bd62": "L ← L − 2 L₁ : retranche, n'ajoute pas"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.8c": {
+      "decimals": 0,
+      "element_hashes": [
+        "9990ceb7b1890ae9203eba983675fefc73b3b99d27129115c55cf9537656d9b1",
+        "696f58bed415bcac3cb8431361cde4c09b1f8c0e1ac55a0b9fa012d80548b40d",
+        "e9a1379d8d70e1bf8b0ae03379424c51c883b0809bbbfe3a679e55129fc040f6",
+        "2000f430c4e30ee456252484cd0fcbf27327dec5bb838225b05de5ce2bd43590"
+      ],
+      "hash": "6fd2c82b9b81b93daabf02253bfdf2b15c3e3c7c8a7937219bdd461df61d6c08",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1f211c8cbb241e54438d0af396e5f2a7989e1038554a27c64ea83c2bdbc5f279": "retranche 3 fois la nouvelle première ligne, second membre compris"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.8d": {
+      "hash": "625c18bb4c76d98ef8d32e044fc9cdee04a347b51834fff5801be4f9c7bd6e1e",
+      "kind": "fraction",
+      "mistakes": {
+        "bab24c7df1060f7bb5a806b0947b4b292cd2f0c227adc18fee90dc99186acb6f": "le multiple est le nombre à annuler divisé par le pivot de la deuxième ligne"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.8e": {
+      "hash": "407644743e42436f740bf361b4d4eeee6498e2c5dcfaf812270e56c63be5145d",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.8f": {
+      "decimals": 0,
+      "element_hashes": [
+        "43eaf104125a960f98b9e0c198304de057f8ed10e859cbcd4a5ad66153ffee16",
+        "1232644c6f93da1f342f430ff86b568af95c5e8fd6f165b021f69a7469ee1342",
+        "03e8d7600ab48d008bd79788f4f7afc25cb2a71de7c3091986c4d83e2c63355e"
+      ],
+      "hash": "a390f0364203a7e267326e9cfc7886fdadd5739550805879f5dff6a5af32520f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "81ca78d7f46d255804a676be880a4e9fc38340bff6f0587a569d2d7d39932570": "l'ordre est (x, y, z)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.9a": {
+      "decimals": 0,
+      "element_hashes": [
+        "bb1b8e41f6c12e7aa589933988d2844dd4b23b304c3f3d1586575acd079c16dc",
+        "24812ab5c47a032b864725cf81e397e32e7400fb11f0e9a91e65ce01e2b3969c",
+        "29237792ccd5e358b31ccd9722ea356d4888145ff650f65900673e6203211cd5",
+        "a10d0292378bf3d1b4a1c5b39c74208d62ebed608a6b9d9105c6163c7e65dd8e"
+      ],
+      "hash": "13c16303c6ce97ad8a97bfe220a0c4fe8fdb75ebf822e82e0b3233a58d9172a2",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "ea79a81fa2287a345b86943219dcb41d754e6958457bcbe9c22d90b3b6cf1979": "applique aussi chaque opération au second membre"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.9b": {
+      "hash": "ff7d088f2ec7c28d4a7122ffd04feeaa56db30d0bdfb4671506fe810d74102d8",
+      "kind": "int",
+      "magnitude": null,
+      "mistakes": {
+        "3fde0641d5ac88ac4493e4a022abc869e774089fb17c6bcd711ad3adb9937418": "la dernière ligne dit 0 = 1 : aucune valeur de x, y, z ne la vérifie"
+      },
+      "sign": 0,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.9c": {
+      "decimals": 0,
+      "element_hashes": [
+        "dea562f86dd1b3c3de393df9027c173c25f856e466fc605d3a1747c01538caa9",
+        "7f9993f1874455bbe51546ee2bfe3e050f7345ebb256bd38bdf5a6d949753cd4",
+        "de5c829014138db0eb15ef0021c481ec168d3e7f8d6c34c6300e8b8a379f0a1d",
+        "4089d7de8f8b7345124a6a79365f9154c6bc0dbfadd8233610cc40b171d92aa7",
+        "cca54597432abe99c307a92f89fa64e65adef604e83382f1496a32db5e4d840f",
+        "63fc3364e9a1cfb475090cabb72772467d19102908c2c45d0ec8257cc92630b9",
+        "4339da1e1f33aa47a51eff603d2c4c947e9414019030faaf375296cf12484431",
+        "487a0ba4dd294921e718ec9ade74d56e21a657f767781d68f05aacbc6efcc21c",
+        "b28348aac91b555fce6167377cadd0c8ba294677ac7457baabef27b2afda8ce7",
+        "5fb66010cc737243df37fb042cb3e935525d09b8b748f28a99ae3f7a64962210",
+        "dceba5996c6a24dc21a9addc2562425682b029d41f352f44902e6596e02ccdaf",
+        "7a5b4e505f574a2b7f31ad98193dd49a1edaa76757e5bcde61131108e43656f8"
+      ],
+      "hash": "888a9c7818d6b01db2f97dffec619fc5fb112b26f5cbee155db763ac333c69b9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "037e323813babd1b4a81cd0c7a65202b18c714c5b090262f23fe22347d5447f2": "c'est une forme échelonnée : la forme réduite annule aussi le nombre au-dessus du pivot de la deuxième ligne"
+      },
+      "shape": [
+        3,
+        4
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.9d": {
+      "hash": "c7d8e5a55ed614cd0587295d95c87a3345b53e54399d9752a5791a7c7b223c91",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.9e": {
+      "decimals": 0,
+      "element_hashes": [
+        "85c8bbb3768df9f73fca9c117d2100a057d115f2f813e4a1a391b03d762dcd8f",
+        "320dd148fed14a437284d78d5df0e5cd9a93697042627c9a00045ee3ed1d3d9d",
+        "097a702e142e25a2acf694f1b46d0069e44ab76c193e05c4aef99cd307814059"
+      ],
+      "hash": "93a052acb74e4e43ba3dfad8946db99ee5963fe00338c37171a7ac92e96c8598",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "74708fe4c714cb23b6c25dd080023e6a295a5f5b234c5c458452b2d069637925": "avec z = 0, lis x et y sur la forme réduite : attention au signe du second membre"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.9f": {
+      "decimals": 0,
+      "element_hashes": [
+        "c53249e8f11e31947050d63adc60186bb9adcf068d654fdd5a830b72ea0cc55d",
+        "1649906a2a1fecca7a48cadd42ef1bac01ee6506d808bc8301b0a24d3da8a9a4",
+        "36e831d4e7525bb0c5bda805ee2abe549042e16cce7cbee5d274f412669b504d"
+      ],
+      "hash": "a4a365623e37be346ea7be7ef66c9b382166b589596812b197ba1b5651929980",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a47f0f098cd08b7bd79fefc66b007743299dbb578d89f22e395a0df07d813c61": "exprime x et y en fonction de z : un terme en z qui passe de l'autre côté change de signe"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.9g": {
+      "hash": "6297e4e366bb15ef55d6336418f83e7e435b6eddb33ca9aa198571d9c6696710",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2c890858091febf333b509c44e200bf167a7bbc9ae17fea06cb5c49d8e0540d1": "compare les coefficients de la troisième équation à ceux des deux premières"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.10a": {
+      "decimals": 0,
+      "element_hashes": [
+        "ed47a8ecb3da66f6b99add2210d77914d1036dc2a04e7f6218df7e96816dfdd6",
+        "747d27a29ee34585e46de4bac528601770494b10ba648d661c5d820037f7c700",
+        "97543f0e940565c04e8d08b5e1ded768a1a6b8d7bb60cd1a734555e3a2169b38",
+        "ec850d10e3651508d456d32cbeb641f370c2cf097092cd804e6eef4ab9ccd1e2",
+        "cf80de41097fb588d8f5af19346199d9aa329046cccce202c57d57d70bc3e6f0",
+        "436c8134da89c2b20254018d664aac72dbb5efa73f61a71cf3e7f65b734217b9",
+        "fcc0a3920c795556bcb92e006f9d15c4871089be2088cc20f46e62df843df94f",
+        "c64f387d263e863ac6925afe225d99e9c54c049a9c3a8a24723e2fde1766d9b3",
+        "48e6cec68009427b294add8e634ac66f10c47662963d250b5863a4a3b31a3562",
+        "0a478fc59ceb847fad78f35675fae76e609f0d3f9028acf47cf8e303a34aeb55",
+        "2d2005ce4491c98c8a3bf19f6cd7d1f9d0417dd5ebdac7381de724a29e9e43b5",
+        "ccd270bdd78e090b1dbf0df00c8a84fe770baec7cea3c6d2d895baa072b34d84"
+      ],
+      "hash": "5ab297ebf5545ea3e6a7d4a8065207e26aa434f4cea81a3d60061ec2de140733",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "6c064377edb7d704d4e9287f9289544810501c7370a331282bb7af2fba259225": "c'est une forme échelonnée : la forme réduite annule aussi le nombre au-dessus du pivot de la deuxième ligne"
+      },
+      "shape": [
+        3,
+        4
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.10b": {
+      "decimals": 0,
+      "element_hashes": [
+        "930495e5fb63208ed794d1ecf98cf9c3ee13ea8b74f358bc5970292bd46e6eed",
+        "7fc9cd3c6a29e7139e487f7864907b2a2620ebe03f728e1f09251b0e5dd5f4df"
+      ],
+      "hash": "5db46f975a2f2f8ed3fb8f38f115f0fe8124a5aaee348e61e5f729a9f8d29b07",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "23b6d6f3dca98a10d432175c9b364ad012e71a14144351c6c63d7a228a2dfb7b": "les numéros commencent à 1"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.10c": {
+      "hash": "1cd3990353c7892e44561ecbccc3b95043131dc120a7ba1bb9c4c39ce03c19d6",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "d080a68a5271145f503f1ed201adc06eedb235d63981d75d0ddeafa47a2606df": "le rang est le nombre de pivots, pas le nombre de lignes"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.10d": {
+      "decimals": 0,
+      "element_hashes": [
+        "72b6341a49e1350add0303d804c8c7ff6887a5526ea620fa0e828b52ba08118b",
+        "ea49bc4e94702671f189d2efcd327c4f5a13b9ca306c8e9f42a6ae4d7e53d9e7",
+        "ebcb81fb96b924a41bc444d316a7a719c74d20f80d7e166fc7b350fbaec1dc65"
+      ],
+      "hash": "7437a6206154413549f6a2d8caeb2b23fa17758c32f702e20d9fc2efaff48b46",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.10e": {
+      "decimals": 0,
+      "element_hashes": [
+        "2e8a184620840de52749da77481e5c38cac3bfaefb31e09f144d300575f911ed",
+        "9098c41491547c2020e4fad6f825df2af8c554ef44b1512fb482700b0661e4b5",
+        "62961c8048d73ecc4817ce185eac985443d87eddb9cfc66595668d174f0a2a5d"
+      ],
+      "hash": "9898b66e1685122f859148a591e6b95af9618bbe6cb61a41d563c797038e14df",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "079dbff22e3eb874bb195cfe6f6cd49e0c8f5ea2ee00c7bdad382de251cd460f": "exprime x et y en fonction de z : un terme en z qui passe de l'autre côté change de signe"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.10f": {
+      "decimals": 0,
+      "element_hashes": [
+        "39c6268f04f1bf589ed436cd783e675f947e19c6db939e0dcf063c68c9f276f3",
+        "bc4cd2f47d3cefdc79ea27b2f8bd1bc644bfdab87747efa33ed1bd0a98836e7f",
+        "3442e9f53fa0f7a3e5ec380b726b12a3325fea1292dfef78a318f8fb35d3675e"
+      ],
+      "hash": "abe07e8b54dc44e6cdfb58df1bee88744917a2339efbe5a1c8bcabdafd2b8cf7",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1a7b2fe6af33fb82284c16e3342bbf81306fbd64ba5b37dd97a36e80ba422685": "le système homogène a un second membre nul : la dernière colonne de la forme réduite devient 0"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.10g": {
+      "hash": "7e68f808c69dfdd58ace00d285f11340d8f29a9608e989f26f185d2fa9f9229b",
+      "kind": "bool",
+      "mistakes": {
+        "c57883816e48774052cf56f91976c524d7bb20a359373bff7162e02a98e13204": "remplace (6, 3, −1) dans les trois équations"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.11a": {
+      "hash": "da0b3712ba493c87098a4f06c257f994ec053accc8184c45f984fd5d38a7b1e8",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "8f0d08cc79c856ca952ed790e2fbf7aee2e7eede3f2ef0f2c1e0e6053595a60c": "ad − bc : une soustraction entre les deux produits"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.11b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "cfc066ebfd3f7fed2ce665b9aa5ae37d2de7d94a3fe2356bc0a2d8125942c7a1"
+        ],
+        [
+          "16cfeb0918d87905b0a7ce039c10847e38f9716cca4cf3d179b2bc92b167fb00"
+        ],
+        [
+          "7d8c87488cec025aa730c97b2f6e45817a18a6ac38c71164d707732908ef1e7c"
+        ],
+        [
+          "f017f500de2d46720d372f407f1c9750ccf7315c34fc74f65ffd309206528f72"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "845702c3986e2a034ee14bf8059071cc0ca168432ef16fe21d4fb29d7f0e567a",
+          "cc341e969ab5a4af9d08e634e24eb49565190171e8412c51e06349f4f866694a",
+          "5746de31230e70055e874f132ec216df3dc05a7495273bc9b9eab313242080fc"
+        ],
+        [
+          "eca78ec83a9c0d347e34822650ada244c592be51f99434a64c07995273a2bf8b",
+          "efb84ab060b95291ebfe68b3a47025a7cefebea7d4f1775fa661cca05b90f5ee",
+          "697a0aed5a763ee094f0287adf497c4a1b80cfbd6d8160d48649a42033a00fe0"
+        ],
+        [
+          "31361611229350b35d1e95042d0f886a1e53c52090a8c0bb8a18b4436f1195cd",
+          "ad60fb4377938dba02b61b11eff422d7274042ec3248ed8ea0ff4b0bbb9c4015",
+          "f5c0b800f9ce71791e4af4f70acf04e88e93b09a99444583f6920e107d05485c"
+        ],
+        [
+          "b73b0dabb1aaec8f9735481c94b6de5243c2a7cd355cd3b00f93baf90d824893",
+          "caf78106a936aae3005b47c2b7669177102d93444c4deee0d2fcd25a7b6bc9a8",
+          "fd5e84f53f5f4fe641729702ed4a9dc277567466f91e4c81ab22be9780242ada"
+        ]
+      ],
+      "element_hashes": [
+        "f574a7f001423cead28110880d3a424c493f6c664fbe6faf5a200bb8b694acc8",
+        "16801725a327a945ef2e70376fc2ff8385047da78b36627394928e438e6c5208",
+        "2b63871971338c8e5acbc853c6c8dc70f93d399235582ef3479ded9ca6c93d3a",
+        "9f098434aa99bc11641d70e1b4e79a22c07429b6c15e8c97b61c65e9aea6f250"
+      ],
+      "hash": "9c65137f95f8db1fdcd4cf8a84429666ed911a75ab3c7b2a4f5f914a871831a4",
+      "kind": "array",
+      "mistakes": {
+        "0b6560294bf61520e3f0ab360e64c00043cb0446e8f8d3696013b0d344da688c": "divise par ad − bc",
+        "ac14166c082f5fd25e355c195295b6763810cdccb888dffaa02cfcc721e037b6": "échange a et d, et change le signe de b et de c"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.11c": {
+      "decimals": 0,
+      "element_hashes": [
+        "3d3130b10c73f30bdbf592c778d0bec4e8721f77d4744e96e06efa84ad75888a",
+        "2034fda1a3f4596659181c9da7fa54a637c4fef7ec08da3d84c79a850ee62573"
+      ],
+      "hash": "0205e3e015b44b92b70a6382cb0aa345cf0540fa642c2e1752c4abbd5e16ca9a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1d155e8ddbdba014114310018f6628dd74c42796a9900a6b812a8931ef2226e9": "l'ordre est (x, y)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.11d": {
+      "hash": "2491353f3a3b591e88e0164f9b7c1ff9548dec17102613c9a83f6611c6284a5c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "56c7cd7fa986d16bd089ed12b081b4f6fcc06c70f84262bdfe7dcaadad95900d": "écris ad − bc = 0, attention au signe du produit bc"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.11e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "aa99e6c994201bd5c02f6e653cc9cb8d5b8880538b988b8c34eb9b1a49c3792a"
+        ],
+        [
+          "ed39985e7dae2557d525cebcda868c2711e6ed0cb2f0c58735b67957e66803cb"
+        ],
+        [
+          "75386c389159a7186c82dc301191c365d17f66a09470a987c2f76546731d7466"
+        ],
+        [
+          "e2a0a33e4affa58d971baf5594a34802fd3f56cc70f23fcdd35845a4fa035855"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "2634891d68e3c15f7055fa5934724c034daac1bd8b80806e8bdac90e39026c51",
+          "c017bc4380413e9cdd700b5bc4f88ba843784d70609baadfd48341baca83d027",
+          "144f1c21836ee430d6a4c2ef5090011829ee92a4c228e27c632c323dbddb3394"
+        ],
+        [],
+        [],
+        [
+          "07c01f2c5a136569da8663d1e72cf8c560c7625929a4b0656b4374aae5abe731",
+          "de8103a0e279a81908414d71f89cf840dcaacf6497cb71973b3e4084f3f03bd9",
+          "e37871628988f4ae45e154d9eb6ade2d5d3f6eeb3897407b9b1e886203cb78cc"
+        ]
+      ],
+      "element_hashes": [
+        "a9b5ab366a3f8e3bcd7e1db563052b1d9b12563cb12502b4cf7c86905e6b300d",
+        "6faf70a07758a19dcde83d3f2c38e870508e70e4adfcc8f03e0b9219d7a59c66",
+        "a0f170bd9d313d8653f36d98e6b59f37607912c1cdd4213027f0417c684e9f8a",
+        "7d7dc6465c5029e2fe27a26a557f3f77846253b93cb12691ac9c609c019a7943"
+      ],
+      "hash": "48d9e2b3bebf7a321147b1cbcf6fdd5d22f74a3e8207c316238391b49b09c4b5",
+      "kind": "array",
+      "mistakes": {
+        "f33688ac4a9ef8b9a2d0107b8985dc06c2504d394fda13ed4c9893c741839710": "l'inverse d'une matrice diagonale a pour diagonale les inverses des nombres"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.11f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "f883400e1164b15317d572c2e80f2e2fd930a6f6702873b2e8f62942eec87c87"
+        ],
+        [
+          "c8581ef62db740f64780bae40f84dfa0f605eec350dd9a74a8f98c36a1167bf7"
+        ],
+        [
+          "131691717fa4a5f82befd556726321023a8af886ea6ecc232aa2dbb3d8a7ae87"
+        ],
+        [
+          "6cddc5a39907970530660fa23e10af3b938220e8481dbcf52b03e7fd3299e330"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a4f59a6627b114f2392555c542ed62bd2813d0f439b3790195175dabf0822927",
+          "54a13ea7b0c538586cab65f1236b6e1dd77a1dfc0cf2ce0ff85ab0b8715aa398"
+        ],
+        [
+          "42df7a68bcf029543e9d30a9e5dd57603318c2ca7772a3412e590f6174cc98fa",
+          "32c6e0b9fb6e40139541da2fdb2746f5b677486f064f5177f171b2bf392cbc36"
+        ],
+        [
+          "9d7ec93b2f61e63509b4c0862cfdacd241148d833168e7328e5c706d68079f8c",
+          "00783e43ce488cd3ce23871253424f55efa5e201964d7dc69af44060000c9719",
+          "5760785efb8b6b782ce4c0926bfd1a2a6c5bacad8e960217020483f7815acdd9"
+        ],
+        [
+          "29bad3bfd89a612df45f4607676825c07342eba6c6140614b16a1a5e322068d1",
+          "41b1e196f7f7c7fa0024d13dbc7282c0d67ce955b850496f2a55cb8ca9ff26e0",
+          "8e43e4559c3f096cf7398923a6c22657c32994c262587c684a5581f2dd2e58bd"
+        ]
+      ],
+      "element_hashes": [
+        "e37d796f40b3623c8abcf742be9b5f8c86cb1122fc05aef39768a7791c79b816",
+        "c742279326ffbde200c6d3e5294eb8b47690d3a26499e32b5f382bb54ca1c3e6",
+        "b09e31c83bbcf7e58ab02e2ce88fad4d064410abb8458957732bc3cd0be6cc0e",
+        "1bb7d37aa49b45f9b685867a4e609e601830c669ccf43822bf68bd0832185dca"
+      ],
+      "hash": "a2e26153e1b66224b819084dece2980805e8ed585c854799870808a689d816e0",
+      "kind": "array",
+      "mistakes": {
+        "2913d5028d55fe12a710aac15346988af74f8f1fafb58869d4d5509bf7a2c3d3": "(λA)⁻¹ = A⁻¹ / λ, pas λ A⁻¹"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.11g": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "8e18269ba7927d87db3d9c3dfab3d0cb37db3fc3749727f7aa2c3e2119d03b5d"
+        ],
+        [
+          "07b2de1bdffdaa73853a05c5d34e8f2a33a860abdc390a430c5e8d242232e518"
+        ],
+        [
+          "e70ecd903f3697522cb92eda5764c77f962cfde53f099f4e2bc37a78a1fceebd"
+        ],
+        [
+          "06716cb132ebf66935e43c0879738e2b56e987f11d82c46dce4ecc10bea6803c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "cc365871944e278a9855a5079e8c57a4cc1bc31f9cf5e1cfef11f85721587ebc",
+          "a92fcb4439bf5244c92c65226031595a4509452820cbf785e4b31a01714df6d4",
+          "f6113ea2d1672adfd99dd7aa175b8d6bdf2cd44a523c1d030bfb8e465fc794b9"
+        ],
+        [
+          "c759d0dfadc1e06134350686dd0e8146c88491d5d2a1fa8fecedbe013b448dff",
+          "a9bdccf6803a9dd2e9a07b47a07a2fe4e330f882c5f97042e3a1c8e605786966",
+          "425f74af0f961a388b7ffbea22b7d6758e17a1050ae02d52ae91146adbfef1d8"
+        ],
+        [
+          "7117361ceb2de910862a92b7a5c05ba73fbbf3f9116ba4ea1457215970e2272f",
+          "61e65268bee46b21caa0dcc786757db1f897f40357e82412ab34a4bc910ff5a3",
+          "d7845de7423a7ba8d73f462743cb091c9d6f1349dacf2ed55809bb953073716a"
+        ],
+        [
+          "ba2728769095d58717177b3f204480a473f4fb9b77a758e10ef46423da0c61ff",
+          "515cb1954737c29c79d545216074a60c86a2d50a4392dd514759b62de1fdd128",
+          "eb425d08e3c051cc1bc652a06ec5ee9786e2a0ced70ed9e8c5a94682c3fb1949"
+        ]
+      ],
+      "element_hashes": [
+        "23590895eca23c6184cae8ec23e58a286dc22a528d42473a1bdf23846d37b4ed",
+        "10bb57e69986daa8db418206cea757cd108e2b0458cef76bb03b84c0c5beb0e9",
+        "726a22230d6839c436e74a515bb3fea9f7b88487166b2488309a43a274628806",
+        "735faa3e6a08a199ec22f47311adb8430d8c1d591fd8336a8c988349edf21700"
+      ],
+      "hash": "310d284ab6971581c9d8f32575e18f943dbf0737f848d6c34464c5326b4662ba",
+      "kind": "array",
+      "mistakes": {
+        "2827ba3d768719279894a989ec51564f6827644601aecf24c0d6992420653cb5": "(Aᵀ)⁻¹ = (A⁻¹)ᵀ : transpose l'inverse"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.12a": {
+      "decimals": 0,
+      "element_hashes": [
+        "3e4e8208b70cb2930b448efed0508cf84342a3a66e6f4fb3605250fb1056d643",
+        "f055d2f9cda10969171ce315e7e4641b7688c49431c57543be1ed2fc96a61f88",
+        "c044c07bbcc2c65f0975f01e890fd179b51275caa24ac6875d2f712c8d118716",
+        "d10f0236b94cb8d78c46c29b95e84b77228ddbdbdb4ae57880bdaa3848ec7eaf",
+        "def10f225472b203a0d98ca119beb4ad0252ed0bc49b69e413884638bfc00ee6",
+        "1a37bc28161231feca500e9ad968b3b5d1af5f3844d0d8a34a3491cf2ba02a32",
+        "90daa72e384fd06c09ca8413838ad39da8390b2a44dd640d7d446902b308016e",
+        "c8c92fd370e3dd9eded2eee1721ec8d636f30c8df19c752878956789685f7be2",
+        "ab0a19bf32f38eeacff423263298d12748a9e91e9c06a3193f25ecf75061f3ca"
+      ],
+      "hash": "94eb7a744ea230556f0e5613dc666e1abd9394612a391dd4c9704f35f085e4be",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "ff76b43ede3dcfb5af684ed65769beb6f766628193cd9511453511f9c09abdb6": "c'est la transposée de l'inverse : vérifie A A⁻¹ = I"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.12b": {
+      "decimals": 0,
+      "element_hashes": [
+        "59fcb71ee718990a6dacb04eea486b91a8e312bd415eae8683212fb048485494",
+        "1939ad17ad182224461ce99dfdce4f271b4cd8073f5008a4d5f693cf79a1dbda",
+        "5b745161d894070524094b4f88217dba301042bc8d536bf6b9eb4045162f658d"
+      ],
+      "hash": "99c9cfdfd912215f545a5c932acbe475c9ea8dde2b0847afe7dd5454d597a84f",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.12c": {
+      "decimals": 0,
+      "element_hashes": [
+        "14e91f3548582792a68d5d70177d7637707e9d525fdb9b242edce83ae4737c6e",
+        "841fb7c927d88c00f4711daf5f2b92ce38fbfca9be14caa24d86453eda4b7355",
+        "64fc3ee0bb491c44ace1c7363ab1b3936bf96c50c581834a89b6fd7cddadcd1e"
+      ],
+      "hash": "5567336e59c8375523e12c7063ffa8dbabcee9431c41711e536fe68dc4f4b760",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "ae178702d68f0d7a2bdd376e6ce1a8e71c8a2a8325b36d91432d93077fc1fe7d": "la solution de A x = e_2 est la colonne 2 de A⁻¹, pas sa ligne 2"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.12d": {
+      "decimals": 0,
+      "element_hashes": [
+        "32de263b45665bf85af90307e74b6ec51b376b2f6a45e39300452b481a7ec0f6",
+        "aa0ae4f0f8cfd5d6d80d3b59e3aa6ca6336a44b522e02c892eeb1e0bc9cadc9a",
+        "66554d48d834aff6c99353c829e2a85831213f671822c1f8bf5e174eb80ccff2"
+      ],
+      "hash": "c74c6e872ac9fccb2ab9fec4905683452497fc1c8ec398a44716eaf187631409",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0a038e45c4c783b366e6ddcf7da4f129140d3ff9779d30ba1d9370042fc92964": "(Aᵀ)⁻¹ = (A⁻¹)ᵀ : sa première ligne est la première colonne de A⁻¹"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.12e": {
+      "hash": "7f1b599f614b331637c5f306bbc7cd6166521665a69f825e252bd96b89fd3471",
+      "kind": "bool",
+      "mistakes": {
+        "7b9749096e765a35058422f56bcadd65903eeb95b8866d2a0ab689bd51b3c7f3": "regarde la troisième ligne : combine-t-elle les deux autres ?"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.13a": {
+      "hash": "62cd36fe82ac1e6e190cf2e93a4b66ef8cae670678be322a0ce216fef7912c38",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.13b": {
+      "hash": "b41b1be9ef400b5efad8cd001f30a70df6f91091b1f4babd64e8a3b252e40953",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "e32136bfda4d046682803b9d7a19ab178d4ed081596a0453a06c15d531e31337": "cherche si une colonne combine les deux autres"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.13c": {
+      "hash": "f2b188c053c3ae6203b4f6cd7907233c47770f2cec9a74eef069b9ca98e0ac61",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a977f473c4a36d2ecec024596480255b2baed054281bbabc429b6fa9acb41746": "cherche si les colonnes 3 et 4 combinent les colonnes 1 et 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.13d": {
+      "hash": "b5d88cb173e57523aee689bb85a4e0c1fd10db019e2418a9ec7183a371229493",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.13e": {
+      "decimals": 0,
+      "element_hashes": [
+        "0efe897cd98ee80047e09c7f6468d3ac60af8b7f7ad23c710d1e28e698dd1e16",
+        "e38301d1d34476c00648ce872352401d116f200668fc32dcae2e9070d837778c"
+      ],
+      "hash": "9798079f3fa7123610a5d4e1a3d1755f66f169db388574f7c9c06f0fb84ff01b",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "bc4470071de99591d11b0dcfa732e8d85a256aa1cf9f32253a2275c70197da69": "l'ordre est [a, b], a pour la colonne 1"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.13f": {
+      "hash": "7e92484ac9ccf9a3ae6f3247f346e19114d02689d28572f5fbd6d7817f304f36",
+      "kind": "bool",
+      "mistakes": {
+        "e48de396285914ce77fcda94d8f368550ca587f82fce94c8a21d6bd112781b9b": "une matrice carrée de rang 2 sur 3 n'est pas inversible"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.13g": {
+      "hash": "c19bae168827f139974d69c978aa3b81a14fad691e944ecd385b745a39c58636",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "ca74549e45f9812e8befa80934c41356a70d1a8cadaf1da1d5c9c5fd1c661545": "le rang des lignes est égal au rang des colonnes"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.14a": {
+      "decimals": 0,
+      "element_hashes": [
+        "20e10ad891f7270c3bdbde432f2013bca3bf07fe8a4f2020c1507506a6dbfc58",
+        "1e3d0b3798dd29668ca22437ff21146f888994a3acf7e99bd9988f087afb61c8",
+        "508c3bbdbe0e6b8ad701e3a52cba3a55feee434b032b0eae9002987d4220e7a2",
+        "270afca25faf4697e698a13d335dbab172f1f8fee829991e229ddb5e2ed14580",
+        "c811ef58a923c00939d45c1d5232493833ce9a41e0080a58f044538696cbbe11",
+        "a0288156a6c25ec7f6965efc87d1dd9a6635dbb9de8008bc7ff94bea933e9f7b",
+        "8e30240674ff08ced770fff273e2cfb8a0f0294baed20057ca7cda934d77b7c4",
+        "c4d0d82a77a0aa321e6c1e98290611d204fd17812848c48c6322c703c031671c",
+        "bb751723291a2f5c770d9f826155b123f4ed6338f8a02dacaa2f351bcbcd6f42"
+      ],
+      "hash": "6e3866404279324d67774bca069021e22aa809a9cf8cb916cd993d5a391f65c7",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a957a8a6da091b574efed54596c3882112bb6e9134186106b118b7e3d4f5feb1": "une ligne par nutriment et une colonne par engrais : c'est la transposée"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.14b": {
+      "decimals": 0,
+      "element_hashes": [
+        "aa1dffb6c0c536c34720668cd6b598032346b9e2bf98da0759b60011ce82dca5",
+        "d6e2176b7dde7c3144f2cef4b04a77a9e8804de60a2ee55f4748abc60b5a0ceb",
+        "8461d5d85ae626e3c80f6ffa92b859f578623ad1cd43878c9ed059fe2f71da05"
+      ],
+      "hash": "471d7ce81a717a9b281593aa71648e9bce953e5f78043a52b3ef10c4cacfd2c2",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.14c": {
+      "hash": "7c55184a27ca43aa3ea868ff9b6506adc8416cdf92a80bef20e6f442466b344b",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.14d": {
+      "hash": "886efabdbf159b9cee99256c2edd3008d8655bc311eddb6a965f6612f0b6caf0",
+      "kind": "fraction",
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.14e": {
+      "decimals": 0,
+      "element_hashes": [
+        "abe84bd385f7de9ce97414bf22a60c180705293cab13f714e770e9bd2c9ddaa6",
+        "bf303e0a1d0ee84e4fdfcf40619ba0055555113d8cdbd2946fef2b4d11ef8076"
+      ],
+      "hash": "e15178aebafb1497f82f82e34437279ce3272399701aac77587bf61000f55635",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.19a": {
+      "decimals": 0,
+      "element_hashes": [
+        "d0f9b67fdfde24aeea24b5453f309969d803214d0f84dd0d32703556755afe00",
+        "cd85d62a3f1b8680a7bb4a8f639b760d6c2174105b290c4343815ba94b4a4596"
+      ],
+      "hash": "988cb5be4784e5b333b8e0f7148d93bec59ec7c1b28fd1fc7a1dfbd2412ec26a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "b34f8b9120fee71f7b4bd5be6bbb2d541b8911adb2de55f8016674a9044655a1": "la forme s'écrit (lignes, colonnes), dans cet ordre : un exemple par ligne, un neurone par colonne"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.19b": {
+      "decimals": 0,
+      "element_hashes": [
+        "f7c93aa8324f87bf31c4af03b17d4d94201e7e1b7e345b20365ad832c6fc857c",
+        "b0a03e664c4eb00863b13a9ec34adb1482392cef74e8244f3d9029ba41bf5ec0"
+      ],
+      "hash": "ae5013f312dcbf8921d969f8ac29b3b91d479a0361566b8fa36546e41fa24a83",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.19c": {
+      "hash": "50a854b0b320f3ffac3dc11da28deba384586955c98aa8ddbdf6a51c5da57024",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "68320f7ec26d0b027e416f78c59211bb1774f5573a775c6ea1314eed079c16f4": "compte aussi les biais, un par neurone de chaque couche"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.19d": {
+      "hash": "90323cc380d22daa9f3cbd64be8cbd857725487ad0bf3e659c38c287d31aafa0",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "1022ed172e9afa39cc40a5618f6e3be54aa813cd304402805e08a83554a72270": "le batch compte : chaque produit est (64, n_in) × (n_in, n_out)"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.19e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "73239b2d7b84af4689c9e0fcdfdc8bfc340b1b1d87733b708f189026f13525fc"
+        ],
+        [
+          "220dec5153120262b6dca7a02fc1acad78174bbbb5c1f9d91c320dc6aa662394"
+        ],
+        [
+          "52f1d295a68718f69e9bc496e50ed8e8eab2e4a6b5a9720f5474265c5a218185"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "bd140a6af1b01b515876a26d349dbde4d5fccf9c7b91c43a8e06fbfdb1bb928b",
+          "b7ee3085baac7059f4d9b24347099c841855e284d886ab6e50e6b4e67c20a04f",
+          "431a292fa0ecce00160a46b51bce564194b0d7ed5c32e2c9fb5b8600c97598e1"
+        ],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "981404ccfbb541dbf0608f0d6fd717d2172734bc622ee2a49c37349a48884684",
+        "076288cbc65f0aa9c922306e40ecc37459f83e14efff36eb1fc2c9fc49aee423",
+        "3391b2587fcb005d50f4bd693507e8f222bb8fc945851a51740794dd28996ada"
+      ],
+      "hash": "e293d989de16c04ef5e51517a9b2b0faa95ea9628849474ce952283ef698ad73",
+      "kind": "array",
+      "mistakes": {
+        "549c400819f0c47cc92c203ef68d008248dc4f7489078d197a1a3389851ce399": "ajoute le biais b₁ avant ReLU",
+        "bf3643ffd0495150f61708347d1ea360e6bb1bcd9b20850e68aba9da81a02254": "ReLU met à zéro les nombres négatifs"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.19f": {
+      "coarse_any": {
+        "0": [
+          "ba178629ca849b80e5c9bb5de079efc631d69eabf4fe966a91de4399e4c6b89d",
+          "679023a7bf4ac768a9e579c35058cb10c5810260000e5b749cc70ddad5834290"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "9efe2e1b0d3289a0f674b00d24e69f5c793eaf21ab2461fefb339416249e828b"
+        ],
+        "2": [
+          "492f238bcb24771afca6b9dbc04c17c7bdd155b739c1edaafdecdac83929121e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "4cef60c59a59e8346280986402b7065d82c9dcd4707476082f3affedff888704",
+      "hash_coarse": "608512e193b66e6b035009316514e28d522938cc046633ca242086b467207d2d",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.19g": {
+      "hash": "b1156e4d9eba491fad1d10327df847b9c3ba32243622ec71bc0095ae4fb764c2",
+      "kind": "bool",
+      "mistakes": {
+        "72c98cb81cf4f389bc09a55652d4a1691e097b34289f5347ca828162904236f5": "sans activation, développe (X W₁ + b₁) W₂ + b₂ par distributivité"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.20a": {
+      "decimals": 0,
+      "element_hashes": [
+        "4a22a627d2ab0684fdba334eb3218af085579130e45beed416a0a9f04fdb63c8",
+        "30d2251c29aefba929996b1a004c80b1fad0086c53be7a95551cd3cdd45a6ecb"
+      ],
+      "hash": "ba5a9447c6caa56ddcbad24f8083278551833982315b6a2df33fda5b0dbf4872",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.20b": {
+      "decimals": 0,
+      "element_hashes": [
+        "8e9c0bef6089ef247257cef4bbb7440f5d4626cae02986d246b0ea4086b69ede",
+        "4cb9e1928f8b364339df6efbe724222053018227f453d2806684e4bc42515636"
+      ],
+      "hash": "d44ea06dd5266db44b276594f0b5ba67a11955697c623576e9465b31bef93e96",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "d9f649e215dc01e7b32d17965714761be19f58fd2de043a9f85725e1cdc12880": "la forme s'écrit (lignes, colonnes), dans cet ordre : (3, 1) × (1, 2)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.20c": {
+      "decimals": 0,
+      "element_hashes": [
+        "91b31bc6f18f74cb4a3889913f9850fa65aecd68bcb9f601b47b1394d3001fc9",
+        "5bf4b5bb9ef892980cac0200a410cee2fb03b893365b8918b7713835cb0ce1db",
+        "e4329ff6417599628de4327013d44e9b2f2c1d894b345a8c50ac4df5927d8637",
+        "7550211a9c6472bd7cfee05ce2103ca3d2fa85d25058c3405d5a73c563263fce",
+        "20115e8f9ee5131c7f600fd5e1b236dad419cc11c9c853ad5324c82da326390a",
+        "3672eac994f4da1256f39343deeb216139cf2e5e187cd271cf8240ff94664527"
+      ],
+      "hash": "b2e7d13b84108a2b50140335a9106e8ea0f3ae9006110a2f12eaa010cadd754b",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "73ce3e4ade88388bb6bd48b2b86a0d444218150e00187a8fa4f14059c20e5ab8": "centrer retire la moyenne de chaque colonne"
+      },
+      "shape": [
+        3,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.20d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "8856e12d2310a9a7b4049511ff75c2c521124e37168b0ef75b006c88cb4d1c35"
+        ],
+        [
+          "062a50064241ed98cba1b858bc1fcfbe5980184aa35df50ade22418e1c2b77ad"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "89b8892e56ceaef47b97d06341f2ff32517a962e957c60097b18dcd3a547d114",
+          "4dbabf32612109a0e5183dd6292d018edc53d60af55e96b41895434991591ee9",
+          "511b8a70cbe614fddd4d741f2a9a1e93afc1ec377499979a00fd631f3bbb178f"
+        ],
+        [
+          "7e8f4492683c2bbdbd4b60159fef93da5ba4585550f5be330fec508c46748c4b",
+          "a34f9e79db5e37b21520006de0ee7c1f9e7c4751bea726e3d9e607bb63700bdc"
+        ]
+      ],
+      "element_hashes": [
+        "3a5415c95e2f9c49e0e69fb5c57a4bfe9392e9d0861f722d82d07c5e6921be94",
+        "1aaacaac50b276c9d57e5b32e8b1a407a81487f19a6e9689e1e155edbdf89a8a"
+      ],
+      "hash": "0ea8ba679cbc0ca97f3722a8ec884752c200f65e05f432a473bede0e050cc324",
+      "kind": "array",
+      "mistakes": {
+        "4d9e21974eca350c0f5b9112a430d910d0bdd657f2d31a975b48cfd57ac9857a": "ddof = 0 : divise par n = 3",
+        "acb1d038b77fbd2a717188596d16b8f93e26cba3875118754f499dd9c6c3744d": "la question demande les inverses des écarts-types"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.20e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "4d069e8b4868a3ef5549679da03b0ab6ae9b252f2a234673187454bea0a2d0b5"
+        ],
+        [
+          "8d00b85962c193069d019a6caecc6b593be06d81eb3367391933da75b559d524"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1f8797246e926b12b246d57b066d8cd30aed0a809c459ed0e14d16b6d311be94",
+          "2ec019640227fe1e32a8ce97b6cf1c60ddbe5fae5d9b8ef54e835bbbd2a73d81",
+          "f7842783c43e94ac8bda6e9a8d5efee85dff337fa611a26760aeedce7f4863b5"
+        ],
+        [
+          "d170e3f9a6d469a54511250b332af7fcd78f459d0573187d4bdcc8e6de080d0e",
+          "8e8df3a3aa4fcf5b4013f17aec41bc5e701ea82e8f01d8d430d4f93c0439f408",
+          "01047ce6ad66b6eedc720a4b660bbe94fb2d6a15450613f815506cb1f03c07b8"
+        ]
+      ],
+      "element_hashes": [
+        "5e7beaef791bb6c324562c7221078ef64b0b5cc2f26a52c20fdfaf518b0399ea",
+        "77110441211f618ebe76390c439d5d8cde593b19b569f9544499b8806cc628fb"
+      ],
+      "hash": "5ac674b9ae5b60905c359a7df8f6e034ad5105501ae116f8c7ae672ae97b8234",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.20f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "c117ca1579373455a5c38ceef0081975f48d3e554739cc7101e7b52210f19e59"
+        ],
+        [
+          "b7fb82280865905c113045b727b77330cac5dc853373ba9aa5a1a16f18861de7"
+        ],
+        [
+          "ed4eb87ee8c31fdf76ecc5477900e23cd7b8a8e7cd172e9327477622b9ba6e6c"
+        ],
+        [
+          "5402e6a474563fd36405957398f575cd2ea901e2a6f619c131f65317d9ff620a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a91d4c8cbbefa921b82c54808a3c0411762d13aa137b77c1050e94406f717b78",
+          "3c321014c5b8dab2faa6a112b559c518a7ed3e9aebf3f74880001bdd0e47955a",
+          "cfd71a7c7707aa4d088fe443b393ec408aabe0629a2bb4cebbfe2a2c2160e204"
+        ],
+        [
+          "49d64c671eea4c029ce7857ca6a412c7b8cbb3c5dc37e5e072e75c888ff2edcb",
+          "ef1c85ade1cde0d5f4fa1d0e6f25d49d3236dd855ad43f8c28310c7fa26030e1",
+          "010e9da65154bd74606a671c14c06d6c41777ba1976dd7e9f8bf348def9d6dd9"
+        ],
+        [
+          "86c4292bd5144c3657e9380d2b4ab0e76e6c8c0a1434df256b9ce3e0a46c2567",
+          "a7aaa60563e2fab043b4d1793bac1fe8257a161b13b52d04dc4f5890c2a21498",
+          "df9ed6d3aea1f2387855038e34405080b6524fb7d7c01fc756f6a5e5b1f000d5"
+        ],
+        [
+          "ccead32e142adf572444ee6ea56a4113e15c631f4ca591d6fbe29d3dcf2c90ea",
+          "e4228097fcdc153aea8f8a28810ae59c474751366b2d460b907e458d298a82d8",
+          "56357811319068e761935820f0019a84c1fb6567fa6565ecacdbdac145250c4c"
+        ]
+      ],
+      "element_hashes": [
+        "7e6cb9f8f93966c59efaee272a057f59c92a3eb792efb424f5761b9693cd52e9",
+        "8c17f38a2da3b2d9320c640bfe923ec535a7c2633dfb3e6fcc340ea085e29d31",
+        "ad0daf895bd3b19f4e029073adf261a2f007ee636ae69ed04c8d076b8b099270",
+        "9db42a502547aeab37f54232ea9331806fba36e2dc346d9bba8551eb18ce1ac0"
+      ],
+      "hash": "26ab79b9306a97e42e4efb8cde4236cd9328149355c4dfa2fd0fec29cc90e21b",
+      "kind": "array",
+      "mistakes": {
+        "2759e830d4363f88a16c88ab82d97577bc889fbbda8f7436c8c5bdcb4e681a54": "divise par n = 3 : la question demande (1/3) X_cᵀ X_c"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.20g": {
+      "coarse_any": {
+        "1": [
+          "ea157bc2db441aaac3be2e1fc71be266dafa5b78056537ba27a8bf90dcc738cb"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "c8783d1136572713c0c9755d5d00d3cb98969302c8da5d06c3ea27a672e55861"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a19b30e8321cb5a036060bb9ed6e06a1fab1cee4c4096c8ad9372a0afcc0ea0c",
+      "hash_coarse": "379d6ba328e80b3cc24de3fda3a96de97c7fde0c7ed96509f1c9308ed640bc54",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.25a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "3072319f4868cf2e4b1d9507229ccdce74cded31289c8f0af0d3a3f0e891383c"
+        ],
+        [
+          "615f270b3bc4ddd33a41928fca24f551026836fcd186db057b0153ed38fb24e7"
+        ],
+        [
+          "806d490873d63499f7ff757f0769b5e20c1d3cc5115f32e14f5cf60dd2a3abac"
+        ],
+        [
+          "a3a93860c6fe3c81b0bc83bd80d2ffd4b3e6815ebd6ec1db69772e5285a83745"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7a4461e1a2bdb46b2e40cc8957a67cf1fa42bb0717b4310a7410010cdcc821f8",
+          "31dd667654fa40451cf5b63f4353c9065ee0ee91a11d9348d290b7a30d8086a7",
+          "37efc64620553c15175d10ba2e8d976008473edf0f7d91669c0640f25d07b016",
+          "d664f6cca9ff21f5008a62472052fe2a300bc325adfc63308ee5ef240a7db0fd",
+          "1ee37a795b3f5383228cd34707ed8dc51fceb46b98583bf7fdfd0124f5042bee"
+        ],
+        [
+          "ea93d4f010a12934ea0c18e5183fcd956d04820748eb6ad1de039fd428f90e33",
+          "df46602de15592a75ff3ed995ef2d5ca9097b8376903c245a64418d02bf38453",
+          "d03b77a58fece2808f5cee511d96d9e92b4548df2d837a5adbbc4d3a58b81a04",
+          "5c88165d783cc4c9023324d845dcb0ced04ee8d2fa06d9749c85beb650f65572",
+          "976ab31d33a46c336dba97072d38a293c72bc57f6691681afd9cc378fbcc35e7"
+        ],
+        [
+          "2ebc5cddec7f459753f43d845522455eaff677b4ec75a30147a5593073248066",
+          "abacd7a63eb22b46cecd0524ba6dcdb66952c9be815e601ab65148e3c9f108a3",
+          "e43ce327bf79f551a54a36d195294a0f45984cffedccd731a3e8363e64acf2ea",
+          "2133bfe542847c49a400b38fdc5b4d9f1599182db8ede3f674074be8ce33fc92",
+          "1b5ebcdeac5cb894517526c941851ffabcc563eecf4e32681584a10f44b4aef7"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "130072ffb412b453c082428b7813f23471324574db3badc5af91747d11170794",
+        "8c51b424601d59a4c6bba6bf7cee5064387c7923c45ac2b1004ad49d3f60784b",
+        "f9826a30c9e5e953f1ab4c784d73f61fd1e6c9cd6576d4369a197b489434e9fa",
+        "a4380feef5c398a3fe080b087b86398ac0c3febda28eee40182148ca3f33bb9d"
+      ],
+      "hash": "f5f5a777df8ab01e7e6c62fc6f797faf8906b39d25ac30220893e3690cfede12",
+      "kind": "array",
+      "mistakes": {
+        "9083a3ad0fe32434fc98ef369a235d9563e1c8ff53ef6c11a215f3d64bd728d5": "(AB)_ij est le produit scalaire de la ligne i de A et de la colonne j de B, pas de la ligne j"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.25b": {
+      "decimals": 6,
+      "hash": "0ec7f1d587851271dd4cb0832643917be07cf24cd264522f8d8f802b38fb2272",
+      "kind": "array",
+      "shape": [
+        1,
+        1
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.25c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "aed86a8f054b3259023dc0529b016fbcdc8cd7d558061c8e8376fe5035ba6d8d"
+        ],
+        [
+          "66e613b1352cdfdd8a285211dca155167f03dfbe6ad96b43240e15abeca3140b"
+        ],
+        [
+          "297287926941cc5b67e5ad5a7fc702b64a1adc49edebad1fb434bcc2925261f7"
+        ],
+        [
+          "7b9256ffe7dd63408bf136592d87285a05f7386c13657d12c8486f10ac68c320"
+        ],
+        [
+          "55f788aad7b5a59bed1e548ed9e6edf86788315ba45901f3941a82816d5a14d5"
+        ],
+        [
+          "a9814d33d15b84cada73161d44ddde3e92ee052341456665276acd39ad3b8ef8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e8a2e650d14463cb576d450131e632edeb96e4bd273992683ce2f294cad8a651",
+          "396fa5deeef83ba1da0e464ad366a13ef6a21128fbf5675fcfdd9aa21646eb36",
+          "a7c4aa4aa3a04abed80905e2333cc0da6ed7eaf8045a4a097a58c41ef96de4b5",
+          "41db8e860df845a7decc4dee0321ca39d560a47d799b5f8859841b1849aa55cc",
+          "31b6d601ae7c214f6504e879869afb2da92cff82449e4f57d72d4c972092259e"
+        ],
+        [],
+        [
+          "abdad521941b3b7cd9b3fa57d4a00f87c90d3cf038bd0e5bd147b235667802b5",
+          "42469e36dd63a168da9928c9716170c134fa5ed86d53a65681dabd3bcd97e88f",
+          "0f33594f3caabd3dab24907841ca5e611dad37042172fc985cc81a854fd59f1d",
+          "6facc9bea605dd9eccd5abaa4a50ddf6e50885c861c0f04664fa461d5311ffca",
+          "1cf6451abc9e90f00d080fdd6742cb7587026ca6af37064fe99c245b03b61de6"
+        ],
+        [
+          "f819cb853d973e842d6ef1bb291f8da3e42d9e12ab613525b62ba28eaadb0116",
+          "684a6fc99053eb317c585a53387885c75ad2bc0095c85e5f7e314840f7979223",
+          "5cc46959ac679cd3e8dc7fb5379a9636756a691216596044026b50c07e9c843a",
+          "fdff7239243a3cb3a60fa52cc380fee79ae05d345d783331147f495943ad961a",
+          "995f96f3c28a06837216f93d382f500aca23d5a04efc33f5147849117e23d58a"
+        ],
+        [
+          "a4502cb386e6678f901aac9d9405877d4c3af2b7de2a4ff52706d3984545bb03",
+          "635b4983f68805d96b2f9f3f3167acc4e4db8861cbbe1ee390c9dd8cf022de11",
+          "53d11b04e972ca730b4dc07ca901714446183db53c0d263c896d723aa5390be9",
+          "aaff10a339f19820ceabe6edda5599aac3780ed3138ee5a4d24debb5c6ccb116",
+          "6b10436b99dc6a4c7818d6a05cebbc82374af42509c3a0018c7a481ae2d6119a"
+        ],
+        [
+          "6b2ad18af3d4392aeadc7a5273e772db7812768fad75719d34ad0c4356e37651",
+          "74f7d2aea4f44e66369931e4864f7e7dcb3cd4ea5461ab0c6b10c888152adec1",
+          "5ca6ea18abea733575d866c0147b878e7fa1b45392d4938ed1f7eb4053289056",
+          "df2c47d94f9f1500fa862b7a073abbc06d2eb51557256bd8308a4909ecf35028",
+          "418ec7dbbb90f83a9f190faf6616d0b62ec78716db80de1f4a4edf65406a4549"
+        ]
+      ],
+      "element_hashes": [
+        "b37d5ebc47ffd4034632de16f86a2409a18d98f42d6eeab93548a144a905bc5f",
+        "c4347ebc52a23d83b12b55895df021453dcb7aef104341600d7b522aff5ab398",
+        "30a69e1b8cd655d4297b868d8254d3f17fb6235c384252173f581d935b8910c2",
+        "b1f5c68d3feccc6f270e4b3208942a23de0c12365cfa8d52350918c0529e3d1b",
+        "a8cc5b38663f3fcdd26aed40c84ce964c4c08c2456f347ede78afcbbcd2f8fe7",
+        "901dffd30be4966c4948b45801035f4d4e6f7ae5359873de825e2a0c5ae6ad38"
+      ],
+      "hash": "c3e606dfa35780669c14b422051cc62db6037cb72d47b45123ad8a26692e98e4",
+      "kind": "array",
+      "shape": [
+        2,
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.25d": {
+      "hash": "d8bf4fa1c669792681028dd02aa918d5987b97ef5f88ed1f9250ba29cba4bfc5",
+      "kind": "str",
+      "mistakes": {
+        "00583548594b8de491afb9bf51f9def4734351907bee648890a650ab15a159e4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "0b41ee60cbec8791a343a5ccf2095b2eff94ef4d2ea0b37e9c2f0cae15fd6f9e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "34f395c2a8353ac31daccead20ba5afedfe36a925d4546c319cae7909dc15511": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "3d67e56f751380f8e0ea9d1147f459ac447f2f24def0e575180dd74ea8b5e2d4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "97f5acef54d82c2418252328aee24ad1bdf99cbf8f6d103850073369c8768bdd": "(1, 3) × (1, 3) n'existe pas : la docstring demande une ValueError",
+        "980fc75f5036a2e6c2cb36fa863fa996e85c8a67cb23b0ada94f84b99f03d5ae": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b276708e86265544e917d068e14ae71d254010022660fa7512781bdf1022d8b0": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cc649be27245e0eb1d237704b8b3077d0338be9ad03e1e58effc6f8a927de4db": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f0a3a59fb862d6511dab7aa9b914fd56255bd4c037ec4bbbdb3e60f7bd60904c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f243e08cabdc75d98a8ae700eea0f165a86ab1380a8f9d3a500d6e4b6997caae": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f3b394d6e8087039a32d5f16f6bfe5eaafe390c9dd34817dc6d218ed0be233d9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.25e": {
+      "hash": "74d1b9549ecea63e857c3662cc755c97233588851567f2ba1f0fbbb656854eff",
+      "kind": "str",
+      "mistakes": {
+        "5197083d63aadd4959309d8b803d48a490f1c7ced8f4553eb7731b2f08e9e423": "la docstring demande un tableau NumPy : np.array(...)",
+        "db9c6145e275cb0a13ee11499dc9f4c88407fdbb412b40ee4d5ceef143ea0197": "la docstring demande un tableau NumPy : np.array(...)"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.25f": {
+      "hash": "d1d9334b67e015827776db5decd00b423d28b9eb540400f04604c7cc17a34179",
+      "kind": "bool",
+      "mistakes": {
+        "e3e26d98ec5eb1d9ec23ee3ab29a5160f17bfd7ae614961e2323995e2f5feb53": "tes deux fonctions doivent vérifier (AB)ᵀ = BᵀAᵀ : relance leurs tests"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.26a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "a246c4768942124883a063e7ab3133ee12e02cfdcf3f94dda6a9015f51e87a16"
+        ],
+        [
+          "e390cbbe6e0b7da772cd5dfb2e6f3bcdd12366e53fd0596424e2da9e9e390521"
+        ],
+        [
+          "69944da9e5915aa116636a9a59ca760f1df2070106e9dd4759dadffd9eb54405"
+        ],
+        [
+          "11e35c9bc4c96b449baa74c74afb272a4768a84685b15a1b8919cef65bfac0c8"
+        ],
+        [
+          "83601ff3b23491390391fa4badaa344a026ccea264a45e1384f229e11c3dde3c"
+        ],
+        [
+          "eb45fae6c74ed499d64b97ce2af9e5932df4c2e4f63132b454ead8e2ab9f3e29"
+        ],
+        [
+          "80c1b5de1d1f07d5b4dfed1bd32df44c2b25e315f9574318e5a771bb021b0720"
+        ],
+        [
+          "0bbf2e2c6dbc4250bf575c8907e86611326535eff327529cf3fd407354eaa70b"
+        ],
+        [
+          "d0c68e132f733218c8a3761c67409c18485e569932bd7ba45e6f8fc93f3ca890"
+        ],
+        [
+          "d5b3bbb7a67e2de5d08180254f6a066763bfc13d18669250862707a4fcbac79c"
+        ],
+        [
+          "a64e4200243586d64cb9b9712a865967227e21ab59f40b57f92d627d4395d2bf"
+        ],
+        [
+          "1b711e32f4881819427e926671bfa7761cab1e5930abe06a486935219a90a046"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "97a34a4e0022c2f1ccd1dc515605d0261c8b5c8f8fee51fa0fb9c846ee24d3fa",
+          "f91991e8ee5c120b5f7763dfdbcc6046cc8f3f1ad9d4f3097b7f6f67b03bde0c",
+          "56b9a2cd27e45c3991a9929e6934e0f5c6a8ac1e4a7a1d2877a8ad086a4caf7d",
+          "19f9942fe25ae8f0741100c89094533c99c4fb0c0affc3367e5f08c6025ede04",
+          "7603257be29a9f2a9771d76344d8d83be48412a92eaaab4ea441e362832b1cf1"
+        ],
+        [
+          "81963c1cf71b130d32fa6b1269c3f015f1ad4dc1d1ffce305126d555feb21e30",
+          "340ad9bc63755762472ce45127be190a7d782d512d19d29d6170b2cad3c05b1b",
+          "458e725f70e2b321b44538f22299b053e804e5a2935d06b2a7cda23f91aa5f0f",
+          "fee15ac94c14d67cd5b85e33e471d53e1feab3dc01fa943095011f6391728597",
+          "c0dd73802ec36dae802fb9f488bea70bda2ed92743e8d811eaed2588c2b589ab"
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          "a793ee3554369a5785b17a5ce9e27e646ca8fd25c34bac29dcafcac0141b77df",
+          "df4062e768c17f113a1de42a6b3e781d1767feb0a3c67de2614cbb2f1823096a",
+          "2282e0d02ea8c3c3cf5c6cac8da37faaf8a0d6275e1d609b95213e2f4def2918",
+          "c512755fdf3fdb4ac7864eb5698aa0d0699f5755253fec148cc5247b2ac6e12f",
+          "d69a192b976be2ec77cecc83d0a5a67f76d04b398d0d49631c67a9555c9c11fb"
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          "0faff4ce717d57d798c7fdac9ee8501a16079ad5affe021fe00438f5f46f6e86",
+          "762f1e7b150791e6c43e4aa96b35be4aaf133ce829b7f5fbd8fd28836541341b",
+          "8f1818fb723db956b6906336449cdd04f7f253a5059a8edcc3123591c4bbbefc",
+          "b762896e162e6d1b874479728182972f3d4a4842bdf02284eac1a7081450c997",
+          "fa288bda41349e343178a12983827f16fefaec2290c26a2ae580dcb03f6271df"
+        ]
+      ],
+      "element_hashes": [
+        "54dbd67a447e9fc8c1babd0e0b65197534f41edf6c9d67dba42e90771116ca06",
+        "e3124392714433d5d4835328bab606b93b43d86efb61cadacb5c53807d9ac0e8",
+        "e6797cffec5348e86278a0805f8da5e9ce554eaffca656499f1395886c6bd8fc",
+        "59f63d4ad83c4c625570c8abe94ac27c3903d9746ea37f481a0a672d9f49bd63",
+        "5c976727c5f912fc422d97fe75c895bec5a42d9837e340e062f7b9f3bb9f322b",
+        "779f6638028738fdad7537b3268669fa15a8ce42b9b0d774575582aa38c5db7d",
+        "490be0bd42fc43188b1f62e0b5c513158647f2dd5fdf89e417fc5dbef5bbe517",
+        "e12444837348e921cbbd5e061c39d57137a65e53741662d30808c322eacb8d42",
+        "54228f5d93c77217cc2f9dc96d5ac24aa4d0c351a8831ee670b7c2c2da7524ef",
+        "8e7b3bd95fdb77cc44a934f9fed0cea59b00ad36cf4e84e94528390076fdc47e",
+        "23b20c41aaa14eff20cb0e47468e2aa6a4da0cfebbed61327f4c95a951c9b3ac",
+        "271d642f3287614cc2a303cccfbade5a5505d748a80aca2a94a07473ca68338d"
+      ],
+      "hash": "b7a168d9ecc159856ca17a5d55a3ac46176d148977d06f62080f04c75fa2935f",
+      "kind": "array",
+      "mistakes": {
+        "05ab0097f5877f47fec3a44991b861d0dca6e3d41092912d5c91affb72698353": "une forme échelonnée ne suffit pas : annule aussi les nombres au-dessus de chaque pivot (retranche des multiples à toutes les autres lignes)"
+      },
+      "shape": [
+        3,
+        4
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.26b": {
+      "decimals": 0,
+      "element_hashes": [
+        "4e2a3bec63eab5792b980d635fcf41b93c7fafd5c89fe596cb5739bb7896ee08",
+        "e9039a6636b077d65bc3ba272f3af8e26f4c9a2e43c5fca4712163a1f04dc5ae",
+        "e7c4d56a623699b509f77adafef24d1d9cf7d263c05bf879f1a23f6a9ceec9ea"
+      ],
+      "hash": "8bb6a4e6acc87ce5121975388e8aeafd69d6e176fd809c3ba263382901442c69",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "e3ad471dcfbc121b0b1b3a06df93727203a2a3280d24fb31391f90b5a752d100": "rref rend les indices Python des colonnes, à partir de 0"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.26c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "ac3491ae10d03100276099e7df16d868325df74fd0e74b76d1924f70287030ad"
+        ],
+        [
+          "8167f89e86938b5449c3fe72b3bb498b70462fbfc2b486f4d7ef45c7e1896027"
+        ],
+        [
+          "e1ab8e4afc80e3b3fcd92c342e21650a0e0214ff0b4729a12d2c75373f29ebf3"
+        ],
+        [
+          "9d0b64f8507c83699434ea47a53e40465fa69bbb21e056d9ee8fa7f8f00ac75c"
+        ],
+        [
+          "987dc78378f3ad23122f97db292494fe9818a49f38e48bf6bac80946c80dad55"
+        ],
+        [
+          "9369b5b50a11a8e2be58b6fb509f2b0950359899079f3bf3ba3e5cacd0b099c6"
+        ],
+        [
+          "ccbca3505b6e25eaa8346891165ad74a87a04b6be834acd1027a8ef538ba6b7e"
+        ],
+        [
+          "8a74fc11f7e14def4c55fb1581d76bdfe74d84953614ce8d671af678ad9db8b7"
+        ],
+        [
+          "e716824ee831d30699d09fa4a9c8fc7b9c9b3cf713922dd13e74000b3f468eb1"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "626ab8ba758695e7de6ac28eb28a0bda2f64ae55c31e90e0ecf48998329ce352",
+          "78fe468e008ef1f4dc0febc98678a05c307e399faf5ec713f3d0086f6bf870f2",
+          "e075e2a7ffa9363a678d2184601b00e2f9cfe12aa1b2a6c5af14511a0c17a5bb",
+          "dc5d1cdcade00f66da67ef2470d45136bc449fc4dca19dcf512d5654d7102354",
+          "f2d57c72d47fd6176bf8272dee63c0a72931a4debbd7c47671b3cc530e1f4cc1"
+        ],
+        [],
+        [],
+        [],
+        [
+          "abc2e6f317fff8e48e28e81dfea11796ba9894111300260c28d302a18408095e",
+          "1a9fdba32346eb427889990194af3e48127b7f0bc07ed79287e4bdc89585f15d",
+          "3a424014299e4f9be89ac51e35910378a8d6cfe0332f0ae6e49e0859d8b69980",
+          "0ec288b5abdbc1d25b29d658d978c03ad5ff417b86b2ca1562cdd5e818451373",
+          "af80bfc5ba3a4ed7792843f57a5305be87153c80657035e54b76b3847956c280"
+        ],
+        [],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "0d63551960b77ead5cac1fa40f745a8a7b907f563f8b027a25a93b55978dc978",
+        "039e478d5af77052bddd0b1f68414e4bed7280eb906307f5f83d75333d1e84a1",
+        "ed53895e754b9067596f3b4c48de5af0088ffebd7780b3f3c5c13b6ec8993d44",
+        "51fb310fd1751a6e4ee5abbd34c83b286858e44537a43bd3c34bb4e1497ec6c7",
+        "b52002706c87af89175d037d3fe11f9f3346e578636f4278963e7cb4c56ed040",
+        "256841f0bfdc335938220587847f6e4efd7395f342d4a3cdc29edf3f7dc82616",
+        "ca246e283a0251852228621945ab0b7731a5c78aff6f60a6106bd5945345243a",
+        "92b7f722370bf43dc41adeab2c681649baeda24a942ff33587decacc03a166e8",
+        "22052d45eac5e85d1b173fd1990ca58463f9cd465b0ddac3d0b3ea0539b936e9"
+      ],
+      "hash": "00e89aea82c0d6272865ed109bcd50114e2251e6777e3c7676ecd75012bd2ce2",
+      "kind": "array",
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.26d": {
+      "hash": "f3bf500ccac54bc42d47dd91b4df5666dc7221766dcbbc9b4094a2e5b6f06665",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "4f582f444bd3ec45f287b67e9d9d760413f0d798800132947bcc962fec33c200": "le rang compte les pivots, pas les lignes non nulles du départ",
+        "e278d4598dfc59594d810edf4ed1843b9e4df87b7e86591b876941871dd532c0": "le rang compte les pivots, pas les lignes non nulles du départ"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.26e": {
+      "hash": "e5b41476341b801340b643dad6274b7c1509c977b8762131abe2ab6ec171ea3b",
+      "kind": "str",
+      "mistakes": {
+        "41762c9220d5c6b45dcc90a15f744931da33bc3fcd5630f479445318c551ca22": "un vecteur n'est pas une matrice : la docstring demande une ValueError",
+        "5a69193a48dfc21265a9481de233503e23ca2a45479222899e1684619a656f53": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5f6c82ddd2a5e940185f753ea85443c4a4727f2596b920e747e3a6b38a4c0de3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "68030b36d6d6e38a409dba8dd4c066eff6b0864159465e794bcf0218507e1626": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7a9e07c22086365475d2fd15fb3b4f1568e0b3bc67f35526e3989dd5b5217b3e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c3d2fc547d7f392f7717adb82756ccbc6e914f018a7984400fd3ead80e30a83e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c58452c11d9dcb36e9d8e365dec46162cac70ea7bd99b3453eed3b143cd2f298": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d978a09cd0489bc4d0647dffd609b8f54766b70ecf0de66669ee90f912fbee8f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e2616efc6fe837964565541546291356b733bf6f6bbac053a4a1e76ed8a0ccc8": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e311a289412f4396e14425fe326c18876757328dd1c58f0fe2121b57f5e6cd60": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "eb39e75df53acc4ab35b9e2d320af15412a3505a79bf73e058560863398e9ae6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.26f": {
+      "hash": "5d1f14c2da2421af886a4db748cc3b9607431cdd3085b1512bc255a152be75e3",
+      "kind": "str",
+      "mistakes": {
+        "2f5fb6fe5522de20a54a662f91842ccab0023693ac327f50ad09f6717a3f2ce0": "la docstring demande un int de Python : int(...)",
+        "f5c1ceb393f5dd2b13b7ade742e9bfd572037ebf810c48b43e3bd9761952b86d": "la docstring demande un int de Python : int(...)",
+        "fecfe9305598e0b19d159f8302a86496a23765ebb260605fca2fd7451c6d89f0": "la docstring demande un int de Python : int(...)"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.27a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "9e01fe035b44b86c5da26f788e6060d9fabcd2e188f783f41165f490661f5136"
+        ],
+        [
+          "51798ad612ff6ad1b09454036ae1c1d66c02aea53ed48cbe0826d6b26d694b20"
+        ],
+        [
+          "eefcc3ceb81c6cb50526f735331fe064ef8905a31cc3a6d4cc56e964b895dd8f"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7da19eb9257655aa9116ddbf8d0ad00c01c8023a02f4d72489fc20dbd4482db8",
+          "409b0aa4e8ec3d39a02a77b2984ec74534b37432af38945a516fde2b8c7bfe96",
+          "9c6a211dd54bbf08d1cfdd2fe5a7973671db6f08aeefb3e600132a0cdd74e920",
+          "618a6d322b4ea5ddede7617decd51c7c2c05250a7e626e7942b1eb529260d25e",
+          "196f0b53b14715551987e638366c91452bcb267bd8c16b8558f677c8035a8f4d"
+        ],
+        [
+          "e253bbd15eb57ec35974ee88e1db50a7d55248590d6b6641850608cee713e6cd",
+          "0613a152e470899949ef4d93999a67ea0a87897fccd36022aef7cc5f70840bb2",
+          "8083de4e05761aefd2d63d4790a2fd198a37961f7bfbdb3be2f45f3648241596",
+          "9364bdb2423e4d79b30935fac42b3036b890a0eedc751aa2287b335780da5cbc",
+          "075a35168d05db9219d446f4c62b4cf2582f698f0d0e982770895c32c0119db3"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "a87e5454b91a916503f0301a8dd57706848b7399fcc6aa4f7621ca98f82df6a4",
+        "9935a5838122fe15a50a7ad49352199cacc566d1ada7cd9eef4f0b0394ad72db",
+        "4075829f02b9b63fb135614d427463297c47fd89b9db66a5e59d495e2204eb9e"
+      ],
+      "hash": "60f5a7d2b266350f09bdb9a23aca72e394a0efe75616632273a2e864fdf4f358",
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.27b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "623c2f89d9903ae762d205f6d10e487ed4ad04b6d873d07b701f1ad0d6b8aa0b"
+        ],
+        [
+          "6aaef787c3fc81271a18fdaf28bfe49c5a96b0c3e00cbd7274b601f9ddefef6a"
+        ],
+        [
+          "3768d682990d5b4190fa04da15929c98fbb495541ce1b83687bbdfa2e41897c7"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "88e305d0b314ec22b966ca2dbdb28b66090aafb38a7add8887dd2299c649e21e",
+          "109a3b835d635c11dcb5e0291c58c932cc736a4ef3a0c6f4873c0f4f564360e9",
+          "f7e84d1ffa263b5455b2b0d9b441374469c8145911c66414e84fd1ace366534e",
+          "c7bd613e816725101cc752dc357e369fd79e6d9974d82fa1982de33b4463683e",
+          "f8daec97ff4b82b49c64125055a78178ce67df8cfa8a3fc818c98897bb091d36"
+        ],
+        [
+          "7bca72c593f7ad1d83d5d849c21c06bd80e139dd90260b5034015d467b212a0c",
+          "be87ab7faa8ed744590c120d966832a0a13da4064a74f38dff49046dcf60c898",
+          "dbc2e1f98a724d612a458a5ccd4d44715216e0299f58a8156df236f60384fb9d",
+          "5b2467c833f71d142724fdef4f3070e38a68b6238f8a5d561f2ff0cbcdac3efb",
+          "728281004c8a696033bf442ef74f1efe151d582e1bc810646eac258fe7069abc"
+        ],
+        [
+          "a7381d47aa2b6bdf76de3b5f346a5de845d8f0802aaf3663d7b141969c3e8f71",
+          "f4e46c66a1147e2524aeb983cbd329e27b94d17b9c60d0a1883af180dd1a8f58",
+          "535e85fc8adbe8ab1b47ae93126fc104ee71ad864eca4116490eed261237c00a",
+          "f6b3726cd6855d451bf96e6011338a6820ff3bdc1bcd7aa7437b0dd4dcbc9eb6",
+          "74659ecfe321734ba6959e97a4d9ccf34e85ba96054967bf7154ddc54c923363"
+        ]
+      ],
+      "element_hashes": [
+        "855328f3e6e140faa92ce2d70c80f2cd0e6afdb64fb8b86cae29be4ec17c2d5c",
+        "275512bc515e18ce94954f7d3267d912093543281bb97cb900b403515d116d35",
+        "088387309ec93df53dfcdf3daa71bf8546e32b74ebc155d6a7512e81ad4288a5"
+      ],
+      "hash": "f74beea179d1e39887adeb365e96fea8305086cd5ce9a7926e25ce224dec4a81",
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.27c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "66e7bf0bf2a9188673376d31ee50163554e535d73e3d753f9d1c76f6e99ba05f"
+        ],
+        [
+          "aa6f715690bc49c445bca2072c6fd5242deb3a6c8595f5598ffe161f35976fc1"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "925a11d3d3a22b025d3e725e7510fb7349be629c281a537a7378eb9d49682cec",
+          "f7c9d696d0fada9867b9dc72b612278b38fece07a2246ce5f72e3b69418a5f9f",
+          "de60f2354c88ff4a6dbee25ea85b90d143f7bbae110a4fa479840460d443865e",
+          "6d0a94d8d3e273c939ef1a469f12f04c68ea69d28596f8c880936ccdd9b3e176",
+          "7a1bebd65a8a035e0ebfa614b9d983aa5d6cfe9c3cb459512b7675b8790182e6"
+        ],
+        [
+          "7485b2df33996831ae54532a04c30d88ee42b7fef3d45fd7b779a69557b2b979",
+          "94331613a192486028390a602266e8dc4502bd47d1243c946bfb8d3decbc6a55",
+          "5b9b3ba5c379ee154b81986f141a771920bb0b894b4b13d3c8da864c4d08b280",
+          "5c58ff0dcc966bd66ad8b71425614cbbf4a4052bf835051b2d92518a135a895d",
+          "76a85407446cc514b23d8a33aee7441cf92c042f45bf39408b401ce65f50752a"
+        ]
+      ],
+      "element_hashes": [
+        "412ed10a513b03ef56835e3b190fe5d7b852ea3567b97c53da6787846726e3cf",
+        "dcba99a09044ef74e4164dc71b5aad2492bfadb4898e52fed0c6646b76151783"
+      ],
+      "hash": "07fbb91b04ef75386522ed3dff777e468d37f5c45df990d263089580046f0650",
+      "kind": "array",
+      "mistakes": {
+        "2b60452e4b1c2c41097b05bfa0b47a7528c6198ae5604df3be75f8d38a74ffa4": "le pivot 1e-18 est minuscule : prends dans chaque colonne la ligne dont l'élément a la plus grande valeur absolue (pivot partiel)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.27d": {
+      "hash": "eb1b7bd06a6da05c48b80cdc54ad6c1c98a4915c9dd0e76679401944a87a7246",
+      "kind": "str",
+      "mistakes": {
+        "0fdf11c3694a17670de634ce4563fc2a8bdaafbcc64dfef29887cdbe1ed1cb95": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "1ce9dba980518dffa5bd40f97c84ca4336d17f1afb45613da7abce8aa512920c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "2fda124d4762e62336e7484bd6217fa946273ddda174274cca3aa738af2ee325": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "33d37a7ce7e5a490359ea1309309609612ec7440732940656edf961294b0fc96": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "38a655c22098168823dfc15944dcd5257be7f8d13cf1b24b422e800bf0a6b55e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7e4e8ad193bdb9681a95584b3d1ca923c0dd020b7b7727ed0667e2bc41dc825c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9bd45c035f14fce84bce35bafaa3fca5c55b1f45f59b78f40d95b332f82888a4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a6a560b2f91279f6f607934c1cd04fc6b5fe0b240b4a9af9c43d2a246052fffc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d719ba4db592aaf7577a72aa345385b6cf2c58b30e55dc944501468faa21846e": "cette matrice est singulière : la docstring demande une ValueError",
+        "d8ae60c5df5da5b1937494b0a6dc8ad2061a04b844a6931fb5445c8a705afa07": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "da6b047184eefa207cfe7041745037ef783897c3f137bf0b976f1e8dca2c576f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.27e": {
+      "hash": "167e9b91e3808a9569f1ca346fb78ffea544e29ececed0823a0227a94fa50f26",
+      "kind": "str",
+      "mistakes": {
+        "0b886c12f7526ad1ec30f767cc6b35441bd69f890cfa6af1726b54a5fe1756c5": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "0f725e6c9740d2377a5e725d2d1d6aa25f70a24b11b95c3c36009fe5e9ccb16f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "3fdf4c667b803418b76d5528bd04a014076c295603fc7b6fd5bdd303fd37a1b3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "621a84b4f351a01dc53c67bf06cefe4ff264aea16ab8396e83d83d7f50614d8a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "834a3fd62f2f3e09915be41f2c44e35bae0521facabce49220bcc25d03d4df03": "b doit avoir n = 2 coordonnées : la docstring demande une ValueError",
+        "92f414ffad17686bf0b2b6e42be8ffb5ae9ecf239694fca43a9d1f133184baf9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a6b928c61b55e599a454d099f4ad39c72fb143de0666e3479d4db5f6c21e56f9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b25ea72d60d436ab21fa55800331d310a899c4df3f3ba387053013d51db9c545": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d200d9a11abf84e2a3435059d8cf3d75b5a3098d8bfe690f35a48a779e6eaad1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f247a02f42469aa0434288a0fecf8c9df68ce7e07736849ea0526440005a5924": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fbc8097c6cedb8d68a6f43edc40a21a498bfefc23f66cefc12c7365345a7afe9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.27f": {
+      "hash": "f165a3b56d589f378f6ae476485e172035837e46533e6d10d1a34ae4e1f433d0",
+      "kind": "str",
+      "mistakes": {
+        "104328955652593406af5e57eedae2fb23a094a49ea38fbc365b1c6f1773763f": "la docstring demande un tableau NumPy : np.array(...)",
+        "22dca676dc936ed822e871343f69cc2c5117820bfa0df75b5902504da0fb675b": "la docstring demande un tableau NumPy : np.array(...)"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.28a": {
+      "array_rounded": {
+        "1": "fa0122461e8df4ceaa35d5a32c78befaf24257ac609be9cfdacf9533ea67eea9"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "2332c806db8db09202f35076682fa9949a0153faa57c9fd090bc660d772b8985"
+        ],
+        [
+          "4041a15b7d95e95d66bbc17d23a28fcaacf92e5ef127a0caf18c598246015818"
+        ],
+        [
+          "435fcf2a2dbb7b1ffefc2ee5f45145834ff8528f54b5d1227438a2bf14449cf2"
+        ],
+        [
+          "a1961e4e0fd4de754dcf19187bdc99443db93656efe72f03b0cc8f5243907b42"
+        ],
+        [
+          "eae3987b2a27c426197027a9bb769b868f8e8c14a670fc15fcde72b9917cf511"
+        ],
+        [
+          "af42de62ca3f6907cf186c5c01039aa7ad094c0276a993f65fc08d9166b74f03"
+        ],
+        [
+          "c79d6c55ae4aa43243974845b895dac16cf4c167b8ddac72f507a65919ae0cc2"
+        ],
+        [
+          "0863aa4bf8e095ca5f8060ccc06811d85980f9e5b01c97ac6c306822741b5c85"
+        ],
+        [
+          "642056924e448acfdc4a4e7a1bbac627226170d3a3516a42227439253794aae5"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "553c37bba8fdd1efc9bbc98fbc778348ceb2a60f04611196a33d73e8fc720b8e",
+          "c6283c915fce0b0d8a632106c61f086fcf7ff4755a7f0e946b03d78015b4a5ca",
+          "5f3a7daeb945972dcc05421537381a27f696bf91d39c9e230391bff4947b0c46",
+          "5d31a5e6ab99d55ac7d355de61de49794f6ce5a4ae3737fcc87d03d508cc2bf0",
+          "248de7566c555d74e587d6d5ba8051f3b4ccc7a4cc535635f456eb8f8f2552c1"
+        ],
+        [
+          "decea281155d80c75a696a82bebacf93717b216b005725b46d4647ec9033d102",
+          "2c13106ea44e52b2303552c13348962ecfe313050e5af6eeeb5c77d58144d30c",
+          "dbfdc65af79cd419dde0712211d5d72998c1efbde252c9cb5d55ccec06d8b732",
+          "5c0995e04de91f43e1aa5fba0753ff684e8b29e33a4448f5fc65d5145d8a9400"
+        ],
+        [
+          "660e7eccbc20dee9dd9bb99318055b1d9c9e1c415cad529917c3df826ababcfc",
+          "590ab36c35a4756122fcbc2064950db1694c54a107abbfcbb8702420527a24d4",
+          "9e26be312793a85747fdc65024acca6a664a683f1973633225efb4b3e2fcfdc1",
+          "fe75359d0db91cb3253e4c4df0b9d0ea5f5f6a6415171b324b56c3b94149b8ff",
+          "8181cc612208114f3fe2bf2a29991f1897a5c54d86db65a53a2edb5f0993ab5b"
+        ],
+        [
+          "33fbee3bc9d43aa543cd3336abeaeb30f220f16e58629e99233fa6f6b9b4211d",
+          "b9396a9b767172681507f2cef74e1b04e436fb5f5252ece3ba0eb36614cb37f8",
+          "88c39dc1e09fa6dd26b723da634c3014e6e7daac1836f85b9e89596e681b659a",
+          "f8308110339fa6c093bd9b819a4076b69ba714fc47dc5d4969c4c8e2902aab68",
+          "6c081000d9b4f29fcde91f165e24ac234f0a44e634d74f6245fb2c25c523f8b6"
+        ],
+        [
+          "26aaf1f9e84c30f0212543fd7e490ed78fed58083bd97d11bd2893fbaeacc836",
+          "4cc8cfb6a1cbc19fbdd1a173066728d6a2721d651bafba71bfeb1061c7911ae8",
+          "e1c472b449cd797bd8a0d7a4d958757881440955946b0f03bc977b80425ec9a9",
+          "b1b5c69547abd9d818e1eb6feb51dce028f16ad7a278318405ace0a3d7daa969"
+        ],
+        [
+          "96046617558e7eb65b9c2cdef2b35843fed7442b9f1b39a9a8c9251d329a65f7",
+          "abc28e6d76bb3bd254c31b7975c2502ea9216ceea27a5d0a890988ca4fefe90d",
+          "881a4aaecddb2cad9d84f5823a1ab9f5cc073fcfca12df3e71ac811fd127ef29",
+          "b6cdd2d10c5a8e67f9f4b04625c0126db4d4cac3b3a62e2d2552587b0a7b1d08",
+          "a0b88ff35b373bd6915fd86612da8db20399f3eacd24cf2a672b478990854bdc"
+        ],
+        [
+          "8beab4d7107f2c4871d30b006c7f0914cb2f00bc6aeaf55b235cc18df72fcb29",
+          "3340090ca66aa1abb7849cba1c72aba22634866d7812eeb3a72fe1926b2a6b99",
+          "457a9935bb4ec90902c6c59117e3283a52e01fe6478e3b53d986cfc1e6d3e7d2",
+          "7790241901b0de211329d094e644606a57dc979331cbbbd6b680a2a91b3944dd"
+        ],
+        [
+          "5ef49abc98c2f8e75800c9ee6e560dbf17f99f0a001ca8872f37df049b3c1a5b",
+          "611284042ca7f70a3066a5c85906c589c80614a2366fecbf746d43a8d3e1aee1",
+          "058a85ffe02d402a18335b355df84e5ff83529294269893b2dbbf1d34b8646db",
+          "3da8790738016f9624f5b31c3dd4874c423906117a8048d725db37a7b08d618c",
+          "e4ef3c2a0b1ae9603cbd8df1b2f009f80a646f7f65f906df32bedfb3dc0dd95d"
+        ],
+        [
+          "200830c5154120940080d3c036b16b8ac53ea6d76ebe4c284b75c4f60f9a107a",
+          "f14f8f70447fca5ed15c8c2305d5fed1c451aa6eef1892773db7cd9ad19c6060",
+          "65c7965c841c6fde22fa799ba548f7d5d9603ea3ec021e5cba026314aa2aeecc",
+          "b587fa082dcdeef3a3fd654ab4b1e2c8608d2a0e6a6764b79d5852404beee70d"
+        ]
+      ],
+      "element_hashes": [
+        "e0c8889b695eee5468e71d650a91aed4cd2fd256ff1fc09e629d731d4e837678",
+        "5a29b86c6e47f323cd60bdf2125becbe176147254738bb758921aa6eac8a2a1a",
+        "5e5921e9c837d9f05de9a742bb07243b1b331fd9f4afd4b7e999cb8618704e44",
+        "12b58161ac45bb5fb274bc0ffacedafd3ea2555f48425d4dc2d6465be506dbd6",
+        "9e66198d0f11fef117eb407b8f1827f0004fd5b7806a527c2303dbc43dfb4e55",
+        "d14a0631e0d8445206fda28d608652ab2431a121c8befa3b66b65be9da2b4963",
+        "dcc1137e2ecc5682ff77a39e59d52ff3d465e274cdd6d8f112c91d3d3c4fb2d0",
+        "677f1bf9607e9a0f90892d469b2f95a879cb8ba7e31788f96696b67e66b51127",
+        "7647d43486dfbefa80c1818456d6abb0aa8dfeee14a49cd21c2f9497f42af4c1"
+      ],
+      "hash": "03f1c0821ed1eea5e4279bae0e471b7642522c7cccc555f2b50bb52b875ed598",
+      "kind": "array",
+      "mistakes": {
+        "c07597bf87f01b58f48a8c8d8edf9a8c5907a79440e3cae963cce0c3bb6e6fc2": "c'est la transposée de l'inverse : garde la partie droite telle quelle"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.28b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "1ed217207f86dd07fcb34e970ca3c7d82d8618666a6bbb8611ef7903f6b23e5f"
+        ],
+        [
+          "c013938f1951ed020891fe85928de8e92a97ec94ce15e64dffbf7a8838e53532"
+        ],
+        [
+          "05655662daba0aa349d529b9c72d09eb2b7ffab5540a67897240d4097bbd667b"
+        ],
+        [
+          "45be171cc8525e9ab278acf7a55e9b2a9da3e8226eaa69bc83b490c3a0a8643e"
+        ],
+        [
+          "03f065d88f60ae5ff8d3879556c3d9236774e4fcc6715dcaa893cb6cabf3cdb0"
+        ],
+        [
+          "28e527337001ffb2b91a366bc3748c124e29fdc42e927d77dd9191b8ef47a8ce"
+        ],
+        [
+          "c26700d41e2311cc1854c3d658e01e76f71cd2d77bca52f5359f4c45281abeee"
+        ],
+        [
+          "5b483dec502231ba7b5510fe59c1cff9057e0f1eee1e59331d42ef766b79efe9"
+        ],
+        [
+          "ee3468bcbab0bead6a7c131c712a3456b2bc62990bf91afd505b38d9adf25dae"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "c39d2af4ff1ce7fdcbed0691c9ec650f9ad6e65e441be786ff809c36166db52f",
+          "95262b7c3b7d9c04cf3416c7b530e0185d2da9c3824fcc793c67d64301270c9b",
+          "3ad5fed3eb796d3210b5697b6ec7665ede6f1056f21c31560060a85c900f6621",
+          "ad1bbd9193af410a9ab13d17a7869f562698bf7d9d48b613bf243a442c4f6b93",
+          "fefe3f38ba98ce46cce672e267fef89f6bac565fb7583cd016e5dbedfdb68e7d"
+        ],
+        [],
+        [],
+        [],
+        [
+          "6b27d95ca9abd108e84bd8e604f1096d4938942ae7cf70d3481fb3123167ba44",
+          "089a375ac8e7116109d8ede655ce867da70dc3ce96e4e7ef346f973309deb81d",
+          "3809159926f5dbc6a17c39c21d5bc44587bba44ded4d3a6a8109454c60a2f512",
+          "21893f25feb7331a1fe054e4d2c61f65345b7f19b75ee2ae29110676d4bca828",
+          "af82f4b8a643687e17dad56c15a5452007452f47f8c3d64c7f85f954acd51ef2"
+        ],
+        [
+          "695185b7de798c9f4eac3f9ad6431e1827aafa85913cb968f4376499af178de2",
+          "c34fec63ec4df11d31b3cc45b4351be368f27c67725d15fa7836d77475ed6987",
+          "e3d9aad0a31ad26040facb3243f8c3332e50960320de5d5af0fedd06be0f5913",
+          "0afa510df3a927f2b562a16a9038911c3192ceedeec13433a64cdb571221bafe",
+          "b661ec310e3288e050b4605b30bee606ae5a30f242f2d12d0a0a45b7d050acc4"
+        ],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "0d70f9ec28b5f5c1c9304c8efcbd20951edaa8ac50ee5ffdad673e985fdac242",
+        "4624e853586aac1776e399bb51b65afc4448f8a64764f14636311185df1f0c4d",
+        "c24fafee80f269b2be4949b7b93602c4279d9cc6a022f36247811084c749f1da",
+        "87756e86388b50809c3f18494e5e924eba2404bed8f9d7a26834614acc23c5e1",
+        "6fc256d20201f0bb0b1966f4c9d6b0169537ab334abdfeda4bc806d423044efd",
+        "1df9565a3b2804dfa54e0e2f7944fb1c5abc47eb500e44a9e61e0046516a454e",
+        "2f0066d61bdc841283382d969b68ab81ee429a9b27d1a9523a9a9a400848b307",
+        "5c010b327e783070d6af195357d47e09eca85bc1d037bba7f56f7d123656801f",
+        "c238b74ef891c87ddcc1eb7be3f347af6d149a68a0325bb905d8378c0a825784"
+      ],
+      "hash": "2c4c647c09d4729f032a9cc9bd68f6d76e9c8889d32a8ac16469f01101c49418",
+      "kind": "array",
+      "mistakes": {
+        "12c7288c405b47002b6970dff48494fc496e1224793e87a5acf5c0ca3ede7185": "c'est la matrice elle-même : l'inverse de cette permutation est sa transposée"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.28c": {
+      "hash": "3be2bd4e53d8fd4180b3f0f3caa48dbb3ed13929c6d6ed4cd7a5b455e9c58404",
+      "kind": "str",
+      "mistakes": {
+        "0ddef0dc3adec6229b5cd5a64ed08343d1d789810985b14e22fbf15cc12f7402": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "310441b5e320aac6979a2237b302807a3cb4333235ffff815cd16dda511861cd": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "31eefc1f44f958c31fc826f85a32320bcb0bb08ec46847e90e035a8199ef56e7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "454308cca2716366daa9c95f9387f27ab3953bfeeef1122238534de3d20d64dc": "cette matrice est singulière (une colonne combine les deux autres) : la docstring demande une ValueError",
+        "63c58b1bb436796035a037c1964a0b0f0ecd9d28c0a2d3a556e67eec67b3d8d3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "725dcec26304e496153651e640a1559e96e5abb6d0cb5d8a0744bf15f40b2622": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "761bfa6ddf86b4b47e6a8a4a3c8bb7ae7b50e82cf926d7416e61503a06021870": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "883f26ecb0534b1c85f4ce451989e871eeb46e5b1d2d6c658fb6eb15b23c7bc6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "88ac931e779f9bbe33e0c23560d6555007a7ae731241113cc3c07493c4951bc1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "89c9ed2d99841fba431c94871d898dbe5f71a046392d158400a24bf862946469": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "bbc5a5e6989fe8a7c2b64691db1bae73fcf0f19e9daa91351c8dbed2735c650b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.28d": {
+      "hash": "47c923cd9ac156be1ad445c89cd2e7af2ffaeed036e5927fc9423672ab765378",
+      "kind": "str",
+      "mistakes": {
+        "12652f0bc6a65984987e347a7efdde755ac8eeb9b4cb0ff42f6bc0412190ec35": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "244947e679b2b20935a2474f6f4649ce81378ea4e74cc66c29a018e60c3eed24": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "2ef7733129593029489e4dfbba7acab6948adde9d2f61f6cb3823e9c492330af": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "745ab2d9de03f891c00464997e54e160b32a4f54f4cff956aaac0a597e9cb801": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7cb6d1f41ab9ab2fdbd6925491b6696dbe2d78ff5a4c66481495a1d3defcc411": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a69ae3c6130ad038b76a6d434b5b7245ad9edeed812fe3881a1d3e875d789fb6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "adf73eb19fd16368a60ea3c8661050d999e3584f780b18c2a0d5fe8cf5eb0282": "une matrice non carrée n'a pas d'inverse : la docstring demande une ValueError",
+        "b4259b8a9fa5e542295e0338873d8fbdb1d59372d043aee84a0b52ddb22f3409": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c1e7d1eb35f5d0d5b8dbac16dc0be7026f6593b21b0cc225eb1875f131dcb58d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cb198ece4c6d0317fc5a776c4acc2d547ce58e9f4d211f118e273b95c9306145": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f71e67408da399dbcdfc17108ce420e041ec58b40f19d6ee1b8383839005bf06": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.28e": {
+      "hash": "a07bc09f9fbe0f6423b3075142486136c6e95502586ace9859714dfbe7ccd2dc",
+      "kind": "bool",
+      "mistakes": {
+        "44dfb8fa6c0717996ae52afba0160779f1e945f2949163f23d3ca7bb11c2f177": "A A⁻¹ doit valoir I : relance les tests de inverse et de matmul"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.29a": {
+      "decimals": 0,
+      "element_hashes": [
+        "0959f598a4bd3f101afdca8c28c9975ee75b4039ee9f74c4702237326e58803c",
+        "3e9484a8f2daeaa85f8b722e16232dc97b9ddceced5d778b89f43146b9222ebc",
+        "39c679843000498af013b95bd68205f5690eb4be6b273078a1474f6df3873b06",
+        "8fec0b4e317ea9313b518b795fa94073bb580e1743d36fa66bb36b21c9a7a76e",
+        "fcb0cfb09796a26f6cc47d3845562e21b95aa8b0a51e45ff700c5c8c60875262",
+        "bb01a425aba8588e3b83b3e93650d9f7ef1c8aa452d19e6f0e24738c46164fbc",
+        "034d9a3cfe4118b71b921086de5e3b9c45e3c39b3fd9c03ec0225fb86991a20e",
+        "242865b964804bb05fcd6e0e19f584e9678e3f17e71754c76825fe5de4d79d11",
+        "49d3842d7cc03483a2067fa2db1e74bc7e9d13dd90fdd468a00babff6e97fa92"
+      ],
+      "hash": "9bee029f0fdfbbc037fbeb6f78dc43c54698a9cf1ad35ff0aebc93dffc7e7baa",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "fd2645013a1a391b5ebdd3fdacf67bcec80e6eb465849566cb041cbf7c2aba87": "A @ B : A à gauche, de forme (3, 2), fois B, de forme (2, 3)"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.29b": {
+      "decimals": 0,
+      "element_hashes": [
+        "cd3b0c428942393e4be204d0fbb2b996cf5073014a84c9b556c01942d9f604d3",
+        "23e0e8ef01c0e92953c392f4e1f0a8798931aa346ef2e5444c7b28a4b9d96c1a",
+        "5a1bddbf9dfbbec611ea6c37378f551065c951f7c63d712fa6e90428c6a5d313",
+        "58033527776a5d175efc3ff144e7d17acb2ab05af4ea66c30d04c87496853f3e"
+      ],
+      "hash": "6a5d9a93128bff936269ff6e01809feccf3d2391bed3338f8ad95c8a39347ccb",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "067e2180b82c4ecccb055c37cc299665da4827ad97340dcc79491b1819e32317": "* est le produit élément par élément (Hadamard), pas le produit matriciel"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.29c": {
+      "hash": "5c25e4638b951de2f3bca7c86902d87190d07394feb07160fdb035e8e1c90aac",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "99c9b38639c5bd807debbf799e51e94fafbd05ac808740970b3e8a70a63f7828": "cherche une colonne proportionnelle à une autre, et une ligne qui combine les autres"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.29d": {
+      "decimals": 0,
+      "element_hashes": [
+        "1ef72c278fbef2b8f89f5fa3cb07686e807133d6d16b1dac78810916bbbbaa89",
+        "de281ecb26045e0d7f38fbff34cfd2fa8ed29161691146a88f2b7e69ce5a3e50"
+      ],
+      "hash": "a3d98504d260403b238ae5c1a91254d8d6f0282a7e3273570e53c0b9a29cf9b8",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "bf39b6dfbfea61656d62658bec3ff11207129a028ee0b932d1a2c1529ab9d5bb": "rref() de SymPy rend des indices à partir de 0"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.29e": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "74c28e70685950a0f2e648fd271e155a22412140963e16f4e775f82a6a5a0572"
+        ],
+        [
+          "2cfa467e7378faf7c905d998f5c333e271905997e4c601ba488c405fd9599141"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0f988202fef41a58cade11c97b10fb9d404bd8f1cac451f63620d61cd4691b23",
+          "7c4fec255f86820d7b4bcedb0e87ce02e198b47ab8ef425070c7f30ea978a283",
+          "f535d126913ac4c7c9dca7dce1d192bc029d0a5b651f6c53db17373b520015eb",
+          "5488d04a5f2059706cc59b1842b804de610fef287d1ccf735fc95ef887eabf99",
+          "054602775526e2d5b334af18d519f1af5b5814dbf921398ddd73880d178c3125"
+        ],
+        [
+          "d52c98b758ace7438cbba83885ec62a54ef099f56b7262784b595209f421bed2",
+          "876a668c72170053542a8df299e488dd559b26f5e537493e74754f931490fa54",
+          "725fc3124b0b3be5ab5006fc64348068e9a6ecd0ac7999f3abbfe7c16061371f",
+          "3af6379ae31955927534fc97652ec069d7ebbbc90973cfa59ea569fe7c4c0030",
+          "243145d1cf022e4d7b4e41355ccc303efaafc09caf6b7c8b4e8e2025af84cb7e"
+        ]
+      ],
+      "element_hashes": [
+        "a414a889be9a6ee805f4526b68ef38461cc090d5a43b4701130d8c6ce12cef5c",
+        "35a747f0dab559b313ac561c7bd394dc867f38240464354f9fca489b8caa1132"
+      ],
+      "hash": "ff9b63ab12e85c913f537e15723cb69d6783f1de64ebfb40918bde951dfb9969",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.29f": {
+      "hash": "5dbdc45ced92245324a14c38b57e55c07252ed901f5edf5f2a7f91cf00c4f7c9",
+      "kind": "bool",
+      "mistakes": {
+        "4489bdcc9177717a8f6bd82a0e5f9fc4f8d76f157a3c82d1ac0f2501c703aa70": "relis ta fonction solve (M09a.27) : ses tests disent ce qui ne va pas"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.30a": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "baea2396925a4f91f1d67983fa2f1ab4ee90987f005b7383a0fb9059a02e41a9",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.30b": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "3472ec4b29ed77f82706c64778af5f6085583cfdafbaa5972e91ba35135af661",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.30c": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "756acd343edc8427ab4bf686344f7b25bc0c0dd81eb83d1c1c3b999dacfeb358",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.30d": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "524f6b308f1efba971f9cb40726f5f9fd1383aabb350c58ab4afa18b8e41fe06",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.30e": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "a8a0f392a52d3f5f4ccc47209bf9a3076679651cd50330f2e0ca432c44e654d9",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.31": {
+      "hash": "f5afc1f5e323e59a3168b729ecf51dad16b6736da2baca4de4f4b17ed4ef0fbc",
+      "kind": "bool",
+      "mistakes": {
+        "57389a488f5c74dfa0d6d5cb828433b7c1164a5c592a7962b46289584ef244a1": "la pente doit être entre 2,3 et 3,5, et naive_matmul doit donner le produit : la cellule de vérification dit ce qui ne va pas"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.32a": {
+      "coarse_any": {
+        "0": [
+          "666d9490a3176f9d89cac5ba9033293938ab5e92c79f40c87b9fc9ff8d888abb"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5c174883a4dbc6c0c77610317547e2efdaa7cd637a5a95f0165cb2f899563f5d"
+        ],
+        "2": [
+          "26b0bf2d00e1ee2537c2e1b1fb807ba4907390120ec5a8285a6d8b897404ad32"
+        ]
+      },
+      "decimals": 4,
+      "hash": "20038364d6645e0785dd9446fbcf03d9e6ceb672e964141d74f33ba66bb09ecd",
+      "hash_coarse": "b5ae2bab1a150606222623fb36a91b71caf264b86d96051dd48bdbaa1aed0252",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "cd7806d11067220fe0a8ecbe7a3ece7a010a256bef4554ad73e7438ecaa277df": "c'est l'erreur avec pivot : la question porte sur la première valeur du couple"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.32b": {
+      "hash": "b31a833e57a0c350c45d4e26945a633a9b291e449169f0236d08a54f9f0a2609",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": -1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.32c": {
+      "hash": "9e75ab5fa1e23a6607834a2a5954659a2e4f4d4e343b3ac50cbb572840238482",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "61f2bd2bd0fc3eae863218547d37030d0d8c5d59541f6e528907b38710ee0dcb": "compare l'erreur au seuil 1e-2 = 0,01, pas à un seuil plus petit"
+      },
+      "sign": 1,
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.32d": {
+      "hash": "144510c8908bf65cb6f9cf787077e4704fa1d2157b714ada503ba0c8eed07671",
+      "kind": "bool",
+      "mistakes": {
+        "cfdbd53dbe7117f4beb776cda46e5bb97d36fdcb5230f493f65c08d3f68fe3b0": "avec ta fonction solve, l'erreur devrait rester minuscule : vérifie le pivot partiel (M09a.27)"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.34a": {
+      "hash": "b3d39f5e03eb462398657df24e97cd21758652ecbf35156d1cc407bfdc9a5b6c",
+      "kind": "str",
+      "mistakes": {
+        "05e1186630496bdaa27a4d950b79d0b2604d51324c41331ce3b1f924c1c92ed9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "080f0f7e7cf0c67ad055f8dd53c623faf3c25a252edaaba198c161e47e56269d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "095f782c8bbfb517851ae395c5168429ba87610b142a50acd8f7ec6be1cbfc3e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0ba0972fcf7687fbd04229cd941dab1dd2f2c299aee343798c2f987578bbcc41": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "0dbca4cfc6c2101b1b0f83befd63df5e4e97fff1f8fdb420cfbe515560fa1f85": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "152396119c0235c675f573486888c7a887b19bb92ec0cb6de01f09c5e643c336": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque produit sur une petite matrice : produit matriciel ou élément par élément ?",
+        "1963046d2bed2f04b66aa6351978a492f7e1f5286fc8ecd1d07ab38c99b6d9f3": "il manque une ligne fautive : refais chaque étape d'élimination sur le petit système : que vaut le pivot ?",
+        "1b1af4ee1f4538c3e6f4733f5389c8a8a890297f7068201235be9ce17213190d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1e0d3a8f0b2380fb84912d8e2180bdea850856e29314fb5130e0fda2437546ed": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la forme de chaque résultat, et compare-la à celle qu'annonce le commentaire",
+        "2acba634ce5a132b483de03b2205f1cc8c02a71421e4441369616ffe58c9b5f7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2bedc1820d683c02f08a8d42331dcaac4ecd06e2a9dccf491be947c36542a352": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la forme de chaque résultat, et compare-la à celle qu'annonce le commentaire",
+        "3056e9771e334d6c68137811f2ab3209953f77f84c146e2cd5a8fde3045153d8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "309644b390c821d71970b09d5c127bbdc1592691238ab67a5fe42e97a8f77c6d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "30ced2aecf1ae3fb54a4dd940d981856378895b48a15a9dae08cd79943955f4f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "399da7a850c4a44186aea9f6e0da93a4d430ba01bcebb6a19eecbd10f2f2927f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4040ae41f2b16a7e5ce5677ab6b5488a07c7efd32ab4dfc48a22a82501bab633": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "409f67f4ce79e104815728e88cc24c5ed49d1136307fa5293e0457427cebc236": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque étape d'élimination sur le petit système : que vaut le pivot ?",
+        "4aa1aef9aea88d855ca9400bcda67c4024d50714f60ad82c965aca5a8c60a580": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "543cbd7867eecc9fb351de2384ce1d81223b74e00606dc1105e13c56a670be49": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "58a50b873078aa40ea987702823b56020a7db5b351de96dfe37c08bda5533e06": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5a451dede826b883a4d62258f5cc3eeaa038d5fd1ee1b404d04c417d56fd4692": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "60e4db9707f6825a83bfcdd5e28ce390985d5898a491e2912fe3f5be6ad6747b": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "61e3b30de96313ea8c610ea5f80a12674afb39f1b90455ab2cbb7f841a3fe7f2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6fb0d958d2a597983e14be45b52f8a6b6c32239e3f76cc59ce954258aac34d6c": "il manque une ligne fautive : écris la forme de chaque résultat, et compare-la à celle qu'annonce le commentaire",
+        "70d48609cfd07f54e77d30b8208db87f03a62162a15bdf31702bccdbeaf6f232": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "72935c15fc80b05a8b3018c163a44cf6523d6782e6e3f75f6e7164ea19c6ea35": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "79fd616a4bebf7f84ff70f11ab09dbcc7e426557501e80c8758181076aa31e78": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "85dd413788ea38d362957b4c747e30d44b908841513efe4490a554810a7dbc89": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8908c6873c89790b30b7cbd409d422e5a1264776f58306710806865dacddf68a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8a4c0cba90bee9c20f3458e84d301b3f2e0e30b59ba49a57eae528a813f36a7a": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "8d9b05253cef24a5f911778a799ffba4f437bdc014d5141681555152fcf33d27": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque produit sur une petite matrice : produit matriciel ou élément par élément ?",
+        "8daf52b5fd8db911eb53a08eb13bb7377571668a8143022bd383f7fbeaa4a423": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8faa4c0c665777cb1e29b487e3b7f99fa1d2ef44b2866d2deb92369c6e3a9649": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "934ebf1896ec84660f63dc98af93dec9987d078c564408a181772eb660c61c4d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "971bcbc1b494826ee01978aca03390ccf2747a199d479b2729b2c3bb876c2b5e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9ed2e26535d62d2abbd8b88ae9bdb2eedce675bd7d3c4feb221ad10bef6706a3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a48089189dee75865e88c4baafba514d35d25df5510c52a7fd22e35a1c1ca9bb": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a62d921c41eba324da6fd7522b9865e6c87f9294f722ea5de4cbbc0a63907346": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque étape d'élimination sur le petit système : que vaut le pivot ?",
+        "aa75ea886e3de01ff5a5ab92ac247f061651826aea9a220464c3cfaa0c8fa463": "il manque une ligne fautive : refais chaque produit sur une petite matrice : produit matriciel ou élément par élément ?",
+        "ad1654c821fd29bfb8c953b7991de186466f472430093d45e7c30198991e7ccd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b01a52bfbdfa71160b86f8ec4c1119f69904b09db3812a55a211f62da4338577": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "b0ba11c8222133cba6d7fbb72f67b296c003c9fe5561a6b762e8542c04d902fb": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "b31ecfe64f2c44d55adc8380c50f29eafa953511306a87c00341df452ce6eb5a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b6a93d022ffe77e1d3e668c53a894c768dc5963f4bd82e1faf169de45c129f39": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b7d686d1d8604d03ed946dbaf2a80302083f1c7a9efbf5f531e5e12f7f19b413": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "b89f0902280b225f1c62536ef2ce66e8016dc78862a347730bfdedef807d854e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "bb592133e5d04293a78b8073f02f7494c7aaf1bf0d3302c294037240f6c5e35e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "be3ebd6307120ae32d86d6d96fac251173d303d2c7adab019a3330a7b2529e2a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "cbe66d1fe0dfa1fa8188886729ceb210c784b38566361eadea39318d1c79316c": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque produit sur une petite matrice : produit matriciel ou élément par élément ?",
+        "d22737fb93a95bdfe8ab3b357f92714246218399e05c738eeb265b7032bc1af7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d6210fd645648ccb4e389335fbe026c065b9c79e1de8ebce1c322dbac4872ed4": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "daa5c04a9c477aab33aed26ccfae74e23b0fee3c84971e95fa77446abe5dd838": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e0bc78b20ba205160326cd02c6e1fbce0cdec63e97f2d488308b19bac24c40b3": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "e27fde390dc8aa7ca8d39022175f7bcc72cac8508e9dc0cb6853ab08469b034a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e5040d9f698f7f01d7715f1677358c79daf9b1870c55994fc34517ed149cd524": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "eda1bf9a18179129063460daeda1b549b0512fd0c9c23676f5517878f7561d62": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ee7e0b751eea284187254187634e84352747ec27021325ed2b98ba9be1342b69": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f485072ff7acefca9a1cc523ac9bd738c0ec268ced8de001b5e900b542eeac1a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f8aa184dfd8650ee6c292581a23e11c20dd068cb6b14fcda209e1a829b2eca64": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la forme de chaque résultat, et compare-la à celle qu'annonce le commentaire",
+        "fdfe912b7284d3ccc7a755dce973a33937457becd01f25d75875e57fb3e186c5": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "fe65bb480fee9e54866dcfbc4eeef42ac250fc320c8b535f43f690bcd45d36a3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ffc21e2161844c83f0d923f4f84a68ff6cb3abc0a9dd5aa49cb26a7d909b1344": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque étape d'élimination sur le petit système : que vaut le pivot ?"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.34b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "c3dea9cd88782f122c8dff0bce954e028ae73fb270cde9c94478a2e728bab11b"
+        ],
+        [
+          "abcfb6e46e7a9776f78277edf710194767e12501a708dc27d30921e2371aeb3e"
+        ],
+        [
+          "d6ccfd821b133bfb86d77beb46aa8039fd40a6ab621f84ecd512e8753bf57186"
+        ],
+        [
+          "032ba1047179f7a727214f1cf5f4588814f1936840fc9cc625d6d3436389cbfe"
+        ],
+        [
+          "de1c4dc72119a4e881962e56035a237aa3c5faee60b33e963fb7d0ee86d76a44"
+        ],
+        [
+          "31c4076f2f1870461f1b51942da86a81f1fba2b598566f91d702376621d09224"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c5eaaaf7cc35d007ec0693b82662ad04b878b76332a06ff52ed2cc0ab15527a4",
+          "bda0380277b004362f07a286934291012703b3d17872558fd8a992e66d9aa636",
+          "d426b8948dbade2d3a61acf92e1e1a0b7576fd4329a826f0bf545c7eef48e454"
+        ],
+        [
+          "c7a133c9470600fe856ac90afc0ebd1d5c618f282c82a81e480ee6abcb351272",
+          "77bd7a731980d02547f2b2e59621818b736963a68141aa2d6c8910fecd38c99e",
+          "32e30e032fe99072782a1138ecd146e0540fdd7319240547a2502972caed9278"
+        ],
+        [
+          "4e071aa58f72cdfa0ead051e6f137101d61022381e5b38b511d9f846d936dfb1",
+          "c04c891304be9a74456822975a79ed2f641394438fd9cb205c5b4172782d835e",
+          "907df5d91a3c660f4d905fa71f27d3149cd6f2dc2189f58844f3ea7823750615"
+        ],
+        [
+          "c01f4d6b2065cebf8891f1df19fd1735e04124d6f38d3a1220ebee9341721965",
+          "b634c5394dc8e35eb63f8a222eeb9207eb06851ff371ae92124d2b2b5ee957a5",
+          "6b33212c8e93f96aad5247246b6536c827034b21e42460a63fac88d98d4b01b4"
+        ],
+        [
+          "4a2b09ba95fbca6d13e9805b4378cd399d273e6fc5ff2645d940fe66e6ed63b2",
+          "22626b35737a8e09b6c9c3693007a49034d1bc1c4b608f76296be93e15a9e3be",
+          "39ef7558cd98eeb51d6b085cf5a8e65fbcd8f497fa2e5bd2b68c12dd4604d066"
+        ],
+        [
+          "9507c072ae18b8a1a69fc6d26f7cd3ef8e4f309e5b790feadaedff5443d53a14",
+          "5660f2ec741e3f65acc53e95d53a56e830f67c19c4ffbe0921128299b0357884",
+          "b88af6cecb682ddc5e6a4a58b09036689fcd0e3b5af8ef6ba13b10e5aabd8916"
+        ]
+      ],
+      "element_hashes": [
+        "26157e1dcdbbf60095fdc3c9be415954ecc441e549f34ca25dec753cb4f1e0c5",
+        "8ff5b75ab1d0248b6cb347df735fc7fbf3268143aea77644f53acee42a373bdc",
+        "897f902eddffab3ea0da738b39a2c3b5d37a0ba98fe2da9833f581f5af806d3f",
+        "08a2ffe858c437df9623884324e1ee03d844920f2d99474373c4fd68540d347a",
+        "69a1ec9d0fd251e343697e8d18e319690b35bc1df630d821119ede3374bdf070",
+        "12db39b9d03716705520458973224d305a8dcecf24f0ec295e003bc52c505677"
+      ],
+      "hash": "82a8736fd22f18a44041f5bd809420b076d3e245e89757ae6711d67d6ce7906d",
+      "kind": "array",
+      "mistakes": {
+        "0259253660de931ae015e137a66b94ec5588c18b569c66869bab32ca6bbf1e19": "(A) : le produit matriciel est @ ; * multiplie élément par élément",
+        "b69a5fcec5fea8f1ce733ed26dc1e8f732ea756990536a23a48ec5d0458e4e23": "(D) : XᵀX a une ligne et une colonne par feature ; X @ X.T en a une par exemple"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.36": {
+      "hash": "86db6a5bdc50099be39983d3b57cf328757dafcdae1169d0d8e92a9216a3a230",
+      "kind": "bool",
+      "mistakes": {
+        "4cec742059c9fa2cbc98971e4491f4f0211fbcc5837da176e6d5361c9b24d0c2": "l'objectif n'est pas atteint sur les trois systèmes : la cellule du défi dit pourquoi"
+      },
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",

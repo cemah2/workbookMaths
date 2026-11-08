@@ -1025,3 +1025,57 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M08.26 🏆 Défi : retrouver les trois vraies features parmi cinquante, avec au plus un faux positif ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)
 <!-- wbm:end M08 -->
+
+<!-- wbm:section M09a -->
+## M09a · Matrices et systèmes linéaires ⏱️ 16,7 h
+
+- [ ] M09a.Q1 🧠 Formes : ce qui se multiplie et ce qui ne se multiplie pas ★ 4 min
+- [ ] M09a.Q2 🧠 Le produit matrice-vecteur, deux lectures ★ 4 min
+- [ ] M09a.Q3 🧠 Produit matriciel : vrai ou faux ★ 4 min
+- [ ] M09a.Q4 🧠 Hadamard ou produit matriciel ? ★ 4 min (complet)
+- [ ] M09a.Q5 🧠 Les règles de la transposée ★ 4 min
+- [ ] M09a.Q6 🧠 Combien de solutions ? ★ 4 min
+- [ ] M09a.Q7 🧠 Les opérations permises sur les lignes ★ 4 min
+- [ ] M09a.Q8 🧠 Inverse et rang ★ 4 min
+- [ ] M09a.R1 🔁 Les systèmes 2 × 2 (R2) ★ 5 min
+- [ ] M09a.R2 🔁 Produit scalaire et normes (M07) ★ 5 min
+- [ ] M09a.R3 🔁 Moyenne et écart-type empiriques (M02c) ★ 5 min (complet)
+- [ ] M09a.1 ✏️ Un tableau de données vu comme une matrice : forme, lignes, colonnes, moyennes ★ 15 min
+- [ ] M09a.2 ✏️ Le produit matrice-vecteur, par les lignes puis par les colonnes ★ 15 min
+- [ ] M09a.3 ✏️ Produits matriciels à la main : formes compatibles et calculs ★ 20 min
+- [ ] M09a.4 ✏️ Le coût d'un produit, et l'ordre des parenthèses dans ABC ★★ 15 min (complet)
+- [ ] M09a.5 ✏️ Une couche dense Z = XW + b à la main : deux exemples, trois entrées, deux sorties ★ 20 min
+- [ ] M09a.6 ✏️ Un embedding : une ligne one-hot fois une matrice ★ 10 min (complet)
+- [ ] M09a.7 ✏️ Transposées de produits, et la matrice symétrique XᵀX ★ 15 min
+- [ ] M09a.8 ✏️ Le pivot de Gauss sur un système 3 × 3 à solution unique ★★ 25 min
+- [ ] M09a.9 ✏️ Un système sans solution, un système à une infinité de solutions ★★ 25 min
+- [ ] M09a.10 ✏️ La forme échelonnée réduite d'une matrice 3 × 4 et la solution générale ★★ 20 min (complet)
+- [ ] M09a.11 ✏️ L'inverse d'une matrice 2 × 2, par la formule, puis vérifiée ★ 15 min
+- [ ] M09a.12 ✏️ L'inverse d'une matrice 3 × 3 par Gauss-Jordan ★★ 25 min (complet)
+- [ ] M09a.13 ✏️ Le rang de quatre matrices, et les colonnes redondantes ★★ 20 min
+- [ ] M09a.14 ✏️ Mettre un problème en système : trois engrais pour trois nutriments ★★ 20 min (complet)
+- [ ] M09a.15 ∂ (AB)ᵀ = BᵀAᵀ, coefficient par coefficient ★ 15 min
+- [ ] M09a.16 ∂ L'inverse est unique, et (AB)⁻¹ = B⁻¹A⁻¹ ★★ 15 min (complet)
+- [ ] M09a.17 ∂ Deux solutions distinctes entraînent une infinité de solutions ★★ 15 min
+- [ ] M09a.18 ∂ Une matrice dont une colonne combine les autres n'est pas inversible ★★ 20 min (complet)
+- [ ] M09a.19 🔗 Pont : une passe avant à deux couches, deux produits matriciels et leurs formes ★ 15 min
+- [ ] M09a.20 🔗 Pont : centrer et réduire un tableau en écriture matricielle ★★ 15 min (complet)
+- [ ] M09a.21 📖 MML §2.1 et §2.2 : systèmes et matrices, en anglais ★★ 30 min (complet)
+- [ ] M09a.22 📖 MML §2.3 : résoudre un système, la forme échelonnée et le « Minus-1 trick » ★★ 30 min (complet)
+- [ ] M09a.23 🧮 Fermi : combien de multiplications pour une passe avant sur un million d'images ? ★ 10 min (complet)
+- [ ] M09a.24 🗣️ Expliquer pourquoi on ne calcule pas l'inverse pour résoudre un système ★ 10 min
+- [ ] M09a.E1 💼 « Combien coûte un produit matriciel, et pourquoi les GPU l'accélèrent-ils ? » ★ 10 min (complet)
+- [ ] M09a.25 🔨 Le produit matriciel et la transposée ★ 20 min
+- [ ] M09a.26 🔨 La forme échelonnée réduite et le rang ★★ 35 min
+- [ ] M09a.27 🔨 Résoudre un système par le pivot de Gauss ★★ 30 min
+- [ ] M09a.28 🔨 L'inverse par Gauss-Jordan ★ 20 min (complet)
+- [ ] M09a.29 📦 `@`, `*`, `.T`, `np.linalg.solve`, `matrix_rank` et `sympy.Matrix.rref` contre tes fonctions ★ 15 min
+- [ ] M09a.30 🔮 Prédire la forme du résultat : `@`, `*` et broadcasting ★ 10 min
+- [ ] M09a.31 🔬 Le temps d'un produit matriciel en fonction de n : une pente de 3 en échelle log-log ★★ 20 min (complet)
+- [ ] M09a.32 🔬 Pourquoi le pivot partiel : un petit pivot et les arrondis ★★ 20 min (complet)
+- [ ] M09a.33 🎨 Une matrice 2 × 2 comme transformation du plan : la grille et le carré unité ★ 20 min (complet)
+- [ ] M09a.34 🐛 Chasse à l'erreur : `*` au lieu de `@`, une transposée oubliée, un pivot nul ★ 15 min (complet)
+- [ ] M09a.35 🛠️ Tester une propriété : un pytest pour (AB)ᵀ = BᵀAᵀ sur des matrices aléatoires ★ 15 min (complet)
+- [ ] M09a.36 🏆 Défi : un système 200 × 200 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde ★★★ 30 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (26 cartes)
+<!-- wbm:end M09a -->
