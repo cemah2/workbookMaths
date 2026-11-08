@@ -24671,7 +24671,7 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "1010c0e02fc1975c336353a04d949a4f79d5361c771e98589b82ef286aba7076": "Bonferroni garantit au plus 0,05 ; avec des tests indépendants, la probabilité se calcule exactement, comme en b)"
+        "1010c0e02fc1975c336353a04d949a4f79d5361c771e98589b82ef286aba7076": "Bonferroni donne une borne ; la question demande la probabilité exacte, pour des tests indépendants"
       },
       "sign": 1,
       "source": "chapitres/m08_tests/05_solutions.ipynb"
@@ -25658,7 +25658,7 @@
       "magnitude": -1,
       "mistakes": {
         "3a080d3a277304cfc0d908dcde04fa073edfacb04c11eb681643eaaadcdf0aaf": "chaque simulation appelle permutation_test avec sa propre graine : seed=sim",
-        "be22037895ac2dbf00a11065fbfe9343969a2f145ed1743651de2414fdfae431": "tire x, puis y, dans cet ordre, avec le même générateur ; et compte les p-valeurs au plus égales à 0,05 (<=, pas <)"
+        "be22037895ac2dbf00a11065fbfe9343969a2f145ed1743651de2414fdfae431": "tire x, puis y, dans cet ordre, avec le même générateur ; ou compte les p-valeurs au plus égales à 0,05 (<=, pas <)"
       },
       "sign": 1,
       "source": "chapitres/m08_tests/05_solutions.ipynb"

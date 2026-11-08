@@ -179,7 +179,7 @@ PAPER = [
         ("c", "a number", "0.05 / 20",
          '''decimals=4, mistakes={"Bonferroni divise le seuil par le nombre de tests, il ne le multiplie pas": 1.0}'''),
         ("d", "a number (4 decimals)", "1 - (1 - 0.05 / 20) ** 20",
-         '''decimals=4, mistakes={"Bonferroni garantit au plus 0,05 ; avec des tests indépendants, la probabilité se calcule exactement, comme en b)": 0.05}'''),
+         '''decimals=4, mistakes={"Bonferroni donne une borne ; la question demande la probabilité exacte, pour des tests indépendants": 0.05}'''),
         ("e", "a list of 3 numbers", "[0.001 * 20, 0.004 * 20, 0.03 * 20]",
          '''decimals=4, mistakes={"la p-valeur ajustée de Bonferroni multiplie p par m, elle ne la divise pas": '''
          '''[0.001 / 20, 0.004 / 20, 0.03 / 20], "m est le nombre de tests faits, pas le nombre de p-valeurs citées": '''
@@ -849,7 +849,7 @@ wbm.record("M08.22b", power(1.0, 10), decimals=2,
                      SWAP_22: power_variant_22(1.0, 10, swap=True),
                      SEED_22: power_variant_22(1.0, 10, same_seed=True)})
 wbm.record("M08.22c", power(0.5, 20), decimals=2,
-           mistakes={SWAP_22 + " ; et compte les p-valeurs au plus égales à 0,05 (<=, pas <)":
+           mistakes={SWAP_22 + " ; ou compte les p-valeurs au plus égales à 0,05 (<=, pas <)":
                          power_variant_22(0.5, 20, swap=True),
                      SEED_22: power_variant_22(0.5, 20, same_seed=True)})
 wbm.record("M08.22d", 20)''',
@@ -1103,7 +1103,7 @@ M08_25_CHECK = '''with checked("M08.25 vérifications"):
         if not problems and any(not message.strip() for message in messages_1 + messages_2):
             problems.append("ajoute un message à ton assert (assert condition, message) : il dit ce qui était attendu "
                             "et ce qui a été obtenu")
-        if not problems and K_SE < 3.5:
+        if not problems and K_SE < 4:
             problems.append("ces 30 graines passent, mais ce K_SE est trop petit : sur des milliers de lancements, la "
                             "bonne fonction échouerait de temps en temps (avec la probabilité 2(1 − Φ(K_SE)))")
         if not problems and K_SE > 8:
@@ -1217,7 +1217,11 @@ M08_26_CHECK = f'''with checked("M08.26 défi"):
         print("par dataset (vraies features manquées, faux positifs) :", results_26)
         missing_26 = any(missed > 0 for missed, _ in results_26)
         extra_26 = any(false > 1 for _, false in results_26)
-        if missing_26 and extra_26:
+        both_26 = any(missed > 0 and false > 1 for missed, false in results_26)
+        if both_26:
+            problems.append("sur un même dataset, des vraies features manquent et des fausses sont gardées : vérifie "
+                            "que tu renvoies les indices des colonnes (de 0 à 49)")
+        elif missing_26 and extra_26:
             problems.append("ta règle manque des vraies features sur certains datasets et garde plus d'un faux positif "
                             "sur d'autres : elle ne s'adapte pas au nombre de vraies features")
         elif missing_26:

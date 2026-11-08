@@ -79,7 +79,7 @@
 2. $\ln L(p) = 3\ln p + 5\ln(1 - p)$.
 3. La dérivée $\frac{3}{p} - \frac{5}{1 - p}$ s'annule en $p = \frac{3}{8}$ (la proportion observée).
 4. $3\ln\frac{3}{8} + 5\ln\frac{5}{8} \approx -5{,}2925$.
-5. $\ln L(\frac{1}{2}) = 8\ln\frac{1}{2} \approx -5{,}5452$ : plus bas d'environ **0,2527** (en partant de valeurs arrondies à 3 décimales, on trouverait 0,252 ou 0,253).
+5. $\ln L(\frac{1}{2}) = 8\ln\frac{1}{2} \approx -5{,}5452$ : plus bas d'environ **0,2527** (en partant de valeurs arrondies à 3 décimales, on trouverait 0,252).
 
 <a id="papier"></a>
 
@@ -190,7 +190,7 @@ Pour la copie : Wald donne $[0, 0]$ pour 0 erreur sur 60, comme si l'on était s
 - g) **Faux** : les deux bornes sont positives.
 - h) Sous $H_0$, chacune des six différences peut prendre un signe ou l'autre : $2^6 = 64$ combinaisons, aussi probables. Les six différences observées sont toutes positives : changer un seul signe fait baisser la moyenne. Seule la combinaison observée atteint 3,5 : $p = \frac{1}{64} \approx 0{,}016$.
 
-Pour la copie : les routes diffèrent beaucoup entre elles (de 45 à 61 ms) ; sans appariement, cette variabilité entre routes entre dans l'erreur type, alors qu'elle n'a rien à voir avec la mise à jour. En travaillant sur les différences, chaque route sert de témoin à elle-même. Sans appariement, l'intervalle serait $3{,}5 \pm t \times 2{,}82$, environ $[-2{,}8 ;\ 9{,}8]$ avec $t \approx 2{,}23$ (la méthode de Welch, hors programme) : il contient 0 quel que soit le quantile choisi, et l'on conclurait à tort qu'on ne voit pas d'effet. En h), il y a 64 combinaisons de signes, et l'observation est la plus extrême possible : $\frac{1}{64}$ est la plus petite p-valeur unilatérale que ce test peut donner avec six paires.
+Pour la copie : les routes diffèrent beaucoup entre elles (de 45 à 61 ms) ; sans appariement, cette variabilité entre routes entre dans l'erreur type, alors qu'elle n'a rien à voir avec la mise à jour. En travaillant sur les différences, chaque route sert de témoin à elle-même. Sans appariement, l'intervalle serait $3{,}5 \pm t \times 2{,}82$, environ $[-2{,}8 ;\ 9{,}8]$ avec $t \approx 2{,}24$ (la méthode de Welch, hors programme) : il contient 0 quel que soit le quantile choisi, et l'on conclurait à tort qu'on ne voit pas d'effet. En h), il y a 64 combinaisons de signes, et l'observation est la plus extrême possible : $\frac{1}{64}$ est la plus petite p-valeur unilatérale que ce test peut donner avec six paires.
 
 **Erreurs fréquentes.** $\mathrm{ddof} = 0$ (b : 1,893) ; diviser par $n$ au lieu de $\sqrt{n}$ ; prendre 1,96 ou 6 degrés de liberté (d) ; prendre le quantile d'ordre 0,95 ; compter les deux côtés en h) ($\frac{2}{64}$), ou oublier la combinaison observée (0).
 
@@ -312,14 +312,14 @@ Pour la copie : mélanger une colonne garde ses valeurs (sa moyenne, sa dispersi
 ### Ex M08.14 — MML §8.6 : validation croisée imbriquée, sélection bayésienne de modèle et facteur de Bayes
 
 **Réponse modèle.**
-1. La boucle **intérieure** choisit le modèle (ou ses hyperparamètres) par validation croisée sur la partie d'entraînement ; la boucle **extérieure** estime, sur des parties qui n'ont servi ni à entraîner ni à choisir, la performance de toute la procédure, choix compris. Le score qui a servi à choisir a été retenu parce qu'il était le meilleur : il est trop optimiste, et ne peut pas être annoncé comme la performance attendue.
+1. La boucle **intérieure** choisit le modèle (ou ses hyperparamètres) par validation croisée sur la partie d'entraînement ; la boucle **extérieure** estime, sur des parties qui n'ont servi ni à entraîner ni à choisir, la performance de toute la procédure, choix compris : sur des parties des données que la boucle intérieure n'a jamais vues.
 2. Le livre met une loi a priori sur les **modèles** eux-mêmes, en plus de celle des paramètres de chaque modèle. Il compare les modèles par leur probabilité a posteriori, proportionnelle à la loi a priori du modèle fois $p(\mathcal{D} \mid M_k)$, la vraisemblance moyennée sur les paramètres : l'*evidence* (*model evidence*) ou *marginal likelihood*.
 3. Un modèle très souple peut expliquer beaucoup de datasets différents : sa probabilité, qui fait 1 au total, est répartie sur eux tous, et chacun en reçoit peu. Pour la pièce de la fiche (7 faces sur 10), le modèle « probabilité inconnue » donne $\frac{1}{11}$ à chacun des 11 résultats, alors que le modèle « pièce équilibrée » concentre sa probabilité près de 5 faces et donne 0,117 à 7 faces : le modèle simple l'emporte, sans pénalité ajoutée à la main.
 4. Cote a posteriori $=$ facteur de Bayes $\times$ cote a priori : $4 \times \frac{1}{2} = 2$, et la probabilité a posteriori du premier modèle vaut $\frac{2}{1 + 2} = \frac{2}{3}$.
 5. L'**intégrale** sur les paramètres, $\int p(\mathcal{D} \mid \boldsymbol{\theta})\,p(\boldsymbol{\theta} \mid M)\,d\boldsymbol{\theta}$, souvent impossible à calculer exactement en grande dimension. $M_A$ et $M_B$ n'ont aucun paramètre libre (le taux est fixé) : leur évidence est simplement la vraisemblance.
 6. Par exemple *nested cross-validation* (validation croisée imbriquée), *marginal likelihood* (vraisemblance marginale), *prior odds* et *posterior odds* (cotes a priori et a posteriori), *Occam's razor* (rasoir d'Occam).
 
-**Grille.** (1) le rôle des deux boucles et la raison de ne pas annoncer le score de sélection ; (2) la loi a priori sur les modèles et les deux noms de $p(\mathcal{D} \mid M)$ ; (3) l'argument « la probabilité totale vaut 1 » et l'exemple de la pièce ; (4) la relation et les deux calculs ; (5) l'intégrale, et l'absence de paramètre libre pour $M_A$ et $M_B$ ; (6) trois mots traduits. Les réponses sont écrites avec tes mots, pas recopiées.
+**Grille.** (1) le rôle des deux boucles, et les données sur lesquelles la boucle extérieure mesure la performance ; (2) la loi a priori sur les modèles et les deux noms de $p(\mathcal{D} \mid M)$ ; (3) l'argument « la probabilité totale vaut 1 » et l'exemple de la pièce ; (4) la relation et les deux calculs ; (5) l'intégrale, et l'absence de paramètre libre pour $M_A$ et $M_B$ ; (6) trois mots traduits. Les réponses sont écrites avec tes mots, pas recopiées.
 
 ### Ex M08.15 — Expliquer une p-valeur sans dire « la probabilité que H0 soit vraie »
 

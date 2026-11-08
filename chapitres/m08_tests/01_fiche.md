@@ -282,7 +282,7 @@ On présente souvent la correction sous forme de **p-valeurs ajustées** $\min(1
 
 ⚠️ **Erreur classique.** Diviser la p-valeur par $m$ au lieu de la multiplier (ou multiplier le seuil au lieu de le diviser) : la correction rend alors les tests plus laxistes au lieu de plus stricts.
 
-💼 **En entreprise** — « On a testé 25 variantes de la page d'accueil, et l'une fait 6 % de clics en plus, significatif ! » Avec 25 tests au seuil de 5 %, on attend plus d'un faux positif (1,25 en moyenne). Avant d'y croire, on corrige, ou l'on **confirme** le résultat sur de nouvelles données.
+💼 **En entreprise** — « On a testé 25 variantes de la page d'accueil, et l'une fait 6 % de clics en plus, significatif ! » Avec 25 tests au seuil de 5 %, on attend plus d'un faux positif (1,25 en moyenne) si aucune variante n'a d'effet. Avant d'y croire, on corrige, ou l'on **confirme** le résultat sur de nouvelles données.
 
 ## §7 · Choisir un modèle : AIC, BIC, facteur de Bayes, validation croisée
 
@@ -344,7 +344,7 @@ En machine learning, on compare le plus souvent des modèles par leur score sur 
 
 **Dans ce dépôt** : M09a range les données en matrices et résout des systèmes linéaires ; M09b ajuste une régression par les moindres carrés et y retrouve la vraisemblance et l'AIC ; M11 donnera des inégalités de concentration, qui bornent l'écart entre une moyenne et son espérance sans hypothèse de loi.
 
-**Dans workbookIA** : le chapitre 8 passe à l'entraînement et au test des modèles. Tu y reconnaîtras l'erreur type d'un score et son intervalle (§5), la validation croisée comme estimation bruitée (§7), le test par permutation et la p-valeur pour comparer deux modèles (§1 et §3), et le danger de choisir parmi beaucoup de réglages (§6).
+**Dans workbookIA** : le chapitre 8 passe à l'entraînement et au test des modèles. Tu y reconnaîtras l'erreur type d'un score et son intervalle (§5), la validation croisée comme estimation bruitée (§7), le test par permutation et la p-valeur pour comparer deux modèles (§1 et §3), et le danger des comparaisons multiples (§6).
 
 ## Pour aller plus loin
 

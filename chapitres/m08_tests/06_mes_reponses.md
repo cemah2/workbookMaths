@@ -255,7 +255,7 @@
 
 ### Ex M08.17 — Le test par permutation à deux échantillons · `permutation_test`
 
-- L'écart de a) à la valeur exacte 2/126, comparé à l'erreur type ; pourquoi c) ne descend pas sous 1/500 :
+- L'écart de a) à la p-valeur exacte de M08.20 c), comparé à l'erreur type ; pourquoi c) ne descend pas sous 1/500 :
 
 ### Ex M08.18 — Les intervalles de Wilson et de Student · `proportion_ci, paired_difference_ci`
 

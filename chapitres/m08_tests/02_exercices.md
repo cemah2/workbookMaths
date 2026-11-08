@@ -227,7 +227,7 @@ On note $d_i$ = avant − après.
 | e | l'intervalle à 95 % de la différence moyenne | une liste de 2 nombres (2 décimales) |
 | f | l'erreur type si l'on oubliait l'appariement, $\sqrt{\frac{s_{\text{avant}}^2}{6} + \frac{s_{\text{après}}^2}{6}}$ | un nombre (2 décimales) |
 | g | vrai ou faux : 0 est dans l'intervalle de e) | `True` ou `False` |
-| h | la p-valeur exacte unilatérale du test par permutation apparié : sous $H_0$, chaque différence garde sa valeur absolue mais prend un signe au hasard (fiche §3) ; on compare la moyenne des différences à celle observée | une fraction irréductible |
+| h | la p-valeur exacte unilatérale du test par permutation apparié : sous $H_0$, chaque différence garde sa valeur absolue mais prend un signe au hasard (fiche §3) ; on compare la moyenne des différences à celle observée, avec $H_1$ : la mise à jour réduit le temps de réponse ($\bar{d} > 0$) | une fraction irréductible |
 
 Dans ta copie : pourquoi l'erreur type de f) est-elle plus de trois fois plus grande que celle de c) ? Que dirait-on de la mise à jour si l'on avait oublié l'appariement ? Combien de combinaisons de signes y a-t-il en h), et pourquoi aucune p-valeur plus petite n'est-elle possible avec six paires ?
 
@@ -363,7 +363,7 @@ Dans ta copie : pourquoi mélanger une colonne casse-t-il son lien avec la cible
 **Prérequis :** fiche §7 ; M04 (évidence) · **Parcours :** C
 
 Lis MML §8.6 en entier. Réponds dans ta copie, **avec tes mots** (ne recopie pas le livre).
-1. Au §8.6.1, à quoi sert chacune des deux boucles de la validation croisée imbriquée ? Pourquoi ne peut-on pas annoncer le score qui a servi à choisir le modèle ?
+1. Au §8.6.1, à quoi sert chacune des deux boucles de la validation croisée imbriquée ? Sur quelles données la boucle extérieure mesure-t-elle la performance ?
 2. Au §8.6.2, sur quoi le livre met-il une loi a priori, en plus des paramètres ? Quelle quantité utilise-t-il pour comparer les modèles, et quels sont ses deux noms anglais ?
 3. Le livre relie ce choix au rasoir d'Occam. Explique pourquoi l'évidence pénalise d'elle-même les modèles trop souples, avec l'exemple de la pièce de la fiche (§7).
 4. Au §8.6.3, écris la relation entre la cote a priori, le facteur de Bayes et la cote a posteriori. Calcule la cote a posteriori pour un facteur de Bayes de 4 et une cote a priori de $\frac{1}{2}$, puis la probabilité a posteriori correspondante.

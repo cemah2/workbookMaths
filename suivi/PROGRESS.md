@@ -1,16 +1,16 @@
 # PROGRESS : état de la génération de workbookMaths
 
-*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-07, session 27 (chapitre M07).*
+*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-08, session 28 (chapitre M08).*
 
 ## Prochaine étape
 
-➡️ **Session 28 : chapitre M08** (Tests statistiques, avant workbookIA 8) : 36 exercices détaillés au syllabus (`docs/syllabus/data/partie_2.py`, 12,1 h en parcours complet), stub `templates/mymath_stubs/testing.py` (6 fonctions : `binomial_test`, `permutation_test`, `proportion_ci`, `paired_difference_ci`, `bonferroni`, `aic_bic`) ; écrire la référence `solutions/mymath_ref/testing.py` contre les docstrings, qui font foi, et `tests/test_m08_testing.py` ; relire la fiche, les encadrés, les exercices, les solutions, les flashcards et les questions d'entretien de workbookIA 8 (et de 0B, 2 et 3, qui touchent aux tests et aux intervalles), et les frontières listées au syllabus (8.1, 8.2, 8.4, 8.5, 8.23, 8.25, 8.26, 8.E2, 8.E3). Ensuite : M09a, avant workbookIA 9.
+➡️ **Sessions 29 et 30 : chapitre M09a** (Matrices et systèmes linéaires, avant workbookIA 9 ; deux sessions de génération) : 48 exercices détaillés au syllabus (`docs/syllabus/data/partie_2.py`, 16,7 h en parcours complet), stub `templates/mymath_stubs/matrices.py` (6 fonctions : `matmul`, `transpose`, `rref`, `rank`, `solve`, `inverse`) ; écrire la référence `solutions/mymath_ref/matrices.py` contre les docstrings, qui font foi, et `tests/test_m09a_matrices.py` ; MML §2.1 à §2.3 ; relire la fiche, les exercices, les solutions, les flashcards et les questions d'entretien de workbookIA 9 et 10 (et de 0B), et les frontières listées au syllabus (9.16, 9.17, 10.14, 10.15). Ensuite : M09b, avant workbookIA 9.
 
 La partie 0 est complète : R0, POS, R1 à R9 et CP0. L'apprenant enchaîne avec workbookIA 0B, puis workbookIA 1.
 
 La partie I est complète : M02a à M06 et CP1. L'apprenant enchaîne avec le checkpoint I de workbookIA.
 
-La partie II est en cours : M07 est publié ; l'apprenant peut faire M07, puis workbookIA 7.
+La partie II est en cours : M07 et M08 sont publiés ; l'apprenant peut faire M07, puis workbookIA 7, puis M08, puis workbookIA 8.
 
 ## Statut des chapitres
 
@@ -18,7 +18,7 @@ La partie II est en cours : M07 est publié ; l'apprenant peut faire M07, puis w
 |---|---|---|
 | 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | ✅ tout publié (R0, POS, R1 à R9, CP0) |
 | I · Fondations | M02a à M06, CP1 | ✅ tout publié (M02a, M02b, M02c, M03, M04, M05a, M05b, M06, CP1) |
-| II · Concepts | M07 à M11, CP2 | 🛠️ en cours : M07 publié (syllabus détaillé en session 26 : 256 exercices, six modules `mymath`) |
+| II · Concepts | M07 à M11, CP2 | 🛠️ en cours : M07 et M08 publiés (syllabus détaillé en session 26 : 256 exercices, six modules `mymath`) |
 | III · ML classique | M12a à M14, CP3 | 📅 planifié |
 | IV · Réseaux | M16 à M20, CP4 | 📅 planifié |
 | V · Architectures | M21, M22, CP5 | 📅 planifié |
@@ -77,6 +77,8 @@ La partie II est en cours : M07 est publié ; l'apprenant peut faire M07, puis w
 
 - CP0 : l'examen dure 122 minutes (somme des durées du syllabus, « environ 2 heures ») ; barème sur 20 réparti selon les durées (2,5 pour le quiz, 1,25 pour une question de 8 min, 1,5 pour 10 min, 2 pour 12 min) ; CP0.Q1, CP0.9 et CP0.10 b se corrigent à la main, les 60 autres réponses dans le notebook ; fichiers en plus de la note du syllabus : `README.md` et `03_examen_solutions.ipynb`. ID et titres inchangés.
 
+**À retenir pour M09a et la suite** (M08) : une affirmation de méthode sur ce que fera workbookIA (« comparer deux modèles sur les mêmes folds avec un test apparié ») peut contredire son chapitre : renvoyer à workbookIA plutôt que résumer sa méthode ; une question de copie qui annonce un résultat d'un autre exercice du chapitre le donne d'avance ; une valeur de `computed=True` peut recevoir des indices génériques de `wbm` hors de propos (radians, « round ») : lire les messages de l'apprenant simulé ; une fenêtre de tolérance d'un 🛠️ se calcule (graines, écart en erreurs types) et se dit dans l'énoncé, avec un message par côté ; une borne calculée qui doit rester dans un intervalle se ramène par `min`/`max` même quand la formule « y reste » (arrondis).
+
 **À retenir pour M08 et la suite** (M07) : comparer aussi chaque exercice aux **flashcards et aux questions d'entretien** de workbookIA (0B et le chapitre préparé), aux exercices des chapitres **plus loin** qui reprennent la notion (10.3 f et 13.4 i pour un changement d'échelle de $(\mathbf{w}, b)$ ; ∂ B3.6 pour la variance d'un produit scalaire de vecteurs aléatoires) et à la **fiche du chapitre de ce dépôt qui a déjà traité la notion** (M02c §9 avait la norme d'un vecteur gaussien) ; après une refonte, refaire relire **les parties refaites** (la première refonte de M07 avait supprimé une section des solutions et déplacé des recouvrements au lieu de les retirer) ; un défi 🏆 n'enregistre pas une valeur arrondie que l'apprenant n'atteint qu'à l'objectif près (M07.35 : une frontière d'arrondi à 0,002 km), mais « objectif atteint », calculé par la cellule du défi sur tous ses cas ; choisir les données pour que chaque erreur classique change la valeur (deux vecteurs de même norme, des poids de somme égale au nombre de points, un $-4\,\mathbf{u} \cdot \mathbf{v} + \lVert \mathbf{v} \rVert^2$ nul) ; une exigence des tests absente d'une docstring figée s'écrit dans l'énoncé du notebook ; `wbm.record` : flottants avec `decimals`, erreurs classiques du même type que la réponse, ensembles de valeurs seulement pour les types scalaires ; `drawn` ne passe pas d'arguments nommés (une lambda).
 
 **À retenir pour M02b et la suite** (M02a) : un exemple de la fiche « en miroir » (une fonction $a - x^2$ quand la fiche traite $x^2$) donne les réponses de l'exercice : changer de forme de fonction, pas seulement de constante ; une valeur citée dans une figure ou une légende de la fiche (l'aire d'une arche de sinus) ne doit être la réponse d'aucune question ; une réponse « un entier » s'enregistre en entier (un flottant à 0 décimale accepte toute valeur à ±0,5 près) ; une question qui demande une valeur à 4 décimales calculée par une différence (M02a.9 f) dit de garder les valeurs exactes jusqu'au bout ; une vérification de figure qui compare à $F(x) - F(a)$ prend une fonction de test avec $F(a) \ne 0$, et lit toutes les courbes de l'axe, pas seulement les deux premières ; un test de `mymath` ne prend jamais une autre fonction de l'apprenant (ni la même avec d'autres paramètres) comme oracle ; un message d'erreur classique ne donne ni la valeur intermédiaire (« m² = 2 ») ni une donnée d'un autre exercice ; deux messages d'erreur classique qui, ensemble, désignent la réponse (3 « trop tôt », 5 « pas le plus petit ») se fondent en un seul.
@@ -120,6 +122,12 @@ La partie II est en cours : M07 est publié ; l'apprenant peut faire M07, puis w
 **À retenir pour R3 à R9** : les vérifications qui appellent le code de l'apprenant passent par `checked` (de `wbm.nbtools`), pour qu'une erreur de son code ne bloque pas « Run all » ; un ensemble de solutions s'enregistre avec 6 décimales quand une fraction non décimale est attendue ; tester aussi les cas dégénérés pour **tous** les sens ou toutes les branches (un test oublié laisse passer un code faux) ; une réponse qu'il faut **arrondir** (ou un décimal exact) s'enregistre en `kind="fraction"` (ou avec plus de décimales que demandé), sinon une valeur non arrondie passe ; un exemple de forme ne doit être la réponse d'aucune question du chapitre (`tests/infra/test_examples_are_not_answers.py`) ; un test d'algorithme dont la version naïve ne finit jamais passe par `_within` (limite de temps, voir `tests/test_r1_arith.py`) ; chaque groupe de tests lancé par le notebook inclut le test qui interdit les outils tout faits (`or test_arith_uses`) ; les cas `ValueError` passent par `_expect_value_error` (une autre exception dit d'abord ce qui était attendu).
 
 **À retenir pour R1 à R9** : ne reprendre aucun nombre ni aucune donnée du test de positionnement (sujet : `positionnement/01_sujet.md`) ; en R5, le 🔮 prévu sur une suite uₙ₊₁ = ½uₙ + 1 est proche de POS.10 (vₙ₊₁ = ½vₙ + 3) : changer ses nombres. Les messages génériques de `wbm` hérités de workbookIA parlent parfois ML ou Python (« indice (1,) », « arrondis avec round() », « vérifie-le avec SymPy ») : les adapter à la partie 0 si un chapitre en souffre.
+
+## Session 28 (2026-11-08) : chapitre M08 ✅
+
+**Fait** : `chapitres/m08_tests/` : fiche en 7 sections avec guide de lecture MML (§8.6), 5 figures par `tools/chapters/figures_m08.py` (loi nulle binomiale, loi de permutation, puissance, couverture de Wald et de Wilson, comparaisons multiples) ; 36 exercices (6 quiz, 3 rappels, 9 ✏️, 3 ∂, 🔗, 📖, 🗣️, 💼, 4 🔨, 📦, 🔮, 🔬, 🎨, 🐛, 🛠️, 🏆) ; notebooks par `tools/chapters/build_m08.py` (partie 0 : vérifications papier ; parties A à C, avec un tracé, un test de test et un défi) ; `solutions/mymath_ref/testing.py` et `tests/test_m08_testing.py` (161 tests, oracles `scipy.stats`, contrôle AST) ; indices, solutions, feuille de réponses, 22 flashcards ; annexes : 22 entrées de glossaire (et l'étiquette M08 sur deux autres), 6 symboles, une section du formulaire et des erreurs fréquentes. `wbm` : l'indice « radians » ignore les valeurs de moins d'un degré. Solutions exécutées en 8 s.
+
+**Vérification indépendante** (sous-agents) : re-résolution à l'aveugle (aucune réponse fausse ; pièges d'arrondi, énoncés et démarches précisés) ; apprenant simulé (bornes de Wilson hors de $[0, 1]$ par arrondi, plafond et tolérance du binomial non testés, faux indice « radians », messages ciblés, fenêtre de $K_{SE}$, une question de copie qui donnait une réponse) ; relecture de la règle de partage (le §7 sur la validation croisée contredisait workbookIA §8.5.1 et répondait à 8.5 h, Q5.6 et l'encadré du §6 reprenaient 8.E2 et 8.Q8, M08.E1 recadré). Relecture ciblée des parties refaites (sous-agent). Détails dans BIBLE §24.
 
 ## Session 27 (2026-11-07) : chapitre M07 ✅
 
