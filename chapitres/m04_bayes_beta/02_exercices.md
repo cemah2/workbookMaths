@@ -209,7 +209,7 @@ Un autre serveur compte ses erreurs par jour pendant 5 jours : $2, 0, 3, 1, 4$, 
 | g | le maximum de vraisemblance $\hat{\mu}$ | un nombre (2 décimales) |
 | h | sans rapport avec les serveurs : pour une loi de Bernoulli, le maximum de vraisemblance après 7 succès sur 25 essais | un nombre (2 décimales) |
 
-Dans ta copie : écris $\ell(\lambda)$ et $\ell'(\lambda)$ pour des durées $x_1, \ldots, x_n$ quelconques, et la formule générale de $\hat{\lambda}$. Fais de même pour $\hat{\mu}$ (la loi de Poisson). Pourquoi le signe de $\ell''(\lambda)$, pour **tout** $\lambda > 0$ (pas seulement en $\hat{\lambda}$), prouve-t-il que c) est le maximum ?
+Dans ta copie : écris $\ell(\lambda)$ et $\ell'(\lambda)$ pour des durées $x_1, \ldots, x_n$ quelconques, et la formule générale de $\hat{\lambda}$. Fais de même pour $\hat{\mu}$ (la loi de Poisson). Montre que c) est bien le maximum avec le signe de $\ell''$ (fiche §3). Pourquoi as-tu besoin de ce signe pour **tout** $\lambda > 0$, et pas seulement en $\hat{\lambda}$ ?
 
 ### Ex M04.5 — La loi Beta : normalisation, moyenne, mode, variance ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer la constante, la densité, la moyenne, le mode, la variance et une probabilité d'une loi Beta à paramètres entiers.

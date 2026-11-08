@@ -105,7 +105,7 @@ Le dénominateur est positif : $g''$ a le signe de $1 - x^2$. Elle est positive 
 
 ⚠️ **Erreur classique.** Croire que $f''(c) = 0$ suffit pour un point d'inflexion. $x^4$ a $f''(x) = 12x^2$, nulle en 0, mais positive des deux côtés : pas de changement de signe, $x^4$ est convexe partout, et 0 est son minimum. Il faut **le changement de signe**.
 
-🔗 **Dans workbookIA** — la convexité est la propriété qui rend une loss facile à minimiser : la log-loss de la régression logistique (ch. 13) est convexe, celle d'un réseau de neurones ne l'est pas. La convexité en plusieurs variables revient en M12c et M19.
+🔗 **Dans workbookIA** — la convexité est la propriété qui rend une loss facile à minimiser : la log-loss de la régression logistique (ch. 13) est convexe, celle d'un réseau de neurones ne l'est pas. La convexité en plusieurs variables revient en M10 (la même définition par les cordes), en M12c et en M19.
 
 ## §2 · Extrema locaux et globaux
 

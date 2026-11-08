@@ -41,7 +41,7 @@ CHAPTERS = [
         "teaches": ["déterminant", "trace", "polynôme caractéristique", "valeurs et vecteurs propres",
                     "méthode de la puissance", "diagonalisation", "théorème spectral", "quotient de Rayleigh",
                     "matrices définies positives", "décomposition de Cholesky", "formes quadratiques",
-                    "convexité à plusieurs variables : cordes et hessienne semi-définie positive (premier contact)",
+                    "convexité à plusieurs variables par la hessienne semi-définie positive (la définition par les cordes : M10)",
                     "matrice de covariance symétrique positive", "blanchiment (whitening)",
                     "racine carrée d'une matrice symétrique positive"],
         "after": ["M12b", "R7"],

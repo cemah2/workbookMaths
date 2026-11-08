@@ -100,7 +100,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | courbe ROC | ROC curve (receiver operating characteristic) | pour chaque seuil, le point (taux de faux positifs, recall) : un escalier de (0, 0) à (1, 1) | M03 |
 | couverture | coverage | proportion des échantillons pour lesquels un intervalle de confiance contient la vraie valeur | M02c |
 | covariance empirique | empirical (sample) covariance | $\frac{1}{n}\sum (x_i - \bar{x})(y_i - \bar{y})$ (ou divisée par $n - 1$) : la moyenne des produits des écarts | M02c |
-| croissances comparées | growth rates comparison | pour $x$ très grand, $\ln x \ll x^k \ll a^x$ ($k > 0$, $a > 1$) | R6 |
+| croissances comparées | orders of growth, comparative growth rates | pour $x$ très grand, $\ln x \ll x^k \ll a^x$ ($k > 0$, $a > 1$) | R6 |
 | croissante, décroissante | increasing, decreasing | qui conserve (retourne) l'ordre sur un intervalle : $a < b \Rightarrow f(a) \le f(b)$ ($\ge$) | R3 |
 | cross-entropy | cross-entropy | $H(p, q) = -\sum p \log_2 q$ : la longueur moyenne d'un code fait pour la loi $q$, sur des données de loi $p$ ; la log loss en est une | M06 |
 | ddof | ddof (delta degrees of freedom) | le nombre retranché à $n$ au dénominateur d'une variance : `ddof=0` divise par $n$, `ddof=1` par $n - 1$ | M02c |
@@ -317,7 +317,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | matrice de confusion | confusion matrix | le tableau de contingence de la vérité et de la prédiction d'un classifieur (TP, FN, FP, TN en binaire) | M03 |
 | matrice de corrélation | correlation matrix | la matrice des corrélations $\rho_{ij} = \frac{\Sigma_{ij}}{\sigma_i\sigma_j}$, avec des 1 sur la diagonale | M02c |
 | matrice de covariance | covariance matrix | $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$ : les variances sur la diagonale, symétrique, et $\sum_i\sum_j w_iw_j\Sigma_{ij} \ge 0$ | M02c |
-| matrice des features | feature matrix, design matrix | le tableau $\mathbf{X}$ de forme $(n, p)$ : une ligne par exemple, une colonne par feature ($\boldsymbol{\Phi}$ dans MML) | M09b |
+| matrice des features | feature matrix, design matrix | le tableau $\mathbf{X}$ de forme $(n, p)$ : une ligne par exemple, une colonne par feature ($\mathbf{X}$, ou $\boldsymbol{\Phi}$ après une transformation des features, dans MML) | M09b |
 | matrice diagonale | diagonal matrix | une matrice carrée dont les nombres hors de la diagonale sont nuls ; elle s'inverse nombre par nombre | M09a |
 | matrice identité | identity matrix | $\mathbf{I}_n$ : des 1 sur la diagonale, des 0 ailleurs ; $\mathbf{I}\mathbf{A} = \mathbf{A}\mathbf{I} = \mathbf{A}$ | M09a |
 | matrice inversible, singulière | invertible (regular, nonsingular) matrix, singular matrix | une matrice carrée qui a une inverse, ou qui n'en a pas (quand une colonne combine les autres, ou que le rang est plus petit que la taille) | M09a |
@@ -469,7 +469,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | softmax, log-softmax | softmax, log-softmax | $\frac{e^{v_i}}{\sum_j e^{v_j}}$, calculée stablement avec $e^{v_i - m}$ ; son logarithme $v_i - \text{LSE}(\mathbf{v})$, qui reste fini | M05a |
 | solution particulière, solution générale | particular solution, general solution | une solution d'un système ; toutes ses solutions, une solution particulière plus n'importe quelle solution du système homogène | M09a |
 | somme de Riemann | Riemann sum | somme des aires de $n$ rectangles de largeur $h = \frac{b - a}{n}$, de hauteur lue à gauche, à droite ou au milieu | M02a |
-| somme harmonique | harmonic series | $\sum_{t=1}^{T} \frac{1}{t}$, qui croît comme $\ln T$ : elle reste entre $\ln T$ et $1 + \ln T$ | M11 |
+| somme harmonique | harmonic number (harmonic series pour la série infinie) | $\sum_{t=1}^{T} \frac{1}{t}$, qui croît comme $\ln T$ : elle reste entre $\ln T$ et $1 + \ln T$ | M11 |
 | somme infinie, série | infinite sum, series | la limite des sommes partielles ; $\sum_{k=0}^{+\infty} u_0\,q^k = \frac{u_0}{1 - q}$ si $\lvert q \rvert < 1$ | R5 |
 | somme partielle | partial sum | la somme des $n$ premiers termes d'une suite | R5 |
 | somme pondérée | weighted sum | $\sum w_i x_i + b$, sans division ; le calcul d'un neurone | R1 |
@@ -482,7 +482,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | statistique | statistic | une fonction de l'échantillon (moyenne, médiane, maximum) : une variable aléatoire | M02c |
 | statistique de test | test statistic | un nombre calculé sur les données qui mesure l'écart à $H_0$ (un nombre de succès, un écart de moyennes) | M08 |
 | statistique suffisante | sufficient statistic | un résumé des données qui contient toute leur information sur le paramètre ; pour $n$ essais de Bernoulli, le nombre de succès | M04 |
-| strictement convexe | strictly convex | une fonction dont l'inégalité de convexité $f\big((1 - t)\mathbf{a} + t\mathbf{b}\big) \le (1 - t)f(\mathbf{a}) + tf(\mathbf{b})$ est stricte dès que $\mathbf{a} \ne \mathbf{b}$ et $0 < t < 1$ ; une affine ne l'est pas | M10 |
+| strictement convexe | strictly convex | une fonction dont l'inégalité de convexité $f\big((1 - t)\mathbf{a} + t\mathbf{b}\big) \le (1 - t)f(\mathbf{a}) + tf(\mathbf{b})$ est stricte dès que $\mathbf{a} \ne \mathbf{b}$ et $0 < t < 1$ ; une fonction affine ne l'est pas | M10 |
 | Student (loi de) | Student's t distribution | loi qui remplace la loi normale pour la moyenne standardisée de peu de données normales, quand $\sigma$ est estimé (quantile 2,262 pour $n = 10$ à 95 %) | M02c, M08 |
 | substituer | substitute, plug in | remplacer une lettre par une valeur (ou par une expression) | R2 |
 | suite | sequence | liste infinie de nombres $u_0, u_1, \dots$ | R5 |
@@ -494,14 +494,14 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | système linéaire | system of linear equations, linear system | plusieurs équations du premier degré à résoudre ensemble ; leurs solutions communes | R2, M09a |
 | table de vérité | truth table | la valeur d'une proposition pour chaque combinaison des valeurs de ses propositions | R4 |
 | tableau de contingence | contingency table | le tableau des effectifs de deux variables catégorielles observées ensemble, avec ses totaux dans les marges | M03 |
-| tableau de variations | variation table | tableau du signe de $f'$ et du sens de variation de $f$, avec les valeurs aux points où $f'$ s'annule | R7 |
+| tableau de variations | variation table (sign chart) | tableau du signe de $f'$ et du sens de variation de $f$, avec les valeurs aux points où $f'$ s'annule | R7 |
 | taille d'échantillon (calcul de) | sample size calculation | le nombre d'observations qui donne une puissance voulue : $n \ge \big(\frac{(z_{1-\alpha} + z_{1-\beta})\,\sigma}{\delta}\big)^2$ pour une moyenne | M08 |
 | taille de l'effet | effect size | l'ampleur de l'écart mesuré, que la p-valeur ne mesure pas : avec beaucoup de données, un effet minuscule devient significatif | M08 |
 | taille du pas, learning rate | step size, learning rate | le nombre $\eta > 0$ qui règle la longueur d'un pas de descente de gradient | M05b |
 | tangente | tangent line | droite qui touche la courbe en un point avec la même pente : $y = f(a) + f'(a)(x - a)$ | R7 |
 | tangente hyperbolique | hyperbolic tangent | $\tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}}$, à valeurs dans $]-1 \;;\; 1[$ | R6 |
 | taux d'accroissement | rate of change, difference quotient | $\frac{f(a + h) - f(a)}{h}$ : la pente de la sécante, une vitesse moyenne | R7 |
-| taux d'évolution | rate of change, percentage change | $\frac{V_a - V_d}{V_d}$, la variation rapportée à la valeur de départ | R1 |
+| taux d'évolution | percentage change, relative change | $\frac{V_a - V_d}{V_d}$, la variation rapportée à la valeur de départ | R1 |
 | taux de base | base rate | la proportion d'un cas dans la population, avant tout indice (la prévalence) ; l'oublier fait lire $P(\text{indice} \mid \text{cas})$ comme $P(\text{cas} \mid \text{indice})$ | M03, M11 |
 | taux de faux positifs | false positive rate (FPR) | $P(\hat{Y} = 1 \mid Y = 0) = 1 - \text{spécificité}$ : l'abscisse de la courbe ROC | M03 |
 | temps de doublement, demi-vie | doubling time, half-life | la durée au bout de laquelle une grandeur double (ou est divisée par 2) : $\frac{\ln 2}{\ln(1 + r)}$ | R6 |

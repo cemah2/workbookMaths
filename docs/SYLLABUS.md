@@ -1994,7 +1994,7 @@ Les ensembles convexes et l'enveloppe convexe, la séparation de deux nuages par
 - §4 Récurrences sur une norme : croissance linéaire contre croissance en √k
 - §5 Activations : des fonctions d'une variable appliquées à un score
 
-**Notions enseignées** : ensembles convexes · enveloppe convexe · séparabilité linéaire (enveloppes convexes disjointes) · astuce du biais (une coordonnée en plus) · marge géométrique · inégalités de récurrence sur une norme · fonctions d'activation : des fonctions d'une variable (rappel R3, R6)
+**Notions enseignées** : ensembles convexes · fonctions convexes et strictement convexes de plusieurs variables (définition) · enveloppe convexe · séparabilité linéaire (enveloppes convexes disjointes) · astuce du biais (une coordonnée en plus) · marge géométrique · inégalités de récurrence sur une norme · fonctions d'activation : des fonctions d'une variable (rappel R3, R6)
 
 **Prérequis** : hyperplans, distance à un hyperplan, Cauchy-Schwarz (M07) · produit matriciel (M09a) · raisonnement par récurrence (R4) · sigmoïde, tanh (R6) · fonctions, composition (R3) · convexité d'une fonction (M05a)
 
@@ -2202,7 +2202,7 @@ Le déterminant et la trace, les valeurs et vecteurs propres, la diagonalisation
 
 **Durée estimée** : ≈ 16 h. Exercices détaillés avant la génération de la partie.
 
-**Notions enseignées** : déterminant · trace · polynôme caractéristique · valeurs et vecteurs propres · méthode de la puissance · diagonalisation · théorème spectral · quotient de Rayleigh · matrices définies positives · décomposition de Cholesky · formes quadratiques · convexité à plusieurs variables : cordes et hessienne semi-définie positive (premier contact) · matrice de covariance symétrique positive · blanchiment (whitening) · racine carrée d'une matrice symétrique positive
+**Notions enseignées** : déterminant · trace · polynôme caractéristique · valeurs et vecteurs propres · méthode de la puissance · diagonalisation · théorème spectral · quotient de Rayleigh · matrices définies positives · décomposition de Cholesky · formes quadratiques · convexité à plusieurs variables par la hessienne semi-définie positive (la définition par les cordes : M10) · matrice de covariance symétrique positive · blanchiment (whitening) · racine carrée d'une matrice symétrique positive
 
 **Après** : M12b, R7
 
