@@ -305,7 +305,7 @@ Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w}
 
 ### Ex M10.17 — Des tests de propriétés pour l'enveloppe convexe
 
-**Réponse** : les vérifications automatiques au vert : `[]` sur les 20 enveloppes justes, et la bonne liste pour chacune des cinq fausses.
+**Réponse** : les vérifications automatiques au vert : une liste vide sur les 20 enveloppes justes, et la bonne liste pour chacune des cinq fausses.
 
 **Démarche.** Quatre tests, dans l'ordre : chaque sommet est une ligne de `points` (`np.array_equal`) ; `cross(H[i - 1], H[i], H[(i + 1) % h]) > 0` pour tout $i$ ; `cross(H[i], H[(i + 1) % h], p) >= -1e-9` pour tout côté et tout point ; `tuple(H[0]) == min(map(tuple, points))`. Pour la copie : une enveloppe dans le mauvais sens tourne à droite partout (« gauche ») et laisse les points intérieurs à droite de ses côtés (« dedans ») ; un point au milieu d'un côté donne un virage nul, que seul le « strictement » attrape. Les quatre propriétés ensemble caractérisent l'enveloppe (un polygone convexe dont les sommets sont des points du nuage et qui contient tous les points, à partir du bon point) ; chacune seule laisse passer des erreurs.
 
