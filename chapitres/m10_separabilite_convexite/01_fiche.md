@@ -200,7 +200,7 @@ Une droite qui frôle un point le sépare de justesse ; une droite qui passe loi
 
 Le numérateur seul, $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$, s'appelle la **marge fonctionnelle** (*functional margin*) du point $i$ : elle double quand on double $\mathbf{w}$ et $b$, alors que la marge géométrique ne bouge pas (M10.8). Pour $x_1 + x_2 - 6 = 0$, le point le plus proche est $(4, 3)$, de score 1, et $\lVert (1, 1) \rVert = \sqrt{2}$ : $\gamma = \frac{1}{\sqrt{2}} \approx 0{,}707$.
 
-**Le meilleur décalage, à $\mathbf{w}$ fixé.** Gardons $\mathbf{w} = (1, 1)$ et faisons varier $b$. Sur $A$, $\mathbf{w} \cdot \mathbf{x}$ vaut au moins 7 ; sur $B$, au plus 4. La droite sépare quand $\mathbf{w} \cdot \mathbf{x} + b$ est positif sur $A$ et négatif sur $B$, c'est-à-dire pour $7 + b > 0$ et $4 + b < 0$ : $b \in\ ]-7, -4[$. Le meilleur $b$ est au milieu, $b = -5{,}5$, qui place la droite à égale distance des deux nuages : la marge devient $\frac{1{,}5}{\sqrt{2}} \approx 1{,}061$.
+**Le meilleur décalage, à $\mathbf{w}$ fixé.** Gardons $\mathbf{w} = (1, 1)$ et faisons varier $b$. Sur $A$, $\mathbf{w} \cdot \mathbf{x}$ vaut au moins 7 ; sur $B$, au plus 4. La droite sépare quand $\mathbf{w} \cdot \mathbf{x} + b$ est positif sur $A$ et négatif sur $B$, c'est-à-dire pour $7 + b > 0$ et $4 + b < 0$ : $b \in\ ]-7, -4[$. Le meilleur $b$ est au milieu, $b = -5{,}5$, qui place la droite à égale distance des deux nuages (M10.8 le démontre) : la marge devient $\frac{1{,}5}{\sqrt{2}} \approx 1{,}061$.
 
 ### La plus grande marge possible
 
