@@ -228,7 +228,7 @@ $\lVert \mathbf{v} + \mathbf{d} \rVert^2 = \lVert \mathbf{v} \rVert^2 + 2\,\math
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\mathbf{v}_1 = (3, 1)$. e) $\lVert \mathbf{v}_k \rVert^2 \le 5 + 5k$. f) $\mathbf{e} \cdot \mathbf{v}_k \ge -2 + 0{,}5k$ et $\mathbf{e} \cdot \mathbf{v}_k \le \sqrt{4 + 9k}$ ; pour $k \ge 4$, les deux côtés sont positifs : élève au carré.
+b) $\mathbf{v}_1 = (3, 1)$. e) $\lVert \mathbf{v}_k \rVert^2 \le 5 + 5k$. f) $\mathbf{e} \cdot \mathbf{v}_k \ge -2 + 0{,}5k$ et $\mathbf{e} \cdot \mathbf{v}_k \le \sqrt{4 + 9k}$ ; pour $k \ge 4$, les deux côtés sont positifs : élève au carré. g) Traite les deux séries de pas l'une après l'autre.
 
 </details>
 

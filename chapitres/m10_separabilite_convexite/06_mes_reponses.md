@@ -78,7 +78,7 @@
 - e :
 - f :
 - g :
-- Le dessin de K ; un segment qui sort de chaque ensemble non convexe de c) ; pourquoi le point de g) est dans K sans calcul :
+- Le dessin de K ; un segment qui sort de chaque ensemble non convexe de c) ; les trois points de g) dans K, et pourquoi leur combinaison y est aussi :
 
 ### Ex M10.2 — L'enveloppe convexe de huit points, à la main
 
@@ -89,7 +89,7 @@
 - e :
 - f :
 - g :
-- La chaîne du bas, test par test ; ce que dit le signe de d) sur P₆ ; le sommet qui disparaît en g), et pourquoi :
+- La chaîne du bas, test par test ; ce que dit le signe de d) sur P₆ ; les sommets qui changent en g), et pourquoi :
 
 ### Ex M10.3 — Une droite qui sépare deux petits nuages, et sa marge
 
@@ -111,7 +111,7 @@
 - e :
 - f :
 - g :
-- Le côté de Δ de chaque point ; pourquoi ṽ · x̃ = 0 équivaut à x sur la droite de e) ; pourquoi une première coordonnée nulle donne une droite par l'origine :
+- Le côté de Δ de chaque point ; pourquoi ṽ · x̃ = 0 équivaut à x sur la droite de e) :
 
 ### Ex M10.5 — Borner une norme pas à pas : ‖v_{k+1}‖² ≤ ‖v_k‖² + c
 
@@ -122,7 +122,7 @@
 - e :
 - f :
 - g :
-- v₀ · d₀ et ‖v₁‖², et pourquoi la borne est atteinte au premier pas, pas au second ; les deux inégalités de f) et leur résolution ; pourquoi la borne ne s'applique pas en g) :
+- v₀ · d₀ et ‖v₁‖², et pourquoi la borne est atteinte au premier pas, pas au second ; les deux inégalités de f) et leur résolution ; le vrai maximum de f) (le premier pas) ; pourquoi la borne ne s'applique pas aux cinq premiers pas de g) :
 
 ## ∂ Démonstrations
 
@@ -163,7 +163,7 @@
 - e :
 - f :
 - g :
-- Pourquoi la ligne de niveau de g) est parallèle à la frontière ; les quatre sorties en p₁, et la convention qui change le seuil ; les activations pour lesquelles « sortie > 1/2 » est le demi-plan z > 0 :
+- Pourquoi la ligne de niveau de g) est parallèle à la frontière ; les quatre sorties en p₁, et la convention qui changerait le seuil ; les activations pour lesquelles « sortie > 1/2 » est le demi-plan z > 0 :
 
 ### Ex M10.10 — MML §12.1 : les hyperplans séparateurs, en anglais
 

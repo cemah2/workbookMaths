@@ -617,7 +617,7 @@ def check_math_entry(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
             norm = _norm_intervals(_parse_intervals(value))
             digest = _hash(ex_id, kind, norm)
             if digest == entry["hash"]:
-                return True, "ok", _praise(ex_id)
+                return True, "correct", _praise(ex_id)
             classic = _classic(entry, digest)
             if classic:
                 return False, "wrong", classic
@@ -717,7 +717,7 @@ def _check_fraction(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
     if digest == entry["hash"]:
         if entry.get("simplified") and irreducible is False:
             return False, "near", "La valeur est juste, mais la fraction n'est pas irréductible : simplifie-la."
-        return True, "ok", _praise(ex_id)
+        return True, "correct", _praise(ex_id)
     classic = _classic(entry, digest)
     if classic:
         return False, "wrong", classic
@@ -777,7 +777,7 @@ def _check_expr(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
         if entry.get("expanded") and sympy.expand(expr) != expr:
             return False, "near", ("La valeur est juste, mais l'énoncé demande la forme développée et réduite : "
                                    "développe ton expression (plus de parenthèses ni de division à simplifier).")
-        return True, "ok", _praise(ex_id)
+        return True, "correct", _praise(ex_id)
     classic = _classic(entry, digest)
     if classic:
         return False, "wrong", classic
@@ -827,14 +827,14 @@ def _check_exact(ex_id: str, entry: dict, value) -> tuple[bool, str, str]:
     if digest is None:
         return False, "wrong", "Ce n'est pas un nombre réel fini : vérifie le calcul."
     if digest == entry["hash"]:
-        return True, "ok", _praise(ex_id)
+        return True, "correct", _praise(ex_id)
     classic = _classic(entry, digest)
     if classic:
         return False, "wrong", classic
     import sympy
 
     if _has_float(number) and abs(float(number)) < 1e-12 and _exact_digest(ex_id, sympy.Integer(0)) == entry["hash"]:
-        return True, "ok", _praise(ex_id)          # math.cos(3*math.pi/2): 0 up to the rounding of the floats
+        return True, "correct", _praise(ex_id)          # math.cos(3*math.pi/2): 0 up to the rounding of the floats
     if _has_float(number):                          # a decimal: the right value, rounded?
         decimals = _typed_decimals(value)
         if decimals is not None and 1 <= decimals <= 8:

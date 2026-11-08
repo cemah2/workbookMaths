@@ -32140,11 +32140,14 @@
     "M10.1g": {
       "decimals": 1,
       "element_hashes": [
-        "54cfce9ed46264ef7255f98c4da8e727b77e5140532aa40d5fd0a405536a6f38",
-        "2dc7e027a2681f28d973d26fb235a4ae4900c1a6ee91a8657fb791d06c1e7127"
+        "2ac6acaedb9098cdea67676424a108fbf3552589d5cad8c62aa29eb59b08e97e",
+        "8d14789cae55119565b9e72adf910143185650a1801a433eebedc6dce892d188"
       ],
-      "hash": "52b536c2ba3717b8628490abc4204bf0ff79b8044e04a0d879db0c34cc42f8eb",
+      "hash": "a79f55869146559346b192098f58d34e5b8f8b4e0ebf7c404b27a6f105ee9582",
       "kind": "array",
+      "mistakes": {
+        "2e12e3d5aaf7f3a039eee9934dda7d9a7beea7032782109a8af1f002de2e087d": "les poids vont avec les points dans l'ordre de l'énoncé : 0,5 pour (2, 0)"
+      },
       "shape": [
         2
       ],
@@ -32182,7 +32185,8 @@
       "mistakes": {
         "26ca11891de4c9925304ca099ca90261104d5cbcee103c73b0a178a078826d8d": "(−2, 0) est au milieu d'un côté : ce n'est pas un sommet",
         "45382b17a03731a98fe3d68a1726f28dc9dea9f44d7e3b91e0a6f1cb539698dd": "commence par le plus petit point : le plus petit x, puis le plus petit y",
-        "47f9eee8e3bc54cc3f78311e29eccad63cae42a375925865934e2d5ed423da5d": "le sens direct est le sens inverse des aiguilles d'une montre"
+        "47f9eee8e3bc54cc3f78311e29eccad63cae42a375925865934e2d5ed423da5d": "le sens direct est le sens inverse des aiguilles d'une montre",
+        "708e71a19e72e0c2fdf8554bdf62ced29636ba053b14b916702a1bd560479608": "(4, 3) dépasse de peu la droite qui joint (5, 0) à (3, 5) : calcule le produit vectoriel, c'est un sommet"
       },
       "shape": [
         5,
@@ -32194,6 +32198,10 @@
       "hash": "401511e03763ebe747863c184be2219cec9466c89d5e56011d95fafc21d5c1c1",
       "kind": "int",
       "magnitude": 0,
+      "mistakes": {
+        "6cde0a52f14906f978d20b5f86961696233a899913106003b9696c66d096ef5d": "ce point est à l'intérieur : un point sur un côté a un produit vectoriel nul avec les deux extrémités du côté",
+        "bab93fa3b2d3f3f12d4f50f93a605527e1c4eb6c8fc37dcea857eeef301aeb2c": "ce point est à l'intérieur : un point sur un côté a un produit vectoriel nul avec les deux extrémités du côté"
+      },
       "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
@@ -32278,7 +32286,8 @@
       "mistakes": {
         "07dad68300b4a3889a3dc9ac21119b1610bd3d99f7c54392e25a9daddd230ab6": "‖w‖ = √(2² + 1²), pas 2² + 1²",
         "119d20c84a2740aad745ddc12e14780eaafbaebd828bb4460373191036545870": "la marge est le minimum sur les DEUX classes, la classe −1 comprise",
-        "bc0f18c5d3e0ae9e0c177c689ba46b5b6e05537ccbbace05402296b8858e822a": "une marge géométrique est une distance : divise par ‖w‖"
+        "bc0f18c5d3e0ae9e0c177c689ba46b5b6e05537ccbbace05402296b8858e822a": "une marge géométrique est une distance : divise par ‖w‖",
+        "e8546878c438bc8bc1ec3e5246d8a006ebf962b3de8dd303cc636abf1f2fd422": "le score est w · x + b : avec b, tous les points sont du bon côté"
       },
       "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
@@ -32342,7 +32351,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "40a9448b8a824fc6b2f3db66579fdc8b95361ee675ff525ac7ed95567597c883": "divise par ‖w‖ = √5"
+        "40a9448b8a824fc6b2f3db66579fdc8b95361ee675ff525ac7ed95567597c883": "divise par ‖w‖ = √5",
+        "ba13652859a3cc0ae27da6971eec0d62c84093eb9a532362d795e3e688768e0f": "‖w‖ = √5, pas 5"
       },
       "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
@@ -32441,7 +32451,8 @@
       "magnitude": 0,
       "mistakes": {
         "02de27e04819fc988934a1932de7c50f9ef0052e0dd7bbc416ba178a6b8e3493": "divise par ‖w‖",
-        "419dc826e60d768eb7d5648e8dcf1d7aa3624a629d9b17b18d706d8d42e038a7": "la distance est |w · q + b| / ‖w‖, avec ‖w‖ = ‖(3, −2)‖ dans le plan"
+        "419dc826e60d768eb7d5648e8dcf1d7aa3624a629d9b17b18d706d8d42e038a7": "la distance est |w · q + b| / ‖w‖, avec ‖w‖ = ‖(3, −2)‖ dans le plan",
+        "dfd5d2af59d646d69d65b3c5ff0f4fd328c87a321ab09339013c592aafcd4961": "‖w‖ = √13, pas 13"
       },
       "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
@@ -32559,6 +32570,7 @@
       "magnitude": 1,
       "mistakes": {
         "5151a12104890fcc8c2272d6401f211cfe30bc2c00a9b63f2d59c3894cc2e7e9": "la progression part de e · v₀ = −2 : e · v_k ≥ −2 + 0,5k",
+        "be0a90142e0c55c4470b6b026fd2e66b76411b54c66973aac119844b67cdb562": "bien vu, le premier pas ne peut pas être perpendiculaire (v₀ = −2e) ; la question demande seulement ce que n'excluent pas les deux inégalités de la fiche",
         "c92964eefd023c68e38265135930fc84d13da97885fb2a4f3628735f83b6b567": "‖v_k‖² ≤ ‖v₀‖² + 9k : n'oublie pas ‖v₀‖² = 4"
       },
       "sign": 1,
@@ -32567,16 +32579,17 @@
     "M10.5g": {
       "coarse_any": {
         "0": [
-          "3ac05fd4b6a11d538bc727f7b2ec07a3195949759d99ef66e721ed426181406c"
+          "cc264f17a15552713221ac871084a98218aafd8abddd7e543615eaf3dc7a030a"
         ]
       },
       "decimals": 2,
-      "hash": "2268d707217a4244ae85c090eb3f21cf3899b485bef3054323a6df2f647aa9ca",
-      "hash_coarse": "9ba58f85064cb38482bc17d787f2d2b6e69f1ac776f674e32d311e3e60f30d2f",
+      "hash": "5ff675b7f40553a65c8d57dc00a377f4acad6953adcfaa5ed106e428419b133d",
+      "hash_coarse": "9e672fd574fbc9501a98fa0f2b9706d8a2d4ec2940f716314c09dbf18f101ef8",
       "kind": "float",
-      "magnitude": 1,
+      "magnitude": 0,
       "mistakes": {
-        "6c8e87922d9d54d118269d06989c5ab287d9da38bfdb4c551e88cb83274b2a03": "ici chaque pas va dans la direction de la position : la norme gagne 1 à chaque pas, la borne en √k ne s'applique pas"
+        "2268d707217a4244ae85c090eb3f21cf3899b485bef3054323a6df2f647aa9ca": "les 5 derniers pas sont perpendiculaires à la position : la norme ne gagne plus que par Pythagore, ‖v_(k+1)‖² = ‖v_k‖² + 1",
+        "6c8e87922d9d54d118269d06989c5ab287d9da38bfdb4c551e88cb83274b2a03": "les 5 premiers pas vont dans la direction de la position : la norme gagne 1 à chacun, la borne en √k ne s'applique pas à eux"
       },
       "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"

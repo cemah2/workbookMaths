@@ -44,7 +44,7 @@ Les deux classes sont-elles linéairement séparables ? Pour chaque « non », d
 1. En dimension 1 : la classe $+1$ en $1$ et $2$ ; la classe $-1$ en $4$ et $7$.
 2. En dimension 1 : la classe $+1$ en $0$ et $6$ ; la classe $-1$ en $3$.
 3. Dans le plan : la classe $+1$ en $(0, 0)$, $(4, 0)$ et $(0, 4)$ ; la classe $-1$ en $(1, 2)$.
-4. Dans le plan : la classe $+1$ en huit points d'un cercle de centre $(0, 0)$ ; la classe $-1$ au centre.
+4. Dans le plan : la classe $+1$ en huit points régulièrement répartis sur un cercle de centre $(0, 0)$ ; la classe $-1$ au centre.
 5. Dans le plan : trois points non alignés, avec des labels quelconques.
 6. Deux exemples au même endroit, avec deux labels différents.
 
@@ -115,9 +115,9 @@ On note $\mathbf{a} = (-3, 2)$ et $\mathbf{b} = (5, -2)$. Pour c) : $A$ est le d
 | d | le sommet de $K$ qui n'est sur aucun des deux axes | une liste de 2 nombres |
 | e | le nombre de sommets de $K$ | un entier |
 | f | les lettres des points qui appartiennent à $K$, parmi $P = (2{,}5 ;\ 2)$, $Q = (1 ;\ 3{,}2)$, $R = (3{,}8 ;\ 0{,}5)$ et $S = (0 ;\ 3{,}5)$ | des lettres |
-| g | la combinaison convexe $0{,}5\,(4, 0) + 0{,}3\,(3, 2) + 0{,}2\,(0 ;\ 3{,}5)$ | une liste de 2 nombres (1 décimale) |
+| g | la combinaison convexe $0{,}5\,(2, 0) + 0{,}3\,(0, 2) + 0{,}2\,(2, 2)$ | une liste de 2 nombres (1 décimale) |
 
-Dans ta copie : dessine $K$. Pour chaque ensemble non convexe de c), donne deux points dont le segment sort de l'ensemble. Pourquoi le point de g) est-il forcément dans $K$, sans rien calculer ?
+Dans ta copie : dessine $K$. Pour chaque ensemble non convexe de c), donne deux points dont le segment sort de l'ensemble. Vérifie que les trois points de g) sont dans $K$ : pourquoi leur combinaison convexe y est-elle aussi, sans rien calculer ?
 
 ### Ex M10.2 — L'enveloppe convexe de huit points, à la main ✏️ ★ ⏱️ 15 min
 **Objectif :** construire l'enveloppe convexe d'un nuage du plan par le test d'orientation, et calculer son aire.
@@ -135,7 +135,7 @@ Les huit points : $P_1 = (3, 5)$, $P_2 = (-1, 2)$, $P_3 = (-3, 1)$, $P_4 = (5, 0
 | f | vrai ou faux : le point $Q = (4, 4)$ est dans l'enveloppe convexe | `True` ou `False` |
 | g | le nombre de sommets de l'enveloppe convexe des huit points et de $Q$ | un entier |
 
-Pour e), découpe le polygone en triangles qui partent d'un même sommet : l'aire de chacun est la moitié d'un produit vectoriel. Dans ta copie : fais tourner la chaîne monotone d'Andrew sur la chaîne du bas, en écrivant chaque test. Que dit le signe de d) sur le sommet $P_6$ ? Pour g), quel sommet disparaît, et pourquoi ?
+Pour e), découpe le polygone en triangles qui partent d'un même sommet : l'aire de chacun est la moitié d'un produit vectoriel. Dans ta copie : fais tourner la chaîne monotone d'Andrew sur la chaîne du bas, en écrivant chaque test. Que dit le signe de d) sur le point $P_6$ ? Pour g), compare les sommets des deux enveloppes : lesquels changent, et pourquoi ?
 
 ### Ex M10.3 — Une droite qui sépare deux petits nuages, et sa marge ✏️ ★★ ⏱️ 20 min
 **Objectif :** vérifier qu'une droite sépare deux nuages, calculer sa marge, la régler au mieux à direction fixée, puis trouver la plus grande marge possible.
@@ -147,7 +147,7 @@ La classe $+1$ : $P_1 = (7, 6)$, $P_2 = (7, 5)$, $P_3 = (3, 6)$. La classe $-1$ 
 |---|---|---|
 | a | les six scores $\mathbf{w} \cdot P_i + b$, de $P_1$ à $P_6$ | une liste de 6 nombres |
 | b | la marge géométrique de $(\mathbf{w}, b)$ | un nombre (4 décimales) |
-| c | les numéros des points les plus proches de la droite, dans l'ordre croissant | une liste d'entiers |
+| c | les numéros des points les plus proches de la droite de b), dans l'ordre croissant | une liste d'entiers |
 | d | l'ensemble des $b$ pour lesquels $((2, 1), b)$ sépare les deux classes | un intervalle |
 | e | le $b$ qui donne la plus grande marge avec $\mathbf{w} = (2, 1)$ | un nombre |
 | f | cette marge | un nombre (4 décimales) |
@@ -171,7 +171,7 @@ La droite $\Delta$ a pour équation $3x_1 - 2x_2 + 4 = 0$, soit $(\mathbf{w}, b)
 | f | vrai ou faux : si la première coordonnée de $\tilde{\mathbf{v}}$ est nulle, la droite obtenue comme en e) passe par l'origine du plan | `True` ou `False` |
 | g | le vecteur $\tilde{\mathbf{u}}$, de première coordonnée $-2$, tel que le plan $\tilde{\mathbf{u}} \cdot \tilde{\mathbf{x}} = 0$ contienne les points relevés de $(2, 0)$ et de $(0, 1)$ | une liste de 3 nombres |
 
-Dans ta copie : de quel côté de $\Delta$ est chacun des trois points ? Montre que, pour un point $\mathbf{x}$ du plan, $\tilde{\mathbf{v}} \cdot \tilde{\mathbf{x}} = 0$ équivaut à $\mathbf{x}$ sur la droite de e). Pourquoi un plan qui passe par l'origine de $\mathbb{R}^3$, de normale $\tilde{\mathbf{v}} = (0, v_1, v_2)$ avec $(v_1, v_2) \ne (0, 0)$, donne-t-il une droite du plan qui passe par l'origine ?
+Dans ta copie : de quel côté de $\Delta$ est chacun des trois points ? Montre que, pour un point $\mathbf{x}$ du plan, $\tilde{\mathbf{v}} \cdot \tilde{\mathbf{x}} = 0$ équivaut à $\mathbf{x}$ sur la droite de e).
 
 ### Ex M10.5 — Borner une norme pas à pas : ‖v_{k+1}‖² ≤ ‖v_k‖² + c ✏️ ★★ ⏱️ 15 min
 **Objectif :** suivre la norme d'une suite de vecteurs construite pas à pas, la borner par récurrence, et opposer une croissance linéaire à une croissance en $\sqrt{k}$.
@@ -186,10 +186,10 @@ Une suite part de $\mathbf{v}_0 = (1, 2)$ et fait deux pas, $\mathbf{v}_{k+1} = 
 | c | $\lVert \mathbf{v}_2 \rVert^2$ | un nombre |
 | d | la borne de $\lVert \mathbf{v}_2 \rVert^2$ que donne le lemme de sommation de la fiche, sachant seulement que chaque pas vérifie $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$ et $\lVert \mathbf{d}_k \rVert^2 \le 5$ | un nombre |
 | e | avec les mêmes hypothèses sur **tous** les pas, la borne de $\lVert \mathbf{v}_{100} \rVert$ | un nombre (2 décimales) |
-| f | une autre suite part d'un $\mathbf{v}_0$ tel que $\lVert \mathbf{v}_0 \rVert = 2$ et $\mathbf{e} \cdot \mathbf{v}_0 = -2$, pour un vecteur $\mathbf{e}$ de norme 1 ; chaque pas a une longueur au plus 3, vérifie $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$ et avance d'au moins $0{,}5$ dans la direction $\mathbf{e}$ ($\mathbf{e} \cdot \mathbf{d}_k \ge 0{,}5$). Le plus grand nombre de pas possible | un entier |
-| g | une troisième suite part d'un $\mathbf{v}_0$ de norme 1 et fait des pas de longueur 1 **dans la direction de la position** ($\mathbf{d}_k = \frac{\mathbf{v}_k}{\lVert \mathbf{v}_k \rVert}$) : $\lVert \mathbf{v}_{10} \rVert$ | un nombre |
+| f | une autre suite part d'un $\mathbf{v}_0$ tel que $\lVert \mathbf{v}_0 \rVert = 2$ et $\mathbf{e} \cdot \mathbf{v}_0 = -2$, pour un vecteur $\mathbf{e}$ de norme 1 ; chaque pas a une longueur au plus 3, vérifie $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$ et avance d'au moins $0{,}5$ dans la direction $\mathbf{e}$ ($\mathbf{e} \cdot \mathbf{d}_k \ge 0{,}5$). Le plus grand nombre de pas $k$ que n'excluent pas les deux inégalités de la fiche (la progression le long de $\mathbf{e}$, et la borne du lemme sur $\lVert \mathbf{v}_k \rVert^2$), combinées par Cauchy-Schwarz | un entier |
+| g | une troisième suite part d'un $\mathbf{v}_0$ de norme 1 et fait 10 pas de longueur 1 : les 5 premiers **dans la direction de la position** ($\mathbf{d}_k = \frac{\mathbf{v}_k}{\lVert \mathbf{v}_k \rVert}$), les 5 suivants **perpendiculaires** à la position. $\lVert \mathbf{v}_{10} \rVert$ | un nombre (2 décimales) |
 
-Dans ta copie : vérifie que $\mathbf{v}_0 \cdot \mathbf{d}_0 = 0$ ; que vaut $\lVert \mathbf{v}_1 \rVert^2$, et pourquoi la borne est-elle atteinte au premier pas mais pas au second ? Pour f), écris les deux inégalités que vérifie $\mathbf{e} \cdot \mathbf{v}_k$, puis résous l'inégalité en $k$ (attention au signe de $\mathbf{e} \cdot \mathbf{v}_k$ avant d'élever au carré). Pour g), pourquoi la borne de la fiche ne s'applique-t-elle pas ?
+Dans ta copie : vérifie que $\mathbf{v}_0 \cdot \mathbf{d}_0 = 0$ ; que vaut $\lVert \mathbf{v}_1 \rVert^2$, et pourquoi la borne est-elle atteinte au premier pas mais pas au second ? Pour f), écris les deux inégalités que vérifie $\mathbf{e} \cdot \mathbf{v}_k$, puis résous l'inégalité en $k$ (attention au signe de $\mathbf{e} \cdot \mathbf{v}_k$ avant d'élever au carré). Le plus grand nombre de pas réellement possible est-il celui de f) ? (Regarde le premier pas : que vaut $\mathbf{v}_0$, et que vaut alors $\mathbf{v}_0 \cdot \mathbf{d}_0$ ?) Pour g), pourquoi la borne de la fiche ne s'applique-t-elle pas aux cinq premiers pas ?
 
 <a id="demonstrations"></a>
 
@@ -214,8 +214,8 @@ On note $s(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b$.
 **Prérequis :** fiche §1 à §3 ; Ex M10.6 · **Parcours :** C, E
 
 Soit $A$ et $B$ deux ensembles finis de points de $\mathbb{R}^d$, et $s(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b$ avec $s > 0$ sur $A$ et $s < 0$ sur $B$.
-1. Montre que $s\big(\sum_i t_i\mathbf{x}_i\big) = \sum_i t_i\,s(\mathbf{x}_i)$ dès que $\sum_i t_i = 1$. Où sers-tu de cette hypothèse ?
-2. Déduis-en que $s > 0$ sur tout $\operatorname{conv}(A)$ et $s < 0$ sur tout $\operatorname{conv}(B)$ (où sers-tu de $t_i \ge 0$ ?).
+1. Montre que $s\big(\sum_i t_i\mathbf{x}_i\big) = \sum_i t_i\,s(\mathbf{x}_i)$ dès que $\sum_i t_i = 1$. Où te sers-tu de cette hypothèse ?
+2. Déduis-en que $s > 0$ sur tout $\operatorname{conv}(A)$ et $s < 0$ sur tout $\operatorname{conv}(B)$ (où te sers-tu de $t_i \ge 0$ ?).
 3. Conclus : $\operatorname{conv}(A) \cap \operatorname{conv}(B) = \varnothing$.
 4. Énonce la contraposée. Applique-la à $A = \{(0, 0), (6, 0), (2, 6)\}$ (label $+1$) et $B = \{(2, 2), (7, 5)\}$ (label $-1$) : écris $(2, 2)$ comme une combinaison convexe des points de $A$ (trouve les poids), et conclus.
 5. Montre que, si $A$ et $B$ sont séparés par un hyperplan, leurs barycentres sont strictement de part et d'autre de cet hyperplan.
@@ -252,7 +252,7 @@ Le score est $z = \mathbf{w} \cdot \mathbf{x} + b$ avec $\mathbf{w} = (-1, 2)$ e
 | f | la valeur du score $z$ pour laquelle $\sigma(z) = 0{,}8$ | un nombre (4 décimales) |
 | g | la distance entre la droite où $\sigma(\mathbf{w} \cdot \mathbf{x} + b) = 0{,}8$ et la frontière $\mathbf{w} \cdot \mathbf{x} + b = 0$ | un nombre (4 décimales) |
 
-Dans ta copie : pourquoi la ligne de niveau de g) est-elle une droite parallèle à la frontière ? Le point $\mathbf{p}_1$ est sur la frontière : que vaut chaque activation en ce point, et quelle convention change la réponse du seuil ? Pour quelles activations la région « sortie $> \frac{1}{2}$ » est-elle le demi-plan $z > 0$ ?
+Dans ta copie : pourquoi la ligne de niveau de g) est-elle une droite parallèle à la frontière ? Que vaut chaque activation en $\mathbf{p}_1$, et quelle convention changerait la réponse du seuil ? Pour quelles activations la région « sortie $> \frac{1}{2}$ » est-elle le demi-plan $z > 0$ ?
 
 ### Ex M10.10 — MML §12.1 : les hyperplans séparateurs, en anglais 📖 ★★ ⏱️ 20 min
 **Objectif :** lire en anglais la mise en place d'un classifieur linéaire, et relier ses notations à celles de la fiche.

@@ -148,7 +148,7 @@ Sur le nuage $A$, trié : $(4, 3)$, $(5, 7)$, $(6, 3)$, $(6, 5)$, $(8, 3)$, $(8,
 | $(8, 3)$ | $(0, 2) \times (2, 0) = -4$ : retirer $(6, 5)$ ; puis $(2, 0) \times (4, 0) = 0$ : retirer $(6, 3)$ | $(4, 3)$, $(8, 3)$ |
 | $(8, 7)$ | $(4, 0) \times (4, 4) = 16 > 0$ : garder | $(4, 3)$, $(8, 3)$, $(8, 7)$ |
 
-La chaîne du haut, de droite à gauche, finit en $(8, 7)$, $(5, 7)$, $(4, 3)$ ($(6, 5)$ et $(6, 3)$ y entrent puis en sortent). Bout à bout : $(4, 3)$, $(8, 3)$, $(8, 7)$, $(5, 7)$. Le point $(6, 3)$ est sorti sur un produit **nul** : avec un test $< 0$ au lieu de $\le 0$, il serait resté, comme un faux sommet au milieu d'un côté.
+La chaîne du haut, de droite à gauche, finit en $(8, 7)$, $(5, 7)$, $(4, 3)$ ($(8, 3)$, $(6, 5)$ et $(6, 3)$ y entrent puis en sortent). Bout à bout : $(4, 3)$, $(8, 3)$, $(8, 7)$, $(5, 7)$. Le point $(6, 3)$ est sorti sur un produit **nul** : avec un test $< 0$ au lieu de $\le 0$, il serait resté, comme un faux sommet au milieu d'un côté.
 
 💻 **Aujourd'hui en pratique.** `scipy.spatial.ConvexHull` calcule l'enveloppe en dimension quelconque (avec la bibliothèque Qhull) ; en dimension 2, ses sommets (`hull.vertices`) sont rangés dans le sens direct. Ta fonction `convex_hull_2d` (M10.12) se compare à elle dans les tests.
 

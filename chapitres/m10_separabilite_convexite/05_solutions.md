@@ -28,7 +28,7 @@
 1. **Oui** : le seuil $x = 3$ sépare $\{1, 2\}$ de $\{4, 7\}$.
 2. **Non** : $3$ est dans l'intervalle $[0, 6] = \operatorname{conv}(\{0, 6\})$.
 3. **Non** : $(1, 2)$ vérifie $x \ge 0$, $y \ge 0$ et $x + y \le 4$ : il est dans le triangle de la classe $+1$.
-4. **Non** : le centre est dans le polygone formé par les huit points du cercle (c'est par exemple le milieu de deux points diamétralement opposés, si les huit points sont régulièrement espacés).
+4. **Non** : le centre est le milieu de deux points diamétralement opposés (les huit points sont régulièrement répartis), donc dans l'enveloppe de la classe $+1$.
 5. **Oui** : $d + 1 = 3$ points en position générale sont séparables quels que soient leurs labels (fiche §3).
 6. **Non** : ce point est dans les deux enveloppes ; aucun hyperplan ne peut le mettre des deux côtés.
 
@@ -71,7 +71,7 @@
 
 ### Ex M10.1 — Convexe ou non : segments, demi-plans, intersections
 
-**Réponses** : a) `[-1, 1]` · b) `0.75` · c) `"ACEF"` · d) `[3, 2]` · e) `4` · f) `"PS"` · g) `[2.9, 1.3]`.
+**Réponses** : a) `[-1, 1]` · b) `0.75` · c) `"ACEF"` · d) `[3, 2]` · e) `4` · f) `"PS"` · g) `[1.4, 1.0]`.
 
 **Démarche.**
 - a) $\mathbf{b} - \mathbf{a} = (8, -4)$, et $\mathbf{a} + 0{,}25\,(8, -4) = (-3 + 2,\ 2 - 1) = (-1, 1)$.
@@ -80,9 +80,9 @@
 - d) $2x + y = 8$ et $x + 2y = 7$ : en retranchant deux fois la seconde de la première, $-3y = -6$, $y = 2$, puis $x = 3$. Ce point vérifie bien $x \ge 0$ et $y \ge 0$.
 - e) Les sommets sont $(0, 0)$, $(4, 0)$, $(3, 2)$ et $(0 ;\ 3{,}5)$ : chacun est l'intersection de deux des quatre droites, et vérifie les deux autres inégalités.
 - f) $P$ : $7 \le 8$ et $6{,}5 \le 7$. $Q$ : $1 + 6{,}4 = 7{,}4 > 7$. $R$ : $7{,}6 + 0{,}5 = 8{,}1 > 8$. $S$ : $0 + 7 = 7$, sur le bord, donc dans $K$ (les inégalités sont larges).
-- g) $(2 + 0{,}9 + 0,\ 0 + 0{,}6 + 0{,}7) = (2{,}9 ;\ 1{,}3)$.
+- g) $(1 + 0 + 0{,}4,\ 0 + 0{,}6 + 0{,}4) = (1{,}4 ;\ 1)$.
 
-Pour la copie : le point de g) est une combinaison convexe de trois sommets de $K$, qui est convexe : il est dans $K$ (fiche §1), ce que confirment $2 \times 2{,}9 + 1{,}3 = 7{,}1 \le 8$ et $2{,}9 + 2{,}6 = 5{,}5 \le 7$.
+Pour la copie : $(2, 0)$, $(0, 2)$ et $(2, 2)$ sont dans $K$ ($2x + y$ vaut $4$, $2$ et $6$, au plus 8 ; $x + 2y$ vaut $2$, $4$ et $6$, au plus 7). Le point de g) est une combinaison convexe de points de $K$, qui est convexe : il est dans $K$ (fiche §1), ce que confirment $2 \times 1{,}4 + 1 = 3{,}8 \le 8$ et $1{,}4 + 2 = 3{,}4 \le 7$.
 
 **Erreurs fréquentes.** En a), partir de $\mathbf{b}$ au lieu de $\mathbf{a}$ (on obtient $(3, -1)$, le point de b) ; en c), garder $G$ (« deux bandes convexes ») ou rejeter $F$ ; en f), exclure $S$, qui est sur le bord.
 
@@ -103,7 +103,7 @@ La chaîne du haut, de droite à gauche, finit en $P_4$, $P_6$, $P_1$, $P_3$. Bo
 - f) Pour le côté $P_6 \to P_1$ : $(-1, 2) \times (Q - P_6) = (-1, 2) \times (0, 1) = -1 < 0$ : $Q$ est à droite de ce côté, donc dehors.
 - g) Avec $Q$, le chemin $P_4 \to P_6 \to Q$ donne $(-1, 3) \times (-1, 4) = -4 + 3 = -1 < 0$ : $P_6$ cesse d'être un sommet. Les sommets deviennent $(-3, 1)$, $(0, -2)$, $(5, 0)$, $(4, 4)$, $(3, 5)$ : toujours 5.
 
-Pour la copie : le signe de d) dit que $P_6$ dépasse (de peu) la droite $P_4P_1$ ; un point ajouté au-dessus de lui le fait rentrer à l'intérieur.
+Pour la copie : le signe de d) dit que $P_6$ dépasse (de peu) la droite $P_4P_1$ : c'est un sommet. En g), un seul sommet change : $P_6$ disparaît, $Q$ le remplace ; un point ajouté au-dessus de lui le fait rentrer à l'intérieur.
 
 **Erreurs fréquentes.** Compter $P_7$ comme un sommet (6 sommets) ; tourner dans le sens des aiguilles d'une montre ; oublier de diviser par 2 l'aire des triangles (60) ; en g), ajouter un sommet sans vérifier que les autres le restent.
 
@@ -124,7 +124,7 @@ Pour la copie : le signe de d) dit que $P_6$ dépasse (de peu) la droite $P_4P_1
 
 Pour la copie : la droite de plus grande marge est la médiatrice de $[P_4, P_3]$, de normale $(3, 4)$, qui passe par le milieu $(1{,}5 ;\ 4)$ : $3x_1 + 4x_2 - 20{,}5 = 0$. Ses marges fonctionnelles valent $24{,}5$ ; $20{,}5$ ; $12{,}5$ sur la classe $+1$ et $12{,}5$ ; $14{,}5$ ; $17{,}5$ sur l'autre : le minimum, $12{,}5$, divisé par 5, redonne $2{,}5$. Il faut vérifier que les autres couples sont plus loin : $P_3$ et le côté $P_4P_5$, par exemple, ou $P_2$ et $P_6$.
 
-**Erreurs fréquentes.** Oublier $b$ dans les scores ; diviser par $\lVert \mathbf{w} \rVert^2 = 5$ au lieu de $\sqrt{5}$ ; prendre la marge sur une seule classe ; un intervalle fermé en d) (aux bornes, un point est sur la droite) ; en g), répondre $\sqrt{5}$, la meilleure marge pour la seule direction $(2, 1)$.
+**Erreurs fréquentes.** Oublier $b$ dans les scores (la marge devient $-\frac{2}{\sqrt{5}}$) ; diviser par $\lVert \mathbf{w} \rVert^2 = 5$ au lieu de $\sqrt{5}$ ; prendre la marge sur une seule classe ; un intervalle fermé en d) (aux bornes, un point est sur la droite) ; en g), répondre $\sqrt{5}$, la meilleure marge pour la seule direction $(2, 1)$.
 
 **Variante.** Avec $\mathbf{w} = (1, 1)$, l'intervalle des $b$ qui séparent, et la meilleure marge ? *Réponse* : le plus petit $x_1 + x_2$ de la classe $+1$ vaut 9, le plus grand de la classe $-1$ vaut 2 ; $b \in\ ]-9, -2[$, et $b = -5{,}5$ donne $\frac{3{,}5}{\sqrt{2}} \approx 2{,}4749$, mieux que $(2, 1)$ mais moins que $2{,}5$.
 
@@ -140,7 +140,7 @@ Pour la copie : la droite de plus grande marge est la médiatrice de $[P_4, P_3]
 - f) Au niveau 1, l'équation devient $v_1x_1 + v_2x_2 = 0$, une droite qui passe par $(0, 0)$.
 - g) $\tilde{\mathbf{u}} \cdot (1, 2, 0) = -2 + 2u_1 = 0$ donne $u_1 = 1$ ; $\tilde{\mathbf{u}} \cdot (1, 0, 1) = -2 + u_2 = 0$ donne $u_2 = 2$ : c'est la droite $x_1 + 2x_2 - 2 = 0$, qui passe bien par $(2, 0)$ et $(0, 1)$.
 
-Pour la copie : $\mathbf{p}$ est du côté positif de $\Delta$, $\mathbf{q}$ et $\mathbf{r}$ du côté négatif. Pour un point du plan, $\tilde{\mathbf{v}} \cdot (1, x_1, x_2) = -6 + 2x_1 + 3x_2$ : il est nul exactement sur la droite $2x_1 + 3x_2 = 6$. Le biais est la seule chose qui écarte une droite de l'origine : avec $v_0 = 0$, il n'y en a plus.
+Pour la copie : $\mathbf{p}$ est du côté positif de $\Delta$, $\mathbf{q}$ et $\mathbf{r}$ du côté négatif. Pour un point du plan, $\tilde{\mathbf{v}} \cdot (1, x_1, x_2) = -6 + 2x_1 + 3x_2$ : il est nul exactement sur la droite $2x_1 + 3x_2 = 6$.
 
 **Erreurs fréquentes.** Le biais ou la coordonnée 1 à la fin (`[3, -2, 4]`, `[1, 2, 1]`) : la convention de l'énoncé, celle de la fiche, les place en tête ; oublier le terme $b \times 1$ dans le score ; en d), diviser par la norme de $\tilde{\mathbf{w}}$ (dans $\mathbb{R}^3$) au lieu de celle de $\mathbf{w}$.
 
@@ -148,7 +148,7 @@ Pour la copie : $\mathbf{p}$ est du côté positif de $\Delta$, $\mathbf{q}$ et 
 
 ### Ex M10.5 — Borner une norme pas à pas : ‖v_{k+1}‖² ≤ ‖v_k‖² + c
 
-**Réponses** : a) `5` · b) `-1` · c) `13` · d) `15` · e) `22.47` · f) `44` · g) `11`.
+**Réponses** : a) `5` · b) `-1` · c) `13` · d) `15` · e) `22.47` · f) `44` · g) `6.4`.
 
 **Démarche.**
 - a) $1 + 4 = 5$.
@@ -156,12 +156,12 @@ Pour la copie : $\mathbf{p}$ est du côté positif de $\Delta$, $\mathbf{q}$ et 
 - c) $\mathbf{v}_2 = (2, 3)$, de carré de norme 13 ; ou bien $\lVert \mathbf{v}_1 \rVert^2 + 2\,\mathbf{v}_1 \cdot \mathbf{d}_1 + \lVert \mathbf{d}_1 \rVert^2 = 10 - 2 + 5 = 13$.
 - d) Le lemme avec $c = 5$ : $\lVert \mathbf{v}_2 \rVert^2 \le 5 + 2 \times 5 = 15$.
 - e) $\lVert \mathbf{v}_{100} \rVert^2 \le 5 + 100 \times 5 = 505$, donc $\lVert \mathbf{v}_{100} \rVert \le \sqrt{505} \approx 22{,}47$.
-- f) La progression : $\mathbf{e} \cdot \mathbf{v}_k \ge -2 + 0{,}5k$. La norme : $\lVert \mathbf{v}_k \rVert^2 \le 4 + 9k$. Cauchy-Schwarz : $\mathbf{e} \cdot \mathbf{v}_k \le \lVert \mathbf{v}_k \rVert$. Pour $k \ge 4$, $-2 + 0{,}5k \ge 0$, et l'on peut élever au carré : $0{,}25k^2 - 2k + 4 \le 4 + 9k$, soit $0{,}25k^2 \le 11k$, soit $k \le 44$. Au plus 44 pas.
-- g) $\mathbf{v}_{k+1} = \mathbf{v}_k\big(1 + \frac{1}{\lVert \mathbf{v}_k \rVert}\big)$ : la norme gagne exactement 1 à chaque pas, $\lVert \mathbf{v}_{10} \rVert = 1 + 10 = 11$.
+- f) La progression : $\mathbf{e} \cdot \mathbf{v}_k \ge -2 + 0{,}5k$. La norme : $\lVert \mathbf{v}_k \rVert^2 \le 4 + 9k$. Cauchy-Schwarz : $\mathbf{e} \cdot \mathbf{v}_k \le \lVert \mathbf{v}_k \rVert$. Pour $k \ge 4$, $-2 + 0{,}5k \ge 0$, et l'on peut élever au carré : $0{,}25k^2 - 2k + 4 \le 4 + 9k$, soit $0{,}25k^2 \le 11k$, soit $k \le 44$. Les deux inégalités n'excluent pas 44 pas, et excluent 45.
+- g) Pendant les 5 premiers pas, $\mathbf{v}_{k+1} = \mathbf{v}_k\big(1 + \frac{1}{\lVert \mathbf{v}_k \rVert}\big)$ : la norme gagne exactement 1 à chaque pas, $\lVert \mathbf{v}_5 \rVert = 6$. Pendant les 5 suivants, perpendiculaires, Pythagore donne $\lVert \mathbf{v}_{k+1} \rVert^2 = \lVert \mathbf{v}_k \rVert^2 + 1$ : $\lVert \mathbf{v}_{10} \rVert^2 = 36 + 5 = 41$, et $\lVert \mathbf{v}_{10} \rVert = \sqrt{41} \approx 6{,}40$.
 
-Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf{v}_1 \rVert^2 = 5 + 0 + 5 = 10$ : la borne est atteinte au premier pas, perpendiculaire, mais pas au second, où le terme $2\,\mathbf{v}_1 \cdot \mathbf{d}_1 = -2$ est strictement négatif. En g), $\mathbf{v}_k \cdot \mathbf{d}_k = \lVert \mathbf{v}_k \rVert > 0$ : l'hypothèse du lemme n'est pas vérifiée, et la norme croît linéairement, bien au-delà de $\sqrt{1 + 10} \approx 3{,}3$.
+Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf{v}_1 \rVert^2 = 5 + 0 + 5 = 10$ : la borne est atteinte au premier pas, perpendiculaire, mais pas au second, où le terme $2\,\mathbf{v}_1 \cdot \mathbf{d}_1 = -2$ est strictement négatif. En f), le vrai maximum est **43**, pas 44 : comme $\lVert \mathbf{v}_0 \rVert = 2$ et $\mathbf{e} \cdot \mathbf{v}_0 = -2$, Cauchy-Schwarz est une égalité et $\mathbf{v}_0 = -2\mathbf{e}$ ; le premier pas a donc $\mathbf{v}_0 \cdot \mathbf{d}_0 = -2\,\mathbf{e} \cdot \mathbf{d}_0 \le -1$, et $\lVert \mathbf{v}_1 \rVert^2 \le 4 - 2 + 9 = 11$ au lieu de 13. Avec cette borne, $(0{,}5k - 2)^2 \le 2 + 9k$ donne $k \le 43$, et une suite de 43 pas existe (en dimension 3). Une borne n'est pas forcément atteinte : elle dit seulement ce qui est impossible. En g), pendant les cinq premiers pas, $\mathbf{v}_k \cdot \mathbf{d}_k = \lVert \mathbf{v}_k \rVert > 0$ : l'hypothèse du lemme n'est pas vérifiée, et la norme croît linéairement ; ensuite elle ne gagne plus que comme $\sqrt{k}$.
 
-**Erreurs fréquentes.** En c), donner la borne au lieu de la valeur exacte ; en e), oublier $\lVert \mathbf{v}_0 \rVert^2$ ou la racine ; en f), partir de $\mathbf{e} \cdot \mathbf{v}_0 = 0$ (on trouve 36) ou oublier $\lVert \mathbf{v}_0 \rVert^2 = 4$ (on trouve 52) ; élever au carré une inégalité dont un côté peut être négatif.
+**Erreurs fréquentes.** En c), donner la borne au lieu de la valeur exacte ; en e), oublier $\lVert \mathbf{v}_0 \rVert^2$ ou la racine ; en f), partir de $\mathbf{e} \cdot \mathbf{v}_0 = 0$ (on trouve 36) ou oublier $\lVert \mathbf{v}_0 \rVert^2 = 4$ (on trouve 52) ; élever au carré une inégalité dont un côté peut être négatif ; en g), appliquer la même règle aux dix pas (11, ou $\sqrt{11}$).
 
 **Variante.** Avec les hypothèses de e), une borne de $\lVert \mathbf{v}_{20} \rVert$ ? *Réponse* : $\sqrt{5 + 100} = \sqrt{105} \approx 10{,}25$.
 
@@ -221,7 +221,7 @@ Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf
 - f) $1 + e^{-z} = \frac{1}{0{,}8} = 1{,}25$, $e^{-z} = 0{,}25$, $z = \ln 4 \approx 1{,}3863$.
 - g) La ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = \ln 4$, à la distance $\frac{\ln 4}{\lVert \mathbf{w} \rVert} = \frac{1{,}3863}{\sqrt{5}} \approx 0{,}6200$ de la frontière.
 
-Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b = c\}$ est une droite parallèle à la frontière (même normale $\mathbf{w}$). En $\mathbf{p}_1$, sur la frontière, les sorties valent $0$, $0{,}5$, $0$ et $0$ ; un seuil qui donnerait 1 en $z = 0$ (convention $z \ge 0$) répondrait autrement. La région « sortie $> \frac{1}{2}$ » est le demi-plan $z > 0$ pour la sigmoïde ; pour le seuil, c'est aussi $z > 0$ ; pour tanh, c'est $z > \operatorname{artanh}(0{,}5) \approx 0{,}55$ (le niveau neutre de tanh est 0, pas $\frac{1}{2}$) ; pour ReLU, $z > \frac{1}{2}$.
+Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b = c\}$ est une droite parallèle à la frontière (même normale $\mathbf{w}$). En $\mathbf{p}_1$, qui est sur la frontière ($z = 0$), les sorties valent $0$, $0{,}5$, $0$ et $0$ ; un seuil qui donnerait 1 en $z = 0$ (convention $z \ge 0$) répondrait autrement. La région « sortie $> \frac{1}{2}$ » est le demi-plan $z > 0$ pour la sigmoïde ; pour le seuil, c'est aussi $z > 0$ ; pour tanh, c'est $z > \operatorname{artanh}(0{,}5) \approx 0{,}55$ (le niveau neutre de tanh est 0, pas $\frac{1}{2}$) ; pour ReLU, $z > \frac{1}{2}$.
 
 **Erreurs fréquentes.** Oublier $b$ dans les scores ; $H(0) = 1$ ; $\tanh(z) = 2\sigma(z) - 1$ (le facteur 2 dans l'argument manque) ; en g), oublier de diviser par $\lVert \mathbf{w} \rVert$.
 

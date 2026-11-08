@@ -173,6 +173,15 @@ def test_interval_writings(value):
     assert verdict("I.1", entry, value)[0], value
 
 
+def test_math_kinds_report_the_status_correct():
+    """Session 31 (blind review of M10): a right maths answer reports the status "correct", as CheckResult documents
+    (it reported "ok")."""
+    for ex_id, value, kwargs, answer in [("S.1", Fraction(3, 4), {"kind": "fraction"}, "3/4"),
+                                         ("S.2", "]-12 ; -2[", {"kind": "interval"}, "]-12 ; -2["),
+                                         ("S.3", "2*x", {"kind": "expr", "variables": ("x",)}, "x + x")]:
+        assert verdict(ex_id, entry_of(ex_id, value, **kwargs), answer)[:2] == (True, "correct"), ex_id
+
+
 def test_interval_reads_the_reals_minus_a_few_points():
     entry = entry_of("I.9", "]-oo ; -1[ U ]-1 ; 2[ U ]2 ; +oo[", kind="interval")
     for value in ("R \\ {-1 ; 2}", "ℝ∖{2, -1}", "R privé de {-1; 2}", "]-oo ; -1[ U ]-1 ; 2[ U ]2 ; +oo["):

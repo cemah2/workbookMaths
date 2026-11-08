@@ -49,7 +49,8 @@ PAPER = [
          '''mistakes={"S est sur le bord x + 2y = 7 : K contient son bord (inégalités larges)": "P", '''
          '''"vérifie les quatre inégalités, x + 2y ≤ 7 comprise": {"PQ", "PQS"}, '''
          '''"vérifie les quatre inégalités, 2x + y ≤ 8 comprise": {"PR", "PRS"}}'''),
-        ("g", "a list of 2 numbers (1 decimal)", "[2.9, 1.3]", "decimals=1"),
+        ("g", "a list of 2 numbers (1 decimal)", "[1.4, 1.0]",
+         '''decimals=1, mistakes={"les poids vont avec les points dans l'ordre de l'énoncé : 0,5 pour (2, 0)": [1.0, 0.8]}'''),
     ]),
 
     Paper("M10.2", "L'enveloppe convexe de huit points, à la main", [
@@ -62,8 +63,12 @@ PAPER = [
          '''"(−2, 0) est au milieu d'un côté : ce n'est pas un sommet": '''
          '''[[-3, 1], [-2, 0], [0, -2], [5, 0], [4, 3], [3, 5]], '''
          '''"commence par le plus petit point : le plus petit x, puis le plus petit y": '''
-         '''[[0, -2], [5, 0], [4, 3], [3, 5], [-3, 1]]}'''),
-        ("c", "an integer", "7"),
+         '''[[0, -2], [5, 0], [4, 3], [3, 5], [-3, 1]], '''
+         '''"(4, 3) dépasse de peu la droite qui joint (5, 0) à (3, 5) : calcule le produit vectoriel, c'est un sommet": '''
+         '''[[-3, 1], [0, -2], [5, 0], [3, 5]]}'''),
+        ("c", "an integer", "7",
+         '''mistakes={"ce point est à l'intérieur : un point sur un côté a un produit vectoriel nul avec les deux '''
+         '''extrémités du côté": {2, 5}}'''),
         ("d", "a number", "1",
          '''mistakes={"u × v = u₁v₂ − u₂v₁ : l'ordre des deux vecteurs compte": -1}'''),
         ("e", "a number", "30",
@@ -80,7 +85,8 @@ PAPER = [
         ("b", "a number (4 decimals)", "2 / math.sqrt(5)",
          '''decimals=4, mistakes={"une marge géométrique est une distance : divise par ‖w‖": 2.0, '''
          '''"‖w‖ = √(2² + 1²), pas 2² + 1²": 0.4, '''
-         '''"la marge est le minimum sur les DEUX classes, la classe −1 comprise": 8 / math.sqrt(5)}'''),
+         '''"la marge est le minimum sur les DEUX classes, la classe −1 comprise": 8 / math.sqrt(5), '''
+         '''"le score est w · x + b : avec b, tous les points sont du bon côté": -2 / math.sqrt(5)}'''),
         ("c", "a list of integers", "[4, 6]",
          '''mistakes={"compare les distances des deux côtés : y_i(w · x_i + b) / ‖w‖ pour chaque point": [3], '''
          '''"deux points sont à la même distance de la droite : donne leurs deux numéros": [4], '''
@@ -93,7 +99,7 @@ PAPER = [
          '''mistakes={"le meilleur b met la droite à égale distance des deux nuages : le milieu de l'intervalle": '''
          '''{-12, -2}}'''),
         ("f", "a number (4 decimals)", "math.sqrt(5)",
-         '''decimals=4, mistakes={"divise par ‖w‖ = √5": 5.0}'''),
+         '''decimals=4, mistakes={"divise par ‖w‖ = √5": 5.0, "‖w‖ = √5, pas 5": 1.0}'''),
         ("g", "a number", "2.5",
          '''decimals=2, mistakes={"la plus grande marge est la MOITIÉ de la distance entre les enveloppes": 5.0, '''
          '''"c'est la meilleure marge pour w = (2, 1) ; en changeant aussi la direction, on fait mieux": '''
@@ -109,7 +115,7 @@ PAPER = [
          '''mistakes={"le score relevé vaut b × 1 + w · x : n'oublie pas le terme du biais": [-1, -8, -6]}'''),
         ("d", "a number (4 decimals)", "4 / math.sqrt(13)",
          '''decimals=4, mistakes={"la distance est |w · q + b| / ‖w‖, avec ‖w‖ = ‖(3, −2)‖ dans le plan": '''
-         '''4 / math.sqrt(29), "divise par ‖w‖": 4.0}'''),
+         '''4 / math.sqrt(29), "divise par ‖w‖": 4.0, "‖w‖ = √13, pas 13": 4 / 13}'''),
         ("e", "a list of 2 numbers", "[3, 2]",
          '''mistakes={"au niveau x₀ = 1, l'équation devient −6 + 2x₁ + 3x₂ = 0 : x₁ = 3 quand x₂ = 0": [2, 3]}'''),
         ("f", "True or False", "True"),
@@ -132,10 +138,13 @@ PAPER = [
          '''"‖v₁₀₀‖² ≤ ‖v₀‖² + 100 c : n'oublie pas ‖v₀‖² = 5": 10 * math.sqrt(5)}'''),
         ("f", "an integer", "44",
          '''mistakes={"la progression part de e · v₀ = −2 : e · v_k ≥ −2 + 0,5k": 36, '''
-         '''"‖v_k‖² ≤ ‖v₀‖² + 9k : n'oublie pas ‖v₀‖² = 4": 52}'''),
-        ("g", "a number", "11.0",
-         '''decimals=2, mistakes={"ici chaque pas va dans la direction de la position : la norme gagne 1 à chaque pas, la borne en '''
-         '''√k ne s'applique pas": math.sqrt(11)}'''),
+         '''"‖v_k‖² ≤ ‖v₀‖² + 9k : n'oublie pas ‖v₀‖² = 4": 52, '''
+         '''"bien vu, le premier pas ne peut pas être perpendiculaire (v₀ = −2e) ; la question demande seulement ce que '''
+         '''n'excluent pas les deux inégalités de la fiche": 43}'''),
+        ("g", "a number (2 decimals)", "math.sqrt(41)",
+         '''decimals=2, mistakes={"les 5 premiers pas vont dans la direction de la position : la norme gagne 1 à chacun, la '''
+         '''borne en √k ne s'applique pas à eux": math.sqrt(11), "les 5 derniers pas sont perpendiculaires à la position : '''
+         '''la norme ne gagne plus que par Pythagore, ‖v_(k+1)‖² = ‖v_k‖² + 1": 11.0}'''),
     ]),
 
     Paper("M10.9", "Pont : seuil, sigmoïde, tanh et ReLU appliqués à un même score linéaire", [
