@@ -59,7 +59,7 @@ Vocabulaire anglais de ce chapitre : *argument*, *premise*, *conclusion*, *valid
 2. *Modus ponens* ($P \Rightarrow Q$, $P$, donc $Q$) et *modus tollens* ($P \Rightarrow Q$, non $Q$, donc non $P$) sont valides ; affirmer le conséquent et nier l'antécédent ne le sont pas.
 3. « Tout élément de $A$ a la propriété $B$ » s'écrit $A \subset B$ ; sa négation : il existe un élément de $A \setminus B$, un **contre-exemple**. La contraposée est l'inclusion des complémentaires, $\bar{B} \subset \bar{A}$.
 4. Une **induction** généralise à partir d'exemples : sa conclusion est probable, jamais certaine. Ses pièges : trop peu d'exemples, le **taux de base** oublié, un échantillon **biaisé** (que la taille ne corrige pas), une corrélation prise pour une cause.
-5. **Markov** : si $X \ge 0$, $P(X \ge a) \le \frac{\mathbb{E}[X]}{a}$. Elle n'utilise que la moyenne ; elle est atteinte par une loi à deux valeurs, 0 et $a$.
+5. **Markov** : si $X \ge 0$ et $a > 0$, $P(X \ge a) \le \frac{\mathbb{E}[X]}{a}$. Elle n'utilise que la moyenne ; elle est atteinte par une loi à deux valeurs, 0 et $a$.
 6. **Tchebychev** : $P(\lvert X - \mu \rvert \ge t) \le \frac{\sigma^2}{t^2}$ ; pour une moyenne de $n$ variables indépendantes, $\frac{\sigma^2}{n t^2}$, d'où la **loi faible des grands nombres**. Une variable dans $[a, b]$ a une variance au plus $\frac{(b - a)^2}{4}$.
 7. **Hoeffding** : pour $n$ variables indépendantes à valeurs dans $[a, b]$, $P(\lvert \bar{X} - \mu \rvert \ge t) \le 2\exp\big(-\frac{2nt^2}{(b - a)^2}\big)$ : une décroissance **exponentielle** en $n$, sans connaître la loi.
 8. **Rayon de confiance** : avec une probabilité au moins $1 - \delta$, $\lvert \bar{X} - \mu \rvert < (b - a)\sqrt{\frac{\ln(2/\delta)}{2n}}$ ; il faut 4 fois plus d'exemples pour un rayon 2 fois plus petit. Pour $K$ quantités regardées ensemble, on remplace $\delta$ par $\frac{\delta}{K}$.
@@ -116,7 +116,7 @@ Les implications s'enchaînent aussi : « $P \Rightarrow Q$ ; $Q \Rightarrow R$ 
 
 ### Négation et contre-exemple
 
-Pour réfuter « pour tout $x$ de $E$, $P(x)$ », il suffit d'**un** $x$ de $E$ qui ne vérifie pas $P$ ; pour prouver « il existe $x$ tel que $P(x)$ », il suffit d'**un** témoin. À l'inverse, prouver une phrase en « pour tout » sur un ensemble infini demande un raisonnement, et non une liste d'exemples (le §3 dira pourquoi). Avec plusieurs quantificateurs, on nie de gauche à droite, et l'ordre compte (R4) : « pour chaque dataset, il existe un modèle qui y dépasse 0,9 » n'est pas « il existe un modèle qui dépasse 0,9 sur chaque dataset » (M11.2).
+Pour réfuter « pour tout $x$ de $E$, $P(x)$ », il suffit d'**un** $x$ de $E$ qui ne vérifie pas $P$ ; pour prouver « il existe $x$ tel que $P(x)$ », il suffit d'**un** témoin. À l'inverse, prouver une phrase en « pour tout » sur un ensemble infini demande un raisonnement, et non une liste d'exemples (le §3 dira pourquoi). Avec plusieurs quantificateurs, on nie de gauche à droite, et l'ordre compte (R4) : « pour chaque dataset, il existe un modèle qui y atteint au moins 0,9 » n'est pas « il existe un modèle qui atteint au moins 0,9 sur chaque dataset » (M11.2).
 
 🔗 **Dans workbookIA** — le chapitre 11 distingue la déduction et l'induction, et étudie d'autres familles de raisonnements (les syllogismes, qui relient des catégories) et leurs sophismes ; ses exercices sont à faire là-bas. La table de vérité de ce paragraphe est l'outil qui tranche, pour toute forme écrite avec « si… alors », « et », « ou » et « non ».
 
@@ -148,7 +148,7 @@ La dernière ligne est la **négation** de la première : nier une inclusion, c'
 
 **Compter.** Le cardinal d'une réunion se compte sans double compte (R4) : $\lvert A \cup C \rvert = \lvert A \rvert + \lvert C \rvert - \lvert A \cap C \rvert = 6 + 8 - 2 = 12$. C'est aussi ce qui fait les probabilités : avec un élément tiré au hasard dans $E$, $P(A \cup C) = \frac{12}{24}$.
 
-⚠️ **Erreur classique.** Croire que « au moins un élément de $A$ est dans $B$ » et « au moins un élément de $B$ est dans $C$ » donnent « au moins un élément de $A$ est dans $C$ ». Les deux témoins peuvent être différents : avec $C = \{6, 18\}$, on a $4 \in A \cap B$ et $6 \in B \cap C$, et pourtant $A \cap C = \varnothing$. Seule une inclusion se transmet : $A \subset B$ et $B \subset C$ donnent $A \subset C$.
+⚠️ **Erreur classique.** Croire que « au moins un élément de $A$ est dans $B$ » et « au moins un élément de $B$ est dans $D$ » donnent « au moins un élément de $A$ est dans $D$ ». Les deux témoins peuvent être différents : avec $D = \{6, 18\}$, on a $4 \in A \cap B$ et $6 \in B \cap D$, et pourtant $A \cap D = \varnothing$. Seule une inclusion se transmet : $A \subset B$ et $B \subset D$ donnent $A \subset D$.
 
 ## §3 · L'induction et ses pièges
 

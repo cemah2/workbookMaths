@@ -53,7 +53,7 @@ Relis « Une phrase, une inclusion » (fiche §2).
 </details>
 <details><summary>Indice 2</summary>
 
-Écris $A$, $B$ et $C$ en extension (cinq, dix et six éléments) ; une inclusion se vérifie élément par élément.
+Écris $A$, $B$ et $C$ en extension (quatre, huit et cinq éléments) ; une inclusion se vérifie élément par élément.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -210,7 +210,7 @@ Pour chaque argument, écris une colonne par prémisse et une pour la conclusion
 </details>
 <details><summary>Indice 3</summary>
 
-b) Ligne 1 (VV) : $P \Rightarrow Q$ vraie, $Q$ vraie : les deux prémisses sont vraies ; fais de même pour les lignes 2 à 4. f) Les huit lignes, dans l'ordre VVV, VVF, …, FFF. i) Avec $P$ vraie et $R$ fausse, la première prémisse n'est vraie que si « $P$ et $Q$ » est faux.
+b) Ligne 1 (VV) : $P \Rightarrow Q$ vraie, $Q$ vraie : les deux prémisses sont vraies ; fais de même pour les lignes 2 à 4. f) Les huit lignes, dans l'ordre VVV, VVF, …, FFF. h) Les lignes restent rangées $P$ d'abord (VV, VF, FV, FF) : l'implication va ici de $Q$ vers $P$, elle n'est fausse qu'à la ligne FV. i) Avec $P$ vraie et $R$ fausse, la première prémisse n'est vraie que si « $P$ et $Q$ » est faux.
 
 </details>
 
@@ -228,7 +228,7 @@ Un « pour tout » se réfute par une case ; un « il existe » se prouve par un
 </details>
 <details><summary>Indice 3</summary>
 
-a) La colonne du dataset 3 contient 0,79 : $S_1$ est fausse ; cherche les autres cases sous 0,80. e) Cherche une **ligne** entière au-dessus de 0,90. h) Cherche une **colonne** entière au-dessus de 0,84.
+a) La colonne du dataset 3 contient 0,79 : $S_1$ est fausse ; cherche les autres cases sous 0,80. e) Cherche une **ligne** entière d'au moins 0,90. h) Cherche une **colonne** entière d'au moins 0,84.
 
 </details>
 

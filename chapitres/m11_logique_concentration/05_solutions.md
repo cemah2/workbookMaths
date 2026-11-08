@@ -25,12 +25,12 @@
 6. **Faux** : si les prémisses sont contradictoires (« $P$ ; non $P$ »), aucune ligne ne les rend vraies, et l'argument est valide sans qu'aucune ligne ne compte.
 
 ### M11.Q3 — Diagrammes de Venn et quantificateurs
-1. **Oui** : $A = \{4, 8, 12, 16, 20\}$, tous pairs.
-2. **Non** : 2 est pair et n'est pas multiple de 4 (6, 10, 14 et 18 aussi).
-3. $A \cap C = \{12\}$.
-4. **Faux** : 6 est multiple de 3 et pair (12 et 18 aussi).
-5. **Vrai** : c'est la contraposée de $A \subset B$ (un impair n'est pas multiple de 4).
-6. $\lvert A \cup C \rvert = 5 + 6 - 1 = 10$.
+1. **Oui** : $A = \{10, 20, 30, 40\}$, tous multiples de 5.
+2. **Non** : 5 est multiple de 5 et n'est pas multiple de 10 (15, 25 et 35 aussi).
+3. $A \cap C = \varnothing$ : un élément commun serait multiple de 70, et $E$ s'arrête à 40.
+4. **Faux** : 14 est multiple de 7 et pair (28 aussi).
+5. **Vrai** : c'est la contraposée de $A \subset B$ (un nombre qui n'est pas multiple de 5 n'est pas multiple de 10).
+6. $\lvert A \cup C \rvert = 4 + 5 - 0 = 9$.
 
 ### M11.Q4 — Les pièges de l'induction
 1. **Non** : $40^2 + 40 + 41 = 1\,681 = 41^2$. Quarante exemples ne démontrent pas un « pour tout ».
@@ -95,14 +95,14 @@
 
 ### Ex M11.1 — Tables de vérité : modus ponens, modus tollens et l'affirmation du conséquent
 
-**Réponses** : a) `[True, False, True, True]` · b) `[1, 3]` · c) `False` · d) `[2]` · e) `True` · f) `4` · g) `True` · h) `3` · i) `True`.
+**Réponses** : a) `[True, False, True, True]` · b) `[1, 3]` · c) `False` · d) `[2]` · e) `True` · f) `4` · g) `True` · h) `2` · i) `True`.
 
 **Démarche.**
 - a) $P \Rightarrow Q$ n'est fausse qu'à la ligne VF.
 - b) et c) Les prémisses $P \Rightarrow Q$ et $Q$ sont vraies aux lignes 1 (VV) et 3 (FV). À la ligne 3, la conclusion $P$ est fausse : contre-exemple, l'argument n'est pas valide.
 - d) et e) « non $P \Rightarrow Q$ » est fausse seulement à la ligne FF (non $P$ vraie, $Q$ fausse) ; « non $Q$ » demande $Q$ fausse (lignes 2 et 4). Seule la ligne 2 (VF) rend les deux prémisses vraies, et $P$ y est vraie : valide. C'est un *modus tollens* dont l'hypothèse est « non $P$ » : sa conclusion « non (non $P$) » est $P$.
 - f) et g) Les deux prémisses sont vraies aux lignes VVV, FVV, FFV et FFF ; dans les quatre, $P \Rightarrow R$ est vraie (V ⇒ V, ou $P$ faux). Valide.
-- h) La ligne 3 (FV) : $P \Rightarrow Q$ et non $P$ sont vraies, la conclusion non $Q$ est fausse.
+- h) La ligne 2 (VF) : $Q \Rightarrow P$ est vraie ($Q$ fausse), non $Q$ est vraie, et la conclusion non $P$ est fausse ($P$ vraie). C'est la forme « nier l'antécédent » de la fiche, avec les rôles de $P$ et $Q$ échangés : son contre-exemple, la ligne « $P$ faux, $Q$ vrai » de la fiche, devient ici « $Q$ faux, $P$ vrai », la ligne 2.
 - i) Les prémisses $P$ et non $R$ forcent $P$ vraie et $R$ fausse ; « ($P$ et $Q$) $\Rightarrow R$ » n'est alors vraie que si « $P$ et $Q$ » est faux, donc si $Q$ est fausse : la conclusion non $Q$ est vraie dans la seule ligne qui reste (VFF). Valide.
 
 Pour la copie : un exemple d'affirmation du conséquent avec des prémisses vraies et une conclusion fausse : « si un animal est un chien, il a quatre pattes ; mon chat a quatre pattes ; donc mon chat est un chien ».
@@ -176,7 +176,7 @@ Pour la copie : sur 10 000 capteurs, 276 défectueux sont signalés, mais aussi 
 - b) $\frac{1{,}5}{1} = 1{,}5 > 1$ : la borne vaut 1, elle n'apprend rien.
 - c) $\frac{1{,}5}{a} \le 0{,}05$ donne $a \ge 30$.
 - d) $P(T \ge 6) = e^{-6/1{,}5} = e^{-4} \approx 0{,}0183$.
-- e) $\frac{0{,}25}{0{,}0183} \approx 13{,}6$.
+- e) $\frac{0{,}25}{e^{-4}} = 0{,}25\,e^{4} \approx 13{,}6$ (avec la valeur arrondie 0,0183, on trouve 13,7, accepté aussi ; la valeur exacte reste la référence).
 - f) La loi qui vaut 6 avec la probabilité $p$ et 0 sinon a pour moyenne $6p = 1{,}5$ : $p = 0{,}25$, et $P(T = 0) = 0{,}75$.
 - g) Trois durées sur huit (2,0 ; 2,6 ; 3,3) : $0{,}375$.
 - h) $P(T \ge 6) = P(T^2 \ge 36) \le \frac{4{,}5}{36} = 0{,}125$.
@@ -261,7 +261,7 @@ Pour la copie : Markov n'utilise que la moyenne, et la loi qui l'atteint (0 ou 3
 - g) $\sum_{t \ge 1} t^{-4} = \frac{\pi^4}{90} \approx 1{,}0823$ ; sans le terme $t = 1$ : $0{,}0823$.
 - h) $\ln(1/\delta_t) = 2\ln t$ : $\sqrt{\frac{\ln 1\,000}{50}} \approx 0{,}3717$.
 
-Pour la copie : b) est le calcul général. g) : par la borne de l'union, la probabilité qu'une borne supérieure soit fausse au moins une fois entre le pas 2 et l'infini (pour une option et un nombre de choix donnés) est au plus 0,08 ; le risque décroît assez vite pour que la somme reste petite. f) : le seuil $\frac{8\ln t}{\Delta^2}$ ne croît que comme $\ln t$ ; au-delà, la borne de l'option d'écart $\Delta$ passe sous $\mu^\star$ (si les bornes sont justes), et UCB ne la choisit plus.
+Pour la copie : b) est le calcul général. g) : par la borne de l'union, la probabilité qu'une borne supérieure soit fausse au moins une fois entre le pas 2 et l'infini (pour une option et un nombre de choix donnés) est au plus 0,08 (la preuve complète d'UCB1 fait aussi la borne de l'union sur les valeurs de $N$, au plus $t$, et sur les $K$ options, d'où le choix d'un risque qui décroît vite) ; le risque décroît assez vite pour que la somme reste petite. f) : le seuil $\frac{8\ln t}{\Delta^2}$ ne croît que comme $\ln t$ ; au-delà, la borne de l'option d'écart $\Delta$ passe sous $\mu^\star$ (si les bornes sont justes), et UCB ne la choisit plus.
 
 **Erreurs fréquentes.** Utiliser $\ln(2/\delta)$ (bilatéral) au lieu de $\ln(1/\delta)$ ; oublier le 2 de $2N$ ; prendre $\log_{10}$ pour $\ln$ ; choisir l'option de plus grande moyenne en e).
 

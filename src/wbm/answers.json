@@ -33572,13 +33572,13 @@
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
     },
     "M11.1h": {
-      "hash": "edc5ea5ef0729762cab62d57667b08002592b4f5f892d92d510fa26d83b40cc9",
+      "hash": "c8eb987ad405fa310e96bad0fa0e020a2ffe61b5427783f5e5a3f8c0dbd0a51c",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "5a8e3289940a31a7da707da7767afac46aa5eba27666e29dbad75c610c083bcd": "cherche la ligne où P ⇒ Q et non P sont vraies, et la conclusion non Q fausse",
-        "7e5066ce3169a473a63ae7b1f7702dbbc02f69f3d3e9fc08c639ffaf593f30db": "cherche la ligne où P ⇒ Q et non P sont vraies, et la conclusion non Q fausse",
-        "c8eb987ad405fa310e96bad0fa0e020a2ffe61b5427783f5e5a3f8c0dbd0a51c": "cherche la ligne où P ⇒ Q et non P sont vraies, et la conclusion non Q fausse"
+        "5a8e3289940a31a7da707da7767afac46aa5eba27666e29dbad75c610c083bcd": "cherche la ligne où Q ⇒ P et non Q sont vraies, et la conclusion non P fausse",
+        "7e5066ce3169a473a63ae7b1f7702dbbc02f69f3d3e9fc08c639ffaf593f30db": "cherche la ligne où Q ⇒ P et non Q sont vraies, et la conclusion non P fausse",
+        "edc5ea5ef0729762cab62d57667b08002592b4f5f892d92d510fa26d83b40cc9": "ici l'implication va de Q vers P : la ligne 3 serait le contre-exemple de « P ⇒ Q ; non P ; donc non Q »"
       },
       "sign": 1,
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
@@ -33632,7 +33632,7 @@
       "hash": "88f6f2dd4309ad6fe97bcf5571aa1a66be34070d3148ff08ac039edbfb45eb17",
       "kind": "bool",
       "mistakes": {
-        "2e12eafaa2226d84c727502a6dc6f0457b2f1d44cd17a40c70ea6aab04b3ddbb": "dans S₄, le même modèle doit dépasser 0,90 sur les trois datasets à la fois"
+        "2e12eafaa2226d84c727502a6dc6f0457b2f1d44cd17a40c70ea6aab04b3ddbb": "dans S₄, le même modèle doit atteindre 0,90 sur les trois datasets à la fois"
       },
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
     },
@@ -33863,6 +33863,8 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
+        "523ca3112d8d51cd778b9e2172cfd8fa21e65e0d9564174228c6545ecec1677e": "la réponse est une proportion entre 0 et 1, comme 0,03, pas un pourcentage",
+        "834f06688c05332bae8b9dbfbb75a824823b2fa7e92df9750a3c3cdaf1264a8b": "la réponse est une proportion entre 0 et 1, comme 0,03, pas un pourcentage",
         "890715bb6c3fe11942abc0fa184bb22573af298b32d38cdd27661ff779d1a918": "résous 0,92 π = 0,06 (1 − π) : le π est des deux côtés"
       },
       "sign": 1,
@@ -34106,7 +34108,8 @@
       "kind": "int",
       "magnitude": 2,
       "mistakes": {
-        "1fed0edad2ff259b36048128f5a1c6fc95d638307fa296107bf4399538f82558": "le risque est de 10 % ici : δ = 0,1"
+        "1fed0edad2ff259b36048128f5a1c6fc95d638307fa296107bf4399538f82558": "le risque est de 10 % ici : δ = 0,1",
+        "d99d40803875f0d7a953358deac9df45a8b9417ddc970fd344dfb9a7862f5a28": "c'est la taille que donne Hoeffding ; la question demande celle de Tchebychev, σ² / (δ t²)"
       },
       "sign": 1,
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"

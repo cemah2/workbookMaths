@@ -7,7 +7,7 @@
 
 Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · ⏱️ durée indicative · parcours C = complet, E = essentiel.
 
-Dans tout le chapitre, comme dans la fiche : une table de vérité range ses lignes dans l'ordre VV, VF, FV, FF (pour trois propositions : VVV, VVF, VFV, VFF, FVV, FVF, FFV, FFF), et les lignes sont numérotées à partir de 1 ; $\bar{X}$ est la moyenne de $n$ variables, $\mu$ son espérance ; une **borne** est une probabilité, donc au plus 1. Les rayons de Hoeffding sont **bilatéraux** sauf mention contraire.
+Dans tout le chapitre, comme dans la fiche : une table de vérité range ses lignes dans l'ordre VV, VF, FV, FF (pour trois propositions : VVV, VVF, VFV, VFF, FVV, FVF, FFV, FFF), et les lignes sont numérotées à partir de 1 ; $\bar{X}$ est la moyenne de $n$ variables, $\mu$ son espérance ; une **borne sur une probabilité** est au plus 1 (la borne supérieure de confiance d'UCB, en M11.9, borne une moyenne : elle peut dépasser 1). Les rayons de Hoeffding sont **bilatéraux** sauf mention contraire.
 
 <a id="quiz"></a>
 
@@ -40,11 +40,11 @@ Vrai ou faux ?
 ### M11.Q3 — Diagrammes de Venn et quantificateurs 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C*
 
-$E = \{1, \ldots, 20\}$ ; $A$ est l'ensemble des multiples de 4 de $E$, $B$ celui des nombres pairs, $C$ celui des multiples de 3.
+$E = \{1, \ldots, 40\}$ ; $A$ est l'ensemble des multiples de 10 de $E$, $B$ celui des multiples de 5, $C$ celui des multiples de 7.
 1. A-t-on $A \subset B$ ?
 2. A-t-on $B \subset A$ ? Si non, un contre-exemple.
 3. Écris $A \cap C$ en extension.
-4. « Tout multiple de 3 de $E$ est impair » : vrai ou faux ? Justifie par un élément.
+4. « Tout multiple de 7 de $E$ est impair » : vrai ou faux ? Justifie par un élément.
 5. Vrai ou faux : $\bar{B} \subset \bar{A}$ (les complémentaires dans $E$).
 6. Combien d'éléments compte $A \cup C$ ?
 
@@ -142,7 +142,7 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 | e | cet argument est-il valide ? | `True` ou `False` |
 | f | pour « $P \Rightarrow Q$ ; $Q \Rightarrow R$ ; donc $P \Rightarrow R$ », le nombre de lignes, sur 8, où les deux prémisses sont vraies | un entier |
 | g | cet argument est-il valide ? | `True` ou `False` |
-| h | pour « $P \Rightarrow Q$ ; non $P$ ; donc non $Q$ », le numéro de la ligne qui est un contre-exemple | un entier |
+| h | pour « $Q \Rightarrow P$ ; non $Q$ ; donc non $P$ », le numéro de la ligne qui est un contre-exemple (lignes toujours rangées $P$ d'abord : VV, VF, FV, FF) | un entier |
 | i | « ($P$ et $Q$) $\Rightarrow R$ ; $P$ ; non $R$ ; donc non $Q$ » est-il valide ? | `True` ou `False` |
 
 Dans ta copie : écris les tables complètes. Pour b), invente un exemple de la vie courante qui a cette forme, avec des prémisses vraies et une conclusion fausse. Quelle forme de la fiche reconnais-tu en d) ?
@@ -171,7 +171,7 @@ Cinq modèles, A à E, ont été évalués sur trois datasets ; le tableau donne
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $S_1$ est-elle vraie ? | `True` ou `False` |
-| b | les modèles qui mettent $S_1$ en défaut | des lettres |
+| b | les modèles qui mettent $S_1$ en défaut | des lettres (dans n'importe quel ordre) |
 | c | $S_2$ est-elle vraie ? | `True` ou `False` |
 | d | $S_3$ est-elle vraie ? | `True` ou `False` |
 | e | $S_4$ est-elle vraie ? | `True` ou `False` |
@@ -212,8 +212,8 @@ Une usine fabrique des capteurs, dont 3 % sont défectueux. Un test automatique 
 | b | la probabilité qu'un capteur signalé soit défectueux | un nombre (4 décimales) |
 | c | sur 10 000 capteurs, le nombre attendu de capteurs bons mais signalés | un nombre |
 | d | la probabilité qu'un capteur **non** signalé soit défectueux | un nombre (4 décimales) |
-| e | on refait le test, indépendamment, sur un capteur signalé, et il est de nouveau signalé : la probabilité qu'il soit défectueux | un nombre (4 décimales) |
-| f | le taux de défauts (au lieu de 3 %) pour lequel un capteur signalé une fois serait défectueux avec la probabilité $\frac{1}{2}$ | un nombre (4 décimales) |
+| e | on refait le test sur un capteur signalé (le second résultat est indépendant du premier, sachant si le capteur est défectueux ou bon), et il est de nouveau signalé : la probabilité qu'il soit défectueux | un nombre (4 décimales) |
+| f | la proportion de capteurs défectueux (au lieu de 0,03) pour laquelle un capteur signalé une fois serait défectueux avec la probabilité $\frac{1}{2}$ | un nombre entre 0 et 1 (4 décimales) |
 | g | le technicien ouvre 50 capteurs signalés : le nombre de défectueux qu'il doit s'attendre à y trouver | un nombre (1 décimale) |
 
 Dans ta copie : explique au technicien, en deux phrases et avec les effectifs de c), pourquoi sa conclusion est fausse. Quelle probabilité conditionnelle a-t-il confondue avec laquelle ?
@@ -230,7 +230,7 @@ La durée $T$ (en heures) d'une intervention de maintenance est positive, de moy
 | b | la borne de Markov sur $P(T \ge 1)$ | un nombre |
 | c | le plus petit seuil $a$ pour lequel Markov garantit $P(T \ge a) \le 0{,}05$ | un nombre |
 | d | si $T$ suit une loi exponentielle de moyenne 1,5 : la vraie valeur de $P(T \ge 6)$ | un nombre (4 décimales) |
-| e | combien de fois la borne de a) dépasse la vraie valeur de d) | un nombre (1 décimale) |
+| e | combien de fois la borne de a) dépasse la vraie valeur de d) (calculée avec la valeur exacte de d), pas son arrondi) | un nombre (1 décimale) |
 | f | une loi de moyenne 1,5, à deux valeurs 0 et 6, atteint exactement la borne de a) : la probabilité qu'elle donne à la valeur 0 | un nombre |
 | g | huit interventions ont duré 0,2 ; 0,5 ; 0,9 ; 1,1 ; 1,4 ; 2,0 ; 2,6 et 3,3 heures : la proportion de ces durées au moins égales à 2 | un nombre |
 | h | si l'on sait aussi que $\mathbb{E}[T^2] = 4{,}5$, la borne obtenue en appliquant Markov à $T^2$ pour $P(T \ge 6)$ | un nombre |
@@ -251,7 +251,7 @@ Le temps de chargement d'une page, en secondes, est toujours compris entre 0 et 
 | d | avec $n = 180$ et $\sigma = 0{,}3$, la borne de Tchebychev sur $P(\lvert \bar{X} - \mu \rvert \ge 0{,}05)$ | un nombre |
 | e | quel que soit $n$, la borne de Tchebychev sur $P\big(\lvert \bar{X} - \mu \rvert \ge \frac{3\sigma}{\sqrt{n}}\big)$ | un nombre (4 décimales) |
 | f | pour une proportion inconnue (des réponses 0 ou 1), la plus grande variance possible d'une réponse | un nombre |
-| g | le plus petit $n$ qui garantit une proportion à $\pm 0{,}1$ avec un risque d'au plus 10 % | un entier |
+| g | le plus petit $n$ qui garantit, par Tchebychev, une proportion à $\pm 0{,}1$ avec un risque d'au plus 10 % | un entier |
 | h | à $t$ fixé, par combien la borne de Tchebychev est-elle divisée quand $n$ est multiplié par 9 ? | un entier |
 
 Dans ta copie : démontre a) (la fiche donne l'idée). Pourquoi la connaissance de $\sigma$ divise-t-elle le $n$ de b) par plus de 10 ?
@@ -288,7 +288,7 @@ On lance 100 fois, indépendamment, une épreuve qui réussit avec la probabilit
 | c | la borne de Hoeffding **unilatérale** sur $P(\bar{X} - 0{,}2 \ge 0{,}1)$ | un nombre (4 décimales) |
 | d | l'approximation normale de $P(S \ge 30)$, sans correction de continuité | un nombre (4 décimales) |
 | e | la valeur exacte de $P(S \ge 30)$ | un nombre (4 décimales) |
-| f | parmi a), b) et c), la borne la plus proche de e) | une lettre |
+| f | parmi a), b) et c), la borne la plus proche de e) | une lettre (a, b ou c) |
 | g | la borne de Hoeffding unilatérale sur $P(S \ge 25)$ | un nombre (4 décimales) |
 | h | le plus petit nombre d'épreuves $n$ pour lequel la borne de c), avec le même écart 0,1, est au plus 0,01 | un entier |
 
@@ -311,7 +311,7 @@ Les récompenses sont dans $[0, 1]$. Une option a été choisie $N$ fois, de moy
 | g | la somme des risques $\sum_{t=2}^{+\infty} t^{-4}$ | un nombre (4 décimales) |
 | h | avec le risque $\delta_t = t^{-2}$ à la place de $t^{-4}$, le bonus au pas $t = 1\,000$ pour $N = 50$ | un nombre (4 décimales) |
 
-Dans ta copie : montre que le rayon unilatéral pour le risque $t^{-4}$ est $\sqrt{\frac{2\ln t}{N}}$. Que dit g) sur la probabilité qu'une des bornes supérieures soit fausse, au moins une fois, entre le pas 2 et l'infini ? Pourquoi f) donne-t-il un nombre de choix qui croît comme $\ln t$ ?
+Dans ta copie : montre que le rayon unilatéral pour le risque $t^{-4}$ est $\sqrt{\frac{2\ln t}{N}}$. Que dit g) sur la probabilité que la borne supérieure d'une option donnée, après un nombre de choix $N$ donné, soit fausse au moins une fois entre le pas 2 et l'infini ? (La preuve complète d'UCB1 doit aussi faire la borne de l'union sur les valeurs de $N$ et sur les options.) Pourquoi f) donne-t-il un nombre de choix qui croît comme $\ln t$ ?
 
 ### Ex M11.10 — ε-greedy : la loi du bras joué et le regret attendu par pas ✏️ ★★ ⏱️ 15 min
 **Objectif :** écrire la loi de l'option choisie par ε-greedy, en tirer le regret d'un pas, puis comparer une exploration fixe et une exploration qui décroît.
@@ -345,7 +345,7 @@ $X$ est une variable aléatoire qui a une espérance, et $a > 0$. On note $\math
 1. On suppose $X \ge 0$. Montre que $a\,\mathbf{1}_{X \ge a} \le X$, en distinguant les cas $X \ge a$ et $X < a$. Déduis-en $P(X \ge a) \le \frac{\mathbb{E}[X]}{a}$ ; dis quelles propriétés de l'espérance tu utilises.
 2. Pour $p \in [0, 1]$, la variable $Y$ vaut $a$ avec la probabilité $p$ et 0 sinon. Montre que $Y$ atteint la borne. Pourquoi, connaissant seulement $\mathbb{E}[X]$, ne peut-on pas faire mieux ?
 3. Montre par un exemple que l'hypothèse $X \ge 0$ est nécessaire.
-4. Soit $\varphi$ une fonction croissante et positive sur $\mathbb{R}$, avec $\varphi(a) > 0$. Montre que $P(X \ge a) \le \frac{\mathbb{E}[\varphi(X)]}{\varphi(a)}$, pour une $X$ quelconque. Écris ce que cela donne pour $\varphi(x) = e^{\lambda x}$, avec $\lambda > 0$.
+4. Soit $\varphi$ une fonction croissante et positive sur $\mathbb{R}$, avec $\varphi(a) > 0$. Montre que $P(X \ge a) \le \frac{\mathbb{E}[\varphi(X)]}{\varphi(a)}$, pour une $X$ quelconque (si $\mathbb{E}[\varphi(X)]$ est infinie, l'inégalité est vraie mais ne dit rien). Écris ce que cela donne pour $\varphi(x) = e^{\lambda x}$, avec $\lambda > 0$.
 5. Pour $X \ge 0$ d'espérance $\mu > 0$ et $k > 0$, montre que $P(X \ge k\mu) \le \frac{1}{k}$.
 
 ### Ex M11.12 — Tchebychev à partir de Markov, puis la loi faible des grands nombres ∂ ★★ ⏱️ 20 min
@@ -367,7 +367,7 @@ $K$ options de moyennes $\mu_1, \ldots, \mu_K$ ; $\mu^\star = \max_k \mu_k$, $\D
 1. Montre que $\mathbb{E}[\mu^\star - \mu_{A_t}] = \sum_{k=1}^{K} \Delta_k\,P(A_t = k)$, puis que $R_T = \sum_{t=1}^{T}\mathbb{E}[\mu^\star - \mu_{A_t}] = \sum_{k=1}^{K} \Delta_k\,\mathbb{E}[N_k(T)]$ (écris $N_k(T)$ comme une somme d'indicatrices).
 2. Montre que $P(A_t = k) \ge \frac{\varepsilon}{K}$ pour toute option $k$ et tout pas $t$.
 3. Déduis-en $R_T \ge \frac{\varepsilon\,T}{K}\sum_k \Delta_k$. Que veut dire ce résultat, si au moins une option n'est pas la meilleure ?
-4. On remplace ε par $\varepsilon_t = \min(1, \frac{c}{t})$, avec $c > 0$. Montre que la part du regret due aux tirages au hasard est au plus $\frac{1}{K}\sum_k \Delta_k \sum_{t=1}^{T} \frac{c}{t}$, puis que $\sum_{t=1}^{T} \frac{1}{t} \le 1 + \ln T$ (compare $\frac{1}{t}$ à $\int_{t-1}^{t} \frac{dx}{x}$ pour $t \ge 2$).
+4. On remplace ε par $\varepsilon_t = \min(1, \frac{c}{t})$, avec $c > 0$. Au pas $t$, le tirage au hasard a lieu avec la probabilité $\varepsilon_t$ et coûte en moyenne $\frac{1}{K}\sum_k \Delta_k$ ; on appelle **part du regret due aux tirages au hasard** la somme $\sum_{t=1}^{T} \varepsilon_t \cdot \frac{1}{K}\sum_k \Delta_k$. Montre qu'elle est au plus $\frac{1}{K}\sum_k \Delta_k \sum_{t=1}^{T} \frac{c}{t}$, puis que $\sum_{t=1}^{T} \frac{1}{t} \le 1 + \ln T$ (compare $\frac{1}{t}$ à $\int_{t-1}^{t} \frac{dx}{x}$ pour $t \ge 2$).
 5. Pourquoi ce résultat ne suffit-il pas à garantir un regret logarithmique ? Quelle autre part du regret faudrait-il borner ?
 
 <a id="reflexion"></a>

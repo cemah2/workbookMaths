@@ -51,8 +51,8 @@ PAPER = [
          '''mistakes={"compte les lignes où P ⇒ Q et Q ⇒ R sont vraies toutes les deux, sur les 8": {3, 5, 6}}'''),
         ("g", "True or False", "True",
          '''mistakes={"dans chaque ligne où les deux prémisses sont vraies, vérifie la conclusion P ⇒ R": False}'''),
-        ("h", "a line number", "3",
-         '''mistakes={"cherche la ligne où P ⇒ Q et non P sont vraies, et la conclusion non Q fausse": {1, 2, 4}}'''),
+        ("h", "a line number", "2",
+         '''mistakes={"ici l'implication va de Q vers P : la ligne 3 serait le contre-exemple de « P ⇒ Q ; non P ; donc non Q »": 3, "cherche la ligne où Q ⇒ P et non Q sont vraies, et la conclusion non P fausse": {1, 4}}'''),
         ("i", "True or False", "True",
          '''mistakes={"avec P vraie et R fausse, la première prémisse n'est vraie que si P et Q est faux, donc si Q est '''
          '''fausse": False}'''),
@@ -70,7 +70,7 @@ PAPER = [
          '''mistakes={"dans S₃, le modèle peut changer d'un dataset à l'autre : cherche une case ≥ 0,90 par colonne": '''
          '''False}'''),
         ("e", "True or False", "False",
-         '''mistakes={"dans S₄, le même modèle doit dépasser 0,90 sur les trois datasets à la fois": True}'''),
+         '''mistakes={"dans S₄, le même modèle doit atteindre 0,90 sur les trois datasets à la fois": True}'''),
         ("f", "True or False", "True",
          '''mistakes={"un seul témoin suffit pour un « il existe » : cherche une ligne entière ≥ 0,85": False}'''),
         ("g", "a letter, as text", '"E"',
@@ -118,7 +118,7 @@ PAPER = [
          '''decimals=4, mistakes={"refais Bayes avec le nouveau taux de base, la réponse de b) : pas 0,92 × 0,92": '''
          '''0.8464}'''),
         ("f", "a number (4 decimals)", "0.06 / (0.92 + 0.06)",
-         '''decimals=4, mistakes={"résous 0,92 π = 0,06 (1 − π) : le π est des deux côtés": 0.06 / 0.92}'''),
+         '''decimals=4, mistakes={"résous 0,92 π = 0,06 (1 − π) : le π est des deux côtés": 0.06 / 0.92, "la réponse est une proportion entre 0 et 1, comme 0,03, pas un pourcentage": 100 * 0.06 / 0.98}'''),
         ("g", "a number (1 decimal)", "50 * 0.03 * 0.92 / (0.03 * 0.92 + 0.97 * 0.06)",
          '''decimals=1, mistakes={"50 × 0,92 reprend la conclusion du technicien : utilise P(défectueux | signalé)": '''
          '''46.0}'''),
@@ -158,7 +158,7 @@ PAPER = [
         ("f", "a number", "0.25",
          '''decimals=2, mistakes={"p(1 − p) est le plus grand en p = 1/2": {1.0, 0.5}}'''),
         ("g", "an integer", "250",
-         '''mistakes={"le risque est de 10 % ici : δ = 0,1": 500}'''),
+         '''mistakes={"le risque est de 10 % ici : δ = 0,1": 500, "c'est la taille que donne Hoeffding ; la question demande celle de Tchebychev, σ² / (δ t²)": 150}'''),
         ("h", "an integer", "9",
          '''mistakes={"la borne σ² / (n t²) est inversement proportionnelle à n": 3}'''),
     ]),
