@@ -325,7 +325,7 @@ Pour la copie : $E(c) = (c - 1)^2\mu^2 + c^2\frac{\sigma^2}{n}$, $E'(c) = 2(c - 
 
 **Grille.** (1) la double somme ; (2) les quatre cas, dont le $2w_k$ du carré ; (3) le partage du terme diagonal entre les deux sommes (sinon il est compté deux fois ou oublié) ; (4) la reconnaissance de $(\mathbf{A}\mathbf{w})_k$ et de $(\mathbf{A}^\top\mathbf{w})_k$, et la conclusion vectorielle ; (5) les deux cas particuliers ; (6) le gradient d'une fonction linéaire.
 
-### Ex M09b.14 — Les équations normales en dimension n, par le gradient
+### Ex M09b.14 — Les équations normales en dimension p, par le gradient
 
 **Réponse modèle.**
 1. $L(\mathbf{w}) = (\mathbf{y} - \mathbf{X}\mathbf{w})^\top(\mathbf{y} - \mathbf{X}\mathbf{w}) = \mathbf{y}^\top\mathbf{y} - \mathbf{y}^\top\mathbf{X}\mathbf{w} - \mathbf{w}^\top\mathbf{X}^\top\mathbf{y} + \mathbf{w}^\top\mathbf{X}^\top\mathbf{X}\mathbf{w}$, en utilisant $(\mathbf{X}\mathbf{w})^\top = \mathbf{w}^\top\mathbf{X}^\top$. Le nombre $\mathbf{w}^\top\mathbf{X}^\top\mathbf{y}$ est une matrice $1 \times 1$, égale à sa transposée $\mathbf{y}^\top\mathbf{X}\mathbf{w}$. Donc $L(\mathbf{w}) = \mathbf{y}^\top\mathbf{y} - 2(\mathbf{X}^\top\mathbf{y})^\top\mathbf{w} + \mathbf{w}^\top(\mathbf{X}^\top\mathbf{X})\mathbf{w}$.
@@ -367,10 +367,10 @@ Pour la copie : $E(c) = (c - 1)^2\mu^2 + c^2\frac{\sigma^2}{n}$, $E'(c) = 2(c - 
 1. $y_i \sim \mathcal{N}(\mathbf{x}_i \cdot \mathbf{w}, \sigma^2)$, de densité $\frac{1}{\sqrt{2\pi\sigma^2}}\exp\big(-\frac{(y_i - \mathbf{x}_i \cdot \mathbf{w})^2}{2\sigma^2}\big)$. Les observations étant indépendantes, $L(\mathbf{w}, \sigma^2) = \prod_{i=1}^{n}\frac{1}{\sqrt{2\pi\sigma^2}}\exp\big(-\frac{(y_i - \mathbf{x}_i \cdot \mathbf{w})^2}{2\sigma^2}\big)$.
 2. Le log d'un produit est la somme des logs : $\ln L = \sum_i\big(-\frac{1}{2}\ln(2\pi\sigma^2) - \frac{(y_i - \mathbf{x}_i \cdot \mathbf{w})^2}{2\sigma^2}\big) = -\frac{n}{2}\ln(2\pi\sigma^2) - \frac{1}{2\sigma^2}\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$.
 3. Le premier terme ne dépend pas de $\mathbf{w}$ ; le second est $-\frac{1}{2\sigma^2}$ (un nombre négatif fixé) fois $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$ : il est maximal exactement quand cette somme est minimale. Le résultat, la solution des moindres carrés, ne dépend pas de $\sigma^2$.
-4. Avec $S = \mathrm{SCR}$ fixé, $g(s) = -\frac{n}{2}\ln(2\pi s) - \frac{S}{2s}$, $g'(s) = -\frac{n}{2s} + \frac{S}{2s^2} = \frac{S - ns}{2s^2}$ : positive pour $s < \frac{S}{n}$, négative après. Le maximum est en $\hat{\sigma}^2 = \frac{\mathrm{SCR}}{n}$.
+4. Avec $S = \mathrm{SCR}$ fixé, $g(s) = -\frac{n}{2}\ln(2\pi s) - \frac{S}{2s}$, $g'(s) = -\frac{n}{2s} + \frac{S}{2s^2} = \frac{S - ns}{2s^2}$ : positive pour $s < \frac{S}{n}$, négative après. Le maximum est en $\hat{\sigma}^2 = \frac{\mathrm{SCR}}{n}$. Si $\mathrm{SCR} = 0$ (un ajustement parfait), $g(s) = -\frac{n}{2}\ln(2\pi s)$ tend vers $+\infty$ quand $s \to 0$ : pas de maximum, la vraisemblance d'un modèle qui passe par tous les points peut être rendue aussi grande qu'on veut.
 5. $\ln L = -n\ln(2b) - \frac{1}{b}\sum_i |y_i - \mathbf{x}_i \cdot \mathbf{w}|$ : à $b$ fixé, il faut minimiser la **somme des valeurs absolues** des résidus.
 
-**Grille.** (1) la densité et le produit, avec l'indépendance ; (2) le passage au log, terme à terme ; (3) l'argument « le seul terme qui dépend de $\mathbf{w}$, multiplié par un nombre négatif », et l'indépendance vis-à-vis de $\sigma^2$ ; (4) la dérivée en $s = \sigma^2$ (pas en $\sigma$, ou alors bien faite) et l'étude du signe ; (5) la somme des valeurs absolues.
+**Grille.** (1) la densité et le produit, avec l'indépendance ; (2) le passage au log, terme à terme ; (3) l'argument « le seul terme qui dépend de $\mathbf{w}$, multiplié par un nombre négatif », et l'indépendance vis-à-vis de $\sigma^2$ ; (4) la dérivée en $s = \sigma^2$ (pas en $\sigma$, ou alors bien faite), l'étude du signe, et le cas $\mathrm{SCR} = 0$ ; (5) la somme des valeurs absolues.
 
 ### Ex M09b.18 — La décomposition biais² + variance + bruit, démontrée
 
@@ -462,7 +462,7 @@ Pour la copie : avec $\mathbf{X}^\top\mathbf{X}$ diagonale, le système ridge se
 ### Ex M09b.24 — Fermi : la taille de XᵀX pour des features polynomiales de degré 3 sur 100 variables
 
 **Réponse modèle.**
-1. $\binom{103}{3} - 1 = 176\,850 \approx 1{,}8 \times 10^5$ colonnes.
+1. $\binom{103}{3} - 1 = 176\,850 \approx 1{,}8 \times 10^5$ colonnes sans la constante.
 2. $(1{,}8 \times 10^5)^2 \approx 3 \times 10^{10}$ nombres, soit environ $2{,}5 \times 10^{11}$ octets : **250 Go** (la moitié en ne gardant qu'un triangle, puisque la matrice est symétrique). La matrice $\mathbf{X}$ elle-même a $10^6 \times 1{,}8 \times 10^5 \approx 1{,}8 \times 10^{11}$ nombres, environ 1,4 To.
 3. $n\,p^2 \approx 10^6 \times 3 \times 10^{10} = 3 \times 10^{16}$ multiplications (deux fois moins par symétrie).
 4. $\frac{(1{,}8 \times 10^5)^3}{3} \approx 2 \times 10^{15}$ multiplications, environ 2 000 s, une demi-heure ; former $\mathbf{X}^\top\mathbf{X}$ prendrait, lui, environ $3 \times 10^4$ s, plus de 8 heures.

@@ -250,7 +250,7 @@
 5. 
 6. 
 
-### Ex M09b.14 — Les équations normales en dimension n, par le gradient
+### Ex M09b.14 — Les équations normales en dimension p, par le gradient
 
 1. 
 2. 

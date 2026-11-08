@@ -29,7 +29,7 @@ Une régression prédit des masses en kilogrammes.
 ### M09b.Q2 — Gradients matriciels : associer chaque fonction à son gradient 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
 
-Associe chaque fonction de $\mathbf{w} \in \mathbb{R}^p$ (de 1 à 6) à son gradient (de a à f) ; $\mathbf{a}$, $\mathbf{y}$, $\mathbf{X}$, $\lambda$ sont fixés, $\mathbf{A}$ est carrée et $\mathbf{S}$ est symétrique.
+Associe chaque fonction de $\mathbf{w} \in \mathbb{R}^p$ (de 1 à 6) à son gradient (de a à f), chaque gradient servant exactement une fois ; $\mathbf{a}$, $\mathbf{y}$, $\mathbf{X}$, $\lambda$ sont fixés, $\mathbf{A}$ est carrée et $\mathbf{S}$ est symétrique.
 
 | Fonction | | Gradient |
 |---|---|---|
@@ -145,7 +145,7 @@ $f(x, y) = x^2 + 3y^2 - 2xy - 4x$.
 
 Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en écrivant ta démarche dans ta copie de `06_mes_reponses.md`. Reporte ensuite **la valeur** trouvée dans la **partie 0 du notebook**, sous la forme demandée :
 - un nombre entier, ou un nombre avec un point décimal, comme `-1.25`, arrondi comme le demande la question ;
-- une fraction irréductible entre guillemets, comme `"7/9"` ;
+- une fraction irréductible entre guillemets, comme `"4/11"` ;
 - une liste entre crochets pour un vecteur ou une forme, comme `[2, -1, 0]` ; une matrice comme une liste de lignes, `[[1, 0], [-2, 3]]` ; vrai ou faux par `True` ou `False` ; une ou plusieurs lettres entre guillemets, comme `"AC"`.
 
 ### Ex M09b.1 — MSE, RMSE, MAE et loss de Huber de quatre résidus ✏️ ★ ⏱️ 15 min
@@ -334,7 +334,7 @@ Dans ta copie : dessine la boule unité L1 et la boule unité L2 de $\mathbb{R}^
 **Objectif :** calculer une log-vraisemblance gaussienne, estimer la variance du bruit, et comparer deux droites par leur vraisemblance.
 **Prérequis :** fiche §7 ; M04 (vraisemblance) ; Ex M09b.2 · **Parcours :** C
 
-On reprend les cinq points de M09b.2, la droite des moindres carrés $\hat{y} = 1{,}6 + 1{,}2x$ (sa $\mathrm{SCR}$ est 3,6) et la droite $\hat{y} = 2 + x$, avec le modèle $y_i = w_0 + w_1x_i + \varepsilon_i$, $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$ indépendants.
+On reprend les cinq points de M09b.2, la droite des moindres carrés $\hat{y} = 1{,}6 + 1{,}2x$ (tu as calculé sa $\mathrm{SCR}$ en M09b.2 c) et la droite $\hat{y} = 2 + x$, avec le modèle $y_i = w_0 + w_1x_i + \varepsilon_i$, $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$ indépendants.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -343,7 +343,7 @@ On reprend les cinq points de M09b.2, la droite des moindres carrés $\hat{y} = 
 | c | la log-vraisemblance maximale, au point $(1{,}6 ;\ 1{,}2)$ et $\sigma^2 = \hat{\sigma}^2$ (logarithme népérien) | un nombre (4 décimales) |
 | d | la log-vraisemblance de la droite des moindres carrés avec $\sigma^2 = 1$ | un nombre (4 décimales) |
 | e | la différence des log-vraisemblances des deux droites, avec $\sigma^2 = 1$ (la droite des moindres carrés moins l'autre) | un nombre (2 décimales) |
-| f | le rapport de leurs vraisemblances, avec $\sigma^2 = 1$ | un nombre (4 décimales) |
+| f | le rapport de leurs vraisemblances, avec $\sigma^2 = 1$ : celle de la droite des moindres carrés divisée par celle de l'autre | un nombre (4 décimales) |
 | g | les sommes $\sum_i |r_i|$ des valeurs absolues des résidus des deux droites | une liste de 2 nombres (2 décimales) |
 
 Dans ta copie : montre que c) vaut $-\frac{n}{2}\big(\ln(2\pi\hat{\sigma}^2) + 1\big)$. Que dit g) sur ces deux droites si le bruit suit une loi de Laplace ?
@@ -384,7 +384,7 @@ Soit $\mathbf{A} = (a_{ij})$ une matrice carrée de taille $p$, et $f(\mathbf{w}
 5. Déduis-en $\nabla(\mathbf{w}^\top\mathbf{S}\mathbf{w}) = 2\mathbf{S}\mathbf{w}$ pour $\mathbf{S}$ symétrique, puis $\nabla\lVert \mathbf{w} \rVert^2 = 2\mathbf{w}$.
 6. Démontre de la même façon $\nabla(\mathbf{a}^\top\mathbf{w}) = \mathbf{a}$.
 
-### Ex M09b.14 — Les équations normales en dimension n, par le gradient ∂ ★★ ⏱️ 25 min
+### Ex M09b.14 — Les équations normales en dimension p, par le gradient ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer que le minimum de $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$ est atteint exactement aux solutions des équations normales, et à quelle condition il est unique.
 **Prérequis :** fiche §2 et §3 ; Ex M09b.13 ; M09a (transposée d'un produit) · **Parcours :** C, E
 
@@ -415,7 +415,7 @@ $\mathbf{X}$ a la forme $(n, p)$ et des colonnes indépendantes, $\mathbf{H} = \
 Soit $\mathbf{X}$ de forme $(n, p)$, quelconque, et $\lambda > 0$.
 1. Montre que $\mathbf{v}^\top\mathbf{X}^\top\mathbf{X}\mathbf{v} = \lVert \mathbf{X}\mathbf{v} \rVert^2$ pour tout $\mathbf{v} \in \mathbb{R}^p$.
 2. Soit $\mathbf{v}$ tel que $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{v} = \mathbf{0}$. En multipliant à gauche par $\mathbf{v}^\top$, montre que $\mathbf{v} = \mathbf{0}$.
-3. Conclus que $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ est inversible (M09a : une matrice carrée dont le seul vecteur envoyé sur $\mathbf{0}$ est $\mathbf{0}$ est inversible).
+3. Conclus que $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ est inversible (M09a §8 : si $\mathbf{M}\mathbf{v} = \mathbf{0}$ n'a que la solution $\mathbf{v} = \mathbf{0}$, aucune colonne de la matrice carrée $\mathbf{M}$ n'est une combinaison des autres).
 4. Calcule le gradient de $L_\lambda(\mathbf{w}) = \lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \lambda\lVert \mathbf{w} \rVert^2$ et montre que son unique point critique est la solution de ridge.
 5. Avec $\mathbf{X} = \begin{pmatrix} 1 & 3 \\ 2 & 6 \end{pmatrix}$, montre que $\mathbf{X}^\top\mathbf{X}$ n'est pas inversible, et que $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ l'est pour $\lambda = 1$.
 6. Trouve, pour cette matrice, une valeur de $\lambda < 0$ pour laquelle $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ n'est pas inversible.
@@ -428,7 +428,7 @@ On suppose $y_i = \mathbf{x}_i \cdot \mathbf{w} + \varepsilon_i$ pour $i = 1, \l
 1. Donne la densité de $y_i$, puis la vraisemblance $L(\mathbf{w}, \sigma^2)$ des $n$ observations.
 2. Montre que $\ln L(\mathbf{w}, \sigma^2) = -\frac{n}{2}\ln(2\pi\sigma^2) - \frac{1}{2\sigma^2}\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$.
 3. À $\sigma^2$ fixé, montre que maximiser $\ln L$ revient à minimiser $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$. Le résultat dépend-il de $\sigma^2$ ?
-4. Les poids étant fixés à cette solution, dérive $\ln L$ par rapport à $s = \sigma^2$ et montre que le maximum est atteint en $\hat{\sigma}^2 = \frac{\mathrm{SCR}}{n}$.
+4. Les poids étant fixés à cette solution, et en supposant $\mathrm{SCR} > 0$, dérive $\ln L$ par rapport à $s = \sigma^2$ et montre que le maximum est atteint en $\hat{\sigma}^2 = \frac{\mathrm{SCR}}{n}$. Que se passe-t-il si $\mathrm{SCR} = 0$ ?
 5. Reprends 1 à 3 avec un bruit de Laplace, de densité $\frac{1}{2b}e^{-|\varepsilon|/b}$ : quelle somme faut-il minimiser ?
 
 ### Ex M09b.18 — La décomposition biais² + variance + bruit, démontrée ∂ ★★★ ⏱️ 25 min
@@ -523,10 +523,10 @@ Lis MML §9.1 et §9.2. Réponds dans ta copie, **avec tes mots**.
 **Prérequis :** fiche §4 ; M09a (coût d'un produit, du pivot de Gauss) · **Parcours :** C
 
 Un dataset a $10^6$ exemples et 100 variables ; on veut une régression polynomiale de degré 3. Ordres de grandeur seulement (une puissance de 10 suffit, sauf en 1).
-1. Combien de colonnes ont les features polynomiales (fiche §4) ?
+1. Combien de colonnes ont les features polynomiales, sans la constante (fiche §4) ?
 2. Combien de nombres contient $\mathbf{X}^\top\mathbf{X}$ ? Quelle mémoire en `float64` (8 octets par nombre) ?
 3. Combien de multiplications coûte le calcul de $\mathbf{X}^\top\mathbf{X}$ ?
-4. Le pivot de Gauss d'une matrice carrée de taille $m$ coûte environ $\frac{m^3}{3}$ multiplications (M09a). Combien pour ce système ? Combien de temps à $10^{12}$ multiplications par seconde ?
+4. Le pivot de Gauss d'une matrice carrée de taille $m$ coûte environ $\frac{2}{3}m^3$ opérations (M09a §6), dont environ $\frac{m^3}{3}$ multiplications. Combien de multiplications pour ce système ? Combien de temps à $10^{12}$ multiplications par seconde ?
 5. Que pourrait-on faire à la place ? Donne deux pistes.
 
 ### Ex M09b.25 — Expliquer la matrice chapeau : ce que veut dire « projeter y » 🗣️ ★ ⏱️ 10 min

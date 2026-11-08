@@ -1890,7 +1890,7 @@ La régression linéaire par les moindres carrés : risque empirique, MSE, MAE, 
 **Objectifs**
 
 - Calculer les losses d'une régression (MSE, RMSE, MAE, Huber) et un R², et décomposer la variance.
-- Calculer les gradients de aᵀw, de wᵀAw et de ‖y − Xw‖², et en déduire les équations normales en dimension n.
+- Calculer les gradients de aᵀw, de wᵀAw et de ‖y − Xw‖², et en déduire les équations normales en dimension p.
 - Interpréter les moindres carrés comme une projection, avec la matrice chapeau.
 - Compter les colonnes de features polynomiales.
 - Résoudre un problème ridge, démontrer qu'il a toujours une solution et le relier à un prior gaussien.
@@ -1941,7 +1941,7 @@ La régression linéaire par les moindres carrés : risque empirique, MSE, MAE, 
 | M09b.11 | ✏️ | La log-vraisemblance gaussienne d'un modèle linéaire et l'estimation de σ² | ★★ | 20 | §7 | C | wbm | — |
 | M09b.12 | ✏️ | L'estimateur rétréci c·x̄ : biais, variance et erreur quadratique | ★★ | 20 | §8 | C | wbm | — |
 | M09b.13 | ∂ | Le gradient de wᵀAw vaut (A + Aᵀ)w | ★★ | 20 | §2 | C, E | manuel | — |
-| M09b.14 | ∂ | Les équations normales en dimension n, par le gradient | ★★ | 25 | §2 §3 | C, E | manuel | — |
+| M09b.14 | ∂ | Les équations normales en dimension p, par le gradient | ★★ | 25 | §2 §3 | C, E | manuel | — |
 | M09b.15 | ∂ | Le résidu est orthogonal aux colonnes de X ; H est symétrique et idempotente | ★★ | 20 | §3 | C | manuel | — |
 | M09b.16 | ∂ | XᵀX + λI est inversible pour tout λ > 0 | ★★ | 20 | §5 | C, E | manuel | — |
 | M09b.17 | ∂ | Un bruit gaussien mène aux moindres carrés : le maximum de vraisemblance | ★★ | 20 | §7 | C, E | manuel | — |
@@ -1967,7 +1967,7 @@ La régression linéaire par les moindres carrés : risque empirique, MSE, MAE, 
 | M09b.35 | 🛠️ | Vérifier un gradient matriciel avec SymPy et par différences finies | ★ | 15 | §2 | C | manuel | — |
 | M09b.36 | 🏆 | Défi : approcher une fonction par un polynôme de degré au plus 5, avec une erreur maximale sous 1e−3 | ★★★ | 25 | §3 §4 | C | wbm | — |
 
-*Notes* : Frontières : les moindres carrés d'une droite par dérivées partielles (9.2), ridge (9.3) et lasso (9.6) en dimension 1 ne sont pas démontrés ici : M09b travaille en dimension n, par les gradients matriciels, et énonce le seuillage doux sans le dériver. Évités : le tempo de la boutique, California, les mini-exemples de la fiche de workbookIA 9 (les points (0 ; 1), (1 ; 2), (2 ; 4) ; les cibles 1, 4, 6 et les prédictions 2, 4, 3 ; Σxy = 6 et Σx² = 4 ; S(1,8 ; 0,5) ; les prédictions 1, 2 et 4 du biais-variance ; les dénombrements 9 pour p = 3 et d = 2, 285 pour p = 10 et d = 3), la grille 3 × 3 de droites (9.7), les MSE et R² sur cinq points (9.1), le tableau de prédictions de 9.4. La régression bayésienne (MML §9.3) se lit en M25a, la projection sur un sous-espace (MML §9.4) en M12b. MSE, MAE, R², features polynomiales, LinearRegression, Ridge, Lasso, soft_threshold et la décomposition biais-variance sont les fonctions de `mylearn` en workbookIA 9 ; `linreg` écrit les briques (équations normales, ridge qui pénalise tous les coefficients, matrice chapeau, sommes de carrés, nombre de monômes, Huber). Deux sessions de génération : §1 à §4, puis §5 à §8.
+*Notes* : Frontières : les moindres carrés d'une droite par dérivées partielles (9.2), ridge (9.3) et lasso (9.6) en dimension 1 ne sont pas démontrés ici : M09b travaille en dimension p, par les gradients matriciels, et énonce le seuillage doux sans le dériver. Évités : le tempo de la boutique, California, les mini-exemples de la fiche de workbookIA 9 (les points (0 ; 1), (1 ; 2), (2 ; 4) ; les cibles 1, 4, 6 et les prédictions 2, 4, 3 ; Σxy = 6 et Σx² = 4 ; S(1,8 ; 0,5) ; les prédictions 1, 2 et 4 du biais-variance ; les dénombrements 9 pour p = 3 et d = 2, 285 pour p = 10 et d = 3), la grille 3 × 3 de droites (9.7), les MSE et R² sur cinq points (9.1), le tableau de prédictions de 9.4. La régression bayésienne (MML §9.3) se lit en M25a, la projection sur un sous-espace (MML §9.4) en M12b. MSE, MAE, R², features polynomiales, LinearRegression, Ridge, Lasso, soft_threshold et la décomposition biais-variance sont les fonctions de `mylearn` en workbookIA 9 ; `linreg` écrit les briques (équations normales, ridge qui pénalise tous les coefficients, matrice chapeau, sommes de carrés, nombre de monômes, Huber). Deux sessions de génération : §1 à §4, puis §5 à §8.
 
 <a id="m10"></a>
 ## M10 · Séparabilité linéaire et convexité

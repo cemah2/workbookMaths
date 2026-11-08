@@ -1107,7 +1107,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M09b.11 ✏️ La log-vraisemblance gaussienne d'un modèle linéaire et l'estimation de σ² ★★ 20 min (complet)
 - [ ] M09b.12 ✏️ L'estimateur rétréci c·x̄ : biais, variance et erreur quadratique ★★ 20 min (complet)
 - [ ] M09b.13 ∂ Le gradient de wᵀAw vaut (A + Aᵀ)w ★★ 20 min
-- [ ] M09b.14 ∂ Les équations normales en dimension n, par le gradient ★★ 25 min
+- [ ] M09b.14 ∂ Les équations normales en dimension p, par le gradient ★★ 25 min
 - [ ] M09b.15 ∂ Le résidu est orthogonal aux colonnes de X ; H est symétrique et idempotente ★★ 20 min (complet)
 - [ ] M09b.16 ∂ XᵀX + λI est inversible pour tout λ > 0 ★★ 20 min
 - [ ] M09b.17 ∂ Un bruit gaussien mène aux moindres carrés : le maximum de vraisemblance ★★ 20 min

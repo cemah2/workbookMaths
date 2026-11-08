@@ -452,7 +452,7 @@ Le terme $i = j = k$, $a_{kk}w_k^2$, donne $2a_{kk}w_k$ : un $a_{kk}w_k$ va dans
 
 </details>
 
-### Ex M09b.14 — Les équations normales en dimension n, par le gradient
+### Ex M09b.14 — Les équations normales en dimension p, par le gradient
 
 <details><summary>Indice 1</summary>
 

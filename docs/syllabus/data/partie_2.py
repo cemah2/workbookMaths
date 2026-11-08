@@ -361,7 +361,7 @@ CHAPTERS = [
         "objectives": [
             "Calculer les losses d'une régression (MSE, RMSE, MAE, Huber) et un R², et décomposer la variance.",
             "Calculer les gradients de aᵀw, de wᵀAw et de ‖y − Xw‖², et en déduire les équations normales en "
-            "dimension n.",
+            "dimension p.",
             "Interpréter les moindres carrés comme une projection, avec la matrice chapeau.",
             "Compter les colonnes de features polynomiales.",
             "Résoudre un problème ridge, démontrer qu'il a toujours une solution et le relier à un prior gaussien.",
@@ -394,7 +394,7 @@ CHAPTERS = [
         "reading_minutes": 210,
         "flashcards": 26,
         "notes": "Frontières : les moindres carrés d'une droite par dérivées partielles (9.2), ridge (9.3) et lasso "
-                 "(9.6) en dimension 1 ne sont pas démontrés ici : M09b travaille en dimension n, par les gradients "
+                 "(9.6) en dimension 1 ne sont pas démontrés ici : M09b travaille en dimension p, par les gradients "
                  "matriciels, et énonce le seuillage doux sans le dériver. Évités : le tempo de la boutique, "
                  "California, les mini-exemples de la fiche de workbookIA 9 (les points (0 ; 1), (1 ; 2), (2 ; 4) ; "
                  "les cibles 1, 4, 6 et les prédictions 2, 4, 3 ; Σxy = 6 et Σx² = 4 ; S(1,8 ; 0,5) ; les prédictions "
@@ -435,7 +435,7 @@ CHAPTERS = [
              "§7", ""),
             ("M09b.12", "✏️", 2, 20, "L'estimateur rétréci c·x̄ : biais, variance et erreur quadratique", "§8", ""),
             ("M09b.13", "∂", 2, 20, "Le gradient de wᵀAw vaut (A + Aᵀ)w", "§2", "E"),
-            ("M09b.14", "∂", 2, 25, "Les équations normales en dimension n, par le gradient", "§2 §3", "E"),
+            ("M09b.14", "∂", 2, 25, "Les équations normales en dimension p, par le gradient", "§2 §3", "E"),
             ("M09b.15", "∂", 2, 20, "Le résidu est orthogonal aux colonnes de X ; H est symétrique et idempotente",
              "§3", ""),
             ("M09b.16", "∂", 2, 20, "XᵀX + λI est inversible pour tout λ > 0", "§5", "E"),
