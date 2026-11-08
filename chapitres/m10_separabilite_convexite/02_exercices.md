@@ -51,9 +51,9 @@ Les deux classes sont-elles linéairement séparables ? Pour chaque « non », d
 ### M10.Q4 — Marge et astuce du biais 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C*
 
-1. On multiplie $\mathbf{w}$ et $b$ par 3. Que deviennent la marge géométrique, et les marges fonctionnelles $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ ?
-2. Le couple $(\mathbf{w}, b)$ sépare les deux classes. Que fait le couple $(-\mathbf{w}, -b)$, et quel est le signe de sa marge ?
-3. Avec l'astuce du biais, écris $\tilde{\mathbf{x}}$ pour $\mathbf{x} = (2, -1)$ et $\tilde{\mathbf{w}}$ pour $(\mathbf{w}, b) = ((1, 4), -3)$, puis calcule $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}}$.
+1. On divise $\mathbf{w}$ par 2 sans toucher $b$ (avec $b \ne 0$). L'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ change-t-il ?
+2. Vrai ou faux : la marge géométrique d'un séparateur ne dépend que des points les plus proches de l'hyperplan.
+3. Au niveau $x_0 = 1$ (la coordonnée constante de l'astuce du biais), quelle droite du plan $(x_1, x_2)$ trace le plan de $\mathbb{R}^3$ d'équation $2x_0 - x_1 + x_2 = 0$ ?
 4. Vrai ou faux : l'ensemble des $\tilde{\mathbf{x}} \in \mathbb{R}^3$ tels que $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = 0$ passe par l'origine de $\mathbb{R}^3$.
 5. Un couple $(\mathbf{w}, b)$ a une marge exactement nulle sur des données. Que peux-tu en dire ?
 6. Les enveloppes convexes de deux nuages sont à la distance 6 l'une de l'autre. Quelle est la plus grande marge possible d'un séparateur ?
@@ -76,19 +76,19 @@ Le plan $P$ de $\mathbb{R}^3$ a pour équation $2x - y + 2z - 3 = 0$.
 *Fiche §4 · parcours C, E*
 
 1. Énonce l'inégalité de Cauchy-Schwarz pour deux vecteurs $\mathbf{u}$ et $\mathbf{v}$ de $\mathbb{R}^n$.
-2. Vérifie-la pour $\mathbf{u} = (3, 0, 4)$ et $\mathbf{v} = (2, 1, -2)$.
+2. Vérifie-la pour $\mathbf{u} = (2, 3, 6)$ et $\mathbf{v} = (2, 1, -2)$.
 3. Dans quel cas est-elle une égalité ?
 4. Pour un vecteur $\mathbf{e}$ de norme 1, montre que $\mathbf{e} \cdot \mathbf{v} \le \lVert \mathbf{v} \rVert$. Pour quel $\mathbf{e}$ a-t-on l'égalité ?
-5. Si $a^2 + b^2 + c^2 = 4$, quelle est la plus grande valeur possible de $3a + 4c$ ?
+5. Si $a^2 + b^2 + c^2 = 4$, quelle est la plus grande valeur possible de $2a + 3b + 6c$ ?
 
 ### M10.R3 — La sigmoïde et tanh (R6) 🔁 ★ ⏱️ 5 min
 *Fiche §5 · parcours C*
 
 $\sigma(z) = \frac{1}{1 + e^{-z}}$.
 1. $\sigma(0)$, et les limites de $\sigma$ en $-\infty$ et en $+\infty$ ?
-2. Montre que $\sigma(-z) = 1 - \sigma(z)$.
-3. $\sigma(\ln 3)$ ?
-4. Sachant que $\tanh(z) = 2\sigma(2z) - 1$, calcule $\tanh\big(\frac{\ln 3}{2}\big)$.
+2. Sans calculatrice, range $\sigma(-1)$, $\sigma(0{,}5)$ et $\sigma(2)$ dans l'ordre croissant. Lesquels dépassent $\frac{1}{2}$ ?
+3. Pour quel $z$ a-t-on $\sigma(z) = 0{,}6$ ?
+4. Sachant que $\tanh(z) = 2\sigma(2z) - 1$, pour quel $z$ a-t-on $\tanh(z) = 0{,}2$ ?
 5. Pour quel $x$ a-t-on $\sigma(2x - 1) = \frac{1}{2}$ ?
 
 <a id="papier"></a>
@@ -119,7 +119,7 @@ On note $\mathbf{a} = (-3, 2)$ et $\mathbf{b} = (5, -2)$. Pour c) : $A$ est le d
 
 Dans ta copie : dessine $K$. Pour chaque ensemble non convexe de c), donne deux points dont le segment sort de l'ensemble. Vérifie que les trois points de g) sont dans $K$ : pourquoi leur combinaison convexe y est-elle aussi, sans rien calculer ?
 
-### Ex M10.2 — L'enveloppe convexe de huit points, à la main ✏️ ★ ⏱️ 15 min
+### Ex M10.2 — L'enveloppe convexe de huit points, à la main ✏️ ★ ⏱️ 20 min
 **Objectif :** construire l'enveloppe convexe d'un nuage du plan par le test d'orientation, et calculer son aire.
 **Prérequis :** fiche §2 · **Parcours :** C, E
 
@@ -147,7 +147,7 @@ La classe $+1$ : $P_1 = (7, 6)$, $P_2 = (7, 5)$, $P_3 = (3, 6)$. La classe $-1$ 
 |---|---|---|
 | a | les six scores $\mathbf{w} \cdot P_i + b$, de $P_1$ à $P_6$ | une liste de 6 nombres |
 | b | la marge géométrique de $(\mathbf{w}, b)$ | un nombre (4 décimales) |
-| c | les numéros des points les plus proches de la droite de b), dans l'ordre croissant | une liste d'entiers |
+| c | la distance de $P_1$ à la droite de b) | un nombre (4 décimales) |
 | d | l'ensemble des $b$ pour lesquels $((2, 1), b)$ sépare les deux classes | un intervalle |
 | e | le $b$ qui donne la plus grande marge avec $\mathbf{w} = (2, 1)$ | un nombre |
 | f | cette marge | un nombre (4 décimales) |
@@ -164,17 +164,17 @@ La droite $\Delta$ a pour équation $3x_1 - 2x_2 + 4 = 0$, soit $(\mathbf{w}, b)
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $\tilde{\mathbf{w}}$ | une liste de 3 nombres |
-| b | $\tilde{\mathbf{p}}$ | une liste de 3 nombres |
-| c | les scores $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{p}}$, $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{q}}$, $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{r}}$ | une liste de 3 nombres |
+| b | le vecteur $\tilde{\mathbf{w}}'$ de la droite parallèle à $\Delta$ qui passe par $\mathbf{p}$, avec les mêmes poids $(3, -2)$ | une liste de 3 nombres |
+| c | la distance entre $\Delta$ et cette parallèle | un nombre (4 décimales) |
 | d | la distance de $\mathbf{q}$ à la droite $\Delta$, dans le plan | un nombre (4 décimales) |
 | e | le plan de $\mathbb{R}^3$ d'équation $\tilde{\mathbf{v}} \cdot \tilde{\mathbf{x}} = 0$, avec $\tilde{\mathbf{v}} = (-6, 2, 3)$, coupe le niveau « première coordonnée $= 1$ » selon une droite du plan : la valeur de $x_1$ où cette droite coupe l'axe des $x_1$, puis la valeur de $x_2$ où elle coupe l'axe des $x_2$ | une liste de 2 nombres |
-| f | vrai ou faux : si la première coordonnée de $\tilde{\mathbf{v}}$ est nulle, la droite obtenue comme en e) passe par l'origine du plan | `True` ou `False` |
+| f | le plan d'équation $\tilde{\mathbf{v}}' \cdot \tilde{\mathbf{x}} = 0$, avec $\tilde{\mathbf{v}}' = (0, 1, -3)$, coupe le même niveau selon une droite : la valeur de $x_2$ sur cette droite quand $x_1 = 6$ | un nombre |
 | g | le vecteur $\tilde{\mathbf{u}}$, de première coordonnée $-2$, tel que le plan $\tilde{\mathbf{u}} \cdot \tilde{\mathbf{x}} = 0$ contienne les points relevés de $(2, 0)$ et de $(0, 1)$ | une liste de 3 nombres |
 
-Dans ta copie : de quel côté de $\Delta$ est chacun des trois points ? Montre que, pour un point $\mathbf{x}$ du plan, $\tilde{\mathbf{v}} \cdot \tilde{\mathbf{x}} = 0$ équivaut à $\mathbf{x}$ sur la droite de e).
+Dans ta copie : de quel côté de $\Delta$ est chacun des trois points ? Montre que, pour un point $\mathbf{x}$ du plan, $\tilde{\mathbf{v}} \cdot \tilde{\mathbf{x}} = 0$ équivaut à $\mathbf{x}$ sur la droite de e). Pourquoi la droite de f) passe-t-elle par l'origine du plan ?
 
 ### Ex M10.5 — Borner une norme pas à pas : ‖v_{k+1}‖² ≤ ‖v_k‖² + c ✏️ ★★ ⏱️ 15 min
-**Objectif :** suivre la norme d'une suite de vecteurs construite pas à pas, la borner par récurrence, et opposer une croissance linéaire à une croissance en $\sqrt{k}$.
+**Objectif :** suivre la norme d'une suite de vecteurs construite pas à pas, la borner par récurrence, et comparer la borne pas à pas à celle de l'inégalité triangulaire.
 **Prérequis :** fiche §4 ; M07 (produit scalaire, Cauchy-Schwarz) ; R4 (récurrence) · **Parcours :** C
 
 Une suite part de $\mathbf{v}_0 = (1, 2)$ et fait deux pas, $\mathbf{v}_{k+1} = \mathbf{v}_k + \mathbf{d}_k$, avec $\mathbf{d}_0 = (2, -1)$ et $\mathbf{d}_1 = (-1, 2)$.
@@ -186,10 +186,10 @@ Une suite part de $\mathbf{v}_0 = (1, 2)$ et fait deux pas, $\mathbf{v}_{k+1} = 
 | c | $\lVert \mathbf{v}_2 \rVert^2$ | un nombre |
 | d | la borne de $\lVert \mathbf{v}_2 \rVert^2$ que donne le lemme de sommation de la fiche, sachant seulement que chaque pas vérifie $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$ et $\lVert \mathbf{d}_k \rVert^2 \le 5$ | un nombre |
 | e | avec les mêmes hypothèses sur **tous** les pas, la borne de $\lVert \mathbf{v}_{100} \rVert$ | un nombre (2 décimales) |
-| f | une autre suite part d'un $\mathbf{v}_0$ tel que $\lVert \mathbf{v}_0 \rVert = 2$ et $\mathbf{e} \cdot \mathbf{v}_0 = -2$, pour un vecteur $\mathbf{e}$ de norme 1 ; chaque pas a une longueur au plus 3, vérifie $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$ et avance d'au moins $0{,}5$ dans la direction $\mathbf{e}$ ($\mathbf{e} \cdot \mathbf{d}_k \ge 0{,}5$). Le plus grand nombre de pas $k$ que n'excluent pas les deux inégalités de la fiche (la progression le long de $\mathbf{e}$, et la borne du lemme sur $\lVert \mathbf{v}_k \rVert^2$), combinées par Cauchy-Schwarz | un entier |
+| f | une autre suite part d'un $\mathbf{v}_0$ de norme 3 et fait six pas $\mathbf{d}_0, \dots, \mathbf{d}_5$ de longueurs croissantes : $\lVert \mathbf{d}_k \rVert \le k + 1$ (le premier pas mesure au plus 1, le sixième au plus 6), et chaque pas vérifie $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$. La borne de $\lVert \mathbf{v}_6 \rVert$ que donne le lemme de sommation | un nombre |
 | g | une troisième suite part d'un $\mathbf{v}_0$ de norme 1 et fait 10 pas de longueur 1 : les 5 premiers **dans la direction de la position** ($\mathbf{d}_k = \frac{\mathbf{v}_k}{\lVert \mathbf{v}_k \rVert}$), les 5 suivants **perpendiculaires** à la position. $\lVert \mathbf{v}_{10} \rVert$ | un nombre (2 décimales) |
 
-Dans ta copie : vérifie que $\mathbf{v}_0 \cdot \mathbf{d}_0 = 0$ ; que vaut $\lVert \mathbf{v}_1 \rVert^2$, et pourquoi la borne est-elle atteinte au premier pas mais pas au second ? Pour f), écris les deux inégalités que vérifie $\mathbf{e} \cdot \mathbf{v}_k$, puis résous l'inégalité en $k$ (attention au signe de $\mathbf{e} \cdot \mathbf{v}_k$ avant d'élever au carré). Le plus grand nombre de pas réellement possible est-il celui de f) ? (Regarde le premier pas : que vaut $\mathbf{v}_0$, et que vaut alors $\mathbf{v}_0 \cdot \mathbf{d}_0$ ?) Pour g), pourquoi la borne de la fiche ne s'applique-t-elle pas aux cinq premiers pas ?
+Dans ta copie : vérifie que $\mathbf{v}_0 \cdot \mathbf{d}_0 = 0$ ; que vaut $\lVert \mathbf{v}_1 \rVert^2$, et pourquoi la borne est-elle atteinte au premier pas mais pas au second ? Pour f), compare avec la borne que donne l'inégalité triangulaire, $3 + (1 + 2 + \cdots + 6) = 24$ : laquelle est la meilleure ? Décris une suite du plan qui atteint la borne de f). Pour g), pourquoi la borne de la fiche ne s'applique-t-elle pas aux cinq premiers pas ?
 
 <a id="demonstrations"></a>
 
@@ -227,7 +227,7 @@ Soit $A$ et $B$ deux ensembles finis de points de $\mathbb{R}^d$, et $s(\mathbf{
 
 On note $\gamma(\mathbf{w}, b) = \min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$, pour $\mathbf{w} \ne \mathbf{0}$.
 1. Montre que $\gamma(c\mathbf{w}, cb) = \gamma(\mathbf{w}, b)$ pour tout $c > 0$.
-2. Exprime $\gamma(-\mathbf{w}, -b)$ à l'aide d'un **maximum**. Déduis-en que, si $(\mathbf{w}, b)$ sépare les deux classes, la marge de $(-\mathbf{w}, -b)$ est strictement négative.
+2. On fixe $\mathbf{w}$ et l'on fait varier $b$. On note $m_+ = \min \mathbf{w} \cdot \mathbf{x}_i$ sur la classe $+1$ et $M_- = \max \mathbf{w} \cdot \mathbf{x}_i$ sur la classe $-1$, avec $m_+ > M_-$. Écris $\gamma(\mathbf{w}, b)$ comme le minimum de deux fonctions affines de $b$, et déduis-en que $b \mapsto \gamma(\mathbf{w}, b)$ est concave. Montre que son maximum est atteint au milieu de l'intervalle des $b$ qui séparent, et vaut $\frac{m_+ - M_-}{2\lVert \mathbf{w} \rVert}$.
 3. Que deviennent les marges fonctionnelles $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ quand on multiplie $(\mathbf{w}, b)$ par $c > 0$ ? Déduis-en que tout séparateur peut être choisi avec $\min_i y_i(\mathbf{w} \cdot \mathbf{x}_i + b) = 1$.
 4. Sous cette forme, montre que $\gamma(\mathbf{w}, b) = \frac{1}{\lVert \mathbf{w} \rVert}$. Déduis-en que maximiser la marge revient à minimiser $\lVert \mathbf{w} \rVert$ sous les contraintes $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$.
 5. On ajoute un exemple. Montre que la marge d'un couple fixé ne peut que baisser ou rester égale, et donne une condition pour qu'elle ne change pas.
@@ -240,7 +240,7 @@ On note $\gamma(\mathbf{w}, b) = \min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i 
 **Objectif :** calculer la sortie de quatre activations sur un même score affine, et décrire leurs lignes de niveau dans le plan.
 **Prérequis :** fiche §5 ; R6 (sigmoïde, tanh) · **Parcours :** C, E
 
-Le score est $z = \mathbf{w} \cdot \mathbf{x} + b$ avec $\mathbf{w} = (-1, 2)$ et $b = 0{,}5$. Les trois points : $\mathbf{p}_1 = (1{,}5 ;\ 0{,}5)$, $\mathbf{p}_2 = (0, 1)$, $\mathbf{p}_3 = (3 ;\ 0{,}25)$. Le seuil vaut $H(z) = 1$ si $z > 0$, et $0$ sinon.
+Le score est $z = \mathbf{w} \cdot \mathbf{x} + b$ avec $\mathbf{w} = (-1, 2)$ et $b = 0{,}5$. Les trois points : $\mathbf{p}_1 = (0{,}25 ;\ 0{,}5)$, $\mathbf{p}_2 = (0, 1)$, $\mathbf{p}_3 = (3{,}5 ;\ 0{,}25)$. Le seuil vaut $H(z) = 1$ si $z > 0$, et $0$ sinon.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -249,10 +249,10 @@ Le score est $z = \mathbf{w} \cdot \mathbf{x} + b$ avec $\mathbf{w} = (-1, 2)$ e
 | c | les trois sorties de la sigmoïde $\sigma$ | une liste de 3 nombres (4 décimales) |
 | d | les trois sorties de $\tanh$ | une liste de 3 nombres (4 décimales) |
 | e | les trois sorties de ReLU | une liste de 3 nombres |
-| f | la valeur du score $z$ pour laquelle $\sigma(z) = 0{,}8$ | un nombre (4 décimales) |
-| g | la distance entre la droite où $\sigma(\mathbf{w} \cdot \mathbf{x} + b) = 0{,}8$ et la frontière $\mathbf{w} \cdot \mathbf{x} + b = 0$ | un nombre (4 décimales) |
+| f | la valeur du score $z$ pour laquelle $\sigma(z) = 0{,}85$ | un nombre (4 décimales) |
+| g | la distance entre la droite où $\sigma(\mathbf{w} \cdot \mathbf{x} + b) = 0{,}85$ et la frontière $\mathbf{w} \cdot \mathbf{x} + b = 0$ | un nombre (4 décimales) |
 
-Dans ta copie : pourquoi la ligne de niveau de g) est-elle une droite parallèle à la frontière ? Que vaut chaque activation en $\mathbf{p}_1$, et quelle convention changerait la réponse du seuil ? Pour quelles activations la région « sortie $> \frac{1}{2}$ » est-elle le demi-plan $z > 0$ ?
+Dans ta copie : pourquoi la ligne de niveau de g) est-elle une droite parallèle à la frontière ? Range les trois points par sortie croissante de la sigmoïde : le classement est-il le même avec tanh, avec ReLU, avec le seuil ? Pour quelles activations la région « sortie $> \frac{1}{2}$ » est-elle le demi-plan $z > 0$ ?
 
 ### Ex M10.10 — MML §12.1 : les hyperplans séparateurs, en anglais 📖 ★★ ⏱️ 20 min
 **Objectif :** lire en anglais la mise en place d'un classifieur linéaire, et relier ses notations à celles de la fiche.
@@ -295,7 +295,7 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | M10.13 | Séparabilité par programmation linéaire, et marge géométrique · `is_linearly_separable, margin_of_separator` | 🔨 | ★★ | 25 | C, E |
 | M10.14 | Prédire : n points aux labels tirés au hasard en dimension d sont-ils séparables ? | 🔮 | ★ | 10 | C, E |
 | M10.15 | Deux nuages, leurs enveloppes convexes et un hyperplan séparateur avec sa marge | 🎨 | ★ | 15 | C |
-| M10.16 | Chasse à l'erreur : un produit vectoriel de signe inversé, une marge non normalisée | 🐛 | ★ | 10 | C |
+| M10.16 | Chasse à l'erreur : un produit vectoriel de signe inversé, une marge non normalisée | 🐛 | ★ | 15 | C |
 | M10.17 | Des tests de propriétés pour l'enveloppe convexe | 🛠️ | ★ | 15 | C |
 | M10.18 | Défi : la plus grande marge possible entre deux nuages donnés, à 1 % près | 🏆 | ★★★ | 20 | C |
 

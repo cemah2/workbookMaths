@@ -41,7 +41,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M08](#m08) | Tests statistiques | 8 | §8.6 | 12,1 h | ✅ exercices | 1 |
 | [M09a](#m09a) | Matrices et systèmes linéaires | 9 | §2.1, §2.2, §2.3 | 16,7 h | ✅ exercices | 2 |
 | [M09b](#m09b) | Moindres carrés et régularisation | 9 | §5.5, §8.1, §8.2, §9.1, §9.2 | 17,0 h | ✅ exercices | 2 |
-| [M10](#m10) | Séparabilité linéaire et convexité | 10 | §12.1 | 7,9 h | ✅ exercices | 1 |
+| [M10](#m10) | Séparabilité linéaire et convexité | 10 | §12.1 | 8,1 h | ✅ exercices | 1 |
 | [M11](#m11) | Logique, induction et inégalités de concentration | 11 | — | 11,4 h | ✅ exercices | 1 |
 | [CP2](#cp2) | Examen blanc de la partie II | — | — | 3,2 h | ✅ exercices | 1 |
 | [M12a](#m12a) | Espaces vectoriels et applications linéaires | 12 | §2.4, §2.5, §2.6, §2.7, §2.8 | ≈ 16 h (estimé) | plan | 2 |
@@ -81,7 +81,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 |---|---|---|---|---|
 | 0 · Remise à niveau | 12 | 363 | 116,5 h | 93,3 h |
 | I · Fondations | 9 | 319 | 107,6 h | 69,7 h |
-| II · Concepts | 7 | 256 | 83,5 h | 53,8 h |
+| II · Concepts | 7 | 256 | 83,7 h | 54,0 h |
 | III · ML classique | 8 | — | ≈ 98 h (estimé) | à détailler |
 | IV · Réseaux | 6 | — | ≈ 58 h (estimé) | à détailler |
 | V · Architectures | 3 | — | ≈ 24 h (estimé) | à détailler |
@@ -1976,7 +1976,7 @@ La régression linéaire par les moindres carrés : risque empirique, MSE, MAE, 
 
 Les ensembles convexes et l'enveloppe convexe, la séparation de deux nuages par un hyperplan, l'astuce du biais et la marge géométrique, les récurrences sur une norme, et les fonctions d'activation appliquées à un score linéaire : les outils que workbookIA 10 assemble pour le perceptron.
 
-**Temps** : 7,9 h en parcours complet, 5,5 h en parcours essentiel (lecture 110 min, 15 flashcards).
+**Temps** : 8,1 h en parcours complet, 5,7 h en parcours essentiel (lecture 110 min, 16 flashcards).
 
 **Objectifs**
 
@@ -2012,7 +2012,7 @@ Les ensembles convexes et l'enveloppe convexe, la séparation de deux nuages par
 | M10.R2 | 🔁 | L'inégalité de Cauchy-Schwarz (M07) | ★ | 5 | §4 | C, E | manuel | — |
 | M10.R3 | 🔁 | La sigmoïde et tanh (R6) | ★ | 5 | §5 | C | manuel | — |
 | M10.1 | ✏️ | Convexe ou non : segments, demi-plans, intersections | ★ | 15 | §1 | C, E | wbm | — |
-| M10.2 | ✏️ | L'enveloppe convexe de huit points, à la main | ★ | 15 | §2 | C, E | wbm | — |
+| M10.2 | ✏️ | L'enveloppe convexe de huit points, à la main | ★ | 20 | §2 | C, E | wbm | — |
 | M10.3 | ✏️ | Une droite qui sépare deux petits nuages, et sa marge | ★★ | 20 | §3 | C, E | wbm | — |
 | M10.4 | ✏️ | L'astuce du biais : une droite du plan devient un plan de ℝ³ passant par l'origine | ★ | 15 | §3 | C | wbm | — |
 | M10.5 | ✏️ | Borner une norme pas à pas : ‖v_{k+1}‖² ≤ ‖v_k‖² + c | ★★ | 15 | §4 | C | wbm | — |
@@ -2027,11 +2027,11 @@ Les ensembles convexes et l'enveloppe convexe, la séparation de deux nuages par
 | M10.13 | 🔨 | Séparabilité par programmation linéaire, et marge géométrique · `is_linearly_separable, margin_of_separator` | ★★ | 25 | §3 | C, E | pytest | — |
 | M10.14 | 🔮 | Prédire : n points aux labels tirés au hasard en dimension d sont-ils séparables ? | ★ | 10 | §3 | C, E | wbm | — |
 | M10.15 | 🎨 | Deux nuages, leurs enveloppes convexes et un hyperplan séparateur avec sa marge | ★ | 15 | §2 §3 | C | manuel | — |
-| M10.16 | 🐛 | Chasse à l'erreur : un produit vectoriel de signe inversé, une marge non normalisée | ★ | 10 | §2 §3 | C | wbm | — |
+| M10.16 | 🐛 | Chasse à l'erreur : un produit vectoriel de signe inversé, une marge non normalisée | ★ | 15 | §2 §3 | C | wbm | — |
 | M10.17 | 🛠️ | Des tests de propriétés pour l'enveloppe convexe | ★ | 15 | §2 | C | manuel | — |
 | M10.18 | 🏆 | Défi : la plus grande marge possible entre deux nuages donnés, à 1 % près | ★★★ | 20 | §3 | C | wbm | — |
 
-*Notes* : Frontières : XOR n'est pas séparable (10.4) et la convergence du perceptron (10.7) sont démontrés en workbookIA 10 : M10 démontre l'énoncé général (deux nuages séparables ont des enveloppes convexes disjointes) sans l'appliquer aux portes logiques, et enseigne les récurrences sur une norme sur une suite quelconque, sans la règle du perceptron ni la borne (R/γ)². Évités : les portes logiques (AND, OR, NOT, NAND, XOR), le perceptron et sa règle, les manchots, les chiffres de 20 × 20 pixels ; la marge et l'astuce du biais sont vues en géométrie (10.2 et 10.23 restent à workbookIA). Chapitre court (8 h) : la moitié de la composition, papier d'abord ; pas de 🔬 ni de 📦 (le 🔮 sur le théorème de Cover et les deux 🔨 suffisent).
+*Notes* : Frontières : XOR n'est pas séparable (10.4) et la convergence du perceptron (10.7) sont démontrés en workbookIA 10 : M10 démontre l'énoncé général (deux nuages séparables ont des enveloppes convexes disjointes) sans l'appliquer aux portes logiques, et enseigne les récurrences sur une norme sur une suite quelconque, sans la règle du perceptron ni la borne (R/γ)². Évités : les portes logiques (AND, OR, NOT, NAND, XOR), le perceptron et sa règle, les manchots, les chiffres de 20 × 20 pixels ; la marge et l'astuce du biais sont vues en géométrie (10.2 et 10.23 restent à workbookIA). COMPOSITION : chapitre court (8 h, puis 8,1 h quand l'apprenant simulé a allongé M10.2 et M10.16, sans contenu nouveau) : la moitié de la composition, papier d'abord ; pas de 🔬 ni de 📦 (le 🔮 sur le théorème de Cover et les deux 🔨 suffisent).
 
 <a id="m11"></a>
 ## M11 · Logique, induction et inégalités de concentration

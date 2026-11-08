@@ -87,10 +87,9 @@ PAPER = [
          '''"‖w‖ = √(2² + 1²), pas 2² + 1²": 0.4, '''
          '''"la marge est le minimum sur les DEUX classes, la classe −1 comprise": 8 / math.sqrt(5), '''
          '''"le score est w · x + b : avec b, tous les points sont du bon côté": -2 / math.sqrt(5)}'''),
-        ("c", "a list of integers", "[4, 6]",
-         '''mistakes={"compare les distances des deux côtés : y_i(w · x_i + b) / ‖w‖ pour chaque point": [3], '''
-         '''"deux points sont à la même distance de la droite : donne leurs deux numéros": [4], '''
-         '''"deux points sont à la même distance : donne les deux numéros, dans l'ordre croissant": [6]}'''),
+        ("c", "a number (4 decimals)", "16 / math.sqrt(5)",
+         '''decimals=4, mistakes={"une distance est |w · P₁ + b| / ‖w‖ : divise le score par ‖w‖ = √5": 16.0, '''
+         '''"‖w‖ = √5, pas 5": 3.2, "le score est w · P₁ + b = 14 + 6 − 4 : n'oublie pas b": 20 / math.sqrt(5)}'''),
         ("d", "an interval", '"]-12 ; -2["',
          '''kind="interval", mistakes={"la séparation est stricte : aux bornes, un point est sur la droite": '''
          '''"[-12 ; -2]", "w · x + b > 0 sur la classe +1 donne b > −12, et < 0 sur la classe −1 donne b < −2": '''
@@ -109,16 +108,22 @@ PAPER = [
     Paper("M10.4", "L'astuce du biais : une droite du plan devient un plan de ℝ³ passant par l'origine", [
         ("a", "a list of 3 numbers", "[4, 3, -2]",
          '''mistakes={"le biais se place en tête : (b, w₁, w₂)": [3, -2, 4]}'''),
-        ("b", "a list of 3 numbers", "[1, 1, 2]",
-         '''mistakes={"la coordonnée constante 1 se place en tête : (1, x₁, x₂)": [1, 2, 1]}'''),
-        ("c", "a list of 3 numbers", "[3, -4, -2]",
-         '''mistakes={"le score relevé vaut b × 1 + w · x : n'oublie pas le terme du biais": [-1, -8, -6]}'''),
+        ("b", "a list of 3 numbers", "[1, 3, -2]",
+         '''mistakes={"la parallèle passe par p : 3 × 1 − 2 × 2 + b′ = 0 donne b′ = 1": [-1, 3, -2], '''
+         '''"c'est le vecteur de Δ ; la parallèle doit passer par p": [4, 3, -2], '''
+         '''"le biais se place en tête : (b′, w₁, w₂)": [3, -2, 1]}'''),
+        ("c", "a number (4 decimals)", "3 / math.sqrt(13)",
+         '''decimals=4, mistakes={"divise l'écart des biais par ‖w‖ = √13": 3.0, "‖w‖ = √13, pas 13": 3 / 13, '''
+         '''"la distance se mesure dans le plan, avec ‖w‖ = ‖(3, −2)‖, pas avec la norme d'un vecteur relevé": '''
+         '''3 / math.sqrt(14), "les biais valent 4 et 1 : leur écart est 3": 5 / math.sqrt(13)}'''),
         ("d", "a number (4 decimals)", "4 / math.sqrt(13)",
          '''decimals=4, mistakes={"la distance est |w · q + b| / ‖w‖, avec ‖w‖ = ‖(3, −2)‖ dans le plan": '''
          '''4 / math.sqrt(29), "divise par ‖w‖": 4.0, "‖w‖ = √13, pas 13": 4 / 13}'''),
         ("e", "a list of 2 numbers", "[3, 2]",
          '''mistakes={"au niveau x₀ = 1, l'équation devient −6 + 2x₁ + 3x₂ = 0 : x₁ = 3 quand x₂ = 0": [2, 3]}'''),
-        ("f", "True or False", "True"),
+        ("f", "a number", "2",
+         '''mistakes={"la coordonnée constante est en tête : ṽ′ = (b, w₁, w₂), avec b = 0, et l'équation devient x₁ − 3x₂ = 0": '''
+         '''3, "x₁ − 3x₂ = 0 : résous en x₂, avec x₁ = 6": 18, "x₁ − 3x₂ = 0 donne x₂ = x₁ / 3, positif": -2}'''),
         ("g", "a list of 3 numbers", "[-2, 1, 2]",
          '''mistakes={"le plan doit contenir (1, 2, 0) et (1, 0, 1) : écris les deux produits scalaires nuls": '''
          '''[-2, 2, 1]}'''),
@@ -136,36 +141,42 @@ PAPER = [
         ("e", "a number (2 decimals)", "math.sqrt(505)",
          '''decimals=2, mistakes={"la question demande la norme : prends la racine carrée de la borne du carré": 505.0, '''
          '''"‖v₁₀₀‖² ≤ ‖v₀‖² + 100 c : n'oublie pas ‖v₀‖² = 5": 10 * math.sqrt(5)}'''),
-        ("f", "an integer", "44",
-         '''mistakes={"la progression part de e · v₀ = −2 : e · v_k ≥ −2 + 0,5k": 36, '''
-         '''"‖v_k‖² ≤ ‖v₀‖² + 9k : n'oublie pas ‖v₀‖² = 4": 52, '''
-         '''"bien vu, le premier pas ne peut pas être perpendiculaire (v₀ = −2e) ; la question demande seulement ce que '''
-         '''n'excluent pas les deux inégalités de la fiche": 43}'''),
+        ("f", "a number", "10.0",
+         '''decimals=2, mistakes={"c'est la borne de l'inégalité triangulaire, 3 + 1 + 2 + ⋯ + 6 ; le lemme s'applique ici '''
+         '''au CARRÉ de la norme": 24.0, "c'est la borne de ‖v₆‖² : prends la racine carrée": 100.0, '''
+         '''"chaque pas a sa propre longueur maximale : ajoute 1², 2², …, 6², pas six fois 6²": 15.0, '''
+         '''"n'oublie pas le point de départ, ‖v₀‖² = 9": math.sqrt(91), '''
+         '''"le lemme ajoute les CARRÉS des longueurs des pas : 1² + 2² + ⋯ + 6²": math.sqrt(30)}'''),
         ("g", "a number (2 decimals)", "math.sqrt(41)",
          '''decimals=2, mistakes={"les 5 premiers pas vont dans la direction de la position : la norme gagne 1 à chacun, la '''
          '''borne en √k ne s'applique pas à eux": math.sqrt(11), "les 5 derniers pas sont perpendiculaires à la position : '''
-         '''la norme ne gagne plus que par Pythagore, ‖v_(k+1)‖² = ‖v_k‖² + 1": 11.0}'''),
+         '''la norme ne gagne plus que par Pythagore, ‖v_(k+1)‖² = ‖v_k‖² + 1": 11.0, '''
+         '''"un pas perpendiculaire fait quand même grandir la norme : ‖v_(k+1)‖² = ‖v_k‖² + ‖d_k‖²": 6.0}'''),
     ]),
 
     Paper("M10.9", "Pont : seuil, sigmoïde, tanh et ReLU appliqués à un même score linéaire", [
-        ("a", "a list of 3 numbers", "[0, 2.5, -2]",
-         '''decimals=2, mistakes={"le score est w · x + b, avec w = (−1, 2) : n'oublie pas b": [-0.5, 2.0, -2.5]}'''),
-        ("b", "a list of 3 numbers", "[0, 1, 0]",
-         '''mistakes={"H(0) = 0 : le seuil de l'énoncé exige z > 0": [1, 1, 0]}'''),
-        ("c", "a list of 3 numbers (4 decimals)", "[sigmoid(0), sigmoid(2.5), sigmoid(-2)]",
+        ("a", "a list of 3 numbers", "[1.25, 2.5, -2.5]",
+         '''decimals=2, mistakes={"le score est w · x + b, avec b = 0,5 : n'oublie pas b": [0.75, 2.0, -3.0], '''
+         '''"w = (−1, 2) : le premier poids est négatif": [1.75, 2.5, 4.5]}'''),
+        ("b", "a list of 3 numbers", "[1, 1, 0]",
+         '''mistakes={"le seuil vaut 0 ou 1 : H(z) = 0 pour z ≤ 0, jamais −1": [1, 1, -1], '''
+         '''"H donne 0 ou 1, pas le score : 1 si z > 0": [1.25, 2.5, 0]}'''),
+        ("c", "a list of 3 numbers (4 decimals)", "[sigmoid(1.25), sigmoid(2.5), sigmoid(-2.5)]",
          '''decimals=4, mistakes={"σ(z) = 1/(1 + e^(−z)) : le signe dans l'exponentielle": '''
-         '''[sigmoid(0), sigmoid(-2.5), sigmoid(2)]}'''),
-        ("d", "a list of 3 numbers (4 decimals)", "[0.0, math.tanh(2.5), math.tanh(-2)]",
+         '''[sigmoid(-1.25), sigmoid(-2.5), sigmoid(2.5)]}'''),
+        ("d", "a list of 3 numbers (4 decimals)", "[math.tanh(1.25), math.tanh(2.5), math.tanh(-2.5)]",
          '''decimals=4, mistakes={"tanh(z) = 2σ(2z) − 1, pas 2σ(z) − 1": '''
-         '''[0.0, 2 * sigmoid(2.5) - 1, 2 * sigmoid(-2) - 1]}'''),
-        ("e", "a list of 3 numbers", "[0, 2.5, 0]",
-         '''decimals=2, mistakes={"ReLU(z) = max(0, z) garde z quand il est positif": [0, 1, 0]}'''),
-        ("f", "a number (4 decimals)", "math.log(4)",
-         '''decimals=4, mistakes={"σ(z) = 0,8 donne e^(−z) = 1/4, donc z = ln 4": math.log(0.25), '''
-         '''"σ(z) = 0,8 donne 1 + e^(−z) = 1,25": math.log(1.25)}'''),
-        ("g", "a number (4 decimals)", "math.log(4) / math.sqrt(5)",
-         '''decimals=4, mistakes={"un score n'est une distance qu'une fois divisé par ‖w‖ = √5": math.log(4), '''
-         '''"‖w‖ = √5, pas 5": math.log(4) / 5}'''),
+         '''[2 * sigmoid(1.25) - 1, 2 * sigmoid(2.5) - 1, 2 * sigmoid(-2.5) - 1]}'''),
+        ("e", "a list of 3 numbers", "[1.25, 2.5, 0]",
+         '''decimals=2, mistakes={"ReLU(z) = max(0, z) garde z quand il est positif": [1, 1, 0], '''
+         '''"ReLU(z) = max(0, z) : un score négatif donne 0": [1.25, 2.5, -2.5]}'''),
+        ("f", "a number (4 decimals)", "math.log(17 / 3)",
+         '''decimals=4, mistakes={"σ(z) = 0,85 donne e^(−z) = 0,15 / 0,85 = 3/17, donc z = ln(17/3), positif": '''
+         '''math.log(3 / 17), "σ(z) = 0,85 donne 1 + e^(−z) = 1/0,85 : isole e^(−z) avant de prendre le logarithme": '''
+         '''math.log(1 / 0.85)}'''),
+        ("g", "a number (4 decimals)", "math.log(17 / 3) / math.sqrt(5)",
+         '''decimals=4, mistakes={"un score n'est une distance qu'une fois divisé par ‖w‖ = √5": math.log(17 / 3), '''
+         '''"‖w‖ = √5, pas 5": math.log(17 / 3) / 5}'''),
     ]),
 ]
 
@@ -194,7 +205,9 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M10.1 à M
 # Notebook exercises: your library (M10.12 and M10.13)
 # ---------------------------------------------------------------------------
 TOOLS = '''# Tools of the notebook (parts A to C)
+import ast
 import inspect
+import textwrap
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -321,7 +334,7 @@ wbm.record("M10.12f", "ndarray", mistakes={{"{NDARRAY}": {{"list", "tuple"}}}})'
          r"produits vectoriels sont nuls : chaque chaîne garde ses deux extrémités, et le résultat aussi.",
 )
 
-X13 = "[[1, 5], [2, 7], [4, 6], [3, 4], [5, 1], [7, 2], [6, -1], [8, 0]]"
+X13 = "[[-1, 2], [2, 1], [1, -2], [-2, -1], [5, 4], [6, 1], [4, 6], [7, 5]]"
 Y13 = "[1, 1, 1, 1, -1, -1, -1, -1]"
 
 M10_13 = Ex(
@@ -335,60 +348,61 @@ M10_13 = Ex(
 
 Avec $\mathbf{{X}}$ = `{X13}` et $\mathbf{{y}}$ = `{Y13}`, la vérification calcule :
 - a) `is_linearly_separable(X, y)` ;
-- b) la même chose après avoir ajouté le point $(2{{,}}5 ;\ 5{{,}}5)$ avec le label $-1$ ;
-- c) `is_linearly_separable([[0], [1], [2], [3]], [-1, 1, 1, -1])` ;
-- d) `margin_of_separator(X, y, [-1, 1], 1)` (4 décimales) ;
-- e) `margin_of_separator(X, y, [2, -2], -2)` (4 décimales) ;
+- b) la même chose après avoir ajouté le point $(0{{,}}5 ;\ 1{{,}}5)$ avec le label $-1$ ;
+- c) `is_linearly_separable([[0], [2], [3], [5], [6]], [1, 1, -1, 1, -1])` ;
+- d) `margin_of_separator(X, y, [-1, -1], 4)` (4 décimales) ;
+- e) `margin_of_separator(X, y, [2, 2], -8)` (4 décimales) ;
 - f) le nom de l'erreur levée par `margin_of_separator(X, y, [0, 0], 1)` ;
 - g) le nom de l'erreur levée par `is_linearly_separable([[0, 0], [1, 1]], [0, 1])` ;
 - h) vrai ou faux : `is_linearly_separable` rend un `bool` de Python et `margin_of_separator` un `float` de Python (`type(r) is bool and type(m) is float`).
 
-Dans ta copie : pourquoi b) est-il faux, sans aucun calcul de droite (fiche §3) ? Écris d) à la main : quel point est le plus proche de la droite $-x_1 + x_2 + 1 = 0$ ? Pourquoi e) est-il négatif, et pourquoi n'est-il pas l'opposé de d) ? Que rendrait `is_linearly_separable` avec des contraintes $\ge 0$ au lieu de $\ge 1$ ?""",
+Dans ta copie : où est l'origine par rapport aux quatre points de la classe $+1$ ? Pourquoi a) serait-il faux sans la colonne de 1 (sans le biais $b$) ? Pourquoi b) est-il faux, sans aucun calcul de droite (fiche §3) ? Écris d) à la main : quel point est le plus proche de la droite $-x_1 - x_2 + 4 = 0$ ? Pourquoi e) est-il négatif, et pourquoi n'est-il pas l'opposé de d) ? Que rendrait `is_linearly_separable` avec des contraintes $\ge 0$ au lieu de $\ge 1$ ?""",
     todo=LOAD_LEARNER,
     check=f'''X_13, y_13 = {X13}, {Y13}
 with checked("M10.13a"):
     wbm.check("M10.13a", mymath.convex.is_linearly_separable(X_13, y_13), computed=True)
 with checked("M10.13b"):
-    wbm.check("M10.13b", mymath.convex.is_linearly_separable(X_13 + [[2.5, 5.5]], y_13 + [-1]), computed=True)
+    wbm.check("M10.13b", mymath.convex.is_linearly_separable(X_13 + [[0.5, 1.5]], y_13 + [-1]), computed=True)
 with checked("M10.13c"):
-    wbm.check("M10.13c", mymath.convex.is_linearly_separable([[0], [1], [2], [3]], [-1, 1, 1, -1]), computed=True)
+    wbm.check("M10.13c", mymath.convex.is_linearly_separable([[0], [2], [3], [5], [6]], [1, 1, -1, 1, -1]),
+              computed=True)
 with checked("M10.13d"):
-    wbm.check("M10.13d", mymath.convex.margin_of_separator(X_13, y_13, [-1, 1], 1), computed=True)
+    wbm.check("M10.13d", mymath.convex.margin_of_separator(X_13, y_13, [-1, -1], 4), computed=True)
 with checked("M10.13e"):
-    wbm.check("M10.13e", mymath.convex.margin_of_separator(X_13, y_13, [2, -2], -2), computed=True)
+    wbm.check("M10.13e", mymath.convex.margin_of_separator(X_13, y_13, [2, 2], -8), computed=True)
 with checked("M10.13f"):
     wbm.check("M10.13f", raised(mymath.convex.margin_of_separator, X_13, y_13, [0, 0], 1), computed=True)
 with checked("M10.13g"):
     wbm.check("M10.13g", raised(mymath.convex.is_linearly_separable, [[0, 0], [1, 1]], [0, 1]), computed=True)
 with checked("M10.13h"):
     wbm.check("M10.13h", type(mymath.convex.is_linearly_separable(X_13, y_13)) is bool
-              and type(mymath.convex.margin_of_separator(X_13, y_13, [-1, 1], 1)) is float, computed=True)''',
+              and type(mymath.convex.margin_of_separator(X_13, y_13, [-1, -1], 4)) is float, computed=True)''',
     solution=LOAD_REF + f'''
 is_linearly_separable, margin_of_separator = mymath.convex.is_linearly_separable, mymath.convex.margin_of_separator
 X_13, y_13 = {X13}, {Y13}
-print("a)", is_linearly_separable(X_13, y_13), " b)", is_linearly_separable(X_13 + [[2.5, 5.5]], y_13 + [-1]),
-      " c)", is_linearly_separable([[0], [1], [2], [3]], [-1, 1, 1, -1]))
-print("d)", round(margin_of_separator(X_13, y_13, [-1, 1], 1), 4),
-      " e)", round(margin_of_separator(X_13, y_13, [2, -2], -2), 4))
+print("a)", is_linearly_separable(X_13, y_13), " b)", is_linearly_separable(X_13 + [[0.5, 1.5]], y_13 + [-1]),
+      " c)", is_linearly_separable([[0], [2], [3], [5], [6]], [1, 1, -1, 1, -1]))
+print("d)", round(margin_of_separator(X_13, y_13, [-1, -1], 4), 4),
+      " e)", round(margin_of_separator(X_13, y_13, [2, 2], -8), 4))
 print("f)", raised(margin_of_separator, X_13, y_13, [0, 0], 1),
       " g)", raised(is_linearly_separable, [[0, 0], [1, 1]], [0, 1]))
-print("h)", type(is_linearly_separable(X_13, y_13)) is bool and type(margin_of_separator(X_13, y_13, [-1, 1], 1)) is float)''',
+print("h)", type(is_linearly_separable(X_13, y_13)) is bool and type(margin_of_separator(X_13, y_13, [-1, -1], 4)) is float)''',
     record=f'''wbm.record("M10.13a", True,
-           mistakes={{"ces deux nuages sont séparables : garde le biais b parmi les inconnues (une colonne de 1), et des "
-                      "inconnues libres, bounds=(None, None)": False}})
+           mistakes={{"ces deux nuages sont séparables, mais aucune droite qui passe par l'origine ne les sépare : garde le "
+                      "biais b parmi les inconnues (une colonne de 1), et des inconnues libres, bounds=(None, None)": False}})
 wbm.record("M10.13b", False,
-           mistakes={{"(2,5 ; 5,5) est le milieu de deux points de la classe +1 : exige y_i(w · x_i + b) ≥ 1, pas ≥ 0":
+           mistakes={{"(0,5 ; 1,5) est le milieu de deux points de la classe +1 : exige y_i(w · x_i + b) ≥ 1, pas ≥ 0":
                          True}})
 wbm.record("M10.13c", False,
-           mistakes={{"en dimension 1, les points de la classe +1 sont entre deux points de la classe −1 : exige "
+           mistakes={{"en dimension 1, le point 3, de la classe −1, est entre deux points de la classe +1 : exige "
                       "y_i(w · x_i + b) ≥ 1": True}})
-wbm.record("M10.13d", 2 ** 0.5, decimals=4,
-           mistakes={{"divise par ‖w‖ = √2": 2.0, "‖w‖ = √2, pas 2": 1.0,
-                     "la marge est le MINIMUM des y_i(w · x_i + b) / ‖w‖": 7 / 2 ** 0.5,
-                     "multiplie chaque score par le label y_i": -7 / 2 ** 0.5}})
-wbm.record("M10.13e", -7 / 2 ** 0.5, decimals=4,
-           mistakes={{"la marge est signée : un point du mauvais côté compte en négatif": 7 / 2 ** 0.5,
-                     "la marge est le minimum, ici atteint par le point le plus loin du mauvais côté": -2 ** 0.5}})
+wbm.record("M10.13d", 1 / 2 ** 0.5, decimals=4,
+           mistakes={{"divise par ‖w‖ = √2": 1.0, "‖w‖ = √2, pas 2": 0.5,
+                     "la marge est le MINIMUM des y_i(w · x_i + b) / ‖w‖": 8 / 2 ** 0.5,
+                     "multiplie chaque score par le label y_i": -12 / 2 ** 0.5}})
+wbm.record("M10.13e", -8 / 2 ** 0.5, decimals=4,
+           mistakes={{"la marge est signée : un point du mauvais côté compte en négatif": 8 / 2 ** 0.5,
+                     "la marge est le minimum, ici atteint par le point le plus loin du mauvais côté": -1 / 2 ** 0.5}})
 wbm.record("M10.13f", "ValueError",
            mistakes={{"w = 0 ne définit aucun hyperplan : la docstring demande une ValueError": "aucune",
                      "{wrong_error("ValueError")}": {errors_source("ValueError")}}})
@@ -399,13 +413,17 @@ wbm.record("M10.13h", True,
            mistakes={{"la docstring demande un bool et un float de Python : un booléen ou un nombre de NumPy s'affiche "
                       "autrement (np.True_, np.float64(...)) ; écris bool(...) et float(...)": False}})''',
     after=tests_cells("is_linearly_separable or margin_of_separator"),
-    note=r"b) Le point $(2{,}5 ;\ 5{,}5)$ est le milieu de $(1, 5)$ et $(4, 6)$, deux points de la classe $+1$ : il est "
-         r"dans les deux enveloppes, aucune droite ne sépare (fiche §3). c) Les points 1 et 2 de la classe $+1$ sont entre "
-         r"0 et 3 de la classe $-1$. d) Les scores $-x_1 + x_2 + 1$ valent $5, 6, 3, 2$ sur la classe $+1$ et $-3, -4, "
-         r"-6, -7$ sur l'autre : le plus petit $y_i s_i$ est 2, atteint en $(3, 4)$, et $\frac{2}{\sqrt{2}} = \sqrt{2}$. "
-         r"e) $(2, -2)$ et $-2$ font $-2$ fois le couple de d) : les côtés sont échangés, et le minimum des $y_i s_i$ "
-         r"devient moins le **maximum** de ceux de d), $-\frac{14}{2\sqrt{2}}$, atteint en $(8, 0)$. Avec $\ge 0$, "
-         r"$\mathbf{w} = \mathbf{0}$ et $b = 0$ satisfont toutes les contraintes : la fonction rendrait toujours `True`.",
+    note=r"a) L'origine est à l'intérieur de l'enveloppe de la classe $+1$ (un carré autour d'elle) : une droite qui passe "
+         r"par l'origine laisse toujours un de ses sommets de l'autre côté ou dessus ; sans la colonne de 1, le programme "
+         r"linéaire n'a pas de solution, et la fonction rendrait `False`. b) Le point $(0{,}5 ;\ 1{,}5)$ est le milieu de "
+         r"$(-1, 2)$ et $(2, 1)$, deux points de la classe $+1$ : il est dans les deux enveloppes, aucune droite ne sépare "
+         r"(fiche §3). c) Le point 3, de la classe $-1$, est dans l'intervalle $[0, 5]$, l'enveloppe de la classe $+1$. "
+         r"d) Les scores "
+         r"$-x_1 - x_2 + 4$ valent $3, 1, 5, 7$ sur la classe $+1$ et $-5, -3, -6, -8$ sur l'autre : le plus petit $y_i s_i$ "
+         r"est 1, atteint en $(2, 1)$, et $\frac{1}{\sqrt{2}} \approx 0{,}7071$. e) $(2, 2)$ et $-8$ font $-2$ fois le couple "
+         r"de d) : les côtés sont échangés, et le minimum des $y_i s_i$ devient moins le **maximum** de ceux de d), "
+         r"$-\frac{16}{2\sqrt{2}}$, atteint en $(7, 5)$. Avec $\ge 0$, $\mathbf{w} = \mathbf{0}$ et $b = 0$ satisfont "
+         r"toutes les contraintes : la fonction rendrait toujours `True`.",
 )
 
 # ---------------------------------------------------------------------------
@@ -425,7 +443,7 @@ def separable_fraction(n, d, trials=300, seed=14):
         count += reference_14.convex.is_linearly_separable(X, y)
     return count / trials'''
 
-M10_14_EXPERIMENT = '''for letter, (n, d) in zip("abcd", [(4, 2), (6, 2), (22, 10), (30, 2)]):
+M10_14_EXPERIMENT = '''for letter, (n, d) in zip("abcd", [(3, 1), (6, 2), (22, 10), (30, 2)]):
     print(f"{letter}) n = {n:2d} points, dimension d = {d:2d} : séparables dans {separable_fraction(n, d):.0%} des "
           f"tirages")'''
 
@@ -434,9 +452,9 @@ M10_14 = Ex(
     "prévoir à quelle vitesse la séparabilité devient rare quand le nombre de points grandit devant la dimension, "
     "puis le mesurer.", "fiche §3", tracks="C, E", hypothesis=True,
     given=GIVEN_14,
-    body=r"""On tire $n$ points au hasard dans $\mathbb{R}^d$ (des coordonnées gaussiennes : presque sûrement en position générale), et on donne à chacun un label $-1$ ou $+1$ à pile ou face. Les deux classes sont-elles linéairement séparables ? La fiche (§3) dit que $d + 1$ points le sont toujours. Pour chaque cas, choisis le numéro de la bonne réponse : la proportion des tirages séparables est (1) 100 % ; (2) entre 60 % et 95 % ; (3) entre 35 % et 65 % ; (4) moins de 5 % :
-- a) $n = 4$ points dans le plan ($d = 2$) ;
-- b) $n = 6$ points dans le plan ;
+    body=r"""On tire $n$ points au hasard dans $\mathbb{R}^d$ (des coordonnées gaussiennes : presque sûrement en position générale), et on donne à chacun un label $-1$ ou $+1$ à pile ou face. Les deux classes sont-elles linéairement séparables ? La fiche (§3) dit que $d + 1$ points le sont toujours. Pour chaque cas, choisis le numéro de la bonne réponse : la proportion des tirages séparables est (1) 100 % ; (2) entre 65 % et 95 % ; (3) entre 35 % et 65 % ; (4) moins de 5 % :
+- a) $n = 3$ points sur une droite ($d = 1$) ;
+- b) $n = 6$ points dans le plan ($d = 2$) ;
 - c) $n = 22$ points en dimension $d = 10$ ;
 - d) $n = 30$ points dans le plan.
 
@@ -457,8 +475,8 @@ wbm.record("M10.14d", 4, prediction=True, choices=[1, 2, 3, 4])''',
         ("todo", guarded(M10_14_EXPERIMENT, [f"prediction_M10_14{letter}" for letter in "abcd"],
                          "⏳ Écris d'abord tes quatre prédictions, puis exécute à nouveau.")),
         ("solution", M10_14_EXPERIMENT),
-        ("md", "**Après l'expérience**, dans ta copie : pour a), dessine trois points et un quatrième à l'intérieur de "
-               "leur triangle ; quels étiquetages ne sont pas séparables (pense au critère des enveloppes, fiche §3) ? "
+        ("md", "**Après l'expérience**, dans ta copie : pour a), écris les huit étiquetages de trois points d'une "
+               "droite ; lesquels ne sont pas séparables (pense au critère des enveloppes, fiche §3) ? "
                "Que remarques-tu en b) et en c), qui ont tous deux $n = 2(d + 1)$ ? Combien de points faut-il, en "
                "dimension $d$, pour que des labels au hasard ne soient presque jamais séparables ? Qu'est-ce que cela "
                "dit d'un classifieur linéaire qui sépare parfaitement ses données d'entraînement quand $d$ est grand "
@@ -466,8 +484,8 @@ wbm.record("M10.14d", 4, prediction=True, choices=[1, 2, 3, 4])''',
     ],
     note=r"T. M. Cover (1965) a compté les étiquetages séparables : pour $n$ points en position générale de "
          r"$\mathbb{R}^d$, avec un biais, la proportion est $P(n, d) = 2^{1-n}\sum_{k=0}^{d} \binom{n-1}{k}$. a) "
-         r"$P(4, 2) = \frac{1 + 3 + 3}{8} = \frac{7}{8}$ : deux étiquetages sur 16 échouent (par exemple, quand un point est "
-         r"dans le triangle des trois autres, ceux où il est seul de sa classe). b) et c) $n = 2(d + 1)$ donne exactement $\frac{1}{2}$, quelle "
+         r"$P(3, 1) = \frac{1 + 2}{4} = \frac{3}{4}$ : deux étiquetages sur 8 échouent, les deux où le point du milieu "
+         r"est seul de sa classe (il est dans l'enveloppe de l'autre classe, le segment des deux extrêmes). b) et c) $n = 2(d + 1)$ donne exactement $\frac{1}{2}$, quelle "
          r"que soit la dimension (la somme prend la moitié des coefficients binomiaux, par symétrie). d) $P(30, 2) = "
          r"\frac{1 + 29 + 406}{2^{29}} \approx 8 \times 10^{-7}$. Avec l'astuce du biais, tout se passe en dimension "
          r"$d + 1$ : la « capacité » d'un classifieur linéaire est d'environ $2(d + 1)$ points. Quand $d$ est grand devant "
@@ -476,14 +494,23 @@ wbm.record("M10.14d", 4, prediction=True, choices=[1, 2, 3, 4])''',
 
 DATA_15 = f'''X_15 = np.array({X13}, dtype=float)
 y_15 = np.array({Y13})
-w_15, b_15 = np.array([-1.0, 1.0]), 1.0                  # a separator of the two clouds (the one of M10.13 d)'''
+w_15, b_15 = np.array([-1.0, -1.0]), 4.0                 # a separator of the two clouds (the one of M10.13 d)'''
 
 M10_15_CHECK = '''with checked("M10.15 vérifications"):
     from matplotlib.patches import Polygon as PolygonPatch
     reference_15 = wbm.load_mymath("ref")
     problems = []
-    X_t = np.array([[0.0, 4.0], [1.0, 6.0], [3.0, 5.0], [2.0, 5.0], [4.0, 1.0], [6.0, 2.0], [5.0, -1.0]])   # other data
-    y_t = np.array([1, 1, 1, 1, -1, -1, -1])
+    X_t = np.array([[0.0, 4.0], [1.0, 7.0], [3.0, 6.0], [2.0, 5.0], [-1.0, 6.0],         # other data: hulls of 5 and 4
+                    [4.0, 1.0], [6.0, 2.0], [5.0, -1.0], [7.0, 0.0], [5.5, 0.5]])        # vertices, one point inside
+    y_t = np.array([1, 1, 1, 1, 1, -1, -1, -1, -1, -1])
+
+    def same_polygon(ring, hull):
+        """True if the closed ring visits the vertices of hull in a cyclic order (either way round)."""
+        if len(ring) < 2 or not np.allclose(ring[0], ring[-1]) or len(ring) - 1 != len(hull):
+            return False
+        r = ring[:-1]
+        return any(np.allclose(np.roll(seq, -s, axis=0), hull) for seq in (r, r[::-1]) for s in range(len(r)))
+
     w_t, b_t = np.array([-1.0, 2.0]), -3.0
     gamma_t = reference_15.convex.margin_of_separator(X_t, y_t, w_t, b_t)
     fig_t, ax_t = plt.subplots()
@@ -498,11 +525,9 @@ M10_15_CHECK = '''with checked("M10.15 vérifications"):
         rings += [np.asarray(patch.get_xy(), dtype=float) for patch in ax_t.patches if isinstance(patch, PolygonPatch)]
         for label, name in ((1, "+1"), (-1, "−1")):
             hull_t = reference_15.convex.convex_hull_2d(X_t[y_t == label])
-            wanted = {tuple(np.round(p, 6)) for p in hull_t}
-            if not any(len(r) >= 2 and np.allclose(r[0], r[-1]) and {tuple(np.round(p, 6)) for p in r} == wanted
-                       for r in rings):
-                problems.append(f"l'enveloppe de la classe {name} doit être un polygone fermé dont les sommets sont "
-                                f"ceux de convex_hull_2d (ax.plot en répétant le premier sommet à la fin)")
+            if not any(same_polygon(r, hull_t) for r in rings):
+                problems.append(f"l'enveloppe de la classe {name} doit être un polygone fermé qui suit, dans l'ordre, les "
+                                f"sommets de convex_hull_2d (ax.plot en répétant le premier sommet à la fin)")
         norm_t = float(np.linalg.norm(w_t))
         levels = []
         for line in ax_t.get_lines():
@@ -579,11 +604,11 @@ ax.set_aspect("equal")
 plt.show()''',
     after=[("md", "**Vérifications automatiques** (sur d'autres données, dans des axes neufs)."),
            ("code", M10_15_CHECK)],
-    note=r"La marge de $(-1, 1)$ et $b = 1$ vaut $\sqrt{2}$ : le bord du côté $+1$ passe par $(3, 4)$, celui du côté $-1$ "
-         r"est à la même distance, mais aucun point de la classe $-1$ ne le touche ($(5, 1)$ et $(7, 2)$ sont à "
-         r"$\frac{3}{\sqrt{2}}$). En gardant la direction, le meilleur $b$ place la droite au milieu : $b = 0{,}5$, de marge "
-         r"$\frac{2{,}5}{\sqrt{2}} \approx 1{,}77$. Toutes directions confondues, la plus grande marge vaut "
-         r"$\frac{\sqrt{13}}{2} \approx 1{,}80$, la moitié de la distance entre $(3, 4)$ et $(5, 1)$.",
+    note=r"La marge de $(-1, -1)$ et $b = 4$ vaut $\frac{1}{\sqrt{2}} \approx 0{,}71$ : le bord du côté $+1$ passe par "
+         r"$(2, 1)$ ; celui du côté $-1$ est à la même distance de la droite, mais aucun point de la classe $-1$ ne le touche "
+         r"(le plus proche, $(6, 1)$, est à $\frac{3}{\sqrt{2}}$). En gardant la direction, le meilleur $b$ place la droite "
+         r"au milieu : $b = 5$, de marge $\frac{2}{\sqrt{2}} = \sqrt{2} \approx 1{,}41$. Toutes directions confondues, la "
+         r"plus grande marge vaut environ $1{,}86$, la moitié de la distance entre les deux enveloppes.",
 )
 
 # ---------------------------------------------------------------------------
@@ -596,7 +621,7 @@ M10_16_MISTAKES = bug_letters_mistakes(
     name_correct=False)
 
 M10_16 = Ex(
-    "M10.16", "🐛", 1, 10, "Chasse à l'erreur : un produit vectoriel de signe inversé, une marge non normalisée",
+    "M10.16", "🐛", 1, 15, "Chasse à l'erreur : un produit vectoriel de signe inversé, une marge non normalisée",
     "repérer dans du code les deux erreurs classiques de ce chapitre, et calculer ce qu'elles font.",
     "fiche §2 et §3", tracks="C",
     body=r"""Un collègue a écrit le code ci-dessous, ligne par ligne commentée. Deux lignes ne calculent pas ce que dit leur commentaire. **Sans exécuter de code**, trouve-les.
@@ -701,15 +726,18 @@ M10_17_CHECK = '''with checked("M10.17 vérifications"):
         if list(found) != []:
             problems.append(f"sur une enveloppe juste (graine {seed}), hull_problems rend {list(found)} au lieu de []")
             break
-    grid_t = np.array([[0, 0], [2, 0], [4, 0], [4, 3], [2, 4], [0, 3], [1, 1], [2, 2], [3, 1]], dtype=float)
+    grid_t = np.array([[0, 0], [2, 0], [4, 0], [4, 3], [2, 4], [0, 3], [1, 1], [2, 2], [3, 1], [0, 1]], dtype=float)
     good_t = reference_17.convex.convex_hull_2d(grid_t)                # [[0,0],[4,0],[4,3],[2,4],[0,3]]
     broken = {
         "dans le sens des aiguilles d'une montre": (np.vstack([good_t[:1], good_t[:0:-1]]), ["gauche", "dedans"]),
         "un sommet oublié": (np.delete(good_t, 2, axis=0), ["dedans"]),
+        "le dernier sommet oublié": (np.delete(good_t, 4, axis=0), ["dedans"]),
         "le point (2, 0), au milieu d'un côté, ajouté comme sommet": (np.insert(good_t, 1, [2.0, 0.0], axis=0),
                                                                      ["gauche"]),
-        "un départ ailleurs qu'au plus petit point": (np.roll(good_t, -1, axis=0), ["depart"]),
-        "un sommet poussé hors du nuage": (np.where(np.arange(5)[:, None] == 2, [[4.5, 3.25]], good_t), ["sommets"]),
+        "le point (0, 1), au milieu du dernier côté, ajouté à la fin": (np.vstack([good_t, [[0.0, 1.0]]]), ["gauche"]),
+        "un départ ailleurs qu'au plus petit point": (np.roll(good_t, 1, axis=0), ["depart"]),
+        "un sommet déplacé en (4, 4), qui n'est pas un point du nuage": (
+            np.where(np.arange(5)[:, None] == 2, [[4.0, 4.0]], good_t), ["sommets"]),
     }
     for what, (hull_t, expected) in broken.items():
         found = list(hull_problems(grid_t, hull_t))
@@ -718,7 +746,7 @@ M10_17_CHECK = '''with checked("M10.17 vérifications"):
     if problems:
         print("❌ Ex M10.17 : à revoir : " + " ; ".join(problems) + ".")
     else:
-        print("✅ Ex M10.17 : tes tests de propriétés acceptent les 20 enveloppes justes et attrapent les cinq fausses, "
+        print("✅ Ex M10.17 : tes tests de propriétés acceptent les 20 enveloppes justes et attrapent les sept fausses, "
               "chacune pour la bonne raison.")'''
 
 M10_17 = Ex(
@@ -733,7 +761,7 @@ M10_17 = Ex(
 
 Une enveloppe juste donne `[]`. On suppose que l'enveloppe a au moins trois sommets.
 
-La cellule de vérification essaie ta fonction sur 20 enveloppes justes (`[]` attendu à chaque fois), puis sur cinq enveloppes faussées : chacune doit être prise en défaut, et pour la bonne raison.
+La cellule de vérification essaie ta fonction sur 20 enveloppes justes (`[]` attendu à chaque fois), puis sur sept enveloppes faussées : chacune doit être prise en défaut, et pour la bonne raison (le tour complet compte : le dernier sommet suivi du premier).
 
 Dans ta copie : pourquoi une enveloppe tournée dans le sens des aiguilles d'une montre échoue-t-elle à **deux** propriétés ? Laquelle de ces propriétés attrape un point au milieu d'un côté ? Une enveloppe qui passe tes quatre tests est-elle forcément juste ? (Pense à un polygone qui oublie un sommet très proche d'un côté.)""",
     todo='''def hull_problems(points, hull):
@@ -791,8 +819,13 @@ def margin_18(X, y, w, b):
 
 M10_18_CHECK = '''with checked("M10.18 défi"):
     ok_18 = False
-    source_18 = inspect.getsource(best_separator_18)
-    if "sklearn" in source_18 or "SVC" in source_18:
+    tree_18 = ast.parse(textwrap.dedent(inspect.getsource(best_separator_18)))
+    imported_18 = {alias.name.split(".")[0] for node in ast.walk(tree_18) if isinstance(node, ast.Import)
+                   for alias in node.names}
+    imported_18 |= {node.module.split(".")[0] for node in ast.walk(tree_18)
+                    if isinstance(node, ast.ImportFrom) and node.module}
+    names_18 = set(best_separator_18.__code__.co_names)
+    if "sklearn" in imported_18 or names_18 & {"sklearn", "svm", "SVC", "LinearSVC"}:
         print("❌ Ex M10.18 : le défi se fait sans scikit-learn : la fiche §3 donne de quoi trouver la meilleure droite.")
     else:
         ratios = []
@@ -858,8 +891,8 @@ for (X, y), best in zip(DATASETS_18, BEST_18):
     print(f"bisector of the means: {first:.4f} · closest pair of the hulls: {margin_18(X, y, w, b):.6f} · best {best}")''',
     after=[("solution", M10_18_CHECK.split('with checked("M10.18"):')[0].rstrip())],
     record='''wbm.record("M10.18", True,
-           mistakes={"au moins un dataset est à plus de 1 % de la plus grande marge : la cellule du défi donne les "
-                     "rapports": False})''',
+           mistakes={"le défi n'est pas réussi : la cellule du défi dit pourquoi (un rapport sous 0,99, ou "
+                     "scikit-learn)": False})''',
     note=r"La médiatrice des barycentres ne fait que 49 à 86 % de la plus grande marge : les barycentres résument mal les "
          r"bords des nuages, qui seuls comptent. Deux méthodes passent. (1) **À direction fixée**, le meilleur $b$ met la "
          r"droite à égale distance des deux nuages (fiche §3) : la marge vaut $\frac{\min_A \mathbf{u} \cdot \mathbf{x} - "

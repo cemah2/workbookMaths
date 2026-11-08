@@ -1136,7 +1136,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 <!-- wbm:end M09b -->
 
 <!-- wbm:section M10 -->
-## M10 · Séparabilité linéaire et convexité ⏱️ 7,9 h
+## M10 · Séparabilité linéaire et convexité ⏱️ 8,1 h
 
 - [ ] M10.Q1 🧠 Convexe ou non ? ★ 4 min
 - [ ] M10.Q2 🧠 L'enveloppe convexe : vrai ou faux ★ 4 min
@@ -1146,7 +1146,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M10.R2 🔁 L'inégalité de Cauchy-Schwarz (M07) ★ 5 min
 - [ ] M10.R3 🔁 La sigmoïde et tanh (R6) ★ 5 min (complet)
 - [ ] M10.1 ✏️ Convexe ou non : segments, demi-plans, intersections ★ 15 min
-- [ ] M10.2 ✏️ L'enveloppe convexe de huit points, à la main ★ 15 min
+- [ ] M10.2 ✏️ L'enveloppe convexe de huit points, à la main ★ 20 min
 - [ ] M10.3 ✏️ Une droite qui sépare deux petits nuages, et sa marge ★★ 20 min
 - [ ] M10.4 ✏️ L'astuce du biais : une droite du plan devient un plan de ℝ³ passant par l'origine ★ 15 min (complet)
 - [ ] M10.5 ✏️ Borner une norme pas à pas : ‖v_{k+1}‖² ≤ ‖v_k‖² + c ★★ 15 min (complet)
@@ -1161,8 +1161,8 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M10.13 🔨 Séparabilité par programmation linéaire, et marge géométrique ★★ 25 min
 - [ ] M10.14 🔮 Prédire : n points aux labels tirés au hasard en dimension d sont-ils séparables ? ★ 10 min
 - [ ] M10.15 🎨 Deux nuages, leurs enveloppes convexes et un hyperplan séparateur avec sa marge ★ 15 min (complet)
-- [ ] M10.16 🐛 Chasse à l'erreur : un produit vectoriel de signe inversé, une marge non normalisée ★ 10 min (complet)
+- [ ] M10.16 🐛 Chasse à l'erreur : un produit vectoriel de signe inversé, une marge non normalisée ★ 15 min (complet)
 - [ ] M10.17 🛠️ Des tests de propriétés pour l'enveloppe convexe ★ 15 min (complet)
 - [ ] M10.18 🏆 Défi : la plus grande marge possible entre deux nuages donnés, à 1 % près ★★★ 20 min (complet)
-- [ ] Flashcards du chapitre importées dans Anki (15 cartes)
+- [ ] Flashcards du chapitre importées dans Anki (16 cartes)
 <!-- wbm:end M10 -->

@@ -375,7 +375,7 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | séparabilité | $\exists (\mathbf{w}, b) : y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1\ \forall i$ (programme linéaire) $\iff$ $\operatorname{conv}(A) \cap \operatorname{conv}(B) = \varnothing$ |
 | astuce du biais | $\tilde{\mathbf{x}} = (1, \mathbf{x})$, $\tilde{\mathbf{w}} = (b, \mathbf{w})$, $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = \mathbf{w} \cdot \mathbf{x} + b$ |
 | marge | $\gamma(\mathbf{w}, b) = \min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$ ; $\gamma^\star = \frac{1}{2}\min \lVert \mathbf{p} - \mathbf{q} \rVert$ ($\mathbf{p} \in \operatorname{conv} A$, $\mathbf{q} \in \operatorname{conv} B$) ; forme canonique : $\gamma = \frac{1}{\lVert \mathbf{w} \rVert}$ |
-| récurrences | $a_{k+1} \le a_k + c \Rightarrow a_k \le a_0 + kc$ ; $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$ et $\lVert \mathbf{d}_k \rVert \le L$ $\Rightarrow$ $\lVert \mathbf{v}_k \rVert^2 \le \lVert \mathbf{v}_0 \rVert^2 + kL^2$ |
+| récurrences | $a_{k+1} \le a_k + c_k \Rightarrow a_k \le a_0 + c_0 + \cdots + c_{k-1}$ ; $\lVert \mathbf{d}_k \rVert \le L$ $\Rightarrow$ $\lVert \mathbf{v}_k \rVert \le \lVert \mathbf{v}_0 \rVert + kL$ (toujours) ; si de plus $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$, $\lVert \mathbf{v}_k \rVert^2 \le \lVert \mathbf{v}_0 \rVert^2 + kL^2$ |
 | Cover | $P(n, d) = 2^{1-n}\sum_{k=0}^{d}\binom{n-1}{k}$ ; $P = 1$ pour $n \le d + 1$, $P = \frac{1}{2}$ pour $n = 2(d + 1)$ |
 | activations | $H(z) = [z > 0]$ ; $\sigma(z) = \frac{1}{1 + e^{-z}}$ ; $\tanh(z) = 2\sigma(2z) - 1$ ; $\operatorname{ReLU}(z) = \max(0, z)$ ; lignes de niveau : $\mathbf{w} \cdot \mathbf{x} + b = c$ |
 

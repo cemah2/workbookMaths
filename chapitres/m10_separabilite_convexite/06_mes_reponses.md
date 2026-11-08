@@ -111,7 +111,7 @@
 - e :
 - f :
 - g :
-- Le côté de Δ de chaque point ; pourquoi ṽ · x̃ = 0 équivaut à x sur la droite de e) :
+- Le côté de Δ de chaque point ; pourquoi ṽ · x̃ = 0 équivaut à x sur la droite de e) ; pourquoi la droite de f) passe par l'origine :
 
 ### Ex M10.5 — Borner une norme pas à pas : ‖v_{k+1}‖² ≤ ‖v_k‖² + c
 
@@ -122,7 +122,7 @@
 - e :
 - f :
 - g :
-- v₀ · d₀ et ‖v₁‖², et pourquoi la borne est atteinte au premier pas, pas au second ; les deux inégalités de f) et leur résolution ; le vrai maximum de f) (le premier pas) ; pourquoi la borne ne s'applique pas aux cinq premiers pas de g) :
+- v₀ · d₀ et ‖v₁‖², et pourquoi la borne est atteinte au premier pas, pas au second ; la borne de l'inégalité triangulaire comparée à celle de f), et une suite qui atteint la borne de f) ; pourquoi la borne ne s'applique pas aux cinq premiers pas de g) :
 
 ## ∂ Démonstrations
 
@@ -163,7 +163,7 @@
 - e :
 - f :
 - g :
-- Pourquoi la ligne de niveau de g) est parallèle à la frontière ; les quatre sorties en p₁, et la convention qui changerait le seuil ; les activations pour lesquelles « sortie > 1/2 » est le demi-plan z > 0 :
+- Pourquoi la ligne de niveau de g) est parallèle à la frontière ; les trois points rangés par sortie croissante, avec chaque activation ; les activations pour lesquelles « sortie > 1/2 » est le demi-plan z > 0 :
 
 ### Ex M10.10 — MML §12.1 : les hyperplans séparateurs, en anglais
 
@@ -198,11 +198,11 @@
 
 ### Ex M10.13 — Séparabilité par programmation linéaire, et marge géométrique · `is_linearly_separable, margin_of_separator`
 
-- Pourquoi b) est faux sans calcul ; d) à la main, et le point le plus proche ; pourquoi e) est négatif et n'est pas l'opposé de d) ; ce que rendrait un test avec ≥ 0 :
+- Où est l'origine par rapport à la classe +1, et pourquoi a) serait faux sans biais ; pourquoi b) est faux sans calcul ; d) à la main, et le point le plus proche ; pourquoi e) est négatif et n'est pas l'opposé de d) ; ce que rendrait un test avec ≥ 0 :
 
 ### Ex M10.14 — Prédire : n points aux labels tirés au hasard en dimension d sont-ils séparables ?
 
-- Mes prédictions avant l'expérience (et pourquoi) ; les étiquetages non séparables de quatre points dont un dans le triangle des trois autres ; ce que b) et c) ont en commun ; ce que cela dit d'un classifieur parfait sur l'entraînement quand d est grand :
+- Mes prédictions avant l'expérience (et pourquoi) ; les huit étiquetages de trois points d'une droite, et ceux qui ne sont pas séparables ; ce que b) et c) ont en commun ; ce que cela dit d'un classifieur parfait sur l'entraînement quand d est grand :
 
 ### Ex M10.15 — Deux nuages, leurs enveloppes convexes et un hyperplan séparateur avec sa marge
 

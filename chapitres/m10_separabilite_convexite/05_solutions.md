@@ -33,9 +33,9 @@
 6. **Non** : ce point est dans les deux enveloppes ; aucun hyperplan ne peut le mettre des deux côtés.
 
 ### M10.Q4 — Marge et astuce du biais
-1. La marge géométrique **ne change pas** ; les marges fonctionnelles sont **multipliées par 3**.
-2. C'est le même hyperplan, avec les deux côtés échangés : chaque point se retrouve du mauvais côté, et la marge devient **négative** (elle vaut moins le plus grand des $\frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$).
-3. $\tilde{\mathbf{x}} = (1, 2, -1)$, $\tilde{\mathbf{w}} = (-3, 1, 4)$, $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = -3 + 2 - 4 = -5$, la même valeur que $\mathbf{w} \cdot \mathbf{x} + b$.
+1. **Oui** : $\frac{\mathbf{w}}{2} \cdot \mathbf{x} + b = 0$ équivaut à $\mathbf{w} \cdot \mathbf{x} + 2b = 0$, un hyperplan **parallèle** (même normale), à la distance $\frac{|2b|}{\lVert \mathbf{w} \rVert}$ de l'origine au lieu de $\frac{|b|}{\lVert \mathbf{w} \rVert}$. Seule une multiplication de $\mathbf{w}$ **et** de $b$ par un même nombre non nul garde l'hyperplan.
+2. **Vrai** : la marge est un minimum ; déplacer un point plus éloigné, tant qu'il ne devient pas le plus proche et reste du même côté, ne la change pas.
+3. Au niveau $x_0 = 1$ : $2 - x_1 + x_2 = 0$, soit la droite $x_2 = x_1 - 2$, qui passe par $(2, 0)$ et $(0, -2)$ (normale $(-1, 1)$, biais 2).
 4. **Vrai** : $\tilde{\mathbf{w}} \cdot \mathbf{0} = 0$.
 5. Le point le plus mal placé est **exactement sur l'hyperplan** : le couple ne sépare pas au sens strict (et aucun point n'est du mauvais côté).
 6. **3**, la moitié de la distance entre les enveloppes.
@@ -53,16 +53,16 @@
 
 ### M10.R2 — L'inégalité de Cauchy-Schwarz (M07)
 1. $|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert$.
-2. $\mathbf{u} \cdot \mathbf{v} = 6 + 0 - 8 = -2$, $\lVert \mathbf{u} \rVert = 5$, $\lVert \mathbf{v} \rVert = 3$ : $2 \le 15$.
+2. $\mathbf{u} \cdot \mathbf{v} = 4 + 3 - 12 = -5$, $\lVert \mathbf{u} \rVert = \sqrt{4 + 9 + 36} = 7$, $\lVert \mathbf{v} \rVert = 3$ : $5 \le 21$.
 3. Quand $\mathbf{u}$ et $\mathbf{v}$ sont colinéaires (l'un est un multiple de l'autre).
 4. $\mathbf{e} \cdot \mathbf{v} \le |\mathbf{e} \cdot \mathbf{v}| \le \lVert \mathbf{e} \rVert\,\lVert \mathbf{v} \rVert = \lVert \mathbf{v} \rVert$ ; égalité pour $\mathbf{e} = \frac{\mathbf{v}}{\lVert \mathbf{v} \rVert}$ (si $\mathbf{v} \ne \mathbf{0}$).
-5. $3a + 4c = (3, 0, 4) \cdot (a, b, c) \le 5 \times 2 = \mathbf{10}$, atteint pour $(a, b, c) = \frac{2}{5}(3, 0, 4) = (1{,}2 ;\ 0 ;\ 1{,}6)$.
+5. $2a + 3b + 6c = (2, 3, 6) \cdot (a, b, c) \le 7 \times 2 = \mathbf{14}$, atteint pour $(a, b, c) = \frac{2}{7}(2, 3, 6) = \big(\frac{4}{7}, \frac{6}{7}, \frac{12}{7}\big)$.
 
 ### M10.R3 — La sigmoïde et tanh (R6)
 1. $\sigma(0) = \frac{1}{2}$ ; $\sigma(z) \to 0$ en $-\infty$ et $\to 1$ en $+\infty$.
-2. $\sigma(-z) = \frac{1}{1 + e^{z}} = \frac{e^{-z}}{e^{-z} + 1} = 1 - \frac{1}{1 + e^{-z}} = 1 - \sigma(z)$.
-3. $\sigma(\ln 3) = \frac{1}{1 + \frac{1}{3}} = \frac{3}{4}$.
-4. $\tanh\big(\frac{\ln 3}{2}\big) = 2\sigma(\ln 3) - 1 = \frac{1}{2}$.
+2. $\sigma$ est strictement croissante : quand $z$ augmente, $e^{-z}$ diminue, $1 + e^{-z}$ aussi, et son inverse augmente. Donc $\sigma(-1) < \sigma(0{,}5) < \sigma(2)$ ; $\sigma(0{,}5)$ et $\sigma(2)$ dépassent $\sigma(0) = \frac{1}{2}$, pas $\sigma(-1)$.
+3. $1 + e^{-z} = \frac{1}{0{,}6} = \frac{5}{3}$, $e^{-z} = \frac{2}{3}$, $z = \ln 1{,}5 \approx 0{,}4055$.
+4. $2\sigma(2z) - 1 = 0{,}2$ donne $\sigma(2z) = 0{,}6$, donc $2z = \ln 1{,}5$ (par 3) et $z = \frac{1}{2}\ln 1{,}5 \approx 0{,}2027$.
 5. $\sigma(u) = \frac{1}{2}$ si et seulement si $u = 0$ : $2x - 1 = 0$, $x = \frac{1}{2}$.
 
 <a id="papier"></a>
@@ -111,12 +111,12 @@ Pour la copie : le signe de d) dit que $P_6$ dépasse (de peu) la droite $P_4P_1
 
 ### Ex M10.3 — Une droite qui sépare deux petits nuages, et sa marge
 
-**Réponses** : a) `[16, 15, 8, -2, -5, -2]` · b) `0.8944` · c) `[4, 6]` · d) `"]-12 ; -2["` · e) `-7` · f) `2.2361` · g) `2.5`.
+**Réponses** : a) `[16, 15, 8, -2, -5, -2]` · b) `0.8944` · c) `7.1554` · d) `"]-12 ; -2["` · e) `-7` · f) `2.2361` · g) `2.5`.
 
 **Démarche.**
 - a) $\mathbf{w} \cdot P_i = 2x_1 + x_2$ vaut $20, 19, 12$ sur la classe $+1$ et $2, -1, 2$ sur la classe $-1$ ; on retranche 4.
 - b) Les $y_i(\mathbf{w} \cdot P_i + b)$ valent $16, 15, 8, 2, 5, 2$ : le minimum est 2, et $\frac{2}{\sqrt{5}} \approx 0{,}8944$.
-- c) $P_4$ et $P_6$, de marge fonctionnelle 2 tous les deux.
+- c) La droite de b) est $2x_1 + x_2 - 4 = 0$ ; le score de $P_1$ vaut $14 + 6 - 4 = 16$, et sa distance $\frac{16}{\sqrt{5}} \approx 7{,}1554$ (c'est le point le plus éloigné ; les plus proches sont $P_4$ et $P_6$, de marge fonctionnelle 2).
 - d) Il faut $12 + b > 0$ (le plus petit $\mathbf{w} \cdot \mathbf{x}$ de la classe $+1$) et $2 + b < 0$ (le plus grand de la classe $-1$) : $b \in\ ]-12, -2[$.
 - e) Le milieu, $b = -7$ : la droite est à égale distance des deux nuages.
 - f) Les marges fonctionnelles valent alors $12 - 7 = 5$ et $-2 + 7 = 5$ : $\frac{5}{\sqrt{5}} = \sqrt{5} \approx 2{,}2361$.
@@ -124,31 +124,32 @@ Pour la copie : le signe de d) dit que $P_6$ dépasse (de peu) la droite $P_4P_1
 
 Pour la copie : la droite de plus grande marge est la médiatrice de $[P_4, P_3]$, de normale $(3, 4)$, qui passe par le milieu $(1{,}5 ;\ 4)$ : $3x_1 + 4x_2 - 20{,}5 = 0$. Ses marges fonctionnelles valent $24{,}5$ ; $20{,}5$ ; $12{,}5$ sur la classe $+1$ et $12{,}5$ ; $14{,}5$ ; $17{,}5$ sur l'autre : le minimum, $12{,}5$, divisé par 5, redonne $2{,}5$. Il faut vérifier que les autres couples sont plus loin : $P_3$ et le côté $P_4P_5$, par exemple, ou $P_2$ et $P_6$.
 
-**Erreurs fréquentes.** Oublier $b$ dans les scores (la marge devient $-\frac{2}{\sqrt{5}}$) ; diviser par $\lVert \mathbf{w} \rVert^2 = 5$ au lieu de $\sqrt{5}$ ; prendre la marge sur une seule classe ; un intervalle fermé en d) (aux bornes, un point est sur la droite) ; en g), répondre $\sqrt{5}$, la meilleure marge pour la seule direction $(2, 1)$.
+**Erreurs fréquentes.** Oublier $b$ dans les scores (la marge devient $-\frac{2}{\sqrt{5}}$, et la distance de c) $\frac{20}{\sqrt{5}}$) ; diviser par $\lVert \mathbf{w} \rVert^2 = 5$ au lieu de $\sqrt{5}$ ; prendre la marge sur une seule classe ; un intervalle fermé en d) (aux bornes, un point est sur la droite) ; en g), répondre $\sqrt{5}$, la meilleure marge pour la seule direction $(2, 1)$.
 
 **Variante.** Avec $\mathbf{w} = (1, 1)$, l'intervalle des $b$ qui séparent, et la meilleure marge ? *Réponse* : le plus petit $x_1 + x_2$ de la classe $+1$ vaut 9, le plus grand de la classe $-1$ vaut 2 ; $b \in\ ]-9, -2[$, et $b = -5{,}5$ donne $\frac{3{,}5}{\sqrt{2}} \approx 2{,}4749$, mieux que $(2, 1)$ mais moins que $2{,}5$.
 
 ### Ex M10.4 — L'astuce du biais : une droite du plan devient un plan de ℝ³ passant par l'origine
 
-**Réponses** : a) `[4, 3, -2]` · b) `[1, 1, 2]` · c) `[3, -4, -2]` · d) `1.1094` · e) `[3, 2]` · f) `True` · g) `[-2, 1, 2]`.
+**Réponses** : a) `[4, 3, -2]` · b) `[1, 3, -2]` · c) `0.8321` · d) `1.1094` · e) `[3, 2]` · f) `2` · g) `[-2, 1, 2]`.
 
 **Démarche.**
-- a) et b) Le biais, puis les poids ; la coordonnée 1, puis le point.
-- c) $4 + 3 - 4 = 3$ ; $4 - 6 - 2 = -4$ ; $4 + 0 - 6 = -2$ : exactement les $\mathbf{w} \cdot \mathbf{x} + b$.
-- d) $\frac{|-4|}{\lVert (3, -2) \rVert} = \frac{4}{\sqrt{13}} \approx 1{,}1094$.
+- a) Le biais, puis les poids.
+- b) Même normale $(3, -2)$ : la parallèle a pour équation $3x_1 - 2x_2 + b' = 0$, et $\mathbf{p} = (1, 2)$ impose $3 - 4 + b' = 0$, soit $b' = 1$. Le biais en tête : $(1, 3, -2)$.
+- c) Deux droites $\mathbf{w} \cdot \mathbf{x} + b = 0$ et $\mathbf{w} \cdot \mathbf{x} + b' = 0$ sont à la distance $\frac{|b - b'|}{\lVert \mathbf{w} \rVert}$ : $\frac{3}{\sqrt{13}} \approx 0{,}8321$. C'est aussi la distance de $\mathbf{p}$ à $\Delta$ : son score vaut $3 - 4 + 4 = 3$.
+- d) Le score de $\mathbf{q}$ vaut $-6 - 2 + 4 = -4$ : $\frac{|-4|}{\lVert (3, -2) \rVert} = \frac{4}{\sqrt{13}} \approx 1{,}1094$.
 - e) Au niveau 1, $-6 + 2x_1 + 3x_2 = 0$ : $x_1 = 3$ quand $x_2 = 0$, et $x_2 = 2$ quand $x_1 = 0$.
-- f) Au niveau 1, l'équation devient $v_1x_1 + v_2x_2 = 0$, une droite qui passe par $(0, 0)$.
+- f) Au niveau 1, $0 \times 1 + x_1 - 3x_2 = 0$ : la droite $x_1 = 3x_2$, et $x_2 = 2$ quand $x_1 = 6$.
 - g) $\tilde{\mathbf{u}} \cdot (1, 2, 0) = -2 + 2u_1 = 0$ donne $u_1 = 1$ ; $\tilde{\mathbf{u}} \cdot (1, 0, 1) = -2 + u_2 = 0$ donne $u_2 = 2$ : c'est la droite $x_1 + 2x_2 - 2 = 0$, qui passe bien par $(2, 0)$ et $(0, 1)$.
 
-Pour la copie : $\mathbf{p}$ est du côté positif de $\Delta$, $\mathbf{q}$ et $\mathbf{r}$ du côté négatif. Pour un point du plan, $\tilde{\mathbf{v}} \cdot (1, x_1, x_2) = -6 + 2x_1 + 3x_2$ : il est nul exactement sur la droite $2x_1 + 3x_2 = 6$.
+Pour la copie : $\mathbf{p}$ est du côté positif de $\Delta$ (score 3), $\mathbf{q}$ et $\mathbf{r}$ du côté négatif ($-4$ et $-2$). Pour un point du plan, $\tilde{\mathbf{v}} \cdot (1, x_1, x_2) = -6 + 2x_1 + 3x_2$ : il est nul exactement sur la droite $2x_1 + 3x_2 = 6$. La droite de f) passe par l'origine parce que la première coordonnée de $\tilde{\mathbf{v}}'$, son biais, est nulle : $\tilde{\mathbf{v}}' \cdot (1, 0, 0) = 0$.
 
-**Erreurs fréquentes.** Le biais ou la coordonnée 1 à la fin (`[3, -2, 4]`, `[1, 2, 1]`) : la convention de l'énoncé, celle de la fiche, les place en tête ; oublier le terme $b \times 1$ dans le score ; en d), diviser par la norme de $\tilde{\mathbf{w}}$ (dans $\mathbb{R}^3$) au lieu de celle de $\mathbf{w}$.
+**Erreurs fréquentes.** Le biais à la fin (`[3, -2, 4]`) : la convention de l'énoncé, celle de la fiche, le place en tête ; en b), le signe de $b'$ (`[-1, 3, -2]`) ; en c) et d), diviser par la norme d'un vecteur relevé (dans $\mathbb{R}^3$) au lieu de celle de $\mathbf{w}$ ; en f), lire $\tilde{\mathbf{v}}'$ avec le biais à la fin (on trouve 3).
 
-**Variante.** Le vecteur $\tilde{\mathbf{u}}$, de première coordonnée $-1$, d'un plan par l'origine qui contient les points relevés de $(1, 0)$ et de $(0, 1)$ ? *Réponse* : $(-1, 1, 1)$, la droite $x_1 + x_2 = 1$.
+**Variante.** Le vecteur $\tilde{\mathbf{u}}$, de première coordonnée $-4$, d'un plan par l'origine qui contient les points relevés de $(4, 0)$ et de $(0, -2)$ ? *Réponse* : $\tilde{\mathbf{u}} \cdot (1, 4, 0) = -4 + 4u_1 = 0$ et $\tilde{\mathbf{u}} \cdot (1, 0, -2) = -4 - 2u_2 = 0$ donnent $(-4, 1, -2)$, la droite $x_1 - 2x_2 = 4$.
 
 ### Ex M10.5 — Borner une norme pas à pas : ‖v_{k+1}‖² ≤ ‖v_k‖² + c
 
-**Réponses** : a) `5` · b) `-1` · c) `13` · d) `15` · e) `22.47` · f) `44` · g) `6.4`.
+**Réponses** : a) `5` · b) `-1` · c) `13` · d) `15` · e) `22.47` · f) `10` · g) `6.4`.
 
 **Démarche.**
 - a) $1 + 4 = 5$.
@@ -156,12 +157,12 @@ Pour la copie : $\mathbf{p}$ est du côté positif de $\Delta$, $\mathbf{q}$ et 
 - c) $\mathbf{v}_2 = (2, 3)$, de carré de norme 13 ; ou bien $\lVert \mathbf{v}_1 \rVert^2 + 2\,\mathbf{v}_1 \cdot \mathbf{d}_1 + \lVert \mathbf{d}_1 \rVert^2 = 10 - 2 + 5 = 13$.
 - d) Le lemme avec $c = 5$ : $\lVert \mathbf{v}_2 \rVert^2 \le 5 + 2 \times 5 = 15$.
 - e) $\lVert \mathbf{v}_{100} \rVert^2 \le 5 + 100 \times 5 = 505$, donc $\lVert \mathbf{v}_{100} \rVert \le \sqrt{505} \approx 22{,}47$.
-- f) La progression : $\mathbf{e} \cdot \mathbf{v}_k \ge -2 + 0{,}5k$. La norme : $\lVert \mathbf{v}_k \rVert^2 \le 4 + 9k$. Cauchy-Schwarz : $\mathbf{e} \cdot \mathbf{v}_k \le \lVert \mathbf{v}_k \rVert$. Pour $k \ge 4$, $-2 + 0{,}5k \ge 0$, et l'on peut élever au carré : $0{,}25k^2 - 2k + 4 \le 4 + 9k$, soit $0{,}25k^2 \le 11k$, soit $k \le 44$. Les deux inégalités n'excluent pas 44 pas, et excluent 45.
+- f) Le lemme, appliqué aux carrés avec $c_k = \lVert \mathbf{d}_k \rVert^2 \le (k + 1)^2$ : $\lVert \mathbf{v}_6 \rVert^2 \le 9 + 1 + 4 + 9 + 16 + 25 + 36 = 9 + 91 = 100$, donc $\lVert \mathbf{v}_6 \rVert \le 10$.
 - g) Pendant les 5 premiers pas, $\mathbf{v}_{k+1} = \mathbf{v}_k\big(1 + \frac{1}{\lVert \mathbf{v}_k \rVert}\big)$ : la norme gagne exactement 1 à chaque pas, $\lVert \mathbf{v}_5 \rVert = 6$. Pendant les 5 suivants, perpendiculaires, Pythagore donne $\lVert \mathbf{v}_{k+1} \rVert^2 = \lVert \mathbf{v}_k \rVert^2 + 1$ : $\lVert \mathbf{v}_{10} \rVert^2 = 36 + 5 = 41$, et $\lVert \mathbf{v}_{10} \rVert = \sqrt{41} \approx 6{,}40$.
 
-Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf{v}_1 \rVert^2 = 5 + 0 + 5 = 10$ : la borne est atteinte au premier pas, perpendiculaire, mais pas au second, où le terme $2\,\mathbf{v}_1 \cdot \mathbf{d}_1 = -2$ est strictement négatif. En f), le vrai maximum est **43**, pas 44 : comme $\lVert \mathbf{v}_0 \rVert = 2$ et $\mathbf{e} \cdot \mathbf{v}_0 = -2$, Cauchy-Schwarz est une égalité et $\mathbf{v}_0 = -2\mathbf{e}$ ; le premier pas a donc $\mathbf{v}_0 \cdot \mathbf{d}_0 = -2\,\mathbf{e} \cdot \mathbf{d}_0 \le -1$, et $\lVert \mathbf{v}_1 \rVert^2 \le 4 - 2 + 9 = 11$ au lieu de 13. Avec cette borne, $(0{,}5k - 2)^2 \le 2 + 9k$ donne $k \le 43$, et une suite de 43 pas existe (en dimension 3). Une borne n'est pas forcément atteinte : elle dit seulement ce qui est impossible. En g), pendant les cinq premiers pas, $\mathbf{v}_k \cdot \mathbf{d}_k = \lVert \mathbf{v}_k \rVert > 0$ : l'hypothèse du lemme n'est pas vérifiée, et la norme croît linéairement ; ensuite elle ne gagne plus que comme $\sqrt{k}$.
+Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf{v}_1 \rVert^2 = 5 + 0 + 5 = 10$ : la borne est atteinte au premier pas, perpendiculaire, mais pas au second, où le terme $2\,\mathbf{v}_1 \cdot \mathbf{d}_1 = -2$ est strictement négatif. En f), l'inégalité triangulaire ne donne que $\lVert \mathbf{v}_6 \rVert \le 3 + (1 + 2 + \cdots + 6) = 24$ : elle vaut pour n'importe quels pas, alors que la borne pas à pas, 10, se sert de l'hypothèse $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$. Elle est atteinte : partir de $\mathbf{v}_0 = (3, 0)$ et faire chaque pas perpendiculaire à la position courante, de longueur exactement $k + 1$ ; par Pythagore, le carré de la norme gagne exactement $(k + 1)^2$ à chaque pas. En g), pendant les cinq premiers pas, $\mathbf{v}_k \cdot \mathbf{d}_k = \lVert \mathbf{v}_k \rVert > 0$ : l'hypothèse du lemme n'est pas vérifiée, et la norme croît linéairement ; ensuite elle ne gagne plus que comme $\sqrt{k}$.
 
-**Erreurs fréquentes.** En c), donner la borne au lieu de la valeur exacte ; en e), oublier $\lVert \mathbf{v}_0 \rVert^2$ ou la racine ; en f), partir de $\mathbf{e} \cdot \mathbf{v}_0 = 0$ (on trouve 36) ou oublier $\lVert \mathbf{v}_0 \rVert^2 = 4$ (on trouve 52) ; élever au carré une inégalité dont un côté peut être négatif ; en g), appliquer la même règle aux dix pas (11, ou $\sqrt{11}$).
+**Erreurs fréquentes.** En c), donner la borne au lieu de la valeur exacte ; en e), oublier $\lVert \mathbf{v}_0 \rVert^2$ ou la racine ; en f), répondre 24 (l'inégalité triangulaire), 100 (la borne du carré), 15 (six fois le plus long pas) ou $\sqrt{91}$ (sans $\lVert \mathbf{v}_0 \rVert^2$) ; en g), appliquer la même règle aux dix pas (11, ou $\sqrt{11}$).
 
 **Variante.** Avec les hypothèses de e), une borne de $\lVert \mathbf{v}_{20} \rVert$ ? *Réponse* : $\sqrt{5 + 100} = \sqrt{105} \approx 10{,}25$.
 
@@ -197,12 +198,12 @@ Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf
 
 **Réponse modèle.**
 1. $\frac{y_i(c\mathbf{w} \cdot \mathbf{x}_i + cb)}{\lVert c\mathbf{w} \rVert} = \frac{c\,y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{c\,\lVert \mathbf{w} \rVert}$ car $c > 0$ ; chaque terme est inchangé, donc le minimum aussi.
-2. $\gamma(-\mathbf{w}, -b) = \min_i \frac{-y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert} = -\max_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$. Si $(\mathbf{w}, b)$ sépare, tous les $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ sont $> 0$, leur maximum aussi, et $\gamma(-\mathbf{w}, -b) < 0$.
+2. Sur la classe $+1$, les termes valent $\frac{\mathbf{w} \cdot \mathbf{x}_i + b}{\lVert \mathbf{w} \rVert} \ge \frac{m_+ + b}{\lVert \mathbf{w} \rVert}$, avec égalité pour le point qui réalise $m_+$ ; sur la classe $-1$, $\frac{-\mathbf{w} \cdot \mathbf{x}_i - b}{\lVert \mathbf{w} \rVert} \ge \frac{-M_- - b}{\lVert \mathbf{w} \rVert}$. Donc $\gamma(\mathbf{w}, b) = \min\big(\frac{m_+ + b}{\lVert \mathbf{w} \rVert}, \frac{-M_- - b}{\lVert \mathbf{w} \rVert}\big)$, le minimum de deux fonctions affines de $b$. Un minimum de fonctions affines est concave : chacune vérifie $f(\lambda b + (1 - \lambda)b') = \lambda f(b) + (1 - \lambda)f(b') \ge \lambda\gamma(b) + (1 - \lambda)\gamma(b')$ pour $\lambda \in [0, 1]$, et le minimum aussi. La première croît, la seconde décroît : le minimum est le plus grand là où elles se croisent, $m_+ + b = -M_- - b$, soit $b^\star = -\frac{m_+ + M_-}{2}$, le milieu de l'intervalle $]-m_+, -M_-[$ des $b$ qui séparent (les deux termes y sont $> 0$). La valeur : $\frac{m_+ - M_-}{2\lVert \mathbf{w} \rVert}$.
 3. Elles sont multipliées par $c$. Si $(\mathbf{w}, b)$ sépare, $m = \min_i y_i(\mathbf{w} \cdot \mathbf{x}_i + b) > 0$ ; avec $c = \frac{1}{m}$, le nouveau minimum vaut 1, et l'hyperplan (comme la marge géométrique, par 1) n'a pas changé.
 4. $\gamma = \min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert} = \frac{1}{\lVert \mathbf{w} \rVert}\min_i y_i(\mathbf{w} \cdot \mathbf{x}_i + b) = \frac{1}{\lVert \mathbf{w} \rVert}$. Tout séparateur a une forme canonique, de même marge ; les formes canoniques sont exactement les couples qui vérifient les contraintes avec au moins une égalité. Pour un couple qui vérifie les contraintes $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$, la marge vaut au moins $\frac{1}{\lVert \mathbf{w} \rVert}$, avec égalité pour une forme canonique : la plus grande marge est donc $\frac{1}{\min \lVert \mathbf{w} \rVert}$, le minimum portant sur les couples qui vérifient les contraintes.
 5. Un minimum pris sur un terme de plus est plus petit ou égal. Il ne change pas si et seulement si $\frac{y(\mathbf{w} \cdot \mathbf{x} + b)}{\lVert \mathbf{w} \rVert} \ge \gamma(\mathbf{w}, b)$ pour le nouvel exemple : il est du bon côté, au moins aussi loin que le plus mal placé.
 
-**Grille.** (1) la simplification par $c > 0$ (et pourquoi $c < 0$ ne marche pas) ; (2) le minimum d'opposés comme opposé du maximum, puis le signe ; (3) la remise à l'échelle par la plus petite marge fonctionnelle ; (4) $\gamma = \frac{1}{\lVert \mathbf{w} \rVert}$ et l'équivalence avec le problème de minimisation ; (5) l'argument « minimum sur plus de termes », et la condition.
+**Grille.** (1) la simplification par $c > 0$, qui sort de la norme : $\lVert c\mathbf{w} \rVert = c\lVert \mathbf{w} \rVert$ ; (2) $\gamma(\mathbf{w}, \cdot)$ comme minimum de deux fonctions affines de $b$, la concavité justifiée, le croisement au milieu de l'intervalle et la valeur ; (3) la remise à l'échelle par la plus petite marge fonctionnelle ; (4) $\gamma = \frac{1}{\lVert \mathbf{w} \rVert}$ et l'équivalence avec le problème de minimisation ; (5) l'argument « minimum sur plus de termes », et la condition.
 
 <a id="reflexion"></a>
 
@@ -210,22 +211,22 @@ Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf
 
 ### Ex M10.9 — Pont : seuil, sigmoïde, tanh et ReLU appliqués à un même score linéaire
 
-**Réponses** : a) `[0, 2.5, -2]` · b) `[0, 1, 0]` · c) `[0.5, 0.9241, 0.1192]` · d) `[0.0, 0.9866, -0.964]` · e) `[0, 2.5, 0]` · f) `1.3863` · g) `0.62`.
+**Réponses** : a) `[1.25, 2.5, -2.5]` · b) `[1, 1, 0]` · c) `[0.7773, 0.9241, 0.0759]` · d) `[0.8483, 0.9866, -0.9866]` · e) `[1.25, 2.5, 0]` · f) `1.7346` · g) `0.7757`.
 
 **Démarche.**
-- a) $-1{,}5 + 1 + 0{,}5 = 0$ ; $0 + 2 + 0{,}5 = 2{,}5$ ; $-3 + 0{,}5 + 0{,}5 = -2$.
-- b) $H(0) = 0$ (le seuil exige $z > 0$), $H(2{,}5) = 1$, $H(-2) = 0$.
-- c) $\sigma(0) = 0{,}5$, $\sigma(2{,}5) = \frac{1}{1 + e^{-2{,}5}} \approx 0{,}9241$, $\sigma(-2) = 1 - \sigma(2) \approx 0{,}1192$.
-- d) $\tanh(0) = 0$, $\tanh(2{,}5) \approx 0{,}9866$, $\tanh(-2) \approx -0{,}9640$ ; ou $2\sigma(2z) - 1$.
-- e) $\max(0, z)$ : $0$, $2{,}5$, $0$.
-- f) $1 + e^{-z} = \frac{1}{0{,}8} = 1{,}25$, $e^{-z} = 0{,}25$, $z = \ln 4 \approx 1{,}3863$.
-- g) La ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = \ln 4$, à la distance $\frac{\ln 4}{\lVert \mathbf{w} \rVert} = \frac{1{,}3863}{\sqrt{5}} \approx 0{,}6200$ de la frontière.
+- a) $-0{,}25 + 1 + 0{,}5 = 1{,}25$ ; $0 + 2 + 0{,}5 = 2{,}5$ ; $-3{,}5 + 0{,}5 + 0{,}5 = -2{,}5$.
+- b) $H(1{,}25) = H(2{,}5) = 1$, $H(-2{,}5) = 0$.
+- c) $\sigma(1{,}25) = \frac{1}{1 + e^{-1{,}25}} \approx 0{,}7773$, $\sigma(2{,}5) \approx 0{,}9241$, $\sigma(-2{,}5) \approx 0{,}0759$.
+- d) $\tanh(1{,}25) \approx 0{,}8483$, $\tanh(2{,}5) \approx 0{,}9866$, $\tanh(-2{,}5) \approx -0{,}9866$ ; ou $2\sigma(2z) - 1$.
+- e) $\max(0, z)$ : $1{,}25$, $2{,}5$, $0$.
+- f) $1 + e^{-z} = \frac{1}{0{,}85}$, $e^{-z} = \frac{0{,}15}{0{,}85} = \frac{3}{17}$, $z = \ln\frac{17}{3} \approx 1{,}7346$.
+- g) La ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = \ln\frac{17}{3}$, à la distance $\frac{1{,}7346}{\sqrt{5}} \approx 0{,}7757$ de la frontière.
 
-Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b = c\}$ est une droite parallèle à la frontière (même normale $\mathbf{w}$). En $\mathbf{p}_1$, qui est sur la frontière ($z = 0$), les sorties valent $0$, $0{,}5$, $0$ et $0$ ; un seuil qui donnerait 1 en $z = 0$ (convention $z \ge 0$) répondrait autrement. La région « sortie $> \frac{1}{2}$ » est le demi-plan $z > 0$ pour la sigmoïde ; pour le seuil, c'est aussi $z > 0$ ; pour tanh, c'est $z > \operatorname{artanh}(0{,}5) \approx 0{,}55$ (le niveau neutre de tanh est 0, pas $\frac{1}{2}$) ; pour ReLU, $z > \frac{1}{2}$.
+Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b = c\}$ est une droite parallèle à la frontière (même normale $\mathbf{w}$). Par sortie croissante de la sigmoïde : $\mathbf{p}_3$ ($z = -2{,}5$), $\mathbf{p}_1$ ($1{,}25$), $\mathbf{p}_2$ ($2{,}5$) ; tanh, strictement croissante, donne le même classement, et ReLU aussi sur ces trois points ; le seuil met $\mathbf{p}_1$ et $\mathbf{p}_2$ à égalité. Une activation croissante garde l'ordre des scores ; seule une activation strictement croissante n'en confond aucun. La région « sortie $> \frac{1}{2}$ » est le demi-plan $z > 0$ pour la sigmoïde ; pour le seuil, c'est aussi $z > 0$ ; pour tanh, c'est $z > \operatorname{artanh}(0{,}5) \approx 0{,}55$ (le niveau neutre de tanh est 0, pas $\frac{1}{2}$) ; pour ReLU, $z > \frac{1}{2}$.
 
-**Erreurs fréquentes.** Oublier $b$ dans les scores ; $H(0) = 1$ ; $\tanh(z) = 2\sigma(z) - 1$ (le facteur 2 dans l'argument manque) ; en g), oublier de diviser par $\lVert \mathbf{w} \rVert$.
+**Erreurs fréquentes.** Oublier $b$ dans les scores ; un seuil qui vaut $-1$ pour les scores négatifs (celui de l'énoncé vaut 0) ; $\tanh(z) = 2\sigma(z) - 1$ (le facteur 2 dans l'argument manque) ; en f), prendre le logarithme avant d'isoler $e^{-z}$ ; en g), oublier de diviser par $\lVert \mathbf{w} \rVert$.
 
-**Variante.** Le score pour lequel $\tanh(z) = 0{,}5$ ? *Réponse* : $z = \frac{1}{2}\ln 3 \approx 0{,}5493$ (par R3 de ce chapitre : $\tanh(z) = 2\sigma(2z) - 1 = 0{,}5$ donne $\sigma(2z) = \frac{3}{4}$, donc $2z = \ln 3$).
+**Variante.** Le score pour lequel $\sigma(z) = 0{,}15$ ? *Réponse* : $e^{-z} = \frac{0{,}85}{0{,}15} = \frac{17}{3}$, donc $z = -\ln\frac{17}{3} \approx -1{,}7346$ : la ligne de niveau $0{,}15$ est de l'autre côté de la frontière, à la même distance que celle de g).
 
 ### Ex M10.10 — MML §12.1 : les hyperplans séparateurs, en anglais
 
@@ -255,9 +256,9 @@ Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w}
 
 **Réponse modèle (60 secondes).**
 
-> Deux classes sont linéairement séparables s'il existe un hyperplan, une droite en dimension 2, qui laisse toute une classe d'un côté et toute l'autre de l'autre : un $\mathbf{w}$ et un $b$ avec $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) > 0$ pour chaque exemple. Géométriquement, c'est équivalent à : les enveloppes convexes des deux classes ne se touchent pas ; un seul point commun suffit à prouver qu'aucun classifieur linéaire ne fera zéro erreur. Pour le vérifier, on écrit un programme linéaire de faisabilité : existe-t-il $(\mathbf{w}, b)$ avec $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ ? Le « 1 » compte : avec « $\ge 0$ », la solution nulle passerait toujours. Un SVM à marge dure qui atteint 100 % sur l'entraînement le prouve aussi, avec en prime la plus grande marge. Attention à la dimension : avec $n \le d + 1$ points en position générale, n'importe quels labels sont séparables, et vers $n = 2(d + 1)$, des labels tirés au hasard le sont encore une fois sur deux. Donc séparer parfaitement l'entraînement ne garantit rien sur de nouvelles données : il faut une marge, assez de données, et une évaluation sur un jeu de test.
+> Deux classes sont linéairement séparables s'il existe un hyperplan, une droite en dimension 2, qui met chaque classe dans un demi-espace ouvert, aucun point sur l'hyperplan : un $\mathbf{w}$ et un $b$ avec $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) > 0$ pour chaque exemple. Géométriquement, c'est équivalent à : les enveloppes convexes des deux classes ne se touchent pas ; un seul point commun suffit à prouver qu'aucun classifieur linéaire ne fera zéro erreur. Pour le vérifier, on écrit un programme linéaire de faisabilité : existe-t-il $(\mathbf{w}, b)$ avec $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ ? Le « 1 » compte : avec « $\ge 0$ », la solution nulle passerait toujours. Attention à la dimension : avec $n \le d + 1$ points en position générale, n'importe quels labels sont séparables, et vers $n = 2(d + 1)$, des labels tirés au hasard le sont encore une fois sur deux. Donc séparer parfaitement l'entraînement ne garantit rien sur de nouvelles données : il faut une marge, assez de données, et une évaluation sur un jeu de test.
 
-**Grille.** (1) la définition, avec l'inégalité stricte ; (2) le critère des enveloppes convexes ; (3) un test effectif (programme linéaire, avec le « $\ge 1$ » et sa raison ; ou un SVM à marge dure) ; (4) la grande dimension : $d + 1$ points toujours séparables, $2(d + 1)$ comme capacité ; (5) la mise en garde sur la généralisation.
+**Grille.** (1) la définition, avec l'inégalité stricte ; (2) le critère des enveloppes convexes ; (3) un test effectif (programme linéaire, avec le « $\ge 1$ » et sa raison) ; (4) la grande dimension : $d + 1$ points toujours séparables, $2(d + 1)$ comme capacité ; (5) la mise en garde sur la généralisation.
 
 <a id="notebook"></a>
 
@@ -273,9 +274,9 @@ Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w}
 
 ### Ex M10.13 — Séparabilité par programmation linéaire, et marge géométrique · `is_linearly_separable, margin_of_separator`
 
-**Réponses** : a) `True` · b) `False` · c) `False` · d) `1.4142` · e) `-4.9497` · f) `"ValueError"` · g) `"ValueError"` · h) `True`.
+**Réponses** : a) `True` · b) `False` · c) `False` · d) `0.7071` · e) `-5.6569` · f) `"ValueError"` · g) `"ValueError"` · h) `True`.
 
-**Démarche.** `is_linearly_separable` : `X` en tableau 2-D, `y` en tableau d'une valeur par ligne, une `ValueError` si un label n'est ni $-1$ ni $+1$ (`np.all((y == 1) | (y == -1))`) ; puis `A_ub = -y[:, None] * np.hstack([X, np.ones((n, 1))])` (une ligne $(-y_i\mathbf{x}_i, -y_i)$ par point), `res = linprog(np.zeros(d + 1), A_ub=A_ub, b_ub=-np.ones(n), bounds=(None, None), method="highs")` et `return bool(res.status == 0)`. `margin_of_separator` : les mêmes contrôles, plus la longueur de `w` et `w` non nul, puis `float(np.min(y * (X @ w + b))) / norme`. Pour la copie : b) $(2{,}5 ;\ 5{,}5)$ est le milieu de $(1, 5)$ et $(4, 6)$ ; d) le point $(3, 4)$, de score 2, à la distance $\frac{2}{\sqrt{2}} = \sqrt{2}$ ; e) multiplier $(\mathbf{w}, b)$ par $-2$ échange les côtés : la marge devient moins le **maximum** des distances signées, $-\frac{7}{\sqrt{2}}$, atteint en $(8, 0)$, pas $-\sqrt{2}$. Avec « $\ge 0$ », $\mathbf{w} = \mathbf{0}$, $b = 0$ vérifie tout : `True` pour n'importe quelles données.
+**Démarche.** `is_linearly_separable` : `X` en tableau 2-D, `y` en tableau d'une valeur par ligne, une `ValueError` si un label n'est ni $-1$ ni $+1$ (`np.all((y == 1) | (y == -1))`) ; puis `A_ub = -y[:, None] * np.hstack([X, np.ones((n, 1))])` (une ligne $(-y_i\mathbf{x}_i, -y_i)$ par point), `res = linprog(np.zeros(d + 1), A_ub=A_ub, b_ub=-np.ones(n), bounds=(None, None), method="highs")` et `return bool(res.status == 0)`. `margin_of_separator` : les mêmes contrôles, plus la longueur de `w` et `w` non nul, puis `float(np.min(y * (X @ w + b))) / norme`. Pour la copie : a) l'origine est à l'intérieur de l'enveloppe de la classe $+1$ : aucune droite qui passe par elle ne sépare, d'où la colonne de 1 ; b) $(0{,}5 ;\ 1{,}5)$ est le milieu de $(-1, 2)$ et $(2, 1)$ ; c) le point 3, de la classe $-1$, est dans $[0, 5]$, l'enveloppe de la classe $+1$ ; d) le point $(2, 1)$, de score 1, à la distance $\frac{1}{\sqrt{2}}$ ; e) multiplier $(\mathbf{w}, b)$ par $-2$ échange les côtés : la marge devient moins le **maximum** des distances signées de d), $-\frac{8}{\sqrt{2}}$, atteint en $(7, 5)$, pas $-\frac{1}{\sqrt{2}}$. Avec « $\ge 0$ », $\mathbf{w} = \mathbf{0}$, $b = 0$ vérifie tout : `True` pour n'importe quelles données.
 
 **Erreurs fréquentes.** Oublier la colonne de 1 (pas de biais) ; laisser les bornes par défaut de `linprog`, qui imposent des inconnues positives ($\mathbf{w} \ge 0$, $b \ge 0$) ; `b_ub = 0` ; rendre `res.success` sans `bool(...)` (un `np.bool_`) ; une marge en valeur absolue (jamais négative) ; diviser par $\lVert \mathbf{w} \rVert^2$ ; rendre un `np.float64`.
 
@@ -283,15 +284,15 @@ Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w}
 
 **Réponses** : a) `2` · b) `3` · c) `3` · d) `4`.
 
-**Démarche.** L'expérience donne environ 88 %, 54 %, 49 % et 0 %. Le compte exact (T. M. Cover, 1965) : pour $n$ points en position générale de $\mathbb{R}^d$, avec un biais, la proportion d'étiquetages séparables vaut $P(n, d) = 2^{1-n}\sum_{k=0}^{d}\binom{n-1}{k}$. a) $P(4, 2) = \frac{7}{8}$ : sur les 16 étiquetages de 4 points, exactement 2 échouent. Si un point est dans le triangle des trois autres, ce sont les deux où il est seul de sa classe : il est dans l'enveloppe de l'autre classe. (Si les quatre points sont les sommets d'un quadrilatère convexe, deux étiquetages échouent aussi : Cover a montré que leur nombre ne dépend pas de la configuration, tant que les points sont en position générale.) b) et c) $n = 2(d + 1)$ donne exactement $\frac{1}{2}$, quelle que soit la dimension. d) $P(30, 2) \approx 8 \times 10^{-7}$. Pour la copie : en dimension $d$, il faut nettement plus de $2(d + 1)$ points pour que des labels au hasard ne soient presque jamais séparables ; inversement, quand $d$ est grand devant $n$, un classifieur linéaire sépare **n'importe quels** labels, et une précision de 100 % sur l'entraînement ne dit rien de sa valeur.
+**Démarche.** L'expérience donne environ 76 %, 54 %, 49 % et 0 %. Le compte exact (T. M. Cover, 1965) : pour $n$ points en position générale de $\mathbb{R}^d$, avec un biais, la proportion d'étiquetages séparables vaut $P(n, d) = 2^{1-n}\sum_{k=0}^{d}\binom{n-1}{k}$. a) $P(3, 1) = \frac{3}{4}$ : sur les 8 étiquetages de 3 points d'une droite, exactement 2 échouent, les deux où le point du milieu est seul de sa classe : il est dans le segment des deux autres, l'enveloppe de l'autre classe. b) et c) $n = 2(d + 1)$ donne exactement $\frac{1}{2}$, quelle que soit la dimension. d) $P(30, 2) \approx 8 \times 10^{-7}$. Pour la copie : en dimension $d$, il faut nettement plus de $2(d + 1)$ points pour que des labels au hasard ne soient presque jamais séparables ; inversement, quand $d$ est grand devant $n$, un classifieur linéaire sépare **n'importe quels** labels, et une précision de 100 % sur l'entraînement ne dit rien de sa valeur.
 
-**Erreurs fréquentes de prédiction.** a) 1 (100 %), par extrapolation de « $d + 1$ points sont toujours séparables » ; b) 4, en croyant que 6 points du plan ne sont presque jamais séparables ; c) 1 ou 2, en croyant que la grande dimension rend tout séparable, sans regarder le rapport $\frac{n}{d + 1}$.
+**Erreurs fréquentes de prédiction.** a) 1 (100 %), par extrapolation de « $d + 1$ points sont toujours séparables » (ici $n = 3 > d + 1 = 2$) ; b) 4, en croyant que 6 points du plan ne sont presque jamais séparables ; c) 1 ou 2, en croyant que la grande dimension rend tout séparable, sans regarder le rapport $\frac{n}{d + 1}$.
 
 ### Ex M10.15 — Deux nuages, leurs enveloppes convexes et un hyperplan séparateur avec sa marge
 
 **Réponse** : la figure, et les vérifications automatiques au vert.
 
-**Démarche.** Pour chaque classe, `ax.scatter`, puis `hull = convex_hull_2d(cloud)` et `ax.plot` sur `np.vstack([hull, hull[:1]])` (le premier sommet répété ferme le polygone) ; `gamma = margin_of_separator(X, y, w, b)` ; trois droites $\mathbf{w} \cdot \mathbf{x} + b = c$, pour $c = 0$ et $c = \pm\gamma\lVert \mathbf{w} \rVert$, tracées sur deux abscisses par $x_2 = \frac{c - b - w_1x_1}{w_2}$. Pour la copie : le bord du côté $+1$ passe par $(3, 4)$ ; aucun point de la classe $-1$ ne touche l'autre bord ; la bande ne contient aucun point, puisque la marge est la plus petite distance signée. En gardant la direction, le meilleur $b$ (M10.3 e) est $0{,}5$, de marge $\frac{2{,}5}{\sqrt{2}} \approx 1{,}77$.
+**Démarche.** Pour chaque classe, `ax.scatter`, puis `hull = convex_hull_2d(cloud)` et `ax.plot` sur `np.vstack([hull, hull[:1]])` (le premier sommet répété ferme le polygone) ; `gamma = margin_of_separator(X, y, w, b)` ; trois droites $\mathbf{w} \cdot \mathbf{x} + b = c$, pour $c = 0$ et $c = \pm\gamma\lVert \mathbf{w} \rVert$, tracées sur deux abscisses par $x_2 = \frac{c - b - w_1x_1}{w_2}$. Pour la copie : le bord du côté $+1$ passe par $(2, 1)$ ; aucun point de la classe $-1$ ne touche l'autre bord (le plus proche, $(6, 1)$, est à $\frac{3}{\sqrt{2}}$) ; la bande ne contient aucun point, puisque la marge est la plus petite distance signée. En gardant la direction, le meilleur $b$ met la droite au milieu (comme en M10.3 e) : $b = 5$, de marge $\sqrt{2} \approx 1{,}41$.
 
 **Erreurs fréquentes.** Un polygone non fermé (le dernier côté manque) ; les bords de la marge à $\pm\gamma$ dans l'équation, au lieu de $\pm\gamma\lVert \mathbf{w} \rVert$ ; ouvrir une nouvelle figure dans la fonction.
 
@@ -305,7 +306,7 @@ Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w}
 
 ### Ex M10.17 — Des tests de propriétés pour l'enveloppe convexe
 
-**Réponse** : les vérifications automatiques au vert : une liste vide sur les 20 enveloppes justes, et la bonne liste pour chacune des cinq fausses.
+**Réponse** : les vérifications automatiques au vert : une liste vide sur les 20 enveloppes justes, et la bonne liste pour chacune des sept fausses.
 
 **Démarche.** Quatre tests, dans l'ordre : chaque sommet est une ligne de `points` (`np.array_equal`) ; `cross(H[i - 1], H[i], H[(i + 1) % h]) > 0` pour tout $i$ ; `cross(H[i], H[(i + 1) % h], p) >= -1e-9` pour tout côté et tout point ; `tuple(H[0]) == min(map(tuple, points))`. Pour la copie : une enveloppe dans le mauvais sens tourne à droite partout (« gauche ») et laisse les points intérieurs à droite de ses côtés (« dedans ») ; un point au milieu d'un côté donne un virage nul, que seul le « strictement » attrape. Les quatre propriétés ensemble caractérisent l'enveloppe (un polygone convexe dont les sommets sont des points du nuage et qui contient tous les points, à partir du bon point) ; chacune seule laisse passer des erreurs.
 

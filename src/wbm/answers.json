@@ -32293,22 +32293,30 @@
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
     "M10.3c": {
-      "decimals": 0,
-      "element_hashes": [
-        "8bbd5f7b28bd3ace3aa4407daa92737c8104df0c5071f5cc33289434b28fe69a",
-        "cd59a2ac111f5fd37d699502010fc76f79b66bfe53d7805381f981aebb2437b6"
-      ],
-      "hash": "f955757dbad0f4076654844860816f1e336373b4873d6ddc8b84049598756fb6",
-      "integer": true,
-      "kind": "array",
-      "mistakes": {
-        "2e7265eb0aaf3c1810c1429d7934706295a7c93840b7d9a40a7709e1c440d185": "compare les distances des deux côtés : y_i(w · x_i + b) / ‖w‖ pour chaque point",
-        "4446494eb9ab89a5d6f4c22351bd4d663d2716d3f8fad4029fc18a2433894486": "deux points sont à la même distance : donne les deux numéros, dans l'ordre croissant",
-        "9e914d05a5a199e6a067e603f98f4aa46358d449b608677a3ba9bdd943c7d715": "deux points sont à la même distance de la droite : donne leurs deux numéros"
+      "coarse_any": {
+        "0": [
+          "504582477a7621016e146a1c4dad182a269e47b099663ee817ea907a085eb66c"
+        ]
       },
-      "shape": [
-        2
-      ],
+      "coarser": {
+        "1": [
+          "92d789789220e46e5db68394ace397f7b6a5d016e68eeb499a21d977e0bf1be5"
+        ],
+        "2": [
+          "7946ae4c3e44d76845ab272ce73b5b6caf03f41b90f6d7f6667682b940e129e2"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3c8f37b72c5b2348bca6136348a59c0f6ac7387f3575f32f51e3194ce0ccd2b1",
+      "hash_coarse": "16d1fcb9e64858dcb0b902cb42cd758439ee6a23df00859651016826199740f0",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "479ab0b0ebb4363ceaf2a3ba61220b6e0233b3c94d9e513105c678fe45e496ab": "le score est w · P₁ + b = 14 + 6 − 4 : n'oublie pas b",
+        "b1ac4de874c654c2e37ef277ba84fdcdef9f6b8505850f355de8b31a0fd5c5d6": "‖w‖ = √5, pas 5",
+        "c16fc31492129205aa8a1d8f823b2fbb9fb9e1d8f0036db864ad231befec68e5": "une distance est |w · P₁ + b| / ‖w‖ : divise le score par ‖w‖ = √5"
+      },
+      "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
     "M10.3d": {
@@ -32398,14 +32406,16 @@
       "decimals": 0,
       "element_hashes": [
         "d2480c9a94e7df5ef74c94d6a4fbbbad23bec42a462e9502c63e075957ae6b21",
-        "b231ebdec159f671cc21e4e1e5ca3600a7ae40c7f80a1458c21a2d1cbd5da720",
-        "39b50aea8b83e839202f7b098306ec9bd92b57c12bbaeb95deae7e8bce4e57d8"
+        "57e6952871ed811426d9dfe18ae8ca31ab89f00807e08cafc43d0cf7c0c86a30",
+        "f46ace11a89e3685c949aa937cdd4bc0a9213f2f7e7d7ddbf13663099f931a5c"
       ],
-      "hash": "27652f7acc19dca5bb25a82a50ea6b3cdf467f14892c9dc5f51aeb713d4c05e6",
+      "hash": "d08eaf4b3476773790f3910ccee48112d20aef825a07c4a5ff2097e1d6d54ba0",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "3960c6196f860278fc41127111a8692073366ea1aed3fcadf30b31b3538953b1": "la coordonnée constante 1 se place en tête : (1, x₁, x₂)"
+        "054dc3846942bc6288ed5399ffd6b432d03e00e93065a290938bc23758628891": "la parallèle passe par p : 3 × 1 − 2 × 2 + b′ = 0 donne b′ = 1",
+        "f26eef4ddbcf2361d18d02bd5ed80f043f1ec058531db3b01c649d4ae14939db": "c'est le vecteur de Δ ; la parallèle doit passer par p",
+        "fa847ba17e070a5d148e36b5e53b07385e6add3d8ae5c1c2b20af10f58d9f99a": "le biais se place en tête : (b′, w₁, w₂)"
       },
       "shape": [
         3
@@ -32413,21 +32423,35 @@
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
     "M10.4c": {
-      "decimals": 0,
-      "element_hashes": [
-        "400c85f365b28de2291f9b95125ad64d456377a647056799aac1e2b7989769c9",
-        "df8fce3a70d680dc218ab52ccecd8cbf6f226dfe99a38049947d96cd12516bb9",
-        "fb15289b01d204dd619510357aaa85f4f9223a748995139a1cb1f2985a7425c4"
+      "alt_hashes": [
+        "687155bb58dcfc41ce14a46f3aa4515f6edbe5160b5e78cd211309c07bd73084"
       ],
-      "hash": "b65db8471e9e0cd82324c5be5e9519e98ec104e10d2af60c192ae19176459529",
-      "integer": true,
-      "kind": "array",
-      "mistakes": {
-        "198bfa7a2008495a7f776d8ea7d4096bc0f72af82085a4de867b68a2adbc9ea0": "le score relevé vaut b × 1 + w · x : n'oublie pas le terme du biais"
+      "coarse_any": {
+        "0": [
+          "5742285d3e21200d4053456662722f846cd033bdfa80ea72d1531896d0d7b725"
+        ],
+        "1": [
+          "b4c7edb879419ed50950aca25f7727c4b9106b332f4a6f96054a57fad3d11351"
+        ]
       },
-      "shape": [
-        3
-      ],
+      "coarser": {
+        "2": [
+          "1c657ea536db7b103f423a120a2af9702e50af98d1cdd6db76f0eddd4714c10a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "d64aa17ef0205beb58857defc69c4cbb3ac8214feed523b09194d1086507e50d",
+      "hash_coarse": "e94465dff986a21fae60c138cb76d44b577f5fec617fa1410a4bd1b256b256fc",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8fb28083b8341988c5291bfa3c52e2c092a6f80f55d5305ce2de3dcb3d655de2": "la distance se mesure dans le plan, avec ‖w‖ = ‖(3, −2)‖, pas avec la norme d'un vecteur relevé",
+        "9e9f3586835b60d78261a5427653df029c1e417e2863f9691e9e970e1b6afec5": "‖w‖ = √13, pas 13",
+        "b89542569d94f194fe6b0199c3c5fae97de05f9871f9c0e705998a06766afa44": "divise l'écart des biais par ‖w‖ = √13",
+        "c0e44fd722ed28169d1a5a33eaa6b09b58896110e07dd64c0a43d736eb365e85": "les biais valent 4 et 1 : leur écart est 3",
+        "d131cf60933dd9b89d18b03b722cf6e59081546961bf5cb1b64ac28dd2cf1ecb": "les biais valent 4 et 1 : leur écart est 3"
+      },
+      "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
     "M10.4d": {
@@ -32475,8 +32499,15 @@
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
     "M10.4f": {
-      "hash": "14b94e5e74605df2f0eb0df78b529ab70236e688ec09a69f4235c72d025a7431",
-      "kind": "bool",
+      "hash": "01b72f937b68be4714f6eda3ee3aac17fb59cbf063c7631aee3a8a2a23bfe288",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0a4af4af5d90f90f4c175c6569e21c34ac93bc55adfcc985e137a810a9f4d979": "la coordonnée constante est en tête : ṽ′ = (b, w₁, w₂), avec b = 0, et l'équation devient x₁ − 3x₂ = 0",
+        "7367e97fcb1db1b8b2055873ac7353bdfc0f8952222b4fbe72a7eb142b6d2a39": "x₁ − 3x₂ = 0 : résous en x₂, avec x₁ = 6",
+        "96e5fa57c620d2d2167fc6e435f7e8610e5180bc0f938b56f1ac45b46f3f2e2f": "x₁ − 3x₂ = 0 donne x₂ = x₁ / 3, positif"
+      },
+      "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
     "M10.4g": {
@@ -32565,13 +32596,22 @@
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
     "M10.5f": {
-      "hash": "04c3fae91b111bbface4f25b2baa8ba0470022781dec8d0cdb6eab5887c500df",
-      "kind": "int",
+      "coarse_any": {
+        "0": [
+          "73cb77a787a051774311388763c8c8f7a26dde1fad1daf074805b87af2320961"
+        ]
+      },
+      "decimals": 2,
+      "hash": "68a18d801c0663bb67841cd38e95149243ce65150a8107e7479d97839e97e395",
+      "hash_coarse": "0ff5a273521aec69b45773310b15bfd53dab42c27e389541254e712941bdfc39",
+      "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "5151a12104890fcc8c2272d6401f211cfe30bc2c00a9b63f2d59c3894cc2e7e9": "la progression part de e · v₀ = −2 : e · v_k ≥ −2 + 0,5k",
-        "be0a90142e0c55c4470b6b026fd2e66b76411b54c66973aac119844b67cdb562": "bien vu, le premier pas ne peut pas être perpendiculaire (v₀ = −2e) ; la question demande seulement ce que n'excluent pas les deux inégalités de la fiche",
-        "c92964eefd023c68e38265135930fc84d13da97885fb2a4f3628735f83b6b567": "‖v_k‖² ≤ ‖v₀‖² + 9k : n'oublie pas ‖v₀‖² = 4"
+        "428f2b876c9073a6f98b762e72d739190ac685fc5934dd5efd35f281958c8cab": "c'est la borne de ‖v₆‖² : prends la racine carrée",
+        "4a8e06a7d3e8e1146f312d35c69b13d8845ef50cc671ec447c4be26b3894f110": "le lemme ajoute les CARRÉS des longueurs des pas : 1² + 2² + ⋯ + 6²",
+        "771bfd7889e783764fb55c85dd1da5215a8363788f66ef9ccf40a7abb85ec659": "c'est la borne de l'inégalité triangulaire, 3 + 1 + 2 + ⋯ + 6 ; le lemme s'applique ici au CARRÉ de la norme",
+        "b4d618e856b69c79f71b6f15e41c710606395cb751be1655e0dd5e13a1812908": "n'oublie pas le point de départ, ‖v₀‖² = 9",
+        "c890a0dab89f5d5db2085246d0abc1f6b4a4dba2995cc32c676a76b9c704a039": "chaque pas a sa propre longueur maximale : ajoute 1², 2², …, 6², pas six fois 6²"
       },
       "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
@@ -32589,6 +32629,7 @@
       "magnitude": 0,
       "mistakes": {
         "2268d707217a4244ae85c090eb3f21cf3899b485bef3054323a6df2f647aa9ca": "les 5 derniers pas sont perpendiculaires à la position : la norme ne gagne plus que par Pythagore, ‖v_(k+1)‖² = ‖v_k‖² + 1",
+        "285e05853e5aa34bb257e484ab9227008bc67b9f416ffe391fccd90aa9f0481d": "un pas perpendiculaire fait quand même grandir la norme : ‖v_(k+1)‖² = ‖v_k‖² + ‖d_k‖²",
         "6c8e87922d9d54d118269d06989c5ab287d9da38bfdb4c551e88cb83274b2a03": "les 5 premiers pas vont dans la direction de la position : la norme gagne 1 à chacun, la borne en √k ne s'applique pas à eux"
       },
       "sign": 1,
@@ -32598,34 +32639,39 @@
       "decimals": 2,
       "element_coarse": [
         [
-          "78a402efc6defdd56f9164206d5a9f1014330a0570904014ea84c8700d9be202"
+          "049816451af8cdd3f3aa1ccbe6e74da6adf31b6eecf3299571a4e837ad34dbe5",
+          "332145a88d0253029b5e90880569dbdfd47f00b8dc202ac7221b1410d5aa75a9"
         ],
         [
           "5a6c0eb3205810e49f0b0afc1d9327bcf1b8400944b33a5b7701dac1e8bcaa39"
         ],
         [
-          "dd49ef82c60df835fa7d72a97eb21e4ccf61b3fff4d1115d8647a82433401a98"
+          "6fc6899c055e13dd278cbfcb235b3daea7c11d1f4d62b2ee82010f554d622c3d"
         ]
       ],
       "element_coarse_any": [
-        [],
+        [
+          "c0162b2ae87242b568f82572dfecd7f0d97712a5f9f11e1da35db2625e6071ab"
+        ],
         [
           "f4d7b3c2323cbbcf84546a7fdda53f365724577de1da00d3be0a6ef0447d35a8",
           "6bad9ed66314a03a4d4f864b686c7be934a551e6e9b94ed40f4d5577e0f692fa"
         ],
         [
-          "3507fa3550328612129ae8820cdffb0bb6b3453944d8629361741a0dd0914e54"
+          "3507fa3550328612129ae8820cdffb0bb6b3453944d8629361741a0dd0914e54",
+          "c482754bb631c73f7b0f923c0ed6bc6e03923a10a0798b134b5a127a29900a9b"
         ]
       ],
       "element_hashes": [
-        "6fbcf57c2d4ca4f8c6910fabab55ff3ed5ea284a0411b07c49455534823a34d7",
+        "88bbf74323884a1f07906b08657d25464db7086d47490f35cc400e99b052a4e7",
         "0b8454d5fa31054adb9353f58bd484ef8a4ff63bdc76d3dbf7202668ed2bf855",
-        "50a5da3e127db0f6c9b1d713127b698d0a86de85f7c4f0450a2adbc82b270aca"
+        "5a6039da12015a605de17431a9d99a4f1ae98bba8a5a7f3f4d908efd942c49a1"
       ],
-      "hash": "703366a93f62b59afc5e35f31d6d6d05d9cd17e66a67f7561d5c69859efe3237",
+      "hash": "80a2ba4c8a12671a5e66f1dff8e47e29c238852b8560104d45272a71f74c1772",
       "kind": "array",
       "mistakes": {
-        "128bb8cf8b394891df7baaa5715947320a7047b6532601c4540f046e708cf130": "le score est w · x + b, avec w = (−1, 2) : n'oublie pas b"
+        "8629da04a2117f8d81417beaa122dc0265389f0fa6737b4d4739445780764410": "w = (−1, 2) : le premier poids est négatif",
+        "b9578ab10db6bd7245ea4b02d3cf74f46be86f20cfd979d6e034e897b057d3ce": "le score est w · x + b, avec b = 0,5 : n'oublie pas b"
       },
       "shape": [
         3
@@ -32635,15 +32681,17 @@
     "M10.9b": {
       "decimals": 0,
       "element_hashes": [
-        "c785c90c9841ce1001beefd5d93940c64c06f9073f07f8f6cfab10f258c69a86",
+        "3d89e164b5dd9ee7ae19a588887bc2f0ce4276932a5136ab2ccaf73285ebc5ee",
         "48aec0f4d840c83bcbdab4858f619bbabe1117038980b96f3910e55f554a1c8d",
         "b9c99c7d6db21f45c14e5dd16f1a3c84e0ea9e02c110d7d29d1322b7ddda9def"
       ],
-      "hash": "51964770fd39ab33ddf829ac0de93955c3a811b56ed298ee3585f6544da2efb0",
+      "hash": "145fc077c83cb8722bbf9a131f80bb64bfd9ef1e571efc07828697e87ae67b44",
       "integer": true,
       "kind": "array",
+      "mistake_decimals": 2,
       "mistakes": {
-        "145fc077c83cb8722bbf9a131f80bb64bfd9ef1e571efc07828697e87ae67b44": "H(0) = 0 : le seuil de l'énoncé exige z > 0"
+        "a8f5d45ccb71c132864ffa68f23470df3f08f199e89c7614f16060866453d2b2": "H donne 0 ou 1, pas le score : 1 si z > 0",
+        "e531ed98600e49fc9c43ee35d7c60313544876d3585037f945fb5e4863ad6ce7": "le seuil vaut 0 ou 1 : H(z) = 0 pour z ≤ 0, jamais −1"
       },
       "shape": [
         3
@@ -32654,19 +32702,20 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "d769b99b6326e9cc3390a6679cfb9c17b324941d4f2be01fddc1e96ee0fb7138"
+          "eb5826c76477edf0123c3615b44612981ca696c28bc6a28990d9debbde0b7d12"
         ],
         [
           "4a938a26488d5a44a8bdd4d523f1096ce6a914bca1905811a68d252b63a125be"
         ],
         [
-          "b6fe0183483bf10f5b2dec9dafc537e39cbe03d8adbb212913db912593580860"
+          "9cf35c2d05a673ec8a6d7b244c0ef7bac7076f68ff78c40e91eff9a762c729b5"
         ]
       ],
       "element_coarse_any": [
         [
-          "faf465a7c8bdfc9f4cccdb74af604d512961672a5f633d4f01fc5c80e62dd2fe",
-          "a98225f82853370a0602672020f8d0f4d9bbf35f26f744e5c7116574d3b9adca"
+          "cf9ff4995fcddffedf11bbfcfd50a5388fc82ab5d5531be5abaca795628f2852",
+          "403bc95b783370ea3d483030f7301140571f88df49da6f5ce1b220f033145530",
+          "fe995523931687435d541e5fb2a47d38563666c816396b3bdb52a134e708065c"
         ],
         [
           "d5531c8b48ecc29173edbab246ec4d21d8bb2e0aad20221efd48d38172ea5131",
@@ -32675,18 +32724,18 @@
         ],
         [
           "d7bf644db9d2a54495bce453cb1c667fdbed01178c5faccad914584d86918afc",
-          "795d3c3c119998a44adfb3f4e9ac73d9bc95445abb86640a60ea5ce62cfcf046"
+          "6017821bd4754bad4dd3d4851eed2f70de03badf9afda45a210e3e0890013a22"
         ]
       ],
       "element_hashes": [
-        "e5f3e68a78b7e053aa00b756398158d50c432f1a0ed5072f8bceb74aee5e3adf",
+        "738154643d7548433be25b434965fb0fbdac7128af4c0131974b4db4d0112b59",
         "8bb91022c1f48f77e65c4f7cfc92264e4684fae061636f524a9773bd7d9fbc0a",
-        "fe607ca4ee339c78aae9ba90d6d01c24dd63ff278fa42c6cf2fe48947a6bee88"
+        "f63404b0a72e3765c029a005be44538a93d6bdef4c085d1c58948594f7fba6cf"
       ],
-      "hash": "fd818a2f6d44a2d3637572f48051926068aa4d1e6d5331f339f5b09c24b08cfa",
+      "hash": "e0e35948fee777667eaf397d17da05e38b22373409ce2ca155d51304d613353c",
       "kind": "array",
       "mistakes": {
-        "ddbcc096ad0a0d92f907861ce8066d4acae5845b128a3c69f094216331a1d81f": "σ(z) = 1/(1 + e^(−z)) : le signe dans l'exponentielle"
+        "04ccd45484a8af1be9c15b246c8e4a8859dc286f1002df44f94fee7f7c6c5a09": "σ(z) = 1/(1 + e^(−z)) : le signe dans l'exponentielle"
       },
       "shape": [
         3
@@ -32697,17 +32746,21 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "bd6b7e747cbbda6552d4168331a4f1eeb0c783878fde26fd577048aa76b8f087"
+          "13c39d5349ccb8747795b10e315b528a092943b391fe5d47e2253536e81cd3b1"
         ],
         [
           "581cade543389899491ec279c04adbef105e3a854e9fa181caa614d112da121b"
         ],
         [
-          "51bf1806be753faaafa86e42adb05c43a90e076d9745bb4217eafd12f0ae9dd4"
+          "aa10ff0a3beefaf87ca517a4c68ddecef9e693d89949a1e853ad3f45b1665d95"
         ]
       ],
       "element_coarse_any": [
-        [],
+        [
+          "6afd63c6b59494ec1bb1ee787fa709bee74e5c56b97c97625e1b0b50840468d8",
+          "f598aea558c2e24599992fa7b14a3ee6c82dd4dd5476d031ddc49e49d785299d",
+          "561109b95fc3b5990451046f1680df7e0e1eab0aa158ff3d6868078f31538127"
+        ],
         [
           "7ce029a19fb3d539d5d59e3a99f9d73f344a1fc622c3f57b836927b7a8ef5cde",
           "4260cada3bfe64b7fd68f90dce104e78cf9337b7993d26ac4dea77318a7722ea",
@@ -32716,18 +32769,18 @@
         [
           "ed18f8f6363ae8873d3965e82e28ef5a88c552e054eacdef38b68000f254a8b1",
           "1aba6b8fae0116899de7527ac4b5ceb0fb405f7570c535d18bb01ac531a81c5b",
-          "95c535676c86f73e15f9dcb7e170b4445147a717a009511d0de9d04db4165fd6"
+          "da53863d0d051db44241dec4f2ce7537c9053d8dda528b5d268794460368d493"
         ]
       ],
       "element_hashes": [
-        "51b58d63887bfe9de7c2c8f132cc59ee3bba1dc14b5268b4e44fea93e5e0bb8e",
+        "becd6d3f4b984a61d657778feb1c10ef27b57f98c480846871052caf97b65333",
         "011f8d208f779be75ef3781913adb30155fe1be909d30ba014c5863e532c1d5c",
-        "ac18fa2187fd3ce8f99b0bed604336c0c7f7b34232bbddf1fb1bcfecd5bc4b29"
+        "a6816b6f0dab61e55dd41df7908317e1737dddaa0713b464d6ff19ee0e327017"
       ],
-      "hash": "47e27e04f4f02a6991a41e885cc378a5d383c7d1faacf1b33c15139fc855a438",
+      "hash": "8c68b35ba0dfa7488519b4e666f254bb43912b20ebc76cbbd41f3f48b38cd84d",
       "kind": "array",
       "mistakes": {
-        "b8b384c402ad774d8aff5d540a0ec615bf60297e9d5426332590dea4a0d9f124": "tanh(z) = 2σ(2z) − 1, pas 2σ(z) − 1"
+        "2f8a59bf0d2cb41b9246e4d0b50f37fce56dccc6f8ad8f06d5a2631bb38c71c1": "tanh(z) = 2σ(2z) − 1, pas 2σ(z) − 1"
       },
       "shape": [
         3
@@ -32738,7 +32791,8 @@
       "decimals": 2,
       "element_coarse": [
         [
-          "eab7c353fd3d6193ffe204ef8cb9354566de41586e36e14ab1741a99bbc7102e"
+          "804ac6f4678a8240f7d5dec9562d86c621697bcf59b5fc538a5e9722b4003e0e",
+          "4ee87e88c6fa54ee554bcef0877c3537f416c9740bad3a27a5e58ad928b90d92"
         ],
         [
           "eb00b3b2d03a19f3cee3f0cdbde7480ce10e8e4e186a3297de97c6b2798cb620"
@@ -32748,7 +32802,9 @@
         ]
       ],
       "element_coarse_any": [
-        [],
+        [
+          "411776bf75a7976c03fbd2679a204f5694444f5f1d8137f4fc1484af1f6c605a"
+        ],
         [
           "225c83970d4aa692036f4d319f1bf5185f41dbc5336fedaa90db5518c9fd9362",
           "abed96839a5b24613e03660224350df68d5fd53c3036441c1fdcadd7600a6535"
@@ -32756,14 +32812,15 @@
         []
       ],
       "element_hashes": [
-        "db467b4797a7fe5a13cacb97576f2c46fa3c5ddb6cc5213f6f96d97145e6f404",
+        "c70143d86af7a90aab5f6fade839e5ece0820b2d4cad71ef28200812d7ea9937",
         "2c469ec757771a8502a328d32600ac49d9ce2622c22eee665320941ad0d7f855",
         "d2fc88ebc5daae37ca4f31314560d6ace7e18c2932f9ad7b8dc664aa9f12f4c1"
       ],
-      "hash": "2ed7da2f137c3888f1faff924e232443443e0b2b67c629f6243f96ba03ace6a2",
+      "hash": "b3bfdf69b85bbfcc76c11037f2a305c670451ece20036d664f3b735048c3758e",
       "kind": "array",
       "mistakes": {
-        "eb3d6af5444df8bfcc18f761a96c8e5a0f222f0ffe47bf9d5b26003a28b47b8b": "ReLU(z) = max(0, z) garde z quand il est positif"
+        "2c8d7f9898d4822c6248a3edf5d3e9ace33dc51b95aecd3c3e9aa50fe0c2c829": "ReLU(z) = max(0, z) garde z quand il est positif",
+        "83c3744f124e80a6b5c1505b5d078c33dee6dc8ebca79dfa23beb1c0a4fd0062": "ReLU(z) = max(0, z) : un score négatif donne 0"
       },
       "shape": [
         3
@@ -32773,25 +32830,25 @@
     "M10.9f": {
       "coarse_any": {
         "0": [
-          "61bb17d47e548f2994ef98a139acd609cf4f1f808494fb8615aaf32aa6e4f06c"
+          "31ade145e06782f025397b096d2e50728316c6d6796c86f09a8210f754b05533"
         ]
       },
       "coarser": {
         "1": [
-          "b6116b39815bdb2ab91aaa7d06eafa1c10a9bc54c0a8b4ef7a7077aca3cfca1a"
+          "6caaae4d9c1d478bb19523fe6dd910fb51d9c37c38b55b225fd21c52b2d9f000"
         ],
         "2": [
-          "52941df05287b9b2b87acfe5f965ae3896e135b815049679144f47c3b2830fe8"
+          "80795cc7ee986ab9fa5c3c5c93f25b139ebc9471a6a800bb8b886a971cdfb636"
         ]
       },
       "decimals": 4,
-      "hash": "94d1a0727e0efb8536d683096463cdcd6947ca1dd4a72d57a25b67f6b9f5dde3",
-      "hash_coarse": "1231886334134991de1b437f3f356d718e4cfd88b172da2bafe7b14a807b558e",
+      "hash": "9288d4ff42f6f53a794b125d4976b871039d570c79fdb67ab2bfda6f3d08d6a8",
+      "hash_coarse": "43f0e6d8469646706b6cdbb84620409ef6059d1bafc3c81606158abccf76376c",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "9b36fce2057a3845da9d031be7f79eb84d52e8f8e646127125044d325e37d993": "σ(z) = 0,8 donne e^(−z) = 1/4, donc z = ln 4",
-        "e9be5fa0d662517babe16bf23a810b98d1fa68ddbc00c93cd18a3bf91f1148ef": "σ(z) = 0,8 donne 1 + e^(−z) = 1,25"
+        "0740bec68c5fad6bfa12b2e24ebd84055b84baa90366b63216ce9541790fe313": "σ(z) = 0,85 donne e^(−z) = 0,15 / 0,85 = 3/17, donc z = ln(17/3), positif",
+        "4c5301b58242d70cf41aaea22f7fda1e64cb1f8e6c04bdf4a44ab2070316765b": "σ(z) = 0,85 donne 1 + e^(−z) = 1/0,85 : isole e^(−z) avant de prendre le logarithme"
       },
       "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
@@ -32802,22 +32859,22 @@
           "cfb915a3eb92e2f9678ec4b8488006d45a26633a88e8c84788814acbb38d3cad"
         ],
         "1": [
-          "866a8eaa9397920f1506d1d002fd5d05cdc3862f1eda104e052fa05a2023bcc4"
+          "3020b62bbd1207a4a4d89e05febb943b6f3ac6863e40f986235a3958bc768814"
         ]
       },
       "coarser": {
         "2": [
-          "f5e35074a603095bbfd8450ee3f54b1b16eee40d007f4f7eff03b26f84407a4a"
+          "5480c40cb4f676d927f43bdb71573c64d051c4629a52bdb6155ee46898f533ff"
         ]
       },
       "decimals": 4,
-      "hash": "3d0483bb23db372b83d8e26b45923a2c8a224604a46e696049065e24dbf98648",
-      "hash_coarse": "110ef7e2b464bfce5f1bf6f3d75a255e71f5d019e32c6b81d70f8a1b89fa69f6",
+      "hash": "98db153ff5586ef7af9940935dfa630ce4e01eca866eae6dd4aa048995c421d1",
+      "hash_coarse": "55d3126cd843db55970fb3c2a3f77b3b49d316cc93d2e7ea364b9f78026d20a3",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "c532c6185c9dddeaebd15108308441be7d1d0d52f541ee84fc4754673ec08510": "‖w‖ = √5, pas 5",
-        "e2aec00cb49ab647eee37d43ba862bfcbb6a14cd1e284a6fd2b992e6f223b1ef": "un score n'est une distance qu'une fois divisé par ‖w‖ = √5"
+        "4046a6161c5839574c5555fe3d355047a2de34a56653ef58f15845bcd85255de": "‖w‖ = √5, pas 5",
+        "9630712a2db75c074731c8751c6f2a06b5c551e98e687a51c30123fb344743c7": "un score n'est une distance qu'une fois divisé par ‖w‖ = √5"
       },
       "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
@@ -33075,7 +33132,7 @@
       "hash": "28961c163651cc57f0e251d754fbe504ff2a00c59f8913cbe32e2bbec7849718",
       "kind": "bool",
       "mistakes": {
-        "d09b45a11cad7eb719b08fb2d86562e679614e650d00af8617c3896abfd15392": "ces deux nuages sont séparables : garde le biais b parmi les inconnues (une colonne de 1), et des inconnues libres, bounds=(None, None)"
+        "d09b45a11cad7eb719b08fb2d86562e679614e650d00af8617c3896abfd15392": "ces deux nuages sont séparables, mais aucune droite qui passe par l'origine ne les sépare : garde le biais b parmi les inconnues (une colonne de 1), et des inconnues libres, bounds=(None, None)"
       },
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
@@ -33083,7 +33140,7 @@
       "hash": "3a580ed860b37d34e71529b2a378b5a6a17012e1ca7d760ca4dce24bb1a1776f",
       "kind": "bool",
       "mistakes": {
-        "c3405cba659a45766efbd1a797aefe65b4035014d3574b68e6c2ee1ae3f72e2c": "(2,5 ; 5,5) est le milieu de deux points de la classe +1 : exige y_i(w · x_i + b) ≥ 1, pas ≥ 0"
+        "c3405cba659a45766efbd1a797aefe65b4035014d3574b68e6c2ee1ae3f72e2c": "(0,5 ; 1,5) est le milieu de deux points de la classe +1 : exige y_i(w · x_i + b) ≥ 1, pas ≥ 0"
       },
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
@@ -33091,7 +33148,7 @@
       "hash": "9a209824230277ff2ba2e514799a217a6bd21164996dceddfe4483054c989c1f",
       "kind": "bool",
       "mistakes": {
-        "91e7d99d48b74fe87790c4aa673d5574fb894824570730981bba71f5e935ed45": "en dimension 1, les points de la classe +1 sont entre deux points de la classe −1 : exige y_i(w · x_i + b) ≥ 1"
+        "91e7d99d48b74fe87790c4aa673d5574fb894824570730981bba71f5e935ed45": "en dimension 1, le point 3, de la classe −1, est entre deux points de la classe +1 : exige y_i(w · x_i + b) ≥ 1"
       },
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
@@ -33099,26 +33156,26 @@
       "coarse_any": {
         "0": [
           "3f14df03cbf6d5912c4d6c1e2b5cd27b9c3c92885559961789fef5fa016d70da"
+        ],
+        "1": [
+          "046f61dd624492c092146cf0a7e994edac8402e9973969548e7a6a0412548978"
         ]
       },
       "coarser": {
-        "1": [
-          "607b8aa9a8aa009ebed675bad51a0412e262302896ff48335d0054d50ff668dc"
-        ],
         "2": [
-          "6dc959d32fb0133dbf88649217eb16c4fb151c43f1ef3f8d8213a4926d12bf9c"
+          "04e6919f49596c708ea06836245086f7b1646077de9ae6ce76d5068e51c8b9e9"
         ]
       },
       "decimals": 4,
-      "hash": "a70b3be7fb47b78e5c3243d3a147c6b1e486289506bd950c8b03c7ba6cf0ea8b",
-      "hash_coarse": "e6d50d123d9cf55a3f318bbdef66cc6422912fc742db2e531d89f4bac4b5a7f5",
+      "hash": "00a11f534a51234150cc45cad3db0c8aa112d22926edbe1cc606b7dd4b8a1bef",
+      "hash_coarse": "a6ab8c3342ac6c2f2fe031939f321fd1e2d40e1c9923c93b0c8666396065ea72",
       "kind": "float",
-      "magnitude": 0,
+      "magnitude": -1,
       "mistakes": {
-        "19ec948f225c97f8dd51b201752c5969ae9df9f043309d10a9b4c4b3f3331ec8": "la marge est le MINIMUM des y_i(w · x_i + b) / ‖w‖",
-        "8a80469e5ff7bab0d799653b4cc9e0a76e1109cfca1971f80720ee1c8e0c0f78": "divise par ‖w‖ = √2",
-        "b9fcd0c950ddd40b35edbc7d6dfbf3edf9c54fc3be102b455c631240c603b1b4": "‖w‖ = √2, pas 2",
-        "ee1913c79da7153fa173764cbd3cba52383aa84b1a07fcd8abdb3a831aa3e8fc": "multiplie chaque score par le label y_i"
+        "117617dae9e2673650d7141a8e0058e7d215eec3a18ea1f457aac25baa2bb2ea": "multiplie chaque score par le label y_i",
+        "2f0a6960801303fe47f714b25bcea02d7f0a3641a58ade26264a172705a6f2f0": "‖w‖ = √2, pas 2",
+        "9f06b41a8ab8746490f11411214111420fc030a80a6d77f46bca0439084f8c87": "la marge est le MINIMUM des y_i(w · x_i + b) / ‖w‖",
+        "b9fcd0c950ddd40b35edbc7d6dfbf3edf9c54fc3be102b455c631240c603b1b4": "divise par ‖w‖ = √2"
       },
       "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
@@ -33126,25 +33183,25 @@
     "M10.13e": {
       "coarse_any": {
         "0": [
-          "cb9cecba74058376758cf52d38b04355367db38802599637b0eb53b3a13cabd6"
+          "7eb63912ca08c6cd285063c39cd67e248f1b62155efa3d5173059573f7af57ed"
         ]
       },
       "coarser": {
         "1": [
-          "fbeb261e68371aa27eebc53a24c4171521364fc5549b94c968db51ff664e114d"
+          "991baf48de5622aed3f149f991341d6d23142ce270c9edb01fd71c42951ff581"
         ],
         "2": [
-          "760ce6c80ce9577d7ca39a4cb790f65beb7edb141a7169ccc536f59e43a3d7ef"
+          "5bb4cdf7bf33a637e9c74759dc4e78ee07176ea30a768da21a7172aa8f215fac"
         ]
       },
       "decimals": 4,
-      "hash": "071c417921cf6173cde6101843603539863451e9f38dfaa2bbbfba191ea907f5",
-      "hash_coarse": "1d6dadfb57cc8bc3d807976c3841fd6c00aafc725c187607f4ca3b51fa7ca675",
+      "hash": "35b89a8ed3d312efd2d1394fe89e9a9f2511c80575e436862dfe49a43a9ba962",
+      "hash_coarse": "238991da3870369df8e3b5d35df449b5f9e407d182d2db76467489b5ee6e829f",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "975d8aabad0e7af1944b164030db9962373040e41200b7cd7ac2cae82dab4bd3": "la marge est signée : un point du mauvais côté compte en négatif",
-        "e8a09e26e06831813148f65464c14b44af262d6c62ee2d7b4c7867c44127b643": "la marge est le minimum, ici atteint par le point le plus loin du mauvais côté"
+        "26506c087e28a896c9e95c9c81adfbdaa51e846426719bcd0c2a5f5fb3afec7a": "la marge est signée : un point du mauvais côté compte en négatif",
+        "a3651de993ca949b1f7f5ad8353122e1d53c99d57f05e98b5e8a46212f4bd701": "la marge est le minimum, ici atteint par le point le plus loin du mauvais côté"
       },
       "sign": -1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
@@ -33395,7 +33452,7 @@
       "hash": "6e9972e9fca39cc57cdb54bf66a4868a2f18504fb36e65cb0cf850e00aab794d",
       "kind": "bool",
       "mistakes": {
-        "fce91b672ed63bfb066bdbfc0b0f842c6bf35c146b40ad86bd26b65216488191": "au moins un dataset est à plus de 1 % de la plus grande marge : la cellule du défi donne les rapports"
+        "fce91b672ed63bfb066bdbfc0b0f842c6bf35c146b40ad86bd26b65216488191": "le défi n'est pas réussi : la cellule du défi dit pourquoi (un rapport sous 0,99, ou scikit-learn)"
       },
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },

@@ -476,7 +476,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M10", "dir": "m10_separabilite_convexite", "hours": 7.9, "generation_sessions": 1, "mml": ["§12.1"],
+        "id": "M10", "dir": "m10_separabilite_convexite", "hours": 8.1, "generation_sessions": 1, "mml": ["§12.1"],
         "summary": "Les ensembles convexes et l'enveloppe convexe, la séparation de deux nuages par un hyperplan, "
                    "l'astuce du biais et la marge géométrique, les récurrences sur une norme, et les fonctions "
                    "d'activation appliquées à un score linéaire : les outils que workbookIA 10 assemble pour le "
@@ -505,14 +505,15 @@ CHAPTERS = [
         "mymath": {"module": "convex.py",
                    "functions": ["convex_hull_2d", "is_linearly_separable", "margin_of_separator"]},
         "reading_minutes": 110,
-        "flashcards": 15,
+        "flashcards": 16,
         "notes": "Frontières : XOR n'est pas séparable (10.4) et la convergence du perceptron (10.7) sont démontrés en "
                  "workbookIA 10 : M10 démontre l'énoncé général (deux nuages séparables ont des enveloppes convexes "
                  "disjointes) sans l'appliquer aux portes logiques, et enseigne les récurrences sur une norme sur une "
                  "suite quelconque, sans la règle du perceptron ni la borne (R/γ)². Évités : les portes logiques "
                  "(AND, OR, NOT, NAND, XOR), le perceptron et sa règle, les manchots, les chiffres de 20 × 20 pixels ; "
-                 "la marge et l'astuce du biais sont vues en géométrie (10.2 et 10.23 restent à workbookIA). Chapitre "
-                 "court (8 h) : la moitié de la composition, papier d'abord ; pas de 🔬 ni de 📦 (le 🔮 sur le "
+                 "la marge et l'astuce du biais sont vues en géométrie (10.2 et 10.23 restent à workbookIA). "
+                 "COMPOSITION : chapitre court (8 h, puis 8,1 h quand l'apprenant simulé a allongé M10.2 et M10.16, "
+                 "sans contenu nouveau) : la moitié de la composition, papier d'abord ; pas de 🔬 ni de 📦 (le 🔮 sur le "
                  "théorème de Cover et les deux 🔨 suffisent).",
         "exercises": [
             ("M10.Q1", "🧠", 1, 4, "Convexe ou non ?", "§1", "E"),
@@ -523,7 +524,7 @@ CHAPTERS = [
             ("M10.R2", "🔁", 1, 5, "L'inégalité de Cauchy-Schwarz (M07)", "§4", "E"),
             ("M10.R3", "🔁", 1, 5, "La sigmoïde et tanh (R6)", "§5", ""),
             ("M10.1", "✏️", 1, 15, "Convexe ou non : segments, demi-plans, intersections", "§1", "E"),
-            ("M10.2", "✏️", 1, 15, "L'enveloppe convexe de huit points, à la main", "§2", "E"),
+            ("M10.2", "✏️", 1, 20, "L'enveloppe convexe de huit points, à la main", "§2", "E"),
             ("M10.3", "✏️", 2, 20, "Une droite qui sépare deux petits nuages, et sa marge", "§3", "E"),
             ("M10.4", "✏️", 1, 15, "L'astuce du biais : une droite du plan devient un plan de ℝ³ passant par "
              "l'origine", "§3", ""),
@@ -546,7 +547,7 @@ CHAPTERS = [
              "séparables ?", "§3", "E"),
             ("M10.15", "🎨", 1, 15, "Deux nuages, leurs enveloppes convexes et un hyperplan séparateur avec sa marge",
              "§2 §3", ""),
-            ("M10.16", "🐛", 1, 10, "Chasse à l'erreur : un produit vectoriel de signe inversé, une marge non "
+            ("M10.16", "🐛", 1, 15, "Chasse à l'erreur : un produit vectoriel de signe inversé, une marge non "
              "normalisée", "§2 §3", ""),
             ("M10.17", "🛠️", 1, 15, "Des tests de propriétés pour l'enveloppe convexe", "§2", ""),
             ("M10.18", "🏆", 3, 20, "Défi : la plus grande marge possible entre deux nuages donnés, à 1 % près",

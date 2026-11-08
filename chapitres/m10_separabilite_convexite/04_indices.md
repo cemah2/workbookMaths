@@ -71,12 +71,12 @@ Relis « La marge d'un séparateur » et « L'astuce du biais » (fiche §3).
 </details>
 <details><summary>Indice 2</summary>
 
-La marge géométrique divise par $\lVert \mathbf{w} \rVert$, la marge fonctionnelle non.
+Un hyperplan ne change pas quand on multiplie $\mathbf{w}$ **et** $b$ par un même nombre non nul ; la marge géométrique est un minimum.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : la coordonnée 1 et le biais se placent en tête. 6 : relis le théorème de la plus grande marge.
+1 : multiplie l'équation $\frac{\mathbf{w}}{2} \cdot \mathbf{x} + b = 0$ par 2. 3 : remplace $x_0$ par 1 dans l'équation du plan. 6 : relis le théorème de la plus grande marge.
 
 </details>
 
@@ -116,7 +116,7 @@ $|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \
 </details>
 <details><summary>Indice 3</summary>
 
-5 : écris $3a + 4c$ comme le produit scalaire de $(3, 0, 4)$ avec $(a, b, c)$.
+5 : écris $2a + 3b + 6c$ comme le produit scalaire de $(2, 3, 6)$ avec $(a, b, c)$.
 
 </details>
 
@@ -129,12 +129,12 @@ Relis R6, la sigmoïde et tanh.
 </details>
 <details><summary>Indice 2</summary>
 
-Pour 2, multiplie le numérateur et le dénominateur de $\sigma(-z)$ par $e^{z}$.
+Pour 2, regarde comment varie $e^{-z}$, puis $1 + e^{-z}$, quand $z$ augmente.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : $e^{-\ln 3} = \frac{1}{3}$. 5 : $\sigma(u) = \frac{1}{2}$ seulement pour $u = 0$.
+3 : isole $e^{-z}$ dans $1 + e^{-z} = \frac{1}{0{,}6}$, puis prends le logarithme. 4 : $\tanh(z) = 0{,}2$ donne $\sigma(2z) = 0{,}6$. 5 : $\sigma(u) = \frac{1}{2}$ seulement pour $u = 0$.
 
 </details>
 
@@ -192,7 +192,7 @@ Calcule d'abord $\mathbf{w} \cdot P_i$ pour les six points ; la marge est le plu
 </details>
 <details><summary>Indice 3</summary>
 
-d) Il faut $\min_{+1} \mathbf{w} \cdot \mathbf{x} + b > 0$ et $\max_{-1} \mathbf{w} \cdot \mathbf{x} + b < 0$. g) Dessine les deux triangles : leur couple de points le plus proche est formé de deux sommets.
+c) La distance d'un point à la droite est $\frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert}$. d) Il faut $\min_{+1} \mathbf{w} \cdot \mathbf{x} + b > 0$ et $\max_{-1} \mathbf{w} \cdot \mathbf{x} + b < 0$. g) Dessine les deux triangles : leur couple de points le plus proche est formé de deux sommets.
 
 </details>
 
@@ -205,12 +205,12 @@ Relis « L'astuce du biais » (fiche §3).
 </details>
 <details><summary>Indice 2</summary>
 
-$\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = b \times 1 + w_1x_1 + w_2x_2$ : la première coordonnée de $\tilde{\mathbf{x}}$ vaut toujours 1.
+$\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = b \times 1 + w_1x_1 + w_2x_2$ : la première coordonnée de $\tilde{\mathbf{x}}$ vaut toujours 1. Deux droites parallèles ont la même normale $\mathbf{w}$ et des biais différents.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e) Au niveau « première coordonnée $= 1$ », $\tilde{\mathbf{v}} \cdot \tilde{\mathbf{x}} = 0$ devient $-6 + 2x_1 + 3x_2 = 0$. g) Écris $\tilde{\mathbf{u}} \cdot (1, 2, 0) = 0$ et $\tilde{\mathbf{u}} \cdot (1, 0, 1) = 0$ avec $u_0 = -2$.
+b) Écris $3x_1 - 2x_2 + b' = 0$ au point $\mathbf{p}$. c) La distance entre $\mathbf{w} \cdot \mathbf{x} + b = 0$ et $\mathbf{w} \cdot \mathbf{x} + b' = 0$ est $\frac{|b - b'|}{\lVert \mathbf{w} \rVert}$. e) Au niveau « première coordonnée $= 1$ », $\tilde{\mathbf{v}} \cdot \tilde{\mathbf{x}} = 0$ devient $-6 + 2x_1 + 3x_2 = 0$. f) De même, $\tilde{\mathbf{v}}' \cdot \tilde{\mathbf{x}} = 0$ devient $x_1 - 3x_2 = 0$. g) Écris $\tilde{\mathbf{u}} \cdot (1, 2, 0) = 0$ et $\tilde{\mathbf{u}} \cdot (1, 0, 1) = 0$ avec $u_0 = -2$.
 
 </details>
 
@@ -218,7 +218,7 @@ e) Au niveau « première coordonnée $= 1$ », $\tilde{\mathbf{v}} \cdot \tilde
 
 <details><summary>Indice 1</summary>
 
-Relis « Une borne qui s'accumule » et « Deux croissances incompatibles » (fiche §4).
+Relis « Une borne qui s'accumule » et « Deux bornes pour la norme » (fiche §4).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -228,7 +228,7 @@ $\lVert \mathbf{v} + \mathbf{d} \rVert^2 = \lVert \mathbf{v} \rVert^2 + 2\,\math
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\mathbf{v}_1 = (3, 1)$. e) $\lVert \mathbf{v}_k \rVert^2 \le 5 + 5k$. f) $\mathbf{e} \cdot \mathbf{v}_k \ge -2 + 0{,}5k$ et $\mathbf{e} \cdot \mathbf{v}_k \le \sqrt{4 + 9k}$ ; pour $k \ge 4$, les deux côtés sont positifs : élève au carré. g) Traite les deux séries de pas l'une après l'autre.
+b) $\mathbf{v}_1 = (3, 1)$. e) $\lVert \mathbf{v}_k \rVert^2 \le 5 + 5k$. f) Le lemme avec $c_k = (k + 1)^2$, pour $k = 0, \ldots, 5$ : ajoute $1^2, 2^2, \ldots, 6^2$ à $\lVert \mathbf{v}_0 \rVert^2 = 9$, puis prends la racine. g) Traite les deux séries de pas l'une après l'autre.
 
 </details>
 
@@ -281,12 +281,12 @@ Relis « La marge d'un séparateur » et « La forme canonique » (fiche §3).
 </details>
 <details><summary>Indice 2</summary>
 
-$\lVert c\mathbf{w} \rVert = |c|\,\lVert \mathbf{w} \rVert$, et $\min_i(-a_i) = -\max_i a_i$.
+$\lVert c\mathbf{w} \rVert = |c|\,\lVert \mathbf{w} \rVert$. Pour 2, sépare les termes de la classe $+1$ de ceux de la classe $-1$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : divise $(\mathbf{w}, b)$ par $m = \min_i y_i(\mathbf{w} \cdot \mathbf{x}_i + b) > 0$. 5 : un minimum sur un ensemble plus grand est plus petit ou égal.
+2 : sur la classe $+1$, le plus petit terme vaut $\frac{m_+ + b}{\lVert \mathbf{w} \rVert}$ ; une fonction affine croissante et une décroissante : où leur minimum est-il le plus grand ? 3 : divise $(\mathbf{w}, b)$ par $m = \min_i y_i(\mathbf{w} \cdot \mathbf{x}_i + b) > 0$. 5 : un minimum sur un ensemble plus grand est plus petit ou égal.
 
 </details>
 
@@ -308,7 +308,7 @@ Calcule d'abord les trois scores ; chaque activation ne regarde que le score.
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{p}_1$ donne $z = -1{,}5 + 1 + 0{,}5$. f) $\frac{1}{1 + e^{-z}} = 0{,}8$ donne $e^{-z} = \frac{1}{4}$. g) La ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = z_{0{,}8}$ : sa distance à la frontière est $\frac{z_{0{,}8}}{\lVert \mathbf{w} \rVert}$.
+$\mathbf{p}_1$ donne $z = -0{,}25 + 1 + 0{,}5$. f) $\frac{1}{1 + e^{-z}} = 0{,}85$ donne $e^{-z} = \frac{0{,}15}{0{,}85}$. g) La ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = z_{0{,}85}$ : sa distance à la frontière est $\frac{z_{0{,}85}}{\lVert \mathbf{w} \rVert}$.
 
 </details>
 
@@ -361,7 +361,7 @@ Relis le §3 de la fiche, et l'après-expérience de M10.14.
 </details>
 <details><summary>Indice 2</summary>
 
-Un plan : la définition, l'image (une droite qui laisse chaque classe d'un côté), le critère, un test, la grande dimension, une mise en garde.
+Un plan : la définition, l'image (deux demi-espaces ouverts), le critère, un test, la grande dimension, une mise en garde.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -406,7 +406,7 @@ Les inconnues sont $(w_1, \ldots, w_d, b)$ ; la contrainte $i$ est la ligne $(-y
 </details>
 <details><summary>Indice 3</summary>
 
-`A_ub = -y[:, None] * np.hstack([X, np.ones((n, 1))])`, `linprog(np.zeros(d + 1), A_ub=A_ub, b_ub=-np.ones(n), bounds=(None, None))`, puis `bool(res.status == 0)`. Pour la marge : `float(np.min(y * (X @ w + b)) / np.linalg.norm(w))`, après les contrôles.
+Ajoute une colonne de 1 à droite de `X` (`np.hstack`), multiplie chaque ligne par $-y_i$ : c'est `A_ub`. L'objectif est nul, `b_ub` est rempli de $-1$, les inconnues sont libres ; le statut 0 de `linprog` veut dire « une solution existe », à convertir en `bool`. Pour la marge, après les contrôles : le plus petit $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$, divisé par $\lVert \mathbf{w} \rVert$, converti en `float`.
 
 </details>
 
@@ -419,7 +419,7 @@ Relis la fin de « L'astuce du biais » (fiche §3) : $d + 1$ points sont toujou
 </details>
 <details><summary>Indice 2</summary>
 
-Avec 4 points du plan, quelles configurations de labels échouent ? Compte-les parmi les $2^4$ étiquetages possibles.
+Avec 3 points d'une droite, quels étiquetages échouent ? Compte-les parmi les $2^3$ étiquetages possibles.
 
 </details>
 <details><summary>Indice 3</summary>

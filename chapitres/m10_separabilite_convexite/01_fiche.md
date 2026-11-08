@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §5 |
-| **Temps total estimé** | ≈ 7,9 h : lecture et calculs de la fiche ≈ 1 h 50, exercices ≈ 5 h 35, flashcards ≈ 30 min (parcours essentiel ≈ 5,5 h) |
+| **Temps total estimé** | ≈ 8,1 h : lecture et calculs de la fiche ≈ 1 h 50, exercices ≈ 5 h 45, 16 flashcards ≈ 30 min (parcours essentiel ≈ 5,7 h) |
 | **Prérequis** | M07 (produit scalaire, hyperplans, distance à un hyperplan, Cauchy-Schwarz) ; M09a (matrices, systèmes linéaires) ; M05a (fonctions convexes d'une variable) ; R4 (récurrence) ; R6 (sigmoïde, tanh) ; R3 (fonctions, composition) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `convex.py` : `convex_hull_2d`, `is_linearly_separable`, `margin_of_separator` |
@@ -61,7 +61,7 @@ Vocabulaire anglais de ce chapitre : *convex set*, *line segment*, *convex combi
 6. Séparables $\iff$ enveloppes convexes **disjointes** (pour des nuages finis). Un point commun aux deux enveloppes prouve qu'aucun hyperplan ne sépare.
 7. **Astuce du biais** : $\tilde{\mathbf{x}} = (1, \mathbf{x})$, $\tilde{\mathbf{w}} = (b, \mathbf{w})$, $\mathbf{w} \cdot \mathbf{x} + b = \tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}}$ : un hyperplan affine de $\mathbb{R}^d$ devient un hyperplan par l'origine de $\mathbb{R}^{d+1}$.
 8. **Marge géométrique** d'un séparateur : $\min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$, la distance signée du point le plus mal placé. La plus grande possible vaut la **moitié de la distance** entre les deux enveloppes convexes.
-9. Si $\lVert \mathbf{v}_{k+1} \rVert^2 \le \lVert \mathbf{v}_k \rVert^2 + c$, alors $\lVert \mathbf{v}_k \rVert^2 \le \lVert \mathbf{v}_0 \rVert^2 + kc$ : la norme croît au plus comme $\sqrt{k}$, et une quantité qui croît linéairement finit toujours par la dépasser.
+9. Si $\lVert \mathbf{v}_{k+1} \rVert^2 \le \lVert \mathbf{v}_k \rVert^2 + c$, alors $\lVert \mathbf{v}_k \rVert^2 \le \lVert \mathbf{v}_0 \rVert^2 + kc$ : quand aucun pas ne pousse vers l'extérieur, la norme croît au plus comme $\sqrt{k}$, alors que l'inégalité triangulaire ne garantit qu'une croissance linéaire.
 10. Une **activation** est une fonction d'une variable appliquée au score $z = \mathbf{w} \cdot \mathbf{x} + b$ : ses lignes de niveau sont des hyperplans parallèles à la frontière.
 
 ## §1 · Ensembles convexes
@@ -176,19 +176,19 @@ Le sens direct tient en une idée, que M10.7 rédige : la fonction $s(\mathbf{x}
 
 L'usage pratique est le sens direct, lu à l'envers : pour **prouver** que deux nuages ne sont pas séparables, il suffit d'exhiber un point qui est à la fois dans les deux enveloppes. Ajoute à $B$ le point $(7, 5)$ : c'est le milieu de $(6, 3)$ et $(8, 7)$, deux points de $A$, donc un point de $\operatorname{conv}(A)$ ; il est aussi dans $\operatorname{conv}(B)$, puisqu'il appartient à $B$. Aucune droite ne sépare plus les deux nuages, et cette seule ligne de calcul le prouve, sans essayer aucune droite. En dimension 1, les labels $+1$, $-1$, $+1$ aux abscisses $2$, $5$, $9$ ne sont pas séparables pour la même raison : $5$ est entre $2$ et $9$.
 
-⚠️ **Erreur classique.** « Prouver » qu'il n'existe pas de séparateur en essayant quelques droites. Des essais qui échouent ne prouvent rien ; un point commun aux deux enveloppes, si.
+⚠️ **Erreur classique.** Conclure qu'aucune droite ne sépare parce que celles qu'on a dessinées échouent. Il en reste une infinité à examiner ; ce qui tranche, c'est un **témoin** : un point dont on écrit explicitement qu'il est dans les deux enveloppes.
 
 ### L'astuce du biais
 
 Ajoutons à chaque point une coordonnée constante égale à 1, en tête : $\tilde{\mathbf{x}} = (1, x_1, \ldots, x_d) \in \mathbb{R}^{d+1}$, et rangeons le biais en tête des poids : $\tilde{\mathbf{w}} = (b, w_1, \ldots, w_d)$. Alors
 $$\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = b \times 1 + w_1x_1 + \cdots + w_dx_d = \mathbf{w} \cdot \mathbf{x} + b.$$
-C'est l'**astuce du biais** (*bias trick*) : le terme constant devient le poids d'une coordonnée de plus, comme la colonne de 1 des moindres carrés (M09b). Géométriquement, les points relevés $\tilde{\mathbf{x}}$ vivent tous dans le plan « première coordonnée $= 1$ » de $\mathbb{R}^{d+1}$, et l'équation $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = 0$ décrit un hyperplan de $\mathbb{R}^{d+1}$ qui **passe par l'origine**. L'hyperplan affine de $\mathbb{R}^d$ est la trace de cet hyperplan sur le plan des points relevés. Séparer les $\mathbf{x}_i$ par un hyperplan quelconque, ou séparer les $\tilde{\mathbf{x}}_i$ par un hyperplan qui passe par l'origine, c'est donc le même problème. Pour le séparateur $x_1 + x_2 - 6 = 0$ de l'exemple, $\tilde{\mathbf{w}} = (-6, 1, 1)$, et le point $(4, 3)$ devient $(1, 4, 3)$, de score $-6 + 4 + 3 = 1$.
+C'est l'**astuce du biais** (*bias trick*) : le décalage $b$ disparaît de la formule, au prix d'une dimension de plus (la colonne de 1 des moindres carrés, en M09b, faisait déjà ce calcul). Géométriquement, les points relevés $\tilde{\mathbf{x}}$ vivent tous dans le plan « première coordonnée $= 1$ » de $\mathbb{R}^{d+1}$, et l'équation $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = 0$ décrit un hyperplan de $\mathbb{R}^{d+1}$ qui **passe par l'origine**. L'hyperplan affine de $\mathbb{R}^d$ est la trace de cet hyperplan sur le plan des points relevés. Séparer les $\mathbf{x}_i$ par un hyperplan quelconque, ou séparer les $\tilde{\mathbf{x}}_i$ par un hyperplan qui passe par l'origine, c'est donc le même problème. Pour le séparateur $x_1 + x_2 - 6 = 0$ de l'exemple, $\tilde{\mathbf{w}} = (-6, 1, 1)$, et le point $(4, 3)$ devient $(1, 4, 3)$, de score $-6 + 4 + 3 = 1$.
 
 ![L'astuce du biais : les points du plan relevés à la hauteur 1 dans l'espace, et un plan qui passe par l'origine et coupe ce niveau selon la droite séparatrice](figures/astuce_biais.png)
 
-Une conséquence : **$d + 1$ points de $\mathbb{R}^d$ en position générale** (*general position* : dans le plan, trois points non alignés) sont séparables **quels que soient leurs labels**. Relevés, ils forment $d + 1$ vecteurs indépendants de $\mathbb{R}^{d+1}$ ; la matrice carrée $\tilde{\mathbf{X}}$ dont ils sont les lignes est inversible (M09a), et le système $\tilde{\mathbf{X}}\tilde{\mathbf{w}} = \mathbf{y}$ a une solution, qui donne à chaque point un score égal à son label. Pour $(0, 0)$, $(2, 1)$ et $(1, 3)$, de labels $+1$, $-1$, $+1$, le système
-$$b = 1, \qquad b + 2w_1 + w_2 = -1, \qquad b + w_1 + 3w_2 = 1$$
-donne $b = 1$, $w_1 = -1{,}2$, $w_2 = 0{,}4$. Avec un point de plus, ce n'est plus toujours possible, et M10.14 mesure à quelle vitesse la séparabilité devient rare quand $n$ grandit.
+Une conséquence : **$d + 1$ points de $\mathbb{R}^d$ en position générale** (*general position* : dans le plan, trois points non alignés) sont séparables **quels que soient leurs labels**. Relevés, ils forment $d + 1$ vecteurs indépendants de $\mathbb{R}^{d+1}$ ; la matrice carrée $\tilde{\mathbf{X}}$ dont ils sont les lignes est inversible (M09a), et le système $\tilde{\mathbf{X}}\tilde{\mathbf{w}} = \mathbf{y}$ a une solution, qui donne à chaque point un score égal à son label. Pour $(-1, 2)$, $(3, 1)$ et $(1, 4)$, de labels $+1$, $-1$, $+1$, le système
+$$b - w_1 + 2w_2 = 1, \qquad b + 3w_1 + w_2 = -1, \qquad b + w_1 + 4w_2 = 1$$
+donne $b = -0{,}2$, $w_1 = -0{,}4$, $w_2 = 0{,}4$. Avec un point de plus, ce n'est plus toujours possible, et M10.14 mesure à quelle vitesse la séparabilité devient rare quand $n$ grandit.
 
 ### La marge d'un séparateur
 
@@ -221,45 +221,49 @@ soit une distance au moins $\frac{\delta}{2}$. Le même calcul vaut pour $B$, de
 
 </details>
 
-Sur l'exemple, le point de $\operatorname{conv}(A)$ le plus proche de $\operatorname{conv}(B)$ est le sommet $\mathbf{p} = (4, 3)$ ; le plus proche de lui dans $\operatorname{conv}(B)$ est son projeté sur le côté qui joint $(3, 0)$ à $(0, 4)$, la droite $4x_1 + 3x_2 = 12$ : $\mathbf{q} = (4, 3) - \frac{13}{25}(4, 3) = (1{,}92 ;\ 1{,}44)$, à la distance $\frac{16 + 9 - 12}{5} = 2{,}6$. La plus grande marge vaut $\gamma^\star = 1{,}3$, atteinte par la médiatrice, de normale $(4, 3)$, qui passe par le milieu $(2{,}96 ;\ 2{,}22)$ : $4x_1 + 3x_2 - 18{,}5 = 0$. Les points les plus proches, à la distance $1{,}3$ exactement, sont $(4, 3)$ d'un côté, $(3, 0)$ et $(0, 4)$ de l'autre : ce sont eux qui fixent la droite (on les appellera **vecteurs de support**, *support vectors*, en M13b).
+Sur l'exemple, le point de $\operatorname{conv}(A)$ le plus proche de $\operatorname{conv}(B)$ est le sommet $\mathbf{p} = (4, 3)$ ; le plus proche de lui dans $\operatorname{conv}(B)$ est son projeté sur le côté qui joint $(3, 0)$ à $(0, 4)$, la droite $4x_1 + 3x_2 = 12$ : $\mathbf{q} = (4, 3) - \frac{13}{25}(4, 3) = (1{,}92 ;\ 1{,}44)$, à la distance $\frac{16 + 9 - 12}{5} = 2{,}6$. La plus grande marge vaut $\gamma^\star = 1{,}3$, atteinte par la médiatrice, de normale $(4, 3)$, qui passe par le milieu $(2{,}96 ;\ 2{,}22)$ : $4x_1 + 3x_2 - 18{,}5 = 0$. Les points les plus proches, à la distance $1{,}3$ exactement, sont $(4, 3)$ d'un côté, $(3, 0)$ et $(0, 4)$ de l'autre : ils touchent les bords de la bande (on les appellera **vecteurs de support**, *support vectors*, en M13b).
 
 ![Deux séparateurs des mêmes nuages : la droite x₁ + x₂ = 6, de marge 0,71, et la droite de plus grande marge, 4x₁ + 3x₂ = 18,5, de marge 1,3, médiatrice du segment le plus court entre les deux enveloppes](figures/marges.png)
 
 **La forme canonique.** Divisons $(\mathbf{w}, b) = ((4, 3), -18{,}5)$ par $6{,}5$, la plus petite marge fonctionnelle : les points les plus proches ont alors un score exactement égal à $\pm 1$, et $\lVert \mathbf{w} \rVert = \frac{5}{6{,}5} = \frac{1}{1{,}3}$. En général, quand le plus petit $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ vaut 1, la marge vaut $\frac{1}{\lVert \mathbf{w} \rVert}$ : chercher la plus grande marge revient à chercher le **plus petit** $\lVert \mathbf{w} \rVert$ sous les contraintes $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$. C'est le problème du SVM à marge dure, que M13b résout avec les multiplicateurs de Lagrange.
 
-🔗 **Dans workbookIA** — le chapitre 10 fait de la décision d'un neurone le signe d'un score $\mathbf{w} \cdot \mathbf{x} + b$ : une frontière qui est un hyperplan, et des données qu'un seul neurone ne peut classer parfaitement que si elles sont linéairement séparables. Le critère des enveloppes et l'astuce du biais y servent tels quels.
+🔗 **Dans workbookIA** — le chapitre 10 étudie le neurone, dont la décision dépend du signe d'un score affine : le critère des enveloppes et l'astuce du biais y servent tels quels.
 
 ## §4 · Récurrences sur une norme : croissance linéaire contre croissance en √k
 
-Ce paragraphe donne deux outils pour suivre une **suite de vecteurs** construite pas à pas, $\mathbf{v}_{k+1} = \mathbf{v}_k + \mathbf{d}_k$ : un robot qui avance, des paramètres qu'un algorithme corrige, une somme de vecteurs aléatoires.
+Ce paragraphe donne deux outils pour suivre une **suite de vecteurs** construite pas à pas, $\mathbf{v}_{k+1} = \mathbf{v}_k + \mathbf{d}_k$ : un robot qui avance, des paramètres qu'un algorithme corrige, une somme de vecteurs aléatoires. Jusqu'où peut-elle s'éloigner de son point de départ ?
 
 ### Une borne qui s'accumule
 
-> **Lemme (sommation).** Si une suite de nombres vérifie $a_{k+1} \le a_k + c$ pour tout $k$, alors $a_k \le a_0 + kc$ pour tout $k \ge 0$.
+> **Lemme (sommation).** Si une suite de nombres vérifie $a_{k+1} \le a_k + c_k$ pour tout $k$, alors $a_k \le a_0 + c_0 + c_1 + \cdots + c_{k-1}$ pour tout $k \ge 0$. Avec des $c_k$ tous égaux à $c$ : $a_k \le a_0 + kc$.
 
-Par récurrence (R4) : vrai pour $k = 0$ ; si $a_k \le a_0 + kc$, alors $a_{k+1} \le a_k + c \le a_0 + (k + 1)c$. De même, $a_{k+1} \ge a_k + g$ pour tout $k$ donne $a_k \ge a_0 + kg$.
+Par récurrence (R4) : vrai pour $k = 0$ (la somme est vide) ; si $a_k \le a_0 + c_0 + \cdots + c_{k-1}$, alors $a_{k+1} \le a_k + c_k \le a_0 + c_0 + \cdots + c_k$. Une inégalité « pas à pas » devient ainsi une inégalité « en tout ».
 
-**Le carré d'une norme pas à pas.** Développons (M07) :
-$$\lVert \mathbf{v}_k + \mathbf{d}_k \rVert^2 = \lVert \mathbf{v}_k \rVert^2 + 2\,\mathbf{v}_k \cdot \mathbf{d}_k + \lVert \mathbf{d}_k \rVert^2.$$
-Le terme du milieu décide de tout. Si chaque pas fait un angle droit ou obtus avec la position courante ($\mathbf{v}_k \cdot \mathbf{d}_k \le 0$ : le pas ne pousse pas « vers l'extérieur ») et si les pas ont une longueur au plus $L$, alors $\lVert \mathbf{v}_{k+1} \rVert^2 \le \lVert \mathbf{v}_k \rVert^2 + L^2$, et le lemme donne
-$$\lVert \mathbf{v}_k \rVert^2 \le \lVert \mathbf{v}_0 \rVert^2 + kL^2, \qquad \text{donc} \qquad \lVert \mathbf{v}_k \rVert \le \sqrt{\lVert \mathbf{v}_0 \rVert^2 + kL^2}.$$
-Partie de l'origine, une telle suite s'éloigne au plus comme $L\sqrt{k}$ : cent pas de longueur 1 ne l'emmènent pas plus loin que 10.
+### Deux bornes pour la norme
 
-Exemple : $\mathbf{v}_0 = (2, 0)$, puis $\mathbf{d}_0 = (0, 1)$, perpendiculaire à $\mathbf{v}_0$ : $\mathbf{v}_1 = (2, 1)$ et $\lVert \mathbf{v}_1 \rVert^2 = 5 = 4 + 1$, la borne est atteinte. Puis $\mathbf{d}_1 = (-0{,}6 ;\ 0{,}8)$, de longueur 1, avec $\mathbf{v}_1 \cdot \mathbf{d}_1 = -1{,}2 + 0{,}8 = -0{,}4 \le 0$ : $\mathbf{v}_2 = (1{,}4 ;\ 1{,}8)$ et $\lVert \mathbf{v}_2 \rVert^2 = 1{,}96 + 3{,}24 = 5{,}2$, sous la borne $4 + 2 = 6$ (exactement $5 - 0{,}8 + 1$). Quand chaque pas est perpendiculaire à la position, il y a égalité à chaque pas : $\lVert \mathbf{v}_k \rVert^2 = \lVert \mathbf{v}_0 \rVert^2 + \sum_{j < k} \lVert \mathbf{d}_j \rVert^2$, c'est Pythagore (M07) répété.
+**La borne de l'inégalité triangulaire, toujours vraie.** Développons (M07) :
+$$\lVert \mathbf{v} + \mathbf{d} \rVert^2 = \lVert \mathbf{v} \rVert^2 + 2\,\mathbf{v} \cdot \mathbf{d} + \lVert \mathbf{d} \rVert^2 \le \lVert \mathbf{v} \rVert^2 + 2\,\lVert \mathbf{v} \rVert\,\lVert \mathbf{d} \rVert + \lVert \mathbf{d} \rVert^2 = \big(\lVert \mathbf{v} \rVert + \lVert \mathbf{d} \rVert\big)^2,$$
+par Cauchy-Schwarz : c'est l'**inégalité triangulaire** $\lVert \mathbf{v} + \mathbf{d} \rVert \le \lVert \mathbf{v} \rVert + \lVert \mathbf{d} \rVert$. Avec des pas de longueur au plus $L$, le lemme appliqué aux normes donne $\lVert \mathbf{v}_k \rVert \le \lVert \mathbf{v}_0 \rVert + kL$ : une croissance **linéaire**, atteinte quand tous les pas vont dans la direction de la position.
 
-### Une progression qui s'accumule
+**La borne pas à pas sur le carré, quand les pas ne poussent pas vers l'extérieur.** Dans le développement, le terme du milieu dépend de l'angle entre le pas et la position :
+- pas **perpendiculaire** ($\mathbf{v} \cdot \mathbf{d} = 0$) : $\lVert \mathbf{v} + \mathbf{d} \rVert^2 = \lVert \mathbf{v} \rVert^2 + \lVert \mathbf{d} \rVert^2$, c'est Pythagore ;
+- angle **obtus** ($\mathbf{v} \cdot \mathbf{d} < 0$) : le carré de la norme augmente de moins que $\lVert \mathbf{d} \rVert^2$ ;
+- angle **aigu** ($\mathbf{v} \cdot \mathbf{d} > 0$) : il augmente de plus, jusqu'à $2\lVert \mathbf{v} \rVert\,\lVert \mathbf{d} \rVert + \lVert \mathbf{d} \rVert^2$ quand le pas va droit devant.
 
-Fixons un vecteur $\mathbf{e}$ de norme 1, une direction. Si chaque pas avance d'au moins $g > 0$ dans cette direction ($\mathbf{e} \cdot \mathbf{d}_k \ge g$), alors $\mathbf{e} \cdot \mathbf{v}_{k+1} \ge \mathbf{e} \cdot \mathbf{v}_k + g$, et le lemme donne $\mathbf{e} \cdot \mathbf{v}_k \ge \mathbf{e} \cdot \mathbf{v}_0 + kg$ : la projection sur $\mathbf{e}$ croît au moins **linéairement**. Or l'inégalité de Cauchy-Schwarz (M07) borne une projection par la norme : $\mathbf{e} \cdot \mathbf{v}_k \le \lVert \mathbf{e} \rVert\,\lVert \mathbf{v}_k \rVert = \lVert \mathbf{v}_k \rVert$.
+Si chaque pas fait un angle droit ou obtus avec la position courante ($\mathbf{v}_k \cdot \mathbf{d}_k \le 0$), on a donc $\lVert \mathbf{v}_{k+1} \rVert^2 \le \lVert \mathbf{v}_k \rVert^2 + \lVert \mathbf{d}_k \rVert^2$, et le lemme, appliqué aux **carrés** avec $c_k = \lVert \mathbf{d}_k \rVert^2$, donne
+$$\lVert \mathbf{v}_k \rVert^2 \le \lVert \mathbf{v}_0 \rVert^2 + \lVert \mathbf{d}_0 \rVert^2 + \cdots + \lVert \mathbf{d}_{k-1} \rVert^2, \qquad \text{et, si } \lVert \mathbf{d}_j \rVert \le L, \qquad \lVert \mathbf{v}_k \rVert \le \sqrt{\lVert \mathbf{v}_0 \rVert^2 + kL^2}.$$
 
-### Deux croissances incompatibles
+Exemple : $\mathbf{v}_0 = (2, 0)$, puis $\mathbf{d}_0 = (0, 1)$, perpendiculaire à $\mathbf{v}_0$ : $\mathbf{v}_1 = (2, 1)$ et $\lVert \mathbf{v}_1 \rVert^2 = 5 = 4 + 1$, la borne est atteinte. Puis $\mathbf{d}_1 = (-0{,}6 ;\ 0{,}8)$, de longueur 1, avec $\mathbf{v}_1 \cdot \mathbf{d}_1 = -1{,}2 + 0{,}8 = -0{,}4 \le 0$ : $\mathbf{v}_2 = (1{,}4 ;\ 1{,}8)$ et $\lVert \mathbf{v}_2 \rVert^2 = 1{,}96 + 3{,}24 = 5{,}2$, sous la borne $4 + 2 = 6$ (exactement $5 - 0{,}8 + 1$).
 
-Si une même suite vérifie les deux propriétés, sa norme est prise en tenaille : au moins $kg$ (en partant de $\mathbf{e} \cdot \mathbf{v}_0 = 0$), au plus de l'ordre de $L\sqrt{k}$. Une croissance linéaire finit toujours par dépasser une croissance en $\sqrt{k}$ : $kg \le L\sqrt{k}$ impose $\sqrt{k} \le \frac{L}{g}$. **Une telle suite ne peut donc pas continuer indéfiniment** : le nombre de pas qu'elle peut faire est borné, quelle que soit la façon dont les pas sont choisis. Dans l'exemple ci-dessus, avec $\mathbf{e} = (0, 1)$ : chaque pas avance d'au moins $g = 0{,}5$ vers le haut ($1$, puis $0{,}8$), et $\lVert \mathbf{v}_k \rVert^2 \le 4 + k$. Si cela continuait, il faudrait $0{,}5\,k \le \sqrt{4 + k}$, soit $k^2 \le 16 + 4k$, ce qui est faux dès $k = 7$ : au plus 6 pas de ce genre.
+### Linéaire contre √k
 
-![Une croissance linéaire, kg, finit toujours par passer au-dessus d'une croissance en √k : leur croisement borne le nombre de pas](figures/croissances.png)
+Partons de l'origine, avec cent pas de longueur 1. L'inégalité triangulaire autorise une distance de 100 ; si aucun pas ne pousse vers l'extérieur, la borne pas à pas n'autorise que $\sqrt{100} = 10$. La différence vient du terme croisé : un pas qui va droit devant ajoute $2\lVert \mathbf{v} \rVert L + L^2$ au carré de la norme, un supplément qui grandit avec la distance déjà parcourue ; un pas à angle droit ou obtus n'ajoute jamais plus que $L^2$. Une somme de pas à angle droit (une spirale) réalise la borne : la norme croît exactement comme $\sqrt{k}$, alors que des pas alignés la font croître comme $k$.
 
-⚠️ **Erreur classique.** Oublier pourquoi le terme $2\,\mathbf{v}_k \cdot \mathbf{d}_k$ disparaît. Sans l'hypothèse $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$, l'inégalité $\lVert \mathbf{v}_k + \mathbf{d}_k \rVert^2 \le \lVert \mathbf{v}_k \rVert^2 + \lVert \mathbf{d}_k \rVert^2$ est fausse : des pas tous dans la direction de $\mathbf{v}_k$ font croître la norme linéairement ($\lVert \mathbf{v}_k \rVert = \lVert \mathbf{v}_0 \rVert + kL$).
+![Deux bornes de la distance parcourue en k pas de longueur 1 : k pour l'inégalité triangulaire, √k quand aucun pas ne pousse vers l'extérieur](figures/croissances.png)
 
-🔗 **Dans workbookIA** — le chapitre 10 démontre qu'un algorithme d'apprentissage s'arrête après un nombre fini de corrections. La preuve suit ce schéma : une quantité qui croît linéairement, une norme qui croît au plus en $\sqrt{k}$, et Cauchy-Schwarz entre les deux.
+⚠️ **Erreur classique.** Confondre les deux bornes. $\lVert \mathbf{v}_k \rVert \le \lVert \mathbf{v}_0 \rVert + kL$ vaut toujours ; $\lVert \mathbf{v}_k \rVert \le \sqrt{\lVert \mathbf{v}_0 \rVert^2 + kL^2}$ demande que chaque pas fasse un angle droit ou obtus avec la position. Des pas tous dans la direction de $\mathbf{v}_k$ dépassent la seconde dès le premier pas.
+
+🔗 **Dans workbookIA** — le chapitre 10 se sert du carré d'une norme suivi pas à pas dans une démonstration, à faire là-bas.
 
 ## §5 · Activations : des fonctions d'une variable appliquées à un score
 
@@ -273,7 +277,7 @@ Un classifieur linéaire calcule un **score** $z = \mathbf{w} \cdot \mathbf{x} +
 
 **Une activation croissante garde la frontière.** Si $f$ est strictement croissante, l'ensemble $\{\mathbf{x} : f(\mathbf{w} \cdot \mathbf{x} + b) > f(0)\}$ est le demi-espace $\{\mathbf{w} \cdot \mathbf{x} + b > 0\}$ : décider « $\sigma(z) > \frac{1}{2}$ » ou « $\tanh(z) > 0$ », c'est décider « $z > 0$ ». C'est vrai aussi pour le seuil et ReLU, qui valent 0 pour tout $z \le 0$ et sont positifs au-delà. Plus généralement, pour une activation croissante, la région où la sortie dépasse un niveau donné est un demi-espace (ou, pour certains niveaux, tout l'espace ou rien) : un convexe (§1). Un seul neurone ne peut donc pas répondre « oui » sur une région qui n'est pas convexe.
 
-Sur l'exemple, le séparateur de plus grande marge sous forme canonique, $z = \frac{4x_1 + 3x_2 - 18{,}5}{6{,}5}$, donne $z = 1$ en $(4, 3)$ : $H(1) = 1$, $\sigma(1) \approx 0{,}731$, $\tanh(1) \approx 0{,}762$, $\operatorname{ReLU}(1) = 1$ ; en $(3, 0)$, $z = -1$ : $0$, $0{,}269$, $-0{,}762$ et $0$. La ligne de niveau $\sigma = 0{,}731$ est la droite $z = 1$, parallèle à la frontière, à la distance $\frac{1}{\lVert \mathbf{w} \rVert} = 1{,}3$ d'elle : le bord de la marge.
+Sur l'exemple, le séparateur de plus grande marge sous forme canonique, $z = \frac{4x_1 + 3x_2 - 18{,}5}{6{,}5}$, donne $z = \frac{14{,}5}{6{,}5} \approx 2{,}23$ en $(6, 3)$ : $H = 1$, $\sigma \approx 0{,}903$, $\tanh \approx 0{,}977$, $\operatorname{ReLU} \approx 2{,}23$ ; en $(1, 0)$, $z \approx -2{,}23$ : $0$, $0{,}097$, $-0{,}977$ et $0$. En $(4, 3)$, $z = 1$ : la ligne de niveau de la sortie qui passe par ce point est la droite $z = 1$, parallèle à la frontière, à la distance $\frac{1}{\lVert \mathbf{w} \rVert} = 1{,}3$ d'elle : le bord de la marge, quelle que soit l'activation.
 
 ![Les sorties de quatre activations appliquées au même score, sur le plan : des bandes parallèles à la frontière, en marche, en pente douce ou en rampe](figures/activations.png)
 
@@ -289,18 +293,18 @@ Sur l'exemple, le séparateur de plus grande marge sous forme canonique, $z = \f
 | La courbe d'une fonction convexe vue comme un ensemble convexe | c'est la région au-dessus de la courbe (l'épigraphe) qui est convexe |
 | Garder un point au milieu d'un côté comme sommet | retirer le dernier point quand le produit vectoriel est $\le 0$, pas seulement $< 0$ |
 | Un produit vectoriel de signe inversé, $u_2v_1 - u_1v_2$ | $\mathbf{u} \times \mathbf{v} = u_1v_2 - u_2v_1$ : positif quand on tourne à gauche |
-| Prouver la non-séparabilité par des essais | exhiber un point commun aux deux enveloppes convexes |
+| Conclure à la non-séparabilité sur des dessins | écrire un témoin : un point dont on montre qu'il est dans les deux enveloppes |
 | Tester la séparabilité avec $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 0$ | exiger $\ge 1$ : avec $\ge 0$, $\mathbf{w} = \mathbf{0}$ et $b = 0$ conviennent toujours |
-| Oublier le biais | sans $b$, l'hyperplan passe par l'origine ; ajouter la coordonnée 1 (astuce du biais) |
+| Oublier le biais | sans terme constant, on ne cherche que parmi les hyperplans qui passent par l'origine : ajouter la coordonnée 1 |
 | Prendre la marge fonctionnelle pour une distance | diviser par $\lVert \mathbf{w} \rVert$ : la marge géométrique ne change pas quand on multiplie $(\mathbf{w}, b)$ par un réel positif |
-| $\lVert \mathbf{v} + \mathbf{d} \rVert^2 \le \lVert \mathbf{v} \rVert^2 + \lVert \mathbf{d} \rVert^2$ sans condition | seulement si $\mathbf{v} \cdot \mathbf{d} \le 0$ |
+| Confondre la borne triangulaire et la borne pas à pas | $\lVert \mathbf{v}_0 \rVert + kL$ toujours ; $\sqrt{\lVert \mathbf{v}_0 \rVert^2 + kL^2}$ seulement si aucun pas ne pousse vers l'extérieur |
 | Croire qu'une activation change la frontière | une activation croissante garde l'hyperplan ; elle change la sortie autour de lui |
 
 ## Et maintenant
 
 **Dans ce dépôt** : M11 passe à la logique, à l'induction et aux inégalités de concentration ; M13b reprend la plus grande marge comme un problème d'optimisation sous contraintes (le SVM, primal et dual, où les enveloppes convexes reviennent) ; M12c et M19 étudient les fonctions convexes de plusieurs variables, M17 les dérivées des activations.
 
-**Dans workbookIA** : le chapitre 10 présente le neurone, du neurone biologique au perceptron et au neurone moderne. Tu y reconnaîtras le score affine et sa frontière (M07 et §3), le critère de séparabilité et son usage pour montrer ce qu'un seul neurone ne peut pas faire (§2 et §3), l'astuce du biais (§3), le schéma de preuve du §4 et les activations du §5 ; ses démonstrations, ses calculs de neurones et ses fonctions `mylearn` sont à faire là-bas.
+**Dans workbookIA** : le chapitre 10 présente le neurone, du neurone biologique au perceptron et au neurone moderne. Tu y reconnaîtras le score affine et sa frontière (M07 et §3), le critère de séparabilité et son usage pour montrer ce qu'un seul neurone ne peut pas faire (§2 et §3), l'astuce du biais (§3), le carré d'une norme suivi pas à pas (§4) et les activations du §5 ; ses démonstrations, ses calculs de neurones et ses fonctions `mylearn` sont à faire là-bas.
 
 ## Pour aller plus loin
 

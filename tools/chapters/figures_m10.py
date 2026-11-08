@@ -143,14 +143,12 @@ def bias_trick():
 
 def growths():
     fig, ax = plt.subplots(figsize=(6, 3.8))
-    k = np.linspace(0, 12, 300)
-    ax.plot(k, 0.5 * k, color=C[0], linewidth=2, label="au moins 0,5 k (progression)")
-    ax.plot(k, np.sqrt(4 + k), color=C[1], linewidth=2, label="au plus √(4 + k) (norme)")
-    cross = 2 + np.sqrt(20)
-    ax.axvline(cross, color="grey", linestyle=":")
-    ax.annotate("croisement : k ≈ 6,5", (cross, 0.5 * cross), (7.5, 1.4), fontsize=8,
-                arrowprops={"arrowstyle": "->"})
-    ax.set_xlabel("nombre de pas k")
+    k = np.linspace(0, 100, 401)
+    ax.plot(k, k, color=C[0], linewidth=2, label="k : l'inégalité triangulaire (pas alignés)")
+    ax.plot(k, np.sqrt(k), color=C[1], linewidth=2, label="√k : aucun pas ne pousse vers l'extérieur")
+    ax.annotate("100 pas : 100 contre 10", (100, 10), (52, 40), fontsize=8, arrowprops={"arrowstyle": "->"})
+    ax.set_xlabel("nombre de pas k (de longueur 1, depuis l'origine)")
+    ax.set_ylabel("borne de la distance")
     ax.legend(loc="upper left", fontsize=8)
     ax.grid(alpha=0.3)
     save(fig, "croissances.png")
