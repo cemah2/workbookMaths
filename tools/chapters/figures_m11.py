@@ -22,7 +22,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 from matplotlib.patches import Ellipse  # noqa: E402
-from matplotlib.ticker import FixedFormatter, FuncFormatter  # noqa: E402
+from matplotlib.ticker import FuncFormatter, ScalarFormatter  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
@@ -43,7 +43,7 @@ def save(fig, name: str) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     for ax in fig.axes:
         for axis in (ax.xaxis, ax.yaxis):
-            if axis.get_scale() == "linear" and not isinstance(axis.get_major_formatter(), FixedFormatter):
+            if axis.get_scale() == "linear" and isinstance(axis.get_major_formatter(), ScalarFormatter):
                 axis.set_major_formatter(FuncFormatter(french_number))
     fig.savefig(OUT / name, dpi=DPI, bbox_inches="tight")
     plt.close(fig)

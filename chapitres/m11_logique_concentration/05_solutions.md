@@ -53,7 +53,7 @@
 2. **Vrai**.
 3. Il est **divisé par 2** (le rayon est en $\frac{1}{\sqrt{n}}$).
 4. Par $\frac{\ln(2/0{,}0005)}{\ln(2/0{,}05)} = \frac{\ln 4\,000}{\ln 40} \approx 2{,}25$ : diviser le risque par 100 ne coûte qu'un peu plus du double.
-5. **Faux** : l'accuracy du meilleur des 30 n'est pas celle d'un modèle fixé d'avance ; il faut la borne de l'union, avec $\frac{0{,}05}{30}$ pour chacun.
+5. **Faux** : l'accuracy du meilleur des 25 n'est pas celle d'un modèle fixé d'avance ; il faut la borne de l'union, avec $\frac{0{,}05}{25} = 0{,}002$ pour chacun.
 6. **Faux** : Hoeffding demande un intervalle $[a, b]$ connu à l'avance.
 
 ### M11.Q7 — Explorer ou exploiter : vrai ou faux
@@ -62,7 +62,7 @@
 3. **Vrai** : le bonus $\sqrt{2\ln t / N}$ diminue quand $N$ augmente (à $t$ donné).
 4. **Faux** : Thompson **tire** une valeur dans chaque loi a posteriori ; une option de moyenne plus basse mais incertaine gagne parfois le tirage.
 5. **Vrai** : $\frac{\ln T}{T} \to 0$.
-6. **Faux** : le regret compare les **moyennes** $\mu^\star$ et $\mu_{A_t}$, pas les récompenses tirées (un meilleur tirage observé peut venir d'une option moins bonne, par chance).
+6. **Faux** : $R_T = \sum_k \Delta_k\,\mathbb{E}[N_k(T)]$, avec chaque $\Delta_k \ge 0$ : le regret est une espérance qui compare des **moyennes**, pas les récompenses tirées ; la chance change les récompenses, pas le regret.
 
 <a id="rappels"></a>
 

@@ -43,7 +43,7 @@ Vrai ou faux ?
 $E = \{1, \ldots, 40\}$ ; $A$ est l'ensemble des multiples de 10 de $E$, $B$ celui des multiples de 5, $C$ celui des multiples de 7.
 1. A-t-on $A \subset B$ ?
 2. A-t-on $B \subset A$ ? Si non, un contre-exemple.
-3. Écris $A \cap C$ en extension.
+3. Écris $A \cap C$ en extension (il peut être vide).
 4. « Tout multiple de 7 de $E$ est impair » : vrai ou faux ? Justifie par un élément.
 5. Vrai ou faux : $\bar{B} \subset \bar{A}$ (les complémentaires dans $E$).
 6. Combien d'éléments compte $A \cup C$ ?
@@ -75,7 +75,7 @@ $E = \{1, \ldots, 40\}$ ; $A$ est l'ensemble des multiples de 10 de $E$, $B$ cel
 2. Vrai ou faux : elle suppose des variables indépendantes, à valeurs dans un intervalle connu à l'avance.
 3. Quand $n$ est multiplié par 4, que devient le rayon de confiance à risque fixé ?
 4. Pour garder le même rayon, par combien multiplie-t-on $n$ quand le risque $\delta$ passe de 0,05 à 0,0005 ?
-5. Vrai ou faux : parmi 30 modèles, on garde celui qui a la meilleure accuracy sur le jeu de test ; le rayon de Hoeffding de cette accuracy, calculé avec $\delta = 0{,}05$ comme pour un seul modèle, reste valable.
+5. Vrai ou faux : parmi 25 modèles, on garde celui qui a la meilleure accuracy sur le jeu de test ; le rayon de Hoeffding de cette accuracy, calculé avec $\delta = 0{,}05$ comme pour un seul modèle, reste valable.
 6. Vrai ou faux : on peut appliquer Hoeffding au revenu moyen par client, sans plafond connu des revenus.
 
 ### M11.Q7 — Explorer ou exploiter : vrai ou faux 🧠 ★ ⏱️ 4 min
@@ -86,7 +86,7 @@ $E = \{1, \ldots, 40\}$ ; $A$ est l'ensemble des multiples de 10 de $E$, $B$ cel
 3. Le bonus d'UCB d'une option diminue quand on la choisit plus souvent.
 4. L'échantillonnage de Thompson choisit toujours l'option de plus grande moyenne a posteriori.
 5. Un regret qui croît comme $\ln T$ veut dire que la proportion de pas mal employés tend vers 0.
-6. Le regret est la somme des récompenses perdues, à chaque pas, par rapport au meilleur tirage observé.
+6. Sur une partie où l'on a eu de la chance, le regret $R_T$ peut être négatif.
 
 <a id="rappels"></a>
 
@@ -117,7 +117,7 @@ Un nouveau test de détection de fissures est essayé sur des pièces dont on co
 1. La loi a posteriori de $\theta$ ?
 2. Sa moyenne ?
 3. Sa variance (pour $\mathrm{Beta}(a, b)$, $\frac{ab}{(a + b)^2(a + b + 1)}$) ?
-4. Sur 65 nouveaux essais, il réussit 25 fois et échoue 40 fois : la nouvelle loi a posteriori, et sa moyenne ? Pourquoi est-elle plus resserrée ?
+4. Sur 65 nouveaux essais, il réussit 25 fois et échoue 40 fois : en partant de la loi a posteriori de la question 1, la nouvelle loi a posteriori, et sa moyenne ? Pourquoi est-elle plus resserrée ?
 5. Comment tirer une valeur au hasard dans la loi a posteriori de la question 1 avec NumPy ?
 
 <a id="papier"></a>

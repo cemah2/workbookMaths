@@ -148,7 +148,7 @@ La dernière ligne est la **négation** de la première : nier une inclusion, c'
 
 **Compter.** Le cardinal d'une réunion se compte sans double compte (R4) : $\lvert A \cup C \rvert = \lvert A \rvert + \lvert C \rvert - \lvert A \cap C \rvert = 6 + 8 - 2 = 12$. C'est aussi ce qui fait les probabilités : avec un élément tiré au hasard dans $E$, $P(A \cup C) = \frac{12}{24}$.
 
-⚠️ **Erreur classique.** Croire que « au moins un élément de $A$ est dans $B$ » et « au moins un élément de $B$ est dans $D$ » donnent « au moins un élément de $A$ est dans $D$ ». Les deux témoins peuvent être différents : avec $D = \{6, 18\}$, on a $4 \in A \cap B$ et $6 \in B \cap D$, et pourtant $A \cap D = \varnothing$. Seule une inclusion se transmet : $A \subset B$ et $B \subset D$ donnent $A \subset D$.
+⚠️ **Erreur classique.** Croire que « au moins un élément de $A$ est dans $B$ » et « au moins un élément de $B$ est dans $D$ » donnent « au moins un élément de $A$ est dans $D$ ». Les deux témoins peuvent être différents : avec $D = \{10, 22\}$, on a $4 \in A \cap B$ et $10 \in B \cap D$, et pourtant $A \cap D = \varnothing$. Seule une inclusion se transmet : $A \subset B$ et $B \subset D$ donnent $A \subset D$.
 
 ## §3 · L'induction et ses pièges
 
@@ -334,7 +334,7 @@ La stratégie **UCB** (*upper confidence bound*) choisit l'option dont cette **b
 
 Le risque $\delta$ doit **décroître** avec le temps : sur un horizon long, on regarde des milliers de bornes, et la borne de l'union demande que leurs risques aient une somme petite. Avec $\delta_t = t^{-4}$, $\ln(1/\delta_t) = 4\ln t$ et le bonus devient
 $$\sqrt{\frac{2\ln t}{N}},$$
-celui de la stratégie **UCB1** (Auer, Cesa-Bianchi et Fischer, 2002). Sur la figure, au pas $t = 480$ ($\ln 480 \approx 6{,}17$), l'option choisie 24 fois a un bonus $\sqrt{12{,}35/24} \approx 0{,}72$, celle choisie 400 fois $\sqrt{12{,}35/400} \approx 0{,}18$. Combien de fois choisit-on une option d'écart $\Delta$ ? Tant que son bonus dépasse $\frac{\Delta}{2}$, sa borne peut dépasser $\mu^\star$ ; or $\sqrt{2\ln t / N} < \frac{\Delta}{2}$ dès que $N > \frac{8\ln t}{\Delta^2}$. Le nombre de choix d'une mauvaise option croît donc comme $\ln T$, et le regret aussi (M11.9).
+celui de la stratégie **UCB1** (Auer, Cesa-Bianchi et Fischer, 2002). Sur la figure, au pas $t = 480$ ($\ln 480 \approx 6{,}17$), l'option choisie 24 fois a un bonus $\sqrt{12{,}35/24} \approx 0{,}72$, celle choisie 400 fois $\sqrt{12{,}35/400} \approx 0{,}18$ (la situation est construite pour l'exemple : UCB1 lui-même aurait choisi l'option 3 bien plus tôt). Combien de fois choisit-on une option d'écart $\Delta$ ? Tant que son bonus dépasse $\frac{\Delta}{2}$, sa borne peut dépasser $\mu^\star$ ; or $\sqrt{2\ln t / N} < \frac{\Delta}{2}$ dès que $N > \frac{8\ln t}{\Delta^2}$. Le nombre de choix d'une mauvaise option croît donc comme $\ln T$, et le regret aussi (M11.9).
 
 ### L'échantillonnage de Thompson
 
@@ -359,13 +359,13 @@ La borne d'UCB1 porte une grosse constante (le 8 de $\frac{8 \ln T}{\Delta^2}$, 
 | Prouver une phrase en « pour tout » par des exemples | un raisonnement pour tout élément ; un seul contre-exemple suffit à la réfuter |
 | Enchaîner deux phrases en « au moins un » | seules les inclusions se transmettent ($A \subset B \subset C$) |
 | Lire $P(\text{signal} \mid \text{cas})$ comme $P(\text{cas} \mid \text{signal})$ | Bayes, avec le taux de base |
-| Compter sur la taille pour corriger un échantillon biaisé | la taille réduit le hasard, pas le biais : corriger la collecte |
+| Croire qu'un très grand échantillon efface un biais de sélection | la moyenne converge vers celle des individus observés : changer la façon de tirer l'échantillon |
 | Markov sur une variable qui peut être négative | se ramener à $\lvert X \rvert$, $(X - \mu)^2$ ou $X - m$ |
 | Tchebychev avec $t$ au lieu de $t^2$ | diviser $t$ par 2 multiplie $n$ par 4 |
 | Hoeffding sans bornes connues, ou sans indépendance | vérifier $[a, b]$ fixé d'avance et des tirages indépendants |
 | Un rayon sans racine carrée, ou sans le facteur 2 du bilatéral | $r = (b - a)\sqrt{\ln(2/\delta) / (2n)}$ |
 | Le rayon du meilleur de $K$ modèles calculé comme pour un seul | la borne de l'union : $\frac{\delta}{K}$ |
-| Le regret mesuré avec les récompenses tirées | il compare les **moyennes** $\mu^\star$ et $\mu_{A_t}$ |
+| Calculer le regret avec les récompenses obtenues | chaque choix de $k$ coûte $\Delta_k \ge 0$ en espérance, quel que soit le tirage |
 
 ## Et maintenant
 
