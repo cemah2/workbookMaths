@@ -3009,17 +3009,17 @@
       },
       "coarser": {
         "1": [
-          "f052f55fed752747340c711381ff0880c6fcfdc34d3126a6a12abbf6ee7b31f8"
+          "6d4dd460d7bac66b1aab6c405ebd745e1a9e284717eb7c903449a2ef59f5ef6f"
         ]
       },
       "decimals": 3,
-      "hash": "8cbe4cf5453fbc1fd9a4b888a14314e613d5dbf514e1b12d223825f3cf3a5f06",
-      "hash_coarse": "1a9e523e10ea1dc56fe2e3092af23f1d015af2ce6f6e13db2da60dde8d847fbf",
+      "hash": "ee4fb41cd27886ac4a02ccd3d5b4226c9a96f1be370e601ff5687fe451592cb4",
+      "hash_coarse": "cb6bb9ab2f042d68cad6774d9f839a71950e7d4c5707c7cdf3b84ade9f434377",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "98476d61481b0ead9f3c1b302f6cbae142643edf52151e74afe2d7fda507fa95": "‖w‖ est la racine de 2² + (−1)²",
-        "e5f60d3cfe8394e79231c3f98adb09ae30513c194e12cdfd4813230c2d7fcd63": "la marge géométrique divise par ‖w‖"
+        "2c5134e679e8e958296cf5e258d18e103aedb69c495cfd2633eae869ac9d34c3": "‖w‖ est la racine de 4² + (−1)²",
+        "945623a98f39ccf6b1e7e2afe04149400a341a8b531c6c438fe5ff8a6cbbaf87": "la marge géométrique divise par ‖w‖"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
@@ -3142,13 +3142,19 @@
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.8e": {
+      "coarse_any": {
+        "2": [
+          "da86bfd3507587596f1c369c7f5bc31bd65dc7a19150bd4a8c99acf677831bbf"
+        ]
+      },
       "decimals": 4,
-      "hash": "bbeb6ecea3d6b8e657592c8a79169f968fe8028c131e1f77b369316836bf88cf",
-      "hash_coarse": "de3d239ff617e943bb2a3df62accf2656516bd751600516f6b85f8ccf2ce59cc",
+      "hash": "f58758b37ff934c7c479a7a728d02e0412bfe7fe5428285bd9c5d7c46e63bfd5",
+      "hash_coarse": "e3ff17c408a0ee6380c399c94fd070125a222ae95fb90b476b00c2e29d1ec275",
       "kind": "float",
-      "magnitude": -3,
+      "magnitude": -2,
       "mistakes": {
-        "887df5a65da61176d3b564e7c4dd2d23069ce7afbe3a169ae5efddabd7daadea": "la borne bilatérale a un facteur 2"
+        "32e7d43cfeb7978d78c0fdeb865f6bbece06c03fab150e78dafafbc9f634c211": "la borne bilatérale a un facteur 2",
+        "5dca99c5e7139b7565fa1b7cf3086dcc745ecaefc19be6ce3048ddfdceba45d9": "la borne bilatérale a un facteur 2"
       },
       "sign": 1,
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
@@ -3214,35 +3220,37 @@
       "source": "checkpoints/partie_2/03_examen_solutions.ipynb"
     },
     "CP2.11b": {
-      "decimals": 4,
+      "decimals": 5,
       "element_coarse": [
         [
-          "cf40019fc8a8b7fbd658e3198f32f85809bb6f541766d20744568f9834179fb1"
+          "9bcc9964a5818ac5291795df7e97c591434563fa4a856c8a0be3e0db60065002"
         ],
         [
-          "3bc2c1005ec6959c8ceb967eb18c24287afc3daabef547fbe6b86992046a3859"
+          "d5a28d9cde2ab63d148b0312067fcca2e22059d8b9af765262510ad62a41a9eb"
         ]
       ],
       "element_coarse_any": [
         [
           "49dde807acb2ad2d62c80e83dfa9f7f26990c7efffb61c1679fabe07e129d140",
           "b9ea7e4b2d0dc69eb1cd88e8e01819bf6f36c387e76277a3420945a1e90caa78",
-          "aecfffca0e159e8a202aaa41c9bb4d980d64165dac4f00d51073e42ea1774a47"
+          "aecfffca0e159e8a202aaa41c9bb4d980d64165dac4f00d51073e42ea1774a47",
+          "cf40019fc8a8b7fbd658e3198f32f85809bb6f541766d20744568f9834179fb1"
         ],
         [
           "e62e7f2b3ce1b19228e9ac0d976747921bc572f2f5716aee56325e27b04d1740",
           "ed7405f8392afb92afea75449fe7a73e208a3e1aa88e0fff301a7d01a9c21db0",
-          "a5ed4c67419c1cb9007ec51521b321f4ceb89b35615db4522674ceaf967c3885"
+          "a5ed4c67419c1cb9007ec51521b321f4ceb89b35615db4522674ceaf967c3885",
+          "3bc2c1005ec6959c8ceb967eb18c24287afc3daabef547fbe6b86992046a3859"
         ]
       ],
       "element_hashes": [
-        "9bcc9964a5818ac5291795df7e97c591434563fa4a856c8a0be3e0db60065002",
-        "d5a28d9cde2ab63d148b0312067fcca2e22059d8b9af765262510ad62a41a9eb"
+        "d5c55395e14588a13f0588b8f5e690a62a322263cd04868ee15ba3021e63c97b",
+        "1f889ab04f5a7b7d0a0ed862274bfd086c29c124719bc57860a20731de83af02"
       ],
-      "hash": "673bb7f35858954d62f8509a5c2b85c671e715f81e9e146d6edaf335d6888b58",
+      "hash": "635a6e77f1e95c3febe6273c7381ed6ccae7bfb8abf88b5129b321f80bd39a46",
       "kind": "array",
       "mistakes": {
-        "1a1dd790162de7a84cdbc9fde76ebb8cb57495f654a35e00ab6a44b17c69f50a": "la liste est [a, b] : l'ordonnée à l'origine d'abord"
+        "2211fc5ec419f7c244f926ef97054e35037fd720a7c4bdd791ef9d5f09e83c6c": "la liste est [a, b] : l'ordonnée à l'origine d'abord"
       },
       "shape": [
         2

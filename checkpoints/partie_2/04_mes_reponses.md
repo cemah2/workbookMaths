@@ -66,7 +66,7 @@
 - e) SCR =
 - f) w ridge (λ = 3) =
 - g) Xᵀ(y − X w_ridge) =
-- Vérification de Xᵀr = 0 ; g) comparé à λ w_ridge, et pourquoi :
+- Vérification de Xᵀr = 0, et pourquoi g) n'est pas nul :
 
 ## CP2.6 — Biais, variance et erreur quadratique d'un estimateur
 

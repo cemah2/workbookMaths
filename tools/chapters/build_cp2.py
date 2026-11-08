@@ -288,8 +288,8 @@ PAPER = [
         ("b", "True or False", "True",
          'mistakes={"teste (3, 4) contre chaque côté avec un produit vectoriel, sens direct : il est dedans s\'il est '
          'à gauche de chacun": False}'),
-        ("c", "a number (3 decimals)", "margin_7((2, -1), -2)",
-         'decimals=3, mistakes={"la marge géométrique divise par ‖w‖": 3, "‖w‖ est la racine de 2² + (−1)²": 3 / 5}'),
+        ("c", "a number (3 decimals)", "margin_7((4, -1), -8)",
+         'decimals=3, mistakes={"la marge géométrique divise par ‖w‖": 5, "‖w‖ est la racine de 4² + (−1)²": 5 / 17}'),
         ("d", "a number (3 decimals)", "margin_7((3, -1), -6)",
          'decimals=3, mistakes={"la marge maximale est la moitié de la distance entre les deux enveloppes": '
          '2 * margin_7((3, -1), -6), "la distance entre deux enveloppes peut être celle d\'un sommet à un côté, '
@@ -311,8 +311,8 @@ PAPER = [
         ("d", "a number (3 decimals)", "math.sqrt(math.log(2 / 0.02) / (2 * 1200))",
          'decimals=3, mistakes={"le rayon bilatéral utilise ln(2/δ)": math.sqrt(math.log(1 / 0.02) / 2400), '
          '"ln(2/δ) se divise par 2n": math.sqrt(math.log(100) / 1200)}'),
-        ("e", "a number (4 decimals)", "2 * math.exp(-2 * 1200 * 0.05 ** 2)",
-         'decimals=4, mistakes={"la borne bilatérale a un facteur 2": math.exp(-6)}'),
+        ("e", "a number (4 decimals)", "2 * math.exp(-2 * 1200 * 0.045 ** 2)",
+         'decimals=4, mistakes={"la borne bilatérale a un facteur 2": math.exp(-2 * 1200 * 0.045 ** 2)}'),
         ("f", "an integer", "math.ceil(math.log(2 / 0.02) / (2 * 0.025 ** 2))",
          'mistakes={"n doit être au moins égal à la formule : arrondis au-dessus": 3684, '
          '"le rayon bilatéral utilise ln(2/δ)": 3130, "ln(2/δ) se divise par 2 t²": 7369}'),
@@ -323,8 +323,8 @@ PAPER = [
     Paper("CP2.11", "Problème de synthèse : ajuster un modèle, mesurer son erreur, décider", [
         ("a", "[sum of x², sum of x y]", "[G_11[1][1], XY_11[1]]",
          'mistakes={"Σxᵢ² additionne les carrés des tailles, et Σxᵢyᵢ les produits nuit par nuit": [30 ** 2, 30 * 90]}'),
-        ("b", "[a, b] (4 decimals)", "[A_11, B_11]",
-         'decimals=4, mistakes={"la liste est [a, b] : l\'ordonnée à l\'origine d\'abord": [B_11, A_11]}'),
+        ("b", "[a, b] (5 decimals)", "[A_11, B_11]",
+         'decimals=5, mistakes={"la liste est [a, b] : l\'ordonnée à l\'origine d\'abord": [B_11, A_11]}'),
         ("c", "a number (2 decimals)", "SCR_11",
          'decimals=2, mistakes={"la SCR mesure les résidus du modèle, pas les écarts à la moyenne de y": SCT_11}'),
         ("d", "a number (3 decimals)", "1 - SCR_11 / SCT_11",

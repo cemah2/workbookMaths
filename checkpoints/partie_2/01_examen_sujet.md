@@ -42,13 +42,13 @@ Pour chaque affirmation, réponds **Vrai** ou **Faux**, puis justifie en une phr
 
 a) Si $\mathbf{u}$ et $\mathbf{v}$ sont deux vecteurs non nuls tels que $\mathbf{u} \cdot \mathbf{v} = 0$, alors $\lVert \mathbf{u} + \mathbf{v} \rVert = \lVert \mathbf{u} - \mathbf{v} \rVert$.
 b) Ajouter un même vecteur non nul à $\mathbf{u}$ et à $\mathbf{v}$ ne change pas leur similarité cosinus.
-c) Avec deux groupes de 4 mesures, un test par permutation exhaustif et bilatéral peut donner une p-valeur de 0,01.
+c) Avec un groupe de 2 mesures et un groupe de 6 mesures, un test par permutation exhaustif et bilatéral peut donner une p-valeur de 0,01.
 d) On fait 15 tests indépendants au seuil de 5 %, et l'hypothèse nulle de chacun est vraie : la probabilité d'obtenir au moins un faux positif dépasse $\frac{1}{2}$.
 e) Si $\mathbf{A}$ est une matrice de forme $(3, 4)$, le système $\mathbf{A}\mathbf{x} = \mathbf{0}$ a une infinité de solutions.
-f) Un système de 4 équations linéaires à 2 inconnues peut avoir exactement une solution.
-g) Le modèle $\hat{y} = w_0 + w_1 e^x + w_2 \ln x$ (pour $x > 0$) s'ajuste par les équations normales des moindres carrés.
+f) Un système de 5 équations linéaires à 3 inconnues peut avoir exactement une solution.
+g) Ajuster par les moindres carrés le modèle $\hat{y} = w_0 + w_1 \sqrt{x} + w_2\,2^x$ (pour $x \ge 0$) revient à résoudre un système linéaire de 3 équations à 3 inconnues.
 h) Les features polynomiales de degré au plus 2 en 4 variables, constante comprise, sont au nombre de 14.
-i) L'ensemble $\{(x, y) : x \ge 0,\ y \ge 0,\ xy \le 1\}$ est convexe.
+i) L'ensemble $\{(x, y) : x \ge 0,\ y \ge \sqrt{x}\}$ est convexe.
 j) Une variable aléatoire $X \ge 0$ de moyenne 2 peut vérifier $P(X \ge 10) = 0{,}25$.
 
 ### CP2.1 — Normes, cosinus, projection et distance à un hyperplan ✏️ ★★ ⏱️ 10 min · 1,75 point
@@ -140,7 +140,7 @@ On ajuste $\hat{y} = w_1 x_1 + w_2 x_2$, sans ordonnée à l'origine : $\mathbf{
 | f | les poids ridge pour $\lambda = 3$ (on minimise $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \lambda \lVert \mathbf{w} \rVert^2$, les deux poids pénalisés) | une liste (4 décimales) |
 | g | le vecteur $\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}_{\text{ridge}})$, avec les poids de f) | une liste (3 décimales) |
 
-Sur ta copie : vérifie avec d) que $\mathbf{X}^\top\mathbf{r} = \mathbf{0}$ ; compare g) à $\lambda\,\mathbf{w}_{\text{ridge}}$, et montre pourquoi les équations de ridge donnent cette égalité.
+Sur ta copie : vérifie avec d) que $\mathbf{X}^\top\mathbf{r} = \mathbf{0}$, puis explique pourquoi g) n'est pas nul.
 
 ### CP2.6 — Biais, variance et erreur quadratique d'un estimateur ✏️ ★★ ⏱️ 8 min · 1,5 point
 
@@ -165,11 +165,11 @@ Six points du plan : $(0, 0)$, $(4, 0)$, $(5, 3)$, $(2, 5)$, $(1, 2)$, $(3, 2)$.
 |---|---|---|
 | a | les sommets de l'enveloppe convexe des six points, dans le sens direct (contraire des aiguilles d'une montre), en partant de $(0, 0)$ | la liste $[[x, y], \ldots]$ |
 | b | le point $(3, 4)$ est-il dans l'enveloppe ? (justifie sur ta copie par des produits vectoriels) | `True` ou `False` |
-| c | la marge géométrique du séparateur $\mathbf{w} = (2, -1)$, $b = -2$ | un nombre (3 décimales) |
+| c | la marge géométrique du séparateur $\mathbf{w} = (4, -1)$, $b = -8$ | un nombre (3 décimales) |
 | d | la plus grande marge possible entre les deux nuages **[0,5]** | un nombre (3 décimales) |
 | e | le séparateur de marge maximale, écrit sous forme canonique ($\min_i y_i\,(\mathbf{w} \cdot \mathbf{x}_i + b) = 1$) | la liste $[w_1, w_2, b]$ |
 
-Sur ta copie, pour d) : quels points des deux nuages sont les plus proches l'un de l'autre, et le séparateur est-il la médiatrice de deux points ?
+Sur ta copie, pour d) : quels points des deux enveloppes convexes sont les plus proches (ce ne sont pas forcément des points des nuages), et le séparateur est-il la médiatrice de deux points des nuages ?
 
 ### CP2.8 — Markov, Tchebychev et Hoeffding ✏️ ★★ ⏱️ 9 min · 1,5 point
 
@@ -181,7 +181,7 @@ La hauteur de pluie $T$ tombée en une journée à une station météo, en dixi�
 | b | la borne de Tchebychev sur $P(T \ge 300)$ | un nombre (4 décimales) |
 | c | le plus petit nombre $n$ de journées, supposées indépendantes, pour lequel Tchebychev garantit que leur moyenne $\bar{T}$ vérifie $P(\lvert \bar{T} - 120 \rvert \ge 5) \le 0{,}05$ | un entier |
 | d | avec $n = 1\,200$ ampoules et $\delta = 0{,}02$, le rayon de Hoeffding (bilatéral) de la proportion | un nombre (3 décimales) |
-| e | avec $n = 1\,200$, la borne de Hoeffding sur $P(\lvert \hat{p} - p \rvert \ge 0{,}05)$ | un nombre (4 décimales) |
+| e | avec $n = 1\,200$, la borne de Hoeffding sur la probabilité que $\hat{p}$ s'écarte de $p$ d'au moins 0,045 | un nombre (4 décimales) |
 | f | le plus petit $n$ qui garantit un rayon de Hoeffding d'au plus 0,025 avec $\delta = 0{,}02$ | un entier |
 
 ### CP2.9 — Une démonstration courte, au choix parmi deux ∂ ★★★ ⏱️ 12 min · 2 points
@@ -206,9 +206,9 @@ Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 
 - **(A)** $\lVert (3, -4, 12) \rVert_2 = 13$.
 - **(B)** La similarité cosinus de $(1, 2)$ et $(-2, 1)$ vaut $-1$ : les deux vecteurs vont dans des sens opposés.
-- **(C)** Pour une statistique de test de loi symétrique sous $H_0$, la p-valeur unilatérale du côté observé vaut 0,07 : la p-valeur bilatérale vaut donc 0,035.
+- **(C)** Pour une statistique de test de loi symétrique sous $H_0$, la p-valeur unilatérale du côté observé vaut 0,11 : la p-valeur bilatérale vaut donc 0,055.
 - **(D)** Le produit d'une matrice de forme $(2, 3)$ par une matrice de forme $(3, 4)$ est une matrice de forme $(2, 4)$.
-- **(E)** L'inverse de $\begin{pmatrix} 4 & 1 \\ 6 & 2 \end{pmatrix}$ est $\begin{pmatrix} 2 & -1 \\ -6 & 4 \end{pmatrix}$.
+- **(E)** L'inverse de $\begin{pmatrix} 6 & 4 \\ 1 & 1 \end{pmatrix}$ est $\begin{pmatrix} 1 & -4 \\ -1 & 6 \end{pmatrix}$.
 - **(F)** Dans une régression par moindres carrés avec une colonne de 1 (une ordonnée à l'origine), la somme des résidus d'entraînement est nulle.
 - **(G)** L'ensemble des points $(x, y)$ tels que $x^2 + y^2 \le 4$ et $y \ge 1$ n'est pas convexe, parce qu'on y a coupé un disque par une droite.
 - **(H)** Dix modèles ont chacun un intervalle de confiance à 95 % de leur accuracy : la probabilité que les dix intervalles contiennent tous leur vraie accuracy est d'au moins 95 %.
@@ -229,7 +229,7 @@ Le modèle $\hat{y} = a + b\,x$ s'ajuste par les moindres carrés, avec la matri
 | | Question | Réponse attendue |
 |---|---|---|
 | a | les deux sommes qui manquent dans $\mathbf{X}^\top\mathbf{X}$ et $\mathbf{X}^\top\mathbf{y}$ : $\left[\sum x_i^2, \sum x_i y_i\right]$ | une liste de 2 nombres |
-| b | les coefficients des moindres carrés, par les équations normales | la liste $[a, b]$ (4 décimales) |
+| b | les coefficients des moindres carrés, par les équations normales | la liste $[a, b]$ (5 décimales) |
 | c | la SCR du modèle | un nombre (2 décimales) |
 | d | le $R^2$ du modèle | un nombre (3 décimales) |
 | e | l'AIC du modèle | un nombre (1 décimale) |
