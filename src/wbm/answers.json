@@ -33483,6 +33483,2177 @@
       },
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
+    "M11.1a": {
+      "decimals": 0,
+      "element_hashes": [
+        "2967f17e439b929b370f0a5e1f2583429a70c0b22f28e25c18729d131ae93ae9",
+        "c931cf64fa32bc5d875e130507bdcca2718a44af52f07ed8e961dd54dcaea39e",
+        "a4aaa9a63560569dacf8176b07d673b0a2d93d00d99bdd68475fe572ba5a8aab",
+        "c552fd51998385ab59c7e1d147a8c063a878b4801cd883a0183d767c91acbe79"
+      ],
+      "hash": "21c5c0071acf624dcf6147faf6bcaefef9e141a9a4dd7aabb7cc018b105c351e",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "39df1e89b095f20ac76ed6d6c1419024fc6c967abf1ce5fd8bfffd356c0e1f2e": "P ⇒ Q est vraie quand P est fausse et Q vraie (ligne FV)",
+        "ce83f3dff6c8af94be0c4e1c46b7ba8f99382d1a5cd9b6271f83b81ce9a09b83": "P ⇒ Q n'est fausse que dans un cas, P vraie et Q fausse : quand P est fausse, l'implication est vraie"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.1b": {
+      "decimals": 0,
+      "element_hashes": [
+        "b8281b270f4152e187d92f807a65dae5b61ae1788a3e4cf782db1163bc33cc9a",
+        "acd0214713dcf60f560bc669e76b7087b263d5417dddcba44a283aa26490fbc2"
+      ],
+      "hash": "a185b645fee41ac5a957e90fe078095b1f714c7b09f06eb204cc651cefe06113",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "531e24842ea286337a96be84e6bf56967b12ebcf70f0e0b1bffceeb8f2d44301": "à la ligne FV, P ⇒ Q est vraie (P fausse) et Q est vraie : les deux prémisses le sont",
+        "5b9f919d27ee42d63ff67bdc1c88c4e0c9dd89b2df8b5d4ae37227fedc0ec5c7": "la seconde prémisse demande Q vraie : la ligne FF ne compte pas"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.1c": {
+      "hash": "a7d22a65b6c4def4ab235a15c89a7783f7979e5e0934cd0379d2716e33644cd9",
+      "kind": "bool",
+      "mistakes": {
+        "1b78ba4d83c469bfba4d1f2db698755ab9b1baa65b71847df56187afc0aca5b8": "une ligne rend les deux prémisses vraies et la conclusion P fausse : c'est un contre-exemple"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.1d": {
+      "decimals": 0,
+      "hash": "bdeee90ff7a5b2240c5d9658097c80622b4e41a0f7d4ed5947a6118aca27fe6f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "29c7ef8f079d8466bf1471c06d3477dcfc1528190ad9e953c698ff5397849829": "la seconde prémisse, non Q, demande Q fausse",
+        "66aa4c9f488665f73aef01c7e135e310c7f5abcd299fe0d341be960d0c188bd5": "à la ligne FF, non P est vraie et Q fausse : non P ⇒ Q y est fausse"
+      },
+      "shape": [
+        1
+      ],
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.1e": {
+      "hash": "6cc3d7194bb04cf448cbff53496c673f9d24ab9af78c31e0541fb96c603e2cce",
+      "kind": "bool",
+      "mistakes": {
+        "a547adaa495b85012baaf0ca1b52d9759cb7652f5dd82756b01f786f7a67c156": "regarde la conclusion P dans la seule ligne où les deux prémisses sont vraies"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.1f": {
+      "hash": "3d61bd1acf61d20bd097b1321a06e24cb5bb25b3fb6bb07e4235a79687bf4c5c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "32a5629d594ef7db07c34e9e2a70d27251e6385d32a25e85f47f12221e09bb0c": "compte les lignes où P ⇒ Q et Q ⇒ R sont vraies toutes les deux, sur les 8",
+        "b84a5cd480e8e53226369365f0c3b392286b8f67d4b90bbfcea618e9c3963730": "compte les lignes où P ⇒ Q et Q ⇒ R sont vraies toutes les deux, sur les 8",
+        "be09f0f1379ab9b689750d74fe14675ce8bbfd2a612eaf5e2319e668bfa73e17": "compte les lignes où P ⇒ Q et Q ⇒ R sont vraies toutes les deux, sur les 8"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.1g": {
+      "hash": "fdeb663457177e1206f291894ea471b75802260ca79ed6781614320330a757a9",
+      "kind": "bool",
+      "mistakes": {
+        "b45219fc6821bab4cf7197574d51b03461bc75880e95f0728652d7d119315c7f": "dans chaque ligne où les deux prémisses sont vraies, vérifie la conclusion P ⇒ R"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.1h": {
+      "hash": "edc5ea5ef0729762cab62d57667b08002592b4f5f892d92d510fa26d83b40cc9",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5a8e3289940a31a7da707da7767afac46aa5eba27666e29dbad75c610c083bcd": "cherche la ligne où P ⇒ Q et non P sont vraies, et la conclusion non Q fausse",
+        "7e5066ce3169a473a63ae7b1f7702dbbc02f69f3d3e9fc08c639ffaf593f30db": "cherche la ligne où P ⇒ Q et non P sont vraies, et la conclusion non Q fausse",
+        "c8eb987ad405fa310e96bad0fa0e020a2ffe61b5427783f5e5a3f8c0dbd0a51c": "cherche la ligne où P ⇒ Q et non P sont vraies, et la conclusion non Q fausse"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.1i": {
+      "hash": "90b7f82f87a8d892f4223b201065ce6bf8213505b09541de9f209449a5b88b66",
+      "kind": "bool",
+      "mistakes": {
+        "1e4b07839a3a8056bea48c9c7e9c794c19d8325f071bb422fd1b643b82e4f2d9": "avec P vraie et R fausse, la première prémisse n'est vraie que si P et Q est faux, donc si Q est fausse"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.2a": {
+      "hash": "cde5c3176fb57aedb76f0ff0e1fdb30f4addd0099e99d0823c522f927380b01e",
+      "kind": "bool",
+      "mistakes": {
+        "8c1efbb218f594e620f7fe40bb1e90849517f75fa02cdf163b1300ff85b833ee": "un « pour tout » tombe dès qu'une case du tableau est sous 0,80"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.2b": {
+      "hash": "0071fab6f2e2856c44f124ac85405cf4e2b806a1b4240d958728f627a51b0d8d",
+      "kind": "str",
+      "mistakes": {
+        "01a221a7a8c650e94832f2b29b6e4cf3d6be76631ab67772131e28f9940c6bc7": "regarde aussi la colonne du dataset 1",
+        "50e9b6096d9ffe71740a2d656f6b85eff98812593f953b8be8646d6e1d736185": "seules les cases sous 0,80 mettent S₁ en défaut",
+        "61b3151ed650ba8926c9e6821c927e4ded3bcc795ec4c0e544381a2e00a76222": "seules les cases sous 0,80 mettent S₁ en défaut",
+        "662ad49816bcf84a426a4f912da1858652beba35f6fd679a6f4b84f77cacc689": "seules les cases sous 0,80 mettent S₁ en défaut",
+        "e6dad86475825f9bbef82c782dfd1f2819b8717d30170e178916cb639fbb3fac": "regarde aussi la colonne du dataset 3",
+        "ea37ec5c001a65149f99ecffd04d808be48b2802227c358337bab9b81697d84c": "seules les cases sous 0,80 mettent S₁ en défaut"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.2c": {
+      "hash": "b7e61620c0a42e3a4ee047ff08e1c803ec950cbadf0e382dcd9be9668589b3c9",
+      "kind": "bool",
+      "mistakes": {
+        "4e5f41a31310bab541234553d4d1ed87bc6ac3d5aad1a7c6d7f4e54e7e89d10b": "le meilleur modèle n'est pas le même sur les trois datasets"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.2d": {
+      "hash": "2006333380090e1196264b0bca402c4c6114489287b50c73c1a6ee6a0ff71753",
+      "kind": "bool",
+      "mistakes": {
+        "2523cb771ac68116dae415f62f54e0d056e89f0f81a045fffda1c2c43f91f255": "dans S₃, le modèle peut changer d'un dataset à l'autre : cherche une case ≥ 0,90 par colonne"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.2e": {
+      "hash": "88f6f2dd4309ad6fe97bcf5571aa1a66be34070d3148ff08ac039edbfb45eb17",
+      "kind": "bool",
+      "mistakes": {
+        "2e12eafaa2226d84c727502a6dc6f0457b2f1d44cd17a40c70ea6aab04b3ddbb": "dans S₄, le même modèle doit dépasser 0,90 sur les trois datasets à la fois"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.2f": {
+      "hash": "00739c2d7b1ed38f60bdbd6eb33c2767f353920f3e678c7df13033d4cfa89c0e",
+      "kind": "bool",
+      "mistakes": {
+        "de3e824566ad3b6abad8f2b66b3b064802abc3a40c74865ac6057b0aa917f39f": "un seul témoin suffit pour un « il existe » : cherche une ligne entière ≥ 0,85"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.2g": {
+      "hash": "3212c240a57cced9443c65633cfd49976d71cbb66931e3c55ce8b274a7e4f7c3",
+      "kind": "str",
+      "mistakes": {
+        "2710db971cbb1a3f4633dc0ec9bff520950d7a64f60667f23e659591d28b8f0d": "B et D ont une case sous 0,80",
+        "3106ac331538a171b5ba269d75214d4d15fd0dfe024bdf525cbc545c02c188b1": "B et D ont une case sous 0,80",
+        "8dae6310575bc1e7ccceecaddcb77facd42ada9712ed57ca8e6641123d3bfcc0": "A a 0,84 sur le dataset 2, sous 0,85",
+        "d614624d43636adda00cce23662e026728e58810894f4453c15bc932939a7f28": "C a 0,81 sur le dataset 2"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.2h": {
+      "hash": "f2e3a9596b10aa0cd0498781713ddeaf70ef91055d0d116184b3ed66085e49fd",
+      "kind": "bool",
+      "mistakes": {
+        "5277ca27f3854e44dee3793969dd737cb462686757518794c54cca7230a3025d": "chaque colonne contient une case sous 0,84 : aucun dataset ne convient"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.3a": {
+      "decimals": 0,
+      "element_hashes": [
+        "3679e1af8a4f06b45136f45f8d20aa9e179be53cb3ca5f9c473b2c671bf71754",
+        "d71d9b121c96a8661eaf026ba7c50ae0d895573fa2f66fe98d723ce45dec0acb"
+      ],
+      "hash": "464805b01803697b1e3404ebe8dee869a5bfd8a46c5c19845e44c3cebf0f9102",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0ac1fc48677969e3d10fe3fb8ad0e91fb81d21742072c5a27292173e3cc65091": "les multiples de 6 jusqu'à 30 : 6, 12, 18, 24 et 30",
+        "d5ea50bbf11ae23a33ea1389e1c10192045a62502614b50885e5b396a2d750ba": "les multiples de 3 jusqu'à 30 : de 3 à 30, de 3 en 3"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.3b": {
+      "hash": "4e5305e53b82100c8bf85fc01605be6d4099de851d1d413d41128c7ef75d2237",
+      "kind": "bool",
+      "mistakes": {
+        "e5b1b9218246a4b49508318e24fe2cf29936f00d2628afbbdf443822ab671092": "un multiple de 6 s'écrit 6k = 3 × (2k)"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.3c": {
+      "hash": "aa8346939ef66729c79c05cfdf4e63f5aa2c15d695b07c3e513e838076f0d01d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "c8d7ac071d756b0d1a8680873efc5b6a5b28a74308e36b55977ec7acecc63887": "cherche le plus petit multiple de 3 qui n'est pas multiple de 6",
+        "cfe892da6516c7728c5caf2b45707ebacea11a71e99007434606857b55d4d048": "cherche le plus petit multiple de 3 qui n'est pas multiple de 6"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.3d": {
+      "hash": "09ad053f214999ca292d2ea0f4812b39c6b4d804e4ca5950381bba6dd8bd26a4",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "66ff70d406fca48942148873bab5483037b217667cf8a808bcb2d09bf60110c2": "B \\ A est l'ensemble des multiples de 3 qui ne sont pas multiples de 6, les impairs",
+        "95daf052fc1df8a8384a1950647f9153e6e7661a3a923a6c093d61a465c5f21f": "B \\ A est l'ensemble des multiples de 3 qui ne sont pas multiples de 6, les impairs"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.3e": {
+      "decimals": 0,
+      "hash": "e4d2b7133f74497c7dd27ede5d422f616f0975224a7c5ec987a7a3f48b609e69",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4e656bdabf8b46d0e3380b5b882b95a9d6b938ddef56bfb43068ed4ffe159633": "seul 3 est à la fois premier et multiple de 3",
+        "f9b6566c0440c396df1101f06ac1bbacf66351e6a968f8e25e7550e8c90feb10": "3 est premier et multiple de 3"
+      },
+      "shape": [
+        1
+      ],
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.3f": {
+      "hash": "fd905aaa882e31d8533cc17893030b2d824231845a1ff31a0566e396425bb81a",
+      "kind": "bool",
+      "mistakes": {
+        "db1e29b28bc4512b1cc9fe63ad9c7c0179dfb2ad9ef7ee2bc1fda91d510990f7": "un multiple de 6 est divisible par 2 et par 3 : il n'est jamais premier"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.3g": {
+      "hash": "6a0cfe203055c9c25114a81c350a4d6a6a26fb5880c95d087c9e21e324c930fe",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "6fbb78596dac64092f917747f3215d06255471c3b56360838f9b724224adec6f": "compte les contre-exemples (multiples de 4 non multiples de 6), pas les exemples",
+        "ecd74ddec48ceda2f745f7c8d5a1543a158010905389acb4d9c7994cf2c720b2": "retire des multiples de 4 ceux qui sont aussi multiples de 6 (multiples de 12)"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.3h": {
+      "hash": "be268d4f72aa4226f2b7033e5be81e28b30b47c69cc6322e6fae9ae69ebb7889",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "d38a0339d2685474ab2f86803c313a82bcdeee9cd0b3adcf8803383d32f4e0ce": "|A ∪ Q| = |A| + |Q| − |A ∩ Q| : 12 et 24 sont dans les deux"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.4a": {
+      "coarse_any": {
+        "1": [
+          "a5a2f0f79646295e62a15e183befe527de95bd568e6ac50582a1fc1902a57242"
+        ],
+        "2": [
+          "fc3495d72919272d355a9a63e09a550247d4a13dfc0eeb9608410305fa0b9e15"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8766eb14ab860f154def7d057aaab6433ceab1fc27d97f81bf4801718cf337f9",
+      "hash_coarse": "fd32addf418bf40c29c96b78e91514b96e56ee1e35b0126d3d0b6878ab0edd12",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "29ec7fd5492065c7eda106d799ad4a8f2a85b7b4769770c88b44a8f9d6a1e176": "les capteurs bons sont 97 % des capteurs, pas 100 %",
+        "a0a86b9be803d1d0b2cf1dc4a2ed8dda50cb650f56f76078d7792dbb3bdea449": "ajoute les capteurs bons signalés à tort, 0,97 × 0,06"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.4b": {
+      "coarse_any": {
+        "1": [
+          "220bc631a7653407bacda1c2146f50a7f9dd00f42204a04789a53734794a95ae"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "54546cef44ae0e8ad403f6a21df66027bcdd7507551ee307fc69e346783dcfdf"
+        ]
+      },
+      "decimals": 4,
+      "hash": "584e1056f933e04119f7d6e3edab1a392f0c39a518c124c05fc0dbdd451adaa2",
+      "hash_coarse": "be4921d4af08146cd1d167639d1ca3142248dc3d11a59231e38e564d29501baf",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a4a3deb71d644b4962384cb8b4353ee667c095a5ca3b7f0a76f1b2b09e14009a": "c'est P(signalé | défectueux) ; la question demande P(défectueux | signalé)",
+        "c84f346854619f3bbd43adf71c42064db074904d8e6f683c0c8df6c3670b90f2": "divise par la probabilité d'être signalé"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.4c": {
+      "decimals": 1,
+      "hash": "91b5892a811221b31fd75c836fa2a3f78511c0c42d4d799cbb13303a10dc57bf",
+      "hash_coarse": "08903e87748302410088fce1d1518cb97b5e60f310ebe811cbee029266775490",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "2ae23d5f167ececc2b8c3c23fdb40ba563f122d8b9d4f8094c307b803d4fddca": "les capteurs bons sont 97 % des 10 000",
+        "4a5d449c6e7265e8d18b1eca92e6a1afd6865b48f397a591fb14e7cef41a663c": "c'est le nombre de capteurs défectueux signalés ; la question porte sur les bons"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.4d": {
+      "decimals": 4,
+      "hash": "e0a15df246bcccb035c6541d2a753e1d28d26634f80f4eea08eb8c2c428cd0ca",
+      "hash_coarse": "14e266c008419da383337e6a07945ab31a0e2f22225f17c20e9640926d645a81",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "9c274ac516fe6690c61ad4ddc3abbdeaefce7e24d26363016580584bdd55923d": "divise par la probabilité de ne pas être signalé, 1 − P(signalé)"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.4e": {
+      "coarse_any": {
+        "0": [
+          "b27f5e82410528d038bf38e33bd5c43b07f72ef919212aa54ae1761b591c373f"
+        ],
+        "1": [
+          "a6e45d2d7bf8253c283fc8003aa92aee789cb7e731424f117f28cab8ad7982a5"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "a1b7b13d052aea70fe1398f0b4bf2adbf2f0db79395d50d6247a48e1854f7d60"
+        ]
+      },
+      "decimals": 4,
+      "hash": "9614263c5f4fac0a4de3575359ed4faa5b810a728b001e6e11b871fdea8e5e98",
+      "hash_coarse": "f7d780348ec4532ceb1bcd5630f6255316a643f62904e27a32788223e36b63a0",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "fec5c9f0903b620ca24b6edc7048fc2a41f228bacc7309d8b836efb129a799e0": "refais Bayes avec le nouveau taux de base, la réponse de b) : pas 0,92 × 0,92"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.4f": {
+      "coarse_any": {
+        "1": [
+          "a5a8de1fee28bab7fe3e70283426970b4746b30d1f2c61a3358146ccf5e74c15"
+        ],
+        "2": [
+          "3daad851f099a3e2cf763cfff98b3ed71bb2ae37dfcbd1462cd510d58c32cf47"
+        ]
+      },
+      "decimals": 4,
+      "hash": "fcdda867680378a63729d5988ab9c21528154e810755351c5e740c45ef34cffd",
+      "hash_coarse": "fd75ad2e16c2a35eb2849a2c9f9228ace176373cd88415dd43fb7a316280f233",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "890715bb6c3fe11942abc0fa184bb22573af298b32d38cdd27661ff779d1a918": "résous 0,92 π = 0,06 (1 − π) : le π est des deux côtés"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.4g": {
+      "decimals": 1,
+      "hash": "15cb119802d137c834fe62c94a5d3d9da09557aef673b2a3a069d9ca0c0c45fc",
+      "hash_coarse": "09a56d337e5957a29a1022d687a01a9a0a6d9135104e7a1863094b32f72971d7",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "2898dfc8949f1947bea2dee084f36050ca68b99f6afaeb6f369685b60b462fed": "50 × 0,92 reprend la conclusion du technicien : utilise P(défectueux | signalé)"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.5a": {
+      "alt_coarse": [
+        "c3bbc7cc3739828042fbccbd949010f102255455bb7f5aa3c7fa1d522d46aa85"
+      ],
+      "decimals": 2,
+      "hash": "e6d1875b61d51f323b6ef0fb951b6ae5931ecbab340eab97bfe832fe30cbac17",
+      "hash_coarse": "1a526aaa3703823558900f80866e3896e345c684f242aa1419ec5294907addad",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "40d7e3d1592d090bcbf6d8dce51882ed35223d76cccfad1afa089e1477a629d6": "Markov : l'espérance divisée par le seuil, pas l'inverse"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.5b": {
+      "coarse_any": {
+        "0": [
+          "6be18557fe27d77c6a1528384178c9b86c229a07469d4ab60bd1ca543fc06e7a"
+        ]
+      },
+      "decimals": 2,
+      "hash": "64b672ca7b3079dbebd81000d1bb463ef0235dc4f3a95fc8a576f0d49eae8861",
+      "hash_coarse": "6659eeb4a3a04ba1fecc6a598a706ed8c10354309d8da9a63265d3bf3be03ec5",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "2ae2f3934423ac0764e23ba990eeed8917b35c6282127f91b780363bf8d52c5d": "une borne de probabilité ne dépasse pas 1 : la formule donne plus, on garde 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.5c": {
+      "decimals": 1,
+      "hash": "81ecae10310a59ccdb0c0e2dc667719768fcaff7b57a69fe3d7907ae04e4e4b5",
+      "hash_coarse": "90396eff1cb73a67d62e76ff4650a45f9d878024578c93b6d45a4abb5844f2b8",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "0929ce2b1fff6f465cf99c375deb66d5acbd4fc8bd401992f5b30b133a0ea783": "E[T] / a ≤ 0,05 donne a ≥ E[T] / 0,05"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.5d": {
+      "coarse_any": {
+        "2": [
+          "080b9569434f1622277e0b36e6ed7d5c60ac986dbabb4cb200f2ed2741c66c92"
+        ]
+      },
+      "decimals": 4,
+      "hash": "0e7593ea8a1170cd25032106f44f3f21cc422ac26412ce9f0fc5420df89dce9c",
+      "hash_coarse": "840e447e0ff6817684280309e263f1d1397ae4b03f60e69c4863070ca86d61c1",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "1316c1aa5327b24b0356a5718028a0d7bc84f4516ec48bb9fc06beefb9a7e991": "c'est P(T < 6) ; la question demande P(T ≥ 6)",
+        "cb4cf8d70c2102530949b4e4e54526cdee52b3796ec52caa907b0d85540077d6": "pour une exponentielle de moyenne 1,5, le paramètre vaut 1/1,5 : P(T ≥ a) = e^(−a/1,5)"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.5e": {
+      "alt_hashes": [
+        "c17fd8b68f919697afc92a58d6ae18fb3fcc31de2831f609ac55bdb21dcded60"
+      ],
+      "decimals": 1,
+      "hash": "e1158ea30c22d073209b869bedbf0aa9760b38338c28b622b9911e39faeff77f",
+      "hash_coarse": "52ca2fd4d80da3483fb15655edd281d85c750175a6facf7b360bf0f7620394b3",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "9dd25c3b954b7c6080d3bee75e18ecf8cedbcecfee353efb81cf7e294b7e94d5": "divise la borne par la vraie valeur, pas l'inverse"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.5f": {
+      "coarse_any": {
+        "0": [
+          "5ecf9834400d92a7bcf197a4b9cb38eedb3389b5787b18d918c8a09396b318b6"
+        ]
+      },
+      "decimals": 2,
+      "hash": "9f32bdfb7a1405a1023f0fbe445362a3978e96f48d08d629cc3d4cf222e3dfe1",
+      "hash_coarse": "2f8bef4a44701143a617680b6395d129a7f86682fa11936c556805b6502379da",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "51c74e9c02de0abbb59bf8743e3783fd8ecb44b2b704d066d708e9d7a35ce8d8": "6 p = 1,5 donne la probabilité de la valeur 6 ; la valeur 0 prend le reste"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.5g": {
+      "coarse_any": {
+        "1": [
+          "3290d2b3a6aa7df40b6f14186dca487fd86e5fe45461a41937a75b7a07082c92"
+        ]
+      },
+      "decimals": 3,
+      "hash": "511517356955d3f253195ce5581f1c2a6ac08a051810bcb45d2a514b0dc03ac1",
+      "hash_coarse": "0ed0f16fe116ad361783e91e3e1cae69988c9b2f5860fa5319dd59a62b8fa444",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2d15c4b979d2756f838d924ac0cebd9fee1bdac3023bcdc4bd6c7dc0eb61dac2": "« au moins égales à 2 » : la durée 2,0 compte"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.5h": {
+      "alt_coarse": [
+        "778a2aa62818263a91724d98559e7fffff9fdc3d8e8e2ee67627e38119ec1c23"
+      ],
+      "coarse_any": {
+        "1": [
+          "d61c9e7a226ee08b77af8d83da1c805382c18befd3df3e2f0fa46400c33fd233"
+        ]
+      },
+      "decimals": 3,
+      "hash": "6ca256571d81852d6ced383564b5900e5838241bf1044b290a8e973c519167e1",
+      "hash_coarse": "5a25ca38bd90a9d9493fd3269a69f8a93e4aceddade39c20c3817d798b556062",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "c1ce4f2ec720a0fd1b36bb4b6ffb7d3abf9e62cbb92143f8dc3a9b5bde1cc7b3": "Markov appliquée à T² : E[T²] divisé par 6², pas par 6"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.6a": {
+      "coarse_any": {
+        "0": [
+          "34abba852bebabdf45f809972056a50d8ce0a456f16cc33833d9fc0be6e010e7"
+        ]
+      },
+      "decimals": 2,
+      "hash": "de399a30ce38b29e63ab5859c0989b7030b1b98f63be19305cdde8323fb6e729",
+      "hash_coarse": "aa67e323cff110a3386daa8e08eee09d5119e9b885dcea484733fc1b7cb910bd",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "750691435f5af36669b7da2b7dc2df109a40c5af16ce16200c2fc91f66526a1e": "la variance d'une variable dans [a, b] est au plus (b − a)² / 4",
+        "90b0151365c58490abdcfbf0a92cc1073195c4ee42da26918cce7680b2465131": "la variance d'une variable dans [a, b] est au plus (b − a)² / 4",
+        "bc7f2fc3b0ab83c74d58585dd98bed538a6e3b8367074ffde5a5c2a4c2bb75bc": "la variance d'une variable dans [a, b] est au plus (b − a)² / 4"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.6b": {
+      "hash": "23de822cb633f2b76377d5fe8fb5f6658b8cdb50be354c60b1bf8bd0f37a1004",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "1150edcebc5c8a8b745f8dc123fb18fafb431ff550d0f633a7731cb4ec4cdde2": "n ≥ σ² / (δ t²), avec t² = 0,1² = 0,01",
+        "5939e94b4d6161b72710a460832fbbaa3c361b66d3179e000bcbe74663fc40d0": "n ≥ σ² / (δ t²), avec t² = 0,1² = 0,01"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.6c": {
+      "hash": "cb8d04be96b2bb13af58c7a7273e779616913f96e471f435831db6e01a88893f",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "2b9a2782b9f8410715a045fd7ca663327bbdebdfa490b0c371e5a7ca89b469ef": "la formule utilise la variance σ² = 0,3², pas l'écart-type"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.6d": {
+      "decimals": 2,
+      "hash": "19e0179e2f13a9aeed5d368d208bea87821f5a39411156ba5246105b622dfff2",
+      "hash_coarse": "14f61dc1b5ffe2550efc97ced3f9db2c45339533bd43f2afd7f3492ad4eebd54",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "36cc1b135056c1fcbf71fa7b755a3bf3b4d76265df4bbfdeb5b79d80cf00793c": "σ² / (n t²) avec le nouvel écart t = 0,05"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.6e": {
+      "coarse_any": {
+        "1": [
+          "1b43a34c9aa9cc763056526e022c6fbebad127310e97b39c992d483bb98193f5"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "35e04a09ad51277c97bb8ac8f327980ee309cd861870a104f3a4342014b32eeb"
+        ]
+      },
+      "decimals": 4,
+      "hash": "4a20620966af3b35454019d068948caf82df7217814476052405fcf6bf7dd3ad",
+      "hash_coarse": "c4eb462d594da772221f475f04063e5cec1852a073c15f41fb3eb1999d2de749",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "f9025368e41ffef3e74a5a328416967fcfe63bf7442320753825485bb8fd29b3": "t = 3σ/√n donne σ² / (n t²) = 1 / 3², pas 1/3"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.6f": {
+      "alt_coarse": [
+        "b5c5fc45e7aa14556a5b01ba9ab655a6da7f61097e44a7967905e376dca42143"
+      ],
+      "decimals": 2,
+      "hash": "40e3014a313378ac3a9a7b7dda61e4237210388a9dc041420201a6eb620d5b7d",
+      "hash_coarse": "49763757b9dc2dadb9189ab61b1f7c145635ca117d2ea5fcf74a8343dc123fe9",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3944db7726359b7f4d3d18a7cd5f15178c700fe574413ec6225048b2813b6b57": "p(1 − p) est le plus grand en p = 1/2",
+        "5e3cab9f66528c24701a07b2a919683702381c7a1b5e803890cd37e01ab19ce5": "p(1 − p) est le plus grand en p = 1/2"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.6g": {
+      "hash": "5dc1eea932276f710365b5b130d12516232c83a7f7801626e74145ba5d975db8",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "1fed0edad2ff259b36048128f5a1c6fc95d638307fa296107bf4399538f82558": "le risque est de 10 % ici : δ = 0,1"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.6h": {
+      "hash": "62ecdffe3a426363a31dbbb8e81eb736b19a63d171e068c3f900d8c9c95070a2",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "ccf55ee35ea39b04a66d7c387a6900ecf943dd8d4e464d02633b14366558a592": "la borne σ² / (n t²) est inversement proportionnelle à n"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.7a": {
+      "coarse_any": {
+        "2": [
+          "0aff8514b380f6c0cd5fdca675bb1f66404f70577fc23213fd75bae380253f72"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e0a66cc1584f5e0925f5479657c39478dfe9c049debd7b25b8d271c6c3aaae67",
+      "hash_coarse": "966909600ebe955a47176c21ae7ed81da8f054b77b4cb0904c88c0acc4d8524a",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "01b6da40e576a53d64ad5c76e90074290c78714f60ed30b46f382945a2241af3": "ln(2/δ) se divise par 2n, pas par n",
+        "42ea7722f06129544fa9825de705205a95fbc2189d262f4ff80ee9709ffb5dca": "le rayon bilatéral utilise ln(2/δ) = ln 40",
+        "9380e0a3f645939b5f2bd5629699c1b669f4b7da081b647a2408b896bbae8760": "n'oublie pas la racine carrée"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.7b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "35ddae9c3b38a045649b96ae52978f06aed2873a0d94334c318c91bf4e60fee2"
+        ],
+        [
+          "36d19e1a8e6a9a7905d603eabf81c5d0a755a53bbacb06a183cc3f7fc125f119"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8a013b36fc82540d7b06a22f725fd0273675fee318237492f8095c374a300a8c",
+          "6d737d5cc496eb4602e888015d5843c995d91d5e032c6dc582449c704ae18d47"
+        ],
+        [
+          "fb2cafb56fc64d512c4306f19f822116a3dcc4676793b0c6ec172c8deea8d9ae",
+          "4eb833f9d35e285f88086401aeba268ae984b3b3b15c1620190ae63c67bde8ae"
+        ]
+      ],
+      "element_hashes": [
+        "b477b029287cd4a0b22209c96d758d5a0e9b40adec6f02d8ec4fe9497dfedaed",
+        "151899344bc39cc23c3afdfb82f207074f1d6b2d69e31c33ef17d1fd4e9a0eea"
+      ],
+      "hash": "a5981daea4c32cea4b1a14d790717286a04754ce8de55e45c518bd379aaf8a23",
+      "kind": "array",
+      "mistakes": {
+        "ad6dc4cfaf4bda1a91c36d4056bc9f6c05d78d06a34d88b1f412a3f5a3ae30f0": "le rayon bilatéral utilise ln(2/δ) = ln 40"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.7c": {
+      "hash": "f2b3a4d99f49415403544cfb723077b57626ae8098385134fec3366a869163f7",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "803187c4562b863f0ff507ce68a46eff309d53dab5d7df98aed0a75bd9a9ac8a": "le rayon bilatéral utilise ln(2/δ), pas ln(1/δ)",
+        "9ef22eb857bcdac348e6e5b7ee4be6dc38bc3df83ff0b14f37f7c27e51b823c1": "n doit être au moins ln(2/δ) / (2 r²) : arrondis au-dessus"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.7d": {
+      "hash": "0d14e12339ea2c9e2ce5a14830cfdfd13229f18bb3e6c3dcabf55b4c54acaee6",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "428a8bf39ed7b0f65a165c00c1bb04de763e9b8fc99aaf65244ac6a0a93e756f": "n doit être au moins ln(2/δ) / (2 r²) : arrondis au-dessus"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.7e": {
+      "coarse_any": {
+        "2": [
+          "3bbd5a4d46dafc807b9f85bd111760ca16917c43b965ccdc17c18de62e8c2376"
+        ]
+      },
+      "decimals": 4,
+      "hash": "4186198c62605555bd2c68aea009a7db254975f567e7f30b12796fe917f4b46f",
+      "hash_coarse": "9d46ed4f5b91852f292fc68d748cf21f58393bfe12c6a94943ba4e3081718575",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "c691d1075c5aae276d7773956667e68cb23abb27056fca84212b9df4bbdea2c9": "la borne bilatérale a un facteur 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.7f": {
+      "decimals": 2,
+      "hash": "1f3eee31dffe5540b00b2c7aa9d3f3ff09342207c6d83e0fc3bd70cf8dd29625",
+      "hash_coarse": "92d363aa24769cffe42569690ac1c0db63e7fea308a02821c249b3d8369ff112",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "d6cc8a2527b9049ba4bee64a7854dea5d7c318438b1dfa795ba6187a62fcfa07": "la variance d'une réponse 0 ou 1 est au plus 1/4"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.7g": {
+      "coarse_any": {
+        "2": [
+          "f52ba1aec09c3d8c44ab46064ca4d26247ab179b15e860ac658de4cbf8b4b852"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b41b4213cf57cdd7a6f7e74ceb7cbef11d6df595d2ace870cad86162d618d150",
+      "hash_coarse": "01add1c86084be49304c5c49f7e3b0029e02ce53f64bedd6e69669adc2e17c0e",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "9f042fd1c9639ab19b18be156706d6cd81a13c9aaf9cbf6ae36818d1b8783c93": "le rayon décroît comme 1/√n : quatre fois plus de requêtes le divisent par 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.7h": {
+      "coarse_any": {
+        "2": [
+          "a3a36315bd19c525cc59c3037c19cfd15953ee7eb8dabcba32dd061963f5586d"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b9dcca2e82872e735854250ef6a61561c735bb5010a913054dc49ef65a047bb5",
+      "hash_coarse": "862459de020ae9d2d2cf3faa1b7132ef7d11764d1eebf084c0d30626bb1f2261",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "0dc3fbdba800e92718d30d71160cd3867ac0ad073a35ac245614cbad3529d808": "le rayon unilatéral utilise ln(1/δ)"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.8a": {
+      "coarse_any": {
+        "0": [
+          "c0edcf0a11c14ca70a303a8892156ed2a49cf4117dacfba14537051cd562dd89"
+        ],
+        "1": [
+          "65754c92ad048b6d61db0af6a4dea21454e1e0540d3c979108f36f09e543e57d"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "5abc4abad030fe46948bfdaad6061213f0b65ba2403370ccc99ad0366f2933bf"
+        ]
+      },
+      "decimals": 4,
+      "hash": "f91505a6c9ce0e2948cf7fdeeb0615e3a37c0e2bef0b9ed86e899a20050f2d9c",
+      "hash_coarse": "24b70f895261e4e93910b0cb29b7b4bd8588fd4183abdd9b69ba7864f33f1673",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "4fcf75177335c4c0ca0be638f9db187e92336be568f97d35f669a79481b8888d": "Markov sur S ≥ 0 : E[S] = 100 × 0,2, divisé par le seuil"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.8b": {
+      "decimals": 2,
+      "hash": "2a3ea405855d37658fd75c61b5fed89e5f4379dc475aec7043c8d61630b7bac2",
+      "hash_coarse": "673bae7686f0c5fb54fef378fe7bfad8ed8475ce0c9efa3e7a87af0bae7611d2",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "1a30ba8f02503f36ce550b058c4261f1ee390f08ece5e513ecd5d5be66222eb8": "V(S) = n p (1 − p)",
+        "74af06892d4be9794d2b60a3feec445f552333e708333ee893416c88ff92fad5": "divise la variance par 10², pas par 10"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.8c": {
+      "coarse_any": {
+        "1": [
+          "2690bd13e56d4b0d5c1f5f222a750556d5855f1b3783333e57b613ab1c7d22af"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "f5be367cec574695be77f959623a6831e2d2d221f058c13e063cace20956319b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "045f55c09535d7e088c07f7b79dfdac66d24b035626c0f3c735b245b935886c1",
+      "hash_coarse": "e144f80a0035c53884bb8a0198142760b3a99dcce4e93bb2c6cdd788f08f3b09",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "0a4d7e622bcaaf6e1330fd10f9d565dd4ecb95cb3f664b0164aa61b0e4940ebd": "la borne unilatérale n'a pas le facteur 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.8d": {
+      "coarse_any": {
+        "2": [
+          "26aa87f63bac9950d4fdcd6f350d8d86ae2f0ccc09af77f66efa684d6f56497f"
+        ]
+      },
+      "decimals": 4,
+      "hash": "766235b4074b1e3bd1a84c727b3599a08d23e46a8bfffe70ad212cef62cc3e71",
+      "hash_coarse": "b5f3701464b4a4581130b8642208e872c38e9e2932b539b2c378ae03fdb38bc1",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "68da235a6656c37bdd575c7be977fa48f25e885bd378aeea8dcf08a3d5153b97": "l'écart-type de S est √16 = 4, pas 16",
+        "8d8d4fce408c7b19ba64394510ed12ec8b9457a671cea46693e5598257496280": "z = (30 − 20) / 4, et la question demande la queue à droite"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.8e": {
+      "alt_hashes": [
+        "746b19c3a42c07c1e8d19eb583d234eaeda849a903a18126d1bd5fb7213c00c9"
+      ],
+      "coarse_any": {
+        "2": [
+          "f02fda9b4d15adc8cd56295b829abc6ff7c4e3dcce1bb00882d4ac9754e5aeac"
+        ]
+      },
+      "decimals": 4,
+      "hash": "f05fe23b1ee691cfe0f52d0f19ccfad006c03ed4ec9b05d84578d2a6eebc0b78",
+      "hash_coarse": "e040bb848c642b478fd2b405784f43b882523faae5fc61d8553bd4c9f8714d0e",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "931f82267e22f4fbd74e40822891e8cb06075ef41bcb2317b46d6e7bf6cda23f": "S ≥ 30 inclut S = 30"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.8f": {
+      "hash": "36bbe9920b22603f2ed4876cc2d64e0c4dd4359d4b948c1ea57776e355884326",
+      "kind": "str",
+      "mistakes": {
+        "d21fc2812e0d90dc32bd3eb51af95e6fc2ad1d74648d24e1976bc73c63c5717f": "compare chacune des trois bornes à la valeur exacte de e)",
+        "ffe3484367fdf04e64fe8d799182b981f8b5b510ed11ab706b83e133b3ee52b1": "compare chacune des trois bornes à la valeur exacte de e)"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.8g": {
+      "coarse_any": {
+        "0": [
+          "2129d2695304cd0bf0dcfe85e5de5de0b3b201683b38a8c2d499eead76b04901"
+        ],
+        "1": [
+          "46edf985f53e5074b5b25b86d2e5c281c3dc0b9acb721c7099976f420de36a78"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "9dff458221934e2aaa188e9c912cda554fb03528ff7c8e37fe15bdf92230b1f1"
+        ]
+      },
+      "decimals": 4,
+      "hash": "61863dc820f32a89a9db7b4a1dcaac64d90341073b961a564a3d519c19fa2181",
+      "hash_coarse": "ab8c9ce0179eb1c8d8c73960d931f4cc6df26e25674c6470bfe3a6d835401f67",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "67ad3d6464de646efec5088ca437fbcbf67940a065465387e435ba23e442254d": "S ≥ 25 correspond à un écart t = 0,05 pour X̄ ; la borne unilatérale n'a pas le facteur 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.8h": {
+      "hash": "76a3d5006026f612ea70a3c246e4b281c87c42d438b55bc916e9ebc5b61f2798",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "4007d4dc583c1e001a5850452d956b09f0b2c83353f39571b3e1f3a7b55c7972": "exp(−2 n × 0,1²) ≤ 0,01 donne n ≥ ln(100) / 0,02 : arrondis au-dessus"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.9a": {
+      "coarse_any": {
+        "1": [
+          "a5062217bea807eba864faacc03462440d7842da4b6734a0d9785f5f97123368"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "28cc81e2fcc34e8ab8f3e0dea05ef1435168e1f623b1aae0e683cfa4ba417d24"
+        ]
+      },
+      "decimals": 4,
+      "hash": "d4aa1447309644761004310e3de680278d8e426d20c4d7dd56d92d5b7d252f3c",
+      "hash_coarse": "d2332c3cc56811c5c27209d5a39d6353c92030806e6b21711c4bc91eefac9d3f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "0630595d84e5fceaa15d146f470c256221a19da868a4c5cf5107a04957d6b2b2": "le rayon unilatéral utilise ln(1/δ), pas ln(2/δ)",
+        "a23b3c3532580a5d570069c284505d3bf8868ac1da55eaac6d53f170aaa02dc1": "divise par 2N = 100"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.9b": {
+      "coarse_any": {
+        "0": [
+          "623a9891227ad8184d9ec1e602b5d36b253f71f381e4122537d241c1b4f4c65f"
+        ],
+        "1": [
+          "af9a4a30f1023072eb49efb30246cec6db9592867c598e8a08a03a253e7e350a"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "691ccb6e5ea5055e4635729938724830508954a2cabad5bb1573bb72d0adbf92"
+        ]
+      },
+      "decimals": 4,
+      "hash": "1b2969e2bc128916886c8b18ce51686ab7362690575ae32947330c3bf4318642",
+      "hash_coarse": "7d7afebb0d38e56b9249a2354b9ff467b32f6034acd1f4117483101520ef06d3",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "4ff6e7fffdd14cfe9b78c865a03aa1b574ffc00cb2ac09f0c669cf85ddab0fce": "ln(1/δ_t) = 4 ln t, à diviser par 2N",
+        "f796cbf783396122932d1d2de5845d3f082b91b59f02cd3c9eafb81f47a90241": "ln, le logarithme népérien, pas log₁₀"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.9c": {
+      "coarse_any": {
+        "0": [
+          "67c6a06854a7416f0f42110a701123f8477d8ce555f471c2fa6221f1ce49ec59"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "0e1ca8c798e94dc240b7d5b3848827bc4d6998d331944f7bc4cc0fae6625b23d"
+        ],
+        "2": [
+          "02df17be34e3c76942483666122e998d14b4fb0bf037673542588b2cba1368d3"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a3909ca3bfa3b653b4e8b3d30889d30fcf75a6365b3aa2e80e2d22fa943f9ea6",
+      "hash_coarse": "9f467492ebb453c9b9424f027591e4f6174d960a9c5ad59e9253c7ddf9aaa5a6",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "b110909f27261e086ff2dfb4b3f895b04a7274ef95581cac2dd9d34d8cfcf2f9": "la borne supérieure est la moyenne observée plus le bonus"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.9d": {
+      "coarse_any": {
+        "0": [
+          "7578efb187d6a35d943af82f1e64974f6293e3a58624a77023e3c4744d2fdfce"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "56b67d878a5fb654ca36bbe7620ffb7888e903b2af9bbbcbb98bf0d303f81e6a"
+        ],
+        "2": [
+          "8863e05ade1cff8e978d777a3ad1839d6ac89a5b7f570b5fb6a6e85794f058db"
+        ]
+      },
+      "decimals": 4,
+      "hash": "172eb0d5b7b031fe7edf385c8a880f6fe7e362118095bd3e6b94eea657638225",
+      "hash_coarse": "1e22e5da12f3b28deef5ecd9a57378655f9709d9effa59bb3f119275a4f98fcb",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "ea26bcc5c1372020d44d7a6549598f7f402f7c59fbb693581f74b0ce5c96857b": "le bonus de l'option 2 utilise N = 8"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.9e": {
+      "hash": "1a98c24246cc7a9f3b96c02988012319b9290a48466343b37da21a19b4d9f748",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5f3ba9cc2ad9c837a64acffb6b12bf342865aec79aef91dac82e32b63a02674a": "UCB choisit la plus grande borne supérieure, pas la plus grande moyenne observée"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.9f": {
+      "hash": "97d27681f5520e26c2ccf514422395b07568d00188065a457501d3cb20188485",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "c638e240c45b2e759ed671fe4b75992ad59c7bd6b3d11a69931d9974aa9b0a2a": "√(2 ln t / N) < 0,1 donne N > 200 ln t : le plus petit entier strictement au-dessus"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.9g": {
+      "coarse_any": {
+        "1": [
+          "5b808b1d07203a95816f58180d64c154e97ed98742b2f1668b9663e6161ed216"
+        ],
+        "2": [
+          "cb69601834f4a0b61531805a00645d6b5095a499fca4227b805afc13946ac368"
+        ]
+      },
+      "decimals": 4,
+      "hash": "d78a0d507c33fa55fb147cdbb134fa5d606197ffbf8605e9fc7cac242229147b",
+      "hash_coarse": "a9693e0712e96f96492df7f0235b595c7d7fe4bb105b710dd281e017612b9e73",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "00b84c80de589996b8b16e6f7f3df00e197dad57d8e18a2fd7684d13b36e4c2a": "la somme commence à t = 2 : retire le terme t = 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.9h": {
+      "coarse_any": {
+        "1": [
+          "f28b6315f8a2221c02fca80769ceac1bab17137537ff8f258fc3a32c9e5931ee"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "2d5b52eaf6de97633fcba0a29f8d9e49ab2c56bb6accb24b5306631e2fa004ac"
+        ]
+      },
+      "decimals": 4,
+      "hash": "459d8d7583cb40f528dbf8a02412ccf93f115c11215e4c57038c4c952a3bb93f",
+      "hash_coarse": "a60da3b9811af83abb41a37c1cb6710f54a1d7d67a6d453f75c6b387ed2a5721",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "7c98982b41c47f6632e9e73c61d5d1231e678507a7ceacd5380989b33bd729e6": "ln(1/δ_t) = 2 ln t pour δ_t = t⁻², à diviser par 2N"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.10a": {
+      "coarse_any": {
+        "0": [
+          "e8e995f36df7cbc99371b6e99bd8fc0bc25b7296f4ab678d3a7cfaa443ac98c9"
+        ]
+      },
+      "decimals": 2,
+      "hash": "1943a4f07b64c4cf51165eb2d9c38408ac5992ea290a93bcf636686b5e64d78c",
+      "hash_coarse": "34a1cd3b3827d554b68de53cbc18d423322790d352c7a39e10cc10bf77c8c32f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "c5b8e23a5efd228648ff31e4ef5188b1395ca74ad96849cee28368ee45a4101e": "le choix glouton reçoit 1 − ε, plus sa part ε/K du tirage au hasard"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.10b": {
+      "decimals": 2,
+      "hash": "c95522c70ee9251e119c62ce1102232840f0893a4daef23afe3c344941aadfba",
+      "hash_coarse": "042c824491e59592ed2f515738165cf23950a77e60ef083ba94fa970ee503082",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "22e6ec5cfc094d48db60d8d48cfca09f05233babf261f609d38efbad8ae0b62a": "l'option 3 n'est choisie que par le tirage au hasard, qui la prend une fois sur K"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.10c": {
+      "coarse_any": {
+        "1": [
+          "2d4fe086fa333f6b839cb95df426aec8c9e7a4ddbb126726640fca2635e55bee"
+        ]
+      },
+      "decimals": 3,
+      "hash": "a0d68100a8fa5c0567410c7418cf789a92a7672b52413ff557a07d95371963e4",
+      "hash_coarse": "aa6a0ec5f46cc2efea84e5c0396f05f9b015bf0ba531a4052b46b5b867c5fe45",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "1c9309de25f04c5c0d98af71e78730750f01b50a97b9d781b9bcaedf4ff884af": "ajoute les options choisies par le tirage au hasard, chacune avec ε / K",
+        "832bd48f8b503f0fbf14990848375f0679ab944b89b7a6226fe9220ce369c756": "le choix glouton est l'option 1, d'écart 0,07 : ce n'est pas la meilleure",
+        "fd8f2e63f9025e44ff6cb9288dad60607e37646d5e82cba76701ac8250a76918": "le choix glouton est l'option 1, d'écart 0,07 : ce n'est pas la meilleure"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.10d": {
+      "coarse_any": {
+        "1": [
+          "d06112bc9448fcbe5e6333b590845311dbe8266005e6e46f16ce9c2085a366fc"
+        ],
+        "2": [
+          "a455054e9c4e2b5d455ebc70543d3a4ff0d41bc08ce8337e7ee108f4f380e235"
+        ]
+      },
+      "decimals": 4,
+      "hash": "baafafb6670742c023577af0aae1c47e8631f814adaba656bc77bf26b37fb043",
+      "hash_coarse": "e2921b9a16ee90c148457719e56e1e4b34819d5e4cb781fd9d496c876d893d3b",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "361064d6e6ca96e5ce26e933e6689297b9812719e792d387fc644b36cecd50f2": "le regret d'un pas vaut (ε / K) Σ Δ_k, avec K = 5"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.10e": {
+      "decimals": 1,
+      "hash": "49fd4ac9fad39d7df5b849d007fb84435071be1d8fc223ec2c9f942781f2102a",
+      "hash_coarse": "1d43613aae724d496c25dd6812797ae98f1dcec05a226cb291039b9c20d0f321",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "cce7c57ca9c9697bd3e251663d243d8cfe9ab2c1590d2ed56a4dd7777f33290d": "le regret d'un pas, (ε / K) Σ Δ_k = 0,0195, se répète à chaque pas",
+        "e7837f7b78b1f8d421daa1d0324fd5d6e399f232308874a0fb46ed557ac27ae5": "le regret d'un pas, (ε / K) Σ Δ_k = 0,0195, se répète à chaque pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.10f": {
+      "coarse_any": {
+        "0": [
+          "ea6dd48e5e2a3876a9c101d97fb191e91904d408b5f2d0098bc17c4182168490"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "31a8df355d72672e9a1e428969bcbb586d50512cccee35b9731096254dabcabd"
+        ],
+        "2": [
+          "245ca1b543ffd0989365c486759829b91744d6fd065709036d65afb81c1dd93e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "4f9316e9651a4826475beac92b730f1c2b8fbe635f35e9b0f8ebb7043403b81e",
+      "hash_coarse": "2a2457e367ba415c52d39a8987fec5e354f10b97e4f448ec4c8f07e0545242e5",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "3a31059cbf7527e37dc60ef9917f4269a265c66fa08f368e4205e1df243358f1": "le regret du pas t vaut (1/t) × Σ Δ_k / K : n'oublie pas le K"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.10g": {
+      "decimals": 1,
+      "hash": "267d547050544295dc7dc483fc1a0a5c90d0b0b7d16213a18c60e045a88df0c0",
+      "hash_coarse": "d098e10e063116c480ea5104d95f4ccef0f8cb14a9ff453e3fe5bce6b7b71548",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "a9be3f5500403e12731c66c697cddac6de835f86efe91247339de9ba31d7ceca": "l'option 2 n'est choisie que par le tirage au hasard, avec ε / K par pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.14a": {
+      "hash": "023d687ebb463b44c477bfed5345eacd837f227d2672e6850c9b52d921b378d3",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "31945a0f407e2872479005c1ae503d948bc9e8ef2874c75f846f9d14224b6a93": "le rayon bilatéral utilise ln(2/δ) = ln 40",
+        "675405d83e6607fd54d7e4a363b6a01a7001ba1204b3d82223c43c3641254d28": "n doit être au moins ln(2/δ) / (2 r²) : arrondis au-dessus"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.14b": {
+      "coarse_any": {
+        "2": [
+          "50a7888fb445a06fd4d537e7807d523eea94173a0111ddd45854a542a78e2211"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ef389db6453551d424f0159dc48a89bf55ac75a5d2a66a1b4488998e29ce9b9b",
+      "hash_coarse": "1230a34cc8b1c70f5660a06602bf10f973a24c7e2aeef3ed3776f94bdd84de72",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "70e54e06949a6ad263ed4c8563a43a92702275891119a20caa94184dd30c2fbb": "n'oublie pas la racine carrée",
+        "95cea08a7951f12d5720b7103873ac8d66fd68ee96129cb1f5f08fd02cc82bd6": "divise ln(2/δ) par 2n = 4 000"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.14c": {
+      "hash": "45d2467db9af1c4507122af9366328c07fa6873eb14d3ca4211725cb31f4712d",
+      "kind": "bool",
+      "mistakes": {
+        "2a313a829a4a9e8ccec708d89276fc621450185b5e73139da7edc9e5ed293c3c": "les deux intervalles ont le même rayon ; l'écart des deux accuracies est plus petit que 2 rayons"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.14d": {
+      "coarse_any": {
+        "2": [
+          "f9ab6893fe12eb75032c1df5b560fc6487e24d277dd00b9c1d667d41ae54ee42"
+        ]
+      },
+      "decimals": 4,
+      "hash": "2b4fe63655dca7907b5aaa703ac9560425f12619e968a34c1168d8b866a66f63",
+      "hash_coarse": "3d420bf53d1e078944a618ab05e04e612a48b72fdac43b70e2656e0a8b9a5b6a",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "9f31393b020920811b358bee1265996337f53fac5940b46e17710cc8f05fc0af": "δ / 20 entre dans le logarithme, pas devant la racine",
+        "bf49342d8595352377c86f9c354889dc6a554c324f99b3a504adacedf8c7c962": "choisir le meilleur de 20 demande δ / 20 pour chacun (borne de l'union)"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.14e": {
+      "coarse_any": {
+        "2": [
+          "1dab7a4c6514ca19b27febe0d2abb03e40731ef8e752ac6df111597368d7accd"
+        ]
+      },
+      "decimals": 4,
+      "hash": "cc317eca698b966cf8523638ce375095804fce579f3dfdc64efff817e7b47472",
+      "hash_coarse": "bb41639f778e8b7653b6083700bf7016a3baaea2bb4dd011bc9124bddfb7df60",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "46525afc0617c42b9c81f60446b201e34df45ac13d614a2e953cde70426a74ee": "l'erreur type est √(p̂(1 − p̂) / n), avant le facteur 1,96"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.14f": {
+      "hash": "9b22bf89603027eb9e935aa2b0bd26db7da44b0d68908a3951d6539bb46a0492",
+      "kind": "int",
+      "magnitude": 4,
+      "mistakes": {
+        "5b6878016ef717a4078ce30553beda1d764d8ae1466b8532b171a444f7b3781d": "n doit être au moins ln(2/δ) / (2 r²) : arrondis au-dessus"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.17a": {
+      "coarse_any": {
+        "1": [
+          "63cd30a0e6988a67d5a682aef53b03b446f3a7e11f7c5707b803c253ea21e745",
+          "3b50b7573a6ff73cdd4852af5b18ec0e0cbf6d0245eaa901aceb27f81eb3ac3f"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "4b7ce95137263152aec7ca779b8d6df0e5fc3aa31920e0ab83f4b07b0f00b9a9"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8e8fd4e94e937a76cdb5962c208a2c8d0c684a54f07eba0666c5925758f63ede",
+      "hash_coarse": "fe860415d5216e4d682214a507cba45d975a6c56ca0b10f81e6758a0f01e5392",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a9a7c96a94437c8b302abfb35fad2ec9b3322d949cf69162a581f866cd9f9e28": "Markov : l'espérance divisée par le seuil, pas l'inverse"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.17b": {
+      "coarse_any": {
+        "0": [
+          "6d8e5725226aaee76576c6a758a79b60c15031d4e7ad722b74523d4178265cef"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "48e8e682df9e73a9891c19f0f1a1f85cb07d7364d7236e8426115e1d9ffb8d52"
+        ],
+        "2": [
+          "c644f26b547a589828604689a9e98567f1ff39f338f1ea92a7c163f8c34c8fa8"
+        ]
+      },
+      "decimals": 4,
+      "hash": "396afdaaf1aa4f8a8c277977a8f7b6a41f7fe2e1a1a4306b16e324a7d5810749",
+      "hash_coarse": "eced9da370ea900dc0dd5cce0eb360082eb515d4c04c919d79f1e470566a2d68",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "8ca82ad5d708280b540525d4464542fa54048e3f61e8914ffe3e0dc6a6c7db88": "une borne de probabilité ne dépasse pas 1 : rends min(1, mean / a)"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.17c": {
+      "coarse_any": {
+        "1": [
+          "b8ea2015b229f1224fa65a011f6bc39fff7a5d95fdc54510584f0784551dd816",
+          "68c05126e92b9c0d384560e4ec414ff2578e94f9cf08dcc56e41209d373cd509"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "cf218933b356d7544da7e31006e43040d381cee45b126b1b433d4aec57e56887"
+        ]
+      },
+      "decimals": 4,
+      "hash": "0a4937afaa7fe2e6761a272b590f98d9fd6ee9e99f87115bb9ed4e3eca0ee2f7",
+      "hash_coarse": "e6727abd81771c1a0509162d247a09b5abb715f6f0d451ee48caf94b4c280c6a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "1bbf40f01bb02be2216da8d82ee672cb2850b032f78484609a93656b92baa950": "Tchebychev divise par t², pas par t"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.17d": {
+      "decimals": 4,
+      "hash": "fe5298db1425cd3557c8201b8b2cadbe404778fd6fae0de93cb076e8210f416c",
+      "hash_coarse": "64ca18709604e089506eb5caf325bcc81f7c23e0ac3a9f5a9d41cdf10c4457b6",
+      "kind": "float",
+      "magnitude": null,
+      "mistakes": {
+        "8c96b2645650241de1c5e738987de9e71342676e9e430b4027edc9db324249b4": "une variance nulle donne une borne nulle : min(1, 0 / t²) = 0"
+      },
+      "sign": 0,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.17e": {
+      "hash": "6f029be571ffc8b7bb3d2b4b759d19489d75f12452413e3b01cff1959cb7aaff",
+      "kind": "str",
+      "mistakes": {
+        "20c8bffe8f497d3a7a5b8d56a63db4c7d3f1a3fff73736e8406d171baf9bc2f4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "24aa5bf4275da4daad1a5b4101d604f9f5ed6de4add9804e6b302612da4d88fc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "3d4930ae4ff3b3b9bf06fe38174d85436d34596e4f38efc7579a34152757598f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "41422bd32565269c8ca8fa2264f6e3bae7197cf8cb1633db622e883b4e708d3b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "49098b5f65aac5072a2c055cc0ca65d0997b281d91108a2f63387ff4b5d929c1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6ed2ca41c9fb37d486a615d01d4f0fe63646f9ff13fa7f535f6d561162f840ed": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b1c0840cbfeb5e33672e808d548224b690c7ce424c07479e7d425fa36368a052": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "bac4994d7666b2f09721b6902aca5b586bca9aa37bda55c9d8034d3faf994b26": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c343dc9dc2629082b4f678b6ca96954d0401f2173594eb9b53b9062f71c322f6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e651e1d0a9b916f565925e544af0dd43a8f639491342d3880336f5a9574c6860": "une espérance négative est impossible pour X ≥ 0 : la docstring demande une ValueError"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.17f": {
+      "hash": "d5d364a830b893e331ad4f768509781084b2cd1f5696a7ff9c0319ac7a3fb881",
+      "kind": "str",
+      "mistakes": {
+        "2c30e5fd622d6bf1be6361065f7f332202788d692e2762ba06525cf5d03884e6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5687b3df0d09805f6b013d0dfa97df696e09323d84523ac16f1b775d945c4890": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "71221ca525e22cda1f7c0b12f0f06bf2789378d7c22d2a9aab669c9121b0d5fa": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "71e65091c4b9f4bc247d202dbc60973eb7cab4d847c3208c8ed23fc9a0318dc1": "t = 0 n'a pas de sens (division par zéro) : la docstring demande une ValueError",
+        "741a8b7636d2ffd267cd04e1e7167fa634053848b4dd2708175c734b828ec9ab": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "74402505cacb7a0232749b370b1a10ed37d352e9b8255bcd0cdd0d74f907998b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7996f9a1e074754845b3d99899bfe130c48bc509b4a8ddb7f45037b3b07ce839": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8476edaaeaeb1a333aaa304164f224d2b0fe847ecc026f5bfe911785438533ab": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d36118e6c27f6b1e21a295ad59d47486d7983773ada226bf8d5881284ca3a3a1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ef48b3e1d74dd6bac00544ac9d179599bc8294d330822095299aeb33bbce9b85": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.17g": {
+      "hash": "0897757e85932489649a53faf65fbe8c40274d736e79c24ba192fd88a67c474b",
+      "kind": "str",
+      "mistakes": {
+        "9f9bd675e1b9851f099e64716e6a5f269d69cb6234b77c6a0f2b43fac68957a3": "la docstring demande un float de Python : float(...)",
+        "ac2e4ea5b91eac40cbef8c6abcbf73c7524d2101e26ebf3cd6ccffcd05b472eb": "la docstring demande un float de Python : float(...)",
+        "e41d6409fe2893b10eff3ad52dc35c3cfef9487cfe8b9d4e4349f70255698b88": "la docstring demande un float de Python : float(...)"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.18a": {
+      "coarse_any": {
+        "1": [
+          "b0061e5da8605c77b4e3982a8abb892cb95cd3e20230ae93bc6ca51308d55efd"
+        ],
+        "2": [
+          "cc4439baf15052a96e68f8046e187e1cf610d93cbef7a3909f43bb6a687fc008"
+        ]
+      },
+      "decimals": 4,
+      "hash": "44edea6faafed8f88b8f093c5f736df34dc55f1e7d26613dab651495beb15911",
+      "hash_coarse": "3d02d37845437520abb70836acab71559398fbb765d610703e35d73d34e03716",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "a9f97c98c98c734c3527a624a4c5b4cc8800f9bd0830f25b9b93124b3c6507c1": "la borne bilatérale a un facteur 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.18b": {
+      "coarse_any": {
+        "0": [
+          "1612016d3990b4e1d472e64138c088fdc630e5ccebc632b9a976924c7519d3a5"
+        ],
+        "1": [
+          "71f40a1efd61c5cc25550719d2842fe58c492d69d181e458df74323f9fa06d83"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "375f5c0536c43c394855acd8a36bd6a1d220ab8e157f40b95281d372cf30d730"
+        ]
+      },
+      "decimals": 4,
+      "hash": "56baa3bc1ec2917814bf4a1e94776963a7036d19aea7d149a970be24538bb00a",
+      "hash_coarse": "98029a6cde64876cf6f14d2e75e00d5b1e7e754bff59897678f4270437644605",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3d08be9b824f0c9aae5743d5ed3cbaef70e27193e49e62a42a36947d71c759e6": "le résultat dépend de a et b : utilise-les dans la formule",
+        "426197fe4d9d0af970e2720e90fc52b9cc3c88c64c29e869dfb8b5e69ac0efac": "la largeur b − a = 2 entre au carré au dénominateur"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.18c": {
+      "coarse_any": {
+        "1": [
+          "c70f0a3c0efb93358df19773f9e6d4bd0dcb74f78cdfb44759804c65c96eaf37"
+        ],
+        "2": [
+          "a487655e916396a2b407576ed31fd91e9e37aab34ed83175e2229bb45b015e41"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ad712ec6c76b7741b3d72e4555e3aca1dd04917ba5807d954b2744ee0598ba66",
+      "hash_coarse": "90e19baac968ea97474683bab5b0434f4f5d30da99017bf2aeb30cacade1c4ce",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "805ff700aa9c2c79aba3304f3d2ad855808caa2f556b27b9a92dd0c5db7cf171": "le rayon bilatéral utilise ln(2/δ), pas ln(1/δ)",
+        "e6597ba922999296e0fd417283df1afc852caa0075f10fe1404ae6f755653ee0": "n'oublie pas la racine carrée"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.18d": {
+      "coarse_any": {
+        "1": [
+          "d567a2e0cdf0f3b79e3f49ab9f41416cbf550237a3c1baab7cbdd4132e9acb4b"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "91a6a45876eeacbd96b4cc35d4580bb6a536b8591fae23392047234561dd68ef"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ae75fa2d2b86ba09732584654d6f5d636bbe738306d24c96bb716a85e98f7379",
+      "hash_coarse": "1094f94d37f5541e987b5f41db074991baa2154cc2d95efedae2366ed3ee440f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "32292b2cec15ba5db6c3c1ab8ca1a1759681c9f1501d9be48a96aa082cbe5c8c": "le résultat dépend de a et b : multiplie par b − a",
+        "356187a9efe9c0bb7f67a93ef478eea98b4b52524df57f80f1a089b09f3f8858": "le rayon est multiplié par b − a, pas par (b − a)²"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.18e": {
+      "coarse_any": {
+        "1": [
+          "b1b9adfbe94dab74ccb2e2a48acea62816e00b286eef5358f2f7659c738c8543"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "44499b66e94af724e614bc8c74e8599e7ee169f2c84927a77f083b6a59789b61"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c1c23c267bdc527cb5bf62b9dc3148e04ac2c2d08b26a0616f4795b7c0102a0a",
+      "hash_coarse": "9d634fd269c7717becc1f65e44811161c136ff4856200c133b224a3f7ef5f0ea",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "28266d148ddcb22dc1721e5da3ad6cc7e200fc51d57b32fe16d6c45c3c748c42": "le rayon est l'écart pour lequel la borne vaut δ : vérifie ln(2/δ) et la racine"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.18f": {
+      "hash": "89ee6a51df4c8b0b0406c980c2df4fd5632ae827ebf2c6923af4dbd316ac269c",
+      "kind": "str",
+      "mistakes": {
+        "1a20e4d10808df8fe7b757d8498756c500fbf404d25e3f1a602babdc0125c705": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "2626d2a8c918fb246816cd03764d937bf8e1600c78e3e12b645aebc121530d6b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "3198cc4995f599b43b7e67108c41f4a642d43bba9e24efb027814a53faae8688": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "3678cdf4d4cf063dfd795cd38990a4d789da45e79831257b3579ff4322df4144": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5530ca31e48f332a4d60764d867f576148865d507cae4ac63646428fbf91b8f6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5b6b2e6fec656b40cb7728a019d0214adaedd34940951b2a48d0d3bd17d52e26": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9691239e2cfc26b96e2f92d2de5a1836c26853b70013b893eaf8774157166ef9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "96f6e6aa8119e239f2cff4e487fc7beab6ceb5e9933d5dfdcfe8a721b2f48255": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e1b1b497f8a72a0b96b2b07033f3c75dd97a33b16c2821ff178ca934c79bac7b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f95d1210d68441e6b4ed6a2a0a6fc1a3babfcb33c2b1c75daafc54de94052318": "δ = 1 n'est pas un risque dans ]0, 1[ : la docstring demande une ValueError"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.18g": {
+      "hash": "049ecb9dad4b59116508f60ad41295819dae2cfb28d91e90cdf5ce3eb4e4139c",
+      "kind": "str",
+      "mistakes": {
+        "136692997a37c9ca02d81511eed8cd839a587ae0fe9c60c91d31f06ea4a8f798": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "18de6ecf04b6f8ba813b7935aea4b2332b76e6e4c7e5c48f529678c294edeb66": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "1d784cf14258f1fe2e313f07d32477b5bd9069f5ec239592f94a64bd6ea81f99": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "2bd86cb30b34b3c21c9a0fb450001ff3ca77fa27912207d88725cbfbc5c6dfe5": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4a12953b4a151603be1273793140223dcf7fe00c43771a121b3415b033bb8060": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "74585f11aea70e8f545bf82fce67ff69bb453a7ce7def2e1739f7c46e565211e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "891451729893bd7682f5846a14ca35d7a4a77751271f57d695cfc1ea06fe6483": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8f3cc0aa9e5e43d104ec52b0108dff01ddcc633c23fc55a085d7c1fb98f3c6e4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a9ded1e9aaf050bc3816499e9173ef8f6979ecd1be86dbe24855fdb0461f5bc5": "une moyenne de 0 variable n'a pas de sens : la docstring demande une ValueError pour n < 1",
+        "adc17ac0027963f6e338f6d1b02119def6217c236ab69aeb4df1fe52d7faa628": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.19a": {
+      "coarse_any": {
+        "1": [
+          "ee6ec043e1758d91b5b63879d1ec3c934e885e7bbada0b1d576a8ed209b16c46"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "be0e792d16a62c6741305a53ad5674084b68d90c660672af6a43e3536e091fe5"
+        ]
+      },
+      "decimals": 4,
+      "hash": "bbd44f67cf438a0f6af1c48466b22438b0d63ae168d7791a41493d9d0f81f9dc",
+      "hash_coarse": "538564f9200052db0bc9207a52db2c22e05efd701056c35586bcecedbd3d449d",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "60a1fc6a99240e6b3f8df08f19c35a56ea2408b1444990f7ea2667d455e86b32": "« au moins égales » : la valeur 5 elle-même compte (>=, pas >)"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.19b": {
+      "coarse_any": {
+        "1": [
+          "cfffecb3e7a38d48c801207bf99649e191e0a76c97b7b211b5337d02ea496e5f"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "03578d69d9d75cb9ee36ce0f561a913a44c52117a7a8365f03edc5217b181e62"
+        ]
+      },
+      "decimals": 4,
+      "hash": "65a3a90d5980c32769849b1eedb185702dd28be9e63c03d3f654f168388b1bb8",
+      "hash_coarse": "73aa681afa2e9a8ebe81d260732464fb7f3d6bc75d76197f30d5d7ad260ac799",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "03a128258b857d99480a7cbe7e02af30b07757fb05e9821a06717a633803d149": "une proportion : divise le nombre de valeurs par la taille de l'échantillon",
+        "441c46608a5403b3d1a12b0684b4b367c54f2cc5c1f0ac3dcadf13142866e8a6": "« au moins égales » : les deux valeurs 8 comptent (>=, pas >)"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.19c": {
+      "alt_hashes": [
+        "ae03ac46d9178f97788b3062fd7fb7a177d028e3c8d08ee73baf8bede2b59d1d"
+      ],
+      "coarse_any": {
+        "1": [
+          "4a81ee91c7a78264011a5c7d0ed7317d2fa0154b05961137f37c6ac455bac743"
+        ],
+        "2": [
+          "c80867659411eccc827e1ac2c6d1802523ac0bf306ce388a33ad098c7f2de2bd"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e832ee084c8f49750bcba50c1b794e9a3e526a6698242a1bfb24a6e01ad6ccb7",
+      "hash_coarse": "804ef31b3391317283778ebdf6ab7923872a17731f3ddfc19bf5d12fa7fb0dfd",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "d347fff290cf28ad52b0568cbb5a2e819dffc8e834fd1290bfa1e21a818aa161": "la proportion des valeurs au moins égales au seuil, pas des valeurs en dessous",
+        "fae2ce7911bda54ef7a46957a23a4e51c35a1d2ee40212e3a5e6cf4858128d63": "la proportion des valeurs au moins égales au seuil, pas des valeurs en dessous"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.19d": {
+      "hash": "963c2a365810cbce136afa158e14006dedc6da16d2c572d8d3f77935381f58ce",
+      "kind": "str",
+      "mistakes": {
+        "0d74bca5f8cdca5fac8cf4bb8527eb3c308603c4bad48634e2aca59dc5bf1d02": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "50d066e6664e283e81edf02d446f55f44e5ce53ebffe17d00ad91e9dfdfe4272": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "63af9846731eaa7ca1dbee3c3cdb04ba5daa693b8600874d9900f11149634d27": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "67ddebff845af0cf495370beaf187bf66c284dfcb04181bf65a74abf077aa470": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "75e2327cb54344cfe8b25ea6d0aa2fc3ea2ff1dd7014dbe94e138f44048ae779": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9a941809e39dbfc3d27602dd4ae5454fa31fca1a8a146b27afe688e71e551594": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b8253e9f2236a3045339b2627385969e030e07a21182cf0fe6309131b60e8e62": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cc7680d517f6b4375fd788cfa03fef66d230e1bbbf4ecd2b62de8f0f6f2f029f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d8e750a6cbdcb86bfe0bb234cbd062b8bdb0d66ce9097907df6a2e9c964bcf79": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f464fe9032284febd42dbdde86d67e147cad5d2d3a8b0ba851031a8d61f89367": "un échantillon vide n'a pas de proportion : la docstring demande une ValueError"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.19e": {
+      "hash": "e594aabd60a30fa571129007e32bcd63e74a4d0fd5515dc6b18719af64dc9b7b",
+      "kind": "bool",
+      "mistakes": {
+        "adedd2c9c0d288aed828a04c1faead3c27b9c0d65aa24027850a5d7d945131ef": "Markov vaut pour la loi de l'échantillon : vérifie que ta fonction compte les valeurs >= seuil, en proportion"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.20a": {
+      "coarse_any": {
+        "2": [
+          "b125c3d7e3cc6d74b72909b97e333a0e73a1c475e5611f47b5a0fc227315d6db"
+        ]
+      },
+      "decimals": 4,
+      "hash": "cfa6cee561d8149566ef17b5728ce5e22b2cccbbc1e2644f01846f3ee5b4496b",
+      "hash_coarse": "34c4eeb449fabb830df60b3ecc44920d32ffea7fb4ff844d44e1c63f05e91de4",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "40ccf16cfeac5b954db36a744e9ffb2e0a8e900c8ddcd05d7038436a586d1ab1": "sf donne P(T > x), la queue à droite ; cdf donne la partie gauche",
+        "83bb3d60109e52cb5a1fc19ebc518444fa44cb816afc281e76273637ac164424": "scale est la moyenne 3 : stats.expon(scale=3), pas stats.expon(3)"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.20b": {
+      "coarse_any": {
+        "0": [
+          "fc932b8d9c71956a374592e252e7a3958cfc16e43dc978931e92b5dc91b0cd26"
+        ]
+      },
+      "decimals": 2,
+      "hash": "ade226507d8343b6b8c5bc6b662a3df99e2a661779aad5272ce42c9f77880252",
+      "hash_coarse": "6235b5fc0d03de4e6cca871f47f637666ad11eb036d472d1eb1f718d3c95693a",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "c7c9b87a8730012f3fe6276edc9d005f223f780f61c781a1e3d8455b25f5f8be": "divise la borne de Markov, E[T] / 15 = 0,2, par la vraie valeur"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.20c": {
+      "coarse_any": {
+        "0": [
+          "1a96a2c2aeee996c78bc71ddd30f72ed50ba263827b29154a396be528e93b19c"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "4335f913c0c3461a7d707cb16c35b3890e794932514ebe0647be479ddcf7f871"
+        ],
+        "2": [
+          "358e98e2b12828224ef7db911c786485b5cbd6553b60eca3fae28db9045d40eb"
+        ]
+      },
+      "decimals": 4,
+      "hash": "2c526a22a39a1b26e1eb8ca7ddf7272dfbad77ebe6ce12228b5e5a0bf2fc52cd",
+      "hash_coarse": "45cd4fd791e3b1a510cef5e723910682dd79701853cc78a1bb0ab5e0e264f196",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "70cae78a5175eab352b6ddb397ee55b9d1617c597dd6a2b20a36576b8ad242f5": "isf(0.01) donne le seuil dont la queue à droite vaut 0,01 ; ppf(0.01) donne celui de gauche",
+        "aa31bb4f077b5e9e0fc303e1f3cefcb0aae9fd5fd6ba7fd5a61ff34c6fe978f4": "isf(0.01) donne le seuil dont la queue à droite vaut 0,01 ; ppf(0.01) donne celui de gauche"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.20d": {
+      "coarse_any": {
+        "1": [
+          "d8e58e2e2136ec23a40cc31a63214cd0e956b37172372b979b95e5494ad064c2"
+        ],
+        "2": [
+          "38b9cb9448f51537d7478289b4089ef14fd16d0044a07dd53a52f72f058c582c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "05c21f794066fa94430d3bd1add894d0994e2ae58a98133ad35b157a3e967ee4",
+      "hash_coarse": "cb5df84a0988d526bddc5991ab26d27a840f5be438ab975e6319987158ab9595",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "8535fa451739ffc4e4e2195d960a94a709ed99b005ca5716d95686530f0653de": "compte les deux côtés : P(S <= 9) et P(S >= 21)",
+        "b52c18d7bfb11bb20fc507ac1027393bd89ea171c14da9073be84c4005d1a992": "compte les deux côtés : P(S <= 9) et P(S >= 21)",
+        "d0acfd8a1dd25126815ce24a94615887c8a3d2d9850dd423ba11c1440a0855a2": "pour une loi discrète, sf(20) = P(S >= 21) ; sf(21) oublie S = 21"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.20e": {
+      "alt_coarse": [
+        "a75e11d7111cb9cbb11ea27c7904e189aa2a788607e59db78f01e6cd922652ee"
+      ],
+      "coarse_any": {
+        "1": [
+          "26c4881076bdfce8ad4c3c45c66587a275b61e9bc51a1e00bbcd3be69c858a6d"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "011310a5489995caf3d534869739314f8acb7b90257f4831d4e0b02b0f26504e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "9ad855de3dfc98ea132102d649147d08d76c7897a62854eab0ef67826cee0a8b",
+      "hash_coarse": "afbe29f7423d9a46bd0fcd9cdc15fa3a818ce0d8da3c5486e825285b8b2fc25d",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6ed00e5b592206a3e70137ed60d0c61a256121249c9db64c05a6e64e7a9a02df": "la variance de la moyenne est p(1 − p) / n, et t = 0,1"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.20f": {
+      "coarse_any": {
+        "0": [
+          "81897b3bbc2d49c17465768566a19726ee87ae8f6d237a24e06eba090baa998e"
+        ],
+        "1": [
+          "4b4ec0f07a0d22e7539b603152ec1d60bc17f3a0a7c5ceb984b2d855025f8770"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "157ff76068aeeb581fdc6cf7591ebdc475e1f72e10d8ad086b5c9ffdd5ac26c8"
+        ]
+      },
+      "decimals": 4,
+      "hash": "6626ae99a2312335ee378b442c370c95d4bd8dee981689c10e57e50a2f9c6631",
+      "hash_coarse": "87a7e3267a707f96e466ded6f0523c4f54f5dd11056a789caa5d442008435a1c",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "74e092c6a2431a0a2fa9aed1681803b14be54c148930173f63f3182b5f6b0d5a": "la borne bilatérale a un facteur 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.21a": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "eea7bb96891bf1400e70277ed786d35c77b17fb8d05c23ee3025f511091ffb18",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.21b": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "ce59410b6b3093357813430dfef7bac8d77fb136d6f858df0ecf181a68042831",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.21c": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "4f34667c0f6458a5daa18fd8301649a6939bc458e0ef01d20e51391908c2cff6",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.21d": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "b877840e33de3c3d9f9b390b54224eba7dbe59faabda198db402ba9bbea5c465",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.22a": {
+      "coarse_any": {
+        "2": [
+          "87fee1bc8b31bda3cff0285f2a1949b36cbb485e2b76581379a0f4edd8a85393"
+        ]
+      },
+      "decimals": 4,
+      "hash": "6cc0221757d05d19eefad970e2440f835f6766e604f9c72633a572c439da730c",
+      "hash_coarse": "63884041a79773ee87e1ff924ee4333c832d3fb3f08c23441d72d960d6859fc2",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "1496dc22969777c8f935e0a4c99ea72fe0619cad1915cbbde6cbf106666bf37d": "un seul générateur, créé avant la boucle, et un appel rng.binomial(n, p, size=reps) par n, dans l'ordre de la liste : sinon les tirages diffèrent",
+        "8b28d6d3ba04ec46a6c9552cd10f8769dded7c88484b57a23350ed99a410154c": "un seul générateur, créé avant la boucle, et un appel rng.binomial(n, p, size=reps) par n, dans l'ordre de la liste : sinon les tirages diffèrent",
+        "c48babbba37ffe3052f76b3cd40ec94d3c5fdfe1dd89324020f718d57c2a9183": "un seul générateur, créé avant la boucle, et un appel rng.binomial(n, p, size=reps) par n, dans l'ordre de la liste : sinon les tirages diffèrent"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.22b": {
+      "hash": "6f6643d62bb4f3881b8f1a04165a6ccfbaac8a4d4a2ee9e16c17016fd15332dc",
+      "kind": "bool",
+      "mistakes": {
+        "db75d16541072c13ce6dc2e998bd31d78bc7348066e6b92fcf8476e2efbb1609": "la borne de Hoeffding est une borne : compare chaque fréquence à hoeffding_bound(n, t)"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.22c": {
+      "hash": "b6f556f74c8521ab1a68d87f5992a1dffd470de564d040d9ff536df5e0553a08",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "0adb830c3f8ffc8a4bf9377da0e16206eda5b67802af177b9d68440fc5b22a39": "la borne bilatérale 2 exp(−2 n t²), plafonnée à 1, passe sous 0,05 plus tard que la fréquence",
+        "d4e428559888c65a530f32fb5f17b9ccf3ee720d828d40e53777e855b6a9572d": "la borne bilatérale 2 exp(−2 n t²), plafonnée à 1, passe sous 0,05 plus tard que la fréquence",
+        "fca4e0b3ef10e960da35f74fa3c2afb0602cf43357aec680e8e506671a6323a7": "la borne bilatérale 2 exp(−2 n t²), plafonnée à 1, passe sous 0,05 plus tard que la fréquence"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.22d": {
+      "coarse_any": {
+        "2": [
+          "a50fb0301b903a8c871ac4a3b9d4c1d873e6824fbd04b31ff062d1c5577c9f25"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8ad5f1b39887eb0461030e93e1fe5307b4a9e71e9433e01d28cb6346cc60d13a",
+      "hash_coarse": "2e0d3f21754b1f456e6afe8e0de00dbe7804c8b80ff8f45e12c188910d40fc35",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "20e5df85cfbda19bda9ba5f8fa4f4cd8ca021bf5c9286fd02df869e2c98776fb": "compte les k avec |k/n − p| >= t des deux côtés de p",
+        "ac0602f46579e438afc3763f8ef78f49baef2927fac9b083f50249d53a9b3d0a": "compte les k avec |k/n − p| >= t des deux côtés de p"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.22e": {
+      "decimals": 1,
+      "hash": "fde0c9f75be72436e64efbb7649f36eea5746e9877477502c13c6e9e3170be87",
+      "hash_coarse": "77b92e5d813ba8a87d732ccb1837575cc948314e34b18418f2342e6a6c94266a",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "b73af7910321304547d52eff758c1ce98238e9c8c97e93c897acebbd6fa85dff": "divise la borne par la probabilité exacte, pas l'inverse"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.23a": {
+      "coarse_any": {
+        "0": [
+          "a7d214aef067d996c1b7bada60e0a77a88b4a5e2e966da67a134e4ee2359e447"
+        ],
+        "1": [
+          "91968aab803fe6ee153b0ab54c2052031f8f4b69dbc9a5403dc53b4d92150808"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "d3c153a6313d54084320cb760cb9aacb57075c5171e73c7fd9b31a22dd44f787"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3c41c1b34d00e8fc1487e06fdc03b7765f3f6219df40279edcb9e655ae7def27",
+      "hash_coarse": "870bd3b01c549b1965fdbfd8605d3e62d9f3e147ff1ee4ec2f3f8186c8804d26",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "48b1e99a651b0e6eac05da163edfa1e9c3515be82ba20b329ecd97e44af0c0eb": "la proportion des x2 > x1, pas des x1 > x2",
+        "8b65945f32cea1a62b29d8f6fe7103a0457aa8706e737491d9456e1ddd9d281c": "tire x1 d'abord, puis x2, avec le même générateur : sinon les tirages diffèrent"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.23b": {
+      "coarse_any": {
+        "0": [
+          "29faac4b807acc0944503411410d0a5d125bb29c5962f6e8f7f11278591779e8"
+        ],
+        "1": [
+          "0454c6079fabc7f25ce45dfb8b4c36deea524ee77250df8de355a33ea93440b3"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "3631f36c509ed6292ace9885c8bf305dde80d1945400699468c18e7fe22d4004"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c8fc374129e639f0ca6405ea3bd9d70e897a65d163cf22edb5d2c5915f7f84e4",
+      "hash_coarse": "4295d8a65ecad780543530ab8976c5eeaf8d18962b2cea21ff80dd7fc34829c1",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "78df1c804126f4a0c2cdcede6c1421cfdb180d5919edf6509be408464eb00879": "P(θ₁ < θ₂) = E[θ₂] pour θ₁ uniforme : la moyenne de Beta(2, 1) est 2/3",
+        "e0f913fa9dfdfe09f2f7001f9bdd4503495a75ef99e4c85e847b72e628d288d2": "P(θ₁ < θ₂) = E[θ₂] pour θ₁ uniforme : la moyenne de Beta(2, 1) est 2/3"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.23c": {
+      "coarse_any": {
+        "1": [
+          "deef2c9c013d2e4eedf5709d19eb2290bc303b5838126b6182fa4178566375e6"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "70d58065aad0bbf910180a6b3a013ff9a08b97ddda1fd2399bfdc933d5c2efd0"
+        ]
+      },
+      "decimals": 4,
+      "hash": "be58bc6178cb7992298ba1b7cc1f814f580a8ab0490891f91a25dd3f71c50ba6",
+      "hash_coarse": "e14f2a6657cb239c1c98d55420bc0113a8774b1e1b354b1836bbe55335349c62",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "286d18bff13180658d71a2902737f06745d7a2f36992e033cbeddf9cfa14d001": "la proportion des x2 > x1, pas des x1 > x2",
+        "d379403531ec47339b61aefa45f7b39f6b8414a1c4ef8732b66e08309bb2f4fd": "tire x1 d'abord, puis x2, avec le même générateur : sinon les tirages diffèrent"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.23d": {
+      "coarse_any": {
+        "1": [
+          "4fdaf918e8510f5ea2d5bdef262bcc8869bd2a39de4bad0abc857627f751bafb"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "92b7a678fd340ec934a7a30bc8912de5c9fb2be4d97d27d38b95e694a2265ac1"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b488931d483efd1dc52d558915a847d75cd22eda563efe3bcb3f2704e0460eb9",
+      "hash_coarse": "fea39c00728af42e8cb827ddf84636b6e4c12081b0048af1e7a3cf68dfb3fac1",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "c2aa09da1a90bc64b32066b384c60db749204eade53b9e554a72004c09028bfc": "intègre la densité de θ₂ fois la répartition de θ₁ (et non l'inverse)"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.23e": {
+      "coarse_any": {
+        "1": [
+          "80bcbf36bb5992ec12ddc8f479190e5381e26a4053fa66eccd3a77fe1bb3e560"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "1c987901be3e209537836ee61bba363efb2068c243db5cc1a36731666e1ba9b9"
+        ]
+      },
+      "decimals": 4,
+      "hash": "437675d8d1209b3ecb3651d8926919662b6dd9f787106c74fc1e780dd0e26847",
+      "hash_coarse": "ae8baa198ec789ab75cae9e04ac7e23ddc304a3d4846293dea2165709fd5b231",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "0c9f9acca2e708802009bcf3c73c564fc99ca8688ae904c5ef227b99123bdab6": "intègre la densité de θ₂ fois la répartition de θ₁ (et non l'inverse)"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.25a": {
+      "hash": "87cd6ab2ef1f7b9b23ffe7a279ed180678904132e79da1845a0a489f01e4ad5a",
+      "kind": "str",
+      "mistakes": {
+        "02bb99b03f3dc667996bad890444bccd65bfa50ac3b43514012d96d54e052ae3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "033113b90298ee082bdc628e7c3205b296509ff779afe87b189e20610b354dca": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "049fe9f25aab50e5707059fbfe83e04d330a995e474da05d8f97b6a2ec015726": "une des lignes que tu cites est correcte, et il manque une ligne fautive : un rayon de Hoeffding est une racine carrée : regarde ce que calcule la ligne",
+        "087eb069276cbb331100bd7e589cf972208bacb742266c24bba7bb4429a5d9cf": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "0a8ecd22e4f8e4f4d17a01afa2f37fc16cc03419414dd902501d1a13556bb281": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "0d8d9c39719e4e8460e12e73c379217ccaccf859c69ed53c9bb161057c584ca2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1451d400f29a50fc2f5084c7f6f749123d33dceaa88191daac892c18e1c3df9e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "15a97b8f5c372a1f476b5b56bb3e2e5a9c168da743944a035a89d6ed08c348f4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1abd51d62299b5fc1eb41a33feeccf821ee5f28d8769779e35faedd6055a6ba2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1adaa4501bb5f5cf8f73d3659e62d62b3e4bf9b53868d75cc8f60a48410d204f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1bc90594329e59fe88c0c197320e016e0f997878280d2341506b28c152a25a87": "une des lignes que tu cites est correcte, et il manque une ligne fautive : les variations sont dans [−5, 5], pas dans [0, 1] : que devient (b − a)² ?",
+        "20829833ca59e416e94e6963490a79cb5342e02c30e58b5d134e9aa05b4c314a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2b7a300214a07cac58762fb9c26b821c686966e3dfe11dff34d42c8aeabdeddb": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2bfbe3d3ea4978d63c573d51c901e1cd73e523d3f0beccbedeea73006b472538": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "308ea5b05b09ff1af89246f8e1f7499f0bb276e22bc201e908a45469b8e1809f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "30ed3252c19ca04caf95a2d351e47ef5603e8dc9d916b1d448b30801e18f3ab6": "une des lignes que tu cites est correcte, et il manque une ligne fautive : un rayon de Hoeffding est une racine carrée : regarde ce que calcule la ligne",
+        "33a32823e4534480c1af702d776ecad3ab25c20abb60ea9ed9eef061186e1600": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "3fc7e8ae886c8c709745bfbce7274d48fd7976d37c04163e0c9b2250da116bac": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "533880d7b1daa180bc214ac785b2c3e8ffad4ac6a7e726b1daddb7032153ff7c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5482d7b65527e9ddd9ef8088dc27b8aea87f6dd64b86b9a3b0f63015600c34f0": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5518fe64106ffe79ee8789cee090c3a2aac67deb3148c30f4e8f0a36e65a8293": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "566727d3398ccae2d8825e98ce7db6f5cb3a61050baf150caf3a43191673b6d7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5c73e28d5dd0c0e98b12ec5ddc30e7f5ba5852896843b72b22cb2b34995cad59": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5f46d906fe053d508830157696f3e2db73ec8d96ac6e266d17c54b46d2baec6a": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "5f74a5d9a66345f7c0ef1260a86cb5fa782af8c4ad9ea2c9873f7e3bb98ef365": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "613457631c1f1ca88e1653fe5cd1f4c3b68404ea2af4746ee43680323058a07e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6c1b9d8163c49e486a7c39e38d5a974780dfa42dc55815be39d534c70a22fddd": "il manque une ligne fautive : Markov demande une variable positive : les variations quotidiennes peuvent-elles être négatives ?",
+        "72229455f91bc48822898bf6e99cad0920f01c59bbae181197c024db61c2df1d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "75c7f42321a48eaf7c15ec080ae8434592cd4d8e076f321f80e3e0cd5ed51028": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7980920aa53d89cc8173ebadcd7e00facb96cf4f256057b709cb451846a1d8df": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7c0356da9daf55673e43c758d2e426e86f2c83381357b99fb0901ca8cde61dc7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8117af96268cb95018ce3c030ae59da0b47f7b388a3ed0b3c7a9a9a561decf9d": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "84b78ebe6f1d243b036793800b3cc12fe17bead676048542f01aa214dd3b83dd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "85a709b14f2483ee897aca21b8d104c2f2fbfd03c6c21a4959f87e5b79d5cea4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8db3f16b59ed7afc66e1150675c90674e8a28897d9796cf61b684d8b3d92ffe0": "une des lignes que tu cites est correcte, et il manque une ligne fautive : les variations sont dans [−5, 5], pas dans [0, 1] : que devient (b − a)² ?",
+        "9687cd082f3eab82c863c4049166d9d53f9ac97022a4f779fd7a61ed794ca94f": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "9c0eeeba9c2cee8f9155871b5242ec15df14e97449a58fbd4ceb23538b369525": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9e35844b00fbce2701a69263da8fe1b482682bdc77a25e25087f9488fac00b84": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "a05acd2a72c87c7d593375704f0507ba371b752da2a3b499bf174f260b038846": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a59a797a83c22a43b7c573fb3b3425e641ac8beb9bb523c5b7673c08425c762e": "il manque une ligne fautive : un rayon de Hoeffding est une racine carrée : regarde ce que calcule la ligne",
+        "a619602a5f5e09094944d1d573bf69a5d2fa7ce2769d1a30cf4e8f7a593f6c57": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "a790348e0b8be2c47671d3f1ef174973aaab8b90ba9d886abfa16980377cbc55": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "ac55e74c662f4bee2a65d4a8a8820c251baeed01d38ef4bcc917dac927c6122e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ad98830fcebcdc550d65f32e0525b63986498c165f0380dd408d2e403fc5c619": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b2656de0cd8a647fd4fd2c2877681a22af86df7613967521d5f489e8e436e55f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b2b2734716a54ecf218e27a3dca288194cf3541f75ff3958c18282ee2ba9f300": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b2e2c0c8aa94960500c38806e8a1e03fbda40f44d96ff9100b0db539684010e2": "une des lignes que tu cites est correcte, et il manque une ligne fautive : Markov demande une variable positive : les variations quotidiennes peuvent-elles être négatives ?",
+        "b3e68996a6e62238238aed5fce814080454542de6d85e93739dc8fd6a28728ae": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b4684b9784abb60856cde850d74dd039a9fb453079965c0b85378732660ef4b9": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "b6046f905d7106e3262cd508ffd4749cd1ebc64d181788ce91972d88f4e661c2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b86ce6109c7839d0b5d7ff91ed75825e77e0065cc5be036d0f94a4372d56ce06": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c530c5ba348feedf876c1f9034766723ab250bcb9e30436579f10062270769ab": "une des lignes que tu cites est correcte, et il manque une ligne fautive : Markov demande une variable positive : les variations quotidiennes peuvent-elles être négatives ?",
+        "c6eb4561941d235a4a8b1f856f7c4faa0ef64cc7c9a77f767292daf098f77d43": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "cb46f24fff521e4b9ad01ca84ed0be282a29928e48106f4444ca192e8de4cfcd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "de0f71279a2a904962f593d3df1f97a28a4a28501f38d91eca4870ef7e9ac935": "une des lignes que tu cites est correcte, et il manque une ligne fautive : un rayon de Hoeffding est une racine carrée : regarde ce que calcule la ligne",
+        "de9790ba71837d2f3899733925d1ebf924a027cdbca4cdb715b5fec5a752a7b0": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e0fece2ffd01905a6366175dffeb7dcbc067c11666304edb88f3d25699273172": "il manque une ligne fautive : les variations sont dans [−5, 5], pas dans [0, 1] : que devient (b − a)² ?",
+        "e1422c5dfd4580cfbbbd7f0d458ec34d3e4ae227608245dce09814b1435d9a1c": "une des lignes que tu cites est correcte, et il manque une ligne fautive : les variations sont dans [−5, 5], pas dans [0, 1] : que devient (b − a)² ?",
+        "e175df067060557df30cef6e6178f909b08d8336bf842e449ff3630db97167f7": "une des lignes que tu cites est correcte, et il manque une ligne fautive : Markov demande une variable positive : les variations quotidiennes peuvent-elles être négatives ?",
+        "fb95c6eec82093e6ede23357f22ae7416cf98d2c6b77ed9d5c0eb6f3f98049a4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "fcfea4d9d132f4f886971abb88444850d3196dd69451cfdcc61e75219a0c1948": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ff81e96c7f22511fd090379a66cbf2c748ea17188f90f39a2f7e343edaf69ba8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple"
+      },
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.25b": {
+      "coarse_any": {
+        "1": [
+          "6cf6fd9e11d0daf1c4716c046612f735c853f4b522ce36915bf91fe40551683a"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "215e409aab03bc81194779f298f859e1246e34bf668a2de8e94e354a9ff15e6b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e9021f5db2821a7816490e8269993ec47d04773d53139995e9a2cbd466ba7ff3",
+      "hash_coarse": "35a844065e238464c257df5f6b50d94988f44eede8f70b54a4e626b052e56fdb",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8736460a714625205f9613ac2757472d4b02ec5091ca1f39ce96fa83d210920a": "les variations sont dans [−5, 5] : divise l'exposant par (b − a)² = 100"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.25c": {
+      "alt_hashes": [
+        "0472275eb9efe57cd1f388292244d2863a8e1dc0a6ce3b0e0b70f3fd1f61ade9"
+      ],
+      "coarse_any": {
+        "0": [
+          "465570689c3e8f908c10265de88eab32532cb3113ce9e4cd79a913c884b7a70e"
+        ],
+        "1": [
+          "f7c95f797f678693700979501cea2d7bfc09c4a22e139bcb8804ca0e714381f9"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "4b26197437d576f1610d6bf521aa97d61f09d1b26b2c0bf2675d48b2f45949fd"
+        ]
+      },
+      "decimals": 4,
+      "hash": "266b924ba6385b17d71b80211918935756781e8b1ea577c456c8e81bf121b0f9",
+      "hash_coarse": "2ad55c17b75682a571b2694401cdf2a7e2c14f7e54d6c80755858bc369bb15ad",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "7c5ad601dbf0acf47e544a935fee5b72928aac1bd18b544cdc1a0e3da8ab86c1": "ln(2/δ) = ln 40, à diviser par 2n = 800, puis la racine",
+        "e94aa35f93f1bd6e466abd020b53ffa36d61db7c6a2a4ffc401e99a7f841e13f": "le rayon est multiplié par b − a = 10"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.25d": {
+      "coarse_any": {
+        "2": [
+          "a6a28ea09bee7c517c45b345d7a5a24d1ea9d707a2b4b13331f4e6604c1d5f89"
+        ]
+      },
+      "decimals": 4,
+      "hash": "0c8d72f3350f2c8fa5b90597bf4743e7fd35af8116d091c16d0d6e7766dee447",
+      "hash_coarse": "430d6910fe4280d4812a86bdfb780ee9bb349705c0ff0e04aca4eba5516a2c53",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "08abfda6db94732b4899d81fc48bc19c1bcf8f35161e893f6e0389071cf64b81": "la question demande ce que rend la ligne telle quelle, sans racine",
+        "87d94c78e5873f32e893e87bf72f0b2f18cb5b0638465db71f7576a2b1803ec3": "la question demande ce que rend la ligne telle quelle, sans racine"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
+    "M11.27": {
+      "hash": "55abcab7f6d187ff6f22a205e869c73c2a75aa9f502deee37d36be1083dc9056",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "3a502766b1037d7ea1ea60c35cf35408da89cc70c23c4024b458d40fa85fdfe1": "l'égalité |k/n − 1/2| = 0,05 tombe sur des flottants arrondis : compare des entiers, 10 |2k − n| >= n",
+        "71c441cba4ad7ac2599653e75f5c9271b0974bc63db9c69c2c6a26a6a3f7de7f": "c'est la garantie de Hoeffding, valable pour toute loi ; le défi demande la valeur exacte pour la loi de Bernoulli(1/2)",
+        "95d3e1e415c7e34ca9722bddec33863adf8e1ab8b43e2100b8a4d2c2dd431421": "c'est l'approximation normale ; le défi demande la probabilité exacte",
+        "ce6b7f4d0a5ded25ea17cd9ebcad4331926965aa40217fb5c981ad16cd539d34": "c'est la garantie de Hoeffding, valable pour toute loi ; le défi demande la valeur exacte pour la loi de Bernoulli(1/2)",
+        "e851c3df71b4f706cb313f6b22c5ae8dda65714cf1cb590eb3ec27316f7fe182": "c'est la première taille où la probabilité passe sous 1 % ; elle remonte au-dessus pour des n plus grands : vérifie tous les n jusqu'à 3 000",
+        "ffa6aff3ce73bc4686943e8c55907a3ec84c5ed99d8dc81ebecb8bce9032d595": "c'est l'approximation normale ; le défi demande la probabilité exacte"
+      },
+      "sign": 1,
+      "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
