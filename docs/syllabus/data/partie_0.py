@@ -8,7 +8,7 @@ CHAPTERS = [
     {
         "id": "R0",
         "dir": "r0_prise_en_main",
-        "hours": 3,
+        "hours": 3.2,
         "generation_sessions": 1,
         "mml": [],
         "summary": "Les outils du workbook, sans maths nouvelles : le notebook, Python comme calculatrice, taper une "
@@ -67,7 +67,7 @@ CHAPTERS = [
     {
         "id": "POS",
         "dir": "positionnement",
-        "hours": 2,
+        "hours": 2.1,
         "generation_sessions": 1,
         "mml": [],
         "summary": "Le test de positionnement : deux exercices par chapitre de R1 à R9, vérifiés par `wbm.check`, et une "
@@ -861,7 +861,7 @@ CHAPTERS = [
     {
         "id": "CP0",
         "dir": "checkpoints/partie_0",
-        "hours": 3.5,
+        "hours": 3.3,
         "generation_sessions": 1,
         "mml": [],
         "summary": "Le bilan de la remise à niveau, avant d'ouvrir workbookIA 0B : un examen blanc de 2 heures sur toute "

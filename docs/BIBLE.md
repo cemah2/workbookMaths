@@ -129,8 +129,8 @@ Les durées sont des estimations (lecture, exercices, flashcards) ; le syllabus 
 
 | ID | Titre | Contenu | `mymath` | ≈ h |
 |---|---|---|---|---|
-| R0 | Prise en main | le notebook du dépôt, `wbm.check`, Python comme calculatrice, SymPy, écrire une formule en LaTeX | `_example` | 3 |
-| POS | Test de positionnement | juste après R0 : deux exercices par chapitre de R1 à R9, et une grille qui dit ce que tu peux sauter | — | 2 |
+| R0 | Prise en main | le notebook du dépôt, `wbm.check`, Python comme calculatrice, SymPy, écrire une formule en LaTeX | `_example` | 3,2 |
+| POS | Test de positionnement | juste après R0 : deux exercices par chapitre de R1 à R9, et une grille qui dit ce que tu peux sauter | — | 2,1 |
 | R1 | Nombres et calcul | priorités, fractions, puissances, racines, notation scientifique, ordres de grandeur, arrondis, partie entière, pourcentages, proportionnalité, moyenne et moyenne pondérée, estimations de Fermi | `arith` | 12,7 |
 | R2 | Calcul littéral et équations | développer, factoriser, identités remarquables, équations et inéquations du 1ᵉʳ degré, valeur absolue et fonction signe, systèmes 2 × 2, mettre un problème en équation | `algebra` | 13,6 |
 | R3 | Fonctions | notion de fonction, graphe, lecture graphique, fonctions affines, carré, inverse, racine, polynômes du second degré (forme canonique, discriminant), variations, composition, réciproque | `functions` | 12,8 |
@@ -140,7 +140,7 @@ Les durées sont des estimations (lecture, exercices, flashcards) ; le syllabus 
 | R7 | Limites et dérivation | limites de fonctions, continuité, taux d'accroissement, dérivée, règles (somme, produit, quotient, composée), variations, extrema, tangente | `deriv` | 13,2 |
 | R8 | Probabilités de base | expérience aléatoire, événements, arbres, dénombrement (factorielle, combinaisons), indépendance, variable aléatoire discrète, espérance, variance, simulation | `proba_basics` | 10,9 |
 | R9 | Géométrie du plan, vecteurs et trigonométrie | repère, coordonnées, distance, vecteurs du plan et de l'espace, norme, produit scalaire, droites, cercle trigonométrique, radians, cosinus et sinus | `plane` | 11 |
-| CP0 | Bilan de remise à niveau | examen blanc et synthèse, avant d'ouvrir workbookIA 0B | | 3,5 |
+| CP0 | Bilan de remise à niveau | examen blanc et synthèse, avant d'ouvrir workbookIA 0B | | 3,3 |
 
 Après la partie 0, le chapitre 0B de workbookIA devient une consolidation : il reprend tout cela, l'étend aux vecteurs et matrices de ℝⁿ et au gradient, et le relie au ML.
 
@@ -167,8 +167,8 @@ Après la partie 0, le chapitre 0B de workbookIA devient une consolidation : il 
 | 8 | M08 | Tests statistiques | hypothèses, statistique de test, p-valeur, test binomial exact, test par permutation, erreurs de type I et II, puissance, intervalles d'une proportion (Wald, Wilson) et d'une différence appariée (Student), comparaisons multiples (Bonferroni), sélection de modèle (AIC, BIC, facteur de Bayes) | §8.6 | `testing` | 12,1 |
 | 9 | M09a | Matrices et systèmes linéaires | matrices, produit et formes, produit élément par élément (Hadamard), transposée et XᵀX, systèmes linéaires, pivot de Gauss et forme échelonnée réduite, inverse, premier contact avec le rang ; Z = XW + b | §2.1–2.3 | `matrices` | 16,7 |
 | 9 | M09b | Moindres carrés et régularisation | risque empirique, MSE, MAE, Huber et R², gradients de aᵀw et wᵀAw, équations normales, projection et matrice chapeau, features polynomiales, ridge (et ridge vue comme MAP), principe du lasso, régression vue comme maximum de vraisemblance, décomposition biais-variance, double descente (aperçu) | §5.5, §8.1–8.2, §9.1–9.2 | `linreg` | 17 |
-| 10 | M10 | Séparabilité linéaire et convexité | ensembles convexes, enveloppe convexe, séparabilité (enveloppes convexes disjointes), astuce du biais, marge géométrique, récurrences sur une norme, activations ; XOR et la convergence du perceptron restent à workbookIA 10 (∂ 10.4, 10.7) | §12.1 | `convex` | 7,9 |
-| 11 | M11 | Logique, induction et inégalités de concentration | implication, contraposée, négation, validité, ensembles et contre-exemples, induction et ses pièges ; inégalités de Markov, Tchebychev et Hoeffding, loi faible des grands nombres, rayon de confiance, bornes de confiance (UCB), ε-greedy, regret, Thompson | — | `concentration` | 11,4 |
+| 10 | M10 | Séparabilité linéaire et convexité | ensembles convexes, enveloppe convexe, séparabilité (enveloppes convexes disjointes), astuce du biais, marge géométrique, récurrences sur une norme, activations ; XOR et la convergence du perceptron restent à workbookIA 10 (∂ 10.4, 10.7) | §12.1 | `convex` | 8,1 |
+| 11 | M11 | Logique, induction et inégalités de concentration | implication, contraposée, négation, validité, ensembles et contre-exemples, induction et ses pièges ; inégalités de Markov, Tchebychev et Hoeffding, loi faible des grands nombres, rayon de confiance, bornes de confiance (UCB), ε-greedy, regret, Thompson | — | `concentration` | 11,5 |
 | CP2 | CP2 | Examen blanc et synthèse | juste avant le checkpoint II de workbookIA | | | 3,2 |
 
 ### Partie III · ML classique (workbookIA ch. 12 à 15)
