@@ -1210,3 +1210,21 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M11.27 🏆 Défi : la plus petite taille d'échantillon qui garantit une moyenne à ± 0,05 avec 99 %, vérifiée sur une loi défavorable ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)
 <!-- wbm:end M11 -->
+
+<!-- wbm:section CP2 -->
+## CP2 · Examen blanc de la partie II ⏱️ 3,2 h
+
+- [ ] CP2.Q1 🧠 Dix affirmations sur la partie II : vrai ou faux ★ 10 min
+- [ ] CP2.1 ✏️ Normes, cosinus, projection et distance à un hyperplan ★★ 10 min
+- [ ] CP2.2 ✏️ Un test binomial et un intervalle de Wilson ★★ 10 min
+- [ ] CP2.3 ✏️ Comparaisons multiples, AIC et BIC ★★ 8 min
+- [ ] CP2.4 ✏️ Pivot de Gauss, rang et inverse ★★ 10 min
+- [ ] CP2.5 ✏️ Les équations normales d'un petit modèle, avec et sans ridge ★★ 10 min
+- [ ] CP2.6 ✏️ Biais, variance et erreur quadratique d'un estimateur ★★ 8 min
+- [ ] CP2.7 ✏️ Convexité, enveloppe convexe et marge ★★ 8 min
+- [ ] CP2.8 ✏️ Markov, Tchebychev et Hoeffding ★★ 9 min
+- [ ] CP2.9 ∂ Une démonstration courte, au choix parmi deux ★★★ 12 min
+- [ ] CP2.10 🐛 Corriger une copie : cinq erreurs ★★ 8 min
+- [ ] CP2.11 🔗 Problème de synthèse : ajuster un modèle, mesurer son erreur, décider ★★ 14 min
+- [ ] CP2.12 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
+<!-- wbm:end CP2 -->
