@@ -79,8 +79,8 @@ Lesquels de ces modèles sont linéaires **en leurs poids** $w_0, w_1, w_2$, et 
 
 1. Laquelle des deux pénalités peut donner des poids exactement nuls ?
 2. Quelle est la pente de $w \mapsto w^2$ en $w = 0$ ? Et celle de $w \mapsto |w|$, juste à droite de 0 ?
-3. Laquelle des deux a une solution en formule close ?
-4. Le seuillage doux : $S(3 ;\ 1)$ ? $S(-0{,}4 ;\ 0{,}5)$ ?
+3. Un poids est nul, et la somme des carrés descend avec une pente $g = 0{,}3$ quand on le pousse vers les valeurs positives. Avec le lasso et $\lambda = 0{,}5$, vaut-il la peine de le pousser ? Et avec $\lambda = 0{,}2$ ?
+4. Le seuillage doux : $S(2{,}2 ;\ 0{,}7)$ ? $S(-0{,}3 ;\ 0{,}8)$ ?
 5. Avec le lasso, un poids nul reste nul si la pente avec laquelle la somme des carrés descend dans sa direction est plus petite que quoi ?
 6. Combien de « coins » a la boule unité de la norme L1 dans $\mathbb{R}^2$ ? Où sont-ils ?
 
@@ -149,7 +149,7 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 - une liste entre crochets pour un vecteur ou une forme, comme `[2, -1, 0]` ; une matrice comme une liste de lignes, `[[1, 0], [-2, 3]]` ; vrai ou faux par `True` ou `False` ; une ou plusieurs lettres entre guillemets, comme `"AC"`.
 
 ### Ex M09b.1 — MSE, RMSE, MAE et loss de Huber de quatre résidus ✏️ ★ ⏱️ 15 min
-**Objectif :** calculer les mesures d'erreur d'une régression, et voir comment chacune traite un grand résidu.
+**Objectif :** calculer les mesures d'erreur d'une régression, et voir comment le seuil $\delta$ fait passer la loss de Huber de la MAE à la MSE.
 **Prérequis :** fiche §1 · **Parcours :** C, E
 
 Un modèle prédit la durée (en minutes) de quatre trajets. Les durées réelles sont $\mathbf{y} = (12, 7, 9, 15)$ et les prédictions $\hat{\mathbf{y}} = (10, 8, 9{,}5, 11)$.
@@ -158,19 +158,19 @@ Un modèle prédit la durée (en minutes) de quatre trajets. Les durées réelle
 |---|---|---|
 | a | les résidus $r_i = y_i - \hat{y}_i$ | une liste de 4 nombres |
 | b | la MSE | un nombre (4 décimales) |
-| c | la RMSE | un nombre (4 décimales) |
-| d | la MAE | un nombre (3 décimales) |
-| e | la loss de Huber moyenne avec $\delta = 1$ | un nombre (5 décimales) |
-| f | la loss de Huber moyenne avec $\delta = 5$ | un nombre (5 décimales) |
-| g | la MSE du modèle constant qui prédit toujours la moyenne $\bar{y}$ des durées réelles | un nombre (4 décimales) |
+| c | la MAE | un nombre (3 décimales) |
+| d | la loss de Huber moyenne avec $\delta = 1$ | un nombre (5 décimales) |
+| e | la loss de Huber moyenne avec $\delta = 5$ | un nombre (5 décimales) |
+| f | la loss de Huber moyenne avec $\delta = 0{,}25$, **divisée par** $\delta$ | un nombre (4 décimales) |
+| g | le plus petit $\delta$ pour lequel la loss de Huber moyenne vaut exactement la moitié de la MSE | un nombre |
 
-Dans ta copie : dans quelle unité s'exprime chaque résultat ? Pourquoi f) vaut-il exactement la moitié de b) ? Quel $R^2$ déduis-tu de b) et de g) ?
+Dans ta copie : dans quelle unité s'exprime chaque résultat ? Pourquoi e) vaut-il exactement la moitié de b) ? Compare f) à la MAE : montre que, quand $\delta$ est plus petit que tous les $|r_i|$, la loss de Huber divisée par $\delta$ vaut $\mathrm{MAE} - \frac{\delta}{2}$. Calcule la RMSE et vérifie qu'elle est au moins égale à la MAE.
 
 ### Ex M09b.2 — La décomposition SCT = SCE + SCR et le R² d'un ajustement donné ✏️ ★ ⏱️ 20 min
 **Objectif :** calculer les trois sommes de carrés d'un ajustement, vérifier la décomposition, et voir qu'elle tombe en défaut pour une droite qui ne vient pas des moindres carrés.
 **Prérequis :** fiche §1 et §3 · **Parcours :** C
 
-Cinq points : $x = 0, 1, 2, 3, 4$ et $y = 2, 2, 5, 4, 7$. La droite des moindres carrés (avec ordonnée à l'origine) est $\hat{y} = 1{,}6 + 1{,}2x$ ; un collègue propose aussi, à main levée, la droite $\hat{y} = 2 + x$.
+Cinq points : $x = 2, 3, 5, 6, 9$ et $y = 2, 2, 6, 4, 6$. La droite des moindres carrés (avec ordonnée à l'origine) est $\hat{y} = 1 + 0{,}6x$ ; un collègue propose aussi, à main levée, la droite $\hat{y} = 1{,}5 + 0{,}5x$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -178,9 +178,9 @@ Cinq points : $x = 0, 1, 2, 3, 4$ et $y = 2, 2, 5, 4, 7$. La droite des moindres
 | b | $\mathrm{SCT}$ | un nombre |
 | c | $\mathrm{SCR}$ de la droite des moindres carrés | un nombre (2 décimales) |
 | d | $\mathrm{SCE}$ de la droite des moindres carrés | un nombre (2 décimales) |
-| e | le $R^2$ de la droite des moindres carrés | un nombre (2 décimales) |
-| f | $\mathrm{SCR}$ et $\mathrm{SCE}$ de la droite $\hat{y} = 2 + x$ | une liste de 2 nombres |
-| g | le $R^2 = 1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$ de la droite $\hat{y} = 2 + x$ | une fraction irréductible |
+| e | le $R^2$ de la droite des moindres carrés | un nombre (3 décimales) |
+| f | $\mathrm{SCR}$ et $\mathrm{SCE}$ de la droite $\hat{y} = 1{,}5 + 0{,}5x$ | une liste de 2 nombres (1 décimale) |
+| g | le $R^2 = 1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$ de la droite $\hat{y} = 1{,}5 + 0{,}5x$ | une fraction irréductible |
 
 Dans ta copie : vérifie que $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ pour la première droite, et pas pour la seconde. Pour chaque droite, calcule $\sum_i r_i$ et $\sum_i x_ir_i$ : laquelle des deux conditions d'orthogonalité de la fiche §3 manque à la seconde droite ? Pour la seconde droite, compare $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$ et $\frac{\mathrm{SCE}}{\mathrm{SCT}}$.
 
@@ -267,12 +267,12 @@ Dans ta copie : vérifie g) en calculant au moins une ligne de $\mathbf{H}\mathb
 | a | le nombre de monômes de degré **exactement** 3 en deux variables $u, v$ | un entier |
 | b | le nombre de monômes de degré au plus 3 en deux variables, constante comprise | un entier |
 | c | le nombre de colonnes des features polynomiales de degré 2 de 5 variables, sans la constante | un entier |
-| d | le nombre de colonnes des features polynomiales de degré 4 de 3 variables, sans la constante | un entier |
+| d | le nombre de colonnes des features polynomiales de degré 4 de 4 variables, sans la constante | un entier |
 | e | le nombre de monômes de degré exactement 2 en 6 variables | un entier |
-| f | parmi eux, le nombre de produits de deux variables **différentes** (les interactions) | un entier |
+| f | le nombre de monômes de degré exactement 4 en 3 variables | un entier |
 | g | le plus petit degré $d$ pour lequel les features polynomiales de 7 variables (sans constante) ont plus de 1 000 colonnes | un entier |
 
-Dans ta copie : écris la liste des monômes de a). Pour e), vérifie que les carrés et les interactions font bien le total. Pour g), écris le nombre de colonnes pour chaque degré jusqu'à la réponse.
+Dans ta copie : écris la liste des monômes de a), et celle de f) (range-les par l'exposant de la première variable). Pour g), écris le nombre de colonnes pour chaque degré jusqu'à la réponse.
 
 ### Ex M09b.8 — Ridge en dimension 2 : résoudre (XᵀX + λI)w = Xᵀy pour trois valeurs de λ ✏️ ★★ ⏱️ 20 min
 **Objectif :** résoudre un problème ridge à la main, et suivre la taille des poids et l'erreur d'entraînement quand $\lambda$ grandit.
@@ -334,13 +334,13 @@ Dans ta copie : dessine la boule unité L1 et la boule unité L2 de $\mathbb{R}^
 **Objectif :** calculer une log-vraisemblance gaussienne, estimer la variance du bruit, et comparer deux droites par leur vraisemblance.
 **Prérequis :** fiche §7 ; M04 (vraisemblance) ; Ex M09b.2 · **Parcours :** C
 
-On reprend les cinq points de M09b.2, la droite des moindres carrés $\hat{y} = 1{,}6 + 1{,}2x$ (tu as calculé sa $\mathrm{SCR}$ en M09b.2 c) et la droite $\hat{y} = 2 + x$, avec le modèle $y_i = w_0 + w_1x_i + \varepsilon_i$, $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$ indépendants.
+On reprend les cinq points de M09b.2, la droite des moindres carrés $\hat{y} = 1 + 0{,}6x$ (tu as calculé sa $\mathrm{SCR}$ en M09b.2 c) et la droite $\hat{y} = 1{,}5 + 0{,}5x$, avec le modèle $y_i = w_0 + w_1x_i + \varepsilon_i$, $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$ indépendants.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | l'estimation du maximum de vraisemblance $\hat{\sigma}^2$ | un nombre (2 décimales) |
-| b | l'estimation sans biais $\frac{\mathrm{SCR}}{n - p}$ | un nombre (2 décimales) |
-| c | la log-vraisemblance maximale, au point $(1{,}6 ;\ 1{,}2)$ et $\sigma^2 = \hat{\sigma}^2$ (logarithme népérien) | un nombre (4 décimales) |
+| b | l'estimation sans biais $\frac{\mathrm{SCR}}{n - p}$ | un nombre (4 décimales) |
+| c | la log-vraisemblance maximale, au point $(1 ;\ 0{,}6)$ et $\sigma^2 = \hat{\sigma}^2$ (logarithme népérien) | un nombre (4 décimales) |
 | d | la log-vraisemblance de la droite des moindres carrés avec $\sigma^2 = 1$ | un nombre (4 décimales) |
 | e | la différence des log-vraisemblances des deux droites, avec $\sigma^2 = 1$ (la droite des moindres carrés moins l'autre) | un nombre (2 décimales) |
 | f | le rapport de leurs vraisemblances, avec $\sigma^2 = 1$ : celle de la droite des moindres carrés divisée par celle de l'autre | un nombre (4 décimales) |
@@ -477,22 +477,22 @@ $$\mathbf{X} = \begin{pmatrix} 1 & 2 & 1 \\ 1 & 0 & -1 \\ 1 & 1 & 3 \\ 1 & -1 & 
 Dans ta copie : vérifie les formes de chaque étape. Combien de multiplications coûte le calcul du gradient pour un batch de $B$ exemples à $p$ colonnes ? Pourquoi divise-t-on par $n$ (ici 4) dans la MSE, et quel serait l'effet de ne pas le faire sur le choix de $\eta$ ?
 
 ### Ex M09b.21 — Pont : pourquoi standardiser les colonnes avant ridge 🔗 ★ ⏱️ 15 min
-**Objectif :** mesurer, sur un exemple à colonnes orthogonales, comment l'unité d'une feature change le rétrécissement de ridge, et comment la standardisation l'égalise.
+**Objectif :** voir que les prédictions des moindres carrés ne dépendent pas de l'unité d'une feature, que celles de ridge en dépendent, et que la standardisation règle le problème.
 **Prérequis :** fiche §5 ; M02c (standardisation) ; Ex M09b.8 · **Parcours :** C
 
-Deux features centrées, et des cibles centrées (pas besoin d'ordonnée à l'origine) : une distance $x_1 = (-2, -1, 1, 2)$ en **kilomètres**, une feature $x_2 = (1, -1, -1, 1)$, et $\mathbf{y} = (-3, 1, 0, 2)$. Les deux colonnes sont orthogonales, donc $\mathbf{X}^\top\mathbf{X}$ est diagonale. On appelle **facteur de rétrécissement** d'un poids le rapport du poids ridge au poids des moindres carrés.
+Deux features centrées, et des cibles centrées (pas besoin d'ordonnée à l'origine) : un prix $x_1 = (-1, -1, 1, 1)$ en **dizaines d'euros**, une feature sans unité $x_2 = (-1, 0, 0, 1)$, et $\mathbf{y} = (-2, 0, 1, 1)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | les poids des moindres carrés | une liste de 2 nombres (2 décimales) |
-| b | les poids ridge pour $\lambda = 2$ | une liste de 2 nombres (4 décimales) |
-| c | les facteurs de rétrécissement des deux poids, pour $\lambda = 2$ | une liste de 2 nombres (4 décimales) |
-| d | le poids des moindres carrés de $x_1$ quand la distance est mesurée en **mètres** | un nombre (4 décimales) |
-| e | le facteur de rétrécissement de ce poids pour $\lambda = 2$, en mètres | un nombre (4 décimales) |
-| f | le facteur de rétrécissement de chaque poids pour $\lambda = 2$, après standardisation des deux colonnes (écart-type avec $\mathrm{ddof} = 0$) | une fraction irréductible |
-| g | vrai ou faux : après standardisation, le facteur ne dépend plus de l'unité choisie pour la distance | `True` ou `False` |
+| b | les poids ridge pour $\lambda = 2$ | une liste de 2 nombres (2 décimales) |
+| c | les poids des moindres carrés quand le prix est mesuré en **euros** (la colonne $x_1$ est multipliée par 10) | une liste de 2 nombres (2 décimales) |
+| d | les poids ridge pour $\lambda = 2$, le prix en euros | une liste de 2 nombres (4 décimales) |
+| e | la prédiction ridge ($\lambda = 2$) du premier exemple, le prix en dizaines d'euros, puis en euros | une liste de 2 nombres (4 décimales) |
+| f | la prédiction des moindres carrés du premier exemple, dans les deux unités | une liste de 2 nombres (2 décimales) |
+| g | vrai ou faux : si l'on standardise d'abord les deux colonnes (écart-type avec $\mathrm{ddof} = 0$), les prédictions ridge ne dépendent plus de l'unité du prix | `True` ou `False` |
 
-Dans ta copie : montre que, pour des colonnes orthogonales, le facteur de rétrécissement du poids $j$ vaut $\frac{\lVert \mathbf{x}_j \rVert^2}{\lVert \mathbf{x}_j \rVert^2 + \lambda}$. Pourquoi une feature mesurée dans une petite unité (de grands nombres) est-elle presque épargnée par ridge ?
+Dans ta copie : pourquoi c) donne-t-il les mêmes prédictions que a) (écris $\mathbf{X}\mathbf{w}$ avec la colonne multipliée par 10) ? Pourquoi ridge, lui, change-t-il ses prédictions : que devient la pénalité $\lambda w_1^2$ d'un même modèle quand le poids $w_1$ est divisé par 10 ? En euros, quelle feature ridge épargne-t-elle, et pourquoi le poids de $x_2$ baisse-t-il ?
 
 ### Ex M09b.22 — MML §5.5, §8.1 et §8.2 : identités de gradients et minimisation du risque empirique 📖 ★★ ⏱️ 30 min
 **Objectif :** lire en anglais la mise en place de l'apprentissage par minimisation du risque empirique, et retrouver dans la liste d'identités du livre celles de la fiche.

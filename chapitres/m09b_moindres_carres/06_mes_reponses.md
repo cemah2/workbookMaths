@@ -116,7 +116,7 @@
 - e :
 - f :
 - g :
-- L'unité de chaque résultat ; pourquoi f) vaut la moitié de b) ; le R² déduit de b) et de g) :
+- L'unité de chaque résultat ; pourquoi e) vaut la moitié de b) ; f) comparé à MAE − δ/2 ; la RMSE, comparée à la MAE :
 
 ### Ex M09b.2 — La décomposition SCT = SCE + SCR et le R² d'un ajustement donné
 
@@ -171,7 +171,7 @@
 - e :
 - f :
 - g :
-- Une ligne de HH ; pourquoi le point de e) ; H appliquée à la colonne de 1 et à (0, 1, 3), et pourquoi :
+- Une ligne de HH ; r orthogonal aux colonnes de X ; pourquoi le point de e) ; H appliquée à la colonne de 1 et à (0, 1, 3), et pourquoi :
 
 ### Ex M09b.7 — Compter les monômes des features polynomiales
 
@@ -182,7 +182,7 @@
 - e :
 - f :
 - g :
-- La liste des monômes de a) ; carrés et interactions de e) ; le nombre de colonnes degré par degré pour g) :
+- La liste des monômes de a) et de f) ; le nombre de colonnes degré par degré pour g) :
 
 ### Ex M09b.8 — Ridge en dimension 2 : résoudre (XᵀX + λI)w = Xᵀy pour trois valeurs de λ
 
@@ -324,7 +324,7 @@
 - e :
 - f :
 - g :
-- Le facteur de rétrécissement ‖xⱼ‖²/(‖xⱼ‖² + λ) pour des colonnes orthogonales ; pourquoi une petite unité épargne une feature :
+- Pourquoi c) donne les mêmes prédictions que a) ; ce que devient la pénalité λw₁² quand w₁ est divisé par 10 ; la feature que ridge épargne en euros, et pourquoi le poids de x₂ baisse :
 
 ### Ex M09b.22 — MML §5.5, §8.1 et §8.2 : identités de gradients et minimisation du risque empirique
 
@@ -390,7 +390,7 @@
 
 ### Ex M09b.29 — `np.linalg.lstsq` et scikit-learn contre tes équations normales
 
-- Pourquoi a) et b) sont égaux ; pourquoi d) et e) diffèrent, surtout sur l'ordonnée à l'origine ; pourquoi lstsq est préférable quand des colonnes sont presque dépendantes :
+- Pourquoi a) et b) sont égaux ; pourquoi d) et e) diffèrent, surtout sur l'ordonnée à l'origine, et pourquoi les deux autres poids changent aussi ; pourquoi lstsq est préférable quand des colonnes sont presque dépendantes :
 
 ### Ex M09b.30 — Prédire : le R² d'entraînement quand on ajoute une feature de pur bruit
 

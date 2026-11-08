@@ -39,37 +39,36 @@ PAPER = [
         ("b", "a number (4 decimals)", "float(np.mean(R1 ** 2))",
          '''decimals=4, mistakes={"la MSE est une moyenne : divise la somme des carrés par n": float(np.sum(R1 ** 2)), '''
          '''"c'est la RMSE ; la MSE est la moyenne des carrés, sans racine": float(np.sqrt(np.mean(R1 ** 2)))}'''),
-        ("c", "a number (4 decimals)", "float(np.sqrt(np.mean(R1 ** 2)))",
-         '''decimals=4, mistakes={"la RMSE est la racine de la MSE": float(np.mean(R1 ** 2)), '''
-         '''"la racine de la moyenne des carrés, pas la moyenne des valeurs absolues": float(np.mean(np.abs(R1)))}'''),
-        ("d", "a number (3 decimals)", "float(np.mean(np.abs(R1)))",
+        ("c", "a number (3 decimals)", "float(np.mean(np.abs(R1)))",
          '''decimals=3, mistakes={"la MAE est la moyenne des valeurs absolues : un résidu négatif compte en positif": '''
          '''float(np.mean(R1))}'''),
-        ("e", "a number (5 decimals)", "huber_mean(R1, 1.0)",
+        ("d", "a number (5 decimals)", "huber_mean(R1, 1.0)",
          '''decimals=5, mistakes={"au-dessus de δ, la loss vaut δ(|r| − δ/2), pas |r|": '''
          '''float(np.mean(np.where(np.abs(R1) <= 1, R1 ** 2 / 2, np.abs(R1)))), '''
          '''"sous δ, la loss vaut r²/2 : le facteur 1/2 compte": '''
          '''float(np.mean(np.where(np.abs(R1) <= 1, R1 ** 2, np.abs(R1) - 0.5)))}'''),
-        ("f", "a number (5 decimals)", "huber_mean(R1, 5.0)",
+        ("e", "a number (5 decimals)", "huber_mean(R1, 5.0)",
          '''decimals=5, mistakes={"sous δ, la loss vaut r²/2, pas r²": float(np.mean(R1 ** 2))}'''),
-        ("g", "a number (4 decimals)", "float(np.mean((Y1 - Y1.mean()) ** 2))",
-         '''decimals=4, mistakes={"la MSE est une moyenne : divise par n = 4": float(np.sum((Y1 - Y1.mean()) ** 2))}'''),
+        ("f", "a number (4 decimals)", "huber_mean(R1, 0.25) / 0.25",
+         '''decimals=4, mistakes={"la question demande la loss divisée par δ = 0,25": huber_mean(R1, 0.25)}'''),
+        ("g", "a number", "4",
+         '''mistakes={"il faut que tous les résidus soient sous le seuil, le plus grand compris": {1, 2}}'''),
     ]),
 
     Paper("M09b.2", "La décomposition SCT = SCE + SCR et le R² d'un ajustement donné", [
         ("a", "a number", "4"),
-        ("b", "a number", "18.0",
-         '''decimals=2, mistakes={"SCT est une somme de carrés, pas une moyenne": 3.6}'''),
-        ("c", "a number (2 decimals)", "3.6",
-         '''decimals=2, mistakes={"SCR est une somme de carrés, pas une moyenne": 0.72}'''),
-        ("d", "a number (2 decimals)", "14.4",
-         '''decimals=2, mistakes={"SCE compare les prédictions à la moyenne ȳ, pas aux cibles": 3.6}'''),
-        ("e", "a number (2 decimals)", "0.8",
-         '''decimals=2, mistakes={"R² = 1 − SCR/SCT : ce nombre est SCR/SCT": 0.2}'''),
-        ("f", "a list of 2 numbers", "[4, 10]",
-         '''mistakes={"l'ordre de l'énoncé : SCR d'abord, puis SCE": [10, 4]}'''),
-        ("g", "a fraction, e.g. \"7/9\"", '"7/9"',
-         F + ''', mistakes={"c'est SCE/SCT ; la question demande 1 − SCR/SCT, qui n'est pas égal ici": "5/9"}'''),
+        ("b", "a number", "16.0",
+         '''decimals=2, mistakes={"SCT est une somme de carrés, pas une moyenne": 3.2}'''),
+        ("c", "a number (2 decimals)", "5.2",
+         '''decimals=2, mistakes={"SCR est une somme de carrés, pas une moyenne": 1.04}'''),
+        ("d", "a number (2 decimals)", "10.8",
+         '''decimals=2, mistakes={"SCE compare les prédictions à la moyenne ȳ, pas aux cibles": 5.2}'''),
+        ("e", "a number (3 decimals)", "0.675",
+         '''decimals=3, mistakes={"R² = 1 − SCR/SCT : ce nombre est SCR/SCT": 0.325}'''),
+        ("f", "a list of 2 numbers (1 decimal)", "[5.5, 7.5]",
+         '''decimals=1, mistakes={"l'ordre de l'énoncé : SCR d'abord, puis SCE": [7.5, 5.5]}'''),
+        ("g", "an irreducible fraction, as text", '"21/32"',
+         F + ''', mistakes={"c'est SCE/SCT ; la question demande 1 − SCR/SCT, qui n'est pas égal ici": "15/32"}'''),
     ]),
 
     Paper("M09b.3", "Les gradients de aᵀw, wᵀAw et ‖y − Xw‖², composante par composante en dimension 2", [
@@ -123,13 +122,18 @@ PAPER = [
         ("a", "a matrix", "[[3, 4], [4, 10]]"),
         ("b", "a matrix of integers", "[[10, -4], [-4, 3]]",
          '''mistakes={"l'inverse d'une 2 × 2 échange les deux nombres de la diagonale": [[3, -4], [-4, 10]], '''
-         '''"l'inverse d'une 2 × 2 change le signe des nombres hors de la diagonale": [[10, 4], [4, 3]]}'''),
-        ("c", "a matrix of integers", "[[10, 6, -2], [6, 5, 3], [-2, 3, 13]]"),
+         '''"l'inverse d'une 2 × 2 change le signe des nombres hors de la diagonale": [[10, 4], [4, 3]], '''
+         '''"la question demande 14 fois l'inverse : des entiers": [[10 / 14, -4 / 14], [-4 / 14, 3 / 14]]}'''),
+        ("c", "a matrix of integers", "[[10, 6, -2], [6, 5, 3], [-2, 3, 13]]",
+         '''mistakes={"la question demande 14 H : des entiers": '''
+         '''[[10 / 14, 6 / 14, -2 / 14], [6 / 14, 5 / 14, 3 / 14], [-2 / 14, 3 / 14, 13 / 14]]}'''),
         ("d", "a number", "2", '''mistakes={"la trace de H vaut le nombre de colonnes de X, pas de lignes": 3}'''),
         ("e", "an integer from 1 to 3", "3",
-         '''mistakes={"le levier est le nombre h_ii de la diagonale de H : prends le plus grand": 1}'''),
-        ("f", "a list of 3 integers", "[8, 16, 32]"),
-        ("g", "True or False", "True", '''mistakes={"H est la matrice d'une projection : HH = H": False}'''),
+         '''mistakes={"le levier est le nombre h_ii de la diagonale de H : prends le plus grand": 1, '''
+         '''"le numéro du point, de 1 à 3 (pas un indice Python)": 2}'''),
+        ("f", "a list of 3 integers", "[8, 16, 32]",
+         '''mistakes={"la question demande 7 ŷ : des entiers": [8 / 7, 16 / 7, 32 / 7]}'''),
+        ("g", "a list of 3 integers", "[6, -9, 3]", '''mistakes={"r = y − ŷ, pas ŷ − y": [-6, 9, -3]}'''),
     ]),
 
     Paper("M09b.7", "Compter les monômes des features polynomiales", [
@@ -139,10 +143,11 @@ PAPER = [
         ("c", "an integer", "20",
          '''mistakes={"sans la constante : retire le monôme 1": 21, '''
          '''"compte aussi les cinq monômes de degré 1": 15}'''),
-        ("d", "an integer", "34", '''mistakes={"sans la constante : retire le monôme 1": 35}'''),
+        ("d", "an integer", "69", '''mistakes={"sans la constante : retire le monôme 1": 70}'''),
         ("e", "an integer", "21", '''mistakes={"compte aussi les carrés x_i²": 15}'''),
-        ("f", "an integer", "15", '''mistakes={"une interaction est le produit de deux variables différentes : sans "'''
-                                  '''"les carrés": 21}'''),
+        ("f", "an integer", "15",
+         '''mistakes={"degré exactement 4 : sans les monômes de degré plus petit": 34, '''
+         '''"combinaisons avec répétition : C(k + p − 1, k), pas C(p, k)": 3}'''),
         ("g", "an integer", "6",
          '''mistakes={"plus de 1 000 colonnes : écris le nombre de colonnes degré par degré, constante exclue": {5, 7}}'''),
     ]),
@@ -162,7 +167,7 @@ PAPER = [
     ]),
 
     Paper("M09b.9", "Ridge comme MAP : un prior gaussien et λ = σ²/τ²", [
-        ("a", "a number", "16", '''mistakes={"λ = σ²/τ² : avec les carrés": 4}'''),
+        ("a", "a number", "16", '''mistakes={"λ = σ²/τ² : avec les carrés, au numérateur et au dénominateur": {4, 8}}'''),
         ("b", "a number", "2"),
         ("c", "a list of 2 numbers (4 decimals)", "[2 / 3, 1 / 3]",
          '''decimals=4, mistakes={"c'est l'estimation du maximum de vraisemblance : le MAP ajoute λ sur la diagonale": '''
@@ -188,7 +193,8 @@ PAPER = [
          '''mistakes={"un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues '''
          '''de chaque point": {"AB", "AD", "BD", "A", "B", "D", "ABCD", "ABC", "ACD", "BCD", "AC", "BC", "CD", "C"}}'''),
         ("e", "a list of 2 numbers (4 decimals)", "[1.0, 0.5 ** 0.5]",
-         '''decimals=4, mistakes={"l'ordre : la plus grande valeur d'abord": [0.5 ** 0.5, 1.0]}'''),
+         '''decimals=4, mistakes={"l'ordre : la plus grande valeur d'abord": [0.5 ** 0.5, 1.0], '''
+         '''"la question demande la norme ‖w‖, pas son carré": [1.0, 0.5]}'''),
         ("f", "an integer", "6",
          '''mistakes={"la boule L1 n'est pas un cube : ses coins sont sur les axes, deux par axe": 8}'''),
         ("g", "a list of 2 numbers (2 decimals)", "[0.4, 0.65]",
@@ -196,22 +202,22 @@ PAPER = [
     ]),
 
     Paper("M09b.11", "La log-vraisemblance gaussienne d'un modèle linéaire et l'estimation de σ²", [
-        ("a", "a number (2 decimals)", "0.72",
+        ("a", "a number (2 decimals)", "1.04",
          '''decimals=2, mistakes={"le maximum de vraisemblance divise SCR par n ; n − p donne l'estimateur sans biais": '''
-         '''1.2}'''),
-        ("b", "a number (2 decimals)", "1.2",
-         '''decimals=2, mistakes={"l'estimateur sans biais divise par n − p = 5 − 2": 0.72}'''),
-        ("c", "a number (4 decimals)", "-2.5 * (math.log(2 * math.pi * 0.72) + 1)",
+         '''5.2 / 3}'''),
+        ("b", "a number (4 decimals)", "5.2 / 3",
+         '''decimals=4, mistakes={"l'estimateur sans biais divise par n − p = 5 − 2": {1.04, 1.3}}'''),
+        ("c", "a number (4 decimals)", "-2.5 * (math.log(2 * math.pi * 1.04) + 1)",
          '''decimals=4, mistakes={"le logarithme népérien (ln), pas le logarithme décimal": '''
-         '''-2.5 * (math.log10(2 * math.pi * 0.72) + 1)}'''),
-        ("d", "a number (4 decimals)", "-2.5 * math.log(2 * math.pi) - 3.6 / 2",
-         '''decimals=4, mistakes={"le terme des résidus est −SCR/(2σ²) : divise par 2": -2.5 * math.log(2 * math.pi) - 3.6}'''),
-        ("e", "a number (2 decimals)", "0.2",
+         '''-2.5 * (math.log10(2 * math.pi * 1.04) + 1)}'''),
+        ("d", "a number (4 decimals)", "-2.5 * math.log(2 * math.pi) - 5.2 / 2",
+         '''decimals=4, mistakes={"le terme des résidus est −SCR/(2σ²) : divise par 2": -2.5 * math.log(2 * math.pi) - 5.2}'''),
+        ("e", "a number (2 decimals)", "0.15",
          '''decimals=2, mistakes={"la droite des moindres carrés a la plus petite SCR, donc la plus grande '''
-         '''log-vraisemblance : la différence est positive": -0.2}'''),
-        ("f", "a number (4 decimals)", "math.exp(0.2)",
+         '''log-vraisemblance : la différence est positive": -0.15}'''),
+        ("f", "a number (4 decimals)", "math.exp(0.15)",
          '''decimals=4, mistakes={"le rapport des vraisemblances est l'exponentielle de la différence des logs, dans le '''
-         '''même ordre": math.exp(-0.2)}'''),
+         '''même ordre": math.exp(-0.15)}'''),
         ("g", "a list of 2 numbers (2 decimals)", "[4.0, 4.0]", "decimals=2"),
     ]),
 
@@ -245,22 +251,20 @@ PAPER = [
     ]),
 
     Paper("M09b.21", "Pont : pourquoi standardiser les colonnes avant ridge", [
-        ("a", "a list of 2 numbers (2 decimals)", "[0.9, -0.5]", "decimals=2"),
-        ("b", "a list of 2 numbers (4 decimals)", "[0.75, -1 / 3]", "decimals=4"),
-        ("c", "a list of 2 numbers (4 decimals)", "[10 / 12, 4 / 6]",
-         '''decimals=4, mistakes={"le facteur est le poids ridge divisé par le poids des moindres carrés, pas "'''
-         '''"l'inverse": [12 / 10, 6 / 4]}'''),
-        ("d", "a number (4 decimals)", "0.0009",
-         '''decimals=4, mistakes={"en mètres, les nombres de la colonne sont 1 000 fois plus grands : le poids est "'''
-         '''"1 000 fois plus petit": 900.0}'''),
-        ("e", "a number (4 decimals)", "1e7 / (1e7 + 2)",
-         '''decimals=4, mistakes={"en mètres, ‖x₁‖² vaut 10⁷ : le facteur ‖x₁‖²/(‖x₁‖² + λ) est très proche de 1": '''
-         '''10 / 12}'''),
-        ("f", "a fraction, e.g. \"7/9\"", '"2/3"',
-         F + ''', mistakes={"une colonne standardisée a ‖x‖² = n × 1 = 4, et le facteur vaut ‖x‖²/(‖x‖² + λ)": '''
-         '''"1/3"}'''),
+        ("a", "a list of 2 numbers (2 decimals)", "[0.5, 1.0]", "decimals=2"),
+        ("b", "a list of 2 numbers (2 decimals)", "[0.5, 0.5]",
+         '''decimals=2, mistakes={"ridge ajoute λ sur la diagonale de XᵀX seulement, pas à chaque nombre": [9 / 14, 1 / 7]}'''),
+        ("c", "a list of 2 numbers (2 decimals)", "[0.05, 1.0]",
+         '''decimals=2, mistakes={"la colonne est 10 fois plus grande : son poids est 10 fois plus petit": [5.0, 1.0]}'''),
+        ("d", "a list of 2 numbers (4 decimals)", "[25 / 302, 203 / 604]",
+         '''decimals=4, mistakes={"ridge ne s'adapte pas à l'unité : refais le calcul avec la colonne multipliée par 10, "'''
+         '''"sans diviser le poids de b) par 10": [0.05, 0.5]}'''),
+        ("e", "a list of 2 numbers (4 decimals)", "[-1.0, -703 / 604]", "decimals=4"),
+        ("f", "a list of 2 numbers (2 decimals)", "[-1.5, -1.5]",
+         '''decimals=2, mistakes={"les moindres carrés donnent les mêmes prédictions dans les deux unités, mais ce sont "'''
+         '''"celles des moindres carrés, pas de ridge": [-1.0, -1.0]}'''),
         ("g", "True or False", "True",
-         '''mistakes={"après standardisation, ‖x_j‖² = n pour chaque colonne, quelle que soit l'unité": False}'''),
+         '''mistakes={"après standardisation, la colonne du prix est la même quelle que soit son unité": False}'''),
     ]),
 ]
 
@@ -292,7 +296,7 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M09b.1 à 
                "`06_mes_reponses.md`. Reporte ensuite chaque réponse ici : **la valeur** que tu as trouvée, sous la "
                "forme indiquée en commentaire, jamais le calcul qui y mène :\n"
                "- un entier, ou un nombre avec un point décimal, `-1.25`, arrondi comme le demande la question ;\n"
-               "- une fraction irréductible entre guillemets, `\"7/9\"` ;\n"
+               "- une fraction irréductible entre guillemets, `\"4/11\"` ;\n"
                "- une liste `[2, -1, 0]` pour un vecteur ou une forme, une liste de lignes `[[1, 0], [-2, 3]]` pour une "
                "matrice, `True` / `False`, ou des lettres entre guillemets, `\"AC\"`.\n\n"
                "Les réponses pas encore remplies affichent ⏳.")
@@ -376,7 +380,7 @@ M09B_26 = Ex(
     body=HOWTO + rf"""
 
 Écris (fiche §3 et §5), en suivant les docstrings :
-- `normal_equations(X, y)` : le couple $(\mathbf{{X}}^\top\mathbf{{X}}, \mathbf{{X}}^\top\mathbf{{y}})$, en tableaux NumPy de floats ; une `ValueError` si $\mathbf{{X}}$ n'est pas à deux dimensions ou si $\mathbf{{y}}$ n'a pas une valeur par ligne de $\mathbf{{X}}$ ;
+- `normal_equations(X, y)` : le couple $(\mathbf{{X}}^\top\mathbf{{X}}, \mathbf{{X}}^\top\mathbf{{y}})$, en tableaux NumPy de floats ; une `ValueError` si $\mathbf{{X}}$ n'est pas à deux dimensions, ou si $\mathbf{{y}}$ n'est pas un vecteur (à une dimension) d'une valeur par ligne de $\mathbf{{X}}$ : un $\mathbf{{y}}$ en colonne, de forme $(n, 1)$, est refusé ;
 - `solve_least_squares(X, y, ridge=0.0)` : la solution de $(\mathbf{{X}}^\top\mathbf{{X}} + \lambda\mathbf{{I}})\mathbf{{w}} = \mathbf{{X}}^\top\mathbf{{y}}$, avec `np.linalg.solve` ; **tous** les poids sont pénalisés, celui d'une colonne de 1 compris. Une `ValueError` si les formes ne vont pas, si `ridge` est négatif, ou si la matrice est singulière (`np.linalg.solve` lève alors une `numpy.linalg.LinAlgError` : attrape-la).
 
 Avec $\mathbf{{X}}$ = `{X26}` et $\mathbf{{y}}$ = `{Y26}` (une colonne de 1, puis une feature), la vérification calcule :
@@ -385,7 +389,7 @@ Avec $\mathbf{{X}}$ = `{X26}` et $\mathbf{{y}}$ = `{Y26}` (une colonne de 1, pui
 - d) `solve_least_squares(X, y, ridge=2)` (une liste, 6 décimales) ;
 - e) le nom de l'erreur levée par `solve_least_squares({S26}, [1, 2, 3])` ;
 - f) `solve_least_squares({S26}, [1, 2, 3], ridge=0.5)` (une liste, 4 décimales) ;
-- g) le nom de l'erreur levée par `solve_least_squares([[1, 0], [0, 1]], [1, 2], ridge=-1)` ;
+- g) le nom de l'erreur levée par `solve_least_squares([[1, 0], [0, 1]], [1, 2], ridge=-0.5)` ;
 - h) le nom du type de la valeur rendue par `solve_least_squares`, en texte.
 
 Dans ta copie : calcule a), b) et c) à la main. Pourquoi e) est-elle singulière, et pourquoi f) ne l'est-elle plus ? Vérifie que la solution de f) est proportionnelle à $(1, 2)$ : pourquoi ?""",
@@ -405,7 +409,7 @@ with checked("M09b.26f"):
     wbm.check("M09b.26f", np.asarray(mymath.linreg.solve_least_squares({S26}, [1, 2, 3], ridge=0.5)).tolist(),
               computed=True)
 with checked("M09b.26g"):
-    wbm.check("M09b.26g", raised(mymath.linreg.solve_least_squares, [[1, 0], [0, 1]], [1, 2], ridge=-1),
+    wbm.check("M09b.26g", raised(mymath.linreg.solve_least_squares, [[1, 0], [0, 1]], [1, 2], ridge=-0.5),
               computed=True)
 with checked("M09b.26h"):
     wbm.check("M09b.26h", type(mymath.linreg.solve_least_squares(X_26, y_26)).__name__, computed=True)''',
@@ -417,7 +421,7 @@ print("a)", XtX_26.tolist(), " b)", Xty_26.tolist())
 print("c)", solve_least_squares(X_26, y_26), " d)", solve_least_squares(X_26, y_26, ridge=2))
 print("e)", raised(solve_least_squares, {S26}, [1, 2, 3]),
       " f)", solve_least_squares({S26}, [1, 2, 3], ridge=0.5).round(4))
-print("g)", raised(solve_least_squares, [[1, 0], [0, 1]], [1, 2], ridge=-1),
+print("g)", raised(solve_least_squares, [[1, 0], [0, 1]], [1, 2], ridge=-0.5),
       " h)", type(solve_least_squares(X_26, y_26)).__name__)''',
     record=f'''wbm.record("M09b.26a", [[4.0, 4.0], [4.0, 14.0]], decimals=6,
            mistakes={{"XᵀX est de forme (p, p) : X.T @ X, pas X @ X.T": (np.array({X26}) @ np.array({X26}).T).tolist()}})
@@ -505,9 +509,11 @@ wbm.record("M09b.27b", 2.0, decimals=6,
 wbm.record("M09b.27c", [-0.1, 1.3, 2.7, 4.1], decimals=6)
 wbm.record("M09b.27d", [14.0, 9.8, 4.2], decimals=6,
            mistakes={{"l'ordre de la docstring : (SST, SSE, SSR), la somme expliquée avant la résiduelle":
-                         [14.0, 4.2, 9.8]}})
+                         [14.0, 4.2, 9.8],
+                     "SST et SSE se calculent autour de la moyenne de y, pas autour de 0": [30.0, 25.8, 4.2]}})
 wbm.record("M09b.27e", 0.7, decimals=4,
-           mistakes={{"R² = 1 − SSR/SST : ce nombre est SSR/SST": 0.3}})
+           mistakes={{"R² = 1 − SSR/SST : ce nombre est SSR/SST": 0.3,
+                     "SST se calcule autour de la moyenne de y, pas autour de 0": 0.86}})
 wbm.record("M09b.27f", "ValueError",
            mistakes={{"des longueurs différentes : la docstring demande une ValueError": "aucune",
                      "{wrong_error("ValueError")}": {errors_source("ValueError")}}})
@@ -610,9 +616,9 @@ La cellule fournie tire un dataset de 30 exemples à 2 features, `X_29` (sans co
 - c) le rang que rend `np.linalg.lstsq` (un entier) ;
 - d) `[intercept_, coef_[0], coef_[1]]` de `Ridge(alpha=5).fit(X_29, y_29)` (4 décimales) ;
 - e) `mymath.linreg.solve_least_squares(X1_29, y_29, ridge=5)` (une liste, 4 décimales) ;
-- f) vrai ou faux : centrer les colonnes de `X_29` et `y_29`, appliquer `solve_least_squares` avec `ridge=5` (sans colonne de 1), puis rendre l'ordonnée à l'origine $\bar{y} - \bar{\mathbf{x}} \cdot \mathbf{w}$, donne les trois nombres de d) à $10^{-8}$ près (calcule-le).
+- f) vrai ou faux : l'ordonnée à l'origine de e) est plus proche de 0 que celle de d) (calcule-le à partir de tes réponses).
 
-Dans ta copie : pourquoi a) et b) sont-ils égaux ? Pourquoi d) et e) diffèrent-ils, surtout sur l'ordonnée à l'origine ? Pourquoi `lstsq` est-il préférable aux équations normales quand des colonnes sont presque dépendantes ?""",
+Dans ta copie : pourquoi a) et b) sont-ils égaux ? Pourquoi d) et e) diffèrent-ils, surtout sur l'ordonnée à l'origine, et pourquoi les deux autres poids changent-ils aussi ? Pourquoi `lstsq` est-il préférable aux équations normales quand des colonnes sont presque dépendantes ?""",
     given=GIVEN_29,
     todo='''from sklearn.linear_model import LinearRegression, Ridge
 
@@ -621,7 +627,7 @@ answer_M09b_29b = ...  # b) a list of 3 numbers (4 decimals)
 answer_M09b_29c = ...  # c) an integer
 answer_M09b_29d = ...  # d) a list of 3 numbers (4 decimals)
 answer_M09b_29e = ...  # e) a list of 3 numbers (4 decimals)
-answer_M09b_29f = ...  # f) True or False, computed''',
+answer_M09b_29f = ...  # f) True or False, computed from d) and e)''',
     check='''for letter, answer in zip("abcdef", [answer_M09b_29a, answer_M09b_29b, answer_M09b_29c, answer_M09b_29d,
                                      answer_M09b_29e, answer_M09b_29f]):
     wbm.check(f"M09b.29{letter}", answer)''',
@@ -636,10 +642,7 @@ answer_M09b_29c = int(rank_29)
 ridge_29 = Ridge(alpha=5).fit(X_29, y_29)
 answer_M09b_29d = [float(ridge_29.intercept_), *ridge_29.coef_.tolist()]
 answer_M09b_29e = ref_29.linreg.solve_least_squares(X1_29, y_29, ridge=5).tolist()
-mean_x_29, mean_y_29 = X_29.mean(axis=0), y_29.mean()
-w_centered_29 = ref_29.linreg.solve_least_squares(X_29 - mean_x_29, y_29 - mean_y_29, ridge=5)
-recovered_29 = [mean_y_29 - mean_x_29 @ w_centered_29, *w_centered_29]
-answer_M09b_29f = bool(np.allclose(recovered_29, answer_M09b_29d, rtol=0, atol=1e-8))
+answer_M09b_29f = bool(abs(answer_M09b_29e[0]) < abs(answer_M09b_29d[0]))
 print(np.round(answer_M09b_29a, 4), np.round(answer_M09b_29b, 4), answer_M09b_29c)
 print(np.round(answer_M09b_29d, 4), np.round(answer_M09b_29e, 4), answer_M09b_29f)''',
     record='''wbm.record("M09b.29a", answer_M09b_29a, decimals=4)
@@ -656,14 +659,16 @@ wbm.record("M09b.29e", answer_M09b_29e, decimals=4,
            mistakes={"solve_least_squares pénalise tous les poids, celui de la colonne de 1 compris : ce n'est pas le "
                      "résultat de scikit-learn": answer_M09b_29d})
 wbm.record("M09b.29f", True,
-           mistakes={"centre X et y avec leurs moyennes de colonnes, résous sans colonne de 1, puis b = ȳ − x̄·w": False})''',
+           mistakes={"compare les valeurs absolues des premiers nombres de d) et de e) : lequel des deux calculs pénalise "
+                     "l'ordonnée à l'origine ?": False})''',
     note=r"a) et b) La même solution des moindres carrés, à l'arrondi près : `LinearRegression` ajoute la colonne de 1 "
          r"lui-même (et centre les données pour la calculer). c) Le rang 3 dit que la solution est unique. d) et e) "
          r"`Ridge` ne pénalise pas l'ordonnée à l'origine ; `solve_least_squares` la rétrécit vers 0, et les autres poids "
-         r"compensent : les deux résultats diffèrent nettement. f) Centrer rend l'ordonnée à l'origine inutile pendant la "
-         r"résolution ; on la retrouve ensuite par $b = \bar{y} - \bar{\mathbf{x}} \cdot \mathbf{w}$, et l'on obtient "
-         r"exactement le résultat de scikit-learn. `lstsq` passe par une factorisation de $\mathbf{X}$ (la SVD, M12d) "
-         r"sans former $\mathbf{X}^\top\mathbf{X}$, dont le conditionnement est le carré de celui de $\mathbf{X}$ (M09b.32).",
+         r"compensent : les deux résultats diffèrent nettement. f) L'ordonnée à l'origine passe de 3,05 (scikit-learn) à "
+         r"1,59 (ta fonction) : pénalisée, elle est tirée vers 0, et la droite ne passe plus par le point moyen ; les pentes "
+         r"bougent pour rattraper une partie de l'écart. workbookIA 9 montre comment s'en passer. `lstsq` passe par une "
+         r"factorisation de $\mathbf{X}$ (la SVD, M12d), sans former $\mathbf{X}^\top\mathbf{X}$ : il évite de perdre "
+         r"deux fois plus de chiffres significatifs qu'avec $\mathbf{X}$ seule (M09b.32).",
 )
 
 # ---------------------------------------------------------------------------
@@ -730,7 +735,7 @@ M09B_31 = Ex(
 
 La vérification calcule, avec la grille `cs = np.linspace(0, 1, 101)` :
 - a) le $c$ de la grille où ta simulation est la plus petite, comparé au $c^*$ de la formule : vrai ou faux, ils diffèrent de moins de 0,02 ;
-- b) vrai ou faux : sur toute la grille, ta simulation et ta formule diffèrent de moins de 0,02 ;
+- b) vrai ou faux : sur toute la grille, ta simulation et ta formule diffèrent de moins de 0,02 (mais pas de 0 : une simulation n'est jamais exactement la formule) ;
 - c) le $c^*$ exact de la formule, $\frac{\mu^2}{\mu^2 + \sigma^2/n}$ (4 décimales) ;
 - d) le rapport $\frac{E(1)}{E(c^*)}$ (2 décimales).
 
@@ -758,7 +763,7 @@ with checked("M09b.31a"):
 with checked("M09b.31b"):
     formula_31 = np.array([formula_mse(c, 1.0, 3.0, 5) for c in CS_31], dtype=float)
     sim_31 = np.asarray(simulated_mse(CS_31, 1.0, 3.0, 5), dtype=float)
-    wbm.check("M09b.31b", bool(sim_31.shape == CS_31.shape and np.max(np.abs(sim_31 - formula_31)) < 0.02),
+    wbm.check("M09b.31b", bool(sim_31.shape == CS_31.shape and 0 < np.max(np.abs(sim_31 - formula_31)) < 0.02),
               computed=True)
 wbm.check("M09b.31c", answer_M09b_31c)
 wbm.check("M09b.31d", answer_M09b_31d)''',
@@ -787,8 +792,8 @@ print(round(answer_M09b_31c, 4), round(answer_M09b_31d, 2))''',
            mistakes={"le meilleur c de ta simulation est loin de c* : tire les échantillons une seule fois (forme "
                      "(reps, n)), moyenne par ligne, puis une erreur par c": False})
 wbm.record("M09b.31b", True,
-           mistakes={"ta simulation et ta formule ne coïncident pas : vérifie (c x̄ − μ)² dans la simulation, et "
-                     "(c − 1)² μ² + c² σ²/n dans la formule": False})
+           mistakes={"ta simulation et ta formule doivent être proches (à 0,02 près) sans être identiques : vérifie "
+                     "(c x̄ − μ)² dans la simulation, tirée au hasard, et (c − 1)² μ² + c² σ²/n dans la formule": False})
 wbm.record("M09b.31c", 5 / 14, decimals=4,
            mistakes={"c* = μ²/(μ² + σ²/n) : σ est l'écart-type, σ² = 9": 1 / (1 + 3 / 5)})
 wbm.record("M09b.31d", 2.8, decimals=2,
@@ -845,13 +850,16 @@ Dans ta copie : pourquoi les colonnes $x^4$ et $x^5$ sur $[0, 20]$ sont-elles pr
     given=GIVEN_32,
     todo='''def powers(x, degree):
     """The matrix whose columns are 1, x, x², ..., x**degree (shape (n, degree + 1))."""
-    raise NotImplementedError("np.column_stack d'une liste de puissances")
+    raise NotImplementedError("une colonne par puissance, de 0 à degree")
 
 
 def cond_xtx(x, degree):
     """The condition number of XᵀX for X = powers(x, degree)."""
-    raise NotImplementedError("np.linalg.cond(X.T @ X)")''',
+    raise NotImplementedError("le conditionnement de XᵀX, par une fonction de np.linalg")''',
     check='''with checked("M09b.32a"):
+    if np.shape(powers(x_32, 5)) != (50, 6):
+        print(f"❌ Ex M09b.32 : powers(x_32, 5) a la forme {np.shape(powers(x_32, 5))}, pas (50, 6) : une colonne par "
+              "puissance, de x⁰ = 1 à x⁵.")
     wbm.check("M09b.32a", round(math.log10(max(cond_xtx(x_32, 5), 1e-300))), computed=True)
 with checked("M09b.32b"):
     wbm.check("M09b.32b", round(math.log10(max(cond_xtx(t_32, 5), 1e-300))), computed=True)
@@ -874,7 +882,8 @@ def cond_xtx(x, degree):
 for d in range(1, 9):
     print(f"degree {d}: raw {cond_xtx(x_32, d):.1e} · scaled {cond_xtx(t_32, d):.1e}")''',
     record='''wbm.record("M09b.32a", 14,
-           mistakes={"le conditionnement de XᵀX, pas celui de X (il en est à peu près le carré)": 7})
+           mistakes={"le conditionnement de XᵀX, pas celui de X (il en est à peu près le carré)": 7,
+                     "powers(x, d) a d + 1 colonnes, de x⁰ à x^d : le degré 5 va jusqu'à x⁵": 11})
 wbm.record("M09b.32b", 3, mistakes={"le conditionnement de XᵀX, pas celui de X": 2})
 wbm.record("M09b.32c", 6, mistakes={"le premier degré où le conditionnement dépasse 1e15 = 10¹⁵": {5, 7}})
 wbm.record("M09b.32d", True,
@@ -1078,7 +1087,7 @@ M09B_35_CHECK = '''with checked("M09b.35 vérifications"):
     problems = []
     w_t = np.array([0.3, -1.2, 2.0])
     approx_t = np.asarray(numerical_gradient(lambda v: float(np.sum(np.sin(v))), w_t), dtype=float)
-    if approx_t.shape != w_t.shape or not np.allclose(approx_t, np.cos(w_t), atol=1e-7):
+    if approx_t.shape != w_t.shape or not np.allclose(approx_t, np.cos(w_t), rtol=0, atol=1e-8):
         problems.append("numerical_gradient ne donne pas le gradient de sum(sin(w)), qui vaut cos(w) : différence "
                         "centrée (f(w + h e_k) − f(w − h e_k)) / (2h), une coordonnée à la fois")
     else:
@@ -1089,7 +1098,7 @@ M09B_35_CHECK = '''with checked("M09b.35 vérifications"):
         bad_t = gradient_error(quad_t, lambda v: 2 * A_t @ v, w_t)
         ls_t = gradient_error(lambda v: float(np.sum((y_t - X_t @ v) ** 2)), lambda v: -2 * X_t.T @ (y_t - X_t @ v), w_t)
         print(f"(A + Aᵀ)w : {good_t:.1e} · 2Aw : {bad_t:.1e} · −2Xᵀ(y − Xw) : {ls_t:.1e}")
-        if not (good_t < 1e-6 and ls_t < 1e-6):
+        if not (good_t < 1e-8 and ls_t < 1e-8):
             problems.append("gradient_error doit être minuscule pour un gradient juste : compare numerical_gradient(f, "
                             "w) et grad(w), puis divise le plus grand écart par max(1, la plus grande valeur absolue)")
         elif not bad_t > 1e-2:

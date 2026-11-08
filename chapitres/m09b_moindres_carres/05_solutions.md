@@ -41,8 +41,8 @@
 ### M09b.Q6 — Lasso ou ridge : qui annule des poids ?
 1. **L1**, le lasso.
 2. **0** pour $w^2$ (sa dérivée $2w$ s'annule en 0) ; **1** pour $|w|$ juste à droite de 0 (et $-1$ juste à gauche).
-3. **Ridge** : $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})^{-1}\mathbf{X}^\top\mathbf{y}$ ; le lasso se résout par une méthode itérative.
-4. $S(3 ;\ 1) = 2$ ; $S(-0{,}4 ;\ 0{,}5) = 0$, car $0{,}4 < 0{,}5$.
+3. Avec $\lambda = 0{,}5$, **non** : le gain $0{,}3\,\varepsilon$ ne compense pas le coût $0{,}5\,\varepsilon$, le poids reste à 0. Avec $\lambda = 0{,}2$, **oui** : $0{,}3 > 0{,}2$.
+4. $S(2{,}2 ;\ 0{,}7) = 1{,}5$ ; $S(-0{,}3 ;\ 0{,}8) = 0$, car $0{,}3 < 0{,}8$.
 5. Que $\lambda$ (fiche §6 : le gain $g\varepsilon$ ne dépasse pas le coût $\lambda\varepsilon$).
 6. **4** coins, sur les axes : $(1, 0)$, $(-1, 0)$, $(0, 1)$, $(0, -1)$.
 
@@ -93,40 +93,40 @@
 
 ### Ex M09b.1 — MSE, RMSE, MAE et loss de Huber de quatre résidus
 
-**Réponses** : a) `[2, -1, -0.5, 4]` · b) `5.3125` · c) `2.3049` · d) `1.875` · e) `1.40625` · f) `2.65625` · g) `9.1875`.
+**Réponses** : a) `[2, -1, -0.5, 4]` · b) `5.3125` · c) `1.875` · d) `1.40625` · e) `2.65625` · f) `1.75` · g) `4`.
 
 **Démarche.**
 - a) $r = (12 - 10,\ 7 - 8,\ 9 - 9{,}5,\ 15 - 11)$.
 - b) $\sum r_i^2 = 4 + 1 + 0{,}25 + 16 = 21{,}25$, et $\frac{21{,}25}{4} = 5{,}3125$.
-- c) $\sqrt{5{,}3125} \approx 2{,}3049$.
-- d) $\frac{2 + 1 + 0{,}5 + 4}{4} = 1{,}875$.
-- e) Avec $\delta = 1$ : $|r| = 2$ donne $1 \times (2 - 0{,}5) = 1{,}5$ ; $|r| = 1$ est au seuil, $\frac{1}{2}$ ; $0{,}5$ donne $0{,}125$ ; $4$ donne $3{,}5$. La moyenne vaut $\frac{5{,}625}{4} = 1{,}40625$.
-- f) Avec $\delta = 5$, tous les résidus sont sous le seuil : la loss vaut $\frac{r^2}{2}$ partout, et sa moyenne $\frac{\mathrm{MSE}}{2}$.
-- g) $\bar{y} = 10{,}75$ ; les écarts $1{,}25$, $-3{,}75$, $-1{,}75$, $4{,}25$ ont pour carrés $1{,}5625$, $14{,}0625$, $3{,}0625$, $18{,}0625$, de somme $36{,}75$ : $\frac{36{,}75}{4} = 9{,}1875$.
+- c) $\frac{2 + 1 + 0{,}5 + 4}{4} = 1{,}875$.
+- d) Avec $\delta = 1$ : $|r| = 2$ donne $1 \times (2 - 0{,}5) = 1{,}5$ ; $|r| = 1$ est au seuil, $\frac{1}{2}$ ; $0{,}5$ donne $0{,}125$ ; $4$ donne $3{,}5$. La moyenne vaut $\frac{5{,}625}{4} = 1{,}40625$.
+- e) Avec $\delta = 5$, tous les résidus sont sous le seuil : la loss vaut $\frac{r^2}{2}$ partout, et sa moyenne $\frac{\mathrm{MSE}}{2}$.
+- f) Avec $\delta = 0{,}25$, tous les résidus sont au-dessus du seuil : $0{,}25 \times (2 - 0{,}125) = 0{,}46875$, puis $0{,}21875$, $0{,}09375$ et $0{,}96875$, de moyenne $0{,}4375$ ; divisée par $0{,}25$ : $1{,}75$.
+- g) La loss vaut $\frac{r^2}{2}$ pour **chaque** résidu dès que $\delta \ge |r_i|$ pour tous : $\delta \ge 4$, le plus grand résidu en valeur absolue.
 
-Pour la copie : la MSE et la loss de Huber en minutes carrées, la RMSE et la MAE en minutes. $R^2 = 1 - \frac{5{,}3125}{9{,}1875} \approx 0{,}42$ : le modèle fait disparaître 42 % de la variation des durées. Le résidu de 4 compte pour 8 dans la moyenne des $\frac{r^2}{2}$, mais pour 3,5 seulement dans la loss de Huber avec $\delta = 1$, qui le compte linéairement.
+Pour la copie : la MSE et la loss de Huber en minutes carrées (au-dessus du seuil, $\delta(|r| - \frac{\delta}{2})$ est le produit de deux durées), la MAE en minutes. Quand $\delta < |r_i|$ pour tous, $\frac{1}{\delta}\ell_\delta(r_i) = |r_i| - \frac{\delta}{2}$, et la moyenne donne $\mathrm{MAE} - \frac{\delta}{2} = 1{,}875 - 0{,}125 = 1{,}75$ : un petit $\delta$ fait de la loss de Huber une MAE (à un facteur $\delta$ près), un grand $\delta$ une demi-MSE. Entre les deux, d) compte le résidu de 4 pour 3,5 au lieu de 8. Enfin $\mathrm{RMSE} = \sqrt{5{,}3125} \approx 2{,}3049 \ge 1{,}875$.
 
-**Erreurs fréquentes.** Des résidus $\hat{y} - y$ (sans effet sur la MSE, mais faux en a) ; oublier de diviser par $n$ ; une MAE avec les résidus signés (1,125) ; $r^2$ au lieu de $\frac{r^2}{2}$ sous le seuil de Huber ; prendre $|r|$ au lieu de $\delta(|r| - \frac{\delta}{2})$ au-dessus.
+**Erreurs fréquentes.** Des résidus $\hat{y} - y$ (sans effet sur la MSE, mais faux en a) ; oublier de diviser par $n$ ; une MAE avec les résidus signés (1,125) ; $r^2$ au lieu de $\frac{r^2}{2}$ sous le seuil de Huber ; prendre $|r|$ au lieu de $\delta(|r| - \frac{\delta}{2})$ au-dessus ; en g), un $\delta$ qui laisse le plus grand résidu au-dessus du seuil.
 
 **Variante.** La loss de Huber moyenne avec $\delta = 2$ ? *Réponse* : $2$, $0{,}5$, $0{,}125$ et $2 \times (4 - 1) = 6$, de moyenne $\frac{8{,}625}{4} = 2{,}15625$.
 
 ### Ex M09b.2 — La décomposition SCT = SCE + SCR et le R² d'un ajustement donné
 
-**Réponses** : a) `4` · b) `18` · c) `3.6` · d) `14.4` · e) `0.8` · f) `[4, 10]` · g) `"7/9"`.
+**Réponses** : a) `4` · b) `16` · c) `5.2` · d) `10.8` · e) `0.675` · f) `[5.5, 7.5]` · g) `"21/32"`.
 
 **Démarche.**
-- a) et b) $\bar{y} = \frac{20}{5} = 4$ ; les écarts $-2, -2, 1, 0, 3$ donnent $\mathrm{SCT} = 4 + 4 + 1 + 0 + 9 = 18$.
-- c) $\hat{y} = 1{,}6 ;\ 2{,}8 ;\ 4 ;\ 5{,}2 ;\ 6{,}4$, résidus $0{,}4 ;\ -0{,}8 ;\ 1 ;\ -1{,}2 ;\ 0{,}6$, carrés de somme $3{,}6$.
-- d) $\hat{y} - \bar{y} = -2{,}4 ;\ -1{,}2 ;\ 0 ;\ 1{,}2 ;\ 2{,}4$ : $\mathrm{SCE} = 2 \times (5{,}76 + 1{,}44) = 14{,}4$.
-- e) $1 - \frac{3{,}6}{18} = 0{,}8$, et aussi $\frac{14{,}4}{18}$.
-- f) $\hat{y} = 2, 3, 4, 5, 6$ : résidus $0, -1, 1, -1, 1$, $\mathrm{SCR} = 4$ ; écarts à $\bar{y}$ : $-2, -1, 0, 1, 2$, $\mathrm{SCE} = 10$.
-- g) $1 - \frac{4}{18} = \frac{7}{9}$.
+- a) et b) $\bar{y} = \frac{20}{5} = 4$ ; les écarts $-2, -2, 2, 0, 2$ donnent $\mathrm{SCT} = 4 + 4 + 4 + 0 + 4 = 16$.
+- c) $\hat{y} = 2{,}2 ;\ 2{,}8 ;\ 4 ;\ 4{,}6 ;\ 6{,}4$, résidus $-0{,}2 ;\ -0{,}8 ;\ 2 ;\ -0{,}6 ;\ -0{,}4$, carrés de somme $0{,}04 + 0{,}64 + 4 + 0{,}36 + 0{,}16 = 5{,}2$.
+- d) $\hat{y} - \bar{y} = 0{,}6(x - 5) = -1{,}8 ;\ -1{,}2 ;\ 0 ;\ 0{,}6 ;\ 2{,}4$ : $\mathrm{SCE} = 3{,}24 + 1{,}44 + 0 + 0{,}36 + 5{,}76 = 10{,}8$.
+- e) $1 - \frac{5{,}2}{16} = 0{,}675$, et aussi $\frac{10{,}8}{16}$.
+- f) $\hat{y} = 2{,}5 ;\ 3 ;\ 4 ;\ 4{,}5 ;\ 6$ : résidus $-0{,}5 ;\ -1 ;\ 2 ;\ -0{,}5 ;\ 0$, $\mathrm{SCR} = 5{,}5$ ; écarts à $\bar{y}$ : $0{,}5(x - 5)$, $\mathrm{SCE} = 0{,}25 \times 30 = 7{,}5$.
+- g) $1 - \frac{5{,}5}{16} = \frac{10{,}5}{16} = \frac{21}{32}$.
 
-Pour la copie : $14{,}4 + 3{,}6 = 18$, mais $10 + 4 = 14 \ne 18$. Les deux droites ont des résidus de somme nulle (la seconde passe aussi par le point moyen $(2, 4)$) ; mais $\sum x_ir_i$ vaut $0$ pour la première et $0 - 1 + 2 - 3 + 4 = 2$ pour la seconde : ses résidus ne sont pas orthogonaux à la colonne $x$. Le double produit $2\sum_i(\hat{y}_i - \bar{y})r_i = 2 \times 1 \times 2 = 4$ ne s'annule pas, et c'est lui qui manque : $10 + 4 + 4 = 18$. Pour cette droite, $\frac{\mathrm{SCE}}{\mathrm{SCT}} = \frac{5}{9}$ et $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}} = \frac{7}{9}$ : les deux définitions du $R^2$ ne coïncident que pour les moindres carrés avec ordonnée à l'origine.
+Pour la copie : $10{,}8 + 5{,}2 = 16$, mais $7{,}5 + 5{,}5 = 13 \ne 16$. Les deux droites ont des résidus de somme nulle (la seconde passe aussi par le point moyen $(5, 4)$) ; mais $\sum x_ir_i$ vaut $0$ pour la première et $-1 - 3 + 10 - 3 + 0 = 3$ pour la seconde : ses résidus ne sont pas orthogonaux à la colonne $x$. Le double produit $2\sum_i(\hat{y}_i - \bar{y})r_i = 2 \times 0{,}5 \times 3 = 3$ ne s'annule pas, et c'est lui qui manque : $7{,}5 + 5{,}5 + 3 = 16$. Pour cette droite, $\frac{\mathrm{SCE}}{\mathrm{SCT}} = \frac{15}{32}$ et $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}} = \frac{21}{32}$ : les deux définitions du $R^2$ ne coïncident que pour les moindres carrés avec ordonnée à l'origine.
 
 **Erreurs fréquentes.** Diviser les sommes par $n$ (ce sont des **sommes**) ; écrire $\mathrm{SCR}/\mathrm{SCT}$ pour le $R^2$ ; croire que la décomposition vaut pour toute droite.
 
-**Variante.** La droite $\hat{y} = 1 + 1{,}5x$ : $\mathrm{SCR}$ ? *Réponse* : prédictions $1 ;\ 2{,}5 ;\ 4 ;\ 5{,}5 ;\ 7$, résidus $1 ;\ -0{,}5 ;\ 1 ;\ -1{,}5 ;\ 0$, $\mathrm{SCR} = 4{,}5$, plus que 3,6, comme toute droite autre que celle des moindres carrés.
+**Variante.** La droite $\hat{y} = 0{,}5 + 0{,}7x$ : $\mathrm{SCR}$ ? *Réponse* : prédictions $1{,}9 ;\ 2{,}6 ;\ 4 ;\ 4{,}7 ;\ 6{,}8$, résidus $0{,}1 ;\ -0{,}6 ;\ 2 ;\ -0{,}7 ;\ -0{,}8$, $\mathrm{SCR} = 5{,}5$, plus que 5,2, comme toute droite autre que celle des moindres carrés.
 
 ### Ex M09b.3 — Les gradients de aᵀw, wᵀAw et ‖y − Xw‖², composante par composante en dimension 2
 
@@ -183,7 +183,7 @@ Pour la copie : $-0{,}5 + 1{,}5 \times 3 = 4$ : la droite passe par le point moy
 
 ### Ex M09b.6 — La matrice chapeau d'un petit tableau : H² = H et sa trace
 
-**Réponses** : a) `[[3, 4], [4, 10]]` · b) `[[10, -4], [-4, 3]]` · c) `[[10, 6, -2], [6, 5, 3], [-2, 3, 13]]` · d) `2` · e) `3` · f) `[8, 16, 32]` · g) `True`.
+**Réponses** : a) `[[3, 4], [4, 10]]` · b) `[[10, -4], [-4, 3]]` · c) `[[10, 6, -2], [6, 5, 3], [-2, 3, 13]]` · d) `2` · e) `3` · f) `[8, 16, 32]` · g) `[6, -9, 3]`.
 
 **Démarche.**
 - a) et b) Le déterminant vaut $30 - 16 = 14$, et $(\mathbf{X}^\top\mathbf{X})^{-1} = \frac{1}{14}\begin{pmatrix} 10 & -4 \\ -4 & 3 \end{pmatrix}$.
@@ -191,9 +191,9 @@ Pour la copie : $-0{,}5 + 1{,}5 \times 3 = 4$ : la droite passe par le point moy
 - d) $\frac{10 + 5 + 13}{14} = 2$, le nombre de colonnes.
 - e) Le point $x = 3$, de levier $\frac{13}{14}$.
 - f) $14\,\mathbf{H}\mathbf{y} = (20 + 6 - 10,\ 12 + 5 + 15,\ -4 + 3 + 65) = (16, 32, 64)$, donc $7\hat{\mathbf{y}} = (8, 16, 32)$. C'est la droite $\hat{y} = \frac{8}{7}(1 + x)$.
-- g) Première ligne de $\mathbf{H}\mathbf{H}$ : $\frac{1}{196}(100 + 36 + 4,\ 60 + 30 - 6,\ -20 + 18 - 26) = \frac{1}{196}(140, 84, -28) = \frac{1}{14}(10, 6, -2)$, la première ligne de $\mathbf{H}$.
+- g) $7\mathbf{y} - 7\hat{\mathbf{y}} = (14, 7, 35) - (8, 16, 32) = (6, -9, 3)$.
 
-Pour la copie : le point $x = 3$ est loin des deux autres (la moyenne des abscisses vaut $\frac{4}{3}$) ; la droite doit presque passer par lui : $h_{33} = \frac{13}{14}$ veut dire que $\hat{y}_3$ dépend surtout de $y_3$. $\mathbf{H}(1, 1, 1) = \frac{1}{14}(14, 14, 14)$ et $\mathbf{H}(0, 1, 3) = \frac{1}{14}(0, 14, 42)$ : un vecteur déjà dans l'espace des colonnes est sa propre projection ($\mathbf{H}\mathbf{X} = \mathbf{X}$, M09b.15).
+Pour la copie : la première ligne de $\mathbf{H}\mathbf{H}$ vaut $\frac{1}{196}(100 + 36 + 4,\ 60 + 30 - 6,\ -20 + 18 - 26) = \frac{1}{14}(10, 6, -2)$, la première ligne de $\mathbf{H}$ ; et $\mathbf{r}$ est orthogonal aux colonnes : $6 - 9 + 3 = 0$ et $0 - 9 + 9 = 0$. Le point $x = 3$ est loin des deux autres (la moyenne des abscisses vaut $\frac{4}{3}$) ; la droite doit presque passer par lui : $h_{33} = \frac{13}{14}$ veut dire que $\hat{y}_3$ dépend surtout de $y_3$. $\mathbf{H}(1, 1, 1) = \frac{1}{14}(14, 14, 14)$ et $\mathbf{H}(0, 1, 3) = \frac{1}{14}(0, 14, 42)$ : un vecteur déjà dans l'espace des colonnes est sa propre projection ($\mathbf{H}\mathbf{X} = \mathbf{X}$, M09b.15).
 
 **Erreurs fréquentes.** Une erreur de signe dans l'inverse ; calculer $\mathbf{X}^\top(\ldots)\mathbf{X}$, de forme $(2, 2)$, au lieu de $\mathbf{X}(\ldots)\mathbf{X}^\top$ ; une trace égale à $n = 3$.
 
@@ -201,22 +201,22 @@ Pour la copie : le point $x = 3$ est loin des deux autres (la moyenne des abscis
 
 ### Ex M09b.7 — Compter les monômes des features polynomiales
 
-**Réponses** : a) `4` · b) `10` · c) `20` · d) `34` · e) `21` · f) `15` · g) `6`.
+**Réponses** : a) `4` · b) `10` · c) `20` · d) `69` · e) `21` · f) `15` · g) `6`.
 
 **Démarche.**
 - a) $u^3, u^2v, uv^2, v^3$ : $\binom{3 + 1}{3} = 4$.
 - b) $1 + 2 + 3 + 4 = 10 = \binom{5}{3}$.
 - c) $\binom{7}{2} - 1 = 20$.
-- d) $\binom{7}{4} - 1 = 34$.
-- e) $\binom{2 + 5}{2} = 21$ : 6 carrés et 15 produits de deux variables différentes.
-- f) $\binom{6}{2} = 15$.
+- d) $\binom{8}{4} - 1 = 69$.
+- e) $\binom{2 + 5}{2} = 21$.
+- f) $\binom{4 + 2}{4} = 15$.
 - g) Sans constante, en 7 variables : 7, 35, 119, 329, 791, puis 1 715 pour $d = 6$.
 
-Pour la copie : 6 carrés $+ 15$ interactions $= 21$. Le nombre de colonnes est multiplié par un peu plus de 2 à chaque degré : au degré 6, il y a déjà plus de 1 700 colonnes pour 7 variables, et $\mathbf{X}^\top\mathbf{X}$ a près de 3 millions de cases.
+Pour la copie : f) en 3 variables $x, y, z$, rangés par l'exposant de $x$ : $x^4$ ; $x^3y, x^3z$ ; $x^2y^2, x^2yz, x^2z^2$ ; $xy^3, xy^2z, xyz^2, xz^3$ ; $y^4, y^3z, y^2z^2, yz^3, z^4$, soit $1 + 2 + 3 + 4 + 5 = 15$. Le nombre de colonnes est multiplié par un peu plus de 2 à chaque degré : au degré 6, il y a déjà plus de 1 700 colonnes pour 7 variables, et $\mathbf{X}^\top\mathbf{X}$ a près de 3 millions de cases.
 
 **Erreurs fréquentes.** Oublier les produits croisés ; compter ou non la constante à contresens ; utiliser $\binom{p}{d}$ (combinaisons sans répétition, qui oublient les carrés).
 
-**Variante.** Le nombre de monômes de degré exactement 3 en 4 variables ? *Réponse* : $\binom{3 + 3}{3} = 20$.
+**Variante.** Le nombre de monômes de degré exactement 3 en 6 variables ? *Réponse* : $\binom{3 + 5}{3} = 56$.
 
 ### Ex M09b.8 — Ridge en dimension 2 : résoudre (XᵀX + λI)w = Xᵀy pour trois valeurs de λ
 
@@ -274,21 +274,21 @@ Pour la copie : la boule L1 de $\mathbb{R}^2$ est le losange de sommets $(\pm 1,
 
 ### Ex M09b.11 — La log-vraisemblance gaussienne d'un modèle linéaire et l'estimation de σ²
 
-**Réponses** : a) `0.72` · b) `1.2` · c) `-6.2734` · d) `-6.3947` · e) `0.2` · f) `1.2214` · g) `[4, 4]`.
+**Réponses** : a) `1.04` · b) `1.7333` · c) `-7.1927` · d) `-7.1947` · e) `0.15` · f) `1.1618` · g) `[4, 4]`.
 
 **Démarche.**
-- a) $\frac{3{,}6}{5} = 0{,}72$. b) $\frac{3{,}6}{5 - 2} = 1{,}2$.
-- c) $\ln L = -\frac{5}{2}\ln(2\pi \times 0{,}72) - \frac{3{,}6}{2 \times 0{,}72} = -2{,}5 \times 1{,}5094 - 2{,}5 \approx -6{,}2734$.
-- d) $-\frac{5}{2}\ln(2\pi) - \frac{3{,}6}{2} \approx -4{,}5947 - 1{,}8 = -6{,}3947$.
-- e) Seul le terme des résidus change : $-\frac{3{,}6}{2} - \big(-\frac{4}{2}\big) = 0{,}2$.
-- f) $e^{0{,}2} \approx 1{,}2214$.
-- g) $0{,}4 + 0{,}8 + 1 + 1{,}2 + 0{,}6 = 4$ et $0 + 1 + 1 + 1 + 1 = 4$.
+- a) $\frac{5{,}2}{5} = 1{,}04$. b) $\frac{5{,}2}{5 - 2} \approx 1{,}7333$.
+- c) $\ln L = -\frac{5}{2}\ln(2\pi \times 1{,}04) - \frac{5{,}2}{2 \times 1{,}04} = -2{,}5 \times 1{,}8771 - 2{,}5 \approx -7{,}1927$.
+- d) $-\frac{5}{2}\ln(2\pi) - \frac{5{,}2}{2} \approx -4{,}5947 - 2{,}6 = -7{,}1947$.
+- e) Seul le terme des résidus change : $-\frac{5{,}2}{2} - \big(-\frac{5{,}5}{2}\big) = 0{,}15$.
+- f) $e^{0{,}15} \approx 1{,}1618$.
+- g) $0{,}2 + 0{,}8 + 2 + 0{,}6 + 0{,}4 = 4$ et $0{,}5 + 1 + 2 + 0{,}5 + 0 = 4$.
 
 Pour la copie : en $\sigma^2 = \hat{\sigma}^2 = \frac{\mathrm{SCR}}{n}$, le terme des résidus vaut $\frac{\mathrm{SCR}}{2\,\mathrm{SCR}/n} = \frac{n}{2}$, d'où $-\frac{n}{2}\big(\ln(2\pi\hat{\sigma}^2) + 1\big)$. Avec un bruit de Laplace, la log-vraisemblance est $-\frac{1}{b}\sum_i |r_i|$ à une constante près : les deux droites ont la même somme des valeurs absolues, donc la **même** vraisemblance. Le choix du bruit change la « meilleure » droite.
 
-**Erreurs fréquentes.** Le logarithme décimal ; oublier le facteur $\frac{1}{2}$ du terme des résidus ; diviser par $n - p$ pour l'estimateur du maximum de vraisemblance.
+**Erreurs fréquentes.** Le logarithme décimal ; oublier le facteur $\frac{1}{2}$ du terme des résidus ; diviser par $n - p$ (ou $n - 1$) pour l'estimateur du maximum de vraisemblance ; le rapport des vraisemblances à l'envers.
 
-**Variante.** La log-vraisemblance de la droite $\hat{y} = 2 + x$ en son propre $\hat{\sigma}^2$ ? *Réponse* : $\hat{\sigma}^2 = \frac{4}{5} = 0{,}8$ et $-2{,}5\big(\ln(2\pi \times 0{,}8) + 1\big) \approx -6{,}5368$, plus petite que c).
+**Variante.** La log-vraisemblance de la droite $\hat{y} = 1{,}5 + 0{,}5x$ en son propre $\hat{\sigma}^2$ ? *Réponse* : $\hat{\sigma}^2 = \frac{5{,}5}{5} = 1{,}1$ et $-2{,}5\big(\ln(2\pi \times 1{,}1) + 1\big) \approx -7{,}3330$, plus petite que c).
 
 ### Ex M09b.12 — L'estimateur rétréci c·x̄ : biais, variance et erreur quadratique
 
@@ -419,21 +419,22 @@ Pour la copie : $\mathbf{X}$ $(4, 3)$, $\mathbf{w}$ $(3,)$, $\hat{\mathbf{y}}$ e
 
 ### Ex M09b.21 — Pont : pourquoi standardiser les colonnes avant ridge
 
-**Réponses** : a) `[0.9, -0.5]` · b) `[0.75, -0.3333]` · c) `[0.8333, 0.6667]` · d) `0.0009` · e) `1.0` · f) `"2/3"` · g) `True`.
+**Réponses** : a) `[0.5, 1]` · b) `[0.5, 0.5]` · c) `[0.05, 1]` · d) `[0.0828, 0.3361]` · e) `[-1, -1.1639]` · f) `[-1.5, -1.5]` · g) `True`.
 
 **Démarche.**
-- a) $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 10 & 0 \\ 0 & 4 \end{pmatrix}$ et $\mathbf{X}^\top\mathbf{y} = (6 - 1 + 0 + 4,\ -3 - 1 + 0 + 2) = (9, -2)$ : $\mathbf{w} = (\frac{9}{10}, \frac{-2}{4})$.
-- b) $\begin{pmatrix} 12 & 0 \\ 0 & 6 \end{pmatrix}\mathbf{w} = (9, -2)$ : $(\frac{9}{12}, -\frac{2}{6})$.
-- c) $\frac{10}{12}$ et $\frac{4}{6}$.
-- d) En mètres, la colonne vaut $1\,000\,x_1$ : $\lVert \cdot \rVert^2 = 10^7$, le produit avec $\mathbf{y}$ vaut $9\,000$, et le poids $\frac{9\,000}{10^7} = 0{,}0009$.
-- e) $\frac{10^7}{10^7 + 2} \approx 0{,}9999998$, soit $1{,}0000$ à 4 décimales.
-- f) L'écart-type de $x_1$ vaut $\sqrt{\frac{10}{4}}$, celui de $x_2$ vaut 1 : après standardisation, chaque colonne a $\lVert \mathbf{x}_j \rVert^2 = n = 4$, et le facteur vaut $\frac{4}{4 + 2} = \frac{2}{3}$.
+- a) $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 2 \\ 2 & 2 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (2 + 0 + 1 + 1,\ 2 + 0 + 0 + 1) = (4, 3)$, de déterminant 4 : $\mathbf{w} = \frac{1}{4}\begin{pmatrix} 2 & -2 \\ -2 & 4 \end{pmatrix}\begin{pmatrix} 4 \\ 3 \end{pmatrix} = (0{,}5 ;\ 1)$.
+- b) $\begin{pmatrix} 6 & 2 \\ 2 & 4 \end{pmatrix}$, de déterminant 20 : $\frac{1}{20}(16 - 6,\ -8 + 18) = (0{,}5 ;\ 0{,}5)$.
+- c) La colonne vaut $10\,x_1$ : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 400 & 20 \\ 20 & 2 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (40, 3)$, et $\mathbf{w} = (0{,}05 ;\ 1)$ : le poids du prix est divisé par 10, le reste ne bouge pas.
+- d) $\begin{pmatrix} 402 & 20 \\ 20 & 4 \end{pmatrix}$, de déterminant $1\,608 - 400 = 1\,208$ : $w_1 = \frac{4 \times 40 - 20 \times 3}{1\,208} = \frac{25}{302}$ et $w_2 = \frac{402 \times 3 - 20 \times 40}{1\,208} = \frac{203}{604}$.
+- e) En dizaines d'euros : $0{,}5 \times (-1) + 0{,}5 \times (-1) = -1$. En euros : $\frac{25}{302} \times (-10) + \frac{203}{604} \times (-1) = -\frac{703}{604} \approx -1{,}1639$.
+- f) $0{,}5 \times (-1) + 1 \times (-1) = -1{,}5$, et $0{,}05 \times (-10) + 1 \times (-1) = -1{,}5$.
+- g) Standardiser divise la colonne du prix par son écart-type : on obtient la même colonne quelle que soit l'unité, donc le même problème ridge et les mêmes prédictions.
 
-Pour la copie : avec $\mathbf{X}^\top\mathbf{X}$ diagonale, le système ridge se sépare en deux équations, $(\lVert \mathbf{x}_j \rVert^2 + \lambda)\,w_j = \mathbf{x}_j \cdot \mathbf{y}$, et le poids des moindres carrés est $\frac{\mathbf{x}_j \cdot \mathbf{y}}{\lVert \mathbf{x}_j \rVert^2}$ : le rapport vaut $\frac{\lVert \mathbf{x}_j \rVert^2}{\lVert \mathbf{x}_j \rVert^2 + \lambda}$. Une feature exprimée dans une petite unité a de grands nombres, donc un grand $\lVert \mathbf{x}_j \rVert^2$ devant $\lambda$ : son facteur est presque 1, ridge ne la touche presque pas. Dans une grande unité, au contraire, elle est écrasée. Après standardisation, toutes les colonnes ont la même norme, et ridge les traite de la même façon, quelle que soit l'unité.
+Pour la copie : multiplier une colonne par 10 et diviser son poids par 10 ne change pas $\mathbf{X}\mathbf{w}$ ; les moindres carrés trouvent donc le même ajustement dans les deux unités. Ridge, lui, juge les poids : un même modèle a, en euros, un poids $w_1$ 10 fois plus petit, donc une pénalité $\lambda w_1^2$ 100 fois plus faible. En euros, ridge épargne presque le prix, et lui laisse prendre une partie du rôle de $x_2$ (les deux colonnes sont corrélées) : le poids de $x_2$ baisse, celui du prix (ramené en dizaines d'euros, $10 \times \frac{25}{302} \approx 0{,}83$) monte. Les prédictions changent pour une simple question d'unité.
 
-**Erreurs fréquentes.** Le facteur à l'envers (moindres carrés sur ridge) ; croire qu'une unité plus petite rend la feature plus pénalisée ; standardiser avec $\mathrm{ddof} = 1$ (le facteur devient $\frac{3}{5}$ : on peut le faire, mais ce n'est pas l'énoncé).
+**Erreurs fréquentes.** Diviser simplement le poids ridge de b) par 10 en d) (c'est vrai pour les moindres carrés, pas pour ridge) ; ajouter $\lambda$ à toutes les cases de $\mathbf{X}^\top\mathbf{X}$ ; multiplier $\mathbf{y}$ par 10 en même temps que la colonne.
 
-**Variante.** Le facteur de rétrécissement de $x_1$ mesuré en hectomètres ($1$ km $= 10$ hm), pour $\lambda = 2$ ? *Réponse* : la colonne vaut $10\,x_1$, $\lVert \cdot \rVert^2 = 1\,000$, et le facteur vaut $\frac{1\,000}{1\,002} \approx 0{,}998$.
+**Variante.** Les poids ridge ($\lambda = 2$) après standardisation des deux colonnes ? *Réponse* : la première colonne est inchangée (écart-type 1), la seconde est multipliée par $\sqrt{2}$ ; on trouve $\mathbf{w} \approx (0{,}4286 ;\ 0{,}5051)$, pour les colonnes standardisées.
 
 ### Ex M09b.22 — MML §5.5, §8.1 et §8.2 : identités de gradients et minimisation du risque empirique
 
@@ -486,7 +487,7 @@ Pour la copie : avec $\mathbf{X}^\top\mathbf{X}$ diagonale, le système ridge se
 
 **Réponse modèle (60 secondes).**
 
-> On n'a jamais besoin de l'inverse : on veut résoudre $\mathbf{X}^\top\mathbf{X}\,\mathbf{w} = \mathbf{X}^\top\mathbf{y}$. Une élimination de Gauss (ou une factorisation de Cholesky, la matrice étant symétrique) le fait en moins d'opérations et avec moins d'erreurs d'arrondi qu'une inverse suivie d'un produit. Mieux encore, `lstsq` résout le problème sans même former $\mathbf{X}^\top\mathbf{X}$, par une factorisation de $\mathbf{X}$ : former ce produit élève le conditionnement au carré, et fait perdre deux fois plus de chiffres. Quand des features sont colinéaires, $\mathbf{X}^\top\mathbf{X}$ est singulière : il y a une infinité de solutions, toutes avec les mêmes prédictions, mais des poids arbitraires. Presque colinéaires, la solution existe mais est instable : les poids deviennent énormes et changent avec le moindre bruit. Remèdes : ridge, qui ajoute $\lambda$ sur la diagonale et rend le système toujours soluble ; retirer ou regrouper les features redondantes (le one-hot complet avec une colonne de 1, par exemple) ; prendre la solution de plus petite norme avec `lstsq` ; ou réduire la dimension avec une ACP.
+> On n'a jamais besoin de l'inverse : on veut résoudre $\mathbf{X}^\top\mathbf{X}\,\mathbf{w} = \mathbf{X}^\top\mathbf{y}$. Une élimination de Gauss (ou une factorisation de Cholesky, la matrice étant symétrique) le fait en moins d'opérations et avec moins d'erreurs d'arrondi qu'une inverse suivie d'un produit. Mieux encore, `lstsq` résout le problème sans même former $\mathbf{X}^\top\mathbf{X}$, par une factorisation de $\mathbf{X}$ : former ce produit fait perdre deux fois plus de chiffres significatifs que de travailler sur $\mathbf{X}$ seule. Quand des features sont colinéaires, $\mathbf{X}^\top\mathbf{X}$ est singulière : il y a une infinité de solutions, toutes avec les mêmes prédictions, mais des poids arbitraires. Presque colinéaires, la solution existe mais est instable : les poids deviennent énormes et changent avec le moindre bruit. Remèdes : ridge, qui ajoute $\lambda$ sur la diagonale et rend le système toujours soluble ; retirer ou regrouper les features redondantes (le one-hot complet avec une colonne de 1, par exemple) ; prendre la solution de plus petite norme avec `lstsq` ; ou réduire la dimension avec une ACP.
 
 **Grille.** (1) résoudre plutôt qu'inverser, avec la raison (coût, précision) ; (2) `lstsq` et le conditionnement au carré ; (3) colinéaires : une infinité de solutions, mêmes prédictions ; (4) presque colinéaires : des poids instables ; (5) deux remèdes au moins, dont ridge.
 
@@ -530,9 +531,9 @@ Pour la copie : avec $\mathbf{X}^\top\mathbf{X}$ diagonale, le système ridge se
 
 **Réponses** : a) `[3.1218, 0.3636, -1.2796]` · b) `[3.1218, 0.3636, -1.2796]` · c) `3` · d) `[3.0472, 0.3532, -1.2559]` · e) `[1.5892, 0.4663, -1.131]` · f) `True`.
 
-**Démarche.** `w, _, rank, _ = np.linalg.lstsq(X1_29, y_29, rcond=None)` ; `LinearRegression().fit(X_29, y_29)` puis `[intercept_, *coef_]` ; de même avec `Ridge(alpha=5)` ; `mymath.linreg.solve_least_squares(X1_29, y_29, ridge=5)`. Pour f) : `mx, my = X_29.mean(axis=0), y_29.mean()`, `w = solve_least_squares(X_29 - mx, y_29 - my, ridge=5)`, `[my - mx @ w, *w]`, et `np.allclose(..., d, atol=1e-8)`. Pour la copie : a) et b) sont la même solution des moindres carrés ; `LinearRegression` ajoute la colonne de 1 lui-même. d) et e) diffèrent : `Ridge` ne pénalise pas l'ordonnée à l'origine, `solve_least_squares` la tire vers 0 (de 3,05 à 1,59), et les autres poids compensent. Après centrage, l'ordonnée à l'origine ne sert plus pendant la résolution, et on la retrouve ensuite : f). `lstsq` ne forme pas $\mathbf{X}^\top\mathbf{X}$, dont le conditionnement est le carré de celui de $\mathbf{X}$ (M09b.32).
+**Démarche.** `w, _, rank, _ = np.linalg.lstsq(X1_29, y_29, rcond=None)` ; `LinearRegression().fit(X_29, y_29)` puis `[intercept_, *coef_]` ; de même avec `Ridge(alpha=5)` ; `mymath.linreg.solve_least_squares(X1_29, y_29, ridge=5)`. Pour f) : `abs(e[0]) < abs(d[0])`. Pour la copie : a) et b) sont la même solution des moindres carrés ; `LinearRegression` ajoute la colonne de 1 lui-même. d) et e) diffèrent : `Ridge` ne pénalise pas l'ordonnée à l'origine, `solve_least_squares` la tire vers 0 (de 3,05 à 1,59), et les pentes bougent pour rattraper une partie de l'écart ; la droite ne passe plus par le point moyen. workbookIA 9 montre comment éviter de pénaliser l'ordonnée à l'origine. `lstsq` ne forme pas $\mathbf{X}^\top\mathbf{X}$, et perd ainsi deux fois moins de chiffres significatifs quand des colonnes sont presque dépendantes (M09b.32).
 
-**Erreurs fréquentes.** Oublier `rcond=None` (un avertissement) ; `coef_` seul, sans l'ordonnée à l'origine ; centrer `X1_29` avec sa colonne de 1 (qui devient nulle).
+**Erreurs fréquentes.** Oublier `rcond=None` (un avertissement) ; `coef_` seul, sans l'ordonnée à l'origine ; comparer les ordonnées à l'origine sans valeur absolue.
 
 ### Ex M09b.30 — Prédire : le R² d'entraînement quand on ajoute une feature de pur bruit
 
@@ -546,7 +547,7 @@ Pour la copie : avec $\mathbf{X}^\top\mathbf{X}$ diagonale, le système ridge se
 
 **Démarche.** `rng = np.random.default_rng(seed)`, `means = rng.normal(mu, sigma, size=(reps, n)).mean(axis=1)` **une seule fois**, puis `np.array([np.mean((c * means - mu) ** 2) for c in cs])`. `formula_mse` : `(c - 1) ** 2 * mu ** 2 + c ** 2 * sigma ** 2 / n`. Pour la copie : $c^* = \frac{1}{1 + 9/5} = \frac{5}{14} \approx 0{,}357$ ; $E(c^*) = c^*\frac{\sigma^2}{n} \approx 0{,}643$, contre $E(1) = 1{,}8$ : 2,8 fois moins. Le rétrécissement paie quand la variance $\frac{\sigma^2}{n}$ de $\bar{x}$ est grande devant $\mu^2$. C'est ce que fait ridge sur des poids : un peu de biais contre beaucoup moins de variance.
 
-**Erreurs fréquentes.** Tirer de nouveaux échantillons pour chaque $c$ (la courbe devient bruitée, et son minimum saute) ; la forme `(n, reps)` avec une moyenne sur le mauvais axe ; $\sigma$ au lieu de $\sigma^2$ dans la formule.
+**Erreurs fréquentes.** Rendre la formule au lieu d'une simulation (la vérification b) le refuse : une simulation n'est jamais exactement la formule) ; tirer de nouveaux échantillons pour chaque $c$ (la courbe devient bruitée, et son minimum saute) ; la forme `(n, reps)` avec une moyenne sur le mauvais axe ; $\sigma$ au lieu de $\sigma^2$ dans la formule.
 
 ### Ex M09b.32 — Le conditionnement de XᵀX avec des puissances non standardisées
 
@@ -574,7 +575,7 @@ Pour la copie : avec $\mathbf{X}^\top\mathbf{X}$ diagonale, le système ridge se
 
 **Démarche.** `numerical_gradient` : pour chaque $k$, un vecteur `step` nul sauf `step[k] = h`, puis `(f(w + step) - f(w - step)) / (2 * h)`. `gradient_error` : `approx = numerical_gradient(f, w)`, puis `np.max(np.abs(approx - grad(w))) / max(1.0, np.max(np.abs(approx)))`. `symbolic_check` : `w = sympy.Matrix(sympy.symbols(f"w1:{p + 1}"))`, `A = sympy.Matrix(p, p, sympy.symbols(f"a1:{p * p + 1}"))`, `f = (w.T * A * w)[0, 0]`, le gradient par `sympy.diff` sur chaque $w_k$, et `bool(sympy.expand(gradient - (A + A.T) * w) == sympy.zeros(p, 1))`. Pour la copie : la différence centrée a une erreur d'ordre $h^2$ (les termes en $h$ du développement de Taylor se compensent, M05a), contre $h$ pour la différence avant. Un $h$ trop petit fait perdre des chiffres : les deux valeurs de $f$ sont presque égales, et leur différence est dominée par les arrondis (environ $\frac{10^{-16}}{h}$). Diviser par la taille du gradient rend la mesure indépendante de l'échelle de $f$. Un gradient numérique coûte $2p$ évaluations de $f$ : pour un réseau à un million de poids, deux millions de passes avant par pas, alors que la rétropropagation (M18) donne le gradient exact pour environ le coût de deux passes.
 
-**Erreurs fréquentes.** Modifier `w` en place sans le rétablir ; un pas `h` entier sur un tableau d'entiers (`np.zeros_like` d'un tableau d'entiers) ; comparer des expressions SymPy sans les développer.
+**Erreurs fréquentes.** Des différences avant, $\frac{f(\mathbf{w} + h\mathbf{e}_k) - f(\mathbf{w})}{h}$ : une erreur de l'ordre de $10^{-6}$, que la vérification refuse ; modifier `w` en place sans le rétablir ; un pas `h` entier sur un tableau d'entiers (`np.zeros_like` d'un tableau d'entiers) ; comparer des expressions SymPy sans les développer.
 
 ### Ex M09b.36 — Défi : approcher une fonction par un polynôme de degré au plus 5, avec une erreur maximale sous 1e−3
 

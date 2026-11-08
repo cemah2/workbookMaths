@@ -126,6 +126,10 @@ def test_normal_equations_docstring_example(linreg):
                   "the docstring")
     assert np.allclose(got[0], [[3, 0], [0, 2]]) and np.allclose(got[1], [9, 5]), (
         f"expected XtX = [[3, 0], [0, 2]] and Xty = [9, 5] for the docstring example, got {got!r}")
+    kinds = [np.asarray(part).dtype.kind for part in got]
+    assert all(isinstance(part, np.ndarray) for part in got) and kinds == ["f", "f"], (
+        f"expected two NumPy arrays of floats (the docstring: np.array(X, dtype=float)) even for integer inputs, got "
+        f"{[type(part).__name__ for part in got]} of dtype kinds {kinds}")
 
 
 @pytest.mark.parametrize("X, y, why", [

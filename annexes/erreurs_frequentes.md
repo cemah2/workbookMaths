@@ -298,7 +298,7 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Écrire $\lambda = \frac{\sigma}{\tau}$ ou $\frac{\tau^2}{\sigma^2}$ | un prior large qui renforce la pénalité | $\lambda = \frac{\sigma^2}{\tau^2}$ : des variances, bruit au numérateur |
 | Prendre $\frac{\mathrm{SCR}}{n}$ pour un estimateur sans biais de $\sigma^2$ | « $\hat{\sigma}^2 = \frac{\mathrm{SCR}}{n}$ est sans biais » | il sous-estime ; $\frac{\mathrm{SCR}}{n - p}$ est sans biais |
 | Juger un modèle à son $R^2$ d'entraînement | ajouter des features de bruit, et voir le $R^2$ monter | le $R^2$ d'entraînement ne baisse jamais : mesurer sur des données de validation |
-| Attendre des zéros exacts d'une descente de gradient sur le lasso | prendre le signe de $w$ pour dérivée de $\lvert w \rvert$ | le seuillage doux, un poids à la fois |
+| Oublier le signe dans le seuillage doux | $S(-1{,}8 ;\ 0{,}4) = -2{,}2$ | rapprocher de 0 : $\operatorname{signe}(z)\max(\lvert z \rvert - \gamma, 0) = -1{,}4$ |
 
 ## Probabilités (R8, M03)
 

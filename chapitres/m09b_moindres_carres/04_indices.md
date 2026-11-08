@@ -112,7 +112,7 @@ Compare le coût de pousser un poids nul à $\varepsilon$ : $\lambda\varepsilon^
 </details>
 <details><summary>Indice 3</summary>
 
-4 : $S(z, \gamma) = \operatorname{signe}(z)\max(|z| - \gamma, 0)$. 6 : dessine $|w_1| + |w_2| = 1$.
+3 : compare le gain $g\varepsilon$ au coût $\lambda\varepsilon$. 4 : $S(z, \gamma) = \operatorname{signe}(z)\max(|z| - \gamma, 0)$. 6 : dessine $|w_1| + |w_2| = 1$.
 
 </details>
 
@@ -228,7 +228,7 @@ Commence par les résidus $y_i - \hat{y}_i$ ; puis, pour Huber, compare chaque $
 </details>
 <details><summary>Indice 3</summary>
 
-e) Seul le résidu de valeur absolue 1 est pile au seuil : $\frac{1}{2}$. g) La moyenne des durées vaut $10{,}75$.
+d) Seul le résidu de valeur absolue 1 est pile au seuil : $\frac{1}{2}$. f) Avec $\delta = 0{,}25$, tous les résidus sont au-dessus du seuil. g) Pour quels $\delta$ chaque résidu est-il sous le seuil ?
 
 </details>
 
@@ -246,7 +246,7 @@ Calcule pour chaque droite les cinq prédictions, puis les écarts à $\bar{y}$ 
 </details>
 <details><summary>Indice 3</summary>
 
-d) $\hat{y} - \bar{y} = 1{,}2(x - 2)$. g) Simplifie $\frac{14}{18}$.
+d) $\hat{y} - \bar{y} = 0{,}6(x - 5)$. g) $1 - \frac{\mathrm{SCR}}{16}$, à simplifier.
 
 </details>
 
@@ -336,7 +336,7 @@ Degré exactement $k$ en $p$ variables : $\binom{k + p - 1}{k}$. Degré au plus 
 </details>
 <details><summary>Indice 3</summary>
 
-e) $\binom{7}{2}$. g) Calcule $\binom{7 + d}{d} - 1$ pour $d = 1, 2, 3, \ldots$
+d) $\binom{8}{4} - 1$. f) $\binom{4 + 3 - 1}{4}$. g) Calcule $\binom{7 + d}{d} - 1$ pour $d = 1, 2, 3, \ldots$
 
 </details>
 
@@ -591,12 +591,12 @@ Relis l'erreur classique du §5 de la fiche.
 </details>
 <details><summary>Indice 2</summary>
 
-Avec $\mathbf{X}^\top\mathbf{X}$ diagonale, chaque poids se calcule seul : $w_j = \frac{\mathbf{x}_j \cdot \mathbf{y}}{\lVert \mathbf{x}_j \rVert^2 + \lambda}$.
+Chaque question est un système $2 \times 2$ : forme $\mathbf{X}^\top\mathbf{X}$ (plus $\lambda\mathbf{I}$ pour ridge) et $\mathbf{X}^\top\mathbf{y}$, puis inverse la matrice $2 \times 2$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-d) En mètres, la colonne est $1\,000$ fois plus grande. f) Une colonne standardisée de 4 nombres a $\lVert \mathbf{x} \rVert^2 = 4$.
+c) et d) En euros, la colonne du prix vaut $10\,x_1$ : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 400 & 20 \\ 20 & 2 \end{pmatrix}$ et $\mathbf{X}^\top\mathbf{y} = (40, 3)$. e) Le premier exemple a $x_1 = -10$ en euros.
 
 </details>
 
@@ -725,7 +725,7 @@ Lis les deux docstrings ; `np.linalg.solve` est permis.
 </details>
 <details><summary>Indice 2</summary>
 
-`normal_equations` : vérifie les formes, puis `X.T @ X` et `X.T @ y`. `solve_least_squares` : ajoute `ridge * np.eye(p)`.
+`normal_equations` : vérifie les formes (`X.ndim == 2`, `y.ndim == 1` et une valeur de `y` par ligne de `X`), puis `X.T @ X` et `X.T @ y`. `solve_least_squares` : ajoute `ridge * np.eye(p)`.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -784,7 +784,7 @@ Relis l'énoncé : ce que rend chaque fonction.
 </details>
 <details><summary>Indice 3</summary>
 
-f) `mx, my = X_29.mean(axis=0), y_29.mean()`, puis `w` sur les données centrées et `[my - mx @ w, *w]`.
+d) `[ridge.intercept_, *ridge.coef_]`. f) Compare les valeurs absolues des premiers nombres de d) et de e).
 
 </details>
 
@@ -856,7 +856,7 @@ Une grille fine de poids pour `ax.contour`, une grille grossière pour `ax.quive
 </details>
 <details><summary>Indice 3</summary>
 
-$L$ sur la grille sans boucle : `residuals = y[None, None, :] - (W0[..., None] * X[:, 0] + W1[..., None] * X[:, 1])`, puis la somme des carrés sur le dernier axe ; `levels = L_min + np.geomspace(0.05, 50, 10)`.
+Calcule $L$ en chaque point de la grille (une double boucle suffit ; NumPy et le broadcasting vont plus vite) ; des niveaux `L_min + np.geomspace(0.05, 50, 10)` montrent la vallée ; pour les flèches, $-\nabla L(\mathbf{w}) = 2\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w})$.
 
 </details>
 
