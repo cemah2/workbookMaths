@@ -1166,3 +1166,47 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M10.18 🏆 Défi : la plus grande marge possible entre deux nuages donnés, à 1 % près ★★★ 20 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (16 cartes)
 <!-- wbm:end M10 -->
+
+<!-- wbm:section M11 -->
+## M11 · Logique, induction et inégalités de concentration ⏱️ 11,4 h
+
+- [ ] M11.Q1 🧠 Réciproque, contraposée, négation ★ 4 min
+- [ ] M11.Q2 🧠 Un argument valide peut-il avoir une conclusion fausse ? ★ 4 min
+- [ ] M11.Q3 🧠 Diagrammes de Venn et quantificateurs ★ 4 min (complet)
+- [ ] M11.Q4 🧠 Les pièges de l'induction ★ 4 min
+- [ ] M11.Q5 🧠 Markov ou Tchebychev : quelle borne s'applique ? ★ 4 min
+- [ ] M11.Q6 🧠 Ce que garantit l'inégalité de Hoeffding, et ce qu'elle suppose ★ 4 min
+- [ ] M11.Q7 🧠 Explorer ou exploiter : vrai ou faux ★ 4 min (complet)
+- [ ] M11.R1 🔁 Implication et contraposée (R4) ★ 5 min
+- [ ] M11.R2 🔁 Espérance et variance (M02b) ★ 5 min
+- [ ] M11.R3 🔁 La loi Beta a posteriori (M04) ★ 5 min (complet)
+- [ ] M11.1 ✏️ Tables de vérité : modus ponens, modus tollens et l'affirmation du conséquent ★ 15 min
+- [ ] M11.2 ✏️ Nier des phrases quantifiées sur des modèles et des features ★ 15 min
+- [ ] M11.3 ✏️ Des phrases traduites en inclusions d'ensembles, et un contre-exemple ★★ 15 min (complet)
+- [ ] M11.4 ✏️ Une induction trompeuse par oubli du taux de base, recalculée avec Bayes ★★ 15 min
+- [ ] M11.5 ✏️ Markov : la queue d'une durée positive ★ 15 min
+- [ ] M11.6 ✏️ Tchebychev : combien d'observations pour une moyenne à ± 0,1 ? ★★ 20 min
+- [ ] M11.7 ✏️ Hoeffding : rayon de confiance et taille d'échantillon d'une proportion ★★ 20 min
+- [ ] M11.8 ✏️ Trois bornes pour une même question : Markov, Tchebychev, Hoeffding, et l'approximation normale ★★ 20 min (complet)
+- [ ] M11.9 ✏️ D'où vient le bonus d'UCB : Hoeffding avec un risque qui décroît avec t ★★★ 20 min (complet)
+- [ ] M11.10 ✏️ ε-greedy : la loi du bras joué et le regret attendu par pas ★★ 15 min (complet)
+- [ ] M11.11 ∂ L'inégalité de Markov ★ 15 min
+- [ ] M11.12 ∂ Tchebychev à partir de Markov, puis la loi faible des grands nombres ★★ 20 min
+- [ ] M11.13 ∂ Avec ε fixé, le regret attendu d'ε-greedy croît au moins linéairement ★★ 20 min (complet)
+- [ ] M11.14 🔗 Pont : combien d'exemples de test pour connaître une accuracy à ± 2 points, garanti par Hoeffding ? ★ 15 min
+- [ ] M11.15 ⚖️ Corrélation, causalité et induction : trois titres de presse à démonter ★★ 15 min (complet)
+- [ ] M11.16 🗣️ Expliquer « l'optimisme face à l'incertitude » à partir d'un intervalle de confiance ★ 10 min
+- [ ] M11.E1 💼 « À quoi sert l'inégalité de Hoeffding en apprentissage, et que suppose-t-elle ? » ★ 10 min (complet)
+- [ ] M11.17 🔨 Les bornes de Markov et de Tchebychev ★ 15 min
+- [ ] M11.18 🔨 La borne et le rayon de Hoeffding ★ 15 min
+- [ ] M11.19 🔨 La queue empirique d'un échantillon ★ 10 min (complet)
+- [ ] M11.20 📦 Les vraies queues d'une loi exponentielle et d'une binomiale (`scipy.stats`) contre les bornes ★ 15 min (complet)
+- [ ] M11.21 🔮 Prédire : laquelle des trois bornes est la plus serrée pour n = 100 ? ★ 10 min
+- [ ] M11.22 🔬 La fréquence des écarts |x̄ − p| ≥ t comparée à la borne de Hoeffding, quand n grandit ★★ 20 min (complet)
+- [ ] M11.23 🔬 La probabilité qu'un tirage d'une loi Beta dépasse celui d'une autre, par simulation ★★ 15 min (complet)
+- [ ] M11.24 🎨 Les bornes de Markov, de Tchebychev et de Hoeffding contre la vraie queue, en échelle log ★ 15 min (complet)
+- [ ] M11.25 🐛 Chasse à l'erreur : Markov pour une variable négative, Hoeffding sans bornes, un rayon sans racine ★ 15 min (complet)
+- [ ] M11.26 🛠️ Un test paramétré qui vérifie l'inégalité de Markov sur dix lois ★ 15 min (complet)
+- [ ] M11.27 🏆 Défi : la plus petite taille d'échantillon qui garantit une moyenne à ± 0,05 avec 99 %, vérifiée sur une loi défavorable ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (22 cartes)
+<!-- wbm:end M11 -->

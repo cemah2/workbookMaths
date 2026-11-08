@@ -379,6 +379,22 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | Cover | $P(n, d) = 2^{1-n}\sum_{k=0}^{d}\binom{n-1}{k}$ ; $P = 1$ pour $n \le d + 1$, $P = \frac{1}{2}$ pour $n = 2(d + 1)$ |
 | activations | $H(z) = [z > 0]$ ; $\sigma(z) = \frac{1}{1 + e^{-z}}$ ; $\tanh(z) = 2\sigma(2z) - 1$ ; $\operatorname{ReLU}(z) = \max(0, z)$ ; lignes de niveau : $\mathbf{w} \cdot \mathbf{x} + b = c$ |
 
+### M11 · Logique, induction et inégalités de concentration
+
+| Notion | Formules |
+|---|---|
+| validité | valide : aucune ligne de la table de vérité où les prémisses sont vraies et la conclusion fausse ; *modus ponens* et *modus tollens* valides ; affirmer le conséquent et nier l'antécédent non valides |
+| ensembles | « tout élément de $A$ est dans $B$ » : $A \subset B$ ; négation : $A \setminus B \ne \varnothing$ ; contraposée : $\bar{B} \subset \bar{A}$ ; $\lvert A \cup C \rvert = \lvert A \rvert + \lvert C \rvert - \lvert A \cap C \rvert$ |
+| règle de trois | aucun événement en $n$ essais : $p < \frac{-\ln 0{,}05}{n} \approx \frac{3}{n}$, à 95 % |
+| Markov | $X \ge 0$ : $P(X \ge a) \le \frac{\mathbb{E}[X]}{a}$ ; $\varphi$ croissante et positive : $P(X \ge a) \le \frac{\mathbb{E}[\varphi(X)]}{\varphi(a)}$ |
+| Tchebychev | $P(\lvert X - \mu \rvert \ge t) \le \frac{\sigma^2}{t^2}$ ; moyenne de $n$ : $\frac{\sigma^2}{nt^2}$ ; $n \ge \frac{\sigma^2}{\delta t^2}$ ; $X \in [a, b]$ : $\mathbb{V}(X) \le \frac{(b - a)^2}{4}$ |
+| Hoeffding | $X_i$ indépendantes dans $[a, b]$ : $P(\lvert \bar{X} - \mu \rvert \ge t) \le 2\exp\big(-\frac{2nt^2}{(b - a)^2}\big)$ (sans le 2 pour un seul côté) |
+| rayon de confiance | $r = (b - a)\sqrt{\frac{\ln(2/\delta)}{2n}}$ ; $n \ge \frac{(b - a)^2 \ln(2/\delta)}{2t^2}$ ; unilatéral : $\ln(1/\delta)$ ; $K$ quantités ensemble : $\delta \to \frac{\delta}{K}$ |
+| regret | $R_T = \sum_k \Delta_k\,\mathbb{E}[N_k(T)]$, $\Delta_k = \mu^\star - \mu_k$ |
+| ε-greedy | $P(A_t = k) = (1 - \varepsilon)\,\mathbf{1}_{k = g} + \frac{\varepsilon}{K}$ ; à $\varepsilon$ fixé, $R_T \ge \frac{\varepsilon}{K}\sum_k \Delta_k \times T$ |
+| UCB1 | choisir le plus grand $\hat{\mu}_k + \sqrt{\frac{2\ln t}{N_k}}$ (Hoeffding avec $\delta_t = t^{-4}$) ; une option d'écart $\Delta$ n'est plus choisie dès que $N > \frac{8\ln t}{\Delta^2}$ |
+| Thompson | a posteriori $\mathrm{Beta}(1 + s, 1 + f)$ ; option $k$ choisie avec la probabilité que son tirage soit le plus grand ; $\mathrm{Beta}(1, 1)$ contre $\mathrm{Beta}(2, 1)$ : $\frac{2}{3}$ |
+
 ## Partie III · ML classique
 
 *(ajouté avec les chapitres M12a à M14)*

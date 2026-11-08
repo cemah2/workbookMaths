@@ -193,6 +193,11 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $R^2$ | « R deux » | R squared, coefficient of determination | $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$, la part de la variation des cibles expliquée par le modèle | $R^2 = 0{,}8$ : 80 % de la variation expliquée | M09b |
 | $\mathrm{SCT}$, $\mathrm{SCE}$, $\mathrm{SCR}$ | « somme des carrés totale, expliquée, résiduelle » | SST, SSE, SSR | les trois sommes de carrés d'un ajustement, autour de $\bar{y}$ | $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ avec une colonne de 1 | M09b |
 | $\ell_\delta(r)$ | « loss de Huber de r » | Huber loss | $\frac{r^2}{2}$ si $\lvert r \rvert \le \delta$, $\delta(\lvert r \rvert - \frac{\delta}{2})$ sinon | $\ell_1(3) = 2{,}5$ | M09b |
+| $\mathbf{1}_{X \ge a}$, $\mathbf{1}_A$ | « indicatrice de X supérieur ou égal à a », « indicatrice de A » | indicator | la variable qui vaut 1 si l'événement a lieu et 0 sinon ; son espérance est sa probabilité | $a\,\mathbf{1}_{X \ge a} \le X$ pour $X \ge 0$ | M11 |
+| $\delta$ (un risque) | « delta » | failure probability | le risque toléré d'un intervalle ou d'une borne de confiance, de niveau $1 - \delta$ | $\delta = 0{,}05$ : 95 % | M11 |
+| $\mu^\star$, $\Delta_k$ | « mu étoile », « delta k » | best mean, gap | la meilleure moyenne parmi les options, et l'écart de l'option $k$ à elle | $\Delta_k = \mu^\star - \mu_k$ | M11 |
+| $N_k(T)$ | « N k de T » | number of pulls of arm k | le nombre de fois que l'option $k$ a été choisie en $T$ pas | $\sum_k N_k(T) = T$ | M11 |
+| $R_T$ | « R T », « regret après T pas » | regret | $\sum_k \Delta_k\,\mathbb{E}[N_k(T)]$ | linéaire en $T$ pour ε-greedy à ε fixé | M11 |
 
 ## Les lettres grecques
 

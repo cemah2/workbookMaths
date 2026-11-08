@@ -125,9 +125,9 @@ On ne sait rien de la probabilité de succès $\theta$ d'une option : a priori u
 ## ✏️ Papier-crayon
 
 Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en écrivant ta démarche dans ta copie de `06_mes_reponses.md`. Garde les valeurs exactes pendant les calculs et n'arrondis qu'à la fin. Reporte ensuite **la valeur** trouvée dans la **partie 0 du notebook**, sous la forme demandée :
-- un nombre entier, ou un nombre avec un point décimal, comme `0.25`, arrondi comme le demande la question ;
-- `True` ou `False` ; une liste entre crochets, comme `[True, False, True, True]` pour une colonne de table de vérité, `[1, 3]` pour des numéros de lignes, `[0.09, 0.18]` pour un intervalle ;
-- une ou plusieurs lettres entre guillemets, comme `"BD"`.
+- un nombre entier, ou un nombre avec un point décimal, comme `0.62`, arrondi comme le demande la question ;
+- `True` ou `False` ; une liste entre crochets, comme `[False, True, True, False]` pour une colonne de table de vérité, `[2, 4]` pour des numéros de lignes, `[0.09, 0.18]` pour un intervalle ;
+- une ou plusieurs lettres entre guillemets, comme `"AC"`.
 
 ### Ex M11.1 — Tables de vérité : modus ponens, modus tollens et l'affirmation du conséquent ✏️ ★ ⏱️ 15 min
 **Objectif :** décider de la validité d'un argument par sa table de vérité, et trouver la ligne qui sert de contre-exemple.

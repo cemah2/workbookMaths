@@ -317,6 +317,25 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Confondre la borne triangulaire et la borne pas à pas | $\lVert \mathbf{v}_k \rVert \le \sqrt{\lVert \mathbf{v}_0 \rVert^2 + kL^2}$ pour des pas quelconques | sans condition, seulement $\lVert \mathbf{v}_0 \rVert + kL$ ; la borne en $\sqrt{k}$ demande $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$ à chaque pas |
 | Croire qu'une activation change la frontière | « avec une sigmoïde, la frontière se courbe » | une activation croissante garde l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ |
 
+## Logique, induction et inégalités de concentration (M11)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Juger un argument sur la vérité de sa conclusion | « si $n$ est premier, $n$ est impair ; 2 est premier ; donc 2 est impair » déclaré non valide | il est valide (*modus ponens*) mais pas solide : c'est la première prémisse qui est fausse |
+| Affirmer le conséquent | « si la batterie est vide, l'ordinateur ne démarre pas ; il ne démarre pas ; donc la batterie est vide » | non valide : la ligne « $P$ faux, $Q$ vrai » (une autre cause) le réfute |
+| Prouver une phrase en « pour tout » par des exemples | « $n^2 + n + 41$ est premier pour $n = 0$ à 39, donc pour tout $n$ » | $n = 40$ donne $41^2$ : il faut un raisonnement pour tout $n$, et un contre-exemple suffit à réfuter |
+| Enchaîner deux phrases en « au moins un » | « $4 \in A \cap B$ et $6 \in B \cap C$, donc $A \cap C \ne \varnothing$ » | les témoins peuvent différer ; seules les inclusions se transmettent ($A \subset B \subset C$) |
+| Lire $P(\text{signal} \mid \text{cas})$ comme $P(\text{cas} \mid \text{signal})$ | « le détecteur repère 95 % des plagiats, donc une copie signalée est plagiée à 95 % » | Bayes, avec le taux de base (2 %) : environ 0,39 |
+| Compter sur la taille pour corriger un biais de sélection | 10 000 réponses à un questionnaire auquel les clients fidèles répondent quatre fois plus | la moyenne des réponses tend vers 7,2 au lieu de 6 : corriger la collecte, la taille n'y peut rien |
+| Conclure « probabilité nulle » après zéro événement | « aucune panne en 150 essais, donc le taux de panne est nul » | règle de trois : seulement $p < 2\,\%$ environ, à 95 % |
+| Appliquer Markov à une variable qui peut être négative | $X = \pm 10$ avec $\mathbb{E}[X] = 0$ : « $P(X \ge 5) \le 0$ » | se ramener à une variable positive : $\lvert X \rvert$, $(X - \mu)^2$ ou $X - m$ si $X \ge m$ |
+| Tchebychev avec $t$ au lieu de $t^2$ | « $P(\lvert N - 40 \rvert \ge 160) \le \frac{100}{160}$ » | $\frac{\sigma^2}{t^2} = \frac{100}{160^2} \approx 0{,}0039$ ; contrôle : diviser $t$ par 2 multiplie $n$ par 4 |
+| Appliquer Hoeffding sans bornes connues, ou sans indépendance | un revenu par client sans plafond, des mesures successives d'une série temporelle | vérifier un intervalle $[a, b]$ fixé à l'avance et des tirages indépendants ; sinon, Tchebychev (avec une variance) ou rien |
+| Un rayon sans racine carrée, ou sans le facteur 2 du bilatéral | $n = 500$, $\delta = 0{,}05$ : « $r = \frac{\ln 40}{1\,000} \approx 0{,}0037$ » | $r = \sqrt{\frac{\ln 40}{1\,000}} \approx 0{,}061$ ; pour un seul côté, $\ln(1/\delta)$ |
+| Le rayon du meilleur de $K$ modèles calculé comme pour un seul | le meilleur de 20 modèles évalués sur le même jeu de test, rayon au risque 5 % | chaque rayon au risque $\frac{\delta}{K}$ (borne de l'union) |
+| Mesurer le regret avec les récompenses tirées | « regret $= \sum_t (\text{meilleure récompense du pas} - \text{récompense obtenue})$ » | il compare les **moyennes** : $R_T = \sum_t \mathbb{E}[\mu^\star - \mu_{A_t}]$ |
+| Croire qu'un ε fixé finit par ne plus coûter | « ε-greedy trouve la meilleure option, donc son regret se stabilise » | chaque option reste choisie avec la probabilité $\frac{\varepsilon}{K}$ : regret au moins linéaire ; faire décroître $\varepsilon$ |
+
 ## Probabilités (R8, M03)
 
 | Erreur | Exemple faux | Ce qu'il faut faire |

@@ -291,10 +291,10 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M11.1 à M
                "Fais d'abord les exercices de `02_exercices.md` **sur papier**, dans ta copie de "
                "`06_mes_reponses.md`. Reporte ensuite chaque réponse ici : **la valeur** que tu as trouvée, sous la "
                "forme indiquée en commentaire, jamais le calcul qui y mène :\n"
-               "- un entier, ou un nombre avec un point décimal, `0.25`, arrondi comme le demande la question ;\n"
-               "- `True` / `False` ; une liste `[True, False, True, True]` pour une colonne de table de vérité, `[1, 3]` "
+               "- un entier, ou un nombre avec un point décimal, `0.62`, arrondi comme le demande la question ;\n"
+               "- `True` / `False` ; une liste `[False, True, True, False]` pour une colonne de table de vérité, `[2, 4]` "
                "pour des numéros de lignes, `[0.09, 0.18]` pour les deux bornes d'un intervalle ;\n"
-               "- des lettres entre guillemets, `\"BD\"`.\n\n"
+               "- des lettres entre guillemets, `\"AC\"`.\n\n"
                "Les réponses pas encore remplies affichent ⏳.")
 
 # ---------------------------------------------------------------------------

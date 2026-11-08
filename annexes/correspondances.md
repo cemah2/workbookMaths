@@ -18,7 +18,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 8 · Entraînement et test | M08 | §8.6 |
 | 9 · Overfitting et underfitting | M09a, M09b | §2.1–2.3 ; §8.1–8.2, ch. 9 |
 | 10 · Neurones | M10 | §12.1 |
-| 11 · Apprentissage et raisonnement | M11 | — |
+| 11 · Apprentissage et raisonnement | M11 | — (Hammack ; Blitzstein et Hwang ; Lattimore et Szepesvári) |
 | 12 · Préparation des données | M12a, M12b, M12c, M12d | §2.4–2.8 ; §3.2.2–3.2.3, §3.5–3.8 ; §4.1–4.4 ; §4.5–4.7, ch. 10 |
 | 13 · Classifieurs | M13a, M13b | §8.3 ; §7.2–7.3, ch. 12 |
 | 14 · Ensembles | M14 | — |
@@ -89,7 +89,7 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | Remise à niveau du collège à la terminale | R0 à R9 | manuels Sésamath, Maths et tiques, Khan Academy |
 | Limites, intégrales | R7, M02a | Exo7, Maths et tiques |
 | Théorèmes limites, estimation, tests | M02c, M08 | Blitzstein et Hwang, OpenIntro Statistics |
-| Inégalités de concentration | M11 | Blitzstein et Hwang |
+| Logique, inégalités de concentration, bandits | M11 | Hammack, Blitzstein et Hwang, Lattimore et Szepesvári |
 | Théorie de l'information | M06 | MacKay |
 | Chaînes de Markov | M26 | Blitzstein et Hwang |
 | Convolution | M21 | (fiche) |

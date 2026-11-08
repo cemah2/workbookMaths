@@ -34,7 +34,7 @@ Parcours essentiel : tout sauf M11.Q3, M11.Q7, M11.R3, M11.3, M11.8 à M11.10, M
 
 ## Lecture conseillée (facultatif)
 
-MML ne traite ni la logique ni les inégalités de concentration : cette fiche est le cours. Trois lectures libres, en anglais, pour aller plus loin (références et conditions d'accès dans `annexes/ressources.md`) :
+MML ne traite ni la logique ni les inégalités de concentration : cette fiche est le cours. Trois lectures en anglais, pour aller plus loin (références et conditions d'accès dans `annexes/ressources.md`) :
 - R. Hammack, *Book of Proof*, chapitre 2 (*Logic*) et chapitre 1 (*Sets*), après les §1 et §2 : tables de vérité, quantificateurs, et la façon d'écrire une négation ;
 - J. K. Blitzstein et J. Hwang, *Introduction to Probability*, chapitre 10 (*Inequalities and limit theorems*), §10.1 et §10.2, après les §4 et §5 ;
 - T. Lattimore et C. Szepesvári, *Bandit Algorithms* (Cambridge University Press, 2020), chapitre 5 (*Concentration of Measure*) et chapitre 7 (*The Upper Confidence Bound Algorithm*), après les §6 et §7 : plus mathématique, pour qui veut les démonstrations complètes.
