@@ -555,7 +555,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M11", "dir": "m11_logique_concentration", "hours": 11.4, "generation_sessions": 1, "mml": [],
+        "id": "M11", "dir": "m11_logique_concentration", "hours": 11.5, "generation_sessions": 1, "mml": [],
         "summary": "La logique au service du raisonnement (implication, contraposée, négation, validité, ensembles et "
                    "contre-exemples, induction et ses pièges) ; puis les inégalités de Markov, Tchebychev et Hoeffding, "
                    "le rayon de confiance d'une moyenne, et ce qu'elles disent des bandits : bornes supérieures de "
@@ -615,9 +615,9 @@ CHAPTERS = [
             ("M11.R1", "🔁", 1, 5, "Implication et contraposée (R4)", "§1", "E"),
             ("M11.R2", "🔁", 1, 5, "Espérance et variance (M02b)", "§4 §5", "E"),
             ("M11.R3", "🔁", 1, 5, "La loi Beta a posteriori (M04)", "§7", ""),
-            ("M11.1", "✏️", 1, 15, "Tables de vérité : modus ponens, modus tollens et l'affirmation du conséquent",
+            ("M11.1", "✏️", 1, 20, "Tables de vérité : modus ponens, modus tollens et l'affirmation du conséquent",
              "§1", "E"),
-            ("M11.2", "✏️", 1, 15, "Nier des phrases quantifiées sur des modèles et des features", "§1", "E"),
+            ("M11.2", "✏️", 1, 15, "Nier des phrases quantifiées sur des modèles et des datasets", "§1", "E"),
             ("M11.3", "✏️", 2, 15, "Des phrases traduites en inclusions d'ensembles, et un contre-exemple", "§2", ""),
             ("M11.4", "✏️", 2, 15, "Une induction trompeuse par oubli du taux de base, recalculée avec Bayes", "§3",
              "E"),
@@ -635,7 +635,7 @@ CHAPTERS = [
             ("M11.13", "∂", 2, 20, "Avec ε fixé, le regret attendu d'ε-greedy croît au moins linéairement", "§7", ""),
             ("M11.14", "🔗", 1, 15, "Pont : combien d'exemples de test pour connaître une accuracy à ± 2 points, "
              "garanti par Hoeffding ?", "§6", "E"),
-            ("M11.15", "⚖️", 2, 15, "Corrélation, causalité et induction : trois titres de presse à démonter", "§3",
+            ("M11.15", "⚖️", 2, 20, "Corrélation, causalité et induction : trois titres de presse à démonter", "§3",
              ""),
             ("M11.16", "🗣️", 1, 10, "Expliquer « l'optimisme face à l'incertitude » à partir d'un intervalle de "
              "confiance", "§7", "E"),

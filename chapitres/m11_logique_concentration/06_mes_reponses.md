@@ -109,7 +109,7 @@
 - i :
 - Les tables complètes ; un exemple de la vie courante qui affirme le conséquent ; la forme reconnue en d) :
 
-### Ex M11.2 — Nier des phrases quantifiées sur des modèles et des features
+### Ex M11.2 — Nier des phrases quantifiées sur des modèles et des datasets
 
 - a :
 - b :
@@ -251,7 +251,7 @@
 - d :
 - e :
 - f :
-- Pourquoi Hoeffding est plus large que e) ; ce que protège d) ; ce qu'il faudrait pour conclure que A bat B :
+- Pourquoi Hoeffding est plus large que e) ; ce que protège d) ; la garantie de c) en une phrase, et pourquoi ln(1/δ) :
 
 ### Ex M11.15 — Corrélation, causalité et induction : trois titres de presse à démonter
 

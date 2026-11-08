@@ -18,11 +18,11 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M11.Q1 — Réciproque, contraposée, négation 🧠 ★ ⏱️ 4 min
 *Fiche §1 · parcours C, E*
 
-On part de l'énoncé $S$ : « si un entier est premier et supérieur à 2, alors il est impair ».
+On part de l'énoncé $S$ : « si un entier se termine par 5, alors il est divisible par 5 ».
 1. Écris la réciproque de $S$. Est-elle vraie ? Si non, donne un contre-exemple.
 2. Écris la contraposée de $S$.
 3. Écris la négation de $S$, en une phrase qui commence par « il existe ».
-4. Vrai ou faux : « être impair est une condition nécessaire pour qu'un entier supérieur à 2 soit premier ».
+4. Vrai ou faux : « être divisible par 5 est une condition nécessaire pour qu'un entier se termine par 5 ».
 5. Vrai ou faux : si une implication est fausse, sa contraposée est fausse aussi.
 6. Écris la négation de « pour tout $\varepsilon > 0$, il existe un entier $N$ tel que, pour tout $n \ge N$, $\lvert u_n \rvert < \varepsilon$ ».
 
@@ -75,7 +75,7 @@ $E = \{1, \ldots, 40\}$ ; $A$ est l'ensemble des multiples de 10 de $E$, $B$ cel
 2. Vrai ou faux : elle suppose des variables indépendantes, à valeurs dans un intervalle connu à l'avance.
 3. Quand $n$ est multiplié par 4, que devient le rayon de confiance à risque fixé ?
 4. Pour garder le même rayon, par combien multiplie-t-on $n$ quand le risque $\delta$ passe de 0,05 à 0,0005 ?
-5. Vrai ou faux : parmi 50 modèles, on garde celui qui a la meilleure accuracy sur le jeu de test ; le rayon de Hoeffding de cette accuracy, calculé avec $\delta = 0{,}05$ comme pour un seul modèle, reste valable.
+5. Vrai ou faux : parmi 30 modèles, on garde celui qui a la meilleure accuracy sur le jeu de test ; le rayon de Hoeffding de cette accuracy, calculé avec $\delta = 0{,}05$ comme pour un seul modèle, reste valable.
 6. Vrai ou faux : on peut appliquer Hoeffding au revenu moyen par client, sans plafond connu des revenus.
 
 ### M11.Q7 — Explorer ou exploiter : vrai ou faux 🧠 ★ ⏱️ 4 min
@@ -86,7 +86,7 @@ $E = \{1, \ldots, 40\}$ ; $A$ est l'ensemble des multiples de 10 de $E$, $B$ cel
 3. Le bonus d'UCB d'une option diminue quand on la choisit plus souvent.
 4. L'échantillonnage de Thompson choisit toujours l'option de plus grande moyenne a posteriori.
 5. Un regret qui croît comme $\ln T$ veut dire que la proportion de pas mal employés tend vers 0.
-6. Le regret se calcule avec les récompenses obtenues : c'est la plus grande récompense observée moins la récompense reçue.
+6. Le regret est la somme des récompenses perdues, à chaque pas, par rapport au meilleur tirage observé.
 
 <a id="rappels"></a>
 
@@ -113,11 +113,11 @@ $E = \{1, \ldots, 40\}$ ; $A$ est l'ensemble des multiples de 10 de $E$, $B$ cel
 ### M11.R3 — La loi Beta a posteriori (M04) 🔁 ★ ⏱️ 5 min
 *Fiche §7 · parcours C*
 
-On ne sait rien de la probabilité de succès $\theta$ d'une option : a priori uniforme, $\mathrm{Beta}(1, 1)$. On observe 4 succès et 6 échecs.
+Un nouveau test de détection de fissures est essayé sur des pièces dont on connaît l'état. Sa probabilité de succès $\theta$ reçoit l'a priori uniforme $\mathrm{Beta}(1, 1)$. Sur 11 essais, il réussit 2 fois et échoue 9 fois.
 1. La loi a posteriori de $\theta$ ?
 2. Sa moyenne ?
 3. Sa variance (pour $\mathrm{Beta}(a, b)$, $\frac{ab}{(a + b)^2(a + b + 1)}$) ?
-4. On observe encore 30 succès et 30 échecs : la nouvelle loi a posteriori, et sa moyenne ? Pourquoi est-elle plus resserrée ?
+4. Sur 65 nouveaux essais, il réussit 25 fois et échoue 40 fois : la nouvelle loi a posteriori, et sa moyenne ? Pourquoi est-elle plus resserrée ?
 5. Comment tirer une valeur au hasard dans la loi a posteriori de la question 1 avec NumPy ?
 
 <a id="papier"></a>
@@ -129,16 +129,16 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 - `True` ou `False` ; une liste entre crochets, comme `[False, True, True, False]` pour une colonne de table de vérité, `[2, 4]` pour des numéros de lignes, `[0.09, 0.18]` pour un intervalle ;
 - une ou plusieurs lettres entre guillemets, comme `"AC"`.
 
-### Ex M11.1 — Tables de vérité : modus ponens, modus tollens et l'affirmation du conséquent ✏️ ★ ⏱️ 15 min
+### Ex M11.1 — Tables de vérité : modus ponens, modus tollens et l'affirmation du conséquent ✏️ ★ ⏱️ 20 min
 **Objectif :** décider de la validité d'un argument par sa table de vérité, et trouver la ligne qui sert de contre-exemple.
 **Prérequis :** fiche §1 ; R4 (tables de vérité) · **Parcours :** C, E
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la colonne de $P \Rightarrow Q$, dans l'ordre des lignes VV, VF, FV, FF | une liste de 4 booléens |
-| b | pour « $P \Rightarrow Q$ ; $Q$ ; donc $P$ », les numéros des lignes où les deux prémisses sont vraies | une liste d'entiers |
+| b | pour « $P \Rightarrow Q$ ; $Q$ ; donc $P$ », les numéros des lignes où les deux prémisses sont vraies | une liste d'entiers, dans l'ordre croissant |
 | c | cet argument est-il valide ? | `True` ou `False` |
-| d | pour « non $P \Rightarrow Q$ ; non $Q$ ; donc $P$ », les numéros des lignes où les deux prémisses sont vraies | une liste d'entiers |
+| d | pour « non $P \Rightarrow Q$ ; non $Q$ ; donc $P$ », les numéros des lignes où les deux prémisses sont vraies | une liste d'entiers, dans l'ordre croissant |
 | e | cet argument est-il valide ? | `True` ou `False` |
 | f | pour « $P \Rightarrow Q$ ; $Q \Rightarrow R$ ; donc $P \Rightarrow R$ », le nombre de lignes, sur 8, où les deux prémisses sont vraies | un entier |
 | g | cet argument est-il valide ? | `True` ou `False` |
@@ -147,7 +147,7 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 
 Dans ta copie : écris les tables complètes. Pour b), invente un exemple de la vie courante qui a cette forme, avec des prémisses vraies et une conclusion fausse. Quelle forme de la fiche reconnais-tu en d) ?
 
-### Ex M11.2 — Nier des phrases quantifiées sur des modèles et des features ✏️ ★ ⏱️ 15 min
+### Ex M11.2 — Nier des phrases quantifiées sur des modèles et des datasets ✏️ ★ ⏱️ 15 min
 **Objectif :** évaluer des phrases à deux quantificateurs sur un tableau, écrire leur négation, et voir que l'ordre des quantificateurs compte.
 **Prérequis :** fiche §1 ; R4 (quantificateurs) · **Parcours :** C, E
 
@@ -193,7 +193,7 @@ $E = \{1, 2, \ldots, 30\}$. Dans $E$ : $A$ est l'ensemble des multiples de 6, $B
 | b | « tout multiple de 6 de $E$ est multiple de 3 » : $A \subset B$ ? | `True` ou `False` |
 | c | le plus petit contre-exemple de la réciproque, « tout multiple de 3 de $E$ est multiple de 6 » | un entier |
 | d | le nombre de contre-exemples de cette réciproque | un entier |
-| e | l'ensemble $P \cap B$, en extension | une liste d'entiers |
+| e | l'ensemble $P \cap B$, en extension | une liste d'entiers, dans l'ordre croissant |
 | f | « aucun nombre premier de $E$ n'est multiple de 6 » est-elle vraie ? | `True` ou `False` |
 | g | le nombre de contre-exemples de « tout multiple de 4 de $E$ est multiple de 6 » | un entier |
 | h | le cardinal de $A \cup Q$ | un entier |
@@ -325,9 +325,9 @@ Cinq options, numérotées de 1 à 5, ont pour moyennes $\mu = (0{,}55 ;\ 0{,}30
 | b | la probabilité qu'elle choisisse l'option 3 | un nombre |
 | c | le regret attendu de ce pas, $\mathbb{E}[\mu^\star - \mu_{A_t}]$ | un nombre |
 | d | si le choix glouton devient la vraie meilleure option, la valeur de $\varepsilon$ pour laquelle le regret attendu d'un pas vaut 0,01 | un nombre (4 décimales) |
-| e | avec $\varepsilon = 0{,}15$ et un choix glouton juste dès le premier pas, le regret attendu après $T = 10\,000$ pas | un nombre |
-| f | avec un choix glouton toujours juste et $\varepsilon_t = \frac{1}{t}$ au pas $t$, le regret attendu après 10 000 pas (la somme $\sum_{t=1}^{10\,000} \frac{1}{t}$ vaut environ 9,7876) | un nombre (4 décimales) |
-| g | dans la situation de e), le nombre attendu de choix de l'option 2 en 10 000 pas | un nombre |
+| e | avec $\varepsilon = 0{,}15$ et un choix glouton juste dès le premier pas, le regret attendu après $T = 20\,000$ pas | un nombre |
+| f | avec un choix glouton toujours juste et $\varepsilon_t = \frac{1}{t}$ au pas $t$, le regret attendu après 20 000 pas (la somme $\sum_{t=1}^{20\,000} \frac{1}{t}$ vaut environ 10,4807) | un nombre (4 décimales) |
+| g | dans la situation de e), le nombre attendu de choix de l'option 2 en 20 000 pas | un nombre |
 
 Dans ta copie : compare e) et f). Pourquoi faire décroître ε trop vite est-il risqué quand le choix glouton peut être faux, comme en a) ?
 
@@ -383,15 +383,15 @@ L'accuracy d'un modèle sur un jeu de test est la moyenne des variables « bien 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le plus petit nombre d'exemples de test qui garantit, par Hoeffding, une accuracy à $\pm 0{,}02$ avec $\delta = 0{,}05$ | un entier |
-| b | sur 2 000 exemples, le modèle A obtient 0,874 : le rayon de Hoeffding de son accuracy, avec $\delta = 0{,}05$ | un nombre (4 décimales) |
-| c | le modèle B obtient 0,861 sur les mêmes exemples : les intervalles de Hoeffding de A et de B se recouvrent-ils ? | `True` ou `False` |
-| d | on a choisi A parmi 20 modèles, comme le meilleur sur ce jeu de test : le rayon à utiliser pour garder un risque global de 0,05 | un nombre (4 décimales) |
+| b | sur 3 000 exemples, le modèle A obtient 0,874 : le rayon de Hoeffding (bilatéral) de son accuracy, avec $\delta = 0{,}05$ | un nombre (4 décimales) |
+| c | une garantie d'un seul côté : le nombre $\ell$ tel que, avec une probabilité au moins 0,95, l'accuracy de A est au moins $\ell$ (rayon **unilatéral** de Hoeffding) | un nombre (4 décimales) |
+| d | on a choisi A parmi 20 modèles, comme le meilleur sur ce jeu de test : le rayon bilatéral à utiliser pour garder un risque global de 0,05 | un nombre (4 décimales) |
 | e | le rayon à 95 % de l'approximation normale pour l'accuracy de A, avec l'écart-type estimé $\sqrt{\hat{p}(1 - \hat{p})}$ | un nombre (4 décimales) |
-| f | le plus petit nombre d'exemples qui garantit un rayon de Hoeffding de 0,01 avec $\delta = 0{,}05$ | un entier |
+| f | le plus petit nombre d'exemples qui garantit un rayon de Hoeffding de 0,015 avec $\delta = 0{,}05$ | un entier |
 
-Dans ta copie : pourquoi le rayon de Hoeffding est-il plus large que celui de e) ? Que protège la correction de d) ? Que faudrait-il de plus pour conclure que A est meilleur que B ?
+Dans ta copie : pourquoi le rayon de Hoeffding est-il plus large que celui de e) ? Que protège la correction de d) ? Écris en une phrase la garantie de c), et dis pourquoi elle utilise $\ln(1/\delta)$ et non $\ln(2/\delta)$.
 
-### Ex M11.15 — Corrélation, causalité et induction : trois titres de presse à démonter ⚖️ ★★ ⏱️ 15 min
+### Ex M11.15 — Corrélation, causalité et induction : trois titres de presse à démonter ⚖️ ★★ ⏱️ 20 min
 **Objectif :** reconnaître une induction causale hâtive, proposer d'autres explications, et dire quelle donnée trancherait.
 **Prérequis :** fiche §3 · **Parcours :** C
 

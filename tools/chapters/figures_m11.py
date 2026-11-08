@@ -112,7 +112,7 @@ def radii():
 
 
 def ucb():
-    t, means, counts = 480, np.array([0.62, 0.55, 0.40]), np.array([400, 60, 20])
+    t, means, counts = 480, np.array([0.62, 0.55, 0.40]), np.array([400, 56, 24])
     bonus = np.sqrt(2 * math.log(t) / counts)
     fig, ax = plt.subplots(figsize=(6.2, 3.8))
     x = np.arange(3)

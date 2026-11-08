@@ -22,7 +22,7 @@ Réciproque : échange hypothèse et conclusion. Contraposée : non conclusion �
 </details>
 <details><summary>Indice 3</summary>
 
-1 : « si un entier est impair, alors il est premier et supérieur à 2 » ; essaie 9. 6 : chaque ∀ devient ∃, chaque ∃ devient ∀, et l'inégalité finale est niée.
+1 : « si un entier est divisible par 5, alors il se termine par 5 » ; essaie 10. 6 : chaque ∀ devient ∃, chaque ∃ devient ∀, et l'inégalité finale est niée.
 
 </details>
 
@@ -188,7 +188,7 @@ A priori $\mathrm{Beta}(1, 1)$, puis $s$ succès et $f$ échecs : $\mathrm{Beta}
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $\mathrm{Beta}(5, 7)$. 4 : ajoute 30 et 30 aux paramètres ; la variance diminue quand $a + b$ grandit. 5 : `rng.beta(a, b)`.
+1 : $\mathrm{Beta}(3, 10)$. 4 : ajoute 25 et 40 aux paramètres ; la variance diminue quand $a + b$ grandit. 5 : `rng.beta(a, b)`.
 
 </details>
 
@@ -214,7 +214,7 @@ b) Ligne 1 (VV) : $P \Rightarrow Q$ vraie, $Q$ vraie : les deux prémisses sont 
 
 </details>
 
-### Ex M11.2 — Nier des phrases quantifiées sur des modèles et des features
+### Ex M11.2 — Nier des phrases quantifiées sur des modèles et des datasets
 
 <details><summary>Indice 1</summary>
 
@@ -452,7 +452,7 @@ Une accuracy est la moyenne de variables 0 ou 1 : $[a, b] = [0, 1]$.
 </details>
 <details><summary>Indice 3</summary>
 
-a) $n \ge \frac{\ln 40}{2 \times 0{,}02^2}$, arrondi au-dessus. d) Le risque de chacun devient $\frac{0{,}05}{20}$, dans le logarithme. e) $1{,}96\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$.
+a) $n \ge \frac{\ln 40}{2 \times 0{,}02^2}$, arrondi au-dessus. c) Un seul côté : $\ln(1/\delta) = \ln 20$, puis $\hat{p} - r$. d) Le risque de chacun devient $\frac{0{,}05}{20}$, dans le logarithme. e) $1{,}96\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$.
 
 </details>
 
@@ -532,7 +532,7 @@ D'abord les contrôles (`raise ValueError(...)`), puis une division, puis `min(1
 </details>
 <details><summary>Indice 3</summary>
 
-Pour `markov_bound` : `if mean < 0:` lève une `ValueError`, de même `if a <= 0:` ; la valeur rendue est `float(min(1.0, mean / a))`. Même schéma pour `chebyshev_bound`, avec `t ** 2`.
+Pour `markov_bound` : d'abord les deux contrôles de la docstring (une `ValueError` pour chacun), puis la formule de la fiche, plafonnée à 1 (`min`), et un `float` de Python au retour. Même schéma pour `chebyshev_bound`, avec le carré de l'écart.
 
 </details>
 

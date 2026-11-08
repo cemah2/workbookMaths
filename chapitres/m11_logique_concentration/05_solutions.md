@@ -9,15 +9,15 @@
 ## 🧠 Quiz
 
 ### M11.Q1 — Réciproque, contraposée, négation
-1. « Si un entier est impair, alors il est premier et supérieur à 2. » **Fausse** : 9 est impair et n'est pas premier.
-2. « Si un entier n'est pas impair (il est pair), alors il n'est pas à la fois premier et supérieur à 2 » ; autrement dit, un entier pair est soit non premier, soit au plus 2.
-3. « Il existe un entier premier, supérieur à 2, et pair. » (Elle est fausse, puisque $S$ est vraie.)
-4. **Vrai** : $S$ dit « premier et supérieur à 2 $\Rightarrow$ impair » ; la conclusion d'une implication est une condition nécessaire de son hypothèse.
+1. « Si un entier est divisible par 5, alors il se termine par 5. » **Fausse** : 10 est divisible par 5 et se termine par 0.
+2. « Si un entier n'est pas divisible par 5, alors il ne se termine pas par 5. »
+3. « Il existe un entier qui se termine par 5 et qui n'est pas divisible par 5. » (Elle est fausse, puisque $S$ est vraie.)
+4. **Vrai** : $S$ dit « se termine par 5 $\Rightarrow$ divisible par 5 » ; la conclusion d'une implication est une condition nécessaire de son hypothèse.
 5. **Vrai** : une implication et sa contraposée ont toujours la même valeur de vérité.
 6. « Il existe $\varepsilon > 0$ tel que, pour tout entier $N$, il existe $n \ge N$ avec $\lvert u_n \rvert \ge \varepsilon$. »
 
 ### M11.Q2 — Un argument valide peut-il avoir une conclusion fausse ?
-1. **Vrai**, si une prémisse est fausse (« si $n$ est premier, il est impair ; 2 est premier ; donc 2 est impair »).
+1. **Vrai**, si une prémisse est fausse (« si $f$ est continue en 0, elle est dérivable en 0 ; $x \mapsto \lvert x \rvert$ est continue en 0 ; donc elle est dérivable en 0 »).
 2. **Vrai** : c'est la définition d'un argument solide.
 3. **Faux** : une conclusion vraie peut sortir d'une forme non valide, par chance.
 4. **Vrai** : une ligne où toutes les prémisses sont vraies et la conclusion fausse.
@@ -53,7 +53,7 @@
 2. **Vrai**.
 3. Il est **divisé par 2** (le rayon est en $\frac{1}{\sqrt{n}}$).
 4. Par $\frac{\ln(2/0{,}0005)}{\ln(2/0{,}05)} = \frac{\ln 4\,000}{\ln 40} \approx 2{,}25$ : diviser le risque par 100 ne coûte qu'un peu plus du double.
-5. **Faux** : l'accuracy du meilleur des 50 n'est pas celle d'un modèle fixé d'avance ; il faut la borne de l'union, avec $\frac{0{,}05}{50}$ pour chacun.
+5. **Faux** : l'accuracy du meilleur des 30 n'est pas celle d'un modèle fixé d'avance ; il faut la borne de l'union, avec $\frac{0{,}05}{30}$ pour chacun.
 6. **Faux** : Hoeffding demande un intervalle $[a, b]$ connu à l'avance.
 
 ### M11.Q7 — Explorer ou exploiter : vrai ou faux
@@ -62,7 +62,7 @@
 3. **Vrai** : le bonus $\sqrt{2\ln t / N}$ diminue quand $N$ augmente (à $t$ donné).
 4. **Faux** : Thompson **tire** une valeur dans chaque loi a posteriori ; une option de moyenne plus basse mais incertaine gagne parfois le tirage.
 5. **Vrai** : $\frac{\ln T}{T} \to 0$.
-6. **Faux** : le regret compare les **moyennes** $\mu^\star$ et $\mu_{A_t}$, pas les récompenses tirées.
+6. **Faux** : le regret compare les **moyennes** $\mu^\star$ et $\mu_{A_t}$, pas les récompenses tirées (un meilleur tirage observé peut venir d'une option moins bonne, par chance).
 
 <a id="rappels"></a>
 
@@ -83,11 +83,11 @@
 5. $\mathbb{E}[S] = 40 \times 0{,}3 = 12$ et $\mathbb{V}(S) = 40 \times 0{,}3 \times 0{,}7 = 8{,}4$.
 
 ### M11.R3 — La loi Beta a posteriori (M04)
-1. $\mathrm{Beta}(5, 7)$.
-2. $\frac{5}{12} \approx 0{,}417$.
-3. $\frac{5 \times 7}{12^2 \times 13} = \frac{35}{1\,872} \approx 0{,}0187$.
-4. $\mathrm{Beta}(35, 37)$, de moyenne $\frac{35}{72} \approx 0{,}486$ ; sa variance, $\frac{35 \times 37}{72^2 \times 73} \approx 0{,}0034$, est cinq fois plus petite : $a + b$ a grandi, et l'incertitude sur $\theta$ diminue avec les données.
-5. `rng = np.random.default_rng(0)`, puis `rng.beta(5, 7)`.
+1. $\mathrm{Beta}(3, 10)$.
+2. $\frac{3}{13} \approx 0{,}231$.
+3. $\frac{3 \times 10}{13^2 \times 14} = \frac{30}{2\,366} \approx 0{,}0127$.
+4. $\mathrm{Beta}(28, 50)$, de moyenne $\frac{28}{78} \approx 0{,}359$ ; sa variance, $\frac{28 \times 50}{78^2 \times 79} \approx 0{,}0029$, est plus de quatre fois plus petite : $a + b$ a grandi, et l'incertitude sur $\theta$ diminue avec les données.
+5. `rng = np.random.default_rng(0)`, puis `rng.beta(3, 10)`.
 
 <a id="papier"></a>
 
@@ -105,13 +105,13 @@
 - h) La ligne 2 (VF) : $Q \Rightarrow P$ est vraie ($Q$ fausse), non $Q$ est vraie, et la conclusion non $P$ est fausse ($P$ vraie). C'est la forme « nier l'antécédent » de la fiche, avec les rôles de $P$ et $Q$ échangés : son contre-exemple, la ligne « $P$ faux, $Q$ vrai » de la fiche, devient ici « $Q$ faux, $P$ vrai », la ligne 2.
 - i) Les prémisses $P$ et non $R$ forcent $P$ vraie et $R$ fausse ; « ($P$ et $Q$) $\Rightarrow R$ » n'est alors vraie que si « $P$ et $Q$ » est faux, donc si $Q$ est fausse : la conclusion non $Q$ est vraie dans la seule ligne qui reste (VFF). Valide.
 
-Pour la copie : un exemple d'affirmation du conséquent avec des prémisses vraies et une conclusion fausse : « si un animal est un chien, il a quatre pattes ; mon chat a quatre pattes ; donc mon chat est un chien ».
+Pour la copie : un exemple d'affirmation du conséquent avec des prémisses vraies et une conclusion fausse : « s'il y a un accident sur l'autoroute, j'arrive en retard ; je suis arrivé en retard ; donc il y a eu un accident » (le réveil n'a pas sonné : les deux prémisses sont vraies, la conclusion est fausse).
 
 **Erreurs fréquentes.** Croire que $P \Rightarrow Q$ est fausse quand $P$ est fausse ; oublier une ligne (huit pour trois propositions) ; juger la validité sur une seule ligne où tout est vrai (la ligne 1 de b) ne prouve rien) ; confondre « non $P \Rightarrow Q$ » avec « non ($P \Rightarrow Q$) ».
 
 **Variante.** « $P \Rightarrow Q$ ; $P \Rightarrow$ non $Q$ ; donc non $P$ » est-il valide ? *Réponse* : oui ; les deux prémisses ne sont vraies qu'aux lignes 3 et 4 ($P$ faux), où non $P$ est vraie.
 
-### Ex M11.2 — Nier des phrases quantifiées sur des modèles et des features
+### Ex M11.2 — Nier des phrases quantifiées sur des modèles et des datasets
 
 **Réponses** : a) `False` · b) `"BD"` · c) `False` · d) `True` · e) `False` · f) `True` · g) `"E"` · h) `False`.
 
@@ -269,18 +269,18 @@ Pour la copie : b) est le calcul général. g) : par la borne de l'union, la pro
 
 ### Ex M11.10 — ε-greedy : la loi du bras joué et le regret attendu par pas
 
-**Réponses** : a) `0.88` · b) `0.03` · c) `0.079` · d) `0.0769` · e) `195` · f) `1.2724` · g) `300`.
+**Réponses** : a) `0.88` · b) `0.03` · c) `0.079` · d) `0.0769` · e) `390` · f) `1.3625` · g) `600`.
 
 **Démarche.** $\mu^\star = 0{,}62$ (option 3) ; les écarts valent $\Delta = (0{,}07 ;\ 0{,}32 ;\ 0 ;\ 0{,}14 ;\ 0{,}12)$, de somme $0{,}65$.
 - a) $0{,}85 + \frac{0{,}15}{5} = 0{,}88$.
 - b) $\frac{0{,}15}{5} = 0{,}03$.
 - c) $0{,}88 \times 0{,}07 + 0{,}03 \times (0{,}32 + 0 + 0{,}14 + 0{,}12) = 0{,}0616 + 0{,}0174 = 0{,}079$.
 - d) $\frac{\varepsilon}{5} \times 0{,}65 = 0{,}01$ donne $\varepsilon = \frac{0{,}05}{0{,}65} \approx 0{,}0769$.
-- e) $0{,}03 \times 0{,}65 = 0{,}0195$ par pas, soit 195 sur 10 000 pas.
-- f) $\sum_{t=1}^{10\,000} \frac{1}{t} \times \frac{0{,}65}{5} = 0{,}13 \times 9{,}7876 \approx 1{,}2724$.
-- g) $10\,000 \times 0{,}03 = 300$.
+- e) $0{,}03 \times 0{,}65 = 0{,}0195$ par pas, soit 390 sur 20 000 pas.
+- f) $\sum_{t=1}^{20\,000} \frac{1}{t} \times \frac{0{,}65}{5} = 0{,}13 \times 10{,}4807 \approx 1{,}3625$.
+- g) $20\,000 \times 0{,}03 = 600$.
 
-Pour la copie : e) croît linéairement (195 sur 10 000 pas, 1 950 sur 100 000), f) comme $\ln T$ (à peine 1,57 sur 100 000 pas). Mais f) suppose un choix glouton juste dès le départ ; si le glouton est faux, comme en a), il faut explorer assez pour le corriger, et un ε qui décroît trop vite peut laisser l'option 1 choisie pour toujours.
+Pour la copie : e) croît linéairement (390 sur 20 000 pas, 1 950 sur 100 000), f) comme $\ln T$ (à peine 1,57 sur 100 000 pas). Mais f) suppose un choix glouton juste dès le départ ; si le glouton est faux, comme en a), il faut explorer assez pour le corriger, et un ε qui décroît trop vite peut laisser l'option 1 choisie pour toujours.
 
 **Erreurs fréquentes.** Oublier la part $\frac{\varepsilon}{K}$ du choix glouton en a) ; prendre l'option 1 pour la meilleure en c) ; oublier le $K$ en d) et f).
 
@@ -329,19 +329,19 @@ Pour la copie : e) croît linéairement (195 sur 10 000 pas, 1 950 sur 100 000),
 
 ### Ex M11.14 — Pont : combien d'exemples de test pour connaître une accuracy à ± 2 points, garanti par Hoeffding ?
 
-**Réponses** : a) `4612` · b) `0.0304` · c) `True` · d) `0.0409` · e) `0.0145` · f) `18445`.
+**Réponses** : a) `4612` · b) `0.0248` · c) `0.8517` · d) `0.0334` · e) `0.0119` · f) `8198`.
 
 **Démarche.**
 - a) $n \ge \frac{\ln 40}{2 \times 0{,}0004} \approx 4\,611{,}1$, donc 4 612.
-- b) $\sqrt{\frac{\ln 40}{4\,000}} \approx 0{,}0304$.
-- c) A : $[0{,}8436 ;\ 0{,}9044]$, B : $[0{,}8306 ;\ 0{,}8914]$ : l'écart des accuracies (0,013) est bien plus petit que deux rayons ; les intervalles se recouvrent.
-- d) $\sqrt{\frac{\ln(2 / 0{,}0025)}{4\,000}} = \sqrt{\frac{\ln 800}{4\,000}} \approx 0{,}0409$.
-- e) $1{,}96\sqrt{\frac{0{,}874 \times 0{,}126}{2\,000}} \approx 1{,}96 \times 0{,}00742 \approx 0{,}0145$.
-- f) $\frac{\ln 40}{2 \times 0{,}0001} \approx 18\,444{,}4$, donc 18 445.
+- b) $\sqrt{\frac{\ln 40}{6\,000}} \approx 0{,}0248$.
+- c) Le rayon unilatéral vaut $\sqrt{\frac{\ln 20}{6\,000}} \approx 0{,}0223$ : avec une probabilité au moins 0,95, l'accuracy de A est au moins $0{,}874 - 0{,}0223 \approx 0{,}8517$.
+- d) $\sqrt{\frac{\ln(2 / 0{,}0025)}{6\,000}} = \sqrt{\frac{\ln 800}{6\,000}} \approx 0{,}0334$.
+- e) $1{,}96\sqrt{\frac{0{,}874 \times 0{,}126}{3\,000}} \approx 1{,}96 \times 0{,}00606 \approx 0{,}0119$.
+- f) $\frac{\ln 40}{2 \times 0{,}015^2} \approx 8\,197{,}5$, donc 8 198.
 
-Pour la copie : Hoeffding suppose le pire cas, une variance $\frac{1}{4}$, quand la vraie vaut $0{,}874 \times 0{,}126 \approx 0{,}11$, et elle vaut pour tout $n$ sans approximation : elle est donc plus large que l'intervalle normal. La correction de d) protège contre le choix sur le test : parmi 20 modèles, l'un a pu avoir de la chance sur ce jeu, et son accuracy est optimiste. Pour conclure que A bat B, il faudrait comparer les deux sur les mêmes exemples (les erreurs sont corrélées) : une borne sur la **différence** des accuracies, ou un test apparié (M08), plutôt que deux intervalles séparés.
+Pour la copie : Hoeffding suppose le pire cas, une variance $\frac{1}{4}$, quand la vraie vaut $0{,}874 \times 0{,}126 \approx 0{,}11$, et elle vaut pour tout $n$ sans approximation : elle est donc plus large que l'intervalle normal. La correction de d) protège contre le choix sur le test : parmi 20 modèles, l'un a pu avoir de la chance sur ce jeu, et son accuracy est optimiste. La garantie de c) : « avec une probabilité au moins 0,95 sur le tirage des 3 000 exemples, l'accuracy de A sur les données de service est au moins 0,8517 ». On ne borne que le côté que l'on craint (une accuracy trop basse) : tout le risque $\delta$ va de ce côté, d'où $\ln(1/\delta)$ au lieu de $\ln(2/\delta)$ et une borne un peu plus serrée.
 
-**Erreurs fréquentes.** Arrondir $n$ au-dessous ; diviser par $n$ au lieu de $2n$ ; mettre le 20 de d) devant la racine au lieu de dans le logarithme ; conclure de deux intervalles qui se recouvrent qu'il n'y a « aucune différence ».
+**Erreurs fréquentes.** Arrondir $n$ au-dessous ; diviser par $n$ au lieu de $2n$ ; mettre le 20 de d) devant la racine au lieu de dans le logarithme ; en c), garder $\ln(2/\delta)$, ou rendre le rayon au lieu de la borne basse.
 
 **Variante.** Le rayon de Hoeffding pour 10 000 exemples de test, avec $\delta = 0{,}05$ ? *Réponse* : $\sqrt{\frac{\ln 40}{20\,000}} \approx 0{,}0136$.
 

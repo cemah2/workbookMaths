@@ -34472,7 +34472,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "b110909f27261e086ff2dfb4b3f895b04a7274ef95581cac2dd9d34d8cfcf2f9": "la borne supérieure est la moyenne observée plus le bonus"
+        "b110909f27261e086ff2dfb4b3f895b04a7274ef95581cac2dd9d34d8cfcf2f9": "la borne supérieure est la moyenne observée plus le bonus",
+        "d862f416077e41f0a3fea35f2bb9bd9ac8389c1ea6ce13bd4312ec4d60233035": "une borne UCB borne une moyenne, ce n'est pas une probabilité : ne la plafonne pas à 1"
       },
       "sign": 1,
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
@@ -34497,6 +34498,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "29a5b61fed4c6960fa44a73078d6184d7c05656922e03d62933c4531597c4052": "une borne UCB borne une moyenne, ce n'est pas une probabilité : ne la plafonne pas à 1",
         "ea26bcc5c1372020d44d7a6549598f7f402f7c59fbb693581f74b0ce5c96857b": "le bonus de l'option 2 utilise N = 8"
       },
       "sign": 1,
@@ -34634,13 +34636,13 @@
     },
     "M11.10e": {
       "decimals": 1,
-      "hash": "49fd4ac9fad39d7df5b849d007fb84435071be1d8fc223ec2c9f942781f2102a",
-      "hash_coarse": "1d43613aae724d496c25dd6812797ae98f1dcec05a226cb291039b9c20d0f321",
+      "hash": "df5c9572af9c290d81a3b41c49ec810ec4991a039d63d44f2cfb0d38aaeb0f2d",
+      "hash_coarse": "4b58b94cc7866c866a3334d87c66a82886629a2f816a4ad706fe6f7133f421d2",
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
-        "cce7c57ca9c9697bd3e251663d243d8cfe9ab2c1590d2ed56a4dd7777f33290d": "le regret d'un pas, (ε / K) Σ Δ_k = 0,0195, se répète à chaque pas",
-        "e7837f7b78b1f8d421daa1d0324fd5d6e399f232308874a0fb46ed557ac27ae5": "le regret d'un pas, (ε / K) Σ Δ_k = 0,0195, se répète à chaque pas"
+        "70c717fc96d2b7032c39834417287fa8b65250783137829e9a8dfceaf84b95c1": "le regret d'un pas, (ε / K) Σ Δ_k = 0,0195, se répète à chaque pas",
+        "89128f253fb42fa76f4e24c9475bd97bd02881fd83878faa5128f2ec559aa03e": "le regret d'un pas, (ε / K) Σ Δ_k = 0,0195, se répète à chaque pas"
       },
       "sign": 1,
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
@@ -34653,31 +34655,31 @@
       },
       "coarser": {
         "1": [
-          "31a8df355d72672e9a1e428969bcbb586d50512cccee35b9731096254dabcabd"
+          "6df74c3d06e057d8e1075f9b7879528c9469b45720a5c14ed8a0474e3d024d2a"
         ],
         "2": [
-          "245ca1b543ffd0989365c486759829b91744d6fd065709036d65afb81c1dd93e"
+          "13361a1ded247291e375f7982306d7598418158941548b34f2372c7b15036cef"
         ]
       },
       "decimals": 4,
-      "hash": "4f9316e9651a4826475beac92b730f1c2b8fbe635f35e9b0f8ebb7043403b81e",
-      "hash_coarse": "2a2457e367ba415c52d39a8987fec5e354f10b97e4f448ec4c8f07e0545242e5",
+      "hash": "e87da2f8ebbebd21341717e912d77d4f155f1a41e2395c2ddc4aff09897126ae",
+      "hash_coarse": "43ad8ead04d2cf7cfad92b2122b5ab76a82e52939cb756a6a10ecc7bf94d2622",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "3a31059cbf7527e37dc60ef9917f4269a265c66fa08f368e4205e1df243358f1": "le regret du pas t vaut (1/t) × Σ Δ_k / K : n'oublie pas le K"
+        "89dc5c14fb0f7218562cc629969208a73c4e5a25ef9a02b9a5626ca54991c6ca": "le regret du pas t vaut (1/t) × Σ Δ_k / K : n'oublie pas le K"
       },
       "sign": 1,
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
     },
     "M11.10g": {
       "decimals": 1,
-      "hash": "267d547050544295dc7dc483fc1a0a5c90d0b0b7d16213a18c60e045a88df0c0",
-      "hash_coarse": "d098e10e063116c480ea5104d95f4ccef0f8cb14a9ff453e3fe5bce6b7b71548",
+      "hash": "246939bf451cdac9718d3c7108fd0f9395c74bfb5038dd15c998201de4af78c2",
+      "hash_coarse": "756a0995cabe9fa48761deb07e54e0356cd72d302b9f3788ed0f8fc4c7d45bcd",
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
-        "a9be3f5500403e12731c66c697cddac6de835f86efe91247339de9ba31d7ceca": "l'option 2 n'est choisie que par le tirage au hasard, avec ε / K par pas"
+        "340d0d64c37a0fc039beba5d399767ca4c4e71078a95603e33dc12bed3faab53": "l'option 2 n'est choisie que par le tirage au hasard, avec ε / K par pas"
       },
       "sign": 1,
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
@@ -34696,43 +34698,62 @@
     "M11.14b": {
       "coarse_any": {
         "2": [
-          "50a7888fb445a06fd4d537e7807d523eea94173a0111ddd45854a542a78e2211"
+          "0551f3bade65d14c33e4dcc87adc79d8edd81e2960c1a663e9308107e0a0e58d"
         ]
       },
       "decimals": 4,
-      "hash": "ef389db6453551d424f0159dc48a89bf55ac75a5d2a66a1b4488998e29ce9b9b",
-      "hash_coarse": "1230a34cc8b1c70f5660a06602bf10f973a24c7e2aeef3ed3776f94bdd84de72",
+      "hash": "b9e50b53e42afa83649d5de8f5b1f7381a50831e2f8622523dd0195dff887ab9",
+      "hash_coarse": "ed7e602041d90e4777c625ab6d7bb57b9101a8b63b98c0f46b2ec359b0b70bce",
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "70e54e06949a6ad263ed4c8563a43a92702275891119a20caa94184dd30c2fbb": "n'oublie pas la racine carrée",
-        "95cea08a7951f12d5720b7103873ac8d66fd68ee96129cb1f5f08fd02cc82bd6": "divise ln(2/δ) par 2n = 4 000"
+        "882a6a9267bdbbe4f1dbd60e31a0278790d2c7b8e40bae4610f78291af43f98b": "divise ln(2/δ) par 2n = 6 000",
+        "e6e056e2bfd4a26fb39bca209f07620b6c22d6b2986ad1467f1a4521dff95fb7": "n'oublie pas la racine carrée"
       },
       "sign": 1,
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
     },
     "M11.14c": {
-      "hash": "45d2467db9af1c4507122af9366328c07fa6873eb14d3ca4211725cb31f4712d",
-      "kind": "bool",
-      "mistakes": {
-        "2a313a829a4a9e8ccec708d89276fc621450185b5e73139da7edc9e5ed293c3c": "les deux intervalles ont le même rayon ; l'écart des deux accuracies est plus petit que 2 rayons"
+      "coarse_any": {
+        "0": [
+          "731d103cf735eff21e24f088f5b7905707684697f551e48a37670302ec74842a"
+        ],
+        "1": [
+          "a65210398dbb63438532cfb62c39f556d98bdb4b3756fa1c53dc465f7e828894"
+        ]
       },
+      "coarser": {
+        "2": [
+          "2406a04258a1d3ba7b5a27c0073e96e8b9976d501d3022bdd764b0d03e6a7673"
+        ]
+      },
+      "decimals": 4,
+      "hash": "bbfc5acde1b7abad2729b179132d1d7a2a53af2945fb1c4fc0e90e55ff6ec3b9",
+      "hash_coarse": "7a119a4ab31b87c6b5c6ef6a79bb8ab3aa4656eb0ae4f8245cd460a69b5e98af",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "195446fc309064319ea96eee9afa64265be6a376f22846bf50a8078fd04278d5": "une garantie d'un seul côté utilise ln(1/δ) = ln 20, pas ln 40",
+        "2fbb43002cf20428b26c24f3b43c893d441530f0737ec24f0cc6bb5ce820f2f9": "divise ln(1/δ) par 2n = 6 000",
+        "5fd11a6c7d917adae633afbff4b0d390232fc381fcd532b2094978ac153c271a": "la question demande la borne basse p̂ − r, pas le rayon r"
+      },
+      "sign": 1,
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
     },
     "M11.14d": {
       "coarse_any": {
         "2": [
-          "f9ab6893fe12eb75032c1df5b560fc6487e24d277dd00b9c1d667d41ae54ee42"
+          "84f2a95b836211f99d568aaa7c9eb317cfe7c4f4708deb4dc4fe203563c33b70"
         ]
       },
       "decimals": 4,
-      "hash": "2b4fe63655dca7907b5aaa703ac9560425f12619e968a34c1168d8b866a66f63",
-      "hash_coarse": "3d420bf53d1e078944a618ab05e04e612a48b72fdac43b70e2656e0a8b9a5b6a",
+      "hash": "6ecf7ffc3a1b69211dad0ca32b29e0423267ca1c42d87711537b7896e10b897e",
+      "hash_coarse": "345066ab4b2e2fada01622a5ba789bc08438a98d4e9e83a966d22d4942d53419",
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "9f31393b020920811b358bee1265996337f53fac5940b46e17710cc8f05fc0af": "δ / 20 entre dans le logarithme, pas devant la racine",
-        "bf49342d8595352377c86f9c354889dc6a554c324f99b3a504adacedf8c7c962": "choisir le meilleur de 20 demande δ / 20 pour chacun (borne de l'union)"
+        "8d62c77a83c5e6b0233fa8a35fae6d3400883d7a6c0e6bbfe1926e8698d7aeb2": "δ / 20 entre dans le logarithme, pas devant la racine",
+        "e2867e209e1abf0d47f03287ff45358f91ea013d91d01b3925e3937f4c271e70": "choisir le meilleur de 20 demande δ / 20 pour chacun (borne de l'union)"
       },
       "sign": 1,
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
@@ -34744,22 +34765,22 @@
         ]
       },
       "decimals": 4,
-      "hash": "cc317eca698b966cf8523638ce375095804fce579f3dfdc64efff817e7b47472",
-      "hash_coarse": "bb41639f778e8b7653b6083700bf7016a3baaea2bb4dd011bc9124bddfb7df60",
+      "hash": "5bd89b5b3b6eb23aff0f5378f512c735357d4798c1c5af22281363253d25fb30",
+      "hash_coarse": "74517599079e652f7941ab5948dd52e58aff43221c8fb93a24cb825cf0058df3",
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "46525afc0617c42b9c81f60446b201e34df45ac13d614a2e953cde70426a74ee": "l'erreur type est √(p̂(1 − p̂) / n), avant le facteur 1,96"
+        "f8b074a660b1514708c0a8a367c4f0b0a305dd7a03eb6a5e451262863fd034d1": "l'erreur type est √(p̂(1 − p̂) / n), avant le facteur 1,96"
       },
       "sign": 1,
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
     },
     "M11.14f": {
-      "hash": "9b22bf89603027eb9e935aa2b0bd26db7da44b0d68908a3951d6539bb46a0492",
+      "hash": "55af38acfb8bc5206d55cc06af24d95e7cf07b5343bbae3bf763d509d538ed55",
       "kind": "int",
-      "magnitude": 4,
+      "magnitude": 3,
       "mistakes": {
-        "5b6878016ef717a4078ce30553beda1d764d8ae1466b8532b171a444f7b3781d": "n doit être au moins ln(2/δ) / (2 r²) : arrondis au-dessus"
+        "3064be022d64e9a905d8bce9006ace5a89528b42256cf9528b894e8f60424e07": "n doit être au moins ln(2/δ) / (2 r²) : arrondis au-dessus"
       },
       "sign": 1,
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"
@@ -35144,6 +35165,7 @@
       "magnitude": -3,
       "mistakes": {
         "40ccf16cfeac5b954db36a744e9ffb2e0a8e900c8ddcd05d7038436a586d1ab1": "sf donne P(T > x), la queue à droite ; cdf donne la partie gauche",
+        "7e6173e26005c4504206f906636f93cbc33610ffd6d1d721b48844d919642c97": "stats.expon(3) décale la loi de 3 (loc=3) : la moyenne se donne par scale=3",
         "83bb3d60109e52cb5a1fc19ebc518444fa44cb816afc281e76273637ac164424": "scale est la moyenne 3 : stats.expon(scale=3), pas stats.expon(3)"
       },
       "sign": 1,
@@ -35234,7 +35256,9 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "6ed00e5b592206a3e70137ed60d0c61a256121249c9db64c05a6e64e7a9a02df": "la variance de la moyenne est p(1 − p) / n, et t = 0,1"
+        "6ed00e5b592206a3e70137ed60d0c61a256121249c9db64c05a6e64e7a9a02df": "la variance de la moyenne est p(1 − p) / n, et t = 0,1",
+        "9d69142ca8bf190e0ade8cd522b443890c451ce4b4a183372286f2eec66c334a": "Tchebychev divise la variance par t², pas par t",
+        "fb11452badcf622616f1926b89ed5a1ab62a085a790768c0aeaabb7c9a23674b": "Tchebychev divise la variance par t², pas par t"
       },
       "sign": 1,
       "source": "chapitres/m11_logique_concentration/05_solutions.ipynb"

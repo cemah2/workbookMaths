@@ -321,12 +321,12 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 
 | Erreur | Exemple faux | Ce qu'il faut faire |
 |---|---|---|
-| Juger un argument sur la vérité de sa conclusion | « si $n$ est premier, $n$ est impair ; 2 est premier ; donc 2 est impair » déclaré non valide | il est valide (*modus ponens*) mais pas solide : c'est la première prémisse qui est fausse |
+| Juger un argument sur la vérité de sa conclusion | « si $f$ est continue en 0, elle est dérivable en 0 ; $\lvert x \rvert$ est continue en 0 ; donc $\lvert x \rvert$ est dérivable en 0 » déclaré non valide | il est valide (*modus ponens*) mais pas solide : c'est la première prémisse qui est fausse ($\lvert x \rvert$ fait un coin en 0) |
 | Affirmer le conséquent | « si la batterie est vide, l'ordinateur ne démarre pas ; il ne démarre pas ; donc la batterie est vide » | non valide : la ligne « $P$ faux, $Q$ vrai » (une autre cause) le réfute |
 | Prouver une phrase en « pour tout » par des exemples | « $n^2 + n + 41$ est premier pour $n = 0$ à 39, donc pour tout $n$ » | $n = 40$ donne $41^2$ : il faut un raisonnement pour tout $n$, et un contre-exemple suffit à réfuter |
 | Enchaîner deux phrases en « au moins un » | « $4 \in A \cap B$ et $6 \in B \cap C$, donc $A \cap C \ne \varnothing$ » | les témoins peuvent différer ; seules les inclusions se transmettent ($A \subset B \subset C$) |
 | Lire $P(\text{signal} \mid \text{cas})$ comme $P(\text{cas} \mid \text{signal})$ | « le détecteur repère 95 % des plagiats, donc une copie signalée est plagiée à 95 % » | Bayes, avec le taux de base (2 %) : environ 0,39 |
-| Compter sur la taille pour corriger un biais de sélection | 10 000 réponses à un questionnaire auquel les clients fidèles répondent quatre fois plus | la moyenne des réponses tend vers 7,2 au lieu de 6 : corriger la collecte, la taille n'y peut rien |
+| Compter sur la taille pour corriger un biais de sélection | 10 000 notes d'examen saisies par les inscrits eux-mêmes, ceux qui ont 8 les saisissant quatre fois plus que ceux qui ont 4 | la moyenne des notes saisies tend vers 7,2 au lieu de 6 : corriger la collecte, la taille n'y peut rien |
 | Conclure « probabilité nulle » après zéro événement | « aucune panne en 150 essais, donc le taux de panne est nul » | règle de trois : seulement $p < 2\,\%$ environ, à 95 % |
 | Appliquer Markov à une variable qui peut être négative | $X = \pm 10$ avec $\mathbb{E}[X] = 0$ : « $P(X \ge 5) \le 0$ » | se ramener à une variable positive : $\lvert X \rvert$, $(X - \mu)^2$ ou $X - m$ si $X \ge m$ |
 | Tchebychev avec $t$ au lieu de $t^2$ | « $P(\lvert N - 40 \rvert \ge 160) \le \frac{100}{160}$ » | $\frac{\sigma^2}{t^2} = \frac{100}{160^2} \approx 0{,}0039$ ; contrôle : diviser $t$ par 2 multiplie $n$ par 4 |

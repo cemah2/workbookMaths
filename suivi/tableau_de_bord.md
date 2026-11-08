@@ -1168,7 +1168,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 <!-- wbm:end M10 -->
 
 <!-- wbm:section M11 -->
-## M11 · Logique, induction et inégalités de concentration ⏱️ 11,4 h
+## M11 · Logique, induction et inégalités de concentration ⏱️ 11,5 h
 
 - [ ] M11.Q1 🧠 Réciproque, contraposée, négation ★ 4 min
 - [ ] M11.Q2 🧠 Un argument valide peut-il avoir une conclusion fausse ? ★ 4 min
@@ -1180,8 +1180,8 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M11.R1 🔁 Implication et contraposée (R4) ★ 5 min
 - [ ] M11.R2 🔁 Espérance et variance (M02b) ★ 5 min
 - [ ] M11.R3 🔁 La loi Beta a posteriori (M04) ★ 5 min (complet)
-- [ ] M11.1 ✏️ Tables de vérité : modus ponens, modus tollens et l'affirmation du conséquent ★ 15 min
-- [ ] M11.2 ✏️ Nier des phrases quantifiées sur des modèles et des features ★ 15 min
+- [ ] M11.1 ✏️ Tables de vérité : modus ponens, modus tollens et l'affirmation du conséquent ★ 20 min
+- [ ] M11.2 ✏️ Nier des phrases quantifiées sur des modèles et des datasets ★ 15 min
 - [ ] M11.3 ✏️ Des phrases traduites en inclusions d'ensembles, et un contre-exemple ★★ 15 min (complet)
 - [ ] M11.4 ✏️ Une induction trompeuse par oubli du taux de base, recalculée avec Bayes ★★ 15 min
 - [ ] M11.5 ✏️ Markov : la queue d'une durée positive ★ 15 min
@@ -1194,7 +1194,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M11.12 ∂ Tchebychev à partir de Markov, puis la loi faible des grands nombres ★★ 20 min
 - [ ] M11.13 ∂ Avec ε fixé, le regret attendu d'ε-greedy croît au moins linéairement ★★ 20 min (complet)
 - [ ] M11.14 🔗 Pont : combien d'exemples de test pour connaître une accuracy à ± 2 points, garanti par Hoeffding ? ★ 15 min
-- [ ] M11.15 ⚖️ Corrélation, causalité et induction : trois titres de presse à démonter ★★ 15 min (complet)
+- [ ] M11.15 ⚖️ Corrélation, causalité et induction : trois titres de presse à démonter ★★ 20 min (complet)
 - [ ] M11.16 🗣️ Expliquer « l'optimisme face à l'incertitude » à partir d'un intervalle de confiance ★ 10 min
 - [ ] M11.E1 💼 « À quoi sert l'inégalité de Hoeffding en apprentissage, et que suppose-t-elle ? » ★ 10 min (complet)
 - [ ] M11.17 🔨 Les bornes de Markov et de Tchebychev ★ 15 min

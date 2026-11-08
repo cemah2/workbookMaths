@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §7 |
-| **Temps total estimé** | ≈ 11,4 h : lecture et calculs de la fiche ≈ 2 h 30, exercices ≈ 8 h 10, 22 flashcards ≈ 45 min (parcours essentiel ≈ 7,1 h) |
+| **Temps total estimé** | ≈ 11,5 h : lecture et calculs de la fiche ≈ 2 h 30, exercices ≈ 8 h 20, 22 flashcards ≈ 45 min (parcours essentiel ≈ 7,2 h) |
 | **Prérequis** | R4 (propositions, quantificateurs, implication, ensembles, raisonnements) ; R5 (suites) ; R6 (exp et ln) ; M02b (espérance, variance, lois exponentielle et binomiale) ; M02c (moyenne empirique, loi des grands nombres, théorème central limite, intervalle de confiance) ; M03 (taux de base, Bayes) ; M04 (loi Beta a posteriori) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `concentration.py` : `markov_bound`, `chebyshev_bound`, `hoeffding_bound`, `hoeffding_radius`, `empirical_tail` |
@@ -110,7 +110,7 @@ Les deux formes non valides sont des **sophismes formels** : elles en ont l'air,
 
 Les implications s'enchaînent aussi : « $P \Rightarrow Q$ ; $Q \Rightarrow R$ ; donc $P \Rightarrow R$ » est valide (huit lignes à vérifier, M11.1).
 
-⚠️ **Erreur classique.** Confondre validité et vérité. Un argument valide peut avoir une conclusion fausse, si une prémisse est fausse : « si $n$ est premier, alors $n$ est impair ; 2 est premier ; donc 2 est impair » est un *modus ponens* parfait, dont la première prémisse est fausse. Et un argument non valide peut avoir une conclusion vraie, par chance : sa forme ne la garantit pas, voilà tout.
+⚠️ **Erreur classique.** Confondre validité et vérité. Un argument valide peut avoir une conclusion fausse, si une prémisse est fausse : « si $f$ est continue en 0, alors $f$ est dérivable en 0 ; $x \mapsto \lvert x \rvert$ est continue en 0 ; donc elle est dérivable en 0 » est un *modus ponens* parfait, dont la première prémisse est fausse ($\lvert x \rvert$ fait un coin en 0, R7). Et un argument non valide peut avoir une conclusion vraie, par chance : sa forme ne la garantit pas, voilà tout.
 
 **Un cas limite.** Si les prémisses ne peuvent jamais être vraies ensemble (« $P$ ; non $P$ ; donc $Q$ »), aucune ligne ne les rend toutes vraies, et l'argument est valide **quelle que soit** la conclusion. Des prémisses contradictoires prouvent n'importe quoi : c'est une raison de plus de vérifier ses prémisses, pas seulement sa forme.
 
@@ -174,7 +174,7 @@ Sur 1 000 copies, 19 plagiats signalés et 29,4 copies honnêtes signalées : la
 
 ### Piège 3 : un échantillon biaisé
 
-Un service client envoie un questionnaire de satisfaction (note sur 10). La moitié des clients sont occasionnels et notent 4 en moyenne, l'autre moitié sont fidèles et notent 8 : la vraie moyenne vaut 6. Mais 10 % des occasionnels répondent, contre 40 % des fidèles. Parmi les réponses, la part des fidèles est $\frac{0{,}5 \times 0{,}4}{0{,}5 \times 0{,}1 + 0{,}5 \times 0{,}4} = 0{,}8$, et la moyenne des réponses tend vers $0{,}2 \times 4 + 0{,}8 \times 8 = 7{,}2$. Avec 10 000 réponses, l'estimation est très **précise** et pourtant fausse : la taille de l'échantillon réduit la part du hasard, jamais le **biais de sélection** (*selection bias*). Les inégalités des §4 à §6 supposent toutes des tirages **indépendants** dans la loi qu'on veut connaître ; elles ne disent rien d'un échantillon mal tiré.
+Une plateforme de cours en ligne veut connaître la note moyenne (sur 10) de ses inscrits à l'examen final, à partir des notes que les inscrits saisissent eux-mêmes sur leur profil. La moitié des inscrits ont 4, l'autre moitié 8 : la vraie moyenne vaut 6. Mais 10 % des premiers saisissent leur note, contre 40 % des seconds. Parmi les notes saisies, la part des 8 est $\frac{0{,}5 \times 0{,}4}{0{,}5 \times 0{,}1 + 0{,}5 \times 0{,}4} = 0{,}8$, et la moyenne des notes saisies tend vers $0{,}2 \times 4 + 0{,}8 \times 8 = 7{,}2$. Avec 10 000 notes saisies, l'estimation est très **précise** et pourtant fausse : la taille de l'échantillon réduit la part du hasard, jamais le **biais de sélection** (*selection bias*). Les inégalités des §4 à §6 supposent toutes des tirages **indépendants** dans la loi qu'on veut connaître ; elles ne disent rien d'un échantillon mal tiré.
 
 Une variante fréquente est le **biais du survivant** (*survivorship bias*) : n'observer que ce qui a passé un filtre (les entreprises encore ouvertes, les modèles qui ont été mis en production) et en conclure que le filtre n'existe pas.
 
@@ -330,11 +330,11 @@ Après $N$ choix de l'option $k$, de moyenne observée $\hat{\mu}_k$, la borne *
 $$\mu_k < \hat{\mu}_k + \sqrt{\frac{\ln(1/\delta)}{2N}}.$$
 La stratégie **UCB** (*upper confidence bound*) choisit l'option dont cette **borne supérieure** est la plus grande. C'est l'**optimisme face à l'incertitude** (*optimism in the face of uncertainty*) : on agit comme si chaque option valait le plus qu'elle peut plausiblement valoir. Le **bonus** $\sqrt{\ln(1/\delta)/(2N)}$ est la demi-largeur d'un intervalle de confiance : avec peu de données, l'intervalle est large et sa borne haute peut dépasser toutes les autres, ce qui fait essayer l'option ; avec beaucoup de données, la borne rejoint la moyenne observée, et une option mauvaise passe sous la meilleure pour de bon.
 
-![Trois options après 480 pas : moyennes observées 0,62, 0,55 et 0,40, choisies 400, 60 et 20 fois ; les bornes supérieures de confiance UCB1 ; la moins essayée a la borne la plus haute et sera choisie](figures/ucb.png)
+![Trois options après 480 pas : moyennes observées 0,62, 0,55 et 0,40, choisies 400, 56 et 24 fois ; les bornes supérieures de confiance UCB1 ; la moins essayée a la borne la plus haute et sera choisie](figures/ucb.png)
 
 Le risque $\delta$ doit **décroître** avec le temps : sur un horizon long, on regarde des milliers de bornes, et la borne de l'union demande que leurs risques aient une somme petite. Avec $\delta_t = t^{-4}$, $\ln(1/\delta_t) = 4\ln t$ et le bonus devient
 $$\sqrt{\frac{2\ln t}{N}},$$
-celui de la stratégie **UCB1** (Auer, Cesa-Bianchi et Fischer, 2002). Sur la figure, au pas $t = 480$ ($\ln 480 \approx 6{,}17$), l'option choisie 20 fois a un bonus $\sqrt{12{,}35/20} \approx 0{,}79$, celle choisie 400 fois $\sqrt{12{,}35/400} \approx 0{,}18$. Combien de fois choisit-on une option d'écart $\Delta$ ? Tant que son bonus dépasse $\frac{\Delta}{2}$, sa borne peut dépasser $\mu^\star$ ; or $\sqrt{2\ln t / N} < \frac{\Delta}{2}$ dès que $N > \frac{8\ln t}{\Delta^2}$. Le nombre de choix d'une mauvaise option croît donc comme $\ln T$, et le regret aussi (M11.9).
+celui de la stratégie **UCB1** (Auer, Cesa-Bianchi et Fischer, 2002). Sur la figure, au pas $t = 480$ ($\ln 480 \approx 6{,}17$), l'option choisie 24 fois a un bonus $\sqrt{12{,}35/24} \approx 0{,}72$, celle choisie 400 fois $\sqrt{12{,}35/400} \approx 0{,}18$. Combien de fois choisit-on une option d'écart $\Delta$ ? Tant que son bonus dépasse $\frac{\Delta}{2}$, sa borne peut dépasser $\mu^\star$ ; or $\sqrt{2\ln t / N} < \frac{\Delta}{2}$ dès que $N > \frac{8\ln t}{\Delta^2}$. Le nombre de choix d'une mauvaise option croît donc comme $\ln T$, et le regret aussi (M11.9).
 
 ### L'échantillonnage de Thompson
 

@@ -29,7 +29,8 @@ def _result(call, expected, what=""):
     except NotImplementedError:
         raise                 # a function not written yet: ⏳
     except Exception as exc:  # noqa: BLE001 - the learner's error, after what was expected
-        pytest.fail(f"expected {expected}{' for ' + what if what else ''}, but it raised {type(exc).__name__}: {exc}")
+        error = exc           # reported below, outside the except block, so that pytest shows no chained traceback
+    pytest.fail(f"expected {expected}{' for ' + what if what else ''}, but it raised {type(error).__name__}: {error}")
 
 
 def _expect_value_error(call, what, why):
@@ -41,8 +42,10 @@ def _expect_value_error(call, what, why):
     except ValueError:
         return
     except Exception as exc:  # noqa: BLE001 - any other error is reported, with what was expected first
-        pytest.fail(f"expected {what} to raise ValueError ({why}), got {type(exc).__name__}: {exc}")
-    pytest.fail(f"expected {what} to raise ValueError ({why}), but it returned {result!r}")
+        error = exc           # reported below, outside the except block (no chained traceback)
+    else:
+        pytest.fail(f"expected {what} to raise ValueError ({why}), but it returned {result!r}")
+    pytest.fail(f"expected {what} to raise ValueError ({why}), got {type(error).__name__}: {error}")
 
 
 def _is_float(value, what):
@@ -173,6 +176,7 @@ def test_hoeffding_bound_docstring_examples(conc):
     assert got == pytest.approx(0.2707, abs=5e-5), f"expected 2 e^(-2) ≈ 0.2707 for n = 100 and t = 0.1, got {got!r}"
     got = _result(lambda: conc.hoeffding_bound(10, 0.1), "1.0", "hoeffding_bound(10, 0.1)")
     assert got == 1.0, f"expected 1.0 (the formula gives 2 e^(-0.2) > 1, and a probability is at most 1), got {got!r}"
+    _is_float(got, "hoeffding_bound(10, 0.1), capped at 1 (min(1.0, ...), not min(1, ...))")
 
 
 @pytest.mark.parametrize("n, t, a, b", [(50, 0.2, 0.0, 1.0), (400, 0.05, 0.0, 1.0), (30, 1.0, -2.0, 2.0),
@@ -182,7 +186,7 @@ def test_hoeffding_bound_values(conc, n, t, a, b):
     got = _result(lambda: conc.hoeffding_bound(n, t, a=a, b=b), f"≈ {expected:.6g}", f"n = {n}, t = {t}, [{a}, {b}]")
     _is_float(got, f"hoeffding_bound({n}, {t}, a={a}, b={b})")
     assert got == pytest.approx(expected, rel=1e-9), (
-        f"expected {expected:.10g} for n = {n}, t = {t} and variables in [{a}, {b}] (the width b - a is squared), "
+        f"expected {expected:.10g} for n = {n}, t = {t} and variables in [{a}, {b}] (2 exp(-2 n t² / (b - a)²): the factor 2, and the width squared), "
         f"got {got!r}")
 
 

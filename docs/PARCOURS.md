@@ -55,10 +55,10 @@ La remise à niveau se fait en même temps que 0A. Avant chaque chapitre, avance
 | M09a | M09a.Q1, M09a.Q2, M09a.Q3, M09a.Q4, M09a.Q5, M09a.Q6, M09a.Q7, M09a.Q8, M09a.R1, M09a.R2, M09a.R3, M09a.1, M09a.2, M09a.3, M09a.4, M09a.5, M09a.6, M09a.7, M09a.8, M09a.9, M09a.10, M09a.11, M09a.12, M09a.13, M09a.14, M09a.15, M09a.16, M09a.17, M09a.18, M09a.19, M09a.20, M09a.21, M09a.22, M09a.23, M09a.24, M09a.E1, M09a.25, M09a.26, M09a.27, M09a.28, M09a.29, M09a.30, M09a.31, M09a.32, M09a.33, M09a.34, M09a.35, M09a.36 | 16,7 h |
 | M09b | M09b.Q1, M09b.Q2, M09b.Q3, M09b.Q4, M09b.Q5, M09b.Q6, M09b.Q7, M09b.Q8, M09b.R1, M09b.R2, M09b.R3, M09b.1, M09b.2, M09b.3, M09b.4, M09b.5, M09b.6, M09b.7, M09b.8, M09b.9, M09b.10, M09b.11, M09b.12, M09b.13, M09b.14, M09b.15, M09b.16, M09b.17, M09b.18, M09b.19, M09b.20, M09b.21, M09b.22, M09b.23, M09b.24, M09b.25, M09b.E1, M09b.E2, M09b.26, M09b.27, M09b.28, M09b.29, M09b.30, M09b.31, M09b.32, M09b.33, M09b.34, M09b.35, M09b.36 | 17,0 h |
 | M10 | M10.Q1, M10.Q2, M10.Q3, M10.Q4, M10.R1, M10.R2, M10.R3, M10.1, M10.2, M10.3, M10.4, M10.5, M10.6, M10.7, M10.8, M10.9, M10.10, M10.11, M10.E1, M10.12, M10.13, M10.14, M10.15, M10.16, M10.17, M10.18 | 8,1 h |
-| M11 | M11.Q1, M11.Q2, M11.Q3, M11.Q4, M11.Q5, M11.Q6, M11.Q7, M11.R1, M11.R2, M11.R3, M11.1, M11.2, M11.3, M11.4, M11.5, M11.6, M11.7, M11.8, M11.9, M11.10, M11.11, M11.12, M11.13, M11.14, M11.15, M11.16, M11.E1, M11.17, M11.18, M11.19, M11.20, M11.21, M11.22, M11.23, M11.24, M11.25, M11.26, M11.27 | 11,4 h |
+| M11 | M11.Q1, M11.Q2, M11.Q3, M11.Q4, M11.Q5, M11.Q6, M11.Q7, M11.R1, M11.R2, M11.R3, M11.1, M11.2, M11.3, M11.4, M11.5, M11.6, M11.7, M11.8, M11.9, M11.10, M11.11, M11.12, M11.13, M11.14, M11.15, M11.16, M11.E1, M11.17, M11.18, M11.19, M11.20, M11.21, M11.22, M11.23, M11.24, M11.25, M11.26, M11.27 | 11,5 h |
 | CP2 | CP2.Q1, CP2.1, CP2.2, CP2.3, CP2.4, CP2.5, CP2.6, CP2.7, CP2.8, CP2.9, CP2.10, CP2.11, CP2.12 | 3,2 h |
 
-**Total des parties détaillées** : 307,8 h.
+**Total des parties détaillées** : 308,0 h.
 
 <a id="essentiel"></a>
 ## Parcours essentiel
@@ -91,8 +91,8 @@ La remise à niveau se fait en même temps que 0A. Avant chaque chapitre, avance
 | M09a | M09a.Q1, M09a.Q2, M09a.Q3, M09a.Q5, M09a.Q6, M09a.Q7, M09a.Q8, M09a.R1, M09a.R2, M09a.1, M09a.2, M09a.3, M09a.5, M09a.7, M09a.8, M09a.9, M09a.11, M09a.13, M09a.15, M09a.17, M09a.19, M09a.24, M09a.25, M09a.26, M09a.27, M09a.29, M09a.30 | 10,6 h |
 | M09b | M09b.Q1, M09b.Q2, M09b.Q3, M09b.Q4, M09b.Q5, M09b.Q7, M09b.Q8, M09b.R1, M09b.R2, M09b.R3, M09b.1, M09b.3, M09b.4, M09b.5, M09b.7, M09b.8, M09b.13, M09b.14, M09b.16, M09b.17, M09b.20, M09b.25, M09b.26, M09b.27, M09b.29, M09b.30 | 9,9 h |
 | M10 | M10.Q1, M10.Q2, M10.Q3, M10.R1, M10.R2, M10.1, M10.2, M10.3, M10.6, M10.7, M10.9, M10.11, M10.12, M10.13, M10.14 | 5,7 h |
-| M11 | M11.Q1, M11.Q2, M11.Q4, M11.Q5, M11.Q6, M11.R1, M11.R2, M11.1, M11.2, M11.4, M11.5, M11.6, M11.7, M11.11, M11.12, M11.14, M11.16, M11.17, M11.18, M11.21 | 7,1 h |
+| M11 | M11.Q1, M11.Q2, M11.Q4, M11.Q5, M11.Q6, M11.R1, M11.R2, M11.1, M11.2, M11.4, M11.5, M11.6, M11.7, M11.11, M11.12, M11.14, M11.16, M11.17, M11.18, M11.21 | 7,2 h |
 | CP2 | CP2.Q1, CP2.1, CP2.2, CP2.3, CP2.4, CP2.5, CP2.6, CP2.7, CP2.8, CP2.9, CP2.10, CP2.11, CP2.12 | 3,2 h |
 
-**Total des parties détaillées** : 216,9 h.
+**Total des parties détaillées** : 217,0 h.
 

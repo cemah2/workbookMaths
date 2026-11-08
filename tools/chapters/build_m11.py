@@ -36,13 +36,13 @@ PAPER = [
          '''mistakes={"P ⇒ Q n'est fausse que dans un cas, P vraie et Q fausse : quand P est fausse, l'implication est '''
          '''vraie": [True, False, False, False], "P ⇒ Q est vraie quand P est fausse et Q vraie (ligne FV)": '''
          '''[True, False, False, True]}'''),
-        ("b", "a list of line numbers", "[1, 3]",
+        ("b", "a list of line numbers, in increasing order", "[1, 3]",
          '''mistakes={"la seconde prémisse demande Q vraie : la ligne FF ne compte pas": [1, 3, 4], '''
          '''"à la ligne FV, P ⇒ Q est vraie (P fausse) et Q est vraie : les deux prémisses le sont": [1]}'''),
         ("c", "True or False", "False",
          '''mistakes={"une ligne rend les deux prémisses vraies et la conclusion P fausse : c'est un contre-exemple": '''
          '''True}'''),
-        ("d", "a list of line numbers", "[2]",
+        ("d", "a list of line numbers, in increasing order", "[2]",
          '''mistakes={"à la ligne FF, non P est vraie et Q fausse : non P ⇒ Q y est fausse": [2, 4], '''
          '''"la seconde prémisse, non Q, demande Q fausse": [1, 2]}'''),
         ("e", "True or False", "True",
@@ -58,7 +58,7 @@ PAPER = [
          '''fausse": False}'''),
     ]),
 
-    Paper("M11.2", "Nier des phrases quantifiées sur des modèles et des features", [
+    Paper("M11.2", "Nier des phrases quantifiées sur des modèles et des datasets", [
         ("a", "True or False", "False",
          '''mistakes={"un « pour tout » tombe dès qu'une case du tableau est sous 0,80": True}'''),
         ("b", "letters, as text", '"BD"',
@@ -90,7 +90,7 @@ PAPER = [
          '''mistakes={"cherche le plus petit multiple de 3 qui n'est pas multiple de 6": {6, 9}}'''),
         ("d", "an integer", "5",
          '''mistakes={"B \\\\ A est l'ensemble des multiples de 3 qui ne sont pas multiples de 6, les impairs": {4, 10}}'''),
-        ("e", "a list of integers", "[3]",
+        ("e", "a list of integers, in increasing order", "[3]",
          '''mistakes={"3 est premier et multiple de 3": [], "seul 3 est à la fois premier et multiple de 3": [2, 3]}'''),
         ("f", "True or False", "True",
          '''mistakes={"un multiple de 6 est divisible par 2 et par 3 : il n'est jamais premier": False}'''),
@@ -217,9 +217,11 @@ PAPER = [
          '''decimals=4, mistakes={"ln(1/δ_t) = 4 ln t, à diviser par 2N": math.sqrt(4 * math.log(1000) / 50), '''
          '''"ln, le logarithme népérien, pas log₁₀": math.sqrt(2 * 3 / 50)}'''),
         ("c", "a number (4 decimals)", "0.62 + math.sqrt(2 * math.log(1000) / 50)",
-         '''decimals=4, mistakes={"la borne supérieure est la moyenne observée plus le bonus": 0.62 - math.sqrt(2 * math.log(1000) / 50)}'''),
+         '''decimals=4, mistakes={"la borne supérieure est la moyenne observée plus le bonus": 0.62 - math.sqrt(2 * math.log(1000) / 50), '''
+         '''"une borne UCB borne une moyenne, ce n'est pas une probabilité : ne la plafonne pas à 1": 1.0}'''),
         ("d", "a number (4 decimals)", "0.45 + math.sqrt(2 * math.log(1000) / 8)",
-         '''decimals=4, mistakes={"le bonus de l'option 2 utilise N = 8": 0.45 + math.sqrt(2 * math.log(1000) / 50)}'''),
+         '''decimals=4, mistakes={"le bonus de l'option 2 utilise N = 8": 0.45 + math.sqrt(2 * math.log(1000) / 50), '''
+         '''"une borne UCB borne une moyenne, ce n'est pas une probabilité : ne la plafonne pas à 1": 1.0}'''),
         ("e", "an integer", "2",
          '''mistakes={"UCB choisit la plus grande borne supérieure, pas la plus grande moyenne observée": 1}'''),
         ("f", "an integer", "1843",
@@ -241,33 +243,34 @@ PAPER = [
          '''"le choix glouton est l'option 1, d'écart 0,07 : ce n'est pas la meilleure": 0.0195}'''),
         ("d", "a number (4 decimals)", "0.01 * 5 / 0.65",
          '''decimals=4, mistakes={"le regret d'un pas vaut (ε / K) Σ Δ_k, avec K = 5": 0.01 / 0.65}'''),
-        ("e", "a number", "195.0",
-         '''decimals=1, mistakes={"le regret d'un pas, (ε / K) Σ Δ_k = 0,0195, se répète à chaque pas": {19.5, 1950.0}}'''),
-        ("f", "a number (4 decimals)", "0.13 * 9.787606036044382",
+        ("e", "a number", "390.0",
+         '''decimals=1, mistakes={"le regret d'un pas, (ε / K) Σ Δ_k = 0,0195, se répète à chaque pas": {39.0, 3900.0}}'''),
+        ("f", "a number (4 decimals)", "0.13 * 10.480728217229327",
          '''decimals=4, mistakes={"le regret du pas t vaut (1/t) × Σ Δ_k / K : n'oublie pas le K": '''
-         '''0.65 * 9.787606036044382}'''),
-        ("g", "a number", "300.0",
-         '''decimals=1, mistakes={"l'option 2 n'est choisie que par le tirage au hasard, avec ε / K par pas": 1500.0}'''),
+         '''0.65 * 10.480728217229327}'''),
+        ("g", "a number", "600.0",
+         '''decimals=1, mistakes={"l'option 2 n'est choisie que par le tirage au hasard, avec ε / K par pas": 3000.0}'''),
     ]),
 
     Paper("M11.14", "Pont : combien d'exemples de test pour connaître une accuracy à ± 2 points, garanti par Hoeffding ?", [
         ("a", "an integer", "4612",
          '''mistakes={"n doit être au moins ln(2/δ) / (2 r²) : arrondis au-dessus": 4611, '''
          '''"le rayon bilatéral utilise ln(2/δ) = ln 40": 3745}'''),
-        ("b", "a number (4 decimals)", "math.sqrt(math.log(40) / 4000)",
-         '''decimals=4, mistakes={"divise ln(2/δ) par 2n = 4 000": math.sqrt(math.log(40) / 2000), '''
-         '''"n'oublie pas la racine carrée": math.log(40) / 4000}'''),
-        ("c", "True or False", "True",
-         '''mistakes={"les deux intervalles ont le même rayon ; l'écart des deux accuracies est plus petit que 2 rayons": '''
-         '''False}'''),
-        ("d", "a number (4 decimals)", "math.sqrt(math.log(2 / (0.05 / 20)) / 4000)",
+        ("b", "a number (4 decimals)", "math.sqrt(math.log(40) / 6000)",
+         '''decimals=4, mistakes={"divise ln(2/δ) par 2n = 6 000": math.sqrt(math.log(40) / 3000), '''
+         '''"n'oublie pas la racine carrée": math.log(40) / 6000}'''),
+        ("c", "a number (4 decimals)", "0.874 - math.sqrt(math.log(20) / 6000)",
+         '''decimals=4, mistakes={"une garantie d'un seul côté utilise ln(1/δ) = ln 20, pas ln 40": '''
+         '''0.874 - math.sqrt(math.log(40) / 6000), "la question demande la borne basse p̂ − r, pas le rayon r": '''
+         '''math.sqrt(math.log(20) / 6000), "divise ln(1/δ) par 2n = 6 000": 0.874 - math.sqrt(math.log(20) / 3000)}'''),
+        ("d", "a number (4 decimals)", "math.sqrt(math.log(2 / (0.05 / 20)) / 6000)",
          '''decimals=4, mistakes={"choisir le meilleur de 20 demande δ / 20 pour chacun (borne de l'union)": '''
-         '''math.sqrt(math.log(40) / 4000), "δ / 20 entre dans le logarithme, pas devant la racine": '''
-         '''math.sqrt(20 * math.log(40) / 4000)}'''),
-        ("e", "a number (4 decimals)", "1.96 * math.sqrt(0.874 * 0.126 / 2000)",
-         '''decimals=4, mistakes={"l'erreur type est √(p̂(1 − p̂) / n), avant le facteur 1,96": math.sqrt(0.874 * 0.126 / 2000)}'''),
-        ("f", "an integer", "18445",
-         '''mistakes={"n doit être au moins ln(2/δ) / (2 r²) : arrondis au-dessus": 18444}'''),
+         '''math.sqrt(math.log(40) / 6000), "δ / 20 entre dans le logarithme, pas devant la racine": '''
+         '''math.sqrt(20 * math.log(40) / 6000)}'''),
+        ("e", "a number (4 decimals)", "1.96 * math.sqrt(0.874 * 0.126 / 3000)",
+         '''decimals=4, mistakes={"l'erreur type est √(p̂(1 − p̂) / n), avant le facteur 1,96": math.sqrt(0.874 * 0.126 / 3000)}'''),
+        ("f", "an integer", "8198",
+         '''mistakes={"n doit être au moins ln(2/δ) / (2 r²) : arrondis au-dessus": 8197}'''),
     ]),
 ]
 
@@ -423,7 +426,7 @@ M11_18 = Ex(
 - `hoeffding_bound(n, t, a=0.0, b=1.0)` : $\min\big(1, 2\exp(-\frac{2nt^2}{(b - a)^2})\big)$, la borne bilatérale de Hoeffding sur $P(\lvert \bar{X} - \mu \rvert \ge t)$ ; une `ValueError` si `n < 1`, `t <= 0` ou `a >= b` ;
 - `hoeffding_radius(n, delta, a=0.0, b=1.0)` : $(b - a)\sqrt{\frac{\ln(2/\delta)}{2n}}$, l'écart pour lequel la borne vaut $\delta$ ; une `ValueError` si `n < 1`, si `delta` n'est pas dans $]0, 1[$ ou si `a >= b`.
 
-La vérification calcule (4 décimales) :
+La vérification compare, à 4 décimales :
 - a) `hoeffding_bound(250, 0.08)` ; b) `hoeffding_bound(250, 0.08, a=0.0, b=2.0)` ;
 - c) `hoeffding_radius(500, 0.1)` ; d) `hoeffding_radius(500, 0.1, a=-1.0, b=1.0)` ;
 - e) `hoeffding_bound(500, hoeffding_radius(500, 0.1))` ;
@@ -485,8 +488,8 @@ M11_19 = Ex(
     body=r"""Écris `empirical_tail(samples, threshold)` : la proportion des valeurs de l'échantillon **au moins égales** au seuil, une estimation de $P(X \ge \text{seuil})$ ; une `ValueError` si l'échantillon est vide.
 
 Avec `sample_19 = np.random.default_rng(19).exponential(2.0, size=20_000)` (vingt mille tirages d'une loi exponentielle de moyenne 2), la vérification calcule :
-- a) `empirical_tail([3, 8, 1, 8, 5, 2], 5)` ; b) `empirical_tail([3, 8, 1, 8, 5, 2], 8)` (4 décimales) ;
-- c) `empirical_tail(sample_19, 6.0)` (4 décimales) ;
+- a) `empirical_tail([3, 8, 1, 8, 5, 2], 5)` ; b) `empirical_tail([3, 8, 1, 8, 5, 2], 8)` (comparé à 4 décimales : ta fonction, elle, n'arrondit pas) ;
+- c) `empirical_tail(sample_19, 6.0)` (comparé à 4 décimales) ;
 - d) le nom de l'erreur levée par `empirical_tail([], 1.0)` ;
 - e) vrai ou faux : pour chaque seuil $a$ de `[0.5, 1, 2, 4, 8, 16]`, `empirical_tail(sample_19, a) <= sample_19.mean() / a`.
 
@@ -536,9 +539,9 @@ M11_20 = Ex(
     "M11.20", "📦", 1, 15, "Les vraies queues d'une loi exponentielle et d'une binomiale (`scipy.stats`) contre les bornes",
     "calculer des probabilités de queue exactes avec scipy.stats, et les comparer aux bornes de ta librairie.",
     "fiche §4 à §6", tracks="C",
-    body=r"""Avec `scipy.stats` (importé sous le nom `stats`) et tes fonctions de `mymath` :
+    body=r"""Avec `scipy.stats` (importé sous le nom `stats`) :
 - $T$ suit une loi exponentielle de moyenne 3 (`stats.expon(scale=3)`) : a) $P(T \ge 15)$, avec la méthode `.sf` (*survival function*, $P(T > x)$, égale ici à $P(T \ge x)$) ; b) combien de fois la borne de Markov dépasse cette valeur (2 décimales) ; c) le plus petit seuil $a$ tel que $P(T \ge a) \le 0{,}01$, avec la méthode `.isf` ;
-- $S$ suit une loi binomiale $\mathcal{B}(60 ;\ 0{,}25)$ (`stats.binom(60, 0.25)`) et $\bar{X} = \frac{S}{60}$ : d) $P(\lvert \bar{X} - 0{,}25 \rvert \ge 0{,}1)$, c'est-à-dire $P(S \le 9) + P(S \ge 21)$, avec `.cdf` et `.sf` ; e) la borne de Tchebychev de cette probabilité ($\mathbb{V}(\bar{X}) = \frac{0{,}25 \times 0{,}75}{60}$) ; f) la borne de Hoeffding.
+- $S$ suit une loi binomiale $\mathcal{B}(60 ;\ 0{,}25)$ (`stats.binom(60, 0.25)`) et $\bar{X} = \frac{S}{60}$ : d) $P(\lvert \bar{X} - 0{,}25 \rvert \ge 0{,}1)$, c'est-à-dire $P(S \le 9) + P(S \ge 21)$, avec `.cdf` et `.sf` ; e) la borne de Tchebychev de cette probabilité ($\mathbb{V}(\bar{X}) = \frac{0{,}25 \times 0{,}75}{60}$) ; f) la borne de Hoeffding. Calcule e) et f) par la formule de la fiche, sans appeler ta librairie (elles sont celles de `chebyshev_bound` et `hoeffding_bound` : « Run all » doit aller au bout même si ta librairie n'est pas finie).
 
 Les réponses a) et c) à f) sont à 4 décimales. Attention : pour une loi discrète, `.sf(k)` vaut $P(S > k)$, donc $P(S \ge 21)$ s'écrit `.sf(20)`.
 
@@ -547,12 +550,11 @@ Dans ta copie : laquelle des deux bornes de e) et f) est la meilleure ici, et po
 answer_M11_20b = ...  # b) Markov's bound divided by a)
 answer_M11_20c = ...  # c) the smallest a with P(T >= a) <= 0.01, with .isf
 answer_M11_20d = ...  # d) P(S <= 9) + P(S >= 21) for S of law B(60, 0.25)
-answer_M11_20e = ...  # e) Chebyshev's bound (mymath.concentration.chebyshev_bound)
-answer_M11_20f = ...  # f) Hoeffding's bound (mymath.concentration.hoeffding_bound)''',
-    check='''mymath = wbm.load_mymath("learner", missing_ok=True, fallback="ref", chapter="M11")
-for letter, answer in zip("abcdef", [answer_M11_20a, answer_M11_20b, answer_M11_20c, answer_M11_20d, answer_M11_20e,
+answer_M11_20e = ...  # e) Chebyshev's bound, by the formula of the fiche
+answer_M11_20f = ...  # f) Hoeffding's bound, by the formula of the fiche''',
+    check='''for letter, answer in zip("abcdef", [answer_M11_20a, answer_M11_20b, answer_M11_20c, answer_M11_20d, answer_M11_20e,
                                      answer_M11_20f]):
-    wbm.check(f"M11.20{letter}", answer, computed=True)''',
+    wbm.check(f"M11.20{letter}", answer)''',
     solution=LOAD_REF + '''
 T_20, S_20 = stats.expon(scale=3), stats.binom(60, 0.25)
 answer_M11_20a = float(T_20.sf(15))
@@ -565,7 +567,8 @@ print([round(v, 4) for v in (answer_M11_20a, answer_M11_20b, answer_M11_20c, ans
                              answer_M11_20f)])''',
     record='''wbm.record("M11.20a", math.exp(-5), decimals=4,
            mistakes={"sf donne P(T > x), la queue à droite ; cdf donne la partie gauche": 1 - math.exp(-5),
-                     "scale est la moyenne 3 : stats.expon(scale=3), pas stats.expon(3)": math.exp(-4)})
+                     "scale est la moyenne 3 : stats.expon(scale=3), pas stats.expon(3)": math.exp(-4),
+                     "stats.expon(3) décale la loi de 3 (loc=3) : la moyenne se donne par scale=3": math.exp(-12)})
 wbm.record("M11.20b", 0.2 / math.exp(-5), decimals=2,
            mistakes={"divise la borne de Markov, E[T] / 15 = 0,2, par la vraie valeur": math.exp(-5) / 0.2})
 wbm.record("M11.20c", 3 * math.log(100), decimals=4,
@@ -576,7 +579,8 @@ wbm.record("M11.20d", 0.09931141968069937, decimals=4,
                      "compte les deux côtés : P(S <= 9) et P(S >= 21)": {0.05414393818821915,
                                                                           0.045167481492480246}})
 wbm.record("M11.20e", 0.3125, decimals=4,
-           mistakes={"la variance de la moyenne est p(1 − p) / n, et t = 0,1": 0.1875 / 0.1})
+           mistakes={"la variance de la moyenne est p(1 − p) / n, et t = 0,1": 0.1875 / 0.1,
+                     "Tchebychev divise la variance par t², pas par t": 0.1875 / 60 / 0.1})
 wbm.record("M11.20f", 2 * math.exp(-1.2), decimals=4,
            mistakes={"la borne bilatérale a un facteur 2": math.exp(-1.2)})''',
     note=r"e) Tchebychev (0,31) bat Hoeffding (0,60) : avec $n = 60$ et $t = 0{,}1$, l'exposant $2nt^2 = 1{,}2$ est "
@@ -903,8 +907,8 @@ def report_25(x, threshold, t, delta):
     n = len(x)
     mean = float(np.mean(x))                                   # (A) the sample mean
     markov = min(1.0, mean / threshold)                        # (B) a bound on P(X >= threshold) for one change X
-    variance = float(np.var(x))                                # (C) the sample variance, an estimate of V(X)
-    chebyshev = min(1.0, variance / (n * t ** 2))              # (D) a bound on P(|mean - mu| >= t), V(X) estimated
+    variance = float(np.var(x))                                # (C) the sample variance (ddof=0), estimates V(X)
+    chebyshev = min(1.0, variance / (n * t ** 2))              # (D) Chebyshev's formula, V(X) replaced by (C)
     hoeffding = min(1.0, 2 * math.exp(-2 * n * t ** 2))        # (E) a bound on P(|mean - mu| >= t)
     radius = 10 * math.log(2 / delta) / (2 * n)                # (F) the Hoeffding radius at risk delta
     return markov, chebyshev, hoeffding, radius
@@ -949,7 +953,12 @@ wbm.record("M11.25d", 10 * math.log(40) / 800, decimals=4,
          r"de l'échantillon, ce que dit son commentaire.",
 )
 
-M11_26_CHECK = '''with checked("M11.26 vérifications"):
+M11_26_CHECK = '''import inspect
+
+with checked("M11.26 vérifications"):
+    if inspect.signature(test_markov_bound_on_ten_laws).parameters:
+        raise TypeError("ton test doit s'appeler sans argument : boucle sur tes lois et tes seuils dans la fonction "
+                        "(pas de @pytest.mark.parametrize)")
     test_markov_bound_on_ten_laws()                     # your test runs here first: ⏳ while it is not written
     reference_26 = wbm.load_mymath("ref")
     results = {
@@ -969,7 +978,8 @@ M11_26_CHECK = '''with checked("M11.26 vérifications"):
             problems.append(f"ton test échoue sur {what} : il refuse une fonction juste (lis print(run.output))")
         if not should_pass and run.failed == 0:
             problems.append(f"ton test passe sur {what} : il ne la voit pas ; ajoute une loi où Markov est presque "
-                            f"atteinte (une loi à deux valeurs, comme une Bernoulli) ou une loi à queue lourde")
+                            f"atteinte (une loi à deux valeurs, comme une Bernoulli) ou une loi à queue lourde ; pour une loi "
+                            f"discrète à un seuil entier, P(X ≥ a) s'écrit law.sf(a - 1), pas law.sf(a)")
     if problems:
         print("❌ Ex M11.26 : à revoir : " + " ; ".join(problems) + ".")
     else:
@@ -979,7 +989,7 @@ M11_26 = Ex(
     "M11.26", "🛠️", 1, 15, "Un test paramétré qui vérifie l'inégalité de Markov sur dix lois",
     "écrire un test de propriété qui vérifie une borne sur plusieurs lois, et choisir des lois qui attrapent les "
     "fausses bornes.", "fiche §4 ; Ex M11.17", tracks="C",
-    body=r"""Une borne se teste par sa **propriété** : elle doit rester au-dessus de la vraie probabilité, pour toute loi qui vérifie ses hypothèses. Écris `test_markov_bound_on_ten_laws()`, **sans argument**, qui vérifie, pour **dix lois positives** de `scipy.stats` (continues ou discrètes, gelées avec leurs paramètres, comme `stats.expon(scale=2)` ou `stats.bernoulli(0.3)`) et pour plusieurs seuils $a > 0$ chacune, que `markov_bound(law.mean(), a) >= P(X >= a)`, avec une petite tolérance (`1e-12`) et un message d'`assert` qui dit la loi et le seuil.
+    body=r"""Une borne se teste par sa **propriété** : elle doit rester au-dessus de la vraie probabilité, pour toute loi qui vérifie ses hypothèses. Écris `test_markov_bound_on_ten_laws()`, **sans argument** (« paramétré » veut dire ici : une boucle sur une liste de lois **dans** la fonction, pas `@pytest.mark.parametrize`), qui vérifie, pour **dix lois positives** de `scipy.stats` (continues ou discrètes, gelées avec leurs paramètres, comme `stats.expon(scale=2)` ou `stats.bernoulli(0.3)`) et pour plusieurs seuils $a > 0$ chacune, que `markov_bound(law.mean(), a) >= P(X >= a)`, avec une petite tolérance (`1e-12`) et un message d'`assert` qui dit la loi et le seuil.
 
 Attention : pour une loi discrète, `law.sf(a)` vaut $P(X > a)$ ; pour un seuil entier, $P(X \ge a)$ s'écrit `law.sf(a - 1)`, ou bien choisis des seuils non entiers (pour une loi à valeurs entières, $P(X \ge 2{,}5) = P(X > 2{,}5)$).
 

@@ -42,7 +42,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M09a](#m09a) | Matrices et systèmes linéaires | 9 | §2.1, §2.2, §2.3 | 16,7 h | ✅ exercices | 2 |
 | [M09b](#m09b) | Moindres carrés et régularisation | 9 | §5.5, §8.1, §8.2, §9.1, §9.2 | 17,0 h | ✅ exercices | 2 |
 | [M10](#m10) | Séparabilité linéaire et convexité | 10 | §12.1 | 8,1 h | ✅ exercices | 1 |
-| [M11](#m11) | Logique, induction et inégalités de concentration | 11 | — | 11,4 h | ✅ exercices | 1 |
+| [M11](#m11) | Logique, induction et inégalités de concentration | 11 | — | 11,5 h | ✅ exercices | 1 |
 | [CP2](#cp2) | Examen blanc de la partie II | — | — | 3,2 h | ✅ exercices | 1 |
 | [M12a](#m12a) | Espaces vectoriels et applications linéaires | 12 | §2.4, §2.5, §2.6, §2.7, §2.8 | ≈ 16 h (estimé) | plan | 2 |
 | [M12b](#m12b) | Orthogonalité et projections | 12 | §3.2.2, §3.2.3, §3.5, §3.6, §3.7, §3.8, §9.4 | ≈ 14 h (estimé) | plan | 1 |
@@ -81,7 +81,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 |---|---|---|---|---|
 | 0 · Remise à niveau | 12 | 363 | 116,5 h | 93,3 h |
 | I · Fondations | 9 | 319 | 107,6 h | 69,7 h |
-| II · Concepts | 7 | 256 | 83,7 h | 54,0 h |
+| II · Concepts | 7 | 256 | 83,9 h | 54,0 h |
 | III · ML classique | 8 | — | ≈ 98 h (estimé) | à détailler |
 | IV · Réseaux | 6 | — | ≈ 58 h (estimé) | à détailler |
 | V · Architectures | 3 | — | ≈ 24 h (estimé) | à détailler |
@@ -2040,7 +2040,7 @@ Les ensembles convexes et l'enveloppe convexe, la séparation de deux nuages par
 
 La logique au service du raisonnement (implication, contraposée, négation, validité, ensembles et contre-exemples, induction et ses pièges) ; puis les inégalités de Markov, Tchebychev et Hoeffding, le rayon de confiance d'une moyenne, et ce qu'elles disent des bandits : bornes supérieures de confiance, ε-greedy, regret, échantillonnage de Thompson.
 
-**Temps** : 11,4 h en parcours complet, 7,1 h en parcours essentiel (lecture 150 min, 22 flashcards).
+**Temps** : 11,5 h en parcours complet, 7,2 h en parcours essentiel (lecture 150 min, 22 flashcards).
 
 **Objectifs**
 
@@ -2081,8 +2081,8 @@ La logique au service du raisonnement (implication, contraposée, négation, val
 | M11.R1 | 🔁 | Implication et contraposée (R4) | ★ | 5 | §1 | C, E | manuel | — |
 | M11.R2 | 🔁 | Espérance et variance (M02b) | ★ | 5 | §4 §5 | C, E | manuel | — |
 | M11.R3 | 🔁 | La loi Beta a posteriori (M04) | ★ | 5 | §7 | C | manuel | — |
-| M11.1 | ✏️ | Tables de vérité : modus ponens, modus tollens et l'affirmation du conséquent | ★ | 15 | §1 | C, E | wbm | — |
-| M11.2 | ✏️ | Nier des phrases quantifiées sur des modèles et des features | ★ | 15 | §1 | C, E | wbm | — |
+| M11.1 | ✏️ | Tables de vérité : modus ponens, modus tollens et l'affirmation du conséquent | ★ | 20 | §1 | C, E | wbm | — |
+| M11.2 | ✏️ | Nier des phrases quantifiées sur des modèles et des datasets | ★ | 15 | §1 | C, E | wbm | — |
 | M11.3 | ✏️ | Des phrases traduites en inclusions d'ensembles, et un contre-exemple | ★★ | 15 | §2 | C | wbm | — |
 | M11.4 | ✏️ | Une induction trompeuse par oubli du taux de base, recalculée avec Bayes | ★★ | 15 | §3 | C, E | wbm | — |
 | M11.5 | ✏️ | Markov : la queue d'une durée positive | ★ | 15 | §4 | C, E | wbm | — |
@@ -2095,7 +2095,7 @@ La logique au service du raisonnement (implication, contraposée, négation, val
 | M11.12 | ∂ | Tchebychev à partir de Markov, puis la loi faible des grands nombres | ★★ | 20 | §5 | C, E | manuel | — |
 | M11.13 | ∂ | Avec ε fixé, le regret attendu d'ε-greedy croît au moins linéairement | ★★ | 20 | §7 | C | manuel | — |
 | M11.14 | 🔗 | Pont : combien d'exemples de test pour connaître une accuracy à ± 2 points, garanti par Hoeffding ? | ★ | 15 | §6 | C, E | wbm | — |
-| M11.15 | ⚖️ | Corrélation, causalité et induction : trois titres de presse à démonter | ★★ | 15 | §3 | C | manuel | — |
+| M11.15 | ⚖️ | Corrélation, causalité et induction : trois titres de presse à démonter | ★★ | 20 | §3 | C | manuel | — |
 | M11.16 | 🗣️ | Expliquer « l'optimisme face à l'incertitude » à partir d'un intervalle de confiance | ★ | 10 | §7 | C, E | manuel | — |
 | M11.E1 | 💼 | « À quoi sert l'inégalité de Hoeffding en apprentissage, et que suppose-t-elle ? » | ★ | 10 | §6 | C | manuel | — |
 | M11.17 | 🔨 | Les bornes de Markov et de Tchebychev · `markov_bound, chebyshev_bound` | ★ | 15 | §4 §5 | C, E | pytest | — |
