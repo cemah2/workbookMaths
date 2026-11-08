@@ -1079,3 +1079,58 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M09a.36 🏆 Défi : un système 400 × 400 résolu par ton `solve`, à 1e−9 près de NumPy, en moins d'une seconde ★★★ 30 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (26 cartes)
 <!-- wbm:end M09a -->
+
+<!-- wbm:section M09b -->
+## M09b · Moindres carrés et régularisation ⏱️ 17,0 h
+
+- [ ] M09b.Q1 🧠 MSE, RMSE, MAE, R² : ce que mesure chacune ★ 4 min
+- [ ] M09b.Q2 🧠 Gradients matriciels : associer chaque fonction à son gradient ★ 4 min
+- [ ] M09b.Q3 🧠 Équations normales : quand la solution est-elle unique ? ★ 4 min
+- [ ] M09b.Q4 🧠 Linéaire en x ou linéaire en w ? ★ 4 min
+- [ ] M09b.Q5 🧠 Ridge : vrai ou faux sur la pénalité L2 ★ 4 min
+- [ ] M09b.Q6 🧠 Lasso ou ridge : qui annule des poids ? ★ 4 min (complet)
+- [ ] M09b.Q7 🧠 Bruit gaussien et moindres carrés ★ 4 min
+- [ ] M09b.Q8 🧠 Biais, variance, bruit : ce qui change quand le modèle se complique ★ 4 min
+- [ ] M09b.R1 🔁 Le pivot de Gauss et l'inverse (M09a) ★ 5 min
+- [ ] M09b.R2 🔁 Maximum de vraisemblance et MAP (M04) ★ 5 min
+- [ ] M09b.R3 🔁 Gradient et point critique (M05b) ★ 5 min
+- [ ] M09b.1 ✏️ MSE, RMSE, MAE et loss de Huber de quatre résidus ★ 15 min
+- [ ] M09b.2 ✏️ La décomposition SCT = SCE + SCR et le R² d'un ajustement donné ★ 20 min (complet)
+- [ ] M09b.3 ✏️ Les gradients de aᵀw, wᵀAw et ‖y − Xw‖², composante par composante en dimension 2 ★★ 20 min
+- [ ] M09b.4 ✏️ Les équations normales d'un modèle à deux features, sans ordonnée à l'origine ★★ 20 min
+- [ ] M09b.5 ✏️ La colonne de 1 : l'ordonnée à l'origine et des résidus de moyenne nulle ★★ 20 min
+- [ ] M09b.6 ✏️ La matrice chapeau d'un petit tableau : H² = H et sa trace ★★ 20 min (complet)
+- [ ] M09b.7 ✏️ Compter les monômes des features polynomiales ★ 15 min
+- [ ] M09b.8 ✏️ Ridge en dimension 2 : résoudre (XᵀX + λI)w = Xᵀy pour trois valeurs de λ ★★ 20 min
+- [ ] M09b.9 ✏️ Ridge comme MAP : un prior gaussien et λ = σ²/τ² ★★ 20 min (complet)
+- [ ] M09b.10 ✏️ Les pénalités L1 et L2 de trois vecteurs de poids, et leurs boules ★ 15 min (complet)
+- [ ] M09b.11 ✏️ La log-vraisemblance gaussienne d'un modèle linéaire et l'estimation de σ² ★★ 20 min (complet)
+- [ ] M09b.12 ✏️ L'estimateur rétréci c·x̄ : biais, variance et erreur quadratique ★★ 20 min (complet)
+- [ ] M09b.13 ∂ Le gradient de wᵀAw vaut (A + Aᵀ)w ★★ 20 min
+- [ ] M09b.14 ∂ Les équations normales en dimension n, par le gradient ★★ 25 min
+- [ ] M09b.15 ∂ Le résidu est orthogonal aux colonnes de X ; H est symétrique et idempotente ★★ 20 min (complet)
+- [ ] M09b.16 ∂ XᵀX + λI est inversible pour tout λ > 0 ★★ 20 min
+- [ ] M09b.17 ∂ Un bruit gaussien mène aux moindres carrés : le maximum de vraisemblance ★★ 20 min
+- [ ] M09b.18 ∂ La décomposition biais² + variance + bruit, démontrée ★★★ 25 min (complet)
+- [ ] M09b.19 ∂ Le nombre de monômes de degré au plus d en p variables : C(p + d, d) ★★★ 25 min (complet)
+- [ ] M09b.20 🔗 Pont : la loss d'un modèle linéaire et son gradient pour un batch, prêts pour la descente de gradient ★ 15 min
+- [ ] M09b.21 🔗 Pont : pourquoi standardiser les colonnes avant ridge ★ 15 min (complet)
+- [ ] M09b.22 📖 MML §5.5, §8.1 et §8.2 : identités de gradients et minimisation du risque empirique ★★ 30 min (complet)
+- [ ] M09b.23 📖 MML §9.1 et §9.2 : régression linéaire, maximum de vraisemblance et MAP ★★ 30 min (complet)
+- [ ] M09b.24 🧮 Fermi : la taille de XᵀX pour des features polynomiales de degré 3 sur 100 variables ★ 10 min (complet)
+- [ ] M09b.25 🗣️ Expliquer la matrice chapeau : ce que veut dire « projeter y » ★ 10 min
+- [ ] M09b.E1 💼 « Pourquoi ne pas inverser XᵀX, et que faire si des features sont colinéaires ? » ★ 10 min (complet)
+- [ ] M09b.E2 💼 « Quel lien entre la régularisation L2 et un prior gaussien ? » ★ 10 min (complet)
+- [ ] M09b.26 🔨 Équations normales et résolution, avec ou sans ridge ★ 25 min
+- [ ] M09b.27 🔨 La matrice chapeau et les trois sommes de carrés ★ 20 min
+- [ ] M09b.28 🔨 Compter les monômes, et la loss de Huber ★ 15 min (complet)
+- [ ] M09b.29 📦 `np.linalg.lstsq` et scikit-learn contre tes équations normales ★ 15 min
+- [ ] M09b.30 🔮 Prédire : le R² d'entraînement quand on ajoute une feature de pur bruit ★ 10 min
+- [ ] M09b.31 🔬 Simuler l'estimateur rétréci c·x̄ : le c qui minimise l'erreur quadratique ★★ 20 min (complet)
+- [ ] M09b.32 🔬 Le conditionnement de XᵀX avec des puissances non standardisées ★★ 20 min (complet)
+- [ ] M09b.33 🎨 Les lignes de niveau de la loss des moindres carrés en dimension 2, et son gradient ★ 20 min (complet)
+- [ ] M09b.34 🐛 Chasse à l'erreur : XXᵀ au lieu de XᵀX, un gradient de mauvais signe, un R² sans centrer ★ 15 min (complet)
+- [ ] M09b.35 🛠️ Vérifier un gradient matriciel avec SymPy et par différences finies ★ 15 min (complet)
+- [ ] M09b.36 🏆 Défi : approcher une fonction par un polynôme de degré au plus 5, avec une erreur maximale sous 1e−3 ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (26 cartes)
+<!-- wbm:end M09b -->

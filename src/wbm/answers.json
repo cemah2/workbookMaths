@@ -28836,6 +28836,3153 @@
       },
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
+    "M09b.1a": {
+      "decimals": 1,
+      "element_hashes": [
+        "96ff4c343b12e9ce8c3e97fd22df848006c7b2dd45a6aedba51429604a338948",
+        "956463e62b4c5ac123b5f8823bf0f5fe55e8fc076721c548c0762ab5f02a3ffb",
+        "99599d8c45e5b2dfab951826ed59a25b9889b40cdd3958e122dca09cf38ec820",
+        "c60da713ef0211a194c7dcf94235816c3867fd22eebbcbc0a1426e46379c1c5a"
+      ],
+      "hash": "1df1615c50d539569d57f24a8098df887cce7331f7ec3088a2b3894e751d577f",
+      "kind": "array",
+      "mistakes": {
+        "3ce13a4f8d884fa75629de1bf013d83bd549bc6c386a4e37e6eb001fd94769d8": "un résidu est y − ŷ : la valeur réelle moins la prédiction"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.1b": {
+      "alt_coarse": [
+        "e939e0dffc240e343e026a15b1d73acf529dfbf25c433af54443bd65fb34919b"
+      ],
+      "coarse_any": {
+        "0": [
+          "abe445ac0b8f634012169b55703b4be72864262b2371e15e66f30f563903c923"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "6b829b1d5ac229b778b9a33f9055ef58e43582d73eae74a986cfb91da9f1be88"
+        ],
+        "2": [
+          "5a55a23a8bdb91f45e62897c39481091c52678369a9a8172b42bf1940bed8683"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a25904d1b1ddceaa40f857b6148663229ce97d2330a4786f5e4fb97eefeda951",
+      "hash_coarse": "b222232422b3e7d90e1c507dec9f376d0d67d8782182dbeeb83935067a2a746d",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "072b9a15d91155af52841872385000e954a21b2b56e6ac534db065ff1e26d882": "c'est la RMSE ; la MSE est la moyenne des carrés, sans racine",
+        "2872da1216c3d9ed2a743b29e175cdca4b42de2fed9d5c49ad8752119fd1234e": "la MSE est une moyenne : divise la somme des carrés par n"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.1c": {
+      "coarse_any": {
+        "0": [
+          "1ee9e0c32fb806385cb0bef4d74ea4e3219be19820a8d22ccd34ad90cdd64808"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b68e29a34b508c6ff0ff884b6428c2f21331afd4280776cd1aa68e0c124a92cb"
+        ],
+        "2": [
+          "35564c2993fae91324bdb54c6441fe08de8230580b0510cc69573c23e89b7bab"
+        ]
+      },
+      "decimals": 4,
+      "hash": "93441e9b9718409aefe6c7878d7e91730345a93fa80c800d77b78e1d51ee4106",
+      "hash_coarse": "3e42fc177feac240a3b5ac0d623118c0065d9f7813c2b01692420208b810bb90",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "040fe0e6cd09f89c35553e70c0b7089a044f8ac25e9c1950889c38ec71fc6ea1": "la racine de la moyenne des carrés, pas la moyenne des valeurs absolues",
+        "b2788e269eda59d7548dd10d365a31fe869ff6c6dde79b81d48f494c1f420454": "la RMSE est la racine de la MSE"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.1d": {
+      "coarse_any": {
+        "0": [
+          "e401a497b2fafd919551020e2865233de97926fb5a32cabd757b474a68ef830c"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "bf4ccd11e1e52ef703ea31dbd8d22d7a167d055dd5ad737c1f1cc90a28e64566"
+        ]
+      },
+      "decimals": 3,
+      "hash": "817f099b285bdddf4bf8ed853cb8fdb226dde4b046fac3f38df4059af4151793",
+      "hash_coarse": "edaecd1a29d0cc802f07e2d619619e0fd9ba0c52c4c5530edea9a8ecfd8945d8",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "2f530ce6cdc07a486835da3485011849d4379fc8711730b086e39eb062cd5692": "la MAE est la moyenne des valeurs absolues : un résidu négatif compte en positif"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.1e": {
+      "alt_coarse": [
+        "72bc8f16535ae05f836354f10957818c5f67e2f9e694f8a29bfe4e8bd713e798"
+      ],
+      "coarse_any": {
+        "0": [
+          "567f047b0e3721b791b17d7407300a9fe94515bb6a9bfb8a1e4fae31064ea6ce"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "cb8b5be1490d5686b24074325df9a18920a28a2c7f689eb1821daaa90b3eb85e"
+        ],
+        "2": [
+          "083c36e3b8876268f948fd2658ca0b068dfd1247bcd962eada622a01c0034d8a"
+        ],
+        "3": [
+          "32639138baf21cdc505cc1c674b9502ff98122cced321a9e6cdb48b3e20d754d"
+        ]
+      },
+      "decimals": 5,
+      "hash": "47e7b19d0618244f5f99ba67c820b7cef77cbf323757b620da51b8e4069ed150",
+      "hash_coarse": "525774369a7d3761c09256cbee0e9d26d1e78892743bd7901583129fc66b3b43",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "81c09115e2f21cf0fe9f2f77b00fb7a89a686cd2879a0ac8e9ce462b10d2cd35": "au-dessus de δ, la loss vaut δ(|r| − δ/2), pas |r|",
+        "c95f497d99303c56cfa55d783ec4107ac71021435120d643376b4f796b1da755": "sous δ, la loss vaut r²/2 : le facteur 1/2 compte"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.1f": {
+      "alt_coarse": [
+        "1c26f0c2e4f1eee477bebe54105a15606256f1b016bf75b068963c722cee7886"
+      ],
+      "coarse_any": {
+        "0": [
+          "25f2c206619d0e60c2bb202c07114d56a719c6200599b2004229f5e1b87a2adf"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c8ec0d589ba93f517c8e21f3c234fee5ebf7a6096a9205e86dd45e6f27a97157"
+        ],
+        "2": [
+          "91b07248679d79191769d276c8f47524df6c8526d86d59d01a3f89ad9678e8d6"
+        ],
+        "3": [
+          "8c2b2a1e919d5af8f07884745e02e5f60b449dbf58355c1d3049f7f39fcb343a"
+        ]
+      },
+      "decimals": 5,
+      "hash": "32909b60815ffcdc281c7c2fd7d34d85159c4f600f17fe8ac31ab3b4d871fa1a",
+      "hash_coarse": "f6dc04e15b70d85350bc91c5233bc07e6bedbde061cd669cc5520f777c53fa32",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "77c7356108afed74a7b5adc95eaca35328c85aaf78ae05694887b059612b8290": "sous δ, la loss vaut r²/2, pas r²"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.1g": {
+      "coarse_any": {
+        "0": [
+          "63d2cb373416991b901f44097bffcc82d35b5df6bb8386cb85adcc99bef37d51"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b8290ee0eac3830fca2649455ff0339a32f17966128f712dd1a7d626e1be4584"
+        ],
+        "2": [
+          "36437a6e19dad2d71b64888d68e41d8ebad547a62bdc44ca0881c9105b241cac"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c7097f07adedd5ce8358634fb2d162c43cc2d136245eb33fd4526409b73b98b4",
+      "hash_coarse": "6e2dfa86e81aba7e8c54d67ff1cef5ccc08c51186e190b10fb8e4f61b5548d7e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "a555022b67f24016434e8c10635e1e590f402160b58d801492d60b307b3294ce": "la MSE est une moyenne : divise par n = 4"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.2a": {
+      "hash": "bb80e248a3d01a8f00b65580c57584c66107a988f70864254c4505ac76c77370",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.2b": {
+      "coarse_any": {
+        "0": [
+          "08b2241dac3cba28bb4cd66d00a46f85bf6bd193e46d7d85e16e8be2e6193d5d"
+        ]
+      },
+      "decimals": 2,
+      "hash": "ac484e3f81a67db045b2c279656e9e33092095138d165950bb2ba421b0b6888f",
+      "hash_coarse": "7e85b1069435a2f2289e0d062c301ee39f8d2ce1ff4b4b1f1c00cef7c7bfb0f2",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "12e44c9ec37ae328ce631d1638dc922478b2277e0666937871580e99e28c8631": "SCT est une somme de carrés, pas une moyenne"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.2c": {
+      "coarse_any": {
+        "0": [
+          "befd1228c55140d42290b443ab50558178fb1ab72ad658576a033b80ca752c56"
+        ]
+      },
+      "decimals": 2,
+      "hash": "a05fa71971fba10bc44a81d2204bd855d82decd88f873283ac5f724784c9d10c",
+      "hash_coarse": "f3627f4d555ab2b4d7b5c883b4320d85605c7648d126f10e866c925abe579b67",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "d9208b5126c4c2dd5136bcae64d3d73b9090379564872a549d138ab30ffb7a1f": "SCR est une somme de carrés, pas une moyenne"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.2d": {
+      "coarse_any": {
+        "0": [
+          "e2c472d429dd9b8365c38798f22bf3b454d296742f397af5669183d9a5420c81"
+        ]
+      },
+      "decimals": 2,
+      "hash": "3afafa9fe14190110297a957742e202275a4cb86e482c1493d338ec2b2d3ca3f",
+      "hash_coarse": "7783ec7f1d60f03b6cda59596d9fde152e7dc4125e4b735d259f9f6873b764b1",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "da63690a1f1c4b5bcdd6bf777092e18c5e51366eca26cc9b24138cae1f231dab": "SCE compare les prédictions à la moyenne ȳ, pas aux cibles"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.2e": {
+      "coarse_any": {
+        "0": [
+          "9815fde41c0813acb4bd7eb9239a5a2dec2a3809db472e938a8dee6a2a7b545b"
+        ]
+      },
+      "decimals": 2,
+      "hash": "cee476fc7d4284b959a3cbc9a4fe9dfe03b1766a0d581a79d2bcf37d0da525e2",
+      "hash_coarse": "d9ce1adcfcf1fa52ee2e5d308446063080bbfc19aca604d39235cfe3828c9173",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "f4ffbe10c50a2309e3f4589fd246a0fdd13fa0336ae0c93025aa3c8b0e66fb0d": "R² = 1 − SCR/SCT : ce nombre est SCR/SCT"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.2f": {
+      "decimals": 0,
+      "element_hashes": [
+        "3bb1e292a34d39c8b1edb8089ae0a4177e43e1a82f46e7b7b753743c18d3cc4e",
+        "d0aed6dd8b1dd0b89a5b34c52c4dd9e9c815be4f6d22c7e34f92e56a1bfed7ca"
+      ],
+      "hash": "da5988ca4225da19024db6dbe2ebfeeff6ae4878a1f31c0b167644fac7dc2ac7",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "34e01ec181483ae6e8d8e5b8d50e356d8876d41f871951431b609769edf7e124": "l'ordre de l'énoncé : SCR d'abord, puis SCE"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.2g": {
+      "hash": "ff207f34c96e7f79c9548bf0fbe7a024198e622cb8a156a3cede04301dfc69d1",
+      "kind": "fraction",
+      "mistakes": {
+        "5cb6df480bb64c31bb9f20dd9abac38c74c340693d177122b034779e63a3efca": "c'est SCE/SCT ; la question demande 1 − SCR/SCT, qui n'est pas égal ici"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.3a": {
+      "hash": "c439f646b28e6ec915d2fb34dd847c862a5bbde8ee6afc7739b1c61c5c936cc9",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "bcfc09466045c84596d917b3e1515ed4cae0e4eea96e2a1908a3f0cf42b949a4": "a·w = a₁w₁ + a₂w₂ : attention aux deux signes moins"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.3b": {
+      "decimals": 0,
+      "element_hashes": [
+        "38507b874689472b1a67f9a628e1817a9afbd960452758164c7bf5a85d5217f2",
+        "07ba2fe5ce870444a914bf19d699dda0479b065d11fdb25a9c5d742c8ba1cae4"
+      ],
+      "hash": "8633edcce7a30a00e0af6f438e9e9aab385bfc33301e214b5d229f3ba844f69c",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "6996fa6dcc25f24a40e081509b76de5d0a77ffe0c317306930563417ce06d20d": "le gradient de w ↦ a·w est a : il ne dépend pas de w"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.3c": {
+      "hash": "bce92e8fbfbb375eb5b01310e61317319f28a4ace87a1e494d05be254c010bd8",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.3d": {
+      "decimals": 0,
+      "element_hashes": [
+        "bb3ecb0a3b13fa6a06ba282c66c908aa68d809f079b2756b8a55dd53c7f8a2eb",
+        "c99dc493b03d8fc7006723d10e910638e5288dac8e1ef72a261125b9f32c7f0f"
+      ],
+      "hash": "bfdb40d3637855ac3d9b399c0f00a41fd737e4f69b2211a70420c43692354fb5",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "05bf676323a88037488c31dc610148b7c8b2bba2bb65623b6359ebbc00468d33": "c'est Aw seul : chaque produit w_i w_j se dérive par rapport aux deux coordonnées",
+        "bc26f8549f2c86f41e6dba7a86ef27bf284b647ee0fd60ad9f23843d88e2b847": "A n'est pas symétrique : le gradient est (A + Aᵀ)w, pas 2Aw"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.3e": {
+      "decimals": 0,
+      "element_hashes": [
+        "483625b2de0a6a8a90152ae0eea6b1d5d27e0fc557953342ec4b49303af4adf7",
+        "c9ff7b350c51d28f55af7e0011174f632b047d388c040d962711eb18743beada",
+        "70aa34c51771a23d8a5ff59d6e1f376238108b882e2e5201aef50ef23998d225"
+      ],
+      "hash": "8429ff118e29b0f83084f1dc787d67a164c3c7ee6415e4d4325dd57077ace921",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a6389ea86aa38551d74eb3999676c240f87273ec91d90243b3bc75a0c9abd94f": "r = y − Xw, pas Xw − y"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.3f": {
+      "hash": "c11ebe096af40d158017833d4c6191736fa50f54bdd5822e8a00d680a3e2b05e",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.3g": {
+      "decimals": 0,
+      "element_hashes": [
+        "286de6c725342185271409ea5896e328b7b67ba8f3dca1fc6703e115fa5b26f3",
+        "ca49182e21554116d0c689b8b8d575432d03a49a72f9820bbcdebbab650c0a2a"
+      ],
+      "hash": "cb82a9cc65921f88f33bba86ba9e839824f2f5b51601dac85888cf04eea2a8b3",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "395ccbbcfb0ce5cba4071577396b3c87a4e21c10a860f2f4e5662fed235f9548": "le gradient est −2Xᵀ(y − Xw) : le signe moins vient de la dérivée de y − Xw",
+        "cf562f0b076851cdb755e2d9857cb544099741b20f0e50b8ff55c3e7f6c4555a": "le facteur 2 vient de la dérivée du carré"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.4a": {
+      "decimals": 0,
+      "element_hashes": [
+        "75f468536d167146f2e62fcfe9cefb130edb15ede8976e120d92de73ff14c193",
+        "c0de4a5739676afa05ed8084f7d637126dbb7793e4fced88497c8c0db511145d"
+      ],
+      "hash": "fae40189446e49e2ced21d66da395d8e4eba053e2b3323b0a909cb4ef8faf3bf",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "44cb8e532e43486cceb0eedab28af9cbfa12ba59c7114c1f0a81f8acd87bd499": "XᵀX a une ligne et une colonne par feature : sa forme est (p, p)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.4b": {
+      "decimals": 0,
+      "element_hashes": [
+        "cf0bcc065827bf503e79dc3aa202ddf92decf25bdd002510fc442ac77600637d",
+        "f3f900e97f687630bc0e6286ee87dac81b68577d4750fe155253e6b9ff460d83",
+        "e473422220e7830de17108124f621a88f02038b16314f09da705903be81055f9",
+        "e049a66f63a50048dd24b0997576590fa5dc938cc9a24e7c3ffbcee222a0dec0"
+      ],
+      "hash": "249f2637a35722673db9b14fed6868c3ef4d7186779353f40b55f195d740889b",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.4c": {
+      "decimals": 0,
+      "element_hashes": [
+        "cedc095b99e872449d2c33ad3e2db60367b2bc2defd721f7f06fc949a206ee17",
+        "95d7e1a686d0d70d1b2a01e987a5e112ac35ebb36d31f13224ac6fa40d45ea67"
+      ],
+      "hash": "e4ff4f22b04d5fb4ceaefbea5c6bc1b1566546bd219e779260ace6a078c1183e",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a413af9318fb0a2c4cfe1bf183b65506dd38b38cbe5d9f706d8a18b3bb9d0250": "Xᵀy : la ligne j de Xᵀ est la colonne j de X, multipliée par y"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.4d": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "df6a7de3dd626626776e739d52125522ee4cac1af4c41011ca037cc4fcba23c4"
+        ],
+        [
+          "38c374491917e73629cc0fa12a29afac428b18f78839fa55bb9d81fcc0b728eb"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "02d0f8705ac5ee58917201645d30851ba0e7661c8cd0a575b443fcbea63dfd05"
+        ],
+        [
+          "792d67fff10e80c7b8910ff47d28752202d6398ce13f21283943a9ecf858a5f5"
+        ]
+      ],
+      "element_hashes": [
+        "d4152fd796b18b3bcc3f4dd1f12e6de2ca15615926a879f7a0363e2ae0e1e1f2",
+        "b1181dff4bb1b9d89a1412bf7c9b8ac440775bbbcb2219d935ca5ed490f065b8"
+      ],
+      "hash": "8b273227ae2ba40e3654d6761b53fa5a603235e06c5e49f104ab0d20a523dcc7",
+      "kind": "array",
+      "mistakes": {
+        "696df9876ac8161077060b0fc4d8775e2231bc209f4e108f31cfd95387cfef2d": "l'inverse d'une 2 × 2 change le signe des deux nombres hors de la diagonale"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.4e": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "ed0f5ddff272ac6faeb40f461bd68be9ba62e6060534e98e520a577984e1c241"
+        ],
+        [
+          "b67a37a19b1bf75817b519dfc4d2691eebf71118604c0edcbc838e9c18178595"
+        ],
+        [
+          "84dcbf52b24d2b62d385971641468c037aa80589c978876c659fd9530f989791"
+        ],
+        [
+          "87df5f4aa2e71d819a5dc1bf64780a5b2093a9853926df74d65b876a24e574e4"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "a5f004bde9e51fa558492f09c8da079894a76dc3290b481d32941950e6395707",
+        "62ab21f8cc57f64c9945fac347ffb4bc74c494e66d3e6371e03562d722122257",
+        "e2f933770656d098ac9a456ccf28b3885ab6c24e387ad329223e0aa64c2ef2be",
+        "93d6a635162f772db5fd568ad661f9785cea3f0b92b0e8637e76532b74aa4861"
+      ],
+      "hash": "39661330beba725236e94b78a65cd75db84d7d92184584ecb3f8f7e496489202",
+      "kind": "array",
+      "mistakes": {
+        "54285f4b5609d88a5ac435009e00ddc25e4e3aed177f6a440a36b60cffff3307": "r = y − ŷ, pas ŷ − y"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.4f": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "4ac63bad6474b6a3028a3bdd694c8eea14975b0ec6f79f106d0b217611fd38e8"
+        ],
+        [
+          "53db7d1b836f194d992d2bdf4141a1be31c3abbba7639cf42b0511896929ef90"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        []
+      ],
+      "element_hashes": [
+        "bbaeead61a7f56fc6ae6767232a357f9acb7ae447926b7f0fd54745123db0794",
+        "8152b16078674241e7220b071e032dc92d0be1cdbbe3ddd8c6cbfddc8b4642d3"
+      ],
+      "hash": "96af31b24b048504f4c435b40b997092a8b9bdb0f00ba2759381d11040c95342",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.4g": {
+      "decimals": 2,
+      "hash": "540ecfd45646bba073a5ecfd8a28b06bd81dbc0736b82ffc0889f7005219fc46",
+      "hash_coarse": "62fafdbecf6c96a2354f8087f51349f9a952dc99a86762210f095722313bde70",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "33c4ee75a0820797e7a08d64d5cd79ddffaf04971557e18d0c3703bfb37eb1c0": "SCR est une somme de carrés, pas une moyenne",
+        "d1b87c3f29334849500bc4e4f87577360ba4789fdebbdbfcc71c94c3ea78e41d": "SCR est une somme de carrés, pas une moyenne"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.5a": {
+      "decimals": 0,
+      "element_hashes": [
+        "01f992317ab45b314c31716af03ea31b6adb7038ca6e5264f5ecfe46ce4e6c98",
+        "3328e32892baab86d34457a2856bcaa99a367bde0c45b3737eb685e0711be412",
+        "0fb04379b8d3583d9b5da4c2584417aa3a477f6e4527e61a30df0f61e502870f",
+        "fd6ac335ff00b5b8d19af9d29a29d784ffc6b1b2db55d1fe85d8dcc832742534"
+      ],
+      "hash": "f3d66171aa6930c784dc383f7fbd13f66009c0321439a3bd04ba0e9fca2bdc48",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2791fd6c2e0f0726907f8f0cf16202ef49925a07430c94de1113280b09fdf315": "le coin en bas à droite est la somme des x², pas le carré de la somme"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.5b": {
+      "decimals": 0,
+      "element_hashes": [
+        "0b53e3f5c6057e09717f82eb26be19193a2c423ee448f6f844ae48d530747353",
+        "461051ca3fca5a72ca1c339803ee0c3d57f3897ff0173ac5141b47863a5b16c6"
+      ],
+      "hash": "72b308676ff1cb589ad33841739b0453819c1901f32393a5916e9d01b0633229",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.5c": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "3d9ce608634c7a9b7b3995a87dfd40a9274305b5b33592b19488622831007b36"
+        ],
+        [
+          "33c14498151411dcc00f8408e876fc91b56c2e90c231821355a91f1441dc232f"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "7f1fed8939b4ea676de60b324c858e80d119610d606a4680262837026dc62537"
+        ]
+      ],
+      "element_hashes": [
+        "ea202d8301b129eb9a548d932b5238ad10fcd4bb027476cc0b44623a3c68e05f",
+        "cb13dbe45fded44962239906591ff35ee7ad4712e7e5839e850f08f7ccab8033"
+      ],
+      "hash": "86a57b522fa14fe055eb2f19a61efc9baee75ed09b85aa24cfc4a2dea48a6970",
+      "kind": "array",
+      "mistakes": {
+        "fef5dd73739769fa06e4f68d3b3c5c6108f13e8429ab0622b69509a418ac407e": "l'ordre de l'énoncé : w₀ (l'ordonnée à l'origine) d'abord, puis w₁"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.5d": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "3a592b18df9c5c8dfd1e89582754b24f2abb44fdf56b17a7e5a47f1470da78b3"
+        ],
+        [
+          "38067e1c81e0cefc46d3b3e7b0ad1d5a546c13cb9cc62038010a7d7d5c3cc417"
+        ],
+        [
+          "f890aff4b64a94af0cabfa01bf4485ace22e2dd147653660ba93d4e51b6dca45"
+        ],
+        [
+          "83642cc7e978fac9aa5c527a3bbbb090854122ebb0adc6a0d6bab54e7b1bf4e3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7b282b95b03d7f5b670b6c47c006591c6d4147edb05b13e494b9511f7dcfb321"
+        ],
+        [],
+        [
+          "8d04723b4c5237e7aaa2e55fb4ffe653f5a830aefba005e060c01ed92a288f32"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "e0c717b4e014934626985b2a704d99b010110c4bccfd4599ff61bc5891de03c8",
+        "0b3ab0ad8f427cf00b4aedbc7f217cc2cde0b76abfb6c90f0d189619304a60b9",
+        "2b4d4d955b76469cf6f410f802c0cdd27f890ab073f73cbcd7fcbb317ceff00e",
+        "a3909f31657c66d009879c4fcae677f5b95e5adee3d9200a0ac700e968458747"
+      ],
+      "hash": "d89433bcfd9eaf36b55fe943266601f08e75d4b64245bd4da6f1be0e23f0ec8f",
+      "kind": "array",
+      "mistakes": {
+        "3a02b52249774f2bc96ee47386c3654b424ccb92f54b7828ef4763d52f129553": "r = y − ŷ, pas ŷ − y"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.5e": {
+      "coarse_any": {
+        "0": [
+          "6859ea8af384342df359426fee6094ef703687e447aea7a556da68970fbf7ef5"
+        ]
+      },
+      "decimals": 2,
+      "hash": "c40e3c1a858a28842471f4cc3196cb68cdefddd552fc3481adba8b26528175ab",
+      "hash_coarse": "5b52d97a9d8286b65361358958f0fe33cac0d8dac919dec354566d71a586dd83",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.5f": {
+      "decimals": 0,
+      "element_hashes": [
+        "35341ac19ca8d9a590b64d2847b01aa5d36bc6f8c43f8985597e847979b45d12",
+        "cc28191018cb6e9336521c60a1a86d9c0b3408c0fcda7b2bc8dd9d1101307165"
+      ],
+      "hash": "a6f6bb0de72a898842d42fbd22c3477ea3578aca273a2fbb1940fa40c8c332ff",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "d14a99f9f0d2b936737143c9771e7bcf1997910ca7e6a1d3fb9498f949771aac": "l'ordre : x̄ d'abord, puis ȳ"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.5g": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "58a25585367a473f50c05370c951d9df8c5ceace8566a2cb3939f33a30f1c50a"
+        ],
+        [
+          "50f1052245c0fc0b0c4ecb5e0c16b9881957edae9c4d958dcc1a950dbd3dee42"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "04901ecdb4fd9d1ca9e547f56f7106c89718163ded7426921771c81ca2bd9abe"
+        ],
+        [
+          "2bf5fcb6f8500e9d0e34c3945f68b38363d2d1e1d8f93f606b71932a4174896d"
+        ]
+      ],
+      "element_hashes": [
+        "584cec70412ee3384c19a250a99fd4e05a8934845f1786350ff1dbe77a5de8f3",
+        "79191171fcae9d473f88d76b4e035f29391801da22362a3fe32f66493c0339f8"
+      ],
+      "hash": "c1b77a899da5bd41ec6ab37e91e4f1ed268dad4399044e17232c9414b2ad462f",
+      "kind": "array",
+      "mistakes": {
+        "387e9dd8d6d682dfb038d87894e512ead6a45a8fa9711646d2344a436761f0d0": "centrer x change l'ordonnée à l'origine : le nouveau w₀ est la prédiction en x = x̄"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.6a": {
+      "decimals": 0,
+      "element_hashes": [
+        "79e5814768a14f89b092493438e68df0989591394747cf65e0803756ee111c58",
+        "c0194d8903b1de5a8f1929c43c549d82d77a5bbea37922b387b1ff06897ed4ec",
+        "f418c3efe66707e575102be019cfd320a0e43705c2d3839391416a8e2e25eadf",
+        "0a25ea56d960654880255a27bcfdf24a0b39378eb8aec71985b9e4c5a9a386a3"
+      ],
+      "hash": "56e0789d5d18af6986c3b8ea4f124be359fce353e75b72de309be4785ba5e715",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.6b": {
+      "decimals": 0,
+      "element_hashes": [
+        "a3955434e9995d71fd75e06b077ce91872208bcdc83580b2336329528c0b86c1",
+        "9deb3edf4df7ac7533cb704161a0bed8b7b872b9d5762b5841e21eb149177a85",
+        "942548bd990814cd435ee10ae479127f44a458b6a453f31811e9d6b0fbdaf040",
+        "4a3e0d53f4619c068659d896257077f770f35d6704017d0aa6e005cdb71aa675"
+      ],
+      "hash": "af79490f0429fcf9836b68ad2e72a208f857ee0a7dadb72dfee1e8d87b03403c",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1e6d5cd02ddf6500d1f61b9f15ec85fdda6cb21fd48f373ce505bd6c72f8b97e": "l'inverse d'une 2 × 2 change le signe des nombres hors de la diagonale",
+        "30e5efca50633416d7b14d21d5eca5bcabbea270a0022f4e15cade67b542c115": "l'inverse d'une 2 × 2 échange les deux nombres de la diagonale"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.6c": {
+      "decimals": 0,
+      "element_hashes": [
+        "574480b052d5b1eae2e945f975e145c88305efb7ac3f3c60ed525fdacf0bbad6",
+        "ae5ae27002305baf27b2d5ba1ca44b58dc922fd2c85f0c83b34d25d6c41375cc",
+        "2dd88d484284db0c627d4fc630840f7f21ef78c5004995f7d7079d63ba00192b",
+        "16bff5450187185169e836a349f7ea460bfa6e6a127cd2a45ab6efde08ce8448",
+        "efa9f68146d692b0ae21531bc518b033a8c042bcb036f061b36f1ddf970ae333",
+        "a1cb26a44e7af922116f4e3b7a965be0b12171f96f1dcda2ecf430c7a9b58b63",
+        "ed747c2557567846c7f1c1e3d251db1ee58ae5435d8acd5e6f409efcbcbaa1b6",
+        "7fa27089207290c4ea8333d40b3bffb9586d7dc5215138f3f64b406a525f2c39",
+        "1c63d7cc5ee4e8f0ed9c0d0030dd95ab12104879bf817a9329d5f2ec92ff3955"
+      ],
+      "hash": "5e08a697e7e9bbdf97f43dff3a1a82eb0f9d9bc1c4b9575b5591586b746c8350",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.6d": {
+      "hash": "713b998b9a1e2376fec33de12200bee2bc30afa5ef9615d23b599537aa903537",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "33e7f7cfbd22fda6732fd477bb053dbea9f9d68cc574c2bc59da7f152adfdf54": "la trace de H vaut le nombre de colonnes de X, pas de lignes"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.6e": {
+      "hash": "063987d1f3f0c594fbba178bec22df55230ef1453228b3d92efa3d982b9c6338",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "af8e421ee3166fb87ecb06740e08b96f99ff8b9b9ba85fae19962306f57b2b1c": "le levier est le nombre h_ii de la diagonale de H : prends le plus grand"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.6f": {
+      "decimals": 0,
+      "element_hashes": [
+        "72d342c81b63ab06ad167e41ef3ada821b4522c737b436638e78130f7fe18e14",
+        "5eec216bc4398e52f944ee86f96023817b317febe3a06c0057968b9cdaf399c3",
+        "225cc3339c704b2ae3c8d4da9b675cb1437103b18106a449725f7dcd6ecda055"
+      ],
+      "hash": "d09dd6fe95295c207c0bf373b983f95b77de625c485a67835f15063d44bafe43",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.6g": {
+      "hash": "814307c5a26f3d860f29a185fe5609b8b5df37d075ca6ae579e1ac079f119837",
+      "kind": "bool",
+      "mistakes": {
+        "d4b6b3a6db642f3bb37fc3b73adb8445d9dba5521487e3eda5ac8dd3ddd9cf9c": "H est la matrice d'une projection : HH = H"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.7a": {
+      "hash": "f6939452384d4c3a7e0066e539df4ae5a091daa35def32a6eb1024540ab63017",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "03e39e8b1411567ab6eb2cb5187485c699bfc8ff475596ee21907d66cac4bee5": "compte aussi les produits croisés, pas seulement les puissances u³ et v³"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.7b": {
+      "hash": "160b07bc90f76c2ea0680fde9c4c7d43fd2ee93e004f33724ecfa47ebd43ec0d",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "9d28aaa5b55e94609daa3772cba499ac5d956fab692c3fa4373ae90af9b20303": "constante comprise : compte aussi le monôme 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.7c": {
+      "hash": "7b461d8683c1c474caeaa6a89a73a04d67b694c81dcf0af0b5df337430e6c822",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "130b2a630a13d027ff091c83738111fdbe9434611a7f97c336667700f2f2dc93": "sans la constante : retire le monôme 1",
+        "63eb2775b54dbab860ad1e18f9bb2de299acdf973a5a6fbb75bba62c32d1fb8c": "compte aussi les cinq monômes de degré 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.7d": {
+      "hash": "984fba338ae2e6ddc57113ea69e62bc7cca209924c913cce24cd1db457e7882f",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "208a900cf01418fbe702adf1a58755645395d7248d63963d86b26fa977bc0c03": "sans la constante : retire le monôme 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.7e": {
+      "hash": "872809e8a318e9fe0ba2a75cc2fbe29f228dfb3697a23e58e478ba6d69bb6585",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "97a31115e708ff785170eb5a7b3664cfe5d7cba7925650ae4ac5747fc41313f3": "compte aussi les carrés x_i²"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.7f": {
+      "hash": "b194119eb4a904d5999d0a6d798df6bc6c693160023b5823c1c92224c79ac759",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "621a812af5d324f96a30fe91272f616f5224addaeafac445ed3a1b8825304dcf": "une interaction est le produit de deux variables différentes : sans les carrés"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.7g": {
+      "hash": "54a1e10217597cf51f9ce68a9845e29efbffeabdcbaf6c346847da13aa4996c3",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a25e9e482490dae81c234da08bdd097859e53fd2a4e18fb93ecf295353e522b2": "plus de 1 000 colonnes : écris le nombre de colonnes degré par degré, constante exclue",
+        "c60bad44fa7fde3c7944448ad5a83f2ee02560273fc0feabe401139051f0594a": "plus de 1 000 colonnes : écris le nombre de colonnes degré par degré, constante exclue"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.8a": {
+      "decimals": 0,
+      "element_hashes": [
+        "11439ce694ab0e1a92152ba249fa5c95e46cb98460d6105e5287955b13960af7",
+        "9b60df616f6c940c0e3862a2f628034e74564aea5fb8011d8b0f0ddbd9d71017",
+        "7e34d02285074f2c6baa085a8ca0fa1b1203a70191d511777543e4ba40278c33",
+        "d5709ab0cf9505048b452c88fea47b0789931e777c7678086a887184a1e41bf4",
+        "2bfe1ec5759af1c3091fddd8c5d55caa4468dd68041e895878e8f440b5a59e92",
+        "f95f45c36b4c3351e938a2112edaf13a81ea9162abaf90212d0f60068c8939c7"
+      ],
+      "hash": "1169e129fedd41f4d7cd32762d7bbbf56395125fc685dfab70a04d3ed2dfa70a",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2,
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.8b": {
+      "decimals": 0,
+      "element_hashes": [
+        "6d94faae10bab8f7f057bc1a597bb9c7a81570a33f2ecbe2a26047d8bdb95ec8",
+        "e52d8bbfdea2dcf69ba424b4b497a5070dd002890f455ce6d726d32a89970340"
+      ],
+      "hash": "1087cdeb010a5009dc5aceef533a8cf2e7f246472f11f00dd2e7d97a1a95a939",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.8c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "25c57ba287b99a002cc598cca2717062089f7f0ae058c79a9fb73447f7ad0779",
+          "4866539a6caf09edc4612d1b50e36e266123d490256d295b9aacf865542ed71d"
+        ],
+        [
+          "6942823dab5192916ca32eb032b089527468571a17c9ae73771ddf9eb6c84641"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f1cfe8f608993bcd50f660dd0638f4534066b9b404424560c942a0f9b35c8721",
+          "00ffaea18861b13387886fcca832f88f7a74748abb74c419b69faa8b7b40077a"
+        ],
+        [
+          "c8470bf445e91de1a8bf64620c3cd88143a558fbb6a8dcb9d2683249d50c195f"
+        ]
+      ],
+      "element_hashes": [
+        "646f6e1e94ec479ec2cac1578240ae290f0cabfaaa08a589f9c7125d7d8f3506",
+        "4351d1406312e704e8fe0a0287d6b0aa4ccd227efc908e02780bdc0e573c1669"
+      ],
+      "hash": "3e57e938b8e45247727be7038f8a08e39053d352195c74d79d3e61b2fb8fbfd3",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.8d": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "bf41cd2a69948be6a59b967a3de67e0b3ad068938beb8d8d9a28d8ab684cdd95"
+        ],
+        [
+          "c88704f23e172b29587f6ab6cb98a11e4b37bb548f757c98994015018c6443d6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "526ae1a75b2bae887883b02cefb808be22bf8e18b9b9c82f190e0ed74c87b425"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "d05c0ef988253271d68ae4045b4f22dc14b3416123cf2709bb421b092c7b0a87",
+        "568b2c1d994f03ce4fa693e6112213b4fe92953ebdd10a87f3c5f8a0f8e2919b"
+      ],
+      "hash": "d533267289df197e1a946041747f89459955144fb30530ce32a76f56be1ce3a3",
+      "kind": "array",
+      "mistakes": {
+        "7b1a094c6d29d0fc4acbbf98936eda2add0523804d3dc1f09458ca0d27f8fd73": "λ s'ajoute sur la diagonale de XᵀX seulement (λI), pas à chaque nombre"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.8e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "7ab6d570a034ca47304ba94914292a055459b84c0b00670d4142dcad718f9ade"
+        ],
+        [
+          "fdd40d0831fc3349ccd4570830975a413e21f746a69347572295c735bb92b598"
+        ],
+        [
+          "a0f805e0e7a6d98914f78be6846dcb7bd8d6bea9f002ed7737bccbc562086a38"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1c5dd6e1e30ad61b2feb365758030c8180e0efb0106673fc6577acd243c2b4d3",
+          "d85e480178a313e7227199ced33493026ce5d36541c6575502248e322ee19055",
+          "f7463d8b0edf116ca84637710c917afa521e458ec92892a7f8919acafa2dd1d1"
+        ],
+        [
+          "8a495ea756f231b25ff9c0dbf9739c0e25f45b2c1e1ae97dc9e34ed12c375fe5",
+          "8c7679e65a93610598ab3621820d0f664d41463721f2b5aded2fd45d7547d093",
+          "0dab5831e80924629a69eb28ae8e02335a917bc3f642019e87ec64b818ed79a7"
+        ],
+        [
+          "3224f118b72632ed835b28ba7bb5dc04c9d57f18b1bb6ab8087b666a651f0d63",
+          "cc8a26aefc266b15f9813d917c0ef0336ced958e3eae6f354aea66d8dbe6dbf3",
+          "63ca73f3611b55dd871c104f70d1402826f71ae68c43ee8aafd909c511629c62"
+        ]
+      ],
+      "element_hashes": [
+        "a4609397c656d8098c8fd25c92ff95e3976e012681897dcdcb1f93909dedade6",
+        "93a749fb2873bd0862a518e813013ec8b5df6a4bdceb7d4aa614ecbf2b827a6c",
+        "613b5d1ad8ec2b53c44260be1c6a3aa9885072284c8cf7a645029717a3ff85b2"
+      ],
+      "hash": "976fc16eec0671adb256dd5787dde00dc819484b5d1132a558c833be86fdd9ab",
+      "kind": "array",
+      "mistakes": {
+        "bfcd542cb19f33cb7f48bb8029ff865a4ac8d7bbf87b3e420b6bc177b20d30af": "la norme est la racine de la somme des carrés"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.8f": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "81b74ee2da5d671ead7a2e95504a4448a80077c17481fa1a43f76a9667a18b0a"
+        ],
+        [
+          "3dcdbe5e210ca3cc31e3a0c5e455260d5df970866c2ea873f3f2d7bbfebfd957"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "5430d6e1c6d056498d52540af6f124460404b67cba39ccc12fa8037f4003c577"
+        ],
+        [
+          "adf466db1205b3a83027dbe4b475c4604e82154abf5f8e6caaa31d396778f3a7"
+        ]
+      ],
+      "element_hashes": [
+        "f93d1dc6ce818bd2f00de25697c02ecd8eb040c1b08f972aae3073d04e8ed0a7",
+        "372c4fe0b92948e88230bea052f43f3844474825f17d6ae8615fd5b3ae8b035a"
+      ],
+      "hash": "6ce50ae62d41ac1a5f832d052a5d07704dc133f236714a7b72935511fb3d4e72",
+      "kind": "array",
+      "mistakes": {
+        "8c21864a3c68782184324055c97791c80b9ae6b0ec54dd2d04c3c5c512ae7e90": "SCR mesure seulement les résidus y − Xw, sans la pénalité λ‖w‖²"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.8g": {
+      "decimals": 0,
+      "element_hashes": [
+        "cecf9e42f897b6897dd67221720ee2c718e01a3d883b8a237fcd04d4c24a21e8",
+        "fb3757088a5419004dd7d81867a77a634fb1e0eedd8c72e228a6035056975f6f"
+      ],
+      "hash": "40f19c52b32b2380e3f93cc9027ad8a13415efc1af8836c8692d3d080efd84b3",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.9a": {
+      "hash": "6400273a25e25ea05575916ceb2936de2b1034d57a92764c69d5b2f2ef4860a0",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "649f15b412016e7f9cd89af54cc875e90c24c7f49f656a56bbe0b5d46e8a17ee": "λ = σ²/τ² : avec les carrés"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.9b": {
+      "hash": "f986462b89c05644b46d0010f9b26808c9c433bef5ccf3b9b6afa44605fbb752",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.9c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "388f5940a4448c54d486c5b9c1ae086fc2155355f3048bcef731a8b26b4f99ce"
+        ],
+        [
+          "b74bd04bfd075c7475520fb2455426d5470b5dcd9e87d7681e4c0c6f201477b6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c246b60a27bfa52e6ee0b8462d323a7108f8c578a9fed53a9ded9364bee76a04",
+          "14e36341f048a8e4da49426f874f24fc9a5a70e4dd19bf876208df50c2b6267a",
+          "112594a47efa3669e319f7ea3407aae8199a61fcd2fd03779c75b4a41dfcd680"
+        ],
+        [
+          "ee3a6c18af44c633bf8c4efe1426f38bb9a63b336827c3ebd665d652fe279209",
+          "fa495e6c8d27b9ea5dcdf15f1e80342dd324e5a1d45da78989d44ebae8c1fb66"
+        ]
+      ],
+      "element_hashes": [
+        "993b8ad0de4b02873522e9c0e2de48f35c2327982e05d57e9246d8a1308774c3",
+        "3257b5c2ee78f0b217d4994a42ff5c9c1e5f1c7f085055a5a9db533d0a1612af"
+      ],
+      "hash": "18bba273b5d7be8ccfab17d84edbdd7b995cc46708897f73c280095d2af77818",
+      "kind": "array",
+      "mistakes": {
+        "542acdf7c397e185e601165dbdd6d918ed8ed84ff64aac9a22149a88576b7fe4": "c'est l'estimation du maximum de vraisemblance : le MAP ajoute λ sur la diagonale"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.9d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "79ab89f5a59cc0574bf03c6e9eae7c174d4da92d4471625f92758edf33c73822"
+        ],
+        [
+          "bc68b00910a37e95308fb3120f1c373ff8a2492b61f5e934bf51794b7c0a4a84"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fd54a1c5ab3428aad28403f438474551315904fba9ff83af58602e80be5fa58b",
+          "40552a4a630684c102f3e32b7280d46ee3767bccfcec00db733ed6b60b617cc3",
+          "29685cfb0d1666229115d7b0459a1346fc155159430754bcc7f0b7ff73df9a5a"
+        ],
+        [
+          "d664d414489fdf09aa45dd972f3d772b8163d4fc7110078a91d3cd2dc799d7d0",
+          "f9072ce7ad7dd19a8e1c06ec34e37e3b570f33d50937ce71cd887b2056b03f82",
+          "269954ac0d3a80eacfc1295103d400ac629752273a19439243aba5c052b6832d"
+        ]
+      ],
+      "element_hashes": [
+        "5e73cc68a7cc982f40ef6939371917052fb44d284bc811aac45eeb9dfebb002d",
+        "b3201980041cb6d487fb4e0e22bebd13d08a63027b6659c5f8c100b503da18b8"
+      ],
+      "hash": "68745a46a77b177ab6b6b30a09b67f1840f4795a823bd550847c73a20e918ae1",
+      "kind": "array",
+      "mistakes": {
+        "670a217d4080c9dcd6482c0b75708a7b05efa15cddd7acc77a8e8e5e8b5ce1f7": "c'est l'estimation MAP : sans prior, λ = 0"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.9e": {
+      "hash": "038a688975bd0e86f9df484f5e066372ab55b6efb732ff255dca17e669741b81",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "1d96818b9cc435a6f094b397cf9e7e8e36a40feb07636c5b931eb54b5939e6af": "σ double : σ² est multiplié par 4"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.9f": {
+      "coarse_any": {
+        "0": [
+          "4926f11ef5eba2ece0a7e72ad73f91b4db47b7cda9521b8e96b5339aac8389f8"
+        ],
+        "1": [
+          "974c9f511b84aca811dcc25f112443e15490382ea56e709e8c6c3b2de2bcf5bd"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "e2b7a074b21e9239e0852cffee158b989f8fe0ad3eb236a3e35f346be449aeeb"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e363de1ac764bff33cb21576b5e93280f51291d5a7acccac9cde6fca883a5ecb",
+      "hash_coarse": "7fefe762f42eca0abafae675b3ef1395654b240caa7e9a2abf175447effcd977",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "ac0dbdfbc1cf60c496e8df0580c5f30794c4f2f98d86aad6a42e8a64b318d9f4": "λ = σ²/τ² donne τ² = σ²/λ : la question demande τ, sa racine"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.9g": {
+      "hash": "85aeacecc1b6337648c5c6300b32f9398b82871d0b7a96a847169de2bb3a8b43",
+      "kind": "bool",
+      "mistakes": {
+        "4293da28145d5ab44c345588edb042e41e6214e9b00b1611b8ad4b11ebfb6ac3": "λ = σ²/τ² est un rapport : multiplier σ et τ par 10 multiplie σ² et τ² par 100"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.10a": {
+      "decimals": 0,
+      "element_hashes": [
+        "ae3f88cc7c8fe386b6998d07296eddd4fc6f9ee10237518d43ff729af149b438",
+        "d6bf45ce3062185f1effb2b09cf81760b98cdac0e99db07eac6c36eb16b46c55",
+        "fd1a46c88801f4bda8d3a1c39192cf87b812a86dc257b5e3fbba07c4d3a15538"
+      ],
+      "hash": "42d45eeb0ed6dcecb541b1e679f2959c33e0bb60d3a336a50141633cccf4cd60",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5aa39641f43ed60fc74326bf38dc446d812013e98d36f7e6898846c684471847": "la norme L1 additionne les valeurs absolues : |−1| = 1"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.10b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "651acdc7418b5364ddd85bde7465da71e9fabac626a437d865b3aed662f7cddc"
+        ],
+        [
+          "a76ef0b3ee586a9f7975063bd879898bc020371b3d68b246368856a962b2f6cc"
+        ],
+        [
+          "dec18c13970bd85d15f64459d565e9fcee2e5645f9d1d44a3a6c04ca6bfa515e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "5ad87d2e1db1f1eec37b1e4e4b07ac0e9a689aab5b718baaae86ee3aa9ede7c8",
+          "a83d1ed4c55f89cae6537e591a3e23e6a7fd953b2e4562c566b1a95b7debdeb7",
+          "02161e754c644c9317f7996710f95e2d6c3e867eab3c2d652c41cc6d267a2e48"
+        ],
+        [
+          "a3422067549c6ca77c3ebf0b6d9a201b9fa975109bceab34822f4a563db1667a",
+          "d1c965b0063e3921b178bf71408874f87356783125d227122b9499a0a116de19",
+          "6d9d8f6e794eb7d8d3b9f908f593efb7ca4067f5a4497e572e526162865bebf8"
+        ],
+        [
+          "831ac2d16df165e0ffdf9f6736532f93db3cdb72677568cdf4e6f2f4d419883d",
+          "2d682860345e5a86af5c470cd3a2f4cf4d39525b4961035c4b3ac2bb4ce21d02",
+          "8b9c343e81d26eed0ffa38958df6e946b94eda7022188216fb6d39d1e68d86e3"
+        ]
+      ],
+      "element_hashes": [
+        "d0c3395101e68f8b20c0fe959a7795b1ea575ed2bc0716eec842b2603e13d7b5",
+        "eb2d09a59cd9f5337a474d3ba247151dc49a0495f8e3b2f5be2e8632389bb660",
+        "caa60a0016f51b36ec79e96566c405dc540dec317747b90d8de1794bc5c23354"
+      ],
+      "hash": "36dd1729831198ff44dc1ae6b093740aa6426896429f0e327ea0428473eea2cb",
+      "kind": "array",
+      "mistakes": {
+        "2cf20436f314d2f794524c25b172538bd9b7e1583f6d6638c34496c44569cd12": "la pénalité L2 est le carré de la norme : sans racine"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.10c": {
+      "hash": "4a59bf431d950ef26fa47a37e5e18ff87fc1a4697ad8a223e9805881aeda2fbb",
+      "kind": "str",
+      "mistakes": {
+        "02fc69e12d077b9ecc88dabe345086163022eba9ca7cafb1ea7c7827493b1b64": "compare les carrés des normes de b), pas les normes L1 (toutes égales)",
+        "703118ee6db2adfddb5d5de06e4c9320f2cb58cf22b1fdd77b68e22a6502b23a": "compare les carrés des normes de b), pas les normes L1 (toutes égales)"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.10d": {
+      "hash": "58bfbdd9c3780d38b3e1e346b398a4d7e4738561a8535e3b57b7064e0f8ec7d2",
+      "kind": "str",
+      "mistakes": {
+        "0dc21201029eb8e03ba3ec80ade6ec7eab0e609b69feec09cc1a644632f0fe93": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "2143461cefa97a76a568bda9fdec3ffa71bde41e6f9fa6b07a23f98dad99548a": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "424039bb7669fc7a7399aaa3ae33f0e63cc90f8c48fe1dc230bcd9f70b08faee": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "5146c5ae070101cc1fcc2cc6a153b4d9462fc8482b1abfdee29a4b90f6717411": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "5852c3d153883c8c9edfa0a0f352d8787f55689321d5b005e481e042ecdce783": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "6a38d7486176218bf68e3fcf1195b1f4713e1090f04fe28e0b679ca70adbbc9d": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "71b2b464a9bbacdfba58d70b8c1a382ad6d29c5a734667893e8b43f870743621": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "8c1cd37466a0c2171864369b7465e397e2656ab9e90939f89442dc383d4cad20": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "900159c3872fe4876e72c14e2686cc972661d2aba1e50b381b9a9ee9cb55308b": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "95377b607ef6eb5dba5dba6938f82ed321ec1392ab6a20f3961d4cffe1137318": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "b884fd4d0a9118feb4ccab605d20a5dce5df1a84f5a61a5ed04851ad0f902525": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "d0c120111427b05b2a49616a0651b9954ceeb0aab1364802b88d26cb735ba168": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "d2c5bc1377b4db2855dce13660b0ca803f1ba775328684b9790e1b737e0706a0": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point",
+        "e3a94fab6649463a964ec09307e6b2c9d5a2ebfcac366f80688f4777265d69e9": "un point est sur le bord quand |w₁| + |w₂| = 1 exactement : refais la somme des valeurs absolues de chaque point"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.10e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "610f995012c8a9147b3446d1a3ec5ec1a3a162512297cc7c4db68ebd6f99c506"
+        ],
+        [
+          "6fd47d65f26b1fa054c229cc6f95d3b38b6cafc0dcf9e7001dc4d73dd03ab309"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4daad1eb69f6d90a64704275c5545c8b93fc1d29c536f4abba009fe639a7e265",
+          "c6c97670af305410593f92d0c828f730dbb02123295ffffc1819d6474528cbdd",
+          "7e4d65d2710f40d1d9079004d64985dcf9f954126de61231513cb5d182a5f418"
+        ],
+        [
+          "dbbe66b36d849dbbb0c236ef261a8f90d35b4134c9f7f3307f2e138e4cf45b70",
+          "b094dbf08c1f721f5e1518e9c9b2719012ea6e677d213ddd6a2f7e937a5fc422",
+          "93b7985ade04bd077f9218f07f2064af2b954f175a4be2c084647f94aac0c98d"
+        ]
+      ],
+      "element_hashes": [
+        "053f43254789c642c234a1f7501408e6477640e2d6a5b6e393ffc4ce443ea105",
+        "f13fcceffc9054657adf0548db641dd4dfd4ee44e55411c9570b42a7ccdfa815"
+      ],
+      "hash": "010192454bd7a07aa8070eab4c7ed597edfbcc7f2f6c4b4c6231185ac8c01499",
+      "kind": "array",
+      "mistakes": {
+        "33ceb44464dcdc3473f9e2639eb8ba8a42536dcbc4e4986cf950974467c4de03": "l'ordre : la plus grande valeur d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.10f": {
+      "hash": "7f7f5c062e5d25cf9a5deed0c757e7cdff55767d9b91750a9139575e337ad753",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "f6d6b55239333b7d7484d94449eb57d880222049de38b7807449eaf1cf8ab200": "la boule L1 n'est pas un cube : ses coins sont sur les axes, deux par axe"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.10g": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "b6a11b82778da7043842a1bee9b548ffab2868970d122b20d5ba3d572ace241b"
+        ],
+        [
+          "4f56b5f9e707f5873dc23b7a6a78252b6a7ffb346289c14cc85d985640940755"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "5b706e6f3f3c5201d87bedd386fa03038d32c1a4dbf4f914b658dd31765efb75"
+        ]
+      ],
+      "element_hashes": [
+        "ca2084030834c94b45b4077272dbe7d71b52bb645737a054744dcb34037839ff",
+        "1479f0036f878eaeca482a2271ee625d70da6e6166e6a7424f21e6b32d139791"
+      ],
+      "hash": "7310b06521c6930f476e94a8ba99d411adb92aa3e1e9ff2a43a45bd220a4764f",
+      "kind": "array",
+      "mistakes": {
+        "0abfb567c6b0011c42ec7864c66c717a97b84999ed3988fd232fec8d30307abf": "la pénalité L2 est le carré de la norme : sans racine"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.11a": {
+      "coarse_any": {
+        "0": [
+          "ac57837eb2c2bd3248dc554fec41107859fff1bf233854999bcae0e613c501cb"
+        ]
+      },
+      "decimals": 2,
+      "hash": "9636f602df6170b845aed1896cbc356a95d420f0454107e84697cc7b46ad2e9a",
+      "hash_coarse": "7294f5355348c2d18f29ae70547aa9a6f1619649b75b330d464f7f4bc6106920",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "7ecf96a14a2dbaba7e0ccc03b20124ab27b9c5bd217c6990524949032be7875b": "le maximum de vraisemblance divise SCR par n ; n − p donne l'estimateur sans biais"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.11b": {
+      "coarse_any": {
+        "0": [
+          "bf8328a03c06e084f6053f2ab626baf0537d087b0651cab9a57fef732172e572"
+        ]
+      },
+      "decimals": 2,
+      "hash": "4f79e6cfcd3cb8b1867b94d82f3299e7b1296184dbf716eee0d4b0a5b3d17a42",
+      "hash_coarse": "f06aa8a32282ff17f20e15953e03c0dc6d5716ca05f8a7a8c5a3d38f7fd91a56",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "5470013d094c592682235ae0b13b84b818cc99d9b507307736bed0915e3e6016": "l'estimateur sans biais divise par n − p = 5 − 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.11c": {
+      "coarse_any": {
+        "0": [
+          "9eb648fce65000751d40232349abef966c5ababb365b141709a0eb9603068a2a"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c0a868d2288f6ecab0d198c5eff1ab09f2ec8e1cb798920863da4771ebe1227c"
+        ],
+        "2": [
+          "cb2afa4ef9f968ecc3ed2933d7c1234e4c674d283fd02ec482a12587901b2b2e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "dd2afacf14eee37065629595c91d24e67bf257e6322fd67cf30325e21f87f06a",
+      "hash_coarse": "95f051d581f928a039cc5d708a021525b0ea3bb8347d5eccf9f48fe9973af8ab",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "4595ecdc81e533260e58d2555b583c70b7ab565e016f077d54aa9a43e6317de6": "le logarithme népérien (ln), pas le logarithme décimal"
+      },
+      "sign": -1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.11d": {
+      "coarse_any": {
+        "0": [
+          "1dd2950842731802e93304788a42ad86ddc21e92bad97b390952b879bd614edb"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "f042ddcc22f214e3b3fedae781abf5e28c7fdbfebd665c99b9c91d5824adec27"
+        ],
+        "2": [
+          "69ff2f967a0e18d339aabe9d92620965e6fc9320fdceea0cbb60bf6cdb8cf553"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c11f5cb8b03b9835d403b33a37b3df9350446fa9bc625944a42add08caecd9e0",
+      "hash_coarse": "02cb2021223ceba7f7867ff3ff6ab9275c8c63dbdbc1935e2ee9c764bdd41989",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "90fb934d687273265fcf0adc9435bd2c6e5bf08502918603641330fda21aa3ea": "le terme des résidus est −SCR/(2σ²) : divise par 2"
+      },
+      "sign": -1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.11e": {
+      "decimals": 2,
+      "hash": "2328ca21de8ccef7cfd8de3755cf97fd3800a278a7b7ca59b93997a75c3589fd",
+      "hash_coarse": "f55c8ead252dd87cc16f68204fc4a2e378fd0898375bbc8e6966fea929cf2b7f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "35dd5e806dd5e99cddb719643b2ca002254bb560063cf4f08a55d8971bcc86b8": "la droite des moindres carrés a la plus petite SCR, donc la plus grande log-vraisemblance : la différence est positive"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.11f": {
+      "coarse_any": {
+        "0": [
+          "5d6476be66b0ebf110256b833ae73e678a7b713919f54907f30eb4b1862e2a10"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "292ca151c2ee04ad29ed6e4b51744ffeed3f2c416dddbb37d3d90de403d6ffe1"
+        ],
+        "2": [
+          "2ffcad15e3e45a6cf2251350df26e854a1752466d1eab0ab242800e74d1ed117"
+        ]
+      },
+      "decimals": 4,
+      "hash": "9ef1a6913ee417b789e0f53d64c8368c6135cc47d982c2263738d4473b6fa69c",
+      "hash_coarse": "a21ae50eb03272ac4ffe059feefef5dff396f9898034b92097b230dedd9eb5a1",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "7aadb876e9d2a0f3354068175b9192b99a7fc6d48f34323339048458cfc2462c": "le rapport des vraisemblances est l'exponentielle de la différence des logs, dans le même ordre"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.11g": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "3d4bbf4ff924d10bd453641bfe8366102d730c6b4472ccdf2d53a8ad3636dc1e"
+        ],
+        [
+          "8c00e8411eae488977ef27145379f071656e4499cacec89c7cbf1a4ec72635a8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a2b910298c85f2c88ad0971d7a342e08b1953076234d74a25a219ab236f7192f"
+        ],
+        [
+          "aad4cf07d483a429ae569fb4eb4d728b929710c5974d91f486dc0fc2e575fc85"
+        ]
+      ],
+      "element_hashes": [
+        "9a9916cb6f64be962c4727224f1a91462bb621ab7fa2856fdc46054305aede9b",
+        "8e9c6be3c9359dde2565d91ba0eb08823de13090ee4ebce5e25f6372cd1cbe9d"
+      ],
+      "hash": "78fc0758e1821b726441428b03e5fc24c864ade426916c624ccb37ac52ecd2c9",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.12a": {
+      "hash": "049d8581a7c2803f626c1621d7014c2267b39d7228d65b701e22bedd0039e21f",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "c2f2b346d0f8d675659feeabd111101c3db5a9dfd8d7d162dd40ca30693bfa3c": "le biais est E[c x̄] − μ : ici, il est négatif"
+      },
+      "sign": -1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.12b": {
+      "alt_coarse": [
+        "d99d377b0972fff1eb2a06be5bc8052a05f1e0fa9c00c4d43597d5c35ec78844"
+      ],
+      "decimals": 2,
+      "hash": "761ef62f1be339107b28e76bd36e62ef8751aa30fa2d84851f25a0c9fad28ae9",
+      "hash_coarse": "649cfef636aa4a8e32031a647841e6fd7b42767cce4b35620869560c8020cff7",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3c6bc2bb0e371c4b67eb43d993da826daed5291170ce1dc96e3e80f321cbeda6": "V(c x̄) = c² V(x̄) : le facteur est au carré",
+        "662128af466b51060c416a1226431829af9f46bcb48ae20f16d240aad4d4bfd4": "V(x̄) = σ²/n : divise par n"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.12c": {
+      "alt_coarse": [
+        "a18e2addc037703e41c918f95030b7bda5aafb8ffd5332aca1d1793b65bb9f9b"
+      ],
+      "coarse_any": {
+        "0": [
+          "be9c49f647502643239581452f79a2505ff11b04366ffadc9ca95d2107b93395"
+        ]
+      },
+      "decimals": 2,
+      "hash": "d20144cd6cc67ad299ed5aacc3f346f1dd626970bde3e8338302687de0790db3",
+      "hash_coarse": "a18fd303d83cd4409e70ee75caf1056521d560d4df9e614cf868bcd564c58dfb",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1896881324bd19a56ed026cd6a025ec2a79799485a3a0ff29fcb5fe8b15d9611": "l'erreur quadratique est biais² + variance : le biais au carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.12d": {
+      "hash": "ff494cfd208060de1cf5ecc9f3fac759ed045970583091fb4bd1334d846d0a4d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "55f9ff86065962892882e157dda292e950b9ef36a534c32fe49a783e923f7ed2": "V(x̄) = σ²/n : divise par n"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.12e": {
+      "coarse_any": {
+        "0": [
+          "8489f4c9f0f587f2e7a7756841603700072704789829f53afb85074eea06b3b2"
+        ]
+      },
+      "decimals": 2,
+      "hash": "a04e0533fdeec6215fe59e63cf1d25cbf8b3bc56d9c67d898867fa275bf4ff46",
+      "hash_coarse": "80c38a683371bfb7ab30b1b3cb8686bad4887b4ab0b1d67e8a9da35ffd2bd83b",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.12f": {
+      "coarse_any": {
+        "0": [
+          "b3cd3837cba0e005f0ef4b7b4c739868e7397fdfb501f2930d171f832ec5d7b7"
+        ]
+      },
+      "decimals": 2,
+      "hash": "a4d9ca87d3a0772706fa3f7230780e65db6ce5d8fb5c95179ba5546555222d4d",
+      "hash_coarse": "bf9090b63d2e9fce0d5dffdff35ab31a041adf60f53430504e8818a0c76a1ce8",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.12g": {
+      "decimals": 2,
+      "hash": "ddd13ad304cd021b0801bbda557d19b50ee91810e0262b286ca457fa20572e97",
+      "hash_coarse": "8add9cbdb2b8dd21d30acadf131db193867f4d8941052083df797d0159cf90ce",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "17d9bc77e4673ecbe24ad62bbcf016491d7059a8b586224bbfeb128701634623": "le c optimal fait intervenir μ²/(μ² + σ²/n) : μ au carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.20a": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "5b54a33bd51fe6179f5e191954bb5ea7efdd3a96040c7feed1b15c01bbbeaa0c"
+        ],
+        [
+          "483bfbf0ae89931ae010f5d590b46ab155af108cbebf5ef5ace13c4b9c64e039"
+        ],
+        [
+          "a604e6035dd227c0542b3223d7ee61da62407dd5f3478782b32d41162bc7b15f"
+        ],
+        [
+          "05a95b7c7fc3ce4e0a2c32d356f81e4721d8d8d35498f6893f9d33f7ee31182b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "68aea27fd366ff8652cf60a089e9c758e64b9d18dfc323b5cabc2a0b3770dee2"
+        ],
+        [
+          "2b71d5e2cb6da86362865b1f35847b48aeb64439f024786d62507f343a9f1ba3"
+        ],
+        [
+          "9ee9dc77cf8bc41a3d0f1bd4254694134d780813e51de4a5fd70d15843397c0a"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "41dea814d07b9652a21c7121affca2c0538fb5697ee294249855b910dec5cb78",
+        "1404f3caf229e769fead8ddee704b81f436f857a7ec97f5fa2b1775341e3e081",
+        "2405285cab616a6103704e333235211ea032fb298afa1c8d0f21449a1b89dbed",
+        "ec9dfe086ee697ab4cb8d661dfcf004e17bc90d0d649cf0622251201632b59f2"
+      ],
+      "hash": "3b625db935d4d5cfae85d60651cf60ae3dd31f01b8f55603512f66c36453155c",
+      "kind": "array",
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.20b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "6ee1a3019ca38345c712bdf6ac66134a56dedd71f5168242549715620141cfff"
+        ],
+        [
+          "cbf617ff74293e4949f63f6c3d276fed88a2ade5bf5657853adcb3afb91abe91"
+        ],
+        [
+          "7ad70c4820d66ace0bb228bc4a7746a497fa0cc36de4118c484a26d2780dd3ab"
+        ],
+        [
+          "67bb6e302782359d4a5922024c8a1ecb5e3d4a75a47040b7d2ea640376ac2624"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fe01296ff3f6d78814ab6c6b8b48ac601e82ef291b3a6a8b7a22b01191fbc48e"
+        ],
+        [
+          "b80b089e9a2f34e7de2d97a306163d3c46d16e3b53f0a4bf90825d04a69204eb"
+        ],
+        [
+          "f43ed8c9e7346a4b749e692d1d7608528844b10cd041d97bd95c955db45a4073",
+          "0c2622b9d37286d9f919f1254526051bd69808ed453e942bdbf7e65689f98c9d"
+        ],
+        [
+          "4c5d2c7f3d14e400e7dcaba6cf8ad7ecb4ef6f225507da1eb0084c1475f15ec7"
+        ]
+      ],
+      "element_hashes": [
+        "b584f52f8ad8da512b5227cea1fce31e0b5c72e1d427b279a63f9e4c93cf0d69",
+        "b2efbf0e4984a9a2bd4d3a5c008f83031ba30632bac80a0c57f55936d76880a6",
+        "2839650794e300dc468ecef39ca7ea26d2bdd6c91fb4c1d09c1954d99153f58c",
+        "ebf7b1da078b22e2bf1aa85f761ad4620b17a0a3c55f63d94cc57e4056ac0e81"
+      ],
+      "hash": "ffcc3bcd7798f5020c8cecf2a4617dcd3847cebaac18195647f9d6d5ee77034c",
+      "kind": "array",
+      "mistakes": {
+        "93573bedcac3e9a962ca408ab7d22f1270d7667fd3baef2b8959bcaa3ce77f1b": "r = y − ŷ, pas ŷ − y"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.20c": {
+      "alt_coarse": [
+        "eeab05bf1ad97e135a58b8477f980da04b2fb734cba6e643e3703b8d57a89b04"
+      ],
+      "coarse_any": {
+        "0": [
+          "02f806430c49a012b67c3e99f5701ac4e66540124646783eaa187cf4544e60f5"
+        ]
+      },
+      "decimals": 2,
+      "hash": "be34bcd9f8b648d98ad2fcffedecc6d6c3557a0a8cb1e4769d7f41542c2e230e",
+      "hash_coarse": "01d2bfe693a5676b64f77ea84fb4316010c42e8eb752e2e091b1258dc04025d5",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "949592880b0e6e20fc7b799a95894676b58c5135afccb73f7935e6920bf00f8d": "la MSE est une moyenne : divise par 4"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.20d": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "7ca8064c63a02580fe6689317bd1de95ff68ff0c8dc2c6cd35c929166eabb08f"
+        ],
+        [
+          "d7da60e94723ba6358c79ab63ac0924d9d0c59c3b828d04ea38c1da24971f794"
+        ],
+        [
+          "a056b436b6c35b6fe0a68fd44da3dff2db84330b4ac3bdc8fa8df24961046dd9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b55093e4a4db4dfae118d5d04b3cb538736c26d1e26918b73c2ef30920d95907"
+        ],
+        [
+          "e362c21c53b48b55ac659bfac38e3ab1e8aba975bac8eb16cedd215c7f3fd6b5"
+        ],
+        [
+          "da5b45a2918e3f3c30b9d678787bb4fb9d3970bb36d116bf739dbd177b22cfc2",
+          "1a3e2f209f165e41e2d3eb6d3009873be6570ab5d573843892ca511673428caf"
+        ]
+      ],
+      "element_hashes": [
+        "2508c62459dfdc87e107d39c3104bfa9c4f2ed59c25f6ba0dc3252f641c70858",
+        "5bc6d113f6f7d90e61ac78eade92990d6119aba0bb7d48a3cb0e9a6c06403540",
+        "86e150baf782edef4d5c981e856fcfc4f548c319a4d6988e74f01e73265014b9"
+      ],
+      "hash": "a32ce5926397650a8ddd7b4cde645bdbcccfdff2ef9f33cc2565620249d7ee0b",
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.20e": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "be80fd68360b8b14b160b9c8a9238478d8a4b59ea433e36316f8e393226ba8db"
+        ],
+        [
+          "47df151912a0ba470844fc1d0e365a38755337684ba47fcf7b687ea605c45aff"
+        ],
+        [
+          "85d4800efe18532f11976e113131613537f64c15cb51911d051e3e50ebdee5fc",
+          "7dbb47a8f954a8aca2b0112802c59622a54bd88fb959d48f0f272fb709bfa8ab"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f585e6f24f2e28ab4abef6a82315abb1cc03a4c8407f036446405f514205b5b0"
+        ],
+        [
+          "d030ad38d31d671fdebe8ec2670bce500bbcefe3c87a4fe005b2634999f2f998"
+        ],
+        [
+          "8ec6ef70fb83aef9b1641a52d682f74f888299a136d12d11d85329da445d8f65"
+        ]
+      ],
+      "element_hashes": [
+        "be013bfc5cef1dabf1a119e16c585cf86cb0a86576f0ab62f393f958960d8f94",
+        "a106bf8c278066dbda44d040ce8697f01360d78c790c182fdd505613c92ea02d",
+        "5a7318ead03bba84afa0d5ef4565df98f32207932c3f28c0eadc1cdd05712f3c"
+      ],
+      "hash": "e958c8c3c0c61ce6c21d790760bd65fcb3cd71e46376721958d5c1a22c2150b0",
+      "kind": "array",
+      "mistakes": {
+        "8d4068dd6f361e1f610a3454d6ff497f7f8e1078202f0f54ddd2f3c525637018": "la MSE divise par n = 4 : son gradient aussi",
+        "a72b54458f686359775d809d4492f4206c709d9d886f485e0ca5b94d8af9f8a4": "le gradient de la MSE est −(2/n)Xᵀr : le signe moins"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.20f": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "2b27bd777802bbb544daf4ebf6fdbf9d3125a6949b21da3f5458542186ac5ea7"
+        ],
+        [
+          "27b938729894c88bf6413228cef394e064eb9b148f691bc57ec0cacbe8b31703"
+        ],
+        [
+          "34fc0b7dbc5ec625f31488097799fd12b0b2c50261c9f56ba5f905126db5cfee",
+          "97341053409c42f11cf4be34d3a265c36f3a34706993f97fea6cbfd3af4bf2df"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "2bd2f5e7ecb6cdd35be12ccbc9e6f6dd19d93d63e6318b8e68c3d512aec74fbb",
+          "d2342586ab53dcb4f7f38276b87db079fe3173a50e46fa78565204c50135302e"
+        ],
+        [
+          "dae2137f885eb8f6f27f65d9d56a923af23787acdd7834157c1c41b28d3b75ac",
+          "d238a9d1ab80961601dfb59cb59e7341674950d1b662d88612c0dbe071f71148"
+        ],
+        [
+          "d3cd2132ca8cf3ce7e8d2ffb31d8d181e19a67608a043e568037a146193e930b"
+        ]
+      ],
+      "element_hashes": [
+        "4276b1427c007a70e8e909a267d0d5bc9673df8e88b0da16313f530b66c986ac",
+        "ae121d0713d0faa920d052fd011b751a3e6d73fa8996b7429ca94ddb191a5939",
+        "08643f1bf26e2d483b8f36c10caa1d760e012957a7f5dcd053849df334ad3c21"
+      ],
+      "hash": "3e9398927b833450ff227a224bc2a96c668caab3b6cc0afce6e72bd40c98b591",
+      "kind": "array",
+      "mistakes": {
+        "8a846148e9d903bbea0e5b2f1a9379c4e320c483719ad137fc2bcda982740ef4": "on descend : w − η × gradient, pas w + η × gradient"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.20g": {
+      "coarse_any": {
+        "0": [
+          "b83c94cc17b304c33069732f61c39c9b5e6f411a5d2f4f82c8e86b22c6561fb3"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "59df1d01ae2b5eb0291e8eb74b89e0a3e93277114f531b95c6b7e6a7212dae9b"
+        ],
+        "2": [
+          "82e519eefeadbe96148f0812e22face92dbdd0825ee7a7a02fcce2f487709e92"
+        ]
+      },
+      "decimals": 4,
+      "hash": "506a9b22d2f7fbf1dc87c743b75bfbd579d4b7fc12a93f63a0fb735273ac9fc7",
+      "hash_coarse": "6cb3664106733a0f4d34546adc3c889aecfb9be785da01c5e2cf9361ac72b80b",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.21a": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "a594ca67fe9c9bad8dc8882f2236a9fa25a8e339926faeb58407a2c82b0b3076"
+        ],
+        [
+          "5c799311e2b1dda16c9d58cb1a435e6111b94dee4ab112dbfdc4893a4e7c60e0"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b03edfc2dfbe08ea679fa10625243e98fef8b2946c0c549a9c8a1f11c0ef3a41"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "2bf1f2b2095490cd130f18051048251fbd84fd288887f38e922ed61d44848dc5",
+        "d1b53df15780321c04071f99c8867c8e63822faba51a1a5f40ebf51e85d2b671"
+      ],
+      "hash": "362ed8711f2c7de1a6955801ed4e8dc91bdf308f212d157d10f63393a7511124",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.21b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "70bb4e748f015e7f06525e806befee184db289e67cfb68107068148fa2b89e3d"
+        ],
+        [
+          "1a5ef6001158a8da04accddd11ce018bd6c13f07bcd60634582860c5a5ef6123"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "71b858f735bfd255b7a51c47f64ac516e01409a806d46767e00758066e176754",
+          "754a231eb37ee762d139ce2dfe6139c2ba68d0344014619e3d10d22592337244",
+          "101c16d82bf0ab5d8a341821ec49caaa00485e3633dd9f84c043a366b3fd3918"
+        ],
+        [
+          "3829b94e637482145e1da83a682bfaa741753f1c7789e3f290ef54e7f39c5975",
+          "b4db74eec3616671f50eacb38a7da7fb613de52a6222bb557faca65913b416cf"
+        ]
+      ],
+      "element_hashes": [
+        "ee970b8fd22adb74feb967ad7d1b9ee07f6be39c597c8506ca551dd0e9ccca4c",
+        "bbebb3383462afca039e37d728fb9e21c0461b774145b542431fa257331f8d7a"
+      ],
+      "hash": "65fff5ea6fdf8401e337ff0072830fe7e55c332d7eae62889e70d58003d87f38",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.21c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "30c888a6c5dbf9133f54a4c9c2dcaca482beca037234fda7182899516caf2409"
+        ],
+        [
+          "b0398936484ef415b41aa5ae6ab881c7e6ddf718abcafb798d1920049da429c8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7a4569bb50077f8e7c8101aaf7c6503b23f2607c8869fd05c93ff55e1d8489bb",
+          "aeed2ea358755f017779976e2f4887cd60e96602c97d7d42f6091c4cd07ae347",
+          "f21cb4a22209608b8d6cf8e85ed8054893837f9a38e758294631779e49f98b24"
+        ],
+        [
+          "547bced74d0df42353b6af7c5b6d9e1b9e79f818032d2a7b3100fae2bfe31de4",
+          "f9f54d551c62495a07e1751207753286aa0dcc34939a5f30a17cc8f64066db42",
+          "68421a9611ccb871a9798ee124e746098fcf9be0b7f8fa41b1e6f02d1c133b67"
+        ]
+      ],
+      "element_hashes": [
+        "d7d99771fd1cdc4167f41006a0f1c28f037c36309bed5e207e3c03cc4b4ae5ab",
+        "e9f719bc1884343aff3786724892bcec88d6ada03ebaa3a8d4d685f996131c0e"
+      ],
+      "hash": "1a57cb4bdb4c1fd2f3de6fd3c87fb1fc929ca6759995a5a9915faffd3d525c65",
+      "kind": "array",
+      "mistakes": {
+        "9af578b998b55e8688e3c65fa9f671e6250776a1750b8dac94b32a698ece4b6f": "le facteur est le poids ridge divisé par le poids des moindres carrés, pas l'inverse"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.21d": {
+      "decimals": 4,
+      "hash": "20370b90c319bf8e72c273d798d4606c3302fe5ed9c4334248d5cb5358197794",
+      "hash_coarse": "f8d86999097193a9fc4c3947e67fb8cdd9d8530da327e40eee3932cd8da65bbc",
+      "kind": "float",
+      "magnitude": -4,
+      "mistakes": {
+        "215aafddcdb8f6b31eb92e08aa27001aa5d5cac2903e0194b91b3fbc19156467": "en mètres, les nombres de la colonne sont 1 000 fois plus grands : le poids est 1 000 fois plus petit"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.21e": {
+      "coarse_any": {
+        "0": [
+          "c12b9f6070722ab9b3e87114418a84e60f8b6c55fdeb2a039b48a1be2f331929"
+        ],
+        "1": [
+          "337d11d17334479cd564b70ca17c5e5c799fdb69e3f1601321ca22ac7cd5690f"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "1c0dd411fda190731f85e37137cca7becd95c61dec288aa55963ce6a6356f0bf"
+        ]
+      },
+      "decimals": 4,
+      "hash": "da168c9083addd711688101fe8a2d2d04970aa6aa41061776c56abe80bcb6c39",
+      "hash_coarse": "54354ef7eaa1cb92de224d918d6da5c0ec613c835cc65a932333ca64d36c02d5",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "16993fb12e6978567084fa98886d803ff9c0e6259f9e8e3893ea404450288241": "en mètres, ‖x₁‖² vaut 10⁷ : le facteur ‖x₁‖²/(‖x₁‖² + λ) est très proche de 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.21f": {
+      "hash": "30a464da59ad8aada2a7bfc8930a4772d6c7a668784e46ceae9857e5df77e97f",
+      "kind": "fraction",
+      "mistakes": {
+        "befd4b742df5da9ce21a11f404cfccdcbf7e5aa497c5fb4dc13b79222698ffb3": "une colonne standardisée a ‖x‖² = n × 1 = 4, et le facteur vaut ‖x‖²/(‖x‖² + λ)"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.21g": {
+      "hash": "dc1d323a7ee806e68fc170c7dac608552041e39ca07d9a2fe0df6f7171ec9b0f",
+      "kind": "bool",
+      "mistakes": {
+        "1ef93d9ed8fe7068565997bc5e3f0447d5bf3fa21fdca3bab0dc4824e79cf105": "après standardisation, ‖x_j‖² = n pour chaque colonne, quelle que soit l'unité"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.26a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "74f539d76cf5142f8203b708670fa99061c496b4bcc3284eb4c10c3b341d22a2"
+        ],
+        [
+          "276b7f2529e0f836eb117bf1b9b4f34ff897c8fb066c4fa64b1ed5081a2e4c5b"
+        ],
+        [
+          "ed0efb163ccfc47a1f85a4185016684be085cfee099b177a57145096b29e3ac7"
+        ],
+        [
+          "54e240cea999016c7dc4f44a9865109e084cd32e3c4b2bf8b4db55b9900fbdce"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "10ad9662f4bad9f471d4ad09e641ac44509e3a5093d60b36a6b862ca4618ab2d",
+          "d0141372f6b352d1b2c1a73a06b2855aa56f299688edaac647aee9ca173d455b",
+          "3f92465a9219fa41245b230596b4d1bc66780b4f6be48544d2e1012818f92b7c",
+          "a497a2aa518a15d94785501065c0de1b43da96c0d5db31c8265e133d344b32e9",
+          "8c87df1900fb64f0448854966e48927179672797f9bcaab5a921fb2809a12914"
+        ],
+        [
+          "f92b615e1e358c45817e97134676ab0e486f48cbd06a94b28bccf9a845003402",
+          "50b80b0578faf7157587f555484dea396833e13974e0a83c31869581ce049d80",
+          "e3e5c5b58e5634808e41009c258472222352d7e2d9437cc9539c096caf1607cd",
+          "099ea4aff4f5ece8d2052d4906fca8568ee7cd0eb0e6bbec664cac502ed3a56f",
+          "608dc06b853bca5733ad42958c6942d6cd56983e180f58ea593acdcb8182c3b8"
+        ],
+        [
+          "d150268fd1c6c30a5dad41a014fe20b6bdcfbb87309dbc41bad5cfc70478f1c0",
+          "569df922a197279b1627f42fa7a0733a388f83ed4ee5d53c5dfded3a890fd7b4",
+          "a95baf341b923507dd1b75f2d4e99929f2b9b938b79ca167d8641e7a0dad748f",
+          "252da6a5960bee72b5da159a0746bc90e1478a101cbb6c27fec178f541594685",
+          "17ddc67ac3f3e7cc326558cda1d2909ea463c3941e1e8bb3f7c65258ccd1e3bd"
+        ],
+        [
+          "726eecbafb27dcda4fa60951965491000b204f2f4a4944cb3402a2994d8ca564",
+          "c89749cf44df8bbc7656e50255236a50f8cef9783ae5d0a8550e0dc99bc0e0fc",
+          "9fbac1facab9d170c8ff7c5c75ba88dc62dc404cbea92fc13853115266b985ec",
+          "55239d83229eb7eefef24f121abb43872a5c362dac12b5388362d5ac5327bd73",
+          "7af7b71bd4baa247e215a9561963b4b5bfa96f62616460f5ea2bb9e7f2d9ae00"
+        ]
+      ],
+      "element_hashes": [
+        "022f18aa4c5e03c89a82dfc13efa8f6bb5eb7c71dcfdfbbb8ece604e2c173cb2",
+        "8038fb98bf44ddcfd0709421d9a9161baea7d89b6b6d50c1b8675e802ef6e0d7",
+        "e1d20da532d521262e26fada939d6bd2abd607215c065e6e7f6ab92fabe14299",
+        "7797fbd6971561102b291ae47486fbf8dac43b6dd5a8cebd689246767a332d7d"
+      ],
+      "hash": "abd9e8690314261824cfd56b324ab29f7bf2c2bbd5f10453d6f0554eab92dde2",
+      "kind": "array",
+      "mistakes": {
+        "949140c4cb5191352203965baae249f0ea0b9b4bf3c0db3ff95962c41864a6a8": "XᵀX est de forme (p, p) : X.T @ X, pas X @ X.T"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.26b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "794a614e272fa7e7ea2e25c566f95d35970648742dd990bc6a56134b5dc57880"
+        ],
+        [
+          "cd3a447f7af685b77c150c491a0770b0a75c33bdc55a6d2ae3fb7c52867e6d7a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "bf1a60d18ecc27764296b6fdc73c19bd5e33ff4d7a937192e9ff3db2431dfe10",
+          "984122393f9bd05e527f65c71d977ff5cd66ccb6b9e7f592be138705a011e839",
+          "d31808b2faa6231901d59702e0118178119a1585f30be52d955a86cd8e501f35",
+          "13283c7d92fa94c3e10b7b173a8992bd1b2dce229c687ff1ba2617dcd8776c0c",
+          "1a5cc58da763fbfdedd06ed46d47343aa84e0ab98d242e451103882eeb8f30eb"
+        ],
+        [
+          "b1a7cef7b27c8d43855a8bf9a5b7857b5123cfb3e340f7cb8cef91206e924bba",
+          "5c3534a61c715b23bd8c6bb142ef146199fc5130428e36034eb0d0ebe40a2363",
+          "78b4cdcb270d8c366df74ed7d3a59e49a7e40f2f974e7154b4cf07a21fc11461",
+          "11b91fa255889b4dc80851d9e62455a2550725301cc413b3911601972c3c1295",
+          "a33568fc1ca85bdc6543e7427ce5ce1ef12cc1e21328dccf2cacdf3a3e90a487"
+        ]
+      ],
+      "element_hashes": [
+        "b8405c45e5b02dc3950dbf0b1a56e7e88b8b388b0498d70d0a606509f4d49342",
+        "0e3c18bad463ab195ed9a3243ed246958069865b1d180bf80b3757f7683a6aa3"
+      ],
+      "hash": "e336653c5e638dad2ffa5d1ce3b37e8bc5ab0cd03fd19ef4b17339f2ec82ad0a",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.26c": {
+      "array_rounded": {
+        "1": "5a9dc35e6037f4c7422b2d46dd9345ff0c2025826dc11e7e14d25156459d56b5"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "1ce81082c7097ab48efe45fca251ed5aaea54ae8dc6df47681c65f43721e224b"
+        ],
+        [
+          "853989f6fc28bb3ca4ecfefb4337e1b02a090e0064a8e740a0185f43e978a99a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "2f5e4b6157ff7cafe6f252a131c08facc80e348e7b9138bcda20e46076a2aaf8",
+          "bcb76c4142bf5d2f13e2351dc96d880787077eea4f373b939ad9258b60231c71",
+          "8009681dabdb503be322ba5a687ccaca9b1d40f5e7d99d5d5bed5c68ac581375",
+          "066531ae6cb137336a7671a716c1118008cb65bde4fe23b76e7ec4e4e3f94870",
+          "8147b823101911d1fca1e67a50710c9dead77e9ce637f9e9fead106ebf938e0c"
+        ],
+        [
+          "d720c19c5cc5b9fdc164bdf4494aa09e6ed5f2463d0ecffbdc4207f677669a5c",
+          "59aadf4d9dc139c4cd763c6c4d6dde344da96eaaaaa3cf44edeb160fef533ea6",
+          "1da8d7a84da673e33208c862aafa3d983b8586d7f415590e15cf7db5c01f681d",
+          "3e09aed089546237467e724c4fb6b7f0137e2d88d903d693fd62712d69bb37b0",
+          "782c973848554669c691ef6806682ded72bede343a9df7c2df4f462f157bc902"
+        ]
+      ],
+      "element_hashes": [
+        "4c50459127d80de98860d617c027aad95c36b385f0bd06679a8da92b6ca56b94",
+        "cfb47ea8dc0a79ecde2a2d123fb68da74382c1c928f9827b83c4d4a4aa21e618"
+      ],
+      "hash": "31dcc623c71944122673c5232561e3aecc2689cc0c50c7e82ebb011c8f9341a9",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.26d": {
+      "array_rounded": {
+        "1": "ef7300423e5c6c3e1fbe1fc656fe724cdc5865395d30706351effd4a3edce3d6",
+        "2": "5a704c36407d5029155ca2c1557b5b4eb1f5482006a7b24df309ba8d90e7c79b"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "f04da3d6a16f332fe1568802d698cf11f1b4ecaf291b36cd7abd0097fdfdfb45"
+        ],
+        [
+          "082929a5720d701ce86f5cc17a34efb2a1757d3670b49f153f5534306e9ea4a5"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "df623c5e669fb2acc64b1a1937e8027793430f8ef1a4d60ca92750bb11f83d89",
+          "d6e9a978699645d9ce5754846cd277616e295df85582f3460e8db3e2b476002f",
+          "eacf893c6f6d04dac953d3865e6c0db2a4d4267daeb4930abd2dab2936e18e24",
+          "50b2af726d4fadbdbef9198bce3ca6591760775248001aa94fd058d96f3ecc25",
+          "bc9752cb473cc073a46dcd127dca5f975526c377b722e6a499776466492cc5c2"
+        ],
+        [
+          "d629ad8f02bc153b18495e912a66493c6ca3b0fbf9866e525a49c57080677b61",
+          "b211d4e397c3103c2c5ed317ed2d211efc6182d49b36c732300c91f69a88f2d5",
+          "1b4a16f1e36063952d538e519ae6ecd04d29f4cd1332b2d43295664dcbf36662",
+          "27abbc061899e4aac2eba42966d0b550a25c5f529827a8d952a0bcd1ac01fe93",
+          "da0a152c1286b34188b1f40b4dc05e14b13768656008c7caaaf7d3fcf1e236c2"
+        ]
+      ],
+      "element_hashes": [
+        "d545cb151dfcd10c7f560f9b1591bd77b65b51e283216cb5cebc1f02b3ad5582",
+        "3a6de5385f15382778471d7a148d249c67aadd00bda3e8b88c8340e7c891cebe"
+      ],
+      "hash": "aad8503aed8d0526a51616f38e189c15e88b9a017eaffbd1577154acc456ab78",
+      "kind": "array",
+      "mistakes": {
+        "3aa11ec67fc5ce739a19f0bc9689325701c67beb04be0a400a13c7ca61a5ef7b": "λ s'ajoute sur la diagonale seulement : ridge * np.eye(p)",
+        "d5eebf2610c82de1ce959dd94d1fac05d1764835aea84d664816db030fb423a9": "la docstring pénalise tous les poids, celui de la colonne de 1 compris"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.26e": {
+      "hash": "0daca6510911491272f94d5b12667acae5b721eb32ab130a9a2e26073049a72c",
+      "kind": "str",
+      "mistakes": {
+        "18634901e8674768b227d95034b6d567558937b498657b235454029e0914568e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "1f1d0347fff4f19667facb2ba19e5d29d5b2343b94a265b7f660f3f30a47e23a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "61e795e6d8574e77c543da3614cef44a08d5d16c8a4b00e842fa9e087762807d": "np.linalg.solve lève une LinAlgError sur une matrice singulière : attrape-la (try/except np.linalg.LinAlgError) et lève une ValueError, comme le demande la docstring",
+        "63e5d01f434e6dd7421f653e777d98b4a25ffe20a031bf768ca3a686b46bc98e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "73d856ddf601a2932ba920eee5fd8080c6d453c8873a46d8fafb55f2d538bc39": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "809a0faacc17af7286cc65779702466f80a554ddb862bd655ca22d888833c964": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8c4b752cdfdc9b9f1d9c70124bc05e2cbcc5a93b193449eabeae0b4a40d28351": "XᵀX est singulière ici (une colonne est le double de l'autre) : la docstring demande une ValueError",
+        "8d1634e577ae8f04538459cce8b1f836b82b76fe77fd13ef760a7e15711600da": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8d77f0a25b2fd60c52d9698429a76945cad4f705655016afe619f2751ae2254e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "91408b51c5abb896246b1379b8904f8b664dff55b55e5c613fe6f50c57054003": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f98a27511b755407a40a71c2f825cf1c59a8f6bfaf2608758cb4971c435514e2": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.26f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1e0aef82c85d6218092edb979aa9e9e164d5f22c2ae45ed5fa13f83fa66861b1"
+        ],
+        [
+          "ca66e574def5efe33653c3912a73b35c0a62c15f6028b045952f69c4e773366a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a13fa9beacbc7d7917963807ccc2d573d67fc9b463a35cf7d85db6eab67111af",
+          "6dd84940f62e8ce07dbc498b28d2dd4dc40a3a11ddfa8f1834e8b97f2932b3d0"
+        ],
+        [
+          "83e934630b48b0d29fe82e881ab02b6f29a6c94bb3c222f6d22c12b4c4ded1d7",
+          "f5ad9d170579e868a606e2ca038f4afefbafbfbf8c7e2580f23e2dac334f3286"
+        ]
+      ],
+      "element_hashes": [
+        "5825de5d92842ba3ac87cc14f10751c29b12ef119fa36e8b911b0d212b10b437",
+        "1559145fe52e6dea545017c121f81c3b37737c8354108ce0f2e8c9f1d3840f55"
+      ],
+      "hash": "fecab152d7bd1e07b37942cbc9314e8807e55ad9fae20a844d446063a1b7e45e",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.26g": {
+      "hash": "fb24414396d67f1276a4e4cbfa80b4634b2c4651a0b1282517e914282ee6179d",
+      "kind": "str",
+      "mistakes": {
+        "35c887e42922437b1b044fac38fdf7900f9d59e07fce4ea6f23de46ca57d6eb1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "36d0e6318e786de0ae3ebe12f0ed056fb71d93f46b4c3435aee8ccb43941f608": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "41902808c840dc4567ccf504d9b2180c3e7430bf0b04431863da6000db6992b9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5427e5d50dcbc5bd781612fefba34a80d27120a84738ea9df613dd3675e53291": "ridge doit être positif ou nul : la docstring demande une ValueError",
+        "5992655f8e34ba635cae60c75d4b5a0562d10f92b801208cd82ff20e0928da90": "np.linalg.solve lève une LinAlgError sur une matrice singulière : attrape-la (try/except np.linalg.LinAlgError) et lève une ValueError, comme le demande la docstring",
+        "78eb3237c803562a260d07d2161d7f5be10a90b21ef662fd1279e609f51f8ad7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b20c2f28aecd37b675ef9a3e03c906f1c9604bffba1038626a32c588a4970fc6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b8c4d5e0ddb43ff945b8d0ce1521c80f29da665d518d1a75874d1dbc215b4647": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cfd33ff475bbee6c2b40892f4c2f33be84c600be43340e8fde98e08c2763dab2": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d19680eb932becc18dcad819d2ed695ddde7e37222dce801f3c1123aa7d2bac3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fb2047df5c735479fc65f7a04da5245ee9c064f7ee36abb03e7d82fe762ed6fa": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.26h": {
+      "hash": "e3039f7bf1729454242b2b9370827f742559ff09d6fe70b10d47eb956f5c86b6",
+      "kind": "str",
+      "mistakes": {
+        "02a1209c04a0ccec682d28a22a7e0691f0ad73faddd3ff7aa672aa5a81a9b3d9": "la docstring demande un tableau NumPy : np.array(...)",
+        "f1271ee6a8177a4bb0c0834d010125021a75ca0460c451247511de8c2867684f": "la docstring demande un tableau NumPy : np.array(...)"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.27a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d1b4411f58d624019c6c7a01ffa49ea6038a33e23203ccb61351df4a579bcf07"
+        ],
+        [
+          "66bd999920f9c812aa9c230ba6c7c2d7b0b56e896566f6adce953713b3b02e21"
+        ],
+        [
+          "3af01cfd1af0f2835e8bb6e7aedd1f1b8542d900988ac4c780dc1b8423bb8779"
+        ],
+        [
+          "27f582d800c0896a709655c15f4b557ac741ffa1c0bde49a806f3b17e03a94a3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "46e305bd381206677de1dadab208c64d9deff7f0a4cdee5685a33c613bcaab21",
+          "41b146d3d1731fc40aab9e173a55f82a21a45e0f3fd350db9cc1c9faba30f375",
+          "0989652527766e60bd8f64916d7976807faf2a655f7ee004753bcc456a13d40b",
+          "3f1ce5dad44d8f196dc4099ae6b4c7d1a767796c22230bc84a07a0b9a55238c1",
+          "a4e16018081e202757c1c70ab550e3553f1e4db61f0cc1bfb65789132fcb869f"
+        ],
+        [
+          "1cef5cbfe75b4063df1628d38e493749d059828a567a97a30bfb8c687747087b",
+          "882e41caff1c08726c14df879a883198d6e2538fbd585f0423b349c3363c5d10",
+          "de111e6a9d1ffb40be2d2e2eaf49db7c539b3683e41df97a2b73866592f7f047",
+          "7c79a6a47541b082af8584cf6283eb4301a1a628357975a069c4cce40df74794"
+        ],
+        [
+          "a63ad25a84170e3e0249597432f46b79a6e250018e2b8cc87fa15bc275fd248b",
+          "9a77e1cfdceffe4cbe44462a9c65cef21d93f75c73a79c68cb5b11f781e50db8",
+          "1b1f553e7502ddfe3807d84adb7237865637a175733259fa9fc93ed752f1bb03",
+          "74f38fbe8c749e9b8f7604a348f2ac358f65345ee4359b134748d9d6e71322fb"
+        ],
+        [
+          "c118bd9b71479972715848fc1c7eb0059865ef48d851f1027d86ae0e73c5d9c5",
+          "5047c4d57ae3cd1a1f38a14fcbe263ee0a6bf623d8f6ddee5ce39c70e7e5a8ae",
+          "7d5df41428e0301af899ae3be80b13b6d046dfbff6406f5be8e549b66492a462",
+          "f0e3536c1fed13a0f35eb4f1b3e5f93fe7b9630225c00db7299d8bcecc326ea9",
+          "3ef70fe1be8068174456c2e2e92d68a270f828a7059d3a64ff9d6088a47e0038"
+        ]
+      ],
+      "element_hashes": [
+        "0a39a654055c5091c46fffe032d7cf4c8f090e29f1cdf6aebaef91bae4127acd",
+        "93857a5d5f5428412500e283f69fc28133db9150879c205319db7d5ac455902c",
+        "23152e6258b956bbf11a5a1be30c0b5badc4b65300820a195bfd66e59019d86c",
+        "19ac723ede4ec2d61aef36f9de99d8a9e319d5ae8e2cfa6e548f040e52d76c42"
+      ],
+      "hash": "9f7abf89bc636ee785cffdceaf6df67d3b7a4001af61621ea9fd035117451aab",
+      "kind": "array",
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.27b": {
+      "coarse_any": {
+        "0": [
+          "dc75dc79e1a427e0096056c59b9056ac7c97166f7115d9c339dc8281b7f92464"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "05d146f23e4d400aa9d9d551c8118d3c0f4e9462739cc26e7f5e3729988948f0"
+        ],
+        "2": [
+          "8946db6cdfc69e37400060bfc0c7436a18dfe9156ca3b38129066e66c40bc02f"
+        ],
+        "3": [
+          "28c1105fb137aeea3eeaf054f129c9f1c559b653416197ab389c84b94d7911bc"
+        ],
+        "4": [
+          "b207a7f243deef99d09be22d3a156eccb45cf94d478db8da18aeb91f72bc400f"
+        ]
+      },
+      "decimals": 6,
+      "hash": "61c94577ae1c3d0176d30bb8fd490b8de69b19780e142c6c194cbf548e405011",
+      "hash_coarse": "41c1aa5b8bc177b6a1fad4ed9763d15b1222dc8b231996aebb6a54caadb36df9",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "0e8d05a1b44502e0d0e6b478888d6693a7356a1e3e761e7a46813d396414c725": "la trace de H vaut le nombre de colonnes de X, pas de lignes"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.27c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "8306eaae35fcdd984e0c94c5af8dfbcb97800205c51f6e4e7594a462dd4212ba"
+        ],
+        [
+          "d759567379f259778a5ef4c9ce48e588eebf2660fdd20784db73c2e6923f1423"
+        ],
+        [
+          "1d49174478d24853d7ce769c6792671cd701f1739198db48e4ca6ad5894c4cd1"
+        ],
+        [
+          "087eb3e86f95dc8bd13c8db2ee8bc17e8898f74c076ff9f1bd01f6123cbafc97"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "76d05967bfe9825e58767fbb6c8440d3d1052fcf622c9830a4cdc65750283a88",
+          "6f740189723256ad04b3495de4f1eefb31030b2722cd89bdd8e10f7934c19e07",
+          "88e19ac0b840ed2bf0f27370c9d496a35ca378c90f26e3e2e97de402914151ec",
+          "acbd635dbc236b5369ec4e2c564ef1bc6e4a80536e4ead7da17d70fb914a4e13"
+        ],
+        [
+          "ceff30a8bd06739742e03f2cd656193dc4d8a858a52b1348eadae31b0c5e9668",
+          "851cd4bdd8b02bb58f6b42a7b596e2ddba8b0122c7f2a58b065729cdf44c46a6",
+          "34e33743a1e91e278bca08f7ffdfe1793851b7b1b2ed730dd3da3a265c65b73a",
+          "8169c2d5df0c1c401dc29db9b5ebe46db4270938bf89cbb90925d77b2e3317e8",
+          "8cb87bdb5d9b007813b0d11ec6e13912adc5d8c627a9829c471c78557a49394c"
+        ],
+        [
+          "067ad6f46457a28263b36ae00b2a29df7d8dcf0fc29503f514c033ea4d8cc78f",
+          "34244f80d720a716cedc7483056edf405fefe17e3c51b79b3734fd1cf26a4188",
+          "bd0a380829adb2bc950e9644727d61e96af15a6f0a2427a12a2739204fcb1fce",
+          "32795684c1aa9471372de1b633a43ff5b58771803fa3b5ac3ad4ebe7cbc1f09c",
+          "80decb4c7c51a629df7d81c4c48a44b6a1fde1786b1c0d95c41f8c4ad571f14a"
+        ],
+        [
+          "fe2dd0fe22e408472904731aaa1eb2de16b957ee3370c6e15a07b2cc44113444",
+          "fb29540e7fa8c5aca31e1090cac970791c8952b67da215228df9b4609963b951",
+          "3fb0bba03e427667ebbad47b2fa898abd5c19394b55b9bb461755d1435eefc84",
+          "07641e5d4779e9e52ea2ee93d95d8cf8692bd1c9ccfc739aa6f07d27c550837f",
+          "5f6ea9d8cb27729d1509b2e8690040d4d90af12836beb271e54badc36be8ed9f"
+        ]
+      ],
+      "element_hashes": [
+        "ed5b0f4bc27dd5e308e07d6e1609d24de6ecd011ce503bbe4237702fe958ede0",
+        "626e3b97a48265c12b6d55968aef1a8928938d7e910ad1e57f1cf66dcc0b68e8",
+        "6bd29edd8a38115f9d6c38365dfa8ae197d4cc942018d2eac892d88a8839734a",
+        "edf9fadbf5474547d21e19ac28bafcfae5ba6635ebb89a036a357c23e5a39bf1"
+      ],
+      "hash": "e606f82eb3f066b2bc76d85e5e6819107a9a8c63868ae07ac18487eda957eb08",
+      "kind": "array",
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.27d": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "169bc3ed60baddf685238f61a2e374473330d0ed728b3e2e5514a1e0a4f818e5"
+        ],
+        [
+          "ed778cd241e0d825a96b3bbb1b79e6ca400e7913e0f8adafdf7a2b930e7d38e2"
+        ],
+        [
+          "22c4f53e28691f7c03a320672e6e4754284998d5e3d188cfdbc5497498b13761"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9ed431d5fc6af858ccf33dd4392a9e9c487845be5ab9907d22f3c60ee44b906f",
+          "12ac026230ef293d5b1ec2bc3c5766749b862b2f3dc13fec646429e5c889e825",
+          "3994ab1435538f6766401595a4c70767c54bfc825435afde7442f47be7a95812",
+          "5193041576b88fc71a793cf5fe90e95e947440f9ace5903efe48a4a1dd75e3f0",
+          "873091bac8ebd75b8a551016f7d4d95701e6118917368cbb9905188cf64261c6"
+        ],
+        [
+          "75c28eeaaa18f9278e17c9050bb03a9fbba97fe7da9911243be2ee6a3d2becf9",
+          "d6baa63056868e74a33a79a9f35d29c04e7f8b74a01251d7e7a2599225abf4cb",
+          "814fff8c730642a8926b5823410b50281fd7bc038ce1a10a1e5f7254b13fa1e0",
+          "10ce998521b2c472a2a011aaa37841aaf20644db79caf68e49f73d9e1480f62f",
+          "b81ff7f47c8c7c37e4df9c6b45d1d9929feea1aec4f8815fe1d319a0421a1a86"
+        ],
+        [
+          "3048e32ac461d5e74cbb57542ad9481cc820cd6e3357e70624769867d5385247",
+          "c1935fe22108214df172240076f556dd404162d265aaaf047e36c3e4ebb1d798",
+          "2494e30f1648a26bf9eaa5206943c4e6faaf0d55e88dc77b81c22ca929b96d78",
+          "d178555d2d359a3393d4a6896b61c6813c743156a2c2c8b3a398671e9483ed69",
+          "38f509813279e94f2b742fc1cb65a6b01206d56bd455f6140435da5c9b7e2223"
+        ]
+      ],
+      "element_hashes": [
+        "bb0c5d05fcf818d364eb6885f7802e83eb62b13955be7dd0304e88d8bf4af4d0",
+        "bc56ef3c0faf9927d6d06d105709bc2bd34f416728986701e6596408d156bc25",
+        "29f6d103e531aae48f2f7583ac92f6fa0bf64592671c47d45f5a4a2dfe001c7b"
+      ],
+      "hash": "4360ef282facf4fa9773e984c13f8e8a18cb303103d5794d73e136dcadc60a3a",
+      "kind": "array",
+      "mistakes": {
+        "a82c2c21a0922c35d52179c8dc63c1a8981afb9945d2ef1bab9e80e2da815063": "l'ordre de la docstring : (SST, SSE, SSR), la somme expliquée avant la résiduelle"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.27e": {
+      "coarse_any": {
+        "0": [
+          "9efb7b5bbea7e6818f66a18888f54c51f8826756684310c924281d1102719cd5"
+        ],
+        "1": [
+          "7bdd23da2bc3e269b7c8775f3b8817c421216e46a5bd47da527eb2dd02aa896f"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "664d24d74ba45db4ee94de45d4a6d1c171ac99fe20d24543a42315c6fee50e1e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "43d04210d43377444f23147cffc07ea2febd359fa00abecfad84eab20b90a655",
+      "hash_coarse": "d781f7ae1c697ff586244279d52b1d94f40e3f881821c87d4ffd8bd2f86e5a86",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a5d0bd54fee02d326e4869556cc24e2c31eadfc2b51b9ecdd5240d446ee1660d": "R² = 1 − SSR/SST : ce nombre est SSR/SST"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.27f": {
+      "hash": "847bad3ba281cbd9a755018276c1c5b37f26883d0e6cc07292ec4a5b67359352",
+      "kind": "str",
+      "mistakes": {
+        "104835eccec323762e81fbbc436a46768e8d98f5d46a26ce5205acd80fcd1e39": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "1e08bdeb37cf53b8680152a90914284b6b1742b2222fb817faa9e0f32db8dc14": "des longueurs différentes : la docstring demande une ValueError",
+        "6cee8bd5322ba97cddbd3ee187ff61e215dd54d8ce975720498a58d56d044df9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6f07f71efae7004b4a9bb3b6adb690d6c5e2d4c77b4bedec03ec1582f2e69175": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7430ad3b494700d57ab221fce09a9781245bce8a5c191af68c80d1cc41946195": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "748bf365e326294162896ba37dbe960a9baa80d9040b58e90fc754134c3d876c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "986c61406b31c79c025ba530c73d55e0c02439e04381c48f07ac0faa652fd5b5": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9dbf8f1e196e1db73dd25933c1d1ff318173171c49c8cf87f5ccc11d7f5c2363": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c8b7e5f43e1c50d5d47d85cf9dded256c8298da1b8fff65e889cbb6415d4d452": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f62d428e719fab0c8a4af56f91961f3788d6d2adc857c80a3d683aee63825bbf": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ff967ffb741ed7a088050cef09d3849c7498151f7dcd3fe2ea13a4e279fd2b5c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.27g": {
+      "hash": "03a3325356b4e4dac521f7bd2b7973cde883cb38c1704a8c781e791f507fae09",
+      "kind": "str",
+      "mistakes": {
+        "3e8ad2f526ae45d7ecf58a7a9c27b5c9eaf36fe1dd66fb8a1aeb5fb895beeda3": "la docstring demande des float de Python : float(...)",
+        "8b1fd7bf3415d30c6cbb7e28acf8d6e45a2fb45a69e554eb6e539d111e25b694": "la docstring demande des float de Python : float(...)",
+        "c73f4c55cf6c28367035c993100c71e05e43142ed0b07526e897599f645f1e96": "la docstring demande des float de Python : float(...)"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.27h": {
+      "hash": "4031aab19b50cba8164b87f0fd48b5b075070c9ff75bd2868fd27d2748f09c51",
+      "kind": "str",
+      "mistakes": {
+        "26bc6a11b27e4bc095224223de8c098626653cc625ffb73bddcbbd0afdcdb4e0": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "2e150e01521571afa94a1a922bf6f510b8d7f007cb47eddadccdbcb97b80c821": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "32a0c1862aad678212d00a5d64b184e59a18a2821231a522f602949e3b8fcc22": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6eb14dbb48b35e7038b55295fa789e394ab61183e95e387a9d39acd60f944bc2": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "856cb613117d103ce2b1acca39d7822c9d1f8c4a5943fc6a46e819d90fb66afe": "np.linalg.solve lève une LinAlgError sur une matrice singulière : attrape-la (try/except np.linalg.LinAlgError) et lève une ValueError, comme le demande la docstring",
+        "8cada79763d70c4b6a9c4f2136388cc37d6c69c01ae859f9760d449540663d81": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8f8d3aef5b1acc7c7deaaff7de5904ea74692cbcd240d09159aaf6ab82cb6967": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d7294f196be828bcfa7ae35f128af9dbf91011b4ea1c41df0e6c931faa55c9aa": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d9c458ad8e0d8615e8ddfcc6a84631cd60651be2dffde2fb862aea3d852dbca6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "eeb55b785e38c6f05481a72d88d100273d97185b7b1289c1918a29d59efeaf2f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fe6c724af1123b19f3ec263ccc54b28ef1441cafc21b4ca92f6a2ca13120ed89": "XᵀX est singulière : la docstring demande une ValueError"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.28a": {
+      "hash": "e2315e1867c10fb90af74fac6da02b010e1c0417341138fd30ba631d596fd1ac",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "5cd6b68f5e12b0c9b19586e4eb5bfaaed0f40333d7df60c4606234e82bb5533d": "sans la constante par défaut : retire le monôme 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.28b": {
+      "hash": "e1c7e227a04f8d5be7d98d567cf14ae304fd9c7b8347f6785596c889c6ac310f",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "16fef2b66c91aa2f1d43db6af8ff89ccad5f77e789380f9272964a469d8fbb40": "include_constant=True : garde le monôme 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.28c": {
+      "hash": "44068c436d77833596b69a131cacc0e20d9c5d38a08d5f27c1ffe3de54ccc493",
+      "kind": "int",
+      "magnitude": null,
+      "mistakes": {
+        "d1e73cf7c7281caa6e059fb0c03b12ce65b59bb0b1e59304af175c7a0df94a5a": "degré 0 sans la constante : il ne reste aucun monôme"
+      },
+      "sign": 0,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.28d": {
+      "hash": "51a8f6105894696c9dabb0787cc94a05d730862a56cad2806c9b3aaa94b80ac5",
+      "kind": "int",
+      "magnitude": 4,
+      "mistakes": {
+        "677c95ff62fc85fda76f61f406541fe6ab797ba7105802c957772a6294ffc81d": "sans la constante par défaut : retire le monôme 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.28e": {
+      "coarse_any": {
+        "0": [
+          "83dedcf61c48627132ad28a5cb27a5af19acaee52df5fdfe68d6627c0b8529c4"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "2a843373a567384f4ef7fbe0ed0bf0d64e87ef8f0938e9cd235f6e375b244b4a"
+        ],
+        "2": [
+          "4a51dae69c18880250ab645db63dd08807a6aa95aa7a18c2d47636fb79b554ee"
+        ],
+        "3": [
+          "36e7bb1cb49ffc0f917f16746f32a0b96c7fab505f5d52c165f0842fd4366384"
+        ],
+        "4": [
+          "d7b74fb575c1cf67a1f925c22098b50a18c33c2116573ba4be2c3bdb09baed7b",
+          "684aa660f40d1c5984e3da1e4c0efd5212a5970c4ca3ad2c902c805f3862a96a"
+        ]
+      },
+      "decimals": 6,
+      "hash": "29e1ed98c6b1f66e45f339b8425f471b72f9778bb3767f626869be18af41c508",
+      "hash_coarse": "27dc64e09f824b56c6b1e8fcb92242878e5c52ecd32158688cf8ccd96a7ef6e2",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "6cfb3991b9a194b390e248460a50959a542fbcbadd1fbd73102191cf14e4220b": "au-dessus de δ, la loss vaut δ(|r| − δ/2), pas |r|",
+        "7a65654dfa410f6afb0ad321ebfc44a75622844bc68fd112dcc3546968c37004": "huber_loss rend la moyenne des losses, pas leur somme"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.28f": {
+      "coarse_any": {
+        "2": [
+          "b2c66ac982d1e90240894e8c1e5a71882c5165b71312fe19dc58fcdd0082c496"
+        ]
+      },
+      "coarser": {
+        "3": [
+          "3fd55a58846782a9b2a68a3262125e00c0fb02d7c34bc2993ca97a3d0016e7f5"
+        ],
+        "4": [
+          "7e1b12dc85e951becbcbeb016e53804dcac861721edea254f58e5a1a54b3fd8d"
+        ]
+      },
+      "decimals": 6,
+      "hash": "05b906879d903d81cb92e4cca7850ab02ec21e7aee7b6fd56e9b814dfed40e32",
+      "hash_coarse": "3b0b294e4769fe2c8cd159361230136383e3667383e57826e03ecad4838ef6c5",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "604dc68b19ba8cd07564ad4f584b104c6be7a2ed55a82e9f0848a2bbf8bff6b1": "sous δ, la loss vaut r²/2 : le facteur 1/2"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.28g": {
+      "hash": "1e7bc458ecb924a3b61e1120b8c58f9b15c9bd8e0060aa4840d668f55871d093",
+      "kind": "str",
+      "mistakes": {
+        "05bf2e17b8273ea8ad42062751fd1bb569dc78fc865a2fd2a63575c53e299978": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "39b0793d9eb84cf53b0ee7a7a78488deebefd7c49b101d50af64d5d6a9d6a79c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5a741f1a423ce8db9194844bd12aa3ddab94332a70e6f72b5668b56dbba25590": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5ff1d5109c91787c28548ba516e365bcce68aa3d23d680ef1a0de6575a227468": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6c7c53ac8e6c5038affc94fc642f5519d593b91e87ed7a2191e64f036763ff22": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6fcaceebf60144cd37b4bc46c1a9d05ca8710bd1d77b558d6be356583f325cd1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "77c5720379508c25cc1c307916474ee3895d3ea4f7b45f9d555ddbea3533384a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "99ba2af18a00479af4d79967254f8f5a6e080ffe76db46e8dd420d72474076d9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d2b0d68b382d9f38e1dc262cc33d6eb1c9bb0f0d5cceb1770472b0dc57f144cb": "δ doit être strictement positif : la docstring demande une ValueError",
+        "ee7b3caa10903dca461e552d433b11e50de81988427a510df73ebc56f90d99a0": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fadaab6bd8a4d6e02f9be24c994104b6c45cff65e536a74c7f8e23e8452833ec": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.28h": {
+      "hash": "7645a8340f3c33ac2be667fe516346756b3789f88e400fd74c2d7afdec59addb",
+      "kind": "str",
+      "mistakes": {
+        "3ec8bbc963cd708add2ae3c0d626cbe4943e47300b39b43c9df1c20277ecd243": "la docstring demande un int de Python : int(...)",
+        "4bb824216817dfea4f5a35653e44da163eec4d2697dbfecf0771c5164ea4d7fd": "la docstring demande un int de Python : int(...)",
+        "a9ff855f3c0ac811d38696829dd4ac50248e97e054f1dad7a2baba2209159a57": "la docstring demande un int de Python : int(...)"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.29a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "4c7843a7375aa696991612fa78d7d7a2c3a8f33521acafe9faa47badee6f50d0"
+        ],
+        [
+          "2023e020ad74ff85848bd3cd90f20cb377b7170ec569c14492fd8e269aaa0b65"
+        ],
+        [
+          "8b40792f00edd09c4aaa653bc34a62fd95eba6f876085242146a07bfe9876b7b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "091905bdbf04ff701e747f649bd181401d4aee5761c2b890f370a5ac85fdc1c0",
+          "08ceee6f0b2af85854918ab0b13dc071d013fe90f3a8ee96f66db42034957f51",
+          "68868521fb44fa172d06c6d3cd7dd7991a9f1cf3e789407f5e5bce9e6bd1c17d"
+        ],
+        [
+          "512fba3a0982383a036f53d25f5e950120354e8bec4a27d96234c98e739726a5",
+          "34065ce04f2df183c132e9ef2943f76ff53c6b620cad6719a90f1bd3f6a8af74"
+        ],
+        [
+          "0924015df3adc65f2a44a00f89c6e73f08e8fd5a0ecda7e4b9032f3ca5046c06",
+          "54be92d8a84ec3101a1e58c189cc3da7eabf65766fb54f7b22577415ceab573d",
+          "8bb0fa1a4f73867fe639116cb909a3af4cf831e3a6f6607a64d0eb771eb62e83"
+        ]
+      ],
+      "element_hashes": [
+        "3c38cabaad87c040818dadc56ff5eb8c03baca7fda8fd3d864965d3a8bf9a057",
+        "dfbf724137f40bf9b45a1202abe36160749310eebe1b3416c878bc3f3542fa3b",
+        "11a3920ebdf2b61d58122cc22c5c2f6927aac80afdfe14ae5eb785c65763c431"
+      ],
+      "hash": "e8d79a0294bbae196eeffe9651bea9c29b8be91fdbf675e997b116a411e1ad03",
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.29b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "12cee353991a15d10a3fab84d0b65d80fcaa3e35d39899bdba04cdd05c2974e4"
+        ],
+        [
+          "e404ebdc13e9f272c7ca050f39534b01c59fd238ecc1420694d95ccce50fb96d"
+        ],
+        [
+          "4d7e941b35624124d809c09aa2bbf82d0ab32f15ae1e1adbbb83d93aa96da2a2"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "59e6dba2e9ba9c1b992ac7092f400f887993c67e99680a54a09370e154023125",
+          "2c5146850e4b05a385cc3f3348d2b1ad6dafee10cc0211b270f4d19b7a69d260",
+          "fdcfa024c6d1f254d10253da5c81986e0542f324cc2497ccb0ce5ab16f9daf8a"
+        ],
+        [
+          "62b81ea216b35b68c5b124525377ca4432274ff34cc2c64f55c4396dacf03a50",
+          "c4bffaa5c0ad6e682345066083cec8a3b6afbf4920a2206b3fc241bc079dd9e4"
+        ],
+        [
+          "91bfed05ef63bf91a35513b7a722c3ca8722a684e40b6d72ba41eb4f80431f3c",
+          "6ddaf535018c476034950e3404f09c70faac6a2eecba9c68979b7da4c99e401d",
+          "72e81297717a5e909bbf040e6683aef805a2be4bc05242d0ca91ae222acc53a6"
+        ]
+      ],
+      "element_hashes": [
+        "338cf2f30451b149e27a07013a0076410e58c98913aa476279146270eec32320",
+        "16e007bd2f70976ff5afe187da8172b38bf1817448b5252b495dd0ec0313a04d",
+        "2fae4094e6fe8ab96a86946851803528d6e0ccd3df3f867e5da68c76b36fff68"
+      ],
+      "hash": "c50ea1be0b677e8d3c2dd159f17ebea4d04fd5e1112923e2f3474a0a9712f5fa",
+      "kind": "array",
+      "mistakes": {
+        "ef991aca4e8305e1b72e805adfe5bd070d6cee14de4be2ad632a0de26314ce04": "l'ordre de l'énoncé : intercept_ d'abord, puis les deux nombres de coef_"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.29c": {
+      "hash": "a0270f7b99459720b3832ff30c525a6036eed0184f9caacd46b613f81a125b48",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a07fbe8bbdee3cde808371d9721a1f20ee0e8fc0cb6109b6fd2db0ad4bf77468": "le rang de X1_29, avec sa colonne de 1 : trois colonnes indépendantes"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.29d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "81d30a72f637f494ed94064f19f407d5d6b32b41361bb6bf2f0783b1d81e6b99"
+        ],
+        [
+          "33875c222c5be62e567ece794dd6c706a5eee79fb9f712d058d6ce3c17923cb6"
+        ],
+        [
+          "44d1bb3865c83188de760dc8db829f777aa6834611234ba2f6d7d0d3f8e7f319"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a384521a408fb3af17310a562bab10344ff9a2dbd2325fbfa5b997b6a9502913",
+          "88fcd43ad0c8ac431ece885f98a2d53a0e9c15aad3ba905f98fab2e963d929d0",
+          "3a6ecfb1273f1ccc69caaaba7fbfa012c149b020d722ed0eb04679a26a0a004b"
+        ],
+        [
+          "e615b4df79800323170d28c351d9e6c85fc1505cbde8f07e41a89f6df7db5aaf",
+          "5326dc3c813131afa9cee0c973e1831cf99f7bac4ebb05834925629796ac138a"
+        ],
+        [
+          "be5f4e1d8784c303440c40265513951aa19c8075e359340f51d43406641af6d5",
+          "b4eca9f068d88f03ad83b8ba065c7911e08023a464006250c6c5ff9e2f89447f",
+          "2db15051a3af31acda4cab6a733596314bca5f47727f7e96bcc46a7d78661187"
+        ]
+      ],
+      "element_hashes": [
+        "88b852fb5d5316ab3d1f0414e064cc33662c23ef436e344e802d43bcd422a4a3",
+        "b42d13d2c487a340b7dfe4e4feea9a03956fa6a53e481886d853546c9f787c47",
+        "4c9826c4a95b94bb05aa74114155e2cb253548f24e3518d6e75956b84f46a089"
+      ],
+      "hash": "c8265c12f10450221e22028592d73116b478539a83c4b4eb28b42e246be82e0b",
+      "kind": "array",
+      "mistakes": {
+        "6f6b65d8473f0092c0e074bbf774a0f9f925c6d29fdd8b301040a3137a4882d3": "l'ordre de l'énoncé : intercept_ d'abord, puis les deux nombres de coef_",
+        "de6f897aa2e8c5f9cd0b83b7d0ab125885fa1884d30743b7135b55181702c919": "Ridge ne pénalise pas l'ordonnée à l'origine : c'est le résultat de ta fonction, qui la pénalise"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.29e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "22f5e815dea9af4558d714442194fbcdbb5639a342388d2cd087e99ff473d34c"
+        ],
+        [
+          "dcf07124356e628bcef0400d2d7bfe0d8f15dcdb5cc896c649aa7c03fe826d80"
+        ],
+        [
+          "db7059d898f69a65d3d098e9e3118d6677e9c813621234c26a4f6439ecc762d3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f3e6c6de0028e0a96c9666d76e1c9e4d1f5d6fccea15ba328f3f3037109cfd40",
+          "b84c117aa29f3a8791316428077439834926aa153fd4607ebfc3f315443dabd2",
+          "b96ec999957881d6ea31d48fe66fc3e19d3202205b4d17fabee0bd66441dbd7f"
+        ],
+        [
+          "986054c579e9288dc76db0b5a66f936d0b946582accb3163ca3f775c1113213e",
+          "a30a86cc2ab2c715d444d6d6cb1368c976427b342369363182fea1f16b6427a6"
+        ],
+        [
+          "86bd15b5668e49db2e62ecba4a7a55b6b6c4cce51af5cf3aa3511f31809df5bb",
+          "9ce0ea5ca3f7feeba996ebf6277e41fab78599e572fe0f1689d93065746b9f96",
+          "442a2a4d092a12cba766333bd5851fcffa040c7925054a97f690761e928acaf1"
+        ]
+      ],
+      "element_hashes": [
+        "6dbd902a97423c31552b04f4848f247f85fea521dbae4b4b009bb7ad48427635",
+        "4b6c38aceaed1ecfaf2307d0beee2431f67b31af71273755a3f7509986f15f8a",
+        "9d7cff8fdaccb8cf93af02681efd3fcc55bd0053cd0d861f25857de8a390af97"
+      ],
+      "hash": "9fd47fc8261cf36aecb86ddb04464b5f617f5e27d6b422629ad33dee117a8d81",
+      "kind": "array",
+      "mistakes": {
+        "110dfc430ad18bc3f4352635eaa91c14193d6c3cbfb4d4d4d7dccfa4820ac3f4": "solve_least_squares pénalise tous les poids, celui de la colonne de 1 compris : ce n'est pas le résultat de scikit-learn"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.29f": {
+      "hash": "b7a17fc9f896de238712791fe9334cb7523dd36023335139b5621cb75724677c",
+      "kind": "bool",
+      "mistakes": {
+        "a94a1822a2e5e96d048a58d06add4b41cc661ff5811f4493701fe27531bc70ff": "centre X et y avec leurs moyennes de colonnes, résous sans colonne de 1, puis b = ȳ − x̄·w"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.30a": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "3980e24de7218166829e0f15d623374a8881263f240e720c1395065e28d32840",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.30b": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "f91c2469a888628337c5ca2640c630bf7aa4466b6e1529bbf61481260a8da043",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.30c": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "9399164a0d2e262b4031365defcfad6447e364e93a761ae20c113cb60d6fd591",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.31a": {
+      "hash": "6c478d8b72be0cd365062f51c1e75c22cf34010bbebf295128a4f5457dced186",
+      "kind": "bool",
+      "mistakes": {
+        "c4fe1ba8d2cb3ecc3913968f04144a66ae628acb9469f39a5d6f1e2a105ff0ea": "le meilleur c de ta simulation est loin de c* : tire les échantillons une seule fois (forme (reps, n)), moyenne par ligne, puis une erreur par c"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.31b": {
+      "hash": "59f03ca7b7be3b2a3c1840a7d74b208d761410f860bbbae63a007e64d3529eb6",
+      "kind": "bool",
+      "mistakes": {
+        "ab9bdb9ec6abe0020cc486e8e58e2c9f25c77cd8c7ab5ccebf7a19307b38ccc9": "ta simulation et ta formule ne coïncident pas : vérifie (c x̄ − μ)² dans la simulation, et (c − 1)² μ² + c² σ²/n dans la formule"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.31c": {
+      "coarse_any": {
+        "1": [
+          "99a7e73c9f163fc2bce83bae9b226ccc24df62d115087265d8cf2e89dc020a91"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "41fd368648a0e7e2c9ff1101819e31286eede32ab26a7a809f3f9825a8f2c13e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "6d6487bb7a027dbd6600e6cc4d35361f29afd3bfcae0da10540f8cb99beb15ca",
+      "hash_coarse": "69088815da2ef6a3ea221fab45e9702a705eaa13a9da32a4ad3461b96163f543",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3613fa8d01227b1d8f427736a6c19b04fb6182cb53b2ba8fb7008434d3cd0b4f": "c* = μ²/(μ² + σ²/n) : σ est l'écart-type, σ² = 9"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.31d": {
+      "coarse_any": {
+        "0": [
+          "e27fe672bad1ef1ab6179fcee72448902b12133eb8e1692d178712b9380fed95"
+        ]
+      },
+      "decimals": 2,
+      "hash": "7768aeb75272beded83fe638e9fcb072b15e90688ec610d7e3b1478b20bd32bd",
+      "hash_coarse": "0dee46a7803b8b770da745a1afcdc9df739d3aae5ab838e4221935e3cc1ad50a",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "62b0c65cc117c51a491e5512d214a3f4032705279f6b56939a4ec51ba0f40c85": "le rapport E(1)/E(c*), dans cet ordre : plus grand que 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.32a": {
+      "hash": "144a368feb68d5c01811baa9462cda5933ba063a65705a657656f8419af35f70",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "0aa1b33648fc445f401c497cc4ca66330825cbfb4b73d2b21b42e91ca21db05a": "le conditionnement de XᵀX, pas celui de X (il en est à peu près le carré)"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.32b": {
+      "hash": "7f036832beb11dc02f2fb56425c99971d81a92b6cddba98997f3aa83f7631e1c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "b387001a01000c061342ec39b4331ac290d8efb36413def0c7dd15403073c09a": "le conditionnement de XᵀX, pas celui de X"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.32c": {
+      "hash": "5611b019851c0d96566efda4414ffc12b4545e4f3f8fec207182fc7a30fc1d1f",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a36825bae310ae31679d30316517b5a3f1b62b9652ff5788d9f498c80d218b3a": "le premier degré où le conditionnement dépasse 1e15 = 10¹⁵",
+        "c7a7ac658c8b0f127849003a90ec89be4d5cb6cec9ed5b5ff94e7f6d1e4b8055": "le premier degré où le conditionnement dépasse 1e15 = 10¹⁵"
+      },
+      "sign": 1,
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.32d": {
+      "hash": "d4a242876ed32a7346400d01e45cc1e72d3302972e59260b7dc82856d42e81cb",
+      "kind": "bool",
+      "mistakes": {
+        "ee6b36f59970fc43bf97483416ce4a5bb2d98b39b42f5af445abf3f731065229": "avec t_32 (entre −1 et 1), les puissances restent du même ordre de grandeur : vérifie powers et cond_xtx"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.34a": {
+      "hash": "c67bede1cffaaef849f3c835adf2d45b7d432ba1aa6dc44720398013d7133f0a",
+      "kind": "str",
+      "mistakes": {
+        "0539868483d48dca08e40690c9303f766d5dcccd15b7bb652c60785b4a2fe502": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0a514395916dc0edc68679a8815e969f459744bf841706b0bec03013bab46fc2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0e70677fe6cee07fa24344fa6f8277f2eac680e0ac5b26fbd8250de0de4375d2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0f1e7cc271315f2a3a5fe2353d45b5fd026302c71e79afb74f2906691581a697": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0f8ec1a404fe4d1a895311c77fc2ae2f8aa6c98ad28265267fd87d1e97570705": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1630cb4ec432ddb7416f317d3e00d3fa820dd894d5fac93843efad7b6c68d6d0": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1f343c748dd4d0adb1a13699c727322b0ece62dab7498fcd3a017a1bd36b5541": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "269578cd52dc6e94e2e7391456c9175172221f3767ac0fc9938971b5ca994432": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "2914dcacdc66aabac8e6465ed0d390d605cadaa1aebb8aef35c3d61ce68808c7": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "2ef6564ac7f5cff5f75994b09055621d003e0a17da179322622552f5e5f784b2": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la forme de chaque matrice",
+        "36cca3fa15f0323c487edf6370691dedebf8c49f989259ef7106918b9f668d9e": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la forme de chaque matrice",
+        "3840dd7c71b5ec0d4dfafee3facfa238d60e00f61988c36e77d775393496cae0": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "3c300f04171e40a6b772a604257f24dbe3462db8df4fe0a26c557694b502af51": "une des lignes que tu cites est correcte, et il manque une ligne fautive : dérive à nouveau ‖y − Xw‖² : d'où vient le signe ?",
+        "3e77c19cffd66fbf92538c2c1685aa39a98ddc6ee235968059ce5939b553b113": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "3eea1d78f679eb1bc9ddd7b6c5267166e23b6c32310517898a82ac3a75f03cd5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "43dc18d472d2af03ea7005b827a6598c1c3190a8f60787f72967a8bd62cfba98": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "44876223799b2c5a9b19e8c84c8731f6de103b6400a47ba1e3e24ed299a80741": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4a28b1a8103cde9a185c9719388aee909283531fb762074d1ae81cc5e339e001": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4cadb91f996974a0223caa1c895005ba056c0b055fc5edeab66bbddc62027824": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4fda3924e943be53f71e7e422861a2fa7643aa05ca4b41864f00071068b6d2c2": "il manque une ligne fautive : dérive à nouveau ‖y − Xw‖² : d'où vient le signe ?",
+        "51f25c3351f8d0f35eb1870abc43d805cc360d2df8b872e24e2c3a6adc970b2f": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "5c8c6e62850005343250b72bd245ceb12a4071d6d76cd4558b0114992389da60": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "62ea060811afc343f5c2023021ec5b9b7369ec8bc69d0481afe11c1eac4c2152": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6334bc013ef5fe8c1300813590a81922716da67fd51dcc8cd1acc6b5a829c1be": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "64c5ffb8db44c4bdcdf5e033edec8554ccf9a288be78cf4c382a209d8358667d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "65fa8898a835225d557ab1af001a6015e2cb0b3f2f338654ac04172bb82d78da": "une des lignes que tu cites est correcte, et il manque une ligne fautive : dérive à nouveau ‖y − Xw‖² : d'où vient le signe ?",
+        "762ac6ccdc96333c9c2219455a5b777f9f96afc6052f9365294bfa3ec66efe96": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "77ca2506e0fa246c9895e4171cd529bb43db866e97ed2c7ed5e4534aae91d54a": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "7859fb7b372ed610a888f23050d7ec705f1ff17a7385ef518c60d65c8f61b1e3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7f636c9cdd51d5bbddac54ea1af5999552d78983b846d984d532f14b2ba86bbc": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la définition du R² de la fiche §1",
+        "82a55bc7d4fb1b812333b062e561b2f83753db670b0c7f7fe81758db1e478275": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "832363e2a84f1f50e21b6648efabd6aa97d54e3783e579064d6612dfa6a90ea5": "il manque une ligne fautive : écris la définition du R² de la fiche §1",
+        "88ea99732d29cf6188cf7640d5f17883b63fbcc478eb291fd9a143c18daa88cf": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8a1587c793c07aac253a1676fc7f79b98e84e0357a195dcdc73391692d881291": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8c33805c31a5e2fd56761bbdb994b40d2d44897dc249c66ed38f6bfd3c6e7a30": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8d2bc26d5749b08fe24627412f66db1f7e3b64d37e84a16f7d0adda8186223d9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "974f1ab4eb75e1b297ffe3008c8045103cad139f41fea9d7789a830750ecf227": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9e655a1984940ad48f17d67c5f3dbdcd11503a1598f97d826a2bcef576ec5c24": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a4a15cb6b2f2b153bbf5064635f871d2cd3ced724663bb699fca57fb32aef413": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a4dd9a8b78ec676fe1deac28e213f239b92028facbb20d06e6e99bce51abec71": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b0b917513f3c91a6d6d8e242fcd11b9b5c4c421e3e093b64dbb060632d9b417c": "une des lignes que tu cites est correcte, et il manque une ligne fautive : dérive à nouveau ‖y − Xw‖² : d'où vient le signe ?",
+        "b3b07ef76431888ee7ede894243fa02b83ab54dbd9db938d15c9c9077164b073": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b44e122ea99dcebad8869c1808f23c9d60bcac72e116e028cf203da72fb7e217": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "bc6e958b26fbf98be7e47ba430f8ab02b917ddf464c077f671e5ffde820cfafd": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la définition du R² de la fiche §1",
+        "bd91e56646cdf6f69db3e84a483804b4db4c0e0515c4239ababa09772c044fa3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "bf440337fef5f5c16c407273c7fa3aeb81b5b6dcce30c85f40dd765ca83c70ad": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "bf488f06ca36b113f74a021e2927cdcc514486bdcb01c3dc06da5141512e60ab": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c178b556ffd39ab319df4ea07df9a60f1ee5bcdaa195f201867d506d951cb296": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c2f8f83370a51677b4fb637473f6857da6e9549f497e78e2f6a966876d6cb9d7": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "c3c08291f2673243fb3c4f58c744853003619d03da0046c0d31c3978d903b8ce": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "c5b99e95b9305b1aaf225e7bc83fc9f2991770e06417602cf812697649a4812e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "cc559ed7df2dde4a403e33b3792ab48319b549490b92e9e77cf434241cf77342": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ccbe4624c44c49becf42552f24b329488c0022fc804d7fe5418394f0bc907332": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "cced6449a9906241d11c163ac583e00a2dc2787c6a87b27f264acb45197dae21": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "cdb87a4b5ae681659a1f46e7a354b595bc4d8966ab65b5a6ec18c9ba12633d53": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la forme de chaque matrice",
+        "d255d8da345f839346af42a5d4d1366ab1898a9ced0ee4f12b6e1c12f4197978": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "db9c63582616ab64eb7df9a669225054f19ee105a20844682277c3a421940e05": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "dc117956209782e52698fcb7c8b69b937d2b654f95ab2eb88984b5ecdeab738d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "dfe02e38e17e4fed464b05a43d73bf8f48095d085b6dc99498d476ff0ee9dbae": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "faed87a656a18ac98b6a29e5572565714a67f645310c55c79e2e84c25b33feb9": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la définition du R² de la fiche §1",
+        "fb1316fc53443b54911de033cf7f65dbed6a238128eb2cc378f11ad0fd06f938": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "fddb656e4a0d66987b562302ea184ef138e6319203970e19c5850273fbdeab9c": "il manque une ligne fautive : écris la forme de chaque matrice"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.34b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "c897c26c01d1d6df235f015736c2988bb80fdff1a78a30397e8e479f75ed55fc"
+        ],
+        [
+          "8d3a401bd9d2121949634305631f4f6694b6abe45728c7f093a19c468be53802"
+        ],
+        [
+          "c49ed3f6fb9a96c89062f1812626deabdf97eb8899a1e382534521bee1fc7d90"
+        ],
+        [
+          "768562360ccc567d05668919cf4526c91dcffc4c990fdfbb40c2ceea8103a90c"
+        ],
+        [
+          "fe80186f60f8f809e25a9dd69331f1d32275ed7732269a204c5a2c39f31250af"
+        ],
+        [
+          "1631a46288dce96f7a0cf06b0ff759daf36f5b90054f9dc8ad2a4fd31e8e0d7c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9d13738cc562a3a484430c9586788dd035de972c9fe183061288695671f84318",
+          "3031d54241bbebe67f07a04f97d70a05a09b6ab4f0b8f2a45ad1d14dbe63b53c",
+          "4fb0d88fa4f1959666193df7d5c1044c3f7ad122a6786a1cf9fbb99736dd4793"
+        ],
+        [
+          "2ca60e1efcea89439dcddaf6162b9e47484b5e8b1e9075f6a151f86a0a68f24c",
+          "5b73c7f3a45f8186753935966c9dc9a901d37d399a64128aac9813db319d325e",
+          "4c7d9a0d7fd5714b671d442ba1c3cf0e1b5fb218d7e1c708233b18d2d7d11ac1"
+        ],
+        [
+          "b4d533be300b919b03d32b103883f468421fcb12d9f62ad2cbfe80f1bc6df0ec",
+          "d0010590b36ff6326f7354cd10a58946ec23338adb797dac1ca2880237869984",
+          "730c3008dfb5ae935f0312a58a374efbf06b6c93d6525b2b3863e1807583680c"
+        ],
+        [
+          "45c7ee87201ea24dffaaf2fa95566f094e66bb5905727faa3323438e9afec0a2",
+          "33331f3eea0ca42e457f5dfe04da9c24e3b60072ec68ee65107ef0e006cdef62",
+          "3542d32dcc28de7bbfed56e92fb281144c9015ecb63fc3e2a8a0f9dc75edefeb"
+        ],
+        [
+          "f82cbb0dd4d701d1f4b71f19e8a9efa9f64f4016dfbce9ac5989ff8135acf902",
+          "43a6a0255273fc61459e01fcd18341ba61dc349987e5f0e6da93028527384855",
+          "76ba71a0cc11adc6ee6787d7b238223e1bd6e6ed06fabc59cdaef263402f12b1"
+        ],
+        [
+          "b5d69b9aa5fb4966af3d1fa66d54f0c2fb7aa9d88ce47645b69469bed6e10ce0",
+          "18b1ee96cf93b437590ca5e79bb5952ad22f2bc1b4c98a7b76f9dbd3e36477fb",
+          "5ca09a4aa1337f3c6c670f3121661acfb182ea207a847823731d670766d96728"
+        ]
+      ],
+      "element_hashes": [
+        "917b5066ef921adb74e9c3339dfdcf0bbd454cda83eab9df496d1157f9dce236",
+        "1cc36af5269f3ce6b500c44e4b5005b9f7edcaa5a310b1893ffec27dc4a93781",
+        "bb3c979c27722d7ca3be3fadc5740f8bcc0e406fbe5c75dc710f1e92ac84fe6f",
+        "53adfdf0457553a90517337f941f9c96029c77cd5419ffd6c21999f2f398ac28",
+        "2de3d039ec9bdfe643cefeab3b91e50b5225d5b2d3d1779260e0ab0ed9173673",
+        "ce5d10fb84e726e986ef7a11a555856c9dcb937c2a2713c949b52d5c68ec358d"
+      ],
+      "hash": "dec7507b91abf5316fb2712c33c8458cb6c312f5aad2b0697ec3c81ff58f79e2",
+      "kind": "array",
+      "mistakes": {
+        "5bdf4b716aed3bf806dbdb50a2a537ce30b36df3d96a9a9026e71d59e90e0f20": "(E) : le R² compare la somme des carrés des résidus à celle des écarts à la moyenne de y",
+        "886eb798764b15e652431a9affabd7c6cde024b2f13d5c39a537e8a492f7a916": "(A) : XᵀX a une ligne et une colonne par feature ; X @ X.T en a une par exemple",
+        "aef19b00016d292083455a010b4c45d5022a4e99e40a539dc5d7e00aac26af10": "(C) : le gradient de ‖y − Xw‖² est −2Xᵀ(y − Xw)"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
+    "M09b.36": {
+      "hash": "38c493c2a6b0121b65f5d35a0ed6cdbc29a958d186e199e46fa0611350f854ea",
+      "kind": "bool",
+      "mistakes": {
+        "35943a098a2effeac7479cd8a334e6f98ae77af96baa720231ec4c2ff3d702e9": "l'erreur maximale n'est pas sous 1e-3 : la cellule du défi dit où elle est atteinte"
+      },
+      "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
