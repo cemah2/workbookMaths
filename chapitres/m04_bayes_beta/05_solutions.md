@@ -50,7 +50,7 @@
 
 ### M04.Q6 — Logarithmes et underflow
 1. $400 \ln 0{,}1 \approx $ **$-921{,}03$**.
-2. **0.0** : $0{,}1^{400} = 10^{-400}$ est plus petit que le plus petit `float64` positif (environ $5 \times 10^{-324}$) ; c'est l'underflow.
+2. **`0.0`** : $0{,}1^{400} = 10^{-400}$ est plus petit que le plus petit `float64` positif (environ $5 \times 10^{-324}$) ; c'est l'underflow.
 3. Pour que le plus grand terme devienne $e^0 = 1$ : aucune exponentielle ne déborde, et elles ne valent pas toutes 0. L'identité $\ln\sum_j e^{\ell_j} = m + \ln\sum_j e^{\ell_j - m}$ est exacte.
 4. $\ln 2 \approx $ **0,693**.
 5. $-500 + \ln 2 \approx $ **$-499{,}307$** (alors que `math.exp(-500)` est déjà minuscule, et `math.exp(-800)` vaut 0).
@@ -168,7 +168,7 @@ Pour la copie : $L$ monte jusqu'à 0,15 puis redescend, presque nulle au-delà d
 - a) $0 - 8$. b) $5 - 8$. c) $\ell'(\lambda) = 0 \iff \lambda = \frac{5}{8}$. d) $5\ln 0{,}625 - 5 \approx -7{,}350$. e) $-\frac{5}{0{,}625^2} = -12{,}8$. f) $\frac{8}{5} = 1{,}6$ s, la moyenne des durées.
 - g) $\ell(\mu) = -5\mu + 10\ln\mu - \sum_i \ln(x_i!)$, $\ell'(\mu) = -5 + \frac{10}{\mu} = 0 \iff \mu = 2$, la moyenne des comptages. h) $\frac{7}{25}$.
 
-Pour la copie : $\ell(\lambda) = n\ln\lambda - \lambda\sum_i x_i$, $\ell'(\lambda) = \frac{n}{\lambda} - \sum_i x_i$, donc $\hat{\lambda} = \frac{n}{\sum_i x_i} = \frac{1}{\bar{x}}$ ; pour la loi de Poisson, $\hat{\mu} = \bar{x}$. $\ell''$ est négative partout : $\ell$ est concave, et son unique point critique est son maximum.
+Pour la copie : $\ell(\lambda) = n\ln\lambda - \lambda\sum_i x_i$, $\ell'(\lambda) = \frac{n}{\lambda} - \sum_i x_i$, donc $\hat{\lambda} = \frac{n}{\sum_i x_i} = \frac{1}{\bar{x}}$ ; pour la loi de Poisson, $\hat{\mu} = \bar{x}$. $\ell''$ est négative pour tout $\lambda > 0$ : $\ell'$ est décroissante (R7 appliqué à $\ell'$), elle ne s'annule qu'en $\hat{\lambda}$, positive avant et négative après, donc $\hat{\lambda}$ est le maximum (en M05a, on dira que $\ell$ est concave).
 
 **Erreurs fréquentes.** $\hat{\lambda} = \bar{x}$ (la durée moyenne, pas le taux) ; une erreur de signe dans $\ell''$ ; oublier le terme $5\ln\lambda$.
 
@@ -258,7 +258,7 @@ Pour la copie : $F(x) = \int_0^x 9(1 - t)^8\,dt = \big[-(1 - t)^9\big]_0^x = 1 -
 
 **Démarche.**
 - a) $500\ln 0{,}2 \approx 500 \times (-1{,}60944)$. b) $500\log_{10} 0{,}2 \approx 500 \times (-0{,}69897)$.
-- c) $0{,}2^{500} \approx 10^{-349{,}5}$, bien moins que $5 \times 10^{-324}$ : oui, 0.0 en `float64`.
+- c) $0{,}2^{500} \approx 10^{-349{,}5}$, bien moins que $5 \times 10^{-324}$ : oui, `0.0` en `float64`.
 - d) $-1000 + \ln(1 + e^{-1} + e^{-3}) = -1000 + \ln 1{,}41767 \approx -1000 + 0{,}349$.
 - e) $\frac{(1 ;\ e^{-1} ;\ e^{-3})}{1{,}41767} = (1 ;\ 0{,}36788 ;\ 0{,}04979) / 1{,}41767$.
 - f) Log-produits : $\ln 0{,}2 - 1000 \approx -1001{,}609$, $\ln 0{,}5 - 1001 \approx -1001{,}693$, $\ln 0{,}3 - 1003 \approx -1004{,}204$ ; moins le maximum : $(0 ;\ -0{,}084 ;\ -2{,}595)$ ; exponentielles : $(1 ;\ 0{,}920 ;\ 0{,}075)$, de somme 1,994 ; d'où $(0{,}5014 ;\ 0{,}4611 ;\ 0{,}0374)$.
@@ -351,7 +351,7 @@ Pour la copie : la différence de deux variables normales indépendantes est nor
 3. Maximiser l'a posteriori, proportionnel à vraisemblance × a priori ; en logarithmes, on minimise moins la log-vraisemblance **plus** moins le logarithme de l'a priori.
 4. Avec un a priori gaussien centré, moins son logarithme est proportionnel au carré de la norme des paramètres : c'est la régularisation $\ell_2$ (*weight decay*, la régression *ridge*).
 5. A priori $\mathrm{Beta}(2, 8)$, 2 échecs sur 12 ($\theta$ est le taux d'échec) : l'a posteriori est $\mathrm{Beta}(4, 18)$, et $-\ln f(\theta \mid \text{données}) = -3\ln\theta - 17\ln(1 - \theta) + C$. La dérivée $-\frac{3}{\theta} + \frac{17}{1 - \theta}$ s'annule en $\theta = \frac{3}{20} = 0{,}15$ : on retrouve le MAP de la fiche.
-6. Avec peu de données, le maximum de vraisemblance peut sur-ajuster (*overfitting*) : il colle aux particularités de l'échantillon (un taux de 0 après quelques essais, des paramètres extrêmes). L'a priori du MAP pénalise ces valeurs et agit comme une régularisation.
+6. Avec peu de données, le maximum de vraisemblance peut faire de l'overfitting : il colle aux particularités de l'échantillon (un taux de 0 après quelques essais, des paramètres extrêmes). L'a priori du MAP pénalise ces valeurs et agit comme une régularisation.
 7. Par exemple : *negative log-likelihood* (moins la log-vraisemblance), *point estimate* (estimation ponctuelle), *regularizer* (terme de régularisation).
 
 ### Ex M04.17 — Expliquer la conjugaison avec des pseudo-observations
@@ -440,7 +440,7 @@ Pour la copie : la différence de deux variables normales indépendantes est nor
 
 ### Ex M04.26 — Un calcul stable : comparer des vraisemblances en logarithmes (`math.lgamma`)
 
-**Démarche.** Dans cet ordre : `ValueError` si $p$ est hors de $[0, 1]$ ; `-math.inf` si $k < 0$ ou $k > n$ ; les cas $p = 0$ (0.0 si $k = 0$, sinon `-math.inf`) et $p = 1$ (0.0 si $k = n$) ; sinon `math.lgamma(n + 1) - math.lgamma(k + 1) - math.lgamma(n - k + 1) + k * math.log(p) + (n - k) * math.log1p(-p)`. Pour la copie : log-vraisemblances $-23{,}73$, $-6{,}89$ et $-6{,}87$ ; moins le maximum : $(-16{,}86 ;\ -0{,}02 ;\ 0)$ ; exponentielles $(4{,}7 \times 10^{-8} ;\ 0{,}980 ;\ 1)$ ; a posteriori $(2{,}4 \times 10^{-8} ;\ 0{,}495 ;\ 0{,}505)$. Un écart de 16,9 en logarithme est un rapport de $e^{16{,}9} \approx 2 \times 10^7$ : la première hypothèse est écartée ; un écart de 0,02 est un rapport de $e^{0{,}02} \approx 1{,}02$ : les deux autres restent presque à égalité.
+**Démarche.** Dans cet ordre : `ValueError` si $p$ est hors de $[0, 1]$ ; `-math.inf` si $k < 0$ ou $k > n$ ; les cas $p = 0$ (`0.0` si $k = 0$, sinon `-math.inf`) et $p = 1$ (`0.0` si $k = n$) ; sinon `math.lgamma(n + 1) - math.lgamma(k + 1) - math.lgamma(n - k + 1) + k * math.log(p) + (n - k) * math.log1p(-p)`. Pour la copie : log-vraisemblances $-23{,}73$, $-6{,}89$ et $-6{,}87$ ; moins le maximum : $(-16{,}86 ;\ -0{,}02 ;\ 0)$ ; exponentielles $(4{,}7 \times 10^{-8} ;\ 0{,}980 ;\ 1)$ ; a posteriori $(2{,}4 \times 10^{-8} ;\ 0{,}495 ;\ 0{,}505)$. Un écart de 16,9 en logarithme est un rapport de $e^{16{,}9} \approx 2 \times 10^7$ : la première hypothèse est écartée ; un écart de 0,02 est un rapport de $e^{0{,}02} \approx 1{,}02$ : les deux autres restent presque à égalité.
 
 **Erreurs fréquentes.** Ne pas vérifier $p$ (`math.log` refuse bien un négatif, mais laisse passer `nan`) ; `k * math.log(p)` avec $p = 0$ (une `ValueError` même pour $k = 0$) ; `math.comb(n, k) * p ** k * ...` (une `OverflowError`) ; renvoyer `0` au lieu de `-math.inf` pour une probabilité nulle.
 

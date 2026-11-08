@@ -32,6 +32,8 @@ Si le test de positionnement t'a donné « tu peux sauter » pour R5, lis « L'e
 
 Parcours essentiel : tout sauf R5.Q6, R5.R2, R5.6, R5.10, R5.17, R5.19, R5.20 et R5.22.
 
+**Vocabulaire anglais.** Les termes de ce chapitre, avec leur nom anglais (leur définition courte est dans `annexes/glossaire.md`) : actualiser, valeur actuelle (*discount, present value*) ; converger, diverger (suite) (*converge, diverge*) ; intérêts composés (*compound interest*) ; limite d'une suite (*limit of a sequence*) ; moyenne exponentielle (*exponential moving average (EMA)*) ; moyenne mobile (*moving average*) ; point fixe (*fixed point*) ; raison (d'une suite) (*common difference, common ratio*) ; récurrence (suite définie par) (*recursively defined sequence, recurrence relation*) ; somme infinie, série (*infinite sum, series*) ; somme partielle (*partial sum*) ; suite (*sequence*) ; suite arithmétique (*arithmetic sequence, arithmetic progression*) ; suite géométrique (*geometric sequence, geometric progression*) ; terme, rang (d'une suite) (*term, index*).
+
 ## Objectifs d'apprentissage
 
 À la fin du chapitre, tu sais :

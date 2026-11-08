@@ -1129,12 +1129,12 @@ M02B_27 = Ex(
     "fabriquer des tirages de la loi normale centrée réduite à partir de nombres uniformes, assez fidèles pour passer "
     "un test statistique et reproduire les queues de la loi.", "fiche §7 et §8 ; Ex M02b.12 et M02b.20", tracks="C",
     body="""Écris `normal_draws(rng, n)`, qui renvoie un array de $n$ tirages de $\\mathcal{N}(0, 1)$ en n'utilisant **que** `rng.random(size)` : le générateur `UniformOnly` de la cellule fournie ne sait rien faire d'autre, et la vérification refuse `rng.normal`, les modules `scipy` et `statistics`, `ppf`, `erfinv`, `NormalDist` et un générateur à toi. **Objectifs** :
-1. le test de Kolmogorov-Smirnov (`stats.kstest`, qui compare la fonction de répartition des tirages à $\\Phi$) ne rejette pas la loi normale : $p > 0{,}01$ sur 200 000 valeurs ;
+1. sur 200 000 valeurs, la fonction de répartition des tirages (la proportion de ceux qui sont $\\le x$) reste partout proche de $\\Phi$ : la vérification mesure le plus grand écart entre les deux, par le test de Kolmogorov-Smirnov (`stats.kstest`), et l'accepte s'il reste sous 0,0036 environ (en termes de M08, qui définira la p-valeur : $p > 0{,}01$) ;
 2. les **queues** sont justes : sur 8 millions de valeurs, la part de celles qui dépassent 4 en valeur absolue est entre $5{,}5 \\times 10^{-5}$ et $7{,}2 \\times 10^{-5}$ (la loi normale donne $2(1 - \\Phi(4)) \\approx 6{,}33 \\times 10^{-5}$, et l'aléa de 8 millions de tirages environ $0{,}3 \\times 10^{-5}$) ;
 3. moins de 10 secondes pour ces 8 millions de valeurs.
 
 Pistes, de la plus simple à la plus élégante (`04_indices.md` les détaille) :
-- additionner 12 uniformes et retrancher 6 (le théorème central limite) : tente-la, et regarde quel objectif elle manque, et pourquoi ;
+- additionner 12 uniformes et retrancher 6 (la variance vaut alors $12 \\times \\frac{1}{12} = 1$, et le théorème central limite, que M02c énoncera, dit qu'une telle somme est presque normale) : tente-la, et regarde quel objectif elle manque, et pourquoi ;
 - inverser $\\Phi$ par dichotomie (M02a.18) : juste, mais lente, car `math.erf` ne traite qu'un nombre à la fois (essaie-la sur 1 000 valeurs) ;
 - une transformation de **deux** uniformes en **deux** normales indépendantes, qui vient de l'intégrale de Gauss en coordonnées polaires (M02b.12, question 6 : la loi jointe de deux normales indépendantes ne dépend que de la distance au centre).
 

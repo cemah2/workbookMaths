@@ -677,7 +677,7 @@ CHAPTERS = [
         "teaches": ["information de Shannon", "bits et nats", "entropie", "entropie conjointe et conditionnelle",
                     "information mutuelle", "cross-entropy, log loss", "divergence KL", "inégalité de Jensen",
                     "positivité de la divergence KL", "divergence de Jensen-Shannon",
-                    "codes de longueur fixe et variable", "inégalité de Kraft, code de Huffman", "perplexité",
+                    "codes de longueur fixe et variable", "inégalité de Kraft, outils du code de Huffman (codes préfixes, arbres, borne de l'entropie)", "perplexité",
                     "sélectionner des features par l'information mutuelle (idée)"],
         "requires": [("logarithmes, bits", "R6"), ("probabilités jointes et conditionnelles", "M03"),
                      ("espérance d'une variable discrète", "M02b"), ("convexité", "M05a")],

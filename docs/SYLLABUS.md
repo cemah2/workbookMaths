@@ -1530,7 +1530,7 @@ La théorie de l'information : quantité d'information, entropie, entropies conj
 - §7 Codes : longueur fixe ou variable, inégalité de Kraft
 - §8 Perplexité, et choisir des features par l'information mutuelle
 
-**Notions enseignées** : information de Shannon · bits et nats · entropie · entropie conjointe et conditionnelle · information mutuelle · cross-entropy, log loss · divergence KL · inégalité de Jensen · positivité de la divergence KL · divergence de Jensen-Shannon · codes de longueur fixe et variable · inégalité de Kraft, code de Huffman · perplexité · sélectionner des features par l'information mutuelle (idée)
+**Notions enseignées** : information de Shannon · bits et nats · entropie · entropie conjointe et conditionnelle · information mutuelle · cross-entropy, log loss · divergence KL · inégalité de Jensen · positivité de la divergence KL · divergence de Jensen-Shannon · codes de longueur fixe et variable · inégalité de Kraft, outils du code de Huffman (codes préfixes, arbres, borne de l'entropie) · perplexité · sélectionner des features par l'information mutuelle (idée)
 
 **Prérequis** : logarithmes, bits (R6) · probabilités jointes et conditionnelles (M03) · espérance d'une variable discrète (M02b) · convexité (M05a)
 
@@ -2063,7 +2063,7 @@ La logique au service du raisonnement (implication, contraposée, négation, val
 
 **Notions enseignées** : déduction, validité, solidité · modus ponens, modus tollens et sophismes formels · ensembles et contre-exemples · induction et ses pièges · inégalité de Markov · inégalité de Tchebychev · loi faible des grands nombres (démontrée) · inégalité de Hoeffding · rayon de confiance d'une moyenne · bornes supérieures de confiance (UCB, principe) · ε-greedy · regret · échantillonnage de Thompson
 
-**Prérequis** : propositions, quantificateurs, implication, ensembles, raisonnements (R4) · suites, moyenne incrémentale (R5) · exp et ln (R6) · espérance, variance, lois exponentielle et binomiale (M02b) · moyenne empirique, TCL, intervalle de confiance (M02c) · taux de base, Bayes (M03) · loi Beta a posteriori (M04)
+**Prérequis** : propositions, quantificateurs, implication, ensembles, raisonnements (R4) · suites définies par récurrence (l'outil de la moyenne incrémentale) (R5) · exp et ln (R6) · espérance, variance, lois exponentielle et binomiale (M02b) · moyenne empirique, TCL, intervalle de confiance (M02c) · probabilités totales, taux de base (M03) · formule de Bayes, loi Beta a posteriori (M04)
 
 **mymath** : `concentration.py` (signatures figées) : `markov_bound`, `chebyshev_bound`, `hoeffding_bound`, `hoeffding_radius`, `empirical_tail`
 

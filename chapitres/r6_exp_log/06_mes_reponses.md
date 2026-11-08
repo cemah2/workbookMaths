@@ -229,7 +229,7 @@
 ### Ex R6.18 — Prédire : exp(800) et exp(−800), avec math et avec NumPy
 
 - Mes prédictions avant l'expérience (et pourquoi) :
-- La sortie la plus dangereuse dans un long calcul, et ce que deviendrait le 0.0 de c) passé à math.log :
+- La sortie la plus dangereuse dans un long calcul, et ce que deviendrait le `0.0` de c) passé à `math.log` :
 
 ### Ex R6.19 — Croissances comparées
 

@@ -727,7 +727,7 @@ Relis « Évolutions successives » (fiche §7) et « Moyenne pondérée » (fic
 </details>
 <details><summary>Indice 2</summary>
 
-a : un coefficient qui part de 1.0 et qu'on multiplie par `1 + rate` à chaque tour. b : d'abord les trois vérifications (longueurs, poids négatifs, somme nulle), puis le calcul.
+a : un coefficient qui part de `1.0` et qu'on multiplie par `1 + rate` à chaque tour. b : d'abord les trois vérifications (longueurs, poids négatifs, somme nulle), puis le calcul.
 
 </details>
 <details><summary>Indice 3</summary>

@@ -94,7 +94,7 @@ Pour un abonné d'un service de vidéo pris au hasard, $X$ est le nombre de film
 |---|---|---|
 | a | la loi marginale de $X$ : $[P(X = 0), P(X = 1), P(X = 2)]$ | une liste |
 | b | $X$ et $Y$ sont-elles indépendantes ? (justifie sur ta copie) | `True` ou `False` |
-| c | $\mathrm{Cov}(X, Y)$ | un nombre (2 décimales) |
+| c | $\operatorname{Cov}(X, Y)$ | un nombre (2 décimales) |
 | d | $\mathbb{V}(X)$ | un nombre (2 décimales) |
 | e | $\mathbb{V}(X + Y)$ | un nombre (2 décimales) |
 

@@ -85,7 +85,7 @@
 ### M03.R3 — Aire par la méthode des trapèzes (M02a)
 1. $0{,}5 \times \frac{0{,}4 + 0{,}8}{2} = $ **0,3**.
 2. $0{,}5 \times \frac{0 + 0{,}6}{2} + 0{,}5 \times \frac{0{,}6 + 1}{2} = 0{,}15 + 0{,}4 = $ **0,55**.
-3. $0{,}5 \times \frac{0 + 0{,}25}{2} + 0{,}5 \times \frac{0{,}25 + 1}{2} = 0{,}0625 + 0{,}3125 = $ **0,375**, pour une valeur exacte de $\frac{1}{3}$ : erreur $\approx 0{,}042$ (par excès, la courbe étant convexe).
+3. $0{,}5 \times \frac{0 + 0{,}25}{2} + 0{,}5 \times \frac{0{,}25 + 1}{2} = 0{,}0625 + 0{,}3125 = $ **0,375**, pour une valeur exacte de $\frac{1}{3}$ : erreur $\approx 0{,}042$ (par excès : la courbe est tournée vers le haut, donc chaque corde passe au-dessus d'elle).
 4. Deux paliers : $0{,}5 \times 0{,}5 + 0{,}5 \times 1 = $ **0,75**.
 5. Il a une largeur nulle : son « trapèze » a une aire nulle.
 

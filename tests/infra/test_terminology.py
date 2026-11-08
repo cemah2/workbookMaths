@@ -39,7 +39,7 @@ FORBIDDEN = {
                "étiquette de « malade »", "Pour les étiquettes : `ax.set_xticks",
                "les étiquettes : `[alphabet[i] for i in order]`", "oublier les étiquettes ou la légende",
                "le label (étiquette)", "label (étiquette, "]),
-    "overfitting, underfitting": (r"\b[Ss]ur-?apprentissage\b|\b[Ss]ous-apprentissage\b|\b[Ss]urajustement\b", []),
+    "overfitting, underfitting": (r"\b[Ss]ur-?apprentissage\b|\b[Ss]ous-apprentissage\b|\b[Ss]ur-?ajust\w*", []),
     "dataset": (r"\b[Jj]eux? de données\b", []),
     "loss": (r"\b[Pp]ertes?\b",
              ["sans perte", "avec perte", "perte de précision", "perte de chiffres", "perte de vitesse"]),

@@ -195,7 +195,7 @@ Non mathématiques : boucle d'entraînement · epoch · raccourcis appris · jeu
 | R² | M09b |
 | features polynomiales | R3, M09b |
 | décomposition biais-variance | M09b |
-| ajustement bayésien d'une droite | M09b |
+| ajustement bayésien d'une droite | M04, M09b |
 | double descente | M09b |
 
 Non mathématiques : courbes de validation · courbes d'apprentissage · early stopping (patience)
@@ -233,7 +233,7 @@ Non mathématiques : neurone biologique (modèle simplifié)
 | UCB | M11 |
 | échantillonnage de Thompson | M04, M11 |
 | regret | M11 |
-| moyenne incrémentale | R5 |
+| moyenne incrémentale | R4, R5 |
 
 Non mathématiques : représentation, évaluation, optimisation · No Free Lunch · conditionnement opérant
 

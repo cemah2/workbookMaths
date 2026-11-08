@@ -160,7 +160,7 @@ COVERAGE = {
         "R²": "M09b",
         "features polynomiales": "R3,M09b",
         "décomposition biais-variance": "M09b",
-        "ajustement bayésien d'une droite": "M09b",
+        "ajustement bayésien d'une droite": "M04,M09b",
         "double descente": "M09b",
     },
     "10": {
@@ -188,7 +188,7 @@ COVERAGE = {
         "UCB": "M11",
         "échantillonnage de Thompson": "M04,M11",
         "regret": "M11",
-        "moyenne incrémentale": "R5",
+        "moyenne incrémentale": "R4,R5",
     },
     "12": {
         "valeurs aberrantes": "M02c",

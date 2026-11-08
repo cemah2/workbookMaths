@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §7 |
-| **Temps total estimé** | ≈ 3 h : lecture et essais de la fiche ≈ 45 min, exercices ≈ 2 h, flashcards ≈ 20 min (parcours essentiel ≈ 2 h 50) |
+| **Temps total estimé** | ≈ 3,2 h : lecture et essais de la fiche ≈ 45 min, exercices ≈ 2 h 05, flashcards ≈ 20 min (parcours essentiel ≈ 2 h 50) |
 | **Prérequis** | workbookIA 0A, sections §100.1.1 (cellules, noyau), §100.2.1 (nombres et opérateurs), §100.2.2 (chaînes de caractères), §100.3.1 (listes), §100.4.1 (conditions) et §100.5.1 (définir une fonction) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `_example.py` : la fonction `mean` (R0.9) |

@@ -4319,7 +4319,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "a2dfecb9dd6439d5fabe8b150a1c57aef87adf9f425d2c35230877db17db7bf1": "l'erreur de T₂ divisée par celle de T₄, dans cet ordre"
+        "a2dfecb9dd6439d5fabe8b150a1c57aef87adf9f425d2c35230877db17db7bf1": "l'erreur de T₂ divisée par celle de T₄, dans cet ordre",
+        "e75b716ab3a1fe648bc4fd7369c03e2a2cd649198c16b076baaf206d3f4ad76f": "l'erreur de T₂ divisée par celle de T₄, dans cet ordre"
       },
       "sign": 1,
       "source": "chapitres/m02a_integrales_densites/05_solutions.ipynb"
@@ -5824,7 +5825,8 @@
       "mistakes": {
         "06f21a832c5d6554133c93cb88de3cbaf530884aec7b20955c9f67390afbc05b": "E[X] = p × S, avec la somme S de d)",
         "0d40efa44ba3a89f00f63f7893e5ccbe3e13167777455675032c2b664e43e037": "E[X] = Σ k p q^(k−1) = p × S : n'oublie pas le facteur p",
-        "7196355b5bd9a331330ce5b40530eb33f4330d9a6cb6252393fc524920a92a6c": "c'est q/p, le nombre moyen d'échecs ; X compte aussi la tentative réussie"
+        "7196355b5bd9a331330ce5b40530eb33f4330d9a6cb6252393fc524920a92a6c": "c'est q/p, le nombre moyen d'échecs ; X compte aussi la tentative réussie",
+        "83d715dc326fe94c26196cd7c877b12ad91b1e462aed7d6c8caaaea9987f45e3": "E[X] = Σ k p q^(k−1) = p × S : n'oublie pas le facteur p"
       },
       "sign": 1,
       "source": "chapitres/m02b_variables_aleatoires/05_solutions.ipynb"
@@ -6033,6 +6035,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "a0e8e72800d396cb90e94e379ae305e491b42ef5758918b3c03d77c6c899c2f6": "c'est le produit des deux paramètres ; regarde l'exposant de e dans e)",
         "eecd291ad4a2c7536502dff47461f0dfc840a6bd10601e35a179f1b7956af332": "c'est le produit des deux paramètres ; regarde l'exposant de e dans e)"
       },
       "sign": 1,

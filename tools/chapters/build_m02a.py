@@ -424,7 +424,7 @@ wbm.record("M02a.16h", 20.5, decimals=4,
     after=tests_cells("test_riemann_sum_ or test_trapezoid_ or test_integrate_uses"),
     note="Les trapèzes valent la moyenne des sommes à gauche et à droite : $\\frac{14 + 27}{2} = 20{,}5$. Pour $x^3$, "
          "le point milieu (19,75) et les trapèzes (20,5) encadrent l'intégrale exacte, 20, et le milieu en est deux "
-         "fois plus près : c'est la règle générale pour une fonction convexe, l'erreur du milieu valant environ la "
+         "fois plus près : c'est la règle générale pour une courbe tournée vers le haut (convexe, dira M05a), l'erreur du milieu valant environ la "
          "moitié de celle des trapèzes, avec le signe opposé.",
 )
 

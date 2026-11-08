@@ -142,6 +142,23 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Oublier les bords d'un intervalle fermé | maximum sur $[a ; b]$ cherché seulement où $f' = 0$ | comparer aussi $f(a)$ et $f(b)$ |
 | Donner l'abscisse au lieu de la valeur | « le maximum vaut 2 » quand il est atteint en $x = 2$ | le maximum est $f(2)$ ; l'abscisse est l'argmax |
 
+## Probabilités (R8)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Additionner des probabilités d'événements qui ne s'excluent pas | $P(A \cup B) = P(A) + P(B)$ | $P(A \cup B) = P(A) + P(B) - P(A \cap B)$ |
+| Multiplier des probabilités d'événements dépendants | $P(A \cap B) = P(A)P(B)$ toujours | seulement si $A$ et $B$ sont indépendants |
+| Choisir un univers dont les issues ne sont pas équiprobables | deux pièces : 0, 1 ou 2 piles, chacun $\frac{1}{3}$ | distinguer les deux pièces : PP, PF, FP, FF ; un seul pile a la probabilité $\frac{1}{2}$ |
+| Additionner pour « au moins un » | au moins un 4 en deux lancers d'un dé à 4 faces : $\frac{1}{4} + \frac{1}{4}$ | passer par le contraire : $1 - \left(\frac{3}{4}\right)^2 = \frac{7}{16}$ |
+| Compter un comité comme un podium | 3 personnes parmi 9 : $9 \times 8 \times 7$ | sans ordre : diviser par $3!$, $\binom{9}{3} = 84$ |
+| Croire que $0! = 0$ | $\binom{n}{n} = \frac{n!}{n! \times 0!}$ impossible | $0! = 1$, le produit vide |
+| Garder les mêmes probabilités sans remise | 2 morceaux préférés sur 6, deux tirages sans remise : $\left(\frac{2}{6}\right)^2$ | ce qui est tiré ne revient pas : $\frac{2}{6} \times \frac{1}{5}$ |
+| Additionner le long d'un chemin d'arbre | $0{,}3 + 0{,}4$ pour « pluie et retard » | multiplier le long d'un chemin ($0{,}3 \times 0{,}4$), additionner entre les chemins |
+| Confondre incompatibles et indépendants | « incompatibles, donc $P(A \cap B) = P(A)\,P(B)$ » | incompatibles : $P(A \cap B) = 0$, donc dépendants (si $P(A), P(B) > 0$) |
+| Confondre $\mathbb{E}[X^2]$ et $\mathbb{E}[X]^2$ | $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]$ | $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2$, la moyenne des carrés moins le carré de la moyenne |
+| Mal changer d'échelle une variance | $\mathbb{V}(10X - 4) = 10\,\mathbb{V}(X) - 4$ | $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ |
+| Croire que le hasard compense | après cinq piles, face est « dû » | les lancers sont indépendants ; la loi des grands nombres dilue les écarts |
+
 ## Géométrie, vecteurs et trigonométrie (R9)
 
 | Erreur | Exemple faux | Ce qu'il faut faire |
@@ -219,6 +236,100 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Oublier la covariance dans une variance de somme | $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y)$ pour des variables corrélées | ajouter $2\operatorname{Cov}(X, Y)$ (et le retrancher pour une différence) |
 | Conclure à une causalité | « corrélées à 0,6, donc l'une cause l'autre » | chercher une variable de confusion ; seule une expérience contrôlée établit une cause |
 | Croire que plus de données corrigent un biais d'échantillonnage | « un million d'exemples, donc l'estimation est fiable » | $n$ réduit la variance, pas le biais : se demander qui manque dans les données |
+
+## Probabilités conditionnelles et évaluation d'un classifieur (M03)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Confondre $P(A \mid B)$ et $P(B \mid A)$ | « 99 % des malades ont un test positif, donc un test positif signifie 99 % de chances d'être malade » | c'est la formule de Bayes qui relie les deux ; la prévalence change tout (M03, M04) |
+| Diviser une conditionnelle par le total du tableau | $P(\text{premium} \mid \text{mobile}) = \frac{30}{500}$ | diviser par le total de l'événement « sachant » : $\frac{30}{300}$ |
+| Conclure à l'indépendance sur une seule case | une case égale au produit de ses marges, donc « indépendantes » | vérifier toutes les cases, ou que toutes les lignes ont la même loi conditionnelle |
+| Croire que l'indépendance deux à deux suffit | trois événements indépendants deux à deux, donc mutuellement | deux pièces et « même côté » : $P(A \cap B \cap C) = \frac{1}{4} \ne \frac{1}{8}$ |
+| Moyenner des taux sans les poids des groupes | 2 %, 5 % et 8 % : « 5 % en moyenne » | probabilités totales : $\sum_k P(A \mid B_k)\,P(B_k)$ ; et attention au paradoxe de Simpson |
+| Lire la matrice de scikit-learn à l'envers | TP en haut à gauche | labels triés : `[[TN, FP], [FN, TP]]`, la vérité en lignes |
+| Échanger recall et precision | recall $= \frac{TP}{TP + FP}$ | recall : sachant la vérité, $\frac{TP}{TP + FN}$ ; precision : sachant la prédiction, $\frac{TP}{TP + FP}$ |
+| Garder la precision du test pour une autre population | 0,92 en test (20 % de positifs), donc 0,92 en production (2 %) | recalculer $\frac{r\pi}{r\pi + (1 - s)(1 - \pi)}$ : 0,48 |
+| Juger sur l'accuracy quand une classe est rare | « rien n'est positif » : 95 %, un bon modèle | regarder la balanced accuracy, le MCC, le recall et la precision |
+| Utiliser $\beta$ au lieu de $\beta^2$ dans $F_\beta$ | $F_2 = \frac{3PR}{2P + R}$ | $F_2 = \frac{5PR}{4P + R}$ |
+| Compter un ex æquo comme bien ou mal classé | AUC des paires avec un ex æquo compté 1 (ou 0) | un ex æquo compte $\frac{1}{2}$ |
+| Croire que l'AUC mesure les probabilités | AUC 0,95, donc des probabilités fiables | l'AUC ne voit que l'ordre ; la calibration se juge au diagramme de fiabilité et au score de Brier |
+| Calculer l'average precision par les trapèzes | relier les points (recall, precision) par des segments | des rectangles : $\sum_j (R_j - R_{j-1})\,P_j$ |
+
+## Bayes, vraisemblance et loi Beta (M04)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Prendre la vraisemblance pour l'a posteriori | « le capteur détecte 90 % des roulements usés, donc une alerte signifie 90 % de chances d'usure » | diviser vraisemblance × a priori par l'évidence ; un événement rare donne surtout de fausses alertes |
+| Oublier une partie de l'évidence | $P(\text{alerte}) = 0{,}02 \times 0{,}9$ | additionner toutes les façons d'observer : $\sum_j P(O \mid H_j)\,P(H_j)$ |
+| Repartir de l'a priori de départ à chaque observation | trois mises à jour, chacune avec l'a priori 0,5 | l'a posteriori d'une étape est l'a priori de la suivante |
+| Croire que la vraisemblance est une densité en $\theta$ | « $\theta = \frac{1}{6}$ a la probabilité 0,0045 » | c'est la probabilité des données ; son intégrale en $\theta$ ne vaut pas 1 |
+| Confondre $B(a, b)$ avec des factorielles de $a$ et $b$ | $B(3, 6) = \frac{3!\,6!}{9!}$ | $\Gamma(n) = (n - 1)!$ : $B(3, 6) = \frac{2!\,5!}{8!}$ |
+| Confondre le mode et la moyenne d'une loi Beta | MAP de $\mathrm{Beta}(4, 18)$ : $\frac{4}{22}$ | mode $\frac{a - 1}{a + b - 2} = \frac{3}{20}$ ; moyenne $\frac{a}{a + b}$ |
+| Appliquer la formule du mode hors de son domaine | mode de $\mathrm{Beta}(0{,}6 ;\ 3)$ : $\frac{-0{,}4}{1{,}6}$ | la formule vaut pour $a, b > 1$ ; sinon étudier la monotonie (mode 0 ou 1, ou pas de mode unique) |
+| Mettre à jour une loi Beta à l'envers | 5 défauts sur 60 : $\mathrm{Beta}(a + 55,\ b + 5)$ pour le taux de défaut | dire d'abord ce que compte $a$ : ici les défauts ; $\mathrm{Beta}(a + 5,\ b + 55)$ |
+| Ajouter $n$ à $b$ au lieu des échecs | $\mathrm{Beta}(a + k,\ b + n)$ | $\mathrm{Beta}(a + k,\ b + n - k)$ |
+| Croire que deux succès futurs ont la probabilité « moyenne au carré » | $\big(\frac{a}{a + b}\big)^2$ | mettre à jour entre les deux : $\frac{a}{a + b}\cdot\frac{a + 1}{a + b + 1}$ |
+| Annoncer un maximum de vraisemblance sur très peu de données | 0 achat sur 9 visites : « taux nul » | un a priori, par exemple Laplace : $\frac{1}{11}$ |
+| Multiplier de nombreuses probabilités en flottants | $0{,}3^{700}$ donne 0 | additionner les logarithmes, normaliser par log-sum-exp |
+| Prendre les exponentielles de log-probabilités sans soustraire le maximum | `np.exp([-1000, -1001])` donne `[0, 0]` | soustraire d'abord le maximum : `np.exp(l - l.max())` |
+| Calculer $\Gamma$ ou $B$ directement pour de grands paramètres | `math.gamma(700)` : `OverflowError` | `math.lgamma`, `scipy.special.betaln`, et l'exponentielle à la fin |
+| Écrire `k * math.log(p)` avec $p = 0$ | `ValueError` même pour $k = 0$ | traiter $p = 0$ et $p = 1$ à part : $0 \times \ln 0 = 0$ par convention |
+| Lire un intervalle de crédibilité comme un intervalle de confiance (ou l'inverse) | « 95 % des études répétées contiendraient θ », pour un intervalle de crédibilité | crédibilité : une probabilité sur le paramètre, sachant les données ; confiance : une propriété de la méthode |
+
+## Dérivées, Taylor et calcul numérique (M05a)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Prendre tout point où $f'' = 0$ pour un point d'inflexion | « $(x^4)''(0) = 0$, donc 0 est un point d'inflexion » | vérifier que $f''$ change de signe : $12x^2$ ne change pas de signe, $x^4$ est convexe partout |
+| Conclure « ni maximum ni minimum » quand $f''(c) = 0$ | $x^4$ en 0 | le test de la dérivée seconde ne conclut pas : étudier le signe de $f'$ autour de $c$ |
+| Chercher les extrema globaux parmi les seuls points critiques | $x^2 e^{-x}$ sur $[-1, 4]$ : « maximum global $4e^{-2}$, en 2 » | comparer aussi les bords : $f(-1) = e$ est plus grand |
+| Confondre convexe et croissante | « $e^{-x}$ décroît, donc elle n'est pas convexe » | la convexité dit que la pente augmente : $(e^{-x})'' = e^{-x} > 0$ |
+| Oublier les factorielles, ou centrer en 0 au lieu de $a$ | $\cos x \approx 1 - x^2$ ; $P_2$ de $e^x$ en 1 avec des puissances de $x$ | $\frac{f^{(k)}(a)}{k!}(x - a)^k$ |
+| Croire qu'une série de Taylor converge partout | $\ln 3 = 2 - \frac{4}{2} + \frac{8}{3} - \cdots$ | la série de $\ln(1 + x)$ ne converge que pour $-1 < x \le 1$ |
+| Écrire le pas de Newton à l'envers | $x_{k+1} = x_k - \frac{f'(x_k)}{f(x_k)}$ | $x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$, avec un test de $f'(x_k) \ne 0$ et un nombre maximal d'itérations |
+| Croire que Newton converge toujours | $x^3 - 2x + 2$ depuis 0 | la suite cycle entre 0 et 1 : changer de point de départ, ou encadrer la racine d'abord |
+| Diviser la différence centrée par $h$ | $\frac{f(x + h) - f(x - h)}{h}$ | les deux points sont à $2h$ l'un de l'autre : diviser par $2h$ |
+| Prendre un pas $h$ minuscule « pour être précis » | $h = 10^{-15}$ dans une différence finie | l'arrondi grandit en $\frac{\delta}{h}$ : prendre le pas qui minimise la borne d'erreur |
+| Prendre l'epsilon machine pour le plus petit flottant | « en `float64`, rien n'est plus petit que $2{,}2 \times 10^{-16}$ » | $\varepsilon$ est l'écart après 1 ; le plus petit `float64` positif est vers $5 \times 10^{-324}$ |
+| Comparer des flottants calculés avec `==` | `0.1 + 0.2 == 0.3` donne `False` | une tolérance : `math.isclose(a, b, rel_tol=..., abs_tol=...)` |
+| Soustraire deux nombres presque égaux | `(1e8 + 0.1) - 1e8` en `float32` ; $\sqrt{x + 1} - \sqrt{x}$ pour $x = 10^{12}$ | réécrire la formule : $\frac{1}{\sqrt{x + 1} + \sqrt{x}}$, `math.log1p`, `math.expm1` |
+| Calculer $\ln(1 + x)$ par `math.log(1 + x)` pour $x$ minuscule | `math.log(1 + 1e-10)` n'a que 7 chiffres justes | `math.log1p(1e-10)` |
+| Prendre l'exponentielle de grands scores | `math.exp(710)` : `OverflowError` ; `np.exp(710)` : `inf`, puis `nan` dans la softmax | soustraire le **maximum** des scores, puis le rajouter au log-sum-exp |
+| Calculer le log-softmax par le logarithme de la softmax | une probabilité qui s'efface donne `math.log(0.0)` | $\ln\text{softmax}(\mathbf{v})_i = v_i - \text{LSE}(\mathbf{v})$, directement à partir des scores |
+
+## Fonctions de plusieurs variables et gradient (M05b)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Oublier la variable « fixée » dans une dérivée partielle | $\frac{\partial}{\partial x}(x^3 y) = 3x^2$ | $y$ est une constante qui reste en facteur : $3x^2 y$ |
+| Prendre une direction donnée par un vecteur non unitaire | la pente de $f$ dans la direction $(7, 24)$, avec $\nabla f = (6, 9)$ : « $42 + 216 = 258$ » | diviser d'abord par la norme : $\mathbf{u} = (0{,}28 ;\ 0{,}96)$, et la pente vaut $10{,}32$ |
+| Croire que le gradient vise le sommet, ou suit les lignes de niveau | sur le dôme $100 - x^2 - 2y^2$, « en $(3, 1)$, le gradient pointe vers $(0, 0)$ » | il suit la montée la plus raide sur le moment, à angle droit des lignes de niveau : $(-6, -4)$ passe à côté de l'origine |
+| Écrire le plan tangent sans les décalages | $z = f(a, b) + f_x(a, b)\,x + f_y(a, b)\,y$ | $z = f(a, b) + f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b)$ : le plan passe par le point de contact |
+| Prendre $f_{xy}$ pour le produit $f_x \times f_y$ | pour $x^3 y + 2y^2$ en $(1, 2)$ : « $f_{xy} = 6 \times 9$ » | $f_{xy}$ est la dérivée de $f_x$ par rapport à $y$ : $3x^2 = 3$ |
+| Oublier le facteur 2 du terme croisé dans la courbure | dans la direction $\frac{(1, -1)}{\sqrt{2}}$ : « $\frac{12 - 3 + 4}{2}$ » | $f_{xx}u_1^2 + 2f_{xy}u_1u_2 + f_{yy}u_2^2 = \frac{12 - 6 + 4}{2} = 5$ |
+| Conclure « minimum » parce que $f_{xx} > 0$ et $f_{yy} > 0$ | $f_{xx} = f_{yy} = 1$, $f_{xy} = 2$ | calculer $D = f_{xx}f_{yy} - f_{xy}^2 = 1 - 4 < 0$ : un point selle |
+| Appliquer le test du second ordre quand $D = 0$ | « $x^4 + y^2$ n'a pas de minimum en $(0, 0)$, puisque $D = 0$ » | $D = 0$ : le test ne dit rien, regarder la fonction ($x^4 + y^2 \ge 0$ : c'est un minimum) |
+| Oublier les bords pour un extremum global sur un domaine borné | le minimum de $f$ sur un segment cherché seulement là où $\nabla f = \mathbf{0}$ | paramétrer le segment, se ramener à une variable, comparer les points critiques **et** les extrémités |
+| Se tromper de signe dans le pas de descente | $\mathbf{x} + \eta\,\nabla f(\mathbf{x})$ pour minimiser | descendre : $\mathbf{x} - \eta\,\nabla f(\mathbf{x})$ ; $+$ monte |
+| Confondre $\min f$ et $\arg\min f$ | pour $(x - 3)^2 + 2(y + 1)^2$ : « $\arg\min f = 0$ » | $\min f = 0$ (une valeur), $\arg\min f = (3, -1)$ (un point) |
+
+## Théorie de l'information (M06)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Calculer en nats en croyant calculer en bits | « $-\ln \frac{1}{8} \approx 2{,}08$ bits » | bits : $\log_2$, soit $-\log_2 \frac{1}{8} = 3$ bits ; nats : $\ln$ ; scikit-learn et PyTorch calculent en nats |
+| Laisser $0 \log 0$ donner `nan` | `-np.sum(p * np.log2(p))` avec une probabilité nulle : `nan` | $0 \log 0 = 0$ : ne garder que les $p > 0$, ou utiliser `scipy.special.xlogy` |
+| Prendre l'entropie d'une ligne sans la diviser par sa probabilité | pour la ligne $(0{,}12 ;\ 0{,}28)$, l'entropie « de 0,12 et 0,28 » | la loi conditionnelle est la ligne divisée par $p(x) = 0{,}4$ : $(0{,}3 ;\ 0{,}7)$ |
+| Faire la moyenne simple des entropies des lignes | $H(Y \mid X) = \frac{H_1 + H_2}{2}$ alors que $p(x_1) = 0{,}8$ | pondérer par les probabilités des lignes : $0{,}8\,H_1 + 0{,}2\,H_2$ |
+| Croire que chaque valeur de $X$ diminue l'incertitude sur $Y$ | « $H(Y \mid X = x) \le H(Y)$ pour tout $x$ » | c'est vrai seulement en moyenne, $H(Y \mid X) \le H(Y)$ ; une valeur particulière peut l'augmenter |
+| Prendre $H(X) + H(Y)$ pour $H(X, Y)$ | sans vérifier que $X$ et $Y$ sont indépendantes | $H(X, Y) = H(X) + H(Y) - I(X ; Y)$ : l'égalité n'a lieu que pour des variables indépendantes |
+| Conclure à l'indépendance d'une corrélation nulle | $X$ uniforme sur $\{-1, 0, 1\}$ et $Y = X^2$ : « corrélation nulle, donc $I(X ; Y) = 0$ » | la corrélation ne voit que les liens linéaires ; ici $I(X ; Y) = H(Y) > 0$ |
+| Échanger les deux lois de la divergence KL | $D_{\mathrm{KL}}(\text{modèle} \parallel \text{données})$ au lieu de $D_{\mathrm{KL}}(\text{données} \parallel \text{modèle})$ | l'ordre compte : les poids sont ceux des données ; l'autre sens peut même être infini |
+| Appeler la divergence KL une distance | « la distance KL entre $p$ et $q$ » | une divergence : pas symétrique, pas d'inégalité triangulaire ; Jensen-Shannon, elle, est symétrique |
+| Écrire l'inégalité de Jensen dans le mauvais sens | « $\mathbb{E}[\ln X] \ge \ln \mathbb{E}[X]$ » | $\ln$ est concave : $\mathbb{E}[\ln X] \le \ln \mathbb{E}[X]$ ; le sens « $\ge$ » est celui des fonctions convexes |
+| Croire qu'une somme de Kraft au plus 1 rend un code préfixe | « $\{0, 01, 11\}$ : $\frac{1}{2} + \frac{1}{4} + \frac{1}{4} = 1$, donc préfixe » | Kraft dit qu'**il existe** un code préfixe de ces longueurs (0, 10, 11), pas que celui-ci l'est : 0 est le début de 01 |
+| Arrondir les longueurs de Shannon à l'entier le plus proche | $-\log_2 0{,}4 \approx 1{,}32$, « donc 1 » | à l'entier supérieur, $\lceil 1{,}32 \rceil = 2$ : sinon la somme de Kraft peut dépasser 1 |
+| Croire sans biais l'entropie des fréquences observées | l'entropie des fréquences de 10 tirages prise pour la vraie entropie | elle la sous-estime en moyenne (et l'information mutuelle estimée la surestime) : plus de données, ou une correction |
 
 ## Vecteurs et géométrie de ℝⁿ (M07)
 
@@ -335,109 +446,3 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Le rayon du meilleur de $K$ modèles calculé comme pour un seul | le meilleur de 20 modèles évalués sur le même jeu de test, rayon au risque 5 % | chaque rayon au risque $\frac{\delta}{K}$ (borne de l'union) |
 | Croire qu'une partie chanceuse a un regret négatif | « on a gagné plus que la meilleure moyenne fois $T$, donc $R_T < 0$ » | $R_T = \sum_k \Delta_k\,\mathbb{E}[N_k(T)] \ge 0$ : une espérance qui compare des moyennes, pas les récompenses tirées |
 | Croire qu'un ε fixé finit par ne plus coûter | « ε-greedy trouve la meilleure option, donc son regret se stabilise » | chaque option reste choisie avec la probabilité $\frac{\varepsilon}{K}$ : regret au moins linéaire ; faire décroître $\varepsilon$ |
-
-## Probabilités (R8, M03)
-
-| Erreur | Exemple faux | Ce qu'il faut faire |
-|---|---|---|
-| Confondre $P(A \mid B)$ et $P(B \mid A)$ | « 99 % des malades ont un test positif, donc un test positif signifie 99 % de chances d'être malade » | c'est la formule de Bayes qui relie les deux ; la prévalence change tout (M03, M04) |
-| Additionner des probabilités d'événements qui ne s'excluent pas | $P(A \cup B) = P(A) + P(B)$ | $P(A \cup B) = P(A) + P(B) - P(A \cap B)$ |
-| Multiplier des probabilités d'événements dépendants | $P(A \cap B) = P(A)P(B)$ toujours | seulement si $A$ et $B$ sont indépendants |
-| Choisir un univers dont les issues ne sont pas équiprobables | deux pièces : 0, 1 ou 2 piles, chacun $\frac{1}{3}$ | distinguer les deux pièces : PP, PF, FP, FF ; un seul pile a la probabilité $\frac{1}{2}$ |
-| Additionner pour « au moins un » | au moins un 4 en deux lancers d'un dé à 4 faces : $\frac{1}{4} + \frac{1}{4}$ | passer par le contraire : $1 - \left(\frac{3}{4}\right)^2 = \frac{7}{16}$ |
-| Compter un comité comme un podium | 3 personnes parmi 9 : $9 \times 8 \times 7$ | sans ordre : diviser par $3!$, $\binom{9}{3} = 84$ |
-| Croire que $0! = 0$ | $\binom{n}{n} = \frac{n!}{n! \times 0!}$ impossible | $0! = 1$, le produit vide |
-| Garder les mêmes probabilités sans remise | 2 morceaux préférés sur 6, deux tirages sans remise : $\left(\frac{2}{6}\right)^2$ | ce qui est tiré ne revient pas : $\frac{2}{6} \times \frac{1}{5}$ |
-| Additionner le long d'un chemin d'arbre | $0{,}3 + 0{,}4$ pour « pluie et retard » | multiplier le long d'un chemin ($0{,}3 \times 0{,}4$), additionner entre les chemins |
-| Confondre incompatibles et indépendants | « incompatibles, donc $P(A \cap B) = P(A)\,P(B)$ » | incompatibles : $P(A \cap B) = 0$, donc dépendants (si $P(A), P(B) > 0$) |
-| Confondre $\mathbb{E}[X^2]$ et $\mathbb{E}[X]^2$ | $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]$ | $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2$, la moyenne des carrés moins le carré de la moyenne |
-| Mal changer d'échelle une variance | $\mathbb{V}(10X - 4) = 10\,\mathbb{V}(X) - 4$ | $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ |
-| Croire que le hasard compense | après cinq piles, face est « dû » | les lancers sont indépendants ; la loi des grands nombres dilue les écarts |
-| Diviser une conditionnelle par le total du tableau | $P(\text{premium} \mid \text{mobile}) = \frac{30}{500}$ | diviser par le total de l'événement « sachant » : $\frac{30}{300}$ |
-| Conclure à l'indépendance sur une seule case | une case égale au produit de ses marges, donc « indépendantes » | vérifier toutes les cases, ou que toutes les lignes ont la même loi conditionnelle |
-| Croire que l'indépendance deux à deux suffit | trois événements indépendants deux à deux, donc mutuellement | deux pièces et « même côté » : $P(A \cap B \cap C) = \frac{1}{4} \ne \frac{1}{8}$ |
-| Moyenner des taux sans les poids des groupes | 2 %, 5 % et 8 % : « 5 % en moyenne » | probabilités totales : $\sum_k P(A \mid B_k)\,P(B_k)$ ; et attention au paradoxe de Simpson |
-| Lire la matrice de scikit-learn à l'envers | TP en haut à gauche | labels triés : `[[TN, FP], [FN, TP]]`, la vérité en lignes |
-| Échanger recall et precision | recall $= \frac{TP}{TP + FP}$ | recall : sachant la vérité, $\frac{TP}{TP + FN}$ ; precision : sachant la prédiction, $\frac{TP}{TP + FP}$ |
-| Garder la precision du test pour une autre population | 0,92 en test (20 % de positifs), donc 0,92 en production (2 %) | recalculer $\frac{r\pi}{r\pi + (1 - s)(1 - \pi)}$ : 0,48 |
-| Juger sur l'accuracy quand une classe est rare | « rien n'est positif » : 95 %, un bon modèle | regarder la balanced accuracy, le MCC, le recall et la precision |
-| Utiliser $\beta$ au lieu de $\beta^2$ dans $F_\beta$ | $F_2 = \frac{3PR}{2P + R}$ | $F_2 = \frac{5PR}{4P + R}$ |
-| Compter un ex æquo comme bien ou mal classé | AUC des paires avec un ex æquo compté 1 (ou 0) | un ex æquo compte $\frac{1}{2}$ |
-| Croire que l'AUC mesure les probabilités | AUC 0,95, donc des probabilités fiables | l'AUC ne voit que l'ordre ; la calibration se juge au diagramme de fiabilité et au score de Brier |
-| Calculer l'average precision par les trapèzes | relier les points (recall, precision) par des segments | des rectangles : $\sum_j (R_j - R_{j-1})\,P_j$ |
-
-## Bayes, vraisemblance et loi Beta (M04)
-
-| Erreur | Exemple faux | Ce qu'il faut faire |
-|---|---|---|
-| Prendre la vraisemblance pour l'a posteriori | « le capteur détecte 90 % des roulements usés, donc une alerte signifie 90 % de chances d'usure » | diviser vraisemblance × a priori par l'évidence ; un événement rare donne surtout de fausses alertes |
-| Oublier une partie de l'évidence | $P(\text{alerte}) = 0{,}02 \times 0{,}9$ | additionner toutes les façons d'observer : $\sum_j P(O \mid H_j)\,P(H_j)$ |
-| Repartir de l'a priori de départ à chaque observation | trois mises à jour, chacune avec l'a priori 0,5 | l'a posteriori d'une étape est l'a priori de la suivante |
-| Croire que la vraisemblance est une densité en $\theta$ | « $\theta = \frac{1}{6}$ a la probabilité 0,0045 » | c'est la probabilité des données ; son intégrale en $\theta$ ne vaut pas 1 |
-| Confondre $B(a, b)$ avec des factorielles de $a$ et $b$ | $B(3, 6) = \frac{3!\,6!}{9!}$ | $\Gamma(n) = (n - 1)!$ : $B(3, 6) = \frac{2!\,5!}{8!}$ |
-| Confondre le mode et la moyenne d'une loi Beta | MAP de $\mathrm{Beta}(4, 18)$ : $\frac{4}{22}$ | mode $\frac{a - 1}{a + b - 2} = \frac{3}{20}$ ; moyenne $\frac{a}{a + b}$ |
-| Appliquer la formule du mode hors de son domaine | mode de $\mathrm{Beta}(0{,}6 ;\ 3)$ : $\frac{-0{,}4}{1{,}6}$ | la formule vaut pour $a, b > 1$ ; sinon étudier la monotonie (mode 0 ou 1, ou pas de mode unique) |
-| Mettre à jour une loi Beta à l'envers | 5 défauts sur 60 : $\mathrm{Beta}(a + 55,\ b + 5)$ pour le taux de défaut | dire d'abord ce que compte $a$ : ici les défauts ; $\mathrm{Beta}(a + 5,\ b + 55)$ |
-| Ajouter $n$ à $b$ au lieu des échecs | $\mathrm{Beta}(a + k,\ b + n)$ | $\mathrm{Beta}(a + k,\ b + n - k)$ |
-| Croire que deux succès futurs ont la probabilité « moyenne au carré » | $\big(\frac{a}{a + b}\big)^2$ | mettre à jour entre les deux : $\frac{a}{a + b}\cdot\frac{a + 1}{a + b + 1}$ |
-| Annoncer un maximum de vraisemblance sur très peu de données | 0 achat sur 9 visites : « taux nul » | un a priori, par exemple Laplace : $\frac{1}{11}$ |
-| Multiplier de nombreuses probabilités en flottants | $0{,}3^{700}$ donne 0 | additionner les logarithmes, normaliser par log-sum-exp |
-| Prendre les exponentielles de log-probabilités sans soustraire le maximum | `np.exp([-1000, -1001])` donne `[0, 0]` | soustraire d'abord le maximum : `np.exp(l - l.max())` |
-| Calculer $\Gamma$ ou $B$ directement pour de grands paramètres | `math.gamma(700)` : `OverflowError` | `math.lgamma`, `scipy.special.betaln`, et l'exponentielle à la fin |
-| Écrire `k * math.log(p)` avec $p = 0$ | `ValueError` même pour $k = 0$ | traiter $p = 0$ et $p = 1$ à part : $0 \times \ln 0 = 0$ par convention |
-| Lire un intervalle de crédibilité comme un intervalle de confiance (ou l'inverse) | « 95 % des études répétées contiendraient θ », pour un intervalle de crédibilité | crédibilité : une probabilité sur le paramètre, sachant les données ; confiance : une propriété de la méthode |
-
-## Dérivées, Taylor et calcul numérique (M05a)
-
-| Erreur | Exemple faux | Ce qu'il faut faire |
-|---|---|---|
-| Prendre tout point où $f'' = 0$ pour un point d'inflexion | « $(x^4)''(0) = 0$, donc 0 est un point d'inflexion » | vérifier que $f''$ change de signe : $12x^2$ ne change pas de signe, $x^4$ est convexe partout |
-| Conclure « ni maximum ni minimum » quand $f''(c) = 0$ | $x^4$ en 0 | le test de la dérivée seconde ne conclut pas : étudier le signe de $f'$ autour de $c$ |
-| Chercher les extrema globaux parmi les seuls points critiques | $x^2 e^{-x}$ sur $[-1, 4]$ : « maximum global $4e^{-2}$, en 2 » | comparer aussi les bords : $f(-1) = e$ est plus grand |
-| Confondre convexe et croissante | « $e^{-x}$ décroît, donc elle n'est pas convexe » | la convexité dit que la pente augmente : $(e^{-x})'' = e^{-x} > 0$ |
-| Oublier les factorielles, ou centrer en 0 au lieu de $a$ | $\cos x \approx 1 - x^2$ ; $P_2$ de $e^x$ en 1 avec des puissances de $x$ | $\frac{f^{(k)}(a)}{k!}(x - a)^k$ |
-| Croire qu'une série de Taylor converge partout | $\ln 3 = 2 - \frac{4}{2} + \frac{8}{3} - \cdots$ | la série de $\ln(1 + x)$ ne converge que pour $-1 < x \le 1$ |
-| Écrire le pas de Newton à l'envers | $x_{k+1} = x_k - \frac{f'(x_k)}{f(x_k)}$ | $x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$, avec un test de $f'(x_k) \ne 0$ et un nombre maximal d'itérations |
-| Croire que Newton converge toujours | $x^3 - 2x + 2$ depuis 0 | la suite cycle entre 0 et 1 : changer de point de départ, ou encadrer la racine d'abord |
-| Diviser la différence centrée par $h$ | $\frac{f(x + h) - f(x - h)}{h}$ | les deux points sont à $2h$ l'un de l'autre : diviser par $2h$ |
-| Prendre un pas $h$ minuscule « pour être précis » | $h = 10^{-15}$ dans une différence finie | l'arrondi grandit en $\frac{\delta}{h}$ : prendre le pas qui minimise la borne d'erreur |
-| Prendre l'epsilon machine pour le plus petit flottant | « en `float64`, rien n'est plus petit que $2{,}2 \times 10^{-16}$ » | $\varepsilon$ est l'écart après 1 ; le plus petit `float64` positif est vers $5 \times 10^{-324}$ |
-| Comparer des flottants calculés avec `==` | `0.1 + 0.2 == 0.3` donne `False` | une tolérance : `math.isclose(a, b, rel_tol=..., abs_tol=...)` |
-| Soustraire deux nombres presque égaux | `(1e8 + 0.1) - 1e8` en `float32` ; $\sqrt{x + 1} - \sqrt{x}$ pour $x = 10^{12}$ | réécrire la formule : $\frac{1}{\sqrt{x + 1} + \sqrt{x}}$, `math.log1p`, `math.expm1` |
-| Calculer $\ln(1 + x)$ par `math.log(1 + x)` pour $x$ minuscule | `math.log(1 + 1e-10)` n'a que 7 chiffres justes | `math.log1p(1e-10)` |
-| Prendre l'exponentielle de grands scores | `math.exp(710)` : `OverflowError` ; `np.exp(710)` : `inf`, puis `nan` dans la softmax | soustraire le **maximum** des scores, puis le rajouter au log-sum-exp |
-| Calculer le log-softmax par le logarithme de la softmax | une probabilité qui s'efface donne `math.log(0.0)` | $\ln\text{softmax}(\mathbf{v})_i = v_i - \text{LSE}(\mathbf{v})$, directement à partir des scores |
-
-## Fonctions de plusieurs variables et gradient (M05b)
-
-| Erreur | Exemple faux | Ce qu'il faut faire |
-|---|---|---|
-| Oublier la variable « fixée » dans une dérivée partielle | $\frac{\partial}{\partial x}(x^3 y) = 3x^2$ | $y$ est une constante qui reste en facteur : $3x^2 y$ |
-| Prendre une direction donnée par un vecteur non unitaire | la pente de $f$ dans la direction $(7, 24)$, avec $\nabla f = (6, 9)$ : « $42 + 216 = 258$ » | diviser d'abord par la norme : $\mathbf{u} = (0{,}28 ;\ 0{,}96)$, et la pente vaut $10{,}32$ |
-| Croire que le gradient vise le sommet, ou suit les lignes de niveau | sur le dôme $100 - x^2 - 2y^2$, « en $(3, 1)$, le gradient pointe vers $(0, 0)$ » | il suit la montée la plus raide sur le moment, à angle droit des lignes de niveau : $(-6, -4)$ passe à côté de l'origine |
-| Écrire le plan tangent sans les décalages | $z = f(a, b) + f_x(a, b)\,x + f_y(a, b)\,y$ | $z = f(a, b) + f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b)$ : le plan passe par le point de contact |
-| Prendre $f_{xy}$ pour le produit $f_x \times f_y$ | pour $x^3 y + 2y^2$ en $(1, 2)$ : « $f_{xy} = 6 \times 9$ » | $f_{xy}$ est la dérivée de $f_x$ par rapport à $y$ : $3x^2 = 3$ |
-| Oublier le facteur 2 du terme croisé dans la courbure | dans la direction $\frac{(1, -1)}{\sqrt{2}}$ : « $\frac{12 - 3 + 4}{2}$ » | $f_{xx}u_1^2 + 2f_{xy}u_1u_2 + f_{yy}u_2^2 = \frac{12 - 6 + 4}{2} = 5$ |
-| Conclure « minimum » parce que $f_{xx} > 0$ et $f_{yy} > 0$ | $f_{xx} = f_{yy} = 1$, $f_{xy} = 2$ | calculer $D = f_{xx}f_{yy} - f_{xy}^2 = 1 - 4 < 0$ : un point selle |
-| Appliquer le test du second ordre quand $D = 0$ | « $x^4 + y^2$ n'a pas de minimum en $(0, 0)$, puisque $D = 0$ » | $D = 0$ : le test ne dit rien, regarder la fonction ($x^4 + y^2 \ge 0$ : c'est un minimum) |
-| Oublier les bords pour un extremum global sur un domaine borné | le minimum de $f$ sur un segment cherché seulement là où $\nabla f = \mathbf{0}$ | paramétrer le segment, se ramener à une variable, comparer les points critiques **et** les extrémités |
-| Se tromper de signe dans le pas de descente | $\mathbf{x} + \eta\,\nabla f(\mathbf{x})$ pour minimiser | descendre : $\mathbf{x} - \eta\,\nabla f(\mathbf{x})$ ; $+$ monte |
-| Confondre $\min f$ et $\arg\min f$ | pour $(x - 3)^2 + 2(y + 1)^2$ : « $\arg\min f = 0$ » | $\min f = 0$ (une valeur), $\arg\min f = (3, -1)$ (un point) |
-
-## Théorie de l'information (M06)
-
-| Erreur | Exemple faux | Ce qu'il faut faire |
-|---|---|---|
-| Calculer en nats en croyant calculer en bits | « $-\ln \frac{1}{8} \approx 2{,}08$ bits » | bits : $\log_2$, soit $-\log_2 \frac{1}{8} = 3$ bits ; nats : $\ln$ ; scikit-learn et PyTorch calculent en nats |
-| Laisser $0 \log 0$ donner `nan` | `-np.sum(p * np.log2(p))` avec une probabilité nulle : `nan` | $0 \log 0 = 0$ : ne garder que les $p > 0$, ou utiliser `scipy.special.xlogy` |
-| Prendre l'entropie d'une ligne sans la diviser par sa probabilité | pour la ligne $(0{,}12 ;\ 0{,}28)$, l'entropie « de 0,12 et 0,28 » | la loi conditionnelle est la ligne divisée par $p(x) = 0{,}4$ : $(0{,}3 ;\ 0{,}7)$ |
-| Faire la moyenne simple des entropies des lignes | $H(Y \mid X) = \frac{H_1 + H_2}{2}$ alors que $p(x_1) = 0{,}8$ | pondérer par les probabilités des lignes : $0{,}8\,H_1 + 0{,}2\,H_2$ |
-| Croire que chaque valeur de $X$ diminue l'incertitude sur $Y$ | « $H(Y \mid X = x) \le H(Y)$ pour tout $x$ » | c'est vrai seulement en moyenne, $H(Y \mid X) \le H(Y)$ ; une valeur particulière peut l'augmenter |
-| Prendre $H(X) + H(Y)$ pour $H(X, Y)$ | sans vérifier que $X$ et $Y$ sont indépendantes | $H(X, Y) = H(X) + H(Y) - I(X ; Y)$ : l'égalité n'a lieu que pour des variables indépendantes |
-| Conclure à l'indépendance d'une corrélation nulle | $X$ uniforme sur $\{-1, 0, 1\}$ et $Y = X^2$ : « corrélation nulle, donc $I(X ; Y) = 0$ » | la corrélation ne voit que les liens linéaires ; ici $I(X ; Y) = H(Y) > 0$ |
-| Échanger les deux lois de la divergence KL | $D_{\mathrm{KL}}(\text{modèle} \parallel \text{données})$ au lieu de $D_{\mathrm{KL}}(\text{données} \parallel \text{modèle})$ | l'ordre compte : les poids sont ceux des données ; l'autre sens peut même être infini |
-| Appeler la divergence KL une distance | « la distance KL entre $p$ et $q$ » | une divergence : pas symétrique, pas d'inégalité triangulaire ; Jensen-Shannon, elle, est symétrique |
-| Écrire l'inégalité de Jensen dans le mauvais sens | « $\mathbb{E}[\ln X] \ge \ln \mathbb{E}[X]$ » | $\ln$ est concave : $\mathbb{E}[\ln X] \le \ln \mathbb{E}[X]$ ; le sens « $\ge$ » est celui des fonctions convexes |
-| Croire qu'une somme de Kraft au plus 1 rend un code préfixe | « $\{0, 01, 11\}$ : $\frac{1}{2} + \frac{1}{4} + \frac{1}{4} = 1$, donc préfixe » | Kraft dit qu'**il existe** un code préfixe de ces longueurs (0, 10, 11), pas que celui-ci l'est : 0 est le début de 01 |
-| Arrondir les longueurs de Shannon à l'entier le plus proche | $-\log_2 0{,}4 \approx 1{,}32$, « donc 1 » | à l'entier supérieur, $\lceil 1{,}32 \rceil = 2$ : sinon la somme de Kraft peut dépasser 1 |
-| Croire sans biais l'entropie des fréquences observées | l'entropie des fréquences de 10 tirages prise pour la vraie entropie | elle la sous-estime en moyenne (et l'information mutuelle estimée la surestime) : plus de données, ou une correction |

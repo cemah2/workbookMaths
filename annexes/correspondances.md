@@ -6,7 +6,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 
 | workbookIA | Chapitres de maths | Sections de MML |
 |---|---|---|
-| 0A · Python, notebooks et outils | R0 à R9, en parallèle | — |
+| 0A · Python, notebooks et outils | R0, POS, R1 à R9, en parallèle | — |
 | 0B · Maths du lycée au ML | (R0 à R9 faits) puis CP0 | — |
 | 1 · Introduction au machine learning et au deep learning | — (rien de nouveau) | — |
 | 2 · Hasard et statistiques de base | M02a, M02b, M02c | (prérequis de §6.2) ; §6.1–6.2, §6.4, §6.7 ; §6.4 |
@@ -16,10 +16,10 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 6 · Théorie de l'information | M06 | — (MacKay) |
 | 7 · Classification | M07 | §3.1, §3.2.1, §3.3–3.4 |
 | 8 · Entraînement et test | M08 | §8.6 |
-| 9 · Overfitting et underfitting | M09a, M09b | §2.1–2.3 ; §8.1–8.2, ch. 9 |
+| 9 · Overfitting et underfitting | M09a, M09b | §2.1–2.3 ; §5.5, §8.1–8.2, §9.1–9.2 |
 | 10 · Neurones | M10 | §12.1 |
 | 11 · Apprentissage et raisonnement | M11 | — (Hammack ; Blitzstein et Hwang ; Lattimore et Szepesvári) |
-| 12 · Préparation des données | M12a, M12b, M12c, M12d | §2.4–2.8 ; §3.2.2–3.2.3, §3.5–3.8 ; §4.1–4.4 ; §4.5–4.7, ch. 10 |
+| 12 · Préparation des données | M12a, M12b, M12c, M12d | §2.4–2.8 ; §3.2.2–3.2.3, §3.5–3.8, §9.4 ; §4.1–4.4 ; §4.5–4.7, §10.1–10.6 |
 | 13 · Classifieurs | M13a, M13b | §8.3 ; §7.2–7.3, ch. 12 |
 | 14 · Ensembles | M14 | — |
 | 15 · scikit-learn | — (rien de nouveau) | — |
@@ -32,7 +32,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 22 · Réseaux récurrents (RNN, LSTM, GRU) | M22 | (§4.2) |
 | 23 · PyTorch en pratique 1 : du dataset au modèle sauvegardé | — (rien de nouveau) | — |
 | 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN | — (rien de nouveau) | — |
-| 25 · Autoencodeurs et VAE | M25a, M25b | §6.5 ; §6.7, §8.4–8.5, ch. 11 |
+| 25 · Autoencodeurs et VAE | M25a, M25b | §6.5, §9.3 ; §6.7, §8.4–8.5, §10.7, ch. 11 |
 | 26 · Apprentissage par renforcement | M26 | — (Blitzstein et Hwang) |
 | 27 · Réseaux antagonistes génératifs (GAN) | M27 | — |
 | 28 · Applications créatives | M28 | — |
@@ -59,10 +59,10 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | §3.9 Rotations | MB3 |
 | §4.1–4.4 Déterminant et trace, valeurs propres, Cholesky, diagonalisation | M12c |
 | §4.5–4.7 SVD, approximation de matrices, « phylogénie » des matrices | M12d |
-| §5.1 Dérivation d'une variable (dont Taylor) | R7, M05a |
+| §5.1 Dérivation d'une variable (dont Taylor) | M05a (R7 en donne les bases, sans renvoyer au livre) |
 | §5.2 Dérivées partielles et gradient | M05b |
 | §5.3 Gradients de fonctions à valeurs vectorielles (jacobienne) | M17 |
-| §5.4–5.6 Gradients de matrices, identités, rétropropagation et différentiation automatique | M18 |
+| §5.4–5.6 Gradients de matrices, identités, rétropropagation et différentiation automatique | M09b (§5.5), M18 |
 | §5.7–5.8 Dérivées d'ordre supérieur, Taylor multivariée | M19 |
 | §6.1–6.2 Espace probabilisé, lois discrètes et continues | M02a (la partie continue de §6.2), M02b |
 | §6.3 Règles de la somme et du produit, Bayes | M03, M04 |
@@ -77,8 +77,8 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | §8.3 Estimation des paramètres (maximum de vraisemblance, MAP) | M04, M13a |
 | §8.4–8.5 Modélisation probabiliste, modèles graphiques orientés | M25b |
 | §8.6 Sélection de modèle | M08 |
-| ch. 9 Régression linéaire | M09b |
-| ch. 10 Analyse en composantes principales | M12d |
+| ch. 9 Régression linéaire | M09b (§9.1–9.2), M25a (§9.3), M12b (§9.4) |
+| ch. 10 Analyse en composantes principales | M12d (§10.1–10.6), M25b (§10.7) |
 | ch. 11 Mélanges de gaussiennes | M25b |
 | ch. 12 Machines à vecteurs de support | M10 (§12.1), M13b |
 

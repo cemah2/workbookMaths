@@ -249,7 +249,7 @@ Pour la copie : $\lambda\mathbf{w} = \mathbf{X}^\top\mathbf{y} - \mathbf{X}^\top
 - f) $\tau^2 = \frac{1}{2{,}5} = 0{,}4$, $\tau = \sqrt{0{,}4} \approx 0{,}6325$.
 - g) $\frac{100\sigma^2}{100\tau^2} = \frac{\sigma^2}{\tau^2}$.
 
-Pour la copie : $\log p(\mathbf{w} \mid \mathbf{y}) = -\frac{1}{2}\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 - \frac{1}{2 \times 0{,}5}\lVert \mathbf{w} \rVert^2 + \text{cte} = -\frac{1}{2}\big(\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + 2\lVert \mathbf{w} \rVert^2\big) + \text{cte}$ : le maximum est le minimum de ridge avec $\lambda = 2$, dont le gradient s'annule au point de c). Quand $\tau \to +\infty$, le prior devient plat (il ne préfère plus aucun poids), $\lambda \to 0$, et l'on retrouve le maximum de vraisemblance d).
+Pour la copie : $\ln p(\mathbf{w} \mid \mathbf{y}) = -\frac{1}{2}\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 - \frac{1}{2 \times 0{,}5}\lVert \mathbf{w} \rVert^2 + \text{cte} = -\frac{1}{2}\big(\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + 2\lVert \mathbf{w} \rVert^2\big) + \text{cte}$ : le maximum est le minimum de ridge avec $\lambda = 2$, dont le gradient s'annule au point de c). Quand $\tau \to +\infty$, le prior devient plat (il ne préfère plus aucun poids), $\lambda \to 0$, et l'on retrouve le maximum de vraisemblance d).
 
 **Erreurs fréquentes.** $\lambda = \frac{\sigma}{\tau}$ (sans les carrés) ; $\lambda = \frac{\tau^2}{\sigma^2}$ (à l'envers : un prior large doit affaiblir la pénalité) ; oublier que $\sigma$ double fait quadrupler $\sigma^2$.
 
@@ -489,7 +489,7 @@ Pour la copie : multiplier une colonne par 10 et diviser son poids par 10 ne cha
 
 > On n'a jamais besoin de l'inverse : on veut résoudre $\mathbf{X}^\top\mathbf{X}\,\mathbf{w} = \mathbf{X}^\top\mathbf{y}$. Une élimination de Gauss (ou une factorisation de Cholesky, la matrice étant symétrique) le fait en moins d'opérations et avec moins d'erreurs d'arrondi qu'une inverse suivie d'un produit. Mieux encore, `lstsq` résout le problème sans même former $\mathbf{X}^\top\mathbf{X}$, par une factorisation de $\mathbf{X}$ : former ce produit fait perdre deux fois plus de chiffres significatifs que de travailler sur $\mathbf{X}$ seule. Quand des features sont colinéaires, $\mathbf{X}^\top\mathbf{X}$ est singulière : il y a une infinité de solutions, toutes avec les mêmes prédictions, mais des poids arbitraires. Presque colinéaires, la solution existe mais est instable : les poids deviennent énormes et changent avec le moindre bruit. Remèdes : ridge, qui ajoute $\lambda$ sur la diagonale et rend le système toujours soluble ; retirer ou regrouper les features redondantes (le one-hot complet avec une colonne de 1, par exemple) ; prendre la solution de plus petite norme avec `lstsq` ; ou réduire la dimension avec une ACP.
 
-**Grille.** (1) résoudre plutôt qu'inverser, avec la raison (coût, précision) ; (2) `lstsq` et le conditionnement au carré ; (3) colinéaires : une infinité de solutions, mêmes prédictions ; (4) presque colinéaires : des poids instables ; (5) deux remèdes au moins, dont ridge.
+**Grille.** (1) résoudre plutôt qu'inverser, avec la raison (coût, précision) ; (2) `lstsq`, qui évite de former $\mathbf{X}^\top\mathbf{X}$ et les arrondis que ce produit amplifie (M09b.32 ; M12d en donnera la raison) ; (3) colinéaires : une infinité de solutions, mêmes prédictions ; (4) presque colinéaires : des poids instables ; (5) deux remèdes au moins, dont ridge.
 
 ### M09b.E2 — « Quel lien entre la régularisation L2 et un prior gaussien ? »
 

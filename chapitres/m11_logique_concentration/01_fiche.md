@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §7 |
 | **Temps total estimé** | ≈ 11,5 h : lecture et calculs de la fiche ≈ 2 h 30, exercices ≈ 8 h 20, 22 flashcards ≈ 45 min (parcours essentiel ≈ 7,2 h) |
-| **Prérequis** | R4 (propositions, quantificateurs, implication, ensembles, raisonnements) ; R5 (suites) ; R6 (exp et ln) ; M02b (espérance, variance, lois exponentielle et binomiale) ; M02c (moyenne empirique, loi des grands nombres, théorème central limite, intervalle de confiance) ; M03 (taux de base, Bayes) ; M04 (loi Beta a posteriori) |
+| **Prérequis** | R4 (propositions, quantificateurs, implication, ensembles, raisonnements) ; R5 (suites) ; R6 (exp et ln) ; M02b (espérance, variance, lois exponentielle et binomiale) ; M02c (moyenne empirique, loi des grands nombres, théorème central limite, intervalle de confiance) ; M03 (probabilités totales, taux de base) ; M04 (formule de Bayes, loi Beta a posteriori) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `concentration.py` : `markov_bound`, `chebyshev_bound`, `hoeffding_bound`, `hoeffding_radius`, `empirical_tail` |
 | **MML** | — (MML ne traite ni la logique ni les inégalités de concentration : la fiche est le cours) |
@@ -304,7 +304,7 @@ C'est indispensable dès qu'on **choisit** après avoir regardé : l'accuracy du
 
 Elle ne suppose ni loi normale, ni $n$ grand, ni variance connue : c'est sa force. Sa faiblesse : elle ignore la variance, et quand celle-ci est très petite (une proportion proche de 0), Tchebychev peut faire mieux (M11.21).
 
-💻 **Aujourd'hui en pratique.** Pour rapporter l'incertitude d'une accuracy, on utilise plutôt un intervalle de Wilson ou le bootstrap (M08, M02c), plus étroits. Hoeffding sert quand on veut une **garantie** sans hypothèse sur la loi, et c'est la brique de base de la théorie de l'apprentissage : les bornes de généralisation et les bornes de confiance du §7 en sont faites.
+💻 **Aujourd'hui en pratique** — Pour rapporter l'incertitude d'une accuracy, on utilise plutôt un intervalle de Wilson ou le bootstrap (M08, M02c), plus étroits. Hoeffding sert quand on veut une **garantie** sans hypothèse sur la loi, et c'est la brique de base de la théorie de l'apprentissage : les bornes de généralisation et les bornes de confiance du §7 en sont faites.
 
 🔗 **Dans workbookIA** — la taille d'un jeu de test et la fiabilité d'une accuracy reviennent à chaque évaluation de modèle (chapitre 8 et suivants) ; le bonus des bornes supérieures de confiance du chapitre 11 vient de ce paragraphe (§7).
 
@@ -312,7 +312,7 @@ Elle ne suppose ni loi normale, ni $n$ grand, ni variance connue : c'est sa forc
 
 ### Le problème, et ce qu'on mesure
 
-On dispose de $K$ options, qu'on appelle des **bras** (*arms*). L'option $k$ donne, chaque fois qu'on la choisit, une récompense aléatoire dans $[0, 1]$, de moyenne $\mu_k$ inconnue. À chaque pas $t = 1, 2, \ldots, T$, on choisit une option $A_t$ et l'on observe sa récompense ; on veut accumuler le plus possible. Choisir l'option qui a le mieux réussi jusqu'ici rapporte tout de suite ; essayer une option peu connue renseigne pour la suite. Ce compromis entre **exploitation** et **exploration** n'a pas de solution parfaite, mais il se mesure, et ce paragraphe en donne les outils mathématiques ; les stratégies elles-mêmes se programment dans workbookIA.
+On dispose de $K$ options, qu'on appelle des **bras** (*arms*), comme les leviers d'une rangée de machines à sous : c'est le problème du **bandit manchot** (*multi-armed bandit*). L'option $k$ donne, chaque fois qu'on la choisit, une récompense aléatoire dans $[0, 1]$, de moyenne $\mu_k$ inconnue. À chaque pas $t = 1, 2, \ldots, T$, on choisit une option $A_t$ et l'on observe sa récompense ; on veut accumuler le plus possible. Choisir l'option qui a le mieux réussi jusqu'ici rapporte tout de suite ; essayer une option peu connue renseigne pour la suite. Ce compromis entre **exploitation** et **exploration** n'a pas de solution parfaite, mais il se mesure, et ce paragraphe en donne les outils mathématiques ; les stratégies elles-mêmes se programment dans workbookIA.
 
 Notons $\mu^\star = \max_k \mu_k$ et $\Delta_k = \mu^\star - \mu_k \ge 0$ l'**écart** (*gap*) de l'option $k$ à la meilleure. Le **regret** (*regret*) après $T$ pas est ce qu'on a gagné en moins, en moyenne, que si l'on avait choisi la meilleure option à chaque pas :
 $$R_T = \sum_{t=1}^{T} \mathbb{E}\big[\mu^\star - \mu_{A_t}\big] = \sum_{k=1}^{K} \Delta_k\,\mathbb{E}[N_k(T)],$$
@@ -322,7 +322,7 @@ où $N_k(T)$ est le nombre de fois que l'option $k$ a été choisie en $T$ pas. 
 
 La stratégie **ε-greedy** lance d'abord une pièce truquée : avec la probabilité $\varepsilon$, elle tire une option au hasard, uniformément ; sinon, elle prend l'option de meilleure moyenne observée, le choix « glouton ». Si le glouton désigne l'option $g$, les deux cas s'additionnent :
 $$P(A_t = k) = (1 - \varepsilon)\,\mathbf{1}_{k = g} + \frac{\varepsilon}{K}.$$
-Chaque option, même la pire, est donc choisie avec une probabilité au moins $\frac{\varepsilon}{K}$, à chaque pas. Le regret d'un pas vaut au moins $\frac{\varepsilon}{K}\sum_k \Delta_k$, et sur $T$ pas il croît **au moins linéairement** (M11.13). Faire décroître l'exploration, par exemple $\varepsilon_t = \frac{1}{t}$, change l'ordre de grandeur : la part du regret due à l'exploration devient $\frac{1}{K}\sum_k \Delta_k \sum_{t=1}^{T} \frac{1}{t}$, et la somme harmonique ne croît que comme $\ln T$ (M11.10).
+Chaque option, même la pire, est donc choisie avec une probabilité au moins $\frac{\varepsilon}{K}$, à chaque pas. Le regret d'un pas vaut au moins $\frac{\varepsilon}{K}\sum_k \Delta_k$, et sur $T$ pas il croît **au moins linéairement** (M11.13). Faire décroître l'exploration, par exemple $\varepsilon_t = \frac{1}{t}$, change l'ordre de grandeur : la part du regret due à l'exploration devient $\frac{1}{K}\sum_k \Delta_k \sum_{t=1}^{T} \frac{1}{t}$, et cette **somme harmonique** (*harmonic series*) ne croît que comme $\ln T$ : comparée à l'aire sous la courbe de $\frac{1}{x}$ (M02a), elle reste entre $\ln T$ et $1 + \ln T$ (M11.13 le démontre, M11.10 s'en sert).
 
 ### UCB : une borne supérieure de confiance par option
 

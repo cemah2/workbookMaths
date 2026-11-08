@@ -32,6 +32,8 @@ Si le test de positionnement t'a donné « tu peux sauter » pour R2, lis « L'e
 
 Parcours essentiel : tout sauf R2.Q6, R2.Q8, R2.R2, R2.R3, R2.8, R2.14, R2.15, R2.19, R2.20, R2.23, R2.25 et R2.28.
 
+**Vocabulaire anglais.** Les termes de ce chapitre, avec leur nom anglais (leur définition courte est dans `annexes/glossaire.md`) : borne, intervalle (*bound, interval*) ; coefficient (*coefficient*) ; déterminant (*determinant*) ; développer, factoriser (*expand, factor*) ; ensemble des solutions (*solution set*) ; équation (*equation*) ; équations équivalentes (*equivalent equations*) ; expression littérale, variable (*algebraic expression, variable*) ; fonction signe (*sign function*) ; formule de Cramer (*Cramer's rule*) ; identité remarquable (*special product, algebraic identity*) ; inégalité, inéquation (*inequality*) ; intersection, réunion (*intersection, union*) ; mal conditionné (*ill-conditioned*) ; mise en équation (*setting up an equation, translating a word problem*) ; produit nul (règle du) (*zero-product property*) ; substituer (*substitute, plug in*) ; système linéaire (*system of linear equations, linear system*) ; termes semblables, réduire (*like terms, collect like terms*) ; valeur absolue (*absolute value*) ; valeur interdite (*excluded value*).
+
 ## Objectifs d'apprentissage
 
 À la fin du chapitre, tu sais :

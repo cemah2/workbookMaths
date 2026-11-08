@@ -171,7 +171,7 @@ L'**estimation du maximum de vraisemblance** (*maximum likelihood estimate*, MLE
 
 $$\ell(\theta) = 2\ln\theta + 10\ln(1 - \theta), \qquad \ell'(\theta) = \frac{2}{\theta} - \frac{10}{1 - \theta}.$$
 
-$\ell'(\theta) = 0$ donne $2(1 - \theta) = 10\theta$, soit $\hat{\theta} = \frac{2}{12} = \frac{1}{6}$. C'est un maximum : $\ell'$ est positive avant et négative après (R7), ou $\ell''(\theta) = -\frac{2}{\theta^2} - \frac{10}{(1 - \theta)^2} < 0$. Le maximum de vraisemblance est la **fréquence observée** ; M04.12 le démontre pour $k$ succès sur $n$ essais quelconques, cas $k = 0$ et $k = n$ compris.
+$\ell'(\theta) = 0$ donne $2(1 - \theta) = 10\theta$, soit $\hat{\theta} = \frac{2}{12} = \frac{1}{6}$. C'est un maximum : $\ell'$ est positive avant et négative après (R7). Autre façon de le voir, utile quand le signe de $\ell'$ est pénible à étudier : la dérivée de $\ell'$, notée $\ell''$ (la **dérivée seconde**, que M05a étudie en détail), vaut ici $\ell''(\theta) = -\frac{2}{\theta^2} - \frac{10}{(1 - \theta)^2} < 0$ sur tout $]0, 1[$. Une fonction dont la dérivée est négative est décroissante (R7) : $\ell'$ décroît, ne s'annule qu'une fois, et passe alors du positif au négatif, donc ce point est le maximum. Le maximum de vraisemblance est la **fréquence observée** ; M04.12 le démontre pour $k$ succès sur $n$ essais quelconques, cas $k = 0$ et $k = n$ compris.
 
 ![La vraisemblance et la log-vraisemblance de 2 échecs sur 12 : même maximum](figures/vraisemblance.png)
 
@@ -235,7 +235,13 @@ La moyenne se démontre en une ligne : $\mathbb{E}[\Theta] = \int_0^1 \theta\,\f
 
 ### La conjugaison
 
-On reprend l'imprimante. Avant de l'utiliser, un technicien estime que ce modèle rate environ une impression sur cinq, avec l'assurance qu'il aurait après une dizaine d'essais : il choisit l'a priori $\mathrm{Beta}(2, 8)$, de moyenne 0,2. Puis on observe 2 échecs sur 12. Par la formule de Bayes pour une densité, l'a posteriori est proportionnel à la vraisemblance fois l'a priori :
+On reprend l'imprimante. Avant de l'utiliser, un technicien estime que ce modèle rate environ une impression sur cinq, avec l'assurance qu'il aurait après une dizaine d'essais : il choisit l'a priori $\mathrm{Beta}(2, 8)$, de moyenne 0,2. Puis on observe 2 échecs sur 12.
+
+> **Bayes et probabilités totales pour un paramètre continu.** Quand le paramètre $\Theta$ a une densité $f(\theta)$, la somme sur les hypothèses du §2 devient une intégrale (M02a) :
+> $$f(\theta \mid \text{données}) = \frac{P(\text{données} \mid \theta)\,f(\theta)}{P(\text{données})}, \qquad P(\text{données}) = \int P(\text{données} \mid \theta)\,f(\theta)\,d\theta.$$
+> La seconde formule, ce sont les probabilités totales (M03 §3) avec une densité : une moyenne de $P(\text{données} \mid \theta)$ pondérée par $f$. On les admet ; comme au §2, le dénominateur ne dépend pas de $\theta$ et l'a posteriori est **proportionnel** à la vraisemblance fois l'a priori.
+
+Ici :
 
 $$f(\theta \mid \text{données}) \propto \underbrace{\theta^{2}(1 - \theta)^{10}}_{\text{vraisemblance}} \times \underbrace{\theta^{2 - 1}(1 - \theta)^{8 - 1}}_{\text{a priori}} = \theta^{4 - 1}(1 - \theta)^{18 - 1}.$$
 

@@ -32,6 +32,8 @@ Si le test de positionnement t'a donné « tu peux sauter » pour R4, lis « L'e
 
 Parcours essentiel : tout sauf R4.Q7, R4.Q8, R4.R2, R4.5, R4.11, R4.13, R4.15, R4.17, R4.22, R4.23 et R4.25.
 
+**Vocabulaire anglais.** Les termes de ce chapitre, avec leur nom anglais (leur définition courte est dans `annexes/glossaire.md`) : cardinal (*cardinality*) ; complémentaire (d'un ensemble) (*complement*) ; condition nécessaire, suffisante (*necessary, sufficient condition*) ; contraposée (*contrapositive*) ; contre-exemple (*counterexample*) ; démonstration par l'absurde (*proof by contradiction*) ; disjonction de cas (*proof by cases*) ; ensemble (*set*) ; équivalence (logique) (*equivalence, if and only if*) ; hérédité, initialisation (*inductive step, base case*) ; implication (*implication, conditional*) ; inclusion (*inclusion, subset*) ; indice (d'une somme) (*index (of a sum)*) ; intersection, réunion (*intersection, union*) ; lois de De Morgan (*De Morgan's laws*) ; négation (*negation*) ; prédicat (*predicate*) ; produit cartésien, couple (*Cartesian product, ordered pair*) ; proposition (*proposition, statement*) ; quantificateur (*quantifier*) ; réciproque (d'une implication) (*converse*) ; récurrence (raisonnement par) (*(proof by) induction*) ; somme télescopique (*telescoping sum*) ; table de vérité (*truth table*).
+
 ## Objectifs d'apprentissage
 
 À la fin du chapitre, tu sais :

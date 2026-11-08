@@ -402,7 +402,7 @@ c'est-à-dire si les événements $\{X = x\}$ et $\{Y = y\}$ sont indépendants 
 
 Pour le stand : $P(X = 0, Y = 0) = 0{,}20$, mais $P(X = 0)\,P(Y = 0) = 0{,}30 \times 0{,}40 = 0{,}12$. Une seule case qui ne colle pas suffit : $X$ et $Y$ sont **dépendantes**, ce qu'on attendait (on vend plus de glaces quand il fait beau). Pour **montrer** l'indépendance, en revanche, il faut vérifier toutes les cases. Exemple : les numéros $X$ et $Y$ de deux dés lancés ensemble, $P(X = x, Y = y) = \frac{1}{36} = \frac{1}{6} \times \frac{1}{6}$ pour les 36 cases : indépendants.
 
-**Une conséquence.** Si $X$ et $Y$ sont indépendantes, $\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y]$ : en factorisant la double somme, $\sum_x\sum_y xy\,P(X = x)P(Y = y) = \big(\sum_x x\,P(X = x)\big)\big(\sum_y y\,P(Y = y)\big)$. Pour le stand, $0{,}75 \ne 0{,}6$ : une autre preuve de la dépendance. La différence $\mathbb{E}[XY] - \mathbb{E}[X]\,\mathbb{E}[Y]$ s'appelle la **covariance** de $X$ et $Y$, notée $\mathrm{Cov}(X, Y)$ ; M02c l'étudiera. Elle revient au §6.
+**Une conséquence.** Si $X$ et $Y$ sont indépendantes, $\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y]$ : en factorisant la double somme, $\sum_x\sum_y xy\,P(X = x)P(Y = y) = \big(\sum_x x\,P(X = x)\big)\big(\sum_y y\,P(Y = y)\big)$. Pour le stand, $0{,}75 \ne 0{,}6$ : une autre preuve de la dépendance. La différence $\mathbb{E}[XY] - \mathbb{E}[X]\,\mathbb{E}[Y]$ s'appelle la **covariance** de $X$ et $Y$, notée $\operatorname{Cov}(X, Y)$ ; M02c l'étudiera. Elle revient au §6.
 
 **Pour des variables quelconques**, l'indépendance se définit par $P(X \le x, Y \le y) = P(X \le x)\,P(Y \le y)$ pour tous $x$ et $y$ ; pour des variables à densité, cela revient à dire que la densité jointe est le produit des densités (§7). Plusieurs variables $X_1, \ldots, X_n$ sont (mutuellement) indépendantes quand la loi jointe des $n$ est le produit des $n$ marginales. Des variables indépendantes et de même loi sont dites **i.i.d.** : c'est l'hypothèse de base sur les exemples d'un dataset (M02c).
 
@@ -428,9 +428,9 @@ R8.12 l'a démontré pour un univers fini, **sans** supposer l'indépendance ; o
 
 La variance, elle, n'est pas linéaire. En développant $\big((X - \mathbb{E}[X]) + (Y - \mathbb{E}[Y])\big)^2$ et en prenant l'espérance (M02b.11 le fait en détail) :
 
-$$\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\,\mathrm{Cov}(X, Y), \qquad \mathrm{Cov}(X, Y) = \mathbb{E}[XY] - \mathbb{E}[X]\,\mathbb{E}[Y].$$
+$$\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\,\operatorname{Cov}(X, Y), \qquad \operatorname{Cov}(X, Y) = \mathbb{E}[XY] - \mathbb{E}[X]\,\mathbb{E}[Y].$$
 
-> **Variance d'une somme de variables indépendantes.** Si $X$ et $Y$ sont indépendantes, $\mathrm{Cov}(X, Y) = 0$ (§5) et
+> **Variance d'une somme de variables indépendantes.** Si $X$ et $Y$ sont indépendantes, $\operatorname{Cov}(X, Y) = 0$ (§5) et
 > $$\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y).$$
 > Plus généralement, pour $X_1, \ldots, X_n$ indépendantes, $\mathbb{V}(X_1 + \cdots + X_n) = \mathbb{V}(X_1) + \cdots + \mathbb{V}(X_n)$.
 

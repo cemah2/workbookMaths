@@ -694,7 +694,7 @@ Traite les cas particuliers d'abord : $p$ hors de $[0, 1]$, puis $k$ hors de $0.
 </details>
 <details><summary>Indice 3</summary>
 
-Pour $p = 0$ : la probabilité vaut 1 si $k = 0$ (logarithme 0.0), et 0 sinon (`-math.inf`).
+Pour $p = 0$ : la probabilité vaut 1 si $k = 0$ (logarithme `0.0`), et 0 sinon (`-math.inf`).
 
 </details>
 

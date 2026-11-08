@@ -384,9 +384,9 @@ Pour la copie : $n$ est grand, $p$ petit et $np = 4$ modéré : la situation typ
 
 **Réponses** : a) `0.266828` · b) `1.0` · c) `0.0` · d) `"ValueError"` · e) `0.133602` · f) `1.0` · g) `"float"` · h) `6.5`.
 
-**Démarche.** `binomial_pmf` : d'abord les paramètres impossibles (`n < 0`, `p` hors de $[0 ; 1]$ : `raise ValueError(...)`), puis les valeurs de `k` impossibles (`return 0.0`), puis `float(math.comb(n, k) * p ** k * (1 - p) ** (n - k))`. `poisson_pmf` : `lam < 0` lève l'erreur, `k < 0` rend 0.0, sinon `float(math.exp(-lam) * lam ** k / math.factorial(k))` ; en Python `0 ** 0 == 1`, ce qui donne f sans cas particulier. Pour la copie : b) vérifie que les probabilités ont une somme de 1, et h) que l'espérance vaut $\lambda$ ; au-delà de $k = 100$, les termes de $\mathcal{P}(6{,}5)$ sont inférieurs à $10^{-70}$.
+**Démarche.** `binomial_pmf` : d'abord les paramètres impossibles (`n < 0`, `p` hors de $[0 ; 1]$ : `raise ValueError(...)`), puis les valeurs de `k` impossibles (`return 0.0`), puis `float(math.comb(n, k) * p ** k * (1 - p) ** (n - k))`. `poisson_pmf` : `lam < 0` lève l'erreur, `k < 0` rend `0.0`, sinon `float(math.exp(-lam) * lam ** k / math.factorial(k))` ; en Python `0 ** 0 == 1`, ce qui donne f sans cas particulier. Pour la copie : b) vérifie que les probabilités ont une somme de 1, et h) que l'espérance vaut $\lambda$ ; au-delà de $k = 100$, les termes de $\mathcal{P}(6{,}5)$ sont inférieurs à $10^{-70}$.
 
-**Erreurs fréquentes.** Lever une erreur pour `k > n` au lieu de rendre 0.0 ; `math.comb(n, k)` avec `k < 0` lève une `ValueError` qu'on n'a pas voulue ; oublier `/ math.factorial(k)` ; renvoyer un `np.float64` (avec `np.exp`).
+**Erreurs fréquentes.** Lever une erreur pour `k > n` au lieu de rendre `0.0` ; `math.comb(n, k)` avec `k < 0` lève une `ValueError` qu'on n'a pas voulue ; oublier `/ math.factorial(k)` ; renvoyer un `np.float64` (avec `np.exp`).
 
 ### Ex M02b.19 — Densité et fonction de répartition de la loi normale (avec `math.erf`) · `normal_pdf`, `normal_cdf`
 

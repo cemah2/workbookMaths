@@ -167,7 +167,7 @@ Ce sont les **équations normales** (*normal equations*) : un système carré $p
 
 **Quand la solution est-elle unique ?** Quand $\mathbf{X}^\top\mathbf{X}$ est inversible, c'est-à-dire quand les colonnes de $\mathbf{X}$ sont indépendantes ($\mathbf{X}$ de rang $p$, M09a §8 et M09b.14). Si une colonne combine les autres (une feature en double, une colonne de 1 avec un one-hot complet, plus de features que d'exemples), il y a une infinité de solutions, qui donnent toutes les mêmes prédictions $\hat{\mathbf{y}}$. Mais il y en a **toujours au moins une** : le point des prédictions possibles le plus proche de $\mathbf{y}$ existe toujours (c'est le pied d'une perpendiculaire, voir plus bas ; M12b le démontre), et il annule le gradient. Seule l'unicité peut manquer.
 
-💻 **Aujourd'hui en pratique.** On ne calcule pas $(\mathbf{X}^\top\mathbf{X})^{-1}$ (M09a §7). `np.linalg.solve` résout les équations normales ; `np.linalg.lstsq(X, y)` fait mieux encore, sans former $\mathbf{X}^\top\mathbf{X}$ : former ce produit rend le calcul plus sensible aux arrondis quand des colonnes sont presque dépendantes (M09b.32, et M12d pour le **conditionnement**).
+💻 **Aujourd'hui en pratique** — On ne calcule pas $(\mathbf{X}^\top\mathbf{X})^{-1}$ (M09a §7). `np.linalg.solve` résout les équations normales ; `np.linalg.lstsq(X, y)` fait mieux encore, sans former $\mathbf{X}^\top\mathbf{X}$ : former ce produit rend le calcul plus sensible aux arrondis quand des colonnes sont presque dépendantes (M09b.32, et M12d pour le **conditionnement**).
 
 ### Le résidu est orthogonal aux colonnes
 
@@ -253,7 +253,7 @@ $$\mathbf{w} \leftarrow \mathbf{w} - \eta\big(\nabla L(\mathbf{w}) + 2\lambda\ma
 
 Supposons un bruit gaussien, $y_i = \mathbf{x}_i \cdot \mathbf{w} + \varepsilon_i$ avec $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$ indépendants (§7), et mettons sur les poids un **prior** gaussien centré, chaque $w_j \sim \mathcal{N}(0, \tau^2)$ indépendamment (M04) : on croit, avant les données, que les poids sont petits. Par la règle de Bayes, le log du posterior vaut, à une constante près,
 
-$$\log p(\mathbf{w} \mid \mathbf{X}, \mathbf{y}) = -\frac{1}{2\sigma^2}\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 - \frac{1}{2\tau^2}\lVert \mathbf{w} \rVert^2 + \text{constante}.$$
+$$\ln p(\mathbf{w} \mid \mathbf{X}, \mathbf{y}) = -\frac{1}{2\sigma^2}\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 - \frac{1}{2\tau^2}\lVert \mathbf{w} \rVert^2 + \text{constante}.$$
 
 Maximiser ce log (le **MAP**, M04), c'est minimiser $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \frac{\sigma^2}{\tau^2}\lVert \mathbf{w} \rVert^2$, après multiplication par $-2\sigma^2$ : **ridge, avec $\lambda = \frac{\sigma^2}{\tau^2}$**. $\lambda$ croît avec $\sigma^2$ et décroît avec $\tau^2$ : plus on se méfie des mesures, ou plus on est sûr d'avance que les poids sont petits, plus on rétrécit. Par exemple, $\sigma = 1$ et $\tau = 0{,}5$ donnent $\lambda = 4$, la pénalité de l'exemple ci-dessus : ses poids sont le MAP de ce prior.
 
@@ -287,7 +287,7 @@ $$y_i = \mathbf{x}_i \cdot \mathbf{w} + \varepsilon_i, \qquad \varepsilon_i \sim
 
 Alors $y_i \sim \mathcal{N}(\mathbf{x}_i \cdot \mathbf{w}, \sigma^2)$, de densité $\frac{1}{\sqrt{2\pi\sigma^2}}\exp\big(-\frac{(y_i - \mathbf{x}_i \cdot \mathbf{w})^2}{2\sigma^2}\big)$ (M02b). La **vraisemblance** des données est le produit de ces densités (M04), et sa **log-vraisemblance** la somme de leurs logs :
 
-$$\log L(\mathbf{w}, \sigma^2) = -\frac{n}{2}\log(2\pi\sigma^2) - \frac{1}{2\sigma^2}\sum_{i=1}^{n}(y_i - \mathbf{x}_i \cdot \mathbf{w})^2.$$
+$$\ln L(\mathbf{w}, \sigma^2) = -\frac{n}{2}\ln(2\pi\sigma^2) - \frac{1}{2\sigma^2}\sum_{i=1}^{n}(y_i - \mathbf{x}_i \cdot \mathbf{w})^2.$$
 
 ### Le maximum de vraisemblance
 

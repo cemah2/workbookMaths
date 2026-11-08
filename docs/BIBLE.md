@@ -73,7 +73,8 @@ Sommaire de MML (vérifié le 2026-11-05) : partie I, ch. 2 *Linear Algebra* (§
 - LaTeX dans le Markdown, compatible GitHub, Colab et Jupyter.
 - **Mêmes conventions que workbookIA** : scalaires en italique ($x$), vecteurs en gras minuscule ($\mathbf{x}$), matrices en gras majuscule ($\mathbf{A}$) ; $n$ exemples, $p$ features, $\mathbf{X}$ de forme $(n, p)$ ; prédiction $\hat{y}$, loss $L$, learning rate $\eta$, somme pondérée $z$.
 - **Écarts avec MML, signalés une fois par un encadré 📐** : MML note $N$ exemples et $D$ dimensions ; MML écrit le gradient d'une fonction $\mathbb{R}^n \to \mathbb{R}$ comme un **vecteur ligne** (convention jacobienne), alors que NumPy et workbookIA lui donnent la forme de $\mathbf{x}$. Le dépôt utilise la convention jacobienne pour le calcul matriciel (M17, M18) et $\nabla f$ de la forme de $\mathbf{x}$ pour l'optimisation, en disant chaque fois laquelle.
-- Vecteurs colonnes par défaut ; $\mathbb{E}$, $\mathbb{V}$, $\operatorname{Cov}$ pour l'espérance, la variance et la covariance ; $\mathcal{N}(\mu, \sigma^2)$ ; $\log$ = logarithme népérien sauf mention ($\log_2$, $\log_{10}$).
+- Vecteurs colonnes par défaut ; $\mathbb{E}$, $\mathbb{V}$, $\operatorname{Cov}$ pour l'espérance, la variance et la covariance ; $\mathcal{N}(\mu, \sigma^2)$ ; $\ln$ pour le logarithme népérien (MML et NumPy écrivent $\log$ pour le même : un encadré 📐 le dit), $\log$ sans base seulement pour une base quelconque, $\log_2$ et $\log_{10}$ sinon.
+- Partie 0 : les vecteurs du plan et de l'espace s'écrivent comme au lycée, $\vec{u}$ et $\overrightarrow{AB}$ (R9, CP0, POS) ; le gras commence en M07, qui fait le lien entre les deux notations.
 - `annexes/symboles.md` explique comment **lire** chaque symbole à voix haute (∀, ∃, ∈, ⊂, Σ, Π, ∫, ∂, ∇, ‖·‖, ⟨·,·⟩, argmax, ∝, :=…).
 
 ## 7. Architecture du dépôt
@@ -238,7 +239,7 @@ Après la partie 0, le chapitre 0B de workbookIA devient une consolidation : il 
 
 **Totaux estimés** : 49 chapitres (≈ 568 h, dont ≈ 108 h pour R0 à R9, recalculées exercice par exercice), 7 examens blancs (≈ 28 h), test de positionnement et projet de synthèse (≈ 27 h) : **≈ 623 h** pour le parcours complet, à ajouter aux ≈ 920 h de workbookIA ; ≈ 370 h pour le parcours essentiel (la remise à niveau y est presque entière : 90 h sur 114, car workbookIA 0B s'appuie sur elle). Le détail est dans `docs/SYLLABUS.md` ; la colonne « Contenu » des tableaux ci-dessus est indicative, le syllabus fait foi. Le test de positionnement peut retirer une partie de la remise à niveau.
 
-**MML est couvert en entier** : ch. 2 (M09a, M12a), ch. 3 (M07, M12b, MB3), ch. 4 (M12c, M12d), ch. 5 (M05a, M05b, M17, M18, M19), ch. 6 (M02b, M02c, M03, M04, M25a), ch. 7 (M13b, M19), ch. 8 (M04, M08, M09b, M13a, M25b), ch. 9 (M09b pour §9.1–9.2, M12b pour §9.4, M25a pour §9.3), ch. 10 (M12d pour §10.1–10.6, M25b pour §10.7), ch. 11 (M25b), ch. 12 (M10, M13b).
+**MML est couvert en entier** : ch. 2 (M09a, M12a), ch. 3 (M07, M12b, MB3), ch. 4 (M12c, M12d), ch. 5 (M05a, M05b, M09b pour §5.5, M17, M18, M19), ch. 6 (M02b, M02c, M03, M04, M25a), ch. 7 (M13b, M19), ch. 8 (M04, M08, M09b, M13a, M25b), ch. 9 (M09b pour §9.1–9.2, M12b pour §9.4, M25a pour §9.3), ch. 10 (M12d pour §10.1–10.6, M25b pour §10.7), ch. 11 (M25b), ch. 12 (M10, M13b).
 
 ## 9. Ordre de travail commun
 
@@ -322,8 +323,8 @@ Les démonstrations ∂ ne se vérifient pas automatiquement : grille de relectu
 
 Ceux de workbookIA (📐, 🧮 rappel, ⚠️ piège, 🔗 lien, 💼 en entreprise), avec ces adaptations :
 - 🔗 **Dans workbookIA** — où la notion sert, avec le chapitre et l'usage (« au ch. 18, la rétropropagation applique exactement cette règle de la chaîne »).
-- 📖 **Dans MML** — section, vocabulaire anglais, ce qui diffère des notations de la fiche.
-- ⚠️ **Erreur de calcul classique** — par exemple $(a+b)^2 \ne a^2 + b^2$, $\ln(a+b) \ne \ln a + \ln b$, $\mathbf{AB} \ne \mathbf{BA}$ ; elles sont recensées dans `annexes/erreurs_frequentes.md`.
+- 📖 **Dans MML** — section, vocabulaire anglais, ce qui diffère des notations de la fiche ; à partir de M05a, le guide de lecture de MML de la fiche (quel bloc du livre lire avant quelle partie) et l'encadré 📐 en tiennent lieu.
+- ⚠️ **Erreur classique.** (ou **Erreur de calcul classique** quand c'est un calcul) — par exemple $(a+b)^2 \ne a^2 + b^2$, $\ln(a+b) \ne \ln a + \ln b$, $\mathbf{AB} \ne \mathbf{BA}$ ; elles sont recensées dans `annexes/erreurs_frequentes.md`.
 - Pas d'encadré 🕰️ « mise à jour » : les mathématiques ne se périment pas ; un encadré 💻 **Aujourd'hui en pratique** dit comment le calcul se fait en vrai (NumPy appelle LAPACK, personne n'inverse une matrice pour résoudre un système…).
 
 ## 16. Règles pédagogiques

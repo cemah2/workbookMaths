@@ -100,7 +100,13 @@ un point du segment entre un point de $C$ et $\mathbf{x}_m$ (les poids $\frac{t_
 
 ### Ensembles convexes et fonctions convexes
 
-En M05a, une fonction $f$ était convexe quand ses cordes passent au-dessus de sa courbe. Les deux notions se rejoignent : $f$ est convexe si et seulement si la région **au-dessus** de sa courbe, $\{(x, y) : y \ge f(x)\}$ (son *épigraphe*), est un ensemble convexe. Et pour une fonction convexe, chaque ensemble $\{\mathbf{x} : f(\mathbf{x}) \le c\}$ est convexe : la boule $\lVert \mathbf{x} \rVert \le r$ en est un cas, la norme étant convexe. C'est par les fonctions convexes de plusieurs variables que la convexité reviendra en M12c et M19, pour les losses.
+En M05a, une fonction $f$ d'une variable était convexe quand ses cordes passent au-dessus de sa courbe. La définition s'écrit telle quelle en plusieurs variables : $f : \mathbb{R}^n \to \mathbb{R}$ est **convexe** (*convex function*) si
+
+$$f\big((1 - t)\,\mathbf{a} + t\,\mathbf{b}\big) \le (1 - t)\,f(\mathbf{a}) + t\,f(\mathbf{b}) \quad \text{pour tous } \mathbf{a}, \mathbf{b} \in \mathbb{R}^n \text{ et tout } t \in [0, 1],$$
+
+et **strictement convexe** (*strictly convex*) si l'inégalité est stricte dès que $\mathbf{a} \ne \mathbf{b}$ et $0 < t < 1$. Une fonction affine $\mathbf{x} \mapsto \mathbf{w} \cdot \mathbf{x} + b$ est convexe, avec égalité pour tous $\mathbf{a}$, $\mathbf{b}$, $t$ : elle ne l'est donc pas strictement. La norme est convexe, par l'inégalité triangulaire de M07 : $\lVert (1 - t)\,\mathbf{a} + t\,\mathbf{b} \rVert \le (1 - t)\,\lVert \mathbf{a} \rVert + t\,\lVert \mathbf{b} \rVert$. Une somme de fonctions convexes est convexe (on additionne les inégalités), et elle est strictement convexe si l'une d'elles l'est (l'une des inégalités additionnées est stricte).
+
+Les deux notions se rejoignent : $f$ est convexe si et seulement si la région **au-dessus** de sa courbe, $\{(x, y) : y \ge f(x)\}$ (son *épigraphe*), est un ensemble convexe. Et pour une fonction convexe, chaque ensemble $\{\mathbf{x} : f(\mathbf{x}) \le c\}$ est convexe : la boule $\lVert \mathbf{x} \rVert \le r$ en est un cas, la norme étant convexe. La convexité des losses reviendra en M12c (par les dérivées secondes) et en M19 (pour l'optimisation).
 
 ⚠️ **Erreur classique.** Dire qu'une fonction convexe a une courbe « convexe ». La courbe d'une fonction est une ligne, qui n'est presque jamais un ensemble convexe (la parabole $y = x^2$ ne contient pas le segment entre deux de ses points) ; c'est la région au-dessus d'elle qui l'est.
 
@@ -150,7 +156,7 @@ Sur le nuage $A$, trié : $(4, 3)$, $(5, 7)$, $(6, 3)$, $(6, 5)$, $(8, 3)$, $(8,
 
 La chaîne du haut, de droite à gauche, finit en $(8, 7)$, $(5, 7)$, $(4, 3)$ ($(8, 3)$, $(6, 5)$ et $(6, 3)$ y entrent puis en sortent). Bout à bout : $(4, 3)$, $(8, 3)$, $(8, 7)$, $(5, 7)$. Le point $(6, 3)$ est sorti sur un produit **nul** : avec un test $< 0$ au lieu de $\le 0$, il serait resté, comme un faux sommet au milieu d'un côté.
 
-💻 **Aujourd'hui en pratique.** `scipy.spatial.ConvexHull` calcule l'enveloppe en dimension quelconque (avec la bibliothèque Qhull) ; en dimension 2, ses sommets (`hull.vertices`) sont rangés dans le sens direct. Ta fonction `convex_hull_2d` (M10.12) se compare à elle dans les tests.
+💻 **Aujourd'hui en pratique** — `scipy.spatial.ConvexHull` calcule l'enveloppe en dimension quelconque (avec la bibliothèque Qhull) ; en dimension 2, ses sommets (`hull.vertices`) sont rangés dans le sens direct. Ta fonction `convex_hull_2d` (M10.12) se compare à elle dans les tests.
 
 ## §3 · Séparer deux nuages : séparabilité linéaire, astuce du biais, marge
 

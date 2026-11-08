@@ -76,9 +76,9 @@ f) On cherche $t$ tel que $P(T > t) = 0{,}9$, soit $P(T \le t) = 0{,}1$ : $\frac
 
 a) On additionne chaque ligne : $P(X = 0) = 0{,}3$, $P(X = 1) = 0{,}3$, $P(X = 2) = 0{,}4$. De même, en additionnant les colonnes, $P(Y = 0) = 0{,}4$ et $P(Y = 1) = 0{,}6$. **[0,25]**
 b) **Non** : $P(X = 0, Y = 0) = 0{,}1$, alors que $P(X = 0)\,P(Y = 0) = 0{,}3 \times 0{,}4 = 0{,}12$. Une seule case suffit pour conclure. **[0,25]**
-c) $\mathbb{E}[X] = 0{,}3 + 2 \times 0{,}4 = 1{,}1$, $\mathbb{E}[Y] = 0{,}6$ et $\mathbb{E}[XY] = 1 \times 1 \times 0{,}1 + 2 \times 1 \times 0{,}3 = 0{,}7$ (seules les cases où $x$ et $y$ sont non nuls comptent) : $\mathrm{Cov}(X, Y) = 0{,}7 - 1{,}1 \times 0{,}6 = 0{,}04$. **[0,25]**
+c) $\mathbb{E}[X] = 0{,}3 + 2 \times 0{,}4 = 1{,}1$, $\mathbb{E}[Y] = 0{,}6$ et $\mathbb{E}[XY] = 1 \times 1 \times 0{,}1 + 2 \times 1 \times 0{,}3 = 0{,}7$ (seules les cases où $x$ et $y$ sont non nuls comptent) : $\operatorname{Cov}(X, Y) = 0{,}7 - 1{,}1 \times 0{,}6 = 0{,}04$. **[0,25]**
 d) $\mathbb{E}[X^2] = 0{,}3 + 4 \times 0{,}4 = 1{,}9$, donc $\mathbb{V}(X) = 1{,}9 - 1{,}1^2 = 0{,}69$. **[0,25]**
-e) $\mathbb{V}(Y) = 0{,}6 \times 0{,}4 = 0{,}24$ (Bernoulli), et $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\,\mathrm{Cov}(X, Y) = 0{,}69 + 0{,}24 + 0{,}08 = 1{,}01$. **[0,25]**
+e) $\mathbb{V}(Y) = 0{,}6 \times 0{,}4 = 0{,}24$ (Bernoulli), et $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\,\operatorname{Cov}(X, Y) = 0{,}69 + 0{,}24 + 0{,}08 = 1{,}01$. **[0,25]**
 
 **Erreurs fréquentes** : en a), additionner les colonnes ; en b), conclure à l'indépendance sur une seule case qui « marche » (il faut que **toutes** les cases soient des produits) ; en c), donner $\mathbb{E}[XY]$ ; en d), retrancher $\mathbb{E}[X]$ au lieu de son carré ; en e), additionner les variances comme si $X$ et $Y$ étaient indépendantes (0,93), ou prendre $\mathbb{E}[Y^2]$ pour $\mathbb{V}(Y)$.
 **Remédiation** : M02b.7, M02b.8, M02c.9, M02b.Q5, M02b.Q6.

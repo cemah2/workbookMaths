@@ -202,7 +202,7 @@ Dans ta copie : traduis chaque phrase en ensembles ($\subset$, $\cap$, $\varnoth
 
 ### Ex M11.4 — Une induction trompeuse par oubli du taux de base, recalculée avec Bayes ✏️ ★★ ⏱️ 15 min
 **Objectif :** chiffrer l'erreur d'une induction qui oublie le taux de base, avec Bayes et des effectifs attendus.
-**Prérequis :** fiche §3 ; M03 (probabilités totales, Bayes) · **Parcours :** C, E
+**Prérequis :** fiche §3 ; M03 (probabilités totales) ; M04 (formule de Bayes) · **Parcours :** C, E
 
 Une usine fabrique des capteurs, dont 3 % sont défectueux. Un test automatique signale 92 % des capteurs défectueux, et signale à tort 6 % des capteurs bons. Un technicien a lu que le test « détecte 92 % des défauts » et en conclut qu'un capteur signalé est défectueux avec la probabilité 0,92.
 
@@ -308,14 +308,14 @@ Les récompenses sont dans $[0, 1]$. Une option a été choisie $N$ fois, de moy
 | d | au même pas, celle d'une option 2 de moyenne observée 0,45 après 8 choix | un nombre (4 décimales) |
 | e | l'option que choisit UCB1 entre ces deux-là | un entier |
 | f | au pas $t = 10\,000$, le plus petit $N$ pour lequel le bonus d'une option est inférieur à $\frac{\Delta}{2}$, avec $\Delta = 0{,}2$ | un entier |
-| g | la somme des risques $\sum_{t=2}^{+\infty} t^{-4}$ | un nombre (4 décimales) |
+| g | la somme des risques $\sum_{t=2}^{+\infty} t^{-4}$ (on admet que $\sum_{t=1}^{+\infty} t^{-4} = \frac{\pi^4}{90}$) | un nombre (4 décimales) |
 | h | avec le risque $\delta_t = t^{-2}$ à la place de $t^{-4}$, le bonus au pas $t = 1\,000$ pour $N = 50$ | un nombre (4 décimales) |
 
 Dans ta copie : montre que le rayon unilatéral pour le risque $t^{-4}$ est $\sqrt{\frac{2\ln t}{N}}$. Que dit g) sur la probabilité que la borne supérieure d'une option donnée, après un nombre de choix $N$ donné, soit fausse au moins une fois entre le pas 2 et l'infini ? (La preuve complète d'UCB1 doit aussi faire la borne de l'union sur les valeurs de $N$ et sur les options.) Pourquoi f) donne-t-il un nombre de choix qui croît comme $\ln t$ ?
 
 ### Ex M11.10 — ε-greedy : la loi du bras joué et le regret attendu par pas ✏️ ★★ ⏱️ 15 min
 **Objectif :** écrire la loi de l'option choisie par ε-greedy, en tirer le regret d'un pas, puis comparer une exploration fixe et une exploration qui décroît.
-**Prérequis :** fiche §7 ; R5 (somme harmonique) · **Parcours :** C
+**Prérequis :** fiche §7 · **Parcours :** C
 
 Cinq options, numérotées de 1 à 5, ont pour moyennes $\mu = (0{,}55 ;\ 0{,}30 ;\ 0{,}62 ;\ 0{,}48 ;\ 0{,}50)$. Une stratégie ε-greedy, avec $\varepsilon = 0{,}15$, se trompe pour l'instant sur la meilleure : son choix glouton est l'option 1.
 
@@ -361,7 +361,7 @@ $X$ a une espérance $\mu$ et une variance $\sigma^2$ ; $t > 0$.
 
 ### Ex M11.13 — Avec ε fixé, le regret attendu d'ε-greedy croît au moins linéairement ∂ ★★ ⏱️ 20 min
 **Objectif :** décomposer le regret par option, et démontrer qu'une exploration fixe coûte un regret linéaire alors qu'une exploration en $\frac{1}{t}$ ne coûte qu'un logarithme.
-**Prérequis :** fiche §7 ; R5 (somme harmonique) · **Parcours :** C
+**Prérequis :** fiche §7 ; M02a (l'intégrale de $\frac{1}{x}$) · **Parcours :** C
 
 $K$ options de moyennes $\mu_1, \ldots, \mu_K$ ; $\mu^\star = \max_k \mu_k$, $\Delta_k = \mu^\star - \mu_k$ ; $N_k(T)$ est le nombre de fois que l'option $k$ est choisie en $T$ pas, $A_t$ l'option choisie au pas $t$. À chaque pas, ε-greedy tire, avec la probabilité $\varepsilon$, une option uniformément parmi les $K$ ; sinon, elle prend son choix glouton (quel qu'il soit).
 1. Montre que $\mathbb{E}[\mu^\star - \mu_{A_t}] = \sum_{k=1}^{K} \Delta_k\,P(A_t = k)$, puis que $R_T = \sum_{t=1}^{T}\mathbb{E}[\mu^\star - \mu_{A_t}] = \sum_{k=1}^{K} \Delta_k\,\mathbb{E}[N_k(T)]$ (écris $N_k(T)$ comme une somme d'indicatrices).
