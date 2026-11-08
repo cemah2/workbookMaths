@@ -146,8 +146,8 @@ PAPER = [
         ("d", "an integer", "69", '''mistakes={"sans la constante : retire le monôme 1": 70}'''),
         ("e", "an integer", "21", '''mistakes={"compte aussi les carrés x_i²": 15}'''),
         ("f", "an integer", "15",
-         '''mistakes={"degré exactement 4 : sans les monômes de degré plus petit": 34, '''
-         '''"combinaisons avec répétition : C(k + p − 1, k), pas C(p, k)": 3}'''),
+         '''mistakes={"degré exactement 4 : sans les monômes de degré plus petit": {34, 35}, '''
+         '''"compte aussi les produits croisés (x³y, x²yz…), pas seulement x⁴, y⁴ et z⁴": 3}'''),
         ("g", "an integer", "6",
          '''mistakes={"plus de 1 000 colonnes : écris le nombre de colonnes degré par degré, constante exclue": {5, 7}}'''),
     ]),
@@ -253,7 +253,7 @@ PAPER = [
     Paper("M09b.21", "Pont : pourquoi standardiser les colonnes avant ridge", [
         ("a", "a list of 2 numbers (2 decimals)", "[0.5, 1.0]", "decimals=2"),
         ("b", "a list of 2 numbers (2 decimals)", "[0.5, 0.5]",
-         '''decimals=2, mistakes={"ridge ajoute λ sur la diagonale de XᵀX seulement, pas à chaque nombre": [9 / 14, 1 / 7]}'''),
+         '''decimals=2, mistakes={"ridge ajoute λ sur la diagonale de XᵀX seulement, pas à chaque nombre": [0.5, 0.25]}'''),
         ("c", "a list of 2 numbers (2 decimals)", "[0.05, 1.0]",
          '''decimals=2, mistakes={"la colonne est 10 fois plus grande : son poids est 10 fois plus petit": [5.0, 1.0]}'''),
         ("d", "a list of 2 numbers (4 decimals)", "[25 / 302, 203 / 604]",

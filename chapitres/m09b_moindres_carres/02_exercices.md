@@ -80,7 +80,7 @@ Lesquels de ces modèles sont linéaires **en leurs poids** $w_0, w_1, w_2$, et 
 1. Laquelle des deux pénalités peut donner des poids exactement nuls ?
 2. Quelle est la pente de $w \mapsto w^2$ en $w = 0$ ? Et celle de $w \mapsto |w|$, juste à droite de 0 ?
 3. Un poids est nul, et la somme des carrés descend avec une pente $g = 0{,}3$ quand on le pousse vers les valeurs positives. Avec le lasso et $\lambda = 0{,}5$, vaut-il la peine de le pousser ? Et avec $\lambda = 0{,}2$ ?
-4. Le seuillage doux : $S(2{,}2 ;\ 0{,}7)$ ? $S(-0{,}3 ;\ 0{,}8)$ ?
+4. Le seuillage doux : $S(-2{,}7 ;\ 0{,}8)$ ? $S(0{,}6 ;\ 0{,}9)$ ?
 5. Avec le lasso, un poids nul reste nul si la pente avec laquelle la somme des carrés descend dans sa direction est plus petite que quoi ?
 6. Combien de « coins » a la boule unité de la norme L1 dans $\mathbb{R}^2$ ? Où sont-ils ?
 
@@ -254,9 +254,9 @@ Trois points d'abscisses $x = 0, 1, 3$ ; on ajuste une droite avec ordonnée à 
 | d | la trace de $\mathbf{H}$ | un nombre |
 | e | le numéro (de 1 à 3) du point de plus grand levier $h_{ii}$ | un entier |
 | f | $7\,\hat{\mathbf{y}}$, avec $\hat{\mathbf{y}} = \mathbf{H}\mathbf{y}$ (des entiers) | une liste de 3 nombres |
-| g | vrai ou faux : $\mathbf{H}\mathbf{H} = \mathbf{H}$ | `True` ou `False` |
+| g | $7\,\mathbf{r}$, avec $\mathbf{r} = \mathbf{y} - \hat{\mathbf{y}}$ (des entiers) | une liste de 3 nombres |
 
-Dans ta copie : vérifie g) en calculant au moins une ligne de $\mathbf{H}\mathbf{H}$. Pourquoi le point de e) est-il celui-là ? Vérifie que $\mathbf{H}$ laisse inchangés la colonne de 1 et le vecteur $(0, 1, 3)$ : pourquoi ?
+Dans ta copie : vérifie que $\mathbf{H}\mathbf{H} = \mathbf{H}$ en calculant au moins une ligne de $\mathbf{H}\mathbf{H}$, et que $\mathbf{r}$ est orthogonal aux deux colonnes de $\mathbf{X}$. Pourquoi le point de e) est-il celui-là ? Vérifie que $\mathbf{H}$ laisse inchangés la colonne de 1 et le vecteur $(0, 1, 3)$ : pourquoi ?
 
 ### Ex M09b.7 — Compter les monômes des features polynomiales ✏️ ★ ⏱️ 15 min
 **Objectif :** compter les colonnes des features polynomiales par les combinaisons avec répétition, et voir leur nombre exploser.

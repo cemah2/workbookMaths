@@ -18,7 +18,7 @@
 2. Section par section : lis **crayon en main**, refais chaque calcul ; puis fais les exercices de la section, quiz 🧠 d'abord.
 3. Les exercices ✏️ et 🔗 se font sur papier, dans ta copie de `06_mes_reponses.md`, puis se vérifient dans la **partie 0** du notebook. Les démonstrations ∂ se rédigent dans ta copie et se jugent avec la grille de relecture de `05_solutions.md`.
 
-**Un exemple pour tout le chapitre.** Quatre points, $x = -4, -1, 2, 3$ et $y = 1, 1, 4, 6$. Chaque section le reprend : tu verras la même droite apparaître comme un minimum, une projection, un maximum de vraisemblance, puis se tasser sous une pénalité.
+**Un exemple pour tout le chapitre.** Quatre points, $x = -4, -1, 2, 3$ et $y = 0, 3, 3, 6$. Chaque section le reprend : tu verras la même droite apparaître comme un minimum, une projection, un maximum de vraisemblance, puis se tasser sous une pénalité.
 
 | Section | Quiz 🧠 | Papier et réflexion | Notebook |
 |---|---|---|---|
@@ -63,7 +63,7 @@ Vocabulaire anglais de ce chapitre : *linear regression*, *least squares*, *resi
 5. Le résidu est **orthogonal** aux colonnes de $\mathbf{X}$ : $\hat{\mathbf{y}} = \mathbf{H}\mathbf{y}$ est la **projection** de $\mathbf{y}$, avec $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, symétrique, $\mathbf{H}^2 = \mathbf{H}$, de trace $p$. Avec une colonne de 1 : résidus de moyenne nulle et $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$.
 6. **Features polynomiales** : le modèle reste linéaire **en $\mathbf{w}$** ; $p$ variables et le degré $d$ donnent $\binom{p + d}{d}$ monômes, constante comprise.
 7. **Ridge** : minimiser $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \lambda\lVert \mathbf{w} \rVert^2$ donne $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{w} = \mathbf{X}^\top\mathbf{y}$, toujours soluble pour $\lambda > 0$ ; c'est le **MAP** d'un prior gaussien, avec $\lambda = \sigma^2/\tau^2$.
-8. **Lasso** : la pénalité $\lambda\lVert \mathbf{w} \rVert_1$ annule exactement des poids (une solution **parcimonieuse**) ; pas de formule close.
+8. **Lasso** : la pénalité $\lambda\lVert \mathbf{w} \rVert_1$ annule exactement des poids (une solution **parcimonieuse**) ; pas de solution explicite en général.
 9. Bruit gaussien $\Rightarrow$ le maximum de vraisemblance est la solution des moindres carrés, et $\hat{\sigma}^2 = \frac{\mathrm{SCR}}{n}$.
 10. Erreur attendue = **biais²** + **variance** + **bruit** : un modèle trop simple a du biais (underfitting), un modèle trop souple de la variance (overfitting) ; au-delà de l'interpolation, l'erreur peut redescendre (**double descente**).
 
@@ -83,9 +83,9 @@ Avec l'exemple du chapitre et la droite $\hat{y} = 3 + 0{,}7x$ (on verra au §3 
 
 | $x$ | $-4$ | $-1$ | $2$ | $3$ |
 |---|---|---|---|---|
-| $y$ | 1 | 1 | 4 | 6 |
+| $y$ | 0 | 3 | 3 | 6 |
 | $\hat{y} = 3 + 0{,}7x$ | 0,2 | 2,3 | 4,4 | 5,1 |
-| $r = y - \hat{y}$ | $0{,}8$ | $-1{,}3$ | $-0{,}4$ | $0{,}9$ |
+| $r = y - \hat{y}$ | $-0{,}2$ | $0{,}7$ | $-1{,}4$ | $0{,}9$ |
 
 Ici $\mathbf{X} = \begin{pmatrix} 1 & -4 \\ 1 & -1 \\ 1 & 2 \\ 1 & 3 \end{pmatrix}$ (la colonne de 1, puis $x$) et $\mathbf{w} = (3 ;\ 0{,}7)$.
 
@@ -103,13 +103,13 @@ Les trois mesures d'erreur les plus courantes d'une régression :
 
 $$\mathrm{MSE} = \frac{1}{n}\sum_{i=1}^{n} r_i^2, \qquad \mathrm{RMSE} = \sqrt{\mathrm{MSE}}, \qquad \mathrm{MAE} = \frac{1}{n}\sum_{i=1}^{n} |r_i|.$$
 
-Sur l'exemple : $\sum r_i^2 = 0{,}64 + 1{,}69 + 0{,}16 + 0{,}81 = 3{,}3$, donc $\mathrm{MSE} = 0{,}825$, $\mathrm{RMSE} \approx 0{,}908$, et $\mathrm{MAE} = \frac{0{,}8 + 1{,}3 + 0{,}4 + 0{,}9}{4} = 0{,}85$. La MSE s'exprime dans l'unité de $y$ **au carré** ; la RMSE et la MAE, dans l'unité de $y$.
+Sur l'exemple : $\sum r_i^2 = 0{,}04 + 0{,}49 + 1{,}96 + 0{,}81 = 3{,}3$, donc $\mathrm{MSE} = 0{,}825$, $\mathrm{RMSE} \approx 0{,}908$, et $\mathrm{MAE} = \frac{0{,}2 + 0{,}7 + 1{,}4 + 0{,}9}{4} = 0{,}8$. La MSE s'exprime dans l'unité de $y$ **au carré** ; la RMSE et la MAE, dans l'unité de $y$.
 
 La MSE élève chaque résidu au carré : un résidu dix fois plus grand pèse **cent** fois plus. Un seul point aberrant peut donc tirer toute la droite vers lui. La MAE le pèse seulement dix fois plus, mais $|r|$ n'est pas dérivable en 0. La **loss de Huber** combine les deux, avec un seuil $\delta > 0$ :
 
 $$\ell_\delta(r) = \begin{cases} \frac{1}{2}r^2 & \text{si } |r| \le \delta, \\ \delta\big(|r| - \frac{1}{2}\delta\big) & \text{si } |r| > \delta. \end{cases}$$
 
-Les deux morceaux se raccordent en $|r| = \delta$ (même valeur $\frac{\delta^2}{2}$, même pente $\delta$) : la loss est dérivable partout. Près de 0, elle se comporte comme la moitié d'un carré ; loin de 0, comme $\delta$ fois une valeur absolue, à une constante près. Avec $\delta = 1$, sur l'exemple : $0{,}8$ donne $\frac{0{,}64}{2} = 0{,}32$ ; $1{,}3 > 1$ donne $1 \times (1{,}3 - 0{,}5) = 0{,}8$ ; $0{,}4$ donne $0{,}08$ ; $0{,}9$ donne $0{,}405$ : moyenne $\frac{1{,}605}{4} = 0{,}40125$.
+Les deux morceaux se raccordent en $|r| = \delta$ (même valeur $\frac{\delta^2}{2}$, même pente $\delta$) : la loss est dérivable partout. Près de 0, elle se comporte comme la moitié d'un carré ; loin de 0, comme $\delta$ fois une valeur absolue, à une constante près. Avec $\delta = 1$, sur l'exemple : $-0{,}2$ donne $\frac{0{,}04}{2} = 0{,}02$ ; $0{,}7$ donne $0{,}245$ ; $|-1{,}4| > 1$ donne $1 \times (1{,}4 - 0{,}5) = 0{,}9$ ; $0{,}9$ donne $0{,}405$ : moyenne $\frac{1{,}57}{4} = 0{,}3925$.
 
 ![La loss quadratique, la valeur absolue et la loss de Huber](figures/huber.png)
 
@@ -119,7 +119,7 @@ On compare l'erreur du modèle à celle du modèle le plus bête, qui prédit to
 
 $$\mathrm{SCT} = \sum_i (y_i - \bar{y})^2 \ \text{(totale)}, \qquad \mathrm{SCE} = \sum_i (\hat{y}_i - \bar{y})^2 \ \text{(expliquée)}, \qquad \mathrm{SCR} = \sum_i (y_i - \hat{y}_i)^2 \ \text{(résiduelle)}.$$
 
-Le **coefficient de détermination** est $R^2 = 1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$, la part de la variation des cibles que le modèle fait disparaître : $R^2 = 1$ quand tous les résidus sont nuls, $R^2 = 0$ quand $\mathrm{SCR} = \mathrm{SCT}$. Pour les moindres carrés avec une colonne de 1, sur les données d'entraînement, il est toujours entre 0 et 1 (la constante $\bar{y}$ fait partie des modèles possibles, donc $\mathrm{SCR} \le \mathrm{SCT}$) ; sur de nouvelles données, ou pour un autre modèle, rien n'empêche $\mathrm{SCR} > \mathrm{SCT}$, et $R^2$ devient négatif. Sur l'exemple, $\bar{y} = 3$ : $\mathrm{SCT} = 4 + 4 + 1 + 9 = 18$, $\mathrm{SCR} = 3{,}3$, donc $R^2 = 1 - \frac{3{,}3}{18} \approx 0{,}817$. Et $\mathrm{SCE} = 7{,}84 + 0{,}49 + 1{,}96 + 4{,}41 = 14{,}7$ : on a exactement $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$, ce que le §3 explique. En anglais, SCT, SCE et SCR s'écrivent SST, SSE et SSR (*total*, *explained*, *residual*), comme dans `residual_decomposition`.
+Le **coefficient de détermination** est $R^2 = 1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$, la part de la variation des cibles que le modèle fait disparaître : $R^2 = 1$ quand tous les résidus sont nuls, $R^2 = 0$ quand $\mathrm{SCR} = \mathrm{SCT}$. Pour les moindres carrés avec une colonne de 1, sur les données d'entraînement, il est toujours entre 0 et 1 (la constante $\bar{y}$ fait partie des modèles possibles, donc $\mathrm{SCR} \le \mathrm{SCT}$) ; sur de nouvelles données, ou pour un autre modèle, rien n'empêche $\mathrm{SCR} > \mathrm{SCT}$, et $R^2$ devient négatif. Sur l'exemple, $\bar{y} = 3$ : $\mathrm{SCT} = 9 + 0 + 0 + 9 = 18$, $\mathrm{SCR} = 3{,}3$, donc $R^2 = 1 - \frac{3{,}3}{18} \approx 0{,}817$. Et $\mathrm{SCE} = 7{,}84 + 0{,}49 + 1{,}96 + 4{,}41 = 14{,}7$ : on a exactement $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$, ce que le §3 explique. En anglais, SCT, SCE et SCR s'écrivent SST, SSE et SSR (*total*, *explained*, *residual*), comme dans `residual_decomposition`.
 
 ⚠️ **Erreur classique.** Calculer un $R^2$ « sans centrer » : $1 - \frac{\sum r_i^2}{\sum y_i^2}$ compare le modèle à la prédiction 0, pas à la moyenne, et donne un nombre bien trop proche de 1. La décomposition $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ n'est vraie que pour les moindres carrés **avec une colonne de 1** ; sans elle, ou pour un autre modèle, $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$ et $\frac{\mathrm{SCE}}{\mathrm{SCT}}$ diffèrent.
 
@@ -171,7 +171,7 @@ Ce sont les **équations normales** (*normal equations*) : un système carré $p
 
 ### Le résidu est orthogonal aux colonnes
 
-Les équations normales s'écrivent aussi $\mathbf{X}^\top\mathbf{r} = \mathbf{0}$ : le vecteur des résidus est **orthogonal à chaque colonne** de $\mathbf{X}$. Sur l'exemple, $\mathbf{r} = (0{,}8 ;\ -1{,}3 ;\ -0{,}4 ;\ 0{,}9)$ : sa somme est nulle (orthogonal à la colonne de 1) et $(-4)(0{,}8) + (-1)(-1{,}3) + (2)(-0{,}4) + (3)(0{,}9) = 0$ (orthogonal à la colonne $x$).
+Les équations normales s'écrivent aussi $\mathbf{X}^\top\mathbf{r} = \mathbf{0}$ : le vecteur des résidus est **orthogonal à chaque colonne** de $\mathbf{X}$. Sur l'exemple, $\mathbf{r} = (-0{,}2 ;\ 0{,}7 ;\ -1{,}4 ;\ 0{,}9)$ : sa somme est nulle (orthogonal à la colonne de 1) et $(-4)(-0{,}2) + (-1)(0{,}7) + (2)(-1{,}4) + (3)(0{,}9) = 0$ (orthogonal à la colonne $x$).
 
 **Conséquence 1 : avec une colonne de 1, les résidus sont de moyenne nulle**, donc $\bar{\hat{y}} = \bar{y}$ : la moyenne des prédictions est celle des cibles (M09b.5).
 
@@ -239,7 +239,7 @@ On ajoute $\lambda$ sur la diagonale de $\mathbf{X}^\top\mathbf{X}$. Pour $\lamb
 
 Sur l'exemple, en pénalisant les deux poids avec $\lambda = 4$ : $\begin{pmatrix} 8 & 0 \\ 0 & 34 \end{pmatrix}\mathbf{w} = \begin{pmatrix} 12 \\ 21 \end{pmatrix}$, d'où $\mathbf{w} \approx (1{,}5 ;\ 0{,}618)$. La pente est passée de 0,7 à 0,618 ; mais l'ordonnée à l'origine a rétréci elle aussi, de 3 à 1,5, et la droite ne passe plus par le point moyen $(0, 3)$ : ses prédictions sont toutes trop basses. Le poids de la colonne de 1 ne mesure pas la complexité du modèle ; le pénaliser n'a pas de sens. La parade : **centrer** $\mathbf{X}$ (sans sa colonne de 1) et $\mathbf{y}$, résoudre ridge sur les données centrées, puis rendre l'ordonnée à l'origine (workbookIA 9 donne la recette complète). `solve_least_squares` de `mymath`, lui, pénalise **tous** les poids : c'est à toi de centrer avant.
 
-⚠️ **Erreur classique.** Appliquer ridge à des colonnes d'unités différentes. La pénalité $\lambda\sum_j w_j^2$ dépend de l'unité de chaque feature : exprimer une distance en kilomètres plutôt qu'en mètres divise ses valeurs par 1 000, multiplie son poids par 1 000, et sa pénalité par un million. Ridge rétrécit alors cette feature bien plus que les autres, pour une simple question d'unité. On standardise les colonnes d'abord (M09b.21).
+⚠️ **Erreur classique.** Appliquer ridge à des colonnes d'unités différentes. La pénalité $\lambda\sum_j w_j^2$ dépend de l'unité de chaque feature : exprimer une distance en kilomètres plutôt qu'en mètres divise ses valeurs par 1 000, multiplie son poids par 1 000, et sa pénalité par un million. Ridge rétrécit alors cette feature bien plus que les autres, pour une simple question d'unité. On standardise les colonnes d'abord (M09b.21 le montre sur un prix, en euros ou en dizaines d'euros).
 
 ### Weight decay
 
@@ -263,7 +263,7 @@ Le **lasso** remplace la pénalité L2 par la norme L1 (M07) :
 
 $$\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \lambda\,\lVert \mathbf{w} \rVert_1, \qquad \lVert \mathbf{w} \rVert_1 = \sum_j |w_j|.$$
 
-La différence paraît mince ; elle change la forme des solutions : pour $\lambda$ assez grand, beaucoup de poids deviennent **exactement nuls**. Le modèle est **parcimonieux** (*sparse*) : il n'utilise que quelques features, et fait en même temps la régression et une sélection de features.
+Sur le papier, des carrés ont seulement été remplacés par des valeurs absolues. Dans les solutions, l'effet se voit tout de suite : dès que $\lambda$ est assez grand, une partie des poids vaut **0 exactement**, alors que ridge les approche de 0 sans les y amener. Une feature de poids nul ne compte plus dans les prédictions : on dit que le modèle est **parcimonieux** (*sparse*). En ajustant ses poids, le lasso choisit donc aussi les features qu'il garde.
 
 **Pourquoi des zéros exacts ? Une question de pente.** Pars d'un poids $w_j = 0$, les autres étant fixés, et demande-toi s'il vaut la peine de le pousser à une petite valeur $\varepsilon > 0$. La somme des carrés baisse d'environ $g\,\varepsilon$, où $g$ est la pente avec laquelle elle descend dans cette direction (M05a : une fonction dérivable est presque une droite de près). La pénalité, elle, monte de :
 - $\lambda\varepsilon^2$ avec L2 : un coût **négligeable** devant $g\,\varepsilon$ quand $\varepsilon$ est petit. Pousser un peu est toujours rentable dès que $g \ne 0$ : un poids ridge n'est presque jamais exactement nul ;
@@ -273,9 +273,9 @@ Toute la différence tient à la pente des deux pénalités en 0 : celle de $w^2
 
 ![Les pénalités w² et |w|, et leurs pentes : celle de w² s'annule en 0, celle de |w| saute de −1 à 1](figures/penalites.png)
 
-**Pas de formule close.** $|w|$ n'est pas dérivable en 0, et annuler un gradient ne suffit plus. En dimension 1, la solution s'écrit avec le **seuillage doux** (*soft thresholding*) $S(z, \gamma) = \operatorname{signe}(z)\max(|z| - \gamma, 0)$, où $z$ est le poids qu'on aurait sans pénalité et $\gamma$ un seuil qui dépend de $\lambda$ : $z$ est rapproché de 0 de $\gamma$, et mis à 0 s'il en était plus près que $\gamma$. Par exemple $S(1{,}6 ;\ 0{,}6) = 1$ et $S(-0{,}9 ;\ 1{,}2) = 0$. En dimension $p$, on applique ce seuillage à un poids à la fois, les autres étant fixés, jusqu'à ce que plus rien ne bouge (la *descente de coordonnées*). workbookIA 9 dérive le seuillage et programme cette descente : on ne le fait pas ici.
+**Comment on le calcule.** $|w|$ a un coin en 0 : on ne peut plus chercher le point où le gradient s'annule, comme au §3, et aucune expression explicite ne donne la solution en dimension $p$. Avec un seul poids, la réponse tient pourtant en une ligne. Si $z$ désigne la solution des moindres carrés seuls, la solution pénalisée est le **seuillage doux** (*soft thresholding*) de $z$, $S(z, \gamma) = \operatorname{signe}(z)\max(|z| - \gamma, 0)$, pour un seuil $\gamma$ proportionnel à $\lambda$ : la taille de $z$ diminue de $\gamma$ sans que son signe change, et tout $z$ de $[-\gamma, \gamma]$ donne 0. Par exemple $S(1{,}3 ;\ 0{,}4) = 0{,}9$ et $S(0{,}7 ;\ 1{,}2) = 0$. Avec $p$ poids, les algorithmes du lasso répètent ce calcul coordonnée par coordonnée et balaient les poids jusqu'à convergence (la *descente de coordonnées*). workbookIA 9 dérive le seuillage et programme cette descente : on ne le fait pas ici.
 
-⚠️ **Erreur classique.** Oublier le signe dans le seuillage doux, en écrivant $z - \gamma$ : pour $z < 0$, rapprocher $z$ de 0, c'est **ajouter** $\gamma$. $S(-1{,}8 ;\ 0{,}4) = -1{,}4$, pas $-2{,}2$.
+⚠️ **Erreur classique.** Oublier le signe dans le seuillage doux, en écrivant $z - \gamma$ : pour $z < 0$, rapprocher $z$ de 0, c'est **ajouter** $\gamma$. $S(-1{,}4 ;\ 0{,}3) = -1{,}1$, pas $-1{,}7$.
 
 ## §7 · La régression comme maximum de vraisemblance
 
@@ -326,7 +326,7 @@ Ridge en est l'exemple type : quand $\lambda$ grandit, les poids rétrécissent 
 
 ### La double descente (aperçu)
 
-Ajoute des colonnes à $\mathbf{X}$ une à une, à $n$ exemples fixés. Tant que $p < n$, les équations normales ont une solution unique. Quand $p$ s'approche de $n$, la matrice carrée (ou presque) $\mathbf{X}$ a de plus en plus de chances d'avoir des colonnes presque dépendantes : $\mathbf{X}^\top\mathbf{X}$ est presque singulière, les poids deviennent énormes et changent du tout au tout d'un dataset à l'autre. La variance explose : l'erreur de test a un **pic** près de $p = n$. Au-delà, il y a plus d'inconnues que d'équations : le modèle peut reproduire les cibles d'entraînement de beaucoup de façons (M09a §8), et c'est la règle qui choisit entre elles qui décide de ce qu'il fait ailleurs. Avec la règle « les poids les plus petits », un frein sur la taille des poids revient, comme avec ridge, et l'erreur de test peut **redescendre** : c'est la **double descente** (*double descent*). La décomposition reste exacte ; c'est le nombre de colonnes qui mesure mal la souplesse réelle du modèle. M12d construit cette solution de plus petite norme (la **pseudo-inverse**) ; workbookIA 9 trace la courbe.
+Ajoute des colonnes à $\mathbf{X}$ une à une, à $n$ exemples fixés. Tant que $p < n$, les équations normales ont une solution unique. Quand $p$ s'approche de $n$, la matrice carrée (ou presque) $\mathbf{X}$ a de plus en plus de chances d'avoir des colonnes presque dépendantes : $\mathbf{X}^\top\mathbf{X}$ est presque singulière, les poids deviennent énormes et changent du tout au tout d'un dataset à l'autre. La variance explose : l'erreur de test a un **pic** près de $p = n$. Au-delà, il y a plus d'inconnues que d'équations : le modèle peut reproduire les cibles d'entraînement de beaucoup de façons (M09a §8), et c'est la règle qui choisit entre elles qui décide de ce qu'il fait ailleurs. Avec la solution de plus petite norme (la **pseudo-inverse**, que M12d construit), l'erreur de test peut **redescendre** : c'est la **double descente** (*double descent*). workbookIA 9 trace la courbe et l'explique.
 
 ---
 

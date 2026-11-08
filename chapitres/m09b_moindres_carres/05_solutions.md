@@ -42,7 +42,7 @@
 1. **L1**, le lasso.
 2. **0** pour $w^2$ (sa dérivée $2w$ s'annule en 0) ; **1** pour $|w|$ juste à droite de 0 (et $-1$ juste à gauche).
 3. Avec $\lambda = 0{,}5$, **non** : le gain $0{,}3\,\varepsilon$ ne compense pas le coût $0{,}5\,\varepsilon$, le poids reste à 0. Avec $\lambda = 0{,}2$, **oui** : $0{,}3 > 0{,}2$.
-4. $S(2{,}2 ;\ 0{,}7) = 1{,}5$ ; $S(-0{,}3 ;\ 0{,}8) = 0$, car $0{,}3 < 0{,}8$.
+4. $S(-2{,}7 ;\ 0{,}8) = -2{,}7 + 0{,}8 = -1{,}9$ (la taille diminue de 0,8, le signe reste) ; $S(0{,}6 ;\ 0{,}9) = 0$, car $0{,}6 \le 0{,}9$.
 5. Que $\lambda$ (fiche §6 : le gain $g\varepsilon$ ne dépasse pas le coût $\lambda\varepsilon$).
 6. **4** coins, sur les axes : $(1, 0)$, $(-1, 0)$, $(0, 1)$, $(0, -1)$.
 
@@ -212,7 +212,7 @@ Pour la copie : la première ligne de $\mathbf{H}\mathbf{H}$ vaut $\frac{1}{196}
 - f) $\binom{4 + 2}{4} = 15$.
 - g) Sans constante, en 7 variables : 7, 35, 119, 329, 791, puis 1 715 pour $d = 6$.
 
-Pour la copie : f) en 3 variables $x, y, z$, rangés par l'exposant de $x$ : $x^4$ ; $x^3y, x^3z$ ; $x^2y^2, x^2yz, x^2z^2$ ; $xy^3, xy^2z, xyz^2, xz^3$ ; $y^4, y^3z, y^2z^2, yz^3, z^4$, soit $1 + 2 + 3 + 4 + 5 = 15$. Le nombre de colonnes est multiplié par un peu plus de 2 à chaque degré : au degré 6, il y a déjà plus de 1 700 colonnes pour 7 variables, et $\mathbf{X}^\top\mathbf{X}$ a près de 3 millions de cases.
+Pour la copie : f) en 3 variables $x, y, z$, rangés par l'exposant de $x$ : $x^4$ ; $x^3y, x^3z$ ; $x^2y^2, x^2yz, x^2z^2$ ; $xy^3, xy^2z, xyz^2, xz^3$ ; $y^4, y^3z, y^2z^2, yz^3, z^4$, soit $1 + 2 + 3 + 4 + 5 = 15$. D'un degré au suivant, le nombre de colonnes est multiplié par 5, puis 3,4, 2,8, 2,4 et 2,2 : au degré 6, il y a déjà plus de 1 700 colonnes pour 7 variables, et $\mathbf{X}^\top\mathbf{X}$ a près de 3 millions de cases.
 
 **Erreurs fréquentes.** Oublier les produits croisés ; compter ou non la constante à contresens ; utiliser $\binom{p}{d}$ (combinaisons sans répétition, qui oublient les carrés).
 

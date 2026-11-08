@@ -241,7 +241,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | jacobienne | Jacobian | matrice des dérivées partielles d'une fonction à valeurs vectorielles | M17 |
 | k-means, k-means++ | k-means, k-means++ | regrouper des points en $k$ clusters en alternant l'affectation au centre le plus proche et le remplacement de chaque centre par le barycentre de son cluster ; k-means++ tire les centres de départ avec une probabilité proportionnelle à $D^2$ | M07 |
 | König-Huygens (formule de) | König-Huygens theorem | $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum_i \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + m\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$ | M07 |
-| lasso | lasso | les moindres carrés pénalisés par $\lambda\lVert \mathbf{w} \rVert_1$ : des poids exactement nuls, pas de formule close | M09b |
+| lasso | lasso | les moindres carrés pénalisés par $\lambda\lVert \mathbf{w} \rVert_1$ : des poids exactement nuls, pas de solution explicite en général | M09b |
 | levier | leverage | $h_{ii}$, le nombre de la diagonale de la matrice chapeau : le poids de $y_i$ dans sa propre prédiction ; grand pour un point isolé | M09b |
 | ligne de niveau | level curve, contour line | l'ensemble des points où $f(x, y)$ prend une valeur donnée $c$ ; une carte de lignes de niveau est une carte topographique de la surface | M05b |
 | limite à droite, à gauche | right-hand, left-hand limit | limite quand $x$ s'approche de $a$ en restant plus grand (plus petit) que $a$ | R7 |

@@ -29711,7 +29711,8 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "5ab7f43de54b4086ac0c4ac90d9d92f0234c28bb661c3f805e10074661c22802": "combinaisons avec répétition : C(k + p − 1, k), pas C(p, k)",
+        "082c239c8551bcf4c2bd4b228e6bc8e1c18afcbd59f47614e0d1b4e6c69243e5": "degré exactement 4 : sans les monômes de degré plus petit",
+        "5ab7f43de54b4086ac0c4ac90d9d92f0234c28bb661c3f805e10074661c22802": "compte aussi les produits croisés (x³y, x²yz…), pas seulement x⁴, y⁴ et z⁴",
         "8185fe2ec0bc598330a1f443e9a58518f43bc2173abf3781f00c935c3e1a6832": "degré exactement 4 : sans les monômes de degré plus petit"
       },
       "sign": 1,
@@ -30771,7 +30772,7 @@
       "hash": "23569c979c08db25dc3ac805521358f230a47d5649d39695d1fb5fa67dfaab4a",
       "kind": "array",
       "mistakes": {
-        "c8a558a9dbae61c58b35cd45ed3e0590dbe6c230d0fa8b22424f6b7d47f33226": "ridge ajoute λ sur la diagonale de XᵀX seulement, pas à chaque nombre"
+        "00891a7641f150f8be1c2e15a4403baa67172d0e4c282d6454d869abf819e6e3": "ridge ajoute λ sur la diagonale de XᵀX seulement, pas à chaque nombre"
       },
       "shape": [
         2

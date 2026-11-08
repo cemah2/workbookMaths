@@ -1,16 +1,16 @@
 # PROGRESS : état de la génération de workbookMaths
 
-*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-08, session 29 (chapitre M09a).*
+*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-08, session 30 (chapitre M09b).*
 
 ## Prochaine étape
 
-➡️ **Sessions 30 et 31 : chapitre M09b** (Moindres carrés et régularisation, avant workbookIA 9 ; deux sessions de génération) : 49 exercices détaillés au syllabus (`docs/syllabus/data/partie_2.py`, 17,0 h en parcours complet), stub `templates/mymath_stubs/linreg.py` (6 fonctions : `normal_equations`, `solve_least_squares`, `hat_matrix`, `residual_decomposition`, `count_monomials`, `huber_loss`) ; écrire la référence `solutions/mymath_ref/linreg.py` contre les docstrings, qui font foi, et `tests/test_m09b_linreg.py` ; MML §5.5, §8.1, §8.2, §9.1, §9.2 ; relire la fiche, les exercices, les solutions, les flashcards et les questions d'entretien de workbookIA 9 (et de 0B), et les frontières listées au syllabus (9.1 à 9.7, 9.16, 9.17…). Ensuite : workbookIA 9 est prêt ; M10, avant workbookIA 10.
+➡️ **Session 31 : chapitre M10** (Séparabilité linéaire et convexité, avant workbookIA 10 ; une session de génération) : exercices détaillés au syllabus (`docs/syllabus/data/partie_2.py`, 7,9 h en parcours complet), stub `templates/mymath_stubs/convex.py` (3 fonctions : `convex_hull_2d`, `is_linearly_separable`, `margin_of_separator`) ; écrire la référence `solutions/mymath_ref/convex.py` contre les docstrings, qui font foi, et `tests/test_m10_convex.py` ; MML §12.1 ; relire la fiche, les exercices, les solutions, les flashcards et les questions d'entretien de workbookIA 10 (et de 0B), et les frontières listées au syllabus (∂ 10.4 et 10.7 : XOR et la convergence du perceptron ; 10.1…). Ensuite : workbookIA 10 est prêt ; M11, avant workbookIA 11.
 
 La partie 0 est complète : R0, POS, R1 à R9 et CP0. L'apprenant enchaîne avec workbookIA 0B, puis workbookIA 1.
 
 La partie I est complète : M02a à M06 et CP1. L'apprenant enchaîne avec le checkpoint I de workbookIA.
 
-La partie II est en cours : M07, M08 et M09a sont publiés ; l'apprenant peut faire M07, puis workbookIA 7, puis M08, puis workbookIA 8, puis M09a ; workbookIA 9 attend aussi M09b.
+La partie II est en cours : M07, M08, M09a et M09b sont publiés ; l'apprenant peut faire M07, puis workbookIA 7, puis M08, puis workbookIA 8, puis M09a et M09b, puis workbookIA 9.
 
 ## Statut des chapitres
 
@@ -18,7 +18,7 @@ La partie II est en cours : M07, M08 et M09a sont publiés ; l'apprenant peut fa
 |---|---|---|
 | 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | ✅ tout publié (R0, POS, R1 à R9, CP0) |
 | I · Fondations | M02a à M06, CP1 | ✅ tout publié (M02a, M02b, M02c, M03, M04, M05a, M05b, M06, CP1) |
-| II · Concepts | M07 à M11, CP2 | 🛠️ en cours : M07, M08 et M09a publiés (syllabus détaillé en session 26 : 256 exercices, six modules `mymath`) |
+| II · Concepts | M07 à M11, CP2 | 🛠️ en cours : M07, M08, M09a et M09b publiés (syllabus détaillé en session 26 : 256 exercices, six modules `mymath`) |
 | III · ML classique | M12a à M14, CP3 | 📅 planifié |
 | IV · Réseaux | M16 à M20, CP4 | 📅 planifié |
 | V · Architectures | M21, M22, CP5 | 📅 planifié |
@@ -77,6 +77,8 @@ La partie II est en cours : M07, M08 et M09a sont publiés ; l'apprenant peut fa
 
 - CP0 : l'examen dure 122 minutes (somme des durées du syllabus, « environ 2 heures ») ; barème sur 20 réparti selon les durées (2,5 pour le quiz, 1,25 pour une question de 8 min, 1,5 pour 10 min, 2 pour 12 min) ; CP0.Q1, CP0.9 et CP0.10 b se corrigent à la main, les 60 autres réponses dans le notebook ; fichiers en plus de la note du syllabus : `README.md` et `03_examen_solutions.ipynb`. ID et titres inchangés.
 
+**À retenir pour M10 et la suite** (M09b) : relire aussi les **exercices** de workbookIA, pas seulement sa fiche : des valeurs d'application (9.6 a et b, la réponse 34 de 9.15 a, les abscisses de 9.2) se cachaient dans les ∂ et les 🔨 des frontières ; un exercice qui « se ramène » à une frontière (des colonnes orthogonales qui donnent le ridge 1-D de 9.3, un `fit` centré qui refait 9.17) compte comme la frontière ; un exemple de format (`"7/9"`) ne doit être la réponse d'aucune question, ni dans les consignes ni dans les commentaires du notebook ; une vérification d'erreur (`ridge < 0`) doit porter sur un cas que l'autre chemin d'erreur ne rattrape pas ; une tolérance (`np.allclose`) se fixe avec `rtol=0` quand elle doit séparer deux méthodes (différences avant et centrées) ; une vérification de simulation refuse aussi la formule exacte ; une valeur de remplacement se relit à son tour (mêmes réponses, même modèle de cas, un $z$ ou des cibles d'un mini-exemple de la fiche de workbookIA) ; un changement de question se reporte dans l'énoncé de `02_exercices.md`, pas seulement dans le build et les solutions (le relire après chaque correction).
+
 **À retenir pour M09b et la suite** (M09a) : chercher les recouvrements avec workbookIA aussi dans les matrices écrites en LaTeX (un balayage qui convertit `pmatrix` en listes), et pas seulement les données : un **gabarit** d'exercice (déterminant, inverse, système, $k$ singulier, diagonale : 0B.21) ou un **but** pédagogique (deux couches linéaires = une, $((\mathbf{A}\mathbf{B})\mathbf{C})\mathbf{v}$ contre $\mathbf{A}(\mathbf{B}(\mathbf{C}\mathbf{v}))$) repris compte aussi ; un exemple de la fiche ne doit pas être la transposée (ni l'inverse) de la matrice d'un exercice ; une réponse exacte (4,5) s'enregistre avec ses propres décimales ; un défi 🏆 chronométré se calibre en mesurant plusieurs versions d'apprenant (nombre par nombre, ligne par ligne, listes Python, blocs) ; lancer des **mutants** de la référence contre les tests (chaque exigence de la docstring doit faire échouer au moins un test) ; une cellule de vérification ne passe jamais `None` ou 0 à une fonction qui le transformerait en faux diagnostic (`next(..., None)`, `math.log10(0)`).
 
 **À retenir pour M09a et la suite** (M08) : une affirmation de méthode sur ce que fera workbookIA (« comparer deux modèles sur les mêmes folds avec un test apparié ») peut contredire son chapitre : renvoyer à workbookIA plutôt que résumer sa méthode ; une question de copie qui annonce un résultat d'un autre exercice du chapitre le donne d'avance ; une valeur de `computed=True` peut recevoir des indices génériques de `wbm` hors de propos (radians, « round ») : lire les messages de l'apprenant simulé ; une fenêtre de tolérance d'un 🛠️ se calcule (graines, écart en erreurs types) et se dit dans l'énoncé, avec un message par côté ; une borne calculée qui doit rester dans un intervalle se ramène par `min`/`max` même quand la formule « y reste » (arrondis).
@@ -124,6 +126,12 @@ La partie II est en cours : M07, M08 et M09a sont publiés ; l'apprenant peut fa
 **À retenir pour R3 à R9** : les vérifications qui appellent le code de l'apprenant passent par `checked` (de `wbm.nbtools`), pour qu'une erreur de son code ne bloque pas « Run all » ; un ensemble de solutions s'enregistre avec 6 décimales quand une fraction non décimale est attendue ; tester aussi les cas dégénérés pour **tous** les sens ou toutes les branches (un test oublié laisse passer un code faux) ; une réponse qu'il faut **arrondir** (ou un décimal exact) s'enregistre en `kind="fraction"` (ou avec plus de décimales que demandé), sinon une valeur non arrondie passe ; un exemple de forme ne doit être la réponse d'aucune question du chapitre (`tests/infra/test_examples_are_not_answers.py`) ; un test d'algorithme dont la version naïve ne finit jamais passe par `_within` (limite de temps, voir `tests/test_r1_arith.py`) ; chaque groupe de tests lancé par le notebook inclut le test qui interdit les outils tout faits (`or test_arith_uses`) ; les cas `ValueError` passent par `_expect_value_error` (une autre exception dit d'abord ce qui était attendu).
 
 **À retenir pour R1 à R9** : ne reprendre aucun nombre ni aucune donnée du test de positionnement (sujet : `positionnement/01_sujet.md`) ; en R5, le 🔮 prévu sur une suite uₙ₊₁ = ½uₙ + 1 est proche de POS.10 (vₙ₊₁ = ½vₙ + 3) : changer ses nombres. Les messages génériques de `wbm` hérités de workbookIA parlent parfois ML ou Python (« indice (1,) », « arrondis avec round() », « vérifie-le avec SymPy ») : les adapter à la partie 0 si un chapitre en souffre.
+
+## Session 30 (2026-11-08) : chapitre M09b ✅
+
+**Fait** : `chapitres/m09b_moindres_carres/` : fiche en 8 sections avec guide de lecture MML (§5.5, §8.1, §8.2, §9.1, §9.2), 3 figures par `tools/chapters/figures_m09b.py` (projection de $\mathbf{y}$, loss de Huber, pentes des pénalités L1 et L2) ; 49 exercices (8 quiz, 3 rappels, 12 ✏️, 7 ∂, 2 🔗, 2 📖, 🧮, 🗣️, 2 💼, 3 🔨, 📦, 🔮, 2 🔬, 🎨, 🐛, 🛠️, 🏆) ; notebooks par `tools/chapters/build_m09b.py` (partie 0 : 98 vérifications papier ; parties A à C) ; `solutions/mymath_ref/linreg.py` et `tests/test_m09b_linreg.py` (72 tests, oracles NumPy, scikit-learn et SciPy, contrôle AST, mutants) ; indices, solutions, feuille de réponses, 26 flashcards ; annexes : 25 entrées de glossaire (et une définition reprise), 6 symboles, une section du formulaire, 15 erreurs fréquentes. Titre de M09b.14 changé au syllabus (« en dimension p »). Fait en une session au lieu de deux. Solutions exécutées en 6 s.
+
+**Vérification indépendante** (sous-agents) : re-résolution à l'aveugle (aucune réponse papier fausse ; une réponse donnée par un exemple de format, des énoncés et des arrondis précisés, deux erreurs de la fiche) ; apprenant simulé (tout ✅ ; trois vérifications trop larges resserrées, messages ajoutés) ; relecture de la règle de partage (valeurs de 9.6, 9.15 et 9.2, refaçons de 9.17 et 9.3, gabarit de 9.1, exemple fil rouge, paraphrases : refaits) ; relecture ciblée des parties refaites (sous-agent). Détails dans BIBLE §24.
 
 ## Session 29 (2026-11-08) : chapitre M09a ✅
 
