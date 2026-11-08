@@ -282,7 +282,7 @@ Un produit $(n, p) \times (p, m)$ coûte $n\,p\,m$ multiplications ; pour un pro
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\mathbf{A}\mathbf{B}$ a la forme $(20, 5)$. c) $\mathbf{B}\mathbf{C}$ a la forme $(400, 300)$. f) Trois produits matrice-vecteur, de droite à gauche.
+b) $\mathbf{A}\mathbf{B}$ a la forme $(20, 5)$. c) $\mathbf{B}\mathbf{C}$ a la forme $(400, 300)$. f) $\mathbf{D}$ n'a que 2 colonnes : compare l'ordre de gauche à droite avec celui qui commence par $\mathbf{C}\mathbf{D}$.
 
 </details>
 
@@ -408,7 +408,7 @@ $\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pma
 </details>
 <details><summary>Indice 3</summary>
 
-c) $\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$ avec $\mathbf{b} = (6, 2)$. d) $ad - bc = 2k - 8$. f) Que vaut $(2\mathbf{A})(\frac{1}{2}\mathbf{A}^{-1})$ ? g) Les règles de la fiche §7.
+c) $\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$ avec $\mathbf{b} = (9, 11)$. d) Multiplie $\mathbf{A}\mathbf{X} = \mathbf{C}$ à gauche par $\mathbf{A}^{-1}$. e) Que vaut $(2\mathbf{A})(\frac{1}{2}\mathbf{A}^{-1})$ ? g) Calcule $\mathbf{A}^2$, puis son inverse par la formule.
 
 </details>
 
@@ -560,7 +560,7 @@ Suis les formes : $(64, 3) \to (64, 5) \to (64, 2)$. Chaque couche a un poids pa
 </details>
 <details><summary>Indice 3</summary>
 
-e) $\mathbf{x}\mathbf{W}_1 = 1 \times (1, 0, 2) - 1 \times (-1, 1, 1)$, puis $+\,\mathbf{b}_1$, puis ReLU. g) Développe $(\mathbf{X}\mathbf{W}_1 + \mathbf{b}_1)\mathbf{W}_2 + \mathbf{b}_2$.
+e) $\mathbf{x}\mathbf{W}_1 = 1 \times (1, 0, 2) - 1 \times (-1, 1, 1)$, puis $+\,\mathbf{b}_1$, puis ReLU. g) $(2, 3) \times (3, 1)$ : un produit scalaire par ligne de $\mathbf{W}_1$ avec la colonne $\mathbf{W}_2$.
 
 </details>
 
@@ -632,7 +632,7 @@ Pour une image, une couche de $n_{\text{in}}$ entrées et $n_{\text{out}}$ neuro
 </details>
 <details><summary>Indice 3</summary>
 
-$3\,072 \times 1\,024 + 1\,024 \times 256 + 256 \times 10$. Le temps est le nombre de multiplications divisé par le débit.
+$3\,072 \times 1\,024 + 1\,024 \times 256 + 256 \times 10$. 4 : réduire une couche cachée change deux produits, celui qui y entre et celui qui en sort.
 
 </details>
 
@@ -784,7 +784,7 @@ Pour `*`, compare les formes en partant de la droite : égales, ou l'une vaut 1.
 </details>
 <details><summary>Indice 3</summary>
 
-a) $(3, 1)$ et $(1, 4)$ : chaque dimension vaut 1 d'un côté. e) À droite, 3 contre 2.
+a) $(2, 3) \times (3, 1)$, deux tableaux à deux dimensions. b) Un tableau à une dimension joue le rôle d'un vecteur. e) À droite, 3 contre 2.
 
 </details>
 
@@ -802,7 +802,7 @@ Si $t \approx c\,n^3$, alors $\ln t \approx 3\ln n + \ln c$ : une droite de pent
 </details>
 <details><summary>Indice 3</summary>
 
-`start = time.perf_counter()` juste avant le produit ; `np.polyfit(np.log(ns), np.log(times), 1)[0]`.
+`start = time.perf_counter()` juste avant le produit, et rien d'autre dans la mesure ; `np.polyfit(np.log(ns), np.log(times), 1)[0]`.
 
 </details>
 
@@ -869,7 +869,7 @@ Relis M09a.15, puis l'énoncé.
 </details>
 <details><summary>Indice 2</summary>
 
-Un générateur créé une fois ; dans la boucle, trois dimensions au hasard, deux matrices, et un `assert` qui compare forme et valeurs.
+Un générateur créé une fois ; dans la boucle, trois dimensions au hasard (pas seulement des vecteurs), deux matrices, et un `assert` qui compare forme et valeurs.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -878,7 +878,7 @@ Un générateur créé une fois ; dans la boucle, trois dimensions au hasard, de
 
 </details>
 
-### Ex M09a.36 — Défi : un système 200 × 200 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde
+### Ex M09a.36 — Défi : un système 500 × 500 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde
 
 <details><summary>Indice 1</summary>
 

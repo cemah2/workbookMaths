@@ -130,7 +130,7 @@ def test_matmul_accepts_lists_and_does_not_modify_its_inputs(matrices):
     ([[1.0, 2.0]], [[1.0, 2.0]], "a (1, 2) matrix times a (1, 2) matrix: 2 columns but 1 row"),
     (np.ones((3, 2)), np.ones((3, 2)), "(3, 2) times (3, 2): the inner dimensions differ"),
     ([1.0, 2.0], [[1.0], [2.0]], "A is a 1-D vector, not a matrix"),
-    ([[1.0], [2.0]], [3.0, 4.0], "B is a 1-D vector, not a matrix"),
+    ([[1.0, -1.0], [2.0, 0.5]], [3.0, 4.0], "B is a 1-D vector, not a matrix (even with 2 entries for 2 columns)"),
 ], ids=["1x2-1x2", "3x2-3x2", "A-1d", "B-1d"])
 def test_matmul_rejects_incompatible_shapes(matrices, A, B, why):
     _expect_value_error(lambda: matrices.matmul(A, B), f"matmul of shapes {np.shape(A)} and {np.shape(B)}", why)
@@ -203,6 +203,22 @@ def test_rref_matches_sympy(matrices, name):
         f"expected R = {_show(expected_R)} for {name}, got {_show(R)} (each pivot equals 1 and is the only non-zero "
         f"entry of its column; a column without a pivot is skipped)")
     assert tuple(pivots) == expected_pivots, f"expected the pivot columns {expected_pivots} for {name}, got {pivots!r}"
+
+
+def test_rref_uses_partial_pivoting(matrices):
+    # a tiny first pivot (above tol): elimination without row swaps loses digits, by 4e-10 to 4e-8 here
+    for eps in (3e-9, 1e-8, 3e-8):
+        for c in ((3.0, 5.0), (1.1, 2.3)):
+            A = [[eps, 1.0, c[0]], [1.0, 2.0, c[1]]]
+            x = np.linalg.solve(np.array(A)[:, :2], np.array(A)[:, 2])
+            expected = np.array([[1.0, 0.0, x[0]], [0.0, 1.0, x[1]]])
+            got = _result(lambda A=A: matrices.rref([row[:] for row in A]), "a tuple (R, pivots)", f"{A}")
+            R = got[0]
+            _array(R, f"R for {A}", expected.shape)
+            assert np.allclose(R, expected, rtol=0, atol=1e-10), (
+                f"expected R = {_show(expected)} for {A} within 1e-10, got entries off by "
+                f"{np.max(np.abs(np.asarray(R, dtype=float) - expected)):.1e}: in each column, take as pivot the row (from "
+                f"the current row down) whose entry has the largest absolute value, and swap (partial pivoting)")
 
 
 def test_rref_pivots_are_a_tuple_of_python_ints(matrices):
@@ -311,10 +327,24 @@ def test_solve_docstring_examples(matrices):
 
 def test_solve_uses_partial_pivoting(matrices):
     A, b = [[1e-17, 1.0], [1.0, 1.0]], [1.0, 2.0]
-    got = _result(lambda: matrices.solve(A, b), "x ≈ [1, 1]", "A = [[1e-17, 1], [1, 1]], b = [1, 2]")
+    got = _result(lambda: matrices.solve(A, b), "x ≈ [1, 1]", "A = [[1e-17, 1], [1, 1]], b = [1, 2]",
+                  hint="the matrix is not singular: swap rows before choosing the pivot (partial pivoting)")
     assert np.allclose(got, [1.0, 1.0], atol=1e-9), (
         f"expected x ≈ [1, 1] for A = [[1e-17, 1], [1, 1]] and b = [1, 2], got {_show(got)}: the tiny pivot 1e-17 must "
-        f"not be used, swap with the row whose entry has the largest absolute value (partial pivoting)")
+        f"not be used, swap with the row whose entry has the largest absolute value (partial pivoting), and swap whole "
+        f"rows of the augmented matrix [A | b], b included")
+
+
+def test_solve_singularity_threshold_is_relative(matrices):
+    A, b = SYSTEMS["3x3-integers"]
+    expected = np.linalg.solve(A, b)
+    got = _result(lambda: matrices.solve(1e-13 * A, 1e-13 * b), f"x = {_show(expected)}",
+                  "the 3x3 system with A and b multiplied by 1e-13",
+                  hint="the singularity test is relative: a pivot at most 1e-12 times the largest absolute value of A")
+    _array(got, "solve for the system multiplied by 1e-13", expected.shape)
+    assert np.allclose(got, expected, rtol=1e-9, atol=1e-9), (
+        f"expected x = {_show(expected)} for A and b multiplied by 1e-13 (the same solution), got {_show(got)}: a pivot "
+        f"is too small when it is at most 1e-12 times the largest absolute value of A, not 1e-12 itself")
 
 
 def test_solve_does_not_modify_its_inputs(matrices):

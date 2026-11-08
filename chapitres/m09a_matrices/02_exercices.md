@@ -18,13 +18,13 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M09a.Q1 — Formes : ce qui se multiplie et ce qui ne se multiplie pas 🧠 ★ ⏱️ 4 min
 *Fiche §1 et §3 · parcours C, E*
 
-$\mathbf{A}$ a la forme $(3, 4)$, $\mathbf{B}$ la forme $(4, 2)$, $\mathbf{C}$ la forme $(2, 3)$, et $\mathbf{v}$ est un vecteur de $\mathbb{R}^4$.
+$\mathbf{A}$ a la forme $(5, 2)$, $\mathbf{B}$ la forme $(2, 6)$, $\mathbf{C}$ la forme $(6, 5)$, et $\mathbf{v}$ est un vecteur de $\mathbb{R}^2$.
 1. La forme de $\mathbf{A}\mathbf{B}$ ?
 2. $\mathbf{A}\mathbf{C}$ existe-t-il ?
 3. La forme de $\mathbf{A}\mathbf{B}\mathbf{C}$ ?
 4. Combien de coordonnées a $\mathbf{A}\mathbf{v}$ ?
 5. La forme de $\mathbf{C}\mathbf{A}$ ?
-6. Un dataset de 500 exemples à 12 features : quelle est sa forme, et que représente une colonne ?
+6. Un dataset de 800 exemples à 15 features : quelle est sa forme, et que représente une colonne ?
 
 ### M09a.Q2 — Le produit matrice-vecteur, deux lectures 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
@@ -174,7 +174,7 @@ $$\mathbf{A} = \begin{pmatrix} 3 & -1 & 2 & 0 \\ 1 & 4 & -2 & 5 \\ -2 & 0 & 1 & 
 | d | $\mathbf{A}\mathbf{e}_3$, avec $\mathbf{e}_3 = (0, 0, 1, 0)$ | une liste de 3 nombres |
 | e | le vecteur $\mathbf{y}$ tel que $\mathbf{A}\mathbf{y}$ = colonne 1 + 2 × colonne 4 | une liste de 4 nombres |
 | f | vrai ou faux : le produit de $\mathbf{A}$ par un vecteur de $\mathbb{R}^3$ existe | `True` ou `False` |
-| g | les prédictions $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b$ pour $\mathbf{X} = \begin{pmatrix} 1{,}5 & 2 \\ 0 & 4 \\ 3 & -1 \end{pmatrix}$, $\mathbf{w} = (2 ;\ 0{,}5)$ et $b = -1$ | une liste de 3 nombres |
+| g | les prédictions $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b$ pour $\mathbf{X} = \begin{pmatrix} 2 & 1 & 0 \\ -1 & 3 & 2 \end{pmatrix}$, $\mathbf{w} = (0{,}5 ;\ -1 ;\ 2)$ et $b = 1$ | une liste de 2 nombres |
 
 Dans ta copie : refais b) par la lecture en colonnes, et vérifie que tu trouves la même chose. Pourquoi d) donne-t-il une colonne de $\mathbf{A}$ ? Combien de multiplications coûterait g) pour un million d'exemples à 20 features ?
 
@@ -209,10 +209,10 @@ $\mathbf{A}$ a la forme $(20, 400)$, $\mathbf{B}$ la forme $(400, 5)$, $\mathbf{
 | c | le nombre de multiplications de $\mathbf{A}(\mathbf{B}\mathbf{C})$, en tout | un entier |
 | d | le rapport du coût de $\mathbf{A}(\mathbf{B}\mathbf{C})$ à celui de $(\mathbf{A}\mathbf{B})\mathbf{C}$ | un nombre (1 décimale) |
 | e | la forme de $\mathbf{A}\mathbf{B}\mathbf{C}$ | une liste de 2 entiers |
-| f | le nombre de multiplications de $\mathbf{A}(\mathbf{B}(\mathbf{C}\mathbf{v}))$, en tout | un entier |
+| f | avec une quatrième matrice $\mathbf{D}$ de forme $(300, 2)$, le nombre de multiplications de $\mathbf{A}\mathbf{B}\mathbf{C}\mathbf{D}$ calculé dans le meilleur ordre, en tout | un entier |
 | g | pour deux matrices carrées de taille $n$, par combien le nombre de multiplications est-il multiplié quand $n$ est multiplié par 3 | un entier |
 
-Dans ta copie : quelle règle simple permet de choisir les parenthèses ? Compare f) au coût de $((\mathbf{A}\mathbf{B})\mathbf{C})\mathbf{v}$. Pourquoi le résultat est-il le même dans tous les ordres ?
+Dans ta copie : quelle règle simple permet de choisir les parenthèses ? Quel ordre donne f), et que coûterait $((\mathbf{A}\mathbf{B})\mathbf{C})\mathbf{D}$ ? Pourquoi le résultat est-il le même dans tous les ordres ?
 
 ### Ex M09a.5 — Une couche dense Z = XW + b à la main : deux exemples, trois entrées, deux sorties ✏️ ★ ⏱️ 20 min
 **Objectif :** calculer la sortie d'une couche dense pour un batch, et lire ses formes et ses paramètres.
@@ -336,19 +336,19 @@ Dans ta copie : écris la solution générale, sous la forme « une solution par
 **Objectif :** calculer l'inverse d'une matrice $2 \times 2$, la vérifier, et s'en servir pour résoudre un système.
 **Prérequis :** fiche §7 · **Parcours :** C, E
 
-Soit $\mathbf{A} = \begin{pmatrix} 5 & 4 \\ 2 & 2 \end{pmatrix}$.
+Soit $\mathbf{A} = \begin{pmatrix} 2 & 3 \\ 2 & 5 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le nombre $ad - bc$ de $\mathbf{A}$ | un nombre |
 | b | $\mathbf{A}^{-1}$ | une matrice |
-| c | la solution $(x, y)$ de $5x + 4y = 6$, $2x + 2y = 2$ | une liste de 2 nombres |
-| d | la valeur de $k$ pour laquelle $\begin{pmatrix} k & 4 \\ 2 & 2 \end{pmatrix}$ n'est pas inversible | un nombre |
-| e | l'inverse de la matrice diagonale $\begin{pmatrix} 4 & 0 \\ 0 & -0{,}5 \end{pmatrix}$ | une matrice |
-| f | $(2\mathbf{A})^{-1}$ | une matrice |
-| g | $(\mathbf{A}^\top)^{-1}$ | une matrice |
+| c | la solution $(x, y)$ de $2x + 3y = 9$, $2x + 5y = 11$ | une liste de 2 nombres |
+| d | la matrice $\mathbf{X}$ telle que $\mathbf{A}\mathbf{X} = \begin{pmatrix} 3 & 5 \\ 5 & 7 \end{pmatrix}$ | une matrice |
+| e | $(2\mathbf{A})^{-1}$ | une matrice |
+| f | $(\mathbf{A}^\top)^{-1}$ | une matrice |
+| g | la matrice $\mathbf{M}$, à coefficients entiers, telle que $(\mathbf{A}^2)^{-1} = \frac{1}{16}\mathbf{M}$ | une matrice |
 
-Dans ta copie : vérifie b) en calculant $\mathbf{A}\mathbf{A}^{-1}$ **et** $\mathbf{A}^{-1}\mathbf{A}$. Pour d), que dire des deux colonnes de la matrice ? Justifie f) et g) par les règles de la fiche, sans recalculer.
+Dans ta copie : vérifie b) en calculant $\mathbf{A}\mathbf{A}^{-1}$ **et** $\mathbf{A}^{-1}\mathbf{A}$. Pour d), pourquoi $\mathbf{X} = \mathbf{A}^{-1}\mathbf{C}$ et pas $\mathbf{C}\mathbf{A}^{-1}$ ? Justifie e) et f) par les règles de la fiche, sans recalculer. Pour g), montre que $(\mathbf{A}^2)^{-1} = (\mathbf{A}^{-1})^2$ ; d'où vient le 16 ?
 
 ### Ex M09a.12 — L'inverse d'une matrice 3 × 3 par Gauss-Jordan ✏️ ★★ ⏱️ 25 min
 **Objectif :** calculer l'inverse d'une matrice $3 \times 3$ en réduisant $[\mathbf{A} \mid \mathbf{I}]$, et s'en servir.
@@ -482,9 +482,9 @@ Un réseau plus petit, à 2 entrées, 3 neurones cachés et 1 sortie, a $\mathbf
 |---|---|---|
 | e | le vecteur caché $\mathbf{h} = \operatorname{ReLU}(\mathbf{x}\mathbf{W}_1 + \mathbf{b}_1)$ | une liste de 3 nombres |
 | f | la sortie $y$ | un nombre |
-| g | vrai ou faux : sans la fonction d'activation, les deux couches feraient le même calcul qu'une seule couche, de poids $\mathbf{W}_1\mathbf{W}_2$ | `True` ou `False` |
+| g | le produit $\mathbf{W}_1\mathbf{W}_2$ | une matrice |
 
-Dans ta copie : quel biais aurait la couche unique de g) ? Pourquoi un réseau sans activation ne peut-il donc rien calculer de plus qu'un modèle linéaire ?
+Dans ta copie : calcule $\mathbf{b}_1\mathbf{W}_2 + b_2$. Sans la fonction ReLU, quelle sortie donnerait l'exemple $\mathbf{x}$ ? Vérifie qu'elle vaut $\mathbf{x}(\mathbf{W}_1\mathbf{W}_2) + (\mathbf{b}_1\mathbf{W}_2 + b_2)$, et explique pourquoi en développant.
 
 ### Ex M09a.20 — Pont : centrer et réduire un tableau en écriture matricielle 🔗 ★★ ⏱️ 15 min
 **Objectif :** écrire le centrage et la réduction d'un tableau avec des produits matriciels, et calculer la matrice de covariance des features.
@@ -531,14 +531,14 @@ Lis MML §2.3. Réponds dans ta copie, **avec tes mots**.
 6. Note trois mots ou tournures en anglais de cette section, avec leur traduction.
 
 ### Ex M09a.23 — Fermi : combien de multiplications pour une passe avant sur un million d'images ? 🧮 ★ ⏱️ 10 min
-**Objectif :** estimer le coût d'une passe avant par le nombre de multiplications de ses produits matriciels, et le traduire en temps.
+**Objectif :** estimer le coût d'une passe avant par le nombre de multiplications de ses produits matriciels, et voir quelle couche le fixe.
 **Prérequis :** fiche §3 · **Parcours :** C
 
 Un réseau classe des images couleur de $32 \times 32$ pixels (3 canaux, aplaties en un vecteur), avec deux couches cachées de 1 024 et 256 neurones et une sortie de 10 classes. Ordres de grandeur seulement (une puissance de 10 suffit, sauf en 1).
 1. Combien de nombres décrivent une image ? Combien de multiplications coûte une image, couche par couche, puis en tout ?
 2. Combien pour un million d'images ?
-3. Un GPU récent fait de l'ordre de $10^{14}$ multiplications par seconde sur ces produits ; un processeur, de l'ordre de $10^{11}$ ; une triple boucle Python, de l'ordre de $10^{7}$. Combien de temps dans chaque cas ?
-4. Quelle couche domine le coût, et pourquoi ?
+3. Quelle couche domine le coût, et pourquoi ?
+4. On réduit la première couche cachée de 1 024 à 512 neurones. Par combien le coût total est-il divisé, à peu près ? Et si l'on réduisait plutôt la seconde de 256 à 128 ?
 5. Combien d'octets occupent les poids du réseau en `float32` (4 octets par nombre) ?
 
 ### Ex M09a.24 — Expliquer pourquoi on ne calcule pas l'inverse pour résoudre un système 🗣️ ★ ⏱️ 10 min
@@ -577,6 +577,6 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | M09a.33 | Une matrice 2 × 2 comme transformation du plan : la grille et le carré unité | 🎨 | ★ | 20 | C |
 | M09a.34 | Chasse à l'erreur : `*` au lieu de `@`, une transposée oubliée, un pivot nul | 🐛 | ★ | 15 | C |
 | M09a.35 | Tester une propriété : un pytest pour (AB)ᵀ = BᵀAᵀ sur des matrices aléatoires | 🛠️ | ★ | 15 | C |
-| M09a.36 | Défi : un système 200 × 200 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde | 🏆 | ★★★ | 30 | C |
+| M09a.36 | Défi : un système 500 × 500 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde | 🏆 | ★★★ | 30 | C |
 
 Indices : `04_indices.md` (section « Notebook ») ; solutions commentées : `05_solutions.md` et `05_solutions.ipynb`.

@@ -26017,17 +26017,16 @@
     "M09a.2g": {
       "decimals": 1,
       "element_hashes": [
-        "da8e9cb1c2ada3a8003ed39f2785275c48ee8e3913a4fe33b5dae3885a6de7dc",
-        "32fbea428223b305101abfff46cd58f47dfeba87438303af81b4f1352d3b0534",
-        "46ac0e195fe01d9d336d163771168de86b4626728f45faaf63345d13732ee97d"
+        "a17e111e8593f0cfec98e9f5c2586b07c139c69bac13debdd7211e804103b611",
+        "8901525ceee0636a935b0c94925c4f621851677f3708a79404c18b09c189df67"
       ],
-      "hash": "c3b090270baffab63d892429bebf1552331bfedb8b579634e265cb0c1df7ea4c",
+      "hash": "2353f81f0472a765fb8800810bec8ed84f9ebf3980ab81361163f091e35354a3",
       "kind": "array",
       "mistakes": {
-        "1a7eab835c05ac6596f0b66b0c41e2a7e6914d952deba3c8056ceb6b0e2861d7": "le biais b = −1 s'ajoute à chaque prédiction"
+        "465d9944d95f7fb8ec94f3229bfe9a73aa65de6cb84676efe961dfcbee6d5f6c": "le biais b = 1 s'ajoute à chaque prédiction"
       },
       "shape": [
-        3
+        2
       ],
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
@@ -26194,12 +26193,12 @@
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
     "M09a.4f": {
-      "hash": "673ec5f90607bc9ab7da093142deb4e365f880f7a0dfc9eb63901370b1e4e97c",
+      "hash": "6ba4be5d5903a898e82de7794d9cb9de5561f122655a18253dfb2039384546bf",
       "kind": "int",
       "magnitude": 4,
       "mistakes": {
-        "88d0d60d6dbc76432c58782cefb48942758e182a2d05a4677b5070d50be9f96b": "un produit matrice-vecteur (n, p) × (p,) coûte n p : additionne les trois",
-        "cdb632f396c90af9ebf5d01f0cbb25e74baa875d659f0c12e8b484eaf1fbd5ce": "suis les parenthèses : C v d'abord, puis B fois ce vecteur, puis A"
+        "3489152f7db9932555992b134cb6d48ecc441580e6bb9d4b8d6fff38a64f4707": "(AB)(CD) n'est pas le meilleur ordre : essaie de commencer par la droite",
+        "e75d651f72641c96f533125dc8cba1ccc2f47b991f31ddd1c8f5dabc0b0a4d67": "de gauche à droite n'est pas le meilleur ordre ici : compare les ordres possibles"
       },
       "sign": 1,
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
@@ -26698,6 +26697,9 @@
       "hash": "c7d8e5a55ed614cd0587295d95c87a3345b53e54399d9752a5791a7c7b223c91",
       "kind": "int",
       "magnitude": 0,
+      "mistakes": {
+        "64b2cb6b2a766afddd390af1d6c123795f66ba94543920257a5a18da1d799fa6": "les variables libres sont celles dont la colonne n'a pas de pivot"
+      },
       "sign": 1,
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
@@ -26862,28 +26864,53 @@
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
     "M09a.11a": {
-      "hash": "da0b3712ba493c87098a4f06c257f994ec053accc8184c45f984fd5d38a7b1e8",
+      "hash": "aab3c61470d554f3403968e72d6febe5f0215362b13bbcc9ee7d946da7004d03",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "a51ed2484c4b4300eac5251c1c88896957669a0eacf34edaa05af10902a4d003": "ad − bc : une soustraction entre les deux produits"
+        "9c5e903b31811084cd73e86e9acc1954b5b447a184695917ccfec3beed3715dc": "ad − bc : une soustraction entre les deux produits"
       },
       "sign": 1,
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
     "M09a.11b": {
-      "decimals": 1,
-      "element_hashes": [
-        "cc341e969ab5a4af9d08e634e24eb49565190171e8412c51e06349f4f866694a",
-        "60664d54f182144774f765a1b398e800fc673993177cea5b38e36a9661e07a76",
-        "e23c93108b78fcf3c996ed972ca724b9d681c2a9b5bd739b528c45291f850d96",
-        "73f5bce5d7a6027e060919fa046939e26d0139ea40988e055acfe8df11f7c855"
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "72a3fdf5e5856e0e949779bcfff6e263d5ee4557ba351373fbd732a7140619ae",
+          "ffd2de9d1670aaa42eab100e8d9ed7e8420eaac1731200b73a253443ca7ad260"
+        ],
+        [
+          "4874ca2131287d34261dbf22fbe957bf613a71ea9a96a483eecf30789a2dff27"
+        ],
+        [
+          "b6a4bbb234637d30ed91a4609fea98d9f4de62c8610adfca179aa8f61ff26b28"
+        ],
+        [
+          "be948aea3afb13fca4a7b7ac95ffc2f2583320265115ac8ac2e05ccfbc9bf6ea"
+        ]
       ],
-      "hash": "bfae49ea28387bb34e329f2e3e2a0dc3f1c130ec20def0e081cbc59e89f41e43",
+      "element_coarse_any": [
+        [
+          "845702c3986e2a034ee14bf8059071cc0ca168432ef16fe21d4fb29d7f0e567a"
+        ],
+        [
+          "eca78ec83a9c0d347e34822650ada244c592be51f99434a64c07995273a2bf8b"
+        ],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "88e0245b86ed3cbe391f0fa9e067e4e3587b6c9f249da431edd1c5c8cf59feb0",
+        "194d537fcb9eb71f7a9391a8d4b1e3c05734ce24cc4e294eb053c861924f972e",
+        "29f094b6058dea00070907b7a8095aee94987a9a3e9d2e5b1d2e8b36cadb3437",
+        "7bf8638b65d0e7feb2a9123c9ad10c44e5f226b462bba4d78d23cf4365d31750"
+      ],
+      "hash": "116827b2a6fa6c4969f5d5869f10846311e44abac867bf4d98680f9e1d07faf7",
       "kind": "array",
       "mistakes": {
-        "0d562c55a31afb3ba535494fece09a5bfa4476a4e4720fc54b9baa61a57d1146": "divise par ad − bc",
-        "d5416a0b4f49a1ed0f82ff499ef5e817ebc0968f91ecc6ae5ade3acd92e6ca79": "échange a et d, et change le signe de b et de c"
+        "2cda40bedaa2255832689076feafbd1e37e66363f605a9c3c7bc1f56398a3820": "échange a et d, et change le signe de b et de c",
+        "4d501adc1f67b37043aa8c8d1de2d9349faf25fb43555ca1fa9bf0459105ed76": "divise par ad − bc"
       },
       "shape": [
         2,
@@ -26894,14 +26921,14 @@
     "M09a.11c": {
       "decimals": 0,
       "element_hashes": [
-        "87e71b39cb12ffe55f9c61d6e273954bb8b545e55909736d1d8872bc93eaf335",
-        "2034fda1a3f4596659181c9da7fa54a637c4fef7ec08da3d84c79a850ee62573"
+        "3d3130b10c73f30bdbf592c778d0bec4e8721f77d4744e96e06efa84ad75888a",
+        "0a50e256a2e80c411a80b374a55271d18ecdea0c1e7e60b56c8a1e2a03b5dbb5"
       ],
-      "hash": "145c7d5905f63c97103bfaff7cb34dab64cddb50d4ff9c45bfb402aae96d50d2",
+      "hash": "202d11a6b5ab19f5900d966318b92972837940ea3e1a77b0037512c456e0785f",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "ce4b254a7194a2678f7b8a53be3807abd7400cf32e9c07511731457efb278229": "l'ordre est (x, y)"
+        "4f2653f3a9dbde5774c793143d97ceb89a673c6117813376d01c1d76b9292a02": "l'ordre est (x, y)"
       },
       "shape": [
         2
@@ -26909,50 +26936,94 @@
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
     "M09a.11d": {
-      "hash": "103b2bbd487d215daa1190c14989c5fc5b8a473c2ab4a895c4a65f9fecea4dd6",
-      "kind": "int",
-      "magnitude": 0,
-      "mistakes": {
-        "dff52d888379523d88a5dde4142f94cd4f2288df7bac966b0286f1d92d68d6a4": "écris ad − bc = 0, attention au signe du produit bc"
-      },
-      "sign": 1,
-      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
-    },
-    "M09a.11e": {
       "decimals": 2,
       "element_coarse": [
         [
-          "2634891d68e3c15f7055fa5934724c034daac1bd8b80806e8bdac90e39026c51",
-          "c017bc4380413e9cdd700b5bc4f88ba843784d70609baadfd48341baca83d027"
+          "2e818586b3b87e6cfae504ef9aaf19c532aa02e4f1ee035558170f811c4904e0"
         ],
         [
-          "fc9370ba6cbab718dbb5c7fe21ce3f208b08b425f96bfd87ccd9113381546ff4"
+          "af35825bdde558b7a7f5eb47791c0590a687b82ef9c053c1b327fa546166aba0"
         ],
         [
-          "248d33c756fa3aec4dfbfbae6010ccbf9521b46501802644eba9ff6f955baec6"
+          "28c0f39534b97949c4d5b1a243d85009d76c6e70d17c723ca04d2b62b0bdc786"
         ],
         [
-          "de8103a0e279a81908414d71f89cf840dcaacf6497cb71973b3e4084f3f03bd9"
+          "c7f70f203d4d0de1c140c5fba5ba3285525adae9a6fb92d36d5d04b13fa8b7bd"
         ]
       ],
       "element_coarse_any": [
         [],
-        [],
-        [],
         [
-          "07c01f2c5a136569da8663d1e72cf8c560c7625929a4b0656b4374aae5abe731"
+          "1cabb734d9885309d21c585dafe23767433bb281a07642d2917dd927fd8a2bd6"
+        ],
+        [
+          "4fa1717a2eda4587b07c2fc1cd316d68ed1d85556402ec9923ef242afa52375d"
+        ],
+        [
+          "ba1144e24416b5234bfb40c0d9e9829714c1bee535f94a9d938028148f152de3"
         ]
       ],
       "element_hashes": [
-        "144f1c21836ee430d6a4c2ef5090011829ee92a4c228e27c632c323dbddb3394",
-        "e87c095afbac5ce4d0ba90ebe7ebc23f470a84866e81b67e738a956fe9b7a657",
-        "3fc86ffe3c7157bcc1facdfd43a7e53ed8dba09b0b02421fea787374b1deaafb",
-        "e37871628988f4ae45e154d9eb6ade2d5d3f6eeb3897407b9b1e886203cb78cc"
+        "92f03a6ff66453e8835262f8d90f16296c61cb364ad003dd0634323755d66302",
+        "3a47995838cff112bea8078fa18966b0b9dcbaa18493876ba8ab71bc59807f78",
+        "0496bda855bc53793de874a99a50b567045251cead4b1af3b299b1d00ab66358",
+        "8dbcdfac106d154ecdc07711df0fd70199f22973c8c03704e3e1bc49dba46a35"
       ],
-      "hash": "2b2eccbb4d4270f83b9d32f70fed6fd229d398058458c033ff70b855d74f4570",
+      "hash": "3216654b4523beb309e4b9aeb1cdf6e39136ca1c460eaa3daad006fa39a4eb72",
       "kind": "array",
       "mistakes": {
-        "6a956eafb7da7b41ba26e6c325eda46ba78a8e9955e900ca6474644914405e95": "l'inverse d'une matrice diagonale a pour diagonale les inverses des nombres"
+        "309e229c7f88e8bb30eb6c71ab5ac2de79348289935661664b55f11e37ce4a23": "AX = C donne X = A⁻¹C : A⁻¹ multiplie à gauche, comme A dans AX"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m09a_matrices/05_solutions.ipynb"
+    },
+    "M09a.11e": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "8f9383846eb72bc0ded919e0a543816d4124e9d6f85dcc562bc4f5313cb7fe1c",
+          "d270a31914e4ec61986132f148dd8c11d1aa119dd5fafd2835aec49131aa76df"
+        ],
+        [
+          "aedad3729dbe3a121299fb9744efae1946a11397a9c5b218d508835ee4280b3e"
+        ],
+        [
+          "d9cee816c7433cf13333a07b223b9a22d4e26ad4b2fa0ef7675174d3aa9cbf68"
+        ],
+        [
+          "bcfb456bc589f36119aab13b6495666b1109972fe627bafdfa4c3651e9e08e10"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c9b01045cdae69e170b280e7ea6672dff4ec1b7f89468255f42ff4a7c46d344e",
+          "69133a4c00dd5909df7946c448492aafce076faf6c297ecffe551ba69d37302b"
+        ],
+        [
+          "f93581657892bcebc63278ab1bd1ba0f7fc9208162a98b614a3cf7c867536af0"
+        ],
+        [
+          "fdeaed0cbd98f2a8ad77eab9ab3ba450ded70556591bd50a3eab768a46845ab5",
+          "ba9146cc0690c4b19b1ccee018ad895b1747cbc258b5a71c70da1ba7c7b943c9"
+        ],
+        [
+          "93fbe644c7f37227afc78ad39ca12a20258b5d08538e91c481f8f4f157a3e9db",
+          "d38dcde37532198d9dcaf0f52630d33a524a3e84a14584570a3bb07c2f428ccc"
+        ]
+      ],
+      "element_hashes": [
+        "359fc3bf14363a786b6db2f9ef1180c1af088561a2b7b4bc2ef44e23a4c62677",
+        "4d244994fb02d4f689c0e2b0e5f1c07b9b893ca3aad42cb4ae90da4fb7e76bbe",
+        "dda5eb6aeae013ca699d3406c96044fe0d1b31fa50855674fa62d51e7c1987e4",
+        "ca0dec00d2f2f893d2a34bf4f6d63cb9d5db5305b7812eda2632a4ab59baf6df"
+      ],
+      "hash": "3ffd854446d9a6b66042190795a485272b3c77585d2a8fc61a94ee2b4bfb3086",
+      "kind": "array",
+      "mistakes": {
+        "8e179229cf19633ac82ad7c92e679187a368434fafb40b3affdc6798070762e9": "(λA)⁻¹ = A⁻¹ / λ, pas λ A⁻¹"
       },
       "shape": [
         2,
@@ -26964,39 +27035,39 @@
       "decimals": 2,
       "element_coarse": [
         [
-          "a4f59a6627b114f2392555c542ed62bd2813d0f439b3790195175dabf0822927"
+          "bcd4ce85b7af2d1fc86f9c6e416345a0e7078cec739be67fbaa22ed89593e49e",
+          "a3fcaec5fdcfd1c5eb0cd9f062eadca1939e4d0b27802d7e1cff6b3cf7c51b44"
         ],
         [
-          "857decd06e3726950b24868b0a0216bb04062d161b7687d6842523eb654f55e0"
+          "42df7a68bcf029543e9d30a9e5dd57603318c2ca7772a3412e590f6174cc98fa"
         ],
         [
-          "9e70056feb1c8a0cb7039e352e031353ad8135ba71f1666d47a2002a384c3593"
+          "00783e43ce488cd3ce23871253424f55efa5e201964d7dc69af44060000c9719"
         ],
         [
-          "33e78a0247b1e24b55943086422b64b235ec9399005ffefd97091a280d3d9c76",
-          "2abc69a6c55cc21c761925d807bd2a9746a8f562750d2f6292e5b5d18cd2d083"
+          "143071cdb4ce2dd4c4c3b5e5bb3f9adc7d1b0f509d5221c402d50958ace49806"
         ]
       ],
       "element_coarse_any": [
-        [],
         [
-          "7feb11119624980866fd3fa0906f11540fee3b718175f523e1781f32244295d9"
+          "f5885a3df7306467b5ea60e6b8ab269010d97da84d43d67c706ce9a9842ff218"
         ],
         [],
         [
-          "29bad3bfd89a612df45f4607676825c07342eba6c6140614b16a1a5e322068d1"
-        ]
+          "9d7ec93b2f61e63509b4c0862cfdacd241148d833168e7328e5c706d68079f8c"
+        ],
+        []
       ],
       "element_hashes": [
-        "54a13ea7b0c538586cab65f1236b6e1dd77a1dfc0cf2ce0ff85ab0b8715aa398",
-        "3745df742ecf359bf3f0bc982c410421c7f6aec82c95b1a390405fe762114bc1",
-        "983e9031af9a47dc68eea942b68f09ab91f15fa29dc3061e8763524482c3d2c0",
-        "38aa69e551a42e50c292d7f3c18a0ae878265c41b9a0d772b08df8884a1283e5"
+        "90eb8ac876c76c1d7119d4d40b10984ef6dd5b30a17cb8670b71854b9b876bdf",
+        "32c6e0b9fb6e40139541da2fdb2746f5b677486f064f5177f171b2bf392cbc36",
+        "5760785efb8b6b782ce4c0926bfd1a2a6c5bacad8e960217020483f7815acdd9",
+        "ba07d6cfcdc5841957d3ca87deef54d330cb41cc5155f19b84adade73216b8a9"
       ],
-      "hash": "e732136cca42822d95885efeec1acc6478e0d895702ddbd78d400890d7b92a8d",
+      "hash": "ca063dd15d861b434817e5a48c8cc06045c0b212be4da41422b38529aeab1637",
       "kind": "array",
       "mistakes": {
-        "b00ae5449a73bc6009de2867cf909e13aecd72fb13f7480df618fe73602c3fa5": "(λA)⁻¹ = A⁻¹ / λ, pas λ A⁻¹"
+        "fdbcf2f59a39ddc3bb3410be31a1e9d5ddeb5117964432e27e81bfb21774928d": "(Aᵀ)⁻¹ = (A⁻¹)ᵀ : transpose l'inverse"
       },
       "shape": [
         2,
@@ -27005,17 +27076,18 @@
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
     "M09a.11g": {
-      "decimals": 1,
+      "decimals": 0,
       "element_hashes": [
-        "a92fcb4439bf5244c92c65226031595a4509452820cbf785e4b31a01714df6d4",
-        "019cc7ade2e8e5c7061aae9037e5cbe7633bd7371590866869f16f665b35b95d",
-        "57915309c6040fb923808b349e0ecad307655f108d06b8f7d8a7d6f07d7b2641",
-        "41296215d76a03c9d58c634fbe302607c13fbd9709888438ca5525891f8517f5"
+        "366de334e3abbe9d176ac1e13742d0ccb6c30a454fd5ccd496b34bcd469fd9d0",
+        "38dfdf04dea3b2eeffd14f71e11bb60fcc019f31ea676aa5599f0c04899a4d3f",
+        "59799f8f7d6dc8a78a2b8f7c1cf15abe496e2e6ac2a9d273532a1cd6294b7a4e",
+        "38ff12435273f8b6fdee50c3128da72dd30fb6c2b22e128e0a7e7ebe9c3d002d"
       ],
-      "hash": "d5c9a9e78105f45477d5d9b38df9254e055c5d9213ff28676a34ae2b70b85142",
+      "hash": "b3c7c266b51b0830911bc7c9e1c48a05a5487371f9b0fbc9fec1fa88d5b05c8d",
+      "integer": true,
       "kind": "array",
       "mistakes": {
-        "bf724265fb7805a7d1a321838fb4b3648c7551712c0ab0e6e645df23998a5e85": "(Aᵀ)⁻¹ = (A⁻¹)ᵀ : transpose l'inverse"
+        "f0f604f61292f139991068f07831aa29bbf039a667b74801dc27227ef01fb44d": "c'est la transposée : (A²)⁻¹ = (A⁻¹)², calcule A⁻¹ fois A⁻¹"
       },
       "shape": [
         2,
@@ -27333,11 +27405,21 @@
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
     "M09a.19g": {
-      "hash": "b1156e4d9eba491fad1d10327df847b9c3ba32243622ec71bc0095ae4fb764c2",
-      "kind": "bool",
+      "decimals": 0,
+      "element_hashes": [
+        "d1c34526488df51bb1772c57de6b5c43d1a4d362b696bae71764f6c80907b865",
+        "6ce1a893fde95aafaecb7749c04bae9008d8b595a2622025350803a7ff765fc1"
+      ],
+      "hash": "392562e8d5d7e04bd92c231c0f1e3a0271f53fb1fae0a7fdf60b4073ae18fa51",
+      "integer": true,
+      "kind": "array",
       "mistakes": {
-        "72c98cb81cf4f389bc09a55652d4a1691e097b34289f5347ca828162904236f5": "sans activation, développe (X W₁ + b₁) W₂ + b₂ par distributivité"
+        "7c9ac0abc11c56193f006f2b7488c900a6759076f2a11739d029c6a955421be9": "W₁ a la forme (2, 3) et W₂ la forme (3, 1) : W₁W₂ a la forme (2, 1)"
       },
+      "shape": [
+        2,
+        1
+      ],
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
     "M09a.20a": {
@@ -27529,6 +27611,10 @@
       "hash_coarse": "86368b2002a2af8b2d1c454daecfb921d1489370fb64a5da36257f78b0a90519",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "17d765fef331a237419cb4061f325636669793ad63ab8665fcb3004b5bea3d76": "c'est un élément de la diagonale : la question demande celui hors de la diagonale",
+        "521eec56a09caeb5b32da6ae8744003762c3793b5b93bb1a3e50629b95b73905": "c'est la covariance : la question porte sur les colonnes standardisées"
+      },
       "sign": 1,
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
@@ -28364,25 +28450,20 @@
     "M09a.29a": {
       "decimals": 0,
       "element_hashes": [
-        "0959f598a4bd3f101afdca8c28c9975ee75b4039ee9f74c4702237326e58803c",
-        "3e9484a8f2daeaa85f8b722e16232dc97b9ddceced5d778b89f43146b9222ebc",
-        "39c679843000498af013b95bd68205f5690eb4be6b273078a1474f6df3873b06",
-        "8fec0b4e317ea9313b518b795fa94073bb580e1743d36fa66bb36b21c9a7a76e",
-        "fcb0cfb09796a26f6cc47d3845562e21b95aa8b0a51e45ff700c5c8c60875262",
-        "bb01a425aba8588e3b83b3e93650d9f7ef1c8aa452d19e6f0e24738c46164fbc",
-        "034d9a3cfe4118b71b921086de5e3b9c45e3c39b3fd9c03ec0225fb86991a20e",
-        "242865b964804bb05fcd6e0e19f584e9678e3f17e71754c76825fe5de4d79d11",
-        "49d3842d7cc03483a2067fa2db1e74bc7e9d13dd90fdd468a00babff6e97fa92"
+        "97e725a592ce0aeacb4e05e938126fcb8c54cf5318b4ac1f39c724ffc50ca606",
+        "1ce35462fb82e1cb1203b3a87e63bf510721cfa6f9df1f7d5a666f3e7aa64219",
+        "e1993edcf08ffa3c055f3874d3c0751c3a42345dffc383ccc8edffe5461d7475",
+        "a0b7770429410e4a18063bd0bc38134cbad7a4d7db51febfbf65dd4dde3c3203"
       ],
-      "hash": "9bee029f0fdfbbc037fbeb6f78dc43c54698a9cf1ad35ff0aebc93dffc7e7baa",
+      "hash": "3d08eca9d8b186f5bd3b55da13b764380906cc3f28c00314f06d53298632f7bb",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "fd2645013a1a391b5ebdd3fdacf67bcec80e6eb465849566cb041cbf7c2aba87": "A @ B : A à gauche, de forme (3, 2), fois B, de forme (2, 3)"
+        "bac45aa7f49f0bea2cbebf13703f8a8d9522b386ba35a4c560c5dee1817c368f": "A @ B : A à gauche, de forme (2, 4), fois B, de forme (4, 2)"
       },
       "shape": [
-        3,
-        3
+        2,
+        2
       ],
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
@@ -28610,40 +28691,40 @@
         "095f782c8bbfb517851ae395c5168429ba87610b142a50acd8f7ec6be1cbfc3e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "0ba0972fcf7687fbd04229cd941dab1dd2f2c299aee343798c2f987578bbcc41": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
         "0dbca4cfc6c2101b1b0f83befd63df5e4e97fff1f8fdb420cfbe515560fa1f85": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "152396119c0235c675f573486888c7a887b19bb92ec0cb6de01f09c5e643c336": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque produit sur une petite matrice : produit matriciel ou élément par élément ?",
-        "1963046d2bed2f04b66aa6351978a492f7e1f5286fc8ecd1d07ab38c99b6d9f3": "il manque une ligne fautive : refais chaque étape d'élimination sur le petit système : que vaut le pivot ?",
+        "152396119c0235c675f573486888c7a887b19bb92ec0cb6de01f09c5e643c336": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais à la main chaque produit de deux matrices",
+        "1963046d2bed2f04b66aa6351978a492f7e1f5286fc8ecd1d07ab38c99b6d9f3": "il manque une ligne fautive : refais à la main chaque étape du pivot de Gauss",
         "1b1af4ee1f4538c3e6f4733f5389c8a8a890297f7068201235be9ce17213190d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "1e0d3a8f0b2380fb84912d8e2180bdea850856e29314fb5130e0fda2437546ed": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la forme de chaque résultat, et compare-la à celle qu'annonce le commentaire",
+        "1e0d3a8f0b2380fb84912d8e2180bdea850856e29314fb5130e0fda2437546ed": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la forme de chaque résultat",
         "2acba634ce5a132b483de03b2205f1cc8c02a71421e4441369616ffe58c9b5f7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "2bedc1820d683c02f08a8d42331dcaac4ecd06e2a9dccf491be947c36542a352": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la forme de chaque résultat, et compare-la à celle qu'annonce le commentaire",
+        "2bedc1820d683c02f08a8d42331dcaac4ecd06e2a9dccf491be947c36542a352": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la forme de chaque résultat",
         "3056e9771e334d6c68137811f2ab3209953f77f84c146e2cd5a8fde3045153d8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "309644b390c821d71970b09d5c127bbdc1592691238ab67a5fe42e97a8f77c6d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "30ced2aecf1ae3fb54a4dd940d981856378895b48a15a9dae08cd79943955f4f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "399da7a850c4a44186aea9f6e0da93a4d430ba01bcebb6a19eecbd10f2f2927f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "4040ae41f2b16a7e5ce5677ab6b5488a07c7efd32ab4dfc48a22a82501bab633": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "409f67f4ce79e104815728e88cc24c5ed49d1136307fa5293e0457427cebc236": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque étape d'élimination sur le petit système : que vaut le pivot ?",
+        "409f67f4ce79e104815728e88cc24c5ed49d1136307fa5293e0457427cebc236": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais à la main chaque étape du pivot de Gauss",
         "4aa1aef9aea88d855ca9400bcda67c4024d50714f60ad82c965aca5a8c60a580": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "543cbd7867eecc9fb351de2384ce1d81223b74e00606dc1105e13c56a670be49": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "58a50b873078aa40ea987702823b56020a7db5b351de96dfe37c08bda5533e06": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "5a451dede826b883a4d62258f5cc3eeaa038d5fd1ee1b404d04c417d56fd4692": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "60e4db9707f6825a83bfcdd5e28ce390985d5898a491e2912fe3f5be6ad6747b": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
         "61e3b30de96313ea8c610ea5f80a12674afb39f1b90455ab2cbb7f841a3fe7f2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "6fb0d958d2a597983e14be45b52f8a6b6c32239e3f76cc59ce954258aac34d6c": "il manque une ligne fautive : écris la forme de chaque résultat, et compare-la à celle qu'annonce le commentaire",
+        "6fb0d958d2a597983e14be45b52f8a6b6c32239e3f76cc59ce954258aac34d6c": "il manque une ligne fautive : écris la forme de chaque résultat",
         "70d48609cfd07f54e77d30b8208db87f03a62162a15bdf31702bccdbeaf6f232": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "72935c15fc80b05a8b3018c163a44cf6523d6782e6e3f75f6e7164ea19c6ea35": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
         "79fd616a4bebf7f84ff70f11ab09dbcc7e426557501e80c8758181076aa31e78": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "85dd413788ea38d362957b4c747e30d44b908841513efe4490a554810a7dbc89": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "8908c6873c89790b30b7cbd409d422e5a1264776f58306710806865dacddf68a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "8a4c0cba90bee9c20f3458e84d301b3f2e0e30b59ba49a57eae528a813f36a7a": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
-        "8d9b05253cef24a5f911778a799ffba4f437bdc014d5141681555152fcf33d27": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque produit sur une petite matrice : produit matriciel ou élément par élément ?",
+        "8d9b05253cef24a5f911778a799ffba4f437bdc014d5141681555152fcf33d27": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais à la main chaque produit de deux matrices",
         "8daf52b5fd8db911eb53a08eb13bb7377571668a8143022bd383f7fbeaa4a423": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "8faa4c0c665777cb1e29b487e3b7f99fa1d2ef44b2866d2deb92369c6e3a9649": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "934ebf1896ec84660f63dc98af93dec9987d078c564408a181772eb660c61c4d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "971bcbc1b494826ee01978aca03390ccf2747a199d479b2729b2c3bb876c2b5e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "9ed2e26535d62d2abbd8b88ae9bdb2eedce675bd7d3c4feb221ad10bef6706a3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "a48089189dee75865e88c4baafba514d35d25df5510c52a7fd22e35a1c1ca9bb": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "a62d921c41eba324da6fd7522b9865e6c87f9294f722ea5de4cbbc0a63907346": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque étape d'élimination sur le petit système : que vaut le pivot ?",
-        "aa75ea886e3de01ff5a5ab92ac247f061651826aea9a220464c3cfaa0c8fa463": "il manque une ligne fautive : refais chaque produit sur une petite matrice : produit matriciel ou élément par élément ?",
+        "a62d921c41eba324da6fd7522b9865e6c87f9294f722ea5de4cbbc0a63907346": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais à la main chaque étape du pivot de Gauss",
+        "aa75ea886e3de01ff5a5ab92ac247f061651826aea9a220464c3cfaa0c8fa463": "il manque une ligne fautive : refais à la main chaque produit de deux matrices",
         "ad1654c821fd29bfb8c953b7991de186466f472430093d45e7c30198991e7ccd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "b01a52bfbdfa71160b86f8ec4c1119f69904b09db3812a55a211f62da4338577": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
         "b0ba11c8222133cba6d7fbb72f67b296c003c9fe5561a6b762e8542c04d902fb": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
@@ -28653,7 +28734,7 @@
         "b89f0902280b225f1c62536ef2ce66e8016dc78862a347730bfdedef807d854e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "bb592133e5d04293a78b8073f02f7494c7aaf1bf0d3302c294037240f6c5e35e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "be3ebd6307120ae32d86d6d96fac251173d303d2c7adab019a3330a7b2529e2a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "cbe66d1fe0dfa1fa8188886729ceb210c784b38566361eadea39318d1c79316c": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque produit sur une petite matrice : produit matriciel ou élément par élément ?",
+        "cbe66d1fe0dfa1fa8188886729ceb210c784b38566361eadea39318d1c79316c": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais à la main chaque produit de deux matrices",
         "d22737fb93a95bdfe8ab3b357f92714246218399e05c738eeb265b7032bc1af7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "d6210fd645648ccb4e389335fbe026c065b9c79e1de8ebce1c322dbac4872ed4": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
         "daa5c04a9c477aab33aed26ccfae74e23b0fee3c84971e95fa77446abe5dd838": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
@@ -28663,10 +28744,10 @@
         "eda1bf9a18179129063460daeda1b549b0512fd0c9c23676f5517878f7561d62": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "ee7e0b751eea284187254187634e84352747ec27021325ed2b98ba9be1342b69": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "f485072ff7acefca9a1cc523ac9bd738c0ec268ced8de001b5e900b542eeac1a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "f8aa184dfd8650ee6c292581a23e11c20dd068cb6b14fcda209e1a829b2eca64": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la forme de chaque résultat, et compare-la à celle qu'annonce le commentaire",
+        "f8aa184dfd8650ee6c292581a23e11c20dd068cb6b14fcda209e1a829b2eca64": "une des lignes que tu cites est correcte, et il manque une ligne fautive : écris la forme de chaque résultat",
         "fdfe912b7284d3ccc7a755dce973a33937457becd01f25d75875e57fb3e186c5": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
         "fe65bb480fee9e54866dcfbc4eeef42ac250fc320c8b535f43f690bcd45d36a3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "ffc21e2161844c83f0d923f4f84a68ff6cb3abc0a9dd5aa49cb26a7d909b1344": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque étape d'élimination sur le petit système : que vaut le pivot ?"
+        "ffc21e2161844c83f0d923f4f84a68ff6cb3abc0a9dd5aa49cb26a7d909b1344": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais à la main chaque étape du pivot de Gauss"
       },
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },

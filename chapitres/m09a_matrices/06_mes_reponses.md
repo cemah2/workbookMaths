@@ -146,7 +146,7 @@
 - e :
 - f :
 - g :
-- La règle simple pour choisir les parenthèses ; le coût de ((AB)C)v comparé à f) ; pourquoi le résultat est le même dans tous les ordres :
+- La règle simple pour choisir les parenthèses ; l'ordre de f), et le coût de ((AB)C)D ; pourquoi le résultat est le même dans tous les ordres :
 
 ### Ex M09a.5 — Une couche dense Z = XW + b à la main : deux exemples, trois entrées, deux sorties
 
@@ -221,7 +221,7 @@
 - e :
 - f :
 - g :
-- AA⁻¹ et A⁻¹A ; les deux colonnes de la matrice de d) ; f) et g) justifiés par les règles de la fiche :
+- AA⁻¹ et A⁻¹A ; pourquoi X = A⁻¹C et pas CA⁻¹ en d) ; e) et f) justifiés par les règles de la fiche ; (A²)⁻¹ = (A⁻¹)², et l'origine du 16 :
 
 ### Ex M09a.12 — L'inverse d'une matrice 3 × 3 par Gauss-Jordan
 
@@ -298,7 +298,7 @@
 - e :
 - f :
 - g :
-- Le biais de la couche unique de g) ; pourquoi un réseau sans activation ne calcule rien de plus qu'un modèle linéaire :
+- b₁W₂ + b₂ ; la sortie de x sans ReLU, comparée à x(W₁W₂) + (b₁W₂ + b₂), et pourquoi en développant :
 
 ### Ex M09a.20 — Pont : centrer et réduire un tableau en écriture matricielle
 
@@ -373,15 +373,15 @@
 
 ### Ex M09a.29 — `@`, `*`, `.T`, `np.linalg.solve`, `matrix_rank` et `sympy.Matrix.rref` contre tes fonctions
 
-- Pourquoi B @ A existe aussi, et sa forme ; ce que donnerait A * B, et pourquoi :
+- L'élément (1, 2) de a) à la main ; ce que donnerait A * B, et pourquoi :
 
 ### Ex M09a.30 — Prédire la forme du résultat : `@`, `*` et broadcasting
 
-- Mes prédictions avant l'expérience (et pourquoi) ; pourquoi a) donne une matrice (3, 4) ; pourquoi d) marche et pas e) ; le danger de a) :
+- Mes prédictions avant l'expérience (et pourquoi) ; pourquoi a) rend un tableau à deux dimensions et b) à une seule ; pourquoi d) marche et pas e) ; un tableau (2, 1) pour e) :
 
 ### Ex M09a.31 — Le temps d'un produit matriciel en fonction de n : une pente de 3 en échelle log-log
 
-- La pente mesurée, et pourquoi elle n'est pas exactement 3 ; combien de fois @ est plus rapide ; pourquoi on ne mesure pas la pente de @ de la même façon :
+- La pente mesurée, et pourquoi elle n'est pas exactement 3 ; pourquoi garder le plus petit de trois temps ; combien de fois @ est plus rapide :
 
 ### Ex M09a.32 — Pourquoi le pivot partiel : un petit pivot et les arrondis
 
@@ -397,8 +397,8 @@
 
 ### Ex M09a.35 — Tester une propriété : un pytest pour (AB)ᵀ = BᵀAᵀ sur des matrices aléatoires
 
-- Pourquoi il faut des matrices non carrées pour attraper la transposée par reshape ; pourquoi le produit de Hadamard passe le test ; ce qu'il faut ajouter pour l'attraper :
+- Les formes pour lesquelles la transposée par reshape est juste, et pourquoi un test limité à ces formes la laisserait passer ; pourquoi le produit de Hadamard passe le test ; ce qu'il faut ajouter pour l'attraper :
 
-### Ex M09a.36 — Défi : un système 200 × 200 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde
+### Ex M09a.36 — Défi : un système 500 × 500 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde
 
 - Le temps de ma première version et de la version finale ; l'opération vectorisée ; pourquoi le troisième système échoue sans pivot partiel :

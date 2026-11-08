@@ -132,9 +132,9 @@ Ici, $2\begin{pmatrix} 1 \\ 3 \end{pmatrix} + 1\begin{pmatrix} -2 \\ 0 \end{pmat
 
 ![Le produit matrice-vecteur comme combinaison des colonnes : 2a₁ + 1a₂ + 1a₃ = (4, 5)](figures/combinaison_colonnes.png)
 
-### En machine learning : prédire tout un dataset d'un coup
+### En machine learning : le vecteur des prédictions d'un modèle linéaire
 
-Un modèle linéaire prédit $\hat{y}_i = \mathbf{w} \cdot \mathbf{x}_i + b$ pour chaque exemple (M07). Avec $\mathbf{X}$ de forme $(n, p)$ et $\mathbf{w}$ de $\mathbb{R}^p$, les $n$ prédictions forment le vecteur
+Un modèle linéaire calcule $\hat{y}_i = \mathbf{w} \cdot \mathbf{x}_i + b$ pour l'exemple $i$ (M07). Les exemples étant les lignes de $\mathbf{X}$, de forme $(n, p)$, ces $n$ produits scalaires sont exactement les coordonnées d'un produit matrice-vecteur, par la lecture en lignes :
 
 $$\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b\,\mathbf{1}, \qquad \text{de forme } (n,) :$$
 
@@ -206,7 +206,15 @@ $$\begin{pmatrix} 1 & 2 \\ 0 & -1 \\ 2 & 1 \end{pmatrix}\begin{pmatrix} 1 & -1 \
 
 Une couche est donc **un seul produit matriciel** pour tout le batch : c'est ce que les GPU savent faire très vite (des milliers de multiplications indépendantes à la fois). Un réseau à deux couches enchaîne deux produits, avec une fonction d'activation appliquée élément par élément entre les deux (M09a.19).
 
-📐 **Convention des poids.** La fiche, comme `mylearn` (workbookIA), range $\mathbf{W}$ en forme $(n_{\text{in}}, n_{\text{out}})$ et calcule $\mathbf{X}\mathbf{W}$. PyTorch range les poids de `nn.Linear` en forme $(n_{\text{out}}, n_{\text{in}})$ et calcule $\mathbf{X}\mathbf{W}^\top + \mathbf{b}$ ; les manuels de maths, qui rangent un exemple en colonne, écrivent $\mathbf{W}\mathbf{x} + \mathbf{b}$. Les trois décrivent la même couche : vérifie toujours les formes.
+📐 **Une couche, trois écritures.** Elles ne diffèrent que par une transposition (§4) :
+
+| Où | Un exemple est | Les poids | La couche |
+|---|---|---|---|
+| cette fiche, `mylearn` | une ligne de $\mathbf{X}$ | $\mathbf{W}$, $(n_{\text{in}}, n_{\text{out}})$ | $\mathbf{X}\mathbf{W} + \mathbf{b}$ |
+| PyTorch (`nn.Linear`) | une ligne de $\mathbf{X}$ | `weight`, $(n_{\text{out}}, n_{\text{in}})$, c'est-à-dire $\mathbf{W}^\top$ | $\mathbf{X}\,\mathtt{weight}^\top + \mathbf{b}$ |
+| MML et les manuels | une colonne $\mathbf{x}$ | $\mathbf{W}^\top$, $(n_{\text{out}}, n_{\text{in}})$ | $\mathbf{W}^\top\mathbf{x} + \mathbf{b}$ |
+
+Pour un seul exemple, $(\mathbf{x}^\top\mathbf{W})^\top = \mathbf{W}^\top\mathbf{x}$ : les deux premières lignes et la dernière calculent les mêmes nombres.
 
 ### Un embedding est un produit par un vecteur one-hot
 
@@ -355,7 +363,7 @@ Si une feature d'un dataset est une combinaison des autres (la même mesure en d
 
 $$\mathbf{X} = \begin{pmatrix} 1 & 1 & 0 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}, \qquad \mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 2 & 2 \\ 2 & 2 & 0 \\ 2 & 0 & 2 \end{pmatrix}, \qquad \operatorname{rg}(\mathbf{X}^\top\mathbf{X}) = 2 :$$
 
-la première colonne est la somme des deux autres. Les systèmes construits avec $\mathbf{X}^\top\mathbf{X}$ n'ont alors pas de solution unique ; M09b et workbookIA 9 y reviennent avec la régularisation.
+la première colonne est la somme des deux autres. Les systèmes construits avec $\mathbf{X}^\top\mathbf{X}$ n'ont alors pas de solution unique : zéro ou une infinité (§5). Devant une matrice singulière, `np.linalg.solve` lève une `LinAlgError` ; mais si les arrondis la font paraître inversible (un pivot de $10^{-16}$ au lieu de 0), il rend un vecteur sans aucun message, souvent aux coordonnées énormes : **une** solution parmi l'infinité, ou même aucune. Quand il y a une infinité de solutions, on en choisit une par une règle de plus, le plus souvent celle de plus petite norme $\lVert \mathbf{x} \rVert$, que rend `np.linalg.lstsq` (M09b s'en sert, M12d explique pourquoi). M09b et workbookIA 9 reviennent sur ces systèmes, avec la régularisation.
 
 🔗 **Dans workbookIA** — le chapitre 9 ajuste des modèles linéaires en résolvant des systèmes construits avec $\mathbf{X}^\top\mathbf{X}$, par `np.linalg.solve` plutôt que par une inverse ; ce chapitre t'en a donné le vocabulaire (forme, transposée, système, inverse, rang).
 

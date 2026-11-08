@@ -9,12 +9,12 @@
 ## 🧠 Quiz
 
 ### M09a.Q1 — Formes : ce qui se multiplie et ce qui ne se multiplie pas
-1. $(3, 2)$ : $(3, 4) \times (4, 2)$, il reste les dimensions extérieures.
-2. **Non** : $\mathbf{A}$ a 4 colonnes et $\mathbf{C}$ a 2 lignes.
-3. $(3, 3)$ : $(3, 4) \times (4, 2) \times (2, 3)$.
-4. **3** : autant que $\mathbf{A}$ a de lignes.
-5. $(2, 4)$ : $(2, 3) \times (3, 4)$.
-6. $(500, 12)$ : une ligne par exemple, une colonne par feature. Une colonne contient **une** feature, mesurée sur les 500 exemples.
+1. $(5, 6)$ : $(5, 2) \times (2, 6)$, il reste les dimensions extérieures.
+2. **Non** : $\mathbf{A}$ a 2 colonnes et $\mathbf{C}$ a 6 lignes.
+3. $(5, 5)$ : $(5, 2) \times (2, 6) \times (6, 5)$.
+4. **5** : autant que $\mathbf{A}$ a de lignes.
+5. $(6, 2)$ : $(6, 5) \times (5, 2)$.
+6. $(800, 15)$ : une ligne par exemple, une colonne par feature. Une colonne contient **une** feature, mesurée sur les 800 exemples.
 
 ### M09a.Q2 — Le produit matrice-vecteur, deux lectures
 1. $3 \times 2 + 1 \times (-1) = 5$ : le produit scalaire de la ligne 1 avec $\mathbf{x}$.
@@ -119,7 +119,7 @@ Pour la copie : une ligne est un exemple (un capteur), une colonne une feature (
 
 ### Ex M09a.2 — Le produit matrice-vecteur, par les lignes puis par les colonnes
 
-**Réponses** : a) `3` · b) `[13, -3, 2]` · c) `12` · d) `[2, -2, 1]` · e) `[1, 0, 0, 2]` · f) `False` · g) `[3, 1, 4.5]`.
+**Réponses** : a) `3` · b) `[13, -3, 2]` · c) `12` · d) `[2, -2, 1]` · e) `[1, 0, 0, 2]` · f) `False` · g) `[1, 1.5]`.
 
 **Démarche.**
 - b) Par les lignes : $6 + 1 + 6 + 0 = 13$ ; $2 - 4 - 6 + 5 = -3$ ; $-4 + 0 + 3 + 3 = 2$.
@@ -127,7 +127,7 @@ Pour la copie : une ligne est un exemple (un capteur), une colonne une feature (
 - d) $\mathbf{A}\mathbf{e}_3 = 0\,\mathbf{a}_1 + 0\,\mathbf{a}_2 + 1\,\mathbf{a}_3 + 0\,\mathbf{a}_4 = \mathbf{a}_3$.
 - e) $\mathbf{A}\mathbf{y} = y_1\mathbf{a}_1 + \cdots + y_4\mathbf{a}_4$ : il faut $y_1 = 1$, $y_4 = 2$, et 0 ailleurs.
 - f) $\mathbf{A}$ a 4 colonnes : elle ne multiplie que des vecteurs de $\mathbb{R}^4$.
-- g) $(3 + 1 - 1,\ 0 + 2 - 1,\ 6 - 0{,}5 - 1) = (3 ;\ 1 ;\ 4{,}5)$.
+- g) Une prédiction par ligne de $\mathbf{X}$ : $(1 - 1 + 0 + 1,\ -0{,}5 - 3 + 4 + 1) = (1 ;\ 1{,}5)$.
 
 Pour la copie : par les colonnes, $2(3, 1, -2) - (-1, 4, 0) + 3(2, -2, 1) + (0, 5, 3) = (6 + 1 + 6 + 0,\ 2 - 4 - 6 + 5,\ -4 + 0 + 3 + 3) = (13, -3, 2)$ : la même chose. En g), un million d'exemples à 20 features coûtent $2 \times 10^7$ multiplications.
 
@@ -154,19 +154,19 @@ Pour la copie : $\mathbf{B}\mathbf{C} = \begin{pmatrix} 1 & 5 \\ -1 & -2 \\ -3 &
 
 ### Ex M09a.4 — Le coût d'un produit, et l'ordre des parenthèses dans ABC
 
-**Réponses** : a) `40000` · b) `70000` · c) `3000000` · d) `42.9` · e) `[20, 300]` · f) `11500` · g) `27`.
+**Réponses** : a) `40000` · b) `70000` · c) `3000000` · d) `42.9` · e) `[20, 300]` · f) `23000` · g) `27`.
 
 **Démarche.**
 - a) $20 \times 400 \times 5 = 40\,000$.
 - b) $\mathbf{A}\mathbf{B}$ a la forme $(20, 5)$ ; $(\mathbf{A}\mathbf{B})\mathbf{C}$ coûte $20 \times 5 \times 300 = 30\,000$ de plus.
 - c) $\mathbf{B}\mathbf{C}$ coûte $400 \times 5 \times 300 = 600\,000$ et a la forme $(400, 300)$ ; $\mathbf{A}(\mathbf{B}\mathbf{C})$ coûte $20 \times 400 \times 300 = 2\,400\,000$ de plus.
 - d) $\frac{3\,000\,000}{70\,000} \approx 42{,}9$ : le rapport des deux coûts.
-- f) $\mathbf{C}\mathbf{v}$ : $5 \times 300 = 1\,500$ ; puis $400 \times 5 = 2\,000$ ; puis $20 \times 400 = 8\,000$.
+- f) $\mathbf{A}(\mathbf{B}(\mathbf{C}\mathbf{D}))$ : $\mathbf{C}\mathbf{D}$, de forme $(5, 2)$, coûte $5 \times 300 \times 2 = 3\,000$ ; puis $\mathbf{B}(\mathbf{C}\mathbf{D})$, de forme $(400, 2)$, $400 \times 5 \times 2 = 4\,000$ ; puis $20 \times 400 \times 2 = 16\,000$.
 - g) $(3n)^3 = 27\,n^3$.
 
-Pour la copie : la règle simple est d'éviter de fabriquer une grande matrice intermédiaire ; ici, $\mathbf{B}\mathbf{C}$, de forme $(400, 300)$, est énorme, alors que $\mathbf{A}\mathbf{B}$, $(20, 5)$, est minuscule. Et, quand le dernier facteur est un vecteur, on multiplie de droite à gauche : chaque étape est un produit matrice-vecteur. $((\mathbf{A}\mathbf{B})\mathbf{C})\mathbf{v}$ coûte $40\,000 + 30\,000 + 6\,000 = 76\,000$, plus de six fois f). Le résultat est le même dans tous les ordres : le produit est associatif.
+Pour la copie : la règle simple est d'éviter de fabriquer une grande matrice intermédiaire ; ici, $\mathbf{B}\mathbf{C}$, de forme $(400, 300)$, est énorme, alors que $\mathbf{A}\mathbf{B}$, $(20, 5)$, est minuscule. En f), $\mathbf{D}$ n'a que 2 colonnes : en partant de la droite, chaque résultat intermédiaire n'a que 2 colonnes. $((\mathbf{A}\mathbf{B})\mathbf{C})\mathbf{D}$ coûte $40\,000 + 30\,000 + 12\,000 = 82\,000$, et $(\mathbf{A}\mathbf{B})(\mathbf{C}\mathbf{D})$ coûte $43\,200$. Le résultat est le même dans tous les ordres : le produit est associatif.
 
-**Erreurs fréquentes.** Compter $n \times m$ (le nombre d'éléments du résultat) au lieu de $n\,p\,m$ ; oublier le second produit ; inverser le rapport en d) (0,023), ou donner le surcoût relatif (41,9) ; calculer $((\mathbf{A}\mathbf{B})\mathbf{C})\mathbf{v}$ en f) (76 000) ; répondre 9 en g).
+**Erreurs fréquentes.** Compter $n \times m$ (le nombre d'éléments du résultat) au lieu de $n\,p\,m$ ; oublier le second produit ; inverser le rapport en d) (0,023), ou donner le surcoût relatif (41,9) ; calculer de gauche à droite en f) (82 000) ; répondre 9 en g).
 
 **Variante.** Avec $\mathbf{C}$ de forme $(5, 3000)$ ? *Réponse* : $(\mathbf{A}\mathbf{B})\mathbf{C}$ coûte $40\,000 + 300\,000 = 340\,000$, $\mathbf{A}(\mathbf{B}\mathbf{C})$ coûte $6\,000\,000 + 24\,000\,000 = 30\,000\,000$, 88 fois plus.
 
@@ -274,20 +274,20 @@ Pour la copie : la solution générale est $(3, 2, 0) + t\,(-3, -1, 1)$. La vari
 
 ### Ex M09a.11 — L'inverse d'une matrice 2 × 2, par la formule, puis vérifiée
 
-**Réponses** : a) `2` · b) `[[1, -2], [-1, 2.5]]` · c) `[2, -1]` · d) `4` · e) `[[0.25, 0], [0, -2]]` · f) `[[0.5, -1], [-0.5, 1.25]]` · g) `[[1, -1], [-2, 2.5]]`.
+**Réponses** : a) `4` · b) `[[1.25, -0.75], [-0.5, 0.5]]` · c) `[3, 1]` · d) `[[0, 1], [1, 1]]` · e) `[[0.625, -0.375], [-0.25, 0.25]]` · f) `[[1.25, -0.5], [-0.75, 0.5]]` · g) `[[31, -21], [-14, 10]]`.
 
 **Démarche.**
-- a) $5 \times 2 - 4 \times 2 = 2$.
-- b) $\frac{1}{2}\begin{pmatrix} 2 & -4 \\ -2 & 5 \end{pmatrix}$ : on échange $a$ et $d$, on change le signe de $b$ et de $c$, on divise par $ad - bc$.
-- c) $\mathbf{A}^{-1}\begin{pmatrix} 6 \\ 2 \end{pmatrix} = \begin{pmatrix} 6 - 4 \\ -6 + 5 \end{pmatrix}$.
-- d) $2k - 8 = 0$.
-- e) Une matrice diagonale s'inverse nombre par nombre : $\frac{1}{4}$ et $\frac{1}{-0{,}5} = -2$.
-- f) $(2\mathbf{A})^{-1} = \frac{1}{2}\mathbf{A}^{-1}$, car $(2\mathbf{A})(\frac{1}{2}\mathbf{A}^{-1}) = \mathbf{I}$.
-- g) $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$ (M09a.16).
+- a) $2 \times 5 - 3 \times 2 = 4$.
+- b) $\frac{1}{4}\begin{pmatrix} 5 & -3 \\ -2 & 2 \end{pmatrix}$ : on échange $a$ et $d$, on change le signe de $b$ et de $c$, on divise par $ad - bc$.
+- c) $\mathbf{A}^{-1}\begin{pmatrix} 9 \\ 11 \end{pmatrix} = \begin{pmatrix} 11{,}25 - 8{,}25 \\ -4{,}5 + 5{,}5 \end{pmatrix}$.
+- d) On multiplie $\mathbf{A}\mathbf{X} = \mathbf{C}$ **à gauche** par $\mathbf{A}^{-1}$ : $\mathbf{X} = \mathbf{A}^{-1}\mathbf{C} = \frac{1}{4}\begin{pmatrix} 15 - 15 & 25 - 21 \\ -6 + 10 & -10 + 14 \end{pmatrix}$.
+- e) $(2\mathbf{A})^{-1} = \frac{1}{2}\mathbf{A}^{-1}$, car $(2\mathbf{A})(\frac{1}{2}\mathbf{A}^{-1}) = \mathbf{I}$.
+- f) $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$ (M09a.16).
+- g) $\mathbf{A}^2 = \begin{pmatrix} 10 & 21 \\ 14 & 31 \end{pmatrix}$, et $ad - bc = 310 - 294 = 16$ : $(\mathbf{A}^2)^{-1} = \frac{1}{16}\begin{pmatrix} 31 & -21 \\ -14 & 10 \end{pmatrix}$.
 
-Pour la copie : $\mathbf{A}\mathbf{A}^{-1} = \begin{pmatrix} 5 - 4 & -10 + 10 \\ 2 - 2 & -4 + 5 \end{pmatrix} = \mathbf{I}$ et $\mathbf{A}^{-1}\mathbf{A} = \begin{pmatrix} 5 - 4 & 4 - 4 \\ -5 + 5 & -4 + 5 \end{pmatrix} = \mathbf{I}$. Pour $k = 4$, les deux colonnes sont égales à $(4, 2)$ : proportionnelles.
+Pour la copie : $\mathbf{A}\mathbf{A}^{-1} = \frac{1}{4}\begin{pmatrix} 10 - 6 & -6 + 6 \\ 10 - 10 & -6 + 10 \end{pmatrix} = \mathbf{I}$, et de même $\mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$. En d), $\mathbf{C}\mathbf{A}^{-1}$ résoudrait $\mathbf{X}\mathbf{A} = \mathbf{C}$ : le produit n'est pas commutatif, et l'inverse se place du même côté que $\mathbf{A}$. En g), $(\mathbf{A}\mathbf{A})^{-1} = \mathbf{A}^{-1}\mathbf{A}^{-1}$ par la règle de l'inverse d'un produit, et le 16 est $4^2$ : le nombre $ad - bc$ de $\mathbf{A}^2$ est le carré de celui de $\mathbf{A}$ (le déterminant d'un produit est le produit des déterminants, M12c).
 
-**Erreurs fréquentes.** $ad + bc$ (18) ; oublier de diviser par $ad - bc$, ou de changer les signes ; $2\mathbf{A}^{-1}$ en f) ; oublier de transposer en g).
+**Erreurs fréquentes.** $ad + bc$ (16) ; oublier de diviser par $ad - bc$, ou de changer les signes ; $\mathbf{C}\mathbf{A}^{-1}$ en d) ; $2\mathbf{A}^{-1}$ en e) ; oublier de transposer en f) ; transposer en g).
 
 **Variante.** L'inverse de $\begin{pmatrix} 3 & 5 \\ 1 & 2 \end{pmatrix}$ ? *Réponse* : $ad - bc = 1$, d'où $\begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix}$.
 
@@ -397,7 +397,7 @@ Pour la copie : $y = -3$ est une masse négative ; sans l'engrais 3, il est impo
 
 ### Ex M09a.19 — Pont : une passe avant à deux couches, deux produits matriciels et leurs formes
 
-**Réponses** : a) `[64, 5]` · b) `[64, 2]` · c) `32` · d) `1600` · e) `[2, 0, 0]` · f) `2.5` · g) `True`.
+**Réponses** : a) `[64, 5]` · b) `[64, 2]` · c) `32` · d) `1600` · e) `[2, 0, 0]` · f) `2.5` · g) `[[-1], [0]]`.
 
 **Démarche.**
 - a) et b) $(64, 3) \times (3, 5) = (64, 5)$, puis $(64, 5) \times (5, 2) = (64, 2)$.
@@ -405,11 +405,11 @@ Pour la copie : $y = -3$ est une masse négative ; sans l'engrais 3, il est impo
 - d) $64 \times 3 \times 5 + 64 \times 5 \times 2 = 960 + 640$.
 - e) $\mathbf{x}\mathbf{W}_1 = (1, 0, 2) - (-1, 1, 1) = (2, -1, 1)$ ; plus $\mathbf{b}_1$, $(2 ;\ -0{,}5 ;\ 0)$ ; puis ReLU.
 - f) $2 \times 1 + 0 + 0 + 0{,}5$.
-- g) $(\mathbf{X}\mathbf{W}_1 + \mathbf{b}_1)\mathbf{W}_2 + \mathbf{b}_2 = \mathbf{X}(\mathbf{W}_1\mathbf{W}_2) + (\mathbf{b}_1\mathbf{W}_2 + \mathbf{b}_2)$.
+- g) $(2, 3) \times (3, 1) \to (2, 1)$ : $1 \times 1 + 0 \times 2 + 2 \times (-1) = -1$ et $-1 \times 1 + 1 \times 2 + 1 \times (-1) = 0$.
 
-Pour la copie : la couche unique aurait le biais $\mathbf{b}_1\mathbf{W}_2 + \mathbf{b}_2$. Empiler des couches sans activation, c'est composer des fonctions de la forme $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$, et le résultat a encore cette forme : un modèle linéaire. Les activations non linéaires donnent aux réseaux leur pouvoir.
+Pour la copie : $\mathbf{b}_1\mathbf{W}_2 + b_2 = 0 + 1 + 1 + 0{,}5 = 2{,}5$. Sans ReLU, $\mathbf{h} = (2 ;\ -0{,}5 ;\ 0)$ et $y = 2 - 1 + 0 + 0{,}5 = 1{,}5$ ; et $\mathbf{x}(\mathbf{W}_1\mathbf{W}_2) + (\mathbf{b}_1\mathbf{W}_2 + b_2) = (1 \times (-1) + (-1) \times 0) + 2{,}5 = 1{,}5$ : la même chose. En développant, $(\mathbf{x}\mathbf{W}_1 + \mathbf{b}_1)\mathbf{W}_2 + b_2 = \mathbf{x}(\mathbf{W}_1\mathbf{W}_2) + (\mathbf{b}_1\mathbf{W}_2 + b_2)$, par distributivité et associativité du produit.
 
-**Erreurs fréquentes.** Oublier les biais en c) ; compter les multiplications d'un seul exemple en d) (25) ; ajouter le biais après ReLU en e).
+**Erreurs fréquentes.** Oublier les biais en c) ; compter les multiplications d'un seul exemple en d) (25) ; ajouter le biais après ReLU en e) ; oublier ReLU (1,5) ou $b_2$ (2) en f) ; donner $\mathbf{W}_1\mathbf{W}_2$ en ligne en g).
 
 **Variante.** La sortie pour l'exemple $(0, 2)$ ? *Réponse* : $\mathbf{x}\mathbf{W}_1 + \mathbf{b}_1 = (-2 ;\ 2{,}5 ;\ 1)$, $\mathbf{h} = (0 ;\ 2{,}5 ;\ 1)$, et $y = 5 - 1 + 0{,}5 = 4{,}5$.
 
@@ -459,11 +459,11 @@ Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}
 **Réponse modèle.**
 1. $32 \times 32 \times 3 = 3\,072$ nombres par image. Couche par couche : $3\,072 \times 1\,024 \approx 3{,}1 \times 10^6$, $1\,024 \times 256 \approx 2{,}6 \times 10^5$, $256 \times 10 \approx 2{,}6 \times 10^3$ ; en tout $3\,410\,432 \approx 3{,}4 \times 10^6$ multiplications.
 2. $3{,}4 \times 10^{12}$, de l'ordre de $10^{12}$.
-3. GPU : $\frac{3{,}4 \times 10^{12}}{10^{14}} \approx 0{,}03$ s. Processeur : environ 30 s. Triple boucle Python : $3{,}4 \times 10^5$ s, environ 4 jours.
-4. La première couche : plus de 90 % du coût, car elle relie les plus grands nombres d'entrées et de sorties ($3\,072 \times 1\,024$).
+3. La première couche : plus de 90 % du coût, car elle relie les plus grands nombres d'entrées et de sorties ($3\,072 \times 1\,024$).
+4. Avec 512 neurones : $3\,072 \times 512 + 512 \times 256 + 256 \times 10 \approx 1{,}7 \times 10^6$, environ deux fois moins (la première couche est divisée par 2, et la deuxième aussi). Réduire plutôt la seconde de 256 à 128 neurones ne fait gagner que 4 % environ : $1\,024 \times 128 + 128 \times 10$ au lieu de $1\,024 \times 256 + 256 \times 10$, sur un total dominé par la première couche.
 5. Environ $3{,}4 \times 10^6$ poids (plus 1 290 biais), à 4 octets : de l'ordre de $1{,}4 \times 10^7$ octets, environ 14 Mo.
 
-**Grille.** (1) le nombre d'entrées et les trois produits, avec le total ; (2) la multiplication par $10^6$ ; (3) trois durées, de la bonne puissance de 10 ; (4) la première couche, avec sa raison ; (5) le nombre de poids fois 4 octets.
+**Grille.** (1) le nombre d'entrées et les trois produits, avec le total ; (2) la multiplication par $10^6$ ; (3) la première couche, avec sa raison ; (4) les deux nouveaux totaux, et l'explication par la couche dominante ; (5) le nombre de poids fois 4 octets.
 
 ### Ex M09a.24 — Expliquer pourquoi on ne calcule pas l'inverse pour résoudre un système
 
@@ -523,23 +523,23 @@ Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}
 
 ### Ex M09a.29 — `@`, `*`, `.T`, `np.linalg.solve`, `matrix_rank` et `sympy.Matrix.rref` contre tes fonctions
 
-**Réponses** : a) `[[4, 1, 8], [-2, 1, 0], [7, -2, 4]]` · b) `[[0, -1], [-3, 0]]` · c) `2` · d) `[0, 2]` · e) `[2.0, 1.0]` · f) `True`.
+**Réponses** : a) `[[-7, 9], [1, 0]]` · b) `[[0, -1], [-3, 0]]` · c) `2` · d) `[0, 2]` · e) `[2.0, 1.0]` · f) `True`.
 
-**Démarche.** `(A @ B).tolist()`, `(... * ...).tolist()`, `int(np.linalg.matrix_rank(P))`, `list(sympy.Matrix(P).rref()[1])`, `np.linalg.solve(...).tolist()` ; pour f), une boucle sur 20 tirages `(rng.normal(size=(5, 5)), rng.normal(size=5))` et `all(np.allclose(...))`. Pour la copie : `B @ A` existe aussi, $(2, 3) \times (3, 2)$, et vaut $\begin{pmatrix} 3 & 4 \\ 12 & 6 \end{pmatrix}$ ; `A * B` lève une erreur : les formes $(3, 2)$ et $(2, 3)$ ne se combinent pas par broadcasting.
+**Démarche.** `(A @ B).tolist()`, `(... * ...).tolist()`, `int(np.linalg.matrix_rank(P))`, `list(sympy.Matrix(P).rref()[1])`, `np.linalg.solve(...).tolist()` ; pour f), une boucle sur 20 tirages `(rng.normal(size=(5, 5)), rng.normal(size=5))` et `all(np.allclose(...))`. Pour la copie : l'élément $(1, 2)$ de a) est le produit scalaire de la ligne 1 de $\mathbf{A}$ et de la colonne 2 de $\mathbf{B}$, $1 \times 1 + (-2) \times (-1) + 0 \times 1 + 3 \times 2 = 9$ ; `A * B` lève une erreur : les formes $(2, 4)$ et $(4, 2)$ ne se combinent pas par broadcasting.
 
-**Erreurs fréquentes.** `A * B` pour le produit matriciel ; les pivots de SymPy comptés à partir de 1 ; comparer des flottants avec `==` en f).
+**Erreurs fréquentes.** `A * B` pour le produit matriciel, ou `B @ A` ; les pivots de SymPy comptés à partir de 1 ; comparer des flottants avec `==` en f).
 
 ### Ex M09a.30 — Prédire la forme du résultat : `@`, `*` et broadcasting
 
 **Réponses** : a) `2` · b) `2` · c) `2` · d) `2` · e) `1`.
 
-a) Le broadcasting répète la colonne $(3, 1)$ sur 4 colonnes et la ligne $(1, 4)$ sur 3 lignes : on obtient le **produit extérieur**, de forme $(3, 4)$, sans erreur. b) $(3, 4)$ fois un vecteur de 4 : un vecteur de 3. c) Un vecteur de 4 fois $(4, 2)$ : un vecteur de 2 (le vecteur joue le rôle d'une ligne). d) La dimension de droite, 3, coïncide : le vecteur est répété sur les 2 lignes. e) À droite, 3 et 2 diffèrent et aucun ne vaut 1 : erreur ; pour ajouter un nombre par ligne, il faut une colonne `(2, 1)`. Le danger de a) : qui voulait un produit scalaire de deux vecteurs rangés en colonne et en ligne obtient, sans message d'erreur, une matrice entière.
+a) $(2, 3) \times (3, 1) \to (2, 1)$ : deux tableaux à deux dimensions donnent un tableau à deux dimensions, une colonne. b) $(3, 4)$ fois un tableau à une dimension de 4 nombres : NumPy le traite comme un vecteur, et rend un tableau à une dimension de 3 nombres. c) Un vecteur de 4 fois $(4, 2)$ : un vecteur de 2 (le vecteur joue le rôle d'une ligne). d) La dimension de droite, 3, coïncide : le vecteur est répété sur les 2 lignes. e) À droite, 3 et 2 diffèrent et aucun ne vaut 1 : erreur ; pour ajouter un nombre par ligne, il faut une colonne de forme `(2, 1)`, `v[:, None]` ou `v.reshape(2, 1)`.
 
 ### Ex M09a.31 — Le temps d'un produit matriciel en fonction de n : une pente de 3 en échelle log-log
 
 **Réponse** : `True`.
 
-**Démarche.** `naive_matmul` : `C = [[0.0] * m for _ in range(n)]`, puis trois boucles, `for i`, `for j`, `for k`, avec la somme dans une variable locale. `time_once` : la matrice, puis `start = time.perf_counter()`, le produit, `time.perf_counter() - start` (seul le produit est chronométré). `loglog_slope` : `float(np.polyfit(np.log(ns), np.log(times), 1)[0])`. Pour la copie : la pente mesurée est en général entre 2,7 et 3 ; à petite taille, le temps qui ne dépend pas de $n^3$ (créer les listes, appeler la fonction) pèse un peu. `@` est plusieurs centaines de fois plus rapide dès $n = 120$, et l'écart grandit avec $n$ : il appelle une bibliothèque compilée (BLAS) qui utilise les instructions vectorielles, le cache et plusieurs cœurs. Sa pente, mesurée de la même façon sur de petites tailles, ne vaut pas 3 : son temps y est dominé par le lancement et par les accès à la mémoire.
+**Démarche.** `naive_matmul` : `C = [[0.0] * m for _ in range(n)]`, puis trois boucles, `for i`, `for j`, `for k`, avec la somme dans une variable locale. `time_once` : la matrice, puis `start = time.perf_counter()`, le produit, `time.perf_counter() - start` (seul le produit est chronométré). `loglog_slope` : `float(np.polyfit(np.log(ns), np.log(times), 1)[0])`. La vérification garde, pour chaque $n$, le plus petit de trois temps. Pour la copie : la pente mesurée est en général entre 2,8 et 3 ; à petite taille, le temps qui ne dépend pas de $n^3$ (créer les listes, appeler la fonction) pèse un peu. Le plus petit de trois temps est le moins dérangé par le reste de la machine (une autre tâche, le ramasse-miettes) : une perturbation allonge un temps, jamais ne le raccourcit, alors qu'elle tire la moyenne vers le haut. `@` est plusieurs centaines de fois plus rapide dès $n = 120$, et l'écart grandit avec $n$ : il appelle une bibliothèque compilée qui fait les mêmes $n^3$ multiplications, sans passer par l'interpréteur Python pour chacune.
 
 **Erreurs fréquentes.** Chronométrer aussi la création de la matrice ; prendre `np.log10` pour une seule des deux listes ; une triple boucle qui utilise `@` ou `np.dot` à l'intérieur (le temps ne varie plus comme $n^3$) ; mesurer des tailles trop petites (le temps fixe domine).
 
@@ -549,7 +549,7 @@ a) Le broadcasting répète la colonne $(3, 1)$ sur 4 colonnes et la ligne $(1, 
 
 **Démarche.** Pour chaque $k$ : `A = np.array([[10.0 ** -k, 1.0], [1.0, 1.0]])`, `b = np.array([1.0, 2.0])`, `exact = np.linalg.solve(A, b)`, puis `float(np.max(np.abs(solve_no_pivot(A, b) - exact)))` et la même chose avec `mymath.matrices.solve`. Pour la copie : sans pivot, l'élimination retranche $\frac{1}{\varepsilon}$ fois la première ligne à la seconde, qui devient $(0,\ 1 - \frac{1}{\varepsilon} \mid 2 - \frac{1}{\varepsilon})$ ; pour $\varepsilon$ minuscule, les nombres 1 et 2 disparaissent dans les arrondis de $\frac{1}{\varepsilon}$ (environ 16 chiffres significatifs, R1). $y$ reste juste, mais $x = \frac{1 - y}{\varepsilon}$ divise une erreur d'arrondi, de l'ordre de $10^{-16}$, par $\varepsilon$ : l'erreur sur $x$ croît comme $\frac{10^{-16}}{\varepsilon}$, jusqu'à donner $x = 0$ pour $\varepsilon = 10^{-18}$. Avec le pivot partiel, on élimine avec la ligne $x + y = 2$ et un multiplicateur $\varepsilon$, minuscule : les erreurs ne sont plus amplifiées.
 
-**Erreurs fréquentes.** Mesurer l'erreur sur $y$ seulement ; comparer à la solution $(1, 1)$ arrondie au lieu de la solution calculée par `np.linalg.solve` (la différence est de l'ordre de $\varepsilon$, sans importance ici) ; un seuil à $10^{-3}$ au lieu de $10^{-2}$ en c).
+La vérification de c) rend 0 si aucune erreur ne dépasse $10^{-2}$. **Erreurs fréquentes.** Rendre les couples dans l'ordre (avec pivot, sans pivot) ; mesurer l'erreur sur $y$ seulement ; comparer à la solution $(1, 1)$ arrondie au lieu de la solution calculée par `np.linalg.solve` (la différence est de l'ordre de $\varepsilon$, sans importance ici) ; un seuil à $10^{-3}$ au lieu de $10^{-2}$ en c).
 
 ### Ex M09a.33 — Une matrice 2 × 2 comme transformation du plan : la grille et le carré unité
 
@@ -561,20 +561,20 @@ a) Le broadcasting répète la colonne $(3, 1)$ sur 4 colonnes et la ligne $(1, 
 
 **Réponses** : a) `"ADE"` · b) `[-2.0, 5.0, -1.5, -1.0, 4.0, 0.75]`.
 
-**Démarche.** (A) `A * B` est le produit de Hadamard : son élément $(2, 1)$ vaut $3 \times 2 = 6$, alors que celui de $\mathbf{A}\mathbf{B}$ vaut $3 \times 0 + (-1) \times 2 = -2$ ; il faut `A @ B`. (B) est juste : $2 + 3 = 5$. (C) est juste : $-1 - 2 + 0{,}5 + 1 = -1{,}5$. (D) `X @ X.T` a la forme $(2, 2)$ : c'est la matrice des produits scalaires des **exemples**, et son élément $(1, 2)$ existe, d'où l'absence d'erreur ; $\mathbf{X}^\top\mathbf{X}$, de forme $(3, 3)$, s'écrit `X.T @ X`, et son élément $(1, 2)$ vaut $1 \times 0 + (-1) \times 1 = -1$. (E) Le pivot $M_{11}$ vaut 0 : la ligne divise par zéro (`inf` et `nan`) ; il faut d'abord échanger les deux lignes, et l'on trouve 4. (F) est juste : $\frac{3}{4} = 0{,}75$.
+**Démarche.** (A) `A * B` est le produit de Hadamard : son élément $(2, 1)$ vaut $3 \times 2 = 6$, alors que celui de $\mathbf{A}\mathbf{B}$ vaut $3 \times 0 + (-1) \times 2 = -2$ ; il faut `A @ B`. (B) est juste : $2 + 3 = 5$. (C) est juste : $-1 - 2 + 0{,}5 + 1 = -1{,}5$. (D) `X @ X.T` a la forme $(2, 2)$ : c'est la matrice des produits scalaires des **exemples**, et son élément $(1, 2)$ existe, d'où l'absence d'erreur ; $\mathbf{X}^\top\mathbf{X}$, de forme $(3, 3)$, s'écrit `X.T @ X`, et son élément $(1, 2)$ vaut $1 \times 0 + (-1) \times 1 = -1$. (E) Le pivot $M_{11}$ vaut 0 : la ligne divise par zéro (`inf` et `nan`) ; il faut d'abord échanger les deux lignes, et l'on trouve 4. (F) est juste : $\frac{3}{4} = 0{,}75$ (la variable `R` contient $\mathbf{D}^{-1}\mathbf{A}$).
 
 **Erreurs fréquentes.** Citer (F) en croyant qu'il faut $\mathbf{A}\mathbf{D}^{-1}$ (multiplier à gauche par une diagonale agit sur les **lignes**, comme le dit le commentaire) ; oublier (D), qui s'exécute sans erreur : seule la forme la trahit.
 
 ### Ex M09a.35 — Tester une propriété : un pytest pour (AB)ᵀ = BᵀAᵀ sur des matrices aléatoires
 
-**Démarche.** `rng = np.random.default_rng(seed)` une seule fois ; dans la boucle, `n, p, m = rng.integers(1, 6, size=3)`, `A = rng.normal(size=(n, p))`, `B = rng.normal(size=(p, m))`, les deux côtés en tableaux de flottants, puis `assert left.shape == right.shape and np.allclose(left, right, rtol=0, atol=1e-12), f"expected … got …"`. `test_transpose_of_product` appelle `check_transpose_of_product(mymath.matrices.matmul, mymath.matrices.transpose, seed=35)`. Pour la copie : la transposée par `reshape` garde l'ordre des nombres ligne par ligne ; elle rend la bonne forme, mais de mauvais nombres, sauf pour une ligne ou une colonne ; seules des formes variées, non carrées, la démasquent à coup sûr. Le produit de Hadamard de deux matrices carrées vérifie la propriété : $(\mathbf{A} \odot \mathbf{B})^\top = \mathbf{A}^\top \odot \mathbf{B}^\top = \mathbf{B}^\top \odot \mathbf{A}^\top$. Un test de propriété ne vérifie qu'une **conséquence** de la bonne réponse, qu'une fonction fausse peut partager ; pour l'attraper, il faut aussi comparer à un oracle (`@`) ou à quelques produits calculés à la main, comme le font les tests de `mymath`.
+**Démarche.** `rng = np.random.default_rng(seed)` une seule fois ; dans la boucle, `n, p, m = rng.integers(1, 6, size=3)`, `A = rng.normal(size=(n, p))`, `B = rng.normal(size=(p, m))`, les deux côtés en tableaux de flottants, puis `assert left.shape == right.shape and np.allclose(left, right, rtol=0, atol=1e-12), f"expected … got …"`. `test_transpose_of_product` appelle `check_transpose_of_product(mymath.matrices.matmul, mymath.matrices.transpose, seed=35)`. Pour la copie : la transposée par `reshape` garde l'ordre des nombres ligne par ligne ; elle rend la bonne forme, mais de mauvais nombres, sauf pour une seule ligne ou une seule colonne, où les deux coïncident. Un test qui ne tirerait que des vecteurs (ou des matrices $1 \times 1$) la laisserait passer ; des formes aléatoires la démasquent, dès qu'une matrice a au moins deux lignes et deux colonnes (une matrice carrée suffit : `reshape` la rend inchangée). Le produit de Hadamard de deux matrices carrées vérifie la propriété : $(\mathbf{A} \odot \mathbf{B})^\top = \mathbf{A}^\top \odot \mathbf{B}^\top = \mathbf{B}^\top \odot \mathbf{A}^\top$. Un test de propriété ne vérifie qu'une **conséquence** de la bonne réponse, qu'une fonction fausse peut partager ; pour l'attraper, il faut aussi comparer à un oracle (`@`) ou à quelques produits calculés à la main, comme le font les tests de `mymath`.
 
-**Erreurs fréquentes.** Des matrices carrées seulement (la transposée par `reshape` passe pour certaines) ; `==` entre flottants ; un générateur recréé à chaque tour ; un `assert` sans message ; comparer les valeurs sans comparer les formes.
+**Erreurs fréquentes.** Des vecteurs seulement, des formes $(1, n)$ ou $(n, 1)$ (la transposée par `reshape` passe) ; `==` entre flottants ; un générateur recréé à chaque tour ; un `assert` sans message ; comparer les valeurs sans comparer les formes.
 
-### Ex M09a.36 — Défi : un système 200 × 200 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde
+### Ex M09a.36 — Défi : un système 500 × 500 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde
 
 **Réponse** : `True`.
 
-**Démarche.** La boucle Python sur les lignes sous le pivot se remplace par une seule opération sur le bloc : `factors = M[k + 1:, k] / M[k, k]`, de forme $(n - k - 1,)$, devient une colonne par `factors[:, None]`, et `M[k + 1:] = M[k + 1:] - factors[:, None] * M[k]` élimine d'un coup, par broadcasting. Il reste une boucle Python sur les $n$ colonnes (et une pour la remontée) : quelques millisecondes pour $n = 200$, avec une erreur de l'ordre de $10^{-13}$. Pour la copie : une version avec deux boucles imbriquées (lignes, puis colonnes) met plusieurs secondes ; la version vectorisée, quelques millisecondes. Le troisième système a une diagonale de $10^{-14}$ : sans échange de lignes, chaque élimination divise par ces pivots minuscules, et l'erreur explose (M09a.32).
+**Démarche.** La boucle Python sur les lignes sous le pivot se remplace par une seule opération sur le bloc : `factors = M[k + 1:, k] / M[k, k]`, de forme $(n - k - 1,)$, devient une colonne par `factors[:, None]`, et `M[k + 1:] = M[k + 1:] - factors[:, None] * M[k]` élimine d'un coup, par broadcasting. Il reste une boucle Python sur les $n$ colonnes (et une pour la remontée) : un à deux dixièmes de seconde pour $n = 500$, avec une erreur de l'ordre de $10^{-12}$. Pour la copie : une version qui traite les nombres un par un (deux boucles imbriquées sous chaque pivot) met plusieurs secondes, souvent plus de dix ; une version qui traite chaque ligne d'un coup (une boucle sur les lignes) passe aussi, en quelques dixièmes de seconde ; la version par blocs est la plus rapide. Le troisième système a une diagonale de $10^{-14}$ : sans échange de lignes, chaque élimination divise par ces pivots minuscules, et l'erreur explose (M09a.32).
 
 **Erreurs fréquentes.** Vectoriser en oubliant le pivot partiel (le troisième système échoue) ; `M[k + 1:] -= factors * M[k]` sans `[:, None]` (une erreur de forme) ; recalculer `np.max(np.abs(A))` à chaque colonne (correct, mais inutile).
