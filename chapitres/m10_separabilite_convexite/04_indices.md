@@ -76,7 +76,7 @@ Un hyperplan ne change pas quand on multiplie $\mathbf{w}$ **et** $b$ par un mê
 </details>
 <details><summary>Indice 3</summary>
 
-1 : multiplie l'équation $\frac{\mathbf{w}}{2} \cdot \mathbf{x} + b = 0$ par 2. 3 : remplace $x_0$ par 1 dans l'équation du plan. 6 : relis le théorème de la plus grande marge.
+1 : multiplie l'équation $\frac{\mathbf{w}}{2} \cdot \mathbf{x} + b = 0$ par 2. 3 : remplace $x_0$ par 1 dans l'équation du plan. 4 : la coordonnée constante d'un point relevé vaut toujours 1. 6 : relis le théorème de la plus grande marge.
 
 </details>
 
@@ -116,7 +116,7 @@ $|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \
 </details>
 <details><summary>Indice 3</summary>
 
-5 : écris $2a + 3b + 6c$ comme le produit scalaire de $(2, 3, 6)$ avec $(a, b, c)$.
+4 : applique-la à $(1, 1, 1)$ et $(a, b, c)$. 5 : écris $2a + 3b + 6c$ comme le produit scalaire de $(2, 3, 6)$ avec $(a, b, c)$.
 
 </details>
 
@@ -129,12 +129,12 @@ Relis R6, la sigmoïde et tanh.
 </details>
 <details><summary>Indice 2</summary>
 
-Pour 2, regarde comment varie $e^{-z}$, puis $1 + e^{-z}$, quand $z$ augmente.
+Pour 2, regarde comment varie $e^{-z}$, puis $1 + e^{-z}$, quand $z$ augmente. Pour 3, écris $1 - \sigma(z)$ avec le même dénominateur que $\sigma(z)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : isole $e^{-z}$ dans $1 + e^{-z} = \frac{1}{0{,}6}$, puis prends le logarithme. 4 : $\tanh(z) = 0{,}2$ donne $\sigma(2z) = 0{,}6$. 5 : $\sigma(u) = \frac{1}{2}$ seulement pour $u = 0$.
+4 : $\tanh(z) = 0{,}2$ donne $\sigma(2z) = 0{,}6$, dont la cote vaut $1{,}5$. 5 : $\sigma(u) = \frac{1}{2}$ seulement pour $u = 0$.
 
 </details>
 
@@ -192,7 +192,7 @@ Calcule d'abord $\mathbf{w} \cdot P_i$ pour les six points ; la marge est le plu
 </details>
 <details><summary>Indice 3</summary>
 
-c) La distance d'un point à la droite est $\frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert}$. d) Il faut $\min_{+1} \mathbf{w} \cdot \mathbf{x} + b > 0$ et $\max_{-1} \mathbf{w} \cdot \mathbf{x} + b < 0$. g) Dessine les deux triangles : leur couple de points le plus proche est formé de deux sommets.
+c) Le projeté de $\mathbf{x}$ sur la droite est $\mathbf{x} - \frac{\mathbf{w} \cdot \mathbf{x} + b}{\lVert \mathbf{w} \rVert^2}\,\mathbf{w}$ (M07). d) Il faut $\min_{+1} \mathbf{w} \cdot \mathbf{x} + b > 0$ et $\max_{-1} \mathbf{w} \cdot \mathbf{x} + b < 0$. g) Dessine les deux triangles : leur couple de points le plus proche est formé de deux sommets.
 
 </details>
 
@@ -210,7 +210,7 @@ $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = b \times 1 + w_1x_1 + w_2x_2$ : l
 </details>
 <details><summary>Indice 3</summary>
 
-b) Écris $3x_1 - 2x_2 + b' = 0$ au point $\mathbf{p}$. c) La distance entre $\mathbf{w} \cdot \mathbf{x} + b = 0$ et $\mathbf{w} \cdot \mathbf{x} + b' = 0$ est $\frac{|b - b'|}{\lVert \mathbf{w} \rVert}$. e) Au niveau « première coordonnée $= 1$ », $\tilde{\mathbf{v}} \cdot \tilde{\mathbf{x}} = 0$ devient $-6 + 2x_1 + 3x_2 = 0$. f) De même, $\tilde{\mathbf{v}}' \cdot \tilde{\mathbf{x}} = 0$ devient $x_1 - 3x_2 = 0$. g) Écris $\tilde{\mathbf{u}} \cdot (1, 2, 0) = 0$ et $\tilde{\mathbf{u}} \cdot (1, 0, 1) = 0$ avec $u_0 = -2$.
+a) Divise les trois coordonnées de $(4, 3, -2)$ par le même nombre. b) Écris $3x_1 - 2x_2 + b' = 0$ au point $\mathbf{p}$. c) La distance entre $\mathbf{w} \cdot \mathbf{x} + b = 0$ et $\mathbf{w} \cdot \mathbf{x} + b' = 0$ est $\frac{|b - b'|}{\lVert \mathbf{w} \rVert}$. e) Au niveau « première coordonnée $= 1$ », $\tilde{\mathbf{v}} \cdot \tilde{\mathbf{x}} = 0$ devient $-6 + 2x_1 + 3x_2 = 0$. f) De même, $\tilde{\mathbf{v}}' \cdot \tilde{\mathbf{x}} = 0$ devient $x_1 - 3x_2 = 0$. g) Écris $\tilde{\mathbf{u}} \cdot (1, 2, 0) = 0$ et $\tilde{\mathbf{u}} \cdot (1, 0, 1) = 0$ avec $u_0 = -2$.
 
 </details>
 
@@ -308,7 +308,7 @@ Calcule d'abord les trois scores ; chaque activation ne regarde que le score.
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{p}_1$ donne $z = -0{,}25 + 1 + 0{,}5$. f) $\frac{1}{1 + e^{-z}} = 0{,}85$ donne $e^{-z} = \frac{0{,}15}{0{,}85}$. g) La ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = z_{0{,}85}$ : sa distance à la frontière est $\frac{z_{0{,}85}}{\lVert \mathbf{w} \rVert}$.
+$\mathbf{p}_1$ donne $z = 4 - 2{,}25 - 1$. f) À la distance signée $d$ de la frontière, le score vaut $d\,\lVert \mathbf{w} \rVert$, avec $\lVert \mathbf{w} \rVert = 5$. g) $\frac{1}{1 + e^{-z}} = 0{,}85$ donne $e^{-z} = \frac{0{,}15}{0{,}85}$ ; la ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = z_{0{,}85}$, à la distance $\frac{z_{0{,}85}}{\lVert \mathbf{w} \rVert}$ de la frontière.
 
 </details>
 

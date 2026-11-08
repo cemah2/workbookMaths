@@ -35,8 +35,8 @@
 ### M10.Q4 — Marge et astuce du biais
 1. **Oui** : $\frac{\mathbf{w}}{2} \cdot \mathbf{x} + b = 0$ équivaut à $\mathbf{w} \cdot \mathbf{x} + 2b = 0$, un hyperplan **parallèle** (même normale), à la distance $\frac{|2b|}{\lVert \mathbf{w} \rVert}$ de l'origine au lieu de $\frac{|b|}{\lVert \mathbf{w} \rVert}$. Seule une multiplication de $\mathbf{w}$ **et** de $b$ par un même nombre non nul garde l'hyperplan.
 2. **Vrai** : la marge est la distance signée du point le plus mal placé, un minimum ; le terme du point déplacé change, mais reste plus grand que ce minimum.
-3. Au niveau $x_0 = 1$ : $2 - x_1 + x_2 = 0$, soit la droite $x_2 = x_1 - 2$, qui passe par $(2, 0)$ et $(0, -2)$ (normale $(-1, 1)$, biais 2).
-4. **Vrai** : $\tilde{\mathbf{w}} \cdot \mathbf{0} = 0$.
+3. Au niveau $x_0 = 1$ : $3 + x_1 - x_2 = 0$, soit la droite $x_2 = x_1 + 3$, qui passe par $(0, 3)$ et $(-3, 0)$ (normale $(1, -1)$, biais 3).
+4. **Non** : il devient $(1, 0, 0)$, dont le score relevé $\tilde{\mathbf{w}} \cdot (1, 0, 0) = b$ est le biais. Aucun point relevé n'est l'origine de $\mathbb{R}^3$ : leur première coordonnée vaut toujours 1.
 5. Le point le plus mal placé est **exactement sur l'hyperplan** : le couple ne sépare pas au sens strict (et aucun point n'est du mauvais côté).
 6. **3**, la moitié de la distance entre les enveloppes.
 
@@ -55,14 +55,14 @@
 1. $|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert$.
 2. $\mathbf{u} \cdot \mathbf{v} = 4 + 3 - 12 = -5$, $\lVert \mathbf{u} \rVert = \sqrt{4 + 9 + 36} = 7$, $\lVert \mathbf{v} \rVert = 3$ : $5 \le 21$.
 3. Quand $\mathbf{u}$ et $\mathbf{v}$ sont colinéaires (l'un est un multiple de l'autre).
-4. $\mathbf{e} \cdot \mathbf{v} \le |\mathbf{e} \cdot \mathbf{v}| \le \lVert \mathbf{e} \rVert\,\lVert \mathbf{v} \rVert = \lVert \mathbf{v} \rVert$ ; égalité pour $\mathbf{e} = \frac{\mathbf{v}}{\lVert \mathbf{v} \rVert}$ (si $\mathbf{v} \ne \mathbf{0}$).
+4. Cauchy-Schwarz pour $(1, 1, 1)$ et $(a, b, c)$ : $|a + b + c| \le \sqrt{3}\,\sqrt{a^2 + b^2 + c^2}$, puis on élève au carré (deux nombres positifs). Égalité si et seulement si $(a, b, c)$ est colinéaire à $(1, 1, 1)$ : $a = b = c$.
 5. $2a + 3b + 6c = (2, 3, 6) \cdot (a, b, c) \le 7 \times 2 = \mathbf{14}$, atteint pour $(a, b, c) = \frac{2}{7}(2, 3, 6) = \big(\frac{4}{7}, \frac{6}{7}, \frac{12}{7}\big)$.
 
 ### M10.R3 — La sigmoïde et tanh (R6)
 1. $\sigma(0) = \frac{1}{2}$ ; $\sigma(z) \to 0$ en $-\infty$ et $\to 1$ en $+\infty$.
 2. $\sigma$ est strictement croissante : quand $z$ augmente, $e^{-z}$ diminue, $1 + e^{-z}$ aussi, et son inverse augmente. Donc $\sigma(-1) < \sigma(0{,}5) < \sigma(2)$ ; $\sigma(0{,}5)$ et $\sigma(2)$ dépassent $\sigma(0) = \frac{1}{2}$, pas $\sigma(-1)$.
-3. $1 + e^{-z} = \frac{1}{0{,}6} = \frac{5}{3}$, $e^{-z} = \frac{2}{3}$, $z = \ln 1{,}5 \approx 0{,}4055$.
-4. $2\sigma(2z) - 1 = 0{,}2$ donne $\sigma(2z) = 0{,}6$, donc $2z = \ln 1{,}5$ (par 3) et $z = \frac{1}{2}\ln 1{,}5 \approx 0{,}2027$.
+3. $1 - \sigma(z) = \frac{e^{-z}}{1 + e^{-z}}$, donc $\frac{\sigma(z)}{1 - \sigma(z)} = \frac{1}{e^{-z}} = e^{z}$.
+4. $2\sigma(2z) - 1 = 0{,}2$ donne $\sigma(2z) = 0{,}6$, de cote $\frac{0{,}6}{0{,}4} = 1{,}5 = e^{2z}$ (par 3) : $z = \frac{1}{2}\ln 1{,}5 \approx 0{,}2027$.
 5. $\sigma(u) = \frac{1}{2}$ si et seulement si $u = 0$ : $2x - 1 = 0$, $x = \frac{1}{2}$.
 
 <a id="papier"></a>
@@ -111,12 +111,12 @@ Pour la copie : le signe de d) dit que $P_6$ dépasse (de peu) la droite $P_4P_1
 
 ### Ex M10.3 — Une droite qui sépare deux petits nuages, et sa marge
 
-**Réponses** : a) `[16, 15, 8, -2, -5, -2]` · b) `0.8944` · c) `7.1554` · d) `"]-12 ; -2["` · e) `-7` · f) `2.2361` · g) `2.5`.
+**Réponses** : a) `[16, 15, 8, -2, -5, -2]` · b) `0.8944` · c) `[0.8, 2.4]` · d) `"]-12 ; -2["` · e) `-7` · f) `2.2361` · g) `2.5`.
 
 **Démarche.**
 - a) $\mathbf{w} \cdot P_i = 2x_1 + x_2$ vaut $20, 19, 12$ sur la classe $+1$ et $2, -1, 2$ sur la classe $-1$ ; on retranche 4.
 - b) Les $y_i(\mathbf{w} \cdot P_i + b)$ valent $16, 15, 8, 2, 5, 2$ : le minimum est 2, et $\frac{2}{\sqrt{5}} \approx 0{,}8944$.
-- c) La droite de b) est $2x_1 + x_2 - 4 = 0$ ; le score de $P_1$ vaut $14 + 6 - 4 = 16$, et sa distance $\frac{16}{\sqrt{5}} \approx 7{,}1554$ (c'est le point le plus éloigné ; les plus proches sont $P_4$ et $P_6$, de marge fonctionnelle 2).
+- c) La droite de la question b) est $2x_1 + x_2 - 4 = 0$ ; le score de $P_4 = (0, 2)$ vaut $-2$, et son projeté est $P_4 - \frac{-2}{5}(2, 1) = (0{,}8 ;\ 2{,}4)$, qui vérifie $1{,}6 + 2{,}4 - 4 = 0$. Il est à la distance $\frac{2}{\sqrt{5}}$ de $P_4$, la marge de b) : $P_4$ et $P_6$ sont les points les plus proches.
 - d) Il faut $12 + b > 0$ (le plus petit $\mathbf{w} \cdot \mathbf{x}$ de la classe $+1$) et $2 + b < 0$ (le plus grand de la classe $-1$) : $b \in\ ]-12, -2[$.
 - e) Le milieu, $b = -7$ : la droite est à égale distance des deux nuages.
 - f) Les marges fonctionnelles valent alors $12 - 7 = 5$ et $-2 + 7 = 5$ : $\frac{5}{\sqrt{5}} = \sqrt{5} \approx 2{,}2361$.
@@ -124,16 +124,16 @@ Pour la copie : le signe de d) dit que $P_6$ dépasse (de peu) la droite $P_4P_1
 
 Pour la copie : la droite de plus grande marge est la médiatrice de $[P_4, P_3]$, de normale $(3, 4)$, qui passe par le milieu $(1{,}5 ;\ 4)$ : $3x_1 + 4x_2 - 20{,}5 = 0$. Ses marges fonctionnelles valent $24{,}5$ ; $20{,}5$ ; $12{,}5$ sur la classe $+1$ et $12{,}5$ ; $14{,}5$ ; $17{,}5$ sur l'autre : le minimum, $12{,}5$, divisé par 5, redonne $2{,}5$. Il faut vérifier que les autres couples sont plus loin : $P_3$ et le côté $P_4P_5$, par exemple, ou $P_2$ et $P_6$.
 
-**Erreurs fréquentes.** Oublier $b$ dans les scores (la marge devient $-\frac{2}{\sqrt{5}}$, et la distance de c) $\frac{20}{\sqrt{5}}$) ; diviser par $\lVert \mathbf{w} \rVert^2 = 5$ au lieu de $\sqrt{5}$ ; prendre la marge sur une seule classe ; un intervalle fermé en d) (aux bornes, un point est sur la droite) ; en g), répondre $\sqrt{5}$, la meilleure marge pour la seule direction $(2, 1)$.
+**Erreurs fréquentes.** Oublier $b$ dans les scores (la marge devient $-\frac{2}{\sqrt{5}}$) ; en c), un signe (on trouve $(-0{,}8 ;\ 1{,}6)$) ou une division par $\sqrt{5}$ au lieu de 5 ; diviser par $\lVert \mathbf{w} \rVert^2 = 5$ au lieu de $\sqrt{5}$ ; prendre la marge sur une seule classe ; un intervalle fermé en d) (aux bornes, un point est sur la droite) ; en g), répondre $\sqrt{5}$, la meilleure marge pour la seule direction $(2, 1)$.
 
 **Variante.** Avec $\mathbf{w} = (1, 1)$, l'intervalle des $b$ qui séparent, et la meilleure marge ? *Réponse* : le plus petit $x_1 + x_2$ de la classe $+1$ vaut 9, le plus grand de la classe $-1$ vaut 2 ; $b \in\ ]-9, -2[$, et $b = -5{,}5$ donne $\frac{3{,}5}{\sqrt{2}} \approx 2{,}4749$, mieux que $(2, 1)$ mais moins que $2{,}5$.
 
 ### Ex M10.4 — L'astuce du biais : une droite du plan devient un plan de ℝ³ passant par l'origine
 
-**Réponses** : a) `[4, 3, -2]` · b) `[1, 3, -2]` · c) `0.8321` · d) `1.1094` · e) `[3, 2]` · f) `2` · g) `[-2, 1, 2]`.
+**Réponses** : a) `[1, 0.75, -0.5]` · b) `[1, 3, -2]` · c) `0.8321` · d) `1.1094` · e) `[3, 2]` · f) `2` · g) `[-2, 1, 2]`.
 
 **Démarche.**
-- a) Le biais, puis les poids.
+- a) $\Delta$ est décrite par $\tilde{\mathbf{w}} = (4, 3, -2)$, le biais en tête, et par tous ses multiples non nuls ; divisé par 4 : $(1 ;\ 0{,}75 ;\ -0{,}5)$.
 - b) Même normale $(3, -2)$ : la parallèle a pour équation $3x_1 - 2x_2 + b' = 0$, et $\mathbf{p} = (1, 2)$ impose $3 - 4 + b' = 0$, soit $b' = 1$. Le biais en tête : $(1, 3, -2)$.
 - c) Deux droites $\mathbf{w} \cdot \mathbf{x} + b = 0$ et $\mathbf{w} \cdot \mathbf{x} + b' = 0$ sont à la distance $\frac{|b - b'|}{\lVert \mathbf{w} \rVert}$ : $\frac{3}{\sqrt{13}} \approx 0{,}8321$. C'est aussi la distance de $\mathbf{p}$ à $\Delta$ : son score vaut $3 - 4 + 4 = 3$.
 - d) Le score de $\mathbf{q}$ vaut $-6 - 2 + 4 = -4$ : $\frac{|-4|}{\lVert (3, -2) \rVert} = \frac{4}{\sqrt{13}} \approx 1{,}1094$.
@@ -143,7 +143,7 @@ Pour la copie : la droite de plus grande marge est la médiatrice de $[P_4, P_3]
 
 Pour la copie : $\mathbf{p}$ est du côté positif de $\Delta$ (score 3), $\mathbf{q}$ et $\mathbf{r}$ du côté négatif ($-4$ et $-2$). Pour un point du plan, $\tilde{\mathbf{v}} \cdot (1, x_1, x_2) = -6 + 2x_1 + 3x_2$ : la droite de e) est $2x_1 + 3x_2 = 6$, qui passe bien par $(3, 0)$ et $(0, 2)$. La droite de f) passe par l'origine parce que la première coordonnée de $\tilde{\mathbf{v}}'$, son biais, est nulle : $\tilde{\mathbf{v}}' \cdot (1, 0, 0) = 0$.
 
-**Erreurs fréquentes.** Le biais à la fin (`[3, -2, 4]`) : la convention de l'énoncé, celle de la fiche, le place en tête ; en b), le signe de $b'$ (`[-1, 3, -2]`) ; en c) et d), diviser par la norme d'un vecteur relevé (dans $\mathbb{R}^3$) au lieu de celle de $\mathbf{w}$ ; en f), lire $\tilde{\mathbf{v}}'$ avec le biais à la fin (on trouve 3).
+**Erreurs fréquentes.** En a), ne diviser que le biais (`[1, 3, -2]`) ; en b), le signe de $b'$ (`[-1, 3, -2]`) ou le biais placé à la fin (`[3, -2, 1]`) ; en c) et d), diviser par la norme d'un vecteur relevé (dans $\mathbb{R}^3$) au lieu de celle de $\mathbf{w}$ ; en f), lire $\tilde{\mathbf{v}}'$ avec le biais à la fin (on trouve 3).
 
 **Variante.** Le vecteur $\tilde{\mathbf{u}}$, de première coordonnée $-4$, d'un plan par l'origine qui contient les points relevés de $(4, 0)$ et de $(0, -2)$ ? *Réponse* : $\tilde{\mathbf{u}} \cdot (1, 4, 0) = -4 + 4u_1 = 0$ et $\tilde{\mathbf{u}} \cdot (1, 0, -2) = -4 - 2u_2 = 0$ donnent $(-4, 1, -2)$, la droite $x_1 - 2x_2 = 4$.
 
@@ -211,22 +211,22 @@ Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf
 
 ### Ex M10.9 — Pont : seuil, sigmoïde, tanh et ReLU appliqués à un même score linéaire
 
-**Réponses** : a) `[1.25, 2.5, -2.5]` · b) `[1, 1, 0]` · c) `[0.7773, 0.9241, 0.0759]` · d) `[0.8483, 0.9866, -0.9866]` · e) `[1.25, 2.5, 0]` · f) `1.7346` · g) `0.7757`.
+**Réponses** : a) `[0.75, 2.25, -1.75]` · b) `[1, 1, 0]` · c) `[0.6792, 0.9047, 0.148]` · d) `[0.6351, 0.978, -0.9414]` · e) `[0.75, 2.25, 0]` · f) `0.9241` · g) `0.3469`.
 
 **Démarche.**
-- a) $-0{,}25 + 1 + 0{,}5 = 1{,}25$ ; $0 + 2 + 0{,}5 = 2{,}5$ ; $-3{,}5 + 0{,}5 + 0{,}5 = -2{,}5$.
-- b) $H(1{,}25) = H(2{,}5) = 1$, $H(-2{,}5) = 0$.
-- c) $\sigma(1{,}25) = \frac{1}{1 + e^{-1{,}25}} \approx 0{,}7773$, $\sigma(2{,}5) \approx 0{,}9241$, $\sigma(-2{,}5) \approx 0{,}0759$.
-- d) $\tanh(1{,}25) \approx 0{,}8483$, $\tanh(2{,}5) \approx 0{,}9866$, $\tanh(-2{,}5) \approx -0{,}9866$ ; ou $2\sigma(2z) - 1$.
-- e) $\max(0, z)$ : $1{,}25$, $2{,}5$, $0$.
-- f) $1 + e^{-z} = \frac{1}{0{,}85}$, $e^{-z} = \frac{0{,}15}{0{,}85} = \frac{3}{17}$, $z = \ln\frac{17}{3} \approx 1{,}7346$.
-- g) La ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = \ln\frac{17}{3}$, à la distance $\frac{1{,}7346}{\sqrt{5}} \approx 0{,}7757$ de la frontière.
+- a) $4 - 2{,}25 - 1 = 0{,}75$ ; $4 - 0{,}75 - 1 = 2{,}25$ ; $0 - 0{,}75 - 1 = -1{,}75$.
+- b) $H(0{,}75) = H(2{,}25) = 1$, $H(-1{,}75) = 0$.
+- c) $\sigma(0{,}75) = \frac{1}{1 + e^{-0{,}75}} \approx 0{,}6792$, $\sigma(2{,}25) \approx 0{,}9047$, $\sigma(-1{,}75) \approx 0{,}1480$.
+- d) $\tanh(0{,}75) \approx 0{,}6351$, $\tanh(2{,}25) \approx 0{,}9780$, $\tanh(-1{,}75) \approx -0{,}9414$ ; ou $2\sigma(2z) - 1$.
+- e) $\max(0, z)$ : $0{,}75$, $2{,}25$, $0$.
+- f) $\lVert \mathbf{w} \rVert = \sqrt{16 + 9} = 5$ : un point à la distance signée $0{,}5$ a pour score $z = 0{,}5 \times 5 = 2{,}5$, et $\sigma(2{,}5) \approx 0{,}9241$, en tout point de cette droite.
+- g) $\sigma(z) = 0{,}85$ donne $1 + e^{-z} = \frac{1}{0{,}85}$, $e^{-z} = \frac{0{,}15}{0{,}85} = \frac{3}{17}$, $z = \ln\frac{17}{3} \approx 1{,}7346$ ; la ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = \ln\frac{17}{3}$, à la distance $\frac{1{,}7346}{5} \approx 0{,}3469$ de la frontière.
 
-Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b = c\}$ est une droite parallèle à la frontière (même normale $\mathbf{w}$). Par sortie croissante de la sigmoïde : $\mathbf{p}_3$ ($z = -2{,}5$), $\mathbf{p}_1$ ($1{,}25$), $\mathbf{p}_2$ ($2{,}5$) ; tanh, strictement croissante, donne le même classement, et ReLU aussi sur ces trois points ; le seuil ne garde l'ordre qu'au sens large : il met $\mathbf{p}_1$ et $\mathbf{p}_2$ à égalité. Une activation croissante garde l'ordre des scores ; seule une activation strictement croissante n'en confond aucun. La région « sortie $> \frac{1}{2}$ » est le demi-plan $z > 0$ pour la sigmoïde ; pour le seuil, c'est aussi $z > 0$ ; pour tanh, c'est $z > \operatorname{artanh}(0{,}5) \approx 0{,}55$ (le niveau neutre de tanh est 0, pas $\frac{1}{2}$) ; pour ReLU, $z > \frac{1}{2}$.
+Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b = c\}$ est une droite parallèle à la frontière (même normale $\mathbf{w}$). Par sortie croissante de la sigmoïde : $\mathbf{p}_3$ ($z = -1{,}75$), $\mathbf{p}_1$ ($0{,}75$), $\mathbf{p}_2$ ($2{,}25$) ; tanh, strictement croissante, donne le même classement, et ReLU aussi sur ces trois points ; le seuil ne garde l'ordre qu'au sens large : il met $\mathbf{p}_1$ et $\mathbf{p}_2$ à égalité. Une activation croissante garde l'ordre des scores ; seule une activation strictement croissante n'en confond aucun. La région « sortie $> \frac{1}{2}$ » est le demi-plan $z > 0$ pour la sigmoïde ; pour le seuil, c'est aussi $z > 0$ ; pour tanh, c'est $z > \operatorname{artanh}(0{,}5) \approx 0{,}55$ (le niveau neutre de tanh est 0, pas $\frac{1}{2}$) ; pour ReLU, $z > \frac{1}{2}$.
 
-**Erreurs fréquentes.** Oublier $b$ dans les scores ; un seuil qui vaut $-1$ pour les scores négatifs (celui de l'énoncé vaut 0) ; $\tanh(z) = 2\sigma(z) - 1$ (le facteur 2 dans l'argument manque) ; en f), prendre le logarithme avant d'isoler $e^{-z}$ ; en g), oublier de diviser par $\lVert \mathbf{w} \rVert$.
+**Erreurs fréquentes.** Oublier $b$ dans les scores ; un seuil qui vaut $-1$ pour les scores négatifs (celui de l'énoncé vaut 0) ; $\tanh(z) = 2\sigma(z) - 1$ (le facteur 2 dans l'argument manque) ; en f), prendre la distance pour le score ($\sigma(0{,}5)$) ; en g), prendre le logarithme avant d'isoler $e^{-z}$, ou oublier de diviser par $\lVert \mathbf{w} \rVert$.
 
-**Variante.** Le score pour lequel $\sigma(z) = 0{,}15$ ? *Réponse* : $e^{-z} = \frac{0{,}85}{0{,}15} = \frac{17}{3}$, donc $z = -\ln\frac{17}{3} \approx -1{,}7346$ : la ligne de niveau $0{,}15$ est de l'autre côté de la frontière, à la même distance que celle de g).
+**Variante.** La sortie de tanh en un point à la distance $0{,}2$ de la frontière, du côté négatif ? *Réponse* : $z = -0{,}2 \times 5 = -1$, et $\tanh(-1) \approx -0{,}7616$.
 
 ### Ex M10.10 — MML §12.1 : les hyperplans séparateurs, en anglais
 

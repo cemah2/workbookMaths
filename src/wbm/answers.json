@@ -32293,30 +32293,40 @@
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
     "M10.3c": {
-      "coarse_any": {
-        "0": [
-          "504582477a7621016e146a1c4dad182a269e47b099663ee817ea907a085eb66c"
-        ]
-      },
-      "coarser": {
-        "1": [
-          "92d789789220e46e5db68394ace397f7b6a5d016e68eeb499a21d977e0bf1be5"
-        ],
-        "2": [
-          "7946ae4c3e44d76845ab272ce73b5b6caf03f41b90f6d7f6667682b940e129e2"
-        ]
-      },
       "decimals": 4,
-      "hash": "3c8f37b72c5b2348bca6136348a59c0f6ac7387f3575f32f51e3194ce0ccd2b1",
-      "hash_coarse": "16d1fcb9e64858dcb0b902cb42cd758439ee6a23df00859651016826199740f0",
-      "kind": "float",
-      "magnitude": 0,
+      "element_coarse": [
+        [
+          "4452bcd3eec13b17980efb6409feffe6d979ee606c6606c3ba8c0b5e34d45701"
+        ],
+        [
+          "a41fee6a24f67e298f53c3df1068cdb7b32a4404be8a72b4b4a51c83b479e012"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "93b5a751523074ba06b5301d4d1ea9c57486ca6daffcd1f6c9d2bac48153de28",
+          "c8ba7dac592fe6a260cda2df98bc9f7a349d288c51ac965655a228320f96498d",
+          "16cfc0712e9a4d31f77cee852ae35bef6511e55e60c9b6019f8c1ee30d8bac07"
+        ],
+        [
+          "ebe4643373d9bf23885fe7a0a7e5f162ee2eeb250ec4a77dd9981fe28a886eb4",
+          "0b5ab162fa35e41ea7e3b2e3f3f53609fee7871f2f51c852628b205c34ffc182",
+          "4c580e026a3756ef9ed9c1220f98f1d599e27883d3b4d2b0e3d2d65edfebd5bc"
+        ]
+      ],
+      "element_hashes": [
+        "10768d30a6197db083c9161358cfbbd6664c9ff61ec47401c4102c42a6b8eb93",
+        "4d0f93785c984629d7aa9a39771ab4ad94f2104bf1eb83b9b0055fdc2727f332"
+      ],
+      "hash": "c464650daee3ffcf28d8689c11b1de6639a9da4e73495f43dfffe671876ef5eb",
+      "kind": "array",
       "mistakes": {
-        "479ab0b0ebb4363ceaf2a3ba61220b6e0233b3c94d9e513105c678fe45e496ab": "le score est w · P₁ + b = 14 + 6 − 4 : n'oublie pas b",
-        "b1ac4de874c654c2e37ef277ba84fdcdef9f6b8505850f355de8b31a0fd5c5d6": "‖w‖ = √5, pas 5",
-        "c16fc31492129205aa8a1d8f823b2fbb9fb9e1d8f0036db864ad231befec68e5": "une distance est |w · P₁ + b| / ‖w‖ : divise le score par ‖w‖ = √5"
+        "0df070640903c56b5c6ec332a855590387c3c20418f47de8a2fbe79e226160a1": "divise le score par ‖w‖² = 5, pas par ‖w‖",
+        "918126328b0ccb76724f9e3da5a9b75fc4437babd1b4b5f8fae3f956f62aac2d": "le projeté est P₄ − (w · P₄ + b) / ‖w‖² × w, avec un score de −2 : attention au signe"
       },
-      "sign": 1,
+      "shape": [
+        2
+      ],
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
     "M10.3d": {
@@ -32385,17 +32395,38 @@
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
     "M10.4a": {
-      "decimals": 0,
-      "element_hashes": [
-        "6badd9374f1ba30135a83cafa5812758630cac9a4ac96daa160950596cbbb0fb",
-        "47af9bdbabbad67adfcb5f923b8f072709b128f29e9f2c51ea5bf76443e38973",
-        "b58eb08e9710089a7ae29e0b91db1baff3f8b59697e2fd5f31bef049229915f7"
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "5b943cf18c631ad94db0ce6ce1114c6ba1720e5ea45e72cf152d50b00f298367"
+        ],
+        [
+          "76992a6c178546bca172f8089d6a22f275479c4c32b84409f67a02c1f2abc71b"
+        ],
+        [
+          "3cc19937381804899b8520c8391820780400056572a28484eb3a56cc875d962a"
+        ]
       ],
-      "hash": "60168cede8def67823bf13a4090017a47815917629985b77db44260673ef2595",
-      "integer": true,
+      "element_coarse_any": [
+        [
+          "e3cf2d4fd02bcdd6c9602c799252409388d6f3f222a093e544cfac236a9e37d9"
+        ],
+        [
+          "6ae752167e7c65d3f067cf10fdada732a15aa80a48de638676606a72627185f6"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "31af5c19002b0da1da77365209ffa73f642a21fd52db936a48683421a5604308",
+        "32ca528030e997b4cfbbff5e32d99320e9637eb0b13c2abefbe00601b40267bb",
+        "234fb58d5cd55f6e1465c77aaf289608cd54c8b4ead354319ceae4e6469d0d74"
+      ],
+      "hash": "f085739889084f2f3fb6d9f9b751b0512fcc757b40456febc7d9e3e53f78804c",
       "kind": "array",
       "mistakes": {
-        "4f750ca6075d47e914da4c5ac669fdb332ee65e4053ce85ae530da1dba389dc8": "le biais se place en tête : (b, w₁, w₂)"
+        "08aac54cd4a2dcbf918b8bf40971cde2219727962670c8943eb404b9aabd51c8": "c'est un vecteur de Δ ; la question demande celui dont la première coordonnée vaut 1 : divise tout par 4",
+        "9f1a1d76ef4e4669935110abb432c7f8549d9d7d8c97fdf30400009a576a68cf": "multiplie les TROIS coordonnées par le même nombre, 1/4",
+        "bd42223c6e897bb8a117ce85d44f2ec28865930822230ff7821d35a368046a41": "le biais se place en tête : (b, w₁, w₂)"
       },
       "shape": [
         3
@@ -32639,14 +32670,14 @@
       "decimals": 2,
       "element_coarse": [
         [
-          "049816451af8cdd3f3aa1ccbe6e74da6adf31b6eecf3299571a4e837ad34dbe5",
-          "332145a88d0253029b5e90880569dbdfd47f00b8dc202ac7221b1410d5aa75a9"
+          "8d6a40cb5f19de2696ac4f1a9a9f5a74447d83acf5f1d7f0061d9ff30f702853"
         ],
         [
-          "5a6c0eb3205810e49f0b0afc1d9327bcf1b8400944b33a5b7701dac1e8bcaa39"
+          "727e7cbaeab0e6cb427b10c711adf8cff59ec009828712b5dc8922519fc86c43",
+          "5157b5b764ba8b0fa96d13b8ab1e550d538d15721cd3d090b6ba790591400ea8"
         ],
         [
-          "6fc6899c055e13dd278cbfcb235b3daea7c11d1f4d62b2ee82010f554d622c3d"
+          "fbf963ae72fbc2fb333568efbf44b357c19862ed396976eda813b663c134cb8c"
         ]
       ],
       "element_coarse_any": [
@@ -32654,24 +32685,22 @@
           "c0162b2ae87242b568f82572dfecd7f0d97712a5f9f11e1da35db2625e6071ab"
         ],
         [
-          "f4d7b3c2323cbbcf84546a7fdda53f365724577de1da00d3be0a6ef0447d35a8",
-          "6bad9ed66314a03a4d4f864b686c7be934a551e6e9b94ed40f4d5577e0f692fa"
+          "f4d7b3c2323cbbcf84546a7fdda53f365724577de1da00d3be0a6ef0447d35a8"
         ],
         [
-          "3507fa3550328612129ae8820cdffb0bb6b3453944d8629361741a0dd0914e54",
-          "c482754bb631c73f7b0f923c0ed6bc6e03923a10a0798b134b5a127a29900a9b"
+          "3507fa3550328612129ae8820cdffb0bb6b3453944d8629361741a0dd0914e54"
         ]
       ],
       "element_hashes": [
-        "88bbf74323884a1f07906b08657d25464db7086d47490f35cc400e99b052a4e7",
-        "0b8454d5fa31054adb9353f58bd484ef8a4ff63bdc76d3dbf7202668ed2bf855",
-        "5a6039da12015a605de17431a9d99a4f1ae98bba8a5a7f3f4d908efd942c49a1"
+        "3ef4ed16535d00841b201543ca56da211156d99e449ade25559dd3b4d058d6d4",
+        "53a80f30fb9388357b4d8802537e852467d5c859952fe07421e43d4c5a9c1176",
+        "5c88446ad007f8e73015abdef0507a1284916cd0152dd2b50cd07042a0c0e2bc"
       ],
-      "hash": "80a2ba4c8a12671a5e66f1dff8e47e29c238852b8560104d45272a71f74c1772",
+      "hash": "19ca41a77372984c43aa9fe19bb142d6186feef3fd6cde82f3ff465af37e316a",
       "kind": "array",
       "mistakes": {
-        "8629da04a2117f8d81417beaa122dc0265389f0fa6737b4d4739445780764410": "w = (−1, 2) : le premier poids est négatif",
-        "b9578ab10db6bd7245ea4b02d3cf74f46be86f20cfd979d6e034e897b057d3ce": "le score est w · x + b, avec b = 0,5 : n'oublie pas b"
+        "50bb0e0bdaac8d6e0ac35075bb4a57ffe2d9b6de35dd527ace312eb6c5597f8b": "le score est w · x + b, avec b = −1 : n'oublie pas b",
+        "6c59094207702efe97262abe7dc2a4b84d7a9105461a57f81e4f2892c174314e": "w = (4, −3) : le second poids est négatif"
       },
       "shape": [
         3
@@ -32690,8 +32719,8 @@
       "kind": "array",
       "mistake_decimals": 2,
       "mistakes": {
-        "a8f5d45ccb71c132864ffa68f23470df3f08f199e89c7614f16060866453d2b2": "H donne 0 ou 1, pas le score : 1 si z > 0",
-        "e531ed98600e49fc9c43ee35d7c60313544876d3585037f945fb5e4863ad6ce7": "le seuil vaut 0 ou 1 : H(z) = 0 pour z ≤ 0, jamais −1"
+        "e531ed98600e49fc9c43ee35d7c60313544876d3585037f945fb5e4863ad6ce7": "le seuil vaut 0 ou 1 : H(z) = 0 pour z ≤ 0, jamais −1",
+        "f5da01c6c82ec3eba208067d5c566f71b114240c47440a8aa008e40a01ec59e0": "H donne 0 ou 1, pas le score : 1 si z > 0"
       },
       "shape": [
         3
@@ -32702,40 +32731,40 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "eb5826c76477edf0123c3615b44612981ca696c28bc6a28990d9debbde0b7d12"
+          "11e1c2a035c54c14df5daba0c823faa27832816dca53d35b002c8d3252c699bb"
         ],
         [
-          "4a938a26488d5a44a8bdd4d523f1096ce6a914bca1905811a68d252b63a125be"
+          "9cb1bbf993a04e6a7d7e1b76647da3ad0711f37a7a7ca15aff264dfaff6e09f2"
         ],
         [
-          "9cf35c2d05a673ec8a6d7b244c0ef7bac7076f68ff78c40e91eff9a762c729b5"
+          "b62d1eca580c523fba61baadd938bb30897193b8f25c1ab6de72e033c3cb00a8"
         ]
       ],
       "element_coarse_any": [
         [
           "cf9ff4995fcddffedf11bbfcfd50a5388fc82ab5d5531be5abaca795628f2852",
-          "403bc95b783370ea3d483030f7301140571f88df49da6f5ce1b220f033145530",
-          "fe995523931687435d541e5fb2a47d38563666c816396b3bdb52a134e708065c"
+          "a44cd50646eb6be97d628ec38df84a8f0767e507881263180a63f0a1eafe0fd2",
+          "a1609ce06e1d189f3b8149c6cda0900f06a99442dccb5527ae2147e82a6543e1"
         ],
         [
           "d5531c8b48ecc29173edbab246ec4d21d8bb2e0aad20221efd48d38172ea5131",
           "4c66525a30e76cc0eba1deddbb0a9bb174de5a264f44bc82597c83c25a35e222",
-          "e77f0abb9c910ef213a20d0e6b75e8278388dc242f7dd34c4ae2a078ab88da51"
+          "fec14ac27c04c6e958b82de2d127f3078dae02b83eb1cb7c83315d73d1bf2d0a"
         ],
         [
           "d7bf644db9d2a54495bce453cb1c667fdbed01178c5faccad914584d86918afc",
-          "6017821bd4754bad4dd3d4851eed2f70de03badf9afda45a210e3e0890013a22"
+          "e90b3a75c3b353e6ca1e56a07e8bca77d735d058d9b02c23d1104e729c325c75"
         ]
       ],
       "element_hashes": [
-        "738154643d7548433be25b434965fb0fbdac7128af4c0131974b4db4d0112b59",
-        "8bb91022c1f48f77e65c4f7cfc92264e4684fae061636f524a9773bd7d9fbc0a",
-        "f63404b0a72e3765c029a005be44538a93d6bdef4c085d1c58948594f7fba6cf"
+        "a9ff0aaaed711a6165fb617ac9c8eb949b1f1b8a1d317e5482628a6cf7079659",
+        "9c88f1c1086bdd7fc83eb8f7edde3cb67275fe3b5c8015de893f3241afe65cbf",
+        "f5f300061716ac685339cdec7f1cca0baa72d7e5e1fae354e3fad2f91928634c"
       ],
-      "hash": "e0e35948fee777667eaf397d17da05e38b22373409ce2ca155d51304d613353c",
+      "hash": "8dbf45bfb37a9be32120d594338a1027f83e179ecdb362180ab5942aa0030133",
       "kind": "array",
       "mistakes": {
-        "04ccd45484a8af1be9c15b246c8e4a8859dc286f1002df44f94fee7f7c6c5a09": "σ(z) = 1/(1 + e^(−z)) : le signe dans l'exponentielle"
+        "2929bc108d207bae4b7d30e79cc6660be899aeb01cd1a71b8efd81b8b68765e0": "σ(z) = 1/(1 + e^(−z)) : le signe dans l'exponentielle"
       },
       "shape": [
         3
@@ -32746,41 +32775,41 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "13c39d5349ccb8747795b10e315b528a092943b391fe5d47e2253536e81cd3b1"
+          "73f26c61ce5dc4babeb9883c84b327e50f95485136c1ebf042cd033d04959d77"
         ],
         [
-          "581cade543389899491ec279c04adbef105e3a854e9fa181caa614d112da121b"
+          "49a774a8f387884bcf93dc2a089ee764f4e34dde79b5ff6f60db72ea68f3e41c"
         ],
         [
-          "aa10ff0a3beefaf87ca517a4c68ddecef9e693d89949a1e853ad3f45b1665d95"
+          "d95f364d8defa2da65bae787d14480e0a9940395b0ce510f0288cd5f4994dc17"
         ]
       ],
       "element_coarse_any": [
         [
           "6afd63c6b59494ec1bb1ee787fa709bee74e5c56b97c97625e1b0b50840468d8",
-          "f598aea558c2e24599992fa7b14a3ee6c82dd4dd5476d031ddc49e49d785299d",
-          "561109b95fc3b5990451046f1680df7e0e1eab0aa158ff3d6868078f31538127"
+          "28064c47df8fab95b7327782c287e8042bc1de4ccffe2d6649480061d29d73b2",
+          "daa808fdca850ece9e9f4bf39d161462a56eebebca63aa14c2cf9426509b6a11"
         ],
         [
           "7ce029a19fb3d539d5d59e3a99f9d73f344a1fc622c3f57b836927b7a8ef5cde",
           "4260cada3bfe64b7fd68f90dce104e78cf9337b7993d26ac4dea77318a7722ea",
-          "8f5e30d218a6b8b7f662982fdbce13987585c6e1c9c37172c8e9266eaf090698"
+          "95443dfad98a442ef4b166af5440303ffd7bb31e7c5dd92dd15d15edc7f15c9a"
         ],
         [
           "ed18f8f6363ae8873d3965e82e28ef5a88c552e054eacdef38b68000f254a8b1",
-          "1aba6b8fae0116899de7527ac4b5ceb0fb405f7570c535d18bb01ac531a81c5b",
-          "da53863d0d051db44241dec4f2ce7537c9053d8dda528b5d268794460368d493"
+          "4fd1f59a279573795f68a96d3afe2e1874407e03004a245935d6afd314ed690b",
+          "6cd96d5dca52d2438ced00163eef9a66b4cedbe607acf7a1e8f8a500dfd1e444"
         ]
       ],
       "element_hashes": [
-        "becd6d3f4b984a61d657778feb1c10ef27b57f98c480846871052caf97b65333",
-        "011f8d208f779be75ef3781913adb30155fe1be909d30ba014c5863e532c1d5c",
-        "a6816b6f0dab61e55dd41df7908317e1737dddaa0713b464d6ff19ee0e327017"
+        "a26709a0711ad2fa88a8f864741adf5e1f219e8a5215351b948483cc27534e4d",
+        "185aa229a21cf18ace9b9ab0c4892fa010a19d4830680c52172cb527e980e70b",
+        "80243a4fe14b21ed05d088390deb208848628327ac2b68e9d96ce8f4056145ef"
       ],
-      "hash": "8c68b35ba0dfa7488519b4e666f254bb43912b20ebc76cbbd41f3f48b38cd84d",
+      "hash": "b88b20b883469d75fd1bc5e04ed740b25fb7174c6badebf620dc9974168c091b",
       "kind": "array",
       "mistakes": {
-        "2f8a59bf0d2cb41b9246e4d0b50f37fce56dccc6f8ad8f06d5a2631bb38c71c1": "tanh(z) = 2σ(2z) − 1, pas 2σ(z) − 1"
+        "bb7ea8c7ea02a3d53e02cefb2bd3bfdbe618637bc810c33da5ba2685454500f3": "tanh(z) = 2σ(2z) − 1, pas 2σ(z) − 1"
       },
       "shape": [
         3
@@ -32791,11 +32820,11 @@
       "decimals": 2,
       "element_coarse": [
         [
-          "804ac6f4678a8240f7d5dec9562d86c621697bcf59b5fc538a5e9722b4003e0e",
-          "4ee87e88c6fa54ee554bcef0877c3537f416c9740bad3a27a5e58ad928b90d92"
+          "17e3dedff052a3d3eefe2d8357d78dd77ea7b48529a5eafa629fe2987aae9322"
         ],
         [
-          "eb00b3b2d03a19f3cee3f0cdbde7480ce10e8e4e186a3297de97c6b2798cb620"
+          "9ab277467c68fbb7c8f82598639369d8acdcdb33a2f8338f2156d70da9010df3",
+          "fa3b437cc8fb28f2a19ce1e9c231b2ab888e3284bda2941176a6980de3c7e279"
         ],
         [
           "fe64d28f7024fb9076998cded0217db5cdb63a5212a7d5ef987feeff9ac23f9b"
@@ -32806,21 +32835,20 @@
           "411776bf75a7976c03fbd2679a204f5694444f5f1d8137f4fc1484af1f6c605a"
         ],
         [
-          "225c83970d4aa692036f4d319f1bf5185f41dbc5336fedaa90db5518c9fd9362",
-          "abed96839a5b24613e03660224350df68d5fd53c3036441c1fdcadd7600a6535"
+          "225c83970d4aa692036f4d319f1bf5185f41dbc5336fedaa90db5518c9fd9362"
         ],
         []
       ],
       "element_hashes": [
-        "c70143d86af7a90aab5f6fade839e5ece0820b2d4cad71ef28200812d7ea9937",
-        "2c469ec757771a8502a328d32600ac49d9ce2622c22eee665320941ad0d7f855",
+        "0bea0c09db818f02799edd5813d163cf551b335f7ddc7b1cafd6b01963df7962",
+        "fa2900ef737558a3fb17804d530a5b709cde4cf89336a62b517c9b57e1eb5710",
         "d2fc88ebc5daae37ca4f31314560d6ace7e18c2932f9ad7b8dc664aa9f12f4c1"
       ],
-      "hash": "b3bfdf69b85bbfcc76c11037f2a305c670451ece20036d664f3b735048c3758e",
+      "hash": "374ddc9ce55e59fed1b4a9c4109a411ae05990d98a5a29992d7742bf70fdf46e",
       "kind": "array",
       "mistakes": {
         "2c8d7f9898d4822c6248a3edf5d3e9ace33dc51b95aecd3c3e9aa50fe0c2c829": "ReLU(z) = max(0, z) garde z quand il est positif",
-        "83c3744f124e80a6b5c1505b5d078c33dee6dc8ebca79dfa23beb1c0a4fd0062": "ReLU(z) = max(0, z) : un score négatif donne 0"
+        "88a39dc97e6826b35a2580baf006a4bf141081ce3fcf2d2e28744688d3c41136": "ReLU(z) = max(0, z) : un score négatif donne 0"
       },
       "shape": [
         3
@@ -32830,51 +32858,50 @@
     "M10.9f": {
       "coarse_any": {
         "0": [
-          "31ade145e06782f025397b096d2e50728316c6d6796c86f09a8210f754b05533"
+          "61bb17d47e548f2994ef98a139acd609cf4f1f808494fb8615aaf32aa6e4f06c"
+        ],
+        "1": [
+          "a52b90d223141a1c92cfdf17bd21c901490be2874949811e8f043bea70875a7e"
         ]
       },
       "coarser": {
-        "1": [
-          "6caaae4d9c1d478bb19523fe6dd910fb51d9c37c38b55b225fd21c52b2d9f000"
-        ],
         "2": [
-          "80795cc7ee986ab9fa5c3c5c93f25b139ebc9471a6a800bb8b886a971cdfb636"
+          "d73bf774df829977cc3a04b31c62a08ba9e6c645a46e06a0adc51964ced50d45"
         ]
       },
       "decimals": 4,
-      "hash": "9288d4ff42f6f53a794b125d4976b871039d570c79fdb67ab2bfda6f3d08d6a8",
-      "hash_coarse": "43f0e6d8469646706b6cdbb84620409ef6059d1bafc3c81606158abccf76376c",
+      "hash": "6241d8dc9a8f82eb9519f72139242d82b15dd69febd22dc0da435a426fbcb4c5",
+      "hash_coarse": "2c4b9952c42b9578a06b821db125bcbe04e3eb4d8824b06cd73072d2fec4ae5c",
       "kind": "float",
-      "magnitude": 0,
+      "magnitude": -1,
       "mistakes": {
-        "0740bec68c5fad6bfa12b2e24ebd84055b84baa90366b63216ce9541790fe313": "σ(z) = 0,85 donne e^(−z) = 0,15 / 0,85 = 3/17, donc z = ln(17/3), positif",
-        "4c5301b58242d70cf41aaea22f7fda1e64cb1f8e6c04bdf4a44ab2070316765b": "σ(z) = 0,85 donne 1 + e^(−z) = 1/0,85 : isole e^(−z) avant de prendre le logarithme"
+        "0a5fb635e23ad96c3a5c07d7a5cd7a90df283cc9a26d8491e4dfd65079dafd38": "une distance n'est pas un score : à la distance d, le score vaut d × ‖w‖ = 0,5 × 5",
+        "0f0548f7e17acd343ee38c3af3d921779cff8319fe5ad6ec10f5e9ea2708bab8": "‖w‖ = √(4² + 3²) = 5, pas 25",
+        "e49e3c8940c839e3fd1e3553843918400ce10749625a884979da7e05b21838d5": "le score vaut la distance MULTIPLIÉE par ‖w‖ = 5"
       },
       "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
     },
     "M10.9g": {
       "coarse_any": {
-        "0": [
-          "cfb915a3eb92e2f9678ec4b8488006d45a26633a88e8c84788814acbb38d3cad"
-        ],
         "1": [
-          "3020b62bbd1207a4a4d89e05febb943b6f3ac6863e40f986235a3958bc768814"
+          "3829c2aace9d1439ea749e8e099967b79b8c7fc279bdea69479e06c6c511a8ae"
         ]
       },
       "coarser": {
         "2": [
-          "5480c40cb4f676d927f43bdb71573c64d051c4629a52bdb6155ee46898f533ff"
+          "2b87d78d3060ce6c06c018c168a9f8977c4da4d4f6729a7b030607d619cc1579"
         ]
       },
       "decimals": 4,
-      "hash": "98db153ff5586ef7af9940935dfa630ce4e01eca866eae6dd4aa048995c421d1",
-      "hash_coarse": "55d3126cd843db55970fb3c2a3f77b3b49d316cc93d2e7ea364b9f78026d20a3",
+      "hash": "4046a6161c5839574c5555fe3d355047a2de34a56653ef58f15845bcd85255de",
+      "hash_coarse": "80b1376ae6c100df3a856717edcfa012a9e7be268eab208f51a83e0d0f112fd1",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "4046a6161c5839574c5555fe3d355047a2de34a56653ef58f15845bcd85255de": "‖w‖ = √5, pas 5",
-        "9630712a2db75c074731c8751c6f2a06b5c551e98e687a51c30123fb344743c7": "un score n'est une distance qu'une fois divisé par ‖w‖ = √5"
+        "1cc72712b7b01d524df3c099f1658e1176541d45478c6186b47b8b54ff63cde8": "‖w‖ = 5, pas 25",
+        "8c8e26a3983403b73e643924288547948716c3d1431caa66748c0d6f8c8aa5c1": "σ(z) = 0,85 donne 1 + e^(−z) = 1/0,85 : isole e^(−z) avant de prendre le logarithme",
+        "9630712a2db75c074731c8751c6f2a06b5c551e98e687a51c30123fb344743c7": "un score n'est une distance qu'une fois divisé par ‖w‖ = 5"
       },
       "sign": 1,
       "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"

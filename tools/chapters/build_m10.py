@@ -87,9 +87,9 @@ PAPER = [
          '''"‖w‖ = √(2² + 1²), pas 2² + 1²": 0.4, '''
          '''"la marge est le minimum sur les DEUX classes, la classe −1 comprise": 8 / math.sqrt(5), '''
          '''"le score est w · x + b : avec b, tous les points sont du bon côté": -2 / math.sqrt(5)}'''),
-        ("c", "a number (4 decimals)", "16 / math.sqrt(5)",
-         '''decimals=4, mistakes={"une distance est |w · P₁ + b| / ‖w‖ : divise le score par ‖w‖ = √5": 16.0, '''
-         '''"‖w‖ = √5, pas 5": 3.2, "le score est w · P₁ + b = 14 + 6 − 4 : n'oublie pas b": 20 / math.sqrt(5)}'''),
+        ("c", "a list of 2 numbers", "[0.8, 2.4]",
+         '''decimals=4, mistakes={"le projeté est P₄ − (w · P₄ + b) / ‖w‖² × w, avec un score de −2 : attention au signe": '''
+         '''[-0.8, 1.6], "divise le score par ‖w‖² = 5, pas par ‖w‖": [0.8 * 5 ** 0.5, 2 + 0.4 * 5 ** 0.5]}'''),
         ("d", "an interval", '"]-12 ; -2["',
          '''kind="interval", mistakes={"la séparation est stricte : aux bornes, un point est sur la droite": '''
          '''"[-12 ; -2]", "w · x + b > 0 sur la classe +1 donne b > −12, et < 0 sur la classe −1 donne b < −2": '''
@@ -106,8 +106,10 @@ PAPER = [
     ]),
 
     Paper("M10.4", "L'astuce du biais : une droite du plan devient un plan de ℝ³ passant par l'origine", [
-        ("a", "a list of 3 numbers", "[4, 3, -2]",
-         '''mistakes={"le biais se place en tête : (b, w₁, w₂)": [3, -2, 4]}'''),
+        ("a", "a list of 3 numbers", "[1, 0.75, -0.5]",
+         '''decimals=2, mistakes={"c'est un vecteur de Δ ; la question demande celui dont la première coordonnée vaut 1 : '''
+         '''divise tout par 4": [4, 3, -2], "multiplie les TROIS coordonnées par le même nombre, 1/4": [1, 3, -2], '''
+         '''"le biais se place en tête : (b, w₁, w₂)": [0.75, -0.5, 1]}'''),
         ("b", "a list of 3 numbers", "[1, 3, -2]",
          '''mistakes={"la parallèle passe par p : 3 × 1 − 2 × 2 + b′ = 0 donne b′ = 1": [-1, 3, -2], '''
          '''"c'est le vecteur de Δ ; la parallèle doit passer par p": [4, 3, -2], '''
@@ -155,28 +157,29 @@ PAPER = [
     ]),
 
     Paper("M10.9", "Pont : seuil, sigmoïde, tanh et ReLU appliqués à un même score linéaire", [
-        ("a", "a list of 3 numbers", "[1.25, 2.5, -2.5]",
-         '''decimals=2, mistakes={"le score est w · x + b, avec b = 0,5 : n'oublie pas b": [0.75, 2.0, -3.0], '''
-         '''"w = (−1, 2) : le premier poids est négatif": [1.75, 2.5, 4.5]}'''),
+        ("a", "a list of 3 numbers", "[0.75, 2.25, -1.75]",
+         '''decimals=2, mistakes={"le score est w · x + b, avec b = −1 : n'oublie pas b": [1.75, 3.25, -0.75], '''
+         '''"w = (4, −3) : le second poids est négatif": [7.5, 4.75, -0.25]}'''),
         ("b", "a list of 3 numbers", "[1, 1, 0]",
          '''mistakes={"le seuil vaut 0 ou 1 : H(z) = 0 pour z ≤ 0, jamais −1": [1, 1, -1], '''
-         '''"H donne 0 ou 1, pas le score : 1 si z > 0": [1.25, 2.5, 0]}'''),
-        ("c", "a list of 3 numbers (4 decimals)", "[sigmoid(1.25), sigmoid(2.5), sigmoid(-2.5)]",
+         '''"H donne 0 ou 1, pas le score : 1 si z > 0": [0.75, 2.25, 0]}'''),
+        ("c", "a list of 3 numbers (4 decimals)", "[sigmoid(0.75), sigmoid(2.25), sigmoid(-1.75)]",
          '''decimals=4, mistakes={"σ(z) = 1/(1 + e^(−z)) : le signe dans l'exponentielle": '''
-         '''[sigmoid(-1.25), sigmoid(-2.5), sigmoid(2.5)]}'''),
-        ("d", "a list of 3 numbers (4 decimals)", "[math.tanh(1.25), math.tanh(2.5), math.tanh(-2.5)]",
+         '''[sigmoid(-0.75), sigmoid(-2.25), sigmoid(1.75)]}'''),
+        ("d", "a list of 3 numbers (4 decimals)", "[math.tanh(0.75), math.tanh(2.25), math.tanh(-1.75)]",
          '''decimals=4, mistakes={"tanh(z) = 2σ(2z) − 1, pas 2σ(z) − 1": '''
-         '''[2 * sigmoid(1.25) - 1, 2 * sigmoid(2.5) - 1, 2 * sigmoid(-2.5) - 1]}'''),
-        ("e", "a list of 3 numbers", "[1.25, 2.5, 0]",
+         '''[2 * sigmoid(0.75) - 1, 2 * sigmoid(2.25) - 1, 2 * sigmoid(-1.75) - 1]}'''),
+        ("e", "a list of 3 numbers", "[0.75, 2.25, 0]",
          '''decimals=2, mistakes={"ReLU(z) = max(0, z) garde z quand il est positif": [1, 1, 0], '''
-         '''"ReLU(z) = max(0, z) : un score négatif donne 0": [1.25, 2.5, -2.5]}'''),
-        ("f", "a number (4 decimals)", "math.log(17 / 3)",
-         '''decimals=4, mistakes={"σ(z) = 0,85 donne e^(−z) = 0,15 / 0,85 = 3/17, donc z = ln(17/3), positif": '''
-         '''math.log(3 / 17), "σ(z) = 0,85 donne 1 + e^(−z) = 1/0,85 : isole e^(−z) avant de prendre le logarithme": '''
-         '''math.log(1 / 0.85)}'''),
-        ("g", "a number (4 decimals)", "math.log(17 / 3) / math.sqrt(5)",
-         '''decimals=4, mistakes={"un score n'est une distance qu'une fois divisé par ‖w‖ = √5": math.log(17 / 3), '''
-         '''"‖w‖ = √5, pas 5": math.log(17 / 3) / 5}'''),
+         '''"ReLU(z) = max(0, z) : un score négatif donne 0": [0.75, 2.25, -1.75]}'''),
+        ("f", "a number (4 decimals)", "sigmoid(2.5)",
+         '''decimals=4, mistakes={"une distance n'est pas un score : à la distance d, le score vaut d × ‖w‖ = 0,5 × 5": '''
+         '''sigmoid(0.5), "le score vaut la distance MULTIPLIÉE par ‖w‖ = 5": sigmoid(0.1), '''
+         '''"‖w‖ = √(4² + 3²) = 5, pas 25": sigmoid(12.5)}'''),
+        ("g", "a number (4 decimals)", "math.log(17 / 3) / 5",
+         '''decimals=4, mistakes={"un score n'est une distance qu'une fois divisé par ‖w‖ = 5": math.log(17 / 3), '''
+         '''"‖w‖ = 5, pas 25": math.log(17 / 3) / 25, '''
+         '''"σ(z) = 0,85 donne 1 + e^(−z) = 1/0,85 : isole e^(−z) avant de prendre le logarithme": math.log(1 / 0.85) / 5}'''),
     ]),
 ]
 

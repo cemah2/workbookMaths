@@ -53,8 +53,8 @@ Les deux classes sont-elles linéairement séparables ? Pour chaque « non », d
 
 1. On divise $\mathbf{w}$ par 2 sans toucher $b$ (avec $b \ne 0$). L'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ change-t-il ?
 2. Vrai ou faux : on déplace un peu un point qui n'est pas parmi les plus proches de l'hyperplan, sans qu'il le devienne ni qu'il change de côté ; la marge géométrique ne change pas.
-3. Au niveau $x_0 = 1$ (la coordonnée constante de l'astuce du biais), quelle droite du plan $(x_1, x_2)$ trace le plan de $\mathbb{R}^3$ d'équation $2x_0 - x_1 + x_2 = 0$ ?
-4. Vrai ou faux : l'ensemble des $\tilde{\mathbf{x}} \in \mathbb{R}^3$ tels que $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = 0$ passe par l'origine de $\mathbb{R}^3$.
+3. Au niveau $x_0 = 1$ (la coordonnée constante de l'astuce du biais), quelle droite du plan $(x_1, x_2)$ trace le plan de $\mathbb{R}^3$ d'équation $3x_0 + x_1 - x_2 = 0$ ?
+4. Le point $(0, 0)$ du plan, une fois relevé, est-il l'origine de $\mathbb{R}^3$ ?
 5. Un couple $(\mathbf{w}, b)$ a une marge exactement nulle sur des données. Que peux-tu en dire ?
 6. Les enveloppes convexes de deux nuages sont à la distance 6 l'une de l'autre. Quelle est la plus grande marge possible d'un séparateur ?
 
@@ -78,7 +78,7 @@ Le plan $P$ de $\mathbb{R}^3$ a pour équation $2x - y + 2z - 3 = 0$.
 1. Énonce l'inégalité de Cauchy-Schwarz pour deux vecteurs $\mathbf{u}$ et $\mathbf{v}$ de $\mathbb{R}^n$.
 2. Vérifie-la pour $\mathbf{u} = (2, 3, 6)$ et $\mathbf{v} = (2, 1, -2)$.
 3. Dans quel cas est-elle une égalité ?
-4. Pour un vecteur $\mathbf{e}$ de norme 1, montre que $\mathbf{e} \cdot \mathbf{v} \le \lVert \mathbf{v} \rVert$. Pour quel $\mathbf{e}$ a-t-on l'égalité ?
+4. Montre que $(a + b + c)^2 \le 3(a^2 + b^2 + c^2)$ pour tous réels $a$, $b$, $c$. Quand y a-t-il égalité ?
 5. Si $a^2 + b^2 + c^2 = 4$, quelle est la plus grande valeur possible de $2a + 3b + 6c$ ?
 
 ### M10.R3 — La sigmoïde et tanh (R6) 🔁 ★ ⏱️ 5 min
@@ -87,8 +87,8 @@ Le plan $P$ de $\mathbb{R}^3$ a pour équation $2x - y + 2z - 3 = 0$.
 $\sigma(z) = \frac{1}{1 + e^{-z}}$.
 1. $\sigma(0)$, et les limites de $\sigma$ en $-\infty$ et en $+\infty$ ?
 2. Sans calculatrice, range $\sigma(-1)$, $\sigma(0{,}5)$ et $\sigma(2)$ dans l'ordre croissant. Lesquels dépassent $\frac{1}{2}$ ?
-3. Pour quel $z$ a-t-on $\sigma(z) = 0{,}6$ ?
-4. Sachant que $\tanh(z) = 2\sigma(2z) - 1$, pour quel $z$ a-t-on $\tanh(z) = 0{,}2$ ?
+3. Montre que $\frac{\sigma(z)}{1 - \sigma(z)} = e^{z}$ (la cote de la sortie, R6).
+4. Sachant que $\tanh(z) = 2\sigma(2z) - 1$, déduis de 3 le $z$ tel que $\tanh(z) = 0{,}2$.
 5. Pour quel $x$ a-t-on $\sigma(2x - 1) = \frac{1}{2}$ ?
 
 <a id="papier"></a>
@@ -147,7 +147,7 @@ La classe $+1$ : $P_1 = (7, 6)$, $P_2 = (7, 5)$, $P_3 = (3, 6)$. La classe $-1$ 
 |---|---|---|
 | a | les six scores $\mathbf{w} \cdot P_i + b$, de $P_1$ à $P_6$ | une liste de 6 nombres |
 | b | la marge géométrique de $(\mathbf{w}, b)$ | un nombre (4 décimales) |
-| c | la distance de $P_1$ à la droite de la question b) | un nombre (4 décimales) |
+| c | le projeté orthogonal de $P_4$ sur la droite de la question b) | une liste de 2 nombres |
 | d | l'ensemble des $b$ pour lesquels $((2, 1), b)$ sépare les deux classes | un intervalle |
 | e | le $b$ qui donne la plus grande marge avec $\mathbf{w} = (2, 1)$ | un nombre |
 | f | cette marge | un nombre (4 décimales) |
@@ -163,7 +163,7 @@ La droite $\Delta$ a pour équation $3x_1 - 2x_2 + 4 = 0$, soit $(\mathbf{w}, b)
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $\tilde{\mathbf{w}}$ | une liste de 3 nombres |
+| a | parmi les vecteurs $\tilde{\mathbf{w}}$ qui décrivent $\Delta$ (tous multiples les uns des autres), celui dont la première coordonnée vaut 1 | une liste de 3 nombres |
 | b | le vecteur $\tilde{\mathbf{w}}'$ de la droite parallèle à $\Delta$ qui passe par $\mathbf{p}$, avec les mêmes poids $(3, -2)$ | une liste de 3 nombres |
 | c | la distance entre $\Delta$ et cette parallèle | un nombre (4 décimales) |
 | d | la distance de $\mathbf{q}$ à la droite $\Delta$, dans le plan | un nombre (4 décimales) |
@@ -240,7 +240,7 @@ On note $\gamma(\mathbf{w}, b) = \min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i 
 **Objectif :** calculer la sortie de quatre activations sur un même score affine, et décrire leurs lignes de niveau dans le plan.
 **Prérequis :** fiche §5 ; R6 (sigmoïde, tanh) · **Parcours :** C, E
 
-Le score est $z = \mathbf{w} \cdot \mathbf{x} + b$ avec $\mathbf{w} = (-1, 2)$ et $b = 0{,}5$. Les trois points : $\mathbf{p}_1 = (0{,}25 ;\ 0{,}5)$, $\mathbf{p}_2 = (0, 1)$, $\mathbf{p}_3 = (3{,}5 ;\ 0{,}25)$. Le seuil vaut $H(z) = 1$ si $z > 0$, et $0$ sinon.
+Le score est $z = \mathbf{w} \cdot \mathbf{x} + b$ avec $\mathbf{w} = (4, -3)$ et $b = -1$. Les trois points : $\mathbf{p}_1 = (1 ;\ 0{,}75)$, $\mathbf{p}_2 = (1 ;\ 0{,}25)$, $\mathbf{p}_3 = (0 ;\ 0{,}25)$. Le seuil vaut $H(z) = 1$ si $z > 0$, et $0$ sinon.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -249,7 +249,7 @@ Le score est $z = \mathbf{w} \cdot \mathbf{x} + b$ avec $\mathbf{w} = (-1, 2)$ e
 | c | les trois sorties de la sigmoïde $\sigma$ | une liste de 3 nombres (4 décimales) |
 | d | les trois sorties de $\tanh$ | une liste de 3 nombres (4 décimales) |
 | e | les trois sorties de ReLU | une liste de 3 nombres |
-| f | la valeur du score $z$ pour laquelle $\sigma(z) = 0{,}85$ | un nombre (4 décimales) |
+| f | la sortie de la sigmoïde en un point à la distance $0{,}5$ de la frontière, du côté positif | un nombre (4 décimales) |
 | g | la distance entre la droite où $\sigma(\mathbf{w} \cdot \mathbf{x} + b) = 0{,}85$ et la frontière $\mathbf{w} \cdot \mathbf{x} + b = 0$ | un nombre (4 décimales) |
 
 Dans ta copie : pourquoi la ligne de niveau de g) est-elle une droite parallèle à la frontière ? Range les trois points par sortie croissante de la sigmoïde : le classement est-il le même avec tanh, avec ReLU, avec le seuil ? Pour quelles activations la région « sortie $> \frac{1}{2}$ » est-elle le demi-plan $z > 0$ ?

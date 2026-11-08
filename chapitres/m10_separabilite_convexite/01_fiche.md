@@ -295,7 +295,7 @@ Sur l'exemple, le séparateur de plus grande marge sous forme canonique, $z = \f
 | Un produit vectoriel de signe inversé, $u_2v_1 - u_1v_2$ | $\mathbf{u} \times \mathbf{v} = u_1v_2 - u_2v_1$ : positif quand on tourne à gauche |
 | Conclure à la non-séparabilité sur des dessins | écrire un témoin : un point dont on montre qu'il est dans les deux enveloppes |
 | Tester la séparabilité avec $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 0$ | exiger $\ge 1$ : avec $\ge 0$, $\mathbf{w} = \mathbf{0}$ et $b = 0$ conviennent toujours |
-| Oublier le biais | sans terme constant, on ne cherche que parmi les hyperplans qui passent par l'origine : ajouter la coordonnée 1 |
+| Chercher un séparateur sans terme constant | le programme linéaire ne voit alors que des hyperplans par l'origine (sans colonne de 1, M10.13 a) répondrait `False`) : ajouter la coordonnée constante 1, en tête |
 | Prendre la marge fonctionnelle pour une distance | diviser par $\lVert \mathbf{w} \rVert$ : la marge géométrique ne change pas quand on multiplie $(\mathbf{w}, b)$ par un réel positif |
 | Confondre la borne triangulaire et la borne pas à pas | $\lVert \mathbf{v}_0 \rVert + kL$ toujours ; $\sqrt{\lVert \mathbf{v}_0 \rVert^2 + kL^2}$ seulement si aucun pas ne pousse vers l'extérieur |
 | Croire qu'une activation change la frontière | une activation croissante garde l'hyperplan ; elle change la sortie autour de lui |
