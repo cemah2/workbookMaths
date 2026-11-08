@@ -44,14 +44,14 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M10](#m10) | Séparabilité linéaire et convexité | 10 | §12.1 | 8,1 h | ✅ exercices | 1 |
 | [M11](#m11) | Logique, induction et inégalités de concentration | 11 | — | 11,5 h | ✅ exercices | 1 |
 | [CP2](#cp2) | Examen blanc de la partie II | — | — | 3,2 h | ✅ exercices | 1 |
-| [M12a](#m12a) | Espaces vectoriels et applications linéaires | 12 | §2.4, §2.5, §2.6, §2.7, §2.8 | ≈ 16 h (estimé) | plan | 2 |
-| [M12b](#m12b) | Orthogonalité et projections | 12 | §3.2.2, §3.2.3, §3.5, §3.6, §3.7, §3.8, §9.4 | ≈ 14 h (estimé) | plan | 1 |
-| [M12c](#m12c) | Valeurs propres et matrices symétriques | 12 | §4.1, §4.2, §4.3, §4.4 | ≈ 16 h (estimé) | plan | 2 |
-| [M12d](#m12d) | SVD et analyse en composantes principales | 12 | §4.5, §4.6, §4.7, §10.1, §10.2, §10.3, §10.4, §10.5, §10.6 | ≈ 16 h (estimé) | plan | 2 |
-| [M13a](#m13a) | Vraisemblance et régression logistique | 13 | §8.3 | ≈ 12 h (estimé) | plan | 1 |
-| [M13b](#m13b) | Optimisation sous contraintes et SVM | 13 | §7.2, §7.3, ch. 12 | ≈ 14 h (estimé) | plan | 1 |
-| [M14](#m14) | Les maths des ensembles | 14 | — | ≈ 6 h (estimé) | plan | 1 |
-| [CP3](#cp3) | Examen blanc de la partie III | — | — | ≈ 4 h (estimé) | plan | 1 |
+| [M12a](#m12a) | Espaces vectoriels et applications linéaires | 12 | §2.4, §2.5, §2.6, §2.7, §2.8 | 16,6 h | ✅ exercices | 2 |
+| [M12b](#m12b) | Orthogonalité et projections | 12 | §3.2.2, §3.2.3, §3.5, §3.6, §3.7, §3.8, §9.4 | 15,2 h | ✅ exercices | 1 |
+| [M12c](#m12c) | Valeurs propres et matrices symétriques | 12 | §4.1, §4.2, §4.3, §4.4 | 16,8 h | ✅ exercices | 2 |
+| [M12d](#m12d) | SVD et analyse en composantes principales | 12 | §4.5, §4.6, §4.7, §10.1, §10.2, §10.3, §10.4, §10.5, §10.6 | 17,7 h | ✅ exercices | 2 |
+| [M13a](#m13a) | Vraisemblance et régression logistique | 13 | §8.3 | 13,8 h | ✅ exercices | 1 |
+| [M13b](#m13b) | Optimisation sous contraintes et SVM | 13 | §7.2, §7.3, ch. 12 | 16,1 h | ✅ exercices | 1 |
+| [M14](#m14) | Les maths des ensembles | 14 | — | 7,2 h | ✅ exercices | 1 |
+| [CP3](#cp3) | Examen blanc de la partie III | — | — | 3,1 h | ✅ exercices | 1 |
 | [M16](#m16) | Couches affines et variance à l'initialisation | 16 | §6.4 | ≈ 8 h (estimé) | plan | 1 |
 | [M17](#m17) | Jacobienne et fonctions d'activation | 17 | §5.3 | ≈ 10 h (estimé) | plan | 1 |
 | [M18](#m18) | Règle de la chaîne, calcul matriciel et différentiation automatique | 18 | §5.4, §5.5, §5.6 | ≈ 14 h (estimé) | plan | 1 |
@@ -82,7 +82,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | 0 · Remise à niveau | 12 | 363 | 116,5 h | 93,3 h |
 | I · Fondations | 9 | 319 | 107,6 h | 69,7 h |
 | II · Concepts | 7 | 256 | 83,9 h | 54,0 h |
-| III · ML classique | 8 | — | ≈ 98 h (estimé) | à détailler |
+| III · ML classique | 8 | 321 | 106,7 h | 70,3 h |
 | IV · Réseaux | 6 | — | ≈ 58 h (estimé) | à détailler |
 | V · Architectures | 3 | — | ≈ 24 h (estimé) | à détailler |
 | VI · Génératif et RL | 6 | — | ≈ 60 h (estimé) | à détailler |
@@ -2160,142 +2160,640 @@ Le bilan de la partie II (M07 à M11), juste avant le checkpoint II de workbookI
 
 **Partie** III · **prépare** workbookIA 12 · **dossier** `chapitres/m12a_espaces_vectoriels/` · **MML** §2.4, §2.5, §2.6, §2.7, §2.8 · **sessions de génération** 2
 
-Les espaces vectoriels et les applications linéaires : sous-espaces, indépendance, base, dimension, rang, matrice d'une application, noyau, image, théorème du rang, changement de base, applications affines et transformation inverse.
+Les espaces vectoriels et les applications linéaires : sous-espaces, combinaisons linéaires et familles génératrices, indépendance, base et dimension, coordonnées, rang, matrice d'une application linéaire, noyau, image et théorème du rang, changement de base, applications et espaces affines, transformation inverse.
 
-**Durée estimée** : ≈ 16 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 16,6 h en parcours complet, 10,8 h en parcours essentiel (lecture 210 min, 26 flashcards).
 
-**Notions enseignées** : espace vectoriel, sous-espace · combinaison linéaire, famille génératrice · indépendance linéaire · base et dimension · rang, rang d'un produit · application linéaire et sa matrice · noyau et image · théorème du rang · changement de base · applications affines · application réciproque, transformation inverse
+**Objectifs**
 
-**Après** : M09a
+- Reconnaître un sous-espace vectoriel et le décrire par une famille génératrice ou par des équations.
+- Décider si une famille est libre, en extraire une base, et calculer des coordonnées dans une base.
+- Calculer le rang d'une matrice et majorer celui d'un produit.
+- Écrire la matrice d'une application linéaire, et composer des applications en multipliant leurs matrices.
+- Calculer un noyau et une image, appliquer le théorème du rang, et décrire toutes les solutions de A x = b.
+- Changer de base, et inverser une application affine.
 
-**mymath** : `linmaps.py` (fonctions prévues) : `is_independent`, `column_space_basis`, `null_space_basis`, `change_of_basis`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 12.6 ∂ Montrer que la standardisation donne moyenne 0 et variance 1 · 12.8 ∂ Variance d'une projection et axe de variance maximale
+- §1 Espaces vectoriels et sous-espaces
+- §2 Combinaisons linéaires, familles génératrices et indépendance
+- §3 Bases, dimension et coordonnées
+- §4 Le rang, et le rang d'un produit
+- §5 Applications linéaires et leur matrice
+- §6 Noyau, image et théorème du rang
+- §7 Changer de base
+- §8 Applications affines et transformation inverse
 
-*Notes* : Parcours essentiel : le théorème du rang et le changement de base démontrés hors parcours.
+**Notions enseignées** : espace vectoriel, sous-espace · combinaison linéaire, famille génératrice · indépendance linéaire · base et dimension · coordonnées dans une base · rang, rang d'un produit · application linéaire et sa matrice · composition et produit · noyau et image · théorème du rang · changement de base · applications et espaces affines · application réciproque, transformation inverse
+
+**Prérequis** : pivot de Gauss, forme échelonnée réduite, rang (premier contact), inverse (M09a) · vecteurs de ℝⁿ, combinaisons linéaires, produit scalaire (M07) · raisonnements, ensembles (R4) · dérivée d'un polynôme (R7) · centrer et réduire (M02c)
+
+**mymath** : `linmaps.py` (signatures figées) : `is_independent`, `column_space_basis`, `null_space_basis`, `coordinates`, `change_of_basis`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 12.6 ∂ Montrer que la standardisation donne moyenne 0 et variance 1 · 12.8 ∂ Variance d'une projection et axe de variance maximale · 15.3 ✏️ Ramener une droite ajustée dans l'espace d'origine
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M12a.Q1 | 🧠 | Sous-espace ou pas ? | ★ | 4 | §1 | C, E | manuel | — |
+| M12a.Q2 | 🧠 | Combinaison linéaire et famille génératrice | ★ | 4 | §2 | C, E | manuel | — |
+| M12a.Q3 | 🧠 | Libre ou liée ? | ★ | 4 | §2 | C, E | manuel | — |
+| M12a.Q4 | 🧠 | Base et dimension : vrai ou faux | ★ | 4 | §3 | C, E | manuel | — |
+| M12a.Q5 | 🧠 | Le rang d'une matrice, d'une transposée, d'un produit | ★ | 4 | §4 | C, E | manuel | — |
+| M12a.Q6 | 🧠 | Linéaire, affine, ou ni l'un ni l'autre ? | ★ | 4 | §5 §8 | C, E | manuel | — |
+| M12a.Q7 | 🧠 | Noyau et image : qui vit où ? | ★ | 4 | §6 | C, E | manuel | — |
+| M12a.Q8 | 🧠 | Changer de base : ce qui change et ce qui reste | ★ | 4 | §7 | C | manuel | — |
+| M12a.R1 | 🔁 | Le pivot de Gauss et la forme échelonnée réduite (M09a) | ★ | 5 | §2 | C, E | manuel | — |
+| M12a.R2 | 🔁 | Produit matriciel et formes (M09a) | ★ | 5 | §5 | C, E | manuel | — |
+| M12a.R3 | 🔁 | Combinaisons linéaires et produit scalaire dans ℝⁿ (M07) | ★ | 5 | §2 | C | manuel | — |
+| M12a.1 | ✏️ | Reconnaître des sous-espaces de ℝ³ et de l'espace des polynômes | ★ | 15 | §1 | C, E | wbm | — |
+| M12a.2 | ✏️ | Écrire un vecteur comme combinaison linéaire : un système à résoudre | ★ | 15 | §2 | C, E | wbm | — |
+| M12a.3 | ✏️ | L'indépendance de trois vecteurs de ℝ³ par le pivot de Gauss | ★ | 15 | §2 | C, E | wbm | — |
+| M12a.4 | ✏️ | Extraire une base d'une famille génératrice, compléter une famille libre | ★★ | 20 | §3 | C, E | wbm | — |
+| M12a.5 | ✏️ | Les coordonnées d'un vecteur dans une base qui n'est pas la base canonique | ★ | 15 | §3 | C, E | wbm | — |
+| M12a.6 | ✏️ | Le rang par les colonnes et par les lignes, celui d'un produit, et celui d'un tableau centré | ★★ | 20 | §4 | C, E | wbm | — |
+| M12a.7 | ✏️ | La matrice d'une application linéaire : les images des vecteurs de base | ★ | 15 | §5 | C, E | wbm | — |
+| M12a.8 | ✏️ | Composer deux applications du plan, c'est multiplier leurs matrices | ★ | 15 | §5 | C | wbm | — |
+| M12a.9 | ✏️ | Noyau et image d'une matrice 3 × 4, et le théorème du rang | ★★ | 25 | §6 | C, E | wbm | — |
+| M12a.10 | ✏️ | Toutes les solutions de A x = b : une solution particulière plus le noyau | ★★ | 20 | §6 | C, E | wbm | — |
+| M12a.11 | ✏️ | Une base adaptée qui rend diagonale la matrice d'une application : S⁻¹AS | ★★ | 20 | §7 | C, E | wbm | — |
+| M12a.12 | ✏️ | Une application affine du plan : partie linéaire, translation, inverse | ★★ | 20 | §8 | C, E | wbm | — |
+| M12a.13 | ✏️ | La dérivation sur les polynômes de degré au plus 3 : matrice, noyau, image | ★★ | 20 | §3 §5 §6 | C | wbm | — |
+| M12a.14 | ∂ | L'intersection de deux sous-espaces en est un ; la réunion, presque jamais | ★ | 15 | §1 | C, E | manuel | — |
+| M12a.15 | ∂ | Les coordonnées dans une base sont uniques | ★★ | 20 | §3 | C | manuel | — |
+| M12a.16 | ∂ | Le noyau est un sous-espace, et une application linéaire est injective si et seulement si son noyau est {0} | ★★ | 20 | §6 | C, E | manuel | — |
+| M12a.17 | ∂ | Le théorème du rang : dim ker + rang = nombre de colonnes | ★★★ | 25 | §6 | C | manuel | — |
+| M12a.18 | ∂ | rang(AB) ≤ min(rang A, rang B) | ★★ | 20 | §4 | C | manuel | — |
+| M12a.19 | ∂ | L'inverse d'une application affine bijective est affine | ★★ | 20 | §8 | C | manuel | — |
+| M12a.20 | 🔗 | Pont : une feature somme de deux autres rend XᵀX singulière, et le noyau dit laquelle | ★ | 15 | §4 §6 | C, E | wbm | — |
+| M12a.21 | 🔗 | Pont : projeter sur un plan puis revenir, ce que la transformation inverse ne peut pas rendre | ★★ | 15 | §6 §8 | C | wbm | — |
+| M12a.22 | 📖 | MML §2.4 et §2.5 : espaces vectoriels, sous-espaces et indépendance, en anglais | ★★ | 30 | §1 §2 | C | manuel | — |
+| M12a.23 | 📖 | MML §2.6 à §2.8 : base, rang, applications linéaires, changement de base, espaces affines | ★★ | 45 | §3 §4 §5 §6 §7 §8 | C | manuel | — |
+| M12a.24 | 🧮 | Fermi : les paramètres d'une application linéaire, puis affine, d'images 32 × 32 en couleurs vers 100 classes | ★ | 10 | §5 §8 | C | manuel | — |
+| M12a.25 | 🗣️ | Expliquer la dimension et le rang sans une seule formule | ★ | 10 | §3 §4 | C, E | manuel | — |
+| M12a.E1 | 💼 | « Que veut dire qu'une matrice est de rang plein, et pourquoi s'en soucier ? » | ★ | 10 | §4 §6 | C | manuel | — |
+| M12a.E2 | 💼 | « Qu'est-ce que le noyau d'une matrice, et où le croise-t-on en ML ? » | ★ | 10 | §6 | C | manuel | — |
+| M12a.26 | 🔨 | Tester l'indépendance et extraire une base de l'espace des colonnes · `is_independent, column_space_basis` | ★★ | 20 | §2 §3 §4 | C, E | pytest | — |
+| M12a.27 | 🔨 | Une base du noyau, colonne libre par colonne libre · `null_space_basis` | ★★ | 25 | §6 | C, E | pytest | M12a.26 |
+| M12a.28 | 🔨 | Coordonnées dans une base et changement de base · `coordinates, change_of_basis` | ★ | 20 | §3 §7 | C | pytest | M12a.26 |
+| M12a.29 | 📦 | `sympy.Matrix.nullspace`, `columnspace` et `rank` contre tes fonctions | ★ | 15 | §4 §6 | C, E | wbm | — |
+| M12a.30 | 🔮 | Prédire le rang : matrices aléatoires, produits, colonnes répétées | ★ | 10 | §4 | C, E | wbm | — |
+| M12a.31 | 🔬 | Le rang numérique : une colonne presque redondante et le choix de la tolérance | ★★ | 20 | §4 | C | wbm | — |
+| M12a.32 | 🎨 | Une application linéaire du plan : l'image du carré unité, et ce qu'elle écrase quand son noyau n'est pas nul | ★ | 20 | §5 §6 | C, E | manuel | — |
+| M12a.33 | 🐛 | Chasse à l'erreur : une « base » liée, un noyau faux, S⁻¹AS écrit à l'envers | ★ | 15 | §2 §6 §7 | C | wbm | — |
+| M12a.34 | 🛠️ | Un test de propriété : A fois une base du noyau donne 0, et le théorème du rang sur des matrices aléatoires | ★ | 15 | §6 | C | manuel | — |
+| M12a.35 | 🏆 | Défi : retrouver les relations linéaires exactes cachées entre les colonnes d'un tableau, sans en inventer | ★★★ | 30 | §6 | C | wbm | — |
+
+*Notes* : Frontières : 15.3 (ramener une droite ajustée dans l'espace d'origine par la réciproque d'un min-max), et les ∂ 12.6 (moyenne nulle et variance 1 des z-scores, invariance par x′ = ax + b) et 12.8 de workbookIA. M12a enseigne les applications affines et leur réciproque sur des transformations du plan, sans min-max, z-score ni droite ajustée. Évités (règle de partage) : les exemples et nombres de la fiche de workbookIA 12 (la météo en one-hot et `drop="first"`, l'ordinal faible, moyen, fort, la colonne 2, 4, 9, les températures et comptages de voitures de 12.4, les étendues de 12.3, le tableau de 12.5, les îles et les sexes des manchots) ; la colinéarité d'un one-hot avec la constante s'illustre ailleurs que sur ces catégories. M12a.6 montre que le rang d'un tableau centré est au plus n − 1 (1ᵀX_c = 0), ce dont la fiche de workbookIA 12 se sert pour compter les composantes d'une ACP. `linmaps` écrit les briques (indépendance, bases de l'espace des colonnes et du noyau comme SymPy, coordonnées, S⁻¹AS) ; NumPy permis, pas `matrix_rank`, `svd`, `qr`, `lstsq`, `pinv`, `inv` ni SymPy. La fiche énonce que la composée de deux applications affines est affine (le ∂ 17.3.1 de workbookIA la démontre, avec sa matrice et son vecteur) : M12a.19 ne démontre que l'inverse. Le Fermi M12a.24 évite les images 28 × 28 vers dix scores (7 850, réponse de workbookIA 13.9). M12a.11 annonce les vecteurs propres de M12c sans les nommer. Parcours essentiel : le théorème du rang et rang(AB) démontrés hors parcours. Deux sessions de génération : §1 à §4, puis §5 à §8.
 
 <a id="m12b"></a>
 ## M12b · Orthogonalité et projections
 
 **Partie** III · **prépare** workbookIA 12 · **dossier** `chapitres/m12b_orthogonalite/` · **MML** §3.2.2, §3.2.3, §3.5, §3.6, §3.7, §3.8, §9.4 · **sessions de génération** 1
 
-Les produits scalaires généraux, les bases orthonormées et Gram-Schmidt, le complément orthogonal, la projection orthogonale, les moindres carrés revus comme une projection, la décomposition QR et le produit scalaire de fonctions.
+Les produits scalaires généraux, l'orthogonalité, les bases orthonormées et les matrices orthogonales, le procédé de Gram-Schmidt, le complément orthogonal, la projection orthogonale sur un sous-espace, les moindres carrés revus comme une projection, la décomposition QR, et le produit scalaire de fonctions.
 
-**Durée estimée** : ≈ 14 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 15,2 h en parcours complet, 9,5 h en parcours essentiel (lecture 180 min, 24 flashcards).
 
-**Notions enseignées** : produits scalaires généraux, matrices symétriques définies positives · bases orthonormées · procédé de Gram-Schmidt · complément orthogonal · projection orthogonale · moindres carrés comme projection · décomposition QR · produit scalaire de fonctions
+**Objectifs**
 
-**Après** : M12a, M09b
+- Reconnaître un produit scalaire défini par une matrice symétrique, et calculer normes et angles avec.
+- Calculer dans une base orthonormée, et reconnaître une matrice orthogonale.
+- Orthonormaliser une famille par Gram-Schmidt.
+- Calculer un complément orthogonal et une projection orthogonale, et démontrer que le projeté est le point le plus proche.
+- Résoudre des moindres carrés par une projection, puis par la décomposition QR.
+- Calculer un produit scalaire de fonctions et orthogonaliser des polynômes.
 
-**mymath** : `orthogonal.py` (fonctions prévues) : `gram_schmidt`, `project`, `qr`, `least_squares_qr`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 12.6 ∂ Montrer que la standardisation donne moyenne 0 et variance 1 · 12.8 ∂ Variance d'une projection et axe de variance maximale
+- §1 Produits scalaires généraux
+- §2 Orthogonalité, bases orthonormées et matrices orthogonales
+- §3 Le procédé de Gram-Schmidt
+- §4 Le complément orthogonal
+- §5 La projection orthogonale sur un sous-espace
+- §6 Les moindres carrés vus comme une projection
+- §7 La décomposition QR
+- §8 Le produit scalaire de fonctions
 
-*Notes* : Parcours essentiel : QR et le produit scalaire de fonctions hors parcours (workbookIA 12 n'en a pas besoin).
+**Notions enseignées** : produits scalaires généraux, matrices symétriques définies positives (en dimension 2) · bases orthonormées · matrices orthogonales · procédé de Gram-Schmidt · complément orthogonal · projection orthogonale · moindres carrés comme projection · décomposition QR · produit scalaire de fonctions
+
+**Prérequis** : base, dimension, rang, noyau et image (M12a) · équations normales, matrice chapeau (M09b) · produit scalaire, normes, projection sur une droite, Cauchy-Schwarz (M07) · intégrales (M02a)
+
+**mymath** : `orthogonal.py` (signatures figées) : `gram_schmidt`, `project`, `qr`, `least_squares_qr`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 12.6 ∂ Montrer que la standardisation donne moyenne 0 et variance 1 · 12.8 ∂ Variance d'une projection et axe de variance maximale · 12.7 ✏️ PCA à la main en 2D : covariance, axe principal, projection
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M12b.Q1 | 🧠 | Produit scalaire ou pas ? Symétrie et positivité | ★ | 4 | §1 | C, E | manuel | — |
+| M12b.Q2 | 🧠 | Orthogonale, orthonormée, matrice orthogonale | ★ | 4 | §2 | C, E | manuel | — |
+| M12b.Q3 | 🧠 | Gram-Schmidt : ce que chaque étape retire | ★ | 4 | §3 | C, E | manuel | — |
+| M12b.Q4 | 🧠 | Le complément orthogonal : vrai ou faux | ★ | 4 | §4 | C, E | manuel | — |
+| M12b.Q5 | 🧠 | Une matrice de projection : sur quoi, et quelles propriétés ? | ★ | 4 | §5 | C, E | manuel | — |
+| M12b.Q6 | 🧠 | Moindres carrés et projection | ★ | 4 | §6 | C, E | manuel | — |
+| M12b.Q7 | 🧠 | QR : formes et propriétés | ★ | 4 | §7 | C | manuel | — |
+| M12b.Q8 | 🧠 | Des fonctions orthogonales | ★ | 4 | §8 | C | manuel | — |
+| M12b.R1 | 🔁 | La projection sur une droite (M07) | ★ | 5 | §5 | C, E | manuel | — |
+| M12b.R2 | 🔁 | Les équations normales et la matrice chapeau (M09b) | ★ | 5 | §6 | C, E | manuel | — |
+| M12b.R3 | 🔁 | Base, rang et noyau (M12a) | ★ | 5 | §4 | C, E | manuel | — |
+| M12b.1 | ✏️ | Un produit scalaire défini par une matrice 2 × 2 : normes, angles, orthogonalité | ★ | 15 | §1 | C, E | wbm | — |
+| M12b.2 | ✏️ | Les coordonnées dans une base orthonormée : des produits scalaires au lieu d'un système | ★ | 15 | §2 | C, E | wbm | — |
+| M12b.3 | ✏️ | Une matrice orthogonale 3 × 3 conserve normes et angles | ★ | 15 | §2 | C, E | wbm | — |
+| M12b.4 | ✏️ | Gram-Schmidt sur trois vecteurs de ℝ³ | ★★ | 20 | §3 | C, E | wbm | — |
+| M12b.5 | ✏️ | Gram-Schmidt pour un produit scalaire qui n'est pas l'usuel | ★★ | 20 | §1 §3 | C | wbm | — |
+| M12b.6 | ✏️ | Une base du complément orthogonal d'un plan de ℝ⁴ | ★★ | 20 | §4 | C, E | wbm | — |
+| M12b.7 | ✏️ | Projeter sur un plan de ℝ³ : avec une base quelconque, puis orthonormée | ★★ | 20 | §5 | C, E | wbm | — |
+| M12b.8 | ✏️ | La matrice de projection : P² = P, Pᵀ = P, trace et rang | ★★ | 15 | §5 | C | wbm | — |
+| M12b.9 | ✏️ | La distance d'un point à un sous-espace, et le résidu orthogonal | ★ | 15 | §5 §6 | C, E | wbm | — |
+| M12b.10 | ✏️ | Des moindres carrés comme une projection : y, son projeté et le résidu | ★★ | 20 | §6 | C, E | wbm | — |
+| M12b.11 | ✏️ | La décomposition QR d'une matrice 3 × 2, puis les moindres carrés par R w = Qᵀy | ★★ | 25 | §7 | C | wbm | — |
+| M12b.12 | ✏️ | Le produit scalaire de fonctions sur [−1 ; 1] : orthogonaliser 1, x et x² | ★★ | 25 | §8 | C | wbm | — |
+| M12b.13 | ∂ | L'inégalité de Cauchy-Schwarz pour tout produit scalaire | ★★ | 20 | §1 | C | manuel | — |
+| M12b.14 | ∂ | Une famille orthogonale de vecteurs non nuls est libre | ★ | 15 | §2 | C, E | manuel | — |
+| M12b.15 | ∂ | Gram-Schmidt donne une base orthonormée du même sous-espace | ★★ | 20 | §3 | C | manuel | — |
+| M12b.16 | ∂ | L'orthogonal de l'image de A est le noyau de Aᵀ | ★★ | 20 | §4 | C, E | manuel | — |
+| M12b.17 | ∂ | Le projeté orthogonal est le point le plus proche (Pythagore) | ★★ | 20 | §5 §6 | C, E | manuel | — |
+| M12b.18 | 🔗 | Pont : retirer d'une feature ce qu'explique une autre, une projection puis un résidu | ★ | 15 | §3 §5 | C, E | wbm | — |
+| M12b.19 | 🔗 | Pont : projeter sur k directions orthonormées, reconstruire, et l'erreur par Pythagore | ★★ | 15 | §5 | C, E | wbm | — |
+| M12b.20 | 📖 | MML §3.2, §3.5 à §3.7 : produits scalaires, orthogonalité, fonctions, en anglais | ★★ | 30 | §1 §2 §4 §8 | C | manuel | — |
+| M12b.21 | 📖 | MML §3.8 et §9.4 : projections, Gram-Schmidt et moindres carrés | ★★ | 30 | §3 §5 §6 | C | manuel | — |
+| M12b.22 | 🧮 | Fermi : le coût de Gram-Schmidt sur une matrice 100 000 × 50 | ★ | 10 | §3 §7 | C | manuel | — |
+| M12b.23 | 🗣️ | Expliquer pourquoi le projeté est le point le plus proche | ★ | 10 | §5 | C, E | manuel | — |
+| M12b.E1 | 💼 | « Pourquoi résoudre des moindres carrés par QR plutôt que par les équations normales ? » | ★ | 10 | §6 §7 | C | manuel | — |
+| M12b.E2 | 💼 | « Qu'est-ce qu'une matrice orthogonale, et pourquoi est-elle agréable en calcul numérique ? » | ★ | 10 | §2 | C | manuel | — |
+| M12b.24 | 🔨 | Gram-Schmidt, classique et modifié · `gram_schmidt` | ★★ | 25 | §3 | C, E | pytest | — |
+| M12b.25 | 🔨 | La projection orthogonale sur un sous-espace · `project` | ★ | 15 | §5 | C, E | pytest | — |
+| M12b.26 | 🔨 | La décomposition QR et les moindres carrés par QR · `qr, least_squares_qr` | ★★ | 25 | §7 | C | pytest | M12b.24 |
+| M12b.27 | 📦 | `np.linalg.qr` et `lstsq` contre ta projection et ta QR : les signes de Q et de R | ★ | 15 | §7 | C | wbm | — |
+| M12b.28 | 🔮 | Prédire : Gram-Schmidt classique sur des vecteurs presque colinéaires, QᵀQ vaut-il encore I ? | ★ | 10 | §3 | C, E | wbm | — |
+| M12b.29 | 🔬 | Gram-Schmidt classique contre modifié : l'orthogonalité perdue quand les colonnes sont presque dépendantes | ★★ | 20 | §3 §7 | C | wbm | — |
+| M12b.30 | 🎨 | Projeter un nuage de ℝ³ sur un plan : les résidus orthogonaux en image | ★ | 20 | §5 | C, E | manuel | — |
+| M12b.31 | 🐛 | Chasse à l'erreur : une normalisation oubliée, QQᵀ sur une base non orthonormée, R w = Qᵀy résolu dans le mauvais sens | ★ | 15 | §3 §5 §7 | C | wbm | — |
+| M12b.32 | 🛠️ | Un test de propriétés pour la projection : idempotente, symétrique, résidu orthogonal | ★ | 15 | §5 | C | manuel | — |
+| M12b.33 | 🏆 | Défi : des colonnes presque dépendantes, des moindres carrés à 1e−8 près de `lstsq` par l'orthogonalisation de [X | y] | ★★★ | 30 | §6 §7 | C | wbm | — |
+
+*Notes* : Frontières : 12.7 (l'erreur de reconstruction d'une ACP 2D, égale à la coordonnée orthogonale), et les ∂ 12.6 et 12.8 de workbookIA. Évités : la projection de la fiche de workbookIA 12 (u = (0,6 ; 0,8), x = (2, 3), t = 3,6, distance 0,2, variance 10,72 = uᵀΣu) et ses coordonnées projetées ; la propriété « l'erreur de reconstruction est la coordonnée orthogonale » de 12.7 n'est pas posée sur un nuage 2D : M12b.19 la démontre pour k directions orthonormées quelconques, par Pythagore. Les moindres carrés vus comme une projection (MML §9.4) reprennent M09b en dimension p, sans ses exemples ni ceux de workbookIA 9. Parcours essentiel : QR et le produit scalaire de fonctions hors parcours (workbookIA 12 n'en a pas besoin). `orthogonal` écrit Gram-Schmidt (classique et modifié), la projection (par une base orthonormée, QQᵀv, pas par les équations normales de M09b), QR et les moindres carrés par QR ; NumPy permis, pas `np.linalg.qr`, `lstsq`, `pinv` ni `inv`. Le conditionnement n'est défini qu'en M12d : M12b parle de colonnes presque dépendantes, et la réponse modèle de M12b.E1 cite Householder (LAPACK) et les arrondis que XᵀX amplifie (M09b.32), sans κ. Le 🏆 M12b.33 attend l'orthogonalisation de la matrice augmentée [X | y] (Björck), sur des données bruitées et des colonnes presque dépendantes (à calibrer à la génération, entre les seuils où les équations normales échouent et où `gram_schmidt` refuse) : `least_squares_qr` (Gram-Schmidt modifié puis Qᵀy) n'y suffit pas.
 
 <a id="m12c"></a>
 ## M12c · Valeurs propres et matrices symétriques
 
 **Partie** III · **prépare** workbookIA 12 · **dossier** `chapitres/m12c_valeurs_propres/` · **MML** §4.1, §4.2, §4.3, §4.4 · **sessions de génération** 2
 
-Le déterminant et la trace, les valeurs et vecteurs propres, la diagonalisation et le théorème spectral, les matrices définies positives et Cholesky, les formes quadratiques et la convexité à plusieurs variables, la matrice de covariance vue comme matrice symétrique positive, le blanchiment et la racine carrée d'une matrice.
+Le déterminant et la trace, les valeurs et vecteurs propres, la méthode de la puissance, la diagonalisation et le théorème spectral, le quotient de Rayleigh, les matrices définies positives, les formes quadratiques et la décomposition de Cholesky ; la matrice de covariance vue comme une matrice symétrique positive, le blanchiment et la racine carrée d'une matrice.
 
-**Durée estimée** : ≈ 16 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 16,8 h en parcours complet, 11,5 h en parcours essentiel (lecture 210 min, 26 flashcards).
 
-**Notions enseignées** : déterminant · trace · polynôme caractéristique · valeurs et vecteurs propres · méthode de la puissance · diagonalisation · théorème spectral · quotient de Rayleigh · matrices définies positives · décomposition de Cholesky · formes quadratiques · convexité à plusieurs variables par la hessienne semi-définie positive (la définition par les cordes : M10) · matrice de covariance symétrique positive · blanchiment (whitening) · racine carrée d'une matrice symétrique positive
+**Objectifs**
 
-**Après** : M12b, R7
+- Calculer un déterminant, l'interpréter comme un volume orienté, et l'utiliser pour l'inversibilité.
+- Calculer les valeurs et vecteurs propres d'une petite matrice, et diagonaliser.
+- Appliquer le théorème spectral et le quotient de Rayleigh à une matrice symétrique.
+- Approcher la plus grande valeur propre par la méthode de la puissance.
+- Reconnaître une matrice définie positive et calculer sa décomposition de Cholesky.
+- Transformer une matrice de covariance, et blanchir des données.
 
-**mymath** : `eigen.py` (fonctions prévues) : `det`, `power_iteration`, `is_positive_definite`, `cholesky`, `whiten`, `sqrtm_psd`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 12.6 ∂ Montrer que la standardisation donne moyenne 0 et variance 1 · 12.8 ∂ Variance d'une projection et axe de variance maximale
+- §1 Le déterminant : volume orienté et inversibilité
+- §2 La trace
+- §3 Valeurs propres et vecteurs propres
+- §4 La diagonalisation
+- §5 La méthode de la puissance
+- §6 Matrices symétriques : le théorème spectral et le quotient de Rayleigh
+- §7 Matrices définies positives, formes quadratiques et Cholesky
+- §8 La matrice de covariance, le blanchiment et la racine carrée d'une matrice
+
+**Notions enseignées** : déterminant · trace · polynôme caractéristique · valeurs et vecteurs propres · méthode de la puissance · diagonalisation · théorème spectral · quotient de Rayleigh · matrices définies positives · décomposition de Cholesky · formes quadratiques · convexité à plusieurs variables par la hessienne semi-définie positive (la définition par les cordes : M10) · matrice de Gram XᵀX (semi-définie positive) · matrice de covariance symétrique positive · covariance d'une transformation affine · blanchiment (whitening) · racine carrée d'une matrice symétrique positive
+
+**Prérequis** : base, rang, noyau, changement de base (M12a) · bases orthonormées, matrices orthogonales (M12b) · matrice de covariance empirique (M02c) · fonctions convexes de plusieurs variables (M10) · hessienne d'une fonction de deux variables (M05b) · racines d'un polynôme (R3)
+
+**mymath** : `eigen.py` (signatures figées) : `det`, `power_iteration`, `rayleigh_quotient`, `cholesky`, `is_positive_definite`, `sqrtm_psd`, `whitening_matrix`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 12.6 ∂ Montrer que la standardisation donne moyenne 0 et variance 1 · 12.8 ∂ Variance d'une projection et axe de variance maximale · 12.7 ✏️ PCA à la main en 2D : covariance, axe principal, projection · 12.22 🎨 Projeter un nuage 2D : axe horizontal contre axe de variance maximale · 12.29 🔬 Échelle des features et descente de gradient · 12.R3 🔁 Descente de gradient dans une vallée très allongée
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M12c.Q1 | 🧠 | Ce que mesure un déterminant | ★ | 4 | §1 | C, E | manuel | — |
+| M12c.Q2 | 🧠 | Les propriétés du déterminant et de la trace : vrai ou faux | ★ | 4 | §1 §2 | C, E | manuel | — |
+| M12c.Q3 | 🧠 | Reconnaître un vecteur propre | ★ | 4 | §3 | C, E | manuel | — |
+| M12c.Q4 | 🧠 | Diagonalisable ou pas ? | ★ | 4 | §4 | C, E | manuel | — |
+| M12c.Q5 | 🧠 | Ce que garantit le théorème spectral | ★ | 4 | §6 | C, E | manuel | — |
+| M12c.Q6 | 🧠 | Définie positive, semi-définie positive ou indéfinie ? | ★ | 4 | §7 | C, E | manuel | — |
+| M12c.Q7 | 🧠 | Cholesky, racine carrée, blanchiment : qui est quoi ? | ★ | 4 | §7 §8 | C | manuel | — |
+| M12c.Q8 | 🧠 | Trace, déterminant et valeurs propres | ★ | 4 | §2 §3 | C, E | manuel | — |
+| M12c.R1 | 🔁 | Le rang et le noyau (M12a) | ★ | 5 | §3 | C, E | manuel | — |
+| M12c.R2 | 🔁 | Bases orthonormées et matrices orthogonales (M12b) | ★ | 5 | §6 | C, E | manuel | — |
+| M12c.R3 | 🔁 | La matrice de covariance empirique (M02c) | ★ | 5 | §8 | C, E | manuel | — |
+| M12c.1 | ✏️ | Déterminants 2 × 2 et 3 × 3 : aire, volume et signe | ★ | 15 | §1 | C, E | wbm | — |
+| M12c.2 | ✏️ | Le déterminant d'une matrice 4 × 4 par élimination | ★★ | 20 | §1 | C | wbm | — |
+| M12c.3 | ✏️ | Les valeurs et vecteurs propres d'une matrice 2 × 2 | ★ | 15 | §3 | C, E | wbm | — |
+| M12c.4 | ✏️ | Une matrice 3 × 3 triangulaire, puis une avec une valeur propre double | ★★ | 20 | §3 §4 | C, E | wbm | — |
+| M12c.5 | ✏️ | Diagonaliser, puis calculer une puissance dixième | ★★ | 20 | §4 | C, E | wbm | — |
+| M12c.6 | ✏️ | Une matrice non diagonalisable, et une rotation sans valeur propre réelle | ★★ | 15 | §3 §4 | C | wbm | — |
+| M12c.7 | ✏️ | Le théorème spectral sur une matrice symétrique 2 × 2 : Q, Λ et QΛQᵀ | ★ | 15 | §6 | C, E | wbm | — |
+| M12c.8 | ✏️ | Le quotient de Rayleigh : le maximum et le minimum de xᵀAx sur le cercle unité | ★★ | 20 | §6 | C, E | wbm | — |
+| M12c.9 | ✏️ | Trois itérations de la méthode de la puissance à la main | ★ | 15 | §5 | C | wbm | — |
+| M12c.10 | ✏️ | Définie positive ? Par les valeurs propres, les mineurs et la forme quadratique ; une hessienne qui prouve la convexité | ★★ | 20 | §7 | C, E | wbm | — |
+| M12c.11 | ✏️ | La décomposition de Cholesky d'une matrice 3 × 3 | ★★ | 20 | §7 | C, E | wbm | — |
+| M12c.12 | ✏️ | Une forme quadratique réduite à une somme de carrés, et ses lignes de niveau | ★★ | 20 | §6 §7 | C | wbm | — |
+| M12c.13 | ✏️ | La covariance d'un vecteur transformé, AΣAᵀ, et le blanchiment d'une covariance 2 × 2 | ★★ | 20 | §8 | C, E | wbm | — |
+| M12c.14 | ∂ | det A ≠ 0 si et seulement si A est inversible (det AB = det A det B admis) | ★★ | 20 | §1 | C | manuel | — |
+| M12c.15 | ∂ | Une matrice symétrique réelle : valeurs propres réelles, vecteurs propres de valeurs distinctes orthogonaux | ★★ | 20 | §6 | C, E | manuel | — |
+| M12c.16 | ∂ | La somme des valeurs propres est la trace, leur produit le déterminant | ★★ | 20 | §2 §3 | C | manuel | — |
+| M12c.17 | ∂ | Une matrice de covariance, et toute matrice de Gram XᵀX, est symétrique semi-définie positive | ★ | 15 | §8 | C, E | manuel | — |
+| M12c.18 | ∂ | Le quotient de Rayleigh d'une matrice symétrique est entre λ_min et λ_max | ★★ | 20 | §6 | C | manuel | — |
+| M12c.19 | ∂ | ½ xᵀAx − bᵀx, avec A définie positive, a un unique minimum, en A⁻¹b | ★★ | 20 | §7 | C, E | manuel | — |
+| M12c.20 | 🔗 | Pont : la variance d'une somme pondérée de trois features, wᵀΣw, et pourquoi Σ doit être semi-définie positive | ★ | 15 | §8 | C, E | wbm | — |
+| M12c.21 | 🔗 | Pont : après un blanchiment, la covariance est l'identité | ★★ | 15 | §8 | C | wbm | — |
+| M12c.22 | 📖 | MML §4.1 et §4.2 : déterminant, trace, valeurs propres, en anglais | ★★ | 30 | §1 §2 §3 | C | manuel | — |
+| M12c.23 | 📖 | MML §4.3 et §4.4 : Cholesky, diagonalisation et décomposition spectrale | ★★ | 30 | §4 §6 §7 | C | manuel | — |
+| M12c.24 | 🧮 | Fermi : un déterminant 20 × 20 par cofacteurs ou par élimination, combien d'opérations ? | ★ | 10 | §1 | C | manuel | — |
+| M12c.25 | 🗣️ | Expliquer un vecteur propre avec une image | ★ | 10 | §3 | C, E | manuel | — |
+| M12c.E1 | 💼 | « Que représentent les valeurs propres d'une matrice de covariance ? » | ★ | 10 | §6 §8 | C | manuel | — |
+| M12c.E2 | 💼 | « Comment savoir qu'une matrice est définie positive, et pourquoi est-ce important en optimisation ? » | ★ | 10 | §7 | C | manuel | — |
+| M12c.26 | 🔨 | Le déterminant par élimination · `det` | ★ | 20 | §1 | C, E | pytest | — |
+| M12c.27 | 🔨 | La méthode de la puissance et le quotient de Rayleigh · `power_iteration, rayleigh_quotient` | ★★ | 25 | §5 §6 | C, E | pytest | — |
+| M12c.28 | 🔨 | La décomposition de Cholesky et le test « définie positive » · `cholesky, is_positive_definite` | ★★ | 25 | §7 | C, E | pytest | — |
+| M12c.29 | 🔨 | La racine carrée d'une matrice symétrique positive et la matrice de blanchiment · `sqrtm_psd, whitening_matrix` | ★★ | 25 | §6 §8 | C, E | pytest | M12c.28 |
+| M12c.30 | 📦 | `np.linalg.eigh`, `det`, `cholesky` et `scipy.linalg.sqrtm` contre tes fonctions | ★ | 15 | §1 §6 §7 | C, E | wbm | — |
+| M12c.31 | 🔮 | Prédire : la méthode de la puissance quand les deux plus grandes valeurs propres sont proches | ★ | 10 | §5 | C, E | wbm | — |
+| M12c.32 | 🔬 | La vitesse de la méthode de la puissance et le rapport |λ₂ / λ₁| | ★★ | 20 | §5 | C | wbm | — |
+| M12c.33 | 🎨 | Les lignes de niveau de xᵀAx : définie positive, semi-définie positive, indéfinie | ★ | 20 | §6 §7 | C, E | manuel | — |
+| M12c.34 | 🐛 | Chasse à l'erreur : det(A + B) = det A + det B, un vecteur propre nul, Cholesky d'une matrice non symétrique | ★ | 15 | §1 §3 §7 | C | wbm | — |
+| M12c.35 | 🛠️ | Vérifier avec SymPy : polynôme caractéristique, valeurs propres exactes, diagonalisation | ★ | 15 | §3 §4 | C | manuel | — |
+| M12c.36 | 🏆 | Défi : les trois plus grandes valeurs propres d'une matrice symétrique semi-définie positive 300 × 300, par la puissance avec déflation, à 1e−6 près | ★★★ | 30 | §5 §6 | C | wbm | — |
+
+*Notes* : Frontières : 12.7 (ACP 2D à la main), 12.22 (« l'axe principal d'un nuage standardisé en 2D est à 45° et garde (1 + r)/2 »), 12.29 et 12.R3 (courbures de la MSE, pas critique 2/λ_max de la descente de gradient), et les ∂ 12.6 et 12.8. M12c énonce le théorème spectral en dimension n (démontré quand les valeurs propres sont distinctes), démontre le quotient de Rayleigh par QΛQᵀ (M12c.8 et M12c.18, sans u = (cos t, sin t) ni l'enchaînement diagonale 2D, 3D puis rotation de 12.8), V(aᵀX) = aᵀΣa pour un vecteur aléatoire et la positivité d'une matrice de Gram (M12c.17), et la trace par tr(QᵀAQ) = tr(A). La diagonalisation (§4) vient avant la méthode de la puissance (§5), dont l'analyse suppose une base de vecteurs propres. Évités : les matrices [[1, r], [r, 1]] et [[a, b], [b, a]] (12.22), [[3, 1], [1, 3]] et le blanchiment « 3 devient 1,5 et 2,12 » (fiche de workbookIA 12), la covariance [[4, 5], [5, 7]] des points (0, 1), (2, 2), (4, 6), la quadratique x² + 100y² (12.R3). Conventions : la fiche montre les deux normalisations de Σ (1/n pour le `StandardScaler` et le `covariance_matrix` de `mylearn`, 1/(n − 1) pour l'ACP de workbookIA 12) et le facteur (n − 1)/n ; elle décrit le blanchiment de l'ACP (Λ^(−1/2)Qᵀ, celui de scikit-learn et de la PCA de `mylearn` en 12.27) et le blanchiment ZCA (Σ^(−1/2)), et M12c.13 calcule les deux en disant la convention ; `whitening_matrix` n'écrit que ZCA et Cholesky. `eigen` : NumPy permis, `np.linalg.eigh` seulement dans `sqrtm_psd` et `whitening_matrix`. Deux sessions de génération : §1 à §5, puis §6 à §8.
 
 <a id="m12d"></a>
 ## M12d · SVD et analyse en composantes principales
 
 **Partie** III · **prépare** workbookIA 12 · **dossier** `chapitres/m12d_svd_acp/` · **MML** §4.5, §4.6, §4.7, §10.1, §10.2, §10.3, §10.4, §10.5, §10.6 · **sessions de génération** 2
 
-La SVD et son interprétation géométrique, l'approximation de rang faible, la pseudo-inverse et le conditionnement ; puis les axes principaux par le quotient de Rayleigh, la variance expliquée, l'erreur de reconstruction d'une projection, et la place de t-SNE et d'UMAP.
+La décomposition en valeurs singulières et son interprétation géométrique, l'approximation de rang faible, la pseudo-inverse et le conditionnement ; puis les axes principaux par le quotient de Rayleigh, l'ACP (centrer, projeter, reconstruire), la variance expliquée, l'erreur de reconstruction, l'ACP en grande dimension, et la place de t-SNE et d'UMAP.
 
-**Durée estimée** : ≈ 16 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 17,7 h en parcours complet, 11,1 h en parcours essentiel (lecture 210 min, 26 flashcards).
+
+**Objectifs**
+
+- Calculer la SVD d'une petite matrice et l'interpréter comme rotation, étirement, rotation.
+- Calculer une approximation de rang faible et son erreur (Eckart-Young).
+- Calculer une pseudo-inverse et un conditionnement, et dire ce qu'ils signifient.
+- Calculer les axes principaux d'un nuage, les scores, une reconstruction et la variance expliquée.
+- Relier l'erreur de reconstruction aux valeurs propres oubliées.
+- Situer l'ACP par rapport à t-SNE et UMAP.
+
+**Sections de la fiche**
+
+- §1 La décomposition en valeurs singulières
+- §2 Rotation, étirement, rotation : la géométrie de la SVD
+- §3 L'approximation de rang faible
+- §4 La pseudo-inverse et le conditionnement
+- §5 Les axes principaux : maximiser la variance sur la sphère
+- §6 L'ACP : centrer, projeter, reconstruire
+- §7 Variance expliquée, erreur de reconstruction, grande dimension
+- §8 Au-delà du linéaire : t-SNE et UMAP (aperçu)
 
 **Notions enseignées** : décomposition en valeurs singulières · interprétation géométrique · approximation de rang faible (Eckart-Young) · pseudo-inverse · conditionnement · axes principaux : maximiser uᵀCu sur la sphère (quotient de Rayleigh) · ACP : projection · variance expliquée · ACP en grande dimension · erreur de reconstruction d'une projection · t-SNE et UMAP : préserver des voisinages (aperçu) · erreur de reconstruction et détection d'anomalies
 
-**Après** : M12c, M02c
+**Prérequis** : valeurs propres, théorème spectral, quotient de Rayleigh (M12c) · projection orthogonale, bases orthonormées (M12b) · rang, noyau, image (M12a) · moyenne, matrice de covariance, standardisation (M02c) · moindres carrés (M09b) · entropie, divergence KL (M06)
 
-**mymath** : `svd_pca.py` (fonctions prévues) : `svd`, `low_rank_approximation`, `pinv`, `principal_axes`, `explained_variance_ratio`
+**mymath** : `svd_pca.py` (signatures figées) : `svd`, `low_rank_approximation`, `pinv`, `condition_number`, `principal_axes`, `explained_variance_ratio`
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 12.6 ∂ Montrer que la standardisation donne moyenne 0 et variance 1 · 12.8 ∂ Variance d'une projection et axe de variance maximale · 25.8 ∂ Un autoencodeur linéaire retrouve l'ACP (cas 2D guidé)
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 12.6 ∂ Montrer que la standardisation donne moyenne 0 et variance 1 · 12.8 ∂ Variance d'une projection et axe de variance maximale · 12.7 ✏️ PCA à la main en 2D : covariance, axe principal, projection · 12.22 🎨 Projeter un nuage 2D : axe horizontal contre axe de variance maximale · 12.27 🔨 Coder la PCA (SVD, variance expliquée, whitening, reconstruction) · 12.29 🔬 Échelle des features et descente de gradient · 25.8 ∂ Un autoencodeur linéaire retrouve l'ACP (cas 2D guidé)
 
-*Notes* : MML §10.2 dérive l'axe de variance maximale par Lagrange : M12d passe par le quotient de Rayleigh, la dérivation de MML se relit en M13b ; §10.7 (point de vue latent) se lit en M25b. Frontières : variance d'une projection et axe de variance maximale (workbookIA 12.8), autoencodeur linéaire et ACP (25.8).
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M12d.Q1 | 🧠 | La SVD : formes et propriétés | ★ | 4 | §1 | C, E | manuel | — |
+| M12d.Q2 | 🧠 | Valeurs singulières et valeurs propres | ★ | 4 | §1 §2 | C, E | manuel | — |
+| M12d.Q3 | 🧠 | Rang faible : ce qu'on garde, ce qu'on perd | ★ | 4 | §3 | C, E | manuel | — |
+| M12d.Q4 | 🧠 | Pseudo-inverse et conditionnement | ★ | 4 | §4 | C, E | manuel | — |
+| M12d.Q5 | 🧠 | Ce que maximise un axe principal | ★ | 4 | §5 | C, E | manuel | — |
+| M12d.Q6 | 🧠 | Centrer et standardiser avant une ACP ? | ★ | 4 | §6 | C, E | manuel | — |
+| M12d.Q7 | 🧠 | Variance expliquée et nombre de composantes | ★ | 4 | §7 | C, E | manuel | — |
+| M12d.Q8 | 🧠 | ACP, t-SNE ou UMAP : qui garde quoi ? | ★ | 4 | §8 | C, E | manuel | — |
+| M12d.R1 | 🔁 | Valeurs propres et théorème spectral (M12c) | ★ | 5 | §1 | C, E | manuel | — |
+| M12d.R2 | 🔁 | La projection orthogonale (M12b) | ★ | 5 | §5 | C, E | manuel | — |
+| M12d.R3 | 🔁 | Moyenne, covariance et standardisation (M02c) | ★ | 5 | §6 | C, E | manuel | — |
+| M12d.1 | ✏️ | La SVD d'une matrice 2 × 2 à la main, par AᵀA | ★★ | 20 | §1 | C, E | wbm | — |
+| M12d.2 | ✏️ | La SVD compacte d'une matrice 3 × 2 de rang 1 | ★★ | 15 | §1 | C | wbm | — |
+| M12d.3 | ✏️ | Le cercle unité devient une ellipse : axes et demi-axes | ★ | 15 | §2 | C, E | wbm | — |
+| M12d.4 | ✏️ | L'approximation de rang 1 d'une matrice 3 × 3 et son erreur | ★★ | 20 | §3 | C, E | wbm | — |
+| M12d.5 | ✏️ | Compter les nombres stockés : une image en rang k | ★ | 10 | §3 | C | wbm | — |
+| M12d.6 | ✏️ | La pseudo-inverse d'une matrice non inversible et la solution de norme minimale | ★★ | 20 | §4 | C, E | wbm | — |
+| M12d.7 | ✏️ | Le conditionnement de trois matrices, et l'erreur relative sur une solution | ★★ | 15 | §4 | C, E | wbm | — |
+| M12d.8 | ✏️ | Les axes principaux d'un nuage de ℝ³ : covariance, polynôme caractéristique, variances et axes | ★★ | 35 | §5 §6 | C, E | wbm | — |
+| M12d.9 | ✏️ | Scores, reconstruction et erreur de reconstruction moyenne avec deux composantes sur trois | ★★ | 20 | §6 §7 | C, E | wbm | — |
+| M12d.10 | ✏️ | La variance expliquée cumulée : combien de composantes pour 95 % ? | ★ | 15 | §7 | C, E | wbm | — |
+| M12d.11 | ✏️ | L'ACP par la SVD de la matrice centrée : σ² / (n − 1) donne les variances | ★★ | 20 | §1 §6 | C | wbm | — |
+| M12d.12 | ✏️ | L'ACP quand n < p : passer par la petite matrice XXᵀ | ★★ | 20 | §7 | C | wbm | — |
+| M12d.13 | ✏️ | Les probabilités de voisinage de t-SNE sur quatre points, et leur perplexité 2^H | ★ | 15 | §8 | C, E | wbm | — |
+| M12d.14 | ∂ | Les valeurs singulières sont les racines des valeurs propres de AᵀA | ★★ | 20 | §1 | C, E | manuel | — |
+| M12d.15 | ∂ | La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ σ₁ ‖x‖ | ★★ | 20 | §2 | C | manuel | — |
+| M12d.16 | ∂ | L'erreur de l'approximation de rang k vaut la somme des σ² oubliés (Frobenius) | ★★★ | 25 | §3 | C | manuel | — |
+| M12d.17 | ∂ | La pseudo-inverse donne la solution des moindres carrés de plus petite norme | ★★ | 20 | §4 | C | manuel | — |
+| M12d.18 | ∂ | L'erreur de reconstruction moyenne est la somme des variances oubliées | ★★ | 20 | §7 | C, E | manuel | — |
+| M12d.19 | ∂ | Les scores de deux composantes principales sont décorrélés | ★★ | 15 | §6 | C | manuel | — |
+| M12d.20 | 🔗 | Pont : détecter une anomalie par son erreur de reconstruction | ★ | 15 | §7 | C, E | wbm | — |
+| M12d.21 | 🔗 | Pont : un changement d'unités diagonal D change Σ en DΣD, et les axes principaux avec ; la standardisation non | ★★ | 15 | §6 | C | wbm | — |
+| M12d.22 | 📖 | MML §4.5 à §4.7 : SVD, approximation de rang faible, phylogénie des matrices | ★★ | 45 | §1 §2 §3 §4 | C | manuel | — |
+| M12d.23 | 📖 | MML §10.1 à §10.6 : l'ACP du livre (la dérivation par Lagrange de §10.2 se survole : M13b la relit) | ★★ | 50 | §5 §6 §7 | C | manuel | — |
+| M12d.24 | 🧮 | Fermi : la mémoire et le temps d'une ACP sur un million de clients et 250 features | ★ | 10 | §6 §7 | C | manuel | — |
+| M12d.25 | 🗣️ | Expliquer la SVD comme « rotation, étirement, rotation » | ★ | 10 | §2 | C, E | manuel | — |
+| M12d.E1 | 💼 | « Comment choisissez-vous le nombre de composantes d'une ACP ? » | ★ | 10 | §7 | C | manuel | — |
+| M12d.E2 | 💼 | « Que dit le conditionnement d'une matrice ? » | ★ | 10 | §4 | C | manuel | — |
+| M12d.26 | 🔨 | La SVD par les valeurs propres de AᵀA · `svd` | ★★ | 25 | §1 | C, E | pytest | — |
+| M12d.27 | 🔨 | Approximation de rang faible et conditionnement · `low_rank_approximation, condition_number` | ★ | 20 | §3 §4 | C, E | pytest | M12d.26 |
+| M12d.28 | 🔨 | La pseudo-inverse · `pinv` | ★ | 15 | §4 | C | pytest | M12d.26 |
+| M12d.29 | 🔨 | Les axes principaux d'une matrice de covariance, et la variance expliquée · `principal_axes, explained_variance_ratio` | ★★ | 25 | §5 §6 §7 | C, E | pytest | — |
+| M12d.30 | 📦 | `np.linalg.svd`, `np.linalg.cond` et `sklearn.decomposition.PCA` contre tes fonctions : les signes | ★ | 15 | §1 §4 §6 | C, E | wbm | — |
+| M12d.31 | 🔮 | Prédire l'allure des valeurs singulières d'une image, et le rang qui suffit | ★ | 10 | §3 | C, E | wbm | — |
+| M12d.32 | 🔬 | Compresser une image du domaine public : l'erreur en fonction du rang | ★★ | 20 | §3 | C | wbm | — |
+| M12d.33 | 🔬 | La SVD par AᵀA contre `np.linalg.svd` : ce qu'on perd quand κ est grand | ★★ | 20 | §1 §4 | C | wbm | — |
+| M12d.34 | 🎨 | La SVD en images : Vᵀ, Σ puis U appliqués au cercle unité, étape par étape | ★ | 20 | §2 | C, E | manuel | — |
+| M12d.35 | 🐛 | Chasse à l'erreur : une ACP sans centrer, n et n − 1 mélangés, des axes lus en lignes au lieu de colonnes | ★ | 15 | §6 | C | wbm | — |
+| M12d.36 | 🛠️ | Un test : la reconstruction de rang plein redonne X, et l'erreur décroît avec k | ★ | 15 | §3 §7 | C | manuel | — |
+| M12d.37 | 🏆 | Défi : compresser une image centrée en gardant 97 % de son énergie avec au plus 5 % des nombres | ★★★ | 30 | §3 | C | wbm | — |
+
+*Notes* : Frontières : 12.7 et 12.22 (ACP 2D à la main, axe à 45° d'un nuage standardisé), 12.27 (la PCA de `mylearn` par SVD : centrage, signe, choix de k par un seuil, whitening, `inverse_transform`), 12.29 (conditionnement et pas de la descente de gradient), 25.8 (autoencodeur linéaire et ACP), et les ∂ 12.6 et 12.8 (variance d'une projection et axe de variance maximale). M12d passe par le quotient de Rayleigh de M12c en dimension n, et fait ses ACP à la main en dimension 3, par le polynôme caractéristique d'une covariance à structure par blocs (une valeur propre évidente), sans reprendre la suite de 12.7 : M12d.9 demande l'erreur de reconstruction moyenne (la somme des variances oubliées), pas la distance d'un point à sa reconstruction, et aucun blanchiment ; M12d.21 pose DΣD en général. `principal_axes` prend une matrice de covariance (pas les données) et `explained_variance_ratio` des valeurs propres, pour ne pas écrire la PCA de `mylearn` (ce sont des briques, avec la même convention de signe). M12d.13 calcule les probabilités de voisinage de t-SNE et leur perplexité 2^H (M06), sans MNIST ni perplexité 30. La SVD par AᵀA ne voit pas les valeurs singulières sous 1e−6 · s_max : les comparaisons à `np.linalg.cond` se font pour κ < 1e6. MML §10.2 dérive l'axe de variance maximale par Lagrange : cette dérivation se relit en M13b ; §10.7 (point de vue latent) se lit en M25b. Évités : les nombres MNIST de workbookIA 12 (86, 321, 35, 78, 59 composantes, 0,572, 0,911…), `load_digits`, les « 10 features, 3 directions et du bruit » de sa fiche, le passage des kilogrammes aux grammes, les points A(1, 1) à E(7, 3) de 12.7, et pour l'anomalie MNIST contre Fashion-MNIST, le seuil au 99ᵉ centile et la ROC-AUC (workbookIA 25). Le 🏆 M12d.37 se calibre sur une image du domaine public (centrée : la SVD globale garde 90 % de l'énergie d'une photo dès les premiers rangs). Convention de signe des axes comme scikit-learn et la PCA de `mylearn` (la coordonnée de plus grande valeur absolue est positive). `svd_pca` : NumPy et `np.linalg.eigh` permis, pas `np.linalg.svd`, `pinv`, `cond`, `lstsq` ni scikit-learn. Deux sessions de génération : §1 à §4 (SVD), puis §5 à §8 (ACP).
 
 <a id="m13a"></a>
 ## M13a · Vraisemblance et régression logistique
 
 **Partie** III · **prépare** workbookIA 13 · **dossier** `chapitres/m13a_vraisemblance_logistique/` · **MML** §8.3 · **sessions de génération** 1
 
-Le maximum de vraisemblance (Bernoulli, catégorielle, gaussienne), la log-loss comme moins la log-vraisemblance, la sigmoïde, la convexité de log(1 + eᶻ), la régression logistique comme modèle ; Naïve Bayes comme modèle génératif ; l'entropie, l'indice de Gini et la réduction de variance des arbres.
+Le maximum de vraisemblance (Bernoulli, catégorielle, gaussienne), la log-loss comme moins la log-vraisemblance, la sigmoïde et la fonction softplus, la régression logistique comme modèle probabiliste (et la sonde linéaire), Naïve Bayes comme modèle génératif, l'entropie, l'indice de Gini, le gain d'information et la réduction de variance des arbres.
 
-**Durée estimée** : ≈ 12 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 13,8 h en parcours complet, 10,0 h en parcours essentiel (lecture 180 min, 24 flashcards).
 
-**Notions enseignées** : maximum de vraisemblance · log-vraisemblance · log-loss = moins la log-vraisemblance · régression logistique : le modèle · convexité de log(1 + eᶻ) · Naïve Bayes : hypothèse d'indépendance · impureté d'une distribution : entropie, Gini · réduction de variance (arbres de régression) · linear probe
+**Objectifs**
 
-**Après** : M04, M06, M05b, M12c
+- Calculer et démontrer des estimateurs du maximum de vraisemblance (Bernoulli, catégorielle, gaussienne).
+- Écrire la log-loss comme moins la log-vraisemblance, et la calculer.
+- Calculer avec la sigmoïde et la softplus, et démontrer la convexité de la softplus.
+- Lire un modèle logistique : probabilités, cote, frontière de décision.
+- Calculer à la main un Naïve Bayes avec lissage, en log-probabilités.
+- Calculer une entropie, un indice de Gini, un gain d'information et une réduction de variance.
 
-**mymath** : `likelihood.py` (fonctions prévues) : `bernoulli_log_likelihood`, `bernoulli_mle`, `categorical_mle`, `gaussian_mle`, `logistic_loss`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 13.8 ∂ Gradient de la log-loss de la régression logistique
+- §1 Le maximum de vraisemblance, revisité
+- §2 La log-loss est moins la log-vraisemblance
+- §3 La sigmoïde et la softplus
+- §4 La régression logistique, un modèle probabiliste
+- §5 Naïve Bayes, un modèle génératif
+- §6 Impureté : entropie, indice de Gini et gain d'information
+- §7 Arbres de régression : la réduction de variance
 
-*Notes* : Frontière : le gradient de la log-loss de la régression logistique (workbookIA 13.8). Les impuretés et le meilleur découpage sont les fonctions de `mylearn` en workbookIA 13.
+**Notions enseignées** : maximum de vraisemblance · log-vraisemblance · log-loss = moins la log-vraisemblance · régression logistique : le modèle · convexité de log-somme-exp et de log(1 + eᶻ) · Naïve Bayes : hypothèse d'indépendance · impureté d'une distribution : entropie, Gini · gain d'information (information mutuelle) · réduction de variance (arbres de régression) · linear probe
+
+**Prérequis** : vraisemblance, MAP, lissage de Laplace, log-sum-exp (M04) · entropie, cross-entropy, information mutuelle, inégalité de Gibbs (M06) · sigmoïde, logit, cote (R6) · dérivée seconde, convexité en 1D (M05a) · fonctions convexes de plusieurs variables (M10) · gradient (M05b) · loi normale (M02b) · biais d'un estimateur (M02c) · hyperplans, produit scalaire (M07)
+
+**mymath** : `likelihood.py` (signatures figées) : `bernoulli_log_likelihood`, `bernoulli_mle`, `categorical_mle`, `gaussian_mle`, `logistic_loss`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 13.8 ∂ Gradient de la log-loss de la régression logistique · 13.2 ✏️ Gini et entropie d'une feuille · 13.3 ✏️ Choisir le meilleur seuil sur la longueur des nageoires · 13.6 ✏️ Anglais ou français ? Naïve Bayes multinomial sur des lettres · 13.7 ✏️ Posterior d'un Naïve Bayes gaussien · 13.12 🔮 Prédire la frontière de cinq classifieurs avant de l'afficher · 13.27 🔮 Naïve Bayes sur des nuages gaussiens puis sur des lunes
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M13a.Q1 | 🧠 | Vraisemblance, log-vraisemblance, maximum : le vocabulaire | ★ | 4 | §1 | C, E | manuel | — |
+| M13a.Q2 | 🧠 | Log-loss et cross-entropy : la même chose ? | ★ | 4 | §2 | C, E | manuel | — |
+| M13a.Q3 | 🧠 | Les propriétés de la sigmoïde et de la softplus | ★ | 4 | §3 | C, E | manuel | — |
+| M13a.Q4 | 🧠 | Ce que modélise un score w · x + b | ★ | 4 | §4 | C, E | manuel | — |
+| M13a.Q5 | 🧠 | Génératif ou discriminant ? | ★ | 4 | §4 §5 | C, E | manuel | — |
+| M13a.Q6 | 🧠 | Entropie et Gini : leurs propriétés | ★ | 4 | §6 | C, E | manuel | — |
+| M13a.Q7 | 🧠 | Variance intra et variance inter : les feuilles d'un arbre de régression | ★ | 4 | §7 | C | manuel | — |
+| M13a.Q8 | 🧠 | Convexe ou pas ? | ★ | 4 | §3 §4 | C | manuel | — |
+| M13a.R1 | 🔁 | Bayes et le lissage de Laplace (M04) | ★ | 5 | §5 | C, E | manuel | — |
+| M13a.R2 | 🔁 | Entropie, cross-entropy et information mutuelle (M06) | ★ | 5 | §2 §6 | C, E | manuel | — |
+| M13a.R3 | 🔁 | Fonctions convexes de plusieurs variables (M10) | ★ | 5 | §3 | C, E | manuel | — |
+| M13a.1 | ✏️ | Le maximum de vraisemblance d'une loi de Bernoulli et d'une loi catégorielle | ★ | 15 | §1 | C, E | wbm | — |
+| M13a.2 | ✏️ | Le maximum de vraisemblance d'une loi normale : μ̂ et σ̂² | ★★ | 20 | §1 | C, E | wbm | — |
+| M13a.3 | ✏️ | La log-loss de quatre prédictions, puis la même en cross-entropy | ★ | 15 | §2 | C, E | wbm | — |
+| M13a.4 | ✏️ | Ce que coûte une prédiction sûre et fausse : la log-loss quand p tend vers 0 | ★ | 15 | §2 | C | wbm | — |
+| M13a.5 | ✏️ | La sigmoïde : valeurs, logit, cote et symétrie σ(−z) = 1 − σ(z) | ★ | 15 | §3 | C, E | wbm | — |
+| M13a.6 | ✏️ | La softplus : valeurs, asymptotes et comportement pour |z| grand | ★ | 15 | §3 | C, E | wbm | — |
+| M13a.7 | ✏️ | Un modèle logistique à deux features : probabilités, cote et frontière de décision | ★ | 15 | §4 | C, E | wbm | — |
+| M13a.8 | ✏️ | L'hypothèse naïve à la main : une loi jointe factorisée, comparée à la vraie | ★★ | 20 | §5 | C, E | wbm | — |
+| M13a.9 | ✏️ | Deux classes gaussiennes de même variance : l'a posteriori est une sigmoïde d'un score affine | ★★ | 20 | §4 §5 | C | wbm | — |
+| M13a.10 | ✏️ | L'entropie et l'indice de Gini de quelques distributions | ★ | 15 | §6 | C, E | wbm | — |
+| M13a.11 | ✏️ | L'information mutuelle d'un tableau de contingence, et la baisse d'entropie qu'elle mesure | ★★ | 20 | §6 | C, E | wbm | — |
+| M13a.12 | ✏️ | La variance d'un groupe coupé en deux : variance intra plus variance inter | ★★ | 15 | §7 | C | wbm | — |
+| M13a.13 | ∂ | Le maximum de vraisemblance d'une loi catégorielle, par l'inégalité de Gibbs | ★★ | 20 | §1 | C, E | manuel | — |
+| M13a.14 | ∂ | La log-loss moyenne est moins la log-vraisemblance divisée par n | ★ | 15 | §2 | C, E | manuel | — |
+| M13a.15 | ∂ | Log-somme-exp est convexe : sur une droite, sa dérivée seconde est une variance ; la softplus aussi | ★★★ | 25 | §3 §4 | C, E | manuel | — |
+| M13a.16 | ∂ | L'indice de Gini est maximal pour la loi uniforme | ★★ | 20 | §6 | C | manuel | — |
+| M13a.17 | ∂ | L'entropie est maximale pour la loi uniforme, par l'inégalité de Gibbs | ★★ | 15 | §6 | C | manuel | — |
+| M13a.18 | 🔗 | Pont : une sonde linéaire, un modèle logistique en NumPy sur un batch de représentations figées, jusqu'à la log-loss | ★ | 15 | §4 | C, E | wbm | — |
+| M13a.19 | 📖 | MML §8.3, relu après M04 : estimer des paramètres, et ce que la régression logistique y ajoute | ★★ | 30 | §1 §4 | C | manuel | — |
+| M13a.20 | 🧮 | Fermi : la loi jointe complète contre l'hypothèse naïve, combien de nombres pour 30 features à 4 valeurs ? | ★ | 10 | §5 | C | manuel | — |
+| M13a.21 | 🗣️ | Expliquer pourquoi on minimise la log-loss plutôt que le taux d'erreur | ★ | 10 | §2 §4 | C, E | manuel | — |
+| M13a.E1 | 💼 | « Pourquoi la cross-entropy est-elle une log-vraisemblance ? » | ★ | 10 | §2 | C | manuel | — |
+| M13a.E2 | 💼 | « Qu'est-ce que le maximum de vraisemblance, et quel lien avec les losses que vous minimisez ? » | ★ | 10 | §1 §2 | C | manuel | — |
+| M13a.22 | 🔨 | La log-vraisemblance et le maximum de vraisemblance d'une loi de Bernoulli · `bernoulli_log_likelihood, bernoulli_mle` | ★ | 15 | §1 | C, E | pytest | — |
+| M13a.23 | 🔨 | Maximum de vraisemblance catégoriel, avec lissage, et gaussien · `categorical_mle, gaussian_mle` | ★ | 20 | §1 §5 | C, E | pytest | — |
+| M13a.24 | 🔨 | La log-loss à partir des scores, sans débordement · `logistic_loss` | ★★ | 20 | §2 §3 | C, E | pytest | — |
+| M13a.25 | 📦 | `scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes fonctions | ★ | 15 | §1 §2 §3 | C, E | wbm | — |
+| M13a.26 | 🔮 | Prédire la log-loss d'un modèle qui répond toujours 0,5, puis toujours la fréquence des 1 | ★ | 10 | §2 | C, E | wbm | — |
+| M13a.27 | 🔬 | La variabilité du maximum de vraisemblance d'une loi de Bernoulli d'un échantillon à l'autre | ★★ | 20 | §1 | C | wbm | — |
+| M13a.28 | 🎨 | L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et maximum au centre | ★ | 20 | §6 | C, E | manuel | — |
+| M13a.29 | 🐛 | Chasse à l'erreur : un ln 0, une sigmoïde qui déborde, une variance de maximum de vraisemblance divisée par n − 1 | ★ | 15 | §1 §2 §3 | C | wbm | — |
+| M13a.30 | 🛠️ | Vérifier avec SymPy le maximum de vraisemblance d'une loi géométrique et d'une loi de Poisson | ★ | 15 | §1 | C | manuel | — |
+| M13a.31 | 🏆 | Défi : la proportion d'un mélange de deux lois connues par maximum de vraisemblance, à 1e−6 près du maximum (dichotomie ou Newton) | ★★★ | 25 | §1 | C | wbm | — |
+
+*Notes* : Frontières : 13.2 (interprétations de l'indice de Gini, maxima avec K = 3), 13.3 (recherche du meilleur seuil d'un arbre et gain d'un split), 13.6 (Naïve Bayes multinomial et lissage sur des lettres), 13.7 (posterior d'un Naïve Bayes gaussien à deux features), 13.12 et 13.27 (prédictions de Naïve Bayes), et le ∂ 13.8 (σ′ = σ(1 − σ), dℓ/dz = p̂ − y, gradient (1/n)Xᵀ(p̂ − y), convexité par d²ℓ/dz², pas de minimum sur des données séparables). M13a ne dérive aucun gradient de log-loss, et σ′ n'y est ni démontrée ni utilisée (13.8.1, 17.4.1) : la convexité de log-somme-exp se démontre par sa restriction à une droite, dont la dérivée seconde est une variance, sans écrire la hessienne diag(p) − ppᵀ (le ∂ 17.7 de workbookIA, et M17) ni la dérivée seconde de la softplus (13.8.6) ; la softplus en est la composée avec z ↦ (0, z) (M10). M13a.6 utilise l'écriture stable de la softplus sans l'établir (le ∂ 18.8.5 de workbookIA la démontre ; 17.13 code une sigmoïde stable). Il reste à l'impureté d'une distribution (maxima et concavité pour K quelconque), à l'information mutuelle d'un tableau de contingence de deux variables catégorielles quelconques (pas les deux enfants d'un split) et à la décomposition de la variance (intra plus inter), sans recherche de split ; Naïve Bayes y est l'hypothèse d'indépendance conditionnelle et un modèle génératif (deux gaussiennes de même variance donnent un a posteriori logistique), sans classer de mots ni de manchots ; la sonde linéaire est le pont M13a.18. Évités : la feuille 10/90 et les nœuds 30/70, 80/20, (3, 1) et (1, 3) de la fiche de workbookIA 13, les lois 0,5/0,3/0,2 et 25/75 (13.2), 50/50 (13.Q9) et 6/3/1 (14.R1), la figure des trois impuretés d'une loi binaire, les cibles 2, 4, 9, le modèle w = (2, −1), b = 0,5, σ(2) et σ′(2), la log-densité en x = 12, le logsumexp de (−1 000, −1 001), le lissage 1/250, le nombre de paramètres d'un Naïve Bayes gaussien (13.Q11 c) et les 20 features binaires de la fiche, les nageoires et becs des manchots, les lettres e, h, q, w, l'équivalence α = 1/(Cn) de 13.32 et (checkpoint III de workbookIA, CP3.12 d) une feature en deux copies dans Naïve Bayes. `likelihood` écrit les briques du maximum de vraisemblance et la log-loss à partir des scores ; `categorical_mle` est la formule de `MultinomialNB` et `gaussian_mle` l'ajustement d'une classe de `GaussianNB` (des briques, que workbookIA assemble) ; `mymath` a déjà `explog.sigmoid`, `approx.logsumexp` et `info.mutual_information` (pas réécrits) ; les impuretés, le meilleur split, `log_gaussian_pdf`, GaussianNB, MultinomialNB et LogisticRegression sont les fonctions de `mylearn` en workbookIA 13. Conventions : log-loss en logarithme népérien, entropies des arbres en bits.
 
 <a id="m13b"></a>
 ## M13b · Optimisation sous contraintes et SVM
 
 **Partie** III · **prépare** workbookIA 13 · **dossier** `chapitres/m13b_lagrange_svm/` · **MML** §7.2, §7.3, ch. 12 · **sessions de génération** 1
 
-L'optimisation sous contraintes : multiplicateurs de Lagrange, dualité, optimisation convexe ; puis les SVM : marge, problème primal et dual, hinge loss, noyaux et astuce du noyau (RBF).
+L'optimisation sous contraintes : multiplicateurs de Lagrange, conditions KKT, dualité, optimisation convexe, et l'ACP relue par Lagrange ; puis les SVM : marge, problème primal à marge dure et souple, hinge loss et sous-gradient, problème dual, vecteurs de support, noyaux et astuce du noyau (polynomial, RBF).
 
-**Durée estimée** : ≈ 14 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 16,1 h en parcours complet, 9,6 h en parcours essentiel (lecture 180 min, 24 flashcards).
 
-**Notions enseignées** : optimisation sous contraintes · multiplicateurs de Lagrange · dualité (aperçu) · optimisation convexe · relire MML §10.2 : l'ACP par Lagrange · marge · SVM primal · hinge loss · SVM dual · noyaux et astuce du noyau · noyau RBF
+**Objectifs**
 
-**Après** : M10, M05b, M12c, M12d
+- Résoudre un problème d'optimisation sous contraintes d'égalité par les multiplicateurs de Lagrange.
+- Écrire les conditions KKT d'un problème avec inégalités, et sa fonction duale.
+- Reconnaître un problème convexe et ce qu'il garantit.
+- Écrire le problème d'une SVM à marge dure et à marge souple, et le relier à la hinge loss.
+- Lire le problème dual d'une SVM et ses vecteurs de support.
+- Calculer avec des noyaux polynomiaux et RBF, et reconnaître un noyau valide.
 
-**mymath** : `svm.py` (fonctions prévues) : `lagrange_equality_qp`, `hinge_loss`, `svm_subgradient`, `rbf_kernel`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 13.8 ∂ Gradient de la log-loss de la régression logistique
+- §1 Optimiser sous une contrainte d'égalité : les multiplicateurs de Lagrange
+- §2 Plusieurs contraintes, et l'ACP relue par Lagrange
+- §3 Contraintes d'inégalité : les conditions KKT
+- §4 La dualité (aperçu)
+- §5 L'optimisation convexe
+- §6 La SVM à marge dure
+- §7 Marge souple, hinge loss et sous-gradient
+- §8 Le problème dual, les vecteurs de support et les noyaux
+
+**Notions enseignées** : optimisation sous contraintes · multiplicateurs de Lagrange · conditions KKT · dualité (aperçu) · optimisation convexe · relire MML §10.2 : l'ACP par Lagrange · marge · SVM primal · hinge loss · sous-gradient · SVM dual · noyaux et astuce du noyau · noyau RBF
+
+**Prérequis** : marge géométrique, astuce du biais, séparabilité, programmes linéaires (M10) · gradient, lignes de niveau (M05b) · matrices définies positives, quotient de Rayleigh, matrice de Gram (M12c) · axes principaux (M12d) · distance à un hyperplan (M07) · systèmes linéaires (M09a)
+
+**mymath** : `svm.py` (signatures figées) : `lagrange_equality_qp`, `hinge_loss`, `svm_subgradient`, `rbf_kernel`, `polynomial_kernel`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 13.8 ∂ Gradient de la log-loss de la régression logistique · 13.4 ✏️ Distance à une droite et marge d'un SVM · 13.5 ✏️ L'astuce du noyau vérifiée à la main · 13.17 🎨 Relever les cercles en 3D pour les séparer par un plan
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M13b.Q1 | 🧠 | Lagrange : ce que dit ∇f = λ ∇g | ★ | 4 | §1 | C, E | manuel | — |
+| M13b.Q2 | 🧠 | Contrainte active ou inactive ? | ★ | 4 | §3 | C, E | manuel | — |
+| M13b.Q3 | 🧠 | Primal, dual, dualité faible | ★ | 4 | §4 | C | manuel | — |
+| M13b.Q4 | 🧠 | Problème convexe ou pas ? | ★ | 4 | §5 | C, E | manuel | — |
+| M13b.Q5 | 🧠 | Ce que maximise une SVM, ce que minimise son problème | ★ | 4 | §6 | C, E | manuel | — |
+| M13b.Q6 | 🧠 | La hinge loss : vrai ou faux | ★ | 4 | §7 | C, E | manuel | — |
+| M13b.Q7 | 🧠 | Noyau valide ou pas ? | ★ | 4 | §8 | C, E | manuel | — |
+| M13b.Q8 | 🧠 | Primal ou dual : lequel résoudre, et quand ? | ★ | 4 | §8 | C | manuel | — |
+| M13b.R1 | 🔁 | La marge géométrique et l'astuce du biais (M10) | ★ | 5 | §6 | C, E | manuel | — |
+| M13b.R2 | 🔁 | Gradient et lignes de niveau (M05b) | ★ | 5 | §1 | C, E | manuel | — |
+| M13b.R3 | 🔁 | Matrices définies positives (M12c) | ★ | 5 | §5 §8 | C, E | manuel | — |
+| M13b.1 | ✏️ | Lagrange à la main : un produit maximal sous une contrainte linéaire | ★ | 15 | §1 | C, E | wbm | — |
+| M13b.2 | ✏️ | La distance d'un point à un plan, retrouvée par Lagrange | ★★ | 20 | §1 | C | wbm | — |
+| M13b.3 | ✏️ | Un problème quadratique sous deux contraintes linéaires : le système de Lagrange | ★★ | 20 | §2 | C, E | wbm | — |
+| M13b.4 | ✏️ | Relire l'ACP par Lagrange : maximiser uᵀCu sous ‖u‖ = 1 | ★★ | 20 | §2 | C | wbm | — |
+| M13b.5 | ✏️ | Une contrainte d'inégalité : active ou non, les conditions KKT à la main | ★★ | 20 | §3 | C, E | wbm | — |
+| M13b.6 | ✏️ | La fonction duale d'un petit problème quadratique, et la dualité faible | ★★ | 20 | §4 | C | wbm | — |
+| M13b.7 | ✏️ | Reconnaître un problème convexe : fonctions, contraintes, ensembles | ★ | 15 | §5 | C, E | wbm | — |
+| M13b.8 | ✏️ | Une SVM à marge dure sur trois points, résolue par les conditions KKT | ★★ | 25 | §6 §8 | C, E | wbm | — |
+| M13b.9 | ✏️ | La hinge loss et l'objectif régularisé de quelques points | ★ | 15 | §7 | C, E | wbm | — |
+| M13b.10 | ✏️ | Un pas de sous-gradient sur l'objectif d'une SVM linéaire | ★★ | 15 | §7 | C | wbm | — |
+| M13b.11 | ✏️ | Le dual d'une SVM : lire les vecteurs de support et retrouver w | ★★ | 20 | §8 | C | wbm | — |
+| M13b.12 | ✏️ | Le noyau (1 + x · z)² en dimension 2 : sa fonction φ à six coordonnées | ★★ | 20 | §8 | C | wbm | — |
+| M13b.13 | ✏️ | La matrice de Gram d'un noyau RBF sur trois points, et l'effet de γ | ★ | 15 | §8 | C, E | wbm | — |
+| M13b.14 | ∂ | Au point optimal sous une contrainte d'égalité, ∇f est colinéaire à ∇g | ★★ | 20 | §1 | C | manuel | — |
+| M13b.15 | ∂ | La dualité faible : la fonction duale minore le minimum du primal | ★★ | 15 | §4 | C, E | manuel | — |
+| M13b.16 | ∂ | Pour un problème convexe, un minimum local est global | ★★ | 15 | §5 | C, E | manuel | — |
+| M13b.17 | ∂ | Maximiser la marge revient à minimiser ½ ‖w‖² | ★★ | 20 | §6 | C, E | manuel | — |
+| M13b.18 | ∂ | Marge souple : la formulation avec des variables d'écart et celle avec la hinge loss sont équivalentes | ★★ | 20 | §7 | C | manuel | — |
+| M13b.19 | ∂ | La somme et le produit de deux noyaux sont des noyaux ; une matrice de Gram est semi-définie positive | ★★★ | 25 | §8 | C | manuel | — |
+| M13b.20 | 🔗 | Pont : la décision d'une SVM à noyau, une somme pondérée sur les vecteurs de support | ★ | 15 | §8 | C, E | wbm | — |
+| M13b.21 | 📖 | MML §7.2 et §7.3 : Lagrange, dualité et optimisation convexe, en anglais | ★★ | 40 | §1 §3 §4 §5 | C | manuel | — |
+| M13b.22 | 📖 | MML §12.2 à §12.5 : marge, primal, dual et noyaux (§12.1 a été lu en M10) | ★★ | 50 | §6 §7 §8 | C | manuel | — |
+| M13b.23 | 🧮 | Fermi : la taille de la matrice de Gram d'une SVM à noyau sur 100 000 exemples | ★ | 10 | §8 | C | manuel | — |
+| M13b.24 | 🗣️ | Expliquer un multiplicateur de Lagrange comme un prix | ★ | 10 | §1 §4 | C, E | manuel | — |
+| M13b.E1 | 💼 | « Qu'est-ce qu'un problème d'optimisation convexe, et pourquoi est-ce une bonne nouvelle ? » | ★ | 10 | §5 | C | manuel | — |
+| M13b.E2 | 💼 | « Hinge loss ou log-loss : quelles différences ? » | ★ | 10 | §7 | C | manuel | — |
+| M13b.25 | 🔨 | Un problème quadratique sous contraintes d'égalité, par le système de Lagrange · `lagrange_equality_qp` | ★ | 20 | §2 | C, E | pytest | — |
+| M13b.26 | 🔨 | La hinge loss et un sous-gradient de l'objectif d'une SVM linéaire · `hinge_loss, svm_subgradient` | ★★ | 25 | §7 | C, E | pytest | — |
+| M13b.27 | 🔨 | Les noyaux RBF et polynomial · `rbf_kernel, polynomial_kernel` | ★ | 20 | §8 | C, E | pytest | — |
+| M13b.28 | 📦 | `scipy.optimize.minimize` sous contraintes et les noyaux de scikit-learn contre tes fonctions | ★ | 15 | §2 §8 | C, E | wbm | — |
+| M13b.29 | 🔮 | Prédire : comment change le minimum quand on relâche la contrainte, et ce que dit λ | ★ | 10 | §1 §4 | C, E | wbm | — |
+| M13b.30 | 🔬 | La descente de sous-gradient sur la hinge loss : pas constant contre pas décroissant | ★★ | 20 | §7 | C | wbm | — |
+| M13b.31 | 🎨 | Lignes de niveau et contrainte : voir le point de Lagrange | ★ | 20 | §1 | C, E | manuel | — |
+| M13b.32 | 🐛 | Chasse à l'erreur : le signe d'un multiplicateur, une largeur de bande 1/‖w‖ au lieu de 2/‖w‖, une matrice de Gram non symétrique | ★ | 15 | §3 §6 §8 | C | wbm | — |
+| M13b.33 | 🛠️ | Vérifier une solution KKT : faisabilité, stationnarité, complémentarité | ★ | 15 | §3 | C | manuel | — |
+| M13b.34 | 🏆 | Défi : une SVM linéaire entraînée par sous-gradient, un objectif à 1 % de celui de scikit-learn au même C | ★★★ | 30 | §7 | C | wbm | — |
+
+*Notes* : Frontières : 13.4 (vérifier une solution de SVM primal sur six points), 13.5 (le noyau (x · z)² et φ = (x₁², √2 x₁x₂, x₂²)), 13.17 (des cercles relevés en 3D par x₁² + x₂²), et le ∂ 13.8. M13b résout de petites SVM par les conditions KKT et le dual (un énoncé plus général que la vérification de 13.4) et enseigne l'astuce du noyau par (1 + x · z)², la matrice de Gram semi-définie positive et le développement en série du noyau RBF. Conventions : marge = 1/‖w‖ (de la frontière au point le plus proche, comme MML §12.2 et M10), largeur de la bande = 2/‖w‖ (le syllabus de workbookIA 13 écrit « marge = 2/‖w‖ », sa fiche dit 1/‖w‖) ; RBF écrit avec γ ; contrainte de boîte 0 ≤ αᵢ ≤ C dans le dual. Évités : l'exemple x₁ + 2x₂ − 4 = 0 et le point (3, 3), les valeurs du RBF à distance 1 (γ = 0,1, 1, 10), φ(2, 0) et φ(1, 1), et, pour motiver les noyaux, le ou exclusif, les cercles, le relèvement |x| → (x, x²), les spirales et les demi-lunes ; les six coordonnées de φ en M13b.12 sont un rappel de `linreg.count_monomials` (M09b), pas un comptage par étoiles et barres (workbookIA 15.4). Le 🏆 M13b.34 mesure l'optimisation : l'objectif J, à 1 % de celui de `SVC(kernel="linear")` au même C. workbookIA n'écrit pas de SVM (pas de `mylearn`) : `svm` écrit Lagrange sous contraintes d'égalité, la hinge loss et son sous-gradient, et les noyaux ; NumPy permis, pas `scipy.optimize`, `scipy.spatial` ni scikit-learn.
 
 <a id="m14"></a>
 ## M14 · Les maths des ensembles
 
 **Partie** III · **prépare** workbookIA 14 · **dossier** `chapitres/m14_ensembles/` · **MML** — · **sessions de génération** 1
 
-Les outils des ensembles de modèles : la queue de la loi binomiale, la variance d'une moyenne de variables corrélées, la limite (1 + x/n)ⁿ → eˣ, des poids exponentiels, et l'idée d'une descente de gradient dans un espace de fonctions. workbookIA 14 les applique au vote, au bagging et au boosting.
+Les outils des ensembles de modèles : la queue de la loi binomiale et sa borne de Chernoff, la variance d'une moyenne pondérée de variables corrélées, la limite (1 + x/n)ⁿ → eˣ, les poids exponentiels (l'algorithme Hedge) et le gradient d'une loss par rapport aux prédictions. workbookIA 14 les applique au vote, au bagging et au boosting.
 
-**Durée estimée** : ≈ 6 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 7,2 h en parcours complet, 4,7 h en parcours essentiel (lecture 90 min, 12 flashcards).
 
-**Notions enseignées** : queue de la loi binomiale · variance d'une moyenne de variables corrélées · (1 + x/n)ⁿ → eˣ · poids exponentiels et renormalisation · descente de gradient dans un espace de fonctions (idée) · forêt aléatoire : décorréler pour réduire la variance
+**Objectifs**
 
-**Après** : M02c, R8, M05b, M05a
+- Calculer la queue d'une loi binomiale, et la majorer par la borne de Chernoff.
+- Calculer la variance d'une moyenne pondérée de variables corrélées par leur matrice de covariance.
+- Démontrer et utiliser la limite (1 + x/n)ⁿ → eˣ.
+- Calculer des poids exponentiels renormalisés, et suivre le meilleur de plusieurs experts.
+- Calculer le gradient d'une loss par rapport au vecteur des prédictions.
 
-**mymath** : `ensembles.py` (fonctions prévues) : `binomial_tail`, `variance_of_mean_correlated`, `normalize_exponential_weights`
+**Sections de la fiche**
 
-**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 14.3 ∂ Probabilité d'être oublié par un bootstrap : vers 36,8 % · 14.4 ∂ Ajuster les résidus, c'est descendre le gradient de la MSE · 14.5 ✏️ Quand la majorité de votants indépendants se trompe · 14.6 ✏️ Une itération d'AdaBoost à la main · 14.7 ✏️ Deux itérations de gradient boosting sur cinq points
+- §1 La queue d'une loi binomiale
+- §2 La variance d'une moyenne de variables corrélées
+- §3 La limite (1 + x/n)ⁿ → eˣ
+- §4 Des poids exponentiels : l'algorithme Hedge
+- §5 Le gradient d'une loss par rapport aux prédictions
 
-*Notes* : Réduit à 6 h : le bootstrap qui oublie 36,8 % des points, les résidus comme gradient, la majorité qui se trompe, AdaBoost et le gradient boosting à la main sont des exercices de workbookIA 14.
+**Notions enseignées** : queue de la loi binomiale · borne de Chernoff (divergence KL) · variance d'une moyenne de variables corrélées · (1 + x/n)ⁿ → eˣ · poids exponentiels et renormalisation · descente de gradient dans un espace de fonctions (idée) · forêt aléatoire : décorréler pour réduire la variance
+
+**Prérequis** : loi binomiale (M02b) · covariance, variance d'une somme, matrice de covariance (M02c) · développements de Taylor, ln(1 + u) (M05a) · inégalité de Hoeffding, méthode de Chernoff, regret (M11) · divergence KL (M06) · gradient (M05b) · loss de Huber (M09b) · log-loss (M13a)
+
+**mymath** : `ensembles.py` (signatures figées) : `chernoff_bound`, `variance_of_average`, `hedge_weights`
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 14.3 ∂ Probabilité d'être oublié par un bootstrap : vers 36,8 % · 14.4 ∂ Ajuster les résidus, c'est descendre le gradient de la MSE · 14.5 ✏️ Quand la majorité de votants indépendants se trompe · 14.6 ✏️ Une itération d'AdaBoost à la main · 14.7 ✏️ Deux itérations de gradient boosting sur cinq points · 14.13 🔬 Jury de votants : indépendants puis corrélés · 14.23 🐛 L'AdaBoost qui n'apprend rien
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| M14.Q1 | 🧠 | La queue d'une loi binomiale et ses bornes : vrai ou faux | ★ | 4 | §1 | C, E | manuel | — |
+| M14.Q2 | 🧠 | Corrélation et variance d'une moyenne | ★ | 4 | §2 | C, E | manuel | — |
+| M14.Q3 | 🧠 | Des limites remarquables | ★ | 4 | §3 | C, E | manuel | — |
+| M14.Q4 | 🧠 | Des poids exponentiels | ★ | 4 | §4 | C | manuel | — |
+| M14.R1 | 🔁 | La log-loss et la divergence KL (M13a, M06) | ★ | 5 | §1 §5 | C, E | manuel | — |
+| M14.R2 | 🔁 | La variance d'une somme et la matrice de covariance (M02c) | ★ | 5 | §2 | C, E | manuel | — |
+| M14.R3 | 🔁 | Taylor et ln(1 + u) (M05a) | ★ | 5 | §3 | C, E | manuel | — |
+| M14.1 | ✏️ | La fiabilité d'un système « k parmi n » : au moins k composants qui marchent | ★ | 15 | §1 | C, E | wbm | — |
+| M14.2 | ✏️ | La variance de la moyenne de trois mesures corrélées, par la matrice de covariance | ★ | 15 | §2 | C, E | wbm | — |
+| M14.3 | ✏️ | (1 + x/n)ⁿ pour quelques n, et des intérêts composés en continu | ★ | 10 | §3 | C, E | wbm | — |
+| M14.4 | ✏️ | Les poids exponentiels de cinq experts après trois tours | ★ | 15 | §4 | C, E | wbm | — |
+| M14.5 | ✏️ | Le gradient de la loss exponentielle e^(−yF) et de la loss de Huber par rapport aux prédictions, et les poids exponentiels qu'il fait apparaître | ★★ | 15 | §4 §5 | C | wbm | — |
+| M14.6 | ∂ | (1 + x/n)ⁿ → eˣ, par le logarithme et ln(1 + u) ≈ u | ★★ | 20 | §3 | C, E | manuel | — |
+| M14.7 | ∂ | Une moyenne pondérée de variables de variance σ² a une variance au plus σ² | ★★ | 15 | §2 | C | manuel | — |
+| M14.8 | ∂ | La borne de Chernoff d'une queue binomiale : le meilleur λ donne exp(−n KL(a ‖ p)) | ★★★ | 25 | §1 | C | manuel | — |
+| M14.9 | 🔗 | Pont : ajouter des modèles très corrélés ne sert presque à rien, un plancher de variance sur deux groupes de modèles | ★ | 15 | §2 | C, E | wbm | — |
+| M14.10 | 🗣️ | Expliquer pourquoi une moyenne réduit la variance, et quand elle ne la réduit plus | ★ | 10 | §2 | C, E | manuel | — |
+| M14.E1 | 💼 | « Comment combiner les avis de plusieurs experts quand on ne sait pas lequel est le meilleur ? » | ★ | 10 | §4 | C | manuel | — |
+| M14.11 | 🔨 | La borne de Chernoff et la variance d'une moyenne pondérée · `chernoff_bound, variance_of_average` | ★ | 20 | §1 §2 | C, E | pytest | — |
+| M14.12 | 🔨 | Les poids de l'algorithme Hedge · `hedge_weights` | ★ | 15 | §4 | C | pytest | — |
+| M14.13 | 🔬 | Simuler la moyenne de deux groupes de modèles corrélés, et retrouver aᵀΣa et son plancher | ★★ | 20 | §2 | C, E | wbm | — |
+| M14.14 | 🎨 | Les poids exponentiels au fil des tours : quel expert domine, selon le learning rate | ★ | 15 | §4 | C | manuel | — |
+| M14.15 | 🐛 | Chasse à l'erreur : P(X ≥ k) calculée comme P(X > k), des covariances oubliées, des poids non renormalisés | ★ | 15 | §1 §2 §4 | C | wbm | — |
+| M14.16 | 🛠️ | Un test qui vérifie que la borne de Chernoff majore la queue exacte de `scipy.stats`, sur une grille de n, p et a | ★ | 15 | §1 | C | manuel | — |
+| M14.17 | 🏆 | Défi : suivre le meilleur de dix experts avec Hedge sans connaître l'horizon, un regret sous la borne théorique sur 1 000 tours | ★★★ | 25 | §4 | C | wbm | — |
+
+*Notes* : Réduit à 7 h. Frontières : 14.5 (la majorité de votants indépendants), 14.6 et 14.23 (une itération d'AdaBoost, les mal classés qui pèsent la moitié), 14.7 (deux itérations de gradient boosting), 14.13 (des votants corrélés par un choc commun), et les ∂ 14.3 ((1 − 1/n)ⁿ → e⁻¹ dans le bootstrap) et 14.4 (les résidus comme gradient de la MSE, la médiane pour la valeur absolue, y − p̂ pour la log-loss). Hors des cadres de workbookIA : la queue binomiale sur la fiabilité de systèmes « k parmi n » (calculée avec `testing.binomial_test` de M08) et la borne de Chernoff exp(−n KL(a ‖ p)), qui généralise CP2.9 B et relie M06 à M11 (le théorème du jury en général) ; la limite (1 + x/n)ⁿ → eˣ pour tout x (intérêts composés, survie) ; la variance d'une moyenne pondérée par aᵀΣa, sur des prédictions continues et deux groupes de modèles (M14.9, M14.13) ; les poids exponentiels de l'algorithme Hedge (des experts, avec un learning rate qui décroît quand l'horizon est inconnu, M14.17) ; le gradient de la loss exponentielle e^(−yF) et de la loss de Huber par rapport aux prédictions, d'où les poids exponentiels (M14.5). Le checkpoint III de workbookIA démontre ρσ² + (1 − ρ)σ²/M (CP3.13, que la copie figée ne permet pas de lister ici) : M14 ne démontre ni ne chiffre ce cas équicorrélé ; « la moyenne minimise les carrés » et « la médiane minimise les écarts absolus » ne sont pas redémontrés. Évités : la redondance triple d'Apollo (2 parmi 3), 15 votants à 70 % (14.Q1), 7 votants à 80 %, les q et M de 14.5 (0,7 pour 3, 5, 9 votants ; 0,6 et 11 ; 0,51 et 101 ; 0,45 et 25 ; 0,65 et 7), q = 0,58 (14.13), q = 42 %, 55 %, 65 %, ρ = 0,2 et 0,6, σ² = 1 et ρ = 0,5, les valeurs de CP3.13 (σ² = 4, ρ = 0,25, M = 10 ; ρ = 0,1, σ² = 5), x = −1 dans la limite (0,9¹⁰, 0,999¹⁰⁰⁰, 100 ln 0,99, n = 5 et 0,328), a = 3/4 et p = 1/2 (CP2.9 B), AdaBoost à 20 exemples, les cibles 3 et 4 du gradient boosting, l'hypergéométrique 32, 5, 2 (14.16). Le bootstrap qui oublie 36,8 % des points, les résidus comme gradient, la majorité qui se trompe, AdaBoost et le gradient boosting à la main sont des exercices de workbookIA 14 ; `ensembles` n'écrit ni vote ni mise à jour d'AdaBoost (`mylearn`), ni de queue binomiale exacte (`testing.binomial_test`, M08).
 
 <a id="cp3"></a>
 ## CP3 · Examen blanc de la partie III
 
 **Partie** III · **prépare** — · **dossier** `checkpoints/partie_3/` · **MML** — · **sessions de génération** 1
 
-Examen blanc de la partie III (M12a à M14) et synthèse, juste avant le checkpoint III de workbookIA.
+Le bilan de la partie III (M12a à M14), juste avant le checkpoint III de workbookIA : un examen blanc d'environ 2 heures (sujet, notebook de vérification, corrigé détaillé, barème sur 20), puis une synthèse (carte mentale et fiche d'une page). Pas de mini-projet.
 
-**Durée estimée** : ≈ 4 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 3,1 h en parcours complet, 3,1 h en parcours essentiel (lecture 15 min, 0 flashcards).
+
+**Objectifs**
+
+- Vérifier en temps limité que les notions de la partie III sont acquises.
+- Construire ta propre synthèse de la partie III.
+
+**Sections de la fiche**
+
+- §1 Examen blanc
+- §2 Synthèse
 
 **Notions enseignées** : révision de la partie III
 
-**Après** : M14
+**Prérequis** : toute la partie III (M14)
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 12.6 ∂ Montrer que la standardisation donne moyenne 0 et variance 1 · 12.7 ✏️ PCA à la main en 2D : covariance, axe principal, projection · 12.8 ∂ Variance d'une projection et axe de variance maximale · 12.22 🎨 Projeter un nuage 2D : axe horizontal contre axe de variance maximale · 12.27 🔨 Coder la PCA (SVD, variance expliquée, whitening, reconstruction) · 12.29 🔬 Échelle des features et descente de gradient · 12.R3 🔁 Descente de gradient dans une vallée très allongée · 13.2 ✏️ Gini et entropie d'une feuille · 13.3 ✏️ Choisir le meilleur seuil sur la longueur des nageoires · 13.4 ✏️ Distance à une droite et marge d'un SVM · 13.5 ✏️ L'astuce du noyau vérifiée à la main · 13.6 ✏️ Anglais ou français ? Naïve Bayes multinomial sur des lettres · 13.7 ✏️ Posterior d'un Naïve Bayes gaussien · 13.8 ∂ Gradient de la log-loss de la régression logistique · 13.12 🔮 Prédire la frontière de cinq classifieurs avant de l'afficher · 13.17 🎨 Relever les cercles en 3D pour les séparer par un plan · 13.27 🔮 Naïve Bayes sur des nuages gaussiens puis sur des lunes · 14.3 ∂ Probabilité d'être oublié par un bootstrap : vers 36,8 % · 14.4 ∂ Ajuster les résidus, c'est descendre le gradient de la MSE · 14.5 ✏️ Quand la majorité de votants indépendants se trompe · 14.6 ✏️ Une itération d'AdaBoost à la main · 14.7 ✏️ Deux itérations de gradient boosting sur cinq points · 14.13 🔬 Jury de votants : indépendants puis corrélés · 14.23 🐛 L'AdaBoost qui n'apprend rien · 15.3 ✏️ Ramener une droite ajustée dans l'espace d'origine
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| CP3.Q1 | 🧠 | Dix affirmations sur la partie III : vrai ou faux | ★ | 10 | §1 | C, E | manuel | — |
+| CP3.1 | ✏️ | Indépendance, base, rang et noyau | ★★ | 10 | §1 | C, E | wbm | — |
+| CP3.2 | ✏️ | Gram-Schmidt, projection et moindres carrés | ★★ | 10 | §1 | C, E | wbm | — |
+| CP3.3 | ✏️ | Valeurs propres, matrice définie positive et Cholesky | ★★ | 10 | §1 | C, E | wbm | — |
+| CP3.4 | ✏️ | SVD, rang faible et variance expliquée | ★★ | 10 | §1 | C, E | wbm | — |
+| CP3.5 | ✏️ | Maximum de vraisemblance, log-loss et entropie | ★★ | 9 | §1 | C, E | wbm | — |
+| CP3.6 | ✏️ | Lagrange, hinge loss et noyau | ★★ | 9 | §1 | C, E | wbm | — |
+| CP3.7 | ✏️ | Queue binomiale et borne de Chernoff, limite et poids exponentiels | ★★ | 8 | §1 | C, E | wbm | — |
+| CP3.8 | ∂ | Une démonstration courte, au choix parmi deux | ★★★ | 12 | §1 | C, E | manuel | — |
+| CP3.9 | 🐛 | Corriger une copie : cinq erreurs | ★★ | 8 | §1 | C, E | wbm | — |
+| CP3.10 | 🔗 | Problème de synthèse : des données centrées, leurs axes principaux, un modèle sur les scores | ★★ | 14 | §1 | C, E | wbm | — |
+| CP3.11 | 🗣️ | Ta carte mentale et ta fiche d'une page | ★ | 60 | §2 | C, E | manuel | — |
+
+*Notes* : Fichiers comme CP2 : 01_examen_sujet.md, 02_examen_notebook.ipynb, 03_examen_corrige.md, 03_examen_solutions.ipynb, 04_mes_reponses.md, 05_synthese.md, README.md. Aucune question ne reprend le checkpoint III de workbookIA (`checkpoints/partie_3/` de workbookIA : prédictions de scikit-learn, standardiser et encoder des becs de manchots, Gini et meilleur seuil sur six points, kNN avant et après standardisation, une itération d'AdaBoost et une de gradient boosting, fuites d'un script, seuil de coût minimal, courbes de validation et de boosting, l'astuce du noyau par une parabole, calibration et déploiement, precision et folds stratifiés, Naïve Bayes avec une feature en deux copies, variance d'une moyenne de modèles corrélés, coût d'une recherche en grille), qui se fait juste après, ni son mini-projet III (recensement Adult, revenus, audit d'équité). CP3.10 n'enchaîne pas la suite de 12.7 (un vecteur donné puis vérifié, la part expliquée, les coordonnées, la reconstruction, le blanchiment), et CP3.7 ne porte pas sur la variance d'une moyenne de modèles corrélés (CP3.13 de workbookIA).
 
 <a id="m16"></a>
 ## M16 · Couches affines et variance à l'initialisation
