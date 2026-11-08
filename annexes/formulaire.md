@@ -365,6 +365,20 @@ Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque cha
 | vraisemblance | $\ln L = -\frac{n}{2}\ln(2\pi\sigma^2) - \frac{\mathrm{SCR}}{2\sigma^2}$ : $\hat{\mathbf{w}}$ = moindres carrés, $\hat{\sigma}^2 = \frac{\mathrm{SCR}}{n}$ (sans biais : $\frac{\mathrm{SCR}}{n - p}$) ; bruit de Laplace : minimiser $\sum \lvert r_i \rvert$ |
 | biais et variance | $\mathbb{E}[(\hat{\theta} - \theta)^2] = (\mathbb{E}[\hat{\theta}] - \theta)^2 + \mathbb{V}(\hat{\theta})$ ; $\mathbb{E}[(y - \hat{f}_D(x))^2] = \text{biais}^2 + \text{variance} + \sigma^2$ ; $c\,\bar{x}$ : $c^* = \frac{\mu^2}{\mu^2 + \sigma^2/n}$ |
 
+### M10 · Séparabilité linéaire et convexité
+
+| Notion | Formules |
+|---|---|
+| convexe | $C$ convexe : $(1 - t)\mathbf{a} + t\mathbf{b} \in C$ pour $\mathbf{a}, \mathbf{b} \in C$, $t \in [0, 1]$ ; demi-espaces et intersections de convexes sont convexes |
+| enveloppe convexe | $\operatorname{conv}(S) = \{\sum t_i\mathbf{x}_i : \mathbf{x}_i \in S,\ t_i \ge 0,\ \sum t_i = 1\}$ |
+| orientation | $\mathbf{u} \times \mathbf{v} = u_1v_2 - u_2v_1$ ; $(\mathbf{a} - \mathbf{o}) \times (\mathbf{b} - \mathbf{o}) > 0$ : à gauche ; aire d'un triangle $= \frac{1}{2}\lvert \cdot \rvert$ |
+| séparabilité | $\exists (\mathbf{w}, b) : y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1\ \forall i$ (programme linéaire) $\iff$ $\operatorname{conv}(A) \cap \operatorname{conv}(B) = \varnothing$ |
+| astuce du biais | $\tilde{\mathbf{x}} = (1, \mathbf{x})$, $\tilde{\mathbf{w}} = (b, \mathbf{w})$, $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = \mathbf{w} \cdot \mathbf{x} + b$ |
+| marge | $\gamma(\mathbf{w}, b) = \min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$ ; $\gamma^\star = \frac{1}{2}\min \lVert \mathbf{p} - \mathbf{q} \rVert$ ($\mathbf{p} \in \operatorname{conv} A$, $\mathbf{q} \in \operatorname{conv} B$) ; forme canonique : $\gamma = \frac{1}{\lVert \mathbf{w} \rVert}$ |
+| récurrences | $a_{k+1} \le a_k + c \Rightarrow a_k \le a_0 + kc$ ; $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$ et $\lVert \mathbf{d}_k \rVert \le L$ $\Rightarrow$ $\lVert \mathbf{v}_k \rVert^2 \le \lVert \mathbf{v}_0 \rVert^2 + kL^2$ |
+| Cover | $P(n, d) = 2^{1-n}\sum_{k=0}^{d}\binom{n-1}{k}$ ; $P = 1$ pour $n \le d + 1$, $P = \frac{1}{2}$ pour $n = 2(d + 1)$ |
+| activations | $H(z) = [z > 0]$ ; $\sigma(z) = \frac{1}{1 + e^{-z}}$ ; $\tanh(z) = 2\sigma(2z) - 1$ ; $\operatorname{ReLU}(z) = \max(0, z)$ ; lignes de niveau : $\mathbf{w} \cdot \mathbf{x} + b = c$ |
+
 ## Partie III · ML classique
 
 *(ajouté avec les chapitres M12a à M14)*

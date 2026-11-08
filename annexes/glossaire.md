@@ -8,6 +8,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | a priori, a posteriori | prior, posterior | la loi d'un paramètre ou d'une hypothèse avant de voir les données ; après, sachant les données | M04 |
 | absorption | absorption (swamping) | un petit nombre ajouté à un grand disparaît à l'arrondi : $10^{16} + 1$ donne $10^{16}$ en `float64` | M05a |
 | accuracy | accuracy | $P(\hat{Y} = Y)$ : la proportion de prédictions justes ; trompeuse quand une classe est rare | M03 |
+| activation (fonction d') | activation function | une fonction d'une variable appliquée au score $z = \mathbf{w} \cdot \mathbf{x} + b$ d'un classifieur linéaire : seuil, sigmoïde, tanh, ReLU | M10 |
 | actualiser, valeur actuelle | discount, present value | ramener une somme future à sa valeur d'aujourd'hui : la diviser par $(1 + t)^n$ | R5 |
 | AIC, BIC (critères d'information) | Akaike information criterion, Bayesian information criterion | $\mathrm{AIC} = 2k - 2\ln L$, $\mathrm{BIC} = k\ln n - 2\ln L$ ; le plus petit gagne ; le BIC pénalise davantage chaque paramètre dès $n \ge 8$ | M08 |
 | aire algébrique | signed area | aire comptée positivement au-dessus de l'axe, négativement en dessous : c'est ce que mesure une intégrale | M02a |
@@ -22,6 +23,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | arrangement | k-permutation | choix ordonné de $k$ objets distincts parmi $n$ : $\frac{n!}{(n - k)!}$ possibilités | R8 |
 | arrondi, troncature | rounding, truncation | arrondir garde le nombre le plus proche ; tronquer coupe sans regarder la suite | R1 |
 | astuce de reparamétrisation | reparameterization trick | écrire $X = \mu + \sigma Z$ avec $Z \sim \mathcal{N}(0, 1)$ : le hasard est dans $Z$, et $\mu$, $\sigma$ deviennent des paramètres qu'on peut ajuster par gradient | M02b |
+| astuce du biais | bias trick | ajouter une coordonnée constante 1 en tête : $\tilde{\mathbf{x}} = (1, \mathbf{x})$, $\tilde{\mathbf{w}} = (b, \mathbf{w})$, $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = \mathbf{w} \cdot \mathbf{x} + b$ : un hyperplan affine devient un hyperplan par l'origine | M10 |
 | asymptote | asymptote | droite dont la courbe se rapproche indéfiniment : horizontale ($y = L$) ou verticale ($x = a$) | R7 |
 | AUC (aire sous la courbe ROC) | area under the curve | $\int_0^1 \text{TPR}\,d(\text{FPR})$ : 1/2 pour le hasard, 1 pour un classement parfait | M02a, M03 |
 | average precision | average precision (AP) | $\sum_j (R_j - R_{j-1})\,P_j$ : l'aire, en rectangles, sous la courbe precision-recall | M03 |
@@ -46,6 +48,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | cellule (d'un notebook) | cell | bloc de code ou de texte qu'on exécute d'un coup | R0 |
 | centroïde le plus proche (classifieur du) | nearest centroid classifier | classer un point dans la classe dont le barycentre est le plus proche | M07 |
 | cercle trigonométrique | unit circle | le cercle de centre $O$ et de rayon 1, parcouru dans le sens inverse des aiguilles d'une montre | R9 |
+| chaîne monotone d'Andrew | monotone chain (Andrew's algorithm) | l'enveloppe convexe d'un nuage du plan : trier, puis construire la chaîne du bas et celle du haut en ne gardant que les virages strictement à gauche | M10 |
 | champ de vecteurs | vector field | une flèche en chaque point du plan (ou de l'espace) ; le gradient d'une fonction en est un | M05b |
 | changement de base (formule de) | change of base formula | $\log_b x = \frac{\ln x}{\ln b}$ | R6 |
 | changement de variable | change of variables, substitution | $\int_a^b f(g(x))\,g'(x)\,dx = \int_{g(a)}^{g(b)} f(u)\,du$ | M02a |
@@ -58,6 +61,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | coefficient de détermination ($R^2$) | coefficient of determination | $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$ : la part de la variation des cibles que le modèle fait disparaître ; 1 s'il est parfait, négatif possible sur de nouvelles données | M09b |
 | coefficient multiplicateur | multiplier, growth factor | nombre $1 + t$ par lequel une évolution de taux $t$ multiplie une valeur | R1 |
 | colinéaires (vecteurs) | collinear vectors | l'un est un multiple de l'autre : $xy' - x'y = 0$ | R9 |
+| combinaison convexe | convex combination | $\sum_i t_i\mathbf{x}_i$ avec $t_i \ge 0$ et $\sum_i t_i = 1$ ; le segment, le barycentre en sont | M10 |
 | combinaison linéaire | linear combination | somme de vecteurs multipliés par des nombres | M07, M12a |
 | comparaisons multiples | multiple comparisons, multiple testing | faire beaucoup de tests, ou essayer beaucoup de modèles : $m\alpha$ faux positifs en moyenne si aucun effet n'existe | M08 |
 | complémentaire (d'un ensemble) | complement | $\bar{A}$ : les éléments de l'univers qui ne sont pas dans $A$ | R4 |
@@ -73,7 +77,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | convergence linéaire, quadratique | linear, quadratic convergence | l'erreur est multipliée par une constante $< 1$ à chaque pas (linéaire), ou à peu près élevée au carré (quadratique : les décimales justes doublent) | M05a |
 | convergent (estimateur) | consistent estimator | estimateur dont l'erreur tend vers 0 quand la taille de l'échantillon grandit | M02c |
 | converger, diverger (suite) | converge, diverge | une suite converge si elle a une limite finie ; sinon elle diverge (vers $\pm\infty$, ou sans limite) | R5 |
-| convexe | convex | dont tout segment entre deux points reste au-dessus de la courbe (fonction) ou dans l'ensemble | M05a, M10 |
+| convexe | convex | un ensemble l'est s'il contient le segment entre deux quelconques de ses points ; une fonction l'est si chaque corde est au-dessus de sa courbe (c'est-à-dire si son épigraphe est un ensemble convexe) | M05a, M10 |
 | coordonnées polaires | polar coordinates | repérer un point du plan par sa distance $r$ à l'origine et son angle $\theta$ ; dans une intégrale double, $dx\,dy$ devient $r\,dr\,d\theta$ | M02b |
 | coordonnées, repère orthonormé | coordinates, orthonormal frame | un repère a une origine et deux axes perpendiculaires de même unité ; un point y est repéré par $(x ; y)$ | R9 |
 | corrélation (coefficient de) | correlation coefficient (Pearson) | $r = \frac{\operatorname{Cov}(x, y)}{s_x s_y}$, entre $-1$ et 1 : la force d'une relation **linéaire** ; le cosinus de l'angle entre les vecteurs d'écarts | M02c |
@@ -139,6 +143,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | entropie | entropy | $H(p) = -\sum p_i \log_2 p_i$, la surprise moyenne d'une loi ; entre 0 (loi certaine) et $\log_2 n$ (loi uniforme sur $n$ issues) | M06 |
 | entropie conditionnelle | conditional entropy | $H(Y \mid X) = \sum_x p(x)\,H(Y \mid X = x)$ : l'incertitude qui reste sur $Y$ quand on connaît $X$, en moyenne | M06 |
 | entropie conjointe | joint entropy | $H(X, Y) = -\sum p(x, y) \log_2 p(x, y)$, l'entropie de la loi jointe d'un couple | M06 |
+| enveloppe convexe | convex hull | $\operatorname{conv}(S)$ : l'ensemble des combinaisons convexes de points de $S$, le plus petit convexe qui contient $S$ | M10 |
+| épigraphe | epigraph | la région au-dessus de la courbe d'une fonction, $\{(x, y) : y \ge f(x)\}$ ; convexe si et seulement si $f$ l'est | M10 |
 | epsilon machine | machine epsilon | l'écart entre 1 et le flottant suivant : $2^{-52} \approx 2{,}2 \times 10^{-16}$ en `float64` | M05a |
 | équation | equation | égalité qui contient une inconnue ; la résoudre, c'est trouver toutes ses solutions | R2 |
 | équation cartésienne, équation réduite | Cartesian equation, slope-intercept form | $ax + by + c = 0$, qui convient à toute droite ; $y = mx + p$, pour une droite non verticale | R9 |
@@ -185,6 +191,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | fonction quantile | quantile function | la réciproque $F^{-1}$ de la fonction de répartition : $F^{-1}(u) = q_u$ | M02a, M02b |
 | fonction signe | sign function | $\operatorname{sign}(x)$ vaut $-1$, 0 ou 1 selon que $x$ est négatif, nul ou positif | R2 |
 | forme canonique | vertex form, completed-square form | $a(x - \alpha)^2 + \beta$, qui montre le sommet d'une parabole | R3 |
+| forme canonique (d'un séparateur) | canonical form | un séparateur dont la plus petite marge fonctionnelle vaut 1 ; sa marge géométrique est alors $\frac{1}{\lVert \mathbf{w} \rVert}$ | M10 |
 | forme d'une matrice | shape | le couple (nombre de lignes, nombre de colonnes), lignes d'abord : $(n, p)$ pour un dataset de $n$ exemples à $p$ features | M09a |
 | forme échelonnée, forme échelonnée réduite | row echelon form, reduced row echelon form | un escalier : les lignes nulles en bas, chaque pivot à droite de celui du dessus ; réduite : chaque pivot vaut 1 et est seul dans sa colonne (elle est unique) | M09a |
 | forme indéterminée | indeterminate form | $\infty - \infty$, $\frac{\infty}{\infty}$, $0 \times \infty$, $\frac{0}{0}$ : une limite qui ne se décide pas d'avance | R7 |
@@ -205,6 +212,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | hessienne | Hessian | matrice des dérivées secondes | M05b, M19 |
 | homogénéité (d'une norme) | absolute homogeneity | $\lVert \lambda\mathbf{x} \rVert = \lvert \lambda \rvert\,\lVert \mathbf{x} \rVert$ : multiplier un vecteur par $\lambda$ multiplie sa longueur par $\lvert \lambda \rvert$ | M07 |
 | hyperplan | hyperplane | les $\mathbf{x}$ de $\mathbb{R}^n$ tels que $\mathbf{w} \cdot \mathbf{x} + b = 0$, avec $\mathbf{w} \ne \mathbf{0}$ (le vecteur normal) : une droite du plan, un plan de l'espace | M07 |
+| hyperplan séparateur | separating hyperplane | un hyperplan qui laisse chaque classe strictement d'un côté : $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) > 0$ pour tout $i$ | M10 |
 | hypothèse nulle, hypothèse alternative | null hypothesis, alternative hypothesis | $H_0$, souvent « pas d'effet », que le test cherche à mettre en défaut ; $H_1$, ce qu'on veut montrer ; toutes deux fixées avant de voir les données | M08 |
 | idempotente (matrice) | idempotent matrix | $\mathbf{H}\mathbf{H} = \mathbf{H}$ : l'appliquer deux fois ne change rien, comme une projection | M09b |
 | identité remarquable | special product, algebraic identity | égalité vraie pour tous $a$ et $b$, comme $(a + b)^2 = a^2 + 2ab + b^2$ | R2 |
@@ -247,6 +255,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | limite à droite, à gauche | right-hand, left-hand limit | limite quand $x$ s'approche de $a$ en restant plus grand (plus petit) que $a$ | R7 |
 | limite d'une fonction | limit of a function | la valeur dont $f(x)$ s'approche quand $x$ tend vers $a$ ou vers $\pm\infty$ | R7 |
 | limite d'une suite | limit of a sequence | le nombre $\ell$ dont les termes finissent par rester aussi près qu'on veut | R5 |
+| linéairement séparable | linearly separable | deux classes qu'un hyperplan sépare ; pour des nuages finis, c'est équivalent à des enveloppes convexes disjointes | M10 |
 | linéarité de l'espérance | linearity of expectation | $\mathbb{E}[aX + bY + c] = a\,\mathbb{E}[X] + b\,\mathbb{E}[Y] + c$, même pour des variables dépendantes | R8, M02b |
 | lissage de Laplace | Laplace smoothing, additive smoothing | $\frac{k + 1}{n + 2}$, ou $\frac{n_j + 1}{n + K}$ : la moyenne a posteriori sous un a priori uniforme ; plus de probabilité nulle | M04 |
 | log-probabilité, log-vraisemblance | log-probability, log-likelihood | le logarithme d'une probabilité, d'une vraisemblance : un produit devient une somme | R6, M06 |
@@ -280,6 +289,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | mantisse | significand, mantissa | le nombre $m$ de la notation scientifique $m \times 10^k$, avec $1 \le |m| < 10$ | R1 |
 | MAP (maximum a posteriori) | maximum a posteriori (MAP) estimate | la valeur du paramètre qui maximise l'a posteriori : son mode | M04 |
 | marche (fonction de Heaviside) | step function, Heaviside function | vaut 0 avant 0 et 1 après ; la valeur en 0 est une convention | R3 |
+| marge fonctionnelle | functional margin | $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ pour un point ; elle est multipliée par $c$ quand on multiplie $(\mathbf{w}, b)$ par $c$ | M10 |
+| marge géométrique | geometric margin | $\min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$ : la distance signée du point le plus mal placé à l'hyperplan ; la plus grande possible vaut la moitié de la distance entre les enveloppes convexes | M10 |
 | Markov (inégalité de) | Markov's inequality | $P(X \ge a) \le \frac{\mathbb{E}[X]}{a}$ pour une variable $X \ge 0$ et $a > 0$ | M02c |
 | matrice | matrix | tableau de nombres à lignes et colonnes | M09a |
 | matrice augmentée | augmented matrix | $[\mathbf{A} \mid \mathbf{b}]$, la matrice des coefficients suivie de la colonne des seconds membres, sur laquelle on fait le pivot de Gauss | M09a |
@@ -357,6 +368,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | polynôme de Taylor, série de Taylor | Taylor polynomial, Taylor series | $\sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x - a)^k$, le polynôme qui a les mêmes $n$ premières dérivées que $f$ en $a$ ; la série, quand $n \to \infty$ | M05a |
 | polynôme, degré | polynomial, degree | somme de puissances entières de $x$ multipliées par des coefficients ; le degré est la plus grande puissance | R3 |
 | population | population | l'ensemble (ou la loi) dont les données sont tirées, et dont on veut connaître les paramètres | M02c |
+| position générale | general position | des points sans alignement particulier : dans le plan, jamais trois sur une même droite ; $d + 1$ points de $\mathbb{R}^d$ en position générale sont séparables quels que soient leurs labels | M10 |
 | precision (valeur prédictive positive) | precision, positive predictive value (PPV) | $P(Y = 1 \mid \hat{Y} = 1)$ : la part des alertes justifiées ; elle dépend de la prévalence | M03 |
 | prédicat | predicate | une phrase qui dépend d'une variable, comme « $x > 3$ » | R4 |
 | prévalence | prevalence, base rate | $P(Y = 1)$ : la proportion de positifs dans la population | M03 |
@@ -371,6 +383,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | produit matriciel | matrix product, matrix multiplication | $(\mathbf{A}\mathbf{B})_{ij} = \sum_k a_{ik}b_{kj}$, pour $(n, p) \times (p, m) \to (n, m)$ ; associatif, pas commutatif, $n\,p\,m$ multiplications | M09a |
 | produit nul (règle du) | zero-product property | un produit est nul si et seulement si l'un au moins de ses facteurs est nul | R2 |
 | produit scalaire | dot product, inner product | $\sum_i x_i y_i$ ; mesure d'alignement de deux vecteurs | R9, M07 |
+| produit vectoriel (du plan) | cross product (2-D) | $\mathbf{u} \times \mathbf{v} = u_1v_2 - u_2v_1$ : positif si $\mathbf{v}$ est à gauche de $\mathbf{u}$ ; sa valeur absolue est l'aire du parallélogramme | M10 |
+| programme linéaire | linear program | une optimisation d'une fonction linéaire sous des contraintes linéaires ; de faisabilité quand on cherche seulement un point qui les vérifie toutes (`scipy.optimize.linprog`) | M10 |
 | projection (sur une direction) | projection | l'ombre de $\vec{v}$ sur la direction de $\vec{u}$ : $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert^2}\vec{u}$ | R9, M07, M12b |
 | projection orthogonale (sur un sous-espace) | orthogonal projection | le point d'un sous-espace le plus proche d'un vecteur : l'écart est orthogonal au sous-espace ; les moindres carrés projettent $\mathbf{y}$ sur l'espace des colonnes | M09b |
 | proposition | proposition, statement | une phrase qui est soit vraie, soit fausse | R4 |
@@ -402,6 +416,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | régression ridge | ridge regression | les moindres carrés pénalisés par $\lambda\lVert \mathbf{w} \rVert^2$ : $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{w} = \mathbf{X}^\top\mathbf{y}$, toujours soluble pour $\lambda > 0$ ; le MAP d'un prior gaussien | M09b |
 | régularisation | regularization | ajouter à la loss une pénalité sur les poids (ridge, lasso) pour préférer les modèles simples | M09b |
 | relation de Chasles | Chasles' relation | $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$ | R9 |
+| ReLU | rectified linear unit | $\max(0, z)$, l'activation la plus utilisée dans les réseaux | M10 |
 | résidu | residual | $r_i = y_i - \hat{y}_i$ : la cible moins la prédiction | M09b |
 | reste de Lagrange | Lagrange remainder | $f(x) - P_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - a)^{n+1}$ pour un $\xi$ entre $a$ et $x$ : il borne l'erreur d'un polynôme de Taylor | M05a |
 | risque empirique | empirical risk | la moyenne d'une loss sur les exemples d'entraînement ; apprendre, c'est choisir les paramètres qui le minimisent | M09b |
@@ -411,6 +426,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | score de Brier | Brier score | $\frac{1}{n}\sum (p_i - y_i)^2$ : l'erreur quadratique moyenne des probabilités annoncées | M03 |
 | sécante | secant line | droite qui passe par deux points de la courbe ; sa pente est le taux d'accroissement | R7 |
 | second degré (polynôme du) | quadratic (polynomial, function) | $ax^2 + bx + c$ avec $a \ne 0$ | R3 |
+| sens direct | counterclockwise | le sens inverse des aiguilles d'une montre ; les sommets d'une enveloppe convexe sont rangés dans ce sens | M10 |
+| seuil (fonction) | step function | $H(z) = 1$ si $z > 0$, 0 sinon (la convention en 0 varie) ; l'activation d'un classifieur linéaire qui répond oui ou non | M10 |
 | seuil d'un test | significance level | $\alpha$, le risque de type I accepté : on rejette $H_0$ quand la p-valeur est au plus $\alpha$ (souvent 0,05) | M08 |
 | seuil de décision | decision threshold | le score à partir duquel on déclare un exemple positif ; $\frac{c_{FP}}{c_{FP} + c_{FN}}$ minimise le coût pour des probabilités calibrées | M03 |
 | seuillage doux | soft thresholding | $S(z, \gamma) = \operatorname{signe}(z)\max(\lvert z \rvert - \gamma, 0)$ : rapprocher $z$ de 0 de $\gamma$, ou le mettre à 0 ; la solution du lasso en dimension 1 | M09b |
@@ -426,6 +443,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | somme pondérée | weighted sum | $\sum w_i x_i + b$, sans division ; le calcul d'un neurone | R1 |
 | somme télescopique | telescoping sum | $\sum (b_{k+1} - b_k) = b_{n+1} - b_1$ | R4 |
 | sommes de carrés (totale, expliquée, résiduelle) | total, explained, residual sum of squares (SST, SSE, SSR) | $\mathrm{SCT} = \sum (y_i - \bar{y})^2$, $\mathrm{SCE} = \sum (\hat{y}_i - \bar{y})^2$, $\mathrm{SCR} = \sum r_i^2$ ; $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ pour les moindres carrés avec ordonnée à l'origine | M09b |
+| sommet (d'une enveloppe convexe) | vertex | un point du nuage qui n'est pas combinaison convexe des autres : un coin du polygone | M10 |
 | spécificité | specificity, true negative rate | $P(\hat{Y} = 0 \mid Y = 0)$ : la part des négatifs bien reconnus | M03 |
 | standardiser | standardize | passer de $X \sim \mathcal{N}(\mu, \sigma^2)$ à $Z = \frac{X - \mu}{\sigma} \sim \mathcal{N}(0, 1)$ | M02b, M02c |
 | statistique | statistic | une fonction de l'échantillon (moyenne, médiane, maximum) : une variable aléatoire | M02c |
@@ -454,10 +472,13 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | terme, rang (d'une suite) | term, index | $u_n$ est le terme de rang (ou d'indice) $n$ | R5 |
 | termes semblables, réduire | like terms, collect like terms | termes de même partie littérale ; réduire, c'est les additionner en additionnant leurs coefficients | R2 |
 | test binomial exact | exact binomial test | test de $H_0 : p = p_0$ par la loi $\mathcal{B}(n, p_0)$ du nombre de succès ; bilatéral : la somme des issues au plus aussi probables que l'observation | M08 |
+| test d'orientation | orientation test | le signe de $(\mathbf{a} - \mathbf{o}) \times (\mathbf{b} - \mathbf{o})$ : à gauche, à droite ou aligné | M10 |
 | test du second ordre | second-derivative test | en un point critique, le signe de $D = f_{xx}f_{yy} - f_{xy}^2$ (et celui de $f_{xx}$) dit minimum, maximum ou point selle ; $D = 0$ : il ne conclut pas | M05b |
 | test par permutation | permutation test | la loi nulle obtenue en rebattant les valeurs entre les groupes ; p-valeur $\frac{C + 1}{B + 1}$ avec $B$ permutations tirées au hasard | M08 |
 | théorème central limite | central limit theorem (CLT) | pour $n$ grand, la moyenne de $n$ variables i.i.d. suit à peu près $\mathcal{N}\big(\mu, \frac{\sigma^2}{n}\big)$, quelle que soit leur loi | M02c |
+| théorème de Cover | Cover's theorem | la proportion des étiquetages séparables de $n$ points en position générale de $\mathbb{R}^d$, $2^{1-n}\sum_{k=0}^{d}\binom{n-1}{k}$ : 1 jusqu'à $d + 1$ points, $\frac{1}{2}$ pour $2(d + 1)$ | M10 |
 | théorème de Fubini | Fubini's theorem | une intégrale double sur un rectangle se calcule en intégrant une variable après l'autre, dans n'importe quel ordre | M02b |
+| théorème de l'hyperplan séparateur | separating hyperplane theorem | deux convexes compacts disjoints sont strictement séparés par un hyperplan (la médiatrice de leur couple de points le plus proche) | M10 |
 | théorème de Schwarz | Schwarz's theorem, symmetry of second derivatives | les dérivées croisées sont égales, $f_{xy} = f_{yx}$, quand les dérivées secondes sont continues | M05b |
 | théorème de transfert | law of the unconscious statistician (LOTUS) | $\mathbb{E}[g(X)] = \sum g(x)\,P(X = x)$ ou $\int g(x)\,f(x)\,dx$, sans chercher la loi de $g(X)$ | M02b |
 | théorème des valeurs intermédiaires | intermediate value theorem | une fonction continue sur $[a ; b]$ prend toutes les valeurs entre $f(a)$ et $f(b)$ | R7 |
@@ -483,6 +504,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | variance | variance | moyenne des carrés des écarts à l'espérance | R8 |
 | variance d'échantillon | sample variance | $s^2 = \frac{1}{n - 1}\sum (x_i - \bar{x})^2$, estimateur sans biais de $\sigma^2$ ; $s_n^2$ divise par $n$ | M02c |
 | vecteur | vector | un déplacement (une direction, un sens, une longueur), donné par ses coordonnées ; en ML, une liste de nombres | R9 |
+| vecteur de support | support vector | un point à la distance exactement $\gamma^\star$ de l'hyperplan de plus grande marge : il fixe cet hyperplan | M10, M13b |
 | vecteur directeur, vecteur normal | direction vector, normal vector | un vecteur qui a la direction d'une droite ; un vecteur qui lui est perpendiculaire | R9, M07 |
 | vecteur one-hot | one-hot vector | le codage d'une catégorie : un 1 à sa place, des 0 ailleurs (un vecteur de la base canonique) | M07 |
 | vecteur unitaire | unit vector | un vecteur de norme 1 ; $\frac{\vec{u}}{\lVert \vec{u} \rVert}$ normalise $\vec{u}$ | R9, M07 |

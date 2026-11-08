@@ -300,6 +300,24 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Juger un modèle à son $R^2$ d'entraînement | ajouter des features de bruit, et voir le $R^2$ monter | le $R^2$ d'entraînement ne baisse jamais : mesurer sur des données de validation |
 | Oublier le signe dans le seuillage doux | $S(-1{,}4 ;\ 0{,}3) = -1{,}7$ | rapprocher de 0 : $\operatorname{signe}(z)\max(\lvert z \rvert - \gamma, 0) = -1{,}1$ |
 
+## Séparabilité linéaire et convexité (M10)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Croire qu'une réunion de convexes est convexe | « deux disques convexes, donc leur réunion aussi » | seule l'intersection garde la convexité : un segment entre les deux disques sort de la réunion |
+| Prendre la courbe d'une fonction convexe pour un ensemble convexe | « la parabole $y = x^2$ est convexe » | c'est la région au-dessus d'elle (l'épigraphe) qui est un ensemble convexe |
+| Garder un point au milieu d'un côté comme sommet | chaîne monotone avec le test $< 0$ | retirer le dernier sommet quand le produit vectoriel est $\le 0$ |
+| Inverser le produit vectoriel | $u_2v_1 - u_1v_2$ | $u_1v_2 - u_2v_1$ : positif quand on tourne à gauche ; sinon l'enveloppe sort dans le sens des aiguilles d'une montre |
+| Prouver la non-séparabilité par des essais | « j'ai essayé dix droites, aucune ne sépare » | exhiber un point commun aux deux enveloppes convexes (une combinaison convexe explicite) |
+| Tester la séparabilité avec $\ge 0$ | le programme linéaire $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 0$ | exiger $\ge 1$ : avec $\ge 0$, $\mathbf{w} = \mathbf{0}$ et $b = 0$ conviennent toujours |
+| Laisser les bornes par défaut de `linprog` | des inconnues forcées à être positives | `bounds=(None, None)` : les poids et le biais sont libres |
+| Oublier le biais | un hyperplan qui passe toujours par l'origine | ajouter une colonne de 1 (l'astuce du biais), le biais en tête |
+| Prendre la marge fonctionnelle pour une distance | marge $\min_i y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ | diviser par $\lVert \mathbf{w} \rVert$ ; doubler $(\mathbf{w}, b)$ ne doit rien changer |
+| Une marge en valeur absolue | $\min_i \frac{\lvert \mathbf{w} \cdot \mathbf{x}_i + b \rvert}{\lVert \mathbf{w} \rVert}$ | multiplier par le label $y_i$ : la marge est négative quand un point est du mauvais côté |
+| $\lVert \mathbf{v} + \mathbf{d} \rVert^2 \le \lVert \mathbf{v} \rVert^2 + \lVert \mathbf{d} \rVert^2$ sans condition | des pas dans la direction de $\mathbf{v}$ | seulement si $\mathbf{v} \cdot \mathbf{d} \le 0$ ; sinon la norme peut croître linéairement |
+| Élever au carré une inégalité dont un côté peut être négatif | $-2 + 0{,}5k \le \sqrt{4 + 9k}$ élevé au carré pour tout $k$ | vérifier d'abord le signe ($k \ge 4$ ici) |
+| Croire qu'une activation change la frontière | « avec une sigmoïde, la frontière se courbe » | une activation croissante garde l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ |
+
 ## Probabilités (R8, M03)
 
 | Erreur | Exemple faux | Ce qu'il faut faire |

@@ -32052,6 +32052,1340 @@
       },
       "source": "chapitres/m09b_moindres_carres/05_solutions.ipynb"
     },
+    "M10.1a": {
+      "decimals": 0,
+      "element_hashes": [
+        "4249553b889c274b0b459ae95b7bc4f28cded5d422394011a000d371212d7a6a",
+        "c472fa42845b9221370d44f626d970c8dc471a413441e4f11941969b65cccd92"
+      ],
+      "hash": "2e537fe6f97a31ce86880d49718f606688146df68640b4df6d95499d8c87b4c2",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "9cefa77b1f78d4b4bbb115c078174a987f3f0f05144e94f88611fd180a506048": "t mesure l'avancée depuis a : le point vaut a + t(b − a)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.1b": {
+      "coarse_any": {
+        "0": [
+          "9177c8285db85919ffdaf2de26bcaad5d36fdc245816a0e852c3b58d465edae0"
+        ]
+      },
+      "decimals": 2,
+      "hash": "5cd473f74dbdb6e3791b282ebd90e0a6678b18fb9c2599756fe64230e46a7547",
+      "hash_coarse": "fb8606a44bee8fa797421d82ad833bbcf15591c7cd9983c70313145617665b47",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "fc50a73563eb360263bc723677c086c10bd1479278c39ef916d6b664b8da413b": "t = 0 donne a et t = 1 donne b : t mesure l'avancée depuis a"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.1c": {
+      "hash": "ef6cdd4a3c5a9a1721f761c03286e41019832c4f7553af5977003bc0b3a9331b",
+      "kind": "str",
+      "mistakes": {
+        "0f2bfe6151efa1e684a3450a1b531b67618b9cbc2012b57cb22605e2035f5ebd": "B a un trou : un segment qui traverse le disque unité en sort",
+        "548afbb700ef12a81ba135998bd05b693ee35c3a4f2c884dafbc01465d4791ae": "D est la région sous une parabole : le milieu de (−1, 1) et (1, 1) en sort",
+        "711bd93265c2028824c2e73e5bfa752615a181f766e26a835b63296799abc8ec": "G est une croix : le segment de (3, 0) à (0, 3) passe par (1,5 ; 1,5), hors des deux bandes",
+        "e5a408ca20e88d6be02177a6e3f2a6d95fdbef6f96165be49a5798a70d4b0d3c": "F est la région au-dessus de la courbe de 1/x, convexe sur ]0, +∞[ : prends deux de ses points"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.1d": {
+      "decimals": 0,
+      "element_hashes": [
+        "4c904690f2d4a265908cdea07c21dcec2dbc64c39507c56bac4e3a3d2b6d69fe",
+        "e290e6b73fd14bbd711b5454caf036809b18fe891d419534a8d2a2eb5c679e54"
+      ],
+      "hash": "b18842cb985bb6e6bb067a19854218af2785a0af0eb8e43a0d40e783a0430952",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "433b414f2ebc39b163edeff54a973194a6484412aedd70da1fe9bb75ab3cc36e": "le sommet est l'intersection des droites 2x + y = 8 et x + 2y = 7"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.1e": {
+      "hash": "9d02be546c5857bf1e626e97f270994f4ca8f4642df35cc500baf8b797402dbf",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2356a39d32acadf34722e97854310a0aaba799b2e48083b64dba2114dcf9ada5": "compte aussi les sommets sur les axes, (0, 0) compris",
+        "4afb812cb86e413cf27c00a0c96bdbc83e09d68c609293016f47b98259f087bd": "compte aussi les sommets sur les axes, (0, 0) compris"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.1f": {
+      "hash": "341dc23488f5a5bb998ae8a48a91114db9bb37fe7677b401a7c5e8efb29927f5",
+      "kind": "str",
+      "mistakes": {
+        "058d49705e57fea6bad604a66a8a8196b9ad1fe364d58db9853ba08ce6ae70ed": "vérifie les quatre inégalités, x + 2y ≤ 7 comprise",
+        "4208c7cca975a505040caf798a3c1f6cd1136e86deb671fc9ad33eb26457a564": "vérifie les quatre inégalités, 2x + y ≤ 8 comprise",
+        "6fb595294e9f0838ec73ae84429bdda91c43c0745a5fa231743174ff67977974": "S est sur le bord x + 2y = 7 : K contient son bord (inégalités larges)",
+        "75146ce27b3537056ab736930d021ec5a90dccf853c857929a3c16f2a6118200": "vérifie les quatre inégalités, x + 2y ≤ 7 comprise",
+        "cd727b1ac9b35658ab369e233796b668e810d4dac152d08ef2062515b32e9673": "vérifie les quatre inégalités, 2x + y ≤ 8 comprise"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.1g": {
+      "decimals": 1,
+      "element_hashes": [
+        "54cfce9ed46264ef7255f98c4da8e727b77e5140532aa40d5fd0a405536a6f38",
+        "2dc7e027a2681f28d973d26fb235a4ae4900c1a6ee91a8657fb791d06c1e7127"
+      ],
+      "hash": "52b536c2ba3717b8628490abc4204bf0ff79b8044e04a0d879db0c34cc42f8eb",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.2a": {
+      "hash": "d7eed3153d466c62718daf14a204fc9d76923269ebcb0a237dcf062f89c3f519",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "843cea63e4d5107ccba2d1ed39c11607ec1e60cd65c7fa5b204ff9fdde078e6c": "les points intérieurs ne sont pas des sommets : seuls ceux que l'élastique touche en tournant",
+        "c332a3ed3aa41ee77a369648b499c50a69ec8d458d0781b9debee6d724e107d7": "un point au milieu d'un côté n'est pas un sommet",
+        "c70a2aebcea77ce50c6de5710f2438e50285506b4f43dbcac7e671c1afc9dad1": "les points intérieurs ne sont pas des sommets : seuls ceux que l'élastique touche en tournant"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.2b": {
+      "decimals": 0,
+      "element_hashes": [
+        "c7f15bcba18cdc65387322fdd12ae96ccc6c558a38b400378d1faf566d1440bf",
+        "31936ec122551806ff061f4423768ba72bb16273c0f34e49ed3298cc9118691e",
+        "9de1c915122231289ecb52fd22ed9e74c598978d4ad8340351776810be357d45",
+        "8342f1838a753993c684a55c8e901a54fc31dc722b31fc41a9498ee045dd2feb",
+        "efbdcc417cff133f2cb559c2062ab568adbf4370c96814ae9be0ad8c8dd13633",
+        "f98aa9b8a4c6dda139a951489df0157406753fc504d81c379ee3f40231529abf",
+        "099d077dc556124299a9a39db1106674f7256a52cad14e5107442e13e6bb0179",
+        "65ae6c3b4dc6df2fb8823ab2da7a7c01247ec2678ba0ceaa045a34e86d3976a1",
+        "4487a0b9d3ccff737134144438eca6301b12a605a90a1a4502aedf70ae4c5d31",
+        "485c7d5259149005ba7bb5be300b30cac106cb52fff499e9175e45b0c6a2d791"
+      ],
+      "hash": "9a13d5838c7b724893e9fbb798afcd3329ae6ad25b8fb8f8e69731ae1a98be4b",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "26ca11891de4c9925304ca099ca90261104d5cbcee103c73b0a178a078826d8d": "(−2, 0) est au milieu d'un côté : ce n'est pas un sommet",
+        "45382b17a03731a98fe3d68a1726f28dc9dea9f44d7e3b91e0a6f1cb539698dd": "commence par le plus petit point : le plus petit x, puis le plus petit y",
+        "47f9eee8e3bc54cc3f78311e29eccad63cae42a375925865934e2d5ed423da5d": "le sens direct est le sens inverse des aiguilles d'une montre"
+      },
+      "shape": [
+        5,
+        2
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.2c": {
+      "hash": "401511e03763ebe747863c184be2219cec9466c89d5e56011d95fafc21d5c1c1",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.2d": {
+      "hash": "4896c14ee5cbfc845bfff33f01ad65200ee988589f0678e6ef4ed58314e35d4e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "f409f3d4e23dc7b785cfb62e690ffe20223b11e2f507ce8a57f8aa7860ecc855": "u × v = u₁v₂ − u₂v₁ : l'ordre des deux vecteurs compte"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.2e": {
+      "hash": "b87d1dfa06185af4de285be3612e6727d3d393e1751f4086779f71e5428035c3",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "8b7595c87ea609745546acce1d8e39b9981433bb53de941824e2faabddd17e15": "l'aire d'un triangle est la MOITIÉ de la valeur absolue du produit vectoriel"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.2f": {
+      "hash": "1a2769e2b6cb1c18611d416099a4611b53d691356e32e3524cd91cfdc4b9d9d3",
+      "kind": "bool",
+      "mistakes": {
+        "dd8adea193a6d25516bab30458dc9698c2d1264e97b4b997bb956d1d7a77ed3d": "teste Q contre chaque côté, dans le sens direct, celui qui va de (4, 3) à (3, 5) compris"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.2g": {
+      "hash": "723d6c8a8e4cd6e2c7901964fdf7bf1cb4a6ac91327fc3b1da3aebd9f7eb22b0",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "657f27a157d99eda8230c41a342a2dba6e50491d1da62a374a45850c6ee19a7f": "un nouveau point peut faire disparaître un sommet : teste (4, 3) avec ses nouveaux voisins"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.3a": {
+      "decimals": 0,
+      "element_hashes": [
+        "e27b1276ac98420c178e85c502f76bb1d62aa3f050cff975b328735c13ad71ab",
+        "a0004a6bcf0156fb22efd064b48bc6e8e1d83ebe253ead8e7dba8290cdc74e31",
+        "1ec5f428d950a92cd94571feae1c9888ebd40b94c31d4843f9eda072f3117b66",
+        "843fb79d0ff36692c8a530859afcf3837f963ff6d91fd1a4d815b9a9c238a04b",
+        "ee74e65e60f2cd7a80c890e939cd864c55effe2c897a38306c3a003388b3cb1e",
+        "c51c52713c5e2cfa6c61586218edf0d8f81c1eb1b728cbedcf4ade1be3d2c0e9"
+      ],
+      "hash": "61a0cd7eabd77c2f28511f38cf1cafd600b12e0274218271993b5709bf3553be",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "f1d674ca66d8d8f050b15efbfabcc54f5d469e9f9d17ca990e54d06eda59d8e8": "le score est w · x + b : n'oublie pas b"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.3b": {
+      "coarse_any": {
+        "0": [
+          "842cbe9272f9c5106aac365a0863a1c178775f82562f76670d1640830b8ee2b7"
+        ],
+        "1": [
+          "f2bde0e510c2f7133ac7e1bda98d622c88ef1ad4e05a80bfa4da66032032153b"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "86601b4d0d4680ce1cb47f656ad9da3e84df476291c31d44033cb7004b7208a6"
+        ]
+      },
+      "decimals": 4,
+      "hash": "6605cdc25d16ad91d339148dc80dc75c94e42bed73e2a87b69b49c39127c9934",
+      "hash_coarse": "7b859a316464daa0971341d9165e7dd58b2ba8a2c7dc97fa718f99649f6d5c64",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "07dad68300b4a3889a3dc9ac21119b1610bd3d99f7c54392e25a9daddd230ab6": "‖w‖ = √(2² + 1²), pas 2² + 1²",
+        "119d20c84a2740aad745ddc12e14780eaafbaebd828bb4460373191036545870": "la marge est le minimum sur les DEUX classes, la classe −1 comprise",
+        "bc0f18c5d3e0ae9e0c177c689ba46b5b6e05537ccbbace05402296b8858e822a": "une marge géométrique est une distance : divise par ‖w‖"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.3c": {
+      "decimals": 0,
+      "element_hashes": [
+        "8bbd5f7b28bd3ace3aa4407daa92737c8104df0c5071f5cc33289434b28fe69a",
+        "cd59a2ac111f5fd37d699502010fc76f79b66bfe53d7805381f981aebb2437b6"
+      ],
+      "hash": "f955757dbad0f4076654844860816f1e336373b4873d6ddc8b84049598756fb6",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2e7265eb0aaf3c1810c1429d7934706295a7c93840b7d9a40a7709e1c440d185": "compare les distances des deux côtés : y_i(w · x_i + b) / ‖w‖ pour chaque point",
+        "4446494eb9ab89a5d6f4c22351bd4d663d2716d3f8fad4029fc18a2433894486": "deux points sont à la même distance : donne les deux numéros, dans l'ordre croissant",
+        "9e914d05a5a199e6a067e603f98f4aa46358d449b608677a3ba9bdd943c7d715": "deux points sont à la même distance de la droite : donne leurs deux numéros"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.3d": {
+      "hash": "4ce1225d942ef8cef023fa2f7962617162d1de8fb714a4f8c1396b41cdca8ef0",
+      "kind": "interval",
+      "mistakes": {
+        "059cf43ced2f8a0c5f4271279b7fc65ed5aab1947ceca39d7f5699d7c31db165": "w · x + b > 0 sur la classe +1 donne b > −12, et < 0 sur la classe −1 donne b < −2",
+        "b3f4d9af43697aeddab35bd317fd6e27dbd392e3ce83518a6e6e9ef867cdbd04": "la séparation est stricte : aux bornes, un point est sur la droite"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.3e": {
+      "hash": "8c929dac37d40be69b61a6eaa92ea49005e63c8fefea7fc2bb057c4a0b71adad",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "05bb1cf682969c0e5634dd2d6fe1e9b50b0764adb96d4e9dcc5abb2150b9a97d": "le meilleur b met la droite à égale distance des deux nuages : le milieu de l'intervalle",
+        "d7af9b3dd62edf47173d7dfbfec412df755697e765b721b944391959e7a8dc3c": "le meilleur b met la droite à égale distance des deux nuages : le milieu de l'intervalle"
+      },
+      "sign": -1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.3f": {
+      "coarse_any": {
+        "0": [
+          "d7b2e8493ff0940c971e43b33ba85e0b50d6b406b5524ab00db648f4e1ba8e21"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "a877b5c375bfc9adb93db9b673c62370308cfc16ea96c2389ec87e5898ca0bab"
+        ],
+        "2": [
+          "82640618aaa20cdd0d711ec3de3582e411648bc2b0d6c3b340b9bc4ec85f2ebb"
+        ]
+      },
+      "decimals": 4,
+      "hash": "348d06d9e78bd7fe5aad8780e65b1bcbdae7b7859d8a4ffc2925e3585b28e384",
+      "hash_coarse": "27443bc635c9b40b91c03fde4f4243dbb6bcaff118699e06139d75d1ac994776",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "40a9448b8a824fc6b2f3db66579fdc8b95361ee675ff525ac7ed95567597c883": "divise par ‖w‖ = √5"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.3g": {
+      "coarse_any": {
+        "0": [
+          "2dd942c8e573c12bcbb93fca72cfce5ef666565f2264fb6ae6a37d83bc09b9cf",
+          "768b1b490079959c6fcffb83b8b8671c93b3930b46db002dbf98105403948d46"
+        ]
+      },
+      "decimals": 2,
+      "hash": "da7450b244e588710616a05d84577b3e38623cc397ca29fe53360ee759a4b908",
+      "hash_coarse": "bdac3fc4f828cbfc0a38cc76fce82b8a3884ffe5b038f8c481c766c4970c401e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "42e440534ecbc0227612e78819bad9bc730a1880693f99307db5172e041ad4ee": "c'est la meilleure marge pour w = (2, 1) ; en changeant aussi la direction, on fait mieux",
+        "c4b220dc491fe0e7f1c279537d35488d5abb628fe191fb61f09bc07ef1d2773d": "la plus grande marge est la MOITIÉ de la distance entre les enveloppes"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.4a": {
+      "decimals": 0,
+      "element_hashes": [
+        "6badd9374f1ba30135a83cafa5812758630cac9a4ac96daa160950596cbbb0fb",
+        "47af9bdbabbad67adfcb5f923b8f072709b128f29e9f2c51ea5bf76443e38973",
+        "b58eb08e9710089a7ae29e0b91db1baff3f8b59697e2fd5f31bef049229915f7"
+      ],
+      "hash": "60168cede8def67823bf13a4090017a47815917629985b77db44260673ef2595",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4f750ca6075d47e914da4c5ac669fdb332ee65e4053ce85ae530da1dba389dc8": "le biais se place en tête : (b, w₁, w₂)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.4b": {
+      "decimals": 0,
+      "element_hashes": [
+        "d2480c9a94e7df5ef74c94d6a4fbbbad23bec42a462e9502c63e075957ae6b21",
+        "b231ebdec159f671cc21e4e1e5ca3600a7ae40c7f80a1458c21a2d1cbd5da720",
+        "39b50aea8b83e839202f7b098306ec9bd92b57c12bbaeb95deae7e8bce4e57d8"
+      ],
+      "hash": "27652f7acc19dca5bb25a82a50ea6b3cdf467f14892c9dc5f51aeb713d4c05e6",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3960c6196f860278fc41127111a8692073366ea1aed3fcadf30b31b3538953b1": "la coordonnée constante 1 se place en tête : (1, x₁, x₂)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.4c": {
+      "decimals": 0,
+      "element_hashes": [
+        "400c85f365b28de2291f9b95125ad64d456377a647056799aac1e2b7989769c9",
+        "df8fce3a70d680dc218ab52ccecd8cbf6f226dfe99a38049947d96cd12516bb9",
+        "fb15289b01d204dd619510357aaa85f4f9223a748995139a1cb1f2985a7425c4"
+      ],
+      "hash": "b65db8471e9e0cd82324c5be5e9519e98ec104e10d2af60c192ae19176459529",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "198bfa7a2008495a7f776d8ea7d4096bc0f72af82085a4de867b68a2adbc9ea0": "le score relevé vaut b × 1 + w · x : n'oublie pas le terme du biais"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.4d": {
+      "coarse_any": {
+        "0": [
+          "09f0c75157856ce043489a5863b000bce53ea36588d73b99f508d87e9686d9f7"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c5623bcc2bfc738e6a212644ca8735a97f35035f642d67135db9f56608dafe50"
+        ],
+        "2": [
+          "c503c56c973e613ce35bb49451f3492a3d82323bf6a11210bf62c55415f73e37"
+        ]
+      },
+      "decimals": 4,
+      "hash": "191a5e731c211b9286ebc2a4acdffc3f853b0d64dfa8b1ae33b42134108fa8ca",
+      "hash_coarse": "28277af48c42482cf3c73150a017e7a65fd45075d9cf7586ab230da1adbad93f",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "02de27e04819fc988934a1932de7c50f9ef0052e0dd7bbc416ba178a6b8e3493": "divise par ‖w‖",
+        "419dc826e60d768eb7d5648e8dcf1d7aa3624a629d9b17b18d706d8d42e038a7": "la distance est |w · q + b| / ‖w‖, avec ‖w‖ = ‖(3, −2)‖ dans le plan"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.4e": {
+      "decimals": 0,
+      "element_hashes": [
+        "baa876eb1bdb451655d91446b265c1d7ad024f498109f9c2f4179ffd3c3d9a2e",
+        "8771f6c460ae48a6d92dd80a8c8f8d6250f485d0c8cfe626ff71d5f4739179eb"
+      ],
+      "hash": "a4d2887f91ec50ed19b96c34141bbbf253b464a64f93a50006547b166725bcb7",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5f1d21873b4ec71a138b0af3e919c2481a80de09e01376630dd20e8e51c254ca": "au niveau x₀ = 1, l'équation devient −6 + 2x₁ + 3x₂ = 0 : x₁ = 3 quand x₂ = 0"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.4f": {
+      "hash": "14b94e5e74605df2f0eb0df78b529ab70236e688ec09a69f4235c72d025a7431",
+      "kind": "bool",
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.4g": {
+      "decimals": 0,
+      "element_hashes": [
+        "c605fa443244fbaeae9d136f4257805a6d90aacfe66667bf5ba6fe9565d1b034",
+        "a1e9d51cc456c450402c03feec90ed931907755964a6fff42170b4f1dcea611c",
+        "0323b955dca14c10ffc961e66e1b280537a5bcbee55bac489024176e6bcc89b0"
+      ],
+      "hash": "8326fbf381cb26271017cfaef46e7cbe5bcfa9798d248be18b1abdeaa3fa2bd5",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a0f7a30bd327c401569d56250a837fc35104c82f1cc5fd572ab498d188ea3ae2": "le plan doit contenir (1, 2, 0) et (1, 0, 1) : écris les deux produits scalaires nuls"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.5a": {
+      "coarse_any": {
+        "0": [
+          "f967385719100281a51c37c312f6d767028fdd1dd6f7597aeb7834310801027f"
+        ]
+      },
+      "decimals": 2,
+      "hash": "a6ef276b448aabe67cb2ecd2644dd21871c51054bafe5eea94c7eeb9942cb0f6",
+      "hash_coarse": "243dfcee5d47d9356a9a264d406c9051df33a0394fad11b491a8719ec83b2e64",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "2e6a5a435eba5e265b3f39389b998c75bd182ca89f164945d0efd4ab845548de": "la question demande le CARRÉ de la norme"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.5b": {
+      "hash": "f77d7e7ba80093ce8b0053f6618275174318bb82f1917b31976c77bf74ad2294",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "7a00b79df0700748bfdb1749ba9c0bb739908f340ce27310f75959efd42f148a": "v₁ = v₀ + d₀ : calcule d'abord v₁, puis son produit scalaire avec d₁"
+      },
+      "sign": -1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.5c": {
+      "hash": "884db6b928345475682cb07d8ff2896017b7591bfeff535f1a52f635648da47d",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "e7dde375ed66c1239179367e67cf9e1963d25fc6647ea557840e0a61d0ac9266": "c'est la borne ; la question demande la valeur exacte, avec le terme 2 v₁ · d₁"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.5d": {
+      "hash": "50422538a610689cf6f34474f441cce65603801a500acbea861c140132bb27a0",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "0bfbb058d4f7197a33fb26da662057a66502b09071ca8ff70c6c78edc4f69906": "c'est la valeur exacte ; la borne ignore le terme 2 v_k · d_k, ≤ 0",
+        "552153b0b837ec12df6d4f9bea29a7cf4a6158085f1fe46708aae39705b97831": "le lemme ajoute c à chaque pas, à partir de ‖v₀‖² = 5 : deux pas",
+        "d93f713ecb2409f416e03ce63058a2d538238bdc8c54a8694a80e28be5e07be2": "le lemme ajoute c à chaque pas, à partir de ‖v₀‖² = 5 : deux pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.5e": {
+      "coarse_any": {
+        "0": [
+          "d4957bf2fe67fc4e300625f79ac2fa76610b54c677572bde8dd4a4cefd47a8c6"
+        ]
+      },
+      "decimals": 2,
+      "hash": "018355abe7de13804191b09108371ca7132b5ed7656838ea9889eacef6f7dc19",
+      "hash_coarse": "48355aef018d2fbdcde597f019e93f1c0cebf98d704a4b6a838184a8fea862a6",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "60700f310a1497cf8f35e99df02ad28c38730a305c207afbed0aede3781382a5": "la question demande la norme : prends la racine carrée de la borne du carré",
+        "b7986b81148e4a1d59635cd3a80a2967684f40a7547a09348cd9d13d436bb2e9": "‖v₁₀₀‖² ≤ ‖v₀‖² + 100 c : n'oublie pas ‖v₀‖² = 5"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.5f": {
+      "hash": "04c3fae91b111bbface4f25b2baa8ba0470022781dec8d0cdb6eab5887c500df",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "5151a12104890fcc8c2272d6401f211cfe30bc2c00a9b63f2d59c3894cc2e7e9": "la progression part de e · v₀ = −2 : e · v_k ≥ −2 + 0,5k",
+        "c92964eefd023c68e38265135930fc84d13da97885fb2a4f3628735f83b6b567": "‖v_k‖² ≤ ‖v₀‖² + 9k : n'oublie pas ‖v₀‖² = 4"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.5g": {
+      "coarse_any": {
+        "0": [
+          "3ac05fd4b6a11d538bc727f7b2ec07a3195949759d99ef66e721ed426181406c"
+        ]
+      },
+      "decimals": 2,
+      "hash": "2268d707217a4244ae85c090eb3f21cf3899b485bef3054323a6df2f647aa9ca",
+      "hash_coarse": "9ba58f85064cb38482bc17d787f2d2b6e69f1ac776f674e32d311e3e60f30d2f",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "6c8e87922d9d54d118269d06989c5ab287d9da38bfdb4c551e88cb83274b2a03": "ici chaque pas va dans la direction de la position : la norme gagne 1 à chaque pas, la borne en √k ne s'applique pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.9a": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "78a402efc6defdd56f9164206d5a9f1014330a0570904014ea84c8700d9be202"
+        ],
+        [
+          "5a6c0eb3205810e49f0b0afc1d9327bcf1b8400944b33a5b7701dac1e8bcaa39"
+        ],
+        [
+          "dd49ef82c60df835fa7d72a97eb21e4ccf61b3fff4d1115d8647a82433401a98"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "f4d7b3c2323cbbcf84546a7fdda53f365724577de1da00d3be0a6ef0447d35a8",
+          "6bad9ed66314a03a4d4f864b686c7be934a551e6e9b94ed40f4d5577e0f692fa"
+        ],
+        [
+          "3507fa3550328612129ae8820cdffb0bb6b3453944d8629361741a0dd0914e54"
+        ]
+      ],
+      "element_hashes": [
+        "6fbcf57c2d4ca4f8c6910fabab55ff3ed5ea284a0411b07c49455534823a34d7",
+        "0b8454d5fa31054adb9353f58bd484ef8a4ff63bdc76d3dbf7202668ed2bf855",
+        "50a5da3e127db0f6c9b1d713127b698d0a86de85f7c4f0450a2adbc82b270aca"
+      ],
+      "hash": "703366a93f62b59afc5e35f31d6d6d05d9cd17e66a67f7561d5c69859efe3237",
+      "kind": "array",
+      "mistakes": {
+        "128bb8cf8b394891df7baaa5715947320a7047b6532601c4540f046e708cf130": "le score est w · x + b, avec w = (−1, 2) : n'oublie pas b"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.9b": {
+      "decimals": 0,
+      "element_hashes": [
+        "c785c90c9841ce1001beefd5d93940c64c06f9073f07f8f6cfab10f258c69a86",
+        "48aec0f4d840c83bcbdab4858f619bbabe1117038980b96f3910e55f554a1c8d",
+        "b9c99c7d6db21f45c14e5dd16f1a3c84e0ea9e02c110d7d29d1322b7ddda9def"
+      ],
+      "hash": "51964770fd39ab33ddf829ac0de93955c3a811b56ed298ee3585f6544da2efb0",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "145fc077c83cb8722bbf9a131f80bb64bfd9ef1e571efc07828697e87ae67b44": "H(0) = 0 : le seuil de l'énoncé exige z > 0"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.9c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "d769b99b6326e9cc3390a6679cfb9c17b324941d4f2be01fddc1e96ee0fb7138"
+        ],
+        [
+          "4a938a26488d5a44a8bdd4d523f1096ce6a914bca1905811a68d252b63a125be"
+        ],
+        [
+          "b6fe0183483bf10f5b2dec9dafc537e39cbe03d8adbb212913db912593580860"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "faf465a7c8bdfc9f4cccdb74af604d512961672a5f633d4f01fc5c80e62dd2fe",
+          "a98225f82853370a0602672020f8d0f4d9bbf35f26f744e5c7116574d3b9adca"
+        ],
+        [
+          "d5531c8b48ecc29173edbab246ec4d21d8bb2e0aad20221efd48d38172ea5131",
+          "4c66525a30e76cc0eba1deddbb0a9bb174de5a264f44bc82597c83c25a35e222",
+          "e77f0abb9c910ef213a20d0e6b75e8278388dc242f7dd34c4ae2a078ab88da51"
+        ],
+        [
+          "d7bf644db9d2a54495bce453cb1c667fdbed01178c5faccad914584d86918afc",
+          "795d3c3c119998a44adfb3f4e9ac73d9bc95445abb86640a60ea5ce62cfcf046"
+        ]
+      ],
+      "element_hashes": [
+        "e5f3e68a78b7e053aa00b756398158d50c432f1a0ed5072f8bceb74aee5e3adf",
+        "8bb91022c1f48f77e65c4f7cfc92264e4684fae061636f524a9773bd7d9fbc0a",
+        "fe607ca4ee339c78aae9ba90d6d01c24dd63ff278fa42c6cf2fe48947a6bee88"
+      ],
+      "hash": "fd818a2f6d44a2d3637572f48051926068aa4d1e6d5331f339f5b09c24b08cfa",
+      "kind": "array",
+      "mistakes": {
+        "ddbcc096ad0a0d92f907861ce8066d4acae5845b128a3c69f094216331a1d81f": "σ(z) = 1/(1 + e^(−z)) : le signe dans l'exponentielle"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.9d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "bd6b7e747cbbda6552d4168331a4f1eeb0c783878fde26fd577048aa76b8f087"
+        ],
+        [
+          "581cade543389899491ec279c04adbef105e3a854e9fa181caa614d112da121b"
+        ],
+        [
+          "51bf1806be753faaafa86e42adb05c43a90e076d9745bb4217eafd12f0ae9dd4"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "7ce029a19fb3d539d5d59e3a99f9d73f344a1fc622c3f57b836927b7a8ef5cde",
+          "4260cada3bfe64b7fd68f90dce104e78cf9337b7993d26ac4dea77318a7722ea",
+          "8f5e30d218a6b8b7f662982fdbce13987585c6e1c9c37172c8e9266eaf090698"
+        ],
+        [
+          "ed18f8f6363ae8873d3965e82e28ef5a88c552e054eacdef38b68000f254a8b1",
+          "1aba6b8fae0116899de7527ac4b5ceb0fb405f7570c535d18bb01ac531a81c5b",
+          "95c535676c86f73e15f9dcb7e170b4445147a717a009511d0de9d04db4165fd6"
+        ]
+      ],
+      "element_hashes": [
+        "51b58d63887bfe9de7c2c8f132cc59ee3bba1dc14b5268b4e44fea93e5e0bb8e",
+        "011f8d208f779be75ef3781913adb30155fe1be909d30ba014c5863e532c1d5c",
+        "ac18fa2187fd3ce8f99b0bed604336c0c7f7b34232bbddf1fb1bcfecd5bc4b29"
+      ],
+      "hash": "47e27e04f4f02a6991a41e885cc378a5d383c7d1faacf1b33c15139fc855a438",
+      "kind": "array",
+      "mistakes": {
+        "b8b384c402ad774d8aff5d540a0ec615bf60297e9d5426332590dea4a0d9f124": "tanh(z) = 2σ(2z) − 1, pas 2σ(z) − 1"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.9e": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "eab7c353fd3d6193ffe204ef8cb9354566de41586e36e14ab1741a99bbc7102e"
+        ],
+        [
+          "eb00b3b2d03a19f3cee3f0cdbde7480ce10e8e4e186a3297de97c6b2798cb620"
+        ],
+        [
+          "fe64d28f7024fb9076998cded0217db5cdb63a5212a7d5ef987feeff9ac23f9b"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "225c83970d4aa692036f4d319f1bf5185f41dbc5336fedaa90db5518c9fd9362",
+          "abed96839a5b24613e03660224350df68d5fd53c3036441c1fdcadd7600a6535"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "db467b4797a7fe5a13cacb97576f2c46fa3c5ddb6cc5213f6f96d97145e6f404",
+        "2c469ec757771a8502a328d32600ac49d9ce2622c22eee665320941ad0d7f855",
+        "d2fc88ebc5daae37ca4f31314560d6ace7e18c2932f9ad7b8dc664aa9f12f4c1"
+      ],
+      "hash": "2ed7da2f137c3888f1faff924e232443443e0b2b67c629f6243f96ba03ace6a2",
+      "kind": "array",
+      "mistakes": {
+        "eb3d6af5444df8bfcc18f761a96c8e5a0f222f0ffe47bf9d5b26003a28b47b8b": "ReLU(z) = max(0, z) garde z quand il est positif"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.9f": {
+      "coarse_any": {
+        "0": [
+          "61bb17d47e548f2994ef98a139acd609cf4f1f808494fb8615aaf32aa6e4f06c"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b6116b39815bdb2ab91aaa7d06eafa1c10a9bc54c0a8b4ef7a7077aca3cfca1a"
+        ],
+        "2": [
+          "52941df05287b9b2b87acfe5f965ae3896e135b815049679144f47c3b2830fe8"
+        ]
+      },
+      "decimals": 4,
+      "hash": "94d1a0727e0efb8536d683096463cdcd6947ca1dd4a72d57a25b67f6b9f5dde3",
+      "hash_coarse": "1231886334134991de1b437f3f356d718e4cfd88b172da2bafe7b14a807b558e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "9b36fce2057a3845da9d031be7f79eb84d52e8f8e646127125044d325e37d993": "σ(z) = 0,8 donne e^(−z) = 1/4, donc z = ln 4",
+        "e9be5fa0d662517babe16bf23a810b98d1fa68ddbc00c93cd18a3bf91f1148ef": "σ(z) = 0,8 donne 1 + e^(−z) = 1,25"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.9g": {
+      "coarse_any": {
+        "0": [
+          "cfb915a3eb92e2f9678ec4b8488006d45a26633a88e8c84788814acbb38d3cad"
+        ],
+        "1": [
+          "866a8eaa9397920f1506d1d002fd5d05cdc3862f1eda104e052fa05a2023bcc4"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "f5e35074a603095bbfd8450ee3f54b1b16eee40d007f4f7eff03b26f84407a4a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3d0483bb23db372b83d8e26b45923a2c8a224604a46e696049065e24dbf98648",
+      "hash_coarse": "110ef7e2b464bfce5f1bf6f3d75a255e71f5d019e32c6b81d70f8a1b89fa69f6",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "c532c6185c9dddeaebd15108308441be7d1d0d52f541ee84fc4754673ec08510": "‖w‖ = √5, pas 5",
+        "e2aec00cb49ab647eee37d43ba862bfcbb6a14cd1e284a6fd2b992e6f223b1ef": "un score n'est une distance qu'une fois divisé par ‖w‖ = √5"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.12a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "bb09f680d5ac406dc24548172e4fc20fae7375f19ff52ce650fbbe71d59bee08"
+        ],
+        [
+          "594cc90b3c1470a004223db04b3c4a18e91ee6932d7c2b371463dec84d157fbc"
+        ],
+        [
+          "13ecf7594dd7cd3db54a0aae1e3fb9a7df054479612d9d8e10f553bbae7f5db9"
+        ],
+        [
+          "09d56af18a5bf937455f7a02149824efa31795a0f1b85c55b76b574ac4b7145b"
+        ],
+        [
+          "614a963f3638ac4f03c5edbeda6d89afff80ad6217038a547008ced2ed00feba"
+        ],
+        [
+          "7e6438652c18f8ee8ca7c68f6a1dc9988a152898a9ef5203e68bd1b66c73bcc9"
+        ],
+        [
+          "0369b67a3819c7da78c3eba31777e0fedc19ae2b2b23ec16decb32a6f1c49833"
+        ],
+        [
+          "616ef7a9b3b41c1b2e4b88c9cbd0edbb503f45f29b490be096fd4a3d1fe4ff0c"
+        ],
+        [
+          "77cde206aa6857969e23cc227997d7a35d0a87127c6cc74160673d4f9b324cc6"
+        ],
+        [
+          "e4acf18d42449316808eef37bb46f96d960b6b1171f0344a55b3601f2293ce6c"
+        ],
+        [
+          "5869ff5fc0c6071f30c32bf12e8fd4d3c5318c51fe8068b61ef423248b90dd15"
+        ],
+        [
+          "a908258ccb3ced43f513385bc7485c01a91b3575eacc97b88988074ca9dd4af2"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fe45e4d7ca40aed88b57f1cb2c59b81f622e3bde002d0eb87fd666f95e72a428",
+          "1ac6fbee37b390958445530f716937a832023a563d64fd9e11ec794be85cb5b3",
+          "d11aaa648a4ab632182edd31596f3168bfbf53fd4a1f1385fb0a7e201e3d2345",
+          "49d068281b2bd4d2a0f29a60fd4e97adf5aff2a427085ef784086a98d7c67593",
+          "ea9820a0bf7d9476b98726c95dbadeae5574341e2b83a9f6bb18948f408f9dcc"
+        ],
+        [
+          "e3109d95b2ad8f3d8997cbef721ec519e1490ae9cb74496f26e47f14e966aa3e",
+          "a6d87d8d091ff5166a9fb92dc6004206b9ef24be262710c638db51fd0f977a06",
+          "1729f79761cb7536b16883c5692198d1168ccc7e746ad5b2f06ee5c481bbc977",
+          "d9c4b43b07a45eec2bc1a53e3356ab9311f7b7922de89f0f26b1cf88793ce25c",
+          "21dd887ac53d81e71c894848120539652b9cc6fd661f7d7deaf9d2ad9c989a23"
+        ],
+        [],
+        [],
+        [
+          "d7df291a8302338016892014df68794c8f074556c4ad0919bc0df8b5c39b5f65",
+          "da985e9276e7544465084c97a40878b435bb59766c7f207620c65d5ec03c9405",
+          "18118ea1294f709f267f6d76468b5dd1c37219cc8272f9fa23f36bbef94a69ce",
+          "9e8c4a311b86a4c48381a5f0e516702ce61d23f63f82b16912a49f40ddeb5cba",
+          "1b35cc41715883e5f5df6c65841bee8daef87367f3a673ddf597b70dd0455182"
+        ],
+        [
+          "e4017b8b8abb6c28a2c679db905560b5675646360c9d9e118223597df6dad513",
+          "34c93b8522f2d7e02fac2df4149eae8762e945008835dd30b50c520ef5302e08",
+          "3bb0b385858a0698948b88d9e5e21545d84a783cafbe8fbd9e2d581301b1d2fc",
+          "9e27d40bfaeaa06054c15210286359259379bf6cd0f4f9577059382096768c69",
+          "779e9ff55cc1f56f8b704f076752bd1282d1459520d3556110bf13a97e5f16ea"
+        ],
+        [
+          "9ac08b6d9cba978de5a22ec4c3ca2bc20aaeeee1048b40c510a267f04201217c",
+          "3373f2cdb7327fcd584958c029655143147f7885651f4f7a252d83946a4b56cc",
+          "8459314a47592fa760b6234fde80838b14a718e423d88c72ee316b177edd735e",
+          "09c8256f3c34289dd57ad947779d7c60f3ba6eb48b60b25fab88ce4697962f64",
+          "c37f950d9369e83c33999e38c31de87296538ed05da3f9d9a710410a4a9a156b"
+        ],
+        [],
+        [
+          "c71da31b2dff9cd0863c7f4d8e4db6be871d848dbcbfce48d78a0ea0c9ba276c",
+          "4c4a2eb4b3d6eb3b8f37d35eec4a2a95ed1c3dcf279c4dba9b14ec29ccbcefab",
+          "84cd19aa60150f9a78184f50b7d8c5eef731623be42479e75c537d10f06edb8a",
+          "efa9e8acb4e81a7c7841adcff705ba18ec57b432efd5e311442e6896e98e4103",
+          "11b7a74d65005583930b9131ce97cf1128920e845102005b5f6e62678c097e3b"
+        ],
+        [
+          "17c04933e541aa771113b5f6addbe82cd1455f76ec9a7a82923242cee2eacfc7",
+          "e3c4ce9945c9c80a641b9ccab0583162c4bd269cc8aad5d4be5f0b30018a3817",
+          "0c78f3f6e679a56e67165894738bd7659862f756fa3754bdf55b01388176377c",
+          "cd716a474299936da440ec4b181109f2db3f5def04027a645ba6faf206bb691d",
+          "9e4ad30b441445de2c8dd17cf5c6a4dc5fd10c42c4d2cf712294dd024885de17"
+        ],
+        [
+          "6a696efe9df290fc8511a6e78ec907723c372be2456b52d93961e504045d4024",
+          "82be5f2339e51eaedf825c3e0e18d4f20254f0e297417bbe5f0db9ae488c8d42",
+          "bc21c67a763a330774ca723c12b9d33905bc61891b09f371e512b9e301abd5e2",
+          "df4c3b603493c5d0e1bb71e82fe75b2b908f2804c234e911ad3d3790e57d2ee7",
+          "82d951485182d022217a174ea198075dd01ca6bccf3fa7e3375fefd7a60cbf3b"
+        ],
+        [
+          "0f162c6e029e729841f86674a329e397cd8cae06ee59931c6ff346949cc98408",
+          "1aeae32a5ae415908bad3b644960ea91568603edc7f4e211745a4782b4d2f98c",
+          "93530678205ad05732efb5865ba6415ae5b8a63fe5cb5c359a177a4c41d34b95",
+          "728ce72aeb345482d5955ecc45de1436ca53ffbcb5d8394c60d9527229ba61f7",
+          "2e299551d9df106179ac78c17e8c6b2ccd43d83dd829398a10089b244a56a215"
+        ]
+      ],
+      "element_hashes": [
+        "15172dc9308e1587e90f7995cdf4b6a449ed72f4b0a51e072bc73fcdab91c98b",
+        "82ba38e30b8f39460e8d88c034dab88104ebc406c08e58ce84a487f8ec021f78",
+        "c4041dbd6ed99c1ed9ffde8542b42629da7e3c909d9f0f7f5300dfef59825ad9",
+        "9438cb2494d37fc2830486d1309231881d96e6f87d9695b1f77288b02c0aa708",
+        "94405683dc2b899bcd0ce47cfe622b233b24eff83e548727fdd2978e99c19185",
+        "a71113cf58545584b2e872da43ab54307b8207717a0600a8c970d4b49ce6f858",
+        "69f26e4fc56ee35ee855746cabaac72937c1e454aae3508882d988c85c2ef43a",
+        "13537e1d607cd92b8203a662f892e106030b27d4847f25f80c28863535e7325b",
+        "88f86b734c4d2cb9556c1ad676f57c0fd61a1e39db3bf70e8c0726dc7868ef5d",
+        "a3a3e50522e63d15081efae059290e6abccd8ce681a0c3c7aab534293a6c261e",
+        "14760ef990230e4be59636788b582bdde20998e6d2879b0ebc33c58a16926b6b",
+        "13077eeed5467f85fdf39f401463f3bd12384411418d59ace7693fd48b5cd4a9"
+      ],
+      "hash": "ca032dd7a12cc4e9898684d47e349992e6b49ba3311aef974b3891e765f9f65f",
+      "kind": "array",
+      "mistakes": {
+        "3922401aa56ed75a57d0f9a51e87dd4826af4c5bbeb46008fd2a16377787aeb0": "(4 ; −0,5) est au milieu d'un côté : retire le dernier sommet quand le produit vectoriel est ≤ 0, pas seulement < 0",
+        "b71ed774b5a3ad4f18ed21b565cb56c5ad4df9a0754fc46da07573cecd858fe9": "le premier sommet est le plus petit point dans l'ordre du tri : le plus petit x d'abord",
+        "fcdfdd85de60ea8fd93dd6f5217b3772289b3ee17c47ee248fb6017b9c365b94": "le sens direct est le sens inverse des aiguilles d'une montre : vérifie le signe du produit vectoriel"
+      },
+      "shape": [
+        6,
+        2
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.12b": {
+      "hash": "eb0a1217c5f61d07095cd8137af4f2af2fcb62749b70ce0f4fe6ba857a9aa9d7",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.12c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "4268c8e1dffe6b3584cbac56cf3dcebfcbe65ba4bec30a371ec1a3ca55e6b81d"
+        ],
+        [
+          "e809cc6c1ed1d420a8761223b34c59702ba355b9fa4cb1fc0aeada1722a2f1d1"
+        ],
+        [
+          "6751d15c95abd7d7754c7782a93d2610a82b7a7c31a8536f08b86abaffcf4bf0"
+        ],
+        [
+          "2a649e146da84e8b7b39345c61f93d66b20350d129fe6cffe56c71a6c2d2e2ab"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "47dde290f8d7c420b309216002156db264dbd30904760c6ac93610ff044d8624",
+          "604482d1ddbbbc6fc480641ae6db8fcc4a21a9e5c3821fa7b329457667e614d3",
+          "0985f6c3edee41b1469c69af15d8f2f4bb93742bd7d94117534b28c504e8be93",
+          "27b670fe59bb8edd8645b982c1964e9a9e55fbbd8d34790b261a42a8fae70972",
+          "24491118f5909a5100e5a1832b1dceb6e9e7cfa747d0711b5e887a3d024b85b1"
+        ],
+        [
+          "6f8fe086137684a62c91a23616333eed95edd68666d6f51f113acb3adfd44400",
+          "53e227c560bf0df0bcefdb6073c442d1be8258147bea473353198b01267f0f1f",
+          "c1d133f3ce0fe967593bc0cfc70fa9d170a73a0f543716664fa623cf06f1fc71",
+          "bd0319a4809691f0488a927a9071f80b8a4dcffc373af0a2c83655b095dc1525",
+          "c3b9912f15b43181c3a046197c99aef4263017526889d086ea91f9eac1568c6e"
+        ],
+        [
+          "316f53d9b3570aaa93471191a82ec05a8310c14a448f5495ec46b348524657d2",
+          "c7f8f5ecb0eae6253c1558a0d913eb312c75d7240e10ef29e45b1bf07e3728bf",
+          "1480e014bb6838967101f8e1ee43fa14a8d7da5d5dae5f7c8f95a86e2f1f7a00",
+          "f2382010434b695d01c9755bfd17e547cf11ae3928910cb814e9944ce521c8b2",
+          "d01904d4567c215533e6fc889ae7cb00199f6bc2bab72beeedb05bd44554fc68"
+        ],
+        [
+          "b36cf2fe36d888f7b075a5bc45a6b784123811774d003afb984fd6210b8f6566",
+          "8ed9852c36a2e798d0de44095b26244be42b6fec90a6d7313276bcc104935faf",
+          "75677c05d9b1323b730e982f8a739c381dffb6b4dce8fdcf3004bb1da0e6e16a",
+          "57033334b4807cd081e9b8cd2ed03ac7ad5ae53b954aafa240cfb60315414289",
+          "fdc0aa3ff6539dce6b029645191d6281b892979547959a6ad1cdbc7ab4606f3e"
+        ]
+      ],
+      "element_hashes": [
+        "8d3b585c0779d53889b6a10be7fbcd4c84b45a53c7c3f3b0f0b7eac46e63ded1",
+        "61ab423afb5a4dbebda48bab3aa5c1b39a0356e9aecba292ad7867548db962cb",
+        "a655c811e07bb473c1666a0e81d3d5f47400c5361167eec12a2f9f930de9115d",
+        "3e989a6ef6b20a205cec205fce540548c2ccea247b08e497b7dd57740561c679"
+      ],
+      "hash": "199bbbb34640009d93a51c9d9fe8bc3485a3d9426240e97792a45c2c99bee74f",
+      "kind": "array",
+      "mistakes": {
+        "7f73dc4d587d76af4a5e3c3433aa062b5ee464408548ee69d9767a734382b86a": "les deux chaînes se rejoignent à leurs extrémités : ne répète pas le premier sommet",
+        "e960020feaba47da466dc307e866169e70e4a22f5a41ac7d3a1d2d4e0cdd79d9": "les points au milieu d'un segment ne sont pas des sommets : seules les deux extrémités restent"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.12d": {
+      "hash": "f6422e6842f6365d328ac3e035bbc88b2972d5f8adf5ed9d0347332bae2a4ef0",
+      "kind": "str",
+      "mistakes": {
+        "07150331c1dbd4eb5f619b8a3acd7558489f96d9a80038497943ae99bd711b25": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "0ed8223a9d2a1cef2346cf0bcba5269d27b325d93b0ad4c8492e06351738de8c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "23df5932d2524a28e935950f081619c073802ece8b848f495bd50c449d5b1989": "un nuage vide n'a pas d'enveloppe : la docstring demande une ValueError",
+        "441b07700ee4cd9768b88d8e04dccc551ef78dcb306fe203e832970afb5900f8": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a075511ad625c39d4c366f140cb4aad505668f96b410b8e6fe358458b90a4cb4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b50d86ab47a7674790ea4eb0ba14aa19a7674c00800ecafc9e586ddf72ea8382": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c509a44d930148725367f5c1204ae2231c93c764fcafa4a95967c9e93f25ecd8": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cd98b0e0c6a927d0c545b7665165aca599ea19d34be61c798f5e840a440dbebf": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e9ccda842e919e17ba8710e145e6daaa974cca078b7e5dba9dc45031aa799ee9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f91d36bb98dd7a8a6390456665f366b5bc3a9878d51f9915bd5a82460a7807d4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.12e": {
+      "hash": "456fe227f5c2206934ee60c810d9f742faf4daddf59f9e209836cfc49fa07c47",
+      "kind": "str",
+      "mistakes": {
+        "2a70f1c7c5517e370bf037120aab309d66d06cf02a32e70511901a5740c13354": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "632130b9a7556e95b27ea742f6d512019954ce058580dc180ca947f9261eff10": "des points à trois coordonnées ne sont pas des points du plan : la docstring demande une ValueError",
+        "6babf93ec98a509fef6e3ec94cd83ed9cc5f6b9e81f47564673592120a52fa92": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "77232dd8c99bb8196e98a7029cf97a3223bb245cc31332eda32cefe295c4d7c4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a571308b088e64e0deb7e8df0ed44d68e2f160633b6166443e331eee7ffc16ff": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a71270aac50e62eed5e822156dc5631eaf42c29de98e9d0a127d384d20914350": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "aeaf3cf70fee2d72df3f605ed7b3bed327dbda165c4d48432d4c52eeff81f02e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "caabcd38ce0237d7130349fe99263970933ace8c1dc63a604d458d5c48bf012e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cf53eb66daf2bdf63e423ad5852ae037bfb3b6e2281100ac080eb5792fbd9471": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cfcb0752f05242d9c1d6a16481eaa44fb43b147093214d4cddbcf845e5256a95": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.12f": {
+      "hash": "f4f789b0091bb58872cdcb924fc98694cb1bd00d0ee5d4106a2507dbd73fdaad",
+      "kind": "str",
+      "mistakes": {
+        "6812a9a0e21b1bdfa3e1efa9727e1640be927066748a207a0f9a729af9b5f875": "la docstring demande un tableau NumPy de floats : np.array(...)",
+        "ccac7818c4a8e061a147f3d0475bec44d8ae03df4b0899ff06bc7f6db12dccec": "la docstring demande un tableau NumPy de floats : np.array(...)"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.13a": {
+      "hash": "28961c163651cc57f0e251d754fbe504ff2a00c59f8913cbe32e2bbec7849718",
+      "kind": "bool",
+      "mistakes": {
+        "d09b45a11cad7eb719b08fb2d86562e679614e650d00af8617c3896abfd15392": "ces deux nuages sont séparables : garde le biais b parmi les inconnues (une colonne de 1), et des inconnues libres, bounds=(None, None)"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.13b": {
+      "hash": "3a580ed860b37d34e71529b2a378b5a6a17012e1ca7d760ca4dce24bb1a1776f",
+      "kind": "bool",
+      "mistakes": {
+        "c3405cba659a45766efbd1a797aefe65b4035014d3574b68e6c2ee1ae3f72e2c": "(2,5 ; 5,5) est le milieu de deux points de la classe +1 : exige y_i(w · x_i + b) ≥ 1, pas ≥ 0"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.13c": {
+      "hash": "9a209824230277ff2ba2e514799a217a6bd21164996dceddfe4483054c989c1f",
+      "kind": "bool",
+      "mistakes": {
+        "91e7d99d48b74fe87790c4aa673d5574fb894824570730981bba71f5e935ed45": "en dimension 1, les points de la classe +1 sont entre deux points de la classe −1 : exige y_i(w · x_i + b) ≥ 1"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.13d": {
+      "coarse_any": {
+        "0": [
+          "3f14df03cbf6d5912c4d6c1e2b5cd27b9c3c92885559961789fef5fa016d70da"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "607b8aa9a8aa009ebed675bad51a0412e262302896ff48335d0054d50ff668dc"
+        ],
+        "2": [
+          "6dc959d32fb0133dbf88649217eb16c4fb151c43f1ef3f8d8213a4926d12bf9c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a70b3be7fb47b78e5c3243d3a147c6b1e486289506bd950c8b03c7ba6cf0ea8b",
+      "hash_coarse": "e6d50d123d9cf55a3f318bbdef66cc6422912fc742db2e531d89f4bac4b5a7f5",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "19ec948f225c97f8dd51b201752c5969ae9df9f043309d10a9b4c4b3f3331ec8": "la marge est le MINIMUM des y_i(w · x_i + b) / ‖w‖",
+        "8a80469e5ff7bab0d799653b4cc9e0a76e1109cfca1971f80720ee1c8e0c0f78": "divise par ‖w‖ = √2",
+        "b9fcd0c950ddd40b35edbc7d6dfbf3edf9c54fc3be102b455c631240c603b1b4": "‖w‖ = √2, pas 2",
+        "ee1913c79da7153fa173764cbd3cba52383aa84b1a07fcd8abdb3a831aa3e8fc": "multiplie chaque score par le label y_i"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.13e": {
+      "coarse_any": {
+        "0": [
+          "cb9cecba74058376758cf52d38b04355367db38802599637b0eb53b3a13cabd6"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "fbeb261e68371aa27eebc53a24c4171521364fc5549b94c968db51ff664e114d"
+        ],
+        "2": [
+          "760ce6c80ce9577d7ca39a4cb790f65beb7edb141a7169ccc536f59e43a3d7ef"
+        ]
+      },
+      "decimals": 4,
+      "hash": "071c417921cf6173cde6101843603539863451e9f38dfaa2bbbfba191ea907f5",
+      "hash_coarse": "1d6dadfb57cc8bc3d807976c3841fd6c00aafc725c187607f4ca3b51fa7ca675",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "975d8aabad0e7af1944b164030db9962373040e41200b7cd7ac2cae82dab4bd3": "la marge est signée : un point du mauvais côté compte en négatif",
+        "e8a09e26e06831813148f65464c14b44af262d6c62ee2d7b4c7867c44127b643": "la marge est le minimum, ici atteint par le point le plus loin du mauvais côté"
+      },
+      "sign": -1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.13f": {
+      "hash": "b0910fc73f194f2b69cae805ec0ba1f78ffd352f9d30434b5adb9e8f8def013e",
+      "kind": "str",
+      "mistakes": {
+        "06ea5fe80a145e4aa8e0045269d351b112d64413788edd79ed7cef1890369170": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4d9fd2c98649a15b1f54455c23d701f7892146e889f2102e693bfc7cf1bf3515": "w = 0 ne définit aucun hyperplan : la docstring demande une ValueError",
+        "594a379df491a796055db8be0625e87135d20dc6ce44908e058316882ea2d130": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5da2fe450e3b42df694acb968d1198ce0c71967f8e6ee464434b5efee270f2d3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "734b0fc9dbfc4673b4a00cc71486e46df2fac2f17be94799e1db3e0695d7e8b9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9dcb539d7ee55f836576006f26ebd49f72f46a1d76a6c862d9c4ac17c49314ef": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ad759728a5032847f49a097b26f5c8eb3f8ca3b13470b40f42e3f98f903840b4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b6c47e600495ad255891eef665a1df6ea66bf5919e30e4d9f532a41aeaf0f9c6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d92670bb6cdd847770cfcb0bf3e9f47d9d8f7235fdb28ea3cd29a7c8427aeae7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ecbe2ab152f50c30a3d2e53150780bcff7938ca9bb94ab37a4dfc454ac6b192d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.13g": {
+      "hash": "0da9fe41e910bbe4b876d287f29baeaef9de319d601321328b2f6ff09a26e65b",
+      "kind": "str",
+      "mistakes": {
+        "00d33f95516f060a0601933c7aa14c6d41e4fa8f7128b01e333262eeb310c028": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "0ce8f126df33bdb64e3a7034c108bd29eba5b09495326fabc33474418d6c064e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "57d260ff6f4e2c97a021cc8f8d91b3dcbd4b89f86d041ad410490ee47f80e8d1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "74b6985553d2e23edfa0e16c700fabb475d7c89dd3b8f877e325bc4b70b72273": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "768029daa66be3264bf36fd54e82c2406891975b9818567fc4adb0b5fc7baaaa": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9ea763334e66696049b5ff7bff7d455564b78c9345bdbde01330717cd05f2f0b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a8a6f1b8476f4455da2cd15178993c581197b5a222ab83e8f927d43384be02a3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ac17a445e5cb7891c12b3d668b19c318db1a2d6105c1e69227f9b513d6b9d0bc": "les labels doivent valoir −1 ou +1 : la docstring demande une ValueError pour 0",
+        "b5d8f39db4d34b481bda5783ea67b8a3d692c3cd461e165bc83e6d59ff6e6605": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e1bf87b52a13f2e5c7f5340da5212df88b032b34fc68b12d2e49b1ca6880cf69": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.13h": {
+      "hash": "5361ea70c40b9c46cf60b29d0f066fd50b8b4a7c609a952ee07b99d698e9003c",
+      "kind": "bool",
+      "mistakes": {
+        "db5719d530ac8765ae60daa33d414fc2e9a36b058acc1af653921c486089f484": "la docstring demande un bool et un float de Python : un booléen ou un nombre de NumPy s'affiche autrement (np.True_, np.float64(...)) ; écris bool(...) et float(...)"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.14a": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "4f812e7c8f176660c0dcd95204fbdf9a3f79745513bc60457a80efb71b8f0029",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.14b": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "b0f5edc28a829b65917f61c0f603f317c95516a2f6bc458b861d3982483c7b62",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.14c": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "6a2e246e402356bf61aba65c473a9fe41e655249ad10979a9b598c5e73f3e2ba",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.14d": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "931844e575525ac7d9f1ed19f3859db41729f62f5d3b8e352b4f5182a6eac302",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.16a": {
+      "hash": "b6dbdc552ee33b2ba3c82a1385d856781a00589594881acc1bafe65ea1aa326c",
+      "kind": "str",
+      "mistakes": {
+        "004d29493cbe9e81517df8f549a9823834febde5c526a0608ef4ece5e5597846": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "095282a5cdc8968e176cfaa4416608847fd36f01d55de5758f6dcc2af34954ba": "il manque une ligne fautive : calcule cette ligne pour o = (0, 0), a = (1, 0), b = (0, 1) : quel signe attends-tu ?",
+        "0a20493cba170980aa0580a6829aea91f7aee69bb223ab1f911590c217366da1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0e51aa15134a71b1f2c010387988381252131445d7072235ba0fb971a78f39f2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0ea88bd49adaa119bba12ae57173c68b74984ce7df22cec9fb898f244b890af9": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "143570d8e8ee765382a3f5549330c0def03e6dc74f94830935338efb322e4840": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "147ca6062ae69fa12688c328b091a35ea9e34df9a01cda2670c9c108d7fff772": "une des lignes que tu cites est correcte, et il manque une ligne fautive : calcule cette ligne pour o = (0, 0), a = (1, 0), b = (0, 1) : quel signe attends-tu ?",
+        "1ab53404a5ec09e9d79eae4c4e58404e3eae36c7ce10cdbf01f6e5a84de4f665": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "1bb5e4eef8bb691cf587206168d9bfb75158f6d6de193b858441ae64fe25ba7b": "il manque une ligne fautive : une marge géométrique est une distance : que manque-t-il au score ?",
+        "2a83258441b39bd0d9270c9a1340c7e5fdffc02c6b81dde9d70701245ab0edd5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2e69ca96130ba44f920ecd378e9a71b5e4b53a6d65fdbd108b9e85cf88743d18": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "30615bcf4db5c26e1ff0609ea4fef1c1e511de9ed1b8d8ace0c43a906a57db7f": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "343cb55f524391bff1c160820c022022173e9f1f00d1ecca0cefd88613d949a1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "38526bd308b9f9838b3de13449492f5eaa6595d4faa2535447891076bbf73a3f": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "397c6b0c852f714a22b06169201ca859cf10161b134b254dca9fa7ca3654e3f3": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "3eccb7b2d82b8b1c648a3d145523db31d49acb4c1bb3da6c049b723517fc45eb": "une des lignes que tu cites est correcte, et il manque une ligne fautive : une marge géométrique est une distance : que manque-t-il au score ?",
+        "3f21094ea962321d36e71bce570ddf5a72968ca6d8a4c553d145c14ff37dd745": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "4480d16a2a1f5b237cc265818cb1e432f0b87b35857859731e2cc2cdd9ac0fd6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4b354d11f9370e22245bc57e69b9bb773251f731f10313d2888686a7df9cbc32": "une des lignes que tu cites est correcte, et il manque une ligne fautive : une marge géométrique est une distance : que manque-t-il au score ?",
+        "4b4773540878d47a21f7977f53d905b50df2e229f4047485d245fb23742a6a08": "une des lignes que tu cites est correcte, et il manque une ligne fautive : calcule cette ligne pour o = (0, 0), a = (1, 0), b = (0, 1) : quel signe attends-tu ?",
+        "4bd17c0421d3ea5038575065ceb2a87502aa479cec0c805b8fe846a3dbd63530": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4c3e9678d41c3c5161f3ba5ed62925c0e06d4c1721bde455c9415c9c24b6c8ce": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "506cdcbde5907a12a6e76cf1ae5b31c88decc90aa7340f7a03060367116546cb": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "55bbe2cd2d16b657f53110ec2e666b70a4130fe75c7eefb74756e83ba4391f13": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "589a8f2f524e2809ff01d6ab51f46753eecf8a0ea3f32b769641b3a795aceed4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5c7743ca3df8dd6de286a97f278026cc3eb60c05f5e6afe2d3bbc6bc1907c962": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "5f4af2f43aa990ab659ccc63bc9d5e63df8bd6eedee7df2f7fa6dae1ea5cc9af": "une des lignes que tu cites est correcte, et il manque une ligne fautive : une marge géométrique est une distance : que manque-t-il au score ?",
+        "5fa130c2d80632e971fc3e80c857a2b47a67980ecc0c31932fd14a3ef26f3004": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "6051ca7d7dc3a83732817745cbec291e78d59496b3007bdf8542bc5383c421bf": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "645626f58a43d6b7d647f56c1029e44493acf0f8b1926ed9c6b9eda3a36ae5ec": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "674786d6a0fe1aa88d6f9a309e5c6bfd459800fc3349f43e61f259e3f8872174": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6ae3b0a3a895b24cc11aebf120a54d712d32ac692d2227315877816510e48c3e": "une des lignes que tu cites est correcte, et il manque une ligne fautive : une marge géométrique est une distance : que manque-t-il au score ?",
+        "6b3a962b3178cd31cc14a9d205b826946977eb999d773f1835b52313f8fd2108": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6c60aff7f76363b206963ad6d9991ab30f575e98945e0399e56bc24bdda671f8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6e06b50dc3407a917149f7cc5302db87a22c943f1ad31955f46247011400bacb": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6e81eb114611df7a4fa2076b8fba034d30892a0d9bcc01a41126a08434de9789": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "714607d10c09bd62b559bcac1f4ad3bc281aadd33f0a3a9e2a624cafbca3dc5a": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "733289d07afc236a3e61aaac2a84660d3a7587b0efca4614ceaff9dee696d6be": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7fd4da033bc9f6a902cb409f6f793f1cd808b2ae54b4a6cb98c066d3f0ef092a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "867e9220c831c5174849b39c274c11fa5cc1284a79121a04b5f8bb8935142e38": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "87da78cf3b65d48395a69a130b4a143fe86b3b4d6678e8a9605faa5ce1b16f90": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8f7a1343d8c1fc4ed22d3b8a0483a0b6f0655e212c0933f57ac656d79e7cc3ec": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "928a72a1b6ffaee2ffa5fd33021745f9d0f39cb10b3d1954a25ee602e873d059": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9c36469e467b3082c1e6b1bb699da3bdc6857b3f5bc0244295da7efda9fc0e00": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9c7964bc866ddceee2bddeeabdb7a8fb6d5ef296d17a9003122bab80e7fe2d3f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9f04720a3b431155ef92dbddc0e7606165738b6db67e5b2eba43e71d6a02d4b3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a03a11a46a5e9f7587c3f03666b439f728ed65a6b40239405c09bb371b9f4199": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "a62bb5e31458077c2fdd8db0215f46227879ffd1e62c05909891ce730de51616": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "a678c7099a959d8ed9fa61d9d2fa63ef49766ec258470e7718d5fb286b2feba6": "une des lignes que tu cites est correcte, et il manque une ligne fautive : calcule cette ligne pour o = (0, 0), a = (1, 0), b = (0, 1) : quel signe attends-tu ?",
+        "acd01b3519aa62551a8de0ba66ae2a840dea292ba1b4f89440a5e18002322c18": "une des lignes que tu cites est correcte, et il manque une ligne fautive : calcule cette ligne pour o = (0, 0), a = (1, 0), b = (0, 1) : quel signe attends-tu ?",
+        "b4cdb36202a5744003102db98773a842ea8df2a10816d52c75515a8dbfd1dfee": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "b8f0982bd038df6d52a8c9c505cfc74e67c679e2440b5baf516d6f5db0be2f42": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "c150ec20ebb6b042ebacffa6f6a66952dedf04380f8512bd2de76c0b1d5c8ad6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c33d9cf88773ae0afadf924760c72c1d59485e343bfbefebebaf08ad693251cd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c7f99245ac8f94a762715299486b73e97ccd4f535892502d83a15c06185d26d1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ca16eb845174ca11f9e8cf0979d6333663faf2827633447967c56b8879493506": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d7b5ecb2dc02484a31b339c1a220b87cdc6fa0f868fa3e2ffda983ecbe72eb8e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "de50deda36e390064f58752177d6b625986d9ff29ab4aeb6abcbbb3db606f0f6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e1b76d75cf3f04c4780387f2d0a76a76721cbe3e87d2b90eb17a974c59644ee4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e7438385eb70af9cc741fc4d0de9c5653b16526a3358e306bede4334a9fd6e2c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ed6f1988bdf0e2ab8f288773fdead1af6abbc8b28fabccd3cdd50e00283e7dea": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f37493b3b710e72f61b9a89d854ffc0d44a451d970697fa9dae68e83be48e4aa": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.16b": {
+      "decimals": 0,
+      "element_hashes": [
+        "3e79470ba5ef1b7c13ea40a90d0fcbd944c3c4ea7d18d6d47f96d142ebd08d2d",
+        "8557882db6c17d70acf9adfc9912a1da6213d71d8e4dc505dfeb98ece0c3260b",
+        "5daf630c76bef82a6287916019f8060b74012325466080f466b62855484766b3",
+        "46975d6ef5d64a961d0008fb8f8f57fd9c190dc4f4b4e4dfb1ce138b68cb7874",
+        "dc3e5b762ed864eed59e320a4fecea5d1d1ed7ac3f04ab4a478db775825480b0",
+        "7149ee6607c0370488ea2cd88899ac1c420047752d3fff16a69206792bfe8acc",
+        "26f58561ac5c3c937c24c764c736e69c539544757f6e04ce6a014a60a38580ab",
+        "4ba662e1513578f69fa9276fea39000cf001e54568ca8bb7f10568b9bca026a0"
+      ],
+      "hash": "b45d62aaac364476859ff3e4601604303492b511ce33913fe60ac669e1dd5c15",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "f5a6dbe829ab1326ed99c1abd6d0c8a841f5566c322059212675609b23f83b37": "c'est l'enveloppe juste ; la question demande ce que rend le code tel quel : refais la chaîne du bas avec le signe de la ligne (A)"
+      },
+      "shape": [
+        4,
+        2
+      ],
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.16c": {
+      "coarse_any": {
+        "0": [
+          "328c7b8519266e8173b8499ba88672b20e3a9dabee383778dd637bb3bdf9ccb5"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "adaa1254dad7bc70f19dcba169779638a5d833e94a1aced93ed6af0cbd440998"
+        ],
+        "2": [
+          "a04c5964f11e1749c20536b1fb9b1d6c59b5780740ad78a8bc631066c7a608b9"
+        ]
+      },
+      "decimals": 4,
+      "hash": "77e7ceac3a30cab3b1168231207a2957542e9c03964e71c715fdd09b3583bd84",
+      "hash_coarse": "341f6f77101b116a6d53a4af82510287c86613c0b0f8fba541821549cede3d0a",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "27a0e286ca77353cdda1f66978bd8515f86b5b41f16b74e447187ec1449b475e": "c'est la vraie marge ; la question demande ce que rend le code tel quel, sans division"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.16d": {
+      "coarse_any": {
+        "0": [
+          "99cc74c3aec6e986a2e9e651d1a2e06e320a81febe43c1f4c32b8cafc6efdc6b"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "d777a0adf51625cdbc691ba41b3a854e6df91bd0eb444058f7e98c2753a9743f"
+        ],
+        "2": [
+          "e67808a762a5365d00a94d8e80dd2e32aa7a54ea7f3067b3d9d73fd11075428a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "520eaa1a69ff91e6ac75ca39461ce9bcebd85a7aa64388e2af079f70763db4d9",
+      "hash_coarse": "83256c10a055758a21e1d00cefe2922dbc7ed83fcb4ab2c29ddbc3507036a071",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "3fecdfecbe4c1133773e0b86f2a3553278bed04ed34621b9a2f4dd17f6eeca82": "‖w‖ = √5, pas 5",
+        "8fe372128e07c87c8e2d6c085aca846c56fb9a2b68b3d4c798aacc5cafbf3664": "divise le plus petit y_i(w · x_i + b) par ‖w‖ = √5"
+      },
+      "sign": 1,
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
+    "M10.18": {
+      "hash": "6e9972e9fca39cc57cdb54bf66a4868a2f18504fb36e65cb0cf850e00aab794d",
+      "kind": "bool",
+      "mistakes": {
+        "fce91b672ed63bfb066bdbfc0b0f842c6bf35c146b40ad86bd26b65216488191": "au moins un dataset est à plus de 1 % de la plus grande marge : la cellule du défi donne les rapports"
+      },
+      "source": "chapitres/m10_separabilite_convexite/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
