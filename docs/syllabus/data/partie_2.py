@@ -347,7 +347,7 @@ CHAPTERS = [
              "§3 §6", ""),
             ("M09a.35", "🛠️", 1, 15, "Tester une propriété : un pytest pour (AB)ᵀ = BᵀAᵀ sur des matrices "
              "aléatoires", "§4", ""),
-            ("M09a.36", "🏆", 3, 30, "Défi : un système 500 × 500 résolu par ton `solve`, à 1e−8 près de NumPy, en "
+            ("M09a.36", "🏆", 3, 30, "Défi : un système 400 × 400 résolu par ton `solve`, à 1e−9 près de NumPy, en "
              "moins d'une seconde", "§6", ""),
         ],
     },

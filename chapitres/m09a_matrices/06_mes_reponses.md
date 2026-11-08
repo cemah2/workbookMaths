@@ -399,6 +399,6 @@
 
 - Les formes pour lesquelles la transposée par reshape est juste, et pourquoi un test limité à ces formes la laisserait passer ; pourquoi le produit de Hadamard passe le test ; ce qu'il faut ajouter pour l'attraper :
 
-### Ex M09a.36 — Défi : un système 500 × 500 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde
+### Ex M09a.36 — Défi : un système 400 × 400 résolu par ton `solve`, à 1e−9 près de NumPy, en moins d'une seconde
 
 - Le temps de ma première version et de la version finale ; l'opération vectorisée ; pourquoi le troisième système échoue sans pivot partiel :

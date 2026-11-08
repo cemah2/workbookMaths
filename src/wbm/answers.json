@@ -26017,13 +26017,13 @@
     "M09a.2g": {
       "decimals": 1,
       "element_hashes": [
-        "a17e111e8593f0cfec98e9f5c2586b07c139c69bac13debdd7211e804103b611",
-        "8901525ceee0636a935b0c94925c4f621851677f3708a79404c18b09c189df67"
+        "081a31104443a1d34cb29330a3a4cc08b8a85ec4f511df7528ac4766d26b4372",
+        "596b6f58fb3fedb5321d4eca7ae19f841b0a97dc6f67834e1f227d3236039336"
       ],
-      "hash": "2353f81f0472a765fb8800810bec8ed84f9ebf3980ab81361163f091e35354a3",
+      "hash": "a0454832f61a9b945d726d15ebc9eced9498e4ad5fb32eacc8214ab3c7ee320a",
       "kind": "array",
       "mistakes": {
-        "465d9944d95f7fb8ec94f3229bfe9a73aa65de6cb84676efe961dfcbee6d5f6c": "le biais b = 1 s'ajoute à chaque prédiction"
+        "13118ea606990f45c0a151eeb71139f74d01799b6cd2f69155b8e85806ed3bed": "le biais b = −2 s'ajoute à chaque prédiction"
       },
       "shape": [
         2
@@ -26197,7 +26197,7 @@
       "kind": "int",
       "magnitude": 4,
       "mistakes": {
-        "3489152f7db9932555992b134cb6d48ecc441580e6bb9d4b8d6fff38a64f4707": "(AB)(CD) n'est pas le meilleur ordre : essaie de commencer par la droite",
+        "3489152f7db9932555992b134cb6d48ecc441580e6bb9d4b8d6fff38a64f4707": "(AB)(CD) n'est pas le meilleur ordre : compare les cinq parenthésages possibles",
         "e75d651f72641c96f533125dc8cba1ccc2f47b991f31ddd1c8f5dabc0b0a4d67": "de gauche à droite n'est pas le meilleur ordre ici : compare les ordres possibles"
       },
       "sign": 1,
@@ -27023,6 +27023,7 @@
       "hash": "3ffd854446d9a6b66042190795a485272b3c77585d2a8fc61a94ee2b4bfb3086",
       "kind": "array",
       "mistakes": {
+        "5e025d73e727fdb5c80fdd2115414ec48727ffec5d3b00c9fa31c3a4e265ad42": "(2A)⁻¹ n'est pas A⁻¹ : le facteur 2 compte",
         "8e179229cf19633ac82ad7c92e679187a368434fafb40b3affdc6798070762e9": "(λA)⁻¹ = A⁻¹ / λ, pas λ A⁻¹"
       },
       "shape": [
@@ -27087,6 +27088,8 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
+        "2620bc0e78594cb11908e5713fbb1f7f6a086b871eaae207eb5462051c0bbabd": "A² est le produit A A, pas le carré de chaque nombre",
+        "cbb68f432eeb1724e55d425f4215d0e0bc7753ad5761584e2afcc138e31fdec4": "c'est A² : la question demande 16 fois son inverse",
         "f0f604f61292f139991068f07831aa29bbf039a667b74801dc27227ef01fb44d": "c'est la transposée : (A²)⁻¹ = (A⁻¹)², calcule A⁻¹ fois A⁻¹"
       },
       "shape": [
@@ -28565,7 +28568,7 @@
         "2",
         "3"
       ],
-      "hash": "baea2396925a4f91f1d67983fa2f1ab4ee90987f005b7383a0fb9059a02e41a9",
+      "hash": "59efc74d6d528ca8658e66fd8cd6094c71584b0d15c58709a893cc2f6339a42a",
       "kind": "int",
       "magnitude": 0,
       "prediction": true,
@@ -28578,7 +28581,7 @@
         "2",
         "3"
       ],
-      "hash": "3472ec4b29ed77f82706c64778af5f6085583cfdafbaa5972e91ba35135af661",
+      "hash": "6693928c6a57b3a2db4ee865247981c4573b811787174cb9ab70567e4522136c",
       "kind": "int",
       "magnitude": 0,
       "prediction": true,
@@ -28591,7 +28594,7 @@
         "2",
         "3"
       ],
-      "hash": "756acd343edc8427ab4bf686344f7b25bc0c0dd81eb83d1c1c3b999dacfeb358",
+      "hash": "8a87538e0ee81c5c845fd502e96c057387f6e1b5b2b41375d8ad9fb3058422b9",
       "kind": "int",
       "magnitude": 0,
       "prediction": true,
@@ -28617,7 +28620,7 @@
         "2",
         "3"
       ],
-      "hash": "a8a0f392a52d3f5f4ccc47209bf9a3076679651cd50330f2e0ca432c44e654d9",
+      "hash": "de502692a7adaaa52d358180367b9bb5819e0e2661c891a13310c799853332b4",
       "kind": "int",
       "magnitude": 0,
       "prediction": true,
@@ -28669,7 +28672,8 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "61f2bd2bd0fc3eae863218547d37030d0d8c5d59541f6e528907b38710ee0dcb": "compare l'erreur au seuil 1e-2 = 0,01, pas à un seuil plus petit"
+        "61f2bd2bd0fc3eae863218547d37030d0d8c5d59541f6e528907b38710ee0dcb": "compare l'erreur au seuil 1e-2 = 0,01, pas à un seuil plus petit",
+        "c57408627da7d8c28f6d4afdcfcdfa32a601fdad390a1b9c8c2125acdfc7ccac": "mesure l'écart à la solution de np.linalg.solve, pas à (1, 1)"
       },
       "sign": 1,
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
@@ -28678,7 +28682,7 @@
       "hash": "144510c8908bf65cb6f9cf787077e4704fa1d2157b714ada503ba0c8eed07671",
       "kind": "bool",
       "mistakes": {
-        "cfdbd53dbe7117f4beb776cda46e5bb97d36fdcb5230f493f65c08d3f68fe3b0": "avec ta fonction solve, l'erreur devrait rester minuscule : vérifie le pivot partiel (M09a.27)"
+        "cfdbd53dbe7117f4beb776cda46e5bb97d36fdcb5230f493f65c08d3f68fe3b0": "avec ta fonction solve, l'erreur devrait rester minuscule : mesure l'écart à la solution de np.linalg.solve (pas à (1, 1)), puis vérifie le pivot partiel (M09a.27)"
       },
       "source": "chapitres/m09a_matrices/05_solutions.ipynb"
     },
@@ -28761,7 +28765,7 @@
           "abcfb6e46e7a9776f78277edf710194767e12501a708dc27d30921e2371aeb3e"
         ],
         [
-          "d6ccfd821b133bfb86d77beb46aa8039fd40a6ab621f84ecd512e8753bf57186"
+          "068a1ae93fac15e4ad41c5c207af9112081b68b6617008b1a1c36d43b91e912b"
         ],
         [
           "032ba1047179f7a727214f1cf5f4588814f1936840fc9cc625d6d3436389cbfe"
@@ -28785,9 +28789,9 @@
           "32e30e032fe99072782a1138ecd146e0540fdd7319240547a2502972caed9278"
         ],
         [
-          "4e071aa58f72cdfa0ead051e6f137101d61022381e5b38b511d9f846d936dfb1",
-          "c04c891304be9a74456822975a79ed2f641394438fd9cb205c5b4172782d835e",
-          "907df5d91a3c660f4d905fa71f27d3149cd6f2dc2189f58844f3ea7823750615"
+          "51edfb93c9dc57a7e4366d732a1523f8f353db92067b33aab60f3a9bd7bd81c4",
+          "4fc3bcc9a2b0a9a564770d72a35477708d9a65ac8761689802b5ae1dc2842145",
+          "93f7e7869035f6c5ca950935683978f6e9e09fe1e2175393229931863e9eb268"
         ],
         [
           "c01f4d6b2065cebf8891f1df19fd1735e04124d6f38d3a1220ebee9341721965",
@@ -28808,16 +28812,16 @@
       "element_hashes": [
         "26157e1dcdbbf60095fdc3c9be415954ecc441e549f34ca25dec753cb4f1e0c5",
         "8ff5b75ab1d0248b6cb347df735fc7fbf3268143aea77644f53acee42a373bdc",
-        "897f902eddffab3ea0da738b39a2c3b5d37a0ba98fe2da9833f581f5af806d3f",
+        "d7a90978f6f28f93e9eff59946892d01d4399765d486fddfdee089d0c1c6ac44",
         "08a2ffe858c437df9623884324e1ee03d844920f2d99474373c4fd68540d347a",
         "69a1ec9d0fd251e343697e8d18e319690b35bc1df630d821119ede3374bdf070",
         "12db39b9d03716705520458973224d305a8dcecf24f0ec295e003bc52c505677"
       ],
-      "hash": "82a8736fd22f18a44041f5bd809420b076d3e245e89757ae6711d67d6ce7906d",
+      "hash": "c664caa7db38acce4cff1ed18b08584bdf6fd0d213e0ec89406dd59cd506bf5b",
       "kind": "array",
       "mistakes": {
-        "0259253660de931ae015e137a66b94ec5588c18b569c66869bab32ca6bbf1e19": "(A) : le produit matriciel est @ ; * multiplie élément par élément",
-        "b69a5fcec5fea8f1ce733ed26dc1e8f732ea756990536a23a48ec5d0458e4e23": "(D) : XᵀX a une ligne et une colonne par feature ; X @ X.T en a une par exemple"
+        "d0f96519a5db369260ea89c0f78473a9d9c018fb8381ec75685f1bc69773f6a8": "(A) : le produit matriciel est @ ; * multiplie élément par élément",
+        "eb44fcc047a0eb78599381fafde55824a4d615972eeb8ffb7c10f3b49c67eefd": "(D) : XᵀX a une ligne et une colonne par feature ; X @ X.T en a une par exemple"
       },
       "shape": [
         6

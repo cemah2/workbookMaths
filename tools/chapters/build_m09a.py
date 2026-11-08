@@ -68,8 +68,8 @@ PAPER = [
          '''mistakes={"Ay = y₁a₁ + … + y₄a₄ : y_j est le coefficient de la colonne j": [2, 0, 0, 1]}'''),
         ("f", "True or False", "False",
          '''mistakes={"A a 4 colonnes : le vecteur doit avoir 4 coordonnées": True}'''),
-        ("g", "a list of 2 numbers", "(XG2 @ WG2 + 1).tolist()",
-         '''decimals=1, mistakes={"le biais b = 1 s'ajoute à chaque prédiction": (XG2 @ WG2).tolist()}'''),
+        ("g", "a list of 2 numbers", "(XG2 @ WG2 - 2).tolist()",
+         '''decimals=1, mistakes={"le biais b = −2 s'ajoute à chaque prédiction": (XG2 @ WG2).tolist()}'''),
     ]),
 
     Paper("M09a.3", "Produits matriciels à la main : formes compatibles et calculs", [
@@ -102,7 +102,7 @@ PAPER = [
         ("f", "an integer", "5 * 300 * 2 + 400 * 5 * 2 + 20 * 400 * 2",
          '''mistakes={"de gauche à droite n'est pas le meilleur ordre ici : compare les ordres possibles": '''
          '''20 * 400 * 5 + 20 * 5 * 300 + 20 * 300 * 2, '''
-         '''"(AB)(CD) n'est pas le meilleur ordre : essaie de commencer par la droite": '''
+         '''"(AB)(CD) n'est pas le meilleur ordre : compare les cinq parenthésages possibles": '''
          '''20 * 400 * 5 + 5 * 300 * 2 + 20 * 5 * 2}'''),
         ("g", "an integer", "27", '''mistakes={"le coût d'un produit carré varie comme n³": {3, 9}}'''),
     ]),
@@ -214,11 +214,14 @@ PAPER = [
          '''decimals=2, mistakes={"AX = C donne X = A⁻¹C : A⁻¹ multiplie à gauche, comme A dans AX": '''
          '''[[1.25, 0.25], [2.75, -0.25]]}'''),
         ("e", "a matrix", "[[0.625, -0.375], [-0.25, 0.25]]",
-         '''decimals=3, mistakes={"(λA)⁻¹ = A⁻¹ / λ, pas λ A⁻¹": [[2.5, -1.5], [-1, 1]]}'''),
+         '''decimals=3, mistakes={"(λA)⁻¹ = A⁻¹ / λ, pas λ A⁻¹": [[2.5, -1.5], [-1, 1]], '''
+         '''"(2A)⁻¹ n'est pas A⁻¹ : le facteur 2 compte": [[1.25, -0.75], [-0.5, 0.5]]}'''),
         ("f", "a matrix", "[[1.25, -0.5], [-0.75, 0.5]]",
          '''decimals=2, mistakes={"(Aᵀ)⁻¹ = (A⁻¹)ᵀ : transpose l'inverse": [[1.25, -0.75], [-0.5, 0.5]]}'''),
         ("g", "a matrix", "[[31, -21], [-14, 10]]",
-         '''mistakes={"c'est la transposée : (A²)⁻¹ = (A⁻¹)², calcule A⁻¹ fois A⁻¹": [[31, -14], [-21, 10]]}'''),
+         '''mistakes={"c'est la transposée : (A²)⁻¹ = (A⁻¹)², calcule A⁻¹ fois A⁻¹": [[31, -14], [-21, 10]], '''
+         '''"c'est A² : la question demande 16 fois son inverse": [[10, 21], [14, 31]], '''
+         '''"A² est le produit A A, pas le carré de chaque nombre": [[25, 9], [4, 4]]}'''),
     ]),
 
     Paper("M09a.12", "L'inverse d'une matrice 3 × 3 par Gauss-Jordan", [
@@ -303,7 +306,7 @@ import numpy as np
 X1 = np.array([[22, 60, 12], [25, 55, 18], [19, 70, 8], [24, 65, 15], [20, 50, 7]], dtype=float)     # M09a.1
 A2 = np.array([[3, -1, 2, 0], [1, 4, -2, 5], [-2, 0, 1, 3]])                                        # M09a.2
 X2 = np.array([2, -1, 3, 1])
-XG2, WG2 = np.array([[2, 1, 0], [-1, 3, 2]]), np.array([0.5, -1, 2])
+XG2, WG2 = np.array([[2, 1, 0], [-1, 3, 2]]), np.array([1.5, -0.5, 1])
 A3 = np.array([[1, -1, 2], [0, 3, 1]])                                                              # M09a.3
 B3 = np.array([[2, 1], [-1, 0], [1, 4]])
 C3 = np.array([[1, 2], [-1, 1]])
@@ -716,11 +719,11 @@ M09A_30 = Ex(
     "prévoir la forme du résultat de `@` et de `*` sur des tableaux de formes différentes, puis la vérifier.",
     "fiche §1 et §3", tracks="C, E", hypothesis=True,
     body=r"""NumPy applique deux règles différentes. Pour `@`, celle du produit matriciel (un tableau à une dimension y joue le rôle d'un vecteur). Pour `*`, le **broadcasting** : les formes se comparent en partant de la droite, et une dimension égale à 1 est répétée autant qu'il faut ; si deux dimensions diffèrent et qu'aucune ne vaut 1, c'est une erreur. Choisis, pour chaque expression, le numéro de la bonne réponse :
-- a) `np.ones((2, 3)) @ np.ones((3, 1))` : (1) une erreur ; (2) la forme `(2, 1)` ; (3) la forme `(2,)` ;
-- b) `np.ones((3, 4)) @ np.ones(4)` : (1) une erreur ; (2) la forme `(3,)` ; (3) la forme `(3, 4)` ;
-- c) `np.ones(4) @ np.ones((4, 2))` : (1) une erreur ; (2) la forme `(2,)` ; (3) la forme `(4, 2)` ;
+- a) `np.ones((2, 3)) @ np.ones((3, 1))` : (1) la forme `(2,)` ; (2) une erreur ; (3) la forme `(2, 1)` ;
+- b) `np.ones((3, 4)) @ np.ones(4)` : (1) la forme `(3,)` ; (2) une erreur ; (3) la forme `(3, 4)` ;
+- c) `np.ones(4) @ np.ones((4, 2))` : (1) une erreur ; (2) la forme `(4, 2)` ; (3) la forme `(2,)` ;
 - d) `np.ones((2, 3)) * np.ones(3)` : (1) une erreur ; (2) la forme `(2, 3)` ; (3) la forme `(3,)` ;
-- e) `np.ones((2, 3)) * np.ones(2)` : (1) une erreur ; (2) la forme `(2, 3)` ; (3) la forme `(2,)`.
+- e) `np.ones((2, 3)) * np.ones(2)` : (1) la forme `(2, 3)` ; (2) la forme `(2,)` ; (3) une erreur.
 
 **Avant d'exécuter quoi que ce soit**, écris tes cinq prédictions (le **numéro du choix**), vérifie-les, puis lance l'expérience.""",
     todo='''prediction_M09a_30a = ...  # a) 1, 2 or 3, written BEFORE running the experiment below
@@ -731,11 +734,11 @@ prediction_M09a_30e = ...  # e) 1, 2 or 3''',
     check='''for letter, prediction in zip("abcde", [prediction_M09a_30a, prediction_M09a_30b, prediction_M09a_30c,
                                        prediction_M09a_30d, prediction_M09a_30e]):
     wbm.check(f"M09a.30{letter}", prediction)''',
-    record='''wbm.record("M09a.30a", 2, prediction=True, choices=[1, 2, 3])
-wbm.record("M09a.30b", 2, prediction=True, choices=[1, 2, 3])
-wbm.record("M09a.30c", 2, prediction=True, choices=[1, 2, 3])
+    record='''wbm.record("M09a.30a", 3, prediction=True, choices=[1, 2, 3])
+wbm.record("M09a.30b", 1, prediction=True, choices=[1, 2, 3])
+wbm.record("M09a.30c", 3, prediction=True, choices=[1, 2, 3])
 wbm.record("M09a.30d", 2, prediction=True, choices=[1, 2, 3])
-wbm.record("M09a.30e", 1, prediction=True, choices=[1, 2, 3])''',
+wbm.record("M09a.30e", 3, prediction=True, choices=[1, 2, 3])''',
     after=[
         ("md", "**L'expérience.** Elle ne s'exécute qu'une fois tes cinq prédictions écrites."),
         ("todo", guarded(M09A_30_EXPERIMENT, [f"prediction_M09a_30{letter}" for letter in "abcde"],
@@ -907,10 +910,11 @@ for k, (e_no, e_yes) in zip(range(2, 19, 2), table_32):
     record='''wbm.record("M09a.32a", table_32[-1][0], decimals=4,
            mistakes={"c'est l'erreur avec pivot : la question porte sur la première valeur du couple": table_32[-1][1]})
 wbm.record("M09a.32b", round(math.log10(table_32[3][0])))
-wbm.record("M09a.32c", 16, mistakes={"compare l'erreur au seuil 1e-2 = 0,01, pas à un seuil plus petit": 14})
+wbm.record("M09a.32c", 16, mistakes={"compare l'erreur au seuil 1e-2 = 0,01, pas à un seuil plus petit": 14,
+                                      "mesure l'écart à la solution de np.linalg.solve, pas à (1, 1)": 2})
 wbm.record("M09a.32d", True,
-           mistakes={"avec ta fonction solve, l'erreur devrait rester minuscule : vérifie le pivot partiel (M09a.27)":
-                         False})''',
+           mistakes={"avec ta fonction solve, l'erreur devrait rester minuscule : mesure l'écart à la solution de "
+                     "np.linalg.solve (pas à (1, 1)), puis vérifie le pivot partiel (M09a.27)": False})''',
     note=r"Sans pivot, l'élimination retranche $\frac{1}{\varepsilon}$ fois la première ligne à la seconde : celle-ci devient "
          r"$(0, 1 - \frac{1}{\varepsilon} \mid 2 - \frac{1}{\varepsilon})$, et pour $\varepsilon$ minuscule, les nombres 1 et 2 "
          r"disparaissent dans les arrondis de $\frac{1}{\varepsilon}$ (environ 16 chiffres significatifs, R1). $y$ reste "
@@ -1048,7 +1052,7 @@ X = np.array([[1.0, 0.0, 2.0], [-1.0, 1.0, 1.0]])      # 2 examples, 3 features
 w = np.array([1.0, -2.0, 0.5])                           # weights of a linear model
 P = A * B                                    # (A) the matrix product AB: its entry (2, 1), P[1, 0]
 S = A + A.T                                  # (B) a symmetric matrix: S[0, 1]
-y = X @ w + 1.0                              # (C) the predictions X w + 1 for the 2 examples: y[1]
+y = X @ w - 0.5                              # (C) the predictions X w − 0.5 for the 2 examples: y[1]
 G = X @ X.T                                  # (D) the 3 × 3 matrix XᵀX (one row per feature): G[0, 1]
 M = np.array([[0.0, 2.0, 4.0], [1.0, 1.0, 3.0]])         # the augmented matrix of 2y = 4, x + y = 3
 M[1] = M[1] - M[1, 0] / M[0, 0] * M[0]       # (E) an echelon form of M, x eliminated below the first pivot: M[1, 2]
@@ -1071,7 +1075,7 @@ X = np.array([[1.0, 0.0, 2.0], [-1.0, 1.0, 1.0]])
 w = np.array([1.0, -2.0, 0.5])
 P = A @ B                                    # (A) the matrix product, not the Hadamard product
 S = A + A.T                                  # (B) correct
-y = X @ w + 1.0                              # (C) correct
+y = X @ w - 0.5                              # (C) correct
 G = X.T @ X                                  # (D) XᵀX, of shape (3, 3): X @ X.T is the (2, 2) matrix of the examples
 M = np.array([[1.0, 1.0, 3.0], [0.0, 2.0, 4.0]])         # (E) swap the rows first: the pivot 0 cannot be used
 M[1] = M[1] - M[1, 0] / M[0, 0] * M[0]
@@ -1080,14 +1084,14 @@ answer_M09a_34b = [float(P[1, 0]), float(S[0, 1]), float(y[1]), float(G[0, 1]), 
 print(answer_M09a_34a, answer_M09a_34b)''',
     record=f'''wbm.record("M09a.34a", "ADE",
            mistakes={M09A_34_MISTAKES})
-VALUES_34 = [-2.0, 5.0, -1.5, -1.0, 4.0, 0.75]
+VALUES_34 = [-2.0, 5.0, -3.0, -1.0, 4.0, 0.75]
 wbm.record("M09a.34b", VALUES_34, decimals=4,
            mistakes={{"(A) : le produit matriciel est @ ; * multiplie élément par élément": [6.0] + VALUES_34[1:],
                       "(D) : XᵀX a une ligne et une colonne par feature ; X @ X.T en a une par exemple":
                           VALUES_34[:3] + [1.0] + VALUES_34[4:]}})''',
     note=r"(A) `A * B` est le produit de Hadamard : son élément $(2, 1)$ vaut $3 \times 2 = 6$, alors que celui de "
          r"$\mathbf{A}\mathbf{B}$ vaut $3 \times 0 + (-1) \times 2 = -2$ ; il faut `A @ B`. (B) est juste : $2 + 3 = 5$. "
-         r"(C) est juste : $-1 - 2 + 0{,}5 + 1 = -1{,}5$. (D) `X @ X.T` est de forme $(2, 2)$ : c'est la matrice des "
+         r"(C) est juste : $-1 - 2 + 0{,}5 - 0{,}5 = -3$. (D) `X @ X.T` est de forme $(2, 2)$ : c'est la matrice des "
          r"produits scalaires des **exemples**, et son élément $(1, 2)$ existe, d'où l'absence d'erreur ; $\mathbf{X}^\top"
          r"\mathbf{X}$, de forme $(3, 3)$, s'écrit `X.T @ X`, et son élément $(1, 2)$ est le produit scalaire des colonnes 1 "
          r"et 2, $1 \times 0 + (-1) \times 1 = -1$. (E) Le pivot $M_{11}$ vaut 0 : la ligne divise par zéro (`inf` et "
@@ -1195,10 +1199,10 @@ M09A_36_CHECK = '''with checked("M09a.36 défi"):
     problems, worst_error, slowest, ok_36 = [], 0.0, 0.0, False
     for seed_t, kind_t in [(36, "random"), (37, "random"), (38, "needs-pivoting")]:
         rng_t = np.random.default_rng(seed_t)
-        A_t = rng_t.normal(size=(500, 500))
+        A_t = rng_t.normal(size=(400, 400))
         if kind_t == "needs-pivoting":
-            A_t[np.arange(500), np.arange(500)] = 1e-14          # tiny diagonal: elimination without swaps fails
-        b_t = rng_t.normal(size=500)
+            A_t[np.arange(400), np.arange(400)] = 1e-14          # tiny diagonal: elimination without swaps fails
+        b_t = rng_t.normal(size=400)
         exact_t = np.linalg.solve(A_t, b_t)
         start_t = time.perf_counter()
         try:
@@ -1211,16 +1215,16 @@ M09A_36_CHECK = '''with checked("M09a.36 défi"):
         seconds_t = time.perf_counter() - start_t
         slowest = max(slowest, seconds_t)
         x_t = np.asarray(x_t, dtype=float)
-        if x_t.shape != (500,):
-            problems.append(f"solve rend la forme {x_t.shape}, pas (500,)")
+        if x_t.shape != (400,):
+            problems.append(f"solve rend la forme {x_t.shape}, pas (400,)")
             break
         worst_error = max(worst_error, float(np.max(np.abs(x_t - exact_t))))
         if seconds_t > 1:
             break                                                # too slow: the other systems would be too
     if not problems:
         print(f"plus grande erreur : {worst_error:.1e} · temps le plus long : {slowest:.3f} s")
-        if worst_error > 1e-8:
-            problems.append("l'erreur dépasse 1e-8 : vérifie le pivot partiel (le troisième système a une diagonale "
+        if worst_error > 1e-9:
+            problems.append("l'erreur dépasse 1e-9 : vérifie le pivot partiel (le troisième système a une diagonale "
                             "minuscule)")
         if slowest > 1:
             problems.append(f"plus d'une seconde ({slowest:.1f} s) : remplace les boucles sur les éléments par des "
@@ -1229,19 +1233,19 @@ M09A_36_CHECK = '''with checked("M09a.36 défi"):
         print("❌ Ex M09a.36 : " + " ; ".join(problems) + ".")
     else:
         ok_36 = True
-        print("✅ Ex M09a.36 : défi réussi : trois systèmes 500 × 500, à 1e-8 près, en moins d'une seconde chacun.")
+        print("✅ Ex M09a.36 : défi réussi : trois systèmes 400 × 400, à 1e-9 près, en moins d'une seconde chacun.")
 with checked("M09a.36"):
     mymath.matrices.solve([[2, 1], [1, 1]], [3, 2])          # ⏳ while solve is not written
     wbm.check("M09a.36", bool(ok_36), computed=True)'''
 
 M09A_36 = Ex(
-    "M09a.36", "🏆", 3, 30, "Défi : un système 500 × 500 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une "
+    "M09a.36", "🏆", 3, 30, "Défi : un système 400 × 400 résolu par ton `solve`, à 1e−9 près de NumPy, en moins d'une "
     "seconde",
     "rendre ta fonction `solve` à la fois précise et rapide sur un grand système, en vectorisant l'élimination.",
     "fiche §6 ; Ex M09a.27 et M09a.32", tracks="C",
-    body=r"""Ta fonction `solve` (M09a.27) passe ses tests sur de petits systèmes. **L'objectif** : qu'elle résolve trois systèmes $500 \times 500$ (deux tirés au hasard, un troisième dont la diagonale est minuscule) à $10^{-8}$ près de `np.linalg.solve`, en **moins d'une seconde** chacun, sans `np.linalg` ni `@` (la règle de `matrices.py`).
+    body=r"""Ta fonction `solve` (M09a.27) passe ses tests sur de petits systèmes. **L'objectif** : qu'elle résolve trois systèmes $400 \times 400$ (deux tirés au hasard, un troisième dont la diagonale est minuscule) à $10^{-9}$ près de `np.linalg.solve`, en **moins d'une seconde** chacun, sans `np.linalg` ni `@` (la règle de `matrices.py`).
 
-Une élimination qui traite les nombres un par un (une boucle Python sur les lignes sous le pivot, puis une sur les colonnes) fait de l'ordre de $\frac{2}{3}n^3 \approx 8 \times 10^7$ opérations Python pour $n = 500$ : plusieurs secondes, souvent bien plus. Pistes : traiter chaque ligne d'un coup (une opération NumPy sur une ligne entière), ou mieux toutes les lignes sous le pivot d'un coup (une opération sur le bloc `M[k + 1:]`, avec le broadcasting d'une colonne de multiplicateurs), et garder le pivot partiel. La vérification s'arrête au premier système trop lent.
+Une élimination qui traite les nombres un par un (une boucle Python sur les lignes sous le pivot, puis une sur les colonnes) fait de l'ordre de $\frac{2}{3}n^3 \approx 4 \times 10^7$ opérations Python pour $n = 400$ : plusieurs secondes. Pistes : traiter chaque ligne d'un coup (une opération NumPy sur une ligne entière), ou mieux toutes les lignes sous le pivot d'un coup (une opération sur le bloc `M[k + 1:]`, avec le broadcasting d'une colonne de multiplicateurs), et garder le pivot partiel. La vérification s'arrête au premier système trop lent.
 
 La vérification essaie ta fonction sur les trois systèmes ; une dernière cellule enregistre si l'objectif est atteint sur les trois.
 
@@ -1255,9 +1259,9 @@ print("    M[k + 1:] = M[k + 1:] - factors[:, None] * M[k]")''',
            mistakes={"l'objectif n'est pas atteint sur les trois systèmes : la cellule du défi dit pourquoi": False})''',
     note=r"La boucle sur les lignes sous le pivot se remplace par une seule opération sur le bloc : la colonne des "
          r"multiplicateurs `M[k + 1:, k] / M[k, k]`, de forme $(n - k - 1,)$, devient une colonne par `[:, None]`, et le "
-         r"broadcasting la multiplie par la ligne du pivot. Il reste une seule boucle Python, sur les $n$ colonnes : le "
-         r"système $500 \times 500$ se résout en un à deux dixièmes de seconde. Une boucle sur les lignes, chaque ligne "
-         r"traitée d'un coup, passe aussi ; une boucle sur chaque nombre, non : de l'ordre de $10^8$ opérations Python. Le troisième système a une diagonale de $10^{-14}$ : "
+         r"broadcasting la multiplie par la ligne du pivot. Il reste une boucle Python sur les $n$ colonnes (et une pour la "
+         r"remontée) : le système $400 \times 400$ se résout en moins d'un dixième de seconde. Une boucle sur les lignes, chaque ligne "
+         r"traitée d'un coup, passe aussi ; une boucle sur chaque nombre, non : de l'ordre de $4 \times 10^7$ opérations Python. Le troisième système a une diagonale de $10^{-14}$ : "
          r"sans échange de lignes, chaque élimination divise par ces pivots minuscules, et l'erreur explose (M09a.32).",
 )
 

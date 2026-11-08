@@ -119,7 +119,7 @@ Pour la copie : une ligne est un exemple (un capteur), une colonne une feature (
 
 ### Ex M09a.2 — Le produit matrice-vecteur, par les lignes puis par les colonnes
 
-**Réponses** : a) `3` · b) `[13, -3, 2]` · c) `12` · d) `[2, -2, 1]` · e) `[1, 0, 0, 2]` · f) `False` · g) `[1, 1.5]`.
+**Réponses** : a) `3` · b) `[13, -3, 2]` · c) `12` · d) `[2, -2, 1]` · e) `[1, 0, 0, 2]` · f) `False` · g) `[0.5, -3]`.
 
 **Démarche.**
 - b) Par les lignes : $6 + 1 + 6 + 0 = 13$ ; $2 - 4 - 6 + 5 = -3$ ; $-4 + 0 + 3 + 3 = 2$.
@@ -127,7 +127,7 @@ Pour la copie : une ligne est un exemple (un capteur), une colonne une feature (
 - d) $\mathbf{A}\mathbf{e}_3 = 0\,\mathbf{a}_1 + 0\,\mathbf{a}_2 + 1\,\mathbf{a}_3 + 0\,\mathbf{a}_4 = \mathbf{a}_3$.
 - e) $\mathbf{A}\mathbf{y} = y_1\mathbf{a}_1 + \cdots + y_4\mathbf{a}_4$ : il faut $y_1 = 1$, $y_4 = 2$, et 0 ailleurs.
 - f) $\mathbf{A}$ a 4 colonnes : elle ne multiplie que des vecteurs de $\mathbb{R}^4$.
-- g) Une prédiction par ligne de $\mathbf{X}$ : $(1 - 1 + 0 + 1,\ -0{,}5 - 3 + 4 + 1) = (1 ;\ 1{,}5)$.
+- g) Une prédiction par ligne de $\mathbf{X}$ : $(3 - 0{,}5 + 0 - 2,\ -1{,}5 - 1{,}5 + 2 - 2) = (0{,}5 ;\ -3)$.
 
 Pour la copie : par les colonnes, $2(3, 1, -2) - (-1, 4, 0) + 3(2, -2, 1) + (0, 5, 3) = (6 + 1 + 6 + 0,\ 2 - 4 - 6 + 5,\ -4 + 0 + 3 + 3) = (13, -3, 2)$ : la même chose. En g), un million d'exemples à 20 features coûtent $2 \times 10^7$ multiplications.
 
@@ -407,7 +407,7 @@ Pour la copie : $y = -3$ est une masse négative ; sans l'engrais 3, il est impo
 - f) $2 \times 1 + 0 + 0 + 0{,}5$.
 - g) $(2, 3) \times (3, 1) \to (2, 1)$ : $1 \times 1 + 0 \times 2 + 2 \times (-1) = -1$ et $-1 \times 1 + 1 \times 2 + 1 \times (-1) = 0$.
 
-Pour la copie : $\mathbf{b}_1\mathbf{W}_2 + b_2 = 0 + 1 + 1 + 0{,}5 = 2{,}5$. Sans ReLU, $\mathbf{h} = (2 ;\ -0{,}5 ;\ 0)$ et $y = 2 - 1 + 0 + 0{,}5 = 1{,}5$ ; et $\mathbf{x}(\mathbf{W}_1\mathbf{W}_2) + (\mathbf{b}_1\mathbf{W}_2 + b_2) = (1 \times (-1) + (-1) \times 0) + 2{,}5 = 1{,}5$ : la même chose. En développant, $(\mathbf{x}\mathbf{W}_1 + \mathbf{b}_1)\mathbf{W}_2 + b_2 = \mathbf{x}(\mathbf{W}_1\mathbf{W}_2) + (\mathbf{b}_1\mathbf{W}_2 + b_2)$, par distributivité et associativité du produit.
+Pour la copie : $\mathbf{b}_1\mathbf{W}_2 + b_2 = 0 + 1 + 1 + 0{,}5 = 2{,}5$. Sans ReLU, $\mathbf{h} = (2 ;\ -0{,}5 ;\ 0)$ et $y = 2 - 1 + 0 + 0{,}5 = 1{,}5$ ; et $\mathbf{x}(\mathbf{W}_1\mathbf{W}_2) + (\mathbf{b}_1\mathbf{W}_2 + b_2) = (1 \times (-1) + (-1) \times 0) + 2{,}5 = 1{,}5$ : la même chose. En développant, $(\mathbf{x}\mathbf{W}_1 + \mathbf{b}_1)\mathbf{W}_2 + b_2 = \mathbf{x}(\mathbf{W}_1\mathbf{W}_2) + (\mathbf{b}_1\mathbf{W}_2 + b_2)$, par distributivité et associativité du produit : sans ReLU, les deux couches calculent la même chose qu'une seule couche, de poids $\mathbf{W}_1\mathbf{W}_2$ et de biais $\mathbf{b}_1\mathbf{W}_2 + b_2$.
 
 **Erreurs fréquentes.** Oublier les biais en c) ; compter les multiplications d'un seul exemple en d) (25) ; ajouter le biais après ReLU en e) ; oublier ReLU (1,5) ou $b_2$ (2) en f) ; donner $\mathbf{W}_1\mathbf{W}_2$ en ligne en g).
 
@@ -531,7 +531,7 @@ Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}
 
 ### Ex M09a.30 — Prédire la forme du résultat : `@`, `*` et broadcasting
 
-**Réponses** : a) `2` · b) `2` · c) `2` · d) `2` · e) `1`.
+**Réponses** : a) `3` · b) `1` · c) `3` · d) `2` · e) `3`.
 
 a) $(2, 3) \times (3, 1) \to (2, 1)$ : deux tableaux à deux dimensions donnent un tableau à deux dimensions, une colonne. b) $(3, 4)$ fois un tableau à une dimension de 4 nombres : NumPy le traite comme un vecteur, et rend un tableau à une dimension de 3 nombres. c) Un vecteur de 4 fois $(4, 2)$ : un vecteur de 2 (le vecteur joue le rôle d'une ligne). d) La dimension de droite, 3, coïncide : le vecteur est répété sur les 2 lignes. e) À droite, 3 et 2 diffèrent et aucun ne vaut 1 : erreur ; pour ajouter un nombre par ligne, il faut une colonne de forme `(2, 1)`, `v[:, None]` ou `v.reshape(2, 1)`.
 
@@ -549,7 +549,9 @@ a) $(2, 3) \times (3, 1) \to (2, 1)$ : deux tableaux à deux dimensions donnent 
 
 **Démarche.** Pour chaque $k$ : `A = np.array([[10.0 ** -k, 1.0], [1.0, 1.0]])`, `b = np.array([1.0, 2.0])`, `exact = np.linalg.solve(A, b)`, puis `float(np.max(np.abs(solve_no_pivot(A, b) - exact)))` et la même chose avec `mymath.matrices.solve`. Pour la copie : sans pivot, l'élimination retranche $\frac{1}{\varepsilon}$ fois la première ligne à la seconde, qui devient $(0,\ 1 - \frac{1}{\varepsilon} \mid 2 - \frac{1}{\varepsilon})$ ; pour $\varepsilon$ minuscule, les nombres 1 et 2 disparaissent dans les arrondis de $\frac{1}{\varepsilon}$ (environ 16 chiffres significatifs, R1). $y$ reste juste, mais $x = \frac{1 - y}{\varepsilon}$ divise une erreur d'arrondi, de l'ordre de $10^{-16}$, par $\varepsilon$ : l'erreur sur $x$ croît comme $\frac{10^{-16}}{\varepsilon}$, jusqu'à donner $x = 0$ pour $\varepsilon = 10^{-18}$. Avec le pivot partiel, on élimine avec la ligne $x + y = 2$ et un multiplicateur $\varepsilon$, minuscule : les erreurs ne sont plus amplifiées.
 
-La vérification de c) rend 0 si aucune erreur ne dépasse $10^{-2}$. **Erreurs fréquentes.** Rendre les couples dans l'ordre (avec pivot, sans pivot) ; mesurer l'erreur sur $y$ seulement ; comparer à la solution $(1, 1)$ arrondie au lieu de la solution calculée par `np.linalg.solve` (la différence est de l'ordre de $\varepsilon$, sans importance ici) ; un seuil à $10^{-3}$ au lieu de $10^{-2}$ en c).
+La vérification de c) rend 0 si aucune erreur ne dépasse $10^{-2}$.
+
+**Erreurs fréquentes.** Rendre les couples dans l'ordre (avec pivot, sans pivot) ; mesurer l'erreur sur $y$ seulement ; comparer à $(1, 1)$ au lieu de la solution calculée par `np.linalg.solve` : la vraie solution s'écarte de $(1, 1)$ d'environ $\varepsilon$, soit $0{,}01$ pour $k = 2$, et c) donne alors 2 ; un seuil plus petit en c) ($10^{-4}$ : 14).
 
 ### Ex M09a.33 — Une matrice 2 × 2 comme transformation du plan : la grille et le carré unité
 
@@ -559,9 +561,9 @@ La vérification de c) rend 0 si aucune erreur ne dépasse $10^{-2}$. **Erreurs 
 
 ### Ex M09a.34 — Chasse à l'erreur : `*` au lieu de `@`, une transposée oubliée, un pivot nul
 
-**Réponses** : a) `"ADE"` · b) `[-2.0, 5.0, -1.5, -1.0, 4.0, 0.75]`.
+**Réponses** : a) `"ADE"` · b) `[-2.0, 5.0, -3.0, -1.0, 4.0, 0.75]`.
 
-**Démarche.** (A) `A * B` est le produit de Hadamard : son élément $(2, 1)$ vaut $3 \times 2 = 6$, alors que celui de $\mathbf{A}\mathbf{B}$ vaut $3 \times 0 + (-1) \times 2 = -2$ ; il faut `A @ B`. (B) est juste : $2 + 3 = 5$. (C) est juste : $-1 - 2 + 0{,}5 + 1 = -1{,}5$. (D) `X @ X.T` a la forme $(2, 2)$ : c'est la matrice des produits scalaires des **exemples**, et son élément $(1, 2)$ existe, d'où l'absence d'erreur ; $\mathbf{X}^\top\mathbf{X}$, de forme $(3, 3)$, s'écrit `X.T @ X`, et son élément $(1, 2)$ vaut $1 \times 0 + (-1) \times 1 = -1$. (E) Le pivot $M_{11}$ vaut 0 : la ligne divise par zéro (`inf` et `nan`) ; il faut d'abord échanger les deux lignes, et l'on trouve 4. (F) est juste : $\frac{3}{4} = 0{,}75$ (la variable `R` contient $\mathbf{D}^{-1}\mathbf{A}$).
+**Démarche.** (A) `A * B` est le produit de Hadamard : son élément $(2, 1)$ vaut $3 \times 2 = 6$, alors que celui de $\mathbf{A}\mathbf{B}$ vaut $3 \times 0 + (-1) \times 2 = -2$ ; il faut `A @ B`. (B) est juste : $2 + 3 = 5$. (C) est juste : $-1 - 2 + 0{,}5 - 0{,}5 = -3$. (D) `X @ X.T` a la forme $(2, 2)$ : c'est la matrice des produits scalaires des **exemples**, et son élément $(1, 2)$ existe, d'où l'absence d'erreur ; $\mathbf{X}^\top\mathbf{X}$, de forme $(3, 3)$, s'écrit `X.T @ X`, et son élément $(1, 2)$ vaut $1 \times 0 + (-1) \times 1 = -1$. (E) Le pivot $M_{11}$ vaut 0 : la ligne divise par zéro (`inf` et `nan`) ; il faut d'abord échanger les deux lignes, et l'on trouve 4. (F) est juste : $\frac{3}{4} = 0{,}75$ (la variable `R` contient $\mathbf{D}^{-1}\mathbf{A}$).
 
 **Erreurs fréquentes.** Citer (F) en croyant qu'il faut $\mathbf{A}\mathbf{D}^{-1}$ (multiplier à gauche par une diagonale agit sur les **lignes**, comme le dit le commentaire) ; oublier (D), qui s'exécute sans erreur : seule la forme la trahit.
 
@@ -571,10 +573,10 @@ La vérification de c) rend 0 si aucune erreur ne dépasse $10^{-2}$. **Erreurs 
 
 **Erreurs fréquentes.** Des vecteurs seulement, des formes $(1, n)$ ou $(n, 1)$ (la transposée par `reshape` passe) ; `==` entre flottants ; un générateur recréé à chaque tour ; un `assert` sans message ; comparer les valeurs sans comparer les formes.
 
-### Ex M09a.36 — Défi : un système 500 × 500 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde
+### Ex M09a.36 — Défi : un système 400 × 400 résolu par ton `solve`, à 1e−9 près de NumPy, en moins d'une seconde
 
 **Réponse** : `True`.
 
-**Démarche.** La boucle Python sur les lignes sous le pivot se remplace par une seule opération sur le bloc : `factors = M[k + 1:, k] / M[k, k]`, de forme $(n - k - 1,)$, devient une colonne par `factors[:, None]`, et `M[k + 1:] = M[k + 1:] - factors[:, None] * M[k]` élimine d'un coup, par broadcasting. Il reste une boucle Python sur les $n$ colonnes (et une pour la remontée) : un à deux dixièmes de seconde pour $n = 500$, avec une erreur de l'ordre de $10^{-12}$. Pour la copie : une version qui traite les nombres un par un (deux boucles imbriquées sous chaque pivot) met plusieurs secondes, souvent plus de dix ; une version qui traite chaque ligne d'un coup (une boucle sur les lignes) passe aussi, en quelques dixièmes de seconde ; la version par blocs est la plus rapide. Le troisième système a une diagonale de $10^{-14}$ : sans échange de lignes, chaque élimination divise par ces pivots minuscules, et l'erreur explose (M09a.32).
+**Démarche.** La boucle Python sur les lignes sous le pivot se remplace par une seule opération sur le bloc : `factors = M[k + 1:, k] / M[k, k]`, de forme $(n - k - 1,)$, devient une colonne par `factors[:, None]`, et `M[k + 1:] = M[k + 1:] - factors[:, None] * M[k]` élimine d'un coup, par broadcasting. Il reste une boucle Python sur les $n$ colonnes (et une pour la remontée) : moins d'un dixième de seconde pour $n = 400$, avec une erreur de l'ordre de $10^{-12}$. Pour la copie : une version qui traite les nombres un par un (deux boucles imbriquées sous chaque pivot) met plusieurs secondes ; une version qui traite chaque ligne d'un coup (une boucle sur les lignes) passe aussi, en un à deux dixièmes de seconde ; la version par blocs est la plus rapide. Le troisième système a une diagonale de $10^{-14}$ : sans échange de lignes, chaque élimination divise par ces pivots minuscules, et l'erreur explose (M09a.32).
 
 **Erreurs fréquentes.** Vectoriser en oubliant le pivot partiel (le troisième système échoue) ; `M[k + 1:] -= factors * M[k]` sans `[:, None]` (une erreur de forme) ; recalculer `np.max(np.abs(A))` à chaque colonne (correct, mais inutile).

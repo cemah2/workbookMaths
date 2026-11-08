@@ -174,7 +174,7 @@ $$\mathbf{A} = \begin{pmatrix} 3 & -1 & 2 & 0 \\ 1 & 4 & -2 & 5 \\ -2 & 0 & 1 & 
 | d | $\mathbf{A}\mathbf{e}_3$, avec $\mathbf{e}_3 = (0, 0, 1, 0)$ | une liste de 3 nombres |
 | e | le vecteur $\mathbf{y}$ tel que $\mathbf{A}\mathbf{y}$ = colonne 1 + 2 × colonne 4 | une liste de 4 nombres |
 | f | vrai ou faux : le produit de $\mathbf{A}$ par un vecteur de $\mathbb{R}^3$ existe | `True` ou `False` |
-| g | les prédictions $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b$ pour $\mathbf{X} = \begin{pmatrix} 2 & 1 & 0 \\ -1 & 3 & 2 \end{pmatrix}$, $\mathbf{w} = (0{,}5 ;\ -1 ;\ 2)$ et $b = 1$ | une liste de 2 nombres |
+| g | les prédictions $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b$ pour $\mathbf{X} = \begin{pmatrix} 2 & 1 & 0 \\ -1 & 3 & 2 \end{pmatrix}$, $\mathbf{w} = (1{,}5 ;\ -0{,}5 ;\ 1)$ et $b = -2$ | une liste de 2 nombres |
 
 Dans ta copie : refais b) par la lecture en colonnes, et vérifie que tu trouves la même chose. Pourquoi d) donne-t-il une colonne de $\mathbf{A}$ ? Combien de multiplications coûterait g) pour un million d'exemples à 20 features ?
 
@@ -200,7 +200,7 @@ Dans ta copie : calcule d) comme un produit scalaire d'une ligne et d'une colonn
 **Objectif :** compter les multiplications d'un produit matriciel, et choisir l'ordre des calculs le moins coûteux.
 **Prérequis :** fiche §3 · **Parcours :** C
 
-$\mathbf{A}$ a la forme $(20, 400)$, $\mathbf{B}$ la forme $(400, 5)$, $\mathbf{C}$ la forme $(5, 300)$, et $\mathbf{v}$ est un vecteur de $\mathbb{R}^{300}$.
+$\mathbf{A}$ a la forme $(20, 400)$, $\mathbf{B}$ la forme $(400, 5)$, et $\mathbf{C}$ la forme $(5, 300)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -343,7 +343,7 @@ Soit $\mathbf{A} = \begin{pmatrix} 2 & 3 \\ 2 & 5 \end{pmatrix}$.
 | a | le nombre $ad - bc$ de $\mathbf{A}$ | un nombre |
 | b | $\mathbf{A}^{-1}$ | une matrice |
 | c | la solution $(x, y)$ de $2x + 3y = 9$, $2x + 5y = 11$ | une liste de 2 nombres |
-| d | la matrice $\mathbf{X}$ telle que $\mathbf{A}\mathbf{X} = \begin{pmatrix} 3 & 5 \\ 5 & 7 \end{pmatrix}$ | une matrice |
+| d | la matrice $\mathbf{X}$ telle que $\mathbf{A}\mathbf{X} = \mathbf{C}$, avec $\mathbf{C} = \begin{pmatrix} 3 & 5 \\ 5 & 7 \end{pmatrix}$ | une matrice |
 | e | $(2\mathbf{A})^{-1}$ | une matrice |
 | f | $(\mathbf{A}^\top)^{-1}$ | une matrice |
 | g | la matrice $\mathbf{M}$, à coefficients entiers, telle que $(\mathbf{A}^2)^{-1} = \frac{1}{16}\mathbf{M}$ | une matrice |
@@ -577,6 +577,6 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | M09a.33 | Une matrice 2 × 2 comme transformation du plan : la grille et le carré unité | 🎨 | ★ | 20 | C |
 | M09a.34 | Chasse à l'erreur : `*` au lieu de `@`, une transposée oubliée, un pivot nul | 🐛 | ★ | 15 | C |
 | M09a.35 | Tester une propriété : un pytest pour (AB)ᵀ = BᵀAᵀ sur des matrices aléatoires | 🛠️ | ★ | 15 | C |
-| M09a.36 | Défi : un système 500 × 500 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde | 🏆 | ★★★ | 30 | C |
+| M09a.36 | Défi : un système 400 × 400 résolu par ton `solve`, à 1e−9 près de NumPy, en moins d'une seconde | 🏆 | ★★★ | 30 | C |
 
 Indices : `04_indices.md` (section « Notebook ») ; solutions commentées : `05_solutions.md` et `05_solutions.ipynb`.

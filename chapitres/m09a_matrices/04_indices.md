@@ -878,7 +878,7 @@ Un générateur créé une fois ; dans la boucle, trois dimensions au hasard (pa
 
 </details>
 
-### Ex M09a.36 — Défi : un système 500 × 500 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde
+### Ex M09a.36 — Défi : un système 400 × 400 résolu par ton `solve`, à 1e−9 près de NumPy, en moins d'une seconde
 
 <details><summary>Indice 1</summary>
 

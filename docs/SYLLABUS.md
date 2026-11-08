@@ -1874,7 +1874,7 @@ Les matrices et les systèmes linéaires : formes, produit matrice-vecteur et pr
 | M09a.33 | 🎨 | Une matrice 2 × 2 comme transformation du plan : la grille et le carré unité | ★ | 20 | §2 §3 | C | manuel | — |
 | M09a.34 | 🐛 | Chasse à l'erreur : `*` au lieu de `@`, une transposée oubliée, un pivot nul | ★ | 15 | §3 §6 | C | wbm | — |
 | M09a.35 | 🛠️ | Tester une propriété : un pytest pour (AB)ᵀ = BᵀAᵀ sur des matrices aléatoires | ★ | 15 | §4 | C | manuel | — |
-| M09a.36 | 🏆 | Défi : un système 500 × 500 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde | ★★★ | 30 | §6 | C | wbm | — |
+| M09a.36 | 🏆 | Défi : un système 400 × 400 résolu par ton `solve`, à 1e−9 près de NumPy, en moins d'une seconde | ★★★ | 30 | §6 | C | wbm | — |
 
 *Notes* : Évités (règle de partage) : le tempo de la boutique et California (workbookIA 9), le mini-exemple (0 ; 1), (1 ; 2), (2 ; 4) de sa fiche, les poids nommés AD, BE… et la conversion vers PyTorch (workbookIA 10.14, 10.15). M09a ne forme pas les équations normales (M09b). Z = XW + b suit la convention de `mylearn` (W de forme (n_in, n_out)) et signale celle de PyTorch. `mymath` écrit `rref` (la forme réduite, unique, donc testable contre SymPy) au lieu de `row_echelon` prévu. Deux sessions de génération : §1 à §4 (matrices et produits), puis §5 à §8 (systèmes, Gauss, inverse, rang).
 

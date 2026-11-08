@@ -1076,6 +1076,6 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M09a.33 🎨 Une matrice 2 × 2 comme transformation du plan : la grille et le carré unité ★ 20 min (complet)
 - [ ] M09a.34 🐛 Chasse à l'erreur : `*` au lieu de `@`, une transposée oubliée, un pivot nul ★ 15 min (complet)
 - [ ] M09a.35 🛠️ Tester une propriété : un pytest pour (AB)ᵀ = BᵀAᵀ sur des matrices aléatoires ★ 15 min (complet)
-- [ ] M09a.36 🏆 Défi : un système 500 × 500 résolu par ton `solve`, à 1e−8 près de NumPy, en moins d'une seconde ★★★ 30 min (complet)
+- [ ] M09a.36 🏆 Défi : un système 400 × 400 résolu par ton `solve`, à 1e−9 près de NumPy, en moins d'une seconde ★★★ 30 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (26 cartes)
 <!-- wbm:end M09a -->

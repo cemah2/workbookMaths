@@ -325,6 +325,17 @@ def test_solve_docstring_examples(matrices):
         assert np.allclose(np.asarray(got, dtype=float), expected), f"expected {expected} for solve({A}, {b}), got {got!r}"
 
 
+def test_solve_uses_partial_pivoting_on_a_small_pivot(matrices):
+    A, b = [[1e-9, 1.0], [1.0, 1.0]], [1.0, 2.0]       # 1e-9 is above the singularity threshold: swap anyway
+    expected = np.linalg.solve(A, b)
+    got = _result(lambda: matrices.solve(A, b), f"x = {_show(expected)}", "A = [[1e-9, 1], [1, 1]], b = [1, 2]")
+    _array(got, "solve for A = [[1e-9, 1], [1, 1]]", expected.shape)
+    assert np.allclose(got, expected, rtol=0, atol=1e-10), (
+        f"expected x = {_show(expected)} within 1e-10 for A = [[1e-9, 1], [1, 1]] and b = [1, 2], got entries off by "
+        f"{np.max(np.abs(np.asarray(got, dtype=float) - expected)):.1e}: in each column, take as pivot the row whose "
+        f"entry has the largest absolute value, even when the diagonal entry is not zero (partial pivoting)")
+
+
 def test_solve_uses_partial_pivoting(matrices):
     A, b = [[1e-17, 1.0], [1.0, 1.0]], [1.0, 2.0]
     got = _result(lambda: matrices.solve(A, b), "x ≈ [1, 1]", "A = [[1e-17, 1], [1, 1]], b = [1, 2]",

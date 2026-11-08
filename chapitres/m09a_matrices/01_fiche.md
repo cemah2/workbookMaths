@@ -120,7 +120,7 @@ Il n'existe que si $\mathbf{A}$ a **autant de colonnes** que $\mathbf{x}$ a de c
 
 $$\begin{pmatrix} 1 & -2 & 4 \\ 3 & 0 & -1 \end{pmatrix}\begin{pmatrix} 2 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 2 - 2 + 4 \\ 6 + 0 - 1 \end{pmatrix} = \begin{pmatrix} 4 \\ 5 \end{pmatrix}.$$
 
-Il coûte $m \times n$ multiplications : $n$ par ligne.
+Il coûte $m \times n$ multiplications : $n$ par ligne. Une matrice **diagonale** agit plus simplement encore : $\mathbf{D}\mathbf{x}$ multiplie chaque coordonnée de $\mathbf{x}$ par le nombre correspondant de la diagonale, et $\mathbf{I}\mathbf{x} = \mathbf{x}$.
 
 ### Par les colonnes : une combinaison linéaire
 
@@ -138,7 +138,7 @@ Un modèle linéaire calcule $\hat{y}_i = \mathbf{w} \cdot \mathbf{x}_i + b$ pou
 
 $$\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b\,\mathbf{1}, \qquad \text{de forme } (n,) :$$
 
-un produit scalaire par ligne, plus le même biais partout. Une matrice **diagonale** agit plus simplement encore : $\mathbf{D}\mathbf{x}$ multiplie chaque coordonnée de $\mathbf{x}$ par le nombre correspondant de la diagonale, et $\mathbf{I}\mathbf{x} = \mathbf{x}$.
+un produit scalaire par ligne, plus le même biais partout.
 
 🔗 **Dans workbookIA** — le chapitre 9 écrit les prédictions d'une régression comme $\mathbf{X}\mathbf{w}$, et le chapitre 10 applique un neurone à tout un batch de cette façon.
 
@@ -234,7 +234,7 @@ La **transposée** $\mathbf{A}^\top$ de $\mathbf{A}$, de forme $(m, n)$, est la 
 
 $$(\mathbf{A}^\top)^\top = \mathbf{A}, \qquad (\mathbf{A} + \mathbf{B})^\top = \mathbf{A}^\top + \mathbf{B}^\top, \qquad (\lambda\mathbf{A})^\top = \lambda\mathbf{A}^\top, \qquad (\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top.$$
 
-La dernière **inverse l'ordre** (M09a.15 la démontre). Les formes le disent déjà : si $\mathbf{A}$ est $(n, p)$ et $\mathbf{B}$ est $(p, m)$, $(\mathbf{A}\mathbf{B})^\top$ est $(m, n)$, et seul $\mathbf{B}^\top\mathbf{A}^\top$, $(m, p) \times (p, n)$, a cette forme. Avec les matrices de l'exemple du §3, $\big(\mathbf{A}\mathbf{B}\big)^\top = \begin{pmatrix} 4 & -1 \\ -4 & 8 \\ 5 & 4 \end{pmatrix} = \mathbf{B}^\top\mathbf{A}^\top$.
+La dernière **inverse l'ordre** (M09a.15 la démontre). Les formes le disent déjà : si $\mathbf{A}$ est $(n, p)$ et $\mathbf{B}$ est $(p, m)$, $(\mathbf{A}\mathbf{B})^\top$ est $(m, n)$, et seul $\mathbf{B}^\top\mathbf{A}^\top$, $(m, p) \times (p, n)$, a cette forme. Avec les matrices de l'exemple $(2, 2) \times (2, 3)$ du §3, $\big(\mathbf{A}\mathbf{B}\big)^\top = \begin{pmatrix} 4 & -1 \\ -4 & 8 \\ 5 & 4 \end{pmatrix} = \mathbf{B}^\top\mathbf{A}^\top$.
 
 **Vecteurs lignes et colonnes.** En écrivant un vecteur comme une colonne, de forme $(n, 1)$, le produit scalaire devient un produit matriciel : $\mathbf{u} \cdot \mathbf{v} = \mathbf{u}^\top\mathbf{v}$, de forme $(1, n) \times (n, 1) \to (1, 1)$ (c'est la notation de MML). Dans l'autre ordre, $\mathbf{u}\mathbf{v}^\top$ est une matrice $(n, n)$, le **produit extérieur**.
 
@@ -250,7 +250,7 @@ le **produit scalaire de deux colonnes**. Elle est symétrique ($(\mathbf{X}^\to
 
 $$\mathbf{X} = \begin{pmatrix} 1 & 2 \\ 3 & -1 \\ 0 & 4 \end{pmatrix}, \qquad \mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 1 + 9 + 0 & 2 - 3 + 0 \\ 2 - 3 + 0 & 4 + 1 + 16 \end{pmatrix} = \begin{pmatrix} 10 & -1 \\ -1 & 21 \end{pmatrix}.$$
 
-Pour des colonnes **centrées**, $\frac{1}{n}\mathbf{X}^\top\mathbf{X}$ est la matrice des covariances des features (M12) : sa diagonale contient leurs variances. Et $\mathbf{X}\mathbf{X}^\top$, de forme $(n, n)$, contient les produits scalaires des **exemples** deux à deux. Cette matrice $\mathbf{X}^\top\mathbf{X}$ est au cœur de la régression linéaire par les moindres carrés (M09b).
+Pour des colonnes **centrées**, $\frac{1}{n}\mathbf{X}^\top\mathbf{X}$ est la matrice des covariances des features (M02c ; M12d s'en sert pour l'ACP) : sa diagonale contient leurs variances. Et $\mathbf{X}\mathbf{X}^\top$, de forme $(n, n)$, contient les produits scalaires des **exemples** deux à deux. Cette matrice $\mathbf{X}^\top\mathbf{X}$ est au cœur de la régression linéaire par les moindres carrés (M09b).
 
 ⚠️ **Erreur classique.** Écrire $(\mathbf{A}\mathbf{B})^\top = \mathbf{A}^\top\mathbf{B}^\top$ : les formes ne collent même pas, sauf pour des matrices carrées, où le résultat est faux en général.
 
@@ -363,7 +363,7 @@ Si une feature d'un dataset est une combinaison des autres (la même mesure en d
 
 $$\mathbf{X} = \begin{pmatrix} 1 & 1 & 0 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}, \qquad \mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 2 & 2 \\ 2 & 2 & 0 \\ 2 & 0 & 2 \end{pmatrix}, \qquad \operatorname{rg}(\mathbf{X}^\top\mathbf{X}) = 2 :$$
 
-la première colonne est la somme des deux autres. Les systèmes construits avec $\mathbf{X}^\top\mathbf{X}$ n'ont alors pas de solution unique : zéro ou une infinité (§5). Devant une matrice singulière, `np.linalg.solve` lève une `LinAlgError` ; mais si les arrondis la font paraître inversible (un pivot de $10^{-16}$ au lieu de 0), il rend un vecteur sans aucun message, souvent aux coordonnées énormes : **une** solution parmi l'infinité, ou même aucune. Quand il y a une infinité de solutions, on en choisit une par une règle de plus, le plus souvent celle de plus petite norme $\lVert \mathbf{x} \rVert$, que rend `np.linalg.lstsq` (M09b s'en sert, M12d explique pourquoi). M09b et workbookIA 9 reviennent sur ces systèmes, avec la régularisation.
+la première colonne est la somme des deux autres. Les systèmes construits avec $\mathbf{X}^\top\mathbf{X}$ n'ont alors pas de solution unique : zéro ou une infinité (§5). Devant une matrice singulière, `np.linalg.solve` lève une `LinAlgError` ; mais si les arrondis la font paraître inversible (un pivot de $10^{-16}$ au lieu de 0), il rend un vecteur sans aucun message, souvent aux coordonnées énormes : **une** solution parmi l'infinité, ou un vecteur qui n'est pas solution. Quand il y a une infinité de solutions, on en choisit une par une règle de plus, le plus souvent celle de plus petite norme $\lVert \mathbf{x} \rVert$, que rend `np.linalg.lstsq` (M09b s'en sert, M12d explique pourquoi). M09b et workbookIA 9 reviennent sur ces systèmes, avec la régularisation.
 
 🔗 **Dans workbookIA** — le chapitre 9 ajuste des modèles linéaires en résolvant des systèmes construits avec $\mathbf{X}^\top\mathbf{X}$, par `np.linalg.solve` plutôt que par une inverse ; ce chapitre t'en a donné le vocabulaire (forme, transposée, système, inverse, rang).
 
