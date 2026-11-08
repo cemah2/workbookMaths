@@ -34,7 +34,7 @@
 
 ### M10.Q4 — Marge et astuce du biais
 1. **Oui** : $\frac{\mathbf{w}}{2} \cdot \mathbf{x} + b = 0$ équivaut à $\mathbf{w} \cdot \mathbf{x} + 2b = 0$, un hyperplan **parallèle** (même normale), à la distance $\frac{|2b|}{\lVert \mathbf{w} \rVert}$ de l'origine au lieu de $\frac{|b|}{\lVert \mathbf{w} \rVert}$. Seule une multiplication de $\mathbf{w}$ **et** de $b$ par un même nombre non nul garde l'hyperplan.
-2. **Vrai** : la marge est un minimum ; déplacer un point plus éloigné, tant qu'il ne devient pas le plus proche et reste du même côté, ne la change pas.
+2. **Vrai** : la marge est la distance signée du point le plus mal placé, un minimum ; le terme du point déplacé change, mais reste plus grand que ce minimum.
 3. Au niveau $x_0 = 1$ : $2 - x_1 + x_2 = 0$, soit la droite $x_2 = x_1 - 2$, qui passe par $(2, 0)$ et $(0, -2)$ (normale $(-1, 1)$, biais 2).
 4. **Vrai** : $\tilde{\mathbf{w}} \cdot \mathbf{0} = 0$.
 5. Le point le plus mal placé est **exactement sur l'hyperplan** : le couple ne sépare pas au sens strict (et aucun point n'est du mauvais côté).
@@ -141,7 +141,7 @@ Pour la copie : la droite de plus grande marge est la médiatrice de $[P_4, P_3]
 - f) Au niveau 1, $0 \times 1 + x_1 - 3x_2 = 0$ : la droite $x_1 = 3x_2$, et $x_2 = 2$ quand $x_1 = 6$.
 - g) $\tilde{\mathbf{u}} \cdot (1, 2, 0) = -2 + 2u_1 = 0$ donne $u_1 = 1$ ; $\tilde{\mathbf{u}} \cdot (1, 0, 1) = -2 + u_2 = 0$ donne $u_2 = 2$ : c'est la droite $x_1 + 2x_2 - 2 = 0$, qui passe bien par $(2, 0)$ et $(0, 1)$.
 
-Pour la copie : $\mathbf{p}$ est du côté positif de $\Delta$ (score 3), $\mathbf{q}$ et $\mathbf{r}$ du côté négatif ($-4$ et $-2$). Pour un point du plan, $\tilde{\mathbf{v}} \cdot (1, x_1, x_2) = -6 + 2x_1 + 3x_2$ : il est nul exactement sur la droite $2x_1 + 3x_2 = 6$. La droite de f) passe par l'origine parce que la première coordonnée de $\tilde{\mathbf{v}}'$, son biais, est nulle : $\tilde{\mathbf{v}}' \cdot (1, 0, 0) = 0$.
+Pour la copie : $\mathbf{p}$ est du côté positif de $\Delta$ (score 3), $\mathbf{q}$ et $\mathbf{r}$ du côté négatif ($-4$ et $-2$). Pour un point du plan, $\tilde{\mathbf{v}} \cdot (1, x_1, x_2) = -6 + 2x_1 + 3x_2$ : la droite de e) est $2x_1 + 3x_2 = 6$, qui passe bien par $(3, 0)$ et $(0, 2)$. La droite de f) passe par l'origine parce que la première coordonnée de $\tilde{\mathbf{v}}'$, son biais, est nulle : $\tilde{\mathbf{v}}' \cdot (1, 0, 0) = 0$.
 
 **Erreurs fréquentes.** Le biais à la fin (`[3, -2, 4]`) : la convention de l'énoncé, celle de la fiche, le place en tête ; en b), le signe de $b'$ (`[-1, 3, -2]`) ; en c) et d), diviser par la norme d'un vecteur relevé (dans $\mathbb{R}^3$) au lieu de celle de $\mathbf{w}$ ; en f), lire $\tilde{\mathbf{v}}'$ avec le biais à la fin (on trouve 3).
 
@@ -222,7 +222,7 @@ Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf
 - f) $1 + e^{-z} = \frac{1}{0{,}85}$, $e^{-z} = \frac{0{,}15}{0{,}85} = \frac{3}{17}$, $z = \ln\frac{17}{3} \approx 1{,}7346$.
 - g) La ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = \ln\frac{17}{3}$, à la distance $\frac{1{,}7346}{\sqrt{5}} \approx 0{,}7757$ de la frontière.
 
-Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b = c\}$ est une droite parallèle à la frontière (même normale $\mathbf{w}$). Par sortie croissante de la sigmoïde : $\mathbf{p}_3$ ($z = -2{,}5$), $\mathbf{p}_1$ ($1{,}25$), $\mathbf{p}_2$ ($2{,}5$) ; tanh, strictement croissante, donne le même classement, et ReLU aussi sur ces trois points ; le seuil met $\mathbf{p}_1$ et $\mathbf{p}_2$ à égalité. Une activation croissante garde l'ordre des scores ; seule une activation strictement croissante n'en confond aucun. La région « sortie $> \frac{1}{2}$ » est le demi-plan $z > 0$ pour la sigmoïde ; pour le seuil, c'est aussi $z > 0$ ; pour tanh, c'est $z > \operatorname{artanh}(0{,}5) \approx 0{,}55$ (le niveau neutre de tanh est 0, pas $\frac{1}{2}$) ; pour ReLU, $z > \frac{1}{2}$.
+Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b = c\}$ est une droite parallèle à la frontière (même normale $\mathbf{w}$). Par sortie croissante de la sigmoïde : $\mathbf{p}_3$ ($z = -2{,}5$), $\mathbf{p}_1$ ($1{,}25$), $\mathbf{p}_2$ ($2{,}5$) ; tanh, strictement croissante, donne le même classement, et ReLU aussi sur ces trois points ; le seuil ne garde l'ordre qu'au sens large : il met $\mathbf{p}_1$ et $\mathbf{p}_2$ à égalité. Une activation croissante garde l'ordre des scores ; seule une activation strictement croissante n'en confond aucun. La région « sortie $> \frac{1}{2}$ » est le demi-plan $z > 0$ pour la sigmoïde ; pour le seuil, c'est aussi $z > 0$ ; pour tanh, c'est $z > \operatorname{artanh}(0{,}5) \approx 0{,}55$ (le niveau neutre de tanh est 0, pas $\frac{1}{2}$) ; pour ReLU, $z > \frac{1}{2}$.
 
 **Erreurs fréquentes.** Oublier $b$ dans les scores ; un seuil qui vaut $-1$ pour les scores négatifs (celui de l'énoncé vaut 0) ; $\tanh(z) = 2\sigma(z) - 1$ (le facteur 2 dans l'argument manque) ; en f), prendre le logarithme avant d'isoler $e^{-z}$ ; en g), oublier de diviser par $\lVert \mathbf{w} \rVert$.
 

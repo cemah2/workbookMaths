@@ -111,7 +111,7 @@
 - e :
 - f :
 - g :
-- Le côté de Δ de chaque point ; pourquoi ṽ · x̃ = 0 équivaut à x sur la droite de e) ; pourquoi la droite de f) passe par l'origine :
+- Le côté de Δ de chaque point ; l'équation de la droite de e) ; pourquoi la droite de f) passe par l'origine :
 
 ### Ex M10.5 — Borner une norme pas à pas : ‖v_{k+1}‖² ≤ ‖v_k‖² + c
 

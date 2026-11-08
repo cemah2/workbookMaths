@@ -52,7 +52,7 @@ Les deux classes sont-elles linéairement séparables ? Pour chaque « non », d
 *Fiche §3 · parcours C*
 
 1. On divise $\mathbf{w}$ par 2 sans toucher $b$ (avec $b \ne 0$). L'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ change-t-il ?
-2. Vrai ou faux : la marge géométrique d'un séparateur ne dépend que des points les plus proches de l'hyperplan.
+2. Vrai ou faux : on déplace un peu un point qui n'est pas parmi les plus proches de l'hyperplan, sans qu'il le devienne ni qu'il change de côté ; la marge géométrique ne change pas.
 3. Au niveau $x_0 = 1$ (la coordonnée constante de l'astuce du biais), quelle droite du plan $(x_1, x_2)$ trace le plan de $\mathbb{R}^3$ d'équation $2x_0 - x_1 + x_2 = 0$ ?
 4. Vrai ou faux : l'ensemble des $\tilde{\mathbf{x}} \in \mathbb{R}^3$ tels que $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = 0$ passe par l'origine de $\mathbb{R}^3$.
 5. Un couple $(\mathbf{w}, b)$ a une marge exactement nulle sur des données. Que peux-tu en dire ?
@@ -147,13 +147,13 @@ La classe $+1$ : $P_1 = (7, 6)$, $P_2 = (7, 5)$, $P_3 = (3, 6)$. La classe $-1$ 
 |---|---|---|
 | a | les six scores $\mathbf{w} \cdot P_i + b$, de $P_1$ à $P_6$ | une liste de 6 nombres |
 | b | la marge géométrique de $(\mathbf{w}, b)$ | un nombre (4 décimales) |
-| c | la distance de $P_1$ à la droite de b) | un nombre (4 décimales) |
+| c | la distance de $P_1$ à la droite de la question b) | un nombre (4 décimales) |
 | d | l'ensemble des $b$ pour lesquels $((2, 1), b)$ sépare les deux classes | un intervalle |
 | e | le $b$ qui donne la plus grande marge avec $\mathbf{w} = (2, 1)$ | un nombre |
 | f | cette marge | un nombre (4 décimales) |
 | g | la plus grande marge possible, toutes directions $\mathbf{w}$ confondues | un nombre |
 
-Dans ta copie : dessine les deux nuages et les droites de b) et de e). Pour g), trouve le couple de points (un dans chaque enveloppe) le plus proche, puis l'équation de la droite de plus grande marge, et vérifie sa marge sur les six points.
+Dans ta copie : dessine les deux nuages et les droites des questions b) et e). Pour g), trouve le couple de points (un dans chaque enveloppe) le plus proche, puis l'équation de la droite de plus grande marge, et vérifie sa marge sur les six points.
 
 ### Ex M10.4 — L'astuce du biais : une droite du plan devient un plan de ℝ³ passant par l'origine ✏️ ★ ⏱️ 15 min
 **Objectif :** passer d'une droite affine du plan à un plan de $\mathbb{R}^3$ qui passe par l'origine, et retour.
@@ -171,7 +171,7 @@ La droite $\Delta$ a pour équation $3x_1 - 2x_2 + 4 = 0$, soit $(\mathbf{w}, b)
 | f | le plan d'équation $\tilde{\mathbf{v}}' \cdot \tilde{\mathbf{x}} = 0$, avec $\tilde{\mathbf{v}}' = (0, 1, -3)$, coupe le même niveau selon une droite : la valeur de $x_2$ sur cette droite quand $x_1 = 6$ | un nombre |
 | g | le vecteur $\tilde{\mathbf{u}}$, de première coordonnée $-2$, tel que le plan $\tilde{\mathbf{u}} \cdot \tilde{\mathbf{x}} = 0$ contienne les points relevés de $(2, 0)$ et de $(0, 1)$ | une liste de 3 nombres |
 
-Dans ta copie : de quel côté de $\Delta$ est chacun des trois points ? Montre que, pour un point $\mathbf{x}$ du plan, $\tilde{\mathbf{v}} \cdot \tilde{\mathbf{x}} = 0$ équivaut à $\mathbf{x}$ sur la droite de e). Pourquoi la droite de f) passe-t-elle par l'origine du plan ?
+Dans ta copie : de quel côté de $\Delta$ est chacun des trois points ? Écris l'équation de la droite de e) en $x_1$ et $x_2$. Pourquoi la droite de f) passe-t-elle par l'origine du plan ?
 
 ### Ex M10.5 — Borner une norme pas à pas : ‖v_{k+1}‖² ≤ ‖v_k‖² + c ✏️ ★★ ⏱️ 15 min
 **Objectif :** suivre la norme d'une suite de vecteurs construite pas à pas, la borner par récurrence, et comparer la borne pas à pas à celle de l'inégalité triangulaire.
@@ -184,9 +184,9 @@ Une suite part de $\mathbf{v}_0 = (1, 2)$ et fait deux pas, $\mathbf{v}_{k+1} = 
 | a | $\lVert \mathbf{v}_0 \rVert^2$ | un nombre |
 | b | $\mathbf{v}_1 \cdot \mathbf{d}_1$ | un nombre |
 | c | $\lVert \mathbf{v}_2 \rVert^2$ | un nombre |
-| d | la borne de $\lVert \mathbf{v}_2 \rVert^2$ que donne le lemme de sommation de la fiche, sachant seulement que chaque pas vérifie $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$ et $\lVert \mathbf{d}_k \rVert^2 \le 5$ | un nombre |
-| e | avec les mêmes hypothèses sur **tous** les pas, la borne de $\lVert \mathbf{v}_{100} \rVert$ | un nombre (2 décimales) |
-| f | une autre suite part d'un $\mathbf{v}_0$ de norme 3 et fait six pas $\mathbf{d}_0, \dots, \mathbf{d}_5$ de longueurs croissantes : $\lVert \mathbf{d}_k \rVert \le k + 1$ (le premier pas mesure au plus 1, le sixième au plus 6), et chaque pas vérifie $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$. La borne de $\lVert \mathbf{v}_6 \rVert$ que donne le lemme de sommation | un nombre |
+| d | la borne de $\lVert \mathbf{v}_2 \rVert^2$ que donne le lemme de sommation de la fiche, sachant seulement $\lVert \mathbf{v}_0 \rVert^2$ et que chaque pas vérifie $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$ et $\lVert \mathbf{d}_k \rVert^2 \le 5$ | un nombre |
+| e | la suite continue jusqu'à 100 pas, chacun avec les mêmes hypothèses qu'en d) : la borne de $\lVert \mathbf{v}_{100} \rVert$ | un nombre (2 décimales) |
+| f | une autre suite part d'un $\mathbf{v}_0$ de norme 3 et fait six pas $\mathbf{d}_0, \dots, \mathbf{d}_5$ de longueurs au plus 1, 2, …, 6 : $\lVert \mathbf{d}_k \rVert \le k + 1$ (le premier pas mesure au plus 1, le sixième au plus 6), et chaque pas vérifie $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$. La borne de $\lVert \mathbf{v}_6 \rVert$ que donne le lemme de sommation | un nombre |
 | g | une troisième suite part d'un $\mathbf{v}_0$ de norme 1 et fait 10 pas de longueur 1 : les 5 premiers **dans la direction de la position** ($\mathbf{d}_k = \frac{\mathbf{v}_k}{\lVert \mathbf{v}_k \rVert}$), les 5 suivants **perpendiculaires** à la position. $\lVert \mathbf{v}_{10} \rVert$ | un nombre (2 décimales) |
 
 Dans ta copie : vérifie que $\mathbf{v}_0 \cdot \mathbf{d}_0 = 0$ ; que vaut $\lVert \mathbf{v}_1 \rVert^2$, et pourquoi la borne est-elle atteinte au premier pas mais pas au second ? Pour f), compare avec la borne que donne l'inégalité triangulaire, $3 + (1 + 2 + \cdots + 6) = 24$ : laquelle est la meilleure ? Décris une suite du plan qui atteint la borne de f). Pour g), pourquoi la borne de la fiche ne s'applique-t-elle pas aux cinq premiers pas ?
