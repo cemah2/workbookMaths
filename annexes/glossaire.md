@@ -36,6 +36,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | barycentre, centroïde | centroid, mean (of a point cloud) | $\bar{\mathbf{x}} = \frac{1}{m}\sum_i \mathbf{x}_i$, la moyenne coordonnée par coordonnée d'un nuage de points ; pondéré : $\frac{\sum_i \omega_i \mathbf{x}_i}{\sum_i \omega_i}$ | M07 |
 | base (d'un espace vectoriel) | basis | une famille libre et génératrice : tout vecteur s'y écrit d'une seule façon, et ses coefficients sont ses coordonnées | M12a |
 | base canonique | standard basis | les vecteurs $\mathbf{e}_1, \ldots, \mathbf{e}_n$ de $\mathbb{R}^n$ (un 1 à la place $i$, des 0 ailleurs) : $\mathbf{x} = \sum_i x_i\,\mathbf{e}_i$ | M07 |
+| base orthonormée | orthonormal basis | une base de vecteurs unitaires deux à deux orthogonaux ; les coordonnées s'y lisent par des produits scalaires, $c_i = \langle \mathbf{v}, \mathbf{q}_i \rangle$ | M12b |
 | biais (d'un estimateur) | bias | $\mathbb{E}[\hat{\theta}] - \theta$ : l'erreur systématique d'un estimateur, en moyenne sur tous les échantillons | M02c |
 | biais (d'un neurone) | bias | nombre $b$ ajouté à la somme pondérée d'un neurone, appris comme les poids | R1 |
 | biais d'échantillonnage | sampling bias | un échantillon qui ne représente pas la population visée, à cause de la façon dont il a été collecté ; plus de données ne le corrigent pas | M02c |
@@ -77,6 +78,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | combinaison convexe | convex combination | $\sum_i t_i\mathbf{x}_i$ avec $t_i \ge 0$ et $\sum_i t_i = 1$ ; le segment, le barycentre en sont | M10 |
 | combinaison linéaire | linear combination | somme de vecteurs multipliés par des nombres | M07, M12a |
 | comparaisons multiples | multiple comparisons, multiple testing | faire beaucoup de tests, ou essayer beaucoup de modèles : $m\alpha$ faux positifs en moyenne si aucun effet n'existe | M08 |
+| complément orthogonal | orthogonal complement | $U^\perp$, les vecteurs orthogonaux à tout $U$ : un sous-espace de dimension $n - \dim U$ ; $(\operatorname{Im}\mathbf{A})^\perp = \ker\mathbf{A}^\top$ | M12b |
 | complémentaire (d'un ensemble) | complement | $\bar{A}$ : les éléments de l'univers qui ne sont pas dans $A$ | R4 |
 | composée (de deux fonctions) | composition, composite function | $(f \circ g)(x) = f(g(x))$ : on applique $g$, puis $f$ | R3 |
 | compromis biais-variance | bias-variance trade-off | un modèle plus souple a moins de biais et plus de variance ; une pénalité comme ridge règle cet équilibre | M09b |
@@ -112,6 +114,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | décade, échelle logarithmique | decade, logarithmic scale | sur un axe logarithmique, des écarts égaux sont des rapports égaux ; une décade est un facteur 10 | R6 |
 | décibel | decibel (dB) | un rapport $R$ exprimé par $10 \log_{10} R$ ; le PSNR se mesure en décibels | R6 |
 | décomposition biais-variance | bias-variance decomposition | l'erreur quadratique attendue sur une nouvelle mesure vaut biais² + variance + bruit $\sigma^2$ | M09b |
+| décomposition QR | QR decomposition | $\mathbf{A} = \mathbf{Q}\mathbf{R}$, colonnes de $\mathbf{Q}$ orthonormées (Gram-Schmidt), $\mathbf{R}$ triangulaire supérieure à diagonale positive ; les moindres carrés deviennent $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ | M12b |
 | déduction, induction | deduction, induction | raisonner des prémisses à une conclusion certaine si elles sont vraies ; généraliser des exemples à une conclusion seulement probable (le raisonnement par récurrence est une déduction) | M11 |
 | degrés de liberté | degrees of freedom | le nombre de valeurs libres : les $n$ écarts à la moyenne ont une somme nulle, donc $n - 1$ degrés de liberté | M02c |
 | demi-espace | half-space | l'un des deux côtés d'un hyperplan : les $\mathbf{x}$ tels que $\mathbf{w} \cdot \mathbf{x} + b > 0$ (ou $< 0$) | M07 |
@@ -202,6 +205,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | famille exponentielle | exponential family | les lois de la forme $h(x)\exp(\eta\,T(x) - A(\eta))$ : Bernoulli, gaussienne, Beta, Poisson… | M04 |
 | famille génératrice | generating set, spanning set | une famille dont tout vecteur de l'espace est une combinaison linéaire : $\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k) = V$ | M12a |
 | famille libre, famille liée | linearly independent, linearly dependent | libre : seule la combinaison de coefficients tous nuls donne $\mathbf{0}$ (chaque colonne porte un pivot) ; liée : l'un des vecteurs combine les autres | M12a |
+| famille orthogonale, famille orthonormée | orthogonal set, orthonormal set | des vecteurs deux à deux orthogonaux ; orthonormée s'ils sont en plus unitaires ($\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}$) ; une famille orthogonale de vecteurs non nuls est libre | M12b |
 | faux positif, faux négatif | false positive, false negative (FP, FN) | un négatif prédit positif (fausse alerte) ; un positif prédit négatif (cas manqué) | M03 |
 | features polynomiales | polynomial features | les monômes des features jusqu'à un degré $d$, interactions comprises : $\binom{p + d}{d}$ colonnes, constante comprise | M09b |
 | flottant (nombre à virgule flottante) | floating-point number, float | nombre à virgule rangé avec un nombre fixe de chiffres binaires, donc souvent arrondi | R0, M05a |
@@ -231,6 +235,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | Gauss-Jordan (méthode de) | Gauss-Jordan elimination | réduire $[\mathbf{A} \mid \mathbf{I}]$ en forme échelonnée réduite : on obtient $[\mathbf{I} \mid \mathbf{A}^{-1}]$, ou une ligne nulle à gauche si $\mathbf{A}$ est singulière | M09a |
 | générateur pseudo-aléatoire, graine | pseudo-random number generator, seed | programme qui calcule une suite d'apparence aléatoire à partir d'une graine ; la même graine redonne la même suite | R8 |
 | gradient | gradient | vecteur des dérivées partielles | M05b |
+| Gram-Schmidt (procédé de) | Gram-Schmidt orthogonalization | retirer de chaque vecteur ses projections sur les vecteurs déjà construits, puis normer : une base orthonormée du même sous-espace ; classique ou modifié selon que l'on projette le vecteur d'origine ou le vecteur courant | M12b |
 | grand O | big O | $f = O(g)$ : $f$ ne croît pas plus vite que $g$, à une constante près ; mesure le coût d'un algorithme | R7 |
 | Hadamard (produit de) | Hadamard product, element-wise product | $\mathbf{A} \odot \mathbf{B}$, les produits des éléments de même position (`A * B` en NumPy) ; même forme, commutatif | M09a |
 | hérédité, initialisation | inductive step, base case | les deux étapes d'une récurrence : $P(n) \Rightarrow P(n + 1)$, et $P(n_0)$ | R4 |
@@ -240,7 +245,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | hyperplan | hyperplane | les $\mathbf{x}$ de $\mathbb{R}^n$ tels que $\mathbf{w} \cdot \mathbf{x} + b = 0$, avec $\mathbf{w} \ne \mathbf{0}$ (le vecteur normal) : une droite du plan, un plan de l'espace | M07 |
 | hyperplan séparateur | separating hyperplane | un hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ tel que chaque classe est dans l'un des deux demi-espaces ouverts : $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) > 0$ pour tout $i$ | M10 |
 | hypothèse nulle, hypothèse alternative | null hypothesis, alternative hypothesis | $H_0$, souvent « pas d'effet », que le test cherche à mettre en défaut ; $H_1$, ce qu'on veut montrer ; toutes deux fixées avant de voir les données | M08 |
-| idempotente (matrice) | idempotent matrix | $\mathbf{H}\mathbf{H} = \mathbf{H}$ : l'appliquer deux fois ne change rien, comme une projection | M09b |
+| idempotente (matrice) | idempotent matrix | $\mathbf{H}\mathbf{H} = \mathbf{H}$ : l'appliquer deux fois ne change rien, comme une projection ; idempotente et symétrique, c'est une projection orthogonale | M09b, M12b |
 | identité remarquable | special product, algebraic identity | égalité vraie pour tous $a$ et $b$, comme $(a + b)^2 = a^2 + 2ab + b^2$ | R2 |
 | image (d'une application linéaire) | image, range | $\operatorname{Im} f = \{f(\mathbf{x})\}$, un sous-espace de l'espace d'arrivée ; pour une matrice, l'espace de ses colonnes | M12a |
 | implication | implication, conditional | $P \Rightarrow Q$, fausse seulement si P est vraie et Q fausse | R4 |
@@ -332,7 +337,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | matrice diagonale | diagonal matrix | une matrice carrée dont les nombres hors de la diagonale sont nuls ; elle s'inverse nombre par nombre | M09a |
 | matrice identité | identity matrix | $\mathbf{I}_n$ : des 1 sur la diagonale, des 0 ailleurs ; $\mathbf{I}\mathbf{A} = \mathbf{A}\mathbf{I} = \mathbf{A}$ | M09a |
 | matrice inversible, singulière | invertible (regular, nonsingular) matrix, singular matrix | une matrice carrée qui a une inverse, ou qui n'en a pas (quand une colonne combine les autres, ou que le rang est plus petit que la taille) | M09a |
+| matrice orthogonale | orthogonal matrix | une matrice carrée à colonnes orthonormées : $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}$, $\mathbf{Q}^{-1} = \mathbf{Q}^\top$ ; elle conserve produits scalaires, normes et distances (rotations, symétries, permutations) | M12b |
 | matrice symétrique | symmetric matrix | une matrice égale à sa transposée : $a_{ij} = a_{ji}$ ; $\mathbf{X}^\top\mathbf{X}$ l'est toujours | M09a |
+| matrice symétrique définie positive | symmetric positive definite matrix | $\mathbf{M}^\top = \mathbf{M}$ et $\mathbf{x}^\top\mathbf{M}\mathbf{x} > 0$ pour $\mathbf{x} \ne \mathbf{0}$ : exactement les matrices des produits scalaires de $\mathbb{R}^n$ ; en dimension 2, $a > 0$ et $ac - b^2 > 0$ | M12b |
 | matrices semblables, équivalentes | similar matrices, equivalent matrices | $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$, ou $\mathbf{T}^{-1}\mathbf{A}\mathbf{S}$ : la même application linéaire dans d'autres bases ; le rang ne change pas | M12a |
 | maximum de vraisemblance (estimation du) | maximum likelihood estimate (MLE) | la valeur du paramètre qui rend les données observées les plus probables ; pour une proportion, la fréquence | M04 |
 | maximum, minimum, extremum | maximum, minimum, extremum (extrema) | la plus grande (petite) valeur d'une fonction sur un ensemble | R3 |
@@ -385,6 +392,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | parabole, sommet | parabola, vertex | la courbe d'un second degré ; son sommet $(\alpha, \beta)$ est son point le plus bas (ou le plus haut) | R3 |
 | paradoxe de Simpson | Simpson's paradox | une tendance présente dans chaque groupe s'inverse quand on réunit les groupes, à cause de leurs poids différents | M03 |
 | parcimonieux (modèle) | sparse model | un modèle dont beaucoup de poids sont exactement nuls, comme ceux du lasso | M09b |
+| Parseval (égalité de) | Parseval's identity | dans une base orthonormée, $\lVert \mathbf{v} \rVert^2 = \sum_i c_i^2$, la somme des carrés des coordonnées | M12b |
 | partie entière, plancher, plafond | floor, ceiling | $\lfloor x \rfloor$, le plus grand entier $\le x$ ; $\lceil x \rceil$, le plus petit entier $\ge x$ | R1 |
 | partition (de l'univers) | partition | des événements deux à deux incompatibles dont la réunion est l'univers entier | M03 |
 | pente, ordonnée à l'origine | slope, intercept | dans $mx + c$, $m$ est la variation pour $x + 1$, et $c = f(0)$ | R3 |
@@ -420,11 +428,13 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | produit matrice-vecteur | matrix-vector product | $\mathbf{A}\mathbf{x}$ : un produit scalaire par ligne de $\mathbf{A}$, ou la combinaison des colonnes de $\mathbf{A}$ de coefficients les $x_j$ | M09a |
 | produit matriciel | matrix product, matrix multiplication | $(\mathbf{A}\mathbf{B})_{ij} = \sum_k a_{ik}b_{kj}$, pour $(n, p) \times (p, m) \to (n, m)$ ; associatif, pas commutatif, $n\,p\,m$ multiplications | M09a |
 | produit nul (règle du) | zero-product property | un produit est nul si et seulement si l'un au moins de ses facteurs est nul | R2 |
-| produit scalaire | dot product, inner product | $\sum_i x_i y_i$ ; mesure d'alignement de deux vecteurs | R9, M07 |
+| produit scalaire | dot product, inner product | $\sum_i x_i y_i$, le produit usuel, mesure d'alignement de deux vecteurs ; plus généralement, une application bilinéaire, symétrique et définie positive, comme $\mathbf{x}^\top\mathbf{M}\mathbf{y}$ | R9, M07, M12b |
+| produit scalaire de fonctions | inner product of functions | $\langle f, g \rangle = \int_a^b f(x)\,g(x)\,dx$ ; l'orthogonalité dépend de l'intervalle ; projeter sur des polynômes, ce sont des moindres carrés continus | M12b |
 | produit vectoriel (du plan) | cross product (2-D) | $\mathbf{u} \times \mathbf{v} = u_1v_2 - u_2v_1$ : positif si $\mathbf{v}$ est à gauche de $\mathbf{u}$ ; sa valeur absolue est l'aire du parallélogramme | M10 |
 | programme linéaire | linear program | une optimisation d'une fonction linéaire sous des contraintes linéaires ; de faisabilité quand on cherche seulement un point qui les vérifie toutes (`scipy.optimize.linprog`) | M10 |
 | projection (sur une direction) | projection | l'ombre de $\vec{v}$ sur la direction de $\vec{u}$ : $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert^2}\vec{u}$ | R9, M07, M12b |
-| projection orthogonale (sur un sous-espace) | orthogonal projection | le point d'un sous-espace (une droite en M07) le plus proche d'un vecteur : l'écart est orthogonal au sous-espace ; les moindres carrés projettent $\mathbf{y}$ sur l'espace des colonnes | M07, M09b |
+| projection oblique | oblique projection | une matrice idempotente non symétrique : elle envoie sur un sous-espace, mais pas perpendiculairement | M12b |
+| projection orthogonale (sur un sous-espace) | orthogonal projection | le point d'un sous-espace le plus proche d'un vecteur : l'écart est orthogonal au sous-espace ; $\mathbf{Q}\mathbf{Q}^\top\mathbf{v}$ avec une base orthonormée, $\mathbf{A}(\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top\mathbf{v}$ sinon ; les moindres carrés projettent $\mathbf{y}$ sur l'espace des colonnes | M07, M09b, M12b |
 | proposition | proposition, statement | une phrase qui est soit vraie, soit fausse | R4 |
 | pseudo-observations | pseudo-counts | les paramètres $a$ et $b$ d'un a priori Beta, lus comme des succès et des échecs déjà vus | M04 |
 | puissance | power | $a^n$, produit de $n$ facteurs égaux à $a$ | R1 |
@@ -461,6 +471,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | régularisation | regularization | ajouter à la loss une pénalité sur les poids (ridge, lasso) pour préférer les modèles simples | M09b |
 | relation de Chasles | Chasles' relation | $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$ | R9 |
 | ReLU | rectified linear unit | $\max(0, z)$, l'activation la plus utilisée dans les réseaux | M10 |
+| remontée (substitution) | back substitution | résoudre un système triangulaire supérieur en partant de la dernière ligne, qui n'a qu'une inconnue | M12b |
 | résidu | residual | $r_i = y_i - \hat{y}_i$ : la cible moins la prédiction | M09b |
 | reste de Lagrange | Lagrange remainder | $f(x) - P_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - a)^{n+1}$ pour un $\xi$ entre $a$ et $x$ : il borne l'erreur d'un polynôme de Taylor | M05a |
 | risque d'erreur de la famille | family-wise error rate (FWER) | la probabilité d'au moins un faux positif dans une famille de tests ; la correction de Bonferroni le garde sous $\alpha$ | M08 |
@@ -559,7 +570,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | variance d'échantillon | sample variance | $s^2 = \frac{1}{n - 1}\sum (x_i - \bar{x})^2$, estimateur sans biais de $\sigma^2$ ; $s_n^2$ divise par $n$ | M02c |
 | vecteur | vector | un déplacement (une direction, un sens, une longueur), donné par ses coordonnées ; en ML, une liste de nombres | R9 |
 | vecteur de support | support vector | un point à la distance exactement $\gamma^\star$ de l'hyperplan de plus grande marge : il touche un bord de la bande, et ce sont ces points qui fixent l'hyperplan | M10, M13b |
-| vecteur directeur, vecteur normal | direction vector, normal vector | un vecteur qui a la direction d'une droite ; un vecteur qui lui est perpendiculaire | R9, M07 |
+| vecteur directeur, vecteur normal | direction vector, normal vector | un vecteur qui a la direction d'une droite ; un vecteur perpendiculaire à une droite ou à un plan (il engendre son complément orthogonal) | R9, M07, M12b |
 | vecteur one-hot | one-hot vector | le codage d'une catégorie : un 1 à sa place, des 0 ailleurs (un vecteur de la base canonique) | M07 |
 | vecteur unitaire | unit vector | un vecteur de norme 1 ; $\frac{\vec{u}}{\lVert \vec{u} \rVert}$ normalise $\vec{u}$ | R9, M07 |
 | vrai positif, vrai négatif | true positive, true negative (TP, TN) | un positif prédit positif ; un négatif prédit négatif | M03 |

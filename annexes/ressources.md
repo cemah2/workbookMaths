@@ -25,6 +25,12 @@ Les ressources que les fiches citent. Chaque lien a été vérifié avant d'êtr
 |---|---|---|---|
 | Documentation de Python, tutoriel, chapitre 15 : *Floating-Point Arithmetic: Issues and Limitations* | pourquoi 0,1 n'est pas exact en binaire, l'erreur de représentation, `math.fsum` ; cité par R0 et M05a | gratuit, documentation officielle ([docs.python.org/3/tutorial/floatingpoint.html](https://docs.python.org/3/tutorial/floatingpoint.html)) | 2026-11-07 |
 
+## Algèbre linéaire
+
+| Ressource | Ce que c'est | Accès et licence | Vérifié |
+|---|---|---|---|
+| G. Strang, *Introduction to Linear Algebra*, Wellesley-Cambridge Press | le manuel du cours 18.06 du MIT, très riche en exemples ; son chapitre 4, *Orthogonality* (les quatre sous-espaces, projections, moindres carrés, bases orthonormées et Gram-Schmidt), suit le même chemin que M12b ; cité par M12b | livre payant ; table des matières en ligne ([math.mit.edu/~gs/books/ila2_toc.html](https://math.mit.edu/~gs/books/ila2_toc.html)) | 2026-11-09 |
+
 ## Documentation officielle
 
 Les fiches de la remise à niveau renvoient aussi aux documentations des bibliothèques qu'elles emploient.
@@ -59,7 +65,7 @@ Les fiches de la remise à niveau renvoient aussi aux documentations des bibliot
 
 | Ressource | Ce que c'est | Vérifié |
 |---|---|---|
-| 3Blue1Brown, *Essence of linear algebra* | série de vidéos courtes et très visuelles (en anglais, sous-titres disponibles) : une matrice vue comme une transformation du plan, le produit comme une composition ; déjà conseillée par le chapitre 0B de workbookIA ; citée par M09a, et par M12a pour les épisodes sur le sous-espace engendré, le rang et le noyau, et le changement de base ([3blue1brown.com/lessons/eola-preview](https://www.3blue1brown.com/lessons/eola-preview), le chapitre 0 de la série) | 2026-11-08 |
+| 3Blue1Brown, *Essence of linear algebra* | série de vidéos courtes et très visuelles (en anglais, sous-titres disponibles) : une matrice vue comme une transformation du plan, le produit comme une composition ; déjà conseillée par le chapitre 0B de workbookIA ; citée par M09a, et par M12a pour les épisodes sur le sous-espace engendré, le rang et le noyau, et le changement de base, et par M12b pour l'épisode sur le produit scalaire et la dualité (*Dot products and duality*) ([3blue1brown.com/lessons/eola-preview](https://www.3blue1brown.com/lessons/eola-preview), le chapitre 0 de la série) | 2026-11-08 |
 | 3Blue1Brown, *Essence of calculus* | la série équivalente sur le calcul différentiel et intégral, déjà conseillée par le chapitre 0B de workbookIA | à confirmer à la première citation |
 | 3Blue1Brown, *Why π is in the normal distribution (beyond integral tricks)* (2023) | une vidéo (en anglais, sous-titres disponibles) sur l'origine du $\pi$ de la loi normale, par la symétrie de la loi à deux dimensions ; citée par M02b ([3blue1brown.substack.com](https://3blue1brown.substack.com/p/why-is-in-the-normal-distribution)) | 2026-11-07 |
 | 3Blue1Brown, *But what is the Central Limit Theorem?* (2023) | une vidéo (en anglais, sous-titres disponibles) sur le théorème central limite, vu sur des sommes de dés ; citée par M02c ([3blue1brown.com/lessons/clt](https://www.3blue1brown.com/lessons/clt)) | 2026-11-07 |

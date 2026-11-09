@@ -39491,6 +39491,2605 @@
       },
       "source": "chapitres/m12a_espaces_vectoriels/05_solutions.ipynb"
     },
+    "M12b.1a": {
+      "hash": "64eb0ae0e944e2c97c14f75f5788e46bd9ae9aba9ac951ffb73d2915fbfd9b32",
+      "kind": "bool",
+      "mistakes": {
+        "0d762f927f2ea554e5a2ef2cbca8406412e061fc3ed0b526b78a547ec21efbec": "le critère en dimension 2 : a > 0 et ac − b² > 0"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.1b": {
+      "hash": "a0500e8338441d6a29732656e8ecfeb3b57034a58d5417ccf571cb4bcd01f174",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "d67c5133b2f582e04d50e7454d5dbf7fb461ad758aba921ddbbf4e4123e5e578": "⟨e₁, e₂⟩_M = e₁ᵀ M e₂ : un élément de M, pas le produit usuel"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.1c": {
+      "alt_hashes": [
+        "8b293d41caee85f2474f8c12e22d43cb0fba6e53c9c2bbcd5457ba67cf8fa51f"
+      ],
+      "coarse_any": {
+        "0": [
+          "045e33d435aeb7f2d3318b421c0e52bcc80d527a5d1f4fbd01ba3f19a09b8eca"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "9a7bae25a3f9604033c587bfd83db5d48fc6b900320618a41f474f0b3ea58b0c"
+        ],
+        "2": [
+          "3c593ec7dad2c1df52ab196f7523d07099d437e878cac3620678876aef8f5c23"
+        ]
+      },
+      "decimals": 4,
+      "hash": "7a68b8e618662ea79a8ea236d4814196f7445f04400ea80198949dd68d53f50f",
+      "hash_coarse": "498f70bf0f4fad3ee29e1622535571fa486c612cac340f2bd1efbaf1ed58584a",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1c17cff77d8dde748ed92fd76f47e9a38250898b50d4dd691238bec00fdf3813": "la norme est la racine de ⟨e₁, e₁⟩_M"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.1d": {
+      "alt_hashes": [
+        "4d9d2b550e187775aabfe4bce4ca67add6b1bb8a95795f619894d6155948a132"
+      ],
+      "coarse_any": {
+        "0": [
+          "8c7b2f6616a75051c24640ee64c5c6501c443911c943623dbd4cc5d0fed41449"
+        ],
+        "1": [
+          "2640e81e530dbcdfffe7eac1d6aa882c8a72b83b028dfc1e5ef75559a59f94b5"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "4661f3c50a3a395f44aafc3c6e4cfc819463f23c986b7e234fd2d494ad7da1dd"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3fbe4caf608f93013941c1271a8aff51ecf31ed69b998088f48f1ecc2aa5def3",
+      "hash_coarse": "46c4fccb3e29d38def47a34f89583e147b897de1da4c89ce020ed5a1ac5e36c2",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2af796c83e85b83ecf5848f057d4354509f1a98a6286e3be9dddce5028819ec6": "divise par les deux normes pour ⟨·,·⟩_M, pas par les normes usuelles",
+        "ba93358aa9e2f8748c19d7a88cd266740f9722f035f11fbe9c0f0d3f9453a6ce": "l'angle se calcule avec ⟨·,·⟩_M, pas avec le produit usuel"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.1e": {
+      "coarse_any": {
+        "0": [
+          "810ca37e4439e456fdefee3ad2808e582eaff8fbd69ebac3d7518304e3739fe0"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "f7c3d0bcde7777753fb6b708257f665ba4a4276eeb9df60566dabc5013a0dda3"
+        ],
+        "2": [
+          "def7c1b5c717d38295d7ffac489cc7901d61071f74b7183999f58c5869d53f12"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c633e2a3561002282a9fa5fbe1bc01632e97e3b8eca73be1d45becee4efd57cb",
+      "hash_coarse": "18ed6a05f18814f42ff04c75556c84d7dda8f91a844eca542e235745e8a611cd",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "4a3c1117c188141d36518e3dbe2798b6730ff314e28bf76d7c72a3a3090b1e55": "la norme pour ⟨·,·⟩_M : la racine de xᵀMx, pas la norme usuelle",
+        "d7871b048b256cbde89b3ee5bc5fcf7dd2843bbeb31a32d8a62ee0a17a09a153": "la norme est la racine de xᵀMx"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.1f": {
+      "hash": "606618441a61c90d81422d6ec0a14515609fd547db08e944d70fbecc5f4f7c1a",
+      "kind": "bool",
+      "mistakes": {
+        "5325a846d395560f4f628ee1aab699920b9d11f2bc66261e0ae972c2293e7119": "calcule (1, −1)ᵀ M e₂ : l'orthogonalité dépend du produit scalaire"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.1g": {
+      "hash": "af1c0228c077e479b3db7e00e27d536654f800aa2f0090adad0e4dcc17860fd9",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "ecc9353cde767d77dbfb377ae6f8d29452b1edef8d00907ea389b2b67b9abfbc": "(1, k)ᵀ M (1, 1) = 0, avec M, pas avec le produit usuel"
+      },
+      "sign": -1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.1h": {
+      "hash": "9b425b9c9894bc9a353832f4c0d523adb55796b71e5c339346e35116958bafe4",
+      "kind": "bool",
+      "mistakes": {
+        "e819a26a7a8a8a4a42db2191f42f7c1d8c5e121c0254912794040280fbf58827": "le critère : ac − b² doit être positif"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.2a": {
+      "hash": "56c6b4dce85a97e947c989ff3adc43f72ef44fcf34d58737ef730ca027144544",
+      "kind": "int",
+      "magnitude": null,
+      "sign": 0,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.2b": {
+      "hash": "c3591eb1af7934e18e614228ab5e110f6be456b5deed5f35ef2ff08c0f559333",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "1c649a2ea5445f9842d5ab78c4ae9c56fe445c3078c705777a0be2b60c371251": "n'oublie pas le facteur 1/5 du vecteur"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.2c": {
+      "decimals": 0,
+      "element_hashes": [
+        "39ca4ebb3d4a543c225535ff73087c6fc51f02c141dd60f2ceff8300d8363ee9",
+        "ad2dfb5fa7d5cdbdd48898e981e833cbb12035c916a5d5fa47eac7ddbf047af0",
+        "de5999daaa89b6a2a464d302b1be87b91875ea4d76bb62a16d6e27b4cabf4fc7",
+        "5d9a65c5a8a996306087d7f021c442378cfd12d9eace9263d92d98dfeef2d1cd"
+      ],
+      "hash": "f258f1ff669b1c9eec55b68bad3af737b2fdc5cbf154b4d13b2d9703da2ae2dc",
+      "integer": true,
+      "kind": "array",
+      "mistake_decimals": 2,
+      "mistakes": {
+        "e81967ddff1f4e05537169fef2f5f7f7c25e328c96119d7b4580015bcc18f846": "les coordonnées sont Uᵀx (des produits scalaires), pas Ux",
+        "f085c32c157004e3c60534835652a38b75f212fae90870a00816f0942ec85d53": "les coordonnées sont les produits scalaires x · uᵢ, facteur 1/5 compris"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.2d": {
+      "hash": "a5f0a44ad73814f3b45dd0bbd97b7191a89a1826d78b8746d8c1bf114d33f33f",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "fdf13cccc221bccbcea3782b7f2c100ca5be5130e5b36be651e6724c72e18f98": "Parseval : la somme des carrés des coordonnées"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.2e": {
+      "decimals": 1,
+      "element_hashes": [
+        "8c46ca2b9539ad01729a1d6e8a3fdba572f1ac5a3ac2a5642f7be0750369ebfa",
+        "b8af3cbd1cf18107243db08d2f72ac93d219a4aab2d5b8b2efbf56a815f6da02",
+        "df4197460926b2c7665f5484f5959e3cf974337e9e2f22cde47e36ad3342bb29",
+        "39bd7658abdf4be4b94fdd20607a1fbcbc405785af030f944b5902977b256124"
+      ],
+      "hash": "24d683385940b5d589e662807e7e3919498da3d98b89ed837df2a5a4f9f0479c",
+      "kind": "array",
+      "mistakes": {
+        "b6293e5a7f5c52e483393ccff5e2daebce8ec8521d673610a5ba4e5e38d18304": "le vecteur est U c, la combinaison des colonnes, pas Uᵀ c"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.2f": {
+      "decimals": 1,
+      "element_hashes": [
+        "11fa1fa81cb63e960baea5f14f5698d25d1ebc9137004aaf8bcc2f50847bb846",
+        "1b4fe85bf5b45eeb517ec7513127e207c04302890f792124f98c0c04ac7b91f6",
+        "cc6a174fa42dac7372a58aa5ce6c776ed7aef2785189695fb8bcbc2c6fb1f354",
+        "88d8662e80d66e0f7a27a54906936954de79369bdd1804791dad238103f9f785"
+      ],
+      "hash": "464f59ad461793b47adc0a581188c922bc0200a4e90cfd3a0d5dc711b70eb441",
+      "kind": "array",
+      "mistakes": {
+        "b135a50ad4c0c0b39d0ab3b21ced919d800c8d7b654fca2bde4b27dbbf0abdb8": "la base n'est plus orthonormée : divise x · (2u₄) par ‖2u₄‖²",
+        "f7712a0161cab8386ed5f31f960e4b2c9f20e03ea89baa4890e1a59f30d03333": "divise par le carré de la norme de 2u₄, pas par la norme"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.3a": {
+      "hash": "736c12f05389a71b9e5027ee7cf15c4301b3f6cb9c49c506a3b3b512bedd457d",
+      "kind": "bool",
+      "mistakes": {
+        "63243cdf9c15d123fd80a509faeacf78c41b0a2a26f9bde22c9f36b24aee2399": "vérifie QᵀQ = I : chaque colonne de norme 1, deux colonnes distinctes orthogonales"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.3b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1cde5f073bcceb946e48f27daae7944d94bf3be71597b5fae742da7cbc48666a"
+        ],
+        [
+          "516b1b1134e565b638a32ba1e282cb8eed7efdaf6dd9ec718d2368b318bbdcec"
+        ],
+        [
+          "05e6e45289a547a68f4aa5d5630e89c5e0d2ab968dca14e5e06da55e75a93d6b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "098697d039383412a81ae78e463c0b1d071757cb1b26ced0cfa2c300db28645d",
+          "fe0f452473ee1903b95d4664cb5cebe17b8b18a59d3d1ffba518400da6f7b006",
+          "ba6d1d7d44b5d7fb6f243a5a96a12fbc9984b69dfe9477c006153a521c919127"
+        ],
+        [
+          "60fe67f4d9c51531c500f8f3ba61b9ff0ea09fc0bd28c1c06f59134ce3822633",
+          "b245f6f374925d9175520646890385cd976fa7cc6a851cccf2bab3aae0810d23"
+        ],
+        [
+          "fd5722bb9eb94735ef40ee1051b911c6f7fda03ace509d2101275ccb3dca9b18",
+          "2530f6a0a1c3d2dbdbdc75c594f52d688d3b0d65884364ae2a1c7f3855707657",
+          "fa9af00a26f3276aefd0ee32e0455a9c21f08cb36bbf626dd1368575d504b89e"
+        ]
+      ],
+      "element_hashes": [
+        "6b576573f4f16ede657e799284d7c82510f9440f478bb64f9e89f21731453090",
+        "19b661669851430d3075ecf832f96e90b6917a8afa4edc428485ced4f3cef8d0",
+        "de4e13969088036694097a8cabbb6451789376f7b284892f345db8b7314c2b75"
+      ],
+      "hash": "8e6d9b75fd36e47283c956ad9b3866b3377dce751000130a1afba0b7d9dac8e4",
+      "kind": "array",
+      "mistakes": {
+        "282270e64119a1d30ef3b617d26156e913efee8e21b13ba44159aa34ece742b3": "Q x combine les colonnes de Q, pas ses lignes"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.3c": {
+      "coarse_any": {
+        "0": [
+          "b1147d3b277c58538808e4f6d1f01cc9f13bf3677c8c954aad1fc78d7c76f371"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "acc77f3598790eae9d1c4ff3a77759cd05a832e582cdf15d6a2601b96b7c2637"
+        ],
+        "2": [
+          "6dec8aaffa826d6cf1dbd510a75d73a6ceda8a4bf13ecb72752d486559fb912f"
+        ]
+      },
+      "decimals": 4,
+      "hash": "29f16c9e00db92904b78b2203223e6a0baf58f1abf57afc668a0b1e511b09d56",
+      "hash_coarse": "d6c92546a1e33ecd0f8c8b9e2d02d916250f2f88cdaff609225c4979ef2034b2",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "a9a0af9ae1fecbfb2b0a064e20049c75c4697ef95708a630c4e6637d6d9befb0": "la norme est la racine de la somme des carrés"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.3d": {
+      "hash": "0280c73eeb227d3ab11ab7a93f82591e68e20e419240e6df347ef3ef969df0b3",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "42c95b91a96617f1cb769cfc26da1ce96bc1e628635c3477540f40849345756b": "refais le produit scalaire, signes compris"
+      },
+      "sign": -1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.3e": {
+      "decimals": 0,
+      "element_hashes": [
+        "3afed21ccc5cb367ca3f9b86a6bd741518b03091608365657f157d60fafb9581",
+        "8afc22b86297998345b1ae241e7571ce9c9e66946ecc3c9bd581592a1832b892",
+        "f31d0e903572cb3ceb5a7a1412c097bcfb64ee6db5699fd5683170cd77bd1e96"
+      ],
+      "hash": "48194f3bd1e24a86f51475279eaa8afe0ce74923af3c4be100085049f7147835",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "c0791f36a8dd28490ab33bf4b20898f35f70a40de17e8f69e09c629196e994c1": "z = Q⁻¹(7, 0, 0) et Q⁻¹ = Qᵀ, pas Q"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.3f": {
+      "hash": "d72e6c385f82eacb4717d9be11993c4f306dd17483a9b3ec09725ec160b61701",
+      "kind": "bool",
+      "mistakes": {
+        "69087ebca9787550cc451362ed3ed5a4ca0a8fcc01e5890b547e2509c2a2fe0f": "(2Q)ᵀ(2Q) = 4QᵀQ : les colonnes ne sont plus de norme 1"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.3g": {
+      "hash": "40a1d8be72de6fa4ca79c62bf07b5a1d7f2a93ce4531abfc751f0dfa1198c2cc",
+      "kind": "bool",
+      "mistakes": {
+        "dc0966fa0b7115bb0365c3c1e262e82160c5d43efb3b8d98b7623b3bfa3bb5b3": "P est une permutation, donc orthogonale ; et un produit de matrices orthogonales l'est aussi"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.4a": {
+      "hash": "5668aa36eb90d9b7857fd4791364e982306f4ab805d80aada05c975edd065299",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5d73f73c783e3ea5e4685e6942b4ea83d1c93ee62d0545f703c95cbe3d70eee0": "la norme est la racine de 16 + 1 + 64"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.4b": {
+      "hash": "ec6343ba092229329994b9ce680dbc38fa35db4b90e8fe2d169429cd109f0426",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "c9822bdceede9a7a5a34fbd955c02e9ec253cd6384470e731f600a0eeeda5f90": "a₂ · q₁ = (a₂ · a₁) / ‖a₁‖ : q₁ est unitaire"
+      },
+      "sign": -1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.4c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "4005c323442913a2a9de3783107066b56d499915eae711564a25001506f65655"
+        ],
+        [
+          "412fdb8164fbd6b25cc1c3ec3e38913f96b2789ba2fc348e858498eab2263129"
+        ],
+        [
+          "f71358a4f468776894b05141257d13ee425b4d8ae0a7838852822d61e4d22799"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "d48659d092c790f8e86f9f041d8d4f0d6c2fb563c0dc5ff0a3f3a0898aa6803f",
+          "ae9e0ec3875976b0a1f0ac8f10320c41f5d6d702ba0041d6233691d093822e3c",
+          "865a23dafcc11e14cf32210cb6cfaf8ed4896707d73dc7079d5c88b6f8e15a95"
+        ],
+        [
+          "0f22bf2a45f8b0da915ca9c4a0e0461379b35052e223149180b5b6fa912108dd",
+          "6e27d36cda21e1746148d8e41dc2d0f3296c76d4fb9f46cecfb559e6fe95066e",
+          "63f7817a9ae378b13fff1d04c4b75ba13d42e98a449b3a557d7ae777abc50a23"
+        ],
+        [
+          "0878573c6f43f0e749fb95bce3655970cbfc8244e7095ffe6e8f2b6735314848",
+          "2d37f4493ff008f076670b1e6cdf51749c4b2be8524589d43cc8118c159072de",
+          "8b68229d21b9d5a20aa2a3dd6e508f8fa269320373a68c76df934929109a3a8c"
+        ]
+      ],
+      "element_hashes": [
+        "05d305107319b8f91801f605107b753384d60ea26de0be3eb218201d9597525f",
+        "34a570eee92b92b1bef730aac9ccdb4bf23955653f480d7054c38115fbc8d356",
+        "11543e7c79130a8e6d2f4eba03fe4767e640787acf0e1c97b3a3193cc56b7740"
+      ],
+      "hash": "d463713d4fb063fabf77ed5764f38be119e79e58fd231078c2582fd5156c160e",
+      "kind": "array",
+      "mistakes": {
+        "0001da427a507af5dab9ebecb3e2925698dfb235c33b37cf073a963666c9ade1": "a₂ · q₁ est négatif : on soustrait (a₂ · q₁) q₁, donc on ajoute un multiple de q₁",
+        "80a8863faad7252d73e33e3a1586125aaa9a3a5cf78d6066cb718533b7d81f5b": "on retire la projection sur q₁ (unitaire), pas sur a₁"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.4d": {
+      "hash": "c11842489dba9db869b424596a1c62b4e8e2059873507c2ea60aaff7dc7c0f18",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0cc26e87ef78eb59ce3961ab4ac13face3ded506b1d18612d7c3b122a6b56559": "la norme, pas son carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.4e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "987a15c5a1b2854f2010eb45850ec2d753ead82b5263b1de84caabd1561cdc47"
+        ],
+        [
+          "f465d3780413012eb31fd1ec5f077333b1a39fc38f4621d8b417fef2d9092455"
+        ],
+        [
+          "069d956dbf79e568150842df0ef0a196e4fd3be3e319d841a9ca769e967a0b0c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b6a9c6d2cd41f97ab86ec7bcf620f9bf72238214913d78f10d78c4b4d31c854e",
+          "408262eebc86030ad12d476053e8d6d9372b410b842facd131c7f09c39121fc2",
+          "6e251e9338a1613d17260bc6dd7dd953cb38dd760f65456f46f1b541fbe20f26"
+        ],
+        [
+          "8bf1a96b70baff585c461ad48d47aaeb70891586a2c44de11e7a8b070b738899",
+          "8d313c1300c3b01e28a197c01878ce02ac6de6056059063bda2820c56743dbc7"
+        ],
+        [
+          "1e06e6587564ae5a5655769c5620b8cfd55f94e1fac8b5828156c0a7214ea21b",
+          "a10382f9475bb05e2a738fadc19ecad44c26b45702e008e7ad0fe3d681492982"
+        ]
+      ],
+      "element_hashes": [
+        "baf873de7d48bded7acdf53ef73b1dc67a55ae596ec6d943b112ae2fc8fee205",
+        "902480c02a1109f07b1ec2b973990f5e5971bbd49c062b62b94da59a758ff6c1",
+        "4a9abf23bb16b0b9df2b17abb9aae126148a43245797d5bcc6200ad0fb9a5db3"
+      ],
+      "hash": "41e389a9287a77ee9c867eba131bdfd01ff171a30d3dd5a2e838f10b7b6b7da8",
+      "kind": "array",
+      "mistakes": {
+        "943c6eea937d875b2380945c063b99e3b17a0272f323d666b76a626bf5aa1019": "q₂ = v₂ / ‖v₂‖ : normer"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.4f": {
+      "decimals": 0,
+      "element_hashes": [
+        "212e2fdbca64fe2da355c3c5bf1bbd7b00712d4a0bcb1a1fe13778655212bcaf",
+        "1c67cecd9c0fc037cdc2ca5db308fbdefabb1db05ecd2558a3241b95e9bcf0b0"
+      ],
+      "hash": "ec9575314f59bee2ebfe50508a3a7d7497b187fee61e5719f2e6c51997d90f4f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5620198608a85ba7c1a20342c1ad4f89d74c10b1ada00e16ea0295b71f5086fd": "les produits scalaires avec q₁ et q₂ unitaires, pas avec a₁ et v₂"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.4g": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1b9dbf812eb922d817cec0f1345d4b91c6f3a1f9dabfe51e7b847360f83a1b9c"
+        ],
+        [
+          "32de8b080115cc808196eeef31c309cf6183337d0a113a4e2ffe3aa57aaec203"
+        ],
+        [
+          "d975ed0599be7ef6cda24d35a8efd6eb22aef15fc9bd376145a0a4161b420ba5"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ff852d74d14fae743a7164ced46ac86424375e9ded9052a65ace3924843cccf5",
+          "9103f5f64b128c44a9f3303c8d8214c2aed4815db71bbc8f3b897ab5fb46c43d"
+        ],
+        [
+          "3b52ccecd6c32976d6995d04e2b9b52ee63646bb09e18ab85ef674454bbd4e23",
+          "2651e707b63a589735b99bec009a60039ee72ef97ed0d8133b8fac21bf4403b7",
+          "b8a9c21b9b209bef1a3af51f11052be1dead6cd48ce80f3dec767af761add3e9"
+        ],
+        [
+          "b9194cce3f553b5027e5af7806fdb7acf6bcc07a5852f542c69ae2950cac0262",
+          "f2beac48d259d084782b818662c326dce4a50b4f945631058cebc358c661f4d8"
+        ]
+      ],
+      "element_hashes": [
+        "903d40262255a73af4579f51ff0eea980b18e16eca5753fd3809c79710a3bf44",
+        "c0a63916072125e8f102c88e149d1e2029d308425a7193d789ad143c0ad5d024",
+        "8332f885c3130f60704e157a09104d7c3115adf535a5dba19b6187fa44561527"
+      ],
+      "hash": "fb80f8c1808b27bad79caa0df751a1d16671e9ec9048c94f9db30184d85135d4",
+      "kind": "array",
+      "mistakes": {
+        "9e3c077eed94e8af24b7f2b35b110a58bffc60c19c1cdc1f2e1e27302099e5d9": "q₃ = v₃ / ‖v₃‖ : normer"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.4h": {
+      "hash": "d506d05108e722a9a3e752e6dbdbd1013cf51a0f0097401cd0d972393d9a2b8a",
+      "kind": "bool",
+      "mistakes": {
+        "aa40ef393f16e81f4b1eb84c6ce0ae22e1941464743d9d8e43df96298e099412": "Gram-Schmidt garde, à chaque étape, le sous-espace engendré par les premiers vecteurs"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.5a": {
+      "hash": "b136f0e7aa29c825ea568e526d7023f79543fc7cb46b8da3f18142a3938378a8",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "8aa53c24c165336e1334168786fd391e7918dea7303e5ce4661f94af6da39409": "⟨x, y⟩_D compte deux fois le produit des deuxièmes coordonnées"
+      },
+      "sign": -1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.5b": {
+      "hash": "4ca4fb730d40946610f831e99b0107a2a92af3cc640bdcbe1ff555909a54fd7d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "574d25fd381a42ed617f39e67ed50b337915deefcf002a29b8f7eaa0d863b320": "la norme, pas son carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.5c": {
+      "decimals": 1,
+      "element_hashes": [
+        "5f37b4efe56f857db5ebf0154961308a214fcda175ef94a4f51f6bdac499ee44",
+        "c097e107dae3b79943d8910d20eca103d777f5f4add67cf66d6a924fc5cf8f45",
+        "bd40ea7ca4367ca7cffc2615b1642d39cd533aa115905018fbec1721f13a1c55"
+      ],
+      "hash": "1788c1947f098ac3812de2e5400715a78b3ebf3e8fed648f8d06478f514a9779",
+      "kind": "array",
+      "mistakes": {
+        "4996c7a6cd7c64766cedcf1d759e90062426d2ab478dcd521de1f1b6bac44220": "divise a₁ par sa norme pour ⟨·,·⟩_D, pas par sa norme usuelle"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.5d": {
+      "decimals": 1,
+      "element_hashes": [
+        "d12a7c66a6d4644bd4a1021748934cf361e587939129ed75f0e4f2778ae7ceb6",
+        "b121c35ca3c2226c80d0a7255ea448d1f39d8ed8abbba9c85d1d3414482ae20c",
+        "af3af0381c7b1acf0097f95122e2dcc094345f62a53dee7a590e1fc79a5fe320"
+      ],
+      "hash": "8796e0c66e8b4db222d138283ba0925cbf6e5254268e29a029ee80d7f1c992d6",
+      "kind": "array",
+      "mistakes": {
+        "2a080fafb07b2647539c36a4bb55b156939e0679b6db575fae92e5f9570fd861": "⟨a₂, q₁⟩_D est négatif : on soustrait ⟨a₂, q₁⟩_D q₁, donc on ajoute un multiple de q₁"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.5e": {
+      "hash": "27f80d5901fb8ce6c4e972dd0f2c303db72c9dfb613368256be5505ef53a2b50",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "3f7d24cf277cba3ff29d907c2e09ef0064892ca9a53096aa8837c854c55eaac2": "la norme, pas son carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.5f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "640125b12310670aa20ea9f90461055b2bd2efc0ce1be2535709191a80cc31e2"
+        ],
+        [
+          "e2776a28a002362ec42e258e1fd670c464c7230ea887e066be25790eb7cd1f79"
+        ],
+        [
+          "5b107e0cf647b072e3aab5d0a91fcb61580412b81cde02c82a13148ca09da430"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c15e77572fd0941c15a60564dca3d88b5a70a06932bc601dfb32e66cfa32c4b9",
+          "db584c10586869f0045c723b90b645bedfad096ec55758106a6248093f1fec40",
+          "7c2c5b66683570c6bf5e10b66577d68374c0eca8910c7fb9232fe39fedaaef33"
+        ],
+        [
+          "0b8e13a8edeaf298ca399b341558c3ae51512a4dd0204cbfa45c79db3d6d1f38",
+          "8d20088c2ba981c6d77f24f237726a2743b6ccd389fc754bcc740014191b0f8a"
+        ],
+        [
+          "6fb52453b3daa4ed834d8f521e89173b6c9eb17ce9dcd20af242d38202951f49",
+          "3b33766eff8ed6584172ef4e8caf20d4ec524f66bd512859f5db0aaadd9f02ee"
+        ]
+      ],
+      "element_hashes": [
+        "90166d6fcb35d7ece134c72de8f91fe41583ccdc14b7c2c00618d10014d20ea5",
+        "5d3e2f3769fc33ef7f4785a67a9038c6333590c8fbc73192f9324d3466b90d4d",
+        "457f068cc3df9c1db5b5e8dfd38fd673810fda0e2098145c29187c2f85fd9cd2"
+      ],
+      "hash": "28228ccecabb4cf34a34bd5a98b378f30e7faf05480687bfa343a323fed3c60b",
+      "kind": "array",
+      "mistakes": {
+        "5716346c03315115d06ecc5b9779d73263f264d076ea8baf82b07638726aca39": "q₂ = v₂ / ‖v₂‖_D : normer"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.5g": {
+      "decimals": 0,
+      "element_hashes": [
+        "852ac5daced000bc631dff1889954993543966b481c92859fb1206e3729094b6",
+        "ab9f4bc6ca2ac0e07809ca1726282bbe5a958f115b98c3b4015c78a7c7f0d808"
+      ],
+      "hash": "d65b21b73404908f8cd536ad8ddf911369205fe7e987cd444d99c8208ed5d8ff",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "76d9f10e212670f5cb51906ad287ac2e7fa290482e4761a3247f81de38244659": "l'ordre : la coordonnée sur q₁ d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.5h": {
+      "decimals": 0,
+      "element_hashes": [
+        "d064c6dbd1e9f09f5577faee1b10cb58a581980dccccc3b2657a992935155c19",
+        "0425e55755bb442ecb065ae02370a05eee63d8908a2f086d75a3c3d09e778004",
+        "5330e2c4017a860be8b09438cfe27e14ba45961039b4a1324b59409704c659e4"
+      ],
+      "hash": "8b6365f7e40c197ed078361acf8b65162171c84e6cddbbfe037b62481b4e59ce",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "089b142d9f93145b5063b0e9e63fef72e1526614133379618e0d60f79b7be4af": "le projeté, pas le résidu x − p"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.6a": {
+      "hash": "d9347189fe8fb1af3743873d34117ecaad66349a36ed6537bdf24d2f89b6c771",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "929bf789ac3ff25b3c0735a9acedeb952148966d450da4330bccb3e870246bf7": "dim U⊥ = n − dim U, avec n = 4 et dim U = 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.6b": {
+      "decimals": 0,
+      "element_hashes": [
+        "c3a8ca356c8c14cf5856652ae65c35c415bcf31a72535801496e89afd277f8c6",
+        "3fc4c37c854cb80102eda4a706444f91d5819947fccd0330022217ff5d808595",
+        "551f345e1df0fc4744fe79f0bb75add64c24311d0f7012f3f5dfb9c3a78d5905",
+        "52e7c354ae9eee62ef394e791bd50fdbf3e46c51d6563476d3780498e49cc6dc"
+      ],
+      "hash": "e0a5554dbaea7504785f464c43bd7dcbe452f0438cd4f6d17fcc807cc8304abb",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2d0afcd13aa2527df19970540800fff1a5b135650c6e39f1e0b0ff1aff167425": "résous les deux équations pour x₁ et x₂ en fonction de x₃ et x₄, signes compris"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.6c": {
+      "decimals": 0,
+      "element_hashes": [
+        "66f50612ebf5ae7c0a6b12b19325fac56cd5c274954e72c53c27742e19f9ef0a",
+        "6290209c6945d6f0352d9780d0142d7dd1a1361e6bc2d7bf675cb5ac41ecb1bc",
+        "97418ef5dba1f01119b4eeb0250e76f41859bb4ae4670fdc99df32a5cfbc328c",
+        "55fa619a80aec2737eb73357e69f92eb028eb273d9f48a77f37a1111177dfd83"
+      ],
+      "hash": "2ffb899247cd1197655fc1ce9eb6d651764105e5ec9d0abb373f0ba8314277e9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5ee2f8f1dd5f73c5ad1d20b00035e1808be044b823b33fb9d95891c0abf39dda": "résous les deux équations pour x₁ et x₂ en fonction de x₃ et x₄, signes compris"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.6d": {
+      "hash": "08d11964624fda563914757ba5ff656f3374270ac87d63b8558c143235358f73",
+      "kind": "bool",
+      "mistakes": {
+        "8b6b3ee8859b071c59bf253180a13e5a50f060a35b4b9c715e3032e0ae1285c9": "calcule w · a et w · b"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.6e": {
+      "decimals": 0,
+      "element_hashes": [
+        "873972bfc60a46a4197bbb350bb4179b732c0ac7a9221812d814104bd251ef2e",
+        "463f15e63d68062074801aae27f8c8afda88c666ada6fda34ba51e4fa4e5b845"
+      ],
+      "hash": "3b36b7f67793388c0f63891df257058259a44692c5331166d8ff78976d8e5836",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "47b7f0abd27477747d88c49493e0228bca6e7c9d438e51b2a9c4a2c4829c574c": "les coordonnées de w dans cette base sont ses coordonnées libres (x₃, x₄), dans cet ordre"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.6f": {
+      "hash": "f4008f9e84bf26b231af80a6d5d892a7b1bd6edbd065e46a9d2a8fffb0d8cbd7",
+      "kind": "bool",
+      "mistakes": {
+        "958f7d92515879b0aa85000242f1814c5b7881c83f585bb1d884ec8915c17384": "calcule leur produit scalaire"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.6g": {
+      "hash": "44d143089288246a09abea3cd1eba77c3ea0d326e9146421ce8ac4f3de81df85",
+      "kind": "bool",
+      "mistakes": {
+        "94f5b1194965d9a1a33806a087180fce94065e28381874053ed2ca1dfa0c5312": "un vecteur est dans U si et seulement s'il est orthogonal à tout U⊥ (ou : combine a et b)"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.7a": {
+      "decimals": 0,
+      "element_hashes": [
+        "e4450c6d2fc3f8903d9bf8774f113a5c9071e108428577ad12a3f76d6e64f1a3",
+        "cbbf5722233d21f4e21ae0be7beabc00499079059910fd6e80a4f7c1ab8ed4dd",
+        "b276951ab96ac163c994977e4f688e66307e544d2fabed3e0ac84fc68adc4a04",
+        "ad758289b208c5c1a0afd2a08d0bb77b9d451e6376dc008cacf6a8d25a31aebb"
+      ],
+      "hash": "a4aee3be37c25e50d8d400248acf603f02d989dc8051c0633f67304ddad1d675",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a93d13605dee4c814a6a98712b7729546560e9c3df1fc4022bc1723edceafae2": "AᵀA a la forme (2, 2) : les produits scalaires des colonnes a₁ et a₂"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.7b": {
+      "decimals": 0,
+      "element_hashes": [
+        "cb01a74b20a16f552bb1c01b6fc91c7d2948043f4a501390bffe114cad3cac52",
+        "e5e1edfb6f233d5728c22ca8f3cc7b8c9e0942f64145d200ee90f9555f3b721e"
+      ],
+      "hash": "74cc9ff67a69bcc9bc8c5f34fcaaa1fa8e724b3196b31a4aede741cd0de55b0e",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.7c": {
+      "decimals": 0,
+      "element_hashes": [
+        "869032e50a579214e8ad93a2a13bd3dc7dfc270ced130458bd18696241774740",
+        "28a8608e95d5cf7652f4cb2d311e685a78c11a5b803a96892ac8a7c56aeb7993"
+      ],
+      "hash": "4faf6cd0e47669ca67f66a726c0c15df576eddf66a56b9c1acc10b0da3a920df",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2e1ffa058eb7a78176e159d6677e513fefaa08771308cfd677ba4d2348315410": "l'ordre : le coefficient de a₁ d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.7d": {
+      "decimals": 0,
+      "element_hashes": [
+        "ce7c8b149c88b3fb28bc3b7acd876661b6a3421e54933a554318f6802390061a",
+        "d038e63fa35fe6d51c739600260d924aa80533c72867a0a0729abb905ad65524",
+        "4effd3f9e769ea12eb08d0da432dc462747d99a661f61817778f88e8dfe0adec"
+      ],
+      "hash": "fb92520aaba53354f621106a973b4ffd6d87c3be39a629f41dad910adf161d82",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "173ce1424513af5f515471a0632cd8d315c018616080f52751c43c10a9924b02": "le projeté p, pas le résidu v − p"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.7e": {
+      "decimals": 0,
+      "element_hashes": [
+        "47e5db9adcc97cf839fdf0d648d7d0c4a4e13bed036c1e07e0a0ba5bc3c7645e",
+        "d504b4bf67f1a27326fc6d51a441f9d09e632adb6c0b12f919241d9fe4240434"
+      ],
+      "hash": "3350c348b1ff858e40160280d7a802d35ee2b2e334da0ab95923fc940315f6d9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "787d56c201b0181188c4ee9177b5c5bc1a633265209795cf91f4b61f7d20c52a": "n'oublie pas le facteur 1/9 de q₁ et de q₂"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.7f": {
+      "decimals": 0,
+      "element_hashes": [
+        "0bdecd393fe9573d8c04476fcf8fc8ca59c32f254893000cc4f269ed2f4c85fb",
+        "b2773e86aa4c89a82c08a5ef992d11f31ac9f6dac734342d28adf40639917eed",
+        "dd187ee3edfd04e20c484bf9a3bdd0a8db8fa4dd4fa12f708cd4bf4177f07524"
+      ],
+      "hash": "cdee638cf56d5530a49d7e02c0309acbb3be51bda6814cc311ee09e71d0fe165",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "e7ee9cb3f9dd68501829e0fcf881f3a1d16999f2901375b87b25889675d67096": "le résidu est v − p, dans cet ordre"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.7g": {
+      "hash": "6f7d4094c4ae19cdbea6e627e9a200b33710aae65f7c73762fd57e6973bf9c5b",
+      "kind": "bool",
+      "mistakes": {
+        "56f1eb2f7d10a9098c9d4e3e04aa36ca9bddfdd621c1fff39875da062d39edc2": "calcule (v − p) · a₁ et (v − p) · a₂ ; le résidu d'une projection orthogonale est orthogonal à U"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.8a": {
+      "hash": "c8f3384d7a86510e0ff2fdd011e20ee56a28f28391c7cabf12af2fe3a908c952",
+      "kind": "bool",
+      "mistakes": {
+        "ba91e2a1cda874321ea59234e8b3b190e14cf26d6cc443bce16bc9057b5f3b11": "compare les éléments (i, j) et (j, i)"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.8b": {
+      "decimals": 0,
+      "element_hashes": [
+        "06e97a9edd88f5e4faeca0492b4dd1198b9649c809f64472256b9414332a2d3d",
+        "1271a6f36f596d2fe737b7a7b1b014d50ffa7c8dcd8870bc917d521bb362b8f9",
+        "c03df4152a0cb43676bb82390b5005d058bfb3e83136f7e05c1bb2c90b4f868a"
+      ],
+      "hash": "509891e6874e36b7dcb60d9643600555eb927c4d61eec18dac1bb0d8e19f550d",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.8c": {
+      "decimals": 0,
+      "element_hashes": [
+        "cc83b5d893d1c03072a7d9e753ee78973a8c1a3a1d9d89a4fa99d9e8eff4a03f",
+        "a06c986b14b96513a5a6bcf2c95ebf523b56a7d2026f0400ddf95746209da016",
+        "1cdec808a78b19377c03e7e1df454e14d0849154abb6ed4a8d39148d9ce953ee"
+      ],
+      "hash": "2916826cd6b39c9c038608a4e294f0e0b269db8705a7fa0b3cac8948175642fd",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.8d": {
+      "hash": "68520e13d6a14dd344aeb541d95cca1602677e9f4958a80949a478f83b973971",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "df2379709040073719b39d8fe7fc6f6ec7490aeac3ef610199e22f8b9b690dc0": "la trace de P : n'oublie pas le facteur 1/3"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.8e": {
+      "hash": "bda4d42fc6ad8dbc5ef8bac493f920f2775eba187a9261e01fdd4c3db90111df",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "73c3d87a6e25eeae6d6cd2f127a8b7e6650475e45b1805f8acf825d385461b6d": "P écrase la direction de b) : son rang est la dimension de U"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.8f": {
+      "decimals": 0,
+      "element_hashes": [
+        "19b1998dcc01c4c0df706c3b392ec6855403c14e5c2f4034710f560b752edf64",
+        "a6948ebc692fc00a3acd472217768e8c43709ae2dea1ebbba6702c43f4cb767d",
+        "094894378349020df8fa46870c80d1c3eb0ad7be482b49c666b8367efbeb7e50"
+      ],
+      "hash": "7447ae6429ec0263235cc7d5d2609f0faed0bb0e6c0ac34c4a95b7450baf820d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "cc9dc56c1951c21de67a2eb51d1bb26c33d9c028c7b8f01544f19e19cea719f2": "(I − P) v = v − P v, pas P v"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.8g": {
+      "hash": "78800b1cf36e398d50897fc11106b5847ebaf3a07521b1c22a32a13aa6714678",
+      "kind": "bool",
+      "mistakes": {
+        "71ebbd2a1248e932b8f06d8b1b69b4234997d55a7a513bd699f8e8e5f6be44af": "un vecteur non nul a pour image 0 : relis b)"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.8h": {
+      "hash": "a8cb09637b6c06733c357efa54dd7a0b6f219b4c624f4f5bd310e587d866d8ef",
+      "kind": "bool",
+      "mistakes": {
+        "524afbf089e4538591809104202df3a73ba4417f0309bcdd42a0e3179e7039db": "une projection orthogonale est idempotente et symétrique : compare M et Mᵀ"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.9a": {
+      "hash": "9c1631ea524ffbcbbdd67f407542530b67ef36278747c31a648cd8ca3bc1f02e",
+      "kind": "bool",
+      "mistakes": {
+        "56833d8c8e5cc74b1cabb8575723c836dc15649189c80b3aa2a639f31331c986": "u₁ · u₂ = 1 − 1 + 2 − 2"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.9b": {
+      "hash": "f48a3a460b995bcfccfda96890a92c6515158baf5312b89d6d1899df58909566",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "38494fab6e47881622e119035a841671a55a921f7ffaa47cb319578ee6ae7436": "divise v · u₁ par ‖u₁‖²"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.9c": {
+      "hash": "41bb26e957f0ef9de69ac3347fce6fbae1ad495bc427d1ecbc3367f720162a4e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "6e3af085545a1be671a3911aab1253f2a520ec18532004edb6a006f711a2f4c9": "divise v · u₂ par ‖u₂‖²"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.9d": {
+      "decimals": 0,
+      "element_hashes": [
+        "e5a065a0fdb5fc91a78b1c2e224e77eb64a4ed28a9dc32ab06f2a27b7e09ed5b",
+        "6ae54b1455b0d18bb48e0681aabf58600ffc70d579e3f7f0f397489d4b3963e0",
+        "f882691677fec1765ff12e7db9a5e1ec2490e82e3b8555da110b72067ac8f913",
+        "e9f60b184a84280216b253cb1cbb9488a0a9279e0d6addb77c39a8a1875b9631"
+      ],
+      "hash": "75d755888fe9268b57976e2056ce7141e0f710f65b12e18787ec0d7070bb7d44",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "dbb99b0162971801734ea8ec86517d0e70e774fc03a8155ff75d4ca3b9b6f914": "le projeté p, pas le résidu v − p"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.9e": {
+      "decimals": 0,
+      "element_hashes": [
+        "912daa88a12aeb218250bee443f2df43ccbafcdb99a5ec996034f299ca8c5d6e",
+        "8cd0da36041fbd70f6fa7fa8b09f2fe03363fa7ce17eb05981ab905ac257cc1f",
+        "ffe4065422c7b2b2bd10d5783f4741b7dbc74f7435ff06b3c567afd081848deb",
+        "82e58300837836e626a7f50f5047b13c8aca603b454969df3d09a848f8ae62e9"
+      ],
+      "hash": "54544bdf1bf337013316e4888931e3bdd9873f022ecafa8282db6739b5d4bb94",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "fcf95771996b3a8bc1fd81b509aa767d5487ef808de22f266a3c397cd9ed603d": "le résidu est v − p, dans cet ordre"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.9f": {
+      "hash": "0d21cd4b5103d01aa64d981f3b6c081af7c1d1b37d1571effe98e5f8952ed920",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "06f14aa8b8c1f62d23f7f04953235e2a127085bbb47d68596b7f5ace8e1333e3": "la distance est ‖v − p‖ : prends la racine"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.9g": {
+      "coarse_any": {
+        "0": [
+          "a5a657820103e97293c547855a3220585d93a854a27bc2585d989b0076337022"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "7bebbc631c4ff2fb0edc4eefd56153c3a8503be34710452f78e44793d8d57a63"
+        ],
+        "2": [
+          "47e94f2984d6a2fd9e259d5400ccf40ecb1a7b09d94b371496509e20be3c2059"
+        ]
+      },
+      "decimals": 4,
+      "hash": "7c595dac8a88e3286c218ef122e2ed504d7b9ea241f7ae8aa91483f45c35a583",
+      "hash_coarse": "39116cb67d2ac69f9a43cb18a9a484bed31ca127cb4e7456756d09bd4ed23df5",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "506c36f3453c24822e540ba5f45744fd4018365f4e20e3a262d8cb6e84dfc74f": "la distance, pas son carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.9h": {
+      "hash": "d51884915d49d00e9c6b27b5c7e369083404e8140cafa9f6e284b266eb94d171",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "eb17f5fc298cab02aa47c937533c4c4c4e2bf9d1382fe5c0ae8d121b3126ada6": "‖p‖², pas ‖v‖²"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.10a": {
+      "decimals": 0,
+      "element_hashes": [
+        "cfdf2a3d9d1888e88b40ce835849a6d4295c6832ed4e3daafcb8ccd975143da9",
+        "dff4805ecc77e71fa65497e65b70396e0d8aad8034fb7abe27906c7265838a36",
+        "cc10befd44ef1a8c6bbac1d5c316b999fd106b885d29dcb72ce391030607d611",
+        "8d96a62d5768879a2d5a94377bc6bcc36a56d2c8fa4fecd693ef17f563eda535"
+      ],
+      "hash": "eac81c7ac5952f28cc294bef8c88eb348233beeaf5e3231efd0659f768ed6016",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.10b": {
+      "decimals": 0,
+      "element_hashes": [
+        "3c4d3434257352914350639c993d6b0bd8c37e4b4ff64930025e75106863062a",
+        "b73db64dcdfadeb0f40b0b62363dfbb029386326822dcc95af76bad1d24b21dd"
+      ],
+      "hash": "358b1b6fbbafa492f9c46a0428e7674819ffb7b91f5d532ede2a9ad90a59ea81",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.10c": {
+      "decimals": 1,
+      "element_hashes": [
+        "27b89cf094ee3872beb4d262355a14152f2532b99e46d50d328c8c7e4edc39b6",
+        "ef13e71e441b90e95c25a0b357d0540b9f239866c1a190270007af06d3064649"
+      ],
+      "hash": "7c8188473e1d4f4a6dd812c4564d1e66ee3888dc1d171aa3cb778ab3dc8d2714",
+      "kind": "array",
+      "mistakes": {
+        "8bcda6ce67438bea0243558c74efd2345ded7f30c01b29635cbc963160e1f61e": "l'ordre : le biais w₀ d'abord, puis la pente"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.10d": {
+      "decimals": 1,
+      "element_hashes": [
+        "edf178882bddbaa21d9a7ab5b6633deb3bc22b815158c0311a45bb195a0db534",
+        "af26ead2bbdd75beace02e2da397857cd9ae464f30af662f658651a44ffa2633",
+        "e4dc475576513a422ebf277484fcca685a55e452358400a7e735cda9235322b3",
+        "e20dfbd925c2ce16e76a8c8f077c4cefa4ed81cc544376f64dbd5aff379f6b27",
+        "9b12e7b65c71da24b51d262523fcca0f06bf65ac0ad3e8f27fdf1805e8d7609e"
+      ],
+      "hash": "522a4e8355658f1a3ef3b153e9e791148581e6f2409a27f87f22d18a0daaf0de",
+      "kind": "array",
+      "mistakes": {
+        "ad70af73dee28e057c1ed899b0a9a0d8b7767f42bf4f3852eeb077873b06e972": "les prédictions, pas les résidus"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.10e": {
+      "decimals": 1,
+      "element_hashes": [
+        "a408dcb98de8ae6c136d9f95da9474cc1e3a393adb72654889c55f8c3c023721",
+        "03916da512b787531298273560db8031f7efc59104028eed30bf9eed037662bb",
+        "782f1c827920b874366a916f8d8faa318609a305f480e2cc29bd38baaf72ffd4",
+        "682d3bc3180ff9d607ec6e95f10d3504d9ecf5555442bf000f84bbb6e143e752",
+        "b7abf80d2efe63bc60112bc71d56fb838e56efc7d3efa18569785547022f023c"
+      ],
+      "hash": "ba5b1b3cef7a438e935f5b164682e8a70f7e76b892bf801475dc7f7e7b0c58bb",
+      "kind": "array",
+      "mistakes": {
+        "7b30af7b7f5dc66f43be7546a141a515e9c99e95c8f5d4318e42e34c79c660cd": "r = y − ŷ, dans cet ordre"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.10f": {
+      "decimals": 0,
+      "element_hashes": [
+        "d574594ed3f2718413011a71154b9f1b707ee8f2118785443cae70f9f67f4427",
+        "da3bbd75e4522c480d2df91772cdda02973d2ff852e6b762645db100a4658b9d"
+      ],
+      "hash": "75dc1413f5048ef6f6ba82d785e7031b42010ac2d8dce9b1a1be7f84a9fdd0f9",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.10g": {
+      "decimals": 1,
+      "hash": "344ef97babd142038087fbf5ef06ef825b80ef24d8363dc9d1fc106fe32e73f3",
+      "hash_coarse": "b8fcfc655d10819b9b9ec5fb738d7e77ab872f20bc679a368a19b56ca6497bf8",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "41302f38daee2f355882ae578a93db096acb41a5fc974fd47e54f2373007b3ca": "la somme des carrés des résidus, pas leur somme"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.10h": {
+      "decimals": 1,
+      "hash": "62f9f9daf8f3f90f3bffbd850d3f71cd7e7602540180591e8531aa3b49a1c8de",
+      "hash_coarse": "27172546488173a0b94c275e1a7211cd90f5eee125df969900f42046e6115f6a",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "29d61f3abcecbe30a956b73e49742a0833f0850c6cbd7f367352fcfafaa73b3c": "‖ŷ‖², pas ‖y‖²"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.11a": {
+      "hash": "fb4a9070699a4a2d3b51acd40d1227f4973fcd913aed003d7688cc223d4f86dd",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "b63b1946fa22331c1e31432471a91bc4ba7ae1fd9c2f4d14ac6d977d70c73ecf": "la norme, pas son carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.11b": {
+      "hash": "86014a72262631590892c037a4002a628ae35d512a2dcf79df1134f55683b77f",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "c83a8bb291fa682d00aefa5221d7f755dbf1b37d4917ac91633f8f75245040cb": "r₁₂ = q₁ · a₂ = (a₁ · a₂) / ‖a₁‖ : q₁ est unitaire"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.11c": {
+      "hash": "ea53449115c7d5ca7af808dda9a159a0b9c63c13caf6feb24731a4f22bb3b652",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "50db9aa4ffbfc61d22d7e57e79cf30c4e8a421d3cf40ee46cf747306fa3e7d2c": "r₂₂ = ‖v₂‖ : la norme, pas son carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.11d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1accc83d13d71bde678b14ab095b7eeca26dd892b698c57c76541990e737b15f"
+        ],
+        [
+          "9848816408f65e9ea136b428a759287f12bd7bdc6d37ba586ef48d1e77f3fd7f"
+        ],
+        [
+          "d97977b6a3af439ec0f62a9fc53f15c22d76d7861a603c86fff1eecd5d17103c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "de21b83b5acd0ba56f0e35ebe1af0ce620ef7b44788fb93d90a96da1ef782491",
+          "bba7d08178a1eeafdd777dadf39d5abbe266ae2158a4b3a036b0bd1172555b23",
+          "aad78d4242e00630b8144f569afb7801f0fe030e5421d74ec207e4243f61024f"
+        ],
+        [
+          "fc64c2a4d61bfb60ac3ae7a26078f87942995adb55609865293e88ee047443cd",
+          "2754ca9df91c78bbf32504ed5d0e6b2ee7ad2a6a15724110f050a2cf1c84224d",
+          "cfd8dda2f7f88cefe2c3aa3b7e587af2780a4041b64f0872dcd31f7b961fee5d"
+        ],
+        [
+          "66846cfb64a724bc1ce18856408bb027aae5ae731fa1cd8dd9722883b78aacf7",
+          "b701765967ec1d12d2b2e26eb1a2f71e87ada5d7dded09eba5148636c4ee6d23",
+          "b9a67bff1276c933135bd8ac90fd06859a7530466087f2a0220814b399d7c1c9"
+        ]
+      ],
+      "element_hashes": [
+        "4fe81764ede4c9dacb3cfd76af86bdf6814b2eb94058839ab351e6294a379219",
+        "91296f75d8e0eaacd275f86608cbd9ea51c05de3f0ceeeb797d4255c2a213d8a",
+        "2eff411203109e83fb9e23764216a588b25b26dc4dfe60e4895477987e2092db"
+      ],
+      "hash": "609f68a965996efda064cf31d3599c6c284910c2da6d1840ac27ffd783b8ee76",
+      "kind": "array",
+      "mistakes": {
+        "00d3a658657e44b50e7ca9d5b8d54810f1fe9a6d923f2733007888f70d2f25c4": "q₂ = v₂ / ‖v₂‖ : normer"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.11e": {
+      "decimals": 0,
+      "element_hashes": [
+        "dd9b7f765e4b70cb317c72e61be096d80d98480363cb36f00119f41da804b1ff",
+        "2549cee39d14027397b884986e0d87625c0d1d4f874f4b562ec5868d9f87fb18",
+        "915296ffd38a0dad4020f93dd34366d0e5caf5f4056f8e1040f0a3ce08817c85",
+        "a7802023eb34c339fe9ce2198e4f099c8bf2a75ae2a541c6bb151bccf1574cb3"
+      ],
+      "hash": "658a2e03717f6c1b785aa5fc2bb1885ab7363eba0fc6736ee65e3cdf55435a01",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3d40c8991272bc3839448b76607399ab1e46b722b96b98aefe7598ea84d8c555": "R est triangulaire supérieure : r₁₂ est au-dessus de la diagonale"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.11f": {
+      "decimals": 0,
+      "element_hashes": [
+        "665b3afaf501440c604bbe0d389d4fa23a2dbcc302c0e2807777f3aa03a73265",
+        "95f0ca99b1ccc2a3b1e51e4c9b7d38b674ec4f0d8711b57d6134c2116fc134ab"
+      ],
+      "hash": "f09f62d3707b46b416959a2c82dd845b1f0d8f4e89737297711635ab458ca31b",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.11g": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "cfcfbccdaf64e9b83e9870dfa2dbd3ec5f37d6e9d2d8e927d3c0827001a2eb9d"
+        ],
+        [
+          "61d21e00c10c92741124a40c71ef4a0fe4107bc38f3a6a5268752f78dde68117"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c9515596216ae53c4ce71e7310ccd9ed789f5f4d36a8cc0f23c321713a047ed9",
+          "6e99840be1b8de07897e6cd740e42d0cd31e40e550f8fe09ab8500770476cd3a",
+          "99194d73555a5288aa8731e0bb8a45c842cd9d34cc23f9f757087be0f077f82c"
+        ],
+        [
+          "01046acf2ef5d69ab8319757fed025360b0ad030f59365c61bb19cdc44fc79c4",
+          "2d8592c69b9c99d4a151f57b4c52e54a2d81ec6e758325516feb5a9292786294",
+          "8a0e98347906b197bb716ea37f7ab16198ed0f273ac337a3b5231fa1b6836459"
+        ]
+      ],
+      "element_hashes": [
+        "887cb82d191de215f9f16d991e003b6df3c4ee4e2c213e603190cd2e4f15656c",
+        "a129cb712ea1dc477fac94a3ebb59361d4ec272992fcb87e6861e7f9b430482a"
+      ],
+      "hash": "ef963dc0f43c542fbca83b2bc63a9793fcfcd6940ff29132ce254df7766314c6",
+      "kind": "array",
+      "mistakes": {
+        "d135372d88f675fa1a95526bde5114b29dc7be92326736f77298a3dd6633cd53": "R est triangulaire supérieure : remonte depuis la dernière ligne"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.11h": {
+      "decimals": 0,
+      "element_hashes": [
+        "b9f96b6789b2e70976d41448c7feaa4ffd0c677a751d63af1d16d40bf30f7926",
+        "cda91a30ad1665e2911e41816cdc92d84fe9bce5dc5f3a6b706b4e204cc4cde1",
+        "e2edd79d4e15e4e41b1018c6831a7ba146b3c8ce0c9870be6f840b8906fe7160"
+      ],
+      "hash": "15a58d0f864b36cead4d0f26c7a6c436158a9638ab1529f4a36e192a4bfe9363",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "f1902096d11dc30a4317dff383378891a708676bf6c21b1ca7ee2458b23801bf": "le résidu est y − A w*, dans cet ordre"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.12a": {
+      "hash": "fd5cf15bebf018c094d505113377a43653689b6c0aabec0c7a0509dd1cb0bf16",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "4912418d290045682738fccdbd66d0cc1950f06b56c05feeac9c381331c6117d": "∫ 1 dx sur [−1 ; 1] : l'intervalle a pour longueur 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.12b": {
+      "coarse_any": {
+        "0": [
+          "80851a3d64c6637247b4d95dc1ae8b4f661b3328627d621e28fe1edf3699114b"
+        ],
+        "1": [
+          "ef6077f8b5fb14e6bbc36e34c7d1a828435df8d244939b5c81dac44c2a24b5e9"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "ec7f44ff63399dbd71510d92d656a3c67aee89fccd121385388982e518552e3c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8dda08ad52e24d374febdfb7d6e1aa7a3bd642327c81d4db7d0b21c5895daf05",
+      "hash_coarse": "802b448d0c4ae0a4b9ec0b647b02528522eb2badfdead786bc08c679063bf886",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3dd196e4ef13c4b5a7380b39097e121b54fec8527ebeefefad84780ae9eb3272": "∫ x² dx de −1 à 1 : les deux moitiés de l'intervalle comptent"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.12c": {
+      "decimals": 4,
+      "hash": "c1f99887c468a66c4f0d4a72778fd0af54a024b795ca869e05c55bec82fdb100",
+      "hash_coarse": "6719a5c368ff98643d3d3ec49f863079c869ad75a98d13e8a2f212a1458151a3",
+      "kind": "float",
+      "magnitude": null,
+      "mistakes": {
+        "f4546763d8a1857171fc8c57998ee2d211ef982a4c4e7be61f7b964581f3e10e": "x³ est impaire : intègre-la sur un intervalle symétrique"
+      },
+      "sign": 0,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.12d": {
+      "coarse_any": {
+        "1": [
+          "2b8898a74b0566543a64e0b88b1ad6d42f248bc8129f91cf5e08875a1e6236d3"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "c9f7ee52bb0340f21c05a13f60f1182b3e455b5ace1e27d9e62794a0cc55e2a9"
+        ]
+      },
+      "decimals": 4,
+      "hash": "5452aacc4cadcbd275ae4df33f3a3559bea6037fbce7c3be635b8fba47300963",
+      "hash_coarse": "7680ee7be6ebabe11bf2b0762121abe8c937529435a395d71f0b157acac3c644",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "7dc847ab9553b3a9cea24516db25f34c3784d6c2ba1d2bc162da766062bdc2c3": "le signe : on retire la projection de x² sur 1",
+        "e6809c2abc5151b00256fe2ba6b62672065b07d407b6aba58bdb8ad8e72c59eb": "c = −⟨x², 1⟩/⟨1, 1⟩ : divise par ⟨1, 1⟩"
+      },
+      "sign": -1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.12e": {
+      "coarse_any": {
+        "1": [
+          "d0a86391291c48b00af3329049f2af524dd0046bf6d23b933e3ad15003471aaf"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "89dbe3c3f9903de2f8722da44b87a4f3480f3d5a2acf8b94717546447048f768"
+        ]
+      },
+      "decimals": 4,
+      "hash": "850d7b528913d434601c91a34cef236d7ad23de7058addce50e3ae052218bbfc",
+      "hash_coarse": "957723b557c534471c701357e4a9a6bc5839681d7f1e1b95781d80d3f33aca2d",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.12f": {
+      "coarse_any": {
+        "1": [
+          "1d066641c6d220609051f66f8b1525533b66fd70350f516a8ee6d75642f3a3e9"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "ae568f692f6efea333d60b2afd9110930af131f068518ca176e42e6735aded4b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "0c84172b5a4a4b7b85cce0ceef2f6162624c2e6feda5aa5e29797d3b43200d84",
+      "hash_coarse": "bd07d472817d2ec7ea89db673d9d7ad07988335df87aad4458b05d4049cc4dab",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.12g": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "b8a7dd98aa6f9c1f29483819d5e886fdea5ec7476a22b7ca50a75c221bf55fd9"
+        ],
+        [
+          "ddf9f6331c90dc65ab551608f2713cc821d277b56a9b9dca7af4029d4d243451"
+        ],
+        [
+          "815d2f668521f0ca5ae88b58bd0117bb1eeb84e824efd247d2319679525f6011"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fc99146d1608f8bf07ad1bd4fb4ddea80c8d6a80611491c44e4b101f14b98d36",
+          "1565335a9a8df72d1efe587172f4e71f09603c332612dd122eb16b7a4330eb48"
+        ],
+        [],
+        [
+          "edf80e61d88e37cb6e44ac37429c82cf3e200b8453ab28dec460d50989adb0bc",
+          "12ca3a709bffb3655d0e48500e7ae0cfcd2bd7674b0082b6d1ca4b6b23ebeffb",
+          "80329b2b2c72fe2dc58c4fe9f5382441a5097fe5d96eb798301fdd049ce0f01a"
+        ]
+      ],
+      "element_hashes": [
+        "9e6a1823f93d91229c3082ac2631f2c6015fec3876a8a11ea712838f4dd4487c",
+        "b0c64b79d00eaf4a913d7b8ba8e61b0e1d9de401219a73e2718ee42ba9016407",
+        "01aa154c9cbb37a1245c41571f6e44d3da130d57bfa39349b436ce376bf0b29d"
+      ],
+      "hash": "ac82f763779067abc50aed79ed8a084d8c6e9cfc181b9bf79fc9b5088ae4f852",
+      "kind": "array",
+      "mistakes": {
+        "ad01772819765fb3cbe6c127d80584be1c8478b51e58d0d81a9f8bb83985f26e": "développe le terme en p₂ = x² + c : il modifie aussi le coefficient constant"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.18a": {
+      "hash": "f152a94497a393ab401f1d072d7a7e995d3ab7d66818648569b27aa0c2233635",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.18b": {
+      "decimals": 0,
+      "element_hashes": [
+        "455fe4f1aee9205b88619ea1b256f7bea12d6c67384a95cc3c467f5ee0e92e32",
+        "90be4f24fc49eb3b56db042434fac8ec68bce396708949bea720d695d003bce5",
+        "43010948da885bb1fad5f62608ad64e35400c5840d4aea850541df30e55c3218",
+        "3f08bef360d4c59ccb2fb699184cf764668bffd5f8290f7bc3cdd8775283f930"
+      ],
+      "hash": "934f35dc39e603eae052d07d397446c281cbec296f2167db0b16a25cf4fb5458",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.18c": {
+      "decimals": 0,
+      "element_hashes": [
+        "e9ad02a7283f27d04a0550c99e3f104d50a13e7171add886a572de1c8e5f98fe",
+        "738668594fb882326ebaf8c7346e36320fd8123c0a396c7aa8a239d38db7b8ea",
+        "3d01bc2649283a7ff8d5853c390d96226830145b89b50516f1f963fe6fb1fb28",
+        "8ea98f53500d605972a7fcacd43730b33c39655de54e911eff8ffc479866049a"
+      ],
+      "hash": "19cabbea6ccd2a00ce5e8c7feb38544b6b47438ee58ef636fc0e9fa7d98464df",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "32e8a45caf73dd14cba16a71a588245959f6a23868894b45ceebd88fdd7f5dfb": "r = x₂ − t x₁, dans cet ordre"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.18d": {
+      "hash": "f8f6f53502721cd68cd3f4f0b19adaffbb4a8bbd835e2a33bf2562982442f144",
+      "kind": "int",
+      "magnitude": null,
+      "sign": 0,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.18e": {
+      "coarse_any": {
+        "0": [
+          "9ee0f52513b5fab18edf13e0c7f4b7726d3d8a59253f25d8a6e00116020952cf"
+        ],
+        "1": [
+          "4a65d0dceb6856685352a380f2baf1822ba0511cbda1b6edef25556381472dd6"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "d2112266c01ded87d64ab3585feb59600527a4a27e6e138b2ab0670ef52d30de"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a42fd72fa2d01dee3bdbc886555e3bf90431bc0e413aeccaf366dd08dbeef2e9",
+      "hash_coarse": "e3c302c5152f640233a7c0429078bd0e51c0c3c99e00959f6367e175783aaec1",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2d00015fad6da1d9f019e9e004bf081f4609bf626b55280265df31fe938d5ceb": "le rapport des carrés des normes, pas des normes"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.18f": {
+      "coarse_any": {
+        "0": [
+          "00db7aeb88e38311be0491e882db84bbf29993685eab61bed9033ef05db9d5f2"
+        ]
+      },
+      "decimals": 2,
+      "hash": "61c03af92c0536bd1224210751ffb0b974081d82bc25c32e19479395c4702c9f",
+      "hash_coarse": "5de9ebe08cd34f32f47a9ef76d7f853caf47246e0d3eef0176d7c7fcd4a7a60d",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "7a7d837e5e3ad5b98bb3a04ccf9207fb955f9fee4cc0cfe9ab40b14ad9cbad0e": "divise y · r par ‖r‖²"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.18g": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "12ed9ccd62b2e913f3220fd7b9eab116cd6a7b8bf7e1dfdcb4f819c3bd4a87bf"
+        ],
+        [
+          "ec8c4b0d55f294d39767e365a11bb5759cea07ff1367b3cb44d7f943bfba5f66"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7bb9773edd75ac2e27a169f1debf3a6f81625274b3b9ff6a8ce958455ad200a9"
+        ],
+        [
+          "cd7966266f59949349ce997853c27b34813719b83f5b3811d3f3e5a90f4b4ba3"
+        ]
+      ],
+      "element_hashes": [
+        "bb946e096f185467c838c94d229908a70f8f6cf1d2d3bf22d1222ba467cd71f2",
+        "082e6a46e9ef1e38cebee0cb3c211934a46e5b3f0d341b38344a482917edac3f"
+      ],
+      "hash": "025d54281019ec0b3cce5d12bdcf9412dcf82a7ab1cd4acab0e19ad42bf1b055",
+      "kind": "array",
+      "mistakes": {
+        "37626adebe106305ed2b4b8611fbc161694a812a2846b5825d5da437eea93196": "l'ordre : le poids de x₁ d'abord",
+        "f92ac6221abfd84907657a4d0f0c9a877c481652b7cca4b483f86ec85fa8f12b": "w₁ n'est pas le poids de x₁ seul : résous les équations normales du modèle à deux features"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.19a": {
+      "hash": "d9cffc7d823a81304aa6d0c191bdf9a7db4ac63b82d7fc75bd14245677f289f0",
+      "kind": "bool",
+      "mistakes": {
+        "34fc823b881b793fc40b26448c3a2d6f91cd5a0540c092d42d7bdbd10eca3272": "les colonnes de U sont orthonormées"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.19b": {
+      "decimals": 0,
+      "element_hashes": [
+        "fba5ba1d9706478e697c83c585b4d8a1638221a719431d18c74a5db47d069276",
+        "2009f38fe3f456521c11bf00e5f1df0425220434c9ff26d6008033dd7188a09b"
+      ],
+      "hash": "466fac6ff173066eb63bccd383318734b9f35684abe065c7adf2840a2c122e57",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "20c96682f6c866de0e05c52bc55977e907165cb229420f72d69d564613ad82c5": "z = Uᵀx : n'oublie pas le facteur 1/2"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.19c": {
+      "decimals": 1,
+      "element_hashes": [
+        "f2d68ced3077dd5847f9eb2df8d036d0a549be3ab46c7de79460c9032f7e8513",
+        "2f6f19cf21c0b216b5bbfb4eacae0c0b4954918526702f86c0338a3c1c6a8349",
+        "5bd3d6d189d1ef276d606c4ad9943aa0fa1034ca9be5208c9fab01b27dc0ab5b",
+        "c3b6b64eeb78bb0bf7e075d3cb05d6bd941b5fa6471d01e10d9d3695d03f7026"
+      ],
+      "hash": "34ea5637a92a79a2fdefec7b6e0b9f8ca7f73854e9c36f654480632f3ca26592",
+      "kind": "array",
+      "mistakes": {
+        "691954e7153f875e19dc8c52a41023920b679bb00cd5332f66681fc8b77ab1e3": "x̂ = z₁u₁ + z₂u₂, facteur 1/2 compris"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.19d": {
+      "decimals": 1,
+      "element_hashes": [
+        "1fab30448d3d6a875902c2855d40783de7fc5fbcfcef165305586992e24367f4",
+        "42e77887245073f844717593b0e288e7e38137be6dafa23c263713309748cbe0",
+        "5b683d26677e15247854ecbe4156320dff159f77d2715dff068ac53ad158f164",
+        "ac90d848c860c5038ae6ecd73f5dae9a35395e0bf49488e4934b68ef560fdc3f"
+      ],
+      "hash": "7b49a490195e255b7fd77fea8c2112d9df1c774f4f0f3602cf32d9cad594145a",
+      "kind": "array",
+      "mistakes": {
+        "544a8f934b66eeb25c4344dd12cfd570bbbe1ecc2ea61701d0fb7908d7a50ef5": "e = x − x̂, dans cet ordre"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.19e": {
+      "decimals": 0,
+      "element_hashes": [
+        "37c40b7c136c7484dc6ff3bd9da02b626f1071ce63117da2197bcffca78f4f5b",
+        "ce5f720b683ef3a38d86e4cd5b949f2cf57bb6c0b798025360509952a5d8a5ad"
+      ],
+      "hash": "f64cbdfc9d5638878cff242f38fb40014de32ec731758c0a6ae7d486dadb36fc",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.19f": {
+      "coarse_any": {
+        "0": [
+          "b047d024820ff101d85132be33a3962b5df0666e32711030a97009aef311a6e5"
+        ]
+      },
+      "decimals": 2,
+      "hash": "0775b925db3226dd1edd2032dcadf09c7019b91ce6cd7691f96a9b866a1d4283",
+      "hash_coarse": "cde3ba57a108c5e227111e76b3f05c542719da73d8d229c1ec057e853fec1309",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "dc09d8cb710f0eecc4da0f5a5c93ea30780319abb16e5f7bac7e13d67908289b": "‖e‖², pas ‖e‖ : ne prends pas la racine"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.19g": {
+      "decimals": 0,
+      "element_hashes": [
+        "3af84f0f31d4807b3f92dccf85a3ecf86a1d677f5623a78fe41f2743b35ba97a",
+        "916dfa6cff9d41d37f7e237dae944e2b894c24dc8665540d8de8b941cc6a3d3a"
+      ],
+      "hash": "61224f4b238e7e0636f3f1de0402a0e7aa2093d63bc2c8b2c2e2458357ae28db",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "014c24b2f8959f8c6ea7f7c4fdf89215af78b88925c53e61569501df0c4b4ab4": "u₃ · x et u₄ · x, facteur 1/2 compris"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.19h": {
+      "hash": "a3af2ad4fd80de04d5e47fbe4b1ae2b62ce027042d9520effbe5f59b0404642b",
+      "kind": "bool",
+      "mistakes": {
+        "2078556677a824247dad563bbaac4330a9abdf1b32ffa99ca211a7413eaaf842": "U Uᵀ est de rang 2 : c'est la projection sur Vect(u₁, u₂), pas l'identité"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.24a": {
+      "array_rounded": {
+        "1": "5b7c44a83f51da65735f3cd43b702c1223a3b908399dd0fd8cd5428055bb2c77",
+        "2": "74ccd5cf7afcf8858f62010e7e367f12f7f6749d2c0774be386d632bbed39dfa",
+        "3": "64c166e8c7747fa8682b656087ddbd54968236e2e8dfecda5c828ca88d3813fa",
+        "4": "f96b4cb144e2d9972965b1dbddd91de3d2b4224dbd632cee247e920d44807d49",
+        "5": "6969f61c872e636fec4ef8beda3551c607ab1d18b017326c4e75be883985111c"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "55416f56042c1f30c6323c4185c0e7527f9e5cda15b680fab18f5cff2198c72a"
+        ],
+        [
+          "76ed7eb76092379e1c00fea9a9e4dd09fd2a9c25b9ea2a14a7ee6fe243902d53"
+        ],
+        [
+          "68959be4d4848d2818799ea82d527086e85b65149e41d4e3885f748e7a7d0c98"
+        ],
+        [
+          "2a6afe8f54798436c8192418bcf066a529bf90a267facce73b0da04592d36507"
+        ],
+        [
+          "d809f06835ad879bcff60f05f49a4651d06e11ce0f97cce0cc2dd9a52e496c64"
+        ],
+        [
+          "633f05a9bbf92af41df274cd4df9ea9eb2916c9afe32a87bfb76d9bd708f11f5"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "532a7826968093676910a58511d30c3cb37e2e532dbd68f32f77191221cbd75a",
+          "95c787b38d7ece85c13798136b5601fbd29d0351abdd30bd5a9ac8d3c278ae4a",
+          "09189971f6a315cefd88b95e2b9598cb5a9a66cd5f2b6f36da7eb2a00be262ed",
+          "b5e9b6aad94c5b2eaf8e2d904f70cafd39e3885ed2e30011eb9cb7066dd18eb1",
+          "a511d619ec9242ad11672946fa9efc00525a984e96d12215f48a9e8d589034a7"
+        ],
+        [
+          "8bdbe275505a9ce2eb3ec00e324ebab98518e63f02fb0ff099ec14d5453fd047",
+          "beea7f83ca2b45886917024cc293fee58bbd178f94a32652715eaf52231122cb",
+          "fa53dba80150fcacb80df3a4226517cae95c5a91cff7a3ac5bc0024e37288bd6",
+          "b684b9c8d9e9555f4c79cc940c5cda6111e2f5ad6a284e97a09c1eaf82f371a1",
+          "87e5834c6c2ea7ff4c1d35018447c588622225066d7b653f8e65706573d20828"
+        ],
+        [
+          "50a93ed18909f4c1c347ca4b449c36543f2d07364f3dabee27be930f162870e8",
+          "dea5a1bb32956f82d22f44cba4a287fca016dc7846fcd0cb3b20ca83d8af4b08",
+          "0230ac7e625279e574fd9483cb9fee3d754dd6e2ca4272e1886a960f1266242a",
+          "7e51095b96cf7cf43b3647378511face404a85ce97ec35027d259572d6d3d639",
+          "a973e09ef5eca4af6c93900a349cf1999b5ece3ca75949fee0057daab8b8442b"
+        ],
+        [
+          "a121a4cb0882f60b086bcf7fa852a1ec98d137f2c55a7aa5259a7a8a8815708a",
+          "7bc978cdcebe99b353307a642297733fab49e57519e7126c25b259ded145e754",
+          "43147b4840c0dc8a8faea6853bcd6e44ebc3f1608bed906a175b872b7cebfee9",
+          "ecef0912fc08031912feb88f1798c4712d534bc0b1cfc62ae80ccada465d2130"
+        ],
+        [
+          "66ab773fd530fdddb098f4f23dfd46d1e019c316a22fc840807790c645dc13cd",
+          "42afdd502c7f0be64b235bfb1bde3088b1dad53a50f14302b4f9031d06b1077d",
+          "764c58cdd30c6830a252d608eb2035ce401e6a2eb62b6117d445b648793a9790",
+          "cf42c71b49a807feb2af5212b70b8859f6da546f1f3e058d932764ff16994ada",
+          "94ec418a6bf2f12140bf8710936dd15b2c10e70968f981968c082361e49991fa"
+        ],
+        [
+          "311092a6fa49f3247e5e00e10e37e80120fbe0913947cfa7549666cd5f7ac679",
+          "7a89e19efb9e4c34e5754ec1e086d55b836eed58bf50775f0c2b955d65594001",
+          "7bb592e0edd4cd42f673fb219e0100bd2be4da6fb6712d62e5d12b7bc590ab6b",
+          "28c6ebe3bfbd2c2b8495a597562f6facc3dd8b6d554e83b0536059555cc59ff8",
+          "ebe27d49a0fcf6419e8cba39b778402c9777994a47ed2da7d3f1fedd4c008382"
+        ]
+      ],
+      "element_hashes": [
+        "875b4a8aa84c73d7459a1252e8753785950ade40d0eec6126c0df99ee40477c3",
+        "73e91eeb082dd510e549d34a52d98a55c3b548f224b532628c4f2d4e48a8d2ee",
+        "55155c0968a19e696178dc53ab5dd5972ebfba1d12fe66cf27eaf4f2bef26daa",
+        "d075feed3c8b46374190758bf165b42d7dd4fd7d820a94dc7c94c8f82b7be436",
+        "3f765d8636c8012074d49d181933b0fd71aae705aa44b7332f7d61afcb9a0a8e",
+        "dae0706cf093a3d22d1bc0f60ce74f15fb9a8e90c017ce7936768323e72bc4db"
+      ],
+      "hash": "55ee8ac70d4ced905b807b118750f75c2f31acd4a24c25e52f25314c9534ef7e",
+      "kind": "array",
+      "mistakes": {
+        "ab1b95d7a0b7f6e2b89ce628ae524f92e1a4b718eb1020fd03720a15af08a846": "normer chaque v_k : divise-le par sa norme",
+        "ee7447146396ad6e7442df8582ebde59fcbaf543a35d3befe0b5fed485f852e1": "le signe : chaque q_k a un produit scalaire positif avec a_k"
+      },
+      "shape": [
+        3,
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.24b": {
+      "hash": "9e6fc40dc35ec3d3583ef4b9a6190eb147adc03e4f9fdc482c1f16ff53a01960",
+      "kind": "bool",
+      "mistakes": {
+        "f89926a723f86d96a7b601b7b019cbff5eaa1a211fa4a864aa76d7f614bedf88": "sur des colonnes bien séparées, les deux procédés donnent le même résultat (aux arrondis près) : relis la ligne qui calcule le coefficient retiré"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.24c": {
+      "hash": "6b2f8e461f883fa50a02d5619bd35aceda183fbe6a1e8223327a4228410afbe3",
+      "kind": "bool",
+      "mistakes": {
+        "b2a0a28a9165833de10e4dd98739d5fc0a2982df25f70989dd74b71a792ba3c2": "chaque q_k doit être de norme 1 et orthogonal aux précédents : relis la projection retirée"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.24d": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "7ded676ef5e24b30bcf9f1395b17ebb732b13c2d9ae3482c62556960630afc19"
+        ],
+        [
+          "75f0e2475be24279e3806764edd1bde5a98adf7188789f8946ae9988f7919fc5"
+        ],
+        [
+          "a4351027a334042cb7c6b0ba7296e3546266e4ac3e8ea07162642f79d4e5b9f9"
+        ],
+        [
+          "592c669a442412d53948305fcaf28f1588f1ea6028788e9f4a148e66f00a5c35"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b1878329f815d925444b9f86adbab845a47bfc7373f4874fef69ff49d4682139",
+          "2464ed66bbbd14416e2d307041879be13cb13bdbf5b3f94515cdbd8ffd7f5a15",
+          "13efabfe7def7b9a32062125467cf612c31b4634b4dc9bc4d716da7194e69732",
+          "df029ee2e2007dd4d3e56661f6baceda23f969a60d58f9c3324140838e5379d0",
+          "6c4cbab9b19f09bb22739ef1b89d6b9564edffeaa4df83df143131cfc55a929f"
+        ],
+        [],
+        [],
+        [
+          "832c40ba299e4c76e9ec90ed484fa8ac1580f0abe4c83f072cca9bdeab4c4c60",
+          "690fa654f79ce4cee0fea4286af7aa0de22b442e5f4cde325594d3bd998dd2b8",
+          "b607271bc3fba34b2acb03ec3707e2883c486edb482211ed3987f7cf1f648a08",
+          "91d3950e485544c36fbf246c5bbe5fa62229a082ff03f7dc26a9d8f45ba06141",
+          "6d90d0a8bb2c054df331d0e65e6f2e81ee5c1ce1df3a9528fc41372f20fc161b"
+        ]
+      ],
+      "element_hashes": [
+        "05585bba9bfb205c4c8c636bfcd307c7b5327d88e3d64c797f086fcdbb5f06db",
+        "2c0b66e521c2313818c7a09f747ffb8ded42b13cc705febe5876df163b55de0c",
+        "f5f23973175d16f92f5ba1355801577451a27055da8d817855111465708c11d1",
+        "31b1b52c59f4a0cb8e08b0434765e9568c1eec8509654ee4e9b3a3c8348870bf"
+      ],
+      "hash": "a94536c0fc14459199ef255a715363646e34539d01bc669556635b61093e8411",
+      "kind": "array",
+      "mistakes": {
+        "a466129eb41993a59a077147eef93e9cb8628145bdc0b5ec73cdf968656e4005": "le signe : q_k = v_k / ‖v_k‖ a le sens de a_k ; ne prends pas de valeur absolue"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.24e": {
+      "hash": "2b1c75304836cc714c4564306c1e09d9eea4871783887308fc0cf8feb7844e7b",
+      "kind": "str",
+      "mistakes": {
+        "010769f6499ca42cf0b46d319d29e03f1e537b6dba7a8c1e523502fcb005f7b4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "010c8eb0e68a343b313683c11cb5226a0c7d103da0cc2a2b83709a39de025e8f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "355171cc96f55cc8c28c73da47bceabc338bf4ff4daa95bf61aa58c687143afb": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4112f63b948d182baf608249503ccede92b107f152126dc8a3d83f140156c81b": "des colonnes dépendantes : la norme de v tombe sous tol × ‖a_k‖, et la docstring demande une ValueError",
+        "573f7f3a442a0baf39f28e304221658e1d37f9261893a11ba7a55293c81d10a4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ab1af3feb723b2a1013b558f44e693598d61a5066329ee9afaee1dda0ec94f24": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c629e029a796bcd76cb863cd1d577fc1d0f0a154329b9149ddc32be4442b2691": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cb777eab6eec6df1e5ec0f9f1cb9fc4c63407fff216e9490737d1f1f5c2dc57e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d71e9db74b2f80493d345582c59091d0ff538efd159a7062727b4ab5841efe38": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "dbb7268129eda7eed3158bbf26cdf8c3a8353f0979989752ce5b50a14678a772": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "df8d85a6c59efd6e5ca6d92c2c02bca2375b0ef3215d40626e4964f4144336b6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.24f": {
+      "hash": "45b0024b0564347e055d47c8351672648a74afb46805ca7fdf16d94cbd379dc1",
+      "kind": "str",
+      "mistakes": {
+        "19c16e12d6ca8feb23341572e2e3c33af447a5587cde4326414f72b9d25890e6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "25deadf9d09a7ee29c562333992060456c6cfb0864086467f8ecf5df96131102": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "35b0df1771030fd0938c521cc9ba361fcc16f0cd6b1dfad82a8a4c6bc1a57197": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "66125b6f6f8d162cd8fe3e8f176d683471247bc22347b966a1feb966a99de3d5": "un vecteur n'est pas une matrice : la docstring demande une ValueError",
+        "69f21d08052f8c060411a25517a5caf8ebdd5e653dcc1af96674773d0c7cdd87": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "77b5d2463787641e8e9fed86976c8336af9a0eef346562c965d53b3dc7ce14ff": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8035384712287ce34fa40afcd823f073301fbd80aa1023a2514de516c9ad5a34": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "809cfe65efab76e2989c596644984f76d14941b5d0f586b9815839008ecd06e6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "934cb61f37346d877af7781bc17716bc390104bd3a66ca8dbcdae4a63ab17ba3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "aa233e7d1da61b4e7b65e3818c5333e5206436cfb826cd5433a5285b6456fa80": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b1e801fc75e1feaea7a2f60cd7b7718a933f5c63335060c35d6997da414d3335": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.24g": {
+      "hash": "8ba83122c5ef8c3433c9f4104242027599d25600b8a899f7b45031ecbc2b97a3",
+      "kind": "bool",
+      "mistakes": {
+        "9c45efc3db09eb6d5a8c617e355d60a54e8764ff6baf577a8b83d5343695143a": "travaille sur une copie, np.array(A, dtype=float) : np.asarray ne copie pas un tableau de flottants"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.25a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "11f402554c1c84f1551d3309ff79158f4ed7cdf1546875a9bf14745a5adb0133"
+        ],
+        [
+          "04b1f1c2c1ffb78c6017f9c5d24dc0308a5ac1209e72a7c27391bdf04be2bc9c"
+        ],
+        [
+          "ada654ad5782e99ab0b123ecb4850361d7decdef6067898296eef8530c92d0da"
+        ],
+        [
+          "d7db8e78b52b85f806ff33c79412f5cd05e6d4efab7add55a417ead96abcd280"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "5f645b0196d3be075eca0ab614219cd8a5bb71ce974daf924b85f9cd9cc4645e",
+          "8b7b4665cbb6345fa073cb4c3278174415db9ac6ba0ec8aa10c436ea32dd7123",
+          "f3966348edbd33b9ddc97d06f250b74962f13b34850fce89a313745efd93ed5d",
+          "e990ed366dfd3c509ea5499400453bb3f00f33a9d3ae6a21aacb0a782ef38136"
+        ],
+        [
+          "7f477331e746fc147c11f834c671859bc960a615f5bbecdca9e990789f4a53e7",
+          "77a13f00ae8feaba51a0a603722229ee2a3c5dde52c6f9cade73dd89f56e863f",
+          "6b37e90ad2e85c3e4d1abce9fb855292688f6bb61febfcaa5be03236cadc2ea1",
+          "d951d612fd9780be296f85bb9b53ac23d0576a089172ca62dd6289ee81a55f70",
+          "067fcaa222a8e491c63e15539b4c4b180d0b5a47465e5d126e252a3d41103ca6"
+        ],
+        [
+          "008336413e5f4824b2a02df602b56b483a488b32f814f8256079f30c45e23de4",
+          "57e1815e1cb81d18f51f503554abd56470d238720e7c69449afa127ace552ac6",
+          "69f2a5187b47144dd4db6624308c10501393729911d45d15a32b2bd7abdb4af8",
+          "526488ce185bd94b92fb17561db65c96eb2c39e0fd297c01493df2d9feadb889",
+          "21ae29ca6d1b3406b63b34ac2adf7f11b9b686ca5a2d161fd3a5886b002ac92b",
+          "d99a0b8a5928206a8e768522b1081923a09a0ae8e931f27999aa3595f8bb7e7a"
+        ],
+        [
+          "d58aab765d573006796677dba3bc938fc8585f38fc6058e94642805a57430166",
+          "b95c6cb58ebe435659c4d9b8633b74d158ea31198d5e76b74a031e1f454daa0a",
+          "f96236e5f19067dc7c2d51dcf8b6bb5158f1813aaddfa51d5aec80904e9f6fdd",
+          "e75f63958677a5addee161dc9fff24ca36f8d163d4af1845375ef1949334ffbf",
+          "b17de0db5a2d95a767a1f2de12680676e91c0fe566ce69117bbe498499754308"
+        ]
+      ],
+      "element_hashes": [
+        "bdef8e3d4491dfee8880014e79035fe4ffc58560faffe808b44a3c91ef4d7b21",
+        "158ab467cd0a01f8e526e73d3fdf75ef7df4c312d21df16bb3152d2de4b20e37",
+        "cc7090b0d7a139d274ba20ec488a04c256bd70256c0d6ba295a126d267129cc9",
+        "569b8b9ec758b4609d95779b2da5574038784066b492a2336c4b228907559b34"
+      ],
+      "hash": "752ed14f9d392f4d79bd60d53206cbe1a768f72b397afd2580e274e56ff6aa54",
+      "kind": "array",
+      "mistakes": {
+        "1885679c65006721b9f10546c2a628e192ec64797b5762fb6898ee646f53ab15": "A Aᵀ v n'est une projection que si les colonnes de A sont orthonormées : Q = gram_schmidt(A), puis Q (Qᵀ v)",
+        "f1e2e7b84c6ac4b86f5d5aff2c2a145d38c791eac96c9acfcaba327b748a44cf": "la projection, pas le résidu v − p"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.25b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "f5bd1d5097c941f5ca716e324f59c0afa552d869b1257a142b29a537ed2a52fd"
+        ],
+        [
+          "fc1d0734eaadb6a873d5fad86a2421945adb2a786620267152069193097efcdb"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "af86111228e1ec9083a8a189631a27410da83fde86b9b07fd43a6484282f761b",
+          "ea637de03f78d5eb630f7fa67ebfa4c9636fbed4f32743e5730eda874ffd9b80",
+          "98fe791dee1d6c2e63ff228c1001c41bf51714441422efed968f5682ab713703",
+          "5319090c98402aef252c817474dc3b4c6336b6478f6b8f2717d7b1355675278d",
+          "aa887263c205124921d1661c638d81f2350d4bf52c3234188bc668614fad6f87"
+        ],
+        [
+          "00d5eccd3ed3c10a968839051bd39b46746b7075708dd57761fc3cf6000e11c7",
+          "7cf057e3640949116748547ce5131d5f34f356aab22bad406bdd74c1b9a2704a",
+          "2bbefe618aa56a37ade19f6b759d802be87082ce8965c571891cd8312bc7634d",
+          "02c1d547462da03d78e2dd6313f0433d3af68318a7675ce6ef165bd889946c37",
+          "e5413ddcf951fed6649fca1a8dfb4aec96aaf14335475d388535861242985ad2"
+        ]
+      ],
+      "element_hashes": [
+        "32790f760145829da48d567c68e14fc0f5b9b17e38aed3e2aa077af6863263a2",
+        "a065884998150d28f5246e9e5a61ea42f01d6da6e16c38f7a9ed8ab797d3870d"
+      ],
+      "hash": "c025ad34c57f254347bba50c9a74e6a9146b6d1f41847cfb74f2fb0455b53e08",
+      "kind": "array",
+      "mistakes": {
+        "ef58605cc03638891adae79b80f1a5c3753392afa8d8baa0ebc080608bf47257": "projeter sur une droite : divise par ‖a‖², ou norme a d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.25c": {
+      "hash": "c096e881ad805a7163c7b37f166cbcdb732eef957502cf2141e7cc65ba233498",
+      "kind": "bool",
+      "mistakes": {
+        "03d8111fbeca74ebcaef9bd31b7bd9a90bb10c297427cd064cd8616cac5f3f91": "un vecteur du sous-espace est son propre projeté : relis Q (Qᵀ v), avec Q orthonormée"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.25d": {
+      "hash": "aaf0d8047f1ad86f33c55acc15c52909a3c3bc9e1bfba12b8490dc9af4247262",
+      "kind": "bool",
+      "mistakes": {
+        "e330692278f97cbcf90fac601eb9ead6fe06cd5acecfae5f03aadc2d0d898ffb": "le résidu v − p doit être orthogonal aux colonnes de A : Q doit avoir des colonnes orthonormées"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.25e": {
+      "hash": "02f2529a85ed72f1263c08f2845fbc1b74193717e35de2ecadb69b49a8846e80",
+      "kind": "bool",
+      "mistakes": {
+        "28a002ae726909d890c2df646ce7cbf549de4a9ae49cd172efe83ce6c052fc9c": "la projection ne dépend que du sous-espace, pas de la base : vérifie que tu projettes sur Vect(colonnes)"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.25f": {
+      "hash": "d796c784b35b54b91a9144d3e73d038a46ca399872d4ed9e09fd94779598189e",
+      "kind": "str",
+      "mistakes": {
+        "201f8ca3d98b131d555422ea72766bcaee8b2a2f3909a8e8b055fa334d08acbf": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "24ba6b3e251e98930f3dc8042ca038964b9e623b34f665f5d44b7ce4960fc498": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "446e5dfb78affabf10af10a33bbd1fbf66120ea6f49aa6c7fd1e2af606681cac": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "50e09e5a2b86e3153bc00304198fec0d751487cc85a16f13467c825cea557ed7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "51b29bcd3cb90c3ec4d57f42b08e725b145bbd0637235c3af70adf292819df70": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "729f34b226424ff9ef8993050be417de3618912ddb8127fcd60045061b738a37": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "91d8ec209d7010a4b78be5a8e10d7cfc9056bd375527d49a23db5c7cff30184e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "afa975fadeaa0dc162aa202eaa2a71640a585e0f3760a09f6099edc214784e0a": "v a 2 coordonnées et A a 3 lignes : vérifie les formes, la docstring demande une ValueError",
+        "ded300ea0ca77482cef5da98cd071b559cb07b7d00932c69d09f36d24f8b5528": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e293701681093dd1449fd5e91d735636de45e25216201893011d35236309dd66": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ed28d9e1b8679a406e55c2d6aab58b2e30098b5b44dfb6c82fd84cbc0e1b7667": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.25g": {
+      "hash": "c9ad625b6a17828e4cebe6b4b92dbbe4388daca91bedc7ee324edb92895942e8",
+      "kind": "str",
+      "mistakes": {
+        "00fa3bc9acf71034c81aea2dea397b7fa306c0ac55a9fe76247346f96ba397bf": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "1b1a4bd35ff24aaacd303de99265b6adee22838347fda92958bdf492cd4f8c9c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "23fef10f7e5483bcaddf1c29cdd3009a898b827d18d7f29bbaaa7dc254aa4fb3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "268d9c396125b97636abddbb3ac44d29304947c0ac052cbfe492a0e6d4a60ecc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "268e4c900b595f2fa2a0da9acda0fa1ec166eb770e3214db78b97716d375a619": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4481221b35bc33f3e607c00603f76d2b37a68d991e3756eeaec578e4ffac95ae": "des colonnes dépendantes : gram_schmidt lève la ValueError, laisse-la passer",
+        "5890bfd3cffd0467aac54859dead1cb9ce2839d1a54dc47a427df9860bc80584": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "96635ce5f2017c05ee4734f286223d9b889b33c5442e758ef0da3fe9cad2b374": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9b2f3d6a4cbebc86c27d8fe192b5dd44c4ed8b244da334ac89684b06af8fd26e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9f3bf933ee501ff1bb6a8caa2cca0311a9aecc2e5cebe339442aad10c51ffb6e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "dad89901f7e038f6f82c0bb31c5d2ff941f8b2b9cd1f3026c9c6e0ed1c22020f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.26a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "698e8d8364365e1ce9e92bd6d06e68ac3320d80e6146764f27e3e675c6ee45e5"
+        ],
+        [
+          "5c22042ba4c680f6a7c26345e6d3cef2f2a0657c2333c17495c692c21eb10227"
+        ],
+        [
+          "bfb1423b8423581b99417894f81a8b899019c6a5e5af8dadf121adf087553a26"
+        ],
+        [
+          "8b214e0ce681c7669cb4d9385d4bdfe642f43f13e0d0d89a851576cbc0f28024"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1dd3fadee853e29e45c9a0f930f3523c8d729e5bdce9fd91e978ab602a7d4916",
+          "f95bbcde93973503a5c6e3d75133cb9de63c5934ff23a6c473e09bafea3846f0",
+          "8884d4afe90ac0716779d4474e78756fe0b55b6b0898be5d8d71d17622421295",
+          "13b143c6cd954050992b35bb0c1439de272dc471281869f1ebc028b2187784db",
+          "5d79b0e28b7d252002b2d0fc2f3c41e1be245b76de215cade3d1e6caa3d83f9b"
+        ],
+        [
+          "5e1bfd6da508f60faa9569ec7edce3e521340ec7549bf948139aad41e61df7e7",
+          "8c161d2c1a0a9b2c4b83e3530b3f3674b57b5d822d85bf5f99f901fc585f99bc",
+          "4c6c74eea929f499ccc3b7ecf4e5d5ead181fc3ca369bb7ffb9deccc3024269b",
+          "ff6e689af78b3aa94d919a66d1801853b88a6aad9495a76cac07fc1a25d92409",
+          "ee3ce634126dca7cf77df73bf1147de5b94f2f5222a8ef9c21137f7a450d6f08"
+        ],
+        [],
+        [
+          "37f7637f6a4925f0ad2bbaf8bf6fecb28f920f9caa6a39f23c08405c3d216d3a",
+          "8db26f246657cf2545a861f530fa615255f30ded1ecf46619c859ed316c3e289",
+          "01b5ffeba4e2133ea22a60707befb8e6664bf5f7b836fd80e53b95e705860d16",
+          "5ad822fe8caad7701e0eb40e42cae2a0601feebf67093aac4e590a297aa643b0",
+          "d5a91d74bc61913f6f59e1c581943fd52b84e24fcfd9f0e6b72d198218b5931b"
+        ]
+      ],
+      "element_hashes": [
+        "8b64cd9f109589dbf5fe5ad5617087d914b01d921ed84e6e45c2402d4814e016",
+        "3e2fbf87feaa28c06d1d4a7b7de3d111074a91322914d5818137e547f8a568bf",
+        "1e3722e395962579714558a7b814a26c3a7ffbf0311753b2595aea02be96b82b",
+        "36fe01cfcd1e05e05985830826d7b324e1688bdbed9f29f06cd15739f1d53e51"
+      ],
+      "hash": "2547fbb4d0e7edfe66e1ae6eafbab5c4978eacd3d769e7fa4b244cf91f64601b",
+      "kind": "array",
+      "mistakes": {
+        "8f46c7c9da371d967883828a2212e53caffae8daeb0fff0752fb7a8a570958c1": "le signe : la diagonale de R est positive (r_kk = ‖v_k‖)",
+        "ba8d7940a53b70cc664c580f6bcb0f8fd4d8e38fbeb9e2eae2309d9c617b8949": "R = QᵀA est triangulaire supérieure : r_jk = q_j · a_k pour j ≤ k"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.26b": {
+      "hash": "97c1db9a24e6c296795f53f690f38bb16cad6d2431af27b647b13498aaa8aff1",
+      "kind": "bool",
+      "mistakes": {
+        "afb061e828d3425160e58b307a48c80ab3b35583952e4c4f0013c75cd019d436": "Q R doit redonner A : R = QᵀA, avec Q = gram_schmidt(A)"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.26c": {
+      "hash": "9f405ef4e874f1b2d9c866d68a03913440be6d4a5f7ebd4565db00a9206ffba0",
+      "kind": "bool",
+      "mistakes": {
+        "56530a54024e47fd22a204dfd3b743e5dbb5327dcd85e5bcb881df19455fb6d9": "QᵀA n'a sous sa diagonale que des arrondis, pas des zéros exacts : np.triu les met à 0"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.26d": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "70eda909bcfa06a84493581d0a991eb15bfa602b2e042a40b304dc5461b13a42"
+        ],
+        [
+          "b65b930bb8c4610af97e9602ed5289a1336287fcc0bc6878d7d71668114cb27b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "763b4858b3f474da44c95039c9c0b7cbbc7a0533b42a7c025f66aa55dbf36fbc",
+          "7be06cadd93a75afce05e4e287d917ef5b4d459ed340a623adee71aff011ce8a",
+          "0630e6316615ca52c297384157e8cfc89670c5008a3dfaec6ad5f5434837ba0a",
+          "533ecd5a20f62e7178349554a4d1d41746b62023ba227954fe1f7de24f6bbdfa",
+          "819d57590814d8a3288e6d0ba3d401584f3b259aaf25e561237b8865157237af"
+        ],
+        [
+          "8fd1f126d3aa07259ce5647bcc2ce864dba7082a2433471d02ffaa82e2101943",
+          "e5e94f45d43eae9770a1512688c67c9fc99a8271273ec7161824c1cd810f995d",
+          "7f3b96f0ed9768554a214fb9a4da360a6288bec15310629220b3c22cf0f8968e",
+          "68e61f49a6c4cdb12047e3d06810d87e9d8363d04a63d81005cdc721077057bd",
+          "7328fc2ae1bba85eac87d939fa01b312eee2f3692a1081459eaff157b7de230f"
+        ]
+      ],
+      "element_hashes": [
+        "a39e9362878b2ac365d2169c25d29cf468754aa7f3ac1e464c47b08c57809bef",
+        "4a0a7478b9168b47a2a961188e5346f3ece6e7bdc41be78ae2102a467eeaa7a8"
+      ],
+      "hash": "5ae0f7e88be3969cbbad3780ced0909022acfd8206e3812a44b998297141b94d",
+      "kind": "array",
+      "mistakes": {
+        "2a849b6478a214b96351485b237369fa329233e0e86e790977bf1fdddcd4a957": "R est triangulaire supérieure : remonte depuis la dernière ligne",
+        "fec31f9062a54cfd52a405de1d9d14140a5d244d3353cadf085dc734d62a6b7a": "l'ordre : le biais w₀ d'abord, puis la pente"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.26e": {
+      "hash": "ccf103c20061886f1990a2fe21a741fb2d6ef8e35d403144bbe1fc53585e3db9",
+      "kind": "bool",
+      "mistakes": {
+        "2f2da50e1dd5d7bfcdfbef8a467f366603e8361327cd0050a004d73a3c5eff48": "tes poids doivent résoudre les équations normales : relis Qᵀy et la remontée"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.26f": {
+      "hash": "ef8ec892fc1aeb10b9df0d09556ccd0f0baffd2d39a478f28757904c26dc8cbb",
+      "kind": "str",
+      "mistakes": {
+        "0d19f31fc39cee90519e95da808fe833dc27c31bd28bb5cac8571e5a3a9e5953": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "138cc7fe9fac7a167514ca543ece26ae99d40c5e4e31167ad6291bb76330d32c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "1d76a0b4dbde17a1e2da4d8bd85ab579c2c0a03d09bccc2c8e3fe9fb2e7c1134": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "22594d8b2b30d60ebc1cced84105250ef7cec20cf23bae97a33338495b4bdd6b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "262acc0ec53b65713770f23dda490099a0f861cf84674103915cb17acd384d06": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "349343492293126697c57f66a8faa72b85c82cff75cc06501ea6800b96048d4c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8443e21d2d71529ad9a0b370a46d17577f74d9d704f5051abe57693c2167229a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "93c7995b0b23a757fcbd32798ecbff6374d127b330166f5169edc63aadb370b2": "X a 2 lignes et y 3 valeurs : vérifie les formes, la docstring demande une ValueError",
+        "f3f1aee9be044beda468ebb52da3fc30280ea8be31a52911ea26fa0f5814e8c7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f4789aa8b7476896942bc8ce4ade1c52cb89ba02c1d5b4ac7d00f3e10b22e204": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fe70d47a1457aea8c1546386be0873a1dbf4d327cbea669520bb280bdd1e4cc7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.26g": {
+      "hash": "1d63f0767727c4aa56c6aabb56a02750ccec478c6074ca63a64bdeeb81aa9432",
+      "kind": "str",
+      "mistakes": {
+        "4355cd6f10294b3a73ee5816c8cffa5b12636988f2d142d24f329c356806a8f3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "44e807c48422a09888a10b8edb76ad6c959b971575c5c99e8c6126d821b07fce": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "567baf5c19e047e5f8d978091be5faffaf519252a483fb5361cb75d09a2e81dd": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8a9737a0ccc7661574ab2ffbf2f35c5c65eb2ab7fc35faf0345b266f4215b82a": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "978f192a5b0d20b0f379a1374cfc6eecae018146b761ce89e643eb9396c2ce71": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a25c0d130940d493476a5c07998ad7b841237bd07168a9cb96058db6cfcd7df7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ad00e5e8cfe4284e8003c10d87af6110a99c7624274f806d3d662a38e59cfeb3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d29f8cdea5cd60bc38685f85add0ec9e8abda4dff35bd97ae92bdf733a1fd79b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e6df8a704c300b352b5d334b49d12fb1ecf952b33e00c5a57ecb54d4e3339c20": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e77f1323a19ea9871f69e9fb5a7d41dd34fad0116310dfa2c380732f51af084c": "des colonnes dépendantes : gram_schmidt lève la ValueError, laisse-la passer",
+        "fbdd7953db4357618f6082483c286bad9044e098ecdde8b26e62178c79ab4bdb": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.27a": {
+      "decimals": 0,
+      "element_hashes": [
+        "37b4c8b12773394c1d29d2463ffba850d7b10aeebad9e1b028ed61d31fa4e6e6",
+        "7d375b3b2c371ac92672dfee0bb9277117a3e56a7f1999eb0a3a8e83e2067bfd",
+        "84ad77127c1dfd1e23656ea4310f3de81bb80b73a04ecb9890bda56311719c8d",
+        "7e4ac004c2d6fd87183c27d03766ab6b8cf351463a9e7a87fc4c4036c821e7a9"
+      ],
+      "hash": "f6fad3169a6a38b8162a78604be80412be0b3658a8d29e8b239ed621a667bf20",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2daa6cf0a9b847878c29cdf05671690ed3a3971670b0e5cbdf159dc0a4cb07f2": "la forme réduite par défaut : Q a autant de colonnes que A",
+        "f9f72fb55fc1502a8e4c8448f5025778971a26c2eb5dfa39f7ce346602f16bdc": "Q a la forme de A, R est carrée"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.27b": {
+      "decimals": 0,
+      "element_hashes": [
+        "59dae3c7d8c517ea218007ff1825e9eb38c23eec1640f74a8a3bfb53e9059f2c",
+        "515d48ad15fff9400f1780a13a32b9eae6e91bc269f9a229762689a85b809069"
+      ],
+      "hash": "c08efea12fac6059cbbd4f21e872c17a576c62192a32a39cb09a9b1fa99fc97b",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5add4871f962211c6c3590c954f01735d8dbc90d85c068c53630784a1bf96eda": "mode=\"complete\" : Q devient carrée, de la taille du nombre de lignes"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.27c": {
+      "hash": "0f40f99f7ae5eeebeda9950389f3810f1be0587391e9958a846f153882934961",
+      "kind": "bool",
+      "mistakes": {
+        "5b0916d0606c245a7af8f4c166d97cfb6cfa5f26459a892fe3e453ae031f9125": "relis ta fonction qr (M12b.26) : ses tests disent ce qui ne va pas"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.27d": {
+      "hash": "fd2348b78fdf8542802a2295105774fefe6e078ae0977376360852a631646318",
+      "kind": "bool",
+      "mistakes": {
+        "4e75bd89781f6ecc671db81ae02ae1425a2d4ac289a24501da83c26c963edd1e": "changer le signe d'une colonne de Q et de la ligne de R correspondante ne change pas QR ; relis ta fonction qr si l'égalité échoue"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.27e": {
+      "hash": "fa92651f0e3a7f2623af4974a72aebc2fb42c0d8140b8249013773633d04e39e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "aeb933fef33640aa3c3a7805cad3f8e430792c0f43fd25696f55824624fbbbe7": "le rang est le nombre de colonnes libres, pas le nombre de lignes"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.27f": {
+      "hash": "26629ac4dbd0282f58c5984fd4c74ab7b9423e57ef5d842b519986220d6dc3b0",
+      "kind": "bool",
+      "mistakes": {
+        "55830fe1feca67c7396fdaac4822dea0217db35132f34dfaf21c3be8d690d9ac": "relis ta fonction least_squares_qr (M12b.26) : ses tests disent ce qui ne va pas"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.27g": {
+      "hash": "c547ee779aa10c8b512b95ef326ecd501907e8acc6a36a22879d387d4648621c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "228df5acde88323678184e036f7d5f8701fedbe298a9fe32e7096520879e3384": "la quatrième colonne est la somme des deux premières : elle n'ajoute pas de rang"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.27h": {
+      "hash": "32f8e4a90526b5440a0c5764c94ca6c4cccd8b4c5c6075dd7794e0b814f47cad",
+      "kind": "str",
+      "mistakes": {
+        "34887b44347b21fa6e3c2718c785c4fe81bc9aa4e17e27547e2eb3dc477ba2a7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4a41a1bfa0d7a85b7475cfbc2120b36cdb95df50a4d0b5a0180abc22f088c8fb": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6161e4c869f0782b3a1e99b8c8270ba99136eae1e844743b2bb70bcd18ed5763": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "62a37613aba1e624740d33e0b716234d9c4468c894507358b4bf96be58efa937": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7a359a2b58dbb255e9f508cff71f58c10b2dc7899343dd1ce638bc30e4c57352": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "81921f0a22b96085095b7e83b57d9c3366211bc11855621bb6734afa02f0b887": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d53fddf7c15a603474288317efd61e20225dda58525d7611714dd71c23be0ae4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d9a6897e0a4890c7192f6c10c0b39a9f23c07a5005e912b20054254555968ba7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f191f74f7b7485eda9c0b79627d4cd84f63691ba7a2953fabff73b3259a39ebe": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f31c556df93fdcdfcdb0b317c87b0d60d5772fb17684983c2e9a34fa69623be7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f5f85c5fbd9c911885510305b6378b7642e1527c2334f0ef2980260d423c0662": "des colonnes dépendantes : ta fonction doit lever une ValueError (par gram_schmidt)"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.28a": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "00e0261b094b6a1fa23f4a74c2c1c3754892500663d0c5e26ecd4b8f750adf21",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.28b": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "ba4482c3cdad639091f6a99fc05c43b5db4048aa873803f3f37a7c025b65ae83",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.28c": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "80882022261616799fd535e217a9b00f396e3a51f0d2d2f9b15d572930972cf5",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.28d": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "fddb4acfaa0c9d3f51a1dd84ad97d5145da9b81cd1656eba5689c6d5adcba8fa",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.29a": {
+      "hash": "eecb15492ec0f4340870fecc4ee0b822dc5d9e8b6c4282ee77a53c399ddd4bb6",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2e0856f1b6f8ec31b25e64c111504f27a74726e7017c5c80c743ce135bd2015e": "le premier degré où l'écart dépasse 1e-3, pas le dernier où il est en dessous",
+        "6bcf3e2a35a11772a4b2a35d7977a9f85c4dfc1e40e37df49443b2ba64dff111": "lis la colonne du classique, pas celle du modifié"
+      },
+      "sign": 1,
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.29b": {
+      "hash": "21cb27970ed4a8119b1572fd97dbe2ea8956c340186c3550b317437909e09e6d",
+      "kind": "bool",
+      "mistakes": {
+        "05fa07b17710cfc458d8d042ff13ad926536144f0b84cbd293e3be96a1de9875": "lis la colonne du modifié, jusqu'au degré 12"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.29c": {
+      "hash": "f07ad3f3b5e6cdeab50cdc0e8536f6953f02ea6b44b61488cd0a976ed5751c5a",
+      "kind": "bool",
+      "mistakes": {
+        "b5100706b9a7e6f231a625ac0ba378a1786ad227ffef5936fdcdf7658090bfe7": "lis la dernière colonne, pour d de 1 à 10"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.29d": {
+      "hash": "ed3cf855b47eb0941cc9a0933479c2323beb59ef275f65056f1d92cc92953727",
+      "kind": "bool",
+      "mistakes": {
+        "38fc4088653e3f02b2f4b729392973b41446fcb3de5111584c5fb9ea6d475cd3": "lis la colonne du classique, à la ligne d = 10"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.31a": {
+      "hash": "72dfcb7beba6b7182099e19fdc302840a99b28a4840f0474c9c0340831f172aa",
+      "kind": "str",
+      "mistakes": {
+        "0257cc71d8c825579b8c3bfb70e70a123ac039293938a67820e00002b9afdb5b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "03f92f8f9fec844ea9e65d27ef01110fd4a72fa24e7a4d581d5f786ca7932cbc": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "05bf1ef71436f4d4c8dab1388fc52eb66c96aea85bdbcaffd8e4f4f762218975": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "066d66bd0dc3f51247be1dfb776317247eca6d6bc94e769653ebe209ea27386b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "094df6a80cb5a30d5bb5c876c3ae5268b4aa5143ede2ab9d5b7d9fa6eeec5084": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "0ffd9b6b007d3f45b8019b19e9602cb440bebf80cba4bcab7a3f7d3501788ac4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1361fce421ae2ce3491323eb37774fc9e44370b3adf47f57906b1661573f2a58": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1551310ae4c67f093a438152ad79019238afefdb1308a3fc029d4e02523215e1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "171e02e3fe1a5d11487f307cedf33f433c406ec648865d988dd4ae90cc9ce145": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1ca9175ea6fff309b5a0088a6ad224cf90088e58c942f89ac8984712f844f385": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1fbd3c4ee141c497f4bd71eb488360257c925a96e1f8cd590939ce9972ee838b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2c29a27af500bee6205ae9b05f6015098feb61273bad42170fa3e882d6a2a0ef": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3351183000ae01d92899c493a5f57347ac0ac4a6d44e56cb32294b2f405ab998": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "35bb5aa4fb9e3c207b2c5502a2fb64c6ab95334400e62ec23d069340ba4ff280": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie chaque résultat sur un petit exemple que tu sais faire à la main",
+        "37efba6b508db5f58e23c8831b25a259e5f55dd17db4e7acbb4870941db2cdd3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3c8b5a607f60318ef37d8a4eaf66bc9e13ee2467887e9793f6da1a1e925e6452": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3fdcfa1cb8447462198ab0642acbc54a3c6623d45abcfe3699ea080a39369183": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "439b677465e5959c1c0d35c65a113b246372ad1c3f0736a33c0dc3c02114ecfd": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "4bbf50b123cd362c75c6127971a76813cb9ec0eba20527d700171184128ad3d4": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque ligne à la main, avec ses propres nombres",
+        "53304f81cead8a688115dc200ee45a8b32c7a09e9b004e29b4dbe050957d5661": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "5c7dfe4dae283a2f709e10f8bb60b0829a67b7442ce3c79eee12faa83cdcb5db": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6061e7013735f9b5c8be406ab42cc4a39b236699318b18cf0fbe862fb188fe74": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6762b1fdd5dd661877d6513b9c0f3600bdd580c65d5bf6312aec4a8405f5bcdf": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "6ea67623229245aae39e61e10215225152e49bfed3abbb3a6175d4a86d1db706": "une des lignes que tu cites est correcte, et il manque une ligne fautive : recalcule ce que fait chaque ligne, puis compare à son commentaire",
+        "78d6b727f9946924a64ae4026e7e3cc18e31c84acbe01bfda6120d8c4eec029f": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "8a1182c6916e3ca339cc3dfb4257f6f2e4ed84a767c5f64dd9f6eb46b7554e78": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8f1042d862d6169fb594cff3a9481d00ddccda57f042c0ab6834496b7c761fd8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "920d433be0b7c6fbf47ebb7ab3931cd57122c145ef269b3c22cde99ef7896de9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "98c62915cce22a3db9a656a92a15d32af908e15e0c9cc67479248b8aae9262da": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9af4a3c8915cacfa6eb3e950855d5f498be1b101d030584419f48c0220c0958d": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "9c0722a637b22d1f40fda02615872ce6a959a74e9627a502d26455b41096c57a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9c2c3f127e01b12d2d56773d59ff8c54d74ab383bef61dcd64dbdc5130fef6dc": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "9f964523e3ee4c52068c44ab7679021bdc76fc403de942290c5547ca51376dc8": "il manque une ligne fautive : refais chaque ligne à la main, avec ses propres nombres",
+        "a11834d9ac246d6122c3869bbf0eeb8f4ac927e1951884c5da5b102fa9ec5482": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a981689b29cc12548dc412c2b10f5fac4ea5d13ee0fe80101befda0f75e201f9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a98dfb7d4ff1807c555bdf2a5546d26e5bf15c85fac2238f882f15607d5d56a8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ab552b8efca7fb34e068e9eb4cd3364464fb5b94bacecab293c6b3a5aec46182": "il manque une ligne fautive : recalcule ce que fait chaque ligne, puis compare à son commentaire",
+        "af33f2291e2815368af2b2cdd85a2089a4320e4391f731853ccf1472382f4534": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b498de3a84d8d555fa84ac2c226ae6ea5d0d5085262c43fbf9b379d334d0f768": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b62f7805c1e799c7624e5dea85329b4e3309b0fdec347cc9759647f1dc9d6828": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b87d27151d2aa2e500196adf3acb82cf7df3618e3812ce36ad0a251cef17b0aa": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "bec78639249bf00dec9fa1eaa6934923c6801b9ebce8e30153073105a9918e44": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque ligne à la main, avec ses propres nombres",
+        "c2d16051e41125716aba246b96e0b7d444415b8cd2ef7a38f795c29b8a10fda9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c8480a6748b7d2bd7e6e91ed970d85a6a9db37e8e2f58318db4c26b0f3116d9e": "une des lignes que tu cites est correcte, et il manque une ligne fautive : recalcule ce que fait chaque ligne, puis compare à son commentaire",
+        "c9663b8dfeed72e829436936fe7a48b9be3f234b6050f2810a1b1275c3f86074": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d0b33ecbd6cc005d8bca24e9804437ae0715fe869504a42022e4b2a8a1c415f8": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie chaque résultat sur un petit exemple que tu sais faire à la main",
+        "d0c53e482f31083a7070b15626f3a3395ad4b16c2dbbb3ee87e28815c32fe41a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d1ecf1cbe8d5dfa0c4b4c361021eb603ddc878ae6386a3df222a1a7cae0acfc0": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d33b389f445a067a5f59e75d9a66ac421b07547187282f5aa22cf8646d5adace": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d3bfe4fba68b78ce460e8f842f963acb3b1ad22fea944edfd9693511d9a966fc": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "dcdeee7d262425c8bd53c9b03c94c3546a6a7595181fd87e93b17a4501c8e626": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "de39887eb076ba5803c133cfd6a4a6b6db95d7fcfd8c120d82b09c4e6e31cb1b": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie chaque résultat sur un petit exemple que tu sais faire à la main",
+        "dfcd55298969c82dd1b95c59b0421182ffd4e3dcf889fd4793ec5fa72ccafc17": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "e179d83430653f59ad82d5644b0122879e1f7aa6598727afbef10cd6ee3ccaf3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e360ff461bf16ba15bc7665958bc7949503aefc0d8e22cb3a6ca0e1a0256e1e0": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e90e8d6d0fadbcca6a20090bed210b26c51ad44f8a3b3bc9fd703f2da8add338": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "edf641ea5f1232ef6e6c5433fe27efca05b42a9b8f0268905dc235f58c0ca171": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque ligne à la main, avec ses propres nombres",
+        "f1a62203ccf69fe2f8952572abf1c16be313d5696d6739c0a9203c93ec41bda6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f676976b290bcb82dc3f3da10e3931c3549a0d9db4a2279846cc0a14f6a3fce9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f6b7b9650f36da55920c3485845e2f5d6cb024818ff92c33a5b8830acecc6c1f": "une des lignes que tu cites est correcte, et il manque une ligne fautive : recalcule ce que fait chaque ligne, puis compare à son commentaire",
+        "f8aa15c62527ce5439e67ed94b21781289eb33fa002e6a85c914347cb09da7d1": "il manque une ligne fautive : vérifie chaque résultat sur un petit exemple que tu sais faire à la main",
+        "febfc6e078b19a370945275b1b6aac57fb5899631cf08349af8ba1ce3ffdf579": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.31b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "017056fb630dfb2230836f3654ded5af7d3520ff2a0049cfd2111f8368983dae"
+        ],
+        [
+          "b370949f5b4a5791d4d9e4f8256810b1fe2ba8b4d728f52bc81c04816b7862e3"
+        ],
+        [
+          "85e92ca34132db5acd3573647701859ea83c0c54f96258fd19e46fa5f7b03591"
+        ],
+        [
+          "538cc7ca145e614326af914d107fe00524066d5db2ac8d7c465f9cdc38483eab"
+        ],
+        [
+          "6682bc09bed782f2297ac92ecbd30a24c03ea67935ad9a5470951b970c49c46e"
+        ],
+        [
+          "d98cb3710e52b43950f58b1ed2f2380ae69f4475e19a4e3dbe87c76fbd42a979"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a8fa729148564ac95e7f56fe0be6cde76c43e340773f4f11282c4088c4ce5751",
+          "b3b4c4bfb86778b9dd10653bf52f1e18e4231a062ccf58e3defcf35c1b148e3f",
+          "855a7d3411178d8a658b35d04250f28f20ff6296e3e2cbe64b2a664c47895744"
+        ],
+        [
+          "23d09f1c9b28823e18c5f6eb17055f42aad71256c8c4b6fa63c255ba434335fd",
+          "7575a7b259066fb5ed57fa1098b031a5f6421e4dd64c60109db37debeb216f75",
+          "7c0b4b714fb9b6165e46bd44cc1a0e74f4e811a0d76bb7f461ca78bd5b6838a9"
+        ],
+        [
+          "4464166b6d2f515fe9bb7b40c6ec820ec4ce2ce877f23b8efdddc37e5df63b85",
+          "ac98659c948f34cc80efd0733b182643f2a5592d7de0227a8804432e8caf4dba"
+        ],
+        [
+          "ebcff9fdb5824d0b7fd0a9f25128e0abc24056173d1881fd3ea258b97305ce89",
+          "641ecab94e7fe9295b1c9e7f8ad21a99dff3ea19fe3e4edd137b8faca13702f2",
+          "bd3aa0d438cf08b48f23b4cb683aa2b81af57ec071b8825ffa824bd3218ee9b1"
+        ],
+        [],
+        [
+          "70b4f91b95855f5872168251ca419b806e49e55b28d3a5c745a209401875578a",
+          "f10b6e37c775d5c564c2e27b57fb30825508d290d032afc0bd46d6708bf2c0f6",
+          "a7e3e000d8fba169057cc46e4777146f31dfe4ce7fe3e4834d0401f28bc3b0ba"
+        ]
+      ],
+      "element_hashes": [
+        "64a8f1ec4ad5b6a1f41bc8186da6cb889e9f81fba3e25a0b561c9743bfee661c",
+        "4840a53d8e53dec180461b71a4b7b9eb1802369ba3498170a7463a6dc3caf0ad",
+        "0067b6a06af2f420b5c50e5ade570df18f1b759c43b3e54be3f1c52e7d16c660",
+        "aae75055b9f3fc506377bed596e68c02e02c14677397481f2cdbc86ca9e1b19d",
+        "d16ceda2e76115a14da64baa889ecaaeab3c102d010672b8d56934df6bfb74e1",
+        "5b0d6bbbc0537974191da17535a9cf56b6a39c0e2ad51918ab44bd539a0486c9"
+      ],
+      "hash": "46ddbef08316958cf07a730e99895dc79d83be559c758ccbecd123f72c8e96b1",
+      "kind": "array",
+      "mistakes": {
+        "839f7b745ce725e01c667160fb8f468951442067bff23f0e889b39a604304a65": "(A) : q₂ doit être normé, sa norme vaut 1",
+        "d12487d3f053b2195760e4bd95943112d9bd4d8e6e45a67086a4ae908376ae08": "(B) : la projection est Q Qᵀ avec une base orthonormée, pas A Aᵀ",
+        "f046c3c27d11b7bd8fc02398c24b91838f0a157a62353aeea6d6085038dc4994": "(D) : R est triangulaire supérieure, on remonte depuis la dernière ligne"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
+    "M12b.33": {
+      "hash": "fdc0920fdec931a016bfdde923fc9878a26345abc8fcdbe5b6438bf9c4f9793f",
+      "kind": "bool",
+      "mistakes": {
+        "89503e65a68d78d6021ea7aafe277684b4be7cade38a4b868e34ab2e84dbed35": "l'objectif n'est pas atteint sur les trois datasets : la cellule du défi dit pourquoi"
+      },
+      "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",

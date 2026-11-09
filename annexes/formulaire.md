@@ -415,6 +415,20 @@ R0 (prise en main) n'a pas de formule : les priorités de Python (`**` avant le 
 | changement de base | $\mathbf{x} = \mathbf{S}\mathbf{x}'$ ; $\mathbf{A}' = \mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ (semblables) ; entre deux espaces $\mathbf{T}^{-1}\mathbf{A}\mathbf{S}$ (équivalentes) ; colonne $j$ de $\mathbf{A}'$ = coordonnées de $\mathbf{A}\mathbf{s}_j$ |
 | affine | $\varphi(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$, $\mathbf{b} = \varphi(\mathbf{0})$ ; conserve les combinaisons de coefficients de somme 1 ; bijective $\iff \mathbf{A}$ inversible ; $\varphi^{-1}(\mathbf{y}) = \mathbf{A}^{-1}(\mathbf{y} - \mathbf{b})$, de translation $-\mathbf{A}^{-1}\mathbf{b}$ ; sous-espace affine $\mathbf{x}_0 + U$ |
 
+### M12b · Orthogonalité et projections
+
+| Notion | Formules |
+|---|---|
+| produit scalaire | bilinéaire, symétrique, défini positif ; sur $\mathbb{R}^n$, $\langle \mathbf{x}, \mathbf{y} \rangle_{\mathbf{M}} = \mathbf{x}^\top\mathbf{M}\mathbf{y}$, $\mathbf{M}$ symétrique définie positive ($a > 0$ et $ac - b^2 > 0$ en dimension 2) ; $\lVert \mathbf{x} \rVert = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$, $\cos\theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\lVert \mathbf{x} \rVert\,\lVert \mathbf{y} \rVert}$ ; Cauchy-Schwarz $\lvert \langle \mathbf{x}, \mathbf{y} \rangle \rvert \le \lVert \mathbf{x} \rVert\,\lVert \mathbf{y} \rVert$ |
+| base orthonormée | $\langle \mathbf{q}_i, \mathbf{q}_j \rangle = \delta_{ij}$ ; $c_i = \langle \mathbf{v}, \mathbf{q}_i \rangle$ (orthogonale : $c_i = \frac{\langle \mathbf{v}, \mathbf{u}_i \rangle}{\lVert \mathbf{u}_i \rVert^2}$) ; Parseval $\lVert \mathbf{v} \rVert^2 = \sum c_i^2$ |
+| matrice orthogonale | $\mathbf{Q}^\top\mathbf{Q} = \mathbf{Q}\mathbf{Q}^\top = \mathbf{I}$, $\mathbf{Q}^{-1} = \mathbf{Q}^\top$ ; $(\mathbf{Q}\mathbf{x}) \cdot (\mathbf{Q}\mathbf{y}) = \mathbf{x} \cdot \mathbf{y}$ ; colonnes orthonormées sans être carrée : $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}_k$ seulement |
+| Gram-Schmidt | $\mathbf{v}_k = \mathbf{a}_k - \sum_{j<k} \langle \mathbf{a}_k, \mathbf{q}_j \rangle\,\mathbf{q}_j$, $\mathbf{q}_k = \frac{\mathbf{v}_k}{\lVert \mathbf{v}_k \rVert}$ ; modifié : $\mathbf{v} \leftarrow \mathbf{v} - \langle \mathbf{v}, \mathbf{q}_j \rangle\,\mathbf{q}_j$ ; coût $\approx 2mn^2$ |
+| complément orthogonal | $U^\perp = \{\mathbf{x} : \langle \mathbf{x}, \mathbf{u} \rangle = 0\ \forall \mathbf{u} \in U\}$ ; $\dim U + \dim U^\perp = n$ ; $(\operatorname{Im}\mathbf{A})^\perp = \ker\mathbf{A}^\top$, $\ker\mathbf{A} = (\operatorname{Im}\mathbf{A}^\top)^\perp$ |
+| projection | $\mathbf{p} \in U$ et $\mathbf{v} - \mathbf{p} \perp U$ ; $\mathbf{p} = \mathbf{Q}\mathbf{Q}^\top\mathbf{v}$, ou $\mathbf{A}^\top\mathbf{A}\,\mathbf{c} = \mathbf{A}^\top\mathbf{v}$ et $\mathbf{p} = \mathbf{A}\mathbf{c}$ ; $\lVert \mathbf{v} - \mathbf{u} \rVert^2 = \lVert \mathbf{v} - \mathbf{p} \rVert^2 + \lVert \mathbf{p} - \mathbf{u} \rVert^2$ ; $\mathbf{P}^2 = \mathbf{P} = \mathbf{P}^\top$, $\operatorname{tr}\mathbf{P} = \dim U$ ; centrer : $\mathbf{I} - \frac{1}{n}\mathbf{1}\mathbf{1}^\top$ |
+| moindres carrés | $\hat{\mathbf{y}} = \pi_{\operatorname{Im}\mathbf{X}}(\mathbf{y})$ ; $\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}^*) = \mathbf{0}$ ; $\lVert \mathbf{y} \rVert^2 = \lVert \hat{\mathbf{y}} \rVert^2 + \lVert \mathbf{r} \rVert^2$ ; avec une colonne de 1, $\sum r_i = 0$ |
+| QR | $\mathbf{A} = \mathbf{Q}\mathbf{R}$, $r_{jk} = \langle \mathbf{q}_j, \mathbf{a}_k \rangle$ ($j \le k$), $r_{kk} = \lVert \mathbf{v}_k \rVert > 0$ ; $\mathbf{R}\mathbf{w}^* = \mathbf{Q}^\top\mathbf{y}$ par remontée : $w_i = \big(z_i - \sum_{j>i} r_{ij}w_j\big)/r_{ii}$ |
+| fonctions | $\langle f, g \rangle = \int_a^b f\,g$ ; sur $[-1 ; 1]$, Gram-Schmidt sur $1, x, x^2$ donne $1, x, x^2 - \frac{1}{3}$ |
+
 ## Partie IV · Réseaux
 
 *(ajouté avec les chapitres M16 à M20)*

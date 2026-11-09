@@ -1282,3 +1282,55 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M12a.35 🏆 Défi : retrouver les relations linéaires exactes cachées entre les colonnes d'un tableau, sans en inventer ★★★ 30 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (26 cartes)
 <!-- wbm:end M12a -->
+
+<!-- wbm:section M12b -->
+## M12b · Orthogonalité et projections ⏱️ 15,2 h
+
+- [ ] M12b.Q1 🧠 Produit scalaire ou pas ? Symétrie et positivité ★ 4 min
+- [ ] M12b.Q2 🧠 Orthogonale, orthonormée, matrice orthogonale ★ 4 min
+- [ ] M12b.Q3 🧠 Gram-Schmidt : ce que chaque étape retire ★ 4 min
+- [ ] M12b.Q4 🧠 Le complément orthogonal : vrai ou faux ★ 4 min
+- [ ] M12b.Q5 🧠 Une matrice de projection : sur quoi, et quelles propriétés ? ★ 4 min
+- [ ] M12b.Q6 🧠 Moindres carrés et projection ★ 4 min
+- [ ] M12b.Q7 🧠 QR : formes et propriétés ★ 4 min (complet)
+- [ ] M12b.Q8 🧠 Des fonctions orthogonales ★ 4 min (complet)
+- [ ] M12b.R1 🔁 La projection sur une droite (M07) ★ 5 min
+- [ ] M12b.R2 🔁 Les équations normales et la matrice chapeau (M09b) ★ 5 min
+- [ ] M12b.R3 🔁 Base, rang et noyau (M12a) ★ 5 min
+- [ ] M12b.1 ✏️ Un produit scalaire défini par une matrice 2 × 2 : normes, angles, orthogonalité ★ 15 min
+- [ ] M12b.2 ✏️ Les coordonnées dans une base orthonormée : des produits scalaires au lieu d'un système ★ 15 min
+- [ ] M12b.3 ✏️ Une matrice orthogonale 3 × 3 conserve normes et angles ★ 15 min
+- [ ] M12b.4 ✏️ Gram-Schmidt sur trois vecteurs de ℝ³ ★★ 20 min
+- [ ] M12b.5 ✏️ Gram-Schmidt pour un produit scalaire qui n'est pas l'usuel ★★ 20 min (complet)
+- [ ] M12b.6 ✏️ Une base du complément orthogonal d'un plan de ℝ⁴ ★★ 20 min
+- [ ] M12b.7 ✏️ Projeter sur un plan de ℝ³ : avec une base quelconque, puis orthonormée ★★ 20 min
+- [ ] M12b.8 ✏️ La matrice de projection : P² = P, Pᵀ = P, trace et rang ★★ 15 min (complet)
+- [ ] M12b.9 ✏️ La distance d'un point à un sous-espace, et le résidu orthogonal ★ 15 min
+- [ ] M12b.10 ✏️ Des moindres carrés comme une projection : y, son projeté et le résidu ★★ 20 min
+- [ ] M12b.11 ✏️ La décomposition QR d'une matrice 3 × 2, puis les moindres carrés par R w = Qᵀy ★★ 25 min (complet)
+- [ ] M12b.12 ✏️ Le produit scalaire de fonctions sur [−1 ; 1] : orthogonaliser 1, x et x² ★★ 25 min (complet)
+- [ ] M12b.13 ∂ L'inégalité de Cauchy-Schwarz pour tout produit scalaire ★★ 20 min (complet)
+- [ ] M12b.14 ∂ Une famille orthogonale de vecteurs non nuls est libre ★ 15 min
+- [ ] M12b.15 ∂ Gram-Schmidt donne une base orthonormée du même sous-espace ★★ 20 min (complet)
+- [ ] M12b.16 ∂ L'orthogonal de l'image de A est le noyau de Aᵀ ★★ 20 min
+- [ ] M12b.17 ∂ Le projeté orthogonal est le point le plus proche (Pythagore) ★★ 20 min
+- [ ] M12b.18 🔗 Pont : retirer d'une feature ce qu'explique une autre, une projection puis un résidu ★ 15 min
+- [ ] M12b.19 🔗 Pont : projeter sur k directions orthonormées, reconstruire, et l'erreur par Pythagore ★★ 15 min
+- [ ] M12b.20 📖 MML §3.2, §3.5 à §3.7 : produits scalaires, orthogonalité, fonctions, en anglais ★★ 30 min (complet)
+- [ ] M12b.21 📖 MML §3.8 et §9.4 : projections, Gram-Schmidt et moindres carrés ★★ 30 min (complet)
+- [ ] M12b.22 🧮 Fermi : le coût de Gram-Schmidt sur une matrice 100 000 × 50 ★ 10 min (complet)
+- [ ] M12b.23 🗣️ Expliquer pourquoi le projeté est le point le plus proche ★ 10 min
+- [ ] M12b.E1 💼 « Pourquoi résoudre des moindres carrés par QR plutôt que par les équations normales ? » ★ 10 min (complet)
+- [ ] M12b.E2 💼 « Qu'est-ce qu'une matrice orthogonale, et pourquoi est-elle agréable en calcul numérique ? » ★ 10 min (complet)
+- [ ] M12b.24 🔨 Gram-Schmidt, classique et modifié ★★ 25 min
+- [ ] M12b.25 🔨 La projection orthogonale sur un sous-espace ★ 15 min
+- [ ] M12b.26 🔨 La décomposition QR et les moindres carrés par QR ★★ 25 min (complet)
+- [ ] M12b.27 📦 `np.linalg.qr` et `lstsq` contre ta projection et ta QR : les signes de Q et de R ★ 15 min (complet)
+- [ ] M12b.28 🔮 Prédire : Gram-Schmidt classique sur des vecteurs presque colinéaires, QᵀQ vaut-il encore I ? ★ 10 min
+- [ ] M12b.29 🔬 Gram-Schmidt classique contre modifié : l'orthogonalité perdue quand les colonnes sont presque dépendantes ★★ 20 min (complet)
+- [ ] M12b.30 🎨 Projeter un nuage de ℝ³ sur un plan : les résidus orthogonaux en image ★ 20 min
+- [ ] M12b.31 🐛 Chasse à l'erreur : une normalisation oubliée, QQᵀ sur une base non orthonormée, R w = Qᵀy résolu dans le mauvais sens ★ 15 min (complet)
+- [ ] M12b.32 🛠️ Un test de propriétés pour la projection : idempotente, symétrique, résidu orthogonal ★ 15 min (complet)
+- [ ] M12b.33 🏆 Défi : des colonnes presque dépendantes, des moindres carrés à 1e−8 près de `lstsq` par l'orthogonalisation de [X | y] ★★★ 30 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (24 cartes)
+<!-- wbm:end M12b -->

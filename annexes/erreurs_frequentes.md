@@ -466,3 +466,23 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Écrire $\mathbf{S}\mathbf{A}\mathbf{S}^{-1}$ pour la matrice dans la base $\mathbf{S}$ | `S @ A @ np.linalg.inv(S)` | $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$, `np.linalg.solve(S, A @ S)` ; vérifier sur $\mathbf{A}'\mathbf{e}_1$ |
 | Inverser une application affine en oubliant que la translation est transformée | $\varphi^{-1}(\mathbf{y}) = \mathbf{A}^{-1}\mathbf{y} - \mathbf{b}$ | $\mathbf{A}^{-1}(\mathbf{y} - \mathbf{b})$ : retirer $\mathbf{b}$ d'abord ; vérifier $\varphi^{-1}(\mathbf{b}) = \mathbf{0}$ |
 | Croire qu'un rang calculé en flottants est exact | « `matrix_rank` dit 3, donc aucune colonne n'est redondante » | dire la tolérance ; une relation vraie à $10^{-12}$ près est redondante pour des mesures ; mettre les colonnes à la même échelle |
+
+## Orthogonalité et projections (M12b)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Prendre une matrice symétrique à coefficients positifs pour un produit scalaire | « $\begin{pmatrix} 2 & 3 \\ 3 & 4 \end{pmatrix}$ définit un produit scalaire » | vérifier $a > 0$ et $ac - b^2 > 0$ ; ici $ac - b^2 = -1$, et $(3, -2)$ donne $-2$ |
+| Dire « orthogonaux » sans préciser le produit scalaire | « $(1, -1)$ et $(0, 1)$ ne sont jamais orthogonaux » | pour $\mathbf{M} = \begin{pmatrix} 3 & 1 \\ 1 & 1 \end{pmatrix}$, ils le sont ; l'orthogonalité dépend du produit scalaire |
+| Appeler orthogonale une matrice à colonnes seulement orthogonales | $\begin{pmatrix} 2 & 0 \\ 0 & 1/2 \end{pmatrix}$ « orthogonale, donc son inverse est sa transposée » | il faut des colonnes **orthonormées** : $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}$ |
+| Lire des coordonnées par produits scalaires dans une base non orthonormée | $c_4 = \mathbf{x} \cdot (2\mathbf{u}_4)$ | diviser par $\lVert 2\mathbf{u}_4 \rVert^2$, ou résoudre le système |
+| Oublier de normer dans Gram-Schmidt | $\mathbf{q}_2 = \mathbf{a}_2 - (\mathbf{a}_2 \cdot \mathbf{q}_1)\,\mathbf{q}_1$ | diviser $\mathbf{v}_2$ par sa norme, puis vérifier $\lVert \mathbf{q}_2 \rVert = 1$ |
+| Projeter sur les $\mathbf{a}_j$ au lieu des $\mathbf{q}_j$ | $\mathbf{v}_2 = \mathbf{a}_2 - (\mathbf{a}_2 \cdot \mathbf{q}_1)\,\mathbf{a}_1$ | retirer la projection sur le vecteur **unitaire** $\mathbf{q}_1$ |
+| Confondre $U^\perp$ et le complémentaire de $U$ | « $U^\perp$ contient tous les vecteurs hors du plan » | $U^\perp$ est un sous-espace (un noyau), de dimension $n - \dim U$ |
+| Former la projection avec une base non orthonormée | `P = A @ A.T` | `Q = gram_schmidt(A)` puis `Q @ Q.T`, ou $\mathbf{A}(\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top$ |
+| Prendre $\lVert \mathbf{p} \rVert$ pour la distance à $U$ | la distance de $\mathbf{v}$ au plan égale à la longueur du projeté | $\lVert \mathbf{v} - \mathbf{p} \rVert$, la norme du résidu |
+| Conclure « projection orthogonale » de la seule idempotence | $\begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$ « vérifie $\mathbf{M}^2 = \mathbf{M}$, donc projette orthogonalement » | vérifier aussi $\mathbf{M}^\top = \mathbf{M}$ ; sinon, c'est une projection oblique |
+| Voir les résidus des moindres carrés perpendiculaires à la droite | dessiner les écarts à angle droit de la droite ajustée | ils sont verticaux ; l'angle droit est dans $\mathbb{R}^n$, entre $\mathbf{y} - \hat{\mathbf{y}}$ et les colonnes de $\mathbf{X}$ |
+| Résoudre $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ depuis la première ligne | `for i in range(p): w[i] = (z[i] - R[i, :i] @ w[:i]) / R[i, i]` | $\mathbf{R}$ est triangulaire supérieure : remonter depuis la dernière ligne |
+| Comparer directement sa QR à celle de NumPy | « `np.linalg.qr` donne $r_{11} < 0$, ma fonction est fausse » | QR est unique au signe près : comparer après $\mathbf{D} = \operatorname{diag}(\operatorname{signe}(r_{kk}))$ |
+| Faire confiance à Gram-Schmidt classique sur des colonnes presque dépendantes | des features polynomiales de degré 10 : $\mathbf{Q}^\top\mathbf{Q}$ « vaut $\mathbf{I}$ » | mesurer $\max \lvert \mathbf{Q}^\top\mathbf{Q} - \mathbf{I} \rvert$ ; procédé modifié, ou orthogonaliser deux fois |
+| Croire qu'une orthogonalité de fonctions ne dépend pas de l'intervalle | « $x$ et $x^2$ sont orthogonales » | vrai sur $[-1 ; 1]$, faux sur $[0 ; 1]$ ($\int_0^1 x^3\,dx = \frac{1}{4}$) |
