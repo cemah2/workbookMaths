@@ -510,3 +510,28 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Prendre la racine carrée d'une matrice élément par élément | `np.sqrt(Sigma)` comme $\boldsymbol{\Sigma}^{1/2}$ | $\mathbf{Q}\,\operatorname{diag}(\sqrt{\lambda_i})\,\mathbf{Q}^\top$ (`eigh`), ou `scipy.linalg.sqrtm` |
 | Oublier les covariances dans la variance d'une somme | « $\mathbb{V}(x_1 + x_2) = \mathbb{V}(x_1) + \mathbb{V}(x_2)$ » pour des features corrélées | $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ : ajouter $2\operatorname{Cov}(x_1, x_2)$ |
 | Confondre les blanchiments | $\mathbf{W} = \mathbf{L}$, ou $\mathbf{L}^{-\top}$, ou $\boldsymbol{\Sigma}^{1/2}$ | vérifier $\mathbf{W}\boldsymbol{\Sigma}\mathbf{W}^\top = \mathbf{I}$ : $\mathbf{L}^{-1}$, $\boldsymbol{\Sigma}^{-1/2}$ ou $\boldsymbol{\Lambda}^{-1/2}\mathbf{Q}^\top$ |
+
+## SVD et analyse en composantes principales (M12d)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Prendre les valeurs propres de $\mathbf{A}$ pour ses valeurs singulières | « $\begin{pmatrix} 0 & 2 \\ -2 & 0 \end{pmatrix}$ n'a pas de valeur singulière réelle » | les valeurs singulières sont les racines des valeurs propres de $\mathbf{A}^\top\mathbf{A}$, toujours positives : ici 2 et 2 |
+| Oublier la racine carrée | « $\mathbf{A}^\top\mathbf{A}$ a pour valeurs propres 25 et 4, donc $s = 25$ et $4$ » | $s_i = \sqrt{\lambda_i}$ : 5 et 2 |
+| Ne pas diviser $\mathbf{A}\mathbf{v}_i$ par $s_i$ | $\mathbf{u}_i = \mathbf{A}\mathbf{v}_i$, de norme $s_i$ | $\mathbf{u}_i = \mathbf{A}\mathbf{v}_i/s_i$, unitaire |
+| Lire les $\mathbf{v}_i$ en colonnes de `Vt` | `Vt[:, 0]` pris pour $\mathbf{v}_1$ | `np.linalg.svd` rend $\mathbf{V}^\top$ : $\mathbf{v}_1$ est la ligne `Vt[0]` |
+| Changer le signe d'un seul vecteur singulier | $\mathbf{v}_1 \to -\mathbf{v}_1$ sans toucher à $\mathbf{u}_1$ | changer $\mathbf{u}_i$ et $\mathbf{v}_i$ ensemble ; fixer une convention avant de comparer deux SVD |
+| Calculer l'erreur de rang $k$ avec les $s_i$ | « $\lVert \mathbf{A} - \mathbf{A}_1 \rVert_F = s_2 + s_3$ » | $\sqrt{s_2^2 + s_3^2}$ (Eckart-Young) |
+| Mesurer l'énergie d'une image non centrée | « le rang 1 garde 95 % de l'énergie, la compression est excellente » | retirer d'abord le niveau moyen ; regarder aussi l'image |
+| Transposer la pseudo-inverse | $\mathbf{A}^+$ de la forme de $\mathbf{A}$ | $\mathbf{A}^+ = \mathbf{V}\mathbf{S}^{-1}\mathbf{U}^\top$ est de forme $(n, m)$ |
+| Inverser une valeur singulière minuscule | `1 / s` avec $s = 10^{-12}$ (du bruit) | tronquer sous un seuil relatif (`rcond`) ou régulariser (ridge) |
+| Juger le conditionnement par le déterminant | « $\det = 1$, le système est bien posé » | $\kappa = s_{\max}/s_{\min}$ : une matrice de déterminant 1 peut avoir $\kappa = 10^4$ |
+| Former $\mathbf{A}^\top\mathbf{A}$ pour une matrice mal conditionnée | les équations normales avec $\kappa = 10^7$ | $\kappa(\mathbf{A}^\top\mathbf{A}) = \kappa^2$ : QR ou SVD sur $\mathbf{A}$ |
+| Une ACP sans centrer | les vecteurs propres de $\mathbf{X}^\top\mathbf{X}$ | centrer : sinon le premier axe pointe vers la moyenne |
+| Prendre le premier vecteur de `eigh` pour le premier axe | `axes = vectors[:, 0]` | `eigh` range par ordre **croissant** : la dernière colonne, ou retourner l'ordre |
+| Lire les axes en lignes | `vectors[order]` pour réordonner les axes | les vecteurs propres sont les **colonnes** : `vectors[:, order]` (et `components_` de scikit-learn les range en lignes) |
+| Mélanger $n$ et $n - 1$ | des variances de scores avec `np.var` (en $n$) comparées à une covariance en $n - 1$ | dire la convention, et la garder partout : `np.var(..., ddof=1)`, $\lambda_j = s_j^2/(n - 1)$ |
+| Oublier `rowvar=False` | `np.cov(X)` avec les exemples en lignes : une matrice $n \times n$ | `np.cov(X, rowvar=False)` |
+| Calculer les parts sur les $k$ premières variances | « avec 2 axes sur 5, les parts sont 70 % et 30 % » | diviser par la somme de **toutes** les variances |
+| Standardiser sans y penser, ou ne pas standardiser | des pixels réduits à variance 1 ; des euros et des kilomètres seulement centrés | standardiser si les unités diffèrent ; sinon centrer seulement |
+| Juger l'erreur de reconstruction sur l'entraînement | un seuil d'anomalie fixé sur les données qui ont servi aux axes | calculer les axes sur l'entraînement, mesurer et fixer les seuils sur d'autres données |
+| Lire des distances sur une carte t-SNE | « ces deux groupes sont deux fois plus éloignés que ceux-là » | une carte montre des voisinages ; tailles et distances entre groupes n'ont pas de sens précis |

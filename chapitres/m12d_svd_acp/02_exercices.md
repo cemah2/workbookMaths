@@ -135,7 +135,7 @@ Quatre exemples à deux features : $(2, 30)$, $(4, 50)$, $(6, 40)$, $(8, 60)$.
 2. Les deux variances et la covariance, avec $\frac{1}{n - 1}$.
 3. La corrélation des deux features.
 4. Les valeurs standardisées du premier exemple.
-5. La matrice de covariance des données standardisées ?
+5. La covariance des deux features **standardisées** ? Pourquoi ?
 
 <a id="papier"></a>
 
