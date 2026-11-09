@@ -201,19 +201,19 @@ Pour la copie : $\langle \mathbf{q}_1, \mathbf{q}_2 \rangle_{\mathbf{D}} = \frac
 
 ### Ex M12b.6 — Une base du complément orthogonal d'un plan de ℝ⁴
 
-**Réponses** : a) `2` · b) `[-3, 2, 1, 0]` · c) `[1, -2, 0, 1]` · d) `True` · e) `[1, 2]` · f) `False` · g) `True`.
+**Réponses** : a) `2` · b) `[-3, 2, 1, 0]` · c) `[1, -2, 0, 1]` · d) `False` · e) `[1, 2]` · f) `False` · g) `True`.
 
 **Démarche.** $U^\perp = \ker\begin{pmatrix} 1 & 0 & 3 & -1 \\ 0 & 1 & -2 & 2 \end{pmatrix}$, déjà réduite : $x_1 = -3x_3 + x_4$ et $x_2 = 2x_3 - 2x_4$.
 - a) $4 - 2 = 2$.
 - b) $(x_3, x_4) = (1, 0)$ : $(-3, 2, 1, 0)$. c) $(0, 1)$ : $(1, -2, 0, 1)$.
-- d) $\mathbf{w} \cdot \mathbf{a} = -1 + 0 + 3 - 2 = 0$ et $\mathbf{w} \cdot \mathbf{b} = 0 - 2 - 2 + 4 = 0$.
-- e) Ses coordonnées libres $(x_3, x_4) = (1, 2)$ : $\mathbf{w} = \mathbf{k}_1 + 2\mathbf{k}_2$.
+- d) $\mathbf{v} \cdot \mathbf{a} = 3 + 0 - 3 + 0 = 0$, mais $\mathbf{v} \cdot \mathbf{b} = 0 + 1 + 2 + 0 = 3 \ne 0$ : $\mathbf{v}$ est orthogonal à $\mathbf{a}$ seulement.
+- e) $\mathbf{w} \cdot \mathbf{a} = -1 + 0 + 3 - 2 = 0$ et $\mathbf{w} \cdot \mathbf{b} = 0 - 2 - 2 + 4 = 0$ ; ses coordonnées libres $(x_3, x_4) = (1, 2)$ : $\mathbf{w} = \mathbf{k}_1 + 2\mathbf{k}_2$.
 - f) $\mathbf{k}_1 \cdot \mathbf{k}_2 = -3 - 4 + 0 + 0 = -7$.
 - g) $(1, -1, 5, -3) = \mathbf{a} - \mathbf{b}$ ; et, autre façon, il est orthogonal à $\mathbf{k}_1$ ($-3 - 2 + 5 + 0 = 0$) et à $\mathbf{k}_2$ ($1 + 2 + 0 - 3 = 0$), donc dans $(U^\perp)^\perp = U$.
 
 Pour la copie : vérifie $\mathbf{k}_1 \cdot \mathbf{a} = -3 + 3 = 0$, $\mathbf{k}_1 \cdot \mathbf{b} = 2 - 2 = 0$, $\mathbf{k}_2 \cdot \mathbf{a} = 1 - 1 = 0$, $\mathbf{k}_2 \cdot \mathbf{b} = -2 + 2 = 0$. La base du noyau n'est pas orthogonale (f) : pour une base orthonormée, Gram-Schmidt sur $(\mathbf{k}_1, \mathbf{k}_2)$.
 
-**Erreurs fréquentes.** Les signes de $x_1$ et $x_2$ en fonction des variables libres ; chercher $U^\perp$ dans $\mathbb{R}^2$ ; en e), inverser l'ordre des coordonnées.
+**Erreurs fréquentes.** Les signes de $x_1$ et $x_2$ en fonction des variables libres ; chercher $U^\perp$ dans $\mathbb{R}^2$ ; en d), ne tester que $\mathbf{a}$ ; en e), inverser l'ordre des coordonnées.
 
 **Variante.** Une base orthonormée de $U^\perp$ ? *Réponse* : $\mathbf{q}_1 = \frac{1}{\sqrt{14}}(-3, 2, 1, 0)$, puis $\mathbf{k}_2 - \frac{\mathbf{k}_2 \cdot \mathbf{k}_1}{14}\mathbf{k}_1 = \mathbf{k}_2 + \frac{1}{2}\mathbf{k}_1 = \frac{1}{2}(-1, -2, 1, 2)$, de norme $\frac{\sqrt{10}}{2}$ : $\mathbf{q}_2 = \frac{1}{\sqrt{10}}(-1, -2, 1, 2)$, la direction de $\mathbf{w}$.
 

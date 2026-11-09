@@ -130,11 +130,12 @@ PAPER = [
     ]),
 
     Paper("M12b.6", "Une base du complément orthogonal d'un plan de ℝ⁴", [
-        ("a", "an integer", "4 - A_6.rank()", '''mistakes={"dim U⊥ = n − dim U, avec n = 4 et dim U = 2": 3}'''),
+        ("a", "an integer", "4 - A_6.rank()",
+         '''mistakes={"dim U⊥ = n − dim U : combien de vecteurs indépendants engendrent U ?": 3}'''),
         ("b", "a list of 4 numbers", "exact(KERNEL_6[0])", f'''mistakes={{"{FREE_SIGNS}": [3, -2, 1, 0]}}'''),
         ("c", "a list of 4 numbers", "exact(KERNEL_6[1])", f'''mistakes={{"{FREE_SIGNS}": [-1, 2, 0, 1]}}'''),
-        ("d", "True or False", "A_6 * sympy.Matrix([-1, -2, 1, 2]) == sympy.zeros(2, 1)",
-         '''mistakes={"calcule w · a et w · b": False}'''),
+        ("d", "True or False", "A_6 * sympy.Matrix([3, 1, -1, 0]) == sympy.zeros(2, 1)",
+         '''mistakes={"être orthogonal à a ne suffit pas : calcule aussi le produit scalaire avec b": True}'''),
         ("e", "a list of 2 numbers", "[1, 2]",
          '''mistakes={"les coordonnées de w dans cette base sont ses coordonnées libres (x₃, x₄), dans cet ordre": [2, 1]}'''),
         ("f", "True or False", "KERNEL_6[0].dot(KERNEL_6[1]) == 0", '''mistakes={"calcule leur produit scalaire": True}'''),
@@ -521,8 +522,8 @@ La vérification calcule :
 - c) vrai ou faux : pour une matrice $\mathbf{A}$ de forme $(6, 3)$ et un vecteur $\mathbf{v}$ tirés au hasard (`np.random.default_rng(25)`), projeter une seconde fois $\mathbf{p}$ = `project(v, A)` redonne $\mathbf{p}$, à $10^{-12}$ près ;
 - d) vrai ou faux : pour les mêmes, $\mathbf{A}^\top(\mathbf{v} - \mathbf{p})$ est nul à $10^{-10}$ près ;
 - e) vrai ou faux : `project(v, A @ M)`, avec une matrice $\mathbf{M}$ de forme $(3, 3)$ tirée au hasard (inversible), redonne $\mathbf{p}$ à $10^{-10}$ près ;
-- f) le nom de l'erreur levée par `project([1, 2], [[1, 0], [0, 1], [0, 0]])` ;
-- g) le nom de l'erreur levée par `project([1, 2, 3], [[1, 2], [1, 2], [1, 2]])`.
+- f) le nom de l'erreur levée par `project([1, 2], [[2, 0], [1, 1], [0, 3]])` ;
+- g) le nom de l'erreur levée par `project([2, 0, 1], [[1, 3], [2, 6], [0, 0]])`.
 
 Dans ta copie : quelle droite de régression a) calcule-t-il, et que représentent les quatre nombres ? Vérifie b) avec la formule de la projection sur une droite (M07). Pourquoi e) était-il prévisible ?""",
     todo=LOAD_LEARNER,
@@ -545,9 +546,9 @@ with checked("M12b.25e"):
     wbm.check("M12b.25e", bool(np.allclose(mymath.orthogonal.project(v_25, A_25 @ M_25), p_25, rtol=0, atol=1e-10)),
               computed=True)
 with checked("M12b.25f"):
-    wbm.check("M12b.25f", raised(mymath.orthogonal.project, [1, 2], [[1, 0], [0, 1], [0, 0]]), computed=True)
+    wbm.check("M12b.25f", raised(mymath.orthogonal.project, [1, 2], [[2, 0], [1, 1], [0, 3]]), computed=True)
 with checked("M12b.25g"):
-    wbm.check("M12b.25g", raised(mymath.orthogonal.project, [1, 2, 3], [[1, 2], [1, 2], [1, 2]]), computed=True)''',
+    wbm.check("M12b.25g", raised(mymath.orthogonal.project, [2, 0, 1], [[1, 3], [2, 6], [0, 0]]), computed=True)''',
     solution=LOAD_REF + '''
 project = mymath.orthogonal.project
 rng_25 = np.random.default_rng(25)
@@ -558,7 +559,7 @@ print("a)", np.round(project([1, 0, 4, 3], [[1, 0], [1, 1], [1, 3], [1, 4]]), 6)
 print("c)", bool(np.allclose(project(p_25, A_25), p_25, rtol=0, atol=1e-12)),
       " d)", bool(np.allclose(A_25.T @ (v_25 - p_25), 0, rtol=0, atol=1e-10)),
       " e)", bool(np.allclose(project(v_25, A_25 @ M_25), p_25, rtol=0, atol=1e-10)))
-print("f)", raised(project, [1, 2], [[1, 0], [0, 1], [0, 0]]), " g)", raised(project, [1, 2, 3], [[1, 2], [1, 2], [1, 2]]))''',
+print("f)", raised(project, [1, 2], [[2, 0], [1, 1], [0, 3]]), " g)", raised(project, [2, 0, 1], [[1, 3], [2, 6], [0, 0]]))''',
     record=f'''A_25a = np.array([[1, 0], [1, 1], [1, 3], [1, 4]], dtype=float)
 wbm.record("M12b.25a", [0.4, 1.2, 2.8, 3.6], decimals=6,
            mistakes={{"A Aᵀ v n'est une projection que si les colonnes de A sont orthonormées : Q = gram_schmidt(A), puis Q (Qᵀ v)":
@@ -906,7 +907,7 @@ M12B_30_CHECK = '''with checked("M12b.30 vérifications"):
     problems = []
     ref_30 = wbm.load_mymath("ref", alias="mymath_ref").orthogonal   # your mymath stays loaded
     rng_t = np.random.default_rng(300)
-    for X_t, A_t in [(rng_t.normal(size=(6, 3)), np.array([[1.0, 2.0], [0.0, 1.0], [1.0, -1.0]])),
+    for X_t, A_t in [(rng_t.normal(size=(6, 3)), np.array([[1.0, 0.0], [2.0, 1.0], [-1.0, 1.0]])),
                      (rng_t.normal(size=(4, 3)), np.array([[0.0, 1.0], [2.0, 0.0], [1.0, 1.0]]))]:
         fig_t = plt.figure()
         ax_t = fig_t.add_subplot(projection="3d")

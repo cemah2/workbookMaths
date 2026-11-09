@@ -154,7 +154,7 @@ La matrice de l'exemple, $\mathbf{Q} = \frac{1}{3}\begin{pmatrix} 2 & 1 & -2 \\ 
 ### En machine learning
 
 - Une matrice orthogonale est une **rotation** (ou une symétrie) des données : elle ne change ni les distances ni les produits scalaires entre exemples. Un kNN ou une régression ridge donnent les mêmes résultats sur des données tournées ; un arbre de décision, qui coupe selon les axes, non.
-- Changer de base orthonormée pour exprimer des données est le cœur de l'ACP (workbookIA 12, M12d) : les nouvelles coordonnées sont des produits scalaires avec les nouveaux axes, et Parseval dit que la norme de chaque exemple est conservée.
+- Changer de base orthonormée pour exprimer des données est le cœur de l'ACP (workbookIA 12, M12d) : les nouvelles coordonnées sont des produits scalaires avec les nouveaux axes, et Parseval dit que la norme de chaque exemple (centré) est conservée quand on garde tous les axes.
 - En calcul numérique, multiplier par une matrice orthogonale n'amplifie pas les erreurs d'arrondi (les normes sont conservées) : c'est ce qui rend QR (§7) plus sûre que les équations normales. On initialise aussi certains réseaux avec des matrices orthogonales (workbookIA 16).
 
 ⚠️ **Erreur classique.** Appeler « orthogonale » une matrice dont les colonnes sont seulement orthogonales : $\begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}$ a des colonnes orthogonales de norme $\sqrt{2}$, et $\mathbf{A}^\top\mathbf{A} = 2\mathbf{I} \ne \mathbf{I}$. Il faut des colonnes **orthonormées**. Et $\mathbf{Q}^{-1} = \mathbf{Q}^\top$ n'a de sens que si $\mathbf{Q}$ est carrée.

@@ -174,7 +174,7 @@
 - e :
 - f :
 - g :
-- U⊥ comme noyau d'une matrice ; b) et c) vérifiés ; g) de deux façons ; comment obtenir une base orthonormée de U⊥ :
+- U⊥ comme noyau d'une matrice ; b) et c) vérifiés, et w dans U⊥ ; g) de deux façons ; comment obtenir une base orthonormée de U⊥ :
 
 ### Ex M12b.7 — Projeter sur un plan de ℝ³ : avec une base quelconque, puis orthonormée
 

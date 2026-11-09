@@ -247,12 +247,12 @@ Dans $\mathbb{R}^4$, $U = \operatorname{Vect}(\mathbf{a}, \mathbf{b})$ avec $\ma
 | a | $\dim U^\perp$ | un entier |
 | b | le vecteur de $U^\perp$ avec $(x_3, x_4) = (1, 0)$ | une liste de 4 nombres |
 | c | le vecteur de $U^\perp$ avec $(x_3, x_4) = (0, 1)$ | une liste de 4 nombres |
-| d | vrai ou faux : $\mathbf{w} = (-1, -2, 1, 2) \in U^\perp$ | `True` ou `False` |
-| e | les coordonnées de $\mathbf{w}$ dans la base de $U^\perp$ formée des vecteurs de b) et c) | une liste de 2 nombres |
+| d | vrai ou faux : $\mathbf{v} = (3, 1, -1, 0) \in U^\perp$ | `True` ou `False` |
+| e | les coordonnées de $\mathbf{w} = (-1, -2, 1, 2)$, un vecteur de $U^\perp$, dans la base de $U^\perp$ formée des vecteurs de b) et c) | une liste de 2 nombres |
 | f | vrai ou faux : les vecteurs de b) et c) sont orthogonaux | `True` ou `False` |
 | g | vrai ou faux : $(1, -1, 5, -3) \in U$ | `True` ou `False` |
 
-Dans ta copie : écris $U^\perp$ comme le noyau d'une matrice (laquelle ?), et vérifie b) et c) par leurs produits scalaires avec $\mathbf{a}$ et $\mathbf{b}$. Réponds à g) de deux façons : avec $\mathbf{a}$ et $\mathbf{b}$, puis avec la base de $U^\perp$. Que faudrait-il faire pour avoir une base **orthonormée** de $U^\perp$ ?
+Dans ta copie : écris $U^\perp$ comme le noyau d'une matrice (laquelle ?), vérifie b) et c) par leurs produits scalaires avec $\mathbf{a}$ et $\mathbf{b}$, et vérifie que $\mathbf{w}$ est bien dans $U^\perp$. Réponds à g) de deux façons : avec $\mathbf{a}$ et $\mathbf{b}$, puis avec la base de $U^\perp$. Que faudrait-il faire pour avoir une base **orthonormée** de $U^\perp$ ?
 
 ### Ex M12b.7 — Projeter sur un plan de ℝ³ : avec une base quelconque, puis orthonormée ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer un projeté par les équations normales, puis par une base orthonormée, et comparer les deux méthodes.

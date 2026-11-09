@@ -40146,7 +40146,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "929bf789ac3ff25b3c0735a9acedeb952148966d450da4330bccb3e870246bf7": "dim U⊥ = n − dim U, avec n = 4 et dim U = 2"
+        "929bf789ac3ff25b3c0735a9acedeb952148966d450da4330bccb3e870246bf7": "dim U⊥ = n − dim U : combien de vecteurs indépendants engendrent U ?"
       },
       "sign": 1,
       "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
@@ -40190,10 +40190,10 @@
       "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
     },
     "M12b.6d": {
-      "hash": "08d11964624fda563914757ba5ff656f3374270ac87d63b8558c143235358f73",
+      "hash": "8b6b3ee8859b071c59bf253180a13e5a50f060a35b4b9c715e3032e0ae1285c9",
       "kind": "bool",
       "mistakes": {
-        "8b6b3ee8859b071c59bf253180a13e5a50f060a35b4b9c715e3032e0ae1285c9": "calcule w · a et w · b"
+        "08d11964624fda563914757ba5ff656f3374270ac87d63b8558c143235358f73": "être orthogonal à a ne suffit pas : calcule aussi le produit scalaire avec b"
       },
       "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
     },

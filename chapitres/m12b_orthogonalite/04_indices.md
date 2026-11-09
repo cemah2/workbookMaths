@@ -632,7 +632,7 @@ Pense au fil à plomb et au triangle rectangle.
 </details>
 <details><summary>Indice 3</summary>
 
-L'hypoténuse est le plus long côté d'un triangle rectangle ; pour l'exemple, pense aux prédictions d'une régression.
+L'hypoténuse est le plus long côté d'un triangle rectangle ; pour l'exemple, pense à une fonction compliquée qu'on remplace par un polynôme (fiche §8).
 
 </details>
 
