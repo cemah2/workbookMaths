@@ -544,7 +544,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M13a", "dir": "m13a_vraisemblance_logistique", "hours": 13.8, "generation_sessions": 1,
+        "id": "M13a", "dir": "m13a_vraisemblance_logistique", "hours": 13.8, "generation_sessions": 2,
         "mml": ["§8.3"],
         "summary": "Le maximum de vraisemblance (Bernoulli, catégorielle, gaussienne), la log-loss comme moins la "
                    "log-vraisemblance, la sigmoïde et la fonction softplus, la régression logistique comme modèle "
