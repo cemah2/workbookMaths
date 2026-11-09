@@ -610,7 +610,7 @@ wbm.record("M05b.21f", "x**2 + 2*y - 1", kind="expr", variables=("x", "y"),
 # ---------------------------------------------------------------------------
 # Notebook exercises: a prediction, an experiment, a figure (M05b.22 to M05b.24)
 # ---------------------------------------------------------------------------
-M05B_22_EXPERIMENT = '''ref_22 = wbm.load_mymath("ref")                        # the reference library: the same results as yours
+M05B_22_EXPERIMENT = '''ref_22 = wbm.load_mymath("ref", alias="mymath_ref")   # the reference library: the same results as yours
 f_22 = lambda p: p[0] ** 2 + 3 * p[1] ** 2          # noqa: E731
 P_22 = np.array([3.0, 1.0])
 grad_22 = np.array([2 * P_22[0], 6 * P_22[1]])            # (6, 6)

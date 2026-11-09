@@ -739,7 +739,7 @@ wbm.record("M06.20e", 0.09233151537307269, decimals=4,
 # ---------------------------------------------------------------------------
 # Notebook exercises: a prediction, an experiment, a figure (M06.21 to M06.23)
 # ---------------------------------------------------------------------------
-M06_21_EXPERIMENT = '''ref_21 = wbm.load_mymath("ref")                        # the reference library: the same results as yours
+M06_21_EXPERIMENT = '''ref_21 = wbm.load_mymath("ref", alias="mymath_ref")   # the reference library: the same results as yours
 values_21 = np.arange(-3, 4)                            # X is uniform on {-3, ..., 3}
 
 

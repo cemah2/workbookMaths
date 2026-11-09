@@ -137,6 +137,24 @@ def test_notebooks_use_the_standard_setup_cell_and_no_magics():
                 assert not any(l.lstrip().startswith(("!", "%")) for l in lines), f"{path.name}: magic"
 
 
+def test_exercise_notebooks_load_the_reference_under_its_own_alias():
+    """In an exercise notebook, wbm.load_mymath("ref") would replace the learner's mymath in sys.modules: a
+    submodule of the learner not imported yet (mymath.orthogonal) would then silently be the reference's, and a check
+    meant for the learner's code would test the reference (M12b.32, BIBLE §24). The reference goes under
+    alias="mymath_ref"."""
+    import re
+
+    pattern = re.compile(r'load_mymath\(\s*"ref"\s*(\)|,(?![^)]*\balias\s*=))')
+    found = []
+    for path in sorted(ROOT.glob("chapitres/*/03_notebook.ipynb")):
+        nb = json.loads(path.read_text(encoding="utf-8"))
+        for i, cell in enumerate(nb["cells"]):
+            if cell["cell_type"] == "code" and pattern.search("".join(cell["source"])):
+                found.append(f"{path.parent.name} cell {i}")
+    assert not found, ("expected wbm.load_mymath(\"ref\", alias=\"mymath_ref\") in the exercise notebooks, found an "
+                       "unaliased load in: " + ", ".join(found))
+
+
 def test_executed_notebooks_have_no_errors():
     for path in _authored_notebooks():
         nb = json.loads(path.read_text(encoding="utf-8"))

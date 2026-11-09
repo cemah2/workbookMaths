@@ -599,7 +599,7 @@ M11_21 = Ex(
     "M11.21", "🔮", 1, 10, "Prédire : laquelle des trois bornes est la plus serrée pour n = 100 ?",
     "prévoir quelle borne gagne selon la moyenne et l'écart, puis le vérifier.", "fiche §4 à §6", tracks="C, E",
     hypothesis=True,
-    given='''reference_21 = wbm.load_mymath("ref")     # the experiment uses the reference of concentration.py
+    given='''reference_21 = wbm.load_mymath("ref", alias="mymath_ref")     # the experiment uses the reference of concentration.py
 CASES_21 = [(0.5, 0.1), (0.02, 0.05), (0.01, 0.5), (0.001, 0.004)]   # (p, t) for the cases a) to d)
 
 
@@ -960,7 +960,7 @@ with checked("M11.26 vérifications"):
         raise TypeError("ton test doit s'appeler sans argument : boucle sur tes lois et tes seuils dans la fonction "
                         "(pas de @pytest.mark.parametrize)")
     test_markov_bound_on_ten_laws()                     # your test runs here first: ⏳ while it is not written
-    reference_26 = wbm.load_mymath("ref")
+    reference_26 = wbm.load_mymath("ref", alias="mymath_ref")
     results = {
         "la vraie borne de Markov": (reference_26.concentration.markov_bound, True),
         "une borne deux fois trop petite": (markov_bound_half, False),
@@ -996,7 +996,7 @@ Attention : pour une loi discrète, `law.sf(a)` vaut $P(X > a)$ ; pour un seuil 
 pytest exécute ta fonction de test **seule**, sans les autres cellules : seuls `math`, `np`, `pytest`, `stats` (`from scipy import stats`) et `markov_bound` lui sont fournis. La vérification la lance trois fois : sur la vraie borne de Markov, où elle doit **passer** ; puis sur `markov_bound_half` et `markov_bound_exp` (fournies), deux fausses bornes, où elle doit **échouer**.
 
 Dans ta copie : quelle loi de ta liste attrape `markov_bound_half` ? Pourquoi une liste de lois « ordinaires » (exponentielle, uniforme, Poisson) peut-elle laisser passer une borne deux fois trop petite ?""",
-    given='''markov_bound = wbm.load_mymath("ref").concentration.markov_bound   # the true bound, to run your test here
+    given='''markov_bound = wbm.load_mymath("ref", alias="mymath_ref").concentration.markov_bound   # the true bound, to run your test here
 
 
 def markov_bound_half(mean, a):

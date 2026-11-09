@@ -432,7 +432,7 @@ wbm.record("M10.13h", True,
 # ---------------------------------------------------------------------------
 # Notebook exercises: a prediction and a figure (M10.14 and M10.15)
 # ---------------------------------------------------------------------------
-GIVEN_14 = '''reference_14 = wbm.load_mymath("ref")     # the experiment uses the reference of convex.py
+GIVEN_14 = '''reference_14 = wbm.load_mymath("ref", alias="mymath_ref")     # the experiment uses the reference of convex.py
 
 
 def separable_fraction(n, d, trials=300, seed=14):
@@ -501,7 +501,7 @@ w_15, b_15 = np.array([-1.0, -1.0]), 4.0                 # a separator of the tw
 
 M10_15_CHECK = '''with checked("M10.15 vérifications"):
     from matplotlib.patches import Polygon as PolygonPatch
-    reference_15 = wbm.load_mymath("ref")
+    reference_15 = wbm.load_mymath("ref", alias="mymath_ref")
     problems = []
     X_t = np.array([[0.0, 4.0], [1.0, 7.0], [3.0, 6.0], [2.0, 5.0], [-1.0, 6.0],         # other data: hulls of 5 and 4
                     [4.0, 1.0], [6.0, 2.0], [5.0, -1.0], [7.0, 0.0], [5.5, 0.5]])        # vertices, one point inside
@@ -720,7 +720,7 @@ wbm.record("M10.16d", 3 / 5 ** 0.5, decimals=4,
 )
 
 M10_17_CHECK = '''with checked("M10.17 vérifications"):
-    reference_17 = wbm.load_mymath("ref")
+    reference_17 = wbm.load_mymath("ref", alias="mymath_ref")
     problems = []
     for seed in range(1700, 1720):                       # correct hulls: no problem may be reported
         rng_t = np.random.default_rng(seed)
