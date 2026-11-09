@@ -69,7 +69,7 @@ PAPER = [
         ("f", "a list of 3 numbers (4 decimals)", "exact(U1_2)",
          '''decimals=4, mistakes={"u₁ = A v₁ / s₁, avec le v₁ de la convention : son signe suit celui de v₁": exact(-U1_2)}'''),
         ("g", "a number", "5850",
-         '''fractional="‖A‖²_F est la somme des carrés de tous les éléments, s₁² et non s₁ : un entier"'''),
+         '''fractional="‖A‖²_F est la somme des carrés de tous les éléments, s₁² et non s₁ : un entier."'''),
         ("h", "a list of 2 numbers (4 decimals)", "exact(V2_2)",
          f'''decimals=4, mistakes={{"{SIGN}": exact(-V2_2), "{UNIT}": [5, 1]}}'''),
     ]),
@@ -184,7 +184,7 @@ PAPER = [
          '''decimals=4, mistakes={"x̂ = μ + t₁u₁ + t₂u₂ : rajoute la moyenne": exact(REC7_9 - MU_8)}'''),
         ("c", "a list of 7 numbers", "exact(XC_8 * V([4, 0, 1]))",
          '''mistakes={"les scores se calculent sur les objets CENTRÉS": exact(X_8 * V([4, 0, 1]))}'''),
-        ("d", "a number", "20", '''fractional="la variance des scores se calcule avec n − 1 = 6, comme la covariance"'''),
+        ("d", "a number", "20", '''fractional="la variance des scores se calcule avec n − 1 = 6, comme la covariance."'''),
         ("e", "a number (4 decimals)", "float(20 * U1_8[0])",
          '''decimals=4, mistakes={"Cov(t₁, x₁) = u₁ᵀ C e₁ = λ₁ u₁₁ : n'oublie pas λ₁": float(U1_8[0])}'''),
         ("f", "a number (4 decimals)", "float(sympy.Rational(18, 7))",
@@ -473,7 +473,7 @@ A_26 = "[[2, 3, -1], [0, 4, 2]]"
 R_26 = "[[1, -3], [2, -6], [-1, 3]]"
 
 M12D_26 = Ex(
-    "M12d.26", "🔨", 2, 25, "La SVD par les valeurs propres de AᵀA · `svd`",
+    "M12d.26", "🔨", 2, 40, "La SVD par les valeurs propres de AᵀA · `svd`",
     "programmer la SVD compacte par les valeurs et vecteurs propres de $\\mathbf{A}^\\top\\mathbf{A}$, avec son seuil "
     "de rang numérique et sa convention de signe.", "fiche §1", tracks="C, E", mymath="svd_pca.py",
     body=HOWTO + r"""

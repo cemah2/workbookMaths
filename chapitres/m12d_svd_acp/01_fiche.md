@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §8 |
-| **Temps total estimé** | ≈ 17,7 h : lecture et calculs de la fiche ≈ 3 h 30, exercices ≈ 13 h 20, flashcards ≈ 50 min (parcours essentiel ≈ 11,1 h) |
+| **Temps total estimé** | ≈ 18,0 h : lecture et calculs de la fiche ≈ 3 h 30, exercices ≈ 13 h 35, flashcards ≈ 50 min (parcours essentiel ≈ 11,3 h) |
 | **Prérequis** | M12c (valeurs propres, théorème spectral, quotient de Rayleigh, matrice de covariance et règle $\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top$) ; M12b (bases orthonormées, projection orthogonale, moindres carrés comme projection) ; M12a (rang, noyau, image) ; M09b (moindres carrés, équations normales, ridge) ; M02c (moyenne, covariance, standardisation) ; M06 (entropie, divergence KL) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `svd_pca.py` : `svd`, `low_rank_approximation`, `pinv`, `condition_number`, `principal_axes`, `explained_variance_ratio` |
@@ -85,7 +85,7 @@ $$\mathbf{A}\mathbf{v}_i = s_i\,\mathbf{u}_i \quad (i \le r), \qquad \mathbf{A}\
 
 En ne gardant que les $r$ valeurs non nulles, on obtient la **SVD compacte** (*compact SVD*) : $\mathbf{A} = \mathbf{U}_r\mathbf{S}_r\mathbf{V}_r^\top$, avec $\mathbf{U}_r$ de forme $(m, r)$ et $\mathbf{V}_r$ de forme $(n, r)$ à colonnes orthonormées, et $\mathbf{S}_r = \operatorname{diag}(s_1, \ldots, s_r)$. Développée, c'est une somme de $r$ matrices de rang 1 :
 $$\mathbf{A} = \sum_{i=1}^r s_i\,\mathbf{u}_i\mathbf{v}_i^\top.$$
-Les valeurs singulières sont uniques ; quand les $s_i$ non nuls sont distincts, les vecteurs $\mathbf{v}_i$ et $\mathbf{u}_i$ correspondants le sont aussi, au signe près (on change à la fois $\mathbf{v}_i$ en $-\mathbf{v}_i$ et $\mathbf{u}_i$ en $-\mathbf{u}_i$) ; les $\mathbf{v}_i$ du noyau, eux, ne sont fixés qu'à une base orthonormée près. La convention de `mymath`, comme celle de scikit-learn pour l'ACP : la coordonnée de plus grande valeur absolue de chaque $\mathbf{v}_i$ est positive.
+Les valeurs singulières sont uniques ; quand les $s_i$ non nuls sont distincts, les vecteurs $\mathbf{v}_i$ et $\mathbf{u}_i$ correspondants le sont aussi, au signe près (on change à la fois $\mathbf{v}_i$ en $-\mathbf{v}_i$ et $\mathbf{u}_i$ en $-\mathbf{u}_i$) ; les $\mathbf{v}_i$ du noyau, eux, ne sont fixés qu'à une base orthonormée près. La convention de `mymath`, comme celle de scikit-learn pour l'ACP (depuis sa version 1.5) : la coordonnée de plus grande valeur absolue de chaque $\mathbf{v}_i$ est positive (en cas d'égalité, la première).
 
 ### La calculer : passer par $\mathbf{A}^\top\mathbf{A}$
 
@@ -264,7 +264,7 @@ Quelle direction unitaire donne la plus grande variance ? On cherche le maximum 
 - le maximum est la plus grande valeur propre $\lambda_1$ de $\mathbf{C}$, atteint au vecteur propre unitaire $\mathbf{u}_1$ ;
 - parmi les directions orthogonales à $\mathbf{u}_1$, le maximum est $\lambda_2$, en $\mathbf{u}_2$ ; et ainsi de suite.
 
-**Définition.** Les **axes principaux** (*principal axes*) d'un nuage sont les vecteurs propres unitaires $\mathbf{u}_1, \ldots, \mathbf{u}_p$ de sa matrice de covariance, rangés par valeur propre décroissante ; la valeur propre $\lambda_j$ est la **variance le long de l'axe** $j$. Ils sont orthogonaux deux à deux (théorème spectral). Leur signe est arbitraire ; la convention de `mymath` et de scikit-learn rend positive la coordonnée de plus grande valeur absolue. On dit aussi **composantes principales** (*principal components*), un mot qui désigne selon les auteurs les axes ou les coordonnées sur ces axes.
+**Définition.** Les **axes principaux** (*principal axes*) d'un nuage sont les vecteurs propres unitaires $\mathbf{u}_1, \ldots, \mathbf{u}_p$ de sa matrice de covariance, rangés par valeur propre décroissante ; la valeur propre $\lambda_j$ est la **variance le long de l'axe** $j$. Ils sont orthogonaux deux à deux (théorème spectral). Leur signe est arbitraire ; la convention de `mymath` et de scikit-learn rend positive la coordonnée de plus grande valeur absolue (la première, en cas d'égalité). On dit aussi **composantes principales** (*principal components*), un mot qui désigne selon les auteurs les axes ou les coordonnées sur ces axes.
 
 **La variance totale ne change pas.** La somme des variances des $p$ features est $\operatorname{tr}\mathbf{C} = \lambda_1 + \cdots + \lambda_p$ (M12c §2) : les axes principaux ne créent ni ne détruisent de variance, ils la **répartissent**, le plus possible sur le premier, puis le plus possible de ce qui reste sur le deuxième.
 

@@ -155,9 +155,14 @@ def test_svd_reconstructs_a(svd_pca, name):
     assert isinstance(got, tuple) and len(got) == 3, f"expected a tuple (U, s, Vt) of 3 arrays for {name}, got {got!r}"
     U, s, Vt = (np.asarray(x) for x in got)
     scale = max(1.0, float(np.max(np.abs(A))))
-    assert np.allclose((U * s) @ Vt, A, rtol=0, atol=1e-9 * scale), (
+    hint = "U = A V / s, column by column"
+    if s.size == 0:
+        hint = "s is empty: the cut-off removed every value; sort the eigenvalues of AᵀA in decreasing order first"
+    elif s.ndim == 1 and np.any(np.diff(s) > 0):
+        hint = "s is increasing: sort the eigenvalues of AᵀA in decreasing order first"
+    assert U.ndim == 2 and Vt.ndim == 2 and np.allclose((U * s) @ Vt, A, rtol=0, atol=1e-9 * scale), (
         f"expected U diag(s) Vt to give back A for {name}, got {_show((U * s) @ Vt)} instead of {_show(A)} "
-        f"(U = A V / s, column by column)")
+        f"({hint})")
 
 
 @pytest.mark.parametrize("name", list(MATRICES))

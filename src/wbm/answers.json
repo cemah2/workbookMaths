@@ -45698,7 +45698,7 @@
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },
     "M12d.2g": {
-      "fractional": "‖A‖²_F est la somme des carrés de tous les éléments, s₁² et non s₁ : un entier",
+      "fractional": "‖A‖²_F est la somme des carrés de tous les éléments, s₁² et non s₁ : un entier.",
       "hash": "1a898a0bf021095b26ba8dc85e053823983151d145e6924d605920250de8bf74",
       "kind": "int",
       "magnitude": 3,
@@ -46896,7 +46896,7 @@
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },
     "M12d.9d": {
-      "fractional": "la variance des scores se calcule avec n − 1 = 6, comme la covariance",
+      "fractional": "la variance des scores se calcule avec n − 1 = 6, comme la covariance.",
       "hash": "cceb2aec19b1b83d60dc34ba729e19f7df02bb2f09b045cb2df86292e8cfcdac",
       "kind": "int",
       "magnitude": 1,

@@ -519,7 +519,7 @@ CHAPTERS = [
             ("M12d.25", "🗣️", 1, 10, "Expliquer la SVD comme « rotation, étirement, rotation »", "§2", "E"),
             ("M12d.E1", "💼", 1, 10, "« Comment choisissez-vous le nombre de composantes d'une ACP ? »", "§7", ""),
             ("M12d.E2", "💼", 1, 10, "« Que dit le conditionnement d'une matrice ? »", "§4", ""),
-            ("M12d.26", "🔨", 2, 25, "La SVD par les valeurs propres de AᵀA", "§1", "E m:svd"),
+            ("M12d.26", "🔨", 2, 40, "La SVD par les valeurs propres de AᵀA", "§1", "E m:svd"),
             ("M12d.27", "🔨", 1, 20, "Approximation de rang faible et conditionnement", "§3 §4",
              "E m:low_rank_approximation,condition_number p:M12d.26"),
             ("M12d.28", "🔨", 1, 15, "La pseudo-inverse", "§4", "m:pinv p:M12d.26"),

@@ -47,7 +47,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M12a](#m12a) | Espaces vectoriels et applications linéaires | 12 | §2.4, §2.5, §2.6, §2.7, §2.8 | 16,6 h | ✅ exercices | 2 |
 | [M12b](#m12b) | Orthogonalité et projections | 12 | §3.2.2, §3.2.3, §3.5, §3.6, §3.7, §3.8, §9.4 | 15,2 h | ✅ exercices | 1 |
 | [M12c](#m12c) | Valeurs propres et matrices symétriques | 12 | §4.1, §4.2, §4.3, §4.4 | 16,8 h | ✅ exercices | 2 |
-| [M12d](#m12d) | SVD et analyse en composantes principales | 12 | §4.5, §4.6, §4.7, §10.1, §10.2, §10.3, §10.4, §10.5, §10.6 | 17,7 h | ✅ exercices | 2 |
+| [M12d](#m12d) | SVD et analyse en composantes principales | 12 | §4.5, §4.6, §4.7, §10.1, §10.2, §10.3, §10.4, §10.5, §10.6 | 18,0 h | ✅ exercices | 2 |
 | [M13a](#m13a) | Vraisemblance et régression logistique | 13 | §8.3 | 13,8 h | ✅ exercices | 1 |
 | [M13b](#m13b) | Optimisation sous contraintes et SVM | 13 | §7.2, §7.3, ch. 12 | 16,1 h | ✅ exercices | 1 |
 | [M14](#m14) | Les maths des ensembles | 14 | — | 7,2 h | ✅ exercices | 1 |
@@ -82,7 +82,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | 0 · Remise à niveau | 12 | 363 | 116,5 h | 93,3 h |
 | I · Fondations | 9 | 319 | 107,6 h | 69,7 h |
 | II · Concepts | 7 | 256 | 83,9 h | 54,0 h |
-| III · ML classique | 8 | 321 | 106,7 h | 70,3 h |
+| III · ML classique | 8 | 321 | 107,0 h | 70,6 h |
 | IV · Réseaux | 6 | — | ≈ 58 h (estimé) | à détailler |
 | V · Architectures | 3 | — | ≈ 24 h (estimé) | à détailler |
 | VI · Génératif et RL | 6 | — | ≈ 60 h (estimé) | à détailler |
@@ -2431,7 +2431,7 @@ Le déterminant et la trace, les valeurs et vecteurs propres, la méthode de la 
 
 La décomposition en valeurs singulières et son interprétation géométrique, l'approximation de rang faible, la pseudo-inverse et le conditionnement ; puis les axes principaux par le quotient de Rayleigh, l'ACP (centrer, projeter, reconstruire), la variance expliquée, l'erreur de reconstruction, l'ACP en grande dimension, et la place de t-SNE et d'UMAP.
 
-**Temps** : 17,7 h en parcours complet, 11,1 h en parcours essentiel (lecture 210 min, 26 flashcards).
+**Temps** : 18,0 h en parcours complet, 11,3 h en parcours essentiel (lecture 210 min, 26 flashcards).
 
 **Objectifs**
 
@@ -2501,7 +2501,7 @@ La décomposition en valeurs singulières et son interprétation géométrique, 
 | M12d.25 | 🗣️ | Expliquer la SVD comme « rotation, étirement, rotation » | ★ | 10 | §2 | C, E | manuel | — |
 | M12d.E1 | 💼 | « Comment choisissez-vous le nombre de composantes d'une ACP ? » | ★ | 10 | §7 | C | manuel | — |
 | M12d.E2 | 💼 | « Que dit le conditionnement d'une matrice ? » | ★ | 10 | §4 | C | manuel | — |
-| M12d.26 | 🔨 | La SVD par les valeurs propres de AᵀA · `svd` | ★★ | 25 | §1 | C, E | pytest | — |
+| M12d.26 | 🔨 | La SVD par les valeurs propres de AᵀA · `svd` | ★★ | 40 | §1 | C, E | pytest | — |
 | M12d.27 | 🔨 | Approximation de rang faible et conditionnement · `low_rank_approximation, condition_number` | ★ | 20 | §3 §4 | C, E | pytest | M12d.26 |
 | M12d.28 | 🔨 | La pseudo-inverse · `pinv` | ★ | 15 | §4 | C | pytest | M12d.26 |
 | M12d.29 | 🔨 | Les axes principaux d'une matrice de covariance, et la variance expliquée · `principal_axes, explained_variance_ratio` | ★★ | 25 | §5 §6 §7 | C, E | pytest | — |

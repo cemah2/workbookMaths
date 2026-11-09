@@ -485,13 +485,13 @@ Un changement d'unités multiplie chaque feature $j$ par un nombre $d_j > 0$ : l
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | la nouvelle matrice de covariance $\mathbf{D}\mathbf{C}\mathbf{D}$ | une matrice |
+| a | la nouvelle matrice de covariance $\mathbf{D}\boldsymbol{\Sigma}\mathbf{D}$ | une matrice |
 | b | ses variances le long des axes | une liste de 3 nombres (4 décimales) |
 | c | son premier axe principal | une liste de 3 nombres (4 décimales) |
 | d | la part de variance expliquée par ce premier axe | un nombre (4 décimales) |
 | e | la corrélation des mesures 1 et 3, avant le changement | un nombre (4 décimales) |
 | f | l'angle entre le premier axe de M12d.8 et celui de c), en degrés | un nombre (1 décimale) |
-| g | la matrice de covariance des données standardisées | une matrice (4 décimales) |
+| g | la matrice de covariance des données standardisées (après le changement) | une matrice (4 décimales) |
 | h | vrai ou faux : pour toute matrice diagonale $\mathbf{D}$ à éléments strictement positifs, la covariance des données standardisées est la même pour $\mathbf{X}$ et pour $\mathbf{X}\mathbf{D}$ | `True` ou `False` |
 
 Dans ta copie : calcule la corrélation des mesures 1 et 3 après le changement. Montre que $(\mathbf{D}\boldsymbol{\Sigma}\mathbf{D})_{ij} = d_id_j\Sigma_{ij}$, puis que la corrélation $\Sigma_{ij}/\sqrt{\Sigma_{ii}\Sigma_{jj}}$ ne change pas : c'est h) en général. Compare c) au premier axe de M12d.8 : qui a « décidé » de la direction ?
@@ -568,7 +568,7 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 
 | ID | Titre | Type | ★ | ⏱️ | Parcours |
 |---|---|---|---|---|---|
-| M12d.26 | La SVD par les valeurs propres de AᵀA · `svd` | 🔨 | ★★ | 25 | C, E |
+| M12d.26 | La SVD par les valeurs propres de AᵀA · `svd` | 🔨 | ★★ | 40 | C, E |
 | M12d.27 | Approximation de rang faible et conditionnement · `low_rank_approximation, condition_number` | 🔨 | ★ | 20 | C, E |
 | M12d.28 | La pseudo-inverse · `pinv` | 🔨 | ★ | 15 | C |
 | M12d.29 | Les axes principaux d'une matrice de covariance, et la variance expliquée · `principal_axes, explained_variance_ratio` | 🔨 | ★★ | 25 | C, E |

@@ -224,7 +224,7 @@ Pour la copie : les scores de c) ont pour somme 0, et ceux de $\mathbf{u}_2$ (la
 
 **Démarche.** Parts cumulées : 0,48 ; 0,72 ; 0,84 ; 0,895 ; 0,93 ; 0,96 ; 0,985 ; 1. f) $1{,}1 + 0{,}7 + 0{,}6 + 0{,}5 + 0{,}3$. g) $\frac{50}{51} \times 3{,}2$.
 
-Pour la copie : le coude est après $k = 3$ (9,6 ; 4,8 ; 2,4 chutent de moitié à chaque pas, puis 1,1 à 0,3 restent petits et comparables). Le seuil de 90 % en demande 5, celui de 95 % en demande 6 : les seuils gardent aussi des axes de bruit. Si l'ACP prépare un modèle, on règle $k$ en validation (fiche §7).
+Pour la copie : le coude est après $k = 3$ (9,6 ; 4,8 ; 2,4 chutent de moitié à chaque pas, puis 1,1 à 0,3 restent petits et comparables) ; sur une échelle logarithmique, où une chute de moitié à chaque pas fait une droite, on le placerait plutôt après $k = 4$ : les deux lectures se défendent, si elles sont justifiées. Le seuil de 90 % en demande 5, celui de 95 % en demande 6 : les seuils gardent aussi des axes de bruit. Si l'ACP prépare un modèle, on règle $k$ en validation (fiche §7).
 
 **Erreurs fréquentes.** Les parts non cumulées ; s'arrêter à 4 pour 90 % (0,895) ; oublier le facteur $\frac{n-1}{n}$.
 
