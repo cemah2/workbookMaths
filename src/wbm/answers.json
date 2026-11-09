@@ -43051,10 +43051,10 @@
     "M12c.9a": {
       "decimals": 0,
       "element_hashes": [
-        "7474413777fc451cf6cd5bdc3baa3f3b134ca274bcdb54cfd5ac7d5470196a64",
-        "a832f873e0d6b80992335aacc3091a31cdb8d057cf65f68028f76659b23ba8e9"
+        "5a01e1ea7ceeda72036e432da51e935d1097444369866b65cf809e760536dc23",
+        "bb7b6a01d655093479ecd99b0932e9ad9d362e30b35760377581d995b6507c2f"
       ],
-      "hash": "9babded48f06159b25acd388f6764030df2946e1c5bf185d8c1e0ddd00fd2e9c",
+      "hash": "86f4d7dfe6d43cd8cfd5c60613b54c91b43eede631cbe897c81030a656ba4cb0",
       "integer": true,
       "kind": "array",
       "shape": [
@@ -43066,32 +43066,32 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "666bc1505a6228a597a299e827e11d49a19ddf004ef47e12854870e87204d9b2"
+          "d7c7ca89154b88d8d9994dd5f466054c98120b187aca257f224d5b6f5d366217"
         ],
         [
-          "fe39d6cb0bf7fd7821b928ba957b751469276e66b1d1ebd5172cd1b6c929dd4e"
+          "7fd12312083b7f4767a562bd59834d62e5d8d9c4aa5edbac635c0abbfc0b207b"
         ]
       ],
       "element_coarse_any": [
         [
           "00503005ecd17b7dcc984d367a4dbb24f36ca05287f4231e61d0106910aa0f9e",
-          "551598197151eea66afed898154deddf6c052d0cc4c08a9e29fd0f0bfd3db7c8",
-          "8dfa5a847f7fce0e3bb947080a163a40bd70871bf8ee2493471542ce83ab5b5a"
+          "79ebdbd392c2e60c37ab39c8103927ab6c3a92289d8c54579e4cb8c411681c02",
+          "b0d33402d9e8443739c5f3889d20d20dc1d202777ef0aa08e047cad249a7797e"
         ],
         [
-          "948d5776657be73dd602794ffc287d9bb407268e104358af72e8457dd018b21e",
-          "d15c832bfbc38e5842ce917a4d11c46e53af899d91ebe266446f47f4c7a78159",
-          "41ed90bcc4b9a8b0d0d12e3de588e7600e79c4bb19983309a4de1c69bc813204"
+          "43e5af26fd044a136481701a548ce51788977e980e6cbbb55443cbfff45e47f6",
+          "cd5a788c749c36933206bf34607525f400e91ac217f393211a1268ef323ba38c",
+          "83ea8ebb68e67c62049f06f994d561d4c9078fcd6007c00aba9f5ff129e7bcba"
         ]
       ],
       "element_hashes": [
-        "7bf5c8acd39435de928169a3338d0a0cef1c1fc10cf90e0b1eeee7a608a3467a",
-        "35fc01e0f8d013d73cbc78f36b61fe766aef7fc89eb2224f57f594821532d1ed"
+        "92d5a366338f15e9f5867f3f6675f114f15dac7ca3a129bfb15e059ba3591194",
+        "d58c0958a01c43470ddac341df795aa0e0b4869045df3ffeb2d5435bfb2f817f"
       ],
-      "hash": "d202acd174d8a49dee0ee58160ebfa68826c2bbb67518cd7fec272c71ffefb73",
+      "hash": "5fefda8b9798d70760d8f7a04532ab5b0125ce803379c99c5ff2627946aef3d2",
       "kind": "array",
       "mistakes": {
-        "81e08fbc7626b306989acfe2ef3324a6de706c88c03dfbfed657939836938be4": "normaliser : divise A x₀ par sa norme"
+        "99ff2dc12fd06d1fe32bf625157a7f142bc8e482cbc98a62a1db7bff7927b1c3": "normaliser : divise A x₀ par sa norme"
       },
       "shape": [
         2
@@ -43102,32 +43102,30 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "0d4989870bb547ef19c5a2e818358ec7855b2b3485afff5ec08de65326e7eb2e"
+          "f6c7155cdde750ea9e11edabae5cb410408811e32aeab7401eceba2723a75df0"
         ],
         [
-          "66ce4ae0b2903983f544e045ebb200cf27699ffa7ba4c96a28641a598c71ac3e"
+          "1e795a82ecb0d2c5678bdc52001729a74a6275f8f6319569fc452150f1c84365"
         ]
       ],
       "element_coarse_any": [
         [
-          "850986a0c4eadeaf84a71d2481cbd6062518e317306a1276ca4f767e50058027",
-          "c52a65e0eae56b70f1bc530c2c4961aa6324412dafa1b5a8143af2ae908227cf",
-          "a2115b954d1d8d9ba5b5e06092a7a8f84726daa7bb9474ccfd08e757c0cfbfa1"
+          "a4af8c9450ce9c23e6a084ae6f69aebc877e7f33ff526a16b15205bd26e8e8e5"
         ],
         [
-          "1cb3a07b0607797c63824652dbc721a9875888b84e8ded166f40d8f3e22d5b9d",
-          "46e60421717f53b09e3ff528edc46d72eb828044921f8be6e38bbaa46d61e04b",
-          "eafef1b8fda126e46654e21084e98c8ff4931bf656e6afd4711ef98263d9c5ad"
+          "73927eb7c7c4616f65a6877c85109bffd98a2c73f609f4823975ebacbf68a89b",
+          "4baa7fa0066029352fb1b05d1f021cd049cab0685b515bb63118cf63ea61341c",
+          "ba8a2f3624f3ff8aaf82f93d6972e2b0cc27e41b1653f60b124ab8587fbb5e19"
         ]
       ],
       "element_hashes": [
-        "d37aa208b0b8056d2c4efc51e73c59d8a91bb9795f7955d8720a388c274c6228",
-        "781dc175c01698cf556c475eb3a1b356e3afeac208040d2884088d670d1e4189"
+        "459616412b4039b1c3890e50f1851c0ac0c26a57304095cfb19ec6e5b0d892ba",
+        "bb18ff0e4001e9a26231b3ecb7f88867f8b0eeb5168c1c227f087bdd5d8ebc60"
       ],
-      "hash": "35a5ee89dc3ae57b2ddb9874ac991801d0b4b960393d08d695e8630c880ae1ae",
+      "hash": "84ff62ae4fde44f9381b5b902e59a79afef3975a9b12c4ab8fa0d9d8081d3bd0",
       "kind": "array",
       "mistakes": {
-        "f463b68cbf951eecf834601717c3a3daba739abd139833919321510722366936": "le signe : la coordonnée de plus grande valeur absolue doit être positive"
+        "53856361acd611a29058f4dc7257cfbaab03e8e1ebd3fbf57770b19635eb560e": "le signe : la coordonnée de plus grande valeur absolue doit être positive"
       },
       "shape": [
         2
@@ -43138,31 +43136,31 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "c6af9db4cd235a23d92cf0fff42dc2b38f504a520e56f9e55893436d176959a4"
+          "c07959be7d2ae96168c1224c063c65d684badb6e49c85f4a783ccced872d0b11"
         ],
         [
-          "d0c5431acc28b0417ee6a333333be845f3c87ceb253d72a7934634e2edc7f8f8"
+          "7a5edab63a1117d640a9fb3f08d0fac9185e418d44618e2cd2038dd589cb72ed"
         ]
       ],
       "element_coarse_any": [
         [
-          "b8a9acde67c3163eaa9360e5cbfb6bce31501da22d1ed40c54decb5bb177a193",
-          "7fa148b3a3f94e24c492d45f4e913bc11992d6a54702526926892911ccacc9b5"
+          "52a17412ad1f050f87f660698a8a50a6f80b1039ccdc478a3264d9eb67229eaf",
+          "e883ca9ffd44674bacefb4677f1bc4f8a2585deb743ce3a7c7d0b9185f6a4143"
         ],
         [
           "1851f4004947e0cfd907b75b03800f4f5b6cc7710a9e4c405df5e0ee2707660e",
-          "561fd72115ac84ca1c1f34e4b063ac135d42a47a116c6d0732c29998c5acd7d5",
-          "0309921788f75c9d91ec7a285421c914ecbbbc2f70a22b0699c924b9565d53dd"
+          "0445df60b19893d08c002e5a7981ce144e7aa5d01b232c7bc17de1f5d83ff12b",
+          "b923fa3a63c7ebd4e2243c731d31e6763598a2931bafff4fd428bfd326f23e73"
         ]
       ],
       "element_hashes": [
-        "dd32afeb81aa30df6fd98aee70be29b00650830e593c1c4db3fcc4fc9bf62dd0",
-        "fdc69a709f34ada0af37afa13d7aa57557f693ccb5e7a334d05c765865e6aa87"
+        "4bd70378051abc4d6b7c7be2bae0f89b35df3f75031ef6f3202ad780dfbf9b00",
+        "ad95cf644490da71e8b6058e013e291cca2c699bf946dbea66463b7597a34845"
       ],
-      "hash": "b2795147f6c459165748c17b82d7f88c258789178528aa09d4737387fbb9f711",
+      "hash": "6b57f1e03ee4398e4855dba076f38621308cb8f39709ad15b78dfbb2abecfa46",
       "kind": "array",
       "mistakes": {
-        "f5c455544451737ff10a646f72f611799028aa1ebd8770b3e28e7fc6d0a213f2": "le signe : la coordonnée de plus grande valeur absolue doit être positive"
+        "1129fc9bf1789f0c8037201b597a15fae625d0a415c74c4d2f21b5ef67522af1": "le signe : la coordonnée de plus grande valeur absolue doit être positive"
       },
       "shape": [
         2
@@ -43172,20 +43170,20 @@
     "M12c.9e": {
       "coarse_any": {
         "0": [
-          "6bafc510a25cdeb5438159b4e91f1e73a16276195fd184713242869b91d8aaa8"
+          "652894ebe164e8321202948468591d92c719d5de5251034085da330faada9686"
         ]
       },
       "coarser": {
         "1": [
-          "11902a9c1bf523260adb0171caccf3c190f31e397fde17880e2104627bf6057e"
+          "2a98ea3e2c0801a5bf67b30d2eaced8b46925b3954bcd3dff7f89cea57e4fab4"
         ],
         "2": [
-          "7ca859e968f2cd79c5962bc8783482f21d4132274249ed337caae3b3540c28f7"
+          "dd903582032aa7acdf6f351ad964c1c43265d66025c2b97b3f7affc4264b5d19"
         ]
       },
       "decimals": 4,
-      "hash": "67dcb078d6f20e6ca8500c9da5d0547feea0198a441430f80f28032b4e64532a",
-      "hash_coarse": "de0ab40af7827b050cad87a238f825920d6c96d68e5c36bcc8f79e1f2b1c852b",
+      "hash": "e2a4832018332f327a1f73da5f33120dacf5e28b5bb30fbbef788accc344ee96",
+      "hash_coarse": "04c6425a6960e841938211b3ec003bb17dc317e0224edf8a0878038838a0fce3",
       "kind": "float",
       "magnitude": 0,
       "sign": -1,

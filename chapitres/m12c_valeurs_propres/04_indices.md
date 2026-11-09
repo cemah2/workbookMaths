@@ -367,12 +367,12 @@ Relis « Multiplier, normaliser, recommencer » et « Ce qu'il faut savoir » (f
 </details>
 <details><summary>Indice 2</summary>
 
-Calcule les produits sur les vecteurs non normalisés : $(1, 0) \to (2, 3) \to (13, -12) \to \ldots$, en changeant le signe si besoin.
+Calcule les produits sur les vecteurs non normalisés : $(1, 1) \to (5, -3) \to (1, 33) \to \ldots$, en changeant le signe si besoin.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e) Le quotient de Rayleigh de $(-10, 111)$ : $\frac{\mathbf{x}^\top\mathbf{A}\mathbf{x}}{\mathbf{x}^\top\mathbf{x}}$. f) $\lambda^2 + 4\lambda - 21 = 0$.
+e) Le quotient de Rayleigh de $(-101, 195)$ : $\frac{\mathbf{x}^\top\mathbf{A}\mathbf{x}}{\mathbf{x}^\top\mathbf{x}}$. f) $\lambda^2 + 4\lambda - 21 = 0$.
 
 </details>
 

@@ -70,7 +70,7 @@ Vrai ou faux ?
 Classe chaque matrice : définie positive, semi-définie positive (sans être définie), définie négative, ou indéfinie.
 1. $\begin{pmatrix} 2 & 1 \\ 1 & 5 \end{pmatrix}$.
 2. $\begin{pmatrix} 4 & 6 \\ 6 & 9 \end{pmatrix}$.
-3. $\begin{pmatrix} 0 & 2 \\ 2 & 0 \end{pmatrix}$.
+3. $\begin{pmatrix} 0 & 3 \\ 3 & 4 \end{pmatrix}$.
 4. $\begin{pmatrix} -1 & 0 \\ 0 & -4 \end{pmatrix}$.
 5. $\begin{pmatrix} 5 & 6 \\ 6 & 7 \end{pmatrix}$.
 6. $\operatorname{diag}(3, 0, 1)$.
@@ -287,7 +287,7 @@ Dans ta copie : écris $\mathbf{x}$ dans la base orthonormée des vecteurs propr
 **Objectif :** dérouler la méthode de la puissance, avec sa normalisation et sa convention de signe, et relier sa vitesse au rapport des valeurs propres.
 **Prérequis :** fiche §5 · **Parcours :** C
 
-$\mathbf{A} = \begin{pmatrix} 2 & 3 \\ 3 & -6 \end{pmatrix}$ et $\mathbf{x}_0 = (1, 0)$. À chaque pas, $\mathbf{x}_{k+1} = \mathbf{A}\mathbf{x}_k/\lVert \mathbf{A}\mathbf{x}_k \rVert$, puis on change le signe de $\mathbf{x}_{k+1}$ si sa coordonnée de plus grande valeur absolue est négative. (Pour aller vite, calcule les produits sur les vecteurs non normalisés : seule la direction compte.)
+$\mathbf{A} = \begin{pmatrix} 2 & 3 \\ 3 & -6 \end{pmatrix}$ et $\mathbf{x}_0 = (1, 1)$. À chaque pas, $\mathbf{x}_{k+1} = \mathbf{A}\mathbf{x}_k/\lVert \mathbf{A}\mathbf{x}_k \rVert$, puis on change le signe de $\mathbf{x}_{k+1}$ si sa coordonnée de plus grande valeur absolue est négative. (Pour aller vite, calcule les produits sur les vecteurs non normalisés : seule la direction compte.)
 
 | | Question | Réponse attendue |
 |---|---|---|

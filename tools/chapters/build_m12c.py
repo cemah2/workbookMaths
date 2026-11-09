@@ -166,9 +166,9 @@ PAPER = [
     ]),
 
     Paper("M12c.9", "Trois itérations de la méthode de la puissance à la main", [
-        ("a", "a list of 2 numbers", "exact(A_9 * V([1, 0]))"),
+        ("a", "a list of 2 numbers", "exact(A_9 * V([1, 1]))"),
         ("b", "a list of 2 numbers (4 decimals)", "exact(X_9[0])",
-         '''decimals=4, mistakes={"normaliser : divise A x₀ par sa norme": exact(A_9 * V([1, 0]))}'''),
+         '''decimals=4, mistakes={"normaliser : divise A x₀ par sa norme": exact(A_9 * V([1, 1]))}'''),
         ("c", "a list of 2 numbers (4 decimals)", "exact(X_9[1])",
          '''decimals=4, mistakes={"le signe : la coordonnée de plus grande valeur absolue doit être positive": exact(-X_9[1])}'''),
         ("d", "a list of 2 numbers (4 decimals)", "exact(X_9[2])",
@@ -344,7 +344,7 @@ def rq_8(v):
 
 
 A_9 = V([[2, 3], [3, -6]])                                                                  # M12c.9
-X_9, _x = [], V([1, 0])
+X_9, _x = [], V([1, 1])
 for _ in range(3):
     _y = A_9 * _x
     _i = max(range(2), key=lambda j: abs(_y[j]))

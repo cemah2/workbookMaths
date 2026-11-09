@@ -42,7 +42,7 @@ $\mathbf{M}(2, 3) = (6, 9) = 3(2, 3)$ : **oui**, valeur propre 3. $\mathbf{M}(1,
 ### M12c.Q6 — Définie positive, semi-définie positive ou indéfinie ?
 1. **Définie positive** : $2 > 0$ et $10 - 1 = 9 > 0$.
 2. **Semi-définie positive** : $36 - 36 = 0$ ; c'est $(2, 3)(2, 3)^\top$, et $\mathbf{x}^\top\mathbf{A}\mathbf{x} = (2x + 3y)^2$, nul sur la droite $2x + 3y = 0$.
-3. **Indéfinie** : $q(1, 1) = 4 > 0$, $q(1, -1) = -4 < 0$.
+3. **Indéfinie** : $q(0, 1) = 4 > 0$ et $q(1, -1) = 0 - 6 + 4 = -2 < 0$ (ou : $\det = -9 < 0$).
 4. **Définie négative** : valeurs propres $-1$ et $-4$.
 5. **Indéfinie** : diagonale positive, mais $35 - 36 = -1 < 0$.
 6. **Semi-définie positive** : valeurs propres $3, 0, 1$ ; $q(\mathbf{e}_2) = 0$.
@@ -84,7 +84,7 @@ $\mathbf{M}(2, 3) = (6, 9) = 3(2, 3)$ : **oui**, valeur propre 3. $\mathbf{M}(1,
 2. $(-2, -1)$, $(1, -2)$, $(2, 3)$, $(-1, 0)$.
 3. Sommes : $\sum x^2 = 10$, $\sum y^2 = 14$, $\sum xy = 2 - 2 + 6 + 0 = 6$. Avec $1/n$ : $\begin{pmatrix} 2{,}5 & 1{,}5 \\ 1{,}5 & 3{,}5 \end{pmatrix}$ ; avec $1/(n - 1)$ : $\begin{pmatrix} 10/3 & 2 \\ 2 & 14/3 \end{pmatrix}$. On passe de la première à la seconde en multipliant par $\frac{n}{n-1} = \frac{4}{3}$.
 4. $\frac{6}{\sqrt{10 \times 14}} \approx 0{,}5071$ ; non, le facteur se simplifie.
-5. Oui. Ce n'est pas suffisant : il faut qu'elle soit **semi-définie positive** (fiche §8) ; $\begin{pmatrix} 1 & 2 \\ 2 & 1 \end{pmatrix}$ est symétrique à diagonale positive, et n'en est pas une.
+5. Oui. Ce n'est pas suffisant : il faut qu'elle soit **semi-définie positive** (fiche §8) ; $\begin{pmatrix} 1 & 3 \\ 3 & 2 \end{pmatrix}$ (fiche §7) est symétrique à diagonale positive, et n'en est pas une ($\det = -7$).
 
 <a id="papier"></a>
 
@@ -215,20 +215,20 @@ Pour la copie : $R(\mathbf{x}) = \frac{18y_1^2 + y_2^2}{y_1^2 + y_2^2}$, une moy
 
 ### Ex M12c.9 — Trois itérations de la méthode de la puissance à la main
 
-**Réponses** : a) `[2, 3]` · b) `[0.5547, 0.8321]` · c) `[0.7348, -0.6783]` · d) `[-0.0897, 0.996]` · e) `-6.4718` · f) `[3, -7]` · g) `[-0.3162, 0.9487]` · h) `0.4286`.
+**Réponses** : a) `[5, -3]` · b) `[0.8575, -0.5145]` · c) `[0.0303, 0.9995]` · d) `[-0.4599, 0.888]` · e) `-6.7581` · f) `[3, -7]` · g) `[-0.3162, 0.9487]` · h) `0.4286`.
 
 **Démarche.**
-- a) $(2, 3)$ ; b) divisé par $\sqrt{13}$.
-- c) $\mathbf{A}(2, 3) = (13, -12)$ : la coordonnée de plus grande valeur absolue, 13, est positive ; divisé par $\sqrt{313}$.
-- d) $\mathbf{A}(13, -12) = (-10, 111)$ : 111 est positive ; divisé par $\sqrt{12\,421}$.
-- e) $\mathbf{A}(-10, 111) = (313, -696)$ ; $\frac{(-10)(313) + 111 \times (-696)}{12\,421} = \frac{-80\,386}{12\,421} \approx -6{,}4718$.
+- a) $\mathbf{A}(1, 1) = (5, -3)$ ; b) la coordonnée de plus grande valeur absolue, 5, est positive : on divise par $\sqrt{34}$.
+- c) $\mathbf{A}(5, -3) = (10 - 9, 15 + 18) = (1, 33)$ : 33 est positive ; divisé par $\sqrt{1\,090}$.
+- d) $\mathbf{A}(1, 33) = (2 + 99, 3 - 198) = (101, -195)$ : la coordonnée de plus grande valeur absolue, $-195$, est **négative** : on change le signe, $(-101, 195)$, puis on divise par $\sqrt{48\,226}$.
+- e) $\mathbf{A}(-101, 195) = (383, -1\,473)$ ; $\frac{(-101) \times 383 + 195 \times (-1\,473)}{48\,226} = \frac{-325\,918}{48\,226} \approx -6{,}7581$.
 - f) $\lambda^2 + 4\lambda - 21 = (\lambda - 3)(\lambda + 7)$. g) Pour $-7$ : $\mathbf{A} + 7\mathbf{I} = \begin{pmatrix} 9 & 3 \\ 3 & 1 \end{pmatrix}$, direction $(1, -3)$, et la convention donne $(-1, 3)/\sqrt{10}$. h) $3/7$.
 
-Pour la copie : sans la convention, le vecteur changerait de signe à chaque pas ($\lambda_1 = -7 < 0$) et ne se stabiliserait jamais. Trois chiffres : $(3/7)^k = 10^{-3}$ pour $k \approx 8$. Avec $\mathbf{x}_0 = (3, 1)$, vecteur propre de 3 : $\mathbf{A}\mathbf{x}_0 = 3\mathbf{x}_0$, la méthode resterait sur la mauvaise valeur propre (en exact ; les arrondis finiraient par y glisser un peu de $\mathbf{v}_1$).
+Pour la copie : $\lambda_1 = -7 < 0$, donc $\mathbf{A}\mathbf{x}_k$ pointe, à peu près, à l'opposé de $\mathbf{x}_k$ ; sans la convention, le vecteur changerait de signe à chaque pas et ne se stabiliserait jamais (c'est ce que la convention corrige en d)). Trois chiffres : $(3/7)^k = 10^{-3}$ pour $k \approx 8$. Avec $\mathbf{x}_0 = (3, 1)$, vecteur propre de 3 : $\mathbf{A}\mathbf{x}_0 = (9, 3) = 3\mathbf{x}_0$, la méthode resterait sur la mauvaise valeur propre (en exact ; les arrondis finiraient par y glisser un peu de $\mathbf{v}_1$).
 
-**Erreurs fréquentes.** Ne pas normaliser ; oublier la convention de signe ; prendre 3 pour la valeur propre dominante (c'est le **module** qui compte).
+**Erreurs fréquentes.** Ne pas normaliser ; oublier la convention de signe en d) ; prendre 3 pour la valeur propre dominante (c'est le **module** qui compte).
 
-**Variante.** $\mathbf{x}_4$ ? *Réponse* : $\mathbf{A}(-10, 111) = (313, -696)$, changé de signe : $(-313, 696)/\sqrt{582\,385} \approx (-0{,}4101 ;\ 0{,}9120)$.
+**Variante.** $\mathbf{x}_4$ ? *Réponse* : $\mathbf{A}(-101, 195) = (383, -1\,473)$, changé de signe : $(-383, 1\,473)/\sqrt{2\,316\,418} \approx (-0{,}2516 ;\ 0{,}9678)$.
 
 ### Ex M12c.10 — Définie positive ? Par les valeurs propres, les mineurs et la forme quadratique ; une hessienne qui prouve la convexité
 
@@ -244,7 +244,7 @@ Pour la copie : d) exhibe un vecteur où la forme est négative : $\mathbf{H}_2$
 
 **Erreurs fréquentes.** Ne regarder que la diagonale ($\mathbf{H}_2$ a une diagonale positive) ; oublier que $f_{xx}$ dépend de $x$ ; écrire 1 au lieu de 2 hors de la diagonale de la hessienne.
 
-**Variante.** $g(x, y) = x^2 + 4xy + y^2$ est-elle convexe ? *Réponse* : non, sa hessienne $\begin{pmatrix} 2 & 4 \\ 4 & 2 \end{pmatrix}$ a pour déterminant $-12$.
+**Variante.** $g(x, y) = x^2 + 5xy + 4y^2$ est-elle convexe ? *Réponse* : non, sa hessienne $\begin{pmatrix} 2 & 5 \\ 5 & 8 \end{pmatrix}$ a pour déterminant $16 - 25 = -9$.
 
 ### Ex M12c.11 — La décomposition de Cholesky d'une matrice 3 × 3
 

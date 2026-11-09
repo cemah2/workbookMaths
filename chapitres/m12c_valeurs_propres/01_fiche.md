@@ -406,7 +406,7 @@ Sur sa diagonale, les variances des features ; hors de la diagonale, leurs covar
 
 **Propriété.** Si le vecteur $\mathbf{x}$ a pour moyenne $\boldsymbol{\mu}$ et pour covariance $\boldsymbol{\Sigma}$, alors $\mathbf{z} = \mathbf{A}\mathbf{x} + \mathbf{b}$ a pour moyenne $\mathbf{A}\boldsymbol{\mu} + \mathbf{b}$ et pour covariance
 $$\boldsymbol{\Sigma}_{\mathbf{z}} = \mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top.$$
-La translation $\mathbf{b}$ disparaît (elle ne change pas les écarts à la moyenne). Pour des données : si chaque exemple $\mathbf{x}_i$ devient $\mathbf{z}_i = \mathbf{A}\mathbf{x}_i + \mathbf{b}$, la matrice des données transformées est $\mathbf{X}\mathbf{A}^\top + \mathbf{b}^\top$, centrée $\mathbf{X}_c\mathbf{A}^\top$, et $\frac{1}{n-1}(\mathbf{X}_c\mathbf{A}^\top)^\top(\mathbf{X}_c\mathbf{A}^\top) = \mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top$.
+La translation $\mathbf{b}$ disparaît (elle ne change pas les écarts à la moyenne). La même règle vaut pour la covariance empirique de données transformées exemple par exemple, $\mathbf{z}_i = \mathbf{A}\mathbf{x}_i + \mathbf{b}$.
 
 <details><summary>Démonstration (pour un vecteur aléatoire)</summary>
 
