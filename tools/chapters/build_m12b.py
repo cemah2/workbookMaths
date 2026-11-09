@@ -10,7 +10,9 @@ Part 0 checks the paper exercises (✏️ M12b.1 to M12b.12, 🔗 M12b.18 and M1
 exercises. Wrong-answer messages state a rule, never a number of the answer nor the last step that gives it. The data
 are new: none is a test case of tests/test_m12b_orthogonal.py, an example of the fiche or of a docstring of
 orthogonal.py, data of M07, M09b or M12a, or an example of workbookIA 0B, 9, 12 and 25 (no u = (0,6 ; 0,8), no cloud
-projected on a principal axis, no covariance matrix, no [[1, r], [r, 1]], no linear autoencoder).
+projected on a principal axis, no covariance matrix, no [[1, r], [r, 1]], no linear autoencoder). The regressions use
+x = (1, 2, 4, 5, 8) (M12b.10) and x = (0, 1, 3, 4) (M12b.25a, M12b.26d), not the x = (0, 1, 2, 3) of the fiche and
+M09b, and no fitted line of workbookIA 9.
 """
 
 from __future__ import annotations
@@ -74,7 +76,8 @@ PAPER = [
         ("a", "True or False", "Q_3.T * Q_3 == sympy.eye(3)",
          '''mistakes={"vérifie QᵀQ = I : chaque colonne de norme 1, deux colonnes distinctes orthogonales": False}'''),
         ("b", "a list of 3 numbers (4 decimals)", "exact(Q_3 * X_3)",
-         '''decimals=4, mistakes={"Q x combine les colonnes de Q, pas ses lignes": exact(Q_3.T * X_3)}'''),
+         '''decimals=4, mistakes={"Q x combine les colonnes de Q, pas ses lignes": exact(Q_3.T * X_3), '''
+         '''"Q contient un facteur devant la matrice : garde-le": [float(c) for c in 7 * Q_3 * X_3]}'''),
         ("c", "a number (4 decimals)", "float(sympy.sqrt((Q_3 * X_3).dot(Q_3 * X_3)))",
          '''decimals=4, mistakes={"la norme est la racine de la somme des carrés": 2.0}'''),
         ("d", "a number", "(Q_3 * X_3).dot(Q_3 * Y_3)",
@@ -109,7 +112,9 @@ PAPER = [
     Paper("M12b.5", "Gram-Schmidt pour un produit scalaire qui n'est pas l'usuel", [
         ("a", "a number", "ip_5(A1_5, A2_5)",
          '''mistakes={"⟨x, y⟩_D compte deux fois le produit des deuxièmes coordonnées": A1_5.dot(A2_5)}'''),
-        ("b", "a number", "sympy.sqrt(ip_5(A1_5, A1_5))", '''mistakes={"la norme, pas son carré": ip_5(A1_5, A1_5)}'''),
+        ("b", "a number", "sympy.sqrt(ip_5(A1_5, A1_5))",
+         '''mistakes={"la norme, pas son carré": ip_5(A1_5, A1_5), '''
+         '''"la norme pour ⟨·,·⟩_D, qui compte deux fois la deuxième coordonnée, puis la racine": A1_5.dot(A1_5)}'''),
         ("c", "a list of 3 numbers (1 decimal)", "exact(Q1_5)",
          '''decimals=1, mistakes={"divise a₁ par sa norme pour ⟨·,·⟩_D, pas par sa norme usuelle": '''
          '''exact(A1_5 / sympy.sqrt(A1_5.dot(A1_5)))}'''),
@@ -126,14 +131,14 @@ PAPER = [
 
     Paper("M12b.6", "Une base du complément orthogonal d'un plan de ℝ⁴", [
         ("a", "an integer", "4 - A_6.rank()", '''mistakes={"dim U⊥ = n − dim U, avec n = 4 et dim U = 2": 3}'''),
-        ("b", "a list of 4 numbers", "exact(KERNEL_6[0])", f'''mistakes={{"{FREE_SIGNS}": [-1, 1, 1, 0]}}'''),
-        ("c", "a list of 4 numbers", "exact(KERNEL_6[1])", f'''mistakes={{"{FREE_SIGNS}": [2, 1, 0, 1]}}'''),
-        ("d", "True or False", "A_6 * sympy.Matrix([-3, -3, 1, 2]) == sympy.zeros(2, 1)",
+        ("b", "a list of 4 numbers", "exact(KERNEL_6[0])", f'''mistakes={{"{FREE_SIGNS}": [3, -2, 1, 0]}}'''),
+        ("c", "a list of 4 numbers", "exact(KERNEL_6[1])", f'''mistakes={{"{FREE_SIGNS}": [-1, 2, 0, 1]}}'''),
+        ("d", "True or False", "A_6 * sympy.Matrix([-1, -2, 1, 2]) == sympy.zeros(2, 1)",
          '''mistakes={"calcule w · a et w · b": False}'''),
         ("e", "a list of 2 numbers", "[1, 2]",
          '''mistakes={"les coordonnées de w dans cette base sont ses coordonnées libres (x₃, x₄), dans cet ordre": [2, 1]}'''),
         ("f", "True or False", "KERNEL_6[0].dot(KERNEL_6[1]) == 0", '''mistakes={"calcule leur produit scalaire": True}'''),
-        ("g", "True or False", "all(sympy.Matrix([1, 1, 0, 3]).dot(k) == 0 for k in KERNEL_6)",
+        ("g", "True or False", "all(sympy.Matrix([1, -1, 5, -3]).dot(k) == 0 for k in KERNEL_6)",
          '''mistakes={"un vecteur est dans U si et seulement s'il est orthogonal à tout U⊥ (ou : combine a et b)": False}'''),
     ]),
 
@@ -190,9 +195,11 @@ PAPER = [
          '''decimals=1, mistakes={"r = y − ŷ, dans cet ordre": exact(X_10 * W_10 - Y_10)}'''),
         ("f", "a list of 2 numbers", "exact(X_10.T * (Y_10 - X_10 * W_10))"),
         ("g", "a number (1 decimal)", "float((Y_10 - X_10 * W_10).dot(Y_10 - X_10 * W_10))",
-         '''decimals=1, mistakes={"la somme des carrés des résidus, pas leur somme": 0.0}'''),
+         '''decimals=1, mistakes={"la somme des carrés des résidus, pas leur somme": 0.0, '''
+         '''"le carré de la norme : pas de racine": float(sympy.sqrt((Y_10 - X_10 * W_10).dot(Y_10 - X_10 * W_10)))}'''),
         ("h", "a number (1 decimal)", "float((X_10 * W_10).dot(X_10 * W_10))",
-         '''decimals=1, mistakes={"‖ŷ‖², pas ‖y‖²": float(Y_10.dot(Y_10))}'''),
+         '''decimals=1, mistakes={"‖ŷ‖², pas ‖y‖²": float(Y_10.dot(Y_10)), '''
+         '''"le carré de la norme : pas de racine": float(sympy.sqrt((X_10 * W_10).dot(X_10 * W_10)))}'''),
     ]),
 
     Paper("M12b.11", "La décomposition QR d'une matrice 3 × 2, puis les moindres carrés par R w = Qᵀy", [
@@ -221,7 +228,8 @@ PAPER = [
         ("d", "a number (4 decimals)", "float(P2_12 - x ** 2)",
          '''decimals=4, mistakes={"c = −⟨x², 1⟩/⟨1, 1⟩ : divise par ⟨1, 1⟩": float(-ip_12(1, x ** 2)), '''
          '''"le signe : on retire la projection de x² sur 1": float(x ** 2 - P2_12)}'''),
-        ("e", "a number (4 decimals)", "float(ip_12(P2_12, P2_12))", "decimals=4"),
+        ("e", "a number (4 decimals)", "float(ip_12(P2_12, P2_12))",
+         '''decimals=4, mistakes={"le carré de la norme, ⟨p₂, p₂⟩ : pas de racine": float(sympy.sqrt(ip_12(P2_12, P2_12)))}'''),
         ("f", "a number (4 decimals)", "float(ip_12(sympy.Abs(x), P2_12))", "decimals=4"),
         ("g", "a list of 3 numbers (4 decimals)", "[float(c) for c in PROJ_12]",
          '''decimals=4, mistakes={"développe le terme en p₂ = x² + c : il modifie aussi le coefficient constant": '''
@@ -314,7 +322,7 @@ def ip_5(u, w):
 A1_5, A2_5, X_5 = V([1, 1, -1]), V([2, -1, 2]), V([4, -2, -2])
 Q1_5, Q2_5 = gram_schmidt_exact([A1_5, A2_5], ip_5)
 V2_5 = A2_5 - ip_5(A2_5, Q1_5) * Q1_5
-A_6 = V([[1, 0, -1, 2], [0, 1, 1, 1]])                                                      # M12b.6
+A_6 = V([[1, 0, 3, -1], [0, 1, -2, 2]])                                                     # M12b.6
 KERNEL_6 = A_6.nullspace()
 A_7, V_7 = V([[1, 0], [0, -4], [2, 1]]), V([10, 3, -1])                                    # M12b.7
 C_7 = (A_7.T * A_7).solve(A_7.T * V_7)
@@ -325,7 +333,7 @@ M_8 = V([[1, 0], [1, 0]])
 assert M_8 * M_8 == M_8 and M_8.T != M_8
 U1_9, U2_9, V_9 = V([1, 1, 1, 1]), V([1, -1, 2, -2]), V([2, 0, 5, 1])                       # M12b.9
 P_9 = V_9.dot(U1_9) / U1_9.dot(U1_9) * U1_9 + V_9.dot(U2_9) / U2_9.dot(U2_9) * U2_9
-X_10, Y_10 = V([[1, k] for k in range(1, 6)]), V([3, 3, 4, 7, 8])                           # M12b.10
+X_10, Y_10 = V([[1, k] for k in (1, 2, 4, 5, 8)]), V([0, 2, 2, 3, 4])                      # M12b.10
 W_10 = (X_10.T * X_10).solve(X_10.T * Y_10)
 A_11, Y_11 = V([[2, 2], [6, 3], [9, 0]]), V([11, 3, 20])                                   # M12b.11
 Q_11 = V.hstack(*gram_schmidt_exact([A_11[:, 0], A_11[:, 1]], lambda u, w: u.dot(w)))
@@ -508,7 +516,7 @@ M12B_25 = Ex(
     body=r"""Écris `project(v, A)` (fiche §5), en suivant la docstring : vérifie que $\mathbf{v}$ est à une dimension, $\mathbf{A}$ à deux, et que $\mathbf{A}$ a autant de lignes que $\mathbf{v}$ a de coordonnées (sinon `ValueError`) ; puis $\mathbf{Q}$ = `gram_schmidt(A)` (qui lève elle-même la `ValueError` des colonnes dépendantes), et $\mathbf{p} = \mathbf{Q}(\mathbf{Q}^\top\mathbf{v})$. Pas d'équations normales ici : M09b les a déjà programmées.
 
 La vérification calcule :
-- a) `project([2, 0, 1, 5], [[1, 0], [1, 1], [1, 2], [1, 3]])` (une liste, 6 décimales) ;
+- a) `project([1, 0, 4, 3], [[1, 0], [1, 1], [1, 3], [1, 4]])` (une liste, 6 décimales) ;
 - b) `project([4, 3], [[1], [3]])` (une liste, 6 décimales) ;
 - c) vrai ou faux : pour une matrice $\mathbf{A}$ de forme $(6, 3)$ et un vecteur $\mathbf{v}$ tirés au hasard (`np.random.default_rng(25)`), projeter une seconde fois $\mathbf{p}$ = `project(v, A)` redonne $\mathbf{p}$, à $10^{-12}$ près ;
 - d) vrai ou faux : pour les mêmes, $\mathbf{A}^\top(\mathbf{v} - \mathbf{p})$ est nul à $10^{-10}$ près ;
@@ -521,7 +529,7 @@ Dans ta copie : quelle droite de régression a) calcule-t-il, et que représente
     check='''rng_25 = np.random.default_rng(25)
 A_25, v_25, M_25 = rng_25.normal(size=(6, 3)), rng_25.normal(size=6), rng_25.normal(size=(3, 3))
 with checked("M12b.25a"):
-    wbm.check("M12b.25a", np.asarray(mymath.orthogonal.project([2, 0, 1, 5], [[1, 0], [1, 1], [1, 2], [1, 3]])).tolist(),
+    wbm.check("M12b.25a", np.asarray(mymath.orthogonal.project([1, 0, 4, 3], [[1, 0], [1, 1], [1, 3], [1, 4]])).tolist(),
               computed=True)
 with checked("M12b.25b"):
     wbm.check("M12b.25b", np.asarray(mymath.orthogonal.project([4, 3], [[1], [3]])).tolist(), computed=True)
@@ -545,17 +553,17 @@ project = mymath.orthogonal.project
 rng_25 = np.random.default_rng(25)
 A_25, v_25, M_25 = rng_25.normal(size=(6, 3)), rng_25.normal(size=6), rng_25.normal(size=(3, 3))
 p_25 = project(v_25, A_25)
-print("a)", np.round(project([2, 0, 1, 5], [[1, 0], [1, 1], [1, 2], [1, 3]]), 6).tolist(),
+print("a)", np.round(project([1, 0, 4, 3], [[1, 0], [1, 1], [1, 3], [1, 4]]), 6).tolist(),
       " b)", np.round(project([4, 3], [[1], [3]]), 6).tolist())
 print("c)", bool(np.allclose(project(p_25, A_25), p_25, rtol=0, atol=1e-12)),
       " d)", bool(np.allclose(A_25.T @ (v_25 - p_25), 0, rtol=0, atol=1e-10)),
       " e)", bool(np.allclose(project(v_25, A_25 @ M_25), p_25, rtol=0, atol=1e-10)))
 print("f)", raised(project, [1, 2], [[1, 0], [0, 1], [0, 0]]), " g)", raised(project, [1, 2, 3], [[1, 2], [1, 2], [1, 2]]))''',
-    record=f'''A_25a = np.array([[1, 0], [1, 1], [1, 2], [1, 3]], dtype=float)
-wbm.record("M12b.25a", [0.5, 1.5, 2.5, 3.5], decimals=6,
+    record=f'''A_25a = np.array([[1, 0], [1, 1], [1, 3], [1, 4]], dtype=float)
+wbm.record("M12b.25a", [0.4, 1.2, 2.8, 3.6], decimals=6,
            mistakes={{"A Aᵀ v n'est une projection que si les colonnes de A sont orthonormées : Q = gram_schmidt(A), puis Q (Qᵀ v)":
-                         (A_25a @ (A_25a.T @ np.array([2.0, 0.0, 1.0, 5.0]))).tolist(),
-                     "la projection, pas le résidu v − p": [1.5, -1.5, -1.5, 1.5]}})
+                         (A_25a @ (A_25a.T @ np.array([1.0, 0.0, 4.0, 3.0]))).tolist(),
+                     "la projection, pas le résidu v − p": [0.6, -1.2, 1.2, -0.6]}})
 wbm.record("M12b.25b", [1.3, 3.9], decimals=6,
            mistakes={{"projeter sur une droite : divise par ‖a‖², ou norme a d'abord": [13.0, 39.0]}})
 wbm.record("M12b.25c", True,
@@ -569,14 +577,14 @@ wbm.record("M12b.25f", "ValueError",
 wbm.record("M12b.25g", "ValueError",
            {value_error("des colonnes dépendantes : gram_schmidt lève la ValueError, laisse-la passer")})''',
     after=tests_cells("test_project_"),
-    note=r"a) Le projeté de $\mathbf{y} = (2, 0, 1, 5)$ sur $\operatorname{Im}\mathbf{X}$, $\mathbf{X} = [\mathbf{1} \mid \mathbf{x}]$ "
-         r"et $\mathbf{x} = (0, 1, 2, 3)$ : les prédictions de la droite des moindres carrés $0{,}5 + x$. b) $\frac{4 + 9}{1 + 9}"
+    note=r"a) Le projeté de $\mathbf{y} = (1, 0, 4, 3)$ sur $\operatorname{Im}\mathbf{X}$, $\mathbf{X} = [\mathbf{1} \mid \mathbf{x}]$ "
+         r"et $\mathbf{x} = (0, 1, 3, 4)$ : les prédictions de la droite des moindres carrés $0{,}4 + 0{,}8\,x$. b) $\frac{4 + 9}{1 + 9}"
          r"(1, 3) = (1{,}3 ;\ 3{,}9)$. e) La projection ne dépend que du sous-espace : $\mathbf{A}\mathbf{M}$, avec $\mathbf{M}$ "
          r"inversible, a le même espace des colonnes que $\mathbf{A}$.",
 )
 
 A_26 = "[[12, 6], [3, 2], [4, 0]]"
-X_26 = "[[1, 0], [1, 1], [1, 2], [1, 3]]"
+X_26 = "[[1, 0], [1, 1], [1, 3], [1, 4]]"
 
 M12B_26 = Ex(
     "M12b.26", "🔨", 2, 25, "La décomposition QR et les moindres carrés par QR · `qr, least_squares_qr`",
@@ -584,13 +592,13 @@ M12B_26 = Ex(
     "fiche §7 ; Ex M12b.24", tracks="C", mymath="orthogonal.py",
     body=r"""Écris, en suivant les docstrings :
 - `qr(A)` (fiche §7) : $\mathbf{Q}$ = `gram_schmidt(A)` (modifié), puis $\mathbf{R} = \mathbf{Q}^\top\mathbf{A}$, dont tu mets **exactement** à 0 les éléments sous la diagonale (`np.triu`) ; rends le couple `(Q, R)` ;
-- `least_squares_qr(X, y)` (fiche §7) : vérifie les formes (`ValueError`), calcule `qr(X)`, le second membre $\mathbf{Q}^\top\mathbf{y}$, puis résous $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ **en remontant** depuis la dernière ligne : $w_i = \big(z_i - \sum_{j > i} r_{ij}w_j\big)/r_{ii}$. Ni `np.linalg.solve` ni `inv` : la boucle.
+- `least_squares_qr(X, y)` (fiche §7) : vérifie les formes (`ValueError`), calcule `qr(X)`, le second membre $\mathbf{Q}^\top\mathbf{y}$, puis résous $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ **en remontant** depuis la dernière ligne : $w_i = \big(z_i - \sum_{j > i} r_{ij}w_j\big)/r_{ii}$. La docstring du module permet `np.linalg.solve`, mais c'est cette boucle que l'exercice te fait écrire (aucun test ne le contrôle : à toi de jouer le jeu).
 
 La vérification calcule :
 - a) la matrice $\mathbf{R}$ de `qr(""" + A_26 + r""")` (6 décimales) ;
 - b) vrai ou faux : pour cette matrice, $\mathbf{Q}\mathbf{R}$ redonne $\mathbf{A}$ à $10^{-12}$ près ;
 - c) vrai ou faux : pour une matrice de forme $(5, 3)$ tirée au hasard (`np.random.default_rng(26)`), les éléments de $\mathbf{R}$ sous la diagonale sont **exactement** nuls ;
-- d) `least_squares_qr(""" + X_26 + r""", [1, 3, 2, 6])` (une liste, 6 décimales) ;
+- d) `least_squares_qr(""" + X_26 + r""", [2, 2, 3, 7])` (une liste, 6 décimales) ;
 - e) vrai ou faux : pour $\mathbf{X}$ de forme $(30, 4)$ et $\mathbf{y}$ tirés au hasard (`np.random.default_rng(26)`, après la matrice de c), `least_squares_qr(X, y)` et `np.linalg.solve(X.T @ X, X.T @ y)` sont égaux à $10^{-9}$ près ;
 - f) le nom de l'erreur levée par `least_squares_qr([[1, 0], [0, 1]], [1, 2, 3])` ;
 - g) le nom de l'erreur levée par `qr([[1, 2], [2, 4]])`.
@@ -608,7 +616,7 @@ with checked("M12b.26b"):
 with checked("M12b.26c"):
     wbm.check("M12b.26c", bool(np.all(np.tril(mymath.orthogonal.qr(B_26)[1], -1) == 0)), computed=True)
 with checked("M12b.26d"):
-    wbm.check("M12b.26d", np.asarray(mymath.orthogonal.least_squares_qr({X_26}, [1, 3, 2, 6])).tolist(), computed=True)
+    wbm.check("M12b.26d", np.asarray(mymath.orthogonal.least_squares_qr({X_26}, [2, 2, 3, 7])).tolist(), computed=True)
 with checked("M12b.26e"):
     wbm.check("M12b.26e", bool(np.allclose(mymath.orthogonal.least_squares_qr(X_26r, y_26r),
                                            np.linalg.solve(X_26r.T @ X_26r, X_26r.T @ y_26r), rtol=0, atol=1e-9)),
@@ -627,7 +635,7 @@ print("a)", np.round(R_26, 6).tolist(), " 13 Q =", np.round(13 * Q_26, 9).tolist
 print("b)", bool(np.allclose(Q_26 @ R_26, {A_26}, rtol=0, atol=1e-12)),
       " c)", bool(np.all(np.tril(qr(B_26)[1], -1) == 0)), " (without np.triu:",
       float(np.abs(np.tril(mymath.orthogonal.gram_schmidt(B_26).T @ B_26, -1)).max()), ")")
-print("d)", np.round(least_squares_qr({X_26}, [1, 3, 2, 6]), 6).tolist(),
+print("d)", np.round(least_squares_qr({X_26}, [2, 2, 3, 7]), 6).tolist(),
       " e)", bool(np.allclose(least_squares_qr(X_26r, y_26r), np.linalg.solve(X_26r.T @ X_26r, X_26r.T @ y_26r),
                               rtol=0, atol=1e-9)))
 print("f)", raised(least_squares_qr, [[1, 0], [0, 1]], [1, 2, 3]), " g)", raised(qr, [[1, 2], [2, 4]]))''',
@@ -637,9 +645,9 @@ print("f)", raised(least_squares_qr, [[1, 0], [0, 1]], [1, 2, 3]), " g)", raised
 wbm.record("M12b.26b", True, mistakes={{"Q R doit redonner A : R = QᵀA, avec Q = gram_schmidt(A)": False}})
 wbm.record("M12b.26c", True,
            mistakes={{"QᵀA n'a sous sa diagonale que des arrondis, pas des zéros exacts : np.triu les met à 0": False}})
-wbm.record("M12b.26d", [0.9, 1.4], decimals=6,
-           mistakes={{"R est triangulaire supérieure : remonte depuis la dernière ligne": [3.0, 1.4],
-                     "l'ordre : le biais w₀ d'abord, puis la pente": [1.4, 0.9]}})
+wbm.record("M12b.26d", [1.3, 1.1], decimals=6,
+           mistakes={{"R est triangulaire supérieure : remonte depuis la dernière ligne": [3.5, 1.1],
+                     "l'ordre : le biais w₀ d'abord, puis la pente": [1.1, 1.3]}})
 wbm.record("M12b.26e", True,
            mistakes={{"tes poids doivent résoudre les équations normales : relis Qᵀy et la remontée": False}})
 wbm.record("M12b.26f", "ValueError",
@@ -650,8 +658,8 @@ wbm.record("M12b.26g", "ValueError",
     note=r"a) $\lVert (12, 3, 4) \rVert = 13$, $r_{12} = \frac{72 + 6 + 0}{13} = 6$, $\mathbf{v}_2 = (6, 2, 0) - "
          r"\frac{6}{13}(12, 3, 4) = \frac{2}{13}(3, 4, -12)$, de norme 2. c) Calculé en flottants, $\mathbf{q}_2 \cdot "
          r"\mathbf{a}_1$ vaut un arrondi de l'ordre de $10^{-16}$, pas 0 : `np.triu` impose la forme exacte. d) "
-         r"$\mathbf{R} = \begin{pmatrix} 2 & 3 \\ 0 & \sqrt{5} \end{pmatrix}$, $\mathbf{Q}^\top\mathbf{y} = (6, 7/\sqrt{5})$ : "
-         r"$w_1 = 7/5 = 1{,}4$, puis $2w_0 + 3 \times 1{,}4 = 6$, $w_0 = 0{,}9$.",
+         r"$\mathbf{R} = \begin{pmatrix} 2 & 4 \\ 0 & \sqrt{10} \end{pmatrix}$, $\mathbf{Q}^\top\mathbf{y} = (7, 11/\sqrt{10})$ : "
+         r"$w_1 = 11/10 = 1{,}1$, puis $2w_0 + 4 \times 1{,}1 = 7$, $w_0 = 1{,}3$.",
 )
 
 A_27 = "[[2, -1, 0], [1, 3, -2], [0, 1, 4], [-3, 2, 1], [1, 0, 2]]"
@@ -685,10 +693,12 @@ answer_M12b_27b = ...  # b) a list of 2 integers
 answer_M12b_27e = ...  # e) an integer
 answer_M12b_27g = ...  # g) an integer
 answer_M12b_27c = answer_M12b_27d = answer_M12b_27f = answer_M12b_27h = None
+# Each block stands alone: compute inside it what it needs (your Q and R in c) AND in d)), so that "Run all" goes
+# on when your qr is not written yet.
 with wbm.attempt("M12b.27c"):        # your qr is called here: ⏳ while it is not written
     answer_M12b_27c = ...  # c) True or False
 with wbm.attempt("M12b.27d"):
-    answer_M12b_27d = ...  # d) True or False
+    answer_M12b_27d = ...  # d) True or False (call your qr again here)
 with wbm.attempt("M12b.27f"):        # your least_squares_qr is called here
     answer_M12b_27f = ...  # f) True or False
 with wbm.attempt("M12b.27h"):
@@ -745,15 +755,24 @@ base_28 = rng_28.normal(size=5)
 A_28 = base_28[:, None] + 1e-9 * rng_28.normal(size=(5, 3))     # three columns that differ by about 1e-9
 B_28 = rng_28.normal(size=(50, 3))                               # three columns well apart'''
 
-M12B_28_EXPERIMENT = '''Q_classical = mymath.orthogonal.gram_schmidt(A_28, modified=False)
-Q_modified = mymath.orthogonal.gram_schmidt(A_28)
+M12B_28_EXPERIMENT = '''Q_classical = gram_schmidt_28(A_28, modified=False)
+Q_modified = gram_schmidt_28(A_28)
 print(f"a) classique, colonnes presque colinéaires : écart {orthogonality_loss(Q_classical):.1e}")
 print(f"b) modifié, mêmes colonnes                : écart {orthogonality_loss(Q_modified):.1e}")
 print(f"c) classique, colonnes bien séparées      : écart "
-      f"{orthogonality_loss(mymath.orthogonal.gram_schmidt(B_28, modified=False)):.1e}")
+      f"{orthogonality_loss(gram_schmidt_28(B_28, modified=False)):.1e}")
 print(f"d) normes des colonnes (classique)        : {np.round(np.linalg.norm(Q_classical, axis=0), 12).tolist()}")
 print("   Qᵀ Q (classique) :")
 print(np.round(Q_classical.T @ Q_classical, 6))'''
+
+M12B_28_PICK = '''mymath = wbm.load_mymath("learner", missing_ok=True, fallback="ref", chapter="M12b")
+try:                                             # your gram_schmidt if it runs, else the reference
+    mymath.orthogonal.gram_schmidt(B_28)
+    gram_schmidt_28 = mymath.orthogonal.gram_schmidt
+    print("avec ta fonction gram_schmidt")
+except Exception:  # noqa: BLE001 - not written yet (NotImplementedError), missing file, or a bug
+    gram_schmidt_28 = wbm.load_mymath("ref", alias="mymath_ref").orthogonal.gram_schmidt
+    print("ℹ️ ta fonction gram_schmidt n'est pas encore écrite (ou lève une erreur) : l'expérience utilise la référence")'''
 
 M12B_28 = Ex(
     "M12b.28", "🔮", 1, 10, "Prédire : Gram-Schmidt classique sur des vecteurs presque colinéaires, QᵀQ vaut-il encore I ?",
@@ -781,10 +800,10 @@ wbm.record("M12b.28d", 1, prediction=True, choices=[1, 2, 3])''',
     after=[
         ("md", "**L'expérience** (avec ta fonction `gram_schmidt`, ou la référence si elle n'est pas encore écrite). Elle "
                "ne s'exécute qu'une fois tes quatre prédictions écrites."),
-        ("todo", guarded('mymath = wbm.load_mymath("learner", missing_ok=True, fallback="ref", chapter="M12b")\n'
-                         + M12B_28_EXPERIMENT, [f"prediction_M12b_28{letter}" for letter in "abcd"],
+        ("todo", guarded(M12B_28_PICK + "\n" + M12B_28_EXPERIMENT,
+                         [f"prediction_M12b_28{letter}" for letter in "abcd"],
                          "⏳ Écris d'abord tes quatre prédictions, puis exécute à nouveau.")),
-        ("solution", LOAD_REF + "\n" + M12B_28_EXPERIMENT),
+        ("solution", LOAD_REF + "\ngram_schmidt_28 = mymath.orthogonal.gram_schmidt\n" + M12B_28_EXPERIMENT),
         ("md", "**Après l'expérience**, dans ta copie : quel élément de $\\mathbf{Q}^\\top\\mathbf{Q}$ est loin de 0 "
                "avec le procédé classique, et que dit-il des colonnes 2 et 3 de $\\mathbf{Q}$ ? Pourquoi les normes "
                "restent-elles égales à 1 ? En retirant les projections sur $\\mathbf{a}_3$ d'origine, que perd le "
@@ -880,12 +899,12 @@ wbm.record("M12b.29d", bool(classical_29[9] > 0.5),
 )
 
 M12B_30_GIVEN = '''rng_30 = np.random.default_rng(30)
-CLOUD_30 = rng_30.normal(size=(30, 3)) * np.array([2.0, 1.5, 1.0])     # 30 points of ℝ³
+CLOUD_30 = rng_30.uniform(-2, 2, size=(30, 3))                        # 30 points of ℝ³
 PLANE_30 = np.array([[1.0, 0.0], [1.0, 1.0], [0.0, 1.0]])             # its columns span a plane through the origin'''
 
 M12B_30_CHECK = '''with checked("M12b.30 vérifications"):
     problems = []
-    ref_30 = wbm.load_mymath("ref").orthogonal
+    ref_30 = wbm.load_mymath("ref", alias="mymath_ref").orthogonal   # your mymath stays loaded
     rng_t = np.random.default_rng(300)
     for X_t, A_t in [(rng_t.normal(size=(6, 3)), np.array([[1.0, 2.0], [0.0, 1.0], [1.0, -1.0]])),
                      (rng_t.normal(size=(4, 3)), np.array([[0.0, 1.0], [2.0, 0.0], [1.0, 1.0]]))]:
@@ -904,8 +923,16 @@ M12B_30_CHECK = '''with checked("M12b.30 vérifications"):
         missing = [i for i, (x, p) in enumerate(expected)
                    if not any(np.allclose(s, [x, p], atol=1e-9) or np.allclose(s, [p, x], atol=1e-9) for s in segments)]
         if missing:
-            problems.append(f"pour {len(X_t)} points, {len(missing)} segment(s) du point à son projeté manque(nt) ou "
-                            "sont faux : un segment par point, ax.plot([x[0], p[0]], [x[1], p[1]], [x[2], p[2]])")
+            try:
+                project_ok = all(np.allclose(mymath.orthogonal.project(x, A_t), p, atol=1e-9) for x, p in expected)
+            except Exception:  # noqa: BLE001 - a project that raises is not right either
+                project_ok = False
+            if not project_ok:
+                problems.append("ta fonction project (M12b.25) ne rend pas le bon projeté : corrige-la d'abord, ses "
+                                "tests disent ce qui ne va pas")
+            else:
+                problems.append(f"pour {len(X_t)} points, {len(missing)} segment(s) du point à son projeté manque(nt) "
+                                "ou sont faux : un segment par point, ax.plot([x[0], p[0]], [x[1], p[1]], [x[2], p[2]])")
             break
     if problems:
         print("❌ Ex M12b.30 : à revoir : " + " ; ".join(problems) + ".")
@@ -934,7 +961,7 @@ M12B_30 = Ex(
 - pour chaque point $\mathbf{x}$, le **segment** de $\mathbf{x}$ à son projeté $\mathbf{p}$, par un appel `ax.plot([x[0], p[0]], [x[1], p[1]], [x[2], p[2]])` (une ligne de deux points) ;
 - un morceau du plan, si tu veux (`plot_surface` sur une grille de combinaisons $s\,\mathbf{a}_1 + t\,\mathbf{a}_2$).
 
-La cellule de la figure s'en sert pour le nuage fourni ; une cellule de vérification essaie ta fonction sur deux autres nuages et deux autres plans, dans des axes neufs.
+Le nuage fourni est tiré uniformément dans un cube ; le plan est donné, il ne dépend pas du nuage. La cellule de la figure s'en sert pour ce nuage ; une cellule de vérification essaie ta fonction sur deux autres nuages et deux autres plans, dans des axes neufs.
 
 Dans ta copie : les segments paraissent-ils tous perpendiculaires au plan ? Pourquoi certains semblent-ils ne pas l'être (pense à la perspective, et tourne la figure avec `ax.view_init`) ? Quel point du nuage est le plus loin du plan, et comment le trouver par le calcul ? Remplace $\mathbf{A}$ par une autre base du même plan : que change la figure ?""",
     todo='''mymath = wbm.load_mymath("learner", missing_ok=True, fallback="ref", chapter="M12b")
@@ -1011,7 +1038,7 @@ c = Q.T @ A[:, 1]                            # (F) the coordinates of a2 in the 
 
 Questions :
 - a) les lettres des lignes fausses, dans l'ordre alphabétique (un texte) ;
-- b) pour chacune des six lignes, de (A) à (F), la bonne valeur de ce que dit son commentaire (une liste de 6 nombres, 4 décimales).
+- b) pour chacune des six lignes, de (A) à (F), la bonne valeur de ce que dit son commentaire (une liste de 6 nombres, 4 décimales) ; pour (A), la norme du **vrai** deuxième vecteur de la base orthonormée.
 
 Dans ta copie : pour chaque ligne fausse, quelle erreur a été faite, et comment la corriger ? Laquelle des trois s'exécute sans erreur **et** rend un résultat plausible, et pourquoi est-elle la plus dangereuse ?""",
     todo='''answer_M12b_31a = ...  # a) letters, as text
@@ -1066,7 +1093,7 @@ def project_no_gram_schmidt(v, A):              # another bug: A Aᵀ v, without
 
 M12B_32_CHECK = '''with checked("M12b.32 vérifications"):
     problems = []
-    ref_32 = wbm.load_mymath("ref").orthogonal
+    ref_32 = wbm.load_mymath("ref", alias="mymath_ref").orthogonal   # your mymath stays loaded
 
     def outcome(project_t, seed):
         """None if check_projection passes, else the message of its AssertionError."""
@@ -1178,7 +1205,7 @@ M12B_33_GIVEN = '''def make_nearly_dependent(seed, n=200, p=6):
 
 M12B_33_CHECK = '''with checked("M12b.33 défi"):
     problems, ok_33 = [], False
-    ref_33 = wbm.load_mymath("ref").orthogonal
+    ref_33 = wbm.load_mymath("ref", alias="mymath_ref").orthogonal   # your mymath stays loaded
     for seed_t in (33, 34, 35):
         X_t, y_t = make_nearly_dependent(seed_t)
         w_ref = np.linalg.lstsq(X_t, y_t, rcond=None)[0]
@@ -1316,7 +1343,7 @@ def objectives_cell() -> list:
                "- Vérifier tes calculs papier (partie 0) : produit scalaire défini par une matrice, coordonnées dans "
                "une base orthonormée, matrice orthogonale, Gram-Schmidt (usuel et pondéré), complément orthogonal, "
                "projections et matrice de projection, distance à un sous-espace, moindres carrés et QR, polynômes "
-               "orthogonaux, une feature résidualisée, un codage sur deux directions.\n"
+               "orthogonaux, une feature résidualisée, un vecteur résumé par deux coordonnées.\n"
                "- Écrire les quatre fonctions de `mymath/orthogonal.py` et les tester, puis comparer avec NumPy.\n"
                "- Prédire et mesurer l'écart à l'orthogonalité, dessiner une projection, chasser des erreurs, tester "
                "des propriétés, résoudre des moindres carrés difficiles.\n\n"

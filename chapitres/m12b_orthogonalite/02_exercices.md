@@ -240,17 +240,17 @@ Dans ta copie : vérifie $\langle \mathbf{q}_1, \mathbf{q}_2 \rangle_{\mathbf{D}
 **Objectif :** calculer un complément orthogonal comme un noyau, et s'en servir pour tester l'appartenance à un sous-espace.
 **Prérequis :** fiche §4 ; M12a §6 · **Parcours :** C, E
 
-Dans $\mathbb{R}^4$, $U = \operatorname{Vect}(\mathbf{a}, \mathbf{b})$ avec $\mathbf{a} = (1, 0, -1, 2)$ et $\mathbf{b} = (0, 1, 1, 1)$. On écrit $\mathbf{x} = (x_1, x_2, x_3, x_4)$, et l'on prend $x_3$ et $x_4$ comme coordonnées libres.
+Dans $\mathbb{R}^4$, $U = \operatorname{Vect}(\mathbf{a}, \mathbf{b})$ avec $\mathbf{a} = (1, 0, 3, -1)$ et $\mathbf{b} = (0, 1, -2, 2)$. On écrit $\mathbf{x} = (x_1, x_2, x_3, x_4)$, et l'on prend $x_3$ et $x_4$ comme coordonnées libres.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $\dim U^\perp$ | un entier |
 | b | le vecteur de $U^\perp$ avec $(x_3, x_4) = (1, 0)$ | une liste de 4 nombres |
 | c | le vecteur de $U^\perp$ avec $(x_3, x_4) = (0, 1)$ | une liste de 4 nombres |
-| d | vrai ou faux : $\mathbf{w} = (-3, -3, 1, 2) \in U^\perp$ | `True` ou `False` |
+| d | vrai ou faux : $\mathbf{w} = (-1, -2, 1, 2) \in U^\perp$ | `True` ou `False` |
 | e | les coordonnées de $\mathbf{w}$ dans la base de $U^\perp$ formée des vecteurs de b) et c) | une liste de 2 nombres |
 | f | vrai ou faux : les vecteurs de b) et c) sont orthogonaux | `True` ou `False` |
-| g | vrai ou faux : $(1, 1, 0, 3) \in U$ | `True` ou `False` |
+| g | vrai ou faux : $(1, -1, 5, -3) \in U$ | `True` ou `False` |
 
 Dans ta copie : écris $U^\perp$ comme le noyau d'une matrice (laquelle ?), et vérifie b) et c) par leurs produits scalaires avec $\mathbf{a}$ et $\mathbf{b}$. Réponds à g) de deux façons : avec $\mathbf{a}$ et $\mathbf{b}$, puis avec la base de $U^\perp$. Que faudrait-il faire pour avoir une base **orthonormée** de $U^\perp$ ?
 
@@ -316,7 +316,7 @@ Dans ta copie : vérifie que e) est orthogonal à $\mathbf{u}_1$ et à $\mathbf{
 **Objectif :** ajuster une droite par les équations normales, et lire le résultat comme une projection : résidu orthogonal, Pythagore.
 **Prérequis :** fiche §5 et §6 ; M09b §3 · **Parcours :** C, E
 
-Cinq exemples : $x = (1, 2, 3, 4, 5)$ et $y = (3, 3, 4, 7, 8)$. On ajuste une droite avec biais : $\mathbf{X} = [\mathbf{1} \mid \mathbf{x}]$, de forme $(5, 2)$, et $\mathbf{w}^* = (w_0, w_1)$ (biais, puis pente).
+Cinq exemples : $x = (1, 2, 4, 5, 8)$ et $y = (0, 2, 2, 3, 4)$. On ajuste une droite avec biais : $\mathbf{X} = [\mathbf{1} \mid \mathbf{x}]$, de forme $(5, 2)$, et $\mathbf{w}^* = (w_0, w_1)$ (biais, puis pente).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -345,7 +345,7 @@ $$\mathbf{A} = \begin{pmatrix} 2 & 2 \\ 6 & 3 \\ 9 & 0 \end{pmatrix}, \qquad \ma
 | d | $\mathbf{q}_2$ | une liste de 3 nombres (4 décimales) |
 | e | $\mathbf{R}$ | une matrice |
 | f | $\mathbf{Q}^\top\mathbf{y}$ | une liste de 2 nombres |
-| g | les poids $\mathbf{w}^*$ des moindres carrés, par $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ | une liste de 2 nombres |
+| g | les poids $\mathbf{w}^*$ des moindres carrés, par $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ | une liste de 2 nombres (4 décimales) |
 | h | le résidu $\mathbf{y} - \mathbf{A}\mathbf{w}^*$ | une liste de 3 nombres |
 
 Dans ta copie : vérifie $\mathbf{A} = \mathbf{Q}\mathbf{R}$ colonne par colonne. Résous aussi les équations normales $\mathbf{A}^\top\mathbf{A}\,\mathbf{w} = \mathbf{A}^\top\mathbf{y}$ et compare. Vérifie que h) est orthogonal aux colonnes de $\mathbf{A}$. Quelle ligne de $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ as-tu résolue en premier, et pourquoi ?
@@ -446,25 +446,25 @@ Un tableau de 4 exemples a deux features, $\mathbf{x}_1 = (2, 2, 1, 1)$ et $\mat
 | c | le résidu $\mathbf{r} = \mathbf{x}_2 - t\,\mathbf{x}_1$ | une liste de 4 nombres |
 | d | $\mathbf{r} \cdot \mathbf{x}_1$ | un nombre |
 | e | la part de $\lVert \mathbf{x}_2 \rVert^2$ expliquée par $\mathbf{x}_1$ : $\frac{\lVert t\,\mathbf{x}_1 \rVert^2}{\lVert \mathbf{x}_2 \rVert^2}$ | un nombre (4 décimales) |
-| f | $\frac{\mathbf{y} \cdot \mathbf{r}}{\lVert \mathbf{r} \rVert^2}$ | un nombre |
-| g | les poids $(w_1, w_2)$ de la régression de $\mathbf{y}$ sur $\mathbf{x}_1$ et $\mathbf{x}_2$ | une liste de 2 nombres |
+| f | $\frac{\mathbf{y} \cdot \mathbf{r}}{\lVert \mathbf{r} \rVert^2}$ | un nombre (2 décimales) |
+| g | les poids $(w_1, w_2)$ de la régression de $\mathbf{y}$ sur $\mathbf{x}_1$ et $\mathbf{x}_2$ | une liste de 2 nombres (2 décimales) |
 
 Dans ta copie : compare f) et g). Pourquoi $\operatorname{Vect}(\mathbf{x}_1, \mathbf{x}_2) = \operatorname{Vect}(\mathbf{x}_1, \mathbf{r})$ ? Écris les prédictions du modèle avec $\mathbf{x}_1$ et $\mathbf{r}$, et retrouve la comparaison de f) et g). Que voudrait dire, sur ces données, « l'effet de $\mathbf{x}_2$ à $\mathbf{x}_1$ fixé » ? Que deviendrait le poids de $\mathbf{x}_2$ si $\mathbf{r}$ était presque nul ?
 
 ### Ex M12b.19 — Pont : projeter sur k directions orthonormées, reconstruire, et l'erreur par Pythagore 🔗 ★★ ⏱️ 15 min
-**Objectif :** coder un vecteur par ses coordonnées sur quelques directions orthonormées, le reconstruire, et montrer que l'erreur de reconstruction est faite des coordonnées écartées.
+**Objectif :** résumer un vecteur par ses coordonnées sur quelques directions orthonormées, le reconstruire, et montrer que l'erreur de reconstruction est faite des coordonnées écartées.
 **Prérequis :** fiche §2 et §5 · **Parcours :** C, E
 
-Dans $\mathbb{R}^4$, $\mathbf{u}_1 = \frac{1}{2}(1, 1, 1, 1)$, $\mathbf{u}_2 = \frac{1}{2}(1, -1, 1, -1)$, $\mathbf{u}_3 = \frac{1}{2}(1, 1, -1, -1)$, $\mathbf{u}_4 = \frac{1}{2}(1, -1, -1, 1)$ forment une base orthonormée. On garde $k = 2$ directions : $\mathbf{U} = [\mathbf{u}_1\ \mathbf{u}_2]$, de forme $(4, 2)$. Un vecteur $\mathbf{x}$ est **codé** par $\mathbf{z} = \mathbf{U}^\top\mathbf{x}$ (2 nombres) et **reconstruit** par $\hat{\mathbf{x}} = \mathbf{U}\mathbf{z}$. On prend $\mathbf{x} = (4, 2, 3, -1)$.
+Dans $\mathbb{R}^4$, $\mathbf{u}_1 = \frac{1}{2}(1, 1, 1, 1)$, $\mathbf{u}_2 = \frac{1}{2}(1, -1, 1, -1)$, $\mathbf{u}_3 = \frac{1}{2}(1, 1, -1, -1)$, $\mathbf{u}_4 = \frac{1}{2}(1, -1, -1, 1)$ forment une base orthonormée. On garde $k = 2$ directions : $\mathbf{U} = [\mathbf{u}_1\ \mathbf{u}_2]$, de forme $(4, 2)$. Un vecteur $\mathbf{x}$ est **résumé** par ses coordonnées $\mathbf{z} = \mathbf{U}^\top\mathbf{x}$ (2 nombres) et **reconstruit** par $\hat{\mathbf{x}} = \mathbf{U}\mathbf{z}$. On prend $\mathbf{x} = (4, 2, 3, -1)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | vrai ou faux : $\mathbf{U}^\top\mathbf{U} = \mathbf{I}_2$ | `True` ou `False` |
-| b | le code $\mathbf{z}$ | une liste de 2 nombres |
+| b | les coordonnées $\mathbf{z}$ | une liste de 2 nombres |
 | c | la reconstruction $\hat{\mathbf{x}}$ | une liste de 4 nombres (1 décimale) |
 | d | l'erreur $\mathbf{e} = \mathbf{x} - \hat{\mathbf{x}}$ | une liste de 4 nombres (1 décimale) |
 | e | $\mathbf{U}^\top\mathbf{e}$ | une liste de 2 nombres |
-| f | $\lVert \mathbf{e} \rVert^2$ | un nombre |
+| f | $\lVert \mathbf{e} \rVert^2$ | un nombre (2 décimales) |
 | g | les coordonnées écartées $(\mathbf{u}_3 \cdot \mathbf{x},\ \mathbf{u}_4 \cdot \mathbf{x})$ | une liste de 2 nombres |
 | h | vrai ou faux : $\mathbf{U}\mathbf{U}^\top = \mathbf{I}_4$ | `True` ou `False` |
 

@@ -1018,7 +1018,7 @@ def column_space_all(A, tol=1e-10):          # a copy with another bug: every co
 
 M12A_34_CHECK = '''with checked("M12a.34 vérifications"):
     problems = []
-    ref_34 = wbm.load_mymath("ref").linmaps
+    ref_34 = wbm.load_mymath("ref", alias="mymath_ref").linmaps   # your mymath stays loaded
 
     def outcome(null_space_t, column_space_t, seed):
         """None if check_kernel_and_rank passes, else the message of its AssertionError."""

@@ -201,21 +201,21 @@ Pour la copie : $\langle \mathbf{q}_1, \mathbf{q}_2 \rangle_{\mathbf{D}} = \frac
 
 ### Ex M12b.6 — Une base du complément orthogonal d'un plan de ℝ⁴
 
-**Réponses** : a) `2` · b) `[1, -1, 1, 0]` · c) `[-2, -1, 0, 1]` · d) `True` · e) `[1, 2]` · f) `False` · g) `True`.
+**Réponses** : a) `2` · b) `[-3, 2, 1, 0]` · c) `[1, -2, 0, 1]` · d) `True` · e) `[1, 2]` · f) `False` · g) `True`.
 
-**Démarche.** $U^\perp = \ker\begin{pmatrix} 1 & 0 & -1 & 2 \\ 0 & 1 & 1 & 1 \end{pmatrix}$, déjà réduite : $x_1 = x_3 - 2x_4$ et $x_2 = -x_3 - x_4$.
+**Démarche.** $U^\perp = \ker\begin{pmatrix} 1 & 0 & 3 & -1 \\ 0 & 1 & -2 & 2 \end{pmatrix}$, déjà réduite : $x_1 = -3x_3 + x_4$ et $x_2 = 2x_3 - 2x_4$.
 - a) $4 - 2 = 2$.
-- b) $(x_3, x_4) = (1, 0)$ : $(1, -1, 1, 0)$. c) $(0, 1)$ : $(-2, -1, 0, 1)$.
-- d) $\mathbf{w} \cdot \mathbf{a} = -3 - 1 + 4 = 0$ et $\mathbf{w} \cdot \mathbf{b} = -3 + 1 + 2 = 0$.
+- b) $(x_3, x_4) = (1, 0)$ : $(-3, 2, 1, 0)$. c) $(0, 1)$ : $(1, -2, 0, 1)$.
+- d) $\mathbf{w} \cdot \mathbf{a} = -1 + 0 + 3 - 2 = 0$ et $\mathbf{w} \cdot \mathbf{b} = 0 - 2 - 2 + 4 = 0$.
 - e) Ses coordonnées libres $(x_3, x_4) = (1, 2)$ : $\mathbf{w} = \mathbf{k}_1 + 2\mathbf{k}_2$.
-- f) $\mathbf{k}_1 \cdot \mathbf{k}_2 = -2 + 1 + 0 + 0 = -1$.
-- g) $(1, 1, 0, 3) = \mathbf{a} + \mathbf{b}$ ; et, autre façon, il est orthogonal à $\mathbf{k}_1$ ($1 - 1 + 0 + 0 = 0$) et à $\mathbf{k}_2$ ($-2 - 1 + 0 + 3 = 0$), donc dans $(U^\perp)^\perp = U$.
+- f) $\mathbf{k}_1 \cdot \mathbf{k}_2 = -3 - 4 + 0 + 0 = -7$.
+- g) $(1, -1, 5, -3) = \mathbf{a} - \mathbf{b}$ ; et, autre façon, il est orthogonal à $\mathbf{k}_1$ ($-3 - 2 + 5 + 0 = 0$) et à $\mathbf{k}_2$ ($1 + 2 + 0 - 3 = 0$), donc dans $(U^\perp)^\perp = U$.
 
-Pour la copie : vérifie $\mathbf{k}_1 \cdot \mathbf{a} = 1 - 1 = 0$, $\mathbf{k}_1 \cdot \mathbf{b} = -1 + 1 = 0$, $\mathbf{k}_2 \cdot \mathbf{a} = -2 + 2 = 0$, $\mathbf{k}_2 \cdot \mathbf{b} = -1 + 1 = 0$. La base du noyau n'est pas orthogonale (f) : pour une base orthonormée, Gram-Schmidt sur $(\mathbf{k}_1, \mathbf{k}_2)$.
+Pour la copie : vérifie $\mathbf{k}_1 \cdot \mathbf{a} = -3 + 3 = 0$, $\mathbf{k}_1 \cdot \mathbf{b} = 2 - 2 = 0$, $\mathbf{k}_2 \cdot \mathbf{a} = 1 - 1 = 0$, $\mathbf{k}_2 \cdot \mathbf{b} = -2 + 2 = 0$. La base du noyau n'est pas orthogonale (f) : pour une base orthonormée, Gram-Schmidt sur $(\mathbf{k}_1, \mathbf{k}_2)$.
 
 **Erreurs fréquentes.** Les signes de $x_1$ et $x_2$ en fonction des variables libres ; chercher $U^\perp$ dans $\mathbb{R}^2$ ; en e), inverser l'ordre des coordonnées.
 
-**Variante.** Une base orthonormée de $U^\perp$ ? *Réponse* : $\mathbf{q}_1 = \frac{1}{\sqrt{3}}(1, -1, 1, 0)$, puis $\mathbf{k}_2 + \frac{1}{3}\mathbf{k}_1 = \frac{1}{3}(-5, -4, 1, 3)$, de norme $\frac{\sqrt{51}}{3}$ : $\mathbf{q}_2 = \frac{1}{\sqrt{51}}(-5, -4, 1, 3)$.
+**Variante.** Une base orthonormée de $U^\perp$ ? *Réponse* : $\mathbf{q}_1 = \frac{1}{\sqrt{14}}(-3, 2, 1, 0)$, puis $\mathbf{k}_2 - \frac{\mathbf{k}_2 \cdot \mathbf{k}_1}{14}\mathbf{k}_1 = \mathbf{k}_2 + \frac{1}{2}\mathbf{k}_1 = \frac{1}{2}(-1, -2, 1, 2)$, de norme $\frac{\sqrt{10}}{2}$ : $\mathbf{q}_2 = \frac{1}{\sqrt{10}}(-1, -2, 1, 2)$, la direction de $\mathbf{w}$.
 
 ### Ex M12b.7 — Projeter sur un plan de ℝ³ : avec une base quelconque, puis orthonormée
 
@@ -275,19 +275,19 @@ Pour la copie : $\mathbf{r} \cdot \mathbf{u}_1 = 0$ et $\mathbf{r} \cdot \mathbf
 
 ### Ex M12b.10 — Des moindres carrés comme une projection : y, son projeté et le résidu
 
-**Réponses** : a) `[[5, 15], [15, 55]]` · b) `[25, 89]` · c) `[0.8, 1.4]` · d) `[2.2, 3.6, 5.0, 6.4, 7.8]` · e) `[0.8, -0.6, -1.0, 0.6, 0.2]` · f) `[0, 0]` · g) `2.4` · h) `144.6`.
+**Réponses** : a) `[[5, 20], [20, 110]]` · b) `[11, 59]` · c) `[0.2, 0.5]` · d) `[0.7, 1.2, 2.2, 2.7, 4.2]` · e) `[-0.7, 0.8, -0.2, 0.3, -0.2]` · f) `[0, 0]` · g) `1.3` · h) `31.7`.
 
 **Démarche.**
-- a) $n = 5$, $\sum x_i = 15$, $\sum x_i^2 = 55$. b) $\sum y_i = 25$, $\sum x_iy_i = 3 + 6 + 12 + 28 + 40 = 89$.
-- c) $\det = 275 - 225 = 50$ ; $\mathbf{w}^* = \frac{1}{50}\begin{pmatrix} 55 & -15 \\ -15 & 5 \end{pmatrix}(25, 89) = \frac{1}{50}(40, 70) = (0{,}8 ;\ 1{,}4)$.
-- d) $0{,}8 + 1{,}4\,x_i$. e) $y_i - \hat{y}_i$. f) $\sum r_i = 0$ et $\sum x_ir_i = 0{,}8 - 1{,}2 - 3 + 2{,}4 + 1 = 0$.
-- g) $0{,}64 + 0{,}36 + 1 + 0{,}36 + 0{,}04 = 2{,}4$. h) $4{,}84 + 12{,}96 + 25 + 40{,}96 + 60{,}84 = 144{,}6$.
+- a) $n = 5$, $\sum x_i = 20$, $\sum x_i^2 = 1 + 4 + 16 + 25 + 64 = 110$. b) $\sum y_i = 11$, $\sum x_iy_i = 0 + 4 + 8 + 15 + 32 = 59$.
+- c) $\det = 550 - 400 = 150$ ; $\mathbf{w}^* = \frac{1}{150}\begin{pmatrix} 110 & -20 \\ -20 & 5 \end{pmatrix}(11, 59) = \frac{1}{150}(30, 75) = (0{,}2 ;\ 0{,}5)$.
+- d) $0{,}2 + 0{,}5\,x_i$. e) $y_i - \hat{y}_i$. f) $\sum r_i = 0$ et $\sum x_ir_i = -0{,}7 + 1{,}6 - 0{,}8 + 1{,}5 - 1{,}6 = 0$.
+- g) $0{,}49 + 0{,}64 + 0{,}04 + 0{,}09 + 0{,}04 = 1{,}3$. h) $0{,}49 + 1{,}44 + 4{,}84 + 7{,}29 + 17{,}64 = 31{,}7$.
 
-Pour la copie : la somme des résidus est nulle (f), parce que le résidu est orthogonal à la colonne de 1. $\lVert \mathbf{y} \rVert^2 = 9 + 9 + 16 + 49 + 64 = 147 = 144{,}6 + 2{,}4$. Avec la base orthogonale $\mathbf{1}$, $\mathbf{x} - 3 \cdot \mathbf{1} = (-2, -1, 0, 1, 2)$ : $\frac{\mathbf{y} \cdot \mathbf{1}}{5} = 5$ et $\frac{\mathbf{y} \cdot (\mathbf{x} - 3)}{10} = \frac{-6 - 3 + 0 + 7 + 16}{10} = 1{,}4$ : $\hat{\mathbf{y}} = 5 + 1{,}4\,(x_i - 3)$, la même droite, écrite autour de la moyenne.
+Pour la copie : la somme des résidus est nulle (f), parce que le résidu est orthogonal à la colonne de 1. $\lVert \mathbf{y} \rVert^2 = 0 + 4 + 4 + 9 + 16 = 33 = 31{,}7 + 1{,}3$. Avec la base orthogonale $\mathbf{1}$, $\mathbf{x} - 4 \cdot \mathbf{1} = (-3, -2, 0, 1, 4)$, de carré de norme 30 : $\frac{\mathbf{y} \cdot \mathbf{1}}{5} = 2{,}2$ et $\frac{\mathbf{y} \cdot (\mathbf{x} - 4)}{30} = \frac{0 - 4 + 0 + 3 + 16}{30} = 0{,}5$ : $\hat{\mathbf{y}} = 2{,}2 + 0{,}5\,(x_i - 4)$, la même droite, écrite autour de la moyenne.
 
 **Erreurs fréquentes.** Inverser le biais et la pente ; prendre $\sum r_i$ pour $\lVert \mathbf{r} \rVert^2$ ; écrire $\mathbf{r} = \hat{\mathbf{y}} - \mathbf{y}$.
 
-**Variante.** La prédiction pour $x = 6$ ? *Réponse* : $0{,}8 + 1{,}4 \times 6 = 9{,}2$.
+**Variante.** La prédiction pour $x = 10$ ? *Réponse* : $0{,}2 + 0{,}5 \times 10 = 5{,}2$.
 
 ### Ex M12b.11 — La décomposition QR d'une matrice 3 × 2, puis les moindres carrés par R w = Qᵀy
 
@@ -466,7 +466,7 @@ Pour la copie : $2^2 + (-1)^2 = 5$ = f) ; $\lVert \mathbf{x} \rVert^2 = 16 + 4 +
 
 **Réponse modèle.**
 
-> Imagine un point au-dessus d'un sol plat. Pour l'atteindre au plus court depuis le sol, on se place juste en dessous, là où le fil à plomb touche le sol : c'est la projection orthogonale, le pied de la perpendiculaire. Prends n'importe quel autre point du sol : le point au-dessus, le pied du fil à plomb et cet autre point forment un triangle rectangle, dont l'angle droit est au pied du fil. Le chemin vers l'autre point en est le grand côté, l'hypoténuse, toujours plus long que chacun des deux autres : il est donc plus long que le fil à plomb. Plus on s'éloigne du pied, plus il s'allonge. En machine learning, c'est exactement ce que fait une régression linéaire : parmi toutes les prédictions que le modèle peut produire (le « sol »), elle choisit celle qui est la plus proche des vraies valeurs.
+> Imagine un point au-dessus d'un sol plat. Pour l'atteindre au plus court depuis le sol, on se place juste en dessous, là où le fil à plomb touche le sol : c'est la projection orthogonale, le pied de la perpendiculaire. Prends n'importe quel autre point du sol : le point au-dessus, le pied du fil à plomb et cet autre point forment un triangle rectangle, dont l'angle droit est au pied du fil. Le chemin vers l'autre point en est le grand côté, l'hypoténuse, toujours plus long que chacun des deux autres : il est donc plus long que le fil à plomb. Plus on s'éloigne du pied, plus il s'allonge. Même idée quand on remplace une courbe compliquée par un polynôme de petit degré : parmi tous les polynômes permis (le « sol »), on prend le plus proche de la courbe, et ce qui reste est « perpendiculaire » à tous ces polynômes.
 
 **Grille.** (1) la projection comme pied de la perpendiculaire ; (2) le triangle rectangle et son hypoténuse plus longue ; (3) la conclusion « tout autre point est plus loin » ; (4) un exemple de « plus proche dans un ensemble permis » ; huit lignes au plus, sans formule.
 
@@ -504,19 +504,19 @@ Pour la copie : $2^2 + (-1)^2 = 5$ = f) ; $\lVert \mathbf{x} \rVert^2 = 16 + 4 +
 
 ### Ex M12b.25 — La projection orthogonale sur un sous-espace · `project`
 
-**Réponses** : a) `[0.5, 1.5, 2.5, 3.5]` · b) `[1.3, 3.9]` · c) `True` · d) `True` · e) `True` · f) `"ValueError"` · g) `"ValueError"`.
+**Réponses** : a) `[0.4, 1.2, 2.8, 3.6]` · b) `[1.3, 3.9]` · c) `True` · d) `True` · e) `True` · f) `"ValueError"` · g) `"ValueError"`.
 
-**Démarche.** Convertir en flottants, vérifier `v.ndim == 1`, `A.ndim == 2` et `A.shape[0] == v.shape[0]` (sinon `ValueError`), puis `Q = gram_schmidt(A)` et rendre `Q @ (Q.T @ v)`. Pour la copie : a) donne les prédictions de la droite $0{,}5 + x$ ajustée aux points $(0, 2), (1, 0), (2, 1), (3, 5)$ ; b) $\frac{13}{10}(1, 3)$ ; e) la projection ne dépend que du sous-espace, et $\mathbf{A}\mathbf{M}$ a les mêmes colonnes engendrées.
+**Démarche.** Convertir en flottants, vérifier `v.ndim == 1`, `A.ndim == 2` et `A.shape[0] == v.shape[0]` (sinon `ValueError`), puis `Q = gram_schmidt(A)` et rendre `Q @ (Q.T @ v)`. Pour la copie : a) donne les prédictions de la droite $0{,}4 + 0{,}8\,x$ ajustée aux points $(0, 1), (1, 0), (3, 4), (4, 3)$ ; b) $\frac{13}{10}(1, 3)$ ; e) la projection ne dépend que du sous-espace, et $\mathbf{A}\mathbf{M}$ a les mêmes colonnes engendrées.
 
 **Erreurs fréquentes.** `A @ (A.T @ v)` sans orthonormaliser ; attraper la `ValueError` de `gram_schmidt` pour rendre autre chose ; oublier le test des formes ($\mathbf{v}$ de longueur 2 et $\mathbf{A}$ à 3 lignes).
 
 ### Ex M12b.26 — La décomposition QR et les moindres carrés par QR · `qr, least_squares_qr`
 
-**Réponses** : a) `[[13.0, 6.0], [0.0, 2.0]]` · b) `True` · c) `True` · d) `[0.9, 1.4]` · e) `True` · f) `"ValueError"` · g) `"ValueError"`.
+**Réponses** : a) `[[13.0, 6.0], [0.0, 2.0]]` · b) `True` · c) `True` · d) `[1.3, 1.1]` · e) `True` · f) `"ValueError"` · g) `"ValueError"`.
 
-**Démarche.** `qr` : `Q = gram_schmidt(A)`, `R = np.triu(Q.T @ A)`, rendre `(Q, R)`. `least_squares_qr` : formes, `Q, R = qr(X)`, `z = Q.T @ y`, puis pour `i` de `p - 1` à `0` : `w[i] = (z[i] - R[i, i + 1:] @ w[i + 1:]) / R[i, i]`. Pour la copie : a) $\mathbf{Q} = \frac{1}{13}\begin{pmatrix} 12 & 3 \\ 3 & 4 \\ 4 & -12 \end{pmatrix}$ ; d) $\mathbf{R} = \begin{pmatrix} 2 & 3 \\ 0 & \sqrt{5} \end{pmatrix}$ et $\mathbf{Q}^\top\mathbf{y} = (6, 7/\sqrt{5})$, d'où $w_1 = 1{,}4$ puis $w_0 = 0{,}9$ ; c) $\mathbf{Q}^\top\mathbf{A}$ n'a, sous sa diagonale, que des arrondis de l'ordre de $10^{-16}$ : `np.triu` les met exactement à 0.
+**Démarche.** `qr` : `Q = gram_schmidt(A)`, `R = np.triu(Q.T @ A)`, rendre `(Q, R)`. `least_squares_qr` : formes, `Q, R = qr(X)`, `z = Q.T @ y`, puis pour `i` de `p - 1` à `0` : `w[i] = (z[i] - R[i, i + 1:] @ w[i + 1:]) / R[i, i]`. Pour la copie : a) $\mathbf{Q} = \frac{1}{13}\begin{pmatrix} 12 & 3 \\ 3 & 4 \\ 4 & -12 \end{pmatrix}$ ; d) $\mathbf{R} = \begin{pmatrix} 2 & 4 \\ 0 & \sqrt{10} \end{pmatrix}$ et $\mathbf{Q}^\top\mathbf{y} = (7, 11/\sqrt{10})$, d'où $w_1 = 1{,}1$ puis $w_0 = \frac{7 - 4 \times 1{,}1}{2} = 1{,}3$ ; c) $\mathbf{Q}^\top\mathbf{A}$ n'a, sous sa diagonale, que des arrondis de l'ordre de $10^{-16}$ : `np.triu` les met exactement à 0.
 
-**Erreurs fréquentes.** Remonter depuis la première ligne ; résoudre avec `np.linalg.solve(R, z)` (permis, mais l'exercice demande la boucle) ; oublier `np.triu`.
+**Erreurs fréquentes.** Remonter depuis la première ligne ; résoudre avec `np.linalg.solve(R, z)` (la docstring le permet, mais l'exercice fait écrire la boucle) ; oublier `np.triu`.
 
 ### Ex M12b.27 — `np.linalg.qr` et `lstsq` contre ta projection et ta QR : les signes de Q et de R
 

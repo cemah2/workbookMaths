@@ -1111,7 +1111,7 @@ def matmul_square_hadamard(A, B):    # a copy with another bug
 
 M09A_35_CHECK = '''with checked("M09a.35 vérifications"):
     problems = []
-    ref_35 = wbm.load_mymath("ref").matrices
+    ref_35 = wbm.load_mymath("ref", alias="mymath_ref").matrices   # your mymath stays loaded
 
     def outcome(matmul_t, transpose_t, seed):
         """None if check_transpose_of_product passes, else the message of its AssertionError."""

@@ -318,7 +318,7 @@ $U^\perp$ est le noyau de la matrice dont les **lignes** sont $\mathbf{a}$ et $\
 </details>
 <details><summary>Indice 3</summary>
 
-$x_1 = x_3 - 2x_4$ et $x_2 = -x_3 - x_4$.
+$x_1 = -3x_3 + x_4$ et $x_2 = 2x_3 - 2x_4$.
 
 </details>
 
@@ -349,12 +349,12 @@ Relis « La matrice de projection » (fiche §5).
 </details>
 <details><summary>Indice 2</summary>
 
-Symétrique et idempotente : une projection orthogonale. Son noyau est $U^\perp$, son image $U$ ; sa trace est la dimension de $U$.
+Le noyau de $\mathbf{P}$ est $U^\perp$, son image $U$ ; sa trace est la dimension de $U$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-b) Calcule $\mathbf{P}^2$ en neuvièmes. g) $(\mathbf{I} - \mathbf{P})\mathbf{v} = \mathbf{v} - \mathbf{P}\mathbf{v}$. h) Calcule $\mathbf{M}^2$, puis compare $\mathbf{M}$ et $\mathbf{M}^\top$.
+f) $(\mathbf{I} - \mathbf{P})\mathbf{v} = \mathbf{v} - \mathbf{P}\mathbf{v}$. h) Compare $\mathbf{M}$ et $\mathbf{M}^\top$.
 
 </details>
 
@@ -390,7 +390,7 @@ $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} n & \sum x_i \\ \sum x_i & \sum x_i
 </details>
 <details><summary>Indice 3</summary>
 
-Le déterminant vaut 50 ; $\mathbf{w}^* = \frac{1}{50}\begin{pmatrix} 55 & -15 \\ -15 & 5 \end{pmatrix}\mathbf{X}^\top\mathbf{y}$.
+Le déterminant vaut 150 ; $\mathbf{w}^* = \frac{1}{150}\begin{pmatrix} 110 & -20 \\ -20 & 5 \end{pmatrix}\mathbf{X}^\top\mathbf{y}$.
 
 </details>
 

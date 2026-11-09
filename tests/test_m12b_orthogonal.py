@@ -137,7 +137,8 @@ def test_gram_schmidt_keeps_the_spans(orthogonal):
         assert np.allclose(Q[:, :k] @ coefficients, A[:, :k], atol=1e-10), (
             f"expected a_1, …, a_{k} to be combinations of q_1, …, q_{k} (the same subspace), but they are not")
     assert np.all(np.sum(Q * A, axis=0) > 0), (
-        f"expected q_k · a_k > 0 for every k (divide by the norm, never by minus the norm), got "
+        f"expected q_k · a_k > 0 for every k (q_k = v_k / ‖v_k‖: normalize each v_k, by its norm and never by minus "
+        f"its norm, before using it for the next columns), got "
         f"{_show(np.sum(Q * A, axis=0))}")
 
 
