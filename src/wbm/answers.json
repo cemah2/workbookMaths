@@ -42769,7 +42769,7 @@
       "hash": "b5246c3b873630df93b91ce31a2fd117136993593ff8b157c8209486ce4454fe",
       "kind": "array",
       "mistakes": {
-        "15113130814f24b38f2d89aadb8c0d9373982fd92c4ac1b880119d3749c985b3": "q₁ va avec la plus GRANDE valeur propre, 30",
+        "15113130814f24b38f2d89aadb8c0d9373982fd92c4ac1b880119d3749c985b3": "q₁ va avec la plus GRANDE valeur propre",
         "1b29d24dd4824a10ee431c821d221f0422cbbe340ae47e24bda600707b052a03": "un vecteur unitaire : divise le vecteur propre par sa norme"
       },
       "shape": [
@@ -43127,7 +43127,7 @@
       "hash": "84ff62ae4fde44f9381b5b902e59a79afef3975a9b12c4ab8fa0d9d8081d3bd0",
       "kind": "array",
       "mistakes": {
-        "53856361acd611a29058f4dc7257cfbaab03e8e1ebd3fbf57770b19635eb560e": "le signe : la coordonnée de plus grande valeur absolue doit être positive"
+        "e86363fb7b0eb40d501c8bbfe837fddbce05a00cf6bb6cd531f2861ebec84be5": "normalise à chaque pas : divise A x₁ par sa norme"
       },
       "shape": [
         2
@@ -43488,7 +43488,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "4ee0aef55947aefe300b2d81924ea4c215d75aa1e062917a8c0284042e35a454": "vérifie A x = (2, −7, −19) : un signe faux dans la descente L z = b, ou dans la remontée Lᵀ x = z"
+        "fdbe68d173bc5fcc251b49550b0e733d593538896401013ed94df8b145a8fc7b": "tu as rendu z, la solution de L z = b : il reste la remontée Lᵀ x = z"
       },
       "shape": [
         3
@@ -43946,7 +43946,8 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "2ca12a7afc0837896090da855870f97a998308818737cbc9f3b50d462f83bb00": "wᵀΣw compte deux fois chaque covariance : Σᵢⱼ wᵢ wⱼ Σᵢⱼ sur tous les couples (i, j)"
+        "2ca12a7afc0837896090da855870f97a998308818737cbc9f3b50d462f83bb00": "wᵀΣw compte deux fois chaque covariance : Σᵢⱼ wᵢ wⱼ Σᵢⱼ sur tous les couples (i, j)",
+        "91d7e5dc7f012cbca47ac3e884d6eeb84c3e3a608a5df3ec28b6fb38800c0aad": "wᵀΣw = Σᵢⱼ wᵢ wⱼ Σᵢⱼ : n'oublie pas les covariances, hors de la diagonale"
       },
       "sign": 1,
       "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"

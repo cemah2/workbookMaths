@@ -112,7 +112,7 @@ En dimension 2 : $a > 0$ et $ac - b^2 > 0$ pour définie positive ; $ac - b^2 = 
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $36 - 36 = 0$. 3 : essaie $(1, 1)$ et $(1, -1)$.
+2 : $36 - 36 = 0$. 3 : essaie $(0, 1)$ et $(1, -1)$.
 
 </details>
 
@@ -892,7 +892,7 @@ Relis R0 (SymPy) et l'énoncé.
 </details>
 <details><summary>Indice 3</summary>
 
-`P_35, D_35 = M35_DIAG.diagonalize()` ; `defective_35 = M35_DEFECTIVE.is_diagonalizable()`.
+`P_35, D_35 = M35_DIAG.diagonalize()` ; `diagonalizable_35 = M35_DEFECTIVE.is_diagonalizable()`.
 
 </details>
 

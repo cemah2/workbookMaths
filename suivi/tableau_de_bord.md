@@ -1334,3 +1334,58 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M12b.33 🏆 Défi : des colonnes presque dépendantes, des moindres carrés à 1e−8 près de `lstsq` par l'orthogonalisation de [X | y] ★★★ 30 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (24 cartes)
 <!-- wbm:end M12b -->
+
+<!-- wbm:section M12c -->
+## M12c · Valeurs propres et matrices symétriques ⏱️ 16,8 h
+
+- [ ] M12c.Q1 🧠 Ce que mesure un déterminant ★ 4 min
+- [ ] M12c.Q2 🧠 Les propriétés du déterminant et de la trace : vrai ou faux ★ 4 min
+- [ ] M12c.Q3 🧠 Reconnaître un vecteur propre ★ 4 min
+- [ ] M12c.Q4 🧠 Diagonalisable ou pas ? ★ 4 min
+- [ ] M12c.Q5 🧠 Ce que garantit le théorème spectral ★ 4 min
+- [ ] M12c.Q6 🧠 Définie positive, semi-définie positive ou indéfinie ? ★ 4 min
+- [ ] M12c.Q7 🧠 Cholesky, racine carrée, blanchiment : qui est quoi ? ★ 4 min (complet)
+- [ ] M12c.Q8 🧠 Trace, déterminant et valeurs propres ★ 4 min
+- [ ] M12c.R1 🔁 Le rang et le noyau (M12a) ★ 5 min
+- [ ] M12c.R2 🔁 Bases orthonormées et matrices orthogonales (M12b) ★ 5 min
+- [ ] M12c.R3 🔁 La matrice de covariance empirique (M02c) ★ 5 min
+- [ ] M12c.1 ✏️ Déterminants 2 × 2 et 3 × 3 : aire, volume et signe ★ 15 min
+- [ ] M12c.2 ✏️ Le déterminant d'une matrice 4 × 4 par élimination ★★ 20 min (complet)
+- [ ] M12c.3 ✏️ Les valeurs et vecteurs propres d'une matrice 2 × 2 ★ 15 min
+- [ ] M12c.4 ✏️ Une matrice 3 × 3 triangulaire, puis une avec une valeur propre double ★★ 20 min
+- [ ] M12c.5 ✏️ Diagonaliser, puis calculer une puissance dixième ★★ 20 min
+- [ ] M12c.6 ✏️ Une matrice non diagonalisable, et une rotation sans valeur propre réelle ★★ 15 min (complet)
+- [ ] M12c.7 ✏️ Le théorème spectral sur une matrice symétrique 2 × 2 : Q, Λ et QΛQᵀ ★ 15 min
+- [ ] M12c.8 ✏️ Le quotient de Rayleigh : le maximum et le minimum de xᵀAx sur le cercle unité ★★ 20 min
+- [ ] M12c.9 ✏️ Trois itérations de la méthode de la puissance à la main ★ 15 min (complet)
+- [ ] M12c.10 ✏️ Définie positive ? Par les valeurs propres, les mineurs et la forme quadratique ; une hessienne qui prouve la convexité ★★ 20 min
+- [ ] M12c.11 ✏️ La décomposition de Cholesky d'une matrice 3 × 3 ★★ 20 min
+- [ ] M12c.12 ✏️ Une forme quadratique réduite à une somme de carrés, et ses lignes de niveau ★★ 20 min (complet)
+- [ ] M12c.13 ✏️ La covariance d'un vecteur transformé, AΣAᵀ, et le blanchiment d'une covariance 2 × 2 ★★ 20 min
+- [ ] M12c.14 ∂ det A ≠ 0 si et seulement si A est inversible (det AB = det A det B admis) ★★ 20 min (complet)
+- [ ] M12c.15 ∂ Une matrice symétrique réelle : valeurs propres réelles, vecteurs propres de valeurs distinctes orthogonaux ★★ 20 min
+- [ ] M12c.16 ∂ La somme des valeurs propres est la trace, leur produit le déterminant ★★ 20 min (complet)
+- [ ] M12c.17 ∂ Une matrice de covariance, et toute matrice de Gram XᵀX, est symétrique semi-définie positive ★ 15 min
+- [ ] M12c.18 ∂ Le quotient de Rayleigh d'une matrice symétrique est entre λ_min et λ_max ★★ 20 min (complet)
+- [ ] M12c.19 ∂ ½ xᵀAx − bᵀx, avec A définie positive, a un unique minimum, en A⁻¹b ★★ 20 min
+- [ ] M12c.20 🔗 Pont : la variance d'une somme pondérée de trois features, wᵀΣw, et pourquoi Σ doit être semi-définie positive ★ 15 min
+- [ ] M12c.21 🔗 Pont : après un blanchiment, la covariance est l'identité ★★ 15 min (complet)
+- [ ] M12c.22 📖 MML §4.1 et §4.2 : déterminant, trace, valeurs propres, en anglais ★★ 30 min (complet)
+- [ ] M12c.23 📖 MML §4.3 et §4.4 : Cholesky, diagonalisation et décomposition spectrale ★★ 30 min (complet)
+- [ ] M12c.24 🧮 Fermi : un déterminant 20 × 20 par cofacteurs ou par élimination, combien d'opérations ? ★ 10 min (complet)
+- [ ] M12c.25 🗣️ Expliquer un vecteur propre avec une image ★ 10 min
+- [ ] M12c.E1 💼 « Que représentent les valeurs propres d'une matrice de covariance ? » ★ 10 min (complet)
+- [ ] M12c.E2 💼 « Comment savoir qu'une matrice est définie positive, et pourquoi est-ce important en optimisation ? » ★ 10 min (complet)
+- [ ] M12c.26 🔨 Le déterminant par élimination ★ 20 min
+- [ ] M12c.27 🔨 La méthode de la puissance et le quotient de Rayleigh ★★ 25 min
+- [ ] M12c.28 🔨 La décomposition de Cholesky et le test « définie positive » ★★ 25 min
+- [ ] M12c.29 🔨 La racine carrée d'une matrice symétrique positive et la matrice de blanchiment ★★ 25 min
+- [ ] M12c.30 📦 `np.linalg.eigh`, `det`, `cholesky` et `scipy.linalg.sqrtm` contre tes fonctions ★ 15 min
+- [ ] M12c.31 🔮 Prédire : la méthode de la puissance quand les deux plus grandes valeurs propres sont proches ★ 10 min
+- [ ] M12c.32 🔬 La vitesse de la méthode de la puissance et le rapport |λ₂ / λ₁| ★★ 20 min (complet)
+- [ ] M12c.33 🎨 Les lignes de niveau de xᵀAx : définie positive, semi-définie positive, indéfinie ★ 20 min
+- [ ] M12c.34 🐛 Chasse à l'erreur : det(A + B) = det A + det B, un vecteur propre nul, Cholesky d'une matrice non symétrique ★ 15 min (complet)
+- [ ] M12c.35 🛠️ Vérifier avec SymPy : polynôme caractéristique, valeurs propres exactes, diagonalisation ★ 15 min (complet)
+- [ ] M12c.36 🏆 Défi : les trois plus grandes valeurs propres d'une matrice symétrique semi-définie positive 300 × 300, par la puissance avec déflation, à 1e−6 près ★★★ 30 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (26 cartes)
+<!-- wbm:end M12c -->

@@ -427,7 +427,7 @@ Pour la copie : $\boldsymbol{\Sigma}^{-1} = \frac{1}{36}\begin{pmatrix} 8 & -6 \
 
 **Réponse modèle.**
 1. $20! \approx 2{,}4 \times 10^{18}$ (Stirling : $\sqrt{40\pi}\,(20/e)^{20} \approx 11{,}2 \times 7{,}4^{20} \approx 2{,}4 \times 10^{18}$).
-2. $2{,}4 \times 10^{18}/10^9 = 2{,}4 \times 10^9$ s, soit environ 77 ans (une année : $3{,}2 \times 10^7$ s ; en comptant aussi les $n - 1$ multiplications de chaque produit, plutôt un siècle ou deux, le même ordre de grandeur). C'est une vie humaine, rien à côté de l'âge de l'Univers. Pour $30 \times 30$ : $2{,}7 \times 10^{32}/10^9 \approx 2{,}7 \times 10^{23}$ s, soit $8 \times 10^{15}$ ans, près d'un million de fois l'âge de l'Univers. Dix lignes et colonnes de plus multiplient le temps par $30!/20! \approx 10^{14}$ : c'est la croissance de la factorielle.
+2. $2{,}4 \times 10^{18}/10^9 = 2{,}4 \times 10^9$ s, soit environ 77 ans (une année : $3{,}2 \times 10^7$ s ; en comptant toutes les opérations du développement récursif, environ $2{,}7 \times n!$, plutôt deux siècles : le même ordre de grandeur). C'est une vie humaine, rien à côté de l'âge de l'Univers. Pour $30 \times 30$ : $2{,}7 \times 10^{32}/10^9 \approx 2{,}7 \times 10^{23}$ s, soit $8 \times 10^{15}$ ans, environ $6 \times 10^5$ fois l'âge de l'Univers. Dix lignes et colonnes de plus multiplient le temps par $30!/20! \approx 10^{14}$ : c'est la croissance de la factorielle.
 3. $\frac{2}{3} \times 8\,000 \approx 5\,300$ opérations : environ 5 microsecondes.
 4. $\frac{2}{3} \times 10^9$ opérations : moins d'une seconde.
 5. $n! < 10^9$ : jusqu'à $n = 12$ ($12! \approx 4{,}8 \times 10^8$, $13! \approx 6{,}2 \times 10^9$).

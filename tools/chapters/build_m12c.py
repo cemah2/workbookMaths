@@ -138,7 +138,7 @@ PAPER = [
         ("a", "a list of 2 numbers", "[30, 1]", f'''mistakes={{"{DESC}": [1, 30]}}'''),
         ("b", "a list of 2 numbers (4 decimals)", "exact(Q1_7)",
          '''decimals=4, mistakes={"un vecteur unitaire : divise le vecteur propre par sa norme": [2.0, 5.0], '''
-         '''"q₁ va avec la plus GRANDE valeur propre, 30": exact(Q2_7)}'''),
+         '''"q₁ va avec la plus GRANDE valeur propre": exact(Q2_7)}'''),
         ("c", "a list of 2 numbers (4 decimals)", "exact(Q2_7)",
          '''decimals=4, mistakes={"le signe : la première coordonnée positive": exact(-Q2_7)}'''),
         ("d", "a number", "Q1_7.dot(Q2_7)", '''mistakes={"le produit scalaire de deux vecteurs propres unitaires": 1}'''),
@@ -172,7 +172,7 @@ PAPER = [
         ("b", "a list of 2 numbers (4 decimals)", "exact(X_9[0])",
          '''decimals=4, mistakes={"normaliser : divise A x₀ par sa norme": exact(A_9 * V([1, 1]))}'''),
         ("c", "a list of 2 numbers (4 decimals)", "exact(X_9[1])",
-         '''decimals=4, mistakes={"le signe : la coordonnée de plus grande valeur absolue doit être positive": exact(-X_9[1])}'''),
+         '''decimals=4, mistakes={"normalise à chaque pas : divise A x₁ par sa norme": exact(A_9 * V([5, -3]))}'''),
         ("d", "a list of 2 numbers (4 decimals)", "exact(X_9[2])",
          '''decimals=4, mistakes={"le signe : la coordonnée de plus grande valeur absolue doit être positive": exact(-X_9[2])}'''),
         ("e", "a number (4 decimals)", "float((X_9[2].T * A_9 * X_9[2])[0])", "decimals=4"),
@@ -212,8 +212,8 @@ PAPER = [
          '''mistakes={"L est triangulaire inférieure : les zéros au-dessus de la diagonale": matrix(L_11.T)}'''),
         ("g", "a number", "A_11.det()", '''mistakes={"det A = (det L)² = (l₁₁ l₂₂ l₃₃)²": 4}'''),
         ("h", "a list of 3 numbers", "exact(A_11.solve(V([2, -7, -19])))",
-         '''mistakes={"vérifie A x = (2, −7, −19) : un signe faux dans la descente L z = b, ou dans la remontée Lᵀ x = z": '''
-         '''exact(-A_11.solve(V([2, -7, -19])))}'''),
+         '''mistakes={"tu as rendu z, la solution de L z = b : il reste la remontée Lᵀ x = z": '''
+         '''exact(L_11.solve(V([2, -7, -19])))}'''),
     ]),
 
     Paper("M12c.12", "Une forme quadratique réduite à une somme de carrés, et ses lignes de niveau", [
@@ -266,7 +266,8 @@ PAPER = [
         ("c", "a number", "qf(S_20, [2, -1, 0])",
          '''mistakes={"V(2x₁ − x₂) = 4 V(x₁) + V(x₂) − 4 Cov(x₁, x₂)": 25, "un facteur 2 au carré : 4 V(x₁)": 9}'''),
         ("d", "a number", "qf(S_20, [1, -1, 2])",
-         '''mistakes={"wᵀΣw compte deux fois chaque covariance : Σᵢⱼ wᵢ wⱼ Σᵢⱼ sur tous les couples (i, j)": 67}'''),
+         '''mistakes={"wᵀΣw compte deux fois chaque covariance : Σᵢⱼ wᵢ wⱼ Σᵢⱼ sur tous les couples (i, j)": 67, '''
+         '''"wᵀΣw = Σᵢⱼ wᵢ wⱼ Σᵢⱼ : n'oublie pas les covariances, hors de la diagonale": 77}'''),
         ("e", "a number", "S_20[0, 2] + S_20[1, 2]",
          '''mistakes={"Cov(x₁ + x₂, x₃) = Cov(x₁, x₃) + Cov(x₂, x₃)": 4}'''),
         ("f", "a number", "qf(PHI_20, [1, -1, 0])"),
@@ -1305,7 +1306,7 @@ def top_three(A):
     check=M12C_36_CHECK + '''
 with checked("M12c.36"):
     if not ran_36:                               # ⏳ while top_three is not written
-        raise NotImplementedError("top_three n'est pas encore écrite")
+        raise NotImplementedError("top_three, ou une fonction qu'elle appelle, n'est pas encore écrite")
     wbm.check("M12c.36", bool(ok_36), computed=True)''',
     solution=LOAD_REF + '''
 

@@ -115,6 +115,8 @@ def test_eigen_uses_no_ready_made_tool(eigen):
                 found.add(node.module)
             elif node.module.startswith("numpy"):
                 found.update(f".{a.name}" for a in node.names if a.name in FORBIDDEN | SPECTRAL)
+                places.update(f"{a.name} imported by name (write np.linalg.{a.name} inside sqrtm_psd or "
+                              f"whitening_matrix instead)" for a in node.names if a.name in SPECTRAL)
         for child in ast.iter_child_nodes(node):
             visit(child, function)
 
