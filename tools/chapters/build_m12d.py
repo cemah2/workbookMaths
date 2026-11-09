@@ -40,35 +40,35 @@ PAPER = [
     Paper("M12d.1", "La SVD d'une matrice 2 × 2 à la main, par AᵀA", [
         ("a", "a matrix", "matrix(A_1.T * A_1)",
          '''mistakes={"AᵀA : les produits scalaires des COLONNES de A, pas des lignes": matrix(A_1 * A_1.T)}'''),
-        ("b", "a list of 2 numbers", "[121, 36]", f'''mistakes={{"{DESC}": [36, 121]}}'''),
-        ("c", "a list of 2 numbers", "[11, 6]",
-         f'''mistakes={{"une valeur singulière est la RACINE d'une valeur propre de AᵀA": [121, 36], "{DESC}": [6, 11]}}'''),
+        ("b", "a list of 2 numbers", "[225, 4]", f'''mistakes={{"{DESC}": [4, 225]}}'''),
+        ("c", "a list of 2 numbers", "[15, 2]",
+         f'''mistakes={{"une valeur singulière est la RACINE d'une valeur propre de AᵀA": [225, 4], "{DESC}": [2, 15]}}'''),
         ("d", "a list of 2 numbers (4 decimals)", "exact(V1_1)",
-         f'''decimals=4, mistakes={{"{UNIT}": [6, 7], "{SIGN}": exact(-V1_1), '''
+         f'''decimals=4, mistakes={{"{UNIT}": [11, 10], "{SIGN}": exact(-V1_1), '''
          '''"v₁ va avec la plus GRANDE valeur propre de AᵀA": exact(V2_1)}'''),
         ("e", "a list of 2 numbers (4 decimals)", "exact(V2_1)", f'''decimals=4, mistakes={{"{SIGN}": exact(-V2_1)}}'''),
         ("f", "a list of 2 numbers (4 decimals)", "exact(U1_1)",
          '''decimals=4, mistakes={"u₁ = A v₁ / s₁ : divise par s₁": exact(A_1 * V1_1), '''
-         '''"u₁ = A v₁ / s₁, avec A et non Aᵀ": exact(A_1.T * V1_1 / 11)}'''),
+         '''"u₁ = A v₁ / s₁, avec A et non Aᵀ": exact(A_1.T * V1_1 / 15)}'''),
         ("g", "a number", "A_1.det()",
-         '''mistakes={"ad − bc, pas ad + bc": 42, "le déterminant garde son signe : seule sa valeur absolue est s₁ s₂": 66}'''),
-        ("h", "a list of 2 numbers (4 decimals)", "[float(2 + sq(70)), float(2 - sq(70))]",
-         f'''decimals=4, mistakes={{"les valeurs propres de A elle-même : les racines de λ² − (tr A) λ + det A": [11.0, 6.0], '''
-         f'''"{DESC}": [float(2 - sq(70)), float(2 + sq(70))]}}'''),
+         '''mistakes={"ad − bc, pas ad + bc": 70, "le déterminant garde son signe : seule sa valeur absolue est s₁ s₂": 30}'''),
+        ("h", "a list of 2 numbers (4 decimals)", "[float(6 + sq(66)), float(6 - sq(66))]",
+         f'''decimals=4, mistakes={{"les valeurs propres de A elle-même : les racines de λ² − (tr A) λ + det A": [15.0, 2.0], '''
+         f'''"{DESC}": [float(6 - sq(66)), float(6 + sq(66))]}}'''),
     ]),
 
     Paper("M12d.2", "La SVD compacte d'une matrice 3 × 2 de rang 1", [
         ("a", "an integer", "A_2.rank()", '''mistakes={"les deux colonnes sont proportionnelles": 2}'''),
         ("b", "a matrix", "matrix(A_2.T * A_2)",
          '''mistakes={"AᵀA est de forme (2, 2) : les produits scalaires des colonnes": matrix(A_2 * A_2.T)}'''),
-        ("c", "a list of 2 numbers", "[3146, 0]", f'''mistakes={{"{DESC}": [0, 3146]}}'''),
-        ("d", "a number (4 decimals)", "float(11 * sq(26))",
-         '''decimals=4, mistakes={"une valeur singulière est la RACINE d'une valeur propre de AᵀA": 3146.0}'''),
+        ("c", "a list of 2 numbers", "[5850, 0]", f'''mistakes={{"{DESC}": [0, 5850]}}'''),
+        ("d", "a number (4 decimals)", "float(15 * sq(26))",
+         '''decimals=4, mistakes={"une valeur singulière est la RACINE d'une valeur propre de AᵀA": 5850.0}'''),
         ("e", "a list of 2 numbers (4 decimals)", "exact(V1_2)",
          f'''decimals=4, mistakes={{"{UNIT}": [-1, 5], "{SIGN}": exact(-V1_2)}}'''),
         ("f", "a list of 3 numbers (4 decimals)", "exact(U1_2)",
          '''decimals=4, mistakes={"u₁ = A v₁ / s₁, avec le v₁ de la convention : son signe suit celui de v₁": exact(-U1_2)}'''),
-        ("g", "a number", "3146",
+        ("g", "a number", "5850",
          '''fractional="‖A‖²_F est la somme des carrés de tous les éléments, s₁² et non s₁ : un entier"'''),
         ("h", "a list of 2 numbers (4 decimals)", "exact(V2_2)",
          f'''decimals=4, mistakes={{"{SIGN}": exact(-V2_2), "{UNIT}": [5, 1]}}'''),
@@ -129,13 +129,13 @@ PAPER = [
         ("b", "a number (4 decimals)", "float(9 * sq(29))",
          '''decimals=4, mistakes={"pour une matrice de rang 1, s₁² = ‖A‖²_F : prends la racine": 2349.0}'''),
         ("c", "a number", "sum(v ** 2 for v in A_6)"),
-        ("d", "a matrix (6 decimals)", "floats(P_6)",
-         '''decimals=6, mistakes={"A⁺ = v₁ u₁ᵀ / s₁ = Aᵀ / s₁² pour une matrice de rang 1 : divise par s₁²": floats(A_6.T / (9 * sq(29))), '''
-         '''"A⁺ est de forme (3, 2) : elle s'écrit avec Aᵀ": floats(A_6 / 2349)}'''),
+        ("d", "a matrix (4 decimals)", "floats(1000 * P_6)",
+         '''decimals=4, mistakes={"A⁺ = v₁ u₁ᵀ / s₁ = Aᵀ / s₁² pour une matrice de rang 1 : divise par s₁²": floats(1000 * A_6.T / (9 * sq(29))), '''
+         '''"A⁺ est de forme (3, 2) : elle s'écrit avec Aᵀ": floats(1000 * A_6 / 2349)}'''),
         ("e", "a list of 3 numbers (4 decimals)", "exact(P_6 * V([18, 45]))",
          '''decimals=4, mistakes={"x⁺ = A⁺ y, avec la pseudo-inverse": exact(A_6.T * V([18, 45]))}'''),
         ("f", "a number", "(P_6 * V([18, 45])).norm()"),
-        ("g", "a number", "9"),
+        ("g", "a number", "9", '''mistakes={"la norme, pas son carré": 81}'''),
         ("h", "a list of 2 numbers (4 decimals)", "exact(A_6 * P_6 * V([1, 0]))",
          '''decimals=4, mistakes={"y′ n'est pas dans l'image de A : A A⁺ y′ est sa projection orthogonale sur cette image": [1, 0]}'''),
     ]),
@@ -147,7 +147,8 @@ PAPER = [
         ("b", "a number", "1"),
         ("c", "a number (4 decimals)", "float(KAPPA_7)",
          '''decimals=4, mistakes={"κ = s₁ / s₂, les racines : pas le rapport des valeurs propres de RᵀR": float(KAPPA_7 ** 2), '''
-         '''"le conditionnement ne se lit pas sur le déterminant": 1.0}'''),
+         '''"le conditionnement ne se lit pas sur le déterminant": 1.0, '''
+         '''"102 = s₁² + s₂² est ‖R‖²_F : κ = s₁ / s₂, avec s₁s₂ = |det R|": 102.0}'''),
         ("d", "a number (4 decimals)", "float(KAPPA_7 / 1000)",
          '''decimals=4, mistakes={"la borne multiplie l'erreur relative sur b par κ": 0.001}'''),
         ("e", "a list of 2 numbers", "exact(R_7.solve(V([14, 9])))"),
@@ -167,9 +168,11 @@ PAPER = [
         ("c", "a number", "C_8.trace()", '''mistakes={"la variance totale est la trace : la somme des seules variances": 42}'''),
         ("d", "a number", "C_8.det()"),
         ("e", "a list of 3 numbers", "[20, 11, 3]", f'''mistakes={{"{DESC}": [3, 11, 20]}}'''),
-        ("f", "a list of 3 numbers (4 decimals)", "exact(U1_8)", f'''decimals=4, mistakes={{"{UNIT}": [4, 0, 1]}}'''),
+        ("f", "a list of 3 numbers (4 decimals)", "exact(U1_8)",
+         f'''decimals=4, mistakes={{"{UNIT}": [4, 0, 1], "le bloc porte sur les mesures 1 et 3 : la deuxième coordonnée de u₁ est nulle": exact(V([4, 1, 0]) / sq(17))}}'''),
         ("g", "a list of 3 numbers (4 decimals)", "exact(U3_8)",
-         f'''decimals=4, mistakes={{"{SIGN}": exact(-U3_8), "{UNIT}": [-1, 0, 4]}}'''),
+         f'''decimals=4, mistakes={{"{SIGN}": exact(-U3_8), "{UNIT}": [-1, 0, 4], '''
+         f'''"le bloc porte sur les mesures 1 et 3 : la deuxième coordonnée de u₃ est nulle": exact(V([-1, 4, 0]) / sq(17))}}'''),
         ("h", "a number (1 decimal)", "float(qf(C_8, V([1, 0, 1]) / sq(2)))",
          '''decimals=1, mistakes={"uᵀCu avec u UNITAIRE : (1, 0, 1) a pour norme √2": 31.0}'''),
     ]),
@@ -190,7 +193,8 @@ PAPER = [
          '''decimals=4, mistakes={"avec k = 1, on oublie λ₂ ET λ₃, au facteur (n − 1)/n près": 14.0, '''
          '''"avec k = 1, les variances oubliées sont λ₂ et λ₃": float(sympy.Rational(18, 7))}'''),
         ("h", "a number (4 decimals)", "float(sympy.Rational(31, 34))",
-         '''decimals=4, mistakes={"la part GARDÉE : (λ₁ + λ₂) / (λ₁ + λ₂ + λ₃)": float(sympy.Rational(3, 34))}'''),
+         '''decimals=4, mistakes={"la part GARDÉE : (λ₁ + λ₂) / (λ₁ + λ₂ + λ₃)": float(sympy.Rational(3, 34)), '''
+         '''"avec deux axes sur trois, la variance λ₃ est perdue : la part gardée est sous 1": 1.0}'''),
     ]),
 
     Paper("M12d.10", "La variance expliquée cumulée : combien de composantes pour 95 % ?", [
@@ -207,7 +211,7 @@ PAPER = [
          '''decimals=4, mistakes={"le facteur (n − 1)/n de la convention 1/(n − 1)": float(sum(LAMBDA_10[3:]))}'''),
     ]),
 
-    Paper("M12d.11", "L'ACP par la SVD de la matrice centrée : σ² / (n − 1) donne les variances", [
+    Paper("M12d.11", "L'ACP par la SVD de la matrice centrée : s² / (n − 1) donne les variances", [
         ("a", "a list of 3 numbers", "exact(MU_11)"),
         ("b", "a matrix", "matrix(XC_11.T * XC_11)",
          '''mistakes={"centre d'abord : retire la moyenne à chaque ligne": matrix(X_11.T * X_11)}'''),
@@ -245,7 +249,8 @@ PAPER = [
         ("c", "a number (4 decimals)", "float(H_13)",
          '''decimals=4, mistakes={"l'entropie en BITS : log₂, pas ln": float(H_13 * sympy.log(2))}'''),
         ("d", "a number (4 decimals)", "float(2 ** H_13)",
-         '''decimals=4, mistakes={"la perplexité est 2 puissance l'entropie en bits": float(sympy.exp(H_13))}'''),
+         '''decimals=4, mistakes={"la perplexité est 2 puissance l'entropie en bits": float(sympy.exp(H_13)), '''
+         '''"3 est la limite quand σ → ∞ (trois voisins équiprobables) ; ici, calcule 2^H avec les probabilités de b)": 3.0}'''),
         ("e", "a number (4 decimals)", "0.4", '''decimals=4, mistakes={"vu de x₂ : ses voisins x₁ et x₃ sont tous deux à distance 1": float(sympy.Rational(4, 7))}'''),
         ("f", "a number (4 decimals)", "float(sympy.Rational(17, 140))",
          '''decimals=4, mistakes={"p_ij = (p_{j|i} + p_{i|j}) / (2n), avec n = 4 points": float(sympy.Rational(17, 35))}'''),
@@ -255,12 +260,14 @@ PAPER = [
     Paper("M12d.20", "Pont : détecter une anomalie par son erreur de reconstruction", [
         ("a", "a number", "err_20(V([18, 12, 7]))"),
         ("b", "a number (4 decimals)", "float(err_20(V([13, 9, 9])))",
-         '''decimals=4, mistakes={"l'erreur est le CARRÉ de la distance : le carré du score sur u₃": float(13 / sq(17))}'''),
+         '''decimals=4, mistakes={"l'erreur est le CARRÉ de la distance : le carré du score sur u₃": float(13 / sq(17)), '''
+         '''"l'erreur ne compte que ce qui sort du plan des deux axes : le carré du score sur u₃, pas ‖r₂ − μ‖²": 10.0}'''),
         ("c", "a number (4 decimals)", "float(max(err_20(XC_8.row(i).T + MU_8) for i in range(7)))",
          '''decimals=4, mistakes={"la PLUS GRANDE erreur des sept objets, pas leur moyenne": float(sympy.Rational(18, 7))}'''),
         ("d", "True or False", "True", '''mistakes={"compare l'erreur de r₂ à la plus grande des sept": False}'''),
         ("e", "a number (4 decimals)", "float(U1_8.dot(V([30, 9, 10]) - MU_8))",
-         '''decimals=4, mistakes={"le score se calcule sur l'objet CENTRÉ, r₃ − μ": float(U1_8.dot(V([30, 9, 10])))}'''),
+         '''decimals=4, mistakes={"le score se calcule sur l'objet CENTRÉ, r₃ − μ": float(U1_8.dot(V([30, 9, 10]))), '''
+         '''"le score sur u₁ est u₁ᵀ(r₃ − μ), pas une coordonnée de r₃ − μ": 16.0}'''),
         ("f", "a number (4 decimals)", "float(max(abs(U1_8.dot(XC_8.row(i).T)) for i in range(7)))", "decimals=4"),
         ("g", "True or False", "False",
          '''mistakes={"r₃ − μ est un multiple de u₁ : il est dans le plan des deux premiers axes": True}'''),
@@ -273,9 +280,11 @@ PAPER = [
          '''[[19, 0, 12], [0, 11, 0], [12, 0, 12]], "(DCD)ᵢⱼ = dᵢ dⱼ cᵢⱼ : la covariance des mesures 1 et 3 est multipliée par 3": '''
          '''[[19, 0, 4], [0, 11, 0], [4, 0, 36]]}'''),
         ("b", "a list of 3 numbers (4 decimals)", "[float((55 + sq(865)) / 2), float((55 - sq(865)) / 2), 11.0]",
-         f'''decimals=4, mistakes={{"{DESC}": [float((55 + sq(865)) / 2), 11.0, float((55 - sq(865)) / 2)]}}'''),
+         f'''decimals=4, mistakes={{"{DESC}": [11.0, float((55 - sq(865)) / 2), float((55 + sq(865)) / 2)], '''
+         f'''"par ordre décroissant : (55 − √865)/2 ≈ 12,79 est plus grand que 11": [float((55 + sq(865)) / 2), 11.0, float((55 - sq(865)) / 2)]}}'''),
         ("c", "a list of 3 numbers (4 decimals)", "exact(U1_21)",
-         '''decimals=4, mistakes={"le premier axe de la NOUVELLE covariance": exact(U1_8)}'''),
+         '''decimals=4, mistakes={"le premier axe de la NOUVELLE covariance": exact(U1_8), '''
+         '''"le bloc porte sur les mesures 1 et 3 : la deuxième coordonnée est nulle": [float(U1_21[0]), float(U1_21[2]), 0.0]}'''),
         ("d", "a number (4 decimals)", "float((55 + sq(865)) / 2 / 66)",
          '''decimals=4, mistakes={"la variance totale a changé aussi : 19 + 11 + 36": float((55 + sq(865)) / 2 / 34)}'''),
         ("e", "a number (4 decimals)", "float(2 / sq(19))",
@@ -319,13 +328,13 @@ def qf(M, w):
 
 
 V, sq = sympy.Matrix, sympy.sqrt
-A_1 = V([[6, 9], [6, -2]])                                                                  # M12d.1
-V1_1, V2_1 = V([6, 7]) / sq(85), V([7, -6]) / sq(85)
-U1_1 = A_1 * V1_1 / 11
-assert A_1.T * A_1 * V([6, 7]) == 121 * V([6, 7]) and A_1.T * A_1 * V([7, -6]) == 36 * V([7, -6])
-A_2 = V([[2, -10], [6, -30], [9, -45]])                                                     # M12d.2
+A_1 = V([[10, 10], [5, 2]])                                                                 # M12d.1
+V1_1, V2_1 = V([11, 10]) / sq(221), V([-10, 11]) / sq(221)
+U1_1 = A_1 * V1_1 / 15
+assert A_1.T * A_1 * V([11, 10]) == 225 * V([11, 10]) and A_1.T * A_1 * V([-10, 11]) == 4 * V([-10, 11])
+A_2 = V([[2, -10], [10, -50], [11, -55]])                                                   # M12d.2
 V1_2, V2_2 = V([-1, 5]) / sq(26), V([5, 1]) / sq(26)
-U1_2 = A_2 * V1_2 / (11 * sq(26))
+U1_2 = A_2 * V1_2 / (15 * sq(26))
 assert A_2 * V([5, 1]) == V([0, 0, 0])
 B_3 = V([[1, 8], [4, -4]])                                                                  # M12d.3
 V1_3 = V([-1, 8]) / sq(65)
@@ -1294,7 +1303,8 @@ wbm.record("M12d.35c", axis_35r.tolist(), decimals=4,
                          (vectors_35r[-1] * np.sign(vectors_35r[-1][np.argmax(np.abs(vectors_35r[-1]))])).tolist(),
                      "la convention de signe : la coordonnée de plus grande valeur absolue positive": (-axis_35r).tolist()}})
 wbm.record("M12d.35d", 39 / 40, decimals=4,
-           mistakes={{"np.var divise par n, la covariance par n − 1 : le rapport est (n − 1)/n, avec n = 40": 40 / 39}})''',
+           mistakes={{"np.var divise par n, la covariance par n − 1 : le rapport est (n − 1)/n, avec n = 40": 40 / 39,
+                     "le commentaire de (G) se trompe : np.var divise par n par défaut, la covariance par n − 1": 1.0}})''',
     note=r"(A) $\mathbf{X}^\top\mathbf{X}/(n-1)$ mesure la dispersion autour de l'**origine** : sa plus grande valeur "
          r"propre (environ 506) est dominée par la moyenne $(20, -8, 4)$, et le « premier axe » pointe vers elle. "
          r"(E) `vectors[order]` permute les **lignes** : il faut `vectors[:, order]`. (G) `np.var` divise par $n$ par "
@@ -1309,31 +1319,34 @@ M12D_36_GIVEN = '''X_36 = (np.random.default_rng(36).normal(size=(30, 4))
 
 
 def pca_reconstruct(X, k):
-    """The reconstruction of the rows of X by a PCA with k components (centered SVD)."""
+    """The reconstruction of the rows of X by a PCA with k components (eigenvectors of the covariance)."""
     mu = X.mean(axis=0)
-    _, _, Vt = np.linalg.svd(X - mu, full_matrices=False)
-    return (X - mu) @ Vt[:k].T @ Vt[:k] + mu'''
+    _, W = np.linalg.eigh(np.cov(X, rowvar=False))
+    W = W[:, ::-1][:, :k]                        # the k axes of largest variance, in columns
+    return mu + (X - mu) @ W @ W.T'''
 
 M12D_36_CHECK = '''with checked("M12d.36 vérifications"):
     def _no_mean(X, k):                          # forgets to add the mean back
         mu = X.mean(axis=0)
-        _, _, Vt = np.linalg.svd(X - mu, full_matrices=False)
-        return (X - mu) @ Vt[:k].T @ Vt[:k]
+        _, W = np.linalg.eigh(np.cov(X, rowvar=False))
+        W = W[:, ::-1][:, :k]
+        return (X - mu) @ W @ W.T
 
-    def _increasing(X, k):                       # the axes of the SMALLEST variances first
+    def _increasing(X, k):                       # the columns of eigh in its (increasing) order
         mu = X.mean(axis=0)
-        _, _, Vt = np.linalg.svd(X - mu, full_matrices=False)
-        W = Vt[::-1][:k]
-        return (X - mu) @ W.T @ W + mu
+        _, W = np.linalg.eigh(np.cov(X, rowvar=False))
+        W = W[:, :k]
+        return mu + (X - mu) @ W @ W.T
 
-    def _not_centered(X, k):                     # the SVD of X itself
-        _, _, Vt = np.linalg.svd(X, full_matrices=False)
-        return X @ Vt[:k].T @ Vt[:k]
+    def _not_centered(X, k):                     # the eigenvectors of XᵀX / (n − 1), without centering
+        _, W = np.linalg.eigh(X.T @ X / (len(X) - 1))
+        W = W[:, ::-1][:, :k]
+        return X @ W @ W.T
 
     results_36 = []
     for name, function, should_pass in (("la bonne ACP, pca_reconstruct", pca_reconstruct, True),
                                         ("une ACP qui oublie de rajouter la moyenne", _no_mean, False),
-                                        ("une ACP qui prend d'abord les axes de PLUS PETITE variance", _increasing, False),
+                                        ("une ACP qui garde l'ordre CROISSANT de eigh", _increasing, False),
                                         ("une ACP sans centrer", _not_centered, False)):
         try:
             check_reconstruction(function, X_36.copy())
@@ -1352,7 +1365,7 @@ M12D_36_CHECK = '''with checked("M12d.36 vérifications"):
 M12D_36 = Ex(
     "M12d.36", "🛠️", 1, 15, "Un test : la reconstruction de rang plein redonne X, et l'erreur décroît avec k",
     "écrire un test de propriétés pour une ACP, et vérifier qu'il attrape des erreurs plausibles.",
-    "fiche §3 et §7 ; Ex M12d.18 ; M03 (les tests)", tracks="C", given=M12D_36_GIVEN,
+    "fiche §3 et §7 ; Ex M12d.18 ; M12b.32 (un test de propriétés)", tracks="C", given=M12D_36_GIVEN,
     body=r"""Un test de **propriétés** ne compare pas à des valeurs connues d'avance : il vérifie ce que tout résultat juste doit satisfaire. Écris `check_reconstruction(reconstruct, X)`, qui lève une `AssertionError` (avec `assert` ou `np.testing.assert_allclose`) si la fonction `reconstruct(X, k)`, censée rendre la reconstruction des lignes de `X` par une ACP à `k` composantes, ne vérifie pas les trois propriétés suivantes, avec $p$ le nombre de colonnes de `X`, et $e(k) = \frac{1}{n}\sum_i \lVert \mathbf{x}_i - \hat{\mathbf{x}}_i \rVert^2$ l'erreur de reconstruction moyenne :
 1. **le rang plein redonne $\mathbf{X}$** : `reconstruct(X, p)` est égal à `X` à $10^{-10}$ près ;
 2. **l'erreur décroît avec $k$** : $e(0) \ge e(1) \ge \cdots \ge e(p)$ (à $10^{-12}$ près) ;
@@ -1360,7 +1373,7 @@ M12D_36 = Ex(
 
 La cellule de vérification essaie ton test sur la bonne ACP `pca_reconstruct` (fournie) et sur trois ACP fausses : il doit accepter la première et refuser les trois autres.
 
-Dans ta copie : laquelle des trois propriétés attrape chacune des trois ACP fausses ? Pourquoi l'ACP sans centrer passe-t-elle les propriétés 1 et 2 ? Quelle propriété ajouterais-tu pour tester des scores (moyenne nulle, variances $\lambda_j$, covariances nulles) ?""",
+Dans ta copie : laquelle des trois propriétés attrape chacune des trois ACP fausses ? La propriété 3 seule suffirait-elle, et pourquoi garder quand même les deux autres ? Quelle propriété ajouterais-tu pour tester des scores (moyenne nulle, variances $\lambda_j$, covariances nulles) ?""",
     todo='''def check_reconstruction(reconstruct, X):
     """Raise AssertionError unless reconstruct(X, k) behaves as a PCA reconstruction: full rank gives X back, the mean
     error e(k) does not increase with k, and e(k) = (n − 1)/n × (sum of the forgotten eigenvalues of np.cov)."""
@@ -1380,11 +1393,11 @@ Dans ta copie : laquelle des trois propriétés attrape chacune des trois ACP fa
 
 
 ''' + M12D_36_CHECK,
-    note=r"L'ACP sans moyenne échoue à la propriété 1 ; celle qui commence par les petites variances, et celle qui ne "
-         r"centre pas, passent les propriétés 1 et 2 (au rang plein, toute base orthonormée redonne $\mathbf{X}$, et "
-         r"des sous-espaces emboîtés donnent des erreurs décroissantes) mais échouent à la propriété 3, la seule qui "
-         r"dise **quel** sous-espace est choisi. Pour des scores : moyenne nulle, variances $\lambda_j$ (avec `ddof=1`), "
-         r"covariances nulles (M12d.19).",
+    note=r"L'ACP sans moyenne échoue dès la propriété 1 ; celle qui garde l'ordre croissant de `eigh`, et celle qui "
+         r"ne centre pas, passent les propriétés 1 et 2 (des sous-espaces emboîtés donnent des erreurs décroissantes) "
+         r"mais échouent à la propriété 3, la seule qui dise **quel** sous-espace est choisi : elle attrape donc, seule, "
+         r"les trois erreurs. Les deux autres ne supposent aucun théorème, et leur échec dit où chercher. Pour des "
+         r"scores : moyenne nulle, variances $\lambda_j$ (avec `ddof=1`), covariances nulles (M12d.19).",
 )
 
 M12D_37_GIVEN = '''IMAGE_37 = wbm.datasets.load_image("tasse")       # 400 × 600 grey levels, CC0
@@ -1399,7 +1412,8 @@ M12D_37_CHECK = '''with checked("M12d.37 défi"):
     except (OSError, TypeError):
         source_37 = ""
     banned_37 = sorted(set(re.findall(r"\\b(fft|dct|scipy|sklearn|PIL|imageio|cv2|zlib|pickle|bz2|lzma|gzip|load_image|"
-                                      r"IMAGE_37)\\b", source_37)))
+                                      r"IMAGE_37|view|frombuffer|tobytes|struct|bytes|u?int8|u?int16|u?int32|float16|"
+                                      r"float32|half|single)\\b", source_37)))
     if banned_37:
         ran_37 = True
         problems.append(f"compress ou decompress utilise {', '.join(banned_37)}, interdit dans ce défi")
@@ -1415,8 +1429,9 @@ M12D_37_CHECK = '''with checked("M12d.37 défi"):
             break
         ran_37 = True
         arrays_t = [np.asarray(part) for part in parts_t]
-        if not arrays_t or not all(np.issubdtype(a.dtype, np.integer) or np.issubdtype(a.dtype, np.floating) for a in arrays_t):
-            problems.append("compress doit rendre une liste de tableaux NumPy de nombres réels")
+        if not arrays_t or not all((np.issubdtype(a.dtype, np.integer) or np.issubdtype(a.dtype, np.floating))
+                                   and a.dtype.itemsize == 8 for a in arrays_t):
+            problems.append("compress doit rendre une liste de tableaux NumPy de nombres sur 64 bits (float64 ou int64)")
             break
         count_t = sum(a.size for a in arrays_t)
         try:
@@ -1433,18 +1448,18 @@ M12D_37_CHECK = '''with checked("M12d.37 défi"):
         print(f"{name_t} : {count_t} nombres ({count_t / A_t.size:.2%}), énergie gardée {kept_t:.2%}".replace(".", ","))
         if count_t > BUDGET_37:
             problems.append(f"{name_t} : {count_t} nombres stockés, au-dessus du budget de {BUDGET_37}")
-        if not kept_t >= 0.93:
-            problems.append(f"{name_t} : {kept_t:.2%} de l'énergie gardée, sous les 93 %".replace(".", ","))
+        if not kept_t >= 0.935:
+            problems.append(f"{name_t} : {kept_t:.2%} de l'énergie gardée, sous les 93,5 %".replace(".", ","))
         if problems:
             break
     if problems:
         print("❌ Ex M12d.37 : " + " ; ".join(problems) + ".")
     elif ran_37:
         ok_37 = True
-        print("✅ Ex M12d.37 : défi réussi : au moins 93 % de l'énergie avec au plus 5 % des nombres, sur les deux images.")'''
+        print("✅ Ex M12d.37 : défi réussi : au moins 93,5 % de l'énergie avec au plus 5 % des nombres, sur les deux images.")'''
 
 M12D_37 = Ex(
-    "M12d.37", "🏆", 3, 30, "Défi : compresser une image centrée en gardant 93 % de son énergie avec au plus 5 % des "
+    "M12d.37", "🏆", 3, 30, "Défi : compresser une image centrée en gardant 93,5 % de son énergie avec au plus 5 % des "
     "nombres",
     "trouver une représentation de rang faible d'une photo plus économe que la SVD de l'image entière.",
     "fiche §3 et §6 ; Ex M12d.31 et M12d.32", tracks="C", given=M12D_37_GIVEN,
@@ -1452,7 +1467,7 @@ M12D_37 = Ex(
 - `compress(A)`, qui rend une **liste de tableaux NumPy** (la représentation compressée), et
 - `decompress(parts, shape)`, qui reconstruit à partir de cette liste seule une image $\hat{\mathbf{A}}$ de forme `shape`,
 
-de sorte que l'**énergie gardée** $1 - \lVert \mathbf{A} - \hat{\mathbf{A}} \rVert_F^2 / \lVert \mathbf{A} - \bar{a} \rVert_F^2$ (avec $\bar{a}$ le niveau de gris moyen : l'énergie de l'image **centrée**) soit d'au moins 93 %, avec au plus 5 % des nombres : la somme des tailles (`.size`) des tableaux rendus par `compress` ne doit pas dépasser `BUDGET_37` $= 12\,000$. La forme `shape` et les constantes écrites dans ton code (une taille, un rang) ne comptent pas ; le niveau moyen, s'il est stocké, compte pour un nombre. La vérification essaie aussi la photo retournée de gauche à droite (une compression honnête y fait aussi bien). NumPy est permis, `np.linalg.svd` et ta librairie compris ; les transformées de Fourier ou en cosinus (`np.fft`, `scipy`), scikit-learn et les bibliothèques d'images ou de compression sont interdits.
+de sorte que l'**énergie gardée** $1 - \lVert \mathbf{A} - \hat{\mathbf{A}} \rVert_F^2 / \lVert \mathbf{A} - \bar{a} \rVert_F^2$ (avec $\bar{a}$ le niveau de gris moyen : l'énergie de l'image **centrée**) soit d'au moins 93,5 %, avec au plus 5 % des nombres : la somme des tailles (`.size`) des tableaux rendus par `compress` ne doit pas dépasser `BUDGET_37` $= 12\,000$. Chaque tableau est de nombres sur 64 bits (`float64` ou `int64`), chaque élément comptant pour un nombre : pas de types plus petits (`uint8`, `float32`…) ni de réinterprétation d'octets (`view`, `frombuffer`, `tobytes`). La forme `shape` et les constantes écrites dans ton code (une taille, un rang) ne comptent pas ; le niveau moyen, s'il est stocké, compte pour un nombre. La vérification essaie aussi la photo retournée de gauche à droite (une compression honnête y fait aussi bien). NumPy est permis, `np.linalg.svd` et ta librairie compris ; les transformées de Fourier ou en cosinus (`np.fft`, `scipy`), scikit-learn et les bibliothèques d'images ou de compression sont interdits.
 
 Point de départ (M12d.32) : la SVD de l'image entière centrée, au plus grand rang qui tient dans le budget ($k(m + n + 1) + 1 \le 12\,000$, soit $k = 11$), ne garde qu'environ 89 % de l'énergie. Il faut une **autre matrice** que l'image elle-même, dont les valeurs singulières décroissent plus vite. Une dernière cellule enregistre si l'objectif est atteint.
 
@@ -1472,9 +1487,9 @@ with checked("M12d.37"):
     wbm.check("M12d.37", bool(ok_37), computed=True)''',
     solution='''def compress(A):
     """A list of NumPy arrays from which decompress(parts, A.shape) rebuilds an approximation of A."""
-    p, k = 8, 3                                   # 8 × 8 squares, 3 components
+    b, k = 8, 3                                   # 8 × 8 squares, 3 components
     m, n = A.shape
-    patches = A.reshape(m // p, p, n // p, p).transpose(0, 2, 1, 3).reshape(-1, p * p)   # one square per row
+    patches = A.reshape(m // b, b, n // b, b).transpose(0, 2, 1, 3).reshape(-1, b * b)   # one square per row
     mean = patches.mean(axis=0)                   # the mean square (64 numbers)
     _, _, Vt = np.linalg.svd(patches - mean, full_matrices=False)
     return [mean, Vt[:k], (patches - mean) @ Vt[:k].T]   # 64 + 3 × 64 + 3 750 × 3 = 11 506 numbers
@@ -1483,10 +1498,10 @@ with checked("M12d.37"):
 def decompress(parts, shape):
     """The approximation of the image of the given shape, from the list of arrays returned by compress."""
     mean, W, Z = parts
-    p = int(round(np.sqrt(W.shape[1])))
+    b = int(round(np.sqrt(W.shape[1])))
     m, n = shape
     patches = Z @ W + mean
-    return patches.reshape(m // p, n // p, p, p).transpose(0, 2, 1, 3).reshape(m, n)
+    return patches.reshape(m // b, n // b, b, b).transpose(0, 2, 1, 3).reshape(m, n)
 
 
 fig, axes = plt.subplots(1, 2, figsize=(11, 3.8))
@@ -1499,15 +1514,16 @@ for ax in axes:
 plt.show()''',
     after=[("solution", M12D_37_CHECK)],
     record='''wbm.record("M12d.37", True,
-           mistakes={"l'objectif n'est pas atteint sur les deux images : la cellule du défi dit pourquoi": False})''',
+           mistakes={"l'objectif n'est pas atteint : la cellule du défi dit pourquoi": False})''',
     note=r"L'idée : découper l'image en carrés de $8 \times 8$ pixels, et ranger chaque carré en ligne d'une matrice de "
          r"forme $(3\,750, 64)$. Les carrés se ressemblent (des zones lisses, des bords, du grain) : cette matrice a des "
          r"valeurs singulières qui décroissent bien plus vite que celles de l'image, et son ACP (fiche §6 : centrer par le "
          r"carré moyen, puis la SVD) garde 94 % de l'énergie avec 3 composantes, pour $64 + 3 \times 64 + 3\,750 \times 3 "
          r"= 11\,506$ nombres. Des carrés de $10 \times 10$ ou $20 \times 20$ font presque aussi bien. Des tuiles "
          r"$50 \times 50$ décomposées chacune par sa propre SVD, au rang choisi au mieux, ne dépassent pas 90 % : leurs "
-         r"bases ne sont pas partagées. Les défauts visibles sont des bords de carrés : JPEG les atténue, et compte des "
-         r"bits plutôt que des nombres.",
+         r"bases ne sont pas partagées. La seule moyenne de chaque rectangle de $4 \times 5$ pixels (tout le budget) garde "
+         r"93,3 % : d'où l'objectif de 93,5 %. Les défauts visibles sont des bords de carrés : JPEG les atténue, et "
+         r"compte des bits plutôt que des nombres.",
 )
 
 PART_A = Part("A", "Ta librairie : SVD, rang faible, conditionnement, pseudo-inverse, axes principaux ; NumPy et "

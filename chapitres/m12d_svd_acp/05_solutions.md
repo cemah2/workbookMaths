@@ -14,7 +14,7 @@
 3. **Faux** : $s_i = \sqrt{\lambda_i(\mathbf{A}^\top\mathbf{A})} \ge 0$ ; un éventuel signe passe dans $\mathbf{u}_i$.
 4. $\mathbf{A}\mathbf{v}_1 = s_1\mathbf{u}_1$ et $\mathbf{A}^\top\mathbf{u}_1 = s_1\mathbf{v}_1$ (la transposée $\mathbf{A}^\top = \sum s_i\mathbf{v}_i\mathbf{u}_i^\top$ échange les rôles).
 5. Les valeurs singulières sont $5$ puis $3$. $\mathbf{v}_1 = \mathbf{e}_2$, et $\mathbf{u}_1 = \mathbf{A}\mathbf{e}_2/5 = -\mathbf{e}_2$ : le signe moins passe dans $\mathbf{u}_1$ ; $\mathbf{v}_2 = \mathbf{u}_2 = \mathbf{e}_1$.
-6. $\mathbf{v}_2$ est la **deuxième ligne** de `Vt`, `Vt[1]`. Avec `full_matrices=False`, `U` est de forme $(5, 3)$ : NumPy garde $\min(m, n) = 3$ valeurs, la troisième étant (presque) nulle ; ta fonction `svd`, qui coupe sous un seuil, rendrait un `U` de forme $(5, 2)$.
+6. $\mathbf{v}_2$ est la **deuxième ligne** de `Vt`, `Vt[1]`. Avec `full_matrices=False`, `U` est de forme $(5, 3)$ : NumPy garde $\min(m, n) = 3$ valeurs, la troisième étant (presque) nulle.
 
 ### M12d.Q2 — Valeurs singulières et valeurs propres
 1. **Faux** : ce sont leurs **racines**.
@@ -47,7 +47,7 @@
 1. $\mathbf{u}^\top\mathbf{C}\,\mathbf{u}$.
 2. La plus grande valeur propre $\lambda_1$ de $\mathbf{C}$, atteinte en son vecteur propre unitaire $\mathbf{u}_1$ (quotient de Rayleigh, M12c §6).
 3. **Faux** : une covariance non nulle entre features fait tourner l'axe. Pour $\mathbf{C} = \begin{pmatrix} 37 & 6 \\ 6 & 2 \end{pmatrix}$, la variance le long de $\mathbf{e}_1$ vaut 37, mais $\lambda_1 = 38$, le long de $\frac{1}{\sqrt{37}}(6, 1)$.
-4. $\mathbf{e}_2$ (variance 7), $\mathbf{e}_3$ (4), $\mathbf{e}_1$ (2).
+4. Le bloc $\begin{pmatrix} 2 & 2 \\ 2 & 5 \end{pmatrix}$ a pour trace 7 et déterminant 6 : $\frac{1}{\sqrt{5}}(0, 1, 2)$ (variance 6), puis $\mathbf{e}_1$ (4), puis $\frac{1}{\sqrt{5}}(0, 2, -1)$ (1).
 5. $\operatorname{tr}\mathbf{C}$, la variance totale.
 6. Ce sont des vecteurs propres d'une matrice symétrique (théorème spectral) ; pour des variances distinctes, ils sont forcément orthogonaux.
 7. Non : un axe n'est défini qu'au signe près ; une convention (celle de la fiche) choisit.
@@ -55,7 +55,7 @@
 ### M12d.Q6 — Centrer et standardiser avant une ACP ?
 1. Il pointe vers la moyenne du nuage (la direction de $\boldsymbol{\mu}$), au lieu de suivre son allongement (fiche §6).
 2. Standardiser : les unités diffèrent, et sans cela l'unité choisie déciderait des variances, donc des axes.
-3. Centrer sans réduire : même unité, des variances comparables ; diviser par l'écart-type gonflerait des pixels presque constants (un bord uniforme) jusqu'à une variance 1.
+3. Centrer sans réduire : même unité, et un capteur qui varie plus que les autres le dit vraiment ; la standardisation effacerait cette information.
 4. **Vrai** : la covariance des données standardisées est la matrice de corrélation.
 5. De moyenne nulle, oui ; corrélés, non (M12d.19).
 6. L'exemple lui-même : l'erreur est nulle.
@@ -66,15 +66,15 @@
 3. $\frac{10}{11}(4 + 1) = \frac{50}{11} \approx 4{,}55$.
 4. **Vrai** : les 11 lignes centrées ont une somme nulle, $\mathbf{X}_c$ est de rang au plus 10.
 5. L'endroit où la courbe des $\lambda_j$ cesse de chuter et devient plate : au-delà, des variances petites et comparables, souvent du bruit.
-6. Les derniers axes s'ajustent aux particularités de l'échantillon ; sur des données nouvelles, l'erreur est plus grande.
+6. Sur ces données, les $k$ premiers axes sont par construction le meilleur sous-espace (Eckart-Young) ; sur d'autres, la même projection fait **en moyenne** moins bien, d'autant plus que $k$ est grand (les derniers axes suivent le hasard de l'échantillon).
 
 ### M12d.Q8 — ACP, t-SNE ou UMAP : qui garde quoi ?
 1. L'ACP garde les grandes distances (une projection) ; t-SNE et UMAP gardent les voisinages.
-2. t-SNE (UMAP le sait, l'ACP aussi : il suffit de projeter).
+2. **Faux** : t-SNE optimise les positions des $n$ points donnés ; il n'y a pas de formule pour un point nouveau. L'ACP en a une (projeter sur les axes), UMAP en construit une.
 3. Ses probabilités de voisinage ont l'entropie d'une loi uniforme sur 5 voisins : environ 5 voisins « effectifs ».
-4. **Faux** : t-SNE égalise les densités et place les groupes au gré de l'optimisation ; tailles et distances entre groupes n'ont pas de sens précis.
+4. $0{,}04 \log_2 8 = 0{,}12$ bit contre $0{,}000\,5 \log_2 0{,}125 = -0{,}001\,5$ bit : écarter deux voisins coûte cher, rapprocher deux points lointains presque rien (le terme est même négatif : seule la somme est positive).
 5. En 2D, il n'y a pas la place de garder les distances moyennes d'un nuage de grande dimension ; la queue lourde laisse les points modérément éloignés s'écarter davantage, ce qui sépare les groupes.
-6. Non : les coordonnées changent d'une exécution à l'autre, t-SNE ne place pas un point nouveau, et les distances de la carte ne mesurent rien ; une carte sert à voir.
+6. Leurs couples ont des $p_{ij}$ presque nuls : la divergence ne contraint presque pas leur écart, qui dépend de l'optimisation (et du point de départ) plus que des données.
 
 <a id="rappels"></a>
 
@@ -84,22 +84,22 @@
 1. Trace 20, déterminant $-44 - 25 = -69$ : $\lambda^2 - 20\lambda - 69 = (\lambda - 23)(\lambda + 3)$.
 2. Pour 23 : $\frac{1}{\sqrt{26}}(1, 5)$ ; pour $-3$ : $\frac{1}{\sqrt{26}}(5, -1)$.
 3. $\mathbf{Q} = \frac{1}{\sqrt{26}}\begin{pmatrix} 1 & 5 \\ 5 & -1 \end{pmatrix}$, $\boldsymbol{\Lambda} = \operatorname{diag}(23, -3)$.
-4. $s_1 = 23$, $s_2 = 3$ ; $\mathbf{u}_1 = \mathbf{v}_1 = \frac{1}{\sqrt{26}}(1, 5)$, et pour la valeur propre négative, $\mathbf{v}_2 = \frac{1}{\sqrt{26}}(5, -1)$ et $\mathbf{u}_2 = \mathbf{S}\mathbf{v}_2/3 = -\mathbf{v}_2$.
+4. $s_1 = 23$, $s_2 = 3$ ; $\mathbf{u}_1 = \mathbf{v}_1 = \frac{1}{\sqrt{26}}(1, 5)$, et pour la valeur propre négative, $\mathbf{v}_2 = \frac{1}{\sqrt{26}}(5, -1)$ et $\mathbf{u}_2 = \mathbf{K}\mathbf{v}_2/3 = -\mathbf{v}_2$.
 5. Non : une valeur propre est négative.
 
 ### M12d.R2 — La projection orthogonale (M12b)
-1. $\frac{1 + 16 + 64}{81} = 1$.
-2. $t = \frac{5 + 12 + 64}{9} = 9$.
-3. $\mathbf{p} = (1, 4, 8)$, $\mathbf{r} = (4, -1, 0)$, et $\mathbf{r} \cdot \mathbf{u} = \frac{4 - 4 + 0}{9} = 0$.
-4. $25 + 9 + 64 = 98 = 81 + 17$.
+1. $\frac{64 + 81 + 144}{289} = 1$.
+2. $t = \frac{88 + 81 + 120}{17} = \frac{289}{17} = 17$.
+3. $\mathbf{p} = (8, 9, 12)$, $\mathbf{r} = (3, 0, -2)$, et $\mathbf{r} \cdot \mathbf{u} = \frac{24 + 0 - 24}{17} = 0$.
+4. $121 + 81 + 100 = 302 = 289 + 13$.
 5. Rang 1 ; $\mathbf{P}^2 = \mathbf{u}(\mathbf{u}^\top\mathbf{u})\mathbf{u}^\top = \mathbf{P}$.
 
 ### M12d.R3 — Moyenne, covariance et standardisation (M02c)
-1. $(5, 45)$ ; centrées : $(-3, -15)$, $(-1, 5)$, $(1, -5)$, $(3, 15)$.
-2. $\frac{20}{3} \approx 6{,}67$, $\frac{500}{3} \approx 166{,}7$ et $\frac{80}{3} \approx 26{,}7$.
-3. $\frac{80}{\sqrt{20 \times 500}} = 0{,}8$.
-4. $\big(\frac{-3}{\sqrt{20/3}}, \frac{-15}{\sqrt{500/3}}\big) \approx (-1{,}16 ;\ -1{,}16)$.
-5. 0,8 : la covariance de deux features standardisées est leur corrélation (chacune a une variance 1).
+1. $(5, 45)$ ; centrées : $(-3, -10)$, $(-1, 10)$, $(1, -5)$, $(3, 5)$.
+2. $\frac{20}{3} \approx 6{,}67$, $\frac{250}{3} \approx 83{,}3$ et $\frac{30}{3} = 10$.
+3. $\frac{30}{\sqrt{20 \times 250}} = \frac{3}{\sqrt{50}} \approx 0{,}424$.
+4. $\big(\frac{-3}{\sqrt{20/3}}, \frac{-10}{\sqrt{250/3}}\big) \approx (-1{,}16 ;\ -1{,}10)$.
+5. La variance est multipliée par 100 ($\frac{25\,000}{3}$), la covariance par 10 (100), et la corrélation ne change pas ($0{,}424$) : c'est pourquoi l'ACP de données standardisées, qui est celle de la matrice de corrélation, ne dépend pas des unités.
 
 <a id="papier"></a>
 
@@ -107,28 +107,28 @@
 
 ### Ex M12d.1 — La SVD d'une matrice 2 × 2 à la main, par AᵀA
 
-**Réponses** : a) `[[72, 42], [42, 85]]` · b) `[121, 36]` · c) `[11, 6]` · d) `[0.6508, 0.7593]` · e) `[0.7593, -0.6508]` · f) `[0.9762, 0.2169]` · g) `-66` · h) `[10.3666, -6.3666]`.
+**Réponses** : a) `[[125, 110], [110, 104]]` · b) `[225, 4]` · c) `[15, 2]` · d) `[0.7399, 0.6727]` · e) `[-0.6727, 0.7399]` · f) `[0.9417, 0.3363]` · g) `-30` · h) `[14.124, -2.124]`.
 
 **Démarche.**
-- a) b) Trace 157, déterminant $72 \times 85 - 42^2 = 4\,356$ : $\lambda^2 - 157\lambda + 4\,356 = (\lambda - 121)(\lambda - 36)$. c) $s_1 = 11$, $s_2 = 6$.
-- d) Pour 121 : $\begin{pmatrix} -49 & 42 \\ 42 & -36 \end{pmatrix}$ donne $7x = 6y$, $\mathbf{v}_1 = \frac{1}{\sqrt{85}}(6, 7)$. e) Orthogonal : $\pm(7, -6)$ ; la coordonnée de plus grande valeur absolue, 7, positive. f) $\mathbf{A}(6, 7) = (99, 22) = 11\,(9, 2)$, donc $\mathbf{u}_1 = \frac{1}{\sqrt{85}}(9, 2)$.
-- g) $-12 - 54 = -66 = -(11 \times 6)$. h) Trace 4, déterminant $-66$ : $\lambda = 2 \pm \sqrt{70}$.
+- a) b) Trace 229, déterminant $125 \times 104 - 110^2 = 900$ : $\lambda^2 - 229\lambda + 900 = (\lambda - 225)(\lambda - 4)$. c) $s_1 = 15$, $s_2 = 2$.
+- d) Pour 225 : $\begin{pmatrix} -100 & 110 \\ 110 & -121 \end{pmatrix}$ donne $10x = 11y$, $\mathbf{v}_1 = \frac{1}{\sqrt{221}}(11, 10)$. e) Orthogonal : $\pm(10, -11)$ ; la coordonnée de plus grande valeur absolue, $\pm 11$, positive : $\mathbf{v}_2 = \frac{1}{\sqrt{221}}(-10, 11)$. f) $\mathbf{A}(11, 10) = (210, 75) = 15\,(14, 5)$, donc $\mathbf{u}_1 = \frac{1}{\sqrt{221}}(14, 5)$.
+- g) $20 - 50 = -30 = -(15 \times 2)$. h) Trace 12, déterminant $-30$ : $\lambda = 6 \pm \sqrt{66}$.
 
-Pour la copie : $\mathbf{A}(7, -6) = (-12, 54) = 6\,(-2, 9)$, donc $\mathbf{u}_2 = \frac{1}{\sqrt{85}}(-2, 9)$ ; $11\,\mathbf{u}_1\mathbf{v}_1^\top + 6\,\mathbf{u}_2\mathbf{v}_2^\top = \frac{1}{85}\Big[11\begin{pmatrix} 54 & 63 \\ 12 & 14 \end{pmatrix} + 6\begin{pmatrix} -14 & 12 \\ 63 & -54 \end{pmatrix}\Big] = \frac{1}{85}\begin{pmatrix} 510 & 765 \\ 510 & -170 \end{pmatrix} = \mathbf{A}$. $\lvert\det\mathbf{A}\rvert = s_1s_2$ ; le signe moins vient de $\det\mathbf{U}\det\mathbf{V} = -1$. Les valeurs propres de $\mathbf{A}$ disent quelles directions $\mathbf{A}$ garde ; les valeurs singulières, de combien elle étire ses deux directions privilégiées, qui ne sont pas les mêmes au départ et à l'arrivée.
+Pour la copie : $\mathbf{A}(-10, 11) = (10, -28) = 2\,(5, -14)$, donc $\mathbf{u}_2 = \frac{1}{\sqrt{221}}(5, -14)$ ; $15\,\mathbf{u}_1\mathbf{v}_1^\top + 2\,\mathbf{u}_2\mathbf{v}_2^\top = \frac{1}{221}\Big[15\begin{pmatrix} 154 & 140 \\ 55 & 50 \end{pmatrix} + 2\begin{pmatrix} -50 & 55 \\ 140 & -154 \end{pmatrix}\Big] = \frac{1}{221}\begin{pmatrix} 2\,210 & 2\,210 \\ 1\,105 & 442 \end{pmatrix} = \mathbf{A}$. $\lvert\det\mathbf{A}\rvert = s_1s_2$ ; le signe moins vient de $\det\mathbf{U}\det\mathbf{V} = -1$. Les valeurs propres de $\mathbf{A}$ disent quelles directions $\mathbf{A}$ garde ; les valeurs singulières, de combien elle étire ses deux directions privilégiées, qui ne sont pas les mêmes au départ et à l'arrivée.
 
-**Erreurs fréquentes.** Oublier la racine ($s = 121$) ; prendre $\mathbf{A}\mathbf{A}^\top$ (mêmes valeurs propres, mais ses vecteurs propres sont les $\mathbf{u}_i$) ; ne pas diviser $\mathbf{A}\mathbf{v}_1$ par $s_1$.
+**Erreurs fréquentes.** Oublier la racine ($s = 225$) ; prendre $\mathbf{A}\mathbf{A}^\top$ (mêmes valeurs propres, mais ses vecteurs propres sont les $\mathbf{u}_i$) ; ne pas diviser $\mathbf{A}\mathbf{v}_1$ par $s_1$.
 
 **Variante.** La SVD de $\mathbf{A}^\top$ ? *Réponse* : mêmes valeurs singulières, rôles échangés : $\mathbf{A}^\top = \mathbf{V}\mathbf{S}\mathbf{U}^\top$ (ses vecteurs à droite sont les $\mathbf{u}_i$, au signe de la convention près).
 
 ### Ex M12d.2 — La SVD compacte d'une matrice 3 × 2 de rang 1
 
-**Réponses** : a) `1` · b) `[[121, -605], [-605, 3025]]` · c) `[3146, 0]` · d) `56.0892` · e) `[-0.1961, 0.9806]` · f) `[-0.1818, -0.5455, -0.8182]` · g) `3146` · h) `[0.9806, 0.1961]`.
+**Réponses** : a) `1` · b) `[[225, -1125], [-1125, 5625]]` · c) `[5850, 0]` · d) `76.4853` · e) `[-0.1961, 0.9806]` · f) `[-0.1333, -0.6667, -0.7333]` · g) `5850` · h) `[0.9806, 0.1961]`.
 
-**Démarche.** La deuxième colonne vaut $-5$ fois la première : $\mathbf{A} = \mathbf{a}\mathbf{b}^\top$ avec $\mathbf{a} = (2, 6, 9)$ ($\lVert \mathbf{a} \rVert = 11$) et $\mathbf{b} = (1, -5)$ ($\lVert \mathbf{b} \rVert = \sqrt{26}$). $\mathbf{A}^\top\mathbf{A} = \lVert \mathbf{a} \rVert^2\,\mathbf{b}\mathbf{b}^\top = 121\begin{pmatrix} 1 & -5 \\ -5 & 25 \end{pmatrix}$, de valeurs propres $121 \times 26 = 3\,146$ (pour $\mathbf{b}$) et 0 (pour $\mathbf{b}^\perp$). $s_1 = 11\sqrt{26}$. $\mathbf{v}_1 = \pm\frac{\mathbf{b}}{\sqrt{26}}$ : la convention veut la coordonnée $\pm 5$ positive, donc $\mathbf{v}_1 = \frac{1}{\sqrt{26}}(-1, 5)$ ; alors $\mathbf{u}_1 = \mathbf{A}\mathbf{v}_1/s_1 = \mathbf{a}\,\frac{\mathbf{b} \cdot \mathbf{v}_1}{s_1} = \mathbf{a}\,\frac{-\sqrt{26}}{11\sqrt{26}} = -\frac{\mathbf{a}}{11}$. h) $\mathbf{v}_2 \perp \mathbf{b}$ : $\frac{1}{\sqrt{26}}(5, 1)$.
+**Démarche.** La deuxième colonne vaut $-5$ fois la première : $\mathbf{A} = \mathbf{a}\mathbf{b}^\top$ avec $\mathbf{a} = (2, 10, 11)$ ($\lVert \mathbf{a} \rVert = 15$) et $\mathbf{b} = (1, -5)$ ($\lVert \mathbf{b} \rVert = \sqrt{26}$). $\mathbf{A}^\top\mathbf{A} = \lVert \mathbf{a} \rVert^2\,\mathbf{b}\mathbf{b}^\top = 225\begin{pmatrix} 1 & -5 \\ -5 & 25 \end{pmatrix}$, de valeurs propres $225 \times 26 = 5\,850$ (pour $\mathbf{b}$) et 0 (pour $\mathbf{b}^\perp$). $s_1 = 15\sqrt{26}$. $\mathbf{v}_1 = \pm\frac{\mathbf{b}}{\sqrt{26}}$ : la convention veut la coordonnée $\pm 5$ positive, donc $\mathbf{v}_1 = \frac{1}{\sqrt{26}}(-1, 5)$ ; alors $\mathbf{u}_1 = \mathbf{A}\mathbf{v}_1/s_1 = \mathbf{a}\,\frac{\mathbf{b} \cdot \mathbf{v}_1}{s_1} = \mathbf{a}\,\frac{-\sqrt{26}}{15\sqrt{26}} = -\frac{\mathbf{a}}{15}$. h) $\mathbf{v}_2 \perp \mathbf{b}$ : $\frac{1}{\sqrt{26}}(5, 1)$.
 
-Pour la copie : $\mathbf{A} = \Big(-\frac{1}{11}\begin{pmatrix} 2 \\ 6 \\ 9 \end{pmatrix}\Big)\,(11\sqrt{26})\,\Big(\frac{1}{\sqrt{26}}\begin{pmatrix} -1 & 5 \end{pmatrix}\Big)$ : $3 + 1 + 2 = 6$ nombres, contre $9 + 2 + 4 = 15$ pour la SVD complète ($\mathbf{U}$ $3 \times 3$, deux valeurs singulières, $\mathbf{V}$ $2 \times 2$). $\mathbf{u}_1$ est négatif parce que la convention porte sur $\mathbf{v}_1$, et que $\mathbf{u}_1$ suit.
+Pour la copie : $\mathbf{A} = \Big(-\frac{1}{15}\begin{pmatrix} 2 \\ 10 \\ 11 \end{pmatrix}\Big)\,(15\sqrt{26})\,\Big(\frac{1}{\sqrt{26}}\begin{pmatrix} -1 & 5 \end{pmatrix}\Big)$ : $3 + 1 + 2 = 6$ nombres, contre $9 + 2 + 4 = 15$ pour la SVD complète ($\mathbf{U}$ $3 \times 3$, deux valeurs singulières, $\mathbf{V}$ $2 \times 2$). $\mathbf{u}_1$ est négatif parce que la convention porte sur $\mathbf{v}_1$, et que $\mathbf{u}_1$ suit.
 
-**Erreurs fréquentes.** Choisir $\mathbf{v}_1 = \frac{1}{\sqrt{26}}(1, -5)$ (le signe) ; calculer $\mathbf{u}_1$ avec un autre $\mathbf{v}_1$ que celui retenu ; écrire $s_1 = 3\,146$.
+**Erreurs fréquentes.** Choisir $\mathbf{v}_1 = \frac{1}{\sqrt{26}}(1, -5)$ (le signe) ; calculer $\mathbf{u}_1$ avec un autre $\mathbf{v}_1$ que celui retenu ; écrire $s_1 = 5\,850$.
 
 **Variante.** Une matrice $100 \times 50$ de rang 1 : combien de nombres pour sa SVD compacte ? *Réponse* : $100 + 1 + 50 = 151$, contre $5\,000$.
 
@@ -166,13 +166,13 @@ Pour la copie : f) et g) ne gardent pas la même chose : g) impose aux trois can
 
 **Erreurs fréquentes.** Oublier les $k$ valeurs singulières ($k(m + n)$) ; arrondir d) ou e) vers le haut.
 
-**Variante.** Une matrice de poids $4\,096 \times 4\,096$ adaptée par une correction de rang 8 de la forme $\mathbf{B}\mathbf{A}$ (LoRA, fiche §3) : quelle part des paramètres ? *Réponse* : $\frac{8 \times 8\,192}{4\,096^2} \approx 0{,}39\,\%$.
+**Variante.** Une matrice de notes de $2\,000$ films par $50\,000$ spectateurs, stockée par son approximation de rang 20 : quelle part des nombres ? *Réponse* : $\frac{20 \times 52\,001}{10^8} \approx 1{,}04\,\%$.
 
 ### Ex M12d.6 — La pseudo-inverse d'une matrice non inversible et la solution de norme minimale
 
-**Réponses** : a) `1` · b) `48.4665` · c) `2349` · d) `[[0.000851, 0.002129], [-0.003406, -0.008514], [0.006811, 0.017029]]` · e) `[0.1111, -0.4444, 0.8889]` · f) `1` · g) `9` · h) `[0.1379, 0.3448]`.
+**Réponses** : a) `1` · b) `48.4665` · c) `2349` · d) `[[0.8514, 2.1286], [-3.4057, -8.5143], [6.8114, 17.0285]]` (soit $1\,000\,\mathbf{A}^+$) · e) `[0.1111, -0.4444, 0.8889]` · f) `1` · g) `9` · h) `[0.1379, 0.3448]`.
 
-**Démarche.** $\mathbf{A} = \mathbf{a}\mathbf{b}^\top$ avec $\mathbf{a} = (2, 5)$ et $\mathbf{b} = (1, -4, 8)$ : $s_1 = \lVert \mathbf{a} \rVert\,\lVert \mathbf{b} \rVert = 9\sqrt{29}$, et $\lVert \mathbf{A} \rVert_F^2 = s_1^2 = 29 \times 81 = 2\,349$. $\mathbf{A}^+ = \frac{1}{s_1}\mathbf{v}_1\mathbf{u}_1^\top = \frac{\mathbf{b}\mathbf{a}^\top}{s_1^2} = \frac{\mathbf{A}^\top}{2\,349}$. e) $\mathbf{x}^+ = \mathbf{b}\,\frac{\mathbf{a}^\top\mathbf{y}}{2\,349} = \mathbf{b}\,\frac{36 + 225}{2\,349} = \frac{\mathbf{b}}{9}$. f) $\frac{\lVert \mathbf{b} \rVert}{9} = 1$. g) $(9, 0, 0)$ est aussi une solution ($2 \times 9 = 18$, $5 \times 9 = 45$), de norme 9. h) $\mathbf{A}\mathbf{A}^+\mathbf{y}' = \mathbf{a}\,\frac{\mathbf{a}^\top\mathbf{y}'}{\lVert \mathbf{a} \rVert^2} = \frac{2}{29}(2, 5)$.
+**Démarche.** $\mathbf{A} = \mathbf{a}\mathbf{b}^\top$ avec $\mathbf{a} = (2, 5)$ et $\mathbf{b} = (1, -4, 8)$ : $s_1 = \lVert \mathbf{a} \rVert\,\lVert \mathbf{b} \rVert = 9\sqrt{29}$, et $\lVert \mathbf{A} \rVert_F^2 = s_1^2 = 29 \times 81 = 2\,349$. $\mathbf{A}^+ = \frac{1}{s_1}\mathbf{v}_1\mathbf{u}_1^\top = \frac{\mathbf{b}\mathbf{a}^\top}{s_1^2} = \frac{\mathbf{A}^\top}{2\,349}$, d'où d) en multipliant par $1\,000$. e) $\mathbf{x}^+ = \mathbf{b}\,\frac{\mathbf{a}^\top\mathbf{y}}{2\,349} = \mathbf{b}\,\frac{36 + 225}{2\,349} = \frac{\mathbf{b}}{9}$. f) $\frac{\lVert \mathbf{b} \rVert}{9} = 1$. g) $(9, 0, 0)$ est aussi une solution ($2 \times 9 = 18$, $5 \times 9 = 45$), de norme 9. h) $\mathbf{A}\mathbf{A}^+\mathbf{y}' = \mathbf{a}\,\frac{\mathbf{a}^\top\mathbf{y}'}{\lVert \mathbf{a} \rVert^2} = \frac{2}{29}(2, 5)$.
 
 Pour la copie : les solutions de $\mathbf{A}\mathbf{x} = \mathbf{y}$ forment le plan $x_1 - 4x_2 + 8x_3 = 9$ ; $\mathbf{x}^+ = \frac{9}{81}\mathbf{b}$ est le pied de la perpendiculaire menée de l'origine à ce plan (il est dans l'espace des lignes, orthogonal au noyau), à distance $\frac{9}{\lVert \mathbf{b} \rVert} = 1$. Pour $\mathbf{y}'$, hors de l'image (la droite de $(2, 5)$), h) est la projection de $\mathbf{y}'$ sur cette image ; la distance minimale est $\lVert \mathbf{y}' - \mathbf{A}\mathbf{A}^+\mathbf{y}' \rVert = \frac{1}{29}\lVert (25, -10) \rVert = \frac{5}{\sqrt{29}} \approx 0{,}93$.
 
@@ -230,7 +230,7 @@ Pour la copie : le coude est après $k = 3$ (9,6 ; 4,8 ; 2,4 chutent de moitié 
 
 **Variante.** La part gardée par le coude ? *Réponse* : 84 %.
 
-### Ex M12d.11 — L'ACP par la SVD de la matrice centrée : σ² / (n − 1) donne les variances
+### Ex M12d.11 — L'ACP par la SVD de la matrice centrée : s² / (n − 1) donne les variances
 
 **Réponses** : a) `[6, 4, 5]` · b) `[[36, 18, 6], [18, 18, 0], [6, 0, 18]]` · c) `[48, 18, 6]` · d) `[6.9282, 4.2426, 2.4495]` · e) `[16, 6, 2]` · f) `[0.8452, 0.5071, 0.169]` · g) `[-0.6343, -0.3416, 0.4392, 0.5367]` · h) `[-4.3948, -2.3664, 3.0426, 3.7187]`.
 
@@ -281,7 +281,7 @@ Pour la copie : quand $\sigma \to 0$, tout le poids va au plus proche voisin, la
 
 **Grille.** (1) symétrie et positivité ; (2) le calcul de $\mathbf{A}^\top\mathbf{A}$ avec $\mathbf{U}^\top\mathbf{U} = \mathbf{I}$, la forme de $\mathbf{S}^\top\mathbf{S}$ ; (3) l'orthonormalité ; (4) les deux sens, la non-nullité de $\mathbf{A}\mathbf{v}$ et l'injectivité (les multiplicités) ; (5) la trace.
 
-### Ex M12d.15 — La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ σ₁ ‖x‖
+### Ex M12d.15 — La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ s₁ ‖x‖
 
 **Réponse modèle.**
 1. $\lVert \mathbf{x} \rVert^2 = \sum c_i^2$ (base orthonormée) ; $\mathbf{A}\mathbf{x} = \sum c_i\mathbf{A}\mathbf{v}_i = \sum c_is_i\mathbf{u}_i$ ; les $\mathbf{u}_i$ sont orthonormés (ceux des $s_i = 0$ n'interviennent pas), donc $\lVert \mathbf{A}\mathbf{x} \rVert^2 = \sum s_i^2c_i^2$.
@@ -292,7 +292,7 @@ Pour la copie : quand $\sigma \to 0$, tout le poids va au plus proche voisin, la
 
 **Grille.** (1) la décomposition dans la base des $\mathbf{v}_i$ et Pythagore ; (2) l'encadrement et les cas d'égalité ; (3) le quotient de Rayleigh de $\mathbf{A}^\top\mathbf{A}$ ; (4) les deux inégalités enchaînées et le passage au maximum ; (5) l'invariance par une matrice orthogonale.
 
-### Ex M12d.16 — L'erreur de l'approximation de rang k vaut la somme des σ² oubliés (Frobenius)
+### Ex M12d.16 — L'erreur de l'approximation de rang k vaut la somme des s² oubliés (Frobenius)
 
 **Réponse modèle.**
 1. La diagonale de $\mathbf{M}^\top\mathbf{M}$ contient $\sum_i m_{ij}^2$ pour chaque colonne $j$ : sa trace est $\sum_{i,j} m_{ij}^2$. Puis $\lVert \mathbf{Q}\mathbf{M} \rVert_F^2 = \operatorname{tr}(\mathbf{M}^\top\mathbf{Q}^\top\mathbf{Q}\mathbf{M}) = \operatorname{tr}(\mathbf{M}^\top\mathbf{M})$.
@@ -318,23 +318,21 @@ Pour la copie : quand $\sigma \to 0$, tout le poids va au plus proche voisin, la
 
 **Réponse modèle.**
 1. Les $\mathbf{u}_j$ forment une base orthonormée de $\mathbb{R}^p$ : $\mathbf{x}_i - \boldsymbol{\mu} = \sum_j (\mathbf{u}_j \cdot (\mathbf{x}_i - \boldsymbol{\mu}))\,\mathbf{u}_j = \sum_j t_{ij}\mathbf{u}_j$ (M12b §2). Donc $\mathbf{x}_i - \hat{\mathbf{x}}_i = \sum_{j > k} t_{ij}\mathbf{u}_j$, de norme au carré $\sum_{j > k} t_{ij}^2$ (Pythagore).
-2. $\sum_i t_{ij}^2 = \sum_i \mathbf{u}_j^\top(\mathbf{x}_i - \boldsymbol{\mu})(\mathbf{x}_i - \boldsymbol{\mu})^\top\mathbf{u}_j = \mathbf{u}_j^\top\mathbf{X}_c^\top\mathbf{X}_c\mathbf{u}_j = (n - 1)\,\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_j = (n - 1)\lambda_j$.
+2. Par M12c §8, $\frac{1}{n - 1}\sum_i t_{ij}^2 = \mathbf{u}_j^\top\mathbf{C}\mathbf{u}_j$, et $\mathbf{C}\mathbf{u}_j = \lambda_j\mathbf{u}_j$ avec $\lVert \mathbf{u}_j \rVert = 1$ donne $\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_j = \lambda_j$ : $\sum_i t_{ij}^2 = (n - 1)\lambda_j$.
 3. $\frac{1}{n}\sum_i\sum_{j > k} t_{ij}^2 = \frac{1}{n}\sum_{j > k}(n - 1)\lambda_j$.
 4. $\hat{\mathbf{x}}_i - \boldsymbol{\mu} = \sum_{j \le k} t_{ij}\mathbf{u}_j$, et le même calcul donne $\frac{n-1}{n}\sum_{j \le k}\lambda_j$. La somme des deux vaut $\frac{n-1}{n}\sum_j\lambda_j = \frac{n-1}{n}\operatorname{tr}\mathbf{C}$ : la dispersion moyenne $\frac{1}{n}\sum\lVert \mathbf{x}_i - \boldsymbol{\mu} \rVert^2$, partagée entre ce que l'on garde et ce que l'on perd.
 5. L'erreur est $\frac{n-1}{n}$ fois la somme des $p - k$ variances oubliées : elle est la plus petite quand on oublie les plus petites, c'est-à-dire quand on garde les $k$ premiers axes.
 
-**Grille.** (1) la décomposition dans la base orthonormée et Pythagore ; (2) le passage par $\mathbf{X}_c^\top\mathbf{X}_c$ et la convention $n - 1$ ; (3) l'échange des sommes ; (4) le partage de la variance totale ; (5) l'argument sur les variances oubliées.
+**Grille.** (1) la décomposition dans la base orthonormée et Pythagore ; (2) la règle de M12c §8, le vecteur propre unitaire et la convention $n - 1$ ; (3) l'échange des sommes ; (4) le partage de la variance totale ; (5) l'argument sur les variances oubliées.
 
 ### Ex M12d.19 — Les scores de deux composantes principales sont décorrélés
 
 **Réponse modèle.**
-1. $\frac{1}{n}\sum_i t_{ij} = \mathbf{u}_j \cdot \frac{1}{n}\sum_i(\mathbf{x}_i - \boldsymbol{\mu}) = \mathbf{u}_j \cdot \mathbf{0} = 0$.
-2. Les deux colonnes de scores sont de moyenne nulle : leur covariance est $\frac{1}{n-1}\sum_i t_{ij}t_{il} = \frac{1}{n-1}\mathbf{t}_j^\top\mathbf{t}_l = \frac{1}{n-1}\mathbf{u}_j^\top\mathbf{X}_c^\top\mathbf{X}_c\mathbf{u}_l = \mathbf{u}_j^\top\mathbf{C}\mathbf{u}_l$.
-3. $\mathbf{C}\mathbf{u}_l = \lambda_l\mathbf{u}_l$, donc $\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_l = \lambda_l\,\mathbf{u}_j \cdot \mathbf{u}_l$, qui vaut $\lambda_l$ si $j = l$ et 0 sinon (axes orthonormés).
-4. $\frac{1}{n-1}\mathbf{Z}^\top\mathbf{Z} = \mathbf{W}_k^\top\mathbf{C}\mathbf{W}_k = \operatorname{diag}(\lambda_1, \ldots, \lambda_k)$.
-5. $\frac{1}{169}(5, 12)\begin{pmatrix} 4 & 0 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} -12 \\ 5 \end{pmatrix} = \frac{-240 + 60}{169} = -\frac{180}{169} \ne 0$. En 3., on a utilisé que $\mathbf{u}_l$ est un **vecteur propre** de $\mathbf{C}$ ; deux directions orthogonales quelconques ne le sont pas.
+1. La ligne $j$ de $\mathbf{W}_k^\top$ est $\mathbf{u}_j^\top$ et la colonne $l$ de $\mathbf{W}_k$ est $\mathbf{u}_l$ : le coefficient $(j, l)$ est $\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_l$. Or $\mathbf{C}\mathbf{u}_l = \lambda_l\mathbf{u}_l$, donc $\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_l = \lambda_l\,\mathbf{u}_j \cdot \mathbf{u}_l$, qui vaut $\lambda_l$ si $j = l$ et 0 sinon (axes orthonormés) : $\frac{1}{n-1}\mathbf{Z}^\top\mathbf{Z} = \operatorname{diag}(\lambda_1, \ldots, \lambda_k)$.
+2. Par la même règle, avec la ligne $\mathbf{a}^\top$ : $\mathbf{a}^\top\operatorname{diag}(\lambda_1, \ldots, \lambda_k)\,\mathbf{a} = \sum_j a_j^2\lambda_j$. Les scores étant décorrélés, les variances s'ajoutent, sans termes croisés.
+3. $\frac{1}{169}(5, 12)\begin{pmatrix} 4 & 0 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} -12 \\ 5 \end{pmatrix} = \frac{-240 + 60}{169} = -\frac{180}{169} \ne 0$. En 1., on a utilisé que $\mathbf{u}_l$ est un **vecteur propre** de $\mathbf{C}$ ; deux directions orthogonales quelconques ne le sont pas.
 
-**Grille.** (1) la moyenne nulle ; (2) la covariance comme forme bilinéaire $\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_l$ ; (3) le vecteur propre, puis l'orthogonalité ; (4) la matrice diagonale ; (5) le contre-exemple calculé et ce qu'il montre.
+**Grille.** (1) le coefficient $(j, l)$ comme forme bilinéaire $\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_l$, le vecteur propre, puis l'orthogonalité, et la matrice diagonale ; (2) la variance d'une combinaison, sans termes croisés ; (3) le contre-exemple calculé et ce qu'il montre.
 
 <a id="reflexion"></a>
 
@@ -346,7 +344,7 @@ Pour la copie : quand $\sigma \to 0$, tout le poids va au plus proche voisin, la
 
 **Démarche.** Avec $k = 2$, l'erreur est le carré du score sur $\mathbf{u}_3 = \frac{1}{\sqrt{17}}(-1, 0, 4)$. a) $\mathbf{r}_1 - \boldsymbol{\mu} = (4, 3, 1)$ : $-4 + 4 = 0$. b) $\mathbf{r}_2 - \boldsymbol{\mu} = (-1, 0, 3)$ : $\frac{(1 + 12)^2}{17} = \frac{169}{17}$. c) Les sept scores sur $\mathbf{u}_3$ (M12d.9) : le plus grand en valeur absolue est $\frac{11}{\sqrt{17}}$, d'erreur $\frac{121}{17}$. d) $9{,}94 > 7{,}12$. e) $\mathbf{r}_3 - \boldsymbol{\mu} = (16, 0, 4) = 4\,(4, 0, 1)$ : $t_1 = 4\sqrt{17}$. f) $\frac{25}{\sqrt{17}}$ (l'objet 7). g) $\mathbf{r}_3 - \boldsymbol{\mu}$ est le long de $\mathbf{u}_1$ : erreur nulle.
 
-Pour la copie : $\mathbf{r}_2$ combine une première mesure basse et une troisième haute, alors que dans les données elles varient ensemble (la covariance 4 et l'axe $(4, 0, 1)$) : c'est la **combinaison** qui est inhabituelle. $\mathbf{r}_3$ est dans le plan des deux premiers axes, mais très loin le long de $\mathbf{u}_1$ ($t_1 \approx 16{,}5$ contre au plus 6,1) : l'erreur de reconstruction ne voit que ce qui sort du sous-espace. Un second score, la distance dans le plan mesurée en écarts-types, $\frac{t_1^2}{\lambda_1} + \frac{t_2^2}{\lambda_2}$ (environ 13,6 pour $\mathbf{r}_3$, au plus 3,3 pour les sept objets), le signale. Le seuil fixé sur les données d'entraînement est optimiste (fiche §7, ⚠️) : sur des données que l'ACP n'a pas vues, les erreurs normales sont plus grandes, et l'on signalerait trop.
+Pour la copie : $\mathbf{r}_2$ combine une première mesure basse et une troisième haute, alors que dans les données elles varient ensemble (la covariance 4 et l'axe $(4, 0, 1)$) : c'est la **combinaison** qui est inhabituelle. $\mathbf{r}_3$ est dans le plan des deux premiers axes, mais très loin le long de $\mathbf{u}_1$ ($t_1 \approx 16{,}5$ contre au plus 6,1) : l'erreur de reconstruction ne voit que ce qui sort du sous-espace. Un second score, la distance dans le plan mesurée en écarts-types, $\frac{t_1^2}{\lambda_1} + \frac{t_2^2}{\lambda_2}$ (environ 13,6 pour $\mathbf{r}_3$, au plus 3,3 pour les sept objets), le signale. Le seuil fixé sur les données d'entraînement est optimiste (fiche §7, ⚠️) : sur des données que l'ACP n'a pas vues, les erreurs normales sont en moyenne plus grandes, et l'on signalerait trop.
 
 **Erreurs fréquentes.** L'erreur comme distance (sans le carré) ; comparer à l'erreur moyenne au lieu de la plus grande ; le score de $\mathbf{r}_3$ sans centrer.
 
@@ -358,7 +356,7 @@ Pour la copie : $\mathbf{r}_2$ combine une première mesure basse et une troisi�
 
 **Démarche.** a) $c_{33}$ multiplié par 9, $c_{13}$ par 3. b) Le bloc $\begin{pmatrix} 19 & 12 \\ 12 & 36 \end{pmatrix}$ : trace 55, déterminant 540, $\lambda = \frac{55 \pm \sqrt{865}}{2}$ ; la variance 11 reste. c) Pour $\lambda_1 \approx 42{,}21$ : $-23{,}21\,x_1 + 12\,x_3 = 0$, normé. d) $\frac{42{,}21}{19 + 11 + 36}$. e) $\frac{4}{\sqrt{19 \times 4}} = \frac{2}{\sqrt{19}}$. f) $\cos\theta = \frac{1}{\sqrt{17}}(4 \times 0{,}4593 + 0{,}8883) \approx 0{,}661$, $\theta \approx 48{,}6°$. g) La matrice de corrélation.
 
-Pour la copie : après le changement, $\frac{12}{\sqrt{19 \times 36}} = \frac{2}{\sqrt{19}}$, la même corrélation. $(\mathbf{D}\boldsymbol{\Sigma}\mathbf{D})_{ij} = \sum_{k,l} d_{ik}\Sigma_{kl}d_{lj} = d_id_j\Sigma_{ij}$ ($\mathbf{D}$ diagonale), donc $\frac{d_id_j\Sigma_{ij}}{\sqrt{d_i^2\Sigma_{ii}\,d_j^2\Sigma_{jj}}} = \frac{\Sigma_{ij}}{\sqrt{\Sigma_{ii}\Sigma_{jj}}}$ pour $d_i, d_j > 0$ : la matrice de corrélation, donc l'ACP standardisée, ne dépend pas des unités. Le premier axe est passé de $(0{,}97 ;\ 0 ;\ 0{,}24)$ à $(0{,}46 ;\ 0 ;\ 0{,}89)$ : c'est l'**unité** qui a décidé. Avec $d_j < 0$, les corrélations de la feature $j$ changent de signe (les axes standardisés aussi, par symétrie), mais leurs variances restent les mêmes.
+Pour la copie : après le changement, $\frac{12}{\sqrt{19 \times 36}} = \frac{2}{\sqrt{19}}$, la même corrélation. $(\mathbf{D}\boldsymbol{\Sigma}\mathbf{D})_{ij} = \sum_{k,l} d_{ik}\Sigma_{kl}d_{lj} = d_id_j\Sigma_{ij}$ ($\mathbf{D}$ diagonale), donc $\frac{d_id_j\Sigma_{ij}}{\sqrt{d_i^2\Sigma_{ii}\,d_j^2\Sigma_{jj}}} = \frac{\Sigma_{ij}}{\sqrt{\Sigma_{ii}\Sigma_{jj}}}$ pour $d_i, d_j > 0$ : la matrice de corrélation, donc l'ACP standardisée, ne dépend pas des unités. Le premier axe est passé de $(0{,}97 ;\ 0 ;\ 0{,}24)$ à $(0{,}46 ;\ 0 ;\ 0{,}89)$ : c'est l'**unité** qui a décidé.
 
 **Erreurs fréquentes.** Multiplier $c_{33}$ par 3 au lieu de 9 ; la corrélation avec les anciens écarts-types après le changement ; un angle en radians ; les axes de la standardisation confondus avec ceux de la covariance.
 
@@ -371,7 +369,7 @@ Pour la copie : après le changement, $\frac{12}{\sqrt{19 \times 36}} = \frac{2}
 2. Un changement de base dans l'espace de départ ($\mathbf{V}^\top$), une mise à l'échelle des axes avec, au besoin, un ajout ou une suppression de dimensions ($\boldsymbol{\Sigma}$), puis un changement de base dans l'espace d'arrivée ($\mathbf{U}$). Avec M12d.3 : $\mathbf{v}_1 = \frac{1}{\sqrt{65}}(-1, 8)$ est amené sur $\mathbf{e}_1$, étiré de 9, puis envoyé sur $9\,\mathbf{u}_1$.
 3. Il diagonalise d'abord $\mathbf{A}^\top\mathbf{A}$ (symétrique semi-définie positive, donc diagonalisable dans une base orthonormée), en déduit les vecteurs singuliers à droite et les valeurs singulières (des racines), puis obtient ceux de gauche en appliquant $\mathbf{A}$ et en normant. C'est la recette de la fiche §1.
 4. La SVD existe pour toute matrice, même rectangulaire ; la décomposition en éléments propres seulement pour certaines matrices carrées. Les bases de la SVD sont orthonormées, celles de la décomposition en éléments propres en général non (sauf pour une matrice symétrique). La SVD a deux bases (départ, arrivée), la décomposition en éléments propres une seule. Les valeurs singulières sont positives, les valeurs propres de signe quelconque, voire complexes. Pour une matrice symétrique semi-définie positive, les deux coïncident.
-5. Les vecteurs à gauche décrivent des « profils » de personnes (des groupes de goûts), ceux de droite des « profils » de films (des genres), et chaque valeur singulière l'importance de la couche qui relie un profil de personnes à un profil de films. Avec M12d.4 : $\mathbf{u}_1 \propto (4, 4, 3)$ dit que les trois clients partagent un même goût (les deux premiers un peu plus que le troisième), $\mathbf{v}_1 \propto (5, 4, 0)$ que ce goût porte sur les produits 1 et 2, et $s_1 = 7$ en est la force.
+5. Dans le livre, les films sont en lignes et les spectateurs en colonnes : les vecteurs singuliers à gauche décrivent des « films types » (des genres), ceux de droite des « spectateurs types » (des goûts), et chaque valeur singulière le poids de la couche qui relie un film type à un spectateur type. Dans M12d.4, les clients sont en lignes : les rôles s'échangent. $\mathbf{u}_1 \propto (4, 4, 3)$ décrit les clients (les trois partagent un même goût, les deux premiers un peu plus que le troisième), $\mathbf{v}_1 \propto (5, 4, 0)$ les produits (ce goût porte sur les produits 1 et 2), et $s_1 = 7$ en est la force.
 6. La norme spectrale est le plus grand étirement $\max \lVert \mathbf{A}\mathbf{x} \rVert/\lVert \mathbf{x} \rVert$, qui vaut $\sigma_1$. Le livre énonce Eckart-Young dans cette norme : la troncature est la meilleure approximation de rang $k$, à distance $\sigma_{k+1}$. La fiche §3 l'énonce en norme de Frobenius (erreur au carré $\sum_{i > k} s_i^2$), où le même $\mathbf{A}_k$ est aussi le meilleur.
 7. Les matrices carrées se partagent en inversibles et non inversibles ; parmi les diagonalisables, les symétriques (décomposition spectrale, bases orthonormées), dont les définies positives (Cholesky) ; les orthogonales sont un cas à part (inversibles, valeurs singulières 1) ; la SVD, elle, s'applique à toutes, carrées ou non.
 8. Par exemple : *singular value decomposition* (décomposition en valeurs singulières), *left/right-singular vectors* (vecteurs singuliers à gauche, à droite), *rank-k approximation* (approximation de rang $k$), *spectral norm* (norme spectrale).
@@ -428,7 +426,7 @@ Pour la copie : après le changement, $\frac{12}{\sqrt{19 \times 36}} = \frac{2}
 
 **Réponse modèle (60 secondes).**
 
-> Le conditionnement est le rapport entre la plus grande et la plus petite valeur singulière : il dit à quel point la matrice aplatit l'espace. Il borne l'amplification des erreurs : une erreur relative sur le second membre d'un système peut devenir κ fois plus grande sur la solution ; on perd environ log₁₀ κ chiffres significatifs, et avec des flottants à 16 chiffres, un κ de 10¹² ne laisse presque rien. Le déterminant ne le mesure pas : une matrice de déterminant 1 peut être très mal conditionnée, et 0,1 fois l'identité a un déterminant minuscule mais un κ de 1. Un piège classique : former AᵀA, comme dans les équations normales, élève κ au carré ; c'est pourquoi on résout les moindres carrés par QR ou par la SVD. En machine learning, des features presque redondantes rendent XᵀX mal conditionnée : les poids d'une régression deviennent instables, et la régularisation ridge, en ajoutant α à chaque valeur propre, réduit κ. Le conditionnement de la hessienne règle aussi la vitesse d'une descente de gradient.
+> Le conditionnement est le rapport entre la plus grande et la plus petite valeur singulière : il dit à quel point la matrice aplatit l'espace. Il borne l'amplification des erreurs : une erreur relative sur le second membre d'un système peut devenir κ fois plus grande sur la solution ; on perd environ log₁₀ κ chiffres significatifs, et avec des flottants à 16 chiffres, un κ de 10¹² n'en laisse que 4. Le déterminant ne le mesure pas : une matrice de déterminant 1 peut être très mal conditionnée, et 0,1 fois l'identité a un déterminant minuscule mais un κ de 1. Un piège classique : former AᵀA, comme dans les équations normales, élève κ au carré ; c'est pourquoi on résout les moindres carrés par QR ou par la SVD. En machine learning, des features presque redondantes rendent XᵀX mal conditionnée : les poids d'une régression deviennent instables, et la régularisation ridge, en ajoutant α à chaque valeur propre, réduit κ. Le conditionnement de la hessienne règle aussi la vitesse d'une descente de gradient.
 
 **Grille.** (1) la définition par les valeurs singulières ; (2) l'amplification et les chiffres perdus ; (3) le déterminant n'est pas le bon critère ; (4) le piège de $\kappa^2$ ; (5) un exemple en machine learning.
 
@@ -506,10 +504,10 @@ Vérification manuelle (la figure). Avec $\mathbf{A} = \begin{pmatrix} 1{,}5 & 1
 
 ### Ex M12d.36 — Un test : la reconstruction de rang plein redonne X, et l'erreur décroît avec k
 
-Vérification par la cellule ✅/❌. L'ACP qui oublie la moyenne échoue à la propriété 1. Celle qui prend d'abord les axes de plus petite variance, et celle qui ne centre pas, passent les propriétés 1 et 2 : au rang plein, toute base orthonormée redonne $\mathbf{X}$, et des sous-espaces emboîtés donnent des erreurs décroissantes ; seule la propriété 3 dit **quel** sous-espace est choisi. Pour des scores : moyenne nulle, variances $\lambda_j$ (avec `ddof=1`), covariances nulles (M12d.19).
+Vérification par la cellule ✅/❌. L'ACP qui oublie la moyenne échoue dès la propriété 1. Celle qui prend les colonnes de `eigh` dans l'ordre croissant (les axes de plus petite variance d'abord), et celle qui ne centre pas, passent les propriétés 1 et 2 (des sous-espaces emboîtés donnent des erreurs décroissantes) ; seule la propriété 3 dit **quel** sous-espace est choisi. La propriété 3 attrape donc, seule, les trois ACP fausses. Les deux autres restent utiles : elles ne supposent aucun théorème, et leur échec dit où chercher (la moyenne, ou le choix des axes). Pour des scores : moyenne nulle, variances $\lambda_j$ (avec `ddof=1`), covariances nulles (M12d.19).
 
-### Ex M12d.37 — Défi : compresser une image centrée en gardant 93 % de son énergie avec au plus 5 % des nombres
+### Ex M12d.37 — Défi : compresser une image centrée en gardant 93,5 % de son énergie avec au plus 5 % des nombres
 
 **Réponse** : `True` (objectif atteint).
 
-Une solution : découper l'image en carrés de $8 \times 8$ pixels, ranger chaque carré en **ligne** d'une matrice de forme $(3\,750, 64)$, et faire l'ACP de ces lignes (centrer par le carré moyen, puis la SVD) avec 3 composantes : $64 + 3 \times 64 + 3\,750 \times 3 = 11\,506$ nombres, et 94,1 % de l'énergie. Les carrés se ressemblent (zones lisses, bords, grain) : leur matrice a des valeurs singulières qui décroissent bien plus vite que celles de l'image entière, et les trois « carrés de base » sont partagés par tous. Des carrés de $10 \times 10$ ou $20 \times 20$ font presque aussi bien (environ 94 %), ceux de $5 \times 5$ un peu moins (92,6 %). Des tuiles de $50 \times 50$, chacune décomposée par sa propre SVD au rang choisi au mieux, ne dépassent pas 90 % : leurs bases ne sont pas partagées. Les défauts visibles sont des bords de carrés, que la norme de Frobenius ne pénalise pas plus qu'un autre écart ; JPEG les atténue, et compte des bits plutôt que des nombres.
+Une solution : découper l'image en carrés de $8 \times 8$ pixels, ranger chaque carré en **ligne** d'une matrice de forme $(3\,750, 64)$, et faire l'ACP de ces lignes (centrer par le carré moyen, puis la SVD) avec 3 composantes : $64 + 3 \times 64 + 3\,750 \times 3 = 11\,506$ nombres, et 94,1 % de l'énergie, au-dessus des 93,5 % demandés. Les carrés se ressemblent (zones lisses, bords, grain) : leur matrice a des valeurs singulières qui décroissent bien plus vite que celles de l'image entière, et les trois « carrés de base » sont partagés par tous. Des carrés de $10 \times 10$ ou $20 \times 20$ font presque aussi bien (environ 94 %), ceux de $5 \times 5$ un peu moins (92,6 %). Des tuiles de $50 \times 50$, chacune décomposée par sa propre SVD au rang choisi au mieux, ne dépassent pas 90 % : leurs bases ne sont pas partagées. Stocker seulement la moyenne de chaque rectangle de $4 \times 5$ pixels ($12\,000$ nombres, tout le budget) garde 93,3 % : c'est pour cela que l'objectif est à 93,5 %. Les défauts visibles sont des bords de carrés, que la norme de Frobenius ne pénalise pas plus qu'un autre écart ; JPEG les atténue, et compte des bits plutôt que des nombres.

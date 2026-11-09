@@ -67,7 +67,7 @@ Une matrice $\mathbf{A}$ de forme $(100, 80)$ a pour valeurs singulières non nu
 1. Pour une direction unitaire $\mathbf{u}$, quelle est la variance des coordonnées $t_i = \mathbf{u}^\top(\mathbf{x}_i - \boldsymbol{\mu})$ ?
 2. Le maximum de cette variance sur la sphère unité, et où est-il atteint ?
 3. Vrai ou faux : le premier axe principal est toujours la direction de la feature de plus grande variance.
-4. $\mathbf{C} = \operatorname{diag}(2, 7, 4)$ : les axes principaux et les variances le long des axes ?
+4. $\mathbf{C} = \begin{pmatrix} 4 & 0 & 0 \\ 0 & 2 & 2 \\ 0 & 2 & 5 \end{pmatrix}$ : les axes principaux et les variances le long des axes ?
 5. Que vaut la somme des variances le long des $p$ axes ?
 6. Pourquoi les axes principaux sont-ils orthogonaux deux à deux ?
 7. Deux logiciels rendent des premiers axes opposés : l'un des deux se trompe-t-il ?
@@ -77,7 +77,7 @@ Une matrice $\mathbf{A}$ de forme $(100, 80)$ a pour valeurs singulières non nu
 
 1. Que devient le premier axe si l'on oublie de centrer un nuage loin de l'origine ?
 2. Deux features : une distance en kilomètres et un prix en euros. Centrer seulement, ou standardiser ? Pourquoi ?
-3. Les pixels de photos en niveaux de gris : centrer, standardiser ? Pourquoi ?
+3. Des températures relevées en °C par dix capteurs identiques : centrer, standardiser ? Pourquoi ?
 4. Vrai ou faux : l'ACP de données standardisées est l'ACP de leur matrice de corrélation.
 5. Les scores sur deux axes principaux différents sont-ils de moyenne nulle ? Corrélés ?
 6. Que donne la reconstruction d'un exemple avec $k = p$ composantes ?
@@ -97,11 +97,11 @@ Un nuage de $n = 11$ exemples de $\mathbb{R}^3$ a pour variances le long de ses 
 *Fiche §8 · parcours C, E*
 
 1. Laquelle des trois méthodes garde les grandes distances ? Lesquelles gardent les voisinages ?
-2. Laquelle ne sait pas placer un point nouveau sur une carte déjà calculée ?
+2. Vrai ou faux : t-SNE, comme l'ACP, définit une fonction de $\mathbb{R}^p$ dans $\mathbb{R}^2$.
 3. Que veut dire une perplexité de 5 pour un point ?
-4. Vrai ou faux : sur une carte t-SNE, la distance entre deux groupes mesure à quel point ils diffèrent.
+4. Calcule $p\log_2(p/q)$ pour un couple de voisins ($p = 0{,}04$) que la carte place trop loin ($q = 0{,}005$), puis pour un couple lointain ($p = 0{,}000\,5$) qu'elle place trop près ($q = 0{,}004$). Lequel coûte le plus ?
 5. Pourquoi t-SNE mesure-t-il les voisinages de la carte avec une loi de Student plutôt qu'une gaussienne ?
-6. Utiliser les deux coordonnées d'une carte t-SNE comme features d'un modèle : bonne idée ?
+6. Qu'en conclure sur l'écart entre deux groupes bien séparés d'une carte t-SNE ?
 
 <a id="rappels"></a>
 
@@ -110,17 +110,17 @@ Un nuage de $n = 11$ exemples de $\mathbb{R}^3$ a pour variances le long de ses 
 ### M12d.R1 — Valeurs propres et théorème spectral (M12c) 🔁 ★ ⏱️ 5 min
 *Fiche §1 · parcours C, E*
 
-$\mathbf{S} = \begin{pmatrix} -2 & 5 \\ 5 & 22 \end{pmatrix}$.
+$\mathbf{K} = \begin{pmatrix} -2 & 5 \\ 5 & 22 \end{pmatrix}$.
 1. Sa trace, son déterminant, puis ses valeurs propres.
 2. Ses vecteurs propres unitaires (convention de la fiche).
-3. Écris $\mathbf{S} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ et vérifie $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}$.
-4. D'après la fiche §1, quelles sont les valeurs singulières de $\mathbf{S}$ ? Que deviennent $\mathbf{u}_i$ et $\mathbf{v}_i$ ?
-5. $\mathbf{S}$ est-elle définie positive ?
+3. Écris $\mathbf{K} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ et vérifie $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}$.
+4. D'après la fiche §1, quelles sont les valeurs singulières de $\mathbf{K}$ ? Que deviennent $\mathbf{u}_i$ et $\mathbf{v}_i$ ?
+5. $\mathbf{K}$ est-elle définie positive ?
 
 ### M12d.R2 — La projection orthogonale (M12b) 🔁 ★ ⏱️ 5 min
 *Fiche §5 · parcours C, E*
 
-$\mathbf{u} = \frac{1}{9}(1, 4, 8)$ et $\mathbf{x} = (5, 3, 8)$.
+$\mathbf{u} = \frac{1}{17}(8, 9, 12)$ et $\mathbf{x} = (11, 9, 10)$.
 1. Vérifie que $\mathbf{u}$ est unitaire.
 2. La coordonnée $t = \mathbf{u}^\top\mathbf{x}$ de $\mathbf{x}$ le long de $\mathbf{u}$.
 3. La projection $\mathbf{p} = t\,\mathbf{u}$, et le résidu $\mathbf{r} = \mathbf{x} - \mathbf{p}$. Vérifie $\mathbf{r} \perp \mathbf{u}$.
@@ -130,12 +130,12 @@ $\mathbf{u} = \frac{1}{9}(1, 4, 8)$ et $\mathbf{x} = (5, 3, 8)$.
 ### M12d.R3 — Moyenne, covariance et standardisation (M02c) 🔁 ★ ⏱️ 5 min
 *Fiche §6 · parcours C, E*
 
-Quatre exemples à deux features : $(2, 30)$, $(4, 50)$, $(6, 40)$, $(8, 60)$.
+Quatre exemples à deux features : $(2, 35)$, $(4, 55)$, $(6, 40)$, $(8, 50)$.
 1. Le point moyen, puis les données centrées.
 2. Les deux variances et la covariance, avec $\frac{1}{n - 1}$.
 3. La corrélation des deux features.
 4. Les valeurs standardisées du premier exemple.
-5. La covariance des deux features **standardisées** ? Pourquoi ?
+5. On exprime la deuxième feature dans une unité dix fois plus petite (ses valeurs sont multipliées par 10) : que deviennent sa variance, la covariance et la corrélation ?
 
 <a id="papier"></a>
 
@@ -145,7 +145,7 @@ Quatre exemples à deux features : $(2, 30)$, $(4, 50)$, $(6, 40)$, $(8, 60)$.
 **Objectif :** calculer la SVD d'une matrice carrée non symétrique par les valeurs et vecteurs propres de $\mathbf{A}^\top\mathbf{A}$, avec la convention de signe.
 **Prérequis :** fiche §1 ; M12c §3 et §6 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 6 & 9 \\ 6 & -2 \end{pmatrix}$.
+$\mathbf{A} = \begin{pmatrix} 10 & 10 \\ 5 & 2 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -164,7 +164,7 @@ Dans ta copie : calcule $\mathbf{u}_2$ et vérifie $s_1\mathbf{u}_1\mathbf{v}_1^
 **Objectif :** reconnaître une matrice de rang 1, écrire sa SVD compacte, et y appliquer la convention de signe.
 **Prérequis :** fiche §1 ; M12a §5 · **Parcours :** C
 
-$\mathbf{A} = \begin{pmatrix} 2 & -10 \\ 6 & -30 \\ 9 & -45 \end{pmatrix}$.
+$\mathbf{A} = \begin{pmatrix} 2 & -10 \\ 10 & -50 \\ 11 & -55 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -246,7 +246,7 @@ $\mathbf{A} = \begin{pmatrix} 2 & -8 & 16 \\ 5 & -20 & 40 \end{pmatrix}$, $\math
 | a | le rang de $\mathbf{A}$ | un entier |
 | b | $s_1$ | un nombre (4 décimales) |
 | c | $\lVert \mathbf{A} \rVert_F^2$ | un nombre |
-| d | $\mathbf{A}^+$ | une matrice (6 décimales) |
+| d | $1\,000\,\mathbf{A}^+$ | une matrice (4 décimales) |
 | e | $\mathbf{x}^+ = \mathbf{A}^+\mathbf{y}$ | une liste de 3 nombres (4 décimales) |
 | f | $\lVert \mathbf{x}^+ \rVert$ | un nombre |
 | g | la norme de la solution $\mathbf{x} = (9, 0, 0)$ de $\mathbf{A}\mathbf{x} = \mathbf{y}$ | un nombre |
@@ -330,7 +330,7 @@ Une ACP de $n = 51$ exemples à 8 features donne les variances le long des axes 
 
 Dans ta copie : trace la courbe des variances et celle des parts cumulées. Où est le coude ? Les seuils de d) et e) disent-ils la même chose que le coude ? Si ces données préparent un modèle, comment trancherais-tu ?
 
-### Ex M12d.11 — L'ACP par la SVD de la matrice centrée : σ² / (n − 1) donne les variances ✏️ ★★ ⏱️ 20 min
+### Ex M12d.11 — L'ACP par la SVD de la matrice centrée : s² / (n − 1) donne les variances ✏️ ★★ ⏱️ 20 min
 **Objectif :** faire une ACP par la SVD de la matrice centrée, sans former la covariance : valeurs singulières, variances, axes et scores.
 **Prérequis :** fiche §1 et §6 · **Parcours :** C
 
@@ -402,22 +402,22 @@ $\mathbf{A}$ est de forme $(m, n)$.
 4. Montre que $\mathbf{A}\mathbf{A}^\top$ a les mêmes valeurs propres non nulles que $\mathbf{A}^\top\mathbf{A}$ : si $\mathbf{A}^\top\mathbf{A}\mathbf{v} = \lambda\mathbf{v}$ avec $\lambda \ne 0$, que vaut $\mathbf{A}\mathbf{A}^\top(\mathbf{A}\mathbf{v})$, et pourquoi $\mathbf{A}\mathbf{v} \ne \mathbf{0}$ ? Montre aussi que $\mathbf{v} \mapsto \mathbf{A}\mathbf{v}$ est injective sur l'espace propre de $\lambda$ : les multiplicités sont les mêmes.
 5. Déduis de la trace de $\mathbf{A}^\top\mathbf{A}$ que $\lVert \mathbf{A} \rVert_F^2 = \sum_i s_i^2$.
 
-### Ex M12d.15 — La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ σ₁ ‖x‖ ∂ ★★ ⏱️ 20 min
+### Ex M12d.15 — La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ s₁ ‖x‖ ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer l'encadrement de $\lVert \mathbf{A}\mathbf{x} \rVert$ par les valeurs singulières extrêmes, et en tirer une propriété de la norme spectrale.
 **Prérequis :** fiche §2 ; M12b §2 · **Parcours :** C
 
-$\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$ est de forme $(m, n)$, de valeurs singulières $s_1 \ge \cdots \ge s_n \ge 0$ (complétées par des zéros si le rang est plus petit que $n$) ; on suppose $n \le m$. (Le titre écrit $\sigma_1$, la notation de MML, pour $s_1$.)
+$\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$ est de forme $(m, n)$, de valeurs singulières $s_1 \ge \cdots \ge s_n \ge 0$ (complétées par des zéros si le rang est plus petit que $n$) ; on suppose $n \le m$.
 1. Écris $\mathbf{x} = \sum_i c_i\mathbf{v}_i$ dans la base orthonormée des $\mathbf{v}_i$. Exprime $\lVert \mathbf{x} \rVert^2$, puis $\mathbf{A}\mathbf{x}$ et $\lVert \mathbf{A}\mathbf{x} \rVert^2$, avec les $c_i$ et les $s_i$.
 2. Déduis-en $s_n\lVert \mathbf{x} \rVert \le \lVert \mathbf{A}\mathbf{x} \rVert \le s_1\lVert \mathbf{x} \rVert$, et les cas d'égalité.
 3. Retrouve le résultat autrement : $\lVert \mathbf{A}\mathbf{x} \rVert^2/\lVert \mathbf{x} \rVert^2$ est un quotient de Rayleigh. De quelle matrice ?
 4. Montre que $\lVert \mathbf{A}\mathbf{B} \rVert_2 \le \lVert \mathbf{A} \rVert_2\,\lVert \mathbf{B} \rVert_2$ (en appliquant deux fois l'inégalité de droite de 2., qui vaut pour toute forme, sans l'hypothèse $n \le m$).
 5. Une matrice orthogonale $\mathbf{Q}$ : que valent $\lVert \mathbf{Q} \rVert_2$ et $\lVert \mathbf{Q}\mathbf{A} \rVert_2$ ?
 
-### Ex M12d.16 — L'erreur de l'approximation de rang k vaut la somme des σ² oubliés (Frobenius) ∂ ★★★ ⏱️ 25 min
+### Ex M12d.16 — L'erreur de l'approximation de rang k vaut la somme des s² oubliés (Frobenius) ∂ ★★★ ⏱️ 25 min
 **Objectif :** démontrer l'égalité d'Eckart-Young pour l'erreur de $\mathbf{A}_k$ (la minimalité restant admise), en norme de Frobenius et en norme spectrale.
 **Prérequis :** fiche §3 ; M12c §2 · **Parcours :** C
 
-$\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$, de rang $r$, et $\mathbf{A}_k = \sum_{i \le k} s_i\mathbf{u}_i\mathbf{v}_i^\top$ pour $k < r$. (Le titre écrit $\sigma$ pour $s$.)
+$\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$, de rang $r$, et $\mathbf{A}_k = \sum_{i \le k} s_i\mathbf{u}_i\mathbf{v}_i^\top$ pour $k < r$.
 1. Montre que $\lVert \mathbf{M} \rVert_F^2 = \operatorname{tr}(\mathbf{M}^\top\mathbf{M})$, puis que $\lVert \mathbf{Q}\mathbf{M} \rVert_F = \lVert \mathbf{M} \rVert_F$ pour toute matrice orthogonale $\mathbf{Q}$.
 2. Montre aussi $\lVert \mathbf{M}\mathbf{Q} \rVert_F = \lVert \mathbf{M} \rVert_F$ (par $\operatorname{tr}(\mathbf{X}\mathbf{Y}) = \operatorname{tr}(\mathbf{Y}\mathbf{X})$, M12c).
 3. Écris $\mathbf{A} - \mathbf{A}_k = \mathbf{U}\mathbf{D}\mathbf{V}^\top$ avec une matrice $\mathbf{D}$ que tu préciseras. Conclus : $\lVert \mathbf{A} - \mathbf{A}_k \rVert_F^2 = s_{k+1}^2 + \cdots + s_r^2$.
@@ -441,7 +441,7 @@ $\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$ (SVD complète) est de forme 
 
 $n$ exemples $\mathbf{x}_i$ de $\mathbb{R}^p$, de moyenne $\boldsymbol{\mu}$ et de covariance $\mathbf{C}$ (en $\frac{1}{n-1}$), d'axes principaux $\mathbf{u}_1, \ldots, \mathbf{u}_p$ et de variances $\lambda_1 \ge \cdots \ge \lambda_p$ ; $t_{ij} = \mathbf{u}_j^\top(\mathbf{x}_i - \boldsymbol{\mu})$ et $\hat{\mathbf{x}}_i = \boldsymbol{\mu} + \sum_{j \le k} t_{ij}\mathbf{u}_j$.
 1. Montre que $\mathbf{x}_i - \boldsymbol{\mu} = \sum_{j \le p} t_{ij}\mathbf{u}_j$, puis que $\lVert \mathbf{x}_i - \hat{\mathbf{x}}_i \rVert^2 = \sum_{j > k} t_{ij}^2$.
-2. Montre que $\frac{1}{n - 1}\sum_i t_{ij}^2 = \mathbf{u}_j^\top\mathbf{C}\,\mathbf{u}_j = \lambda_j$.
+2. Les scores $t_{ij}$ sont de moyenne nulle, et leur variance vaut $\mathbf{u}_j^\top\mathbf{C}\,\mathbf{u}_j$ (la règle $\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top$ de M12c §8, avec la ligne $\mathbf{A} = \mathbf{u}_j^\top$). Déduis-en $\frac{1}{n - 1}\sum_i t_{ij}^2 = \lambda_j$.
 3. Conclus : $\frac{1}{n}\sum_i \lVert \mathbf{x}_i - \hat{\mathbf{x}}_i \rVert^2 = \frac{n - 1}{n}\sum_{j > k}\lambda_j$.
 4. Montre de même que $\frac{1}{n}\sum_i \lVert \hat{\mathbf{x}}_i - \boldsymbol{\mu} \rVert^2 = \frac{n-1}{n}\sum_{j \le k}\lambda_j$, et déduis-en que la dispersion gardée et l'erreur ont pour somme $\frac{n-1}{n}\operatorname{tr}\mathbf{C}$.
 5. Pourquoi, à $k$ fixé, prendre les $k$ **premiers** axes rend-il cette erreur la plus petite parmi les choix de $k$ axes principaux ? (La minimalité parmi **tous** les sous-espaces est admise, fiche §7.)
@@ -450,12 +450,10 @@ $n$ exemples $\mathbf{x}_i$ de $\mathbb{R}^p$, de moyenne $\boldsymbol{\mu}$ et 
 **Objectif :** démontrer que les scores sur deux axes principaux distincts ont une covariance nulle, et que ce n'est pas vrai pour deux directions orthogonales quelconques.
 **Prérequis :** fiche §5 et §6 ; M12c §6 et §8 · **Parcours :** C
 
-Mêmes notations que M12d.18 ; $\mathbf{t}_j = \mathbf{X}_c\mathbf{u}_j$ est la colonne des scores sur l'axe $j$.
-1. Montre que la moyenne des scores $\mathbf{t}_j$ est nulle.
-2. Montre que leur covariance est $\operatorname{Cov}(\mathbf{t}_j, \mathbf{t}_l) = \frac{1}{n-1}\mathbf{t}_j^\top\mathbf{t}_l = \mathbf{u}_j^\top\mathbf{C}\,\mathbf{u}_l$.
-3. Conclus : elle vaut $\lambda_j$ si $j = l$, et 0 si $j \ne l$.
-4. Déduis-en la matrice de covariance des scores $\mathbf{Z} = \mathbf{X}_c\mathbf{W}_k$.
-5. Contre-exemple : avec $\mathbf{C} = \operatorname{diag}(4, 1)$, calcule la covariance des coordonnées le long des deux directions orthogonales $\frac{1}{13}(5, 12)$ et $\frac{1}{13}(-12, 5)$. Qu'est-ce qui, dans 3., a servi en plus de l'orthogonalité ?
+Mêmes notations que M12d.18 ; $\mathbf{t}_j = \mathbf{X}_c\mathbf{u}_j$ est la colonne des scores sur l'axe $j$, et $\mathbf{Z} = \mathbf{X}_c\mathbf{W}_k$ la matrice des scores sur les $k$ premiers axes. Les scores d'un exemple, $\mathbf{z}_i = \mathbf{W}_k^\top(\mathbf{x}_i - \boldsymbol{\mu})$, sont une transformation affine de $\mathbf{x}_i$ : par la règle de M12c §8, ils sont de moyenne nulle et de covariance $\mathbf{W}_k^\top\mathbf{C}\,\mathbf{W}_k$.
+1. Lis le coefficient $(j, l)$ de cette matrice : $\operatorname{Cov}(\mathbf{t}_j, \mathbf{t}_l) = \mathbf{u}_j^\top\mathbf{C}\,\mathbf{u}_l$. Montre qu'il vaut $\lambda_j$ si $j = l$, et 0 si $j \ne l$ ; écris la matrice de covariance de $\mathbf{Z}$.
+2. Un score combiné $c_i = \mathbf{a}^\top\mathbf{z}_i$, avec $\mathbf{a} \in \mathbb{R}^k$ : sa variance ? Pourquoi est-elle si simple ?
+3. Contre-exemple : avec $\mathbf{C} = \operatorname{diag}(4, 1)$, calcule la covariance des coordonnées le long des deux directions orthogonales $\frac{1}{13}(5, 12)$ et $\frac{1}{13}(-12, 5)$. Qu'est-ce qui, dans 1., a servi en plus de l'orthogonalité ?
 
 <a id="reflexion"></a>
 
@@ -496,7 +494,7 @@ Un changement d'unités multiplie chaque feature $j$ par un nombre $d_j > 0$ : l
 | g | la matrice de covariance des données standardisées | une matrice (4 décimales) |
 | h | vrai ou faux : pour toute matrice diagonale $\mathbf{D}$ à éléments strictement positifs, la covariance des données standardisées est la même pour $\mathbf{X}$ et pour $\mathbf{X}\mathbf{D}$ | `True` ou `False` |
 
-Dans ta copie : calcule la corrélation des mesures 1 et 3 après le changement. Montre que $(\mathbf{D}\boldsymbol{\Sigma}\mathbf{D})_{ij} = d_id_j\Sigma_{ij}$, puis que la corrélation $\Sigma_{ij}/\sqrt{\Sigma_{ii}\Sigma_{jj}}$ ne change pas : c'est h) en général. Compare c) au premier axe de M12d.8 : qui a « décidé » de la direction ? Que se passerait-il avec un $d_j$ négatif (une feature changée de signe) ?
+Dans ta copie : calcule la corrélation des mesures 1 et 3 après le changement. Montre que $(\mathbf{D}\boldsymbol{\Sigma}\mathbf{D})_{ij} = d_id_j\Sigma_{ij}$, puis que la corrélation $\Sigma_{ij}/\sqrt{\Sigma_{ii}\Sigma_{jj}}$ ne change pas : c'est h) en général. Compare c) au premier axe de M12d.8 : qui a « décidé » de la direction ?
 
 ### Ex M12d.22 — MML §4.5 à §4.7 : SVD, approximation de rang faible, phylogénie des matrices 📖 ★★ ⏱️ 45 min
 **Objectif :** lire en anglais la SVD, sa géométrie, sa construction et l'approximation de rang faible, et situer les décompositions de M12a à M12d.
@@ -581,4 +579,4 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | M12d.34 | La SVD en images : Vᵀ, Σ puis U appliqués au cercle unité, étape par étape | 🎨 | ★ | 20 | C, E |
 | M12d.35 | Chasse à l'erreur : une ACP sans centrer, n et n − 1 mélangés, des axes lus en lignes au lieu de colonnes | 🐛 | ★ | 15 | C |
 | M12d.36 | Un test : la reconstruction de rang plein redonne X, et l'erreur décroît avec k | 🛠️ | ★ | 15 | C |
-| M12d.37 | Défi : compresser une image centrée en gardant 93 % de son énergie avec au plus 5 % des nombres | 🏆 | ★★★ | 30 | C |
+| M12d.37 | Défi : compresser une image centrée en gardant 93,5 % de son énergie avec au plus 5 % des nombres | 🏆 | ★★★ | 30 | C |

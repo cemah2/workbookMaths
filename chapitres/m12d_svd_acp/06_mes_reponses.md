@@ -227,7 +227,7 @@
 - g :
 - Les deux courbes ; le coude ; les seuils contre le coude ; comment trancher pour un modèle :
 
-### Ex M12d.11 — L'ACP par la SVD de la matrice centrée : σ² / (n − 1) donne les variances
+### Ex M12d.11 — L'ACP par la SVD de la matrice centrée : s² / (n − 1) donne les variances
 
 - a :
 - b :
@@ -271,7 +271,7 @@
 4. 
 5. 
 
-### Ex M12d.15 — La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ σ₁ ‖x‖
+### Ex M12d.15 — La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ s₁ ‖x‖
 
 1. 
 2. 
@@ -279,7 +279,7 @@
 4. 
 5. 
 
-### Ex M12d.16 — L'erreur de l'approximation de rang k vaut la somme des σ² oubliés (Frobenius)
+### Ex M12d.16 — L'erreur de l'approximation de rang k vaut la somme des s² oubliés (Frobenius)
 
 1. 
 2. 
@@ -308,8 +308,6 @@
 1. 
 2. 
 3. 
-4. 
-5. 
 
 ## 🔗 📖 🧮 🗣️ Pont, lecture, ordre de grandeur et explication
 
@@ -334,7 +332,7 @@
 - f :
 - g :
 - h :
-- (DΣD)ᵢⱼ = dᵢdⱼΣᵢⱼ et la corrélation inchangée ; qui a « décidé » de la direction ; un dⱼ négatif :
+- (DΣD)ᵢⱼ = dᵢdⱼΣᵢⱼ et la corrélation inchangée ; qui a « décidé » de la direction :
 
 ### Ex M12d.22 — MML §4.5 à §4.7 : SVD, approximation de rang faible, phylogénie des matrices
 
@@ -433,8 +431,8 @@
 
 ### Ex M12d.36 — Un test : la reconstruction de rang plein redonne X, et l'erreur décroît avec k
 
-- La propriété qui attrape chaque ACP fausse ; pourquoi l'ACP sans centrer passe 1 et 2 ; une propriété pour des scores :
+- La propriété qui attrape chaque ACP fausse ; la propriété 3 seule suffirait-elle ; une propriété pour des scores :
 
-### Ex M12d.37 — Défi : compresser une image centrée en gardant 93 % de son énergie avec au plus 5 % des nombres
+### Ex M12d.37 — Défi : compresser une image centrée en gardant 93,5 % de son énergie avec au plus 5 % des nombres
 
 - La matrice décomposée, et pourquoi ses valeurs singulières décroissent plus vite ; mes réglages ; les défauts visibles :

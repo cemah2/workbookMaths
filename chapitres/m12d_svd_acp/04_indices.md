@@ -183,12 +183,12 @@ Relis M12b §2 et §5.
 </details>
 <details><summary>Indice 2</summary>
 
-$1 + 16 + 64 = 81$ ; $t = \mathbf{u} \cdot \mathbf{x}$.
+$64 + 81 + 144 = 289$ ; $t = \mathbf{u} \cdot \mathbf{x}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-$t = 9$, $\mathbf{p} = (1, 4, 8)$, $\mathbf{r} = (4, -1, 0)$. $\mathbf{P}^2 = \mathbf{u}(\mathbf{u}^\top\mathbf{u})\mathbf{u}^\top$.
+$t = 17$, $\mathbf{p} = (8, 9, 12)$, $\mathbf{r} = (3, 0, -2)$. $\mathbf{P}^2 = \mathbf{u}(\mathbf{u}^\top\mathbf{u})\mathbf{u}^\top$.
 
 </details>
 
@@ -206,7 +206,7 @@ Le point moyen est $(5, 45)$ ; centre, puis divise les sommes de produits par $n
 </details>
 <details><summary>Indice 3</summary>
 
-La corrélation est $\frac{80}{\sqrt{20 \times 500}}$ ; standardiser divise chaque feature centrée par son écart-type.
+La corrélation est $\frac{30}{\sqrt{20 \times 250}}$ ; standardiser divise chaque feature centrée par son écart-type ; multiplier une feature par 10 multiplie sa variance par 100.
 
 </details>
 
@@ -223,12 +223,12 @@ Relis la recette « La calculer : passer par $\mathbf{A}^\top\mathbf{A}$ » (fic
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{A}^\top\mathbf{A}$ a pour trace 157 et pour déterminant $72 \times 85 - 42^2$.
+$\mathbf{A}^\top\mathbf{A}$ a pour trace 229 et pour déterminant $125 \times 104 - 110^2$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Pour 121 : $(\mathbf{A}^\top\mathbf{A} - 121\,\mathbf{I})\mathbf{v} = \mathbf{0}$ donne $-49x + 42y = 0$ ; puis $\mathbf{u}_1 = \mathbf{A}\mathbf{v}_1/11$.
+Pour 225 : $(\mathbf{A}^\top\mathbf{A} - 225\,\mathbf{I})\mathbf{v} = \mathbf{0}$ donne $-100x + 110y = 0$ ; puis $\mathbf{u}_1 = \mathbf{A}\mathbf{v}_1/15$.
 
 </details>
 
@@ -246,7 +246,7 @@ La deuxième colonne est $-5$ fois la première : $\mathbf{A} = \mathbf{a}\mathb
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{a} = (2, 6, 9)$, $\mathbf{b} = (1, -5)$ : $\mathbf{v}_1$ est $\pm\mathbf{b}/\lVert \mathbf{b} \rVert$ (la convention choisit le signe), et le noyau est orthogonal à $\mathbf{b}$.
+$\mathbf{a} = (2, 10, 11)$, $\mathbf{b} = (1, -5)$ : $\mathbf{v}_1$ est $\pm\mathbf{b}/\lVert \mathbf{b} \rVert$ (la convention choisit le signe), et le noyau est orthogonal à $\mathbf{b}$.
 
 </details>
 
@@ -354,7 +354,7 @@ Le point moyen est $(14, 9, 6)$ ; la deuxième mesure centrée est orthogonale a
 </details>
 <details><summary>Indice 3</summary>
 
-Le bloc $\begin{pmatrix} 19 & 4 \\ 4 & 4 \end{pmatrix}$ a pour trace 23 et déterminant 60 ; pour 20, $-x + 4y = 0$.
+Le bloc $\begin{pmatrix} 19 & 4 \\ 4 & 4 \end{pmatrix}$ a pour trace 23 et déterminant 60 ; pour 20, $-x_1 + 4x_3 = 0$.
 
 </details>
 
@@ -394,7 +394,7 @@ Les parts cumulées : 0,48 ; 0,72 ; 0,84 ; 0,895 ; 0,93 ; 0,96… g) multiplie f
 
 </details>
 
-### Ex M12d.11 — L'ACP par la SVD de la matrice centrée : σ² / (n − 1) donne les variances
+### Ex M12d.11 — L'ACP par la SVD de la matrice centrée : s² / (n − 1) donne les variances
 
 <details><summary>Indice 1</summary>
 
@@ -470,7 +470,7 @@ Relis la fiche §1 et M12c §7 (une matrice de Gram).
 
 </details>
 
-### Ex M12d.15 — La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ σ₁ ‖x‖
+### Ex M12d.15 — La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ s₁ ‖x‖
 
 <details><summary>Indice 1</summary>
 
@@ -488,7 +488,7 @@ $\mathbf{A}\mathbf{x} = \sum_i c_is_i\mathbf{u}_i$, et les $\mathbf{u}_i$ sont o
 
 </details>
 
-### Ex M12d.16 — L'erreur de l'approximation de rang k vaut la somme des σ² oubliés (Frobenius)
+### Ex M12d.16 — L'erreur de l'approximation de rang k vaut la somme des s² oubliés (Frobenius)
 
 <details><summary>Indice 1</summary>
 
@@ -538,7 +538,7 @@ Les $\mathbf{u}_j$ forment une base orthonormée : les coordonnées de $\mathbf{
 </details>
 <details><summary>Indice 3</summary>
 
-2. $\sum_i t_{ij}^2 = \mathbf{u}_j^\top\mathbf{X}_c^\top\mathbf{X}_c\mathbf{u}_j$. 5. les $\lambda_j$ oubliés sont alors les plus petits.
+2. $\mathbf{C}\mathbf{u}_j = \lambda_j\mathbf{u}_j$ et $\mathbf{u}_j^\top\mathbf{u}_j = 1$. 5. les $\lambda_j$ oubliés sont alors les plus petits.
 
 </details>
 
@@ -551,12 +551,12 @@ Relis « Les scores ne sont pas corrélés » (fiche §6).
 </details>
 <details><summary>Indice 2</summary>
 
-La moyenne des $\mathbf{x}_i - \boldsymbol{\mu}$ est nulle ; la covariance de deux colonnes centrées est leur produit scalaire divisé par $n - 1$.
+Le coefficient $(j, l)$ de $\mathbf{W}_k^\top\mathbf{C}\,\mathbf{W}_k$ est la ligne $j$ de $\mathbf{W}_k^\top$, fois $\mathbf{C}$, fois la colonne $l$ de $\mathbf{W}_k$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3. $\mathbf{C}\mathbf{u}_l = \lambda_l\mathbf{u}_l$. 5. $\frac{1}{169}(5 \times (-12) \times 4 + 12 \times 5 \times 1)$.
+1. $\mathbf{C}\mathbf{u}_l = \lambda_l\mathbf{u}_l$. 2. la variance de $\mathbf{a}^\top\mathbf{z}_i$ est $\mathbf{a}^\top\operatorname{Cov}(\mathbf{z})\,\mathbf{a}$. 3. $\frac{1}{169}(5 \times (-12) \times 4 + 12 \times 5 \times 1)$.
 
 </details>
 
@@ -614,7 +614,7 @@ Pour la construction, cherche quelle matrice symétrique le livre diagonalise d'
 </details>
 <details><summary>Indice 3</summary>
 
-Pour l'exemple des notes de films, relis-le avec la matrice de M12d.4 : une ligne par client, une colonne par produit.
+Pour l'exemple des notes de films, regarde ce que le livre met en lignes et en colonnes ; dans M12d.4, une ligne par client, une colonne par produit.
 
 </details>
 
@@ -708,7 +708,7 @@ $\kappa = s_{\max}/s_{\min}$ ; $\log_{10}\kappa$ chiffres perdus ; le détermina
 </details>
 <details><summary>Indice 3</summary>
 
-Un exemple : des features presque redondantes et une régression instable, la ridge qui remonte les petites valeurs singulières.
+Un exemple : des features presque redondantes et une régression instable, la ridge, qui ajoute $\alpha$ aux valeurs propres $s_i^2$ de $\mathbf{X}^\top\mathbf{X}$.
 
 </details>
 
@@ -914,7 +914,7 @@ Propriété 3 : `variances = np.linalg.eigvalsh(np.cov(X, rowvar=False))[::-1]`,
 
 </details>
 
-### Ex M12d.37 — Défi : compresser une image centrée en gardant 93 % de son énergie avec au plus 5 % des nombres
+### Ex M12d.37 — Défi : compresser une image centrée en gardant 93,5 % de son énergie avec au plus 5 % des nombres
 
 <details><summary>Indice 1</summary>
 
@@ -923,11 +923,11 @@ Relis la fiche §3 (compresser) et §6 (l'ACP) : quelle matrice décomposer ?
 </details>
 <details><summary>Indice 2</summary>
 
-Découpe l'image en petits carrés de $p \times p$ pixels (8 divise 400 et 600) et range chaque carré en **ligne** d'une matrice : ces lignes se ressemblent.
+Découpe l'image en petits carrés de $b \times b$ pixels (8 divise 400 et 600) et range chaque carré en **ligne** d'une matrice : ces lignes se ressemblent.
 
 </details>
 <details><summary>Indice 3</summary>
 
-`patches = A.reshape(m // p, p, n // p, p).transpose(0, 2, 1, 3).reshape(-1, p * p)` ; une ACP de ces lignes (centrer par le carré moyen, puis SVD), avec quelques composantes ; compte : $p^2 + kp^2 + (\text{nombre de carrés}) \times k$.
+`patches = A.reshape(m // b, b, n // b, b).transpose(0, 2, 1, 3).reshape(-1, b * b)` ; une ACP de ces lignes (centrer par le carré moyen, puis SVD), avec quelques composantes ; compte : $b^2 + kb^2 + (\text{nombre de carrés}) \times k$. Il faut au moins 93,5 % : stocker la seule moyenne de chaque carré ne suffit pas.
 
 </details>

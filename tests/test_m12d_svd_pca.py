@@ -224,6 +224,17 @@ def test_svd_keeps_the_numerical_rank(svd_pca, rows, rank):
         f"{np.asarray(U).shape} and {np.asarray(Vt).shape}")
 
 
+def test_svd_u_is_a_v_divided_by_s(svd_pca):
+    A = _with_singular_values(5, 3, [1.0, 1e-2, 1e-5], np.random.default_rng(1255))   # κ = 1e5
+    U, s, Vt = _result(lambda: svd_pca.svd(A, tol=1e-12), "three singular values", "κ = 1e5, tol = 1e-12")
+    U, s, Vt = np.asarray(U), np.asarray(s), np.asarray(Vt)
+    assert s.shape == (3,), f"expected 3 singular values with tol = 1e-12, got {_show(s)}"
+    gap = float(np.max(np.abs(U * s - A @ Vt.T)))
+    assert gap <= 1e-14 * np.linalg.norm(A), (
+        f"expected the columns of U to be exactly A v_i / s_i (U * s == A @ Vt.T within 1e-14), got a gap of "
+        f"{gap:.1e}: divide A v_i by s_i, as the docstring says (normalizing A v_i instead hides the error on s_i)")
+
+
 def test_svd_clips_the_negative_eigenvalues_of_ata(svd_pca):
     rng = np.random.default_rng(1241)
     A = np.outer(rng.normal(size=5), rng.normal(size=4))          # rank 1: AᵀA has three eigenvalues of order 1e-16
@@ -231,7 +242,8 @@ def test_svd_clips_the_negative_eigenvalues_of_ata(svd_pca):
         warnings.simplefilter("error", RuntimeWarning)            # √ of a negative number: "invalid value"
         U, s, Vt = _result(lambda: svd_pca.svd(A), "one singular value, without a RuntimeWarning",
                            "a rank-1 matrix of random floats",
-                           "clip the tiny negative eigenvalues of AᵀA to 0 before the square root")
+                           "if it is a RuntimeWarning (invalid value in sqrt): clip the tiny negative eigenvalues "
+                           "of AᵀA to 0 before the square root")
     assert np.all(np.isfinite(s)) and np.all(np.isfinite(U)), (
         f"expected finite results for a rank-1 matrix, got s = {_show(s)}: clip the tiny negative eigenvalues of "
         f"AᵀA to 0 before √")
@@ -333,6 +345,7 @@ def test_low_rank_docstring_example(svd_pca):
     ([[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]], -1, "k is negative"),
     ([[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]], 3, "k exceeds min(m, n) = 2"),
     ([[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]], 1.5, "k is not an integer"),
+    ([[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]], True, "k is a bool, not an integer"),
     ([1.0, 2.0, 3.0], 1, "A is not 2-D"),
 ])
 def test_low_rank_rejects_invalid_inputs(svd_pca, A, k, why):
@@ -542,6 +555,8 @@ def test_principal_axes_return_zero_for_a_tiny_negative_eigenvalue(svd_pca):
                            "eigenvalues between -1e-12 · max(1, λ_max) and 0 are rounding errors")
     assert np.all(np.asarray(variances) >= 0) and np.asarray(variances)[-1] == 0, (
         f"expected the variances (3, 1, 0), got {_show(variances)}: return the tiny negative eigenvalue as 0")
+    assert not np.signbit(np.asarray(variances)[-1]), (
+        "expected the last variance to be 0.0, got -0.0: np.maximum(values, 0.0) keeps the sign of -0.0, add 0.0")
 
 
 def test_principal_axes_accept_a_large_symmetric_matrix(svd_pca):
@@ -565,6 +580,7 @@ def test_principal_axes_docstring_example(svd_pca):
     ([[2.0, 0.0], [0.0, 1.0]], 0, "k = 0"),
     ([[2.0, 0.0], [0.0, 1.0]], 3, "k exceeds p = 2"),
     ([[2.0, 0.0], [0.0, 1.0]], 1.5, "k is not an integer"),
+    ([[2.0, 0.0], [0.0, 1.0]], True, "k is a bool, not an integer"),
 ])
 def test_principal_axes_reject_invalid_inputs(svd_pca, C, k, why):
     _expect_value_error(lambda: svd_pca.principal_axes(C, k=k), f"principal_axes({C}, k={k!r})", why)

@@ -45335,16 +45335,16 @@
     "M12d.1a": {
       "decimals": 0,
       "element_hashes": [
-        "60635119446508bdc2155b12185791062d2fe4a949015e8bfd2799a7aa4667ca",
-        "5093586f74244ddfdc34ede24be441bbbd76c86b80b03fcc7c102af52f35cd8b",
-        "e647a7c58ed30c2bac2422a5b99386c73f166786590d200b926be7706b8d39bd",
-        "233e4e84574ad7e0a09121187d1602e6f2aa270808f33ef6b1f3c647c2eda114"
+        "f88786699b6e36fbd3c78650072800a99cd77cb101c7122d666915f994092a06",
+        "04591c4e4d0eb865fd14786bf8c41e1bd45b5dd78fe6703d4d411aecfc00f75e",
+        "79ada2ddb05d1f593ddfe751bfb6d2ddbc91f9e7ae3ef463420cd3616a638c18",
+        "3b05c87d0b20731ff01dbbe36df20b9850e0cc60b589b6fd77046d39fbc88531"
       ],
-      "hash": "16107b5def616d6b937bde89ebbc0cecd6c4d670f345c1b2416bde40b2fb3ea5",
+      "hash": "5eede74d24cb7b01f4e633c0f0a49894c25bae2b7dddb6419230c1fbdc2ef9e8",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "7fa6fd1890a6014ffbacf792adb1cf82bf09838de45c8f3f6d147460eea60eac": "AᵀA : les produits scalaires des COLONNES de A, pas des lignes"
+        "15ed45780a0c37f3fe770f61d5d6c3bd2af4c3e926e03e1075f3e01385803992": "AᵀA : les produits scalaires des COLONNES de A, pas des lignes"
       },
       "shape": [
         2,
@@ -45355,14 +45355,14 @@
     "M12d.1b": {
       "decimals": 0,
       "element_hashes": [
-        "cecb4f41b47eb8f9eac9644225754911a3d9f181fe22a6e88904dfc307ec9f26",
-        "5df901dc419022a03dde5c05ff83a460519c0f7e1aa55e15bbf03b1f3e7cf676"
+        "5aba2a76c9625d36923f8a5cb9a28c7a3f3979888c3d174b4cdf40d11b40ce5a",
+        "9c326893f355fbc8baeb9c6de6faef628911f26b8d3afcda79037bec9ceeb8a9"
       ],
-      "hash": "e15e4e28cfbc03d91d8bcd737a4570b606a84eb3f8b7a380b6a689e29853408b",
+      "hash": "882d9841b9d7c9a03aaedebb539eead6e94d87b50d75b0aeddcad02100eefb06",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "ef1db08031a68945527cb3be02f2328d3d44796571968e8dbee3f384231416ed": "l'ordre décroissant : la plus grande d'abord"
+        "2ebe9ac0f42e7e21fffa8287971d78b644a27828ed6cfa408f3ee6b6a8f05c1c": "l'ordre décroissant : la plus grande d'abord"
       },
       "shape": [
         2
@@ -45372,15 +45372,15 @@
     "M12d.1c": {
       "decimals": 0,
       "element_hashes": [
-        "a244ca7a0a36397c15fa9fbd9d31433c274ff07f1c82f4abd1c1ade3b0e83d90",
-        "6790c398c7f7e9ed7f81d3de4fa30800e5e902e352d05d60d8c15f71af2920dc"
+        "aa37c41dfef09a15f27d0a5311d0aa36057a91da9a7ce79c0403705a63595730",
+        "c839ae1189bef43c588f4ba16ab45f48a3566785d5572fc3404f79bd20b03cf6"
       ],
-      "hash": "1062e1dc92cf0bd14bad4855e165b76b4d21112e28d6bb85255dfd88b9a28384",
+      "hash": "5dbbc2dd0f0e0f229ddee36594ecd7d575bae391a334c06d762a982dc8a3c60d",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "8292aeaa67fb8b44b85a0359377d2e43784ab0b85ea274fe0cdfc677d223280b": "l'ordre décroissant : la plus grande d'abord",
-        "aa4b2621cd137c57e316c923cc5ae3d000ec9eacb1bf9007af73650fd2eba295": "une valeur singulière est la RACINE d'une valeur propre de AᵀA"
+        "1197ef94b8bee7d13324059135ed6e34587da15862a4bf91687c59ae9b9c3460": "une valeur singulière est la RACINE d'une valeur propre de AᵀA",
+        "bf4fb2626a400881af1b427eb680a0821d7a26d8db66ad726d48490d2ceeffef": "l'ordre décroissant : la plus grande d'abord"
       },
       "shape": [
         2
@@ -45391,34 +45391,34 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "b4ae8a3e58e514720eb0d31958cb46edaee0926b658daca883011d4a0dd0afdb"
+          "f6f8e420c5049b8618bee1dba80b7ee11623cba59f3b7b95c83b22da62510f47"
         ],
         [
-          "a9fd058a1a3f5c00b314bdd35cca1279da1d821ccc25ab23c4ecd63f9f309155"
+          "e3cc8cb2e4d81413f5238478f624f1d2319d975ab24f6e8a80d0017dd6c7d30e"
         ]
       ],
       "element_coarse_any": [
         [
           "918d5067e34037d42ee9d2eaeea6466aa65139d24e57447c38d7897b5e50b2b3",
           "dedc26d08acb87e0f99c3e8459f1ce31c8c05b817c308652bd1c8dcfc2874e41",
-          "fe8a223cda26c2fe60978f605bb527c14743734303fb0ae01ead3c6d3fc78322"
+          "f174944f765b46f3ef0785fcbdc2f86e4f0579b8eaf666a232f9736c67aaca69"
         ],
         [
           "88751cb25d9b641cecf01a4e3549b29641fe554a6b787f08f4633abe27ca3f9b",
-          "4129776dfeba9ffe8711d298a295e4951236aa214b20b3af9e98b1c7c29041d9",
-          "fca5f90aadc2761588255d908d80061959387d2a0650a80f471cb24adcc7f60b"
+          "1dfd9db9cdde29dd85ba4408ee379989a5ded52dd86995acc5db169830b93a20",
+          "290d3b1073f90c94528143832274dc184167c858b07c02b38e41cbffd58d3f93"
         ]
       ],
       "element_hashes": [
-        "7e5e071ec3a6b0e26a99ededd87cf42d983d87ed2b2fe5c9515a6f57dc030476",
-        "90ee2b13fabe308db95b9f7d5c170ccefbfe97558dea6cb9e6fb4491f9612e33"
+        "06c4bc56a2a7fad8b6ef5b53ac8f5c092c8dac7aba6eb664e02ed04fdbf2a5fc",
+        "541e9ac46e0930b29b49b4536c3fa151eec1fba82d33234181be38d903f48f4c"
       ],
-      "hash": "f1bad82fffc671000f412bc04705fdf14660f90fb1e9b9ab17ec7ce8089f4cdb",
+      "hash": "f09b65133713a7aa8e9bc21d0d4413ad3cca0128909af984fa8d06939549715b",
       "kind": "array",
       "mistakes": {
-        "1dec84cd837f8be409449052baab762f5881974e2e238bc1df7f5c22534f6b8b": "v₁ va avec la plus GRANDE valeur propre de AᵀA",
-        "3a034a6e7f2c89d577bf5ebc6e5e291de1df688673af5d7f31295d3264ff7f0c": "la convention de signe : la coordonnée de plus grande valeur absolue positive",
-        "93764c8a6ed7dca6e4c6c83521af781dbe09ad7c5e15eb9f03f245a429e7ee14": "un vecteur unitaire : divise par sa norme"
+        "048c5ba517fd95c3f17d00b39d337eed091bcd7e082513f91b30d2b01b50ca18": "la convention de signe : la coordonnée de plus grande valeur absolue positive",
+        "0755c65e1bc8dfaab9b38266385aec899a5e2c9234e0e4f87cd04dfc169c28b0": "un vecteur unitaire : divise par sa norme",
+        "520d346100c5666b1bd1c9f9494172ad1c876c09b6d74a8f606137d135f10adb": "v₁ va avec la plus GRANDE valeur propre de AᵀA"
       },
       "shape": [
         2
@@ -45429,32 +45429,32 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "5305a19717c2db69e557137a60514f60b8ad1f28c7b3c818120080d1e669b119"
+          "9598143fffa8860e0c2f4cccef88e36b530eacd4815adfff060e05a44ace7209"
         ],
         [
-          "b67e0edbf6294edb55c700b3c07ebf61198d0de0af287ae7b40b7c27cd38ed5f"
+          "af66302c2e51e0a91b7c13231b3a402d35bfcbe922917b123aa88beb2662ae4e"
         ]
       ],
       "element_coarse_any": [
         [
-          "1230790a667b0483c769a19a361dba3dec50a49b1cfe4895bf97e2ea85a0637a",
-          "2bef7496381f6521dcdf860eccb87f5093eec24a1743dee5dee727b3edc39ae3",
-          "9862ad308311968af3797f87f0f01989e15272dc39f329b925b96e7956c4b498"
+          "2b971e2403fbd6dcde5dbb5186b01514377cade1aad51f55de549de00ce0a0f7",
+          "0de1b609a1eb2867eb0806876c746badbb9754326c0cc6ec7df68332064e48ed",
+          "0cf72f1518d0847752ca9f2455a74852120bc05db64a61090e1098f7eaae5cd5"
         ],
         [
-          "02bd7c6eecb32310dd63600f5b3b371b17839b47893c1794b55fd86fd1cbcff5",
-          "895381c2cdf4ebc8b83c975661d322a5db14155995584cb161ac708557ca28b4",
-          "897d9756cb990acb29daf10d194a49be166050ada379096b74ada348ef48a74c"
+          "3df2eae6ad08b7aafe8f8980ee99a53bd9f603361316542f88b892fc9601f159",
+          "b0ed02cd665232c5e9a8c6162d1d0fc616aaf359a2b3fc50b5bd567ce34c6cb9",
+          "919e2957e7b47f3f102dfdd427202ae3986885b45838f2c16f3ab02c4eff1768"
         ]
       ],
       "element_hashes": [
-        "2880750e1a4061ce43ac90f02ab6f6f3063d08a8e95d6233b6b196b5670fc0c8",
-        "17c0ee8bf267fc22a8b4caf1367fedca7876d3e1a6a9583a965171ccc2822eb8"
+        "27394f4ccba39b31c2bd6a5401ae9d372dce4a2cdac1c76e4c441b666509f02f",
+        "8f0988d384d7f46fe98f7536ef2de9a73a5641a23112703a270c3081e4e28d06"
       ],
-      "hash": "75fed2d005c9c56dc6528a8d273131e7eeaddc04abff6afd0280e332bab31270",
+      "hash": "443ec6ebd7ff629bb15f340cc6b47531d2ccafcc6d005ed82082da604c36572f",
       "kind": "array",
       "mistakes": {
-        "863078d3ea69f96bd69ee62b1a2d27bbcaca9a4d0a54dd4aac90b0699c1513bb": "la convention de signe : la coordonnée de plus grande valeur absolue positive"
+        "aa19deaf3ead88a0de99361bbcb60473004f1666de92b6e48d77e4806a444ad8": "la convention de signe : la coordonnée de plus grande valeur absolue positive"
       },
       "shape": [
         2
@@ -45465,32 +45465,32 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "5b36287fcb9557250ee73241c57095439258b9965ed5777de82ca75036028130"
+          "7308c6e905742347c475112ad6f85725d4962e9b44f893296038275ebd86c6c2"
         ],
         [
-          "e45e6e2330ee06da2fd65f06a4b0c9be7316ebf91ea9dab2cb0db5bd11ac1b38"
+          "5e52f981aaeede732738ef39ff73cd0aa848312b944b001a4c10dd8e2edabe85"
         ]
       ],
       "element_coarse_any": [
         [
           "01cdd31a27e9d2aca866f5ddab780eb1f8287dd5ad587aff7d2280a549cbcd3e",
-          "653502b85598e166ba6a36a39dc0aaa89364d0ec665fa1608b36d98bd72f7b67",
-          "059e2e5cec04256d1bf73486204827c3ad10d478be4cff267ff70b90a87211b4"
+          "cbb8bfbe1cd0abbe3249e3fb8c25c3fbc6c8f590a2de3225170b2342efc3854f",
+          "ff1e676189d3578942f59420924ab36e9b621a2487b88ec7f30506543be89231"
         ],
         [
-          "3bfb5ee3dfbd950f1470098f975881690efb88514e33fa6afa65f011d3307e06",
-          "7e1e945150bb6df7f637518df06956168ce43cc7734f9c930619145a11d371be"
+          "8096b7d5f4a68010a6df4308172e02976e44ab6bee4d6f606ea171b90562f749",
+          "dee5778d08ac6bd4314341fb927b438037071359c7b3daad4f0e57646c7c4bbf"
         ]
       ],
       "element_hashes": [
-        "f714b63eda3eaf3b4757e3b2089718c79a9dc9e595cc652d2f61754347efd230",
-        "05f53412696da4f8929a9d1c2a44b2cc7374d6718dd30f160826e50262f48bbd"
+        "efb16996d4c23ce2c1852b18933c262d46d2f5cf5f3f8d05d7d3884e9c34c21a",
+        "2422ae0694602294b18ae79ae961c508dded83adf7778063781acc9bf73fb2ba"
       ],
-      "hash": "6489cbe2269d2f9a82feadef1d9541fc1272e08184ba32618bc5bcc63b2cd13b",
+      "hash": "83ee73456774735ba02277bfd445746771b3bc96691f4b81e8fcb19a53ef161e",
       "kind": "array",
       "mistakes": {
-        "3d8bae2a53ec3749f04a7c5b5dfc0990c88cca7a3c3b6854e1d0cb1d874ec9cb": "u₁ = A v₁ / s₁, avec A et non Aᵀ",
-        "c12189e19d28a2252ed44fc9814407bfb0f995a8c94da506f8e7e2f96651afb2": "u₁ = A v₁ / s₁ : divise par s₁"
+        "69b20c244793a6138c030e2b229818dff74a0a8f3937318f86b8520eea48523e": "u₁ = A v₁ / s₁, avec A et non Aᵀ",
+        "fe1cc01d586077a20f92ca41796ce3dc9c5a0582186d66ee04edf0524d2a6600": "u₁ = A v₁ / s₁ : divise par s₁"
       },
       "shape": [
         2
@@ -45498,12 +45498,12 @@
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },
     "M12d.1g": {
-      "hash": "99e810590b3a568f2b9e32072859625dd107d1bf60b350ade9c8fb90ff5e86a2",
+      "hash": "c947a234303b8e545b7c2d33a86ef1a4fd95787ad9bf7a1689366431f48a29ac",
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "2432fb82ca20d9fa4723e4393a9d1273016fe09369a3aa110537e447a46d337c": "le déterminant garde son signe : seule sa valeur absolue est s₁ s₂",
-        "4ec70ad5e6e5eebd09117f30e81a567de35ec7d323696c07c8ecee0082b9eada": "ad − bc, pas ad + bc"
+        "a5a7805da7a49cbb6d92d0cafb0402cd7f92b45e24ac18cbac64fff809280560": "le déterminant garde son signe : seule sa valeur absolue est s₁ s₂",
+        "f88fcef3222501a45d8924e18f58a3019a48b0fe89b78e8d915593e581934e67": "ad − bc, pas ad + bc"
       },
       "sign": -1,
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
@@ -45512,33 +45512,33 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "8c2e4c323461fe2ed77a5a9786f17e18c0758aa72563f8046341368d426dc879"
+          "176fbb5448be5940148ee85701d0f46741923467bfe593a024c9eb89a53d3ec3"
         ],
         [
-          "081f85bd8499714fd6545ba80f5099e622655e753700fad74e1195e55b4df88d"
+          "01ddd76d70aacccb67f05360e2c079e920c8523f0dd6ed44a41c587617081910"
         ]
       ],
       "element_coarse_any": [
         [
-          "8cc36c0a9e5b6069a78ef01300384f80223df051af5187d72bacb86aff9773b4",
-          "95956792d0ac6866f19ed990c813e5ce063b922510d98c9df3e89299c27096b7",
-          "e7defcfc94ad9db07b0d2a9299494e9bafce4c2ad54b073efa2b6e43c6f4d7dd"
+          "66dbb70485aef56bb26c9ade8f4f3f563e8eb42f54a5204c58415a799af1e140",
+          "cd61b17f498129d1845e5e94db6231024d3845cebe6b6928df51fa75a96ab76c",
+          "6c557a6a0c23e534e40e03fe22c6375b6dc3e3ecaa0138e32594d184191e676f"
         ],
         [
-          "286e3f14d63846492701df600531fef65eb7a11627110d808974e20a2edd5f3a",
-          "7270a0a85033649c12c039938dca22bc051640d4eb6cb0a652a0b8c0e86e111b",
-          "c3573e5947ae8145aa64c6666afb0d45c48ecbcc4570904277cbf191e3159023"
+          "714e4c1dc16525d04de7d9a92a9b2b9b88daf20ec86e443243c9795a035a51b2",
+          "62c6a3594511f8e1c0dc1b69993b3f8ce368eda6586462f9e9014656d2033c2b",
+          "923020ba03f056d68cd95c73c13ff11f045175e759258fd52c285cf09488a947"
         ]
       ],
       "element_hashes": [
-        "4d765975a1c75d010dcfe7f7cd7c0f2590597e735de4e7911ba7486f5a829c4b",
-        "94fe15865a6b773961024fe1fbb131318840fcec96c362fb3f988a13cee95306"
+        "e36beb63adabd16e16fa3b15beac9d8cd2aafc8a1a1af50cbd65c7eee5335e82",
+        "084d56eb4415d5fec89d9a05d9fb8b5cb61bf234cecbf70bb314c4bc5fb5a214"
       ],
-      "hash": "a545979161243aaf27dc2a8f7915998cd772949f0ab769d1542ec4719dc50d2b",
+      "hash": "a733aafcc3bc937754e5ae3e2e92663ac27981db0fd3b848c3150a9951d98037",
       "kind": "array",
       "mistakes": {
-        "32b1ac1fd988c12ac232499c935f3be3ced460a35735feb1f58dcbc48292ccbb": "l'ordre décroissant : la plus grande d'abord",
-        "4de41cb7b575f81673b645bfb813a06d2f705d94eb152a57a2f6e4cc8a3e3670": "les valeurs propres de A elle-même : les racines de λ² − (tr A) λ + det A"
+        "a57f2ff2a5aaa11212fe1e25207737d06b4d12e67c05c5c776f69ec95f998001": "les valeurs propres de A elle-même : les racines de λ² − (tr A) λ + det A",
+        "ac4d2af06b00304a783410f358817511967cc5f3331cd42f228df121b2f4d0f0": "l'ordre décroissant : la plus grande d'abord"
       },
       "shape": [
         2
@@ -45558,16 +45558,16 @@
     "M12d.2b": {
       "decimals": 0,
       "element_hashes": [
-        "09d731c3d43803d6499b6463f01ee30a2cfcdfc9f9112bf0706c354075b36740",
-        "65334dcb4ee6b069c990d45d630ee81f000a1a3aec86e5a0a56b02811294ee78",
-        "acf41eecf42c371c867161d6f79302bded92d4bcc9934ecc28be64bad55b1103",
-        "a30a0d6816ec2a75894ab0a45f51687cad4ad956f1260250d004b224ccf77380"
+        "1169724c1b5fbe86848c3217e2602fc7761119c37260929dc6365d7d9c4d5484",
+        "89294377cf3e4feb0409b37f5cf8f8a74fb37993d288823d11a0471b927f89f2",
+        "3b6dc690ee5240d0d7ff1d24198a5301065589a7f1f478afe4e8645e9f06d439",
+        "187db2b224de62afded3302fd02801814af625ea025be1c6cf5b92fae519e45d"
       ],
-      "hash": "02405e570aed1ab6f127e5ee0614b375c13922c017879f5d345f2f1f58433ff5",
+      "hash": "785907be323f61df556da68c67c0097f804840ab6b27da536da8e39e39bed7df",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "f8fc5e203637e33fccacb5e337f163a5555275e64e2e58969f2097e5e45d2c51": "AᵀA est de forme (2, 2) : les produits scalaires des colonnes"
+        "bdec15b9a9a129445d2599983fec976b3e80724ff20cdd214e02608f3cf3edd1": "AᵀA est de forme (2, 2) : les produits scalaires des colonnes"
       },
       "shape": [
         2,
@@ -45578,14 +45578,14 @@
     "M12d.2c": {
       "decimals": 0,
       "element_hashes": [
-        "0c68b61aa9f6c67f3fc0bf0c456f518469741b2c4acc55dca0683219f64a7dc4",
+        "936b6b11bd82b975b74fef5aa5990e2dc358be327be20765e4414b3701126de5",
         "224d7fa10ae0d694e163e9c2be9a5d68ee934c46508f5f0d9d6a9f1123453eb1"
       ],
-      "hash": "d77f141d6e541ab5980b27222ce1201f8e44b5497fceb0b154f3f1b29665870d",
+      "hash": "dd3e96639643810d024701d8a5f4d6cf3b95227d499a0da1d3de9148507d13bd",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "9b8991120e5f3e57db921a080e75859d81f0d966d3a029f0623f24f415469e70": "l'ordre décroissant : la plus grande d'abord"
+        "a648a5bdbb67f950f769f11f8b2773bc1894d4e2d4034298571ed78260fdbdc5": "l'ordre décroissant : la plus grande d'abord"
       },
       "shape": [
         2
@@ -45595,24 +45595,24 @@
     "M12d.2d": {
       "coarse_any": {
         "0": [
-          "c30756766e8b7857c26d8e9b2a81826495dd5d6de5753d5a5899e5fd7ba10cb9"
+          "a8b300c5355e660fa510811d6e5d7fd553b7c8c7ea232b649595345b5424bba1"
         ]
       },
       "coarser": {
         "1": [
-          "b67bb78e444502783926d4f059830abba200ab4aa667b562548152cac9fd0130"
+          "97c134143eb993ce6b99f4003d1435c0f0c1185e385c83089cd3077dcb4daab0"
         ],
         "2": [
-          "1a4b040b2c3e475710e2d37554619563a07bd11a11c2f353b2b9d18da0861c6b"
+          "95c89b01885a378debcfdb56978bae5023a500cb0d0e4f9f7ea6517fcfe24e10"
         ]
       },
       "decimals": 4,
-      "hash": "26271ad90da8d6a0ce48f2bcf909c4aee639c2591dcf58f067cf0b323e5d61fe",
-      "hash_coarse": "88d7885df9dc7293eacdff9218129de04f35acdfb615da1c8876a87af04feee0",
+      "hash": "65e3ee5f1578463094682efec1c7bfd48010d2d4e2a9ec786f81b3d185520633",
+      "hash_coarse": "11409e1fa3163f88a9c306c7223c73f33334176794b7009e595a424e2314293c",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "c22a5f811739bd3afb37e96dac8d044f460b9df0da2d9b097786ba5707d516ec": "une valeur singulière est la RACINE d'une valeur propre de AᵀA"
+        "95e5dface2c4d502838e319bb86fa96d8b1f6dc4a7c6b9059d9c63dfc08f8bca": "une valeur singulière est la RACINE d'une valeur propre de AᵀA"
       },
       "sign": 1,
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
@@ -45657,40 +45657,40 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "e0e38f3c1606b4ecd684b3187d75d04f2b3684cf5562b00e0f554813086e176f"
+          "1618639569f98e7701ba2ef6ed60dd57ccc7d9598146429681d63860043c00bb"
         ],
         [
-          "5ecce85a6457137d7d9f9a78e6005febb4a89f6a257e329fc3b9bb3970bec928"
+          "fb87ab99e6fffca1854021149c0963c6b9f65097589bd28b8830ed1b453670c2"
         ],
         [
-          "0ad9a004925eecf0b404bfa9f704d66f73c401f7daa8351189be5ec2d09c2526"
+          "2baae9f9609b2411a139e9a75c3bd4001056bd8fb7fccecb72d45ce1023c9200"
         ]
       ],
       "element_coarse_any": [
         [
-          "5c3372d41c71d54650dcf0c6ccb875a97bad4b60fa84253568cbc5bba6e53fe5",
-          "9a982873dfea870f771f2970fef497e74c54e472702faf422842d8a08fe0b881"
+          "86018403d585fbcf3d6a6da28c4fb97bc68e6c402a37a53f8538a92c07ab108d",
+          "3c1154f5cdaca74d4753631debfb5fea905667e809d736efae7723dcd997a476"
         ],
         [
           "9ac84beff2b59c8a6c120bc488a944a977ecde32ed2663fc72c3916464a59066",
-          "7c842a84a87db766bba9c2fba829ad3e2ceab471f57fcb4ef01961562c7f4e0c",
-          "24a2d9178599463f52c74463bd9fff30b643b23b683199622eace0ecc7a874fa"
+          "7a66b14016d02ce93ba955bde14e1ef82daa829f074145391c4979f0251c4fec",
+          "d4ea1b8348747c62bac04518ffee68c2920a68e01f0d0a753c3f08618d23e6dc"
         ],
         [
           "9067c139196979c0311eae62bb07668827051203e9bf385f9eb39377c3558b08",
-          "920105a3f1a2d0eea7f1adedeeca9d9ae7f19816d9b548ead9a8fd5cbc46855d",
-          "dce674726b301a00e277a5fdabac062144d9b98bb792761407943ed1a0269587"
+          "d6f19ce0a277ee59252e1b5a85d97ccae92d8e7c224f9c3b1690fd75403a36ee",
+          "372b062acd65e75eeabe13fb10bd76535119343d440cab5e731cfa34eeebd4f8"
         ]
       ],
       "element_hashes": [
-        "08454f4463454b3a063fa0a31cd9868b60c92b2edaf234e01227ffeed11a2c5f",
-        "57605ea0549f097e5af00e447816859675f7fdd376f9e92771b4494f8afc4764",
-        "4ba94c18b6b2c37fe51d4d85dac66b3308025bf1e0a0fd1ef1cfc16fa22c6e41"
+        "aa93880e380c956e4511f4a163f37720c104e336477fd0ecff800b8e78e608e5",
+        "1745ec9b5da3460173d59aa9e9d9ff31adeaceee203cc65c113fedc93ec7c490",
+        "e5a9985c3fc021556b4bfad6ed6fcdad677e8dd9062f2108ca6453e40f0b09fe"
       ],
-      "hash": "1df8037dbd94824789e34997a88226be0fd15da39d53a8603c4c71bb0bf4d08d",
+      "hash": "e3b90892ba077e522440128f7b705b269ee356ae98ed8368894238ea496e6801",
       "kind": "array",
       "mistakes": {
-        "7f92f21f991f068a473492971f9f41d9814f468e9b102a977c9b8d1383d97f10": "u₁ = A v₁ / s₁, avec le v₁ de la convention : son signe suit celui de v₁"
+        "f0ed6f1fab2f502b54fde0e7e9a78bfc33418c14d50635e76e6743600a80441f": "u₁ = A v₁ / s₁, avec le v₁ de la convention : son signe suit celui de v₁"
       },
       "shape": [
         3
@@ -45699,7 +45699,7 @@
     },
     "M12d.2g": {
       "fractional": "‖A‖²_F est la somme des carrés de tous les éléments, s₁² et non s₁ : un entier",
-      "hash": "b4ab7b38518e5995305721b88375128157e66dcc01c39ef63c33666fc34a4ec1",
+      "hash": "1a898a0bf021095b26ba8dc85e053823983151d145e6924d605920250de8bf74",
       "kind": "int",
       "magnitude": 3,
       "sign": 1,
@@ -46329,76 +46329,72 @@
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },
     "M12d.6d": {
-      "array_rounded": {
-        "1": "3cc4d8309229ba2ddc4b9649c26b4fd240aae7d1d9b16f1a9536cd7f744c74f3",
-        "2": "54519c6bc131200c8ff9f3d1ceb0f5b7f26e00da7ef50f1c38f5e030b1cfb35a",
-        "3": "608b9c6ae3db37addc45ce006fc1059932b1db7b522e4f1606348f9b060256b1",
-        "4": "93133de0e1b56c90dd697a4a7d5d98b98d0ee29052169040688b2599fbd14249",
-        "5": "a3f08de9daf93fb4576c39a641a5761b3d7d8ceb5e74e44bd1655af07fdfbf2f"
-      },
-      "decimals": 6,
+      "decimals": 4,
       "element_coarse": [
         [
-          "dd39f773b578a418734eb950232954ce85e90d33b452182627e47c5e61a4039f"
+          "262ea6fb5aa7388f77b338e8a51d0721e6cdee1812ecfc69a14af5c6c8d2a670"
         ],
         [
-          "0b15d33b2b63f047e8fa614f24d4414dcb20236dc67037f00c0010ab59c01689"
+          "d126e5c113650b5d0d56f6253c4f8826c91d043117228ad6ab666a57681e33ad"
         ],
         [
-          "7bb245fb062bc70e0727b449ec6300215e438f1ecda60a0d1be954d7943fee7a"
+          "889809416977dcd9919c224627b110e1139c6261092798941b554f110744d3d5"
         ],
         [
-          "e51c27fd0284f4e3103e87e12a5c71f71ea62aa5e9ddfc73438a781dbd9ec690"
+          "4d819a04bc2e1383e45b276a3ca0b4904c85ffa18f7665bf6b31c21c6df8981c"
         ],
         [
-          "7c1d9c39b86a6959f0535ed2e6f49316f7a3ba80c7035760bbfb549cbaad4fcd"
+          "357a102af6d50a49b24c9923c5f4f1a3c9800ee5210130e66cdd115ef9fa3059"
         ],
         [
-          "0c1a20d1a5803bd29067c08d5bdf65c0aa2755f4fb75277095ee369335bddf4e"
+          "143a833dff575b7cb7c222a3a4e318fc60e5266c11bd2025a71324d03072c3c2"
         ]
       ],
       "element_coarse_any": [
         [
-          "d9faa9b3d9c704eeaf09a2e47e52708ce6045f50032660454e7c2be75be5652b",
-          "b812295a7e3f6b1fe5f4f8bd670e0aa0cde2169e5c82d98700f3044d9d70b051"
+          "4fced9d6325df028ccc39e76d1919ff61615202fc34ec62ba0738e19fa786479",
+          "a3b51f6422023c9292f5462a21e3e187e96a856febd25e014e161a02847b1375",
+          "28f572b87b7f0dd4b7c5491e597a2fcf35535489a4db36aff213b77d4d6f0555"
         ],
         [
-          "ba1a8536e8c10f69c3190c9cf2b4512ba6748752f4bf31fecd0a1bb2903bb242",
-          "507a1bd8cad38389a1604b3c6f03c051417940e97268f8665ea22316384ff579"
+          "c269a62357e73e2f16d388979e3dda90682b1dc066b268cb1a65629d1d21151d",
+          "50f692ef51fff7f7f537a927acc48b15cc4af7782015279d70b1c6532d08786d",
+          "7a5a928c282e522f7bfcf74b375190cb485aa63f323eef768e6dc93c4e18f53d"
         ],
         [
-          "9a3a2548b104fb841d037c0d68dc26604536ff57d794b26b56d1259039bf5b67",
-          "5149a098eaec203ad547957c3def345324e12d2ea315f22d88a20545a0accc6e"
+          "63056152c629f1101fd153a8fe98edc63cc640ec2ef886eb6423b63f7c1be6cf",
+          "33e4d419daadfb754a956f92db74a776456cf6f1becef13df4b7544f2d6d1da8",
+          "f611f5746f3e50028dfc7bc918d1ec9f3d885e1a6f37e2dd2dd8e85817ef8cf9"
         ],
         [
-          "d2153bcead6ea7621eb4384b9a9d93e85040abc911e5784e01aa30163f4ab999",
-          "55a2d4fbce621ded39f475edf477fda57e7beb1c28f870d42f3d0bcd8ce99bbb",
-          "a2b849a6354569870577337f06c7881a33b658b50187464aba087ba0d87ba1dc"
+          "a221dd2333dfc4d2c36c47d4220321a7d82fe8d93523d5698186c045f452ad12",
+          "72d424bbd8b51648688eea1f425672abcc8fc754e8126f13c1f594e772c2cc27",
+          "b00706ff8ad82c0f654c88f6f2ec1012c76888a9ba00a306f5a1bf767670eb6b"
         ],
         [
-          "ae3a4186e754afe9749b3d2a68bd04c241c0f2c4b067b8bcc842e19b12b1f2f9",
-          "1ec52b85e3c125f41f25c3397ae838b3bcf634e82be8780e03207db42ca59624",
-          "a88b1ed7e0916b2242457b80ff1b75c63218c99ff526eea36032bdc72cf3e28d"
+          "e94079021bd81ecebef70dea1693a92c52cc7dad8e2beb57d8496d529f8e38e7",
+          "300da02895117f9579bf76fcf7c8ed87b035a6287acbdcc504939ba9797a44d1",
+          "92dbdd28f8961080f8c23e811794cfb6cac313b359408e95819898af21abff5c"
         ],
         [
-          "0268db4b8d7484eb22ce5bcbd905a9c33ccbdc439133a2fb2fd0d9e2cde32786",
-          "d8d1c758a798f7c257d0fda3bdff9d952112c32240e0e4381de1d5199b72055a",
-          "232b4ec86fd053e5aec57d60ded4db6db66c53f56a02d9f4d58563853f198d92"
+          "ed21b576a9d5ddd4056319c57ed97953d4ac0041270c6cdc07b27c447651db50",
+          "e4fbccc188f991292d01f3c5e3483f3b638c7004e2f9ffecc0e2027fc28bc197",
+          "8644c1dab5c8f980b487b9c951a78a5f9e55e1e88b7363362159a674de42ec39"
         ]
       ],
       "element_hashes": [
-        "3f56cbd962e6ea9fed8b34a35afe16b4a11b512c97b35052b3874bffa9172e9b",
-        "6c0468572c89c692839477a174b4345439987a2315258cef37f0def0331e0c9b",
-        "9826fbc693ec8f457f2e4fc8d4cac02c454b90fd09c9f38ea11c8f47415e4403",
-        "6a60d3282e9214e7328c2e25231ae16c0c31b6211d0d81a545494dcd7c5fbfb6",
-        "f7a67bfa9a6f05641bae55ca94bab3a077b4bf06d29d06cca5c628557c7cef77",
-        "33a735753738482e2f0ac8daed023705c169e40eafbd96234decd73d04fb496c"
+        "a59612234c0cccf7c3bb47c791ab22b4e2690be4b7760a1e21f86a3aa150307d",
+        "dc44960f499692f7049218415088210fbb0a685c16ff1f56ec3d9bbaf34b4cf7",
+        "567f82a13977429db2ae8dc36dd6279d911657290ffaeda2b97a6cd3b8cd3616",
+        "fc294a4940d63d15cc1b86504cccb755bddec5b6118045f404fb810ea80da7cc",
+        "136b73fe05a5fa01301b33cbab24aad6f84436c0d18d6328e6191f8887a89a93",
+        "b73ee1343a7ab920ed924fd81783a33e0568603093ac4875eb63ec45fcb2c1d4"
       ],
-      "hash": "3e8e0aad4fe081ffe5b47f182b766916955302bfd84c29c8c4ab14d84bbd63a1",
+      "hash": "db396f7b0e883c7483bf347f646159bbaa4b5f98015f2d9d99cfed898ffa4b71",
       "kind": "array",
       "mistakes": {
-        "0223f40a3071f8b3f49f7d5f1285a3acc2e6a66667adf41aefbf7e559e5441f9": "A⁺ = v₁ u₁ᵀ / s₁ = Aᵀ / s₁² pour une matrice de rang 1 : divise par s₁²",
-        "6c5a6c5d936b8aa2312c889db79ff2951eb05ce99c442750ac9c8f2dc68d3ae2": "A⁺ est de forme (3, 2) : elle s'écrit avec Aᵀ"
+        "8344ed98130266752808295fd6877ef92e42f8c409966e8ab7f482e00b06c75b": "A⁺ est de forme (3, 2) : elle s'écrit avec Aᵀ",
+        "a2b5bb570c2fb2506069e36a4529247aaa9f41a9d1c5613092a35dc072c286d1": "A⁺ = v₁ u₁ᵀ / s₁ = Aᵀ / s₁² pour une matrice de rang 1 : divise par s₁²"
       },
       "shape": [
         3,
@@ -46460,6 +46456,9 @@
       "hash": "cd8e4b48dcc6c129a0d8125c1842360dd5eb67e8dc8d4ff2a30dddf167f6325f",
       "kind": "int",
       "magnitude": 0,
+      "mistakes": {
+        "99410083ee3257b1fee6f1417d2ee614fc372c86732ab471fb7f64f29b787626": "la norme, pas son carré"
+      },
       "sign": 1,
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },
@@ -46540,6 +46539,7 @@
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
+        "629124f49da215c08ea71bc1ad06ea9fdb92751b809bea97b87ae0e8cf5ba288": "102 = s₁² + s₂² est ‖R‖²_F : κ = s₁ / s₂, avec s₁s₂ = |det R|",
         "b8d42adaf65bedaae3e4c78f1a906eb427a7babdbe74ebbf12d44c10ad60bd12": "le conditionnement ne se lit pas sur le déterminant",
         "ddab15162d44f5939f9873237c77992e9fd12c2b9264441fc012dbe2cbb6d9a2": "κ = s₁ / s₂, les racines : pas le rapport des valeurs propres de RᵀR"
       },
@@ -46730,7 +46730,8 @@
       "hash": "d593c331eeb97ccd424ed6be52a61da81a71fb7c84e00a902b90fa8117425382",
       "kind": "array",
       "mistakes": {
-        "8934c6c94df80e3535622219bfbfef9548c294379718c44d461630c59568fdc9": "un vecteur unitaire : divise par sa norme"
+        "8934c6c94df80e3535622219bfbfef9548c294379718c44d461630c59568fdc9": "un vecteur unitaire : divise par sa norme",
+        "8a057131027b8fc400a4b48b385c12b3cd96dda5d0e52648aa0721fcc9a1df3d": "le bloc porte sur les mesures 1 et 3 : la deuxième coordonnée de u₁ est nulle"
       },
       "shape": [
         3
@@ -46771,7 +46772,8 @@
       "kind": "array",
       "mistakes": {
         "043bdcd3629cbc9316486a3817837d9969a687188ff265c50b69739bb3be4348": "la convention de signe : la coordonnée de plus grande valeur absolue positive",
-        "4bbba2bc159ab402e473dc740f01c0905effd454caf14fda3b1bea5b42003769": "un vecteur unitaire : divise par sa norme"
+        "4bbba2bc159ab402e473dc740f01c0905effd454caf14fda3b1bea5b42003769": "un vecteur unitaire : divise par sa norme",
+        "7d166f972b85f7e09950a7b0bdba426c56ae2bea173118700d5f74d04f24f3c4": "le bloc porte sur les mesures 1 et 3 : la deuxième coordonnée de u₃ est nulle"
       },
       "shape": [
         3
@@ -47000,6 +47002,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "525afb6d9f50bea39dcc141102114ffcfc8d597a3378b9af8859823e5c2a67f3": "avec deux axes sur trois, la variance λ₃ est perdue : la part gardée est sous 1",
         "f02f8698f05ca62b8a7839fcfef65d029f225408dd64fee1903695f72b7f662e": "la part GARDÉE : (λ₁ + λ₂) / (λ₁ + λ₂ + λ₃)"
       },
       "sign": 1,
@@ -47712,6 +47715,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "4cf6cef578e612439f5ce2702bc427e9ce2eadb8722678cb9b829897028ed7d6": "3 est la limite quand σ → ∞ (trois voisins équiprobables) ; ici, calcule 2^H avec les probabilités de b)",
         "a1f458dd19e38a7657c6d8091424a996f2aab43b3c924a5986ad03a57a98b96d": "la perplexité est 2 puissance l'entropie en bits"
       },
       "sign": 1,
@@ -47798,7 +47802,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "3a156bd2c25d76179886e4f705d0e3849679c8783151efcc9c760bb52e89bad5": "l'erreur est le CARRÉ de la distance : le carré du score sur u₃"
+        "3a156bd2c25d76179886e4f705d0e3849679c8783151efcc9c760bb52e89bad5": "l'erreur est le CARRÉ de la distance : le carré du score sur u₃",
+        "a5470077ccf575c293a81dc5abe5f3b9a33f9a86b9d0454afe8863c2df39ac94": "l'erreur ne compte que ce qui sort du plan des deux axes : le carré du score sur u₃, pas ‖r₂ − μ‖²"
       },
       "sign": 1,
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
@@ -47856,6 +47861,7 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
+        "2e9d9ee8d620f84d2b4db80cf05de08840c813a67edcbabfbd9f5895ac345a28": "le score sur u₁ est u₁ᵀ(r₃ − μ), pas une coordonnée de r₃ − μ",
         "65803010b592fcc9a9933a37f48e6322ac342c12f93fb9f9da07424e7b209904": "le score se calcule sur l'objet CENTRÉ, r₃ − μ"
       },
       "sign": 1,
@@ -47955,7 +47961,8 @@
       "hash": "b97788c6787afd5dd956d7d109e2e32eb6ae729819999b85d26cbb711e57b40b",
       "kind": "array",
       "mistakes": {
-        "5b4a5516a269c584d9965b0017228d36ec50ee5fcaf9d8d803c55512e6d87777": "l'ordre décroissant : la plus grande d'abord"
+        "2ec4c438725f5e5951d226cd280e0eaee641a01f60df8a95643cd7313866a097": "l'ordre décroissant : la plus grande d'abord",
+        "5b4a5516a269c584d9965b0017228d36ec50ee5fcaf9d8d803c55512e6d87777": "par ordre décroissant : (55 − √865)/2 ≈ 12,79 est plus grand que 11"
       },
       "shape": [
         3
@@ -47995,7 +48002,8 @@
       "hash": "8badae9ee50bb52b1956a6bd5dde3a98e046bf9f8cca1ad3650cff2214989d41",
       "kind": "array",
       "mistakes": {
-        "1d6a2726c88ae758a451b34aaf7074d001b36559d6b9317b203c8dca2f623f56": "le premier axe de la NOUVELLE covariance"
+        "1d6a2726c88ae758a451b34aaf7074d001b36559d6b9317b203c8dca2f623f56": "le premier axe de la NOUVELLE covariance",
+        "d6bd6df602f03cea7104b2e773ab14dd4d6da8264a442f60151322c5550f7861": "le bloc porte sur les mesures 1 et 3 : la deuxième coordonnée est nulle"
       },
       "shape": [
         3
@@ -49534,6 +49542,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "3a7ddeed222cbc7834bb63fa24eb4d6cd082eb531fc70184cfdeba6dffbcc482": "le commentaire de (G) se trompe : np.var divise par n par défaut, la covariance par n − 1",
         "d30fa3d99b88bf4a3a8291c6f72e64ad2630a5d2e3e0485741c010a23b99372d": "np.var divise par n, la covariance par n − 1 : le rapport est (n − 1)/n, avec n = 40"
       },
       "sign": 1,
@@ -49543,7 +49552,7 @@
       "hash": "e9e2418798738ebb85d2bcbf2cfec98ccd982e3644fca730b1bf66fe5e2c41da",
       "kind": "bool",
       "mistakes": {
-        "43dd9d6d3680e38730a71dc7f03645d854f57b2451e70cc50d7227eef11ac94d": "l'objectif n'est pas atteint sur les deux images : la cellule du défi dit pourquoi"
+        "43dd9d6d3680e38730a71dc7f03645d854f57b2451e70cc50d7227eef11ac94d": "l'objectif n'est pas atteint : la cellule du défi dit pourquoi"
       },
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },

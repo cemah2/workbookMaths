@@ -460,7 +460,9 @@ CHAPTERS = [
                  "l'anomalie MNIST contre Fashion-MNIST, le seuil au 99ᵉ centile et la ROC-AUC (workbookIA 25). Le 🏆 "
                  "M12d.37 est calibré (session 41) sur la photo CC0 de la tasse de café (`data/cards/tasse_cafe.md`), "
                  "centrée : avec 5 % des nombres, la SVD globale garde 88,8 % de l'énergie, des tuiles de rang adapté "
-                 "90 %, l'ACP de ses carrés de 8 × 8 pixels 94,1 % (97 % demandait 14 à 26 % des nombres). Convention de signe des axes comme scikit-learn et la PCA de "
+                 "90 %, la seule moyenne de chaque rectangle de 4 × 5 pixels 93,3 %, l'ACP de ses carrés de 8 × 8 "
+                 "pixels 94,1 % : l'objectif est donc 93,5 % (97 % demandait 14 à 26 % des nombres). Convention de "
+                 "signe des axes comme scikit-learn et la PCA de "
                  "`mylearn` (la coordonnée de plus grande valeur absolue est positive). `svd_pca` : NumPy et "
                  "`np.linalg.eigh` permis, pas `np.linalg.svd`, `pinv`, `cond`, `lstsq` ni scikit-learn. Deux sessions"
                  " de génération : §1 à §4 (SVD), puis §5 à §8 (ACP).",
@@ -490,15 +492,15 @@ CHAPTERS = [
             ("M12d.9", "✏️", 2, 20, "Scores, reconstruction et erreur de reconstruction moyenne avec deux composantes "
              "sur trois", "§6 §7", "E"),
             ("M12d.10", "✏️", 1, 15, "La variance expliquée cumulée : combien de composantes pour 95 % ?", "§7", "E"),
-            ("M12d.11", "✏️", 2, 20, "L'ACP par la SVD de la matrice centrée : σ² / (n − 1) donne les variances",
+            ("M12d.11", "✏️", 2, 20, "L'ACP par la SVD de la matrice centrée : s² / (n − 1) donne les variances",
              "§1 §6", ""),
             ("M12d.12", "✏️", 2, 20, "L'ACP quand n < p : passer par la petite matrice XXᵀ", "§7", ""),
             ("M12d.13", "✏️", 1, 15, "Les probabilités de voisinage de t-SNE sur quatre points, et leur perplexité "
              "2^H", "§8", "E"),
             ("M12d.14", "∂", 2, 20, "Les valeurs singulières sont les racines des valeurs propres de AᵀA", "§1", "E"),
-            ("M12d.15", "∂", 2, 20, "La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ σ₁ ‖x‖",
+            ("M12d.15", "∂", 2, 20, "La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ s₁ ‖x‖",
              "§2", ""),
-            ("M12d.16", "∂", 3, 25, "L'erreur de l'approximation de rang k vaut la somme des σ² oubliés (Frobenius)",
+            ("M12d.16", "∂", 3, 25, "L'erreur de l'approximation de rang k vaut la somme des s² oubliés (Frobenius)",
              "§3", ""),
             ("M12d.17", "∂", 2, 20, "La pseudo-inverse donne la solution des moindres carrés de plus petite norme",
              "§4", ""),
@@ -537,7 +539,7 @@ CHAPTERS = [
              "lignes au lieu de colonnes", "§6", ""),
             ("M12d.36", "🛠️", 1, 15, "Un test : la reconstruction de rang plein redonne X, et l'erreur décroît avec k",
              "§3 §7", ""),
-            ("M12d.37", "🏆", 3, 30, "Défi : compresser une image centrée en gardant 93 % de son énergie avec au plus "
+            ("M12d.37", "🏆", 3, 30, "Défi : compresser une image centrée en gardant 93,5 % de son énergie avec au plus "
              "5 % des nombres", "§3", ""),
         ],
     },
