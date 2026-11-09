@@ -1,10 +1,10 @@
 # PROGRESS : état de la génération de workbookMaths
 
-*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-09, session 39 (chapitre M12c, seconde moitié).*
+*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-09, session 40 (chapitre M12d, première moitié).*
 
 ## Prochaine étape
 
-➡️ **Session 40 : chapitre M12d** (SVD et analyse en composantes principales, avant workbookIA 12 ; deux sessions de génération prévues : la première peut s'arrêter après la référence, les tests et la fiche). Avant d'écrire : la section M12d de `docs/SYLLABUS.md` (exercices, frontières : 12.6, 12.7, 12.8, 12.22, 12.27, 12.29, 25.8…, notes), la fiche, les exercices et les solutions de workbookIA 12 (lecture seule), et les chapitres M12a à M12c (ne pas reprendre leurs exemples). Le stub `templates/mymath_stubs/svd_pca.py` est publié (`svd`, `low_rank_approximation`, `pinv`, `condition_number`, `principal_axes`, `explained_variance_ratio`) : la référence `solutions/mymath_ref/svd_pca.py` et `tests/test_m12d_svd_pca.py` s'écrivent contre ses docstrings (oracles `np.linalg.svd`, `pinv`, `cond`, `eigh`, scikit-learn `PCA` au signe près). Le dossier garde un `EN_COURS.md` jusqu'à la fin du chapitre.
+➡️ **Session 41 : chapitre M12d, seconde moitié** (SVD et analyse en composantes principales). Déjà faits en session 40 : `solutions/mymath_ref/svd_pca.py`, `tests/test_m12d_svd_pca.py` (123 tests, 31 mutants attrapés) et la fiche (`chapitres/m12d_svd_acp/01_fiche.md`, §1 à §8, figures par `tools/chapters/figures_m12d.py`) ; le dossier garde `EN_COURS.md` jusqu'à la fin. À faire : relire la fiche, puis `02_exercices.md` (la liste, les frontières et les notes de la section M12d de `docs/SYLLABUS.md` ; ne reprendre ni les exemples de la fiche — $[[6, 4], [1, -6]]$, $[[2, 2], [4, 1], [4, -2]]$, $[[10, 7], [7, 5]]$, la covariance $[[11, 6, 0], [6, 6, 0], [0, 0, 8]]$ et ses cinq objets —, ni ceux des docstrings du stub, ni les données de workbookIA 12), `tools/chapters/build_m12d.py` (modèle : `build_m12c.py`), une image du domaine public pour M12d.31, 32 et 37 (recopiée depuis sa source officielle, avec sa fiche dans `data/cards/` ; pas de photo de personne), `answers.json`, indices, solutions, feuille de réponses, flashcards, annexes ; la vérification indépendante (re-résolution à l'aveugle, apprenant simulé, règle de partage, fiche comprise) ; puis retirer `EN_COURS.md`.
 
 La partie 0 est complète : R0, POS, R1 à R9 et CP0. L'apprenant enchaîne avec workbookIA 0B, puis workbookIA 1.
 
@@ -19,7 +19,7 @@ La partie II est complète : M07 à M11 et CP2. L'apprenant enchaîne avec le ch
 | 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | ✅ tout publié (R0, POS, R1 à R9, CP0) |
 | I · Fondations | M02a à M06, CP1 | ✅ tout publié (M02a, M02b, M02c, M03, M04, M05a, M05b, M06, CP1) |
 | II · Concepts | M07 à M11, CP2 | ✅ tout publié (M07, M08, M09a, M09b, M10, M11, CP2) ; (syllabus détaillé en session 26 : 256 exercices, six modules `mymath`) |
-| III · ML classique | M12a à M14, CP3 | 🛠️ en cours : M12a ✅ (session 36) ; M12b ✅ (session 37) ; M12c ✅ (sessions 38 et 39) ; syllabus détaillé en session 35 (321 exercices, sept modules `mymath`) |
+| III · ML classique | M12a à M14, CP3 | 🛠️ en cours : M12a ✅ (session 36) ; M12b ✅ (session 37) ; M12c ✅ (sessions 38 et 39) ; M12d 🛠️ (session 40 : référence, tests, fiche) ; syllabus détaillé en session 35 (321 exercices, sept modules `mymath`) |
 | IV · Réseaux | M16 à M20, CP4 | 📅 planifié |
 | V · Architectures | M21, M22, CP5 | 📅 planifié |
 | VI · Génératif et RL | M25a à M28, CP6 | 📅 planifié |
@@ -145,6 +145,12 @@ La partie II est complète : M07 à M11 et CP2. L'apprenant enchaîne avec le ch
 **À retenir pour R3 à R9** : les vérifications qui appellent le code de l'apprenant passent par `checked` (de `wbm.nbtools`), pour qu'une erreur de son code ne bloque pas « Run all » ; un ensemble de solutions s'enregistre avec 6 décimales quand une fraction non décimale est attendue ; tester aussi les cas dégénérés pour **tous** les sens ou toutes les branches (un test oublié laisse passer un code faux) ; une réponse qu'il faut **arrondir** (ou un décimal exact) s'enregistre en `kind="fraction"` (ou avec plus de décimales que demandé), sinon une valeur non arrondie passe ; un exemple de forme ne doit être la réponse d'aucune question du chapitre (`tests/infra/test_examples_are_not_answers.py`) ; un test d'algorithme dont la version naïve ne finit jamais passe par `_within` (limite de temps, voir `tests/test_r1_arith.py`) ; chaque groupe de tests lancé par le notebook inclut le test qui interdit les outils tout faits (`or test_arith_uses`) ; les cas `ValueError` passent par `_expect_value_error` (une autre exception dit d'abord ce qui était attendu).
 
 **À retenir pour R1 à R9** : ne reprendre aucun nombre ni aucune donnée du test de positionnement (sujet : `positionnement/01_sujet.md`) ; en R5, le 🔮 prévu sur une suite uₙ₊₁ = ½uₙ + 1 est proche de POS.10 (vₙ₊₁ = ½vₙ + 3) : changer ses nombres. Les messages génériques de `wbm` hérités de workbookIA parlent parfois ML ou Python (« indice (1,) », « arrondis avec round() », « vérifie-le avec SymPy ») : les adapter à la partie 0 si un chapitre en souffre.
+
+## Session 40 (2026-11-09) : chapitre M12d, première moitié 🛠️
+
+**Fait** : `solutions/mymath_ref/svd_pca.py` (les six fonctions du stub figé) et `tests/test_m12d_svd_pca.py` (123 tests, oracles NumPy et scikit-learn, contrôle AST ; 31 mutants attrapés sur 31) ; la fiche `chapitres/m12d_svd_acp/01_fiche.md` (§1 à §8, guide de lecture de MML §4.5 à §4.7 et §10.1 à §10.6, récapitulatif des pièges) et ses 6 figures (`tools/chapters/figures_m12d.py`) ; `EN_COURS.md`.
+
+**Reste** (session 41) : exercices, notebooks, image du domaine public, réponses, indices, solutions, feuille de réponses, flashcards, annexes, vérification indépendante. Détails dans BIBLE §24.
 
 ## Session 39 (2026-11-09) : chapitre M12c, seconde moitié ✅
 
