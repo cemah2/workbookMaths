@@ -208,7 +208,7 @@ Pour la copie : $L_3 = L_1 + L_2$. Pour un tableau centré de $n$ exemples, la s
 
 **Erreurs fréquentes.** Prendre la borne $\min(\operatorname{rg}\mathbf{A}, \operatorname{rg}\mathbf{C}) = 2$ pour la valeur de e) ; répondre 4 en c), la taille de $\mathbf{A}^\top\mathbf{A}$ ; centrer les lignes au lieu des colonnes.
 
-**Variante.** Le rang d'un tableau centré de 2 exemples et 5 features dont les deux lignes diffèrent ? *Réponse* : 1 : les deux lignes centrées sont opposées, et non nulles.
+**Variante.** Le rang du tableau centré d'un tableau de 4 exemples dont les quatre lignes sont égales ? *Réponse* : 0 : chaque ligne est égale à la moyenne, et le tableau centré est nul.
 
 ### Ex M12a.7 — La matrice d'une application linéaire : les images des vecteurs de base
 
