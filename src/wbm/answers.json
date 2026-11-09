@@ -36983,7 +36983,8 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "6710297bc376d1127c01be933a9cd1320036715fe55f0baebbf3f8c3aae8cb39": "la première coordonnée est 2t, pas t : trouve d'abord t"
+        "6710297bc376d1127c01be933a9cd1320036715fe55f0baebbf3f8c3aae8cb39": "la première coordonnée est 2t, pas t : trouve d'abord t",
+        "67dc0577e1ffb809a1a0371377b35a02ab078e0f91b6ccaba69f0a98d91071db": "le vecteur demandé a pour première coordonnée 4 : ce n'est pas le vecteur directeur (t = 1)"
       },
       "shape": [
         3
@@ -37925,6 +37926,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
+        "9423eb06c0a7cce8a5037c0394ef9126ba2fe9ad32a8fca0a91144cfd350a2b6": "l'ordre de la base compte : s₁ d'abord, donc la première colonne contient les coordonnées de A s₁",
         "9f43e6e03deba1474bb1e91a24a033eb1cf3fdaa20281e903732a18b61b8cf2d": "S A S⁻¹ n'est pas la matrice dans la nouvelle base : lis S⁻¹AS de droite à gauche"
       },
       "shape": [
@@ -38094,6 +38096,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
+        "7451524556ed18062915ab1fa44d616e1f31d27d3c58c3ed44b7e6af40470d49": "y − b, pas y + b : attention au signe de la translation",
         "906a9835c2d734cd50eb629470afdad6ec644ea9a13a4bb2f6868132505ed634": "φ⁻¹(y) = A⁻¹(y − b) : retire b avant d'appliquer A⁻¹"
       },
       "shape": [
@@ -39034,7 +39037,7 @@
       "hash": "a6a0728accc61efb61dc18b87b623e4ae118097bb533aeb89d0ea259f43f0820",
       "kind": "array",
       "mistakes": {
-        "6cd96fa4b40dd25dc5a89fadae33418ad1bbe89d92393b7c1f9e3fd963f18806": "S⁻¹AS, pas SAS⁻¹ : résous S M = A S"
+        "9267573ccb5a214cc7708a242c0ef6583a36ae6ec553a72cefed9409b037fe8f": "S⁻¹AS, pas SAS⁻¹ : résous S M = A S"
       },
       "shape": [
         2,
@@ -39214,6 +39217,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
+        "290d79201bff03bb06b01a382653d8f2c47f826a8fd4b459b603b5bcb0d67207": "4 est le nombre de colonnes de P : le rang de sa transposée est celui de P",
         "431053baf3ab7bfac49c2299564dfa322bebe34a4ef3f97f059f914d76b79db7": "le rang de la transposée est celui de la matrice"
       },
       "sign": 1,
@@ -39289,6 +39293,7 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
+        "3760d1fa7784cae19b59cf450be8f0b55bc7fbc0993ab2543bd7fd091a3d10b2": "tu as lu la ligne des pivots, pas celle de matrix_rank",
         "5e2b76967c3b1c6a40f1deb295196bbeb21bb4138260e969acba596a8da6d209": "le premier k où matrix_rank donne 2, pas le dernier où il donne 3"
       },
       "sign": 1,
@@ -39299,6 +39304,7 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
+        "4ddc3097831ad1b93c563e250a2aa2fecfe19a9b1183bfcbd38bef6530c236e2": "tu as lu la ligne de matrix_rank, pas celle des pivots",
         "581d4f1d0a95028f7c25a442dc28bf15ef3b6a04ba550b6b6ccaa8ff54a60e6e": "le premier k où tes pivots donnent 2, pas le dernier où ils donnent 3"
       },
       "sign": 1,
@@ -39329,7 +39335,9 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "8de39c38f982c02f2d2a8df1e0795f83b7533b80b01f97e058ea3d7bad63852b": "le premier k où tes pivots donnent 2 avec tol = 1e-6"
+        "1813d1b2e590570b6d6f2c6dfaa2e62ae83f79b83edc54b624ed3226cfc17987": "lis la ligne des pivots du troisième réglage, pas celle de matrix_rank",
+        "8de39c38f982c02f2d2a8df1e0795f83b7533b80b01f97e058ea3d7bad63852b": "le premier k où tes pivots donnent 2 avec tol = 1e-6",
+        "a5df00910d95533318157ddfd604ab23b1637bec0efdcacb8e64db57f7d78bb7": "lis le troisième réglage (tol 1e-6), pas le premier"
       },
       "sign": 1,
       "source": "chapitres/m12a_espaces_vectoriels/05_solutions.ipynb"
@@ -39341,9 +39349,9 @@
         "0341e1f061ffe0de6adceab4299d1cf0a2c61a86910eac891b7a303946fe08a9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "104001a4f0368b257f361b70c5573237248c76f5ae41c4478ed79cf1c026dc6e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "1b0335782e427ca2d6bcefd7c11e4545a2de3df3e6ec5deecd7d2f64c9ba45c0": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "1b455b3535fa1b0e4bac4f591e2e1ed44114d7118540c655c03af49d0391a2b9": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie A fois chaque vecteur appelé « noyau »",
+        "1b455b3535fa1b0e4bac4f591e2e1ed44114d7118540c655c03af49d0391a2b9": "une des lignes que tu cites est correcte, et il manque une ligne fautive : recalcule ce que fait chaque ligne, puis compare à son commentaire",
         "1ee4dc07efb8f87687ac9a1223efd41405fe44abc478125e6a8ccc3c15127d1e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "22a5325bf7926216c7514e8f1862326c8f6250b26f3a1cdd47534f8bfcef1f1a": "une des lignes que tu cites est correcte, et il manque une ligne fautive : calcule le rang de chaque famille appelée « base »",
+        "22a5325bf7926216c7514e8f1862326c8f6250b26f3a1cdd47534f8bfcef1f1a": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque ligne à la main, avec ses propres nombres",
         "2366ffe05f616c0c084752871e5b5c17c38a50b2ad9f8a9f7aed714c37e4efe6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "2451bb6a4c8826779f38d4b4d7be8a33965d566440a27aecb937f751b0e4f745": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "27863885fac68770187eb302e2752fcd0627f2b00d84f1af55c8622b0e2ef575": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
@@ -39359,9 +39367,9 @@
         "488c031558a23bb641fc9627feb320b2329a9f368c1568475a14ae388ab28bc9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "4a1ec30441de3d1942f12fae036e92387e93541fea93a8102c726aade6459dbe": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "4a659c40010a428b8c175d6b3dcef5c026d4eeb9b5bea953eb80f5e85952f886": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "4d45be4fa2ddc5d19bb31b6d05bafe5a82003b05b3f40dfd13219c169db4ace0": "il manque une ligne fautive : relis l'ordre des facteurs d'un changement de base",
+        "4d45be4fa2ddc5d19bb31b6d05bafe5a82003b05b3f40dfd13219c169db4ace0": "il manque une ligne fautive : vérifie chaque résultat sur un petit exemple que tu sais faire à la main",
         "6001e790026a54e902c97ee4141610421ef5580f39178f892cf3e408f941d31c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "678f558de7bb811a33199a47b272e18abe163507b12c454a8c843d77eff0294e": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis l'ordre des facteurs d'un changement de base",
+        "678f558de7bb811a33199a47b272e18abe163507b12c454a8c843d77eff0294e": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie chaque résultat sur un petit exemple que tu sais faire à la main",
         "6938251e2a69392ec8e3243181017807911a9e9b47812e9c88bc63b828c6de90": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "6c849c742619bb73c79bcafe894a6bfd30cd47f16e3a79a47da1a98008e116e7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "6d5c3f52f9e1e61a16695d28cf1bd02f52e56f7e07454f09fcaa2c00f5dad78e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
@@ -39376,11 +39384,11 @@
         "91e94c2ca0c3b1bdeae298be8fc6aede4754f9e959ba99e2d24df2a2c6033c1d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "945447a7078a2f5c0249ee5a35eecf3fcffbcae0a36ba7eefa05c6ab3932babc": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "9c21babede4eea0cd753baff5f799302a6260621f95bb2a496960e5d62206ce3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "9e7281911885fb34f4bb8778546ab807e24a1cceb047ba99a2f8dca1ca43ebeb": "il manque une ligne fautive : vérifie A fois chaque vecteur appelé « noyau »",
+        "9e7281911885fb34f4bb8778546ab807e24a1cceb047ba99a2f8dca1ca43ebeb": "il manque une ligne fautive : recalcule ce que fait chaque ligne, puis compare à son commentaire",
         "a5afb97da9a8a8723522e7350ef5ac3f37092cffd06ffef9f73686a50fa26331": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "a73ea33ca063e38e08ba05484bfab4c24cb42fac7b7b2fdc210a3d8fc1af2f6f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "a7983489812d2a53bd6dc6baff6d2632ce80d6e68b4303ea7eea995183797c60": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "a928b3fbeec83128042eed8e655eb90bc50c3a8fee221194de931310a3e51f2f": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis l'ordre des facteurs d'un changement de base",
+        "a928b3fbeec83128042eed8e655eb90bc50c3a8fee221194de931310a3e51f2f": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie chaque résultat sur un petit exemple que tu sais faire à la main",
         "b1245ff25f4d7ec779de5004694fad3a54e0f6714ec1e49995f5558b68df40dd": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
         "bd1fc91a2e179da9afe0541f5a5e029465eaacdf7b8800fb87e4a1132959f3f9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "bee6142ed16a37712b291a3760fe2ec696e379f5c03dcb7439c4d286172c253a": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
@@ -39388,18 +39396,18 @@
         "c0c3cc44fe6e10fa8d98e6613381b33bca26e7c11c082b0c7bc8ef658fdd212d": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
         "c1c37f0e8b84ef8f6850b4bcc5d41e8cf77aacb779be50f79566f9a4688bf604": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "c62636cb8570961dd899fc2f3568a6e2d9b9248b6c107e5adebfad4cef251c4e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "d13a51b694e0d2eb0c5cf27e36c7fe76702c08255543a76d570488737fa1f3c1": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie A fois chaque vecteur appelé « noyau »",
+        "d13a51b694e0d2eb0c5cf27e36c7fe76702c08255543a76d570488737fa1f3c1": "une des lignes que tu cites est correcte, et il manque une ligne fautive : recalcule ce que fait chaque ligne, puis compare à son commentaire",
         "d89fb6dea16158e105a064e830f7c3288fdcedef05e947f91960c3f6c70fc4c5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "da60e1951a3285758df368810dd4d83cba154be88217378dfc211e17d7e923f6": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie A fois chaque vecteur appelé « noyau »",
-        "e15b053d6191ca23806a97b88c80b35a45e0cab55c1a0508fc1ed821a2253111": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis l'ordre des facteurs d'un changement de base",
+        "da60e1951a3285758df368810dd4d83cba154be88217378dfc211e17d7e923f6": "une des lignes que tu cites est correcte, et il manque une ligne fautive : recalcule ce que fait chaque ligne, puis compare à son commentaire",
+        "e15b053d6191ca23806a97b88c80b35a45e0cab55c1a0508fc1ed821a2253111": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie chaque résultat sur un petit exemple que tu sais faire à la main",
         "e276d10619b73492c137ccd9369b2f91e6f621e6ba1568917c85af44cbe386bc": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "e4523b4aacfc385f0ab1fb079806d98db68c621f2e5b32618ebf52abf8ca2680": "il manque une ligne fautive : calcule le rang de chaque famille appelée « base »",
+        "e4523b4aacfc385f0ab1fb079806d98db68c621f2e5b32618ebf52abf8ca2680": "il manque une ligne fautive : refais chaque ligne à la main, avec ses propres nombres",
         "e6826c2bd784c98d919da1bc47a73601b62647e483e05de658b8cba9c17101ae": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "ea27643fdab5140687c1d3ff2d595b6dba973ceeb9faa38f0a9197f1371ae876": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
         "ef61a9873c0ebeecd53294b325e6b097ed8c6a9fd778e40aadfb8688987494f5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "fb7815a9c0a53ff07d7f2bb0ddfdf8083a2cf9e093d36aab76d1554d070e79cd": "une des lignes que tu cites est correcte, et il manque une ligne fautive : calcule le rang de chaque famille appelée « base »",
+        "fb7815a9c0a53ff07d7f2bb0ddfdf8083a2cf9e093d36aab76d1554d070e79cd": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque ligne à la main, avec ses propres nombres",
         "fc24f99f027b4a4ccd41112309401d4fed36f50f41f799b685ef563cc70260e2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
-        "fe1146907f218633d658dc3c184189d861adfa98ff5db4369d9b834d97af85df": "une des lignes que tu cites est correcte, et il manque une ligne fautive : calcule le rang de chaque famille appelée « base »"
+        "fe1146907f218633d658dc3c184189d861adfa98ff5db4369d9b834d97af85df": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque ligne à la main, avec ses propres nombres"
       },
       "source": "chapitres/m12a_espaces_vectoriels/05_solutions.ipynb"
     },

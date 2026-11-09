@@ -38,8 +38,11 @@ def _expect_value_error(call, what, why):
         result = call()
     except NotImplementedError:
         raise                 # a function not written yet stays ⏳
-    except ValueError:
-        return
+    except ValueError as exc:
+        if type(exc) is ValueError:
+            return
+        pytest.fail(f"expected {what} to raise ValueError itself ({why}), got {type(exc).__name__}: catch it and "
+                    f"raise ValueError, as the docstring asks")
     except Exception as exc:  # noqa: BLE001 - any other error is reported, with what was expected first
         pytest.fail(f"expected {what} to raise ValueError ({why}), got {type(exc).__name__}: {exc}")
     pytest.fail(f"expected {what} to raise ValueError ({why}), but it returned {result!r}")
@@ -77,8 +80,11 @@ def test_linmaps_uses_no_ready_made_tool(linmaps):
                 found.add(node.module)
             elif node.module.startswith("numpy"):
                 found.update(alias.name for alias in node.names if alias.name in FORBIDDEN)
-    assert not found, (f"expected linmaps.py to find its pivots by row reduction (np.linalg.solve is allowed; the "
-                       f"tests compare with matrix_rank, SymPy and the others), found {sorted(found)}")
+    advice = {".inv": "solve a system with np.linalg.solve instead of inverting",
+              ".lstsq": "solve BᵀB c = Bᵀv with np.linalg.solve", ".pinv": "solve a system with np.linalg.solve"}
+    hints = "; ".join(sorted({advice.get(name, "find the pivots by row reduction (your _rref)") for name in found}))
+    assert not found, (f"expected linmaps.py to use only NumPy's elementary tools and np.linalg.solve (the tests "
+                       f"compare with matrix_rank, SymPy and the others), found {sorted(found)}: {hints}")
 
 
 # ---------------------------------------------------------------- data
@@ -127,7 +133,8 @@ def test_is_independent_matches_sympy(linmaps, name):
     M = _sympy(A)
     expected = M.rank() == M.shape[1]
     got = _result(lambda: linmaps.is_independent([row[:] for row in A]), str(expected), name)
-    assert type(got) is bool, f"expected a Python bool (True or False) for {name}, got {type(got).__name__}: {got!r}"
+    assert type(got) is bool, (f"expected a Python bool (True or False) for {name}, got "
+                               f"{type(got).__module__}.{type(got).__name__}: {got!r} (convert with bool(...))")
     assert got == expected, (
         f"expected {expected} for {name} (rank {M.rank()}, {M.shape[1]} columns): the columns are independent exactly "
         f"when every column has a pivot")
@@ -192,8 +199,8 @@ def test_column_space_basis_keeps_floats_and_the_rank(linmaps):
     got = _result(lambda: linmaps.column_space_basis(A), f"6 × {expected_rank} columns", "a random (6, 5) matrix of rank 2")
     _array(got, "column_space_basis of a random (6, 5) matrix of rank 2", (6, expected_rank))
     pivots = [j for j in range(5) if any(np.allclose(got[:, k], A[:, j], rtol=0, atol=1e-12) for k in range(got.shape[1]))]
-    assert pivots == [0, 1], (f"expected the columns 0 and 1 of A (the first two pivot columns), got the columns "
-                              f"{pivots} of A")
+    assert pivots == [0, 1], (f"expected the first two columns of A (the pivot columns), got the columns "
+                              f"{[p + 1 for p in pivots]} of A (numbered from 1)")
 
 
 def test_column_space_basis_does_not_modify_its_input(linmaps):

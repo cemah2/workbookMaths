@@ -51,7 +51,8 @@ PAPER = [
          '''mistakes={"si P(1) = 0 et Q(1) = 0, que vaut (λP + μQ)(1) ?": False}'''),
         ("g", "True or False", "False", '''mistakes={"le polynôme nul vérifie-t-il la condition ?": True}'''),
         ("h", "a list of 3 numbers", "[4, -2, 6]",
-         '''mistakes={"la première coordonnée est 2t, pas t : trouve d'abord t": [8, -4, 12]}'''),
+         '''mistakes={"la première coordonnée est 2t, pas t : trouve d'abord t": [8, -4, 12], '''
+         '''"le vecteur demandé a pour première coordonnée 4 : ce n'est pas le vecteur directeur (t = 1)": [2, -1, 3]}'''),
     ]),
 
     Paper("M12a.2", "Écrire un vecteur comme combinaison linéaire : un système à résoudre", [
@@ -194,7 +195,9 @@ PAPER = [
          '''(-np.array(matrix(sympy.Matrix(S_11.tolist()).inv()))).tolist()}'''),
         ("d", "a matrix", "matrix(sympy.Matrix(S_11.tolist()).inv() * sympy.Matrix(A_11.tolist()) * sympy.Matrix(S_11.tolist()))",
          '''mistakes={"S A S⁻¹ n'est pas la matrice dans la nouvelle base : lis S⁻¹AS de droite à gauche": '''
-         '''matrix(sympy.Matrix(S_11.tolist()) * sympy.Matrix(A_11.tolist()) * sympy.Matrix(S_11.tolist()).inv())}'''),
+         '''matrix(sympy.Matrix(S_11.tolist()) * sympy.Matrix(A_11.tolist()) * sympy.Matrix(S_11.tolist()).inv()), '''
+         '''"l'ordre de la base compte : s₁ d'abord, donc la première colonne contient les coordonnées de A s₁": '''
+         '''[[3, 0], [0, 2]]}'''),
         ("e", "a list of 2 numbers", "coords(list(S_11.T), [5, 3])",
          '''mistakes={"les coordonnées sont S⁻¹x, pas Sx": (S_11 @ np.array([5, 3])).tolist()}'''),
         ("f", "a list of 2 numbers", "[2, 6]"),
@@ -214,7 +217,9 @@ PAPER = [
          '''exact(sympy.Matrix(A_12.tolist()).inv() * sympy.Matrix(B_12.tolist()))}'''),
         ("f", "a list of 2 numbers", "exact(sympy.Matrix(A_12.tolist()).inv() * sympy.Matrix((np.array([3, 4]) - B_12).tolist()))",
          '''mistakes={"φ⁻¹(y) = A⁻¹(y − b) : retire b avant d'appliquer A⁻¹": '''
-         '''(np.array(exact(sympy.Matrix(A_12.tolist()).inv() * sympy.Matrix([3, 4]))) - B_12).tolist()}'''),
+         '''(np.array(exact(sympy.Matrix(A_12.tolist()).inv() * sympy.Matrix([3, 4]))) - B_12).tolist(), '''
+         '''"y − b, pas y + b : attention au signe de la translation": '''
+         '''exact(sympy.Matrix(A_12.tolist()).inv() * sympy.Matrix((np.array([3, 4]) + B_12).tolist()))}'''),
         ("g", "a list of 2 numbers", "phi_12([1, 1])"),
         ("h", "True or False", "False", '''mistakes={"une application linéaire envoie 0 sur 0 : et φ ?": True}'''),
     ]),
@@ -343,7 +348,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sympy
 
-from wbm.nbtools import checked, drawn, run_pytest_group
+from wbm.nbtools import StopCheck, checked, drawn, run_pytest_group
 
 
 def raised(function, *args, **kwargs):
@@ -549,7 +554,7 @@ La vérification calcule :
 - a) `coordinates([[1, 2], [1, 3]], [5, 7])` (une liste, 6 décimales) ;
 - b) `coordinates([[1, 0], [2, 1], [0, 3]], [3, 8, 6])` (une liste, 6 décimales) ;
 - c) le nom de l'erreur levée par `coordinates([[1, 0], [2, 1], [0, 3]], [1, 1, 1])` ;
-- d) `change_of_basis([[3, 1], [0, 2]], [[1, 1], [0, -1]])` (une matrice, 6 décimales) ;
+- d) `change_of_basis([[3, 1], [0, 2]], [[1, 2], [0, -2]])` (une matrice, 6 décimales) ;
 - e) `change_of_basis([[1, 2, 0], [0, 1, 1]], np.eye(3), [[1, 1], [1, -1]])` (une matrice, 6 décimales) ;
 - f) le nom de l'erreur levée par `change_of_basis([[1, 0], [0, 1]], [[2, -6], [-1, 3]])`.
 
@@ -563,7 +568,7 @@ with checked("M12a.28b"):
 with checked("M12a.28c"):
     wbm.check("M12a.28c", raised(mymath.linmaps.coordinates, [[1, 0], [2, 1], [0, 3]], [1, 1, 1]), computed=True)
 with checked("M12a.28d"):
-    wbm.check("M12a.28d", np.asarray(mymath.linmaps.change_of_basis([[3, 1], [0, 2]], [[1, 1], [0, -1]])).tolist(),
+    wbm.check("M12a.28d", np.asarray(mymath.linmaps.change_of_basis([[3, 1], [0, 2]], [[1, 2], [0, -2]])).tolist(),
               computed=True)
 with checked("M12a.28e"):
     wbm.check("M12a.28e", np.asarray(mymath.linmaps.change_of_basis([[1, 2, 0], [0, 1, 1]], np.eye(3),
@@ -575,7 +580,7 @@ with checked("M12a.28f"):
 coordinates, change_of_basis = mymath.linmaps.coordinates, mymath.linmaps.change_of_basis
 print("a)", coordinates([[1, 2], [1, 3]], [5, 7]).tolist(), " b)", coordinates([[1, 0], [2, 1], [0, 3]], [3, 8, 6]).tolist())
 print("c)", raised(coordinates, [[1, 0], [2, 1], [0, 3]], [1, 1, 1]))
-print("d)", change_of_basis([[3, 1], [0, 2]], [[1, 1], [0, -1]]).tolist())
+print("d)", change_of_basis([[3, 1], [0, 2]], [[1, 2], [0, -2]]).tolist())
 print("e)", change_of_basis([[1, 2, 0], [0, 1, 1]], np.eye(3), [[1, 1], [1, -1]]).tolist())
 print("f)", raised(change_of_basis, [[1, 0], [0, 1]], [[2, -6], [-1, 3]]))''',
     record=f'''wbm.record("M12a.28a", [1.0, 2.0], decimals=6,
@@ -586,7 +591,7 @@ wbm.record("M12a.28c", "ValueError",
                          "aucune",
                      "{wrong_error("ValueError")}": {errors_source("ValueError")}}})
 wbm.record("M12a.28d", [[3.0, 0.0], [0.0, 2.0]], decimals=6,
-           mistakes={{"S⁻¹AS, pas SAS⁻¹ : résous S M = A S": [[3.0, 2.0], [0.0, 2.0]]}})
+           mistakes={{"S⁻¹AS, pas SAS⁻¹ : résous S M = A S": [[3.0, 0.5], [0.0, 2.0]]}})
 wbm.record("M12a.28e", [[0.5, 1.5, 0.5], [0.5, 0.5, -0.5]], decimals=6,
            mistakes={{"T⁻¹A, pas TA : résous T M = A S": [[1.0, 3.0, 1.0], [1.0, 1.0, -1.0]]}})
 wbm.record("M12a.28f", "ValueError",
@@ -595,8 +600,9 @@ wbm.record("M12a.28f", "ValueError",
     after=tests_cells("test_coordinates_ or test_change_of_basis_"),
     note=r"a) $(1, 2)$ : $1 \times (1, 1) + 2 \times (2, 3) = (5, 7)$. b) $(3, 2)$ : $3 \times (1, 2, 0) + 2 \times (0, 1, 3) "
          r"= (3, 8, 6)$. c) La première coordonnée impose $c_1 = 1$, la deuxième $c_2 = -1$, et la troisième vaudrait alors "
-         r"$-3 \ne 1$ : le vecteur n'est pas dans le plan. d) $\mathbf{A}(1, 0) = 3\,(1, 0)$ et $\mathbf{A}(1, -1) = (2, -2) = "
-         r"2\,(1, -1)$ : dans la base des colonnes de $\mathbf{S}$, la matrice est diagonale. e) Avec $\mathbf{S} = \mathbf{I}$, "
+         r"$-3 \ne 1$ : le vecteur n'est pas dans le plan. d) $\mathbf{A}(1, 0) = 3\,(1, 0)$ et $\mathbf{A}(2, -2) = (4, -4) = "
+         r"2\,(2, -2)$ : dans la base des colonnes de $\mathbf{S}$, la matrice est diagonale ; "
+         r"$\mathbf{S}\mathbf{A}\mathbf{S}^{-1}$, l'erreur classique, vaut $\begin{pmatrix} 3 & 0{,}5 \\ 0 & 2 \end{pmatrix}$. e) Avec $\mathbf{S} = \mathbf{I}$, "
          r"c'est $\mathbf{T}^{-1}\mathbf{A}$ : les colonnes de $\mathbf{A}$ exprimées dans la base $(1, 1), (1, -1)$ de "
          r"l'arrivée.",
 )
@@ -614,18 +620,21 @@ M12A_29 = Ex(
 Avec $\mathbf{P}$ = `""" + P_29 + r"""`, calcule :
 - a) `sympy.Matrix(P).rank()` ;
 - b) le nombre de vecteurs que rend `sympy.Matrix(P).nullspace()` ;
-- c) le premier de ces vecteurs (une liste) ;
+- c) le premier de ces vecteurs, en liste (`list(...)`) ;
 - d) les vecteurs de `sympy.Matrix(P).columnspace()`, côte à côte (une matrice : `sympy.Matrix.hstack(*...)`) ;
 - e) vrai ou faux : ta fonction `null_space_basis(P)` donne les mêmes vecteurs que SymPy, à $10^{-9}$ près (calcule-le) ;
 - f) `np.linalg.matrix_rank` de la transposée de $\mathbf{P}$.
 
 Dans ta copie : quelles relations entre les colonnes de $\mathbf{P}$ les vecteurs du noyau expriment-ils ? Pourquoi f) donne-t-il le même nombre que a) ?""",
-    todo='''answer_M12a_29a = ...  # a) an integer
+    todo='''mymath = wbm.load_mymath("learner", missing_ok=True, fallback="ref", chapter="M12a")
+answer_M12a_29a = ...  # a) an integer
 answer_M12a_29b = ...  # b) an integer
-answer_M12a_29c = ...  # c) a list
+answer_M12a_29c = ...  # c) a list: list(...)
 answer_M12a_29d = ...  # d) a matrix
-answer_M12a_29e = ...  # e) True or False, computed with your null_space_basis
-answer_M12a_29f = ...  # f) an integer''',
+answer_M12a_29f = ...  # f) an integer
+answer_M12a_29e = None
+with wbm.attempt("M12a.29e"):        # your null_space_basis is called here: ⏳ while it is not written
+    answer_M12a_29e = ...  # e) True or False: np.allclose(mymath.linmaps.null_space_basis(...), SymPy's basis)''',
     check='''for letter, answer in zip("abcdef", [answer_M12a_29a, answer_M12a_29b, answer_M12a_29c, answer_M12a_29d,
                                      answer_M12a_29e, answer_M12a_29f]):
     wbm.check(f"M12a.29{letter}", answer)''',
@@ -647,7 +656,8 @@ wbm.record("M12a.29d", [[1, 0], [2, 1], [-1, 2]],
            mistakes={"columnspace() rend des colonnes de P : mets-les côte à côte, une par colonne": [[1, 2, -1], [0, 1, 2]]})
 wbm.record("M12a.29e", True,
            mistakes={"relis ta fonction null_space_basis (M12a.27) : ses tests disent ce qui ne va pas": False})
-wbm.record("M12a.29f", 2, mistakes={"le rang de la transposée est celui de la matrice": 3})''',
+wbm.record("M12a.29f", 2, mistakes={"le rang de la transposée est celui de la matrice": 3,
+                                    "4 est le nombre de colonnes de P : le rang de sa transposée est celui de P": 4})''',
     note=r"La forme réduite de $\mathbf{P}$ est $\begin{pmatrix} 1 & 3 & 0 & 2 \\ 0 & 0 & 1 & -1 \\ 0 & 0 & 0 & 0 \end{pmatrix}$ : "
          r"pivots dans les colonnes 1 et 3, rang 2. Le noyau a pour base $(-3, 1, 0, 0)$ (colonne 2 = 3 × colonne 1) et "
          r"$(-2, 0, 1, 1)$ (colonne 4 = 2 × colonne 1 − colonne 3). L'espace des colonnes a pour base les colonnes 1 et 3 "
@@ -784,13 +794,17 @@ numpy_1, pivots_1 = rank_table()
 numpy_big, pivots_big = rank_table(scale=1e6)
 _, pivots_6 = rank_table(tol=1e-6)
 wbm.record("M12a.31a", first_rank_2(numpy_1),
-           mistakes={"le premier k où matrix_rank donne 2, pas le dernier où il donne 3": first_rank_2(numpy_1) - 1})
+           mistakes={"le premier k où matrix_rank donne 2, pas le dernier où il donne 3": first_rank_2(numpy_1) - 1,
+                     "tu as lu la ligne des pivots, pas celle de matrix_rank": first_rank_2(pivots_1)})
 wbm.record("M12a.31b", first_rank_2(pivots_1),
-           mistakes={"le premier k où tes pivots donnent 2, pas le dernier où ils donnent 3": first_rank_2(pivots_1) - 1})
+           mistakes={"le premier k où tes pivots donnent 2, pas le dernier où ils donnent 3": first_rank_2(pivots_1) - 1,
+                     "tu as lu la ligne de matrix_rank, pas celle des pivots": first_rank_2(numpy_1)})
 wbm.record("M12a.31c", pivots_big[-1], mistakes={"lis la ligne des pivots du réglage à l'échelle 1e6, colonne k = 16": 2})
 wbm.record("M12a.31d", numpy_big[-1], mistakes={"lis la ligne de matrix_rank du réglage à l'échelle 1e6, colonne k = 16": 3})
 wbm.record("M12a.31e", first_rank_2(pivots_6),
-           mistakes={"le premier k où tes pivots donnent 2 avec tol = 1e-6": first_rank_2(pivots_6) - 1})''',
+           mistakes={"le premier k où tes pivots donnent 2 avec tol = 1e-6": first_rank_2(pivots_6) - 1,
+                     "lis le troisième réglage (tol 1e-6), pas le premier": first_rank_2(pivots_1),
+                     "lis la ligne des pivots du troisième réglage, pas celle de matrix_rank": first_rank_2(numpy_1)})''',
     note=r"`matrix_rank` voit la colonne comme libre jusqu'à $k = 13$, et le pivot de Gauss à tolérance absolue $10^{-10}$ "
          r"jusqu'à $k = 10$ : le pivot résiduel vaut environ $10^{-k}$ fois quelques unités, et la tolérance décide. Aucun "
          r"des deux n'est « le bon » : pour $k = 12$, la relation est vraie à $10^{-12}$ près, et c'est la précision des "
@@ -924,9 +938,9 @@ def draw_kernel_and_image(ax, M):
 # ---------------------------------------------------------------------------
 M12A_33_MISTAKES = bug_letters_mistakes(
     "ABD", "CEF",
-    {"A": "calcule le rang de chaque famille appelée « base »",
-     "B": "vérifie A fois chaque vecteur appelé « noyau »",
-     "D": "relis l'ordre des facteurs d'un changement de base"},
+    {"A": "refais chaque ligne à la main, avec ses propres nombres",
+     "B": "recalcule ce que fait chaque ligne, puis compare à son commentaire",
+     "D": "vérifie chaque résultat sur un petit exemple que tu sais faire à la main"},
     name_correct=False)
 
 M12A_33 = Ex(
@@ -1012,9 +1026,16 @@ M12A_34_CHECK = '''with checked("M12a.34 vérifications"):
             return str(exc)
         return None
 
-    passed = sum(outcome(ref_34.null_space_basis, ref_34.column_space_basis, seed) is None for seed in range(20))
-    caught_zeros = [outcome(null_space_zeros, ref_34.column_space_basis, seed) for seed in range(20)]
-    caught_all = [outcome(ref_34.null_space_basis, column_space_all, seed) for seed in range(20)]
+    try:
+        passed = sum(outcome(ref_34.null_space_basis, ref_34.column_space_basis, seed) is None for seed in range(20))
+        caught_zeros = [outcome(null_space_zeros, ref_34.column_space_basis, seed) for seed in range(20)]
+        caught_all = [outcome(ref_34.null_space_basis, column_space_all, seed) for seed in range(20)]
+    except ValueError as exc:
+        if "zero-size" not in str(exc):
+            raise
+        print("❌ Ex M12a.34 : np.linalg.matrix_rank refuse un tableau sans colonne : quand le noyau est {0} "
+              "(N.shape[1] == 0), saute la vérification d'indépendance.")
+        raise StopCheck from None
     print(f"la bonne paire passe ton test {passed} fois sur 20 ; le noyau fait de zéros est attrapé "
           f"{sum(m is not None for m in caught_zeros)} fois sur 20 ; l'image faite de toutes les colonnes, "
           f"{sum(m is not None for m in caught_all)} fois sur 20")
@@ -1150,7 +1171,8 @@ M12A_35_CHECK = '''with checked("M12a.35 défi"):
             residual_t = np.linalg.norm((X_t / norms_t) @ scaled_t, axis=0) / col_norms_t
             if np.any(col_norms_t == 0) or residual_t.max() > 1e-8:
                 problems.append(f"table {seed_t} : une relation rendue n'est pas exacte (résidu relatif "
-                                f"{residual_t.max():.1e})")
+                                f"{residual_t.max():.1e}) ; si tu as changé d'échelle, reviens aux relations de X : "
+                                "c = D⁻¹y, chaque coordonnée divisée par la norme de sa colonne")
                 break
             if np.linalg.matrix_rank(scaled_t / col_norms_t, tol=1e-6) < k_true:
                 problems.append(f"table {seed_t} : les relations rendues ne sont pas libres")
