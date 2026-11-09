@@ -73,8 +73,7 @@ PAPER = [
         ("b", "True or False", "False", '''mistakes={"compare le rang au nombre de vecteurs": True}'''),
         ("c", "a list of 2 numbers", "coords([V1_3, V2_3], V3_3)", f'''mistakes={{"{ORDER}": [-1, 2]}}'''),
         ("d", "a list of 3 numbers", "kernel(np.column_stack([V1_3, V2_3, V3_3]))[0]",
-         '''mistakes={"x₁v₁ + x₂v₂ + v₃ = 0 : les coefficients de v₁ et v₂ sont les opposés de ceux de c)": '''
-         '''[2, -1, 1]}'''),
+         '''mistakes={"avec x₃ = 1, recalcule x₁v₁ + x₂v₂ + v₃ : il doit valoir 0": [2, -1, 1]}'''),
         ("e", "a number", "-7",
          '''mistakes={"(1, 0, k) doit combiner v₁ et v₂ : trouve les coefficients avec les deux premières coordonnées, '''
          '''puis calcule la troisième": 7}'''),
@@ -90,9 +89,9 @@ PAPER = [
         ("c", "a list of 2 numbers", "coords([A_4[:, 0], A_4[:, 2]], A_4[:, 3])"),
         ("d", "an integer", "rank(A_4[:, :4])",
          '''mistakes={"la dimension compte les vecteurs libres, pas tous les vecteurs": 4}'''),
-        ("e", "an integer", "next(j + 1 for j in range(3) if rank(np.column_stack([U_4, V_4, np.eye(3, dtype=int)[:, j]])) == 3)",
-         '''mistakes={"vérifie que (u, v, e₁) est libre : calcule son rang": 1}'''),
-        ("f", "a list of 2 numbers", "coords([U_4, V_4], [1, 0, 0])", f'''mistakes={{"{ORDER}": [-2, 1]}}'''),
+        ("e", "a list of 2 numbers", "coords([U_4, V_4], [1, 0, 0])", f'''mistakes={{"{ORDER}": [-2, 1]}}'''),
+        ("f", "an integer", "next(j + 1 for j in range(3) if rank(np.column_stack([U_4, V_4, np.eye(3, dtype=int)[:, j]])) == 3)",
+         '''mistakes={"relis e) : un vecteur de Vect(u, v) ne complète pas la famille": 1}'''),
     ]),
 
     Paper("M12a.5", "Les coordonnées d'un vecteur dans une base qui n'est pas la base canonique", [
@@ -119,7 +118,7 @@ PAPER = [
         ("e", "an integer", "rank(A_6 @ C_6)",
          '''mistakes={"min(rg A, rg C) n'est qu'une borne : calcule A fois chaque colonne de C": 2}'''),
         ("f", "an integer", "rank(X_6)"),
-        ("g", "an integer", "rank(X_6 - X_6.sum(axis=0) // 3)",
+        ("g", "an integer", "rank(3 * X_6 - X_6.sum(axis=0))",   # 3 X_c, of the same rank, in integers
          '''mistakes={"centrer rend les lignes liées : leur somme est nulle": 3}'''),
     ]),
 
@@ -163,7 +162,9 @@ PAPER = [
         ("d", "a list of 4 numbers", "kernel(A_9)[0]", f'''mistakes={{"{PIVOT_SIGN}": [-1, 2, 1, 0]}}'''),
         ("e", "a list of 4 numbers", "kernel(A_9)[1]", f'''mistakes={{"{PIVOT_SIGN}": [2, 1, 0, 1]}}'''),
         ("f", "a matrix", "A_9[:, [0, 1]].tolist()",
-         '''mistakes={"les colonnes de A, pas celles de la forme réduite": [[1, 0], [0, 1], [0, 0]]}'''),
+         '''mistakes={"les colonnes de A, pas celles de la forme réduite": [[1, 0], [0, 1], [0, 0]], '''
+         '''"une matrice est une liste de lignes : les colonnes à pivot de A sont les colonnes de ta matrice, de forme (3, 2)": '''
+         '''A_9[:, [0, 1]].T.tolist()}'''),
         ("g", "a list of 3 numbers", "kernel(A_9[:, [0, 1]].T)[0]",
          '''mistakes={"n doit être orthogonal aux deux colonnes de f) : vérifie les deux produits scalaires": [-3, 2, 1]}'''),
         ("h", "True or False", "True",
@@ -180,7 +181,8 @@ PAPER = [
          '''(2 * K1_10 - K2_10).tolist()}'''),
         ("f", "True or False", "bool(np.array_equal(A_10 @ np.array([2, 0, 1, 0]), B_10))",
          '''mistakes={"calcule A fois ce vecteur et compare à b": False}'''),
-        ("g", "a number", "3", '''mistakes={"la troisième ligne de A est la somme des deux autres : et pour b ?": -3}'''),
+        ("g", "a number", "3",
+         '''mistakes={"cherche la relation entre les lignes de A ; le second membre doit vérifier la même": -3}'''),
         ("h", "an integer", "0", '''mistakes={"b doit être dans l'image de A ; sinon, aucune solution": 1}'''),
     ]),
 
@@ -207,7 +209,9 @@ PAPER = [
         ("c", "a list of 2 numbers", "phi_12([1, -1])"),
         ("d", "a matrix", "matrix(sympy.Matrix(A_12.tolist()).inv())"),
         ("e", "a list of 2 numbers", "exact(-sympy.Matrix(A_12.tolist()).inv() * sympy.Matrix(B_12.tolist()))",
-         '''mistakes={"la translation de φ⁻¹ est −A⁻¹b, pas −b": (-B_12).tolist()}'''),
+         '''mistakes={"la translation de φ⁻¹ est −A⁻¹b, pas −b": (-B_12).tolist(), '''
+         '''"la translation de φ⁻¹ est φ⁻¹(0) = A⁻¹(0 − b) : attention au signe": '''
+         '''exact(sympy.Matrix(A_12.tolist()).inv() * sympy.Matrix(B_12.tolist()))}'''),
         ("f", "a list of 2 numbers", "exact(sympy.Matrix(A_12.tolist()).inv() * sympy.Matrix((np.array([3, 4]) - B_12).tolist()))",
          '''mistakes={"φ⁻¹(y) = A⁻¹(y − b) : retire b avant d'appliquer A⁻¹": '''
          '''(np.array(exact(sympy.Matrix(A_12.tolist()).inv() * sympy.Matrix([3, 4]))) - B_12).tolist()}'''),
@@ -233,8 +237,9 @@ PAPER = [
         ("a", "an integer", "rank(X_20)", '''mistakes={"une colonne est la somme des deux autres": 3}'''),
         ("b", "an integer", "rank(X_20.T @ X_20)", '''mistakes={"rg(XᵀX) = rg(X)": 3}'''),
         ("c", "a list of 3 numbers", "kernel(X_20)[0]",
-         '''mistakes={"X d = 0 : trajet + sur place − total = 0, attention aux signes": [1, 1, -1]}'''),
-        ("d", "True or False", "False", '''mistakes={"XᵀX est inversible si et seulement si les colonnes de X sont libres": True}'''),
+         '''mistakes={"le vecteur demandé a sa dernière coordonnée égale à 1": [1, 1, -1]}'''),
+        ("d", "an integer", "X_20.shape[1] - rank(X_20.T @ X_20)",
+         '''mistakes={"ker(XᵀX) = ker X : un vecteur de c) suffit-il à décrire ce noyau ?": 0}'''),
         ("e", "a list of 4 numbers (1 decimal)", "(X_20 @ (W_20 + 2 * np.array(kernel(X_20)[0]))).tolist()",
          '''decimals=1, mistakes={"w′ = w + 2d : n'oublie pas w dans les poids": [0.0, 0.0, 0.0, 0.0]}'''),
         ("f", "True or False", "True",

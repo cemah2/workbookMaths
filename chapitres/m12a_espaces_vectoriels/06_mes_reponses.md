@@ -116,7 +116,7 @@
 - f :
 - g :
 - h :
-- Les trois conditions pour chaque `True`, un contre-exemple précis pour chaque `False` ; pour d), pourquoi la multiplication passe et pas l'addition :
+- Les trois conditions pour chaque `True`, un contre-exemple précis pour chaque `False` ; pour d), la stabilité par multiplication, puis par addition :
 
 ### Ex M12a.2 — Écrire un vecteur comme combinaison linéaire : un système à résoudre
 
@@ -136,7 +136,7 @@
 - d :
 - e :
 - f :
-- Pourquoi trois vecteurs deux à deux non colinéaires peuvent être liés ; ce que veut dire « trois vecteurs liés de ℝ³ » :
+- « Deux à deux non colinéaires » suffisait-il pour b) ? Ce que voudrait dire, géométriquement, que trois vecteurs de ℝ³ soient liés :
 
 ### Ex M12a.4 — Extraire une base d'une famille génératrice, compléter une famille libre
 
@@ -146,7 +146,7 @@
 - d :
 - e :
 - f :
-- Pourquoi les colonnes à pivot de b) forment une base de ℝ³ sans vérifier qu'elles engendrent ; pourquoi e₁ ne complète pas (u, v) :
+- Ce que forment les colonnes à pivot de b), et s'il faut vérifier qu'elles engendrent ; ce que dit e) sur le choix à faire en f) :
 
 ### Ex M12a.5 — Les coordonnées d'un vecteur dans une base qui n'est pas la base canonique
 
@@ -213,7 +213,7 @@
 - f :
 - g :
 - h :
-- L'ensemble des solutions sous la forme x_p + s k₁ + t k₂ ; pourquoi f) est une solution ; la relation entre les lignes qui explique g) :
+- L'ensemble des solutions sous la forme x_p + s k₁ + t k₂ ; f), si c'est une solution, sous cette forme ; la relation entre les lignes qui explique g) :
 
 ### Ex M12a.11 — Une base adaptée qui rend diagonale la matrice d'une application : S⁻¹AS
 
@@ -249,7 +249,7 @@
 - f :
 - g :
 - h :
-- ker D et Im D en mots ; le théorème du rang ; pourquoi D n'est pas inversible alors que « dériver » se défait par une primitive :
+- ker D et Im D en mots ; le théorème du rang ; D est-elle inversible ? « Dériver » se défait-il par une primitive ? :
 
 ## ∂ Démonstrations
 
@@ -312,7 +312,7 @@
 - d :
 - e :
 - f :
-- e) comparé à X w ; ce que dit d sur les features ; pourquoi aucune méthode ne choisit entre w et w′ ; une colonne « total » chronométrée :
+- e) comparé à X w ; ce que dit d sur les features ; XᵀX inversible ? une méthode peut-elle choisir entre w et w′, et pourquoi ; une colonne « total » chronométrée :
 
 ### Ex M12a.21 — Pont : projeter sur un plan puis revenir, ce que la transformation inverse ne peut pas rendre
 

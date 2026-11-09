@@ -37107,7 +37107,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "7438333748dbdac586b53a5add9fdc92b3fb07fdccb06c70e0f9e68ae253ce30": "x₁v₁ + x₂v₂ + v₃ = 0 : les coefficients de v₁ et v₂ sont les opposés de ceux de c)"
+        "7438333748dbdac586b53a5add9fdc92b3fb07fdccb06c70e0f9e68ae253ce30": "avec x₃ = 1, recalcule x₁v₁ + x₂v₂ + v₃ : il doit valoir 0"
       },
       "shape": [
         3
@@ -37186,30 +37186,30 @@
       "source": "chapitres/m12a_espaces_vectoriels/05_solutions.ipynb"
     },
     "M12a.4e": {
-      "hash": "b8db7b89b1017d5aa33f0bb88cd5d5b6e04d0f13317bdf162ec22af595265e78",
-      "kind": "int",
-      "magnitude": 0,
-      "mistakes": {
-        "c8f31c238e376df409386b2727b22f4ceee995c3ab7e0e9c3a24f7485b26d69d": "vérifie que (u, v, e₁) est libre : calcule son rang"
-      },
-      "sign": 1,
-      "source": "chapitres/m12a_espaces_vectoriels/05_solutions.ipynb"
-    },
-    "M12a.4f": {
       "decimals": 0,
       "element_hashes": [
-        "de4be1b7c0f701256f5af70f8bb13cb101df2d897867b4d9d125db2c808972d8",
-        "456c425bf5d72ba7c1da12366c3761dff998cc23820f553197e90a76ac688429"
+        "c8c127f59dc33bf25e5a372645bd7a39629688d444266043a6ff7b59a190af53",
+        "3ace957871ec806aa4609b27a1483b93aea5833ac3c10b51cfb4221abd0625e2"
       ],
-      "hash": "1272f14e709bcbb9a7690147601ec5ba85e6806b9e8bf808c4ba5794370bc64d",
+      "hash": "377ebd18729526ac4e33b03848d585072d48ead578bde2e723488696954ec5a3",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "e0accaec8965369e32b9875906207dc2ffab28f1aad8660cf12e4b61a018f21e": "garde l'ordre de l'énoncé : le premier nombre multiplie le premier vecteur"
+        "e7f72ead6c564bcbc5ec3d03db9c14122691ef88d7c3ea001b231dc67572682c": "garde l'ordre de l'énoncé : le premier nombre multiplie le premier vecteur"
       },
       "shape": [
         2
       ],
+      "source": "chapitres/m12a_espaces_vectoriels/05_solutions.ipynb"
+    },
+    "M12a.4f": {
+      "hash": "94381d1403efececdb4b2d0e2866ba8363219fa2924d2b067ca444965aaeda40",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "7b57e064f306ed6f81ccc0dafb4f5e2d0a6b89842cf4afeebfc6db29cf8fc99e": "relis e) : un vecteur de Vect(u, v) ne complète pas la famille"
+      },
+      "sign": 1,
       "source": "chapitres/m12a_espaces_vectoriels/05_solutions.ipynb"
     },
     "M12a.5a": {
@@ -37722,6 +37722,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
+        "4f08363c9abcb56f79dfa970ae48f46c683311b4832efcf3a5d9f49f930316b3": "une matrice est une liste de lignes : les colonnes à pivot de A sont les colonnes de ta matrice, de forme (3, 2)",
         "96de327258743d434c10773f835c6e3275763c5a14102ce8be2973167f505874": "les colonnes de A, pas celles de la forme réduite"
       },
       "shape": [
@@ -37849,7 +37850,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "474b7b0074dc0d167831bd591d223204aa12558eaec6c655948d1052a0c1778a": "la troisième ligne de A est la somme des deux autres : et pour b ?"
+        "474b7b0074dc0d167831bd591d223204aa12558eaec6c655948d1052a0c1778a": "cherche la relation entre les lignes de A ; le second membre doit vérifier la même"
       },
       "sign": 1,
       "source": "chapitres/m12a_espaces_vectoriels/05_solutions.ipynb"
@@ -38075,6 +38076,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
+        "3a69049f5a67a23aa43a4b80f15326bcebdfb47cbc7b30529a50bd3b0f8c37bc": "la translation de φ⁻¹ est φ⁻¹(0) = A⁻¹(0 − b) : attention au signe",
         "55f8b69ca2f179f8aab50410bcc33d69d7ae94b5ed236d8da11f784feeae2973": "la translation de φ⁻¹ est −A⁻¹b, pas −b"
       },
       "shape": [
@@ -38283,7 +38285,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "aef25c23cf0ed372cb5843c59c5aca603c9c3d9f1c9ee80686c69e78644b317e": "X d = 0 : trajet + sur place − total = 0, attention aux signes"
+        "aef25c23cf0ed372cb5843c59c5aca603c9c3d9f1c9ee80686c69e78644b317e": "le vecteur demandé a sa dernière coordonnée égale à 1"
       },
       "shape": [
         3
@@ -38291,11 +38293,13 @@
       "source": "chapitres/m12a_espaces_vectoriels/05_solutions.ipynb"
     },
     "M12a.20d": {
-      "hash": "f5ab579dd5f9d634d4f23842841b31dbc6ae0c34a0c03a27b05890abb3c6c0b8",
-      "kind": "bool",
+      "hash": "25bbeb945bcb75ad88a187d4538700ea419e832fa186248a760296cf3eabba7c",
+      "kind": "int",
+      "magnitude": 0,
       "mistakes": {
-        "7d11e0c4c2a4f8606098f5dfe8b30bf0f4a0007eda494bfcef6764bd18ebd3d8": "XᵀX est inversible si et seulement si les colonnes de X sont libres"
+        "329a4f171dbf7922d29ffb40b95ef7c6615a62bef2356bfdc06ad818ec7a346d": "ker(XᵀX) = ker X : un vecteur de c) suffit-il à décrire ce noyau ?"
       },
+      "sign": 1,
       "source": "chapitres/m12a_espaces_vectoriels/05_solutions.ipynb"
     },
     "M12a.20e": {

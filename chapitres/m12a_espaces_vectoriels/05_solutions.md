@@ -116,7 +116,7 @@
 - g) Le polynôme nul vaut 0 en 0, pas 1.
 - h) $2t = 4$, donc $t = 2$ : $(4, -2, 6)$.
 
-**Erreurs fréquentes.** Vérifier seulement la stabilité par addition (e) passe ce test : la somme de deux vecteurs avec $x \le y$ vérifie encore $x \le y$) ; répondre `True` en d) parce que l'équation « a l'air » d'un plan ; en h), prendre $t = 4$.
+**Erreurs fréquentes.** Vérifier seulement la stabilité par addition (en e), la somme de deux vecteurs qui vérifient $x \le y$ la vérifie encore) ; répondre `True` en d) parce que l'équation « a l'air » d'un plan ; en h), prendre $t = 4$.
 
 **Variante.** $\{(x, y, z) : x = 2y \text{ et } z = 0\}$ est-il un sous-espace ? *Réponse* : oui, l'intersection de deux plans par l'origine (M12a.14) : la droite $\operatorname{Vect}\big((2, 1, 0)\big)$.
 
@@ -150,7 +150,7 @@ Pour la copie : $\operatorname{Vect}(\mathbf{u}_1, \mathbf{u}_2) = \{(x, y, z) :
 - e) $(1, 0, k) = a\mathbf{v}_1 + b\mathbf{v}_2$ : la première coordonnée donne $a = 1$, la deuxième $2 + b = 0$, $b = -2$ ; la troisième, $k = -1 - 6 = -7$.
 - f) Avec $(2, 3, -4)$, la dernière ligne devient $(0, 0, 1)$ : trois pivots.
 
-Pour la copie : les trois vecteurs sont dans un même **plan** par l'origine ($\operatorname{Vect}(\mathbf{v}_1, \mathbf{v}_2)$) ; aucun n'est le multiple d'un autre, mais $\mathbf{v}_3$ combine les deux autres. Trois vecteurs liés de $\mathbb{R}^3$ sont dans un même plan (ou une même droite).
+Pour la copie : non, « deux à deux non colinéaires » ne suffisait pas : les trois vecteurs sont dans un même **plan** par l'origine ($\operatorname{Vect}(\mathbf{v}_1, \mathbf{v}_2)$), et $\mathbf{v}_3$ combine les deux autres. Trois vecteurs liés de $\mathbb{R}^3$ sont dans un même plan (ou une même droite).
 
 **Erreurs fréquentes.** Conclure « libre » parce qu'aucun vecteur n'est multiple d'un autre ; lire la relation dans une forme échelonnée non réduite ; un signe en d).
 
@@ -158,16 +158,16 @@ Pour la copie : les trois vecteurs sont dans un même **plan** par l'origine ($\
 
 ### Ex M12a.4 — Extraire une base d'une famille génératrice, compléter une famille libre
 
-**Réponses** : a) `3` · b) `[1, 3, 5]` · c) `[1, 1]` · d) `2` · e) `2` · f) `[1, -2]`.
+**Réponses** : a) `3` · b) `[1, 3, 5]` · c) `[1, 1]` · d) `2` · e) `[1, -2]` · f) `2`.
 
 **Démarche.**
 - a) et b) $\mathbf{a}_2 = 2\mathbf{a}_1$ (pas de pivot), $\mathbf{a}_3$ n'est pas un multiple de $\mathbf{a}_1$ (pivot), $\mathbf{a}_4 = \mathbf{a}_1 + \mathbf{a}_3$ (pas de pivot), $\mathbf{a}_5$ n'est pas dans le plan $\operatorname{Vect}(\mathbf{a}_1, \mathbf{a}_3)$ : $x\mathbf{a}_1 + y\mathbf{a}_3 = (x, y, 2x + y)$ vaudrait $(1, -1, 1)$, pas $(1, -1, 0)$ (pivot). Forme réduite : $\begin{pmatrix} 1 & 2 & 0 & 1 & 0 \\ 0 & 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 0 & 1 \end{pmatrix}$.
 - c) La quatrième colonne de la forme réduite, $(1, 1, 0)$ : $\mathbf{a}_4 = \mathbf{a}_1 + \mathbf{a}_3$.
 - d) $\operatorname{Vect}(\mathbf{a}_1, \ldots, \mathbf{a}_4) = \operatorname{Vect}(\mathbf{a}_1, \mathbf{a}_3)$ : un plan.
-- e) $\mathbf{e}_1 = \mathbf{u} - 2\mathbf{v}$ est dans le plan $\operatorname{Vect}(\mathbf{u}, \mathbf{v})$, donc $(\mathbf{u}, \mathbf{v}, \mathbf{e}_1)$ est liée ; $\mathbf{e}_2$ n'y est pas : $\alpha\mathbf{u} + \beta\mathbf{v} = (\alpha, 2\alpha + \beta, -2\alpha - \beta) = (0, 1, 0)$ imposerait $\alpha = 0$, $\beta = 1$, puis $-1 = 0$.
-- f) $\alpha = 1$ (première coordonnée), $2 + \beta = 0$, $\beta = -2$ ; vérification : $-2 + 2 = 0$.
+- e) $\alpha = 1$ (première coordonnée), $2 + \beta = 0$, $\beta = -2$ ; vérification : $-2 + 2 = 0$.
+- f) Par e), $\mathbf{e}_1 = \mathbf{u} - 2\mathbf{v}$ est dans le plan $\operatorname{Vect}(\mathbf{u}, \mathbf{v})$, donc $(\mathbf{u}, \mathbf{v}, \mathbf{e}_1)$ est liée ; $\mathbf{e}_2$ n'y est pas : $\alpha\mathbf{u} + \beta\mathbf{v} = (\alpha, 2\alpha + \beta, -2\alpha - \beta) = (0, 1, 0)$ imposerait $\alpha = 0$, $\beta = 1$, puis $-1 = 0$.
 
-Pour la copie : $(\mathbf{a}_1, \mathbf{a}_3, \mathbf{a}_5)$ est libre (trois pivots) et a $3 = \dim\mathbb{R}^3$ vecteurs : c'est une base, sans vérifier qu'elle engendre (fiche §3). $\mathbf{e}_1$ est déjà dans le plan engendré par $\mathbf{u}$ et $\mathbf{v}$ : il n'ajoute aucune direction.
+Pour la copie : $(\mathbf{a}_1, \mathbf{a}_3, \mathbf{a}_5)$ est libre (trois pivots) et a $3 = \dim\mathbb{R}^3$ vecteurs : c'est une base de $\mathbb{R}^3$, sans qu'il faille vérifier qu'elle engendre (fiche §3). e) montre que $\mathbf{e}_1$ est déjà dans le plan engendré par $\mathbf{u}$ et $\mathbf{v}$ : il n'ajoute aucune direction, et f) commence donc à $\mathbf{e}_2$.
 
 **Erreurs fréquentes.** Numéroter les colonnes à partir de 0 ; garder les premières colonnes au lieu des colonnes à pivot ; répondre $d = 4$ en comptant les vecteurs ; compléter par $\mathbf{e}_1$ sans vérifier.
 
@@ -185,7 +185,7 @@ Pour la copie : $(\mathbf{a}_1, \mathbf{a}_3, \mathbf{a}_5)$ est libre (trois pi
 - e) $\alpha = 3$, $\beta = 0$, mais $2\alpha + \beta = 6 \ne 1$.
 - f) Les mêmes nombres, dans l'ordre de la nouvelle base : $c_3$, puis $c_1$, puis $c_2$.
 
-Pour la copie : la matrice $[\mathbf{b}_1\ \mathbf{b}_2\ \mathbf{b}_3]$ a trois pivots (son déterminant, M12c, vaut 2) : c'est une base. La matrice dont les colonnes sont les coordonnées de $\mathbf{e}_1$, $\mathbf{e}_2$, $\mathbf{e}_3$ est $\mathbf{B}^{-1}$, puisque $\mathbf{B}\mathbf{B}^{-1} = \mathbf{I}$.
+Pour la copie : la matrice $[\mathbf{b}_1\ \mathbf{b}_2\ \mathbf{b}_3]$ a trois pivots (le pivot de Gauss le montre ; M12c dira que son déterminant vaut 2) : c'est une base. La matrice dont les colonnes sont les coordonnées de $\mathbf{e}_1$, $\mathbf{e}_2$, $\mathbf{e}_3$ est $\mathbf{B}^{-1}$, puisque $\mathbf{B}\mathbf{B}^{-1} = \mathbf{I}$.
 
 **Erreurs fréquentes.** Résoudre $\mathbf{B}^\top\mathbf{c} = \mathbf{v}$ (en rangeant les vecteurs de base en lignes) : on trouve $(3, 1, -2)$ en a) ; confondre a) et b) (coordonnées → vecteur, ou vecteur → coordonnées) ; en f), garder l'ordre de a).
 
@@ -201,7 +201,7 @@ Pour la copie : la matrice $[\mathbf{b}_1\ \mathbf{b}_2\ \mathbf{b}_3]$ a trois 
 - c) $\operatorname{rg}(\mathbf{A}^\top\mathbf{A}) = \operatorname{rg}(\mathbf{A})$ (fiche §4 et §6), même si $\mathbf{A}^\top\mathbf{A}$ a la forme $(4, 4)$.
 - d) Les deux premières colonnes de $\mathbf{C}$, $(-2, 1, 0, 0)$ et $(1, 0, -3, 1)$, ne sont pas proportionnelles, et la troisième, $(1, 0, 0, 0)$, n'est pas dans leur plan (sa dernière coordonnée est nulle, ce qui forcerait le coefficient de la deuxième à 0, puis celui de la première à 0 par la deuxième coordonnée). Trois pivots.
 - e) Les deux premières colonnes de $\mathbf{C}$ sont dans le noyau de $\mathbf{A}$ : $\mathbf{A}(-2, 1, 0, 0) = -2\mathbf{a}_1 + \mathbf{a}_2 = \mathbf{0}$, et $\mathbf{A}(1, 0, -3, 1) = \mathbf{a}_1 - 3\mathbf{a}_3 + \mathbf{a}_4 = (1 - 0 - 1,\ 2 - 3 + 1,\ 3 - 3 + 0) = \mathbf{0}$. Donc $\mathbf{A}\mathbf{C} = [\mathbf{0}\ \ \mathbf{0}\ \ \mathbf{a}_1]$, de rang 1, sous la borne $\min(2, 3) = 2$.
-- f) Le déterminant (M12c) vaut 33, ou par le pivot : trois pivots.
+- f) Le pivot de Gauss donne trois pivots (M12c dira que le déterminant vaut 33, non nul).
 - g) Les moyennes des colonnes sont $(3, 1, 3)$ ; $\mathbf{X}_c = \begin{pmatrix} -1 & 0 & 2 \\ 1 & -1 & 0 \\ 0 & 1 & -2 \end{pmatrix}$, dont la troisième ligne est l'opposée de la somme des deux autres, et les deux premières ne sont pas proportionnelles : rang 2.
 
 Pour la copie : $L_3 = L_1 + L_2$. Pour un tableau centré de $n$ exemples, la somme des $n$ lignes est nulle (chaque colonne a une moyenne nulle) : les lignes sont liées, $\operatorname{rg}(\mathbf{X}_c) \le n - 1$ ; centrer a fait perdre un rang au tableau de f).
@@ -263,7 +263,7 @@ Pour la copie : $(b \circ a)(\mathbf{x}) = \mathbf{B}(\mathbf{A}\mathbf{x}) = (\
 
 Pour la copie : d) dit $\mathbf{a}_1 - 2\mathbf{a}_2 + \mathbf{a}_3 = \mathbf{0}$, soit $\mathbf{a}_3 = 2\mathbf{a}_2 - \mathbf{a}_1$ ; e) dit $\mathbf{a}_4 = 2\mathbf{a}_1 + \mathbf{a}_2$. $2 + 2 = 4$ colonnes : le théorème du rang. $\mathbf{A}$ n'est ni injective (noyau de dimension 2) ni surjective (image de dimension 2 dans $\mathbb{R}^3$).
 
-**Erreurs fréquentes.** Le signe de $-R_{ij}$ ; prendre les colonnes de la forme réduite pour f) ; chercher le noyau dans $\mathbb{R}^3$.
+**Erreurs fréquentes.** Le signe de $-R_{ij}$ ; prendre les colonnes de la forme réduite pour f), ou écrire cette base vecteur par vecteur, en lignes (la transposée) ; chercher le noyau dans $\mathbb{R}^3$.
 
 **Variante.** La solution de $\mathbf{A}\mathbf{x} = (2, 1, -4)$ de la forme $(s, t, 0, 0)$ ? *Réponse* : $s(1, 2, 1) + t(1, 1, -1) = (2, 1, -4)$ donne $s = -1$, $t = 3$ : $(-1, 3, 0, 0)$.
 
@@ -280,7 +280,7 @@ Pour la copie : d) dit $\mathbf{a}_1 - 2\mathbf{a}_2 + \mathbf{a}_3 = \mathbf{0}
 - g) La troisième ligne de $\mathbf{A}$ est la somme des deux autres : il faut $c = 4 + (-1)$.
 - h) $5 \ne 3$ : $\mathbf{b}$ n'est pas dans l'image, aucune solution.
 
-Pour la copie : les solutions sont $(4, -1, 0, 0) + s\,(-2, 1, 1, 0) + t\,(1, -3, 0, 1)$. f) est $\mathbf{x}_p + \mathbf{k}_1$ : une autre solution particulière ; n'importe laquelle convient pour décrire l'ensemble.
+Pour la copie : les solutions sont $(4, -1, 0, 0) + s\,(-2, 1, 1, 0) + t\,(1, -3, 0, 1)$. f) est $\mathbf{x}_p + \mathbf{k}_1$ ($s = 1$, $t = 0$) : une autre solution particulière ; n'importe laquelle convient pour décrire l'ensemble. g) : la ligne 3 de $\mathbf{A}$ est la somme des deux autres, donc $c$ doit être la somme des deux premiers nombres du second membre.
 
 **Erreurs fréquentes.** Oublier la solution particulière en e) ; répondre « une infinité » en h) parce qu'il y a des variables libres (il faut d'abord que le système soit compatible) ; un signe dans le noyau.
 
@@ -338,7 +338,7 @@ Pour la copie : $\varphi(8, -4) = (16 - 12 - 1,\ 8 - 8 + 4) = (3, 4)$. $\varphi(
 - g) Le carré de la matrice : $D^2(x^2) = 2$, $D^2(x^3) = 6x$.
 - h) $D^3(x^3) = 6 \ne 0$, $D^4 = 0$.
 
-Pour la copie : $\ker D$ = les constantes, $\operatorname{Im} D = \mathbb{R}_2[x]$ ; $1 + 3 = 4$. $D$ n'est pas injective : $P$ et $P + 5$ ont la même dérivée. « Prendre une primitive » ne défait $D$ qu'à une constante près : il faut choisir laquelle, et l'information perdue est exactement le noyau.
+Pour la copie : $\ker D$ = les constantes, $\operatorname{Im} D = \mathbb{R}_2[x]$ ; $1 + 3 = 4$. $D$ n'est pas inversible, car pas injective : $P$ et $P + 5$ ont la même dérivée. « Prendre une primitive » ne défait $D$ qu'à une constante près : il faut choisir laquelle, et l'information perdue est exactement le noyau.
 
 **Erreurs fréquentes.** Ranger les dérivées en lignes (la transposée) ; mettre le coefficient de $x^3$ en premier ; répondre 4 en d) (la taille).
 
@@ -421,17 +421,17 @@ Pour la copie : $\ker D$ = les constantes, $\operatorname{Im} D = \mathbb{R}_2[x
 
 ### Ex M12a.20 — Pont : une feature somme de deux autres rend XᵀX singulière, et le noyau dit laquelle
 
-**Réponses** : a) `2` · b) `2` · c) `[-1, -1, 1]` · d) `False` · e) `[36.0, 27.5, 54.0, 30.0]` · f) `True`.
+**Réponses** : a) `2` · b) `2` · c) `[-1, -1, 1]` · d) `1` · e) `[36.0, 27.5, 54.0, 30.0]` · f) `True`.
 
 **Démarche.**
 - a) La troisième colonne est la somme des deux premières, qui ne sont pas proportionnelles : rang 2.
 - b) $\operatorname{rg}(\mathbf{X}^\top\mathbf{X}) = \operatorname{rg}(\mathbf{X})$.
 - c) trajet + sur place − total $= 0$ : $\mathbf{X}(-1, -1, 1) = \mathbf{0}$.
-- d) $\mathbf{X}^\top\mathbf{X}$ est de forme $(3, 3)$ et de rang 2 : singulière.
+- d) $\ker(\mathbf{X}^\top\mathbf{X}) = \ker\mathbf{X} = \operatorname{Vect}(\mathbf{d})$, de dimension $3 - 2 = 1$ : $\mathbf{X}^\top\mathbf{X}$, de forme $(3, 3)$ et de rang 2, est singulière.
 - e) $\mathbf{w}' = (0{,}5 - 2,\ 1 - 2,\ 0 + 2) = (-1{,}5 ;\ -1 ;\ 2)$ ; première prédiction : $-18 - 30 + 84 = 36$ ; de même $(27{,}5 ;\ 54 ;\ 30)$, exactement $\mathbf{X}\mathbf{w}$.
 - f) Les colonnes trajet et sur place sont libres : $\mathbf{X}^\top\mathbf{X}$, de forme $(2, 2)$, est inversible (fiche §6).
 
-Pour la copie : $\mathbf{X}\mathbf{w}' = \mathbf{X}\mathbf{w} + 2\,\mathbf{X}\mathbf{d} = \mathbf{X}\mathbf{w}$. Les coordonnées non nulles de $\mathbf{d}$ désignent les trois features liées. Les données ne voient que les prédictions : deux poids qui donnent les mêmes prédictions sur tous les exemples ne se distinguent pas (il faut une règle de plus : la plus petite norme, ou une pénalité ridge, workbookIA 9). Une colonne « total » chronométrée ne serait égale à la somme qu'à quelques secondes près : le rang serait 3 en exact, mais $\mathbf{X}^\top\mathbf{X}$ serait **presque** singulière, et les poids instables (M12a.31, M12d).
+Pour la copie : $\mathbf{X}\mathbf{w}' = \mathbf{X}\mathbf{w} + 2\,\mathbf{X}\mathbf{d} = \mathbf{X}\mathbf{w}$. Les coordonnées non nulles de $\mathbf{d}$ désignent les trois features liées. $\mathbf{X}^\top\mathbf{X}$ n'est pas inversible (d). Les données ne voient que les prédictions : deux poids qui donnent les mêmes prédictions sur tous les exemples ne se distinguent pas (il faut une règle de plus : la plus petite norme, ou une pénalité ridge, workbookIA 9). Une colonne « total » chronométrée ne serait égale à la somme qu'à quelques secondes près : le rang serait 3 en exact, mais $\mathbf{X}^\top\mathbf{X}$ serait **presque** singulière, et les poids instables (M12a.31, M12d).
 
 **Erreurs fréquentes.** $(1, 1, -1)$ et $(-1, -1, 1)$ sont tous deux dans le noyau ; la vérification demande celui dont la dernière coordonnée vaut 1. En e), oublier $\mathbf{w}$ (on trouve $\mathbf{X}(2\mathbf{d}) = \mathbf{0}$).
 

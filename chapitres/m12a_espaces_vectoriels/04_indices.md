@@ -282,7 +282,7 @@ Repère d'abord les vecteurs multiples ou sommes d'autres vecteurs ; ils ne port
 </details>
 <details><summary>Indice 3</summary>
 
-e) Est-ce que $\mathbf{e}_1$ est une combinaison de $\mathbf{u}$ et $\mathbf{v}$ ? Calcule $\mathbf{u} - 2\mathbf{v}$.
+e) La première coordonnée donne $\alpha$, la deuxième $\beta$. f) Un vecteur de $\operatorname{Vect}(\mathbf{u}, \mathbf{v})$ ne complète pas la famille : relis e).
 
 </details>
 

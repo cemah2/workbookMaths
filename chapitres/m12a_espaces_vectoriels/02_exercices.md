@@ -156,7 +156,7 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 | g | $\{P \in \mathbb{R}_3[x] : P(0) = 1\}$ est un sous-espace de $\mathbb{R}_3[x]$ | `True` ou `False` |
 | h | le vecteur de $U_3$ dont la première coordonnée vaut 4 | une liste de 3 nombres |
 
-Dans ta copie : pour chaque réponse `True`, vérifie les trois conditions ; pour chaque `False`, donne un contre-exemple précis (deux vecteurs dont la somme sort, ou un vecteur et un nombre). Pour d), pourquoi la multiplication ne pose-t-elle pas de problème, et l'addition si ?
+Dans ta copie : pour chaque réponse `True`, vérifie les trois conditions ; pour chaque `False`, donne un contre-exemple précis (deux vecteurs dont la somme sort, ou un vecteur et un nombre). Pour d), examine séparément la stabilité par multiplication et la stabilité par addition.
 
 ### Ex M12a.2 — Écrire un vecteur comme combinaison linéaire : un système à résoudre ✏️ ★ ⏱️ 15 min
 **Objectif :** traduire « être une combinaison linéaire » en système, le résoudre, et décrire un plan engendré par une équation.
@@ -190,7 +190,7 @@ $\mathbf{v}_1 = (1, 2, -1)$, $\mathbf{v}_2 = (0, 1, 3)$ et $\mathbf{v}_3 = (2, 3
 | e | le nombre $k$ pour lequel la famille $(\mathbf{v}_1, \mathbf{v}_2, (1, 0, k))$ est liée | un nombre |
 | f | vrai ou faux : la famille $(\mathbf{v}_1, \mathbf{v}_2, (2, 3, -4))$ est libre | `True` ou `False` |
 
-Dans ta copie : les trois vecteurs $\mathbf{v}_1$, $\mathbf{v}_2$, $\mathbf{v}_3$ sont deux à deux non colinéaires ; pourquoi la famille est-elle quand même liée ? Que veut dire, géométriquement, « trois vecteurs liés de $\mathbb{R}^3$ » ?
+Dans ta copie : les trois vecteurs $\mathbf{v}_1$, $\mathbf{v}_2$, $\mathbf{v}_3$ sont deux à deux non colinéaires : cela suffisait-il pour conclure en b) ? Que voudrait dire, géométriquement, que trois vecteurs de $\mathbb{R}^3$ soient liés ?
 
 ### Ex M12a.4 — Extraire une base d'une famille génératrice, compléter une famille libre ✏️ ★★ ⏱️ 20 min
 **Objectif :** extraire une base par les colonnes à pivot, et compléter une famille libre avec la base canonique.
@@ -204,10 +204,10 @@ $\mathbf{a}_1 = (1, 0, 2)$, $\mathbf{a}_2 = (2, 0, 4)$, $\mathbf{a}_3 = (0, 1, 1
 | b | les numéros (à partir de 1) de ses colonnes à pivot | une liste d'entiers |
 | c | les nombres $(x, y)$ tels que $\mathbf{a}_4 = x\,\mathbf{a}_1 + y\,\mathbf{a}_3$ | une liste de 2 nombres |
 | d | $\dim\operatorname{Vect}(\mathbf{a}_1, \mathbf{a}_2, \mathbf{a}_3, \mathbf{a}_4)$ | un entier |
-| e | le plus petit $j$ tel que $(\mathbf{u}, \mathbf{v}, \mathbf{e}_j)$ soit une base de $\mathbb{R}^3$ | un entier |
-| f | les nombres $(\alpha, \beta)$ tels que $\mathbf{e}_1 = \alpha\,\mathbf{u} + \beta\,\mathbf{v}$ | une liste de 2 nombres |
+| e | les nombres $(\alpha, \beta)$ tels que $\mathbf{e}_1 = \alpha\,\mathbf{u} + \beta\,\mathbf{v}$ | une liste de 2 nombres |
+| f | le plus petit $j$ tel que $(\mathbf{u}, \mathbf{v}, \mathbf{e}_j)$ soit une base de $\mathbb{R}^3$ | un entier |
 
-Dans ta copie : pourquoi les colonnes à pivot trouvées en b) forment-elles une base de $\mathbb{R}^3$, sans qu'il faille vérifier qu'elles engendrent ? Pourquoi $\mathbf{e}_1$ ne peut-il pas compléter $(\mathbf{u}, \mathbf{v})$ ?
+Dans ta copie : que forment les colonnes à pivot trouvées en b) ? Faut-il vérifier qu'elles engendrent ? Que dit e) sur le choix à faire en f) ?
 
 ### Ex M12a.5 — Les coordonnées d'un vecteur dans une base qui n'est pas la base canonique ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer des coordonnées dans une base de $\mathbb{R}^3$ et dans une base d'un plan, et passer des coordonnées au vecteur.
@@ -318,7 +318,7 @@ $$\mathbf{A} = \begin{pmatrix} 1 & 0 & 2 & -1 \\ 0 & 1 & -1 & 3 \\ 1 & 1 & 1 & 2
 | g | le nombre $c$ pour lequel $\mathbf{A}\mathbf{x} = (4, -1, c)$ a des solutions | un nombre |
 | h | le nombre de solutions de $\mathbf{A}\mathbf{x} = (4, -1, 5)$ | un entier |
 
-Dans ta copie : écris l'ensemble des solutions sous la forme $\mathbf{x}_p + s\,\mathbf{k}_1 + t\,\mathbf{k}_2$. Pourquoi f) est-elle une solution, alors que ce n'est pas celle de a) ? Quelle relation entre les lignes de $\mathbf{A}$ explique g) ?
+Dans ta copie : écris l'ensemble des solutions sous la forme $\mathbf{x}_p + s\,\mathbf{k}_1 + t\,\mathbf{k}_2$. Si f) est une solution, écris-la sous la forme $\mathbf{x}_p + s\,\mathbf{k}_1 + t\,\mathbf{k}_2$. Quelle relation entre les lignes de $\mathbf{A}$ explique g) ?
 
 ### Ex M12a.11 — Une base adaptée qui rend diagonale la matrice d'une application : S⁻¹AS ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer la matrice d'une application dans une nouvelle base, et s'en servir pour calculer une image.
@@ -375,7 +375,7 @@ $D : \mathbb{R}_3[x] \to \mathbb{R}_3[x]$, $D(P) = P'$, dans la base $(1, x, x^2
 | g | la matrice de $D \circ D$ | une matrice |
 | h | le plus petit entier $k \ge 1$ tel que $D^k$ soit l'application nulle | un entier |
 
-Dans ta copie : décris $\ker D$ et $\operatorname{Im} D$ avec des mots. Vérifie le théorème du rang. Pourquoi $D$ n'est-elle pas inversible, alors que « dériver » se défait par « prendre une primitive » ?
+Dans ta copie : décris $\ker D$ et $\operatorname{Im} D$ avec des mots. Vérifie le théorème du rang. $D$ est-elle inversible ? « Dériver » se défait-il par « prendre une primitive » ?
 
 <a id="demonstrations"></a>
 
@@ -469,11 +469,11 @@ Un modèle linéaire sans biais prédit $\mathbf{X}\mathbf{w}$, avec par exemple
 | a | $\operatorname{rg}(\mathbf{X})$ | un entier |
 | b | $\operatorname{rg}(\mathbf{X}^\top\mathbf{X})$ | un entier |
 | c | le vecteur de base de $\ker\mathbf{X}$ dont la dernière coordonnée vaut 1 | une liste de 3 nombres |
-| d | vrai ou faux : $\mathbf{X}^\top\mathbf{X}$ est inversible | `True` ou `False` |
+| d | $\dim\ker(\mathbf{X}^\top\mathbf{X})$ | un entier |
 | e | les quatre prédictions $\mathbf{X}\mathbf{w}'$ des poids $\mathbf{w}' = \mathbf{w} + 2\,\mathbf{d}$, où $\mathbf{d}$ est le vecteur de c) | une liste de 4 nombres (1 décimale) |
 | f | vrai ou faux : après avoir retiré la colonne du temps total, $\mathbf{X}^\top\mathbf{X}$ (alors de forme $(2, 2)$) est inversible | `True` ou `False` |
 
-Dans ta copie : compare e) avec $\mathbf{X}\mathbf{w}$. Que dit le vecteur $\mathbf{d}$ sur les features en cause ? Pourquoi aucune méthode ne peut-elle choisir entre $\mathbf{w}$ et $\mathbf{w}'$ au vu des seules données ? Que changerait une colonne « temps total » mesurée au chronomètre, qui ne serait égale à la somme qu'à quelques secondes près ?
+Dans ta copie : compare e) avec $\mathbf{X}\mathbf{w}$. Que dit le vecteur $\mathbf{d}$ sur les features en cause ? $\mathbf{X}^\top\mathbf{X}$ est-elle inversible ? Une méthode peut-elle choisir entre $\mathbf{w}$ et $\mathbf{w}'$ au vu des seules données, et pourquoi ? Que changerait une colonne « temps total » mesurée au chronomètre, qui ne serait égale à la somme qu'à quelques secondes près ?
 
 ### Ex M12a.21 — Pont : projeter sur un plan puis revenir, ce que la transformation inverse ne peut pas rendre 🔗 ★★ ⏱️ 15 min
 **Objectif :** voir sur un encodeur et un décodeur linéaires que l'information écrasée par un noyau ne se récupère pas.
