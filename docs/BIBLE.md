@@ -257,7 +257,7 @@ Le README affiche l'ordre complet sous forme de liste à cocher (générée par 
 - **Synthétiques** (`wbm.synth`, avec graine) : la plupart des exercices.
 - **Palmer Penguins** (CC0) : statistique, estimation, tests, ACP.
 - **Holmes** et **Verne** (Project Gutenberg, domaine public) : comptages, probabilités, Markov, information.
-- **Images** du domaine public : SVD et rang faible.
+- **Images** du domaine public : SVD et rang faible (la photo de la tasse de café, CC0, `data/cards/tasse_cafe.md`, chargée par `wbm.datasets.load_image`).
 - Chaque jeu a sa fiche `data/cards/<nom>.md` (provenance, licence, limites). Les fichiers sont recopiés depuis leurs sources officielles (pas depuis workbookIA), avec `tools/build_datasets.py`. Règle du §8 : jamais les données d'un exercice du chapitre de workbookIA préparé.
 
 ## 11. mymath : la librairie que l'apprenant construit
