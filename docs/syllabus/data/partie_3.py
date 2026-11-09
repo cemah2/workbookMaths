@@ -458,8 +458,9 @@ CHAPTERS = [
                  "composantes, 0,572, 0,911…), `load_digits`, les « 10 features, 3 directions et du bruit » de sa "
                  "fiche, le passage des kilogrammes aux grammes, les points A(1, 1) à E(7, 3) de 12.7, et pour "
                  "l'anomalie MNIST contre Fashion-MNIST, le seuil au 99ᵉ centile et la ROC-AUC (workbookIA 25). Le 🏆 "
-                 "M12d.37 se calibre sur une image du domaine public (centrée : la SVD globale garde 90 % de l'énergie"
-                 " d'une photo dès les premiers rangs). Convention de signe des axes comme scikit-learn et la PCA de "
+                 "M12d.37 est calibré (session 41) sur la photo CC0 de la tasse de café (`data/cards/tasse_cafe.md`), "
+                 "centrée : avec 5 % des nombres, la SVD globale garde 88,8 % de l'énergie, des tuiles de rang adapté "
+                 "90 %, l'ACP de ses carrés de 8 × 8 pixels 94,1 % (97 % demandait 14 à 26 % des nombres). Convention de signe des axes comme scikit-learn et la PCA de "
                  "`mylearn` (la coordonnée de plus grande valeur absolue est positive). `svd_pca` : NumPy et "
                  "`np.linalg.eigh` permis, pas `np.linalg.svd`, `pinv`, `cond`, `lstsq` ni scikit-learn. Deux sessions"
                  " de génération : §1 à §4 (SVD), puis §5 à §8 (ACP).",
@@ -536,7 +537,7 @@ CHAPTERS = [
              "lignes au lieu de colonnes", "§6", ""),
             ("M12d.36", "🛠️", 1, 15, "Un test : la reconstruction de rang plein redonne X, et l'erreur décroît avec k",
              "§3 §7", ""),
-            ("M12d.37", "🏆", 3, 30, "Défi : compresser une image centrée en gardant 97 % de son énergie avec au plus "
+            ("M12d.37", "🏆", 3, 30, "Défi : compresser une image centrée en gardant 93 % de son énergie avec au plus "
              "5 % des nombres", "§3", ""),
         ],
     },
