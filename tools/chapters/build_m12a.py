@@ -92,7 +92,8 @@ PAPER = [
          '''mistakes={"la dimension compte les vecteurs libres, pas tous les vecteurs": 4}'''),
         ("e", "a list of 2 numbers", "coords([U_4, V_4], [1, 0, 0])", f'''mistakes={{"{ORDER}": [-2, 1]}}'''),
         ("f", "an integer", "next(j + 1 for j in range(3) if rank(np.column_stack([U_4, V_4, np.eye(3, dtype=int)[:, j]])) == 3)",
-         '''mistakes={"relis e) : un vecteur de Vect(u, v) ne complète pas la famille": 1}'''),
+         '''mistakes={"relis e) : un vecteur de Vect(u, v) ne complète pas la famille": 1, '''
+         '''"le plus petit j : e₂ convient-il déjà ?": 3}'''),
     ]),
 
     Paper("M12a.5", "Les coordonnées d'un vecteur dans une base qui n'est pas la base canonique", [
@@ -244,7 +245,8 @@ PAPER = [
         ("c", "a list of 3 numbers", "kernel(X_20)[0]",
          '''mistakes={"le vecteur demandé a sa dernière coordonnée égale à 1": [1, 1, -1]}'''),
         ("d", "an integer", "X_20.shape[1] - rank(X_20.T @ X_20)",
-         '''mistakes={"ker(XᵀX) = ker X : un vecteur de c) suffit-il à décrire ce noyau ?": 0}'''),
+         '''mistakes={"le vecteur non nul de c) est dans ker(XᵀX) : ce noyau n'est pas {0}": 0, '''
+         '''"2 est le rang de XᵀX ; dim ker = nombre de colonnes − rang": 2}'''),
         ("e", "a list of 4 numbers (1 decimal)", "(X_20 @ (W_20 + 2 * np.array(kernel(X_20)[0]))).tolist()",
          '''decimals=1, mistakes={"w′ = w + 2d : n'oublie pas w dans les poids": [0.0, 0.0, 0.0, 0.0]}'''),
         ("f", "True or False", "True",
@@ -554,9 +556,9 @@ La vérification calcule :
 - a) `coordinates([[1, 2], [1, 3]], [5, 7])` (une liste, 6 décimales) ;
 - b) `coordinates([[1, 0], [2, 1], [0, 3]], [3, 8, 6])` (une liste, 6 décimales) ;
 - c) le nom de l'erreur levée par `coordinates([[1, 0], [2, 1], [0, 3]], [1, 1, 1])` ;
-- d) `change_of_basis([[3, 1], [0, 2]], [[1, 2], [0, -2]])` (une matrice, 6 décimales) ;
+- d) `change_of_basis([[4, 1], [0, -1]], [[1, 1], [0, -5]])` (une matrice, 6 décimales) ;
 - e) `change_of_basis([[1, 2, 0], [0, 1, 1]], np.eye(3), [[1, 1], [1, -1]])` (une matrice, 6 décimales) ;
-- f) le nom de l'erreur levée par `change_of_basis([[1, 0], [0, 1]], [[2, -6], [-1, 3]])`.
+- f) le nom de l'erreur levée par `change_of_basis([[1, 0], [0, 1]], [[4, 2], [-6, -3]])`.
 
 Dans ta copie : vérifie a) en recalculant la combinaison des colonnes. Pourquoi c) lève-t-elle une erreur ? Que remarques-tu en d) sur les colonnes de $\mathbf{S}$ ?""",
     todo=LOAD_LEARNER,
@@ -568,21 +570,21 @@ with checked("M12a.28b"):
 with checked("M12a.28c"):
     wbm.check("M12a.28c", raised(mymath.linmaps.coordinates, [[1, 0], [2, 1], [0, 3]], [1, 1, 1]), computed=True)
 with checked("M12a.28d"):
-    wbm.check("M12a.28d", np.asarray(mymath.linmaps.change_of_basis([[3, 1], [0, 2]], [[1, 2], [0, -2]])).tolist(),
+    wbm.check("M12a.28d", np.asarray(mymath.linmaps.change_of_basis([[4, 1], [0, -1]], [[1, 1], [0, -5]])).tolist(),
               computed=True)
 with checked("M12a.28e"):
     wbm.check("M12a.28e", np.asarray(mymath.linmaps.change_of_basis([[1, 2, 0], [0, 1, 1]], np.eye(3),
                                                                     [[1, 1], [1, -1]])).tolist(), computed=True)
 with checked("M12a.28f"):
-    wbm.check("M12a.28f", raised(mymath.linmaps.change_of_basis, [[1, 0], [0, 1]], [[2, -6], [-1, 3]]),
+    wbm.check("M12a.28f", raised(mymath.linmaps.change_of_basis, [[1, 0], [0, 1]], [[4, 2], [-6, -3]]),
               computed=True)''',
     solution=LOAD_REF + '''
 coordinates, change_of_basis = mymath.linmaps.coordinates, mymath.linmaps.change_of_basis
 print("a)", coordinates([[1, 2], [1, 3]], [5, 7]).tolist(), " b)", coordinates([[1, 0], [2, 1], [0, 3]], [3, 8, 6]).tolist())
 print("c)", raised(coordinates, [[1, 0], [2, 1], [0, 3]], [1, 1, 1]))
-print("d)", change_of_basis([[3, 1], [0, 2]], [[1, 2], [0, -2]]).tolist())
+print("d)", change_of_basis([[4, 1], [0, -1]], [[1, 1], [0, -5]]).tolist())
 print("e)", change_of_basis([[1, 2, 0], [0, 1, 1]], np.eye(3), [[1, 1], [1, -1]]).tolist())
-print("f)", raised(change_of_basis, [[1, 0], [0, 1]], [[2, -6], [-1, 3]]))''',
+print("f)", raised(change_of_basis, [[1, 0], [0, 1]], [[4, 2], [-6, -3]]))''',
     record=f'''wbm.record("M12a.28a", [1.0, 2.0], decimals=6,
            mistakes={{"les vecteurs de base sont les colonnes de B : B c = v, pas Bᵀ c = v": [8.0, -3.0]}})
 wbm.record("M12a.28b", [3.0, 2.0], decimals=6)
@@ -590,8 +592,8 @@ wbm.record("M12a.28c", "ValueError",
            mistakes={{"(1, 1, 1) n'est pas dans le plan engendré : vérifie que B c redonne v, et lève une ValueError sinon":
                          "aucune",
                      "{wrong_error("ValueError")}": {errors_source("ValueError")}}})
-wbm.record("M12a.28d", [[3.0, 0.0], [0.0, 2.0]], decimals=6,
-           mistakes={{"S⁻¹AS, pas SAS⁻¹ : résous S M = A S": [[3.0, 0.5], [0.0, 2.0]]}})
+wbm.record("M12a.28d", [[4.0, 0.0], [0.0, -1.0]], decimals=6,
+           mistakes={{"S⁻¹AS, pas SAS⁻¹ : résous S M = A S": [[4.0, 0.8], [0.0, -1.0]]}})
 wbm.record("M12a.28e", [[0.5, 1.5, 0.5], [0.5, 0.5, -0.5]], decimals=6,
            mistakes={{"T⁻¹A, pas TA : résous T M = A S": [[1.0, 3.0, 1.0], [1.0, 1.0, -1.0]]}})
 wbm.record("M12a.28f", "ValueError",
@@ -600,9 +602,9 @@ wbm.record("M12a.28f", "ValueError",
     after=tests_cells("test_coordinates_ or test_change_of_basis_"),
     note=r"a) $(1, 2)$ : $1 \times (1, 1) + 2 \times (2, 3) = (5, 7)$. b) $(3, 2)$ : $3 \times (1, 2, 0) + 2 \times (0, 1, 3) "
          r"= (3, 8, 6)$. c) La première coordonnée impose $c_1 = 1$, la deuxième $c_2 = -1$, et la troisième vaudrait alors "
-         r"$-3 \ne 1$ : le vecteur n'est pas dans le plan. d) $\mathbf{A}(1, 0) = 3\,(1, 0)$ et $\mathbf{A}(2, -2) = (4, -4) = "
-         r"2\,(2, -2)$ : dans la base des colonnes de $\mathbf{S}$, la matrice est diagonale ; "
-         r"$\mathbf{S}\mathbf{A}\mathbf{S}^{-1}$, l'erreur classique, vaut $\begin{pmatrix} 3 & 0{,}5 \\ 0 & 2 \end{pmatrix}$. e) Avec $\mathbf{S} = \mathbf{I}$, "
+         r"$-3 \ne 1$ : le vecteur n'est pas dans le plan. d) $\mathbf{A}(1, 0) = 4\,(1, 0)$ et $\mathbf{A}(1, -5) = (-1, 5) = "
+         r"-(1, -5)$ : dans la base des colonnes de $\mathbf{S}$, la matrice est diagonale ; "
+         r"$\mathbf{S}\mathbf{A}\mathbf{S}^{-1}$, l'erreur classique, vaut $\begin{pmatrix} 4 & 0{,}8 \\ 0 & -1 \end{pmatrix}$. e) Avec $\mathbf{S} = \mathbf{I}$, "
          r"c'est $\mathbf{T}^{-1}\mathbf{A}$ : les colonnes de $\mathbf{A}$ exprimées dans la base $(1, 1), (1, -1)$ de "
          r"l'arrivée.",
 )

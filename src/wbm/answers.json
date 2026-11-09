@@ -37208,6 +37208,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
+        "4694d900c8c06d3596179836c342225d9af85210b690408bab7974b15c0501de": "le plus petit j : e₂ convient-il déjà ?",
         "7b57e064f306ed6f81ccc0dafb4f5e2d0a6b89842cf4afeebfc6db29cf8fc99e": "relis e) : un vecteur de Vect(u, v) ne complète pas la famille"
       },
       "sign": 1,
@@ -38300,7 +38301,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "329a4f171dbf7922d29ffb40b95ef7c6615a62bef2356bfdc06ad818ec7a346d": "ker(XᵀX) = ker X : un vecteur de c) suffit-il à décrire ce noyau ?"
+        "06680fdbdca07c904f321df7294a594c462c4e4cd0abfaa54f54fca6c51f84ab": "2 est le rang de XᵀX ; dim ker = nombre de colonnes − rang",
+        "329a4f171dbf7922d29ffb40b95ef7c6615a62bef2356bfdc06ad818ec7a346d": "le vecteur non nul de c) est dans ker(XᵀX) : ce noyau n'est pas {0}"
       },
       "sign": 1,
       "source": "chapitres/m12a_espaces_vectoriels/05_solutions.ipynb"
@@ -38998,7 +39000,7 @@
       "decimals": 6,
       "element_coarse": [
         [
-          "914272990a28585a1ec32af276342305af05384917819e6c239d7a9ddf26618f"
+          "0dc21e905c8db4a8cf094a4580f4108286b21906627c737d7810c5c8c07c6637"
         ],
         [
           "3522746c315e1f301a157946401eaaef47b6b017abb1af8f62d4e50d771cd8fe"
@@ -39007,37 +39009,37 @@
           "44b0568a98066d2e444678637a5599077f193eed07002a0733dad405e578b694"
         ],
         [
-          "d5e35435f49753501586e595cd00197d2b0391e829700390a296936345f3bd61"
+          "2e7e90a53023fb50d76dd0c199eb5c630eecc173e348d159b5aaaa1f7644e0b9"
         ]
       ],
       "element_coarse_any": [
         [
-          "e2473fac6208f437070d7b612684252e13ab3cae9ee20114f4404f3dfdbc15ba",
-          "6e04e01fe1ea0ddff19cbee469d9948ed9067ec37e5f1036d03a757f13f794fb",
-          "78aa00b86f5174744fb6c4942c00a2885b2efb059d1ba936c56f9242568856ce",
-          "c1472b4ac3cab4a07d90473e8ea76f355bd9891f619da12b31e4b07a6250094e",
-          "9b0aa3752bd13013622fbe4f8a243a315b15a0795298c94a7943d56c904b6b9f"
+          "659b52bc1582d0ae303ca1ddd7567fff1c940040b2725373133a94c7a3e3a0f7",
+          "82429f67102e07e8a1a3984afbca5998e219eeaf42a1fc664c646f930c74a96d",
+          "4b6d104a20e1fd0ff11571aa6df3a75fa8889e3b6333ea4d1b61928d5229d910",
+          "2c9428e064fc800209be57a57d00acc7ad5f5284b5779347e4d1d9913a79ae1b",
+          "ecf49d6b1130d63be1528500cff4f9dc6bc874dc0bbd51871387c32817a5f1d0"
         ],
         [],
         [],
         [
-          "c007997833228cf68fc177c8b5f77f42c881a7dd7025d1306d393d3b495fe2dd",
-          "846a628f819e0bbc38a39049c2f424ca43301010c159d51a745ca97f513a1841",
-          "f67dfd292a0695f3c193cdde3c9eeeae77b109eac60f388ab65f3f702c0259b3",
-          "d08df2da96d21c32c02c8109d5a75c5e7f8b402f12616f9dde2d9c48da87ab44",
-          "c0e882f96e58f844f9b50e3e831a0c149126b93258dc00cd9fe6a27dcaf9aa48"
+          "0a1666651bdb487a351e82fa7f6a53d8cf02f40fcd6e29de979fd234a5ea37d8",
+          "db2c9f2d3bd57e207e18e0e1015273e74c46d1c13cdc56696e630338b2f98a27",
+          "86aed0b8002022c6abf9628a6b06decdaca7c475e3828b95cdbdc682f96414a3",
+          "8740128ec61d8f662e33918d5339c32f45a8dfc9d934d3b4636186b34b14b86c",
+          "919469e1f56bd031b09d1885cacd8bf62614e97ebf03ad7bdb4635a7ebb5c2c5"
         ]
       ],
       "element_hashes": [
-        "ed9bfe3a5212cd95104655362a2804b5f98c470dc6a9a219c9782d0544b7a7b0",
+        "fa4abf494981424b9941932e56e37b8a6fbe115bb68c8f2c3f3777ad23525031",
         "20b2656e557dda7c3cb02b9e7b0bdf3ac4ac453550fbe82d2be0b44dee4610e5",
         "18a1b852b5ae43968c6967c1e27e880bacab3a867e95cdb6b3d5530ffd9f92fc",
-        "cbdf4d8f8476ffcfa3dea5f5be598a2cc8cb05073ec452d4d860882069c5b3e1"
+        "65da447d9f38e39517d95767db1293523698eafefbb6db94a61b63fa130e6b39"
       ],
-      "hash": "a6a0728accc61efb61dc18b87b623e4ae118097bb533aeb89d0ea259f43f0820",
+      "hash": "da4539c12de82a7e7fb129bff8c21abe1d956e907ddbe04d13bfceb46274f3b7",
       "kind": "array",
       "mistakes": {
-        "9267573ccb5a214cc7708a242c0ef6583a36ae6ec553a72cefed9409b037fe8f": "S⁻¹AS, pas SAS⁻¹ : résous S M = A S"
+        "4fe11cb13dfb12f257d34aaf40ca04890f3a00538f8b6061f55b990a0fde1893": "S⁻¹AS, pas SAS⁻¹ : résous S M = A S"
       },
       "shape": [
         2,

@@ -18,7 +18,7 @@
 
 ### M12a.Q2 — Combinaison linéaire et famille génératrice
 1. **Oui** : $(-6, 4) = -2\,(3, -2)$.
-2. **Non** : $(-6, 3) = -3\,(2, -1)$, les deux vecteurs sont colinéaires et n'engendrent qu'une droite.
+2. **Non** : $(3, -12) = -3\,(-1, 4)$, les deux vecteurs sont colinéaires et n'engendrent qu'une droite.
 3. **Quatre** : une famille génératrice de $\mathbb{R}^4$ a au moins $\dim\mathbb{R}^4 = 4$ vecteurs.
 4. Le **plan** $z = 0$ : les vecteurs $(x, y, 0)$.
 5. **Vrai** : la combinaison dont tous les coefficients sont nuls.
@@ -435,7 +435,7 @@ Pour la copie : $\mathbf{X}\mathbf{w}' = \mathbf{X}\mathbf{w} + 2\,\mathbf{X}\ma
 
 **Erreurs fréquentes.** $(1, 1, -1)$ et $(-1, -1, 1)$ sont tous deux dans le noyau ; la vérification demande celui dont la dernière coordonnée vaut 1. En e), oublier $\mathbf{w}$ (on trouve $\mathbf{X}(2\mathbf{d}) = \mathbf{0}$).
 
-**Variante.** Un autre tableau a une colonne de 1 et trois colonnes indicatrices d'une équipe (matin, après-midi, nuit), avec un seul 1 par ligne parmi les trois : un vecteur de son noyau ? *Réponse* : $(1, -1, -1, -1)$ : la colonne de 1 est la somme des trois indicatrices (fiche §6).
+**Variante.** On ajoute au tableau une quatrième colonne, le temps total en heures (le total divisé par 60) : la dimension du noyau ? *Réponse* : 2 (rang 2 pour 4 colonnes) ; par exemple $(-1, -1, 1, 0)$ et $(0, 0, 1, -60)$.
 
 ### Ex M12a.21 — Pont : projeter sur un plan puis revenir, ce que la transformation inverse ne peut pas rendre
 
@@ -542,9 +542,9 @@ Pour la copie : $\mathbf{E}(1, 2, 0) = (3, 2)$, comme $\mathbf{E}(0, 3, 1)$ : le
 
 ### Ex M12a.28 — Coordonnées dans une base et changement de base · `coordinates, change_of_basis`
 
-**Réponses** : a) `[1.0, 2.0]` · b) `[3.0, 2.0]` · c) `"ValueError"` · d) `[[3.0, 0.0], [0.0, 2.0]]` · e) `[[0.5, 1.5, 0.5], [0.5, 0.5, -0.5]]` · f) `"ValueError"`.
+**Réponses** : a) `[1.0, 2.0]` · b) `[3.0, 2.0]` · c) `"ValueError"` · d) `[[4.0, 0.0], [0.0, -1.0]]` · e) `[[0.5, 1.5, 0.5], [0.5, 0.5, -0.5]]` · f) `"ValueError"`.
 
-**Démarche.** `coordinates` : les copies, les formes (`v` à une dimension, autant de coordonnées que `B` a de lignes), `is_independent(B, tol)`, puis `c = np.linalg.solve(B.T @ B, B.T @ v)` et la vérification `np.linalg.norm(B @ c - v) <= tol * max(1.0, np.linalg.norm(v))`. `change_of_basis` : `T = S` si `T is None`, les formes $(n, n)$ et $(m, m)$, puis `is_independent(S)` et `is_independent(T)`, et enfin `np.linalg.solve(T, A @ S)`. Pour la copie : a) $(1, 1) + 2(2, 3) = (5, 7)$ ; c) : $(1, 1, 1)$ n'est pas dans le plan engendré ; d) : $\mathbf{A}(1, 0) = 3(1, 0)$ et $\mathbf{A}(2, -2) = 2(2, -2)$, d'où une matrice diagonale ; $\mathbf{S}\mathbf{A}\mathbf{S}^{-1}$ donnerait $\begin{pmatrix} 3 & 0{,}5 \\ 0 & 2 \end{pmatrix}$.
+**Démarche.** `coordinates` : les copies, les formes (`v` à une dimension, autant de coordonnées que `B` a de lignes), `is_independent(B, tol)`, puis `c = np.linalg.solve(B.T @ B, B.T @ v)` et la vérification `np.linalg.norm(B @ c - v) <= tol * max(1.0, np.linalg.norm(v))`. `change_of_basis` : `T = S` si `T is None`, les formes $(n, n)$ et $(m, m)$, puis `is_independent(S)` et `is_independent(T)`, et enfin `np.linalg.solve(T, A @ S)`. Pour la copie : a) $(1, 1) + 2(2, 3) = (5, 7)$ ; c) : $(1, 1, 1)$ n'est pas dans le plan engendré ; d) : $\mathbf{A}(1, 0) = 4(1, 0)$ et $\mathbf{A}(1, -5) = -(1, -5)$, d'où une matrice diagonale ; $\mathbf{S}\mathbf{A}\mathbf{S}^{-1}$ donnerait $\begin{pmatrix} 4 & 0{,}8 \\ 0 & -1 \end{pmatrix}$.
 
 **Erreurs fréquentes.** `np.linalg.solve(B, v)`, qui refuse une matrice non carrée ; une vérification absolue (`<= tol`), qui rejette à tort un grand vecteur du sous-espace ; ne tester que `T` (une `S` singulière passe alors quand `T` est donnée) ; laisser passer la `LinAlgError` de NumPy au lieu de lever une `ValueError` (les tests et f) le refusent) ; calculer $\mathbf{S}\mathbf{A}\mathbf{S}^{-1}$.
 

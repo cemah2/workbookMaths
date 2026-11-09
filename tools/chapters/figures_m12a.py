@@ -63,8 +63,8 @@ def axes_frame(ax, lim):
 
 
 def span() -> None:
-    """Left: the combinations of u = (3, 1) fill a line. Right: those of u and w = (1, 2) fill the plane."""
-    u, w = np.array([3.0, 1.0]), np.array([1.0, 2.0])
+    """Left: the combinations of u = (3, 2) fill a line. Right: those of u and w = (−1, 3) fill the plane."""
+    u, w = np.array([3.0, 2.0]), np.array([-1.0, 3.0])
     fig, axes = plt.subplots(1, 2, figsize=(10, 4.8))
     ax = axes[0]
     axes_frame(ax, 6)
@@ -82,12 +82,12 @@ def span() -> None:
         ax.plot([p[0], q[0]], [p[1], q[1]], color=C[1], lw=0.7, alpha=0.5)
         p, q = -4 * u + a * w, 4 * u + a * w
         ax.plot([p[0], q[0]], [p[1], q[1]], color=C[0], lw=0.7, alpha=0.5)
-    target = 1 * u + 1.5 * w
+    target = u + w
     arrow(ax, (0, 0), u, C[0], "u", (0.05, -0.55))
     arrow(ax, (0, 0), w, C[1], "w", (-0.55, 0.05))
-    arrow(ax, u, 1.5 * w, C[1], "1,5 w", (0.15, -0.2), lw=1.5)
+    arrow(ax, u, w, C[1], "w", (0.15, -0.2), lw=1.5)
     ax.plot(*target, "o", color="black", ms=6)
-    ax.text(target[0] - 1.2, target[1] + 0.35, "u + 1,5 w", fontsize=10)
+    ax.text(target[0] + 0.25, target[1] + 0.1, "u + w", fontsize=10)
     ax.set_title("Vect(u, w) : tout le plan")
     save(fig, "vect.png")
 
