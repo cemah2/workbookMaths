@@ -42085,6 +42085,3200 @@
       },
       "source": "chapitres/m12b_orthogonalite/05_solutions.ipynb"
     },
+    "M12c.1a": {
+      "hash": "0cda546058d708abb4d114eae0993645eb62a4f678797d413d1664e31e275e20",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "a7c1196404fc79b54602dbf24054077a1c54dded9d80b1641e08bd28f5c93f55": "ad − bc : le produit de la diagonale MOINS celui de l'autre diagonale"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.1b": {
+      "hash": "29ae9d56b67af10d13978724e6ec6b7b7810c506ba1702a9acbe46e06ccdecec",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "b85756332a0c049aaefbf2d8eec2f07c61e49fdcfc6a0c3ccfcd394b0bf1d117": "un triangle est la moitié du parallélogramme construit sur deux côtés"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.1c": {
+      "coarse_any": {
+        "0": [
+          "608d47feeaca7460ee9fffc404d1170f23bc4493a5d35973edbe01d1032bcdf8"
+        ]
+      },
+      "decimals": 2,
+      "hash": "77763faba0cb209cb02ad7842487e776c708ccf4ff5cc1019055ce1865bcd895",
+      "hash_coarse": "19a1bcfda68666f9f81b9e4648b3df756916eead70dcc65ffdb80d53f97a7b09",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "45620a3cc8e54bdc04aeedcf794d4cc85947f8a273e23bead31dc2e8933a94be": "l'aire du disque de rayon 2 est π × 2², pas 2π",
+        "916316a763440dab6f5908e12cfe2138c2c2bf29dda4d88805314b2dfc021847": "l'image a pour aire celle du disque multipliée par |det M|"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.1d": {
+      "hash": "aa9bb1c947016818f354afe6c031307d3e8482195d554154cff00311dfd933b0",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "15f1d89e79f057cc833aec90b38074cae5db0f87f360f481a508895df4946683": "les signes des cofacteurs alternent : +, −, + sur une ligne"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.1e": {
+      "hash": "0a009b7141de8fcce0fba11315731422c510b00116950eb8fc4636927a68c62b",
+      "kind": "bool",
+      "mistakes": {
+        "f5772ad63ec52f6b7e7ec15022080a34cd02f4d928e1c0de038d9f4406b5d032": "le signe du déterminant dit si l'orientation est conservée"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.1f": {
+      "hash": "b172ca5cb655d991073bd7f9f4e0232938487018cbdd889db17c9bbfeb1f8516",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "e403be2995088cdf1a926d015d7d919b4902c87cf71eaf3ea107c7849c5fdc7a": "échanger deux lignes change le signe du déterminant"
+      },
+      "sign": -1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.1g": {
+      "hash": "3fdf97e307930558bdb9435241ffecf0ce3ba306d1514b675983428e9b1f0bd0",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "65cbcd90b6bbc7d73cb017bf2e1445517742266c4dda9cb5c44b567f9249ae7d": "c est à la puissance n = 3, pas 2",
+        "aa7cad899cb4a8c3c51761f1b9b35e890b50c13dbaade1977ca1ce7d04dc1a01": "det(cN) = cⁿ det N : chaque ligne est multipliée par c, et il y a n = 3 lignes"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.1h": {
+      "hash": "acfe3fcab497e7de0159eaf0727bf0c2a97abbfadb45de91a076bfddbf7a7d75",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "b484efe5756934964a6010c4ce94f8270b42a2f35282c16bf7047d6f9e295ce6": "développe selon une ligne, signes des cofacteurs compris"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.2a": {
+      "decimals": 0,
+      "element_hashes": [
+        "98624405141b10acfd11851dc29ca1506c60533fe46eec9d5a41d680f54a697b",
+        "248d64fedba9f7e20fdd8fc688081e93ea228bed8bb48abb5f12a7b222648911",
+        "46daea7753df121ba47c248dd3112a5934f2e07ae280cf3ab070b16d83562c18",
+        "5684d7f4f7627ebfae0d091a6fdb9796188aaf9791653950e53f9af2400a0da3",
+        "1e7f13f516ff55ba06a5890c78523c008b67453ec968e0abea461d7b34a28f15",
+        "7576ed998197e916ed7ed1c1741764bec7271234ffdd26ac932bf890ff8f6aec",
+        "28f1a05d7a26d45451c627ceb4f5f57d6b7f3d96d480cc145c107d6d9eace295",
+        "4d1d6ede1aaa0cfc7dcaebf4c45b7c0b5486ec82db74658d9270a08ef36755aa",
+        "eae48175a5e77cbab90e1291227b95439722b9eae66c706578203593639b7c86",
+        "90158346ec1f3ab4a51b9df016e6672f4d395fdfecf0b731a09bce35bb17df7b",
+        "080f84564460dea74eb99bf902932d60fa0e97c42a7a3ff56acf9767ad3e6384",
+        "afdf684ca5b1367fa58dffe26e034c352cb3773127bf6d8421a5616d7561413a",
+        "3512e02dee0950aaf39f777e34c8066bc21027154e10952a927433a049c2cdb4",
+        "9d08128590829f8a03ad934db092f1da33f19d7154837b4ce7b2a4bed177a822",
+        "d6bd926db005b4cdf4de107c1b0aa06e4c81e97ef35fc3fe4bb802eeb8448f9a",
+        "bc08729809a19774be155ab73e7e5e10ba07678f3ec2ec061621080780401542"
+      ],
+      "hash": "a1d63e58eb7513bf8f11b8e1e7dcbcebf3ae091ccf6dccda4a0f20da92c2a8eb",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "cfa298d2f23709006ce0868809104802c38118dcf923942dabf2b24c6638827c": "on échange d'abord les lignes 1 et 2, puis on élimine sous le pivot 1"
+      },
+      "shape": [
+        4,
+        4
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.2b": {
+      "decimals": 1,
+      "element_hashes": [
+        "ef57a409895f40293fa8c4cb0dbf86f24a358a132085dd6a12d8cfe21f4e6447",
+        "08d09c6fb66eaa8ea1424cad44cacbde04f721755ed482f515541d25603a608f",
+        "581c0045628499f9d6c5950e08ceca89a6d692a45c3909dde79a51cc46ce950c",
+        "b8163e3ccf94dd2e2e2555171965ef250c75b7613aa971382211de2da94234b5"
+      ],
+      "hash": "fe5fd930c4b0a3361f55423bd92d123b72153b6017a0f63ceb385d43d346493e",
+      "kind": "array",
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.2c": {
+      "hash": "494ab9b81542be839016ba46ec947776364cdf0f29714c9abc77bafb18aa9563",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "7df4432272e33f6d827587a27385a577e0e9ae3acbd7e79c8b5ecf74f990c58e": "un échange de lignes change le signe du déterminant"
+      },
+      "sign": -1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.2d": {
+      "coarse_any": {
+        "2": [
+          "77bc55b4c5ccccebdb1157a893ec1ef53986041228137cfc44441ec8de74ba9c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "2a980aaff2fa49e04ca0f88a13a1771a150710d2f855e06018c729e76923c53d",
+      "hash_coarse": "5af746e48bf8f456bd035d7fc453214fc463b31350f8794994300e736bdfea66",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "3b9c8839ac6a313991a50c7685fa15b0742e748fd01ce80a067f40ecf8c6bb71": "det(F⁻¹) = 1 / det F, signe compris"
+      },
+      "sign": -1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.2e": {
+      "hash": "cd5d2cd3abdae00bc660f7c41cc1865ae2809d234ff1356ff435ec11364704be",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "5759aa3a49fbae76a3c0b7892b8f969c6d162dbfa7548f93c17debcd2c198972": "det(FᵀF) = det(Fᵀ) det(F) = (det F)², jamais négatif"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.2f": {
+      "hash": "7cbfb50ee1149b3744bb5c5e1a2376ef05b0fa3ba3d835c6fe20d4592e95f195",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "f4190a9847991f344387ff621d09a3579a7785433fcb2b1196c4897119be0353": "ajouter à une colonne un multiple d'une autre ne change pas le déterminant"
+      },
+      "sign": -1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.2g": {
+      "hash": "14742a67abd7ab58c86cacf3d32c0dd2b183b082e61b1222b96e5c1bb4b1d6ee",
+      "kind": "bool",
+      "mistakes": {
+        "0d4528fafb36eaf01d49dd7b06f8b99d3454c46ab3952cf3589c1b2d5dc847aa": "det F ≠ 0 : F est inversible, et ses colonnes forment une base"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.3a": {
+      "hash": "eb9ed4151ac24470a1cc91fb96b5015bb443d1c3f51ef176c9a5e15cac12de41",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.3b": {
+      "hash": "2a4df3864854e42ad1d11745a3464b717838792a60558514602a10d554ae97df",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "ada41c942ddfc2448df860e827ef444120bec8ee9b1a2cf55bfcaf3a7f755296": "ad − bc, pas ad + bc"
+      },
+      "sign": -1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.3c": {
+      "decimals": 0,
+      "element_hashes": [
+        "f657d80163bc49e30d3d07d5cd0f005b4906db8a7dfe74a4440a7e1312e8fa34",
+        "d6c63d4bf9b59d821f927c68b5e1f31a20859dcb9523b9d6e2f69890f629ba58"
+      ],
+      "hash": "3bcf90f8e929d4abfb4294dadb599bf9c73e6a13748dcdfa4c2d42f886d0de52",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "36a1b1b08e16e0aabd0d9a50c3f0071e8f108f8fc4a6fcceab2c78b9f09a6b0f": "les racines de λ² − (tr M) λ + det M, signes compris",
+        "eadf11245e86176457a6321b4ef1b19014a647f24c797ff3763ebe9f041ae50b": "l'ordre décroissant : la plus grande valeur propre d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.3d": {
+      "decimals": 0,
+      "element_hashes": [
+        "d43f954612c02722acbd10413ebe1806e63ff6c49735a33d64e5004d34966a44",
+        "b84fb26560fd318a7286bac65a2c2eb8ce6cc774795e011018f6d8c87017b294"
+      ],
+      "hash": "806119135b7b4dab4c04f2cabee1512c4cd2c4d9c2231e6f6bc4c7f27716de73",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4742f74dfdfb9baae695ded8a91eae4d17a71f68bb2abc5403a9755e9feecc96": "résous (M − λI) v = 0 pour la plus grande valeur propre, signes compris"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.3e": {
+      "decimals": 0,
+      "element_hashes": [
+        "a383e76e530d03b4f961b5c0245bc287acbaf9e23f0b58081c202af14149363b",
+        "7a88d4d564ef0d0f44bf5a414ddc0b238ceddf12e56500d292f4604185dee5e3"
+      ],
+      "hash": "98447d8a32018145db44f34beba6f33ca5d31e56214ec981eddbe98df453f3db",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "796f012aedd258d8e79fd7d3e2b33d940b944ce11088dba26004dc2606602ef3": "résous (M − λI) v = 0 pour la plus petite valeur propre, signes compris"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.3f": {
+      "decimals": 0,
+      "element_hashes": [
+        "03cc840a71aa7c88f8a2a47889e3a5619a49928b352d6bd8a5be5b8efb490089",
+        "f8273018138d13c23a045a4d5f44a5afc9d872df53364bbed5561602300f049e"
+      ],
+      "hash": "875f7d1cae2d85b5614c22d2585fef99223869982560d8ffcb8c484407dfac83",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "b51d116b50cd19b37e1c55059c666134915d2e1f0a52c1f1a4e111d875fc1452": "ajouter 2I ajoute 2 à chaque valeur propre (les vecteurs propres restent)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.3g": {
+      "decimals": 0,
+      "element_hashes": [
+        "b2d71dfead6c31c52eef4c053c135715713943712c8e36191ff0a2c69e487649",
+        "4348c039fd3cee7808b24d423453ff45f876d5e2fba567797a0d8ef0f461e1fa"
+      ],
+      "hash": "77f79a4312293d1d75325487ef962ad44586b75d0d2cf486ef03a075cab14d0d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "f3a694d56ae50d4c7a59f591313af6a512c69e364f22b0c3f381bef66caae17c": "l'ordre décroissant : la plus grande valeur propre d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.3h": {
+      "hash": "c228f338a686934845deb36fb807f13ff6fee8bc3680daf9599ac59b8c33989f",
+      "kind": "bool",
+      "mistakes": {
+        "8cef49911e2bfb8a2e5766a47f3aa24dc028176f244d3d543331825271e8d0c8": "calcule leur produit scalaire : M n'est pas symétrique"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.4a": {
+      "decimals": 0,
+      "element_hashes": [
+        "9eab5ffed398cba9b60847b520932a2a6b64aab5a7cc1dcfefd4f90bdcd38a9a",
+        "1369daf9cd9412a9ac755be55713f4edd4b5c7a11fd37bd555820229e01fd5bd",
+        "6866d6a416913411215efd1deb2db4eb8861c5cf371f61f06f34d66777bd64d6"
+      ],
+      "hash": "5111ef3dcb4fb3427c61720acaadf914191643b03f80b7138d5db167836d66f9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "e93dff98c62bb87a07e56c292bf25d77d6cf06a2be0afb5958ccd3d62f1bdca6": "l'ordre décroissant : la plus grande valeur propre d'abord"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.4b": {
+      "decimals": 0,
+      "element_hashes": [
+        "484ed545d6d15b9b1438109f50d7c15a6906cbd89e28ea0bcd79dcdba4370e57",
+        "72c6c3bc140f8c3ccdc83f9673c245d2f864bab4d5017d3e89753c2ae6b35f0e",
+        "7056670b1637c1b562895c0b9ac8a4325c22cab83863a4d764e29b47ff877f25"
+      ],
+      "hash": "a68d75aab9935032a7242e6a5755967d4de84c8398daa9b83f01c2eac6b86a03",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "9e8ecb11482134a8d91316e5171b155d754241d37effafe6d9ae18204f1a7c6c": "résous (T + I) v = 0, en remontant depuis la dernière ligne, signes compris"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.4c": {
+      "decimals": 0,
+      "element_hashes": [
+        "a147b74929162a22520178ac269b9a237425f740e52d5d3e2dba7a0365475ad8",
+        "e6341dc175e94212034311a274f2aa2a35f8f4220e190208898135208799d986",
+        "5c459781057cd763cad32b19974f454fdf80545227b59db6451b03b4a392d8d0"
+      ],
+      "hash": "914d12744b2598c8b193f1e67395d29ff94c3ed61329693051cac138ffeb6303",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "8dd0a82ff99b441fa9d04984373e6155176ababbaca6615f95bb6435d7eed513": "résous (T − 4I) v = 0, en remontant depuis la dernière ligne, signes compris"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.4d": {
+      "hash": "77350f0aa19fee79813fe5a6cb745213c8b15711587aa4614d611f6451abd90c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5b3a1590301b57b7a1a88f239d4b85db97dd5d678d16db7ab00ba11b3ca110fc": "le produit de la diagonale, pas sa somme"
+      },
+      "sign": -1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.4e": {
+      "decimals": 0,
+      "element_hashes": [
+        "65ea119fd19bcec473b38206d11bbad7ba23d850b0fde714b139bf483d1f1964",
+        "3c1f2c3f3ee23b9e84c0a47b2d314be8f7a66662a3d59d7a04681f2e6bc09a4e",
+        "6e1e2d9fe29787c58a145f0410ca17fdb02eef2640bb0c6cf7a58d35ea1bc0a6"
+      ],
+      "hash": "21003301870f18dcc3d0b7c4ab7d6c44e1d739db93c16a87a3bebf4d88b00318",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "118816b66422c755af875bf663702315a115e2f152a72d6f2a156e01c268cd98": "l'ordre décroissant : la plus grande valeur propre d'abord, la valeur propre double écrite deux fois",
+        "efbd84154a0207c5d3544023be9b1e7d0e5312f9f2d78b4e975e6d7a2b7e31de": "les valeurs propres de K ne se lisent pas sur sa diagonale : calcule det(K − λI)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.4f": {
+      "hash": "0fb55c06e9061e1a86b2da948b76b096feb38e37de47913e0736ae802fe3c184",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "4252e67235bedf6748c23ae479300c1c95891b92007af09e2dd6ed86c26cbcb5": "dim E₃ = 3 − rang(K − 3I) : compte les lignes indépendantes de K − 3I"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.4g": {
+      "decimals": 0,
+      "element_hashes": [
+        "db11b42072a96e0ad92fafe7ff88572338cdf6d2248a06482cd0694a3c1105ff",
+        "1d46cb92b4345a000213a58931e64774988b8faefce3348c720b2b54fc2c3275",
+        "1cc4447d7237869a22b852d63a4909b6e4c0dbac53952e36557ea51876f53512"
+      ],
+      "hash": "5e51b94e02fff00ee3642d3b58ff9d61a07de17a3fd2b672d8b359cffa89d70d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3c3393d2718372e17fd198a7dc335fc6f3e6f937251d16f7431a5c8613872ded": "résous (K − 5I) v = 0, signes compris"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.4h": {
+      "hash": "4debd0271c106024058a50b2297ec63eda4d48c8466ec121703737f9b24663cc",
+      "kind": "bool",
+      "mistakes": {
+        "c26dbb1dad1387f82838c6309e2eff508ddbd23597d35bcb21ce88e45ce3b887": "une valeur propre double n'empêche pas d'être diagonalisable : regarde la dimension de son espace propre"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.5a": {
+      "decimals": 0,
+      "element_hashes": [
+        "b3125b2f919ce783c2872fc0d282baeca580c8884fb720d87ef2b83eace0b0b4",
+        "f621fd16460361447eee9beea09721e7703ad0f096891300cd279371e8202a7b"
+      ],
+      "hash": "ec3b38d78a8aa2b3ec0b42bfaeaa4cbf80186e4625315d3f5e1817d8312a8c18",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3cb49fb14e3f3c056f6170dd9e80b2b465c5b7c92b9ce6b0c0457184d932d0b6": "l'ordre décroissant : la plus grande valeur propre d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.5b": {
+      "decimals": 0,
+      "element_hashes": [
+        "67ed9e14e88c584e01b118a7e138e8e6662757336d07f424f9e9a191d79d4815",
+        "ca0939db77c9e5d77bced491ce4c9a7c7b271942ab1903701e0f50cc25295aa5"
+      ],
+      "hash": "e3fd73b9d8a794c86a73e9efe8695df89813673cd7fe3fa3be4d013cb5eca3a0",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "d4b2abcaf45e86fccc9df1f154b62fedbe6a737748e04199222e9bc6c6139b76": "résous (A − 2I) v = 0, signes compris"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.5c": {
+      "decimals": 0,
+      "element_hashes": [
+        "e12a8e75b84cbcacfb0c4ee45a4cf8d7b16517b069b8846f98e1b761729a6ea8",
+        "8ac838e0091397af2353b70e102de971dddf26a8c9e288a8b0a395c993a1d021"
+      ],
+      "hash": "aaa778800f545aa195dd20f650d26a4abb06b4d8619e2b5e80f01d4080562e1e",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "738c7b4e46427ae98f000e2da6987dc6d4b846034a927ef01fb5523d12b0b08d": "résous (A − I) v = 0, signes compris"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.5d": {
+      "decimals": 0,
+      "element_hashes": [
+        "6fe1b6228da64974967d7de8e26e796167efce9c3f8fab79984d3ff56e054723",
+        "e0b9a7120cc5aabf36b01b66e2414931494e523404eb3aa0806ca97a4faa2dd8",
+        "9518eae475005946897bbc05c079405884c0f31d51766490af61b9b6807f359c",
+        "e80aa6b371bc87a70e3ffd618cfcf62e7b9d17d084a5b24c802220f5be882784"
+      ],
+      "hash": "e94bedfba33d4f716802a697c523441aee9bd3d64f01a32f879e48b8dfe9bb64",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "049bef7ae601053a14f97e034d8c90151945109b5f6ab7a3c58fc5abdf567a16": "l'inverse, pas la transposée",
+        "8035391242a32b0e85023817d63b903bad5551deb9474c79c552c27e1fa8e998": "l'inverse d'une matrice 2 × 2 : échange la diagonale et change le signe des deux autres éléments"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.5e": {
+      "decimals": 0,
+      "element_hashes": [
+        "a13e61a8410549153aebfbce5316f38269eccc0ac7fbc2917cecbe6535c3bc1e",
+        "61a592f7ed8a50b5d9d75047bba5eafd71d77af8252d55fe07af614573c2a2a1",
+        "08e420a19dc0084e82fcf7a68c9d2f34b50f0ded19ff61f0a453be4a018237f6",
+        "582faddb885bbf65854457ee520f5ca5c448657c69eea657abe2e069217273ed"
+      ],
+      "hash": "d7369b8b4ac8accbdeda46aa942dd550fc87e32ce301ba9a371975ad158a0444",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1de976b0c95b9b4aa1906af15d0c0a10c3a7e4d7903f8096082fd0570f0201a4": "A¹⁰ = P D¹⁰ P⁻¹ : élève chaque valeur propre à la puissance 10"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.5f": {
+      "hash": "c3074f225043b366a36edadc89cdf2f25d9ac1b1f04b75cb494c20d1123572d5",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "d729aafa355da2c52aec5bf359511bf49e2f3fd0f67516e6fc687c3c0c7e7e08": "det(A¹⁰) = (det A)¹⁰"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.5g": {
+      "hash": "2f6777b8343f85b9291014b1fcc04ab61780581817e60016fd6f5c6925395bf5",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "ddd09867b33a701a47ffe371a180d18d3889a3dfc6f771afdbef093447d745d3": "la trace de A¹⁰ est la somme des valeurs propres de A¹⁰, pas (tr A)¹⁰"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.5h": {
+      "decimals": 1,
+      "element_hashes": [
+        "4ff809e1e777ec90ce3e94dcc45db4e55242e64d043029a52f94cd99b8c1d259",
+        "bc9aa2b9d50f2eff2415ad3c3cee59c4c31b816e7bacdde7eab0f00278a49af2"
+      ],
+      "hash": "b8c8286a7ff71408e152573a8f787949408a1ac42d6331ece1d12174d1f6fee2",
+      "kind": "array",
+      "mistakes": {
+        "544b7cf302f2cf7c11bbfc32fd837f13dc6d62c3fe28d4ba613bce6c69214d3b": "l'ordre décroissant : la plus grande valeur propre d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.6a": {
+      "decimals": 0,
+      "element_hashes": [
+        "3395aec93a99192e411cc96514a9279653fe46c2d8428e6a305e943b07e2d915",
+        "687c9643660f3a04c52112d840b298e8faded891d11fa86b5ee1c08bae03216c"
+      ],
+      "hash": "23a1972f324478d01b99ff5bafecb9d52fce08b40fc22d87abc814fbb3c99b31",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "93cd02513420b16be4a14de9b12f6690c9ff9bd1072eb5d90b910346b43a998f": "les racines de λ² − (tr N) λ + det N : une racine double"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.6b": {
+      "hash": "d0aa3ce852275e0a3e7f5fa3e68a79ec6c522d435801f41befdd0146fbffdf41",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "3aca124534594510cc02101b5f7975af7d1197d362c28880cd634206fd9e1355": "dim E₂ = 2 − rang(N − 2I) : la multiplicité géométrique, pas l'algébrique"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.6c": {
+      "decimals": 0,
+      "element_hashes": [
+        "483b64205e1e56c4f73e5b73d212678a8fb406c155f081e208e362e0f13ac3a5",
+        "d8524c975bd60f0df51d101212222e4cd2f3b1a39b68e7b439b3fca7aabb5e9c"
+      ],
+      "hash": "1433e0f66adfa2723e20963da19552029d12522ee0f7e17df692732819873669",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "bcd792967c725320c22ab1ae00c8a4bdd8c302710df4df4d7fb1b2c0d4f0e917": "résous (N − 2I) v = 0, signes compris"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.6d": {
+      "hash": "d9fa459de5aa7902b56626223fdc6b8c43d7b5c4c1b5a9d96c00a7862c366349",
+      "kind": "bool",
+      "mistakes": {
+        "1678f976e2d87cf694d79a5ab23543ecb17f98eba241599c127dae81cfad6044": "il faut deux vecteurs propres libres : regarde la question b)"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.6e": {
+      "hash": "f760e3477941cd1a95cf18bea0b018242b246ffe81f040e8d5dbc183786c37cb",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2ef0c5f6205b57f3ea9040d142044f11f1d48508284186e61b64c27e571de3ae": "(tr R)² − 4 det R, dans cet ordre",
+        "b1d71962eeef097fcd592b5cc26fdae2021a23ce803abd802061615e2a9e9433": "le discriminant de λ² − (tr R) λ + det R, avec tr R = 2 cos 60°"
+      },
+      "sign": -1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.6f": {
+      "hash": "25ec640e88db4426b09a157e0875bee7c43652de0cef05d0773a3a42bdecdab2",
+      "kind": "int",
+      "magnitude": null,
+      "mistakes": {
+        "2b816d9d6a49de6bd6b386fbd6944fda6c1c80341aee0c9fed4190b984adc4ea": "un discriminant négatif : aucune racine réelle"
+      },
+      "sign": 0,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.6g": {
+      "hash": "745b10db9aa7518a6e41ad5e1fb01907c88a6003e78c5f5b07984291f8842326",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "decff60c061a82b3eb0e75a8a57291fb3631cb4507e6da9da9e5ee1df6e946dc": "cos² + sin² = 1 : une rotation conserve les aires et l'orientation"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.6h": {
+      "hash": "107c176ba1ecbca405fb43a8f6e5e5df739ed5b071623ba37edfa005d9226c44",
+      "kind": "bool",
+      "mistakes": {
+        "39d4a92394368009952b9aa3070b496a090c4ae2efd1f670dbe7e6701303a531": "six rotations de 60° font un tour complet"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.7a": {
+      "decimals": 0,
+      "element_hashes": [
+        "ae510d4956327c20a4935161a9f08a00571b3c7f87299929531933a4baeaa01c",
+        "be889e3027b2585fb20b3b617b97a4d476e8fbc49a25a0fd15d89e21736fc418"
+      ],
+      "hash": "547ccc2e03f28a72a75212df1a182f608b54f6877f83f01eade3e4ab48786197",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "f6c7baba9f1380989f351611df499fa53160879f2580fcd4750ae234bff2ffe4": "l'ordre décroissant : la plus grande valeur propre d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.7b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "7ee33230089eb5173e7ec69f0ead383df05b636d0065ecec060d7131d0a5a799"
+        ],
+        [
+          "bc2cf539d43e34e04d2ceac9e4e0eb36459b44d78a56bb8a24fb0936d6f91614"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "3c7a08c5a365100d7dc627f3b2352a32348063c25bf446bf08e46b3ff258d90d",
+          "ee01e4f7839062300209fb88d628bd25d04d921b81bee68824040c607345b146"
+        ],
+        [
+          "1b13237af54b2db770ec2bfeb146e339c6c75918d710fe6b5e5b06bfe7b99332",
+          "da778c5ea556511904386e385b3f728ddcc8d6f6c7b52151f3aed785c7259283",
+          "a9c3b46b91ae0c13f152a518dc0fb17d6153f6ae05b70cd4380b059a6609ed13"
+        ]
+      ],
+      "element_hashes": [
+        "eebbc354f13983917484daa46c34931e318eab4ae273b4969d0af814dab4abe3",
+        "e9f9c05f030a2e6e7c1f59760c1fe310920e9b4f98ed9fed5a303b4ae396f30b"
+      ],
+      "hash": "b5246c3b873630df93b91ce31a2fd117136993593ff8b157c8209486ce4454fe",
+      "kind": "array",
+      "mistakes": {
+        "1b29d24dd4824a10ee431c821d221f0422cbbe340ae47e24bda600707b052a03": "un vecteur unitaire : divise le vecteur propre par sa norme"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.7c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "c11bd0f1bb070c311a7f513665b638c54042f498781736857c500b12b6d8779e"
+        ],
+        [
+          "068eaae0db8e26ba4879be5c1288bbce19d7a39bae8315e6670e5fed77a09304"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "faa3f7070458065a23df6195a3ff08da9294c28df7050577d27b0bb574c9f624",
+          "98dd1912c23457f35ac4b55b53a516156cd6a319bb80d0ccb7390eb9c64c2b84",
+          "9b186e572ca00f3eb99e5d252b4c82759ba4b3780d239af1ab3c2f3a09804d43"
+        ],
+        [
+          "23a89e91e02d06ea6284aca7e8802e9942b77a56c62d7a4639d940dbf0edab09",
+          "3f06b269c210f877a1f0774d2e1579e1e31891b94023e59dfa8a54bf8f49b3cb"
+        ]
+      ],
+      "element_hashes": [
+        "1b25854b1987a4ebd618a667c01bf2154bad7039f116a9f7baf19ac77d1703fc",
+        "628919f1b6e18d44ddf49ba4fe3b465f78f31e2fa68084cd55cb581cb9505be8"
+      ],
+      "hash": "9dfa91d14a98f8c48549b523a9e78123285f8fdd3d03d390489be8317bdab83d",
+      "kind": "array",
+      "mistakes": {
+        "ec231016773b788decb48475464828d6b9e22c9ee1ee5b2cd985ced50ae43bd4": "le signe : la première coordonnée positive"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.7d": {
+      "hash": "90f0d5b7134e23ba70e7d1a48ae55458204b0fdb47d1320042982c28ccfc83cc",
+      "kind": "int",
+      "magnitude": null,
+      "mistakes": {
+        "5500a9f9392f7575808e7f057ff095c42b3941b31e5f84df548b93e8282b8916": "le produit scalaire de deux vecteurs propres unitaires"
+      },
+      "sign": 0,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.7e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "679ed8d067fad2cdf2662a656d64fe5f042fa80985e2006e590187266c66bda3"
+        ],
+        [
+          "77f46f88285267ff1a67b3906983b1055894c99ce5809b7c5f927bac8261bed9"
+        ],
+        [
+          "e44530450d46770de038bc3892ca3161d2845b2abecb76f2baa8fda6fc323d3d"
+        ],
+        [
+          "d7e63d6b6df4fa9a11691b3684132a9b7b49e565828b046c660b17e6786d13c6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8b85df45d9a42a2f5bffcf6c127bae8d792eb43fba42814eb56cf1c580d5c640",
+          "7e4924454250896c252e7a4d214d1d318148bda9887dc3c0c3ac74e0c4ab4e27",
+          "2ba61932194b00b5384abe90582af846130fa2ed05071192afe48986813f5e39"
+        ],
+        [
+          "3d9b1df6cc470321c19082df7ad2b5382e5499a3d9f7643e1c745363242b90c8",
+          "22f2114059f1711a0d748529bfbca925820e8358454775ef6cca5f1c44cec48a",
+          "eb63c4dcc6e21a447ab98512eed0154b4bda41e1a1d9fd5d0c2b430bf707505f"
+        ],
+        [
+          "0fa3942962bde8328c3eef56c6f9ac90650759fd77ff3ed49b65261ee502a930",
+          "e63747761660dade4f68ef687bdd507a0c1047ae4bf5c66ec94baf8f8ca26cf5",
+          "56cddef00921a9045bbe32c5c48f3f6a7830b6c9c01841424e89987856976c9e"
+        ],
+        [
+          "77acab176f78c879f8240367c4be5ccb4dc0b4fbc6dbd76b27a61d58b0d19f54",
+          "355d8cc7b1bc872e3dee7d4bb761f62bd0f4b000fabecbdc959f56c1d40b3960",
+          "fc41d98107d36958e95febb5c631e0639093d216acc4b3b45726498de06ea8dc"
+        ]
+      ],
+      "element_hashes": [
+        "1cc5a98132796740f23e5db8d7d13af74107e3032c6b2d98f0093fab071bdb75",
+        "f123687018f06c31ded536104fd81a7e744e7321918b5426dc111962df6a9eae",
+        "f01bb6ad6e26b315cd04a22b74061cff5526a47c87005524fcdf81495efb9afa",
+        "31e36f4f61b16811ea05d12bb46bef31a71fe40c2010818ec0e8a99225cab059"
+      ],
+      "hash": "3dad408d89092e49daed967c013806905b5c5d9e1c1add1241eae8c74bb4ee32",
+      "kind": "array",
+      "mistakes": {
+        "8a2269654c652d56b92359f6a88013951e896796a6a2210ef7d761555f5340d2": "q₁ est unitaire : q₁q₁ᵀ a ses éléments divisés par ‖(2, 5)‖²"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.7f": {
+      "hash": "0b42ccb88712ef10502523443c6adff6d2ab77eaaea98ac2cc0b64b590c3b956",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "51172fe5da42237fac5a1cef8c45126f62b16eee8a80988b754151c15722d78f": "le déterminant est le produit des valeurs propres, pas leur somme"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.7g": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "bf238c141d53a5fcb4ddb4db7494dc0ce8a29a5da6594954ac838660eb5b40f9"
+        ],
+        [
+          "23831ace65757d1bd53667e48bfeb0e4b4cab9a625aa3c8931da2406fed05ca6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "58a254fa3565f0e6463adb1a112f29b6f70d3808469f7274553c091bde690d9f",
+          "68204e6df32f7ffa9e9bb07cd062db1b99d627cec9bce2587f905b7719ef2640",
+          "7fb61d51dd36ae3cb9f382721d3a2ab79336f168be36de5db4ea94a2e2797805"
+        ],
+        [
+          "96a74044e03b511490769c9ea1de35b92a44ccb758f61e287bc49826e0f6e61d"
+        ]
+      ],
+      "element_hashes": [
+        "3671e3aefdcd456fee8390526af60b6ebb12e0a69634f40ac8c92d932855c412",
+        "f22a5eb24dc6f33fdea7747771311231443080226d87a6015640f8d90b889417"
+      ],
+      "hash": "cb4615e8528f05dae6aec0ff4df39562febe0b8399eb7e4d2c21d35a3286ca41",
+      "kind": "array",
+      "mistakes": {
+        "79126f695daf61731023f7ce609bea1ea11c87b574da6e5041f88dea7e4e9287": "les valeurs propres de S⁻¹ sont les inverses 1/λ",
+        "e9fa507cb533aa1e2cfa3b7bcbac162e24c2684e90073841c0b6e44fb74eb0c5": "l'ordre décroissant : la plus grande valeur propre d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.7h": {
+      "hash": "3dd6072e85f494afbc5c555fc55cbaa8d37f30007ecbb1a64c83a1a884bdf0f3",
+      "kind": "bool",
+      "mistakes": {
+        "5a6d5d729d3b2da5f732a1bdd1a3c6d77ec2a06aa41045ae0bfcf39ab5ec019a": "ses deux valeurs propres sont strictement positives"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.8a": {
+      "hash": "ae9f08b0ad21446884d956e2e4250f37ac0527c1bb7d49fd7bbadfab717a8819",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.8b": {
+      "hash": "57ce84eec3e6d8299645da7b6e09d1ca49d4066de6c4471c34796d628322aeb0",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.8c": {
+      "decimals": 1,
+      "hash": "91acc5f42e48d6ac70984a0a16178cfa8da6bba2bd2c961eaba2f766ea8459a1",
+      "hash_coarse": "1fb30b66579f48e6dea23361e45722d29ad4829e2eb1a59f0f60d93145df48f7",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "bf4b6a865c69b10e48cf5221e0ec49e588ed9516e0f5e14ce043197c08d2e81f": "le quotient de Rayleigh divise par xᵀx"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.8d": {
+      "decimals": 0,
+      "element_hashes": [
+        "f6beb4f6b2db4d1296a0bb0f189b85cc76996aa88a9da16ad3cbdb5457cac3b7",
+        "d01a14d06569664cef140f7fbc297c89fa7d404716488ec229f6bc51c0b9ae51"
+      ],
+      "hash": "db7897f07a6a8e99c32671b5d59cfe9399822ff5bcceb12c2e5dfb63591cc84f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a69f4d922a80e091f18ccf0aef961e489a1ad3ccf302bd7ff55bbeb417be3512": "l'ordre décroissant : la plus grande valeur propre d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.8e": {
+      "hash": "2e04399fd9e398d745f45dfdb45055129a4c16cce10bbce2ea54bb2754495501",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "2903cee9c92294005ca109e21ba680438e7605ebc75781ee33f8273cbfee877a": "le maximum est la plus grande valeur propre, pas le plus grand élément de S"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.8f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "19b88ff4738ed9af036e68f18bfb85b0680c7060da3f302788b596cb803843b4"
+        ],
+        [
+          "82b6f499341ae75867fb300efea5d6d009c96757a0c167b551951ee3365d4681"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "398f9c731556fa55b7110df299927222e8d383159c8545e31ce0352335a0778b",
+          "05339821126254bffb6e0f2330c13a0df048389d9c0a9587c6cc7a284a4cd74b",
+          "ec2919e3de0abac9b71901da3883780bb8a773fdcaaf7f097061cdd2a742a8cc"
+        ],
+        [
+          "e97447c2f2a77b83a79b412d2c44f35eaa3ea2b21815cd7d97d0b7e679216fa0",
+          "de9cfc217d0ff8a393c66b0857f698afd70ce0e4c7e1e31b30fe30eadddd1277"
+        ]
+      ],
+      "element_hashes": [
+        "91ed0fd5921ca36352ec4723ea097fa1ff4dc3a0e55523f76cabde3fc30a2f22",
+        "2bb8afec9e7dc863e729d258b56b0a37c01d3fcea5c95bfb4c1ddad89b4f3af6"
+      ],
+      "hash": "90736b9d2ab0fb103d09f9230510322e1ddb1eb1269864e6073efd77f6c1f3c9",
+      "kind": "array",
+      "mistakes": {
+        "b40ef979e74f475717f6c691acc4b076abdb8f0fdeb63c232bf6af6ac7fa9c3a": "un vecteur unitaire : divise le vecteur propre par sa norme"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.8g": {
+      "hash": "33eb53c6e074ad5d9ad68d0ab9a9bfe59ec77708a707308a59874b8be8a0b484",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "b7e5e9158988e666b91956af6186057906acb3854094c7359a43a2797d36105e": "le minimum est la plus petite valeur propre, pas le plus petit élément de S"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.8h": {
+      "coarse_any": {
+        "0": [
+          "e42f3a5f947ac349bc897521fe3b77a6d72b9c9a8a1ca1b0f88c0fa6345de5d7"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "4fc2154a27d4651966756149b057cd5d16d3c01b11bae4a6c4452a7c6d8e3ce6"
+        ],
+        "2": [
+          "9c0947622a4d0a6cc811421713a8ab1b35f4e518ca8aae913adbac21f923f86c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "42900f20c082e25bc455f36d4eaae6e8a8e42974a6c4e9c16fdcf4ef40c11af6",
+      "hash_coarse": "385945370920fb4e0637bfc0c3c2d87ef1aaf07e4f5c1de681ee481cdb5225d9",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.9a": {
+      "decimals": 0,
+      "element_hashes": [
+        "7474413777fc451cf6cd5bdc3baa3f3b134ca274bcdb54cfd5ac7d5470196a64",
+        "a832f873e0d6b80992335aacc3091a31cdb8d057cf65f68028f76659b23ba8e9"
+      ],
+      "hash": "9babded48f06159b25acd388f6764030df2946e1c5bf185d8c1e0ddd00fd2e9c",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.9b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "666bc1505a6228a597a299e827e11d49a19ddf004ef47e12854870e87204d9b2"
+        ],
+        [
+          "fe39d6cb0bf7fd7821b928ba957b751469276e66b1d1ebd5172cd1b6c929dd4e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "00503005ecd17b7dcc984d367a4dbb24f36ca05287f4231e61d0106910aa0f9e",
+          "551598197151eea66afed898154deddf6c052d0cc4c08a9e29fd0f0bfd3db7c8",
+          "8dfa5a847f7fce0e3bb947080a163a40bd70871bf8ee2493471542ce83ab5b5a"
+        ],
+        [
+          "948d5776657be73dd602794ffc287d9bb407268e104358af72e8457dd018b21e",
+          "d15c832bfbc38e5842ce917a4d11c46e53af899d91ebe266446f47f4c7a78159",
+          "41ed90bcc4b9a8b0d0d12e3de588e7600e79c4bb19983309a4de1c69bc813204"
+        ]
+      ],
+      "element_hashes": [
+        "7bf5c8acd39435de928169a3338d0a0cef1c1fc10cf90e0b1eeee7a608a3467a",
+        "35fc01e0f8d013d73cbc78f36b61fe766aef7fc89eb2224f57f594821532d1ed"
+      ],
+      "hash": "d202acd174d8a49dee0ee58160ebfa68826c2bbb67518cd7fec272c71ffefb73",
+      "kind": "array",
+      "mistakes": {
+        "81e08fbc7626b306989acfe2ef3324a6de706c88c03dfbfed657939836938be4": "normaliser : divise A x₀ par sa norme"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.9c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "0d4989870bb547ef19c5a2e818358ec7855b2b3485afff5ec08de65326e7eb2e"
+        ],
+        [
+          "66ce4ae0b2903983f544e045ebb200cf27699ffa7ba4c96a28641a598c71ac3e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "850986a0c4eadeaf84a71d2481cbd6062518e317306a1276ca4f767e50058027",
+          "c52a65e0eae56b70f1bc530c2c4961aa6324412dafa1b5a8143af2ae908227cf",
+          "a2115b954d1d8d9ba5b5e06092a7a8f84726daa7bb9474ccfd08e757c0cfbfa1"
+        ],
+        [
+          "1cb3a07b0607797c63824652dbc721a9875888b84e8ded166f40d8f3e22d5b9d",
+          "46e60421717f53b09e3ff528edc46d72eb828044921f8be6e38bbaa46d61e04b",
+          "eafef1b8fda126e46654e21084e98c8ff4931bf656e6afd4711ef98263d9c5ad"
+        ]
+      ],
+      "element_hashes": [
+        "d37aa208b0b8056d2c4efc51e73c59d8a91bb9795f7955d8720a388c274c6228",
+        "781dc175c01698cf556c475eb3a1b356e3afeac208040d2884088d670d1e4189"
+      ],
+      "hash": "35a5ee89dc3ae57b2ddb9874ac991801d0b4b960393d08d695e8630c880ae1ae",
+      "kind": "array",
+      "mistakes": {
+        "f463b68cbf951eecf834601717c3a3daba739abd139833919321510722366936": "le signe : la coordonnée de plus grande valeur absolue doit être positive"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.9d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "c6af9db4cd235a23d92cf0fff42dc2b38f504a520e56f9e55893436d176959a4"
+        ],
+        [
+          "d0c5431acc28b0417ee6a333333be845f3c87ceb253d72a7934634e2edc7f8f8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b8a9acde67c3163eaa9360e5cbfb6bce31501da22d1ed40c54decb5bb177a193",
+          "7fa148b3a3f94e24c492d45f4e913bc11992d6a54702526926892911ccacc9b5"
+        ],
+        [
+          "1851f4004947e0cfd907b75b03800f4f5b6cc7710a9e4c405df5e0ee2707660e",
+          "561fd72115ac84ca1c1f34e4b063ac135d42a47a116c6d0732c29998c5acd7d5",
+          "0309921788f75c9d91ec7a285421c914ecbbbc2f70a22b0699c924b9565d53dd"
+        ]
+      ],
+      "element_hashes": [
+        "dd32afeb81aa30df6fd98aee70be29b00650830e593c1c4db3fcc4fc9bf62dd0",
+        "fdc69a709f34ada0af37afa13d7aa57557f693ccb5e7a334d05c765865e6aa87"
+      ],
+      "hash": "b2795147f6c459165748c17b82d7f88c258789178528aa09d4737387fbb9f711",
+      "kind": "array",
+      "mistakes": {
+        "f5c455544451737ff10a646f72f611799028aa1ebd8770b3e28e7fc6d0a213f2": "le signe : la coordonnée de plus grande valeur absolue doit être positive"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.9e": {
+      "coarse_any": {
+        "0": [
+          "6bafc510a25cdeb5438159b4e91f1e73a16276195fd184713242869b91d8aaa8"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "11902a9c1bf523260adb0171caccf3c190f31e397fde17880e2104627bf6057e"
+        ],
+        "2": [
+          "7ca859e968f2cd79c5962bc8783482f21d4132274249ed337caae3b3540c28f7"
+        ]
+      },
+      "decimals": 4,
+      "hash": "67dcb078d6f20e6ca8500c9da5d0547feea0198a441430f80f28032b4e64532a",
+      "hash_coarse": "de0ab40af7827b050cad87a238f825920d6c96d68e5c36bcc8f79e1f2b1c852b",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": -1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.9f": {
+      "decimals": 0,
+      "element_hashes": [
+        "a94e0a6576c684d5cf461b37dabe5eca7baa9eb488c3092f8ace3a96bf889d30",
+        "3c1e5a4278dae09698ed212dc225e5da0abd318e6df411d8b5f6d3e6775597bd"
+      ],
+      "hash": "f0f5af22ec8728fc389598b0cb60e07095ca9919613f676c5a9777572d953f87",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2d1e0345ac5b28b467e403de644202ca5884802cfc55847b7d6f0d9c80503e54": "l'ordre décroissant : la plus grande valeur propre d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.9g": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "80ed0147a9c5223f216c31acd4a669083451eec3e4e09ecdb15ec05560174ffb"
+        ],
+        [
+          "1874224960934592606343600defb2e427257f54a89b83a765e26ebd1f104f26"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "d9aa3be550e467124bbba206a53dbe8b50b4c8f06d87c8cdacc4a8384f55e176",
+          "5bdc0b77c4a65c30f66664fe5cdf2bcb8667a064c57758ad6cb6e7d8930e8134"
+        ],
+        [
+          "4b323dd92001ae8eebf9d07bdab0587088929d17c211ba58f9deb5e4f136462d",
+          "002202f7815ac728da76dc907e87cc8ed3dfc476d45d581cefcd601d35f33af0",
+          "4248c140e29d5847b0c5bb7b53e6736513a7a97168327902b176ec16c141e3af"
+        ]
+      ],
+      "element_hashes": [
+        "6e8452c83576b68bba50494d819d8973e2e0df271bffa7085eba3e0398f96853",
+        "3926989d9eeac50f2accbfcb4e6fce3ad0ec8e694338ee1e35e196853061be2f"
+      ],
+      "hash": "b1b7d2057151050b3a39af0bc6cc400792f8d646593c2418f3d8cfa4dfe1b3eb",
+      "kind": "array",
+      "mistakes": {
+        "598f88d87215ec9ad18c93741f10efb73d9694b6b5f11cfb20f070db99afbdc1": "la valeur propre de plus grand MODULE, même négative",
+        "7eb603850a149508a851cdff17be6b3eb0eb96464315cd3f636ff4dbffcf4c02": "la convention de signe : la coordonnée de plus grande valeur absolue positive"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.9h": {
+      "coarse_any": {
+        "1": [
+          "8478784b3493186ecda847786294e4f4a9b0e18634a6459b586f7bed3ed3c69e"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "cd0d096c35b56a42eaa2ff7c61bc11fe1f0b457adf1a907ba9894ed2b926398a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "de3321ae2bbb897ca7db2fc5068ba4e8cec44e1babcab7f47818938d38dfce97",
+      "hash_coarse": "1dd35c3995456d98e2a0a2a355afc322cdf40ce15b850ec3cc149a69d08e7f82",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "5773741279dcba042a5fca8d9492677589fa0f2c005cc6c3026942d8a166970e": "|λ₂ / λ₁|, avec λ₁ la valeur propre de plus grand module"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.10a": {
+      "decimals": 0,
+      "element_hashes": [
+        "0862d8e1ec2756951669ac2e4ecf5d5792d1f52854fa378430e59278b365e02b",
+        "f5dc5475c4cc7688d8e7f8433916b2e4e6cfa209322ba0ff7a48d9972f933552",
+        "2828072a3574da94dc0c795d8639c49e56020ca36c20d94321d1191352744962"
+      ],
+      "hash": "e33aaaf4e8f3e0cfdd73203e1fa86c27204c4ab8029d3ff355d16e72b8a24981",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.10b": {
+      "hash": "7f22b180accf52a2b64da8a0a1dbf48d16df75217e6dcb6dabc61db217233ed8",
+      "kind": "bool",
+      "mistakes": {
+        "4f50726801cadc5c49d07133d8d406509ae7bed8faeb1475934956d6d25f24a9": "trois mineurs principaux strictement positifs"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.10c": {
+      "decimals": 0,
+      "element_hashes": [
+        "b534798ba6ed7f464fc2a9924b3d8db864f5b257b96b981f623b544c7f82e03e",
+        "35357d91fed41ef1ff536430c1926419fb2672570f5fa89cdc08786f057acc20",
+        "0d6aa40c87cb13819def572968c635d0978ebc0804042f73f994489e49673b53"
+      ],
+      "hash": "215d03d7dc7f63632a140f0e8a214f19e674b132e448f30ce3560ce6d52c0df5",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.10d": {
+      "hash": "1b9876ef357a9eeca912cbe0924ef7a2c71ed9befa12cb775f0bf59d68ec7dd0",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "30f268a6bd91acb5ef682ec90704fe6c5c42d18259dc30a8a862f5346062144c": "xᵀHx compte deux fois chaque terme hors de la diagonale"
+      },
+      "sign": -1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.10e": {
+      "decimals": 0,
+      "element_hashes": [
+        "fc6a40e92334eb23fd4a395b3ab592cc0f4b3e318c3e018055d6bf284ffe6ff0",
+        "02fbc1d1335a4806af586900919054ce0781883bfa004725eaae59f16de7f055",
+        "6f7c6f007120c0781ddd658b7eb125e534f2157e85128ab1d64a2258ee731791",
+        "4a767644b3bb85a4755252929c9a07ffd49c40d3edbc64bfa21232ef011e2d95"
+      ],
+      "hash": "5d5194f59aed969d5f044003a53a9e8db4152b3179b90c9c54a5a81370bc0454",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5d663529cebedd8a8de56e4899beb2fb53b1ba082d00404a138ad894de6f0e9e": "le terme 2xy donne 2 hors de la diagonale de la hessienne",
+        "9681be95f82e6f88706d918a47c8ce8b1d463a7912666ffddf66eaf7e117a624": "la dérivée seconde de eˣ est eˣ, qui vaut 1 en x = 0"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.10f": {
+      "coarse_any": {
+        "0": [
+          "705b366748e3fd7125d6c5d035cb500a9809de514e026272404c4aa64646a12d"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c823538db1bc0ac43a4cf00a969b8b580db700e9ead905746f38a1a2fda16249"
+        ],
+        "2": [
+          "15b9cfa98add6588f58ef6a112dbc340e72468c99a70892c28b6e975912096f5"
+        ]
+      },
+      "decimals": 4,
+      "hash": "29ecec7275d9b535156544cc796d8ed092699d90ca87dd83cacbb4cb0fd3f9da",
+      "hash_coarse": "203b48a9671b563ff3238041a4ced0615bae705337630476fc179b12a7ea9fce",
+      "kind": "float",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.10g": {
+      "hash": "c701d5217824b51363848781e388db5951c984044b23dccdbea3f649aa5da80e",
+      "kind": "bool",
+      "mistakes": {
+        "205eb82170d3f1ed99de70fa96183941f765b2853e0e9304eee0d2f42abc54db": "la hessienne est définie positive en tout point : écris ses mineurs en (x, y)"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.10h": {
+      "decimals": 0,
+      "element_hashes": [
+        "6e1d8ee8875db9703b3df65d7338c90fd984481939479ff4c3f083cba14826c1",
+        "46f8d7a23fd7ae201eb0703decf05fb08ae16b77f2f69823b1496e6debfe9b43"
+      ],
+      "hash": "a730fe4d207e3c5a2bc07d29bcd1d5d063039180f37aba7a29c2513f0c5cfc6e",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4c563b3446015a2693e0b34fb091bf5ae29e60becf17de5427d45a5ec0d0785c": "l'ordre décroissant : la plus grande valeur propre d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.11a": {
+      "hash": "664652a9b98f21ec62f65158541f72968ef9c202e7091c103f5dac1d94e88d31",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "d8f0bcda08dbecc15937964fff4159f401430bfb7eb98eed108b7dfeecd14dfc": "l₁₁ = √a₁₁, la racine"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.11b": {
+      "decimals": 0,
+      "element_hashes": [
+        "be6569d42cae56a3841582441ba8ed161b4fc7a53ff53324cf2f65da10252ce8",
+        "ed1f314da983f232d8889eef5d24cfefc68ef6171ae545372ca82e430fb629d6"
+      ],
+      "hash": "ee1bb915d013553075767d019b6b126dcb59ba2a60723d58bf9a654cca64f56d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "8dd505753f17113cc00199d5d4c7c7bfca9962fe9cac2bec3b7aa5a28b199b82": "lᵢ₁ = aᵢ₁ / l₁₁ : divise par l₁₁"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.11c": {
+      "hash": "c2601a0ee245719a5eb4cf6f8a8dd5f4091001db8a1d15fc1e8ceacd1bd0dcb6",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a7d59ac40570f42c28c5cc9825a39dd452fe07ed695b708b78a5ccaa9b4a7502": "l₂₂ = √(a₂₂ − l₂₁²), avec l₂₁ au carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.11d": {
+      "hash": "c8906604f87d8440da4c703d69d909bf105d8045d7b6488e02b1334be6a24426",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "f07fd5bb38ce071f33f2734e9ecdaf4bdb96facbdfa48714af1d41850e68c703": "l₃₂ = (a₃₂ − l₃₁ l₂₁) / l₂₂, signes compris"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.11e": {
+      "hash": "59f7814a772acc9fa0da98fd11c551a11a0e74b42c3542cff3fb8ad16db90c71",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "377c5b63509635fec51d75702431b55d33bc1ba3857e477969c56e3726d0acd2": "l₃₃ est une racine carrée"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.11f": {
+      "decimals": 0,
+      "element_hashes": [
+        "572f098bd2f5c6fe886d20c29fece973e25e001145eb8b3213344abc736cb0e4",
+        "19ee6cd5d3136c5a4b19f5cebaac6ff4f58deba1eb1ddf4e332cf07d8bef28ff",
+        "62c9ba97a64a29ee7dc98dd3ad3616dd477aadba04df5ada1a2cbcc0b02cf6af",
+        "de6b04e8fdd9353f6292006612854b412e37ee6b063adf8948388dc524672b0e",
+        "b29a41245365b789cb456b07fab95c1bf55d9a14a9b16962a1b92ceec131f522",
+        "35c305209728bfb1a92a574859297defdf824d9c76f6785f081af560eff15bac",
+        "56f90d34c4b47da3ddbb5f842ccb5cd3b6c94a6efdd52c13f5ae19c864fb706a",
+        "3dc271c8df811e6e7edeae56913a4b320673edca57c9944d6af63585cd6849c9",
+        "2385c3b2faf06e0b66493b7c5f0e6de441578793d5d558adaa0279faf14cf164"
+      ],
+      "hash": "a66cd4c9983dbbc803779152e44055156b300a638b873caea7a466726ff23764",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "294088bbc060c4388d5c77351536453765da4f92d79c625760af3b288f9117cc": "L est triangulaire inférieure : les zéros au-dessus de la diagonale"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.11g": {
+      "hash": "756e4e74587f49129bc1211ab6704269d5edafaf12e30d8185bb57807a1fd778",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "29ad4d8746623888428048d2e860ac8e4c044bbdcc5932f98fd04ec1837532f4": "det A = (det L)² = (l₁₁ l₂₂ l₃₃)²"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.11h": {
+      "decimals": 0,
+      "element_hashes": [
+        "02495b239e62b6b1c829a04b46452a5008fb5b9605cb976e6de5447e48a8051f",
+        "8b88b12b46cdcb272cb54eb2998cad86d8ed409a1739035109c15b518efa6a01",
+        "63ebe49e8c15c906cc33e0b57cd26487c4e580859671d2e980eb5485f535c56c"
+      ],
+      "hash": "7613768da29d00b975d1ee80b0a4d901796f32ec5375951aaeb84ffd894c7853",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.12a": {
+      "decimals": 0,
+      "element_hashes": [
+        "97e225e66e63766bf677513bf3ce06166b4ab45d4705900f336cf8fd76609c45",
+        "677f0de8927dfecd75451962b1f045de0171678df10659714c99d141785cdd6c",
+        "12f5dbcb4640c2da10825e1db791cc92ed5878095af4eafa51d5b125056bbe09",
+        "8cc971ad49cabdb0a1b931577521b610a3681606eba4ab0553c273cd24411ba7"
+      ],
+      "hash": "01d6e2b6503e3fd7c288505424f62531a95c74ece311ebe29e88478559c326c1",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "46000ee1f3b62fc603503cec48765c4d16435833826fdff61a11138013470e51": "le terme croisé 10xy se partage en deux moitiés égales, de part et d'autre de la diagonale"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.12b": {
+      "decimals": 0,
+      "element_hashes": [
+        "739d39f7ffeccd468990958efc06c8216f588b8b2e8630b0b8629b441f36e835",
+        "ef5a27b3d156e6be5eef40b79de00abfbdc0829ed9b7b4d187294f8b5f9e8f34"
+      ],
+      "hash": "f3755f1e1db057913c9d87051b7e25e4f6833796e626b229d6428f5587e1a315",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "33adde9f9879a7fdd95a266d1be3ec584dea614fd46d56a7244d9b1c77b01e03": "l'ordre décroissant : la plus grande valeur propre d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.12c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "2874768f859772370647b73d4ad26b1b603a2e70b80fd59342fbf4b21bef6c24"
+        ],
+        [
+          "c386ab666952f46035e5cb71cfab56cd9e2a02437391afaf4056f6f41540a506"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "61211937cc9d80dd401bdbf029ea9ea91c9f50b4f7af08deb307aa9352bbd552",
+          "6784064a128b539eb73f62448cb1e825578783ec9d065c3caaef577dc7bd9bd9"
+        ],
+        [
+          "4e71f47284f8209136c893cc5e4c796bfe47597e6e3f4803839b0220c26b27ae",
+          "be03ea85fa7525d7b689e15fa8f8b24a28816ad1aa498f5fc556c729941d93ff",
+          "22da4a690f3c6cf84f56f93960c3f4837b9fe21370887bc4d5f6139a48782efe"
+        ]
+      ],
+      "element_hashes": [
+        "22a61ed64d72ba5e5646220b2bf97532e17394dcd3aad96b60f4afd490a572c2",
+        "52a349b1f15d889ddff11333772addc042e8a1fcc0359d1efa2f5a9acbdc9dab"
+      ],
+      "hash": "a89138f6fcf9d79b945e99b75372f6c922a19fbf7ffaf79f6866dfad95421103",
+      "kind": "array",
+      "mistakes": {
+        "8f6c49908276b69d1bc32825bc873f1f20ae0ac6ae24f3e1dbaa26ff139b18b9": "un vecteur unitaire : divise le vecteur propre par sa norme"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.12d": {
+      "hash": "a0758c9a4fa463476ca6b68876099ac5b711c3c6c3e2ae9e8c4d18afddae9e0f",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.12e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "0fa8495412f79aa7e7a66e206e4fad61f731f36f093fac7b79857b6048f17360"
+        ],
+        [
+          "56c5c966852373349920109780c1190bf8f6f0c6ebefee2ef157bd47cd0671d0"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b46172baf40ad7fac37c2343bc672bfc6926b5763f786adff02863311152dbea",
+          "ef8a7db6dba89338c12985c31319842f95e1883734dc7ea1d90b9b0aacb77c14",
+          "e094b52dd14e1c8360729009f4d84e34dca3dee4ebb48f91e293a5751bca8a5e"
+        ],
+        [
+          "b0f6c440516473421fac0006f3fbea3f116c954ed01d0ffba43d4344e7e134d0",
+          "20d002eaf839319ba6d1717bac2cf91427e2f8f732b2c9644781e09e0bcf228e",
+          "dcbceedd0eee865c25a342cc9003cc0158a88d07354f21f3393509516306bef8"
+        ]
+      ],
+      "element_hashes": [
+        "3128cc9b4b4ee53541864ddc671ec964de49e47a95eea66229d6c29d4686e2d7",
+        "53e9e7658d84b60a8f836d2669efaabf18feec3bcb360070b736d4807cf4511e"
+      ],
+      "hash": "814a34422f646fcede973b5459608f889367a9af73477d57c27882c548e527de",
+      "kind": "array",
+      "mistakes": {
+        "b7cdcae045c7e2569d820e3859b50c8e1f716303df871952ee993aedbfa0a0de": "le demi-axe le long de qᵢ vaut √(27 / λᵢ), une racine",
+        "d59c0179d6573b3cc02bdcca23b1f7d325933605f1d163c1b68a1d51693e6775": "du plus grand au plus petit"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.12f": {
+      "coarse_any": {
+        "0": [
+          "9d267f600329d5605750c0b2056e9a52b219fec2fd5e0992888e577beeac022c"
+        ]
+      },
+      "decimals": 2,
+      "hash": "49c808114f5a6841a963f1d89e5fc2aaa5df12cfab4b64279a97b09675118b4b",
+      "hash_coarse": "25775f934b9cac2d7a9c11fb06bb24fcbfbe44b818dd201d9fa60c03979c922f",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "52466b8ddad8439a972d5fe734e79ddfe8f0317fd63296594265da7152a26da7": "π a b avec les demi-axes, pas leurs carrés"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.12g": {
+      "coarse_any": {
+        "0": [
+          "909124bb6c4daa0d2152bdbea4311a2fe30c9fa3916f9431206e3f28d2083d93"
+        ]
+      },
+      "decimals": 2,
+      "hash": "77e8f05902b202bb3b24f5def3a070b455dc350172aa38294d23341354781ad4",
+      "hash_coarse": "7ec90a88315bc7dbc073c15f5abf620579fb2ec516dfe140a36ae6be2b9bf5ca",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "91f1d74c84ce4385f5094a024bb53f4951ebc64530cb430930e9031e882b294e": "la forme a pour matrice [[2, c/2], [c/2, 26]] : son déterminant s'annule pour c² = 4 × 2 × 26"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.12h": {
+      "hash": "be61de3bc1f750459eb29701b31c3ccdf5de6039f60fdde3499de947ee62d00a",
+      "kind": "bool",
+      "mistakes": {
+        "83e6b6886099756b855e33ef0f2d457cd1961aa685ab8cff8529b6ef25c72e59": "une forme définie positive ne s'annule qu'en 0"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.13a": {
+      "hash": "9e02448b3dc9d5a50f67c93071ea485b7cb25e9b56c76c12901f1fabbccbb231",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "8711ef89e393bffed4cad41a981b5905766446ad9c1509cbaa43c866da34be57": "V(x₁ + x₂) = V(x₁) + V(x₂) + 2 Cov(x₁, x₂)",
+        "a480c47152d2169e43133923587172732f9f34f65a6bf091c805e03c371d8670": "Cov(x₁, x₂) = −30 est négative"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.13b": {
+      "decimals": 0,
+      "element_hashes": [
+        "46794c63466ef883603902e53abc19383d7a99fe0cf244392fa79957913d7a3d",
+        "2c93fadfce030f2e98db179229fc733efebc952cfdfdffdc273098b4a4ce705e",
+        "a66214c812fa34aea58fb8d2fc00691fb3571151ecd8f42a2feb11d78a06e7f1",
+        "db392a028111d674f921887a75f3a9a922fee53998c53a8c3e7c451a206c1f40"
+      ],
+      "hash": "9cb64092b43044dc7a962dc4ad1bc133628deac08ffd80ff07bdee6c36b558d4",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "182620a915f0140031d7ac5a961a2d43e262a273ecf08fe78dd0c185579561e1": "V(x₁ − 2x₂) = V(x₁) + 4 V(x₂) − 4 Cov(x₁, x₂) : n'oublie pas la covariance"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.13c": {
+      "decimals": 0,
+      "element_hashes": [
+        "0e2c09b60b09b5e485f208327f208dabb49aff2011823aca31589b3eec75351e",
+        "0d9a0c80ac3403ed10d51b0518ec0bf1341e76d3d5dbb7b9a3250c4fa8594824",
+        "e873f069b9ac4b67795d4eb6e60e6e59fb03711b882c296742d63a81467f8c8d",
+        "27c7fc99075cb6959968cac8a196e6663395d53b39470924510b65ce006c4d2c"
+      ],
+      "hash": "28abe7af6ccfd4318f2b3d00cf796c609179bdc53f2c0ff9e4705c4fd5e50225",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0e4760d10b284212a7741c1dd4c2e3bca388e79472ae457fbb0787d8a19b8134": "L est triangulaire inférieure, à diagonale positive"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.13d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "65464f478650a188a7c966ad700cb78ea0c731d2db96b08c6127645bc5754ffe"
+        ],
+        [
+          "de52e67dd42d53185a903d475912484d985b9c84f0ef38fa52cac550d8376cf9"
+        ],
+        [
+          "6eaaada555648e4af0e3ebcaecadc9e974366c507aea01751ca7b2e1766bac98"
+        ],
+        [
+          "8529ca942fc882027d286fb842d957ede0c5cb85527742a786819382fa45d5fd"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9a1fe06948fb2d3c22cb358290836cb4a7dd0ff227879ad74ab7fb20d91becb5",
+          "cf303426472af52956027abe73d77ed5bdc1bd6eade2d5712442bc3edbd9ec80"
+        ],
+        [],
+        [
+          "3b3fd3ac1802d1508f5a48a2cc9425e1c040b4ccee7f661a13b99c624c91629f",
+          "df15b26270ac8756d962ddb4c20ee41b1185ce5886a3dfe7eb35621d4eba9cf7"
+        ],
+        [
+          "d037bfa4a79a3e684a2dd26f6923e3bfb4e621633663664e92c2be42eb555ee0",
+          "415a0ec1606f7f89e7017d98306b24ae7a2ca9f02dfbce2cdee6a06b7da5eb8d"
+        ]
+      ],
+      "element_hashes": [
+        "d8f7281901bc8d046d3332609b587eedbb80048f782df522f59d4b1ea412feae",
+        "36bed0d855d8876ae92c6702c1678f43a9cb6b0b9fca490d84607bc6ba301310",
+        "69efe43d66988250d766dc04bc81c11438cc5250ee2ebc6bbd3d554a309b2d95",
+        "62e2b06a840ec89914d0de5509c72bccb88a38c79672e372d35455b7872fed6f"
+      ],
+      "hash": "f63162681d35dc598d6c8fcd1de88792e1e15ee375c215a5032111eb934b4777",
+      "kind": "array",
+      "mistakes": {
+        "4ac1d773af3b531cea4bbd10b602ed546d3e034bd5f41d832ab094ed59eeaedd": "l'inverse d'une triangulaire inférieure : le signe de l'élément sous la diagonale"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.13e": {
+      "decimals": 0,
+      "element_hashes": [
+        "d93d4e34098a591e9833c72993b48d8f968b550a0619658153ddbf631bb3ef1c",
+        "044373a509217c6e1ee3f5a85e5db3544fd6585bc31bcb67a2a3a91ec8b4fc7b"
+      ],
+      "hash": "490c70a3cdc6b282ddb28b12994847d6ec6569a78472905e560e8a624e034834",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "c9b84c51446b3abcdeec8ca36bdaac366096c89574779fa632610e58b3980770": "l'ordre décroissant : la plus grande valeur propre d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.13f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "579e1f0871f7aa3b829327cfd4f33ad23befab598999d0098825f16422920ded"
+        ],
+        [
+          "dc6312fc581b1a5b7e4d7d54da767b6767b973ec0bdc0707d7913f6f0f94f835"
+        ],
+        [
+          "be1402c06c9681aa885a9bccd073994f35c177baeff3c369652bdc4266aef453"
+        ],
+        [
+          "1380038b993b586c9250cdafd3b9d4065ddc1e442971bffdb78f43ed74fefd27"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e119167a91c58a81ee64cd2e1d69dcbc1cca8dbd6e7f85aee3bb3303ee8f9e9c",
+          "4285e2ba73e238d84bedad0a615d4db74e93f1b6a75f01705f4bbbc090b81ac5",
+          "3ae3f5582d583397eebbd051be551c674188bf7cc7442c3e7cf5a19e488797b3"
+        ],
+        [
+          "459504514ab151446000328e87ca2205dabfb04e681cdebf5083ac29d67c6506",
+          "9eb664993bb43b37fdc810085d5163c09216705c24ddc50077fb9e6e38ad1f27",
+          "d544fcd0835560758c6bfc1c2e5d08c0c0e5321299af779f68235c6e8d5bbb5c"
+        ],
+        [
+          "dfcda46ca8ff4fe2ea9a2e20dd65a442fb8fbd1c9dae49e2230cee79632b2d4a",
+          "ab12aaab14deda3db7d98ce3c7eb171aa6b5fe72a11b1242092d4e73f202e139",
+          "9e12912a10837756a573f1e5493f250d1dc4c794e96851b2acf3b9c884d91738"
+        ],
+        [
+          "8308b43560a3205030de33ce7b4137f1b27bab05039778aa50c8775548c49aaa",
+          "8968bf3a7580ca82a10831d9c04207c4f4d5c1ddd8b2e478de9e1c2a04b58ff5",
+          "3cd16c307bb3066573fec178424091b319b4fe2fe5fc37cfecc327452ee309b7"
+        ]
+      ],
+      "element_hashes": [
+        "b35ca3bdf739bc56625038ff2c8cc89b0fb302baca5af1c78c4aa846a3af54b7",
+        "eea260fd858b91e090e2188153cc5cf90f4f14f66b1589f3a47062bb9193d3ae",
+        "68266dcc544e76f71da6d69656426a1880231b477f4fe5701fc77c9290a0047c",
+        "be4ea983919ddf4e0da6e4054cc583f9f387a16cd1fdd87a0ab3290114aa2a35"
+      ],
+      "hash": "ad799329ccd03ca4cd21af792d9310490f7d71ad60a2b5c97c599d3b1358edd8",
+      "kind": "array",
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.13g": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "0dd2ad2cc4c3686f620ad5eb5fd0a087234b9ea8bcff61c101ef58b144487cd2"
+        ],
+        [
+          "9357d2f6255f99f356172d773c9b4bc5c3f156563b1c88edf83df127e241b1bc"
+        ],
+        [
+          "21337bbe40e19b0c3240cadad08cbb7f9d6be697442c475bdfc11f7b7dba1663"
+        ],
+        [
+          "67ca815022e5020fa95dcd5effbd92e139993cb645f879b455b7e2e7f26480e6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f915782ce5a786fb6eb7b4d9958cf25f6ee3253fad895b08a4161a45a75931a8",
+          "bc63a823df8014815cfe87e0a7fcec0f3facd062dab4917f5fe42516ef8e0c47"
+        ],
+        [
+          "f2acd0674a8f78c7b90c8df8414601f2d7699f990c6c26d670cf60dde24e294b",
+          "807db4631d6d5ea4f574a9fc4480758f083f5aaaf8819a2e0b2365bab55a5342"
+        ],
+        [
+          "e71a556c2c8bccdfb752fd83f56ae469644c67aa2b2d354326343e4408a81ff4",
+          "e845c767ede6d11da082e734e26c409e71fac1f5b99fc41bd949fc5acda9350c"
+        ],
+        [
+          "1ffe71858808d10fcd590648883a64279d36e3ad97c11978b26b58953deab43e",
+          "eef101c29e40a4955f847f617a2013d7225a5d260c5760b85933023efd0cc062"
+        ]
+      ],
+      "element_hashes": [
+        "06d9d7d362e544e303ce48a6fb91006ab955e5132148a32c69f5ea64b85ca7c5",
+        "5af0a5e45443b3c397291989d1ce3ef6905307dba0bcd76429a56039a7ff1094",
+        "5724442979ab7b59801e1abd48092a51ee2d2dd87faca921483c51f00672faf7",
+        "137c912101b6c9d103b765fc706ef67a8310f49ead39af44400c54918b01e3a0"
+      ],
+      "hash": "d1c989a0cfe2bb7d76ced4c16cf9c98c1bef2eceb10fb3e3effa2b755f57b6f7",
+      "kind": "array",
+      "mistakes": {
+        "93cbcaa488d7137dadcd75471900c6ab29e4cc3cc82211e3ecfe03238fbf791f": "Σ^(−1/2) = Q Λ^(−1/2) Qᵀ : 1/√λ, pas √λ"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.13h": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "76483212cbc3b908dec2ec836ae63b539714f5ee3ee07767b697387e105374d9"
+        ],
+        [
+          "2316e712388e43062a37f6eac91fbd542e3af84eaf5ff868cab03862fb63c9e9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6b47c4bfa44d52820ccc03f7d7e2cc1437ffe508f68b21333da9affd1dccb9e7",
+          "8444ca53458153c086fd1956fd7cef38959a79bab4c9e84fa43cf2db55d02b96",
+          "34360f60b164d2112dc7e941b2fdaa224a5bc0bc1f6defcdb0ab27c0d22c9e1a"
+        ],
+        [
+          "6b4db10abfcffcc31d12c2b01dad800d379d7680adf02b3133828b71a302f562",
+          "f0e922c6abf410da49d73ebcad9c62c2e15382a85eefebc54d1da1f79acb3ee9",
+          "0691d85b73d62cec16d3667e698c7695bdcfea3581778dd02e7cdc8f15be5141"
+        ]
+      ],
+      "element_hashes": [
+        "3f75e16dadc23c6f8ecb224313e4be5bd783911a10bcbc3a115c2b8d43a84015",
+        "63b31c78d74d67b4ee865528acae0cc5f89350c1c3428925cef6bfb2eb02bfe1"
+      ],
+      "hash": "963b1881b8bebc5ccc5060fb4c91275affaab94790d1cc8b92a04e6f5df8fc10",
+      "kind": "array",
+      "mistakes": {
+        "6aa7a8dbebc6922a9bf624f438032b03e658481779c51cec3f8b65977728259c": "z = L⁻¹(x − μ), pas L(x − μ)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.20a": {
+      "hash": "76fb3e0e34a223beebefa9b5202a7ac5958f7d4181552562fd15dda4748c76a3",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "04dd2ca4a2c1a7385554ab7a6873dadb407714003b950c36674df60b2ca9ad33": "la variance totale est la somme des variances, la trace"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.20b": {
+      "hash": "7544a8fa297b986aa669b94798c51601666099679c35c9251dc74f11e3a21e32",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "00477a6fd9f1ba8479382e203353f0d8027e9a1b71620759946a7012008cc754": "V(x₁ + x₂ + x₃) compte aussi deux fois chaque covariance"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.20c": {
+      "hash": "e0e8f0a13fcdcb6330599e1c30d4194a6838537a8f9ad053e2efaa0298e836c4",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "1693c96f7599b390f2cf319ab1b1c884eaef0d327bc489053fd7c7cb6c37b7b6": "un facteur 2 au carré : 4 V(x₁)",
+        "778b03ad571209e2e4bb8a6b88493d827cdadc43bcad58c057dfd559689350c7": "V(2x₁ − x₂) = 4 V(x₁) + V(x₂) − 4 Cov(x₁, x₂)"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.20d": {
+      "hash": "3eff8bf0cd15bd7183f68c29a221aeab7a15ebfe7fe68eac3c6649c8f45d3958",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.20e": {
+      "hash": "d10713d1441d6deb82d3ac54d943209889716a626e0fdccc18b36f25cfcf2343",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "25bcd30ce3ed279492dda7dd01f48c140355a30bd9feee34b4069a2a593e3559": "Cov(x₁ + x₂, x₃) = Cov(x₁, x₃) + Cov(x₂, x₃)"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.20f": {
+      "hash": "05629fb75208b3bbf28bd20881f6b5a254b4aa17a9b09558686dfce6441f4c70",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": -1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.20g": {
+      "hash": "ba6755cb5498350df3ae72396fe26141434b8fe06ac4af6426a8dab89d871bf6",
+      "kind": "bool",
+      "mistakes": {
+        "58b0307a612a78f4191bea8ce508c2f5823c51033f334845ade7e20745b34512": "une variance n'est jamais négative : regarde la question f)"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.20h": {
+      "coarse_any": {
+        "1": [
+          "c49c67c2f23e4fd6907cab7f0b5803ff8721631e853153402670e11e7b956876"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "885c4c5dff4e6b05855e6e50563a20be16430f7a88c6f10a48d22de5f05d6a1e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ac2d2ec1e6aefee7971d26b28eb798322b76ab2c3b91d9ec97df990ec4b094ff",
+      "hash_coarse": "aa1ac211447784e48f6f4a7d1e3457e16a7f837e1a6862dd46d54c10c11a1e5a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "43779927ee8ed1421d6eddf0ca02c6067293e85db3fc49f9aa4815c17d59396b": "divise par le produit des écarts-types, pas des variances"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.21a": {
+      "decimals": 0,
+      "element_hashes": [
+        "4133a3b1388177913e3b79022ad09c0d7434d213d180a747d9dd9009a3bafbf0",
+        "2bafe46d455dec1206cd3eb3a50d2978b45ac66aa18da483373ddbd6dc0d1539",
+        "e4f230780247054081837764d57004a247544df7992bcc8e59940a334df4b90d",
+        "2c1ac4df7c66006815f9a3e98fedd172eff4539c148f38728d97c1716bee4c74"
+      ],
+      "hash": "213cc1fe456ad247316baa7ae87b54ffb23c9bf8515985914edd55d0a1ec2faf",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "7fd40f19134ff4315d8ae832e5910bd6550435681565846fffd2bee998517c84": "L est triangulaire inférieure"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.21b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "b09f2140a7e7359868bf3b02bf65a84ff697f62b310fcbbafe97f0a64a38105d"
+        ],
+        [
+          "1bed4f24cf3d7c44fada0ebcf2f3091ba92a89ae8c29c6736d11ff7905098c7d"
+        ],
+        [
+          "346eb0d746ae6ded500177ff4e9806b9fa7fbe8aba8c267a8e21024576449a3d"
+        ],
+        [
+          "0c25c90e221e6ff87bfd9f5c53b68e8bd761645d33023d10ce6b7cdf4c2d87d6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "43f736f10307032a345a9d1cd18130f663e45d87e70bb3c49bb75e5f07795b40",
+          "2b7808f5c0d09478224b9a3f27a504554f86799b674c882667f9a5b9a68630f3"
+        ],
+        [],
+        [
+          "90df58f9cb343e98cdab8891cf1cfa50922611d28ddabbe5147dd760ac597c47",
+          "e9121a18701edbde5748f55f6a37816cf32e5288d7984c97e1413feb55c81326"
+        ],
+        [
+          "b8a87530cb3c3e006d7e96e8ea094e5da7a444c39cb89d611b8827c97d74ce90",
+          "be49e021b0b16e070d3f116c4709fc9ee4842f9d31a48045e8836e86f96e839f"
+        ]
+      ],
+      "element_hashes": [
+        "121908b3089193680f5be81173296ef2475d4c9231d275db5cbe4618cf914c03",
+        "3479804f664fa236973d3b2c53ccd6f220fc759c963bad9c9b5d082d243221cc",
+        "3655d120337d6396251be37c096d93597afa25b7d8ba8f6e894c0d7c41a1a7f8",
+        "bca6db81df957508b558146fdaee132e1ed2aba0c73dd3871eb67a9fe0a977e8"
+      ],
+      "hash": "8cf6c83d63df0da81b0f71ac3beca3f5bbfd6de9afd16a3fbcdb75f48b196277",
+      "kind": "array",
+      "mistakes": {
+        "8de5dc5ca3c4293011579bcbabffe60b1d57b474546bdb9c6e76b27f92b9947b": "l'inverse d'une triangulaire inférieure : le signe de l'élément sous la diagonale"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.21c": {
+      "decimals": 0,
+      "element_hashes": [
+        "aea50df62f2e8edfb78778b293ce96fe15faa9ae43d102d5791059e69bf6044c",
+        "ab2b4085a586598f38ab31586e2377e98e2c946ef8d65f800e4456693846384d",
+        "b12986fa9189cfe82238f862129dc5cf868f296ddb820ddb596c400273003a98",
+        "d8768ebd6df3106abfda3d6290fcaedb366a040ff21a9936f72c05cadbb40290"
+      ],
+      "hash": "e7336bb1d5589a6321f8be8e64a656f53b82431519abbb6e49739ab466d1ab4c",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.21d": {
+      "decimals": 1,
+      "element_hashes": [
+        "377cacc51946dd467652ed012fc99a51fdfdde254112e93a7b93c49ba877e045",
+        "370d48395c565e64c694dbbd47c24be1b77a91b352720139c12b35c9c1cb111d"
+      ],
+      "hash": "0e7dd4c9c89142d36a01519aba949493720a3b6edaf6f8bc17c56cae6e1c5acd",
+      "kind": "array",
+      "mistakes": {
+        "7e651ea9c678959ad7f1f5067c83d040e522edc153e0a40ae47567a18b270ad3": "z = W(x − μ), avec W = L⁻¹"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.21e": {
+      "alt_coarse": [
+        "d8b9368fac1f86c275fb9a107e909c0ffc1ba0ad877167c6e600c3122d6231d7"
+      ],
+      "decimals": 1,
+      "hash": "5e62a0823826cd8fea805af1141091d345f13ffc51b813e0ae42920adeb4de05",
+      "hash_coarse": "9ad6243b2a562801be35b0ac713ad15beeea35252c305d5b6c1565239dbe7f24",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "3a6f98ed536238ca8cbf795733d3c9fd3df04e9a05da53def9efbdc2032241b0": "la norme, pas son carré",
+        "7c0ba34b68733883947bb6d7e0027ad458aff960606c47eab8ae86be51193288": "la norme, pas son carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.21f": {
+      "decimals": 0,
+      "element_hashes": [
+        "31db28f5b5b2a31d63aebb12b87e624a8696f680512bb20f6bb85e380c916c85",
+        "a95f019dc7b242ffd248685e78c80dc49858a7b26e8a3122e8287c26fc26a1c0",
+        "0c37f03bc7761f40db4099c0f69aa316121fb5a5ccabcd0888eaffbb1324e722",
+        "4695334042719b0c78841d882909d7757287c86cf2616b0b0214132a73133d3d"
+      ],
+      "hash": "054c223b8e1ee62972450b6c03937ade07f84b4acd8b09bbc5375be3cfbfbee0",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4b0e6b966bbcc0159ec747bd84388f14ce27cc758b68ee2e6ee39fff60a37ac2": "cov(R z) = R I Rᵀ = R Rᵀ, et R est orthogonale"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.21g": {
+      "hash": "7d9845e77b9fe6f50ca8bece0c1603a4c4695c99cb23149720dc319de21e79f1",
+      "kind": "bool",
+      "mistakes": {
+        "1351e718ddd3b4412abcac2dd8baccc439646676b0b80b5f6d2f0ca19388d940": "(RW) Σ (RW)ᵀ = R (W Σ Wᵀ) Rᵀ = R Rᵀ : vérifie-le"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.21h": {
+      "hash": "170d3a8e647437bd0ca7494450c0ac277a740fcdc8922b7561e1f88ca1993660",
+      "kind": "bool",
+      "mistakes": {
+        "c3579e2190abedce237ff416ad92eb9281229fe611cb2c1e713de30d9ab4edec": "‖W d‖² = dᵀ (WᵀW) d, et WᵀW = Σ⁻¹ pour tout blanchiment"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.26a": {
+      "coarse_any": {
+        "0": [
+          "811f67d3855e58eb9c50fdd63c0374ce45629b8688e19078a2daef70b2086db5"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "3ccbf86c5bdad09843e3907264f17ce7616a2107656ddb300baa30997d7cd123"
+        ],
+        "2": [
+          "86d5c1b65e1e26f7b5aa97477e5d547e33f0ce75a1b6dd2d08628429ae494fce"
+        ],
+        "3": [
+          "1cec835aca88e9694d57fde157e3e972ebc81b498b3562901140baf7c20da2e7"
+        ],
+        "4": [
+          "33003852660a88bfc591631351fa1f6d265e6918c7164ddc666ae1538bdbfa43"
+        ]
+      },
+      "decimals": 6,
+      "hash": "1656786e2d89d5cdc8bf65a49240f1b9bc639699d8c073c0d2ce543f0da6e675",
+      "hash_coarse": "f6e8aba7b1ab191e3afe29d9eb2809dcdf29540486accd383b8e98a05bd3fde3",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "700c778e7e3c8c5021a493fd380a763490ec8c8e39415993929a585418e14cb4": "le signe : chaque échange de lignes change le signe du déterminant"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.26b": {
+      "coarse_any": {
+        "0": [
+          "f2c581dd001a1dfd54dbf1fd7f60b8c87ffd895c61faae5cfd2f2cac18309216"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c0b907d28a514718e8cc3c84b54c986e80aee946082fb2c569f6ee5c650cd62b"
+        ],
+        "2": [
+          "0971627a7fa927eb6134853e9b58fda5dd5cffe860b63fe0d550e33472aabbf6"
+        ],
+        "3": [
+          "544b9ff6660cfca0e7ba632b6003fbfe62bdc0b8f320e45e25539bf78e2db7bd"
+        ],
+        "4": [
+          "5ce499b27072b644f22fc7844e3c2d47e5046b66bdcb3258991c7176c34f9f1c"
+        ]
+      },
+      "decimals": 6,
+      "hash": "5df3dc0e749d519ed28a8762d4b7667100903a9083b4f04cb7ddea356f1b8d07",
+      "hash_coarse": "b8bf6c91e34a45e38b9b740f558a1c1324f0aed926632602e780205594580671",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "76893f6ddfab0b908b23cb93fcec00652af6c951c21dab4c6289689aab969e1a": "le signe : chaque échange de lignes change le signe du déterminant"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.26c": {
+      "hash": "f46e46f6e94fe2048b19dc13776f14e1f5d8961ee2d700d441505d35db457b7c",
+      "kind": "bool",
+      "mistakes": {
+        "4cb5c68c3f36bd6d78e0e0188f7474b9fb0f013443a65441750b67a279376930": "compare ton résultat avec np.linalg.det sur une petite matrice que tu sais faire à la main : le signe des échanges et le multiple retiré à chaque ligne"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.26d": {
+      "hash": "f337afcfb1535c6f3ecb6737210bd948c097322118df7f9dc425e7faecd68606",
+      "kind": "bool",
+      "mistakes": {
+        "54a2054e571a61cc4df733aa5fe87339d044af17f79889e24bc0b22f320fabf4": "rends 0.0 dès qu'une colonne n'a pas de pivot non nul (jamais -0.0), en float de Python : affiche repr(det(...)) pour voir ce que tu rends"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.26e": {
+      "hash": "9d1e590168e84f49e34eb83caa28af0529f3bd686b97b841565b6a47b658f863",
+      "kind": "bool",
+      "mistakes": {
+        "7e03fe16f769cd8f4f8bbfebcd80ab55b87b11ccf44bc374095d2e7fa638037a": "det(AB) = det A det B pour toutes les matrices : compare ton det à np.linalg.det"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.26f": {
+      "hash": "2ebed61716769945d25c2287158079aaea6ee3cb3748fa9d9ffc6a3e25c0407e",
+      "kind": "str",
+      "mistakes": {
+        "1ae463c6dd9cc1310b441e284d6e361a117bffb6addd02a660b91a8c0a4704ca": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "31381daf2ed14011fbb163b35181aa6a3eecdc90a34f3700f8b874e916c968ef": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6f6a53613a838051920bbf3389f87d2baa195ce85fb509efe7072084a205254d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "74ee877241db3dddd4c93b6a76837e3a4681b3f7a71dcb7bc9ef983797680441": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "865ce672b9d476ad1bb814302a6f264d33e5d074def5d85f83df9a0d7d5252fe": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8b12909522ad4154225ea60b98f082de85271cc335d7a62e2aa901c677e4bfa8": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "970b275fe70f3a3f66fa527a073ce3a3929be48b3be94f507a545b1338d00dbe": "une matrice (2, 3) n'est pas carrée : la docstring demande une ValueError",
+        "a40bd0e05709c8c8d6108ef2187839f6f542675959edcd8aa786256207f8cd24": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b88cf5ab64df9ebafaaaceab431132792ec3ec86ca9b14c6fa10739590495d25": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e9e957f220ccd90e79c5e68574e17354653388e5d18183e7cbd98f67903a0b57": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f3779028dce19dec318fa0f920ec12a389c08e9b8c35f50f57c74774fe812894": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.26g": {
+      "hash": "7306da3812b29c0514239a2890b3da07cde6c2037ac2c29282b2acbf71e9db28",
+      "kind": "bool",
+      "mistakes": {
+        "9bd24fa561cc108597a4f7a13bd6782a11940e991e3f0f62009d7efc986fd5cf": "travaille sur une copie : np.array(A, dtype=float), pas np.asarray(A)"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.27a": {
+      "coarse_any": {
+        "0": [
+          "0c69c15aab758ee06192460c1a6ca4b19d2a3ed6f455cd2c45e60c15f050acd1"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "df9a2490fe7bed0f991248260ed67794264584e5fcd7a02cb3738b5d4d803586"
+        ],
+        "2": [
+          "ef15354ba11b1dd4b6c394d02a2a83ecb612e6bd9c1a69a8ec084bd3488faa3a"
+        ],
+        "3": [
+          "92cc1470e2951cdfe1dab14ea1d752f578472627a26891a327a1cb99c84ae45c"
+        ],
+        "4": [
+          "6c85be82bb17911771363f1f8dcbc7a9a53796aeac0765bf185210d84eb5b49b"
+        ]
+      },
+      "decimals": 6,
+      "hash": "0b75033ecab3556786981c4485ee7ae8eeeac317f411f76cd25f9791b5add27e",
+      "hash_coarse": "2a23090059a6d1362dfa48b7d8aaa025f5867df238c037f9a226884d6149ddf6",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "4f7a6569baaa3151c6e5811fe73d65aaecb81df0f99a2f2ff03c8e8bca5f4011": "la valeur propre est le quotient de Rayleigh xᵀA x du dernier x unitaire"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.27b": {
+      "array_rounded": {
+        "1": "6825c07fcc31af2b79f0568066994fa920118ae0d9b41acbb1d253cd0b7eb727",
+        "2": "bca66d7e54533cdd33a92186e393e4635d3158530f0206ce7e7b2c0e598b0550",
+        "3": "48a4c968f28f09283037361e2c3fcd2f58de81064cadf185062b272960f945fc",
+        "4": "059d95f13d3b6ba85d09311728795de9a8faadae0910f5bc6f0a66dcf75bb275",
+        "5": "743523b32f75478a9df4453b2576f7091a5b1fe12cd4b9d2d6915e73b3abef7a"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "dfb4ca1248968d68d121cd4c9ef12a5fb79225b114cc0e739338031b22e8053b"
+        ],
+        [
+          "a2fc786e61d1b8f5ff777f0edde845e73b25a649503d34894ed7bcfa76676b0a"
+        ],
+        [
+          "6584e64a971f308a6771b031ac4618ad5f560dab00e48df1bbd96d524ca2e8f5"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "608e7488fe8a7fa200cf92aa133ea3894100de99846bfad1f2264e48096b590f",
+          "2a0d080685f75291cf96cdd3dd4893ff034b87dd5c986750476a9da69f2be290",
+          "9712310ab7f26a7f62ae70e7daa693f71bd7bead470f8ec941b0b5ff6a18b695",
+          "6808d43450ba748c7e8f2b98eea35f640343b923af4c9306be733739db4dbc44",
+          "23b370f81f7d6a83859b4a602ef0dc07520ab0618d33077e4d4e3eab7eb9c695"
+        ],
+        [
+          "064bfe954ce5e873f27d9447f366f44651bd06fce67dd3e3f3fce264359b97be",
+          "ff8db9cb5f00cef0bb51958473f8cd0fac2fade50b8151427569e85d21608e70",
+          "fa8e659e5f5240ed9e95b4c820a8a7436c702e6fb704a70c74c2d14f3dd2ab7f",
+          "a49e8533c6b13ea3094294a7ac79bf3157fd41d43489ad88c1e6b2c0df777858",
+          "54d8cf490e12c5990f111408a6f9e41b41b40ce3af683d854d5b9a43fdfed602"
+        ],
+        [
+          "5e14075c76d4b97e6e2e3fad93b145cb15aa4446274126737287c12d34558f7e",
+          "b76b7ab1b3eb610626b58082dca63b075bdf882e1b332019cfc67e2d68746081",
+          "d60fab479ef57ce4636c36fed6dd12dff05792c0694da300f2f0f15eb633c342",
+          "728ebff63acb071877e61bb2404c768ce87f603656f4dc49d823fa44f271c549"
+        ]
+      ],
+      "element_hashes": [
+        "ede3adcc5da7e35c93dc55a1cf6798e66b8afa0a1c80eb0518aa82883cf0ee30",
+        "183615bfef95ea7021b8f595e242d9d3ec7cef95f2c7b0236311c770e7d5a5a1",
+        "7c4e9d80a5f957595ae45f326a27ac7eaa856821bfbbfa549b527cf7e33a27a2"
+      ],
+      "hash": "c2979de92689384f6f09ce985d40c5cfe59c30e0440a0de7727b2111c7bab9cc",
+      "kind": "array",
+      "mistakes": {
+        "829f04f6328cfe4da6bfcd5166cea5cbe47a488aab5e84b1d1c75d3946e66575": "la convention de signe : la coordonnée de plus grande valeur absolue positive",
+        "c36c192956edf0af58696638bbcd89bdc22ddd3958b135d86fa352a4334be1c8": "normalise x à chaque pas, et rends-le unitaire"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.27c": {
+      "coarse_any": {
+        "0": [
+          "e40e708521b467cc1b8d7e590769ad63767bbb9149252cf4fac58ef73293590d"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "3fd1d4a5f83865ed8c5ac9907f2e5c327fe29ba37a06d26a7965385f61c39579"
+        ],
+        "2": [
+          "544b4a98a3766de22da6c13d2c99a8b7d566d62a47ea0571f3ba23e5823ad3c1"
+        ],
+        "3": [
+          "fe7d988f505e6ef335b894ec04dbf7ec2b30b89e89046b6d9553b61694429752"
+        ],
+        "4": [
+          "74828ec3e73a781f356f3fd59b6f915621566306bb57a3ca7a8bb5ca4f042003"
+        ]
+      },
+      "decimals": 6,
+      "hash": "5acfa81144d7cd9be0a153c482bf55716e086570a3fb101d776750fb795004cc",
+      "hash_coarse": "90432acc48ac160660c1c60c7a7dc6f3cfaf877a558d3af169efff2a2309f894",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "4c272984f3657740509c479d766f57bfb6749de8550a35f5cac89ccf2a4c10ad": "divise xᵀA x par xᵀx"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.27d": {
+      "hash": "e4e0750583fe8bbf74ede206cb9ee8d4c7c437694d38bbbcf5ef2d8552efab88",
+      "kind": "bool",
+      "mistakes": {
+        "1e945867bf27fade5058aa32a3da8b32f053d87d65a19fda33e2961c6931814b": "compare ta fonction à np.linalg.eigvalsh sur une petite matrice : normalisation, signe, arrêt"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.27e": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "737541c1b8d031114d95d55f6e7a40bcbb077a954b11242b24a93cb824e4459e"
+        ],
+        [
+          "a0d81bde6c7f1a783ca052ca8982b8dc3adde023d2832071a2d59e111fc4987f"
+        ],
+        [
+          "940b59e92ea31e82f459e5bfeb67fa6ebb0fb4801b513aae250a6e0b186f61b3"
+        ],
+        [
+          "e70996013b4da8106495e061e293ce7b49f69f30da8246e62c32065f3d6b6243"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "999001fc53f297ee29bd4749fb6f4a6d8705bd716c25957a738418ebe46ff25f",
+          "37b25b660a6d8522b1b45946192f850942e0def29e1941fea119b0bcecbce092",
+          "95b7f7b9864ab716f3991f82c5412bd54830f5acf8908644cd23ee4d40f5070f",
+          "9133b6e8048ced67bb3f584d2298a7cd5aba9f349be7602b48f1e8ee03d9a5e8",
+          "6ac71df474944f85883755e29d2de60a85fcaf6b4df4197485853279213ab42e"
+        ],
+        [
+          "ae7d8ca38657005013d38c8f0660fb1df7ab92296b02ab9f5985887a2d4972d2",
+          "a1667f8d023206e14dc44374ad0c777f0b754e40943332308be04657a9f33815",
+          "f8fa1c0b277e21077755924521f08ff70a56f8150db079e973accfc8b0cfe8eb",
+          "9585daa3567b1531a4c8b2956c061c21df67e1b6f2e132a455b179ba8120cf78",
+          "44a9e6111046b469e439d3b02516f7e3c9736b3d6af03790bb4de16901b2fd03"
+        ],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "407961b0bb6b7acc523601f6afb84c1055f24279ff98f405fb9f01bfefbe18e5",
+        "7c32fa2905460416de9859fcd3d5563ec49b726a8ce6c970a23e20c2ef966c66",
+        "a87c5210bb46cdd46b4f6f25d866ebcdfe2390a357ecd1f8e1ff4c6ab8695dde",
+        "868bb349b187e1f0a09d47acecdfb3fca231cc2166ee1cd328dcda9759cd5411"
+      ],
+      "hash": "ba8a1b72707174de9860dda729fb336db100e6f092e6683032f08e3e04f3ef76",
+      "kind": "array",
+      "mistakes": {
+        "2b342c9a40e95beca88cb3189094237f38a6f7f3de3574dbe46500f46feb48f0": "la convention de signe : x doit garder sa coordonnée de plus grande valeur absolue positive",
+        "e3bdb3a98e2ec473b2441432666336413886be77c73f2415b3efe1513607e10e": "la valeur propre est xᵀA x, pas ‖A x‖ : elle peut être négative"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.27f": {
+      "hash": "8f2c31e99666a29093b2c6462d0842fa460c6a42c763032ff67a01f602b7ee2d",
+      "kind": "str",
+      "mistakes": {
+        "014bbf7d97cfba1d7c9d7b5874b61d17095886de9e46bb5a91aec62b9dae006e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "34996ad40f528758718e3f0ef05f92964e15282c285ae0b3652e213cf9b9d34c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5890c3c51a3bbd86e11f1f2ee9c765b6eff35dddacf1f90ecdb60eafa8a6b397": "x0 est nul : la docstring demande une ValueError",
+        "7d326428bdf7afac90eed20875affa6b6c113ca760aedfce622e64963bad9ff9": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9b489d073a4205f3aa95526b2e5db06d5f14546cf554e9696367325345a25949": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a6dcb8b13fe55c8b5e71242e7d9e2c549171f62d275d5297aefa7873d0d16270": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a98878e551ba92ff526bd59608a6a3b657449de194fcd650071b34a3dbd67c44": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b3d79f43108382874fcd0adb04904211661bde95baf60445b7dafba36077f2f1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b92f804d6a0577165e50ef1e7af6ffeda395d11e5081a08a472eb1b80d03c6c6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c2511800034d0c993049e5a3ba32bf2e3b6f26df4b55582d4089994ce3e6c65d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "dc6daf4dfcf5d20eebe74a191605b97a38cf08879c00373fbf440b57741169ba": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.27g": {
+      "hash": "1f49dee339631bf9c31be51d1792d17467597c1005083a060c6fb92ac8ed2b86",
+      "kind": "str",
+      "mistakes": {
+        "37062d1a7a4c2c2afcfdd757bb6b2ffcc796e538901ffd1ca5cdd7f05d7fa15e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "66280a37f568c0929c5c854fe42a993fe3d8a3962dea3a232737e9ee9e6b2531": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "93ae25e391c8a2ad998cd2628a623448bab37bbdc2f572e17dbcb2af7767dc6e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9d37e8e411fcf415a819922722ef2c05c90c0bbd209e937e362dd04890019edc": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a6c6d10db5bc461cf6b525411093dd26621d9b9df1ebf50833484c869a91d364": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "b47993be74d94dcc850a0a689a856b24fae335f782ccbbe784dedb3240fbec48": "x est nul : la docstring demande une ValueError",
+        "bf0a4eceee2af341d447c0bd6976ff751c3c6ef1bd8eb5a49f975f7aa66f940e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c4d384f2832e40fa9520dfbcf7953d4c4232c1d95dad179cc52c728fb274544b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d6f7c9892390a89f468ffc24e89e7ed4bde4c54f32071746be7b5e150f4e85c7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "dd09a75088a5a632829bc69e06875a74ab50ddc8a9fe9ed23f4c75490a73782b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f96be3dadbb376db7b29df2e5788146de8fc2b21cfac0bed6615c0d64575232c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.28a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "674d503b1beee1c9dcd78066ba50c815eedcfec143c6e6b427074beefd252fe8"
+        ],
+        [
+          "89e33697f0ba2fd77f3db6fad3c419d78e7c4307a47c0b38ec3a858ab5311874"
+        ],
+        [
+          "85489e7c66cf0c34f273d7e8fca2b804ec263eacd05c5a961d77797c98257997"
+        ],
+        [
+          "3cf19f10f31b7f6aa5465f399972982169bc0b53bb420a1745f70f5ebdd3410c"
+        ],
+        [
+          "e724faaab6bab088a3df865727b6041fc7cd7cc3a4036b654086c4b7504be62b"
+        ],
+        [
+          "fa4a999346af65819a93fe341f6d4689c0c8dc132c25f874c5ef16d1b0e0b1f3"
+        ],
+        [
+          "09a825c22666d21a8df4fdea84d1fb785dc35589186bdcce8d719ac5cd58ce62"
+        ],
+        [
+          "83fc2d44db145c986e140ac39e7c400fe843dcc452f2cd2c424b2395fa6a2336"
+        ],
+        [
+          "57fbc1703f148385b4a2ac8b91440f9cd55fdff728342c7b28668254efd27128"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7e05d7a58c67361213a1c1e575806bf0cc516e5dad5347dccd2b245e5349c16a",
+          "cd17e8da86d19ad299ef05bdc38e25050a66aae3fee509e278370e88364b30d7",
+          "b5aa753a149cff0635482b93406baf8d25bf7b4ed71bc8f6c2b6b5117eed892a",
+          "3fefad83981700b7403619738cbedb3aafa576e8571feba2ed0ceb086bb5e99b",
+          "9c7220b8c18b742803fcb877fc25950d36247af0aaf2f12b447f2eee41a02b6a"
+        ],
+        [],
+        [],
+        [
+          "b53f4c5e6cd6dfc877f668aea307f57a4b0410c942176b7c072a4e8e0f2f4a54",
+          "1dd6ee6ffc59e2388b0b5a4af4d0b36bed00ba6888ec1abfd53ea2593f476fb1",
+          "6be776cc23f912a3ae1cf2409bda19e654943be2bb115913a03990c81419c15c",
+          "3fcef1e0c2e3d14f8f6699f51cfb686902362f20500623ae6522ebdb9072c972",
+          "3e83b58aef23aed5c077693211a2bb8b2f5b0db3f10471cb03a92948f7e3e6a1"
+        ],
+        [
+          "d31902bc04f06544ee16f1155abb0bb0701b628c22b8c869649c8a59ec1fac9a",
+          "e11f769c3a0e62155c9565476ba2a2a223b865732dd95dcdda699c2a857ef593",
+          "94cb1e72c47444faca43395d983f726dd79fa745816fc6b04e6834ead85ffc44",
+          "3512f9a969c61d1be5cf3ca8c192b388e38b0c178a996a5078f40a95fb93c14d",
+          "04d2e3d2ad8c541b70580973f99a4480cab58e203341929ef9c7001f9283e136"
+        ],
+        [],
+        [
+          "5a6176550edbc719b0ca7e6f4c50d702e7a4c07eb595d2d9bd0af61f7aba7de9",
+          "b5e729d2bad30900f95d05caa1c0b3b89d03b5545653091f6d534a243c7260c8",
+          "178dd4862f8f0ec0d712a45d0d07f13ca0fbead8dc31955caf038c0c1ff1cf5d",
+          "d159bc2b30773ffaaf3dbe988139b03816fb131c231b3e1ca7d617286c416db4",
+          "b56ffb67e655a4bd8922a025c4d4fe33341d48c1b0d23730e20c6dff52d94391"
+        ],
+        [
+          "90c2900469d867298493bf2aa9cee4a021d2ced10156f93c0cf7b77be6f59fab",
+          "2bdfb5a4d8094c5b5fe3417fd5824d0fb631b7be395ab5cea2e434667ab5c20e",
+          "99ad35754002ac40271c59f540a974a45ad81ab9470e1a10b805d13be59eef2f",
+          "a00650ead3aba97b2383cf2f59ea0758e6d374e1d668534ee06fca80096a7f7d",
+          "dd909a39c2823fef5c0c7dd54bf37727f2569c6dda982cbcb55795fa91837b74"
+        ],
+        [
+          "8a19bf81542ccc3690571ed17ca750f49434bd8178d0f7df21dfa84dd22a88ac",
+          "3e134a31ab843d60b209086289bdc4c36d8e42038d1003b3e3c3011593f55061",
+          "e9fd0c503f2fa39112cbe3035d33574c964030ba9c0691f044512229166579d1",
+          "30a224b1fb33f0e21632f891acc2eb762825429eaab6e5a77e0a38fce7d3a8f0",
+          "dd742fe33ec6181978a8dc9e9020dea0c2f039b3a76e10da37a72a489355c27f"
+        ]
+      ],
+      "element_hashes": [
+        "b7d5a7c49cff7d19406576a41e2f678bcab701e2bf5671e6a277c79b5eb850ca",
+        "4a0150b2a14e0b8b7b4cd4aa5afe9cd4860afc139374f233dbfd17b76b671a4c",
+        "21efbc7ddec537db65eb969609644c21b3cfeb66d3166cf06f349a2087ca5f69",
+        "3f7be7482972593b8efe2ccd16a82f5ccea228928940914a91ccfbdfb95a7f51",
+        "cdd7c795af3446c31f6633a3d445d24d1fe9cddfb0655755376807b60cbb72bc",
+        "b33c16e603730f520cd1b90f5833152bd9a51b792a68a4b545bb589c027890e3",
+        "8a3ff2c75cf5076f6e1dfe665815ab2ea3487a9856d9f7b5c8ecda219ea7f3f8",
+        "b33a17046e09db223922c3168514b9483b51195de5ba5c9cf5f94eb6640a2a7d",
+        "087a8faffd2966c3f4e16cc42e3b8432e4b2554334e320cb01dfefd35624b0c5"
+      ],
+      "hash": "2db83cb3f4ce204c42a7bebc3d3ecf3abb7e0cec50fcdddd7c3ae115a09b553e",
+      "kind": "array",
+      "mistakes": {
+        "d971652e0da258170e52659137761629ac0cf3cc56ac31f0b9bb6dd953f9e740": "l_ij = (a_ij − Σ l_ik l_jk) / l_jj : divise par l_jj",
+        "e57fb867f1c21233515d8449fe4f272952d71aae302541d7e61d67a91cc84d1e": "L est triangulaire INFÉRIEURE : rends L, pas Lᵀ"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.28b": {
+      "hash": "84d324781d6cc6e5adcbf998a71a8afe3fc9c1a4a715595d8807605918d0014c",
+      "kind": "bool",
+      "mistakes": {
+        "dd37dd8c05326661d1a0369774597e57b50cbc3e1f2176456c9e8d4c025e75d4": "L Lᵀ doit redonner A, et L doit partir de np.zeros((n, n)) : rien au-dessus de la diagonale"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.28c": {
+      "decimals": 0,
+      "element_hashes": [
+        "1b88a518b969d408f871db4a30ddabb09a407a04c36a4b7d3bef8b795a5f3977",
+        "fbe9751da8584f6c1c3969ba2ec9baa64fa38f324b3ae8ee0ace4b756f1b5f38",
+        "7cae80f567d2ca899e748549984e3056c21217884127491566521ffff56fb1ae",
+        "a0347bbbfd009248a2e494c02e7aee45d1b1043dde58c8e8a45b23e88d98c105",
+        "a2d391dc8586d695230f9721df316d0faf11f423ec63d885e8ffed367e98f3af"
+      ],
+      "hash": "8daff0d0c375c4f4b0389c6cd8d21451241faa4692a636cde41f05cdb152aacf",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1ad7ed43eeaad8a0bd300947bb26cfe3f20962fbab53318256ae4510a67800f6": "une matrice non symétrique n'est jamais définie positive au sens de la docstring",
+        "c55ac228eb66472c7a8d2c2e68b1703d92a4d3a973576392efc9ab0b87b01af1": "semi-définie n'est pas définie : un pivot nul n'est pas strictement positif"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.28d": {
+      "hash": "05c3ed8b21ad3020a6a0b93513395a38b988374f23f287c739564f5d77073d4a",
+      "kind": "str",
+      "mistakes": {
+        "04e5432c5d80659f4d9107818376c7f497881470fd28776dd3cb3f5d695bef86": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "1bf0e3a6655ef89bb45fed11b91f42e643962105e39ab387c9bc33daf2df052d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "1d78eabd820eef3c587bf9d922cf24f34905f6e4c379c1ed977ff9404b9bf548": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4b914b21ee6d2397d62a40d15c0d0c1942bc786d521c9edc7df9940db7533ed1": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5dc7ec7a819f07a2f65b97d42979d53046778d10047b237b360324eebc31f26f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "94d6972b2f3dbc40c858c9ff1e9525c1c0e988873300fb835cca4bd0762c6142": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9d7eb9268bc22adbc8e3467991241fee07f143aa424a524eff8c114bdd410568": "une matrice non symétrique : la docstring demande une ValueError",
+        "b485d312a635e0bc8dbe1efec4b1988b064d2b3b89966881765273c549014548": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c0ba8e2e5270753b21c784a2a67a15bc03128087ccb62dcb11ee783aa45c696c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d63b9f30a490e4c78d56be0034c2437b28a5a954f6d8d45af966e6b127e14806": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e9488fedd9b8d99aac7e747b7bb075a99abf0fd979260bbc9df926e620030a8d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.28e": {
+      "hash": "82b5e78684bf13df89905c76c98f320b3c506ca455a7332065873af050dc3bf6",
+      "kind": "str",
+      "mistakes": {
+        "163d7b7bcfe0f20cebe685c5be0051b675fda71259860482014a38c6c275f0cb": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "33ebbfecd31a699f022148e63ecdc15bd3f0519480c613e0646e3b2193c646f0": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "47911329d04384fa46006214fb72929d84d04834e8e9827e6f1f57daa9929e84": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "656152fc28f7b6f9fd0180c0ac4c74023486243972ed08847951752ee2c4052e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7d440b9d2c07c051bd669e91fe85bb42980f49bc4b891422bae94c656c54db1b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8cde0898fea3811613e919f918797bfcdafa0213693bc5e29cc0f545251eb47b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9b627ac66a3acc3981666dc80ceea71bafb724b514591c750e6b304301d9ae11": "une matrice qui n'est pas définie positive : un pivot n'est pas strictement positif, ValueError",
+        "ab837688645bec6e4c3a569cfc1321c656dbee3473989f67471908f466c29d75": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ca486b7181daa8d0c1a86f958ba07308e65cf83789327fffaf099201cfb163df": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d5afd6a21697021246d6692e9b79e87ca1c6af263d604be44b4bc6a137a6401b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f2207213d8f4e80669c3ea04600d9165933d704c33c9612b948a37b6a097d1e0": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.28f": {
+      "hash": "1a7ea957a56549af581528e0ca0705d9390c754f4c8c638707f0194d951c3207",
+      "kind": "str",
+      "mistakes": {
+        "0bc496760a6603c78503c3471d3beb4f3ea086fb74675eb30fe4ea68c65e47ad": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "207d16d704dd6fc0d12478d3362e81bca0b054043a017d57cbe937988cf947ee": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "22434d63942d4ac96841dda41f864aed75c033cd247fe82695f7bc58ca2c275e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "3a3fff71da9118d2c67d807c14cc0a764a730aa49bc957b7067ca281ddc7fdce": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "4e6f275346af776e48b1024666c0f945db220d9dbcbfdfb1dabdacc2ad11f59e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "549b8a50b5e8a1106807309a04836daaf3b91cdf9641df17c3b896db411d3bb7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "79f677c8e8813edc9cff83d8798ad196713516d372fa024ab0026bd7d3561904": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7e710af1bffbb8d990d2acdf4293a637385a0eeaf3287bbb71f8ad754d3eda9b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8bbfed310c49c547c1d39f63ceb33e1046837239e846db30fea4e6b8e1691d92": "une matrice non carrée : is_positive_definite lève une ValueError au lieu de répondre False",
+        "92df11a6efc6d035a42eb8cf1fbf6a7339134a19f4b1e044c1a7f03b3c92d041": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f042a1349c5129ffbff44939beeaa54f77caee6fa20b1c15112d7ddab28913cf": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.28g": {
+      "hash": "1de8517a2c6d733b6048aaf2dc9a387f73040e99a69cd1081a367b0a4d2c1600",
+      "kind": "bool",
+      "mistakes": {
+        "c6ecdd52682e6e1cc21f0a72b94618a2b63e1e62cae0656374935eb93134175c": "rends True ou False, des bool de Python, pas des np.bool_"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.29a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "45f5296e38555a684e8eb81e8265785f71b97c2f169ed23808830e2f97db0903"
+        ],
+        [
+          "4c8c1d08f99eec4234af184a9ea243c3514d0ecb943cec6512b0bc35f08fb2e1"
+        ],
+        [
+          "06bb8e4a657769f67c32d266c720103ccea8bca22d03547bb7acfb7ffd94f5dd"
+        ],
+        [
+          "a603472d75e013b00f68db9cb83ca26d1c4329de60d6f653181ab8adb78d49be"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c1ab11fa378e22510b9d37a44bf5444feba8359d7f9f98943c74251d14148e02",
+          "23c5de383e66e7abb98f30828cd8852991285220b252c380e49be903ab4e61ff",
+          "4c867a522314ba17b8046d900aa8ce39db792e333e2ee06a17cc4ae88f843229",
+          "a28f0842c09fd79c439c099b5e1a924884015167694db886ac3507ba85d8f598",
+          "fe702eea2cace1328c9e85b2d849c8402284a102901475dc4265e5d87cb6a691"
+        ],
+        [
+          "4d3328670c1f4660ab4c47905c11f37f840fc3534e81881177aac31f72502c73",
+          "3b61e0058b9e6cf33a70912b77a1319c5771ae5a76100dff583d26b181a1369d",
+          "f7a7ce8dc3a7e96d150c72049ae4cce716d0944760228940be7ae4f756383dba",
+          "453b9e5c3e17d98fd61314f051ac5fd04474aa343cc2df2d713761972eb6ca6c",
+          "1347b1ac8506973e9457f7500ef58a1ffed0763ab196b6b113c683add40291cd"
+        ],
+        [
+          "e7a2d3776b85551c933d060f7a9d748c2b59b81733c7bb209d386ba63d29cba4",
+          "118a2965cef1370d62dbe01a529181d9ebdd8e661b2a0227a8db4b28a601fe16",
+          "9738377842cefed9dfb543c5324c130e752269ee6d60138aaf9ec30996831b35",
+          "80d6c0fdc1d37e333311bac83a6af8885f39a579180f7e8576a8daf03f8967d7",
+          "dfe3114d65b1eabed5f23ed0a1d88ff35645e8bf8c08e4f5d8fd0532b9d1d3c5"
+        ],
+        [
+          "50b739b8d62d30b0b900f4bb4c33cfe1e91f986b20114461174a00eef075e5f7",
+          "c18ffa3e1ca0fc2bd4c2172f5ae55942eccd78e44ba19ff908bcc38ac578b6a8",
+          "ee1feba64a37951423d0a0a4444d512104983aae2f1ac8bd2a95a0fcbb57fb62",
+          "2a506ec1c1875cf67cc88caf17c1fc4639397c45633fef20b9db19787efbebe2",
+          "de2fc2b0a4963ee70d003fefc29a1b01ac2487cf8079f0d06b3e74b2951a1297"
+        ]
+      ],
+      "element_hashes": [
+        "1b1e40262998859d339103ace4982f0e10850976266867dd2e59ae70ec371e42",
+        "1636af254b85cb0e1314f52fd217f1a9015cdfd087b0e3beac46566dcda91977",
+        "1b6e5c152685b4dfc108a1aedd187e5f3f6405b31766ac75e43951ff5bfaf623",
+        "26754b68c93e217b781b0a8fd0f1f5b5dbc6d1142218041dda1be5f9c8ff21ea"
+      ],
+      "hash": "ec0aea2130bee56c272572b4bdc58dac9f2482ec8e2933f055cec013ae94df27",
+      "kind": "array",
+      "mistakes": {
+        "484097425c3e819881da3c13d2f019e9d4b48e143a9c05a3bf46c372ea0eedae": "la racine carrée d'une matrice n'est pas celle de ses éléments : Q diag(√λ) Qᵀ"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.29b": {
+      "array_rounded": {
+        "1": "eeb3109fb061cc7fb08bbd8c6e8d58d5a181526a59c9677a31e39580cfa0467f",
+        "2": "f1e513081f159302f13a92b8e324c18a4939a9eb97bc1fa7178ee5a93202d4cc",
+        "3": "bccec9c8713fe12754210254bb2f61e0507d4fbeb62844be60fb6a65d63a97f4",
+        "4": "d50584c8d2bf5d4b7ec0c8cb96f7bd3e745201564a6034e648438e6a2812f3f3",
+        "5": "74ef47cb1828e9231d7a3ebcc7be7c15fbd08e2717d4dab74a00ab52ca1acc71"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "14dc66ea589b7e119ab1412ce9db82a65588b965c8382fb4b4e956d56f3e78fb"
+        ],
+        [
+          "b370b84f7f3f0c5172ab79f03e4a9e686f9401353e899a440d4c2dfd6496035a"
+        ],
+        [
+          "611fdc58ef11a70f2e8dd0930c5e139317af662701ab476af2cb71d890545c70"
+        ],
+        [
+          "53bae0d7b54db93d31d3950b3981cfd571a1a5a524d1bd11dd8fcebd578d6b24"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "bf22a91483174b90eaf7cc305a641d73040a3e8566809cc8bb9d4b6d0ac387a1",
+          "228767abb1e97a59d0c62ea94710f57677de1435cd7da2ca5a8decce4492c209",
+          "5e904cb6c77a61252a1671e5a2b4bec0be035dd439b20f3e337fa0c78de5c4ff",
+          "a471bcd6d149c1badfa4a5ce2434cea297cf1f8e5dba61f8857471d5b1c70026",
+          "adba0f95102e8eced6ec763b818a73c3bbb9e7131219ce4f662625b0d6f2eb4c"
+        ],
+        [
+          "073bf7214012e85e026cc91b4e7f94e8b0ce09a6260fbc2717a7bd3fa5cea54c",
+          "dd907ada98f31e140ab11224c1579737f3e314bcd37f0090ba6996d772aa9d6f",
+          "af4ef02eed30e4387a19a381f8bfe6762fe64ee13f5b3b01e154cd364097d52c",
+          "afcd72a6bc0423163deafc5b87874f73a5f9d103f5cac4f0578110f426878c3c",
+          "7bca8636655f57545bd30a2b62c274eb1b0ef489c936342752cac66b485d1888"
+        ],
+        [
+          "ee346b9ed43ab8aabe5c584637b66a8b34bd63732f7c3ad087dc444a880e55fb",
+          "e5db3c41dba31be8eaaa78a71ced0e9d3002ac383e441af2d82ece7c6ae92671",
+          "85d498b828d67076ccdf4d7e94a267374ed21a14c5b11bd6c18b4d864a779b46",
+          "94d055e2b9f94c393589a3c7ecdcd3af55d88fcced8c5bd989b28a8735fd7c6e",
+          "69801a16332e46626182cc80a838b0446d2b051210bd5f7ce6e8b2bd85646f19"
+        ],
+        [
+          "d93864573bd3ed73a427d3b5a6189a59f5b29ac865409ccc902012dcbf71605e",
+          "2aada9f183ed8adbf8861517fe204d3b0dd0e56628709b88d1fd8838b8673047",
+          "709a13eac7f3d541115cb83c31aac30fce52ee323fa2b96179a61a086b4ffd62",
+          "172a2aace89a2e6cb9871388b5db4cc34aaa25ad22f8231f9fdd1ef528c38efc"
+        ]
+      ],
+      "element_hashes": [
+        "3555dd5a79a0950955e23e2cdec368ebb0d881551336d039db61e9e3563ac7d2",
+        "d7664bd9b31f1fd1ebd44c06b4e0bcc12c80e643cae9230178c8235cf26006db",
+        "6cc1a7a63668b83e740eae6fccab87ace3198113b2be568edd3e5f4d0de4d879",
+        "75e5bf3bd4939d88af9a1cbfbe1c8d93eae955603a6745d33fdb766e5a10c987"
+      ],
+      "hash": "a472e5b8e3da6b574e2ce922c5707eb4b200bd43ef85de712ea4e702600a44eb",
+      "kind": "array",
+      "mistakes": {
+        "08258230944b9885dad4b26f0eceda1a55e79dae6d7d51a67c97ece7890dd224": "la racine carrée d'une matrice n'est pas celle de ses éléments : Q diag(√λ) Qᵀ"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.29c": {
+      "array_rounded": {
+        "1": "95b759c0fb364221bfddbf6a2b211abd84f5ecc70ae613ad16b8c66fce0de6ad",
+        "2": "462e783b1c0aa2c9bbcedfe065a03aa76db3e1615db6bcc9a3c2ef083893b810",
+        "3": "c1594a6012140d6c7677d0f56d8c0e4ac1ba39e8b4e373979bcc2b672dcc3a84",
+        "4": "8de8cc0f523bc58b38427f7d75b884378056dd3efd5dfb08b756afdff1a68252",
+        "5": "d295aecfff5cb1b4a799700b06865c21600939843fcabaa20f7799410795eac4"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "df88b454630480cf7e2105a72b40120abb792a2b93336ea36eac3825c07b8d82"
+        ],
+        [
+          "5faf34bf07f5089d6451fca11fb4f74e7a266a4fb33923b8d5486a99954d5d50"
+        ],
+        [
+          "674bb2f769658ab3b4b359561e8c1528670920f49df99dc31594fd1acbed8600"
+        ],
+        [
+          "5ea3a38d3b8f77ef7b6ec931789683179579c323d0c0de810480c6f1ee164d72"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b9406092af95e792a5cc25c34646dda90077be6a41e92c29a7c02f1c9a45766a",
+          "7e283d6974ca75fc8e2a2430d7575ce18326161b56e3f5d4b124cd63f5d4e258",
+          "a74ee53f0f1b88589f75766acb0962d9b1f7b63cc3c5be6c3db22e81c9b3bc81",
+          "6dd62c2ac6654f8878efb8c23809cd53be0cb201ca5095cf2197292be08278ba",
+          "ec0ce08b0f07b804e696ff2c4ae10304d66829067331bffdbe619831dce31f75"
+        ],
+        [
+          "af63745ea348904b0e923c57e8948e4f6a6a3cac36c52e527d0cf6a9f2d1cd3c",
+          "b08825709d840d35c8d2c589f6c1df27c719a5a15fd690051ae0912ed6ba2920",
+          "28a83c08068194cbee25fab5fc628ea5e645b3bd165a66af5d2cd077ce5bd71c",
+          "bcb65616798209555742c9c7913678232f84a956cb7036f4bb73dd69fbb2fd9f"
+        ],
+        [
+          "2d3d518b3aab830937fb09ec1cc3e72e9bc859f89cc04015099aaaae54ce20c3",
+          "7196413817d96b0311648638db87f9bcf2dc5cf5826d0786cddfd31a48dce780",
+          "0a631295f73599ed35db1212f8970965c3610d295da4255e1084783042dd4bcd",
+          "b0cf56f557591c08fa80f57557e701ba7f7d83dd421b5cae055c7d066d775e23"
+        ],
+        [
+          "f434a61f60f891a74e52568b7a6666a13f10b61bb3a28af5657ebe81f5a8add2",
+          "a6fdd5311a007bca5640b71335c382581320aa8f2216ce8d53cc6957c098566f",
+          "25a7d6ddef735987b7df83f461778a5173d05eb23a8a223b9d044a0fc60badd2",
+          "725b87b9aedf0670749dd8ce04f31ded0dfdfee67d85cfafce5f6092cccbe1f8",
+          "d03753601303a66b9e79e823e5eac231e73e85fa082474444bb6e6298742e152"
+        ]
+      ],
+      "element_hashes": [
+        "4f969b2345bf02981da0eb34a2117c07fde4e9fd4b05485b87e1bb24df0abacf",
+        "0dd3926d80dca7681af55cfa6984acdcb4b99e33c94651b7a622b14f74728e49",
+        "3d5072e15349aadf816fd16f37ef60eb82930726437d2b0545d2b4692ba55c31",
+        "69070ca2fc993dbbfdfec4401b5f21605f5582114e66fef3af5cc70c7d5df496"
+      ],
+      "hash": "b88079c6d78891f4f219e68183a68f271f239cca962b12810d79d1d880f88b5a",
+      "kind": "array",
+      "mistakes": {
+        "9826d16d259bcd3c158dbf20224be2397a03835c97439434fc22ed6c7ed4cc96": "W = Σ^(−1/2) = Q diag(1/√λ) Qᵀ, pas Σ^(1/2)"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.29d": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "1fed9ec99b93b4c90b60e7bea43ea0db78ec25274d4dc846c1599792eddd411c"
+        ],
+        [
+          "3a606db75686e6eb0b80e3d750b9c4dffcbdaf1b5e1bc4ef7e16a71b568e714a"
+        ],
+        [
+          "c99118fe90cbff19dbaa0d73409b15e22d6774abd2e084e367918c6df0723e55"
+        ],
+        [
+          "d09c83845c50429728bdb611ec6b44694a48b9d348a59169ad16610efc4a9dc7"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "74b4be5947ec3dfcc3581222b62f5606f02d2e3d17d0a13e7479885b3d546a45",
+          "05cc7d1f9531d7c6a86c32e6f74de54d3f1d182698157b11c2ff45dcfa4aee9e",
+          "fa83eea6ea3801b828d18c76c3d6ef3cb8dae8bb899a27f8fb07344b1335f2d8",
+          "37aafd6bb232dd2333be5b96d66c7767fdd51b3db1ea0e8a3f45482b37c905e8"
+        ],
+        [],
+        [
+          "8ce871dedd2bb685bb88487d70b59b1354ca55473ca3dc62af2461e546099cc4",
+          "ce4548ecb31606add564f2738ce41b14b49b5d157b3090025cb307b9e03b372a",
+          "ab5dc782b906d44ec085d8f435d2892d0e9697c8f66f8e03d0d15e157ab04199",
+          "8880cea5bbf7d0800d06b7265e855124331f4f449da8af7405987ff08bbc0bad"
+        ],
+        [
+          "1004435beb90a747322c844852583417fee37fb8b464a679131583dcc29c93c9",
+          "1a5a0ea65a4f0c9570ed64c2587a8d2adeb3c120e432de1b8051bcb686d6c1cb",
+          "9183925f50f3886ca99e5ea16dc10d3415360d4bf7a9fe8d3d7cb96dd5ff2dce",
+          "8f407bde45e513fc91217a5ffbbf46a5b9a1786565612bbac4581f9b6949b502",
+          "00edb9adbb70c80565cf0d4ce127ff82c832266070cac6b934599c235b963ffe"
+        ]
+      ],
+      "element_hashes": [
+        "351369c1bc4359c7764809d3a4945e8d5fece72bd1bc92ae279c32195427d125",
+        "623ea32783c2c3259766dce0366e073535f3bdec68fe4ee78f72967433cea191",
+        "d30d520e2d1759f18de0928727de139a1b748828fe33e04ca84e36731ceaa3ea",
+        "cbebd126091af175696a9e5cbde9d9d1f57a3a82f42b4066cc21da28de722e06"
+      ],
+      "hash": "f49c8d8039547c8753f897b632dc8fdfd98a0ac7e393491016b77039569bd1af",
+      "kind": "array",
+      "mistakes": {
+        "4cf306b144810a5b5f2a7b9f561209031e70c27c8621ad7aa8b78e92b96efe3e": "W = L⁻¹, pas L",
+        "60f572d865b708981338bfd7dff9ce7bbbffbced810f17f33b6207906e3c44d6": "W = L⁻¹ (triangulaire inférieure), pas L⁻ᵀ"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.29e": {
+      "hash": "868c03400c6b06769fdc9512ae4b67245e87620be1e664b3cfc844047f32b3a1",
+      "kind": "bool",
+      "mistakes": {
+        "ea93e351546d131780d6e871fea91f22f685c7015978a0de44744e8a40de4e63": "W Σ Wᵀ doit valoir I : relis les deux méthodes sur une matrice diagonale, où tout se fait à la main"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.29f": {
+      "hash": "9ad7e309a4e71a6c7da351fa36d668cb7d420bb4a6421ac140a16a72528f1691",
+      "kind": "str",
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.29g": {
+      "hash": "f6fa10dcf75cff06d40cbd77432575923bac508134f067459009fe4f70803f58",
+      "kind": "str",
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.30a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "0b0ee82167e1a1ce08492d04be937e329bb827f483a188db99bbff71ee81585e"
+        ],
+        [
+          "3d1e89cb4abaa6f07dd0815595670f1264ff0a83645e4df7961fc08d8b78f2f9"
+        ],
+        [
+          "befb4f4be3aa7c852a6ead74a6965318e204200f3391c020df853d98a6274aed"
+        ],
+        [
+          "3decdaa4b3f23e818526bac3da0d2ccb30ad500974c84dc136eb32af16fbb9d8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "5780b879797aa383dae308bcd7464c0e4ed7f6533050d6969c6efd31af5df1dd",
+          "f33aa990f7afca13f4173d61dae49a5b7f50da11b525de82e4cf37ba0dbbac1f",
+          "9ddbe02306d6e50c62ac908dc201ee19399ca4ceb3b893f8df631ac5a11092c9"
+        ],
+        [
+          "beffd024fbe08bd00a8ebb1a6ddee5bdebde17c7cc0053286fc85ab6e3a64e85",
+          "9c3d7a274dfcb2a9cb55137cf16bf6c8e38a395925b6fbf65e7ef89322cc840b",
+          "00be14f359639c578c4362d29d88c36203c4d0455361651cb50fc5a76e866269"
+        ],
+        [
+          "40e4ed58b0d95cf0e65a37015188f4c4054dc3401582aa749d795cbaf6c99603",
+          "5c9c87465e4a7d986a7d778ec6267c4e244e4300ecdc378c7cee225ff4757e50",
+          "f1aa320790b36362e7e8a5e72cc9a778f0d7a9034018153cfbd27f0ef792f046"
+        ],
+        [
+          "6e48c899c8078677311b0715c5a19d7b5e9237e6f86e03625c744207f30d7808",
+          "14702b457deab046ae549e5c0bcec333e441e6413a61c04dc8ba1cf481343f2d",
+          "4ce798857537d0429210422e589646f6145cdfa09904a0d613646daeb37c20e2"
+        ]
+      ],
+      "element_hashes": [
+        "40119977a5b7a93e8e19e80cc34642b1f655db91cd21ba182eee655aa73fe6f8",
+        "3de9f692efdfec06dd66ff7ecf3aaf356842ca6057dced7797c6d696b90511e4",
+        "d48c05b592a786624ce7ee851765cbaf11fef12001cf9bc9387786fc292d1489",
+        "a68ff94fafeb644120d7f047e91bffa11494da247dba7427618f6535725bf526"
+      ],
+      "hash": "cb588a2e23111ee322cb533819f738202a6f97742c4d8dd6259612b8d741effb",
+      "kind": "array",
+      "mistakes": {
+        "2d13df3e206dc8ddbd6632cff60bbce9b0c0c47c48f09557644153b53cbd81e1": "eigh rend les valeurs propres par ordre CROISSANT : garde l'ordre rendu"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.30b": {
+      "hash": "d089dd5573cf64680bb8b4e944759ea08a40d00dcff677adbfb83ab75f8ee3e4",
+      "kind": "bool",
+      "mistakes": {
+        "61cf76a10e209ca3ead0d6bddbc9606fb9785a87f930f009ffb1adcd39486440": "Vᵀ V = I : les vecteurs propres d'une matrice symétrique sont orthonormés"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.30c": {
+      "hash": "66782822106205cf6637629d450a814fee1c084f7887de368681ee70e94b9937",
+      "kind": "bool",
+      "mistakes": {
+        "04787ed4ffb0c300cbb2a1cf40d032c3fd555cd45026df3103b777c476fbe9c1": "relis ta fonction power_iteration (M12c.27) : ses tests disent ce qui ne va pas"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.30d": {
+      "hash": "fcfa09a62ebca13486898b32b992806b97b98fb77dc77a45ff9807bd06cfa758",
+      "kind": "bool",
+      "mistakes": {
+        "369ac9a9f194b1736c2b28c64d3b29cfdf23fc22ada441626af16608eaf091ec": "relis ta fonction det (M12c.26) : ses tests disent ce qui ne va pas"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.30e": {
+      "hash": "15a5c57359b3115f6a9f1ecda6c67a2753c970259e871e243b3c9c8cf88923ae",
+      "kind": "bool",
+      "mistakes": {
+        "f9c406b1bd85deb3d34ea36960e3f382226f2cbfc9d445e2656f84da7fbc6040": "relis ta fonction cholesky (M12c.28) : ses tests disent ce qui ne va pas"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.30f": {
+      "hash": "193a7db30a2ffda236e6891ad1e924343df4be6d8933462539dde8daa53ba735",
+      "kind": "bool",
+      "mistakes": {
+        "362ba084e0cba6f07c4002ba43479679686cf0d28fa69571d6e1d38c5f014e2f": "relis ta fonction sqrtm_psd (M12c.29) : ses tests disent ce qui ne va pas"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.30g": {
+      "hash": "228c3a522c4b52a8f54d7c9874a477601c8dcfee320f9ead3a9fe05b1ce2deaa",
+      "kind": "str",
+      "mistakes": {
+        "07fef298a7db9e7ffd1e70a2e998baa62c6a8641e15a4a61e4f03b3f589a4bd9": "une rotation n'a pas de valeur propre réelle : eig rend des nombres complexes"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.31a": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "66c5594f26a27c91f08398de6a0c2c26876a0da6b624714b7e6a5e1abca0572d",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.31b": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "f750ee5e02d2992f064a5331206ae21e4bfca27d67a77aa02cfd2b9cf2ad919e",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.31c": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "acefd44a3fcd5b61b79ee17e5fbc0342a1ec9442c27dffd750d1df654c250d84",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.31d": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "459e25ea906ab31201063f35ef442d1dd8afe8c3dd06fe100663bce13af80a3d",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.32a": {
+      "hash": "51a73fdaa844356eb94140683ced198fe0db77fd157545f5a30df5e0a507fcff",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "35ebf1c396b12ae0a30c47ebb743ae498a3a4d7c7e7b293b78db5da5db1b9865": "lis la ligne r = 0,5 de la colonne des itérations"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.32b": {
+      "coarse_any": {
+        "0": [
+          "7443f114eb8ac034f556284c67e4c068130000c8b9ced89278c019f6ce55a05b"
+        ]
+      },
+      "decimals": 2,
+      "hash": "417bb8e314fb199b2a10927cd29efbaa5bd211d30399d84515f3f06ded57b319",
+      "hash_coarse": "ecb9b842f37a40a8f9c3beacd495751e794ee38b22d3c03e809ada094d84c3d8",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "031e7d57d57ca799fb0f25369c376eff87c74ac515c514d3442c271276e366ef": "le premier r qui DÉPASSE 1 000 itérations, pas le dernier en dessous"
+      },
+      "sign": 1,
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.32c": {
+      "hash": "53579a91e8777c7f9d5e955f9b536df504801573d1f51872621067622ffbe405",
+      "kind": "bool",
+      "mistakes": {
+        "f0a442586e335005971ad3d920f5b4d7b85cab288f38c3b574e0977a8e29878d": "lis la dernière colonne, pour chaque ligne"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.32d": {
+      "hash": "48311ea70080a2ae4a54603d90018d88217841bbe286f9ccab4e92d055475830",
+      "kind": "bool",
+      "mistakes": {
+        "9d86f2adea784301da44e7c4e22026aa81ed8c059db293c22c747a1ea3893c76": "compare les itérations des lignes r = 0,9 et r = 0,99"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.34a": {
+      "hash": "869585c2a8e008c2aafc05018ea2662c298934a7707f02f5754438536460636d",
+      "kind": "str",
+      "mistakes": {
+        "0936531813fb20d38ee33b465f454475fd7a043f8dabf19bf21796e2b11e3c65": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0b9382b0fabaa13c355d4e95f1557314ddd5fe7d6c158e5e522fc23b9b5ee9ea": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "0e84f7f9de9bf6b810a528263821ce674a151ba7de2ac1e78dd1ef8b57a43b6a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0efa752fb1bebf8bb8c3453f75ba77103c8e512ee6c8055a72352fdefec6da03": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0f4419ceee7c761a4cedbcb10508b2d8ee2ce9df5d3103ff095f14c40b81c9ac": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "14e7f69e13f33fb661abcfda0d7046566dad52ee2bfef59f7cbdcc219eb9132d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1573b5e16bcad60d50fa0dc281ec634fbb60496b89bf2ec1ac852021a73b4269": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "19acc121fab2109b81baa82e20945e901034db50842e5d88ac105576ad623d5b": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "1f185a129c702ca732fdc59434261fa49a300ab1aa66e70ea2c0368828dbc2ac": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1f8929cf0b2a4f90e5e6ceaaf3de284632a6e8c9041bbb4946748234a4eddc1d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1fd9b7637c528ede8c57b050eb13216efa0d6765af8d3193b41fc47e8830fb9d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "21960b746876b8cbd65814b5bff89c1a57b63c8bd96ff261cb054af6d3fe0bce": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "295e613d5cea557ab0af6ff2f23367638b01ab12146c29006bec7cb77f509055": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2a3efb8ab884916d785625452310fd1c64eefa3b8347eceafe4e6ea2ad91713b": "il manque une ligne fautive : refais chaque ligne à la main, avec ses propres nombres",
+        "2dcc87729f078b8ad610bc202b42f191eeb119d76b09ac0d054b92720072cadd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2dd3162e0c98728b6258399e0f2e357ddf231bfc49601b3de5e8fbaf48f7b501": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2fd8b553fa7a1760e1f3a889c6ff6dac10f9bc7045522a0ac28cf6aa9ae3d88c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "336d269797ad3513c0e0ae878912cca6ec0904044f260bf935575da2060ab76d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "384aa8fabd96d2be2bd33a6700f99b442d9745ec5a48fbd159a0a37c07e5c69f": "il manque une ligne fautive : regarde les hypothèses de chaque fonction appelée",
+        "43c1e50c1869b857e39789d4298ae24b8be09e52e483ac28f072a3bbf9fa2e38": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "4af51bba991bdc531a4afe83f4726082f76c941d7f50a90f23d8054efc59dd36": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4fbf4b5afecea4c86c98b409fd47693581467f9a14d3ac1bf826b6985e66c2e4": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "56cccaed769b565020dd07107a086f214318e8b57fb9213fa3c9cfe730f2bddb": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "57aa6547e75f182633386fc5b9c3632f4ed607a33a3c061db878f7cfd03971ac": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "59b95b4e0b53b05537db6d12c17b5f2b6579e1906ca82014dd34afd88f9eaa4d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5c925efb91bfdba659607bb5815541b6a6d3d70d9d2702499c0bd79b639b6f9e": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "5c95480f97a877ad6689a996f5a8360e77e2d41fc0dfa1f1baabb6d6f3a0f709": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5daa5ed84434f4d9f462dcccdf8b0d2838d4fed4a8334c54a029c7e16d05ca46": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie chaque résultat : un vecteur propre se vérifie en un produit",
+        "63131937338c9755d02e45af54addd7c01bd6ddba1366c49a07efbc5e53bd1a6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6694708b9d102c5d5421d6bc9a995136e9fafab02239e3a3997a0671b6defd4a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "772b860bcddcf44792ce07e75ab60069f1587a565ac10f8aeae96186dcfb15d8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7a10da3a0c5ee1dc91fe78f6e987ef1ce69b2499b7fb91dc20276e0cc2ef46eb": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie chaque résultat : un vecteur propre se vérifie en un produit",
+        "85bcfcb6abf2d83bad1ccb0bd5911a89f50341bea2c8fe65718af21630a555b6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "88f62ea9571a547d28aa92493000c2b3380406bc7151035eb0f615763915bdd5": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "91d4faf375eb44282fad48f10528dac729267dc3175425e2d7672b316011a1c3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "924332f477e7a09f4c224f8acfdf8709b0b93819b7e6b1507e690a18997f4076": "une des lignes que tu cites est correcte, et il manque une ligne fautive : regarde les hypothèses de chaque fonction appelée",
+        "92b7fca024175fc47cc47c8ceef7fdadffdc2eeac921b816ddf093562732a310": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "933ab128a1300e5ea3327b21939cd7a6307b09fc0f7cfa3187765f7032a5a2ec": "une des lignes que tu cites est correcte, et il manque une ligne fautive : regarde les hypothèses de chaque fonction appelée",
+        "9c1179e3f899df5b7e610e3ca6ebd7575141c1e8a283f3e99a723cbc56806826": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a0928ec92c422037b7d5263337418e9e77a22082a2a35abd699f8df696f0fa0d": "une des lignes que tu cites est correcte, et il manque une ligne fautive : vérifie chaque résultat : un vecteur propre se vérifie en un produit",
+        "a3d8acf0d6f128b2ffa624b2eca512e3596cd07dd6d5b0c7b5becb3593a2d791": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque ligne à la main, avec ses propres nombres",
+        "acbe6b81deb91dbca4f9502a78c46426a57f1936812045e5c30fe1cee4a33408": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ace397cccac7496d9790c4fe18dadb3af3b11ed3399c7f3d22a7472a6f375f0a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "add4e5ebeac13c7b3cf6f2a29ea767f916386db2ec8f53e50ce20e5f137aea14": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "add6b948b5ba5d7f6ad72ca5255fe870afda16288d1bd224ba3a258dfe9094f2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b84534899b6134641bba27731bd0864689494f5685b86e29378c5f8107f6b788": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "b8aa1d77082d5880b6474aaddbeea6aa2315c2bb9c88c8a1457fb42679ae290c": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque ligne à la main, avec ses propres nombres",
+        "babbfa59afeb0b2c1edad6e5ab4f998720738185a486c00d4ef46f9d982ef0f4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "bba652f0c324467c83795032765c00fc160e314f912fe73a1b1a0782845ff88c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "cdcc53b40dbaeb3bbc19ee3c38f0f480fb55ffe1110aa0b81ae5f5adf35e6bee": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d1f90a9b64e99a7431c7defae2be2ca9fc9956641442fb0c106eb294e308cc9c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d4e73f9cc6f540e85a889d1e97de79e36c2bff6960095d79c5cc6d03d323ab4a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d99f556adc355f6fc2ee76e6751f9190e19689eed9b0e284f3e28a0230dc348e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "db15632646557806b9fd61e1d9ffc09cbedf641983dddf24e7bb0c527e74a068": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "dcf04e276f1bcbb2acda7d5b6b0c589eab2507e80c8ff5c8f0f4027a30762847": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "ddee0b27ae8fc9fcb63ddc7a85c10a1acb2c6219e22f047b41366bb65d581ed0": "une des lignes que tu cites est correcte, et il manque une ligne fautive : refais chaque ligne à la main, avec ses propres nombres",
+        "deb6422679e6a869ac7cdf661383a70959b9ab4d1c28d6a8cb8f254316ee3dcd": "il manque une ligne fautive : vérifie chaque résultat : un vecteur propre se vérifie en un produit",
+        "e354b568d4cbca8a2f7e3021ba185ab33422f511aa8a3c95aad10cf46c99daa1": "une des lignes que tu cites est correcte, et il manque une ligne fautive : regarde les hypothèses de chaque fonction appelée",
+        "e3aebe28750ee3b3d84ae6c77379c164c04f0e6b3e4afb0fa4734a5a7c78cdd6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e4847a297023f01f73b7bb716442cc4405f61b3f6e3007f0bcea5a35f4689834": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "e9d70fe979491b3fc7c2efe6914cb8e826f8072df2bd3a9ac3aae3d948e05ed8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f3dd50d86021ae3f3e7708d85c0e440d3dd9ea67e6a4b0db598cbe49d6327cf2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.34b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "c224015eb75776c7f0f0731fd25ef2871f015f1730c198abdbdaadb7890ad141"
+        ],
+        [
+          "71ec7df6a94a6fc53258f6dae9554b30acd03b6574b0c1e7da68cb69b80077bc"
+        ],
+        [
+          "09748355d843cc185cb124f8f7bea98680b02e304fd2d891273c4020ef2d5cea"
+        ],
+        [
+          "785a3d9070171a4e365c61c4cafe81a70341f57e4b1027e7cc5c27474d02aee0"
+        ],
+        [
+          "e4cbf70f86016de2fbdba50079964da15354853852e70f09db73973e957e01da"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "273e734c9930761e351f2628c3242b94b0ebbee7d2c13336f94b0da33d7467f5",
+          "0de7a91940cf20b18fc89b0d1fea055adce07995522dc3189ab21bd8f70e1c60",
+          "1229be6961ea15b10b78ffa16f456d37169c32b9d62254fad7185da5297c3cd2"
+        ],
+        [
+          "72c5eaab02c35af6bed5b9d48ab260cb0fb8533ce368e4cc7b42a80985f477f4",
+          "9e2eb4c1698241ed78c86d7bf97d6919dd785598c491b50a6aa7e33c5482657f",
+          "76e190f800c368cb48df0773a545745e6c379d6f944890bcdcaa36ccad7508b3"
+        ],
+        [
+          "2768da345dc9024f24ea57f09736586ebf8952d7acbc41cd7de3163db4820cb6",
+          "3e98417a2034675a9b40df30636acf142b3c45a76aa40163e196e2c196c14a80",
+          "366b107693710062c75fef930c4ddf36e1a7a339414ca54667be0f216b24e513"
+        ],
+        [
+          "9a53514e9a4e5fa87011c3c61377c6c1e11e85eef0b3956a17b918854b931931",
+          "bc7168becd6bcd20e0d7e8648ed9ba4b6724f91bfc92841eb2900dbcc62c620e",
+          "9bcd014816fd8a785d5d6b457113d0ab1f737666acea9c741c7dd24d8570d744"
+        ],
+        [
+          "cd1b05ab806e296a07575949a793fae4e20861b06b8fd5b39f539cedf62b4afa",
+          "0d60a63a8a5b739e28d7fe8b20ea8fe210213329fbdb40a9d627d71f3908b08b",
+          "8529b6da42f00291cf6326687ba386ab80bc8f01b99c75eba98539441d203f12"
+        ]
+      ],
+      "element_hashes": [
+        "ce7c6f86c288d09899b32b0f49e32489036e3e1971ef5aea03acfabffd7bf048",
+        "e503fbf7da1fba2f72630a4b46083a14cc1aa3c065d90920dd7917d06b1cc4d1",
+        "1a093fea16f5735be1bdd30c61b68f861473cb214f398998d913e96ea067076f",
+        "8077f7067f8c89994045274ca03da941354ec67867318a6587b44056b25f11fb",
+        "40dc185b129be654dac46a5efc6378a20aee68f8962bd72555dc76def55ac9e4"
+      ],
+      "hash": "4d52e2b315e00582b4000b7d495b8c73eafb00d6343a63d09d17490f53ada71e",
+      "kind": "array",
+      "mistakes": {
+        "0884a227bca3009336043cef3a9fcfee83d3858655caba8a0a924e06c93c0371": "(A) : le déterminant n'est pas additif, calcule det(A + B)",
+        "8b99b8d20cbe2c430a12bbab8c1e845bbbb81bcaeeb35313c4173ffbc396eb29": "(C) : un vecteur propre n'est jamais nul ; résous (A − λI) v = 0 à la main"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.34c": {
+      "hash": "487cbf04a24af96ce20c59d7a8f7d0287689f47d3dc368c869c081e574e37959",
+      "kind": "bool",
+      "mistakes": {
+        "fe7217efe2b037716ff458ad25d1fa76e94b730475da28151bd6e5aad3047220": "np.linalg.cholesky ne vérifie pas la symétrie : elle ne lit que le triangle inférieur"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
+    "M12c.36": {
+      "hash": "73d3560dd5e64b3fd847248e0afb453e546ac103a6b7145fccc413f351601491",
+      "kind": "bool",
+      "mistakes": {
+        "1ea54faafae1617fcb3ff27997d84337ceb32fbe761eb76c36270132b42758b4": "l'objectif n'est pas atteint sur les trois matrices : la cellule du défi dit pourquoi"
+      },
+      "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
