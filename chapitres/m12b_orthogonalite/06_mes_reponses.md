@@ -128,7 +128,7 @@
 - d :
 - e :
 - f :
-- Deux autres paires orthogonales et une norme ; c) vérifié en recombinant ; pourquoi la dernière coordonnée de f) diffère, et dans quel rapport ; le coût d'un système 4 × 4 :
+- Deux autres paires orthogonales et une norme ; c) vérifié en recombinant ; f) comparé à c) : ce qui change, et dans quel rapport ; le coût d'un système 4 × 4 :
 
 ### Ex M12b.3 — Une matrice orthogonale 3 × 3 conserve normes et angles
 
@@ -197,7 +197,7 @@
 - f :
 - g :
 - h :
-- P² ; une équation du plan U à partir de b), et pourquoi c) était prévisible ; la droite de I − P ; M², Mᵀ et un dessin de ce que fait M :
+- Le calcul de P² ; ce que concluent a) et b) ; U par une équation (avec c)), et pourquoi d) était prévisible ; e) et f) et la dimension de U ; la droite de I − P ; P inversible ? ; M², Mᵀ et un dessin de ce que fait M :
 
 ### Ex M12b.9 — La distance d'un point à un sous-espace, et le résidu orthogonal
 
@@ -209,7 +209,7 @@
 - f :
 - g :
 - h :
-- e) orthogonal à u₁ et u₂ ; Pythagore avec ‖v‖² ; pourquoi g) ≥ f) :
+- e) orthogonal à u₁ et u₂ ; Pythagore avec ‖v‖² ; g) comparé à f) :
 
 ### Ex M12b.10 — Des moindres carrés comme une projection : y, son projeté et le résidu
 
@@ -221,7 +221,7 @@
 - f :
 - g :
 - h :
-- La somme des résidus, et pourquoi ; Pythagore avec ‖y‖² ; la projection sur la base orthogonale (1, x − x̄1) :
+- Ce que dit la première coordonnée de f), et pourquoi ; Pythagore avec ‖y‖² ; la projection sur la base orthogonale (1, x − x̄1) :
 
 ### Ex M12b.11 — La décomposition QR d'une matrice 3 × 2, puis les moindres carrés par R w = Qᵀy
 
@@ -311,7 +311,7 @@
 - f :
 - g :
 - h :
-- f) comparé aux carrés de g), et ‖x‖² à ‖z‖² + ‖e‖² ; la démonstration pour une base orthonormée quelconque ; ce que vaut U Uᵀ :
+- f) comparé aux carrés de g), et ‖x‖² à ‖z‖² + ‖e‖² ; la démonstration pour une base orthonormée quelconque ; U Uᵀ appliquée à u₁ et à u₃, comparée à h) :
 
 ### Ex M12b.20 — MML §3.2, §3.5 à §3.7 : produits scalaires, orthogonalité, fonctions, en anglais
 

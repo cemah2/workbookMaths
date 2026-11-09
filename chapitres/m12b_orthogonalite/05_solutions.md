@@ -106,13 +106,13 @@
 
 ### Ex M12b.1 — Un produit scalaire défini par une matrice 2 × 2 : normes, angles, orthogonalité
 
-**Réponses** : a) `True` · b) `1` · c) `1.7321` · d) `0.5774` · e) `3` · f) `True` · g) `-2` · h) `False`.
+**Réponses** : a) `True` · b) `1` · c) `1.732` · d) `0.577` · e) `3` · f) `True` · g) `-2` · h) `False`.
 
 **Démarche.**
 - a) $\mathbf{M}$ est symétrique, $a = 3 > 0$ et $ac - b^2 = 3 - 1 = 2 > 0$. En effet, $\mathbf{x}^\top\mathbf{M}\mathbf{x} = 3x_1^2 + 2x_1x_2 + x_2^2 = (x_1 + x_2)^2 + 2x_1^2$.
 - b) $\langle \mathbf{e}_1, \mathbf{e}_2 \rangle_{\mathbf{M}} = M_{12} = 1$.
 - c) $\lVert \mathbf{e}_1 \rVert_{\mathbf{M}} = \sqrt{M_{11}} = \sqrt{3}$.
-- d) $\frac{1}{\sqrt{3} \times \sqrt{1}} = \frac{1}{\sqrt{3}} \approx 0{,}5774$ : environ $54{,}7°$ (et non $90°$).
+- d) $\frac{1}{\sqrt{3} \times \sqrt{1}} = \frac{1}{\sqrt{3}} \approx 0{,}577$ : environ $54{,}7°$ (et non $90°$).
 - e) $(2, -1)^\top\mathbf{M}(2, -1) = (2, -1) \cdot (5, 1) = 9$ : la norme vaut 3 (la norme usuelle vaut $\sqrt{5}$).
 - f) $(1, -1)^\top\mathbf{M}\,\mathbf{e}_2 = (1, -1) \cdot (1, 1) = 0$.
 - g) $\mathbf{M}(1, 1) = (4, 2)$, et $(1, k) \cdot (4, 2) = 4 + 2k = 0$ donne $k = -2$.
@@ -238,18 +238,18 @@ Pour la copie : $5\mathbf{q}_1 - 2\mathbf{q}_2 = \frac{1}{9}(20 - 2,\ 20 + 16,\ 
 
 ### Ex M12b.8 — La matrice de projection : P² = P, Pᵀ = P, trace et rang
 
-**Réponses** : a) `True` · b) `[0, 0, 0]` · c) `[1, 0, 1]` · d) `2` · e) `2` · f) `[1, 1, -1]` · g) `False` · h) `False`.
+**Réponses** : a) `True` · b) `True` · c) `[0, 0, 0]` · d) `[1, 0, 1]` · e) `2` · f) `2` · g) `[1, 1, -1]` · h) `False`.
 
 **Démarche.**
 - a) $\mathbf{P}$ est symétrique.
-- b) $\frac{1}{3}(2 - 1 - 1,\ -1 + 2 - 1,\ 1 + 1 - 2) = \mathbf{0}$ : $(1, 1, -1)$ est dans le noyau, c'est la direction normale.
-- c) $\frac{1}{3}(2 + 1,\ -1 + 1,\ 1 + 2) = (1, 0, 1)$ : un vecteur du plan est inchangé.
-- d) $\frac{1}{3}(2 + 2 + 2) = 2$. e) Rang 2 : le noyau est une droite.
-- f) $(3, 0, 0) - \mathbf{P}(3, 0, 0) = (3, 0, 0) - (2, -1, 1) = (1, 1, -1)$.
-- g) Un noyau non nul (b).
+- b) $\mathbf{P}^2 = \frac{1}{9}\begin{pmatrix} 6 & -3 & 3 \\ -3 & 6 & 3 \\ 3 & 3 & 6 \end{pmatrix} = \mathbf{P}$ (par exemple, le coin vaut $\frac{1}{9}(4 + 1 + 1) = \frac{6}{9}$).
+- c) $\frac{1}{3}(2 - 1 - 1,\ -1 + 2 - 1,\ 1 + 1 - 2) = \mathbf{0}$ : $(1, 1, -1)$ est dans le noyau.
+- d) $\frac{1}{3}(2 + 1,\ -1 + 1,\ 1 + 2) = (1, 0, 1)$ : ce vecteur est inchangé.
+- e) $\frac{1}{3}(2 + 2 + 2) = 2$. f) Rang 2 : le noyau contient la droite de c), et la colonne 3 est la somme des deux autres.
+- g) $(3, 0, 0) - \mathbf{P}(3, 0, 0) = (3, 0, 0) - (2, -1, 1) = (1, 1, -1)$.
 - h) $\mathbf{M}^2 = \mathbf{M}$, mais $\mathbf{M}^\top \ne \mathbf{M}$ : une projection **oblique**.
 
-Pour la copie : $\mathbf{P}^2 = \frac{1}{9}\begin{pmatrix} 6 & -3 & 3 \\ -3 & 6 & 3 \\ 3 & 3 & 6 \end{pmatrix} = \mathbf{P}$. $U = (1, 1, -1)^\perp$ : $x + y - z = 0$, et $(1, 0, 1)$ vérifie cette équation, donc il est fixe. $\mathbf{I} - \mathbf{P} = \frac{1}{3}\mathbf{n}\mathbf{n}^\top$, avec $\mathbf{n} = (1, 1, -1)$, projette sur la droite $\operatorname{Vect}(\mathbf{n})$. $\mathbf{M}(x, y) = (x + y, 0)$ : elle envoie sur l'axe des abscisses, le long de la direction $(1, -1)$ (qu'elle annule), pas verticalement.
+Pour la copie : symétrique et idempotente, $\mathbf{P}$ est la matrice d'une projection orthogonale. Elle annule $\mathbf{n} = (1, 1, -1)$, donc $U = \mathbf{n}^\perp$, le plan $x + y - z = 0$ ; $(1, 0, 1)$ vérifie cette équation, il est dans $U$ et reste fixe. La trace et le rang valent tous deux $\dim U = 2$. $\mathbf{I} - \mathbf{P} = \frac{1}{3}\mathbf{n}\mathbf{n}^\top$ projette sur la droite $\operatorname{Vect}(\mathbf{n})$. $\mathbf{P}$ n'est pas inversible : son noyau n'est pas nul. $\mathbf{M}(x, y) = (x, x)$ : elle envoie sur la droite $\operatorname{Vect}\big((1, 1)\big)$, le long de la direction $(0, 1)$ (qu'elle annule), pas perpendiculairement.
 
 **Erreurs fréquentes.** Oublier le facteur $\frac{1}{3}$ dans la trace ; confondre $(\mathbf{I} - \mathbf{P})\mathbf{v}$ et $\mathbf{P}\mathbf{v}$ ; conclure « projection orthogonale » de la seule idempotence.
 
@@ -291,20 +291,20 @@ Pour la copie : la somme des résidus est nulle (f), parce que le résidu est or
 
 ### Ex M12b.11 — La décomposition QR d'une matrice 3 × 2, puis les moindres carrés par R w = Qᵀy
 
-**Réponses** : a) `11` · b) `2` · c) `3` · d) `[0.5455, 0.6364, -0.5455]` · e) `[[11, 2], [0, 3]]` · f) `[9, -3]` · g) `[1, -1]` · h) `[9, -6, 2]`.
+**Réponses** : a) `11` · b) `2` · c) `3` · d) `[0.5455, 0.6364, -0.5455]` · e) `[[11, 2], [0, 3]]` · f) `[20, -3]` · g) `[2, -1]` · h) `[9, -6, 2]`.
 
 **Démarche.**
 - a) $\sqrt{4 + 36 + 81} = 11$, $\mathbf{q}_1 = \frac{1}{11}(2, 6, 9)$.
 - b) $\frac{1}{11}(4 + 18 + 0) = 2$.
 - c) $\mathbf{v}_2 = (2, 3, 0) - \frac{2}{11}(2, 6, 9) = \frac{1}{11}(18, 21, -18)$, de norme $\frac{33}{11} = 3$.
 - d) $\mathbf{q}_2 = \frac{1}{11}(6, 7, -6)$. e) $\mathbf{R} = \begin{pmatrix} 11 & 2 \\ 0 & 3 \end{pmatrix}$.
-- f) $\mathbf{q}_1 \cdot \mathbf{y} = \frac{1}{11}(18 - 18 + 99) = 9$, $\mathbf{q}_2 \cdot \mathbf{y} = \frac{1}{11}(54 - 21 - 66) = -3$.
-- g) Dernière ligne : $3w_2 = -3$, $w_2 = -1$ ; puis $11w_1 + 2 \times (-1) = 9$, $w_1 = 1$.
-- h) $\mathbf{A}\mathbf{w}^* = (0, 3, 9)$, résidu $(9, -6, 2)$.
+- f) $\mathbf{q}_1 \cdot \mathbf{y} = \frac{1}{11}(22 + 18 + 180) = 20$, $\mathbf{q}_2 \cdot \mathbf{y} = \frac{1}{11}(66 + 21 - 120) = -3$.
+- g) Dernière ligne : $3w_2 = -3$, $w_2 = -1$ ; puis $11w_1 + 2 \times (-1) = 20$, $w_1 = 2$.
+- h) $\mathbf{A}\mathbf{w}^* = (2, 9, 18)$, résidu $(9, -6, 2)$.
 
-Pour la copie : $11\mathbf{q}_1 = \mathbf{a}_1$ et $2\mathbf{q}_1 + 3\mathbf{q}_2 = \frac{1}{11}(4 + 18,\ 12 + 21,\ 18 - 18) = (2, 3, 0) = \mathbf{a}_2$. Équations normales : $\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 121 & 22 \\ 22 & 13 \end{pmatrix}$, $\mathbf{A}^\top\mathbf{y} = (99, 9)$, et $(1, -1)$ les vérifie : $121 - 22 = 99$, $22 - 13 = 9$. Le résidu est orthogonal aux colonnes : $18 - 36 + 18 = 0$ et $18 - 18 + 0 = 0$ ; c'est $11$ fois le troisième vecteur $\frac{1}{11}(9, -6, 2)$ d'une base orthonormée. On commence par la dernière ligne, la seule qui n'ait qu'une inconnue.
+Pour la copie : $11\mathbf{q}_1 = \mathbf{a}_1$ et $2\mathbf{q}_1 + 3\mathbf{q}_2 = \frac{1}{11}(4 + 18,\ 12 + 21,\ 18 - 18) = (2, 3, 0) = \mathbf{a}_2$. Équations normales : $\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 121 & 22 \\ 22 & 13 \end{pmatrix}$, $\mathbf{A}^\top\mathbf{y} = (220, 31)$, et $(2, -1)$ les vérifie : $242 - 22 = 220$, $44 - 13 = 31$. Le résidu est orthogonal aux colonnes : $18 - 36 + 18 = 0$ et $18 - 18 + 0 = 0$ ; c'est $11$ fois le troisième vecteur $\frac{1}{11}(9, -6, 2)$ d'une base orthonormée. On commence par la dernière ligne, la seule qui n'ait qu'une inconnue.
 
-**Erreurs fréquentes.** Placer $r_{12}$ sous la diagonale ; résoudre depuis la première ligne en oubliant $r_{12}w_2$ (on trouve $w_1 = \frac{9}{11}$) ; ne pas normer $\mathbf{v}_2$.
+**Erreurs fréquentes.** Placer $r_{12}$ sous la diagonale ; résoudre depuis la première ligne en oubliant $r_{12}w_2$ (on trouve $w_1 = \frac{20}{11}$) ; ne pas normer $\mathbf{v}_2$.
 
 **Variante.** Avec $\mathbf{y}' = (9, -6, 2)$ ? *Réponse* : $\mathbf{Q}^\top\mathbf{y}' = \mathbf{0}$, donc $\mathbf{w}^* = \mathbf{0}$ : $\mathbf{y}'$ est orthogonal aux colonnes, son projeté est nul.
 
@@ -380,7 +380,7 @@ Pour la copie : $\langle x, 1 \rangle = \int_{-1}^1 x\,dx = 0$, donc rien à ret
 2. $\lVert \mathbf{a} + \mathbf{b} \rVert^2 = \lVert \mathbf{a} \rVert^2 + 2\langle \mathbf{a}, \mathbf{b} \rangle + \lVert \mathbf{b} \rVert^2$, et $\langle \mathbf{a}, \mathbf{b} \rangle = 0$.
 3. $\mathbf{p} - \mathbf{u} \in U$, donc orthogonal à $\mathbf{v} - \mathbf{p}$ (1) ; Pythagore donne $\lVert \mathbf{v} - \mathbf{u} \rVert^2 = \lVert \mathbf{v} - \mathbf{p} \rVert^2 + \lVert \mathbf{p} - \mathbf{u} \rVert^2 \ge \lVert \mathbf{v} - \mathbf{p} \rVert^2$, avec égalité si et seulement si $\lVert \mathbf{p} - \mathbf{u} \rVert = 0$, c'est-à-dire $\mathbf{u} = \mathbf{p}$.
 4. $\mathbf{p} - \mathbf{p}' \in U$ (deux vecteurs de $U$), et $\mathbf{p} - \mathbf{p}' = (\mathbf{v} - \mathbf{p}') - (\mathbf{v} - \mathbf{p}) \in U^\perp$ (deux vecteurs de $U^\perp$). Il est orthogonal à lui-même : $\lVert \mathbf{p} - \mathbf{p}' \rVert^2 = 0$, donc $\mathbf{p}' = \mathbf{p}$.
-5. Quand $\mathbf{w}$ parcourt $\mathbb{R}^p$, $\mathbf{X}\mathbf{w}$ parcourt $U = \operatorname{Im}\mathbf{X}$. Par 3, $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert$ est minimal si et seulement si $\mathbf{X}\mathbf{w} = \mathbf{p}$, le projeté ; par 4 (et 1), c'est le seul point de $U$ dont l'écart à $\mathbf{y}$ est orthogonal à $U$. Donc $\mathbf{w}^*$ minimise si et seulement si $\mathbf{y} - \mathbf{X}\mathbf{w}^* \perp \operatorname{Im}\mathbf{X}$, c'est-à-dire $\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}^*) = \mathbf{0}$ (M12b.16).
+5. $U = \operatorname{Im}\mathbf{X}$ a une base orthonormée (M12b.15), donc un projeté $\mathbf{p}$ (1). Quand $\mathbf{w}$ parcourt $\mathbb{R}^p$, $\mathbf{X}\mathbf{w}$ parcourt $U$. Par 3, $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert$ est minimal si et seulement si $\mathbf{X}\mathbf{w} = \mathbf{p}$, le projeté ; par 4 (et 1), c'est le seul point de $U$ dont l'écart à $\mathbf{y}$ est orthogonal à $U$. Donc $\mathbf{w}^*$ minimise si et seulement si $\mathbf{y} - \mathbf{X}\mathbf{w}^* \perp \operatorname{Im}\mathbf{X}$, c'est-à-dire $\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}^*) = \mathbf{0}$ (M12b.16).
 
 **Grille.** (1) l'appartenance et le calcul d'orthogonalité ; (2) le développement ; (3) la décomposition, Pythagore, le cas d'égalité ; (4) $\mathbf{p} - \mathbf{p}'$ dans $U$ et dans $U^\perp$ ; (5) le passage de $\mathbf{w}$ à $\mathbf{X}\mathbf{w}$, l'équivalence dans les deux sens, l'écriture matricielle.
 
@@ -418,7 +418,7 @@ Pour la copie : f) et g) donnent **le même** poids pour $\mathbf{x}_2$. En effe
 - g) $\frac{1}{2}(4 + 2 - 3 + 1) = 2$ et $\frac{1}{2}(4 - 2 - 3 - 1) = -1$.
 - h) $\mathbf{U}\mathbf{U}^\top$ est de rang 2.
 
-Pour la copie : $2^2 + (-1)^2 = 5$ = f) ; $\lVert \mathbf{x} \rVert^2 = 16 + 4 + 9 + 1 = 30 = 25 + 5$. Démonstration : $\mathbf{x} = \sum_{i=1}^n z_i\mathbf{u}_i$ avec $z_i = \mathbf{u}_i \cdot \mathbf{x}$ ; $\mathbf{U}\mathbf{U}^\top\mathbf{x} = \sum_{i \le k} z_i\mathbf{u}_i$, donc l'erreur vaut $\sum_{i > k} z_i\mathbf{u}_i$, et Parseval (M12b.14) donne $\lVert \mathbf{e} \rVert^2 = \sum_{i > k} z_i^2$ : l'erreur de reconstruction est faite des coordonnées écartées, et elle est orthogonale aux directions gardées. $\mathbf{U}\mathbf{U}^\top$ est la projection sur $\operatorname{Vect}(\mathbf{u}_1, \mathbf{u}_2)$ : elle annule $\mathbf{u}_3$ et $\mathbf{u}_4$, elle n'est pas l'identité.
+Pour la copie : $2^2 + (-1)^2 = 5$ = f) ; $\lVert \mathbf{x} \rVert^2 = 16 + 4 + 9 + 1 = 30 = 25 + 5$. Démonstration : $\mathbf{x} = \sum_{i=1}^n z_i\mathbf{u}_i$ avec $z_i = \mathbf{u}_i \cdot \mathbf{x}$ ; $\mathbf{U}\mathbf{U}^\top\mathbf{x} = \sum_{i \le k} z_i\mathbf{u}_i$, donc l'erreur vaut $\sum_{i > k} z_i\mathbf{u}_i$, et Parseval (M12b.14) donne $\lVert \mathbf{e} \rVert^2 = \sum_{i > k} z_i^2$ : l'erreur de reconstruction est faite des coordonnées écartées, et elle est orthogonale aux directions gardées. $\mathbf{U}\mathbf{U}^\top$ est la projection sur $\operatorname{Vect}(\mathbf{u}_1, \mathbf{u}_2)$ : elle laisse $\mathbf{u}_1$ et $\mathbf{u}_2$ inchangés, mais annule $\mathbf{u}_3$ et $\mathbf{u}_4$ ; ce n'est pas l'identité.
 
 **Erreurs fréquentes.** Oublier le facteur $\frac{1}{2}$ ; donner $\lVert \mathbf{e} \rVert$ ($\sqrt{5}$) au lieu de $\lVert \mathbf{e} \rVert^2$ ; croire que $\mathbf{U}^\top\mathbf{U} = \mathbf{I}$ entraîne $\mathbf{U}\mathbf{U}^\top = \mathbf{I}$.
 

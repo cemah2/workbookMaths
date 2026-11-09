@@ -37,10 +37,10 @@ PAPER = [
          '''mistakes={"le critère en dimension 2 : a > 0 et ac − b² > 0": False}'''),
         ("b", "a number", "ip_1([1, 0], [0, 1])",
          '''mistakes={"⟨e₁, e₂⟩_M = e₁ᵀ M e₂ : un élément de M, pas le produit usuel": 0}'''),
-        ("c", "a number (4 decimals)", "float(sympy.sqrt(ip_1([1, 0], [1, 0])))",
-         '''decimals=4, mistakes={"la norme est la racine de ⟨e₁, e₁⟩_M": 3.0}'''),
-        ("d", "a number (4 decimals)", "float(ip_1([1, 0], [0, 1]) / sympy.sqrt(ip_1([1, 0], [1, 0]) * ip_1([0, 1], [0, 1])))",
-         '''decimals=4, mistakes={"divise par les deux normes pour ⟨·,·⟩_M, pas par les normes usuelles": 1.0, '''
+        ("c", "a number (3 decimals)", "float(sympy.sqrt(ip_1([1, 0], [1, 0])))",
+         '''decimals=3, mistakes={"la norme est la racine de ⟨e₁, e₁⟩_M": 3.0}'''),
+        ("d", "a number (3 decimals)", "float(ip_1([1, 0], [0, 1]) / sympy.sqrt(ip_1([1, 0], [1, 0]) * ip_1([0, 1], [0, 1])))",
+         '''decimals=3, mistakes={"divise par les deux normes pour ⟨·,·⟩_M, pas par les normes usuelles": 1.0, '''
          '''"l'angle se calcule avec ⟨·,·⟩_M, pas avec le produit usuel": 0.0}'''),
         ("e", "a number", "float(sympy.sqrt(ip_1([2, -1], [2, -1])))",
          '''decimals=4, mistakes={"la norme pour ⟨·,·⟩_M : la racine de xᵀMx, pas la norme usuelle": float(sympy.sqrt(5)), '''
@@ -153,15 +153,16 @@ PAPER = [
 
     Paper("M12b.8", "La matrice de projection : P² = P, Pᵀ = P, trace et rang", [
         ("a", "True or False", "P_8.T == P_8", '''mistakes={"compare les éléments (i, j) et (j, i)": False}'''),
-        ("b", "a list of 3 numbers", "exact(P_8 * sympy.Matrix([1, 1, -1]))"),
-        ("c", "a list of 3 numbers", "exact(P_8 * sympy.Matrix([1, 0, 1]))"),
-        ("d", "a number", "P_8.trace()", '''mistakes={"la trace de P : n'oublie pas le facteur 1/3": 3 * P_8.trace()}'''),
-        ("e", "an integer", "P_8.rank()", '''mistakes={"P écrase la direction de b) : son rang est la dimension de U": 3}'''),
-        ("f", "a list of 3 numbers", "exact((sympy.eye(3) - P_8) * sympy.Matrix([3, 0, 0]))",
+        ("b", "True or False", "P_8 * P_8 == P_8",
+         '''mistakes={"calcule P², élément par élément (en neuvièmes), puis compare à P": False}'''),
+        ("c", "a list of 3 numbers", "exact(P_8 * sympy.Matrix([1, 1, -1]))"),
+        ("d", "a list of 3 numbers", "exact(P_8 * sympy.Matrix([1, 0, 1]))"),
+        ("e", "a number", "P_8.trace()", '''mistakes={"la trace de P : n'oublie pas le facteur 1/3": 3 * P_8.trace()}'''),
+        ("f", "an integer", "P_8.rank()", '''mistakes={"P écrase la direction de c) : un vecteur non nul a pour image 0": 3}'''),
+        ("g", "a list of 3 numbers", "exact((sympy.eye(3) - P_8) * sympy.Matrix([3, 0, 0]))",
          '''mistakes={"(I − P) v = v − P v, pas P v": exact(P_8 * sympy.Matrix([3, 0, 0]))}'''),
-        ("g", "True or False", "P_8.det() != 0", '''mistakes={"un vecteur non nul a pour image 0 : relis b)": True}'''),
-        ("h", "True or False", "False",
-         '''mistakes={"une projection orthogonale est idempotente et symétrique : compare M et Mᵀ": True}'''),
+        ("h", "True or False", "M_8 * M_8 == M_8 and M_8.T == M_8",
+         '''mistakes={"une projection orthogonale est idempotente et symétrique : calcule M² et compare M et Mᵀ": True}'''),
     ]),
 
     Paper("M12b.9", "La distance d'un point à un sous-espace, et le résidu orthogonal", [
@@ -202,7 +203,8 @@ PAPER = [
          '''decimals=4, mistakes={"q₂ = v₂ / ‖v₂‖ : normer": exact(R_11[1, 1] * Q_11[:, 1])}'''),
         ("e", "a matrix", "matrix(R_11)",
          '''mistakes={"R est triangulaire supérieure : r₁₂ est au-dessus de la diagonale": matrix(R_11.T)}'''),
-        ("f", "a list of 2 numbers", "exact(Q_11.T * Y_11)"),
+        ("f", "a list of 2 numbers", "exact(Q_11.T * Y_11)",
+         '''mistakes={"Qᵀy : les produits scalaires de y avec q₁ et q₂, facteur 1/11 compris": exact(11 * Q_11.T * Y_11)}'''),
         ("g", "a list of 2 numbers (4 decimals)", "[float(w) for w in W_11]",
          '''decimals=4, mistakes={"R est triangulaire supérieure : remonte depuis la dernière ligne": '''
          '''[float((Q_11.T * Y_11)[0] / R_11[0, 0]), float(W_11[1])]}'''),
@@ -319,12 +321,13 @@ C_7 = (A_7.T * A_7).solve(A_7.T * V_7)
 Q1_7, Q2_7 = V([4, 4, 7]) / 9, V([1, -8, 4]) / 9
 assert Q1_7.dot(Q2_7) == 0 and Q1_7.dot(Q1_7) == 1 and A_7.T * V([8, -1, -4]) == sympy.zeros(2, 1)
 P_8 = V([[2, -1, 1], [-1, 2, 1], [1, 1, 2]]) / 3                                            # M12b.8
-assert P_8 * P_8 == P_8
+M_8 = V([[1, 0], [1, 0]])
+assert M_8 * M_8 == M_8 and M_8.T != M_8
 U1_9, U2_9, V_9 = V([1, 1, 1, 1]), V([1, -1, 2, -2]), V([2, 0, 5, 1])                       # M12b.9
 P_9 = V_9.dot(U1_9) / U1_9.dot(U1_9) * U1_9 + V_9.dot(U2_9) / U2_9.dot(U2_9) * U2_9
 X_10, Y_10 = V([[1, k] for k in range(1, 6)]), V([3, 3, 4, 7, 8])                           # M12b.10
 W_10 = (X_10.T * X_10).solve(X_10.T * Y_10)
-A_11, Y_11 = V([[2, 2], [6, 3], [9, 0]]), V([9, -3, 11])                                   # M12b.11
+A_11, Y_11 = V([[2, 2], [6, 3], [9, 0]]), V([11, 3, 20])                                   # M12b.11
 Q_11 = V.hstack(*gram_schmidt_exact([A_11[:, 0], A_11[:, 1]], lambda u, w: u.dot(w)))
 R_11 = (Q_11.T * A_11).applyfunc(sympy.nsimplify)
 W_11 = R_11.solve(Q_11.T * Y_11)

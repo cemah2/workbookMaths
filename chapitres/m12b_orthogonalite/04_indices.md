@@ -349,12 +349,12 @@ Relis « La matrice de projection » (fiche §5).
 </details>
 <details><summary>Indice 2</summary>
 
-Le noyau de $\mathbf{P}$ est $U^\perp$, son image $U$ ; sa trace est la dimension de $U$.
+Symétrique et idempotente : une projection orthogonale. Son noyau est $U^\perp$, son image $U$ ; sa trace est la dimension de $U$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-f) $(\mathbf{I} - \mathbf{P})\mathbf{v} = \mathbf{v} - \mathbf{P}\mathbf{v}$. h) Compare $\mathbf{M}$ et $\mathbf{M}^\top$.
+b) Calcule $\mathbf{P}^2$ en neuvièmes. g) $(\mathbf{I} - \mathbf{P})\mathbf{v} = \mathbf{v} - \mathbf{P}\mathbf{v}$. h) Calcule $\mathbf{M}^2$, puis compare $\mathbf{M}$ et $\mathbf{M}^\top$.
 
 </details>
 

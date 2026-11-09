@@ -154,8 +154,8 @@ Sur $\mathbb{R}^2$, on pose $\langle \mathbf{x}, \mathbf{y} \rangle_{\mathbf{M}}
 |---|---|---|
 | a | vrai ou faux : $\langle \cdot, \cdot \rangle_{\mathbf{M}}$ est un produit scalaire | `True` ou `False` |
 | b | $\langle \mathbf{e}_1, \mathbf{e}_2 \rangle_{\mathbf{M}}$ | un nombre |
-| c | $\lVert \mathbf{e}_1 \rVert_{\mathbf{M}}$ | un nombre (4 décimales) |
-| d | le cosinus de l'angle entre $\mathbf{e}_1$ et $\mathbf{e}_2$ pour $\langle \cdot, \cdot \rangle_{\mathbf{M}}$ | un nombre (4 décimales) |
+| c | $\lVert \mathbf{e}_1 \rVert_{\mathbf{M}}$ | un nombre (3 décimales) |
+| d | le cosinus de l'angle entre $\mathbf{e}_1$ et $\mathbf{e}_2$ pour $\langle \cdot, \cdot \rangle_{\mathbf{M}}$ | un nombre (3 décimales) |
 | e | $\lVert (2, -1) \rVert_{\mathbf{M}}$ | un nombre |
 | f | vrai ou faux : $(1, -1)$ et $\mathbf{e}_2$ sont orthogonaux pour $\langle \cdot, \cdot \rangle_{\mathbf{M}}$ | `True` ou `False` |
 | g | le nombre $k$ tel que $(1, k)$ soit orthogonal à $(1, 1)$ pour $\langle \cdot, \cdot \rangle_{\mathbf{M}}$ | un nombre |
@@ -178,7 +178,7 @@ Dans $\mathbb{R}^4$ : $\mathbf{u}_1 = \frac{1}{5}(1, 2, 2, 4)$, $\mathbf{u}_2 = 
 | e | le vecteur dont les coordonnées dans cette base sont $(1, 0, -1, 2)$ | une liste de 4 nombres (1 décimale) |
 | f | les coordonnées de $\mathbf{x}$ dans la base **orthogonale** $(\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3, 2\mathbf{u}_4)$ | une liste de 4 nombres (1 décimale) |
 
-Dans ta copie : vérifie au moins deux autres paires orthogonales et une autre norme. Vérifie c) en recombinant les vecteurs de base. Pourquoi la dernière coordonnée de f) diffère-t-elle de celle de c), et dans quel rapport ? Combien d'opérations aurait demandées la résolution d'un système $4 \times 4$ pour c) ?
+Dans ta copie : vérifie au moins deux autres paires orthogonales et une autre norme. Vérifie c) en recombinant les vecteurs de base. Compare f) et c) : quelles coordonnées changent, et dans quel rapport ? Combien d'opérations aurait demandées la résolution d'un système $4 \times 4$ pour c) ?
 
 ### Ex M12b.3 — Une matrice orthogonale 3 × 3 conserve normes et angles ✏️ ★ ⏱️ 15 min
 **Objectif :** reconnaître une matrice orthogonale, vérifier qu'elle conserve normes et produits scalaires, et l'inverser en la transposant.
@@ -215,7 +215,7 @@ $\mathbf{a}_1 = (4, 1, 8)$, $\mathbf{a}_2 = (1, 1, -4)$, $\mathbf{a}_3 = (-1, 3,
 | g | $\mathbf{q}_3$ | une liste de 3 nombres (4 décimales) |
 | h | vrai ou faux : $\operatorname{Vect}(\mathbf{q}_1, \mathbf{q}_2) = \operatorname{Vect}(\mathbf{a}_1, \mathbf{a}_2)$ | `True` ou `False` |
 
-Dans ta copie : garde les vecteurs sous forme de fractions (en tiers, puis en neuvièmes) jusqu'au bout. Vérifie les trois orthogonalités et les trois normes. Écris $\mathbf{a}_2$ et $\mathbf{a}_3$ comme combinaisons de $\mathbf{q}_1, \mathbf{q}_2, \mathbf{q}_3$, en lisant les coefficients dans tes calculs. Refais l'étape 3 avec le procédé modifié : obtiens-tu le même $\mathbf{v}_3$ ?
+Dans ta copie : garde les vecteurs sous forme de fractions jusqu'au bout. Vérifie les trois orthogonalités et les trois normes. Écris $\mathbf{a}_2$ et $\mathbf{a}_3$ comme combinaisons de $\mathbf{q}_1, \mathbf{q}_2, \mathbf{q}_3$, en lisant les coefficients dans tes calculs. Refais l'étape 3 avec le procédé modifié : obtiens-tu le même $\mathbf{v}_3$ ?
 
 ### Ex M12b.5 — Gram-Schmidt pour un produit scalaire qui n'est pas l'usuel ✏️ ★★ ⏱️ 20 min
 **Objectif :** appliquer Gram-Schmidt et la projection avec un produit scalaire pondéré, et voir que l'orthogonalité change avec le produit scalaire.
@@ -278,20 +278,20 @@ Dans ta copie : retrouve d) avec e). Vérifie que $\mathbf{q}_1$ et $\mathbf{q}_
 
 $$\mathbf{P} = \frac{1}{3}\begin{pmatrix} 2 & -1 & 1 \\ -1 & 2 & 1 \\ 1 & 1 & 2 \end{pmatrix}$$
 
-est la matrice de la projection orthogonale sur un plan $U$ de $\mathbb{R}^3$.
+On veut savoir si $\mathbf{P}$ est la matrice d'une projection orthogonale de $\mathbb{R}^3$, et, si oui, sur quel sous-espace.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | vrai ou faux : $\mathbf{P}^\top = \mathbf{P}$ | `True` ou `False` |
-| b | $\mathbf{P}(1, 1, -1)$ | une liste de 3 nombres |
-| c | $\mathbf{P}(1, 0, 1)$ | une liste de 3 nombres |
-| d | $\operatorname{tr}\mathbf{P}$ | un nombre |
-| e | $\operatorname{rg}\mathbf{P}$ | un entier |
-| f | $(\mathbf{I} - \mathbf{P})(3, 0, 0)$ | une liste de 3 nombres |
-| g | vrai ou faux : $\mathbf{P}$ est inversible | `True` ou `False` |
-| h | vrai ou faux : $\mathbf{M} = \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$ est la matrice d'une projection orthogonale | `True` ou `False` |
+| b | vrai ou faux : $\mathbf{P}^2 = \mathbf{P}$ | `True` ou `False` |
+| c | $\mathbf{P}(1, 1, -1)$ | une liste de 3 nombres |
+| d | $\mathbf{P}(1, 0, 1)$ | une liste de 3 nombres |
+| e | $\operatorname{tr}\mathbf{P}$ | un nombre |
+| f | $\operatorname{rg}\mathbf{P}$ | un entier |
+| g | $(\mathbf{I} - \mathbf{P})(3, 0, 0)$ | une liste de 3 nombres |
+| h | vrai ou faux : $\mathbf{M} = \begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}$ est la matrice d'une projection orthogonale | `True` ou `False` |
 
-Dans ta copie : calcule $\mathbf{P}^2$. Déduis de b) une équation du plan $U$, et explique pourquoi c) était prévisible. Sur quelle droite projette $\mathbf{I} - \mathbf{P}$ ? Pour h), calcule $\mathbf{M}^2$ et $\mathbf{M}^\top$, puis dessine ce que fait $\mathbf{M}$ : vers quelle droite, et le long de quelle direction ?
+Dans ta copie : écris le calcul de $\mathbf{P}^2$. Que concluent a) et b) ensemble ? Déduis de c) le sous-espace $U$ sur lequel $\mathbf{P}$ projette (une équation), et explique pourquoi d) était prévisible. Relie e) et f) à la dimension de $U$. Sur quelle droite projette $\mathbf{I} - \mathbf{P}$ ? $\mathbf{P}$ est-elle inversible ? Pour h), calcule $\mathbf{M}^2$ et $\mathbf{M}^\top$, puis dessine ce que fait $\mathbf{M}$ : vers quelle droite, et le long de quelle direction ?
 
 ### Ex M12b.9 — La distance d'un point à un sous-espace, et le résidu orthogonal ✏️ ★ ⏱️ 15 min
 **Objectif :** projeter avec une base orthogonale, calculer une distance à un sous-espace, et vérifier Pythagore.
@@ -310,7 +310,7 @@ Dans $\mathbb{R}^4$ : $\mathbf{u}_1 = (1, 1, 1, 1)$, $\mathbf{u}_2 = (1, -1, 2, 
 | g | la distance de $\mathbf{v}$ à la droite $\operatorname{Vect}(\mathbf{u}_1)$ | un nombre (4 décimales) |
 | h | $\lVert \mathbf{p} \rVert^2$ | un nombre |
 
-Dans ta copie : vérifie que e) est orthogonal à $\mathbf{u}_1$ et à $\mathbf{u}_2$. Vérifie Pythagore avec $\lVert \mathbf{v} \rVert^2$, h) et f). Pourquoi g) est-il plus grand que f), et aurait-il pu être plus petit ?
+Dans ta copie : vérifie que e) est orthogonal à $\mathbf{u}_1$ et à $\mathbf{u}_2$. Vérifie Pythagore avec $\lVert \mathbf{v} \rVert^2$, h) et f). Compare g) et f) : lequel est le plus grand, et pouvait-il en être autrement ?
 
 ### Ex M12b.10 — Des moindres carrés comme une projection : y, son projeté et le résidu ✏️ ★★ ⏱️ 20 min
 **Objectif :** ajuster une droite par les équations normales, et lire le résultat comme une projection : résidu orthogonal, Pythagore.
@@ -329,13 +329,13 @@ Cinq exemples : $x = (1, 2, 3, 4, 5)$ et $y = (3, 3, 4, 7, 8)$. On ajuste une dr
 | g | $\lVert \mathbf{r} \rVert^2$ | un nombre (1 décimale) |
 | h | $\lVert \hat{\mathbf{y}} \rVert^2$ | un nombre (1 décimale) |
 
-Dans ta copie : que vaut la somme des résidus, et pourquoi était-ce prévisible ? Vérifie Pythagore avec $\lVert \mathbf{y} \rVert^2$. Les vecteurs $\mathbf{1}$ et $\mathbf{x} - \bar{x}\mathbf{1}$ forment une base orthogonale de $\operatorname{Im}\mathbf{X}$ : projette $\mathbf{y}$ sur chacun, additionne, et compare avec d).
+Dans ta copie : que dit la première coordonnée de f) des résidus, et pourquoi était-ce prévisible ? Vérifie Pythagore avec $\lVert \mathbf{y} \rVert^2$. Les vecteurs $\mathbf{1}$ et $\mathbf{x} - \bar{x}\mathbf{1}$ forment une base orthogonale de $\operatorname{Im}\mathbf{X}$ : projette $\mathbf{y}$ sur chacun, additionne, et compare avec d).
 
 ### Ex M12b.11 — La décomposition QR d'une matrice 3 × 2, puis les moindres carrés par R w = Qᵀy ✏️ ★★ ⏱️ 25 min
 **Objectif :** calculer une décomposition QR par Gram-Schmidt, puis résoudre des moindres carrés par un système triangulaire.
 **Prérequis :** fiche §3 et §7 · **Parcours :** C
 
-$$\mathbf{A} = \begin{pmatrix} 2 & 2 \\ 6 & 3 \\ 9 & 0 \end{pmatrix}, \qquad \mathbf{y} = (9, -3, 11).$$
+$$\mathbf{A} = \begin{pmatrix} 2 & 2 \\ 6 & 3 \\ 9 & 0 \end{pmatrix}, \qquad \mathbf{y} = (11, 3, 20).$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -404,7 +404,7 @@ $\mathbf{a}_1, \ldots, \mathbf{a}_k$ sont libres. On construit $\mathbf{v}_j$ et
 1. Démontre $(H_1)$.
 2. On suppose $(H_{j-1})$. Montre que $\mathbf{v}_j \ne \mathbf{0}$ (raisonne par l'absurde : que serait $\mathbf{a}_j$ ?).
 3. Montre que $\langle \mathbf{v}_j, \mathbf{q}_i \rangle = 0$ pour $i < j$, puis que $\mathbf{q}_1, \ldots, \mathbf{q}_j$ sont orthonormés.
-4. Montre que $\operatorname{Vect}(\mathbf{q}_1, \ldots, \mathbf{q}_j) = \operatorname{Vect}(\mathbf{a}_1, \ldots, \mathbf{a}_j)$ (deux inclusions, puis les dimensions). Conclus par récurrence.
+4. Montre que $\operatorname{Vect}(\mathbf{q}_1, \ldots, \mathbf{q}_j) = \operatorname{Vect}(\mathbf{a}_1, \ldots, \mathbf{a}_j)$ (une inclusion, puis les dimensions). Conclus par récurrence.
 5. Déduis-en que la matrice $\mathbf{R}$ telle que $\mathbf{A} = \mathbf{Q}\mathbf{R}$ est triangulaire supérieure, et que $r_{jj} = \lVert \mathbf{v}_j \rVert > 0$.
 
 ### Ex M12b.16 — L'orthogonal de l'image de A est le noyau de Aᵀ ∂ ★★ ⏱️ 20 min
@@ -427,7 +427,7 @@ $U$ est un sous-espace de $\mathbb{R}^m$, de base orthonormée $\mathbf{q}_1, \l
 2. Démontre Pythagore : si $\mathbf{a} \perp \mathbf{b}$, alors $\lVert \mathbf{a} + \mathbf{b} \rVert^2 = \lVert \mathbf{a} \rVert^2 + \lVert \mathbf{b} \rVert^2$.
 3. Soit $\mathbf{u} \in U$. En écrivant $\mathbf{v} - \mathbf{u} = (\mathbf{v} - \mathbf{p}) + (\mathbf{p} - \mathbf{u})$, montre que $\lVert \mathbf{v} - \mathbf{u} \rVert \ge \lVert \mathbf{v} - \mathbf{p} \rVert$, avec égalité si et seulement si $\mathbf{u} = \mathbf{p}$.
 4. Montre l'unicité : si $\mathbf{p}' \in U$ vérifie aussi $\mathbf{v} - \mathbf{p}' \perp U$, alors $\mathbf{p}' = \mathbf{p}$ (que peut-on dire de $\mathbf{p} - \mathbf{p}'$ ?).
-5. Application aux moindres carrés : $U = \operatorname{Im}\mathbf{X}$, colonnes libres. Déduis de 3 et 4 que $\mathbf{w}^*$ minimise $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert$ si et seulement si $\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}^*) = \mathbf{0}$, sans calculer de gradient.
+5. Application aux moindres carrés : $U = \operatorname{Im}\mathbf{X}$, colonnes libres (une base orthonormée de $U$ existe : M12b.15). Déduis de 1, 3 et 4 que $\mathbf{w}^*$ minimise $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert$ si et seulement si $\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}^*) = \mathbf{0}$, sans calculer de gradient.
 
 <a id="reflexion"></a>
 
@@ -468,7 +468,7 @@ Dans $\mathbb{R}^4$, $\mathbf{u}_1 = \frac{1}{2}(1, 1, 1, 1)$, $\mathbf{u}_2 = \
 | g | les coordonnées écartées $(\mathbf{u}_3 \cdot \mathbf{x},\ \mathbf{u}_4 \cdot \mathbf{x})$ | une liste de 2 nombres |
 | h | vrai ou faux : $\mathbf{U}\mathbf{U}^\top = \mathbf{I}_4$ | `True` ou `False` |
 
-Dans ta copie : compare f) avec la somme des carrés de g), et $\lVert \mathbf{x} \rVert^2$ avec $\lVert \mathbf{z} \rVert^2 + \lVert \mathbf{e} \rVert^2$. Puis démontre, pour une base orthonormée quelconque $(\mathbf{u}_1, \ldots, \mathbf{u}_n)$ de $\mathbb{R}^n$ et $k$ directions gardées, que $\lVert \mathbf{x} - \mathbf{U}\mathbf{U}^\top\mathbf{x} \rVert^2$ est la somme des carrés des coordonnées écartées (écris $\mathbf{x}$ dans la base complète). Pourquoi h) est-il faux, et que vaut $\mathbf{U}\mathbf{U}^\top$ ?
+Dans ta copie : compare f) avec la somme des carrés de g), et $\lVert \mathbf{x} \rVert^2$ avec $\lVert \mathbf{z} \rVert^2 + \lVert \mathbf{e} \rVert^2$. Puis démontre, pour une base orthonormée quelconque $(\mathbf{u}_1, \ldots, \mathbf{u}_n)$ de $\mathbb{R}^n$ et $k$ directions gardées, que $\lVert \mathbf{x} - \mathbf{U}\mathbf{U}^\top\mathbf{x} \rVert^2$ est la somme des carrés des coordonnées écartées (écris $\mathbf{x}$ dans la base complète). Que fait $\mathbf{U}\mathbf{U}^\top$ à $\mathbf{u}_1$, puis à $\mathbf{u}_3$ ? Compare avec h).
 
 ### Ex M12b.20 — MML §3.2, §3.5 à §3.7 : produits scalaires, orthogonalité, fonctions, en anglais 📖 ★★ ⏱️ 30 min
 **Objectif :** lire en anglais les définitions générales du produit scalaire, des bases orthonormées, du complément orthogonal et du produit scalaire de fonctions, et les relier à la fiche.
