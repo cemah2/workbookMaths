@@ -124,7 +124,7 @@ $\mathbf{U} = \frac{1}{17}\begin{pmatrix} 8 & -15 \\ 15 & 8 \end{pmatrix}$.
 Quatre exemples à deux features : $(1, 2)$, $(4, 1)$, $(5, 6)$, $(2, 3)$.
 1. Le point moyen ?
 2. Les données centrées ?
-3. La matrice de covariance avec $1/n$ (ddof = 0), puis avec $1/(n - 1)$ (ddof = 1). Par quel facteur passe-t-on de l'une à l'autre ?
+3. La matrice de covariance avec $1/n$ (ddof = 0), puis avec $1/(n - 1)$ (ddof = 1). Par quel facteur passe-t-on de la première à la seconde ?
 4. La corrélation des deux features (4 décimales) ? Dépend-elle de la convention ?
 5. Vérifie que la matrice est symétrique et que sa diagonale est positive. Est-ce suffisant pour être une matrice de covariance ?
 
@@ -159,7 +159,7 @@ $\mathbf{F} = \begin{pmatrix} 0 & 2 & 1 & 3 \\ 1 & 1 & 0 & 2 \\ 2 & 4 & 3 & 1 \\
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | la matrice après l'élimination sous le premier pivot | une matrice |
+| a | la matrice obtenue après l'échange, puis l'élimination sous le premier pivot | une matrice |
 | b | les quatre éléments diagonaux de la forme triangulaire obtenue | une liste de 4 nombres (1 décimale) |
 | c | $\det\mathbf{F}$ | un nombre |
 | d | $\det(\mathbf{F}^{-1})$ | un nombre (4 décimales) |
@@ -238,7 +238,7 @@ $\mathbf{N} = \begin{pmatrix} 5 & -9 \\ 1 & -1 \end{pmatrix}$ et $\mathbf{R}$ la
 | b | la dimension de l'espace propre correspondant | un entier |
 | c | un vecteur propre de $\mathbf{N}$, de deuxième coordonnée 1 | une liste de 2 nombres |
 | d | vrai ou faux : $\mathbf{N}$ est diagonalisable | `True` ou `False` |
-| e | le discriminant du polynôme caractéristique de $\mathbf{R}$ | un nombre |
+| e | le discriminant $b^2 - 4ac$ du polynôme caractéristique de $\mathbf{R}$ | un nombre |
 | f | le nombre de valeurs propres réelles de $\mathbf{R}$ | un entier |
 | g | $\det\mathbf{R}$ | un nombre |
 | h | vrai ou faux : $\mathbf{R}^6 = \mathbf{I}$ | `True` ou `False` |
@@ -298,7 +298,7 @@ $\mathbf{A} = \begin{pmatrix} 2 & 3 \\ 3 & -6 \end{pmatrix}$ et $\mathbf{x}_0 = 
 | e | le quotient de Rayleigh $\mathbf{x}_3^\top\mathbf{A}\mathbf{x}_3$ | un nombre (4 décimales) |
 | f | les valeurs propres de $\mathbf{A}$ | une liste de 2 nombres |
 | g | la limite des $\mathbf{x}_k$ : le vecteur propre unitaire de la valeur propre de plus grand module, avec la même convention de signe | une liste de 2 nombres (4 décimales) |
-| h | le rapport $\lvert\lambda_2/\lambda_1\rvert$ qui règle la vitesse | un nombre (4 décimales) |
+| h | le rapport $\lvert\lambda_2/\lambda_1\rvert$ qui règle la vitesse, $\lambda_1$ étant la valeur propre de plus grand module | un nombre (4 décimales) |
 
 Dans ta copie : sans la convention de signe, que ferait $\mathbf{x}_k$ d'un pas à l'autre, et pourquoi ? Combien de pas faut-il, environ, pour gagner trois chiffres décimaux sur la direction ? Qu'aurait donné $\mathbf{x}_0 = (3, 1)$ ?
 
@@ -520,7 +520,7 @@ Lis MML §4.3 et §4.4. Réponds dans ta copie, avec tes mots.
 
 Ordres de grandeur seulement ; une machine fait environ $10^9$ opérations par seconde.
 1. Développer récursivement un déterminant $n \times n$ par cofacteurs demande environ $n!$ produits. Estime $20!$ (une puissance de 10 suffit ; la formule de Stirling, ou des regroupements, aident).
-2. Combien de temps pour un déterminant $20 \times 20$ par cofacteurs ? Exprime-le en années, et compare à l'âge de l'Univers (environ $1{,}4 \times 10^{10}$ ans).
+2. Combien de temps pour un déterminant $20 \times 20$ par cofacteurs ? Exprime-le en années. Et pour un déterminant $30 \times 30$ ($30! \approx 2{,}7 \times 10^{32}$) ? Compare les deux à l'âge de l'Univers (environ $1{,}4 \times 10^{10}$ ans).
 3. L'élimination demande environ $\frac{2}{3}n^3$ opérations. Combien pour $n = 20$, et combien de temps ?
 4. Et pour $n = 1\,000$ ?
 5. Pour quel $n$ les cofacteurs restent-ils raisonnables (moins d'une seconde) ?

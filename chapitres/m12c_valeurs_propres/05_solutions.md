@@ -338,7 +338,7 @@ Pour la copie : $\mathbf{W}\boldsymbol{\Sigma}\mathbf{W}^\top = \mathbf{L}^{-1}\
 2. $\mathbf{w}^\top\mathbf{G}\mathbf{w} = 0 \iff \mathbf{X}\mathbf{w} = \mathbf{0}$. Si les colonnes sont libres, cela force $\mathbf{w} = \mathbf{0}$ : définie positive. Sinon, un $\mathbf{w} \ne \mathbf{0}$ du noyau donne $\mathbf{w}^\top\mathbf{G}\mathbf{w} = 0$ : pas définie.
 3. $\boldsymbol{\Sigma} = \frac{1}{n-1}\mathbf{G}$ avec $\mathbf{X} = \mathbf{X}_c$, et $\frac{1}{n-1} > 0$.
 4. $\mathbf{a}^\top\mathbf{x} - \mathbb{E}[\mathbf{a}^\top\mathbf{x}] = \mathbf{a}^\top(\mathbf{x} - \boldsymbol{\mu})$, donc $\mathbb{V}(\mathbf{a}^\top\mathbf{x}) = \mathbb{E}[(\mathbf{a}^\top(\mathbf{x} - \boldsymbol{\mu}))^2] = \mathbb{E}[\mathbf{a}^\top(\mathbf{x} - \boldsymbol{\mu})(\mathbf{x} - \boldsymbol{\mu})^\top\mathbf{a}] = \mathbf{a}^\top\boldsymbol{\Sigma}\mathbf{a}$, une variance, positive ou nulle. $\boldsymbol{\Sigma}$ est symétrique ($\mathbf{v}\mathbf{v}^\top$ l'est) et semi-définie positive.
-5. Quand les colonnes de $\mathbf{X}_c$ sont liées : une combinaison des features est constante sur les données. Exemples : $x_3 = x_1 + x_2$ donne $\mathbf{w} = (1, 1, -1)$ avec $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w} = 0$ ; avec $p > n$ features, $\mathbf{X}_c$ a un rang au plus $n - 1 < p$ (centrer fait perdre un rang).
+5. Quand les colonnes de $\mathbf{X}_c$ sont liées : une combinaison des features est constante sur les données. Exemples : $x_3 = x_1 + x_2$ donne $\mathbf{w} = (1, 1, -1)$ avec $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w} = 0$ ; avec $p > n$ features (et même dès $p \ge n$), $\mathbf{X}_c$ a un rang au plus $n - 1 < p$ (centrer fait perdre un rang : les lignes centrées ont une somme nulle).
 
 **Grille.** (1) la symétrie et la norme au carré ; (2) les deux sens, avec le noyau ; (3) le facteur positif ; (4) le calcul de la variance et la conclusion ; (5) les deux exemples et la raison (le rang).
 
@@ -427,12 +427,12 @@ Pour la copie : $\boldsymbol{\Sigma}^{-1} = \frac{1}{36}\begin{pmatrix} 8 & -6 \
 
 **Réponse modèle.**
 1. $20! \approx 2{,}4 \times 10^{18}$ (Stirling : $\sqrt{40\pi}\,(20/e)^{20} \approx 11{,}2 \times 7{,}4^{20} \approx 2{,}4 \times 10^{18}$).
-2. $2{,}4 \times 10^{18}/10^9 = 2{,}4 \times 10^9$ s, soit environ 77 ans (une année : $3{,}2 \times 10^7$ s). C'est une vie humaine, rien à côté de l'âge de l'Univers ; mais $25!$ demanderait déjà $5 \times 10^8$ ans, et $30!$ quelque $10^{16}$ ans, près d'un million de fois l'âge de l'Univers.
+2. $2{,}4 \times 10^{18}/10^9 = 2{,}4 \times 10^9$ s, soit environ 77 ans (une année : $3{,}2 \times 10^7$ s ; en comptant aussi les $n - 1$ multiplications de chaque produit, plutôt un siècle ou deux, le même ordre de grandeur). C'est une vie humaine, rien à côté de l'âge de l'Univers. Pour $30 \times 30$ : $2{,}7 \times 10^{32}/10^9 \approx 2{,}7 \times 10^{23}$ s, soit $8 \times 10^{15}$ ans, près d'un million de fois l'âge de l'Univers. Dix lignes et colonnes de plus multiplient le temps par $30!/20! \approx 10^{14}$ : c'est la croissance de la factorielle.
 3. $\frac{2}{3} \times 8\,000 \approx 5\,300$ opérations : environ 5 microsecondes.
 4. $\frac{2}{3} \times 10^9$ opérations : moins d'une seconde.
 5. $n! < 10^9$ : jusqu'à $n = 12$ ($12! \approx 4{,}8 \times 10^8$, $13! \approx 6{,}2 \times 10^9$).
 
-**Grille.** (1) un ordre de grandeur juste de $20!$ ; (2) la conversion en années et la comparaison ; (3) et (4) la formule en $n^3$ appliquée ; (5) la limite vers $n = 12$.
+**Grille.** (1) un ordre de grandeur juste de $20!$ ; (2) la conversion en années, les deux comparaisons et la croissance de $n!$ ; (3) et (4) la formule en $n^3$ appliquée ; (5) la limite vers $n = 12$.
 
 ### Ex M12c.25 — Expliquer un vecteur propre avec une image
 
