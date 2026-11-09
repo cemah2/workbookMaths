@@ -446,3 +446,23 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Le rayon du meilleur de $K$ modèles calculé comme pour un seul | le meilleur de 20 modèles évalués sur le même jeu de test, rayon au risque 5 % | chaque rayon au risque $\frac{\delta}{K}$ (borne de l'union) |
 | Croire qu'une partie chanceuse a un regret négatif | « on a gagné plus que la meilleure moyenne fois $T$, donc $R_T < 0$ » | $R_T = \sum_k \Delta_k\,\mathbb{E}[N_k(T)] \ge 0$ : une espérance qui compare des moyennes, pas les récompenses tirées |
 | Croire qu'un ε fixé finit par ne plus coûter | « ε-greedy trouve la meilleure option, donc son regret se stabilise » | chaque option reste choisie avec la probabilité $\frac{\varepsilon}{K}$ : regret au moins linéaire ; faire décroître $\varepsilon$ |
+
+## Espaces vectoriels et applications linéaires (M12a)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Prendre pour un sous-espace un ensemble qui ne contient pas $\mathbf{0}$ | « le plan $x + y - z = 2$ est un sous-espace de $\mathbb{R}^3$ » | tester d'abord $\mathbf{0}$ : c'est un sous-espace **affine**, un sous-espace déplacé |
+| Vérifier seulement la stabilité par addition | « le demi-plan $x \ge 0$ est stable par somme, donc c'est un sous-espace » | tester aussi la multiplication, par $-1$ en particulier |
+| Conclure « libre » parce qu'aucun vecteur n'est multiple d'un autre | $(1, 2, 0)$, $(0, 1, 3)$, $(1, 3, 3)$ « deux à deux non colinéaires, donc libres » | calculer le rang : le troisième est la somme des deux premiers |
+| Ranger une base en lignes pour calculer des coordonnées | résoudre $\mathbf{B}^\top\mathbf{c} = \mathbf{v}$ | les vecteurs de base dans les **colonnes** : $\mathbf{B}\mathbf{c} = \mathbf{v}$, puis vérifier $c_1\mathbf{b}_1 + \cdots = \mathbf{v}$ |
+| Oublier le terme constant dans une dimension | « les polynômes de degré au plus 3 forment un espace de dimension 3 » | $1, x, x^2, x^3$ : dimension 4 |
+| Prendre la borne du rang d'un produit pour sa valeur | « $\operatorname{rg}(\mathbf{A}) = 2$, $\operatorname{rg}(\mathbf{B}) = 3$, donc $\operatorname{rg}(\mathbf{A}\mathbf{B}) = 2$ » | ce n'est qu'un maximum : le produit perd les directions de $\operatorname{Im}\mathbf{B}$ qui tombent dans $\ker\mathbf{A}$ |
+| Ranger $f(\mathbf{e}_j)$ dans la ligne $j$ | la matrice de $(x, y) \mapsto (x + y, x - y, 2x)$ écrite de forme $(2, 3)$ | $f(\mathbf{e}_j)$ est la **colonne** $j$ ; la forme est (arrivée, départ) |
+| Écrire la matrice de « $f$, puis $g$ » dans l'ordre de lecture | $\mathbf{A}\mathbf{B}$ pour « appliquer $\mathbf{A}$, puis $\mathbf{B}$ » | $\mathbf{B}\mathbf{A}$ : la dernière appliquée est à gauche, la plus proche de $\mathbf{x}$ à droite |
+| Chercher le noyau dans l'espace d'arrivée | pour $\mathbf{A}$ de forme $(2, 4)$, un vecteur du noyau à 2 coordonnées | le noyau vit au départ : 4 coordonnées ; l'image, à l'arrivée |
+| Prendre la base de l'image dans la forme réduite | $(1, 0, 0)$ et $(0, 1, 0)$ comme base de l'image | les colonnes **de $\mathbf{A}$** dont l'indice porte un pivot |
+| Oublier le signe moins dans un vecteur du noyau | $x_p = R_{ij}$ | $x_p = -R_{ij}$ ; vérifier toujours $\mathbf{A}\mathbf{x} = \mathbf{0}$ |
+| Conclure « une infinité de solutions » dès qu'il y a une variable libre | $\mathbf{A}$ de rang 2 à 4 colonnes, $\mathbf{b}$ quelconque | vérifier d'abord que $\mathbf{b} \in \operatorname{Im}\mathbf{A}$ ; sinon, aucune solution |
+| Écrire $\mathbf{S}\mathbf{A}\mathbf{S}^{-1}$ pour la matrice dans la base $\mathbf{S}$ | `S @ A @ np.linalg.inv(S)` | $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$, `np.linalg.solve(S, A @ S)` ; vérifier sur $\mathbf{A}'\mathbf{e}_1$ |
+| Inverser une application affine en oubliant que la translation est transformée | $\varphi^{-1}(\mathbf{y}) = \mathbf{A}^{-1}\mathbf{y} - \mathbf{b}$ | $\mathbf{A}^{-1}(\mathbf{y} - \mathbf{b})$ : retirer $\mathbf{b}$ d'abord ; vérifier $\varphi^{-1}(\mathbf{b}) = \mathbf{0}$ |
+| Croire qu'un rang calculé en flottants est exact | « `matrix_rank` dit 3, donc aucune colonne n'est redondante » | dire la tolérance ; une relation vraie à $10^{-12}$ près est redondante pour des mesures ; mettre les colonnes à la même échelle |

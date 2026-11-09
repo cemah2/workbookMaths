@@ -400,7 +400,20 @@ R0 (prise en main) n'a pas de formule : les priorités de Python (`**` avant le 
 
 ## Partie III · ML classique
 
-*(ajouté avec les chapitres M12a à M14)*
+### M12a · Espaces vectoriels et applications linéaires
+
+| Notion | Formules |
+|---|---|
+| sous-espace | $\mathbf{0} \in U$ et $\lambda\mathbf{x} + \mu\mathbf{y} \in U$ ; les solutions de $\mathbf{A}\mathbf{x} = \mathbf{0}$ en forment un ; l'intersection de deux sous-espaces aussi, leur réunion presque jamais |
+| combinaison, indépendance | $\mathbf{b} \in \operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k) \iff [\mathbf{v}_1 \cdots \mathbf{v}_k]\,\boldsymbol{\lambda} = \mathbf{b}$ a une solution ; libre $\iff$ chaque colonne porte un pivot $\iff \operatorname{rg} = k$ ; plus de $n$ vecteurs de $\mathbb{R}^n$ : liés |
+| base, dimension | base = libre + génératrice ; $\dim\mathbb{R}^n = n$, $\dim\mathbb{R}_d[x] = d + 1$, $\dim\mathbb{R}^{m \times n} = mn$ ; $n$ vecteurs libres d'un espace de dimension $n$ forment une base |
+| coordonnées | $\mathbf{v} = \mathbf{B}\mathbf{c}$ (base en colonnes) ; $\mathbf{c} = \mathbf{B}^{-1}\mathbf{v}$ ; base d'un sous-espace : $\mathbf{B}^\top\mathbf{B}\,\mathbf{c} = \mathbf{B}^\top\mathbf{v}$, puis vérifier $\mathbf{B}\mathbf{c} = \mathbf{v}$ |
+| rang | $\operatorname{rg}(\mathbf{A}) = \dim\operatorname{Im}\mathbf{A} = \operatorname{rg}(\mathbf{A}^\top) \le \min(m, n)$ ; $\operatorname{rg}(\mathbf{A}\mathbf{B}) \le \min(\operatorname{rg}\mathbf{A}, \operatorname{rg}\mathbf{B})$ ; $\operatorname{rg}(\mathbf{A}^\top\mathbf{A}) = \operatorname{rg}(\mathbf{A})$ ; $\operatorname{rg}(\mathbf{u}\mathbf{v}^\top) = 1$ ; tableau centré de $n$ lignes : $\operatorname{rg} \le n - 1$ |
+| application linéaire | $f(\lambda\mathbf{x} + \mu\mathbf{y}) = \lambda f(\mathbf{x}) + \mu f(\mathbf{y})$ ; colonne $j$ de la matrice $= f(\mathbf{e}_j)$ (coordonnées de $f(\mathbf{b}_j)$ dans d'autres bases) ; « $f$ puis $g$ » $= \mathbf{B}\mathbf{A}$ |
+| noyau, image | $\ker\mathbf{A} \subseteq \mathbb{R}^n$, $\operatorname{Im}\mathbf{A} \subseteq \mathbb{R}^m$ ; base du noyau : $x_j = 1$ (colonne libre $j$), $x_p = -R_{ij}$ ; base de l'image : les colonnes de $\mathbf{A}$ aux indices des pivots ; $\dim\ker\mathbf{A} + \operatorname{rg}(\mathbf{A}) = n$ ; injective $\iff \ker = \{\mathbf{0}\}$ |
+| solutions | $\mathbf{A}\mathbf{x} = \mathbf{b}$ : solvable $\iff \mathbf{b} \in \operatorname{Im}\mathbf{A}$ ; solutions $= \mathbf{x}_p + \ker\mathbf{A}$, $n - \operatorname{rg}(\mathbf{A})$ paramètres ; $\ker(\mathbf{X}^\top\mathbf{X}) = \ker\mathbf{X}$ |
+| changement de base | $\mathbf{x} = \mathbf{S}\mathbf{x}'$ ; $\mathbf{A}' = \mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ (semblables) ; entre deux espaces $\mathbf{T}^{-1}\mathbf{A}\mathbf{S}$ (équivalentes) ; colonne $j$ de $\mathbf{A}'$ = coordonnées de $\mathbf{A}\mathbf{s}_j$ |
+| affine | $\varphi(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$, $\mathbf{b} = \varphi(\mathbf{0})$ ; conserve les combinaisons de coefficients de somme 1 ; bijective $\iff \mathbf{A}$ inversible ; $\varphi^{-1}(\mathbf{y}) = \mathbf{A}^{-1}(\mathbf{y} - \mathbf{b})$, de translation $-\mathbf{A}^{-1}\mathbf{b}$ ; sous-espace affine $\mathbf{x}_0 + U$ |
 
 ## Partie IV · Réseaux
 

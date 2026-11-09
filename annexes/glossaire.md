@@ -16,7 +16,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | angle entre deux vecteurs | angle between two vectors | l'angle $\theta \in [0 ; \pi]$ tel que $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert\cos\theta$ | R9, M07 |
 | annulation (catastrophique) | catastrophic cancellation | la perte de chiffres justes quand on soustrait deux nombres presque égaux : l'erreur relative explose | M05a |
 | antécédent, image | preimage, image | $f(x)$ est l'image de $x$ ; un antécédent de $y$ est un $x$ tel que $f(x) = y$ | R3 |
-| application linéaire | linear map, linear mapping | fonction entre espaces vectoriels qui respecte sommes et multiplications par un nombre | M12a |
+| application affine | affine mapping | $\varphi(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$ : une partie linéaire suivie d'une translation ; bijective si et seulement si $\mathbf{A}$ est inversible, et alors $\varphi^{-1}(\mathbf{y}) = \mathbf{A}^{-1}(\mathbf{y} - \mathbf{b})$ | M12a |
+| application linéaire | linear map, linear mapping | $f(\lambda\mathbf{x} + \mu\mathbf{y}) = \lambda f(\mathbf{x}) + \mu f(\mathbf{y})$ ; de $\mathbb{R}^n$ dans $\mathbb{R}^m$, c'est $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$, la colonne $j$ de $\mathbf{A}$ étant $f(\mathbf{e}_j)$ | M12a |
 | approximation affine | linear approximation | $f(a + h) \approx f(a) + f'(a)\,h$ : la courbe remplacée par sa tangente près de $a$ | R7 |
 | arbre pondéré | probability tree | arbre des étapes d'une expérience, chaque branche portant sa probabilité : on multiplie le long d'un chemin, on additionne les chemins | R8 |
 | arccosinus | arccosine, arccos | la réciproque du cosinus sur $[0 ; \pi]$ : l'unique angle de $[0 ; \pi]$ qui a un cosinus donné | R9 |
@@ -33,7 +34,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | bandit manchot | multi-armed bandit | choisir pas à pas entre $K$ options (des bras) de récompenses moyennes inconnues, pour en accumuler le plus possible : le compromis entre exploration et exploitation | M11 |
 | barrières de Tukey | (Tukey's) fences | les bornes $Q_1 - 1{,}5\,\text{EI}$ et $Q_3 + 1{,}5\,\text{EI}$ (EI : l'écart interquartile) ; une valeur hors de ces bornes est signalée comme aberrante | M02c |
 | barycentre, centroïde | centroid, mean (of a point cloud) | $\bar{\mathbf{x}} = \frac{1}{m}\sum_i \mathbf{x}_i$, la moyenne coordonnée par coordonnée d'un nuage de points ; pondéré : $\frac{\sum_i \omega_i \mathbf{x}_i}{\sum_i \omega_i}$ | M07 |
-| base (d'un espace vectoriel) | basis | famille de vecteurs indépendants qui engendre tout l'espace | M12a |
+| base (d'un espace vectoriel) | basis | une famille libre et génératrice : tout vecteur s'y écrit d'une seule façon, et ses coefficients sont ses coordonnées | M12a |
 | base canonique | standard basis | les vecteurs $\mathbf{e}_1, \ldots, \mathbf{e}_n$ de $\mathbb{R}^n$ (un 1 à la place $i$, des 0 ailleurs) : $\mathbf{x} = \sum_i x_i\,\mathbf{e}_i$ | M07 |
 | biais (d'un estimateur) | bias | $\mathbb{E}[\hat{\theta}] - \theta$ : l'erreur systématique d'un estimateur, en moyenne sur tous les échantillons | M02c |
 | biais (d'un neurone) | bias | nombre $b$ ajouté à la somme pondérée d'un neurone, appris comme les poids | R1 |
@@ -60,6 +61,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | chaîne de caractères | string | du texte entre guillemets, comme `"abc"` : Python le garde tel quel, sans le calculer | R0 |
 | chaîne monotone d'Andrew | monotone chain (Andrew's algorithm) | l'enveloppe convexe d'un nuage du plan : trier, puis construire la chaîne du bas et celle du haut en ne gardant que les virages strictement à gauche | M10 |
 | champ de vecteurs | vector field | une flèche en chaque point du plan (ou de l'espace) ; le gradient d'une fonction en est un | M05b |
+| changement de base (d'une application linéaire) | basis change | la matrice de $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ dans la base des colonnes de $\mathbf{S}$ : $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ ; entre deux espaces, $\mathbf{T}^{-1}\mathbf{A}\mathbf{S}$ | M12a |
 | changement de base (formule de) | change of base formula | $\log_b x = \frac{\ln x}{\ln b}$ | R6 |
 | changement de variable | change of variables, substitution | $\int_a^b f(g(x))\,g'(x)\,dx = \int_{g(a)}^{g(b)} f(u)\,du$ | M02a |
 | chiffres significatifs | significant figures | les chiffres d'un nombre à partir du premier chiffre non nul | R1 |
@@ -71,6 +73,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | coefficient de détermination ($R^2$) | coefficient of determination | $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$ : la part de la variation des cibles que le modèle fait disparaître ; 1 s'il est parfait, négatif possible sur de nouvelles données | M09b |
 | coefficient multiplicateur | multiplier, growth factor | nombre $1 + t$ par lequel une évolution de taux $t$ multiplie une valeur | R1 |
 | colinéaires (vecteurs) | collinear vectors | l'un est un multiple de l'autre : $xy' - x'y = 0$ | R9 |
+| combinaison affine | affine combination | une combinaison linéaire dont les coefficients ont une somme égale à 1 (un barycentre) ; une application affine la conserve | M12a |
 | combinaison convexe | convex combination | $\sum_i t_i\mathbf{x}_i$ avec $t_i \ge 0$ et $\sum_i t_i = 1$ ; le segment, le barycentre en sont | M10 |
 | combinaison linéaire | linear combination | somme de vecteurs multipliés par des nombres | M07, M12a |
 | comparaisons multiples | multiple comparisons, multiple testing | faire beaucoup de tests, ou essayer beaucoup de modèles : $m\alpha$ faux positifs en moyenne si aucun effet n'existe | M08 |
@@ -88,6 +91,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | convergent (estimateur) | consistent estimator | estimateur dont l'erreur tend vers 0 quand la taille de l'échantillon grandit | M02c |
 | converger, diverger (suite) | converge, diverge | une suite converge si elle a une limite finie ; sinon elle diverge (vers $\pm\infty$, ou sans limite) | R5 |
 | convexe | convex | un ensemble l'est s'il contient le segment entre deux quelconques de ses points ; une fonction l'est si chaque corde est au-dessus de sa courbe (c'est-à-dire si son épigraphe est un ensemble convexe) | M05a, M10 |
+| coordonnées dans une base | coordinates, coordinate vector | les coefficients $(c_1, \ldots, c_n)$ de l'écriture unique $\mathbf{v} = c_1\mathbf{b}_1 + \cdots + c_n\mathbf{b}_n$ : la solution de $\mathbf{B}\mathbf{c} = \mathbf{v}$ | M12a |
 | coordonnées polaires | polar coordinates | repérer un point du plan par sa distance $r$ à l'origine et son angle $\theta$ ; dans une intégrale double, $dx\,dy$ devient $r\,dr\,d\theta$ | M02b |
 | coordonnées, repère orthonormé | coordinates, orthonormal frame | un repère a une origine et deux axes perpendiculaires de même unité ; un point y est repéré par $(x ; y)$ | R9 |
 | corrélation (coefficient de) | correlation coefficient (Pearson) | $r = \frac{\operatorname{Cov}(x, y)}{s_x s_y}$, entre $-1$ et 1 : la force d'une relation **linéaire** ; le cosinus de l'angle entre les vecteurs d'écarts | M02c |
@@ -128,6 +132,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | diagramme de Venn | Venn diagram | chaque ensemble dessiné comme une région du plan : une inclusion dit qu'une région est vide, « au moins un » qu'elle contient un élément | M11 |
 | dichotomie | bisection | trouver un zéro en coupant l'intervalle en deux et en gardant la moitié où le signe change | R7 |
 | différence finie (avant, centrée) | finite difference (forward, central) | une approximation de $f'(x)$ par $\frac{f(x + h) - f(x)}{h}$ (ordre 1) ou $\frac{f(x + h) - f(x - h)}{2h}$ (ordre 2) | M05a |
+| dimension | dimension | le nombre de vecteurs de n'importe quelle base : $\dim\mathbb{R}^n = n$, $\dim\mathbb{R}_d[x] = d + 1$ | M12a |
 | direction de plus grande pente | steepest ascent direction | $\frac{\nabla f}{\lVert \nabla f \rVert}$, la direction où $f$ monte le plus vite, avec la pente $\lVert \nabla f \rVert$ ; l'opposée est celle de plus grande descente | M05b |
 | discriminant | discriminant | $\Delta = b^2 - 4ac$ ; son signe donne le nombre de racines de $ax^2 + bx + c$ | R3 |
 | disjonction de cas | proof by cases | découper en cas qui couvrent toutes les possibilités, et traiter chacun | R4 |
@@ -172,8 +177,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | erreur quadratique moyenne (d'un estimateur) | mean squared error (MSE) | $\mathbb{E}[(\hat{\theta} - \theta)^2] = \text{biais}^2 + \text{variance}$ | M02c |
 | erreur type | standard error (SE) | l'écart-type d'un estimateur ; pour une moyenne, $\frac{s}{\sqrt{n}}$ ; pour une proportion, $\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$ | M02c |
 | espace d'arrivée | target space | l'ensemble des valeurs que peut prendre une variable aléatoire ($\mathcal{T}$ dans MML) : $\mathbb{R}$, un ensemble de classes ou de vecteurs | M02b |
+| espace des colonnes, espace des lignes | column space, row space | le sous-espace engendré par les colonnes de $\mathbf{A}$ (son image), ou par ses lignes ; tous deux ont pour dimension le rang | M12a |
 | espace probabilisé | probability space | le triplet (univers, événements, probabilité) d'une expérience aléatoire | M02b |
-| espace vectoriel | vector space | ensemble où l'on peut additionner des vecteurs et les multiplier par des nombres | M12a |
+| espace vectoriel | vector space | un ensemble où l'on additionne des vecteurs et où on les multiplie par des réels, avec les règles de calcul habituelles : $\mathbb{R}^n$, les polynômes, les matrices d'une forme donnée | M12a |
 | espérance | expected value, expectation | moyenne théorique d'une variable aléatoire | R8 |
 | estimateur | estimator | formule qui estime un paramètre à partir de données | M02c |
 | estimateur plug-in (de l'entropie) | plug-in estimator | l'entropie des fréquences observées ; elle sous-estime l'entropie, surtout sur de petits échantillons (correction de Miller-Madow : $+\frac{k - 1}{2n\ln 2}$ bit) | M06 |
@@ -194,6 +200,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | factorielle | factorial | $n! = n \times (n - 1) \times \cdots \times 1$, le nombre de rangements de $n$ objets ; $0! = 1$ | R8 |
 | faisabilité (problème de) | feasibility problem | chercher seulement un point qui vérifie toutes les contraintes, sans rien optimiser ; décider si un nuage est linéairement séparable en est un | M10 |
 | famille exponentielle | exponential family | les lois de la forme $h(x)\exp(\eta\,T(x) - A(\eta))$ : Bernoulli, gaussienne, Beta, Poisson… | M04 |
+| famille génératrice | generating set, spanning set | une famille dont tout vecteur de l'espace est une combinaison linéaire : $\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k) = V$ | M12a |
+| famille libre, famille liée | linearly independent, linearly dependent | libre : seule la combinaison de coefficients tous nuls donne $\mathbf{0}$ (chaque colonne porte un pivot) ; liée : l'un des vecteurs combine les autres | M12a |
 | faux positif, faux négatif | false positive, false negative (FP, FN) | un négatif prédit positif (fausse alerte) ; un positif prédit négatif (cas manqué) | M03 |
 | features polynomiales | polynomial features | les monômes des features jusqu'à un degré $d$, interactions comprises : $\binom{p + d}{d}$ colonnes, constante comprise | M09b |
 | flottant (nombre à virgule flottante) | floating-point number, float | nombre à virgule rangé avec un nombre fixe de chiffres binaires, donc souvent arrondi | R0, M05a |
@@ -234,6 +242,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | hypothèse nulle, hypothèse alternative | null hypothesis, alternative hypothesis | $H_0$, souvent « pas d'effet », que le test cherche à mettre en défaut ; $H_1$, ce qu'on veut montrer ; toutes deux fixées avant de voir les données | M08 |
 | idempotente (matrice) | idempotent matrix | $\mathbf{H}\mathbf{H} = \mathbf{H}$ : l'appliquer deux fois ne change rien, comme une projection | M09b |
 | identité remarquable | special product, algebraic identity | égalité vraie pour tous $a$ et $b$, comme $(a + b)^2 = a^2 + 2ab + b^2$ | R2 |
+| image (d'une application linéaire) | image, range | $\operatorname{Im} f = \{f(\mathbf{x})\}$, un sous-espace de l'espace d'arrivée ; pour une matrice, l'espace de ses colonnes | M12a |
 | implication | implication, conditional | $P \Rightarrow Q$, fausse seulement si P est vraie et Q fausse | R4 |
 | importance par permutation | permutation importance | le score d'un modèle entraîné, moins son score quand on mélange la colonne d'une feature, sur un jeu de validation | M08 |
 | imputation | imputation | remplacer une valeur manquante par une valeur choisie (la moyenne, la médiane de la colonne…) | M02c |
@@ -251,6 +260,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | inertie (d'un nuage de points) | inertia, within-cluster sum of squares | $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2$ : la plus petite au barycentre ; ce que k-means fait baisser | M07 |
 | information (de Shannon), surprise | self-information, surprisal, information content | $-\log_2 p$ bits : ce qu'apprend un événement de probabilité $p$ ; s'additionne pour des événements indépendants | M06 |
 | information mutuelle | mutual information | $I(X ; Y) = H(X) - H(X \mid Y)$ : ce que l'une des variables apprend sur l'autre ; symétrique, nulle seulement pour des variables indépendantes | M06 |
+| injective, surjective, bijective | injective, surjective, bijective | deux vecteurs distincts ont des images distinctes ($\ker f = \{\mathbf{0}\}$) ; tout vecteur d'arrivée est atteint ($\operatorname{Im} f = W$) ; les deux | M12a |
 | intégrale | integral | $\int_a^b f(x)\,dx$ : l'aire algébrique entre la courbe et l'axe, limite des sommes de Riemann | M02a |
 | intégrale de Gauss | Gaussian integral | $\int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi}$ | M02a |
 | intégrale double | double integral | le volume sous une surface $z = f(x, y)$ au-dessus d'une région ; sur un rectangle, on intègre une variable après l'autre | M02b |
@@ -314,6 +324,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | matrice | matrix | tableau de nombres à lignes et colonnes | M09a |
 | matrice augmentée | augmented matrix | $[\mathbf{A} \mid \mathbf{b}]$, la matrice des coefficients suivie de la colonne des seconds membres, sur laquelle on fait le pivot de Gauss | M09a |
 | matrice chapeau | hat matrix | $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, qui envoie $\mathbf{y}$ sur $\hat{\mathbf{y}}$ : symétrique, idempotente, de trace $p$ | M09b |
+| matrice d'une application linéaire | transformation matrix | la matrice dont la colonne $j$ contient les coordonnées de $f(\mathbf{b}_j)$ dans la base de l'arrivée ; dans les bases canoniques, $f(\mathbf{e}_j)$ | M12a |
 | matrice de confusion | confusion matrix | le tableau de contingence de la vérité et de la prédiction d'un classifieur (TP, FN, FP, TN en binaire) | M03 |
 | matrice de corrélation | correlation matrix | la matrice des corrélations $\rho_{ij} = \frac{\Sigma_{ij}}{\sigma_i\sigma_j}$, avec des 1 sur la diagonale | M02c |
 | matrice de covariance | covariance matrix | $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$ : les variances sur la diagonale, symétrique, et $\sum_i\sum_j w_iw_j\Sigma_{ij} \ge 0$ | M02c |
@@ -322,6 +333,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | matrice identité | identity matrix | $\mathbf{I}_n$ : des 1 sur la diagonale, des 0 ailleurs ; $\mathbf{I}\mathbf{A} = \mathbf{A}\mathbf{I} = \mathbf{A}$ | M09a |
 | matrice inversible, singulière | invertible (regular, nonsingular) matrix, singular matrix | une matrice carrée qui a une inverse, ou qui n'en a pas (quand une colonne combine les autres, ou que le rang est plus petit que la taille) | M09a |
 | matrice symétrique | symmetric matrix | une matrice égale à sa transposée : $a_{ij} = a_{ji}$ ; $\mathbf{X}^\top\mathbf{X}$ l'est toujours | M09a |
+| matrices semblables, équivalentes | similar matrices, equivalent matrices | $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$, ou $\mathbf{T}^{-1}\mathbf{A}\mathbf{S}$ : la même application linéaire dans d'autres bases ; le rang ne change pas | M12a |
 | maximum de vraisemblance (estimation du) | maximum likelihood estimate (MLE) | la valeur du paramètre qui rend les données observées les plus probables ; pour une proportion, la fréquence | M04 |
 | maximum, minimum, extremum | maximum, minimum, extremum (extrema) | la plus grande (petite) valeur d'une fonction sur un ensemble | R3 |
 | MCC (coefficient de Matthews) | Matthews correlation coefficient | la corrélation entre la vérité et la prédiction codées 0 et 1, entre $-1$ et 1 | M03 |
@@ -358,7 +370,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | norme Lp | Lp norm, p-norm | $\big(\sum_i \lvert x_i \rvert^p\big)^{1/p}$, une norme pour $p \ge 1$ seulement ; elle diminue quand $p$ augmente, vers la norme L∞ | M07 |
 | normes L1 et L∞ | L1 norm, infinity norm | $\sum \lvert x_i \rvert$ (un trajet fait seulement de pas horizontaux et verticaux) et $\max \lvert x_i \rvert$ ; sans indice, $\lVert \mathbf{x} \rVert$ est la norme euclidienne (L2) | R9, M07 |
 | noyau (d'un notebook) | kernel | la mémoire qui exécute les cellules et garde leurs variables | R0 |
-| noyau (d'une application linéaire) | kernel, null space | vecteurs envoyés sur zéro | M12a |
+| noyau (d'une application linéaire) | kernel, null space | $\ker\mathbf{A} = \{\mathbf{x} : \mathbf{A}\mathbf{x} = \mathbf{0}\}$, un sous-espace de l'espace de départ : les directions que l'application écrase | M12a |
 | numérateur, dénominateur | numerator, denominator | le nombre du haut et celui du bas d'une fraction | R1 |
 | octet | byte | 8 bits ; 1 ko = $10^3$ octets, 1 Mo = $10^6$, 1 Go = $10^9$ | R1 |
 | opérations élémentaires sur les lignes | elementary row operations | échanger deux lignes, multiplier une ligne par un nombre non nul, ajouter à une ligne un multiple d'une autre : elles ne changent pas les solutions | M09a |
@@ -426,7 +438,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | racine carrée | square root | nombre positif ou nul dont le carré vaut $a$ | R1 |
 | radian | radian | unité d'angle : la longueur de l'arc sur le cercle de rayon 1 ; $180° = \pi$ rad | R9 |
 | raison (d'une suite) | common difference, common ratio | ce qu'on ajoute (suite arithmétique) ou ce par quoi on multiplie (suite géométrique) à chaque pas | R5 |
-| rang | rank | nombre de directions indépendantes d'une matrice | M09a, M12a |
+| rang | rank | le nombre de pivots, la dimension de l'espace des colonnes (et de celui des lignes) : $\operatorname{rg}(\mathbf{A}) = \operatorname{rg}(\mathbf{A}^\top) \le \min(m, n)$ | M09a, M12a |
+| rang numérique | numerical rank | le rang calculé en virgule flottante, où « nul » veut dire « sous une tolérance » ; il dépend de la tolérance, et de l'échelle des nombres si elle est absolue | M12a |
+| rang plein, rang déficient | full rank, rank deficient | $\operatorname{rg}(\mathbf{A}) = \min(m, n)$, ou moins | M12a |
 | rasoir d'Occam | Occam's razor | à ajustement égal, préférer le modèle le plus simple ; l'évidence bayésienne le fait d'elle-même | M08 |
 | rayon de confiance | confidence radius | la demi-largeur $r$ d'un intervalle $\bar{X} \pm r$ ; Hoeffding, au risque $\delta$ : $r = (b - a)\sqrt{\frac{\ln(2/\delta)}{2n}}$ | M11 |
 | réalisation, tirage | realization, sample, draw | une valeur obtenue d'une variable aléatoire, à distinguer de la variable elle-même | M02b |
@@ -477,6 +491,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | sommes de carrés (totale, expliquée, résiduelle) | total, explained, residual sum of squares (SST, SSE, SSR) | $\mathrm{SCT} = \sum (y_i - \bar{y})^2$, $\mathrm{SCE} = \sum (\hat{y}_i - \bar{y})^2$, $\mathrm{SCR} = \sum r_i^2$ ; $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ pour les moindres carrés avec ordonnée à l'origine | M09b |
 | sommet (d'une enveloppe convexe) | vertex | un point du nuage qui n'est pas combinaison convexe des autres : un coin du polygone | M10 |
 | sophisme formel | formal fallacy | une forme d'argument qui a l'air valide sans l'être : affirmer le conséquent, nier l'antécédent | M11 |
+| sous-espace affine | affine subspace | un sous-espace vectoriel déplacé, $\mathbf{x}_0 + U$ : une droite ou un plan qui ne passe pas par l'origine, les solutions de $\mathbf{A}\mathbf{x} = \mathbf{b}$ | M12a |
+| sous-espace engendré | span | $\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k)$ : l'ensemble des combinaisons linéaires de ces vecteurs, le plus petit sous-espace qui les contient | M12a |
+| sous-espace vectoriel | vector subspace | une partie qui contient $\mathbf{0}$ et est stable par combinaison linéaire ; elle est elle-même un espace vectoriel | M12a |
 | spécificité | specificity, true negative rate | $P(\hat{Y} = 0 \mid Y = 0)$ : la part des négatifs bien reconnus | M03 |
 | standardiser | standardize | passer de $X \sim \mathcal{N}(\mu, \sigma^2)$ à $Z = \frac{X - \mu}{\sigma} \sim \mathcal{N}(0, 1)$ | M02b, M02c |
 | statistique | statistic | une fonction de l'échantillon (moyenne, médiane, maximum) : une variable aléatoire | M02c |
@@ -518,6 +535,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | théorème de Schwarz | Schwarz's theorem, symmetry of second derivatives | les dérivées croisées sont égales, $f_{xy} = f_{yx}$, quand les dérivées secondes sont continues | M05b |
 | théorème de transfert | law of the unconscious statistician (LOTUS) | $\mathbb{E}[g(X)] = \sum g(x)\,P(X = x)$ ou $\int g(x)\,f(x)\,dx$, sans chercher la loi de $g(X)$ | M02b |
 | théorème des valeurs intermédiaires | intermediate value theorem | une fonction continue sur $[a ; b]$ prend toutes les valeurs entre $f(a)$ et $f(b)$ | R7 |
+| théorème du rang | rank-nullity theorem | $\dim\ker\mathbf{A} + \operatorname{rg}(\mathbf{A}) = n$, le nombre de colonnes (la dimension de l'espace de départ) | M12a |
 | théorème fondamental de l'analyse | fundamental theorem of calculus | $\int_a^b f = F(b) - F(a)$ pour une primitive $F$ ; la fonction aire a pour dérivée $f$ | M02a |
 | tirage avec remise, sans remise | sampling with replacement, without replacement | avec remise, l'objet tiré est remis avant le tirage suivant (les tirages sont i.i.d.) ; sans remise, la composition change et les tirages sont dépendants | R8, M02c |
 | tranche (d'une surface) | slice, cross-section | la courbe obtenue en figeant une variable, comme $x \mapsto f(x, b)$ ; $\frac{\partial f}{\partial x}(a, b)$ est sa pente en $a$ | M05b |
