@@ -42353,7 +42353,8 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "b51d116b50cd19b37e1c55059c666134915d2e1f0a52c1f1a4e111d875fc1452": "ajouter 2I ajoute 2 à chaque valeur propre (les vecteurs propres restent)"
+        "b51d116b50cd19b37e1c55059c666134915d2e1f0a52c1f1a4e111d875fc1452": "ajouter 2I ajoute 2 à chaque valeur propre (les vecteurs propres restent)",
+        "d249148723f58836e251b29c26958606fddd10bd7d9c90203ce3e59a8526d7f9": "ajouter 2I décale chaque valeur propre de 2 : tu as donné celles de M"
       },
       "shape": [
         2
@@ -42768,6 +42769,7 @@
       "hash": "b5246c3b873630df93b91ce31a2fd117136993593ff8b157c8209486ce4454fe",
       "kind": "array",
       "mistakes": {
+        "15113130814f24b38f2d89aadb8c0d9373982fd92c4ac1b880119d3749c985b3": "q₁ va avec la plus GRANDE valeur propre, 30",
         "1b29d24dd4824a10ee431c821d221f0422cbbe340ae47e24bda600707b052a03": "un vecteur unitaire : divise le vecteur propre par sa norme"
       },
       "shape": [
@@ -43352,6 +43354,9 @@
       "hash_coarse": "203b48a9671b563ff3238041a4ced0615bae705337630476fc179b12a7ea9fce",
       "kind": "float",
       "magnitude": 1,
+      "mistakes": {
+        "5b3d8f2e4d260b942e27148803d0f934e9dde6a8b34c01e2256abb219030b1ff": "la hessienne en (1, 0) : f_xx = 2 + e¹, pas 2 + e⁰"
+      },
       "sign": 1,
       "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
     },
@@ -43482,6 +43487,9 @@
       "hash": "7613768da29d00b975d1ee80b0a4d901796f32ec5375951aaeb84ffd894c7853",
       "integer": true,
       "kind": "array",
+      "mistakes": {
+        "4ee0aef55947aefe300b2d81924ea4c215d75aa1e062917a8c0284042e35a454": "vérifie A x = (2, −7, −19) : un signe faux dans la descente L z = b, ou dans la remontée Lᵀ x = z"
+      },
       "shape": [
         3
       ],
@@ -43856,7 +43864,8 @@
       "hash": "d1c989a0cfe2bb7d76ced4c16cf9c98c1bef2eceb10fb3e3effa2b755f57b6f7",
       "kind": "array",
       "mistakes": {
-        "93cbcaa488d7137dadcd75471900c6ab29e4cc3cc82211e3ecfe03238fbf791f": "Σ^(−1/2) = Q Λ^(−1/2) Qᵀ : 1/√λ, pas √λ"
+        "93cbcaa488d7137dadcd75471900c6ab29e4cc3cc82211e3ecfe03238fbf791f": "Σ^(−1/2) = Q Λ^(−1/2) Qᵀ : 1/√λ, pas √λ",
+        "dfe35196f89f279fd134129d3fce58199f478b8017bea23482438fcf079c4e7a": "ZCA est Σ^(−1/2) = Q Λ^(−1/2) Qᵀ, symétrique ; L⁻¹ est le blanchiment de Cholesky"
       },
       "shape": [
         2,
@@ -43915,7 +43924,8 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "00477a6fd9f1ba8479382e203353f0d8027e9a1b71620759946a7012008cc754": "V(x₁ + x₂ + x₃) compte aussi deux fois chaque covariance"
+        "00477a6fd9f1ba8479382e203353f0d8027e9a1b71620759946a7012008cc754": "V(x₁ + x₂ + x₃) compte aussi deux fois chaque covariance",
+        "6fe34107748f963acec07298dade5dd5a86cda18862e921a30552b02283b5bcb": "chaque covariance compte deux fois : Cov(xᵢ, xⱼ) et Cov(xⱼ, xᵢ)"
       },
       "sign": 1,
       "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
@@ -43935,6 +43945,9 @@
       "hash": "3eff8bf0cd15bd7183f68c29a221aeab7a15ebfe7fe68eac3c6649c8f45d3958",
       "kind": "int",
       "magnitude": 1,
+      "mistakes": {
+        "2ca12a7afc0837896090da855870f97a998308818737cbc9f3b50d462f83bb00": "wᵀΣw compte deux fois chaque covariance : Σᵢⱼ wᵢ wⱼ Σᵢⱼ sur tous les couples (i, j)"
+      },
       "sign": 1,
       "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
     },
@@ -44392,6 +44405,9 @@
         ],
         [
           "e70996013b4da8106495e061e293ce7b49f69f30da8246e62c32065f3d6b6243"
+        ],
+        [
+          "d8e110962a8e65fa6fb7bf34d04346cb521f6c92db40810a5c73614a5b4a565a"
         ]
       ],
       "element_coarse_any": [
@@ -44410,22 +44426,32 @@
           "44a9e6111046b469e439d3b02516f7e3c9736b3d6af03790bb4de16901b2fd03"
         ],
         [],
-        []
+        [],
+        [
+          "45e0c97af005e45f1450cb992a18a062a090f1546dc8dee26e4b022a14fe1871",
+          "18dd53b0d2847548b1a91a5b80026146afb9f39cc1b084f1b97de72f914596df",
+          "867aa8de66121011588ba3b4ce51082256dd1d819fcc40a7aa0632919711e6f4",
+          "8e35d5d2f48317858778c1407d2f60b52313e52607ba69f1c06057a16db746c1",
+          "f4b9e281201ee895a799fdb8c3f18e0038eaec546b757f75e52544e7540ec13a"
+        ]
       ],
       "element_hashes": [
         "407961b0bb6b7acc523601f6afb84c1055f24279ff98f405fb9f01bfefbe18e5",
         "7c32fa2905460416de9859fcd3d5563ec49b726a8ce6c970a23e20c2ef966c66",
         "a87c5210bb46cdd46b4f6f25d866ebcdfe2390a357ecd1f8e1ff4c6ab8695dde",
-        "868bb349b187e1f0a09d47acecdfb3fca231cc2166ee1cd328dcda9759cd5411"
+        "868bb349b187e1f0a09d47acecdfb3fca231cc2166ee1cd328dcda9759cd5411",
+        "71a8d7d660153e35c9fdbaaf72a065933f3a35723f85c84839215f45b15107c4"
       ],
-      "hash": "ba8a1b72707174de9860dda729fb336db100e6f092e6683032f08e3e04f3ef76",
+      "hash": "c038b846539131fee244e13d8fab8eb5f1791c06c2e746d2b96b84f84d62bd83",
       "kind": "array",
       "mistakes": {
-        "2b342c9a40e95beca88cb3189094237f38a6f7f3de3574dbe46500f46feb48f0": "la convention de signe : x doit garder sa coordonnée de plus grande valeur absolue positive",
-        "e3bdb3a98e2ec473b2441432666336413886be77c73f2415b3efe1513607e10e": "la valeur propre est xᵀA x, pas ‖A x‖ : elle peut être négative"
+        "5886641ac5dfa7b7e379d1d7c80c7ea62f273ee787f13662d77e37de13b65426": "la valeur propre est xᵀA x, pas ‖A x‖ : elle peut être négative",
+        "7b3b89119d8ead81d1634237d7c2469942c8966c049e73200be32fdab3f63771": "la convention de signe : x doit garder sa coordonnée de plus grande valeur absolue positive",
+        "904a3b0c21a936ada9c94c304d0db6a96e63298680338e42657f8f215f477516": "sans la convention de signe, x change de signe à chaque pas et l'arrêt n'arrive jamais : 1000 itérations",
+        "f638e4b2d78be44b2ede524049d5c44248ab0baec9e089aecb5309b99e013c31": "le nombre d'itérations compte les produits A x calculés, le premier compris"
       },
       "shape": [
-        4
+        5
       ],
       "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
     },
@@ -44849,7 +44875,8 @@
       "hash": "b88079c6d78891f4f219e68183a68f271f239cca962b12810d79d1d880f88b5a",
       "kind": "array",
       "mistakes": {
-        "9826d16d259bcd3c158dbf20224be2397a03835c97439434fc22ed6c7ed4cc96": "W = Σ^(−1/2) = Q diag(1/√λ) Qᵀ, pas Σ^(1/2)"
+        "9826d16d259bcd3c158dbf20224be2397a03835c97439434fc22ed6c7ed4cc96": "W = Σ^(−1/2) = Q diag(1/√λ) Qᵀ, pas Σ^(1/2)",
+        "f52eac08b42bcbc192207bb44cd8175891ddee86634fc195df5d5bd5c84c7c2d": "ZCA revient dans la base de départ : Q diag(1/√λ) Qᵀ, pas diag(1/√λ) Qᵀ (le blanchiment de l'ACP)"
       },
       "shape": [
         2,
@@ -44924,11 +44951,37 @@
     "M12c.29f": {
       "hash": "9ad7e309a4e71a6c7da351fa36d668cb7d420bb4a6421ac140a16a72528f1691",
       "kind": "str",
+      "mistakes": {
+        "0e69b8341137f27018d123e44ff0ade8e062a781823d6e8c6b708f1f68878b86": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "1122ab60408d35605c87c731ccf9654fcf1b7e11aa287d99a9331247030a7f6d": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "2db0f9b571f756535f4210dbb1de5978acf1801e7625ad8198637837af968b51": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "51cc5a270b6e32b96549d18be218de39a81176e8a617ace6f05797e36f44de40": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "683c728153d1c6fe3c6f87f78a842e131ae6d7a64bcebadc3b8c7f89b4b88f30": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7f431a0bcad2378fadd0380ee18ea5e0ea49bce19eb13c741bb10b8ca4e390d3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "95229fa35d0a5485dc450d2804f5a7e6ca044bd03880d8dcc32030530eff8442": "une méthode inconnue : la docstring demande une ValueError",
+        "c59b6dc0d84449f75d648afb3e624bbde9a5a03546d475a1e691edf703ce3242": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ca85fcf3acb8e021a5c0c847d40afa35b78ed1d119dda88cd3b1113133df004f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "d8c9a7b5103d016051d9c8583de5f1e78037fb1c93e26542602e50e0d89eb87e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f130059c39af196a367a9376e8e88ed6cf347c5c7fad3b84f5f2a9d83c4d3ded": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
       "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
     },
     "M12c.29g": {
       "hash": "f6fa10dcf75cff06d40cbd77432575923bac508134f067459009fe4f70803f58",
       "kind": "str",
+      "mistakes": {
+        "04a87c368639e0e7df80c7c3d9f1c2e39f33caa358bdc556382735a956d4197e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "14dc7b9deeb54fc53834d2217348b9b79689b7a857029de276c22ff4d69978b3": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6c9be3dcbdcadbf66153e11f119309b0c9559d93aaee146c68e850c624e53dfa": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "77d3c6fa95ca9b7fb742be9fea3fff721e32fa48aad8a87a9adb3f60b6e83901": "une valeur propre négative : la matrice n'est pas semi-définie positive, ValueError",
+        "7cd8fafaf69191b6968572da26869a59112aadd79ca157f7faffb513c67cb9fb": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "80ad6db8d3c7ef46ec7efb0ac50c179d4a5c36efc33483b55cb89c93ea6d4ba6": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "893a04519622873807edfb4babea7ed513b9ca9282dd4d934bd24e3c2bf1e79f": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "898ab006ba34177dbc839e3dea2fe90cc5b1ffb760698cf5fd9677cf2964b434": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "9770d524a8cc53fab4c392d8bac65d276c6484e78a62dbd52d4d866fe09d8cac": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "e376612ddb6e0965deadd4da884becad610a491ef17b0e419ef842a0eb4c7502": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "fc2dccb9a97944dba1078cad1c31132da37d0368cba2f934f670614c54a0b0dd": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
       "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"
     },
     "M12c.30a": {
@@ -45107,7 +45160,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "031e7d57d57ca799fb0f25369c376eff87c74ac515c514d3442c271276e366ef": "le premier r qui DÉPASSE 1 000 itérations, pas le dernier en dessous"
+        "031e7d57d57ca799fb0f25369c376eff87c74ac515c514d3442c271276e366ef": "le premier r qui DÉPASSE 1 000 itérations, pas le dernier en dessous",
+        "29ce78d6f775799d5a0986de08220b79adb609bda7a64ae3ed112f6a795ffb17": "on attend une valeur de r (la première colonne), pas un nombre d'itérations"
       },
       "sign": 1,
       "source": "chapitres/m12c_valeurs_propres/05_solutions.ipynb"

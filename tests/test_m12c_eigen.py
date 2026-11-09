@@ -35,7 +35,7 @@ def _result(call, expected, what="", hint=""):
                     + (f" ({hint})" if hint else ""))
 
 
-def _expect_value_error(call, what, why):
+def _expect_value_error(call, what, why, hint=""):
     """Fail with what was expected first, whatever the function did instead of raising ValueError itself."""
     try:
         result = call()
@@ -44,8 +44,8 @@ def _expect_value_error(call, what, why):
     except ValueError as exc:
         if type(exc) is ValueError:
             return
-        pytest.fail(f"expected {what} to raise ValueError itself ({why}), got {type(exc).__name__}: catch it and "
-                    f"raise ValueError, as the docstring asks")
+        pytest.fail(f"expected {what} to raise ValueError itself ({why}), got {type(exc).__name__}: "
+                    + (hint or "catch it and raise ValueError, as the docstring asks"))
     except Exception as exc:  # noqa: BLE001 - any other error is reported, with what was expected first
         pytest.fail(f"expected {what} to raise ValueError ({why}), got {type(exc).__name__}: {exc}")
     pytest.fail(f"expected {what} to raise ValueError ({why}), but it returned {result!r}")
@@ -76,8 +76,8 @@ ADVICE = {".det": "eliminate below each pivot and multiply the diagonal", ".slog
           ".cholesky": "fill L column by column with the two formulas of the docstring",
           ".inv": "solve a system with np.linalg.solve instead of inverting", ".pinv": "solve a system instead",
           ".sqrtm": "use the spectral theorem: Q diag(√λ) Qᵀ",
-          ".eigh": "np.linalg.eigh is allowed in sqrtm_psd and whitening_matrix only: try cholesky for a test of "
-                   "positive definiteness",
+          ".eigh": "np.linalg.eigh is allowed directly inside sqrtm_psd and whitening_matrix only (not in a helper, "
+                   "nor elsewhere: is_positive_definite tries cholesky)",
           ".eigvalsh": "the spectral tools are allowed in sqrtm_psd and whitening_matrix only"}
 
 
@@ -87,16 +87,27 @@ def test_eigen_uses_no_ready_made_tool(eigen):
         tree = ast.parse(inspect.getsource(eigen))
     except (OSError, TypeError, SyntaxError):   # source not readable: nothing to check
         return
-    found = set()
+    found, places = set(), set()
+    aliases = {"linalg"}                     # names bound to numpy.linalg: np.linalg.x, or LA.x after an import
+    for node in ast.walk(tree):
+        if isinstance(node, ast.ImportFrom) and node.module == "numpy":
+            aliases.update(a.asname or a.name for a in node.names if a.name == "linalg")
+        elif isinstance(node, ast.Import):
+            aliases.update(a.asname for a in node.names if a.name == "numpy.linalg" and a.asname)
+
+    def linalg_value(node):
+        return ((isinstance(node, ast.Attribute) and node.attr == "linalg")
+                or (isinstance(node, ast.Name) and node.id in aliases))
 
     def visit(node, function):
         if isinstance(node, ast.FunctionDef):
             function = node.name
         if isinstance(node, ast.Attribute):
-            if node.attr in FORBIDDEN and isinstance(node.value, ast.Attribute) and node.value.attr == "linalg":
+            if node.attr in FORBIDDEN and linalg_value(node.value):
                 found.add(f".{node.attr}")
             elif node.attr in SPECTRAL and function not in SPECTRAL_ALLOWED:
                 found.add(f".{node.attr}")
+                places.add(f"{node.attr} in {function or 'the module body'}")
         elif isinstance(node, ast.Import):
             found.update(a.name for a in node.names if a.name.split(".")[0] in ("scipy", "sympy", "sklearn"))
         elif isinstance(node, ast.ImportFrom) and node.module:
@@ -108,7 +119,8 @@ def test_eigen_uses_no_ready_made_tool(eigen):
             visit(child, function)
 
     visit(tree, None)
-    hints = "; ".join(sorted({ADVICE.get(name, "use NumPy's elementary tools") for name in found}))
+    hints = "; ".join(sorted({ADVICE.get(name, "use NumPy's elementary tools") for name in found}
+                             | ({f"found {', '.join(sorted(places))}"} if places else set())))
     assert not found, (f"expected eigen.py to use @, .T, np.linalg.norm and np.linalg.solve (and np.linalg.eigh in "
                        f"sqrtm_psd and whitening_matrix only), found {sorted(found)}: {hints}")
 
@@ -235,7 +247,9 @@ def test_power_iteration_finds_the_dominant_eigenpair(eigen, name):
     assert np.allclose(got_vector, vector, atol=1e-6), (
         f"expected the unit eigenvector {_show(vector)} for {name}, got {_show(got_vector)} (normalize at each step, "
         f"and make the entry of largest absolute value positive)")
-    assert iterations < 1000, f"expected convergence before 1000 iterations for {name}, got {iterations}"
+    assert iterations < 1000, (f"expected convergence before 1000 iterations for {name}, got {iterations} (does x "
+                               f"flip its sign at each step? the sign convention makes the entry of largest absolute "
+                               f"value positive, at each step)")
 
 
 def test_power_iteration_docstring_example(eigen):
@@ -245,7 +259,8 @@ def test_power_iteration_docstring_example(eigen):
     assert value == pytest.approx(4.0, abs=1e-12), f"expected the eigenvalue 4.0, got {value!r}"
     assert np.allclose(vector, [2 / np.sqrt(5), 1 / np.sqrt(5)]), f"expected (2, 1)/√5, got {vector!r}"
     assert iterations == 1, (f"expected 1 iteration (x0 is already an eigenvector: one product A x, then the stopping "
-                             f"test), got {iterations!r}")
+                             f"test), got {iterations!r} (the first comparison is with x0 normalized, its sign fixed, "
+                             f"not with x0 itself)")
 
 
 def test_power_iteration_starts_from_ones_by_default(eigen):
@@ -490,6 +505,15 @@ def test_sqrtm_psd_docstring_examples(eigen):
         assert np.allclose(np.asarray(got, dtype=float), expected), f"expected {expected} for {rows}, got {got!r}"
 
 
+def test_sqrtm_psd_tolerance_is_relative_to_the_largest_eigenvalue(eigen):
+    Q = np.linalg.qr(np.random.default_rng(1233).normal(size=(4, 4)))[0]
+    A = Q @ np.diag([1e6, 1.0, 0.5, -1e-9]) @ Q.T       # -1e-9 is above -tol · λ_max = -1e-6: a rounding error
+    A = (A + A.T) / 2
+    B = _result(lambda: eigen.sqrtm_psd(A), "a square root", "λ_max = 1e6 and an eigenvalue of -1e-9",
+                "the tolerance is relative: eigenvalues between -tol · max(1, λ_max) and 0 count as 0")
+    assert np.all(np.isfinite(B)), "expected finite entries: clip the tiny negative eigenvalues to 0 before √"
+
+
 def test_sqrtm_psd_accepts_a_tiny_negative_eigenvalue(eigen):
     Q = np.linalg.qr(RNG.normal(size=(3, 3)))[0]
     A = Q @ np.diag([4.0, 1.0, -1e-14]) @ Q.T
@@ -585,8 +609,10 @@ def test_whitening_matrix_docstring_examples(eigen):
     ([[4.0, 0.0], [0.0, 1.0]], "pca", "the method is unknown"),
 ])
 def test_whitening_matrix_rejects_invalid_inputs(eigen, cov, method, why):
+    hint = ("a LinAlgError from np.linalg.solve means that L has a 0 on its diagonal: your cholesky accepted a pivot "
+            "that is not strictly positive (refuse it with `not pivot > 0`)" if "pivot" in why else "")
     _expect_value_error(lambda: eigen.whitening_matrix(cov, method=method),
-                        f"whitening_matrix({cov}, method={method!r})", why)
+                        f"whitening_matrix({cov}, method={method!r})", why, hint)
 
 
 def test_whitening_matrix_does_not_modify_its_input(eigen):

@@ -1649,8 +1649,8 @@ def attempt(ex_id: str | None = None):
     Caught: ``NotImplementedError`` (a TODO not done yet), a missing mymath
     module or package, and a ``TypeError`` or an ``AttributeError`` about ``None`` (a
     function of the learner without ``return``: ``'NoneType' object is not iterable``,
-    ``'NoneType' object has no attribute 'transform'``…), shown as one ❌ line.
-    Other bugs still show their traceback.
+    ``'NoneType' object has no attribute 'transform'``…), shown as one ❌ line, and so is a mymath file
+    that does not parse (``SyntaxError``). Other bugs still show their traceback.
     """
     from wbm.errors import MymathMissingError
 
@@ -1666,6 +1666,12 @@ def attempt(ex_id: str | None = None):
         if not (exc.name or "").startswith("mymath"):
             raise
         print(f"⏳ {where}pas encore fait (module {exc.name} absent ou incomplet : lance tools/start_chapter.py).")
+    except SyntaxError as exc:  # a mymath file that does not parse: say where, and let "Run all" go on
+        filename = str(exc.filename or "")
+        if "mymath" not in filename.replace("\\", "/").split("/"):
+            raise
+        print(f"❌ {where}ton fichier mymath/{filename.replace(chr(92), '/').rsplit('/', 1)[-1]} ne se lit pas "
+              f"({type(exc).__name__} ligne {exc.lineno} : {exc.msg}) : corrige-le, puis réexécute le notebook.")
     except TypeError as exc:      # a None where a result was expected: almost always a forgotten `return`
         if not NONE_TYPE_ERROR.search(str(exc)):
             raise
@@ -1750,6 +1756,9 @@ def record(
     then prints the ``WBM_ANSWER`` line harvested by ``tools/build_answers.py``.
     """
     ex_id = str(ex_id)
+    if decimals is not None and (isinstance(decimals, bool) or not isinstance(decimals, int)):
+        raise TypeError(f"Ex {ex_id}: decimals must be an int, got {type(decimals).__name__} (pass the mistakes as "
+                        f"mistakes={{...}}, by keyword)")
     entry = make_entry(ex_id, value, decimals, kind=kind, ordered=ordered,
                        mistakes=mistakes, source=source, fractional=fractional, choices=choices,
                        prediction=prediction, variables=variables, simplified=simplified,

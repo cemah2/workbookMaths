@@ -403,7 +403,7 @@ $\mathbf{A}$ est une matrice symétrique réelle $n \times n$.
 2. Soient $\mathbf{A}\mathbf{u} = \lambda\mathbf{u}$ et $\mathbf{A}\mathbf{v} = \mu\mathbf{v}$ avec $\lambda \ne \mu$ (réels, vecteurs non nuls). Calcule $(\mathbf{A}\mathbf{u}) \cdot \mathbf{v}$ de deux façons et montre que $\mathbf{u} \perp \mathbf{v}$.
 3. Valeurs propres réelles. Soit $\lambda$ une valeur propre, éventuellement complexe, et $\mathbf{z} \ne \mathbf{0}$ un vecteur de $\mathbb{C}^n$ avec $\mathbf{A}\mathbf{z} = \lambda\mathbf{z}$. On note $\bar{\mathbf{z}}$ le vecteur des conjugués. Montre que $\bar{\mathbf{z}}^\top\mathbf{A}\mathbf{z}$ est égal à son propre conjugué (utilise que $\mathbf{A}$ est réelle et symétrique), donc réel. Montre que $\bar{\mathbf{z}}^\top\mathbf{z} = \sum_i |z_i|^2 > 0$, et conclus que $\lambda = \frac{\bar{\mathbf{z}}^\top\mathbf{A}\mathbf{z}}{\bar{\mathbf{z}}^\top\mathbf{z}}$ est réel.
 4. Si les $n$ valeurs propres de $\mathbf{A}$ sont distinctes, montre qu'il existe une base orthonormée de vecteurs propres, puis que $\mathbf{A} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$.
-5. Vérifie 2. et 3. sur $\begin{pmatrix} 1 & -2 \\ -2 & 4 \end{pmatrix}$ (fiche §7), sans calculer de racine carrée.
+5. Vérifie 2. et 3. sur $\begin{pmatrix} 1 & -2 \\ -2 & 4 \end{pmatrix}$, sans calculer de racine carrée.
 
 ### Ex M12c.16 — La somme des valeurs propres est la trace, leur produit le déterminant ∂ ★★ ⏱️ 20 min
 **Objectif :** relier les valeurs propres à la trace et au déterminant, par le polynôme caractéristique puis par la diagonalisation.

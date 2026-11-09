@@ -75,7 +75,8 @@ PAPER = [
         ("e", "a list of 2 numbers", "exact(V2_3)",
          '''mistakes={"résous (M − λI) v = 0 pour la plus petite valeur propre, signes compris": [2, 3]}'''),
         ("f", "a list of 2 numbers", "[9, -2]",
-         '''mistakes={"ajouter 2I ajoute 2 à chaque valeur propre (les vecteurs propres restent)": [14, -8]}'''),
+         '''mistakes={"ajouter 2I ajoute 2 à chaque valeur propre (les vecteurs propres restent)": [14, -8], '''
+         '''"ajouter 2I décale chaque valeur propre de 2 : tu as donné celles de M": [7, -4]}'''),
         ("g", "a list of 2 numbers", "[49, 16]", f'''mistakes={{"{DESC}": [16, 49]}}'''),
         ("h", "True or False", "V1_3.dot(V2_3) == 0",
          '''mistakes={"calcule leur produit scalaire : M n'est pas symétrique": True}'''),
@@ -136,7 +137,8 @@ PAPER = [
     Paper("M12c.7", "Le théorème spectral sur une matrice symétrique 2 × 2 : Q, Λ et QΛQᵀ", [
         ("a", "a list of 2 numbers", "[30, 1]", f'''mistakes={{"{DESC}": [1, 30]}}'''),
         ("b", "a list of 2 numbers (4 decimals)", "exact(Q1_7)",
-         '''decimals=4, mistakes={"un vecteur unitaire : divise le vecteur propre par sa norme": [2.0, 5.0]}'''),
+         '''decimals=4, mistakes={"un vecteur unitaire : divise le vecteur propre par sa norme": [2.0, 5.0], '''
+         '''"q₁ va avec la plus GRANDE valeur propre, 30": exact(Q2_7)}'''),
         ("c", "a list of 2 numbers (4 decimals)", "exact(Q2_7)",
          '''decimals=4, mistakes={"le signe : la première coordonnée positive": exact(-Q2_7)}'''),
         ("d", "a number", "Q1_7.dot(Q2_7)", '''mistakes={"le produit scalaire de deux vecteurs propres unitaires": 1}'''),
@@ -160,7 +162,7 @@ PAPER = [
          '''mistakes={"le maximum est la plus grande valeur propre, pas le plus grand élément de S": 17}'''),
         ("f", "a list of 2 numbers (4 decimals)", "exact(V([4, 1]) / sympy.sqrt(17))",
          '''decimals=4, mistakes={"un vecteur unitaire : divise le vecteur propre par sa norme": [4.0, 1.0]}'''),
-        ("g", "an integer", "1",
+        ("g", "a number", "1",
          '''mistakes={"le minimum est la plus petite valeur propre, pas le plus petit élément de S": 2}'''),
         ("h", "a number (4 decimals)", "float(rq_8([8, 15]))", "decimals=4"),
     ]),
@@ -192,7 +194,8 @@ PAPER = [
         ("e", "a matrix", "matrix(HF_10.subs({x: 0, y: 0}))",
          '''mistakes={"la dérivée seconde de eˣ est eˣ, qui vaut 1 en x = 0": [[2, 2], [2, 6]], '''
          '''"le terme 2xy donne 2 hors de la diagonale de la hessienne": [[3, 1], [1, 6]]}'''),
-        ("f", "a number (4 decimals)", "float(HF_10.subs({x: 1, y: 0}).det())", "decimals=4"),
+        ("f", "a number (4 decimals)", "float(HF_10.subs({x: 1, y: 0}).det())",
+         '''decimals=4, mistakes={"la hessienne en (1, 0) : f_xx = 2 + e¹, pas 2 + e⁰": 14.0}'''),
         ("g", "True or False", "True",
          '''mistakes={"la hessienne est définie positive en tout point : écris ses mineurs en (x, y)": False}'''),
         ("h", "a list of 2 numbers", "[7, 2]", f'''mistakes={{"{DESC}": [2, 7]}}'''),
@@ -208,7 +211,9 @@ PAPER = [
         ("f", "a matrix", "matrix(L_11)",
          '''mistakes={"L est triangulaire inférieure : les zéros au-dessus de la diagonale": matrix(L_11.T)}'''),
         ("g", "a number", "A_11.det()", '''mistakes={"det A = (det L)² = (l₁₁ l₂₂ l₃₃)²": 4}'''),
-        ("h", "a list of 3 numbers", "exact(A_11.solve(V([2, -7, -19])))"),
+        ("h", "a list of 3 numbers", "exact(A_11.solve(V([2, -7, -19])))",
+         '''mistakes={"vérifie A x = (2, −7, −19) : un signe faux dans la descente L z = b, ou dans la remontée Lᵀ x = z": '''
+         '''exact(-A_11.solve(V([2, -7, -19])))}'''),
     ]),
 
     Paper("M12c.12", "Une forme quadratique réduite à une somme de carrés, et ses lignes de niveau", [
@@ -245,7 +250,9 @@ PAPER = [
         ("f", "a matrix (4 decimals)", "[[float(v) for v in row] for row in HALF_13.tolist()]", "decimals=4"),
         ("g", "a matrix (4 decimals)", "[[float(v) for v in row] for row in ZCA_13.tolist()]",
          '''decimals=4, mistakes={"Σ^(−1/2) = Q Λ^(−1/2) Qᵀ : 1/√λ, pas √λ": '''
-         '''[[float(v) for v in row] for row in HALF_13.tolist()]}'''),
+         '''[[float(v) for v in row] for row in HALF_13.tolist()], '''
+         '''"ZCA est Σ^(−1/2) = Q Λ^(−1/2) Qᵀ, symétrique ; L⁻¹ est le blanchiment de Cholesky": '''
+         '''[[float(v) for v in row] for row in L_13.inv().tolist()]}'''),
         ("h", "a list of 2 numbers (4 decimals)", "exact(L_13.inv() * V([12, 0]))",
          '''decimals=4, mistakes={"z = L⁻¹(x − μ), pas L(x − μ)": exact(L_13 * V([12, 0]))}'''),
     ]),
@@ -254,10 +261,12 @@ PAPER = [
                      "semi-définie positive", [
         ("a", "a number", "S_20.trace()", '''mistakes={"la variance totale est la somme des variances, la trace": 37}'''),
         ("b", "a number", "qf(S_20, [1, 1, 1])",
-         '''mistakes={"V(x₁ + x₂ + x₃) compte aussi deux fois chaque covariance": 29}'''),
+         '''mistakes={"V(x₁ + x₂ + x₃) compte aussi deux fois chaque covariance": 29, '''
+         '''"chaque covariance compte deux fois : Cov(xᵢ, xⱼ) et Cov(xⱼ, xᵢ)": 33}'''),
         ("c", "a number", "qf(S_20, [2, -1, 0])",
          '''mistakes={"V(2x₁ − x₂) = 4 V(x₁) + V(x₂) − 4 Cov(x₁, x₂)": 25, "un facteur 2 au carré : 4 V(x₁)": 9}'''),
-        ("d", "a number", "qf(S_20, [1, -1, 2])"),
+        ("d", "a number", "qf(S_20, [1, -1, 2])",
+         '''mistakes={"wᵀΣw compte deux fois chaque covariance : Σᵢⱼ wᵢ wⱼ Σᵢⱼ sur tous les couples (i, j)": 67}'''),
         ("e", "a number", "S_20[0, 2] + S_20[1, 2]",
          '''mistakes={"Cov(x₁ + x₂, x₃) = Cov(x₁, x₃) + Cov(x₂, x₃)": 4}'''),
         ("f", "a number", "qf(PHI_20, [1, -1, 0])"),
@@ -544,7 +553,7 @@ La vérification calcule, avec $\mathbf{S}$ = `""" + S_27 + r"""` :
 - b) le vecteur propre rendu par `power_iteration(S)` (une liste, 6 décimales) ;
 - c) `rayleigh_quotient(S, [1, 1, 1])` (6 décimales) ;
 - d) vrai ou faux : pour une matrice symétrique définie positive $8 \times 8$ tirée au hasard (`random_spd(8, 27)`, des outils), la valeur rendue est la plus grande valeur propre de `np.linalg.eigvalsh` à $10^{-8}$ près, et $\lVert \mathbf{A}\mathbf{v} - \lambda\mathbf{v} \rVert \le 10^{-6}$ ;
-- e) la valeur et le vecteur rendus par `power_iteration(np.diag([-5.0, 2.0, 1.0]), x0=[1, 1, 1])` (une liste de 4 nombres : la valeur, puis les trois coordonnées du vecteur, 6 décimales) ;
+- e) la valeur, le vecteur et le nombre d'itérations rendus par `power_iteration(np.diag([-5.0, 2.0, 1.0]), x0=[1, 1, 1])` (une liste de 5 nombres : la valeur, les trois coordonnées du vecteur, puis le nombre d'itérations, 6 décimales) ;
 - f) le nom de l'erreur levée par `power_iteration([[1, 2], [3, 4]], x0=[0, 0])` ;
 - g) le nom de l'erreur levée par `rayleigh_quotient([[1, 2], [3, 4]], [0, 0])`.
 
@@ -559,11 +568,12 @@ with checked("M12c.27c"):
     wbm.check("M12c.27c", mymath.eigen.rayleigh_quotient({S_27}, [1, 1, 1]), computed=True)
 with checked("M12c.27d"):
     value_27, vector_27, _ = mymath.eigen.power_iteration(A_27)
+    vector_27 = np.asarray(vector_27, dtype=float)
     wbm.check("M12c.27d", bool(abs(value_27 - np.linalg.eigvalsh(A_27)[-1]) <= 1e-8
                                and np.linalg.norm(A_27 @ vector_27 - value_27 * vector_27) <= 1e-6), computed=True)
 with checked("M12c.27e"):
-    value_27e, vector_27e, _ = mymath.eigen.power_iteration(np.diag([-5.0, 2.0, 1.0]), x0=[1, 1, 1])
-    wbm.check("M12c.27e", [value_27e, *np.asarray(vector_27e).tolist()], computed=True)
+    value_27e, vector_27e, iterations_27e = mymath.eigen.power_iteration(np.diag([-5.0, 2.0, 1.0]), x0=[1, 1, 1])
+    wbm.check("M12c.27e", [value_27e, *np.asarray(vector_27e).tolist(), iterations_27e], computed=True)
 with checked("M12c.27f"):
     wbm.check("M12c.27f", raised(mymath.eigen.power_iteration, [[1, 2], [3, 4]], x0=[0, 0]), computed=True)
 with checked("M12c.27g"):
@@ -578,8 +588,8 @@ A_27 = random_spd(8, 27)
 value_27, vector_27, _ = power_iteration(A_27)
 print("d)", bool(abs(value_27 - np.linalg.eigvalsh(A_27)[-1]) <= 1e-8
                  and np.linalg.norm(A_27 @ vector_27 - value_27 * vector_27) <= 1e-6))
-value_27e, vector_27e, _ = power_iteration(np.diag([-5.0, 2.0, 1.0]), x0=[1, 1, 1])
-print("e)", [round(value_27e, 6), *np.round(vector_27e, 6).tolist()],
+value_27e, vector_27e, iterations_27e = power_iteration(np.diag([-5.0, 2.0, 1.0]), x0=[1, 1, 1])
+print("e)", [round(value_27e, 6), *np.round(vector_27e, 6).tolist(), iterations_27e],
       " f)", raised(power_iteration, [[1, 2], [3, 4]], x0=[0, 0]), " g)", raised(rayleigh_quotient, [[1, 2], [3, 4]], [0, 0]))''',
     record=f'''S_27 = np.array({S_27}, dtype=float)
 values_27, vectors_27 = np.linalg.eigh(S_27)
@@ -593,9 +603,11 @@ wbm.record("M12c.27c", 13 / 3, decimals=6,
            mistakes={{"divise xᵀA x par xᵀx": 13.0}})
 wbm.record("M12c.27d", True,
            mistakes={{"compare ta fonction à np.linalg.eigvalsh sur une petite matrice : normalisation, signe, arrêt": False}})
-wbm.record("M12c.27e", [-5.0, 1.0, 0.0, 0.0], decimals=6,
-           mistakes={{"la convention de signe : x doit garder sa coordonnée de plus grande valeur absolue positive": [-5.0, -1.0, 0.0, 0.0],
-                     "la valeur propre est xᵀA x, pas ‖A x‖ : elle peut être négative": [5.0, 1.0, 0.0, 0.0]}})
+wbm.record("M12c.27e", [-5.0, 1.0, 0.0, 0.0, iterations_27e], decimals=6,
+           mistakes={{"la convention de signe : x doit garder sa coordonnée de plus grande valeur absolue positive": [-5.0, -1.0, 0.0, 0.0, iterations_27e],
+                     "sans la convention de signe, x change de signe à chaque pas et l'arrêt n'arrive jamais : 1000 itérations": [-5.0, 1.0, 0.0, 0.0, 1000],
+                     "la valeur propre est xᵀA x, pas ‖A x‖ : elle peut être négative": [5.0, 1.0, 0.0, 0.0, iterations_27e],
+                     "le nombre d'itérations compte les produits A x calculés, le premier compris": [-5.0, 1.0, 0.0, 0.0, iterations_27e - 1]}})
 wbm.record("M12c.27f", "ValueError",
            {value_error("x0 est nul : la docstring demande une ValueError")})
 wbm.record("M12c.27g", "ValueError",
@@ -741,21 +753,24 @@ wbm.record("M12c.29a", [[4.0, 1.0], [1.0, 2.0]], decimals=6,
 wbm.record("M12c.29b", (np.array([[9.0, 3.0], [3.0, 1.0]]) / np.sqrt(10)).tolist(), decimals=6,
            mistakes={"la racine carrée d'une matrice n'est pas celle de ses éléments : Q diag(√λ) Qᵀ":
                          np.sqrt([[9.0, 3.0], [3.0, 1.0]]).tolist()})
+values_29, Q_29 = np.linalg.eigh(np.array([[4.0, -2.0], [-2.0, 2.0]]))
 wbm.record("M12c.29c", ZCA_29.tolist(), decimals=6,
            mistakes={"W = Σ^(−1/2) = Q diag(1/√λ) Qᵀ, pas Σ^(1/2)":
-                         np.real(scipy.linalg.sqrtm(np.array([[4.0, -2.0], [-2.0, 2.0]]))).tolist()})
+                         np.real(scipy.linalg.sqrtm(np.array([[4.0, -2.0], [-2.0, 2.0]]))).tolist(),
+                     "ZCA revient dans la base de départ : Q diag(1/√λ) Qᵀ, pas diag(1/√λ) Qᵀ (le blanchiment de l'ACP)":
+                         (Q_29 / np.sqrt(values_29)).T.tolist()})
 wbm.record("M12c.29d", [[0.5, 0.0], [0.5, 1.0]], decimals=6,
            mistakes={"W = L⁻¹ (triangulaire inférieure), pas L⁻ᵀ": [[0.5, 0.5], [0.0, 1.0]],
                      "W = L⁻¹, pas L": [[2.0, 0.0], [-1.0, 1.0]]})
 wbm.record("M12c.29e", True,
            mistakes={"W Σ Wᵀ doit valoir I : relis les deux méthodes sur une matrice diagonale, où tout se fait à la main": False})
 wbm.record("M12c.29f", "ValueError",
-           {"une méthode inconnue : la docstring demande une ValueError": "aucune",
+           mistakes={"une méthode inconnue : la docstring demande une ValueError": "aucune",
             "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)":
                 {"AssertionError", "Exception", "IndexError", "KeyError", "OverflowError", "RecursionError", "TypeError",
                  "RuntimeError", "ZeroDivisionError", "LinAlgError"}})
 wbm.record("M12c.29g", "ValueError",
-           {"une valeur propre négative : la matrice n'est pas semi-définie positive, ValueError": "aucune",
+           mistakes={"une valeur propre négative : la matrice n'est pas semi-définie positive, ValueError": "aucune",
             "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)":
                 {"AssertionError", "Exception", "IndexError", "KeyError", "OverflowError", "RecursionError", "TypeError",
                  "RuntimeError", "ZeroDivisionError", "LinAlgError"}})''',
@@ -796,7 +811,7 @@ S_30 = np.array(''' + S_30 + ''', dtype=float)
 answer_M12c_30a = ...  # a) a list of 4 numbers (4 decimals), in the order returned by eigh
 answer_M12c_30b = ...  # b) True or False
 answer_M12c_30g = ...  # g) a text: str(values.dtype)
-answer_M12c_30c = answer_M12c_30d = answer_M12c_30e = answer_M12c_30f = None
+answer_M12c_30c = answer_M12c_30d = answer_M12c_30e = answer_M12c_30f = ...
 # Each block stands alone: compute inside it what it needs, so that "Run all" goes on when a function is not written.
 with wbm.attempt("M12c.30c"):        # your power_iteration is called here: ⏳ while it is not written
     answer_M12c_30c = ...  # c) True or False
@@ -913,7 +928,9 @@ def ratio_matrix(r):
 M12C_32_SHOW = '''counts = iteration_table()
 print("  r      itérations   itérations × (−log₁₀ r)")
 for r, k in zip(RATIOS_32, counts):
-    print(f"{r:5.2f}   {k:10d}   {k * -np.log10(r):10.1f}")'''
+    print(f"{r:5.2f}   {k!s:>10}   {k * -np.log10(r):10.1f}")
+if 1000 in counts:
+    print("⚠️ un nombre d'itérations vaut 1000, la valeur par défaut de n_iter : as-tu passé n_iter=10_000 ?")'''
 
 M12C_32 = Ex(
     "M12c.32", "🔬", 2, 20, "La vitesse de la méthode de la puissance et le rapport |λ₂ / λ₁|",
@@ -960,7 +977,8 @@ products_32 = [k * -np.log10(r) for r, k in zip(RATIOS_32, counts_32)]
 wbm.record("M12c.32a", counts_32[2],
            mistakes={"lis la ligne r = 0,5 de la colonne des itérations": counts_32[1]})
 wbm.record("M12c.32b", first_32, decimals=2,
-           mistakes={"le premier r qui DÉPASSE 1 000 itérations, pas le dernier en dessous": RATIOS_32[RATIOS_32.index(first_32) - 1]})
+           mistakes={"le premier r qui DÉPASSE 1 000 itérations, pas le dernier en dessous": RATIOS_32[RATIOS_32.index(first_32) - 1],
+                     "on attend une valeur de r (la première colonne), pas un nombre d'itérations": counts_32[RATIOS_32.index(first_32)]})
 wbm.record("M12c.32c", bool(all(9 <= p <= 14 for p in products_32)),
            mistakes={"lis la dernière colonne, pour chaque ligne": not all(9 <= p <= 14 for p in products_32)})
 wbm.record("M12c.32d", bool(counts_32[6] > 9 * counts_32[4]),
@@ -989,14 +1007,15 @@ plt.show()'''
 M12C_33_CHECK = '''with checked("M12c.33 vérifications"):
     cases_33 = [([[2.0, 0.0], [0.0, 5.0]], "définie positive"), ([[0.0, 0.0], [0.0, 3.0]], "semi-définie positive"),
                 ([[-2.0, 1.0], [1.0, -3.0]], "définie négative"), ([[0.0, 1.0], [1.0, 0.0]], "indéfinie"),
-                ([[4.0, 2.0], [2.0, 1.0]], "semi-définie positive"), ([[1.0, 0.0], [0.0, 1e-9]], "définie positive")]
+                ([[2.0, 6.0], [6.0, 18.0]], "semi-définie positive"), ([[1.0, 0.0], [0.0, 1e-9]], "définie positive"),
+                ([[-0.1, -0.3], [-0.3, -0.9]], "semi-définie négative")]
     wrong_33 = [(A, expected, classify(np.array(A))) for A, expected in cases_33 if classify(np.array(A)) != expected]
     if wrong_33:
         A, expected, got = wrong_33[0]
         print(f"❌ Ex M12c.33 : classify({A}) rend {got!r}, on attendait {expected!r} : regarde les signes des valeurs "
               f"propres (np.linalg.eigvalsh), avec une tolérance pour zéro.")
     else:
-        print("✅ Ex M12c.33 : classify range correctement six matrices, dont deux semi-définies.")'''
+        print("✅ Ex M12c.33 : classify range correctement sept matrices, dont trois semi-définies.")'''
 
 M12C_33 = Ex(
     "M12c.33", "🎨", 1, 20, "Les lignes de niveau de xᵀAx : définie positive, semi-définie positive, indéfinie",
@@ -1006,7 +1025,7 @@ M12C_33 = Ex(
 - `classify(A)` : pour une matrice symétrique $2 \times 2$, le texte `"définie positive"`, `"semi-définie positive"`, `"définie négative"`, `"semi-définie négative"` ou `"indéfinie"`, d'après les signes de ses valeurs propres (`np.linalg.eigvalsh`) ; une valeur propre de valeur absolue inférieure à $10^{-12}$ fois la plus grande compte comme nulle ;
 - `draw_levels(ax, A)` : dans l'axe `ax`, les lignes de niveau de $q(\mathbf{x}) = \mathbf{x}^\top\mathbf{A}\mathbf{x}$ sur $[-2 ; 2]^2$ (`ax.contour` sur une grille `np.meshgrid`, avec quelques niveaux positifs et, si la forme en prend, négatifs), et les deux vecteurs propres unitaires de $\mathbf{A}$ en flèches (`ax.annotate` ou `ax.arrow`), avec `ax.set_aspect("equal")`.
 
-La cellule de la figure s'en sert pour les trois matrices fournies ; une cellule de vérification essaie `classify` sur six autres matrices.
+La cellule de la figure s'en sert pour les trois matrices fournies ; une cellule de vérification essaie `classify` sur sept autres matrices.
 
 Dans ta copie : pour la matrice définie positive, le long de quel vecteur propre l'ellipse est-elle la plus allongée, et pourquoi (fiche §7) ? Pour la matrice semi-définie, dans quelle direction $q$ reste-t-elle nulle, et quel est le lien avec son noyau ? Pour l'indéfinie, le long de quelles droites $q$ s'annule-t-elle ? Pourquoi $\operatorname{diag}(1 ;\ 10^{-9})$ est-elle « définie positive » pour `classify`, alors qu'à l'écran elle ressemble à la semi-définie ?""",
     todo='''def classify(A):
@@ -1053,7 +1072,7 @@ def draw_levels(ax, A):
 
 
 ''' + M12C_33_FIGURE,
-    after=[("md", "**Vérifications automatiques** (six autres matrices pour `classify`)."), ("code", M12C_33_CHECK)],
+    after=[("md", "**Vérifications automatiques** (sept autres matrices pour `classify`)."), ("code", M12C_33_CHECK)],
     note=r"L'ellipse est la plus allongée le long du vecteur propre de la **plus petite** valeur propre : $q$ y monte le "
          r"moins vite. Pour $\begin{pmatrix} 1 & 3 \\ 3 & 9 \end{pmatrix} = (1, 3)(1, 3)^\top$, $q(\mathbf{x}) = (x + 3y)^2$ est "
          r"nulle sur la droite $x + 3y = 0$, le noyau. Pour l'indéfinie, $x^2 + 4xy - 2y^2 = 0$ donne deux droites, les "
@@ -1148,17 +1167,40 @@ M35_DEFECTIVE = sympy.Matrix([[2, 0, 1], [1, 3, 1], [1, 0, 2]])
 lam = sympy.symbols("lambda")'''
 
 M12C_35_CHECK = '''with checked("M12c.35 vérifications"):
-    problems_35 = []
-    if sympy.expand(charpoly_35 - (M35_DIAG - lam * sympy.eye(3)).det()) != 0:
-        problems_35.append("charpoly_35 doit être det(M − λI), en fonction du symbole lam")
-    if sorted(eigenvalues_35, key=lambda e: float(e)) != sorted(sympy.roots(charpoly_35, lam).keys(), key=lambda e: float(e)):
-        problems_35.append("eigenvalues_35 : les trois racines exactes du polynôme caractéristique (sympy.solve ou .eigenvals())")
-    if P_35 is None or D_35 is None or sympy.simplify(P_35 * D_35 * P_35.inv() - M35_DIAG) != sympy.zeros(3):
+    problems_35, pending_35 = [], []
+    reference_35 = (M35_DIAG - lam * sympy.eye(3)).det()
+    if charpoly_35 is ...:
+        pending_35.append("charpoly_35")
+    else:
+        expression_35 = charpoly_35.as_expr() if hasattr(charpoly_35, "as_expr") else charpoly_35
+        if sympy.expand(expression_35 + reference_35) == 0:
+            problems_35.append("charpoly_35 vaut det(λI − M), ce que rend .charpoly() : en dimension 3, c'est l'opposé de "
+                               "det(M − λI) ; écris (M35_DIAG - lam * sympy.eye(3)).det()")
+        elif sympy.expand(expression_35 - reference_35) != 0:
+            problems_35.append("charpoly_35 doit être det(M − λI), en fonction du symbole lam")
+    if eigenvalues_35 is ...:
+        pending_35.append("eigenvalues_35")
+    else:
+        try:
+            ok_values_35 = (sorted(eigenvalues_35, key=lambda e: float(e))
+                            == sorted(sympy.roots(reference_35, lam).keys(), key=lambda e: float(e)))
+        except (TypeError, ValueError):
+            ok_values_35 = False
+        if not ok_values_35:
+            problems_35.append("eigenvalues_35 : les trois valeurs propres exactes de M35_DIAG (sympy.solve ou .eigenvals())")
+    if P_35 is None or D_35 is None or P_35 is ... or D_35 is ...:
+        pending_35.append("P_35, D_35")
+    elif sympy.simplify(P_35 * D_35 * P_35.inv() - M35_DIAG) != sympy.zeros(3):
         problems_35.append("P_35 et D_35 : M35_DIAG.diagonalize() rend (P, D) avec M = P D P⁻¹")
-    if defective_35 is not False:
-        problems_35.append("defective_35 : M35_DEFECTIVE.is_diagonalizable()")
+    if diagonalizable_35 is ...:
+        pending_35.append("diagonalizable_35")
+    elif diagonalizable_35 is not False:
+        problems_35.append("diagonalizable_35 : M35_DEFECTIVE.is_diagonalizable()")
     if problems_35:
-        print("❌ Ex M12c.35 : à revoir : " + " ; ".join(problems_35) + ".")
+        print("❌ Ex M12c.35 : à revoir : " + " ; ".join(problems_35) + "."
+              + (f" (Pas encore fait : {', '.join(pending_35)}.)" if pending_35 else ""))
+    elif pending_35:
+        print("⏳ Ex M12c.35 : pas encore fait : " + ", ".join(pending_35) + ".")
     else:
         print("✅ Ex M12c.35 : polynôme caractéristique, valeurs propres exactes, diagonalisation et cas défectif vérifiés.")'''
 
@@ -1170,7 +1212,7 @@ M12C_35 = Ex(
 - `charpoly_35` : le polynôme caractéristique $\det(\mathbf{M} - \lambda\mathbf{I})$ de `M35_DIAG`, en fonction du symbole `lam` (`(M35_DIAG - lam * sympy.eye(3)).det()`, puis `sympy.factor` pour le lire) ;
 - `eigenvalues_35` : la liste de ses trois valeurs propres exactes (`sympy.solve(charpoly_35, lam)`, ou `M35_DIAG.eigenvals()`) ;
 - `P_35, D_35` : la diagonalisation `M35_DIAG.diagonalize()` ;
-- `defective_35` : `M35_DEFECTIVE.is_diagonalizable()`.
+- `diagonalizable_35` : `M35_DEFECTIVE.is_diagonalizable()`.
 
 La cellule de vérification contrôle tes quatre résultats (✅ ou ❌, sans `wbm.check`).
 
@@ -1178,14 +1220,14 @@ Dans ta copie : écris les valeurs propres exactes de `M35_DIAG`, et vérifie qu
     todo='''charpoly_35 = ...     # the characteristic polynomial of M35_DIAG, in lam
 eigenvalues_35 = ...  # a list of 3 exact eigenvalues
 P_35 = D_35 = None    # the diagonalization of M35_DIAG
-defective_35 = ...    # M35_DEFECTIVE.is_diagonalizable()''',
+diagonalizable_35 = ...  # M35_DEFECTIVE.is_diagonalizable()''',
     check=M12C_35_CHECK,
     solution='''charpoly_35 = (M35_DIAG - lam * sympy.eye(3)).det()
 eigenvalues_35 = sympy.solve(charpoly_35, lam)
 P_35, D_35 = M35_DIAG.diagonalize()
-defective_35 = M35_DEFECTIVE.is_diagonalizable()
+diagonalizable_35 = M35_DEFECTIVE.is_diagonalizable()
 print("charpoly:", sympy.factor(charpoly_35), " eigenvalues:", eigenvalues_35)
-print("D:", D_35.tolist(), " defective is diagonalizable:", defective_35, " eigenvects:", M35_DEFECTIVE.eigenvects())
+print("D:", D_35.tolist(), " defective is diagonalizable:", diagonalizable_35, " eigenvects:", M35_DEFECTIVE.eigenvects())
 
 ''' + M12C_35_CHECK,
     note=r"$\det(\mathbf{M} - \lambda\mathbf{I}) = (2 - \lambda)\big((2 - \lambda)^2 - 2\big)$ : valeurs propres $2$ et "
@@ -1203,8 +1245,19 @@ M12C_36_GIVEN = '''def make_spectrum_matrix(seed, n=300):
     return (A + A.T) / 2'''
 
 M12C_36_CHECK = '''with checked("M12c.36 défi"):
-    problems, ok_36 = [], False
-    for seed_t in (36, 37, 38):
+    import inspect
+    import re
+    problems, ok_36, ran_36 = [], False, False
+    try:
+        source_36 = inspect.getsource(top_three)
+    except (OSError, TypeError):
+        source_36 = ""
+    banned_36 = sorted(set(re.findall(r"\\b(eigh|eigvalsh|eig|eigvals|svd|scipy)\\b", source_36)))
+    if banned_36:
+        ran_36 = True
+        problems.append(f"top_three utilise {', '.join(banned_36)}, interdit dans ce défi : la méthode de la puissance "
+                        f"et la déflation seulement")
+    for seed_t in ((36, 37, 38) if not banned_36 else ()):
         A_t = make_spectrum_matrix(seed_t)
         expected = np.linalg.eigvalsh(A_t)[::-1][:3]
         try:
@@ -1212,8 +1265,10 @@ M12C_36_CHECK = '''with checked("M12c.36 défi"):
         except NotImplementedError:
             raise
         except Exception as exc:  # noqa: BLE001
+            ran_36 = True
             problems.append(f"top_three lève {type(exc).__name__} ({exc})")
             break
+        ran_36 = True
         if got.shape != (3,):
             problems.append(f"matrice {seed_t} : top_three rend la forme {got.shape}, pas (3,)")
             break
@@ -1240,7 +1295,7 @@ M12C_36 = Ex(
 
 Pistes (fiche §5 et §6) : la méthode de la puissance (ta fonction `power_iteration`, ou ta propre boucle) donne $\lambda_1$ et $\mathbf{q}_1$ ; la **déflation** $\mathbf{A} \leftarrow \mathbf{A} - \lambda_1\mathbf{q}_1\mathbf{q}_1^\top$ (produit extérieur : `np.outer`) remplace $\lambda_1$ par 0 sans changer les autres ; recommence. Pense au point de départ (pas orthogonal au vecteur cherché) et au nombre d'itérations : quel est le rapport $|\lambda_2/\lambda_1|$ à chaque étape ?
 
-Dans ta copie : combien d'itérations demande chaque étape, et pourquoi la deuxième est-elle la plus lente ? Pourquoi la déflation ne marcherait-elle pas telle quelle sur une matrice non symétrique ? Comment trouverais-tu la plus **petite** valeur propre avec la même méthode (indice : $c\mathbf{I} - \mathbf{A}$) ?""",
+Dans ta copie : combien d'itérations demande chaque étape ? Laquelle devrait être la plus lente d'après les rapports $|\lambda_2/\lambda_1|$ de chaque étape, et l'observes-tu sur les trois matrices (le point de départ compte aussi) ? Pourquoi la déflation ne marcherait-elle pas telle quelle sur une matrice non symétrique ? Comment trouverais-tu la plus **petite** valeur propre avec la même méthode (indice : $c\mathbf{I} - \mathbf{A}$) ?""",
     todo='''mymath = wbm.load_mymath("learner", missing_ok=True, fallback="ref", chapter="M12c")
 
 
@@ -1249,7 +1304,8 @@ def top_three(A):
     raise NotImplementedError("la puissance, puis la déflation A − λ q qᵀ, trois fois")''',
     check=M12C_36_CHECK + '''
 with checked("M12c.36"):
-    top_three(make_spectrum_matrix(36))         # ⏳ while top_three is not written
+    if not ran_36:                               # ⏳ while top_three is not written
+        raise NotImplementedError("top_three n'est pas encore écrite")
     wbm.check("M12c.36", bool(ok_36), computed=True)''',
     solution=LOAD_REF + '''
 
@@ -1260,7 +1316,7 @@ def top_three(A):
     start = np.random.default_rng(0).normal(size=A.shape[0])     # a random start: not orthogonal to q₁
     values = []
     for _ in range(3):
-        value, vector, iterations = mymath.eigen.power_iteration(A, x0=start, n_iter=5000)
+        value, vector, iterations = mymath.eigen.power_iteration(A, x0=start)
         values.append(value)
         A = A - value * np.outer(vector, vector)                  # deflation: λ is replaced by 0
     return values

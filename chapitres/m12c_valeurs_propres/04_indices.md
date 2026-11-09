@@ -833,12 +833,12 @@ Relis M12c.31 et « Ce qu'il faut savoir » (fiche §5).
 </details>
 <details><summary>Indice 2</summary>
 
-Une liste en compréhension : `[mymath.eigen.power_iteration(ratio_matrix(r), x0=np.ones(3), n_iter=10_000)[2] for r in RATIOS_32]`.
+$r^k = 10^{-12}$ donne $k = 12/(-\log_{10} r)$ : le nombre d'itérations attendu pour chaque $r$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-$r^k = 10^{-12}$ donne $k = 12/(-\log_{10} r)$.
+Une liste en compréhension : `[mymath.eigen.power_iteration(ratio_matrix(r), x0=np.ones(3), n_iter=10_000)[2] for r in RATIOS_32]`.
 
 </details>
 
@@ -910,6 +910,6 @@ Pars d'un vecteur tiré au hasard ; après chaque valeur propre trouvée, `A = A
 </details>
 <details><summary>Indice 3</summary>
 
-Laisse assez d'itérations (`n_iter=5000`) : les rapports successifs sont proches de 0,8.
+Les rapports successifs sont proches de 0,8 : une centaine d'itérations par étape, la valeur par défaut `n_iter=1000` suffit.
 
 </details>
