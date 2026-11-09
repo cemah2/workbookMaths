@@ -101,7 +101,7 @@ Un nuage de $n = 11$ exemples de $\mathbb{R}^3$ a pour variances le long de ses 
 3. Que veut dire une perplexité de 5 pour un point ?
 4. Calcule $p\log_2(p/q)$ pour un couple de voisins ($p = 0{,}04$) que la carte place trop loin ($q = 0{,}005$), puis pour un couple lointain ($p = 0{,}000\,5$) qu'elle place trop près ($q = 0{,}004$). Lequel coûte le plus ?
 5. Pourquoi t-SNE mesure-t-il les voisinages de la carte avec une loi de Student plutôt qu'une gaussienne ?
-6. Qu'en conclure sur l'écart entre deux groupes bien séparés d'une carte t-SNE ?
+6. Que dit la divergence de l'écart entre deux groupes bien séparés d'une carte t-SNE ?
 
 <a id="rappels"></a>
 
@@ -450,7 +450,7 @@ $n$ exemples $\mathbf{x}_i$ de $\mathbb{R}^p$, de moyenne $\boldsymbol{\mu}$ et 
 **Objectif :** démontrer que les scores sur deux axes principaux distincts ont une covariance nulle, et que ce n'est pas vrai pour deux directions orthogonales quelconques.
 **Prérequis :** fiche §5 et §6 ; M12c §6 et §8 · **Parcours :** C
 
-Mêmes notations que M12d.18 ; $\mathbf{t}_j = \mathbf{X}_c\mathbf{u}_j$ est la colonne des scores sur l'axe $j$, et $\mathbf{Z} = \mathbf{X}_c\mathbf{W}_k$ la matrice des scores sur les $k$ premiers axes. Les scores d'un exemple, $\mathbf{z}_i = \mathbf{W}_k^\top(\mathbf{x}_i - \boldsymbol{\mu})$, sont une transformation affine de $\mathbf{x}_i$ : par la règle de M12c §8, ils sont de moyenne nulle et de covariance $\mathbf{W}_k^\top\mathbf{C}\,\mathbf{W}_k$.
+Mêmes notations que M12d.18 ; $\mathbf{t}_j = \mathbf{X}_c\mathbf{u}_j$ est la colonne des scores sur l'axe $j$, et $\mathbf{Z} = \mathbf{X}_c\mathbf{W}_k$, avec $\mathbf{W}_k = (\mathbf{u}_1 \mid \cdots \mid \mathbf{u}_k)$, la matrice des scores sur les $k$ premiers axes. Les scores d'un exemple, $\mathbf{z}_i = \mathbf{W}_k^\top(\mathbf{x}_i - \boldsymbol{\mu})$, sont une transformation affine de $\mathbf{x}_i$ : par la règle de M12c §8, ils sont de moyenne nulle et de covariance $\mathbf{W}_k^\top\mathbf{C}\,\mathbf{W}_k$.
 1. Lis le coefficient $(j, l)$ de cette matrice : $\operatorname{Cov}(\mathbf{t}_j, \mathbf{t}_l) = \mathbf{u}_j^\top\mathbf{C}\,\mathbf{u}_l$. Montre qu'il vaut $\lambda_j$ si $j = l$, et 0 si $j \ne l$ ; écris la matrice de covariance de $\mathbf{Z}$.
 2. Un score combiné $c_i = \mathbf{a}^\top\mathbf{z}_i$, avec $\mathbf{a} \in \mathbb{R}^k$ : sa variance ? Pourquoi est-elle si simple ?
 3. Contre-exemple : avec $\mathbf{C} = \operatorname{diag}(4, 1)$, calcule la covariance des coordonnées le long des deux directions orthogonales $\frac{1}{13}(5, 12)$ et $\frac{1}{13}(-12, 5)$. Qu'est-ce qui, dans 1., a servi en plus de l'orthogonalité ?

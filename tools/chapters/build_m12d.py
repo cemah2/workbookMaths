@@ -131,7 +131,7 @@ PAPER = [
         ("c", "a number", "sum(v ** 2 for v in A_6)"),
         ("d", "a matrix (4 decimals)", "floats(1000 * P_6)",
          '''decimals=4, mistakes={"A⁺ = v₁ u₁ᵀ / s₁ = Aᵀ / s₁² pour une matrice de rang 1 : divise par s₁²": floats(1000 * A_6.T / (9 * sq(29))), '''
-         '''"A⁺ est de forme (3, 2) : elle s'écrit avec Aᵀ": floats(1000 * A_6 / 2349)}'''),
+         '''"A⁺ est de forme (3, 2) : elle s'écrit avec Aᵀ": floats(1000 * A_6 / 2349), "l'énoncé demande 1 000 A⁺ : multiplie A⁺ par 1 000": floats(P_6)}'''),
         ("e", "a list of 3 numbers (4 decimals)", "exact(P_6 * V([18, 45]))",
          '''decimals=4, mistakes={"x⁺ = A⁺ y, avec la pseudo-inverse": exact(A_6.T * V([18, 45]))}'''),
         ("f", "a number", "(P_6 * V([18, 45])).norm()"),
@@ -1373,7 +1373,7 @@ M12D_36 = Ex(
 
 La cellule de vérification essaie ton test sur la bonne ACP `pca_reconstruct` (fournie) et sur trois ACP fausses : il doit accepter la première et refuser les trois autres.
 
-Dans ta copie : laquelle des trois propriétés attrape chacune des trois ACP fausses ? La propriété 3 seule suffirait-elle, et pourquoi garder quand même les deux autres ? Quelle propriété ajouterais-tu pour tester des scores (moyenne nulle, variances $\lambda_j$, covariances nulles) ?""",
+Dans ta copie : laquelle des trois propriétés attrape chacune des trois ACP fausses ? La propriété 3 seule suffirait-elle, et pourquoi garder quand même les deux autres ? Quelles propriétés vérifierais-tu de même pour une fonction qui rend les scores ?""",
     todo='''def check_reconstruction(reconstruct, X):
     """Raise AssertionError unless reconstruct(X, k) behaves as a PCA reconstruction: full rank gives X back, the mean
     error e(k) does not increase with k, and e(k) = (n − 1)/n × (sum of the forgotten eigenvalues of np.cov)."""
@@ -1396,7 +1396,7 @@ Dans ta copie : laquelle des trois propriétés attrape chacune des trois ACP fa
     note=r"L'ACP sans moyenne échoue dès la propriété 1 ; celle qui garde l'ordre croissant de `eigh`, et celle qui "
          r"ne centre pas, passent les propriétés 1 et 2 (des sous-espaces emboîtés donnent des erreurs décroissantes) "
          r"mais échouent à la propriété 3, la seule qui dise **quel** sous-espace est choisi : elle attrape donc, seule, "
-         r"les trois erreurs. Les deux autres ne supposent aucun théorème, et leur échec dit où chercher. Pour des "
+         r"les trois erreurs. Les deux autres ne supposent aucun théorème, et leur échec oriente la recherche. Pour des "
          r"scores : moyenne nulle, variances $\lambda_j$ (avec `ddof=1`), covariances nulles (M12d.19).",
 )
 
@@ -1520,7 +1520,7 @@ plt.show()''',
          r"valeurs singulières qui décroissent bien plus vite que celles de l'image, et son ACP (fiche §6 : centrer par le "
          r"carré moyen, puis la SVD) garde 94 % de l'énergie avec 3 composantes, pour $64 + 3 \times 64 + 3\,750 \times 3 "
          r"= 11\,506$ nombres. Des carrés de $10 \times 10$ ou $20 \times 20$ font presque aussi bien. Des tuiles "
-         r"$50 \times 50$ décomposées chacune par sa propre SVD, au rang choisi au mieux, ne dépassent pas 90 % : leurs "
+         r"$50 \times 50$ décomposées chacune par sa propre SVD, au rang choisi au mieux, restent sous 92 % : leurs "
          r"bases ne sont pas partagées. La seule moyenne de chaque rectangle de $4 \times 5$ pixels (tout le budget) garde "
          r"93,3 % : d'où l'objectif de 93,5 %. Les défauts visibles sont des bords de carrés : JPEG les atténue, et "
          r"compte des bits plutôt que des nombres.",

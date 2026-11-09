@@ -66,13 +66,13 @@
 3. $\frac{10}{11}(4 + 1) = \frac{50}{11} \approx 4{,}55$.
 4. **Vrai** : les 11 lignes centrées ont une somme nulle, $\mathbf{X}_c$ est de rang au plus 10.
 5. L'endroit où la courbe des $\lambda_j$ cesse de chuter et devient plate : au-delà, des variances petites et comparables, souvent du bruit.
-6. Sur ces données, les $k$ premiers axes sont par construction le meilleur sous-espace (Eckart-Young) ; sur d'autres, la même projection fait **en moyenne** moins bien, d'autant plus que $k$ est grand (les derniers axes suivent le hasard de l'échantillon).
+6. Sur ces données, les $k$ premiers axes sont par construction le meilleur sous-espace (Eckart-Young) ; sur d'autres, la même projection fait **en moyenne** moins bien.
 
 ### M12d.Q8 — ACP, t-SNE ou UMAP : qui garde quoi ?
 1. L'ACP garde les grandes distances (une projection) ; t-SNE et UMAP gardent les voisinages.
 2. **Faux** : t-SNE optimise les positions des $n$ points donnés ; il n'y a pas de formule pour un point nouveau. L'ACP en a une (projeter sur les axes), UMAP en construit une.
 3. Ses probabilités de voisinage ont l'entropie d'une loi uniforme sur 5 voisins : environ 5 voisins « effectifs ».
-4. $0{,}04 \log_2 8 = 0{,}12$ bit contre $0{,}000\,5 \log_2 0{,}125 = -0{,}001\,5$ bit : écarter deux voisins coûte cher, rapprocher deux points lointains presque rien (le terme est même négatif : seule la somme est positive).
+4. $0{,}04 \log_2 8 = 0{,}12$ bit contre $0{,}000\,5 \log_2 0{,}125 = -0{,}001\,5$ bit : écarter deux voisins coûte cher, rapprocher deux points lointains presque rien (le terme est même négatif : seule la somme est forcément positive ou nulle).
 5. En 2D, il n'y a pas la place de garder les distances moyennes d'un nuage de grande dimension ; la queue lourde laisse les points modérément éloignés s'écarter davantage, ce qui sépare les groupes.
 6. Leurs couples ont des $p_{ij}$ presque nuls : la divergence ne contraint presque pas leur écart, qui dépend de l'optimisation (et du point de départ) plus que des données.
 
@@ -83,7 +83,7 @@
 ### M12d.R1 — Valeurs propres et théorème spectral (M12c)
 1. Trace 20, déterminant $-44 - 25 = -69$ : $\lambda^2 - 20\lambda - 69 = (\lambda - 23)(\lambda + 3)$.
 2. Pour 23 : $\frac{1}{\sqrt{26}}(1, 5)$ ; pour $-3$ : $\frac{1}{\sqrt{26}}(5, -1)$.
-3. $\mathbf{Q} = \frac{1}{\sqrt{26}}\begin{pmatrix} 1 & 5 \\ 5 & -1 \end{pmatrix}$, $\boldsymbol{\Lambda} = \operatorname{diag}(23, -3)$.
+3. $\mathbf{Q} = \frac{1}{\sqrt{26}}\begin{pmatrix} 1 & 5 \\ 5 & -1 \end{pmatrix}$, $\boldsymbol{\Lambda} = \operatorname{diag}(23, -3)$, et $\mathbf{Q}^\top\mathbf{Q} = \frac{1}{26}\begin{pmatrix} 1 + 25 & 5 - 5 \\ 5 - 5 & 25 + 1 \end{pmatrix} = \mathbf{I}$.
 4. $s_1 = 23$, $s_2 = 3$ ; $\mathbf{u}_1 = \mathbf{v}_1 = \frac{1}{\sqrt{26}}(1, 5)$, et pour la valeur propre négative, $\mathbf{v}_2 = \frac{1}{\sqrt{26}}(5, -1)$ et $\mathbf{u}_2 = \mathbf{K}\mathbf{v}_2/3 = -\mathbf{v}_2$.
 5. Non : une valeur propre est négative.
 
@@ -176,7 +176,7 @@ Pour la copie : f) et g) ne gardent pas la même chose : g) impose aux trois can
 
 Pour la copie : les solutions de $\mathbf{A}\mathbf{x} = \mathbf{y}$ forment le plan $x_1 - 4x_2 + 8x_3 = 9$ ; $\mathbf{x}^+ = \frac{9}{81}\mathbf{b}$ est le pied de la perpendiculaire menée de l'origine à ce plan (il est dans l'espace des lignes, orthogonal au noyau), à distance $\frac{9}{\lVert \mathbf{b} \rVert} = 1$. Pour $\mathbf{y}'$, hors de l'image (la droite de $(2, 5)$), h) est la projection de $\mathbf{y}'$ sur cette image ; la distance minimale est $\lVert \mathbf{y}' - \mathbf{A}\mathbf{A}^+\mathbf{y}' \rVert = \frac{1}{29}\lVert (25, -10) \rVert = \frac{5}{\sqrt{29}} \approx 0{,}93$.
 
-**Erreurs fréquentes.** $\mathbf{A}^+ = \mathbf{A}^\top/s_1$ (une seule puissance) ; une pseudo-inverse de forme $(2, 3)$ ; donner $\mathbf{A}^+\mathbf{y}'$ pour h).
+**Erreurs fréquentes.** $\mathbf{A}^+ = \mathbf{A}^\top/s_1$ (une seule puissance) ; une pseudo-inverse de forme $(2, 3)$ ; donner $\mathbf{A}^+$ au lieu de $1\,000\,\mathbf{A}^+$ pour d) ; donner $\mathbf{A}^+\mathbf{y}'$ pour h).
 
 **Variante.** La solution de norme minimale pour $\mathbf{y} = (4, 10)$ ? *Réponse* : $\frac{2}{81}(1, -4, 8)$.
 
@@ -318,12 +318,12 @@ Pour la copie : quand $\sigma \to 0$, tout le poids va au plus proche voisin, la
 
 **Réponse modèle.**
 1. Les $\mathbf{u}_j$ forment une base orthonormée de $\mathbb{R}^p$ : $\mathbf{x}_i - \boldsymbol{\mu} = \sum_j (\mathbf{u}_j \cdot (\mathbf{x}_i - \boldsymbol{\mu}))\,\mathbf{u}_j = \sum_j t_{ij}\mathbf{u}_j$ (M12b §2). Donc $\mathbf{x}_i - \hat{\mathbf{x}}_i = \sum_{j > k} t_{ij}\mathbf{u}_j$, de norme au carré $\sum_{j > k} t_{ij}^2$ (Pythagore).
-2. Par M12c §8, $\frac{1}{n - 1}\sum_i t_{ij}^2 = \mathbf{u}_j^\top\mathbf{C}\mathbf{u}_j$, et $\mathbf{C}\mathbf{u}_j = \lambda_j\mathbf{u}_j$ avec $\lVert \mathbf{u}_j \rVert = 1$ donne $\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_j = \lambda_j$ : $\sum_i t_{ij}^2 = (n - 1)\lambda_j$.
+2. Les scores sont de moyenne nulle ($\frac{1}{n}\sum_i \mathbf{u}_j^\top(\mathbf{x}_i - \boldsymbol{\mu}) = \mathbf{u}_j^\top(\boldsymbol{\mu} - \boldsymbol{\mu}) = 0$), donc leur variance est $\frac{1}{n - 1}\sum_i t_{ij}^2$ ; par M12c §8, elle vaut $\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_j$, et $\mathbf{C}\mathbf{u}_j = \lambda_j\mathbf{u}_j$ avec $\lVert \mathbf{u}_j \rVert = 1$ donne $\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_j = \lambda_j$ : $\sum_i t_{ij}^2 = (n - 1)\lambda_j$.
 3. $\frac{1}{n}\sum_i\sum_{j > k} t_{ij}^2 = \frac{1}{n}\sum_{j > k}(n - 1)\lambda_j$.
 4. $\hat{\mathbf{x}}_i - \boldsymbol{\mu} = \sum_{j \le k} t_{ij}\mathbf{u}_j$, et le même calcul donne $\frac{n-1}{n}\sum_{j \le k}\lambda_j$. La somme des deux vaut $\frac{n-1}{n}\sum_j\lambda_j = \frac{n-1}{n}\operatorname{tr}\mathbf{C}$ : la dispersion moyenne $\frac{1}{n}\sum\lVert \mathbf{x}_i - \boldsymbol{\mu} \rVert^2$, partagée entre ce que l'on garde et ce que l'on perd.
 5. L'erreur est $\frac{n-1}{n}$ fois la somme des $p - k$ variances oubliées : elle est la plus petite quand on oublie les plus petites, c'est-à-dire quand on garde les $k$ premiers axes.
 
-**Grille.** (1) la décomposition dans la base orthonormée et Pythagore ; (2) la règle de M12c §8, le vecteur propre unitaire et la convention $n - 1$ ; (3) l'échange des sommes ; (4) le partage de la variance totale ; (5) l'argument sur les variances oubliées.
+**Grille.** (1) la décomposition dans la base orthonormée et Pythagore ; (2) la moyenne nulle, qui fait de la variance la somme des carrés divisée par $n - 1$, la règle de M12c §8 et le vecteur propre unitaire ; (3) l'échange des sommes ; (4) le partage de la variance totale ; (5) l'argument sur les variances oubliées.
 
 ### Ex M12d.19 — Les scores de deux composantes principales sont décorrélés
 
@@ -504,10 +504,10 @@ Vérification manuelle (la figure). Avec $\mathbf{A} = \begin{pmatrix} 1{,}5 & 1
 
 ### Ex M12d.36 — Un test : la reconstruction de rang plein redonne X, et l'erreur décroît avec k
 
-Vérification par la cellule ✅/❌. L'ACP qui oublie la moyenne échoue dès la propriété 1. Celle qui prend les colonnes de `eigh` dans l'ordre croissant (les axes de plus petite variance d'abord), et celle qui ne centre pas, passent les propriétés 1 et 2 (des sous-espaces emboîtés donnent des erreurs décroissantes) ; seule la propriété 3 dit **quel** sous-espace est choisi. La propriété 3 attrape donc, seule, les trois ACP fausses. Les deux autres restent utiles : elles ne supposent aucun théorème, et leur échec dit où chercher (la moyenne, ou le choix des axes). Pour des scores : moyenne nulle, variances $\lambda_j$ (avec `ddof=1`), covariances nulles (M12d.19).
+Vérification par la cellule ✅/❌. L'ACP qui oublie la moyenne échoue dès la propriété 1. Celle qui prend les colonnes de `eigh` dans l'ordre croissant (les axes de plus petite variance d'abord), et celle qui ne centre pas, passent les propriétés 1 et 2 (des sous-espaces emboîtés donnent des erreurs décroissantes) ; seule la propriété 3 dit **quel** sous-espace est choisi. La propriété 3 attrape donc, seule, les trois ACP fausses. Les deux autres restent utiles : elles ne supposent aucun théorème, et leur échec oriente la recherche. Pour des scores : moyenne nulle, variances $\lambda_j$ (avec `ddof=1`), covariances nulles (M12d.19).
 
 ### Ex M12d.37 — Défi : compresser une image centrée en gardant 93,5 % de son énergie avec au plus 5 % des nombres
 
 **Réponse** : `True` (objectif atteint).
 
-Une solution : découper l'image en carrés de $8 \times 8$ pixels, ranger chaque carré en **ligne** d'une matrice de forme $(3\,750, 64)$, et faire l'ACP de ces lignes (centrer par le carré moyen, puis la SVD) avec 3 composantes : $64 + 3 \times 64 + 3\,750 \times 3 = 11\,506$ nombres, et 94,1 % de l'énergie, au-dessus des 93,5 % demandés. Les carrés se ressemblent (zones lisses, bords, grain) : leur matrice a des valeurs singulières qui décroissent bien plus vite que celles de l'image entière, et les trois « carrés de base » sont partagés par tous. Des carrés de $10 \times 10$ ou $20 \times 20$ font presque aussi bien (environ 94 %), ceux de $5 \times 5$ un peu moins (92,6 %). Des tuiles de $50 \times 50$, chacune décomposée par sa propre SVD au rang choisi au mieux, ne dépassent pas 90 % : leurs bases ne sont pas partagées. Stocker seulement la moyenne de chaque rectangle de $4 \times 5$ pixels ($12\,000$ nombres, tout le budget) garde 93,3 % : c'est pour cela que l'objectif est à 93,5 %. Les défauts visibles sont des bords de carrés, que la norme de Frobenius ne pénalise pas plus qu'un autre écart ; JPEG les atténue, et compte des bits plutôt que des nombres.
+Une solution : découper l'image en carrés de $8 \times 8$ pixels, ranger chaque carré en **ligne** d'une matrice de forme $(3\,750, 64)$, et faire l'ACP de ces lignes (centrer par le carré moyen, puis la SVD) avec 3 composantes : $64 + 3 \times 64 + 3\,750 \times 3 = 11\,506$ nombres, et 94,1 % de l'énergie, au-dessus des 93,5 % demandés. Les carrés se ressemblent (zones lisses, bords, grain) : leur matrice a des valeurs singulières qui décroissent bien plus vite que celles de l'image entière, et les trois « carrés de base » sont partagés par tous. Des carrés de $10 \times 10$ ou $20 \times 20$ font presque aussi bien (environ 94 %), ceux de $5 \times 5$ un peu moins (92,6 %). Des tuiles de $50 \times 50$, chacune décomposée par sa propre SVD au rang choisi au mieux, restent sous 92 % (89,5 % sans centrer, 91,6 % en retirant la moyenne de chaque tuile) : leurs bases ne sont pas partagées. Stocker seulement la moyenne de chaque rectangle de $4 \times 5$ pixels ($12\,000$ nombres, tout le budget) garde 93,3 % : c'est pour cela que l'objectif est à 93,5 %. Les défauts visibles sont des bords de carrés, que la norme de Frobenius ne pénalise pas plus qu'un autre écart ; JPEG les atténue, et compte des bits plutôt que des nombres.

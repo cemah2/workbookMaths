@@ -1389,3 +1389,59 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M12c.36 🏆 Défi : les trois plus grandes valeurs propres d'une matrice symétrique semi-définie positive 300 × 300, par la puissance avec déflation, à 1e−6 près ★★★ 30 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (26 cartes)
 <!-- wbm:end M12c -->
+
+<!-- wbm:section M12d -->
+## M12d · SVD et analyse en composantes principales ⏱️ 18,0 h
+
+- [ ] M12d.Q1 🧠 La SVD : formes et propriétés ★ 4 min
+- [ ] M12d.Q2 🧠 Valeurs singulières et valeurs propres ★ 4 min
+- [ ] M12d.Q3 🧠 Rang faible : ce qu'on garde, ce qu'on perd ★ 4 min
+- [ ] M12d.Q4 🧠 Pseudo-inverse et conditionnement ★ 4 min
+- [ ] M12d.Q5 🧠 Ce que maximise un axe principal ★ 4 min
+- [ ] M12d.Q6 🧠 Centrer et standardiser avant une ACP ? ★ 4 min
+- [ ] M12d.Q7 🧠 Variance expliquée et nombre de composantes ★ 4 min
+- [ ] M12d.Q8 🧠 ACP, t-SNE ou UMAP : qui garde quoi ? ★ 4 min
+- [ ] M12d.R1 🔁 Valeurs propres et théorème spectral (M12c) ★ 5 min
+- [ ] M12d.R2 🔁 La projection orthogonale (M12b) ★ 5 min
+- [ ] M12d.R3 🔁 Moyenne, covariance et standardisation (M02c) ★ 5 min
+- [ ] M12d.1 ✏️ La SVD d'une matrice 2 × 2 à la main, par AᵀA ★★ 20 min
+- [ ] M12d.2 ✏️ La SVD compacte d'une matrice 3 × 2 de rang 1 ★★ 15 min (complet)
+- [ ] M12d.3 ✏️ Le cercle unité devient une ellipse : axes et demi-axes ★ 15 min
+- [ ] M12d.4 ✏️ L'approximation de rang 1 d'une matrice 3 × 3 et son erreur ★★ 20 min
+- [ ] M12d.5 ✏️ Compter les nombres stockés : une image en rang k ★ 10 min (complet)
+- [ ] M12d.6 ✏️ La pseudo-inverse d'une matrice non inversible et la solution de norme minimale ★★ 20 min
+- [ ] M12d.7 ✏️ Le conditionnement de trois matrices, et l'erreur relative sur une solution ★★ 15 min
+- [ ] M12d.8 ✏️ Les axes principaux d'un nuage de ℝ³ : covariance, polynôme caractéristique, variances et axes ★★ 35 min
+- [ ] M12d.9 ✏️ Scores, reconstruction et erreur de reconstruction moyenne avec deux composantes sur trois ★★ 20 min
+- [ ] M12d.10 ✏️ La variance expliquée cumulée : combien de composantes pour 95 % ? ★ 15 min
+- [ ] M12d.11 ✏️ L'ACP par la SVD de la matrice centrée : s² / (n − 1) donne les variances ★★ 20 min (complet)
+- [ ] M12d.12 ✏️ L'ACP quand n < p : passer par la petite matrice XXᵀ ★★ 20 min (complet)
+- [ ] M12d.13 ✏️ Les probabilités de voisinage de t-SNE sur quatre points, et leur perplexité 2^H ★ 15 min
+- [ ] M12d.14 ∂ Les valeurs singulières sont les racines des valeurs propres de AᵀA ★★ 20 min
+- [ ] M12d.15 ∂ La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ s₁ ‖x‖ ★★ 20 min (complet)
+- [ ] M12d.16 ∂ L'erreur de l'approximation de rang k vaut la somme des s² oubliés (Frobenius) ★★★ 25 min (complet)
+- [ ] M12d.17 ∂ La pseudo-inverse donne la solution des moindres carrés de plus petite norme ★★ 20 min (complet)
+- [ ] M12d.18 ∂ L'erreur de reconstruction moyenne est la somme des variances oubliées ★★ 20 min
+- [ ] M12d.19 ∂ Les scores de deux composantes principales sont décorrélés ★★ 15 min (complet)
+- [ ] M12d.20 🔗 Pont : détecter une anomalie par son erreur de reconstruction ★ 15 min
+- [ ] M12d.21 🔗 Pont : un changement d'unités diagonal D change Σ en DΣD, et les axes principaux avec ; la standardisation non ★★ 15 min (complet)
+- [ ] M12d.22 📖 MML §4.5 à §4.7 : SVD, approximation de rang faible, phylogénie des matrices ★★ 45 min (complet)
+- [ ] M12d.23 📖 MML §10.1 à §10.6 : l'ACP du livre (la dérivation par Lagrange de §10.2 se survole : M13b la relit) ★★ 50 min (complet)
+- [ ] M12d.24 🧮 Fermi : la mémoire et le temps d'une ACP sur un million de clients et 250 features ★ 10 min (complet)
+- [ ] M12d.25 🗣️ Expliquer la SVD comme « rotation, étirement, rotation » ★ 10 min
+- [ ] M12d.E1 💼 « Comment choisissez-vous le nombre de composantes d'une ACP ? » ★ 10 min (complet)
+- [ ] M12d.E2 💼 « Que dit le conditionnement d'une matrice ? » ★ 10 min (complet)
+- [ ] M12d.26 🔨 La SVD par les valeurs propres de AᵀA ★★ 40 min
+- [ ] M12d.27 🔨 Approximation de rang faible et conditionnement ★ 20 min
+- [ ] M12d.28 🔨 La pseudo-inverse ★ 15 min (complet)
+- [ ] M12d.29 🔨 Les axes principaux d'une matrice de covariance, et la variance expliquée ★★ 25 min
+- [ ] M12d.30 📦 `np.linalg.svd`, `np.linalg.cond` et `sklearn.decomposition.PCA` contre tes fonctions : les signes ★ 15 min
+- [ ] M12d.31 🔮 Prédire l'allure des valeurs singulières d'une image, et le rang qui suffit ★ 10 min
+- [ ] M12d.32 🔬 Compresser une image du domaine public : l'erreur en fonction du rang ★★ 20 min (complet)
+- [ ] M12d.33 🔬 La SVD par AᵀA contre `np.linalg.svd` : ce qu'on perd quand κ est grand ★★ 20 min (complet)
+- [ ] M12d.34 🎨 La SVD en images : Vᵀ, Σ puis U appliqués au cercle unité, étape par étape ★ 20 min
+- [ ] M12d.35 🐛 Chasse à l'erreur : une ACP sans centrer, n et n − 1 mélangés, des axes lus en lignes au lieu de colonnes ★ 15 min (complet)
+- [ ] M12d.36 🛠️ Un test : la reconstruction de rang plein redonne X, et l'erreur décroît avec k ★ 15 min (complet)
+- [ ] M12d.37 🏆 Défi : compresser une image centrée en gardant 93,5 % de son énergie avec au plus 5 % des nombres ★★★ 30 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (26 cartes)
+<!-- wbm:end M12d -->

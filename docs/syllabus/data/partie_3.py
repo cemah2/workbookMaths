@@ -460,7 +460,7 @@ CHAPTERS = [
                  "l'anomalie MNIST contre Fashion-MNIST, le seuil au 99ᵉ centile et la ROC-AUC (workbookIA 25). Le 🏆 "
                  "M12d.37 est calibré (session 41) sur la photo CC0 de la tasse de café (`data/cards/tasse_cafe.md`), "
                  "centrée : avec 5 % des nombres, la SVD globale garde 88,8 % de l'énergie, des tuiles de rang adapté "
-                 "90 %, la seule moyenne de chaque rectangle de 4 × 5 pixels 93,3 %, l'ACP de ses carrés de 8 × 8 "
+                 "89,5 à 91,6 %, la seule moyenne de chaque rectangle de 4 × 5 pixels 93,3 %, l'ACP de ses carrés de 8 × 8 "
                  "pixels 94,1 % : l'objectif est donc 93,5 % (97 % demandait 14 à 26 % des nombres). Convention de "
                  "signe des axes comme scikit-learn et la PCA de "
                  "`mylearn` (la coordonnée de plus grande valeur absolue est positive). `svd_pca` : NumPy et "

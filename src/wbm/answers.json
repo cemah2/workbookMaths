@@ -46394,6 +46394,7 @@
       "kind": "array",
       "mistakes": {
         "8344ed98130266752808295fd6877ef92e42f8c409966e8ab7f482e00b06c75b": "A⁺ est de forme (3, 2) : elle s'écrit avec Aᵀ",
+        "a297c4876158dcbe5b10b5f7f9f4d8bdb08b338686c79083c08c9aa447eb28fc": "l'énoncé demande 1 000 A⁺ : multiplie A⁺ par 1 000",
         "a2b5bb570c2fb2506069e36a4529247aaa9f41a9d1c5613092a35dc072c286d1": "A⁺ = v₁ u₁ᵀ / s₁ = Aᵀ / s₁² pour une matrice de rang 1 : divise par s₁²"
       },
       "shape": [

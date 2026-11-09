@@ -108,7 +108,7 @@ $\mathbf{u}_i^\top\mathbf{u}_j = \frac{\mathbf{v}_i^\top\mathbf{A}^\top\mathbf{A
 
 Les valeurs propres de $\mathbf{A}$ elle-même sont $\pm\sqrt{40} \approx \pm 6{,}32$ (trace 0, déterminant $-40$) : elles n'ont rien à voir avec 8 et 5.
 
-**Exemple rectangulaire.** $\mathbf{X} = \begin{pmatrix} 2 & 2 \\ 4 & 1 \\ 4 & -2 \end{pmatrix}$, de forme $(3, 2)$. Ses colonnes sont orthogonales ($4 + 4 - 8 = 0$) : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 36 & 0 \\ 0 & 9 \end{pmatrix}$ est déjà diagonale, donc $\mathbf{V} = \mathbf{I}$, $s_1 = 6$, $s_2 = 3$ (les normes des colonnes), $\mathbf{u}_1 = (2, 4, 4)/6 = (1, 2, 2)/3$ et $\mathbf{u}_2 = (2, 1, -2)/3$. La SVD compacte est $\mathbf{X} = \frac{1}{3}\begin{pmatrix} 1 & 2 \\ 2 & 1 \\ 2 & -2 \end{pmatrix}\begin{pmatrix} 6 & 0 \\ 0 & 3 \end{pmatrix}\mathbf{I}$. La SVD complète ajoute $\mathbf{u}_3 = (2, -2, 1)/3$, qui complète la base de $\mathbb{R}^3$ (les trois $\mathbf{u}_i$ sont les lignes de la matrice orthogonale de la fiche M12b), et une ligne de zéros à $\mathbf{S}$, de forme $(3, 2)$. $\mathbf{X}\mathbf{X}^\top$, de forme $(3, 3)$, a pour valeurs propres 36, 9 et 0.
+**Exemple rectangulaire.** $\mathbf{X} = \begin{pmatrix} 2 & 2 \\ 4 & 1 \\ 4 & -2 \end{pmatrix}$, de forme $(3, 2)$. Ses colonnes sont orthogonales ($4 + 4 - 8 = 0$) : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 36 & 0 \\ 0 & 9 \end{pmatrix}$ est déjà diagonale, donc $\mathbf{V} = \mathbf{I}$, $s_1 = 6$, $s_2 = 3$ (les normes des colonnes), $\mathbf{u}_1 = (2, 4, 4)/6 = (1, 2, 2)/3$ et $\mathbf{u}_2 = (2, 1, -2)/3$. La SVD compacte est $\mathbf{X} = \frac{1}{3}\begin{pmatrix} 1 & 2 \\ 2 & 1 \\ 2 & -2 \end{pmatrix}\begin{pmatrix} 6 & 0 \\ 0 & 3 \end{pmatrix}\mathbf{I}$. La SVD complète ajoute $\mathbf{u}_3 = (2, -2, 1)/3$, qui complète la base de $\mathbb{R}^3$ (les trois $\mathbf{u}_i$ sont les lignes de la matrice orthogonale de la fiche M12b, dans un autre ordre), et une ligne de zéros à $\mathbf{S}$, de forme $(3, 2)$. $\mathbf{X}\mathbf{X}^\top$, de forme $(3, 3)$, a pour valeurs propres 36, 9 et 0.
 
 ### Ce que la SVD dit d'une matrice
 
@@ -189,7 +189,7 @@ Stocker $\mathbf{A}_k$ demande $k$ vecteurs $\mathbf{u}_i$ ($m$ nombres chacun),
 ### En machine learning
 
 - Débruiter : le bruit se répartit sur toutes les couches, le signal se concentre dans les premières ; tronquer garde le signal.
-- Les modèles de recommandation complètent une matrice notes × utilisateurs supposée de rang faible ; LoRA (MB4) entraîne une correction des poids de la forme $\mathbf{B}\mathbf{A}$, de rang $r$, avec $r(m + n)$ paramètres au lieu de $mn$.
+- Les modèles de recommandation complètent une matrice notes × utilisateurs supposée de rang faible ; MB4 fera le même compte pour une correction des poids de rang faible.
 
 ---
 
@@ -282,7 +282,7 @@ Les variances le long des axes sont $\lambda_1 = 15$, $\lambda_2 = 8$, $\lambda_
 
 ### Dans MML : la même réponse par Lagrange
 
-MML (§10.2) trouve le même résultat en maximisant $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ sous la contrainte $\lVert \mathbf{u} \rVert^2 = 1$ par un multiplicateur de Lagrange : la condition obtenue est $\mathbf{C}\mathbf{u} = \lambda\mathbf{u}$, une équation aux valeurs propres. M13b relira cette dérivation avec les multiplicateurs de Lagrange ; le quotient de Rayleigh donne la réponse sans eux.
+MML (§10.2) trouve le même résultat en maximisant $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ sous la contrainte $\lVert \mathbf{u} \rVert^2 = 1$ par un multiplicateur de Lagrange : la condition obtenue est $\mathbf{C}\mathbf{u} = \lambda\mathbf{u}$, une équation aux valeurs propres. M13b relira cette dérivation ; le quotient de Rayleigh donne la réponse sans multiplicateur.
 
 ---
 
@@ -315,21 +315,21 @@ Chaque colonne de scores est de moyenne nulle ; ses variances valent $\frac{(529
 
 On n'a pas besoin de former $\mathbf{C}$. Si $\mathbf{X}_c = \mathbf{U}\mathbf{S}\mathbf{V}^\top$, alors
 $$\mathbf{C} = \frac{1}{n - 1}\mathbf{X}_c^\top\mathbf{X}_c = \mathbf{V}\,\frac{\mathbf{S}^\top\mathbf{S}}{n - 1}\,\mathbf{V}^\top :$$
-les axes principaux sont les vecteurs singuliers à droite $\mathbf{v}_j$, les variances sont $\lambda_j = s_j^2/(n - 1)$, et les scores sont $\mathbf{X}_c\mathbf{V} = \mathbf{U}\mathbf{S}$. Pour l'exemple, les valeurs singulières de $\mathbf{X}_c$ sont $\sqrt{60}$, $\sqrt{32}$ et $\sqrt{8}$ ($60/4 = 15$, et ainsi de suite). La SVD de $\mathbf{X}_c$ évite de former $\mathbf{X}_c^\top\mathbf{X}_c$, dont le conditionnement est le carré (§4) : c'est le calcul le plus sûr. Les bibliothèques le font, sauf quand $n \gg p$ avec $p$ petit : former la covariance $p \times p$ et la diagonaliser est alors bien plus rapide, et la précision perdue rarement gênante.
+les axes principaux sont les vecteurs singuliers à droite $\mathbf{v}_j$, les variances sont $\lambda_j = s_j^2/(n - 1)$, et les scores sont $\mathbf{X}_c\mathbf{V} = \mathbf{U}\mathbf{S}$. Pour l'exemple, les valeurs singulières de $\mathbf{X}_c$ sont $\sqrt{60}$, $\sqrt{32}$ et $\sqrt{8}$ ($60/4 = 15$, et ainsi de suite). La SVD de $\mathbf{X}_c$ évite de former $\mathbf{X}_c^\top\mathbf{X}_c$, dont le conditionnement est le carré (§4) : c'est le calcul le plus sûr. scikit-learn le fait, sauf (depuis sa version 1.5) quand $p$ est petit (moins de $1\,000$ features) et $n > 10\,p$ : former la covariance $p \times p$ et la diagonaliser est alors bien plus rapide, et la précision perdue rarement gênante.
 
 ### Centrer, et parfois standardiser
 
 **Sans centrer**, la « plus grande variance » est mesurée autour de l'origine, pas autour de la moyenne : le premier axe pointe vers le nuage au lieu de le traverser. Sur l'exemple, la matrice $\mathbf{X}^\top\mathbf{X}/4$ (non centrée) a pour premier vecteur propre $(0{,}72 ;\ 0{,}54 ;\ 0{,}43)$, à $1°$ de la direction de $\boldsymbol{\mu} = (8, 6, 5)$, et à $26°$ du vrai premier axe $\mathbf{u}_1$.
 
-**Les unités comptent.** Changer l'unité de chaque feature multiplie $\mathbf{X}_c$ à droite par une matrice diagonale $\mathbf{D}$, et la covariance devient $\mathbf{D}\mathbf{C}\mathbf{D}$ (M12c §8) : les variances et les axes changent. Sur l'exemple, si la troisième mesure est exprimée dans une unité deux fois plus petite (ses valeurs doublent), sa variance passe de 8 à 32, et elle devient le **premier** axe, avec $\mathbf{u}_1 = (0, 0, 1)$ : l'unité a décidé à la place des données. Quand les features n'ont pas la même unité, on les **standardise** d'abord (M02c) : la covariance des données standardisées est la matrice de corrélation, qui ne dépend plus des unités (🔗 M12d.21). Quand elles ont la même unité et des variances comparables (des pixels, des mesures du même genre), on centre sans réduire : les écarts de variance entre features sont alors de l'information, que la standardisation effacerait.
+**Les unités comptent.** Changer l'unité de chaque feature multiplie $\mathbf{X}_c$ à droite par une matrice diagonale $\mathbf{D}$, et la covariance devient $\mathbf{D}\mathbf{C}\mathbf{D}$ (M12c §8) : les variances et les axes changent. Sur l'exemple, si la troisième mesure est exprimée dans une unité deux fois plus petite (ses valeurs doublent), sa variance passe de 8 à 32, et elle devient le **premier** axe, avec $\mathbf{u}_1 = (0, 0, 1)$ : l'unité a décidé à la place des données. Quand les features n'ont pas la même unité, on les **standardise** d'abord (M02c) : la covariance des données standardisées est la matrice de corrélation, qui ne dépend plus des unités (🔗 M12d.21). Quand elles ont la même unité et mesurent des grandeurs du même genre (des capteurs identiques, des mesures d'un même objet), on centre sans réduire : leurs écarts de variance sont alors de l'information, que la standardisation effacerait.
 
 > ⚠️ **Erreur classique.** Oublier de centrer, mélanger $n$ et $n - 1$ entre la covariance et les variances rapportées, ou lire les axes en lignes au lieu de colonnes (ou l'inverse : les axes sont les **colonnes** de $\mathbf{V}$, donc les **lignes** de `Vt`). Ces trois erreurs donnent des résultats plausibles : seule une vérification ($\mathbf{C}\mathbf{u} = \lambda\mathbf{u}$, des scores de moyenne nulle) les détecte (🐛 M12d.35).
 
-> 💻 **Aujourd'hui en pratique.** `sklearn.decomposition.PCA` centre, fait la SVD de $\mathbf{X}_c$ (ou, quand $n \gg p$ avec $p$ petit, diagonalise la covariance ; `svd_solver="full"` impose la SVD) et range les axes en **lignes** de `components_`, les variances dans `explained_variance_` (avec $n - 1$) et leurs parts dans `explained_variance_ratio_` ; `transform` donne les scores et `inverse_transform` la reconstruction. Ta fonction `principal_axes` prend la matrice de covariance, pas les données : centrer et former $\mathbf{C}$ restent ton travail.
+> 💻 **Aujourd'hui en pratique.** `sklearn.decomposition.PCA` centre, fait la SVD de $\mathbf{X}_c$ (ou, quand $n \gg p$ avec $p$ petit, diagonalise la covariance ; `svd_solver="full"` impose la SVD exacte) et range les axes en **lignes** de `components_`, les variances dans `explained_variance_` (avec $n - 1$) et leurs parts dans `explained_variance_ratio_` ; `transform` donne les scores et `inverse_transform` la reconstruction. Ta fonction `principal_axes` prend la matrice de covariance, pas les données : centrer et former $\mathbf{C}$ restent ton travail.
 
 ### En machine learning
 
-Une ACP sert à compresser des features corrélées avant un modèle, à visualiser en deux ou trois dimensions, à débruiter (en reconstruisant avec peu de composantes) et à détecter des anomalies (§7). Elle n'utilise que les features, jamais la cible : rien ne garantit que l'information utile pour prédire se trouve sur les axes de grande variance, et une régression sur les $k$ premières composantes peut perdre précisément ce qui comptait, rangé sur un axe de petite variance.
+Une ACP sert à compresser des features corrélées avant un modèle, à visualiser en deux ou trois dimensions, à débruiter (en reconstruisant avec peu de composantes) et à détecter des anomalies (§7). Elle n'utilise que les features, jamais la cible : si la cible est, par exemple, la coordonnée $y = \mathbf{u}_p^\top(\mathbf{x} - \boldsymbol{\mu})$ sur l'axe de plus petite variance, une ACP à $k < p$ composantes la perd entièrement.
 
 ---
 
@@ -347,7 +347,7 @@ la fraction de la variance totale que garde cette direction ; la somme des $k$ p
 
 Avec $k$ composantes, chaque exemple centré se décompose en $\mathbf{x}_i - \boldsymbol{\mu} = \sum_{j \le p} t_{ij}\mathbf{u}_j$ (une base orthonormée, M12b), et la reconstruction garde les $k$ premiers termes : l'écart $\mathbf{x}_i - \hat{\mathbf{x}}_i = \sum_{j > k} t_{ij}\mathbf{u}_j$ est ce qui se trouvait sur les axes oubliés, de norme au carré $\sum_{j > k} t_{ij}^2$ (Parseval). En moyenne sur les exemples :
 $$\frac{1}{n}\sum_{i=1}^n \lVert \mathbf{x}_i - \hat{\mathbf{x}}_i \rVert^2 = \frac{n - 1}{n}\,(\lambda_{k+1} + \cdots + \lambda_p).$$
-L'**erreur de reconstruction** (*reconstruction error*) moyenne est la somme des variances oubliées, au facteur $(n - 1)/n$ près, qui vient de la convention $1/(n - 1)$ de la covariance (∂ M12d.18). Sur l'exemple, avec $k = 2$ : $\frac{4 + 4 + 16 + 16 + 64}{13 \times 5} = \frac{104}{65} = 1{,}6 = \frac{4}{5} \times 2$. Et l'ACP est, parmi tous les sous-espaces affines de dimension $k$, celui qui rend cette erreur la plus petite (Eckart-Young appliqué à $\mathbf{X}_c$, et le fait que le meilleur sous-espace affine passe par la moyenne : admis) : la variance gardée et l'erreur commise sont les deux faces d'un même compte, puisque leur somme est la variance totale.
+L'**erreur de reconstruction** (*reconstruction error*) moyenne est la somme des variances oubliées, au facteur $(n - 1)/n$ près, qui vient de la convention $1/(n - 1)$ de la covariance (∂ M12d.18). Sur l'exemple, avec $k = 2$ : $\frac{4 + 4 + 16 + 16 + 64}{13 \times 5} = \frac{104}{65} = 1{,}6 = \frac{4}{5} \times 2$. Et le sous-espace de l'ACP, $\boldsymbol{\mu} + \operatorname{Vect}(\mathbf{u}_1, \ldots, \mathbf{u}_k)$, est, parmi tous les sous-espaces affines de dimension $k$, celui qui rend cette erreur la plus petite (Eckart-Young appliqué à $\mathbf{X}_c$, et le fait que le meilleur sous-espace affine passe par la moyenne : admis) : la dispersion gardée et l'erreur commise sont les deux faces d'un même compte, puisque leur somme est fixe ($\frac{n-1}{n}$ fois la variance totale, ∂ M12d.18).
 
 ![Huit features synthétiques aux variances décroissantes : à gauche, la part de variance cumulée, et le nombre de composantes pour 90 % et 95 % ; à droite, l'erreur de reconstruction moyenne mesurée, qui suit la somme des variances oubliées](figures/variance_expliquee.png)
 
@@ -367,7 +367,7 @@ Quand il y a moins d'exemples que de features ($n < p$ : des images, des gènes,
 
 Ordre de grandeur : avec $p = 10^4$ features et $n = 500$ exemples, diagonaliser la matrice $p \times p$ coûte de l'ordre de $p^3 = 10^{12}$ opérations, former et diagonaliser la matrice $n \times n$ de l'ordre de $n^2p + n^3 \approx 2{,}6 \times 10^9$. La SVD de $\mathbf{X}_c$ s'adapte d'elle-même à la plus petite des deux dimensions, et pour de très grandes matrices, une SVD tronquée ou aléatoire (§3, 💻) ne calcule que les $k$ premiers axes.
 
-> ⚠️ **Erreur classique.** Juger l'erreur de reconstruction, ou choisir $k$, sur les seules données qui ont servi à calculer les axes : sur elles, les $k$ premiers axes sont par construction le meilleur sous-espace (Eckart-Young), et l'erreur y est optimiste. Sur des données nouvelles, elle est **en moyenne** plus grande, et l'écart grandit avec $k$ : les derniers axes, de petite variance, suivent surtout le hasard de l'échantillon. Pour un petit $k$, un échantillon nouveau particulier peut faire un peu mieux.
+> ⚠️ **Erreur classique.** Juger l'erreur de reconstruction, ou choisir $k$, sur les seules données qui ont servi à calculer les axes : sur elles, les $k$ premiers axes sont par construction le meilleur sous-espace (Eckart-Young), et l'erreur y est optimiste, puisque les axes ont été ajustés à cet échantillon-là. Sur des données nouvelles, la même projection fait **en moyenne** moins bien (un échantillon particulier peut faire mieux) : on mesure l'erreur, et l'on choisit $k$, sur d'autres données.
 
 ### En machine learning
 
@@ -398,11 +398,11 @@ Pourquoi une queue lourde ? En 2D, il n'y a pas assez de place pour garder toute
 
 **UMAP** construit un graphe des $k$ plus proches voisins de chaque point (son réglage principal, `n_neighbors`), dont les arêtes portent des poids de voisinage, puis cherche une disposition en 2D qui préserve ce graphe, en minimisant une cross-entropy entre les poids d'origine et ceux de la carte (M06). Ses fondements viennent de la topologie ; en pratique, il est plus rapide que t-SNE sur de gros datasets, et il sait placer un point nouveau sur une carte existante.
 
-### Ce que la divergence ne contraint pas
+### Ce que t-SNE ne garantit pas
 
 - Pour deux points lointains de l'espace d'origine, $p_{ij}$ est presque nul : leur terme de $\mathrm{KL}(P \,\Vert\, Q)$ ne pèse presque rien, quelle que soit leur distance sur la carte. L'écart entre deux groupes bien séparés n'est donc presque pas contraint : il dépend de l'optimisation plus que des données.
 - La perplexité donne à chaque point à peu près le même nombre effectif de voisins, dans une région dense comme dans une région clairsemée : la densité d'origine ne passe pas sur la carte.
-- $\mathrm{KL}(P \,\Vert\, Q)$ n'est pas une fonction convexe des positions $\mathbf{y}_i$ : la descente de gradient s'arrête dans un minimum local, qui dépend du point de départ.
+- Les positions $\mathbf{y}_i$ ne sont qu'un minimum local de $\mathrm{KL}(P \,\Vert\, Q)$, qui n'est pas une fonction convexe des $\mathbf{y}_i$ : un autre point de départ donne une autre carte, de coût égal ou presque.
 - t-SNE optimise les positions des $n$ points donnés, pas une fonction de $\mathbb{R}^p$ dans $\mathbb{R}^2$ : un point nouveau n'a pas de place définie (UMAP, lui, sait en placer un).
 
 workbookIA 12 en tire les règles pratiques pour lire une carte.
@@ -438,6 +438,6 @@ workbookIA 12 en tire les règles pratiques pour lire une carte.
 ## Pour aller plus loin
 
 - MML §4.5 à §4.7 et §10.1 à §10.6, et les exercices du chapitre 4 du livre sur la SVD (conseillés).
-- Gilbert Strang, *Introduction to Linear Algebra* : dans les 2ᵉ et 3ᵉ éditions, §6.7 (*The Singular Value Decomposition*) et §7.4 (*Diagonalization and the Pseudoinverse*) ; dans les 5ᵉ et 6ᵉ, tout le chapitre 7 (*The Singular Value Decomposition*).
+- Gilbert Strang, *Introduction to Linear Algebra* : dans les 2ᵉ à 4ᵉ éditions, §6.7 (*The Singular Value Decomposition*) et, au chapitre 7, la section *Diagonalization and the Pseudoinverse* (§7.4 dans la 2ᵉ) ; dans les 5ᵉ et 6ᵉ, tout le chapitre 7 (*The Singular Value Decomposition*).
 - L. van der Maaten et G. Hinton, « Visualizing Data using t-SNE », *Journal of Machine Learning Research*, 2008 ; L. McInnes, J. Healy et J. Melville, « UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction », 2018 (en anglais).
 - `annexes/symboles.md` (lire $\mathbf{A}^+$, $\lVert \mathbf{A} \rVert_F$ et $\kappa(\mathbf{A})$ à voix haute), `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.

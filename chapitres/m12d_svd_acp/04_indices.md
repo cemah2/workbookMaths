@@ -94,7 +94,7 @@ C'est un quotient de Rayleigh : son maximum est la plus grande valeur propre de 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : une covariance non nulle hors de la diagonale fait tourner le premier axe. 4 : une matrice diagonale a pour vecteurs propres les $\mathbf{e}_j$.
+3 : une covariance non nulle hors de la diagonale fait tourner le premier axe. 4 : la matrice est par blocs : $\mathbf{e}_1$ est vecteur propre (valeur 4), et le bloc $\begin{pmatrix} 2 & 2 \\ 2 & 5 \end{pmatrix}$ (trace 7, déterminant 6) donne les deux autres.
 
 </details>
 
@@ -138,7 +138,7 @@ Les parts : $5/10$, $4/10$, $1/10$ ; l'erreur moyenne : $\frac{n-1}{n}$ fois la 
 
 <details><summary>Indice 1</summary>
 
-Relis le §8 de la fiche, en particulier « Lire une carte avec prudence ».
+Relis le §8 de la fiche, en particulier « Ce que t-SNE ne garantit pas ».
 
 </details>
 <details><summary>Indice 2</summary>
