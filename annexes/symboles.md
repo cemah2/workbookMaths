@@ -142,9 +142,16 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\ker f$, $\ker\mathbf{A}$ | « noyau de f » | kernel of f, null space | les vecteurs envoyés sur $\mathbf{0}$ | $\ker\begin{pmatrix} 1 & 1 \end{pmatrix} = \operatorname{Vect}\big((1, -1)\big)$ | M12a |
 | $\operatorname{Im} f$, $\operatorname{Im}\mathbf{A}$ | « image de f » | image of f, range | les vecteurs atteints ; pour une matrice, l'espace de ses colonnes | $\operatorname{Im}\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ : l'axe des abscisses | M12a |
 | $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ | « S moins un A S » | change of basis, similar matrix | la matrice de $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ dans la base des colonnes de $\mathbf{S}$ (à lire de droite à gauche) | si $\mathbf{A}\mathbf{s}_1 = 2\,\mathbf{s}_1$, sa première colonne est $(2, 0, \ldots)$ | M12a |
-| $\det(\mathbf{A})$ | « déterminant de A » | determinant | facteur de changement d'aire (ou de volume) | $\det \mathbf{I} = 1$ | M12c |
+| $\det(\mathbf{A})$, $\lvert\mathbf{A}\rvert$ | « déterminant de A » | determinant | facteur (signé) de changement d'aire ou de volume ; non nul si et seulement si $\mathbf{A}$ est inversible | $\det \mathbf{I} = 1$, $\det\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = -2$ | M12c |
 | $\operatorname{tr}(\mathbf{A})$ | « trace de A » | trace | somme des éléments de la diagonale | $\operatorname{tr} \mathbf{I}_3 = 3$ | M12c |
 | $\lambda$ | « lambda » | lambda | souvent une valeur propre (*eigenvalue*), ou la force d'une régularisation | $\mathbf{A}\mathbf{v} = \lambda \mathbf{v}$ | M12c |
+| $p_{\mathbf{A}}(\lambda)$ | « p de A, de lambda » | characteristic polynomial of A | le polynôme caractéristique $\det(\mathbf{A} - \lambda\mathbf{I})$ | $p_{\mathbf{I}_2}(\lambda) = (1 - \lambda)^2$ | M12c |
+| $\lambda_{\max}$, $\lambda_{\min}$ | « lambda max », « lambda min » | largest, smallest eigenvalue | la plus grande et la plus petite valeur propre d'une matrice symétrique | $\lambda_{\max}\big(\operatorname{diag}(3, 1)\big) = 3$ | M12c |
+| $\boldsymbol{\Lambda}$, $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ | « grand lambda », « Q lambda Q transposée » | Lambda, eigendecomposition | la matrice diagonale des valeurs propres ; la décomposition spectrale d'une matrice symétrique | $\operatorname{diag}(4, 1)$ pour une matrice de valeurs propres 4 et 1 | M12c |
+| $R(\mathbf{x})$ | « R de x », « quotient de Rayleigh » | Rayleigh quotient | $\frac{\mathbf{x}^\top\mathbf{A}\mathbf{x}}{\mathbf{x}^\top\mathbf{x}}$ | $R(\mathbf{e}_1) = a_{11}$ | M12c |
+| $\mathbf{A} \succ 0$, $\mathbf{A} \succeq 0$ | « A définie positive », « A semi-définie positive » | A is positive definite, positive semidefinite | $\mathbf{x}^\top\mathbf{A}\mathbf{x} > 0$ pour $\mathbf{x} \ne \mathbf{0}$ ; $\ge 0$ pour tout $\mathbf{x}$ | $\mathbf{I} \succ 0$ | M12c |
+| $\mathbf{L}\mathbf{L}^\top$ | « L L transposée » | Cholesky factorization | la décomposition de Cholesky, $\mathbf{L}$ triangulaire inférieure à diagonale positive | $\begin{pmatrix} 9 & 6 \\ 6 & 5 \end{pmatrix} = \mathbf{L}\mathbf{L}^\top$, $\mathbf{L} = \begin{pmatrix} 3 & 0 \\ 2 & 1 \end{pmatrix}$ | M12c |
+| $\mathbf{A}^{1/2}$, $\boldsymbol{\Sigma}^{-1/2}$ | « A puissance un demi », « sigma puissance moins un demi » | matrix square root, inverse square root | la racine carrée symétrique $\mathbf{Q}\boldsymbol{\Lambda}^{1/2}\mathbf{Q}^\top$, et son inverse, le blanchiment ZCA | $\operatorname{diag}(9, 4)^{1/2} = \operatorname{diag}(3, 2)$ | M12c |
 
 ## Probabilités et statistique
 

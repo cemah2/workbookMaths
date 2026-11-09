@@ -27,6 +27,7 @@ a = sp.Symbol("a", positive=True)        # avec une hypothèse (utile pour simpl
 | une somme | `sp.summation(1 / 2**sp.Symbol("k"), (sp.Symbol("k"), 0, sp.oo))` | `2` |
 | un développement de Taylor | `sp.series(sp.exp(x), x, 0, 4)` | $1 + x + \frac{x^2}{2} + \frac{x^3}{6} + O(x^4)$ |
 | une matrice | `M = sp.Matrix([[1, 2], [3, 4]])` ; `M.det()`, `M.inv()`, `M.eigenvals()` | calcul exact |
+| valeurs et vecteurs propres exacts | `M.charpoly(lam)`, `M.eigenvects()`, `P, D = M.diagonalize()`, `M.is_diagonalizable()` | `eigenvects()` rend des triplets (valeur, multiplicité, base de l'espace propre) ; réservé aux petites matrices |
 | écrire en LaTeX | `sp.latex(expr)` | le code LaTeX de l'expression |
 
 > ⚠️ **Piège classique — `1/3` en Python** — `x + 1/3` donne `x + 0.333333333333333` : Python divise avant SymPy. Écris `x + sp.Rational(1, 3)`, ou `sp.S(1) / 3`.

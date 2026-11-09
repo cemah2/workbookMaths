@@ -44,6 +44,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | biais du survivant | survivorship bias | n'observer que ce qui a passé un filtre (les avions rentrés de mission, les prêts accordés), et conclure comme si c'était tout | M02c |
 | Bienaymé-Tchebychev (inégalité de) | Chebyshev's inequality | $P(\lvert X - \mu \rvert \ge \varepsilon) \le \frac{\sigma^2}{\varepsilon^2}$, pour toute loi de variance finie | M02c, M11 |
 | bit, nat | bit, nat | unités d'information : un événement de probabilité $p$ apporte $-\log_2 p$ bits, ou $-\ln p$ nats ; 1 bit ≈ 0,693 nat | R6, M06 |
+| blanchiment | whitening | une transformation $\mathbf{z} = \mathbf{W}(\mathbf{x} - \boldsymbol{\mu})$ qui rend la covariance égale à l'identité, $\mathbf{W}\boldsymbol{\Sigma}\mathbf{W}^\top = \mathbf{I}$ : ZCA ($\boldsymbol{\Sigma}^{-1/2}$, symétrique), par l'ACP ($\boldsymbol{\Lambda}^{-1/2}\mathbf{Q}^\top$) ou par Cholesky ($\mathbf{L}^{-1}$) ; deux blanchiments diffèrent d'une matrice orthogonale | M12c |
 | boîte à moustaches | boxplot, box-and-whisker plot | dessin d'une série : une boîte de $Q_1$ à $Q_3$ coupée par la médiane, des moustaches jusqu'aux valeurs non aberrantes les plus extrêmes | M02c |
 | Bonferroni (correction de) | Bonferroni correction | chaque test au seuil $\frac{\alpha}{m}$, ou les p-valeurs ajustées $\min(1, m\,p_i)$ comparées à $\alpha$ : la probabilité d'au moins un faux positif reste sous $\alpha$, sans hypothèse d'indépendance | M08 |
 | bootstrap | bootstrap | estimer la dispersion d'une statistique en la recalculant sur des milliers de rééchantillons tirés avec remise dans les données | M02c |
@@ -66,6 +67,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | changement de base (formule de) | change of base formula | $\log_b x = \frac{\ln x}{\ln b}$ | R6 |
 | changement de variable | change of variables, substitution | $\int_a^b f(g(x))\,g'(x)\,dx = \int_{g(a)}^{g(b)} f(u)\,du$ | M02a |
 | chiffres significatifs | significant figures | les chiffres d'un nombre à partir du premier chiffre non nul | R1 |
+| Cholesky (décomposition de), facteur de Cholesky | Cholesky decomposition, Cholesky factor | $\mathbf{A} = \mathbf{L}\mathbf{L}^\top$, $\mathbf{L}$ triangulaire inférieure à diagonale strictement positive, unique ; elle existe si et seulement si $\mathbf{A}$ est symétrique définie positive, ce qui en fait le test pratique ; elle sert à résoudre des systèmes, à calculer $\det\mathbf{A} = \prod_i l_{ii}^2$, à tirer des vecteurs de covariance donnée | M12c |
 | classe positive | positive class | la classe que l'on cherche à détecter (la panne, le défaut), codée 1 | M03 |
 | code de longueur fixe, de longueur variable | fixed-length code, variable-length code | un code dont tous les mots ont la même longueur ($\lceil \log_2 N \rceil$ bits pour $N$ issues) ; un code qui donne des mots plus courts aux issues fréquentes | M06 |
 | code préfixe | prefix code, prefix-free code | un code où aucun mot n'est le début d'un autre : des mots écrits bout à bout se découpent sans ambiguïté | M06 |
@@ -115,7 +117,10 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | décibel | decibel (dB) | un rapport $R$ exprimé par $10 \log_{10} R$ ; le PSNR se mesure en décibels | R6 |
 | décomposition biais-variance | bias-variance decomposition | l'erreur quadratique attendue sur une nouvelle mesure vaut biais² + variance + bruit $\sigma^2$ | M09b |
 | décomposition QR | QR decomposition | $\mathbf{A} = \mathbf{Q}\mathbf{R}$, colonnes de $\mathbf{Q}$ orthonormées (Gram-Schmidt), $\mathbf{R}$ triangulaire supérieure à diagonale positive ; les moindres carrés deviennent $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ | M12b |
+| décomposition spectrale | spectral decomposition, eigendecomposition | pour une matrice symétrique, $\mathbf{A} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top = \sum_i \lambda_i\mathbf{q}_i\mathbf{q}_i^\top$ : une somme de projections orthogonales sur les directions propres, pondérées par les valeurs propres | M12c |
 | déduction, induction | deduction, induction | raisonner des prémisses à une conclusion certaine si elles sont vraies ; généraliser des exemples à une conclusion seulement probable (le raisonnement par récurrence est une déduction) | M11 |
+| défective (matrice) | defective matrix | une matrice $n \times n$ qui a moins de $n$ vecteurs propres libres : une valeur propre a une multiplicité géométrique inférieure à sa multiplicité algébrique ; elle n'est pas diagonalisable (le cisaillement $\begin{pmatrix} 3 & 1 \\ 0 & 3 \end{pmatrix}$) | M12c |
+| déflation | deflation | remplacer $\mathbf{A}$ symétrique par $\mathbf{A} - \lambda_1\mathbf{q}_1\mathbf{q}_1^\top$, qui a les mêmes valeurs propres sauf $\lambda_1$, remplacée par 0, pour trouver la suivante par la méthode de la puissance | M12c |
 | degrés de liberté | degrees of freedom | le nombre de valeurs libres : les $n$ écarts à la moyenne ont une somme nulle, donc $n - 1$ degrés de liberté | M02c |
 | demi-espace | half-space | l'un des deux côtés d'un hyperplan : les $\mathbf{x}$ tels que $\mathbf{w} \cdot \mathbf{x} + b > 0$ (ou $< 0$) | M07 |
 | démonstration par l'absurde | proof by contradiction | supposer la conclusion fausse et aboutir à une contradiction | R4 |
@@ -129,8 +134,10 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | dérivées partielles secondes, dérivée croisée | second partial derivatives, mixed partial derivative | $f_{xx}$, $f_{yy}$, et $f_{xy}$, la dérivée de $f_x$ par rapport à $y$ | M05b |
 | désabonnement | churn | le départ d'un client à la fin de son abonnement ; une cible courante des modèles de classification | M03 |
 | descente de gradient, montée de gradient | gradient descent, gradient ascent | $\mathbf{x}_{k+1} = \mathbf{x}_k - \eta\,\nabla f(\mathbf{x}_k)$ : de petits pas dans la direction de plus grande descente, pour minimiser ; avec $+$, pour maximiser | M05b |
-| déterminant | determinant | le nombre $ad - bc$ d'un système 2 × 2, non nul exactement quand il a une seule solution (R2) ; facteur de changement d'aire ou de volume d'une application linéaire (M12c) | R2, M12c |
+| déterminant | determinant | le nombre $ad - bc$ d'un système 2 × 2, non nul exactement quand il a une seule solution (R2) ; en toute dimension, le facteur (signé) par lequel une application linéaire multiplie les aires ou les volumes, non nul exactement quand la matrice est inversible ; il se calcule par élimination (le produit des pivots, au signe des échanges près) | R2, M12c |
+| développement par cofacteurs | Laplace expansion, cofactor expansion | calculer un déterminant selon une ligne ou une colonne : $\det\mathbf{A} = \sum_j (-1)^{i+j}a_{ij}\det\mathbf{A}_{ij}$, où $\mathbf{A}_{ij}$ est la matrice privée de la ligne $i$ et de la colonne $j$ ; de l'ordre de $n!$ opérations, utile seulement à la main | M12c |
 | développer, factoriser | expand, factor | transformer un produit en somme ; transformer une somme en produit | R2 |
+| diagonalisable | diagonalizable | $\mathbf{A} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1}$ avec $\mathbf{D}$ diagonale (les valeurs propres) et les colonnes de $\mathbf{P}$ des vecteurs propres ; possible si et seulement si les vecteurs propres forment une base ; toujours vrai pour une matrice symétrique, avec $\mathbf{P}$ orthogonale | M12c |
 | diagramme de fiabilité | reliability diagram | pour des paquets de scores, la probabilité moyenne annoncée contre la fréquence observée ; la diagonale si le modèle est calibré | M03 |
 | diagramme de Venn | Venn diagram | chaque ensemble dessiné comme une région du plan : une inclusion dit qu'une région est vide, « au moins un » qu'elle contient un élément | M11 |
 | dichotomie | bisection | trouver un zéro en coupant l'intervalle en deux et en gardant la moitié où le signe change | R7 |
@@ -141,6 +148,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | disjonction de cas | proof by cases | découper en cas qui couvrent toutes les possibilités, et traiter chacun | R4 |
 | distance (entre deux points) | distance | $AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$, la norme du vecteur $\overrightarrow{AB}$ | R9 |
 | distance cosinus | cosine distance | $1 - \cos\theta$, entre 0 et 2 : ce que renvoie `scipy.spatial.distance.cosine` | M07 |
+| distance de Mahalanobis | Mahalanobis distance | $\sqrt{(\mathbf{x} - \boldsymbol{\mu})^\top\boldsymbol{\Sigma}^{-1}(\mathbf{x} - \boldsymbol{\mu})}$ : la distance usuelle après un blanchiment, quel qu'il soit ; un écart mesuré en écarts-types, en tenant compte des corrélations | M12c |
 | distance euclidienne, de Manhattan, de Tchebychev | Euclidean, Manhattan (city block), Chebyshev distance | la norme L2, L1 ou L∞ de la différence de deux points | M07 |
 | divergence de Jensen-Shannon | Jensen-Shannon divergence | $\frac{1}{2}\mathrm{KL}(p \parallel m) + \frac{1}{2}\mathrm{KL}(q \parallel m)$ avec $m = \frac{p + q}{2}$ : une divergence symétrique et toujours finie | M06 |
 | divergence KL (de Kullback-Leibler) | KL divergence, Kullback-Leibler divergence, relative entropy | $\mathrm{KL}(p \parallel q) = \sum p \log_2 \frac{p}{q} = H(p, q) - H(p)$ : les bits perdus par symbole ; positive, nulle si $p = q$, pas symétrique | M06 |
@@ -182,6 +190,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | espace d'arrivée | target space | l'ensemble des valeurs que peut prendre une variable aléatoire ($\mathcal{T}$ dans MML) : $\mathbb{R}$, un ensemble de classes ou de vecteurs | M02b |
 | espace des colonnes, espace des lignes | column space, row space | le sous-espace engendré par les colonnes de $\mathbf{A}$ (son image), ou par ses lignes ; tous deux ont pour dimension le rang | M12a |
 | espace probabilisé | probability space | le triplet (univers, événements, probabilité) d'une expérience aléatoire | M02b |
+| espace propre | eigenspace | $\ker(\mathbf{A} - \lambda\mathbf{I})$ : les vecteurs propres de $\lambda$ et le vecteur nul ; sa dimension est la multiplicité géométrique de $\lambda$ | M12c |
 | espace vectoriel | vector space | un ensemble où l'on additionne des vecteurs et où on les multiplie par des réels, avec les règles de calcul habituelles : $\mathbb{R}^n$, les polynômes, les matrices d'une forme donnée | M12a |
 | espérance | expected value, expectation | moyenne théorique d'une variable aléatoire | R8 |
 | estimateur | estimator | formule qui estime un paramètre à partir de données | M02c |
@@ -224,7 +233,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | forme d'une matrice | shape | le couple (nombre de lignes, nombre de colonnes), lignes d'abord : $(n, p)$ pour un dataset de $n$ exemples à $p$ features | M09a |
 | forme échelonnée, forme échelonnée réduite | row echelon form, reduced row echelon form | un escalier : les lignes nulles en bas, chaque pivot à droite de celui du dessus ; réduite : chaque pivot vaut 1 et est seul dans sa colonne (elle est unique) | M09a |
 | forme indéterminée | indeterminate form | $\infty - \infty$, $\frac{\infty}{\infty}$, $0 \times \infty$, $\frac{0}{0}$ : une limite qui ne se décide pas d'avance | R7 |
-| forme quadratique | quadratic form | $\mathbf{w}^\top\mathbf{A}\mathbf{w} = \sum_{i,j} a_{ij}w_iw_j$, de gradient $(\mathbf{A} + \mathbf{A}^\top)\mathbf{w}$ | M09b |
+| forme quadratique | quadratic form | $\mathbf{w}^\top\mathbf{A}\mathbf{w} = \sum_{i,j} a_{ij}w_iw_j$, de gradient $(\mathbf{A} + \mathbf{A}^\top)\mathbf{w}$ ; on l'écrit avec une matrice symétrique, et dans la base de ses vecteurs propres elle devient $\sum_i \lambda_iy_i^2$ : ses lignes de niveau sont des ellipses quand $\mathbf{A}$ est définie positive | M09b, M12c |
 | formule d'Al-Kashi | law of cosines | $c^2 = a^2 + b^2 - 2ab\cos\hat{C}$ dans un triangle quelconque : Pythagore corrigé par l'angle | R9 |
 | formule de Bayes | Bayes' theorem | $P(H \mid O) = \frac{P(O \mid H)\,P(H)}{P(O)}$ : a posteriori = vraisemblance × a priori / évidence | M04 |
 | formule de Cramer | Cramer's rule | la solution d'un système de déterminant non nul, écrite comme quotients de déterminants | R2 |
@@ -239,7 +248,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | grand O | big O | $f = O(g)$ : $f$ ne croît pas plus vite que $g$, à une constante près ; mesure le coût d'un algorithme | R7 |
 | Hadamard (produit de) | Hadamard product, element-wise product | $\mathbf{A} \odot \mathbf{B}$, les produits des éléments de même position (`A * B` en NumPy) ; même forme, commutatif | M09a |
 | hérédité, initialisation | inductive step, base case | les deux étapes d'une récurrence : $P(n) \Rightarrow P(n + 1)$, et $P(n_0)$ | R4 |
-| hessienne | Hessian | matrice des dérivées secondes | M05b, M19 |
+| hessienne | Hessian | matrice des dérivées secondes ; symétrique, elle a des valeurs propres réelles : définie positive en un point critique, c'est un minimum local ; semi-définie positive partout, la fonction est convexe | M05b, M12c, M19 |
 | Hoeffding (inégalité de) | Hoeffding's inequality | pour $n$ variables indépendantes à valeurs dans $[a, b]$ : $P(\lvert \bar{X} - \mu \rvert \ge t) \le 2e^{-2nt^2/(b - a)^2}$ | M11 |
 | homogénéité (d'une norme) | absolute homogeneity | $\lVert \lambda\mathbf{x} \rVert = \lvert \lambda \rvert\,\lVert \mathbf{x} \rVert$ : multiplier un vecteur par $\lambda$ multiplie sa longueur par $\lvert \lambda \rvert$ | M07 |
 | hyperplan | hyperplane | les $\mathbf{x}$ de $\mathbb{R}^n$ tels que $\mathbf{w} \cdot \mathbf{x} + b = 0$, avec $\mathbf{w} \ne \mathbf{0}$ (le vecteur normal) : une droite du plan, un plan de l'espace | M07 |
@@ -332,15 +341,15 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | matrice d'une application linéaire | transformation matrix | la matrice dont la colonne $j$ contient les coordonnées de $f(\mathbf{b}_j)$ dans la base de l'arrivée ; dans les bases canoniques, $f(\mathbf{e}_j)$ | M12a |
 | matrice de confusion | confusion matrix | le tableau de contingence de la vérité et de la prédiction d'un classifieur (TP, FN, FP, TN en binaire) | M03 |
 | matrice de corrélation | correlation matrix | la matrice des corrélations $\rho_{ij} = \frac{\Sigma_{ij}}{\sigma_i\sigma_j}$, avec des 1 sur la diagonale | M02c |
-| matrice de covariance | covariance matrix | $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$ : les variances sur la diagonale, symétrique, et $\sum_i\sum_j w_iw_j\Sigma_{ij} \ge 0$ | M02c |
+| matrice de covariance | covariance matrix | $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$ : les variances sur la diagonale, symétrique, et $\sum_i\sum_j w_iw_j\Sigma_{ij} = \mathbb{V}(\mathbf{w}^\top\mathbf{X}) \ge 0$ : semi-définie positive ; ses valeurs propres sont les variances le long de ses axes propres, leur somme la variance totale | M02c, M12c |
 | matrice des features | feature matrix, design matrix | le tableau $\mathbf{X}$ de forme $(n, p)$ : une ligne par exemple, une colonne par feature ($\mathbf{X}$, ou $\boldsymbol{\Phi}$ après une transformation des features, dans MML) | M09b |
 | matrice diagonale | diagonal matrix | une matrice carrée dont les nombres hors de la diagonale sont nuls ; elle s'inverse nombre par nombre | M09a |
 | matrice identité | identity matrix | $\mathbf{I}_n$ : des 1 sur la diagonale, des 0 ailleurs ; $\mathbf{I}\mathbf{A} = \mathbf{A}\mathbf{I} = \mathbf{A}$ | M09a |
 | matrice inversible, singulière | invertible (regular, nonsingular) matrix, singular matrix | une matrice carrée qui a une inverse, ou qui n'en a pas (quand une colonne combine les autres, ou que le rang est plus petit que la taille) | M09a |
 | matrice orthogonale | orthogonal matrix | une matrice carrée à colonnes orthonormées : $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}$, $\mathbf{Q}^{-1} = \mathbf{Q}^\top$ ; elle conserve produits scalaires, normes et distances (rotations, symétries, permutations) | M12b |
 | matrice symétrique | symmetric matrix | une matrice égale à sa transposée : $a_{ij} = a_{ji}$ ; $\mathbf{X}^\top\mathbf{X}$ l'est toujours | M09a |
-| matrice symétrique définie positive | symmetric positive definite matrix | $\mathbf{M}^\top = \mathbf{M}$ et $\mathbf{x}^\top\mathbf{M}\mathbf{x} > 0$ pour $\mathbf{x} \ne \mathbf{0}$ : exactement les matrices des produits scalaires de $\mathbb{R}^n$ ; en dimension 2, $a > 0$ et $ac - b^2 > 0$ | M12b |
-| matrices semblables, équivalentes | similar matrices, equivalent matrices | $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$, ou $\mathbf{T}^{-1}\mathbf{A}\mathbf{S}$ : la même application linéaire dans d'autres bases ; le rang ne change pas | M12a |
+| matrice symétrique définie positive | symmetric positive definite matrix | $\mathbf{M}^\top = \mathbf{M}$ et $\mathbf{x}^\top\mathbf{M}\mathbf{x} > 0$ pour $\mathbf{x} \ne \mathbf{0}$ : exactement les matrices des produits scalaires de $\mathbb{R}^n$ ; en dimension 2, $a > 0$ et $ac - b^2 > 0$ ; ses valeurs propres sont toutes strictement positives, ses mineurs principaux aussi, et elle a une décomposition de Cholesky | M12b, M12c |
+| matrices semblables, équivalentes | similar matrices, equivalent matrices | $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$, ou $\mathbf{T}^{-1}\mathbf{A}\mathbf{S}$ : la même application linéaire dans d'autres bases ; le rang ne change pas, et deux matrices semblables ont aussi le même déterminant, la même trace et les mêmes valeurs propres | M12a, M12c |
 | maximum de vraisemblance (estimation du) | maximum likelihood estimate (MLE) | la valeur du paramètre qui rend les données observées les plus probables ; pour une proportion, la fréquence | M04 |
 | maximum, minimum, extremum | maximum, minimum, extremum (extrema) | la plus grande (petite) valeur d'une fonction sur un ensemble | R3 |
 | MCC (coefficient de Matthews) | Matthews correlation coefficient | la corrélation entre la vérité et la prédiction codées 0 et 1, entre $-1$ et 1 | M03 |
@@ -348,11 +357,13 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | médiane géométrique | geometric median | le point qui minimise la somme des distances euclidiennes (non au carré) à des points ; sans formule, l'algorithme de Weiszfeld la calcule | M07 |
 | mesures appariées | paired measurements | deux mesures de la même unité (avant et après) : on travaille sur leurs différences, et la variabilité entre unités disparaît | M08 |
 | méthode de Chernoff | Chernoff method | appliquer Markov à $e^{\lambda X}$, puis choisir le meilleur $\lambda$ : d'où les bornes exponentielles, comme celle de Hoeffding | M11 |
+| méthode de la puissance | power iteration, power method | $\mathbf{x}_{k+1} = \mathbf{A}\mathbf{x}_k/\lVert \mathbf{A}\mathbf{x}_k \rVert$ : converge vers le vecteur propre de la valeur propre de plus grand module, l'écart étant multiplié par $\lvert\lambda_2/\lambda_1\rvert$ à chaque pas ; seulement des produits matrice-vecteur | M12c |
 | méthode de Monte-Carlo | Monte Carlo method | estimer une probabilité, une espérance ou une intégrale par la moyenne d'un grand nombre de tirages au hasard | M02a |
 | méthode de Newton | Newton's method, Newton-Raphson | $x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$ : suivre la tangente jusqu'à l'axe pour approcher une racine | M05a |
 | méthode de Simpson | Simpson's rule | intégration numérique par des paraboles : $\frac{h}{3}(f_0 + 4f_1 + 2f_2 + \cdots + 4f_{n-1} + f_n)$, $n$ pair ; erreur en $h^4$ | M02a |
 | méthode des trapèzes | trapezoidal rule | intégration numérique par des segments : $h\big(\frac{f_0}{2} + f_1 + \cdots + \frac{f_n}{2}\big)$ ; erreur en $h^2$ | M02a |
 | milieu (d'un segment) | midpoint | le point dont les coordonnées sont les moyennes de celles des extrémités | R9 |
+| mineurs principaux (critère de Sylvester) | leading principal minors (Sylvester's criterion) | les déterminants des sous-matrices en haut à gauche, $1 \times 1$ à $n \times n$ ; une matrice symétrique est définie positive si et seulement si ils sont tous strictement positifs | M12c |
 | mise à jour séquentielle | sequential updating | l'a posteriori d'une observation devient l'a priori de la suivante | M04 |
 | mise en équation | setting up an equation, translating a word problem | traduire un énoncé en équation (ou en système) en choisissant les inconnues | R2 |
 | mode | mode | la valeur la plus fréquente d'une série, ou le maximum d'une densité | M02c |
@@ -366,6 +377,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | moyenne mobile | moving average | la moyenne des $k$ dernières valeurs, recalculée à chaque instant | R5 |
 | moyenne pondérée | weighted mean, weighted average | $\frac{\sum w_i x_i}{\sum w_i}$ : chaque valeur compte selon son poids | R1 |
 | MSE, RMSE (d'une régression) | mean squared error, root mean squared error | $\frac{1}{n}\sum r_i^2$ (dans l'unité de la cible au carré) et sa racine (dans l'unité de la cible) | M09b |
+| multiplicité algébrique, multiplicité géométrique | algebraic multiplicity, geometric multiplicity | la multiplicité de $\lambda$ comme racine du polynôme caractéristique ; la dimension de son espace propre, toujours entre 1 et la multiplicité algébrique | M12c |
 | négation | negation | la proposition « non P », vraie quand P est fausse | R4 |
 | nier l'antécédent | denying the antecedent | le sophisme formel « $P \Rightarrow Q$ ; non $P$ ; donc non $Q$ » : non valide | M11 |
 | nombre décimal | decimal number, terminating decimal | nombre qui s'écrit avec un nombre fini de chiffres après la virgule (ensemble 𝔻) | R1 |
@@ -411,6 +423,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | point de pourcentage | percentage point | écart entre deux pourcentages, obtenu en les soustrayant (de 4 % à 5 % : un point) | R1 |
 | point fixe | fixed point | un $\ell$ tel que $f(\ell) = \ell$ : la limite possible d'une suite $u_{n+1} = f(u_n)$ | R5 |
 | point selle | saddle point | un point critique où $f$ monte dans certaines directions et descend dans d'autres, comme un col de montagne | M05b |
+| polynôme caractéristique | characteristic polynomial | $p_{\mathbf{A}}(\lambda) = \det(\mathbf{A} - \lambda\mathbf{I})$, de degré $n$, dont les racines sont les valeurs propres ; en dimension 2, $\lambda^2 - (\operatorname{tr}\mathbf{A})\lambda + \det\mathbf{A}$ | M12c |
 | polynôme de Taylor, série de Taylor | Taylor polynomial, Taylor series | $\sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x - a)^k$, le polynôme qui a les mêmes $n$ premières dérivées que $f$ en $a$ ; la série, quand $n \to \infty$ | M05a |
 | polynôme, degré | polynomial, degree | somme de puissances entières de $x$ multipliées par des coefficients ; le degré est la plus grande puissance | R3 |
 | population | population | l'ensemble (ou la loi) dont les données sont tirées, et dont on veut connaître les paramètres | M02c |
@@ -443,9 +456,11 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | quantile | quantile | le plus petit $x$ tel que $F(x) \ge p$ ; la médiane est le quantile d'ordre 0,5 | M02a |
 | quantité conjuguée | conjugate | multiplier $\sqrt{A} - \sqrt{B}$ par $\sqrt{A} + \sqrt{B}$ pour obtenir $A - B$ | R7 |
 | queue (d'une loi), queue empirique | tail probability, empirical tail | $P(X \ge a)$ ; sur un échantillon, la proportion des valeurs $x_i \ge a$ | M11 |
+| quotient de Rayleigh | Rayleigh quotient | $R(\mathbf{x}) = \frac{\mathbf{x}^\top\mathbf{A}\mathbf{x}}{\mathbf{x}^\top\mathbf{x}}$ ; pour $\mathbf{A}$ symétrique, une moyenne pondérée des valeurs propres, entre $\lambda_{\min}$ et $\lambda_{\max}$, atteintes aux vecteurs propres | M12c |
 | quotient, reste | quotient, remainder | les deux résultats de la division euclidienne | R0 |
 | racine (d'une fonction) | root, zero | un $x$ tel que $f(x) = 0$ | R3 |
 | racine carrée | square root | nombre positif ou nul dont le carré vaut $a$ | R1 |
+| racine carrée d'une matrice | matrix square root | pour $\mathbf{A}$ symétrique semi-définie positive, l'unique matrice symétrique semi-définie positive $\mathbf{A}^{1/2} = \mathbf{Q}\boldsymbol{\Lambda}^{1/2}\mathbf{Q}^\top$ de carré $\mathbf{A}$ ; pas la racine des éléments | M12c |
 | radian | radian | unité d'angle : la longueur de l'arc sur le cercle de rayon 1 ; $180° = \pi$ rad | R9 |
 | raison (d'une suite) | common difference, common ratio | ce qu'on ajoute (suite arithmétique) ou ce par quoi on multiplie (suite géométrique) à chaque pas | R5 |
 | rang | rank | le nombre de pivots, la dimension de l'espace des colonnes (et de celui des lignes) : $\operatorname{rg}(\mathbf{A}) = \operatorname{rg}(\mathbf{A}^\top) \le \min(m, n)$ | M09a, M12a |
@@ -482,6 +497,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | score de Brier | Brier score | $\frac{1}{n}\sum (p_i - y_i)^2$ : l'erreur quadratique moyenne des probabilités annoncées | M03 |
 | sécante | secant line | droite qui passe par deux points de la courbe ; sa pente est le taux d'accroissement | R7 |
 | second degré (polynôme du) | quadratic (polynomial, function) | $ax^2 + bx + c$ avec $a \ne 0$ | R3 |
+| semi-définie positive, définie négative, indéfinie | positive semidefinite, negative definite, indefinite | pour une matrice symétrique : $\mathbf{x}^\top\mathbf{A}\mathbf{x} \ge 0$ pour tout $\mathbf{x}$ (valeurs propres positives ou nulles) ; $< 0$ pour tout $\mathbf{x} \ne \mathbf{0}$ (valeurs propres strictement négatives) ; des valeurs des deux signes (valeurs propres des deux signes) | M12c |
 | sens direct | counterclockwise | le sens inverse des aiguilles d'une montre ; les sommets d'une enveloppe convexe sont rangés dans ce sens | M10 |
 | seuil (fonction) | step function | $H(z) = 1$ si $z > 0$, 0 sinon (la convention en 0 varie) ; l'activation d'un classifieur linéaire qui répond oui ou non ; c'est la fonction marche de R3 | M10 |
 | seuil d'un test | significance level | $\alpha$, le risque de type I accepté : on rejette $H_0$ quand la p-valeur est au plus $\alpha$ (souvent 0,05) | M08 |
@@ -548,7 +564,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | théorème des valeurs intermédiaires | intermediate value theorem | une fonction continue sur $[a ; b]$ prend toutes les valeurs entre $f(a)$ et $f(b)$ | R7 |
 | théorème du rang | rank-nullity theorem | $\dim\ker\mathbf{A} + \operatorname{rg}(\mathbf{A}) = n$, le nombre de colonnes (la dimension de l'espace de départ) | M12a |
 | théorème fondamental de l'analyse | fundamental theorem of calculus | $\int_a^b f = F(b) - F(a)$ pour une primitive $F$ ; la fonction aire a pour dérivée $f$ | M02a |
+| théorème spectral | spectral theorem | une matrice symétrique réelle a des valeurs propres réelles et une base orthonormée de vecteurs propres : $\mathbf{A} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ | M12c |
 | tirage avec remise, sans remise | sampling with replacement, without replacement | avec remise, l'objet tiré est remis avant le tirage suivant (les tirages sont i.i.d.) ; sans remise, la composition change et les tirages sont dépendants | R8, M02c |
+| trace | trace | $\operatorname{tr}\mathbf{A} = \sum_i a_{ii}$ ; linéaire, $\operatorname{tr}(\mathbf{A}\mathbf{B}) = \operatorname{tr}(\mathbf{B}\mathbf{A})$, indépendante de la base, égale à la somme des valeurs propres ; pour une covariance, la variance totale | M12c |
 | tranche (d'une surface) | slice, cross-section | la courbe obtenue en figeant une variable, comme $x \mapsto f(x, b)$ ; $\frac{\partial f}{\partial x}(a, b)$ est sa pente en $a$ | M05b |
 | transposée | transpose | $\mathbf{A}^\top$, les lignes devenues colonnes : $(\mathbf{A}^\top)_{ij} = a_{ji}$, et $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$ | M09a |
 | triangle de Pascal | Pascal's triangle | les coefficients binomiaux rangés en triangle : chaque nombre est la somme des deux au-dessus | R8 |
@@ -560,7 +578,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | valeur interdite | excluded value | valeur de l'inconnue qui annule un dénominateur | R2 |
 | valeur moyenne d'une fonction | mean value of a function | $\frac{1}{b - a}\int_a^b f$ : la hauteur du rectangle de même aire | M02a |
 | valeur prédictive négative | negative predictive value (NPV) | $P(Y = 0 \mid \hat{Y} = 0)$ : la part des « négatif » prédits qui le sont vraiment | M03 |
-| valeur propre, vecteur propre | eigenvalue, eigenvector | $\mathbf{A}\mathbf{v} = \lambda\mathbf{v}$ : une direction que $\mathbf{A}$ ne fait qu'étirer | M12c |
+| valeur propre, vecteur propre | eigenvalue, eigenvector | $\mathbf{A}\mathbf{v} = \lambda\mathbf{v}$ avec $\mathbf{v} \ne \mathbf{0}$ : une direction que $\mathbf{A}$ ne fait qu'étirer, écraser ou retourner, du facteur $\lambda$ ; les valeurs propres sont les racines de $\det(\mathbf{A} - \lambda\mathbf{I})$, leur somme est la trace, leur produit le déterminant | M12c |
 | validation croisée imbriquée | nested cross-validation | une boucle intérieure choisit le modèle, une boucle extérieure estime la performance de toute la procédure, choix compris | M08 |
 | valide, solide (argument) | valid, sound | valide : la conclusion est vraie partout où les prémisses le sont toutes ; solide : valide et à prémisses vraies | M11 |
 | variable aléatoire | random variable | grandeur dont la valeur dépend du hasard | R8 |
