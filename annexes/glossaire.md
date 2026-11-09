@@ -546,7 +546,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | suite géométrique | geometric sequence, geometric progression | on multiplie par la même raison $q$ à chaque pas : $u_n = u_0\,q^n$ | R5 |
 | support (d'une loi) | support | l'ensemble des valeurs où la densité n'est pas nulle | M02a |
 | surdispersion | overdispersion | des comptages dont la variance dépasse nettement la moyenne : la loi de Poisson ne convient pas | M02b |
-| SVD compacte | compact SVD, thin SVD | $\mathbf{A} = \mathbf{U}_r\mathbf{S}_r\mathbf{V}_r^\top = \sum_{i \le r} s_i\mathbf{u}_i\mathbf{v}_i^\top$, en ne gardant que les $r$ valeurs singulières non nulles ; `np.linalg.svd(A, full_matrices=False)` garde $\min(m, n)$ valeurs | M12d |
+| SVD compacte, SVD réduite | compact SVD, thin SVD | $\mathbf{A} = \mathbf{U}_r\mathbf{S}_r\mathbf{V}_r^\top = \sum_{i \le r} s_i\mathbf{u}_i\mathbf{v}_i^\top$, en ne gardant que les $r$ valeurs singulières non nulles (compacte) ; la SVD réduite de `np.linalg.svd(A, full_matrices=False)` en garde $\min(m, n)$, nulles comprises | M12d |
 | système homogène | homogeneous system | un système de second membre nul, $\mathbf{A}\mathbf{x} = \mathbf{0}$ ; il a toujours la solution $\mathbf{0}$ | M09a |
 | système linéaire | system of linear equations, linear system | plusieurs équations du premier degré à résoudre ensemble ; leurs solutions communes | R2, M09a |
 | t-SNE | t-SNE (t-distributed stochastic neighbor embedding) | une carte en 2D (ou 3D) d'un nuage de grande dimension, qui garde les voisinages : des probabilités de voisinage gaussiennes dans l'espace d'origine, d'une loi de Student sur la carte, rapprochées par descente de gradient sur leur divergence KL ; pour voir, pas pour mesurer | M12d |

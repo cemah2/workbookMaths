@@ -372,7 +372,7 @@ $t_{7j} = \mathbf{u}_j^\top(\mathbf{x}_7 - \boldsymbol{\mu})$, avec $\mathbf{x}_
 </details>
 <details><summary>Indice 3</summary>
 
-f) $\frac{n-1}{n}\lambda_3$ ; g) $\frac{n-1}{n}(\lambda_2 + \lambda_3)$.
+c) $\sqrt{17}\,t_{i1} = 4x_1 + x_3$ sur les objets centrés ; e) $\operatorname{Cov}(t_1, x_1) = \mathbf{u}_1^\top\mathbf{C}\,\mathbf{e}_1$ ; f) $\frac{n-1}{n}\lambda_3$ ; g) $\frac{n-1}{n}(\lambda_2 + \lambda_3)$.
 
 </details>
 
@@ -596,7 +596,7 @@ $(\mathbf{D}\mathbf{C}\mathbf{D})_{ij} = d_id_jc_{ij}$, avec $\mathbf{D} = \oper
 </details>
 <details><summary>Indice 3</summary>
 
-Le nouveau bloc $\begin{pmatrix} 19 & 12 \\ 12 & 36 \end{pmatrix}$ a pour trace 55 et déterminant 540 ; la corrélation $\frac{c_{13}}{\sqrt{c_{11}c_{33}}}$ se calcule avant et après.
+Le nouveau bloc $\begin{pmatrix} 19 & 12 \\ 12 & 36 \end{pmatrix}$ a pour trace 55 et déterminant 540 ; la corrélation $\frac{c_{13}}{\sqrt{c_{11}c_{33}}}$ ; f) l'arccos du produit scalaire des deux axes unitaires, en degrés.
 
 </details>
 

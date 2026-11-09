@@ -46572,9 +46572,9 @@
       "decimals": 0,
       "element_hashes": [
         "b84b542f7c7e9a770b01f725347f16ad3fca65842abf46129e5ee9acbddbd923",
-        "b5c0768ff7860e320dac416fd14ddc8b042e909d6dce5138ed51436fdc101d55"
+        "dbcea02d5f13354bb9205f0287b669da65b15783c60eff38fe808ba0b471fd82"
       ],
-      "hash": "4246fed4ddfafc4be30c28ebfe83c85122456fcee563d2a81a48598994a293ab",
+      "hash": "8af494d29b0e0a606cbde01bd58eb46630d69d359cb65a4d6790148f622dd045",
       "integer": true,
       "kind": "array",
       "shape": [
@@ -46585,16 +46585,17 @@
     "M12d.7f": {
       "coarse_any": {
         "0": [
-          "0b5c307ba74d131a5958a9fbeda259c40c1567e8905c4cbd5a4376e75f3425e3"
+          "9c6d8cbf7bba46e9800095b0ca4ff0460fa1302d0d3d69d809922f3278f42146"
         ]
       },
       "decimals": 2,
-      "hash": "beeab7780f321d331445af715fd53742b71f8600fadcd1341b46dd2abd989e9f",
-      "hash_coarse": "da82291c78203067e9651ad22c3e9f1f00e7c6ebd9a6ad1da302aa8a5a612a92",
+      "hash": "7a41344f62eb33091f3a761f401e1837ed7e1832cd1cbda85add5937100c7a22",
+      "hash_coarse": "212138b51fdd84839389af732ac686f3a4fc465ba477125599d81660e810fad7",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "9045b57fbab48075737496b1927f2f6f557b6ee81c2f31b87d1eaa456c8c0659": "le rapport des erreurs RELATIVES : divise ‖δx‖ par ‖x‖ et ‖δb‖ par ‖b‖"
+        "5d66ecd2931fcb08103a83782680bcc62e754e8945f5ec1b638cbd42776fbe45": "le rapport des erreurs RELATIVES : divise ‖δx‖ par ‖x‖ et ‖δb‖ par ‖b‖",
+        "99338712a41f317a74317bd8044f4fc85d0a9f8285333cb0e97e16ceedd0346a": "le rapport des erreurs RELATIVES : divise ‖δx‖ par ‖x‖ et ‖δb‖ par ‖b‖"
       },
       "sign": 1,
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
@@ -46612,10 +46613,10 @@
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },
     "M12d.7h": {
-      "hash": "724b29400d19784eb19c58119a02d89b07d97838ef39ee9fe2ba3edec1f8e643",
+      "hash": "0c9f1f2e61005c533b8cc1f5c2bf6d2449d1fd66b65418117451ba16a66ac8ec",
       "kind": "bool",
       "mistakes": {
-        "0c9f1f2e61005c533b8cc1f5c2bf6d2449d1fd66b65418117451ba16a66ac8ec": "multiplier R par c multiplie toutes ses valeurs singulières par |c| : leur rapport ne change pas"
+        "724b29400d19784eb19c58119a02d89b07d97838ef39ee9fe2ba3edec1f8e643": "multiplier R par c multiplie toutes ses valeurs singulières par |c| : leur rapport ne change pas"
       },
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },
@@ -46871,10 +46872,25 @@
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },
     "M12d.9c": {
-      "hash": "83af5cb9181d4b73940fb2b7ff67c5c2e13cf0728cbbae728992441de8d69a85",
-      "kind": "int",
-      "magnitude": null,
-      "sign": 0,
+      "decimals": 0,
+      "element_hashes": [
+        "e1d72110f968f390e4781e3d63d18e38e2d9ad0ad1327557c9216deb0927fc83",
+        "e1d281dd5fc203c311b4222e2cadb4ca159f0bb788aafdf3ee71752a1780c2fd",
+        "b1425df8f855c1b8d1985c974989b81d85c1fd7fe680e2d7ec74499029a5d327",
+        "89c6faee1dfabda7ee8f7f75b9a45afac99584ca41b5a712f07d76039d4fe92a",
+        "fbd47fc9fa96e3afb34764a4d6291ebe8811b9a373ea2a20d74b5d2b18c61c46",
+        "f292a5b47908053b4f17046004784cd419145f6654d24b0c980812656ca050f3",
+        "12ce14d95c246ca2484b9f17ada9e382456fd719e6c5da49f73d919b5473b454"
+      ],
+      "hash": "a01e8154870403a7a16b26c78d33c41a9e2479d28777797940faf1f817cc0056",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "549b3bb0a5e32b4cb9a5b75ba3dff0940e48f63bbce5190324e6152d930c4542": "les scores se calculent sur les objets CENTRÉS"
+      },
+      "shape": [
+        7
+      ],
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },
     "M12d.9d": {
@@ -46886,10 +46902,31 @@
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },
     "M12d.9e": {
-      "hash": "041ef15214d7b6a5483d2c7ee5fe73ca2b332a24b35c9203d8987371136929bb",
-      "kind": "int",
-      "magnitude": null,
-      "sign": 0,
+      "alt_hashes": [
+        "4c0624d84bd2463ab725acb32d75c43f61c3354eaedcd421daea4113b566c8ee"
+      ],
+      "coarse_any": {
+        "0": [
+          "3737824e8c29ed7b129f86edaf88fce2a0bc2f40213bf7e5a1552b8510dd8ede"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "ce59c1f6413cb740ea50861cbe1508db061996a162ce624f853641b43d2e2689"
+        ],
+        "2": [
+          "ca210e814caf39b1e98d73c5b34b1f4b4774a63f1a5ba271618a025da7cdbd4e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a906ed72ea6851a64921e52a1129138c4dc46fc1bd500d06435845ef60bfe67c",
+      "hash_coarse": "bf4e38f7dfebe681c9d942d9e4455b6b43ea91dfde6e9781e765715874b49b40",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "0bbf9cd79fc4b65d4a5ec0b9632c54916593d2230793df26d0891fdd0616fd4e": "Cov(t₁, x₁) = u₁ᵀ C e₁ = λ₁ u₁₁ : n'oublie pas λ₁"
+      },
+      "sign": 1,
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },
     "M12d.9f": {
@@ -48013,23 +48050,14 @@
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"
     },
     "M12d.21f": {
-      "coarse_any": {
-        "1": [
-          "34bb81a2282a6551e5edd53350713735a41ba7f8900a2f598d07cedf5fb9dbe2"
-        ]
-      },
-      "coarser": {
-        "2": [
-          "aa9e5f2a7bea734f782b466d122891e315af94cab5eab5f8181abd0599b1b0ee"
-        ]
-      },
-      "decimals": 4,
-      "hash": "8ffce3dbda8f2af25625457c62709e268bcd3fc83289c25f9d6476f041971170",
-      "hash_coarse": "b6a95ab46ac032af400996c359293706306ea642fe0049d13b3d2d9ec66c0a4d",
+      "decimals": 1,
+      "hash": "e53b760fface3ed0710976c53d41818a6d547a9ea7a8116d0663bdd1430ea0b6",
+      "hash_coarse": "80d7cb1f18efb845857143858acaf1ecdc55a9fb254d5e60e7023fb743ba094e",
       "kind": "float",
-      "magnitude": -1,
+      "magnitude": 1,
       "mistakes": {
-        "0983753eea37757c0694d2584d360b43210cc38add3105fae577fdd062ffc4e8": "après le changement, les deux écarts-types changent aussi : divise par √(19 × 36)"
+        "001f1960b1dfc4c867f260349d658a5c18283feba4f945bdd03c6efaf25071c5": "l'angle en DEGRÉS : arccos du produit scalaire des deux axes unitaires, puis × 180/π",
+        "bc212fce52af2d4be4572842dc2dec2d0f58f7f6a60acd094fc2e14fb797d200": "l'angle en DEGRÉS : arccos du produit scalaire des deux axes unitaires, puis × 180/π"
       },
       "sign": 1,
       "source": "chapitres/m12d_svd_acp/05_solutions.ipynb"

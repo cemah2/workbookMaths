@@ -150,13 +150,13 @@ PAPER = [
          '''"le conditionnement ne se lit pas sur le déterminant": 1.0}'''),
         ("d", "a number (4 decimals)", "float(KAPPA_7 / 1000)",
          '''decimals=4, mistakes={"la borne multiplie l'erreur relative sur b par κ": 0.001}'''),
-        ("e", "a list of 2 numbers", "exact(R_7.solve(V([11, 7])))"),
-        ("f", "a number (2 decimals)", "float(sq(6205))",
-         '''decimals=2, mistakes={"le rapport des erreurs RELATIVES : divise ‖δx‖ par ‖x‖ et ‖δb‖ par ‖b‖": float(V([-3, 8]).norm())}'''),
+        ("e", "a list of 2 numbers", "exact(R_7.solve(V([14, 9])))"),
+        ("f", "a number (2 decimals)", "float(AMPL_7)",
+         '''decimals=2, mistakes={"le rapport des erreurs RELATIVES : divise ‖δx‖ par ‖x‖ et ‖δb‖ par ‖b‖": float(V([2, -5]).norm())}'''),
         ("g", "a number (1 decimal)", "float(KAPPA_7 ** 2)",
          '''decimals=1, mistakes={"κ(RᵀR) = κ(R)², le carré": float(KAPPA_7)}'''),
-        ("h", "True or False", "False",
-         '''mistakes={"multiplier R par c multiplie toutes ses valeurs singulières par |c| : leur rapport ne change pas": True}'''),
+        ("h", "True or False", "True",
+         '''mistakes={"multiplier R par c multiplie toutes ses valeurs singulières par |c| : leur rapport ne change pas": False}'''),
     ]),
 
     Paper("M12d.8", "Les axes principaux d'un nuage de ℝ³ : covariance, polynôme caractéristique, variances et axes", [
@@ -179,9 +179,11 @@ PAPER = [
          '''decimals=4, mistakes={"les scores se calculent sur l'objet CENTRÉ, x₇ − μ": exact([U1_8.dot(X_8.row(6).T), U2_8.dot(X_8.row(6).T)])}'''),
         ("b", "a list of 3 numbers (4 decimals)", "exact(REC7_9)",
          '''decimals=4, mistakes={"x̂ = μ + t₁u₁ + t₂u₂ : rajoute la moyenne": exact(REC7_9 - MU_8)}'''),
-        ("c", "a number", "0"),
+        ("c", "a list of 7 numbers", "exact(XC_8 * V([4, 0, 1]))",
+         '''mistakes={"les scores se calculent sur les objets CENTRÉS": exact(X_8 * V([4, 0, 1]))}'''),
         ("d", "a number", "20", '''fractional="la variance des scores se calcule avec n − 1 = 6, comme la covariance"'''),
-        ("e", "a number", "0"),
+        ("e", "a number (4 decimals)", "float(20 * U1_8[0])",
+         '''decimals=4, mistakes={"Cov(t₁, x₁) = u₁ᵀ C e₁ = λ₁ u₁₁ : n'oublie pas λ₁": float(U1_8[0])}'''),
         ("f", "a number (4 decimals)", "float(sympy.Rational(18, 7))",
          '''decimals=4, mistakes={"la somme des variances oubliées, au facteur (n − 1)/n près": 3.0}'''),
         ("g", "a number (4 decimals)", "12.0",
@@ -278,8 +280,8 @@ PAPER = [
          '''decimals=4, mistakes={"la variance totale a changé aussi : 19 + 11 + 36": float((55 + sq(865)) / 2 / 34)}'''),
         ("e", "a number (4 decimals)", "float(2 / sq(19))",
          '''decimals=4, mistakes={"divise par le produit des écarts-types, pas des variances": float(sympy.Rational(4, 76))}'''),
-        ("f", "a number (4 decimals)", "float(2 / sq(19))",
-         '''decimals=4, mistakes={"après le changement, les deux écarts-types changent aussi : divise par √(19 × 36)": float(12 / sq(76))}'''),
+        ("f", "a number (1 decimal)", "float(sympy.acos(U1_8.dot(U1_21)) * 180 / sympy.pi)",
+         '''decimals=1, mistakes={"l'angle en DEGRÉS : arccos du produit scalaire des deux axes unitaires, puis × 180/π": float(sympy.acos(U1_8.dot(U1_21)))}'''),
         ("g", "a matrix (4 decimals)", "floats(CORR_21)",
          '''decimals=4, mistakes={"standardiser donne la matrice de CORRÉLATION, de diagonale 1": floats(D_21 * C_8 * D_21)}'''),
         ("h", "True or False", "True",
@@ -339,6 +341,7 @@ P_6 = A_6.T / 2349
 assert sympy.simplify(A_6 * P_6 * A_6 - A_6) == sympy.zeros(2, 3)
 R_7 = V([[8, 3], [5, 2]])                                                                   # M12d.7
 KAPPA_7 = 51 + 10 * sq(26)
+AMPL_7 = ((R_7.solve(V([sympy.Rational(1, 100), 0]))).norm() / (R_7.solve(V([14, 9]))).norm()) / (sympy.Rational(1, 100) / V([14, 9]).norm())
 assert abs(float(KAPPA_7) - np.linalg.cond(np.array([[8.0, 3.0], [5.0, 2.0]]))) < 1e-9
 X_8 = V([[10, 8, 3], [9, 14, 7], [15, 4, 9], [10, 6, 4], [16, 11, 6], [18, 10, 6], [20, 10, 7]])   # M12d.8
 MU_8 = V([sum(X_8[:, j]) / 7 for j in range(3)])

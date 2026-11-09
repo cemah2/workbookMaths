@@ -189,7 +189,7 @@ $\mathbf{B} = \begin{pmatrix} 1 & 8 \\ 4 & -4 \end{pmatrix}$ envoie le cercle un
 |---|---|---|
 | a | les longueurs des demi-axes de l'ellipse, du grand au petit | une liste de 2 nombres |
 | b | un vecteur unitaire porté par le grand axe, de première coordonnée positive | une liste de 2 nombres (4 décimales) |
-| c | le vecteur $\mathbf{x}$ du cercle unité envoyé au bout du grand axe (convention de la fiche) | une liste de 2 nombres (4 décimales) |
+| c | les deux vecteurs $\pm\mathbf{x}$ du cercle unité envoyés aux deux bouts du grand axe : celui qui suit la convention de la fiche | une liste de 2 nombres (4 décimales) |
 | d | l'aire de l'ellipse divisée par $\pi$ | un nombre |
 | e | $\lVert \mathbf{B}\mathbf{e}_1 \rVert$ | un nombre (4 décimales) |
 | f | $\lVert \mathbf{B}\mathbf{e}_2 \rVert$ | un nombre (4 décimales) |
@@ -202,7 +202,7 @@ Dans ta copie : dessine le cercle, l'ellipse, ses deux demi-axes et les images d
 **Objectif :** calculer une SVD $3 \times 3$ quand $\mathbf{A}^\top\mathbf{A}$ est par blocs, en déduire la meilleure approximation de rang 1 et son erreur (Eckart-Young).
 **Prérequis :** fiche §1 et §3 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 4 & 2 & 1 \\ 4 & 2 & -1 \\ 1 & 4 & 0 \end{pmatrix}$ (trois clients, trois produits : une note par case).
+$\mathbf{A} = \begin{pmatrix} 4 & 2 & 1 \\ 4 & 2 & -1 \\ 1 & 4 & 0 \end{pmatrix}$ (trois clients, trois produits : une note de $-5$ à $5$ par case).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -266,10 +266,10 @@ $\mathbf{P} = \begin{pmatrix} 0 & 5 \\ -2 & 0 \end{pmatrix}$, $\mathbf{Q} = \fra
 | b | $\kappa(\mathbf{Q})$ | un nombre |
 | c | $\kappa(\mathbf{R})$ | un nombre (4 décimales) |
 | d | la borne sur l'erreur relative de $\mathbf{x}$, solution de $\mathbf{R}\mathbf{x} = \mathbf{b}$, quand $\mathbf{b}$ est connu à 0,1 % près (en fraction : 0,1 % = 0,001) | un nombre (4 décimales) |
-| e | la solution de $\mathbf{R}\mathbf{x} = (11, 7)$ | une liste de 2 nombres |
-| f | pour $\delta\mathbf{b} = (0 ;\ 0{,}01)$, le rapport $\dfrac{\lVert \delta\mathbf{x} \rVert / \lVert \mathbf{x} \rVert}{\lVert \delta\mathbf{b} \rVert / \lVert \mathbf{b} \rVert}$ | un nombre (2 décimales) |
+| e | la solution de $\mathbf{R}\mathbf{x} = (14, 9)$ | une liste de 2 nombres |
+| f | pour $\delta\mathbf{b} = (0{,}01 ;\ 0)$, le rapport $\dfrac{\lVert \delta\mathbf{x} \rVert / \lVert \mathbf{x} \rVert}{\lVert \delta\mathbf{b} \rVert / \lVert \mathbf{b} \rVert}$ | un nombre (2 décimales) |
 | g | $\kappa(\mathbf{R}^\top\mathbf{R})$ | un nombre (1 décimale) |
-| h | vrai ou faux : $\kappa(1\,000\,\mathbf{R}) \ne \kappa(\mathbf{R})$ | `True` ou `False` |
+| h | vrai ou faux : $\kappa(1\,000\,\mathbf{R}) = \kappa(\mathbf{R})$ | `True` ou `False` |
 
 Dans ta copie : pour c), utilise $s_1^2 + s_2^2 = \lVert \mathbf{R} \rVert_F^2$ et $s_1 s_2 = \lvert\det\mathbf{R}\rvert$ : pourquoi $\kappa + \frac{1}{\kappa} = 102$ ici ? Compare f) à c). Quelle perturbation $\delta\mathbf{b}$ (de quelle direction) atteindrait la borne ? $\det\mathbf{R} = 1$ et $\det\mathbf{P} = 10$ : qu'en conclure ?
 
@@ -291,7 +291,7 @@ $$\mathbf{X} = \begin{pmatrix} 10 & 8 & 3 \\ 9 & 14 & 7 \\ 15 & 4 & 9 \\ 10 & 6 
 | g | le troisième axe principal $\mathbf{u}_3$ | une liste de 3 nombres (4 décimales) |
 | h | la variance des coordonnées le long de $\frac{1}{\sqrt{2}}(1, 0, 1)$ | un nombre (1 décimale) |
 
-Dans ta copie : écris $\det(\mathbf{C} - \lambda\mathbf{I})$ en développant selon la deuxième ligne, et factorise-le. Vérifie que la somme et le produit des variances de e) sont c) et d). Quel est le deuxième axe, sans calcul ? Pourquoi h) est-il inférieur à $\lambda_1$, alors que $(1, 0, 1)$ « mélange » les deux mesures les plus dispersées ?
+Dans ta copie : écris $\det(\mathbf{C} - \lambda\mathbf{I})$ en développant selon la deuxième ligne, et factorise-le. Vérifie que la somme et le produit des variances de e) sont c) et d). Quel est le deuxième axe, sans calcul ? Pourquoi h) est-il inférieur à $\lambda_1$, alors que $(1, 0, 1)$ « mélange » les deux mesures corrélées entre elles ?
 
 ### Ex M12d.9 — Scores, reconstruction et erreur de reconstruction moyenne avec deux composantes sur trois ✏️ ★★ ⏱️ 20 min
 **Objectif :** projeter un nuage sur ses deux premiers axes, reconstruire un exemple, et relier l'erreur de reconstruction moyenne aux variances oubliées.
@@ -303,14 +303,14 @@ Le nuage de M12d.8, avec ses trois axes principaux. On garde $k = 2$ composantes
 |---|---|---|
 | a | les scores $(t_{71}, t_{72})$ du septième objet sur $\mathbf{u}_1$ et $\mathbf{u}_2$ | une liste de 2 nombres (4 décimales) |
 | b | la reconstruction $\hat{\mathbf{x}}_7$ du septième objet | une liste de 3 nombres (4 décimales) |
-| c | la moyenne des sept scores sur $\mathbf{u}_1$ | un nombre |
+| c | les sept scores sur $\mathbf{u}_1$, multipliés par $\sqrt{17}$ (des entiers), dans l'ordre des objets | une liste de 7 nombres |
 | d | leur variance (avec $\frac{1}{n - 1}$) | un nombre |
-| e | la covariance des scores sur $\mathbf{u}_1$ et sur $\mathbf{u}_2$ | un nombre |
+| e | la covariance des scores sur $\mathbf{u}_1$ avec la première mesure $x_1$ | un nombre (4 décimales) |
 | f | l'erreur de reconstruction moyenne avec $k = 2$ | un nombre (4 décimales) |
 | g | l'erreur de reconstruction moyenne avec $k = 1$ | un nombre (4 décimales) |
 | h | la part de variance gardée avec $k = 2$ | un nombre (4 décimales) |
 
-Dans ta copie : vérifie f) directement, en calculant les sept scores sur $\mathbf{u}_3$ (multipliés par $\sqrt{17}$, ce sont des entiers) et la moyenne de leurs carrés. D'où vient le facteur $\frac{n-1}{n}$ ? Compare $\hat{\mathbf{x}}_7$ à $\mathbf{x}_7$ : quelle mesure n'a pas bougé, et pourquoi ?
+Dans ta copie : vérifie que les scores de c) sont de moyenne nulle, et que leur covariance avec ceux de $\mathbf{u}_2$ est nulle. Montre que e) vaut $\lambda_1$ fois la première coordonnée de $\mathbf{u}_1$ (écris la covariance comme $\mathbf{u}_1^\top\mathbf{C}\,\mathbf{e}_1$). Vérifie f) directement, en calculant les sept scores sur $\mathbf{u}_3$ (multipliés par $\sqrt{17}$, ce sont des entiers) et la moyenne de leurs carrés. D'où vient le facteur $\frac{n-1}{n}$ ? Compare $\hat{\mathbf{x}}_7$ à $\mathbf{x}_7$ : quelle mesure n'a pas bougé, et pourquoi ?
 
 ### Ex M12d.10 — La variance expliquée cumulée : combien de composantes pour 95 % ? ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer des parts de variance expliquée, choisir un nombre de composantes par un seuil, et le comparer au coude de la courbe.
@@ -380,7 +380,7 @@ Quatre points de $\mathbb{R}^3$ : $\mathbf{x}_1 = (0, 0, 0)$, $\mathbf{x}_2 = (1
 | c | l'entropie $H(P_1)$, en bits | un nombre (4 décimales) |
 | d | la perplexité $2^{H(P_1)}$ | un nombre (4 décimales) |
 | e | $p_{1 \mid 2}$ | un nombre (4 décimales) |
-| f | la probabilité symétrisée $p_{12}$ | un nombre (4 décimales) |
+| f | la probabilité symétrisée $p_{12}$ (formule de la fiche §8, avec $n = 4$) | un nombre (4 décimales) |
 | g | la limite de la perplexité de $P_1$ quand $\sigma \to +\infty$ | un nombre |
 
 Dans ta copie : écris c) sous forme exacte ($\log_2 7$ y apparaît). Que devient la perplexité de $P_1$ quand $\sigma \to 0$ ? Entre quelles valeurs varie-t-elle donc ici, et pourquoi faut-il une dichotomie pour atteindre une perplexité fixée ? Pourquoi $p_{2 \mid 1} \ne p_{1 \mid 2}$ ?
@@ -399,7 +399,7 @@ $\mathbf{A}$ est de forme $(m, n)$.
 1. Montre que $\mathbf{A}^\top\mathbf{A}$ est symétrique et que $\mathbf{x}^\top\mathbf{A}^\top\mathbf{A}\mathbf{x} = \lVert \mathbf{A}\mathbf{x} \rVert^2$. Déduis-en que ses valeurs propres sont réelles et positives ou nulles.
 2. Si $\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$ (SVD complète), calcule $\mathbf{A}^\top\mathbf{A}$. Déduis-en que les $s_i^2$ (complétés par des zéros) sont les valeurs propres de $\mathbf{A}^\top\mathbf{A}$, de vecteurs propres les $\mathbf{v}_i$.
 3. Réciproquement, soit $\mathbf{v}_1, \ldots, \mathbf{v}_n$ une base orthonormée de vecteurs propres de $\mathbf{A}^\top\mathbf{A}$, de valeurs propres $\lambda_i$. Montre que les vecteurs $\mathbf{A}\mathbf{v}_i/\sqrt{\lambda_i}$, pour $\lambda_i > 0$, sont orthonormés.
-4. Montre que $\mathbf{A}\mathbf{A}^\top$ a les mêmes valeurs propres non nulles que $\mathbf{A}^\top\mathbf{A}$ : si $\mathbf{A}^\top\mathbf{A}\mathbf{v} = \lambda\mathbf{v}$ avec $\lambda \ne 0$, que vaut $\mathbf{A}\mathbf{A}^\top(\mathbf{A}\mathbf{v})$, et pourquoi $\mathbf{A}\mathbf{v} \ne \mathbf{0}$ ?
+4. Montre que $\mathbf{A}\mathbf{A}^\top$ a les mêmes valeurs propres non nulles que $\mathbf{A}^\top\mathbf{A}$ : si $\mathbf{A}^\top\mathbf{A}\mathbf{v} = \lambda\mathbf{v}$ avec $\lambda \ne 0$, que vaut $\mathbf{A}\mathbf{A}^\top(\mathbf{A}\mathbf{v})$, et pourquoi $\mathbf{A}\mathbf{v} \ne \mathbf{0}$ ? Montre aussi que $\mathbf{v} \mapsto \mathbf{A}\mathbf{v}$ est injective sur l'espace propre de $\lambda$ : les multiplicités sont les mêmes.
 5. Déduis de la trace de $\mathbf{A}^\top\mathbf{A}$ que $\lVert \mathbf{A} \rVert_F^2 = \sum_i s_i^2$.
 
 ### Ex M12d.15 — La plus grande valeur singulière est le plus grand étirement : ‖A x‖ ≤ σ₁ ‖x‖ ∂ ★★ ⏱️ 20 min
@@ -410,7 +410,7 @@ $\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$ est de forme $(m, n)$, de val
 1. Écris $\mathbf{x} = \sum_i c_i\mathbf{v}_i$ dans la base orthonormée des $\mathbf{v}_i$. Exprime $\lVert \mathbf{x} \rVert^2$, puis $\mathbf{A}\mathbf{x}$ et $\lVert \mathbf{A}\mathbf{x} \rVert^2$, avec les $c_i$ et les $s_i$.
 2. Déduis-en $s_n\lVert \mathbf{x} \rVert \le \lVert \mathbf{A}\mathbf{x} \rVert \le s_1\lVert \mathbf{x} \rVert$, et les cas d'égalité.
 3. Retrouve le résultat autrement : $\lVert \mathbf{A}\mathbf{x} \rVert^2/\lVert \mathbf{x} \rVert^2$ est un quotient de Rayleigh. De quelle matrice ?
-4. Montre que $\lVert \mathbf{A}\mathbf{B} \rVert_2 \le \lVert \mathbf{A} \rVert_2\,\lVert \mathbf{B} \rVert_2$ (en appliquant 2. deux fois).
+4. Montre que $\lVert \mathbf{A}\mathbf{B} \rVert_2 \le \lVert \mathbf{A} \rVert_2\,\lVert \mathbf{B} \rVert_2$ (en appliquant deux fois l'inégalité de droite de 2., qui vaut pour toute forme, sans l'hypothèse $n \le m$).
 5. Une matrice orthogonale $\mathbf{Q}$ : que valent $\lVert \mathbf{Q} \rVert_2$ et $\lVert \mathbf{Q}\mathbf{A} \rVert_2$ ?
 
 ### Ex M12d.16 — L'erreur de l'approximation de rang k vaut la somme des σ² oubliés (Frobenius) ∂ ★★★ ⏱️ 25 min
@@ -422,7 +422,7 @@ $\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$, de rang $r$, et $\mathbf{A}_
 2. Montre aussi $\lVert \mathbf{M}\mathbf{Q} \rVert_F = \lVert \mathbf{M} \rVert_F$ (par $\operatorname{tr}(\mathbf{X}\mathbf{Y}) = \operatorname{tr}(\mathbf{Y}\mathbf{X})$, M12c).
 3. Écris $\mathbf{A} - \mathbf{A}_k = \mathbf{U}\mathbf{D}\mathbf{V}^\top$ avec une matrice $\mathbf{D}$ que tu préciseras. Conclus : $\lVert \mathbf{A} - \mathbf{A}_k \rVert_F^2 = s_{k+1}^2 + \cdots + s_r^2$.
 4. Montre que $\lVert \mathbf{A} - \mathbf{A}_k \rVert_2 = s_{k+1}$ (avec M12d.15).
-5. Montre que $\lVert \mathbf{A}_k \rVert_F^2 + \lVert \mathbf{A} - \mathbf{A}_k \rVert_F^2 = \lVert \mathbf{A} \rVert_F^2$ : quel théorème reconnais-tu, et quelles « matrices orthogonales » sont en jeu (pour le produit scalaire $\langle \mathbf{X}, \mathbf{Y} \rangle = \operatorname{tr}(\mathbf{X}^\top\mathbf{Y})$) ?
+5. Montre que $\lVert \mathbf{A}_k \rVert_F^2 + \lVert \mathbf{A} - \mathbf{A}_k \rVert_F^2 = \lVert \mathbf{A} \rVert_F^2$ : quel théorème reconnais-tu, et quelles deux matrices sont orthogonales **entre elles** pour le produit scalaire $\langle \mathbf{X}, \mathbf{Y} \rangle = \operatorname{tr}(\mathbf{X}^\top\mathbf{Y})$ ?
 
 ### Ex M12d.17 — La pseudo-inverse donne la solution des moindres carrés de plus petite norme ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer, par un changement de base orthonormée, que $\mathbf{A}^+\mathbf{b}$ minimise $\lVert \mathbf{A}\mathbf{x} - \mathbf{b} \rVert$, et qu'il est, parmi les minimiseurs, de plus petite norme.
@@ -492,11 +492,11 @@ Un changement d'unités multiplie chaque feature $j$ par un nombre $d_j > 0$ : l
 | c | son premier axe principal | une liste de 3 nombres (4 décimales) |
 | d | la part de variance expliquée par ce premier axe | un nombre (4 décimales) |
 | e | la corrélation des mesures 1 et 3, avant le changement | un nombre (4 décimales) |
-| f | la même corrélation, après | un nombre (4 décimales) |
+| f | l'angle entre le premier axe de M12d.8 et celui de c), en degrés | un nombre (1 décimale) |
 | g | la matrice de covariance des données standardisées | une matrice (4 décimales) |
 | h | vrai ou faux : pour toute matrice diagonale $\mathbf{D}$ à éléments strictement positifs, la covariance des données standardisées est la même pour $\mathbf{X}$ et pour $\mathbf{X}\mathbf{D}$ | `True` ou `False` |
 
-Dans ta copie : montre que $(\mathbf{D}\boldsymbol{\Sigma}\mathbf{D})_{ij} = d_id_j\Sigma_{ij}$, puis que la corrélation $\Sigma_{ij}/\sqrt{\Sigma_{ii}\Sigma_{jj}}$ ne change pas : c'est h) en général. Compare c) au premier axe de M12d.8 : qui a « décidé » de la direction ? Que se passerait-il avec un $d_j$ négatif (une feature changée de signe) ?
+Dans ta copie : calcule la corrélation des mesures 1 et 3 après le changement. Montre que $(\mathbf{D}\boldsymbol{\Sigma}\mathbf{D})_{ij} = d_id_j\Sigma_{ij}$, puis que la corrélation $\Sigma_{ij}/\sqrt{\Sigma_{ii}\Sigma_{jj}}$ ne change pas : c'est h) en général. Compare c) au premier axe de M12d.8 : qui a « décidé » de la direction ? Que se passerait-il avec un $d_j$ négatif (une feature changée de signe) ?
 
 ### Ex M12d.22 — MML §4.5 à §4.7 : SVD, approximation de rang faible, phylogénie des matrices 📖 ★★ ⏱️ 45 min
 **Objectif :** lire en anglais la SVD, sa géométrie, sa construction et l'approximation de rang faible, et situer les décompositions de M12a à M12d.
