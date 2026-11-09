@@ -1228,3 +1228,57 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] CP2.11 🔗 Problème de synthèse : ajuster un modèle, mesurer son erreur, décider ★★ 14 min
 - [ ] CP2.12 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
 <!-- wbm:end CP2 -->
+
+<!-- wbm:section M12a -->
+## M12a · Espaces vectoriels et applications linéaires ⏱️ 16,6 h
+
+- [ ] M12a.Q1 🧠 Sous-espace ou pas ? ★ 4 min
+- [ ] M12a.Q2 🧠 Combinaison linéaire et famille génératrice ★ 4 min
+- [ ] M12a.Q3 🧠 Libre ou liée ? ★ 4 min
+- [ ] M12a.Q4 🧠 Base et dimension : vrai ou faux ★ 4 min
+- [ ] M12a.Q5 🧠 Le rang d'une matrice, d'une transposée, d'un produit ★ 4 min
+- [ ] M12a.Q6 🧠 Linéaire, affine, ou ni l'un ni l'autre ? ★ 4 min
+- [ ] M12a.Q7 🧠 Noyau et image : qui vit où ? ★ 4 min
+- [ ] M12a.Q8 🧠 Changer de base : ce qui change et ce qui reste ★ 4 min (complet)
+- [ ] M12a.R1 🔁 Le pivot de Gauss et la forme échelonnée réduite (M09a) ★ 5 min
+- [ ] M12a.R2 🔁 Produit matriciel et formes (M09a) ★ 5 min
+- [ ] M12a.R3 🔁 Combinaisons linéaires et produit scalaire dans ℝⁿ (M07) ★ 5 min (complet)
+- [ ] M12a.1 ✏️ Reconnaître des sous-espaces de ℝ³ et de l'espace des polynômes ★ 15 min
+- [ ] M12a.2 ✏️ Écrire un vecteur comme combinaison linéaire : un système à résoudre ★ 15 min
+- [ ] M12a.3 ✏️ L'indépendance de trois vecteurs de ℝ³ par le pivot de Gauss ★ 15 min
+- [ ] M12a.4 ✏️ Extraire une base d'une famille génératrice, compléter une famille libre ★★ 20 min
+- [ ] M12a.5 ✏️ Les coordonnées d'un vecteur dans une base qui n'est pas la base canonique ★ 15 min
+- [ ] M12a.6 ✏️ Le rang par les colonnes et par les lignes, celui d'un produit, et celui d'un tableau centré ★★ 20 min
+- [ ] M12a.7 ✏️ La matrice d'une application linéaire : les images des vecteurs de base ★ 15 min
+- [ ] M12a.8 ✏️ Composer deux applications du plan, c'est multiplier leurs matrices ★ 15 min (complet)
+- [ ] M12a.9 ✏️ Noyau et image d'une matrice 3 × 4, et le théorème du rang ★★ 25 min
+- [ ] M12a.10 ✏️ Toutes les solutions de A x = b : une solution particulière plus le noyau ★★ 20 min
+- [ ] M12a.11 ✏️ Une base adaptée qui rend diagonale la matrice d'une application : S⁻¹AS ★★ 20 min
+- [ ] M12a.12 ✏️ Une application affine du plan : partie linéaire, translation, inverse ★★ 20 min
+- [ ] M12a.13 ✏️ La dérivation sur les polynômes de degré au plus 3 : matrice, noyau, image ★★ 20 min (complet)
+- [ ] M12a.14 ∂ L'intersection de deux sous-espaces en est un ; la réunion, presque jamais ★ 15 min
+- [ ] M12a.15 ∂ Les coordonnées dans une base sont uniques ★★ 20 min (complet)
+- [ ] M12a.16 ∂ Le noyau est un sous-espace, et une application linéaire est injective si et seulement si son noyau est {0} ★★ 20 min
+- [ ] M12a.17 ∂ Le théorème du rang : dim ker + rang = nombre de colonnes ★★★ 25 min (complet)
+- [ ] M12a.18 ∂ rang(AB) ≤ min(rang A, rang B) ★★ 20 min (complet)
+- [ ] M12a.19 ∂ L'inverse d'une application affine bijective est affine ★★ 20 min (complet)
+- [ ] M12a.20 🔗 Pont : une feature somme de deux autres rend XᵀX singulière, et le noyau dit laquelle ★ 15 min
+- [ ] M12a.21 🔗 Pont : projeter sur un plan puis revenir, ce que la transformation inverse ne peut pas rendre ★★ 15 min (complet)
+- [ ] M12a.22 📖 MML §2.4 et §2.5 : espaces vectoriels, sous-espaces et indépendance, en anglais ★★ 30 min (complet)
+- [ ] M12a.23 📖 MML §2.6 à §2.8 : base, rang, applications linéaires, changement de base, espaces affines ★★ 45 min (complet)
+- [ ] M12a.24 🧮 Fermi : les paramètres d'une application linéaire, puis affine, d'images 32 × 32 en couleurs vers 100 classes ★ 10 min (complet)
+- [ ] M12a.25 🗣️ Expliquer la dimension et le rang sans une seule formule ★ 10 min
+- [ ] M12a.E1 💼 « Que veut dire qu'une matrice est de rang plein, et pourquoi s'en soucier ? » ★ 10 min (complet)
+- [ ] M12a.E2 💼 « Qu'est-ce que le noyau d'une matrice, et où le croise-t-on en ML ? » ★ 10 min (complet)
+- [ ] M12a.26 🔨 Tester l'indépendance et extraire une base de l'espace des colonnes ★★ 20 min
+- [ ] M12a.27 🔨 Une base du noyau, colonne libre par colonne libre ★★ 25 min
+- [ ] M12a.28 🔨 Coordonnées dans une base et changement de base ★ 20 min (complet)
+- [ ] M12a.29 📦 `sympy.Matrix.nullspace`, `columnspace` et `rank` contre tes fonctions ★ 15 min
+- [ ] M12a.30 🔮 Prédire le rang : matrices aléatoires, produits, colonnes répétées ★ 10 min
+- [ ] M12a.31 🔬 Le rang numérique : une colonne presque redondante et le choix de la tolérance ★★ 20 min (complet)
+- [ ] M12a.32 🎨 Une application linéaire du plan : l'image du carré unité, et ce qu'elle écrase quand son noyau n'est pas nul ★ 20 min
+- [ ] M12a.33 🐛 Chasse à l'erreur : une « base » liée, un noyau faux, S⁻¹AS écrit à l'envers ★ 15 min (complet)
+- [ ] M12a.34 🛠️ Un test de propriété : A fois une base du noyau donne 0, et le théorème du rang sur des matrices aléatoires ★ 15 min (complet)
+- [ ] M12a.35 🏆 Défi : retrouver les relations linéaires exactes cachées entre les colonnes d'un tableau, sans en inventer ★★★ 30 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (26 cartes)
+<!-- wbm:end M12a -->
