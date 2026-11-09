@@ -18,14 +18,14 @@
 
 ### M12a.Q2 — Combinaison linéaire et famille génératrice
 1. **Oui** : $(-6, 4) = -2\,(3, -2)$.
-2. **Non** : $(2, 4) = 2\,(1, 2)$, les deux vecteurs sont colinéaires et n'engendrent qu'une droite.
+2. **Non** : $(-6, 3) = -3\,(2, -1)$, les deux vecteurs sont colinéaires et n'engendrent qu'une droite.
 3. **Quatre** : une famille génératrice de $\mathbb{R}^4$ a au moins $\dim\mathbb{R}^4 = 4$ vecteurs.
 4. Le **plan** $z = 0$ : les vecteurs $(x, y, 0)$.
 5. **Vrai** : la combinaison dont tous les coefficients sont nuls.
 6. **Vrai** : $\mathbf{u} + \mathbf{v}$ et $\mathbf{u} - \mathbf{v}$ sont dans le plan, et réciproquement $\mathbf{u} = \frac{1}{2}\big((\mathbf{u} + \mathbf{v}) + (\mathbf{u} - \mathbf{v})\big)$ et $\mathbf{v} = \frac{1}{2}\big((\mathbf{u} + \mathbf{v}) - (\mathbf{u} - \mathbf{v})\big)$ : les deux familles engendrent le même plan.
 
 ### M12a.Q3 — Libre ou liée ?
-1. **Liée** : $(3, 6) = 3\,(1, 2)$.
+1. **Liée** : $(4, -10) = -2\,(-2, 5)$.
 2. **Libre** : la matrice des trois vecteurs est triangulaire avec des 1 sur la diagonale, trois pivots.
 3. **Liée**, toujours : plus de 3 vecteurs de $\mathbb{R}^3$.
 4. **Liée** : $1 \cdot \mathbf{0} = \mathbf{0}$ est une combinaison nulle non triviale.
@@ -435,7 +435,7 @@ Pour la copie : $\mathbf{X}\mathbf{w}' = \mathbf{X}\mathbf{w} + 2\,\mathbf{X}\ma
 
 **Erreurs fréquentes.** $(1, 1, -1)$ et $(-1, -1, 1)$ sont tous deux dans le noyau ; la vérification demande celui dont la dernière coordonnée vaut 1. En e), oublier $\mathbf{w}$ (on trouve $\mathbf{X}(2\mathbf{d}) = \mathbf{0}$).
 
-**Variante.** Le rang du tableau avec une colonne de 1 ajoutée (pour un biais) ? *Réponse* : 3 : la colonne de 1 n'est pas une combinaison du trajet et du temps sur place (les deux premières lignes imposeraient des coefficients que la troisième contredit), mais le total reste redondant.
+**Variante.** Un autre tableau a une colonne de 1 et trois colonnes indicatrices d'une équipe (matin, après-midi, nuit), avec un seul 1 par ligne parmi les trois : un vecteur de son noyau ? *Réponse* : $(1, -1, -1, -1)$ : la colonne de 1 est la somme des trois indicatrices (fiche §6).
 
 ### Ex M12a.21 — Pont : projeter sur un plan puis revenir, ce que la transformation inverse ne peut pas rendre
 
@@ -496,7 +496,7 @@ Pour la copie : $\mathbf{E}(1, 2, 0) = (3, 2)$, comme $\mathbf{E}(0, 3, 1)$ : le
 
 **Réponse modèle.**
 
-> La dimension, c'est le nombre de directions indépendantes dans lesquelles on peut bouger : sur une route, une seule (avancer ou reculer) ; sur un terrain plat, deux ; dans un avion, trois. Une direction qu'on peut obtenir en combinant les autres n'en ajoute pas. Le rang d'un tableau, c'est le nombre de colonnes qui apportent vraiment une information nouvelle : si une colonne est le prix en euros et une autre le même prix en dollars, ou si une colonne est la somme de deux autres, elles ne comptent que pour une. Dire qu'un tableau de 1 000 lignes et 50 colonnes est de rang 12, c'est dire que 12 colonnes bien choisies suffisent à recalculer exactement les 38 autres. Le rang ne peut pas dépasser 50 : il n'y a que 50 colonnes ; ni 1 000, le nombre de lignes. Les 50 colonnes ne décrivent en réalité que 12 directions : beaucoup de redondance, ou une structure simple cachée.
+> La dimension, c'est le nombre de directions indépendantes dans lesquelles on peut bouger : sur une route, une seule (avancer ou reculer) ; sur un terrain plat, deux ; dans un avion, trois. Une direction qu'on peut obtenir en combinant les autres n'en ajoute pas. Le rang d'un tableau, c'est le nombre de colonnes qui apportent vraiment une information nouvelle : si une colonne est le distance en kilomètres et une autre la même distance en miles, ou si une colonne est la somme de deux autres, elles ne comptent que pour une. Dire qu'un tableau de 1 000 lignes et 50 colonnes est de rang 12, c'est dire que 12 colonnes bien choisies suffisent à recalculer exactement les 38 autres. Le rang ne peut pas dépasser 50 : il n'y a que 50 colonnes ; ni 1 000, le nombre de lignes. Les 50 colonnes ne décrivent en réalité que 12 directions : beaucoup de redondance, ou une structure simple cachée.
 
 **Grille.** (1) la dimension comme nombre de directions indépendantes, avec un exemple ; (2) le rang comme nombre de colonnes non redondantes, avec un exemple de redondance ; (3) la borne par le nombre de colonnes (et de lignes) ; (4) ce que dit « rang 12 » des 50 colonnes ; huit lignes au plus, sans formule.
 

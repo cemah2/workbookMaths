@@ -323,7 +323,7 @@ def test_coordinates_docstring_examples(linmaps):
 @pytest.mark.parametrize("B, v, why", [
     ([[1.0, 0.0], [2.0, 1.0], [0.0, -1.0]], [1.0, 2.0, 1.0], "v is not in the plane spanned by the columns of B"),
     ([[1.0], [-2.0], [3.0]], [0.0, 0.0, 1e-6], "v is not on the line spanned by B, even if it is short"),
-    ([[1.0, 2.0], [2.0, 4.0], [-1.0, -2.0]], [1.0, 2.0, -1.0], "the columns of B are dependent: not a basis"),
+    ([[1.0, -3.0], [2.0, -6.0], [-1.0, 3.0]], [1.0, 2.0, -1.0], "the columns of B are dependent: not a basis"),
     ([[1.0, 0.0], [0.0, 1.0]], [1.0, 2.0, 3.0], "v has 3 coordinates, B has 2 rows"),
     ([[1.0, 0.0], [0.0, 1.0]], [[1.0], [2.0]], "v must be a 1-D vector"),
     ([1.0, 2.0], [1.0, 2.0], "B must be a 2-D matrix"),
@@ -392,10 +392,10 @@ def test_change_of_basis_with_t_equal_to_s_is_the_same(linmaps):
 
 
 @pytest.mark.parametrize("A, S, T, why", [
-    ([[1.0, 2.0], [3.0, 4.0]], [[1.0, 2.0], [2.0, 4.0]], None, "S is singular: its columns are not a basis"),
-    ([[1.0, 2.0], [3.0, 4.0]], [[1.0, 2.0], [2.0, 4.0]], [[1.0, 0.0], [0.0, 1.0]],
+    ([[2.0, -1.0], [4.0, 3.0]], [[3.0, 6.0], [1.0, 2.0]], None, "S is singular: its columns are not a basis"),
+    ([[2.0, -1.0], [4.0, 3.0]], [[3.0, 6.0], [1.0, 2.0]], [[1.0, 0.0], [0.0, 1.0]],
      "S is singular, even when T is given and invertible"),
-    ([[1.0, 2.0], [3.0, 4.0]], [[1.0, 0.0], [0.0, 1.0]], [[2.0, -1.0], [-4.0, 2.0]], "T is singular"),
+    ([[2.0, -1.0], [4.0, 3.0]], [[1.0, 0.0], [0.0, 1.0]], [[2.0, -1.0], [-4.0, 2.0]], "T is singular"),
     ([[1.0, 2.0, 0.0], [3.0, 4.0, 1.0]], [[1.0, 0.0], [0.0, 1.0]], None,
      "S must be (3, 3) for A of shape (2, 3)"),
     ([[1.0, 2.0, 0.0], [3.0, 4.0, 1.0]], np.eye(3), np.eye(3), "T must be (2, 2) for A of shape (2, 3)"),

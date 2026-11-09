@@ -206,7 +206,7 @@ Chaque colonne de $\mathbf{A}\mathbf{B}$ est $\mathbf{A}$ fois une colonne de $\
 $$\operatorname{rg}(\mathbf{A}\mathbf{B}) \le \min\big(\operatorname{rg}(\mathbf{A}),\ \operatorname{rg}(\mathbf{B})\big)$$
 
 (M12a.18 le démontre proprement). Un produit ne peut pas créer de directions : il peut seulement en perdre. Trois conséquences :
-- multiplier par une matrice **inversible**, à gauche ou à droite, ne change pas le rang (appliquer l'inégalité dans les deux sens, avec l'inverse) ;
+- multiplier par une matrice **inversible**, à gauche ou à droite, ne change pas le rang (appliquer l'inégalité dans les deux sens, avec l'inverse) ; à droite, il ne change même pas l'espace des colonnes : $\operatorname{Im}(\mathbf{A}\mathbf{S}) \subseteq \operatorname{Im}\mathbf{A}$, et $\mathbf{A} = (\mathbf{A}\mathbf{S})\mathbf{S}^{-1}$ donne l'inclusion inverse ;
 - $\mathbf{u}\mathbf{v}^\top$, avec $\mathbf{u}$ et $\mathbf{v}$ non nuls, est de rang 1 : toutes ses colonnes sont des multiples de $\mathbf{u}$ ; une somme de $k$ matrices de rang 1 est de rang au plus $k$ ;
 - $\mathbf{W} = \mathbf{B}\mathbf{C}$, avec $\mathbf{B}$ de forme $(d, r)$ et $\mathbf{C}$ de forme $(r, d)$, est de rang au plus $r$, même si $\mathbf{W}$ a $d^2$ coefficients : c'est l'idée des matrices de **petit rang** (*low-rank*), qui stockent $2dr$ nombres au lieu de $d^2$ (M12d y reviendra avec la SVD).
 
@@ -232,7 +232,7 @@ $$f(\lambda\mathbf{x} + \mu\mathbf{y}) = \lambda f(\mathbf{x}) + \mu f(\mathbf{y
 
 Conséquences immédiates : $f(\mathbf{0}) = \mathbf{0}$ (prendre $\lambda = \mu = 0$), et $f$ transforme toute combinaison linéaire en la même combinaison des images. Une application linéaire est donc entièrement déterminée par les images des vecteurs d'une base : si $\mathbf{x} = x_1\mathbf{e}_1 + \cdots + x_n\mathbf{e}_n$, alors $f(\mathbf{x}) = x_1 f(\mathbf{e}_1) + \cdots + x_n f(\mathbf{e}_n)$.
 
-Exemples : $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ pour toute matrice $\mathbf{A}$ ; dans le plan, une rotation de centre l'origine, une symétrie par rapport à une droite par l'origine, une projection sur une telle droite, une dilatation $(x, y) \mapsto (2x, y)$ ; la dérivation $P \mapsto P'$ sur les polynômes ; la transposition $\mathbf{M} \mapsto \mathbf{M}^\top$ sur les matrices. Contre-exemples : une translation $\mathbf{x} \mapsto \mathbf{x} + \mathbf{b}$ avec $\mathbf{b} \ne \mathbf{0}$ (elle n'envoie pas $\mathbf{0}$ sur $\mathbf{0}$ ; elle est **affine**, §8), $\mathbf{x} \mapsto \lVert \mathbf{x} \rVert$, $x \mapsto x^2$, la ReLU appliquée coordonnée par coordonnée ($\max(-1, 0) = 0 \ne -\max(1, 0)$).
+Exemples : $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ pour toute matrice $\mathbf{A}$ ; dans le plan, une rotation de centre l'origine, une symétrie par rapport à une droite par l'origine, une projection sur une telle droite, une dilatation $(x, y) \mapsto (2x, y)$ ; la dérivation $P \mapsto P'$ sur les polynômes ; la transposition $\mathbf{M} \mapsto \mathbf{M}^\top$ sur les matrices. Contre-exemples : une translation $\mathbf{x} \mapsto \mathbf{x} + \mathbf{b}$ avec $\mathbf{b} \ne \mathbf{0}$ (elle n'envoie pas $\mathbf{0}$ sur $\mathbf{0}$ ; elle est **affine**, §8), $\mathbf{x} \mapsto \lVert \mathbf{x} \rVert$, $x \mapsto x^2$ ($(2 \times 1)^2 = 4 \ne 2 \times 1^2$), et les fonctions d'activation des réseaux, comme la ReLU appliquée coordonnée par coordonnée.
 
 ### La matrice d'une application linéaire
 
@@ -309,7 +309,7 @@ Le système a une solution si et seulement si $\mathbf{b} \in \operatorname{Im}\
 
 ### En machine learning : des poids qui ne servent à rien
 
-Si $\mathbf{X}\mathbf{d} = \mathbf{0}$ avec $\mathbf{d} \ne \mathbf{0}$, une feature est une combinaison des autres, et les poids $\mathbf{w}$ et $\mathbf{w} + t\,\mathbf{d}$ donnent **exactement les mêmes prédictions** pour tout $t$ : les poids d'un modèle linéaire ne sont plus uniques, et le vecteur $\mathbf{d}$ du noyau dit quelles features sont en cause (ses coordonnées non nulles). Le lien avec $\mathbf{X}^\top\mathbf{X}$ :
+Si $\mathbf{X}\mathbf{d} = \mathbf{0}$ avec $\mathbf{d} \ne \mathbf{0}$, une feature est une combinaison des autres, et les poids $\mathbf{w}$ et $\mathbf{w} + t\,\mathbf{d}$ donnent **exactement les mêmes prédictions** pour tout $t$ : les poids d'un modèle linéaire ne sont plus uniques, et le vecteur $\mathbf{d}$ du noyau dit quelles features sont en cause (ses coordonnées non nulles). C'est le cas d'un tableau qui code une équipe de travail (matin, après-midi, nuit) par trois colonnes indicatrices (un 1 dans la colonne de l'équipe, des 0 ailleurs), à côté d'une colonne de 1 pour le biais : sur chaque ligne, les trois indicatrices ont pour somme 1, et $\mathbf{d} = (1, -1, -1, -1)$ est dans le noyau (M09a §8 l'a vu avec deux catégories). Le lien avec $\mathbf{X}^\top\mathbf{X}$ :
 
 $$\ker(\mathbf{X}^\top\mathbf{X}) = \ker\mathbf{X}, \qquad \text{donc} \qquad \operatorname{rg}(\mathbf{X}^\top\mathbf{X}) = \operatorname{rg}(\mathbf{X}).$$
 
@@ -395,7 +395,7 @@ Vérification : $\varphi(1, 1) = (4, 0)$, et $\varphi^{-1}(4, 0) = (4 - 0 - 3,\ 
 
 ### En machine learning : la transformation inverse
 
-Une mise à l'échelle apprise sur les données d'entraînement est affine et bijective (tant qu'aucune feature n'est constante) : `inverse_transform` applique sa réciproque, pour ramener des valeurs transformées, par exemple des prédictions, dans les unités de départ. workbookIA 12 et 15 s'en servent ; ce chapitre t'en donne le fondement : une réciproque d'application affine, qui retire la translation puis divise.
+Une mise à l'échelle feature par feature est une application affine de matrice diagonale ; si aucun nombre de cette diagonale n'est nul, elle est bijective, et sa réciproque est encore affine (le théorème ci-dessus) : c'est elle que calcule la méthode `inverse_transform` des objets de scikit-learn. workbookIA 12 et 15 s'en servent ; ce chapitre t'en donne le fondement.
 
 ⚠️ **Erreur classique.** Écrire $\varphi^{-1}(\mathbf{y}) = \mathbf{A}^{-1}\mathbf{y} - \mathbf{b}$, en oubliant que la translation est elle aussi transformée par $\mathbf{A}^{-1}$. Vérifie toujours sur $\varphi^{-1}(\varphi(\mathbf{0})) = \varphi^{-1}(\mathbf{b})$, qui doit valoir $\mathbf{0}$.
 

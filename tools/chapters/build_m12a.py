@@ -551,7 +551,7 @@ La vérification calcule :
 - c) le nom de l'erreur levée par `coordinates([[1, 0], [2, 1], [0, 3]], [1, 1, 1])` ;
 - d) `change_of_basis([[3, 1], [0, 2]], [[1, 1], [0, -1]])` (une matrice, 6 décimales) ;
 - e) `change_of_basis([[1, 2, 0], [0, 1, 1]], np.eye(3), [[1, 1], [1, -1]])` (une matrice, 6 décimales) ;
-- f) le nom de l'erreur levée par `change_of_basis([[1, 0], [0, 1]], [[1, 2], [2, 4]])`.
+- f) le nom de l'erreur levée par `change_of_basis([[1, 0], [0, 1]], [[2, -6], [-1, 3]])`.
 
 Dans ta copie : vérifie a) en recalculant la combinaison des colonnes. Pourquoi c) lève-t-elle une erreur ? Que remarques-tu en d) sur les colonnes de $\mathbf{S}$ ?""",
     todo=LOAD_LEARNER,
@@ -569,14 +569,15 @@ with checked("M12a.28e"):
     wbm.check("M12a.28e", np.asarray(mymath.linmaps.change_of_basis([[1, 2, 0], [0, 1, 1]], np.eye(3),
                                                                     [[1, 1], [1, -1]])).tolist(), computed=True)
 with checked("M12a.28f"):
-    wbm.check("M12a.28f", raised(mymath.linmaps.change_of_basis, [[1, 0], [0, 1]], [[1, 2], [2, 4]]), computed=True)''',
+    wbm.check("M12a.28f", raised(mymath.linmaps.change_of_basis, [[1, 0], [0, 1]], [[2, -6], [-1, 3]]),
+              computed=True)''',
     solution=LOAD_REF + '''
 coordinates, change_of_basis = mymath.linmaps.coordinates, mymath.linmaps.change_of_basis
 print("a)", coordinates([[1, 2], [1, 3]], [5, 7]).tolist(), " b)", coordinates([[1, 0], [2, 1], [0, 3]], [3, 8, 6]).tolist())
 print("c)", raised(coordinates, [[1, 0], [2, 1], [0, 3]], [1, 1, 1]))
 print("d)", change_of_basis([[3, 1], [0, 2]], [[1, 1], [0, -1]]).tolist())
 print("e)", change_of_basis([[1, 2, 0], [0, 1, 1]], np.eye(3), [[1, 1], [1, -1]]).tolist())
-print("f)", raised(change_of_basis, [[1, 0], [0, 1]], [[1, 2], [2, 4]]))''',
+print("f)", raised(change_of_basis, [[1, 0], [0, 1]], [[2, -6], [-1, 3]]))''',
     record=f'''wbm.record("M12a.28a", [1.0, 2.0], decimals=6,
            mistakes={{"les vecteurs de base sont les colonnes de B : B c = v, pas Bᵀ c = v": [8.0, -3.0]}})
 wbm.record("M12a.28b", [3.0, 2.0], decimals=6)

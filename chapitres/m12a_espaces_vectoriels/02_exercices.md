@@ -30,7 +30,7 @@ Lesquels sont des sous-espaces vectoriels ? Réponds par oui ou non, et justifie
 *Fiche §2 · parcours C, E*
 
 1. $(-6, 4)$ est-il une combinaison linéaire de $(3, -2)$ seul ?
-2. $(1, 2)$ et $(2, 4)$ engendrent-ils $\mathbb{R}^2$ ?
+2. $(2, -1)$ et $(-6, 3)$ engendrent-ils $\mathbb{R}^2$ ?
 3. Combien de vecteurs faut-il, au minimum, pour engendrer $\mathbb{R}^4$ ?
 4. Quel ensemble de $\mathbb{R}^3$ est $\operatorname{Vect}\big((1, 0, 0), (0, 1, 0)\big)$ ?
 5. Vrai ou faux : le vecteur nul est une combinaison linéaire de n'importe quelle famille.
@@ -39,7 +39,7 @@ Lesquels sont des sous-espaces vectoriels ? Réponds par oui ou non, et justifie
 ### M12a.Q3 — Libre ou liée ? 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
 
-1. $(1, 2)$ et $(3, 6)$.
+1. $(-2, 5)$ et $(4, -10)$.
 2. $(1, 0, 0)$, $(1, 1, 0)$, $(1, 1, 1)$.
 3. Quatre vecteurs quelconques de $\mathbb{R}^3$.
 4. Une famille qui contient le vecteur nul.

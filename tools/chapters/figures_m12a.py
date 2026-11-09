@@ -63,31 +63,31 @@ def axes_frame(ax, lim):
 
 
 def span() -> None:
-    """Left: the combinations of u = (2, 1) fill a line. Right: those of u and w = (−1, 2) fill the plane."""
-    u, w = np.array([2.0, 1.0]), np.array([-1.0, 2.0])
+    """Left: the combinations of u = (3, 1) fill a line. Right: those of u and w = (1, 2) fill the plane."""
+    u, w = np.array([3.0, 1.0]), np.array([1.0, 2.0])
     fig, axes = plt.subplots(1, 2, figsize=(10, 4.8))
     ax = axes[0]
-    axes_frame(ax, 5)
+    axes_frame(ax, 6)
     t = np.linspace(-3, 3, 2)
     ax.plot(t * u[0], t * u[1], color=C[0], lw=2, alpha=0.5)
-    for k, name in ((-2, "−2u"), (-1, "−u"), (2, "2u")):
+    for k, name in ((-1, "−u"), (1.5, "1,5u")):
         ax.plot(k * u[0], k * u[1], "o", color=C[0], ms=5)
-        ax.text(k * u[0] + 0.15, k * u[1] - 0.45, name, color=C[0], fontsize=10)
-    arrow(ax, (0, 0), u, C[0], "u", (-0.3, 0.25))
+        ax.text(k * u[0] + 0.15, k * u[1] - 0.6, name, color=C[0], fontsize=10)
+    arrow(ax, (0, 0), u, C[0], "u", (-0.3, 0.3))
     ax.set_title("Vect(u) : une droite par l'origine")
     ax = axes[1]
-    axes_frame(ax, 5)
-    for a in range(-3, 4):
-        p, q = a * u - 3 * w, a * u + 3 * w
+    axes_frame(ax, 6)
+    for a in range(-4, 5):
+        p, q = a * u - 4 * w, a * u + 4 * w
         ax.plot([p[0], q[0]], [p[1], q[1]], color=C[1], lw=0.7, alpha=0.5)
-        p, q = -3 * u + a * w, 3 * u + a * w
+        p, q = -4 * u + a * w, 4 * u + a * w
         ax.plot([p[0], q[0]], [p[1], q[1]], color=C[0], lw=0.7, alpha=0.5)
     target = 1 * u + 1.5 * w
-    arrow(ax, (0, 0), u, C[0], "u", (0.05, -0.45))
-    arrow(ax, (0, 0), w, C[1], "w", (-0.45, 0.05))
-    arrow(ax, u, 1.5 * w, C[1], "1,5 w", (0.1, 0.1), lw=1.5)
+    arrow(ax, (0, 0), u, C[0], "u", (0.05, -0.55))
+    arrow(ax, (0, 0), w, C[1], "w", (-0.55, 0.05))
+    arrow(ax, u, 1.5 * w, C[1], "1,5 w", (0.15, -0.2), lw=1.5)
     ax.plot(*target, "o", color="black", ms=6)
-    ax.text(target[0] + 0.2, target[1] + 0.1, "u + 1,5 w", fontsize=10)
+    ax.text(target[0] - 1.2, target[1] + 0.35, "u + 1,5 w", fontsize=10)
     ax.set_title("Vect(u, w) : tout le plan")
     save(fig, "vect.png")
 
