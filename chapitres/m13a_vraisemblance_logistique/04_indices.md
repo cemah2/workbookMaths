@@ -644,4 +644,182 @@ Bruit gaussien ↔ moindres carrés ; labels de Bernoulli ↔ log-loss ; une lim
 
 ## Notebook
 
-*(à compléter)*
+### Ex M13a.22 — La log-vraisemblance et le maximum de vraisemblance d'une loi de Bernoulli · `bernoulli_log_likelihood, bernoulli_mle`
+
+<details><summary>Indice 1</summary>
+
+Relis « Un principe, trois lois » (fiche §1), le paragraphe **Bernoulli**, puis la docstring de chaque fonction.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Contrôle d'abord les labels (1-D, non vides, que des 0 et des 1), puis `p` : un seul nombre, ou un par label, chacun dans $[0, 1]$. Le maximum de vraisemblance est la moyenne des labels.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Ne prends le logarithme que de la probabilité du label **observé** : $q_i = p_i$ si $y_i = 1$, $1 - p_i$ sinon. Un $q_i$ nul donne $-\infty$ ; calcule `np.log` à l'intérieur de `with np.errstate(divide="ignore"):` pour qu'il n'y ait pas d'avertissement, et `np.log1p(-p)` pour $\ln(1 - p)$.
+
+</details>
+
+### Ex M13a.23 — Maximum de vraisemblance catégoriel, avec lissage, et gaussien · `categorical_mle, gaussian_mle`
+
+<details><summary>Indice 1</summary>
+
+Relis les paragraphes **Catégorielle** (avec le lissage) et **Normale** de la fiche §1.
+
+</details>
+<details><summary>Indice 2</summary>
+
+`categorical_mle` : $\frac{n_k + \alpha}{N + K\alpha}$, où $K$ est le nombre de catégories ; refuse le cas où le dénominateur est nul. `gaussian_mle` : la moyenne, puis la moyenne des carrés des écarts à cette moyenne.
+
+</details>
+<details><summary>Indice 3</summary>
+
+e) se trouve sans calcul : le maximum de vraisemblance divise $\sum_i (x_i - \hat{\mu})^2$ par $n$, `ddof=1` par $n - 1$.
+
+</details>
+
+### Ex M13a.24 — La log-loss à partir des scores, sans débordement · `logistic_loss`
+
+<details><summary>Indice 1</summary>
+
+Relis « Le lien avec la log-loss » et « La calculer sans débordement » (fiche §3) : le terme d'un exemple est $s(z) - yz$.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Avec $t = -z$ pour un label 1 et $t = z$ pour un label 0, le terme vaut $s(t)$ : `np.where(y == 1, -z, z)`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+$s(t) = \max(t, 0) + \ln(1 + e^{-\lvert t \rvert})$ : `np.maximum(t, 0) + np.log1p(np.exp(-np.abs(t)))`. L'exponentielle ne reçoit jamais un nombre positif ; rends la moyenne en `float`.
+
+</details>
+
+### Ex M13a.25 — `scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes fonctions
+
+<details><summary>Indice 1</summary>
+
+Lis la liste des fonctions au début de l'énoncé : ce que chacune rend, et sous quelle forme.
+
+</details>
+<details><summary>Indice 2</summary>
+
+c) `norm.fit` rend un écart-type ; d) compare ta variance à son **carré**, avec `math.isclose(..., rel_tol=1e-10)`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+g) exécute la ligne telle quelle ; h) $e^{-g}$ est la probabilité utilisée à la place de 0 : $-\ln 2^{-k} = k\ln 2$, donc $k = g/\ln 2$, et regarde `np.finfo(float).eps`.
+
+</details>
+
+### Ex M13a.26 — Prédire la log-loss d'un modèle qui répond toujours 0,5, puis toujours la fréquence des 1
+
+<details><summary>Indice 1</summary>
+
+Relis « Le meilleur modèle constant » (fiche §2, dans « Pourquoi la log-loss »). Prédis avant d'exécuter : c'est le but de l'exercice.
+
+</details>
+<details><summary>Indice 2</summary>
+
+a) et c) : que coûte un exemple quand on annonce 0,5, quel que soit son label ? b) écris la log-loss d'un modèle constant $q$ sur des labels de fréquence $f$ : $-f\ln q - (1 - f)\ln(1 - q)$.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Avec $q = f$, c'est l'entropie de $f$, en nats. d) cette log-loss est $-\frac{1}{n}$ fois une log-vraisemblance de Bernoulli : où est son maximum (fiche §1) ?
+
+</details>
+
+### Ex M13a.27 — La variabilité du maximum de vraisemblance d'une loi de Bernoulli d'un échantillon à l'autre
+
+<details><summary>Indice 1</summary>
+
+Relis la figure de la fiche §1 (une log-vraisemblance plus creuse quand $n$ grandit) et la variance d'une moyenne (M02c).
+
+</details>
+<details><summary>Indice 2</summary>
+
+`phat_samples` : `(rng.random((N_SAMPLES_27, n)) < P_27).mean(axis=1)`. `spread_table` crée **un** générateur, puis appelle `phat_samples` pour 25, 100 et 400, dans cet ordre.
+
+</details>
+<details><summary>Indice 3</summary>
+
+a) `np.std(values, ddof=1)` pour chaque $n$ ; b) `np.sqrt(P_27 * (1 - P_27) / n)` ; d) mesuré pour 25 divisé par mesuré pour 100, puis 100 sur 400.
+
+</details>
+
+### Ex M13a.28 — L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et maximum au centre
+
+<details><summary>Indice 1</summary>
+
+Relis « Mesurer le mélange d'une distribution » (fiche §6), et la description du triangle dans l'énoncé.
+
+</details>
+<details><summary>Indice 2</summary>
+
+`entropy_bits` : `np.where(P > 0, P, 1)` avant `np.log2`, pour que les termes nuls donnent $0 \times 0 = 0$, puis la somme de chaque ligne (`axis=1`). `gini` : `1 - (P ** 2).sum(axis=1)`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+`xy = to_plane(simplex_grid())`, puis `ax.tricontourf(xy[:, 0], xy[:, 1], valeurs, levels=12)` dans chaque axe, `ax.plot` du triangle et du point où les valeurs sont les plus grandes (`np.argmax`).
+
+</details>
+
+### Ex M13a.29 — Chasse à l'erreur : un ln 0, une sigmoïde qui déborde, une variance de maximum de vraisemblance divisée par n − 1
+
+<details><summary>Indice 1</summary>
+
+Pour chaque ligne, cherche une valeur des données qui la ferait échouer : une probabilité 0 ou 1, un score de 800 ou de −800.
+
+</details>
+<details><summary>Indice 2</summary>
+
+$0 \times \ln 0$ donne `nan` en flottants ; $e^{800}$ dépasse le plus grand flottant. Et le maximum de vraisemblance d'une variance divise par $n$ (fiche §1).
+
+</details>
+<details><summary>Indice 3</summary>
+
+b) `np.log(np.where(y == 1, p, 1 - p))`, puis la somme ; c) la softplus stable (fiche §3), ou `np.logaddexp(0, z)` ; d) `np.var(x)`.
+
+</details>
+
+### Ex M13a.30 — Vérifier avec SymPy le maximum de vraisemblance d'une loi géométrique et d'une loi de Poisson
+
+<details><summary>Indice 1</summary>
+
+Fais d'abord le calcul à la main (fiche §1) : un produit de probabilités, son logarithme, une dérivée.
+
+</details>
+<details><summary>Indice 2</summary>
+
+`ell_geom = sum((k - 1) * sympy.log(1 - p) + sympy.log(p) for k in GEOM_30)` ; pour Poisson, `k * sympy.log(lam) - lam`. `sympy.solve(dell_geom, p)` rend une **liste** : prends son élément.
+
+</details>
+<details><summary>Indice 3</summary>
+
+`d2_geom = sympy.diff(ell_geom, p, 2).subs(p, p_hat)`, puis `sympy.simplify` ; de même pour `lam`.
+
+</details>
+
+### Ex M13a.31 — Défi : la proportion d'un mélange de deux lois connues par maximum de vraisemblance, à 1e−6 près du maximum (dichotomie ou Newton)
+
+<details><summary>Indice 1</summary>
+
+Relis la dichotomie (M05a) : si $\ell'$ décroît, son signe dit de quel côté est le maximum.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Commence par les bords : si $\ell'(0) \le 0$, le maximum est en 0 ; si $\ell'(1) \ge 0$, il est en 1. Sinon, $\ell'$ change de signe dans $]0, 1[$.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Garde un intervalle $[a, b]$ avec $\ell'(a) > 0 > \ell'(b)$ et coupe-le en deux à chaque appel de `dell`, jusqu'à $b - a < 10^{-7}$ : une trentaine d'appels. Tu n'as même pas besoin d'appeler `ell`.
+
+</details>

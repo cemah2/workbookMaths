@@ -375,4 +375,82 @@ En 3 phrases : « Le taux d'erreur ne voit que le côté de 50 % où tombe la pr
 
 ## Notebook
 
-*(complété avec les exercices M13a.22 à M13a.31)*
+### Ex M13a.22 — La log-vraisemblance et le maximum de vraisemblance d'une loi de Bernoulli · `bernoulli_log_likelihood, bernoulli_mle`
+
+**Réponses** : a) `-34.724182` · b) `0.34` · c) `-32.051774` · d) `True` · e) `-0.916291` · f) `-inf` · g) `"ValueError"`.
+
+**Démarche.** `bernoulli_log_likelihood` : contrôler les labels (1-D, non vides, que des 0 et des 1) et `p` (un nombre, étendu à tous les labels, ou un par label, dans $[0, 1]$) ; prendre $q_i = p_i$ si $y_i = 1$, $1 - p_i$ sinon ; rendre `float(np.sum(np.log(q)))`, le logarithme calculé sous `np.errstate(divide="ignore")` pour qu'un $q_i$ nul donne $-\infty$ sans avertissement. `bernoulli_mle` : la moyenne des labels contrôlés. Pour la copie : 17 labels 1 sur 50, $\hat{p} = 0{,}34$, $\ell(\hat{p}) = 17\ln 0{,}34 + 33\ln 0{,}66 \approx -32{,}05$ et $\ell(0{,}2) = 17\ln 0{,}2 + 33\ln 0{,}8 \approx -34{,}72$ : la vraisemblance est $e^{2{,}67} \approx 14{,}5$ fois plus grande en $\hat{p}$. e) Les deux labels certains contribuent $\ln 1 = 0$, il reste $\ln 0{,}5 + \ln 0{,}8$ ; la formule écrite telle quelle calcule $0 \times \ln 0$, que NumPy rend `nan`. f) Un label 1 avait reçu la probabilité 0 : le modèle déclarait impossible ce qui s'est produit.
+
+**Erreurs fréquentes.** La moyenne au lieu de la somme ; $\ln p$ pour tous les labels ; $p$ et $1 - p$ échangés ; `nan` en e) ; un écrêtage qui rend un grand nombre négatif fini au lieu de $-\infty$ en f).
+
+### Ex M13a.23 — Maximum de vraisemblance catégoriel, avec lissage, et gaussien · `categorical_mle, gaussian_mle`
+
+**Réponses** : a) `[0.136364, 0.227273, 0.0, 0.166667, 0.106061, 0.363636]` · b) `[0.138889, 0.222222, 0.013889, 0.166667, 0.111111, 0.347222]` · c) `[0.137681, 0.224638, 0.007246, 0.166667, 0.108696, 0.355072]` · d) `[11.222616, 10.66419]` · e) `0.975` · f) `"ValueError"`.
+
+**Démarche.** `categorical_mle` : les contrôles de la docstring, puis `(n + alpha) / (n.sum() + K * alpha)`. `gaussian_mle` : $\hat{\mu}$ = `np.mean(x)`, puis `np.mean((x - mu) ** 2)`. Pour la copie : face 3, $\frac{0}{66} = 0$, $\frac{1}{72} \approx 0{,}0139$ et $\frac{0{,}5}{69} \approx 0{,}0072$ ; la face 4 est sortie $11 = \frac{66}{6}$ fois, elle reste à $\frac{1}{6}$ : le lissage tire les estimations vers la loi uniforme, d'autant plus que $\alpha$ est grand. e) $\frac{39}{40}$, quel que soit l'échantillon. Un 67ᵉ lancer sur la face 3 : $\ln 0 = -\infty$ selon a), $\ln\frac{1}{72} \approx -4{,}28$ selon b).
+
+**Erreurs fréquentes.** Diviser par $N$ ou par $N + \alpha$ au lieu de $N + K\alpha$ ; la variance en $n - 1$ ; l'écart-type au lieu de la variance ; accepter des comptages tous nuls sans lissage.
+
+### Ex M13a.24 — La log-loss à partir des scores, sans débordement · `logistic_loss`
+
+**Réponses** : a) `0.371747` · b) `400.0` · c) `True` · d) `0.0` · e) `"ValueError"`.
+
+**Démarche.** Contrôler les longueurs et les labels ; `t = np.where(y == 1, -z, z)` ; `float(np.mean(np.maximum(t, 0) + np.log1p(np.exp(-np.abs(t)))))`. Pour la copie : b) les termes valent $s(800) = 800$ deux fois (prédictions sûres et fausses) et $s(-800) = 0$ en flottants deux fois : moyenne 400. $e^{800}$ dépasse le plus grand flottant ($\approx e^{709{,}8}$) : `inf`, avec un avertissement ; par les probabilités, $\sigma(45) = 1 - 3 \times 10^{-20}$ s'arrondit déjà à 1, et $\ln(1 - \hat{p}) = \ln 0$. d) 0 exactement, là où la formule naïve donne `inf`. a) $\approx 0{,}372$, bien sous $\ln 2 \approx 0{,}693$ : les scores renseignent sur les labels.
+
+**Erreurs fréquentes.** La somme au lieu de la moyenne ; le signe de $-yz$ ; oublier $y$ ; `np.log(1 + np.exp(z))`, qui rend `inf` en b) et d).
+
+### Ex M13a.25 — `scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes fonctions
+
+**Réponses** : a) `-35.343668` · b) `True` · c) `[-3.68647, 1.107414]` · d) `True` · e) `-37.421354` · f) `True` · g) `36.0437` · h) `52`.
+
+**Démarche.** Chaque valeur s'obtient par la ligne de l'énoncé ; d) compare `gaussian_mle(X_25)[1]` à `scale ** 2` avec `math.isclose(..., rel_tol=1e-10)`. Pour la copie : c) `norm.fit` rend l'écart-type du maximum de vraisemblance (en $n$) ; son carré, $\approx 1{,}2264$, est ta variance ; `np.std(X_25, ddof=1)` serait un peu plus grand. Sans `xlogy`, la catégorie de comptage 0 donne $0 \times \ln 0$ = `nan` (et un avertissement), qui contamine la somme. g) scikit-learn remplace 0 par `np.finfo(float).eps` $= 2^{-52}$ : $-\ln 2^{-52} = 52\ln 2 \approx 36{,}04$, d'où h). Une bibliothèque qui écrête à $10^{-15}$ rend 34,54 : une log-loss qui contient une probabilité 0 dépend d'une convention. `np.log(special.expit(z))` prend le $\ln$ d'un $\sigma(z)$ déjà arrondi (0 pour $z = -800$), `log_expit` passe par la softplus.
+
+**Erreurs fréquentes.** La moyenne au lieu de la somme en a) et e) ; comparer la variance à l'écart-type de c) ; deviner g) au lieu de l'exécuter.
+
+### Ex M13a.26 — Prédire la log-loss d'un modèle qui répond toujours 0,5, puis toujours la fréquence des 1
+
+**Réponses** : a) `3` · b) `2` · c) `3` · d) `2`.
+
+**Démarche.** a) et c) : chaque exemple coûte $-\ln 0{,}5 = \ln 2 \approx 0{,}693$, quel que soit son label : la log-loss du modèle 0,5 ne dépend pas des labels. b) $-0{,}15\ln 0{,}15 - 0{,}85\ln 0{,}85 \approx 0{,}4227$, l'entropie en nats de la fréquence 0,15. d) La log-loss d'un modèle constant $q$ est $-\frac{1}{n}$ fois la log-vraisemblance de Bernoulli des labels en $q$ : elle est la plus petite au maximum de vraisemblance, la fréquence des 1 (0,05 et 0,35 donnent $\approx 0{,}4930$ et $0{,}5236$). Un modèle qui regarde les features doit donc battre 0,4227, pas seulement $\ln 2$. Sur des labels tous à 1, la log-loss $-\ln q$ décroît jusqu'à $q = 1$ : le maximum de vraisemblance $\hat{p} = 1$ est au bord.
+
+**Erreurs fréquentes.** Croire que le modèle 0,5 coûte moins sur des labels déséquilibrés ; prendre $\ln 2$ comme niveau à battre.
+
+### Ex M13a.27 — La variabilité du maximum de vraisemblance d'une loi de Bernoulli d'un échantillon à l'autre
+
+**Réponses** : a) `[0.09272, 0.04606, 0.02373]` · b) `[0.09165, 0.04583, 0.02291]` · c) `True` · d) `[2.01, 1.94]` · e) `2`.
+
+**Démarche.** `phat_samples` : `(rng.random((N_SAMPLES_27, n)) < P_27).mean(axis=1)` ; `spread_table` crée **un** générateur et appelle `phat_samples` pour 25, 100 puis 400. Pour la copie : $\hat{p}$ est la moyenne de $n$ variables de Bernoulli indépendantes de variance $p(1 - p)$, donc de variance $\frac{p(1 - p)}{n}$ (M02c) ; les écarts mesurés (1 %, 0,5 %, 3,6 %) sont de l'ordre de l'incertitude d'un écart-type estimé sur 2 000 valeurs. Pour un écart-type sous 0,01 : $n \ge 0{,}21/10^{-4} = 2\,100$. Les histogrammes sont des cloches (le théorème central limite, M02c) de largeur divisée par 2 quand $n$ est multiplié par 4, comme la log-vraisemblance de la fiche §1 se creuse. Sur 25 exemples, « 0,32 » est à $\pm 0{,}09$ près : le deuxième chiffre ne veut rien dire.
+
+**Erreurs fréquentes.** Un générateur recréé pour chaque $n$ (d'autres nombres que ceux de la vérification) ; la variance au lieu de l'écart-type ; oublier la racine en b) ; les rapports inversés en d) ; 4 en e).
+
+### Ex M13a.28 — L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et maximum au centre
+
+**Vérification** : manuelle (la cellule dit ✅ ou ❌ pour les valeurs sur cinq lois, les symétries, le maximum au centre, la concavité et le dessin).
+
+**Démarche.** `entropy_bits` : `Q = np.where(P > 0, P, 1)`, puis `-(P * np.log2(Q)).sum(axis=1)` (un terme nul vaut $0 \times \log_2 1 = 0$, sans avertissement) ; `gini` : `1 - (P ** 2).sum(axis=1)` ; `draw_impurities` : `xy = to_plane(simplex_grid())`, `ax.tricontourf(xy[:, 0], xy[:, 1], valeurs, levels=12)`, le contour du triangle, le point de `np.argmax(valeurs)`, `ax.set_aspect("equal")` et un titre. Pour la copie : les deux impuretés sont maximales au centre, la loi uniforme, et nulles aux sommets. $\lVert \mathbf{p} - \mathbf{u} \rVert^2 = \sum_k p_k^2 - \frac{1}{3}$ : Gini ne dépend que de la distance au centre, ses lignes de niveau sont des cercles (coupés par les côtés) ; celles de l'entropie n'en sont pas. Un côté donne l'entropie et le Gini d'une loi à deux issues. Près d'un sommet, l'entropie monte bien plus vite : la pente de $-p\log_2 p$ est infinie en 0, celle de $p(1 - p)$ vaut 1.
+
+**Erreurs fréquentes.** `np.log2(P)` sans précaution (un avertissement et `nan`) ; la somme sur le mauvais axe ; ouvrir une nouvelle figure dans `draw_impurities`.
+
+### Ex M13a.29 — Chasse à l'erreur : un ln 0, une sigmoïde qui déborde, une variance de maximum de vraisemblance divisée par n − 1
+
+**Réponses** : a) `"ABCG"` · b) `-2.5914` · c) `0.2106` · d) `3.8753`.
+
+**Démarche.** (A) pour une probabilité 0 donnée à un label 0, ou 1 à un label 1, la formule calcule $0 \times \ln 0$ : `nan` (et des avertissements) ; correction `np.log(np.where(y == 1, p, 1 - p))`. (B) pour $z = -800$, `np.exp(800)` déborde : la valeur 0 est juste, mais avec un avertissement, que le commentaire exclut ; correction : $\frac{e^{z}}{1 + e^{z}}$ pour $z < 0$. (C) pour $z = 800$, `np.log(1 + np.exp(z))` vaut `inf`, et la log-loss aussi, alors que ce modèle a raison ; correction : la softplus stable. (G) `ddof=1` divise par $n - 1$ : un nombre plausible, faux sans aucun signal, le plus dangereux ; correction `np.var(x)`. (E) est juste ici : $\hat{p} = \frac{5}{12}$ n'est ni 0 ni 1.
+
+**Erreurs fréquentes.** Marquer (E), qui ressemble à (A) ; oublier (B), dont la valeur est juste ; la moyenne au lieu de la somme en b).
+
+### Ex M13a.30 — Vérifier avec SymPy le maximum de vraisemblance d'une loi géométrique et d'une loi de Poisson
+
+**Vérification** : manuelle (la cellule dit ✅, ❌ ou ⏳ pour chaque objet). Valeurs : $\hat{p} = \frac{1}{3}$, $\ell''(\hat{p}) = -\frac{135}{2}$, $\hat{\lambda} = 2$, $\ell''(\hat{\lambda}) = -3$.
+
+**Démarche.** Géométrique : $\ell(p) = 10\ln(1 - p) + 5\ln p$ (la somme des $k_i - 1$ vaut 10), $\ell'(p) = \frac{5}{p} - \frac{10}{1 - p}$, nul en $\hat{p} = \frac{1}{3} = \frac{1}{\bar{x}}$ ($\bar{x} = 3$) ; $\ell''(p) = -\frac{5}{p^2} - \frac{10}{(1 - p)^2} < 0$ sur tout $]0, 1[$, donc le point critique est l'unique maximum, et $\ell''(\hat{p}) = -45 - 22{,}5$. Poisson : $\ell(\lambda) = 12\ln\lambda - 6\lambda$ (à une constante près), $\ell'(\lambda) = \frac{12}{\lambda} - 6$, nul en $\hat{\lambda} = 2 = \bar{x}$, $\ell''(\hat{\lambda}) = -\frac{12}{4}$. `solve` ne trouve qu'une solution : l'équation se ramène au premier degré. Le maximum de vraisemblance égale l'espérance du modèle à la moyenne observée : $\frac{1}{p} = \bar{x}$, $\lambda = \bar{x}$.
+
+**Erreurs fréquentes.** Garder la liste rendue par `solve` ; oublier `.subs(p, p_hat)` ; écrire $k\ln(1 - p)$ au lieu de $(k - 1)\ln(1 - p)$.
+
+### Ex M13a.31 — Défi : la proportion d'un mélange de deux lois connues par maximum de vraisemblance, à 1e−6 près du maximum (dichotomie ou Newton)
+
+**Réponse** : `True` (le maximum à $10^{-6}$ près, en au plus 200 évaluations, sur les deux échantillons) ; $\hat{\pi} \approx 0{,}335527$ pour `X_31`, $\approx 0{,}602316$ pour le second échantillon.
+
+**Démarche.** Si `dell(0) <= 0`, rendre 0 ; si `dell(1) >= 0`, rendre 1 ; sinon garder $[a, b]$ avec $\ell'(a) > 0 > \ell'(b)$ et le couper en deux à chaque appel de `dell` jusqu'à $b - a < 10^{-7}$, puis rendre le milieu (une trentaine d'appels en tout). Pour la copie : $\ell''(\pi) = -\sum_i \big(\frac{f_1(x_i) - f_0(x_i)}{\pi f_1(x_i) + (1 - \pi) f_0(x_i)}\big)^2 \le 0$ : $\ell$ est concave, $\ell'$ décroît, et son unique zéro est le maximum, sans faux maximum possible. $\lceil\log_2 10^{6}\rceil = 20$ coupes suffisent pour $10^{-6}$, 40 pour $10^{-12}$ (plus les deux appels des bords). Newton converge plus vite, mais demande une garde qui le ramène à la dichotomie s'il sort de $[0, 1]$. $\hat{\pi}$ est proche de la proportion des points venus de $f_1$ sans lui être égal : les deux densités se chevauchent, et un point ne dit pas d'où il vient. L'algorithme EM (M25b) cherche le même maximum quand $f_0$ et $f_1$ sont aussi inconnues.
+
+**Erreurs fréquentes.** Une grille (un million de points pour $10^{-6}$) ; oublier les bords ; une fonction qui lit `X_31` au lieu des deux fonctions reçues ; un Newton sans garde, qui sort de $[0, 1]$.

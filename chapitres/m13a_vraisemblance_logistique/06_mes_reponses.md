@@ -345,3 +345,43 @@
 ## Notebook
 
 *Tes réponses aux exercices du notebook se tapent dans ta copie du notebook. Note ici ce que tu veux garder : tes raisonnements, tes erreurs, tes questions.*
+
+### Ex M13a.22 — La log-vraisemblance et le maximum de vraisemblance d'une loi de Bernoulli · `bernoulli_log_likelihood, bernoulli_mle`
+
+- b) et c) à la main depuis le nombre de 1 ; L(p̂)/L(0,2) ; pourquoi la formule naïve donne nan pour e), et la vraie valeur de chaque terme ; ce que dit f) :
+
+### Ex M13a.23 — Maximum de vraisemblance catégoriel, avec lissage, et gaussien · `categorical_mle, gaussian_mle`
+
+- la face 3 à la main en a), b) et c) ; pourquoi la face 4 ne bouge pas ; vers quelle loi tire le lissage ; e) sans calcul ; la log-vraisemblance d'un 67ᵉ lancer sur la face 3 :
+
+### Ex M13a.24 — La log-loss à partir des scores, sans débordement · `logistic_loss`
+
+- b) à la main avec l'écriture stable ; pourquoi np.log(1 + np.exp(z)) déborde, et pourquoi σ(45) vaut 1 ; d) par la formule naïve ; a) comparé à ln 2 :
+
+### Ex M13a.25 — `scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes fonctions
+
+- le second nombre de c) et np.std(X_25, ddof=1) ; la somme sans xlogy ; np.finfo(float).eps et h) ; deux bibliothèques, deux log-loss ; log_expit plutôt que np.log(expit) :
+
+### Ex M13a.26 — Prédire la log-loss d'un modèle qui répond toujours 0,5, puis toujours la fréquence des 1
+
+- tes quatre prédictions, puis : pourquoi a) = c) ; b) comme une entropie ; pourquoi aucun modèle constant ne bat b), et ce qu'un modèle doit battre ; la courbe des labels tous à 1 :
+
+### Ex M13a.27 — La variabilité du maximum de vraisemblance d'une loi de Bernoulli d'un échantillon à l'autre
+
+- d'où vient √(p(1 − p)/n) ; le n pour un écart-type sous 0,01 ; les histogrammes et la figure de la fiche §1 ; une proportion « 0,32 » sur 25 exemples :
+
+### Ex M13a.28 — L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et maximum au centre
+
+- le maximum de chaque impureté ; les cercles de Gini par ‖p − u‖² ; les lignes de l'entropie ; la fonction retrouvée sur un côté ; laquelle monte le plus vite près d'un sommet, et pourquoi :
+
+### Ex M13a.29 — Chasse à l'erreur : un ln 0, une sigmoïde qui déborde, une variance de maximum de vraisemblance divisée par n − 1
+
+- pour chaque ligne fausse, ce qui se passe et la correction ; la valeur juste avec un avertissement ; le nombre faux sans signal ; pourquoi (E) est juste ici :
+
+### Ex M13a.30 — Vérifier avec SymPy le maximum de vraisemblance d'une loi géométrique et d'une loi de Poisson
+
+- le calcul à la main de ℓ, ℓ′, p̂ et du signe de ℓ″, puis de λ̂ ; pourquoi le signe de ℓ″(p̂) suffit ; les autres solutions de solve ; p̂ et λ̂ en fonction de x̄ :
+
+### Ex M13a.31 — Défi : la proportion d'un mélange de deux lois connues par maximum de vraisemblance, à 1e−6 près du maximum (dichotomie ou Newton)
+
+- le nombre d'évaluations, et le minimum pour 10⁻¹² ; pourquoi la concavité protège d'un faux maximum ; π̂ et la proportion de points venus de f₁ :
