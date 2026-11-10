@@ -457,6 +457,20 @@ R0 (prise en main) n'a pas de formule : les priorités de Python (`**` avant le 
 | variance expliquée, erreur | part $\lambda_j/\sum_l\lambda_l$ ; erreur moyenne $\frac{1}{n}\sum_i\lVert \mathbf{x}_i - \hat{\mathbf{x}}_i \rVert^2 = \frac{n-1}{n}\sum_{j > k}\lambda_j$ ; d'un exemple : $\sum_{j > k} t_{ij}^2$ ; $n < p$ : au plus $n - 1$ variances non nulles, axes $\mathbf{X}_c^\top\mathbf{w}/\lVert \mathbf{X}_c^\top\mathbf{w} \rVert$ pour $\mathbf{X}_c\mathbf{X}_c^\top\mathbf{w} = \mu\mathbf{w}$ |
 | t-SNE | $p_{j \mid i} = \frac{\exp(-\lVert \mathbf{x}_i - \mathbf{x}_j \rVert^2/2\sigma_i^2)}{\sum_{l \ne i}\exp(-\lVert \mathbf{x}_i - \mathbf{x}_l \rVert^2/2\sigma_i^2)}$ ; perplexité $2^{H(P_i)}$, $H$ en bits ; $p_{ij} = \frac{p_{j \mid i} + p_{i \mid j}}{2n}$ ; carte : $q_{ij} \propto (1 + \lVert \mathbf{y}_i - \mathbf{y}_j \rVert^2)^{-1}$, minimiser $\mathrm{KL}(P \Vert Q)$ |
 
+### M13a · Vraisemblance et régression logistique
+
+| Notion | Formules |
+|---|---|
+| vraisemblance | i.i.d. : $L(\boldsymbol{\theta}) = \prod_i p(x_i \mid \boldsymbol{\theta})$, $\ell = \sum_i \ln p(x_i \mid \boldsymbol{\theta})$ ; Bernoulli : $\ell(p) = k\ln p + (n - k)\ln(1 - p)$, $\hat{p} = \frac{k}{n}$ ; catégorielle : $\ell = \sum_k n_k\ln p_k$, $\hat{p}_k = \frac{n_k}{N}$, lissée $\frac{n_k + \alpha}{N + K\alpha}$ |
+| loi normale | $\ell(\mu, v) = -\frac{n}{2}\ln(2\pi v) - \frac{1}{2v}\sum_i(x_i - \mu)^2$ ; $\hat{\mu} = \bar{x}$, $\hat{\sigma}^2 = \frac{1}{n}\sum_i(x_i - \hat{\mu})^2$, $\mathbb{E}[\hat{\sigma}^2] = \frac{n-1}{n}\sigma^2$ ; $\ell(\hat{\mu}, \hat{\sigma}^2) = -\frac{n}{2}\big(\ln(2\pi\hat{\sigma}^2) + 1\big)$ |
+| log-loss | $-\frac{1}{n}\sum_i[y_i\ln\hat{p}_i + (1 - y_i)\ln(1 - \hat{p}_i)] = -\frac{1}{n}\ell$ ; multiclasse : $-\frac{1}{n}\sum_i\ln\hat{q}_i(y_i)$ ; moyenne pour un label de probabilité $\pi$ : $H(\pi) + \mathrm{KL}(\pi \Vert q)$ ; meilleur modèle constant : $H(\hat{p})$ (nats) ; bits : $\div\ln 2$ |
+| sigmoïde, softplus | $\sigma(z) = \frac{1}{1 + e^{-z}}$, $\sigma(-z) = 1 - \sigma(z)$, $\frac{\sigma}{1 - \sigma} = e^z$ ; $s(z) = \ln(1 + e^z) = \max(z, 0) + \ln(1 + e^{-\lvert z \rvert})$, $s(z) - s(-z) = z$ ; $-\ln\sigma(z) = s(-z)$, $-\ln(1 - \sigma(z)) = s(z)$ ; terme de log-loss : $s(z) - yz$ |
+| convexité | $\mathrm{LSE}(\mathbf{u}) = \ln\sum_k e^{u_k}$, $\max_k u_k \le \mathrm{LSE} \le \max_k u_k + \ln K$ ; sur une droite, $g'' = \sum_k\pi_kd_k^2 - (\sum_k\pi_kd_k)^2 \ge 0$ ; $s(z) = \mathrm{LSE}(0, z)$ ; convexe ∘ affine est convexe |
+| régression logistique | $P(Y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b)$ ; log-cote $= \mathbf{w} \cdot \mathbf{x} + b$ ; cote $\times e^{w_j}$ quand $x_j + 1$ ; niveau $c$ : $\mathbf{w} \cdot \mathbf{x} + b = \operatorname{logit}(c)$ ; $J(\mathbf{w}, b) = \frac{1}{n}\sum_i[s(z_i) - y_iz_i]$, convexe |
+| Naïve Bayes | $P(Y = k \mid \mathbf{x}) \propto \pi_k\prod_j p(x_j \mid k)$ ; $m^p - 1$ contre $p(m - 1)$ probabilités par classe ; deux gaussiennes de même variance : $w = \frac{\mu_1 - \mu_0}{\sigma^2}$, $b = \frac{\mu_0^2 - \mu_1^2}{2\sigma^2} + \ln\frac{\pi_1}{\pi_0}$ |
+| impuretés | $H(\mathbf{p}) = -\sum_k p_k\log_2 p_k \le \log_2 K$ ; $G(\mathbf{p}) = 1 - \sum_k p_k^2 \le 1 - \frac{1}{K}$ ; gain d'information : $H(Y) - H(Y \mid X) = I(X ; Y)$ |
+| réduction de variance | $V = \frac{n_A}{n}V_A + \frac{n_B}{n}V_B + \frac{n_A}{n}(m_A - m)^2 + \frac{n_B}{n}(m_B - m)^2$ (intra + inter, en $\frac{1}{n}$) |
+
 ## Partie IV · Réseaux
 
 *(ajouté avec les chapitres M16 à M20)*

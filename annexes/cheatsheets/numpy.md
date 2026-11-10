@@ -48,6 +48,11 @@ rng = np.random.default_rng(42)          # toujours un générateur avec une gra
 | une somme, un produit | `np.sum(x)`, `np.prod(x)` ; sommes cumulées : `np.cumsum(x)` |
 | exp, log, racine | `np.exp`, `np.log` (népérien), `np.log2`, `np.sqrt` |
 | log-sum-exp stable | `scipy.special.logsumexp(x)` |
+| softplus stable, $\ln(1 + e^z)$ | `np.logaddexp(0, z)`, ou `np.maximum(z, 0) + np.log1p(np.exp(-np.abs(z)))` |
+| sigmoïde, $\ln\sigma(z)$ sans débordement | `scipy.special.expit(z)`, `scipy.special.log_expit(z)` |
+| $x\ln y$ avec $0 \ln 0 = 0$ | `scipy.special.xlogy(x, y)` |
+| la log-loss | `sklearn.metrics.log_loss(y, p)` (en nats, probabilités écrêtées près de 0 et de 1) |
+| un maximum de vraisemblance | `scipy.stats.norm.fit(x)` rend $(\hat{\mu}, \hat{\sigma})$ (l'écart-type, en $\frac{1}{n}$) ; `np.var(x)` divise par $n$ |
 | une intégrale numérique | `scipy.integrate.quad(f, 0, 1)` ; sur des points : `np.trapezoid(y, x)` |
 | un zéro de fonction | `scipy.optimize.brentq(f, a, b)` |
 | un minimum | `scipy.optimize.minimize(f, x0)` |

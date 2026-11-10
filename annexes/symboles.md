@@ -60,6 +60,8 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\ln x$, $\log_2 x$ | « logarithme népérien », « log en base 2 » | natural log, log base 2 | l'exposant qu'il faut donner à $e$ (ou à 2) pour obtenir $x$ ; dans MML, $\log$ = $\ln$ | $\log_2 32 = 5$ | R6 |
 | $\log_b x$, $\log_{10} x$ | « logarithme en base b de x », « log décimal » | log base b of x, common log | l'exposant qu'il faut donner à $b$ pour obtenir $x$ ; $\log_b x = \frac{\ln x}{\ln b}$ | $\log_{10} 100\,000 = 5$ | R6 |
 | $\sigma(x)$ | « sigma de x », « sigmoïde de x » | sigmoid of x | $\frac{1}{1 + e^{-x}}$ ; ailleurs, $\sigma$ est aussi un écart-type | $\sigma(0) = \frac{1}{2}$ | R6 |
+| $\operatorname{logit}(p)$ | « logit de p » | logit of p | $\ln\frac{p}{1 - p}$, la log-cote, réciproque de la sigmoïde | $\operatorname{logit}(0{,}5) = 0$ | R6, M13a |
+| $s(z)$ | « softplus de z » | softplus of z | $\ln(1 + e^z)$ ; $-\ln\sigma(z) = s(-z)$ | $s(0) = \ln 2$ | M13a |
 | $\tanh x$ | « tangente hyperbolique de x » | hyperbolic tangent, « tanch » | $\frac{e^x - e^{-x}}{e^x + e^{-x}}$ | $\tanh 0 = 0$ | R6 |
 | $\lfloor x \rfloor$ | « partie entière de x » | floor of x | le plus grand entier inférieur ou égal à $x$ | $\lfloor 4{,}7 \rfloor = 4$ | R1, R6 |
 | $u_n$, $(u_n)$ | « u indice n », « la suite u n » | u sub n, the sequence u_n | le terme de rang $n$ ; la suite entière | $u_n = n^2$ donne $u_3 = 9$ | R5 |
@@ -197,8 +199,9 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\boldsymbol{\Sigma}$, $\Sigma_{ij}$ | « grand sigma (gras) », « sigma i j » | covariance matrix | la matrice de covariance, et sa case $(i, j)$ : $\operatorname{Cov}(X_i, X_j)$ | $\Sigma_{ii} = \mathbb{V}(X_i)$ | M02c |
 | $\theta$ | « thêta » | theta | les paramètres d'un modèle | | M04 |
 | $L(\theta)$, $\mathcal{L}(\theta)$ | « L de thêta », « vraisemblance » | likelihood | la probabilité des données observées, vue comme une fonction des paramètres | $L(\theta) = \theta^2(1 - \theta)^{10}$ | M04, M13a |
-| $\ell(\theta)$ | « petit l de thêta », « log-vraisemblance » | log-likelihood | $\ln L(\theta)$ : même maximum que $L$, et une somme au lieu d'un produit | $\ell(\theta) = 2\ln\theta + 10\ln(1 - \theta)$ | M04 |
+| $\ell(\theta)$ | « petit l de thêta », « log-vraisemblance » | log-likelihood | $\ln L(\theta)$ : même maximum que $L$, et une somme au lieu d'un produit | $\ell(\theta) = 2\ln\theta + 10\ln(1 - \theta)$ | M04, M13a |
 | $\hat{\theta}_{\text{MAP}}$ | « thêta chapeau MAP » | MAP estimate | le maximum de l'a posteriori, $\arg\max_\theta f(\theta \mid \text{données})$ | $\frac{3}{20}$ pour $\mathrm{Beta}(4, 18)$ | M04 |
+| $G(\mathbf{p})$ | « Gini de p » | Gini impurity of p | l'indice de Gini $1 - \sum_k p_k^2$ d'une loi sur $K$ classes | $G(1, 0) = 0$ | M13a |
 | $\Gamma(x)$ | « gamma de x » | Gamma function | prolonge la factorielle : $\Gamma(n) = (n - 1)!$, $\Gamma(x + 1) = x\,\Gamma(x)$ | $\Gamma(5) = 24$ | M04 |
 | $B(a, b)$ | « B de a, b », « fonction bêta » | Beta function | $\frac{\Gamma(a)\Gamma(b)}{\Gamma(a + b)} = \int_0^1 \theta^{a - 1}(1 - \theta)^{b - 1}\,d\theta$ | $B(3, 6) = \frac{1}{168}$ | M04 |
 | $\Theta \sim \mathrm{Beta}(a, b)$ | « thêta suit une loi bêta a, b » | Beta distribution | une proportion de densité $\frac{\theta^{a - 1}(1 - \theta)^{b - 1}}{B(a, b)}$ sur $[0, 1]$ | $\mathrm{Beta}(1, 1)$ est uniforme | M04 |

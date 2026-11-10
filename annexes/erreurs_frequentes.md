@@ -534,4 +534,23 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Calculer les parts sur les $k$ premières variances | « avec 2 axes sur 5, les parts sont 70 % et 30 % » | diviser par la somme de **toutes** les variances |
 | Standardiser sans y penser, ou ne pas standardiser | des pixels réduits à variance 1 ; des euros et des kilomètres seulement centrés | standardiser si les unités diffèrent ; sinon centrer seulement |
 | Juger l'erreur de reconstruction sur l'entraînement | un seuil d'anomalie fixé sur les données qui ont servi aux axes | calculer les axes sur l'entraînement, mesurer et fixer les seuils sur d'autres données |
-| Lire des distances sur une carte t-SNE | « ces deux groupes sont deux fois plus éloignés que ceux-là » | une carte montre des voisinages ; tailles et distances entre groupes n'ont pas de sens précis |
+| Lire des distances sur une carte t-SNE | « ces deux groupes sont deux fois plus éloignés que ceux-là » | la divergence KL ne contraint presque pas l'écart entre deux groupes séparés : une carte montre des voisinages, elle ne mesure pas |
+
+## Vraisemblance et régression logistique (M13a)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Dériver la vraisemblance au lieu de la log-vraisemblance | dériver $p^{12}(1 - p)^{30}$ par la règle du produit | passer au logarithme : $12\ln p + 30\ln(1 - p)$, même maximum |
+| Diviser par $n - 1$ le maximum de vraisemblance d'une variance | `np.var(x, ddof=1)` pour $\hat{\sigma}^2$ | $\frac{1}{n}$ pour le maximum de vraisemblance (`np.var(x)`), $\frac{1}{n-1}$ pour l'estimation sans biais |
+| Une probabilité 0 pour une valeur jamais vue | $\hat{p}_k = \frac{0}{N}$, puis $\ln 0 = -\infty$ sur une observation nouvelle | lisser : $\frac{n_k + \alpha}{N + K\alpha}$ |
+| Lisser le numérateur seulement | $\frac{n_k + 1}{N}$ | $\frac{n_k + 1}{N + K}$ : les probabilités doivent sommer à 1 |
+| $-\ln\hat{p}$ pour un label 0 | le terme de $(y, \hat{p}) = (0 ;\ 0{,}3)$ pris égal à $-\ln 0{,}3$ | $-\ln(1 - \hat{p}) = -\ln 0{,}7$ |
+| Mélanger nats et bits | une log-loss de `sklearn` comparée à une entropie de M06 | les bibliothèques sont en nats ; diviser par $\ln 2$ pour des bits |
+| Calculer $\ln(1 + e^z)$ tel quel | `np.log(1 + np.exp(800))` donne `inf` | $\max(z, 0) + \ln(1 + e^{-\lvert z \rvert})$, avec `np.log1p` |
+| Calculer la log-loss à partir de $\sigma(z)$ arrondi | $\sigma(40)$ arrondi à 1, puis $\ln(1 - 1) = -\infty$ | écrire le terme avec le score : $s(z) - yz$ |
+| Lire un poids logistique comme un effet sur la probabilité | « $w_j = 0{,}5$ : la probabilité monte de 0,5 » | la log-cote monte de $w_j$, la cote est multipliée par $e^{w_j}$ |
+| Confondre indépendance et indépendance conditionnelle | « Naïve Bayes suppose les features indépendantes » | indépendantes **sachant la classe** |
+| Oublier les proportions des classes | comparer seulement $p(\mathbf{x} \mid k)$ entre les classes | comparer $\pi_k\,p(\mathbf{x} \mid k)$ (en logarithmes) |
+| Moyenner des impuretés sans pondérer | la moyenne simple des entropies de deux groupes de 2 et 98 exemples | pondérer par les tailles des groupes |
+| Prendre le taux d'erreur pour l'indice de Gini | « $(0{,}9 ;\ 0{,}05 ;\ 0{,}05)$ a un Gini de 0,1 » | $G = 1 - \sum_k p_k^2 = 0{,}185$ ; $1 - \max_k p_k$ est le taux d'erreur |
+| Mélanger $\frac{1}{n}$ et $\frac{1}{n - 1}$ dans la décomposition de la variance | la variance totale en $\frac{1}{n-1}$, celles des groupes en $\frac{1}{n}$ | la même convention partout ($\frac{1}{n}$) pour que total = intra + inter |

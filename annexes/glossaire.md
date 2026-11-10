@@ -229,6 +229,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | fonction affine, linéaire | affine function, linear function | $x \mapsto mx + c$ ; linéaire quand $c = 0$ | R3 |
 | fonction Beta, fonction Gamma | Beta function, Gamma function | $B(a, b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a + b)}$ ; $\Gamma(n) = (n - 1)!$ pour un entier $n \ge 1$ | M04 |
 | fonction d'erreur | error function, erf | $\operatorname{erf}(x) = \frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2}\,dt$, un nom donné à cette intégrale sans primitive usuelle | M02a |
+| fonction de lien | link function | dans un modèle linéaire généralisé, la fonction qui relie la moyenne de la cible au score linéaire : le logit pour la régression logistique, l'identité pour la régression linéaire | M13a |
 | fonction de masse | probability mass function (pmf) | $p(x) = P(X = x)$ pour une variable discrète : positive, de somme 1 | M02b |
 | fonction de plusieurs variables | multivariate function, function of several variables | une fonction qui prend plusieurs nombres et en renvoie un, comme $f(x, y)$ ; son graphe est une surface | M05b |
 | fonction de répartition | cumulative distribution function (cdf) | $F(x) = P(X \le x)$ : croissante de 0 à 1, et $F' = f$ pour une densité $f$ | M02a |
@@ -248,8 +249,10 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | fréquence | (relative) frequency | nombre de fois où un événement se réalise, divisé par le nombre d'essais | R8 |
 | fréquentiste, bayésien | frequentist, Bayesian | deux lectures des probabilités : une fréquence à long terme, le paramètre étant fixe ; un degré de croyance sur le paramètre | M04 |
 | frontière de décision linéaire | linear decision boundary | l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ qui sépare les points classés 1 de ceux classés 0 par un score linéaire | M07 |
+| gain d'information | information gain | la baisse moyenne d'entropie de la classe $Y$ quand on apprend une variable $X$ : $H(Y) - H(Y \mid X)$, l'information mutuelle de $X$ et $Y$ ; un arbre de décision choisit la question qui la rend la plus grande | M13a |
 | Gauss-Jordan (méthode de) | Gauss-Jordan elimination | réduire $[\mathbf{A} \mid \mathbf{I}]$ en forme échelonnée réduite : on obtient $[\mathbf{I} \mid \mathbf{A}^{-1}]$, ou une ligne nulle à gauche si $\mathbf{A}$ est singulière | M09a |
 | générateur pseudo-aléatoire, graine | pseudo-random number generator, seed | programme qui calcule une suite d'apparence aléatoire à partir d'une graine ; la même graine redonne la même suite | R8 |
+| génératif, discriminant (modèle) | generative, discriminative model | un modèle génératif modélise la loi des features dans chaque classe et la proportion des classes, puis applique la formule de Bayes (Naïve Bayes) ; un modèle discriminant modélise directement la classe sachant les features (régression logistique) | M13a |
 | gradient | gradient | vecteur des dérivées partielles | M05b |
 | Gram-Schmidt (procédé de) | Gram-Schmidt orthogonalization | retirer de chaque vecteur ses projections sur les vecteurs déjà construits, puis normer : une base orthonormée du même sous-espace ; classique ou modifié selon que l'on projette le vecteur d'origine ou le vecteur courant | M12b |
 | grand O | big O | $f = O(g)$ : $f$ ne croît pas plus vite que $g$, à une constante près ; mesure le coût d'un algorithme | R7 |
@@ -266,12 +269,15 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | image (d'une application linéaire) | image, range | $\operatorname{Im} f = \{f(\mathbf{x})\}$, un sous-espace de l'espace d'arrivée ; pour une matrice, l'espace de ses colonnes | M12a |
 | implication | implication, conditional | $P \Rightarrow Q$, fausse seulement si P est vraie et Q fausse | R4 |
 | importance par permutation | permutation importance | le score d'un modèle entraîné, moins son score quand on mélange la colonne d'une feature, sur un jeu de validation | M08 |
+| impureté | impurity | une mesure du mélange des classes d'un groupe : nulle si une seule classe est présente, maximale pour des classes en proportions égales ; l'entropie et l'indice de Gini en sont deux | M13a |
 | imputation | imputation | remplacer une valeur manquante par une valeur choisie (la moyenne, la médiane de la colonne…) | M02c |
 | inclusion | inclusion, subset | $A \subset B$ : tout élément de $A$ est dans $B$ | R4 |
 | indépendance (de variables aléatoires) | independence | la loi jointe est le produit des marginales : $P(X = x, Y = y) = P(X = x)\,P(Y = y)$ pour toutes les valeurs | M02b |
+| indépendance conditionnelle | conditional independence | $X$ et $Y$ sont indépendantes sachant $Z$ si $P(X, Y \mid Z) = P(X \mid Z)\,P(Y \mid Z)$ ; des variables très corrélées peuvent l'être (deux thermomètres sachant la température) | M13a |
 | indépendance deux à deux, mutuelle | pairwise, mutual independence | chaque paire d'événements est indépendante ; ou tous ensemble le sont : $P(A \cap B \cap C) = P(A)P(B)P(C)$ en plus. La première n'entraîne pas la seconde | M03 |
 | indicatrice | indicator (variable) | variable qui vaut 1 si un événement se produit, 0 sinon (une Bernoulli) | M02b |
 | indice (d'une somme) | index (of a sum) | la variable muette de $\sum_{k=m}^{n}$, qui va de $m$ à $n$ | R4 |
+| indice de Gini | Gini impurity, Gini index | $G(\mathbf{p}) = 1 - \sum_k p_k^2 = \sum_k p_k(1 - p_k)$, la somme des variances des indicatrices de classe ; entre 0 (une classe) et $1 - \frac{1}{K}$ (loi uniforme), concave | M13a |
 | inégalité de Cauchy-Schwarz | Cauchy-Schwarz inequality | $\lvert \vec{u} \cdot \vec{v} \rvert \le \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert$ | R9, M07 |
 | inégalité de Gibbs | Gibbs' inequality | $\mathrm{KL}(p \parallel q) \ge 0$, avec égalité si et seulement si $p = q$ ; d'où $H(p, q) \ge H(p)$ | M06 |
 | inégalité de Jensen | Jensen's inequality | pour $f$ convexe, $f(\mathbb{E}[X]) \le \mathbb{E}[f(X)]$ ; l'inverse pour $f$ concave | M06 |
@@ -307,8 +313,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | linéairement séparable | linearly separable | deux classes qu'un hyperplan sépare ; pour des nuages finis, c'est équivalent à des enveloppes convexes disjointes | M10 |
 | linéarité de l'espérance | linearity of expectation | $\mathbb{E}[aX + bY + c] = a\,\mathbb{E}[X] + b\,\mathbb{E}[Y] + c$, même pour des variables dépendantes | R8, M02b |
 | lissage de Laplace | Laplace smoothing, additive smoothing | $\frac{k + 1}{n + 2}$, ou $\frac{n_j + 1}{n + K}$ : la moyenne a posteriori sous un a priori uniforme ; plus de probabilité nulle | M04 |
+| log-loss | log-loss, binary cross-entropy | $-\frac{1}{n}\sum_i\big[y_i\ln\hat{p}_i + (1 - y_i)\ln(1 - \hat{p}_i)\big]$, moins la log-vraisemblance des labels divisée par $n$ ; avec les scores, la moyenne des $s(z_i) - y_iz_i$ ; elle est la plus petite, en moyenne, quand le modèle annonce les vraies probabilités | M06, M13a |
 | log-probabilité, log-vraisemblance | log-probability, log-likelihood | le logarithme d'une probabilité, d'une vraisemblance : un produit devient une somme | R6, M06 |
-| log-sum-exp | log-sum-exp | $\ln\sum_j e^{\ell_j} = m + \ln\sum_j e^{\ell_j - m}$ avec $m = \max_j \ell_j$ : normaliser des log-probabilités sans underflow | M04, M05a |
+| log-sum-exp | log-sum-exp | $\ln\sum_j e^{\ell_j} = m + \ln\sum_j e^{\ell_j - m}$ avec $m = \max_j \ell_j$ : normaliser des log-probabilités sans underflow ; un maximum lisse, convexe (sur une droite, sa dérivée seconde est une variance) | M04, M05a, M13a |
 | logarithme décimal, binaire | common logarithm, binary logarithm | $\log_{10}$ (compte les chiffres), $\log_2$ (compte les doublements, les bits) | R6 |
 | logarithme népérien | natural logarithm | $\ln$, la réciproque de exp : $\ln x$ est l'exposant $y$ tel que $e^y = x$ ; « log » en ML et en Python | R6 |
 | logit | logit | $\ln \frac{p}{1 - p}$, la réciproque de la sigmoïde ; en deep learning, les scores avant la sigmoïde ou le softmax | R6 |
@@ -357,7 +364,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | matrice symétrique | symmetric matrix | une matrice égale à sa transposée : $a_{ij} = a_{ji}$ ; $\mathbf{X}^\top\mathbf{X}$ l'est toujours | M09a |
 | matrice symétrique définie positive | symmetric positive definite matrix | $\mathbf{M}^\top = \mathbf{M}$ et $\mathbf{x}^\top\mathbf{M}\mathbf{x} > 0$ pour $\mathbf{x} \ne \mathbf{0}$ : exactement les matrices des produits scalaires de $\mathbb{R}^n$ ; en dimension 2, $a > 0$ et $ac - b^2 > 0$ ; ses valeurs propres sont toutes strictement positives, ses mineurs principaux aussi, et elle a une décomposition de Cholesky | M12b, M12c |
 | matrices semblables, équivalentes | similar matrices, equivalent matrices | $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$, ou $\mathbf{T}^{-1}\mathbf{A}\mathbf{S}$ : la même application linéaire dans d'autres bases ; le rang ne change pas, et deux matrices semblables ont aussi le même déterminant, la même trace et les mêmes valeurs propres | M12a, M12c |
-| maximum de vraisemblance (estimation du) | maximum likelihood estimate (MLE) | la valeur du paramètre qui rend les données observées les plus probables ; pour une proportion, la fréquence | M04 |
+| maximum de vraisemblance (estimation du) | maximum likelihood estimate (MLE) | la valeur du paramètre qui rend les données observées les plus probables, en maximisant la log-vraisemblance $\ell(\theta) = \sum_i \ln p(x_i \mid \theta)$ : la proportion pour une loi de Bernoulli, les fréquences pour une loi catégorielle, la moyenne et la variance en $\frac{1}{n}$ (biaisée) pour une loi normale | M04, M13a |
 | maximum, minimum, extremum | maximum, minimum, extremum (extrema) | la plus grande (petite) valeur d'une fonction sur un ensemble | R3 |
 | MCC (coefficient de Matthews) | Matthews correlation coefficient | la corrélation entre la vérité et la prédiction codées 0 et 1, entre $-1$ et 1 | M03 |
 | médiane | median | la valeur du milieu d'une série triée (la moyenne des deux du milieu si $n$ est pair) ; robuste aux valeurs extrêmes | M02c |
@@ -374,6 +381,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | mise à jour séquentielle | sequential updating | l'a posteriori d'une observation devient l'a priori de la suivante | M04 |
 | mise en équation | setting up an equation, translating a word problem | traduire un énoncé en équation (ou en système) en choisissant les inconnues | R2 |
 | mode | mode | la valeur la plus fréquente d'une série, ou le maximum d'une densité | M02c |
+| modèle linéaire généralisé | generalized linear model (GLM) | une combinaison linéaire des features suivie d'une fonction fixée, $\varphi(\boldsymbol{\theta}^\top\mathbf{x})$, avec une loi de la cible adaptée : la régression linéaire (bruit gaussien) et la régression logistique (labels de Bernoulli) en sont | M13a |
 | modus ponens, modus tollens | modus ponens, modus tollens | les formes valides « $P \Rightarrow Q$ ; $P$ ; donc $Q$ » et « $P \Rightarrow Q$ ; non $Q$ ; donc non $P$ » | M11 |
 | moindres carrés | least squares | choisir les poids qui minimisent la somme des carrés des résidus, $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$ : la solution des équations normales, et le maximum de vraisemblance d'un bruit gaussien | M09b |
 | monôme | monomial | un produit de puissances de variables, $x_1^{k_1}\cdots x_p^{k_p}$, de degré $k_1 + \cdots + k_p$ | M09b |
@@ -385,6 +393,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | moyenne pondérée | weighted mean, weighted average | $\frac{\sum w_i x_i}{\sum w_i}$ : chaque valeur compte selon son poids | R1 |
 | MSE, RMSE (d'une régression) | mean squared error, root mean squared error | $\frac{1}{n}\sum r_i^2$ (dans l'unité de la cible au carré) et sa racine (dans l'unité de la cible) | M09b |
 | multiplicité algébrique, multiplicité géométrique | algebraic multiplicity, geometric multiplicity | la multiplicité de $\lambda$ comme racine du polynôme caractéristique ; la dimension de son espace propre, toujours entre 1 et la multiplicité algébrique | M12c |
+| Naïve Bayes | naive Bayes | un classifieur génératif qui suppose les features indépendantes sachant la classe : $P(Y = k \mid \mathbf{x}) \propto \pi_k\prod_j p(x_j \mid k)$, chaque loi estimée par maximum de vraisemblance (avec lissage), la décision en log-probabilités | M13a |
 | négation | negation | la proposition « non P », vraie quand P est fausse | R4 |
 | nier l'antécédent | denying the antecedent | le sophisme formel « $P \Rightarrow Q$ ; non $P$ ; donc non $Q$ » : non valide | M11 |
 | nombre décimal | decimal number, terminating decimal | nombre qui s'écrit avec un nombre fini de chiffres après la virgule (ensemble 𝔻) | R1 |
@@ -484,13 +493,16 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | réciproque (fonction) | inverse function | la fonction $f^{-1}$ qui défait $f$ : $f^{-1}(f(x)) = x$ ; ce n'est pas $\frac{1}{f}$ | R3 |
 | récurrence (raisonnement par) | (proof by) induction | démontrer $P(n_0)$, puis $P(n) \Rightarrow P(n + 1)$ pour tout $n \ge n_0$ | R4 |
 | récurrence (suite définie par) | recursively defined sequence, recurrence relation | un premier terme et une règle $u_{n+1} = f(u_n)$ | R5 |
+| réduction de variance | variance reduction | la baisse de la variance des cibles quand on coupe un groupe en deux : la variance inter-groupes ; le critère des arbres de régression | M13a |
 | rééchantillon | resample | $n$ valeurs tirées avec remise parmi les $n$ données (bootstrap) | M02c |
 | règle de la chaîne | chain rule | $(g(u(x)))' = g'(u(x)) \times u'(x)$ : on dérive chaque étage d'une composée et on multiplie | R7, M05b |
 | règle de la chaîne (de l'entropie) | chain rule for entropy | $H(X, Y) = H(X) + H(Y \mid X)$ : l'incertitude d'un couple, c'est celle de l'un plus ce qui reste sur l'autre | M06 |
 | règle de la somme | sum rule | on obtient une marginale en sommant la loi jointe sur l'autre variable | M02b, M03 |
+| règle de score propre | proper scoring rule | une façon de noter des probabilités dont la note moyenne est la meilleure quand on annonce les vraies probabilités ; la log-loss en est une, le taux d'erreur non | M13a |
 | règle de trois | rule of three | aucun événement en $n$ essais indépendants : à 95 %, sa probabilité est inférieure à environ $\frac{3}{n}$ | M11 |
 | règle du produit (probabilités) | product rule | $P(A \cap B) = P(A \mid B)\,P(B)$ ; MML : $p(\mathbf{x}, \mathbf{y}) = p(\mathbf{y} \mid \mathbf{x})\,p(\mathbf{x})$ | M03 |
 | règle du produit, du quotient | product rule, quotient rule | $(uv)' = u'v + uv'$ ; $(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$ | R7 |
+| régression logistique | logistic regression | $P(Y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b)$ : un score affine, lu comme la log-cote de la classe 1 ; ajustée par maximum de vraisemblance, en minimisant la log-loss, convexe en $(\mathbf{w}, b)$ | M13a |
 | régression ridge | ridge regression | les moindres carrés pénalisés par $\lambda\lVert \mathbf{w} \rVert^2$ : $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{w} = \mathbf{X}^\top\mathbf{y}$, toujours soluble pour $\lambda > 0$ ; le MAP d'un prior gaussien | M09b |
 | regret | regret | $R_T = \sum_k \Delta_k\,\mathbb{E}[N_k(T)]$ : ce qu'une stratégie gagne en moins, en moyenne, que la meilleure option choisie à chaque pas | M11 |
 | régularisation | regularization | ajouter à la loss une pénalité sur les poids (ridge, lasso) pour préférer les modèles simples | M09b |
@@ -519,6 +531,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | similarité cosinus | cosine similarity | $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$, le cosinus de l'angle entre deux vecteurs : compare leurs directions | R9, M07 |
 | simulation par inversion | inverse transform sampling | si $U$ est uniforme sur $[0 ; 1]$, $F^{-1}(U)$ suit la loi de fonction de répartition $F$ | M02b |
 | softmax, log-softmax | softmax, log-softmax | $\frac{e^{v_i}}{\sum_j e^{v_j}}$, calculée stablement avec $e^{v_i - m}$ ; son logarithme $v_i - \text{LSE}(\mathbf{v})$, qui reste fini | M05a |
+| softplus | softplus | $s(z) = \ln(1 + e^z)$ : positive, au-dessus de $\max(z, 0)$, asymptotes $y = 0$ et $y = z$, $s(z) - s(-z) = z$, convexe ; $-\ln\sigma(z) = s(-z)$ ; se calcule $\max(z, 0) + \ln(1 + e^{-\lvert z \rvert})$ | M13a |
 | solution de norme minimale | minimum-norm solution | parmi les solutions (ou les solutions des moindres carrés) d'un système, celle qui est la plus proche de l'origine : $\mathbf{A}^+\mathbf{b}$, orthogonale au noyau | M12d |
 | solution particulière, solution générale | particular solution, general solution | une solution d'un système ; toutes ses solutions, une solution particulière plus n'importe quelle solution du système homogène | M09a |
 | somme de Riemann | Riemann sum | somme des aires de $n$ rectangles de largeur $h = \frac{b - a}{n}$, de hauteur lue à gauche, à droite ou au milieu | M02a |
@@ -529,6 +542,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | somme télescopique | telescoping sum | $\sum (b_{k+1} - b_k) = b_{n+1} - b_1$ | R4 |
 | sommes de carrés (totale, expliquée, résiduelle) | total, explained, residual sum of squares (SST, SSE, SSR) | $\mathrm{SCT} = \sum (y_i - \bar{y})^2$, $\mathrm{SCE} = \sum (\hat{y}_i - \bar{y})^2$, $\mathrm{SCR} = \sum r_i^2$ ; $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ pour les moindres carrés avec ordonnée à l'origine | M09b |
 | sommet (d'une enveloppe convexe) | vertex | un point du nuage qui n'est pas combinaison convexe des autres : un coin du polygone | M10 |
+| sonde linéaire | linear probe | une régression logistique entraînée sur les représentations figées d'un réseau déjà entraîné, pour savoir si une propriété y est linéairement lisible | M13a |
 | sophisme formel | formal fallacy | une forme d'argument qui a l'air valide sans l'être : affirmer le conséquent, nier l'antécédent | M11 |
 | sous-espace affine | affine subspace | un sous-espace vectoriel déplacé, $\mathbf{x}_0 + U$ : une droite ou un plan qui ne passe pas par l'origine, les solutions de $\mathbf{A}\mathbf{x} = \mathbf{b}$ | M12a |
 | sous-espace engendré | span | $\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k)$ : l'ensemble des combinaisons linéaires de ces vecteurs, le plus petit sous-espace qui les contient | M12a |
@@ -603,6 +617,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | variance | variance | moyenne des carrés des écarts à l'espérance | R8 |
 | variance d'échantillon | sample variance | $s^2 = \frac{1}{n - 1}\sum (x_i - \bar{x})^2$, estimateur sans biais de $\sigma^2$ ; $s_n^2$ divise par $n$ | M02c |
 | variance expliquée (part de) | explained variance ratio | $\lambda_j/\sum_l\lambda_l$ : la part de la variance totale que garde l'axe principal $j$ ; la somme des $k$ premières est la part gardée par une ACP à $k$ composantes | M12d |
+| variance intra-groupes, inter-groupes | within-group, between-group variance | la moyenne pondérée des variances des groupes, et la moyenne pondérée des carrés des écarts des moyennes des groupes à la moyenne générale ; leur somme est la variance totale | M13a |
 | vecteur | vector | un déplacement (une direction, un sens, une longueur), donné par ses coordonnées ; en ML, une liste de nombres | R9 |
 | vecteur de support | support vector | un point à la distance exactement $\gamma^\star$ de l'hyperplan de plus grande marge : il touche un bord de la bande, et ce sont ces points qui fixent l'hyperplan | M10, M13b |
 | vecteur directeur, vecteur normal | direction vector, normal vector | un vecteur qui a la direction d'une droite ; un vecteur perpendiculaire à une droite ou à un plan (il engendre son complément orthogonal) | R9, M07, M12b |
