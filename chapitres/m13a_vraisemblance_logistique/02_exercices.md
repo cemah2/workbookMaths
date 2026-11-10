@@ -28,7 +28,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M13a.Q2 — Log-loss et cross-entropy : la même chose ? 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
 
-1. Un modèle donne la probabilité 0,9 au label observé d'un exemple : le terme de cet exemple dans la log-loss, en nats ?
+1. Un modèle donne la probabilité 0,75 au label observé d'un exemple : le terme de cet exemple dans la log-loss, en nats ?
 2. Quelle relation exacte relie la log-loss d'un classifieur sur $n$ exemples à la log-vraisemblance de ses labels ?
 3. Vrai ou faux : la log-loss binaire est un cas particulier de la cross-entropy.
 4. Un modèle répond toujours 0,5. Sa log-loss dépend-elle des labels ? Que vaut-elle ?
@@ -62,7 +62,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 2. Lequel des deux peut simuler de nouveaux exemples d'une classe ?
 3. Vrai ou faux : Naïve Bayes suppose les features indépendantes entre elles.
 4. Deux classes gaussiennes de même variance, à une feature : quelle forme a $P(Y = 1 \mid x)$ ?
-5. Un modèle génératif dont l'hypothèse est fausse peut-il quand même bien classer ? Que deviennent ses probabilités ?
+5. L'hypothèse naïve est fausse pour une loi donnée : les a posteriori calculés par Naïve Bayes sont-ils alors exacts ? Une décision peut-elle changer ?
 6. Pour calculer un a posteriori de Naïve Bayes avec 300 features, pourquoi additionner des logarithmes ?
 
 ### M13a.Q6 — Entropie et Gini : leurs propriétés 🧠 ★ ⏱️ 4 min
@@ -183,11 +183,11 @@ Quatre exemples, de labels $(1, 1, 0, 0)$, reçoivent les probabilités $\hat{p}
 | e | l'accuracy au seuil 0,5 | une fraction |
 | f | la log-loss d'un modèle qui répond toujours 0,5 | un nombre (4 décimales) |
 | g | un exemple à trois classes, de classe observée 3, reçoit la loi prédite $(0{,}2 ;\ 0{,}5 ;\ 0{,}3)$ : son terme de cross-entropy | un nombre (4 décimales) |
-| h | la log-loss des quatre exemples si la deuxième probabilité passe de 0,45 à 0,9 | un nombre (4 décimales) |
+| h | la log-loss des quatre exemples si la deuxième probabilité passe de 0,45 à 0,85 | un nombre (4 décimales) |
 
 Dans ta copie : écris chaque terme de a) comme une cross-entropy entre deux lois sur $\{0, 1\}$. Compare b) et h), puis l'accuracy dans les deux cas : que mesure la log-loss que l'accuracy ne mesure pas ?
 
-### Ex M13a.4 — Ce que coûte une prédiction sûre et fausse : la log-loss quand p tend vers 0 ✏️ ★ ⏱️ 15 min
+### Ex M13a.4 — Le poids d'un seul exemple mal prédit : la log-loss quand p tend vers 0 ✏️ ★ ⏱️ 15 min
 **Objectif :** mesurer le poids d'un seul exemple dont le label observé a reçu une probabilité presque nulle, et comprendre pourquoi les bibliothèques écrêtent.
 **Prérequis :** fiche §2 · **Parcours :** C
 
@@ -216,7 +216,7 @@ Dans ta copie : que vaut le taux d'erreur dans les cas a) à c) ? Pourquoi une p
 | c | $\sigma(2{,}5) + \sigma(-2{,}5)$ | un nombre |
 | d | le logit de 0,15 | un nombre (4 décimales) |
 | e | la cote de 0,15 | une fraction |
-| f | le score $z$ tel que $\sigma(z) = 0{,}95$ | un nombre (4 décimales) |
+| f | le score $z$ tel que $\sigma(z) = 0{,}96$ | un nombre (4 décimales) |
 | g | la probabilité dont la cote vaut 2,5 | une fraction |
 | h | $\sigma(z + \ln 2)$, sachant que $\sigma(z) = 0{,}15$ | une fraction |
 
@@ -258,7 +258,7 @@ Un modèle logistique a pour poids $\mathbf{w} = (0{,}7 ;\ 1{,}1)$ et pour biais
 
 Dans ta copie : pourquoi les points de probabilité 0,85 forment-ils une droite parallèle à la frontière ? Dans quelle direction faut-il aller pour que la probabilité augmente le plus vite ?
 
-### Ex M13a.8 — L'hypothèse naïve à la main : une loi jointe factorisée, comparée à la vraie ✏️ ★★ ⏱️ 20 min
+### Ex M13a.8 — L'hypothèse naïve à la main : une loi jointe factorisée, comparée à la vraie ✏️ ★★ ⏱️ 25 min
 **Objectif :** remplacer une loi jointe par le produit de ses marginales dans chaque classe, et mesurer ce que l'hypothèse naïve change aux a posteriori et aux décisions.
 **Prérequis :** fiche §5 ; M04 §1 · **Parcours :** C, E
 
@@ -280,9 +280,9 @@ Naïve Bayes remplace chaque loi jointe par le produit de ses deux marginales.
 | e | la vraie probabilité $P(Y = 1 \mid (1, 1))$ | un nombre (4 décimales) |
 | f | la même, calculée par Naïve Bayes | un nombre (4 décimales) |
 | g | le nombre des quatre cases où la classe la plus probable n'est pas la même selon la vraie loi et selon Naïve Bayes | un entier |
-| h | pour 10 features binaires et 2 classes : le nombre de probabilités à estimer avec les lois jointes complètes, puis avec Naïve Bayes (dans les deux cas, la proportion des classes comprise) | une liste de 2 entiers |
+| h | pour 8 features à 3 valeurs et 2 classes : le nombre de probabilités à estimer avec les lois jointes complètes, puis avec Naïve Bayes (dans les deux cas, la proportion des classes comprise) | une liste de 2 entiers |
 
-Dans ta copie : dans la classe 1, les deux features sont-elles indépendantes ? Explique avec les cases $(0, 1)$ et $(1, 1)$ pourquoi Naïve Bayes s'y trompe. Pourquoi peut-il tout de même bien classer quand l'hypothèse est presque vraie ?
+Dans ta copie : dans la classe 1, les deux features sont-elles indépendantes ? Explique avec les cases $(0, 1)$ et $(1, 1)$ pourquoi Naïve Bayes s'y trompe. Dans quelles cases son a posteriori s'éloigne-t-il le plus du vrai ?
 
 ### Ex M13a.9 — Deux classes gaussiennes de même variance : l'a posteriori est une sigmoïde d'un score affine ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer l'a posteriori d'un modèle génératif gaussien à une feature, l'écrire comme une régression logistique, et voir le rôle des proportions des classes.
@@ -301,13 +301,13 @@ Une feature $x$. Classe 0 : $x \sim \mathcal{N}(-1, 4)$ ; classe 1 : $x \sim \ma
 | g | le facteur qui multiplie la cote a posteriori quand $x$ augmente de 1 | un nombre (4 décimales) |
 | h | si la variance de la classe 1 passait à 9 (celle de la classe 0 restant 4) : le coefficient de $x^2$ dans la log-cote a posteriori | un nombre (4 décimales) |
 
-Dans ta copie : écris la log-cote a posteriori, et montre que les termes en $x^2$ s'annulent. Pourquoi d) vaut-il exactement la proportion de la classe 1 ? Que devient la frontière dans le cas h) ?
+Dans ta copie : écris la log-cote a posteriori, et montre que les termes en $x^2$ s'annulent. Pourquoi d) vaut-il exactement la proportion de la classe 1 ? Dans le cas h), pourquoi la frontière n'est-elle plus donnée par une équation du premier degré ?
 
 ### Ex M13a.10 — L'entropie et l'indice de Gini de quelques distributions ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer des entropies (en bits) et des indices de Gini, et comparer leurs maxima.
 **Prérequis :** fiche §6 ; M06 §2 · **Parcours :** C, E
 
-Trois lois : $\mathbf{p}_1 = (0{,}95 ;\ 0{,}05)$, $\mathbf{p}_2 = (0{,}4 ;\ 0{,}4 ;\ 0{,}2)$ et $\mathbf{p}_3 = (\frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \frac{1}{8})$.
+Trois lois : $\mathbf{p}_1 = (0{,}95 ;\ 0{,}05)$, $\mathbf{p}_2 = (0{,}5 ;\ 0{,}4 ;\ 0{,}1)$ et $\mathbf{p}_3 = (\frac{1}{2}, \frac{1}{8}, \frac{1}{8}, \frac{1}{8}, \frac{1}{16}, \frac{1}{32}, \frac{1}{32})$, à sept issues.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -317,12 +317,12 @@ Trois lois : $\mathbf{p}_1 = (0{,}95 ;\ 0{,}05)$, $\mathbf{p}_2 = (0{,}4 ;\ 0{,}
 | d | $H(\mathbf{p}_2)$ | un nombre (4 décimales) |
 | e | $H(\mathbf{p}_3)$ | une fraction |
 | f | $G(\mathbf{p}_3)$ | une fraction |
-| g | l'entropie maximale d'une loi à 6 issues | un nombre (4 décimales) |
-| h | l'indice de Gini maximal d'une loi à 6 issues | une fraction |
+| g | l'entropie maximale d'une loi à 7 issues | un nombre (4 décimales) |
+| h | l'indice de Gini maximal d'une loi à 7 issues | une fraction |
 
-Dans ta copie : range $\mathbf{p}_1$, $\mathbf{p}_2$ et $\mathbf{p}_3$ par entropie, puis par Gini : le rangement est-il le même ? Pourquoi comparer l'impureté de $\mathbf{p}_1$ (2 classes) à celle de $\mathbf{p}_3$ (4 classes) demande-t-il de la prudence ?
+Dans ta copie : range $\mathbf{p}_1$, $\mathbf{p}_2$ et $\mathbf{p}_3$ par entropie, puis par Gini : le rangement est-il le même ? Pourquoi comparer l'impureté de $\mathbf{p}_1$ (2 classes) à celle de $\mathbf{p}_3$ (7 classes) demande-t-il de la prudence ?
 
-### Ex M13a.11 — L'information mutuelle d'un tableau de contingence, et la baisse d'entropie qu'elle mesure ✏️ ★★ ⏱️ 20 min
+### Ex M13a.11 — L'information mutuelle d'un tableau de contingence, et la baisse d'entropie qu'elle mesure ✏️ ★★ ⏱️ 25 min
 **Objectif :** calculer une information mutuelle comme une baisse d'entropie moyenne, et la comparer à la baisse de Gini.
 **Prérequis :** fiche §6 ; M06 §3 et §4 · **Parcours :** C, E
 
@@ -431,7 +431,7 @@ $\mathbf{p}$ est une loi sur $K$ valeurs, $\mathbf{u}$ la loi uniforme, et les l
 
 ## 🔗 📖 🧮 🗣️ Pont, lecture, ordre de grandeur et explication
 
-### Ex M13a.18 — Pont : une sonde linéaire, un modèle logistique en NumPy sur un batch de représentations figées, jusqu'à la log-loss 🔗 ★ ⏱️ 15 min
+### Ex M13a.18 — Pont : une sonde linéaire, un modèle logistique en NumPy sur un batch de représentations figées, jusqu'à la log-loss 🔗 ★ ⏱️ 25 min
 **Objectif :** évaluer à la main une sonde linéaire sur un petit batch de représentations, en écriture matricielle, jusqu'à la log-loss et l'accuracy.
 **Prérequis :** fiche §2 à §4 ; M09a · **Parcours :** C, E
 
@@ -450,7 +450,7 @@ Une sonde linéaire de poids $\mathbf{w} = (0{,}4 ;\ -0{,}9 ;\ 1{,}6)$ et de bia
 | e | la log-loss du meilleur modèle constant, qui répond toujours la proportion de labels 1 | un nombre (4 décimales) |
 | f | ce que la sonde gagne sur ce modèle constant : e) − c) | un nombre (4 décimales) |
 | g | le label prédit pour une représentation nouvelle $(1, 1, 0)$ | un entier |
-| h | le nombre de paramètres d'une sonde sur des représentations de dimension 768 | un entier |
+| h | le nombre de paramètres d'une sonde sur des représentations de dimension 384 | un entier |
 
 Dans ta copie : écris le calcul de a) en une ligne de NumPy. Pourquoi comparer à e) plutôt qu'à $\ln 2$ ? Si la sonde atteignait une log-loss bien plus basse sur des données de test, que conclurais-tu sur la représentation ?
 
@@ -513,10 +513,10 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | M13a.22 | La log-vraisemblance et le maximum de vraisemblance d'une loi de Bernoulli · `bernoulli_log_likelihood, bernoulli_mle` | 🔨 | ★ | 15 | C, E |
 | M13a.23 | Maximum de vraisemblance catégoriel, avec lissage, et gaussien · `categorical_mle, gaussian_mle` | 🔨 | ★ | 20 | C, E |
 | M13a.24 | La log-loss à partir des scores, sans débordement · `logistic_loss` | 🔨 | ★★ | 20 | C, E |
-| M13a.25 | `scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes fonctions | 📦 | ★ | 15 | C, E |
+| M13a.25 | `scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes fonctions | 📦 | ★ | 25 | C, E |
 | M13a.26 | Prédire la log-loss d'un modèle qui répond toujours 0,5, puis toujours la fréquence des 1 | 🔮 | ★ | 10 | C, E |
 | M13a.27 | La variabilité du maximum de vraisemblance d'une loi de Bernoulli d'un échantillon à l'autre | 🔬 | ★★ | 20 | C |
-| M13a.28 | L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et maximum au centre | 🎨 | ★ | 20 | C, E |
+| M13a.28 | L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et maximum au centre | 🎨 | ★ | 25 | C, E |
 | M13a.29 | Chasse à l'erreur : un ln 0, une sigmoïde qui déborde, une variance de maximum de vraisemblance divisée par n − 1 | 🐛 | ★ | 15 | C |
 | M13a.30 | Vérifier avec SymPy le maximum de vraisemblance d'une loi géométrique et d'une loi de Poisson | 🛠️ | ★ | 15 | C |
 | M13a.31 | Défi : la proportion d'un mélange de deux lois connues par maximum de vraisemblance, à 1e−6 près du maximum (dichotomie ou Newton) | 🏆 | ★★★ | 25 | C |

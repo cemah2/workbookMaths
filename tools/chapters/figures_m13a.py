@@ -34,7 +34,7 @@ DPI = 110
 
 TIMES = np.array([31.0, 24.0, 38.0, 29.0, 33.0])               # §1: μ̂ = 31, σ̂² = 21,2 (26,5 with n − 1)
 W, B = np.array([1.2, -0.8]), -0.4                              # §4: the logistic model
-MU0, MU1, VAR, PI1 = 1.0, 4.0, 2.25, 0.3                        # §5: two Gaussian classes
+MU0, MU1, VAR, PI1 = 1.0, 4.0, 2.25, 0.36                       # §5: two Gaussian classes
 TARGETS = np.array([3.0, 5.0, 4.0, 10.0, 12.0, 8.0])            # §7: split into (3, 5, 4) and (10, 12, 8)
 
 
@@ -103,11 +103,11 @@ def sigmoid_softplus() -> None:
     axes[0].axhline(0, color="0.6", lw=0.8)
     axes[0].axhline(1, color="0.6", lw=0.8)
     axes[0].axvline(0, color="0.6", lw=0.8)
-    for zz in (1.0, -0.5):
+    for zz in (0.3, -2.2):
         axes[0].plot([zz], [sigmoid(zz)], "o", color=C[1])
-        axes[0].text(zz + 0.25, sigmoid(zz) - 0.06, f"σ({french_number(zz)}) ≈ {sigmoid(zz):.3f}".replace(".", ","),
+        axes[0].text(zz + 0.25, sigmoid(zz) - 0.06, f"σ({french_number(zz)}) ≈ {sigmoid(zz):.3g}".replace(".", ","),
                      color=C[1], fontsize=9)
-    axes[0].set(xlabel="score z", ylabel="probabilité", title="La sigmoïde : un score devient une probabilité")
+    axes[0].set(xlabel="score z", ylabel="probabilité", title="La sigmoïde, de ℝ dans ]0, 1[")
     axes[0].legend(loc="upper left")
 
     axes[1].plot(z, softplus(z), color=C[0], lw=2.2, label="s(z) = ln(1 + eᶻ)")
@@ -143,7 +143,7 @@ def logistic_plane() -> None:
     cs = ax.contour(X1, X2, P, levels=[0.3, 0.5, 0.7], colors=["0.25"], linewidths=[1, 2, 1],
                     linestyles=["--", "-", "--"])
     ax.clabel(cs, fmt=lambda v: f"P = {french_number(v)}", fontsize=9)
-    for pt in ((2.0, 1.0), (0.5, 1.0), (1.0, 2.0)):
+    for pt in ((2.0, 0.5), (0.5, 1.0), (1.0, 2.0)):
         prob = sigmoid(W @ np.array(pt) + B)
         ax.plot(*pt, "ko")
         ax.text(pt[0] + 0.08, pt[1] + 0.1, f"{prob:.2f}".replace(".", ","), fontsize=10)
@@ -160,8 +160,8 @@ def gaussian_classes() -> None:
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.0))
     x = np.linspace(-4, 9, 500)
     dens = lambda m: np.exp(-(x - m) ** 2 / (2 * VAR)) / np.sqrt(2 * np.pi * VAR)
-    axes[0].plot(x, (1 - PI1) * dens(MU0), color=C[0], lw=2, label="0,7 × N(1 ; 1,5²)  (classe 0)")
-    axes[0].plot(x, PI1 * dens(MU1), color=C[3], lw=2, label="0,3 × N(4 ; 1,5²)  (classe 1)")
+    axes[0].plot(x, (1 - PI1) * dens(MU0), color=C[0], lw=2, label="0,64 × N(1 ; 1,5²)  (classe 0)")
+    axes[0].plot(x, PI1 * dens(MU1), color=C[3], lw=2, label="0,36 × N(4 ; 1,5²)  (classe 1)")
     w = (MU1 - MU0) / VAR
     b = (MU0 ** 2 - MU1 ** 2) / (2 * VAR) + np.log(PI1 / (1 - PI1))
     xstar = -b / w

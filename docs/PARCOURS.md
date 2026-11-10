@@ -61,12 +61,12 @@ La remise à niveau se fait en même temps que 0A. Avant chaque chapitre, avance
 | M12b | M12b.Q1, M12b.Q2, M12b.Q3, M12b.Q4, M12b.Q5, M12b.Q6, M12b.Q7, M12b.Q8, M12b.R1, M12b.R2, M12b.R3, M12b.1, M12b.2, M12b.3, M12b.4, M12b.5, M12b.6, M12b.7, M12b.8, M12b.9, M12b.10, M12b.11, M12b.12, M12b.13, M12b.14, M12b.15, M12b.16, M12b.17, M12b.18, M12b.19, M12b.20, M12b.21, M12b.22, M12b.23, M12b.E1, M12b.E2, M12b.24, M12b.25, M12b.26, M12b.27, M12b.28, M12b.29, M12b.30, M12b.31, M12b.32, M12b.33 | 15,2 h |
 | M12c | M12c.Q1, M12c.Q2, M12c.Q3, M12c.Q4, M12c.Q5, M12c.Q6, M12c.Q7, M12c.Q8, M12c.R1, M12c.R2, M12c.R3, M12c.1, M12c.2, M12c.3, M12c.4, M12c.5, M12c.6, M12c.7, M12c.8, M12c.9, M12c.10, M12c.11, M12c.12, M12c.13, M12c.14, M12c.15, M12c.16, M12c.17, M12c.18, M12c.19, M12c.20, M12c.21, M12c.22, M12c.23, M12c.24, M12c.25, M12c.E1, M12c.E2, M12c.26, M12c.27, M12c.28, M12c.29, M12c.30, M12c.31, M12c.32, M12c.33, M12c.34, M12c.35, M12c.36 | 16,8 h |
 | M12d | M12d.Q1, M12d.Q2, M12d.Q3, M12d.Q4, M12d.Q5, M12d.Q6, M12d.Q7, M12d.Q8, M12d.R1, M12d.R2, M12d.R3, M12d.1, M12d.2, M12d.3, M12d.4, M12d.5, M12d.6, M12d.7, M12d.8, M12d.9, M12d.10, M12d.11, M12d.12, M12d.13, M12d.14, M12d.15, M12d.16, M12d.17, M12d.18, M12d.19, M12d.20, M12d.21, M12d.22, M12d.23, M12d.24, M12d.25, M12d.E1, M12d.E2, M12d.26, M12d.27, M12d.28, M12d.29, M12d.30, M12d.31, M12d.32, M12d.33, M12d.34, M12d.35, M12d.36, M12d.37 | 18,0 h |
-| M13a | M13a.Q1, M13a.Q2, M13a.Q3, M13a.Q4, M13a.Q5, M13a.Q6, M13a.Q7, M13a.Q8, M13a.R1, M13a.R2, M13a.R3, M13a.1, M13a.2, M13a.3, M13a.4, M13a.5, M13a.6, M13a.7, M13a.8, M13a.9, M13a.10, M13a.11, M13a.12, M13a.13, M13a.14, M13a.15, M13a.16, M13a.17, M13a.18, M13a.19, M13a.20, M13a.21, M13a.E1, M13a.E2, M13a.22, M13a.23, M13a.24, M13a.25, M13a.26, M13a.27, M13a.28, M13a.29, M13a.30, M13a.31 | 13,8 h |
+| M13a | M13a.Q1, M13a.Q2, M13a.Q3, M13a.Q4, M13a.Q5, M13a.Q6, M13a.Q7, M13a.Q8, M13a.R1, M13a.R2, M13a.R3, M13a.1, M13a.2, M13a.3, M13a.4, M13a.5, M13a.6, M13a.7, M13a.8, M13a.9, M13a.10, M13a.11, M13a.12, M13a.13, M13a.14, M13a.15, M13a.16, M13a.17, M13a.18, M13a.19, M13a.20, M13a.21, M13a.E1, M13a.E2, M13a.22, M13a.23, M13a.24, M13a.25, M13a.26, M13a.27, M13a.28, M13a.29, M13a.30, M13a.31 | 14,4 h |
 | M13b | M13b.Q1, M13b.Q2, M13b.Q3, M13b.Q4, M13b.Q5, M13b.Q6, M13b.Q7, M13b.Q8, M13b.R1, M13b.R2, M13b.R3, M13b.1, M13b.2, M13b.3, M13b.4, M13b.5, M13b.6, M13b.7, M13b.8, M13b.9, M13b.10, M13b.11, M13b.12, M13b.13, M13b.14, M13b.15, M13b.16, M13b.17, M13b.18, M13b.19, M13b.20, M13b.21, M13b.22, M13b.23, M13b.24, M13b.E1, M13b.E2, M13b.25, M13b.26, M13b.27, M13b.28, M13b.29, M13b.30, M13b.31, M13b.32, M13b.33, M13b.34 | 16,1 h |
 | M14 | M14.Q1, M14.Q2, M14.Q3, M14.Q4, M14.R1, M14.R2, M14.R3, M14.1, M14.2, M14.3, M14.4, M14.5, M14.6, M14.7, M14.8, M14.9, M14.10, M14.E1, M14.11, M14.12, M14.13, M14.14, M14.15, M14.16, M14.17 | 7,2 h |
 | CP3 | CP3.Q1, CP3.1, CP3.2, CP3.3, CP3.4, CP3.5, CP3.6, CP3.7, CP3.8, CP3.9, CP3.10, CP3.11 | 3,1 h |
 
-**Total des parties détaillées** : 414,9 h.
+**Total des parties détaillées** : 415,5 h.
 
 <a id="essentiel"></a>
 ## Parcours essentiel
@@ -105,10 +105,10 @@ La remise à niveau se fait en même temps que 0A. Avant chaque chapitre, avance
 | M12b | M12b.Q1, M12b.Q2, M12b.Q3, M12b.Q4, M12b.Q5, M12b.Q6, M12b.R1, M12b.R2, M12b.R3, M12b.1, M12b.2, M12b.3, M12b.4, M12b.6, M12b.7, M12b.9, M12b.10, M12b.14, M12b.16, M12b.17, M12b.18, M12b.19, M12b.23, M12b.24, M12b.25, M12b.28, M12b.30 | 9,5 h |
 | M12c | M12c.Q1, M12c.Q2, M12c.Q3, M12c.Q4, M12c.Q5, M12c.Q6, M12c.Q8, M12c.R1, M12c.R2, M12c.R3, M12c.1, M12c.3, M12c.4, M12c.5, M12c.7, M12c.8, M12c.10, M12c.11, M12c.13, M12c.15, M12c.17, M12c.19, M12c.20, M12c.25, M12c.26, M12c.27, M12c.28, M12c.29, M12c.30, M12c.31, M12c.33 | 11,5 h |
 | M12d | M12d.Q1, M12d.Q2, M12d.Q3, M12d.Q4, M12d.Q5, M12d.Q6, M12d.Q7, M12d.Q8, M12d.R1, M12d.R2, M12d.R3, M12d.1, M12d.3, M12d.4, M12d.6, M12d.7, M12d.8, M12d.9, M12d.10, M12d.13, M12d.14, M12d.18, M12d.20, M12d.25, M12d.26, M12d.27, M12d.29, M12d.30, M12d.31, M12d.34 | 11,3 h |
-| M13a | M13a.Q1, M13a.Q2, M13a.Q3, M13a.Q4, M13a.Q5, M13a.Q6, M13a.R1, M13a.R2, M13a.R3, M13a.1, M13a.2, M13a.3, M13a.5, M13a.6, M13a.7, M13a.8, M13a.10, M13a.11, M13a.13, M13a.14, M13a.15, M13a.18, M13a.21, M13a.22, M13a.23, M13a.24, M13a.25, M13a.26, M13a.28 | 10,0 h |
+| M13a | M13a.Q1, M13a.Q2, M13a.Q3, M13a.Q4, M13a.Q5, M13a.Q6, M13a.R1, M13a.R2, M13a.R3, M13a.1, M13a.2, M13a.3, M13a.5, M13a.6, M13a.7, M13a.8, M13a.10, M13a.11, M13a.13, M13a.14, M13a.15, M13a.18, M13a.21, M13a.22, M13a.23, M13a.24, M13a.25, M13a.26, M13a.28 | 10,6 h |
 | M13b | M13b.Q1, M13b.Q2, M13b.Q4, M13b.Q5, M13b.Q6, M13b.Q7, M13b.R1, M13b.R2, M13b.R3, M13b.1, M13b.3, M13b.5, M13b.7, M13b.8, M13b.9, M13b.13, M13b.15, M13b.16, M13b.17, M13b.20, M13b.24, M13b.25, M13b.26, M13b.27, M13b.28, M13b.29, M13b.31 | 9,6 h |
 | M14 | M14.Q1, M14.Q2, M14.Q3, M14.R1, M14.R2, M14.R3, M14.1, M14.2, M14.3, M14.4, M14.6, M14.9, M14.10, M14.11, M14.13 | 4,7 h |
 | CP3 | CP3.Q1, CP3.1, CP3.2, CP3.3, CP3.4, CP3.5, CP3.6, CP3.7, CP3.8, CP3.9, CP3.10, CP3.11 | 3,1 h |
 
-**Total des parties détaillées** : 287,6 h.
+**Total des parties détaillées** : 288,2 h.
 

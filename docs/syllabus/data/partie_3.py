@@ -628,18 +628,18 @@ CHAPTERS = [
              "§1", "E"),
             ("M13a.2", "✏️", 2, 20, "Le maximum de vraisemblance d'une loi normale : μ̂ et σ̂²", "§1", "E"),
             ("M13a.3", "✏️", 1, 15, "La log-loss de quatre prédictions, puis la même en cross-entropy", "§2", "E"),
-            ("M13a.4", "✏️", 1, 15, "Ce que coûte une prédiction sûre et fausse : la log-loss quand p tend vers 0",
+            ("M13a.4", "✏️", 1, 15, "Le poids d'un seul exemple mal prédit : la log-loss quand p tend vers 0",
              "§2", ""),
             ("M13a.5", "✏️", 1, 15, "La sigmoïde : valeurs, logit, cote et symétrie σ(−z) = 1 − σ(z)", "§3", "E"),
             ("M13a.6", "✏️", 1, 15, "La softplus : valeurs, asymptotes et comportement pour |z| grand", "§3", "E"),
             ("M13a.7", "✏️", 1, 15, "Un modèle logistique à deux features : probabilités, cote et frontière de "
              "décision", "§4", "E"),
-            ("M13a.8", "✏️", 2, 20, "L'hypothèse naïve à la main : une loi jointe factorisée, comparée à la vraie",
+            ("M13a.8", "✏️", 2, 25, "L'hypothèse naïve à la main : une loi jointe factorisée, comparée à la vraie",
              "§5", "E"),
             ("M13a.9", "✏️", 2, 20, "Deux classes gaussiennes de même variance : l'a posteriori est une sigmoïde "
              "d'un score affine", "§4 §5", ""),
             ("M13a.10", "✏️", 1, 15, "L'entropie et l'indice de Gini de quelques distributions", "§6", "E"),
-            ("M13a.11", "✏️", 2, 20, "L'information mutuelle d'un tableau de contingence, et la baisse d'entropie "
+            ("M13a.11", "✏️", 2, 25, "L'information mutuelle d'un tableau de contingence, et la baisse d'entropie "
              "qu'elle mesure", "§6", "E"),
             ("M13a.12", "✏️", 2, 15, "La variance d'un groupe coupé en deux : variance intra plus variance inter",
              "§7", ""),
@@ -651,7 +651,7 @@ CHAPTERS = [
             ("M13a.16", "∂", 2, 20, "L'indice de Gini est maximal pour la loi uniforme", "§6", ""),
             ("M13a.17", "∂", 2, 15, "L'entropie est maximale pour la loi uniforme, par l'inégalité de Gibbs", "§6",
              ""),
-            ("M13a.18", "🔗", 1, 15, "Pont : une sonde linéaire, un modèle logistique en NumPy sur un batch de "
+            ("M13a.18", "🔗", 1, 25, "Pont : une sonde linéaire, un modèle logistique en NumPy sur un batch de "
              "représentations figées, jusqu'à la log-loss", "§4", "E"),
             ("M13a.19", "📖", 2, 30, "MML §8.3, relu après M04 : estimer des paramètres, et ce que la régression "
              "logistique y ajoute", "§1 §4", ""),
@@ -667,13 +667,13 @@ CHAPTERS = [
             ("M13a.23", "🔨", 1, 20, "Maximum de vraisemblance catégoriel, avec lissage, et gaussien", "§1 §5",
              "E m:categorical_mle,gaussian_mle"),
             ("M13a.24", "🔨", 2, 20, "La log-loss à partir des scores, sans débordement", "§2 §3", "E m:logistic_loss"),
-            ("M13a.25", "📦", 1, 15, "`scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes "
+            ("M13a.25", "📦", 1, 25, "`scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes "
              "fonctions", "§1 §2 §3", "E"),
             ("M13a.26", "🔮", 1, 10, "Prédire la log-loss d'un modèle qui répond toujours 0,5, puis toujours la "
              "fréquence des 1", "§2", "E"),
             ("M13a.27", "🔬", 2, 20, "La variabilité du maximum de vraisemblance d'une loi de Bernoulli d'un "
              "échantillon à l'autre", "§1", ""),
-            ("M13a.28", "🎨", 1, 20, "L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et "
+            ("M13a.28", "🎨", 1, 25, "L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et "
              "maximum au centre", "§6", "E"),
             ("M13a.29", "🐛", 1, 15, "Chasse à l'erreur : un ln 0, une sigmoïde qui déborde, une variance de maximum "
              "de vraisemblance divisée par n − 1", "§1 §2 §3", ""),

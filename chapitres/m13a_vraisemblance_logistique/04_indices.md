@@ -228,7 +228,7 @@ $\ell(p) = k\ln p + (n - k)\ln(1 - p)$, maximum en $\frac{k}{n}$ ; catégorielle
 </details>
 <details><summary>Indice 3</summary>
 
-$k = 7$, $n = 20$ ; f) $\frac{n_k + 1}{24}$ ; g) $\frac{n_k + 0{,}5}{22}$ ; h) $5\ln\frac{5}{20} + 9\ln\frac{9}{20} + 6\ln\frac{6}{20}$.
+$k = 7$, $n = 20$ ; f) $\frac{n_k + 1}{24}$ ; g) $\frac{n_k + 0{,}25}{21}$ ($N + K\alpha = 20 + 4 \times \frac{1}{4}$) ; h) $5\ln\frac{5}{20} + 9\ln\frac{9}{20} + 6\ln\frac{6}{20}$.
 
 </details>
 
@@ -268,7 +268,7 @@ a) $-\ln 0{,}8$, $-\ln 0{,}45$, $-\ln 0{,}65$, $-\ln 0{,}95$. c) divise par $\ln
 
 </details>
 
-### Ex M13a.4 — Ce que coûte une prédiction sûre et fausse : la log-loss quand p tend vers 0
+### Ex M13a.4 — Le poids d'un seul exemple mal prédit : la log-loss quand p tend vers 0
 
 <details><summary>Indice 1</summary>
 
@@ -300,7 +300,7 @@ Cote $= \frac{p}{1 - p}$, logit $= \ln$(cote), et $p = \frac{\text{cote}}{1 + \t
 </details>
 <details><summary>Indice 3</summary>
 
-f) le logit de 0,95. h) ajouter $\ln 2$ au score double la **cote**.
+f) le logit de 0,96. h) ajouter $\ln 2$ au score double la **cote**.
 
 </details>
 
@@ -390,7 +390,7 @@ $H = \sum_k p_k\log_2\frac{1}{p_k}$, $G = 1 - \sum_k p_k^2$.
 </details>
 <details><summary>Indice 3</summary>
 
-e) $\log_2 2 = 1$, $\log_2 4 = 2$, $\log_2 8 = 3$. g) et h) : $\log_2 K$ et $1 - \frac{1}{K}$.
+e) $\log_2 2 = 1$, $\log_2 8 = 3$, $\log_2 16 = 4$, $\log_2 32 = 5$. g) et h) : $\log_2 K$ et $1 - \frac{1}{K}$, avec $K = 7$.
 
 </details>
 
@@ -653,7 +653,7 @@ Relis « Un principe, trois lois » (fiche §1), le paragraphe **Bernoulli**, pu
 </details>
 <details><summary>Indice 2</summary>
 
-Contrôle d'abord les labels (1-D, non vides, que des 0 et des 1), puis `p` : un seul nombre, ou un par label, chacun dans $[0, 1]$. Le maximum de vraisemblance est la moyenne des labels.
+Contrôle d'abord les labels (1-D, non vides, que des 0 et des 1), puis `p` : un seul nombre, ou un par label, chacun dans $[0, 1]$. `nan` n'est ni `< 0` ni `> 1` : teste `not np.all((q >= 0) & (q <= 1))`, qui l'attrape aussi. Le maximum de vraisemblance est la moyenne des labels.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -671,7 +671,7 @@ Relis les paragraphes **Catégorielle** (avec le lissage) et **Normale** de la f
 </details>
 <details><summary>Indice 2</summary>
 
-`categorical_mle` : $\frac{n_k + \alpha}{N + K\alpha}$, où $K$ est le nombre de catégories ; refuse le cas où le dénominateur est nul. `gaussian_mle` : la moyenne, puis la moyenne des carrés des écarts à cette moyenne.
+`categorical_mle` : $\frac{n_k + \alpha}{N + K\alpha}$, où $K$ est le nombre de catégories ; refuse le cas où le dénominateur est nul, et des comptages négatifs ou `nan` (`not np.all(n >= 0)` attrape les deux). `gaussian_mle` : la moyenne, puis la moyenne des carrés des écarts à cette moyenne.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -766,7 +766,7 @@ Relis « Mesurer le mélange d'une distribution » (fiche §6), et la descriptio
 </details>
 <details><summary>Indice 3</summary>
 
-`xy = to_plane(simplex_grid())`, puis `ax.tricontourf(xy[:, 0], xy[:, 1], valeurs, levels=12)` dans chaque axe, `ax.plot` du triangle et du point où les valeurs sont les plus grandes (`np.argmax`).
+`x, y = to_plane(simplex_grid())` (un couple de tableaux), puis `ax.tricontourf(x, y, valeurs, levels=12)` dans chaque axe, `ax.plot` du triangle et du point où les valeurs sont les plus grandes (`np.argmax`).
 
 </details>
 
@@ -774,12 +774,12 @@ Relis « Mesurer le mélange d'une distribution » (fiche §6), et la descriptio
 
 <details><summary>Indice 1</summary>
 
-Pour chaque ligne, cherche une valeur des données qui la ferait échouer : une probabilité 0 ou 1, un score de 800 ou de −800.
+Pour chaque ligne, cherche une valeur des données qui la ferait échouer : une probabilité 0 ou 1, un score de 900 ou de −900.
 
 </details>
 <details><summary>Indice 2</summary>
 
-$0 \times \ln 0$ donne `nan` en flottants ; $e^{800}$ dépasse le plus grand flottant. Et le maximum de vraisemblance d'une variance divise par $n$ (fiche §1).
+$0 \times \ln 0$ donne `nan` en flottants ; $e^{900}$ dépasse le plus grand flottant. Et le maximum de vraisemblance d'une variance divise par $n$ (fiche §1).
 
 </details>
 <details><summary>Indice 3</summary>
@@ -815,7 +815,7 @@ Relis la dichotomie (M05a) : si $\ell'$ décroît, son signe dit de quel côté 
 </details>
 <details><summary>Indice 2</summary>
 
-Commence par les bords : si $\ell'(0) \le 0$, le maximum est en 0 ; si $\ell'(1) \ge 0$, il est en 1. Sinon, $\ell'$ change de signe dans $]0, 1[$.
+Commence par les bords (la vérification essaie aussi deux fonctions de maximum au bord) : si $\ell'(0) \le 0$, le maximum est en 0 ; si $\ell'(1) \ge 0$, il est en 1. Sinon, $\ell'$ change de signe dans $]0, 1[$.
 
 </details>
 <details><summary>Indice 3</summary>

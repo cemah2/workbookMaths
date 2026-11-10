@@ -80,7 +80,8 @@ PAPER = [
          '''"σ̂ est la RACINE de σ̂²": float(V_2)}'''),
         ("f", "a number (4 decimals)", "float(ell_2(V_2))",
          '''decimals=4, mistakes={"ℓ = −(n/2) ln(2πv) − S/(2v) : n'oublie pas le second terme": '''
-         '''float(-3 * ln(2 * sympy.pi * V_2))}'''),
+         '''float(-3 * ln(2 * sympy.pi * V_2)), "f) se calcule au maximum, en v = σ̂² = S/n ; g) en v = d)": '''
+         '''float(ell_2(U_2))}'''),
         ("g", "a number (4 decimals)", "float(ell_2(U_2))",
          '''decimals=4, mistakes={"c'est ℓ au maximum, la valeur de f) : g) se calcule en v = d)": float(ell_2(V_2)), '''
          '''"le terme S/(2v) ne vaut n/2 qu'au maximum : en v = d), calcule-le": float(-3 * (ln(2 * sympy.pi * U_2) + 1))}'''),
@@ -94,7 +95,7 @@ PAPER = [
          '''decimals=4, mistakes={"pour un label 0, le terme est −ln(1 − p̂) : la probabilité du label OBSERVÉ": '''
          '''floats(-ln(q) for q in P_3), "un terme de log-loss est −ln q, positif": floats(-t for t in TERMS_3)}'''),
         ("b", "a number (4 decimals)", "float(LL_3)",
-         f'''decimals=4, mistakes={{"{MEAN}": float(4 * LL_3), '''
+         f'''decimals=4, mistakes={{"{MEAN}": float(4 * LL_3), "{LN2}": float(LL_3 / ln(2)), '''
          '''"pour un label 0, le terme est −ln(1 − p̂)": float(sum(-ln(q) for q in P_3) / 4)}'''),
         ("c", "a number (3 decimals)", "float(LL_3 / ln(2))",
          '''decimals=3, mistakes={"pour passer des nats aux bits, DIVISE par ln 2 : 1 bit vaut ln 2 nat": float(LL_3 * ln(2))}'''),
@@ -109,11 +110,11 @@ PAPER = [
          '''float(-ln(R(1, 2))), "la classe observée est la troisième, la dernière de la liste": float(-ln(R(1, 5)))}'''),
         ("h", "a number (4 decimals)", "float(H_3)",
          f'''decimals=4, mistakes={{"{MEAN}": float(4 * H_3), '''
-         '''"le deuxième label est 1 : son terme est −ln 0,9": float((-ln(R(8, 10)) - ln(R(1, 10)) - ln(R(65, 100)) '''
+         '''"le deuxième label est 1 : son terme est −ln 0,85": float((-ln(R(8, 10)) - ln(R(15, 100)) - ln(R(65, 100)) '''
          '''- ln(R(95, 100))) / 4)}'''),
     ]),
 
-    Paper("M13a.4", "Ce que coûte une prédiction sûre et fausse : la log-loss quand p tend vers 0", [
+    Paper("M13a.4", "Le poids d'un seul exemple mal prédit : la log-loss quand p tend vers 0", [
         ("a", "a number (4 decimals)", "float(A_4)",
          f'''decimals=4, mistakes={{"le terme est −ln 0,98, pas 1 − 0,98": 0.02, "{MEAN}": float(1000 * A_4)}}'''),
         ("b", "a number (4 decimals)", "float(loss_4(R(1, 10 ** 4)))",
@@ -143,9 +144,9 @@ PAPER = [
          f'''"{LN10}": float(ln(R(3, 17)) / L10), "le logit est le ln de la COTE p/(1 − p), pas de p": float(ln(R(3, 20)))}}'''),
         ("e", FRAC, "R(3, 17)",
          F + ''', mistakes={"la cote est p/(1 − p), dans cet ordre": R(17, 3), "la cote divise p par 1 − p": R(3, 20)}'''),
-        ("f", "a number (4 decimals)", "float(ln(19))",
-         f'''decimals=4, mistakes={{"σ(z) = 0,95 > 1/2, donc z > 0 : z = ln(p/(1 − p))": float(-ln(19)), '''
-         f'''"{LN10}": float(ln(19) / L10)}}'''),
+        ("f", "a number (4 decimals)", "float(ln(24))",
+         f'''decimals=4, mistakes={{"σ(z) = 0,96 > 1/2, donc z > 0 : z = ln(p/(1 − p))": float(-ln(24)), '''
+         f'''"{LN10}": float(ln(24) / L10)}}'''),
         ("g", FRAC, "R(5, 7)", F + ''', mistakes={"p = cote/(1 + cote)": R(2, 7)}'''),
         ("h", FRAC, "R(6, 23)",
          F + ''', mistakes={"ajouter ln 2 au score multiplie la COTE par 2, pas la probabilité": R(3, 10), '''
@@ -210,12 +211,14 @@ PAPER = [
         ("g", "an integer", "DIFF_8",
          '''mistakes={"compare la classe la plus probable case par case : certaines décisions changent": 0, '''
          '''"compare case par case : certaines décisions ne changent pas": 4}'''),
-        ("h", "a list of 2 integers", "[2 * (2 ** 10 - 1) + 1, 2 * 10 + 1]",
-         '''mistakes={"une loi sur 2¹⁰ cases n'a que 2¹⁰ − 1 probabilités libres, puisque leur somme vaut 1": [2 * 2 ** 10, 21], '''
-         '''"avec Naïve Bayes aussi, la proportion des classes compte : une probabilité de plus": [2 * 2 ** 10 - 1, 20], '''
+        ("h", "a list of 2 integers", "[2 * (3 ** 8 - 1) + 1, 2 * 8 * 2 + 1]",
+         '''mistakes={"une loi sur 3⁸ cases n'a que 3⁸ − 1 probabilités libres, puisque leur somme vaut 1": '''
+         '''[2 * 3 ** 8 + 1, 33], '''
+         '''"une loi à 3 valeurs n'a que 2 probabilités libres, puisque leur somme vaut 1": [2 * (3 ** 8 - 1) + 1, 49], '''
+         '''"avec Naïve Bayes aussi, la proportion des classes compte : une probabilité de plus": [2 * (3 ** 8 - 1) + 1, 32], '''
          '''"avec les lois jointes complètes aussi, la proportion des classes compte : une probabilité de plus": '''
-         '''[2 * 2 ** 10 - 2, 21], '''
-         '''"la proportion des classes compte dans les deux cas : une probabilité de plus": [2 * 2 ** 10 - 2, 20]}'''),
+         '''[2 * (3 ** 8 - 1), 33], '''
+         '''"la proportion des classes compte dans les deux cas : une probabilité de plus": [2 * (3 ** 8 - 1), 32]}'''),
     ]),
 
     Paper("M13a.9", "Deux classes gaussiennes de même variance : l'a posteriori est une sigmoïde d'un score affine", [
@@ -248,17 +251,17 @@ PAPER = [
          '''"l'indice de Gini est 1 MOINS la somme des carrés": 0.905}'''),
         ("b", "a number (4 decimals)", "float(bits(D1_10))", f'''decimals=4, mistakes={{"{BITS}": float(bits(D1_10) * ln(2))}}'''),
         ("c", "a number (4 decimals)", "float(gini(D2_10))",
-         '''decimals=4, mistakes={"l'indice de Gini est 1 − Σ p_k², pas le taux d'erreur 1 − max p_k": 0.6, '''
-         '''"l'indice de Gini est 1 MOINS la somme des carrés": 0.36}'''),
+         '''decimals=4, mistakes={"l'indice de Gini est 1 − Σ p_k², pas le taux d'erreur 1 − max p_k": 0.5, '''
+         '''"l'indice de Gini est 1 MOINS la somme des carrés": 0.42}'''),
         ("d", "a number (4 decimals)", "float(bits(D2_10))", f'''decimals=4, mistakes={{"{BITS}": float(bits(D2_10) * ln(2))}}'''),
         ("e", FRAC, "sympy.nsimplify(bits(D3_10))",
-         F + ''', mistakes={"deux issues ont la probabilité 1/8 : chacune a son terme": R(11, 8)}'''),
+         F + ''', mistakes={"plusieurs issues ont la même probabilité : chacune a son terme": R(41, 32)}'''),
         ("f", FRAC, "gini(D3_10)",
-         F + ''', mistakes={"l'indice de Gini est 1 MOINS la somme des carrés": R(11, 32), '''
-         '''"deux issues ont la probabilité 1/8 : chacune a son carré": R(43, 64)}'''),
-        ("g", "a number (4 decimals)", "float(sympy.log(6, 2))",
-         f'''decimals=4, mistakes={{"{BITS}": float(ln(6)), "l'entropie maximale est log₂ K, pas K": 6.0}}'''),
-        ("h", FRAC, "R(5, 6)", F + ''', mistakes={"le maximum de l'indice de Gini est 1 − 1/K, pas 1/K": R(1, 6)}'''),
+         F + ''', mistakes={"l'indice de Gini est 1 MOINS la somme des carrés": R(155, 512), '''
+         '''"plusieurs issues ont la même probabilité : chacune a son carré": R(747, 1024)}'''),
+        ("g", "a number (4 decimals)", "float(sympy.log(7, 2))",
+         f'''decimals=4, mistakes={{"{BITS}": float(ln(7)), "l'entropie maximale est log₂ K, pas K": 7.0}}'''),
+        ("h", FRAC, "R(6, 7)", F + ''', mistakes={"le maximum de l'indice de Gini est 1 − 1/K, pas 1/K": R(1, 7)}'''),
     ]),
 
     Paper("M13a.11", "L'information mutuelle d'un tableau de contingence, et la baisse d'entropie qu'elle mesure", [
@@ -272,7 +275,8 @@ PAPER = [
          '''"H(Y | X) est une MOYENNE pondérée des entropies des lignes, pas leur somme": float(sum(bits(r) for r in ROWS_11))}'''),
         ("e", "a number (4 decimals)", "float(bits(PY_11) - HYX_11)",
          f'''decimals=4, mistakes={{"c'est H(Y | X) ; I(X ; Y) = H(Y) − H(Y | X)": float(HYX_11), '''
-         f'''"{BITS}": float((bits(PY_11) - HYX_11) * ln(2))}}'''),
+         f'''"{BITS}": float((bits(PY_11) - HYX_11) * ln(2)), '''
+         f'''"{WEIGHTS}": float(bits(PY_11) - sum(bits(r) for r in ROWS_11) / 3)}}'''),
         ("f", "a number (4 decimals)", "float(bits(PX_11))",
          f'''decimals=4, mistakes={{"{BITS}": float(bits(PX_11) * ln(2)), '''
          '''"la loi de X se lit sur la colonne « total » : elle n'est pas uniforme": float(sympy.log(3, 2))}'''),
@@ -314,7 +318,8 @@ PAPER = [
          '''"z = Hw + b : n'oublie pas le biais": floats(sig(z) for z in H_18 * W_18)}'''),
         ("c", "a number (4 decimals)", "float(LOSS_18)",
          f'''decimals=4, mistakes={{"{MEAN}": float(6 * LOSS_18), '''
-         '''"le terme de chaque exemple est s(z) − yz : n'oublie pas −yz": float(sum(soft(z) for z in Z_18) / 6)}'''),
+         '''"le terme de chaque exemple est s(z) − yz : n'oublie pas −yz": float(sum(soft(z) for z in Z_18) / 6), '''
+         f'''"{LN2}": float(LOSS_18 / ln(2))}}'''),
         ("d", FRAC, "R(5, 6)", F + ''', mistakes={"l'accuracy est la part des BONNES décisions": R(1, 6)}'''),
         ("e", "a number (4 decimals)", "float(CONST_18)",
          f'''decimals=4, mistakes={{"le meilleur modèle constant répond la proportion des labels 1, pas 0,5": float(ln(2)), '''
@@ -324,7 +329,7 @@ PAPER = [
          '''"compare à la log-loss du meilleur modèle constant, celle de e)": float(ln(2) - LOSS_18)}'''),
         ("g", "an integer", "int(bool(Z_NEW_18 > 0))",
          '''mistakes={"le label 1 seulement si le score est positif : calcule le score de (1, 1, 0)": 1}'''),
-        ("h", "an integer", "768 + 1", '''mistakes={"n'oublie pas le biais": 768}'''),
+        ("h", "an integer", "384 + 1", '''mistakes={"n'oublie pas le biais": 384}'''),
     ]),
 ]
 
@@ -390,7 +395,7 @@ def ell_2(v):
 Y_3, P_3 = [1, 1, 0, 0], [R(8, 10), R(45, 100), R(35, 100), R(5, 100)]                    # M13a.3
 TERMS_3 = [-ln(q) if y else -ln(1 - q) for y, q in zip(Y_3, P_3)]
 LL_3 = sum(TERMS_3) / 4
-H_3 = (-ln(R(8, 10)) - ln(R(9, 10)) - ln(R(65, 100)) - ln(R(95, 100))) / 4
+H_3 = (-ln(R(8, 10)) - ln(R(85, 100)) - ln(R(65, 100)) - ln(R(95, 100))) / 4
 A_4 = -ln(R(98, 100))                                                                       # M13a.4
 BASE_4 = 999 * A_4
 
@@ -429,8 +434,8 @@ DIFF_8 = sum((post_8(J1_8, J0_8, c) > R(1, 2)) != (post_8(N1_8, N0_8, c) > R(1, 
 W_9 = R(3 - (-1), 4)                                                                        # M13a.9
 LOG_9 = ln(R(35, 65))
 B_9 = R((-1) ** 2 - 3 ** 2, 2 * 4) + LOG_9
-D1_10, D2_10 = [R(95, 100), R(5, 100)], [R(2, 5), R(2, 5), R(1, 5)]                         # M13a.10
-D3_10 = [R(1, 2), R(1, 4), R(1, 8), R(1, 8)]
+D1_10, D2_10 = [R(95, 100), R(5, 100)], [R(1, 2), R(2, 5), R(1, 10)]                         # M13a.10
+D3_10 = [R(1, 2), R(1, 8), R(1, 8), R(1, 8), R(1, 16), R(1, 32), R(1, 32)]
 T_11 = [[22, 18], [26, 4], [17, 13]]                                                        # M13a.11
 PY_11 = [R(sum(row[j] for row in T_11), 100) for j in range(2)]
 PX_11 = [R(sum(row), 100) for row in T_11]
@@ -551,7 +556,7 @@ M13A_22 = Ex(
     body=HOWTO + r"""
 
 Écris, en suivant les docstrings (fiche §1) :
-- `bernoulli_log_likelihood(y, p)` : $\sum_i \big[y_i\ln p_i + (1 - y_i)\ln(1 - p_i)\big]$, avec une seule probabilité `p` pour tous les labels ou une par label. Les contrôles d'abord (`ValueError` si `y` est vide ou contient autre chose que des 0 et des 1, si `p` n'a pas la bonne longueur ou sort de $[0, 1]$). Puis, pour chaque label, le $\ln$ de la probabilité **du label observé** seulement : $p_i$ pour un 1, $1 - p_i$ pour un 0. Ainsi un terme $0 \ln 0$ ne se calcule jamais (il compte pour 0), et un label de probabilité 0 rend `-math.inf`, sans avertissement ;
+- `bernoulli_log_likelihood(y, p)` : $\sum_i \big[y_i\ln p_i + (1 - y_i)\ln(1 - p_i)\big]$, avec une seule probabilité `p` pour tous les labels ou une par label. Les contrôles d'abord (`ValueError` si `y` est vide ou contient autre chose que des 0 et des 1, si `p` n'a pas la bonne longueur, une liste d'une seule valeur pour plusieurs labels comprise, ou a une valeur hors de $[0, 1]$, `nan` compris : `nan < 0` et `nan > 1` valent tous deux `False`, donc teste plutôt que chaque valeur **est** dans $[0, 1]$). Puis, pour chaque label, le $\ln$ de la probabilité **du label observé** seulement : $p_i$ pour un 1, $1 - p_i$ pour un 0. Ainsi un terme $0 \ln 0$ ne se calcule jamais (il compte pour 0), et un label de probabilité 0 rend `-math.inf`, sans avertissement ;
 - `bernoulli_mle(y)` : la proportion de 1, avec les mêmes contrôles sur `y`.
 
 La vérification calcule, avec les 50 labels `Y_22` de la cellule fournie :
@@ -645,7 +650,7 @@ M13A_23 = Ex(
     given=f'''COUNTS_23 = {COUNTS_23}      # 66 throws of a loaded die: how many times each face 1 to 6 came up
 X_23 = {X23}   # 40 synthetic measures''',
     body=r"""Écris, en suivant les docstrings :
-- `categorical_mle(counts, alpha=0.0)` (fiche §1) : `ValueError` si les comptages sont vides, pas 1-D, ou ont une valeur négative, si `alpha` est négatif, ou si tous les comptages sont nuls avec `alpha = 0` ; sinon $\frac{n_k + \alpha}{N + K\alpha}$ (le maximum de vraisemblance $\frac{n_k}{N}$ pour $\alpha = 0$) ;
+- `categorical_mle(counts, alpha=0.0)` (fiche §1) : `ValueError` si les comptages sont vides, pas 1-D, ou ont une valeur négative ou `nan` (même remarque qu'en M13a.22), si `alpha` est négatif, ou si tous les comptages sont nuls avec `alpha = 0` ; sinon $\frac{n_k + \alpha}{N + K\alpha}$ (le maximum de vraisemblance $\frac{n_k}{N}$ pour $\alpha = 0$) ;
 - `gaussian_mle(x)` (fiche §1) : `ValueError` si l'échantillon est vide ou pas 1-D ; sinon le couple $(\hat{\mu}, \hat{\sigma}^2)$, avec la variance **en $n$**, calculée sur les écarts $x_i - \hat{\mu}$.
 
 La vérification calcule, avec les comptages `COUNTS_23` des six faces d'un dé truqué et l'échantillon `X_23` :
@@ -708,8 +713,8 @@ wbm.record("M13a.23f", "ValueError",
          r"$\hat{\sigma}^2 \approx 10{,}6642$).",
 )
 
-EXTREME_24 = "[800.0, -800.0, 800.0, -800.0], [0, 1, 1, 0]"
-CERTAIN_24 = "[800.0, -800.0], [1, 0]"
+EXTREME_24 = "[900.0, -900.0, 900.0, -900.0], [0, 1, 1, 0]"
+CERTAIN_24 = "[900.0, -900.0], [1, 0]"
 GIVEN_24 = '''rng_24 = np.random.default_rng(4124)
 Z_24 = rng_24.normal(0.5, 2.0, size=30)                             # 30 moderate scores
 Y_24 = (rng_24.random(30) < 1 / (1 + np.exp(-Z_24))).astype(int)   # their labels, drawn with the probabilities σ(z)'''
@@ -727,7 +732,7 @@ La vérification calcule :
 - d) `logistic_loss(""" + CERTAIN_24 + r""")` (6 décimales) : deux prédictions sûres et justes ;
 - e) le nom de l'erreur levée par `logistic_loss([0.3, -0.7, 1.9], [1, 0])`.
 
-Dans ta copie : retrouve b) à la main, terme par terme, avec l'écriture stable. Pourquoi `np.log(1 + np.exp(z))` rend-il `inf` (avec un avertissement) pour $z = 800$, et pourquoi la formule « avec $\hat{p} = \sigma(z)$ » perd-elle tout bien avant ($\sigma(45)$ vaut exactement 1 en flottants) ? Que donnerait la formule naïve pour d) ? Compare a) à $\ln 2$, la log-loss d'un modèle qui répond toujours 0,5.""",
+Dans ta copie : retrouve b) à la main, terme par terme, avec l'écriture stable. Pourquoi `np.log(1 + np.exp(z))` rend-il `inf` (avec un avertissement) pour $z = 900$, et pourquoi la formule « avec $\hat{p} = \sigma(z)$ » perd-elle tout bien avant ($\sigma(45)$ vaut exactement 1 en flottants) ? Que donnerait la formule naïve pour d) ? Compare a) à $\ln 2$, la log-loss d'un modèle qui répond toujours 0,5.""",
     todo=LOAD_LEARNER,
     check=f'''with checked("M13a.24a"):
     wbm.check("M13a.24a", mymath.likelihood.logistic_loss(Z_24, Y_24), computed=True)
@@ -765,20 +770,20 @@ wbm.record("M13a.24a", loss_24r, decimals=6,
            mistakes={{"{MEAN}": loss_24r * 30,
                      "chaque terme est s(z) − yz, avec le signe moins": float(np.mean(np.logaddexp(0, z_24r) + y_24r * z_24r)),
                      "chaque terme est s(z) − yz : le label y compte": float(np.mean(np.logaddexp(0, z_24r)))}})
-wbm.record("M13a.24b", 400.0, decimals=6,
-           mistakes={{"{MEAN}": 1600.0,
-                     "e^800 déborde en flottants : écris la softplus max(z, 0) + ln(1 + e^(−|z|))": math.inf}})
+wbm.record("M13a.24b", 450.0, decimals=6,
+           mistakes={{"{MEAN}": 1800.0,
+                     "e^900 déborde en flottants : écris la softplus max(z, 0) + ln(1 + e^(−|z|))": math.inf}})
 wbm.record("M13a.24c", True,
            mistakes={{"np.exp d'un grand nombre positif déborde avec un avertissement : n'exponentie que −|z|": False}})
 wbm.record("M13a.24d", 0.0, decimals=6,
-           mistakes={{"e^800 déborde en flottants (inf − 800 reste inf) : écris la softplus max(z, 0) + ln(1 + e^(−|z|))":
+           mistakes={{"e^900 déborde en flottants (inf − 900 reste inf) : écris la softplus max(z, 0) + ln(1 + e^(−|z|))":
                          math.inf}})
 wbm.record("M13a.24e", "ValueError",
            {value_error("3 scores pour 2 labels : la docstring demande une ValueError")})''',
     after=tests_cells("test_logistic_loss"),
-    note=r"b) Avec $t = z$ pour un label 0 et $t = -z$ pour un label 1, chaque terme vaut $s(t)$ : $s(800) = 800$ "
-         r"(deux fois, deux prédictions sûres et fausses) et $s(-800) = \ln(1 + e^{-800}) = 0$ en flottants (deux fois) : "
-         r"moyenne 400. La formule naïve calcule $e^{800}$, qui dépasse le plus grand flottant ($\approx 1{,}8 \times "
+    note=r"b) Avec $t = z$ pour un label 0 et $t = -z$ pour un label 1, chaque terme vaut $s(t)$ : $s(900) = 900$ "
+         r"(deux fois, deux prédictions sûres et fausses) et $s(-900) = \ln(1 + e^{-900}) = 0$ en flottants (deux fois) : "
+         r"moyenne 450. La formule naïve calcule $e^{900}$, qui dépasse le plus grand flottant ($\approx 1{,}8 \times "
          r"10^{308}$, soit $e^{709{,}8}$) : `inf`. Par les probabilités, c'est pire : $\sigma(45) = 1 - 3 \times "
          r"10^{-20}$ s'arrondit à 1, et $\ln(1 - \hat{p}) = \ln 0$. d) Deux prédictions sûres et justes : 0 exactement, "
          r"là où la formule naïve donne `inf`. a) $\approx 0{,}3717$, bien sous $\ln 2 \approx 0{,}6931$ : les scores "
@@ -786,7 +791,7 @@ wbm.record("M13a.24e", "ValueError",
 )
 
 M13A_25 = Ex(
-    "M13a.25", "📦", 1, 15, "`scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes fonctions",
+    "M13a.25", "📦", 1, 25, "`scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes fonctions",
     "utiliser `scipy.stats.bernoulli`, `scipy.stats.norm.fit`, `scipy.special.xlogy`, `scipy.special.log_expit` et "
     "`sklearn.metrics.log_loss`, lire ce qu'elles rendent, et comparer avec ta librairie.",
     "fiche §1 à §3 ; Ex M13a.22 à M13a.24", tracks="C, E",
@@ -892,7 +897,7 @@ wbm.record("M13a.25h", round(g_25r / math.log(2)),
          r"petit $\varepsilon$ tel que $1 + \varepsilon \ne 1$) : $-\ln 2^{-52} = 52\ln 2 \approx 36{,}0437$, d'où "
          r"$k = 52$. Une bibliothèque qui écrête à $10^{-15}$ donne $34{,}5388$ : la valeur d'une log-loss qui contient "
          r"une probabilité 0 dépend d'une convention, et elle est surtout le signe d'un modèle trop sûr de lui. "
-         r"`np.log(special.expit(z))` calcule $\ln$ d'un $\sigma(z)$ déjà arrondi, nul pour $z = -800$ ($\ln 0$) : `log_expit` "
+         r"`np.log(special.expit(z))` calcule $\ln$ d'un $\sigma(z)$ déjà arrondi, nul pour $z = -900$ ($\ln 0$) : `log_expit` "
          r"passe par la softplus, comme ta fonction.",
 )
 
@@ -1064,16 +1069,25 @@ print("moyennes des p̂ :", [round(float(np.mean(table_27[n])), 4) for n in SIZE
     record='''rng_27r = np.random.default_rng(4127)
 samples_27r = [(rng_27r.random((2000, n)) < 0.3).mean(axis=1) for n in (25, 100, 400)]
 std_27r = [float(np.std(s, ddof=1)) for s in samples_27r]
+fresh_27r = [float(np.std((np.random.default_rng(4127).random((2000, n)) < 0.3).mean(axis=1), ddof=1))
+             for n in (25, 100, 400)]                     # a new generator for each n
+transposed_27r = [float(np.std((r.random((n, 2000)) < 0.3).mean(axis=0), ddof=1))
+                  for r in [np.random.default_rng(4127)] for n in (25, 100, 400)]   # one sample per column
+FRESH_27 = "un seul générateur, créé une fois dans spread_table, puis passé à phat_samples pour 25, 100 et 400"
+TRANSPOSED_27 = "un échantillon par LIGNE : rng.random((N_SAMPLES_27, n)), puis la moyenne de chaque ligne (axis=1)"
 wbm.record("M13a.27a", std_27r, decimals=5,
            mistakes={"l'écart-type, pas la variance : np.std, ou la racine de np.var": [s ** 2 for s in std_27r],
-                     "l'énoncé demande l'écart-type d'échantillon, ddof=1": [float(np.std(s)) for s in samples_27r]})
+                     "l'énoncé demande l'écart-type d'échantillon, ddof=1": [float(np.std(s)) for s in samples_27r],
+                     FRESH_27: fresh_27r, TRANSPOSED_27: transposed_27r})
 wbm.record("M13a.27b", [math.sqrt(0.21 / n) for n in (25, 100, 400)], decimals=5,
            mistakes={"l'écart-type théorique est la RACINE de p(1 − p)/n": [0.21 / n for n in (25, 100, 400)]})
 wbm.record("M13a.27c", True,
            mistakes={"compare chaque écart-type mesuré à SA valeur théorique : |mesuré − théorique| / théorique": False})
 wbm.record("M13a.27d", [std_27r[0] / std_27r[1], std_27r[1] / std_27r[2]], decimals=2,
            mistakes={"le plus petit n d'abord : l'écart-type pour n divisé par celui pour 4n":
-                         [std_27r[1] / std_27r[0], std_27r[2] / std_27r[1]]})
+                         [std_27r[1] / std_27r[0], std_27r[2] / std_27r[1]],
+                     FRESH_27: [fresh_27r[0] / fresh_27r[1], fresh_27r[1] / fresh_27r[2]],
+                     TRANSPOSED_27: [transposed_27r[0] / transposed_27r[1], transposed_27r[1] / transposed_27r[2]]})
 wbm.record("M13a.27e", 2,
            mistakes={"l'écart-type varie comme 1/√n : multiplier n par 4 le divise par √4": 4})''',
     note=r"Mesurés : $\approx 0{,}0927$, $0{,}0461$ et $0{,}0237$, pour $\sqrt{0{,}21/n} \approx 0{,}0917$, $0{,}0458$ et "
@@ -1160,7 +1174,7 @@ M13A_28_CHECK = '''with checked("M13a.28"):
             "relis les lignes ❌ ci-dessus.")'''
 
 M13A_28 = Ex(
-    "M13a.28", "🎨", 1, 20, "L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et "
+    "M13a.28", "🎨", 1, 25, "L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et "
     "maximum au centre",
     "dessiner l'entropie et l'indice de Gini sur le triangle des lois à trois issues, et voir où et comment ils sont "
     "maximaux.", "fiche §6", tracks="C, E", given=M13A_28_GIVEN,
@@ -1237,7 +1251,7 @@ def draw_impurities(axes):
 # ---------------------------------------------------------------------------
 M13A_29_GIVEN = '''Y_29 = np.array([1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0])                                  # 12 labels
 P_29 = np.array([0.9, 0.0, 0.25, 1.0, 0.7, 0.4, 0.05, 0.55, 0.0, 0.3, 0.85, 0.15])           # a model's P(Y = 1), rounded
-Z_29 = np.array([2.1, -800.0, -1.3, 800.0, 0.8, -0.2, -3.1, 0.3, -5.0, -0.9, 1.7, -2.4])    # another model's scores
+Z_29 = np.array([2.1, -900.0, -1.3, 900.0, 0.8, -0.2, -3.1, 0.3, -5.0, -0.9, 1.7, -2.4])    # another model's scores
 X_29 = np.round(np.random.default_rng(4129).normal(5.0, 2.0, size=12), 2)                   # 12 measures'''
 
 M13A_29_MISTAKES = bug_letters_mistakes(
@@ -1258,7 +1272,7 @@ M13A_29 = Ex(
 ```python
 y, p, z, x = Y_29, P_29, Z_29, X_29
 ll = np.sum(y * np.log(p) + (1 - y) * np.log(1 - p))       # (A) the log-likelihood of the labels y under p
-prob = 1 / (1 + np.exp(-z))                                 # (B) σ(z), without any warning, even for z = −800
+prob = 1 / (1 + np.exp(-z))                                 # (B) σ(z), without any warning, even for z = −900
 loss = np.mean(np.log(1 + np.exp(z)) - y * z)               # (C) the mean logistic loss of the scores z
 p_hat = np.mean(y)                                          # (D) the maximum likelihood estimate of P(Y = 1)
 base = -(p_hat * np.log(p_hat) + (1 - p_hat) * np.log(1 - p_hat))   # (E) the log-loss of the constant model p̂
@@ -1272,15 +1286,14 @@ Questions :
 - c) la bonne valeur de `loss` (4 décimales) ;
 - d) la bonne valeur de `var` (4 décimales).
 
-Pour b) à d), écris le code corrigé dans la cellule (c'est permis : seule la recherche des lignes fausses se fait sans exécuter).
-
-Dans ta copie : pour chaque ligne fausse, que se passe-t-il exactement (une valeur, `nan`, `inf`, un avertissement), et comment la corriger ? Laquelle donne une valeur juste mais avec un avertissement ? Laquelle donne un nombre faux sans aucun signal ? Pourquoi la ligne (E), qui ressemble à (A), est-elle juste ici ?""",
+Pour b) à d), écris le code corrigé dans la cellule (c'est permis : seule la recherche des lignes fausses se fait sans exécuter).""",
     todo='''answer_M13a_29a = ...  # a) letters, as text
 answer_M13a_29b = ...  # b) a number (4 decimals)
 answer_M13a_29c = ...  # c) a number (4 decimals)
 answer_M13a_29d = ...  # d) a number (4 decimals)''',
     check='''for letter, answer in zip("abcd", [answer_M13a_29a, answer_M13a_29b, answer_M13a_29c, answer_M13a_29d]):
     wbm.check(f"M13a.29{letter}", answer)''',
+    after=[("md", '**Après la vérification**, dans ta copie : pour chaque ligne fausse, que se passe-t-il exactement (une valeur, `nan`, `inf`, un avertissement), et comment la corriger ? Laquelle donne une valeur juste mais avec un avertissement ? Laquelle donne un nombre faux sans aucun signal ? Pourquoi la ligne (E), qui ressemble à (A), est-elle juste ici ?')],
     solution='''answer_M13a_29a = "ABCG"
 y_29, p_29, z_29, x_29 = Y_29, P_29, Z_29, X_29
 ll_29 = float(np.sum(np.log(np.where(y_29 == 1, p_29, 1 - p_29))))   # (A) the probability of the OBSERVED label only
@@ -1294,30 +1307,31 @@ with warnings.catch_warnings(record=True) as caught_29:               # what the
     warnings.simplefilter("always")
     wrong_29 = (np.sum(y_29 * np.log(p_29) + (1 - y_29) * np.log(1 - p_29)), (1 / (1 + np.exp(-z_29)))[1],
                 np.mean(np.log(1 + np.exp(z_29)) - y_29 * z_29), np.var(x_29, ddof=1))
-print("lignes du collègue : (A)", wrong_29[0], " (B) σ(−800) =", wrong_29[1], " (C)", wrong_29[2],
+print("lignes du collègue : (A)", wrong_29[0], " (B) σ(−900) =", wrong_29[1], " (C)", wrong_29[2],
       " (G)", round(float(wrong_29[3]), 4))
 print("avertissements :", sorted({str(w.message) for w in caught_29}))''',
     record=f'''wbm.record("M13a.29a", "ABCG",
            mistakes={M13A_29_MISTAKES})
 Y_29r = np.array([1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0])
 P_29r = np.array([0.9, 0.0, 0.25, 1.0, 0.7, 0.4, 0.05, 0.55, 0.0, 0.3, 0.85, 0.15])
-Z_29r = np.array([2.1, -800.0, -1.3, 800.0, 0.8, -0.2, -3.1, 0.3, -5.0, -0.9, 1.7, -2.4])
+Z_29r = np.array([2.1, -900.0, -1.3, 900.0, 0.8, -0.2, -3.1, 0.3, -5.0, -0.9, 1.7, -2.4])
 X_29r = np.round(np.random.default_rng(4129).normal(5.0, 2.0, size=12), 2)
 ll_29r = float(np.sum(np.log(np.where(Y_29r == 1, P_29r, 1 - P_29r))))
 loss_29r = float(np.mean(np.logaddexp(0, Z_29r) - Y_29r * Z_29r))
 wbm.record("M13a.29b", ll_29r, decimals=4,
            mistakes={{"(A) calcule une log-vraisemblance : une SOMME sur les labels, pas une moyenne": ll_29r / 12}})
 wbm.record("M13a.29c", loss_29r, decimals=4,
-           mistakes={{"e^800 déborde : écris la softplus max(z, 0) + ln(1 + e^(−|z|))": math.inf,
+           mistakes={{"e^900 déborde : écris la softplus max(z, 0) + ln(1 + e^(−|z|))": math.inf,
                      "{MEAN}": loss_29r * 12}})
 wbm.record("M13a.29d", float(np.var(X_29r)), decimals=4,
-           mistakes={{"le maximum de vraisemblance d'une variance divise par n, pas par n − 1": float(np.var(X_29r, ddof=1))}})''',
+           mistakes={{"le maximum de vraisemblance d'une variance divise par n, pas par n − 1": float(np.var(X_29r, ddof=1)),
+                     "la question demande la variance, pas l'écart-type": float(np.std(X_29r))}})''',
     note=r"(A) Quand $p_i = 0$ pour un label 0, ou $p_i = 1$ pour un label 1, la formule calcule $0 \times \ln 0 = 0 "
          r"\times (-\infty)$ : `nan`, qui contamine la somme (et deux avertissements) ; il faut ne prendre le $\ln$ que de "
-         r"la probabilité du label observé (`np.where`), ou `scipy.special.xlogy`. (B) Pour $z = -800$, $e^{800}$ déborde "
+         r"la probabilité du label observé (`np.where`), ou `scipy.special.xlogy`. (B) Pour $z = -900$, $e^{900}$ déborde "
          r"en `inf`, et $1/(1 + \infty) = 0$ : la valeur est juste, mais avec un avertissement d'overflow ; pour "
-         r"$z < 0$, on écrit $\frac{e^{z}}{1 + e^{z}}$. (C) Pour $z = 800$, `np.log(1 + np.exp(z))` vaut `inf`, et la "
-         r"log-loss aussi, alors que le modèle a raison (score 800, label 1) : la softplus stable donne 0,2106. (G) "
+         r"$z < 0$, on écrit $\frac{e^{z}}{1 + e^{z}}$. (C) Pour $z = 900$, `np.log(1 + np.exp(z))` vaut `inf`, et la "
+         r"log-loss aussi, alors que le modèle a raison (score 900, label 1) : la softplus stable donne 0,2106. (G) "
          r"`ddof=1` divise par $n - 1$ : un nombre plausible, faux sans aucun signal, le piège le plus dangereux. (E) "
          r"est juste parce que $\hat{p} = \frac{5}{12}$ n'est ni 0 ni 1 : un $\hat{p}$ calculé sur des labels "
          r"n'atteint 0 ou 1 que si tous les labels sont égaux.",
@@ -1420,7 +1434,7 @@ La cellule de vérification compare chacun de tes objets à un calcul indépenda
 Dans ta copie : pourquoi le signe de $\ell''(\hat{p})$ suffit-il à conclure à un maximum ici (regarde le signe de $\ell''(p)$ sur tout $]0, 1[$) ? `sympy.solve` a-t-il trouvé d'autres solutions, et pourquoi pas ? Écris $\hat{p}$ et $\hat{\lambda}$ en fonction de $\bar{x}$ : lequel des deux est une moyenne, lequel l'inverse d'une moyenne, et pourquoi est-ce naturel (l'espérance d'une loi géométrique est $\frac{1}{p}$) ?""",
     todo='''ell_geom = ...    # ℓ(p) for GEOM_30: a SymPy expression in p
 dell_geom = ...   # ℓ′(p), with sympy.diff
-p_hat = ...       # the solution of ℓ′(p) = 0, with sympy.solve: one SymPy number, not a list
+p_hat = ...       # the solution of ℓ′(p) = 0, with sympy.solve: one SymPy number, not a list (SympifyError: [...] means a list)
 d2_geom = ...     # ℓ″(p̂): a SymPy number
 ell_pois = ...    # ℓ(λ) for POIS_30, a SymPy expression in lam (the constants −ln(xᵢ!) may be left out)
 lam_hat = ...     # the solution of ℓ′(λ) = 0
@@ -1497,9 +1511,11 @@ M13A_31_CHECK = '''with checked("M13a.31 défi"):
     if banned_31:
         ran_31 = True
         problems_31.append(f"find_weight utilise {', '.join(banned_31)}, interdit dans ce défi")
-    samples_31 = [("l'échantillon X_31", X_31), ("un autre échantillon, d'une autre proportion", mixture_sample(4132, 0.6))]
-    for name_t, x_t in ([] if banned_31 else samples_31):
-        ell_t, dell_t = make_loglik(x_t)
+    cases_31 = [("l'échantillon X_31", *make_loglik(X_31)),
+                ("un autre échantillon, d'une autre proportion", *make_loglik(mixture_sample(4132, 0.6))),
+                ("une fonction concave de maximum au bord, en 0", lambda t: -(t + 0.3) ** 2, lambda t: -2 * (t + 0.3)),
+                ("une fonction concave de maximum au bord, en 1", lambda t: -(t - 1.4) ** 2, lambda t: -2 * (t - 1.4))]
+    for name_t, ell_t, dell_t in ([] if banned_31 else cases_31):
         if dell_t(0.0) <= 0:
             best_t = 0.0
         elif dell_t(1.0) >= 0:
@@ -1531,7 +1547,11 @@ M13A_31_CHECK = '''with checked("M13a.31 défi"):
             problems_31.append(f"find_weight doit rendre un nombre, pas {type(pi_t).__name__}")
             break
         gap_t = abs(pi_t - best_t)
-        print(f"{name_t} : {calls_t[0]} évaluations de ell et dell, écart au maximum {gap_t:.1e}".replace(".", ","))
+        print(f"{name_t} : {calls_t[0]} évaluation{'s' if calls_t[0] > 1 else ''} de ell et dell, "
+              f"écart au maximum {gap_t:.1e}".replace(".", ","))
+        if calls_t[0] == 0:
+            problems_31.append(f"{name_t} : ta fonction n'appelle ni ell ni dell, alors qu'elle ne doit utiliser que "
+                               "ces deux fonctions")
         if calls_t[0] > MAX_CALLS_31:
             problems_31.append(f"{name_t} : {calls_t[0]} évaluations, au-dessus du budget de {MAX_CALLS_31}")
         if not gap_t <= 1e-6:
@@ -1542,7 +1562,8 @@ M13A_31_CHECK = '''with checked("M13a.31 défi"):
         print("❌ Ex M13a.31 : " + " ; ".join(problems_31) + ".")
     elif ran_31:
         ok_31 = True
-        print("✅ Ex M13a.31 : défi réussi : le maximum à 1e−6 près, en au plus 200 évaluations, sur les deux échantillons.")'''
+        print("✅ Ex M13a.31 : défi réussi : le maximum à 1e−6 près, en au plus 200 évaluations, sur les deux échantillons "
+              "et sur deux fonctions de maximum au bord.")'''
 
 M13A_31 = Ex(
     "M13a.31", "🏆", 3, 25, "Défi : la proportion d'un mélange de deux lois connues par maximum de vraisemblance, à "
@@ -1555,7 +1576,7 @@ $$\ell(\pi) = \sum_{i=1}^{400} \ln\big(\pi f_1(x_i) + (1 - \pi) f_0(x_i)\big), \
 
 calculées par `ell_31` et `dell_31`. Annuler $\ell'$ ne donne pas de formule : il faut chercher le maximum numériquement. Bonne nouvelle, $\ell$ est **concave** sur $[0, 1]$ (calcule $\ell''$ : une somme de carrés changée de signe), donc $\ell'$ décroît, et un point où elle s'annule est le maximum.
 
-**L'objectif** : écrire `find_weight(ell, dell)`, qui reçoit deux fonctions d'un seul nombre $\pi$ (comme `ell_31` et `dell_31`) et rend le $\hat{\pi} \in [0, 1]$ qui maximise `ell`, à $10^{-6}$ près du vrai maximum, en appelant `ell` et `dell` **au plus 200 fois** en tout. La vérification compte les appels, et essaie ta fonction sur `X_31` puis sur un autre échantillon, d'une autre proportion : ta fonction ne doit utiliser que les deux fonctions reçues (ni `X_31`, ni `ell_31`, ni `make_loglik`). Une recherche sur une grille ne suffit pas : $10^{-6}$ près demanderait un million de points. `scipy.optimize` (`minimize`, `brentq`, `fsolve`…), `np.polyfit` et scikit-learn sont interdits. Pense à la **dichotomie** sur $\ell'$ (M05a) ou à la méthode de **Newton** (une dérivée seconde approchée par les valeurs de `dell`), et au cas où le maximum serait au bord, en 0 ou en 1.
+**L'objectif** : écrire `find_weight(ell, dell)`, qui reçoit deux fonctions d'un seul nombre $\pi$ (comme `ell_31` et `dell_31`) et rend le $\hat{\pi} \in [0, 1]$ qui maximise `ell`, à $10^{-6}$ près du vrai maximum, en appelant `ell` et `dell` **au plus 200 fois** en tout. La vérification compte les appels, et essaie ta fonction sur `X_31`, sur un autre échantillon, d'une autre proportion, puis sur deux fonctions concaves dont le maximum est au bord, en 0 et en 1 : ta fonction ne doit utiliser que les deux fonctions reçues (ni `X_31`, ni `ell_31`, ni `make_loglik`). Une grille unique ne suffit pas : $10^{-6}$ près demanderait un million de points. `scipy.optimize` (`minimize`, `brentq`, `fsolve`…), `np.polyfit` et scikit-learn sont interdits. Pense à la **dichotomie** sur $\ell'$ (M05a) ou à la méthode de **Newton** (une dérivée seconde approchée par les valeurs de `dell`), et au cas où le maximum serait au bord, en 0 ou en 1.
 
 Une dernière cellule enregistre si l'objectif est atteint.
 

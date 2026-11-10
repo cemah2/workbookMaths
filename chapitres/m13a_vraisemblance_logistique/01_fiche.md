@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §7 |
-| **Temps total estimé** | ≈ 13,8 h : lecture et calculs de la fiche ≈ 3 h, exercices ≈ 10 h, flashcards ≈ 45 min (parcours essentiel ≈ 10,0 h) |
+| **Temps total estimé** | ≈ 14,4 h : lecture et calculs de la fiche ≈ 3 h, exercices ≈ 10 h 35, flashcards ≈ 50 min (parcours essentiel ≈ 10,6 h) |
 | **Prérequis** | M04 (vraisemblance, maximum de vraisemblance, lissage de Laplace, log-probabilités et log-sum-exp) ; M06 (entropie, cross-entropy, divergence KL, information mutuelle, inégalité de Gibbs) ; R6 (sigmoïde, cote, logit) ; M05a (dérivée seconde, convexité d'une fonction d'une variable) ; M10 (fonctions convexes de plusieurs variables) ; M05b (gradient) ; M02b (loi normale) ; M02c (biais d'un estimateur, variance en $n$ ou $n - 1$) ; M07 (hyperplans, produit scalaire) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `likelihood.py` : `bernoulli_log_likelihood`, `bernoulli_mle`, `categorical_mle`, `gaussian_mle`, `logistic_loss` |
@@ -60,7 +60,7 @@ Vocabulaire anglais de ce chapitre : *likelihood*, *log-likelihood*, *negative l
 2. Bernoulli : $\hat{p}$ = la proportion de 1 ; catégorielle : $\hat{p}_k = n_k/N$ (avec lissage : $\frac{n_k + \alpha}{N + K\alpha}$) ; normale : $\hat{\mu}$ = la moyenne, $\hat{\sigma}^2 = \frac{1}{n}\sum_i (x_i - \hat{\mu})^2$, en $n$ et non $n - 1$.
 3. La **log-loss** d'un classifieur est moins sa log-vraisemblance divisée par $n$ : minimiser l'une, c'est maximiser l'autre.
 4. La log-loss récompense les probabilités **honnêtes** : pour un label de probabilité $\pi$, sa valeur moyenne $H(\pi) + \mathrm{KL}(\pi \,\Vert\, q)$ est la plus petite en $q = \pi$.
-5. La **sigmoïde** $\sigma(z) = \frac{1}{1 + e^{-z}}$ transforme un score en probabilité ; la **softplus** $s(z) = \ln(1 + e^z)$ vérifie $-\ln \sigma(z) = s(-z)$ et $s(z) - s(-z) = z$.
+5. La **sigmoïde** $\sigma(z) = \frac{1}{1 + e^{-z}}$ envoie $\mathbb{R}$ sur $]0, 1[$ ; la **softplus** $s(z) = \ln(1 + e^z)$ vérifie $-\ln \sigma(z) = s(-z)$ et $s(z) - s(-z) = z$.
 6. **Log-somme-exp** est convexe (sur une droite, sa dérivée seconde est une variance) ; la softplus aussi, et donc la log-loss d'un modèle logistique, en $(\mathbf{w}, b)$.
 7. **Régression logistique** : $P(Y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b)$ ; le score est la log-cote ; la frontière $\mathbf{w} \cdot \mathbf{x} + b = 0$ est un hyperplan.
 8. **Naïve Bayes** suppose les features indépendantes **sachant la classe** et estime chaque loi par maximum de vraisemblance ; deux classes gaussiennes de même variance donnent un a posteriori logistique.
@@ -170,7 +170,7 @@ La log-loss est la loss de la régression logistique (§4) et, sous le nom de cr
 
 ### La sigmoïde, rappel
 
-R6 §7 a défini la **sigmoïde** $\sigma(z) = \frac{1}{1 + e^{-z}}$, à valeurs dans $]0, 1[$, strictement croissante, avec $\sigma(0) = \frac{1}{2}$ et la symétrie $\sigma(-z) = 1 - \sigma(z)$ ; et sa réciproque, le **logit** $\ln\frac{p}{1 - p}$, le logarithme de la **cote** $\frac{p}{1 - p}$. Quelques valeurs nouvelles : $\sigma(1) \approx 0{,}731$, $\sigma(-0{,}5) \approx 0{,}378$ ; le logit de 0,6 vaut $\ln 1{,}5 \approx 0{,}405$, celui de 0,7 vaut $\ln\frac{7}{3} \approx 0{,}847$ (et celui de 0,3, son opposé). Pour la calculer sans débordement quand $z$ est très négatif (où $e^{-z}$ déborde), on écrit, pour $z < 0$, $\sigma(z) = \frac{e^{z}}{1 + e^{z}}$, où l'exponentielle est petite (M13a.29).
+R6 §7 a défini la **sigmoïde** $\sigma(z) = \frac{1}{1 + e^{-z}}$, à valeurs dans $]0, 1[$, strictement croissante, avec $\sigma(0) = \frac{1}{2}$ et la symétrie $\sigma(-z) = 1 - \sigma(z)$ ; et sa réciproque, le **logit** $\ln\frac{p}{1 - p}$, le logarithme de la **cote** $\frac{p}{1 - p}$. Quelques valeurs nouvelles : $\sigma(0{,}3) \approx 0{,}574$, $\sigma(-2{,}2) \approx 0{,}0998$ ; le logit de 0,55 vaut $\ln\frac{11}{9} \approx 0{,}201$ (et celui de 0,45, son opposé). Pour la calculer sans débordement quand $z$ est très négatif (où $e^{-z}$ déborde), on écrit, pour $z < 0$, $\sigma(z) = \frac{e^{z}}{1 + e^{z}}$, où l'exponentielle est petite (M13a.29).
 
 ### La softplus
 
@@ -183,7 +183,7 @@ Ses propriétés se lisent sur la formule, et sur la figure :
 - $s(0) = \ln 2$ ; quand $z \to -\infty$, $e^z \to 0$ et $s(z) \to 0$ ; quand $z \to +\infty$, $s(z) - z = \ln(1 + e^{-z}) \to 0$ : ses deux **asymptotes** sont $y = 0$ et $y = z$ ;
 - $s(z) - s(-z) = \ln\frac{1 + e^z}{1 + e^{-z}} = \ln e^z = z$ (multiplie le haut et le bas de la fraction par $e^{-z}$, puis simplifie) ; par exemple $s(1) \approx 1{,}313$ et $s(-1) \approx 0{,}313$.
 
-![À gauche, la sigmoïde, de 0 à 1, avec σ(1) ≈ 0,731 et σ(−0,5) ≈ 0,378 ; à droite, la softplus s(z) = ln(1 + eᶻ), son miroir s(−z) = −ln σ(z), et l'asymptote max(z, 0)](figures/sigmoide_softplus.png)
+![À gauche, la sigmoïde, de 0 à 1, avec σ(0,3) ≈ 0,574 et σ(−2,2) ≈ 0,0998 ; à droite, la softplus s(z) = ln(1 + eᶻ), son miroir s(−z) = −ln σ(z), et l'asymptote max(z, 0)](figures/sigmoide_softplus.png)
 
 **Le lien avec la log-loss.** Comme $\sigma(z) = \frac{1}{1 + e^{-z}}$, on a $-\ln\sigma(z) = \ln(1 + e^{-z}) = s(-z)$ ; et, par la symétrie, $-\ln(1 - \sigma(z)) = -\ln\sigma(-z) = s(z)$. Pour un exemple de score $z$ et de label $y$, avec $\hat{p} = \sigma(z)$ :
 
@@ -191,7 +191,7 @@ $$-\big[y\ln\hat{p} + (1 - y)\ln(1 - \hat{p})\big] = \begin{cases} s(-z) & \text
 
 (Pour $y = 1$, $s(z) - z = s(-z)$ par la troisième propriété.) La log-loss s'écrit donc directement avec les scores, sans calculer $\hat{p}$. C'est plus précis : si $\sigma(z)$ s'arrondit à 1 en flottants (ce qui arrive pour un score de quelques dizaines), $\ln(1 - \hat{p})$ vaut $-\infty$, alors que $s(z)$ reste un nombre ordinaire.
 
-**La calculer sans débordement.** Pour $z = 800$, $e^z$ déborde et `np.log(1 + np.exp(z))` rend `inf`. On utilise l'écriture équivalente, que donne la docstring de `logistic_loss` :
+**La calculer sans débordement.** Pour $z = 900$, $e^z$ déborde et `np.log(1 + np.exp(z))` rend `inf`. On utilise l'écriture équivalente, que donne la docstring de `logistic_loss` :
 
 $$s(z) = \max(z, 0) + \ln\big(1 + e^{-\lvert z \rvert}\big),$$
 
@@ -230,7 +230,7 @@ $$P(Y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b),$$
 avec un vecteur de poids $\mathbf{w}$ et un biais $b$. Le **score** $z = \mathbf{w} \cdot \mathbf{x} + b$ est le logit de cette probabilité : $\ln\frac{P(Y = 1 \mid \mathbf{x})}{P(Y = 0 \mid \mathbf{x})} = z$. Autrement dit, le modèle suppose que la **log-cote** de la classe 1 est une fonction affine des features ; la probabilité, elle, ne l'est pas.
 
 **Exemple.** $\mathbf{w} = (1{,}2 ;\ -0{,}8)$ et $b = -0{,}4$.
-- Pour $\mathbf{x} = (2, 1)$ : $z = 2{,}4 - 0{,}8 - 0{,}4 = 1{,}2$, la cote vaut $e^{1{,}2} \approx 3{,}32$ (« 3,32 contre 1 »), et la probabilité $\sigma(1{,}2) = \frac{3{,}32}{4{,}32} \approx 0{,}769$.
+- Pour $\mathbf{x} = (2 ;\ 0{,}5)$ : $z = 2{,}4 - 0{,}4 - 0{,}4 = 1{,}6$, la cote vaut $e^{1{,}6} \approx 4{,}95$ (« 4,95 contre 1 »), et la probabilité $\sigma(1{,}6) = \frac{4{,}95}{5{,}95} \approx 0{,}832$.
 - Pour $\mathbf{x} = (0{,}5 ;\ 1)$ : $z = -0{,}6$ et $\sigma(-0{,}6) \approx 0{,}354$ ; pour $\mathbf{x} = (1, 2)$ : $z = -0{,}8$ et $\approx 0{,}310$.
 
 **La cote est multiplicative.** La cote vaut $e^{z} = e^{b}\,e^{w_1x_1}\cdots e^{w_px_p}$ : un produit de facteurs, un par feature. Passer de $x_j$ à $x_j + 1$, les autres features fixées, multiplie donc la cote par le même facteur $e^{w_j}$, quel que soit le point de départ. Ici, $x_1 + 1$ multiplie la cote par $e^{1{,}2} \approx 3{,}32$, et $x_2 + 1$ par $e^{-0{,}8} \approx 0{,}449$. La probabilité, elle, change plus ou moins selon l'endroit : beaucoup près de 0,5, peu près de 0 ou de 1.
@@ -247,7 +247,7 @@ Sur des données $(\mathbf{x}_i, y_i)$, on choisit $(\mathbf{w}, b)$ par maximum
 
 $$J(\mathbf{w}, b) = \frac{1}{n}\sum_{i=1}^n \big[s(z_i) - y_i\,z_i\big], \qquad z_i = \mathbf{w} \cdot \mathbf{x}_i + b.$$
 
-**$J$ est convexe en $(\mathbf{w}, b)$** : chaque $z_i$ est une fonction affine de $(\mathbf{w}, b)$ ; $s(z_i)$ est donc la softplus composée avec une application affine, convexe (§3) ; $-y_i z_i$ est affine ; et une somme de fonctions convexes est convexe (M10). Conséquence : tout minimum local est un minimum global, et une méthode de descente bien réglée ne se fait pas piéger. Il n'y a pas de formule pour le minimum, contrairement aux moindres carrés (M09b) : on le cherche numériquement. Le calcul du gradient et la descente elle-même sont le sujet de workbookIA 13.
+**$J$ est convexe en $(\mathbf{w}, b)$** : chaque $z_i$ est une fonction affine de $(\mathbf{w}, b)$ ; $s(z_i)$ est donc la softplus composée avec une application affine, convexe (§3) ; $-y_i z_i$ est affine ; et une somme de fonctions convexes est convexe (M10). Conséquence : tout minimum local est un minimum global, il n'y a qu'un niveau minimal à atteindre. Il n'y a pas de formule pour le minimum, contrairement aux moindres carrés (M09b) : on le cherche numériquement. Le calcul du gradient et la descente elle-même sont le sujet de workbookIA 13.
 
 **Le lien avec MML.** MML §8.3.4 parle de prédicteurs de la forme $\varphi(\boldsymbol{\theta}^\top\mathbf{x})$ : une combinaison linéaire des features, puis une fonction fixée. Ce sont les **modèles linéaires généralisés** (*generalized linear models*) ; la régression linéaire en est un avec $\varphi$ l'identité et un bruit gaussien, la régression logistique un autre avec $\varphi = \sigma$ et des labels de Bernoulli. La réciproque de $\varphi$, ici le logit, s'appelle la **fonction de lien** (*link function*).
 
@@ -277,13 +277,13 @@ Un modèle génératif sait faire plus (simuler des exemples d'une classe, repé
 
 ### L'hypothèse naïve
 
-Avec $p$ features à $m$ valeurs chacune, la loi complète de $\mathbf{x}$ dans une classe a $m^p$ cases, donc $m^p - 1$ probabilités à estimer : pour 10 features binaires, déjà $2^{10} - 1 = 1\,023$, et il faudrait des milliers d'exemples par classe pour les estimer. **Naïve Bayes** (*naive Bayes*) suppose les features **indépendantes sachant la classe** (*conditional independence*) :
+Avec $p$ features à $m$ valeurs chacune, la loi complète de $\mathbf{x}$ dans une classe a $m^p$ cases, donc $m^p - 1$ probabilités à estimer : pour 8 features à 3 valeurs, déjà $3^8 - 1 = 6\,560$, et il faudrait des dizaines de milliers d'exemples par classe pour les estimer. **Naïve Bayes** (*naive Bayes*) suppose les features **indépendantes sachant la classe** (*conditional independence*) :
 
 $$p(\mathbf{x} \mid Y = k) = \prod_{j=1}^p p(x_j \mid Y = k).$$
 
-Il ne reste que $p(m - 1)$ probabilités par classe (10 pour les 10 features binaires), chacune estimée sur tous les exemples de sa classe (🧮 M13a.20).
+Il ne reste que $p(m - 1)$ probabilités par classe (16 pour les 8 features à 3 valeurs), chacune estimée sur tous les exemples de sa classe (🧮 M13a.20).
 
-L'indépendance **sachant la classe** n'est pas l'indépendance tout court. Deux thermomètres posés dans la même pièce donnent des lectures très corrélées : quand l'une est haute, l'autre aussi, parce que la pièce est chaude. Mais, la température vraie étant connue, leurs erreurs de mesure sont indépendantes : les lectures sont indépendantes **sachant** la température. Naïve Bayes fait le même pari, avec la classe à la place de la température. Quand il est faux (deux features qui se répètent l'une l'autre dans chaque classe), le modèle compte deux fois la même information : ses probabilités deviennent trop extrêmes, même si sa décision reste souvent bonne (✏️ M13a.8 compare, sur une petite loi, la factorisation et la vraie loi jointe).
+L'indépendance **sachant la classe** n'est pas l'indépendance tout court. Deux thermomètres posés dans la même pièce donnent des lectures très corrélées : quand l'une est haute, l'autre aussi, parce que la pièce est chaude. Mais, la température vraie étant connue, leurs erreurs de mesure sont indépendantes : les lectures sont indépendantes **sachant** la température. Naïve Bayes fait le même pari, avec la classe à la place de la température. Quand ce pari est faux, les a posteriori calculés ne sont plus les vrais, et des décisions peuvent changer : ✏️ M13a.8 le mesure sur une petite loi, en comparant la factorisation et la vraie loi jointe.
 
 ### Estimer, puis décider en log-probabilités
 
@@ -302,9 +302,9 @@ Une seule feature réelle $x$. Dans la classe 0, $x \sim \mathcal{N}(\mu_0, \sig
 
 $$\ln\frac{P(Y = 1 \mid x)}{P(Y = 0 \mid x)} = \ln\frac{\pi_1}{\pi_0} - \frac{(x - \mu_1)^2 - (x - \mu_0)^2}{2\sigma^2} = \underbrace{\frac{\mu_1 - \mu_0}{\sigma^2}}_{w}\,x + \underbrace{\frac{\mu_0^2 - \mu_1^2}{2\sigma^2} + \ln\frac{\pi_1}{\pi_0}}_{b} :$$
 
-les termes en $x^2$ s'annulent parce que les variances sont égales. Donc $P(Y = 1 \mid x) = \sigma(wx + b)$ : **exactement la forme de la régression logistique.** Avec $\mu_0 = 1$, $\mu_1 = 4$, $\sigma = 1{,}5$ et $\pi_1 = 0{,}3$ : $w = \frac{3}{2{,}25} \approx 1{,}333$, $b = \frac{1 - 16}{4{,}5} + \ln\frac{0{,}3}{0{,}7} \approx -3{,}333 - 0{,}847 = -4{,}181$, et la frontière $x^* = -\frac{b}{w} \approx 3{,}14$ : plus près de la classe rare que le milieu 2,5 des deux moyennes, puisque la classe 0, plus fréquente, l'emporte tant que les densités sont comparables.
+les termes en $x^2$ s'annulent parce que les variances sont égales. Donc $P(Y = 1 \mid x) = \sigma(wx + b)$ : **exactement la forme de la régression logistique.** Avec $\mu_0 = 1$, $\mu_1 = 4$, $\sigma = 1{,}5$ et $\pi_1 = 0{,}36$ : $w = \frac{3}{2{,}25} \approx 1{,}333$, $b = \frac{1 - 16}{4{,}5} + \ln\frac{0{,}36}{0{,}64} \approx -3{,}333 - 0{,}575 = -3{,}909$, et la frontière $x^* = -\frac{b}{w} \approx 2{,}93$ : plus près de la classe rare que le milieu 2,5 des deux moyennes, puisque la classe 0, plus fréquente, l'emporte tant que les densités sont comparables.
 
-![À gauche, 0,7 × N(1 ; 1,5²) et 0,3 × N(4 ; 1,5²), qui se croisent en x* ≈ 3,14 ; à droite, l'a posteriori de la classe 1, une sigmoïde de 1,333 x − 4,181](figures/bayes_gaussien.png)
+![À gauche, 0,64 × N(1 ; 1,5²) et 0,36 × N(4 ; 1,5²), qui se croisent en x* ≈ 2,93 ; à droite, l'a posteriori de la classe 1, une sigmoïde de 1,333 x − 3,909](figures/bayes_gaussien.png)
 
 La leçon : le modèle génératif et le modèle discriminant peuvent avoir **la même forme**, mais ils l'estiment différemment. Le premier estime $\mu_0$, $\mu_1$, $\sigma^2$ et $\pi_1$, puis en déduit $(w, b)$, ce qui n'est juste que si les données sont vraiment gaussiennes de même variance. Le second ajuste $(w, b)$ directement sur les labels, sans rien supposer sur la loi des features. Avec des variances différentes, les termes en $x^2$ restent, et la frontière du modèle génératif n'est plus un seul point (en dimension 1) ni un hyperplan (✏️ M13a.9 fait le calcul sur d'autres nombres).
 
@@ -323,7 +323,7 @@ Une **impureté** (*impurity*) mesure à quel point une loi $\mathbf{p} = (p_1, 
 
 La seconde écriture de Gini a une lecture utile : $p_k(1 - p_k)$ est la variance de l'indicatrice « la classe est $k$ », une variable de Bernoulli (M02b). **L'indice de Gini est la somme des variances des $K$ indicatrices de classe** : le §7 en tirera un lien avec la réduction de variance.
 
-**Exemples.** Pour $(0{,}6 ;\ 0{,}4)$ : $G = 1 - 0{,}36 - 0{,}16 = 0{,}48$ et $H \approx 0{,}971$ bit. Pour $(0{,}7 ;\ 0{,}2 ;\ 0{,}1)$ : $G = 1 - 0{,}49 - 0{,}04 - 0{,}01 = 0{,}46$ et $H = 0{,}7\log_2\frac{1}{0{,}7} + 0{,}2\log_2 5 + 0{,}1\log_2 10 \approx 0{,}360 + 0{,}464 + 0{,}332 = 1{,}157$ bits.
+**Exemples.** Pour $(0{,}72 ;\ 0{,}28)$ : $G = 1 - 0{,}5184 - 0{,}0784 = 0{,}4032$ et $H \approx 0{,}856$ bit. Pour $(0{,}7 ;\ 0{,}2 ;\ 0{,}1)$ : $G = 1 - 0{,}49 - 0{,}04 - 0{,}01 = 0{,}46$ et $H = 0{,}7\log_2\frac{1}{0{,}7} + 0{,}2\log_2 5 + 0{,}1\log_2 10 \approx 0{,}360 + 0{,}464 + 0{,}332 = 1{,}157$ bits.
 
 **Les maxima.** Les deux impuretés sont maximales pour la loi uniforme $p_k = \frac{1}{K}$ : $H_{\max} = \log_2 K$ (l'inégalité de Gibbs de M06, ∂ M13a.17) et $G_{\max} = 1 - \frac{1}{K}$ (∂ M13a.16). Pour $K = 5$ : $\log_2 5 \approx 2{,}32$ bits et $0{,}8$. Elles grandissent avec $K$ : comparer l'impureté de deux nœuds n'a de sens qu'avec le même nombre de classes.
 

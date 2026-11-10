@@ -140,7 +140,7 @@
 - h :
 - chaque terme comme une cross-entropy ; ce que la log-loss mesure et l'accuracy non :
 
-### Ex M13a.4 — Ce que coûte une prédiction sûre et fausse : la log-loss quand p tend vers 0
+### Ex M13a.4 — Le poids d'un seul exemple mal prédit : la log-loss quand p tend vers 0
 
 - a :
 - b :
@@ -376,7 +376,7 @@
 
 ### Ex M13a.29 — Chasse à l'erreur : un ln 0, une sigmoïde qui déborde, une variance de maximum de vraisemblance divisée par n − 1
 
-- pour chaque ligne fausse, ce qui se passe et la correction ; la valeur juste avec un avertissement ; le nombre faux sans signal ; pourquoi (E) est juste ici :
+- après la vérification : pour chaque ligne fausse, ce qui se passe et la correction ; les pièges les plus discrets ; la ligne qui ressemble à (A) :
 
 ### Ex M13a.30 — Vérifier avec SymPy le maximum de vraisemblance d'une loi géométrique et d'une loi de Poisson
 

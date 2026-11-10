@@ -48,7 +48,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M12b](#m12b) | Orthogonalité et projections | 12 | §3.2.2, §3.2.3, §3.5, §3.6, §3.7, §3.8, §9.4 | 15,2 h | ✅ exercices | 1 |
 | [M12c](#m12c) | Valeurs propres et matrices symétriques | 12 | §4.1, §4.2, §4.3, §4.4 | 16,8 h | ✅ exercices | 2 |
 | [M12d](#m12d) | SVD et analyse en composantes principales | 12 | §4.5, §4.6, §4.7, §10.1, §10.2, §10.3, §10.4, §10.5, §10.6 | 18,0 h | ✅ exercices | 2 |
-| [M13a](#m13a) | Vraisemblance et régression logistique | 13 | §8.3 | 13,8 h | ✅ exercices | 2 |
+| [M13a](#m13a) | Vraisemblance et régression logistique | 13 | §8.3 | 14,4 h | ✅ exercices | 2 |
 | [M13b](#m13b) | Optimisation sous contraintes et SVM | 13 | §7.2, §7.3, ch. 12 | 16,1 h | ✅ exercices | 1 |
 | [M14](#m14) | Les maths des ensembles | 14 | — | 7,2 h | ✅ exercices | 1 |
 | [CP3](#cp3) | Examen blanc de la partie III | — | — | 3,1 h | ✅ exercices | 1 |
@@ -82,7 +82,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | 0 · Remise à niveau | 12 | 363 | 116,5 h | 93,3 h |
 | I · Fondations | 9 | 319 | 107,6 h | 69,7 h |
 | II · Concepts | 7 | 256 | 83,9 h | 54,0 h |
-| III · ML classique | 8 | 321 | 107,0 h | 70,6 h |
+| III · ML classique | 8 | 321 | 107,5 h | 71,2 h |
 | IV · Réseaux | 6 | — | ≈ 58 h (estimé) | à détailler |
 | V · Architectures | 3 | — | ≈ 24 h (estimé) | à détailler |
 | VI · Génératif et RL | 6 | — | ≈ 60 h (estimé) | à détailler |
@@ -2523,7 +2523,7 @@ La décomposition en valeurs singulières et son interprétation géométrique, 
 
 Le maximum de vraisemblance (Bernoulli, catégorielle, gaussienne), la log-loss comme moins la log-vraisemblance, la sigmoïde et la fonction softplus, la régression logistique comme modèle probabiliste (et la sonde linéaire), Naïve Bayes comme modèle génératif, l'entropie, l'indice de Gini, le gain d'information et la réduction de variance des arbres.
 
-**Temps** : 13,8 h en parcours complet, 10,0 h en parcours essentiel (lecture 180 min, 24 flashcards).
+**Temps** : 14,4 h en parcours complet, 10,6 h en parcours essentiel (lecture 180 min, 24 flashcards).
 
 **Objectifs**
 
@@ -2568,21 +2568,21 @@ Le maximum de vraisemblance (Bernoulli, catégorielle, gaussienne), la log-loss 
 | M13a.1 | ✏️ | Le maximum de vraisemblance d'une loi de Bernoulli et d'une loi catégorielle | ★ | 15 | §1 | C, E | wbm | — |
 | M13a.2 | ✏️ | Le maximum de vraisemblance d'une loi normale : μ̂ et σ̂² | ★★ | 20 | §1 | C, E | wbm | — |
 | M13a.3 | ✏️ | La log-loss de quatre prédictions, puis la même en cross-entropy | ★ | 15 | §2 | C, E | wbm | — |
-| M13a.4 | ✏️ | Ce que coûte une prédiction sûre et fausse : la log-loss quand p tend vers 0 | ★ | 15 | §2 | C | wbm | — |
+| M13a.4 | ✏️ | Le poids d'un seul exemple mal prédit : la log-loss quand p tend vers 0 | ★ | 15 | §2 | C | wbm | — |
 | M13a.5 | ✏️ | La sigmoïde : valeurs, logit, cote et symétrie σ(−z) = 1 − σ(z) | ★ | 15 | §3 | C, E | wbm | — |
 | M13a.6 | ✏️ | La softplus : valeurs, asymptotes et comportement pour |z| grand | ★ | 15 | §3 | C, E | wbm | — |
 | M13a.7 | ✏️ | Un modèle logistique à deux features : probabilités, cote et frontière de décision | ★ | 15 | §4 | C, E | wbm | — |
-| M13a.8 | ✏️ | L'hypothèse naïve à la main : une loi jointe factorisée, comparée à la vraie | ★★ | 20 | §5 | C, E | wbm | — |
+| M13a.8 | ✏️ | L'hypothèse naïve à la main : une loi jointe factorisée, comparée à la vraie | ★★ | 25 | §5 | C, E | wbm | — |
 | M13a.9 | ✏️ | Deux classes gaussiennes de même variance : l'a posteriori est une sigmoïde d'un score affine | ★★ | 20 | §4 §5 | C | wbm | — |
 | M13a.10 | ✏️ | L'entropie et l'indice de Gini de quelques distributions | ★ | 15 | §6 | C, E | wbm | — |
-| M13a.11 | ✏️ | L'information mutuelle d'un tableau de contingence, et la baisse d'entropie qu'elle mesure | ★★ | 20 | §6 | C, E | wbm | — |
+| M13a.11 | ✏️ | L'information mutuelle d'un tableau de contingence, et la baisse d'entropie qu'elle mesure | ★★ | 25 | §6 | C, E | wbm | — |
 | M13a.12 | ✏️ | La variance d'un groupe coupé en deux : variance intra plus variance inter | ★★ | 15 | §7 | C | wbm | — |
 | M13a.13 | ∂ | Le maximum de vraisemblance d'une loi catégorielle, par l'inégalité de Gibbs | ★★ | 20 | §1 | C, E | manuel | — |
 | M13a.14 | ∂ | La log-loss moyenne est moins la log-vraisemblance divisée par n | ★ | 15 | §2 | C, E | manuel | — |
 | M13a.15 | ∂ | Log-somme-exp est convexe : sur une droite, sa dérivée seconde est une variance ; la softplus aussi | ★★★ | 25 | §3 §4 | C, E | manuel | — |
 | M13a.16 | ∂ | L'indice de Gini est maximal pour la loi uniforme | ★★ | 20 | §6 | C | manuel | — |
 | M13a.17 | ∂ | L'entropie est maximale pour la loi uniforme, par l'inégalité de Gibbs | ★★ | 15 | §6 | C | manuel | — |
-| M13a.18 | 🔗 | Pont : une sonde linéaire, un modèle logistique en NumPy sur un batch de représentations figées, jusqu'à la log-loss | ★ | 15 | §4 | C, E | wbm | — |
+| M13a.18 | 🔗 | Pont : une sonde linéaire, un modèle logistique en NumPy sur un batch de représentations figées, jusqu'à la log-loss | ★ | 25 | §4 | C, E | wbm | — |
 | M13a.19 | 📖 | MML §8.3, relu après M04 : estimer des paramètres, et ce que la régression logistique y ajoute | ★★ | 30 | §1 §4 | C | manuel | — |
 | M13a.20 | 🧮 | Fermi : la loi jointe complète contre l'hypothèse naïve, combien de nombres pour 30 features à 4 valeurs ? | ★ | 10 | §5 | C | manuel | — |
 | M13a.21 | 🗣️ | Expliquer pourquoi on minimise la log-loss plutôt que le taux d'erreur | ★ | 10 | §2 §4 | C, E | manuel | — |
@@ -2591,10 +2591,10 @@ Le maximum de vraisemblance (Bernoulli, catégorielle, gaussienne), la log-loss 
 | M13a.22 | 🔨 | La log-vraisemblance et le maximum de vraisemblance d'une loi de Bernoulli · `bernoulli_log_likelihood, bernoulli_mle` | ★ | 15 | §1 | C, E | pytest | — |
 | M13a.23 | 🔨 | Maximum de vraisemblance catégoriel, avec lissage, et gaussien · `categorical_mle, gaussian_mle` | ★ | 20 | §1 §5 | C, E | pytest | — |
 | M13a.24 | 🔨 | La log-loss à partir des scores, sans débordement · `logistic_loss` | ★★ | 20 | §2 §3 | C, E | pytest | — |
-| M13a.25 | 📦 | `scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes fonctions | ★ | 15 | §1 §2 §3 | C, E | wbm | — |
+| M13a.25 | 📦 | `scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes fonctions | ★ | 25 | §1 §2 §3 | C, E | wbm | — |
 | M13a.26 | 🔮 | Prédire la log-loss d'un modèle qui répond toujours 0,5, puis toujours la fréquence des 1 | ★ | 10 | §2 | C, E | wbm | — |
 | M13a.27 | 🔬 | La variabilité du maximum de vraisemblance d'une loi de Bernoulli d'un échantillon à l'autre | ★★ | 20 | §1 | C | wbm | — |
-| M13a.28 | 🎨 | L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et maximum au centre | ★ | 20 | §6 | C, E | manuel | — |
+| M13a.28 | 🎨 | L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et maximum au centre | ★ | 25 | §6 | C, E | manuel | — |
 | M13a.29 | 🐛 | Chasse à l'erreur : un ln 0, une sigmoïde qui déborde, une variance de maximum de vraisemblance divisée par n − 1 | ★ | 15 | §1 §2 §3 | C | wbm | — |
 | M13a.30 | 🛠️ | Vérifier avec SymPy le maximum de vraisemblance d'une loi géométrique et d'une loi de Poisson | ★ | 15 | §1 | C | manuel | — |
 | M13a.31 | 🏆 | Défi : la proportion d'un mélange de deux lois connues par maximum de vraisemblance, à 1e−6 près du maximum (dichotomie ou Newton) | ★★★ | 25 | §1 | C | wbm | — |

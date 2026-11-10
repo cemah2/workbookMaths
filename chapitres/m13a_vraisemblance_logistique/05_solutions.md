@@ -17,7 +17,7 @@
 6. **Faux** : $\mathbb{E}[\hat{\sigma}^2] = \frac{n - 1}{n}\sigma^2$ ; l'estimation sans biais divise par $n - 1$.
 
 ### M13a.Q2 — Log-loss et cross-entropy : la même chose ?
-1. $-\ln 0{,}9 \approx 0{,}105$ nat.
+1. $-\ln 0{,}75 \approx 0{,}288$ nat.
 2. Log-loss $= -\frac{1}{n}\,\ell$ : moins la log-vraisemblance des labels, divisée par $n$.
 3. **Vrai** : chaque terme est la cross-entropy entre la loi du label observé (toute la masse sur lui) et la loi prédite sur $\{0, 1\}$.
 4. Non : chaque terme vaut $-\ln 0{,}5$, quel que soit le label ; la log-loss vaut $\ln 2 \approx 0{,}693$.
@@ -45,7 +45,7 @@
 2. Naïve Bayes : il a une loi des features dans chaque classe, qu'on peut tirer au hasard.
 3. **Faux** : indépendantes **sachant la classe**. Sans connaître la classe, elles peuvent être très corrélées.
 4. Une sigmoïde d'une fonction affine de $x$ : $\sigma(wx + b)$.
-5. Oui, souvent : la décision ne demande que de savoir quelle classe l'emporte. Ses probabilités, en revanche, sont souvent trop proches de 0 ou de 1 (une information comptée plusieurs fois).
+5. Non : ce sont les a posteriori de la loi factorisée, pas ceux de la vraie loi. Oui : en M13a.8, deux cases sur quatre changent de décision.
 6. Le produit de 300 probabilités ou densités tombe à 0 (ou déborde) en flottants ; la somme de leurs logarithmes reste un nombre ordinaire, et log-somme-exp normalise ensuite.
 
 ### M13a.Q6 — Entropie et Gini : leurs propriétés
@@ -126,17 +126,17 @@ Pour la copie : $\frac{\partial \ell}{\partial \mu} = \frac{1}{v}\sum_i (x_i - \
 
 ### Ex M13a.3 — La log-loss de quatre prédictions, puis la même en cross-entropy
 
-**Réponses** : a) `[0.2231, 0.7985, 0.4308, 0.0513]` · b) `0.3759` · c) `0.542` · d) `-1.5037` · e) `3/4` · f) `0.6931` · g) `1.204` · h) `0.2026`.
+**Réponses** : a) `[0.2231, 0.7985, 0.4308, 0.0513]` · b) `0.3759` · c) `0.542` · d) `-1.5037` · e) `3/4` · f) `0.6931` · g) `1.204` · h) `0.2169`.
 
-**Démarche.** a) $-\ln 0{,}8$, $-\ln 0{,}45$ (labels 1), puis $-\ln 0{,}65$, $-\ln 0{,}95$ (labels 0 : $1 - \hat{p}$). b) leur moyenne. c) b) divisé par $\ln 2$. d) moins la somme des termes. e) décisions $1, 0, 0, 0$ contre labels $1, 1, 0, 0$ : trois justes. f) $\ln 2$. g) $-\ln 0{,}3$. h) le deuxième terme devient $-\ln 0{,}9 \approx 0{,}105$, moyenne $\approx 0{,}203$.
+**Démarche.** a) $-\ln 0{,}8$, $-\ln 0{,}45$ (labels 1), puis $-\ln 0{,}65$, $-\ln 0{,}95$ (labels 0 : $1 - \hat{p}$). b) leur moyenne. c) b) divisé par $\ln 2$. d) moins la somme des termes. e) décisions $1, 0, 0, 0$ contre labels $1, 1, 0, 0$ : trois justes. f) $\ln 2$. g) $-\ln 0{,}3$. h) le deuxième terme devient $-\ln 0{,}85 \approx 0{,}163$, moyenne $\approx 0{,}217$.
 
-Pour la copie : le terme du premier exemple est $H\big((0, 1), (0{,}2 ;\ 0{,}8)\big) = -\ln 0{,}8$, et ainsi de suite. De b) à h), la log-loss baisse de 0,376 à 0,203, et l'accuracy passe de $\frac{3}{4}$ à 1. Mais même sans changer de décision (0,45 remplacé par 0,1, toujours du mauvais côté), la log-loss aurait bougé : elle mesure la **confiance** que le modèle accorde au bon label, l'accuracy seulement le côté de 0,5.
+Pour la copie : le terme du premier exemple est $H\big((0, 1), (0{,}2 ;\ 0{,}8)\big) = -\ln 0{,}8$, et ainsi de suite. De b) à h), la log-loss baisse de 0,376 à 0,217, et l'accuracy passe de $\frac{3}{4}$ à 1. Mais même sans changer de décision (0,45 remplacé par 0,1, toujours du mauvais côté), la log-loss aurait bougé : elle mesure la **confiance** que le modèle accorde au bon label, l'accuracy seulement le côté de 0,5.
 
 **Erreurs fréquentes.** $-\ln\hat{p}$ pour les labels 0 ; la somme au lieu de la moyenne ; multiplier par $\ln 2$ au lieu de diviser.
 
 **Variante.** Si le dernier exemple avait le label 1 (même $\hat{p} = 0{,}05$) : son terme ? *Réponse* : $-\ln 0{,}05 \approx 3{,}00$.
 
-### Ex M13a.4 — Ce que coûte une prédiction sûre et fausse : la log-loss quand p tend vers 0
+### Ex M13a.4 — Le poids d'un seul exemple mal prédit : la log-loss quand p tend vers 0
 
 **Réponses** : a) `0.0202` · b) `0.0294` · c) `0.0478` · d) `20.18` · e) `0.0547` · f) `13.2877` · g) `False`.
 
@@ -150,9 +150,9 @@ Pour la copie : le taux d'erreur vaut $\frac{1}{1\,000}$ dans b) et c) (un exemp
 
 ### Ex M13a.5 — La sigmoïde : valeurs, logit, cote et symétrie σ(−z) = 1 − σ(z)
 
-**Réponses** : a) `0.69` · b) `0.0759` · c) `1` · d) `-1.7346` · e) `3/17` · f) `2.9444` · g) `5/7` · h) `6/23`.
+**Réponses** : a) `0.69` · b) `0.0759` · c) `1` · d) `-1.7346` · e) `3/17` · f) `3.1781` · g) `5/7` · h) `6/23`.
 
-**Démarche.** a) $\frac{1}{1 + e^{-0{,}8}} = \frac{1}{1 + 0{,}4493} \approx 0{,}6900$. b) $\frac{1}{1 + e^{2{,}5}} \approx 0{,}0759$. c) la symétrie. d) $\ln\frac{0{,}15}{0{,}85}$. e) $\frac{0{,}15}{0{,}85} = \frac{3}{17}$. f) $\ln\frac{0{,}95}{0{,}05} = \ln 19$. g) $\frac{2{,}5}{1 + 2{,}5} = \frac{5}{7}$. h) la cote passe de $\frac{3}{17}$ à $\frac{6}{17}$, d'où $p = \frac{6/17}{1 + 6/17} = \frac{6}{23}$.
+**Démarche.** a) $\frac{1}{1 + e^{-0{,}8}} = \frac{1}{1 + 0{,}4493} \approx 0{,}6900$. b) $\frac{1}{1 + e^{2{,}5}} \approx 0{,}0759$. c) la symétrie. d) $\ln\frac{0{,}15}{0{,}85}$. e) $\frac{0{,}15}{0{,}85} = \frac{3}{17}$. f) $\ln\frac{0{,}96}{0{,}04} = \ln 24$. g) $\frac{2{,}5}{1 + 2{,}5} = \frac{5}{7}$. h) la cote passe de $\frac{3}{17}$ à $\frac{6}{17}$, d'où $p = \frac{6/17}{1 + 6/17} = \frac{6}{23}$.
 
 Pour la copie : $1 - \sigma(z) = \frac{e^{-z}}{1 + e^{-z}}$, donc $\frac{\sigma(z)}{1 - \sigma(z)} = \frac{1}{e^{-z}} = e^z$ ; et $1 - \sigma(z) = \frac{1}{e^{z} + 1} = \sigma(-z)$ (multiplie haut et bas par $e^z$). Ajouter $\ln 2$ au score multiplie la cote par $e^{\ln 2} = 2$.
 
@@ -186,13 +186,13 @@ Pour la copie : $P = 0{,}85$ équivaut à $\mathbf{w} \cdot \mathbf{x} + b = \op
 
 ### Ex M13a.8 — L'hypothèse naïve à la main : une loi jointe factorisée, comparée à la vraie
 
-**Réponses** : a) `7/10` · b) `21/100` · c) `5/8` · d) `0.3727` · e) `0.5172` · f) `0.6935` · g) `2` · h) `[2047, 21]`.
+**Réponses** : a) `7/10` · b) `21/100` · c) `5/8` · d) `0.3727` · e) `0.5172` · f) `0.6935` · g) `2` · h) `[13121, 33]`.
 
-**Démarche.** Classe 1 : $P(x_1 = 1) = 0{,}25 + 0{,}45 = 0{,}7$ et $P(x_2 = 1) = 0{,}7$ ; classe 0 : $0{,}38$ et $0{,}38$. b) $0{,}3 \times 0{,}7$. c) $\frac{0{,}4 \times 0{,}25}{0{,}4 \times 0{,}25 + 0{,}6 \times 0{,}10} = \frac{0{,}1}{0{,}16}$. d) $\frac{0{,}4 \times 0{,}21}{0{,}4 \times 0{,}21 + 0{,}6 \times 0{,}62 \times 0{,}38}$. e) $\frac{0{,}18}{0{,}18 + 0{,}168}$. f) $\frac{0{,}4 \times 0{,}49}{0{,}196 + 0{,}6 \times 0{,}1444}$. g) a posteriori vrais $(0{,}060 ;\ 0{,}625 ;\ 0{,}625 ;\ 0{,}517)$, naïfs $(0{,}135 ;\ 0{,}373 ;\ 0{,}373 ;\ 0{,}693)$ : les cases $(0, 1)$ et $(1, 0)$ changent de décision. h) $2 \times (2^{10} - 1) + 1$ et $2 \times 10 + 1$.
+**Démarche.** Classe 1 : $P(x_1 = 1) = 0{,}25 + 0{,}45 = 0{,}7$ et $P(x_2 = 1) = 0{,}7$ ; classe 0 : $0{,}38$ et $0{,}38$. b) $0{,}3 \times 0{,}7$. c) $\frac{0{,}4 \times 0{,}25}{0{,}4 \times 0{,}25 + 0{,}6 \times 0{,}10} = \frac{0{,}1}{0{,}16}$. d) $\frac{0{,}4 \times 0{,}21}{0{,}4 \times 0{,}21 + 0{,}6 \times 0{,}62 \times 0{,}38}$. e) $\frac{0{,}18}{0{,}18 + 0{,}168}$. f) $\frac{0{,}4 \times 0{,}49}{0{,}196 + 0{,}6 \times 0{,}1444}$. g) a posteriori vrais $(0{,}060 ;\ 0{,}625 ;\ 0{,}625 ;\ 0{,}517)$, naïfs $(0{,}135 ;\ 0{,}373 ;\ 0{,}373 ;\ 0{,}693)$ : les cases $(0, 1)$ et $(1, 0)$ changent de décision. h) $2 \times (3^8 - 1) + 1$ et $2 \times 8 \times 2 + 1$ (une loi à 3 valeurs a 2 probabilités libres).
 
-Pour la copie : non, $P(1, 1 \mid Y = 1) = 0{,}45 \ne 0{,}7 \times 0{,}7 = 0{,}49$ ; dans la classe 1, avoir exactement une des deux features est plus fréquent que ne le dit le produit ($0{,}25$ contre $0{,}21$) ; surtout, dans la classe 0, la case $(0, 1)$ vaut $0{,}10$ pour de vrai et $0{,}62 \times 0{,}38 \approx 0{,}236$ une fois factorisée, plus du double : la classe 0 y devient beaucoup plus vraisemblable qu'elle ne l'est. Elle a aussi l'excès inverse en $(1, 1)$ ($0{,}28$ contre $0{,}144$). Naïve Bayes ignore ces dépendances et inverse deux décisions. Quand l'hypothèse est presque vraie, les produits sont proches des vraies probabilités, et la classe qui l'emporte reste la même.
+Pour la copie : non, $P(1, 1 \mid Y = 1) = 0{,}45 \ne 0{,}7 \times 0{,}7 = 0{,}49$ ; dans la classe 1, avoir exactement une des deux features est plus fréquent que ne le dit le produit ($0{,}25$ contre $0{,}21$) ; surtout, dans la classe 0, la case $(0, 1)$ vaut $0{,}10$ pour de vrai et $0{,}62 \times 0{,}38 \approx 0{,}236$ une fois factorisée, plus du double : la classe 0 y devient beaucoup plus vraisemblable qu'elle ne l'est. Elle a aussi l'excès inverse en $(1, 1)$ ($0{,}28$ contre $0{,}144$). Naïve Bayes ignore ces dépendances et inverse deux décisions. Les plus grands écarts sont en $(0, 1)$ et $(1, 0)$ : $0{,}373$ au lieu de $0{,}625$, et c'est là que la décision change ; en $(1, 1)$, $0{,}693$ au lieu de $0{,}517$, sans changer la décision.
 
-**Erreurs fréquentes.** Prendre la vraie probabilité jointe au lieu du produit des marginales ; oublier les proportions des classes ; compter $2^{10}$ au lieu de $2^{10} - 1$ probabilités libres.
+**Erreurs fréquentes.** Prendre la vraie probabilité jointe au lieu du produit des marginales ; oublier les proportions des classes ; compter $3^8$ au lieu de $3^8 - 1$ probabilités libres, ou 3 au lieu de 2 par feature.
 
 **Variante.** Avec des classes équiprobables, l'a posteriori naïf en $(0, 1)$ ? *Réponse* : $\frac{0{,}21}{0{,}21 + 0{,}2356} \approx 0{,}471$.
 
@@ -202,7 +202,7 @@ Pour la copie : non, $P(1, 1 \mid Y = 1) = 0{,}45 \ne 0{,}7 \times 0{,}7 = 0{,}4
 
 **Démarche.** a) $\frac{3 - (-1)}{4}$. b) $\frac{1 - 9}{8} + \ln\frac{0{,}35}{0{,}65} = -1 - 0{,}619$. c) $-\frac{b}{w}$. d) $\sigma(1 - 1{,}619) = \sigma(\ln\frac{0{,}35}{0{,}65}) = 0{,}35$. e) $\sigma\big(2 + \ln\frac{7}{13}\big) = \frac{7e^2}{7e^2 + 13} \approx 0{,}799$ (avec b) arrondi, on trouve 0,7992 à 4 décimales : d'où les 3 décimales demandées). f) le milieu $\frac{-1 + 3}{2}$. g) $e^w = e$. h) $-\frac{1}{2 \times 9} + \frac{1}{2 \times 4} = \frac{-4 + 9}{72} = \frac{5}{72}$.
 
-Pour la copie : $\ln\frac{P(1 \mid x)}{P(0 \mid x)} = \ln\frac{\pi_1}{\pi_0} - \frac{(x - 3)^2}{8} + \frac{(x + 1)^2}{8}$ : les $x^2$ s'annulent, il reste $x - 1 + \ln\frac{0{,}35}{0{,}65}$. En $x = 1$, le milieu des moyennes, les deux densités sont égales : l'a posteriori vaut l'a priori. Dans le cas h), la log-cote est un polynôme du second degré en $x$ : la frontière est formée de deux points (au plus), la classe 1, plus étalée, l'emportant aux deux extrémités.
+Pour la copie : $\ln\frac{P(1 \mid x)}{P(0 \mid x)} = \ln\frac{\pi_1}{\pi_0} - \frac{(x - 3)^2}{8} + \frac{(x + 1)^2}{8}$ : les $x^2$ s'annulent, il reste $x - 1 + \ln\frac{0{,}35}{0{,}65}$. En $x = 1$, le milieu des moyennes, les deux densités sont égales : l'a posteriori vaut l'a priori. Dans le cas h), les termes en $x^2$ ne s'annulent plus : la log-cote est un polynôme du second degré en $x$, et la frontière, où elle s'annule, est donnée par une équation du second degré.
 
 **Erreurs fréquentes.** Diviser par $\sigma$ au lieu de $\sigma^2$ ; oublier $\ln\frac{\pi_1}{\pi_0}$ ; placer la frontière au milieu des moyennes malgré des classes inégales.
 
@@ -210,15 +210,15 @@ Pour la copie : $\ln\frac{P(1 \mid x)}{P(0 \mid x)} = \ln\frac{\pi_1}{\pi_0} - \
 
 ### Ex M13a.10 — L'entropie et l'indice de Gini de quelques distributions
 
-**Réponses** : a) `0.095` · b) `0.2864` · c) `0.64` · d) `1.5219` · e) `7/4` · f) `21/32` · g) `2.585` · h) `5/6`.
+**Réponses** : a) `0.095` · b) `0.2864` · c) `0.58` · d) `1.361` · e) `35/16` · f) `357/512` · g) `2.8074` · h) `6/7`.
 
-**Démarche.** a) $1 - 0{,}9025 - 0{,}0025$. b) $0{,}95\log_2\frac{1}{0{,}95} + 0{,}05\log_2 20$. c) $1 - 0{,}16 - 0{,}16 - 0{,}04$. d) $2 \times 0{,}4\log_2 2{,}5 + 0{,}2\log_2 5$. e) $\frac{1}{2} \times 1 + \frac{1}{4} \times 2 + 2 \times \frac{1}{8} \times 3$. f) $1 - \frac{1}{4} - \frac{1}{16} - \frac{2}{64}$. g) $\log_2 6$. h) $1 - \frac{1}{6}$.
+**Démarche.** a) $1 - 0{,}9025 - 0{,}0025$. b) $0{,}95\log_2\frac{1}{0{,}95} + 0{,}05\log_2 20$. c) $1 - 0{,}25 - 0{,}16 - 0{,}01$. d) $0{,}5 \times 1 + 0{,}4\log_2 2{,}5 + 0{,}1\log_2 10$. e) $\frac{1}{2} \times 1 + 3 \times \frac{1}{8} \times 3 + \frac{1}{16} \times 4 + 2 \times \frac{1}{32} \times 5 = \frac{8 + 18 + 4 + 5}{16}$. f) $1 - \frac{1}{4} - \frac{3}{64} - \frac{1}{256} - \frac{2}{1024} = 1 - \frac{310}{1024}$. g) $\log_2 7$. h) $1 - \frac{1}{7}$.
 
-Pour la copie : par entropie, $\mathbf{p}_1 < \mathbf{p}_2 < \mathbf{p}_3$ (0,29 ; 1,52 ; 1,75) ; par Gini, $\mathbf{p}_1 < \mathbf{p}_2 < \mathbf{p}_3$ aussi (0,095 ; 0,64 ; 0,656). Le rangement est le même ici, mais ce n'est pas garanti. Les maxima dépendent du nombre de classes ($\log_2 K$, $1 - \frac{1}{K}$) : une impureté de 1,5 bit est très mélangée pour 3 classes, assez peu pour 8.
+Pour la copie : par entropie, $\mathbf{p}_1 < \mathbf{p}_2 < \mathbf{p}_3$ (0,29 ; 1,36 ; 2,19) ; par Gini, $\mathbf{p}_1 < \mathbf{p}_2 < \mathbf{p}_3$ aussi (0,095 ; 0,58 ; 0,697). Le rangement est le même ici, mais ce n'est pas garanti. Les maxima dépendent du nombre de classes ($\log_2 K$, $1 - \frac{1}{K}$) : une impureté de 1,5 bit est très mélangée pour 3 classes, assez peu pour 8.
 
 **Erreurs fréquentes.** Des nats au lieu de bits ; confondre Gini et taux d'erreur ($1 - \max_k p_k$) ; $\frac{1}{K}$ pour le maximum de Gini.
 
-**Variante.** $(0{,}6 ;\ 0{,}2 ;\ 0{,}2)$ ? *Réponse* : $G = 0{,}56$, $H \approx 1{,}371$ bit.
+**Variante.** $(0{,}8 ;\ 0{,}1 ;\ 0{,}1)$ ? *Réponse* : $G = 0{,}34$, $H \approx 0{,}922$ bit.
 
 ### Ex M13a.11 — L'information mutuelle d'un tableau de contingence, et la baisse d'entropie qu'elle mesure
 
@@ -310,9 +310,9 @@ Pour la copie : dans $A$, $\sum_{y \in A}(y - m)^2 = \sum_{y \in A}(y - m_A)^2 +
 
 ### Ex M13a.18 — Pont : une sonde linéaire, un modèle logistique en NumPy sur un batch de représentations figées, jusqu'à la log-loss
 
-**Réponses** : a) `[1.4, -1.1, 0.1, -0.4, 1.8, -0.3]` · b) `[0.8022, 0.2497, 0.525, 0.4013, 0.8581, 0.4256]` · c) `0.4121` · d) `5/6` · e) `0.6365` · f) `0.2244` · g) `0` · h) `769`.
+**Réponses** : a) `[1.4, -1.1, 0.1, -0.4, 1.8, -0.3]` · b) `[0.8022, 0.2497, 0.525, 0.4013, 0.8581, 0.4256]` · c) `0.4121` · d) `5/6` · e) `0.6365` · f) `0.2244` · g) `0` · h) `385`.
 
-**Démarche.** a) $0{,}8 + 0{,}8 - 0{,}2$ ; $-0{,}9 - 0{,}2$ ; $0{,}4 - 0{,}9 + 0{,}8 - 0{,}2$ ; $-1{,}8 + 1{,}6 - 0{,}2$ ; $0{,}4 + 1{,}6 - 0{,}2$ ; $-0{,}9 + 0{,}8 - 0{,}2$. b) $\sigma$ de chaque score. c) les termes $s(z) - yz$ : $s(-1{,}4) \approx 0{,}220$ et $s(-1{,}8) \approx 0{,}153$ (labels 1), $s(-1{,}1) \approx 0{,}287$, $s(0{,}1) \approx 0{,}744$, $s(-0{,}4) \approx 0{,}513$ et $s(-0{,}3) \approx 0{,}554$ (labels 0) ; somme $\approx 2{,}472$, moyenne $\approx 0{,}412$. d) décisions $1, 0, 1, 0, 1, 0$ contre $1, 0, 0, 0, 1, 0$ : une seule erreur, au troisième exemple. e) proportion $\frac{1}{3}$ : $-\big(\frac{1}{3}\ln\frac{1}{3} + \frac{2}{3}\ln\frac{2}{3}\big) \approx 0{,}6365$. f) $0{,}6365 - 0{,}4121$. g) $z = 0{,}4 - 0{,}9 - 0{,}2 = -0{,}7 < 0$. h) 768 poids et un biais.
+**Démarche.** a) $0{,}8 + 0{,}8 - 0{,}2$ ; $-0{,}9 - 0{,}2$ ; $0{,}4 - 0{,}9 + 0{,}8 - 0{,}2$ ; $-1{,}8 + 1{,}6 - 0{,}2$ ; $0{,}4 + 1{,}6 - 0{,}2$ ; $-0{,}9 + 0{,}8 - 0{,}2$. b) $\sigma$ de chaque score. c) les termes $s(z) - yz$ : $s(-1{,}4) \approx 0{,}220$ et $s(-1{,}8) \approx 0{,}153$ (labels 1), $s(-1{,}1) \approx 0{,}287$, $s(0{,}1) \approx 0{,}744$, $s(-0{,}4) \approx 0{,}513$ et $s(-0{,}3) \approx 0{,}554$ (labels 0) ; somme $\approx 2{,}472$, moyenne $\approx 0{,}412$. d) décisions $1, 0, 1, 0, 1, 0$ contre $1, 0, 0, 0, 1, 0$ : une seule erreur, au troisième exemple. e) proportion $\frac{1}{3}$ : $-\big(\frac{1}{3}\ln\frac{1}{3} + \frac{2}{3}\ln\frac{2}{3}\big) \approx 0{,}6365$. f) $0{,}6365 - 0{,}4121$. g) $z = 0{,}4 - 0{,}9 - 0{,}2 = -0{,}7 < 0$. h) 384 poids et un biais.
 
 Pour la copie : `z = H @ w + b`. $\ln 2$ est la log-loss d'un modèle qui répond 0,5 ; mais un modèle qui ne regarde pas les représentations peut faire mieux, en répondant la fréquence des 1 : c'est lui qu'il faut battre. Une log-loss de test bien plus basse que e) dirait que la propriété est **linéairement** lisible dans la représentation (sans dire que le réseau s'en sert).
 
@@ -345,9 +345,9 @@ Pour la copie : `z = H @ w + b`. $\ln 2$ est la log-loss d'un modèle qui répon
 ### Ex M13a.21 — Expliquer pourquoi on minimise la log-loss plutôt que le taux d'erreur
 
 **Réponse modèle** (6 à 10 phrases).
-> Le taux d'erreur ne regarde que la décision : un modèle qui dit 51 % et un autre qui dit 99 % pour le même client qui finit par acheter ont tous deux raison, et il ne fait pas la différence. Or on se sert souvent de la probabilité elle-même, pour fixer un seuil ou estimer un risque. La log-loss note la probabilité donnée à ce qui s'est vraiment passé : une bonne réponse prudente coûte un peu, une erreur commise avec assurance coûte beaucoup, et la meilleure stratégie est d'annoncer la vraie probabilité. Elle a aussi une forme commode : quand on change un peu les paramètres, le taux d'erreur ne bouge pas (puis saute d'un coup quand un exemple change de côté), alors que la log-loss varie doucement, en une courbe sans creux parasites qu'on sait descendre. Enfin, ce n'est pas un choix arbitraire : minimiser la log-loss, c'est choisir les paramètres qui rendent les labels observés les plus probables. Par exemple, pour un label 1 prédit à 0,6, la log-loss vaut $-\ln 0{,}6 \approx 0{,}51$, et à 0,95, environ 0,05, alors que l'erreur est 0 dans les deux cas. On évalue bien sûr aussi le taux d'erreur à la fin.
+> Le taux d'erreur ne regarde que la décision : un modèle qui dit 51 % et un autre qui dit 99 % pour le même client qui finit par acheter ont tous deux raison, et il ne fait pas la différence. Or on se sert souvent de la probabilité elle-même, pour fixer un seuil ou estimer un risque. La log-loss note la probabilité donnée à ce qui s'est vraiment passé : une bonne réponse prudente coûte un peu, une probabilité presque nulle donnée à ce qui arrive coûte sans limite, et la meilleure stratégie est d'annoncer la vraie probabilité. Elle a aussi une forme commode : quand on change un peu les paramètres, le taux d'erreur ne bouge pas (puis saute d'un coup quand un exemple change de côté), alors que la log-loss varie doucement, en une courbe sans creux parasites qu'on sait descendre. Enfin, ce n'est pas un choix arbitraire : minimiser la log-loss, c'est choisir les paramètres qui rendent les labels observés les plus probables. Par exemple, pour un label 1 prédit à 0,6, la log-loss vaut $-\ln 0{,}6 \approx 0{,}51$, et à 0,95, environ 0,05, alors que l'erreur est 0 dans les deux cas. On évalue bien sûr aussi le taux d'erreur à la fin.
 
-En 3 phrases : « Le taux d'erreur ne voit que le côté de 50 % où tombe la prédiction ; la log-loss note la confiance donnée à la bonne réponse, et elle est la plus petite quand le modèle annonce les vraies probabilités. Elle varie doucement et sans faux minimum, alors que le taux d'erreur est fait de marches plates : on sait la minimiser. Et c'est exactement maximiser la vraisemblance des labels. »
+En 3 phrases : « Le taux d'erreur ne voit que le côté de 50 % où tombe la prédiction ; la log-loss note la confiance donnée à la bonne réponse, et elle est la plus petite quand le modèle annonce les vraies probabilités. Elle varie doucement, sans creux où s'arrêter avant le minimum, alors que le taux d'erreur est fait de marches plates : on sait la minimiser. Et c'est exactement maximiser la vraisemblance des labels. »
 
 **Grille.** (1) ce que l'erreur ne voit pas (la confiance) ; (2) la récompense des probabilités honnêtes ; (3) lisse et convexe contre des marches ; (4) le lien avec la vraisemblance ; (5) un exemple chiffré ; (6) une version en 3 phrases.
 
@@ -393,9 +393,9 @@ En 3 phrases : « Le taux d'erreur ne voit que le côté de 50 % où tombe la pr
 
 ### Ex M13a.24 — La log-loss à partir des scores, sans débordement · `logistic_loss`
 
-**Réponses** : a) `0.371747` · b) `400.0` · c) `True` · d) `0.0` · e) `"ValueError"`.
+**Réponses** : a) `0.371747` · b) `450.0` · c) `True` · d) `0.0` · e) `"ValueError"`.
 
-**Démarche.** Contrôler les longueurs et les labels ; `t = np.where(y == 1, -z, z)` ; `float(np.mean(np.maximum(t, 0) + np.log1p(np.exp(-np.abs(t)))))`. Pour la copie : b) les termes valent $s(800) = 800$ deux fois (prédictions sûres et fausses) et $s(-800) = 0$ en flottants deux fois : moyenne 400. $e^{800}$ dépasse le plus grand flottant ($\approx e^{709{,}8}$) : `inf`, avec un avertissement ; par les probabilités, $\sigma(45) = 1 - 3 \times 10^{-20}$ s'arrondit déjà à 1, et $\ln(1 - \hat{p}) = \ln 0$. d) 0 exactement, là où la formule naïve donne `inf`. a) $\approx 0{,}372$, bien sous $\ln 2 \approx 0{,}693$ : les scores renseignent sur les labels.
+**Démarche.** Contrôler les longueurs et les labels ; `t = np.where(y == 1, -z, z)` ; `float(np.mean(np.maximum(t, 0) + np.log1p(np.exp(-np.abs(t)))))`. Pour la copie : b) les termes valent $s(900) = 900$ deux fois (deux labels auxquels le modèle donnait une probabilité presque nulle) et $s(-900) = 0$ en flottants deux fois : moyenne 450. $e^{900}$ dépasse le plus grand flottant ($\approx e^{709{,}8}$) : `inf`, avec un avertissement ; par les probabilités, $\sigma(45) = 1 - 3 \times 10^{-20}$ s'arrondit déjà à 1, et $\ln(1 - \hat{p}) = \ln 0$. d) 0 exactement, là où la formule naïve donne `inf`. a) $\approx 0{,}372$, bien sous $\ln 2 \approx 0{,}693$ : les scores renseignent sur les labels.
 
 **Erreurs fréquentes.** La somme au lieu de la moyenne ; le signe de $-yz$ ; oublier $y$ ; `np.log(1 + np.exp(z))`, qui rend `inf` en b) et d).
 
@@ -403,7 +403,7 @@ En 3 phrases : « Le taux d'erreur ne voit que le côté de 50 % où tombe la pr
 
 **Réponses** : a) `-35.343668` · b) `True` · c) `[-3.68647, 1.107414]` · d) `True` · e) `-37.421354` · f) `True` · g) `36.0437` · h) `52`.
 
-**Démarche.** Chaque valeur s'obtient par la ligne de l'énoncé ; d) compare `gaussian_mle(X_25)[1]` à `scale ** 2` avec `math.isclose(..., rel_tol=1e-10)`. Pour la copie : c) `norm.fit` rend l'écart-type du maximum de vraisemblance (en $n$) ; son carré, $\approx 1{,}2264$, est ta variance ; `np.std(X_25, ddof=1)` serait un peu plus grand. Sans `xlogy`, la catégorie de comptage 0 donne $0 \times \ln 0$ = `nan` (et un avertissement), qui contamine la somme. g) scikit-learn remplace 0 par `np.finfo(float).eps` $= 2^{-52}$ : $-\ln 2^{-52} = 52\ln 2 \approx 36{,}04$, d'où h). Une bibliothèque qui écrête à $10^{-15}$ rend 34,54 : une log-loss qui contient une probabilité 0 dépend d'une convention. `np.log(special.expit(z))` prend le $\ln$ d'un $\sigma(z)$ déjà arrondi (0 pour $z = -800$), `log_expit` passe par la softplus.
+**Démarche.** Chaque valeur s'obtient par la ligne de l'énoncé ; d) compare `gaussian_mle(X_25)[1]` à `scale ** 2` avec `math.isclose(..., rel_tol=1e-10)`. Pour la copie : c) `norm.fit` rend l'écart-type du maximum de vraisemblance (en $n$) ; son carré, $\approx 1{,}2264$, est ta variance ; `np.std(X_25, ddof=1)` serait un peu plus grand. Sans `xlogy`, la catégorie de comptage 0 donne $0 \times \ln 0$ = `nan` (et un avertissement), qui contamine la somme. g) scikit-learn remplace 0 par `np.finfo(float).eps` $= 2^{-52}$ : $-\ln 2^{-52} = 52\ln 2 \approx 36{,}04$, d'où h). Une bibliothèque qui écrête à $10^{-15}$ rend 34,54 : une log-loss qui contient une probabilité 0 dépend d'une convention. `np.log(special.expit(z))` prend le $\ln$ d'un $\sigma(z)$ déjà arrondi (0 pour $z = -900$), `log_expit` passe par la softplus.
 
 **Erreurs fréquentes.** La moyenne au lieu de la somme en a) et e) ; comparer la variance à l'écart-type de c) ; deviner g) au lieu de l'exécuter.
 
@@ -427,7 +427,7 @@ En 3 phrases : « Le taux d'erreur ne voit que le côté de 50 % où tombe la pr
 
 **Vérification** : manuelle (la cellule dit ✅ ou ❌ pour les valeurs sur cinq lois, les symétries, le maximum au centre, la concavité et le dessin).
 
-**Démarche.** `entropy_bits` : `Q = np.where(P > 0, P, 1)`, puis `-(P * np.log2(Q)).sum(axis=1)` (un terme nul vaut $0 \times \log_2 1 = 0$, sans avertissement) ; `gini` : `1 - (P ** 2).sum(axis=1)` ; `draw_impurities` : `xy = to_plane(simplex_grid())`, `ax.tricontourf(xy[:, 0], xy[:, 1], valeurs, levels=12)`, le contour du triangle, le point de `np.argmax(valeurs)`, `ax.set_aspect("equal")` et un titre. Pour la copie : les deux impuretés sont maximales au centre, la loi uniforme, et nulles aux sommets. $\lVert \mathbf{p} - \mathbf{u} \rVert^2 = \sum_k p_k^2 - \frac{1}{3}$ : Gini ne dépend que de la distance au centre, ses lignes de niveau sont des cercles (coupés par les côtés) ; celles de l'entropie n'en sont pas. Un côté donne l'entropie et le Gini d'une loi à deux issues. Près d'un sommet, l'entropie monte bien plus vite : la pente de $-p\log_2 p$ est infinie en 0, celle de $p(1 - p)$ vaut 1.
+**Démarche.** `entropy_bits` : `Q = np.where(P > 0, P, 1)`, puis `-(P * np.log2(Q)).sum(axis=1)` (un terme nul vaut $0 \times \log_2 1 = 0$, sans avertissement) ; `gini` : `1 - (P ** 2).sum(axis=1)` ; `draw_impurities` : `x, y = to_plane(simplex_grid())` (un couple de tableaux), `ax.tricontourf(x, y, valeurs, levels=12)`, le contour du triangle, le point de `np.argmax(valeurs)`, `ax.set_aspect("equal")` et un titre. Pour la copie : les deux impuretés sont maximales au centre, la loi uniforme, et nulles aux sommets. $\lVert \mathbf{p} - \mathbf{u} \rVert^2 = \sum_k p_k^2 - \frac{1}{3}$ : Gini ne dépend que de la distance au centre, ses lignes de niveau sont des cercles (coupés par les côtés) ; celles de l'entropie n'en sont pas. Un côté donne l'entropie et le Gini d'une loi à deux issues. Près d'un sommet, l'entropie monte bien plus vite : la pente de $-p\log_2 p$ est infinie en 0, celle de $p(1 - p)$ vaut 1.
 
 **Erreurs fréquentes.** `np.log2(P)` sans précaution (un avertissement et `nan`) ; la somme sur le mauvais axe ; ouvrir une nouvelle figure dans `draw_impurities`.
 
@@ -435,7 +435,7 @@ En 3 phrases : « Le taux d'erreur ne voit que le côté de 50 % où tombe la pr
 
 **Réponses** : a) `"ABCG"` · b) `-2.5914` · c) `0.2106` · d) `3.8753`.
 
-**Démarche.** (A) pour une probabilité 0 donnée à un label 0, ou 1 à un label 1, la formule calcule $0 \times \ln 0$ : `nan` (et des avertissements) ; correction `np.log(np.where(y == 1, p, 1 - p))`. (B) pour $z = -800$, `np.exp(800)` déborde : la valeur 0 est juste, mais avec un avertissement, que le commentaire exclut ; correction : $\frac{e^{z}}{1 + e^{z}}$ pour $z < 0$. (C) pour $z = 800$, `np.log(1 + np.exp(z))` vaut `inf`, et la log-loss aussi, alors que ce modèle a raison ; correction : la softplus stable. (G) `ddof=1` divise par $n - 1$ : un nombre plausible, faux sans aucun signal, le plus dangereux ; correction `np.var(x)`. (E) est juste ici : $\hat{p} = \frac{5}{12}$ n'est ni 0 ni 1.
+**Démarche.** (A) pour une probabilité 0 donnée à un label 0, ou 1 à un label 1, la formule calcule $0 \times \ln 0$ : `nan` (et des avertissements) ; correction `np.log(np.where(y == 1, p, 1 - p))`. (B) pour $z = -900$, `np.exp(900)` déborde : la valeur 0 est juste, mais avec un avertissement, que le commentaire exclut ; correction : $\frac{e^{z}}{1 + e^{z}}$ pour $z < 0$. (C) pour $z = 900$, `np.log(1 + np.exp(z))` vaut `inf`, et la log-loss aussi, alors que ce modèle a raison ; correction : la softplus stable. (G) `ddof=1` divise par $n - 1$ : un nombre plausible, faux sans aucun signal, le plus dangereux ; correction `np.var(x)`. (E) est juste ici : $\hat{p} = \frac{5}{12}$ n'est ni 0 ni 1.
 
 **Erreurs fréquentes.** Marquer (E), qui ressemble à (A) ; oublier (B), dont la valeur est juste ; la moyenne au lieu de la somme en b).
 
@@ -449,7 +449,7 @@ En 3 phrases : « Le taux d'erreur ne voit que le côté de 50 % où tombe la pr
 
 ### Ex M13a.31 — Défi : la proportion d'un mélange de deux lois connues par maximum de vraisemblance, à 1e−6 près du maximum (dichotomie ou Newton)
 
-**Réponse** : `True` (le maximum à $10^{-6}$ près, en au plus 200 évaluations, sur les deux échantillons) ; $\hat{\pi} \approx 0{,}335527$ pour `X_31`, $\approx 0{,}602316$ pour le second échantillon.
+**Réponse** : `True` (le maximum à $10^{-6}$ près, en au plus 200 évaluations, sur les deux échantillons et sur deux fonctions de maximum au bord) ; $\hat{\pi} \approx 0{,}335527$ pour `X_31`, $\approx 0{,}602316$ pour le second échantillon.
 
 **Démarche.** Si `dell(0) <= 0`, rendre 0 ; si `dell(1) >= 0`, rendre 1 ; sinon garder $[a, b]$ avec $\ell'(a) > 0 > \ell'(b)$ et le couper en deux à chaque appel de `dell` jusqu'à $b - a < 10^{-7}$, puis rendre le milieu (une trentaine d'appels en tout). Pour la copie : $\ell''(\pi) = -\sum_i \big(\frac{f_1(x_i) - f_0(x_i)}{\pi f_1(x_i) + (1 - \pi) f_0(x_i)}\big)^2 \le 0$ : $\ell$ est concave, $\ell'$ décroît, et son unique zéro est le maximum, sans faux maximum possible. $\lceil\log_2 10^{6}\rceil = 20$ coupes suffisent pour $10^{-6}$, 40 pour $10^{-12}$ (plus les deux appels des bords). Newton converge plus vite, mais demande une garde qui le ramène à la dichotomie s'il sort de $[0, 1]$. $\hat{\pi}$ est proche de la proportion des points venus de $f_1$ sans lui être égal : les deux densités se chevauchent, et un point ne dit pas d'où il vient. L'algorithme EM (M25b) cherche le même maximum quand $f_0$ et $f_1$ sont aussi inconnues.
 

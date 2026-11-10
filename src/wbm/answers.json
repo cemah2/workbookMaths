@@ -49946,6 +49946,7 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
+        "0bdb8d7529d42afe6c19c1e71fa2dd5719a74de2ddfc66d745614ecaa7b3e41c": "f) se calcule au maximum, en v = σ̂² = S/n ; g) en v = d)",
         "1560f1ebf842b97107b2e97a8a9f38916b0228198eedf66b1e98db0d3e4f1dab": "ℓ = −(n/2) ln(2πv) − S/(2v) : n'oublie pas le second terme"
       },
       "sign": -1,
@@ -50057,6 +50058,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "61c1dceb26d47c3be5270e9e3cecdcf0911fc57ba573536f4a86f3b83f018b3a": "les logarithmes de la log-loss sont népériens : ln, pas log₂",
         "bb8bfb2081f7052b56f52230756f4526c68dd7e3bbaa9d4fed91afa37df3d495": "pour un label 0, le terme est −ln(1 − p̂)",
         "e922a813496195625088bb523c49e849688e129683aedf51109e3d3343758a71": "la log-loss est une MOYENNE sur les exemples : divise la somme par leur nombre"
       },
@@ -50179,18 +50181,17 @@
       },
       "coarser": {
         "2": [
-          "14a4933334bfd40ad9e57384bb0f132878c48829afbc87320d65cc30e680cd4c"
+          "6aab8fda7e230f55622328cdfcc5f839935fdfea13b140f28821fe69328f4ec5"
         ]
       },
       "decimals": 4,
-      "hash": "66993badcf0c9cd4f5b293783bb2745933b5a17c83ca232006e81d2786de90ba",
-      "hash_coarse": "dd5c5dee2e59c4dba6f5067566b5e4cbc503164b6dc0a221da0014e61d7eddb2",
+      "hash": "382e56b4a768c0fdc3b3a85617b116dacc7c8f8407d3fe2e58b5c0bb3c574557",
+      "hash_coarse": "96cec6c9dfb4c4dacc68bffcc420ffcd40eb74c160ff083faa9d27b9f9f8a1a3",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "0954559ed1718df21d4fcc2b29cd66eabe031860a643f3b1864b4173a0d9c02c": "la log-loss est une MOYENNE sur les exemples : divise la somme par leur nombre",
-        "0fbc4881b61b4986c7839c4ecc7819cfc7e906aa4fe6e53b9a40d534926710f4": "le deuxième label est 1 : son terme est −ln 0,9",
-        "623cf1a1309c9f62fee5d46a8d49d0a587b50e079affcd0fe095b333c55b9c4d": "le deuxième label est 1 : son terme est −ln 0,9"
+        "1428c3d2d3c1294a40c5a1e67c011dc9844338e9ef44c9815aa25424c55c1a35": "la log-loss est une MOYENNE sur les exemples : divise la somme par leur nombre",
+        "a721e5c0cf5bd3c3d4795a9245692998af30895e3d24efe5d6b37ab03232ddb5": "le deuxième label est 1 : son terme est −ln 0,85"
       },
       "sign": 1,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
@@ -50418,20 +50419,20 @@
       },
       "coarser": {
         "1": [
-          "21bacbedec8bc95d836b33847ba8a354d33ee44ab6f8194b06d69522355d2d93"
+          "87186169e3165b43b88f9340ff026df3dcf6479860ce9efbc1c03acff70b8141"
         ],
         "2": [
-          "b835686750fcd13d61966b3121ac1096936b37644ad3302d68131c7029bada1c"
+          "d2c1391da5f369076d51c1cdf08494318b693a8984647d326ec19775dfa45fed"
         ]
       },
       "decimals": 4,
-      "hash": "e64e0c94852d2426f1ff758ccff9a08ebc0578f6fa1c2aad3fb124cc7a74f803",
-      "hash_coarse": "1f991d62e2afcb2be67d496dcba0afacaac63dfb4623e5d9d9c75e238486f2de",
+      "hash": "5dbc37f79ecb3d11d8948ce6418535a2cfd2c56ed91ca4446d967573b74b5722",
+      "hash_coarse": "4cc6d6ec749bd6393765254fcffa07de383651bc7dd92e79ee810dd1c568844d",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "799292439d0afbe745fb78749b1e6b9e1e607c766f8f6a9bcc47894d961ec1b7": "σ(z) = 0,95 > 1/2, donc z > 0 : z = ln(p/(1 − p))",
-        "be566feac595fe7681d37c12bb00bb07516a97e1e4a36e75f95fd5a45d73fcae": "les logarithmes du chapitre sont népériens : ln, pas log₁₀"
+        "25e3b4f0a67c5430ef2a30f9c9f388d253c1d095f80a1c987c270184fb8f08ed": "les logarithmes du chapitre sont népériens : ln, pas log₁₀",
+        "dfdacfbd522564f0eb9ce20f230d283c3fde5b886bc4765913610c082bcf518f": "σ(z) = 0,96 > 1/2, donc z > 0 : z = ln(p/(1 − p))"
       },
       "sign": 1,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
@@ -50919,17 +50920,18 @@
     "M13a.8h": {
       "decimals": 0,
       "element_hashes": [
-        "2c48a3d1699606aa1bae212b9e2c2638dbf86c4f4961d33d2d26652c3f69e0c4",
-        "5663234becc3dc18e6ab39a197aa765d37f8fc6d2b47d81ca35a168998a0c248"
+        "f01438374670a77e56280b8870d64e4f643f0c71c1fd044539c2a2aa2c08690f",
+        "8e553142e0e9f030111073e4d1bac6d98e8bb7a4d0ed24283bbcbb56974d6c29"
       ],
-      "hash": "859387de9bfc82d89cda54b60bc8368fb9134714038b36120ab476cee5b7d54f",
+      "hash": "6a8df8289321c865ef1be5ee3797c38da082d1ae59384caf44b04a6be032392b",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "210cda86eee6144c8fc1261f94628429d4393abc62c51c7bee7ec80d688e1a96": "la proportion des classes compte dans les deux cas : une probabilité de plus",
-        "3b96c36baaadc26a792baf2fef7c4ea4e33a8fef9ebc31e975755e0b509387e0": "avec les lois jointes complètes aussi, la proportion des classes compte : une probabilité de plus",
-        "cf517d7827296c678be47fb7790c19acd16dc8f8661fa980ba2295f42301fd46": "avec Naïve Bayes aussi, la proportion des classes compte : une probabilité de plus",
-        "d982b8a2aca0380e5d8840f1142883fc6088d95fcc6695ea53dd9d8771cc73b7": "une loi sur 2¹⁰ cases n'a que 2¹⁰ − 1 probabilités libres, puisque leur somme vaut 1"
+        "5158e913c9cfdee1f34aedc1ebe9c3c2182f16634e018038dfed487da6bcee4a": "une loi à 3 valeurs n'a que 2 probabilités libres, puisque leur somme vaut 1",
+        "b2540e8ace44bc32929b641112d0e27eea60fc0a88d2c25f2bf49b3c00a52f0f": "la proportion des classes compte dans les deux cas : une probabilité de plus",
+        "b3d380df932f4a9864e6f5a8d8e2c40b24b36ef6a56b2a4fb16f4808aeedbcdb": "avec les lois jointes complètes aussi, la proportion des classes compte : une probabilité de plus",
+        "c7ba0ebf276560d9dbd043fc853975a020f40a0f0d35c35c98eb589a6d21b6c7": "une loi sur 3⁸ cases n'a que 3⁸ − 1 probabilités libres, puisque leur somme vaut 1",
+        "efde0ec5204d420a9b7e569cc517965dbcb3afe0cdf045eb6746c85635044c96": "avec Naïve Bayes aussi, la proportion des classes compte : une probabilité de plus"
       },
       "shape": [
         2
@@ -51152,17 +51154,17 @@
       },
       "coarser": {
         "2": [
-          "d90bafef7c5ce281d1d6a49b868dff7ae0206df722171533b50ac41381289462"
+          "7867860aeac16c61bc5b49e207ecc18730befca39ecbad67bdf6fcd10a8b578e"
         ]
       },
       "decimals": 4,
-      "hash": "d39b988a25077585d0496e619a96d81e2071e1b20c3a5b704cb6fe13d55c033b",
-      "hash_coarse": "d74809e91c547e82a367444e1864c613ef4cb1ee3731edf63c9df5970ee48767",
+      "hash": "7bd1505601eeac7805ce946ebf8d92861b3225cf7d39f4a16e364444865a8487",
+      "hash_coarse": "21a0bc3385127fd668d4ccb7342ea0edf0c85ca7d1f31c77620b746e4df70c12",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "ba22d90e0b4cf733a49cd0a6fd0acf8a9fee97217cc859d0df901a53b2262cd1": "l'indice de Gini est 1 − Σ p_k², pas le taux d'erreur 1 − max p_k",
-        "f470ec098ee516741b8216ce47aa26f0000d967fa9b47ae56af60c599e8fcfb3": "l'indice de Gini est 1 MOINS la somme des carrés"
+        "1769cec93da7f37bde6c913ed18d19b76bdd5e5cb53ff712cdf6dcc02448ed99": "l'indice de Gini est 1 − Σ p_k², pas le taux d'erreur 1 − max p_k",
+        "76129e7f9697cd7e10f51e961809538ca70cb6a10a331bffbacf0842ec0f71b3": "l'indice de Gini est 1 MOINS la somme des carrés"
       },
       "sign": 1,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
@@ -51170,44 +51172,45 @@
     "M13a.10d": {
       "coarse_any": {
         "0": [
-          "38ede0c7fa637606a71c50480e8af2b3e09f96f3b1e339a0057ac5d14493fe49"
+          "d2e110107e05b882d3387bbaa1222d41706ed485f2a710f85b525d8924ab4ad8"
         ]
       },
       "coarser": {
         "1": [
-          "aa52092f6033b3edf914b2bc90176613b6e4a0deb9194c5dd8c2e0f0e72662f5"
+          "132cba5e01550cf6efdd3c73125ee1dcb6066a513f8716b5c2257f581e43b0a5"
         ],
         "2": [
-          "a3a0a46769ac54b51903dcded0cd308137eb2e880891945b887b87fd88506dd8"
+          "30ba9f3817bab3bf18eb26c67f73bb7d3846771f0660b52b3e1a1c0217fe9084"
         ]
       },
       "decimals": 4,
-      "hash": "d47f33b74f41ccfe8458a7600776f1f94a27d90a1e38fe0830e69b3d560a69d1",
-      "hash_coarse": "9f8615d4495bcff7753fd7b9f4624dd5208188d6c11c66f786dc854a0de6979f",
+      "hash": "3439e049e3629f4c4e36843f6352b648e65531ce0b8b7a0fe2ddebae455b0570",
+      "hash_coarse": "62a555412cbde68dc6b3b7ebf7bfc102f97e66bbbfd20bfd2add8bfa4bfd7486",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "4a4fabebb39b459f580510cd9da192fe45c8ca49e40bdecce7393f9d2113c54e": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
+        "0d0f0315595ba5769516bf07dd6d7dc37156d20cda8a616bde2c96a778da12dc": "la question demande des bits : log₂ x = ln x / ln 2, pas ln",
+        "45db486535d2c4b9ceaab133e3ca3b280b6af8cee2123eec1667b340ea3fd221": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
       },
       "sign": 1,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
     },
     "M13a.10e": {
-      "hash": "36c156cac2574b1aa6f6ae53f7bde5909401adb2d455653bd829a2dd50f2c7df",
+      "hash": "9a7d5d1b68a1d2800f4ff4e94336bfaa069272276babb21b3b3124d62cbc0f03",
       "kind": "fraction",
       "mistakes": {
-        "c8d572a11993a41627c48d7e6256df3f541e421785521733fedb75e2117bc941": "deux issues ont la probabilité 1/8 : chacune a son terme"
+        "9656d36ab0a2a91802d1fbd5a7839e2fd5f6d6bf131a09fc371c9846d098c380": "plusieurs issues ont la même probabilité : chacune a son terme"
       },
       "sign": 1,
       "simplified": true,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
     },
     "M13a.10f": {
-      "hash": "593d493671b589ecbcdba3467addb7b8836e6c332e35b3ebc54e0dcaff8f6336",
+      "hash": "3cc6e51f99c41716b9d36dabd3b1cf6315d56dd77d6c1b0a268a00f44304e710",
       "kind": "fraction",
       "mistakes": {
-        "4b20eb9c2e6e50b451938946f78cb7caabf5fd0c2500b035aab96d0600abf782": "deux issues ont la probabilité 1/8 : chacune a son carré",
-        "5ce6643e16f94265a86edf6c0352222b9df06bfa634d1e97630b6c3cdc98eda5": "l'indice de Gini est 1 MOINS la somme des carrés"
+        "8a6649969e2625f688179c6c47d2e1b2a828a96c1d08f8a958a14b37365429c3": "l'indice de Gini est 1 MOINS la somme des carrés",
+        "b1a6192f179ddd2f70af2cb47df27905bef48fe225d36e9619b1a25c7ca0c024": "plusieurs issues ont la même probabilité : chacune a son carré"
       },
       "sign": 1,
       "simplified": true,
@@ -51221,29 +51224,29 @@
       },
       "coarser": {
         "1": [
-          "8865cce37c277a3b6274be64454466604005644a07457c22eee232d9c006f742"
+          "0a1db4c5c5d3e8c00ed2d6472da05c05354f42bde8be08f69f33a2c47d690f74"
         ],
         "2": [
-          "f0ac4ffafa35e778c881154bd3500cc70fc174e1bacddfce794c85af3018016b"
+          "b811b8c0424d508aaa58a9a6771730468cd0ad1ae4654e4ee23fb58e599b8d57"
         ]
       },
       "decimals": 4,
-      "hash": "aaef08d8b51d001d46578db26657a45ec4adeecd42249e8c8788499f9e8ad45d",
-      "hash_coarse": "6c4e018378c68f0665ac07cc31fcdf39707c79c6aab0e8da3bfed5bbae2bb402",
+      "hash": "e0213024610f3202c379c8363a8ed991f27f81474b082dcc69e3bafc1de4e9b4",
+      "hash_coarse": "1d8b12b13120f897b8a08a661e6cdf1735aa503df6340cfefac27f25fc68ea26",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "2ec6cede33aa400bb5d3c5f9bc9c9b683afaef49dbccf602b98b8b646883dae2": "l'entropie maximale est log₂ K, pas K",
-        "4a7505c960a274fe1250e25f173645f163d42bb02cdf5e0d821fe30bc04eaa6b": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
+        "2988cf8c3261d4dd19d0ea6dd055e2e9689212b41bdc3e60482cbf55231454d7": "la question demande des bits : log₂ x = ln x / ln 2, pas ln",
+        "bb2af1cbaedb8e295fe9ed2a1a4adc0c12804fa65efea1e246fe8d9df2eb98a8": "l'entropie maximale est log₂ K, pas K"
       },
       "sign": 1,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
     },
     "M13a.10h": {
-      "hash": "4ea3d4487c504d87b0df2fdf8e9629ae673b5e1db2dfc30550a0874fe3bfb816",
+      "hash": "913d3e6a5b4267b2366ea1dd07fb31a5285ffd1b5bb3e3d025cf38f0a7b060ce",
       "kind": "fraction",
       "mistakes": {
-        "fbeea5bd4a9611a22e3eb5e6530d39e1b4274733b9f58b7884f74aebef182919": "le maximum de l'indice de Gini est 1 − 1/K, pas 1/K"
+        "d446f248b16bdccbfc18d17a4331766234997ff391652161c963e20b79d49cc2": "le maximum de l'indice de Gini est 1 − 1/K, pas 1/K"
       },
       "sign": 1,
       "simplified": true,
@@ -51351,6 +51354,7 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
+        "00ec60bcbb984fadbfa28d69746aec605bb1fb68c9a96f6fcaf3313ca27f32cf": "pondère chaque ligne par sa probabilité P(X = x)",
         "3b8b620997c1bd11879948157c5a29db456cb3cb12415b4006697e45a22c3a3e": "c'est H(Y | X) ; I(X ; Y) = H(Y) − H(Y | X)",
         "a93276732ba0488bbfac103ddccf98694d971bcf2819ee8291dc943fae7467bd": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
       },
@@ -51754,6 +51758,7 @@
       "magnitude": -1,
       "mistakes": {
         "5324cd905358b8b7285deb6eb3c3fa838c0d88560fc988e14c4494b786251d20": "la log-loss est une MOYENNE sur les exemples : divise la somme par leur nombre",
+        "c7beb10bb4d72e3347c12d1a974e88b1b5ad54ea1b9068913ea648e4866a0672": "les logarithmes de la log-loss sont népériens : ln, pas log₂",
         "dd88acbac00f0faadb03b9f18a94c5e0c11250bc165a215dbbfa2f9c12cc5684": "le terme de chaque exemple est s(z) − yz : n'oublie pas −yz"
       },
       "sign": 1,
@@ -51829,11 +51834,11 @@
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
     },
     "M13a.18h": {
-      "hash": "dd74f0ccde33e56a4a126a2118006e97181716631d2d365cabdfc88f484847b4",
+      "hash": "60452c122ac24ed5b91c9f358ab6e8118755494892726b1c214e078b7db8029a",
       "kind": "int",
       "magnitude": 2,
       "mistakes": {
-        "6a67480af29fbcefb07735dff00560309c5d0915b93fd641d4b404f4afe967f9": "n'oublie pas le biais"
+        "a73cbce0bebfddf561a6e22619e8000c008cbcde697ef59e1ae4b9c799b1c1eb": "n'oublie pas le biais"
       },
       "sign": 1,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
@@ -52400,31 +52405,31 @@
     "M13a.24b": {
       "coarse_any": {
         "0": [
-          "216880b54b30b0be2aef49b83ad7e76d520bcba5742be1c4a79f1a41fd930f1f"
+          "14528cf8bcaeff9c8606b54ea7103d2ad9a5e5dc403a3c127c40395f469e6629"
         ]
       },
       "coarser": {
         "1": [
-          "fdebb3c56c6d801cac002aeacbdbdb32b81016f572626e0087abcd5daec88de1"
+          "9f1538a6baf3c0dfea39399e312fffe648a9a87d4fb3ec4db5b2bd47be73e3df"
         ],
         "2": [
-          "41d6af8a8d1b6232455e78265501960daea92617691f0122dcdea87818256427"
+          "0934045a9c754f91973d46a84da19b912f28d7dcb87ed74bc2d58151980d4dd3"
         ],
         "3": [
-          "7f475d93932fdd721d6b0f8de5be1f6664cc2644fd9551bd5a0f49bdb22f0a0d"
+          "ad7263c731f12061bb2b1fe83dd37ea1f0d445cd01a300e4c1360e65cb166366"
         ],
         "4": [
-          "c76e4cbdab761e2de712900dd21712f3d8a589901cac9eb7a21279b27a08f4f7"
+          "2be24c3369b812047e9bfdae10692cdb7bbf489e126ec103d151894c0e264879"
         ]
       },
       "decimals": 6,
-      "hash": "2121a183503a4e9b2fdd7b50d461da12f8d319395f0aa5b258cb61a29af775a8",
-      "hash_coarse": "c30b05a06f08c66d5cc160a7727ab89be87a822fd26fb2c53a767182b1f7b3f6",
+      "hash": "afdca1f53384e0014c1e5134ce5f263cf32aaa4ca30ea7747c6a5b2df980a117",
+      "hash_coarse": "7de0952cfc4399032c3a65506f952f2add3f9c4cc24a9f497afb0728ebae87d9",
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
-        "4d968a0c9cf1eefd9d3c77e8f89941129fa6af29d2c10bea03238748595c66eb": "e^800 déborde en flottants : écris la softplus max(z, 0) + ln(1 + e^(−|z|))",
-        "86cd452a50b7daff2a5028eba9aa29e1999ef6c88d39e62e4e44e5f08c93dea1": "la log-loss est une MOYENNE sur les exemples : divise la somme par leur nombre"
+        "2ebb5c8addc74dbad588c5776db6ec7eb593eb63043f272ae5da594fe79771b8": "la log-loss est une MOYENNE sur les exemples : divise la somme par leur nombre",
+        "4d968a0c9cf1eefd9d3c77e8f89941129fa6af29d2c10bea03238748595c66eb": "e^900 déborde en flottants : écris la softplus max(z, 0) + ln(1 + e^(−|z|))"
       },
       "sign": 1,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
@@ -52444,7 +52449,7 @@
       "kind": "float",
       "magnitude": null,
       "mistakes": {
-        "f23e361a80da5aa66ce83cd01eb65c1a6087cbea9928b3c7f9d72dab7d129a82": "e^800 déborde en flottants (inf − 800 reste inf) : écris la softplus max(z, 0) + ln(1 + e^(−|z|))"
+        "f23e361a80da5aa66ce83cd01eb65c1a6087cbea9928b3c7f9d72dab7d129a82": "e^900 déborde en flottants (inf − 900 reste inf) : écris la softplus max(z, 0) + ln(1 + e^(−|z|))"
       },
       "sign": 0,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
@@ -52729,8 +52734,10 @@
       "hash": "e2dff99c5a33de0b1339e08a57515f052ec658a89e1c37586ea78ce0bc2439f2",
       "kind": "array",
       "mistakes": {
+        "268a9e90f08654b3543c0cbca8cd72ae551fff0a1119ff3fc3479ab273782850": "un échantillon par LIGNE : rng.random((N_SAMPLES_27, n)), puis la moyenne de chaque ligne (axis=1)",
         "a81e1ffdc73ecc70c0cb36aa0eb01643d85679891dbb90f13e2d5bd9be07e207": "l'énoncé demande l'écart-type d'échantillon, ddof=1",
-        "d6834c0935e76b0c6c0c6b354e44f255fac10f760fc6d11b9c0c2f3c53796d5b": "l'écart-type, pas la variance : np.std, ou la racine de np.var"
+        "d6834c0935e76b0c6c0c6b354e44f255fac10f760fc6d11b9c0c2f3c53796d5b": "l'écart-type, pas la variance : np.std, ou la racine de np.var",
+        "eddf3a707d56617c53028443291c610806b1f728b8ca6431ae28577c20ac44ac": "un seul générateur, créé une fois dans spread_table, puis passé à phat_samples pour 25, 100 et 400"
       },
       "shape": [
         3
@@ -52813,7 +52820,9 @@
       "hash": "3a21e9b0c99d1b258f4bf3a45ded14380418a645e63b425c4cc12215faefbdd9",
       "kind": "array",
       "mistakes": {
-        "18cb96e332ce4650e228e82dcea719cd5232b795a3d152a156ab36dc1dbcf9d9": "le plus petit n d'abord : l'écart-type pour n divisé par celui pour 4n"
+        "18cb96e332ce4650e228e82dcea719cd5232b795a3d152a156ab36dc1dbcf9d9": "le plus petit n d'abord : l'écart-type pour n divisé par celui pour 4n",
+        "2cd10ac21cfa948123a7fbc083e1b1c86a588999b8485bf3de9f661176e6186a": "un échantillon par LIGNE : rng.random((N_SAMPLES_27, n)), puis la moyenne de chaque ligne (axis=1)",
+        "f7c22c93be879f24185d178e2e4ae3be2d72cf03b60e4a5fcf5d5d4868c79486": "un seul générateur, créé une fois dans spread_table, puis passé à phat_samples pour 25, 100 et 400"
       },
       "shape": [
         2
@@ -53007,7 +53016,7 @@
       "magnitude": -1,
       "mistakes": {
         "a9582aa1d47b44c39a7f5585c5190e9a005526a696f227e392f603a084c0b6af": "la log-loss est une MOYENNE sur les exemples : divise la somme par leur nombre",
-        "af42a783103111a857f4596d6e25ffaa3ef7ef13dfcb524b16bec770749873fe": "e^800 déborde : écris la softplus max(z, 0) + ln(1 + e^(−|z|))"
+        "af42a783103111a857f4596d6e25ffaa3ef7ef13dfcb524b16bec770749873fe": "e^900 déborde : écris la softplus max(z, 0) + ln(1 + e^(−|z|))"
       },
       "sign": 1,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
@@ -53032,7 +53041,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "c92ddf94fd6a56b7ee83ec75d31733053aec56e1116cb9c88f6062991bb6d488": "le maximum de vraisemblance d'une variance divise par n, pas par n − 1"
+        "c92ddf94fd6a56b7ee83ec75d31733053aec56e1116cb9c88f6062991bb6d488": "le maximum de vraisemblance d'une variance divise par n, pas par n − 1",
+        "f870866d0f28b7645923a076a56b207789476c8ef6ea859c578c9c3fcf2317b2": "la question demande la variance, pas l'écart-type"
       },
       "sign": 1,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"

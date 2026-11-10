@@ -385,15 +385,20 @@ def test_logistic_loss_docstring_examples(likelihood):
     assert round(got, 6) == 30.0, f"expected 30.0 for scores [30, -30] and labels [0, 1], got {got!r}"
 
 
-@pytest.mark.parametrize("z, y", [([1000.0, -1000.0], [1, 0]), ([1000.0, -1000.0], [0, 1]),
-                                  ([745.5, -800.0, 50.0, -60.0], [0, 1, 1, 0]), ([-1e6], [1])])
+@pytest.mark.parametrize("z, y", [([1200.0, -1200.0], [1, 0]), ([1200.0, -1200.0], [0, 1]),
+                                  ([745.5, -900.0, 50.0, -60.0], [0, 1, 1, 0]), ([-1e6], [1])])
 def test_logistic_loss_does_not_overflow(likelihood, z, y):
     expected = _loss_oracle(z, y)
     got = _quiet(lambda: likelihood.logistic_loss(z, y), "a finite float", f"z = {z}",
                  "ln(1 + e^z) = max(z, 0) + ln(1 + e^(-|z|)), with np.log1p")
+    if not math.isfinite(got):
+        advice = "very large scores must give finite results: compute the softplus as max(z, 0) + ln(1 + e^(-|z|))"
+    elif expected and math.isclose(got, expected * len(y), rel_tol=1e-9):
+        advice = "that is the SUM of the terms: return their mean"
+    else:
+        advice = "each term is s(z) - y z, with the stable softplus max(z, 0) + ln(1 + e^(-|z|))"
     assert math.isfinite(got) and math.isclose(got, expected, rel_tol=1e-12, abs_tol=1e-300), (
-        f"expected {expected!r} for z = {z} and y = {y} (scipy.special.log_expit), got {got!r} (very large scores must "
-        f"give finite results: compute the softplus as max(z, 0) + ln(1 + e^(-|z|)))")
+        f"expected {expected!r} for z = {z} and y = {y} (scipy.special.log_expit), got {got!r} ({advice})")
 
 
 def test_logistic_loss_is_non_negative_and_accepts_booleans(likelihood):
