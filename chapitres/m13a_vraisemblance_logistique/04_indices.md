@@ -228,7 +228,7 @@ $\ell(p) = k\ln p + (n - k)\ln(1 - p)$, maximum en $\frac{k}{n}$ ; catégorielle
 </details>
 <details><summary>Indice 3</summary>
 
-$k = 7$, $n = 20$ ; f) $\frac{n_k + 1}{24}$ ; g) $\frac{n_k + 0{,}25}{21}$ ; h) $5\ln\frac{5}{20} + 9\ln\frac{9}{20} + 6\ln\frac{6}{20}$.
+$k = 7$, $n = 20$ ; f) $\frac{n_k + 1}{24}$ ; g) $\frac{n_k + 0{,}5}{22}$ ; h) $5\ln\frac{5}{20} + 9\ln\frac{9}{20} + 6\ln\frac{6}{20}$.
 
 </details>
 
@@ -282,7 +282,7 @@ Les 999 exemples valent ensemble $999 \times (-\ln 0{,}98)$ ; le dernier, $-\ln 
 </details>
 <details><summary>Indice 3</summary>
 
-d) le dernier pèse autant que les autres quand $-\ln q = 999 \times (-\ln 0{,}98)$ : garde au moins 6 chiffres de $-\ln 0{,}98$. f) $\log_2 10^4$.
+d) le dernier pèse autant que les autres quand $-\ln q = 999 \times (-\ln 0{,}98)$. f) $\log_2 10^4$.
 
 </details>
 
@@ -542,7 +542,7 @@ Chaque score est le produit scalaire d'une ligne de $\mathbf{H}$ avec $\mathbf{w
 </details>
 <details><summary>Indice 3</summary>
 
-c) les termes : $s(-1{,}4)$ (label 1), puis $s(-1{,}1)$, $s(0{,}1)$, $s(-0{,}4)$ (labels 0). e) l'entropie, en nats, de la proportion $\frac{1}{4}$.
+c) les termes : $s(-1{,}4)$ et $s(-1{,}8)$ (labels 1), puis $s(-1{,}1)$, $s(0{,}1)$, $s(-0{,}4)$ et $s(-0{,}3)$ (labels 0). e) l'entropie, en nats, de la proportion $\frac{1}{3}$.
 
 </details>
 

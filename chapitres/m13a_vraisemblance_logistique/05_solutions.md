@@ -310,15 +310,15 @@ Pour la copie : dans $A$, $\sum_{y \in A}(y - m)^2 = \sum_{y \in A}(y - m_A)^2 +
 
 ### Ex M13a.18 — Pont : une sonde linéaire, un modèle logistique en NumPy sur un batch de représentations figées, jusqu'à la log-loss
 
-**Réponses** : a) `[1.4, -1.1, 0.1, -0.4]` · b) `[0.8022, 0.2497, 0.525, 0.4013]` · c) `0.4413` · d) `3/4` · e) `0.5623` · f) `0.121` · g) `0` · h) `769`.
+**Réponses** : a) `[1.4, -1.1, 0.1, -0.4, 1.8, -0.3]` · b) `[0.8022, 0.2497, 0.525, 0.4013, 0.8581, 0.4256]` · c) `0.4121` · d) `5/6` · e) `0.6365` · f) `0.2244` · g) `0` · h) `769`.
 
-**Démarche.** a) $0{,}8 + 0{,}8 - 0{,}2$ ; $-0{,}9 - 0{,}2$ ; $0{,}4 - 0{,}9 + 0{,}8 - 0{,}2$ ; $-1{,}8 + 1{,}6 - 0{,}2$. b) $\sigma$ de chaque score. c) les termes $s(z) - yz$ : $s(-1{,}4) \approx 0{,}220$ (label 1), $s(-1{,}1) \approx 0{,}287$, $s(0{,}1) \approx 0{,}744$, $s(-0{,}4) \approx 0{,}513$ (labels 0), moyenne $\approx 0{,}441$. d) décisions $1, 0, 1, 0$ contre $1, 0, 0, 0$. e) proportion $\frac{1}{4}$ : $-\big(\frac{1}{4}\ln\frac{1}{4} + \frac{3}{4}\ln\frac{3}{4}\big)$. f) $0{,}562 - 0{,}441$. g) $z = 0{,}4 - 0{,}9 - 0{,}2 = -0{,}7 < 0$. h) 768 poids et un biais.
+**Démarche.** a) $0{,}8 + 0{,}8 - 0{,}2$ ; $-0{,}9 - 0{,}2$ ; $0{,}4 - 0{,}9 + 0{,}8 - 0{,}2$ ; $-1{,}8 + 1{,}6 - 0{,}2$ ; $0{,}4 + 1{,}6 - 0{,}2$ ; $-0{,}9 + 0{,}8 - 0{,}2$. b) $\sigma$ de chaque score. c) les termes $s(z) - yz$ : $s(-1{,}4) \approx 0{,}220$ et $s(-1{,}8) \approx 0{,}153$ (labels 1), $s(-1{,}1) \approx 0{,}287$, $s(0{,}1) \approx 0{,}744$, $s(-0{,}4) \approx 0{,}513$ et $s(-0{,}3) \approx 0{,}554$ (labels 0) ; somme $\approx 2{,}472$, moyenne $\approx 0{,}412$. d) décisions $1, 0, 1, 0, 1, 0$ contre $1, 0, 0, 0, 1, 0$ : une seule erreur, au troisième exemple. e) proportion $\frac{1}{3}$ : $-\big(\frac{1}{3}\ln\frac{1}{3} + \frac{2}{3}\ln\frac{2}{3}\big) \approx 0{,}6365$. f) $0{,}6365 - 0{,}4121$. g) $z = 0{,}4 - 0{,}9 - 0{,}2 = -0{,}7 < 0$. h) 768 poids et un biais.
 
 Pour la copie : `z = H @ w + b`. $\ln 2$ est la log-loss d'un modèle qui répond 0,5 ; mais un modèle qui ne regarde pas les représentations peut faire mieux, en répondant la fréquence des 1 : c'est lui qu'il faut battre. Une log-loss de test bien plus basse que e) dirait que la propriété est **linéairement** lisible dans la représentation (sans dire que le réseau s'en sert).
 
 **Erreurs fréquentes.** Oublier le biais ; la somme au lieu de la moyenne ; comparer à $\ln 2$.
 
-**Variante.** Avec $b = 0$ : les scores ? *Réponse* : $(1{,}6 ;\ -0{,}9 ;\ 0{,}3 ;\ -0{,}2)$.
+**Variante.** Avec $b = 0$ : les scores ? *Réponse* : $(1{,}6 ;\ -0{,}9 ;\ 0{,}3 ;\ -0{,}2 ;\ 2 ;\ -0{,}1)$.
 
 ### Ex M13a.19 — MML §8.3, relu après M04 : estimer des paramètres, et ce que la régression logistique y ajoute
 

@@ -435,16 +435,16 @@ $\mathbf{p}$ est une loi sur $K$ valeurs, $\mathbf{u}$ la loi uniforme, et les l
 **Objectif :** évaluer à la main une sonde linéaire sur un petit batch de représentations, en écriture matricielle, jusqu'à la log-loss et l'accuracy.
 **Prérequis :** fiche §2 à §4 ; M09a · **Parcours :** C, E
 
-Un réseau déjà entraîné, laissé tel quel, a produit les représentations de dimension 3 de quatre exemples, rangées en lignes d'une matrice, avec leurs labels :
+Un réseau déjà entraîné, laissé tel quel, a produit les représentations de dimension 3 de six exemples, rangées en lignes d'une matrice, avec leurs labels :
 
-$$\mathbf{H} = \begin{pmatrix} 2 & 0 & 0{,}5 \\ 0 & 1 & 0 \\ 1 & 1 & 0{,}5 \\ 0 & 2 & 1 \end{pmatrix}, \qquad \mathbf{y} = (1, 0, 0, 0).$$
+$$\mathbf{H} = \begin{pmatrix} 2 & 0 & 0{,}5 \\ 0 & 1 & 0 \\ 1 & 1 & 0{,}5 \\ 0 & 2 & 1 \\ 1 & 0 & 1 \\ 0 & 1 & 0{,}5 \end{pmatrix}, \qquad \mathbf{y} = (1, 0, 0, 0, 1, 0).$$
 
 Une sonde linéaire de poids $\mathbf{w} = (0{,}4 ;\ -0{,}9 ;\ 1{,}6)$ et de biais $b = -0{,}2$ calcule les scores $\mathbf{z} = \mathbf{H}\mathbf{w} + b$, puis les probabilités $\sigma(\mathbf{z})$.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | les quatre scores | une liste de 4 nombres (4 décimales) |
-| b | les quatre probabilités | une liste de 4 nombres (4 décimales) |
+| a | les six scores | une liste de 6 nombres (4 décimales) |
+| b | les six probabilités | une liste de 6 nombres (4 décimales) |
 | c | la log-loss de la sonde, avec $s(z) - yz$ | un nombre (4 décimales) |
 | d | l'accuracy au seuil 0,5 | une fraction |
 | e | la log-loss du meilleur modèle constant, qui répond toujours la proportion de labels 1 | un nombre (4 décimales) |

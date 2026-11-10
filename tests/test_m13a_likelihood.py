@@ -101,7 +101,7 @@ def test_likelihood_uses_no_ready_made_tool(likelihood):
 
 
 # ---------------------------------------------------------------- data
-RNG = np.random.default_rng(1310)
+RNG = np.random.default_rng(4110)
 
 
 def _scipy_log_likelihood(y, p):
@@ -260,7 +260,7 @@ def test_categorical_mle_maximizes_the_categorical_log_likelihood(likelihood):
     counts = np.array([7, 2, 0, 11])
     p_hat = _result(lambda: likelihood.categorical_mle(counts.tolist()), "an array")
     best = float(np.sum(special.xlogy(counts, p_hat)))
-    rng = np.random.default_rng(1311)
+    rng = np.random.default_rng(4111)
     for q in rng.dirichlet(np.ones(4), size=200):
         other = float(np.sum(special.xlogy(counts, q)))
         assert other <= best + 1e-12, (f"expected p̂ = {_show(p_hat)} to maximize Σ n_k ln p_k, but {_show(q)} does "
