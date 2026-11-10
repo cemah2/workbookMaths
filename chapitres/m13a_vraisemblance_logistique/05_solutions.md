@@ -102,9 +102,9 @@
 
 ### Ex M13a.1 — Le maximum de vraisemblance d'une loi de Bernoulli et d'une loi catégorielle
 
-**Réponses** : a) `7/20` · b) `-12.9489` · c) `-13.8629` · d) `-0.6474` · e) `[1/4, 9/20, 0, 3/10]` · f) `[0.25, 0.4167, 0.0417, 0.2917]` · g) `[0.25, 0.4318, 0.0227, 0.2955]` · h) `-21.3419`.
+**Réponses** : a) `7/20` · b) `-12.9489` · c) `-13.8629` · d) `-0.6474` · e) `[1/4, 9/20, 0, 3/10]` · f) `[0.25, 0.4167, 0.0417, 0.2917]` · g) `[0.25, 0.4405, 0.0119, 0.2976]` · h) `-21.3419`.
 
-**Démarche.** $\ell(p) = 7\ln p + 13\ln(1 - p)$, $\ell'(p) = \frac{7}{p} - \frac{13}{1 - p} = 0$ donne $7(1 - p) = 13p$, $\hat{p} = \frac{7}{20}$ ; $\ell'' < 0$. b) $7\ln 0{,}35 + 13\ln 0{,}65 \approx -7{,}349 - 5{,}600$. c) $20\ln 0{,}5$. d) b) divisé par 20. e) $\frac{n_k}{20}$. f) $\frac{n_k + 1}{24}$ : $\big(\frac{6}{24}, \frac{10}{24}, \frac{1}{24}, \frac{7}{24}\big)$. g) $\frac{n_k + 0{,}5}{22}$. h) $5\ln\frac{1}{4} + 9\ln\frac{9}{20} + 6\ln\frac{3}{10}$ (le forfait jamais choisi ne compte pas).
+**Démarche.** $\ell(p) = 7\ln p + 13\ln(1 - p)$, $\ell'(p) = \frac{7}{p} - \frac{13}{1 - p} = 0$ donne $7(1 - p) = 13p$, $\hat{p} = \frac{7}{20}$ ; $\ell'' < 0$. b) $7\ln 0{,}35 + 13\ln 0{,}65 \approx -7{,}349 - 5{,}600$. c) $20\ln 0{,}5$. d) b) divisé par 20. e) $\frac{n_k}{20}$. f) $\frac{n_k + 1}{24}$ : $\big(\frac{6}{24}, \frac{10}{24}, \frac{1}{24}, \frac{7}{24}\big)$. g) $\frac{n_k + 0{,}25}{21}$. h) $5\ln\frac{1}{4} + 9\ln\frac{9}{20} + 6\ln\frac{3}{10}$ (le forfait jamais choisi ne compte pas).
 
 Pour la copie : un 21ᵉ client qui choisit le troisième forfait ajoute $\ln\hat{p}_3 = \ln 0 = -\infty$ : la log-vraisemblance devient $-\infty$, le modèle déclarait l'événement impossible. Le lissage ajoute $K\alpha$ au dénominateur : toutes les probabilités baissent un peu pour faire de la place au forfait jamais vu (ici, la première ne bouge pas par hasard : $\frac{5}{20} = \frac{6}{24}$).
 
@@ -126,7 +126,7 @@ Pour la copie : $\frac{\partial \ell}{\partial \mu} = \frac{1}{v}\sum_i (x_i - \
 
 ### Ex M13a.3 — La log-loss de quatre prédictions, puis la même en cross-entropy
 
-**Réponses** : a) `[0.2231, 0.7985, 0.4308, 0.0513]` · b) `0.3759` · c) `0.5424` · d) `-1.5037` · e) `3/4` · f) `0.6931` · g) `1.204` · h) `0.2026`.
+**Réponses** : a) `[0.2231, 0.7985, 0.4308, 0.0513]` · b) `0.3759` · c) `0.542` · d) `-1.5037` · e) `3/4` · f) `0.6931` · g) `1.204` · h) `0.2026`.
 
 **Démarche.** a) $-\ln 0{,}8$, $-\ln 0{,}45$ (labels 1), puis $-\ln 0{,}65$, $-\ln 0{,}95$ (labels 0 : $1 - \hat{p}$). b) leur moyenne. c) b) divisé par $\ln 2$. d) moins la somme des termes. e) décisions $1, 0, 0, 0$ contre labels $1, 1, 0, 0$ : trois justes. f) $\ln 2$. g) $-\ln 0{,}3$. h) le deuxième terme devient $-\ln 0{,}9 \approx 0{,}105$, moyenne $\approx 0{,}203$.
 
@@ -138,9 +138,9 @@ Pour la copie : le terme du premier exemple est $H\big((0, 1), (0{,}2 ;\ 0{,}8)\
 
 ### Ex M13a.4 — Ce que coûte une prédiction sûre et fausse : la log-loss quand p tend vers 0
 
-**Réponses** : a) `0.0202` · b) `0.0294` · c) `0.0478` · d) `20.1825` · e) `0.0547` · f) `13.2877` · g) `False`.
+**Réponses** : a) `0.0202` · b) `0.0294` · c) `0.0478` · d) `20.18` · e) `0.0547` · f) `13.2877` · g) `False`.
 
-**Démarche.** Les 999 exemples pèsent $999 \times (-\ln 0{,}98) \approx 20{,}18$. b) $\frac{20{,}18 + 9{,}21}{1\,000}$. c) $\frac{20{,}18 + 27{,}63}{1\,000}$. d) $-\ln q = 20{,}18$ (soit $q \approx 1{,}7 \times 10^{-9}$). e) $\frac{20{,}18 + 34{,}54}{1\,000}$. f) $\log_2 10^4 \approx 13{,}29$ bits. g) $-\ln q \to +\infty$.
+**Démarche.** Les 999 exemples pèsent $999 \times (-\ln 0{,}98) \approx 20{,}18$. b) $\frac{20{,}18 + 9{,}21}{1\,000}$. c) $\frac{20{,}18 + 27{,}63}{1\,000}$. d) $-\ln q = 999 \times 0{,}020\,203 \approx 20{,}18$ (soit $q \approx 1{,}7 \times 10^{-9}$) : garde assez de chiffres de a), le facteur 999 grossit l'arrondi. e) $\frac{20{,}18 + 34{,}54}{1\,000}$. f) $\log_2 10^4 \approx 13{,}29$ bits. g) $-\ln q \to +\infty$.
 
 Pour la copie : le taux d'erreur vaut $\frac{1}{1\,000}$ dans b) et c) (un exemple du mauvais côté) et 0 dans a) ; il ne distingue pas b) de c). Une probabilité exactement 0 donne $-\ln 0 = +\infty$ : la log-loss devient infinie et inutilisable ; l'écrêtage remplace 0 par un tout petit nombre, ce qui garde un nombre fini mais énorme. Un modèle a donc intérêt à ne jamais annoncer 0 ou 1 exactement.
 
@@ -162,13 +162,13 @@ Pour la copie : $1 - \sigma(z) = \frac{e^{-z}}{1 + e^{-z}}$, donc $\frac{\sigma(
 
 ### Ex M13a.6 — La softplus : valeurs, asymptotes et comportement pour |z| grand
 
-**Réponses** : a) `2.5789` · b) `0.0789` · c) `5/2` · d) `0.002476` · e) `0.04` · f) `1.1032` · g) `True` · h) `0.6931`.
+**Réponses** : a) `2.5789` · b) `0.0789` · c) `5/2` · d) `0.002476` · e) `0.0328` · f) `1.1032` · g) `True` · h) `0.6931`.
 
-**Démarche.** a) $\ln(1 + e^{2{,}5}) = \ln 13{,}18$. b) $\ln(1 + e^{-2{,}5}) = \ln 1{,}0821$. c) $s(z) - s(-z) = z$. d) $\ln(1 + e^{-6}) \approx e^{-6}$. e) $0 + \ln(1 + e^{-3{,}2}) \approx 0{,}0400$. f) $-\ln(1 - \sigma(0{,}7)) = s(0{,}7) = \ln(1 + e^{0{,}7})$. g) $s(z) > 0$ et $s(z) > z$. h) $\ln(1 + e^{-\lvert z \rvert})$ est le plus grand en $z = 0$ : $\ln 2$.
+**Démarche.** a) $\ln(1 + e^{2{,}5}) = \ln 13{,}18$. b) $\ln(1 + e^{-2{,}5}) = \ln 1{,}0821$. c) $s(z) - s(-z) = z$. d) $\ln(1 + e^{-6}) \approx e^{-6}$. e) $0 + \ln(1 + e^{-3{,}4}) \approx 0{,}0328$. f) $-\ln(1 - \sigma(0{,}7)) = s(0{,}7) = \ln(1 + e^{0{,}7})$. g) $s(z) > 0$ et $s(z) > z$. h) $\ln(1 + e^{-\lvert z \rvert})$ est le plus grand en $z = 0$ : $\ln 2$.
 
 Pour la copie : $s(z) - s(-z) = \ln\frac{1 + e^z}{1 + e^{-z}} = \ln e^z = z$, et $s(z) - z = \ln\frac{1 + e^z}{e^z} = \ln(1 + e^{-z}) \to 0$ quand $z \to +\infty$ : asymptote $y = z$ ; quand $z \to -\infty$, $s(z) \to \ln 1 = 0$ : asymptote $y = 0$. Dans un programme, $e^{-\lvert z \rvert} \le 1$ ne déborde jamais, alors que $e^z$ déborde au-delà de 709 environ.
 
-**Erreurs fréquentes.** Un logarithme décimal ; croire $s(6) - 6 = 0$ ; calculer $s(3{,}2)$ au lieu de $s(-3{,}2)$.
+**Erreurs fréquentes.** Un logarithme décimal ; croire $s(6) - 6 = 0$ ; calculer $s(3{,}4)$ au lieu de $s(-3{,}4)$.
 
 **Variante.** $s(-6)$ ? *Réponse* : la même valeur que d), $\approx 0{,}002476$ ($s(-6) = s(6) - 6$).
 
@@ -188,9 +188,9 @@ Pour la copie : $P = 0{,}85$ équivaut à $\mathbf{w} \cdot \mathbf{x} + b = \op
 
 **Réponses** : a) `7/10` · b) `21/100` · c) `5/8` · d) `0.3727` · e) `0.5172` · f) `0.6935` · g) `2` · h) `[2047, 21]`.
 
-**Démarche.** Classe 1 : $P(x_1 = 1) = 0{,}25 + 0{,}45 = 0{,}7$ et $P(x_2 = 1) = 0{,}7$ ; classe 0 : $0{,}38$ et $0{,}38$. b) $0{,}3 \times 0{,}7$. c) $\frac{0{,}4 \times 0{,}25}{0{,}4 \times 0{,}25 + 0{,}6 \times 0{,}10} = \frac{0{,}1}{0{,}16}$. d) $\frac{0{,}4 \times 0{,}21}{0{,}4 \times 0{,}21 + 0{,}6 \times 0{,}62 \times 0{,}38}$. e) $\frac{0{,}18}{0{,}18 + 0{,}168}$. f) $\frac{0{,}4 \times 0{,}49}{0{,}196 + 0{,}6 \times 0{,}1444}$. g) a posteriori vrais $(0{,}060 ;\ 0{,}625 ;\ 0{,}625 ;\ 0{,}517)$, naïfs $(0{,}135 ;\ 0{,}373 ;\ 0{,}373 ;\ 0{,}694)$ : les cases $(0, 1)$ et $(1, 0)$ changent de décision. h) $2 \times (2^{10} - 1) + 1$ et $2 \times 10 + 1$.
+**Démarche.** Classe 1 : $P(x_1 = 1) = 0{,}25 + 0{,}45 = 0{,}7$ et $P(x_2 = 1) = 0{,}7$ ; classe 0 : $0{,}38$ et $0{,}38$. b) $0{,}3 \times 0{,}7$. c) $\frac{0{,}4 \times 0{,}25}{0{,}4 \times 0{,}25 + 0{,}6 \times 0{,}10} = \frac{0{,}1}{0{,}16}$. d) $\frac{0{,}4 \times 0{,}21}{0{,}4 \times 0{,}21 + 0{,}6 \times 0{,}62 \times 0{,}38}$. e) $\frac{0{,}18}{0{,}18 + 0{,}168}$. f) $\frac{0{,}4 \times 0{,}49}{0{,}196 + 0{,}6 \times 0{,}1444}$. g) a posteriori vrais $(0{,}060 ;\ 0{,}625 ;\ 0{,}625 ;\ 0{,}517)$, naïfs $(0{,}135 ;\ 0{,}373 ;\ 0{,}373 ;\ 0{,}693)$ : les cases $(0, 1)$ et $(1, 0)$ changent de décision. h) $2 \times (2^{10} - 1) + 1$ et $2 \times 10 + 1$.
 
-Pour la copie : non, $P(1, 1 \mid Y = 1) = 0{,}45 \ne 0{,}7 \times 0{,}7 = 0{,}49$ ; dans la classe 1, avoir exactement une des deux features est plus fréquent que ne le dit le produit ($0{,}25$ contre $0{,}21$), et la classe 0 a l'excès inverse en $(1, 1)$ ($0{,}28$ contre $0{,}144$). Naïve Bayes ignore ces dépendances et inverse deux décisions. Quand l'hypothèse est presque vraie, les produits sont proches des vraies probabilités, et la classe qui l'emporte reste la même.
+Pour la copie : non, $P(1, 1 \mid Y = 1) = 0{,}45 \ne 0{,}7 \times 0{,}7 = 0{,}49$ ; dans la classe 1, avoir exactement une des deux features est plus fréquent que ne le dit le produit ($0{,}25$ contre $0{,}21$) ; surtout, dans la classe 0, la case $(0, 1)$ vaut $0{,}10$ pour de vrai et $0{,}62 \times 0{,}38 \approx 0{,}236$ une fois factorisée, plus du double : la classe 0 y devient beaucoup plus vraisemblable qu'elle ne l'est. Elle a aussi l'excès inverse en $(1, 1)$ ($0{,}28$ contre $0{,}144$). Naïve Bayes ignore ces dépendances et inverse deux décisions. Quand l'hypothèse est presque vraie, les produits sont proches des vraies probabilités, et la classe qui l'emporte reste la même.
 
 **Erreurs fréquentes.** Prendre la vraie probabilité jointe au lieu du produit des marginales ; oublier les proportions des classes ; compter $2^{10}$ au lieu de $2^{10} - 1$ probabilités libres.
 
@@ -198,9 +198,9 @@ Pour la copie : non, $P(1, 1 \mid Y = 1) = 0{,}45 \ne 0{,}7 \times 0{,}7 = 0{,}4
 
 ### Ex M13a.9 — Deux classes gaussiennes de même variance : l'a posteriori est une sigmoïde d'un score affine
 
-**Réponses** : a) `1` · b) `-1.619` · c) `1.619` · d) `0.35` · e) `0.7991` · f) `1` · g) `2.7183` · h) `0.0694`.
+**Réponses** : a) `1` · b) `-1.619` · c) `1.619` · d) `0.35` · e) `0.799` · f) `1` · g) `2.7183` · h) `0.0694`.
 
-**Démarche.** a) $\frac{3 - (-1)}{4}$. b) $\frac{1 - 9}{8} + \ln\frac{0{,}35}{0{,}65} = -1 - 0{,}619$. c) $-\frac{b}{w}$. d) $\sigma(1 - 1{,}619) = \sigma(\ln\frac{0{,}35}{0{,}65}) = 0{,}35$. e) $\sigma(3 - 1{,}619)$. f) le milieu $\frac{-1 + 3}{2}$. g) $e^w = e$. h) $-\frac{1}{2 \times 9} + \frac{1}{2 \times 4} = \frac{-4 + 9}{72} = \frac{5}{72}$.
+**Démarche.** a) $\frac{3 - (-1)}{4}$. b) $\frac{1 - 9}{8} + \ln\frac{0{,}35}{0{,}65} = -1 - 0{,}619$. c) $-\frac{b}{w}$. d) $\sigma(1 - 1{,}619) = \sigma(\ln\frac{0{,}35}{0{,}65}) = 0{,}35$. e) $\sigma\big(2 + \ln\frac{7}{13}\big) = \frac{7e^2}{7e^2 + 13} \approx 0{,}799$ (avec b) arrondi, on trouve 0,7992 à 4 décimales : d'où les 3 décimales demandées). f) le milieu $\frac{-1 + 3}{2}$. g) $e^w = e$. h) $-\frac{1}{2 \times 9} + \frac{1}{2 \times 4} = \frac{-4 + 9}{72} = \frac{5}{72}$.
 
 Pour la copie : $\ln\frac{P(1 \mid x)}{P(0 \mid x)} = \ln\frac{\pi_1}{\pi_0} - \frac{(x - 3)^2}{8} + \frac{(x + 1)^2}{8}$ : les $x^2$ s'annulent, il reste $x - 1 + \ln\frac{0{,}35}{0{,}65}$. En $x = 1$, le milieu des moyennes, les deux densités sont égales : l'a posteriori vaut l'a priori. Dans le cas h), la log-cote est un polynôme du second degré en $x$ : la frontière est formée de deux points (au plus), la classe 1, plus étalée, l'emportant aux deux extrémités.
 
@@ -224,7 +224,7 @@ Pour la copie : par entropie, $\mathbf{p}_1 < \mathbf{p}_2 < \mathbf{p}_3$ (0,29
 
 **Réponses** : a) `13/20` · b) `0.9341` · c) `0.5665` · d) `0.8632` · e) `0.0709` · f) `1.571` · g) `0.0403` · h) `0`.
 
-**Démarche.** b) $H(0{,}65 ;\ 0{,}35)$. Lignes : bus $(0{,}55 ;\ 0{,}45)$, $H \approx 0{,}993$ ; vélo $(\frac{26}{30}, \frac{4}{30})$, $H \approx 0{,}567$ ; voiture $(\frac{17}{30}, \frac{13}{30})$, $H \approx 0{,}987$. d) $0{,}4 \times 0{,}993 + 0{,}3 \times 0{,}567 + 0{,}3 \times 0{,}987$. e) b) − d). f) $H(0{,}4 ;\ 0{,}3 ;\ 0{,}3)$. g) $G(Y) = 1 - 0{,}65^2 - 0{,}35^2 = 0{,}455$, moyenne pondérée des Gini des lignes $0{,}4 \times 0{,}495 + 0{,}3 \times 0{,}231 + 0{,}3 \times 0{,}491 \approx 0{,}4147$. h) indépendance : $I = 0$.
+**Démarche.** b) $H(0{,}65 ;\ 0{,}35)$. Lignes : bus $(0{,}55 ;\ 0{,}45)$, $H \approx 0{,}9928$ ; vélo $(\frac{26}{30}, \frac{4}{30})$, $H \approx 0{,}5665$ ; voiture $(\frac{17}{30}, \frac{13}{30})$, $H \approx 0{,}9871$. d) $0{,}4 \times 0{,}9928 + 0{,}3 \times 0{,}5665 + 0{,}3 \times 0{,}9871$ (garde 4 décimales dans les intermédiaires). e) b) − d). f) $H(0{,}4 ;\ 0{,}3 ;\ 0{,}3)$. g) $G(Y) = 1 - 0{,}65^2 - 0{,}35^2 = 0{,}455$, moyenne pondérée des Gini des lignes $0{,}4 \times 0{,}495 + 0{,}3 \times 0{,}231 + 0{,}3 \times 0{,}491 \approx 0{,}4147$. h) indépendance : $I = 0$.
 
 Pour la copie : la formule somme six termes $p(x, y)\log_2\frac{p(x, y)}{p(x)\,p(y)}$ et redonne $0{,}0709$. C'est la ligne « vélo » qui fait baisser l'entropie : la seule qui s'écarte nettement de $(0{,}65 ;\ 0{,}35)$. $I(X ; Y) = H(Y)$ voudrait dire $H(Y \mid X) = 0$ : connaître le mode de transport suffirait à savoir si l'on arrive à l'heure.
 
@@ -253,7 +253,7 @@ Pour la copie : dans $A$, $\sum_{y \in A}(y - m)^2 = \sum_{y \in A}(y - m_A)^2 +
 **Réponse modèle.**
 1. $\frac{1}{N}\ell(\mathbf{p}) = \sum_k \frac{n_k}{N}\ln p_k = \sum_k \hat{p}_k\ln p_k = -H(\hat{\mathbf{p}}, \mathbf{p})$.
 2. Gibbs : $H(\hat{\mathbf{p}}, \mathbf{p}) \ge H(\hat{\mathbf{p}}, \hat{\mathbf{p}}) = H(\hat{\mathbf{p}})$, avec égalité si et seulement si $\mathbf{p} = \hat{\mathbf{p}}$. En multipliant par $-N$ : $\ell(\mathbf{p}) \le -N\,H(\hat{\mathbf{p}}) = \ell(\hat{\mathbf{p}})$.
-3. Si $n_k = 0$, $\hat{p}_k = 0$ et le terme $n_k\ln p_k$ vaut 0 pour tout $p_k$ ; avec $0\ln 0 = 0$, l'inégalité de Gibbs reste vraie (elle somme sur les $k$ où $\hat{p}_k > 0$), et le maximum met $p_k = 0$ : toute masse donnée à une valeur jamais vue est perdue pour les autres.
+3. Si $n_k = 0$, $\hat{p}_k = 0$ : $\hat{\mathbf{p}}$ sort du domaine des lois à valeurs strictement positives, et l'on étend $\ell$ par la convention $0\ln 0 = 0$ (le terme $n_k\ln p_k$ vaut alors 0 pour tout $p_k$) ; avec $0\ln 0 = 0$, l'inégalité de Gibbs reste vraie (elle somme sur les $k$ où $\hat{p}_k > 0$), et le maximum met $p_k = 0$ : toute masse donnée à une valeur jamais vue est perdue pour les autres.
 4. $\ell(\mathbf{p}) - \ell(\hat{\mathbf{p}}) = -N\big(H(\hat{\mathbf{p}}, \mathbf{p}) - H(\hat{\mathbf{p}})\big) = -N\,\mathrm{KL}(\hat{\mathbf{p}} \,\Vert\, \mathbf{p})$.
 5. Le même raisonnement avec les comptages $n_k + \alpha$ (de total $N + K\alpha$) : $\sum_k (n_k + \alpha)\ln p_k$ est maximale en $p_k = \frac{n_k + \alpha}{N + K\alpha}$. Le lissage est un maximum de vraisemblance sur des données augmentées de $\alpha$ observations fictives de chaque valeur.
 
@@ -286,7 +286,7 @@ Pour la copie : dans $A$, $\sum_{y \in A}(y - m)^2 = \sum_{y \in A}(y - m_A)^2 +
 
 **Réponse modèle.**
 1. $\sum_k \big(p_k - \frac{1}{K}\big)^2 = \sum_k p_k^2 - \frac{2}{K}\sum_k p_k + \frac{K}{K^2} = \sum_k p_k^2 - \frac{1}{K} \ge 0$.
-2. $G = 1 - \sum_k p_k^2 \le 1 - \frac{1}{K}$, avec égalité si et seulement si la somme de carrés de 1. est nulle, c'est-à-dire $p_k = \frac{1}{K}$ pour tout $k$.
+2. $G = 1 - \sum_k p_k^2 \le 1 - \frac{1}{K}$, avec égalité si et seulement si la somme de carrés du point 1 est nulle, c'est-à-dire $p_k = \frac{1}{K}$ pour tout $k$.
 3. Cauchy-Schwarz : $\big(\sum_k p_k \times 1\big)^2 \le \big(\sum_k p_k^2\big)\big(\sum_k 1^2\big)$, soit $1 \le K\sum_k p_k^2$.
 4. $p_k^2 \le p_k$ (car $0 \le p_k \le 1$), donc $\sum_k p_k^2 \le 1$ et $G \ge 0$ ; égalité si et seulement si chaque $p_k$ vaut 0 ou 1, c'est-à-dire une classe de probabilité 1.
 5. $\mathbf{p} \mapsto \sum_k p_k^2$ est convexe (une somme de fonctions convexes, M10), donc $G$, une constante moins elle, est concave : $G\big(t\,\mathbf{p} + (1 - t)\,\mathbf{q}\big) \ge t\,G(\mathbf{p}) + (1 - t)\,G(\mathbf{q})$.

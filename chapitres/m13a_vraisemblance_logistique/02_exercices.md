@@ -144,7 +144,7 @@ On contrôle 20 pièces : 7 sont défectueuses (label 1), 13 sont bonnes (label 
 | d | la log-vraisemblance moyenne par pièce, $\ell(\hat{p})/20$ | un nombre (4 décimales) |
 | e | les estimations $\hat{p}_k$ du maximum de vraisemblance des quatre forfaits | une liste de 4 fractions |
 | f | les estimations lissées avec $\alpha = 1$ | une liste de 4 nombres (4 décimales) |
-| g | les estimations lissées avec $\alpha = \frac{1}{2}$ | une liste de 4 nombres (4 décimales) |
+| g | les estimations lissées avec $\alpha = \frac{1}{4}$ | une liste de 4 nombres (4 décimales) |
 | h | la log-vraisemblance catégorielle $\sum_k n_k\ln\hat{p}_k$ (avec $0 \ln 0 = 0$) | un nombre (4 décimales) |
 
 Dans ta copie : dérive $\ell(p)$ pour retrouver a). Qu'arrive-t-il à la log-vraisemblance catégorielle si un 21ᵉ client choisit le troisième forfait ? Pourquoi le lissage change-t-il aussi les estimations des forfaits déjà choisis ?
@@ -178,7 +178,7 @@ Quatre exemples, de labels $(1, 1, 0, 0)$, reçoivent les probabilités $\hat{p}
 |---|---|---|
 | a | les quatre termes de la log-loss | une liste de 4 nombres (4 décimales) |
 | b | la log-loss, en nats | un nombre (4 décimales) |
-| c | la même, en bits | un nombre (4 décimales) |
+| c | la même, en bits | un nombre (3 décimales) |
 | d | la log-vraisemblance des quatre labels | un nombre (4 décimales) |
 | e | l'accuracy au seuil 0,5 | une fraction |
 | f | la log-loss d'un modèle qui répond toujours 0,5 | un nombre (4 décimales) |
@@ -198,7 +198,7 @@ Un modèle est évalué sur 1 000 exemples. Il a donné la probabilité 0,98 au 
 | a | la log-loss si $q = 0{,}98$ aussi | un nombre (4 décimales) |
 | b | la log-loss si $q = 10^{-4}$ | un nombre (4 décimales) |
 | c | la log-loss si $q = 10^{-12}$ | un nombre (4 décimales) |
-| d | la valeur de $-\ln q$ pour laquelle le dernier exemple pèse autant, à lui seul, que les 999 autres réunis | un nombre (4 décimales) |
+| d | la valeur de $-\ln q$ pour laquelle le dernier exemple pèse autant, à lui seul, que les 999 autres réunis | un nombre (2 décimales) |
 | e | la log-loss si $q = 0$, une bibliothèque écrêtant les probabilités à $10^{-15}$ | un nombre (4 décimales) |
 | f | le terme du dernier exemple, en bits, pour $q = 10^{-4}$ | un nombre (4 décimales) |
 | g | vrai ou faux : la log-loss reste bornée quand $q$ tend vers 0 | `True` ou `False` |
@@ -232,7 +232,7 @@ Dans ta copie : montre que $\frac{\sigma(z)}{1 - \sigma(z)} = e^z$, puis que $\s
 | b | $s(-2{,}5)$ | un nombre (4 décimales) |
 | c | $s(2{,}5) - s(-2{,}5)$ | un nombre |
 | d | $s(6) - 6$ | un nombre (6 décimales) |
-| e | $s(-3{,}2)$, avec l'écriture $\max(z, 0) + \ln(1 + e^{-\lvert z \rvert})$ | un nombre (4 décimales) |
+| e | $s(-3{,}4)$, avec l'écriture $\max(z, 0) + \ln(1 + e^{-\lvert z \rvert})$ | un nombre (4 décimales) |
 | f | $-\ln(1 - \sigma(0{,}7))$ | un nombre (4 décimales) |
 | g | vrai ou faux : $s(z) \ge \max(z, 0)$ pour tout $z$ | `True` ou `False` |
 | h | la plus grande valeur de l'écart $s(z) - \max(z, 0)$ | un nombre (4 décimales) |
@@ -280,7 +280,7 @@ Naïve Bayes remplace chaque loi jointe par le produit de ses deux marginales.
 | e | la vraie probabilité $P(Y = 1 \mid (1, 1))$ | un nombre (4 décimales) |
 | f | la même, calculée par Naïve Bayes | un nombre (4 décimales) |
 | g | le nombre des quatre cases où la classe la plus probable n'est pas la même selon la vraie loi et selon Naïve Bayes | un entier |
-| h | pour 10 features binaires et 2 classes : le nombre de probabilités à estimer avec les lois jointes complètes, puis avec Naïve Bayes (proportion des classes comprise) | une liste de 2 entiers |
+| h | pour 10 features binaires et 2 classes : le nombre de probabilités à estimer avec les lois jointes complètes, puis avec Naïve Bayes (dans les deux cas, la proportion des classes comprise) | une liste de 2 entiers |
 
 Dans ta copie : dans la classe 1, les deux features sont-elles indépendantes ? Explique avec les cases $(0, 1)$ et $(1, 1)$ pourquoi Naïve Bayes s'y trompe. Pourquoi peut-il tout de même bien classer quand l'hypothèse est presque vraie ?
 
@@ -296,7 +296,7 @@ Une feature $x$. Classe 0 : $x \sim \mathcal{N}(-1, 4)$ ; classe 1 : $x \sim \ma
 | b | le biais $b$ | un nombre (4 décimales) |
 | c | la frontière $x^*$ où $P(Y = 1 \mid x) = 0{,}5$ | un nombre (4 décimales) |
 | d | $P(Y = 1 \mid x = 1)$ | un nombre (4 décimales) |
-| e | $P(Y = 1 \mid x = 3)$ | un nombre (4 décimales) |
+| e | $P(Y = 1 \mid x = 3)$ | un nombre (3 décimales) |
 | f | la frontière si les classes étaient équiprobables | un nombre |
 | g | le facteur qui multiplie la cote a posteriori quand $x$ augmente de 1 | un nombre (4 décimales) |
 | h | si la variance de la classe 1 passait à 9 (celle de la classe 0 restant 4) : le coefficient de $x^2$ dans la log-cote a posteriori | un nombre (4 décimales) |
