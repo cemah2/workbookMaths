@@ -582,7 +582,7 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Inverser la divergence de Chernoff | $e^{-n\,\mathrm{KL}(p \Vert a)}$ | $\mathrm{KL}(a \Vert p)$ : la proportion de l'événement d'abord, le paramètre de la loi ensuite |
 | Croire qu'une borne pour $a \le p$ dit quelque chose | « Chernoff donne 1, donc l'événement est sûr » | pour $a \le p$, la borne vaut 1 : elle ne dit rien, et l'événement n'est pas rare |
 | Oublier les covariances dans la variance d'une moyenne | $\mathbb{V}\big(\sum_i w_iX_i\big) = \sum_i w_i^2\,\mathbb{V}(X_i)$ pour des variables corrélées | $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$, toutes les cases de la matrice |
-| Diviser par $M$ des modèles corrélés | « 100 modèles de variance 4 : variance 0,04 » | le terme en $\frac{1}{M}$ ne porte que sur les parts propres ; les covariances laissent un plancher |
+| Diviser par $M$ des modèles corrélés | « 50 modèles de variance 2 : variance 0,04 » | le terme en $\frac{1}{M}$ ne porte que sur les parts propres ; les covariances laissent un plancher |
 | Croire $(1 + x/n)^n \approx e^x$ dès que $n$ est « grand » | $n = 30$ pour $x = 3$ : « à 1 % près » | l'erreur relative vaut environ $-\frac{x^2}{2n}$ : il faut $n$ grand devant $x^2$ |
 | Oublier de renormaliser les poids de Hedge | $w_t[k] = e^{-\eta L_t[k]}$ | diviser par la somme ; les poids sont une loi sur les experts |
 | Laisser déborder l'exponentielle | `np.exp(-eta * L)` avec $\eta L$ de l'ordre de 1 000 : $\frac{0}{0}$ | retrancher $\min_j L_t[j]$ avant l'exponentielle (log-somme-exp) |

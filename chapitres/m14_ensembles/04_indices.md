@@ -258,12 +258,12 @@ Relis « L'idée » et « La vitesse » (fiche §3), et CP1.9 B pour $e^v \ge 1 
 
 <details><summary>Indice 1</summary>
 
-Relis « Une borne générale » (fiche §2).
+Relis « Une borne générale » (fiche §2), et ∂ M07.14 pour Cauchy-Schwarz.
 
 </details>
 <details><summary>Indice 2</summary>
 
-1 : un trinôme du second degré positif pour tout $t$ a un discriminant négatif ou nul. 3 : développe la variance en double somme.
+1 : relis la preuve de M07.14 en remplaçant le produit scalaire par la covariance ; où sert l'hypothèse « vecteur non nul » ? 3 : développe la variance en double somme.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -281,12 +281,12 @@ Relis « D'où vient la borne de Chernoff » (fiche §1), et M11 pour Markov.
 </details>
 <details><summary>Indice 2</summary>
 
-1 : Markov s'applique à une variable positive. 3 : annule $g'$, puis regarde le signe de $g''$. 4 : calcule d'abord $1 - p + pe^{\lambda^*}$.
+1 : relis CP2.9 B ; seule l'espérance de $e^{\lambda X_i}$ change. 2 : annule $g'$, puis regarde le signe de $g''$. 3 : calcule d'abord $1 - p + pe^{\lambda^*}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-4 : $1 - p + pe^{\lambda^*} = \frac{1 - p}{1 - a}$, puis $\ln\frac{a(1 - p)}{p(1 - a)} = \ln\frac{a}{p} + \ln\frac{1 - p}{1 - a}$. 6 : $f''(a) = \frac{1}{a(1 - a)} - 4$, et $a(1 - a) \le \frac{1}{4}$.
+3 : $1 - p + pe^{\lambda^*} = \frac{1 - p}{1 - a}$, puis $\ln\frac{a(1 - p)}{p(1 - a)} = \ln\frac{a}{p} + \ln\frac{1 - p}{1 - a}$. 5 : $f''(a) = \frac{1}{a(1 - a)} - 4$, et $a(1 - a) \le \frac{1}{4}$.
 
 </details>
 
@@ -308,7 +308,7 @@ Relis « Moyenner des prédictions corrélées : un plancher » (fiche §2).
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{0{,}8 + 1{,}2 + 2 \times 0{,}4}{4} + \frac{3}{2m}$. e) Avec une proportion $\alpha$ de modèles A, le plancher vaut $\mathbb{V}\big(\alpha Z_A + (1 - \alpha)Z_B\big)$ ; dérive en $\alpha$. h) Poids $\frac{100}{110}$ et $\frac{10}{110}$, plus $\frac{3}{110}$.
+a) $\frac{0{,}7 + 0{,}9 + 2 \times 0{,}3}{4} + \frac{2{,}5}{2m}$. c) divise b) par a). e) Avec une proportion $\alpha$ de modèles A, le plancher vaut $\mathbb{V}\big(\alpha Z_A + (1 - \alpha)Z_B\big)$ ; dérive en $\alpha$. h) Poids $\frac{100}{110}$ et $\frac{10}{110}$, plus $\frac{2{,}5}{110}$.
 
 </details>
 

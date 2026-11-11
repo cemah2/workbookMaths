@@ -79,7 +79,7 @@
 - f :
 - g :
 - h :
-- la somme de a) terme à terme ; la loi de F ; les trois bornes rangées, et pourquoi elles restent loin de d) ; 12 machines dont 10 nécessaires ; la vérification avec binomial_test :
+- la somme de a) terme à terme ; la loi de F ; la borne de Chernoff, les trois bornes rangées, et pourquoi elles restent loin de d) ; 12 machines dont 10 nécessaires ; la vérification avec binomial_test :
 
 ### Ex M14.2 — La variance de la moyenne de trois mesures corrélées, par la matrice de covariance
 
@@ -101,7 +101,7 @@
 - f :
 - g :
 - h :
-- x et les quatre N ; l'ordre de a) à d) ; e) comparé à f) ; g) comparé à −x²/(2n), et pourquoi l'approximation y est moins bonne :
+- x et les trois N ; l'ordre de a) à d) ; e) comparé à f) ; g) comparé à −x²/(2n), et pourquoi l'approximation y est moins bonne :
 
 ### Ex M14.4 — Les poids exponentiels de cinq experts après trois tours
 
@@ -151,7 +151,6 @@
 3. 
 4. 
 5. 
-6. 
 
 ## 🔗 🗣️ Pont et explication
 
@@ -165,7 +164,7 @@
 - f :
 - g :
 - h :
-- la moyenne écrite en deux parts ; pourquoi g) > a) ; pourquoi mélanger baisse le plancher ; h) comparé à 110 modèles du groupe A ; la corrélation de deux modèles du groupe A :
+- la moyenne écrite en deux parts ; ce que dit c) ; pourquoi b) < d) ; h) comparé à 110 modèles du groupe A ; la corrélation de deux modèles du groupe A :
 
 ### Ex M14.10 — Expliquer pourquoi une moyenne réduit la variance, et quand elle ne la réduit plus
 

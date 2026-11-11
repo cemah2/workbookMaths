@@ -113,7 +113,7 @@ Un service de calcul tourne sur 9 machines et tient la charge tant qu'**au moins
 | g | la borne de Markov de $P(F \ge 3)$ | un nombre (4 décimales) |
 | h | la probabilité que le service tienne avec 12 machines, s'il en faut au moins 10 | un nombre (4 décimales) |
 
-Dans ta copie : écris la somme de a) terme à terme. Pourquoi $F$ suit-il la loi $\mathcal{B}(9 ;\ 0{,}1)$ ? Calcule la borne de Chernoff $e^{-\text{e)}}$, puis range les trois bornes de la meilleure à la moins bonne, et dis pourquoi aucune n'est proche de d) pour $n = 9$. Avec 12 machines et toujours 2 machines de réserve, le service est-il plus ou moins fiable ? Pourquoi ? Vérifie a) avec `testing.binomial_test` de M08.
+Dans ta copie : écris la somme de a) terme à terme. Pourquoi $F$ suit-il la loi $\mathcal{B}(9 ;\ 0{,}1)$ ? Calcule la borne de Chernoff $e^{-\text{e)}}$, puis, comme en M11.8 mais avec Chernoff en plus, range les trois bornes de la meilleure à la moins bonne, et dis pourquoi aucune n'est proche de d) pour $n = 9$. Avec 12 machines et toujours 2 machines de réserve, le service est-il plus ou moins fiable ? Pourquoi ? Vérifie a) avec `testing.binomial_test` de M08.
 
 ### Ex M14.2 — La variance de la moyenne de trois mesures corrélées, par la matrice de covariance ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer la variance d'une moyenne pondérée de variables corrélées par $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$, et trouver les meilleurs poids.
@@ -217,7 +217,7 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 **Prérequis :** fiche §2 ; M02c ; M07 · **Parcours :** C
 
 $X_1, \ldots, X_M$ ont chacune une variance au plus $\sigma^2$ ; $w_1, \ldots, w_M \ge 0$ et $\sum_i w_i = 1$.
-1. Montre que $\lvert\operatorname{Cov}(X, Y)\rvert \le \sqrt{\mathbb{V}(X)\,\mathbb{V}(Y)}$ (regarde $\mathbb{V}(X - tY)$ comme un polynôme du second degré en $t$, toujours positif ou nul ; traite à part le cas $\mathbb{V}(Y) = 0$).
+1. $\lvert\operatorname{Cov}(X, Y)\rvert \le \sqrt{\mathbb{V}(X)\,\mathbb{V}(Y)}$ est l'inégalité de Cauchy-Schwarz (∂ M07.14, ∂ M12b.13) pour la covariance, bilinéaire, symétrique et positive (M02c). Dis ce qui joue le rôle du produit scalaire et de la norme, et explique en deux phrases pourquoi la preuve par le discriminant de M07.14 marche encore quand $\mathbb{V}(Y) = 0$ sans que $Y$ soit nulle.
 2. Déduis-en $\operatorname{Cov}(X_i, X_j) \le \sigma^2$ pour tous $i, j$.
 3. Avec $\sigma_i^2 = \mathbb{V}(X_i)$, montre que $\mathbb{V}\big(\sum_i w_iX_i\big) \le \big(\sum_i w_i\sigma_i\big)^2$, puis que cette quantité est au plus $\sigma^2$.
 4. Quand y a-t-il égalité ? Donne un exemple où elle est atteinte avec $M = 2$ et des poids non nuls.
@@ -228,14 +228,13 @@ $X_1, \ldots, X_M$ ont chacune une variance au plus $\sigma^2$ ; $w_1, \ldots, w
 **Prérequis :** fiche §1 ; M06 ; M11 · **Parcours :** C
 
 $X$ suit la loi $\mathcal{B}(n, p)$ avec $0 < p < 1$, et $p < a < 1$.
-1. Pour $\lambda > 0$, montre que $P(X \ge na) \le e^{-\lambda na}\,\mathbb{E}\big[e^{\lambda X}\big]$, en nommant l'inégalité utilisée et en justifiant qu'elle s'applique.
-2. Montre que $\mathbb{E}\big[e^{\lambda X}\big] = (1 - p + pe^\lambda)^n$ ; dis où sert l'indépendance.
-3. Soit $g(\lambda) = -\lambda a + \ln(1 - p + pe^\lambda)$. Montre que $g$ atteint son minimum sur $]0, +\infty[$ en $\lambda^*$ tel que $e^{\lambda^*} = \frac{a(1 - p)}{p(1 - a)}$, et vérifie que $\lambda^* > 0$.
-4. Montre que $g(\lambda^*) = -\mathrm{KL}(a \Vert p)$, et conclus : $P(X \ge na) \le e^{-n\,\mathrm{KL}(a \Vert p)}$.
-5. Pour $a = 1$, la formule de 3 ne s'applique plus. Montre directement que $P(X \ge n) = p^n = e^{-n\,\mathrm{KL}(1 \Vert p)}$ (avec $0\ln 0 = 0$) : la borne est alors exacte.
-6. **Chernoff contre Hoeffding.** $p$ est fixé. Pour $a \in\ ]0, 1[$, on pose $f(a) = \mathrm{KL}(a \Vert p) - 2(a - p)^2$. Calcule $f(p)$, $f'(p)$ et $f''(a)$, montre que $f'' \ge 0$, et conclus : $\mathrm{KL}(a \Vert p) \ge 2(a - p)^2$ (l'inégalité de Pinsker, pour deux lois de Bernoulli). Qu'en déduis-tu sur les bornes de Chernoff et de Hoeffding de $P(X \ge na)$ ?
+1. **Le point de départ (M11 §6, CP2.9 B).** La méthode de Chernoff donne, pour tout $\lambda > 0$, $P(X \ge na) \le e^{-\lambda na}\,(1 - p + pe^\lambda)^n$ : CP2.9 B l'a établie pour $p = \frac{1}{2}$. Dis en une phrase ce qui change pour un $p$ quelconque, puis écris la borne sous la forme $e^{n\,g(\lambda)}$, avec $g(\lambda) = -\lambda a + \ln(1 - p + pe^\lambda)$.
+2. Montre que $g$ atteint son minimum sur $]0, +\infty[$ en $\lambda^*$ tel que $e^{\lambda^*} = \frac{a(1 - p)}{p(1 - a)}$, et vérifie que $\lambda^* > 0$.
+3. Montre que $g(\lambda^*) = -\mathrm{KL}(a \Vert p)$, et conclus : $P(X \ge na) \le e^{-n\,\mathrm{KL}(a \Vert p)}$.
+4. Pour $a = 1$, la formule de 2 ne s'applique plus. Montre directement que $P(X \ge n) = p^n = e^{-n\,\mathrm{KL}(1 \Vert p)}$ (avec $0\ln 0 = 0$) : la borne est alors exacte.
+5. **Chernoff contre Hoeffding.** $p$ est fixé. Pour $a \in\ ]0, 1[$, on pose $f(a) = \mathrm{KL}(a \Vert p) - 2(a - p)^2$. Calcule $f(p)$, $f'(p)$ et $f''(a)$, montre que $f'' \ge 0$, et conclus : $\mathrm{KL}(a \Vert p) \ge 2(a - p)^2$ (l'inégalité de Pinsker, pour deux lois de Bernoulli). Qu'en déduis-tu sur les bornes de Chernoff et de Hoeffding de $P(X \ge na)$ ?
 
-CP2.9 B a fait les questions 1 à 4 dans un cas particulier : tu les fais ici pour tous $p$ et $a$.
+CP2.9 B a fait le cas $p = \frac{1}{2}$, $a = \frac{3}{4}$ : tu optimises ici pour tous $p$ et $a$.
 
 <a id="reflexion"></a>
 
@@ -245,26 +244,26 @@ CP2.9 B a fait les questions 1 à 4 dans un cas particulier : tu les fais ici po
 **Objectif :** calculer la variance de la moyenne de modèles qui forment deux groupes corrélés, son plancher, et ce que le mélange des deux groupes rapporte.
 **Prérequis :** fiche §2 · **Parcours :** C, E
 
-On moyenne des modèles de régression de deux familles. Pour un exemple donné, l'erreur d'un modèle du groupe A vaut $Z_A + E_i$, celle d'un modèle du groupe B, $Z_B + E_i$ : $Z_A$ et $Z_B$ sont les parts communes à chaque groupe, avec $\mathbb{V}(Z_A) = 0{,}8$, $\mathbb{V}(Z_B) = 1{,}2$ et $\operatorname{Cov}(Z_A, Z_B) = 0{,}4$ ; les $E_i$ sont les parts propres ($i$ numérote tous les modèles, des deux groupes), indépendantes de tout le reste, de variance 3 chacune.
+On moyenne des modèles de régression de deux familles. Pour un exemple donné, l'erreur d'un modèle du groupe A vaut $Z_A + E_i$, celle d'un modèle du groupe B, $Z_B + E_i$ : $Z_A$ et $Z_B$ sont les parts communes à chaque groupe, avec $\mathbb{V}(Z_A) = 0{,}7$, $\mathbb{V}(Z_B) = 0{,}9$ et $\operatorname{Cov}(Z_A, Z_B) = 0{,}3$ ; les $E_i$ sont les parts propres ($i$ numérote tous les modèles, des deux groupes), indépendantes de tout le reste, de variance 2,5 chacune.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la variance de la moyenne simple de 10 modèles, 5 de chaque groupe | une fraction |
 | b | le plancher : la limite de cette variance avec $m$ modèles de chaque groupe, quand $m \to \infty$ | une fraction |
-| c | le plus petit $m$ (modèles par groupe) pour que la variance dépasse le plancher d'au plus $0{,}04$ | un entier |
+| c | la part de la variance de a) que représente le plancher b) | une fraction |
 | d | le plancher si l'on ne garde que des modèles du groupe A | une fraction |
 | e | la proportion $\alpha$ de modèles du groupe A qui donne le plus petit plancher, quand les deux groupes ont beaucoup de modèles | une fraction |
 | f | ce plus petit plancher | une fraction |
 | g | la variance de la moyenne de 10 modèles du groupe A seulement | une fraction |
 | h | tu as 100 modèles du groupe A et tu en ajoutes 10 du groupe B : la variance de la moyenne des 110 | une fraction |
 
-Dans ta copie : écris la moyenne des $2m$ modèles comme $\frac{Z_A + Z_B}{2} + \frac{1}{2m}\sum_i E_i$, et déduis-en a) et b). Pourquoi g) est-il plus grand que a), à nombre de modèles égal ? Pourquoi mélanger deux groupes baisse-t-il le plancher, même si le groupe B est moins bon seul ? Pour h), compare à la variance de la moyenne de 110 modèles du groupe A : lequel des deux ajouts vaut mieux, et pourquoi ? Quelle est la corrélation entre deux modèles du groupe A ?
+Dans ta copie : écris la moyenne des $2m$ modèles comme $\frac{Z_A + Z_B}{2} + \frac{1}{2m}\sum_i E_i$, et déduis-en a) et b). Que dit c) de ce que dix modèles de plus, répartis de la même façon, pourraient encore gagner ? Pourquoi le plancher du mélange (b) est-il plus bas que celui du groupe A seul (d), alors que $\mathbb{V}(Z_B) > \mathbb{V}(Z_A)$ ? Pour h), compare à la variance de la moyenne de 110 modèles du groupe A : lequel des deux ajouts vaut mieux, et pourquoi ? Quelle est la corrélation entre deux modèles du groupe A ?
 
 ### Ex M14.10 — Expliquer pourquoi une moyenne réduit la variance, et quand elle ne la réduit plus 🗣️ ★ ⏱️ 10 min
 **Objectif :** expliquer, sans formule, ce que moyenner des prédictions gagne et ce que leur corrélation lui reprend.
 **Prérequis :** fiche §2 · **Parcours :** C, E
 
-Une collègue te dit : « Un thermomètre de la salle serveur a une erreur de variance 4. Avec cent thermomètres du même modèle, la moyenne aura une erreur de variance 0,04, non ? » Réponds-lui en 6 à 10 phrases, sans formule, en t'appuyant sur quatre idées : ce qui se compense quand on moyenne (le bruit propre à chaque appareil) ; ce qui ne se compense pas (une erreur que tous partagent : le même étalonnage d'usine, la même bouche de ventilation) ; ce que changent des appareils de conceptions différentes, ou des erreurs qui vont en sens opposés ; ce que des poids inégaux peuvent apporter. Termine par le lien avec des modèles d'apprentissage entraînés sur les mêmes données. Puis réécris ta réponse en 3 phrases.
+Une collègue te dit : « Un thermomètre de la salle serveur a une erreur d'écart-type 0,6 °C. Avec 36 thermomètres du même modèle, l'erreur de la moyenne aura un écart-type de 0,1 °C, non ? » Réponds-lui en 6 à 10 phrases, sans formule, en t'appuyant sur quatre idées : ce qui se compense quand on moyenne (le bruit propre à chaque appareil) ; ce qui ne se compense pas (une erreur que tous partagent : le même étalonnage d'usine, la même bouche de ventilation) ; ce que changent des appareils de conceptions différentes, ou des erreurs qui vont en sens opposés ; ce que des poids inégaux peuvent apporter. Termine par ce que ce calcul dit d'un ensemble de modèles d'apprentissage (fiche §2, modèle à part commune). Puis réécris ta réponse en 3 phrases.
 
 <a id="entretien"></a>
 

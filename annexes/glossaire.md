@@ -264,7 +264,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | générateur pseudo-aléatoire, graine | pseudo-random number generator, seed | programme qui calcule une suite d'apparence aléatoire à partir d'une graine ; la même graine redonne la même suite | R8 |
 | génératif, discriminant (modèle) | generative, discriminative model | un modèle génératif modélise la loi des features dans chaque classe et la proportion des classes, puis applique la formule de Bayes (Naïve Bayes) ; un modèle discriminant modélise directement la classe sachant les features (régression logistique) | M13a |
 | gradient | gradient | vecteur des dérivées partielles | M05b |
-| gradient fonctionnel | functional gradient | le gradient d'une loss par rapport au vecteur $\mathbf{F}$ des prédictions sur les exemples (une coordonnée par exemple) ; on l'approche par un modèle simple, ajouté à l'ensemble avec un petit coefficient | M14 |
+| gradient fonctionnel | functional gradient | le gradient d'une loss par rapport au vecteur $\mathbf{F}$ des prédictions sur les exemples (une coordonnée par exemple) ; ajouter à l'ensemble $\alpha\,h$, avec $\mathbf{h}$ d'angle aigu avec $-\nabla_{\mathbf{F}}\mathcal{L}$ et $\alpha$ petit, fait baisser la loss au premier ordre | M14 |
 | Gram-Schmidt (procédé de) | Gram-Schmidt orthogonalization | retirer de chaque vecteur ses projections sur les vecteurs déjà construits, puis normer : une base orthonormée du même sous-espace ; classique ou modifié selon que l'on projette le vecteur d'origine ou le vecteur courant | M12b |
 | grand O | big O | $f = O(g)$ : $f$ ne croît pas plus vite que $g$, à une constante près ; mesure le coût d'un algorithme | R7 |
 | Hadamard (produit de) | Hadamard product, element-wise product | $\mathbf{A} \odot \mathbf{B}$, les produits des éléments de même position (`A * B` en NumPy) ; même forme, commutatif | M09a |
@@ -657,7 +657,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | vecteur directeur, vecteur normal | direction vector, normal vector | un vecteur qui a la direction d'une droite ; un vecteur perpendiculaire à une droite ou à un plan (il engendre son complément orthogonal) | R9, M07, M12b |
 | vecteur one-hot | one-hot vector | le codage d'une catégorie : un 1 à sa place, des 0 ailleurs (un vecteur de la base canonique) | M07 |
 | vecteur unitaire | unit vector | un vecteur de norme 1 ; $\frac{\vec{u}}{\lVert \vec{u} \rVert}$ normalise $\vec{u}$ | R9, M07 |
-| vote pondéré, vote souple | weighted vote, soft voting | la classe qui reçoit le plus grand total de poids parmi les modèles qui l'annoncent ; la moyenne, classe par classe, des vecteurs de probabilités des modèles | M14 |
+| vote pondéré, vote souple | weighted vote, soft voting | avec des poids positifs de somme 1 : la classe la plus probable quand on tire un modèle selon ces poids ; le vote souple moyenne, coordonnée par coordonnée, les vecteurs de probabilités des modèles | M14 |
 | vrai positif, vrai négatif | true positive, true negative (TP, TN) | un positif prédit positif ; un négatif prédit négatif | M03 |
 | vraisemblance | likelihood | probabilité des données, vue comme fonction des paramètres | M04 |
 | weight decay | weight decay | la pénalité L2 vue dans une descente de gradient : $\mathbf{w} \leftarrow (1 - 2\eta\lambda)\mathbf{w} - \eta\nabla L(\mathbf{w})$ | M09b |

@@ -234,7 +234,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\mu^\star$, $\Delta_k$ | « mu étoile », « delta k » | best mean, gap | la meilleure moyenne parmi les options, et l'écart de l'option $k$ à elle | $\Delta_k = \mu^\star - \mu_k$ | M11 |
 | $N_k(T)$ | « N k de T » | number of pulls of arm k | le nombre de fois que l'option $k$ a été choisie en $T$ pas | $\sum_k N_k(T) = T$ | M11 |
 | $R_T$ | « R T », « regret après T pas » | regret | $\sum_k \Delta_k\,\mathbb{E}[N_k(T)]$ | linéaire en $T$ pour ε-greedy à ε fixé | M11 |
-| $\mathrm{KL}(a \Vert p)$ | « KL de a à p » | KL divergence between two Bernoulli distributions | $a\ln\frac{a}{p} + (1 - a)\ln\frac{1 - a}{1 - p}$, en nats ; d'abord la proportion de l'événement, puis le paramètre de la loi | $\mathrm{KL}(0{,}5 \Vert 0{,}3) \approx 0{,}0872$ | M14 |
+| $\mathrm{KL}(a \Vert p)$ | « KL de a à p » | KL divergence between two Bernoulli distributions | $a\ln\frac{a}{p} + (1 - a)\ln\frac{1 - a}{1 - p}$, en nats ; d'abord la proportion de l'événement, puis le paramètre de la loi | $\mathrm{KL}(0{,}4 \Vert 0{,}25) \approx 0{,}0541$ | M14 |
 | $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ | « w transposé sigma w » | quadratic form | la variance de la moyenne pondérée $\sum_i w_iX_i$, pour la matrice de covariance $\boldsymbol{\Sigma}$ des $X_i$ | $\mathbf{w} = (\frac12, \frac12)$ : $\frac{\Sigma_{11} + \Sigma_{22} + 2\Sigma_{12}}{4}$ | M14 |
 | $L_t[k]$, $\mathbf{w}_t$, $\eta$ | « L t de k », « w t », « êta » | cumulative loss, weights, learning rate | la loss cumulée de l'expert $k$ avant le tour $t$, les poids de Hedge à ce tour ($w_t[k] \propto e^{-\eta L_t[k]}$), et son learning rate | $L_1[k] = 0$ : poids uniformes | M14 |
 

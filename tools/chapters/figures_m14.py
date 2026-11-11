@@ -4,8 +4,8 @@
     python tools/chapters/figures_m14.py
 
 Writes small PNG files into chapitres/m14_ensembles/figures/: the exact tail of a binomial law against the Hoeffding
-and Chernoff bounds, as n grows (log scale); the variance of the average of M correlated predictions, which levels off
-at the average covariance; (1 + x/n)ⁿ against eˣ for x = 2 and x = −1.5; the weights of four experts under Hedge for two
+and Chernoff bounds, as n grows (log scale); the two parts of the variance of the average of M predictions with a common part
+(the own parts fade, the common part stays); (1 + x/n)ⁿ against eˣ for x = 2.5 and x = −1.5; the weights of four experts under Hedge for two
 learning rates; the exponential and Huber losses and their derivatives with respect to the prediction. The numbers are
 those of the fiche; none comes from workbookIA 14 (no voters, no bootstrap, no x = −1, no equicorrelated models, no
 seed 14xx).
@@ -36,8 +36,8 @@ C = wbplot.CATEGORICAL
 DPI = 110
 SEED = 4301
 
-P_TAIL, A_TAIL = 0.3, 0.5                       # §1: P(X ≥ n a) for X ~ B(n, 0,3), a = 0,5
-X_LIMIT = (2.0, -1.5)                           # §3: two values of x
+P_TAIL, A_TAIL = 0.25, 0.4                      # §1: P(X ≥ n a) for X ~ B(n ; 0,25), a = 0,4
+X_LIMIT = (2.5, -1.5)                           # §3: two values of x
 ETAS = (0.1, 0.8)                               # §4: two learning rates
 DELTA = 0.5                                     # §5: the threshold of the Huber loss
 
@@ -59,50 +59,43 @@ def save(fig, name: str) -> None:
 
 
 def binomial_tail() -> None:
-    """§1: the exact tail, the Hoeffding bound and the Chernoff bound, for p = 0,3 and a = 0,5."""
-    ns = np.arange(4, 151, 2)
+    """§1: the exact tail, the Hoeffding bound and the Chernoff bound, for p = 0,25 and a = 0,4."""
+    ns = np.arange(5, 151, 5)
     kl = float(rel_entr(A_TAIL, P_TAIL) + rel_entr(1 - A_TAIL, 1 - P_TAIL))
-    exact = [binom.sf(math.ceil(n * A_TAIL) - 1, n, P_TAIL) for n in ns]
+    exact = [binom.sf(math.ceil(round(n * A_TAIL, 9)) - 1, n, P_TAIL) for n in ns]   # round: 15 × 0,4 > 6 in floats
     fig, ax = plt.subplots(figsize=(6.4, 4.2))
     ax.plot(ns, np.exp(-2 * ns * (A_TAIL - P_TAIL) ** 2), color=C[1], lw=2, label="Hoeffding : exp(−2n(a − p)²)")
     ax.plot(ns, np.exp(-ns * kl), color=C[0], lw=2, label="Chernoff : exp(−n KL(a ‖ p))")
-    ax.plot(ns, exact, "o", color="0.25", ms=3, label="queue exacte P(X ≥ n/2)")
+    ax.plot(ns, exact, "o", color="0.25", ms=3, label="queue exacte P(X ≥ 0,4 n)")
     ax.set_yscale("log")
     ax.set(xlabel="n", ylabel="probabilité (échelle log)",
-           title="X de loi B(n ; 0,3) : la queue P(X ≥ 0,5 n) et ses deux bornes")
+           title="X de loi B(n ; 0,25) : la queue P(X ≥ 0,4 n) et ses deux bornes")
     ax.legend(fontsize=9)
     save(fig, "queue_binomiale.png")
 
 
 def variance_of_mean() -> None:
-    """§2: M predictions X_i = a_i Z + E_i (a common part, an own part): V(mean) levels off at the mean covariance."""
+    """§2: M predictions X_i = a_i Z + E_i (a common part, an own part): the two parts of V(mean), stacked."""
     rng = np.random.default_rng(SEED)
-    loads = rng.uniform(0.4, 1.0, size=200)          # how much each prediction follows the common part Z
-    own = rng.uniform(1.0, 3.0, size=200)            # the variance of its own part E_i
-    ms = np.arange(1, 201)
-    values, floors = [], []
-    for m in ms:
-        a, s = loads[:m], own[:m]
-        cov = np.outer(a, a) + np.diag(s)
-        values.append(cov.sum() / m ** 2)
-        floors.append(a.mean() ** 2 if m > 1 else np.nan)
+    loads = rng.uniform(0.4, 1.0, size=50)           # how much each prediction follows the common part Z
+    own = rng.uniform(1.0, 3.0, size=50)             # the variance of its own part E_i
+    ms = np.arange(1, 51)
+    common = np.array([loads[:m].mean() ** 2 for m in ms])
+    proper = np.array([own[:m].sum() / m ** 2 for m in ms])
     fig, ax = plt.subplots(figsize=(6.4, 4.0))
-    ax.plot(ms, values, color=C[0], lw=2, label="V(moyenne des M prédictions)")
-    ax.plot(ms, floors, "--", color=C[1], lw=1.5, label="(moyenne des aᵢ)² : la part commune")
-    ax.plot(ms, np.array([own[:m].mean() for m in ms]) / ms, ":", color="0.4", lw=1.5,
-            label="ce qu'on aurait sans la part commune")
-    ax.set_xscale("log")
-    ax.set(xlabel="nombre M de prédictions moyennées (échelle log)", ylabel="variance",
-           title="Avec une part commune, la variance de la moyenne a un plancher")
+    ax.stackplot(ms, common, proper, colors=(C[1], C[0]), alpha=0.85,
+                 labels=("part commune : (moyenne des aᵢ)²", "parts propres : (somme des sᵢ) / M²"))
+    ax.set(xlabel="nombre M de prédictions moyennées", ylabel="variance de la moyenne", xlim=(1, 50),
+           title="Les parts propres s'effacent quand M grandit, la part commune reste")
     ax.legend(fontsize=9)
     save(fig, "variance_moyenne.png")
 
 
 def exp_limit() -> None:
-    """§3: (1 + x/n)ⁿ against eˣ, for x = 2 and x = −1.5."""
+    """§3: (1 + x/n)ⁿ against eˣ, for x = 2.5 and x = −1.5."""
     ns = np.unique(np.round(np.logspace(0, 3.3, 60)).astype(int))
     fig, axes = plt.subplots(1, 2, figsize=(10.5, 3.8))
-    names = {2.0: ("(1 + 2/n)ⁿ", "e²"), -1.5: ("(1 − 1,5/n)ⁿ", "e^(−1,5)")}
+    names = {2.5: ("(1 + 2,5/n)ⁿ", "e^2,5"), -1.5: ("(1 − 1,5/n)ⁿ", "e^(−1,5)")}
     for ax, x in zip(axes, X_LIMIT):
         keep = ns[1 + x / ns > 0]
         ax.plot(keep, (1 + x / keep) ** keep, "o-", color=C[0], ms=3, lw=1.2, label=names[x][0])
