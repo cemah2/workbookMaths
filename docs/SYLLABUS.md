@@ -49,7 +49,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M12c](#m12c) | Valeurs propres et matrices symétriques | 12 | §4.1, §4.2, §4.3, §4.4 | 16,8 h | ✅ exercices | 2 |
 | [M12d](#m12d) | SVD et analyse en composantes principales | 12 | §4.5, §4.6, §4.7, §10.1, §10.2, §10.3, §10.4, §10.5, §10.6 | 18,0 h | ✅ exercices | 2 |
 | [M13a](#m13a) | Vraisemblance et régression logistique | 13 | §8.3 | 14,4 h | ✅ exercices | 2 |
-| [M13b](#m13b) | Optimisation sous contraintes et SVM | 13 | §7.2, §7.3, ch. 12 | 16,1 h | ✅ exercices | 1 |
+| [M13b](#m13b) | Optimisation sous contraintes et SVM | 13 | §7.2, §7.3, ch. 12 | 16,1 h | ✅ exercices | 2 |
 | [M14](#m14) | Les maths des ensembles | 14 | — | 7,2 h | ✅ exercices | 1 |
 | [CP3](#cp3) | Examen blanc de la partie III | — | — | 3,1 h | ✅ exercices | 1 |
 | [M16](#m16) | Couches affines et variance à l'initialisation | 16 | §6.4 | ≈ 8 h (estimé) | plan | 1 |
@@ -2604,7 +2604,7 @@ Le maximum de vraisemblance (Bernoulli, catégorielle, gaussienne), la log-loss 
 <a id="m13b"></a>
 ## M13b · Optimisation sous contraintes et SVM
 
-**Partie** III · **prépare** workbookIA 13 · **dossier** `chapitres/m13b_lagrange_svm/` · **MML** §7.2, §7.3, ch. 12 · **sessions de génération** 1
+**Partie** III · **prépare** workbookIA 13 · **dossier** `chapitres/m13b_lagrange_svm/` · **MML** §7.2, §7.3, ch. 12 · **sessions de génération** 2
 
 L'optimisation sous contraintes : multiplicateurs de Lagrange, conditions KKT, dualité, optimisation convexe, et l'ACP relue par Lagrange ; puis les SVM : marge, problème primal à marge dure et souple, hinge loss et sous-gradient, problème dual, vecteurs de support, noyaux et astuce du noyau (polynomial, RBF).
 

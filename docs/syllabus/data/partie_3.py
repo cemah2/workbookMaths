@@ -684,7 +684,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M13b", "dir": "m13b_lagrange_svm", "hours": 16.1, "generation_sessions": 1,
+        "id": "M13b", "dir": "m13b_lagrange_svm", "hours": 16.1, "generation_sessions": 2,
         "mml": ["§7.2", "§7.3", "ch. 12"],
         "summary": "L'optimisation sous contraintes : multiplicateurs de Lagrange, conditions KKT, dualité, "
                    "optimisation convexe, et l'ACP relue par Lagrange ; puis les SVM : marge, problème primal à marge "
