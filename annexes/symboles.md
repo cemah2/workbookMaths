@@ -135,6 +135,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $L_i \leftarrow L_i - \lambda L_j$ | « L i devient L i moins lambda L j » | row operation | remplacer la ligne $i$ par elle-même moins $\lambda$ fois la ligne $j$ (une opération élémentaire) | $L_2 \leftarrow L_2 - 2L_1$ | M09a |
 | $\operatorname{rg}(\mathbf{A})$, $\operatorname{rk}(\mathbf{A})$ | « rang de A » | rank of A | le nombre de pivots, la dimension de l'espace des colonnes, au plus $\min(m, n)$ | $\operatorname{rg}(\mathbf{I}_3) = 3$ | M09a, M12a |
 | $\nabla_{\mathbf{w}} f$ | « gradient de f par rapport à w » | gradient with respect to w | le vecteur des dérivées partielles de $f$ par rapport aux coordonnées de $\mathbf{w}$, de la forme de $\mathbf{w}$ | $\nabla_{\mathbf{w}}(\mathbf{a}^\top\mathbf{w}) = \mathbf{a}$ | M09b |
+| $\nabla_{\mathbf{F}}\mathcal{L}$ | « gradient de L par rapport à F » | gradient with respect to the predictions | le gradient d'une loss par rapport au vecteur $\mathbf{F}$ des prédictions sur les exemples : une coordonnée par **exemple**, $\frac{\partial\ell}{\partial F}(y_i, F_i)$ | loss exponentielle : $-y_ie^{-y_iF_i}$ | M14 |
 | $\hat{\mathbf{y}}$ | « y chapeau » (en gras) | fitted values, predictions | le vecteur des prédictions d'un modèle, $\mathbf{X}\mathbf{w}$ | $\hat{\mathbf{y}} = \mathbf{H}\mathbf{y}$ | M09b |
 | $\mathbf{H}$, $h_{ii}$ | « la matrice chapeau », « h i i » | hat matrix, leverage | $\mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, la projection sur l'espace des colonnes de $\mathbf{X}$ ; ses nombres diagonaux sont les leviers | $\operatorname{tr}\mathbf{H} = p$ | M09b |
 | $\operatorname{conv}(S)$ | « enveloppe convexe de S » | convex hull of S | le plus petit convexe qui contient $S$ | $\operatorname{conv}(\{0, 5\}) = [0, 5]$ | M10 |
@@ -233,6 +234,9 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\mu^\star$, $\Delta_k$ | « mu étoile », « delta k » | best mean, gap | la meilleure moyenne parmi les options, et l'écart de l'option $k$ à elle | $\Delta_k = \mu^\star - \mu_k$ | M11 |
 | $N_k(T)$ | « N k de T » | number of pulls of arm k | le nombre de fois que l'option $k$ a été choisie en $T$ pas | $\sum_k N_k(T) = T$ | M11 |
 | $R_T$ | « R T », « regret après T pas » | regret | $\sum_k \Delta_k\,\mathbb{E}[N_k(T)]$ | linéaire en $T$ pour ε-greedy à ε fixé | M11 |
+| $\mathrm{KL}(a \Vert p)$ | « KL de a à p » | KL divergence between two Bernoulli distributions | $a\ln\frac{a}{p} + (1 - a)\ln\frac{1 - a}{1 - p}$, en nats ; d'abord la proportion de l'événement, puis le paramètre de la loi | $\mathrm{KL}(0{,}5 \Vert 0{,}3) \approx 0{,}0872$ | M14 |
+| $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ | « w transposé sigma w » | quadratic form | la variance de la moyenne pondérée $\sum_i w_iX_i$, pour la matrice de covariance $\boldsymbol{\Sigma}$ des $X_i$ | $\mathbf{w} = (\frac12, \frac12)$ : $\frac{\Sigma_{11} + \Sigma_{22} + 2\Sigma_{12}}{4}$ | M14 |
+| $L_t[k]$, $\mathbf{w}_t$, $\eta$ | « L t de k », « w t », « êta » | cumulative loss, weights, learning rate | la loss cumulée de l'expert $k$ avant le tour $t$, les poids de Hedge à ce tour ($w_t[k] \propto e^{-\eta L_t[k]}$), et son learning rate | $L_1[k] = 0$ : poids uniformes | M14 |
 
 ## Les lettres grecques
 

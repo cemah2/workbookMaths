@@ -573,3 +573,20 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Oublier le carré dans le noyau RBF | $e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert}$ | $e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$ (`sklearn` aussi) |
 | Oublier les monômes de bas degré du noyau polynomial | « $(1 + \mathbf{x} \cdot \mathbf{z})^2$ en dimension $p$ : $\binom{p + 1}{2}$ coordonnées » | $\binom{p + 2}{2}$ : les monômes de degré **au plus** 2, constante comprise |
 | Prendre n'importe quelle fonction de deux points pour un noyau | « $\lVert\mathbf{x} - \mathbf{z}\rVert^2$ compare deux points : c'est un noyau » | un noyau est symétrique et a des matrices de Gram semi-définies positives ; ce n'est pas le cas ici |
+
+## Les maths des ensembles (M14)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Prendre $P(X > k)$ pour $P(X \ge k)$ | « au moins 7 sur 9 » : `binom.sf(7, 9, p)` | `binom.sf(k - 1, n, p)`, car `sf(m)` rend $P(X > m)$ |
+| Inverser la divergence de Chernoff | $e^{-n\,\mathrm{KL}(p \Vert a)}$ | $\mathrm{KL}(a \Vert p)$ : la proportion de l'événement d'abord, le paramètre de la loi ensuite |
+| Croire qu'une borne pour $a \le p$ dit quelque chose | « Chernoff donne 1, donc l'événement est sûr » | pour $a \le p$, la borne vaut 1 : elle ne dit rien, et l'événement n'est pas rare |
+| Oublier les covariances dans la variance d'une moyenne | $\mathbb{V}\big(\sum_i w_iX_i\big) = \sum_i w_i^2\,\mathbb{V}(X_i)$ pour des variables corrélées | $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$, toutes les cases de la matrice |
+| Diviser par $M$ des modèles corrélés | « 100 modèles de variance 4 : variance 0,04 » | le terme en $\frac{1}{M}$ ne porte que sur les parts propres ; les covariances laissent un plancher |
+| Croire $(1 + x/n)^n \approx e^x$ dès que $n$ est « grand » | $n = 30$ pour $x = 3$ : « à 1 % près » | l'erreur relative vaut environ $-\frac{x^2}{2n}$ : il faut $n$ grand devant $x^2$ |
+| Oublier de renormaliser les poids de Hedge | $w_t[k] = e^{-\eta L_t[k]}$ | diviser par la somme ; les poids sont une loi sur les experts |
+| Laisser déborder l'exponentielle | `np.exp(-eta * L)` avec $\eta L$ de l'ordre de 1 000 : $\frac{0}{0}$ | retrancher $\min_j L_t[j]$ avant l'exponentielle (log-somme-exp) |
+| Se tromper de signe dans les poids exponentiels | $w \propto e^{+\eta L}$ | une grande loss donne un **petit** poids : $e^{-\eta L}$ |
+| Utiliser la loss du tour au lieu de la loss cumulée | $w_t[k] \propto e^{-\eta\ell_{t-1}[k]}$ | $L_t[k] = \sum_{s < t}\ell_s[k]$, la somme des tours précédents |
+| Confondre le gradient par rapport aux prédictions et aux paramètres | « le gradient de la loss exponentielle a autant de coordonnées que le modèle a de coefficients » | $\nabla_{\mathbf{F}}\mathcal{L}$ a une coordonnée par exemple ; la règle de la chaîne mène aux paramètres |
+| Ne pas couper le gradient de Huber | $-(y - F)$ pour un résidu de 2,7 avec $\delta = 0{,}8$ | $-\operatorname{clip}(y - F, -\delta, \delta)$ : au plus $\delta$ en valeur absolue |

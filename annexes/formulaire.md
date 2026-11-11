@@ -484,6 +484,18 @@ R0 (prise en main) n'a pas de formule : les priorités de Python (`**` avant le 
 | dual de la SVM | $\max \sum_i \alpha_i - \frac12\sum_{i,j}\alpha_i\alpha_jy_iy_j\,k(\mathbf{x}_i, \mathbf{x}_j)$ sous $0 \le \alpha_i \le C$, $\sum_i \alpha_iy_i = 0$ ; $\alpha_i = 0 \Rightarrow t_i \ge 1$, $0 < \alpha_i < C \Rightarrow t_i = 1$, $\alpha_i = C \Rightarrow t_i \le 1$ ; $s(\mathbf{x}) = \sum_i \alpha_iy_i\,k(\mathbf{x}_i, \mathbf{x}) + b$ |
 | noyaux | $(\mathbf{x} \cdot \mathbf{z} + c)^d$ : $\binom{p + d}{d}$ coordonnées ($c > 0$) ; RBF $e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$, $\lVert\varphi(\mathbf{x}) - \varphi(\mathbf{z})\rVert^2 = 2 - 2k$ ; somme, produit, $c\,k$ ($c > 0$) restent des noyaux ; matrice de Gram semi-définie positive |
 
+### M14 · Les maths des ensembles
+
+| Notion | Formules |
+|---|---|
+| queue binomiale | $P(X \ge k) = \sum_{j \ge k}\binom{n}{j}p^j(1 - p)^{n-j}$ = `binom.sf(k - 1, n, p)` |
+| bornes de la queue ($a > p$) | Markov $\frac{p}{a}$ ; Hoeffding $e^{-2n(a - p)^2}$ ; Chernoff $e^{-n\,\mathrm{KL}(a \Vert p)}$, $\mathrm{KL}(a \Vert p) = a\ln\frac{a}{p} + (1 - a)\ln\frac{1 - a}{1 - p}$ ; meilleur $\lambda$ : $e^{\lambda^*} = \frac{a(1 - p)}{p(1 - a)}$ ; Pinsker $\mathrm{KL}(a \Vert p) \ge 2(a - p)^2$ |
+| variance d'une moyenne pondérée | $\mathbb{V}\big(\sum_i w_iX_i\big) = \mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ ; poids optimaux $\mathbf{w}^* = \frac{\boldsymbol{\Sigma}^{-1}\mathbf{1}}{\mathbf{1}^\top\boldsymbol{\Sigma}^{-1}\mathbf{1}}$, variance $\frac{1}{\mathbf{1}^\top\boldsymbol{\Sigma}^{-1}\mathbf{1}}$ ; poids $\ge 0$ de somme 1 : $\le \big(\sum_i w_i\sigma_i\big)^2 \le \max_i \sigma_i^2$ |
+| part commune | $X_i = a_iZ + E_i$, $\mathbb{V}(Z) = 1$, $\mathbb{V}(E_i) = s_i$ : $\mathbb{V}(\bar{X}) = \bar{a}^2 + \frac{1}{M^2}\sum_i s_i$, plancher $\bar{a}^2$ |
+| limite exponentielle | $\left(1 + \frac{x}{n}\right)^n \to e^x$ ; $n\ln\left(1 + \frac{x}{n}\right) = x - \frac{x^2}{2n} + \cdots$ ; erreur relative $\approx -\frac{x^2}{2n}$ (entre $-\frac{x^2}{2n}$ et 0 pour $x \ge 0$) ; $u - \frac{u^2}{2} \le \ln(1 + u) \le u$ pour $u \ge 0$ |
+| Hedge | $w_t[k] = \frac{e^{-\eta L_t[k]}}{\sum_j e^{-\eta L_t[j]}}$ ; $R_T = \sum_t \mathbf{w}_t \cdot \boldsymbol{\ell}_t - \min_k L_{T+1}[k] \le \frac{\ln K}{\eta} + \frac{\eta T}{8}$ ; $\eta = \sqrt{8\ln K/T}$ : $R_T \le \sqrt{T\ln K/2}$ ; $\eta_t = \sqrt{8\ln K/t}$ : $R_T \le \sqrt{2T\ln K} + \sqrt{\ln K/8}$ |
+| gradient par rapport aux prédictions | $(\nabla_{\mathbf{F}}\mathcal{L})_i = \frac{\partial\ell}{\partial F}(y_i, F_i)$ ; loss exponentielle $e^{-yF}$ : $-y\,e^{-yF}$ ; Huber : $-\operatorname{clip}(y - F, -\delta, \delta)$ |
+
 ## Partie IV · Réseaux
 
 *(ajouté avec les chapitres M16 à M20)*

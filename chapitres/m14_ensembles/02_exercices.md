@@ -31,7 +31,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 1. $\mathbb{V}(X) = 5$, $\mathbb{V}(Y) = 3$, $\operatorname{Cov}(X, Y) = -2$ : que vaut $\mathbb{V}(X + Y)$ ?
 2. Vrai ou faux : la variance d'une moyenne pondérée est la moyenne pondérée des variances.
 3. $M$ variables indépendantes de même variance $\sigma^2$ : variance de leur moyenne ?
-4. Vrai ou faux : une covariance négative entre deux capteurs fait baisser la variance de leur moyenne.
+4. Vrai ou faux : une covariance négative entre deux capteurs rend la variance de leur moyenne plus petite que pour deux capteurs non corrélés de mêmes variances.
 5. $X_1$ et $X_2$ sont indépendantes, de variance $\sigma^2$, et $X_3 = X_1$ (une copie exacte). Que vaut la variance de la moyenne simple de $X_1$, $X_2$, $X_3$ ? Compare à $\frac{\sigma^2}{3}$.
 6. Vrai ou faux : une moyenne pondérée, à poids positifs de somme 1, de variables de variance au plus $\sigma^2$ peut avoir une variance plus grande que $\sigma^2$.
 
@@ -49,7 +49,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 *Fiche §4 · parcours C*
 
 1. Deux experts, de losses cumulées $(1, 0)$, et $\eta = \ln 5$ : leurs poids ?
-2. Vrai ou faux : si tous les experts ont 5 de loss en plus au même tour, les poids changent.
+2. Vrai ou faux : si tous les experts reçoivent la même loss, 0,7, au même tour, leurs poids changent.
 3. Que deviennent les poids de Hedge quand $\eta \to 0$ ? Et quand $\eta \to +\infty$ ?
 4. Avec le meilleur $\eta$ pour un horizon $T$, comment le regret de Hedge grandit-il avec $T$ ? Et le regret moyen par tour ?
 5. Pourquoi retranche-t-on la plus petite loss cumulée avant de prendre l'exponentielle ?
@@ -63,7 +63,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 *Fiche §1 et §5 · parcours C, E*
 
 1. Calcule $\mathrm{KL}(0{,}25 \Vert 0{,}1)$ en nats (4 décimales).
-2. Calcule $\mathrm{KL}(0{,}1 \Vert 0{,}25)$. Que montre la comparaison avec 1 ?
+2. Calcule $\mathrm{KL}(0{,}1 \Vert 0{,}25)$. Que montre la comparaison avec la question 1 ?
 3. Un modèle annonce toujours la probabilité $0{,}25$ pour le label 1, sur des données où 10 % des labels valent 1. Que vaut sa log-loss moyenne (en nats, 4 décimales) ?
 4. Écris cette log-loss comme l'entropie $H(0{,}1)$ plus une divergence : laquelle ?
 5. Quand $\mathrm{KL}(a \Vert p)$ est-elle nulle ? Quelle propriété de M06 le dit ?
@@ -108,12 +108,12 @@ Un service de calcul tourne sur 9 machines et tient la charge tant qu'**au moins
 | b | $P(X = 7)$ | un nombre (4 décimales) |
 | c | $\mathbb{E}[F]$ | un nombre |
 | d | $P(F \ge 3)$, la probabilité que le service tombe | un nombre (4 décimales) |
-| e | la borne de Chernoff de $P(F \ge 3)$ : $e^{-9\,\mathrm{KL}(1/3 \Vert 0{,}1)}$ | un nombre (4 décimales) |
+| e | l'exposant $9\,\mathrm{KL}(1/3 \Vert 0{,}1)$ de la borne de Chernoff $e^{-9\,\mathrm{KL}(1/3 \Vert 0{,}1)}$ de $P(F \ge 3)$ | un nombre (4 décimales) |
 | f | la borne de Hoeffding de $P(F \ge 3)$ : $e^{-2 \times 9 \times (1/3 - 0{,}1)^2}$ | un nombre (4 décimales) |
 | g | la borne de Markov de $P(F \ge 3)$ | un nombre (4 décimales) |
 | h | la probabilité que le service tienne avec 12 machines, s'il en faut au moins 10 | un nombre (4 décimales) |
 
-Dans ta copie : écris la somme de a) terme à terme. Pourquoi $F$ suit-il la loi $\mathcal{B}(9 ;\ 0{,}1)$ ? Range les trois bornes de la meilleure à la moins bonne, et dis pourquoi aucune n'est proche de d) pour $n = 9$. Avec 12 machines et toujours 2 machines de réserve, le service est-il plus ou moins fiable ? Pourquoi ? Vérifie a) avec `testing.binomial_test` de M08.
+Dans ta copie : écris la somme de a) terme à terme. Pourquoi $F$ suit-il la loi $\mathcal{B}(9 ;\ 0{,}1)$ ? Calcule la borne de Chernoff $e^{-\text{e)}}$, puis range les trois bornes de la meilleure à la moins bonne, et dis pourquoi aucune n'est proche de d) pour $n = 9$. Avec 12 machines et toujours 2 machines de réserve, le service est-il plus ou moins fiable ? Pourquoi ? Vérifie a) avec `testing.binomial_test` de M08.
 
 ### Ex M14.2 — La variance de la moyenne de trois mesures corrélées, par la matrice de covariance ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer la variance d'une moyenne pondérée de variables corrélées par $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$, et trouver les meilleurs poids.
@@ -147,10 +147,10 @@ Un placement rapporte 6,5 % par an, pendant 6 ans. Si les intérêts sont versé
 | d | la limite du facteur quand le nombre de versements tend vers l'infini | un nombre (6 décimales) |
 | e | l'erreur relative de b) par rapport à d) | un nombre (6 décimales) |
 | f | l'erreur relative prévue par l'approximation $-\frac{x^2}{2N}$ pour b), avec le bon $x$ et le bon $N$ | un nombre (6 décimales) |
-| g | l'erreur relative de $\left(1 + \frac{3}{30}\right)^{30}$ par rapport à $e^3$ | un nombre (4 décimales) |
-| h | le plus petit $n$ pour lequel l'approximation $-\frac{x^2}{2n}$ annonce une erreur de moins de 1 % en valeur absolue, pour $x = 3$ | un entier |
+| g | l'erreur relative de $\left(1 + \frac{3}{30}\right)^{30}$ par rapport à $e^3$ | un nombre (3 décimales) |
+| h | le plus petit $n$ pour lequel l'approximation $-\frac{x^2}{2n}$ annonce une erreur de moins de 0,8 % en valeur absolue, pour $x = 3$ | un entier |
 
-Dans ta copie : montre que les quatre facteurs s'écrivent $\left(1 + \frac{x}{N}\right)^N$ avec le même $x$ ; que valent $x$ et les quatre $N$ ? Pourquoi a), b) et c) sont-ils rangés dans cet ordre, et tous plus petits que d) ? Compare e) et f). Pour g), compare à $-\frac{x^2}{2n}$ : pourquoi l'approximation est-elle bien moins bonne qu'en e) et f) ?
+Dans ta copie : montre que les trois facteurs de a), b) et c) s'écrivent $\left(1 + \frac{x}{N}\right)^N$ avec le même $x$ ; que valent $x$ et les trois $N$, et pourquoi d) vaut-il $e^x$ ? Pourquoi a), b) et c) sont-ils rangés dans cet ordre, et tous plus petits que d) ? Compare e) et f). Pour g), compare à $-\frac{x^2}{2n}$ : pourquoi l'approximation est-elle bien moins bonne qu'en e) et f) ?
 
 ### Ex M14.4 — Les poids exponentiels de cinq experts après trois tours ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer les poids de Hedge à la main, la loss de l'algorithme, son regret et la borne de regret.
@@ -186,14 +186,14 @@ Cinq exemples de classification, de labels $\mathbf{y} = (+1, +1, -1, -1, +1)$ e
 | | Question | Réponse attendue |
 |---|---|---|
 | a | les cinq marges $y_iF_i$ | une liste de 5 nombres |
-| b | $\mathcal{L}(\mathbf{F})$ | un nombre (4 décimales) |
-| c | le gradient $\nabla_{\mathbf{F}}\mathcal{L}$ | une liste de 5 nombres (4 décimales) |
+| b | $\mathcal{L}(\mathbf{F})$ | un nombre (3 décimales) |
+| c | le gradient $\nabla_{\mathbf{F}}\mathcal{L}$ | une liste de 5 nombres (3 décimales) |
 | d | les poids $\frac{e^{-y_iF_i}}{\sum_j e^{-y_jF_j}}$ | une liste de 5 nombres (4 décimales) |
 | e | le numéro de l'exemple de plus grand poids | un entier |
 | f | le gradient de la loss de Huber par rapport aux quatre prédictions | une liste de 4 nombres |
 | g | la loss de Huber totale | un nombre (4 décimales) |
 
-Dans ta copie : pourquoi le gradient de la loss exponentielle a-t-il le signe de $-y_i$ ? Quel exemple pèse le plus, et pourquoi ? Que deviendraient les poids de d) si l'on ajoutait 1 à toutes les marges ? Si l'on ajoute aux scores un modèle $h$ multiplié par $\alpha > 0$, par quoi le poids de l'exemple $i$ est-il multiplié avant la renormalisation (réponds en lettres) ? Pour Huber, quels exemples ont un gradient « coupé », et qu'est-ce que cela change pour un point aberrant ?
+Dans ta copie : pourquoi le gradient de la loss exponentielle a-t-il le signe de $-y_i$ ? Quel exemple pèse le plus, et pourquoi ? Que deviendraient les poids de d) si l'on ajoutait 1 à toutes les marges ? Si l'on ajoute aux scores un modèle $h$ multiplié par $\alpha > 0$, par quoi le poids de l'exemple $i$ est-il multiplié avant la renormalisation (une expression en $\alpha$, $y_i$ et $h_i$, sans nombres) ? Pour Huber, quels exemples ont un gradient « coupé », et qu'est-ce que cela change pour un point aberrant ?
 
 <a id="demonstrations"></a>
 
@@ -217,7 +217,7 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 **Prérequis :** fiche §2 ; M02c ; M07 · **Parcours :** C
 
 $X_1, \ldots, X_M$ ont chacune une variance au plus $\sigma^2$ ; $w_1, \ldots, w_M \ge 0$ et $\sum_i w_i = 1$.
-1. Montre que $\lvert\operatorname{Cov}(X, Y)\rvert \le \sqrt{\mathbb{V}(X)\,\mathbb{V}(Y)}$ (regarde $\mathbb{V}(X - tY)$ comme un polynôme du second degré en $t$, toujours positif ou nul).
+1. Montre que $\lvert\operatorname{Cov}(X, Y)\rvert \le \sqrt{\mathbb{V}(X)\,\mathbb{V}(Y)}$ (regarde $\mathbb{V}(X - tY)$ comme un polynôme du second degré en $t$, toujours positif ou nul ; traite à part le cas $\mathbb{V}(Y) = 0$).
 2. Déduis-en $\operatorname{Cov}(X_i, X_j) \le \sigma^2$ pour tous $i, j$.
 3. Avec $\sigma_i^2 = \mathbb{V}(X_i)$, montre que $\mathbb{V}\big(\sum_i w_iX_i\big) \le \big(\sum_i w_i\sigma_i\big)^2$, puis que cette quantité est au plus $\sigma^2$.
 4. Quand y a-t-il égalité ? Donne un exemple où elle est atteinte avec $M = 2$ et des poids non nuls.
@@ -245,7 +245,7 @@ CP2.9 B a fait les questions 1 à 4 dans un cas particulier : tu les fais ici po
 **Objectif :** calculer la variance de la moyenne de modèles qui forment deux groupes corrélés, son plancher, et ce que le mélange des deux groupes rapporte.
 **Prérequis :** fiche §2 · **Parcours :** C, E
 
-On moyenne des modèles de régression de deux familles. Pour un exemple donné, l'erreur d'un modèle du groupe A vaut $Z_A + E_i$, celle d'un modèle du groupe B, $Z_B + E_i$ : $Z_A$ et $Z_B$ sont les parts communes à chaque groupe, avec $\mathbb{V}(Z_A) = 0{,}8$, $\mathbb{V}(Z_B) = 1{,}2$ et $\operatorname{Cov}(Z_A, Z_B) = 0{,}4$ ; les $E_i$ sont les parts propres, indépendantes de tout le reste, de variance 3 chacune.
+On moyenne des modèles de régression de deux familles. Pour un exemple donné, l'erreur d'un modèle du groupe A vaut $Z_A + E_i$, celle d'un modèle du groupe B, $Z_B + E_i$ : $Z_A$ et $Z_B$ sont les parts communes à chaque groupe, avec $\mathbb{V}(Z_A) = 0{,}8$, $\mathbb{V}(Z_B) = 1{,}2$ et $\operatorname{Cov}(Z_A, Z_B) = 0{,}4$ ; les $E_i$ sont les parts propres ($i$ numérote tous les modèles, des deux groupes), indépendantes de tout le reste, de variance 3 chacune.
 
 | | Question | Réponse attendue |
 |---|---|---|

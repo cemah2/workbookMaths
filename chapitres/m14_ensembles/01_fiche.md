@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §5 |
 | **Temps total estimé** | ≈ 7,2 h : lecture et calculs de la fiche ≈ 1 h 30, exercices ≈ 5 h 20, 12 flashcards ≈ 20 min (parcours essentiel ≈ 4,7 h) |
-| **Prérequis** | M02b (loi binomiale) ; M02c (covariance, variance d'une somme, matrice de covariance) ; M05a (Taylor, $\ln(1 + u)$) ; M06 (divergence KL) ; M08 (test binomial exact) ; M11 (Markov, Hoeffding, méthode de Chernoff, regret) ; M05b (gradient) ; M09b (loss de Huber) ; M13a (log-loss) ; M13b (Lagrange, pour une remarque du §2) |
+| **Prérequis** | M02b (loi binomiale) ; M02c (covariance, variance d'une somme, matrice de covariance) ; M05a (Taylor, $\ln(1 + u)$) ; M06 (divergence KL) ; M08 (test binomial exact) ; M11 (Markov, Hoeffding, méthode de Chernoff, regret) ; M07 (Cauchy-Schwarz, pour ∂ M14.7) ; M05b (gradient) ; M09b (loss de Huber) ; M13a (log-loss) ; M13b (Lagrange, pour une remarque du §2) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `ensembles.py` : `chernoff_bound`, `variance_of_average`, `hedge_weights` |
 | **MML** | — (MML ne traite pas ces outils : la fiche est le cours) |
@@ -204,9 +204,9 @@ avec un **learning rate** $\eta > 0$. Avant le premier tour, toutes les losses c
 | tour $t$ | losses $\boldsymbol{\ell}_t$ | losses cumulées avant $t$ | poids $\mathbf{w}_t$ | ta loss $\mathbf{w}_t \cdot \boldsymbol{\ell}_t$ |
 |---|---|---|---|---|
 | 1 | $(0 ;\ 1 ;\ 0{,}5)$ | $(0 ;\ 0 ;\ 0)$ | $(0{,}333 ;\ 0{,}333 ;\ 0{,}333)$ | 0,5 |
-| 2 | $(1 ;\ 0 ;\ 0{,}5)$ | $(0 ;\ 1 ;\ 0{,}5)$ | $(0{,}419 ;\ 0{,}254 ;\ 0{,}327)$ | 0,583 |
+| 2 | $(1 ;\ 0 ;\ 0{,}5)$ | $(0 ;\ 1 ;\ 0{,}5)$ | $(0{,}419 ;\ 0{,}254 ;\ 0{,}326)$ | 0,582 |
 | 3 | $(0 ;\ 1 ;\ 0{,}5)$ | $(1 ;\ 1 ;\ 1)$ | $(0{,}333 ;\ 0{,}333 ;\ 0{,}333)$ | 0,5 |
-| 4 | $(0 ;\ 0 ;\ 1)$ | $(1 ;\ 2 ;\ 1{,}5)$ | $(0{,}419 ;\ 0{,}254 ;\ 0{,}327)$ | 0,327 |
+| 4 | $(0 ;\ 0 ;\ 1)$ | $(1 ;\ 2 ;\ 1{,}5)$ | $(0{,}419 ;\ 0{,}254 ;\ 0{,}326)$ | 0,326 |
 
 Au tour 2, $e^{-0{,}5 \times (0 ;\ 1 ;\ 0{,}5)} = (1 ;\ 0{,}607 ;\ 0{,}779)$, de somme $2{,}385$, d'où les poids. Ta loss totale vaut $\approx 1{,}909$ ; le meilleur expert, le premier, a perdu 1 en tout : le regret vaut $\approx 0{,}909$.
 
@@ -224,7 +224,7 @@ Sur l'exemple : $\frac{\ln 3}{0{,}5} + \frac{0{,}5 \times 4}{8} \approx 2{,}45$,
 
 **Choisir $\eta$.** Les deux termes tirent en sens contraires : un petit $\eta$ change lentement les poids (le premier terme grandit), un grand $\eta$ suit le dernier en tête, et ses à-coups (le second terme grandit). Le minimum de $\frac{\ln K}{\eta} + \frac{\eta T}{8}$ est atteint en $\eta = \sqrt{\frac{8\ln K}{T}}$, où la borne vaut
 $$R_T \le \sqrt{\frac{T\ln K}{2}}.$$
-Le regret grandit comme $\sqrt{T}$, donc le **regret moyen** $\frac{R_T}{T}$ tend vers 0 : à long terme, tu fais en moyenne aussi bien que le meilleur expert, sans jamais savoir lequel c'est. Et la borne ne dépend de $K$ que par $\ln K$ : mille experts coûtent à peine plus que dix.
+Le regret grandit comme $\sqrt{T}$, donc le **regret moyen** $\frac{R_T}{T}$ tend vers 0 : à long terme, tu fais en moyenne aussi bien que le meilleur expert, sans jamais savoir lequel c'est. Et la borne ne dépend de $K$ que par $\sqrt{\ln K}$ : mille experts ne coûtent que $\sqrt{3} \approx 1{,}7$ fois plus que dix.
 
 ![Les poids de quatre experts au fil de 100 tours, pour η = 0,1 et η = 0,8 : avec le petit η, les poids restent répartis ; avec le grand, ils se concentrent sur l'expert en tête](figures/hedge_poids.png)
 
@@ -272,7 +272,7 @@ Un pas de descente de gradient sur $\mathbf{F}$ serait $\mathbf{F} \leftarrow \m
 
 - **$P(X \ge k)$ ou $P(X > k)$.** `binom.sf(k - 1, n, p)` pour « au moins $k$ ».
 - **Le sens de la divergence.** La borne de Chernoff utilise $\mathrm{KL}(a \Vert p)$ : d'abord la proportion de l'événement, puis le paramètre de la loi. $\mathrm{KL}$ n'est pas symétrique.
-- **Une borne pour $a \le p$.** Elle ne dit rien : la probabilité n'est pas petite.
+- **La formule pour $a \le p$.** Pour $a < p$, $e^{-n\,\mathrm{KL}(a \Vert p)}$ n'est **pas** une borne de $P(X \ge na)$, qui tend vers 1 : la méthode ne donne alors que la borne triviale 1 (ce que rend `chernoff_bound`).
 - **Oublier les covariances.** $\mathbb{V}(\sum w_iX_i) \ne \sum w_i^2\,\mathbb{V}(X_i)$ dès que les variables sont corrélées.
 - **$\frac{\sigma^2}{M}$ pour des modèles corrélés.** Le terme en $\frac{1}{M}$ ne concerne que les parts propres ; les covariances laissent un plancher.
 - **$(1 + x/n)^n$ pour $n$ « grand ».** Il faut $n$ grand devant $x^2$.

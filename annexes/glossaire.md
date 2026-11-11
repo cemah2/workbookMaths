@@ -52,6 +52,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | boîte à moustaches | boxplot, box-and-whisker plot | dessin d'une série : une boîte de $Q_1$ à $Q_3$ coupée par la médiane, des moustaches jusqu'aux valeurs non aberrantes les plus extrêmes | M02c |
 | Bonferroni (correction de) | Bonferroni correction | chaque test au seuil $\frac{\alpha}{m}$, ou les p-valeurs ajustées $\min(1, m\,p_i)$ comparées à $\alpha$ : la probabilité d'au moins un faux positif reste sous $\alpha$, sans hypothèse d'indépendance | M08 |
 | bootstrap | bootstrap | estimer la dispersion d'une statistique en la recalculant sur des milliers de rééchantillons tirés avec remise dans les données | M02c |
+| borne de Chernoff | Chernoff bound | pour $X$ de loi $\mathcal{B}(n, p)$ et $a > p$ : $P(X \ge na) \le e^{-n\,\mathrm{KL}(a \Vert p)}$, obtenue par la méthode de Chernoff avec le meilleur $\lambda$ ; toujours au moins aussi bonne que la borne de Hoeffding | M14 |
 | borne de l'union, inégalité de Boole | union bound, Boole's inequality | $P(A_1 \cup \cdots \cup A_K) \le \sum_k P(A_k)$ ; pour $K$ rayons de confiance valables ensemble au risque $\delta$, chacun au risque $\frac{\delta}{K}$ | M08, M11 |
 | borne supérieure de confiance (UCB) | upper confidence bound | la borne haute d'un intervalle de confiance d'une moyenne ; UCB1 choisit l'option de plus grande $\hat{\mu}_k + \sqrt{\frac{2\ln t}{N_k}}$ | M11 |
 | borne, intervalle | bound, interval | ensemble des réels compris entre deux bornes, incluses (crochet fermé) ou non (crochet ouvert) ; une borne peut être infinie | R2 |
@@ -178,6 +179,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | embedding (table d') | embedding (table) | une matrice d'une ligne par mot (ou par catégorie) : l'embedding du mot $k$ est la ligne $k$, le produit de son vecteur one-hot par la table | M09a |
 | empreinte | hash | code calculé à partir d'une donnée, d'où l'on ne peut pas la retrouver ; sert à comparer sans stocker | R0 |
 | ensemble | set | collection d'éléments distincts | R4 |
+| ensemble (de modèles) | ensemble (of models) | un prédicteur qui en combine plusieurs : il les fait voter, moyenne leurs prédictions, pondère leurs avis, ou les ajoute l'un après l'autre | M14 |
 | ensemble de définition | domain | l'ensemble des $x$ pour lesquels $f(x)$ a un sens | R3 |
 | ensemble des événements | event space | $\mathcal{A}$, les parties de l'univers auxquelles on donne une probabilité | M02b |
 | ensemble des solutions | solution set | l'ensemble de toutes les valeurs qui rendent une équation (ou une inéquation) vraie | R2 |
@@ -214,6 +216,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | événements incompatibles | mutually exclusive events, disjoint events | événements sans issue commune : $A \cap B = \varnothing$ | R8 |
 | événements indépendants | independent events | $P(A \cap B) = P(A)\,P(B)$ : savoir que l'un s'est réalisé ne change pas la probabilité de l'autre | R8 |
 | évidence (vraisemblance marginale) | evidence, marginal likelihood | $P(O) = \sum_j P(O \mid H_j)\,P(H_j)$ : le dénominateur de la formule de Bayes | M04, M08 |
+| experts (prédiction avec des) | prediction with expert advice | à chaque tour, $K$ experts donnent un avis ; on les combine, puis on voit la loss de **chacun** ; on mesure le regret contre le meilleur expert, sans rien supposer sur l'origine des losses | M14 |
 | exponentielle (fonction) | exponential function | $x \mapsto a^x$ ($a > 0$) ; la fonction exponentielle est $\exp(x) = e^x$ | R6 |
 | exposant | exponent | le nombre $n$ de $a^n$ ; en notation scientifique, la puissance de 10 | R1 |
 | expression littérale, variable | algebraic expression, variable | expression où des lettres, les variables, représentent des nombres | R2 |
@@ -261,9 +264,11 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | générateur pseudo-aléatoire, graine | pseudo-random number generator, seed | programme qui calcule une suite d'apparence aléatoire à partir d'une graine ; la même graine redonne la même suite | R8 |
 | génératif, discriminant (modèle) | generative, discriminative model | un modèle génératif modélise la loi des features dans chaque classe et la proportion des classes, puis applique la formule de Bayes (Naïve Bayes) ; un modèle discriminant modélise directement la classe sachant les features (régression logistique) | M13a |
 | gradient | gradient | vecteur des dérivées partielles | M05b |
+| gradient fonctionnel | functional gradient | le gradient d'une loss par rapport au vecteur $\mathbf{F}$ des prédictions sur les exemples (une coordonnée par exemple) ; on l'approche par un modèle simple, ajouté à l'ensemble avec un petit coefficient | M14 |
 | Gram-Schmidt (procédé de) | Gram-Schmidt orthogonalization | retirer de chaque vecteur ses projections sur les vecteurs déjà construits, puis normer : une base orthonormée du même sous-espace ; classique ou modifié selon que l'on projette le vecteur d'origine ou le vecteur courant | M12b |
 | grand O | big O | $f = O(g)$ : $f$ ne croît pas plus vite que $g$, à une constante près ; mesure le coût d'un algorithme | R7 |
 | Hadamard (produit de) | Hadamard product, element-wise product | $\mathbf{A} \odot \mathbf{B}$, les produits des éléments de même position (`A * B` en NumPy) ; même forme, commutatif | M09a |
+| Hedge (algorithme) | Hedge, exponential weights algorithm | les poids $w_t[k] \propto e^{-\eta L_t[k]}$ sur $K$ experts, $L_t[k]$ leur loss cumulée ; regret au plus $\frac{\ln K}{\eta} + \frac{\eta T}{8}$, soit $\sqrt{T\ln K/2}$ avec le meilleur $\eta$ | M14 |
 | hérédité, initialisation | inductive step, base case | les deux étapes d'une récurrence : $P(n) \Rightarrow P(n + 1)$, et $P(n_0)$ | R4 |
 | hessienne | Hessian | matrice des dérivées secondes ; symétrique, elle a des valeurs propres réelles : définie positive en un point critique, c'est un minimum local ; semi-définie positive partout, la fonction est convexe | M05b, M12c, M19 |
 | hinge loss | hinge loss | $\max(0, 1 - t)$, avec $t = y\,s$ la marge fonctionnelle : convexe, nulle dès $t \ge 1$, au moins égale à l'erreur 0-1 ; la loss de la SVM à marge souple | M13b |
@@ -290,10 +295,12 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | inégalité de Gibbs | Gibbs' inequality | $\mathrm{KL}(p \parallel q) \ge 0$, avec égalité si et seulement si $p = q$ ; d'où $H(p, q) \ge H(p)$ | M06 |
 | inégalité de Jensen | Jensen's inequality | pour $f$ convexe, $f(\mathbb{E}[X]) \le \mathbb{E}[f(X)]$ ; l'inverse pour $f$ concave | M06 |
 | inégalité de Kraft | Kraft inequality, Kraft-McMillan inequality | les longueurs $\ell_i$ d'un code préfixe binaire vérifient $\sum 2^{-\ell_i} \le 1$, et des longueurs qui la vérifient sont celles d'un code préfixe | M06 |
+| inégalité de Pinsker | Pinsker's inequality | pour deux lois de Bernoulli, $\mathrm{KL}(a \Vert p) \ge 2(a - p)^2$ (en nats) : la borne de Chernoff fait au moins aussi bien que celle de Hoeffding | M14 |
 | inégalité triangulaire | triangle inequality | $\lVert \vec{u} + \vec{v} \rVert \le \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ : un côté d'un triangle est plus court que la somme des deux autres | R9, M07 |
 | inégalité, inéquation | inequality | comparaison avec $<$, $\le$, $>$ ou $\ge$ ; une inéquation est une inégalité qui contient une inconnue | R2 |
 | inertie (d'un nuage de points) | inertia, within-cluster sum of squares | $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2$ : la plus petite au barycentre ; ce que k-means fait baisser | M07 |
 | information (de Shannon), surprise | self-information, surprisal, information content | $-\log_2 p$ bits : ce qu'apprend un événement de probabilité $p$ ; s'additionne pour des événements indépendants | M06 |
+| information complète | full information | le cadre où l'on voit, après chaque tour, la loss de **toutes** les options (les experts de Hedge) ; un bandit ne voit que celle de l'option choisie | M14 |
 | information mutuelle | mutual information | $I(X ; Y) = H(X) - H(X \mid Y)$ : ce que l'une des variables apprend sur l'autre ; symétrique, nulle seulement pour des variables indépendantes | M06 |
 | injective, surjective, bijective | injective, surjective, bijective | deux vecteurs distincts ont des images distinctes ($\ker f = \{\mathbf{0}\}$) ; tout vecteur d'arrivée est atteint ($\operatorname{Im} f = W$) ; les deux | M12a |
 | intégrale | integral | $\int_a^b f(x)\,dx$ : l'aire algébrique entre la courbe et l'axe, limite des sommes de Riemann | M02a |
@@ -301,7 +308,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | intégrale double | double integral | le volume sous une surface $z = f(x, y)$ au-dessus d'une région ; sur un rectangle, on intègre une variable après l'autre | M02b |
 | intégrale impropre | improper integral | intégrale sur un intervalle infini, ou d'une fonction non bornée, définie comme une limite ; elle converge ou diverge | M02a |
 | intégration par parties | integration by parts | $\int_a^b u\,v' = [uv]_a^b - \int_a^b u'\,v$ | M02a |
-| intérêts composés | compound interest | les intérêts de chaque période rapportent à leur tour : $C_n = C_0\,(1 + t)^n$ | R5 |
+| intérêts composés | compound interest | les intérêts de chaque période rapportent à leur tour : $C_n = C_0\,(1 + t)^n$ ; versés $n$ fois par an au taux annuel $r$, le capital est multiplié en un an par $\left(1 + \frac{r}{n}\right)^n$, au plus $e^r$ (les intérêts composés en continu, *continuous compounding*) | R5, R6, M14 |
 | intersection, réunion | intersection, union | $A \cap B$ : les éléments à la fois dans $A$ et dans $B$ ; $A \cup B$ : ceux qui sont dans l'un ou dans l'autre | R2, R4 |
 | intervalle de confiance | confidence interval | intervalle calculé sur les données qui contient la vraie valeur pour 95 % (le niveau) des échantillons : $\bar{x} \pm 1{,}96\,\frac{s}{\sqrt{n}}$ | M02c |
 | intervalle de crédibilité | credible interval | un intervalle qui contient le paramètre avec une probabilité donnée, selon l'a posteriori | M04 |
@@ -349,6 +356,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | lois de De Morgan | De Morgan's laws | non (P et Q) = (non P) ou (non Q) ; non (P ou Q) = (non P) et (non Q) | R4 |
 | longueur moyenne (d'un code) | expected code length | $\bar{L} = \sum p_i \ell_i$ ; pour un code préfixe, $\bar{L} \ge H$, et le meilleur code vérifie $\bar{L} < H + 1$ | M06 |
 | loss de Huber | Huber loss | $\frac{r^2}{2}$ si $\lvert r \rvert \le \delta$, $\delta(\lvert r \rvert - \frac{\delta}{2})$ sinon : quadratique pour les petits résidus, linéaire pour les grands, dérivable partout | M09b |
+| loss exponentielle | exponential loss | $e^{-yF}$ pour un label $y \in \{-1, +1\}$ et un score $F$ ; sa dérivée en $F$ vaut $-y\,e^{-yF}$, et ses valeurs normalisées sont des poids exponentiels sur les exemples | M14 |
 | MAE | mean absolute error (MAE) | $\frac{1}{n}\sum \lvert r_i \rvert$, l'erreur absolue moyenne d'une régression, dans l'unité de la cible | M09b |
 | mal conditionné | ill-conditioned | se dit d'un problème dont la solution change beaucoup quand les données changent un peu | R2 |
 | malédiction de la dimension | curse of dimensionality | les surprises de la grande dimension : le volume se concentre près du bord, les distances se ressemblent | M02c, M07 |
@@ -450,7 +458,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | pivot de Gauss (élimination de Gauss) | Gaussian elimination | annuler les inconnues colonne par colonne par des opérations élémentaires (une forme échelonnée), puis remonter de la dernière équation à la première | M09a |
 | pivot partiel | partial pivoting | prendre pour pivot, dans chaque colonne, l'élément de plus grande valeur absolue (en échangeant les lignes) : évite d'amplifier les erreurs d'arrondi | M09a |
 | plan tangent | tangent plane | $z = f(a, b) + f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b)$ : le plan qui touche la surface en un point, avec les mêmes pentes | M05b |
+| plancher de variance | variance floor | la part de la variance d'une moyenne de $M$ prédictions qui ne baisse pas quand $M$ grandit ; avec $X_i = a_iZ + E_i$, elle vaut $\bar{a}^2\,\mathbb{V}(Z)$, et seules les covariances la fixent | M14 |
 | plus proche voisin | nearest neighbor | le point d'un ensemble le plus proche d'un point donné ; il dépend de la distance choisie et des unités des features | M07 |
+| poids exponentiels, poids multiplicatifs | exponential weights, multiplicative weights | des poids proportionnels à $e^{-\eta L}$ ; à chaque tour, chacun est multiplié par $e^{-\eta\ell}$ (ou par $1 - \eta\ell$, presque pareil pour $\eta$ petit), puis tous sont renormalisés | M14 |
 | point critique | critical point, stationary point | un point où la dérivée s'annule (en plusieurs variables : où le gradient s'annule) | M05a, M05b |
 | point d'inflexion | inflection point | un point où la courbe passe de convexe à concave, ou l'inverse : $f''$ y change de signe | M05a |
 | point de pourcentage | percentage point | écart entre deux pourcentages, obtenu en les soustrayant (de 4 % à 5 % : un point) | R1 |
@@ -459,6 +469,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | polynôme caractéristique | characteristic polynomial | $p_{\mathbf{A}}(\lambda) = \det(\mathbf{A} - \lambda\mathbf{I})$, de degré $n$, dont les racines sont les valeurs propres ; en dimension 2, $\lambda^2 - (\operatorname{tr}\mathbf{A})\lambda + \det\mathbf{A}$ | M12c |
 | polynôme de Taylor, série de Taylor | Taylor polynomial, Taylor series | $\sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x - a)^k$, le polynôme qui a les mêmes $n$ premières dérivées que $f$ en $a$ ; la série, quand $n \to \infty$ | M05a |
 | polynôme, degré | polynomial, degree | somme de puissances entières de $x$ multipliées par des coefficients ; le degré est la plus grande puissance | R3 |
+| pondération par l'inverse de la variance | inverse-variance weighting | pour des mesures indépendantes de variances $\sigma_i^2$, les poids $w_i \propto \frac{1}{\sigma_i^2}$ donnent la moyenne pondérée de plus petite variance, $\frac{1}{\sum_i 1/\sigma_i^2}$ ; avec des covariances, $\mathbf{w}^* \propto \boldsymbol{\Sigma}^{-1}\mathbf{1}$ | CP1, M14 |
 | population | population | l'ensemble (ou la loi) dont les données sont tirées, et dont on veut connaître les paramètres | M02c |
 | position générale | general position | des points sans alignement particulier : dans le plan, jamais trois sur une même droite ; $d + 1$ points de $\mathbb{R}^d$ en position générale sont séparables quels que soient leurs labels | M10 |
 | precision (valeur prédictive positive) | precision, positive predictive value (PPV) | $P(Y = 1 \mid \hat{Y} = 1)$ : la part des alertes justifiées ; elle dépend de la prévalence | M03 |
@@ -492,7 +503,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | quantificateur | quantifier | « pour tout » ($\forall$) ou « il existe » ($\exists$) | R4 |
 | quantile | quantile | le plus petit $x$ tel que $F(x) \ge p$ ; la médiane est le quantile d'ordre 0,5 | M02a |
 | quantité conjuguée | conjugate | multiplier $\sqrt{A} - \sqrt{B}$ par $\sqrt{A} + \sqrt{B}$ pour obtenir $A - B$ | R7 |
-| queue (d'une loi), queue empirique | tail probability, empirical tail | $P(X \ge a)$ ; sur un échantillon, la proportion des valeurs $x_i \ge a$ | M11 |
+| queue (d'une loi), queue empirique | tail probability, empirical tail | $P(X \ge a)$ ; sur un échantillon, la proportion des valeurs $x_i \ge a$ ; pour une loi binomiale, `binom.sf(k - 1, n, p)` $= P(X \ge k)$ | M11, M14 |
 | quotient de Rayleigh | Rayleigh quotient | $R(\mathbf{x}) = \frac{\mathbf{x}^\top\mathbf{A}\mathbf{x}}{\mathbf{x}^\top\mathbf{x}}$ ; pour $\mathbf{A}$ symétrique, une moyenne pondérée des valeurs propres, entre $\lambda_{\min}$ et $\lambda_{\max}$, atteintes aux vecteurs propres ; pour une covariance, la variance le long de $\mathbf{x}$ normé, maximale sur le premier axe principal | M12c, M12d |
 | quotient, reste | quotient, remainder | les deux résultats de la division euclidienne | R0 |
 | racine (d'une fonction) | root, zero | un $x$ tel que $f(x) = 0$ | R3 |
@@ -522,7 +533,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | règle du produit, du quotient | product rule, quotient rule | $(uv)' = u'v + uv'$ ; $(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$ | R7 |
 | régression logistique | logistic regression | $P(Y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b)$ : un score affine, lu comme la log-cote de la classe 1 ; ajustée par maximum de vraisemblance, en minimisant la log-loss, convexe en $(\mathbf{w}, b)$ | M13a |
 | régression ridge | ridge regression | les moindres carrés pénalisés par $\lambda\lVert \mathbf{w} \rVert^2$ : $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{w} = \mathbf{X}^\top\mathbf{y}$, toujours soluble pour $\lambda > 0$ ; le MAP d'un prior gaussien | M09b |
-| regret | regret | $R_T = \sum_k \Delta_k\,\mathbb{E}[N_k(T)]$ : ce qu'une stratégie gagne en moins, en moyenne, que la meilleure option choisie à chaque pas | M11 |
+| regret | regret | ce qu'une stratégie perd par rapport à la meilleure option : pour un bandit, $R_T = \sum_k \Delta_k\,\mathbb{E}[N_k(T)]$ (M11) ; avec des experts, en information complète, sa loss totale moins celle du meilleur expert choisi après coup (M14) | M11, M14 |
 | régularisation | regularization | ajouter à la loss une pénalité sur les poids (ridge, lasso) pour préférer les modèles simples ; une contrainte sur la norme des poids donne la même solution pour la bonne valeur du paramètre (le multiplicateur de Lagrange) | M09b, M13b |
 | relation de Chasles | Chasles' relation | $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$ | R9 |
 | ReLU | rectified linear unit | $\max(0, z)$, l'activation la plus utilisée dans les réseaux | M10 |
@@ -584,6 +595,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | SVM (machine à vecteurs de support) | support vector machine | le classifieur linéaire de plus grande marge : $\min \frac12\lVert\mathbf{w}\rVert^2$ sous $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$, ou sa version à marge souple ; avec un noyau, une frontière non linéaire | M13b |
 | système homogène | homogeneous system | un système de second membre nul, $\mathbf{A}\mathbf{x} = \mathbf{0}$ ; il a toujours la solution $\mathbf{0}$ | M09a |
 | système linéaire | system of linear equations, linear system | plusieurs équations du premier degré à résoudre ensemble ; leurs solutions communes | R2, M09a |
+| système « k parmi n » | k-out-of-n system | un système qui fonctionne tant qu'au moins $k$ de ses $n$ composants fonctionnent ; avec des composants indépendants de fiabilité $p$, sa fiabilité est la queue $P(X \ge k)$ de la loi $\mathcal{B}(n, p)$ | M14 |
 | t-SNE | t-SNE (t-distributed stochastic neighbor embedding) | une carte en 2D (ou 3D) d'un nuage de grande dimension, qui garde les voisinages : des probabilités de voisinage gaussiennes dans l'espace d'origine, d'une loi de Student sur la carte, rapprochées par descente de gradient sur leur divergence KL ; pour voir, pas pour mesurer | M12d |
 | table de vérité | truth table | la valeur d'une proposition pour chaque combinaison des valeurs de ses propositions | R4 |
 | tableau de contingence | contingency table | le tableau des effectifs de deux variables catégorielles observées ensemble, avec ses totaux dans les marges | M03 |
@@ -645,6 +657,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | vecteur directeur, vecteur normal | direction vector, normal vector | un vecteur qui a la direction d'une droite ; un vecteur perpendiculaire à une droite ou à un plan (il engendre son complément orthogonal) | R9, M07, M12b |
 | vecteur one-hot | one-hot vector | le codage d'une catégorie : un 1 à sa place, des 0 ailleurs (un vecteur de la base canonique) | M07 |
 | vecteur unitaire | unit vector | un vecteur de norme 1 ; $\frac{\vec{u}}{\lVert \vec{u} \rVert}$ normalise $\vec{u}$ | R9, M07 |
+| vote pondéré, vote souple | weighted vote, soft voting | la classe qui reçoit le plus grand total de poids parmi les modèles qui l'annoncent ; la moyenne, classe par classe, des vecteurs de probabilités des modèles | M14 |
 | vrai positif, vrai négatif | true positive, true negative (TP, TN) | un positif prédit positif ; un négatif prédit négatif | M03 |
 | vraisemblance | likelihood | probabilité des données, vue comme fonction des paramètres | M04 |
 | weight decay | weight decay | la pénalité L2 vue dans une descente de gradient : $\mathbf{w} \leftarrow (1 - 2\eta\lambda)\mathbf{w} - \eta\nabla L(\mathbf{w})$ | M09b |
