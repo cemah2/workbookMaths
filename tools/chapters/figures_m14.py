@@ -5,7 +5,7 @@
 
 Writes small PNG files into chapitres/m14_ensembles/figures/: the exact tail of a binomial law against the Hoeffding
 and Chernoff bounds, as n grows (log scale); the variance of the average of M correlated predictions, which levels off
-at the average covariance; (1 + x/n)ⁿ against eˣ for x = 2 and x = −3; the weights of four experts under Hedge for two
+at the average covariance; (1 + x/n)ⁿ against eˣ for x = 2 and x = −1.5; the weights of four experts under Hedge for two
 learning rates; the exponential and Huber losses and their derivatives with respect to the prediction. The numbers are
 those of the fiche; none comes from workbookIA 14 (no voters, no bootstrap, no x = −1, no equicorrelated models, no
 seed 14xx).
@@ -37,9 +37,9 @@ DPI = 110
 SEED = 4301
 
 P_TAIL, A_TAIL = 0.3, 0.5                       # §1: P(X ≥ n a) for X ~ B(n, 0,3), a = 0,5
-X_LIMIT = (2.0, -3.0)                           # §3: two values of x
+X_LIMIT = (2.0, -1.5)                           # §3: two values of x
 ETAS = (0.1, 0.8)                               # §4: two learning rates
-DELTA = 1.0                                     # §5: the threshold of the Huber loss
+DELTA = 0.5                                     # §5: the threshold of the Huber loss
 
 
 def french_number(value: float, _pos=None) -> str:
@@ -93,16 +93,16 @@ def variance_of_mean() -> None:
             label="ce qu'on aurait sans la part commune")
     ax.set_xscale("log")
     ax.set(xlabel="nombre M de prédictions moyennées (échelle log)", ylabel="variance",
-           title="Moyenner réduit la part propre, pas la part commune")
+           title="Avec une part commune, la variance de la moyenne a un plancher")
     ax.legend(fontsize=9)
     save(fig, "variance_moyenne.png")
 
 
 def exp_limit() -> None:
-    """§3: (1 + x/n)ⁿ against eˣ, for x = 2 and x = −3."""
+    """§3: (1 + x/n)ⁿ against eˣ, for x = 2 and x = −1.5."""
     ns = np.unique(np.round(np.logspace(0, 3.3, 60)).astype(int))
     fig, axes = plt.subplots(1, 2, figsize=(10.5, 3.8))
-    names = {2.0: ("(1 + 2/n)ⁿ", "e²"), -3.0: ("(1 − 3/n)ⁿ", "e⁻³")}
+    names = {2.0: ("(1 + 2/n)ⁿ", "e²"), -1.5: ("(1 − 1,5/n)ⁿ", "e^(−1,5)")}
     for ax, x in zip(axes, X_LIMIT):
         keep = ns[1 + x / ns > 0]
         ax.plot(keep, (1 + x / keep) ** keep, "o-", color=C[0], ms=3, lw=1.2, label=names[x][0])
@@ -144,7 +144,7 @@ def losses_and_gradients() -> None:
     axes[0].axhline(0, color="0.6", lw=0.8)
     axes[0].set(xlabel="marge yF", ylim=(-4, 7), title="Loss exponentielle (y = +1)")
     axes[0].legend(fontsize=9)
-    axes[1].plot(r, huber, color=C[0], lw=2, label="Huber (δ = 1) du résidu y − F")
+    axes[1].plot(r, huber, color=C[0], lw=2, label="Huber (δ = 0,5) du résidu y − F")
     axes[1].plot(r, -np.clip(r, -DELTA, DELTA), color=C[1], lw=2, ls="--", label="dérivée en F : −clip(y − F, −δ, δ)")
     axes[1].axhline(0, color="0.6", lw=0.8)
     axes[1].set(xlabel="résidu y − F", title="Loss de Huber")
