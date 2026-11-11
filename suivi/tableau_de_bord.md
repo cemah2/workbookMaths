@@ -1579,3 +1579,20 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M14.17 🏆 Défi : suivre le meilleur de dix experts avec Hedge sans connaître l'horizon, un regret sous la borne théorique sur 1 000 tours ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (12 cartes)
 <!-- wbm:end M14 -->
+
+<!-- wbm:section CP3 -->
+## CP3 · Examen blanc de la partie III ⏱️ 3,1 h
+
+- [ ] CP3.Q1 🧠 Dix affirmations sur la partie III : vrai ou faux ★ 10 min
+- [ ] CP3.1 ✏️ Indépendance, base, rang et noyau ★★ 10 min
+- [ ] CP3.2 ✏️ Gram-Schmidt, projection et moindres carrés ★★ 10 min
+- [ ] CP3.3 ✏️ Valeurs propres, matrice définie positive et Cholesky ★★ 10 min
+- [ ] CP3.4 ✏️ SVD, rang faible et variance expliquée ★★ 10 min
+- [ ] CP3.5 ✏️ Maximum de vraisemblance, log-loss et entropie ★★ 9 min
+- [ ] CP3.6 ✏️ Lagrange, hinge loss et noyau ★★ 9 min
+- [ ] CP3.7 ✏️ Queue binomiale et borne de Chernoff, limite et poids exponentiels ★★ 8 min
+- [ ] CP3.8 ∂ Une démonstration courte, au choix parmi deux ★★★ 12 min
+- [ ] CP3.9 🐛 Corriger une copie : cinq erreurs ★★ 8 min
+- [ ] CP3.10 🔗 Problème de synthèse : des données centrées, leurs axes principaux, un modèle sur les scores ★★ 14 min
+- [ ] CP3.11 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
+<!-- wbm:end CP3 -->
