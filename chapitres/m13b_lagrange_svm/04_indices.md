@@ -698,4 +698,182 @@ Trois différences : le coude, le zéro exact au-delà de $t = 1$, la probabilit
 
 ## Notebook
 
-*(à compléter)*
+### Ex M13b.25 — Un problème quadratique sous contraintes d'égalité, par le système de Lagrange · `lagrange_equality_qp`
+
+<details><summary>Indice 1</summary>
+
+Relis « Le problème quadratique sous contraintes linéaires » (fiche §2), puis la docstring.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Contrôle les formes d'abord : `Q` est $n \times n$ pour un `c` de longueur $n$, `A` a $n$ colonnes et autant de lignes que `b` a de valeurs. Puis `np.block([[Q, A.T], [A, np.zeros((m, m))]])` et le second membre `np.concatenate([-c, b])`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+`sol = np.linalg.solve(K, rhs)` dans un `try` qui transforme `np.linalg.LinAlgError` en `ValueError` ; rends `sol[:n], sol[n:]`. e) La contrainte écrite deux fois donne deux lignes égales : la matrice est singulière.
+
+</details>
+
+### Ex M13b.26 — La hinge loss et un sous-gradient de l'objectif d'une SVM linéaire · `hinge_loss, svm_subgradient`
+
+<details><summary>Indice 1</summary>
+
+Relis « La hinge loss » et « Le sous-gradient » (fiche §7), puis les deux docstrings.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Calcule d'un coup les marges `t = y * (X @ w + b)` ; `below = t < 1` (strictement) choisit les exemples qui comptent. $J$ prend la **somme** des hinges, `hinge_loss` leur **moyenne**.
+
+</details>
+<details><summary>Indice 3</summary>
+
+`g_w = w - C * (y[below] @ X[below])` et `g_b = -C * y[below].sum()`. Les contrôles : labels dans $\{-1, +1\}$ (`np.isin`), formes compatibles, $C > 0$. f) fais le pas sur $(\mathbf{w}, b)$ **ensemble**, puis recalcule $J$.
+
+</details>
+
+### Ex M13b.27 — Les noyaux RBF et polynomial · `rbf_kernel, polynomial_kernel`
+
+<details><summary>Indice 1</summary>
+
+Relis « Le noyau polynomial » et « Le noyau RBF » (fiche §8), puis les docstrings.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Les carrés des distances d'un coup : `(X**2).sum(1)[:, None] - 2 * X @ Z.T + (Z**2).sum(1)[None, :]`, puis `np.maximum(..., 0)` contre les petites valeurs négatives de l'arrondi.
+
+</details>
+<details><summary>Indice 3</summary>
+
+`np.exp(-gamma * d2)` ; `(X @ Z.T + coef0) ** degree`. d) Sans `np.maximum`, un carré de distance de $-10^{-9}$ donne un noyau un peu au-dessus de 1. Refuse $\gamma \le 0$, un degré qui n'est pas un entier $\ge 1$ (attention : `True` est un entier pour Python) et `coef0 < 0`.
+
+</details>
+
+### Ex M13b.28 — `scipy.optimize.minimize` sous contraintes et les noyaux de scikit-learn contre tes fonctions
+
+<details><summary>Indice 1</summary>
+
+Relis l'énoncé : il dit ce que rend chaque fonction et quels sont ses paramètres par défaut.
+
+</details>
+<details><summary>Indice 2</summary>
+
+a) `fun = lambda x: 0.5 * x @ Q_25 @ x + C_25 @ x`, `grad = lambda x: Q_25 @ x + C_25`, la contrainte `lambda x: A_25 @ x - B_25` de jacobienne `lambda x: A_25`. Pour b) à d), `np.allclose` avec les tolérances de l'énoncé.
+
+</details>
+<details><summary>Indice 3</summary>
+
+e) exécute `polynomial_kernel(P_28, R_28)[0, 0]` tel quel, puis compare à $(\frac{1}{4}\,\mathbf{x} \cdot \mathbf{z} + 1)^3$. h) `try: hinge_loss(S_28, Y_28)` / `except Exception as exc: name = type(exc).__name__`.
+
+</details>
+
+### Ex M13b.29 — Prédire : comment change le minimum quand on relâche la contrainte, et ce que dit λ
+
+<details><summary>Indice 1</summary>
+
+Relis « Ce que vaut λ : un prix » (fiche §1).
+
+</details>
+<details><summary>Indice 2</summary>
+
+Avec ce lagrangien, $\frac{df^*}{dc} = -\lambda$. Pour c) et d), écris la nouvelle stationnarité et compare-la à l'ancienne.
+
+</details>
+<details><summary>Indice 3</summary>
+
+b) $-\lambda \times 0{,}1$. c) $2\nabla f + \lambda'\nabla g = \mathbf{0}$ ; d) $\nabla f + \lambda'(2\nabla g) = \mathbf{0}$ : le point solution ne change pas, seul le multiplicateur s'adapte.
+
+</details>
+
+### Ex M13b.30 — La descente de sous-gradient sur la hinge loss : pas constant contre pas décroissant
+
+<details><summary>Indice 1</summary>
+
+Relis « La descente de sous-gradient » (fiche §7).
+
+</details>
+<details><summary>Indice 2</summary>
+
+Une boucle `for t in range(1, steps + 1)` : calcule `J, g_w, g_b`, range `J`, puis `w = w - eta(t) * g_w` et `b = b - eta(t) * g_b`. Pars de `w = np.zeros(p)`, `b = 0.0`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+a) pour chaque réglage, `min(Js) - J_star`. c) compte les `t` où `Js[t + 1] > Js[t]`, par exemple `int(np.sum(np.diff(Js) > 0))`.
+
+</details>
+
+### Ex M13b.31 — Lignes de niveau et contrainte : voir le point de Lagrange
+
+<details><summary>Indice 1</summary>
+
+Relis « Les lignes de niveau touchent la contrainte » (fiche §1) et sa figure.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Paramètre la parabole : `xs = np.linspace(-4, 4, 40001)`, `ys = xs**2 / 2 - 2`, puis `i = np.argmin(f(xs, ys))`. Les lignes de niveau : `ax.contour(GX, GY, f(GX, GY), levels=[...])` sur une grille `np.meshgrid`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Pour les flèches, divise chaque gradient par sa norme et multiplie par une même longueur, puis `ax.annotate("", xy=point + v, xytext=point, arrowprops={"arrowstyle": "->"})`. N'appelle ni `plt.figure` ni `plt.subplots` : dessine dans `ax`. Termine par `return (x, y)`.
+
+</details>
+
+### Ex M13b.32 — Chasse à l'erreur : le signe d'un multiplicateur, une largeur de bande 1/‖w‖ au lieu de 2/‖w‖, une matrice de Gram non symétrique
+
+<details><summary>Indice 1</summary>
+
+Relis chaque commentaire, puis la fiche : §3 (le signe de μ), §6 (marge et bande), §7 (la somme dans $J$), §8 (la matrice de Gram et le RBF).
+
+</details>
+<details><summary>Indice 2</summary>
+
+Pour chaque ligne, demande-toi : quelle forme a le résultat ? quel facteur, quel signe, quelle somme ? Deux lignes presque identiques calculent deux choses différentes : laquelle des deux est fausse ?
+
+</details>
+<details><summary>Indice 3</summary>
+
+Quatre lignes sont fausses ; une matrice de Gram des exemples est carrée et symétrique ; une condition KKT a quatre parties. d) La somme des coefficients de $\mathbf{X}\mathbf{X}^\top$ vaut $\lVert\sum_i \mathbf{x}_i\rVert^2$.
+
+</details>
+
+### Ex M13b.33 — Vérifier une solution KKT : faisabilité, stationnarité, complémentarité
+
+<details><summary>Indice 1</summary>
+
+Relis « Les conditions KKT » (fiche §3).
+
+</details>
+<details><summary>Indice 2</summary>
+
+Calcule une fois `gs = [g(x) for g, _ in constraints]` et le gradient du lagrangien `grad_f(x) + sum(m * dg(x) for m, (_, dg) in zip(mu, constraints))`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Rends `{"feasibility": all(v <= tol for v in gs), "stationarity": bool(np.all(np.abs(grad_L) <= tol)), "sign": all(m >= -tol for m in mu), "complementarity": all(abs(m * v) <= tol for m, v in zip(mu, gs))}`.
+
+</details>
+
+### Ex M13b.34 — Défi : une SVM linéaire entraînée par sous-gradient, un objectif à 1 % de celui de scikit-learn au même C
+
+<details><summary>Indice 1</summary>
+
+Commence par la descente de M13b.30 (un pas décroissant $\eta_0/\sqrt{t}$, le **meilleur** point vu), et regarde où elle bloque : affiche $b$, $g_b$ et $\mathbf{g}_{\mathbf{w}}$ au fil des pas.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Les exemples sont loin de l'origine : $b$ doit valoir plusieurs dizaines, mais chaque coordonnée de $\mathbf{g}_{\mathbf{w}}$ est dominée par la moyenne des features. Cherche un changement de variable qui ne change pas $J$ : $\mathbf{w} \cdot \mathbf{x} + b = \mathbf{w} \cdot (\mathbf{x} - \mathbf{m}) + (b + \mathbf{w} \cdot \mathbf{m})$, avec $\mathbf{m}$ la moyenne des exemples.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Descends sur les exemples centrés `X - m` (même `y`, même `C`), avec $\eta_t = 0{,}01/\sqrt{t}$ et quelques milliers de pas, en gardant le meilleur $(\mathbf{w}, b')$ ; rends $(\mathbf{w}, b' - \mathbf{w} \cdot \mathbf{m})$. Ne divise pas les features par leur écart-type : cela changerait $\lVert\mathbf{w}\rVert$, donc le problème.
+
+</details>

@@ -357,3 +357,43 @@
 ## Notebook
 
 *Tes réponses aux exercices du notebook se tapent dans ta copie du notebook. Note ici ce que tu veux garder : tes raisonnements, tes erreurs, tes questions.*
+
+### Ex M13b.25 — Un problème quadratique sous contraintes d'égalité, par le système de Lagrange · `lagrange_equality_qp`
+
+- le système par blocs et sa taille ; f(x), et pourquoi d) convainc que c'est un minimum ; pourquoi deux contraintes identiques rendent la matrice singulière ; ce que dit le signe de chaque multiplicateur :
+
+### Ex M13b.26 — La hinge loss et un sous-gradient de l'objectif d'une SVM linéaire · `hinge_loss, svm_subgradient`
+
+- les huit marges fonctionnelles et leurs groupes ; a), b) et c) à la main ; g_w en comptant aussi le premier exemple, et pourquoi c'est un sous-gradient ; f) comparé à b), et le pas 0,1 :
+
+### Ex M13b.27 — Les noyaux RBF et polynomial · `rbf_kernel, polynomial_kernel`
+
+- une valeur de a) et une de b) à la main ; pourquoi c) n'est pas exactement symétrique en flottants ; la diagonale de d) sans np.maximum, et les chiffres perdus loin de l'origine ; pourquoi γ = 0 est refusé :
+
+### Ex M13b.28 — `scipy.optimize.minimize` sous contraintes et les noyaux de scikit-learn contre tes fonctions
+
+- res.nit, et pourquoi ta fonction n'itère pas ; e) à la main, les trois paramètres par défaut, et la valeur avec tes propres défauts ; le message d'erreur de h) :
+
+### Ex M13b.29 — Prédire : comment change le minimum quand on relâche la contrainte, et ce que dit λ
+
+- tes quatre prédictions, puis : pourquoi b) n'est pas exactement −λ × 0,1 ; c) et d) par la stationnarité ; un multiplicateur nul ; le signe de λ selon la convention :
+
+### Ex M13b.30 — La descente de sous-gradient sur la hinge loss : pas constant contre pas décroissant
+
+- pourquoi le pas 0,01 plafonne et remonte ; pourquoi le pas 0,001 démarre lentement ; ce que garde le pas décroissant ; pourquoi garder le meilleur point :
+
+### Ex M13b.31 — Lignes de niveau et contrainte : voir le point de Lagrange
+
+- le système de Lagrange et x³ − x − 3 = 0 ; une seule racine réelle, et λ ; la ligne de niveau touche-t-elle la parabole ; un point où les gradients ne sont pas colinéaires :
+
+### Ex M13b.32 — Chasse à l'erreur : le signe d'un multiplicateur, une largeur de bande 1/‖w‖ au lieu de 2/‖w‖, une matrice de Gram non symétrique
+
+- après la vérification : ce que calcule chaque ligne fausse, et sa correction ; la matrice de la mauvaise forme, le nombre plausible sans signal ; (C) et (D) ; le signe de MU_32 et le vrai minimum :
+
+### Ex M13b.33 — Vérifier une solution KKT : faisabilité, stationnarité, complémentarité
+
+- le premier candidat à la main ; pourquoi c'est le minimum ; ce que dit μ₂ = −12 au troisième candidat ; pourquoi une tolérance :
+
+### Ex M13b.34 — Défi : une SVM linéaire entraînée par sous-gradient, un objectif à 1 % de celui de scikit-learn au même C
+
+- pourquoi les exemples loin de l'origine gênent la descente ; ce que tu as changé, et pourquoi le problème reste le même (alors qu'une mise à l'échelle le changerait) ; le nombre d'appels :

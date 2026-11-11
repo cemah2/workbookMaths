@@ -620,7 +620,7 @@ La vérification calcule, avec le problème de la cellule fournie (4 variables, 
 - d) vrai ou faux : $\mathbf{x}$ est admissible ($\mathbf{A}\mathbf{x} = \mathbf{b}$ à $10^{-10}$ près) et aucun des 1 000 points admissibles tirés au hasard (graine 4225) n'a une valeur de $f$ plus petite ;
 - e) le nom de l'erreur levée quand la même contrainte est écrite deux fois, `lagrange_equality_qp(Q_25, C_25, TWICE_25, [5, 5])`.
 
-Dans ta copie : écris le système par blocs de ce problème (sa taille ?). Que vaut $f(\mathbf{x})$, et pourquoi d) suffit-il à te convaincre que c'est un minimum, alors que la condition de Lagrange n'est que nécessaire (fiche §5) ? Pourquoi deux contraintes identiques rendent-elles la matrice par blocs singulière (regarde ses deux dernières lignes) ? Quel multiplicateur dit que la première contrainte coûte le plus cher ?""",
+Dans ta copie : écris le système par blocs de ce problème (sa taille ?). Que vaut $f(\mathbf{x})$, et pourquoi d) suffit-il à te convaincre que c'est un minimum, alors que la condition de Lagrange n'est que nécessaire (fiche §5) ? Pourquoi deux contraintes identiques rendent-elles la matrice par blocs singulière (regarde ses deux dernières lignes) ? Que dit le signe de chaque multiplicateur quand on augmente d'une unité le second membre de sa contrainte ?""",
     todo=LOAD_LEARNER,
     check=f'''with checked("M13b.25a"):
     wbm.check("M13b.25a", np.asarray({QP_25}[0]).tolist(), computed=True)

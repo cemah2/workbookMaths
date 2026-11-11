@@ -412,4 +412,76 @@ En 3 phrases : « Le multiplicateur d'une contrainte est son prix : ce que l'obj
 
 ## Notebook
 
-*(complété avec les exercices M13b.25 à M13b.34)*
+Le code complet de chaque exercice est dans `05_solutions.ipynb`, exécuté ; voici les réponses, l'essentiel de la démarche et les réponses aux questions de copie.
+
+### Ex M13b.25 — Un problème quadratique sous contraintes d'égalité, par le système de Lagrange · `lagrange_equality_qp`
+
+**Réponses** : a) `[0.129353, -2.756219, 2.283582, -0.975124]` · b) `[-2.80597, 2.905473]` · c) `True` · d) `True` · e) `"ValueError"`.
+
+**Démarche.** Les contrôles de forme, puis `K = np.block([[Q, A.T], [A, np.zeros((m, m))]])`, `rhs = np.concatenate([-c, b])`, `sol = np.linalg.solve(K, rhs)` dans un `try` qui change `LinAlgError` en `ValueError`, et `sol[:n], sol[n:]`. Pour la copie : le système est $6 \times 6$ (4 inconnues, 2 multiplicateurs) ; $f(\mathbf{x}) \approx 4{,}0174$. Le problème est convexe ($\mathbf{Q}$ définie positive, contraintes affines) : le point de Lagrange est le minimum (fiche §5), et d) le confirme sur 1 000 points admissibles (le meilleur fait $\approx 4{,}1101$). Avec la même contrainte deux fois, les deux dernières lignes de la matrice par blocs sont égales : elle est singulière, et seule la somme des deux multiplicateurs serait fixée. Augmenter d'une unité le second membre de la contrainte $j$ change le minimum d'environ $-\lambda_j$ : $\lambda_1 < 0$, le minimum monte d'environ 2,8 ; $\lambda_2 > 0$, il baisse d'environ 2,9.
+
+**Erreurs fréquentes.** Le second membre $(\mathbf{c}, \mathbf{b})$ au lieu de $(-\mathbf{c}, \mathbf{b})$ ; $-\boldsymbol{\lambda}$ (une autre convention de signe) ; laisser passer la `LinAlgError`.
+
+### Ex M13b.26 — La hinge loss et un sous-gradient de l'objectif d'une SVM linéaire · `hinge_loss, svm_subgradient`
+
+**Réponses** : a) `0.765625` · b) `3.46875` · c) `[2, -0.25]` · d) `1` · e) `True` · f) `4.5078` · g) `"ValueError"`.
+
+**Démarche.** `t = y * (X @ w + b)`, `below = t < 1` ; `hinge_loss` rend `np.mean(np.maximum(0, 1 - y * s))` ; `svm_subgradient` rend $J = \frac12\mathbf{w} \cdot \mathbf{w} + C \times$ la **somme** des hinges, `w - C * (y[below] @ X[below])` et `-C * y[below].sum()`. Pour la copie : les marges valent $1$ ; $3$ ; $-0{,}625$ ; $0{,}25$ ; $0{,}125$ ; $1{,}75$ ; $1{,}25$ ; $-1{,}875$ : trois au-delà du bord de leur classe ($t > 1$), le premier exactement sur son bord, deux entre leur bord et la frontière ($0 < t < 1$), deux de l'autre côté de la frontière ($t < 0$). Hinges $1{,}625 + 0{,}75 + 0{,}875 + 2{,}875 = 6{,}125$, moyenne $0{,}765625$, $J = 0{,}40625 + 0{,}5 \times 6{,}125 = 3{,}46875$, et $\sum_{t_i < 1} y_i\mathbf{x}_i = (-2{,}5 ;\ -0{,}5)$ donne $\mathbf{g}_{\mathbf{w}} = (2 ;\ -0{,}25)$, $g_b = 1$. Compter aussi le premier exemple donnerait $(1 ;\ -1)$ et $0{,}5$ : un autre sous-gradient valide (au coude, toute pente entre $-1$ et $0$ convient). Le pas $0{,}5$ fait **monter** $J$ (de 3,4688 à 4,5078) : un pas de sous-gradient ne garantit pas la baisse (fiche §7) ; le pas $0{,}1$ la fait baisser (3,2141).
+
+**Erreurs fréquentes.** $C$ fois la moyenne dans $J$ ; compter le premier exemple (marge exactement 1) ; oublier le terme $\mathbf{w}$ de $\mathbf{g}_{\mathbf{w}}$ ; faire le pas sur $\mathbf{w}$ seulement.
+
+### Ex M13b.27 — Les noyaux RBF et polynomial · `rbf_kernel, polynomial_kernel`
+
+**Réponses** : a) `[[0.367879, 0.182684], [0.818731, 0.024724], [0.367879, 0.272532]]` · b) `[[0.125, 0.015625], [8, -5.359375], [0.125, 0.421875]]` · c) `True` · d) `True` · e) `"ValueError"`.
+
+**Démarche.** Les carrés des distances par `(X**2).sum(1)[:, None] - 2 * X @ Z.T + (Z**2).sum(1)[None, :]`, écrêtés à 0 par `np.maximum`, puis `np.exp(-gamma * d2)` ; `(X @ Z.T + coef0) ** degree`. Pour la copie : $\lVert\mathbf{x}_1 - \mathbf{z}_1\rVert^2 = 0{,}25 + 2{,}25 = 2{,}5$, $e^{-0{,}4 \times 2{,}5} = e^{-1} \approx 0{,}367879$ ; $\mathbf{x}_2 \cdot \mathbf{z}_2 = -2{,}25$, $(-1{,}75)^3 = -5{,}359375$ (un noyau peut prendre des valeurs négatives hors de la diagonale). La matrice de c) est calculée par des opérations flottantes dont l'ordre diffère entre $(i, j)$ et $(j, i)$ : symétrique à $10^{-16}$ près, pas exactement. d) Sans `np.maximum`, la diagonale vaut $e^{-0{,}5\,\varepsilon}$ avec $\varepsilon$ un peu négatif : un peu plus que 1. Loin de l'origine, $\lVert\mathbf{x}\rVert^2 \approx 2{,}7 \times 10^7$ et l'écart cherché est de l'ordre de 1 : la soustraction de deux grands nombres presque égaux perd environ sept chiffres sur seize (R0). $\gamma = 0$ donnerait la matrice pleine de 1, et $\gamma < 0$ n'est pas un noyau.
+
+**Erreurs fréquentes.** La distance non élevée au carré ; diviser par $\gamma$ ; oublier l'écrêtage ; transposer la matrice (lignes pour $\mathbf{z}$).
+
+### Ex M13b.28 — `scipy.optimize.minimize` sous contraintes et les noyaux de scikit-learn contre tes fonctions
+
+**Réponses** : a) `4.017413` · b) `True` · c) `True` · d) `True` · e) `2.04222` · f) `0.909167` · g) `True` · h) `"ValueError"`.
+
+**Démarche.** Chaque valeur s'obtient par l'appel de l'énoncé. Pour la copie : SLSQP fait quelques itérations (8 ici ; le nombre dépend des versions) ; ta fonction résout un seul système linéaire, exact aux arrondis près, parce que l'objectif est quadratique et les contraintes affines : SLSQP sert quand ce n'est pas le cas. e) Sans paramètres, `polynomial_kernel` calcule $(\frac{1}{p}\,\mathbf{x} \cdot \mathbf{z} + 1)^3$ avec $p = 4$ : $\mathbf{x} \cdot \mathbf{z} \approx 1{,}0749$ donne $\approx 2{,}0422$, quand ta fonction, avec ses défauts (degré 2, $c = 1$, pas de facteur), donnerait $\approx 4{,}31$ : comparer deux bibliothèques demande de passer tous les paramètres. h) Les scores pris pour des labels : scikit-learn lève une `ValueError` qui parle de classes et de forme, pas d'ordre des arguments ; un message qui ne dit pas la vraie cause.
+
+**Erreurs fréquentes.** Oublier le ½ de l'objectif dans `fun` ; deviner e) au lieu de l'exécuter ; comparer une moyenne à une somme.
+
+### Ex M13b.29 — Prédire : comment change le minimum quand on relâche la contrainte, et ce que dit λ
+
+**Réponses** : a) `1` · b) `2` · c) `2` · d) `3`.
+
+**Démarche.** a) et b) $\frac{df^*}{dc} = -\lambda = 2{,}4$ : le minimum monte d'environ $0{,}24$ ; on mesure $0{,}2437$, parce que $f^*(c) = \frac{11}{30}c^2 - \frac{19}{15}c - \frac{49}{30}$ est une parabole, au-dessus de sa tangente. c) $2\nabla f + \lambda'\nabla g = \mathbf{0}$ et $\nabla f + \lambda\nabla g = \mathbf{0}$ donnent $\lambda' = 2\lambda = -4{,}8$. d) $\nabla f + \lambda'(2\nabla g) = \mathbf{0}$ donne $\lambda' = \lambda/2 = -1{,}2$. Pour la copie : le point solution ne change dans aucun des deux cas ; le multiplicateur est un prix, exprimé dans l'unité de l'objectif par unité de contrainte. Un multiplicateur nul dirait que la contrainte ne coûte rien. Avec la convention $f - \lambda g$, $\lambda$ change de signe, mais pas la variation de $f^*$, qui ne dépend que du problème.
+
+### Ex M13b.30 — La descente de sous-gradient sur la hinge loss : pas constant contre pas décroissant
+
+**Réponses** : a) `[0.000733, 0.000133, 8.2e-05]` · b) `True` · c) `129`.
+
+**Démarche.** `run_subgradient` : partir de $(\mathbf{0}, 0)$, et, à chaque pas, calculer `J, g_w, g_b`, ranger `J`, puis faire le pas `eta(t)`. Pour la copie : le pas 0,01 descend vite puis oscille autour du minimum, à une distance de l'ordre du pas : son meilleur écart plafonne vers $7 \times 10^{-4}$, son dernier vaut $\approx 0{,}03$, et $J$ remonte 129 fois sur 299 pas (un sous-gradient n'est pas une direction de descente, fiche §7). Le pas 0,001 oscille moins mais démarre lentement (écart $\approx 1$ après 50 pas). Le pas $0{,}01/\sqrt{t}$ garde les grands pas du début et des pas de plus en plus fins ensuite : le meilleur écart, $8{,}2 \times 10^{-5}$. Comme $J$ ne baisse pas à chaque pas, on garde le **meilleur** point vu, pas le dernier. Sur d'autres données, l'ordre des deux pas constants peut changer ; seule la convergence du pas décroissant est garantie.
+
+**Erreurs fréquentes.** Rendre les derniers écarts au lieu des meilleurs ; oublier de retrancher $J^*$ ; compter les descentes au lieu des remontées (170).
+
+### Ex M13b.31 — Lignes de niveau et contrainte : voir le point de Lagrange
+
+**Vérification manuelle** : le point $\approx (1{,}6717 ;\ -0{,}6027)$, sur la parabole, avec deux gradients colinéaires.
+
+**Démarche.** Paramétrer la parabole par $x$, évaluer $f$ sur une grille fine et garder le minimum ; tracer les lignes de niveau dans `ax`, la parabole, le point et les deux gradients ramenés à la même longueur ; rendre le point. Pour la copie : $2(x - 3) + \lambda x = 0$ et $4(y + 1) - \lambda = 0$, avec $y = \frac{x^2}{2} - 2$, donnent $\lambda = 2x^2 - 4$, puis $x^3 - x - 3 = 0$. Sa dérivée $3x^2 - 1$ s'annule en $\pm\frac{1}{\sqrt{3}}$, où la fonction vaut $\approx -3{,}4$ et $\approx -2{,}6$, deux valeurs négatives : une seule racine réelle, $x^* \approx 1{,}6717$, donc $\lambda \approx 1{,}589$. L'ellipse $f = f^* \approx 2{,}08$ touche la parabole sans la traverser, et les gradients sont portés par la même droite, de sens opposés. En un point où ils ne sont pas colinéaires, $\nabla f$ a une composante le long de la courbe : en glissant dans le sens opposé, $f$ baisse.
+
+### Ex M13b.32 — Chasse à l'erreur : le signe d'un multiplicateur, une largeur de bande 1/‖w‖ au lieu de 2/‖w‖, une matrice de Gram non symétrique
+
+**Réponses** : a) `"BCFG"` · b) `4.445` · c) `1.5385` · d) `38.25` · e) `False`.
+
+**Démarche.** (B) $C$ multiplie la **somme** des hinges : la moyenne divise le terme d'attache par $n = 6$ et donne $1{,}445$, un nombre plausible sans aucun signal. (C) La bande a une largeur $2/\lVert\mathbf{w}\rVert = 2/1{,}3 \approx 1{,}5385$ ; (D), presque la même ligne, calcule la marge $\rho$ : elle est juste. (F) `X @ Z_32.T` est une matrice $6 \times 4$ ; la matrice de Gram des exemples est $\mathbf{X}\mathbf{X}^\top$, $6 \times 6$ et symétrique, dont la somme des coefficients vaut $\lVert\sum_i \mathbf{x}_i\rVert^2 = 1{,}5^2 + 6^2 = 38{,}25$. (E) élève bien les distances au carré : juste. (G) oublie la condition de signe : `MU_32` $= -0{,}8 < 0$ dit que la contrainte supposée active ne devrait pas l'être ; le minimum libre $(3 ;\ 0{,}5)$ vérifie $g = -2 < 0$ : c'est la solution, avec $\mu = 0$.
+
+### Ex M13b.33 — Vérifier une solution KKT : faisabilité, stationnarité, complémentarité
+
+**Vérification manuelle** : ✅ pour les cinq candidats.
+
+**Démarche.** Évaluer une fois les $g_i(\mathbf{x})$ et le gradient du lagrangien, puis rendre les quatre booléens avec la tolérance. Pour la copie : en $(3, 2)$, $g_1 = 0$ (active), $g_2 = -4$ (inactive, $\mu_2 = 0$), $\nabla f = (4, -12)$ et $\mu_1\nabla g_1 = 4\,(-1, 3) = (-4, 12)$ : la stationnarité tient, $\mu_1 = 4 \ge 0$, la complémentarité aussi. Le problème est convexe ($f$ convexe, contraintes affines) : les conditions KKT suffisent, $(3, 2)$ est **le** minimum (fiche §5). Le troisième candidat est le point de la droite $g_2 = 0$ où la stationnarité demande $\mu_2 = -12$ : le signe négatif dit que $f$ baisserait en quittant cette droite vers l'intérieur, donc que $g_2$ ne devrait pas être active. En flottants, $g_1$ calculé au vrai point vaut souvent $\pm 10^{-16}$ au lieu de 0 : avec `tol=0`, une solution juste serait déclarée non admissible ou non complémentaire.
+
+### Ex M13b.34 — Défi : une SVM linéaire entraînée par sous-gradient, un objectif à 1 % de celui de scikit-learn au même C
+
+**Vérification** : `True` si l'objectif est atteint sur les deux datasets, dans le budget.
+
+**Démarche.** Centrer les exemples ($\mathbf{x}_i - \mathbf{m}$), descendre avec $\eta_t = 0{,}01/\sqrt{t}$ pendant 3 000 pas en gardant le meilleur $(\mathbf{w}, b')$, puis rendre $(\mathbf{w}, b' - \mathbf{w} \cdot \mathbf{m})$ : $J/J^* < 1{,}0001$ sur les deux datasets, en moins d'une seconde. Pour la copie : sur les exemples d'origine, le biais doit valoir environ $-23{,}5$, mais chaque coordonnée de $\mathbf{g}_{\mathbf{w}}$ est dominée par la moyenne des features (de l'ordre de 10) : un pas assez petit pour que $\mathbf{w}$ n'explose pas fait bouger $b$ d'un rien, et le pas constant reste coincé ($J/J^* \approx 2{,}7$ avec $\eta = 10^{-4}$ après 20 000 pas, $\approx 17$ avec $10^{-3}$). Le changement de variable $\mathbf{w} \cdot \mathbf{x} + b = \mathbf{w} \cdot (\mathbf{x} - \mathbf{m}) + (b + \mathbf{w} \cdot \mathbf{m})$ donne le même score à chaque exemple avec le même $\mathbf{w}$ : $J$ et $\lVert\mathbf{w}\rVert$ ne changent pas, seul le biais est déplacé. Diviser une feature par son écart-type, au contraire, change $\lVert\mathbf{w}\rVert$ pour un même classifieur, donc le terme $\frac12\lVert\mathbf{w}\rVert^2$ et le minimum.
+
+**Erreurs fréquentes.** Rendre le dernier point au lieu du meilleur ; oublier de ramener le biais aux exemples d'origine ; normaliser les features ; appeler `svm_subgradient` directement au lieu de la fonction reçue.
