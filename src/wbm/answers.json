@@ -56559,6 +56559,1894 @@
       },
       "source": "chapitres/m13b_lagrange_svm/05_solutions.ipynb"
     },
+    "M14.1a": {
+      "coarse_any": {
+        "0": [
+          "352a4eb8ba4d351ae6d470a026d68ba3105cac6b56339af6a87bd7e1a3b9b9ce"
+        ],
+        "1": [
+          "ceef623523d6ecf055f4c16d5b3880d18fcf1505bdd94121d1b09e58bd205465"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "4ffa0b6a82e758be679a688f2068354bb67a792ecf97eb8d0fd27e48b05da0c7"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e20c2034e29d50046a28533ce8a54d47943da35bc87ed5259f8ff21d2621fb11",
+      "hash_coarse": "ef36d314adadbc5763e2534d9b1bde3d21931dde3367ac9ee3ef8d51019901ba",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "44c8d10d8e7fe944410840d7e7519bbcda617f4051a36406736f6b2057a30dca": "« au moins 7 » compte aussi X = 7 : P(X ≥ 7), pas P(X > 7)"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.1b": {
+      "coarse_any": {
+        "1": [
+          "ba22bda54ac151b63faafa2a77d98d15329ed1286c2463371c602480d29669dc"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "06eafdaf4e93cd5e7276fb93075b1b186be924a7d6aa02a00fa30f1842d39039"
+        ]
+      },
+      "decimals": 4,
+      "hash": "4a4670f4ffdb26bf3489464cd8fbe9269d1fc4f2ee17dacf3ed1dc701713af06",
+      "hash_coarse": "909d00024d7158b1839ca5fa4c7c9c804bf1ad46ebc8c8ff79f71590256b6476",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "04aae6d810b37efd3d8a80b55bdf026e0e2dd87f37252fd09a32da398b4b7356": "il y a C(9, 7) façons de choisir les 7 machines qui marchent"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.1c": {
+      "coarse_any": {
+        "0": [
+          "cce7b0a8c6fac8a9e13cc78c31ffb71ce633a7c1844f89c21816e7a67de788f0"
+        ],
+        "1": [
+          "c7588fa87be8e17803049d0b531f9105d60848a48897d37634e2b4b331a1bdc1"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "1f2e9ceb3f4088fc4d26782507975c8277f1c01c78a0838b9aedd596f5f15f0c"
+        ],
+        "3": [
+          "746c46aa6a7d11b4f15439630da2b7adee96da7ba71ed79026d588805ea71d84"
+        ],
+        "4": [
+          "460fc04cbf46d9b8903e8ab373aed6633c5f356e493ffde5a3d1174f82006dda"
+        ]
+      },
+      "decimals": 6,
+      "hash": "eb9cd726e9842ec6f420f62612b0efd44c1dace63564a8cf0a8ac31092e5bf8b",
+      "hash_coarse": "e9c0a70c3d99f728882773cd080a919e1d0e812e64c2c425a13aeb9c6e518241",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "dd769db06789f453f3f83d3692fbb823968538ee50bfb54a18494ab11f2df340": "F compte les PANNES : une machine tombe en panne avec la probabilité 1 − 0,9"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.1d": {
+      "coarse_any": {
+        "1": [
+          "9a45d1f215f2732275c18573d9b9dcbd849719d489586688cb1c14106f306ca0"
+        ],
+        "2": [
+          "a046fdc4c0990fc774e25952258651d13634ee29ca95a9f9ec71d28a21aa8334"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b2665706eff42f7c95e3e1f1734bffd6ccb73bfbc8157464467c3b76c7e24626",
+      "hash_coarse": "cc4cbdcce761cf70a43dc7ea812a7cba7066f53cf0236a1f42e2ac59248d8fb2",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "77ff2395c0d0d2b651b6320ce64eada4b92d4ab8df06dd4f2958c7f99c581963": "« au moins 3 pannes » compte aussi F = 3 : P(F ≥ 3), pas P(F > 3)"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.1e": {
+      "coarse_any": {
+        "0": [
+          "b3b0d79f1632b04b5e4f7c142c2f85a561dd6bea00c092b4ad4d301d7156b8a0"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "6e514d0f0f66e80a52ca1b0287a15698e52ffd5950e50d177923812642142e91"
+        ],
+        "2": [
+          "fed132c37791fec17fe36b17d7f750375304fd6c70cb292df421e6c97ace0862"
+        ]
+      },
+      "decimals": 4,
+      "hash": "fe96a302425057e178df33e4f50945c399b14c7650474d1808fd2ae71b7137dd",
+      "hash_coarse": "ba8017443bd60826276f82ccfa6be411dc44b15f02e950dd65431b5bdb1356ec",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "2839d331cc371bae7a0215b47a2a61ba3b1e10f932ff00426dce2aee8efd6ddb": "l'exposant est n KL(a ‖ p), avec n = 9",
+        "8c25503fbc7472a2c611ac3d25c301c4c0f4fb438c99dfa9eb78daa184dc7007": "KL(a ‖ p) : d'abord la proportion a = 1/3 de l'événement, puis le paramètre 0,1 de la loi"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.1f": {
+      "coarse_any": {
+        "1": [
+          "d2b08389a7236cc79a30ac01d0bf2fc3fd7511179231c6c91ba44b67fa3b8177"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "264430515d5ad04b6d2ce6014757b26196b6435898789f3b8d624d50b5a40ff4"
+        ]
+      },
+      "decimals": 4,
+      "hash": "57ae09b4d8c3f5c0cbb8d873919617e7b04ac61f85ac436bad85c3b240e2ebeb",
+      "hash_coarse": "448c06ea160f54e62155477d78b2632207e2db23383e3f622367cf723e2618d8",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "594687b8a3b9282888b02f6c9363e1a65a9bae238a3bd19857df53a4832d0448": "Hoeffding : e^(−2n(a − p)²), avec le 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.1g": {
+      "coarse_any": {
+        "1": [
+          "447dbd9bdd87b07629f86bc100dd17e3ba223dcda29f5a8087178b2c4a5f5f0f"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "87451dcea4c0bccf3ea07a756b97442b27e260c9fb9802ad4b54d5da912d81f2"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8699462c6df3738f6f6bde9c9fe59da039579599c8a37fbbd2ef270a05ccae6b",
+      "hash_coarse": "03b8cc52cfb517be1ba64726c5a619216fe834e61302059dea339be1908f401b",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "46dd24367dd3ad5b9aafeb74f6c1359a8ce782c28add36b566be915a1048966c": "la borne de Markov de P(F ≥ 3) utilise 𝔼[F], l'espérance du nombre de PANNES"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.1h": {
+      "coarse_any": {
+        "0": [
+          "4d6bf5483afdc728919dc144d68173c76c0f6059092e98c7aa00e178501d481b"
+        ],
+        "1": [
+          "44f69d7e4bb5454f521a7891bdcca7bea703875fbeab163b3e701ed51d628f86"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "a1232160f98fa6e60756b03e58aea5a13ec99d9a0b811e5985f3a40897d0af10"
+        ]
+      },
+      "decimals": 4,
+      "hash": "daf74d7e7e9bf1b6165e4a1e070b934e70f592b9a60ddddd477313fcc733ea87",
+      "hash_coarse": "3c9c9fdb8e7e3bcaccae267892a6139d0769b54a522c7c33959c6f3796bcc5fa",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a7e139d17168758022c20178fb270901e3af3db09cb20627c05a54e5708ca620": "« au moins 10 » compte aussi X = 10 : P(X ≥ 10), pas P(X > 10)"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.2a": {
+      "hash": "11cbb4b8d6a25d1949549b39b3e62c9884c15ddc8bcda8fe24eab543ea91c531",
+      "kind": "fraction",
+      "mistakes": {
+        "3ec2c5a2d05d99dbf14b57298e89578a72d4e4d9b07100c8ac85b828c31fc72a": "la moyenne a les poids 1/3 : chaque terme Σᵢⱼ est multiplié par 1/9",
+        "e9eeedb769715d38a7430781a76ec945d93a93539be942370fe1a33ee6132202": "les covariances comptent : wᵀΣw fait la somme des 9 termes wᵢwⱼΣᵢⱼ, pas seulement des variances"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.2b": {
+      "hash": "d6c79c1f1731a836cfded1bae2e4d55bf40e6346f672bec73b458b91934bef43",
+      "kind": "fraction",
+      "mistakes": {
+        "ab624ca5dde09ad5a6e36f0ed3cb64863a061799e6d48c7988d961fcb7028695": "chaque variance est pondérée par wᵢ², le carré du poids 1/3"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.2c": {
+      "hash": "9e828cab8f69cd832d12dba4aa4cb36d544f190e646108f4c02d9e623d8ec807",
+      "kind": "fraction",
+      "mistakes": {
+        "a34f43c4e525ab262e32c610dc1daa75eb493a9b354a99d2ce0da4af6562d4f6": "les covariances comptent : wᵀΣw fait la somme des 9 termes wᵢwⱼΣᵢⱼ"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.2d": {
+      "array_rounded": {
+        "1": "23177805bafb46617b480bc76d924ef052cc794e3f84810028ab2a3b7194b35d",
+        "2": "db18a724085b864a3530a14553c83959477a5bc44544118039043a7ce9dfd76a",
+        "3": "490cf882ab92c3c472c9d17505b867ffef56a2f431a21dbe8457fe76026892ab",
+        "4": "024b3bf8e3c3f505f80b3b2b9e9f3b2a8a3e3bee9628b82fd2eace7e891de94e",
+        "5": "6c5aed5e46dc1b59b12395f47301e10a72ba4ca63e8ee5ab2b04e2f350ee78fa"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "eb1d3a5beee10aace10262caeb47dbacafb0e0d1d33da7edbbab998c99027a89"
+        ],
+        [
+          "fcfc1b8c51e8d893f1cdd324d68e2e66de543398aa49487a631c4df505cc9ff3"
+        ],
+        [
+          "1e940378acf196550f7052d5102503e71ed373dffbd50ec07eb406bb6e45e7c9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8963d05f48a8166b949ce842676fc8dd5f6af954272fbe6b1f70cc023b2a1cbd",
+          "b6c7e6a9d8d4160382dd53f38850f0e5a0c6f60a2c3d4a2358c33b1d3cdf3d71",
+          "6a42ac95ac8fb4e66c1208033930d4a3a312ac93be48711e3628657b44d9dfa0",
+          "3281c1145821fcc4a22421c778967b420e3df21df37a4640e5deb6cf0d886ea9"
+        ],
+        [
+          "f390f67c31d520602eeef12428e6111642d13feb7e7eff5ec93342806fb35ee8",
+          "79dadf7a5c6fff58adfb9dee783ac3e3c0ef32fb228813b4a8b7c184ca3fbb50",
+          "5391ed7e72e82c35e03e3854f55856800f2fdee68c364088836f55eaebcb85e3",
+          "567598dcea744985f8ca349db20d1aebeaf6230f0bb379bda2abe2c33c613558"
+        ],
+        [
+          "93525aeed749057a97bbc90ae069d8996de8f2a8bd092e4bf74443b40e561d9f",
+          "406d0bb4d43b77847b4a3b0792f6fe4d36057fae1bfc6714d44d552ea4e5ccb9",
+          "9b09c1f14a20a7d8c5fa9617e60bb8536f405001755568ddb3d712e40e9c74eb",
+          "1fcfe87dc4eb9ebc8e087b05894f9e5f67fc09097a307f124d1def569a05f73c",
+          "eeeae2393953fc19e04c82fc1631ba0ce8f5c462cd644f7b3ebc619ffb9be32c"
+        ]
+      ],
+      "element_hashes": [
+        "66ae0024b6b1e1654bc4e6ee9a33d87d85c1f592192a0adccbbfaca17faa091e",
+        "354d6d9ecf14b46ba7366779524adf29d2fb334140922bef2afe9e42d746d345",
+        "5da4e07a36b2f0c09726563a290e4f83af71a98cfeda2c4450c6cedcd529f693"
+      ],
+      "hash": "f890c5c5989964b3b9d41ef48422476fecf15797a72598c669dedbc5120f3151",
+      "kind": "array",
+      "mistakes": {
+        "9395e364113f81c761ca9cf9903b2592212a46d0434e3c81b7e87e2b095a67ce": "des poids de somme 1 : divise Σ⁻¹1 par la somme de ses coordonnées"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.2e": {
+      "hash": "bc4ef65b848e6a710527e3a9a2dc310c65de1603112805a9dbe160aebb8a5a07",
+      "kind": "fraction",
+      "mistakes": {
+        "9f7fd552d4a9c6f8cc3753cdcfaf52a9a446f7e6ee8aceb894cee9177551b248": "la variance minimale est 1/(1ᵀΣ⁻¹1), l'INVERSE de la somme des coordonnées de Σ⁻¹1"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.2f": {
+      "coarse_any": {
+        "1": [
+          "370d16e2cbbf82916c5bf75271e21c693189710a80d744f2a94e88e15fb7bd9a"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "11150dc689d6ade3e8729c108bda8cf7bc5f7aa570778a585fd76e0fda8ee22b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "00f120410b0aa1a84cc705f5b296182fa6240f4882fcbb75a2eeeddc333a676f",
+      "hash_coarse": "0bd2e117a868afa4c56929d46776a8340323a76e7aaf1341b63efc5204ac8749",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "d165c9d7236a883acfd3014fc5689387027ca67d060975d96e039a173fd06626": "la corrélation divise la covariance par le produit des ÉCARTS-TYPES, les racines des variances"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.3a": {
+      "coarse_any": {
+        "0": [
+          "e61c9ac2a23c63e98f1b4050f45d2513f3f921de828bc4fa6b78593d3fffa9de"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "1ec7a15af15ad5a549390f45b581010c08ed2d29295a815f38e7eedf05dcffce"
+        ],
+        "2": [
+          "11095023cf3a9ba951963a26383179c09ae0bcd378ef05ba3c6ff3079f9fb9ef"
+        ],
+        "3": [
+          "b6dc7374716d8a93f5fa2fd946cda822d88b38d631d4445478d1c44222e7cd3a"
+        ],
+        "4": [
+          "8913d245b9a88a8790629b46f546cc5f26ef57f0f55c65b516d2312465c44ab2"
+        ]
+      },
+      "decimals": 6,
+      "hash": "6ffb998f6a2d8838e67deb23c8ad93c318de37a2e44ac0f14cf88752b0c04cb0",
+      "hash_coarse": "6d64b2205e7c847f8f4c095c9f5b23dbb37d7e499e6fb56ec35124a6ccb4f30b",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "fb97caaedcf39f299e48a6d206fc1f98acb622f5b378506e37524591a7425016": "sur 6 ans, le facteur d'une année s'applique 6 fois"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.3b": {
+      "coarse_any": {
+        "0": [
+          "44c2e44dd288580dca99ca8db36c1a97336870dacfba764673ea6be74bf064e6"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "62561c2d149c5bad294a668b543a71a1de36d08c1eb98803d82fb03e2e84fc35"
+        ],
+        "2": [
+          "1ebee6bd0e8a05ae53c54e3403a8d8685d25ac43b85ca76f2fd0d7d64b2222e1"
+        ],
+        "3": [
+          "17208f3e3b3ca05058f7a85676fc30a38f9a1ada9f2ec56820f30613392fd352"
+        ],
+        "4": [
+          "f46d0fdb8b0314a261ac0da447e9bde01c34884caf591aeddf14d45655e0b834"
+        ]
+      },
+      "decimals": 6,
+      "hash": "7b9ec80490c115c46a6a511c9cc313afe45da4ad0317eeb7783615fbc9ee7624",
+      "hash_coarse": "679fa0b868f034ca33a31af5988b75027916113f6a2e8c669a9aa15c34e3c3dd",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "9864ae627f8abc30578a25b1f59c180b0ce4617d0bdf8e64fce4db10ae1aa51d": "sur 6 ans, 4 versements par an font 24 versements en tout"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.3c": {
+      "coarse_any": {
+        "0": [
+          "331d1c756ea9a3eb04d6755b178effa690a993c6e3fb80e3ce72ebcec64e18d6"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "0bab6d97761bb479c51a140ef36c1c45e4f53abdb12bcff5441dd50e7500558c"
+        ],
+        "2": [
+          "d37fdd5e3f30d01798442d14c5563bc02c8e530a8554e209fcf4d62bcf0738b2"
+        ],
+        "3": [
+          "a3ddb40a2f15aff32620a6f0563e4f30cf4221af68775cdc8dcfb7926c6ba3ce"
+        ],
+        "4": [
+          "355c1ad1de5244fd11a6d44744445334404b77b2de638527cb81ac8e60f8fc90"
+        ]
+      },
+      "decimals": 6,
+      "hash": "7f8af885d9f096ecc8c21d62fac1fe23525e7f7d6bb2b1f913869b7e6baa5178",
+      "hash_coarse": "5a3d3419cb1e8e3c4f7ab401c27b7a406fdf81db4eb1e075cc62873d955932b5",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1b0c9530bd564f4240a937d56074f3b363b9c149678552b2b1beaca1bf366934": "sur 6 ans, 52 versements par an font 312 versements en tout"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.3d": {
+      "coarse_any": {
+        "0": [
+          "a1d41ff0d31a468f95cc61828059a4073615e348fb7125143b8ee00bcb37f6dd"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "633531786ade1dc957d5d99d524630a45a285943ba3d1a2d68a77e4bbe9a3eba"
+        ],
+        "2": [
+          "12870857950a716961e8795cd527ac50a9d7358200dcf64b7a74d9f9f0831cb9"
+        ],
+        "3": [
+          "629c67f8d99d530d85353e789e0177d336b7be8cfa98c277db426326823de2d8"
+        ],
+        "4": [
+          "9fc24ddd63074ff1112cc7f5e2ea27c46a1d60e3a2a9c837781b1adf5ca5f26d"
+        ]
+      },
+      "decimals": 6,
+      "hash": "c7a82894702ed591ab78d0653c85a68ce6371acb6e3d71bedb49cbb4e0eac075",
+      "hash_coarse": "3903c89c96124d6faa750a5cbd5d5405c40043258d4ca1cedcd9bdf6dc39d4ae",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "a3d193dc720fa751ac711c7f4ba17fd16be823938825d5e7e83c72e71f26e78a": "la limite porte sur les 6 ans, pas sur une seule année"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.3e": {
+      "coarse_any": {
+        "3": [
+          "66b9a8a017327c94df52689db3870880ff788b91895d1b726acb41d04281d8ce"
+        ]
+      },
+      "coarser": {
+        "4": [
+          "203d5be9c8680bbba8c8d74c3b3d5639bd3765dac9fcd37000254a4be632c3d0"
+        ]
+      },
+      "decimals": 6,
+      "hash": "74f036567804d0048b97e080c1705bcbb82980d4bccfce92fe8246f2ab3dfdf5",
+      "hash_coarse": "0d2426f37703135de4d061e5700743e14c24a716c0afc502693e4a841f067be0",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "298e1de09c8a109a55437e479ece673c1136c000ae66d8b08c67f9b49493dd8a": "l'erreur relative est (valeur − limite)/limite : attention au signe"
+      },
+      "sign": -1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.3f": {
+      "coarse_any": {
+        "3": [
+          "869cae158addfd8fa118adc01417da6ab480caa0f81543b68f9980df899d88ec"
+        ]
+      },
+      "coarser": {
+        "4": [
+          "fcc8cc32801e9dbbee2447cb551973474fe9ea6d4c3713ea4e85d062803cb29f"
+        ]
+      },
+      "decimals": 6,
+      "hash": "74c3caa382cf393a6525628fc73da5c855812b8a1b710ec08701eed1ea5f175c",
+      "hash_coarse": "6e071397993d4396ddad22886b1c81e2cdd2c7871aac852e8bd63dec61d035f5",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "7b23d3ee6e64bdca8752a7e8a6983bcef48cd488c0ada38c733d1968147302c5": "x porte sur les 6 ans, comme N",
+        "947fb9de2445c352e776cc5bf6cae148347ddc4a3c381bf60da30f0af0ffd0cc": "N compte TOUS les versements des 6 ans",
+        "d9567ae507913c416c3b89a73133aced1bff205f593e1f2131f2adc89398b79f": "N compte TOUS les versements des 6 ans",
+        "f47a5636e653b020c1dda79acb93aec9133ed61ba1f4e87b12b46210547d82ca": "x et N portent tous deux sur les 6 ans"
+      },
+      "sign": -1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.3g": {
+      "coarse_any": {
+        "1": [
+          "fd9c1e06853c5ce463477a64e9e89521f6822fcd6824d208933a21d0b29da071"
+        ]
+      },
+      "decimals": 3,
+      "hash": "21621b30ef33606b7e7b767dd724360eb82246ea9d5f138b262b1f4dccdf0ee3",
+      "hash_coarse": "d5a63587202f893d7c99c795c9e51d69c2ed412abfe2d3cbf5be35cfb121ee80",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "00ef0343f0220ee5f2c7b182b20f98dcc3bbe7f80d11e6fcebe48bbe5a48edb5": "l'erreur relative est (valeur − limite)/limite : attention au signe",
+        "a203991d9ee05ff08e579fd2b7dd113fa697721f6b952b9122287569ab2c2e96": "g) demande l'erreur relative vraie, pas son approximation −x²/(2n)"
+      },
+      "sign": -1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.3h": {
+      "hash": "568b9911120e1d7631983ec2accf96aafebe7721e30ea30345ad4c9f3462854b",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "07b5b35bc0009096d34224fc4dd8282bc18f32e41045438a91eada5d5de379ab": "n est entier, et doit vérifier l'inégalité : vérifie-la pour ta valeur"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.4a": {
+      "array_rounded": {
+        "1": "43cddcf2b8819c9f11b635976ed342161537fc1b5122773ba9c07c581c80f079",
+        "2": "683a6ef688184a15f8fb0412c019bd264643e01431d5284f9c21513ee3e3fbff",
+        "3": "40315db1f5abdf6af53c85a702b673c82d55521eedd0edfa4a0c3507d26e9ad4",
+        "4": "270eb32757009fc874eb9d2baf4e5d742f4730e592330ff6850c69b69bc93671",
+        "5": "34ae5fa1ba58159a2700fe6aed6e3093acc9947bd3de2f1246bfe02496da64b5"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "c24abe58d599b8a287c6b51538ce57816103ba4702c898e9aaaa3383fae9fe49"
+        ],
+        [
+          "7a077eb12e58e0cbe57ad9f2ae8d702cae0e48932421214d9f5464f88157dc90"
+        ],
+        [
+          "13b29b3cc927189bab0e57b36983e60960d74d1f3ece3467d8a7604465e7bc57"
+        ],
+        [
+          "677a18944f1c41eace3be24faab120700f416082c305e553cc2bb78ef33ecccd"
+        ],
+        [
+          "30ed03be3c37fc2634cccffa3f7ec97d3996e0796323602c6d737af34a552fc8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ca78d14994f24125cf7e09de82bb6e72820b5fe13e6b03a4bb5c10190fc711e5",
+          "04ad7d83de2764678701c7f9ffa80309d04c0614c45f07b832b7ee4f3794a117",
+          "67bc9cc74de38c59231116187d8963943736dfc5784a20f28147f1cbeb4a6b49",
+          "17ea390c9544bf7f617b12c1024694cebc49e0b68f826b07a3a24ae238ee7c18"
+        ],
+        [
+          "fdcbd863fefc38e00695594df2f500e2c570b234f4be9f4786f81705f21c3a7f",
+          "11312ebd04f208bfbdb82ddc27bd854759aca4eb967f8a464a9aa1b4e6f2a1c7",
+          "0cb7de880cd9a61c2823cc8a6393b368d86de178299f13e8e457dc2e0ffdcc62",
+          "cef6df2615afd01f8fdc1ab72d724a00f4ef6ee0362af710ec437ae9ca63b1ed"
+        ],
+        [
+          "5f0345637c8bbd1bd615d9a97d59ad6ff67d51806fac0e73aa8cee0ae4d5c836",
+          "3de34b26a118f4e04311a6847e525258a8968bbbaaa665beb51b10ae86530ba9",
+          "1ebedb8d2c694cb44949aebb6780fc96ac78a517dcb594c2bdf7822709208016",
+          "7a86ef132113f7fbfb113062e904efe7658f6a49a3cd812a8a7ee69e56e792c4"
+        ],
+        [
+          "5e65791c6b805456a3f094a91b72e9728c78b89c9aa95f322ebf0245ccf06c71",
+          "d10add133b699c79e0f49f4cbc1fde9ee756243c5110dc0c9d0910944685bfc8",
+          "42528c452b7aa8c240a5f5a36591a56deeb689702ed27eb8c0db47ebaad8097f",
+          "88bd448afc113769e5154ad8aab96c50a1ac7df06e5bab0ff0b1a95671469b63"
+        ],
+        [
+          "49ed3d0483e0488a925dd305ded5c97e3cc0937ca295daad5086138d71f3f601",
+          "0ffeda900d546c87cf05fef2764e82a6ac94dec62c630149edf0bc8b060e5149",
+          "0be030796a009d90cdf16d2bebfbdeff156733b06188e17441c5a80d3b6cceef",
+          "b2a5a2edcc84d81f6e80130475a2d10f597a7a1744ce3f8718f3de329ec6b009"
+        ]
+      ],
+      "element_hashes": [
+        "1a6eb4a0c3df4f2edbe089412fe1916504d87bac51bc030d26039592d8dc881a",
+        "6c0c8e8c59029901c454500cc5f8feed7f56ed14fdb0d8331d1ebf62c20569b6",
+        "c2cc3e755c0393b058003e7fbe916e66399a3e111e9c349a7bfa20c38154be09",
+        "306a51ce7e2d9aa85073423a3130e07677805d44838c9516c570e8a4fe85a831",
+        "d85d5872753a55af3699b5296ff43f8744e8b22fd67a18a1a99ea9dc984ab9fd"
+      ],
+      "hash": "203be3706902318511b7f5b2e87ebcf1aca09b37514ef5ac2dce1d18388e3632",
+      "kind": "array",
+      "mistakes": {
+        "11a8ab76384a83f50917c05e897ab1cd5a0f912b143d0cbe1f0b3c64ad8ae1f6": "le poids est proportionnel à 3^(−L) : une grande loss, un PETIT poids",
+        "27c5a640194b3a5d165befa5582e724caaef107ec7e3f670bff9e28c34b3bfb5": "des poids : divise par leur somme"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.4b": {
+      "array_rounded": {
+        "1": "33c316bb292046c6edb713e3fcce1cd292299155412c0bf5045042f5b6826c5e",
+        "2": "6eb0cbf087b7b1715a93e3ea6a3c43ff9be424eb08226a4a1e4f735b1da41f93",
+        "3": "7af918acfafbc14253538496016aee2e0799ce63fa8b3713735c9aac1edcb384",
+        "4": "f9b6b3f9a310b65ef62579e06feb63021b7fa8db9adce9870da3db25e38b5949",
+        "5": "36a1ce5113d0db953cfbd60188449d0d9419f2dcf4501007d851c73279e9c323"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "dcf3c2131daddd0635f53aa4e7a635754b99f0c4446563e8ca7b402d8c804ea1"
+        ],
+        [
+          "090ea00d86fb58fcc4d3d5eba22c87ba8dd0d20e5788612d4a98040ca0696922"
+        ],
+        [
+          "adf94e3e30e92bddecaae40769116e07095c4d86b84e2b7ffc14df88165aa236"
+        ],
+        [
+          "b229a644cbad3d39734d6e6ad709a597474b40d4d45868b0c9eac122a58273f4"
+        ],
+        [
+          "452f30ee502c0131826eb634b85b4961ca3f6e43c4b4786b9163c1982bcec129"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "76498decf7839ecce6bd19ca816b63d806e3481a3ea3e58574b414f6f1bc1154",
+          "65e5ed0e0602a937a79bf13bf8fadb6074dcb2235b419cc58527a86798a973b8",
+          "be0fbec7f483c042a163a8e8004292543b032f693208da49a3aff69e45012bc3",
+          "6a40a6d129eb1e51ac4c43f7c5335beb109c034656b132a5ae4da703ea5c3e78"
+        ],
+        [
+          "c4cfa68fe0c493d700d918c330d14b0da2ba58764589f3f7e617f10383f912dd",
+          "df905cc9ba1c8afde8bef0909e0528ab74507cd265a55d5a60061c91bbdc1d0d",
+          "00cdf7b50f7d4dca7b11caac69e2219863432933aab460af8be1074766a19fad",
+          "097d6f97b82e053d7bd2bf686b391113e84dc2fa6e3ba656d0918ab8557a35d2"
+        ],
+        [
+          "961c59ff7ac56a8d3e4bd62a16b05798f0fc42c9d85d475eb996690c18aa7ff6",
+          "dcf9294f0f103a58bbf68dcc7770648744df282e191d3389e6b845b4394b8e29",
+          "34197c26f43dc8fdfe9448e98bef536de7fe224af38388e21d939774e279cad3",
+          "ced5223a5f9a5c4c4c99e4c88755d622d26ad15b9d41f5072b44436fde0f42a7"
+        ],
+        [
+          "8255287c76b34e0601118c6a1f471fed580e3a386ba79cf0db6fb55150013a79",
+          "7990f6b1aa352fa45e7c798af1b3bee8c08ee92cdaa1d4950a7f5a1ce045f843",
+          "7524360dfa8d85927c26dd4c8ebcdd8251849faef0cbb0ad306aec0515beefbc",
+          "a061bc26f2fdefb457875f42094719a69a3dfe4c931b142f43b6467fb5f98272"
+        ],
+        [
+          "a81b292a6bf2686e31709c85b72e29654079091f41a0ef367dda077ae7ca9efc",
+          "83076646bb1d05881e87a749ca94a9a8d73b7acb48e1c62d1c268d61879aac08",
+          "633f93713035f999b87998d33eb1e5d71588c4e57229a75227339e49cb651874",
+          "d0e394d0a3fc9f37405c827cce192355170ccc05bc7dfd315151dd97d103431f"
+        ]
+      ],
+      "element_hashes": [
+        "b41ea68361d7a099ad6e3a1c29832f03c0db1dd3263a91a4a6a2652d9efe9c6e",
+        "db635539934928cf8f8be4671c29e9091863d5539a540e99f3759c161b49980b",
+        "b8a808007ba26ec14401eead1cedd3d802cc08296492e928e96b1d3f05ddf8b3",
+        "986a374ab86e7996c7aef98e74482436c87e25911d01eff0735aa4d1d13d122b",
+        "e396d2e68495c3a141d14e9090b0d0b88aa319131e3831a167536d56fd01ace9"
+      ],
+      "hash": "2e9250b004468782f33be4fb4e19b97e0c796a0f2f86411190efb1536206c970",
+      "kind": "array",
+      "mistakes": {
+        "c4a62f49a49e875c0e368b82aaef0ab52de5e8b0972d0d06a2e9f47a8ddbc152": "le poids utilise la loss CUMULÉE sur tous les tours précédents, pas celle du dernier tour"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.4c": {
+      "array_rounded": {
+        "1": "2f564b0b794117fa0a2febfabfca58285b05637a6a8b6c2e33b5b3292679b0e9",
+        "2": "c650c395acff6d14309f6d5ec91c085439239cab1f7f6a7e9087231516e517fe",
+        "3": "fe2997ba8454c75ab05400e886da032decee3b820d3f633ea04803d29d1ed352",
+        "4": "a3a286f2cf2f1f2924381aef75046f012063a8c839ea2dca6b9b80b6578974e0",
+        "5": "482b4d2dc2d5b863e3b0b16c93c6cf60f3f640173a76faaa2a01f5077de98433"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "bb7d82cbb220a492055114c2fe0d187621e9f4938e954c7f41e8eb964ff8c7a6"
+        ],
+        [
+          "bb991d3e889c2d101557edd06189ff5fff871ed5a220884d5b8696dbae0192bf"
+        ],
+        [
+          "c1d63d1ec9f4f11c41975f81374020ab03ef9cc16ac4c393d593a21fcde9dbd2"
+        ],
+        [
+          "956ddd587d383ca167effdb60cca30f79b02efcccc8b8f404e06b67cddc30867"
+        ],
+        [
+          "87e4095c59ad184369c50e2ff096dce22ac270770c06d1319e5fe6dc7e5c4dbb"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "43106befba1de4c68f39b5585b55c44e6cb61d41eeb8f0f66dfc34d52ce5f99d",
+          "39b6225a94ef470060a6059f4f9e1471c195f15324ddce80b2f4686ceb43e90a",
+          "979383c7385bb98790310298e6568689df8c8f1db70f8c4e3c6db39718e69e3e",
+          "aa04c20017ddcbfdd711738129877eebff34fada8e7c3af3732e52f207007d58"
+        ],
+        [
+          "b46ea7884fca529436cc742c00bf10baf5748257d0854eac0bded5c586f8411f",
+          "8813275aeaa778b32adcd869d758c503d89e4a25e10e4a6f3a47bb15bde9718b",
+          "ddc99925bfbdb5783b3b40c1f9ef76f176a92a51c75e4cc575463551ed31cfc3",
+          "7e919bea8163c2d1a7d3412bfbd95f1fab8c257fd485016ec0e1e54bc7c3fd68"
+        ],
+        [
+          "f8abfe48b271241d7eef5d6fc2ac715c9b521d474c8cad9e9060df4a973ef916",
+          "9c2fef5c5e9a8f382701a7ff894565d4fa505bfd4a2d7212590a2ad1bea0da77",
+          "33dc7e7ab80eb5420fd57f690a8675a0bfdd2638c42327248be392e7ded7c6a0",
+          "0728268474a6f92c6a06783b9c2e7e29f35d40293df3fc1e115a795a36773c03"
+        ],
+        [
+          "2319889d011a085adbe175afe480f181e583ec852ac34027e548e29b3727a16e",
+          "52aca84074da0c90ede3ccb0fb2e1c86752507a8b4c6d35e20d9ecee78fe872b",
+          "fcdddf998dba1c21df3ff00632b181859980ec567a41556d38a94aafc57ca12b",
+          "7e493a95ff301a302e0f2b2451df54dae3430afe2fd18e6f1a3b155cc6db07b0"
+        ],
+        [
+          "3019067d5d2207ff71e408d7a53a4d716ba32a57eff0f44374885690a885ffd7",
+          "ba25c044f75fa8b0f3bce4a44f0f506f9428ddaa9eb07a02e10ef8240185b41c",
+          "0319ca7f434bd52a3f2f38e476bcb07fef4fbed1526863a18e4f3952bce07767",
+          "918503ba1d72e59b22a9d5a19875aeb087f7a9b02d0c106561a3f362310aedc1"
+        ]
+      ],
+      "element_hashes": [
+        "9bfffe5ebce6fb4d13f3c8d82bc4d4318c59aabe01019326da970d6f25993fe5",
+        "b8451f9bb232469308da5887e3a2b42d4a05725777eaa9e888d3649a4bdd5ef1",
+        "c1b3613f6a9dbc1867cb09974163827e0f128adf571b9ed82d50b2916a4736b8",
+        "3d09882ede6cd8bf4174aed5881ebb2cb7e73380da818736d6c9f6963a0f55ca",
+        "6d0dfe9f66672c8a6c8f40b923462f7a1097e1059682ddec44458dcd21e9d610"
+      ],
+      "hash": "48d37b46d9ba15a82b2e1f07f5d3cfc41ab3275687e29c7cacafedd7f78ba6be",
+      "kind": "array",
+      "mistakes": {
+        "f74ad250d10b884f5f176b0341a729e526b6bce794b483db9d7f64c10dd7ea70": "le poids utilise la loss CUMULÉE sur tous les tours précédents, pas celle du dernier tour"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.4d": {
+      "hash": "9f5f453e9355792f5fcb9e524f7aa50a8ec48bdeed599253f027bbaaa47dfa1d",
+      "kind": "fraction",
+      "mistakes": {
+        "b1b35adda9dc4d79535f1360aba06fe74dfbfac350a7f709f82c2b054dbc1a04": "chaque tour se joue avec les poids d'AVANT le tour : Σ_t w_t · ℓ_t"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.4e": {
+      "hash": "b110d82e7d98ec2f6bfa0571f787afbcff65ca9428b7c5078ccac5c18767c21e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "1ca63d22a4f9188892c36a0f9be9168a0b11b1ecf86ee66c0d8630650ef6075e": "le meilleur expert a la PLUS PETITE loss totale"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.4f": {
+      "coarse_any": {
+        "0": [
+          "910d72d26f6a1a5cc1e1de24626cd3ea1ea9654fce68365124281c37288e3d4c"
+        ],
+        "1": [
+          "81ca75577eb9f534305bdf096eee17080195eb0e3954511fcc868626fcbd15b1"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "30b34c9b6a1dd600c88551c43cc5cba6e0968c750ec731181bdaa845ed7fd773"
+        ]
+      },
+      "decimals": 4,
+      "hash": "797bf832cda7d0d3377e98d566fa6c8e01d41e9c980be1fac5d116a21577886c",
+      "hash_coarse": "2c1285dda272c073049a61f73022a2143d8681d24c4fd9580df2ef8f6bb0c7c3",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "cc93166b6893e9419276e2dfa4ae196f5867d876e96dba2cf71e7327a9993fae": "le regret compare ta loss à celle du MEILLEUR expert"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.4g": {
+      "coarse_any": {
+        "0": [
+          "15042a6892e1b46c845df87045edd801e09d4eeaf67594f3fb364aae008d5512"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "be96d9a42698937be87050d31218eea6de71dc9f49c0f82b021a9881b112d27e"
+        ]
+      },
+      "decimals": 3,
+      "hash": "c308ad21f2db217774c0c482fd9ace46ebfe1609d26ddff735a6b2e852b06cb7",
+      "hash_coarse": "dd8553a326b852fbb3a604c5dc14b18f7856db43fa1377b78e7a6fc8db5d9668",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "b4762b577aa1c50ca30e2f3966063c1aae7116844b10c95dc5e9ab144cf46401": "K = 5 experts : le premier terme est ln 5 / η"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.4h": {
+      "coarse_any": {
+        "0": [
+          "00ff866825057b0aaedbc239ebd32b6b62db21433c6e397a76c130b48c65bc8a"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "96ba6663eeb5f0cc8fc0d4c2419109e86602f29b994475894ecfd858afc2d641"
+        ],
+        "2": [
+          "1b52da3a23e0e0e7baf2dcbbef3b9e269d449079a5aa2bb0848d5ac4f71cfa7e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "9132257d4867f4d9d524b4dc820b0bb2631b06a00e5869a55d2a21a32f2f2f43",
+      "hash_coarse": "89434d978b7c7d2d7e1f1ba45e94f7b2a7ee56c5c2b214f9cd8414cac9006f15",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "9167d42166fea2d113f0ea9465a8e5ea91264ee78bd77576ff147e12885fff7c": "K = 5 experts et T = 3 tours : ne les échange pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.5a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "0af197ed3acb508f97904f471179b6b458fb4f25c3d501531b1dac24c2ff28fa"
+        ],
+        [
+          "f0acf1fd269fc2b46ec4f0285c50b5f38413e8d40d65029bff73c5dd76712534"
+        ],
+        [
+          "1486dbfbdb8d950560462fa4e2f4239ad9aa18aa3f3339845fba5ea56469eadc"
+        ],
+        [
+          "10af90325e64354c2b4e1c407901660341b5b0ea755fd9d0cb87c8cd9b2de686"
+        ],
+        [
+          "5ed1ed4b5c214f0ef636e19f067cc65cdff350fb5e94ada2acf6c114a1afde5f"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "d99277f84049871efea778bb25b09eaebe903a383ee354590645d2782365c125",
+          "c8059b7e1c50b8bfbc338d9f75a016b447a80666e63b9ddc6b483c9e8c671db4",
+          "8ff1c4a9fddc3fac2e291928cdb221127eee0d56d35eee419edf06877ef3034a",
+          "71f9a27a916b2190e17ef85bac15254f885eb95f18299d9a7005f7c0dd245fe8",
+          "4e1f42503a2bc6c2103c6747e20794b1ed68a1912ebc0de59ca4dc3330d7a2db"
+        ],
+        [
+          "a71025d6a1d58c6d89659f398b7f95f7552650bddc2e899ca59955b5a60cb460",
+          "5c7a9439196af6f7893aee2a8e4b4f499310456a6c28c24e3972f17bc95e1b44",
+          "4bba04b544e7b1ef306cb42a8c96ea590fc1ff598ea6a18493bf36f0f9f59b61",
+          "da22bb8d9088b8c1cc60b244c769894857b3b248e8f2d82453dc917752c3a084"
+        ],
+        [
+          "79728f0f0612b242504fb9a9c9446208b8f997ca12accf79565d5ee6ce91eb2b",
+          "b206d459189e6b825a4a0083afdc9d9f87958f9251bad606e636a231ad44c3cf",
+          "156168e9731f373809dfe1bf808afd1473d8dab0a5c65b0fe9aaf8c2b7da4f5d",
+          "bdec006f7c7a52326a9210dff7d299481f29d173d99573f68d12e2b9cfd51693",
+          "bc246be946569efcbb7b7ba03380c84462de758b22ba50b66877703dfde09e38"
+        ],
+        [
+          "2b45894a54680884153ac108d2c032a8fdf09b846887f1eb1b4a5253200a1b70",
+          "515e73bbeb6cda49fabc9ac41e8e7069d8618f5fa6a231c0e97e7297a005929d",
+          "681a680c7ba1095c393654fb76549e3ec5412019dc731a1d39d2190d4964e4ef",
+          "3611b5c6b7f56575da0875ed6776d11c7d6531371886180222eafd575222d142"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "bb8f93766f2074be0be383c8f4b8bcf15dc854eca85129bbd14251db497dfc85",
+        "01474144d49d770bec6bd1bc140f7abf658e2216e5caf67d0bec2c2f6557d6e4",
+        "42411c90581048b48f4de92fa2ee890a4c19bf8838b107dc5719cc9ff5d94c3a",
+        "bfe5122602973ccff7bb63e465ff9ef34a057225a135cacba747407fa17b9662",
+        "d36126a1a2e6f9b8ea943cf4d8f6915f21c75c3726e65ee9dfc416f740dd3937"
+      ],
+      "hash": "3f85da9f8952c2016b7bc1479f8b8d8a54a98364e2ac0ddb7aefc44cd7a109e0",
+      "kind": "array",
+      "mistakes": {
+        "1c419c45d5805f468919d8d966a8e4df97a2ec95dd2d163c245d89a52becaf6c": "la marge multiplie le score par le label : y_i F_i"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.5b": {
+      "coarse_any": {
+        "0": [
+          "0475f2ef282f96cfb330a726492140536503def276345684f08bab1dd46d1087"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "a20003af1857c6290ec0ed1b51a64d8a95d69a02e7240d1b7f1a1a03f30ef113"
+        ]
+      },
+      "decimals": 3,
+      "hash": "7637ee9d960529bf3cda6088e5325b781651db13d69ca1e19aeefd752ab77637",
+      "hash_coarse": "05bf839571911cbfa726d085309c48211f736a7f6ad1c56aab418ddb78243001",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "d2ba022c827bfdbe7f1cb87cd58c843234809b5b794ec07b8c3b55e3d1b19285": "la loss exponentielle est e^(−yF), avec le signe moins"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.5c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "8dd439105def97780fd423f8135dacfe66f80db2f5eac6173ebce00d548f6f1d"
+        ],
+        [
+          "7907122b95a078722e252759da2109fb595cfc553ad6c32b29f92c4a9765297a"
+        ],
+        [
+          "6a2540e90bc9ecabec28fa2eb94ae53dc90d143f2f54416bd7ff5ed544ebb64b"
+        ],
+        [
+          "4d107db28a61bc9cb7d745da6410238d96eb3ee9767f4baae64163f7df503fcc"
+        ],
+        [
+          "f6b14a25a660723553fab9cea63c547c441b051435cc90fb2986749372f5e382"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8816ed78e5c2a0faf802edce8e1e3b315e46da0aef6da79e2f3e3e1cdbcbe398"
+        ],
+        [
+          "aa9ee33b549d42a9dc16f41c084b6e5c61cbc79b998b742c02d92b6c6c6bd648",
+          "31b08579893d564ce96cc8a13c02076800458b7af2c86cbf6a13076ba84c16ae"
+        ],
+        [
+          "59f8e4e707f6c5c03f160ef232b5bd483a461aa22b4b6e349d829744acba688f"
+        ],
+        [
+          "7713b12cb568d53918dc5f7ee623ef46bd36e0e9f1a61c51e6f7aafc100f0ffb",
+          "de83ab9c065538d48f4cfcf52507453439710b088b8ff78ee0f6e35e36c9e426"
+        ],
+        [
+          "be0e3d7f1cc48f39f490d2d9bda95f75c2da6b2d0fc449b49d76aaf4ee299842",
+          "04d3596a2aa86bb9825e4f3a2a9e849d7cb0ea905f5893054a2cc3f25d12c8dd"
+        ]
+      ],
+      "element_hashes": [
+        "b6453fe13afdcedb18d68077f6fc50c5e989190a0ff381df91cc2b43acb9739b",
+        "6cbe12ef6b770cc75a3c35153525544ae023803bbc5877183ddf364101010736",
+        "cb3e32fbbeb97d9dff7ba5616d992b10b67b0722503e14700c494e92adbb06a9",
+        "97be3ad45d0b965d9b4195f2c17593f13ae4bb86e4999cb45809360430917012",
+        "2c0e22237a17088f22e7164b00a566866fce72ecbebd4adb401465a575deba80"
+      ],
+      "hash": "af082eeef07b528660a722ae59dceaf2c5763d55b1cf4ea16aaae8bf5f394a62",
+      "kind": "array",
+      "mistakes": {
+        "7f4b14e0b1da86ed8b17bc24ebe89576f3b712d57b0beb43a82a73efa1c9eba5": "la dérivée de e^(−yF) en F fait sortir −y : le label compte",
+        "ab9fe46b3509fa90f286257521868fcb014c6fc9fd144fcac0bbadae8fde242a": "c) demande la DÉRIVÉE de chaque terme en F_i, pas sa valeur",
+        "c61c2f3e1c8bf18e4cdee143bfd4c8418d85f10353fe8835c54a25dd4e14184f": "la dérivée de e^(−yF) en F fait sortir −y : attention au signe"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.5d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "a0628a5f653c48adc681d9c93161597aa4a996af654f238ee778c7ffbc5af6be"
+        ],
+        [
+          "74287db3cc1c189adb208e55e38b8cf5f471b4dc439a5df37c5b278a4775a2c7"
+        ],
+        [
+          "a598d243afb09a7309218c7aaf9b2379068107c1e56ee3bb5753c46d52db2295"
+        ],
+        [
+          "b9efae5e9197f12a1711a7184fd929c3d0b052b452cc83d92c240166c27a26f0"
+        ],
+        [
+          "096aea937506c4b5036a61df99f015798643b84a8b3acd84e67b66506bc9f5ff"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7f583c7f29c62cae42c63e8c79eb96438fd78e24de6b58608fce2301ab82a985"
+        ],
+        [
+          "85393e3c95eea332f79ef29f72f689ac74e68a580f2e08a5425ce646036b8058",
+          "33027aac1d3e82d6f6789b70d496f5b3d51ab0d6d9f322a875a910bbeaf53408"
+        ],
+        [
+          "9d87900e4b0d5711532f01800c39e26b1274133bb0b83e7fc9ccd7319c10c94a",
+          "c6cac20714a6a186f597f0c4f193e3b00221e62fdf8d05035f2c449181d9ac36"
+        ],
+        [
+          "5ad17e90c3d105182f2237afe83ddc6ff46859e0e147ba47389459fa172cc605",
+          "edb25a7279d9c222768edb47374eba010f2a15b3f4de64784f10866b5ba88254"
+        ],
+        [
+          "9145bcc807d7d863bdae68faf6bc724f29fedce542dd3044d1ce6045d428cb1c",
+          "bfbf9272a3b03b1b8869eed6be4450b675079b755de52ac2357bf5af2eb33f81"
+        ]
+      ],
+      "element_hashes": [
+        "04b477fd6db2781ec1fc7a9cfccd697f60e15bc96a32ac814877eb0468bcff69",
+        "de5ec2cb8908926a74c44d9c80e063e752393a7feec56dd303b37deb38457b95",
+        "2ea1f0273dd685cb75b99f576924b3252bd796609370ea5f3b7d9bbc22604baa",
+        "0ef9edbc4f84cc7bcb3336d56f02b47b641f2d642b3f52b461726222e35ed61d",
+        "f8bcb4391ded4a11e4831fc95210d951bae943cb3ff0bcfc910fc7a8eeda4968"
+      ],
+      "hash": "45dd97a16079d03d73ec643b62f424561a82d9d87e7285939e308d3e887ab6e9",
+      "kind": "array",
+      "mistakes": {
+        "766f80602dfdc751b807370c3c923af46667c2f96082acc53496959358792e11": "un exemple mal classé (marge négative) a une GRANDE loss e^(−yF)"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.5e": {
+      "hash": "f59b68d3e17c5e1a8d8bf3a345d5f8560fa2865f2e0173d5ccaea7c59d55b8a2",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "8b40b7bbdf1351d8854f83c56dafb2246d7ba5633c5d57fd0afd36156983e682": "numérote les exemples à partir de 1, comme l'énoncé"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.5f": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "4ca9e48f9777fa408fe40f089d528029a65935c304269718cb52bb13f1be73e9"
+        ],
+        [
+          "760ac664defda2e7fabbd7fde0b04a56a9aa011e2240cd6d2daf7336ddf48c0c"
+        ],
+        [
+          "622d83784c8ce25ace201ba55d617ce80545a99c9c762384893af6d17e404528"
+        ],
+        [
+          "0c249491b88973df64d8f91371805629bf1c6d8ad31c806d38e41fc167b755ba"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "3e3ab44013ae8b284dded050407debdd3bd0a650bae378b2aef1e357217bd229",
+          "7809044bde0a55193525b34d783992a8a1b0d46dbdf5f2346d0d5440cc09c5bd",
+          "f6fa326232ba1ca6671c0074beff38e48604d169e4504e41ffffd7049a24e33c",
+          "73861e5727aa0f943e347dfb2626fd72ebea6eee9d7ab875ab598874ebdc216a"
+        ],
+        [
+          "6bd0bcae3d463c43175e29c4cf1de38684fe188a518097cd937a37d9df5391b3",
+          "ecb935e0220fb8a512c22758111596909e519d533636fd4d457396a9cbc82982",
+          "7c41ed6f25f11ba6309ce3d401c1fcfd53b12a5fb0730babc79de77053ecc834",
+          "d59ad076cbeba96cfef73f754fd291d649f06af18ba604aa66d82cd72b664b01",
+          "59d71e0b926a37bdf08a6b151d9eadb83f628230c6a282190ad38d6f0238632b"
+        ],
+        [
+          "25385b16365ce66e169c1fd1b99364a5f5f91c551c17cffa2fcbed7ab1cac39f",
+          "75674754f0eb4b97bfc4f39a9039db6b0c8662ca2a026828298386a2a21936e6",
+          "baa5260062626e81d79d98665324888dac9507a427d83cc3277f29dabb9bcff6",
+          "f83ff15172c7cd5c909fb44b69feb5c70b570c16b48a1e0ece9508f7df25107e"
+        ],
+        [
+          "30d5775ba3df2e1929ce6ea70d1bb86bab1a62a944b4cf701daf210f2df10a35",
+          "25f103e6423e0ac268113b3f16a6f9eee4bab759a71d1feac57d2f039490cfa2",
+          "6685e8da8bd7c749b3fe827790fd14345b487535b426a5c70f09efc1cff5c00e",
+          "e3219a8d6823f804f076f02559684918260503e2fd967f33e72e84fc580ab510",
+          "5adae5eb41921890ff83d85288cad2ea8db1ce41ad4def10f8dd98bfd38288a2"
+        ]
+      ],
+      "element_hashes": [
+        "8e43e651f64e13f232103f3f0c575a9ad5b942622bee8ab9850b1187d5f0bc1b",
+        "6168d04a3f297b27359c72e0c477460c1e9320fe7e1f7659272cede1906e4a79",
+        "7a55c61eaf57305f3326d78ab6d79791e1279ee08f2a0e42240371178027c7fc",
+        "0ae2bb46d8dbe0205f67b0a3eb960fa4c889cf1beaef15a8ddcc926e801fc2f6"
+      ],
+      "hash": "920fcf687ba411b9edc551cf058c32d17470ba4320bc7b3ee79398709f5fa4e3",
+      "kind": "array",
+      "mistakes": {
+        "2ef643dd9c78cc2f8de79cc17cbbc8519caab616c322c3aed32e5ef7220237c4": "au-delà de δ, la loss de Huber est linéaire : son gradient est coupé à ±δ",
+        "8eafc62babde68f3e93462a1d23b49fdc28595bea0bfaaad1d6ae0197ee19766": "la dérivée en F de ℓ(y − F) fait sortir un signe moins"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.5g": {
+      "coarse_any": {
+        "0": [
+          "f350c5f9e8b761895e09175923235e367601586a79fc49a6d9f07b30beba62c8"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "106b660d13005d4526ae833ddf1b54d73219108fada54746825e42551cb416c8"
+        ],
+        "2": [
+          "d4dceed02967db5ed5178f090b7e13ef1799cc99eb5c150037e0f7fde6e382e2"
+        ]
+      },
+      "decimals": 4,
+      "hash": "d73b85689f5923e90caba7a049f97a5c00f673961e62c1cdb939a009dc4f6c0f",
+      "hash_coarse": "0432dd825c961dcdf627223c3fa42178efc1a34101d0f202f99f17faf6035454",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "5907fa8fdf91af85661fdce930180b59f64cc994917ada3457b78451b8109bb9": "au-delà de δ, la loss de Huber est δ(|r| − δ/2), pas r²/2"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.9a": {
+      "hash": "1254bc3d58077e9de5f7809510cb5a4965eb91d6e6e405a1939cd437b0f8e916",
+      "kind": "fraction",
+      "mistakes": {
+        "7fcaa7a061f7f0362adde1851e4eac4db87fe4e03e50b6f8542afe90128b7bf4": "la moyenne porte sur les 2m = 10 modèles, pas sur m",
+        "e5b8f74331318a0c8f2154413abdcdfa023376e0256e710b8b821d20183f8490": "Z_A et Z_B sont corrélées : n'oublie pas leur covariance"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.9b": {
+      "hash": "415f8511e73f7a33b70b29daa49fd1e89e079d42f8f9268a1bc2e5272009461c",
+      "kind": "fraction",
+      "mistakes": {
+        "ca02ce02905457325091bb04776933ede3e36799a4134f17a0f0a1173bd40d7e": "Z_A et Z_B sont corrélées : n'oublie pas leur covariance"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.9c": {
+      "hash": "c3da0a5fcb718eea6f6745b763cb1a67e90b8ac17e9f84a98de2f6822b48d2b4",
+      "kind": "fraction",
+      "mistakes": {
+        "cc26d3dc12e0c31d9cd6b912a8a474a2fb9b3240ba658c5948587842a605b63c": "c) demande la part du plancher DANS la variance de a), un nombre entre 0 et 1",
+        "dad0280cdfee80a016caa78b1006f8101c4a383027363685a26d33d5b94a185f": "Z_A et Z_B sont corrélées : n'oublie pas leur covariance"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.9d": {
+      "hash": "c7c89ae9b37da82dd5ff6da4ab0b3956424ba2b2e93106895549486927022b38",
+      "kind": "fraction",
+      "mistakes": {
+        "4d55f45f567c9b92e63b7617bfd94a1819a950b1e8dd31ccd65ccf871c70ec4f": "quand m → ∞, les parts propres se moyennent et disparaissent"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.9e": {
+      "hash": "0af8204d1f042ba551b1393888ae56746a47ad3a83a14947deb48f53ff319e9c",
+      "kind": "fraction",
+      "mistakes": {
+        "56ab030d6123df666689956ebcdef63cb2a3d322945d2a6250c6bd8a07a25362": "α est la proportion de modèles du groupe A"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.9f": {
+      "hash": "f5abb051c291a853c91c641847898850c69329d26a8a1952b2abdb0dd18cf61f",
+      "kind": "fraction",
+      "mistakes": {
+        "275fcd4411850ee554519b7c9463018ee1a2d81fb584f46f7dc2d1351dd23f46": "Z_A et Z_B sont corrélées : n'oublie pas leur covariance"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.9g": {
+      "hash": "a90834c53dd4db5caa11de0c39e32a2d2a3714e2b9c966652e06602aa66676dc",
+      "kind": "fraction",
+      "mistakes": {
+        "4bf99d9578966641ed14adf6a6d990283059cb7551f2f4b93407b6221a5cc795": "les 10 modèles du groupe A partagent Z_A : sa variance ne se divise pas par 10"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.9h": {
+      "hash": "19ed007b8074d3fb9ac0a8be2b8264f97f058774d20afe5637bd5d870a4c5e6c",
+      "kind": "fraction",
+      "mistakes": {
+        "0a88924ca1fc8e2c38a6fdc467cfc5e52b3e05deedf580d52d55f450c9b13304": "Z_A et Z_B sont corrélées : n'oublie pas leur covariance"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.11a": {
+      "coarse_any": {
+        "2": [
+          "6b431f6123fa1a7a74380db5d9bfb984fee6f945281faf9ba81e5e8742eec708"
+        ]
+      },
+      "coarser": {
+        "3": [
+          "6d8492abf2f4a16cfc5a6c70d500070053258c41224fef58e93cf4e8f3f742df"
+        ],
+        "4": [
+          "410619202e0f841916c1999f6d5bc34cff9bf57276551757af3890063d70918b"
+        ]
+      },
+      "decimals": 6,
+      "hash": "c7146bcac4f4c297db1dbf2c503d0eeb51aefd59b206d810eb4290000c78ee2c",
+      "hash_coarse": "67478fbd62def3fbd62e57b7e5240646b7a692f3fd9020cf74564145fd05e1b8",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "312929b2ce61f05898a3d51b720ae5fce79ee061d302169df71d0b151d5ed1f0": "KL(a ‖ p) : d'abord la proportion a de l'événement, puis le paramètre p de la loi",
+        "605eb8ce2f4e928719325feae14a560e117f5b14822bf74a8f71a75900e4deb1": "la borne de Chernoff utilise la divergence KL(a ‖ p), pas 2(a − p)² (c'est la borne de Hoeffding)",
+        "7a266180ef0ea09c732bbec2b70b0180c4861fd6dc9d2122408ddfddb1a3c316": "la divergence est en nats : le logarithme népérien, math.log",
+        "ba5bb2a4ab66a02721366d0d08b00c872dfcb36b5e89261341b3e6284f379e06": "KL(a ‖ p) : d'abord la proportion a de l'événement, puis le paramètre p de la loi"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.11b": {
+      "coarse_any": {
+        "0": [
+          "7c55703378d218efb90a7665096eae4a607e5d483c442cd17717b0d2d3337921"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "a76076c44130d90ba9199babd29f391f63f78357f6759a7551913b7919cc7f3d"
+        ],
+        "2": [
+          "64cf27f5fd52a99fae8f79ca0ef0529780281be1be4e20b108dfcf8d891db4c6"
+        ],
+        "3": [
+          "73555f506021320ac39abd6d072ce436969986250d8e8fc71ad75ffe1c49da19"
+        ],
+        "4": [
+          "a2b5d6185e5e5a5bee7d1e133ee0a0aab3cbb555c5b90a42affd7b88f4a314fd"
+        ]
+      },
+      "decimals": 6,
+      "hash": "ce8c9a066af81a76b2157e029f5252b4552f0125391ae964f04bed03bfb00104",
+      "hash_coarse": "0388985fd3dad44b0092a8c38c61d9efbd1fc2c7e9b75f6616b6e752e234c75e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "157435a9e64a90aa147546e1e96b7e5bc38dddd8df675f3a3a00d699d501bae2": "pour a ≤ p, la docstring demande 1.0, pas 0",
+        "8b0d3fbe314b25fe9e4fea1c1ad7c852fb04685ead7d9b2c24ed26468c435a4d": "pour a ≤ p, la borne ne dit rien : la docstring demande 1.0"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.11c": {
+      "coarse_any": {
+        "0": [
+          "90fc6f30f9e131449228027cc6c6a32898bff5f022b22b5ec4a480cdbc64d240"
+        ],
+        "1": [
+          "e9b6c201a189e448598925c9f09b2747435f508006d590b9014aede0e4568d62"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "d8d282e052888c02ac2efc5225dd008e600706bd7a645d2fb5732c1da711d4a8"
+        ],
+        "3": [
+          "1b878c00841d91f9d57cb92e991c34b5f478120dbeb6432f5f27d8bb78288e04"
+        ],
+        "4": [
+          "059ba70640ce508399d59bc2c1ccd6600de7f9bb7fab4b73581fe74424e2e944"
+        ]
+      },
+      "decimals": 6,
+      "hash": "eb539f6b7ebae68f694f38b5756743d4f8dc74170ead4ac23c8f972a8a5b993f",
+      "hash_coarse": "362b629397c8036337531d949acb27521671325276f5892c566c8f3ac6944fa3",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8cc691d44d69ff348757dedcc5cda4fedda5ea060e611575e0cea5fb358170f8": "la moyenne simple a les poids 1/M : chaque case est multipliée par 1/M²",
+        "cd2a08c979154c758748bd7224879be609df455f49d1e62572ee233cbc38254b": "les poids 1/M multiplient chaque case par 1/M², pas par 1/M",
+        "fbcb310127e264fb0572eb590cdcdf011c7ddad618e5a941bc27ccffabc43607": "les covariances comptent : la somme de toutes les cases, pas seulement de la diagonale"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.11d": {
+      "coarse_any": {
+        "0": [
+          "d717b8dad049329bd10fe60d7bdebd2f2a273bae3ed5d10dade21991be0cc8b2"
+        ],
+        "1": [
+          "354d48a3262846e743f60c7ab9d8835e9473095bea32bfa9d437630dd3d866e5"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "c000cac024e4bda38b0ef8ca4829ef6c55a31e68bd5abd8ef3fdedc5a7d36d1d"
+        ],
+        "3": [
+          "5b65d82a0d13e617ff8a109ab976685ff754b00884f9ab0bc76f295549721d0c"
+        ],
+        "4": [
+          "9d32e4aa692fc77f5c07f29c9556cf085fc9262c828349672bcb69cd7b2c19da",
+          "a865ab7f2521301da7c43d24c0b917f12f3752c718054395bc857793f061da18"
+        ]
+      },
+      "decimals": 6,
+      "hash": "eb3a6a395461e1234bf721c1c25f09aafe5be5ba6326d66a8a17df6a84153cbd",
+      "hash_coarse": "c9c609f3cff34c19fa6be9fcb477a8743d0d81e1770d233c9a013bb80e01affd",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "192170f8d3c499bf94e747718180531ec3bad9f5c564587717d1377349b97c88": "les covariances comptent : wᵀ Σ w, pas seulement les wᵢ² Σᵢᵢ"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.11e": {
+      "hash": "a879873a7a513508ed02c3fa6b4ba31efe4cb340db989654ed30f7b0416fa606",
+      "kind": "bool",
+      "mistakes": {
+        "a698e1967ab9eea631235fca080c03d0630c748b0a8a65b2be51b640d2d99e52": "relis chernoff_bound : ses tests disent ce qui ne va pas"
+      },
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.11f": {
+      "hash": "3bad9c62018e4d6bbc90ab4ec4c8e0e7db45b61c582a70af1ac4a1385e13c838",
+      "kind": "str",
+      "mistakes": {
+        "139c9739526586a1cae2a8190f3ebf4b6df7d341ce0d5750d6afa90790a6a830": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "358beee2ba1e2a3c03564a45e4ae254f4331d95a5fbc780804e9f64a99ee3022": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "37e2925ebfd24b340213925cfdbb61804e9c625a0046d5a646e601f3e085af00": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "3bf9bcf58e30af630df97c9b832ed3cb0784b5c34827da4a31c8e83a179d7d15": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "43381a0ec48490c2c3d15d35e3e1db59879666e386f6773b0c279e4d2da0bc3b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "548efda4ab2c5f5b499a26c2bb685f8686c5656063541a9d12ed6e19e8641be0": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "7e0685fb735f31f3409e6b07e576856c23d3a40d1d8163bdea802b2128a5083e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a2f24d51d97fd7095aa7de19c4dbd1cdab6b98af7e7f762f6f552ebff3b70461": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c0b7bbe4512c1c22d8ffefd281759b31ea26ace233e2f1076787cd74318da4bb": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cd94102577ff69aae27a998096f09fb7a9c045ce8af023a1c35a7776e131220f": "des poids de somme 1,1 ne font pas une moyenne : la docstring demande une ValueError",
+        "dc85903e84254fc0b0308917e98bb413a2482408e70476b7c6a5ec7ae3f30148": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "f7d4ae266ed217e19adb78d915fa44a147afc4b313c62158b270f67c17d99546": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.12a": {
+      "array_rounded": {
+        "1": "8436692d591d4f8d0fa91f0456759d9e61d1ff79b61736b45e274b0b5ca41e87",
+        "2": "1e992ad84e611f78c6704835c8b8cf6f45d989ed9dad2684d906103fbaa53ff7",
+        "3": "765e9ca11cea46126dbff5820fc8cad40d34d3933de517048715529b15a6586b",
+        "4": "b57ef0cdfec7579ab7565f9bebdde0229e1a482ad8f77a1c0fc1dd8746b05190",
+        "5": "2bc42280e737c8ee0c5e2f69497c423ec8b633cf7e525800833d5dacb183235d"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "1e0eb164c525a4563685c38ddfbca1dd4042dd4872e8e230c1ea64c4dbec3ad1"
+        ],
+        [
+          "301c27d926f38d6662856871fd6af3485e918eeb7d91356332438151e297af8b"
+        ],
+        [
+          "53ab3d7896a1872683090f893bc019570fad5b00f431d7037ead2a11052b8569"
+        ],
+        [
+          "22eb7f9f2dc459e7db9c8d07694f3fddf0dd555694738152250ccad7e2cf2c6f"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "bac82cb8e8145e35dbd4e3031a256e00eca8aed110c69504edcb6a3135cef0bd",
+          "ad01266c88bd749fcdbb2d9b2731f6a63cb3e8efa60ad5577722538dd2c9a5eb",
+          "1e08852f6892e38ca097368a94fb762ba75b2d9490baeecdc30c6e6f57ad1da8",
+          "667fa09adcb6188e1ff7e998455c7902db93f64e67ce2845f938b48aa11478cf"
+        ],
+        [
+          "c48b46b79b2af7e9674b463dca271434f8deb0c8a8978a32195cd923c1fac5bd",
+          "4bff5ae3cbe0b08c81408f399b5375db9b5b6129ac8a1021719ce8e5a1806efd",
+          "b01b4ec7d9ddead5f770feac01cc584a6f50acbd96b98d35d746e78181cd9fa4",
+          "383f45df43495a789e43369575f77045ef3cef78fa004e988d472f8ef28b6972"
+        ],
+        [
+          "41d6bd7f093f7dc9144a92a4310c56d74cf79809bffbdf5a0f8b33e557d05ff9",
+          "56861246ac17a3e90dbb2d4e7f0b26709269668e98114ffe952571e265bcab1c",
+          "03d1525611124b353dbb704e11678e8473633fe6fa56c9f8982beed0878731be",
+          "5e85007ecca97ed4bffa7b708424d26b0eff2aaa591d35fe43274d62492b47f7"
+        ],
+        [
+          "93b23a3b5bde3d5079e9536cd7db28591306f5987e571272816fabe63b82e31b",
+          "8e39e9f1514f5550564e23b8b041af8300e7cebfb4a39dc68b23e1c273271276",
+          "46e3ca8173eaf7a2198de7cbe1b2d9ad1ae17ae2c8c801a8031ed749be371eeb",
+          "6f951009f4e0648af1d31f34b973a7cdfc88d6b105f3ab5347305cea807627a9"
+        ]
+      ],
+      "element_hashes": [
+        "e17ce069b347b7097e7eef96bf0a2ffd9f2936baf2c62a8f43c37eeb9d2d2c00",
+        "da0bbc95736ef0a74a46208e19a1e8c1b7770aa3cc73c245e9c9f2367649c141",
+        "a0509e0579e662009265eb08552e1d59d5e794f967d2d532627f4175a12c77e8",
+        "9c6a834292806ca2537b1d1954cce0a38ade6ed6513166e03fa2af72aa7e0d52"
+      ],
+      "hash": "02992bd7cd0b4a3c08cb3309e9074b209c6c20a7138a007295b8e9a1901ccd0f",
+      "kind": "array",
+      "mistakes": {
+        "0e180afa47a5f654a50f47cdffe64b78b00e51b80c278f0a5621ad495917a141": "chaque poids utilise la loss CUMULÉE sur tous les tours, pas celle du dernier tour",
+        "102689c398b7b11efd0db7a870bc6bfed30af5dd8bf7d43e50f440aa35f328fe": "des poids : divise chaque ligne par sa somme",
+        "decacf0e1be4a59db34b24f7a30e15c1bfaabcc948278294c5ff43f7f010e209": "e^(−ηL) : une grande loss cumulée, un PETIT poids"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.12b": {
+      "hash": "2bde2eedb98ff7800e7542d46d28fea44a95e62568e827120dabc20d77faab91",
+      "kind": "bool",
+      "mistakes": {
+        "108cef88aa3361f440b5abb70dc6fdb74ecba41c20150065250e1a4635ec51c7": "la ligne 0 vient avant toute loss, et chaque ligne est une loi : relis hedge_weights (ses tests disent ce qui ne va pas)"
+      },
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.12c": {
+      "hash": "9c87e4a8b9d2a49ea9084edc89bc60947592e04da494050142a777dc6e6955d4",
+      "kind": "bool",
+      "mistakes": {
+        "bc3d9ed35262576740a4dcca865d9c6b8eac94fdaeff150aae3b809dd2c72cf5": "retranche la plus petite loss cumulée de chaque ligne avant l'exponentielle : sinon tous les e^(−ηL) valent 0"
+      },
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.12d": {
+      "coarse_any": {
+        "0": [
+          "524b92d41982fd490365183f830780b959f35831b43901c6024d34df91ab5209"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c6d5cb4722bd8be2da14d8ff2ada0d6649a1761d5ff31f6f0d423ad3e9e548c1"
+        ],
+        "2": [
+          "7c7e2b64396f6b0d57372f86dfb059313417e57287bb086ca6c6d73324712d99"
+        ],
+        "3": [
+          "ddb7384e4fa369f62e23c8d0b1b241b080ce38338cf5301510d357eff57c8d9d"
+        ],
+        "4": [
+          "d1be5b1e72fffd4821c7ace5af9f2f768d28c1763e5672774b9178a4a27c9da8"
+        ]
+      },
+      "decimals": 6,
+      "hash": "52d005487d01977ac8dbd96c3d8b47ac174dcce7042ddef4a64ddf5c4d8f4dac",
+      "hash_coarse": "300301783f333bdc0c7bc88d19686a215f1a6134686458a732f70f4222cc2c19",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "3484061e9b95459713cb6a8dfc8421f4cb7091aa37bb2b31850a4fd7601a19d2": "la ligne t des poids est celle d'AVANT le tour t + 1 : la première ligne est uniforme"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.12e": {
+      "coarse_any": {
+        "0": [
+          "413e3580dbf31fab78fee9ce992a0595901514146107e7f7de0f9a8919cc6ef3"
+        ],
+        "1": [
+          "fac9a4e02dfc99e6fd6bfae802a01f9cdcbe8b5beefd0ebfddac3f07e6d2da9d"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "3b06a30aa1b1a0939ff18760e28b4d62b2e2b9d231240b58d5d94671020d1be5"
+        ],
+        "3": [
+          "3ccb8fd3c772888da3f2c8ed59fabe445a7ada8e5b40658e415f79f7e4b0fbd5"
+        ],
+        "4": [
+          "892e837ed78a6d78b6e14696b37cc92d9523fb72b11fadd212d622ae2b1757ee"
+        ]
+      },
+      "decimals": 6,
+      "hash": "973aa7a346def4c470a6f377fb2b3e8e5115da1342e7042e2c082664a36a1b8d",
+      "hash_coarse": "96f24bfc418e46b89eaa2daa8ed9211062df7a023326e513582271c1a6a7d98a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a8741addabaeb2049d5cf2c6d45b59d7b32aed0cac377ec79a3d3744eca70639": "le regret compare ta loss à celle du MEILLEUR expert",
+        "df42e3c2a2bf25050156707f80c67f77025a5b525d69bbe13bfea7508935302e": "le regret compare ta loss à celle du meilleur expert, pas à la moyenne des experts"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.12f": {
+      "hash": "9a5ce55c432b9cd82bfef349878f40dc5944b31cda3ef59d2ab969185880aab6",
+      "kind": "str",
+      "mistakes": {
+        "10d7ff0e5077d32044381ca6bc26ed05ff231cdbc00b6b0741c5c0c3a7e03cc7": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "5028c942abbd2679a6355626cfca73f27acd66bf684b5520619a6cdb62443a29": "η doit être > 0 : la docstring demande une ValueError pour η = 0",
+        "594d88b01b2ccdd80e1e50a4d16473e6ea2440bee5c6c92a404cdf5081496762": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "6fde3a569bdc1b0fa750a0447b795c258de281bd565f61bc6a0c89e804095ad4": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "723c78cf9c164c74a30c291d6681fe13fcdd0dcaf0666bcbd741319c4aeeac66": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "8bf9fb6c0c4340763b5edaa52822bff8248a04f98097f278dfa85592b241a752": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a3bb952ad05251fffd787ad7d836bec94a3cfa25424b067f8116939b5aff4d04": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "a55d23cc9030178832186616fc0910597ada7f6c029b79485428f4f65bd53a28": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "c5b2b1d018ba6f5ac1d37c576be1ffcca57bb22e965a08743ecb1d6db71ebe5c": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "cef39f1fb9e08f98761ee3de4633b0256f86f4d15e2076a91ddca3cb51ae502e": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "dd81c6024ed7a7861c48d8b46831da1d617a259d4d03f30cf57c1e9dd793aeff": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)",
+        "ec8ff03579d9856800f03d96fc07710470d8a142c0d675866497a96d5450ba6b": "lève précisément une ValueError, le type d'erreur que demande la docstring : raise ValueError(...)"
+      },
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.13a": {
+      "coarse_any": {
+        "0": [
+          "eda6b6602552a9958c9e3d8544d24d9eef3b20d189597d87066a5ee6f9bd3491"
+        ],
+        "1": [
+          "78cb989785cda7539421109e7fe4751e00a945d05f87f4634ff08612782a19f6"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "fa86114e7444885d7dca2bc1cd358a065b7c94497390d06cc657146bd31b7b2b"
+        ],
+        "3": [
+          "0c71fc2dd0d5a7d153a91e457ed73cf70d678386a9f9ae9fa121c64bd17d1f50"
+        ],
+        "4": [
+          "c36dca9a97bf184d8389abeae91e00d7d912f70e96ac32e512f58cdfe70978af"
+        ]
+      },
+      "decimals": 6,
+      "hash": "07e45ed634d3017eb212f3d26c4daa9017ca09df7f7bae338b67da291b9c71f7",
+      "hash_coarse": "28a0547d8f968e1508810df8b39565f3509725129f34cae574394c247ba6e15e",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "702ce6e71e70cd6060974cd4b784a6f4eeb6abe5d3920ac17eb3f8a4460eea53": "les modèles d'un même groupe partagent leur part commune : leurs covariances ne sont pas nulles",
+        "8889be8e478021702cbad5689e65d27908301aea0559a593681b765f80d85aca": "Z_A et Z_B sont corrélées : leur covariance compte dans la part commune",
+        "ec03a8c12f8ca8243692c45400ddaaf3de741796a1b2dd771ac42517626ca7d8": "la moyenne porte sur les 2m modèles des deux groupes"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.13b": {
+      "coarse_any": {
+        "0": [
+          "d8e4b0d6e0a7e6c06939e32714d78aac79ff0ecf221c89cbe514dd599a228a8c"
+        ],
+        "1": [
+          "b9463a42a053cd51525c4ea2337cab3deb4483e0e6a7ca13a0b036d41e28fd0e"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "ae30f958591f15bd63442a75661d081e93e10fc51bd738ee759fc8a3b54a28c7"
+        ],
+        "3": [
+          "114700480a8ffc5e60554cce598301cd1fc7475b4f68a860674c436954137c35"
+        ],
+        "4": [
+          "2929bdc43f53020730d3445e5c4a945c0d7c00cbe14bfe7bd486debb85e13a36"
+        ]
+      },
+      "decimals": 6,
+      "hash": "93427cc1276770bb07011be1d23bd5401ebafd307dc65649fd50b2d32b23f3a8",
+      "hash_coarse": "32b5ddb30c74a59b8c9a66fcd3a5bf4dd7219a64527c5975753a6cb80850c223",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "83339fe5f435432587bc892a2425e75a310f525deb3158180f5d09e6fcbf3d76": "Z_A et Z_B sont corrélées : leur covariance compte dans le plancher",
+        "efcbf7caf217d245d113fc22afd8fc932da0cbe11408198b725ab30a429025e9": "la part commune de la moyenne est (Z_A + Z_B)/2 : calcule sa variance"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.13c": {
+      "hash": "54909b8fb479af035d7491f1cb860150225edf1393c791894c7aee5975698648",
+      "kind": "bool",
+      "mistakes": {
+        "f251ce5832df2ee5f74621e760d19b73c5a8458b611ed4492b03512da6f429d6": "tes variances simulées s'écartent de plus de 5 % : chaque tirage prend UNE paire (Z_A, Z_B) pour ses 2m modèles et 2m parts propres indépendantes ; rng.normal prend l'ÉCART-TYPE, la racine de la variance"
+      },
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.13d": {
+      "coarse_any": {
+        "0": [
+          "9c53a0887220787ad97e5872258bd657728f26d145345380064d784ca410e261"
+        ],
+        "1": [
+          "bfc78546d524ee4c342a243821074fc8acc2f7364e516694fdf0b16161447e0a"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "5f6f9b2cb693afe924c2db0e3b913ad5cf9418e3a9d0a8b53297d0e4ff05533a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "58d4186c435514e2ec8325455a9ab67a45123e9bf9cc78eb7782099548778ee7",
+      "hash_coarse": "6f6d4c194abd2bcc0a6cc399731a0c11136d7188b2122cc8542f2a1afa83f4e4",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "4c2fe62e4d239a685debae7a09e852479f26e88d98163e4d126081190df03b9b": "d) demande la part du plancher DANS la variance, un nombre entre 0 et 1",
+        "5d1b43f28d5c573355186bd287016c32b6b63464a6e7101f376cff7638ae1570": "d) demande la part du PLANCHER, pas celle des parts propres"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.15a": {
+      "hash": "981404bf0d7aa046483bf54bd0d404ad8bcf2b1c378271659b2ddcf6999920f7",
+      "kind": "str",
+      "mistakes": {
+        "0237cade63fad6753796c9668731345122a2ba4c5b2fc525048365b9e8a1393d": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis ce que compte la variance d'une moyenne de variables corrélées",
+        "045ab34eda42f38479af060b3442c2c591ba04ce71777cbbc241c651ca0e7b86": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "057dbb8a9d5fbb511c9e1552dd72676438e6094a09e95414bccd8a7905826120": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0a60b69e654db73588596aa76b9dd1a2f8500bdeba8666234e530f9a40f219d6": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis ce que compte la variance d'une moyenne de variables corrélées",
+        "0cdd48f81daed5be7c97f8d83b46db145b2d2959b76d34b229be68dc7521af3a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0ee5cc7ee4f3e8ec5780ec4462efeffe0b1c61bed794e1572fda3e99fc992f76": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "0f9db8061deb1ac56dc3a805d4e10740aeb235075dbc35ebc36db69f10dba436": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "14e4e8b1510d6500286d8719defdd78d33790f04e2582fcdd64fe5d090245a68": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1581e862b9e204a3f6b49e12cf58ad75f7f35d50af97c9da3698d83b2e10af4e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "18acf1cb4c0c35c9ff14e2d8457b0941c09f06255fcca9c4b026fa85b9a8b713": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "1935bc7891543182f7677025dfc3e177e5fd23829cfea08f00e5962778e844d8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1c1deb540618e92ef91292fd7cf0e9a44bc62a03f802b0d694acfb6674fc2b06": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1d9ff86d9d40eac56d11d23912700806d534fb2dcd1f7f86f6a5e03e197144f1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "1f5b95e04b8942096146c57c2721a3474a305281ef66d20928c1b6f3bd62dcb2": "il manque une ligne fautive : relis ce que rend binom.sf(m, n, p) pour un événement « au moins k »",
+        "21acbf7d19f5b990e58ab760d79bebcd415b899b87e81d5dcfc6acac579098bd": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "234f0b5616109864ca5d5f4f5da5813ab65490bea9f9eead3656589a8c862b66": "il manque une ligne fautive : relis l'ordre des deux arguments de la divergence dans la borne de Chernoff",
+        "274f00624b1596f21adf26aebd398d3d1bf8389013208803fd1d80b55c269f50": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "287c8875f3a707adc8111141f22eb696264f5d5a0df893040904060b61b76f29": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2917aa9233870ddaa776f71f0968504298540b35f83abfeb54339408701b1e9d": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis ce qu'il faut pour qu'une liste de poids soit une loi sur les experts",
+        "2968517aaf4cb9ce410eeafb4a3b46e772014f5588e45b0664d6eafb98f20baf": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "29b12767aa5bc8a028592d2cc934b7135641b78a6f8ded9bfd5e6e8de183492f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2c9ff3700a87f8e1bda0253352817fce99f0274d0efa67a99c49691a3f3977aa": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2f9742a8aab54095c23a71e9a195de3085817619dae109cfd001934e920b8e30": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "2fcfe3f455d6fa9bb58698fad1dddf213c194bc7baf43e68116e6b0e29893dc3": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "336b316f8ccb0f561f8429df020aed16de2b3ec3a5c92321fb29412545771272": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "346acc089c353f541a0852d4fa4698a157900098195db20ddcb20561749c4b51": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "353a49ea9944056b31c71e6a756108d4e099e06bf20b639ae8b7be729f879d93": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis l'ordre des deux arguments de la divergence dans la borne de Chernoff",
+        "3b601e74f98db202232fda6e16ed120c4e46a4a0ffbaaa27822ef4240933ce55": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3e0bae192abc60026327b2274b87c1a7031cd90f5863ea03936a28d082e4a797": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "3fe80406b09d0100ed63af6f3f9ddab4e45e25cbbb4857c9024e1f8a37d6c71c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "400d49289aaab0787c23c471e77fd763d3193952314e066692a7d325ab1edee1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4034816e6a94f4a488c66c086f383a31fe13e260c354e9e9ed0e41ab65c658b1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4073902d289a747b8734762f23acb87013bf07743b56f43c4a34d834303fe4b6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "425504420dd64d7a38f879369ede3396924996d5f1035a9f175cd8f3ba15fbbe": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "46f9f87b658c114d38bce5d5bc44c8783b7cc564e01d880f1b714c9275b3036f": "il manque une ligne fautive : relis ce que compte la variance d'une moyenne de variables corrélées",
+        "4d19a9fc05fca15f82d9f6806430984843799e678ddb0a14f5c870c2ae127b34": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis ce qu'il faut pour qu'une liste de poids soit une loi sur les experts",
+        "4d484a06001df0d6178b74fc3d902481b2a37f9becee952b985150120bfabcaa": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "4d98f69ae48e0bbfabedd3fcdb96a36776238cae43ccb975b2f742c4634e1645": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis l'ordre des deux arguments de la divergence dans la borne de Chernoff",
+        "501efa3c0a8c40ae9b5c29ef733b9cb1ba9c6ae917eb7ab891d47fbae3045a20": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5230bd171ea996d166ae01d211bac1f58f436eda868bdea9f3c5f5a270721a93": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5277dd8aa9f6639524ebb37813c9da27fdc39410558ec3d5444800f6ab84f95e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5398e135433a51e47e45cb5a06c83fe0398a77d7d1b4c71173a13f0cd535e6d6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "57d8b8f79f5d4ff4c68afa21a20c53e37aa18075545e31071a17d5a652bdec57": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "597268a62898b8f9fb749a5b476348f87e257f3b1f3ce898f47b7e7acf4d406c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5a4cda109cd3137f90c75334876cedf96025dfa3da50217376974076e8f30ada": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5dd33d9da7ce2d1025c51552f06f574857d61fd08694e910a66f6e0407a7970e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "5f02bc0eb5da31290a5aeca6f97cc862ce48444ce5628499f002d4d9c831b8e4": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "606daaa5e778f19474b2b37640bce5202a73a3e815034847b3190b4e6dfe8d81": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "63270c8d5abe6fafc5ad2f865bdc9ce3d8ed1dd73da2e33428feded5633c5b95": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6362fa47306e660c2c2e8fbbb07ace860b376a9a66e4159ef961802759de9fd8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6375ce818bc18d4386fea38298261cac2018fd56563dbd1e37fc91645b81807b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "66be674606a5b31808dceb96a27a9181233c644867c89ea07489c3873625e6e5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "69c12d5bcaede06fe9bd023c81f5d360119938472e39012e2f0a0fb9550f1c4f": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "69d66728613186199a25b721b923abdbb2894267739321e2c10572aa599d438a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6b54ad900195d7f1d2d09ce59f02af2c23a5e53a9429ca81fc812a74d1637e66": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "6d3631697c31390ddd3fb4fdcd2c72b9509595fdd3d36fccda9bf33aeff7d796": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "73131d31440bb7eb5a2a51a4ba2dd895657bef6e5d7e3e8e591ee76de1be828a": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis ce qu'il faut pour qu'une liste de poids soit une loi sur les experts",
+        "7366085a18b3f89bf0606e850be20c10352050171df65d4847484c93d95deccd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7477e72b5ccb22496fe4de48b5d02a2d4b34ce83d773c42e888eb95cf5330e9c": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "74d77b48c30e20156bfeb9b85386d7a00a996b718ebdc0209d7547b2e80f2509": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "75db5fcf03fc7b291d5aa935753f62af0eb3ab4f83430b8b894009c52a78d171": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "75e369f93ecd65287ebba63a1b4f54026c5ee55b1702f864964f11002f3e0960": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "76bdb21fac22e8149b941b58b783545cff5390d09f4599cf23257efdb5b85dd3": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "7a4a769a9db2b35c07d01805fa19d763175afcf3aea4c8560a69f8f9318b8465": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7af21b1407960d0a99efc9459d237435a74f764639a357e0ca2664f68eb14a27": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "7ddd56452267b310946760d7f00649754962f562a7d4ad224ee16c3c5682b95f": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "7dfa47ad7c5a3443b31c9eccf4bea64e1fb03a323fa9250e97f0143330022f9b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "7fab7d6451f4f7a689992877b491103c6e1717226c78c3b1034a4be89554fb61": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8049b1d89d5ae93e8c01f585bedf5f892943989fbf1ab6db22c672dfd08f5dde": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "81c7b5658d9ff8074b12a6bf3df90f5697543baeeb461cb88fda8886789b7f39": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8357706d685ca38c9362a712f9f285c84de5b8f119f82963ec570b20862eb32d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "862c60f487b1e1f43d06784f6790afa0c9ed77036511a40dc21b423bae02cecd": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "89914aea82072c572818584215b88cb4e5f182c36fb85728af151f0c83a83f61": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8a8d3980a7eb0ce0c6f09a88ec9747db73f391f00c5dae3534f64739dae7443d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8ab7745476964659723e9653488cf2253cc43d7a93b9b9bc6345702fd3bb18dd": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis ce que rend binom.sf(m, n, p) pour un événement « au moins k »",
+        "8b929d21c8347b0afbf8f1409775b1b871837d9551e9ab4e6aee7a982064bb02": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8d0f4a3691dac5e800f747b3699e9ccd382d1b14fb62758b9485cd239628c19e": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8f149efb0c46ca650bf28b101c935574e6e4283d799efb8133516cc28876d9a1": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "8fae1da3d12ed8d505f43495184a244574ad2dee15caec03e34ff6df7bbd95d6": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "903df5f574f90d49be4532778e42628808782c43e2c825d5165d2b9fafba8584": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "911b958389e7ff76259e8995d5577c9446634c7e36f17605163ec572702b7586": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "919f2d6ca8a9324d57ae438a512988c1d43a6e6a1a319ff11db58bc187a36b56": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "94939f9db9096af24f5feecd701a9622902cfc38e2894ff7bd02b8538d49c3c5": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "965c1a4f4b40f3d6350424baf529231f6c7c730f76dffbc3f225a33a43bac573": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "9ac7e174bb301f09648d70f3f3fd1996308eae93c261ec05ba21d4087323c864": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a153869169253edf403b43f469337010728fc52ec2e40bd81b0a07f5d9c67797": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a258b9190a406ff8ff1de7a3f7a70aafaac321bdb7e3b8e4e9256d173ffa2c35": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "a8264ff4c533199520ab5a2d9f00f629e860d1b349460d92cb15dff0ecd16335": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "aa4cad6470119545101b01f727d3a0d27742a4b8d3676f3d4d4c1b6fbc5fce68": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "af33aa241c7303198e67edf0572ada133f02337ad5a7ac5166745dc0b60360f7": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b350540e15768e5aba32df6624036f26e2478c803fbb79fd7c53f0002e2d44a8": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b5a47de5999b31f709ea2e1a7e637403b9007c08b4a4c0de180fdd9c1f02d4ce": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "b83b1a6304dcdbb31d3233f48333a7ee7e3fdda58e15cc18177ed90ce8073a47": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "baacee6250483653fca221152a48ec154be2b8e92461dbd99645afc2a19d04a5": "il manque une ligne fautive : relis ce qu'il faut pour qu'une liste de poids soit une loi sur les experts",
+        "bb296fde32ad77d5b32b5c573bdf6fc0103d4914e1a2c9b54e9c1475adb6f3d4": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c192e0cbfaac198f1aa177d6aaf73f31ae3f09bef72835578f0fdbe812f815cb": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "c5a3beb7b4d8077f6f57368bc120e0236b5372c0855fab9eef1e3805d2e91cb7": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "cd39f222bdddbbc64fe4abdf937fbd61205482be8ac02c615819b203c6a9cbb0": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "ce0c9e07f08f4a69444a4b3eb3b3ecebcc343336d8f89a00fbd7b432f0187d28": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d1e174c3c1b4ce55cf77af3db81d8a81d3b36e13fc8ffda85f877a913a0a05a2": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d5390604987e207092288d12b486d65e32514447dbc9e3e86879cc3de861b93b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d569daba1e700d8d85401c0e0fd94bfc6dd0f9e2269f36aca5977298a031747b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "d8d01b96a53a8296705f3eeb0258d268bc10b88af713bff5eedfa6fc35bd6e6a": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis l'ordre des deux arguments de la divergence dans la borne de Chernoff",
+        "d921ba968d329de1de3259f7f7b4a8b923a346a8238e130b7c630f501f7bce21": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "dba43200a0ff278240be6ec7112706658ceb5d16b8680f72ca463fd9fc6463f7": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis ce que compte la variance d'une moyenne de variables corrélées",
+        "dece9a54d88a92a140160d81bf1d12c6d646e858de184cd08950f6e9b965656b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e1cc675ee72b4d3ad285f9206e31a82a9d0ff56f8fd16320a18a610c179660dc": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e26ac3c4ba1487f136694c14b41f78dda0402754ab0ccaca082711a2bc83eafb": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e4a1851f0e5602489cb766e4d0f7fac535d2f08c8ff517bc72e95fa08d941c7b": "plusieurs lignes que tu cites sont correctes : vérifie chacune avec un petit exemple",
+        "e4ec5fc9e6d7dcc99421b61adaac8500927eff398258a6272a5a373082048de0": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e5c530224c60c616e951d31f3f7eba292539910322b5409c01d5eb2a1e30c610": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e6dc68a2ed72d49043f88aab97d85954f919d3095aa7ced8f666c84dbc1e6426": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis ce que rend binom.sf(m, n, p) pour un événement « au moins k »",
+        "e7785b896f2d82e04e66c83224e85ccd5a62a161b4cb1c6a6301e164be1dfa6a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "e7b00726f68555c05c5c36768d7f93c640800f5a7fc466582da21211ef64ca0c": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ead2e73d3663e56be1e54cd9996e3439c3c4606a677f6d8b3620240f7f350124": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ed0e8f7801cb56cb140dd4dd9573e0394cd326fefd3881df60364bb576513420": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ed1b638f32623c185deae54fcc874fa713d2ad593b5bd32aacef6055ee8a4372": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ed46fdbca0a9e1e23f57401145b163e724bfa3582249d1f3706d6d2f50babf5a": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ef21cb878f5a72f73f85ca8039afe66fef5c58333a9ddf7b87d91ac07052bac9": "une des lignes que tu cites est correcte, et il manque une ligne fautive : relis ce que rend binom.sf(m, n, p) pour un événement « au moins k »",
+        "ef45619cb31ca74b9b770ced48ed8c968bfd3bcab92b182fdcbed8363566afba": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f2255fbce39699b1410ab951a74e1cf9892bd0c52c3b34a682b358c864e0c553": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f2d34aa292fbdb402a2f8b644fe6b88bd3d7d8eaf425706ed3dc2232ddf4786d": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "f3541bbe0bd2d1362c2e060c6e8f0ad293c8d036d0e524e2251b908b8fb7deaa": "plusieurs lignes fautives manquent : reprends chaque ligne avec un petit exemple",
+        "f4fa16449b2b68032fe9fc7696e21cf6c2b4fed99ea77a1f87239d6a85efa498": "une ligne de trop : une des lignes que tu cites est correcte ; refais le calcul de chacune sur un petit exemple",
+        "f7c31bc5141bc8d74cf801082387f2b1a6248ab48cdd06be0e4cb2bcdfa4cbf9": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple",
+        "ff6e4b30b966598d42080fd8b5826e694c0a7cdc2760b7a9d76a65252ddcca7b": "il manque des lignes fautives, et des lignes que tu cites sont correctes : reprends chaque ligne avec un petit exemple"
+      },
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.15b": {
+      "coarse_any": {
+        "0": [
+          "a7355c9c11e476dd2b21ca12999968bfc48df6e0cedadadba48ae7085e4346b3"
+        ],
+        "1": [
+          "eacced9711a362e2f197fb6c2d6ee23d11ea9662789e267a364ff4aeef814f05"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "9e82f43983d1ebdee1b27586f1d84266f14dea83274fb7df2968275636b9d4dc"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c70922e38c469824aee8173916fd115454f398fc10e18155d8a5ca1a1bf7e9b0",
+      "hash_coarse": "873829b4525c46f032f756c4fbaf1511046b7420611c32450506911e5bdfe4b3",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "ccb586f266ddef6e58277c3f6e854be2f7b19e52efbae436bea139d68e5c7a93": "« au moins 13 » compte aussi X = 13 : binom.sf(m, n, p) rend P(X > m)"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.15c": {
+      "coarse_any": {
+        "1": [
+          "3a74ac0006f0ba613f4c2b386df936535617de5d834005a68a7d51aa0faf77a6"
+        ],
+        "2": [
+          "aa6235b19f5d066906a643d18a6db82eea610cdf9684ff48fa2cb735ef59d39e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "23e0a9184038b77a87452f1a091a682768c822f407bdd61879f8789cafb91589",
+      "hash_coarse": "382e6357cbaa41a42acce750eb001e1f4867cb12136ec74f7fe543ee47583e2a",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "b73dc96edb8a4134bd7fd46a51cf6038e705ee382ff71b3644174c85ca9acc13": "KL(a ‖ p) : d'abord la proportion de l'événement, puis le paramètre de la loi"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.15d": {
+      "coarse_any": {
+        "0": [
+          "db645803c2ddcbc994182a4c0187c8e60c34d54548f5754a898833cbe3d53493"
+        ],
+        "1": [
+          "793b521b109936affedc93738ec09e5ffc93cd8019a50e3e5ed7aa455eb8d2b9"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "382e5714386b3f2130c4aeea48d1eca2fa2f55cd1afe03462e85b4678b13cda0",
+          "6494dc2049e2ba6f34abe28137c49c2072d453484b8be6ccf489dd5b5cc20eee"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3c85d01e95a652970bbee4e1c78c36d5c4e0417d86e370bdb2ad55f27e664eb6",
+      "hash_coarse": "4a9baf2bb1608f83112c28d7a20f4e08a877208667e4e05790737c05720e473f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "fc77f4d19eb5d286726849f2d7327380b8e0ae84f860cdfce781e8bdf999908d": "la variance de la moyenne compte toutes les cases de S_15, covariances comprises"
+      },
+      "sign": 1,
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.15e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1214eb0a24ff8bd06165bc5b94a00e85418fe19e14b8dd84aa52f9682fa760dc"
+        ],
+        [
+          "e731ab99922b6a9d9f0a44ab64b59e6f34fc4740e0ddac976fa987f19fb87854"
+        ],
+        [
+          "20ddc22c672a85cbbc555b836707827e6fc0281515c643c11b8b55c8ffc39148"
+        ],
+        [
+          "bb8e290104f41f2016e566728b206dd1c77615528a24d98b6ffb759db7a6df89"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0efa749f18038b90a8cbeb588570a40e9d6f7e85a5abfc1d6cb179701704c739",
+          "ee6c6c57cc59839a92cc6625d8df71cae35a7e8e3cc71f82b8baf92c2e6d41a4"
+        ],
+        [
+          "e0502d3188ebf0e7c3542c51f4cf529f6345df39bd2978bf1c11d45bf322f2a5",
+          "15bf2d82008b44bb958e35112636c45119daf74c17970e1b77d23dd0005223f9"
+        ],
+        [
+          "92429beb5482fbb0052df9141c1205a71bdee05aa18cfd5498b6c01843556aec",
+          "28eb44794e5ad815978350bd01697af5747be016ed617ac66b29fdb1e28c3c56"
+        ],
+        [
+          "1b38666cb8a35c3850ff3282d52719c8151d16e4e77542cdba48d0a254fca595",
+          "4b4efb4573c0cb876e07960cfe5434ea34356a552896c885a589aeafad911f6c"
+        ]
+      ],
+      "element_hashes": [
+        "f30b728a54b98c28fc17a9849472c1e8019161cd72c42020f623efdd4afdebdb",
+        "2c5422262b4a268fda3a5cafe636df90294617b6558b741e2e29f5195294596a",
+        "f38312ab666ecc157c04805c63e23bd996e89fcc2f0295b080fc1bfb912af75f",
+        "dbb73896bbc0b141c052558f42e3b0434ae5bfe24534a5f9b33337032eaf2bae"
+      ],
+      "hash": "3d137f41668fa59d69e34bf88c5e8d90b3aaf558121db66a6202c5e924d992a3",
+      "kind": "array",
+      "mistakes": {
+        "1218a1b4915f1376ef69e3622cab7c5235d3b746d9911fbfdaa27f4278122037": "e^(−ηL) : une grande loss cumulée, un PETIT poids",
+        "c62f99cf32e435d041e0c02cdb3059fd7566f7237cffe9379483f8aa03a599a0": "une loi sur les experts : divise les poids par leur somme"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
+    "M14.17": {
+      "hash": "aa985e6e9deaeb94bfa14424cdbd650f2a6ba60a04df00dc118d6b6e6b71bb1a",
+      "kind": "bool",
+      "mistakes": {
+        "19cb8666903dc4c6b4c8ed3d979db4493b6015ed9790db76eaf15ee126a108c4": "l'objectif n'est pas atteint : la cellule du défi dit pourquoi"
+      },
+      "source": "chapitres/m14_ensembles/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
