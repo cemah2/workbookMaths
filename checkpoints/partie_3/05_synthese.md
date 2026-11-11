@@ -20,7 +20,7 @@
 3. **Ta fiche d'une page (15 min).** Sur une seule page, écris les 20 à 25 formules ou règles que tu veux avoir en tête le jour de l'examen, et les cinq pièges qui te concernent le plus (dans tes copies et dans `annexes/erreurs_frequentes.md`).
 4. **Compare** avec les sections 1 à 3 ci-dessous, puis garde ta carte et ta fiche dans `mon_travail/checkpoints/partie_3/` (une photo suffit).
 
-**Grille de relecture.** Une bonne synthèse : (1) contient les sept chapitres ; (2) a au moins sept flèches justifiées entre chapitres ; (3) donne chaque formule avec ses conditions ($\mathbf{A}$ symétrique pour le théorème spectral et Rayleigh, des colonnes libres pour Gram-Schmidt, $a > p$ pour Chernoff, des variables indépendantes dans $[0 ; 1]$ pour Hoeffding, des losses dans $[0 ; 1]$ pour le regret de Hedge, un problème convexe pour que KKT suffise) ; (4) a des pièges tirés de tes propres erreurs ; (5) tient sur une page pour la fiche.
+**Grille de relecture.** Une bonne synthèse : (1) contient les sept chapitres ; (2) a au moins sept flèches justifiées entre chapitres ; (3) donne chaque formule avec ses conditions ($\mathbf{A}$ symétrique pour le théorème spectral, $a > p$ pour Chernoff, des variables indépendantes dans $[0 ; 1]$ pour Hoeffding, un problème convexe pour que KKT suffise) ; (4) a des pièges tirés de tes propres erreurs ; (5) tient sur une page pour la fiche.
 
 ## 1. Carte mentale
 
@@ -40,32 +40,34 @@ M12c  déterminant, trace → valeurs propres : det(A − λI) = 0 → diagonali
          └─ définie positive ⇔ λᵢ > 0 ⇔ Cholesky LLᵀ → covariance, blanchiment
 M12d  SVD A = USVᵀ (par AᵀA, symétrique)
       ├─ rang faible (Eckart-Young), pseudo-inverse, conditionnement
-      └─ ACP : centrer, axes propres de C, scores, variance expliquée, reconstruction
+      └─ ACP : centrer, vecteurs propres de C, scores, variance expliquée, reconstruction
 
 PROBABILITÉS ET OPTIMISATION
 M13a  vraisemblance → maximum de vraisemblance
       ├─ log-loss = −ℓ/n → sigmoïde, softplus → régression logistique (convexe)
+      ├─ Naïve Bayes, un modèle génératif
       └─ impuretés : entropie, Gini → gain d'information
 M13b  Lagrange → KKT → dualité ; problème convexe : KKT suffisantes
       └─ SVM : marge dure → marge souple, hinge → dual, vecteurs de support → noyaux
 M14   queue binomiale → Markov, Hoeffding, Chernoff (KL)
       ├─ variance d'une moyenne pondérée wᵀΣw
-      └─ (1 + x/n)ⁿ → eˣ → poids exponentiels, Hedge et son regret
+      └─ (1 + x/n)ⁿ → eˣ → poids exponentiels : Hedge et son regret ;
+         gradient d'une loss par rapport aux prédictions
 ```
 
 **Les flèches entre chapitres**, chacune avec sa raison :
-- **M12a → M12b** : $(\operatorname{Im}\mathbf{A})^\perp = \ker\mathbf{A}^\top$ : un complément orthogonal est un noyau.
+- **M12a → M12b** : un complément orthogonal est un noyau, $(\operatorname{Im}\mathbf{A})^\perp = \ker\mathbf{A}^\top$.
 - **M12a → M12c** : $\lambda$ est valeur propre quand $\mathbf{A} - \lambda\mathbf{I}$ a un noyau non nul ; diagonaliser, c'est changer de base.
-- **M12b → M12c** : une matrice symétrique a une base **orthonormée** de vecteurs propres ; une matrice symétrique définie positive définit un produit scalaire.
-- **M12c → M12d** : $\mathbf{A}^\top\mathbf{A}$ est symétrique semi-définie positive, de valeurs propres $s_i^2$ ; la variance le long de $\mathbf{u}$ est un quotient de Rayleigh de $\mathbf{C}$.
-- **M12b → M12d** : les scores sont des projections sur des axes orthonormés, la reconstruction en est une aussi.
+- **M12b → M12c** : une matrice symétrique a une base **orthonormée** de vecteurs propres.
+- **M12c → M12d** : $\mathbf{A}^\top\mathbf{A}$ est symétrique, de valeurs propres $s_i^2$ ; la variance le long de $\mathbf{u}$ est un quotient de Rayleigh.
+- **M12b → M12d** : les scores sont des projections sur des axes orthonormés.
 - **M12d → M13b** : l'ACP relue par Lagrange donne $\mathbf{C}\mathbf{u} = \lambda\mathbf{u}$ (MML §10.2).
-- **M12c → M13b** : une hessienne semi-définie positive partout donne une fonction convexe ; une matrice de Gram de noyau est semi-définie positive.
-- **M13a → M13b** : la log-loss et la hinge sont deux majorants convexes de l'erreur ; Lagrange retrouve $\hat{p}_k = n_k/N$.
-- **M12c → M14** : $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ est la règle $\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top$ avec une seule ligne.
+- **M12c → M13b** : hessienne semi-définie positive partout, fonction convexe ; matrice de Gram d'un noyau, semi-définie positive.
+- **M13a → M13b** : la log-loss et la hinge, deux majorants convexes de l'erreur.
+- **M12c → M14** : $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$, c'est la règle $\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top$ à une seule ligne.
 - **M13b → M14** : les meilleurs poids d'une moyenne, sous $\sum_i w_i = 1$, sortent d'un lagrangien.
 
-Redessine-la de mémoire, puis compare : chaque flèche doit pouvoir se justifier par un exemple (« le blanchiment par l'ACP, $\boldsymbol{\Lambda}^{-1/2}\mathbf{Q}^\top$, divise chaque score par son écart-type : M12c rejoint M12d »).
+Redessine-la de mémoire, puis compare : chaque flèche doit pouvoir se justifier par un exemple (« blanchir par l'ACP, $\boldsymbol{\Lambda}^{-1/2}\mathbf{Q}^\top$, divise chaque score par son écart-type : M12c rejoint M12d »).
 
 ## 2. Fiche d'une page : les formules clés
 
@@ -76,7 +78,7 @@ Redessine-la de mémoire, puis compare : chaque flèche doit pouvoir se justifie
 | M12c | $\det(c\mathbf{A}) = c^n\det\mathbf{A}$ ; $2 \times 2$ : $\lambda^2 - (\operatorname{tr}\mathbf{A})\lambda + \det\mathbf{A} = 0$ ; $\sum\lambda_i = \operatorname{tr}\mathbf{A}$, $\prod\lambda_i = \det\mathbf{A}$ ; **spectral** ($\mathbf{A}$ symétrique) $\mathbf{A} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ ; **Rayleigh** $\lambda_{\min} \le \frac{\mathbf{x}^\top\mathbf{A}\mathbf{x}}{\mathbf{x}^\top\mathbf{x}} \le \lambda_{\max}$ ; définie positive $\iff$ tous les $\lambda_i > 0$ $\iff$ mineurs principaux $> 0$ $\iff$ **Cholesky** $\mathbf{A} = \mathbf{L}\mathbf{L}^\top$, $l_{jj} = \sqrt{a_{jj} - \sum_{k<j} l_{jk}^2}$, $l_{ij} = \big(a_{ij} - \sum_{k<j} l_{ik}l_{jk}\big)/l_{jj}$ ; $\operatorname{Cov}(\mathbf{A}\mathbf{x} + \mathbf{b}) = \mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top$ |
 | M12d | **SVD** $\mathbf{A} = \sum_i s_i\mathbf{u}_i\mathbf{v}_i^\top$, $s_i = \sqrt{\lambda_i(\mathbf{A}^\top\mathbf{A})}$, $\mathbf{u}_i = \mathbf{A}\mathbf{v}_i/s_i$ ; **Eckart-Young** $\lVert \mathbf{A} - \mathbf{A}_k \rVert_F^2 = \sum_{i > k} s_i^2$ ; **conditionnement** $\kappa = s_{\max}/s_{\min}$, $\kappa(\mathbf{A}^\top\mathbf{A}) = \kappa(\mathbf{A})^2$ ; **ACP** $\mathbf{C} = \frac{1}{n - 1}\mathbf{X}_c^\top\mathbf{X}_c$, variance le long de $\mathbf{u}$ unitaire : $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ ; scores $\mathbf{X}_c\mathbf{W}_k$ ; $\lambda_j = s_j^2/(n - 1)$ ; part expliquée $\lambda_j/\sum_l \lambda_l$ ; erreur moyenne $\frac{n - 1}{n}\sum_{j > k}\lambda_j$ |
 | M13a | **maximum de vraisemblance** de $\ell = \sum_i \ln p(x_i \mid \boldsymbol{\theta})$ : $\hat{p}_k = \frac{n_k}{N}$, $\hat{\mu} = \bar{x}$, $\hat{\sigma}^2 = \frac{1}{n}\sum_i (x_i - \hat{\mu})^2$ ; **log-loss** $-\frac{1}{n}\sum_i \big[y_i\ln\hat{p}_i + (1 - y_i)\ln(1 - \hat{p}_i)\big]$, en nats ; **softplus** $s(z) = \ln(1 + e^z) = \max(z, 0) + \ln(1 + e^{-\lvert z \rvert})$, terme d'un exemple $s(z) - yz$ ; $P(Y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b)$ ; **entropie** $-\sum_k p_k\log_2 p_k \le \log_2 K$ ; **Gini** $1 - \sum_k p_k^2 \le 1 - \frac{1}{K}$ ; **gain** $H(Y) - H(Y \mid X)$ |
-| M13b | **Lagrange** ($\mathcal{L} = f + \lambda g$) : $\nabla f + \lambda\nabla g = \mathbf{0}$, $g = 0$ ; **KKT** ($g_i \le 0$) : stationnarité, faisabilité, $\mu_i \ge 0$, $\mu_i\,g_i(\mathbf{x}^*) = 0$ ; **dual** $D = \inf_{\mathbf{x}}\mathcal{L} \le f(\mathbf{x})$ pour $\mathbf{x}$ admissible ; **SVM** $\min \frac{1}{2}\lVert \mathbf{w} \rVert^2$ sous $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ ; **hinge** $J = \frac{1}{2}\lVert \mathbf{w} \rVert^2 + C\sum_i \max\big(0,\ 1 - y_i(\mathbf{w} \cdot \mathbf{x}_i + b)\big)$ ; dual de la SVM : $\mathbf{w} = \sum_i \alpha_iy_i\mathbf{x}_i$, $\sum_i \alpha_iy_i = 0$, $0 \le \alpha_i \le C$ ; RBF $e^{-\gamma\lVert \mathbf{x} - \mathbf{z} \rVert^2}$ |
+| M13b | **Lagrange** ($\mathcal{L} = f + \lambda g$) : $\nabla f + \lambda\nabla g = \mathbf{0}$, $g = 0$ ; **KKT** ($g_i \le 0$) : stationnarité, faisabilité, $\mu_i \ge 0$, $\mu_i\,g_i(\mathbf{x}^*) = 0$ ; **dual** $D = \inf_{\mathbf{x}}\mathcal{L} \le f(\mathbf{x})$ pour $\boldsymbol{\mu} \ge \mathbf{0}$ et $\mathbf{x}$ admissible ; **SVM** $\min \frac{1}{2}\lVert \mathbf{w} \rVert^2$ sous $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ ; **hinge** $J = \frac{1}{2}\lVert \mathbf{w} \rVert^2 + C\sum_i \max\big(0,\ 1 - y_i(\mathbf{w} \cdot \mathbf{x}_i + b)\big)$ ; dual de la SVM : $\mathbf{w} = \sum_i \alpha_iy_i\mathbf{x}_i$, $\sum_i \alpha_iy_i = 0$, $0 \le \alpha_i \le C$ ; RBF $e^{-\gamma\lVert \mathbf{x} - \mathbf{z} \rVert^2}$ |
 | M14 | $P(X \ge k) = \sum_{j \ge k}\binom{n}{j}p^j(1 - p)^{n - j}$ ; si $a > p$, $P(X \ge na)$ est au plus $e^{-2n(a - p)^2}$ (**Hoeffding**) et $e^{-n\,\mathrm{KL}(a \Vert p)}$ (**Chernoff**), $\mathrm{KL}(a \Vert p) = a\ln\frac{a}{p} + (1 - a)\ln\frac{1 - a}{1 - p}$ ; $\mathbb{V}\big(\sum_i w_iX_i\big) = \mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ ; $\left(1 + \frac{x}{n}\right)^n \to e^x$, erreur relative $\approx -\frac{x^2}{2n}$ ; **Hedge** $w_t[k] \propto e^{-\eta L_t[k]}$, $L_t[k] = \sum_{s < t}\ell_s[k]$ ; regret $R_T \le \frac{\ln K}{\eta} + \frac{\eta T}{8}$ |
 
 ## 3. Les pièges de la partie
@@ -99,7 +101,7 @@ Dix erreurs fréquentes de la partie III, avec leur correction (le détail, chap
 ## 4. Ce qui sert dans workbookIA
 
 Le checkpoint III de workbookIA se fait juste après cet examen blanc. Ce qui t'y attend, et dans les chapitres 12 à 15, sans en dévoiler les exercices :
-- **ch. 12 (préparation des données)** : les mises à l'échelle sont affines, et `inverse_transform` est leur réciproque ; le rang et le noyau repèrent les colonnes redondantes (M12a) ; centrer, c'est projeter (M12b) ; la covariance, ses deux conventions et le blanchiment (M12c) ; l'ACP par la SVD des données centrées, la variance expliquée, la reconstruction, t-SNE et UMAP (M12d). Les axes de plus grande variance, que le chapitre admet, ont deux démonstrations : Rayleigh (M12c) et Lagrange (M13b).
+- **ch. 12 (préparation des données)** : les mises à l'échelle sont affines, et `inverse_transform` est leur réciproque ; le rang repère les colonnes redondantes (M12a) ; centrer, c'est projeter (M12b) ; la covariance, ses deux conventions et le blanchiment (M12c) ; l'ACP par la SVD des données centrées, la variance expliquée, la reconstruction, t-SNE et UMAP (M12d). Les axes de plus grande variance, que le chapitre admet, se démontrent par Rayleigh (M12c) ou par Lagrange (M13b).
 - **ch. 13 (classifieurs)** : la régression logistique et sa log-loss, Naïve Bayes, les arbres et leurs impuretés (M13a) ; les SVM linéaires et à noyau RBF, $C$ et $\gamma$, les vecteurs de support et la bande (M13b).
 - **ch. 14 (ensembles)** : la queue binomiale compte la probabilité qu'une majorité de votants se trompe ; $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ dit ce que coûte la corrélation entre arbres ; la limite $(1 + x/n)^n$ revient dans les tirages avec remise ; les poids exponentiels et le gradient par rapport aux prédictions préparent AdaBoost et le gradient boosting (M14).
 - **ch. 15 (scikit-learn)** : `inverse_transform` encore (M12a), et le nombre de composantes d'une ACP, réglé en validation avec le modèle qui suit (M12d).
@@ -115,16 +117,16 @@ Dis chaque mot à voix haute, en français puis en anglais, puis la phrase de la
 | sous-espace, base, dimension | subspace, basis, dimension | « Le plan $x + y + z = 0$ a pour base $(1, -1, 0)$ et $(0, 1, -1)$ : dimension 2. » |
 | noyau, image, théorème du rang | kernel, image, rank-nullity theorem | « Le noyau vit au départ ; sa dimension plus le rang donne le nombre de colonnes. » |
 | projection orthogonale, complément orthogonal | orthogonal projection, orthogonal complement | « Le projeté est le point le plus proche ; le résidu est dans $U^\perp$. » |
-| Gram-Schmidt, décomposition QR | Gram-Schmidt process, QR decomposition | « Retirer les projections sur les vecteurs précédents, puis normer : c'est $\mathbf{A} = \mathbf{Q}\mathbf{R}$. » |
+| Gram-Schmidt, décomposition QR | Gram-Schmidt process, QR decomposition | « Retirer à chaque vecteur ses projections sur les $\mathbf{q}_j$ déjà construits, puis normer : c'est $\mathbf{A} = \mathbf{Q}\mathbf{R}$. » |
 | valeur propre, vecteur propre, théorème spectral | eigenvalue, eigenvector, spectral theorem | « Une matrice symétrique a une base orthonormée de directions qu'elle ne fait qu'étirer. » |
-| définie positive, Cholesky | positive definite, Cholesky decomposition | « Symétrique et définie positive, c'est exactement s'écrire $\mathbf{L}\mathbf{L}^\top$. » |
+| définie positive, Cholesky | positive definite, Cholesky decomposition | « Symétrique et définie positive, c'est exactement s'écrire $\mathbf{L}\mathbf{L}^\top$, $\mathbf{L}$ triangulaire inférieure à diagonale strictement positive. » |
 | valeur singulière, rang faible, conditionnement | singular value, low-rank approximation, condition number | « Garder les $k$ plus grandes valeurs singulières donne la meilleure approximation de rang $k$. » |
 | ACP, variance expliquée | principal component analysis, explained variance ratio | « La part d'un axe est sa valeur propre sur la somme de toutes. » |
 | vraisemblance, log-loss | likelihood, log-loss | « Minimiser la log-loss, c'est maximiser la vraisemblance des labels. » |
 | entropie, indice de Gini, gain d'information | entropy, Gini impurity, information gain | « Le gain est la baisse d'entropie, sous-groupes pondérés par leurs tailles. » |
 | multiplicateur de Lagrange, KKT, complémentarité | Lagrange multiplier, KKT conditions, complementary slackness | « Une inégalité non atteinte a un multiplicateur nul : elle ne pousse pas. » |
 | hinge loss, vecteur de support, noyau | hinge loss, support vector, kernel | « $\mathbf{w}$ ne dépend que des exemples où $\alpha_i > 0$, les vecteurs de support. » |
-| borne de Chernoff, poids exponentiels, regret | Chernoff bound, exponential weights, regret | « Hedge donne à chaque expert un poids proportionnel à $e^{-\eta L}$ : une grande loss, un petit poids. » |
+| borne de Chernoff, poids exponentiels | Chernoff bound, exponential weights | « Chernoff : au plus $e^{-n\,\mathrm{KL}(a \Vert p)}$. Hedge : un poids proportionnel à $e^{-\eta L}$, une grande loss, un petit poids. » |
 
 ## Mode d'emploi (≈ 75 minutes)
 

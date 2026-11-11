@@ -48,7 +48,7 @@ f) Le minimum de $x^2 + y^2$ sous la contrainte $x + 2y = 5$ a un multiplicateur
 g) La matrice de Gram du noyau linéaire $k(\mathbf{x}, \mathbf{z}) = \mathbf{x} \cdot \mathbf{z}$ sur trois points distincts de $\mathbb{R}^2$ est inversible.
 h) Pour $X$ de loi $\mathcal{B}(n ;\ 0{,}35)$, la probabilité $P(X \ge 0{,}45\,n)$ tend vers 0, quand $n \to +\infty$, plus vite que toute puissance de $\frac{1}{n}$.
 i) Pour tout entier $n \ge 1$, $\left(1 - \frac{0{,}3}{n}\right)^n > e^{-0{,}3}$.
-j) Avec l'algorithme Hedge et $\eta = 0{,}5$, un expert dont la perte cumulée dépasse de 4 celle du meilleur expert reçoit moins du cinquième du poids du meilleur.
+j) Avec l'algorithme Hedge et $\eta = 0{,}5$, un expert dont la loss cumulée dépasse de 4 celle du meilleur expert reçoit moins du cinquième du poids du meilleur.
 
 ### CP3.1 — Indépendance, base, rang et noyau ✏️ ★★ ⏱️ 10 min · 2 points
 
@@ -172,7 +172,7 @@ Un livreur fait des tournées de 12 colis ; chaque colis arrive abîmé avec la 
 | c | la borne de Hoeffding $e^{-2n(a - p)^2}$ de $P(X \ge 3)$ | un nombre (4 décimales) |
 | d | $\left(1 - \frac{2{,}1}{30}\right)^{30}$ | un nombre (4 décimales) |
 | e | l'erreur relative de d) par rapport à sa limite quand on remplace 30 par $n \to +\infty$, c'est-à-dire $\frac{d - e^{-2{,}1}}{e^{-2{,}1}}$ | un nombre (3 décimales) |
-| f | l'algorithme Hedge suit $K = 4$ experts avec $\eta = 0{,}7$ ; avant le tour qui vient, leurs pertes cumulées valent $(3, 1, 2, 2)$. Les poids des quatre experts | une liste (4 décimales) |
+| f | l'algorithme Hedge suit $K = 4$ experts avec $\eta = 0{,}7$ ; avant le tour qui vient, leurs losses cumulées valent $(3, 1, 2, 2)$. Les poids des quatre experts | une liste (4 décimales) |
 
 Sur ta copie : range a), b) et c) et explique l'ordre ; compare e) à l'approximation $-\frac{x^2}{2n}$.
 
@@ -186,7 +186,7 @@ Traite **un seul** des deux sujets. Rédige en phrases : ce que tu supposes, cha
 3. Déduis-en $\mathbf{u} = \mathbf{0}$, puis $\boldsymbol{\mu} = \mathbf{0}$ (dis à quoi sert le rang de $\mathbf{A}$), et conclus : $\mathbf{M}$ est inversible et le système de Lagrange a une solution unique. **[0,5]**
 4. L'hypothèse « $\mathbf{Q}$ définie positive » ne peut pas être remplacée par « $\mathbf{Q}$ semi-définie positive ». Avec $n = 2$, $m = 1$ et $\mathbf{Q} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ : pour $\mathbf{A} = (1\ \ 0)$, donne un vecteur non nul du noyau de $\mathbf{M}$ ; pour $\mathbf{A} = (0\ \ 1)$, montre que $\mathbf{M}$ est inversible. Dis ce qui, dans la démonstration, distingue les deux cas. **[0,5]**
 
-**Sujet B — Les poids de Hedge minimisent une perte régularisée par l'entropie.** $K$ experts ont des pertes cumulées $L_1, \ldots, L_K$ ; $\eta > 0$. Sur l'ensemble $\Delta = \{\mathbf{w} \in \mathbb{R}^K : w_k > 0 \text{ pour tout } k,\ \sum_k w_k = 1\}$, on pose
+**Sujet B — Les poids de Hedge minimisent une loss régularisée par l'entropie.** $K$ experts ont des losses cumulées $L_1, \ldots, L_K$ ; $\eta > 0$. Sur l'ensemble $\Delta = \{\mathbf{w} \in \mathbb{R}^K : w_k > 0 \text{ pour tout } k,\ \sum_k w_k = 1\}$, on pose
 $$F(\mathbf{w}) = \eta \sum_{k=1}^K w_k L_k + \sum_{k=1}^K w_k \ln w_k .$$
 1. Écris le lagrangien de la contrainte $\sum_k w_k = 1$ (sans t'occuper de la positivité), et montre que son unique point critique est $w_k = \frac{e^{-\eta L_k}}{\sum_j e^{-\eta L_j}}$ : les poids de Hedge. **[0,5]**
 2. Montre que $F$ est strictement convexe sur $\Delta$ (calcule sa hessienne), que $\Delta$ est convexe, et déduis-en que ce point est l'unique minimum de $F$ sur $\Delta$ ; cite le résultat de M13b que tu utilises. **[0,5]**

@@ -4025,18 +4025,22 @@
     },
     "CP3.5e": {
       "coarse_any": {
+        "0": [
+          "638a445ee201acc2dfe07ed9bcaeea2526e97311dbf5ea0580032d2671b2baf4"
+        ],
         "1": [
-          "2434c910d91ccda4923d5e62531fe89d41de0bf5f6a58d3a4faf6d943911b2f0"
+          "d5a0bd4914745405495bd61de2800a87afa19adfdb612c465d88275d65278a7b"
         ]
       },
       "decimals": 3,
-      "hash": "07a1176431cb0f51d8a10663eea2b2e2ad3b1c7b43e9c8560abe532084a5fb3e",
-      "hash_coarse": "0c727a2fa7cc6a954d2afc03fd9ed9e7b5e102d3ccb62cddb3a06cf61db35690",
+      "hash": "68c073e5f8e36a00c8030cddbfac454b3489634d6666ca3b8d2af1921ea6ab26",
+      "hash_coarse": "600cddcb7908766764d8d7a7d2b1672813f04114ffba299f878186c630bf10bb",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "3b9a69688f448f3a828186996fa20b0b84d0c2ece5dbf733160ffb74ba0f0b9a": "les enfants sont pondérés par leurs effectifs",
-        "5f2446031b732e8caadcdf5ed86c6748954a4130bf9b518765f76ae4f8802289": "le gain est l'entropie du nœud moins la moyenne pondérée de celles des enfants"
+        "366871df5a19ad5d076f2caa6ed7bf5f50f9b66b7273892ebe1d390e751de216": "les enfants sont pondérés par leurs effectifs (11/20 et 9/20)",
+        "99600d8d699ec1fa477730a7025b907bf15b6fe0929f71940d64c7638e096d75": "le gain est l'entropie du nœud moins la moyenne pondérée de celles des enfants",
+        "f157bb2d03bbef64696b1c59576f4a44bb2dee3f17ebbc88167ff7f2c304f241": "les enfants sont pondérés par leurs effectifs (11/20 et 9/20)"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
