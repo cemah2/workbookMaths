@@ -43,12 +43,12 @@ a) Si une colonne d'une matrice $\mathbf{X}$ de forme $(n, p)$ est une combinais
 b) Une matrice de projection orthogonale de $\mathbb{R}^4$ sur un sous-espace de dimension 2 a pour valeurs propres 1, 1, 0 et 0.
 c) Toute matrice orthogonale de taille $2 \times 2$ a au moins une valeur propre réelle.
 d) La matrice centrée $\mathbf{X}_c$ d'un nuage de points de $\mathbb{R}^2$ a pour valeurs singulières 5 et 2 : le premier axe principal explique environ 71 % de la variance du nuage.
-e) Dans une régression logistique, remplacer $(\mathbf{w}, b)$ par $(2\mathbf{w}, 2b)$ ne change pas la frontière de décision, mais éloigne de 0,5 la probabilité prédite de chaque point qui n'est pas sur la frontière.
+e) Si deux exemples ont les mêmes features mais des labels différents, la log-loss moyenne d'une régression logistique sur ces données est strictement positive, quels que soient $\mathbf{w}$ et $b$.
 f) Le minimum de $x^2 + y^2$ sous la contrainte $x + 2y = 5$ a un multiplicateur de Lagrange nul.
 g) La matrice de Gram du noyau linéaire $k(\mathbf{x}, \mathbf{z}) = \mathbf{x} \cdot \mathbf{z}$ sur trois points distincts de $\mathbb{R}^2$ est inversible.
 h) Pour $X$ de loi $\mathcal{B}(n ;\ 0{,}35)$, la probabilité $P(X \ge 0{,}45\,n)$ tend vers 0, quand $n \to +\infty$, plus vite que toute puissance de $\frac{1}{n}$.
 i) Pour tout entier $n \ge 1$, $\left(1 - \frac{0{,}3}{n}\right)^n > e^{-0{,}3}$.
-j) Avec l'algorithme Hedge et $\eta = 0{,}5$, un expert dont la loss cumulée dépasse de 4 celle du meilleur expert reçoit moins du cinquième du poids du meilleur.
+j) Avec l'algorithme Hedge et $\eta = 0{,}4$, un expert dont la loss cumulée dépasse de 5 celle du meilleur expert reçoit moins du cinquième du poids du meilleur.
 
 ### CP3.1 — Indépendance, base, rang et noyau ✏️ ★★ ⏱️ 10 min · 2 points
 
@@ -62,18 +62,18 @@ Pour g) et h), $\mathbb{R}_2[X]$ est l'espace des polynômes de degré au plus 2
 |---|---|---|
 | a | le rang de $\mathbf{A}$ | un entier |
 | b | la dimension du noyau de $\mathbf{A}$ | un entier |
-| c | le vecteur du noyau de $\mathbf{A}$ de la forme $(x_1, x_2, 1, 0, 0)$ | une liste de 5 nombres |
+| c | les réels $\alpha$ et $\beta$ tels que $\mathbf{c}_3 = \alpha\,\mathbf{c}_1 + \beta\,\mathbf{c}_2$ | la liste $[\alpha, \beta]$ |
 | d | les coordonnées de $\mathbf{c}_5$ dans la base $(\mathbf{c}_1, \mathbf{c}_2)$ de l'image | une liste de 2 nombres |
-| e | une équation de l'image de $\mathbf{A}$, écrite $\alpha b_1 + \beta b_2 + \gamma b_3 = 0$ avec $\alpha = 2$ | la liste $[\alpha, \beta, \gamma]$ |
+| e | un vecteur $\mathbf{z} = (z_1, z_2, z_3)$ non nul tel que $\mathbf{A}^\top\mathbf{z} = \mathbf{0}$, avec $z_1 = 2$ | une liste de 3 nombres |
 | f | le système $\mathbf{A}\mathbf{x} = (3, 1, 4)$ a-t-il au moins une solution ? | `True` ou `False` |
 | g | la dimension de $W$ | un entier |
 | h | les coordonnées de $P = 7 - 2X + 2X^2$ dans la base $(1,\ X^2 - X)$ de $V$ | une liste de 2 nombres |
 
-Sur ta copie : nomme le théorème qui relie a) et b) ; pour h), vérifie que $P$ est dans $V$ et justifie que $(1,\ X^2 - X)$ est une base de $V$.
+Sur ta copie : nomme le théorème qui relie a) et b) ; pour f), dis comment le vecteur $\mathbf{z}$ de e) permet de répondre ; pour h), vérifie que $P$ est dans $V$ et justifie que $(1,\ X^2 - X)$ est une base de $V$.
 
 ### CP3.2 — Gram-Schmidt, projection et moindres carrés ✏️ ★★ ⏱️ 10 min · 2 points
 
-Dans $\mathbb{R}^4$ : $\mathbf{v}_1 = (1, 1, 3, 5)$, $\mathbf{v}_2 = (6, 0, 10, 0)$ et $\mathbf{y} = (1, 1, -7, 11)$. La matrice $\mathbf{X} = [\mathbf{v}_1\ \mathbf{v}_2]$ a pour colonnes $\mathbf{v}_1$ et $\mathbf{v}_2$. Gram-Schmidt sur $(\mathbf{v}_1, \mathbf{v}_2)$ donne $\mathbf{q}_1, \mathbf{q}_2$ et la factorisation $\mathbf{X} = \mathbf{Q}\mathbf{R}$, où $\mathbf{Q} = [\mathbf{q}_1\ \mathbf{q}_2]$ a des colonnes orthonormées et $\mathbf{R}$ est triangulaire supérieure à diagonale positive. On cherche $\hat{\mathbf{x}}$ qui rend $\lVert \mathbf{y} - \mathbf{X}\mathbf{x} \rVert$ le plus petit possible.
+Dans $\mathbb{R}^4$ : $\mathbf{v}_1 = (1, 1, 3, 5)$, $\mathbf{v}_2 = (6, 0, 10, 0)$ et $\mathbf{y} = (11, -6, 17, -4)$. La matrice $\mathbf{X} = [\mathbf{v}_1\ \mathbf{v}_2]$ a pour colonnes $\mathbf{v}_1$ et $\mathbf{v}_2$. Gram-Schmidt sur $(\mathbf{v}_1, \mathbf{v}_2)$ donne $\mathbf{q}_1, \mathbf{q}_2$ et la factorisation $\mathbf{X} = \mathbf{Q}\mathbf{R}$, où $\mathbf{Q} = [\mathbf{q}_1\ \mathbf{q}_2]$ a des colonnes orthonormées et $\mathbf{R}$ est triangulaire supérieure à diagonale positive. On cherche $\hat{\mathbf{x}}$ qui rend $\lVert \mathbf{y} - \mathbf{X}\mathbf{x} \rVert$ le plus petit possible.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -82,11 +82,11 @@ Dans $\mathbb{R}^4$ : $\mathbf{v}_1 = (1, 1, 3, 5)$, $\mathbf{v}_2 = (6, 0, 10, 
 | c | le vecteur $\mathbf{v}_2 - r_{12}\,\mathbf{q}_1$, avant normalisation | une liste de 4 nombres |
 | d | la matrice $\mathbf{R}$, ligne par ligne | la liste $[[\cdot, \cdot], [\cdot, \cdot]]$ |
 | e | le vecteur $\mathbf{Q}^\top\mathbf{y}$ | une liste de 2 nombres |
-| f | la solution $\hat{\mathbf{x}}$ de $\mathbf{R}\hat{\mathbf{x}} = \mathbf{Q}^\top\mathbf{y}$ | une liste de 2 nombres |
-| g | la projection orthogonale $\hat{\mathbf{y}} = \mathbf{X}\hat{\mathbf{x}}$ de $\mathbf{y}$ sur le plan engendré par $\mathbf{v}_1$ et $\mathbf{v}_2$ | une liste de 4 nombres |
+| f | la projection orthogonale $\hat{\mathbf{y}} = \mathbf{Q}\mathbf{Q}^\top\mathbf{y}$ de $\mathbf{y}$ sur le plan engendré par $\mathbf{v}_1$ et $\mathbf{v}_2$ | une liste de 4 nombres |
+| g | la solution $\hat{\mathbf{x}}$ de $\mathbf{R}\hat{\mathbf{x}} = \mathbf{Q}^\top\mathbf{y}$ | une liste de 2 nombres |
 | h | $\lVert \mathbf{y} - \hat{\mathbf{y}} \rVert^2$ | un nombre |
 
-Sur ta copie : vérifie que $\mathbf{X}^\top(\mathbf{y} - \hat{\mathbf{y}}) = \mathbf{0}$, puis que $\lVert \mathbf{y} \rVert^2 = \lVert \hat{\mathbf{y}} \rVert^2 + \lVert \mathbf{y} - \hat{\mathbf{y}} \rVert^2$.
+Sur ta copie : vérifie que $\hat{\mathbf{y}} = \mathbf{X}\hat{\mathbf{x}}$, puis que $\lVert \mathbf{y} \rVert^2 = \lVert \hat{\mathbf{y}} \rVert^2 + \lVert \mathbf{y} - \hat{\mathbf{y}} \rVert^2$.
 
 ### CP3.3 — Valeurs propres, matrice définie positive et Cholesky ✏️ ★★ ⏱️ 10 min · 2 points
 
@@ -115,29 +115,29 @@ $$\mathbf{A} = \begin{pmatrix} 9 & 6 \\ 2 & -6 \end{pmatrix} = s_1\,\mathbf{u}_1
 | b | les valeurs singulières $[s_1, s_2]$ | une liste de 2 nombres |
 | c | le vecteur singulier à droite $\mathbf{v}_1$, unitaire, de première coordonnée positive | une liste (3 décimales) |
 | d | $\mathbf{u}_1 = \frac{\mathbf{A}\mathbf{v}_1}{s_1}$ | une liste (3 décimales) |
-| e | la meilleure approximation de rang 1, $\mathbf{A}_1 = s_1\,\mathbf{u}_1\mathbf{v}_1^\top$, ligne par ligne | la liste $[[\cdot, \cdot], [\cdot, \cdot]]$ (2 décimales) |
-| f | l'erreur $\lVert \mathbf{A} - \mathbf{A}_1 \rVert_F$ | un nombre |
+| e | la solution de $\mathbf{A}\mathbf{x} = (99, -22)$, en écrivant $(99, -22)$ à l'aide de $\mathbf{u}_1$ | une liste de 2 nombres |
+| f | l'erreur $\lVert \mathbf{A} - \mathbf{A}_1 \rVert_F$ de la meilleure approximation de rang 1, $\mathbf{A}_1 = s_1\,\mathbf{u}_1\mathbf{v}_1^\top$ | un nombre |
 | g | la part de $\lVert \mathbf{A} \rVert_F^2$ gardée par $\mathbf{A}_1$ | un nombre (3 décimales) |
 | h | le conditionnement $\kappa_2(\mathbf{A})$ | un nombre (3 décimales) |
 
-Sur ta copie : vérifie que $\lvert \det \mathbf{A} \rvert = s_1 s_2$, et donne l'erreur $\lVert \mathbf{A} - \mathbf{A}_1 \rVert_2$ en norme spectrale.
+Sur ta copie : vérifie que $\lvert \det \mathbf{A} \rvert = s_1 s_2$.
 
 ### CP3.5 — Maximum de vraisemblance, log-loss et entropie ✏️ ★★ ⏱️ 9 min · 1,75 point
 
 Quatre petites situations.
 
-1. Cinq durées (en minutes), supposées tirées indépendamment d'une loi uniforme sur $[0, \theta]$ : 2,1 ; 5,6 ; 3,8 ; 0,9 ; 4,7.
+1. Un générateur tire des nombres indépendamment selon la loi uniforme sur $[0, \theta]$, où $\theta$ est inconnu. Six tirages : 3,2 ; 0,7 ; 6,1 ; 4,4 ; 2,9 ; 5,3.
 2. Une variable $X$ prend les valeurs 0, 1 et 2 avec $P(X = 0) = \theta$, $P(X = 1) = 2\theta$ et $P(X = 2) = 1 - 3\theta$, où $0 < \theta < \frac{1}{3}$. Sur 30 observations indépendantes : 4 fois 0, 10 fois 1 et 16 fois 2.
-3. Un nœud d'arbre de décision contient 20 exemples de trois classes, au nombre de 9, 7 et 4. Un seuil le coupe en deux groupes, de comptes $(4, 7, 0)$ et $(5, 0, 4)$.
+3. Une variable $Y$ prend quatre valeurs, avec les probabilités $\mathbf{p} = (0{,}4 ;\ 0{,}25 ;\ 0{,}2 ;\ 0{,}15)$ ; $\mathbf{u}$ est la loi uniforme sur ces quatre valeurs.
 4. Une régression logistique donne les scores $z = \mathbf{w} \cdot \mathbf{x} + b$ de cinq exemples : 1,3 ; −1,2 ; −0,5 ; 2,2 ; 0,9, pour les labels 1, 0, 1, 1, 0. On note $s(z) = \ln(1 + e^z)$ la softplus.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | (situation 1) l'estimation du maximum de vraisemblance de $\theta$ | un nombre |
 | b | (situation 2) l'estimation du maximum de vraisemblance de $\theta$ | une fraction irréductible, comme `"3/8"` |
-| c | (situation 3) l'entropie du nœud, en bits | un nombre (3 décimales) |
-| d | (situation 3) l'indice de Gini du nœud | un nombre (3 décimales) |
-| e | (situation 3) le gain d'information de la coupure, en bits | un nombre (3 décimales) |
+| c | (situation 3) l'entropie $H(\mathbf{p})$, en bits | un nombre (3 décimales) |
+| d | (situation 3) l'indice de Gini de $\mathbf{p}$ | un nombre (3 décimales) |
+| e | (situation 3) la divergence $\mathrm{KL}(\mathbf{p} \Vert \mathbf{u})$, en bits | un nombre (3 décimales) |
 | f | (situation 4) la log-loss moyenne, en nats, calculée terme à terme comme $s(z) - yz$ | un nombre (3 décimales) |
 | g | (situation 4) la plus petite log-loss moyenne (en nats) que peut atteindre un modèle qui annonce la **même** probabilité $q$ pour les cinq exemples | un nombre (3 décimales) |
 
@@ -146,8 +146,8 @@ Sur ta copie : pour a), écris la vraisemblance $L(\theta)$ et explique pourquoi
 ### CP3.6 — Lagrange, hinge loss et noyau ✏️ ★★ ⏱️ 9 min · 1,75 point
 
 1. On cherche le maximum de $f(x, y) = x + 2y$ sur l'ellipse $\frac{x^2}{8} + \frac{y^2}{2} = 1$. On pose $g(x, y) = \frac{x^2}{8} + \frac{y^2}{2} - 1$ et le lagrangien $\mathcal{L} = f + \lambda g$ (la convention de M13b : $\nabla f + \lambda \nabla g = \mathbf{0}$).
-2. Une SVM à marge souple a pour paramètres $\mathbf{w} = (2, 1)$, $b = -3$ et $C = 1$ ; son objectif est $J(\mathbf{w}, b) = \frac{1}{2}\lVert \mathbf{w} \rVert^2 + C\sum_i \max\big(0,\ 1 - y_i(\mathbf{w} \cdot \mathbf{x}_i + b)\big)$, sur trois exemples : $P_1 = (1, 2)$ de label $+1$, $P_2 = (2, 0)$ de label $-1$, $P_3 = (1 ;\ 0{,}5)$ de label $+1$.
-3. On se demande si $k(x, z) = \lvert x - z \rvert$, pour $x, z \in \mathbb{R}$, est un noyau. On prend les trois points 0, 1 et 3.
+2. Une SVM à marge souple a pour paramètres $\mathbf{w} = (2, 1)$, $b = -3$ et $C = 1$ ; son objectif est $J(\mathbf{w}, b) = \frac{1}{2}\lVert \mathbf{w} \rVert^2 + C\sum_i \max\big(0,\ 1 - y_i(\mathbf{w} \cdot \mathbf{x}_i + b)\big)$, sur trois exemples : $P_1 = (1, 3)$ de label $+1$, $P_2 = (2, 0)$ de label $-1$, $P_3 = (1 ;\ 0{,}5)$ de label $+1$.
+3. On se demande si $k(x, z) = (x + z)^2$, pour $x, z \in \mathbb{R}$, est un noyau. On prend les trois points 1, 2 et 3.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -156,25 +156,25 @@ Sur ta copie : pour a), écris la vraisemblance $L(\theta)$ et explique pourquoi
 | c | (1) le multiplicateur $\lambda$ en ce point | un nombre |
 | d | (2) la somme des trois hinge losses | un nombre |
 | e | (2) la valeur de $J(\mathbf{w}, b)$ | un nombre |
-| f | (2) un sous-gradient de $J$ en $(\mathbf{w}, b)$, en prenant 0 pour le terme d'un exemple de marge exactement 1 | la liste $[g_{w_1}, g_{w_2}, g_b]$ |
-| g | (3) $\mathbf{v}^\top\mathbf{K}\mathbf{v}$ pour $\mathbf{v} = (1, -1, 0)$, où $\mathbf{K}$ est la matrice de Gram de $k$ sur les trois points | un nombre |
+| f | (2) un sous-gradient de $J$ en $(\mathbf{w}, b)$ | la liste $[g_{w_1}, g_{w_2}, g_b]$ |
+| g | (3) $\mathbf{v}^\top\mathbf{K}\mathbf{v}$ pour $\mathbf{v} = (2, -1, 0)$, où $\mathbf{K}$ est la matrice de Gram de $k$ sur les trois points | un nombre |
 
 Sur ta copie : pour a), pourquoi le maximum existe et comment tu choisis entre les candidats ; pour g), ce que tu conclus sur $k$, et pourquoi.
 
 ### CP3.7 — Queue binomiale et borne de Chernoff, limite et poids exponentiels ✏️ ★★ ⏱️ 8 min · 1,5 point
 
-Un livreur fait des tournées de 12 colis ; chaque colis arrive abîmé avec la probabilité 0,04, indépendamment des autres. $X$ est le nombre de colis abîmés d'une tournée. Pour b) et c), $n = 12$, $p = 0{,}04$ et $a = \frac{3}{12}$ ; la KL est en nats.
+Un logiciel de transcription automatique transcrit une phrase de 18 mots ; chaque mot est mal transcrit avec la probabilité 0,06, indépendamment des autres. $X$ est le nombre de mots mal transcrits. Pour b) et c), $n = 18$, $p = 0{,}06$ et $a = \frac{5}{18}$ ; la KL est en nats.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $P(X \ge 3)$ | un nombre (4 décimales) |
-| b | la borne de Chernoff $e^{-n\,\mathrm{KL}(a \Vert p)}$ de $P(X \ge 3)$ | un nombre (3 décimales) |
-| c | la borne de Hoeffding $e^{-2n(a - p)^2}$ de $P(X \ge 3)$ | un nombre (4 décimales) |
-| d | $\left(1 - \frac{2{,}1}{30}\right)^{30}$ | un nombre (4 décimales) |
-| e | l'erreur relative de d) par rapport à sa limite quand on remplace 30 par $n \to +\infty$, c'est-à-dire $\frac{d - e^{-2{,}1}}{e^{-2{,}1}}$ | un nombre (3 décimales) |
-| f | l'algorithme Hedge suit $K = 4$ experts avec $\eta = 0{,}7$ ; avant le tour qui vient, leurs losses cumulées valent $(3, 1, 2, 2)$. Les poids des quatre experts | une liste (4 décimales) |
+| a | $P(X \ge 5)$ | un nombre (5 décimales) |
+| b | l'exposant $n\,\mathrm{KL}(a \Vert p)$ de la borne de Chernoff $P(X \ge 5) \le e^{-n\,\mathrm{KL}(a \Vert p)}$ | un nombre (3 décimales) |
+| c | la borne de Hoeffding $e^{-2n(a - p)^2}$ de $P(X \ge 5)$ | un nombre (3 décimales) |
+| d | $\left(1 - \frac{2{,}4}{45}\right)^{45}$ | un nombre (4 décimales) |
+| e | l'écart des logarithmes entre d) et sa limite $e^{-2{,}4}$, c'est-à-dire $45\ln\left(1 - \frac{2{,}4}{45}\right) + 2{,}4$ | un nombre (4 décimales) |
+| f | l'algorithme Hedge suit $K = 4$ experts avec $\eta = 0{,}7$ ; avant le tour qui vient, leurs losses cumulées valent $(3, 1, 2, 2)$. Les poids normalisés (de somme 1) des quatre experts | une liste (4 décimales) |
 
-Sur ta copie : range a), b) et c) et explique l'ordre ; compare e) à l'approximation $-\frac{x^2}{2n}$.
+Sur ta copie : calcule le rapport $\frac{\mathrm{KL}(a \Vert p)}{2(a - p)^2}$ des exposants de Chernoff et de Hoeffding (par mot), et dis ce qu'il montre sur les deux bornes.
 
 ### CP3.8 — Une démonstration courte, au choix parmi deux ∂ ★★★ ⏱️ 12 min · 2 points
 
@@ -198,7 +198,7 @@ $$F(\mathbf{w}) = \eta \sum_{k=1}^K w_k L_k + \sum_{k=1}^K w_k \ln w_k .$$
 Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 
 - **(A)** Avec $\mathbf{u} = (1, 2, 0)$, $\mathbf{v} = (3, 1)$, $\mathbf{w} = (2, 4, 0)$ et $\mathbf{z} = (0, 1)$, la matrice $\mathbf{u}\mathbf{v}^\top + \mathbf{w}\mathbf{z}^\top$, de forme $(3, 2)$, est de rang 2 : c'est la somme de deux matrices de rang 1.
-- **(B)** Pour toute matrice inversible $\mathbf{A}$, $\kappa_2(2\mathbf{A}) = \kappa_2(\mathbf{A})$.
+- **(B)** Pour toute matrice carrée inversible $\mathbf{A}$, $\kappa_2(\mathbf{A}^{-1}) = \kappa_2(\mathbf{A})$.
 - **(C)** La projection orthogonale de $\mathbf{v} = (2, 1, 0)$ sur la droite dirigée par $\mathbf{a} = (1, 1, 1)$ est $(\mathbf{a} \cdot \mathbf{v})\,\mathbf{a} = (3, 3, 3)$.
 - **(D)** $\begin{pmatrix} 3 & 5 \\ 0 & 1 \end{pmatrix}$ a pour valeurs propres 3 et 1, $\begin{pmatrix} 2 & 0 \\ 5 & 4 \end{pmatrix}$ a pour valeurs propres 2 et 4 ; leur somme a donc pour valeurs propres $3 + 4 = 7$ et $1 + 2 = 3$, et $7 + 3 = 10$ est bien sa trace.
 - **(E)** Dans une régression logistique où le poids de $x_j$ vaut 0,7, augmenter $x_j$ de 1, les autres features fixées, multiplie la cote $\frac{p}{1 - p}$ par $e^{0{,}7} \approx 2{,}01$.

@@ -20,11 +20,11 @@
 
 **b) Vrai** (M12b, M12c). Tout vecteur du sous-espace (dimension 2) est inchangé, $\mathbf{P}\mathbf{x} = \mathbf{x}$ : la valeur propre 1, deux fois ; tout vecteur de son orthogonal (dimension $4 - 2 = 2$) est envoyé sur $\mathbf{0}$ : la valeur propre 0, deux fois. Vérification : la trace d'une projection vaut son rang, ici $1 + 1 + 0 + 0 = 2$.
 
-**c) Faux** (M12b, M12c). La rotation d'un quart de tour $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ est orthogonale (ses colonnes sont orthonormées), mais son polynôme caractéristique, $\lambda^2 + 1$ (trace 0, déterminant 1), n'a pas de racine réelle : aucune direction n'est conservée. Seules les symétries orthogonales du plan ont des valeurs propres réelles (1 et −1).
+**c) Faux** (M12b, M12c). La rotation d'un quart de tour $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ est orthogonale (ses colonnes sont orthonormées), mais son polynôme caractéristique, $\lambda^2 + 1$ (trace 0, déterminant 1), n'a pas de racine réelle : aucune direction n'est conservée. Les rotations d'angle différent de 0 et de π n'ont pas de valeur propre réelle ; les symétries orthogonales ont 1 et −1, et $\pm\mathbf{I}$ ont 1 ou −1.
 
 **d) Faux** (M12d). Les variances le long des axes sont proportionnelles aux **carrés** des valeurs singulières, $\lambda_j = \frac{s_j^2}{n - 1}$ : la part du premier axe vaut $\frac{25}{25 + 4} = \frac{25}{29} \approx 86$ %. Les 71 % viennent de $\frac{5}{5 + 2}$, sans les carrés.
 
-**e) Vrai** (M13a). $2\mathbf{w} \cdot \mathbf{x} + 2b = 0$ équivaut à $\mathbf{w} \cdot \mathbf{x} + b = 0$ : même frontière. Un point de score $z \ne 0$ reçoit $\sigma(2z)$ au lieu de $\sigma(z)$ ; comme $\sigma$ est strictement croissante et $\sigma(0) = 0{,}5$, $\sigma(2z)$ est plus loin de 0,5 que $\sigma(z)$, du même côté (par exemple $\sigma(1) \approx 0{,}731$ et $\sigma(2) \approx 0{,}881$). Le modèle devient plus sûr de lui sans changer aucune décision.
+**e) Vrai** (M13a). Les deux exemples ont le même score $z = \mathbf{w} \cdot \mathbf{x} + b$, donc la même probabilité prédite $q = \sigma(z)$, strictement entre 0 et 1. Leurs deux termes valent $-\ln q$ et $-\ln(1 - q)$, de somme au moins $2\ln 2 > 0$ (le minimum de $-\ln q - \ln(1 - q)$ est en $q = \frac{1}{2}$) ; les autres termes sont positifs ou nuls. Aucun modèle qui ne voit que les features ne peut séparer deux exemples identiques.
 
 **f) Faux** (M13b). $\nabla f + \lambda\nabla g = \mathbf{0}$ s'écrit $(2x, 2y) + \lambda(1, 2) = \mathbf{0}$, donc $(x, y) = \left(-\frac{\lambda}{2}, -\lambda\right)$, et la contrainte donne $-\frac{5\lambda}{2} = 5$ : $\lambda = -2$, au point $(1, 2)$ (le point de la droite le plus proche de l'origine). Un multiplicateur nul voudrait dire que le minimum libre, $(0, 0)$, vérifie déjà la contrainte : ce n'est pas le cas.
 
@@ -34,45 +34,45 @@
 
 **i) Faux** (M14). Pour $u > -1$, $u \ne 0$ : $\ln(1 + u) < u$. Avec $u = -\frac{0{,}3}{n}$ : $n\ln\left(1 - \frac{0{,}3}{n}\right) < -0{,}3$, donc $\left(1 - \frac{0{,}3}{n}\right)^n < e^{-0{,}3}$ pour tout $n \ge 1$ : la suite approche sa limite **par en dessous**. Exemple : $n = 1$ donne $0{,}7 < e^{-0{,}3} \approx 0{,}741$.
 
-**j) Vrai** (M14). Les poids sont proportionnels à $e^{-\eta L_k}$ : le rapport du poids de cet expert à celui du meilleur vaut $e^{-0{,}5 \times 4} = e^{-2} \approx 0{,}135 < 0{,}2$.
+**j) Vrai** (M14). Les poids sont proportionnels à $e^{-\eta L_k}$ : le rapport du poids de cet expert à celui du meilleur vaut $e^{-0{,}4 \times 5} = e^{-2} \approx 0{,}135 < 0{,}2$.
 
-**Erreurs fréquentes** : en a), répondre « Faux » parce que $\mathbf{X}^\top\mathbf{X}$ reste semi-définie positive (la question dit « définie ») ; en b), croire que toutes les valeurs propres valent 1 ; en c), oublier les rotations, qui n'ont pas de valeur propre réelle ; en d), oublier les carrés ; en e), croire que les probabilités ne changent pas avec la frontière ; en f), confondre avec une contrainte d'inégalité inactive ; en g), penser au noyau RBF, dont la matrice de Gram de points distincts est inversible ; en i), croire que la suite dépasse sa limite.
-**Remédiation** : a) M12a.20, M12c.17 ; b) M12b.8, M12c.7 ; c) M12c.6, M12b.3 ; d) M12d.10, M12d.11 ; e) M13a.5, M13a.7 ; f) M13b.1, M13b.2 ; g) M12a.6, M13b.19 ; h) M14.8 ; i) M14.3, M14.6 ; j) M14.4.
+**Erreurs fréquentes** : en a), répondre « Faux » parce que $\mathbf{X}^\top\mathbf{X}$ reste semi-définie positive (la question dit « définie ») ; en b), croire que toutes les valeurs propres valent 1 ; en c), oublier les rotations, qui n'ont pas de valeur propre réelle ; en d), oublier les carrés ; en e), croire qu'un modèle assez riche peut toujours atteindre une log-loss nulle ; en f), confondre avec une contrainte d'inégalité inactive ; en g), penser au noyau RBF, dont la matrice de Gram de points distincts est inversible ; en i), croire que la suite dépasse sa limite.
+**Remédiation** : a) M12a.20, M12c.17 ; b) M12b.8, M12c.7 ; c) M12c.6, M12b.3 ; d) M12d.10, M12d.11 ; e) M13a.3, M13a.4, M13a.14 ; f) M13b.1, M13b.2 ; g) M12a.6, M13b.19 ; h) M14.8 ; i) M14.3, M14.6 ; j) M14.4.
 
 ## CP3.1 — Indépendance, base, rang et noyau ✏️ · 2 points
 
-**Réponses** : a) `2` · b) `3` · c) `[-2, 3, 1, 0, 0]` · d) `[-1, 4]` · e) `[2, -1, -1]` · f) `False` · g) `1` · h) `[7, 2]`.
+**Réponses** : a) `2` · b) `3` · c) `[2, -3]` · d) `[-1, 4]` · e) `[2, -1, -1]` · f) `False` · g) `1` · h) `[7, 2]`.
 
 a) Pivot de Gauss : $L_3 \leftarrow L_3 - 2L_1$ donne $(0, -1, 3, -2, -4)$, puis $L_3 \leftarrow L_3 + L_2$ donne une ligne nulle. Il reste deux pivots (colonnes 1 et 2) : le rang vaut 2. **[0,25]**
 b) Théorème du rang : $\dim\ker\mathbf{A} = 5 - 2 = 3$ (5 est le nombre de **colonnes**, la dimension de l'espace de départ). **[0,25]**
-c) $x_1\mathbf{c}_1 + x_2\mathbf{c}_2 + \mathbf{c}_3 = \mathbf{0}$ : la première ligne donne $x_1 + 2 = 0$, la deuxième $x_2 - 3 = 0$ ; la troisième se vérifie : $2 \times (-2) - 3 + 7 = 0$. Donc $(-2, 3, 1, 0, 0)$, qui dit $\mathbf{c}_3 = 2\mathbf{c}_1 - 3\mathbf{c}_2$. **[0,25]**
+c) $\mathbf{c}_3 = \alpha\,\mathbf{c}_1 + \beta\,\mathbf{c}_2$ : la première ligne donne $\alpha = 2$, la deuxième $\beta = -3$ ; la troisième se vérifie : $2 \times 2 - 3 \times (-1) = 7$. Le vecteur $(2, -3, -1, 0, 0)$ est donc dans le noyau de $\mathbf{A}$. **[0,25]**
 d) $\mathbf{c}_5 = a\,\mathbf{c}_1 + b\,\mathbf{c}_2$ : $a = -1$ (première ligne), $b = 4$ (deuxième ligne), et la troisième se vérifie : $-2 - 4 = -6$. Les deux colonnes pivots $\mathbf{c}_1$ et $\mathbf{c}_2$ forment une base de l'image (de dimension 2). **[0,25]**
-e) La troisième ligne de $\mathbf{A}$ vaut $2L_1 - L_2$ : tout $\mathbf{b} = \mathbf{A}\mathbf{x}$ vérifie donc $b_3 = 2b_1 - b_2$, soit $2b_1 - b_2 - b_3 = 0$, et cette équation définit un plan, de dimension 2, comme l'image : c'est elle. Vérification sur $\mathbf{c}_1$ : $2 - 0 - 2 = 0$ ; sur $\mathbf{c}_2$ : $0 - 1 + 1 = 0$. **[0,25]**
-f) $2 \times 3 - 1 - 4 = 1 \ne 0$ : $(3, 1, 4)$ n'est pas dans l'image, le système n'a **aucune** solution. **[0,25]**
+e) $\mathbf{A}^\top\mathbf{z} = \mathbf{0}$ dit que $\mathbf{z}$ est orthogonal à chaque colonne ; comme $\mathbf{c}_1$ et $\mathbf{c}_2$ engendrent l'image, il suffit de $\mathbf{z} \cdot \mathbf{c}_1 = z_1 + 2z_3 = 0$ et $\mathbf{z} \cdot \mathbf{c}_2 = z_2 - z_3 = 0$. Avec $z_1 = 2$ : $z_3 = -1$ et $z_2 = -1$, soit $\mathbf{z} = (2, -1, -1)$. Vérification sur $\mathbf{c}_5$ : $-2 - 4 + 6 = 0$. **[0,25]**
+f) L'image est l'orthogonal de $\ker\mathbf{A}^\top$ (M12b) : $\mathbf{b}$ est atteint si et seulement si $\mathbf{z} \cdot \mathbf{b} = 0$. Ici $\mathbf{z} \cdot (3, 1, 4) = 6 - 1 - 4 = 1 \ne 0$ : le système n'a **aucune** solution. **[0,25]**
 g) Pour $P = a + bX + cX^2$ : $P(2) = a + 2b + 4c$ et $P(-1) = a - b + c$, donc $P \in V \iff 3b + 3c = 0 \iff b = -c$. Dans $W$, en plus, $P(0) = a = 0$ : $W = \{c\,(X^2 - X)\}$, de dimension 1. **[0,25]**
 h) $P = 7 - 2X + 2X^2$ a $b = -2 = -c$ : il est dans $V$, et $P = 7 \times 1 + 2\,(X^2 - X)$. **[0,25]**
 
-Sur ta copie : le **théorème du rang** ($\dim\ker\mathbf{A} + \mathrm{rg}\,\mathbf{A} = $ nombre de colonnes) ; $V = \{a + c\,(X^2 - X)\}$ est engendré par $1$ et $X^2 - X$, qui sont libres (de degrés différents) : c'est une base, et $\dim V = 2$ (on le retrouve par le théorème du rang : $P \mapsto P(2) - P(-1)$ est une forme linéaire non nulle sur $\mathbb{R}_2[X]$, de dimension 3).
+Sur ta copie : le **théorème du rang** ($\dim\ker\mathbf{A} + \mathrm{rg}\,\mathbf{A} = $ nombre de colonnes) ; pour f), l'image est un plan de $\mathbb{R}^3$ (rang 2) et $\mathbf{z}$ est orthogonal à ce plan : $2b_1 - b_2 - b_3 = 0$ est son équation ; $V = \{a + c\,(X^2 - X)\}$ est engendré par $1$ et $X^2 - X$, qui sont libres (de degrés différents) : c'est une base, et $\dim V = 2$ (on le retrouve par le théorème du rang : $P \mapsto P(2) - P(-1)$ est une forme linéaire non nulle sur $\mathbb{R}_2[X]$, de dimension 3).
 
-**Erreurs fréquentes** : en a), répondre 3 parce qu'il y a trois lignes ; en b), retrancher le rang du nombre de lignes ; en c), un signe faux (la vérification sur la première ligne l'attrape) ; en d), inverser l'ordre des coordonnées ; en e), écrire une équation qui ne s'annule pas sur toutes les colonnes ; en f), conclure sans tester l'équation de l'image ; en g), oublier que $W$ ajoute une condition à $V$ ; en h), lire $-2X$ comme le coefficient de $X^2 - X$.
-**Remédiation** : M12a.3, M12a.4, M12a.5, M12a.9, M12a.10, M12a.13, M12a.17.
+**Erreurs fréquentes** : en a), répondre 3 parce qu'il y a trois lignes ; en b), retrancher le rang du nombre de lignes ; en c), un signe faux (la vérification sur la troisième ligne l'attrape) ; en d), inverser l'ordre des coordonnées ; en e), un vecteur orthogonal à une seule colonne, ou oublier de fixer $z_1 = 2$ ; en f), conclure sans tester $\mathbf{z} \cdot \mathbf{b}$ ; en g), oublier que $W$ ajoute une condition à $V$ ; en h), lire $-2X$ comme le coefficient de $X^2 - X$.
+**Remédiation** : M12a.3, M12a.4, M12a.5, M12a.9, M12a.10, M12a.13, M12a.17, M12b.16.
 
 ## CP3.2 — Gram-Schmidt, projection et moindres carrés ✏️ · 2 points
 
-**Réponses** : a) `6` · b) `6` · c) `[5, -1, 7, -5]` · d) `[[6, 6], [0, 10]]` · e) `[6, -10]` · f) `[2, -1]` · g) `[-4, 2, -4, 10]` · h) `36`.
+**Réponses** : a) `6` · b) `6` · c) `[5, -1, 7, -5]` · d) `[[6, 6], [0, 10]]` · e) `[6, 20]` · f) `[11, -1, 17, -5]` · g) `[-1, 2]` · h) `26`.
 
 a) $\lVert \mathbf{v}_1 \rVert = \sqrt{1 + 1 + 9 + 25} = 6$, donc $\mathbf{q}_1 = \frac{1}{6}(1, 1, 3, 5)$ et $r_{11} = 6$. **[0,25]**
 b) $r_{12} = \mathbf{q}_1 \cdot \mathbf{v}_2 = \frac{6 + 0 + 30 + 0}{6} = 6$. **[0,25]**
 c) $\mathbf{v}_2 - 6\,\mathbf{q}_1 = \mathbf{v}_2 - \mathbf{v}_1 = (5, -1, 7, -5)$ : la part de $\mathbf{v}_2$ orthogonale à $\mathbf{v}_1$ (vérification : $5 - 1 + 21 - 25 = 0$). **[0,25]**
 d) $r_{22} = \lVert (5, -1, 7, -5) \rVert = \sqrt{25 + 1 + 49 + 25} = 10$, donc $\mathbf{q}_2 = (0{,}5 ;\ -0{,}1 ;\ 0{,}7 ;\ -0{,}5)$ et $\mathbf{R} = \begin{pmatrix} 6 & 6 \\ 0 & 10 \end{pmatrix}$. **[0,25]**
-e) $\mathbf{q}_1 \cdot \mathbf{y} = \frac{1 + 1 - 21 + 55}{6} = 6$ et $\mathbf{q}_2 \cdot \mathbf{y} = \frac{5 - 1 - 49 - 55}{10} = -10$. **[0,25]**
-f) On remonte : $10\,\hat{x}_2 = -10$ donne $\hat{x}_2 = -1$, puis $6\,\hat{x}_1 + 6\,\hat{x}_2 = 6$ donne $\hat{x}_1 = 2$. **[0,25]**
-g) $\hat{\mathbf{y}} = 2\mathbf{v}_1 - \mathbf{v}_2 = (-4, 2, -4, 10)$ ; on le retrouve par $\hat{\mathbf{y}} = \mathbf{Q}\mathbf{Q}^\top\mathbf{y} = 6\,\mathbf{q}_1 - 10\,\mathbf{q}_2 = (1, 1, 3, 5) - (5, -1, 7, -5)$. **[0,25]**
-h) $\mathbf{y} - \hat{\mathbf{y}} = (5, -1, -3, 1)$, de norme au carré $25 + 1 + 9 + 1 = 36$. **[0,25]**
+e) $\mathbf{q}_1 \cdot \mathbf{y} = \frac{11 - 6 + 51 - 20}{6} = 6$ et $\mathbf{q}_2 \cdot \mathbf{y} = \frac{55 + 6 + 119 + 20}{10} = 20$. **[0,25]**
+f) $\hat{\mathbf{y}} = 6\,\mathbf{q}_1 + 20\,\mathbf{q}_2 = (1, 1, 3, 5) + 2\,(5, -1, 7, -5) = (11, -1, 17, -5)$. **[0,25]**
+g) On remonte : $10\,\hat{x}_2 = 20$ donne $\hat{x}_2 = 2$, puis $6\,\hat{x}_1 + 6\,\hat{x}_2 = 6$ donne $\hat{x}_1 = -1$. **[0,25]**
+h) $\mathbf{y} - \hat{\mathbf{y}} = (0, -5, 0, 1)$, de norme au carré $25 + 1 = 26$. **[0,25]**
 
-Sur ta copie : $\mathbf{v}_1 \cdot (5, -1, -3, 1) = 5 - 1 - 9 + 5 = 0$ et $\mathbf{v}_2 \cdot (5, -1, -3, 1) = 30 - 30 = 0$ : le résidu est orthogonal au plan, ce sont les équations normales $\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\hat{\mathbf{x}}) = \mathbf{0}$. Pythagore : $\lVert \mathbf{y} \rVert^2 = 1 + 1 + 49 + 121 = 172$, $\lVert \hat{\mathbf{y}} \rVert^2 = 16 + 4 + 16 + 100 = 136$ (aussi $6^2 + 10^2$, la norme de $\mathbf{Q}^\top\mathbf{y}$), et $136 + 36 = 172$.
+Sur ta copie : $\mathbf{X}\hat{\mathbf{x}} = -\mathbf{v}_1 + 2\mathbf{v}_2 = (-1 + 12,\ -1,\ -3 + 20,\ -5) = (11, -1, 17, -5)$, c'est bien $\hat{\mathbf{y}}$. Pythagore : $\lVert \mathbf{y} \rVert^2 = 121 + 36 + 289 + 16 = 462$, $\lVert \hat{\mathbf{y}} \rVert^2 = 121 + 1 + 289 + 25 = 436$ (aussi $6^2 + 20^2$, la norme de $\mathbf{Q}^\top\mathbf{y}$), et $436 + 26 = 462$ : le résidu est orthogonal au plan.
 
-**Erreurs fréquentes** : en b), utiliser $\mathbf{v}_1$ au lieu de $\mathbf{q}_1$ ($r_{12} = 36$) ; en c), retrancher $r_{12}\,\mathbf{v}_1$ ; en d), placer $r_{12}$ sous la diagonale, ou mettre $r_{22}^2$ ; en e), calculer $\mathbf{X}^\top\mathbf{y}$ ; en f), résoudre de haut en bas ; en g), donner le résidu au lieu de la projection ; en h), oublier le carré.
+**Erreurs fréquentes** : en b), utiliser $\mathbf{v}_1$ au lieu de $\mathbf{q}_1$ ($r_{12} = 36$) ; en c), retrancher $r_{12}\,\mathbf{v}_1$ ; en d), placer $r_{12}$ sous la diagonale, ou mettre $r_{22}^2$ ; en e), calculer $\mathbf{X}^\top\mathbf{y}$ ; en f), donner le résidu au lieu de la projection ; en g), résoudre de haut en bas ; en h), oublier le carré.
 **Remédiation** : M12b.4, M12b.7, M12b.9, M12b.10, M12b.11, M12b.17.
 
 ## CP3.3 — Valeurs propres, matrice définie positive et Cholesky ✏️ · 2 points
@@ -95,71 +95,71 @@ Sur ta copie, pour e) : la troisième ligne de $\mathbf{L}\mathbf{L}^\top$ vaut 
 
 ## CP3.4 — SVD, rang faible et variance expliquée ✏️ · 2 points
 
-**Réponses** : a) `[[85, 42], [42, 72]]` · b) `[11, 6]` · c) `[0.759, 0.651]` · d) `[0.976, -0.217]` · e) `[[8.15, 6.99], [-1.81, -1.55]]` · f) `6` · g) `0.771` · h) `1.833`.
+**Réponses** : a) `[[85, 42], [42, 72]]` · b) `[11, 6]` · c) `[0.759, 0.651]` · d) `[0.976, -0.217]` · e) `[7, 6]` · f) `6` · g) `0.771` · h) `1.833`.
 
 a) $\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 81 + 4 & 54 - 12 \\ 54 - 12 & 36 + 36 \end{pmatrix} = \begin{pmatrix} 85 & 42 \\ 42 & 72 \end{pmatrix}$. **[0,25]**
 b) Trace 157, déterminant $85 \times 72 - 42^2 = 6\,120 - 1\,764 = 4\,356$ : $\lambda = \frac{157 \pm \sqrt{157^2 - 4 \times 4\,356}}{2} = \frac{157 \pm 85}{2}$, soit 121 et 36, et $s_1 = 11$, $s_2 = 6$. **[0,25]**
 c) $\mathbf{A}^\top\mathbf{A} - 121\,\mathbf{I} = \begin{pmatrix} -36 & 42 \\ 42 & -49 \end{pmatrix}$ : $-36x + 42y = 0$ donne la direction $(7, 6)$, de norme $\sqrt{85}$ : $\mathbf{v}_1 \approx (0{,}759 ;\ 0{,}651)$. **[0,25]**
 d) $\mathbf{A}\,(7, 6) = (63 + 36,\ 14 - 36) = (99, -22) = 11\,(9, -2)$ : $\mathbf{u}_1 = \frac{(9, -2)}{\sqrt{85}} \approx (0{,}976 ;\ -0{,}217)$, bien unitaire. **[0,25]**
-e) $\mathbf{A}_1 = 11 \times \frac{(9, -2)}{\sqrt{85}}\,\frac{(7, 6)^\top}{\sqrt{85}} = \frac{11}{85}\begin{pmatrix} 63 & 54 \\ -14 & -12 \end{pmatrix} \approx \begin{pmatrix} 8{,}15 & 6{,}99 \\ -1{,}81 & -1{,}55 \end{pmatrix}$. **[0,25]**
-f) Eckart-Young : $\mathbf{A} - \mathbf{A}_1 = s_2\,\mathbf{u}_2\mathbf{v}_2^\top$, de norme de Frobenius $s_2 = 6$. **[0,25]**
+e) D'après d), $(99, -22) = 11\sqrt{85}\,\mathbf{u}_1$. Or $\mathbf{A}\mathbf{v}_1 = s_1\mathbf{u}_1$, donc $\mathbf{A}^{-1}\mathbf{u}_1 = \frac{\mathbf{v}_1}{s_1}$ (avec la SVD, $\mathbf{A}^{-1} = \sum_i \frac{1}{s_i}\mathbf{v}_i\mathbf{u}_i^\top$) : $\mathbf{x} = 11\sqrt{85} \times \frac{\mathbf{v}_1}{11} = \sqrt{85}\,\mathbf{v}_1 = (7, 6)$. Vérification : $\mathbf{A}\,(7, 6) = (99, -22)$, c'est le calcul de d). **[0,25]**
+f) Eckart-Young : $\mathbf{A} - \mathbf{A}_1 = s_2\,\mathbf{u}_2\mathbf{v}_2^\top$, de norme de Frobenius $s_2 = 6$ (pas besoin de calculer $\mathbf{A}_1$, qui vaut $\frac{11}{85}\begin{pmatrix} 63 & 54 \\ -14 & -12 \end{pmatrix}$). **[0,25]**
 g) $\lVert \mathbf{A} \rVert_F^2 = 81 + 36 + 4 + 36 = 157 = 11^2 + 6^2$ ; $\mathbf{A}_1$ en garde $\frac{121}{157} \approx 0{,}771$. **[0,25]**
 h) $\kappa_2(\mathbf{A}) = \frac{s_1}{s_2} = \frac{11}{6} \approx 1{,}833$ : une matrice bien conditionnée. **[0,25]**
 
-Sur ta copie : $\det\mathbf{A} = -54 - 12 = -66$, et $\lvert \det\mathbf{A} \rvert = 66 = 11 \times 6$ ; en norme spectrale aussi, $\lVert \mathbf{A} - \mathbf{A}_1 \rVert_2 = s_2 = 6$ (pour une matrice $2 \times 2$, l'erreur de rang 1 n'a qu'une valeur singulière).
+Sur ta copie : $\det\mathbf{A} = -54 - 12 = -66$, et $\lvert \det\mathbf{A} \rvert = 66 = 11 \times 6$.
 
-**Erreurs fréquentes** : en a), calculer $\mathbf{A}\mathbf{A}^\top$ ; en b), donner 121 et 36 sans les racines ; en c), prendre le vecteur de la valeur propre 36 ; en d), oublier de diviser par $s_1$ ; en e), arrondir $\mathbf{u}_1$ et $\mathbf{v}_1$ à 3 décimales avant le produit (l'erreur se voit sur la deuxième décimale) ; en f), donner $s_1$ ou $s_2^2$ ; en g), $\frac{11}{17}$, sans les carrés ; en h), $\frac{121}{36}$, le conditionnement de $\mathbf{A}^\top\mathbf{A}$.
+**Erreurs fréquentes** : en a), calculer $\mathbf{A}\mathbf{A}^\top$ ; en b), donner 121 et 36 sans les racines ; en c), prendre le vecteur de la valeur propre 36 ; en d), oublier de diviser par $s_1$ ; en e), inverser $\mathbf{A}$ comme si elle était orthogonale ($\mathbf{A}^{-1} \ne \mathbf{A}^\top$ : on obtiendrait $(847, 726)$) ; en f), donner $s_1$ ou $s_2^2$ ; en g), $\frac{11}{17}$, sans les carrés ; en b) et h), prendre les valeurs propres de $\mathbf{A}$ (elle n'est pas symétrique) ; en h), $\frac{121}{36}$, le conditionnement de $\mathbf{A}^\top\mathbf{A}$.
 **Remédiation** : M12d.1, M12d.4, M12d.7, M12d.16, et le quiz M12d.Q3.
 
 ## CP3.5 — Maximum de vraisemblance, log-loss et entropie ✏️ · 1,75 point
 
-**Réponses** : a) `5.6` · b) `"7/45"` · c) `1.513` · d) `0.635` · e) `0.547` · f) `0.565` · g) `0.673`.
+**Réponses** : a) `6.1` · b) `"7/45"` · c) `1.904` · d) `0.715` · e) `0.096` · f) `0.565` · g) `0.673`.
 
-a) La densité de la loi uniforme vaut $\frac{1}{\theta}$ sur $[0, \theta]$, 0 ailleurs : $L(\theta) = \frac{1}{\theta^5}$ si $\theta \ge 5{,}6$ (toutes les observations sont dans $[0, \theta]$), et $L(\theta) = 0$ si $\theta < 5{,}6$. Sur $[5{,}6 ;\ +\infty[$, $L$ décroît : son maximum est en $\hat{\theta} = 5{,}6$, la plus grande observation. **[0,25]**
+a) La densité de la loi uniforme vaut $\frac{1}{\theta}$ sur $[0, \theta]$, 0 ailleurs : $L(\theta) = \frac{1}{\theta^6}$ si $\theta \ge 6{,}1$ (tous les tirages sont dans $[0, \theta]$), et $L(\theta) = 0$ si $\theta < 6{,}1$. Sur $[6{,}1 ;\ +\infty[$, $L$ décroît : son maximum est en $\hat{\theta} = 6{,}1$, le plus grand tirage. **[0,25]**
 b) $\ell(\theta) = 4\ln\theta + 10\ln(2\theta) + 16\ln(1 - 3\theta)$, de dérivée $\frac{14}{\theta} - \frac{48}{1 - 3\theta}$, nulle quand $14\,(1 - 3\theta) = 48\,\theta$, soit $\theta = \frac{14}{90} = \frac{7}{45} \approx 0{,}156$, bien dans $\left]0, \frac{1}{3}\right[$ ; la dérivée passe du positif au négatif, c'est un maximum. **[0,25]**
-c) $H = 0{,}45 \log_2\frac{1}{0{,}45} + 0{,}35 \log_2\frac{1}{0{,}35} + 0{,}2 \log_2\frac{1}{0{,}2} \approx 0{,}45 \times 1{,}152003 + 0{,}35 \times 1{,}514573 + 0{,}2 \times 2{,}321928 \approx 1{,}512888$, soit 1,513 bit. **[0,25]**
-d) $G = 1 - (0{,}45^2 + 0{,}35^2 + 0{,}2^2) = 1 - 0{,}365 = 0{,}635$. **[0,25]**
-e) Groupe $(4, 7, 0)$, 11 exemples : $H = \frac{4}{11}\log_2\frac{11}{4} + \frac{7}{11}\log_2\frac{11}{7} \approx 0{,}945660$. Groupe $(5, 0, 4)$, 9 exemples : $H = \frac{5}{9}\log_2\frac{9}{5} + \frac{4}{9}\log_2\frac{9}{4} \approx 0{,}991076$. Moyenne pondérée : $\frac{11}{20} \times 0{,}945660 + \frac{9}{20} \times 0{,}991076 \approx 0{,}966097$. Gain : $1{,}512888 - 0{,}966097 \approx 0{,}547$ bit. **[0,25]**
+c) $H(\mathbf{p}) = 0{,}4 \log_2\frac{1}{0{,}4} + 0{,}25 \log_2 4 + 0{,}2 \log_2 5 + 0{,}15 \log_2\frac{1}{0{,}15} \approx 0{,}4 \times 1{,}321928 + 0{,}25 \times 2 + 0{,}2 \times 2{,}321928 + 0{,}15 \times 2{,}736966 \approx 1{,}903702$, soit 1,904 bit (au plus $\log_2 4 = 2$, la valeur de la loi uniforme). **[0,25]**
+d) $G = 1 - (0{,}16 + 0{,}0625 + 0{,}04 + 0{,}0225) = 1 - 0{,}285 = 0{,}715$ (au plus $1 - \frac{1}{4} = 0{,}75$). **[0,25]**
+e) $\mathrm{KL}(\mathbf{p} \Vert \mathbf{u}) = \sum_k p_k \log_2\frac{p_k}{1/4} = \sum_k p_k \log_2 4 + \sum_k p_k \log_2 p_k = 2 - H(\mathbf{p}) \approx 0{,}096$ bit : l'écart de $\mathbf{p}$ à la loi la plus dispersée. **[0,25]**
 f) Les cinq termes $s(z) - yz$ : $s(1{,}3) - 1{,}3 = s(-1{,}3) \approx 0{,}241008$ ; $s(-1{,}2) \approx 0{,}263282$ ; $s(-0{,}5) + 0{,}5 = s(0{,}5) \approx 0{,}974077$ ; $s(-2{,}2) \approx 0{,}105083$ ; $s(0{,}9) \approx 1{,}241154$. Somme $\approx 2{,}824605$, moyenne $\approx 0{,}565$ nat. **[0,25]**
 g) Trois labels sur cinq valent 1 : la meilleure probabilité constante est la fréquence, $q = 0{,}6$, et sa log-loss vaut $-(0{,}6\ln 0{,}6 + 0{,}4\ln 0{,}4) \approx 0{,}673$ nat. **[0,25]**
 
-Sur ta copie : pour a), $L$ n'est pas dérivable en 5,6 (elle saute de 0 à $5{,}6^{-5}$), et sur $]5{,}6 ;\ +\infty[$ sa dérivée, $-\frac{5}{\theta^6}$, ne s'annule jamais : le maximum est au **bord** du domaine où $L > 0$, pas en un point de dérivée nulle. Pour g), le $q$ optimal est la fréquence des labels 1, $q = 0{,}6$. Pourquoi : la log-loss moyenne d'une probabilité constante $q$ est la cross-entropy $H(\pi) + \mathrm{KL}(\pi \Vert q)$ avec $\pi = 0{,}6$ la fréquence observée : elle est minimale quand la KL est nulle, en $q = \pi$, et vaut alors l'entropie $H(0{,}6)$ en nats. Le modèle de f), à 0,565, fait mieux que toute constante : ses scores apportent de l'information.
+Sur ta copie : pour a), $L$ n'est pas dérivable en 6,1 (elle saute de 0 à $6{,}1^{-6}$), et sur $]6{,}1 ;\ +\infty[$ sa dérivée, $-\frac{6}{\theta^7}$, ne s'annule jamais : le maximum est au **bord** du domaine où $L > 0$, pas en un point de dérivée nulle. Pour g), le $q$ optimal est la fréquence des labels 1, $q = 0{,}6$. Pourquoi : la log-loss moyenne d'une probabilité constante $q$ est la cross-entropy $H(\pi) + \mathrm{KL}(\pi \Vert q)$ avec $\pi = 0{,}6$ la fréquence observée : elle est minimale quand la KL est nulle, en $q = \pi$, et vaut alors l'entropie $H(0{,}6)$ en nats. Le modèle de f), à 0,565, fait mieux que toute constante : ses scores apportent de l'information.
 
-**Erreurs fréquentes** : en a), prendre la moyenne, ou deux fois la moyenne (l'estimateur des moments, 6,84) ; en b), ne garder que la fréquence des 0 ($\frac{4}{30}$), ou oublier le facteur 2 qui disparaît dans la dérivée ; en c), utiliser $\ln$ (1,049 nat) ; en d), oublier le « 1 − » ; en e), ne pas pondérer les groupes par leurs effectifs, ou rendre la moyenne pondérée sans la soustraire ; en f), oublier le terme $-yz$, ou rendre la somme ; en g), rendre $\ln 2 \approx 0{,}693$ (la probabilité 0,5), ou l'entropie en bits (0,971).
-**Remédiation** : M13a.1, M13a.3, M13a.6, M13a.10, M13a.14, et la fiche M13a §1 (vraisemblance) ; pour a), la loi uniforme de M02b.
+**Erreurs fréquentes** : en a), prendre la moyenne des tirages ; en b), ne garder que la fréquence des 0 ($\frac{4}{30}$), ou oublier le facteur 3 en dérivant $\ln(1 - 3\theta)$ (on trouve $\frac{7}{29}$) ; en c), utiliser $\ln$ (1,320 nat) ; en d), oublier le « 1 − » ; en e), calculer $\mathrm{KL}(\mathbf{u} \Vert \mathbf{p})$ (0,095 : la KL n'est pas symétrique), ou la donner en nats ; en f), oublier le terme $-yz$, ou rendre la somme ; en g), rendre $\ln 2 \approx 0{,}693$ (la probabilité 0,5), ou l'entropie en bits (0,971).
+**Remédiation** : M13a.1, M13a.3, M13a.6, M13a.10, M13a.14, M13a.17, et la fiche M13a §1 (vraisemblance) ; pour a), la loi uniforme de M02b.
 
 ## CP3.6 — Lagrange, hinge loss et noyau ✏️ · 1,75 point
 
-**Réponses** : a) `[2, 1]` · b) `4` · c) `-2` · d) `3.5` · e) `6` · f) `[3, 0.5, 0]` · g) `-2`.
+**Réponses** : a) `[2, 1]` · b) `4` · c) `-2` · d) `3.5` · e) `6` · f) `[3, 0.5, 0]` · g) `-4`.
 
 a) $\nabla f + \lambda\nabla g = \mathbf{0}$ s'écrit $1 + \frac{\lambda x}{4} = 0$ et $2 + \lambda y = 0$, soit $x = -\frac{4}{\lambda}$ et $y = -\frac{2}{\lambda}$. La contrainte donne $\frac{16}{8\lambda^2} + \frac{4}{2\lambda^2} = \frac{4}{\lambda^2} = 1$, donc $\lambda = \pm 2$ : deux candidats, $(2, 1)$ (avec $\lambda = -2$), où $f = 4$, et $(-2, -1)$ (avec $\lambda = 2$), où $f = -4$. Le maximum est en $(2, 1)$. **[0,25]**
 b) $f(2, 1) = 2 + 2 = 4$. **[0,25]**
 c) $\lambda = -2$ (avec la convention $\nabla f + \lambda\nabla g = \mathbf{0}$ ; la convention $\nabla f = \lambda\nabla g$ donnerait $+2$). Sensibilité : sur l'ellipse $\frac{x^2}{8} + \frac{y^2}{2} = c$, le maximum vaut $4\sqrt{c}$, de dérivée 2 en $c = 1$, c'est $-\lambda$. **[0,25]**
-d) Les marges $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ : $P_1$ : $2 + 2 - 3 = 1$ ; $P_2$ : $-(4 - 3) = -1$ ; $P_3$ : $2 + 0{,}5 - 3 = -0{,}5$. Les hinges : $0$, $2$ et $1{,}5$, de somme $3{,}5$. **[0,25]**
+d) Les marges $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ : $P_1$ : $2 + 3 - 3 = 2$ ; $P_2$ : $-(4 - 3) = -1$ ; $P_3$ : $2 + 0{,}5 - 3 = -0{,}5$. Les hinges : $0$, $2$ et $1{,}5$, de somme $3{,}5$. **[0,25]**
 e) $J = \frac{1}{2}(4 + 1) + 1 \times 3{,}5 = 6$. **[0,25]**
-f) Seuls $P_2$ et $P_3$ ont une marge strictement inférieure à 1 ; chacun apporte $(-y_i\mathbf{x}_i, -y_i)$, et $\frac{1}{2}\lVert \mathbf{w} \rVert^2$ apporte $(\mathbf{w}, 0)$ : $\mathbf{g}_{\mathbf{w}} = (2, 1) + (2, 0) - (1 ;\ 0{,}5) = (3 ;\ 0{,}5)$ et $g_b = -(-1) - 1 = 0$. **[0,25]**
-g) $\mathbf{K} = \begin{pmatrix} 0 & 1 & 3 \\ 1 & 0 & 2 \\ 3 & 2 & 0 \end{pmatrix}$ et $\mathbf{v}^\top\mathbf{K}\mathbf{v} = K_{11} - 2K_{12} + K_{22} = 0 - 2 + 0 = -2$. **[0,25]**
+f) Seuls $P_2$ et $P_3$ ont une marge inférieure à 1 ($P_1$, de marge 2, a une hinge nulle et un gradient nul autour de lui) ; chacun apporte $(-y_i\mathbf{x}_i, -y_i)$, et $\frac{1}{2}\lVert \mathbf{w} \rVert^2$ apporte $(\mathbf{w}, 0)$ : $\mathbf{g}_{\mathbf{w}} = (2, 1) + (2, 0) - (1 ;\ 0{,}5) = (3 ;\ 0{,}5)$ et $g_b = -(-1) - 1 = 0$. **[0,25]**
+g) $K_{ij} = (x_i + x_j)^2$ : $\mathbf{K} = \begin{pmatrix} 4 & 9 & 16 \\ 9 & 16 & 25 \\ 16 & 25 & 36 \end{pmatrix}$ et $\mathbf{v}^\top\mathbf{K}\mathbf{v} = 4K_{11} - 4K_{12} + K_{22} = 16 - 36 + 16 = -4$. **[0,25]**
 
-Sur ta copie : pour a), l'ellipse est fermée et bornée et $f$ est continue, donc $f$ y atteint un maximum et un minimum ; $\nabla g = \left(\frac{x}{4}, y\right)$ ne s'annule pas sur l'ellipse, donc ces extrema sont parmi les points de Lagrange : on compare $f$ aux deux candidats. Pour g), la matrice de Gram d'un noyau est toujours semi-définie positive ($\mathbf{v}^\top\mathbf{K}\mathbf{v} = \lVert \sum_i v_i\,\varphi(x_i) \rVert^2 \ge 0$) : $-2 < 0$ prouve que $\lvert x - z \rvert$ n'est **pas** un noyau. (Plus simplement encore : une diagonale nulle avec des coefficients non nuls hors de la diagonale est impossible pour une matrice semi-définie positive.)
+Sur ta copie : pour a), l'ellipse est fermée et bornée et $f$ est continue, donc $f$ y atteint un maximum et un minimum ; $\nabla g = \left(\frac{x}{4}, y\right)$ ne s'annule pas sur l'ellipse, donc ces extrema sont parmi les points de Lagrange : on compare $f$ aux deux candidats. Pour g), la matrice de Gram d'un noyau est toujours semi-définie positive ($\mathbf{v}^\top\mathbf{K}\mathbf{v} = \lVert \sum_i v_i\,\varphi(x_i) \rVert^2 \ge 0$) : $-4 < 0$ prouve que $(x + z)^2$ n'est **pas** un noyau, bien que la matrice soit symétrique et à coefficients positifs. (Comparer à $(1 + xz)^2$, qui en est un.)
 
-**Erreurs fréquentes** : en a), garder un seul candidat, ou ne pas justifier lequel est le maximum ; en c), le signe (la convention de l'énoncé est celle de M13b) ; en d), oublier le label $-1$ de $P_2$ dans la marge ; en e), mettre $\lVert \mathbf{w} \rVert^2$ au lieu de sa moitié ; en f), oublier le terme $\mathbf{w}$, compter $P_1$ (sa marge vaut exactement 1, l'énoncé dit d'y prendre 0), ou écrire $+y_i\mathbf{x}_i$ ; en g), oublier que les termes croisés comptent deux fois.
+**Erreurs fréquentes** : en a), garder un seul candidat, ou ne pas justifier lequel est le maximum ; en c), le signe (la convention de l'énoncé est celle de M13b) ; en d), oublier le label $-1$ de $P_2$ dans la marge ; en e), mettre $\lVert \mathbf{w} \rVert^2$ au lieu de sa moitié ; en f), oublier le terme $\mathbf{w}$, compter $P_1$ (sa marge dépasse 1), ou écrire $+y_i\mathbf{x}_i$ ; en g), oublier que les termes croisés comptent deux fois.
 **Remédiation** : M13b.1, M13b.2, M13b.9, M13b.10, M13b.13, M13b.19.
 
 ## CP3.7 — Queue binomiale et borne de Chernoff, limite et poids exponentiels ✏️ · 1,5 point
 
-**Réponses** : a) `0.0107` · b) `0.038` · c) `0.3470` · d) `0.1134` · e) `-0.074` · f) `[0.1101, 0.4465, 0.2217, 0.2217]`.
+**Réponses** : a) `0.00344` · b) `4.236` · c) `0.181` · d) `0.0849` · e) `-0.0664` · f) `[0.1101, 0.4465, 0.2217, 0.2217]`.
 
-a) $P(X \ge 3) = 1 - P(X = 0) - P(X = 1) - P(X = 2)$, avec $P(X = 0) = 0{,}96^{12} \approx 0{,}612710$, $P(X = 1) = 12 \times 0{,}04 \times 0{,}96^{11} \approx 0{,}306355$ et $P(X = 2) = 66 \times 0{,}04^2 \times 0{,}96^{10} \approx 0{,}070206$ : $P(X \ge 3) \approx 0{,}010729$. **[0,25]**
-b) $\mathrm{KL}(0{,}25 \Vert 0{,}04) = 0{,}25\ln\frac{0{,}25}{0{,}04} + 0{,}75\ln\frac{0{,}75}{0{,}96} \approx 0{,}458145 - 0{,}185145 = 0{,}273000$ ; $12 \times 0{,}273000 \approx 3{,}276004$ et $e^{-3{,}276004} \approx 0{,}038$. **[0,25]**
-c) $2 \times 12 \times 0{,}21^2 = 1{,}0584$ et $e^{-1{,}0584} \approx 0{,}3470$. **[0,25]**
-d) $0{,}93^{30} = e^{30\ln 0{,}93} \approx e^{-2{,}177121} \approx 0{,}1134$. **[0,25]**
-e) $e^{-2{,}1} \approx 0{,}122456$ ; $\frac{0{,}113367 - 0{,}122456}{0{,}122456} \approx -0{,}074$ : à $n = 30$, la suite est encore à 7,4 % sous sa limite. **[0,25]**
+a) Le complément est plus court à calculer : $P(X \ge 5) = 1 - \sum_{k=0}^{4} P(X = k)$, avec $P(X = k) = \binom{18}{k}\,0{,}06^k\,0{,}94^{18 - k}$ : 0,328323 ; 0,377222 ; 0,204663 ; 0,069673 ; 0,016677, de somme 0,996558. Donc $P(X \ge 5) \approx 0{,}00344$. **[0,25]**
+b) $a = \frac{5}{18} \approx 0{,}277778$ ; $\mathrm{KL}(a \Vert 0{,}06) = a\ln\frac{a}{0{,}06} + (1 - a)\ln\frac{1 - a}{0{,}94} \approx 0{,}425688 - 0{,}190339 = 0{,}235349$ ; l'exposant vaut $18 \times 0{,}235349 \approx 4{,}236$ (la borne, $e^{-4{,}236} \approx 0{,}0145$). **[0,25]**
+c) $a - p \approx 0{,}217778$, $2 \times 18 \times 0{,}217778^2 \approx 1{,}707378$ et $e^{-1{,}707378} \approx 0{,}181$. **[0,25]**
+d) $45\ln\left(1 - \frac{2{,}4}{45}\right) \approx 45 \times (-0{,}054808) \approx -2{,}466371$, et $e^{-2{,}466371} \approx 0{,}0849$ (contre $e^{-2{,}4} \approx 0{,}0907$). **[0,25]**
+e) $-2{,}466371 + 2{,}4 \approx -0{,}0664$. **[0,25]**
 f) On retranche la plus petite loss cumulée (1) : $\eta\,(L - 1) = 0{,}7 \times (2, 0, 1, 1) = (1{,}4 ;\ 0 ;\ 0{,}7 ;\ 0{,}7)$, puis $e^{-1{,}4} \approx 0{,}246597$, $e^{0} = 1$, $e^{-0{,}7} \approx 0{,}496585$ (deux fois), de somme $\approx 2{,}239768$ : les poids valent $\approx (0{,}1101 ;\ 0{,}4465 ;\ 0{,}2217 ;\ 0{,}2217)$. **[0,25]**
 
-Sur ta copie : $0{,}0107 < 0{,}038 < 0{,}347$. La queue exacte est la plus petite, une borne la majore ; Chernoff utilise toute la loi (par la KL), Hoeffding seulement le fait que chaque $X_i$ est dans $[0, 1]$, et $\mathrm{KL}(a \Vert p) \ge 2(a - p)^2$ (Pinsker) : Chernoff est toujours au moins aussi bonne, et beaucoup meilleure quand $p$ est petit, comme ici ($0{,}273$ contre $0{,}0882$ dans l'exposant, par colis). Pour e), $-\frac{x^2}{2n} = -\frac{2{,}1^2}{60} = -0{,}0735$ : très proche de $-0{,}0742$ ; le terme suivant du développement de $n\ln\left(1 + \frac{x}{n}\right)$ explique le reste.
+Sur ta copie : $\frac{\mathrm{KL}(a \Vert p)}{2(a - p)^2} \approx \frac{0{,}235349}{0{,}094854} \approx 2{,}48$. L'exposant de Chernoff est 2,5 fois celui de Hoeffding : sa borne, $e^{-4{,}236} \approx 0{,}0145$, est bien plus petite que 0,181 (la vraie probabilité, 0,0034, est encore en dessous). Chernoff utilise toute la loi (par la KL), Hoeffding seulement le fait que chaque $X_i$ est dans $[0, 1]$ ; le rapport vaut toujours au moins 1 ($\mathrm{KL}(a \Vert p) \ge 2(a - p)^2$, l'inégalité de Pinsker), et il est grand quand $p$ est loin de $\frac{1}{2}$, comme ici. Pour e), le développement $n\ln\left(1 + \frac{x}{n}\right) - x = -\frac{x^2}{2n} + \frac{x^3}{3n^2} - \cdots \approx -0{,}0640 - 0{,}0023$ redonne la valeur (non demandé).
 
-**Erreurs fréquentes** : en a), calculer $P(X > 3)$ ou $P(X = 3)$ seulement ; en b), inverser les arguments de la KL (la KL n'est pas symétrique), ou la calculer en bits ; en c), oublier le facteur 2 ; en e), un signe faux (la suite est sous sa limite, l'erreur est négative) ; en f), $e^{+\eta L}$, oublier $\eta$, ou ne pas normaliser.
-**Remédiation** : M14.1, M14.3, M14.4, M14.8, et les quiz M14.Q1 et M14.Q3.
+**Erreurs fréquentes** : en a), calculer $P(X > 5)$ ou $P(X = 5)$ seulement, ou arrondir les cinq termes avant de les retrancher de 1 ; en b), inverser les arguments de la KL (la KL n'est pas symétrique), la calculer en bits, ou donner la borne au lieu de l'exposant ; en c), oublier le facteur 2 ; en e), un signe faux ($\ln(1 + u) < u$ : l'écart est négatif), ou rendre seulement $-\frac{x^2}{2n}$ ; en f), $e^{+\eta L}$, oublier $\eta$, ou ne pas normaliser.
+**Remédiation** : M14.1, M14.3, M14.4, M14.6, M14.8, et les quiz M14.Q1 et M14.Q3.
 
 ## CP3.8 — Une démonstration courte, au choix parmi deux ∂ · 2 points
 
@@ -195,9 +195,9 @@ b) Une ligne par erreur **[0,15 chacune]** :
 - **(F)** La hinge vaut $\max(0, 1 - 2) = 0$ : un exemple bien classé au-delà de la marge ne coûte rien, et une hinge n'est jamais négative.
 - **(H)** $\det = 6 - 16 = -10 < 0$ : les deux valeurs propres sont de signes opposés, la matrice est indéfinie ; par exemple $\mathbf{x} = (1, -1)$ donne $\mathbf{x}^\top\mathbf{M}\mathbf{x} = 3 - 8 + 2 = -3 < 0$. Des coefficients positifs ne suffisent pas : il faut les valeurs propres (ou les mineurs).
 
-Les lignes justes : (B) les valeurs singulières de $2\mathbf{A}$ sont celles de $\mathbf{A}$ multipliées par 2, et leur rapport ne change pas ; (E) le score $\mathbf{w} \cdot \mathbf{x} + b$ est la log-cote, qui augmente de 0,7, et la cote est multipliée par $e^{0{,}7} \approx 2{,}014$ ; (G) $\mathrm{KL}(0{,}4 \Vert 0{,}2) = 0{,}4\ln 2 + 0{,}6\ln 0{,}75 \approx 0{,}27726 - 0{,}17261 = 0{,}10465$, dans le bon ordre des arguments.
+Les lignes justes : (B) les valeurs singulières de $\mathbf{A}^{-1}$ sont les inverses de celles de $\mathbf{A}$ ($\mathbf{A}^{-1} = \mathbf{V}\mathbf{S}^{-1}\mathbf{U}^\top$) : la plus grande est $\frac{1}{s_{\min}}$, la plus petite $\frac{1}{s_{\max}}$, et leur rapport est encore $\frac{s_{\max}}{s_{\min}}$ ; (E) le score $\mathbf{w} \cdot \mathbf{x} + b$ est la log-cote, qui augmente de 0,7, et la cote est multipliée par $e^{0{,}7} \approx 2{,}014$ ; (G) $\mathrm{KL}(0{,}4 \Vert 0{,}2) = 0{,}4\ln 2 + 0{,}6\ln 0{,}75 \approx 0{,}27726 - 0{,}17261 = 0{,}10465$, dans le bon ordre des arguments.
 
-**Erreurs fréquentes** : laisser passer (D) parce que la trace est juste ; croire (B) fausse (le conditionnement est un rapport, insensible à l'échelle) ; croire (G) fausse en inversant mentalement les arguments de la KL.
+**Erreurs fréquentes** : laisser passer (D) parce que la trace est juste ; croire (B) fausse (inverser une matrice échange la plus grande et la plus petite valeur singulière, mais garde leur rapport) ; croire (G) fausse en inversant mentalement les arguments de la KL.
 **Remédiation** : M12a.6, M12b.7, M12c.3, M12c.10, M12c.34, M12d.7, M13a.5, M13b.9, M14.8.
 
 ## CP3.10 — Problème de synthèse : des données centrées, leurs axes principaux, un modèle sur les scores 🔗 · 2,25 points
@@ -216,7 +216,7 @@ i) $\mathbf{x} - \bar{\mathbf{x}} = (14, -3, -2)$, de scores $\left(\frac{266 + 
 
 Sur ta copie :
 - Les équations normales ont pour matrice $\mathbf{T}^\top\mathbf{T}$ (avec la colonne de 1) ; les colonnes de scores sont centrées (orthogonales à la colonne de 1) et décorrélées (orthogonales entre elles, ∂ M12d.19), donc cette matrice est diagonale, et chaque poids se calcule seul : ajouter $t_3$ ajoute une équation, sans toucher aux deux autres. $w_1$ et $w_2$ ne changent pas.
-- d), f) et h) : les deux premiers axes gardent 87 % de la variance de $\mathbf{x}$, mais n'expliquent que 28 % de celle de $y$ ; le troisième axe, 13 % de la variance de $\mathbf{x}$, en explique à lui seul $\frac{84}{122} \approx 69$ %. L'ACP range les axes selon la variance des features, sans regarder la cible : un axe de petite variance peut être le plus utile pour prédire. Choisir $k$ par la part de variance de $\mathbf{x}$ ne garantit rien pour la prédiction ; il faut juger sur $y$ (par validation).
+- d), f) et h) : les deux premiers axes gardent 87 % de la variance de $\mathbf{x}$, mais n'expliquent que 28 % de celle de $y$ ; le troisième axe, 13 % de la variance de $\mathbf{x}$, en explique à lui seul $\frac{84}{122} \approx 69$ %. L'ACP range les axes selon leur variance et n'utilise que les features : un axe de petite variance peut être le plus utile pour prédire. Choisir $k$ par la part de variance de $\mathbf{x}$ ne garantit rien pour la prédiction ; il faut juger sur $y$ (par validation).
 - Pour aller plus loin (non noté) : avec les trois axes, $\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3$ forment une base orthonormée de $\mathbb{R}^3$ : les scores sont des combinaisons linéaires inversibles de $x_1 - \bar{x}_1, x_2 - \bar{x}_2, x_3 - \bar{x}_3$, et les colonnes $(1, t_1, t_2, t_3)$ engendrent le même sous-espace que $(1, x_1, x_2, x_3)$. Les moindres carrés projettent $\mathbf{y}$ sur ce sous-espace (M12b) : mêmes prédictions, même $R^2$. Le modèle s'écrit dans les unités d'origine avec $\boldsymbol{\beta} = w_1\mathbf{u}_1 + w_2\mathbf{u}_2 + w_3\mathbf{u}_3$.
 
 Le lien avec workbookIA : réduire la dimension avant d'ajuster un modèle, dans un pipeline, est un réflexe courant ; ce problème montre ce qu'il coûte quand l'information utile est dans une direction de faible variance, et pourquoi le nouvel exemple se centre avec la moyenne d'**entraînement** avant d'être projeté.

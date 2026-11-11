@@ -103,10 +103,10 @@ def rank(m):
 A_1 = [[1, 0, 2, 3, -1], [0, 1, -3, 2, 4], [2, -1, 7, 4, -6]]
 C_1 = transpose(A_1)
 RANK_1 = rank(A_1)
-KER_1 = [-A_1[0][2], -A_1[1][2], 1, 0, 0]      # rows 1 and 2 begin with the identity: x1 + 2 = 0, x2 - 3 = 0
+COEF_1 = [A_1[0][2], A_1[1][2]]                # c3 = alpha c1 + beta c2, read on rows 1 and 2 (they begin with I)
 COORD_1 = [C_1[4][0], C_1[4][1]]               # c5 = a c1 + b c2, read on rows 1 and 2 for the same reason
-EQ_1 = [2, -1, -1]                             # row 3 = 2 row 1 - row 2
-assert all(dot(row, KER_1) == 0 for row in A_1)
+EQ_1 = [2, -1, -1]                             # z with A^T z = 0 and z1 = 2: z1 + 2 z3 = 0, z2 - z3 = 0
+assert [COEF_1[0] * x + COEF_1[1] * y for x, y in zip(C_1[0], C_1[1])] == C_1[2]
 assert [COORD_1[0] * x + COORD_1[1] * y for x, y in zip(C_1[0], C_1[1])] == C_1[4]
 assert all(dot(EQ_1, c) == 0 for c in C_1)
 SOLVABLE_1 = rank([row + [b] for row, b in zip(A_1, (3, 1, 4))]) == RANK_1
@@ -125,7 +125,7 @@ H_1 = [P_1[0], P_1[2]]                                  # P = 7 * 1 + 2 * (X² -
 assert [H_1[0], -H_1[1], H_1[1]] == list(P_1)
 
 # CP3.2: Gram-Schmidt on (v1, v2), then the least squares by R x = Q^T y
-V1_2, V2_2, Y_2 = (1, 1, 3, 5), (6, 0, 10, 0), (1, 1, -7, 11)
+V1_2, V2_2, Y_2 = (1, 1, 3, 5), (6, 0, 10, 0), (11, -6, 17, -4)
 R11_2 = math.sqrt(dot(V1_2, V1_2))
 Q1_2 = [x / R11_2 for x in V1_2]
 R12_2 = dot(Q1_2, V2_2)
@@ -135,7 +135,8 @@ Q2_2 = [x / R22_2 for x in W_2]
 QY_2 = [dot(Q1_2, Y_2), dot(Q2_2, Y_2)]
 XH2_2 = QY_2[1] / R22_2                                 # back substitution: the last row first
 XH_2 = [(QY_2[0] - R12_2 * XH2_2) / R11_2, XH2_2]
-YH_2 = [XH_2[0] * a + XH_2[1] * b for a, b in zip(V1_2, V2_2)]
+YH_2 = [QY_2[0] * a + QY_2[1] * b for a, b in zip(Q1_2, Q2_2)]     # Q Q^T y
+assert all(abs(p - (XH_2[0] * a + XH_2[1] * b)) < 1e-9 for p, a, b in zip(YH_2, V1_2, V2_2))
 RES_2 = [y - p for y, p in zip(Y_2, YH_2)]
 
 # CP3.3: the eigenvalues of S from its trace and determinant; the Cholesky factor of B
@@ -184,12 +185,17 @@ AV1_4 = [dot(row, V1_4) for row in A_4]
 U1_4 = [x / S_4[0] for x in AV1_4]
 U2_4 = [dot(row, V2_4) / S_4[1] for row in A_4]
 A1_4 = [[S_4[0] * u * v for v in V1_4] for u in U1_4]
+B_4 = [99, -22]                                         # = 11 sqrt(85) u1, so A^-1 b = sqrt(85) v1
+SOL_4 = [math.sqrt(85) * v for v in V1_4]
+assert all(abs(dot(row, SOL_4) - b) < 1e-9 for row, b in zip(A_4, B_4))
 D_4 = [[a - b for a, b in zip(ra, rb)] for ra, rb in zip(A_4, A1_4)]    # A - A1
 ERR_4 = math.sqrt(sum(x * x for row in D_4 for x in row))
 FRO2_4 = sum(x * x for row in A_4 for x in row)
+TRA_4, DETA_4 = A_4[0][0] + A_4[1][1], A_4[0][0] * A_4[1][1] - A_4[0][1] * A_4[1][0]
+EIGA_4 = sorted((abs(TRA_4 / 2 + s * math.sqrt(TRA_4 ** 2 / 4 - DETA_4)) for s in (1, -1)), reverse=True)   # |λ| of A
 
 # CP3.5: four small situations
-T_5 = [2.1, 5.6, 3.8, 0.9, 4.7]
+T_5 = [3.2, 0.7, 6.1, 4.4, 2.9, 5.3]
 N0_5, N1_5, N2_5 = 4, 10, 16
 N_5 = N0_5 + N1_5 + N2_5
 THETA_5 = Fraction(N0_5 + N1_5, 3 * N_5)                # (n0 + n1)/θ = 3 n2/(1 - 3θ)
@@ -201,10 +207,12 @@ def entropy(counts, log=math.log2):
     return -sum(c / n * log(c / n) for c in counts if c)
 
 
-NODE_5, LEFT_5, RIGHT_5 = (9, 7, 4), (4, 7, 0), (5, 0, 4)
-CHILDREN_5 = sum(sum(c) / sum(NODE_5) * entropy(c) for c in (LEFT_5, RIGHT_5))   # weighted by the counts
-GAIN_5 = entropy(NODE_5) - CHILDREN_5
-GINI_SQUARES_5 = sum((c / sum(NODE_5)) ** 2 for c in NODE_5)
+LAW_5 = (40, 25, 20, 15)                                # p = (0.4, 0.25, 0.2, 0.15), as counts out of 100
+P_5 = [c / sum(LAW_5) for c in LAW_5]
+KL_UNIFORM_5 = sum(p * math.log2(p / 0.25) for p in P_5)          # KL(p ‖ u) = log2(4) - H(p)
+assert abs(KL_UNIFORM_5 - (2 - entropy(LAW_5))) < 1e-12
+KL_REVERSED_5 = sum(0.25 * math.log2(0.25 / p) for p in P_5)      # KL(u ‖ p)
+GINI_SQUARES_5 = sum(p ** 2 for p in P_5)
 Z_5, LABEL_5 = [1.3, -1.2, -0.5, 2.2, 0.9], [1, 0, 1, 1, 0]
 LOSSES_5 = [math.log(1 + math.exp(z)) - y * z for z, y in zip(Z_5, LABEL_5)]
 LOGLOSS_5 = sum(LOSSES_5) / len(LOSSES_5)
@@ -220,7 +228,7 @@ XMIN_6, YMIN_6, _ = min(CANDIDATES_6, key=lambda c: dot(C_6, c[:2]))
 
 # CP3.6 (2): the soft-margin SVM on three examples
 W_6, B_6, CSVM_6 = (2, 1), -3, 1
-DATA_6 = [((1, 2), 1), ((2, 0), -1), ((1, 0.5), 1)]
+DATA_6 = [((1, 3), 1), ((2, 0), -1), ((1, 0.5), 1)]
 
 
 def hinge_6(data):
@@ -229,7 +237,7 @@ def hinge_6(data):
 
 HINGE_6 = hinge_6(DATA_6)
 J_6 = dot(W_6, W_6) / 2 + CSVM_6 * HINGE_6
-ACTIVE_6 = [(x, y) for x, y in DATA_6 if y * (dot(W_6, x) + B_6) < 1]   # margin exactly 1: its term counts 0
+ACTIVE_6 = [(x, y) for x, y in DATA_6 if y * (dot(W_6, x) + B_6) < 1]   # the examples of margin below 1
 
 
 def subgradient_6(examples, reg=1, sign=-1):
@@ -241,14 +249,14 @@ def subgradient_6(examples, reg=1, sign=-1):
     return g
 
 
-# CP3.6 (3): the Gram matrix of k(x, z) = |x - z| on 0, 1, 3
-PTS_6, VEC_6 = (0, 1, 3), (1, -1, 0)
-K_6 = [[abs(x - z) for z in PTS_6] for x in PTS_6]
+# CP3.6 (3): the Gram matrix of k(x, z) = (x + z)² on 1, 2, 3
+PTS_6, VEC_6 = (1, 2, 3), (2, -1, 0)
+K_6 = [[(x + z) ** 2 for z in PTS_6] for x in PTS_6]
 VKV_6 = sum(VEC_6[i] * VEC_6[j] * K_6[i][j] for i in range(3) for j in range(3))
 VKV_ONCE_6 = sum(VEC_6[i] * VEC_6[j] * K_6[i][j] for i in range(3) for j in range(i, 3))   # crossed terms once
 
-# CP3.7: X of law B(12, 0.04), the Chernoff and Hoeffding bounds of P(X >= 3); a limit; Hedge
-N_7, P_7, K_7 = 12, 0.04, 3
+# CP3.7: X of law B(18, 0.06), the Chernoff exponent and the Hoeffding bound of P(X >= 5); a limit; Hedge
+N_7, P_7, K_7 = 18, 0.06, 5
 A_7 = K_7 / N_7
 
 
@@ -262,7 +270,9 @@ def kl(a, p):
 
 
 TAIL_7 = sum(pmf_7(k) for k in range(K_7, N_7 + 1))
-D_7, LIMIT_7 = (1 - 2.1 / 30) ** 30, math.exp(-2.1)
+X_7, M_7 = -2.4, 45
+D_7, LIMIT_7 = (1 + X_7 / M_7) ** M_7, math.exp(X_7)
+GAP_7 = M_7 * math.log(1 + X_7 / M_7) - X_7                       # n ln(1 + x/n) - x
 ETA_7, L_7 = 0.7, [3, 1, 2, 2]
 
 
@@ -306,19 +316,21 @@ PAPER = [
     Paper("CP3.1", "Indépendance, base, rang et noyau", [
         ("a", "an integer", "RANK_1",
          'mistakes={"le rang compte les lignes (ou les colonnes) indépendantes : une ligne est-elle une combinaison '
-         'des autres ?": 3}'),
+         'des autres ?": 3, "le rang ne dépasse ni le nombre de lignes, ni celui des colonnes": 5}'),
         ("b", "an integer", "len(C_1) - RANK_1",
-         'mistakes={"théorème du rang : le rang plus la dimension du noyau donne le nombre de colonnes": {0, 1}}'),
-        ("c", "a list of 5 numbers", "KER_1",
-         'mistakes={"vérifie la première coordonnée de A x : elle doit être nulle": [2, -3, 1, 0, 0], '
-         '"le vecteur cherché est de la forme (x₁, x₂, 1, 0, 0) : sa troisième coordonnée vaut 1": '
-         '[2, -3, -1, 0, 0]}'),
+         'mistakes={"théorème du rang : le rang plus la dimension du noyau donne le nombre de colonnes": {0, 1}, '
+         '"c\'est le rang ; le théorème du rang relie le rang et la dimension du noyau": RANK_1}'),
+        ("c", "[alpha, beta]", "COEF_1",
+         'mistakes={"vérifie la relation sur la première ligne de A": [-x for x in COEF_1], '
+         '"l\'ordre suit celui de l\'énoncé : α multiplie c₁, β multiplie c₂": COEF_1[::-1]}'),
         ("d", "a list of 2 numbers", "COORD_1",
          'mistakes={"l\'ordre des coordonnées suit celui de la base (c₁, c₂)": COORD_1[::-1], '
          '"vérifie le signe sur la première ligne": [-x for x in COORD_1]}'),
         ("e", "[alpha, beta, gamma]", "EQ_1",
-         'mistakes={"une équation de l\'image s\'annule sur chaque colonne : vérifie-la sur c₁ et sur c₂": '
-         '[2, 1, -1]}'),
+         'mistakes={"Aᵀz = 0 dit que z est orthogonal à chaque colonne : vérifie z · c₁ et z · c₂": [2, 1, -1], '
+         '"l\'énoncé fixe z₁ = 2 : multiplie ton vecteur pour que sa première coordonnée vaille 2": [-2, 1, 1], '
+         '"ton vecteur est proportionnel au bon, mais l\'énoncé fixe z₁ = 2 : mets-le à cette échelle": '
+         '[1, -0.5, -0.5]}'),
         ("f", "True or False", "SOLVABLE_1",
          'mistakes={"un vecteur n\'est atteint par A que s\'il vérifie l\'équation de l\'image": True}'),
         ("g", "an integer", "DIM_W_1",
@@ -332,7 +344,8 @@ PAPER = [
         ("a", "a number", "whole(R11_2)",
          'mistakes={"la norme est la racine carrée de la somme des carrés": dot(V1_2, V1_2)}'),
         ("b", "a number", "whole(R12_2)",
-         'mistakes={"r₁₂ = q₁ · v₂, avec q₁ unitaire": dot(V1_2, V2_2)}'),
+         'mistakes={"r₁₂ = q₁ · v₂, avec q₁ unitaire": dot(V1_2, V2_2), '
+         '"r₁₂ est la coordonnée de v₂ sur q₁ : le produit scalaire q₁ · v₂": 1}'),
         ("c", "a list of 4 numbers", "whole(W_2)",
          'mistakes={"c\'est q₂ ; la question demande le vecteur avant normalisation": Q2_2, '
          '"on retire r₁₂ q₁, où q₁ est v₁ divisé par sa norme": whole([x - R12_2 * v for x, v in zip(V2_2, V1_2)])}'),
@@ -342,13 +355,15 @@ PAPER = [
         ("e", "a list of 2 numbers", "whole(QY_2)",
          'mistakes={"c\'est Xᵀy ; la question demande Qᵀy, avec les vecteurs orthonormés": '
          '[dot(V1_2, Y_2), dot(V2_2, Y_2)]}'),
-        ("f", "a list of 2 numbers", "whole(XH_2)",
-         'mistakes={"R x̂ = Qᵀy se résout de bas en haut : la dernière ligne donne x̂₂": whole(XH_2[::-1])}'),
-        ("g", "a list of 4 numbers", "whole(YH_2)",
+        ("f", "a list of 4 numbers", "whole(YH_2)",
          'mistakes={"c\'est le résidu y − ŷ ; la question demande la projection": whole(RES_2)}'),
-        ("h", "a number", "whole(dot(RES_2, RES_2))",
-         'mistakes={"la question demande le carré de la distance": whole(math.sqrt(dot(RES_2, RES_2))), '
-         '"c\'est ‖ŷ‖² ; la question porte sur le résidu y − ŷ": whole(dot(YH_2, YH_2))}'),
+        ("g", "a list of 2 numbers", "whole(XH_2)",
+         'mistakes={"l\'ordre des inconnues : x̂₁ multiplie la première colonne de R": whole(XH_2[::-1]), '
+         '"R x̂ = Qᵀy se résout de bas en haut : la dernière ligne donne x̂₂, puis on remonte": '
+         'whole([QY_2[0] / R11_2, QY_2[1] / R22_2])}'),
+        ("h", "a number", "float(whole(dot(RES_2, RES_2)))",
+         'decimals=2, mistakes={"la question demande le carré de la distance": math.sqrt(dot(RES_2, RES_2)), '
+         '"c\'est ‖ŷ‖² ; la question porte sur le résidu y − ŷ": float(whole(dot(YH_2, YH_2)))}'),
     ]),
     Paper("CP3.3", "Valeurs propres, matrice définie positive et Cholesky", [
         ("a", "a list of 2 numbers", "whole(EIG_3)",
@@ -371,7 +386,7 @@ PAPER = [
          '"la question demande un carré de norme": math.sqrt(dot(LTX_3, LTX_3))}'),
         ("h", 'an interval, written like "]-1 ; 2["', "INTERVAL_3",
          'kind="interval", mistakes={"définie positive demande des inégalités strictes": "[-4 ; 4]", '
-         '"le déterminant d\'une matrice 2 × 2 est ad − bc": "]-16 ; 16[", '
+         '"une inégalité sur un carré se résout avec une racine : que donne a² < 16 pour a ?": "]-16 ; 16[", '
          '"a peut être négatif : seul a² compte": "]0 ; 4["}'),
     ]),
     Paper("CP3.4", "SVD, rang faible et variance expliquée", [
@@ -379,15 +394,17 @@ PAPER = [
          'mistakes={"c\'est AAᵀ ; la question demande AᵀA": AAT_4}'),
         ("b", "[s1, s2]", "whole(S_4)",
          'mistakes={"les valeurs singulières sont les racines carrées des valeurs propres de AᵀA": whole(LAM_4), '
-         '"la convention range les valeurs singulières dans l\'ordre décroissant": whole(S_4[::-1])}'),
+         '"la convention range les valeurs singulières dans l\'ordre décroissant": whole(S_4[::-1]), '
+         '"A n\'est pas symétrique : ses valeurs singulières ne sont pas ses valeurs propres ; passe par AᵀA": EIGA_4}'),
         ("c", "a list (3 decimals)", "V1_4",
          'decimals=3, mistakes={"c\'est v₂ : v₁ est associé à la plus grande valeur propre de AᵀA": V2_4, '
          '"v₁ doit être unitaire : divise-le par sa norme": [7, 6]}'),
         ("d", "a list (3 decimals)", "U1_4",
          'decimals=3, mistakes={"divise A v₁ par s₁": AV1_4, '
          '"c\'est u₂ ; la question demande u₁ = A v₁ / s₁": U2_4}'),
-        ("e", "[[a, b], [c, d]] (2 decimals)", "A1_4",
-         'decimals=2, mistakes={"c\'est A − A₁ ; A₁ garde le terme de la plus grande valeur singulière": D_4}'),
+        ("e", "a list of 2 numbers", "whole(SOL_4)",
+         'mistakes={"A n\'est pas orthogonale : son inverse n\'est pas Aᵀ, il divise par les valeurs singulières": '
+         '[dot(col, B_4) for col in transpose(A_4)]}'),
         ("f", "a number", "whole(ERR_4)",
          'mistakes={"c\'est le carré de l\'erreur": whole(ERR_4 ** 2), '
          '"l\'erreur vient de la valeur singulière retirée, pas de celle qui est gardée": whole(S_4[0])}'),
@@ -396,28 +413,33 @@ PAPER = [
          'S_4[0] / sum(S_4), "c\'est la part perdue ; la question demande la part gardée": 1 - S_4[0] ** 2 / FRO2_4}'),
         ("h", "a number (3 decimals)", "S_4[0] / S_4[1]",
          'decimals=3, mistakes={"c\'est le conditionnement de AᵀA ; la question porte sur A": LAM_4[0] / LAM_4[1], '
-         '"κ₂ divise la plus grande valeur singulière par la plus petite, pas l\'inverse": S_4[1] / S_4[0]}'),
+         '"κ₂ divise la plus grande valeur singulière par la plus petite, pas l\'inverse": S_4[1] / S_4[0], '
+         '"A n\'est pas symétrique : κ₂ se calcule avec les valeurs singulières, pas avec les valeurs propres": '
+         'EIGA_4[0] / EIGA_4[1]}'),
     ]),
     Paper("CP3.5", "Maximum de vraisemblance, log-loss et entropie", [
         ("a", "a number", "max(T_5)",
          'decimals=1, mistakes={"la vraisemblance est nulle dès que θ est plus petit qu\'une observation": '
-         'sum(T_5) / len(T_5), "c\'est l\'estimateur des moments ; la question demande le maximum de '
-         'vraisemblance": 2 * sum(T_5) / len(T_5)}'),
+         'sum(T_5) / len(T_5)}'),
         ("b", 'an irreducible fraction, as text (like "3/8")', "THETA_5",
          'kind="fraction", simplified=True, mistakes={"les observations 1 et 2 dépendent aussi de θ : la fréquence '
          'des 0 ne suffit pas": Fraction(N0_5, N_5), "la fréquence des 1 ne suffit pas non plus : les trois comptes '
-         'dépendent de θ": Fraction(N1_5, 2 * N_5)}'),
-        ("c", "a number (3 decimals)", "entropy(NODE_5)",
-         'decimals=3, mistakes={"en bits : le logarithme de base 2": entropy(NODE_5, math.log)}'),
+         'dépendent de θ": Fraction(N1_5, 2 * N_5), "vérifie la dérivée de ln(1 − 3θ)": '
+         'Fraction(N0_5 + N1_5, 3 * (N0_5 + N1_5) + N2_5), '
+         '"c\'est l\'estimateur des moments ; la question demande le maximum de vraisemblance": '
+         'Fraction(2 * N_5 - (N1_5 + 2 * N2_5), 4 * N_5)}'),
+        ("c", "a number (3 decimals)", "entropy(LAW_5)",
+         'decimals=3, mistakes={"en bits : le logarithme de base 2": entropy(LAW_5, math.log)}'),
         ("d", "a number (3 decimals)", "1 - GINI_SQUARES_5",
          'decimals=3, mistakes={"l\'indice de Gini est 1 − Σ p²": GINI_SQUARES_5}'),
-        ("e", "a number (3 decimals)", "GAIN_5",
-         'decimals=3, mistakes={"le gain est l\'entropie du nœud moins la moyenne pondérée de celles des enfants": '
-         'CHILDREN_5, "les enfants sont pondérés par leurs effectifs (11/20 et 9/20)": '
-         'entropy(NODE_5) - (entropy(LEFT_5) + entropy(RIGHT_5)) / 2}'),
+        ("e", "a number (3 decimals)", "KL_UNIFORM_5",
+         'decimals=3, mistakes={"la KL n\'est pas symétrique : la question demande KL(p ‖ u)": KL_REVERSED_5, '
+         '"en bits : le logarithme de base 2": KL_UNIFORM_5 * math.log(2)}'),
         ("f", "a number (3 decimals)", "LOGLOSS_5",
          'decimals=3, mistakes={"la log-loss moyenne divise la somme par le nombre d\'exemples": sum(LOSSES_5), '
-         '"en nats : le logarithme népérien": LOGLOSS_5 / math.log(2)}'),
+         '"en nats : le logarithme népérien": LOGLOSS_5 / math.log(2), '
+         '"le terme d\'un exemple est s(z) − yz : as-tu retranché yz ?": '
+         'sum(math.log(1 + math.exp(z)) for z in Z_5) / len(Z_5)}'),
         ("g", "a number (3 decimals)", "entropy(CONSTANT_5, math.log)",
          'decimals=3, mistakes={"la question demande des nats : le logarithme népérien": entropy(CONSTANT_5), '
          '"0,5 n\'est pas la meilleure probabilité constante pour ces labels": math.log(2)}'),
@@ -428,7 +450,8 @@ PAPER = [
         ("b", "a number", "whole(dot(C_6, (X_6, Y_6)))",
          'mistakes={"c\'est le minimum de f sur l\'ellipse": whole(dot(C_6, (XMIN_6, YMIN_6)))}'),
         ("c", "a number", "whole(LAM_6)",
-         'mistakes={"avec la convention ∇f + λ∇g = 0, vérifie le signe": whole(-LAM_6)}'),
+         'mistakes={"avec la convention ∇f + λ∇g = 0, vérifie le signe": whole(-LAM_6), '
+         '"vérifie ∇g : quelle est la dérivée de x²/8 ?": -4}'),
         ("d", "a number", "HINGE_6",
          'decimals=2, mistakes={"la marge d\'un exemple est y (w · x + b) : quel est le label de P₂ ?": '
          'hinge_6([(x, abs(y)) for x, y in DATA_6])}'),
@@ -437,31 +460,34 @@ PAPER = [
          '"n\'oublie pas le terme ½‖w‖²": CSVM_6 * HINGE_6}'),
         ("f", "[g_w1, g_w2, g_b]", "subgradient_6(ACTIVE_6)",
          'decimals=2, mistakes={"n\'oublie pas le gradient de ½‖w‖², qui est w": subgradient_6(ACTIVE_6, reg=0), '
-         '"un exemple de marge exactement 1 : la question demande d\'y prendre 0": subgradient_6(DATA_6), '
+         '"seuls les exemples de marge strictement inférieure à 1 ont un terme non nul": subgradient_6(DATA_6), '
          '"le gradient du terme d\'un exemple actif est −y x, pas +y x": subgradient_6(ACTIVE_6, sign=1)}'),
         ("g", "a number", "VKV_6",
          'mistakes={"vᵀKv = Σᵢ Σⱼ vᵢ vⱼ Kᵢⱼ : les termes croisés comptent deux fois": VKV_ONCE_6, '
          '"vᵀKv = Σᵢ Σⱼ vᵢ vⱼ Kᵢⱼ : vérifie le signe de chaque produit vᵢ vⱼ": -VKV_6}'),
     ]),
     Paper("CP3.7", "Queue binomiale et borne de Chernoff, limite et poids exponentiels", [
-        ("a", "a number (4 decimals)", "TAIL_7",
-         'decimals=4, mistakes={"P(X ≥ 3) compte aussi le cas X = 3": TAIL_7 - pmf_7(3), '
-         '"P(X ≥ 3) additionne P(X = k) pour tous les k ≥ 3, pas seulement k = 3": pmf_7(3)}'),
-        ("b", "a number (3 decimals)", "math.exp(-N_7 * kl(A_7, P_7))",
-         'decimals=3, mistakes={"la KL n\'est pas symétrique : KL(a ‖ p), avec a en premier": '
-         'math.exp(-N_7 * kl(P_7, A_7))}'),
-        ("c", "a number (4 decimals)", "math.exp(-2 * N_7 * (A_7 - P_7) ** 2)",
-         'decimals=4, mistakes={"la borne de Hoeffding est e^(−2n(a − p)²), avec le facteur 2": '
+        ("a", "a number (5 decimals)", "TAIL_7",
+         'decimals=5, mistakes={"P(X ≥ 5) compte aussi le cas X = 5": TAIL_7 - pmf_7(5), '
+         '"P(X ≥ 5) additionne P(X = k) pour tous les k ≥ 5, pas seulement k = 5": pmf_7(5)}'),
+        ("b", "a number (3 decimals)", "N_7 * kl(A_7, P_7)",
+         'decimals=3, mistakes={"la KL n\'est pas symétrique : KL(a ‖ p), avec a en premier": N_7 * kl(P_7, A_7), '
+         '"la question demande l\'exposant n KL(a ‖ p), pas la borne": math.exp(-N_7 * kl(A_7, P_7))}'),
+        ("c", "a number (3 decimals)", "math.exp(-2 * N_7 * (A_7 - P_7) ** 2)",
+         'decimals=3, mistakes={"la borne de Hoeffding est e^(−2n(a − p)²), avec le facteur 2": '
          'math.exp(-N_7 * (A_7 - P_7) ** 2)}'),
         ("d", "a number (4 decimals)", "D_7",
-         'decimals=4, mistakes={"c\'est la limite ; la question demande la valeur pour n = 30": LIMIT_7}'),
-        ("e", "a number (3 decimals)", "(D_7 - LIMIT_7) / LIMIT_7",
-         'decimals=3, mistakes={"une erreur relative a un signe : d) est-elle au-dessus ou au-dessous de sa '
-         'limite ?": (LIMIT_7 - D_7) / LIMIT_7}'),
+         'decimals=4, mistakes={"c\'est la limite ; la question demande la valeur pour n = 45": LIMIT_7}'),
+        ("e", "a number (4 decimals)", "GAP_7",
+         'decimals=4, mistakes={"n ln(1 + x/n) est-il au-dessus ou au-dessous de x ? Pense à ln(1 + u) ≤ u": -GAP_7, '
+         '"c\'est l\'erreur relative ; la question demande l\'écart des logarithmes": (D_7 - LIMIT_7) / LIMIT_7, '
+         '"c\'est le premier terme du développement, −x²/(2n) ; la question demande l\'écart exact": '
+         '-X_7 ** 2 / (2 * M_7)}'),
         ("f", "a list (4 decimals)", "weights_7([-ETA_7 * x for x in L_7])",
          'decimals=4, mistakes={"les poids décroissent quand L grandit : e^(−η L)": weights_7([ETA_7 * x for x in L_7]), '
          '"n\'oublie pas η dans l\'exponentielle": weights_7([-x for x in L_7]), '
-         '"normalise : la somme des poids vaut 1": [math.exp(-ETA_7 * (x - min(L_7))) for x in L_7]}'),
+         '"normalise : la somme des poids vaut 1": [math.exp(-ETA_7 * (x - min(L_7))) for x in L_7], '
+         '"ce sont les poids avant normalisation : divise-les par leur somme": [math.exp(-ETA_7 * x) for x in L_7]}'),
     ]),
     Paper("CP3.9", "Corriger une copie : cinq erreurs (les lettres seulement)", [
         ("a", 'the letters, as text (like "ABCDE")', '"ACDFH"', f"mistakes={LETTERS}"),
@@ -472,7 +498,9 @@ PAPER = [
          'mistakes={"le score se calcule sur l\'exemple centré, x₁ − x̄": scores_10(X_10[0], center=False), '
          '"les axes sont les vecteurs donnés divisés par 21": whole([21 * t for t in T_10[0]])}'),
         ("c", "a list (1 decimal)", "[ss / (N_10 - 1) for ss in SS_10]",
-         'decimals=1, mistakes={"l\'énoncé demande la variance avec n − 1": [ss / N_10 for ss in SS_10]}'),
+         'decimals=1, mistakes={"l\'énoncé demande la variance avec n − 1": [ss / N_10 for ss in SS_10], '
+         '"ce sont les variances des features ; la question porte sur les scores": '
+         '[sum((x[j] - MEAN_10[j]) ** 2 for x in X_10) / (N_10 - 1) for j in range(3)]}'),
         ("d", "a number (3 decimals)", "(SS_10[0] + SS_10[1]) / sum(SS_10)",
          'decimals=3, mistakes={"deux axes, pas un seul": SS_10[0] / sum(SS_10), '
          '"c\'est la part perdue ; la question demande la part gardée": SS_10[2] / sum(SS_10)}'),
@@ -481,7 +509,8 @@ PAPER = [
          '[ty / (ss / (N_10 - 1)) for ty, ss in zip(TY_10[:2], SS_10[:2])]}'),
         ("f", "a number (3 decimals)", "R2_10[1]",
          'decimals=3, mistakes={"deux axes, pas un seul": R2_10[0], '
-         '"c\'est le R² à trois axes ; la question demande celui à deux axes": R2_10[2]}'),
+         '"c\'est le R² à trois axes ; la question demande celui à deux axes": R2_10[2], '
+         '"la somme des carrés totale se calcule sur y − ȳ": R2_10[1] * SCT_10 / sum(y * y for y in Y_10)}'),
         ("g", "a number", "whole(W_10[2])",
          'mistakes={"les équations normales divisent t₃ · y par Σ t₃², pas par la variance": '
          'whole(TY_10[2] / (SS_10[2] / (N_10 - 1)))}'),
@@ -491,7 +520,10 @@ PAPER = [
          'mistakes={"le nouvel exemple se centre avec la moyenne d\'entraînement avant de calculer ses scores": '
          '[predict_10(NEW_10, k, center=False) for k in (2, 3)], '
          '"l\'ordre : la prédiction à deux axes, puis celle à trois axes": '
-         'whole([predict_10(NEW_10, 3), predict_10(NEW_10, 2)])}'),
+         'whole([predict_10(NEW_10, 3), predict_10(NEW_10, 2)]), '
+         '"le nouvel exemple se centre avec la moyenne d\'entraînement, pas avec ses propres valeurs": '
+         'whole([YBAR_10, YBAR_10]), "le modèle prédit ȳ plus les termes en t : as-tu ajouté ȳ ?": '
+         'whole([predict_10(NEW_10, k) - YBAR_10 for k in (2, 3)])}'),
     ]),
 ]
 
@@ -548,8 +580,9 @@ INTRO = r'''## Après l'examen : vérification automatique
 
 1. Passe `EXAM_OVER` à `True` dans la cellule ci-dessous, puis exécute-la.
 2. Reporte chaque réponse de ta feuille : **la valeur** que tu as écrite, pas un nouveau calcul (sinon tu ne vérifies plus ta copie). Laisse `...` pour une question que tu n'as pas faite.
-3. Les formes d'écriture : en Python, le séparateur décimal est un **point** (`2.75`) : une virgule arrête toute la cellule (`0,027`), et aucune réponse de la question n'est vérifiée, ou donne un couple de nombres (`0,75`) ; une liste s'écrit entre crochets (`[-1.5, 4]`), une matrice comme une liste de lignes (`[[1, -2], [0.5, 3]]`) ; un texte entre guillemets (`"XYZ"`), comme une fraction (`"3/8"`) ou un intervalle (`"]-1 ; 2["`) ; vrai ou faux par `True` ou `False`.
-4. Le bilan, à la fin, dit aussi quelles réponses n'ont pas été vérifiées.'''
+3. Si une cellule s'arrête sur une erreur, « Tout exécuter » s'arrête avec elle : corrige-la, puis relance cette cellule et les suivantes, jusqu'au bilan.
+4. Les formes d'écriture : en Python, le séparateur décimal est un **point** (`2.75`) : une virgule arrête toute la cellule (`0,027`), et aucune réponse de la question n'est vérifiée, ou donne un couple de nombres (`0,75`) ; une liste s'écrit entre crochets (`[-1.5, 4]`), une matrice comme une liste de lignes (`[[1, -2], [0.5, 3]]`) ; un texte entre guillemets (`"XYZ"`), comme une fraction (`"3/8"`) ou un intervalle (`"]-1 ; 2["`) ; vrai ou faux par `True` ou `False`.
+5. Le bilan, à la fin, dit aussi quelles réponses n'ont pas été vérifiées.'''
 
 
 def paper_cell(kind: str, paper: Paper) -> list:

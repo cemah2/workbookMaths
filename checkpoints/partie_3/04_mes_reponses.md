@@ -22,13 +22,13 @@
 
 - a) rang de A =
 - b) dimension du noyau =
-- c) vecteur du noyau (x₁, x₂, 1, 0, 0) =
+- c) [α, β] (c₃ = αc₁ + βc₂) =
 - d) coordonnées de c₅ dans (c₁, c₂) =
-- e) [α, β, γ] =
+- e) z (Aᵀz = 0, z₁ = 2) =
 - f) Ax = (3, 1, 4) a une solution :
 - g) dim W =
 - h) coordonnées de P dans (1, X² − X) =
-- Le théorème qui relie a) et b) ; P est dans V ; (1, X² − X) est une base de V :
+- Le théorème qui relie a) et b) ; f) à l'aide de z ; P est dans V ; (1, X² − X) est une base de V :
 
 ## CP3.2 — Gram-Schmidt, projection et moindres carrés
 
@@ -37,10 +37,10 @@
 - c) v₂ − r₁₂ q₁ =
 - d) R =
 - e) Qᵀy =
-- f) x̂ =
-- g) ŷ =
+- f) ŷ = QQᵀy =
+- g) x̂ =
 - h) ‖y − ŷ‖² =
-- Vérifications : Xᵀ(y − ŷ) = 0 ; ‖y‖² = ‖ŷ‖² + ‖y − ŷ‖² :
+- Vérifications : ŷ = Xx̂ ; ‖y‖² = ‖ŷ‖² + ‖y − ŷ‖² :
 
 ## CP3.3 — Valeurs propres, matrice définie positive et Cholesky
 
@@ -60,19 +60,19 @@
 - b) [s₁, s₂] =
 - c) v₁ =
 - d) u₁ =
-- e) A₁ =
+- e) solution de Ax = (99, −22) =
 - f) ‖A − A₁‖_F =
 - g) part gardée =
 - h) κ₂(A) =
-- |det A| = s₁s₂ ; ‖A − A₁‖₂ =
+- |det A| = s₁s₂ :
 
 ## CP3.5 — Maximum de vraisemblance, log-loss et entropie
 
 - a) θ̂ (loi uniforme) =
 - b) θ̂ (loi à trois valeurs) =
-- c) entropie du nœud (bits) =
-- d) Gini du nœud =
-- e) gain d'information (bits) =
+- c) H(p) (bits) =
+- d) Gini de p =
+- e) KL(p ‖ u) (bits) =
 - f) log-loss moyenne (nats) =
 - g) meilleure log-loss d'une probabilité constante =
 - a) la vraisemblance L(θ) et pourquoi pas de dérivée nulle ; g) le q optimal :
@@ -90,13 +90,13 @@
 
 ## CP3.7 — Queue binomiale et borne de Chernoff, limite et poids exponentiels
 
-- a) P(X ≥ 3) =
-- b) borne de Chernoff =
+- a) P(X ≥ 5) =
+- b) exposant n KL(a ‖ p) =
 - c) borne de Hoeffding =
-- d) (1 − 2,1/30)³⁰ =
-- e) erreur relative =
-- f) poids de Hedge =
-- L'ordre de a), b), c) et pourquoi ; e) comparée à −x²/(2n) :
+- d) (1 − 2,4/45)⁴⁵ =
+- e) écart des logarithmes =
+- f) poids de Hedge (normalisés) =
+- Le rapport KL(a ‖ p) / (2(a − p)²) et ce qu'il montre :
 
 ## CP3.8 — Une démonstration courte (sujet A ou B)
 

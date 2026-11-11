@@ -3360,7 +3360,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "0edc440fe8c606b00710821e67afdc6b739f9680673c00e84d07c7936eaa97ba": "le rang compte les lignes (ou les colonnes) indépendantes : une ligne est-elle une combinaison des autres ?"
+        "0edc440fe8c606b00710821e67afdc6b739f9680673c00e84d07c7936eaa97ba": "le rang compte les lignes (ou les colonnes) indépendantes : une ligne est-elle une combinaison des autres ?",
+        "63ac98d7450359598ee5a1ec2576af74ee887d7750999243081e32477986389e": "le rang ne dépasse ni le nombre de lignes, ni celui des colonnes"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -3371,6 +3372,7 @@
       "magnitude": 0,
       "mistakes": {
         "9c75198af371194120646ed4c409fcddc4ed20b48dabe2568506b35153ddc86d": "théorème du rang : le rang plus la dimension du noyau donne le nombre de colonnes",
+        "fad075226b8f91a8980cc720a5ff5b10f416e9869ab0c2402443892a294f69bf": "c'est le rang ; le théorème du rang relie le rang et la dimension du noyau",
         "ff59c688d1c5cfb82177d0eab628d7542ace7b10886f809a31bd2341791d93ae": "théorème du rang : le rang plus la dimension du noyau donne le nombre de colonnes"
       },
       "sign": 1,
@@ -3379,21 +3381,18 @@
     "CP3.1c": {
       "decimals": 0,
       "element_hashes": [
-        "e26bae70bbe76c0c47b087666aec4a18eb5e37df8d6bc13da94df1aed82dc86b",
-        "93a5f0ea2e781a99bc2b92095bb5a93209ca7fd24e9762f56c24b9a0319a2fc9",
-        "2fa3a0ccf734de9fb07a3873c3f6167048ffc616e5d48ac0c2ddc0434d93f73c",
-        "5b1124f6d7ad2f231c53f4b566eb3e1258c3bd286501a457159fe91e34883b93",
-        "4770aa8d3db48c42e0a09254fccdf21918d66c5a02964c5945349f0df9c655c6"
+        "46ba1e1e36078cc85887208f2257c7d7893b941dd02a592d06bf7dd9dca2858c",
+        "38d7cf153a0f4ba0ca33b62aeabc44b711acbcaa3937574b0e2c8ce653ebb52f"
       ],
-      "hash": "bbded4819332834113401b6366da9f221b64d883a7878e6683b9cbdc16d48fe1",
+      "hash": "599f309ad86cd17ed810b813d96f138840815a74bc52029b05ec6d10b81178e7",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "7e0639381c6097d26df37113a61e1705c0eebb280b1329376ad7bb3494b0417b": "le vecteur cherché est de la forme (x₁, x₂, 1, 0, 0) : sa troisième coordonnée vaut 1",
-        "cf5f2ca807bd5e91bd8f4f3baab446082958244f5bddb59aee3cbaf1ad582425": "vérifie la première coordonnée de A x : elle doit être nulle"
+        "d59f37bfcb46e217c8e9eb1e367d9d2f313a3964df8092d2b86bf81612f0aecc": "l'ordre suit celui de l'énoncé : α multiplie c₁, β multiplie c₂",
+        "f20b8efee8fcf358d7ca29338dc9c9df016aa914e3061bd5225c1d642bdbc850": "vérifie la relation sur la première ligne de A"
       },
       "shape": [
-        5
+        2
       ],
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
     },
@@ -3425,8 +3424,11 @@
       "hash": "377c5863ee0d8bc453fbb71df53eafc6a41ada18630bac06d083e0f9cbbc8132",
       "integer": true,
       "kind": "array",
+      "mistake_decimals": 2,
       "mistakes": {
-        "45fe626077ed365f916dbce7a77157769dec9534cb441f7c0cbec2d7f5bb32b3": "une équation de l'image s'annule sur chaque colonne : vérifie-la sur c₁ et sur c₂"
+        "45fe626077ed365f916dbce7a77157769dec9534cb441f7c0cbec2d7f5bb32b3": "Aᵀz = 0 dit que z est orthogonal à chaque colonne : vérifie z · c₁ et z · c₂",
+        "84f15503bb381e876f5a693766b01f8ddfe67da325b218a7fe7cbb9376628472": "ton vecteur est proportionnel au bon, mais l'énoncé fixe z₁ = 2 : mets-le à cette échelle",
+        "d01ff9b301b8208829758f7b39c26409fa4b6abe1b7231e91e4edc3e3f0b9cb5": "l'énoncé fixe z₁ = 2 : multiplie ton vecteur pour que sa première coordonnée vaille 2"
       },
       "shape": [
         3
@@ -3485,6 +3487,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
+        "7a18d51cc9a9e80256def7c2e9226afe744c2103cde9ff87012b42da8994cd7e": "r₁₂ est la coordonnée de v₂ sur q₁ : le produit scalaire q₁ · v₂",
         "bc1eaf01d2898a287bc19f82e76311764e28fbfc58e1a8d2673264b2cff9857a": "r₁₂ = q₁ · v₂, avec q₁ unitaire"
       },
       "sign": 1,
@@ -3536,13 +3539,13 @@
       "decimals": 0,
       "element_hashes": [
         "3c1ce14fd8daadb613e2017c2ef7610605d5dd7700d6c3c4958865f0d9c6de96",
-        "0c1167842bc73dd3af2186e0971855c40fb0bfe042f847bcbe2d1fbf6ed1e28b"
+        "e3cff89f6bc776beb9b601f5abb9f4f8baa3dbf64503f1e1760ad9c6b8732e17"
       ],
-      "hash": "ed5179e8e6831e3d13de0b5e3f23770b05497e7353d9f9b61031fb5920a2efe5",
+      "hash": "694e2ed29e3c05bc64d57a04845b02e5221828dbe5ba840252c6b915eea1d715",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "f04f75b3c595ec308af6b0dcf664cde3c593d57f14d0968b1ff5213f15793978": "c'est Xᵀy ; la question demande Qᵀy, avec les vecteurs orthonormés"
+        "c02e3464d72578dc133ca0e83d62fa25dc9e2656ccff1cd09bb0be0e34a7d633": "c'est Xᵀy ; la question demande Qᵀy, avec les vecteurs orthonormés"
       },
       "shape": [
         2
@@ -3552,46 +3555,54 @@
     "CP3.2f": {
       "decimals": 0,
       "element_hashes": [
-        "8dad857ebee900abf67d7378f0ec6430a3fbcc0567aa0900792720e293404e87",
-        "ba47417f179a0f27c16d941d551a4358d16d4c163026133acb90ca771f84d7b5"
+        "64bccd47c489e3b4d4ab83344622508ed92be90a7d0595c3feee4c43d6122a24",
+        "ba47417f179a0f27c16d941d551a4358d16d4c163026133acb90ca771f84d7b5",
+        "5d63a23d2aa96252d31e2e2db6ea607a5081516960d0ec487231415bde393edf",
+        "dcdb6bf8223faf0079a1593f99c8a952bf4478cb7e3a8b6365663ad4a1122b93"
       ],
-      "hash": "cb540f0fbb185f3691cee4294162e99ea117fe6828f27be3b8967aa4a6da6eed",
+      "hash": "1c14c5810ee2e1e034fa3ffbe91fd3ba60251bf11775703e1465464b622e8f63",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "f567bc074c27117f7a11e641f19c63dfaf06d5f737c4a6da4b352918a486662b": "R x̂ = Qᵀy se résout de bas en haut : la dernière ligne donne x̂₂"
-      },
-      "shape": [
-        2
-      ],
-      "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
-    },
-    "CP3.2g": {
-      "decimals": 0,
-      "element_hashes": [
-        "3dddb216f6597e35db739de661ee73f3badbca9b9f6e16c6d7d2662affc821a2",
-        "f52c687ecedbac6fde1ec59d3e7ac37233fbfc744ea3cecb46a2b4cbe6f91cdf",
-        "93fe74444105aec8eeaaf496e8c0bcf6ba7c77c60f9435c51d13e93f76d9344f",
-        "1f2136e38f38999eee5437b2853eb142e96693aa82fe2078468556e7c1718e90"
-      ],
-      "hash": "55595f41359dc7347ab0aa07099f59797389da70cbd8e764d8f922325101d062",
-      "integer": true,
-      "kind": "array",
-      "mistakes": {
-        "7febb0de8338326ff68632737953c4dcb4b88a03a0e47e61a4fd2a25d44294da": "c'est le résidu y − ŷ ; la question demande la projection"
+        "f8ef1228c7430b36a80eaddb6bb4529377d37de8c9a6dcb7d99a0b1150f9209e": "c'est le résidu y − ŷ ; la question demande la projection"
       },
       "shape": [
         4
       ],
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
     },
+    "CP3.2g": {
+      "decimals": 0,
+      "element_hashes": [
+        "b63842d821017187be48c20f5f9d3c1bc959cac6be9b51dd7c61e062c1214e92",
+        "f52c687ecedbac6fde1ec59d3e7ac37233fbfc744ea3cecb46a2b4cbe6f91cdf"
+      ],
+      "hash": "7d22ca0496a3371d9a42f683b87e9993c76d5ca6666f8d7d60ac379fc314526a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "d65f9816d8b2a479db9a150e90409aa96fd5971ceeaa882d1ec3d5c46a07bbe4": "l'ordre des inconnues : x̂₁ multiplie la première colonne de R",
+        "f9d5c71525462d227a60f916264dd218826930c2a89756ce1ebc82c96cc798b4": "R x̂ = Qᵀy se résout de bas en haut : la dernière ligne donne x̂₂, puis on remonte"
+      },
+      "shape": [
+        2
+      ],
+      "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
+    },
     "CP3.2h": {
-      "hash": "7f4a9a093926d1ddde4bc8e8c23099eaecea4b502b32a85c85215ff3c543ffd4",
-      "kind": "int",
+      "coarse_any": {
+        "0": [
+          "b4818c94a785af841794713e11ba27ea4cc79b0276cad811a0d92b7fdfc3c99d"
+        ]
+      },
+      "decimals": 2,
+      "hash": "b45878849e273c3b5c64e28c60b77e1509bc019c689229c70f4912b7438d1855",
+      "hash_coarse": "cfd564e0e11e190893eafdebf122f27fd891941967d4410254222339b84ad90c",
+      "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "2d64c26659a0e441b5a9baf58a834cea95c686f76aeb4253af2cbedf8751d030": "la question demande le carré de la distance",
-        "7280ce04bb023e3037fb946b5ce0eb8438a2f41d81f345bc0d6b6641be7de156": "c'est ‖ŷ‖² ; la question porte sur le résidu y − ŷ"
+        "17ed2addc65e9ebe0f1985a12dfd8a65d65615aa99a30ea861118e36f664c101": "c'est ‖ŷ‖² ; la question porte sur le résidu y − ŷ",
+        "99c4d52589a68ab350bc383b1e56a9b2c3f7495e92e4c0a09121c5ac05dc71f5": "la question demande le carré de la distance"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -3743,7 +3754,7 @@
       "kind": "interval",
       "mistakes": {
         "0998045f58ed47b131e228b8ad45a7fd264d9b75fc84e1f673fb8cbc471c236f": "a peut être négatif : seul a² compte",
-        "0f41ae967c08c3b126bb49f7e88faf4bda13ed7457d5ac76fc588ce8b2841186": "le déterminant d'une matrice 2 × 2 est ad − bc",
+        "0f41ae967c08c3b126bb49f7e88faf4bda13ed7457d5ac76fc588ce8b2841186": "une inégalité sur un carré se résout avec une racine : que donne a² < 16 pour a ?",
         "4ad45fb591f11c375000f4a98a62eae0f0c564a89061f5ce0d9edb4cea3b896f": "définie positive demande des inégalités strictes"
       },
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -3777,8 +3788,10 @@
       "hash": "e29eb8c0dd271eb9f2aad447884f005cd047e2d725741b75cf2dcc5c22927b17",
       "integer": true,
       "kind": "array",
+      "mistake_decimals": 2,
       "mistakes": {
         "1d802165caea520d7283abec066a4156f4bc5d5f0d612e6eca901ebb31052bdd": "la convention range les valeurs singulières dans l'ordre décroissant",
+        "4f4774a747d0c97df05d0187a5a523ecc7beef99c4ca98535feede6387077ad8": "A n'est pas symétrique : ses valeurs singulières ne sont pas ses valeurs propres ; passe par AᵀA",
         "92e363bb910d80959b91982843132e2e0fef9abf189661a26ec232065aaaaa78": "les valeurs singulières sont les racines carrées des valeurs propres de AᵀA"
       },
       "shape": [
@@ -3856,48 +3869,18 @@
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
     },
     "CP3.4e": {
-      "decimals": 2,
-      "element_coarse": [
-        [
-          "64f2286bf9234f8da28caf0fdd73f1a5486a670a8c38b924b9c0112c987ed461"
-        ],
-        [
-          "1d21056ce461efa02d045ef3e0c253c194d0f225f76baf434ecadffea80d6117"
-        ],
-        [
-          "e85aba742f8e4f223a8d13e17b0513bc27ec8192350d399c39cd98084674737b"
-        ],
-        [
-          "068743f70a01fbf71531bb357055181c642b5d0917cb5905fe685e4357b8dbd0"
-        ]
-      ],
-      "element_coarse_any": [
-        [
-          "e55dd0e4ae608cf123ad6df950fc1fee74d4b3750ae2e4e2cd233f6aa9ff7a8f"
-        ],
-        [
-          "749c450f6b45292e01c05c473bfae1036295fe43a5a251d17d9af2159534a64d"
-        ],
-        [
-          "6f259d64f1431796bed613fbea028b4d606774c5cd0a9ef3e83b2480c95d8a16"
-        ],
-        [
-          "9249e6d4a7f57990071f185cce118669ed629544d1f365e7a453057a55b1d96c"
-        ]
-      ],
+      "decimals": 0,
       "element_hashes": [
-        "52da87f96fca9996d8e18b4cbb73581919a71bc0254bf970bc832d24e7e436c4",
-        "6d5ed97a7f4d964614a6519d246221cb8054a35f72082ca5a71082ca3502bd90",
-        "29bc12d489c7c292ed410a0572cb869dc81dcbec35b76b6167417dbaf8f83313",
-        "15d7d795018d2cd35cd5d264df19ffc7a2453ca94323a808988c4ba8851e4c1d"
+        "431809ea855b79a8294b70e732b22a9f4da66639169a2b53596b2da691778386",
+        "478f2c08573e32a72db438d1d26ec898bda414fbeb7a7745e37f04dbd65a1400"
       ],
-      "hash": "d547e54628dd987b4b0f6f91545328838dae0bbc11651834068665447ddbbcfb",
+      "hash": "9170b747139c024964aea0913844a1c9ce47af251563e8f79e692afc787d8dcb",
+      "integer": true,
       "kind": "array",
       "mistakes": {
-        "3f18acf34a54fd9e08600d69ea6f36ad454bd71429d3b79f2348b2094aa3ecba": "c'est A − A₁ ; A₁ garde le terme de la plus grande valeur singulière"
+        "55d35790e2d9b6893a4e25d06ac05a9e0f1db29f4f376c40f5719a8523555d1e": "A n'est pas orthogonale : son inverse n'est pas Aᵀ, il divise par les valeurs singulières"
       },
       "shape": [
-        2,
         2
       ],
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -3952,20 +3935,20 @@
       "magnitude": 0,
       "mistakes": {
         "25594c33137ab37bc9f0feec4e8cc14c7a5076bcc88a50ef8cd9c914d6808faa": "c'est le conditionnement de AᵀA ; la question porte sur A",
-        "44dfbf2f9b8b8b8a18786bbd4b9ebd7aa86d0adacf17d1680809d74580edd69f": "κ₂ divise la plus grande valeur singulière par la plus petite, pas l'inverse"
+        "44dfbf2f9b8b8b8a18786bbd4b9ebd7aa86d0adacf17d1680809d74580edd69f": "κ₂ divise la plus grande valeur singulière par la plus petite, pas l'inverse",
+        "68accb58996fd1926b27c1185241cb5dca2adf1dcccaac9b6962d34693dff4a7": "A n'est pas symétrique : κ₂ se calcule avec les valeurs singulières, pas avec les valeurs propres"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
     },
     "CP3.5a": {
       "decimals": 1,
-      "hash": "6ea2d2fb78fbdfa58a1f405812a3f369ee8a32f2f385a150d5df0c9f9f2d1ff7",
+      "hash": "449cb9e2de22d6790d64669d1149b285596c777ffa6bf0f07b167ed2d45fe385",
       "hash_coarse": "0fef3ec86fe95857d6df1863fcf56b1cc78074385af6f8f1b1835ddb609cb70b",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "015c5ec222c86e09751784f179309f3c523b2f64900ed7f2cb43db96a1ff135d": "la vraisemblance est nulle dès que θ est plus petit qu'une observation",
-        "fb3daef280e364f279305f7bd86971db322baaa73b1360bf95166c6365f7882d": "c'est l'estimateur des moments ; la question demande le maximum de vraisemblance"
+        "b19d8c762f9dabe0b2a70d215f58437518259b3f66d53c42c295d24cf078ac42": "la vraisemblance est nulle dès que θ est plus petit qu'une observation"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -3975,7 +3958,9 @@
       "kind": "fraction",
       "mistakes": {
         "3cead4bb671d848a26914c4575b5e47ffb0dce2301112cc46ca62fc22ec65acd": "la fréquence des 1 ne suffit pas non plus : les trois comptes dépendent de θ",
-        "8a79ba2e8796e56e6632df452cfbba957519e26c3d18823e293b462c911b488b": "les observations 1 et 2 dépendent aussi de θ : la fréquence des 0 ne suffit pas"
+        "786da784550727f3e7cf0b0b15b5d99ce6ea00e34f7945adb2fbadd2de4e334c": "vérifie la dérivée de ln(1 − 3θ)",
+        "8a79ba2e8796e56e6632df452cfbba957519e26c3d18823e293b462c911b488b": "les observations 1 et 2 dépendent aussi de θ : la fréquence des 0 ne suffit pas",
+        "abc8f6bf0cd51f3f0ac9168c7c10f48c686be325dabf99c2f10bb3643b8526b4": "c'est l'estimateur des moments ; la question demande le maximum de vraisemblance"
       },
       "sign": 1,
       "simplified": true,
@@ -3989,58 +3974,57 @@
       },
       "coarser": {
         "1": [
-          "d52d5272293e1d129de49b0b6ca28f46ca31307bb20bf24497ed91fcae5c6585"
+          "d416cff6dce3a283a9a3da1a15a5a349f3b084ed85f38ce318d20f676b5134e1"
         ]
       },
       "decimals": 3,
-      "hash": "7a261a95355a33a27f7911853a9ddad540f9d9ddf6e588ef426060048f0f5d4b",
-      "hash_coarse": "cbebcd5a09a3c23460891eae8e7490f8785ad144d9a4b1c7d6d9f42d4dcf350d",
+      "hash": "a3531a742c78a1fbbc9d5ebee5d95d86769f112534bd7a048eb0af8325845e8c",
+      "hash_coarse": "70c0cd256e843f191c62bd073529c66fcf73b5f4a4cec2cdf7eaec4d1f12de75",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "a3ee2e083c8aa84ba913f8336dd3de5f38bd3b459bcbb120c7edb61b0f2347fb": "en bits : le logarithme de base 2"
+        "1b47a4036e352144ec5dbc62131d0f50d23adea37c7b26d35757005572cf1d08": "en bits : le logarithme de base 2"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
     },
     "CP3.5d": {
+      "alt_coarse": [
+        "f9e2da164ae53e2f71248d24cb101c4fff2ece8bbe6b4237e88e5ffe0474e1ba"
+      ],
       "coarse_any": {
         "0": [
           "254b7b2a2e6d5fdff3f70d01a85637e1067bc754c20a9726d9c796995f2b31a5"
         ],
         "1": [
-          "208d6b719eb3b77a4d4b608cc5996d638d73514362930bcb0abf52cc6e0fdacb"
+          "d2a86d7f41cafc9a412d40ebb00e47a6f51ce275140300f3c6d00d41a4fff2e6"
         ]
       },
       "decimals": 3,
-      "hash": "4c2eea1be7a7f553e0cf47cba9846777c3a85d2876dac00021bab2cbf71df5d2",
-      "hash_coarse": "39ba8a2dad96549ae5e5266fff22ed6714839ac008b76aea9fb00b0b858276d4",
+      "hash": "0f847b3a354fcee0f0276bbc933d6bf2720416b51a3fbf95484595873cecc873",
+      "hash_coarse": "093a101ec5d930a643a3e397ad3231ccff1eb35bb39a8057aa71a1a500401c81",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "47ba5cc51a1692a4660e810973e2b7591888084a5e9a8b528bb06c6201f32aa8": "l'indice de Gini est 1 − Σ p²"
+        "18c78a7f664628787088d922dd6413a5c58a3bb3c2698bd9335f0068145c231d": "l'indice de Gini est 1 − Σ p²"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
     },
     "CP3.5e": {
       "coarse_any": {
-        "0": [
-          "638a445ee201acc2dfe07ed9bcaeea2526e97311dbf5ea0580032d2671b2baf4"
-        ],
         "1": [
-          "d5a0bd4914745405495bd61de2800a87afa19adfdb612c465d88275d65278a7b"
+          "620cc399a8b33616122617c72330c18dc0fc69e93e92558a7019f55fc96c7d35"
         ]
       },
       "decimals": 3,
-      "hash": "68c073e5f8e36a00c8030cddbfac454b3489634d6666ca3b8d2af1921ea6ab26",
-      "hash_coarse": "600cddcb7908766764d8d7a7d2b1672813f04114ffba299f878186c630bf10bb",
+      "hash": "272a4995529a07a961653f7eb8b9fb53ad462bc1342f62ff7226f0ee24b33e3f",
+      "hash_coarse": "e9adda2a7eac756d06988f5ba806cd38f2c24bae22502ff41ee0f3c29335cfbf",
       "kind": "float",
-      "magnitude": -1,
+      "magnitude": -2,
       "mistakes": {
-        "366871df5a19ad5d076f2caa6ed7bf5f50f9b66b7273892ebe1d390e751de216": "les enfants sont pondérés par leurs effectifs (11/20 et 9/20)",
-        "99600d8d699ec1fa477730a7025b907bf15b6fe0929f71940d64c7638e096d75": "le gain est l'entropie du nœud moins la moyenne pondérée de celles des enfants",
-        "f157bb2d03bbef64696b1c59576f4a44bb2dee3f17ebbc88167ff7f2c304f241": "les enfants sont pondérés par leurs effectifs (11/20 et 9/20)"
+        "02d54b5f8bd24e7d2239286e0647c74da0b0424f6c017ddd2f9215dcf0be4b10": "en bits : le logarithme de base 2",
+        "f9163144f0df1479afd142ae968740de5f0fd6d9f46f19b380b2ff9370c201cf": "la KL n'est pas symétrique : la question demande KL(p ‖ u)"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -4061,7 +4045,8 @@
       "magnitude": -1,
       "mistakes": {
         "27a675d7f730413479a0b3afb86f731359633e513f44a690e06bcde65c1631ce": "en nats : le logarithme népérien",
-        "66ba0121128967da3ed1673d2f65918f0574728c15c6247cb223772c4968f031": "la log-loss moyenne divise la somme par le nombre d'exemples"
+        "66ba0121128967da3ed1673d2f65918f0574728c15c6247cb223772c4968f031": "la log-loss moyenne divise la somme par le nombre d'exemples",
+        "998d4e9aa599d8a8639e99e6d4c4abd9ee79ae72d6dc4f02de37a4c08e9355d2": "le terme d'un exemple est s(z) − yz : as-tu retranché yz ?"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -4119,7 +4104,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "5c4eec8384e049d0a2d344c50a013058ea5cd050dcfc56e971c5b004a17f4630": "avec la convention ∇f + λ∇g = 0, vérifie le signe"
+        "5c4eec8384e049d0a2d344c50a013058ea5cd050dcfc56e971c5b004a17f4630": "avec la convention ∇f + λ∇g = 0, vérifie le signe",
+        "91b131d2c7c523dae3124161e6daae965a3fe5175d9874005c7bb5e956553005": "vérifie ∇g : quelle est la dérivée de x²/8 ?"
       },
       "sign": -1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -4189,7 +4175,7 @@
       "mistakes": {
         "206f15622693d22dabfd367d1d8e2f2a28bcdd595b5a1075d0b2b6f1f00a838f": "le gradient du terme d'un exemple actif est −y x, pas +y x",
         "86a91c6c19f60968196aa2fb30ec3351396b0beca73057a61c0ff5f449c5ce6c": "n'oublie pas le gradient de ½‖w‖², qui est w",
-        "ecda63c6c2397d7550e3aef47124ccc907755b823e45798f24fe88a4fae162b1": "un exemple de marge exactement 1 : la question demande d'y prendre 0"
+        "c832e95f53c6a142a5e12e5c0bc3a516a56053a56c1bd73e141e7bfc3d564bee": "seuls les exemples de marge strictement inférieure à 1 ont un terme non nul"
       },
       "shape": [
         3
@@ -4197,43 +4183,53 @@
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
     },
     "CP3.6g": {
-      "hash": "f1d27391ed8ad406f659f19638c82112ce6238354c873f43b1d89e8386d12897",
+      "hash": "b3fc89e9761ec986e9f5cc8eb8a17c108e5d289c50bbb299ac78ff30e9fc08b9",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "80cc6ae8ff91f1e2ad71e6ecf1804bf74c2c2a4d4a4284ea36114f61132d7e91": "vᵀKv = Σᵢ Σⱼ vᵢ vⱼ Kᵢⱼ : les termes croisés comptent deux fois",
-        "90c8e82ff330aae7f26ad060f44fd422af98a6d489c5c081260065c3b9001da8": "vᵀKv = Σᵢ Σⱼ vᵢ vⱼ Kᵢⱼ : vérifie le signe de chaque produit vᵢ vⱼ"
+        "239e581ba2a2ac583e8a39dd79f4129bb4436c4b0021b155229dbbb1d334452b": "vᵀKv = Σᵢ Σⱼ vᵢ vⱼ Kᵢⱼ : les termes croisés comptent deux fois",
+        "fa90d7ccd9391cfe54c688c07aacf46ed56ddfbcd91e53953d6f3b042097d2c4": "vᵀKv = Σᵢ Σⱼ vᵢ vⱼ Kᵢⱼ : vérifie le signe de chaque produit vᵢ vⱼ"
       },
       "sign": -1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
     },
     "CP3.7a": {
       "coarse_any": {
-        "2": [
-          "a3e6e7ea9c0f91319fa1a2eff439eb1c4d1817c24016c8ee54fc71a4564b48c6"
+        "3": [
+          "81b73317a92bf43d557604a6ca07fc21c122bb2afa5a75f2f466afdd3dc46214"
         ]
       },
-      "decimals": 4,
-      "hash": "c237a9bf879b67929f854442ba69937f3331b0bbda5fc234bcd86c96aa433411",
-      "hash_coarse": "262d0d19f0c574316b8c3cc5b21000448140b574a3e79bb04231d4f596dbb709",
+      "decimals": 5,
+      "hash": "2bc3c0494e062c7563992a129100986a7aa6d5090f6660144643c0e6568e5fe1",
+      "hash_coarse": "594489b6e40fbc00b8ec1cbc29d0e3fa932f45cbc06a7e3a9d8cd0d6241f23d6",
       "kind": "float",
-      "magnitude": -2,
+      "magnitude": -3,
       "mistakes": {
-        "87f60a53033288ef17ad503e47df485001865d6f66d272e69a004f180b325484": "P(X ≥ 3) compte aussi le cas X = 3",
-        "ae57043aad4011e9d7cae8bdab0736c55de585ffe7c68a859117c36c0e4236c2": "P(X ≥ 3) additionne P(X = k) pour tous les k ≥ 3, pas seulement k = 3",
-        "fd61dda6b12f94f9f7ab40a7a8453483b47a6909cc29f4f1a6c307c8a53f5f19": "P(X ≥ 3) additionne P(X = k) pour tous les k ≥ 3, pas seulement k = 3"
+        "016d35657cebd31568c9e7a925eb9940fa5ad42479d4f8602ab47837454c03e3": "P(X ≥ 5) compte aussi le cas X = 5",
+        "f3732f4ebc1fc47ee74222e2852d4fd91dfc592c9dddc4ac7b906405cc0111c9": "P(X ≥ 5) additionne P(X = k) pour tous les k ≥ 5, pas seulement k = 5"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
     },
     "CP3.7b": {
+      "coarse_any": {
+        "0": [
+          "80633aa51b6d20b69e7ab604378d89f77286aaf03d70bd2c55b25a8d606aad24"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5691b8100ebe1b43471af6116a917fee1c0a979baf760251283fd46ebdfa401b"
+        ]
+      },
       "decimals": 3,
-      "hash": "a55e3e4d5cfc61a364c20191387d848cf7eb9c38ea8b3d5f91014e50d3db2a0e",
-      "hash_coarse": "7c16fc24f69d56afb015f5463840675402dff51154a849c8cf890b463735407c",
+      "hash": "97229149b4acd5e8b9604a9431552c010c5b4ecb08cb6851ccd60f5e1f3512bd",
+      "hash_coarse": "a870c167ceccd72775634dd3a6952601550aa394e41bf4a35e8a9cce7c0c54f7",
       "kind": "float",
-      "magnitude": -2,
+      "magnitude": 0,
       "mistakes": {
-        "64e962e26b4976a878f319e2e3432bb8a8ffa9f783dd1e70f063b175eacbdaba": "la KL n'est pas symétrique : KL(a ‖ p), avec a en premier"
+        "93451ed070b1a09721d35343f49201429fbc6dda6df01ea7fa83652ed556ee25": "la question demande l'exposant n KL(a ‖ p), pas la borne",
+        "cf45523566ce1dca883512e931b44e102d55d17c3b4f55bf10fe6b61b50c68b8": "la KL n'est pas symétrique : KL(a ‖ p), avec a en premier"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -4241,21 +4237,16 @@
     "CP3.7c": {
       "coarse_any": {
         "1": [
-          "e05e3a00c00bc3ea04c93dd2ebf99c9d99f177c41b0cb65a642fd6ee54548147"
+          "f919c23722235ded4f5aaced1ae95e25cfa670a8e88b132502e4ec41879869e4"
         ]
       },
-      "coarser": {
-        "2": [
-          "86f50bc808e90a26e57033d4edee8125c41188223e58a9609dc98783ed3e041f"
-        ]
-      },
-      "decimals": 4,
-      "hash": "d32ec34e32cfb0c64b4a35fe788b27f484424365331634c876279707a5121a23",
-      "hash_coarse": "7f1051d8ad2b1922edadec88aaa3b5aaec51bcfde891e96f6496a741603c6654",
+      "decimals": 3,
+      "hash": "659f432cee780fb7479ede3f6549d01bbb052e52659271bb6e80ddc606310b81",
+      "hash_coarse": "476a9ad804b883aa361d9d9c749fbbd23f6582e13cd71e8546f596a993fe4a0f",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "e622d1a28c255e2b6597124a5f57153cac0cb812e752a586b4e6fd57b40b2093": "la borne de Hoeffding est e^(−2n(a − p)²), avec le facteur 2"
+        "0e0c9be76c79f7657b3e8c73208c7ce5c4f9d7f1623968c7304d9985846a150c": "la borne de Hoeffding est e^(−2n(a − p)²), avec le facteur 2"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -4264,20 +4255,18 @@
       "coarse_any": {
         "1": [
           "d1c3e6d754c9ad8e138a873cbe42bf3cc7b958bb930c7609f70ea26d40484363"
-        ]
-      },
-      "coarser": {
+        ],
         "2": [
-          "0d470257db0dcd46f6365a0f4bba2587eef7097e0de907d1e125ae57a8dcfe6f"
+          "f12fade47ce18b16370c7a40bfa5a6a692553a8c47d9b48d95a27cd2df416da7"
         ]
       },
       "decimals": 4,
-      "hash": "1ed0b3581c55b2715d40c3a56928912fa3c4b47de1d288b60e96d52af4f7173c",
-      "hash_coarse": "0dd05bad5f609381b9fa280a101ad2e23b132f6f71a43953a8498024ac24897e",
+      "hash": "32639b4e3ed3a4c2756b50b0a39184a4635156ab238270f9998204b17f84c7a5",
+      "hash_coarse": "dfcadccf75afe0cb386cb49d5ae10f87960f711a31c0848314ac95f63bd7a875",
       "kind": "float",
-      "magnitude": -1,
+      "magnitude": -2,
       "mistakes": {
-        "04394622592714a0c44b41e5e23ea362deff877b2a99b297c1199d37844e00d6": "c'est la limite ; la question demande la valeur pour n = 30"
+        "b7b9e93476b9bd98ff5cab05b81e3a636938bed985328f61be61c28073d6d0b4": "c'est la limite ; la question demande la valeur pour n = 45"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -4286,15 +4275,20 @@
       "coarse_any": {
         "1": [
           "a710094f51f9d4b9d82120f48a74faba7a5907e9ef532e659a8e59590165dd0d"
+        ],
+        "2": [
+          "b55038f95adc71f829844588f331f2bc7bcbe40e33e328f17160a8cdf64ee191"
         ]
       },
-      "decimals": 3,
-      "hash": "a613284f2fb9d2c18312c6db29822878771aa53ecfbb13fa9f27729e06a9ed30",
-      "hash_coarse": "b55038f95adc71f829844588f331f2bc7bcbe40e33e328f17160a8cdf64ee191",
+      "decimals": 4,
+      "hash": "e4d340e2ca4afa8176a125af4b582164589553bd226e18522e12286debce4183",
+      "hash_coarse": "e0a14679135781fd58da625248b044e9da8f7caf72126f56a46c13766c32439b",
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "fb58f63a3cd791430d05f14357d4ee8898307e9412a366ef194b3e397f76e66e": "une erreur relative a un signe : d) est-elle au-dessus ou au-dessous de sa limite ?"
+        "819efdbd5cbcd7dfcaf28d058122179bb0b0eca95a4cd82450285eeab0f57543": "n ln(1 + x/n) est-il au-dessus ou au-dessous de x ? Pense à ln(1 + u) ≤ u",
+        "8fe5623236eaa6d0af407e408986a08a299b538f141c4c838cab0e934c997bd5": "c'est le premier terme du développement, −x²/(2n) ; la question demande l'écart exact",
+        "95d427327d5f76aa4a81f6740cec539d329aeec9981f4122ddd8bdcfa60f8d3c": "c'est l'erreur relative ; la question demande l'écart des logarithmes"
       },
       "sign": -1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -4343,6 +4337,7 @@
       "kind": "array",
       "mistakes": {
         "4e5b48a012f3d981876033c67d7743d546516668fc327c945e6e351195d731f5": "n'oublie pas η dans l'exponentielle",
+        "a54eb1f6f85246ac491fbd430475e10a34d75fa86e5890b14cc18c0b91fc9f66": "ce sont les poids avant normalisation : divise-les par leur somme",
         "b5410b8b0e4a9fa47ebab5c95be649a3f314e6efe975d4a271f6f9b9650392cc": "normalise : la somme des poids vaut 1",
         "f537fb21f2a672d0d519bf067bfdf15b95082c6e94149149b5d69b7bbc27a147": "les poids décroissent quand L grandit : e^(−η L)"
       },
@@ -4427,6 +4422,7 @@
       "hash": "b473589998d964993f54e92dc5f444918d490423b66caf92c00d6fd6917fa44f",
       "kind": "array",
       "mistakes": {
+        "33dfec5b673c3d3376b5e86cb5bc93dcf36194b73142dc60c10c899f55bc330f": "ce sont les variances des features ; la question porte sur les scores",
         "bfa502859271c25a3d04cafa58ecb4d227b0bfb60f538f2baea2169369ddc331": "l'énoncé demande la variance avec n − 1"
       },
       "shape": [
@@ -4499,8 +4495,10 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "130df9acb84eca32549714f56693c5c9ac0a25b3851618392ab4a1778751a9d6": "la somme des carrés totale se calcule sur y − ȳ",
         "8625d92315ea09d3e4067e4dfa61a93909ca9fab9930f40d81690bf3b775148a": "deux axes, pas un seul",
-        "c5526f8cb009c059dd3bb794cd8517e35fee97eda21ded48ef566c0e6f96a25a": "c'est le R² à trois axes ; la question demande celui à deux axes"
+        "c5526f8cb009c059dd3bb794cd8517e35fee97eda21ded48ef566c0e6f96a25a": "c'est le R² à trois axes ; la question demande celui à deux axes",
+        "edad30bf9cf307efddfa80e967285179f473ea7ec6ba72120d44f94057efa8c2": "la somme des carrés totale se calcule sur y − ȳ"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -4546,7 +4544,9 @@
       "kind": "array",
       "mistake_decimals": 2,
       "mistakes": {
+        "61e84dd15961b6896986dc7da6a6de58b683c204b40e349979dfe6cf4369ab72": "le modèle prédit ȳ plus les termes en t : as-tu ajouté ȳ ?",
         "7e74ec3b558a23e3b2e90345df8e092d9b0c7353d0a643190ae92d2fe2abf3ca": "le nouvel exemple se centre avec la moyenne d'entraînement avant de calculer ses scores",
+        "c6dbf5e33698cfa2140243c0e475a4805ed4227f61ff3089e78d5c65017061f8": "le nouvel exemple se centre avec la moyenne d'entraînement, pas avec ses propres valeurs",
         "f74f98f29b68c6320b0f3689b32d3fa94ce7292ca19ef6700cdfbee10dcc32a6": "l'ordre : la prédiction à deux axes, puis celle à trois axes"
       },
       "shape": [
