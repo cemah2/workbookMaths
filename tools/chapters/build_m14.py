@@ -24,7 +24,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from chapter_kit import (STARS, Ex, Paper, Part, badge, bug_letters_mistakes, check_unique_keys,  # noqa: E402,F401
+from chapter_kit import (STARS, Ex, Paper, Part, badge, check_unique_keys,  # noqa: E402,F401
                          md, paper_cells, part_cells, setup_cell, write_notebook)
 
 CHAPTER = "M14"
@@ -32,7 +32,7 @@ FOLDER = "chapitres/m14_ensembles"
 
 F = 'kind="fraction", simplified=True'
 FRAC = "an irreducible fraction, as text"
-FRACS = "as texts (\"3/19\") or calculations, or with 6 decimals"
+FRACS = "as texts ([\"2/7\", \"5/7\"]) or calculations, or with 6 decimals"
 COVARIANCE = "Z_A et Z_B sont corrélées : n'oublie pas leur covariance"
 SIGN = "l'erreur relative est (valeur − limite)/limite : attention au signe"
 CUMULATIVE = "le poids utilise la loss CUMULÉE sur tous les tours précédents, pas celle du dernier tour"
@@ -58,7 +58,9 @@ PAPER = [
         ("e", "a number (4 decimals)", "float(9 * kl(R(1, 3), R(1, 10)))",
          '''decimals=4, mistakes={"KL(a ‖ p) : d'abord la proportion a = 1/3 de l'événement, puis le paramètre 0,1 de '''
          '''la loi": float(9 * kl(R(1, 10), R(1, 3))), "l'exposant est n KL(a ‖ p), avec n = 9": '''
-         '''float(kl(R(1, 3), R(1, 10)))}'''),
+         '''float(kl(R(1, 3), R(1, 10))), "la divergence est en nats : le logarithme népérien, ln": '''
+         '''float(9 * kl(R(1, 3), R(1, 10)) / sympy.log(2)), "e) demande l'EXPOSANT 9 KL(1/3 ‖ 0,1), pas la borne '''
+         '''e^(−9 KL)": float(sympy.exp(-9 * kl(R(1, 3), R(1, 10))))}'''),
         ("f", "a number (4 decimals)", "float(sympy.exp(-18 * (R(1, 3) - R(1, 10)) ** 2))",
          '''decimals=4, mistakes={"Hoeffding : e^(−2n(a − p)²), avec le 2": '''
          '''float(sympy.exp(-9 * (R(1, 3) - R(1, 10)) ** 2))}'''),
@@ -124,7 +126,8 @@ PAPER = [
         ("b", f"a list of 5 fractions, {FRACS}", "floats(W_4[2])",
          f'''decimals=6, mistakes={{"{CUMULATIVE}": floats(law_4(L_4[1]))}}'''),
         ("c", f"a list of 5 fractions, {FRACS}", "floats(W_4[3])",
-         f'''decimals=6, mistakes={{"{CUMULATIVE}": floats(law_4(L_4[2]))}}'''),
+         f'''decimals=6, mistakes={{"{CUMULATIVE}": floats(law_4(L_4[2])), '''
+         '''"c) demande les poids APRÈS le tour 3 : les losses cumulées des trois tours": floats(W_4[2])}'''),
         ("d", FRAC, "ALG_4",
          F + ''', mistakes={"chaque tour se joue avec les poids d'AVANT le tour : Σ_t w_t · ℓ_t": AFTER_4}'''),
         ("e", "an integer", "int(BEST_4)",
@@ -168,7 +171,9 @@ PAPER = [
                    "groupes de modèles", [
         ("a", FRAC, "var_9(5, 5)",
          F + f''', mistakes={{"{COVARIANCE}": var_9(5, 5, cov=0), '''
-         '''"la moyenne porte sur les 2m = 10 modèles, pas sur m": FLOOR_9 + R(5, 10)}'''),
+         '''"la moyenne porte sur les 2m = 10 modèles, pas sur m": FLOOR_9 + R(5, 10), '''
+         '''"les modèles d'un même groupe partagent leur part commune : leurs erreurs ne sont pas indépendantes": '''
+         '''(VA_9 + VB_9 + 2 * S_9) / 2 / 10}'''),
         ("b", FRAC, "FLOOR_9", F + f''', mistakes={{"{COVARIANCE}": (VA_9 + VB_9) / 4}}'''),
         ("c", FRAC, "FLOOR_9 / var_9(5, 5)",
          F + f''', mistakes={{"c) demande la part du plancher DANS la variance de a), un nombre entre 0 et 1": '''
@@ -371,7 +376,7 @@ M14_11 = Ex(
     body=HOWTO + r"""
 
 Écris, en suivant les docstrings (fiche §1 et §2) :
-- `chernoff_bound(n, p, a)` : `ValueError` si $n$ n'est pas un entier $\ge 0$, ou si $p$ ou $a$ sort de $[0, 1]$ ; `1.0` si $a \le p$ (la borne ne dit rien) ; `0.0` si $p = 0 < a$ (l'événement est impossible) ; sinon $e^{-n\,\mathrm{KL}(a \Vert p)}$, avec $\mathrm{KL}(a \Vert p) = a\ln\frac{a}{p} + (1 - a)\ln\frac{1 - a}{1 - p}$ en nats, où $0\ln 0$ compte pour 0 (le cas $a = 1$) ;
+- `chernoff_bound(n, p, a)` : `ValueError` si $n$ n'est pas un entier $\ge 0$ (un booléen, `True`, n'est pas un nombre d'essais), ou si $p$ ou $a$ n'est pas un nombre de $[0, 1]$ (`float(\"nan\")` compris) ; `1.0` si $a \le p$ (la borne ne dit rien) ; `0.0` si $p = 0 < a$ (l'événement est impossible) ; sinon $e^{-n\,\mathrm{KL}(a \Vert p)}$, avec $\mathrm{KL}(a \Vert p) = a\ln\frac{a}{p} + (1 - a)\ln\frac{1 - a}{1 - p}$ en nats, où $0\ln 0$ compte pour 0 (le cas $a = 1$) ;
 - `variance_of_average(cov, weights=None)` : `ValueError` si `cov` n'est pas une matrice carrée symétrique, si les poids n'ont pas la bonne longueur, ont une valeur négative ou une somme différente de 1, ou si le résultat est négatif au-delà de l'arrondi ; sinon $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$, avec les poids $\frac{1}{M}$ quand `weights` est omis.
 
 La vérification calcule, avec les données de la cellule fournie :
@@ -379,7 +384,7 @@ La vérification calcule, avec les données de la cellule fournie :
 - b) `chernoff_bound(32, 0.24, 0.15)`, un cas où $a \le p$ ;
 - c) `variance_of_average(COV_11)`, la variance de la moyenne simple de quatre variables de matrice de covariance `COV_11` (6 décimales) ;
 - d) `variance_of_average(COV_11, weights=W_11)` (6 décimales) ;
-- e) vrai ou faux : sur la grille de la cellule fournie (4 valeurs de $n$, 4 de $p$, 21 de $a$), ta borne est toujours au-dessus de la queue exacte $P(X \ge na)$, calculée par `binom.sf(math.ceil(n * a - 1e-9) - 1, n, p)` de `scipy.stats` ;
+- e) vrai ou faux : sur la grille de la cellule fournie (4 valeurs de $n$, 4 de $p$, 21 de $a$), ta borne est toujours au-dessus de la queue exacte $P(X \ge na)$, calculée par `binom.sf(math.ceil(n * a - 1e-9) - 1, n, p)` de `scipy.stats` (sinon, la vérification affiche le premier cas où elle passe dessous) ;
 - f) le nom de l'erreur levée par `variance_of_average(COV_11, weights=[0.2, 0.3, 0.3, 0.3])`.
 
 Dans ta copie : calcule $\mathrm{KL}(0{,}45 \Vert 0{,}24)$ à la main, puis a), et compare-la à la borne de Hoeffding $e^{-2n(a - p)^2}$ et à la queue exacte $P(X \ge 15)$. Que donnerait c) sans les covariances, et pourquoi c) est-il plus grand ? La grille de e) contient `a = np.linspace(0, 1, 21)[12]`, qui vaut `0.6000000000000001` : que vaut `25 * a`, et quelle queue calculerait `math.ceil(n * a) - 1` sans le `- 1e-9` ? Pourquoi f) est-il refusé plutôt que renormalisé en silence ?""",
@@ -393,10 +398,16 @@ with checked("M14.11c"):
 with checked("M14.11d"):
     wbm.check("M14.11d", mymath.ensembles.variance_of_average(COV_11, weights=W_11), computed=True)
 with checked("M14.11e"):
-    above_11 = all(mymath.ensembles.chernoff_bound(n, p, float(a))
-                   >= float(binom.sf(math.ceil(n * a - 1e-9) - 1, n, p)) - 1e-12
-                   for n in GRID_N_11 for p in GRID_P_11 for a in GRID_A_11)
-    wbm.check("M14.11e", bool(above_11), computed=True)
+    below_11 = None                              # the first (n, p, a) where your bound is below the exact tail
+    for n, p, a in ((n, p, float(a)) for n in GRID_N_11 for p in GRID_P_11 for a in GRID_A_11):
+        bound_11, tail_11 = mymath.ensembles.chernoff_bound(n, p, a), float(binom.sf(math.ceil(n * a - 1e-9) - 1, n, p))
+        if not bound_11 >= tail_11 - 1e-12:
+            below_11 = (n, p, a, bound_11, tail_11)
+            break
+    wbm.check("M14.11e", below_11 is None, computed=True)
+    if below_11 is not None:
+        print(f"   premier cas : n = {below_11[0]}, p = {fr(below_11[1], 2)}, a = {fr(below_11[2], 2)} : ta borne "
+              f"vaut {below_11[3]:.4g}, la queue exacte {below_11[4]:.4g}".replace(".", ","))
 with checked("M14.11f"):
     wbm.check("M14.11f", raised(mymath.ensembles.variance_of_average, COV_11, [0.2, 0.3, 0.3, 0.3]), computed=True)''',
     solution=LOAD_REF + '''
@@ -473,12 +484,17 @@ GIVEN_12 = '''LOSSES_12 = np.array([[0.3, 0.8, 0.5, 0.1],
 ETA_12 = 1.5
 BIG_12 = 20000.0 * LOSSES_12                  # the same losses, of the order of 10⁴'''
 
-CHECK_12 = '''def learner_weights_12(losses):
+CHECK_12 = '''shape_told_12 = []                               # the error of shape is said once, not by every block
+
+
+def learner_weights_12(losses):
     """Your weights for LOSSES_12-like losses, after a check of their shape (one row more than the rounds)."""
     w = np.asarray(mymath.ensembles.hedge_weights(losses, ETA_12), dtype=float)
     if w.shape != (len(losses) + 1, 4):
-        print(f"❌ Ex M14.12 : hedge_weights doit rendre un tableau ({len(losses) + 1}, 4) : une ligne avant chaque "
-              f"tour, puis une après le dernier ; reçu la forme {w.shape}")
+        if not shape_told_12:
+            print(f"❌ Ex M14.12 : hedge_weights doit rendre un tableau ({len(losses) + 1}, 4) : une ligne avant chaque "
+                  f"tour, puis une après le dernier ; reçu la forme {w.shape}")
+            shape_told_12.append(True)
         raise StopCheck
     return w
 
@@ -487,13 +503,25 @@ with checked("M14.12a"):
     wbm.check("M14.12a", np.asarray(mymath.ensembles.hedge_weights(LOSSES_12, ETA_12))[-1].tolist(), computed=True)
 with checked("M14.12b"):
     w_12 = learner_weights_12(LOSSES_12)
-    wbm.check("M14.12b", bool(np.allclose(w_12.sum(axis=1), 1.0, rtol=0, atol=1e-12)
-                              and np.allclose(w_12[0], 0.25, rtol=0, atol=1e-12)), computed=True)
+    rows_12 = bool(np.allclose(w_12.sum(axis=1), 1.0, rtol=0, atol=1e-12))
+    first_12 = bool(np.allclose(w_12[0], w_12[0].mean(), rtol=0, atol=1e-12))     # the same weight for every expert
+    wbm.check("M14.12b", rows_12 and first_12 and bool(np.allclose(w_12[0], 0.25)), computed=True)
+    if not rows_12:
+        print("   des lignes ne somment pas à 1 : normalise CHAQUE ligne, w / w.sum(axis=1, keepdims=True)")
+    if not first_12:
+        print("   la première ligne vient avant toute loss : elle doit être uniforme")
 with checked("M14.12c"):
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", RuntimeWarning)
         big_12 = learner_weights_12(BIG_12)
-    wbm.check("M14.12c", bool(np.all(np.isfinite(big_12)) and np.allclose(big_12.sum(axis=1), 1.0)), computed=True)
+    finite_12 = bool(np.all(np.isfinite(big_12)))
+    rows_big_12 = finite_12 and bool(np.allclose(big_12.sum(axis=1), 1.0))
+    wbm.check("M14.12c", rows_big_12, computed=True)
+    if not finite_12:
+        print("   des poids non finis : retranche la plus petite loss cumulée de chaque ligne avant l'exponentielle")
+    elif not rows_big_12:
+        print("   des poids finis, mais des lignes qui ne somment pas à 1 : normalise CHAQUE ligne, "
+              "w / w.sum(axis=1, keepdims=True)")
 with checked("M14.12d"):
     w_12 = learner_weights_12(LOSSES_12)
     wbm.check("M14.12d", float(np.sum(w_12[:-1] * LOSSES_12)), computed=True)
@@ -537,18 +565,20 @@ losses_12r = np.array([[0.3, 0.8, 0.5, 0.1], [0.6, 0.2, 0.4, 0.9], [0.1, 0.7, 0.
                        [0.4, 0.5, 0.6, 0.2], [0.2, 0.3, 0.1, 0.7]])
 cum_12r = np.vstack([np.zeros(4), np.cumsum(losses_12r, axis=0)])
 w_12r = softmax(-1.5 * cum_12r, axis=1)
+shifted_12r = np.exp(-1.5 * (cum_12r - cum_12r.min(axis=1, keepdims=True)))   # before the normalization
 wbm.record("M14.12a", w_12r[-1].tolist(), decimals=6,
            mistakes={"chaque poids utilise la loss CUMULÉE sur tous les tours, pas celle du dernier tour":
                          softmax(-1.5 * losses_12r[-1]).tolist(),
                      "e^(−ηL) : une grande loss cumulée, un PETIT poids": softmax(1.5 * cum_12r[-1]).tolist(),
                      "des poids : divise chaque ligne par sa somme":
-                         np.exp(-1.5 * (cum_12r[-1] - cum_12r[-1].min())).tolist()})
+                         np.exp(-1.5 * (cum_12r[-1] - cum_12r[-1].min())).tolist(),
+                     "normalise CHAQUE ligne, w / w.sum(axis=1, keepdims=True), pas le tableau entier":
+                         (shifted_12r[-1] / shifted_12r.sum()).tolist()})
 wbm.record("M14.12b", True,
-           mistakes={"la ligne 0 vient avant toute loss, et chaque ligne est une loi : relis hedge_weights (ses tests "
-                     "disent ce qui ne va pas)": False})
+           mistakes={"la ligne qui suit dit ce qui ne va pas dans hedge_weights (ses tests aussi)": False})
 wbm.record("M14.12c", True,
-           mistakes={"retranche la plus petite loss cumulée de chaque ligne avant l'exponentielle : sinon tous les "
-                     "e^(−ηL) valent 0": False})
+           mistakes={"la ligne qui suit dit ce qui ne va pas dans hedge_weights, pour de grandes losses (ses tests "
+                     "aussi)": False})
 total_12r = float(np.sum(w_12r[:-1] * losses_12r))
 wbm.record("M14.12d", total_12r, decimals=6,
            mistakes={"la ligne t des poids est celle d'AVANT le tour t + 1 : la première ligne est uniforme":
@@ -581,16 +611,16 @@ PART_A = Part("A", "Ta librairie : la borne de Chernoff, la variance d'une moyen
 GIVEN_13 = '''VAR_A_13, VAR_B_13, COV_AB_13 = 0.6, 1.4, 0.5      # the common parts: V(Z_A), V(Z_B) and Cov(Z_A, Z_B)
 COV_Z_13 = np.array([[VAR_A_13, COV_AB_13], [COV_AB_13, VAR_B_13]])
 OWN_13 = 2.2                                          # the variance of each own part E_i
-MS_13, N_DRAWS_13 = [1, 2, 4, 8, 16, 32, 64], 20000  # the numbers m of models per group, and the draws
+GROUP_SIZES_13, N_DRAWS_13 = [1, 2, 4, 8, 16, 32, 64], 40000   # the numbers m of models per group, and the draws
 ref_13 = wbm.load_mymath("ref", alias="mymath_ref").ensembles'''
 
 FIGURE_13 = '''fig, ax = plt.subplots(figsize=(7.0, 3.8))
 try:
     rng_fig_13 = np.random.default_rng(4331)
-    simulated_13 = [simulate_mean_variance(m, N_DRAWS_13, rng_fig_13) for m in MS_13]
-    theoretical_13 = [ref_13.variance_of_average(models_covariance(m)) for m in MS_13]
-    ax.plot(MS_13, theoretical_13, "o-", color="C0", label="variance théorique (variance_of_average)")
-    ax.plot(MS_13, simulated_13, "s--", color="C1", label="variance simulée (20 000 tirages)")
+    simulated_13 = [simulate_mean_variance(m, N_DRAWS_13, rng_fig_13) for m in GROUP_SIZES_13]
+    theoretical_13 = [ref_13.variance_of_average(models_covariance(m)) for m in GROUP_SIZES_13]
+    ax.plot(GROUP_SIZES_13, theoretical_13, "o-", color="C0", label="variance théorique (variance_of_average)")
+    ax.plot(GROUP_SIZES_13, simulated_13, "s--", color="C1", label="variance simulée (40 000 tirages)")
     try:
         floor_13 = float(Fraction(str(answer_M14_13b).replace(" ", ""))) if filled(answer_M14_13b) else None
     except (ValueError, ZeroDivisionError, NameError):
@@ -615,15 +645,15 @@ M14_13 = Ex(
 - `simulate_mean_variance(m, n_draws, rng)` : `n_draws` tirages ; chacun tire **une** paire $(Z_A, Z_B)$ (`rng.multivariate_normal`) et les $2m$ parts propres (`rng.normal`), forme les erreurs des $m$ modèles du groupe A puis des $m$ modèles du groupe B, et en fait la moyenne ; la fonction rend la variance empirique (`np.var`) des `n_draws` moyennes, un `float` ;
 - `models_covariance(m)` : la matrice de covariance $2m \times 2m$ des erreurs des $2m$ modèles ($m$ du groupe A, puis $m$ du groupe B).
 
-Une cellule les appelle pour $m$ = 1, 2, 4, …, 64, avec 20 000 tirages et un générateur de graine 4331, et passe chaque matrice à `variance_of_average` (celle de la référence, `ref_13.variance_of_average`, ou la tienne) : la moyenne simple des $2m$ modèles a la variance $\mathbf{a}^\top\boldsymbol{\Sigma}\mathbf{a}$, avec $\mathbf{a} = \left(\frac{1}{2m}, \ldots, \frac{1}{2m}\right)$. Calcule ensuite :
+Une cellule les appelle pour $m$ = 1, 2, 4, …, 64, avec 40 000 tirages et un générateur de graine 4331, et passe chaque matrice à `variance_of_average` (celle de la référence, `ref_13.variance_of_average`, ou la tienne) : la moyenne simple des $2m$ modèles a la variance $\mathbf{a}^\top\boldsymbol{\Sigma}\mathbf{a}$, avec $\mathbf{a} = \left(\frac{1}{2m}, \ldots, \frac{1}{2m}\right)$. Calcule ensuite :
 - a) la variance théorique de la moyenne pour $m = 6$ (6 décimales) ;
 - b) le plancher, la limite de cette variance quand $m \to \infty$ (6 décimales, ou une fraction entre guillemets) ;
 - c) vrai ou faux : pour chaque $m$ de la liste, la variance simulée est à moins de 5 % de la variance théorique ;
-- d) la part du plancher dans la variance théorique pour $m = 32$, le plancher divisé par cette variance (4 décimales).
+- d) pour $m = 32$, la variance de la moyenne **pondérée** qui donne au groupe A le poids total $\frac{3}{4}$ (chaque modèle du groupe A le poids $\frac{3}{128}$, chaque modèle du groupe B le poids $\frac{1}{128}$), calculée par `variance_of_average(models_covariance(32), weights=...)` (4 décimales).
 
 Une cellule trace ensuite les deux variances en fonction de $m$, avec ton plancher.
 
-Dans ta copie : écris la moyenne des $2m$ erreurs comme une part commune plus une moyenne de parts propres, et retrouve a) et b) sans `variance_of_average`. Pourquoi la variance simulée ne tombe-t-elle jamais exactement sur la variance théorique, et de combien s'en écarte-t-elle typiquement avec 20 000 tirages (l'écart-type relatif d'une variance empirique est d'environ $\sqrt{2/n}$) ? Quelle est la corrélation entre deux modèles du groupe B ? Que changerait une covariance $\operatorname{Cov}(Z_A, Z_B)$ négative ?""",
+Dans ta copie : écris la moyenne des $2m$ erreurs comme une part commune plus une moyenne de parts propres, et retrouve a) et b) sans `variance_of_average`. Pourquoi la variance simulée ne tombe-t-elle jamais exactement sur la variance théorique, et de combien s'en écarte-t-elle typiquement avec 40 000 tirages (l'écart-type relatif d'une variance empirique est d'environ $\sqrt{2/n}$) ? Pourquoi la moyenne pondérée de d) fait-elle mieux que la moyenne simple des mêmes 64 modèles ? Quelle proportion $\alpha$ du groupe A donnerait le plus petit plancher ? Quelle est la corrélation entre deux modèles du groupe B ? Que changerait une covariance $\operatorname{Cov}(Z_A, Z_B)$ négative ?""",
     todo='''def simulate_mean_variance(m, n_draws, rng):
     """The empirical variance of the mean of the 2m models (m of group A, then m of group B) over n_draws draws: each
     draw takes one pair (Z_A, Z_B) of covariance COV_Z_13 and 2m independent own parts of variance OWN_13, all with
@@ -639,12 +669,12 @@ def models_covariance(m):
 answer_M14_13a = answer_M14_13b = answer_M14_13c = answer_M14_13d = ...
 with wbm.attempt("M14.13"):          # your two functions are called here: ⏳ while they are not written
     rng_13 = np.random.default_rng(4331)
-    simulated_13 = [simulate_mean_variance(m, N_DRAWS_13, rng_13) for m in MS_13]
-    theoretical_13 = [ref_13.variance_of_average(models_covariance(m)) for m in MS_13]
+    simulated_13 = [simulate_mean_variance(m, N_DRAWS_13, rng_13) for m in GROUP_SIZES_13]
+    theoretical_13 = [ref_13.variance_of_average(models_covariance(m)) for m in GROUP_SIZES_13]
     answer_M14_13a = ...  # a) a number (6 decimals): the theoretical variance for m = 6
     answer_M14_13b = ...  # b) a number (6 decimals) or a fraction as text: the floor
     answer_M14_13c = ...  # c) True or False
-    answer_M14_13d = ...  # d) a number (4 decimals)''',
+    answer_M14_13d = ...  # d) a number (4 decimals): the weighted average for m = 32''',
     check='''for letter, answer in zip("abcd", [answer_M14_13a, answer_M14_13b, answer_M14_13c, answer_M14_13d]):
     wbm.check(f"M14.13{letter}", answer)
 
@@ -668,15 +698,16 @@ def models_covariance(m):
 
 start_13 = time.perf_counter()
 rng_13 = np.random.default_rng(4331)
-simulated_13 = [simulate_mean_variance(m, N_DRAWS_13, rng_13) for m in MS_13]
-theoretical_13 = [ref_13.variance_of_average(models_covariance(m)) for m in MS_13]
+simulated_13 = [simulate_mean_variance(m, N_DRAWS_13, rng_13) for m in GROUP_SIZES_13]
+theoretical_13 = [ref_13.variance_of_average(models_covariance(m)) for m in GROUP_SIZES_13]
 answer_M14_13a = round(ref_13.variance_of_average(models_covariance(6)), 6)
 answer_M14_13b = (VAR_A_13 + VAR_B_13 + 2 * COV_AB_13) / 4                # the variance of (Z_A + Z_B)/2
 answer_M14_13c = all(abs(s / t - 1) < 0.05 for s, t in zip(simulated_13, theoretical_13))
-answer_M14_13d = round(answer_M14_13b / theoretical_13[MS_13.index(32)], 4)
+weights_13 = np.concatenate([np.full(32, 3 / 128), np.full(32, 1 / 128)])   # group A weighs 3/4 in all
+answer_M14_13d = round(ref_13.variance_of_average(models_covariance(32), weights=weights_13), 4)
 print("a)", answer_M14_13a, " b)", round(answer_M14_13b, 6), " c)", answer_M14_13c, " d)", answer_M14_13d,
       f" ({time.perf_counter() - start_13:.1f} s)")
-for m, s, t in zip(MS_13, simulated_13, theoretical_13):
+for m, s, t in zip(GROUP_SIZES_13, simulated_13, theoretical_13):
     print(f"m = {m:2d} : simulée {s:.4f}, théorique {t:.4f}, écart {100 * (s / t - 1):+.2f} %".replace(".", ","))
 print("corrélation de deux modèles du groupe B :", round(VAR_B_13 / (VAR_B_13 + OWN_13), 4))
 ''' + FIGURE_13,
@@ -705,21 +736,33 @@ wbm.record("M14.13c", True,
            mistakes={"tes variances simulées s'écartent de plus de 5 % : chaque tirage prend UNE paire (Z_A, Z_B) pour "
                      "ses 2m modèles et 2m parts propres indépendantes ; rng.normal prend l'ÉCART-TYPE, la racine de la "
                      "variance": False})
-wbm.record("M14.13d", float(floor_13r / var_13r(32)), decimals=4,
-           mistakes={"d) demande la part du plancher DANS la variance, un nombre entre 0 et 1":
-                         float(var_13r(32) / floor_13r),
-                     "d) demande la part du PLANCHER, pas celle des parts propres": float(1 - floor_13r / var_13r(32))})''',
+
+
+def weighted_13r(alpha, m):
+    """The variance of the average that gives group A the total weight alpha (alpha/m to each of its m models)."""
+    common = alpha ** 2 * va_13r + (1 - alpha) ** 2 * vb_13r + 2 * alpha * (1 - alpha) * cab_13r
+    return common + own_13r * m * ((alpha / m) ** 2 + ((1 - alpha) / m) ** 2)
+
+
+wbm.record("M14.13d", float(weighted_13r(Fr(3, 4), 32)), decimals=4,
+           mistakes={"d) demande la moyenne PONDÉRÉE : passe les poids à variance_of_average": float(var_13r(32)),
+                     "le groupe A, les m premiers modèles, pèse 3/4 en tout : 3/128 pour chacun de ses modèles":
+                         float(weighted_13r(Fr(1, 4), 32))})''',
     note=r"La moyenne des $2m$ erreurs vaut $\frac{Z_A + Z_B}{2} + \frac{1}{2m}\sum_i E_i$ : sa variance est "
          r"$\frac{0{,}6 + 1{,}4 + 2 \times 0{,}5}{4} + \frac{2{,}2}{2m} = 0{,}75 + \frac{1{,}1}{m}$. a) Pour $m = 6$, "
          r"$\frac{14}{15} \approx 0{,}933333$. b) Le plancher $\frac{3}{4} = 0{,}75$ : le terme des parts propres, "
-         r"$\frac{1{,}1}{m}$, tend vers 0, celui des parts communes reste. c) Les écarts mesurés restent sous 1,2 % "
-         r"(l'écart-type relatif $\sqrt{2/20\,000} \approx 1\,\%$ prévoit cet ordre de grandeur). d) Pour $m = 32$ "
-         r"(64 modèles), la variance vaut $0{,}784375$, dont le plancher fait $\frac{240}{251} \approx 0{,}9562$ : plus "
-         r"de 95 % de ce qui reste vient des parts communes, et doubler encore le nombre de modèles ne gagne qu'environ "
-         r"$0{,}017$. Deux modèles du groupe B ont la corrélation $\frac{1{,}4}{1{,}4 + 2{,}2} \approx 0{,}389$. Avec "
-         r"$\operatorname{Cov}(Z_A, Z_B) < 0$, les deux parts communes se compenseraient en partie, et le plancher "
-         r"$\frac{V_A + V_B + 2\operatorname{Cov}}{4}$ baisserait : des modèles dont les erreurs communes vont en sens "
-         r"opposés se corrigent mutuellement.",
+         r"$\frac{1{,}1}{m}$, tend vers 0, celui des parts communes reste. c) Les écarts mesurés restent sous 1,2 % : "
+         r"l'écart-type relatif $\sqrt{2/40\,000} \approx 0{,}7\,\%$ prévoit cet ordre de grandeur. d) Avec le poids "
+         r"$\frac{3}{4}$ sur le groupe A, la part commune de la moyenne a la variance $\frac{9}{16} \times 0{,}6 + "
+         r"\frac{1}{16} \times 1{,}4 + 2 \times \frac{3}{16} \times 0{,}5 = \frac{49}{80} = 0{,}6125$, moins que "
+         r"$\frac{3}{4}$ ; les parts propres ajoutent $2{,}2 \times 32 \times \left(\frac{9}{128^2} + "
+         r"\frac{1}{128^2}\right) \approx 0{,}0430$, d'où $\frac{839}{1280} \approx 0{,}6555$, contre $0{,}7844$ pour "
+         r"la moyenne simple des mêmes 64 modèles. Le groupe A, dont la part commune varie le moins, mérite plus de "
+         r"poids : la meilleure proportion serait $\alpha^* = 0{,}9$, de plancher $0{,}59$. Deux modèles du groupe B "
+         r"ont la corrélation $\frac{1{,}4}{1{,}4 + 2{,}2} \approx 0{,}389$. Avec $\operatorname{Cov}(Z_A, Z_B) < 0$, "
+         r"les deux parts communes se compenseraient en partie, et le plancher $\frac{V_A + V_B + "
+         r"2\operatorname{Cov}}{4}$ baisserait : des modèles dont les erreurs communes vont en sens opposés se "
+         r"corrigent mutuellement.",
 )
 
 GIVEN_14 = '''rng_14 = np.random.default_rng(4334)
@@ -750,6 +793,19 @@ CHECK_14 = '''with checked("M14.14"):
                     series.append(np.array([np.ptp(points[np.isclose(points[:, 0], x), 1]) for x in xs]))
         return series
 
+    def own_weights_right_14():
+        """True or False: your hedge_weights (M14.12) gives the right weights on these losses; None if it cannot say
+        (not written, or it fails): draw_hedge may use ref_14.hedge_weights instead."""
+        try:
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore", RuntimeWarning)
+                own = [np.asarray(mymath.ensembles.hedge_weights(LOSSES_14, eta), dtype=float) for eta in ETAS_14]
+        except Exception:  # noqa: BLE001 - NotImplementedError included: nothing to say about it here
+            return None
+        return all(o.shape == (len(LOSSES_14) + 1, 5) and np.allclose(o, ref_14.hedge_weights(LOSSES_14, eta),
+                                                                       rtol=0, atol=1e-6)
+                   for o, eta in zip(own, ETAS_14))
+
     fig, axes = plt.subplots(1, len(ETAS_14), figsize=(13.0, 3.8), sharey=True)
     try:
         opened_14 = drawn(draw_hedge, axes, LOSSES_14, ETAS_14)
@@ -758,15 +814,21 @@ CHECK_14 = '''with checked("M14.14"):
         raise
     report_14(not opened_14 and all(ax.lines or ax.collections for ax in axes), "draw_hedge dessine dans les axes reçus",
               "draw_hedge doit dessiner dans chacun des axes reçus, sans ouvrir de figure (ni plt.figure ni plt.subplots)")
+    founds_14 = []
     for ax, eta in zip(axes, ETAS_14):
         want = ref_14.hedge_weights(LOSSES_14, eta)
         series = drawn_series_14(ax, want.shape[0])
-        found = sum(any(np.allclose(s, want[:, k], rtol=0, atol=1e-6) for s in series) for k in range(want.shape[1]))
+        founds_14.append(sum(any(np.allclose(s, want[:, k], rtol=0, atol=1e-6) for s in series)
+                             for k in range(want.shape[1])))
+    if any(found < 5 for found in founds_14) and own_weights_right_14() is False:
+        report_14(False, "", "ta hedge_weights (M14.12) ne rend pas les bons poids sur ces losses : refais M14.12, ou "
+                             "utilise ref_14.hedge_weights dans draw_hedge")
+    for ax, eta, found in zip(axes, ETAS_14, founds_14):
         shown = f"{eta:g}".replace(".", ",")
-        report_14(found == want.shape[1], f"η = {shown} : une courbe par expert, avec les bons poids",
-                  f"η = {shown} : je trouve {found} expert(s) sur {want.shape[1]} dont les {want.shape[0]} poids (avant "
-                  f"chaque tour, puis après le dernier) sont tracés ; trace chaque colonne de hedge_weights(losses, eta), "
-                  f"une courbe ou une aire empilée par expert")
+        report_14(found == 5, f"η = {shown} : une courbe par expert, avec les bons poids",
+                  f"η = {shown} : je trouve {found} expert(s) sur 5 dont les {len(LOSSES_14) + 1} poids (avant chaque "
+                  f"tour, puis après le dernier) sont tracés ; trace chaque colonne de hedge_weights(losses, eta), une "
+                  f"courbe ou une aire empilée par expert")
         title = ax.get_title()
         report_14(f"{eta:g}" in title or shown in title, f"η = {shown} : le titre donne η",
                   f"le titre de l'axe de η = {shown} doit donner la valeur de η (il vaut « {title} »)")
@@ -785,7 +847,7 @@ M14_14 = Ex(
 
 La cellule de vérification appelle ta fonction avec trois axes, pour $\eta$ = 0,15, 0,6 et 3, contrôle que les dessins sont dans les axes reçus, qu'il y a une courbe (ou une aire) par expert, que les valeurs tracées sont les bons poids, et que chaque titre donne $\eta$, puis affiche ta figure.
 
-Dans ta copie : pour chaque $\eta$, quel expert domine à la fin, et à partir de quel tour son poids dépasse-t-il 0,5 pour de bon ? Que font les poids pendant les vingt premiers tours avec $\eta = 3$, et pourquoi ces à-coups coûtent-ils au regret (fiche §4, le second terme de la borne) ? Avec $\eta = 0{,}15$, l'expert 3 a-t-il assez de poids à la fin ? Lequel des trois choisirais-tu pour ces 80 tours, et que dit la formule $\eta = \sqrt{8\ln K/T}$ ?""",
+Dans ta copie : pour chaque $\eta$, quel expert domine à la fin, et à partir de quel tour son poids dépasse-t-il 0,5 pour de bon ? Que font les poids pendant les vingt premiers tours avec $\eta = 3$, et pourquoi ces à-coups coûtent-ils au regret (fiche §4, le second terme de la borne) ? Avec $\eta = 0{,}15$, l'expert 3 a-t-il assez de poids à la fin ? Calcule le regret de chacun sur ces 80 tours (avec `hedge_weights`), puis sa garantie $\frac{\ln K}{\eta} + \frac{\eta T}{8}$ : lequel des trois choisirais-tu, et que dit la formule $\eta = \sqrt{8\ln K/T}$ ?""",
     todo='''def draw_hedge(axes, losses, etas):
     """In each axes received (one per learning rate of etas, and no other): the weight of each expert before each
     round and after the last one, from hedge_weights, with a title that gives eta."""
@@ -816,7 +878,13 @@ for eta in ETAS_14:
     print(f"η = {eta:g}".replace(".", ",") + f" : le poids de l'expert 3 dépasse 0,5 pour de bon à la ligne {good} ; "
           f"poids finaux {np.round(w_14[-1], 3).tolist()} ; plus grand saut d'un tour : "
           f"{np.abs(np.diff(w_14, axis=0)).max():.3f}")
-print("η = √(8 ln K / T) pour K = 5, T = 80 :", round(math.sqrt(8 * math.log(5) / 80), 3))
+for eta in ETAS_14:
+    w_14 = ref_14.hedge_weights(LOSSES_14, eta)
+    print(f"η = {eta:g} : regret {float(np.sum(w_14[:-1] * LOSSES_14)) - cumulative_14[-1].min():.2f}, garantie "
+          f"ln 5 / η + 80 η / 8 = {math.log(5) / eta + 10 * eta:.2f}".replace(".", ","))
+best_14 = math.sqrt(8 * math.log(5) / 80)
+print(f"η = √(8 ln K / T) pour K = 5, T = 80 : {best_14:.3f}, garantie {math.log(5) / best_14 + 10 * best_14:.2f}"
+      .replace(".", ","))
 
 
 ''' + CHECK_14,
@@ -824,11 +892,15 @@ print("η = √(8 ln K / T) pour K = 5, T = 80 :", round(math.sqrt(8 * math.log(
          r"tête des losses cumulées à la ligne 24 et la garde ; avant, elle passe des experts 1 et 5 à l'expert 2. "
          r"Avec $\eta = 3$, les poids suivent le meneur presque sans retard : son poids dépasse 0,5 dès la ligne 24 "
          r"et finit à $\approx 1$, mais pendant les vingt premiers tours tout le poids saute d'un expert à l'autre "
-         r"(jusqu'à 0,36 en un tour), et chaque saut fait payer la loss d'un expert qui vient de perdre la tête : "
-         r"c'est le terme $\frac{\eta T}{8}$ de la borne. Avec $\eta = 0{,}15$, les poids restent répartis : l'expert "
-         r"3 ne passe 0,5 qu'à la ligne 68 et finit à $0{,}53$, trop prudent. $\eta = 0{,}6$ (passage à la ligne 36, "
-         r"$0{,}95$ à la fin) est proche de $\sqrt{8\ln 5/80} \approx 0{,}40$, le $\eta$ qui équilibre les deux "
-         r"termes de la borne pour 80 tours.",
+         r"(jusqu'à 0,33 en un tour, puis 0,36 au 22ᵉ tour), et chaque saut fait payer la loss d'un expert qui vient de "
+         r"perdre la tête : c'est le terme $\frac{\eta T}{8}$ de la borne. Avec $\eta = 0{,}15$, les poids restent "
+         r"répartis : l'expert 3 ne passe 0,5 qu'à la ligne 68 et finit à $0{,}53$, trop prudent. $\eta = 0{,}6$ "
+         r"(passage à la ligne 36, $0{,}95$ à la fin) est proche de $\sqrt{8\ln 5/80} \approx 0{,}40$, le $\eta$ qui "
+         r"équilibre les deux termes de la borne pour 80 tours. Sur cette suite, peu adverse, $\eta = 3$ a le plus "
+         r"petit regret ($\approx 1{,}9$, contre $3{,}2$ pour 0,6 et $6{,}7$ pour 0,15) ; mais sa garantie, "
+         r"$\frac{\ln 5}{3} + \frac{3 \times 80}{8} \approx 30{,}5$, est mauvaise, alors que $\eta = 0{,}6$ garantit "
+         r"$\approx 8{,}7$, près du minimum $8{,}0$ atteint en $\eta \approx 0{,}40$ : c'est le choix sûr quand on ne "
+         r"sait rien des losses.",
 )
 
 PART_B = Part("B", "Une simulation et une figure",
@@ -854,13 +926,43 @@ W_15 = np.array([0.3, 0.15, 0.4, 0.15])     # weights of sum 1
 CUM_15 = np.array([12.5, 9.0, 10.5, 14.0])  # the cumulative losses of 4 experts
 ETA_15 = 0.35'''
 
-MISTAKES_15 = bug_letters_mistakes(
-    "ACDG", "BEF",
-    {"A": "relis ce que rend binom.sf(m, n, p) pour un événement « au moins k »",
-     "C": "relis l'ordre des deux arguments de la divergence dans la borne de Chernoff",
-     "D": "relis ce que compte la variance d'une moyenne de variables corrélées",
-     "G": "relis ce qu'il faut pour qu'une liste de poids soit une loi sur les experts"},
-    name_correct=False)
+def count_mistakes(answer: str, others: str) -> str:
+    """The ``mistakes`` dict (as source code) of a 🐛 answered by letters, whose messages say HOW MANY faulty lines are
+    missing and how many cited lines are correct, never which ones: a first try must not point at a line. One message
+    per (missing, extra) count, shared by every set of letters with those counts."""
+    import itertools
+    import json
+
+    words = {1: "une", 2: "deux", 3: "trois", 4: "quatre"}
+
+    def lack(n: int) -> str:
+        return f"il manque {words[n]} ligne{'s' if n > 1 else ''} fautive{'s' if n > 1 else ''}"
+
+    def wrong(n: int) -> str:
+        return f"{words[n]} des lignes que tu cites {'sont' if n > 1 else 'est'} correcte{'s' if n > 1 else ''}"
+
+    groups: dict[str, list[str]] = {}
+    letters = sorted(set(answer) | set(others))
+    for size in range(1, len(letters) + 1):
+        for chosen in itertools.combinations(letters, size):
+            text = "".join(chosen)
+            if text == "".join(sorted(answer)):
+                continue
+            missing, extra = len(set(answer) - set(chosen)), len(set(chosen) - set(answer))
+            if not extra:
+                key = f"{lack(missing)} : reprends chaque ligne que tu n'as pas citée avec un petit exemple"
+            elif not missing:
+                key = f"{wrong(extra)} : refais le calcul de chaque ligne citée sur un petit exemple"
+            else:
+                key = f"{lack(missing)}, et {wrong(extra)} : reprends chaque ligne avec un petit exemple"
+            groups.setdefault(key, []).append(text)
+    parts = [f"{json.dumps(k, ensure_ascii=False)}: " + (json.dumps(v[0]) if len(v) == 1 else
+                                                          "{" + ", ".join(json.dumps(x) for x in v) + "}")
+             for k, v in groups.items()]
+    return "{" + ",\n                     ".join(parts) + "}"
+
+
+MISTAKES_15 = count_mistakes("ACDG", "BEF")
 
 M14_15 = Ex(
     "M14.15", "🐛", 1, 15, "Chasse à l'erreur : P(X ≥ k) calculée comme P(X > k), des covariances oubliées, des poids "
@@ -960,9 +1062,13 @@ wbm.record("M14.15e", (raw_15r / raw_15r.sum()).tolist(), decimals=4,
 GIVEN_16 = '''ref_16 = wbm.load_mymath("ref", alias="mymath_ref").ensembles
 
 
-def bound_half(n, p, a):
-    """A wrong bound: half the Chernoff bound."""
-    return 0.5 * ref_16.chernoff_bound(n, p, a)
+def bound_reversed(n, p, a):
+    """A wrong bound: exp(-n KL(p ‖ a)), the divergence the wrong way round (1 for a ≤ p, 0 for a = 1)."""
+    if a <= p:
+        return 1.0
+    if a >= 1.0:
+        return 0.0
+    return math.exp(-n * (p * math.log(p / a) + (1 - p) * math.log((1 - p) / (1 - a))))
 
 
 def bound_squared(n, p, a):
@@ -980,7 +1086,7 @@ def bound_markov(n, p, a):
     return min(1.0, p / a) if a > 0 else 1.0
 
 
-WRONG_16 = {"bound_half (la moitié de la borne)": bound_half,
+WRONG_16 = {"bound_reversed (e^(−n KL(p ‖ a)))": bound_reversed,
             "bound_squared (e^(−2n KL))": bound_squared,
             "bound_fixed_lambda (Markov sur e^X, λ = 1)": bound_fixed_lambda,
             "bound_markov (min(1, p/a))": bound_markov}'''
@@ -1014,7 +1120,7 @@ CHECK_16 = '''with checked("M14.16"):
     report_16(bool(cases_16) and min(p for _, p, _ in cases_16) <= 0.05 and max(p for _, p, _ in cases_16) >= 0.95,
               "p va près de 0 et près de 1",
               "ta grille doit contenir des p près de 0 (au plus 0,05) et près de 1 (au moins 0,95) : les événements rares")
-    hints_16 = {"bound_half": "compare-la à la queue exacte, aussi pour a ≤ p et pour a = 1",
+    hints_16 = {"bound_reversed": "compare-la à la queue exacte, aussi pour a = 1 et de petits n",
                 "bound_squared": "compare-la à la queue exacte, aussi pour de petits n",
                 "bound_fixed_lambda": "vérifie que la borne reste dans [0, 1], aussi pour a ≤ p",
                 "bound_markov": "compare-la à la borne de Hoeffding, pour a > p et de grands n"}
@@ -1038,13 +1144,13 @@ M14_16 = Ex(
     "une grille de n, p et a",
     "écrire un test de propriétés d'une borne, sur une grille qui contient les cas extrêmes, et vérifier qu'il "
     "attrape des bornes fausses.", "fiche §1 ; Ex M14.11", tracks="C", given=GIVEN_16,
-    body=r"""Une borne se teste par ses **propriétés**. Écris `test_chernoff_dominates(bound)`, une fonction de test dans le style de pytest (des `assert` avec un message qui dit le cas), qui reçoit une fonction `bound(n, p, a)` et vérifie, sur une grille de $n$, $p$ et $a$ de ton choix (au moins 100 cas, $a$ jusqu'à 1, des $p$ près de 0 et près de 1) :
+    body=r"""M11.26 vérifiait la seule propriété d'une borne de Markov : rester au-dessus de la queue. Une borne de Chernoff en a d'autres. Écris `test_chernoff_dominates(bound)`, une fonction de test dans le style de pytest (des `assert` avec un message qui dit le cas), qui reçoit une fonction `bound(n, p, a)` et vérifie, sur une grille de $n$, $p$ et $a$ de ton choix (au moins 100 cas, $a$ jusqu'à 1, des $p$ près de 0 et près de 1) :
 - que `bound(n, p, a)` est dans $[0, 1]$ ;
 - qu'elle majore la queue exacte $P(X \ge na)$ de la loi $\mathcal{B}(n, p)$, calculée par `binom.sf(k - 1, n, p)` avec $k = \lceil na \rceil$ (attention aux flottants : `50 * 0.14` vaut `7.000000000000001`) ;
 - que, pour $a > p$, elle reste sous la borne de Hoeffding $e^{-2n(a - p)^2}$ (fiche §1 : l'inégalité de Pinsker) ;
 - que, pour $a > p$, elle ne croît pas avec $n$ (compare par exemple `bound(n, p, a)` et `bound(2 * n, p, a)`).
 
-Prévois une petite tolérance (`1e-12`) dans chaque comparaison. La vérification appelle ton test sur la vraie borne, `ref_16.chernoff_bound`, où il doit **passer**, et compte les cas de ta grille ; puis sur les quatre fausses bornes de la cellule fournie, où il doit **échouer** : `bound_half`, la moitié de la borne ; `bound_squared`, $e^{-2n\,\mathrm{KL}(a \Vert p)}$ ; `bound_fixed_lambda`, l'inégalité de Markov appliquée à $e^{\lambda X}$ avec $\lambda = 1$ au lieu du meilleur $\lambda$ ; `bound_markov`, la borne de Markov $\min(1, p/a)$.
+Prévois une petite tolérance (`1e-12`) dans chaque comparaison. La vérification appelle ton test sur la vraie borne, `ref_16.chernoff_bound`, où il doit **passer**, et compte les cas de ta grille ; puis sur les quatre fausses bornes de la cellule fournie, où il doit **échouer** : `bound_reversed`, $e^{-n\,\mathrm{KL}(p \Vert a)}$ ; `bound_squared`, $e^{-2n\,\mathrm{KL}(a \Vert p)}$ ; `bound_fixed_lambda`, l'inégalité de Markov appliquée à $e^{\lambda X}$ avec $\lambda = 1$ au lieu du meilleur $\lambda$ ; `bound_markov`, la borne de Markov $\min(1, p/a)$.
 
 Dans ta copie : quelle propriété attrape chacune des quatre fausses bornes, et sur quel cas de ta grille ? Deux d'entre elles sont de **vraies** bornes de la queue, toujours au-dessus d'elle : lesquelles, et pourquoi ton test les refuse-t-il quand même ? Pourquoi `bound_fixed_lambda` peut-elle rendre plus que 1 ?""",
     todo='''def test_chernoff_dominates(bound):
@@ -1082,8 +1188,8 @@ for label, wrong in WRONG_16.items():                       # which property cat
 
 
 ''' + CHECK_16,
-    note=r"`bound_half` passe sous la queue exacte dès qu'elle est proche de la borne : pour $a \le p$ (la vraie borne "
-         r"vaut 1, la moitié 0,5 alors que la queue vaut presque 1) et pour $a = 1$, où la borne est exacte, $p^n$. "
+    note=r"`bound_reversed` passe sous la queue exacte pour $a = 1$ : $\mathrm{KL}(p \Vert 1)$ est infinie, la « borne » "
+         r"vaut 0 alors que la queue vaut $p^n$ (pour $n = 1$ et $p = 0{,}01$ : $0 < 0{,}01$). "
          r"`bound_squared` passe sous la queue pour $n = 1$, $p = 0{,}01$, $a = 0{,}7$ : $0{,}0053 < 0{,}01$. "
          r"`bound_fixed_lambda` et `bound_markov` sont de vraies bornes (Markov vaut pour tout $\lambda > 0$, et pour "
          r"$X$ lui-même), mais pas celles que demande le contrat : la première rend $(1 - p + pe)^n e^{-na} > 1$ dès "
@@ -1152,18 +1258,18 @@ CHECK_17 = '''with checked("M14.17 défi"):
         ran_17 = True
         problems_17.append(f"AnytimeHedge utilise {', '.join(banned_17)}, interdit dans ce défi")
     start_17 = time.perf_counter()
-    for name_t, seed_t in ([] if banned_17 else SEQUENCES_17.items()):
+    for name_t, seed_t in ([] if banned_17 else SEQUENCES_17.items()):   # the three sequences, each with a new agent
         losses_t = sequence_17(name_t, seed_t)
         agent_t = AnytimeHedge(K_17)                 # ⏳ while the class is not written
-        total_t, cumulative_t, regrets_t = 0.0, np.zeros(K_17), {}
+        total_t, cumulative_t, regrets_t, broken_t = 0.0, np.zeros(K_17), {}, ""
         try:
             with own_code("M14.17", "AnytimeHedge", {"hedge_weights": ref_17.hedge_weights}):
                 for t in range(T_17):
                     w_t = np.asarray(agent_t.weights(), dtype=float).reshape(-1)
                     if (w_t.shape != (K_17,) or not np.all(np.isfinite(w_t)) or w_t.min() < -1e-12
                             or abs(w_t.sum() - 1.0) > 1e-9):
-                        problems_17.append(f"au tour {t + 1} de la suite « {name_t} », weights() doit rendre {K_17} "
-                                           f"nombres positifs ou nuls de somme 1, reçu {np.round(w_t, 4).tolist()[:12]}")
+                        broken_t = (f"au tour {t + 1}, weights() doit rendre {K_17} nombres positifs ou nuls de somme 1, "
+                                    f"reçu {np.round(w_t, 4).tolist()[:12]}")
                         break
                     total_t += float(w_t @ losses_t[t])
                     cumulative_t += losses_t[t]
@@ -1177,21 +1283,22 @@ CHECK_17 = '''with checked("M14.17 défi"):
             problems_17.append("AnytimeHedge appelle une fonction de la référence")
             break
         except Exception as exc:  # noqa: BLE001
-            ran_17 = True
-            problems_17.append(f"AnytimeHedge lève {type(exc).__name__} ({exc}) sur la suite « {name_t} »")
-            break
+            broken_t = f"AnytimeHedge lève {type(exc).__name__} ({exc})"
         ran_17 = True
-        if problems_17:
-            break
-        print(f"« {name_t} » : regret " + " ; ".join(f"au tour {t} : {fr(r, 2)} (borne {fr(regret_bound_17(t), 2)})"
-                                                     for t, r in regrets_t.items()))
+        marks_t = " ; ".join(f"au tour {t} : {fr(r, 2)} (borne {fr(regret_bound_17(t), 2)}) "
+                             + ("✅" if r <= regret_bound_17(t) else "❌") for t, r in regrets_t.items())
+        if broken_t:
+            print(f"❌ « {name_t} » : {broken_t}" + (f" ; avant cela, regret {marks_t}" if marks_t else ""))
+            problems_17.append(f"« {name_t} » : {broken_t}")
+            continue
         late_17 = [str(t) for t, r in regrets_t.items() if not r <= regret_bound_17(t)]
+        print(("❌" if late_17 else "✅") + f" « {name_t} » : regret {marks_t}")
         if late_17:
             problems_17.append(f"« {name_t} » : regret au-dessus de la borne au(x) tour(s) {', '.join(late_17)}")
     if time.perf_counter() - start_17 > 60:
         problems_17.append(f"{time.perf_counter() - start_17:.0f} s pour les trois suites, plus que les 60 s permises")
     if problems_17:
-        print("❌ Ex M14.17 : " + " ; ".join(problems_17) + ".")
+        print("❌ Ex M14.17 : objectif pas encore atteint : " + " ; ".join(problems_17) + ".")
     elif ran_17:
         ok_17 = True
         print("✅ Ex M14.17 : défi réussi : un regret sous la borne aux tours 50, 200 et 1 000, sur les trois suites, "
@@ -1212,7 +1319,7 @@ La vérification joue 1 000 tours sur trois suites de losses de 10 experts (cell
 
 Essaie d'abord un $\eta$ constant (0,01, puis le meilleur pour $T = 1\,000$) et « suivre le meneur », pour voir où chacun échoue. Les indices de `04_indices.md` donnent des pistes, à ouvrir une à une.
 
-Une dernière cellule enregistre si l'objectif est atteint.
+La cellule de vérification affiche, pour chaque suite, ton regret à chaque point de contrôle (✅ ou ❌), puis enregistre si l'objectif est atteint.
 
 Dans ta copie : où échouent $\eta = 0{,}01$, le meilleur $\eta$ constant pour $T = 1\,000$ et « suivre le meneur », et pourquoi ? Qu'as-tu choisi, et pourquoi ta méthode ne dépend-elle pas de $T$ ? Que vaut ton regret au tour 1 000 sur chaque suite, comparé à la borne ?""",
     todo='''class AnytimeHedge:
@@ -1231,7 +1338,7 @@ Dans ta copie : où échouent $\eta = 0{,}01$, le meilleur $\eta$ constant pour 
 with checked("M14.17"):
     if not ran_17:                               # ⏳ while AnytimeHedge is not written
         raise NotImplementedError("AnytimeHedge n'est pas encore écrite")
-    wbm.check("M14.17", bool(ok_17), computed=True)''',
+    wbm.check("M14.17", bool(ok_17), computed=True, quiet=not ok_17)   # the lines above say what fails''',
     solution='''class AnytimeHedge:
     """Hedge on K experts without knowing the horizon: weights() is the current law on the experts (K non-negative
     numbers of sum 1), update(losses) adds the K losses of the round (numbers in [0, 1])."""
@@ -1288,8 +1395,7 @@ strategies_17 = {"η = 0,01": lambda: FixedHedge(K_17, 0.01),
 for label, make in strategies_17.items():
     print(f"{label:>22} :", {name: regrets_17(make(), sequence_17(name, seed)) for name, seed in SEQUENCES_17.items()})''',
     after=[("solution", CHECK_17)],
-    record='''wbm.record("M14.17", True,
-           mistakes={"l'objectif n'est pas atteint : la cellule du défi dit pourquoi": False})''',
+    record='''wbm.record("M14.17", True)''',
     note=r"Les bornes valent $\approx 15{,}7$, $30{,}9$ et $68{,}4$ aux tours 50, 200 et 1 000. $\eta = 0{,}01$ réagit "
          r"trop lentement : regret $\approx 31$ dès le tour 50 sur la suite stochastique, $\approx 230$ au tour "
          r"1 000. « Suivre le meneur » réussit les deux premières suites (regret $\le 2$), mais la suite piège lui "
@@ -1354,7 +1460,7 @@ def objectives_cell() -> list:
                r"$\frac{1}{\mathbf{1}^\top\boldsymbol{\Sigma}^{-1}\mathbf{1}}$ ; une part commune laisse un plancher ; "
                r"$(1 + x/n)^n \to e^x$, erreur relative $\approx -\frac{x^2}{2n}$ ; Hedge : $w_t[k] \propto "
                r"e^{-\eta L_t[k]}$ (retrancher $\min_j L_t[j]$), $R_T \le \frac{\ln K}{\eta} + \frac{\eta T}{8}$, "
-               r"$\eta = \sqrt{8\ln K/T}$ donne $R_T \le \sqrt{\frac{T\ln K}{2}}$ ; sans $T$, $\eta_t = \sqrt{8\ln K/t}$ ; "
+               r"$\eta = \sqrt{8\ln K/T}$ donne $R_T \le \sqrt{\frac{T\ln K}{2}}$ ; "
                r"$\frac{\partial}{\partial F}e^{-yF} = -y\,e^{-yF}$, et pour Huber $-\operatorname{clip}(y - F, "
                r"-\delta, \delta)$.")]
 

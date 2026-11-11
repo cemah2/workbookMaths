@@ -194,11 +194,11 @@
 
 ### Ex M14.13 — Simuler la moyenne de deux groupes de modèles corrélés, et retrouver aᵀΣa et son plancher
 
-- la moyenne en deux parts, a) et b) à la main ; l'écart entre simulation et théorie, et √(2/n) ; la corrélation de deux modèles du groupe B ; une covariance Cov(Z_A, Z_B) négative :
+- la moyenne en deux parts, a) et b) à la main ; l'écart entre simulation et théorie, et √(2/n) ; pourquoi la moyenne pondérée de d) fait mieux, et la meilleure proportion α ; la corrélation de deux modèles du groupe B ; une covariance Cov(Z_A, Z_B) négative :
 
 ### Ex M14.14 — Les poids exponentiels au fil des tours : quel expert domine, selon le learning rate
 
-- pour chaque η, l'expert qui domine et le tour où il passe 0,5 ; les à-coups de η = 3 et leur coût ; η = 0,15 ; ton choix pour 80 tours et √(8 ln K/T) :
+- pour chaque η, l'expert qui domine et le tour où il passe 0,5 ; les à-coups de η = 3 et leur coût ; η = 0,15 ; le regret et la garantie de chacun ; ton choix pour 80 tours et √(8 ln K/T) :
 
 ### Ex M14.15 — Chasse à l'erreur : P(X ≥ k) calculée comme P(X > k), des covariances oubliées, des poids non renormalisés
 

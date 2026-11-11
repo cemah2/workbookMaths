@@ -281,8 +281,10 @@ def test_hedge_survives_large_losses(ens):
     got = _result(lambda: ens.hedge_weights(losses, 1.0), "finite weights", "losses of about 1000 per round",
                   "subtract the smallest cumulative loss of each row before the exponential")
     assert np.all(np.isfinite(got)) and np.allclose(got.sum(axis=1), 1.0), (
-        f"expected finite weights of sum 1 even for losses of 1000 per round, got {_show(got[-2:])} "
-        f"(subtract the smallest cumulative loss of each row before the exponential)")
+        f"expected finite weights, each row of sum 1, even for losses of 1000 per round, got {_show(got[-2:])} "
+        + ("(subtract the smallest cumulative loss of each row before the exponential)"
+           if not np.all(np.isfinite(got)) else
+           f"(rows of sum {_show(got.sum(axis=1)[-2:])}: normalize each row, w / w.sum(axis=1, keepdims=True))"))
     assert got[-1, 1] > 1 - 1e-12 and np.allclose(got[0], 1 / 3), (
         f"expected uniform weights before round 1 and nearly all the weight on expert 1 at the end, got "
         f"{_show(got[0])} and {_show(got[-1])}")
