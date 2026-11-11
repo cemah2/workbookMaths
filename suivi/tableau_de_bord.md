@@ -77,15 +77,15 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] 🤖 workbookIA **15** · scikit-learn
 - [ ] 📐 **CP3** · Examen blanc de la partie III
 - [ ] 🤖 workbookIA **CP3** · checkpoint (examen blanc, synthèse, mini-projet)
-- [ ] 📐 **M16** · Couches affines et variance à l'initialisation
+- [ ] 📐 **M16** · Applications affines, graphes et variance d'un produit
 - [ ] 🤖 workbookIA **16** · Réseaux feed-forward
-- [ ] 📐 **M17** · Jacobienne et fonctions d'activation
+- [ ] 📐 **M17** · Jacobienne et règle de la chaîne
 - [ ] 🤖 workbookIA **17** · Fonctions d'activation
-- [ ] 📐 **M18** · Règle de la chaîne, calcul matriciel et différentiation automatique
+- [ ] 📐 **M18** · Différentiation automatique et calcul matriciel
 - [ ] 🤖 workbookIA **18** · Rétropropagation
-- [ ] 📐 **M19** · Hessienne, convexité et convergence
+- [ ] 📐 **M19** · Hessienne, conditionnement et convergence
 - [ ] 🤖 workbookIA **19** · Optimiseurs
-- [ ] 📐 **M20** · Tenseurs, dropout et normalisation
+- [ ] 📐 **M20** · Tenseurs, axes et estimateurs pondérés
 - [ ] 🤖 workbookIA **20** · Deep learning et premiers pas en PyTorch
 - [ ] 📐 **CP4** · Examen blanc de la partie IV
 - [ ] 🤖 workbookIA **CP4** · checkpoint (examen blanc, synthèse, mini-projet)

@@ -37,11 +37,11 @@ La règle : **la remise à niveau (R0 à R9) pendant le chapitre 0A de workbookI
 | 14 · Ensembles | **M14** · Les maths des ensembles |
 | 15 · scikit-learn | — (rien de nouveau) |
 | CP3 · checkpoint de la partie III | **CP3** · Examen blanc de la partie III |
-| 16 · Réseaux feed-forward | **M16** · Couches affines et variance à l'initialisation |
-| 17 · Fonctions d'activation | **M17** · Jacobienne et fonctions d'activation |
-| 18 · Rétropropagation | **M18** · Règle de la chaîne, calcul matriciel et différentiation automatique |
-| 19 · Optimiseurs | **M19** · Hessienne, convexité et convergence |
-| 20 · Deep learning et premiers pas en PyTorch | **M20** · Tenseurs, dropout et normalisation |
+| 16 · Réseaux feed-forward | **M16** · Applications affines, graphes et variance d'un produit |
+| 17 · Fonctions d'activation | **M17** · Jacobienne et règle de la chaîne |
+| 18 · Rétropropagation | **M18** · Différentiation automatique et calcul matriciel |
+| 19 · Optimiseurs | **M19** · Hessienne, conditionnement et convergence |
+| 20 · Deep learning et premiers pas en PyTorch | **M20** · Tenseurs, axes et estimateurs pondérés |
 | CP4 · checkpoint de la partie IV | **CP4** · Examen blanc de la partie IV |
 | 21 · Réseaux convolutifs (CNN) | **M21** · Convolution |
 | 22 · Réseaux récurrents (RNN, LSTM, GRU) | **M22** · Récurrences et gradient évanescent |

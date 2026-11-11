@@ -319,10 +319,10 @@ Non mathématiques : API scikit-learn · get_params/set_params/clone · decision
 | graphe orienté acyclique | M16 |
 | ordre topologique | M16 |
 | passe avant matricielle | M09a, M16 |
-| convention W (n_in, n_out) | M16 |
+| convention W (n_in, n_out) | M09a, M16 |
 | comptage des paramètres | M16 |
-| initialisation des poids (LeCun, Glorot, He) | M16 |
-| brisure de symétrie | M16 |
+| initialisation des poids (LeCun, Glorot, He) | M02b, M16 |
+| brisure de symétrie | M05b |
 | conservation de la variance | M16 |
 | fan-in / fan-out | M16 |
 
@@ -333,13 +333,13 @@ Non mathématiques : flux synchrone et asynchrone
 | Notion de workbookIA | Enseignée dans |
 |---|---|
 | rôle de la non-linéarité | M12a, M16 |
-| activations linéaires par morceaux (ReLU et variantes, maxout) | M17 |
-| activations lisses (softplus, ELU, sigmoïde, tanh, SiLU, GELU) | M17 |
+| activations linéaires par morceaux (ReLU et variantes, maxout) | M13b, M17 |
+| activations lisses (softplus, ELU, sigmoïde, tanh, SiLU, GELU) | R6, M02b, M17 |
 | dérivées des activations | R7, M17 |
 | saturation et neurones morts | M17 |
-| softmax, log-softmax, température | M17 |
+| softmax, log-softmax, température | M05a, M17 |
 | Jacobienne de la softmax | M17 |
-| stabilité numérique (log-sum-exp) | M05a, M17 |
+| stabilité numérique (log-sum-exp) | M05a |
 
 Non mathématiques : tests paramétrés pytest
 
@@ -350,11 +350,11 @@ Non mathématiques : tests paramétrés pytest
 | saturation et neurones morts | M17 |
 | learning rate | M05b |
 | rétropropagation | M18 |
-| delta d'un neurone | M18 |
-| règle de la chaîne multivariée | M18 |
+| delta d'un neurone | M17, M18 |
+| règle de la chaîne multivariée | M17, M18 |
 | forme matricielle des gradients | M18 |
-| losses et leurs gradients (MSE, BCE sur logits, cross-entropy softmax) | M18 |
-| vérification du gradient | M18 |
+| losses et leurs gradients (MSE, BCE sur logits, cross-entropy softmax) | M13a, M14, M17 |
+| vérification du gradient | M05a, M18 |
 | mini-batches | M18 |
 | différentiation automatique en mode inverse | M18 |
 | micro-autograd (Value) | M18 |
@@ -366,18 +366,18 @@ Non mathématiques : boucle d'entraînement from scratch
 | Notion de workbookIA | Enseignée dans |
 |---|---|
 | choix d'un optimiseur | M19 |
-| géométrie de la surface d'erreur | M19 |
+| géométrie de la surface d'erreur | M05b, M12c, M19 |
 | learning rate critique | M19 |
-| plannings de learning rate | R9, M19 |
+| plannings de learning rate | R1, R5, R9 |
 | batch / stochastique / mini-batch | M19 |
-| momentum | M19 |
+| momentum | R5, M19 |
 | Nesterov | M19 |
 | Adagrad | M19 |
-| RMSprop | M19 |
-| Adadelta | M19 |
-| Adam | M19 |
-| AdamW (weight decay découplé) | M19 |
-| warmup + cosinus | R9, M19 |
+| RMSprop | R5, M19 |
+| Adadelta | R5, M19 |
+| Adam | R5, M19 |
+| AdamW (weight decay découplé) | M09b, M19 |
+| warmup + cosinus | R9 |
 | gradient clipping | M07, M19 |
 
 ## workbookIA 20 · Deep learning et premiers pas en PyTorch
@@ -386,9 +386,9 @@ Non mathématiques : boucle d'entraînement from scratch
 |---|---|
 | tenseurs PyTorch | M20 |
 | dropout | M20 |
-| batchnorm | M20 |
-| layer norm | M20 |
-| pénalité L2 et weight decay | M09b, M19 |
+| batchnorm | M02c, M20 |
+| layer norm | M02c, M20 |
+| pénalité L2 et weight decay | M09b |
 | connexions résiduelles | M20 |
 
 Non mathématiques : architecture d'un réseau profond · autograd PyTorch · nn.Module · Dataset / DataLoader · boucle d'entraînement PyTorch · device (CPU/GPU) · early stopping · survey des couches (conv, pooling, RNN, utilitaires) · modèle pré-entraîné torchvision · sauvegarde et reproductibilité · explicabilité et dérive
