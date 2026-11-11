@@ -75,7 +75,7 @@
 - e) gain d'information (bits) =
 - f) log-loss moyenne (nats) =
 - g) meilleure log-loss d'une probabilité constante =
-- a) la vraisemblance L(θ) et pourquoi pas de dérivée nulle ; g) le q optimal et le lien avec une entropie :
+- a) la vraisemblance L(θ) et pourquoi pas de dérivée nulle ; g) le q optimal :
 
 ## CP3.6 — Lagrange, hinge loss et noyau
 
@@ -128,7 +128,7 @@ Sujet choisi :
 - g) w₃ =
 - h) R² à trois axes =
 - i) [prédiction à deux axes, prédiction à trois axes] =
-- Équations normales diagonales ; w₁ et w₂ inchangés ; ce que montrent d), f) et h) ; trois axes et moindres carrés sur x₁, x₂, x₃ :
+- Équations normales diagonales ; w₁ et w₂ inchangés ; ce que montrent d), f) et h) :
 
 ---
 

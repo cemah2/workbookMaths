@@ -128,7 +128,7 @@ Quatre petites situations.
 
 1. Cinq durées (en minutes), supposées tirées indépendamment d'une loi uniforme sur $[0, \theta]$ : 2,1 ; 5,6 ; 3,8 ; 0,9 ; 4,7.
 2. Une variable $X$ prend les valeurs 0, 1 et 2 avec $P(X = 0) = \theta$, $P(X = 1) = 2\theta$ et $P(X = 2) = 1 - 3\theta$, où $0 < \theta < \frac{1}{3}$. Sur 30 observations indépendantes : 4 fois 0, 10 fois 1 et 16 fois 2.
-3. Un nœud d'arbre de décision contient 20 exemples de trois classes, au nombre de 9, 7 et 4. Un seuil le coupe en deux groupes, de comptes $(4, 1, 4)$ et $(5, 6, 0)$.
+3. Un nœud d'arbre de décision contient 20 exemples de trois classes, au nombre de 9, 7 et 4. Un seuil le coupe en deux groupes, de comptes $(4, 7, 0)$ et $(5, 0, 4)$.
 4. Une régression logistique donne les scores $z = \mathbf{w} \cdot \mathbf{x} + b$ de cinq exemples : 1,3 ; −1,2 ; −0,5 ; 2,2 ; 0,9, pour les labels 1, 0, 1, 1, 0. On note $s(z) = \ln(1 + e^z)$ la softplus.
 
 | | Question | Réponse attendue |
@@ -141,7 +141,7 @@ Quatre petites situations.
 | f | (situation 4) la log-loss moyenne, en nats, calculée terme à terme comme $s(z) - yz$ | un nombre (3 décimales) |
 | g | (situation 4) la plus petite log-loss moyenne (en nats) que peut atteindre un modèle qui annonce la **même** probabilité $q$ pour les cinq exemples | un nombre (3 décimales) |
 
-Sur ta copie : pour a), écris la vraisemblance $L(\theta)$ et explique pourquoi son maximum n'est pas en un point où sa dérivée s'annule ; pour g), donne le $q$ optimal et le lien de g) avec une entropie.
+Sur ta copie : pour a), écris la vraisemblance $L(\theta)$ et explique pourquoi son maximum n'est pas en un point où sa dérivée s'annule ; pour g), donne le $q$ optimal.
 
 ### CP3.6 — Lagrange, hinge loss et noyau ✏️ ★★ ⏱️ 9 min · 1,75 point
 
@@ -203,7 +203,7 @@ Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 - **(D)** $\begin{pmatrix} 3 & 5 \\ 0 & 1 \end{pmatrix}$ a pour valeurs propres 3 et 1, $\begin{pmatrix} 2 & 0 \\ 5 & 4 \end{pmatrix}$ a pour valeurs propres 2 et 4 ; leur somme a donc pour valeurs propres $3 + 4 = 7$ et $1 + 2 = 3$, et $7 + 3 = 10$ est bien sa trace.
 - **(E)** Dans une régression logistique où le poids de $x_j$ vaut 0,7, augmenter $x_j$ de 1, les autres features fixées, multiplie la cote $\frac{p}{1 - p}$ par $e^{0{,}7} \approx 2{,}01$.
 - **(F)** Un exemple de marge $y\,(\mathbf{w} \cdot \mathbf{x} + b) = 2$ a une hinge loss de $1 - 2 = -1$ : il fait baisser l'objectif de la SVM.
-- **(G)** Pour $X$ de loi $\mathcal{B}(n ;\ 0{,}2)$, la borne de Chernoff de $P(X \ge 0{,}4\,n)$ vaut $e^{-n\,\mathrm{KL}(0{,}4 \Vert 0{,}2)}$, avec $\mathrm{KL}(0{,}4 \Vert 0{,}2) \approx 0{,}1046$ nat.
+- **(G)** Pour $X$ de loi $\mathcal{B}(n ;\ 0{,}2)$, la borne de Chernoff de $P(X \ge 0{,}4\,n)$ vaut $e^{-n\,\mathrm{KL}(0{,}4 \Vert 0{,}2)}$, avec $\mathrm{KL}(0{,}4 \Vert 0{,}2) \approx 0{,}10465$ nat.
 - **(H)** $\begin{pmatrix} 3 & 4 \\ 4 & 2 \end{pmatrix}$ est symétrique et tous ses coefficients sont positifs : elle est définie positive.
 
 a) Les lettres des cinq lignes fausses, dans l'ordre alphabétique (un texte, comme `"ABCDE"`). **[0,5]**
@@ -244,7 +244,7 @@ La **régression sur composantes principales** à $k$ axes ajuste par les moindr
 | h | le $R^2$ de la régression sur les trois axes | un nombre (3 décimales) |
 | i | les prédictions, à deux axes puis à trois axes, pour le nouvel exemple $\mathbf{x} = (26, 5, 13)$ | une liste de 2 nombres |
 
-Sur ta copie : pourquoi les équations normales sont-elles diagonales, et pourquoi $w_1$ et $w_2$ ne changent-ils pas en g) ? Que montrent d), f) et h) ensemble sur le choix des axes à garder ? Pourquoi la régression sur les trois axes donne-t-elle les mêmes prédictions que les moindres carrés sur $x_1, x_2, x_3$ avec une constante ?
+Sur ta copie : pourquoi les équations normales sont-elles diagonales, et pourquoi $w_1$ et $w_2$ ne changent-ils pas en g) ? Que montrent d), f) et h) ensemble sur le choix des axes à garder ?
 
 ---
 
