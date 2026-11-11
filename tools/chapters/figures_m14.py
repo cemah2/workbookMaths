@@ -128,7 +128,7 @@ def hedge_weights() -> None:
         ax.set(xlabel="tour t", title=f"η = {french_number(eta)}", xlim=(0, T), ylim=(0, 1))
     axes[0].set_ylabel("poids")
     axes[1].legend(fontsize=8, loc="lower right")
-    fig.suptitle("Hedge, pertes 0 ou 1 tirées au hasard : un petit η répartit les poids longtemps, un grand η se "
+    fig.suptitle("Hedge, losses 0 ou 1 tirées au hasard : un petit η répartit les poids longtemps, un grand η se "
                  "concentre vite sur l'expert en tête", fontsize=10)
     save(fig, "hedge_poids.png")
 

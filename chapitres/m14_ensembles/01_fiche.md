@@ -58,7 +58,7 @@ Vocabulaire anglais de ce chapitre : *ensemble (of models)*, *binomial tail*, *k
 4. $\mathbb{V}\big(\sum_i w_iX_i\big) = \sum_{i,j}w_iw_j\operatorname{Cov}(X_i, X_j) = \mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ : les covariances comptent autant que les variances.
 5. Des prédictions indépendantes de même variance $\sigma^2$ : leur moyenne a la variance $\frac{\sigma^2}{M}$. Avec une **part commune**, la variance de la moyenne ne descend pas sous la variance de cette part : seule la **décorrélation** fait baisser ce plancher.
 6. $\left(1 + \frac{x}{n}\right)^n \to e^x$ pour tout réel $x$, car $n\ln\left(1 + \frac{x}{n}\right) \to x$ ; l'erreur relative vaut environ $-\frac{x^2}{2n}$.
-7. **Hedge** : $K$ experts, des pertes dans $[0, 1]$ ; avant le tour $t$, le poids de l'expert $k$ est proportionnel à $e^{-\eta L_t[k]}$, où $L_t[k]$ est sa perte cumulée. On retranche la plus petite perte cumulée avant l'exponentielle.
+7. **Hedge** : $K$ experts, des losses dans $[0, 1]$ ; avant le tour $t$, le poids de l'expert $k$ est proportionnel à $e^{-\eta L_t[k]}$, où $L_t[k]$ est sa loss cumulée. On retranche la plus petite loss cumulée avant l'exponentielle.
 8. **Regret** de Hedge : $R_T \le \frac{\ln K}{\eta} + \frac{\eta T}{8}$ ; avec $\eta = \sqrt{8\ln K/T}$, $R_T \le \sqrt{\frac{T\ln K}{2}}$, et le regret moyen tend vers 0.
 9. Le gradient d'une loss $\sum_i \ell(y_i, F_i)$ par rapport au **vecteur des prédictions** $\mathbf{F}$ a pour coordonnée $i$ la dérivée $\frac{\partial\ell}{\partial F}(y_i, F_i)$.
 10. Loss exponentielle $e^{-yF}$ : gradient $-y_ie^{-y_iF_i}$, des **poids exponentiels** sur les exemples mal classés ; loss de Huber : gradient borné par $\delta$, un point aberrant tire au plus avec la force $\delta$.
@@ -179,34 +179,34 @@ La suite **croît** vers $e^2$ ; l'approximation de l'erreur devient bonne dès 
 
 ### Prédire avec des experts
 
-$K$ **experts** (des modèles, des règles, des prévisionnistes) font chacun une prédiction à chaque tour. Au tour $t$, avant de voir le résultat, tu choisis une loi $\mathbf{w}_t$ sur les experts (tu suis l'expert $k$ avec la probabilité $w_t[k]$, ou tu mélanges leurs avis avec ces poids). Puis chaque expert reçoit une perte $\ell_t[k] \in [0, 1]$, et tu subis la perte moyenne $\mathbf{w}_t \cdot \boldsymbol{\ell}_t$. On ne suppose rien sur la façon dont les pertes sont produites : elles peuvent même être choisies contre toi.
+$K$ **experts** (des modèles, des règles, des prévisionnistes) font chacun une prédiction à chaque tour. Au tour $t$, avant de voir le résultat, tu choisis une loi $\mathbf{w}_t$ sur les experts (tu suis l'expert $k$ avec la probabilité $w_t[k]$, ou tu mélanges leurs avis avec ces poids). Puis chaque expert reçoit une loss $\ell_t[k] \in [0, 1]$, et tu subis la loss moyenne $\mathbf{w}_t \cdot \boldsymbol{\ell}_t$. On ne suppose rien sur la façon dont les losses sont produites : elles peuvent même être choisies contre toi.
 
-Ton **regret** après $T$ tours compare ta perte totale à celle du meilleur expert, choisi après coup :
+Ton **regret** après $T$ tours compare ta loss totale à celle du meilleur expert, choisi après coup :
 $$R_T = \sum_{t=1}^T \mathbf{w}_t \cdot \boldsymbol{\ell}_t - \min_k L_{T+1}[k], \qquad L_t[k] = \sum_{s < t}\ell_s[k].$$
-C'est le regret de M11, dans un cadre plus riche : en M11, on ne voyait que la récompense de l'option choisie (un bandit) ; ici, on voit les pertes de **tous** les experts (information complète, *full information*).
+C'est le regret de M11, dans un cadre plus riche : en M11, on ne voyait que la récompense de l'option choisie (un bandit) ; ici, on voit les losses de **tous** les experts (information complète, *full information*).
 
 ### Les poids exponentiels
 
-**Hedge** donne à chaque expert un poids qui décroît exponentiellement avec sa perte cumulée :
+**Hedge** donne à chaque expert un poids qui décroît exponentiellement avec sa loss cumulée :
 $$w_t[k] = \frac{e^{-\eta L_t[k]}}{\sum_{j=1}^K e^{-\eta L_t[j]}},$$
-avec un **learning rate** $\eta > 0$. Avant le premier tour, toutes les pertes cumulées sont nulles : les poids sont uniformes. D'un tour à l'autre, chaque poids est multiplié par $e^{-\eta\ell_t[k]}$, puis tous sont renormalisés (une mise à jour **multiplicative**).
+avec un **learning rate** $\eta > 0$. Avant le premier tour, toutes les losses cumulées sont nulles : les poids sont uniformes. D'un tour à l'autre, chaque poids est multiplié par $e^{-\eta\ell_t[k]}$, puis tous sont renormalisés (une mise à jour **multiplicative**).
 
-**Le calcul en pratique.** Pour de grandes pertes, tous les $e^{-\eta L_t[k]}$ deviennent 0 en flottants (*underflow*), et la normalisation divise 0 par 0. On retranche donc la plus petite perte cumulée, $L_t[k] - \min_j L_t[j]$, avant l'exponentielle : la normalisation annule ce facteur commun, et le meilleur expert garde l'exposant 0 (l'astuce de log-somme-exp, M04 et M05a).
+**Le calcul en pratique.** Pour de grandes losses, tous les $e^{-\eta L_t[k]}$ deviennent 0 en flottants (*underflow*), et la normalisation divise 0 par 0. On retranche donc la plus petite loss cumulée, $L_t[k] - \min_j L_t[j]$, avant l'exponentielle : la normalisation annule ce facteur commun, et le meilleur expert garde l'exposant 0 (l'astuce de log-somme-exp, M04 et M05a).
 
 **Exemple.** Trois experts, $\eta = 0{,}5$, quatre tours :
 
-| tour $t$ | pertes $\boldsymbol{\ell}_t$ | pertes cumulées avant $t$ | poids $\mathbf{w}_t$ | ta perte $\mathbf{w}_t \cdot \boldsymbol{\ell}_t$ |
+| tour $t$ | losses $\boldsymbol{\ell}_t$ | losses cumulées avant $t$ | poids $\mathbf{w}_t$ | ta loss $\mathbf{w}_t \cdot \boldsymbol{\ell}_t$ |
 |---|---|---|---|---|
 | 1 | $(0 ;\ 1 ;\ 0{,}5)$ | $(0 ;\ 0 ;\ 0)$ | $(0{,}333 ;\ 0{,}333 ;\ 0{,}333)$ | 0,5 |
 | 2 | $(1 ;\ 0 ;\ 0{,}5)$ | $(0 ;\ 1 ;\ 0{,}5)$ | $(0{,}419 ;\ 0{,}254 ;\ 0{,}327)$ | 0,583 |
 | 3 | $(0 ;\ 1 ;\ 0{,}5)$ | $(1 ;\ 1 ;\ 1)$ | $(0{,}333 ;\ 0{,}333 ;\ 0{,}333)$ | 0,5 |
 | 4 | $(0 ;\ 0 ;\ 1)$ | $(1 ;\ 2 ;\ 1{,}5)$ | $(0{,}419 ;\ 0{,}254 ;\ 0{,}327)$ | 0,327 |
 
-Au tour 2, $e^{-0{,}5 \times (0 ;\ 1 ;\ 0{,}5)} = (1 ;\ 0{,}607 ;\ 0{,}779)$, de somme $2{,}385$, d'où les poids. Ta perte totale vaut $\approx 1{,}909$ ; le meilleur expert, le premier, a perdu 1 en tout : le regret vaut $\approx 0{,}909$.
+Au tour 2, $e^{-0{,}5 \times (0 ;\ 1 ;\ 0{,}5)} = (1 ;\ 0{,}607 ;\ 0{,}779)$, de somme $2{,}385$, d'où les poids. Ta loss totale vaut $\approx 1{,}909$ ; le meilleur expert, le premier, a perdu 1 en tout : le regret vaut $\approx 0{,}909$.
 
 ### Le regret de Hedge
 
-> **Théorème.** Pour des pertes dans $[0, 1]$, Hedge de learning rate $\eta$ a, sur $T$ tours et pour toute suite de pertes, un regret
+> **Théorème.** Pour des losses dans $[0, 1]$, Hedge de learning rate $\eta$ a, sur $T$ tours et pour toute suite de losses, un regret
 > $$R_T \le \frac{\ln K}{\eta} + \frac{\eta T}{8}.$$
 
 <details><summary>L'idée de la démonstration (facultatif)</summary>
@@ -242,7 +242,7 @@ Pour des labels $y_i \in \{-1, +1\}$ et un score $F_i$, la **loss exponentielle*
 $$\frac{\partial}{\partial F}e^{-yF} = -y\,e^{-yF} :$$
 le gradient pousse chaque prédiction vers son label ($-y$), avec une force égale à la **loss actuelle** de l'exemple.
 
-**Exemple.** Quatre exemples, de labels $\mathbf{y} = (+1, -1, +1, -1)$ et de scores $\mathbf{F} = (0{,}5 ;\ 0{,}2 ;\ -1 ;\ -0{,}8)$. Les marges valent $0{,}5$, $-0{,}2$, $-1$ et $0{,}8$ ; les losses $e^{-yF}$, $0{,}607$, $1{,}221$, $2{,}718$ et $0{,}449$ ; le gradient, $(-0{,}607 ;\ 1{,}221 ;\ -2{,}718 ;\ 0{,}449)$. Normalisées, les losses donnent les poids $(0{,}121 ;\ 0{,}244 ;\ 0{,}544 ;\ 0{,}090)$ : l'exemple le plus mal classé (le troisième) pèse plus de la moitié. Ce sont des **poids exponentiels**, comme au §4, mais sur les **exemples**, avec la marge à la place de la perte cumulée.
+**Exemple.** Quatre exemples, de labels $\mathbf{y} = (+1, -1, +1, -1)$ et de scores $\mathbf{F} = (0{,}5 ;\ 0{,}2 ;\ -1 ;\ -0{,}8)$. Les marges valent $0{,}5$, $-0{,}2$, $-1$ et $0{,}8$ ; les losses $e^{-yF}$, $0{,}607$, $1{,}221$, $2{,}718$ et $0{,}449$ ; le gradient, $(-0{,}607 ;\ 1{,}221 ;\ -2{,}718 ;\ 0{,}449)$. Normalisées, les losses donnent les poids $(0{,}121 ;\ 0{,}244 ;\ 0{,}544 ;\ 0{,}090)$ : l'exemple le plus mal classé (le troisième) pèse plus de la moitié. Ce sont des **poids exponentiels**, comme au §4, mais sur les **exemples**, avec la marge à la place de la loss cumulée.
 
 ### La loss de Huber : une force bornée
 
@@ -268,8 +268,8 @@ Un pas de descente de gradient sur $\mathbf{F}$ serait $\mathbf{F} \leftarrow \m
 - **Oublier les covariances.** $\mathbb{V}(\sum w_iX_i) \ne \sum w_i^2\,\mathbb{V}(X_i)$ dès que les variables sont corrélées.
 - **$\frac{\sigma^2}{M}$ pour des modèles corrélés.** Moyenner ne réduit que la part propre des erreurs.
 - **$(1 + x/n)^n$ pour $n$ « grand ».** Il faut $n$ grand devant $x^2$.
-- **Des poids non renormalisés, ou qui débordent.** Divise par la somme ; retranche la plus petite perte cumulée avant l'exponentielle.
-- **Le signe dans l'exponentielle.** Le poids d'un expert est $e^{-\eta L}$ : une grande perte, un **petit** poids.
+- **Des poids non renormalisés, ou qui débordent.** Divise par la somme ; retranche la plus petite loss cumulée avant l'exponentielle.
+- **Le signe dans l'exponentielle.** Le poids d'un expert est $e^{-\eta L}$ : une grande loss, un **petit** poids.
 - **Le gradient par rapport à quoi ?** Aux prédictions $\mathbf{F}$ ici, pas aux paramètres.
 
 ## Et maintenant
