@@ -250,7 +250,7 @@ def subgradient_6(examples, reg=1, sign=-1):
 
 
 # CP3.6 (3): the Gram matrix of k(x, z) = (x + z)² on 1, 2, 3
-PTS_6, VEC_6 = (1, 2, 3), (2, -1, 0)
+PTS_6, VEC_6 = (1, 2, 3), (3, -2, 0)
 K_6 = [[(x + z) ** 2 for z in PTS_6] for x in PTS_6]
 VKV_6 = sum(VEC_6[i] * VEC_6[j] * K_6[i][j] for i in range(3) for j in range(3))
 VKV_ONCE_6 = sum(VEC_6[i] * VEC_6[j] * K_6[i][j] for i in range(3) for j in range(i, 3))   # crossed terms once
@@ -326,13 +326,12 @@ PAPER = [
         ("d", "a list of 2 numbers", "COORD_1",
          'mistakes={"l\'ordre des coordonnées suit celui de la base (c₁, c₂)": COORD_1[::-1], '
          '"vérifie le signe sur la première ligne": [-x for x in COORD_1]}'),
-        ("e", "[alpha, beta, gamma]", "EQ_1",
+        ("e", "[z1, z2, z3]", "EQ_1",
          'mistakes={"Aᵀz = 0 dit que z est orthogonal à chaque colonne : vérifie z · c₁ et z · c₂": [2, 1, -1], '
-         '"l\'énoncé fixe z₁ = 2 : multiplie ton vecteur pour que sa première coordonnée vaille 2": [-2, 1, 1], '
-         '"ton vecteur est proportionnel au bon, mais l\'énoncé fixe z₁ = 2 : mets-le à cette échelle": '
-         '[1, -0.5, -0.5]}'),
+         '"l\'énoncé fixe z₁ = 2 : ta première coordonnée le respecte-t-elle ?": [-2, 1, 1], '
+         '"la première coordonnée de z est fixée par l\'énoncé : relis-le": [1, -0.5, -0.5]}'),
         ("f", "True or False", "SOLVABLE_1",
-         'mistakes={"un vecteur n\'est atteint par A que s\'il vérifie l\'équation de l\'image": True}'),
+         'mistakes={"un vecteur b n\'est atteint par A que s\'il est orthogonal à tout z de ker Aᵀ": True}'),
         ("g", "an integer", "DIM_W_1",
          'mistakes={"W ajoute une condition à celle qui définit V": DIM_V_1, '
          '"P(2) = P(−1) est une condition linéaire sur les coefficients, et ℝ₂[X] est de dimension 3": 3}'),
@@ -404,7 +403,8 @@ PAPER = [
          '"c\'est u₂ ; la question demande u₁ = A v₁ / s₁": U2_4}'),
         ("e", "a list of 2 numbers", "whole(SOL_4)",
          'mistakes={"A n\'est pas orthogonale : son inverse n\'est pas Aᵀ, il divise par les valeurs singulières": '
-         '[dot(col, B_4) for col in transpose(A_4)]}'),
+         '[dot(col, B_4) for col in transpose(A_4)], "la solution s\'écrit avec v₁, pas avec u₁": '
+         'whole([9, -2]), "A⁻¹ divise la composante sur u₁ par s₁": whole([11 * x for x in SOL_4])}'),
         ("f", "a number", "whole(ERR_4)",
          'mistakes={"c\'est le carré de l\'erreur": whole(ERR_4 ** 2), '
          '"l\'erreur vient de la valeur singulière retirée, pas de celle qui est gardée": whole(S_4[0])}'),
@@ -420,7 +420,8 @@ PAPER = [
     Paper("CP3.5", "Maximum de vraisemblance, log-loss et entropie", [
         ("a", "a number", "max(T_5)",
          'decimals=1, mistakes={"la vraisemblance est nulle dès que θ est plus petit qu\'une observation": '
-         'sum(T_5) / len(T_5)}'),
+         'sum(T_5) / len(T_5), "c\'est l\'estimateur des moments ; la question demande le maximum de '
+         'vraisemblance": 2 * sum(T_5) / len(T_5)}'),
         ("b", 'an irreducible fraction, as text (like "3/8")', "THETA_5",
          'kind="fraction", simplified=True, mistakes={"les observations 1 et 2 dépendent aussi de θ : la fréquence '
          'des 0 ne suffit pas": Fraction(N0_5, N_5), "la fréquence des 1 ne suffit pas non plus : les trois comptes '
@@ -429,7 +430,7 @@ PAPER = [
          '"c\'est l\'estimateur des moments ; la question demande le maximum de vraisemblance": '
          'Fraction(2 * N_5 - (N1_5 + 2 * N2_5), 4 * N_5)}'),
         ("c", "a number (3 decimals)", "entropy(LAW_5)",
-         'decimals=3, mistakes={"en bits : le logarithme de base 2": entropy(LAW_5, math.log)}'),
+         'decimals=3, mistakes={"en bits : le logarithme de base 2": {entropy(LAW_5, math.log), 1.319}}'),
         ("d", "a number (3 decimals)", "1 - GINI_SQUARES_5",
          'decimals=3, mistakes={"l\'indice de Gini est 1 − Σ p²": GINI_SQUARES_5}'),
         ("e", "a number (3 decimals)", "KL_UNIFORM_5",
@@ -472,9 +473,10 @@ PAPER = [
          '"P(X ≥ 5) additionne P(X = k) pour tous les k ≥ 5, pas seulement k = 5": pmf_7(5)}'),
         ("b", "a number (3 decimals)", "N_7 * kl(A_7, P_7)",
          'decimals=3, mistakes={"la KL n\'est pas symétrique : KL(a ‖ p), avec a en premier": N_7 * kl(P_7, A_7), '
-         '"la question demande l\'exposant n KL(a ‖ p), pas la borne": math.exp(-N_7 * kl(A_7, P_7))}'),
-        ("c", "a number (3 decimals)", "math.exp(-2 * N_7 * (A_7 - P_7) ** 2)",
-         'decimals=3, mistakes={"la borne de Hoeffding est e^(−2n(a − p)²), avec le facteur 2": '
+         '"la question demande l\'exposant n KL(a ‖ p), pas la borne": {math.exp(-N_7 * kl(A_7, P_7)), 0.015}, '
+         '"la KL de la borne de Chernoff est en nats : logarithme népérien": N_7 * kl(A_7, P_7) / math.log(2)}'),
+        ("c", "a number (2 decimals)", "math.exp(-2 * N_7 * (A_7 - P_7) ** 2)",
+         'decimals=2, mistakes={"la borne de Hoeffding est e^(−2n(a − p)²), avec le facteur 2": '
          'math.exp(-N_7 * (A_7 - P_7) ** 2)}'),
         ("d", "a number (4 decimals)", "D_7",
          'decimals=4, mistakes={"c\'est la limite ; la question demande la valeur pour n = 45": LIMIT_7}'),
@@ -487,7 +489,7 @@ PAPER = [
          'decimals=4, mistakes={"les poids décroissent quand L grandit : e^(−η L)": weights_7([ETA_7 * x for x in L_7]), '
          '"n\'oublie pas η dans l\'exponentielle": weights_7([-x for x in L_7]), '
          '"normalise : la somme des poids vaut 1": [math.exp(-ETA_7 * (x - min(L_7))) for x in L_7], '
-         '"ce sont les poids avant normalisation : divise-les par leur somme": [math.exp(-ETA_7 * x) for x in L_7]}'),
+         '"les poids demandés sont normalisés : leur somme vaut 1": [math.exp(-ETA_7 * x) for x in L_7]}'),
     ]),
     Paper("CP3.9", "Corriger une copie : cinq erreurs (les lettres seulement)", [
         ("a", 'the letters, as text (like "ABCDE")', '"ACDFH"', f"mistakes={LETTERS}"),

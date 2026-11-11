@@ -89,7 +89,7 @@ Dix erreurs fréquentes de la partie III, avec leur correction (le détail, chap
 |---|---|---|
 | base de l'image (M12a) | les colonnes à pivot de la forme réduite | les colonnes **de $\mathbf{A}$** aux indices des pivots : réduire change l'espace des colonnes |
 | système triangulaire (M12b) | résoudre $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ à partir de la première ligne | $\mathbf{R}$ est triangulaire supérieure : partir de la dernière ligne, qui n'a qu'une inconnue |
-| déterminant d'un multiple (M12c) | $\mathbf{A}$ de taille $3 \times 3$, $\det\mathbf{A} = 5$, donc $\det(2\mathbf{A}) = 10$ | $\det(c\mathbf{A}) = c^n\det\mathbf{A}$ : $2^3 \times 5 = 40$ |
+| déterminant d'un multiple (M12c) | $\mathbf{A}$ de taille $4 \times 4$, $\det\mathbf{A} = 3$, donc $\det(2\mathbf{A}) = 6$ | $\det(c\mathbf{A}) = c^n\det\mathbf{A}$ : $2^4 \times 3 = 48$ |
 | standardiser ou blanchir (M12c) | diviser chaque feature par son écart-type donne la covariance $\mathbf{I}$ | les variances valent 1, les corrélations restent ; blanchir : $\mathbf{W}\boldsymbol{\Sigma}\mathbf{W}^\top = \mathbf{I}$ |
 | valeurs singulières (M12d) | les valeurs propres de $\mathbf{A}^\top\mathbf{A}$, ou celles de $\mathbf{A}$ | leurs **racines** : $s_i = \sqrt{\lambda_i(\mathbf{A}^\top\mathbf{A})}$ |
 | ACP sans centrer (M12d) | diagonaliser $\frac{1}{n - 1}\mathbf{X}^\top\mathbf{X}$ sur les données brutes | retirer la moyenne d'abord, sinon le premier axe pointe vers la moyenne |

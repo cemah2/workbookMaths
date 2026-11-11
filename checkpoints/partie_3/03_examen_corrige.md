@@ -5,10 +5,10 @@
 ## Règles de notation
 
 - **Barème par sous-question**, entre crochets ; sauf mention contraire, une sous-question vaut 0,25 point. Une justification demandée « sur ta copie » compte dans la sous-question à laquelle elle se rattache.
-- **Crédit partiel** sur une sous-question de 0,25 point : 0,1 pour une réponse juste sans la démarche demandée, ou pour une méthode juste avec une erreur de calcul. **Erreur reportée** : si une réponse fausse est réutilisée correctement plus loin, la suite n'est pas pénalisée une seconde fois (par exemple un $\mathbf{R}$ faux en CP3.2 d, réutilisé en f) et g), ou des scores faux en CP3.10 b, réutilisés en c) à i)).
+- **Crédit partiel** sur une sous-question de 0,25 point : 0,1 pour une réponse juste sans la démarche demandée, ou pour une méthode juste avec une erreur de calcul. **Erreur reportée** : si une réponse fausse est réutilisée correctement plus loin, la suite n'est pas pénalisée une seconde fois (par exemple un $\mathbf{R}$ faux en CP3.2 d, réutilisé en g), ou des scores faux en CP3.10 b, réutilisés en c) à i)).
 - **Arrondis** : une décimale de moins coûte au plus 0,05 point par question ; un arrondi fait trop tôt, qui change la dernière décimale demandée, aussi. Des décimales en plus ne coûtent rien (le notebook les accepte).
 - **Questions rédigées** (CP3.Q1, CP3.8, CP3.9 b, les phrases demandées « sur ta copie ») : les critères sont listés ; une idée juste formulée autrement compte autant.
-- **Logarithmes** : $\ln$ est le logarithme népérien (`math.log` en Python), et $\log_2$ celui de base 2 (`math.log2`) ; les entropies de CP3.5 c) et e) sont en bits, les log-loss, la KL et les bornes en nats.
+- **Logarithmes** : $\ln$ est le logarithme népérien (`math.log` en Python), et $\log_2$ celui de base 2 (`math.log2`) ; l'entropie et la KL de CP3.5 c) et e) sont en bits ; les log-loss de CP3.5 f) et g), la KL et les bornes de CP3.7 en nats.
 
 ---
 
@@ -20,11 +20,11 @@
 
 **b) Vrai** (M12b, M12c). Tout vecteur du sous-espace (dimension 2) est inchangé, $\mathbf{P}\mathbf{x} = \mathbf{x}$ : la valeur propre 1, deux fois ; tout vecteur de son orthogonal (dimension $4 - 2 = 2$) est envoyé sur $\mathbf{0}$ : la valeur propre 0, deux fois. Vérification : la trace d'une projection vaut son rang, ici $1 + 1 + 0 + 0 = 2$.
 
-**c) Faux** (M12b, M12c). La rotation d'un quart de tour $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ est orthogonale (ses colonnes sont orthonormées), mais son polynôme caractéristique, $\lambda^2 + 1$ (trace 0, déterminant 1), n'a pas de racine réelle : aucune direction n'est conservée. Les rotations d'angle différent de 0 et de π n'ont pas de valeur propre réelle ; les symétries orthogonales ont 1 et −1, et $\pm\mathbf{I}$ ont 1 ou −1.
+**c) Faux** (M12b, M12c). La rotation d'un quart de tour $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ est orthogonale (ses colonnes sont orthonormées), mais son polynôme caractéristique, $\lambda^2 + 1$ (trace 0, déterminant 1), n'a pas de racine réelle : aucune direction n'est conservée. Les rotations d'angle différent de 0 et de π n'ont pas de valeur propre réelle ; les réflexions (symétries orthogonales par rapport à une droite) ont 1 et −1, et $\pm\mathbf{I}$ ont 1 ou −1.
 
 **d) Faux** (M12d). Les variances le long des axes sont proportionnelles aux **carrés** des valeurs singulières, $\lambda_j = \frac{s_j^2}{n - 1}$ : la part du premier axe vaut $\frac{25}{25 + 4} = \frac{25}{29} \approx 86$ %. Les 71 % viennent de $\frac{5}{5 + 2}$, sans les carrés.
 
-**e) Vrai** (M13a). Les deux exemples ont le même score $z = \mathbf{w} \cdot \mathbf{x} + b$, donc la même probabilité prédite $q = \sigma(z)$, strictement entre 0 et 1. Leurs deux termes valent $-\ln q$ et $-\ln(1 - q)$, de somme au moins $2\ln 2 > 0$ (le minimum de $-\ln q - \ln(1 - q)$ est en $q = \frac{1}{2}$) ; les autres termes sont positifs ou nuls. Aucun modèle qui ne voit que les features ne peut séparer deux exemples identiques.
+**e) Vrai** (M13a). Les deux exemples ont le même score $z = \mathbf{w} \cdot \mathbf{x} + b$, donc la même probabilité prédite $q = \sigma(z)$. Leurs deux termes valent $-\ln q$ et $-\ln(1 - q)$, de somme au moins $2\ln 2$ (le minimum de $-\ln q - \ln(1 - q)$ est en $q = \frac{1}{2}$) ; les autres termes sont positifs. La log-loss moyenne reste donc au moins $\frac{2\ln 2}{n} > 0$, quels que soient $\mathbf{w}$ et $b$. Sur des données séparables, au contraire, on peut la rendre aussi proche de 0 qu'on veut (en multipliant $\mathbf{w}$ et $b$ par un grand nombre).
 
 **f) Faux** (M13b). $\nabla f + \lambda\nabla g = \mathbf{0}$ s'écrit $(2x, 2y) + \lambda(1, 2) = \mathbf{0}$, donc $(x, y) = \left(-\frac{\lambda}{2}, -\lambda\right)$, et la contrainte donne $-\frac{5\lambda}{2} = 5$ : $\lambda = -2$, au point $(1, 2)$ (le point de la droite le plus proche de l'origine). Un multiplicateur nul voudrait dire que le minimum libre, $(0, 0)$, vérifie déjà la contrainte : ce n'est pas le cas.
 
@@ -36,7 +36,7 @@
 
 **j) Vrai** (M14). Les poids sont proportionnels à $e^{-\eta L_k}$ : le rapport du poids de cet expert à celui du meilleur vaut $e^{-0{,}4 \times 5} = e^{-2} \approx 0{,}135 < 0{,}2$.
 
-**Erreurs fréquentes** : en a), répondre « Faux » parce que $\mathbf{X}^\top\mathbf{X}$ reste semi-définie positive (la question dit « définie ») ; en b), croire que toutes les valeurs propres valent 1 ; en c), oublier les rotations, qui n'ont pas de valeur propre réelle ; en d), oublier les carrés ; en e), croire qu'un modèle assez riche peut toujours atteindre une log-loss nulle ; en f), confondre avec une contrainte d'inégalité inactive ; en g), penser au noyau RBF, dont la matrice de Gram de points distincts est inversible ; en i), croire que la suite dépasse sa limite.
+**Erreurs fréquentes** : en a), répondre « Faux » parce que $\mathbf{X}^\top\mathbf{X}$ reste semi-définie positive (la question dit « définie ») ; en b), croire que toutes les valeurs propres valent 1 ; en c), oublier les rotations, qui n'ont pas de valeur propre réelle ; en d), oublier les carrés ; en e), répondre « chaque terme est positif » sans montrer que la somme ne peut pas tendre vers 0 ; en f), confondre avec une contrainte d'inégalité inactive ; en g), penser au noyau RBF, dont la matrice de Gram de points distincts est inversible ; en i), croire que la suite dépasse sa limite.
 **Remédiation** : a) M12a.20, M12c.17 ; b) M12b.8, M12c.7 ; c) M12c.6, M12b.3 ; d) M12d.10, M12d.11 ; e) M13a.3, M13a.4, M13a.14 ; f) M13b.1, M13b.2 ; g) M12a.6, M13b.19 ; h) M14.8 ; i) M14.3, M14.6 ; j) M14.4.
 
 ## CP3.1 — Indépendance, base, rang et noyau ✏️ · 2 points
@@ -125,33 +125,33 @@ g) Trois labels sur cinq valent 1 : la meilleure probabilité constante est la f
 
 Sur ta copie : pour a), $L$ n'est pas dérivable en 6,1 (elle saute de 0 à $6{,}1^{-6}$), et sur $]6{,}1 ;\ +\infty[$ sa dérivée, $-\frac{6}{\theta^7}$, ne s'annule jamais : le maximum est au **bord** du domaine où $L > 0$, pas en un point de dérivée nulle. Pour g), le $q$ optimal est la fréquence des labels 1, $q = 0{,}6$. Pourquoi : la log-loss moyenne d'une probabilité constante $q$ est la cross-entropy $H(\pi) + \mathrm{KL}(\pi \Vert q)$ avec $\pi = 0{,}6$ la fréquence observée : elle est minimale quand la KL est nulle, en $q = \pi$, et vaut alors l'entropie $H(0{,}6)$ en nats. Le modèle de f), à 0,565, fait mieux que toute constante : ses scores apportent de l'information.
 
-**Erreurs fréquentes** : en a), prendre la moyenne des tirages ; en b), ne garder que la fréquence des 0 ($\frac{4}{30}$), ou oublier le facteur 3 en dérivant $\ln(1 - 3\theta)$ (on trouve $\frac{7}{29}$) ; en c), utiliser $\ln$ (1,320 nat) ; en d), oublier le « 1 − » ; en e), calculer $\mathrm{KL}(\mathbf{u} \Vert \mathbf{p})$ (0,095 : la KL n'est pas symétrique), ou la donner en nats ; en f), oublier le terme $-yz$, ou rendre la somme ; en g), rendre $\ln 2 \approx 0{,}693$ (la probabilité 0,5), ou l'entropie en bits.
-**Remédiation** : M13a.1, M13a.3, M13a.6, M13a.10, M13a.14, M13a.17, et la fiche M13a §1 (vraisemblance) ; pour a), la loi uniforme de M02b.
+**Erreurs fréquentes** : en a), prendre la moyenne des tirages ; en b), ne garder que la fréquence des 0 ($\frac{4}{30}$), ou oublier le facteur 3 en dérivant $\ln(1 - 3\theta)$ (on trouve $\frac{7}{29}$) ; en c), utiliser $\ln$ (1,3195 nat) ; en d), oublier le « 1 − » ; en e), calculer $\mathrm{KL}(\mathbf{u} \Vert \mathbf{p})$ (0,095 : la KL n'est pas symétrique), ou la donner en nats ; en f), oublier le terme $-yz$, ou rendre la somme ; en g), rendre $\ln 2 \approx 0{,}693$ (la probabilité 0,5), ou l'entropie en bits.
+**Remédiation** : M13a.1, M13a.3, M13a.6, M13a.10, M13a.14, M13a.17, et la fiche M13a §1 (vraisemblance) ; pour a), la loi uniforme de M02b et l'estimation d'une borne dans la fiche M02c.
 
 ## CP3.6 — Lagrange, hinge loss et noyau ✏️ · 1,75 point
 
-**Réponses** : a) `[2, 1]` · b) `4` · c) `-2` · d) `3.5` · e) `6` · f) `[3, 0.5, 0]` · g) `-4`.
+**Réponses** : a) `[2, 1]` · b) `4` · c) `-2` · d) `3.5` · e) `6` · f) `[3, 0.5, 0]` · g) `-8`.
 
 a) $\nabla f + \lambda\nabla g = \mathbf{0}$ s'écrit $1 + \frac{\lambda x}{4} = 0$ et $2 + \lambda y = 0$, soit $x = -\frac{4}{\lambda}$ et $y = -\frac{2}{\lambda}$. La contrainte donne $\frac{16}{8\lambda^2} + \frac{4}{2\lambda^2} = \frac{4}{\lambda^2} = 1$, donc $\lambda = \pm 2$ : deux candidats, $(2, 1)$ (avec $\lambda = -2$), où $f = 4$, et $(-2, -1)$ (avec $\lambda = 2$), où $f = -4$. Le maximum est en $(2, 1)$. **[0,25]**
 b) $f(2, 1) = 2 + 2 = 4$. **[0,25]**
 c) $\lambda = -2$ (avec la convention $\nabla f + \lambda\nabla g = \mathbf{0}$ ; la convention $\nabla f = \lambda\nabla g$ donnerait $+2$). Sensibilité : sur l'ellipse $\frac{x^2}{8} + \frac{y^2}{2} = c$, le maximum vaut $4\sqrt{c}$, de dérivée 2 en $c = 1$, c'est $-\lambda$. **[0,25]**
 d) Les marges $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ : $P_1$ : $2 + 3 - 3 = 2$ ; $P_2$ : $-(4 - 3) = -1$ ; $P_3$ : $2 + 0{,}5 - 3 = -0{,}5$. Les hinges : $0$, $2$ et $1{,}5$, de somme $3{,}5$. **[0,25]**
 e) $J = \frac{1}{2}(4 + 1) + 1 \times 3{,}5 = 6$. **[0,25]**
-f) Seuls $P_2$ et $P_3$ ont une marge inférieure à 1 ($P_1$, de marge 2, a une hinge nulle et un gradient nul autour de lui) ; chacun apporte $(-y_i\mathbf{x}_i, -y_i)$, et $\frac{1}{2}\lVert \mathbf{w} \rVert^2$ apporte $(\mathbf{w}, 0)$ : $\mathbf{g}_{\mathbf{w}} = (2, 1) + (2, 0) - (1 ;\ 0{,}5) = (3 ;\ 0{,}5)$ et $g_b = -(-1) - 1 = 0$. **[0,25]**
-g) $K_{ij} = (x_i + x_j)^2$ : $\mathbf{K} = \begin{pmatrix} 4 & 9 & 16 \\ 9 & 16 & 25 \\ 16 & 25 & 36 \end{pmatrix}$ et $\mathbf{v}^\top\mathbf{K}\mathbf{v} = 4K_{11} - 4K_{12} + K_{22} = 16 - 36 + 16 = -4$. **[0,25]**
+f) Aucune marge ne vaut exactement 1 : $J$ est dérivable en ce point, et ce sous-gradient est le gradient. Seuls $P_2$ et $P_3$ ont une marge inférieure à 1 ($P_1$, de marge 2, a une hinge nulle et un gradient nul autour de lui) ; chacun apporte $(-y_i\mathbf{x}_i, -y_i)$, et $\frac{1}{2}\lVert \mathbf{w} \rVert^2$ apporte $(\mathbf{w}, 0)$ : $\mathbf{g}_{\mathbf{w}} = (2, 1) + (2, 0) - (1 ;\ 0{,}5) = (3 ;\ 0{,}5)$ et $g_b = -(-1) - 1 = 0$. **[0,25]**
+g) $K_{ij} = (x_i + x_j)^2$ : $\mathbf{K} = \begin{pmatrix} 4 & 9 & 16 \\ 9 & 16 & 25 \\ 16 & 25 & 36 \end{pmatrix}$ et $\mathbf{v}^\top\mathbf{K}\mathbf{v} = 9K_{11} - 12K_{12} + 4K_{22} = 36 - 108 + 64 = -8$. **[0,25]**
 
-Sur ta copie : pour a), l'ellipse est fermée et bornée et $f$ est continue, donc $f$ y atteint un maximum et un minimum ; $\nabla g = \left(\frac{x}{4}, y\right)$ ne s'annule pas sur l'ellipse, donc ces extrema sont parmi les points de Lagrange : on compare $f$ aux deux candidats. Pour g), la matrice de Gram d'un noyau est toujours semi-définie positive ($\mathbf{v}^\top\mathbf{K}\mathbf{v} = \lVert \sum_i v_i\,\varphi(x_i) \rVert^2 \ge 0$) : $-4 < 0$ prouve que $(x + z)^2$ n'est **pas** un noyau, bien que la matrice soit symétrique et à coefficients positifs. (Comparer à $(1 + xz)^2$, qui en est un.)
+Sur ta copie : pour a), l'ellipse est fermée et bornée et $f$ est continue, donc $f$ y atteint un maximum et un minimum ; $\nabla g = \left(\frac{x}{4}, y\right)$ ne s'annule pas sur l'ellipse, donc ces extrema sont parmi les points de Lagrange : on compare $f$ aux deux candidats. Pour g), la matrice de Gram d'un noyau est toujours semi-définie positive ($\mathbf{v}^\top\mathbf{K}\mathbf{v} = \lVert \sum_i v_i\,\varphi(x_i) \rVert^2 \ge 0$) : $-8 < 0$ prouve que $(x + z)^2$ n'est **pas** un noyau, bien que la matrice soit symétrique et à coefficients positifs. (Comparer à $(1 + xz)^2$, qui en est un.)
 
 **Erreurs fréquentes** : en a), garder un seul candidat, ou ne pas justifier lequel est le maximum ; en c), le signe (la convention de l'énoncé est celle de M13b) ; en d), oublier le label $-1$ de $P_2$ dans la marge ; en e), mettre $\lVert \mathbf{w} \rVert^2$ au lieu de sa moitié ; en f), oublier le terme $\mathbf{w}$, compter $P_1$ (sa marge dépasse 1), ou écrire $+y_i\mathbf{x}_i$ ; en g), oublier que les termes croisés comptent deux fois.
 **Remédiation** : M13b.1, M13b.2, M13b.9, M13b.10, M13b.13, M13b.19.
 
 ## CP3.7 — Queue binomiale et borne de Chernoff, limite et poids exponentiels ✏️ · 1,5 point
 
-**Réponses** : a) `0.00344` · b) `4.236` · c) `0.181` · d) `0.0849` · e) `-0.0664` · f) `[0.1101, 0.4465, 0.2217, 0.2217]`.
+**Réponses** : a) `0.00344` · b) `4.236` · c) `0.18` · d) `0.0849` · e) `-0.0664` · f) `[0.1101, 0.4465, 0.2217, 0.2217]`.
 
 a) Le complément est plus court à calculer : $P(X \ge 5) = 1 - \sum_{k=0}^{4} P(X = k)$, avec $P(X = k) = \binom{18}{k}\,0{,}06^k\,0{,}94^{18 - k}$ : 0,328323 ; 0,377222 ; 0,204663 ; 0,069673 ; 0,016677, de somme 0,996558. Donc $P(X \ge 5) \approx 0{,}00344$. **[0,25]**
 b) $a = \frac{5}{18} \approx 0{,}277778$ ; $\mathrm{KL}(a \Vert 0{,}06) = a\ln\frac{a}{0{,}06} + (1 - a)\ln\frac{1 - a}{0{,}94} \approx 0{,}425688 - 0{,}190339 = 0{,}235349$ ; l'exposant vaut $18 \times 0{,}235349 \approx 4{,}236$ (la borne, $e^{-4{,}236} \approx 0{,}0145$). **[0,25]**
-c) $a - p \approx 0{,}217778$, $2 \times 18 \times 0{,}217778^2 \approx 1{,}707378$ et $e^{-1{,}707378} \approx 0{,}181$. **[0,25]**
+c) $a - p \approx 0{,}217778$, $2 \times 18 \times 0{,}217778^2 \approx 1{,}707378$ et $e^{-1{,}707378} \approx 0{,}181$, soit 0,18. **[0,25]**
 d) $45\ln\left(1 - \frac{2{,}4}{45}\right) \approx 45 \times (-0{,}054808) \approx -2{,}466371$, et $e^{-2{,}466371} \approx 0{,}0849$ (contre $e^{-2{,}4} \approx 0{,}0907$). **[0,25]**
 e) $-2{,}466371 + 2{,}4 \approx -0{,}0664$. **[0,25]**
 f) On retranche la plus petite loss cumulée (1) : $\eta\,(L - 1) = 0{,}7 \times (2, 0, 1, 1) = (1{,}4 ;\ 0 ;\ 0{,}7 ;\ 0{,}7)$, puis $e^{-1{,}4} \approx 0{,}246597$, $e^{0} = 1$, $e^{-0{,}7} \approx 0{,}496585$ (deux fois), de somme $\approx 2{,}239768$ : les poids valent $\approx (0{,}1101 ;\ 0{,}4465 ;\ 0{,}2217 ;\ 0{,}2217)$. **[0,25]**
@@ -229,15 +229,15 @@ Le lien avec workbookIA : réduire la dimension avant d'ajuster un modèle, dans
 | Question | Points | Chapitres | Si tu as moins de la moitié des points, refais… |
 |---|---|---|---|
 | CP3.Q1 | 1,5 | M12a à M14 | les exercices cités au CP3.Q1, puis les quiz et les flashcards des chapitres concernés |
-| CP3.1 | 2 | M12a | M12a.3, M12a.4, M12a.5, M12a.9, M12a.10, M12a.13, M12a.17 |
+| CP3.1 | 2 | M12a, M12b | M12a.3, M12a.4, M12a.5, M12a.9, M12a.10, M12a.13, M12a.17, M12b.16 |
 | CP3.2 | 2 | M12b | M12b.4, M12b.7, M12b.9, M12b.10, M12b.11, M12b.17 |
 | CP3.3 | 2 | M12c | M12c.3, M12c.7, M12c.10, M12c.11, M12c.16 |
 | CP3.4 | 2 | M12d | M12d.1, M12d.4, M12d.7, M12d.16 |
-| CP3.5 | 1,75 | M13a | M13a.1, M13a.3, M13a.6, M13a.10, M13a.14 |
+| CP3.5 | 1,75 | M13a | M13a.1, M13a.3, M13a.6, M13a.10, M13a.14, M13a.17 |
 | CP3.6 | 1,75 | M13b | M13b.1, M13b.2, M13b.9, M13b.10, M13b.13, M13b.19 |
-| CP3.7 | 1,5 | M14 | M14.1, M14.3, M14.4, M14.8 |
+| CP3.7 | 1,5 | M14 | M14.1, M14.3, M14.4, M14.6, M14.8 |
 | CP3.8 | 2 | M13b, M12c ou M14 | A : M13b.3, M12c.19, M12a.17 ; B : M13b.14, M13b.16, M13a.15, M14.4 |
-| CP3.9 | 1,25 | M12a à M14 | M12a.6, M12b.7, M12c.3, M12c.10, M12d.7, M13a.5, M13b.9, M14.8 |
+| CP3.9 | 1,25 | M12a à M14 | M12a.6, M12b.7, M12c.3, M12c.10, M12c.34, M12d.7, M13a.5, M13b.9, M14.8 |
 | CP3.10 | 2,25 | M12d, M12b, M09b | M12d.8, M12d.9, M12d.11, M12d.19, M12b.10, M12b.19 |
 | **Total** | **20** | | |
 

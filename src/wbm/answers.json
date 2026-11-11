@@ -3427,8 +3427,8 @@
       "mistake_decimals": 2,
       "mistakes": {
         "45fe626077ed365f916dbce7a77157769dec9534cb441f7c0cbec2d7f5bb32b3": "Aᵀz = 0 dit que z est orthogonal à chaque colonne : vérifie z · c₁ et z · c₂",
-        "84f15503bb381e876f5a693766b01f8ddfe67da325b218a7fe7cbb9376628472": "ton vecteur est proportionnel au bon, mais l'énoncé fixe z₁ = 2 : mets-le à cette échelle",
-        "d01ff9b301b8208829758f7b39c26409fa4b6abe1b7231e91e4edc3e3f0b9cb5": "l'énoncé fixe z₁ = 2 : multiplie ton vecteur pour que sa première coordonnée vaille 2"
+        "84f15503bb381e876f5a693766b01f8ddfe67da325b218a7fe7cbb9376628472": "la première coordonnée de z est fixée par l'énoncé : relis-le",
+        "d01ff9b301b8208829758f7b39c26409fa4b6abe1b7231e91e4edc3e3f0b9cb5": "l'énoncé fixe z₁ = 2 : ta première coordonnée le respecte-t-elle ?"
       },
       "shape": [
         3
@@ -3439,7 +3439,7 @@
       "hash": "a610c791df39159dc73844ce93bee94eecfb26929c9d1006162761b7b761d8f2",
       "kind": "bool",
       "mistakes": {
-        "4215532888d3c61511d44d6c7c5a30ee14aec09d1ed1ce87ff8693d2812eda26": "un vecteur n'est atteint par A que s'il vérifie l'équation de l'image"
+        "4215532888d3c61511d44d6c7c5a30ee14aec09d1ed1ce87ff8693d2812eda26": "un vecteur b n'est atteint par A que s'il est orthogonal à tout z de ker Aᵀ"
       },
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
     },
@@ -3878,6 +3878,8 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
+        "3f23ce34dc88df272e82db24ab4c9159a971bd735874fee8043479c44a82c380": "la solution s'écrit avec v₁, pas avec u₁",
+        "4310efd4c7c41f1ff09dd0a3d68f289e0861b19a78dd6beac03d92d1f918f6ed": "A⁻¹ divise la composante sur u₁ par s₁",
         "55d35790e2d9b6893a4e25d06ac05a9e0f1db29f4f376c40f5719a8523555d1e": "A n'est pas orthogonale : son inverse n'est pas Aᵀ, il divise par les valeurs singulières"
       },
       "shape": [
@@ -3948,6 +3950,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "a7fe905f457853c6fe8105d3efa3b7ea64a781fd880878ce2eb7c60d679a8255": "c'est l'estimateur des moments ; la question demande le maximum de vraisemblance",
         "b19d8c762f9dabe0b2a70d215f58437518259b3f66d53c42c295d24cf078ac42": "la vraisemblance est nulle dès que θ est plus petit qu'une observation"
       },
       "sign": 1,
@@ -3983,7 +3986,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "1b47a4036e352144ec5dbc62131d0f50d23adea37c7b26d35757005572cf1d08": "en bits : le logarithme de base 2"
+        "1b47a4036e352144ec5dbc62131d0f50d23adea37c7b26d35757005572cf1d08": "en bits : le logarithme de base 2",
+        "bb6aaf26e3c91d9316d5b8c62fb98a50c1fc23b1f632c510e9ede3720421b5fd": "en bits : le logarithme de base 2"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -4183,12 +4187,12 @@
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
     },
     "CP3.6g": {
-      "hash": "b3fc89e9761ec986e9f5cc8eb8a17c108e5d289c50bbb299ac78ff30e9fc08b9",
+      "hash": "e963e8b008b72ccabc9d579fb1f93dc0e605f1af38fdc788f81407eccfa3f708",
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "239e581ba2a2ac583e8a39dd79f4129bb4436c4b0021b155229dbbb1d334452b": "vᵀKv = Σᵢ Σⱼ vᵢ vⱼ Kᵢⱼ : les termes croisés comptent deux fois",
-        "fa90d7ccd9391cfe54c688c07aacf46ed56ddfbcd91e53953d6f3b042097d2c4": "vᵀKv = Σᵢ Σⱼ vᵢ vⱼ Kᵢⱼ : vérifie le signe de chaque produit vᵢ vⱼ"
+        "0133b835eab32efce6f209c3a6d7965f97b62a383e8b325b54fc06d3898d60a7": "vᵀKv = Σᵢ Σⱼ vᵢ vⱼ Kᵢⱼ : vérifie le signe de chaque produit vᵢ vⱼ",
+        "7c5d0e6d7b60db2030d7edace6342a28bb2858837ba820d3ab09172645a0c860": "vᵀKv = Σᵢ Σⱼ vᵢ vⱼ Kᵢⱼ : les termes croisés comptent deux fois"
       },
       "sign": -1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -4228,6 +4232,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "56152311b7289feec9bf7dc26568e38498e989d45a928a7bcdae483602932eb5": "la question demande l'exposant n KL(a ‖ p), pas la borne",
+        "818e2ecd30544ff90dbcb55527f6783f8a0f18d090073818b64177e8f7fd2955": "la KL de la borne de Chernoff est en nats : logarithme népérien",
         "93451ed070b1a09721d35343f49201429fbc6dda6df01ea7fa83652ed556ee25": "la question demande l'exposant n KL(a ‖ p), pas la borne",
         "cf45523566ce1dca883512e931b44e102d55d17c3b4f55bf10fe6b61b50c68b8": "la KL n'est pas symétrique : KL(a ‖ p), avec a en premier"
       },
@@ -4235,18 +4241,13 @@
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
     },
     "CP3.7c": {
-      "coarse_any": {
-        "1": [
-          "f919c23722235ded4f5aaced1ae95e25cfa670a8e88b132502e4ec41879869e4"
-        ]
-      },
-      "decimals": 3,
-      "hash": "659f432cee780fb7479ede3f6549d01bbb052e52659271bb6e80ddc606310b81",
-      "hash_coarse": "476a9ad804b883aa361d9d9c749fbbd23f6582e13cd71e8546f596a993fe4a0f",
+      "decimals": 2,
+      "hash": "476a9ad804b883aa361d9d9c749fbbd23f6582e13cd71e8546f596a993fe4a0f",
+      "hash_coarse": "f919c23722235ded4f5aaced1ae95e25cfa670a8e88b132502e4ec41879869e4",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "0e0c9be76c79f7657b3e8c73208c7ce5c4f9d7f1623968c7304d9985846a150c": "la borne de Hoeffding est e^(−2n(a − p)²), avec le facteur 2"
+        "3993df617a9b7ae20d5465c7fbd0d1927ad69f017a613eac3dce4d31ead44c40": "la borne de Hoeffding est e^(−2n(a − p)²), avec le facteur 2"
       },
       "sign": 1,
       "source": "checkpoints/partie_3/03_examen_solutions.ipynb"
@@ -4337,7 +4338,7 @@
       "kind": "array",
       "mistakes": {
         "4e5b48a012f3d981876033c67d7743d546516668fc327c945e6e351195d731f5": "n'oublie pas η dans l'exponentielle",
-        "a54eb1f6f85246ac491fbd430475e10a34d75fa86e5890b14cc18c0b91fc9f66": "ce sont les poids avant normalisation : divise-les par leur somme",
+        "a54eb1f6f85246ac491fbd430475e10a34d75fa86e5890b14cc18c0b91fc9f66": "les poids demandés sont normalisés : leur somme vaut 1",
         "b5410b8b0e4a9fa47ebab5c95be649a3f314e6efe975d4a271f6f9b9650392cc": "normalise : la somme des poids vaut 1",
         "f537fb21f2a672d0d519bf067bfdf15b95082c6e94149149b5d69b7bbc27a147": "les poids décroissent quand L grandit : e^(−η L)"
       },

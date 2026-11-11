@@ -43,7 +43,7 @@ a) Si une colonne d'une matrice $\mathbf{X}$ de forme $(n, p)$ est une combinais
 b) Une matrice de projection orthogonale de $\mathbb{R}^4$ sur un sous-espace de dimension 2 a pour valeurs propres 1, 1, 0 et 0.
 c) Toute matrice orthogonale de taille $2 \times 2$ a au moins une valeur propre réelle.
 d) La matrice centrée $\mathbf{X}_c$ d'un nuage de points de $\mathbb{R}^2$ a pour valeurs singulières 5 et 2 : le premier axe principal explique environ 71 % de la variance du nuage.
-e) Si deux exemples ont les mêmes features mais des labels différents, la log-loss moyenne d'une régression logistique sur ces données est strictement positive, quels que soient $\mathbf{w}$ et $b$.
+e) Si deux des $n$ exemples ont les mêmes features mais des labels différents, la log-loss moyenne d'une régression logistique sur ces données ne peut pas être rendue aussi petite qu'on veut : quels que soient $\mathbf{w}$ et $b$, elle reste au-dessus d'une constante strictement positive qui ne dépend que de $n$.
 f) Le minimum de $x^2 + y^2$ sous la contrainte $x + 2y = 5$ a un multiplicateur de Lagrange nul.
 g) La matrice de Gram du noyau linéaire $k(\mathbf{x}, \mathbf{z}) = \mathbf{x} \cdot \mathbf{z}$ sur trois points distincts de $\mathbb{R}^2$ est inversible.
 h) Pour $X$ de loi $\mathcal{B}(n ;\ 0{,}35)$, la probabilité $P(X \ge 0{,}45\,n)$ tend vers 0, quand $n \to +\infty$, plus vite que toute puissance de $\frac{1}{n}$.
@@ -157,7 +157,7 @@ Sur ta copie : pour a), écris la vraisemblance $L(\theta)$ et explique pourquoi
 | d | (2) la somme des trois hinge losses | un nombre |
 | e | (2) la valeur de $J(\mathbf{w}, b)$ | un nombre |
 | f | (2) un sous-gradient de $J$ en $(\mathbf{w}, b)$ | la liste $[g_{w_1}, g_{w_2}, g_b]$ |
-| g | (3) $\mathbf{v}^\top\mathbf{K}\mathbf{v}$ pour $\mathbf{v} = (2, -1, 0)$, où $\mathbf{K}$ est la matrice de Gram de $k$ sur les trois points | un nombre |
+| g | (3) $\mathbf{v}^\top\mathbf{K}\mathbf{v}$ pour $\mathbf{v} = (3, -2, 0)$, où $\mathbf{K}$ est la matrice de Gram de $k$ sur les trois points | un nombre |
 
 Sur ta copie : pour a), pourquoi le maximum existe et comment tu choisis entre les candidats ; pour g), ce que tu conclus sur $k$, et pourquoi.
 
@@ -169,7 +169,7 @@ Un logiciel de transcription automatique transcrit une phrase de 18 mots ; chaqu
 |---|---|---|
 | a | $P(X \ge 5)$ | un nombre (5 décimales) |
 | b | l'exposant $n\,\mathrm{KL}(a \Vert p)$ de la borne de Chernoff $P(X \ge 5) \le e^{-n\,\mathrm{KL}(a \Vert p)}$ | un nombre (3 décimales) |
-| c | la borne de Hoeffding $e^{-2n(a - p)^2}$ de $P(X \ge 5)$ | un nombre (3 décimales) |
+| c | la borne de Hoeffding $e^{-2n(a - p)^2}$ de $P(X \ge 5)$ | un nombre (2 décimales) |
 | d | $\left(1 - \frac{2{,}4}{45}\right)^{45}$ | un nombre (4 décimales) |
 | e | l'écart des logarithmes entre d) et sa limite $e^{-2{,}4}$, c'est-à-dire $45\ln\left(1 - \frac{2{,}4}{45}\right) + 2{,}4$ | un nombre (4 décimales) |
 | f | l'algorithme Hedge suit $K = 4$ experts avec $\eta = 0{,}7$ ; avant le tour qui vient, leurs losses cumulées valent $(3, 1, 2, 2)$. Les poids normalisés (de somme 1) des quatre experts | une liste (4 décimales) |
