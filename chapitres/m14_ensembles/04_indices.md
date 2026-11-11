@@ -240,7 +240,7 @@ Les losses : $e^{-2}$, $e^{0{,}5}$, $e^{-1{,}5}$, $e^{0{,}3}$, $e^0$. Les résid
 
 <details><summary>Indice 1</summary>
 
-Relis « L'idée » et « La vitesse » (fiche §3), et CP1.9 B pour $e^v \ge 1 + v$.
+Relis « L'idée » et « La vitesse » (fiche §3), et CP1.10 B pour $e^v \ge 1 + v$.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -442,7 +442,7 @@ Pour chaque ligne, compare ce que calcule le code à ce que dit son commentaire 
 </details>
 <details><summary>Indice 3</summary>
 
-Quatre lignes fausses. Les lignes qui ressemblent à une erreur sans en être une : une borne avec `k - 1` écrite autrement, `w @ S @ w`, et la soustraction du minimum, qui ne change pas les poids une fois normalisés.
+Quatre lignes fausses. Les lignes qui ressemblent à une erreur sans en être une : une queue avec `k - 1` écrite autrement, `w @ S @ w`, et la soustraction du minimum, qui ne change pas les poids une fois normalisés.
 
 </details>
 
@@ -460,7 +460,7 @@ Une grille par compréhension : `for n in (...) for p in (...) for a in (...)`, 
 </details>
 <details><summary>Indice 3</summary>
 
-Quatre `assert` par cas, chacun avec un message `f"n={n}, p={p}, a={a}"` : `0 <= b <= 1 + 1e-12` ; `b >= tail - 1e-12` ; si $a > p$, `b <= math.exp(-2 * n * (a - p) ** 2) + 1e-12` ; si $a > p$, `bound(2 * n, p, a) <= b + 1e-12`. Ce sont les petits $n$ et les $p$ extrêmes qui attrapent les fausses bornes.
+Quatre `assert` par cas, chacun avec un message `f"n={n}, p={p}, a={a}"` : `0 <= b <= 1 + 1e-12` ; `b >= tail - 1e-12` ; si $a > p$, `b <= math.exp(-2 * n * (a - p) ** 2) + 1e-12` ; si $a > p$, `bound(2 * n, p, a) <= b + 1e-12`. Ce sont les cas extrêmes qui attrapent les fausses bornes : $a = 1$ (`bound_reversed`), $a = 0$ (`bound_fixed_lambda` dépasse 1), $a > p$ avec de petits $n$ (`bound_squared`), de grands $n$ ou un $p$ près de 0 (`bound_markov`, au-dessus de Hoeffding).
 
 </details>
 
@@ -478,6 +478,6 @@ Un $\eta$ constant fait un compromis pour **un** horizon : petit, il apprend tro
 </details>
 <details><summary>Indice 3</summary>
 
-Garde les losses cumulées $L$ et le nombre de tours joués $t$ ; `weights()` rend `softmax` de $-\eta_t(L - \min L)$ avec $\eta_t = \sqrt{8\ln K/t}$, où $t$ est le numéro du tour qui vient (1 au premier appel), écrit avec `np.exp` ; `update` ajoute les losses à $L$ et incrémente $t$. Le η constant réglé pour $T = 1\,000$ paie $\frac{\ln K}{\eta} \approx 17$ dès le départ : trop pour la borne du tour 50.
+Garde les losses cumulées $L$ et le numéro $t$ du tour qui vient (1 avant le premier tour) ; `weights()` rend `softmax` de $-\eta_t(L - \min L)$ avec $\eta_t = \sqrt{8\ln K/t}$, écrit avec `np.exp` ; `update` ajoute les losses à $L$ et incrémente $t$. Le η constant réglé pour $T = 1\,000$ paie $\frac{\ln K}{\eta} \approx 17$ dès le départ : trop pour la borne du tour 50.
 
 </details>

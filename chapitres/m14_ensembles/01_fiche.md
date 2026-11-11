@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §5 |
-| **Temps total estimé** | ≈ 7,2 h : lecture et calculs de la fiche ≈ 1 h 30, exercices ≈ 5 h 20, 12 flashcards ≈ 20 min (parcours essentiel ≈ 4,7 h) |
+| **Temps total estimé** | ≈ 7,2 h : lecture et calculs de la fiche ≈ 1 h 30, exercices ≈ 5 h 20, 12 flashcards ≈ 25 min (parcours essentiel ≈ 4,7 h) |
 | **Prérequis** | M02b (loi binomiale) ; M02c (covariance, variance d'une somme, matrice de covariance) ; M05a (Taylor, $\ln(1 + u)$) ; M06 (divergence KL) ; M08 (test binomial exact) ; M11 (Markov, Hoeffding, méthode de Chernoff, regret) ; M07 (Cauchy-Schwarz, pour ∂ M14.7) ; M05b (gradient) ; M09b (loss de Huber) ; M13a (log-loss) ; M13b (Lagrange, pour une remarque du §2) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `ensembles.py` : `chernoff_bound`, `variance_of_average`, `hedge_weights` |
@@ -70,9 +70,9 @@ Vocabulaire anglais de ce chapitre : *ensemble (of models)*, *binomial tail*, *k
 $n$ essais indépendants réussissent chacun avec la probabilité $p$ ; le nombre $X$ de succès suit la loi binomiale $\mathcal{B}(n, p)$ (M02b). La **queue** (*tail*) de la loi est la probabilité qu'il y ait **au moins** $k$ succès :
 $$P(X \ge k) = \sum_{j=k}^{n}\binom{n}{j}p^j(1 - p)^{n-j}.$$
 
-**Exemple : un système « $k$ parmi $n$ »** (*k-out-of-n system*). Une grappe de stockage a 10 disques, et elle fonctionne tant qu'au moins 7 disques fonctionnent. Chaque disque fonctionne toute l'année avec la probabilité $0{,}85$, indépendamment des autres. Avec $X$ le nombre de disques qui fonctionnent, de loi $\mathcal{B}(10 ;\ 0{,}85)$, la grappe fonctionne avec la probabilité
-$$P(X \ge 7) = \sum_{j=7}^{10}\binom{10}{j}0{,}85^j\,0{,}15^{10-j} \approx 0{,}1298 + 0{,}2759 + 0{,}3474 + 0{,}1969 \approx 0{,}9500.$$
-Elle tombe en panne si au moins 4 disques sur 10 lâchent : le nombre de pannes suit la loi $\mathcal{B}(10 ;\ 0{,}15)$, et $P(\text{panne}) \approx 0{,}0500$. Trois disques de réserve font passer d'une fiabilité de $0{,}85$ par disque à $0{,}95$ pour le système (✏️ M14.1).
+**Exemple : un système « $k$ parmi $n$ »** (*k-out-of-n system*). Une grappe de stockage a 11 disques, et elle fonctionne tant qu'au moins 8 disques fonctionnent. Chaque disque fonctionne toute l'année avec la probabilité $0{,}85$, indépendamment des autres. Avec $X$ le nombre de disques qui fonctionnent, de loi $\mathcal{B}(11 ;\ 0{,}85)$, la grappe fonctionne avec la probabilité
+$$P(X \ge 8) = \sum_{j=8}^{11}\binom{11}{j}0{,}85^j\,0{,}15^{11-j} \approx 0{,}1517 + 0{,}2866 + 0{,}3248 + 0{,}1673 \approx 0{,}9306.$$
+Elle tombe en panne si au moins 4 disques sur 11 lâchent : le nombre de pannes suit la loi $\mathcal{B}(11 ;\ 0{,}15)$, et $P(\text{panne}) \approx 0{,}0694$. Trois disques de réserve font passer d'une fiabilité de $0{,}85$ par disque à $0{,}93$ pour le système (✏️ M14.1).
 
 ⚠️ **Erreur classique.** $P(X \ge k)$ n'est pas $P(X > k)$ : la fonction de survie de SciPy, `binom.sf(m, n, p)`, rend $P(X > m)$, donc $P(X \ge k)$ = `binom.sf(k - 1, n, p)`. Avec M08, `testing.binomial_test(k, n, p, alternative="greater")` rend aussi $P(X \ge k)$ (🐛 M14.15).
 
@@ -129,7 +129,7 @@ $$\boldsymbol{\Sigma} = \begin{pmatrix} 2 & -1 & 0 \\ -1 & 6 & 2 \\ 0 & 2 & 3 \e
 - La **moyenne simple** ($w_i = \frac{1}{3}$) : $\frac{1}{9}$ fois la somme de toutes les cases, $\frac{13}{9} \approx 1{,}44$. Sans les covariances, on aurait trouvé $\frac{2 + 6 + 3}{9} = \frac{11}{9} \approx 1{,}22$ : la covariance $+2$ coûte plus que ce que la covariance $-1$ rapporte.
 - Avec les poids $\mathbf{w} = (0{,}5 ;\ 0{,}2 ;\ 0{,}3)$ : $0{,}25 \times 2 + 0{,}04 \times 6 + 0{,}09 \times 3 + 2\,(-0{,}5 \times 0{,}2 \times 1 + 0{,}2 \times 0{,}3 \times 2) = 1{,}01 + 0{,}04 = 1{,}05$, presque deux fois moins que le meilleur capteur seul (variance 2).
 
-**Les meilleurs poids.** Minimiser $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ sous $\sum_i w_i = 1$ est un problème de Lagrange (M13b) : $2\boldsymbol{\Sigma}\mathbf{w} = \lambda\mathbf{1}$, donc $\mathbf{w}^* \propto \boldsymbol{\Sigma}^{-1}\mathbf{1}$, et la variance minimale vaut $\frac{1}{\mathbf{1}^\top\boldsymbol{\Sigma}^{-1}\mathbf{1}}$. Ici, $\boldsymbol{\Sigma}\,(3, 1, 1)^\top = (5, 5, 5)^\top$ : $\mathbf{w}^* = \left(\frac{3}{5}, \frac{1}{5}, \frac{1}{5}\right)$, et la variance vaut 1. Pour des variables **indépendantes**, $\boldsymbol{\Sigma}$ est diagonale et $w_i^* \propto \frac{1}{\sigma_i^2}$ : la **pondération par l'inverse de la variance** (*inverse-variance weighting*), que CP1.9 A a utilisée pour deux mesures.
+**Les meilleurs poids.** Minimiser $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ sous $\sum_i w_i = 1$ est un problème de Lagrange (M13b) : $2\boldsymbol{\Sigma}\mathbf{w} = \lambda\mathbf{1}$, donc $\mathbf{w}^* \propto \boldsymbol{\Sigma}^{-1}\mathbf{1}$, et la variance minimale vaut $\frac{1}{\mathbf{1}^\top\boldsymbol{\Sigma}^{-1}\mathbf{1}}$. Ici, $\boldsymbol{\Sigma}\,(3, 1, 1)^\top = (5, 5, 5)^\top$ : $\mathbf{w}^* = \left(\frac{3}{5}, \frac{1}{5}, \frac{1}{5}\right)$, et la variance vaut 1. Pour des variables **indépendantes**, $\boldsymbol{\Sigma}$ est diagonale et $w_i^* \propto \frac{1}{\sigma_i^2}$ : la **pondération par l'inverse de la variance** (*inverse-variance weighting*), que CP1.10 A a utilisée pour deux mesures.
 
 **Une borne générale.** Si chaque $X_i$ a une variance au plus $\sigma^2$, toute moyenne pondérée (poids positifs de somme 1) a une variance au plus $\sigma^2$ : moyenner ne fait jamais pire que le pire des $X_i$ (∂ M14.7, avec $\lvert\operatorname{Cov}(X_i, X_j)\rvert \le \sigma_i\sigma_j$).
 
@@ -195,7 +195,7 @@ C'est le regret de M11, dans un cadre plus riche : en M11, on ne voyait que la r
 
 **Hedge** donne à chaque expert un poids qui décroît exponentiellement avec sa loss cumulée :
 $$w_t[k] = \frac{e^{-\eta L_t[k]}}{\sum_{j=1}^K e^{-\eta L_t[j]}},$$
-avec un **learning rate** $\eta > 0$. Avant le premier tour, toutes les losses cumulées sont nulles : les poids sont uniformes. D'un tour à l'autre, chaque poids est multiplié par $e^{-\eta\ell_t[k]}$, puis tous sont renormalisés (une mise à jour **multiplicative**). Ce $\eta$ règle la vitesse à laquelle les poids réagissent aux losses ; il n'a rien à voir avec le pas d'une descente de gradient ni avec le learning rate d'un boosting.
+avec un **learning rate** $\eta > 0$. Avant le premier tour, toutes les losses cumulées sont nulles : les poids sont uniformes. D'un tour à l'autre, chaque poids est multiplié par $e^{-\eta\ell_t[k]}$, puis tous sont renormalisés (une mise à jour **multiplicative**). Ce $\eta$ règle la vitesse à laquelle les poids réagissent aux losses ; il ne faut le confondre ni avec le pas d'une descente sur les paramètres d'un modèle, ni avec le learning rate d'un boosting.
 
 **Ce que prédit le mélange.** Si l'expert $k$ annonce un nombre $x_t[k]$, le mélange annonce $\sum_k w_t[k]\,x_t[k]$ : une **moyenne pondérée** des avis, à poids positifs de somme 1, qui reste entre le plus petit et le plus grand avis. Si les avis sont des classes, tirer un expert selon $\mathbf{w}_t$ donne la classe $c$ avec la probabilité $\sum_k w_t[k]\,\mathbb{1}[x_t[k] = c]$ ; prédire la classe la plus probable, c'est le **vote pondéré** de workbookIA 14.
 
@@ -230,7 +230,7 @@ Le regret grandit comme $\sqrt{T}$, donc le **regret moyen** $\frac{R_T}{T}$ ten
 
 ![Les poids de quatre experts au fil de 100 tours, pour η = 0,1 et η = 0,8 : avec le petit η, les poids restent répartis ; avec le grand, ils se concentrent sur l'expert en tête](figures/hedge_poids.png)
 
-**Sans connaître $T$.** Le bon $\eta$ dépend de l'horizon $T$. Quand on ne le connaît pas, on prend un learning rate qui **décroît** avec le tour, $\eta_t = \sqrt{\frac{8\ln K}{t}}$ ; on admet que le regret reste alors au plus $\sqrt{2T\ln K} + \sqrt{\frac{\ln K}{8}}$, à peine deux fois la borne avec le meilleur $\eta$ fixe (🏆 M14.17).
+**Sans connaître $T$.** Le bon $\eta$ dépend de l'horizon $T$. Quand on ne le connaît pas, on prend un learning rate qui **décroît** avec le tour, $\eta_t = \sqrt{\frac{8\ln K}{t}}$ ; on admet que le regret reste alors au plus $\sqrt{2T\ln K} + \sqrt{\frac{\ln K}{8}}$, un peu plus de deux fois la borne avec le meilleur $\eta$ fixe (🏆 M14.17).
 
 🔗 **Dans workbookIA** — le chapitre 14 combine des classifieurs avec des poids, et AdaBoost repondère les **exemples** de façon exponentielle (§5).
 
@@ -252,7 +252,7 @@ le gradient a le signe de $-y$ : un pas **contre** lui pousse chaque prédiction
 
 **Exemple.** Quatre exemples, de labels $\mathbf{y} = (+1, -1, +1, -1)$ et de scores $\mathbf{F} = (0{,}5 ;\ 0{,}2 ;\ -0{,}6 ;\ -0{,}8)$. Les marges valent $0{,}5$, $-0{,}2$, $-0{,}6$ et $0{,}8$ ; les losses $e^{-yF}$, $0{,}607$, $1{,}221$, $1{,}822$ et $0{,}449$ ; le gradient, $(-0{,}607 ;\ 1{,}221 ;\ -1{,}822 ;\ 0{,}449)$. Normalisées, les losses donnent les poids $(0{,}148 ;\ 0{,}298 ;\ 0{,}444 ;\ 0{,}110)$ : l'exemple le plus mal classé (le troisième) pèse quatre fois plus que le mieux classé (le quatrième). Ce sont des **poids exponentiels**, comme au §4, mais sur les **exemples**, avec la marge à la place de la loss cumulée.
 
-**Une mise à jour multiplicative.** Si l'on ajoute aux scores un modèle $h$ multiplié par un coefficient $\alpha$, la loss de l'exemple $i$ devient $e^{-y_i(F_i + \alpha h_i)} = e^{-y_iF_i}\,e^{-\alpha y_ih_i}$ : chaque poids est **multiplié** par $e^{-\alpha y_ih_i}$, plus grand que 1 si $h$ se trompe sur l'exemple, plus petit sinon, puis renormalisé. C'est la même mécanique qu'au §4.
+**Une mise à jour multiplicative.** Si l'on ajoute aux scores un modèle $h$ multiplié par un coefficient $\alpha > 0$, la loss de l'exemple $i$ devient $e^{-y_i(F_i + \alpha h_i)} = e^{-y_iF_i}\,e^{-\alpha y_ih_i}$ : chaque poids est **multiplié** par $e^{-\alpha y_ih_i}$, plus grand que 1 si $h$ se trompe sur l'exemple, plus petit sinon, puis renormalisé. C'est la même mécanique qu'au §4.
 
 ### La loss de Huber : une force bornée
 
@@ -264,7 +264,7 @@ où $\operatorname{clip}(r, -\delta, \delta)$ ramène $r$ dans $[-\delta, \delta
 
 ### Ajouter des modèles le long de ce gradient (idée)
 
-Ajouter à l'ensemble un modèle $h$, multiplié par un coefficient $\alpha > 0$, change le vecteur des prédictions de $\alpha\,\mathbf{h}$, où $\mathbf{h} = (h_1, \ldots, h_n)$ sont ses prédictions sur les exemples. Au premier ordre (M05b, dérivée directionnelle), $\mathcal{L}(\mathbf{F} + \alpha\mathbf{h}) \approx \mathcal{L}(\mathbf{F}) + \alpha\,\nabla_{\mathbf{F}}\mathcal{L} \cdot \mathbf{h}$ : la loss baisse dès que $\nabla_{\mathbf{F}}\mathcal{L} \cdot \mathbf{h} < 0$, c'est-à-dire dès que $\mathbf{h}$ fait un angle aigu avec $-\nabla_{\mathbf{F}}\mathcal{L}$, et elle baisse le plus, à norme de $\mathbf{h}$ fixée, quand $\mathbf{h}$ lui est proportionnel (Cauchy-Schwarz, M07). Le coefficient $\alpha$ doit rester petit pour que ce premier ordre reste une bonne approximation. On parle de **gradient fonctionnel** (*functional gradient*). La loss fixe la direction : la loss exponentielle insiste sur les exemples mal classés, la loss de Huber ne laisse pas un point aberrant tout décider. Comment workbookIA 14 choisit le modèle $h$ : ∂ 14.4.
+Ajouter à l'ensemble un modèle $h$, multiplié par un coefficient $\alpha > 0$, change le vecteur des prédictions de $\alpha\,\mathbf{h}$, où $\mathbf{h} = (h_1, \ldots, h_n)$ sont ses prédictions sur les exemples. Au premier ordre (M05b, dérivée directionnelle), $\mathcal{L}(\mathbf{F} + \alpha\mathbf{h}) \approx \mathcal{L}(\mathbf{F}) + \alpha\,\nabla_{\mathbf{F}}\mathcal{L} \cdot \mathbf{h}$ : la loss baisse dès que $\nabla_{\mathbf{F}}\mathcal{L} \cdot \mathbf{h} < 0$, c'est-à-dire dès que $\mathbf{h}$ fait un angle aigu avec $-\nabla_{\mathbf{F}}\mathcal{L}$, et elle baisse le plus, à norme de $\mathbf{h}$ fixée, quand $\mathbf{h}$ est un multiple positif de $-\nabla_{\mathbf{F}}\mathcal{L}$ (Cauchy-Schwarz, M07). Le coefficient $\alpha$ doit rester petit pour que ce premier ordre reste une bonne approximation. On parle de **gradient fonctionnel** (*functional gradient*). La loss fixe la direction : la loss exponentielle insiste sur les exemples mal classés, la loss de Huber ne laisse pas un point aberrant tout décider. Comment workbookIA 14 choisit le modèle $h$ : ∂ 14.4.
 
 ⚠️ **Erreur classique.** $\nabla_{\mathbf{F}}\mathcal{L}$ a une coordonnée par **exemple** ; le gradient de M05b par rapport aux coefficients d'un modèle en a une par **coefficient**. La règle de la chaîne passe de l'un à l'autre (M18).
 

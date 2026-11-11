@@ -205,7 +205,7 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 **Objectif :** démontrer la limite $(1 + x/n)^n \to e^x$ pour tout réel $x$, en encadrant $\ln(1 + u)$.
 **Prérequis :** fiche §3 ; M05a · **Parcours :** C, E
 
-∂ M02b.13 a montré $\left(1 - \frac{\lambda}{n}\right)^n \to e^{-\lambda}$ par le logarithme et $\frac{\ln(1 + h)}{h} \to 1$. Ici, un **encadrement** de $\ln(1 + u)$ donne la limite pour tout $x$, et en plus la vitesse et le sens de variation. On utilise $\ln(1 + u) \le u$ pour tout $u > -1$ : c'est $e^v \ge 1 + v$ (CP1.9 B), avec $v = \ln(1 + u)$.
+∂ M02b.13 a montré $\left(1 - \frac{\lambda}{n}\right)^n \to e^{-\lambda}$ par le logarithme et $\frac{\ln(1 + h)}{h} \to 1$. Ici, un **encadrement** de $\ln(1 + u)$ donne la limite pour tout $x$, et en plus la vitesse et le sens de variation. On utilise $\ln(1 + u) \le u$ pour tout $u > -1$ : c'est $e^v \ge 1 + v$ (CP1.10 B), avec $v = \ln(1 + u)$.
 1. Montre que, pour tout $u \ge 0$, $\ln(1 + u) \ge u - \frac{u^2}{2}$ (étudie la différence et sa dérivée).
 2. Montre que, pour $-\frac{1}{2} \le u \le 0$, $\ln(1 + u) \ge u - u^2$.
 3. Soit $x$ un réel et $n > 2\lvert x \rvert$. Avec $u = \frac{x}{n}$, encadre $n\ln\left(1 + \frac{x}{n}\right)$ entre $x - \frac{x^2}{n}$ et $x$, puis conclus : $\left(1 + \frac{x}{n}\right)^n \to e^x$. Quelle propriété de l'exponentielle utilises-tu ?
