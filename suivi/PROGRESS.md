@@ -1,10 +1,10 @@
 # PROGRESS : état de la génération de workbookMaths
 
-*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-11, session 43 (chapitre M13a, seconde moitié).*
+*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-11, session 44 (chapitre M13b, première moitié).*
 
 ## Prochaine étape
 
-➡️ **Session 44 : chapitre M13b, première moitié** (Optimisation sous contraintes et SVM, 16,1 h prévues ; MML §7.2, §7.3 et ch. 12 ; frontières 13.4, 13.5, 13.17 et les ∂ de workbookIA 13). Le syllabus prévoit une session : en prévoir deux, comme M12c, M12d et M13a (passer `generation_sessions` à 2 dans `docs/syllabus/data/partie_3.py`, ligne BIBLE §24). Première moitié : `solutions/mymath_ref/svm.py` (les cinq fonctions du stub figé `templates/mymath_stubs/svm.py` : `lagrange_equality_qp`, `hinge_loss`, `svm_subgradient`, `rbf_kernel`, `polynomial_kernel`), `tests/test_m13b_svm.py` (oracles NumPy, SciPy, scikit-learn ; mutants), la fiche et ses figures, `EN_COURS.md`. Avant d'écrire : relire workbookIA 13 (SVM, marge, hinge, dual, noyaux) en **lecture seule, sans aucune commande git dans ce clone**, et la liste « À éviter » de M13a (BIBLE §24) ; l'ACP relue par Lagrange reprend M12d sans refaire 12.27.
+➡️ **Session 45 : chapitre M13b, seconde moitié** (Optimisation sous contraintes et SVM). Déjà faits en session 44 : `solutions/mymath_ref/svm.py`, `tests/test_m13b_svm.py` (72 tests, 36 mutants sur 38) et la fiche (`chapitres/m13b_lagrange_svm/01_fiche.md`, §1 à §8, figures par `tools/chapters/figures_m13b.py`) ; le dossier garde `EN_COURS.md` jusqu'à la fin. À faire : relire la fiche, puis `02_exercices.md` (la liste, les frontières et les notes de la section M13b de `docs/SYLLABUS.md` ; ne reprendre ni les exemples de la fiche — $x^2 + 3y^2$ sous $x + y = 8$, $\begin{pmatrix} 10 & 3 \\ 3 & 2 \end{pmatrix}$, le point $(6, 5)$ sous $x + 3y \le 11$ ou 25, $\min x^2$ sous $x \ge 2$, les six points de la SVM du §6 et $(4, 4)$, $(5, 5)$ du §7, les six points de la matrice de Gram — ni les nombres des docstrings du stub, ni rien du rapport de lecture de workbookIA 13 (scratchpad `m13b/ia13/rapport.md`, §6 « À éviter » et §7 « croisement » : les six points et la solution de 13.4, toute direction $\mathbf{w} \propto (1, 1)$, $(4, 3)$ ou $(3, 4)$, le noyau $(\mathbf{x} \cdot \mathbf{z})^2$ et ses points, le RBF à distance 1, les cercles, anneaux, spirales et lunes, les C et γ de 13.16 et 13.18, les graines 13xx et 15xx, la route de ∂ 12.8 pour M13b.4, ∂ M10.8 pour M13b.17, la phrase de la variante de 13.10 pour M13b.E2 ; à refaire en lecture seule, sans aucune commande, si le scratchpad a disparu), `tools/chapters/build_m13b.py` (modèle : `build_m13a.py`), `answers.json`, indices, solutions, feuille de réponses, flashcards, annexes (dont Boyd et Vandenberghe dans `annexes/ressources.md`) ; la vérification indépendante (re-résolution à l'aveugle, apprenant simulé, règle de partage, fiche comprise, puis relecture ciblée des parties refaites) ; puis retirer `EN_COURS.md`.
 
 La partie 0 est complète : R0, POS, R1 à R9 et CP0. L'apprenant enchaîne avec workbookIA 0B, puis workbookIA 1.
 
@@ -19,7 +19,7 @@ La partie II est complète : M07 à M11 et CP2. L'apprenant enchaîne avec le ch
 | 0 · Remise à niveau | R0, POS, R1 à R9, CP0 | ✅ tout publié (R0, POS, R1 à R9, CP0) |
 | I · Fondations | M02a à M06, CP1 | ✅ tout publié (M02a, M02b, M02c, M03, M04, M05a, M05b, M06, CP1) |
 | II · Concepts | M07 à M11, CP2 | ✅ tout publié (M07, M08, M09a, M09b, M10, M11, CP2) ; (syllabus détaillé en session 26 : 256 exercices, six modules `mymath`) |
-| III · ML classique | M12a à M14, CP3 | 🛠️ en cours : M12a ✅ (session 36) ; M12b ✅ (session 37) ; M12c ✅ (sessions 38 et 39) ; M12d ✅ (sessions 40 et 41) ; M13a ✅ (sessions 42 et 43) ; syllabus détaillé en session 35 (321 exercices, sept modules `mymath`) |
+| III · ML classique | M12a à M14, CP3 | 🛠️ en cours : M12a ✅ (session 36) ; M12b ✅ (session 37) ; M12c ✅ (sessions 38 et 39) ; M12d ✅ (sessions 40 et 41) ; M13a ✅ (sessions 42 et 43) ; M13b 🛠️ (session 44 : référence, tests, fiche) ; syllabus détaillé en session 35 (321 exercices, sept modules `mymath`) |
 | IV · Réseaux | M16 à M20, CP4 | 📅 planifié |
 | V · Architectures | M21, M22, CP5 | 📅 planifié |
 | VI · Génératif et RL | M25a à M28, CP6 | 📅 planifié |
@@ -151,6 +151,12 @@ La partie II est complète : M07 à M11 et CP2. L'apprenant enchaîne avec le ch
 **À retenir pour R3 à R9** : les vérifications qui appellent le code de l'apprenant passent par `checked` (de `wbm.nbtools`), pour qu'une erreur de son code ne bloque pas « Run all » ; un ensemble de solutions s'enregistre avec 6 décimales quand une fraction non décimale est attendue ; tester aussi les cas dégénérés pour **tous** les sens ou toutes les branches (un test oublié laisse passer un code faux) ; une réponse qu'il faut **arrondir** (ou un décimal exact) s'enregistre en `kind="fraction"` (ou avec plus de décimales que demandé), sinon une valeur non arrondie passe ; un exemple de forme ne doit être la réponse d'aucune question du chapitre (`tests/infra/test_examples_are_not_answers.py`) ; un test d'algorithme dont la version naïve ne finit jamais passe par `_within` (limite de temps, voir `tests/test_r1_arith.py`) ; chaque groupe de tests lancé par le notebook inclut le test qui interdit les outils tout faits (`or test_arith_uses`) ; les cas `ValueError` passent par `_expect_value_error` (une autre exception dit d'abord ce qui était attendu).
 
 **À retenir pour R1 à R9** : ne reprendre aucun nombre ni aucune donnée du test de positionnement (sujet : `positionnement/01_sujet.md`) ; en R5, le 🔮 prévu sur une suite uₙ₊₁ = ½uₙ + 1 est proche de POS.10 (vₙ₊₁ = ½vₙ + 3) : changer ses nombres. Les messages génériques de `wbm` hérités de workbookIA parlent parfois ML ou Python (« indice (1,) », « arrondis avec round() », « vérifie-le avec SymPy ») : les adapter à la partie 0 si un chapitre en souffre.
+
+## Session 44 (2026-11-11) : chapitre M13b, première moitié 🛠️
+
+**Fait** : `solutions/mymath_ref/svm.py` (les cinq fonctions du stub figé) et `tests/test_m13b_svm.py` (72 tests, oracles SciPy, scikit-learn et `fractions`, contrôle AST ; 36 mutants attrapés sur 38, les deux autres équivalents) ; la fiche `chapitres/m13b_lagrange_svm/01_fiche.md` (§1 à §8, guide de lecture de MML §7.2, §7.3 et ch. 12, récapitulatif des pièges) et ses 6 figures (`tools/chapters/figures_m13b.py`) ; `EN_COURS.md`. Rapport de lecture de workbookIA 13 et de ses voisins (sous-agent, lecture seule par Read, Grep et Glob) pour la règle de partage. Le syllabus prévoit maintenant deux sessions pour M13b.
+
+**Reste** (session 45) : exercices, notebooks, réponses, indices, solutions, feuille de réponses, flashcards, annexes, vérification indépendante. Détails dans BIBLE §24.
 
 ## Session 43 (2026-11-10 et 2026-11-11) : chapitre M13a, seconde moitié ✅
 
