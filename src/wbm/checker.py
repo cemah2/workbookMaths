@@ -964,7 +964,10 @@ def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False, value
                     default=0) if value is not None else 0
         rounded = entry["array_rounded"].get(str(typed))
         if rounded and hash_answer(ex_id, "array", _norm_array(arr, decimals)) == rounded:
-            return _SET_ROUNDED
+            # 6 decimals asked: an exact fraction, or a measured value to give with all its decimals
+            return (f"Presque : au moins une de tes valeurs est arrondie. Donne {_count(decimals, 'décimale')} "
+                    "(n'arrondis qu'à la fin du calcul), ou la valeur exacte : une fraction se tape comme un calcul "
+                    "(`4/3`).")
 
     def matches_all(values) -> bool:
         """values match the answer, as a whole or element by element (rounding noise absorbed)."""

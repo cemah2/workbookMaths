@@ -151,9 +151,13 @@ def test_lagrange_exact_small_problem(svm):
                 rhs[r] -= f * rhs[col]
     exact = [float(rhs[i] / K[i][i]) for i in range(5)]
     x, lam = _result(lambda: svm.lagrange_equality_qp(Q, c, A, b), "(x, lam)")
+    block = np.block([[np.array(Q, float), np.array(A, float).T], [np.array(A, float), np.zeros((2, 2))]])
+    swapped = np.linalg.solve(block, np.concatenate([c, b]))             # the right-hand side (c, b) instead of (-c, b)
+    hint = (" (the right-hand side of the block system is (-c, b): Q x + Aᵀ lam = -c)"
+            if np.allclose(x, swapped[:3], atol=1e-9) else "")
     assert np.allclose(x, exact[:3], atol=1e-12) and np.allclose(lam, exact[3:], atol=1e-12), (
         f"expected x = {_show(exact[:3])} and lam = {_show(exact[3:])} (exact solution), got x = {_show(x)}, "
-        f"lam = {_show(lam)}")
+        f"lam = {_show(lam)}{hint}")
 
 
 @pytest.mark.parametrize("n, m", [(2, 1), (3, 1), (4, 2), (6, 3), (8, 5)])
@@ -288,9 +292,11 @@ def test_subgradient_docstring_example(svm):
     _float_array(g_w, (2,), "g_w")
     _python_float(g_b, "g_b")
     assert J == 1.0, f"expected J = 1.0 (½‖w‖² = 0.5 and one hinge of 0.5), got {J!r}"
-    assert np.allclose(g_w, [0.5, -1.0]) and g_b == -1.0, (
-        f"expected g_w = [0.5, -1] and g_b = -1 (only the second point, of margin 0.5, counts; the third has margin "
-        f"exactly 1 and does not), got g_w = {_show(g_w)}, g_b = {g_b!r}")
+    assert np.allclose(g_w, [0.5, -1.0]), (
+        f"expected g_w = [0.5, -1] (only the second point, of margin 0.5, counts; the third has margin exactly 1 and "
+        f"does not), got g_w = {_show(g_w)}")
+    assert g_b == -1.0, (
+        f"expected g_b = -1, got {g_b!r} (g_b = -C Σ y_i over the margins strictly below 1: C included, minus sign)")
 
 
 @pytest.mark.parametrize("C", [0.1, 1.0, 10.0])
@@ -318,9 +324,12 @@ def test_subgradient_is_the_gradient_where_the_objective_is_smooth(svm):
     h = 1e-6
     numeric = [(_objective(w + h * e, b, X, y, C) - _objective(w - h * e, b, X, y, C)) / (2 * h) for e in np.eye(2)]
     numeric_b = (_objective(w, b + h, X, y, C) - _objective(w, b - h, X, y, C)) / (2 * h)
-    assert np.allclose(g_w, numeric, atol=1e-5) and abs(g_b - numeric_b) < 1e-5, (
-        f"expected the gradient (finite differences) g_w = {_show(numeric)}, g_b = {numeric_b:.6f}, got "
-        f"g_w = {_show(g_w)}, g_b = {g_b!r} (only the points with y (w · x + b) < 1 count, with - C y_i x_i)")
+    assert np.allclose(g_w, numeric, atol=1e-5), (
+        f"expected the gradient (finite differences) g_w = {_show(numeric)}, got g_w = {_show(g_w)} (only the points "
+        f"with y (w · x + b) < 1 count, with - C y_i x_i)")
+    assert abs(g_b - numeric_b) < 1e-5, (
+        f"expected the derivative in b (finite differences) g_b = {numeric_b:.6f}, got g_b = {g_b!r} "
+        f"(g_b = -C Σ y_i over the points with y (w · x + b) < 1: C included, minus sign)")
 
 
 def test_subgradient_gives_a_lower_affine_bound(svm):
@@ -337,21 +346,24 @@ def test_subgradient_gives_a_lower_affine_bound(svm):
 
 def test_subgradient_convention_on_the_kink(svm):
     # the first point has margin exactly 1: it does not count; the second has margin 0: it counts
-    J, g_w, g_b = _result(lambda: svm.svm_subgradient([0.5, 0.5], 0.0, [[1, 1], [1, -1]], [1, 1], C=3.0),
+    J, g_w, g_b = _result(lambda: svm.svm_subgradient([0.5, -0.25], 0.0, [[2, 0], [1, 2]], [1, 1], C=3.0),
                           "(J, g_w, g_b)")
-    assert J == 0.25 + 3.0, f"expected J = 0.25 + 3 × 1 = 3.25, got {J!r}"
-    assert np.allclose(g_w, [0.5 - 3.0, 0.5 + 3.0]) and g_b == -3.0, (
-        f"expected g_w = [-2.5, 3.5] and g_b = -3 (a margin exactly 1 does not count: strictly below 1 only), got "
-        f"g_w = {_show(g_w)}, g_b = {g_b!r}")
+    assert J == 0.15625 + 3.0, f"expected J = 0.15625 + 3 × 1 = 3.15625, got {J!r}"
+    assert np.allclose(g_w, [0.5 - 3.0, -0.25 - 6.0]), (
+        f"expected g_w = [-2.5, -6.25] (a margin exactly 1 does not count: strictly below 1 only), got "
+        f"g_w = {_show(g_w)}")
+    assert g_b == -3.0, (
+        f"expected g_b = -3 (only the second point counts), got {g_b!r} (g_b = -C Σ y_i over the margins strictly "
+        f"below 1: C included, minus sign)")
 
 
 def test_subgradient_of_a_well_separated_set_is_w(svm):
     X = np.array([[3.0, 0.0], [0.0, -4.0], [-5.0, 1.0]])
     y = np.array([1, -1, -1])
-    w = np.array([1.0, 1.0])
+    w = np.array([1.0, 0.5])
     J, g_w, g_b = _result(lambda: svm.svm_subgradient(w, 0.0, X, y), "(J, g_w, g_b)")
-    assert J == 1.0 and np.array_equal(g_w, w) and g_b == 0.0, (
-        f"expected J = ½‖w‖² = 1, g_w = w and g_b = 0 when every margin is at least 1, got J = {J!r}, "
+    assert J == 0.625 and np.array_equal(g_w, w) and g_b == 0.0, (
+        f"expected J = ½‖w‖² = 0.625, g_w = w and g_b = 0 when every margin is at least 1, got J = {J!r}, "
         f"g_w = {_show(g_w)}, g_b = {g_b!r}")
 
 

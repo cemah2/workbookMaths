@@ -259,7 +259,7 @@ Relis « Le problème quadratique sous contraintes linéaires » (fiche §2).
 </details>
 <details><summary>Indice 2</summary>
 
-$\begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \\ \mathbf{A} & \mathbf{0} \end{pmatrix}\begin{pmatrix} \mathbf{x} \\ \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \\ \mathbf{b} \end{pmatrix}$, une matrice $5 \times 5$.
+$\begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \\ \mathbf{A} & \mathbf{0} \end{pmatrix}\begin{pmatrix} \mathbf{x} \\ \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \\ \mathbf{b} \end{pmatrix}$ : écris chacun de ses blocs.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -802,7 +802,7 @@ Une boucle `for t in range(1, steps + 1)` : calcule `J, g_w, g_b`, range `J`, pu
 </details>
 <details><summary>Indice 3</summary>
 
-a) pour chaque réglage, `min(Js) - J_star`. c) compte les `t` où `Js[t + 1] > Js[t]`, par exemple `int(np.sum(np.diff(Js) > 0))`.
+a) pour chaque réglage, `min(Js) - J_STAR_30`. c) compte les `t` où `Js[t + 1] > Js[t]`, par exemple `int(np.sum(np.diff(Js) > 0))`.
 
 </details>
 
@@ -815,7 +815,7 @@ Relis « Les lignes de niveau touchent la contrainte » (fiche §1) et sa figure
 </details>
 <details><summary>Indice 2</summary>
 
-Paramètre la parabole : `xs = np.linspace(-4, 4, 40001)`, `ys = xs**2 / 2 - 2`, puis `i = np.argmin(f(xs, ys))`. Les lignes de niveau : `ax.contour(GX, GY, f(GX, GY), levels=[...])` sur une grille `np.meshgrid`.
+Paramètre la parabole : `xs = np.linspace(-4, 4, 40001)`, `ys = xs**2 / 2 - 2`, puis `i = np.argmin(f_31(xs, ys))`. Les lignes de niveau : `ax.contour(GX, GY, f_31(GX, GY), levels=[...])` sur une grille `np.meshgrid`.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -869,7 +869,7 @@ Commence par la descente de M13b.30 (un pas décroissant $\eta_0/\sqrt{t}$, le *
 </details>
 <details><summary>Indice 2</summary>
 
-Les exemples sont loin de l'origine : $b$ doit valoir plusieurs dizaines, mais chaque coordonnée de $\mathbf{g}_{\mathbf{w}}$ est dominée par la moyenne des features. Cherche un changement de variable qui ne change pas $J$ : $\mathbf{w} \cdot \mathbf{x} + b = \mathbf{w} \cdot (\mathbf{x} - \mathbf{m}) + (b + \mathbf{w} \cdot \mathbf{m})$, avec $\mathbf{m}$ la moyenne des exemples.
+Les exemples sont loin de l'origine : $\lvert b \rvert$ doit être grand (une vingtaine), mais chaque coordonnée de $\mathbf{g}_{\mathbf{w}}$ est dominée par la moyenne des features. Cherche un changement de variable qui ne change pas $J$ : $\mathbf{w} \cdot \mathbf{x} + b = \mathbf{w} \cdot (\mathbf{x} - \mathbf{m}) + (b + \mathbf{w} \cdot \mathbf{m})$, avec $\mathbf{m}$ la moyenne des exemples.
 
 </details>
 <details><summary>Indice 3</summary>

@@ -175,7 +175,9 @@ PAPER = [
         ("d", "a number", "int(F_5.subs(SOL_5))",
          '''mistakes={"pour c = 3, le minimum libre n'est pas admissible : calcule f au point de c)": '''
          '''int(F_5.subs(FREE_5))}'''),
-        ("e", "a number", "int(F_5.subs(FREE_5))"),
+        ("e", "a number", "int(F_5.subs(FREE_5))",
+         '''mistakes={"pour c = 8, le minimum libre est admissible : la contrainte est inactive, et f* est la valeur '''
+         '''de f au minimum libre": int(F_5.subs(SOL_5))}'''),
         ("f", FRAC, "-MU_5",
          F + ''', mistakes={"df*/dc = −μ : desserrer une contrainte active fait BAISSER le minimum": MU_5}'''),
         ("g", FRAC, "GE_5[mu]",
@@ -237,7 +239,8 @@ PAPER = [
         ("e", "a number", "float(HALF_9 + C_9 * sum(H_9))",
          f'''decimals=6, mistakes={{"{SUM}": float(HALF_9 + C_9 * sum(H_9) / 6), '''
          '''"J = ½‖w‖² + C Σ max(0, 1 − tᵢ) : n'oublie pas C": float(HALF_9 + sum(H_9)), '''
-         f'''"{HALF}": float(2 * HALF_9 + C_9 * sum(H_9))}}'''),
+         f'''"{HALF}": float(2 * HALF_9 + C_9 * sum(H_9)), "{SUM} (et garde toutes les décimales)": 1.7583, '''
+         '''"J commence par ½‖w‖² : n'oublie pas ce terme": float(C_9 * sum(H_9))}'''),
         ("f", FRAC, "R(1, 6 * C_9)",
          F + ''', mistakes={"λ = 1/(nC) : divise aussi par C": R(1, 6), "λ = 1/(nC) : divise aussi par n": R(1, 2), '''
          '''"λ = 1/(nC), pas nC": 12}'''),
@@ -277,7 +280,8 @@ PAPER = [
          '''bord": {float(1 - (W_11.T * sympy.Matrix([3, 7]))[0]), float(-1 - (W_11.T * sympy.Matrix([5, 8]))[0])}}'''),
         ("d", "a list of integers", "[i + 1 for i, (_, _, a) in enumerate(PTS_11) if a > 0]",
          '''mistakes={"les vecteurs de support sont TOUS les exemples où αᵢ > 0, les bornés (αᵢ = C) compris": [1, 6], '''
-         '''"les vecteurs de support sont tous les exemples où αᵢ > 0, les libres (0 < αᵢ < C) compris": [2, 4]}'''),
+         '''"les vecteurs de support sont tous les exemples où αᵢ > 0, les libres (0 < αᵢ < C) compris": [2, 4], '''
+         '''"numérote les exemples à partir de 1, comme le tableau (pas à partir de 0)": [0, 1, 3, 5]}'''),
         ("e", "a list of 6 numbers", "floats(T_11)",
          '''decimals=6, mistakes={"la marge fonctionnelle multiplie le score par le label y": floats(S_11)}'''),
         ("f", "a number", "float(HALF_11 + HINGE_11)",
@@ -328,7 +332,8 @@ PAPER = [
          '''float(2 - 2 * K_13[0, 1]), "la distance dans l'espace des features, pas dans le plan": 3.0}'''),
         ("f", "a number", "int(-2 * D2_13[0][1])", f'''mistakes={{"{SQUARED}": int(-2 * sq(D2_13[0][1]))}}'''),
         ("g", "an integer", "1",
-         '''mistakes={"quand γ → 0, chaque valeur du noyau tend vers e⁰ : compare les lignes de la matrice limite": 3}'''),
+         '''mistakes={"quand γ → 0, chaque valeur du noyau tend vers e⁰ : compare les lignes de la matrice limite": 3, '''
+         '''"quand γ → 0, la matrice tend vers la matrice pleine de 1, pas vers la matrice nulle": 0}'''),
         ("h", "an integer", "3",
          '''mistakes={"quand γ → +∞, la diagonale reste k(xᵢ, xᵢ) = 1 : la matrice limite n'est pas nulle": 0}'''),
     ]),
@@ -525,9 +530,11 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M13b.1 à 
 # ---------------------------------------------------------------------------
 TOOLS = '''# Tools of the notebook (parts A to C)
 import inspect
+import io
 import math
 import re
 import time
+import tokenize
 import warnings
 
 import matplotlib.pyplot as plt
@@ -825,7 +832,7 @@ La vérification calcule, avec les points de la cellule fournie :
 - d) vrai ou faux : toutes les valeurs de `rbf_kernel(F_27, F_27, 0.5)` sont $\le 1$, pour 40 points de coordonnées voisines de 3 000 ;
 - e) le nom de l'erreur levée par `rbf_kernel(X_27, Z_27, 0.0)`.
 
-Dans ta copie : retrouve à la main une valeur de a) (les carrés des distances d'abord) et une de b). Pourquoi la matrice de c) n'est-elle pas **exactement** symétrique en flottants, alors qu'elle l'est en théorie ? Pour d), que vaudrait la diagonale sans `np.maximum`, et pourquoi le développement du carré perd-il des chiffres quand les points sont loin de l'origine (compare $\lVert\mathbf{x}\rVert^2 \approx 2{,}7 \times 10^7$ à l'écart cherché) ? Pourquoi $\gamma = 0$ est-il refusé ?""",
+Dans ta copie : retrouve à la main une valeur de a) (les carrés des distances d'abord) et une de b). Pourquoi la matrice de c) n'est-elle pas **exactement** symétrique en flottants, alors qu'elle l'est en théorie ? Pour d), si tu as calculé par développement, que vaudrait la diagonale sans `np.maximum`, et pourquoi le développement du carré perd-il des chiffres quand les points sont loin de l'origine (compare $\lVert\mathbf{x}\rVert^2 \approx 2{,}7 \times 10^7$ à l'écart cherché) ? Pourquoi $\gamma = 0$ est-il refusé ?""",
     todo=LOAD_LEARNER,
     check='''with checked("M13b.27a"):
     wbm.check("M13b.27a", np.asarray(mymath.svm.rbf_kernel(X_27, Z_27, 0.4)).tolist(), computed=True)
@@ -1369,11 +1376,11 @@ GIVEN_32 = '''X_32 = np.array([[1.5, -0.5], [0.0, 2.5], [-1.0, 1.0], [2.5, 1.5],
 Y_32 = np.array([1, -1, -1, 1, -1, 1])                                                    # their labels
 Z_32 = np.array([[1.0, 0.5], [-0.5, 2.0], [3.0, -1.5], [0.0, -2.5]])                      # 4 new points
 W_32, B_32, C_32, GAMMA_32 = np.array([1.2, -0.5]), 0.1, 2.0, 0.5
-# A candidate for min (p₁ − 3)² + (p₂ − 0.5)² under g(p) = p₁ + 2p₂ − 6 ≤ 0: the point P_32 of the line g = 0, and
+# A candidate for min (p₁ − 3)² + (p₂ − 0.5)² under g(p) = 2p₁ + p₂ − 7 ≤ 0: the point P_32 of the line g = 0, and
 # the μ that makes the stationarity ∇f + μ∇g = 0 hold there
-P_32 = np.array([3.4, 1.3])
-GRAD_F_32, GRAD_G_32 = 2 * (P_32 - np.array([3.0, 0.5])), np.array([1.0, 2.0])
-G_P_32 = float(P_32 @ GRAD_G_32 - 6)                                                     # g(P_32)
+P_32 = np.array([3.2, 0.6])
+GRAD_F_32, GRAD_G_32 = 2 * (P_32 - np.array([3.0, 0.5])), np.array([2.0, 1.0])
+G_P_32 = float(P_32 @ GRAD_G_32 - 7)                                                     # g(P_32)
 MU_32 = float(-(GRAD_F_32 @ GRAD_G_32) / (GRAD_G_32 @ GRAD_G_32))
 STATIONARY_32 = bool(np.allclose(GRAD_F_32 + MU_32 * GRAD_G_32, 0.0))'''
 
@@ -1436,7 +1443,7 @@ print(answer_M13b_32a, answer_M13b_32b, answer_M13b_32c, answer_M13b_32d, answer
 print("lignes du collègue : (B)", round(float(0.5 * W_32 @ W_32 + C_32 * np.mean(np.maximum(0, 1 - margins_32))), 4),
       " (C)", round(float(1 / np.linalg.norm(W_32)), 4), " (F) forme", (X_32 @ Z_32.T).shape,
       " (G)", STATIONARY_32 and G_P_32 <= 1e-12 and abs(MU_32 * G_P_32) <= 1e-12, " ; MU_32 =", round(MU_32, 4))
-print("marges :", np.round(margins_32, 2).tolist(), " ; g au minimum libre (3 ; 0,5) :", 3.0 + 2 * 0.5 - 6)''',
+print("marges :", np.round(margins_32, 2).tolist(), " ; g au minimum libre (3 ; 0,5) :", float(np.array([3.0, 0.5]) @ GRAD_G_32 - 7))''',
     record=f'''wbm.record("M13b.32a", "BCFG",
            mistakes={MISTAKES_32})
 x_32r, y_32r = np.array([[1.5, -0.5], [0.0, 2.5], [-1.0, 1.0], [2.5, 1.5], [-2.0, -1.5], [0.5, 3.0]]), \\
@@ -1461,8 +1468,8 @@ wbm.record("M13b.32e", False,
          r"produits scalaires des exemples avec d'autres points ; la matrice de Gram des exemples est $\mathbf{X}"
          r"\mathbf{X}^\top$, $6 \times 6$ et symétrique, dont la somme des coefficients vaut $\lVert\sum_i "
          r"\mathbf{x}_i\rVert^2 = 1{,}5^2 + 6^2 = 38{,}25$. (E) élève bien les distances au carré : elle est juste. (G) "
-         r"oublie la condition de signe : `MU_32` $= -0{,}8 < 0$ dit que la contrainte supposée active ne devrait pas "
-         r"l'être. Le minimum libre $(3 ;\ 0{,}5)$ vérifie $g = -2 < 0$ : c'est la solution, avec $\mu = 0$ (fiche §3).",
+         r"oublie la condition de signe : `MU_32` $= -0{,}2 < 0$ dit que la contrainte supposée active ne devrait pas "
+         r"l'être. Le minimum libre $(3 ;\ 0{,}5)$ vérifie $g = -0{,}5 < 0$ : c'est la solution, avec $\mu = 0$ (fiche §3).",
 )
 
 GIVEN_33 = '''def grad_f_33(x):
@@ -1579,6 +1586,11 @@ CHECK_34 = '''with checked("M13b.34 défi"):
         source_34 = inspect.getsource(train_linear_svm)
     except (OSError, TypeError):
         source_34 = ""
+    try:                                             # the code only: comments and strings (docstrings) may name anything
+        source_34 = " ".join(tok.string for tok in tokenize.generate_tokens(io.StringIO(source_34).readline)
+                             if tok.type not in (tokenize.COMMENT, tokenize.STRING))
+    except (tokenize.TokenError, SyntaxError):
+        pass
     banned_34 = sorted(set(re.findall(r"\\b(scipy|optimize|minimize|sklearn|SVC|LinearSVC|SGDClassifier|mymath|"
                                       r"mymath_ref|ref_34|svm_subgradient|X_34|Y_34|svm_dataset)\\b", source_34)))
     if banned_34:
@@ -1644,7 +1656,7 @@ M13B_34 = Ex(
 
 **L'objectif** : écrire `train_linear_svm(X, y, C, subgradient)`, qui rend un couple $(\mathbf{w}, b)$ dont l'objectif $J$ est à **moins de 1 %** au-dessus de $J^*$, par descente de sous-gradient. La fonction reçue `subgradient(w, b, X, y, C)` est `svm_subgradient` (elle rend $(J, \mathbf{g}_{\mathbf{w}}, g_b)$) : ta fonction ne doit utiliser qu'elle, **au plus 20 000 fois** et en au plus 30 secondes. La vérification compte les appels, mesure le temps, et essaie ta fonction sur `X_34`, puis sur un second dataset de 300 exemples et 3 features, lui aussi loin de l'origine. scikit-learn, `scipy` (`scipy.optimize` compris), `mymath`, `svm_subgradient` appelée directement, `X_34` et `svm_dataset` sont interdits dans ta fonction.
 
-Une descente naïve, à pas constant, échoue : essaie-la d'abord, pour voir, et cherche pourquoi (regarde $g_b$ et les coordonnées de $\mathbf{g}_{\mathbf{w}}$ quand $b$ doit valoir plusieurs dizaines). Les indices de `04_indices.md` donnent des pistes, à ouvrir une à une.
+Une descente naïve, à pas constant, échoue : essaie-la d'abord, pour voir, et cherche pourquoi (regarde $g_b$ et les coordonnées de $\mathbf{g}_{\mathbf{w}}$ quand $\lvert b \rvert$ doit être grand, une vingtaine ici). Les indices de `04_indices.md` donnent des pistes, à ouvrir une à une.
 
 Une dernière cellule enregistre si l'objectif est atteint.
 
@@ -1652,7 +1664,7 @@ Dans ta copie : pourquoi les exemples loin de l'origine rendent-ils la descente 
     todo='''def train_linear_svm(X, y, C, subgradient):
     """(w, b) whose objective J is less than 1 % above its minimum, by subgradient descent, calling
     subgradient(w, b, X, y, C) -> (J, g_w, g_b) at most MAX_CALLS_34 times."""
-    raise NotImplementedError("pas décroissant, meilleur point vu, exemples centrés : au plus 20 000 appels")''',
+    raise NotImplementedError("une descente de sous-gradient à 1 % de J*, au plus 20 000 appels (04_indices.md si tu bloques)")''',
     check=CHECK_34 + '''
 with checked("M13b.34"):
     if not ran_34:                               # ⏳ while train_linear_svm is not written

@@ -53582,6 +53582,9 @@
       "hash": "a2b632d8e01b77cb1db5585ab448fffaa5e587ed05c7b2a627ff5d33efd50e83",
       "kind": "int",
       "magnitude": 1,
+      "mistakes": {
+        "540f5337dda3f95e2a1f903543d2c7fa27e5d0ec07db90a3864a9f98ebc5d541": "pour c = 8, le minimum libre est admissible : la contrainte est inactive, et f* est la valeur de f au minimum libre"
+      },
       "sign": -1,
       "source": "chapitres/m13b_lagrange_svm/05_solutions.ipynb"
     },
@@ -54421,6 +54424,8 @@
       "mistakes": {
         "57139354bdcb2b90b3189d7e14d36080ec570a550af6ca58115d7a93b9595495": "½‖w‖² : n'oublie pas le ½",
         "90e16dc02036bfdf56cf90092b290f143173be15488d33a45f6e0f13b9d2f851": "C multiplie la SOMME des hinges dans J, pas leur moyenne",
+        "dd54c2341bdcc65f31d3e9cee9b70beedf15627a59ba43b6c30ada93580fa6de": "C multiplie la SOMME des hinges dans J, pas leur moyenne (et garde toutes les décimales)",
+        "ed12c4cd64d3a67ed4b1080bd85895195bc364cdd44805738e376d1c2455930d": "J commence par ½‖w‖² : n'oublie pas ce terme",
         "fbc93565aa9a8c9d60e4e9ca1c3a77efa4327a6a1aef7a3c0eafc4a309ffae65": "J = ½‖w‖² + C Σ max(0, 1 − tᵢ) : n'oublie pas C"
       },
       "sign": 1,
@@ -54800,6 +54805,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
+        "44e6ba3c9a20d392d99cae84816f4718b1c4ca92131b5dde78f440cb4093d3eb": "numérote les exemples à partir de 1, comme le tableau (pas à partir de 0)",
         "6367832643d232a48a197f0d05b0aa9c28be1a0df9059d2d6266ac683cbef955": "les vecteurs de support sont tous les exemples où αᵢ > 0, les libres (0 < αᵢ < C) compris",
         "de5a47eec2a6c9d3cc3ef2a4e4f7f1a6228d82949ff31662885db3f69d787b74": "les vecteurs de support sont TOUS les exemples où αᵢ > 0, les bornés (αᵢ = C) compris"
       },
@@ -55375,7 +55381,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "95f7db71ceb2521bb7d935adaa06f41f25c1a54f9804d2c4376f68e4bf17dc95": "quand γ → 0, chaque valeur du noyau tend vers e⁰ : compare les lignes de la matrice limite"
+        "95f7db71ceb2521bb7d935adaa06f41f25c1a54f9804d2c4376f68e4bf17dc95": "quand γ → 0, chaque valeur du noyau tend vers e⁰ : compare les lignes de la matrice limite",
+        "f0f05dc33a1c77c37f7e29f670a90fb6fb3b464eedb1a5b1dcabedf599f96809": "quand γ → 0, la matrice tend vers la matrice pleine de 1, pas vers la matrice nulle"
       },
       "sign": 1,
       "source": "chapitres/m13b_lagrange_svm/05_solutions.ipynb"

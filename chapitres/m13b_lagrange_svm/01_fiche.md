@@ -31,7 +31,7 @@
 | §7 Marge souple, hinge loss et sous-gradient | Q6 | M13b.9, M13b.10 ✏️, M13b.18 ∂, M13b.22 📖, M13b.E2 💼 | M13b.26 🔨, M13b.30 🔬, M13b.34 🏆 |
 | §8 Le problème dual, les vecteurs de support et les noyaux | Q7, Q8, R3 🔁 | M13b.11, M13b.12, M13b.13 ✏️, M13b.19 ∂, M13b.20 🔗, M13b.22 📖, M13b.23 🧮 | M13b.27 🔨, M13b.28 📦, M13b.32 🐛 |
 
-Parcours essentiel : tout sauf Q3, Q8, M13b.2, M13b.4, M13b.6, M13b.10, M13b.11, M13b.12, M13b.14, M13b.18, M13b.19, M13b.21, M13b.22, M13b.23, M13b.E1, M13b.E2, M13b.30 et M13b.32 à M13b.34. Au §4, il ne garde que ∂ M13b.15 et 🗣️ M13b.24.
+Parcours essentiel : tout sauf Q3, Q8, M13b.2, M13b.4, M13b.6, M13b.10, M13b.11, M13b.12, M13b.14, M13b.18, M13b.19, M13b.21, M13b.22, M13b.23, M13b.E1, M13b.E2, M13b.30 et M13b.32 à M13b.34. Au §4, il garde ∂ M13b.15, 🔮 M13b.29 et 🗣️ M13b.24.
 
 ## Guide de lecture de MML
 
@@ -394,7 +394,7 @@ $\varphi(x) = (1, \sqrt{2}\,x, x^2)$ a trois coordonnées, et les $\sqrt{2}$ son
 
 > **Noyau RBF** (gaussien, *radial basis function*). $k(\mathbf{x}, \mathbf{z}) = e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$, avec $\gamma > 0$.
 
-Il ne dépend que de la distance $d = \lVert\mathbf{x} - \mathbf{z}\rVert$, et passe sous 1 % dès que $\gamma d^2 > 4{,}6$, soit $d > 2{,}15/\sqrt{\gamma}$ : $1/\sqrt{\gamma}$ est l'échelle de longueur du noyau. Son $\varphi$ a une **suite infinie** de coordonnées. En dimension 1 :
+Il ne dépend que de la distance $d = \lVert\mathbf{x} - \mathbf{z}\rVert$, et passe sous 1 % dès que $\gamma d^2 > \ln 100 \approx 4{,}61$, soit $d > 2{,}15/\sqrt{\gamma}$ : $1/\sqrt{\gamma}$ est l'échelle de longueur du noyau. Son $\varphi$ a une **suite infinie** de coordonnées. En dimension 1 :
 $$e^{-\gamma(x - z)^2} = e^{-\gamma x^2}\,e^{-\gamma z^2}\,e^{2\gamma xz} = \sum_{m=0}^{\infty} \Big(e^{-\gamma x^2}\sqrt{\tfrac{(2\gamma)^m}{m!}}\,x^m\Big)\Big(e^{-\gamma z^2}\sqrt{\tfrac{(2\gamma)^m}{m!}}\,z^m\Big),$$
 par la série de l'exponentielle (M05a) : $\varphi_m(x) = e^{-\gamma x^2}\sqrt{(2\gamma)^m/m!}\;x^m$, pour $m = 0, 1, 2, \ldots$ Aucune machine ne calculerait $\varphi$, mais $k$ se calcule en une ligne.
 

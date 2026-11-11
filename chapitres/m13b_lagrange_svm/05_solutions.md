@@ -25,7 +25,7 @@
 6. $4 - x_1 - x_2 \le 0$.
 
 ### M13b.Q3 — Primal, dual, dualité faible
-1. $D(\boldsymbol{\mu}) = \min_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu})$ (une borne inférieure, $\inf$, si le minimum n'est pas atteint), pour $\boldsymbol{\mu} \ge \mathbf{0}$.
+1. $D(\boldsymbol{\mu}) = \min_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu})$ (sa plus grande minoration, $\inf$, si le minimum n'est pas atteint), pour $\boldsymbol{\mu} \ge \mathbf{0}$.
 2. **Vrai** : c'est un minimum de fonctions affines des multiplicateurs.
 3. 8 est impossible : la dualité faible impose $D \le f^* = 7$. 5 est possible.
 4. $\min f - \max D \ge 0$ ; il est nul quand la dualité est forte, par exemple pour un problème convexe qui vérifie la condition de Slater.
@@ -66,7 +66,7 @@
 
 ### M13b.Q8 — Primal ou dual : lequel résoudre, et quand ?
 1. Primal : $p + 1 + n$ ($\mathbf{w}$, $b$ et les $\xi_i$), ou $p + 1$ sous la forme avec la hinge (§7), sans variables d'écart ; dual : $n$ (les $\alpha_i$).
-2. Le primal : $n$ est énorme et $p$ petit ; une matrice de Gram de $4 \times 10^{12}$ nombres est hors de question, alors qu'une descente de sous-gradient (ou un solveur linéaire) ne manipule que 31 nombres.
+2. Le primal : $n$ est énorme et $p$ petit ; une matrice de Gram de $4 \times 10^{12}$ nombres est hors de question, alors qu'une descente de sous-gradient (ou un solveur linéaire) n'a que 31 inconnues.
 3. Le dual : un noyau RBF n'a pas de $\varphi$ calculable, et une matrice de Gram de $1{,}6 \times 10^7$ nombres (128 Mo en `float64`) tient en mémoire.
 4. La matrice de Gram $\mathbf{K}$, de taille $n \times n$.
 5. **Vrai** : la décision $\sum_i \alpha_i y_i k(\mathbf{x}_i, \mathbf{x}) + b$ les utilise.
@@ -321,7 +321,7 @@ Pour la copie : $\det\mathbf{K} > 0$, et ses mineurs aussi : $\mathbf{K}$ est d�
 ### Ex M13b.19 — La somme et le produit de deux noyaux sont des noyaux ; une matrice de Gram est semi-définie positive
 
 **Réponse modèle.**
-1. $\mathbf{v}^\top\mathbf{K}\mathbf{v} = \sum_{i,j} v_iv_j\,\varphi(\mathbf{x}_i) \cdot \varphi(\mathbf{x}_j) = \big(\sum_i v_i\varphi(\mathbf{x}_i)\big) \cdot \big(\sum_j v_j\varphi(\mathbf{x}_j)\big) \ge 0$ ; $\mathbf{K}$ est symétrique : semi-définie positive. C'est M12c.17 avec les vecteurs $\varphi(\mathbf{x}_i)$ en lignes.
+1. $\mathbf{v}^\top\mathbf{K}\mathbf{v} = \sum_{i,j} v_iv_j\,\varphi(\mathbf{x}_i) \cdot \varphi(\mathbf{x}_j) = \big(\sum_i v_i\varphi(\mathbf{x}_i)\big) \cdot \big(\sum_j v_j\varphi(\mathbf{x}_j)\big) \ge 0$ ; $\mathbf{K}$ est symétrique : semi-définie positive. C'est M12c.17, pour la matrice dont les colonnes sont les $\varphi(\mathbf{x}_i)$.
 2. $\sqrt{c}\,\varphi$.
 3. $\varphi(\mathbf{x}) = (\varphi_1(\mathbf{x}), \varphi_2(\mathbf{x})) \in \mathbb{R}^{q_1 + q_2}$ : $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z}) = k_1(\mathbf{x}, \mathbf{z}) + k_2(\mathbf{x}, \mathbf{z})$.
 4. $\sum_{a,b}\varphi_{1,a}(\mathbf{x})\varphi_{2,b}(\mathbf{x})\,\varphi_{1,a}(\mathbf{z})\varphi_{2,b}(\mathbf{z}) = \big(\sum_a \varphi_{1,a}(\mathbf{x})\varphi_{1,a}(\mathbf{z})\big)\big(\sum_b \varphi_{2,b}(\mathbf{x})\varphi_{2,b}(\mathbf{z})\big) = k_1k_2$.
@@ -340,7 +340,7 @@ Pour la copie : $\det\mathbf{K} > 0$, et ses mineurs aussi : $\mathbf{K}$ est d�
 
 **Démarche.** Pour $(0{,}5 ;\ 0{,}5)$, les distances au carré aux trois vecteurs de support valent $2{,}5$ ; $4{,}5$ ; $6{,}5$, et les noyaux $e^{-0{,}75} \approx 0{,}4724$, $e^{-1{,}35} \approx 0{,}2592$, $e^{-1{,}95} \approx 0{,}1423$ : $s = 0{,}3779 - 0{,}1296 - 0{,}0427 - 0{,}1 \approx 0{,}1056$. Pour $(2, 4)$ : distances au carré 18, 25 et 2, d'où $s = 0{,}8\,e^{-5{,}4} - 0{,}5\,e^{-7{,}5} - 0{,}3\,e^{-0{,}6} - 0{,}1 \approx -0{,}2613$ : seul le troisième vecteur de support, tout proche, compte encore.
 
-Pour la copie : $\sum_i \alpha_i y_i = 0$ est la stationnarité du lagrangien en $b$ (fiche §6). Loin de tous les vecteurs de support, chaque noyau tend vers 0 et la décision vers $b = -0{,}1$ : la classe $-1$, celle que favorise le biais. Une prédiction demande autant d'évaluations de $k$ que d'exemples où $\alpha_i > 0$ ; sur des données bruitées, tous ceux qui touchent la bande ou la franchissent en font partie, et leur nombre suit la taille des données d'entraînement.
+Pour la copie : $\sum_i \alpha_i y_i = 0$ est la stationnarité du lagrangien en $b$ (fiche §6). Loin de tous les vecteurs de support, chaque noyau tend vers 0 et la décision vers $b = -0{,}1$ : la classe $-1$, celle que favorise le biais. Une prédiction demande autant d'évaluations de $k$ que d'exemples où $\alpha_i > 0$ : c'est ce nombre, et non la dimension des données, qui fixe son coût.
 
 **Erreurs fréquentes.** Oublier le biais ; oublier les labels ; la distance non élevée au carré.
 
@@ -374,7 +374,7 @@ Pour la copie : $\sum_i \alpha_i y_i = 0$ est la stationnarité du lagrangien en
 
 **Réponse modèle.**
 1. $n^2 = 10^{10}$ nombres ; par symétrie, $\frac{n(n+1)}{2} \approx 5 \times 10^9$.
-2. $8 \times 10^{10}$ octets, 80 Go, en `float64` (40 Go en n'en gardant que la moitié) ; 40 Go en `float32`. Cinq fois la mémoire d'un ordinateur portable de 16 Go, au moins.
+2. $8 \times 10^{10}$ octets, 80 Go, en `float64` (40 Go en n'en gardant que la moitié) ; 40 Go en `float32`. En `float64`, cinq fois la mémoire d'un ordinateur portable de 16 Go ; deux fois et demie en `float32`.
 3. Chaque distance demande environ $2p = 100$ opérations : $10^{10} \times 100 = 10^{12}$ opérations (la moitié par symétrie), soit de l'ordre de 1 000 secondes, un quart d'heure.
 4. $200 \times 10^6 / 4 = 5 \times 10^7$ nombres en `float32`, soit 0,5 % de la matrice : le solveur recalcule les valeurs du noyau au fur et à mesure.
 5. $8n^2 \le 1{,}6 \times 10^{10}$ donne $n \le 4{,}5 \times 10^4$ environ : au-delà d'environ 45 000 exemples, la matrice entière ne tient plus, et le temps (au moins en $n^2$) devient prohibitif. Pour de très gros datasets : une SVM linéaire par le primal, ou une approximation du noyau par un nombre fini de features.
@@ -398,13 +398,13 @@ En 3 phrases : « Le multiplicateur d'une contrainte est son prix : ce que l'obj
 
 > Un problème d'optimisation est convexe quand on minimise une fonction convexe sur un ensemble convexe, ce qui revient à demander des contraintes d'inégalité convexes et des contraintes d'égalité affines. C'est une bonne nouvelle pour quatre raisons. D'abord, tout minimum local est global : un algorithme qui ne trouve plus de direction de descente a fini, il ne s'est pas arrêté dans un creux secondaire. Ensuite, si la fonction est strictement convexe, la solution est unique. Troisièmement, les conditions KKT sont suffisantes : une solution candidate se vérifie, on n'a pas à croire l'algorithme sur parole. Enfin, sous une hypothèse légère, la condition de Slater, la dualité est forte : le problème dual donne la même valeur et un certificat d'optimalité. En machine learning, la régression ridge, la régression logistique régularisée et les SVM sont convexes. Un réseau de neurones ne l'est pas : on y vit sans ces garanties, avec des initialisations et des pas bien choisis, et l'on juge le résultat sur des données de validation.
 
-**Grille.** (1) la définition (objectif, inégalités, égalités affines) ; (2) local = global ; (3) l'unicité ; (4) les KKT suffisantes ; (5) la dualité forte ; (6) des exemples et un contre-exemple.
+**Grille.** (1) la définition (objectif, inégalités, égalités affines) ; (2) local = global ; (3) l'unicité ; (4) les KKT suffisantes ; (5) la dualité forte ; (6) des exemples et un contre-exemple ; (7) ce que l'on fait quand le problème n'est pas convexe.
 
 ### M13b.E2 — « Hinge loss ou log-loss : quelles différences ? »
 
 **Réponse modèle (60 secondes).**
 
-> Les deux s'écrivent en fonction de la marge fonctionnelle $t = y\,s$ d'un exemple : la hinge vaut $\max(0, 1 - t)$, la log-loss $\ln(1 + e^{-t})$. Elles ont beaucoup en commun : convexes, décroissantes, presque linéaires pour un exemple très mal classé, et, après une mise à l'échelle, des majorants de l'erreur de classification. Trois différences comptent. La log-loss est dérivable partout, la hinge a un coude en $t = 1$, d'où le sous-gradient. La hinge vaut exactement 0 dès que $t \ge 1$ : un tel exemple a, à l'optimum, un multiplicateur nul, et disparaît de $\mathbf{w}$, qui ne dépend que des vecteurs de support ; la log-loss ne s'annule jamais, tous les exemples tirent un peu sur les paramètres. Enfin, la log-loss est une log-vraisemblance : le modèle sort une probabilité ; la hinge ne donne qu'un score, qu'il faudrait calibrer après coup. Sur des données séparables, la hinge atteint 0 avec des poids finis, alors que la log-loss non régularisée continue de baisser quand les poids grandissent. On choisit la log-loss quand on veut des probabilités, la hinge quand on veut une frontière qui ne dépend que des exemples difficiles.
+> Les deux s'écrivent en fonction de la marge fonctionnelle $t = y\,s$ d'un exemple : la hinge vaut $\max(0, 1 - t)$, la log-loss $\ln(1 + e^{-t})$. Elles ont beaucoup en commun : convexes, décroissantes, presque linéaires pour un exemple très mal classé, et, après une mise à l'échelle, des majorants de l'erreur de classification. Trois différences comptent. La log-loss est dérivable partout, la hinge a un coude en $t = 1$, d'où le sous-gradient. La hinge vaut exactement 0 dès que $t \ge 1$, et un exemple de marge $t > 1$ a, à l'optimum, un multiplicateur nul : il disparaît de $\mathbf{w}$, qui ne dépend que des vecteurs de support ; la log-loss ne s'annule jamais, tous les exemples tirent un peu sur les paramètres. Enfin, la log-loss est une log-vraisemblance : le modèle sort une probabilité ; la hinge ne donne qu'un score, qu'il faudrait calibrer après coup. Sur des données séparables, la hinge atteint 0 avec des poids finis, alors que la log-loss non régularisée continue de baisser quand les poids grandissent. On choisit la log-loss quand on veut des probabilités, la hinge quand on veut une frontière qui ne dépend que des exemples difficiles.
 
 **Grille.** (1) les deux formules en fonction de $y\,s$ ; (2) les points communs ; (3) la dérivabilité ; (4) le zéro et les vecteurs de support ; (5) score ou probabilité ; (6) un critère de choix.
 
@@ -470,7 +470,7 @@ Le code complet de chaque exercice est dans `05_solutions.ipynb`, exécuté ; vo
 
 **Réponses** : a) `"BCFG"` · b) `4.445` · c) `1.5385` · d) `38.25` · e) `False`.
 
-**Démarche.** (B) $C$ multiplie la **somme** des hinges : la moyenne divise le terme d'attache par $n = 6$ et donne $1{,}445$, un nombre plausible sans aucun signal. (C) La bande a une largeur $2/\lVert\mathbf{w}\rVert = 2/1{,}3 \approx 1{,}5385$ ; (D), presque la même ligne, calcule la marge $\rho$ : elle est juste. (F) `X @ Z_32.T` est une matrice $6 \times 4$ ; la matrice de Gram des exemples est $\mathbf{X}\mathbf{X}^\top$, $6 \times 6$ et symétrique, dont la somme des coefficients vaut $\lVert\sum_i \mathbf{x}_i\rVert^2 = 1{,}5^2 + 6^2 = 38{,}25$. (E) élève bien les distances au carré : juste. (G) oublie la condition de signe : `MU_32` $= -0{,}8 < 0$ dit que la contrainte supposée active ne devrait pas l'être ; le minimum libre $(3 ;\ 0{,}5)$ vérifie $g = -2 < 0$ : c'est la solution, avec $\mu = 0$.
+**Démarche.** (B) $C$ multiplie la **somme** des hinges : la moyenne divise le terme d'attache par $n = 6$ et donne $1{,}445$, un nombre plausible sans aucun signal. (C) La bande a une largeur $2/\lVert\mathbf{w}\rVert = 2/1{,}3 \approx 1{,}5385$ ; (D), presque la même ligne, calcule la marge $\rho$ : elle est juste. (F) `X @ Z_32.T` est une matrice $6 \times 4$ ; la matrice de Gram des exemples est $\mathbf{X}\mathbf{X}^\top$, $6 \times 6$ et symétrique, dont la somme des coefficients vaut $\lVert\sum_i \mathbf{x}_i\rVert^2 = 1{,}5^2 + 6^2 = 38{,}25$. (E) élève bien les distances au carré : juste. (G) oublie la condition de signe : `MU_32` $= -0{,}2 < 0$ dit que la contrainte supposée active ne devrait pas l'être ; le minimum libre $(3 ;\ 0{,}5)$ vérifie $g = -0{,}5 < 0$ : c'est la solution, avec $\mu = 0$.
 
 ### Ex M13b.33 — Vérifier une solution KKT : faisabilité, stationnarité, complémentarité
 
@@ -482,6 +482,6 @@ Le code complet de chaque exercice est dans `05_solutions.ipynb`, exécuté ; vo
 
 **Vérification** : `True` si l'objectif est atteint sur les deux datasets, dans le budget.
 
-**Démarche.** Centrer les exemples ($\mathbf{x}_i - \mathbf{m}$), descendre avec $\eta_t = 0{,}01/\sqrt{t}$ pendant 3 000 pas en gardant le meilleur $(\mathbf{w}, b')$, puis rendre $(\mathbf{w}, b' - \mathbf{w} \cdot \mathbf{m})$ : $J/J^* < 1{,}0001$ sur les deux datasets, en moins d'une seconde. Pour la copie : sur les exemples d'origine, le biais doit valoir environ $-23{,}5$, mais chaque coordonnée de $\mathbf{g}_{\mathbf{w}}$ est dominée par la moyenne des features (de l'ordre de 10) : un pas assez petit pour que $\mathbf{w}$ n'explose pas fait bouger $b$ d'un rien, et le pas constant reste coincé ($J/J^* \approx 2{,}7$ avec $\eta = 10^{-4}$ après 20 000 pas, $\approx 17$ avec $10^{-3}$). Le changement de variable $\mathbf{w} \cdot \mathbf{x} + b = \mathbf{w} \cdot (\mathbf{x} - \mathbf{m}) + (b + \mathbf{w} \cdot \mathbf{m})$ donne le même score à chaque exemple avec le même $\mathbf{w}$ : $J$ et $\lVert\mathbf{w}\rVert$ ne changent pas, seul le biais est déplacé. Diviser une feature par son écart-type, au contraire, change $\lVert\mathbf{w}\rVert$ pour un même classifieur, donc le terme $\frac12\lVert\mathbf{w}\rVert^2$ et le minimum.
+**Démarche.** Centrer les exemples ($\mathbf{x}_i - \mathbf{m}$), descendre avec $\eta_t = 0{,}01/\sqrt{t}$ pendant 3 000 pas en gardant le meilleur $(\mathbf{w}, b')$, puis rendre $(\mathbf{w}, b' - \mathbf{w} \cdot \mathbf{m})$ : $J/J^* < 1{,}0001$ sur les deux datasets, en moins d'une seconde. Pour la copie : sur les exemples d'origine, le biais doit valoir environ $-23{,}5$, mais chaque coordonnée de $\mathbf{g}_{\mathbf{w}}$ est dominée par la moyenne des features (de l'ordre de 10) : un pas assez petit pour que $\mathbf{w}$ n'explose pas fait bouger $b$ d'un rien, et le pas constant reste coincé : après 20 000 pas, le dernier point fait $J/J^* \approx 2{,}7$ avec $\eta = 10^{-4}$ et $\approx 17$ avec $10^{-3}$, le meilleur point vu $\approx 2{,}1$ et $\approx 1{,}9$. Le centrage est l'ingrédient indispensable : une fois les exemples centrés, même un pas constant $10^{-3}$ et le dernier point passent sous 1 % ; le pas décroissant et le meilleur point rendent la méthode sûre sans réglage. Le changement de variable $\mathbf{w} \cdot \mathbf{x} + b = \mathbf{w} \cdot (\mathbf{x} - \mathbf{m}) + (b + \mathbf{w} \cdot \mathbf{m})$ donne le même score à chaque exemple avec le même $\mathbf{w}$ : $J$ et $\lVert\mathbf{w}\rVert$ ne changent pas, seul le biais est déplacé. Diviser une feature par son écart-type, au contraire, change $\lVert\mathbf{w}\rVert$ pour un même classifieur, donc le terme $\frac12\lVert\mathbf{w}\rVert^2$ et le minimum.
 
 **Erreurs fréquentes.** Rendre le dernier point au lieu du meilleur ; oublier de ramener le biais aux exemples d'origine ; normaliser les features ; appeler `svm_subgradient` directement au lieu de la fonction reçue.
