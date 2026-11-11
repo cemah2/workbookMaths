@@ -1548,3 +1548,34 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M13b.34 🏆 Défi : une SVM linéaire entraînée par sous-gradient, un objectif à 1 % de celui de scikit-learn au même C ★★★ 30 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (24 cartes)
 <!-- wbm:end M13b -->
+
+<!-- wbm:section M14 -->
+## M14 · Les maths des ensembles ⏱️ 7,2 h
+
+- [ ] M14.Q1 🧠 La queue d'une loi binomiale et ses bornes : vrai ou faux ★ 4 min
+- [ ] M14.Q2 🧠 Corrélation et variance d'une moyenne ★ 4 min
+- [ ] M14.Q3 🧠 Des limites remarquables ★ 4 min
+- [ ] M14.Q4 🧠 Des poids exponentiels ★ 4 min (complet)
+- [ ] M14.R1 🔁 La log-loss et la divergence KL (M13a, M06) ★ 5 min
+- [ ] M14.R2 🔁 La variance d'une somme et la matrice de covariance (M02c) ★ 5 min
+- [ ] M14.R3 🔁 Taylor et ln(1 + u) (M05a) ★ 5 min
+- [ ] M14.1 ✏️ La fiabilité d'un système « k parmi n » : au moins k composants qui marchent ★ 15 min
+- [ ] M14.2 ✏️ La variance de la moyenne de trois mesures corrélées, par la matrice de covariance ★ 15 min
+- [ ] M14.3 ✏️ (1 + x/n)ⁿ pour quelques n, et des intérêts composés en continu ★ 10 min
+- [ ] M14.4 ✏️ Les poids exponentiels de cinq experts après trois tours ★ 15 min
+- [ ] M14.5 ✏️ Le gradient de la loss exponentielle e^(−yF) et de la loss de Huber par rapport aux prédictions, et les poids exponentiels qu'il fait apparaître ★★ 15 min (complet)
+- [ ] M14.6 ∂ (1 + x/n)ⁿ → eˣ, par le logarithme et ln(1 + u) ≈ u ★★ 20 min
+- [ ] M14.7 ∂ Une moyenne pondérée de variables de variance σ² a une variance au plus σ² ★★ 15 min (complet)
+- [ ] M14.8 ∂ La borne de Chernoff d'une queue binomiale : le meilleur λ donne exp(−n KL(a ‖ p)) ★★★ 25 min (complet)
+- [ ] M14.9 🔗 Pont : ajouter des modèles très corrélés ne sert presque à rien, un plancher de variance sur deux groupes de modèles ★ 15 min
+- [ ] M14.10 🗣️ Expliquer pourquoi une moyenne réduit la variance, et quand elle ne la réduit plus ★ 10 min
+- [ ] M14.E1 💼 « Comment combiner les avis de plusieurs experts quand on ne sait pas lequel est le meilleur ? » ★ 10 min (complet)
+- [ ] M14.11 🔨 La borne de Chernoff et la variance d'une moyenne pondérée ★ 20 min
+- [ ] M14.12 🔨 Les poids de l'algorithme Hedge ★ 15 min (complet)
+- [ ] M14.13 🔬 Simuler la moyenne de deux groupes de modèles corrélés, et retrouver aᵀΣa et son plancher ★★ 20 min
+- [ ] M14.14 🎨 Les poids exponentiels au fil des tours : quel expert domine, selon le learning rate ★ 15 min (complet)
+- [ ] M14.15 🐛 Chasse à l'erreur : P(X ≥ k) calculée comme P(X > k), des covariances oubliées, des poids non renormalisés ★ 15 min (complet)
+- [ ] M14.16 🛠️ Un test qui vérifie que la borne de Chernoff majore la queue exacte de `scipy.stats`, sur une grille de n, p et a ★ 15 min (complet)
+- [ ] M14.17 🏆 Défi : suivre le meilleur de dix experts avec Hedge sans connaître l'horizon, un regret sous la borne théorique sur 1 000 tours ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (12 cartes)
+<!-- wbm:end M14 -->
