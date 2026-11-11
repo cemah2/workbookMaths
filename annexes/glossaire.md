@@ -355,7 +355,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | mantisse | significand, mantissa | le nombre $m$ de la notation scientifique $m \times 10^k$, avec $1 \le |m| < 10$ | R1 |
 | MAP (maximum a posteriori) | maximum a posteriori (MAP) estimate | la valeur du paramètre qui maximise l'a posteriori : son mode | M04 |
 | marche (fonction de Heaviside) | step function, Heaviside function | vaut 0 avant 0 et 1 après ; la valeur en 0 est une convention ; voir aussi « seuil (fonction) » | R3 |
-| marge dure, marge souple | hard margin, soft margin | la SVM qui exige $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ pour tous les exemples, ou celle qui autorise des violations payées $C$ par unité (les variables d'écart, ou la hinge loss) | M13b |
+| marge dure, marge souple | hard margin, soft margin | la SVM qui exige $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ pour tous les exemples, ou celle qui relâche chaque contrainte en $\ge 1 - \xi_i$ ($\xi_i \ge 0$) et ajoute $C\sum_i \xi_i$ à l'objectif (forme équivalente : la hinge loss) | M13b |
 | marge fonctionnelle | functional margin | $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ pour un point ; elle est multipliée par $c$ quand on multiplie $(\mathbf{w}, b)$ par $c$ | M10 |
 | marge géométrique | geometric margin | $\min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$ : la distance signée du point le plus mal placé à l'hyperplan ; la plus grande possible vaut la moitié de la distance entre les enveloppes convexes | M10 |
 | Markov (inégalité de) | Markov's inequality | $P(X \ge a) \le \frac{\mathbb{E}[X]}{a}$ pour une variable $X \ge 0$ et $a > 0$ | M02c, M11 |
@@ -422,7 +422,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | noyau (d'une application linéaire) | kernel, null space | $\ker\mathbf{A} = \{\mathbf{x} : \mathbf{A}\mathbf{x} = \mathbf{0}\}$, un sous-espace de l'espace de départ : les directions que l'application écrase | M12a |
 | noyau (d'une SVM) | kernel | une fonction $k(\mathbf{x}, \mathbf{z}) = \varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$ : symétrique, de matrices de Gram semi-définies positives ; linéaire, polynomial ou RBF | M13b |
 | noyau polynomial | polynomial kernel | $(\mathbf{x} \cdot \mathbf{z} + c)^d$, avec $c \ge 0$ : le produit scalaire des monômes de degré au plus $d$ (pondérés), soit $\binom{p + d}{d}$ coordonnées pour $c > 0$ | M13b |
-| noyau RBF, gaussien | RBF kernel, Gaussian kernel | $e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$, entre 0 et 1, égal à 1 pour deux points confondus ; son $\varphi$ a une infinité de coordonnées ; $\gamma$ grand : chaque exemple n'agit que près de lui | M13b |
+| noyau RBF, gaussien | RBF kernel, Gaussian kernel | $e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$, dans $]0, 1]$, fonction décroissante de la distance ; $1/\sqrt{\gamma}$ fixe son échelle de longueur ; son $\varphi$ a une infinité de coordonnées | M13b |
 | numérateur, dénominateur | numerator, denominator | le nombre du haut et celui du bas d'une fraction | R1 |
 | octet | byte | 8 bits ; 1 ko = $10^3$ octets, 1 Mo = $10^6$, 1 Go = $10^9$ | R1 |
 | opérations élémentaires sur les lignes | elementary row operations | échanger deux lignes, multiplier une ligne par un nombre non nul, ajouter à une ligne un multiple d'une autre : elles ne changent pas les solutions | M09a |
@@ -641,7 +641,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | variance expliquée (part de) | explained variance ratio | $\lambda_j/\sum_l\lambda_l$ : la part de la variance totale que garde l'axe principal $j$ ; la somme des $k$ premières est la part gardée par une ACP à $k$ composantes | M12d |
 | variance intra-groupes, inter-groupes | within-group, between-group variance | la moyenne pondérée des variances des groupes, et la moyenne pondérée des carrés des écarts des moyennes des groupes à la moyenne générale ; leur somme est la variance totale | M13a |
 | vecteur | vector | un déplacement (une direction, un sens, une longueur), donné par ses coordonnées ; en ML, une liste de nombres | R9 |
-| vecteur de support | support vector | un exemple de multiplicateur $\alpha_i > 0$ dans le dual d'une SVM : sur un bord de la bande (marge dure), ou sur un bord, dans la bande ou du mauvais côté (marge souple) ; retirer un exemple de multiplicateur nul ne change pas la solution | M10, M13b |
+| vecteur de support | support vector | un exemple de multiplicateur $\alpha_i > 0$ dans le dual d'une SVM : de marge fonctionnelle exactement 1 (marge dure), ou de marge fonctionnelle $t_i \le 1$ (marge souple) ; $\mathbf{w}$ ne dépend que d'eux | M10, M13b |
 | vecteur directeur, vecteur normal | direction vector, normal vector | un vecteur qui a la direction d'une droite ; un vecteur perpendiculaire à une droite ou à un plan (il engendre son complément orthogonal) | R9, M07, M12b |
 | vecteur one-hot | one-hot vector | le codage d'une catégorie : un 1 à sa place, des 0 ailleurs (un vecteur de la base canonique) | M07 |
 | vecteur unitaire | unit vector | un vecteur de norme 1 ; $\frac{\vec{u}}{\lVert \vec{u} \rVert}$ normalise $\vec{u}$ | R9, M07 |

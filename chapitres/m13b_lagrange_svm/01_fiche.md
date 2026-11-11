@@ -41,7 +41,7 @@ Parcours essentiel : tout sauf Q3, Q8, M13b.2, M13b.4, M13b.6, M13b.10, M13b.11,
 - après le **§7** : le **§12.2** (*Primal Support Vector Machine*) : la marge (§12.2.1 à §12.2.3, que M10 t'a préparée), puis la marge souple vue géométriquement (§12.2.4) et par une loss (§12.2.5) ;
 - après le **§8** : le **§12.3** (*Dual Support Vector Machine* : la dualité par Lagrange, puis une lecture par les enveloppes convexes, qui prolonge M10 §2), le **§12.4** (*Kernels*) et le **§12.5** (*Numerical Solution*, à survoler). Questions : M13b.22.
 
-📐 **Notations.** MML écrit une contrainte d'inégalité $g_i(\mathbf{x}) \le 0$, ses multiplicateurs $\lambda_i \ge 0$ et le lagrangien $f + \sum_i \lambda_i g_i$, comme la fiche ; mais la fiche réserve $\lambda$ aux contraintes d'**égalité** (multiplicateur de signe quelconque), écrit $\mu$ ceux des **inégalités** (positifs ou nuls) et $\alpha_i$ ceux de la SVM, un par exemple. MML écrit $\langle \mathbf{w}, \mathbf{x} \rangle$ le produit scalaire, $N$ le nombre d'exemples, $\xi_n$ les variables d'écart et $r$ la marge. **M10 notait $\gamma$ la marge ; ici, la marge s'écrit $\rho$**, parce que $\gamma$ devient le paramètre du noyau RBF (§8). La marge est $\rho = 1/\lVert\mathbf{w}\rVert$ (de la frontière au point le plus proche), la **bande** a une largeur $2\rho = 2/\lVert\mathbf{w}\rVert$ : certains auteurs appellent marge cette largeur entière. Les labels d'une SVM valent $-1$ ou $+1$.
+📐 **Notations.** MML écrit une contrainte d'inégalité $g_i(\mathbf{x}) \le 0$, ses multiplicateurs $\lambda_i \ge 0$ et le lagrangien $f + \sum_i \lambda_i g_i$, comme la fiche ; mais la fiche réserve $\lambda$ aux contraintes d'**égalité** (multiplicateur de signe quelconque), écrit $\mu$ ceux des **inégalités** (positifs ou nuls) et $\alpha_i$ ceux de la SVM, un par exemple. MML écrit $\langle \mathbf{w}, \mathbf{x} \rangle$ le produit scalaire, $N$ le nombre d'exemples, $\xi_n$ les variables d'écart et $r$ la marge. **M10 notait $\gamma$ la marge ; ici, la marge s'écrit $\rho$**, parce que $\gamma$ devient le paramètre du noyau RBF (§8). La marge est $\rho = 1/\lVert\mathbf{w}\rVert$ (de la frontière au point le plus proche), la **bande** a une largeur $2\rho = 2/\lVert\mathbf{w}\rVert$. MML ($r$) et M10 ($\gamma$) appellent marge la distance de la frontière au point le plus proche ; d'autres textes donnent ce nom à $2\rho$ : fie-toi à la formule plutôt qu'au mot. Les labels d'une SVM valent $-1$ ou $+1$.
 
 **Deux homonymes.** Le **noyau** d'une SVM (*kernel*, une fonction de deux points, §8) n'a rien à voir avec le noyau d'une application linéaire (M12a). Et la **matrice de Gram** du §8 est la matrice $n \times n$ des produits scalaires des **exemples** (les lignes de $\mathbf{X}$) : c'est $\mathbf{X}\mathbf{X}^\top$, alors que M12c appelait matrice de Gram $\mathbf{X}^\top\mathbf{X}$, de taille $p \times p$, celle des colonnes.
 
@@ -67,7 +67,7 @@ Vocabulaire anglais de ce chapitre : *constrained optimization*, *equality / ine
 6. **Problème convexe** : objectif convexe, inégalités convexes, égalités affines. Tout minimum local y est global, et les conditions KKT suffisent.
 7. **SVM à marge dure** : $\min \frac{1}{2}\lVert\mathbf{w}\rVert^2$ sous $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ ; marge $\rho = 1/\lVert\mathbf{w}\rVert$ ; $\mathbf{w}$ est unique.
 8. **Marge souple** : $J(\mathbf{w}, b) = \frac{1}{2}\lVert\mathbf{w}\rVert^2 + C\sum_i \max(0, 1 - y_i(\mathbf{w} \cdot \mathbf{x}_i + b))$, la **hinge loss** ; on la minimise par **sous-gradient**, sans garantie de baisse à chaque pas.
-9. **Dual** : $\mathbf{w} = \sum_i \alpha_i y_i \mathbf{x}_i$, $\sum_i \alpha_i y_i = 0$, $0 \le \alpha_i \le C$ ; les **vecteurs de support** sont les exemples où $\alpha_i > 0$, et eux seuls comptent.
+9. **Dual** : $\mathbf{w} = \sum_i \alpha_i y_i \mathbf{x}_i$, $\sum_i \alpha_i y_i = 0$, $0 \le \alpha_i \le C$ ; les **vecteurs de support** sont les exemples où $\alpha_i > 0$ : $\mathbf{w}$ ne dépend que d'eux.
 10. Le dual et la décision ne demandent que des produits scalaires $\mathbf{x}_i \cdot \mathbf{x}_j$ : les remplacer par un **noyau** $k(\mathbf{x}, \mathbf{z}) = \varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$ (polynomial, RBF), c'est travailler dans un autre espace sans jamais calculer $\varphi$.
 
 ---
@@ -80,7 +80,7 @@ On cherche le minimum de $f(\mathbf{x})$ non plus sur tout $\mathbb{R}^n$, mais 
 $$\min_{\mathbf{x}} f(\mathbf{x}) \quad \text{sous la contrainte} \quad g(\mathbf{x}) = 0.$$
 Les points qui vérifient la contrainte forment l'**ensemble admissible** (*feasible set*). Annuler $\nabla f$ ne sert plus à rien : le minimum libre n'est en général pas admissible.
 
-**Exemple.** Minimiser $f(x, y) = x^2 + 3y^2$ sous $x + y = 8$. On peut remplacer $y$ par $8 - x$ et minimiser une fonction d'une variable : $x^2 + 3(8 - x)^2$, de dérivée $2x - 6(8 - x) = 8x - 48$, nulle en $x = 6$, donc $y = 2$ et $f = 36 + 12 = 48$. Cette **élimination** marche ici, mais elle devient vite impraticable (une contrainte non linéaire, plusieurs contraintes, beaucoup de variables). Lagrange donne une méthode générale.
+**Exemple.** Minimiser $f(x, y) = x^2 + 3y^2$ sous $x + y = 8$. On peut remplacer $y$ par $8 - x$ et minimiser une fonction d'une variable : $x^2 + 3(8 - x)^2$, de dérivée $2x - 6(8 - x) = 8x - 48$, nulle en $x = 6$, donc $y = 2$ et $f = 36 + 12 = 48$. Cette **élimination** marche ici, mais elle devient vite impraticable (une contrainte non linéaire, plusieurs contraintes, beaucoup de variables). Lagrange donne une méthode générale. (C'est l'ellipse de 🔮 M05b.22, deux fois plus grande : en $(3, 1)$, sa ligne de niveau 12 avait déjà la direction $(1, -1)$, celle des droites $x + y = \text{constante}$.)
 
 ### Les lignes de niveau touchent la contrainte
 
@@ -279,13 +279,13 @@ Six exemples : label $+1$ pour $(6, 1)$, $(7, 3)$, $(8, 0)$ ; label $-1$ pour $(
 
 ![Six exemples, la frontière w · x + b = 0 et les bords à ±1 : la bande, de largeur √10, s'appuie sur les deux vecteurs de support (6, 1) et (3, 2)](figures/svm_marge_dure.png)
 
-⚠️ **Erreur classique.** Confondre la marge et la largeur de la bande (un facteur 2), ou la marge et $\lVert\mathbf{w}\rVert$ : ici $\lVert\mathbf{w}\rVert \approx 0{,}63$, la marge $\approx 1{,}58$, la bande $\approx 3{,}16$. Écris toujours laquelle tu donnes (🐛 M13b.32).
+⚠️ **Erreur classique.** Confondre la marge et la largeur de la bande (un facteur 2), ou la marge et $\lVert\mathbf{w}\rVert$ : ici $\lVert\mathbf{w}\rVert \approx 0{,}63$, $\rho \approx 1{,}58$, $2\rho \approx 3{,}16$ (🐛 M13b.32).
 
 ## §7 · Marge souple, hinge loss et sous-gradient
 
 ### Autoriser des violations
 
-Des données réelles ne sont presque jamais séparables, et même quand elles le sont, un seul point aberrant peut imposer une bande très étroite. La **marge souple** (*soft margin*) autorise chaque exemple à manquer sa marge d'une quantité $\xi_i \ge 0$, une **variable d'écart** (*slack variable*), et fait payer ce manque :
+Des données réelles ne sont presque jamais séparables, et même quand elles le sont, un seul point aberrant peut imposer une bande très étroite. La **marge souple** (*soft margin*) relâche chaque contrainte en $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1 - \xi_i$, avec une **variable d'écart** (*slack variable*) $\xi_i \ge 0$ par exemple, et ajoute $C\sum_i \xi_i$ à l'objectif :
 $$\min_{\mathbf{w}, b, \boldsymbol{\xi}} \ \frac{1}{2}\lVert\mathbf{w}\rVert^2 + C\sum_{i=1}^n \xi_i \quad \text{sous} \quad y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1 - \xi_i, \quad \xi_i \ge 0.$$
 $C > 0$ règle l'échange entre une bande large ($\lVert\mathbf{w}\rVert$ petit) et peu de manques. C'est encore un programme quadratique convexe, en $p + 1 + n$ variables.
 
@@ -305,7 +305,7 @@ où $\ell$ est la **hinge loss** (« charnière »), une fonction de la marge fo
 
 En divisant $J$ par $nC$, on retrouve la forme « loss moyenne plus pénalité » des chapitres de régression :
 $$\frac{J(\mathbf{w}, b)}{nC} = \frac{1}{n}\sum_{i=1}^n \ell\big(y_i\,s(\mathbf{x}_i)\big) + \frac{\lambda}{2}\lVert\mathbf{w}\rVert^2, \qquad \lambda = \frac{1}{nC} :$$
-un grand $C$ est une petite pénalité. Quand $C$ grandit, $\lVert\mathbf{w}\rVert$ grandit (ou reste égal), donc la bande se rétrécit ; si les données sont séparables, la solution tend vers celle de la marge dure quand $C \to \infty$.
+doubler $C$ divise $\lambda$ par 2. Quand $C$ grandit, $\lVert\mathbf{w}\rVert$ grandit (ou reste égal), donc la bande se rétrécit ; si les données sont séparables, la solution tend vers celle de la marge dure quand $C \to \infty$.
 
 <details><summary>Pourquoi ‖w‖ grandit avec C</summary>
 
@@ -319,7 +319,7 @@ $J$ n'est pas dérivable aux points où une marge fonctionnelle vaut exactement 
 
 > **Sous-gradient** (*subgradient*). $\mathbf{g}$ est un **sous-gradient** de la fonction convexe $f$ en $\mathbf{u}$ si
 > $$f(\mathbf{v}) \ge f(\mathbf{u}) + \mathbf{g} \cdot (\mathbf{v} - \mathbf{u}) \quad \text{pour tout } \mathbf{v} :$$
-> l'hyperplan de pente $\mathbf{g}$ qui passe par $(\mathbf{u}, f(\mathbf{u}))$ reste sous le graphe. L'ensemble des sous-gradients en $\mathbf{u}$ est le **sous-différentiel** $\partial f(\mathbf{u})$.
+> la fonction affine $\mathbf{v} \mapsto f(\mathbf{u}) + \mathbf{g} \cdot (\mathbf{v} - \mathbf{u})$ minore $f$ partout, et la touche en $\mathbf{u}$. L'ensemble des sous-gradients en $\mathbf{u}$ est le **sous-différentiel** $\partial f(\mathbf{u})$.
 
 Là où $f$ est dérivable, le seul sous-gradient est $\nabla f(\mathbf{u})$ (la tangente). À un coude, il y en a toute une famille : pour la hinge en $t = 1$, toute pente entre $-1$ et $0$ convient. Et $\mathbf{0} \in \partial f(\mathbf{u})$ si et seulement si $\mathbf{u}$ est un minimum : c'est la condition d'optimalité qui remplace $\nabla f = \mathbf{0}$.
 
@@ -362,9 +362,9 @@ Les conditions KKT de la marge souple classent les exemples en trois groupes :
 
 | $\alpha_i$ | Marge fonctionnelle $y_i\,s(\mathbf{x}_i)$ | Position |
 |---|---|---|
-| $\alpha_i = 0$ | $\ge 1$ | hors de la bande, du bon côté : n'entre pas dans $\mathbf{w}$ |
-| $0 < \alpha_i < C$ | $= 1$ | exactement sur un bord : vecteur de support « libre » |
-| $\alpha_i = C$ | $\le 1$ | dans la bande, ou du mauvais côté : vecteur de support « borné » |
+| $\alpha_i = 0$ | $\ge 1$ | au-delà du bord de sa classe, ou dessus : n'entre pas dans $\mathbf{w}$ |
+| $0 < \alpha_i < C$ | $= 1$ | sur le bord de sa classe : vecteur de support « libre » |
+| $\alpha_i = C$ | $\le 1$ | entre ce bord et la frontière ($0 \le t_i \le 1$), ou de l'autre côté de la frontière ($t_i < 0$) : vecteur de support « borné » |
 
 Les **vecteurs de support** sont les exemples où $\alpha_i > 0$. Une fois $\boldsymbol{\alpha}$ connu, $\mathbf{w} = \sum_i \alpha_i y_i \mathbf{x}_i$, et $b$ se lit sur un vecteur de support **libre** $\mathbf{x}_s$ : $y_s(\mathbf{w} \cdot \mathbf{x}_s + b) = 1$, donc $b = y_s - \mathbf{w} \cdot \mathbf{x}_s$ (car $y_s = \pm 1$, $1/y_s = y_s$). En pratique, on fait la moyenne sur tous les vecteurs libres (✏️ M13b.11).
 
@@ -388,21 +388,21 @@ C'est l'**astuce du noyau** (*kernel trick*) : une SVM linéaire dans l'espace d
 
 En dimension 1, avec $c = 1$ et $d = 2$ :
 $$(1 + xz)^2 = 1 + 2xz + x^2z^2 = \big(1,\ \sqrt{2}\,x,\ x^2\big) \cdot \big(1,\ \sqrt{2}\,z,\ z^2\big) :$$
-$\varphi(x) = (1, \sqrt{2}\,x, x^2)$ a trois coordonnées, et les $\sqrt{2}$ sont là pour que le terme croisé $2xz$ sorte d'un produit scalaire. En dimension $p$, le développement de $(1 + \mathbf{x} \cdot \mathbf{z})^d$ fait apparaître **tous les monômes** des $x_j$ de degré au plus $d$, chacun avec un coefficient : $\varphi$ a autant de coordonnées que `count_monomials(p, d, include_constant=True)` en compte (M09b). Pour $p = 50$ et $d = 3$, c'est déjà $\binom{53}{3} = 23\,426$ coordonnées, alors que $k$ ne demande qu'un produit scalaire de 50 termes, une addition et un cube. ✏️ M13b.12 écrit $\varphi$ en dimension 2.
+$\varphi(x) = (1, \sqrt{2}\,x, x^2)$ a trois coordonnées, et les $\sqrt{2}$ sont là pour que le terme croisé $2xz$ sorte d'un produit scalaire. En dimension $p$, le développement de $(1 + \mathbf{x} \cdot \mathbf{z})^d$ fait apparaître **tous les monômes** des $x_j$ de degré au plus $d$, chacun avec un coefficient : $\varphi$ a autant de coordonnées que `count_monomials(p, d, include_constant=True)` en compte (M09b). Pour $p = 50$ et $d = 3$, c'est déjà $\binom{53}{3} = 23\,426$ coordonnées, et autant de produits pour $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$ ; $k$, lui, se calcule en une cinquantaine de multiplications. ✏️ M13b.12 écrit $\varphi$ en dimension 2.
 
 ### Le noyau RBF
 
 > **Noyau RBF** (gaussien, *radial basis function*). $k(\mathbf{x}, \mathbf{z}) = e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$, avec $\gamma > 0$.
 
-Il ne dépend que de la distance entre les points : $k(\mathbf{x}, \mathbf{x}) = 1$, et $k$ décroît de 1 vers 0 quand les points s'éloignent, d'autant plus vite que $\gamma$ est grand. Son $\varphi$ a une **suite infinie** de coordonnées. En dimension 1 :
+Il ne dépend que de la distance $d = \lVert\mathbf{x} - \mathbf{z}\rVert$, et passe sous 1 % dès que $\gamma d^2 > 4{,}6$, soit $d > 2{,}15/\sqrt{\gamma}$ : $1/\sqrt{\gamma}$ est l'échelle de longueur du noyau. Son $\varphi$ a une **suite infinie** de coordonnées. En dimension 1 :
 $$e^{-\gamma(x - z)^2} = e^{-\gamma x^2}\,e^{-\gamma z^2}\,e^{2\gamma xz} = \sum_{m=0}^{\infty} \Big(e^{-\gamma x^2}\sqrt{\tfrac{(2\gamma)^m}{m!}}\,x^m\Big)\Big(e^{-\gamma z^2}\sqrt{\tfrac{(2\gamma)^m}{m!}}\,z^m\Big),$$
 par la série de l'exponentielle (M05a) : $\varphi_m(x) = e^{-\gamma x^2}\sqrt{(2\gamma)^m/m!}\;x^m$, pour $m = 0, 1, 2, \ldots$ Aucune machine ne calculerait $\varphi$, mais $k$ se calcule en une ligne.
 
-**Distances dans l'espace des features.** Pour tout noyau, $\lVert\varphi(\mathbf{x}) - \varphi(\mathbf{z})\rVert^2 = k(\mathbf{x}, \mathbf{x}) - 2k(\mathbf{x}, \mathbf{z}) + k(\mathbf{z}, \mathbf{z})$ (développe le carré). Pour le RBF, c'est $2 - 2k(\mathbf{x}, \mathbf{z})$ : les images sont toutes sur une sphère de rayon 1, à moins de $\sqrt{2}$ les unes des autres.
+**Distances dans l'espace des features.** Pour tout noyau, $\lVert\varphi(\mathbf{x}) - \varphi(\mathbf{z})\rVert^2 = k(\mathbf{x}, \mathbf{x}) - 2k(\mathbf{x}, \mathbf{z}) + k(\mathbf{z}, \mathbf{z})$ (développe le carré). Pour le RBF, où $k(\mathbf{x}, \mathbf{x}) = e^0 = 1$, c'est $2 - 2k(\mathbf{x}, \mathbf{z})$ : les images sont toutes sur une sphère de rayon 1, à moins de $\sqrt{2}$ les unes des autres.
 
-**L'effet de γ.** Quand $\gamma \to 0$, toutes les valeurs $k(\mathbf{x}_i, \mathbf{x}_j)$ tendent vers 1 : la matrice de Gram tend vers la matrice pleine de 1, de rang 1, et la SVM ne distingue presque plus les exemples. Quand $\gamma \to \infty$, $k(\mathbf{x}_i, \mathbf{x}_j) \to 0$ pour $i \ne j$ : la matrice de Gram tend vers l'identité, chaque exemple n'agit plus que dans un tout petit voisinage de lui-même : la SVM apprend ses données par cœur (overfitting), et, loin de tous les exemples, la décision se réduit au signe de $b$ (🔗 M13b.20). On règle $\gamma$ et $C$ ensemble, par validation croisée (✏️ M13b.13).
+**L'effet de γ.** Quand $\gamma \to 0$, toutes les valeurs $k(\mathbf{x}_i, \mathbf{x}_j)$ tendent vers 1 : la matrice de Gram tend vers la matrice pleine de 1, de rang 1, et la SVM ne distingue presque plus les exemples. Quand $\gamma \to \infty$, $k(\mathbf{x}_i, \mathbf{x}_j) \to 0$ pour $i \ne j$ : la matrice de Gram tend vers l'identité, chaque exemple n'agit plus que dans un tout petit voisinage de lui-même : la SVM apprend ses données par cœur (overfitting), et, loin de tous les exemples, la décision se réduit au signe de $b$ (🔗 M13b.20). $\gamma$ et $C$ sont des hyperparamètres : cette fiche n'en fixe pas la valeur, qui se choisit sur des données de validation (workbookIA 13). ✏️ M13b.13 calcule les deux limites.
 
-![La matrice de Gram RBF de six points d'une droite (0 ; 0,5 ; 1,2 ; 2 ; 3,5 ; 4) pour γ = 0,05, 1 et 20 : des valeurs proches de 1 entre voisins, puis des blocs de voisins, puis presque l'identité](figures/gram_rbf.png)
+![La matrice de Gram RBF de six points d'une droite (0 ; 0,5 ; 1,2 ; 2 ; 3,5 ; 4) pour γ = 0,05, 2 et 20 : des valeurs proches de 1 entre voisins, puis des blocs de voisins, puis presque l'identité](figures/gram_rbf.png)
 
 ### Quelles fonctions sont des noyaux ?
 

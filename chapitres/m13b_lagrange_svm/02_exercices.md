@@ -74,7 +74,7 @@ Pour chaque problème, dis s'il est convexe, et pourquoi en une phrase.
 3. Vrai ou faux : un exemple bien classé ($t > 0$) ne coûte jamais rien.
 4. Vrai ou faux : pour tout $t$, $\max(0, 1 - t)$ est au moins égal à l'erreur (1 si $t \le 0$, 0 sinon).
 5. Donne deux sous-gradients de la hinge en $t = 1$.
-6. Vrai ou faux : multiplier $C$ par 10 multiplie la largeur de la bande par 10.
+6. Vrai ou faux : pour $n = 5$ exemples et $C = 2$, la forme « hinge moyenne $+ \frac{\lambda}{2}\lVert\mathbf{w}\rVert^2$ » a $\lambda = 0{,}1$.
 
 ### M13b.Q7 — Noyau valide ou pas ? 🧠 ★ ⏱️ 4 min
 *Fiche §8 · parcours C, E*
@@ -85,14 +85,14 @@ Pour chacune des fonctions $k(\mathbf{x}, \mathbf{z})$ de $\mathbb{R}^p \times \
 3. $k(\mathbf{x}, \mathbf{z}) = -\,\mathbf{x} \cdot \mathbf{z}$.
 4. $k(\mathbf{x}, \mathbf{z}) = (\mathbf{x} \cdot \mathbf{z})^3 + e^{-2\lVert\mathbf{x} - \mathbf{z}\rVert^2}$.
 5. $k(\mathbf{x}, \mathbf{z}) = x_1 z_2$ (en dimension 2).
-6. Vrai ou faux : une matrice de Gram RBF a toujours des 1 sur sa diagonale.
+6. Vrai ou faux : si deux des points sont confondus, la matrice de Gram RBF est singulière.
 
 ### M13b.Q8 — Primal ou dual : lequel résoudre, et quand ? 🧠 ★ ⏱️ 4 min
 *Fiche §8 · parcours C*
 
 1. Combien de variables a le problème primal d'une SVM à marge souple, pour $n$ exemples et $p$ features ? Et le dual ?
 2. Un dataset de 2 millions d'exemples et 30 features, une SVM linéaire : primal ou dual ? Pourquoi ?
-3. Un dataset de 3 000 exemples, un noyau RBF : primal ou dual ? Pourquoi ?
+3. Un dataset de 4 000 exemples, un noyau RBF : primal ou dual ? Pourquoi ?
 4. Quelle matrice le dual doit-il manipuler, et de quelle taille ?
 5. Vrai ou faux : pour prédire avec une SVM à noyau, il faut garder les vecteurs de support.
 6. Vrai ou faux : le noyau RBF peut s'utiliser dans le primal en calculant $\varphi$.
@@ -124,9 +124,9 @@ $f(x, y) = x^2 - xy + 2y^2$.
 ### M13b.R3 — Matrices définies positives (M12c) 🔁 ★ ⏱️ 5 min
 *Fiche §5 et §8 · parcours C, E*
 
-1. La matrice $\begin{pmatrix} 5 & 2 \\ 2 & 1 \end{pmatrix}$ est-elle définie positive ? (Trace et déterminant.)
-2. Et $\begin{pmatrix} 1 & 3 \\ 3 & 4 \end{pmatrix}$ ?
-3. La matrice de Gram (des produits scalaires deux à deux) des vecteurs $(1, 0, 2)$, $(0, 1, 1)$ et $(1, 1, 3)$ ?
+1. La matrice $\begin{pmatrix} 6 & 2 \\ 2 & 1 \end{pmatrix}$ est-elle définie positive ? (Trace et déterminant.)
+2. Et $\begin{pmatrix} 2 & 3 \\ 3 & 4 \end{pmatrix}$ ?
+3. La matrice de Gram (des produits scalaires deux à deux) des vecteurs $(1, 2, 1)$, $(0, 1, -1)$ et $(1, 3, 0)$ ?
 4. Est-elle définie positive, semi-définie positive, ou ni l'un ni l'autre ? Pourquoi ?
 5. Pourquoi une matrice de Gram est-elle toujours semi-définie positive ?
 
@@ -301,7 +301,7 @@ $\mathbf{w} = (1 ;\ -0{,}5)$, $b = 0{,}5$, $C = 2$. Six exemples : label $+1$ po
 | g | le nombre d'exemples de marge fonctionnelle strictement inférieure à 1 | un entier |
 | h | le nombre d'exemples mal classés ($t_i < 0$) | un entier |
 
-Dans ta copie : range les six exemples en trois groupes (hors de la bande et bien classés, dans la bande ou sur un bord, du mauvais côté). Que vérifie la relation $J = nC \times$ (la forme de f)) ?
+Dans ta copie : range les six exemples selon leur marge fonctionnelle ($t_i > 1$, $0 \le t_i \le 1$, $t_i < 0$), et situe chaque groupe par rapport au bord de sa classe et à la frontière. Que vérifie la relation $J = nC \times$ (la forme de f)) ?
 
 ### Ex M13b.10 — Un pas de sous-gradient sur l'objectif d'une SVM linéaire ✏️ ★★ ⏱️ 15 min
 **Objectif :** calculer un sous-gradient de l'objectif d'une SVM linéaire, faire un pas, et voir le choix à faire en un point du coude.
@@ -343,25 +343,24 @@ Une SVM à marge souple, $C = 1$, a été entraînée sur six exemples. Ses mult
 | f | l'objectif primal $J(\mathbf{w}, b)$ | un nombre |
 | g | la valeur du dual, $\sum_i \alpha_i - \frac{1}{2}\lVert\mathbf{w}\rVert^2$ | un nombre |
 
-Dans ta copie : quels exemples sont des vecteurs de support libres, lesquels bornés ? Vérifie que b) donne bien la même valeur de $b$ sur les deux vecteurs libres. Les marges fonctionnelles de e) sont-elles cohérentes avec le tableau des trois groupes de la fiche ? Que dit l'égalité de f) et g) ?
+Dans ta copie : quels exemples sont des vecteurs de support libres, lesquels bornés ? Vérifie que b) donne bien la même valeur de $b$ sur les deux vecteurs libres. Les marges fonctionnelles de e) sont-elles cohérentes avec le tableau de « Lire les multiplicateurs » (fiche §8) ? Que dit l'égalité de f) et g) ?
 
 ### Ex M13b.12 — Le noyau (1 + x · z)² en dimension 2 : sa fonction φ à six coordonnées ✏️ ★★ ⏱️ 20 min
-**Objectif :** développer le noyau polynomial de degré 2 en dimension 2, écrire sa fonction $\varphi$, et compter ses coordonnées en dimension plus grande.
+**Objectif :** développer le noyau polynomial de degré 2 en dimension 2, écrire sa fonction $\varphi$, voir le rôle de la constante, et compter ses coordonnées en dimension plus grande.
 **Prérequis :** fiche §8 ; M09b · **Parcours :** C
 
-$k(\mathbf{x}, \mathbf{z}) = (1 + \mathbf{x} \cdot \mathbf{z})^2$, avec $\mathbf{x}, \mathbf{z} \in \mathbb{R}^2$. On prend $\mathbf{x} = (4, -3)$ et $\mathbf{z} = (-1, 3)$.
+$k(\mathbf{x}, \mathbf{z}) = (1 + \mathbf{x} \cdot \mathbf{z})^2$, avec $\mathbf{x}, \mathbf{z} \in \mathbb{R}^2$. On prend $\mathbf{x} = (4, -3)$ et $\mathbf{z} = (3, -5)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $\mathbf{x} \cdot \mathbf{z}$ | un nombre |
-| b | $k(\mathbf{x}, \mathbf{z})$ | un nombre |
-| c | $\varphi(\mathbf{x})$, dans l'ordre $(1, \sqrt{2}\,x_1, \sqrt{2}\,x_2, x_1^2, \sqrt{2}\,x_1x_2, x_2^2)$ | une liste de 6 nombres (2 décimales) |
-| d | $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$ | un nombre |
-| e | $\lVert\varphi(\mathbf{x}) - \varphi(\mathbf{z})\rVert^2$, par les valeurs du noyau | un nombre |
-| f | le nombre de coordonnées de $\varphi$ pour $(1 + \mathbf{x} \cdot \mathbf{z})^2$ en dimension $p = 9$ | un entier |
-| g | le même pour $(1 + \mathbf{x} \cdot \mathbf{z})^3$ en dimension $p = 9$ | un entier |
+| a | $\varphi(\mathbf{x})$, dans l'ordre $(1, \sqrt{2}\,x_1, \sqrt{2}\,x_2, x_1^2, \sqrt{2}\,x_1x_2, x_2^2)$ | une liste de 6 nombres (2 décimales) |
+| b | $\varphi(\mathbf{z})$, dans le même ordre | une liste de 6 nombres (2 décimales) |
+| c | $k(\mathbf{x}, \mathbf{z})$ | un entier |
+| d | pour le noyau $(3 + \mathbf{x} \cdot \mathbf{z})^2$, $\varphi(\mathbf{x})$ dans l'ordre $(3, \sqrt{6}\,x_1, \sqrt{6}\,x_2, x_1^2, \sqrt{2}\,x_1x_2, x_2^2)$ | une liste de 6 nombres (2 décimales) |
+| e | le nombre de coordonnées de $\varphi$ pour $(1 + \mathbf{x} \cdot \mathbf{z})^2$ en dimension $p = 9$ | un entier |
+| f | le même pour $(1 + \mathbf{x} \cdot \mathbf{z})^3$ en dimension $p = 9$ | un entier |
 
-Dans ta copie : développe $(1 + x_1z_1 + x_2z_2)^2$ et lis-y $\varphi$. D'où viennent les $\sqrt{2}$ ? Retrouve f) et g) par `count_monomials` (M09b). Combien d'opérations pour $k$, et combien pour $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$, en dimension 9 au degré 3 ?
+Dans ta copie : développe $(1 + x_1z_1 + x_2z_2)^2$ et lis-y $\varphi$ ; d'où viennent les $\sqrt{2}$ ? Vérifie que $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$ redonne c). Écris $\varphi$ pour $(c + \mathbf{x} \cdot \mathbf{z})^2$ : quelles coordonnées dépendent de $c$, et pourquoi faut-il $c \ge 0$ ? Retrouve e) et f) par `count_monomials` (M09b).
 
 ### Ex M13b.13 — La matrice de Gram d'un noyau RBF sur trois points, et l'effet de γ ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer une matrice de Gram RBF, une distance dans l'espace des features, et voir ce que devient la matrice quand $\gamma$ est très petit ou très grand.
@@ -468,7 +467,7 @@ Une SVM à noyau RBF, $\gamma = 0{,}3$, a trois vecteurs de support : $(-1, 1)$ 
 | a | $\sum_i \alpha_i y_i$ | un nombre |
 | b | $s(0{,}5 ;\ 0{,}5)$ | un nombre (4 décimales) |
 | c | la classe prédite pour $(0{,}5 ;\ 0{,}5)$ | un entier ($-1$ ou $+1$) |
-| d | $s(2, 2)$ | un nombre (4 décimales) |
+| d | $s(2, 4)$ | un nombre (4 décimales) |
 | e | la limite de $s(\mathbf{x})$ quand $\mathbf{x}$ s'éloigne à l'infini | un nombre |
 | f | le nombre d'évaluations du noyau pour une prédiction | un entier |
 

@@ -112,7 +112,7 @@ Trace $\max(0, 1 - t)$ : deux morceaux de droite, un coude en $t = 1$.
 </details>
 <details><summary>Indice 3</summary>
 
-3 : regarde $t = 0{,}5$. 5 : les pentes des deux morceaux. 6 : la fiche démontre seulement que $\lVert\mathbf{w}\rVert$ grandit avec $C$.
+3 : regarde $t = 0{,}5$. 5 : les pentes des deux morceaux. 6 : relis « Le rôle de C » (fiche §7).
 
 </details>
 
@@ -130,7 +130,7 @@ Un noyau est symétrique et ses matrices de Gram sont semi-définies positives ;
 </details>
 <details><summary>Indice 3</summary>
 
-3 : regarde $k(\mathbf{x}, \mathbf{x})$. 5 : échange $\mathbf{x}$ et $\mathbf{z}$.
+3 : regarde $k(\mathbf{x}, \mathbf{x})$. 5 : échange $\mathbf{x}$ et $\mathbf{z}$. 6 : compare les lignes des deux points confondus.
 
 </details>
 
@@ -421,12 +421,12 @@ Relis « Des produits scalaires, puis des noyaux » et « Le noyau polynomial »
 </details>
 <details><summary>Indice 2</summary>
 
-Développe le carré d'une somme de trois termes : trois carrés et trois doubles produits.
+Développe le carré d'une somme de trois termes : trois carrés et trois doubles produits ; chaque terme est une fonction de $\mathbf{x}$ fois la même fonction de $\mathbf{z}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e) $\lVert\varphi(\mathbf{x}) - \varphi(\mathbf{z})\rVert^2 = k(\mathbf{x}, \mathbf{x}) - 2k(\mathbf{x}, \mathbf{z}) + k(\mathbf{z}, \mathbf{z})$. f) les monômes de degré **au plus** 2 en 9 variables.
+d) $(3 + \mathbf{x} \cdot \mathbf{z})^2 = 9 + 6\,\mathbf{x} \cdot \mathbf{z} + (\mathbf{x} \cdot \mathbf{z})^2$ : la constante et les coordonnées de degré 1 changent. e) les monômes de degré **au plus** 2 en 9 variables.
 
 </details>
 

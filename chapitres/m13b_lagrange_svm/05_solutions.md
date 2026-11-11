@@ -51,10 +51,10 @@
 ### M13b.Q6 — La hinge loss : vrai ou faux
 1. **Vrai** : maximum de deux fonctions affines.
 2. **Faux** : elle a un coude en $t = 1$.
-3. **Faux** : un exemple bien classé mais dans la bande ($0 < t < 1$) coûte $1 - t > 0$.
+3. **Faux** : un exemple de marge $0 < t < 1$, bien classé mais entre le bord de sa classe et la frontière, coûte $1 - t > 0$.
 4. **Vrai** : pour $t \le 0$, $1 - t \ge 1$ ; pour $t > 0$, la hinge est positive ou nulle.
 5. $-1$ et $0$ (toute valeur entre les deux convient).
-6. **Faux** : $\lVert\mathbf{w}\rVert$ grandit (ou reste égal) avec $C$, donc la bande **rétrécit**, et pas proportionnellement.
+6. **Vrai** : $\lambda = \frac{1}{nC} = \frac{1}{10}$.
 
 ### M13b.Q7 — Noyau valide ou pas ?
 1. **Oui** : un noyau (le produit scalaire) multiplié par une constante positive, $\varphi(\mathbf{x}) = \sqrt{3}\,\mathbf{x}$.
@@ -62,12 +62,12 @@
 3. **Non** : $k(\mathbf{x}, \mathbf{x}) = -\lVert\mathbf{x}\rVert^2 < 0$ pour $\mathbf{x} \ne \mathbf{0}$, alors qu'une matrice de Gram a une diagonale positive ou nulle.
 4. **Oui** : $(\mathbf{x} \cdot \mathbf{z})^3$ est un produit de trois noyaux linéaires, le RBF est un noyau, et une somme de noyaux en est un.
 5. **Non** : elle n'est pas symétrique ($k(\mathbf{x}, \mathbf{z}) \ne k(\mathbf{z}, \mathbf{x})$ en général).
-6. **Vrai** : $k(\mathbf{x}, \mathbf{x}) = e^0 = 1$.
+6. **Vrai** : les lignes des deux points confondus sont égales ($k(\mathbf{x}_i, \cdot) = k(\mathbf{x}_j, \cdot)$), donc $\det\mathbf{K} = 0$.
 
 ### M13b.Q8 — Primal ou dual : lequel résoudre, et quand ?
 1. Primal : $p + 1 + n$ ($\mathbf{w}$, $b$ et les $\xi_i$), ou $p + 1$ sous la forme avec la hinge (§7), sans variables d'écart ; dual : $n$ (les $\alpha_i$).
 2. Le primal : $n$ est énorme et $p$ petit ; une matrice de Gram de $4 \times 10^{12}$ nombres est hors de question, alors qu'une descente de sous-gradient (ou un solveur linéaire) ne manipule que 31 nombres.
-3. Le dual : un noyau RBF n'a pas de $\varphi$ calculable, et une matrice de Gram de $9 \times 10^6$ nombres tient en mémoire.
+3. Le dual : un noyau RBF n'a pas de $\varphi$ calculable, et une matrice de Gram de $1{,}6 \times 10^7$ nombres (128 Mo en `float64`) tient en mémoire.
 4. La matrice de Gram $\mathbf{K}$, de taille $n \times n$.
 5. **Vrai** : la décision $\sum_i \alpha_i y_i k(\mathbf{x}_i, \mathbf{x}) + b$ les utilise.
 6. **Faux** : son $\varphi$ a une infinité de coordonnées ; on ne peut s'en servir dans le primal qu'à travers une approximation de $\varphi$ par un nombre fini de features.
@@ -91,9 +91,9 @@
 5. Le long d'une ligne de niveau, $f$ est constante : sa dérivée dans la direction tangente, $\nabla f \cdot \mathbf{v}$, est nulle (M05b.12).
 
 ### M13b.R3 — Matrices définies positives (M12c)
-1. Oui : trace 6 et déterminant 1 sont positifs, donc les deux valeurs propres le sont.
-2. Non : le déterminant vaut $-5 < 0$, une valeur propre est négative.
-3. $\begin{pmatrix} 5 & 2 & 7 \\ 2 & 2 & 4 \\ 7 & 4 & 11 \end{pmatrix}$.
+1. Oui : trace 7 et déterminant 2 sont positifs, donc les deux valeurs propres le sont.
+2. Non : le déterminant vaut $-1 < 0$, une valeur propre est négative.
+3. $\begin{pmatrix} 6 & 1 & 7 \\ 1 & 2 & 3 \\ 7 & 3 & 10 \end{pmatrix}$.
 4. Semi-définie positive mais pas définie positive : le troisième vecteur est la somme des deux premiers, donc $\mathbf{v} = (1, 1, -1)$ donne $\mathbf{v}^\top\mathbf{G}\mathbf{v} = \lVert\mathbf{v}_1 + \mathbf{v}_2 - \mathbf{v}_3\rVert^2 = 0$.
 5. $\mathbf{v}^\top\mathbf{G}\mathbf{v} = \lVert\sum_i v_i\mathbf{v}_i\rVert^2 \ge 0$ (M12c.17).
 
@@ -205,7 +205,7 @@ Pour la copie : les quatre conditions KKT tiennent (contraintes respectées, tou
 
 **Démarche.** Les scores $s = x_1 - 0{,}5x_2 + 0{,}5$ valent $3{,}5$ ; $1{,}5$ ; $0{,}2$ ; $-1$ ; $1{,}6$ ; $-1{,}7$, et les marges fonctionnelles les multiplient par le label. La somme des hinges vaut $3{,}4$, la moyenne $\frac{17}{30}$, et $J = 0{,}625 + 2 \times 3{,}4 = 7{,}425$. $\lambda = \frac{1}{nC} = \frac{1}{12}$.
 
-Pour la copie : hors de la bande et bien classés : $(3, 0)$, $(1, 0)$, $(-2 ;\ 0{,}4)$ ; dans la bande ou sur un bord : $(0 ;\ 0{,}6)$ (dans la bande, $t = 0{,}2$) et $(-1, 1)$ (sur un bord, $t = 1$) ; du mauvais côté : $(2 ;\ 1{,}8)$. Et $nC\big(\frac{17}{30} + \frac{1}{24} \times 1{,}25\big) = 12 \times 0{,}61875 = 7{,}425$.
+Pour la copie : $t > 1$, au-delà du bord de leur classe : $(3, 0)$, $(1, 0)$, $(-2 ;\ 0{,}4)$ ; $0 \le t \le 1$ : $(0 ;\ 0{,}6)$ ($t = 0{,}2$, entre son bord et la frontière) et $(-1, 1)$ ($t = 1$, sur son bord) ; $t < 0$, de l'autre côté de la frontière : $(2 ;\ 1{,}8)$. Et $nC\big(\frac{17}{30} + \frac{1}{24} \times 1{,}25\big) = 12 \times 0{,}61875 = 7{,}425$.
 
 **Erreurs fréquentes.** $C$ fois la moyenne au lieu de la somme ; oublier le label ; compter le point de marge exactement 1 parmi ceux « strictement sous 1 ».
 
@@ -229,23 +229,23 @@ Pour la copie : au coude, la hinge admet toute pente entre $-1$ et $0$ ; compter
 
 **Démarche.** $\mathbf{w} = 0{,}9(5, 6) + (3, 7) - (5, 8) - 0{,}9(2, 5) = (0{,}7 ;\ -0{,}1)$. Sur le vecteur libre $\mathbf{x}_1$ : $b = 1 - (3{,}5 - 0{,}6) = -1{,}9$ ; sur $\mathbf{x}_6$ : $b = -1 - (1{,}4 - 0{,}5) = -1{,}9$. $J = \frac{1}{2}(0{,}49 + 0{,}01) + (1{,}5 + 1{,}8) = 3{,}55$ ; dual : $3{,}8 - 0{,}25 = 3{,}55$.
 
-Pour la copie : libres, 1 et 6 ($0 < \alpha_i < 1$), sur un bord ; bornés, 2 et 4 ($\alpha_i = C$), du mauvais côté ; 3 et 5 ont $\alpha_i = 0$ et une marge au-delà de 1 : tout est cohérent avec le tableau de la fiche. L'égalité du primal et du dual certifie que $(\mathbf{w}, b)$ et $\boldsymbol{\alpha}$ sont optimaux.
+Pour la copie : libres, 1 et 6 ($0 < \alpha_i < 1$), sur le bord de leur classe ; bornés, 2 et 4 ($\alpha_i = C$), de l'autre côté de la frontière ($t_i < 0$) ; 3 et 5 ont $\alpha_i = 0$ et une marge fonctionnelle au-delà de 1 : tout est cohérent avec le tableau de « Lire les multiplicateurs ». L'égalité du primal et du dual certifie que $(\mathbf{w}, b)$ et $\boldsymbol{\alpha}$ sont optimaux.
 
 **Erreurs fréquentes.** Lire $b$ sur un vecteur borné ; oublier les labels dans $\mathbf{w}$ ; compter les exemples de $\alpha_i = 0$ parmi les vecteurs de support.
 
-**Variante.** Si l'on retirait les exemples 3 et 5 ? *Réponse* : la même solution (leurs $\alpha_i$ sont nuls).
+**Variante.** Avec $C = 0{,}9$, ces $\alpha_i$ seraient-ils encore admissibles ? *Réponse* : non, $\alpha_2 = \alpha_4 = 1 > 0{,}9$ sort de la boîte $0 \le \alpha_i \le C$.
 
 ### Ex M13b.12 — Le noyau (1 + x · z)² en dimension 2 : sa fonction φ à six coordonnées
 
-**Réponses** : a) `-13` · b) `144` · c) `[1, 5.66, -4.24, 16, -16.97, 9]` · d) `144` · e) `509` · f) `55` · g) `220`.
+**Réponses** : a) `[1, 5.66, -4.24, 16, -16.97, 9]` · b) `[1, 4.24, -7.07, 9, -21.21, 25]` · c) `784` · d) `[3, 9.8, -7.35, 16, -16.97, 9]` · e) `55` · f) `220`.
 
-**Démarche.** $(1 + x_1z_1 + x_2z_2)^2 = 1 + 2x_1z_1 + 2x_2z_2 + x_1^2z_1^2 + 2x_1x_2z_1z_2 + x_2^2z_2^2$ : chaque terme est un produit d'une fonction de $\mathbf{x}$ par la même fonction de $\mathbf{z}$, d'où $\varphi$ ; les $\sqrt{2}$ répartissent les coefficients 2 des termes croisés. $\varphi(\mathbf{x}) = (1, 4\sqrt{2}, -3\sqrt{2}, 16, -12\sqrt{2}, 9)$. e) $k(\mathbf{x}, \mathbf{x}) - 2k(\mathbf{x}, \mathbf{z}) + k(\mathbf{z}, \mathbf{z}) = 676 - 288 + 121$.
+**Démarche.** $(1 + x_1z_1 + x_2z_2)^2 = 1 + 2x_1z_1 + 2x_2z_2 + x_1^2z_1^2 + 2x_1x_2z_1z_2 + x_2^2z_2^2$ : chaque terme est un produit d'une fonction de $\mathbf{x}$ par la même fonction de $\mathbf{z}$, d'où $\varphi$ ; les $\sqrt{2}$ répartissent les coefficients 2 des termes croisés. $\varphi(\mathbf{x}) = (1, 4\sqrt{2}, -3\sqrt{2}, 16, -12\sqrt{2}, 9)$, $\varphi(\mathbf{z}) = (1, 3\sqrt{2}, -5\sqrt{2}, 9, -15\sqrt{2}, 25)$. c) $\mathbf{x} \cdot \mathbf{z} = 12 + 15 = 27$, $k = 28^2 = 784$. d) $(3 + \mathbf{x} \cdot \mathbf{z})^2 = 9 + 6\,\mathbf{x} \cdot \mathbf{z} + (\mathbf{x} \cdot \mathbf{z})^2$ : la constante devient 3, les coordonnées de degré 1 prennent $\sqrt{6}$ ; $4\sqrt{6} \approx 9{,}80$ et $-3\sqrt{6} \approx -7{,}35$.
 
-Pour la copie : `count_monomials(9, 2, include_constant=True)` $= \binom{11}{2} = 55$ et `count_monomials(9, 3, include_constant=True)` $= \binom{12}{3} = 220$. Le noyau coûte 9 multiplications, 9 additions et un cube ; le produit $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$, 220 multiplications, sans compter le calcul des deux $\varphi$.
+Pour la copie : $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z}) = 1 + 24 + 30 + 144 + 360 + 225 = 784$. Pour $(c + \mathbf{x} \cdot \mathbf{z})^2$, $\varphi = (c, \sqrt{2c}\,x_1, \sqrt{2c}\,x_2, x_1^2, \sqrt{2}\,x_1x_2, x_2^2)$ : seules la constante et les coordonnées de degré 1 dépendent de $c$, et $\sqrt{2c}$ n'existe que pour $c \ge 0$ ; plus $c$ est grand, plus les termes de bas degré pèsent. Pour $c < 0$, ce n'est plus un noyau : en dimension 1 avec $c = -1$, les points 0 et 1 donnent la matrice de Gram $\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}$, de déterminant $-1$. Enfin, `count_monomials(9, 2, include_constant=True)` $= \binom{11}{2} = 55$ et `count_monomials(9, 3, include_constant=True)` $= \binom{12}{3} = 220$.
 
-**Erreurs fréquentes.** Oublier les $\sqrt{2}$ ; oublier le monôme constant ou ceux de degré 1 (le noyau inhomogène les contient) ; compter les monômes de degré exactement $d$.
+**Erreurs fréquentes.** Oublier les $\sqrt{2}$ ; garder $\sqrt{2}$ au lieu de $\sqrt{2c}$ quand $c \ne 1$ ; oublier le monôme constant ou ceux de degré 1 (le noyau inhomogène les contient) ; compter les monômes de degré exactement $d$.
 
-**Variante.** $k(\mathbf{x}, \mathbf{z})$ pour $\mathbf{x} = (4, -3)$ et $\mathbf{z} = (1, 1)$ ? *Réponse* : $(1 + 1)^2 = 4$.
+**Variante.** $k(\mathbf{x}, \mathbf{z})$ pour $\mathbf{x} = (4, -3)$ et $\mathbf{z} = (5, 7)$ ? *Réponse* : $\mathbf{x} \cdot \mathbf{z} = -1$, donc $k = 0$ : $\varphi(\mathbf{x})$ et $\varphi(\mathbf{z})$ sont orthogonaux, alors que $\mathbf{x}$ et $\mathbf{z}$ ne le sont pas.
 
 ### Ex M13b.13 — La matrice de Gram d'un noyau RBF sur trois points, et l'effet de γ
 
@@ -253,11 +253,11 @@ Pour la copie : `count_monomials(9, 2, include_constant=True)` $= \binom{11}{2} 
 
 **Démarche.** $k = e^{-0{,}2 d^2}$ : $e^{-1{,}8} \approx 0{,}1653$, $e^{-0{,}8} \approx 0{,}4493$, $e^{-2{,}6} \approx 0{,}0743$. e) $\sqrt{2 - 2 \times 0{,}1653}$. f) $-\gamma\,d^2 = -2 \times 9$.
 
-Pour la copie : $\det\mathbf{K} > 0$, et ses mineurs aussi : $\mathbf{K}$ est définie positive. Les distances relevées valent $\sqrt{2 - 2k}$, avec $k > 0$ : toutes inférieures à $\sqrt{2}$. Avec la matrice pleine de 1, tous les exemples ont la même image : la SVM ne peut produire qu'une décision constante. Avec l'identité, chaque exemple ne ressemble qu'à lui-même : la SVM peut apprendre n'importe quels labels d'entraînement et ne rien prédire ailleurs.
+Pour la copie : $\det\mathbf{K} > 0$, et ses mineurs aussi : $\mathbf{K}$ est définie positive. Les distances relevées valent $\sqrt{2 - 2k}$, avec $k > 0$ : toutes inférieures à $\sqrt{2}$. Avec la matrice pleine de 1, tous les exemples ont la même image : la SVM ne peut produire qu'une décision constante. Avec l'identité, chaque exemple n'a de produit scalaire non nul, dans l'espace des features, qu'avec lui-même : la SVM peut apprendre n'importe quels labels d'entraînement et ne rien prédire ailleurs.
 
 **Erreurs fréquentes.** Oublier le carré de la distance ($e^{-0{,}2 \times 3}$) ; diviser par $\gamma$ ; une matrice non symétrique.
 
-**Variante.** $k(\mathbf{x}_2, \mathbf{x}_3)$ pour $\gamma = 0{,}1$ ? *Réponse* : $e^{-1{,}3} \approx 0{,}2725$.
+**Variante.** $k(\mathbf{x}_2, \mathbf{x}_3)$ pour $\gamma = 0{,}25$ ? *Réponse* : $e^{-3{,}25} \approx 0{,}0388$.
 
 <a id="demonstrations"></a>
 
@@ -336,11 +336,11 @@ Pour la copie : $\det\mathbf{K} > 0$, et ses mineurs aussi : $\mathbf{K}$ est d�
 
 ### Ex M13b.20 — Pont : la décision d'une SVM à noyau, une somme pondérée sur les vecteurs de support
 
-**Réponses** : a) `0` · b) `0.1056` · c) `1` · d) `-0.2584` · e) `-0.1` · f) `3`.
+**Réponses** : a) `0` · b) `0.1056` · c) `1` · d) `-0.2613` · e) `-0.1` · f) `3`.
 
-**Démarche.** Pour $(0{,}5 ;\ 0{,}5)$, les distances au carré aux trois vecteurs de support valent $2{,}5$ ; $4{,}5$ ; $6{,}5$, et les noyaux $e^{-0{,}75} \approx 0{,}4724$, $e^{-1{,}35} \approx 0{,}2592$, $e^{-1{,}95} \approx 0{,}1423$ : $s = 0{,}3779 - 0{,}1296 - 0{,}0427 - 0{,}1 \approx 0{,}1056$. Pour $(2, 2)$ : distances au carré 10, 9 et 2, d'où $s = 0{,}8\,e^{-3} - 0{,}5\,e^{-2{,}7} - 0{,}3\,e^{-0{,}6} - 0{,}1 \approx -0{,}2584$.
+**Démarche.** Pour $(0{,}5 ;\ 0{,}5)$, les distances au carré aux trois vecteurs de support valent $2{,}5$ ; $4{,}5$ ; $6{,}5$, et les noyaux $e^{-0{,}75} \approx 0{,}4724$, $e^{-1{,}35} \approx 0{,}2592$, $e^{-1{,}95} \approx 0{,}1423$ : $s = 0{,}3779 - 0{,}1296 - 0{,}0427 - 0{,}1 \approx 0{,}1056$. Pour $(2, 4)$ : distances au carré 18, 25 et 2, d'où $s = 0{,}8\,e^{-5{,}4} - 0{,}5\,e^{-7{,}5} - 0{,}3\,e^{-0{,}6} - 0{,}1 \approx -0{,}2613$ : seul le troisième vecteur de support, tout proche, compte encore.
 
-Pour la copie : $\sum_i \alpha_i y_i = 0$ est la stationnarité du lagrangien en $b$ (fiche §6). Loin de tous les vecteurs de support, chaque noyau tend vers 0 et la décision vers $b = -0{,}1$ : la classe $-1$, celle que favorise le biais. Le coût d'une prédiction est un noyau par vecteur de support : c'est leur nombre, qui grandit en général avec les données, qui le décide.
+Pour la copie : $\sum_i \alpha_i y_i = 0$ est la stationnarité du lagrangien en $b$ (fiche §6). Loin de tous les vecteurs de support, chaque noyau tend vers 0 et la décision vers $b = -0{,}1$ : la classe $-1$, celle que favorise le biais. Une prédiction demande autant d'évaluations de $k$ que d'exemples où $\alpha_i > 0$ ; sur des données bruitées, tous ceux qui touchent la bande ou la franchissent en font partie, et leur nombre suit la taille des données d'entraînement.
 
 **Erreurs fréquentes.** Oublier le biais ; oublier les labels ; la distance non élevée au carré.
 
@@ -362,7 +362,7 @@ Pour la copie : $\sum_i \alpha_i y_i = 0$ est la stationnarité du lagrangien en
 
 **Réponse modèle** (avec tes mots).
 1. La lettre $r$. Le §12.2.1 suppose $\lVert\mathbf{w}\rVert = 1$ et maximise $r$ ; la dérivation « traditionnelle » du §12.2.2 fixe plutôt à 1 la marge fonctionnelle des points les plus proches, et minimise $\lVert\mathbf{w}\rVert$. Le §12.2.3 montre que les deux problèmes ont les mêmes solutions, par un changement d'échelle.
-2. Géométriquement : des variables d'écart $\xi_n$ laissent un exemple entrer dans la bande, ou passer du mauvais côté, en payant $C\xi_n$. Par une loss : la hinge plus un terme de régularisation. Leur équivalence est ∂ M13b.18.
+2. Géométriquement : des variables d'écart $\xi_n$ laissent un exemple franchir le bord de sa classe, voire la frontière, en payant $C\xi_n$. Par une loss : la hinge plus un terme de régularisation. Leur équivalence est ∂ M13b.18.
 3. $\mathbf{w} = \sum_n \alpha_n y_n\mathbf{x}_n$ et $\sum_n \alpha_n y_n = 0$ ; le dual est un programme quadratique en $\boldsymbol{\alpha}$, sous $\sum_n y_n\alpha_n = 0$ et $0 \le \alpha_n \le C$. Le livre l'écrit comme une **minimisation** de l'opposé de l'objectif de la fiche : même solution, signe changé.
 4. Pour la marge dure, résoudre le dual revient à chercher les deux points les plus proches des enveloppes convexes des deux classes ; la frontière est la médiatrice de leur segment : le théorème de la plus grande marge de M10. Pour la marge souple, on remplace les enveloppes par des enveloppes « réduites ».
 5. Le noyau remplace le produit scalaire dans le dual ; ses matrices doivent être symétriques et semi-définies positives ; le livre cite le noyau polynomial, le RBF gaussien et le noyau rationnel quadratique, et signale les autres sens du mot « noyau ». Le §12.5 écrit le primal et le dual comme des programmes quadratiques standard, et résout la version sans contrainte (la hinge) par sous-gradient.
@@ -377,7 +377,7 @@ Pour la copie : $\sum_i \alpha_i y_i = 0$ est la stationnarité du lagrangien en
 2. $8 \times 10^{10}$ octets, 80 Go, en `float64` (40 Go en n'en gardant que la moitié) ; 40 Go en `float32`. Cinq fois la mémoire d'un ordinateur portable de 16 Go, au moins.
 3. Chaque distance demande environ $2p = 100$ opérations : $10^{10} \times 100 = 10^{12}$ opérations (la moitié par symétrie), soit de l'ordre de 1 000 secondes, un quart d'heure.
 4. $200 \times 10^6 / 4 = 5 \times 10^7$ nombres en `float32`, soit 0,5 % de la matrice : le solveur recalcule les valeurs du noyau au fur et à mesure.
-5. $8n^2 \le 1{,}6 \times 10^{10}$ donne $n \le 4{,}5 \times 10^4$ environ : au-delà de quelques dizaines de milliers d'exemples, la matrice entière ne tient plus, et le temps (au moins en $n^2$) devient prohibitif. Pour de très gros datasets : une SVM linéaire par le primal, ou un $\varphi$ approché de petite dimension.
+5. $8n^2 \le 1{,}6 \times 10^{10}$ donne $n \le 4{,}5 \times 10^4$ environ : au-delà d'environ 45 000 exemples, la matrice entière ne tient plus, et le temps (au moins en $n^2$) devient prohibitif. Pour de très gros datasets : une SVM linéaire par le primal, ou une approximation du noyau par un nombre fini de features.
 
 ### Ex M13b.24 — Expliquer un multiplicateur de Lagrange comme un prix
 
@@ -404,7 +404,7 @@ En 3 phrases : « Le multiplicateur d'une contrainte est son prix : ce que l'obj
 
 **Réponse modèle (60 secondes).**
 
-> Les deux s'écrivent en fonction de la marge fonctionnelle $t = y\,s$ d'un exemple : la hinge vaut $\max(0, 1 - t)$, la log-loss $\ln(1 + e^{-t})$. Elles ont beaucoup en commun : convexes, décroissantes, presque linéaires pour un exemple très mal classé, et, après une mise à l'échelle, des majorants de l'erreur de classification. Trois différences comptent. La log-loss est dérivable partout, la hinge a un coude en $t = 1$, d'où le sous-gradient. La hinge vaut exactement 0 dès que $t \ge 1$ : les exemples bien classés avec de la marge ne comptent plus du tout, et la solution ne dépend que des vecteurs de support ; la log-loss ne s'annule jamais, tous les exemples tirent un peu sur les paramètres. Enfin, la log-loss est une log-vraisemblance : le modèle sort une probabilité ; la hinge ne donne qu'un score, qu'il faudrait calibrer après coup. Sur des données séparables, la hinge atteint 0 avec des poids finis, alors que la log-loss non régularisée continue de baisser quand les poids grandissent. On choisit la log-loss quand on veut des probabilités, la hinge quand on veut une frontière qui ne dépend que des exemples difficiles.
+> Les deux s'écrivent en fonction de la marge fonctionnelle $t = y\,s$ d'un exemple : la hinge vaut $\max(0, 1 - t)$, la log-loss $\ln(1 + e^{-t})$. Elles ont beaucoup en commun : convexes, décroissantes, presque linéaires pour un exemple très mal classé, et, après une mise à l'échelle, des majorants de l'erreur de classification. Trois différences comptent. La log-loss est dérivable partout, la hinge a un coude en $t = 1$, d'où le sous-gradient. La hinge vaut exactement 0 dès que $t \ge 1$ : un tel exemple a, à l'optimum, un multiplicateur nul, et disparaît de $\mathbf{w}$, qui ne dépend que des vecteurs de support ; la log-loss ne s'annule jamais, tous les exemples tirent un peu sur les paramètres. Enfin, la log-loss est une log-vraisemblance : le modèle sort une probabilité ; la hinge ne donne qu'un score, qu'il faudrait calibrer après coup. Sur des données séparables, la hinge atteint 0 avec des poids finis, alors que la log-loss non régularisée continue de baisser quand les poids grandissent. On choisit la log-loss quand on veut des probabilités, la hinge quand on veut une frontière qui ne dépend que des exemples difficiles.
 
 **Grille.** (1) les deux formules en fonction de $y\,s$ ; (2) les points communs ; (3) la dérivabilité ; (4) le zéro et les vecteurs de support ; (5) score ou probabilité ; (6) un critère de choix.
 

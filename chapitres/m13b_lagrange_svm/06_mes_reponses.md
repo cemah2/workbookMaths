@@ -199,7 +199,7 @@
 - f :
 - g :
 - h :
-- les trois groupes d'exemples ; ce que vérifie J = nC × (la forme de f)) :
+- les exemples rangés selon leur marge fonctionnelle ; ce que vérifie J = nC × (la forme de f)) :
 
 ### Ex M13b.10 — Un pas de sous-gradient sur l'objectif d'une SVM linéaire
 
@@ -231,8 +231,7 @@
 - d :
 - e :
 - f :
-- g :
-- le développement et φ ; l'origine des √2 ; f) et g) par count_monomials ; le nombre d'opérations :
+- le développement et φ ; l'origine des √2 ; φ(x) · φ(z) et c) ; φ pour (c + x · z)², et pourquoi c ≥ 0 ; e) et f) par count_monomials :
 
 ### Ex M13b.13 — La matrice de Gram d'un noyau RBF sur trois points, et l'effet de γ
 

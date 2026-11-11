@@ -36,7 +36,7 @@ POS = np.array([[6.0, 1.0], [7.0, 3.0], [8.0, 0.0]])          # §6: the positiv
 NEG = np.array([[3.0, 2.0], [1.0, 4.0], [0.0, 2.0]])          # §6: the negative examples
 W_SVM, B_SVM = np.array([0.6, -0.2]), -2.4                    # §6: the hard-margin solution
 GRAM_X = np.array([0.0, 0.5, 1.2, 2.0, 3.5, 4.0])             # §8: six points on a line
-GAMMAS = (0.05, 1.0, 20.0)                                    # §8: three widths
+GAMMAS = (0.05, 2.0, 20.0)                                    # §8: three widths
 
 
 def french_number(value: float, _pos=None) -> str:
@@ -181,7 +181,7 @@ def rbf_gram() -> None:
         ax.set_yticks(range(6), [french_number(v) for v in GRAM_X], fontsize=8)
         ax.set_title(f"γ = {french_number(gamma)}")
     fig.colorbar(im, ax=axes, shrink=0.8)
-    fig.suptitle("La matrice de Gram RBF de six points : presque des 1 pour γ petit, presque l'identité pour γ grand",
+    fig.suptitle("La matrice de Gram RBF de six points : proche de 1 entre voisins pour γ petit, presque l'identité pour γ grand",
                  fontsize=10)
     OUT.mkdir(parents=True, exist_ok=True)
     fig.savefig(OUT / "gram_rbf.png", dpi=DPI, bbox_inches="tight")
