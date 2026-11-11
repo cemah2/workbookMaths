@@ -81,6 +81,9 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $D_{\mathbf{u}} f(\mathbf{p})$ | « dérivée directionnelle de f en p dans la direction u » | directional derivative of f along u | la pente de $f$ en $\mathbf{p}$ dans la direction du vecteur unitaire $\mathbf{u}$ : $\nabla f(\mathbf{p}) \cdot \mathbf{u}$ | $\nabla f = (6, 9)$, $\mathbf{u} = (0{,}28 ;\ 0{,}96)$ : $10{,}32$ | M05b |
 | $f_x$, $f_{xx}$, $f_{xy}$ | « f indice x », « f indice x x », « f indice x y » | f sub x, f sub xx, f sub xy | $\frac{\partial f}{\partial x}$ ; la dérivée de $f_x$ par rapport à $x$, puis par rapport à $y$ (dérivée croisée) | $x^3 y + 2y^2$ : $f_{xy} = 3x^2$ | M05b |
 | $\frac{\partial^2 f}{\partial x^2}$, $\frac{\partial^2 f}{\partial y\,\partial x}$ | « d rond deux f sur d rond x deux », « d rond deux f sur d rond y d rond x » | second partial derivative | les mêmes dérivées secondes, $f_{xx}$ et $f_{xy}$, notées comme des fractions | $\frac{\partial^2}{\partial x^2}(x^3 y) = 6xy$ | M05b |
+| $\mathcal{L}(\mathbf{x}, \boldsymbol{\mu}, \boldsymbol{\lambda})$ | « L de x, mu, lambda », « le lagrangien » | Lagrangian | $f + \sum_i \mu_i g_i + \sum_j \lambda_j h_j$ ; les $\mu_i \ge 0$ multiplient les inégalités $g_i \le 0$, les $\lambda_j$ les égalités $h_j = 0$ | $x^2 + \mu(2 - x)$ | M13b |
+| $D(\boldsymbol{\mu}, \boldsymbol{\lambda})$ | « D de mu, lambda », « la fonction duale » | dual function | $\inf_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}, \boldsymbol{\lambda})$ | $D(\mu) = 2\mu - \frac{\mu^2}{4}$ | M13b |
+| $\partial f(\mathbf{u})$ | « sous-différentiel de f en u » | subdifferential of f at u | l'ensemble des sous-gradients de la fonction convexe $f$ en $\mathbf{u}$ (à ne pas confondre avec une dérivée partielle) | $\partial\lvert x \rvert(0) = [-1, 1]$ | M13b |
 | $\int_a^b f(x)\,dx$ | « intégrale de a à b de f(x) d x » | integral from a to b of f | aire (signée) sous la courbe | $\int_0^1 x\,dx = \frac{1}{2}$ | M02a |
 | $\int f(x)\,dx$ | « intégrale de f(x) d x », « primitive de f » | indefinite integral, antiderivative of f | une primitive quelconque, écrite avec une constante $+ C$ | $\int x^2\,dx = \frac{x^3}{3} + C$ | M02a |
 | $\big[F(x)\big]_a^b$ | « F(x) pris entre a et b » | F evaluated from a to b | $F(b) - F(a)$, la borne du haut d'abord | $\big[x^2\big]_1^3 = 9 - 1 = 8$ | M02a |
@@ -138,6 +141,9 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\mathbf{u} \times \mathbf{v}$ (plan) | « u vectoriel v », « produit vectoriel de u et v » | cross product | $u_1v_2 - u_2v_1$, positif si l'on tourne à gauche | $(1, 0) \times (0, 1) = 1$ | M10 |
 | $\tilde{\mathbf{x}}$, $\tilde{\mathbf{w}}$ | « x tilde », « w tilde » | x tilde, augmented vector | le vecteur augmenté de l'astuce du biais : $(1, \mathbf{x})$ et $(b, \mathbf{w})$ | $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = \mathbf{w} \cdot \mathbf{x} + b$ | M10 |
 | $\gamma(\mathbf{w}, b)$, $\gamma^\star$ | « gamma de w et b », « gamma étoile » | margin, maximum margin | la marge géométrique d'un séparateur, la plus grande possible | $\gamma^\star = \frac{1}{2}\operatorname{dist}(\operatorname{conv} A, \operatorname{conv} B)$ | M10 |
+| $\rho$ | « rhô » | margin | en M13b, la marge d'une SVM, $\frac{1}{\lVert\mathbf{w}\rVert}$ en forme canonique (M10 l'écrivait $\gamma$) ; la bande a une largeur $2\rho$ | $\lVert\mathbf{w}\rVert = 0{,}25$ : $\rho = 4$ | M13b |
+| $t_i$, $\xi_i$, $\alpha_i$ | « t i », « xi i », « alpha i » | functional margin, slack variable, dual variable | la marge fonctionnelle $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$, la variable d'écart, et le multiplicateur de l'exemple $i$ dans le dual d'une SVM ($0 \le \alpha_i \le C$) | $t_i = 1$ : sur un bord | M13b |
+| $k(\mathbf{x}, \mathbf{z})$, $\varphi(\mathbf{x})$, $\mathbf{K}$ | « k de x et z », « phi de x », « la matrice de Gram » | kernel, feature map, Gram matrix | un noyau, sa fonction des features ($k = \varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$) et la matrice $n \times n$ des $k(\mathbf{x}_i, \mathbf{x}_j)$ | $k(\mathbf{x}, \mathbf{x}) = 1$ pour le RBF | M13b |
 | $\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k)$, $\operatorname{span}[\ldots]$ | « vect de v un, …, v k », « sous-espace engendré par… » | span of v one, …, v k | l'ensemble des combinaisons linéaires de ces vecteurs | $\operatorname{Vect}\big((1, 0, 0), (0, 1, 0)\big)$ : le plan $z = 0$ | M12a |
 | $\dim V$ | « dimension de V » | dimension of V | le nombre de vecteurs d'une base de $V$ | $\dim\mathbb{R}^4 = 4$ | M12a |
 | $\mathbb{R}_d[x]$ | « R d de x » | polynomials of degree at most d | les polynômes de degré au plus $d$, un espace de dimension $d + 1$ | $1 + 2x - x^2 \in \mathbb{R}_2[x]$ | M12a |
@@ -232,17 +238,17 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 
 | Minuscule | Majuscule | Nom | Usage fréquent |
 |:-:|:-:|---|---|
-| $\alpha$ | | alpha | un niveau de test, un coefficient |
+| $\alpha$ | | alpha | un niveau de test, un coefficient ; les multiplicateurs $\alpha_i$ d'une SVM |
 | $\beta$ | | bêta | un coefficient, le momentum et la moyenne exponentielle, la loi Beta |
-| $\gamma$ | $\Gamma$ | gamma | le facteur d'actualisation en RL |
+| $\gamma$ | $\Gamma$ | gamma | le facteur d'actualisation en RL ; le paramètre du noyau RBF ; la marge en M10 |
 | $\delta$ | $\Delta$ | delta | une petite variation ($\Delta x$) |
 | $\varepsilon$ | | epsilon | une petite quantité, un bruit, l'écart toléré dans la définition d'une limite |
 | $\eta$ | | êta | le learning rate |
 | $\theta$ | $\Theta$ | thêta | les paramètres d'un modèle |
-| $\lambda$ | $\Lambda$ | lambda | une valeur propre, une régularisation |
-| $\mu$ | | mu | une moyenne, une espérance |
+| $\lambda$ | $\Lambda$ | lambda | une valeur propre, une régularisation, un multiplicateur de Lagrange |
+| $\mu$ | | mu | une moyenne, une espérance ; le multiplicateur d'une contrainte d'inégalité |
 | $\pi$ | $\Pi$ | pi | 3,14… ; une politique en RL ; $\Pi$ : un produit |
-| $\rho$ | | rhô | une corrélation, le rayon spectral |
+| $\rho$ | | rhô | une corrélation, le rayon spectral, la marge d'une SVM |
 | $\sigma$ | $\Sigma$ | sigma | un écart-type, la sigmoïde ; $\Sigma$ : une somme ou une matrice de covariance |
 | $\phi$ ou $\varphi$ | $\Phi$ | phi | une transformation des features ; $\Phi$ : la fonction de répartition de la loi normale |
 | $\omega$ | $\Omega$ | oméga | un résultat d'une expérience ; $\Omega$ : l'univers |

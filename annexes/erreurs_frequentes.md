@@ -554,3 +554,22 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Moyenner des impuretés sans pondérer | la moyenne simple des entropies de deux groupes de 2 et 98 exemples | pondérer par les tailles des groupes |
 | Prendre le taux d'erreur pour l'indice de Gini | « $(0{,}9 ;\ 0{,}05 ;\ 0{,}05)$ a un Gini de 0,1 » | $G = 1 - \sum_k p_k^2 = 0{,}185$ ; $1 - \max_k p_k$ est le taux d'erreur |
 | Mélanger $\frac{1}{n}$ et $\frac{1}{n - 1}$ dans la décomposition de la variance | la variance totale en $\frac{1}{n-1}$, celles des groupes en $\frac{1}{n}$ | la même convention partout ($\frac{1}{n}$) pour que total = intra + inter |
+
+## Optimisation sous contraintes et SVM (M13b)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Prendre un point de Lagrange pour un minimum | « $\nabla f + \lambda\nabla g = \mathbf{0}$, donc c'est le minimum » | la condition est nécessaire : comparer les candidats, ou invoquer la convexité |
+| Oublier de tester le minimum libre | supposer une inégalité active alors que le minimum libre est admissible | regarder d'abord le minimum libre ; s'il est admissible, $\mu = 0$ |
+| Accepter un multiplicateur d'inégalité négatif | « $\mu = -\frac43$ : la solution est sur le bord » | $\mu < 0$ dit que la contrainte ne doit pas être active : changer d'ensemble actif |
+| Mélanger les conventions de signe | lagrangien $f - \lambda g$ dans un calcul, $f + \lambda g$ dans l'autre | fixer la convention ($g \le 0$, $f + \sum_i \mu_i g_i$, $\mu_i \ge 0$) et s'y tenir |
+| Croire que la fonction duale peut dépasser le minimum | « $D(12) = 30 > f^*$ » | $D \le f^*$ toujours (dualité faible) : une valeur plus grande signale une erreur de calcul |
+| Juger la convexité sur l'objectif seul | « $\min x$ sous $x^2 + y^2 = 4$ est convexe : l'objectif est linéaire » | vérifier aussi chaque contrainte : une égalité doit être affine |
+| Confondre marge et largeur de la bande | « $\lVert\mathbf{w}\rVert = 0{,}5$ : marge de 4 » | $\rho = \frac{1}{\lVert\mathbf{w}\rVert} = 2$ ; la bande a une largeur $2\rho$ |
+| $C$ fois la moyenne des hinges au lieu de la somme | $J = \frac12\lVert\mathbf{w}\rVert^2 + C \cdot \frac1n\sum_i \ell_i$ | $J = \frac12\lVert\mathbf{w}\rVert^2 + C\sum_i \ell_i$, ou la forme moyenne avec $\lambda = \frac{1}{nC}$ |
+| Compter dans le sous-gradient les exemples bien au-delà de la marge | soustraire $C y_i\mathbf{x}_i$ pour tous les exemples | seuls les exemples de marge fonctionnelle strictement inférieure à 1 comptent |
+| Lire $b$ sur un vecteur de support borné | $b = y_i - \mathbf{w} \cdot \mathbf{x}_i$ avec $\alpha_i = C$ | le lire sur un vecteur libre ($0 < \alpha_i < C$), qui est exactement sur le bord |
+| Oublier les labels dans $\mathbf{w}$ | $\mathbf{w} = \sum_i \alpha_i\mathbf{x}_i$ | $\mathbf{w} = \sum_i \alpha_i y_i\mathbf{x}_i$ |
+| Oublier le carré dans le noyau RBF | $e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert}$ | $e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$ (`sklearn` aussi) |
+| Oublier les monômes de bas degré du noyau polynomial | « $(1 + \mathbf{x} \cdot \mathbf{z})^2$ en dimension $p$ : $\binom{p + 1}{2}$ coordonnées » | $\binom{p + 2}{2}$ : les monômes de degré **au plus** 2, constante comprise |
+| Prendre n'importe quelle fonction de deux points pour un noyau | « $\lVert\mathbf{x} - \mathbf{z}\rVert^2$ compare deux points : c'est un noyau » | un noyau est symétrique et a des matrices de Gram semi-définies positives ; ce n'est pas le cas ici |

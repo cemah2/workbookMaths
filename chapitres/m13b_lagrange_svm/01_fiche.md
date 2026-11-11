@@ -31,7 +31,7 @@
 | §7 Marge souple, hinge loss et sous-gradient | Q6 | M13b.9, M13b.10 ✏️, M13b.18 ∂, M13b.22 📖, M13b.E2 💼 | M13b.26 🔨, M13b.30 🔬, M13b.34 🏆 |
 | §8 Le problème dual, les vecteurs de support et les noyaux | Q7, Q8, R3 🔁 | M13b.11, M13b.12, M13b.13 ✏️, M13b.19 ∂, M13b.20 🔗, M13b.22 📖, M13b.23 🧮 | M13b.27 🔨, M13b.28 📦, M13b.32 🐛 |
 
-Parcours essentiel : tout sauf Q3, Q8, M13b.2, M13b.4, M13b.6, M13b.10, M13b.11, M13b.12, M13b.14, M13b.18, M13b.19, M13b.21, M13b.22, M13b.23, M13b.E1, M13b.E2 et M13b.30 à M13b.34. Le §4 s'y lit sans exercice.
+Parcours essentiel : tout sauf Q3, Q8, M13b.2, M13b.4, M13b.6, M13b.10, M13b.11, M13b.12, M13b.14, M13b.18, M13b.19, M13b.21, M13b.22, M13b.23, M13b.E1, M13b.E2 et M13b.30 à M13b.34. Au §4, il ne garde que ∂ M13b.15 et 🗣️ M13b.24.
 
 ## Guide de lecture de MML
 
@@ -63,7 +63,7 @@ Vocabulaire anglais de ce chapitre : *constrained optimization*, *equality / ine
 2. $-\lambda$ est la **sensibilité** du minimum quand on déplace la contrainte : un prix.
 3. Minimiser $\frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x}$ sous $\mathbf{A}\mathbf{x} = \mathbf{b}$, c'est résoudre un seul système linéaire par blocs ; maximiser $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ sous $\lVert\mathbf{u}\rVert = 1$ redonne l'ACP : $\mathbf{C}\mathbf{u} = \lambda\mathbf{u}$.
 4. **KKT** (contraintes $g_i \le 0$) : stationnarité, faisabilité, $\mu_i \ge 0$, et $\mu_i\,g_i(\mathbf{x}) = 0$ : une contrainte non atteinte a un multiplicateur nul.
-5. La **fonction duale** $D(\boldsymbol{\mu}) = \min_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu})$ minore toujours le minimum (dualité faible) ; pour un problème convexe raisonnable, son maximum l'atteint (dualité forte).
+5. La **fonction duale** $D(\boldsymbol{\mu}) = \inf_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu})$ minore toujours le minimum (dualité faible) ; pour un problème convexe raisonnable, son maximum l'atteint (dualité forte).
 6. **Problème convexe** : objectif convexe, inégalités convexes, égalités affines. Tout minimum local y est global, et les conditions KKT suffisent.
 7. **SVM à marge dure** : $\min \frac{1}{2}\lVert\mathbf{w}\rVert^2$ sous $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ ; marge $\rho = 1/\lVert\mathbf{w}\rVert$ ; $\mathbf{w}$ est unique.
 8. **Marge souple** : $J(\mathbf{w}, b) = \frac{1}{2}\lVert\mathbf{w}\rVert^2 + C\sum_i \max(0, 1 - y_i(\mathbf{w} \cdot \mathbf{x}_i + b))$, la **hinge loss** ; on la minimise par **sous-gradient**, sans garantie de baisse à chaque pas.
@@ -86,7 +86,7 @@ Les points qui vérifient la contrainte forment l'**ensemble admissible** (*feas
 
 Regarde les lignes de niveau de $f$, ici des ellipses (M05b), et la droite $x + y = 8$. Une ligne de niveau $f = c$ qui **coupe** la droite en deux points n'est pas la meilleure : entre ces deux points, la droite passe à l'intérieur de l'ellipse, où $f < c$. La plus petite valeur de $f$ sur la droite est atteinte là où une ligne de niveau **touche** la droite sans la traverser : en ce point, la ligne de niveau et la contrainte ont la même tangente.
 
-![Les lignes de niveau de x² + 3y² et la droite x + y = 8 : l'ellipse f = 48 touche la droite en (6, 2), où ∇f = (12, 12) et ∇g = (1, 1) sont colinéaires](figures/lagrange_lignes_niveau.png)
+![Les lignes de niveau de x² + 3y² et la droite x + y = 8 : l'ellipse f = 48 touche la droite en (6, 2), où ∇f = (12, 12) et ∇g = (1, 1) sont colinéaires (flèches raccourcies)](figures/lagrange_lignes_niveau.png)
 
 Or le gradient de $f$ est orthogonal à ses lignes de niveau (M05b), et celui de $g$ à la courbe $g = 0$, qui est aussi une ligne de niveau (de $g$). Deux vecteurs orthogonaux à la même tangente sont **colinéaires** :
 
@@ -114,7 +114,7 @@ Déplaçons la contrainte : $x + y = b$ au lieu de $8$. La même méthode donne 
 
 > **Sensibilité.** Pour la contrainte $g(\mathbf{x}) = c$ et le lagrangien $f + \lambda(g - c)$, la valeur du minimum vérifie $\dfrac{df^*}{dc} = -\lambda$.
 
-Desserrer la contrainte de $0{,}1$ (passer à $x + y = 8{,}1$) fait monter le minimum d'environ $12 \times 0{,}1 = 1{,}2$ : on trouve $f^*(8{,}1) = 49{,}2075$. Le multiplicateur est le **prix** d'une unité de contrainte (*shadow price*) : ce que l'objectif gagnerait si l'on pouvait déplacer la contrainte d'un cran. Un multiplicateur nul dit que la contrainte ne coûte rien (🗣️ M13b.24, 🔮 M13b.29).
+Déplacer la contrainte de $0{,}1$ (passer à $x + y = 8{,}1$) fait monter le minimum d'environ $12 \times 0{,}1 = 1{,}2$ : on trouve $f^*(8{,}1) = 49{,}2075$. Le multiplicateur est le **prix** d'une unité de contrainte (*shadow price*) : ce que coûte, ou rapporte, à l'objectif un déplacement d'un cran de la contrainte. Un multiplicateur nul dit que la contrainte ne coûte rien (🗣️ M13b.24, 🔮 M13b.29).
 
 ### Une promesse tenue : le maximum de vraisemblance catégoriel
 
@@ -151,7 +151,7 @@ les points critiques sont les **vecteurs propres unitaires** de $\mathbf{C}$, et
 
 **Exemple.** $\mathbf{C} = \begin{pmatrix} 10 & 3 \\ 3 & 2 \end{pmatrix}$ : trace 12, déterminant 11, valeurs propres 11 et 1. Pour 11 : $(10 - 11)u_1 + 3u_2 = 0$, donc $\mathbf{u} \propto (3, 1)$, et $\mathbf{C}(3, 1) = (33, 11) = 11\,(3, 1)$. Le premier axe est $\frac{1}{\sqrt{10}}(3, 1)$, de variance 11 ; le point critique de valeur 1, $\frac{1}{\sqrt{10}}(-1, 3)$, est le minimum de $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ sur le cercle unité.
 
-Le deuxième axe s'obtient en ajoutant la contrainte $\mathbf{u} \cdot \mathbf{u}_1 = 0$, avec un second multiplicateur : ✏️ M13b.4 montre qu'il est nul, et qu'on retombe sur le deuxième vecteur propre. MML §10.2 fait la même dérivation ; M12d.23 l'avait survolée.
+Le deuxième axe s'obtient en ajoutant la contrainte $\mathbf{u} \cdot \mathbf{u}_1 = 0$, avec un second multiplicateur : ✏️ M13b.4 calcule ce multiplicateur, et l'on retombe sur le deuxième vecteur propre. MML §10.2 fait la même dérivation ; M12d.23 l'avait survolée.
 
 🔗 **Dans workbookIA** — le chapitre 12 admet que les directions de plus grande variance sont les vecteurs propres de la covariance : tu en as maintenant deux démonstrations, par Rayleigh (M12c) et par Lagrange.
 
@@ -196,8 +196,8 @@ La complémentarité résume les deux situations : pour chaque inégalité, ou b
 ### La fonction duale
 
 Fixe les multiplicateurs ($\boldsymbol{\mu} \ge \mathbf{0}$, $\boldsymbol{\lambda}$ quelconques) et minimise le lagrangien **sans contrainte** en $\mathbf{x}$ :
-$$D(\boldsymbol{\mu}, \boldsymbol{\lambda}) = \min_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}, \boldsymbol{\lambda}).$$
-C'est la **fonction duale** (*dual function*). Pour chaque $\mathbf{x}$ fixé, $\mathcal{L}$ est affine en $(\boldsymbol{\mu}, \boldsymbol{\lambda})$ ; $D$, minimum de fonctions affines, est donc **concave**, même quand le problème de départ ne l'est pas.
+$$D(\boldsymbol{\mu}, \boldsymbol{\lambda}) = \inf_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}, \boldsymbol{\lambda}).$$
+C'est la **fonction duale** (*dual function*). L'infimum $\inf$ est la plus grande minoration : c'est le minimum quand il est atteint, et il peut valoir $-\infty$ (pour un lagrangien affine non constant en $\mathbf{x}$, par exemple). Pour chaque $\mathbf{x}$ fixé, $\mathcal{L}$ est affine en $(\boldsymbol{\mu}, \boldsymbol{\lambda})$ ; $D$, minimum de fonctions affines, est donc **concave**, même quand le problème de départ ne l'est pas.
 
 > **Dualité faible.** Pour tout $\mathbf{x}$ admissible et tous $\boldsymbol{\mu} \ge \mathbf{0}$, $\boldsymbol{\lambda}$ : $D(\boldsymbol{\mu}, \boldsymbol{\lambda}) \le f(\mathbf{x})$. En particulier $\max D \le \min f$.
 
@@ -400,9 +400,9 @@ par la série de l'exponentielle (M05a) : $\varphi_m(x) = e^{-\gamma x^2}\sqrt{(
 
 **Distances dans l'espace des features.** Pour tout noyau, $\lVert\varphi(\mathbf{x}) - \varphi(\mathbf{z})\rVert^2 = k(\mathbf{x}, \mathbf{x}) - 2k(\mathbf{x}, \mathbf{z}) + k(\mathbf{z}, \mathbf{z})$ (développe le carré). Pour le RBF, c'est $2 - 2k(\mathbf{x}, \mathbf{z})$ : les images sont toutes sur une sphère de rayon 1, à moins de $\sqrt{2}$ les unes des autres.
 
-**L'effet de γ.** Quand $\gamma \to 0$, toutes les valeurs $k(\mathbf{x}_i, \mathbf{x}_j)$ tendent vers 1 : la matrice de Gram tend vers la matrice pleine de 1, de rang 1, et la SVM ne distingue presque plus les exemples. Quand $\gamma \to \infty$, $k(\mathbf{x}_i, \mathbf{x}_j) \to 0$ pour $i \ne j$ : la matrice de Gram tend vers l'identité, chaque exemple n'influence que son voisinage immédiat : la décision ne dépend plus que de l'exemple d'entraînement le plus proche, et la SVM apprend ses données par cœur (overfitting). On règle $\gamma$ et $C$ ensemble, par validation croisée (✏️ M13b.13).
+**L'effet de γ.** Quand $\gamma \to 0$, toutes les valeurs $k(\mathbf{x}_i, \mathbf{x}_j)$ tendent vers 1 : la matrice de Gram tend vers la matrice pleine de 1, de rang 1, et la SVM ne distingue presque plus les exemples. Quand $\gamma \to \infty$, $k(\mathbf{x}_i, \mathbf{x}_j) \to 0$ pour $i \ne j$ : la matrice de Gram tend vers l'identité, chaque exemple n'agit plus que dans un tout petit voisinage de lui-même : la SVM apprend ses données par cœur (overfitting), et, loin de tous les exemples, la décision se réduit au signe de $b$ (🔗 M13b.20). On règle $\gamma$ et $C$ ensemble, par validation croisée (✏️ M13b.13).
 
-![La matrice de Gram RBF de six points d'une droite (0 ; 0,5 ; 1,2 ; 2 ; 3,5 ; 4) pour γ = 0,05, 1 et 20 : presque des 1 partout, puis des blocs de voisins, puis presque l'identité](figures/gram_rbf.png)
+![La matrice de Gram RBF de six points d'une droite (0 ; 0,5 ; 1,2 ; 2 ; 3,5 ; 4) pour γ = 0,05, 1 et 20 : des valeurs proches de 1 entre voisins, puis des blocs de voisins, puis presque l'identité](figures/gram_rbf.png)
 
 ### Quelles fonctions sont des noyaux ?
 

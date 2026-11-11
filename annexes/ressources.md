@@ -24,6 +24,7 @@ Les ressources que les fiches citent. Chaque lien a été vérifié avant d'êtr
 | Ressource | Ce que c'est | Accès et licence | Vérifié |
 |---|---|---|---|
 | Documentation de Python, tutoriel, chapitre 15 : *Floating-Point Arithmetic: Issues and Limitations* | pourquoi 0,1 n'est pas exact en binaire, l'erreur de représentation, `math.fsum` ; cité par R0 et M05a | gratuit, documentation officielle ([docs.python.org/3/tutorial/floatingpoint.html](https://docs.python.org/3/tutorial/floatingpoint.html)) | 2026-11-07 |
+| S. Boyd et L. Vandenberghe, *Convex Optimization*, Cambridge University Press, 2004 | la référence de l'optimisation convexe : ensembles et fonctions convexes, problèmes convexes (ch. 4), dualité, conditions KKT et sensibilité (ch. 5) ; prolonge M13b §3 à §5 ; cité par M13b | gratuit en ligne, mis en ligne par les auteurs avec l'accord de l'éditeur ([web.stanford.edu/~boyd/cvxbook](https://web.stanford.edu/~boyd/cvxbook/)) | 2026-11-11 |
 
 ## Algèbre linéaire
 

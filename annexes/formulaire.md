@@ -471,6 +471,19 @@ R0 (prise en main) n'a pas de formule : les priorités de Python (`**` avant le 
 | impuretés | $H(\mathbf{p}) = -\sum_k p_k\log_2 p_k \le \log_2 K$ ; $G(\mathbf{p}) = 1 - \sum_k p_k^2 \le 1 - \frac{1}{K}$ ; gain d'information : $H(Y) - H(Y \mid X) = I(X ; Y)$ |
 | réduction de variance | $V = \frac{n_A}{n}V_A + \frac{n_B}{n}V_B + \frac{n_A}{n}(m_A - m)^2 + \frac{n_B}{n}(m_B - m)^2$ (intra + inter, en $\frac{1}{n}$) |
 
+### M13b · Optimisation sous contraintes et SVM
+
+| Notion | Formules |
+|---|---|
+| Lagrange | $\min f$ sous $g = 0$ : $\nabla f + \lambda\nabla g = \mathbf{0}$, $g = 0$ (si $\nabla g \ne \mathbf{0}$) ; lagrangien $f + \lambda(g - c)$ : $\frac{df^*}{dc} = -\lambda$ |
+| quadratique sous égalités | $\min \frac12\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x}$ sous $\mathbf{A}\mathbf{x} = \mathbf{b}$ : $\begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \\ \mathbf{A} & \mathbf{0} \end{pmatrix}\begin{pmatrix} \mathbf{x} \\ \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \\ \mathbf{b} \end{pmatrix}$ ; ACP : $\max \mathbf{u}^\top\mathbf{C}\mathbf{u}$ sous $\lVert\mathbf{u}\rVert = 1$ donne $\mathbf{C}\mathbf{u} = \lambda\mathbf{u}$ |
+| KKT | $\mathcal{L} = f + \sum_i \mu_i g_i + \sum_j \lambda_j h_j$ ; $g_i \le 0$, $h_j = 0$ ; $\nabla_{\mathbf{x}}\mathcal{L} = \mathbf{0}$ ; $\mu_i \ge 0$ ; $\mu_i g_i = 0$ |
+| dualité | $D(\boldsymbol{\mu}, \boldsymbol{\lambda}) = \inf_{\mathbf{x}} \mathcal{L}$, concave ; $D \le f(\mathbf{x})$ pour $\mathbf{x}$ admissible ; convexe + Slater : $\max D = \min f$ ; QP sous $\mathbf{A}\mathbf{x} \le \mathbf{b}$ : $D(\boldsymbol{\mu}) = -\frac12(\mathbf{c} + \mathbf{A}^\top\boldsymbol{\mu})^\top\mathbf{Q}^{-1}(\mathbf{c} + \mathbf{A}^\top\boldsymbol{\mu}) - \boldsymbol{\mu}^\top\mathbf{b}$ |
+| SVM à marge dure | $\min \frac12\lVert\mathbf{w}\rVert^2$ sous $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ ; $\rho = \frac{1}{\lVert\mathbf{w}\rVert}$, bande $\frac{2}{\lVert\mathbf{w}\rVert}$ ; $\mathbf{w} = \sum_i \alpha_i y_i\mathbf{x}_i$, $\sum_i \alpha_i y_i = 0$, $\alpha_i(t_i - 1) = 0$ |
+| marge souple | $J = \frac12\lVert\mathbf{w}\rVert^2 + C\sum_i \max(0, 1 - t_i)$, $t_i = y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ ; $\frac{J}{nC} = \frac1n\sum_i \max(0, 1 - t_i) + \frac{\lambda}{2}\lVert\mathbf{w}\rVert^2$, $\lambda = \frac{1}{nC}$ ; sous-gradient : $\mathbf{g}_{\mathbf{w}} = \mathbf{w} - C\sum_{t_i < 1} y_i\mathbf{x}_i$, $g_b = -C\sum_{t_i < 1} y_i$ |
+| dual de la SVM | $\max \sum_i \alpha_i - \frac12\sum_{i,j}\alpha_i\alpha_jy_iy_j\,k(\mathbf{x}_i, \mathbf{x}_j)$ sous $0 \le \alpha_i \le C$, $\sum_i \alpha_iy_i = 0$ ; $\alpha_i = 0 \Rightarrow t_i \ge 1$, $0 < \alpha_i < C \Rightarrow t_i = 1$, $\alpha_i = C \Rightarrow t_i \le 1$ ; $s(\mathbf{x}) = \sum_i \alpha_iy_i\,k(\mathbf{x}_i, \mathbf{x}) + b$ |
+| noyaux | $(\mathbf{x} \cdot \mathbf{z} + c)^d$ : $\binom{p + d}{d}$ coordonnées ($c > 0$) ; RBF $e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$, $\lVert\varphi(\mathbf{x}) - \varphi(\mathbf{z})\rVert^2 = 2 - 2k$ ; somme, produit, $c\,k$ ($c > 0$) restent des noyaux ; matrice de Gram semi-définie positive |
+
 ## Partie IV · Réseaux
 
 *(ajouté avec les chapitres M16 à M20)*

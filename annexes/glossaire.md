@@ -29,6 +29,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | arrondi, troncature | rounding, truncation | arrondir garde le nombre le plus proche ; tronquer coupe sans regarder la suite | R1 |
 | astuce de reparamétrisation | reparameterization trick | écrire $X = \mu + \sigma Z$ avec $Z \sim \mathcal{N}(0, 1)$ : le hasard est dans $Z$, et $\mu$, $\sigma$ deviennent des paramètres qu'on peut ajuster par gradient | M02b |
 | astuce du biais | bias trick | ajouter une coordonnée constante 1 en tête : $\tilde{\mathbf{x}} = (1, \mathbf{x})$, $\tilde{\mathbf{w}} = (b, \mathbf{w})$, $\tilde{\mathbf{w}} \cdot \tilde{\mathbf{x}} = \mathbf{w} \cdot \mathbf{x} + b$ : un hyperplan affine devient un hyperplan par l'origine | M10 |
+| astuce du noyau | kernel trick | remplacer chaque produit scalaire $\mathbf{x}_i \cdot \mathbf{x}_j$ du dual d'une SVM par $k(\mathbf{x}_i, \mathbf{x}_j) = \varphi(\mathbf{x}_i) \cdot \varphi(\mathbf{x}_j)$ : une SVM linéaire dans l'espace des $\varphi$, une frontière non linéaire au départ, sans jamais calculer $\varphi$ | M13b |
 | asymptote | asymptote | droite dont la courbe se rapproche indéfiniment : horizontale ($y = L$) ou verticale ($x = a$) | R7 |
 | AUC (aire sous la courbe ROC) | area under the curve | $\int_0^1 \text{TPR}\,d(\text{FPR})$ : 1/2 pour le hasard, 1 pour un classement parfait | M02a, M03 |
 | average precision | average precision (AP) | $\sum_j (R_j - R_{j-1})\,P_j$ : l'aire, en rectangles, sous la courbe precision-recall | M03 |
@@ -85,14 +86,18 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | comparaisons multiples | multiple comparisons, multiple testing | faire beaucoup de tests, ou essayer beaucoup de modèles : $m\alpha$ faux positifs en moyenne si aucun effet n'existe | M08 |
 | complément orthogonal | orthogonal complement | $U^\perp$, les vecteurs orthogonaux à tout $U$ : un sous-espace de dimension $n - \dim U$ ; $(\operatorname{Im}\mathbf{A})^\perp = \ker\mathbf{A}^\top$ | M12b |
 | complémentaire (d'un ensemble) | complement | $\bar{A}$ : les éléments de l'univers qui ne sont pas dans $A$ | R4 |
+| complémentarité | complementary slackness | la condition KKT $\mu_i\,g_i(\mathbf{x}^*) = 0$ : une contrainte inactive a un multiplicateur nul | M13b |
 | composée (de deux fonctions) | composition, composite function | $(f \circ g)(x) = f(g(x))$ : on applique $g$, puis $f$ | R3 |
 | compromis biais-variance | bias-variance trade-off | un modèle plus souple a moins de biais et plus de variance ; une pénalité comme ridge règle cet équilibre | M09b |
 | concave | concave | dont toute corde est au-dessous de la courbe ; pour $f$ deux fois dérivable, $f'' \le 0$ | M05a |
 | concentration (de la norme) | concentration of measure | en grande dimension, une quantité qui dépend de beaucoup de coordonnées indépendantes varie peu autour de sa valeur typique : la norme d'un vecteur gaussien de $\mathbb{R}^n$ vaut $\sqrt{n}$ à environ 0,7 près | M07 |
+| condition de Slater | Slater's condition | l'existence d'un point strictement admissible ($g_i(\mathbf{x}) < 0$ pour les inégalités non affines) ; avec la convexité, elle donne la dualité forte | M13b |
 | condition nécessaire, suffisante | necessary, sufficient condition | dans $P \Rightarrow Q$, P est suffisante pour Q et Q nécessaire pour P | R4 |
 | conditionnement | condition number | $\kappa(\mathbf{A}) = s_{\max}/s_{\min} \ge 1$ (infini si $\mathbf{A}$ n'est pas de rang plein) : l'amplification maximale d'une erreur relative, $\frac{\lVert \delta\mathbf{x} \rVert}{\lVert \mathbf{x} \rVert} \le \kappa\,\frac{\lVert \delta\mathbf{b} \rVert}{\lVert \mathbf{b} \rVert}$ ; on perd environ $\log_{10}\kappa$ chiffres ; $\kappa(\mathbf{A}^\top\mathbf{A}) = \kappa^2$ ; le déterminant ne le mesure pas | M12d |
+| conditions KKT | Karush-Kuhn-Tucker conditions | pour $\min f$ sous $g_i \le 0$ et $h_j = 0$ : admissibilité, stationnarité du lagrangien, $\mu_i \ge 0$ et complémentarité ; nécessaires sous qualification, suffisantes pour un problème convexe | M13b |
 | conservateur (test) | conservative test | un test dont le risque de type I réel est plus petit que le seuil annoncé, comme un test à statistique discrète | M08 |
 | continuité | continuity | $f$ est continue en $a$ si $\lim_{x \to a} f(x) = f(a)$ : pas de saut | R7 |
+| contrainte active, inactive | active, inactive constraint | une contrainte d'inégalité atteinte avec égalité à la solution ($g(\mathbf{x}^*) = 0$), ou non ($g(\mathbf{x}^*) < 0$, et son multiplicateur est nul) | M13b |
 | contraposée | contrapositive | $\text{non } Q \Rightarrow \text{non } P$, de même valeur que $P \Rightarrow Q$ | R4 |
 | contre-exemple | counterexample | un cas qui rend fausse une phrase « pour tout » | R4 |
 | convergence linéaire, quadratique | linear, quadratic convergence | l'erreur est multipliée par une constante $< 1$ à chaque pas (linéaire), ou à peu près élevée au carré (quadratique : les décimales justes doublent) | M05a |
@@ -159,6 +164,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | divergence KL (de Kullback-Leibler) | KL divergence, Kullback-Leibler divergence, relative entropy | $\mathrm{KL}(p \parallel q) = \sum p \log_2 \frac{p}{q} = H(p, q) - H(p)$ : les bits perdus par symbole ; positive, nulle si $p = q$, pas symétrique | M06 |
 | division euclidienne | Euclidean division, integer division | $a = bq + r$ avec $0 \le r < b$ ; en Python, `a // b` donne $q$ et `a % b` donne $r$ | R0 |
 | double descente | double descent | l'erreur de test culmine près de $p = n$ (poids instables), puis peut redescendre au-delà avec la solution de plus petite norme | M09b |
+| dualité faible, dualité forte | weak, strong duality | la fonction duale minore toujours le minimum du primal ($\max D \le \min f$) ; pour un problème convexe qui vérifie la condition de Slater, $\max D = \min f$ | M13b |
 | écart (d'une option) | gap | $\Delta_k = \mu^\star - \mu_k$ : ce que coûte, en moyenne, un choix de l'option $k$ au lieu de la meilleure | M11 |
 | écart interquartile | interquartile range (IQR) | $Q_3 - Q_1$ : la dispersion de la moitié centrale d'une série, insensible aux valeurs extrêmes | M02c |
 | écart-type | standard deviation | racine carrée de la variance | R8 |
@@ -234,6 +240,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | fonction de plusieurs variables | multivariate function, function of several variables | une fonction qui prend plusieurs nombres et en renvoie un, comme $f(x, y)$ ; son graphe est une surface | M05b |
 | fonction de répartition | cumulative distribution function (cdf) | $F(x) = P(X \le x)$ : croissante de 0 à 1, et $F' = f$ pour une densité $f$ | M02a |
 | fonction définie par morceaux | piecewise function | une formule sur chaque partie de l'ensemble de définition : $\max(0, x)$, la marche, $\lvert x \rvert$ | R3 |
+| fonction duale | dual function | $D(\boldsymbol{\mu}, \boldsymbol{\lambda}) = \inf_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}, \boldsymbol{\lambda})$ pour $\boldsymbol{\mu} \ge \mathbf{0}$ : toujours concave, elle minore le minimum du problème | M13b |
 | fonction quantile | quantile function | la réciproque $F^{-1}$ de la fonction de répartition : $F^{-1}(u) = q_u$ | M02a, M02b |
 | fonction signe | sign function | $\operatorname{sign}(x)$ vaut $-1$, 0 ou 1 selon que $x$ est négatif, nul ou positif | R2 |
 | forme canonique | vertex form, completed-square form | $a(x - \alpha)^2 + \beta$, qui montre le sommet d'une parabole | R3 |
@@ -259,6 +266,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | Hadamard (produit de) | Hadamard product, element-wise product | $\mathbf{A} \odot \mathbf{B}$, les produits des éléments de même position (`A * B` en NumPy) ; même forme, commutatif | M09a |
 | hérédité, initialisation | inductive step, base case | les deux étapes d'une récurrence : $P(n) \Rightarrow P(n + 1)$, et $P(n_0)$ | R4 |
 | hessienne | Hessian | matrice des dérivées secondes ; symétrique, elle a des valeurs propres réelles : définie positive en un point critique, c'est un minimum local ; semi-définie positive partout, la fonction est convexe | M05b, M12c, M19 |
+| hinge loss | hinge loss | $\max(0, 1 - t)$, avec $t = y\,s$ la marge fonctionnelle : convexe, nulle dès $t \ge 1$, au moins égale à l'erreur 0-1 ; la loss de la SVM à marge souple | M13b |
 | Hoeffding (inégalité de) | Hoeffding's inequality | pour $n$ variables indépendantes à valeurs dans $[a, b]$ : $P(\lvert \bar{X} - \mu \rvert \ge t) \le 2e^{-2nt^2/(b - a)^2}$ | M11 |
 | homogénéité (d'une norme) | absolute homogeneity | $\lVert \lambda\mathbf{x} \rVert = \lvert \lambda \rvert\,\lVert \mathbf{x} \rVert$ : multiplier un vecteur par $\lambda$ multiplie sa longueur par $\lvert \lambda \rvert$ | M07 |
 | hyperplan | hyperplane | les $\mathbf{x}$ de $\mathbb{R}^n$ tels que $\mathbf{w} \cdot \mathbf{x} + b = 0$, avec $\mathbf{w} \ne \mathbf{0}$ (le vecteur normal) : une droite du plan, un plan de l'espace | M07 |
@@ -304,6 +312,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | jacobienne | Jacobian | matrice des dérivées partielles d'une fonction à valeurs vectorielles | M17 |
 | k-means, k-means++ | k-means, k-means++ | regrouper des points en $k$ clusters en alternant l'affectation au centre le plus proche et le remplacement de chaque centre par le barycentre de son cluster ; k-means++ tire les centres de départ avec une probabilité proportionnelle à $D^2$ | M07 |
 | König-Huygens (formule de) | König-Huygens theorem | $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum_i \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + m\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$ | M07 |
+| lagrangien | Lagrangian | $\mathcal{L}(\mathbf{x}, \boldsymbol{\mu}, \boldsymbol{\lambda}) = f(\mathbf{x}) + \sum_i \mu_i g_i(\mathbf{x}) + \sum_j \lambda_j h_j(\mathbf{x})$, l'objectif plus chaque contrainte multipliée par son multiplicateur | M13b |
 | lasso | lasso | les moindres carrés pénalisés par $\lambda\lVert \mathbf{w} \rVert_1$ : des poids exactement nuls, pas de solution explicite en général | M09b |
 | levier | leverage | $h_{ii}$, le nombre de la diagonale de la matrice chapeau : le poids de $y_i$ dans sa propre prédiction ; grand pour un point isolé | M09b |
 | ligne de niveau | level curve, contour line | l'ensemble des points où $f(x, y)$ prend une valeur donnée $c$ ; une carte de lignes de niveau est une carte topographique de la surface | M05b |
@@ -346,6 +355,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | mantisse | significand, mantissa | le nombre $m$ de la notation scientifique $m \times 10^k$, avec $1 \le |m| < 10$ | R1 |
 | MAP (maximum a posteriori) | maximum a posteriori (MAP) estimate | la valeur du paramètre qui maximise l'a posteriori : son mode | M04 |
 | marche (fonction de Heaviside) | step function, Heaviside function | vaut 0 avant 0 et 1 après ; la valeur en 0 est une convention ; voir aussi « seuil (fonction) » | R3 |
+| marge dure, marge souple | hard margin, soft margin | la SVM qui exige $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ pour tous les exemples, ou celle qui autorise des violations payées $C$ par unité (les variables d'écart, ou la hinge loss) | M13b |
 | marge fonctionnelle | functional margin | $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ pour un point ; elle est multipliée par $c$ quand on multiplie $(\mathbf{w}, b)$ par $c$ | M10 |
 | marge géométrique | geometric margin | $\min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$ : la distance signée du point le plus mal placé à l'hyperplan ; la plus grande possible vaut la moitié de la distance entre les enveloppes convexes | M10 |
 | Markov (inégalité de) | Markov's inequality | $P(X \ge a) \le \frac{\mathbb{E}[X]}{a}$ pour une variable $X \ge 0$ et $a > 0$ | M02c, M11 |
@@ -356,6 +366,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | matrice de confusion | confusion matrix | le tableau de contingence de la vérité et de la prédiction d'un classifieur (TP, FN, FP, TN en binaire) | M03 |
 | matrice de corrélation | correlation matrix | la matrice des corrélations $\rho_{ij} = \frac{\Sigma_{ij}}{\sigma_i\sigma_j}$, avec des 1 sur la diagonale | M02c |
 | matrice de covariance | covariance matrix | $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$ : les variances sur la diagonale, symétrique, et $\sum_i\sum_j w_iw_j\Sigma_{ij} = \mathbb{V}(\mathbf{w}^\top\mathbf{X}) \ge 0$ : semi-définie positive ; ses valeurs propres sont les variances le long de ses axes propres, leur somme la variance totale | M02c, M12c |
+| matrice de Gram (d'un noyau) | Gram matrix, kernel matrix | la matrice $n \times n$ des $k(\mathbf{x}_i, \mathbf{x}_j)$ des exemples, symétrique et semi-définie positive ; pour le noyau linéaire, $\mathbf{X}\mathbf{X}^\top$ (M12c appelait matrice de Gram $\mathbf{X}^\top\mathbf{X}$, celle des colonnes) | M12c, M13b |
 | matrice des features | feature matrix, design matrix | le tableau $\mathbf{X}$ de forme $(n, p)$ : une ligne par exemple, une colonne par feature ($\mathbf{X}$, ou $\boldsymbol{\Phi}$ après une transformation des features, dans MML) | M09b |
 | matrice diagonale | diagonal matrix | une matrice carrée dont les nombres hors de la diagonale sont nuls ; elle s'inverse nombre par nombre | M09a |
 | matrice identité | identity matrix | $\mathbf{I}_n$ : des 1 sur la diagonale, des 0 ailleurs ; $\mathbf{I}\mathbf{A} = \mathbf{A}\mathbf{I} = \mathbf{A}$ | M09a |
@@ -392,6 +403,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | moyenne mobile | moving average | la moyenne des $k$ dernières valeurs, recalculée à chaque instant | R5 |
 | moyenne pondérée | weighted mean, weighted average | $\frac{\sum w_i x_i}{\sum w_i}$ : chaque valeur compte selon son poids | R1 |
 | MSE, RMSE (d'une régression) | mean squared error, root mean squared error | $\frac{1}{n}\sum r_i^2$ (dans l'unité de la cible au carré) et sa racine (dans l'unité de la cible) | M09b |
+| multiplicateur de Lagrange | Lagrange multiplier | le coefficient d'une contrainte dans le lagrangien ; à l'optimum, le prix d'une unité de contrainte : $\frac{df^*}{dc} = -\lambda$ pour le lagrangien $f + \lambda(g - c)$ | M13b |
 | multiplicité algébrique, multiplicité géométrique | algebraic multiplicity, geometric multiplicity | la multiplicité de $\lambda$ comme racine du polynôme caractéristique ; la dimension de son espace propre, toujours entre 1 et la multiplicité algébrique | M12c |
 | Naïve Bayes | naive Bayes | un classifieur génératif qui suppose les features indépendantes sachant la classe : $P(Y = k \mid \mathbf{x}) \propto \pi_k\prod_j p(x_j \mid k)$, chaque loi estimée par maximum de vraisemblance (avec lissage), la décision en log-probabilités | M13a |
 | négation | negation | la proposition « non P », vraie quand P est fausse | R4 |
@@ -408,6 +420,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | normes L1 et L∞ | L1 norm, infinity norm | $\sum \lvert x_i \rvert$ (un trajet fait seulement de pas horizontaux et verticaux) et $\max \lvert x_i \rvert$ ; sans indice, $\lVert \mathbf{x} \rVert$ est la norme euclidienne (L2) | R9, M07 |
 | noyau (d'un notebook) | kernel | la mémoire qui exécute les cellules et garde leurs variables | R0 |
 | noyau (d'une application linéaire) | kernel, null space | $\ker\mathbf{A} = \{\mathbf{x} : \mathbf{A}\mathbf{x} = \mathbf{0}\}$, un sous-espace de l'espace de départ : les directions que l'application écrase | M12a |
+| noyau (d'une SVM) | kernel | une fonction $k(\mathbf{x}, \mathbf{z}) = \varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$ : symétrique, de matrices de Gram semi-définies positives ; linéaire, polynomial ou RBF | M13b |
+| noyau polynomial | polynomial kernel | $(\mathbf{x} \cdot \mathbf{z} + c)^d$, avec $c \ge 0$ : le produit scalaire des monômes de degré au plus $d$ (pondérés), soit $\binom{p + d}{d}$ coordonnées pour $c > 0$ | M13b |
+| noyau RBF, gaussien | RBF kernel, Gaussian kernel | $e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$, entre 0 et 1, égal à 1 pour deux points confondus ; son $\varphi$ a une infinité de coordonnées ; $\gamma$ grand : chaque exemple n'agit que près de lui | M13b |
 | numérateur, dénominateur | numerator, denominator | le nombre du haut et celui du bas d'une fraction | R1 |
 | octet | byte | 8 bits ; 1 ko = $10^3$ octets, 1 Mo = $10^6$, 1 Go = $10^9$ | R1 |
 | opérations élémentaires sur les lignes | elementary row operations | échanger deux lignes, multiplier une ligne par un nombre non nul, ajouter à une ligne un multiple d'une autre : elles ne changent pas les solutions | M09a |
@@ -455,6 +470,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | probabilité jointe | joint probability | $P(A \cap B)$, ou $P(X = x, Y = y)$ : la probabilité que deux choses arrivent ensemble | M03 |
 | probabilité marginale | marginal probability | la probabilité d'un événement sur une seule variable, en oubliant l'autre : un total de ligne ou de colonne divisé par le total | M03 |
 | probabilités totales (formule des) | law of total probability | $P(A) = \sum_k P(A \mid B_k)\,P(B_k)$ pour une partition $B_1, \ldots, B_K$ | M03 |
+| problème d'optimisation convexe | convex optimization problem | minimiser une fonction convexe sous des inégalités $g_i \le 0$ convexes et des égalités affines : tout minimum local est global, et les conditions KKT sont suffisantes | M13b |
+| problème primal, problème dual | primal, dual problem | le problème de départ, et le maximum de la fonction duale sous $\boldsymbol{\mu} \ge \mathbf{0}$ : une variable par contrainte ; pour une SVM, une par exemple | M13b |
 | produit cartésien, couple | Cartesian product, ordered pair | $A \times B$ : les couples $(a, b)$ avec $a \in A$, $b \in B$ | R4 |
 | produit matrice-vecteur | matrix-vector product | $\mathbf{A}\mathbf{x}$ : un produit scalaire par ligne de $\mathbf{A}$, ou la combinaison des colonnes de $\mathbf{A}$ de coefficients les $x_j$ | M09a |
 | produit matriciel | matrix product, matrix multiplication | $(\mathbf{A}\mathbf{B})_{ij} = \sum_k a_{ik}b_{kj}$, pour $(n, p) \times (p, m) \to (n, m)$ ; associatif, pas commutatif, $n\,p\,m$ multiplications | M09a |
@@ -463,6 +480,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | produit scalaire de fonctions | inner product of functions | $\langle f, g \rangle = \int_a^b f(x)\,g(x)\,dx$ ; l'orthogonalité dépend de l'intervalle ; projeter sur des polynômes, ce sont des moindres carrés continus | M12b |
 | produit vectoriel (du plan) | cross product (2-D) | $\mathbf{u} \times \mathbf{v} = u_1v_2 - u_2v_1$ : positif si $\mathbf{v}$ est à gauche de $\mathbf{u}$ ; sa valeur absolue est l'aire du parallélogramme | M10 |
 | programme linéaire | linear program | une optimisation d'une fonction linéaire sous des contraintes linéaires ; de faisabilité quand on cherche seulement un point qui les vérifie toutes (`scipy.optimize.linprog`) | M10 |
+| programme quadratique | quadratic program | une optimisation d'une fonction quadratique sous des contraintes linéaires ; convexe si la matrice de la forme quadratique est semi-définie positive (la SVM et son dual en sont) | M13b |
 | projection (sur une direction) | projection | l'ombre de $\vec{v}$ sur la direction de $\vec{u}$ : $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert^2}\vec{u}$ | R9, M07, M12b |
 | projection oblique | oblique projection | une matrice idempotente non symétrique : elle envoie sur un sous-espace, mais pas perpendiculairement | M12b |
 | projection orthogonale (sur un sous-espace) | orthogonal projection | le point d'un sous-espace le plus proche d'un vecteur : l'écart est orthogonal au sous-espace ; $\mathbf{Q}\mathbf{Q}^\top\mathbf{v}$ avec une base orthonormée, $\mathbf{A}(\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top\mathbf{v}$ sinon ; les moindres carrés projettent $\mathbf{y}$ sur l'espace des colonnes | M07, M09b, M12b |
@@ -505,7 +523,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | régression logistique | logistic regression | $P(Y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b)$ : un score affine, lu comme la log-cote de la classe 1 ; ajustée par maximum de vraisemblance, en minimisant la log-loss, convexe en $(\mathbf{w}, b)$ | M13a |
 | régression ridge | ridge regression | les moindres carrés pénalisés par $\lambda\lVert \mathbf{w} \rVert^2$ : $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{w} = \mathbf{X}^\top\mathbf{y}$, toujours soluble pour $\lambda > 0$ ; le MAP d'un prior gaussien | M09b |
 | regret | regret | $R_T = \sum_k \Delta_k\,\mathbb{E}[N_k(T)]$ : ce qu'une stratégie gagne en moins, en moyenne, que la meilleure option choisie à chaque pas | M11 |
-| régularisation | regularization | ajouter à la loss une pénalité sur les poids (ridge, lasso) pour préférer les modèles simples | M09b |
+| régularisation | regularization | ajouter à la loss une pénalité sur les poids (ridge, lasso) pour préférer les modèles simples ; une contrainte sur la norme des poids donne la même solution pour la bonne valeur du paramètre (le multiplicateur de Lagrange) | M09b, M13b |
 | relation de Chasles | Chasles' relation | $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$ | R9 |
 | ReLU | rectified linear unit | $\max(0, z)$, l'activation la plus utilisée dans les réseaux | M10 |
 | remontée (substitution) | back substitution | résoudre un système triangulaire supérieur en partant de la dernière ligne, qui n'a qu'une inconnue | M12b |
@@ -515,6 +533,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | risque empirique | empirical risk | la moyenne d'une loss sur les exemples d'entraînement ; apprendre, c'est choisir les paramètres qui le minimisent | M09b |
 | sans biais (estimateur) | unbiased estimator | estimateur dont l'espérance est la vraie valeur du paramètre | M02c |
 | sans mémoire | memoryless | $P(T > s + t) = P(T > s)\,P(T > t)$ : avoir attendu ne rapproche pas l'événement (lois géométrique et exponentielle) | M02b |
+| saut de dualité | duality gap | $\min f - \max D \ge 0$, l'écart entre le minimum du primal et le maximum du dual ; nul pour un problème convexe qui vérifie la condition de Slater | M13b |
 | schéma de Horner | Horner's method | évaluer un polynôme en multipliant par $x$ et en ajoutant le coefficient suivant, sans puissances | R3 |
 | score (d'une ACP) | score | la coordonnée $t_{ij} = \mathbf{u}_j^\top(\mathbf{x}_i - \boldsymbol{\mu})$ d'un exemple sur un axe principal ; les scores sur un axe sont de moyenne nulle et de variance $\lambda_j$, et deux axes donnent des scores non corrélés | M12d |
 | score de Brier | Brier score | $\frac{1}{n}\sum (p_i - y_i)^2$ : l'erreur quadratique moyenne des probabilités annoncées | M03 |
@@ -547,6 +566,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | sous-espace affine | affine subspace | un sous-espace vectoriel déplacé, $\mathbf{x}_0 + U$ : une droite ou un plan qui ne passe pas par l'origine, les solutions de $\mathbf{A}\mathbf{x} = \mathbf{b}$ | M12a |
 | sous-espace engendré | span | $\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k)$ : l'ensemble des combinaisons linéaires de ces vecteurs, le plus petit sous-espace qui les contient | M12a |
 | sous-espace vectoriel | vector subspace | une partie qui contient $\mathbf{0}$ et est stable par combinaison linéaire ; elle est elle-même un espace vectoriel | M12a |
+| sous-gradient, sous-différentiel | subgradient, subdifferential | $\mathbf{g}$ tel que $f(\mathbf{v}) \ge f(\mathbf{u}) + \mathbf{g} \cdot (\mathbf{v} - \mathbf{u})$ pour tout $\mathbf{v}$ ; leur ensemble $\partial f(\mathbf{u})$ ; à un coude il y en a plusieurs, et $\mathbf{0} \in \partial f(\mathbf{u})$ caractérise un minimum | M13b |
 | spécificité | specificity, true negative rate | $P(\hat{Y} = 0 \mid Y = 0)$ : la part des négatifs bien reconnus | M03 |
 | standardiser | standardize | passer de $X \sim \mathcal{N}(\mu, \sigma^2)$ à $Z = \frac{X - \mu}{\sigma} \sim \mathcal{N}(0, 1)$ | M02b, M02c |
 | statistique | statistic | une fonction de l'échantillon (moyenne, médiane, maximum) : une variable aléatoire | M02c |
@@ -561,6 +581,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | support (d'une loi) | support | l'ensemble des valeurs où la densité n'est pas nulle | M02a |
 | surdispersion | overdispersion | des comptages dont la variance dépasse nettement la moyenne : la loi de Poisson ne convient pas | M02b |
 | SVD compacte, SVD réduite | compact SVD, thin SVD | $\mathbf{A} = \mathbf{U}_r\mathbf{S}_r\mathbf{V}_r^\top = \sum_{i \le r} s_i\mathbf{u}_i\mathbf{v}_i^\top$, en ne gardant que les $r$ valeurs singulières non nulles (compacte) ; la SVD réduite de `np.linalg.svd(A, full_matrices=False)` en garde $\min(m, n)$, nulles comprises | M12d |
+| SVM (machine à vecteurs de support) | support vector machine | le classifieur linéaire de plus grande marge : $\min \frac12\lVert\mathbf{w}\rVert^2$ sous $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$, ou sa version à marge souple ; avec un noyau, une frontière non linéaire | M13b |
 | système homogène | homogeneous system | un système de second membre nul, $\mathbf{A}\mathbf{x} = \mathbf{0}$ ; il a toujours la solution $\mathbf{0}$ | M09a |
 | système linéaire | system of linear equations, linear system | plusieurs équations du premier degré à résoudre ensemble ; leurs solutions communes | R2, M09a |
 | t-SNE | t-SNE (t-distributed stochastic neighbor embedding) | une carte en 2D (ou 3D) d'un nuage de grande dimension, qui garde les voisinages : des probabilités de voisinage gaussiennes dans l'espace d'origine, d'une loi de Student sur la carte, rapprochées par descente de gradient sur leur divergence KL ; pour voir, pas pour mesurer | M12d |
@@ -612,6 +633,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | validation croisée imbriquée | nested cross-validation | une boucle intérieure choisit le modèle, une boucle extérieure estime la performance de toute la procédure, choix compris | M08 |
 | valide, solide (argument) | valid, sound | valide : la conclusion est vraie partout où les prémisses le sont toutes ; solide : valide et à prémisses vraies | M11 |
 | variable aléatoire | random variable | grandeur dont la valeur dépend du hasard | R8 |
+| variable d'écart | slack variable | $\xi_i \ge 0$ dans $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1 - \xi_i$ : la violation autorisée pour l'exemple $i$ ; à l'optimum, la hinge loss de l'exemple | M13b |
 | variable de base, variable libre | basic variable, free variable | une inconnue dont la colonne porte un pivot, ou n'en porte pas ; on choisit les libres, les autres s'en déduisent | M09a |
 | variable de confusion | confounder, confounding variable | une troisième grandeur qui fait varier deux autres, et crée entre elles une corrélation sans causalité | M02c |
 | variance | variance | moyenne des carrés des écarts à l'espérance | R8 |
@@ -619,7 +641,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | variance expliquée (part de) | explained variance ratio | $\lambda_j/\sum_l\lambda_l$ : la part de la variance totale que garde l'axe principal $j$ ; la somme des $k$ premières est la part gardée par une ACP à $k$ composantes | M12d |
 | variance intra-groupes, inter-groupes | within-group, between-group variance | la moyenne pondérée des variances des groupes, et la moyenne pondérée des carrés des écarts des moyennes des groupes à la moyenne générale ; leur somme est la variance totale | M13a |
 | vecteur | vector | un déplacement (une direction, un sens, une longueur), donné par ses coordonnées ; en ML, une liste de nombres | R9 |
-| vecteur de support | support vector | un point à la distance exactement $\gamma^\star$ de l'hyperplan de plus grande marge : il touche un bord de la bande, et ce sont ces points qui fixent l'hyperplan | M10, M13b |
+| vecteur de support | support vector | un exemple de multiplicateur $\alpha_i > 0$ dans le dual d'une SVM : sur un bord de la bande (marge dure), ou sur un bord, dans la bande ou du mauvais côté (marge souple) ; retirer un exemple de multiplicateur nul ne change pas la solution | M10, M13b |
 | vecteur directeur, vecteur normal | direction vector, normal vector | un vecteur qui a la direction d'une droite ; un vecteur perpendiculaire à une droite ou à un plan (il engendre son complément orthogonal) | R9, M07, M12b |
 | vecteur one-hot | one-hot vector | le codage d'une catégorie : un 1 à sa place, des 0 ailleurs (un vecteur de la base canonique) | M07 |
 | vecteur unitaire | unit vector | un vecteur de norme 1 ; $\frac{\vec{u}}{\lVert \vec{u} \rVert}$ normalise $\vec{u}$ | R9, M07 |

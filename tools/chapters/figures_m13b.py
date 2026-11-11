@@ -66,12 +66,12 @@ def lagrange_point() -> None:
     ax.contour(X, Y, F, levels=[48], colors=[C[0]], linewidths=2.2)
     ax.plot(xs, 8 - xs, color=C[1], lw=2, label="contrainte x + y = 8")
     ax.plot([6], [2], "ko", zorder=5)
-    ax.annotate("(6, 2) : f = 48", (6, 2), xytext=(7.2, 3.6), fontsize=10, arrowprops={"arrowstyle": "-", "color": "0.3"})
-    ax.annotate("", xy=(6 + 12 / 12 * 1.4, 2 + 12 / 12 * 1.4), xytext=(6, 2),
-                arrowprops={"arrowstyle": "->", "color": C[0], "lw": 1.8})
-    ax.text(7.5, 1.0, "∇f = (12, 12)", color=C[0], fontsize=10)
+    ax.annotate("(6, 2) : f = 48", (6, 2), xytext=(7.7, 4.6), fontsize=10, arrowprops={"arrowstyle": "-", "color": "0.3"})
+    # both arrows are shortened (∇f is 12 times ∇g): only their common direction matters
+    ax.annotate("", xy=(6 + 1.4, 2 + 1.4), xytext=(6, 2), arrowprops={"arrowstyle": "->", "color": C[0], "lw": 1.8})
+    ax.text(7.55, 3.3, "∇f = (12, 12)", color=C[0], fontsize=10)
     ax.annotate("", xy=(6 + 0.8, 2 + 0.8), xytext=(6, 2), arrowprops={"arrowstyle": "->", "color": C[1], "lw": 1.8})
-    ax.text(4.0, 3.4, "∇g = (1, 1)", color=C[1], fontsize=10)
+    ax.text(7.0, 2.2, "∇g = (1, 1)", color=C[1], fontsize=10)
     ax.set(xlim=(-2, 11), ylim=(-4.5, 6), xlabel="x", ylabel="y", aspect="equal",
            title="La ligne de niveau f = 48 touche la contrainte en (6, 2)")
     ax.legend(loc="lower left", fontsize=9)
@@ -93,10 +93,11 @@ def kkt_cases() -> None:
         ax.text(6.2, 5.3, "minimum libre (6, 5)", fontsize=9)
         ax.plot(*sol, "o", color=C[0], ms=8, zorder=5)
         if c == 11:
-            ax.annotate("", xy=(5 + 0.7, 2 + 2.1), xytext=(5, 2), arrowprops={"arrowstyle": "->", "color": C[1]})
-            ax.text(5.9, 3.3, "∇g", color=C[1])
-            ax.annotate("", xy=(5 - 0.7, 2 - 2.1), xytext=(5, 2), arrowprops={"arrowstyle": "->", "color": C[0]})
-            ax.text(3.0, -0.6, "∇f = −2 ∇g", color=C[0])
+            # same scale for both arrows: ∇g = (1, 3) and ∇f = (−2, −6), drawn at half length
+            ax.annotate("", xy=(5 + 0.5, 2 + 1.5), xytext=(5, 2), arrowprops={"arrowstyle": "->", "color": C[1]})
+            ax.text(5.65, 3.2, "∇g = (1, 3)", color=C[1])
+            ax.annotate("", xy=(5 - 1.0, 2 - 3.0), xytext=(5, 2), arrowprops={"arrowstyle": "->", "color": C[0]})
+            ax.text(0.2, -1.4, "∇f = (−2, −6) = −2 ∇g", color=C[0])
         ax.set(xlim=(-1, 11), ylim=(-2, 9), aspect="equal", xlabel="x", ylabel="y", title=title)
     save(fig, "kkt_active_inactive.png")
 
