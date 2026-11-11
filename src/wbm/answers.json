@@ -51145,26 +51145,23 @@
     },
     "M13a.10c": {
       "coarse_any": {
-        "0": [
-          "187f6c07f01fd3e5bd07f0e7f95b55df02e2491451d90a5415349fd1a89ed877"
-        ],
         "1": [
-          "b9d8956d92bd339e015595aad5a03c1be05603e7734baac1ac74e8e09fe3452c"
+          "bb6549347332c3883662fe4cfd888c0f633ebc7b796df68e9ab7def2616667a5"
         ]
       },
       "coarser": {
         "2": [
-          "7867860aeac16c61bc5b49e207ecc18730befca39ecbad67bdf6fcd10a8b578e"
+          "9425e4488790df46e9d9918f3d25eae5946f18cb045fbc4745668718aa632eb4"
         ]
       },
       "decimals": 4,
-      "hash": "7bd1505601eeac7805ce946ebf8d92861b3225cf7d39f4a16e364444865a8487",
-      "hash_coarse": "21a0bc3385127fd668d4ccb7342ea0edf0c85ca7d1f31c77620b746e4df70c12",
+      "hash": "2fdf4e7307a915fc69223daeb6f6f7c13c3d566e3704d63e7799352afeda9984",
+      "hash_coarse": "d0fc371a7145df8b3a6998ca91d6af7f649f1f9da55d1f737ba1ad89298cff20",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "1769cec93da7f37bde6c913ed18d19b76bdd5e5cb53ff712cdf6dcc02448ed99": "l'indice de Gini est 1 − Σ p_k², pas le taux d'erreur 1 − max p_k",
-        "76129e7f9697cd7e10f51e961809538ca70cb6a10a331bffbacf0842ec0f71b3": "l'indice de Gini est 1 MOINS la somme des carrés"
+        "8ed4ae82bab521b7b451d882363891250458587df55429ee8bc20fef1c28e44f": "l'indice de Gini est 1 MOINS la somme des carrés",
+        "f08644f9ea6fc4a292da66e1c0e3eada58e665e6ec2f7f817a218e9619ee02c6": "l'indice de Gini est 1 − Σ p_k², pas le taux d'erreur 1 − max p_k"
       },
       "sign": 1,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
@@ -51177,20 +51174,19 @@
       },
       "coarser": {
         "1": [
-          "132cba5e01550cf6efdd3c73125ee1dcb6066a513f8716b5c2257f581e43b0a5"
+          "11ee23483dae1ec9ae1c35ccde4caac8349616fd84c5a51e29f1aa60f822c71b"
         ],
         "2": [
-          "30ba9f3817bab3bf18eb26c67f73bb7d3846771f0660b52b3e1a1c0217fe9084"
+          "f05c15be737d6026bf4d52f0d3c32dbf66cc4ac1bac9370b1a78b02ef91622f6"
         ]
       },
       "decimals": 4,
-      "hash": "3439e049e3629f4c4e36843f6352b648e65531ce0b8b7a0fe2ddebae455b0570",
-      "hash_coarse": "62a555412cbde68dc6b3b7ebf7bfc102f97e66bbbfd20bfd2add8bfa4bfd7486",
+      "hash": "9309df23d2f6024c7a36d7a272f05c0c6ca5886a4d91d6c5389bab1ff5befe1f",
+      "hash_coarse": "ff0df005bed118b0eae2bf2dbc8e33e81d87e3f1a07ac6c704de9775aa5ada66",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "0d0f0315595ba5769516bf07dd6d7dc37156d20cda8a616bde2c96a778da12dc": "la question demande des bits : log₂ x = ln x / ln 2, pas ln",
-        "45db486535d2c4b9ceaab133e3ca3b280b6af8cee2123eec1667b340ea3fd221": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
+        "1efe787baa97d6376f29127822be30a6f990eb91addd75e391684207cb911e0d": "la question demande des bits : log₂ x = ln x / ln 2, pas ln"
       },
       "sign": 1,
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
@@ -51671,69 +51667,63 @@
       "source": "chapitres/m13a_vraisemblance_logistique/05_solutions.ipynb"
     },
     "M13a.18b": {
-      "decimals": 4,
+      "decimals": 3,
       "element_coarse": [
         [
-          "36d6f4dd03a1cd5f0ceaf7e8a6f30b2e0b150936be9a4ab65bdd2bf19c953ced"
+          "17013ecacd0dd6d959b22e39e2a52c0561d52c66922956ae6588300ff0e7d0eb"
         ],
         [
-          "fb5f85981627d19c452a548dc4beb39af123d2bc2f931a51782b4c2963fcffc8"
+          "2a0399d180acd32449e95b91a6b3191e716136c86616d0ca6d3f0ba2f451040b"
         ],
         [
-          "6349384ddc71c1e45157276aeb923c938bc9b94a5879be32dd6ea9cfa3ce4f74"
+          "db0c02492b0d733c9d6491221011da92b93f2cba07086fd5e9a2722db65ac16c"
         ],
         [
-          "f66bb056dcfa1264b5268a389ed680f18febdc94c263040dea533e11b9a9a7a0"
+          "50c695a1cb80128f1e9b8b042f9cd2da1088a9f0b9fb13b9103f6c2019fedc75"
         ],
         [
-          "f10dea8efbacacc1e1422ea13346bb688198127d0117d1466d90028e5cf08c62"
+          "028ef558a5b763f193f73a5c557ee26d61f1f73237cc20ba117059d2024954f7"
         ],
         [
-          "20372a1505d48458fd95b045f09ca8471425da721eafaa4333f0629ca66fbb69"
+          "64696e32820735e4cc5c3ee45c373ea41e6ac126f6a5b2d05a42951e3aa84235"
         ]
       ],
       "element_coarse_any": [
         [
           "9e85c470b14c2a6a10887831f8f88905aed16320a3fdff766c840a62b48b2f5b",
-          "120b57f8c6b87542ae6330ca95b3cf417dd8c5de573ef2f074d197b60a39b0b2",
-          "17013ecacd0dd6d959b22e39e2a52c0561d52c66922956ae6588300ff0e7d0eb"
+          "120b57f8c6b87542ae6330ca95b3cf417dd8c5de573ef2f074d197b60a39b0b2"
         ],
         [
-          "4df45430d90a422015c155811cc2047f7b96a9e23082e7832f2b361ca420ed46",
-          "2a0399d180acd32449e95b91a6b3191e716136c86616d0ca6d3f0ba2f451040b"
+          "4df45430d90a422015c155811cc2047f7b96a9e23082e7832f2b361ca420ed46"
         ],
         [
           "5398f449ee62df322bffa8140dfcfd606c8c2b50d890c760af808f0848121c1f",
-          "bd4d00fe9a74378601e2beb2127937ebb5252308191c5219bac0c8188f1736e5",
-          "db0c02492b0d733c9d6491221011da92b93f2cba07086fd5e9a2722db65ac16c"
+          "bd4d00fe9a74378601e2beb2127937ebb5252308191c5219bac0c8188f1736e5"
         ],
         [
-          "4f7e006d4b35cbb37d05fdec27838ddc02d81b6f4b4535d5d2bf64b143596795",
-          "50c695a1cb80128f1e9b8b042f9cd2da1088a9f0b9fb13b9103f6c2019fedc75"
+          "4f7e006d4b35cbb37d05fdec27838ddc02d81b6f4b4535d5d2bf64b143596795"
         ],
         [
           "4179965f4e49b5b900049a4af61e6fb83e993ebd468325cb34f18187b49b7d6d",
-          "05e4ba4e133ae0a0eea33ba83b3fb87f050bbfe42e28264d3c7f05c10e78dcaf",
-          "028ef558a5b763f193f73a5c557ee26d61f1f73237cc20ba117059d2024954f7"
+          "05e4ba4e133ae0a0eea33ba83b3fb87f050bbfe42e28264d3c7f05c10e78dcaf"
         ],
         [
-          "17f2f955d80139f16beca2b6868c1bebfaa64e42459d3ab363eb432c42810839",
-          "64696e32820735e4cc5c3ee45c373ea41e6ac126f6a5b2d05a42951e3aa84235"
+          "17f2f955d80139f16beca2b6868c1bebfaa64e42459d3ab363eb432c42810839"
         ]
       ],
       "element_hashes": [
-        "5bf445f4be7d3837aeb756c0ecaec027095157656ab6ec0b5c8fa645e075b4c5",
-        "f7fc3ee623b765d3ed85b20217acfe03c5bcd2ab199d7422eb4cc374cb6761bc",
-        "20309cef3cba11aa794bf140a932657e16026df456a166605f9b724553934190",
-        "245ac0e6e0c3b52fbd063b5861e55dcaf9fe931ef28c29c6539a5ff3a810ca5d",
-        "5baf8c67a4b35baaecd140472766c6b8df8757e06596a9e0ca9b665faaeb0589",
-        "41549746bc4446fd2cd512aad109ba45f780a99c2aa9960aa7e89405697799cd"
+        "36d6f4dd03a1cd5f0ceaf7e8a6f30b2e0b150936be9a4ab65bdd2bf19c953ced",
+        "fb5f85981627d19c452a548dc4beb39af123d2bc2f931a51782b4c2963fcffc8",
+        "6349384ddc71c1e45157276aeb923c938bc9b94a5879be32dd6ea9cfa3ce4f74",
+        "f66bb056dcfa1264b5268a389ed680f18febdc94c263040dea533e11b9a9a7a0",
+        "f10dea8efbacacc1e1422ea13346bb688198127d0117d1466d90028e5cf08c62",
+        "20372a1505d48458fd95b045f09ca8471425da721eafaa4333f0629ca66fbb69"
       ],
-      "hash": "55330048bb8cf9cd3153e0623c8add750b2c0ebde811ed9b49f7e582a66ffb9a",
+      "hash": "6c85766f62c78380b13ad7e62786e4426cdfc21c36975ddf1ac6f9a9642ceb75",
       "kind": "array",
       "mistakes": {
-        "c059c87a5712a710a6bb06cfff5fe9c501e4b9bed66859d83a090d1f63d950da": "z = Hw + b : n'oublie pas le biais",
-        "d23d94476aecfa2f9b54a4c125be9d50b3164c3cc588faa084caf235d395cbb9": "σ(z) = 1/(1 + e^(−z)) : attention au signe de l'exposant"
+        "86c8aa4aae2d8897b11daa4dcd7549115b23e23b35d5b076f200db3f296ae53f": "z = Hw + b : n'oublie pas le biais",
+        "ad3d3a0fecba6bbe94c66384af6dcb0bc647cb4bca738f9c18ecd55a9be2387c": "σ(z) = 1/(1 + e^(−z)) : attention au signe de l'exposant"
       },
       "shape": [
         6

@@ -307,7 +307,7 @@ Dans ta copie : écris la log-cote a posteriori, et montre que les termes en $x^
 **Objectif :** calculer des entropies (en bits) et des indices de Gini, et comparer leurs maxima.
 **Prérequis :** fiche §6 ; M06 §2 · **Parcours :** C, E
 
-Trois lois : $\mathbf{p}_1 = (0{,}95 ;\ 0{,}05)$, $\mathbf{p}_2 = (0{,}5 ;\ 0{,}4 ;\ 0{,}1)$ et $\mathbf{p}_3 = (\frac{1}{2}, \frac{1}{8}, \frac{1}{8}, \frac{1}{8}, \frac{1}{16}, \frac{1}{32}, \frac{1}{32})$, à sept issues.
+Trois lois : $\mathbf{p}_1 = (0{,}95 ;\ 0{,}05)$, $\mathbf{p}_2 = (0{,}7 ;\ 0{,}25 ;\ 0{,}05)$ et $\mathbf{p}_3 = (\frac{1}{2}, \frac{1}{8}, \frac{1}{8}, \frac{1}{8}, \frac{1}{16}, \frac{1}{32}, \frac{1}{32})$, à sept issues.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -444,7 +444,7 @@ Une sonde linéaire de poids $\mathbf{w} = (0{,}4 ;\ -0{,}9 ;\ 1{,}6)$ et de bia
 | | Question | Réponse attendue |
 |---|---|---|
 | a | les six scores | une liste de 6 nombres (4 décimales) |
-| b | les six probabilités | une liste de 6 nombres (4 décimales) |
+| b | les six probabilités | une liste de 6 nombres (3 décimales) |
 | c | la log-loss de la sonde, avec $s(z) - yz$ | un nombre (4 décimales) |
 | d | l'accuracy au seuil 0,5 | une fraction |
 | e | la log-loss du meilleur modèle constant, qui répond toujours la proportion de labels 1 | un nombre (4 décimales) |

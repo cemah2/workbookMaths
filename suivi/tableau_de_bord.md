@@ -1445,3 +1445,53 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M12d.37 🏆 Défi : compresser une image centrée en gardant 93,5 % de son énergie avec au plus 5 % des nombres ★★★ 30 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (26 cartes)
 <!-- wbm:end M12d -->
+
+<!-- wbm:section M13a -->
+## M13a · Vraisemblance et régression logistique ⏱️ 14,4 h
+
+- [ ] M13a.Q1 🧠 Vraisemblance, log-vraisemblance, maximum : le vocabulaire ★ 4 min
+- [ ] M13a.Q2 🧠 Log-loss et cross-entropy : la même chose ? ★ 4 min
+- [ ] M13a.Q3 🧠 Les propriétés de la sigmoïde et de la softplus ★ 4 min
+- [ ] M13a.Q4 🧠 Ce que modélise un score w · x + b ★ 4 min
+- [ ] M13a.Q5 🧠 Génératif ou discriminant ? ★ 4 min
+- [ ] M13a.Q6 🧠 Entropie et Gini : leurs propriétés ★ 4 min
+- [ ] M13a.Q7 🧠 Variance intra et variance inter : les feuilles d'un arbre de régression ★ 4 min (complet)
+- [ ] M13a.Q8 🧠 Convexe ou pas ? ★ 4 min (complet)
+- [ ] M13a.R1 🔁 Bayes et le lissage de Laplace (M04) ★ 5 min
+- [ ] M13a.R2 🔁 Entropie, cross-entropy et information mutuelle (M06) ★ 5 min
+- [ ] M13a.R3 🔁 Fonctions convexes de plusieurs variables (M10) ★ 5 min
+- [ ] M13a.1 ✏️ Le maximum de vraisemblance d'une loi de Bernoulli et d'une loi catégorielle ★ 15 min
+- [ ] M13a.2 ✏️ Le maximum de vraisemblance d'une loi normale : μ̂ et σ̂² ★★ 20 min
+- [ ] M13a.3 ✏️ La log-loss de quatre prédictions, puis la même en cross-entropy ★ 15 min
+- [ ] M13a.4 ✏️ Le poids d'un seul exemple mal prédit : la log-loss quand p tend vers 0 ★ 15 min (complet)
+- [ ] M13a.5 ✏️ La sigmoïde : valeurs, logit, cote et symétrie σ(−z) = 1 − σ(z) ★ 15 min
+- [ ] M13a.6 ✏️ La softplus : valeurs, asymptotes et comportement pour |z| grand ★ 15 min
+- [ ] M13a.7 ✏️ Un modèle logistique à deux features : probabilités, cote et frontière de décision ★ 15 min
+- [ ] M13a.8 ✏️ L'hypothèse naïve à la main : une loi jointe factorisée, comparée à la vraie ★★ 25 min
+- [ ] M13a.9 ✏️ Deux classes gaussiennes de même variance : l'a posteriori est une sigmoïde d'un score affine ★★ 20 min (complet)
+- [ ] M13a.10 ✏️ L'entropie et l'indice de Gini de quelques distributions ★ 15 min
+- [ ] M13a.11 ✏️ L'information mutuelle d'un tableau de contingence, et la baisse d'entropie qu'elle mesure ★★ 25 min
+- [ ] M13a.12 ✏️ La variance d'un groupe coupé en deux : variance intra plus variance inter ★★ 15 min (complet)
+- [ ] M13a.13 ∂ Le maximum de vraisemblance d'une loi catégorielle, par l'inégalité de Gibbs ★★ 20 min
+- [ ] M13a.14 ∂ La log-loss moyenne est moins la log-vraisemblance divisée par n ★ 15 min
+- [ ] M13a.15 ∂ Log-somme-exp est convexe : sur une droite, sa dérivée seconde est une variance ; la softplus aussi ★★★ 25 min
+- [ ] M13a.16 ∂ L'indice de Gini est maximal pour la loi uniforme ★★ 20 min (complet)
+- [ ] M13a.17 ∂ L'entropie est maximale pour la loi uniforme, par l'inégalité de Gibbs ★★ 15 min (complet)
+- [ ] M13a.18 🔗 Pont : une sonde linéaire, un modèle logistique en NumPy sur un batch de représentations figées, jusqu'à la log-loss ★ 25 min
+- [ ] M13a.19 📖 MML §8.3, relu après M04 : estimer des paramètres, et ce que la régression logistique y ajoute ★★ 30 min (complet)
+- [ ] M13a.20 🧮 Fermi : la loi jointe complète contre l'hypothèse naïve, combien de nombres pour 30 features à 4 valeurs ? ★ 10 min (complet)
+- [ ] M13a.21 🗣️ Expliquer pourquoi on minimise la log-loss plutôt que le taux d'erreur ★ 10 min
+- [ ] M13a.E1 💼 « Pourquoi la cross-entropy est-elle une log-vraisemblance ? » ★ 10 min (complet)
+- [ ] M13a.E2 💼 « Qu'est-ce que le maximum de vraisemblance, et quel lien avec les losses que vous minimisez ? » ★ 10 min (complet)
+- [ ] M13a.22 🔨 La log-vraisemblance et le maximum de vraisemblance d'une loi de Bernoulli ★ 15 min
+- [ ] M13a.23 🔨 Maximum de vraisemblance catégoriel, avec lissage, et gaussien ★ 20 min
+- [ ] M13a.24 🔨 La log-loss à partir des scores, sans débordement ★★ 20 min
+- [ ] M13a.25 📦 `scipy.stats`, `scipy.special` et `sklearn.metrics.log_loss` contre tes fonctions ★ 25 min
+- [ ] M13a.26 🔮 Prédire la log-loss d'un modèle qui répond toujours 0,5, puis toujours la fréquence des 1 ★ 10 min
+- [ ] M13a.27 🔬 La variabilité du maximum de vraisemblance d'une loi de Bernoulli d'un échantillon à l'autre ★★ 20 min (complet)
+- [ ] M13a.28 🎨 L'entropie et l'indice de Gini sur les lois à trois issues : lignes de niveau et maximum au centre ★ 25 min
+- [ ] M13a.29 🐛 Chasse à l'erreur : un ln 0, une sigmoïde qui déborde, une variance de maximum de vraisemblance divisée par n − 1 ★ 15 min (complet)
+- [ ] M13a.30 🛠️ Vérifier avec SymPy le maximum de vraisemblance d'une loi géométrique et d'une loi de Poisson ★ 15 min (complet)
+- [ ] M13a.31 🏆 Défi : la proportion d'un mélange de deux lois connues par maximum de vraisemblance, à 1e−6 près du maximum (dichotomie ou Newton) ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (24 cartes)
+<!-- wbm:end M13a -->

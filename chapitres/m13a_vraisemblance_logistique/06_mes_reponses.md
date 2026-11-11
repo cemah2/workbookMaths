@@ -197,7 +197,7 @@
 - f :
 - g :
 - h :
-- x₁ et x₂ sont-elles indépendantes dans la classe 1 ; pourquoi Naïve Bayes se trompe en (0, 1) ; quand il classe bien :
+- x₁ et x₂ sont-elles indépendantes dans la classe 1 ; pourquoi Naïve Bayes se trompe en (0, 1) ; les cases où son a posteriori s'éloigne le plus du vrai :
 
 ### Ex M13a.9 — Deux classes gaussiennes de même variance : l'a posteriori est une sigmoïde d'un score affine
 
@@ -221,7 +221,7 @@
 - f :
 - g :
 - h :
-- les rangements par entropie et par Gini ; la prudence entre 2 et 4 classes :
+- les rangements par entropie et par Gini ; la prudence entre 2 et 7 classes :
 
 ### Ex M13a.11 — L'information mutuelle d'un tableau de contingence, et la baisse d'entropie qu'elle mesure
 

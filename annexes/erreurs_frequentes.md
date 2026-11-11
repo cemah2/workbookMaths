@@ -546,7 +546,7 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Lisser le numérateur seulement | $\frac{n_k + 1}{N}$ | $\frac{n_k + 1}{N + K}$ : les probabilités doivent sommer à 1 |
 | $-\ln\hat{p}$ pour un label 0 | le terme de $(y, \hat{p}) = (0 ;\ 0{,}3)$ pris égal à $-\ln 0{,}3$ | $-\ln(1 - \hat{p}) = -\ln 0{,}7$ |
 | Mélanger nats et bits | une log-loss de `sklearn` comparée à une entropie de M06 | les bibliothèques sont en nats ; diviser par $\ln 2$ pour des bits |
-| Calculer $\ln(1 + e^z)$ tel quel | `np.log(1 + np.exp(800))` donne `inf` | $\max(z, 0) + \ln(1 + e^{-\lvert z \rvert})$, avec `np.log1p` |
+| Calculer $\ln(1 + e^z)$ tel quel | `np.log(1 + np.exp(900))` donne `inf` | $\max(z, 0) + \ln(1 + e^{-\lvert z \rvert})$, avec `np.log1p` |
 | Calculer la log-loss à partir de $\sigma(z)$ arrondi | $\sigma(45)$ arrondi à 1, puis $\ln(1 - 1) = -\infty$ | écrire le terme avec le score : $s(z) - yz$ |
 | Lire un poids logistique comme un effet sur la probabilité | « $w_j = 0{,}5$ : la probabilité monte de 0,5 » | la log-cote monte de $w_j$, la cote est multipliée par $e^{w_j}$ |
 | Confondre indépendance et indépendance conditionnelle | « Naïve Bayes suppose les features indépendantes » | indépendantes **sachant la classe** |

@@ -169,6 +169,7 @@ def gaussian_classes() -> None:
         ax.axvline(xstar, color="0.4", ls="--", lw=1)
     axes[0].text(xstar + 0.15, 0.115, f"x* ≈ {xstar:.2f}".replace(".", ","), color="0.3")
     axes[0].set(xlabel="x", ylabel="π_k p(x | k)", title="Deux classes gaussiennes de même variance")
+    axes[0].set_ylim(top=0.235)
     axes[0].legend(loc="upper right", fontsize=9)
     axes[1].plot(x, sigmoid(w * x + b), color=C[1], lw=2.2)
     axes[1].axhline(0.5, color="0.6", lw=0.8)

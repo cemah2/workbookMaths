@@ -277,11 +277,11 @@ Un modèle génératif sait faire plus (simuler des exemples d'une classe, repé
 
 ### L'hypothèse naïve
 
-Avec $p$ features à $m$ valeurs chacune, la loi complète de $\mathbf{x}$ dans une classe a $m^p$ cases, donc $m^p - 1$ probabilités à estimer : pour 8 features à 3 valeurs, déjà $3^8 - 1 = 6\,560$, et il faudrait des dizaines de milliers d'exemples par classe pour les estimer. **Naïve Bayes** (*naive Bayes*) suppose les features **indépendantes sachant la classe** (*conditional independence*) :
+Avec $p$ features à $m$ valeurs chacune, la loi complète de $\mathbf{x}$ dans une classe a $m^p$ cases, donc $m^p - 1$ probabilités à estimer : pour 7 features à 3 valeurs, déjà $3^7 - 1 = 2\,186$, et il faudrait des milliers d'exemples par classe pour les estimer. **Naïve Bayes** (*naive Bayes*) suppose les features **indépendantes sachant la classe** (*conditional independence*) :
 
 $$p(\mathbf{x} \mid Y = k) = \prod_{j=1}^p p(x_j \mid Y = k).$$
 
-Il ne reste que $p(m - 1)$ probabilités par classe (16 pour les 8 features à 3 valeurs), chacune estimée sur tous les exemples de sa classe (🧮 M13a.20).
+Il ne reste que $p(m - 1)$ probabilités par classe (14 pour les 7 features à 3 valeurs), chacune estimée sur tous les exemples de sa classe (🧮 M13a.20).
 
 L'indépendance **sachant la classe** n'est pas l'indépendance tout court. Deux thermomètres posés dans la même pièce donnent des lectures très corrélées : quand l'une est haute, l'autre aussi, parce que la pièce est chaude. Mais, la température vraie étant connue, leurs erreurs de mesure sont indépendantes : les lectures sont indépendantes **sachant** la température. Naïve Bayes fait le même pari, avec la classe à la place de la température. Quand ce pari est faux, les a posteriori calculés ne sont plus les vrais, et des décisions peuvent changer : ✏️ M13a.8 le mesure sur une petite loi, en comparant la factorisation et la vraie loi jointe.
 
@@ -302,7 +302,7 @@ Une seule feature réelle $x$. Dans la classe 0, $x \sim \mathcal{N}(\mu_0, \sig
 
 $$\ln\frac{P(Y = 1 \mid x)}{P(Y = 0 \mid x)} = \ln\frac{\pi_1}{\pi_0} - \frac{(x - \mu_1)^2 - (x - \mu_0)^2}{2\sigma^2} = \underbrace{\frac{\mu_1 - \mu_0}{\sigma^2}}_{w}\,x + \underbrace{\frac{\mu_0^2 - \mu_1^2}{2\sigma^2} + \ln\frac{\pi_1}{\pi_0}}_{b} :$$
 
-les termes en $x^2$ s'annulent parce que les variances sont égales. Donc $P(Y = 1 \mid x) = \sigma(wx + b)$ : **exactement la forme de la régression logistique.** Avec $\mu_0 = 1$, $\mu_1 = 4$, $\sigma = 1{,}5$ et $\pi_1 = 0{,}36$ : $w = \frac{3}{2{,}25} \approx 1{,}333$, $b = \frac{1 - 16}{4{,}5} + \ln\frac{0{,}36}{0{,}64} \approx -3{,}333 - 0{,}575 = -3{,}909$, et la frontière $x^* = -\frac{b}{w} \approx 2{,}93$ : plus près de la classe rare que le milieu 2,5 des deux moyennes, puisque la classe 0, plus fréquente, l'emporte tant que les densités sont comparables.
+les termes en $x^2$ s'annulent parce que les variances sont égales. Donc $P(Y = 1 \mid x) = \sigma(wx + b)$ : **exactement la forme de la régression logistique.** Avec $\mu_0 = 1$, $\mu_1 = 4$, $\sigma = 1{,}5$ et $\pi_1 = 0{,}36$ : $w = \frac{3}{2{,}25} \approx 1{,}333$, $b = \frac{1 - 16}{4{,}5} + \ln\frac{0{,}36}{0{,}64} \approx -3{,}3333 - 0{,}5754 \approx -3{,}909$, et la frontière $x^* = -\frac{b}{w} \approx 2{,}93$ : plus près de la classe rare que le milieu 2,5 des deux moyennes, puisque la classe 0, plus fréquente, l'emporte tant que les densités sont comparables.
 
 ![À gauche, 0,64 × N(1 ; 1,5²) et 0,36 × N(4 ; 1,5²), qui se croisent en x* ≈ 2,93 ; à droite, l'a posteriori de la classe 1, une sigmoïde de 1,333 x − 3,909](figures/bayes_gaussien.png)
 
@@ -323,7 +323,7 @@ Une **impureté** (*impurity*) mesure à quel point une loi $\mathbf{p} = (p_1, 
 
 La seconde écriture de Gini a une lecture utile : $p_k(1 - p_k)$ est la variance de l'indicatrice « la classe est $k$ », une variable de Bernoulli (M02b). **L'indice de Gini est la somme des variances des $K$ indicatrices de classe** : le §7 en tirera un lien avec la réduction de variance.
 
-**Exemples.** Pour $(0{,}72 ;\ 0{,}28)$ : $G = 1 - 0{,}5184 - 0{,}0784 = 0{,}4032$ et $H \approx 0{,}856$ bit. Pour $(0{,}7 ;\ 0{,}2 ;\ 0{,}1)$ : $G = 1 - 0{,}49 - 0{,}04 - 0{,}01 = 0{,}46$ et $H = 0{,}7\log_2\frac{1}{0{,}7} + 0{,}2\log_2 5 + 0{,}1\log_2 10 \approx 0{,}360 + 0{,}464 + 0{,}332 = 1{,}157$ bits.
+**Exemples.** Pour $(0{,}72 ;\ 0{,}28)$ : $G = 1 - 0{,}5184 - 0{,}0784 = 0{,}4032$ et $H \approx 0{,}855$ bit. Pour $(0{,}7 ;\ 0{,}2 ;\ 0{,}1)$ : $G = 1 - 0{,}49 - 0{,}04 - 0{,}01 = 0{,}46$ et $H = 0{,}7\log_2\frac{1}{0{,}7} + 0{,}2\log_2 5 + 0{,}1\log_2 10 \approx 0{,}360 + 0{,}464 + 0{,}332 = 1{,}157$ bits.
 
 **Les maxima.** Les deux impuretés sont maximales pour la loi uniforme $p_k = \frac{1}{K}$ : $H_{\max} = \log_2 K$ (l'inégalité de Gibbs de M06, ∂ M13a.17) et $G_{\max} = 1 - \frac{1}{K}$ (∂ M13a.16). Pour $K = 5$ : $\log_2 5 \approx 2{,}32$ bits et $0{,}8$. Elles grandissent avec $K$ : comparer l'impureté de deux nœuds n'a de sens qu'avec le même nombre de classes.
 

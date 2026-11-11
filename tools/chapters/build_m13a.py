@@ -251,8 +251,8 @@ PAPER = [
          '''"l'indice de Gini est 1 MOINS la somme des carrés": 0.905}'''),
         ("b", "a number (4 decimals)", "float(bits(D1_10))", f'''decimals=4, mistakes={{"{BITS}": float(bits(D1_10) * ln(2))}}'''),
         ("c", "a number (4 decimals)", "float(gini(D2_10))",
-         '''decimals=4, mistakes={"l'indice de Gini est 1 − Σ p_k², pas le taux d'erreur 1 − max p_k": 0.5, '''
-         '''"l'indice de Gini est 1 MOINS la somme des carrés": 0.42}'''),
+         '''decimals=4, mistakes={"l'indice de Gini est 1 − Σ p_k², pas le taux d'erreur 1 − max p_k": 0.3, '''
+         '''"l'indice de Gini est 1 MOINS la somme des carrés": 0.555}'''),
         ("d", "a number (4 decimals)", "float(bits(D2_10))", f'''decimals=4, mistakes={{"{BITS}": float(bits(D2_10) * ln(2))}}'''),
         ("e", FRAC, "sympy.nsimplify(bits(D3_10))",
          F + ''', mistakes={"plusieurs issues ont la même probabilité : chacune a son terme": R(41, 32)}'''),
@@ -313,8 +313,8 @@ PAPER = [
                      "jusqu'à la log-loss", [
         ("a", "a list of 6 numbers (4 decimals)", "floats(Z_18)",
          '''decimals=4, mistakes={"z = Hw + b : n'oublie pas le biais": floats(H_18 * W_18)}'''),
-        ("b", "a list of 6 numbers (4 decimals)", "floats(sig(z) for z in Z_18)",
-         f'''decimals=4, mistakes={{"{EXPONENT}": floats(sig(-z) for z in Z_18), '''
+        ("b", "a list of 6 numbers (3 decimals)", "floats(sig(z) for z in Z_18)",
+         f'''decimals=3, mistakes={{"{EXPONENT}": floats(sig(-z) for z in Z_18), '''
          '''"z = Hw + b : n'oublie pas le biais": floats(sig(z) for z in H_18 * W_18)}'''),
         ("c", "a number (4 decimals)", "float(LOSS_18)",
          f'''decimals=4, mistakes={{"{MEAN}": float(6 * LOSS_18), '''
@@ -434,7 +434,7 @@ DIFF_8 = sum((post_8(J1_8, J0_8, c) > R(1, 2)) != (post_8(N1_8, N0_8, c) > R(1, 
 W_9 = R(3 - (-1), 4)                                                                        # M13a.9
 LOG_9 = ln(R(35, 65))
 B_9 = R((-1) ** 2 - 3 ** 2, 2 * 4) + LOG_9
-D1_10, D2_10 = [R(95, 100), R(5, 100)], [R(1, 2), R(2, 5), R(1, 10)]                         # M13a.10
+D1_10, D2_10 = [R(95, 100), R(5, 100)], [R(7, 10), R(1, 4), R(1, 20)]                         # M13a.10
 D3_10 = [R(1, 2), R(1, 8), R(1, 8), R(1, 8), R(1, 16), R(1, 32), R(1, 32)]
 T_11 = [[22, 18], [26, 4], [17, 13]]                                                        # M13a.11
 PY_11 = [R(sum(row[j] for row in T_11), 100) for j in range(2)]
@@ -782,7 +782,7 @@ wbm.record("M13a.24e", "ValueError",
            {value_error("3 scores pour 2 labels : la docstring demande une ValueError")})''',
     after=tests_cells("test_logistic_loss"),
     note=r"b) Avec $t = z$ pour un label 0 et $t = -z$ pour un label 1, chaque terme vaut $s(t)$ : $s(900) = 900$ "
-         r"(deux fois, deux prédictions sûres et fausses) et $s(-900) = \ln(1 + e^{-900}) = 0$ en flottants (deux fois) : "
+         r"(deux fois : deux labels auxquels le modèle donnait une probabilité presque nulle) et $s(-900) = \ln(1 + e^{-900}) = 0$ en flottants (deux fois) : "
          r"moyenne 450. La formule naïve calcule $e^{900}$, qui dépasse le plus grand flottant ($\approx 1{,}8 \times "
          r"10^{308}$, soit $e^{709{,}8}$) : `inf`. Par les probabilités, c'est pire : $\sigma(45) = 1 - 3 \times "
          r"10^{-20}$ s'arrondit à 1, et $\ln(1 - \hat{p}) = \ln 0$. d) Deux prédictions sûres et justes : 0 exactement, "

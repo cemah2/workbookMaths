@@ -45,7 +45,7 @@
 2. Naïve Bayes : il a une loi des features dans chaque classe, qu'on peut tirer au hasard.
 3. **Faux** : indépendantes **sachant la classe**. Sans connaître la classe, elles peuvent être très corrélées.
 4. Une sigmoïde d'une fonction affine de $x$ : $\sigma(wx + b)$.
-5. Non : ce sont les a posteriori de la loi factorisée, pas ceux de la vraie loi. Oui : en M13a.8, deux cases sur quatre changent de décision.
+5. Non : ce sont les a posteriori de la loi factorisée, pas ceux de la vraie loi. Oui : M13a.8 le montre sur une petite loi.
 6. Le produit de 300 probabilités ou densités tombe à 0 (ou déborde) en flottants ; la somme de leurs logarithmes reste un nombre ordinaire, et log-somme-exp normalise ensuite.
 
 ### M13a.Q6 — Entropie et Gini : leurs propriétés
@@ -210,11 +210,11 @@ Pour la copie : $\ln\frac{P(1 \mid x)}{P(0 \mid x)} = \ln\frac{\pi_1}{\pi_0} - \
 
 ### Ex M13a.10 — L'entropie et l'indice de Gini de quelques distributions
 
-**Réponses** : a) `0.095` · b) `0.2864` · c) `0.58` · d) `1.361` · e) `35/16` · f) `357/512` · g) `2.8074` · h) `6/7`.
+**Réponses** : a) `0.095` · b) `0.2864` · c) `0.445` · d) `1.0763` · e) `35/16` · f) `357/512` · g) `2.8074` · h) `6/7`.
 
-**Démarche.** a) $1 - 0{,}9025 - 0{,}0025$. b) $0{,}95\log_2\frac{1}{0{,}95} + 0{,}05\log_2 20$. c) $1 - 0{,}25 - 0{,}16 - 0{,}01$. d) $0{,}5 \times 1 + 0{,}4\log_2 2{,}5 + 0{,}1\log_2 10$. e) $\frac{1}{2} \times 1 + 3 \times \frac{1}{8} \times 3 + \frac{1}{16} \times 4 + 2 \times \frac{1}{32} \times 5 = \frac{8 + 18 + 4 + 5}{16}$. f) $1 - \frac{1}{4} - \frac{3}{64} - \frac{1}{256} - \frac{2}{1024} = 1 - \frac{310}{1024}$. g) $\log_2 7$. h) $1 - \frac{1}{7}$.
+**Démarche.** a) $1 - 0{,}9025 - 0{,}0025$. b) $0{,}95\log_2\frac{1}{0{,}95} + 0{,}05\log_2 20$. c) $1 - 0{,}49 - 0{,}0625 - 0{,}0025$. d) $0{,}7\log_2\frac{1}{0{,}7} + 0{,}25 \times 2 + 0{,}05\log_2 20$. e) $\frac{1}{2} \times 1 + 3 \times \frac{1}{8} \times 3 + \frac{1}{16} \times 4 + 2 \times \frac{1}{32} \times 5 = \frac{8 + 18 + 4 + 5}{16}$. f) $1 - \frac{1}{4} - \frac{3}{64} - \frac{1}{256} - \frac{2}{1024} = 1 - \frac{310}{1024}$. g) $\log_2 7$. h) $1 - \frac{1}{7}$.
 
-Pour la copie : par entropie, $\mathbf{p}_1 < \mathbf{p}_2 < \mathbf{p}_3$ (0,29 ; 1,36 ; 2,19) ; par Gini, $\mathbf{p}_1 < \mathbf{p}_2 < \mathbf{p}_3$ aussi (0,095 ; 0,58 ; 0,697). Le rangement est le même ici, mais ce n'est pas garanti. Les maxima dépendent du nombre de classes ($\log_2 K$, $1 - \frac{1}{K}$) : une impureté de 1,5 bit est très mélangée pour 3 classes, assez peu pour 8.
+Pour la copie : par entropie, $\mathbf{p}_1 < \mathbf{p}_2 < \mathbf{p}_3$ (0,29 ; 1,08 ; 2,19) ; par Gini, $\mathbf{p}_1 < \mathbf{p}_2 < \mathbf{p}_3$ aussi (0,095 ; 0,445 ; 0,697). Le rangement est le même ici, mais ce n'est pas garanti. Les maxima dépendent du nombre de classes ($\log_2 K$, $1 - \frac{1}{K}$) : une impureté de 1,5 bit est très mélangée pour 3 classes, assez peu pour 8.
 
 **Erreurs fréquentes.** Des nats au lieu de bits ; confondre Gini et taux d'erreur ($1 - \max_k p_k$) ; $\frac{1}{K}$ pour le maximum de Gini.
 
@@ -310,7 +310,7 @@ Pour la copie : dans $A$, $\sum_{y \in A}(y - m)^2 = \sum_{y \in A}(y - m_A)^2 +
 
 ### Ex M13a.18 — Pont : une sonde linéaire, un modèle logistique en NumPy sur un batch de représentations figées, jusqu'à la log-loss
 
-**Réponses** : a) `[1.4, -1.1, 0.1, -0.4, 1.8, -0.3]` · b) `[0.8022, 0.2497, 0.525, 0.4013, 0.8581, 0.4256]` · c) `0.4121` · d) `5/6` · e) `0.6365` · f) `0.2244` · g) `0` · h) `385`.
+**Réponses** : a) `[1.4, -1.1, 0.1, -0.4, 1.8, -0.3]` · b) `[0.802, 0.25, 0.525, 0.401, 0.858, 0.426]` · c) `0.4121` · d) `5/6` · e) `0.6365` · f) `0.2244` · g) `0` · h) `385`.
 
 **Démarche.** a) $0{,}8 + 0{,}8 - 0{,}2$ ; $-0{,}9 - 0{,}2$ ; $0{,}4 - 0{,}9 + 0{,}8 - 0{,}2$ ; $-1{,}8 + 1{,}6 - 0{,}2$ ; $0{,}4 + 1{,}6 - 0{,}2$ ; $-0{,}9 + 0{,}8 - 0{,}2$. b) $\sigma$ de chaque score. c) les termes $s(z) - yz$ : $s(-1{,}4) \approx 0{,}220$ et $s(-1{,}8) \approx 0{,}153$ (labels 1), $s(-1{,}1) \approx 0{,}287$, $s(0{,}1) \approx 0{,}744$, $s(-0{,}4) \approx 0{,}513$ et $s(-0{,}3) \approx 0{,}554$ (labels 0) ; somme $\approx 2{,}472$, moyenne $\approx 0{,}412$. d) décisions $1, 0, 1, 0, 1, 0$ contre $1, 0, 0, 0, 1, 0$ : une seule erreur, au troisième exemple. e) proportion $\frac{1}{3}$ : $-\big(\frac{1}{3}\ln\frac{1}{3} + \frac{2}{3}\ln\frac{2}{3}\big) \approx 0{,}6365$. f) $0{,}6365 - 0{,}4121$. g) $z = 0{,}4 - 0{,}9 - 0{,}2 = -0{,}7 < 0$. h) 384 poids et un biais.
 

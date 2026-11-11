@@ -820,6 +820,6 @@ Commence par les bords (la vérification essaie aussi deux fonctions de maximum 
 </details>
 <details><summary>Indice 3</summary>
 
-Garde un intervalle $[a, b]$ avec $\ell'(a) > 0 > \ell'(b)$ et coupe-le en deux à chaque appel de `dell`, jusqu'à $b - a < 10^{-7}$ : une trentaine d'appels. Tu n'as même pas besoin d'appeler `ell`.
+Garde un intervalle $[a, b]$ avec $\ell'(a) > 0 > \ell'(b)$ et coupe-le en deux à chaque appel de `dell`, jusqu'à $b - a < 10^{-7}$ : environ 25 appels. Tu n'as même pas besoin d'appeler `ell`.
 
 </details>
