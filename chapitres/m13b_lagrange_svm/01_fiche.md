@@ -31,7 +31,7 @@
 | §7 Marge souple, hinge loss et sous-gradient | Q6 | M13b.9, M13b.10 ✏️, M13b.18 ∂, M13b.22 📖, M13b.E2 💼 | M13b.26 🔨, M13b.30 🔬, M13b.34 🏆 |
 | §8 Le problème dual, les vecteurs de support et les noyaux | Q7, Q8, R3 🔁 | M13b.11, M13b.12, M13b.13 ✏️, M13b.19 ∂, M13b.20 🔗, M13b.22 📖, M13b.23 🧮 | M13b.27 🔨, M13b.28 📦, M13b.32 🐛 |
 
-Parcours essentiel : tout sauf Q3, Q8, M13b.2, M13b.4, M13b.6, M13b.10, M13b.11, M13b.12, M13b.14, M13b.18, M13b.19, M13b.21, M13b.22, M13b.23, M13b.E1, M13b.E2 et M13b.30 à M13b.34. Au §4, il ne garde que ∂ M13b.15 et 🗣️ M13b.24.
+Parcours essentiel : tout sauf Q3, Q8, M13b.2, M13b.4, M13b.6, M13b.10, M13b.11, M13b.12, M13b.14, M13b.18, M13b.19, M13b.21, M13b.22, M13b.23, M13b.E1, M13b.E2, M13b.30 et M13b.32 à M13b.34. Au §4, il ne garde que ∂ M13b.15 et 🗣️ M13b.24.
 
 ## Guide de lecture de MML
 
