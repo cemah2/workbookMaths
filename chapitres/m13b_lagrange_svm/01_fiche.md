@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §8 |
-| **Temps total estimé** | ≈ 16,1 h : lecture et calculs de la fiche ≈ 3 h, exercices ≈ 12 h 15, flashcards ≈ 50 min (parcours essentiel ≈ 9,6 h) |
+| **Temps total estimé** | ≈ 16,1 h : lecture et calculs de la fiche ≈ 3 h, exercices ≈ 12 h 17, flashcards ≈ 50 min (parcours essentiel ≈ 9,6 h) |
 | **Prérequis** | M10 (ensembles et fonctions convexes, séparabilité, astuce du biais, marge géométrique et forme canonique) ; M05b (gradient, lignes de niveau, gradient orthogonal aux lignes de niveau) ; M12c (matrices définies positives, quotient de Rayleigh, matrice de Gram $\mathbf{X}^\top\mathbf{X}$) ; M12d (axes principaux) ; M07 (distance à un hyperplan) ; M09a (systèmes linéaires) ; M09b (nombre de monômes, `count_monomials`) ; M13a (log-loss, softplus) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `svm.py` : `lagrange_equality_qp`, `hinge_loss`, `svm_subgradient`, `rbf_kernel`, `polynomial_kernel` |
