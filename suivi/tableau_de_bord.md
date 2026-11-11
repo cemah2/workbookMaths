@@ -1495,3 +1495,56 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M13a.31 🏆 Défi : la proportion d'un mélange de deux lois connues par maximum de vraisemblance, à 1e−6 près du maximum (dichotomie ou Newton) ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (24 cartes)
 <!-- wbm:end M13a -->
+
+<!-- wbm:section M13b -->
+## M13b · Optimisation sous contraintes et SVM ⏱️ 16,1 h
+
+- [ ] M13b.Q1 🧠 Lagrange : ce que dit ∇f = λ ∇g ★ 4 min
+- [ ] M13b.Q2 🧠 Contrainte active ou inactive ? ★ 4 min
+- [ ] M13b.Q3 🧠 Primal, dual, dualité faible ★ 4 min (complet)
+- [ ] M13b.Q4 🧠 Problème convexe ou pas ? ★ 4 min
+- [ ] M13b.Q5 🧠 Ce que maximise une SVM, ce que minimise son problème ★ 4 min
+- [ ] M13b.Q6 🧠 La hinge loss : vrai ou faux ★ 4 min
+- [ ] M13b.Q7 🧠 Noyau valide ou pas ? ★ 4 min
+- [ ] M13b.Q8 🧠 Primal ou dual : lequel résoudre, et quand ? ★ 4 min (complet)
+- [ ] M13b.R1 🔁 La marge géométrique et l'astuce du biais (M10) ★ 5 min
+- [ ] M13b.R2 🔁 Gradient et lignes de niveau (M05b) ★ 5 min
+- [ ] M13b.R3 🔁 Matrices définies positives (M12c) ★ 5 min
+- [ ] M13b.1 ✏️ Lagrange à la main : un produit maximal sous une contrainte linéaire ★ 15 min
+- [ ] M13b.2 ✏️ La distance d'un point à un plan, retrouvée par Lagrange ★★ 20 min (complet)
+- [ ] M13b.3 ✏️ Un problème quadratique sous deux contraintes linéaires : le système de Lagrange ★★ 20 min
+- [ ] M13b.4 ✏️ Relire l'ACP par Lagrange : maximiser uᵀCu sous ‖u‖ = 1 ★★ 20 min (complet)
+- [ ] M13b.5 ✏️ Une contrainte d'inégalité : active ou non, les conditions KKT à la main ★★ 20 min
+- [ ] M13b.6 ✏️ La fonction duale d'un petit problème quadratique, et la dualité faible ★★ 20 min (complet)
+- [ ] M13b.7 ✏️ Reconnaître un problème convexe : fonctions, contraintes, ensembles ★ 15 min
+- [ ] M13b.8 ✏️ Une SVM à marge dure sur trois points, résolue par les conditions KKT ★★ 25 min
+- [ ] M13b.9 ✏️ La hinge loss et l'objectif régularisé de quelques points ★ 15 min
+- [ ] M13b.10 ✏️ Un pas de sous-gradient sur l'objectif d'une SVM linéaire ★★ 15 min (complet)
+- [ ] M13b.11 ✏️ Le dual d'une SVM : lire les vecteurs de support et retrouver w ★★ 20 min (complet)
+- [ ] M13b.12 ✏️ Le noyau (1 + x · z)² en dimension 2 : sa fonction φ à six coordonnées ★★ 20 min (complet)
+- [ ] M13b.13 ✏️ La matrice de Gram d'un noyau RBF sur trois points, et l'effet de γ ★ 15 min
+- [ ] M13b.14 ∂ Au point optimal sous une contrainte d'égalité, ∇f est colinéaire à ∇g ★★ 20 min (complet)
+- [ ] M13b.15 ∂ La dualité faible : la fonction duale minore le minimum du primal ★★ 15 min
+- [ ] M13b.16 ∂ Pour un problème convexe, un minimum local est global ★★ 15 min
+- [ ] M13b.17 ∂ Maximiser la marge revient à minimiser ½ ‖w‖² ★★ 20 min
+- [ ] M13b.18 ∂ Marge souple : la formulation avec des variables d'écart et celle avec la hinge loss sont équivalentes ★★ 20 min (complet)
+- [ ] M13b.19 ∂ La somme et le produit de deux noyaux sont des noyaux ; une matrice de Gram est semi-définie positive ★★★ 25 min (complet)
+- [ ] M13b.20 🔗 Pont : la décision d'une SVM à noyau, une somme pondérée sur les vecteurs de support ★ 15 min
+- [ ] M13b.21 📖 MML §7.2 et §7.3 : Lagrange, dualité et optimisation convexe, en anglais ★★ 40 min (complet)
+- [ ] M13b.22 📖 MML §12.2 à §12.5 : marge, primal, dual et noyaux (§12.1 a été lu en M10) ★★ 50 min (complet)
+- [ ] M13b.23 🧮 Fermi : la taille de la matrice de Gram d'une SVM à noyau sur 100 000 exemples ★ 10 min (complet)
+- [ ] M13b.24 🗣️ Expliquer un multiplicateur de Lagrange comme un prix ★ 10 min
+- [ ] M13b.E1 💼 « Qu'est-ce qu'un problème d'optimisation convexe, et pourquoi est-ce une bonne nouvelle ? » ★ 10 min (complet)
+- [ ] M13b.E2 💼 « Hinge loss ou log-loss : quelles différences ? » ★ 10 min (complet)
+- [ ] M13b.25 🔨 Un problème quadratique sous contraintes d'égalité, par le système de Lagrange ★ 20 min
+- [ ] M13b.26 🔨 La hinge loss et un sous-gradient de l'objectif d'une SVM linéaire ★★ 25 min
+- [ ] M13b.27 🔨 Les noyaux RBF et polynomial ★ 20 min
+- [ ] M13b.28 📦 `scipy.optimize.minimize` sous contraintes et les noyaux de scikit-learn contre tes fonctions ★ 15 min
+- [ ] M13b.29 🔮 Prédire : comment change le minimum quand on relâche la contrainte, et ce que dit λ ★ 10 min
+- [ ] M13b.30 🔬 La descente de sous-gradient sur la hinge loss : pas constant contre pas décroissant ★★ 20 min (complet)
+- [ ] M13b.31 🎨 Lignes de niveau et contrainte : voir le point de Lagrange ★ 20 min
+- [ ] M13b.32 🐛 Chasse à l'erreur : le signe d'un multiplicateur, une largeur de bande 1/‖w‖ au lieu de 2/‖w‖, une matrice de Gram non symétrique ★ 15 min (complet)
+- [ ] M13b.33 🛠️ Vérifier une solution KKT : faisabilité, stationnarité, complémentarité ★ 15 min (complet)
+- [ ] M13b.34 🏆 Défi : une SVM linéaire entraînée par sous-gradient, un objectif à 1 % de celui de scikit-learn au même C ★★★ 30 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (24 cartes)
+<!-- wbm:end M13b -->
