@@ -355,7 +355,9 @@ CHAPTERS = [
                  "itérations. Évités aussi : la loss quadratique et ses deltas (0,6 ; −1,2), E(o) = (o − 2)², les "
                  "logits (2 ; 0 ; −1), z = 3, 5, 40 et 1 000, le réseau 2-2-4-3-2, les lunes, Karpathy et les dates "
                  "1970 et 1986. Conventions : gradient de la forme de la variable (NumPy, PyTorch), écrit à côté de "
-                 "la convention en ligne de MML ; df = tr(Gᵀ dX). `autodiff` : `math` et NumPy permis, pas SymPy. "
+                 "la convention en ligne de MML ; df = tr(Gᵀ dX). `autodiff` : `math` et NumPy permis, pas SymPy. Pour le 📦 "
+                 "M18.23 : `sympy.MatrixSymbol` dérive tr(AX), tr(XᵀAX) et aᵀXb (sans indexer [0, 0]), mais rend 0 "
+                 "pour log det X (SymPy 1.14) : passer alors par une matrice de symboles 2 × 2. "
                  "Parcours essentiel : log det et la démonstration du mode inverse hors parcours.",
         "exercises": [
             ("M18.Q1", "🧠", 1, 4, "Lire un graphe de calcul : nœuds, arêtes, ordre d'évaluation", "§1", "E"),
@@ -474,7 +476,8 @@ CHAPTERS = [
                     "fonctions de courbure bornée (valeurs propres de la hessienne dans [μ, L]) : le pas sous 2/L "
                     "(énoncé)",
                     "récurrence linéaire d'ordre 2 : polynôme caractéristique, matrice compagnon",
-                    "nombres complexes : module, conjugué, racines complexes d'un trinôme réel (strict minimum)",
+                    "nombres complexes : module, conjugué, racines complexes d'un trinôme réel, somme et produit des "
+                    "racines (strict minimum)",
                     "convergence d'une récurrence d'ordre 2 : |q| < 1 et |p| < 1 + q",
                     "gradient sur un échantillon : estimateur sans biais, variance en 1/B",
                     "projection sur une boule (direction gardée) et sur un pavé (direction changée)"],
@@ -484,7 +487,7 @@ CHAPTERS = [
                       "convexité", "M12c"),
                      ("conditionnement", "M12d"),
                      ("suites géométriques, récurrences d'ordre 1, moyenne exponentielle", "R5"),
-                     ("trinôme du second degré, discriminant, somme et produit des racines", "R3"),
+                     ("trinôme du second degré, discriminant, racines, factorisation", "R3"),
                      ("espérance, variance d'une moyenne, erreur type", "M02c"),
                      ("projection orthogonale, point le plus proche", "M12b"), ("normes L2 et L∞", "M07"),
                      ("gradient de wᵀAw, moindres carrés", "M09b"), ("jacobienne", "M17"),

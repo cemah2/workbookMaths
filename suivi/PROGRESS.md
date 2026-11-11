@@ -1,10 +1,10 @@
 # PROGRESS : état de la génération de workbookMaths
 
-*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-11, session 47 (examen blanc CP3).*
+*Tenu par Claude à chaque session (BIBLE §19). Dernière mise à jour : 2026-11-12, session 48 (syllabus de la partie IV).*
 
 ## Prochaine étape
 
-➡️ **Session 48 : syllabus de la partie IV (M16 à M20, CP4)**, avant workbookIA 16 : détailler chaque exercice de M16 à M20 et CP4 dans `docs/syllabus/data/partie_4.py` (aujourd'hui seulement planifiés), écrire et publier leurs stubs `mymath` (et leur ligne dans `MANIFEST.json`), relire les chapitres 16 à 20 de workbookIA (fiches, `docs/syllabus/data/ch16.json` à `ch20.json`, exercices, checkpoint IV) pour la couverture et les frontières, puis `syllabus.py check` et `build` ; comme les sessions 26 et 35. workbookIA reste en lecture seule par Read, Grep et Glob : **aucune commande** sur ses fichiers (`snapshot_workbookia.py` les lit avec Python : ne le lancer que si l'utilisateur l'accepte ; sinon, comparer la copie figée par Read et Glob). Prochain audit : après la partie IV (§23).
+➡️ **Session 49 : chapitre M16** (Applications affines, graphes et variance d'un produit, 8 h, une session), avant workbookIA 16 : `solutions/mymath_ref/affine.py` et `tests/test_m16_affine.py` contre le stub figé, puis la fiche, les exercices, les notebooks (`tools/chapters/build_m16.py`), les réponses et la vérification indépendante (BIBLE §20). Relire d'abord la section M16 de `docs/SYLLABUS.md` (frontières, données à éviter) et refaire le rapport de lecture de workbookIA 16 (et 17 pour ∂ 17.3), en lecture seule par Read, Grep et Glob : **aucune commande** sur ses fichiers. Prochain audit : après la partie IV (§23).
 
 La partie 0 est complète : R0, POS, R1 à R9 et CP0. L'apprenant enchaîne avec workbookIA 0B, puis workbookIA 1.
 
@@ -22,7 +22,7 @@ La partie III est complète : M12a à M14 et CP3. L'apprenant enchaîne avec le 
 | I · Fondations | M02a à M06, CP1 | ✅ tout publié (M02a, M02b, M02c, M03, M04, M05a, M05b, M06, CP1) |
 | II · Concepts | M07 à M11, CP2 | ✅ tout publié (M07, M08, M09a, M09b, M10, M11, CP2) ; (syllabus détaillé en session 26 : 256 exercices, six modules `mymath`) |
 | III · ML classique | M12a à M14, CP3 | ✅ tout publié (M12a, M12b, M12c, M12d, M13a, M13b, M14, CP3) ; (syllabus détaillé en session 35 : 321 exercices, sept modules `mymath`) |
-| IV · Réseaux | M16 à M20, CP4 | 📅 planifié |
+| IV · Réseaux | M16 à M20, CP4 | 📅 planifié ; syllabus détaillé en session 48 (182 exercices, cinq modules `mymath` : `affine`, `jacobian`, `autodiff`, `iterative`, `tensors`) |
 | V · Architectures | M21, M22, CP5 | 📅 planifié |
 | VI · Génératif et RL | M25a à M28, CP6 | 📅 planifié |
 | VII · Bonus | MB2 à MB8 | 📅 planifié |
