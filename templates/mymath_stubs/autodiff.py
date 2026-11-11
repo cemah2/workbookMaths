@@ -1,5 +1,5 @@
 """Forward-mode automatic differentiation with dual numbers, the gradient by one forward pass per coordinate, and the
-numerical gradient of a function of a matrix (chapter M18).
+gradient of a function of a matrix read in its differential (chapter M18).
 
 Replace each ``raise NotImplementedError`` with your code, then run ``pytest tests/test_m18_autodiff.py``.
 The module ``math`` and NumPy are allowed, but not SymPy: the tests compare your derivatives with it. A dual number
@@ -94,9 +94,11 @@ class Dual:
     def __pow__(self, exponent):
         """``self ** exponent`` for a constant exponent: ``(a + b ε)ᵖ = aᵖ + p aᵖ⁻¹ b ε``.
 
-        ``TypeError`` if the exponent is a ``Dual`` (a variable exponent is not asked here).
+        ``TypeError`` if the exponent is a ``Dual`` (a variable exponent is not asked here); ``ValueError`` if
+        ``a < 0`` and the exponent is not an integer (Python would return a complex number), or if ``a = 0`` and
+        ``p < 1`` with ``p ≠ 0`` (the derivative ``p aᵖ⁻¹`` does not exist). ``u ** 0`` is ``Dual(1.0, 0.0)``.
         """
-        # TODO: refuse a Dual exponent, then the rule (a ** p, p * a ** (p - 1) * b).
+        # TODO: refuse a Dual exponent and the two cases above, then the rule (a ** p, p * a ** (p - 1) * b).
         raise NotImplementedError("Dual.__pow__() is not implemented yet")
 
     def exp(self):
@@ -229,41 +231,41 @@ def forward_gradient(f, x):
     raise NotImplementedError("forward_gradient() is not implemented yet")
 
 
-def numerical_matrix_gradient(f, X, h=1e-6):
-    """Return the gradient of a real function of a matrix, of the shape of the matrix, by centered differences.
+def gradient_from_differential(differential, shape):
+    """Return the gradient ``G`` read in a differential ``df = tr(Gᵀ dX)``, of the given shape.
 
-    Entry ``(i, j)`` is ``(f(X + h E_ij) - f(X - h E_ij)) / (2 h)``, where ``E_ij`` has a single 1 at ``(i, j)``:
-    the gradient has the shape of the variable, the convention of NumPy and of the deep learning libraries (MML
-    writes a row). The same works for an array of any shape (a vector, a 3-D array). It costs ``2 X.size``
-    evaluations of ``f``; ``X`` itself is never modified.
+    Near ``X``, a differentiable function of a matrix moves by ``df ≈ Σ_ij G[i, j] dX[i, j] = tr(Gᵀ dX)`` when ``X``
+    moves by ``dX``: the differential is a linear function of the move ``H = dX``, and the gradient ``G`` is the
+    array of its coefficients. Its entry ``(i, j)`` is the value of the differential on the move ``E_ij`` (a single 1
+    at ``(i, j)``): ``G[i, j] = differential(E_ij)``. So the gradient has the shape of the variable, the convention
+    of NumPy and of the deep learning libraries (MML writes a row). The same works for an array of any shape (a
+    vector, a 3-D array). The function does not check that ``differential`` is linear.
 
     Parameters
     ----------
-    f : callable
-        A function that takes an array of the shape of ``X`` and returns a number.
-    X : array-like
-        The point, a non-empty array of numbers.
-    h : float, default 1e-6
-        The step, ``h > 0``.
+    differential : callable
+        A linear function that takes an array of shape ``shape`` (the move ``H``) and returns a number.
+    shape : int or tuple of int
+        The shape of the variable, with positive lengths.
 
     Returns
     -------
     numpy.ndarray
-        The gradient, of the shape of ``X``.
+        The gradient, of shape ``shape``, of floats.
 
     Raises
     ------
     ValueError
-        If ``X`` is empty or if ``h ≤ 0``.
+        If a length of ``shape`` is not a positive integer.
 
     Examples
     --------
-    >>> X = np.array([[1.0, -2.0], [0.5, 3.0]])
-    >>> np.round(numerical_matrix_gradient(lambda M: np.sum(M ** 2), X), 6)
-    array([[ 2., -4.],
-           [ 1.,  6.]])
-    >>> np.round(numerical_matrix_gradient(lambda w: w[0] * w[1], np.array([3.0, 5.0])), 6)
-    array([5., 3.])
+    >>> X = np.array([[1.0, 0.0], [2.0, -1.0]])
+    >>> gradient_from_differential(lambda H: 2 * np.sum(X * H), X.shape)    # f(X) = ‖X‖², df = 2 tr(XᵀH)
+    array([[ 2.,  0.],
+           [ 4., -2.]])
+    >>> gradient_from_differential(lambda H: 2 * H[0] + H[1] + 6 * H[2], 3)
+    array([2., 1., 6.])
     """
-    # TODO: check X and h; for each index (np.ndindex), two copies of X moved by ±h, the centered difference.
-    raise NotImplementedError("numerical_matrix_gradient() is not implemented yet")
+    # TODO: normalize and check the shape; for each index (np.ndindex), the move E with a single 1, differential(E).
+    raise NotImplementedError("gradient_from_differential() is not implemented yet")

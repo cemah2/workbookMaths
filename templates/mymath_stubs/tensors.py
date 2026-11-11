@@ -137,8 +137,8 @@ def horvitz_thompson_total(values, included, inclusion_probs):
 
     Examples
     --------
-    >>> horvitz_thompson_total([10, 40, 25], [True, False, True], [0.4, 0.2, 0.25])
-    125.0
+    >>> horvitz_thompson_total([3, 40, 2], [True, False, True], [0.125, 0.2, 0.0625])
+    56.0
     >>> horvitz_thompson_total([3, 7], [1, 1], [1, 1])             # a census: the exact total
     10.0
     """

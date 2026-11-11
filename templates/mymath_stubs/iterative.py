@@ -1,5 +1,6 @@
 """Curvature and iterative methods: the Hessian by finite differences, the critical step of a symmetric positive
-definite matrix, the iterates of Richardson's method for ``A x = b``, and linear recurrences of any order
+definite matrix, the iterates of Richardson's method for ``A x = b`` (an iteration, not the extrapolation
+``richardson_derivative`` of M05a: both are named after L. F. Richardson), and linear recurrences of any order
 (chapter M19).
 
 Replace each ``raise NotImplementedError`` with your code, then run ``pytest tests/test_m19_iterative.py``.
@@ -134,8 +135,8 @@ def linear_recurrence(coefficients, initial, n_terms):
 
     ``coefficients = [c_1, …, c_d]`` (``c_1`` multiplies the most recent term) and ``initial = [u_0, …, u_{d-1}]``;
     each new term is the combination of the ``d`` previous ones. Order 1 is the geometric sequence of R5; order 2,
-    ``u_{k+2} = p u_{k+1} - q u_k``, has the characteristic polynomial ``r² - p r + q``, whose roots decide whether
-    the terms tend to 0.
+    ``u_{k+2} = p u_{k+1} - q u_k``, is ``coefficients = [p, -q]`` (mind the sign of ``q``), and its characteristic
+    polynomial ``r² - p r + q`` has roots that decide whether the terms tend to 0.
 
     Parameters
     ----------

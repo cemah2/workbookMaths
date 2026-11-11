@@ -85,7 +85,13 @@ CHAPTERS = [
                  "`mylearn.nn.layers.topological_order`). La variance d'un produit est prise avec des moyennes non "
                  "nulles (un prix fois une quantité), la décorrélation de produits εᵢ xᵢ (εᵢ centrés, indépendants de "
                  "mesures xᵢ corrélées) sur des signes aléatoires, sans poids, fan-in, ni variance réglée pour se "
-                 "conserver d'une couche à l'autre ; la croissance gᴸ sur une chaîne d'amplificateurs bruités. Le "
+                 "conserver d'une couche à l'autre : le §6 énonce ce lemme sans le démontrer (c'est la première étape de "
+                 "∂ 16.7.1, et l'encadré de la fiche 16 l'énonce aussi), et M16.6 prend des Var(εᵢ) et des E[xᵢ²] "
+                 "différents, pour que le résultat ne soit pas n Var(ε) E[x²] ; la croissance gᴸ sur une chaîne "
+                 "d'amplificateurs bruités. « Décorrélées sans être indépendantes » n'est pas un 🗣️ (workbookIA 2.E4, "
+                 "frontière de M02c). M16.10 reste sur l'algèbre de X W + 1bᵀ, sans piège de forme du biais (16.3, "
+                 "16.20) ; M16.18 n'est pas un `a @ W.T` (16.20) ; M16.19 vérifie sur des images de points "
+                 "(f₂(f₁(x)) contre [x, 1] H₁ H₂), sans former W₁W₂ ni b₁W₂ + b₂. Le "
                  "moment d'ordre 2 d'une variable rectifiée n'est pas traité (∂ 16.7.3). La variance de la loi "
                  "uniforme est connue (M02b, (b − a)²/12). Évités (règle de partage) : les réseaux et graphes de "
                  "workbookIA 16 (3-4-4-2, 784-…, 10-8-6-3, 1000-500-100-10, A → C …, U → A …, P, Q, R, S, T, x, h1, "
@@ -111,22 +117,22 @@ CHAPTERS = [
              "composée, et celle de la réciproque", "§2", "E"),
             ("M16.3", "✏️", 1, 15, "Des rues à sens unique : degrés, matrice d'adjacence, et chemins de longueur 2 et "
              "3 par ses puissances", "§3", "E"),
-            ("M16.4", "✏️", 2, 20, "Un planning de tâches : l'absence de cycle par les puissances de A, une "
+            ("M16.4", "✏️", 2, 25, "Un planning de tâches : l'absence de cycle par les puissances de A, une "
              "numérotation qui la rend triangulaire, et le nombre de chemins entre deux tâches", "§4", "E"),
             ("M16.5", "✏️", 2, 15, "Un prix aléatoire fois une quantité indépendante : espérance et variance du "
              "produit", "§5", "E"),
-            ("M16.6", "✏️", 2, 20, "Des signes aléatoires sur des mesures corrélées : la variance d'une somme de "
-             "produits", "§6", "E"),
+            ("M16.6", "✏️", 2, 20, "Des signes aléatoires d'amplitudes différentes sur des mesures corrélées : la "
+             "variance d'une somme de produits", "§6", "E"),
             ("M16.7", "∂", 2, 15, "(Aᵏ)ᵢⱼ compte les chemins de longueur k de i à j, par récurrence", "§3", ""),
             ("M16.8", "∂", 2, 20, "Un graphe est sans cycle si et seulement si sa matrice d'adjacence est "
              "nilpotente", "§4", "E"),
             ("M16.9", "∂", 2, 15, "La variance d'un produit de deux variables indépendantes", "§5", ""),
             ("M16.10", "🔗", 1, 15, "Pont : n points rangés en lignes, X W + 1bᵀ, et la diffusion de b", "§1", "E"),
-            ("M16.11", "🗣️", 1, 10, "Expliquer, sur un exemple, pourquoi deux variables décorrélées peuvent dépendre "
-             "l'une de l'autre", "§6", "E"),
+            ("M16.11", "🗣️", 1, 10, "Expliquer, sur un exemple, pourquoi la variance d'un produit n'est pas le "
+             "produit des variances", "§5", "E"),
             ("M16.E1", "💼", 1, 10, "« Pourquoi l'écart-type d'une somme de n termes indépendants grandit-il comme "
              "√n ? »", "§6 §7", ""),
-            ("M16.12", "🔨", 2, 20, "La matrice homogène d'une application affine", "§2", "E m:homogeneous_matrix"),
+            ("M16.12", "🔨", 1, 15, "La matrice homogène d'une application affine", "§2", "E m:homogeneous_matrix"),
             ("M16.13", "🔨", 2, 20, "Sommer sur les chemins d'un graphe sans cycle par les puissances de sa matrice",
              "§3 §4", "E m:sum_over_paths"),
             ("M16.14", "🔨", 1, 15, "Espérance et variance d'un produit de variables indépendantes", "§5",
@@ -137,8 +143,8 @@ CHAPTERS = [
              "bruités", "§7", ""),
             ("M16.17", "🎨", 1, 15, "L'image d'une figure par une suite d'applications affines du plan, en "
              "coordonnées homogènes", "§2", "E p:M16.12"),
-            ("M16.18", "🐛", 1, 15, "Chasse à l'erreur : deux conventions mélangées, Var(XY) = Var X · Var Y, et "
-             "(I − A)⁻¹ sur un graphe qui a un cycle", "§1 §4 §5", "E"),
+            ("M16.18", "🐛", 1, 15, "Chasse à l'erreur : une matrice homogène écrite pour des colonnes et appliquée à "
+             "des lignes, Var(XY) = Var X · Var Y, et (I − A)⁻¹ sur un graphe qui a un cycle", "§1 §4 §5", "E"),
             ("M16.19", "🛠️", 1, 15, "Un test de propriété : la matrice homogène d'une composée est le produit des "
              "matrices homogènes", "§2", "p:M16.12"),
             ("M16.20", "🏆", 3, 25, "Défi : la loi du produit de deux uniformes indépendantes, sa densité et ses deux "
@@ -179,6 +185,7 @@ CHAPTERS = [
                     "gradient en ligne (MML) et gradient de la forme de la variable (NumPy) : ∇(L∘f) = J_fᵀ ∇L",
                     "produit jacobienne-vecteur, produit vecteur-jacobienne",
                     "dérivées à gauche et à droite, fonctions affines par morceaux",
+                    "saturation : une dérivée qui tend vers 0 loin de l'origine (arctan′)",
                     "dérivée d'une longue composition : un produit de dérivées, qui s'éteint ou explose",
                     "loi de Boltzmann : invariance par translation des énergies, limites en température",
                     "matrice diag(p) − ppᵀ : covariance d'un vecteur one-hot, symétrique, semi-définie positive, "
@@ -194,7 +201,7 @@ CHAPTERS = [
                      ("softmax de trois scores, log-sum-exp, différences finies centrées", "M05a"),
                      ("sous-gradient, un maximum de fonctions affines est convexe", "M13b"),
                      ("applications affines, coordonnées homogènes", "M16")],
-        "frontieres": ["17.1", "17.2", "17.5", "17.6", "17.8", "17.16", "17.19", "17.21", "17.23"],
+        "frontieres": ["17.1", "17.2", "17.5", "17.6", "17.8", "17.16", "17.19", "17.21", "17.23", "17.Q11", "17.Q12"],
         "mymath": {"module": "jacobian.py",
                    "functions": ["numerical_jacobian", "diagonal_jacobian", "jacobian_vector_product"]},
         "reading_minutes": 130,
@@ -203,21 +210,32 @@ CHAPTERS = [
                  "de SiLU) et 17.7 (la jacobienne de la softmax), 17.1, 17.2 (valeurs de neuf activations), 17.5 "
                  "(maxout, cuvette et bosse), 17.6 (softmax à la main), 17.8 (Fermi d'une activation), 17.16 (la "
                  "jacobienne de la softmax en NumPy), 17.19 (température et entropie), 17.21 (saturation sur des "
-                 "histogrammes) et 17.23 (produit des dérivées sur 10 couches). M17 n'écrit ni ne dérive aucune "
+                 "histogrammes), 17.23 (produit des dérivées sur 10 couches), 17.Q11 et 17.Q12 (softmax translatée, "
+                 "dilatée, rapports). M17 n'écrit ni ne dérive aucune "
                  "activation de `mylearn` (ReLU et ses variantes, marches, sigmoïde, tanh, softplus, ELU, SiLU, GELU, "
                  "softmax) : ses exemples sont les coordonnées polaires et sphériques, la normalisation x/‖x‖, "
                  "arctan, t³, sin, cos, et l'itération de cos. La règle de la chaîne multivariée (forme jacobienne) "
                  "est ici et non en M18, car workbookIA 17 s'en sert (∂ 17.7.4, 🔬 17.23), comme l'annonçait M05b. "
-                 "La loi de Boltzmann est celle de la physique (niveaux d'énergie, température) : M17 en tire "
+                 "La loi de Boltzmann est celle de la physique (niveaux d'énergie, température) : la fiche en énonce "
                  "l'invariance par translation des énergies et les limites T → 0 et T → ∞, sans logits, scores ni "
-                 "classes, et sans la dériver ; la matrice diag(p) − ppᵀ y est étudiée comme la covariance d'un "
+                 "classes, et sans la dériver ; ses exercices posent des questions de physique (rapports de "
+                 "populations e^{−ΔE/T}, énergie moyenne et ses limites, température où le niveau fondamental garde "
+                 "la moitié, recuit simulé), jamais la suite « tout décaler, refroidir, chauffer » de 17.6, ni un vrai "
+                 "ou faux de translation et de dilatation (17.Q11, 17.Q12), ni un agent qui choisit ses actions "
+                 "(workbookIA 26) ; la matrice diag(p) − ppᵀ y est étudiée comme la covariance d'un "
                  "vecteur one-hot (symétrique, semi-définie positive, de noyau contenant 1, de rang K − 1 quand tous "
-                 "les pᵢ sont > 0), ce qui tient la note de M13a sans faire ∂ 17.7. Les produits de dérivées d'une "
+                 "les pᵢ sont > 0), ce qui tient la note de M13a sans faire ∂ 17.7 : p est une ligne et la matrice "
+                 "s'écrit diag(p) − pᵀp (convention de workbookIA), et aucune solution ne calcule (diag(p) − pᵀp) v "
+                 "= p ⊙ (v − p · v) (∂ 17.7.6). M17.4 (la jacobienne de x/‖x‖) ne fait aucun lien avec la "
+                 "standardisation ni avec le centrage (∂ 20.8). Les produits de dérivées d'une "
                  "longue composition sont pris sur des itérations de point fixe d'une variable, sans le facteur 1/4 "
-                 "ni (1/4)ᴸ (CP4.5 de workbookIA), et sans la phrase « calculer en z, pas en a ». Évités : 47A + 6B + "
+                 "ni (1/4)ᴸ (CP4.5 de workbookIA), sans dix copies ou dix couches (🔬 17.23, L = 10 de CP4.5), sans "
+                 "demander si une composée de fonctions affines par morceaux l'est encore ni compter ses morceaux "
+                 "(∂ 17.3.5–6), et sans la phrase « calculer en z, pas en a ». Évités : 47A + 6B + "
                  "61C, h = (2x + 1, −x + 3) et 4x − 4,5, les points ln 2, ln 3 et ln 4, les scores et températures de "
                  "17.6, 17.12 et 17.19, les vecteurs p = (0,1 ; 0,9) et (1/6, 1/3, 1/2), K = 50 000, les limites "
-                 "709,78 et 88,7, les escaliers ⌊4z⌋/4 et ⌊5z⌋/5, le train articulé et l'origami. Conventions : "
+                 "709,78 et 88,7, les escaliers ⌊4z⌋/4 et ⌊5z⌋/5, le train articulé et l'origami ; 💼 M17.E1 ne prend "
+                 "pas la softmax ni K = 50 000 comme exemple (∂ 17.7.6). Conventions : "
                  "jacobienne à une ligne par sortie et une colonne par entrée (MML §5.3, comme workbookIA) ; gradient "
                  "en ligne chez MML (M05b) et de la forme de la variable dans NumPy, les deux écrits ; vecteurs en "
                  "lignes pour x W + b. `jacobian` : NumPy permis, pas SymPy ni `scipy.differentiate`. Parcours "
@@ -228,7 +246,7 @@ CHAPTERS = [
             ("M17.Q3", "🧠", 1, 4, "Dans quel ordre multiplier les jacobiennes ?", "§3", "E"),
             ("M17.Q4", "🧠", 1, 4, "Gradient en ligne ou de la forme de la variable", "§4", "E"),
             ("M17.Q5", "🧠", 1, 4, "Jacobienne-vecteur ou vecteur-jacobienne : combien d'opérations ?", "§5", ""),
-            ("M17.Q6", "🧠", 1, 4, "La loi de Boltzmann : translation et température, vrai ou faux", "§7", "E"),
+            ("M17.Q6", "🧠", 1, 4, "La loi de Boltzmann : populations relatives et énergie moyenne", "§7", "E"),
             ("M17.R1", "🔁", 1, 5, "Dérivées partielles et gradient (M05b)", "§1", "E"),
             ("M17.R2", "🔁", 1, 5, "La règle de la chaîne en une variable (R7)", "§3", "E"),
             ("M17.R3", "🔁", 1, 5, "La matrice de covariance (M02c)", "§7", ""),
@@ -243,22 +261,22 @@ CHAPTERS = [
             ("M17.5", "✏️", 1, 15, "Le gradient d'une fonction scalaire d'une composée, dans les deux conventions : "
              "J_fᵀ ∇L", "§4", "E"),
             ("M17.6", "✏️", 2, 15, "Dérivées à gauche et à droite d'une fonction définie par morceaux, et la dérivée "
-             "d'une composée de dix copies", "§6", "E"),
-            ("M17.7", "✏️", 2, 15, "Une loi de Boltzmann à quatre niveaux d'énergie : translation des énergies, basse et "
-             "haute température", "§7", "E"),
+             "d'une composée de sept copies d'une fonction lisse", "§6", "E"),
+            ("M17.7", "✏️", 2, 15, "Une loi de Boltzmann à quatre niveaux d'énergie : rapports de populations, énergie "
+             "moyenne, et la température où le niveau fondamental garde la moitié", "§7", "E"),
             ("M17.8", "∂", 3, 20, "La règle de la chaîne pour des applications de ℝⁿ dans ℝᵐ, à partir de "
              "l'approximation linéaire", "§3", "E"),
             ("M17.9", "∂", 1, 15, "Une fonction appliquée coordonnée par coordonnée a une jacobienne diagonale, et "
              "J v = f′(x) ⊙ v", "§2", ""),
             ("M17.10", "∂", 2, 20, "diag(p) − ppᵀ est la covariance d'un vecteur one-hot : symétrique, semi-définie "
              "positive, de noyau contenant 1", "§7", "E"),
-            ("M17.11", "🔗", 1, 15, "Pont : la loi de Boltzmann d'un agent qui choisit ses actions, et le rôle de la "
-             "température", "§7", ""),
+            ("M17.11", "✏️", 2, 15, "Le recuit simulé : une loi de Boltzmann sur cinq configurations, dont on baisse "
+             "la température", "§7", ""),
             ("M17.12", "📖", 2, 35, "MML §5.3 : gradients de fonctions à valeurs vectorielles, en anglais",
              "§1 §3 §4", ""),
             ("M17.13", "🗣️", 1, 10, "Expliquer la règle de la chaîne multivariée avec des taux de change entre "
              "monnaies", "§3", "E"),
-            ("M17.E1", "💼", 1, 10, "« Qu'est-ce qu'une jacobienne, et quand coûte-t-elle trop cher à stocker ? »",
+            ("M17.E1", "💼", 1, 10, "« Qu'est-ce qu'une jacobienne ? Donne un exemple hors du machine learning. »",
              "§1 §5", ""),
             ("M17.14", "🔨", 2, 20, "La jacobienne par différences centrées, colonne par colonne", "§1",
              "E m:numerical_jacobian"),
@@ -266,8 +284,8 @@ CHAPTERS = [
              "E m:diagonal_jacobian p:M17.14"),
             ("M17.16", "🔨", 1, 15, "Un produit jacobienne-vecteur sans former la jacobienne", "§5",
              "m:jacobian_vector_product p:M17.14"),
-            ("M17.17", "📦", 1, 15, "`sympy.Matrix.jacobian` et `scipy.differentiate.jacobian` contre tes fonctions",
-             "§1 §3", "E p:M17.14"),
+            ("M17.17", "📦", 1, 15, "`sympy.Matrix.jacobian` et `scipy.differentiate.jacobian` contre ta jacobienne "
+             "numérique", "§1 §3", "E p:M17.14"),
             ("M17.18", "🔮", 1, 10, "Prédire la forme et les zéros de la jacobienne d'une composée, puis vérifier",
              "§3", "E"),
             ("M17.19", "🔬", 2, 20, "Une longue composition : une dérivée qui s'éteint ou explose selon la pente au "
@@ -283,7 +301,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M18", "dir": "m18_retropropagation", "hours": 14.1, "generation_sessions": 1,
+        "id": "M18", "dir": "m18_retropropagation", "hours": 14.0, "generation_sessions": 1,
         "mml": ["§5.4", "§5.5", "§5.6"],
         "summary": "Dériver un calcul entier : le graphe de calcul d'une formule et la règle de la chaîne comme somme "
                    "sur les chemins, le mode direct par les nombres duaux, le mode inverse par des adjoints accumulés "
@@ -317,6 +335,7 @@ CHAPTERS = [
                     "gradient par rapport à un vecteur et à une matrice : la convention de la forme de la variable",
                     "différentielle d'une fonction de matrice : df = tr(Gᵀ dX)",
                     "identités : ∇ aᵀXb, ∇ tr(AX), ∇ tr(XᵀAX), ∇ ‖X‖²_F, ∇ log det X",
+                    "comatrice : X com(X)ᵀ = det X · I (énoncée)",
                     "gradient d'une moyenne = moyenne des gradients",
                     "vérifier un gradient matriciel par différences centrées"],
         "requires": [("règle de la chaîne multivariée, jacobiennes, produits jacobienne-vecteur et "
@@ -329,16 +348,18 @@ CHAPTERS = [
                      ("centroïde : la moyenne minimise la somme des carrés des distances", "M07"),
                      ("classes Python et surcharge d'opérateurs", "IA:0A")],
         "frontieres": ["18.1", "18.2", "18.3", "18.4", "18.5", "18.9", "18.14", "18.15", "18.16", "18.17", "18.26",
-                       "18.27"],
+                       "18.27", "18.Q2", "18.E2"],
         "mymath": {"module": "autodiff.py",
-                   "functions": ["Dual", "dual_derivative", "forward_gradient", "numerical_matrix_gradient"]},
+                   "functions": ["Dual", "dual_derivative", "forward_gradient", "gradient_from_differential"]},
         "reading_minutes": 160,
         "flashcards": 22,
         "notes": "Frontières : les ∂ 18.6 (les deltas), 18.7 (XᵀΔ, ΔWᵀ, la somme des lignes, la moyenne des gradients "
                  "d'exemples) et 18.8 (le gradient p − y), 18.1, 18.2, 18.3 (la parabole et le learning rate), 18.4 "
                  "et 18.5 (le réseau minuscule à la main), 18.9 (Fermi), 18.14 (les cross-entropies sur les logits), "
                  "18.15 (`dense_backward`), 18.16 (`gradient_check`), 18.17 (les erreurs relatives 1/3, 1 et 5/7), "
-                 "18.26 (`Value`) et 18.27. M18 dérive des formules de physique, de géométrie et d'algèbre linéaire, "
+                 "18.26 (`Value`), 18.27, 18.Q2 (un million de poids, un million de passes) et 18.E2 (pourquoi pas "
+                 "des différences finies poids par poids) : le coût des modes se compare sur des fonctions de ℝⁿ dans "
+                 "ℝᵐ (simulations, formules), jamais sur un « modèle » et ses « paramètres ». M18 dérive des formules de physique, de géométrie et d'algèbre linéaire, "
                  "jamais un réseau ni une loss de classification : pas de delta, ni de « ce qui entre fois le delta », "
                  "ni de règle générale ∂L/∂W = Xᵀ ∂L/∂Z. La somme sur les chemins prolonge celle de M16 (des "
                  "dérivées locales sur les arêtes). Le mode inverse est fait à la main sur des graphes de formules et "
@@ -349,8 +370,14 @@ CHAPTERS = [
                  "passes avant » ni 2P passes. Les identités sont celles de MML §5.5 (traces, aᵀXb, log det), sans "
                  "‖XW − Y‖² ni ‖Xw − y‖² (M09b, ∂ 18.7) ; la moyenne des gradients est faite sur des fonctions "
                  "quelconques (la médiane géométrique de villes), sans le contre-exemple de la moyenne des produits "
-                 "(∂ 18.7.5). La vérification d'un gradient matriciel rend le gradient numérique, pas une erreur "
-                 "relative (M05a.28 l'a déjà ; ni les seuils 10⁻⁷ et 10⁻³, ni |k − 1|/(k + 1)). La descente sur une "
+                 "(∂ 18.7.5). Le 🔨 matriciel lit le gradient dans la différentielle (G[i, j] = df(E_ij)) : "
+                 "le gradient numérique d'un tableau est `mylearn.calculus.numerical_gradient` de workbookIA 5, à ne "
+                 "pas réécrire ; la vérification d'un gradient matriciel se fait par une dérivée le long d'une "
+                 "direction H comparée à tr(GᵀH) (la fonction de M05b, ou deux évaluations), sans l'erreur relative "
+                 "de `gradient_check` (M05a.28 l'a déjà ; ni les seuils 10⁻⁷ et 10⁻³, ni |k − 1|/(k + 1)), ni la "
+                 "matrice [[1, −2], [0,5, 3]] (🔨 19.16). ∇ log det X = X⁻ᵀ (M18.14) s'appuie sur X com(X)ᵀ = "
+                 "det X · I, énoncé au §7. Le 🐛 M18.27 corrige un calcul d'adjoints écrit ligne à ligne pour une "
+                 "formule donnée, sans classe ni graphe générique (le `+=` de `Value`, 🔨 18.26). La descente sur une "
                  "parabole (encadré et 18.3 de workbookIA) n'est pas traitée : M19 étudie la convergence des "
                  "itérations. Évités aussi : la loss quadratique et ses deltas (0,6 ; −1,2), E(o) = (o − 2)², les "
                  "logits (2 ; 0 ; −1), z = 3, 5, 40 et 1 000, le réseau 2-2-4-3-2, les lunes, Karpathy et les dates "
@@ -396,8 +423,8 @@ CHAPTERS = [
              "la somme, sur ses successeurs, des adjoints fois les dérivées locales", "§4", ""),
             ("M18.14", "∂", 3, 20, "∇ log det X = X⁻ᵀ, par le développement du déterminant selon une ligne", "§7",
              ""),
-            ("M18.15", "🔗", 1, 15, "Pont : workbookIA 18 écrit le mode inverse, tu écris le mode direct ; lequel pour "
-             "un modèle à un million de paramètres ?", "§5", "E"),
+            ("M18.15", "🔗", 1, 15, "Pont : workbookIA 18 programme le mode inverse ; pour une simulation de ℝ²⁰⁰⁰ dans "
+             "ℝ³, combien de passages dans chaque mode ?", "§5", "E"),
             ("M18.16", "🔗", 1, 15, "Pont : de la convention de MML (gradient en ligne) à celle de NumPy et des "
              "bibliothèques de deep learning", "§6", ""),
             ("M18.17", "📖", 2, 40, "MML §5.4 et §5.5 : gradients par rapport à des matrices et identités utiles, en "
@@ -408,23 +435,23 @@ CHAPTERS = [
              "variable", "§4", "E"),
             ("M18.E1", "💼", 1, 10, "« Différentiation automatique, symbolique ou numérique : quelles différences ? »",
              "§3 §4 §5", ""),
-            ("M18.E2", "💼", 1, 10, "« Pourquoi le mode inverse convient-il quand il y a beaucoup d'entrées et une "
-             "seule sortie ? »", "§5", ""),
+            ("M18.E2", "💼", 1, 10, "« Quand le mode direct est-il préférable au mode inverse ? »", "§5", ""),
             ("M18.20", "🔨", 2, 30, "Les nombres duaux : la classe `Dual`, et la dérivée d'une fonction d'une "
              "variable", "§3", "E m:Dual,dual_derivative"),
             ("M18.21", "🔨", 1, 20, "Le gradient en mode direct : n passages avec des nombres duaux", "§3 §5",
              "m:forward_gradient p:M18.20"),
-            ("M18.22", "🔨", 1, 20, "Le gradient numérique d'une fonction d'une matrice, de la forme de la matrice",
-             "§6 §8", "E m:numerical_matrix_gradient"),
+            ("M18.22", "🔨", 1, 15, "Lire le gradient dans la différentielle : G[i, j] = df(E_ij), de la forme de la "
+             "variable", "§6 §7", "E m:gradient_from_differential"),
             ("M18.23", "📦", 1, 15, "SymPy : dériver une fonction de matrice symbolique, et comparer aux identités",
              "§7", ""),
-            ("M18.24", "🔮", 1, 10, "Prédire le nombre d'opérations de chaque mode, puis le compter", "§5", "E"),
+            ("M18.24", "🔮", 1, 10, "Prédire le nombre d'opérations de chaque mode, puis le compter", "§5",
+             "E p:M18.20"),
             ("M18.25", "🔬", 2, 20, "Différences finies contre nombres duaux : l'erreur selon le pas h", "§3 §8",
              "p:M18.20"),
             ("M18.26", "🎨", 1, 20, "Dessiner un graphe de calcul, avec les dérivées locales sur les arêtes et les "
              "adjoints sur les nœuds", "§1 §4", ""),
-            ("M18.27", "🐛", 1, 15, "Chasse à l'erreur : un gradient transposé, un adjoint écrasé au lieu d'être "
-             "additionné, un pas h trop petit", "§4 §6 §8", "E"),
+            ("M18.27", "🐛", 1, 15, "Chasse à l'erreur : un gradient transposé, un adjoint compté sur un seul chemin, "
+             "un pas h trop petit", "§4 §6 §8", "E"),
             ("M18.28", "🛠️", 1, 15, "Tester une classe par ses propriétés : distributivité et dérivées connues des "
              "nombres duaux", "§3", "p:M18.20"),
             ("M18.29", "🏆", 3, 30, "Défi : dériver une boucle, la méthode de Newton pour √a, en mode direct", "§3",
@@ -509,7 +536,11 @@ CHAPTERS = [
                  "½ xᵀA x − bᵀx (∂ 19.7 fait la démonstration pour une loss), énonce le pas optimal 2/(λmin + λmax) et "
                  "le facteur (κ − 1)/(κ + 1) sans les démontrer (∂ 19.7.4), et démontre le critère général de "
                  "convergence d'une récurrence d'ordre 2 (|q| < 1 et |p| < 1 + q) sans le spécialiser au momentum "
-                 "(∂ 19.7.6). Le strict minimum sur les nombres complexes (module, conjugué, racines complexes d'un "
+                 "(∂ 19.7.6) : aucun exercice, ni CP4, n'étudie la méthode de la bille lourde (Frankel, Polyak) "
+                 "x ← x + ω(b − A x) + β(x − x₋₁), qui est le momentum ; le défi M19.28 est une récurrence de la "
+                 "mécanique (le schéma saute-mouton), dont les racines sont de module 1. Le pont M19.14 énonce sans "
+                 "calcul (hors parcours essentiel), et M19.Q4 se lit sur des matrices 2 × 2, sans les quatre "
+                 "comportements en dimension 1 (∂ 19.7.1, 19.Q5). Le strict minimum sur les nombres complexes (module, conjugué, racines complexes d'un "
                  "trinôme réel, produit des racines) est ici ; M22 fait le reste (valeurs propres complexes, rayon "
                  "spectral). Le gradient estimé sur un échantillon est étudié comme un estimateur (sans biais, "
                  "variance en 1/B), sur une pente de moindres carrés, sans compter epochs ni mises à jour. La "
@@ -519,9 +550,13 @@ CHAPTERS = [
                  "convexité (M10, M12c, M13b) ; MML §7.3 a été lu en M13b. Évités : les paraboles 5w², w² depuis 1, "
                  "2(w − 1)² depuis 3, 0,05(w − 1)², 5(w + 2)² et 8w², la vallée 1 − e^{−8w²}, Rosenbrock, les "
                  "quadratiques de coefficients (10, 1) et de courbures 1 et 20, κ = 9 et η = 1,8/a₁, κ = 4 × 10⁶ "
-                 "(mètres et proportion), les selles x² − y² et 2x² − y², les gradients et hyperparamètres de 19.2 à "
+                 "(mètres et proportion), les selles x² − y² et 2x² − y², x² + 3y², −x² − y² et une fonction constante (19.Q2), les gradients et hyperparamètres de 19.2 à "
                  "19.6 et de CP4.3 de workbookIA, les vecteurs (6 ; 8), (3 ; 4), (6 ; 0,5), (1 ; 2) et (0,3 ; −0,4) "
-                 "et les seuils 5, 1 et 1,5, la bille et la vallée étroite. Le module s'appelle `iterative` (et non "
+                 "et les seuils 5, 1 et 1,5, la comparaison d'angles des notes de 🔨 19.19 (M19.9 compare des "
+                 "directions sans angle chiffré de workbookIA), la bille et la vallée étroite. Le pont M19.15 ne "
+                 "reprend pas « un learning rate par poids » (19.Q11). Deux « Richardson » dans `mymath` "
+                 "(`approx.richardson_derivative` de M05a, `iterative.richardson_iterates`) : la fiche le signale. Le "
+                 "module s'appelle `iterative` (et non "
                  "`optim`, le module d'optimiseurs de `mylearn`) ; `condition_number` existe déjà (M12d) et n'est pas "
                  "réécrit ; NumPy permis, `np.linalg.eigvalsh` dans `critical_step_size` seulement, pas "
                  "`np.linalg.solve`, `inv`, `scipy.optimize` ni `scipy.sparse.linalg`. Parcours essentiel : le "
@@ -530,7 +565,8 @@ CHAPTERS = [
             ("M19.Q1", "🧠", 1, 4, "La hessienne : de quelle taille, symétrique, de quoi ?", "§1", "E"),
             ("M19.Q2", "🧠", 1, 4, "Minimum, maximum, selle ou direction plate ?", "§2", "E"),
             ("M19.Q3", "🧠", 1, 4, "Converge ou pas : lire les valeurs propres de M", "§3", "E"),
-            ("M19.Q4", "🧠", 1, 4, "Le pas de Richardson : trop petit, bon, trop grand", "§4", "E"),
+            ("M19.Q4", "🧠", 1, 4, "Le pas de Richardson : lire la convergence sur les valeurs propres de I − ωA",
+             "§4", "E"),
             ("M19.Q5", "🧠", 1, 4, "Le conditionnement : ce qui ralentit, ce qui ne change rien", "§5", "E"),
             ("M19.Q6", "🧠", 1, 4, "Module d'un nombre complexe et racines d'un trinôme", "§6", "E"),
             ("M19.Q7", "🧠", 1, 4, "Un gradient estimé sur un échantillon : vrai ou faux", "§7", "E"),
@@ -564,10 +600,10 @@ CHAPTERS = [
              "< 1 : le critère |q| < 1 et |p| < 1 + q", "§6", ""),
             ("M19.13", "∂", 2, 15, "La projection sur une boule est son point le plus proche, et elle garde la "
              "direction", "§8", ""),
-            ("M19.14", "🔗", 1, 10, "Pont : un pas de Richardson est un pas de descente sur ½ xᵀA x − bᵀx", "§4",
-             "E"),
-            ("M19.15", "🔗", 1, 15, "Pont : préconditionner par la diagonale, l'idée d'un pas propre à chaque "
-             "coordonnée", "§5", ""),
+            ("M19.14", "🔗", 1, 10, "Pont : un pas de Richardson est un pas de descente sur ½ xᵀA x − bᵀx (énoncé, sans "
+             "calcul)", "§4", ""),
+            ("M19.15", "🔗", 1, 15, "Pont : le préconditionnement diagonal, une idée commune à plusieurs méthodes de "
+             "workbookIA 19", "§5", ""),
             ("M19.16", "📖", 2, 35, "MML §5.7 et §5.8 : dérivées d'ordre supérieur et Taylor à plusieurs variables, en "
              "anglais", "§1", ""),
             ("M19.17", "📖", 2, 40, "MML §7.1 : la descente de gradient, le pas, le momentum et la version "
@@ -593,12 +629,12 @@ CHAPTERS = [
              "d'une racine complexe", "§2 §4 §6", "E"),
             ("M19.27", "🛠️", 1, 15, "Un critère d'arrêt : le résidu relatif ‖b − A x‖/‖b‖ et un nombre maximal "
              "d'itérations", "§4", "p:M19.20"),
-            ("M19.28", "🏆", 3, 30, "Défi : la méthode de Frankel, une récurrence d'ordre 2 qui résout A x = b en bien "
-             "moins d'itérations", "§5 §6", "p:M19.20"),
+            ("M19.28", "🏆", 3, 30, "Défi : le schéma saute-mouton d'un oscillateur, x_{k+1} = (2 − h²Ω²) x_k − "
+             "x_{k−1}, borné si et seulement si hΩ < 2", "§6", "p:M19.21"),
         ],
     },
     {
-        "id": "M20", "dir": "m20_tenseurs_normalisation", "hours": 7.6, "generation_sessions": 1, "mml": [],
+        "id": "M20", "dir": "m20_tenseurs_normalisation", "hours": 7.7, "generation_sessions": 1, "mml": [],
         "summary": "Les tableaux à k dimensions et leurs axes (forme, remodelage, réductions, diffusion), la notation "
                    "d'Einstein et `einsum`, les moyennes et variances le long d'axes (ddof), le centrage vu comme une "
                    "projection orthogonale et la standardisation invariante par translation et dilatation, "
@@ -655,7 +691,11 @@ CHAPTERS = [
                  "standardisation est invariante par translation et dilatation, sans γ, β, statistiques glissantes, "
                  "ε ni dérivée de la standardisation (∂ 20.8) ; I + hJ est la jacobienne d'un pas d'Euler, et le "
                  "produit de L pas, à horizon T = hL fixé, tend vers une exponentielle (M14), sans 0,5³⁰, 1,01³⁰ ni "
-                 "0,9 et 44 couches. Les tableaux sont des mesures (stations × jours × heures), des notes (élèves × "
+                 "0,9 et 44 couches. Le pont M20.8 dit seulement où workbookIA 20 divise par une probabilité, sans "
+                 "correspondance π ↔ 1 − p ni formule en p (∂ 20.5.1). Ni la fiche ni un exercice ne composent la "
+                 "normalisation x/‖x‖ de M17.4 avec la matrice de centrage, ni ne tirent des invariances de la "
+                 "standardisation une propriété de sa jacobienne ou d'un gradient (∂ 20.8.3 et 20.8.5). Les "
+                 "tableaux sont des mesures (stations × jours × heures), des notes (élèves × "
                  "matières) et des images en (hauteur, largeur, canaux), sans les formes de workbookIA 20 ((32, 3, 28, "
                  "28), (32, 1, 28, 28), (1, 512, 7, 7), (10, 3, 5), arange(150), arange(30), arange(20)), ni VGG16, "
                  "ni les vecteurs (1, 2, 3, 6), (2, 4, 6, 8), (2 ; 6 ; 8 ; 12), (2, 2, 8, 8) et le tableau 4 × 2 de "
@@ -686,13 +726,12 @@ CHAPTERS = [
              ""),
             ("M20.7", "∂", 2, 20, "L'estimateur de Horvitz-Thompson est sans biais, et sa variance quand les "
              "inclusions sont indépendantes", "§5", "E"),
-            ("M20.8", "🔗", 1, 10, "Pont : où workbookIA 20 divise par une probabilité, et ce que son chapitre "
-             "démontrera", "§5", "E"),
+            ("M20.8", "🔗", 1, 10, "Pont : où workbookIA 20 divise par une probabilité", "§5", "E"),
             ("M20.9", "🗣️", 1, 10, "Expliquer ce qu'est un axe d'un tableau à quelqu'un qui ne connaît que les "
              "tableurs", "§1 §2", "E"),
             ("M20.E1", "💼", 1, 10, "« Pourquoi standardiser des données décalées ou dilatées donne-t-il le même "
              "résultat ? »", "§4", ""),
-            ("M20.10", "🔨", 2, 25, "`einsum` pour deux tableaux, avec des boucles", "§3", "E m:einsum_pair"),
+            ("M20.10", "🔨", 2, 30, "`einsum` pour deux tableaux, avec des boucles", "§3", "E m:einsum_pair"),
             ("M20.11", "🔨", 1, 15, "Moyennes et variances le long d'axes choisis", "§2", "E m:moments_along_axes"),
             ("M20.12", "🔨", 1, 10, "L'estimateur de Horvitz-Thompson d'un total", "§5",
              "m:horvitz_thompson_total"),
@@ -738,8 +777,14 @@ CHAPTERS = [
                  "784-1 024-1 024-10 avec AdamW, les bugs d'une boucle PyTorch, des courbes d'entraînement, une epoch "
                  "d'AdamW avec clipping, les manchots et la ridge des parties I à III), qui se fait juste après, ni "
                  "son mini-projet IV (un mini-framework NumPy validé contre PyTorch). La synthèse ne recopie pas le "
-                 "tableau des 24 formules de la synthèse de workbookIA. CP4.10 ajuste une loi exponentielle à trois "
-                 "mesures, hors réseau : graphe de calcul, gradient par le mode inverse, hessienne et pas critique.",
+                 "tableau des 24 formules de la synthèse de workbookIA. CP4.2 n'est pas une chaîne de fonctions "
+                 "d'une variable à dérivée bornée (CP4.5 de workbookIA) ; CP4.6 n'étudie pas la bille lourde (le "
+                 "momentum, ∂ 19.7.6) ; CP4.8 donne le choix entre deux énoncés neufs : une matrice symétrique qui "
+                 "raccourcit tout vecteur non nul (‖M x‖ < ‖x‖) a ses valeurs propres dans ]−1, 1[, ou "
+                 "Var(XY) ≥ Var X · Var Y pour X et Y indépendantes, avec le cas d'égalité ; aucune ne compose la "
+                 "normalisation avec le centrage (∂ 20.8). CP4.10 ajuste une loi exponentielle à trois mesures prises "
+                 "ailleurs qu'en x = 1, 2, 3 (CP4.12 d de workbookIA), hors réseau : graphe de calcul, gradient par le "
+                 "mode inverse, hessienne et pas critique.",
         "exercises": [
             ("CP4.Q1", "🧠", 1, 10, "Dix affirmations sur la partie IV : vrai ou faux", "§1", "E"),
             ("CP4.1", "✏️", 2, 10, "Coordonnées homogènes, chemins d'un graphe et variance d'un produit", "§1", "E"),
@@ -749,7 +794,8 @@ CHAPTERS = [
             ("CP4.5", "✏️", 2, 10, "Hessienne, Taylor d'ordre 2 et nature d'un point critique", "§1", "E"),
             ("CP4.6", "✏️", 2, 9, "Itération de Richardson et récurrence d'ordre 2", "§1", "E"),
             ("CP4.7", "✏️", 2, 8, "Moments le long d'axes, einsum et estimateur de Horvitz-Thompson", "§1", "E"),
-            ("CP4.8", "∂", 3, 12, "Une démonstration courte, au choix parmi deux", "§1", "E"),
+            ("CP4.8", "∂", 3, 12, "Une démonstration au choix : une matrice qui raccourcit les vecteurs, ou "
+             "Var(XY) ≥ Var X · Var Y", "§1", "E"),
             ("CP4.9", "🐛", 2, 8, "Corriger une copie : cinq erreurs", "§1", "E f:02"),
             ("CP4.10", "🔗", 2, 14, "Problème de synthèse : ajuster une loi exponentielle, du graphe de calcul au pas "
              "critique", "§1", "E"),

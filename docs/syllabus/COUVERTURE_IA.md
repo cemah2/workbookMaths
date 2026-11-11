@@ -37,7 +37,7 @@ Non mathématiques : Colab / Jupyter : cellules, Markdown, noyau, « Tout exécu
 | variations, minimum et maximum (dérivée nulle) | R7 |
 | fonctions de deux variables, lignes de niveau (lecture) | workbookIA 0B lui-même (à partir de la remise à niveau), approfondi en M05b |
 | dérivées partielles, gradient, pas de descente | workbookIA 0B lui-même (à partir de la remise à niveau), approfondi en M05b |
-| règle de la chaîne à plusieurs variables (somme sur les chemins, version simple) | workbookIA 0B lui-même (à partir de la remise à niveau), approfondi en M18 |
+| règle de la chaîne à plusieurs variables (somme sur les chemins, version simple) | workbookIA 0B lui-même (à partir de la remise à niveau), approfondi en M17, M18 |
 | probabilités : événement, complémentaire, union, indépendance | R8 |
 | variable aléatoire discrète, espérance, variance, écart-type, linéarité de l'espérance | R8 |
 | simulation et loi des grands nombres (intuition) | R8 |
@@ -353,7 +353,7 @@ Non mathématiques : tests paramétrés pytest
 | delta d'un neurone | M17, M18 |
 | règle de la chaîne multivariée | M17, M18 |
 | forme matricielle des gradients | M18 |
-| losses et leurs gradients (MSE, BCE sur logits, cross-entropy softmax) | M13a, M14, M17 |
+| losses et leurs gradients (MSE, BCE sur logits, cross-entropy softmax) | M13a, M14 |
 | vérification du gradient | M05a, M18 |
 | mini-batches | M18 |
 | différentiation automatique en mode inverse | M18 |
@@ -376,7 +376,7 @@ Non mathématiques : boucle d'entraînement from scratch
 | RMSprop | R5, M19 |
 | Adadelta | R5, M19 |
 | Adam | R5, M19 |
-| AdamW (weight decay découplé) | M09b, M19 |
+| AdamW (weight decay découplé) | M09b, M14 |
 | warmup + cosinus | R9 |
 | gradient clipping | M07, M19 |
 
@@ -385,7 +385,7 @@ Non mathématiques : boucle d'entraînement from scratch
 | Notion de workbookIA | Enseignée dans |
 |---|---|
 | tenseurs PyTorch | M20 |
-| dropout | M20 |
+| dropout | M06, M20 |
 | batchnorm | M02c, M20 |
 | layer norm | M02c, M20 |
 | pénalité L2 et weight decay | M09b |
