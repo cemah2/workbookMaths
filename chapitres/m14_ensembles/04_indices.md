@@ -356,4 +356,128 @@ La borne $\sqrt{T\ln K/2}$, $\eta_t = \sqrt{8\ln K/t}$ sans horizon, la différe
 
 ## Notebook
 
-*(à compléter)*
+### Ex M14.11 — La borne de Chernoff et la variance d'une moyenne pondérée · `chernoff_bound, variance_of_average`
+
+<details><summary>Indice 1</summary>
+
+Relis « Majorer la queue : trois bornes » (fiche §1) et « La formule » (fiche §2), puis les deux docstrings.
+
+</details>
+<details><summary>Indice 2</summary>
+
+`chernoff_bound` : les contrôles d'abord ($n$ entier, pas un booléen ; $p$ et $a$ dans $[0, 1]$), puis les cas $a \le p$ (1.0) et $p = 0$ (0.0), puis la KL, en n'ajoutant le terme $(1 - a)\ln\frac{1 - a}{1 - p}$ que si $a < 1$. `variance_of_average` : une matrice carrée et symétrique (à un arrondi près), des poids positifs de somme 1, `1 / M` par défaut.
+
+</details>
+<details><summary>Indice 3</summary>
+
+La KL : `a * math.log(a / p) + (1 - a) * math.log((1 - a) / (1 - p))`, puis `math.exp(-n * kl)`. La variance : `float(w @ c @ w)`. Pour la symétrie, `np.allclose(c, c.T)` avec une tolérance relative à la taille des coefficients.
+
+</details>
+
+### Ex M14.12 — Les poids de l'algorithme Hedge · `hedge_weights`
+
+<details><summary>Indice 1</summary>
+
+Relis « Les poids exponentiels » et « Le calcul en pratique » (fiche §4), puis la docstring.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Les losses cumulées avant chaque tour : une ligne de zéros, puis `np.cumsum(losses, axis=0)` ; cela fait $T + 1$ lignes. Retranche le minimum de chaque ligne (`keepdims=True`) avant l'exponentielle.
+
+</details>
+<details><summary>Indice 3</summary>
+
+`w = np.exp(-eta * shifted)` puis `w / w.sum(axis=1, keepdims=True)`. d) La loss de l'algorithme utilise les lignes 0 à $T - 1$ (les poids **avant** chaque tour) : `np.sum(W[:-1] * losses)`.
+
+</details>
+
+### Ex M14.13 — Simuler la moyenne de deux groupes de modèles corrélés, et retrouver aᵀΣa et son plancher
+
+<details><summary>Indice 1</summary>
+
+Relis « Moyenner des prédictions corrélées : un plancher » (fiche §2) et ta solution de 🔗 M14.9.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Une seule paire $(Z_A, Z_B)$ par tirage : `rng.multivariate_normal(np.zeros(2), COV_Z_13, size=n_draws)`, un tableau `n_draws × 2`, puis `rng.normal(0, np.sqrt(2.2), size=(n_draws, 2 * m))` pour les parts propres (le second argument de `rng.normal` est un écart-type, pas une variance).
+
+</details>
+<details><summary>Indice 3</summary>
+
+Erreurs du groupe A : `Z[:, [0]] + E[:, :m]` ; du groupe B : `Z[:, [1]] + E[:, m:]`. La matrice $2m \times 2m$ : un bloc rempli de $0{,}6$, un de $1{,}4$, deux de $0{,}5$ (`np.block` avec `np.full`), plus $2{,}2$ sur la diagonale (`np.eye`). b) $\frac{0{,}6 + 1{,}4 + 2 \times 0{,}5}{4}$.
+
+</details>
+
+### Ex M14.14 — Les poids exponentiels au fil des tours : quel expert domine, selon le learning rate
+
+<details><summary>Indice 1</summary>
+
+Relis le §4 de la fiche et sa figure des poids.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Calcule une fois `W = hedge_weights(losses, eta)` par axe : un tableau $81 \times 5$ ; une courbe par colonne, `ax.plot(np.arange(81), W[:, k], label=...)`, ou toutes ensemble avec `ax.stackplot(np.arange(81), W.T)`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+N'appelle ni `plt.figure` ni `plt.subplots` : dessine dans les `axes` reçus, avec `zip(axes, etas)`. Un titre comme `f"η = {eta}"`, puis `ax.legend()` et `ax.set(xlabel=..., ylabel=...)`.
+
+</details>
+
+### Ex M14.15 — Chasse à l'erreur : P(X ≥ k) calculée comme P(X > k), des covariances oubliées, des poids non renormalisés
+
+<details><summary>Indice 1</summary>
+
+Relis les pièges classiques de la fiche : $P(X \ge k)$, le sens de la divergence, les covariances oubliées, la normalisation.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Pour chaque ligne, compare ce que calcule le code à ce que dit son commentaire : que rend `binom.sf(m, n, p)` ? dans quel ordre `kl_15` attend-il ses arguments ? que manque-t-il à `np.mean(np.diag(S_15))` ? une loi sur les experts somme-t-elle à 1 ?
+
+</details>
+<details><summary>Indice 3</summary>
+
+Quatre lignes fausses. Les lignes qui ressemblent à une erreur sans en être une : une borne avec `k - 1` écrite autrement, `w @ S @ w`, et la soustraction du minimum, qui ne change pas les poids une fois normalisés.
+
+</details>
+
+### Ex M14.16 — Un test qui vérifie que la borne de Chernoff majore la queue exacte de `scipy.stats`, sur une grille de n, p et a
+
+<details><summary>Indice 1</summary>
+
+Relis « Majorer la queue : trois bornes » et « Chernoff contre Hoeffding » (fiche §1).
+
+</details>
+<details><summary>Indice 2</summary>
+
+Une grille par compréhension : `for n in (...) for p in (...) for a in (...)`, avec $a = 1$, des $p$ comme 0,01 et 0,99, des $n$ de 1 à quelques centaines. La queue exacte : `k = math.ceil(n * a - 1e-9)`, puis `binom.sf(k - 1, n, p)`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Quatre `assert` par cas, chacun avec un message `f"n={n}, p={p}, a={a}"` : `0 <= b <= 1 + 1e-12` ; `b >= tail - 1e-12` ; si $a > p$, `b <= math.exp(-2 * n * (a - p) ** 2) + 1e-12` ; si $a > p$, `bound(2 * n, p, a) <= b + 1e-12`. Ce sont les petits $n$ et les $p$ extrêmes qui attrapent les fausses bornes.
+
+</details>
+
+### Ex M14.17 — Défi : suivre le meilleur de dix experts avec Hedge sans connaître l'horizon, un regret sous la borne théorique sur 1 000 tours
+
+<details><summary>Indice 1</summary>
+
+Relis « Choisir η » et « Sans connaître T » (fiche §4), puis essaie les trois stratégies proposées et regarde où elles échouent.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Un $\eta$ constant fait un compromis pour **un** horizon : petit, il apprend trop lentement au début ; grand, il suit les à-coups ensuite. Il faut un $\eta$ qui dépend du tour : grand au début, de plus en plus petit.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Garde les losses cumulées $L$ et le nombre de tours joués $t$ ; `weights()` rend `softmax` de $-\eta_t(L - \min L)$ avec $\eta_t = \sqrt{8\ln K/t}$, où $t$ est le numéro du tour qui vient (1 au premier appel), écrit avec `np.exp` ; `update` ajoute les losses à $L$ et incrémente $t$. Le η constant réglé pour $T = 1\,000$ paie $\frac{\ln K}{\eta} \approx 17$ dès le départ : trop pour la borne du tour 50.
+
+</details>

@@ -209,4 +209,56 @@ En 3 phrases : « Moyenner 36 thermomètres divise par 36 la variance du bruit p
 
 ## Notebook
 
-*(à compléter)*
+Le code complet de chaque exercice est dans `05_solutions.ipynb`, exécuté ; voici les réponses, l'essentiel de la démarche et les réponses aux questions de copie.
+
+### Ex M14.11 — La borne de Chernoff et la variance d'une moyenne pondérée · `chernoff_bound, variance_of_average`
+
+**Réponses** : a) `0.034731` · b) `1.0` · c) `0.8625` · d) `0.85525` · e) `True` · f) `"ValueError"`.
+
+**Démarche.** `chernoff_bound` : les contrôles, puis `1.0` si $a \le p$, `0.0` si $p = 0$, sinon `math.exp(-n * kl)` avec le terme en $1 - a$ seulement si $a < 1$. `variance_of_average` : les contrôles de forme, de symétrie et de poids, puis `float(w @ c @ w)`. Pour la copie : $\mathrm{KL}(0{,}45 \Vert 0{,}24) \approx 0{,}2829 - 0{,}1779 = 0{,}1050$, d'où $e^{-32 \times 0{,}1050} \approx 0{,}0347$ ; Hoeffding donne $e^{-64 \times 0{,}21^2} \approx 0{,}0595$ et la queue exacte $P(X \ge 15) \approx 0{,}00395$ : Chernoff est près de deux fois meilleure que Hoeffding et reste neuf fois au-dessus de la vraie valeur. b) Pour $a \le p$, la formule donnerait $0{,}45$, alors que $P(X \ge 5) \approx 0{,}91$ : la borne doit valoir 1. c) La somme des 16 cases vaut $13{,}8$ ; sans les covariances, on aurait $\frac{10{,}4}{16} = 0{,}65$ : les covariances positives l'emportent. d) Les meilleurs poids, $\propto \boldsymbol{\Sigma}^{-1}\mathbf{1} \approx (0{,}276 ;\ 0{,}133 ;\ 0{,}434 ;\ 0{,}157)$, donneraient $\approx 0{,}7967$. e) `25 * 0.6000000000000001` vaut `15.000000000000002` : sans le `- 1e-9`, `math.ceil` donnerait 16 et l'on calculerait $P(X \ge 16)$, une queue trop petite qui laisserait passer une borne fausse. f) Une somme de 1,1 trahit presque toujours une erreur en amont : la renormaliser en silence la cacherait.
+
+**Erreurs fréquentes.** $\mathrm{KL}(p \Vert a)$ ($0{,}047961$) ; la KL en bits ($0{,}007847$) ; oublier le cas $a \le p$ ($0{,}454685$) ; la variance sans les covariances ($0{,}65$) ou la somme des cases sans la diviser par $M^2$ ($13{,}8$).
+
+### Ex M14.12 — Les poids de l'algorithme Hedge · `hedge_weights`
+
+**Réponses** : a) `[0.240663, 0.20714, 0.438516, 0.113681]` · b) `True` · c) `True` · d) `2.742313` · e) `0.642313` · f) `"ValueError"`.
+
+**Démarche.** Une ligne de zéros puis `np.cumsum(losses, axis=0)` : $T + 1$ lignes de losses cumulées ; on retranche le minimum de chaque ligne, puis `np.exp(-eta * shifted)` et la normalisation par ligne. d) `np.sum(W[:-1] * losses)` : les poids **avant** chaque tour. Pour la copie : les losses cumulées valent $(2{,}5 ;\ 2{,}6 ;\ 2{,}1 ;\ 3)$ ; après avoir retranché $2{,}1$, les poids sont $\propto (e^{-0{,}6} ;\ e^{-0{,}75} ;\ 1 ;\ e^{-1{,}35})$. L'expert 3 a le plus de poids alors qu'il n'a gagné qu'un tour, le dernier (les gagnants sont les experts 4, 2, 1, 2, 4, 3) : Hedge suit la loss cumulée, pas les victoires. c) Sans retrancher le minimum, $e^{-1{,}5 \times 42\,000}$ vaut 0 en flottants pour les quatre experts, et la normalisation divise 0 par 0 ; retrancher la même quantité multiplie chaque $e^{-\eta L}$ par le même facteur, que la normalisation annule. e) Le regret, $\approx 0{,}64$, est sous la borne $\frac{\ln 4}{1{,}5} + \frac{1{,}5 \times 6}{8} \approx 2{,}05$.
+
+**Erreurs fréquentes.** Les poids d'après la loss du dernier tour seulement ; le signe $+$ dans l'exponentielle ; oublier de normaliser ; d) avec les poids **après** chaque tour ($2{,}221089$) ; e) contre le pire expert ($-0{,}257687$) ou la moyenne des experts ($0{,}192313$).
+
+### Ex M14.13 — Simuler la moyenne de deux groupes de modèles corrélés, et retrouver aᵀΣa et son plancher
+
+**Réponses** : a) `0.933333` · b) `0.75` · c) `True` · d) `0.9562`.
+
+**Démarche.** Une paire $(Z_A, Z_B)$ par tirage (`rng.multivariate_normal`, `size=n_draws`), les $2m$ parts propres par `rng.normal(0, np.sqrt(2.2), size=(n_draws, 2 * m))`, les erreurs des deux groupes, leur moyenne par ligne, puis `np.var`. La matrice $2m \times 2m$ : des blocs pleins de $0{,}6$, $0{,}5$, $0{,}5$ et $1{,}4$, plus $2{,}2$ sur la diagonale. Pour la copie : la moyenne vaut $\frac{Z_A + Z_B}{2} + \frac{1}{2m}\sum_i E_i$, de variance $\frac{0{,}6 + 1{,}4 + 2 \times 0{,}5}{4} + \frac{2{,}2}{2m} = 0{,}75 + \frac{1{,}1}{m}$ : a) $\frac{14}{15}$ et b) $\frac{3}{4}$. Une variance empirique sur 20 000 tirages fluctue d'environ $\sqrt{2/20\,000} \approx 1\,\%$ : les écarts mesurés restent sous 1,2 %. d) Pour $m = 32$, la variance vaut $0{,}784375$, dont le plancher fait $\frac{240}{251}$ : doubler encore le nombre de modèles ne gagnerait qu'environ $0{,}017$. Deux modèles du groupe B ont la corrélation $\frac{1{,}4}{1{,}4 + 2{,}2} \approx 0{,}389$. Avec $\operatorname{Cov}(Z_A, Z_B) < 0$, les deux parts communes se compenseraient en partie et le plancher baisserait.
+
+**Erreurs fréquentes.** Tirer une paire $(Z_A, Z_B)$ par modèle au lieu d'une par tirage (les parts communes deviennent propres, et le plancher disparaît) ; passer une variance à `rng.normal`, qui attend un écart-type ; oublier la covariance croisée (a : $0{,}683333$) ; diviser la part propre par $m$ au lieu de $2m$ (a : $1{,}116667$).
+
+### Ex M14.14 — Les poids exponentiels au fil des tours : quel expert domine, selon le learning rate
+
+**Vérification manuelle** : ✅ quand les dessins sont dans les axes reçus, avec une courbe (ou une aire) par expert, les bons poids et la valeur de $\eta$ dans chaque titre.
+
+**Démarche.** Une fois `W = hedge_weights(losses, eta)` par axe, puis une courbe par colonne (ou `ax.stackplot`), un titre, une légende, des noms d'axes. Pour la copie : l'expert 3 prend la tête des losses cumulées à la ligne 24 et la garde. Avec $\eta = 3$, son poids passe 0,5 dès la ligne 24 et finit à $\approx 1$, mais pendant les vingt premiers tours le poids saute d'un expert à l'autre (jusqu'à 0,36 en un tour) : chaque saut fait payer la loss d'un expert qui vient de perdre la tête, le terme $\frac{\eta T}{8}$ de la borne. Avec $\eta = 0{,}15$, l'expert 3 ne passe 0,5 qu'à la ligne 68 et finit à $0{,}53$ : trop prudent. $\eta = 0{,}6$ (0,5 dépassé à la ligne 36, $0{,}95$ à la fin) est le plus proche de $\sqrt{8\ln 5/80} \approx 0{,}40$, le $\eta$ qui équilibre les deux termes pour 80 tours.
+
+### Ex M14.15 — Chasse à l'erreur : P(X ≥ k) calculée comme P(X > k), des covariances oubliées, des poids non renormalisés
+
+**Réponses** : a) `"ACDG"` · b) `0.9779` · c) `0.0812` · d) `0.625` · e) `[0.1427, 0.4857, 0.2873, 0.0844]`.
+
+**Démarche.** (A) `binom.sf(k, n, p)` rend $P(X > 13) = P(X \ge 14) \approx 0{,}9031$ : il faut `binom.sf(k - 1, n, p)` ; (B), `binom.sf(15 - 1, n, p)`, est juste. (C) La borne de Chernoff de « au moins 4 serveurs en panne », pour $F = 16 - X$ de loi $\mathcal{B}(16 ;\ 0{,}07)$, est $e^{-16\,\mathrm{KL}(0{,}25 \Vert 0{,}07)}$ : la proportion de l'événement d'abord ; la ligne inverse les arguments et trouve $0{,}1695$. La probabilité exacte vaut $\approx 0{,}0221$ : pour $n = 16$, la borne reste près de quatre fois au-dessus. (D) oublie les covariances : $\frac{7{,}8}{16} = 0{,}4875$ au lieu de $\frac{10}{16}$, un nombre plausible sans aucun signal. (E) $\mathbf{w}^\top\mathbf{S}\mathbf{w}$ est juste ; (F) retranche le minimum, ce qui ne change pas les poids normalisés. (G) ne divise pas par la somme : les « poids » $(0{,}2938 ;\ 1 ;\ 0{,}5916 ;\ 0{,}1738)$ somment à $2{,}06$.
+
+### Ex M14.16 — Un test qui vérifie que la borne de Chernoff majore la queue exacte de `scipy.stats`, sur une grille de n, p et a
+
+**Vérification manuelle** : ✅ quand ton test passe sur la vraie borne avec au moins 100 cas (dont $a = 1$, des $p \le 0{,}05$ et $\ge 0{,}95$) et échoue, par un `assert`, sur chacune des quatre fausses bornes.
+
+**Démarche.** Une grille de $n$ (de 1 à quelques centaines), de $p$ (dont 0,01 et 0,97) et de $a$ (dont 1), et quatre `assert` par cas : dans $[0, 1]$, au-dessus de la queue exacte, sous Hoeffding pour $a > p$, et pas plus grande pour $2n$ que pour $n$. Pour la copie : `bound_half` passe sous la queue exacte pour $a \le p$ (0,5 alors que la queue vaut presque 1) et pour $a = 1$, où la borne est exacte. `bound_squared` passe sous la queue pour $n = 1$, $p = 0{,}01$, $a = 0{,}7$ ($0{,}0053 < 0{,}01$). `bound_fixed_lambda` et `bound_markov` sont de **vraies** bornes (Markov vaut pour tout $\lambda > 0$, et pour $X$ lui-même), mais pas celles du contrat : la première rend $(1 - p + pe)^ne^{-na}$, plus que 1 dès que $a$ est petit (pour $a = 0$, $(1 + p(e - 1))^n > 1$) ; la seconde ne décroît pas avec $n$ et passe au-dessus de Hoeffding, par exemple pour $n = 3$, $p = 0{,}01$, $a = 0{,}9$ : $0{,}0111 > 0{,}0086$. Une grille utile contient les cas extrêmes.
+
+**Erreurs fréquentes.** Une grille sans petits $n$ ni $p$ extrêmes, qui laisse passer `bound_squared` et `bound_markov` ; `math.ceil(n * a)` sans la petite marge, qui calcule parfois la mauvaise queue ; des comparaisons sans tolérance, qui peuvent échouer sur la vraie borne pour $a = 1$, où borne et queue valent toutes deux $p^n$ à un arrondi près.
+
+### Ex M14.17 — Défi : suivre le meilleur de dix experts avec Hedge sans connaître l'horizon, un regret sous la borne théorique sur 1 000 tours
+
+**Vérification** : `True` si ton regret est sous la borne aux tours 50, 200 et 1 000, sur les trois suites.
+
+**Démarche.** Garder les losses cumulées et le numéro $t$ du tour qui vient ; `weights()` rend les poids $\propto e^{-\eta_t(L - \min L)}$ avec $\eta_t = \sqrt{8\ln K/t}$ ; `update` ajoute les losses et incrémente $t$. Pour la copie : les bornes valent $\approx 15{,}7$, $30{,}9$ et $68{,}4$. $\eta = 0{,}01$ réagit trop lentement : regret $\approx 31$ dès le tour 50 sur la suite stochastique. « Suivre le meneur » réussit les deux premières suites, mais la suite piège lui fait perdre 1 à chaque tour pendant que le meilleur expert ne perd qu'un tour sur deux : regret $\approx t/2$, 500 au tour 1 000. Le meilleur $\eta$ constant pour $T = 1\,000$, $\approx 0{,}136$, paie d'emblée $\frac{\ln K}{\eta} \approx 17$ : regret $\approx 17{,}0$ au tour 50, au-dessus de $15{,}7$. $\eta_t$ est grand au début (il suit vite le meilleur expert) et diminue ensuite (il ne suit plus les à-coups) : regrets $\approx 1{,}9$ (stochastique) et $\approx 0{,}8$ (changement) au tour 1 000, et $\approx 6{,}8$, $14{,}4$ et $33{,}1$ aux trois points de contrôle de la suite piège, tous sous la borne. Il ne dépend que du tour courant, jamais de $T$. Une autre solution : recommencer Hedge avec des horizons $1, 2, 4, 8, \ldots$ (le *doubling trick*), au prix d'un facteur constant sur la borne.
+
+**Erreurs fréquentes.** Un $\eta$ qui dépend de $T$ (l'horizon n'est pas connu) ; des poids qui ne somment pas à 1 ; un $\eta_t$ calculé avec le nombre de tours joués, qui vaut 0 au premier appel (division par zéro) ; utiliser `hedge_weights` ou les suites de la vérification, interdits.

@@ -183,3 +183,31 @@
 ## Notebook
 
 *Tes réponses aux exercices du notebook se tapent dans ta copie du notebook. Note ici ce que tu veux garder : tes raisonnements, tes erreurs, tes questions.*
+
+### Ex M14.11 — La borne de Chernoff et la variance d'une moyenne pondérée · `chernoff_bound, variance_of_average`
+
+- KL(0,45 ‖ 0,24) et a) à la main, comparés à Hoeffding et à la queue exacte ; c) sans les covariances ; 25 × 0.6000000000000001 et la queue qu'on calculerait sans le − 1e-9 ; pourquoi f) est refusé :
+
+### Ex M14.12 — Les poids de l'algorithme Hedge · `hedge_weights`
+
+- les losses cumulées après six tours et a) à la calculatrice ; l'expert le plus lourd et ses tours gagnés ; e^(−ηL) sans retrancher le minimum ; e) comparé à la borne :
+
+### Ex M14.13 — Simuler la moyenne de deux groupes de modèles corrélés, et retrouver aᵀΣa et son plancher
+
+- la moyenne en deux parts, a) et b) à la main ; l'écart entre simulation et théorie, et √(2/n) ; la corrélation de deux modèles du groupe B ; une covariance Cov(Z_A, Z_B) négative :
+
+### Ex M14.14 — Les poids exponentiels au fil des tours : quel expert domine, selon le learning rate
+
+- pour chaque η, l'expert qui domine et le tour où il passe 0,5 ; les à-coups de η = 3 et leur coût ; η = 0,15 ; ton choix pour 80 tours et √(8 ln K/T) :
+
+### Ex M14.15 — Chasse à l'erreur : P(X ≥ k) calculée comme P(X > k), des covariances oubliées, des poids non renormalisés
+
+- après la vérification : ce que calcule chaque ligne fausse, et sa correction ; les lignes justes qui leur ressemblent ; la borne corrigée comparée à la probabilité exacte :
+
+### Ex M14.16 — Un test qui vérifie que la borne de Chernoff majore la queue exacte de `scipy.stats`, sur une grille de n, p et a
+
+- la propriété et le cas de ta grille qui attrapent chaque fausse borne ; les deux vraies bornes refusées, et pourquoi ; pourquoi bound_fixed_lambda dépasse 1 :
+
+### Ex M14.17 — Défi : suivre le meilleur de dix experts avec Hedge sans connaître l'horizon, un regret sous la borne théorique sur 1 000 tours
+
+- où échouent η = 0,01, le meilleur η constant pour T = 1 000 et « suivre le meneur », et pourquoi ; ton choix, et pourquoi il ne dépend pas de T ; tes regrets au tour 1 000 :
