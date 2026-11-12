@@ -22,7 +22,7 @@ with a step s₁ = 3), four stages of length 4 and step 2, a random stack (M21.2
 (x₇, x₈, x₉) = (2, 5, −1), the weights (1, −1, 2, 1) with a step 3 (M21.24); a grid of 360 × 360 random values and
 kernels of rank 1 for k = 3, 5, 9, 15, 25 (M21.25); a 6 × 6 input and (k, s) = (5, 2), (6, 2), (7, 3), (9, 3)
 (M21.26); the polynomials (1 + 2X)(3 − X + 4X²), checked by the colleague on (1 + 2X)(2 + 5X + 2X²), a transposed
-convolution with k = 8, s = 3, m = 6 (checked by the colleague on (k, s) = (6, 2), (9, 3), (8, 4)), the kernel
+convolution with k = 8, s = 3, m = 6 (checked by the colleague on (k, s) = (6, 3), (8, 2), (12, 4)), the kernel
 [[2, 1, 3], [4, 2, 5], [2, 1, 3]], x = (6, 2, 7, 1, 8, 3) with the weights (2, −3) (M21.27); 200 random kernels and
 signals of integers (M21.28); 7 secret weights, 2 000 Gaussian values, a noise 0.05 (M21.29). Part 0 takes the data
 of the corrected statements (M21.6 h: 125 positions; M21.7: y = (3, 2, −2); M21.10 c: s₁ = 3; M21.17 g: the kernel
@@ -1295,7 +1295,7 @@ M21_24 = Ex(
     "prévoir ce qu'un décalage de l'entrée fait à un filtrage avec pas, puis le voir.",
     "fiche §4 et §5 ; Ex M21.19", tracks="C, E", hypothesis=True, given=GIVEN_24, note=NOTE_24,
     body=r"""Un signal de 30 valeurs, nul sauf $x_7 = 2$, $x_8 = 5$ et $x_9 = -1$ (`X_24`), est filtré par la somme glissante de poids $(1, -1, 2, 1)$ (`W_24`) avec un pas de 3, en mode valide : $y_i = \sum_u w_u\,x_{3i+u}$, pour les 9 positions $i = 0, \ldots, 8$. On le retarde de $t$ cases : $t$ zéros entrent à gauche, et les $t$ dernières valeurs sortent à droite. Prédis, **avant d'exécuter quoi que ce soit** :
-- a) pour $t = 3$, de combien de positions la sortie est décalée (un entier) ;
+- a) pour $t = 3$, de combien de positions de sortie la sortie est décalée (un entier) ;
 - b) la même chose pour $t = 6$ ;
 - c) vrai ou faux : pour $t = 1$, la sortie est un décalage de la sortie d'origine ;
 - d) la même question pour $t = 2$ ;
@@ -1434,7 +1434,7 @@ CHECK_25 = '''with checked("M21.25"):
     verdict("M21.25", all(results_25), "tes deux filtrages sont justes, et leurs coûts sont dessinés.", "")'''
 
 M21_25 = Ex(
-    "M21.25", "🔬", 2, 20, "Le coût d'un filtrage direct ou séparable, selon la taille du noyau : mesurer, puis "
+    "M21.25", "🔬", 2, 30, "Le coût d'un filtrage direct ou séparable, selon la taille du noyau : mesurer, puis "
     "comparer à k² et 2k",
     "mesurer le coût d'un filtrage direct et d'un filtrage séparable selon la taille du noyau, et le comparer aux "
     "comptes $k^2$ et $2k$ de la fiche.", "fiche §6 ; Ex M21.8", tracks="C", given=GIVEN_25, note=NOTE_25,
@@ -1637,7 +1637,7 @@ M21_26 = Ex(
     body=r"""Une convolution transposée de pas $s$ imprime, pour chaque valeur d'entrée $y_i$, un tampon $y_i\,\mathbf{w}$ à partir de la case $s\,i$ (fiche §5) ; une case de la sortie reçoit un tampon de chaque $i$ tel que $0 \le j - s\,i \le k - 1$. En deux dimensions, avec une entrée de $m \times m$ valeurs et des noyaux $k \times k$ de pas $s$ selon les deux axes, le nombre de tampons qui couvrent la case $(j, j')$ est le **produit** des comptes des deux axes. Écris :
 - `coverage_26(m, k, s)` : en une dimension, le nombre de tampons qui couvrent chaque case, un tableau d'entiers de longueur $(m - 1)s + k$ ;
 - `coverage_map_26(m, k, s)` : la carte en deux dimensions, le tableau des produits des comptes des deux axes ;
-- `draw_maps_26(fig, axes, m, pairs)` : une carte par couple $(k, s)$ de `pairs`, dans les axes de `axes`, dans cet ordre : l'image de `coverage_map_26(m, k, s)` (`ax.imshow`), sa barre de couleurs (`fig.colorbar(image, ax=ax)`) et un titre qui donne $(k, s)$ ; sans ouvrir d'autre figure.
+- `draw_maps_26(fig, axes, m, pairs)` : une carte par couple $(k, s)$ de `pairs`, dans les axes de `axes`, dans cet ordre : l'image de `coverage_map_26(m, k, s)` (`ax.imshow`), sa barre de couleurs (`fig.colorbar(image, ax=ax)`) et un titre qui donne $(k, s)$, avec `ax.grid(False)` pour que la grille du style ne coupe pas les cases ; sans ouvrir d'autre figure.
 
 La cellule fournie donne $m = 6$ (`M_26`) et les couples $(k, s) = (5, 2)$, $(6, 2)$, $(7, 3)$ et $(9, 3)$ (`PAIRS_26`). La vérification compare ta carte à des tampons posés un par un, sur ces quatre couples et sur des cas que tu ne vois pas, puis appelle `draw_maps_26` et regarde le dessin, en s'arrêtant au premier ❌ : chaque carte, sa barre de couleurs et son titre.""",
     todo='''def coverage_26(m, k, s):
@@ -1681,6 +1681,7 @@ def draw_maps_26(fig, axes, m, pairs):
         image = ax.imshow(counts, cmap="viridis", interpolation="nearest")
         fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04)
         ax.set_title(f"(k, s) = ({k}, {s}) : " + ("uniforme à l'intérieur" if k % s == 0 else "un damier"), fontsize=10)
+        ax.grid(False)
         ax.set_xticks([])
         ax.set_yticks([])
 
@@ -1754,7 +1755,7 @@ def separate(K):
 
 # The colleague's checks: all pass
 print("(1) (1 + 2X)(2 + 5X + 2X²) :", poly_product([1, 2], [2, 5, 2]).tolist(), "(attendu [2, 9, 12, 4])")
-print("(2) n_covers : (k, s) = (6, 2) →", n_covers(6, 2), "; (9, 3) →", n_covers(9, 3), "; (8, 4) →", n_covers(8, 4),
+print("(2) n_covers : (k, s) = (6, 3) →", n_covers(6, 3), "; (8, 2) →", n_covers(8, 2), "; (12, 4) →", n_covers(12, 4),
       "(comptés à la main sur une case intérieure : k/s)")
 u_c27, v_c27 = separate(np.outer([1, 2], [3, 1, 2]))
 print("(3) un produit extérieur reconstruit :", bool(np.allclose(np.outer(u_c27, v_c27), np.outer([1, 2], [3, 1, 2]))))'''
@@ -1836,14 +1837,14 @@ if len(set(parts_27)) == 3:
             "relis les lignes ❌ ci-dessus.")'''
 
 M21_27 = Ex(
-    "M21.27", "🐛", 1, 20, "Chasse à l'erreur : un noyau non retourné, des recouvrements supposés réguliers, un noyau "
+    "M21.27", "🐛", 1, 25, "Chasse à l'erreur : un noyau non retourné, des recouvrements supposés réguliers, un noyau "
     "de rang 2 « séparé »",
     "reconnaître trois erreurs classiques qui ne lèvent aucune erreur Python et passent une vérification mal "
     "choisie, puis les corriger.", "fiche §1, §5 et §6 ; Ex M21.7 et M21.22", tracks="C, E", given=GIVEN_27,
     note=NOTE_27,
     body=r"""Un collègue a écrit trois fonctions (cellule fournie) ; chacune a l'erreur que nomme le titre, aucune ne lève d'erreur Python, et chacune a passé la vérification qu'il a faite :
 1. `poly_product(p, q)` doit rendre les coefficients du produit de deux polynômes, du terme constant au terme de plus haut degré ; elle renvoie `np.correlate(p, q, "full")`. Il l'a vérifiée sur $(1 + 2X)(2 + 5X + 2X^2)$, dont le second facteur a des coefficients palindromes, et l'applique à $(1 + 2X)(3 - X + 4X^2)$ (`P_27`, `Q_27`).
-2. `n_covers(k, s)` doit rendre le nombre de tampons qui couvrent une case intérieure d'une convolution transposée de noyau de longueur $k$ et de pas $s$ (fiche §5) ; elle renvoie `k // s`. Il l'a vérifiée sur $(k, s) = (6, 2)$, $(9, 3)$ et $(8, 4)$.
+2. `n_covers(k, s)` doit rendre le nombre de tampons qui couvrent une case intérieure d'une convolution transposée de noyau de longueur $k$ et de pas $s$ (fiche §5) ; elle renvoie `k // s`. Il l'a vérifiée sur $(k, s) = (6, 3)$, $(8, 2)$ et $(12, 4)$.
 3. `separate(K)` doit rendre les deux facteurs d'un noyau séparable ; elle rend la première colonne de $\mathbf{K}$ et sa première ligne divisée par $K_{0,0}$, sans regarder le rang. Il l'a vérifiée sur un produit extérieur, et l'applique au noyau $\begin{pmatrix} 2 & 1 & 3 \\ 4 & 2 & 5 \\ 2 & 1 & 3 \end{pmatrix}$ (`K_27`).
 
 À faire : écris `poly_product_fixed(p, q)`, `n_covers_fixed(j, k, s, m)` (le nombre de tampons qui couvrent la case $j$ d'une convolution transposée de $m$ valeurs d'entrée, de noyau de longueur $k$ et de pas $s$ : le nombre de $i \in \{0, \ldots, m - 1\}$ tels que $0 \le j - s\,i \le k - 1$) et `separate_fixed(K)` (qui rend les deux facteurs d'un noyau de rang 1, et `None` sinon), puis réponds :
@@ -1987,7 +1988,7 @@ CHECK_28 = r'''with checked("M21.28"):
     try:
         property_test_28(toeplitz_wrong_same_28, ref_conv.convolve)
         report_28(False, "", "ton test n'attrape pas toeplitz_wrong_same_28 (son mode même taille garde les lignes "
-                  "à partir de ⌊k/2⌋)")
+                  "à partir de ⌊k/2⌋ ; une AssertionError attrapée dans ta fonction ne compte pas : laisse-la sortir)")
     except AssertionError as exc:
         message_28 = str(exc)
         k_28 = re.search(r"\bk\s*=\s*(\d+)", message_28)
@@ -2018,7 +2019,7 @@ CHECK_28 = r'''with checked("M21.28"):
             "relis les lignes ❌ ci-dessus.")'''
 
 M21_28 = Ex(
-    "M21.28", "🛠️", 1, 15, "Un test de propriété : la matrice de Toeplitz fois x égale la convolution, pour des "
+    "M21.28", "🛠️", 1, 20, "Un test de propriété : la matrice de Toeplitz fois x égale la convolution, pour des "
     "longueurs tirées au hasard",
     "écrire un test de propriété pour `toeplitz_matrix`, et s'assurer qu'il attrape une version fausse du mode même "
     "taille.", "fiche §3 ; Ex M21.20", tracks="C", given=GIVEN_28, note=NOTE_28,

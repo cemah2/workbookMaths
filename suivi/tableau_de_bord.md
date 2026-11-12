@@ -1813,3 +1813,50 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] CP4.10 🔗 Problème de synthèse : ajuster une loi exponentielle, du graphe de calcul au pas critique ★★ 14 min
 - [ ] CP4.11 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
 <!-- wbm:end CP4 -->
+
+<!-- wbm:section M21 -->
+## M21 · Convolution, matrices de Toeplitz et équivariance ⏱️ 14,8 h
+
+- [ ] M21.Q1 🧠 Convolution ou corrélation : retourner, glisser, sommer ★ 4 min
+- [ ] M21.Q2 🧠 Les propriétés de la convolution : vrai ou faux ★ 4 min
+- [ ] M21.Q3 🧠 Lire une matrice de Toeplitz : diagonales, coefficients non nuls, nombre de lignes ★ 4 min
+- [ ] M21.Q4 🧠 Équivariant, invariant, ou ni l'un ni l'autre ? Décalages, bords, pas et pooling ★ 4 min
+- [ ] M21.Q5 🧠 Combien de positions ? Pas, dilatation, padding et insertion de zéros ★ 4 min
+- [ ] M21.Q6 🧠 Canaux, groupes, convolution 1 × 1 et noyaux séparables : compter ★ 4 min
+- [ ] M21.Q7 🧠 Composer des convolutions : noyau, pas et champ récepteur ★ 4 min
+- [ ] M21.Q8 🧠 Le pire cas d'une perturbation bornée : quelle norme, quel vecteur ? ★ 4 min (complet)
+- [ ] M21.R1 🔁 La moyenne mobile d'une suite (R5) ★ 5 min
+- [ ] M21.R2 🔁 La matrice d'une application linéaire, son noyau et son rang (M12a) ★ 5 min
+- [ ] M21.R3 🔁 Le rang d'un produit extérieur u vᵀ et la décomposition en valeurs singulières (M12d) ★ 5 min (complet)
+- [ ] M21.1 ✏️ Deux dés truqués et un produit de polynômes : la même convolution ★ 20 min
+- [ ] M21.2 ✏️ Convoluer et corréler un signal à la main, dans les trois modes ★★ 20 min
+- [ ] M21.3 ✏️ Des pochoirs de différences finies : dérivée et dérivée seconde d'un signal échantillonné ★★ 15 min
+- [ ] M21.4 ✏️ La matrice de Toeplitz d'une convolution pleine et d'une convolution valide : coefficients non nuls, rang et noyau ★★ 20 min
+- [ ] M21.5 ✏️ Décaler puis filtrer, ou filtrer puis décaler : l'équivariance, ses bords et son pas ★★ 15 min
+- [ ] M21.6 ✏️ Compter les positions d'une fenêtre : pas, dilatation, padding, « même taille » avec un pas, et le problème inverse ★★ 25 min
+- [ ] M21.7 ✏️ Sous-échantillonner et insérer des zéros : la convolution transposée d'un signal et ses recouvrements ★★ 25 min
+- [ ] M21.8 ✏️ Une carte de températures filtrée par un laplacien discret et par un lissage séparable ★★ 30 min
+- [ ] M21.9 ✏️ Paramètres et coût d'un filtrage à plusieurs canaux : standard, groupé, par canal, 1 × 1 ★★ 20 min
+- [ ] M21.10 ✏️ Le noyau équivalent de deux lissages successifs, et le champ récepteur d'une pile avec pas et dilatation ★★ 20 min
+- [ ] M21.11 ✏️ Le pire cas d'une erreur de capteurs bornée : une forme linéaire sur les boules L∞ et L2 ★ 15 min
+- [ ] M21.12 ∂ La convolution est commutative et associative ; la corrélation croisée ne l'est pas ★★ 25 min (complet)
+- [ ] M21.13 ∂ Les applications linéaires qui commutent avec le décalage circulaire sont les convolutions circulaires ; la transposée d'une matrice circulante ★★★ 30 min (complet)
+- [ ] M21.14 ∂ Le nombre de positions ⌊(n + 2p − d(k − 1) − 1)/s⌋ + 1 quand la fenêtre tient, par un dénombrement ★★ 20 min
+- [ ] M21.15 ∂ Le champ récepteur d'une pile de convolutions : récurrence et forme close ★★ 25 min (complet)
+- [ ] M21.16 ∂ Le maximum d'une forme linéaire sur une boule L∞ vaut ε‖g‖₁, atteint en ε signe(g) ★ 10 min (complet)
+- [ ] M21.17 🔗 Pont : filtrer une grille à trois canaux comme les bibliothèques, formes (C, H, W), poids (C_out, C_in, k, k), et sans retournement ★ 25 min
+- [ ] M21.18 🗣️ Expliquer avec une règle graduée et un pochoir pourquoi une convolution est équivariante, mais pas invariante ★ 10 min
+- [ ] M21.E1 💼 « Pourquoi une convolution est-elle une matrice de Toeplitz, et pourquoi ne la forme-t-on jamais ? » ★ 10 min (complet)
+- [ ] M21.19 🔨 La convolution de deux suites, dans les trois modes ★★ 30 min
+- [ ] M21.20 🔨 La matrice de Toeplitz d'une convolution ★★ 25 min
+- [ ] M21.21 🔨 La convolution circulaire ★ 20 min (complet)
+- [ ] M21.22 🔨 Reconnaître un noyau séparable et le factoriser ★★ 25 min (complet)
+- [ ] M21.23 🔨 Le noyau équivalent et le pas d'une pile de sommes glissantes ★★ 30 min
+- [ ] M21.24 🔮 Prédire l'effet d'un décalage de l'entrée sur un filtrage avec pas, puis vérifier ★ 15 min
+- [ ] M21.25 🔬 Le coût d'un filtrage direct ou séparable, selon la taille du noyau : mesurer, puis comparer à k² et 2k ★★ 30 min (complet)
+- [ ] M21.26 🎨 La carte des recouvrements d'une convolution transposée : un damier ou pas, selon k et s ★ 15 min
+- [ ] M21.27 🐛 Chasse à l'erreur : un noyau non retourné, des recouvrements supposés réguliers, un noyau de rang 2 « séparé » ★ 25 min
+- [ ] M21.28 🛠️ Un test de propriété : la matrice de Toeplitz fois x égale la convolution, pour des longueurs tirées au hasard ★ 20 min (complet)
+- [ ] M21.29 🏆 Défi : retrouver un noyau inconnu à partir d'un signal et de sa version filtrée bruitée, par les moindres carrés ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (22 cartes)
+<!-- wbm:end M21 -->

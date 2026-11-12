@@ -16,7 +16,7 @@ is also compared with the checkpoint V and the mini-project V of workbookIA.
 
 CHAPTERS = [
     {
-        "id": "M21", "dir": "m21_convolution", "hours": 14.4, "generation_sessions": 1, "mml": [],
+        "id": "M21", "dir": "m21_convolution", "hours": 14.8, "generation_sessions": 1, "mml": [],
         "summary": "La convolution, d'abord entre deux suites (le produit de deux polynômes, la loi de la somme de deux "
                    "dés, une moyenne mobile), puis la corrélation croisée des bibliothèques, qui ne retourne pas le "
                    "noyau, et les pochoirs de différences finies ; la convolution comme application linéaire, de "
@@ -81,8 +81,8 @@ CHAPTERS = [
                      ("approximation au premier ordre f(x + δ) ≈ f(x) + ∇f(x) · δ", "M05b"),
                      ("tableaux à plusieurs axes, formes, einsum", "M20")],
         "frontieres": ["21.R2", "21.Q3", "21.Q4", "21.Q5", "21.Q6", "21.Q7", "21.Q9", "21.Q11", "21.1", "21.2",
-                       "21.3", "21.4", "21.5", "21.6", "21.8", "21.11", "21.17", "21.20", "21.26", "21.29", "21.E2",
-                       "21.E3", "22.R1", "24.R2", "24.2", "24.3", "24.Q9"],
+                       "21.3", "21.4", "21.5", "21.6", "21.8", "21.11", "21.12", "21.16", "21.17", "21.20", "21.26",
+                       "21.29", "21.E2", "21.E3", "22.R1", "24.R2", "24.2", "24.3", "24.Q9"],
         "mymath": {"module": "convolution.py",
                    "functions": ["convolve", "toeplitz_matrix", "circular_convolve", "equivalent_kernel",
                                  "separable_factors"]},
@@ -165,7 +165,7 @@ CHAPTERS = [
              "avec un pas, et le problème inverse", "§5", "E"),
             ("M21.7", "✏️", 2, 25, "Sous-échantillonner et insérer des zéros : la convolution transposée d'un signal "
              "et ses recouvrements", "§5", "E"),
-            ("M21.8", "✏️", 2, 25, "Une carte de températures filtrée par un laplacien discret et par un lissage "
+            ("M21.8", "✏️", 2, 30, "Une carte de températures filtrée par un laplacien discret et par un lissage "
              "séparable", "§6", "E"),
             ("M21.9", "✏️", 2, 20, "Paramètres et coût d'un filtrage à plusieurs canaux : standard, groupé, par canal, "
              "1 × 1", "§6", "E"),
@@ -198,13 +198,13 @@ CHAPTERS = [
              "E m:equivalent_kernel p:M21.19"),
             ("M21.24", "🔮", 1, 15, "Prédire l'effet d'un décalage de l'entrée sur un filtrage avec pas, puis vérifier",
              "§4 §5", "E p:M21.19"),
-            ("M21.25", "🔬", 2, 20, "Le coût d'un filtrage direct ou séparable, selon la taille du noyau : mesurer, puis "
+            ("M21.25", "🔬", 2, 30, "Le coût d'un filtrage direct ou séparable, selon la taille du noyau : mesurer, puis "
              "comparer à k² et 2k", "§6", "p:M21.19"),
             ("M21.26", "🎨", 1, 15, "La carte des recouvrements d'une convolution transposée : un damier ou pas, selon "
              "k et s", "§5", "E"),
-            ("M21.27", "🐛", 1, 20, "Chasse à l'erreur : un noyau non retourné, des recouvrements supposés réguliers, "
+            ("M21.27", "🐛", 1, 25, "Chasse à l'erreur : un noyau non retourné, des recouvrements supposés réguliers, "
              "un noyau de rang 2 « séparé »", "§2 §5 §6", "E"),
-            ("M21.28", "🛠️", 1, 15, "Un test de propriété : la matrice de Toeplitz fois x égale la convolution, pour "
+            ("M21.28", "🛠️", 1, 20, "Un test de propriété : la matrice de Toeplitz fois x égale la convolution, pour "
              "des longueurs tirées au hasard", "§3", "p:M21.20"),
             ("M21.29", "🏆", 3, 25, "Défi : retrouver un noyau inconnu à partir d'un signal et de sa version filtrée "
              "bruitée, par les moindres carrés", "§3", "p:M21.20"),

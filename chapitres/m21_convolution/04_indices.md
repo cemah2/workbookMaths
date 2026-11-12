@@ -592,7 +592,7 @@ for j in range(m):
     full[j:j + n] += b[j] * a
 ...      # then the slice of the mode, and a copy
 ```
-Pour a), la loi d'un dé à 8 faces est huit fois $\frac18$ ; convolue-la deux fois avec elle-même ; l'indice $m$ correspond au total $m + 3$. Pour b), pars de $(1)$ et convolue sept fois par $(2, -1)$.
+Pour a), un dé est la suite $(0, \frac18, \ldots, \frac18)$ de 9 termes (l'indice est la face) ; convolue-la deux fois avec elle-même : l'indice de la loi est la somme (25 termes), et a) est `law_19[11]`. Pour b), pars de $(1)$ et convolue sept fois par $(2, -1)$.
 
 </details>
 
@@ -707,6 +707,7 @@ Direct : une boucle sur $(u, v)$, chaque tour ajoute $K_{u,v}$ fois une tranche 
 <details><summary>Indice 3</summary>
 
 ```python
+K = np.outer(a, b)
 out = np.zeros((H - k + 1, W - k + 1))
 for u in range(k):
     for v in range(k):
@@ -730,7 +731,7 @@ En 1D : un tableau de $(m - 1)s + k$ zéros, et, pour chaque $i$, ajoute 1 aux c
 </details>
 <details><summary>Indice 3</summary>
 
-`counts[s * i:s * i + k] += 1` pour `i` de 0 à $m - 1$, puis `np.outer(counts, counts)` ; quatre `ax.imshow` dans une grille $2 \times 2$, chacun avec `fig.colorbar` et un titre qui donne $(k, s)$.
+`counts[s * i:s * i + k] += 1` pour `i` de 0 à $m - 1$, puis `np.outer(counts, counts)` ; un `ax.imshow` dans chacun des quatre axes reçus, dans l'ordre de `pairs`, chacun avec `fig.colorbar`, un titre qui donne $(k, s)$ et `ax.grid(False)` (sinon la grille du style coupe les cases).
 
 </details>
 
@@ -766,7 +767,7 @@ Un générateur `np.random.default_rng(5538)` ; à chaque tirage, $k$, puis $n \
 </details>
 <details><summary>Indice 3</summary>
 
-Passe la fonction à tester en argument (`toeplitz=toeplitz_matrix`), pour pouvoir la lancer sur la version fausse fournie ; entoure cet appel d'un `try` / `except AssertionError` qui affiche le message du premier échec.
+Les deux fonctions arrivent en arguments, `property_test_28(toeplitz_matrix, convolve)` : la vérification lance ainsi ton test sur la version fausse fournie. Laisse l'`AssertionError` sortir de ta fonction (pas de `try` / `except` dedans) : c'est la vérification qui l'attrape et lit son message.
 
 </details>
 
@@ -779,7 +780,7 @@ Fiche §3 (« La matrice des fenêtres » : la sortie est linéaire en $\mathbf{
 </details>
 <details><summary>Indice 2</summary>
 
-La convolution est commutative : $\mathbf{w} \star \mathbf{x} = \mathbf{x} * \tilde{\mathbf{w}} = \tilde{\mathbf{w}} * \mathbf{x}$, et la matrice pleine de $\mathbf{x}$ (pris comme noyau), pour des signaux de longueur 7, envoie $\tilde{\mathbf{w}}$ sur la convolution pleine ; garde ses lignes du mode valide.
+La convolution est commutative : $\mathbf{w} \star \mathbf{x} = \mathbf{x} * \tilde{\mathbf{w}} = \tilde{\mathbf{w}} * \mathbf{x}$, et la matrice pleine de $\mathbf{x}$ (pris comme noyau), pour des signaux de longueur 7, envoie $\tilde{\mathbf{w}}$ sur la convolution pleine ; garde ses lignes 6 à 1999 (une tranche de la matrice pleine : `toeplitz_matrix` refuse le mode valide quand $n < k$).
 
 </details>
 <details><summary>Indice 3</summary>
