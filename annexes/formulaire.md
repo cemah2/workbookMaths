@@ -538,7 +538,24 @@ R0 (prise en main) n'a pas de formule : les priorités de Python (`**` avant le 
 | comatrice | $C_{ij} = (-1)^{i+j}\det$ (sans la ligne $i$ ni la colonne $j$) ; $\mathbf{X}\operatorname{com}(\mathbf{X})^\top = \det\mathbf{X}\;\mathbf{I}$ ; $2 \times 2$ : $\operatorname{com}\begin{pmatrix} a & b \\ c & d \end{pmatrix} = \begin{pmatrix} d & -c \\ -b & a \end{pmatrix}$ |
 | moyenne, vérification | $\nabla\frac1N\sum_kf_k = \frac1N\sum_k\nabla f_k$ ; $\nabla_{\mathbf{p}}\lVert\mathbf{p} - \mathbf{x}\rVert = \frac{\mathbf{p} - \mathbf{x}}{\lVert\mathbf{p} - \mathbf{x}\rVert}$ ; vérifier $\mathbf{G}$ : $\frac{f(\mathbf{X} + h\mathbf{H}) - f(\mathbf{X} - h\mathbf{H})}{2h} \approx \operatorname{tr}(\mathbf{G}^\top\mathbf{H})$, $\mathbf{H}$ au hasard et non symétrique, $h \approx 10^{-5}$ |
 
-*(M19 et M20 ajoutés avec leurs chapitres)*
+### M19 · Hessienne, conditionnement et convergence
+
+| Notion | Formules |
+|---|---|
+| hessienne | $H_{ij} = \frac{\partial^2 f}{\partial x_i\partial x_j}$, symétrique (Schwarz), $\nabla^2 f = \mathbf{J}_{\nabla f}$ ; $\nabla^2(\frac12\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}) = \mathbf{A}$ ; courbure dans la direction unitaire $\mathbf{u}$ : $\mathbf{u}^\top\mathbf{H}\mathbf{u} \in [\lambda_{\min}, \lambda_{\max}]$ |
+| Taylor d'ordre 2 | $f(\mathbf{x} + \mathbf{h}) \approx f(\mathbf{x}) + \nabla f(\mathbf{x})^\top\mathbf{h} + \frac12\mathbf{h}^\top\nabla^2 f(\mathbf{x})\,\mathbf{h}$ ; en un point critique, $\frac12\sum_i\lambda_iy_i^2$ dans la base propre |
+| hessienne numérique | $H_{ii} \approx \frac{f(\mathbf{x} + h\mathbf{e}_i) - 2f(\mathbf{x}) + f(\mathbf{x} - h\mathbf{e}_i)}{h^2}$ ; $H_{ij} \approx \frac{f(\mathbf{x} + h\mathbf{e}_i + h\mathbf{e}_j) - f(\mathbf{x} + h\mathbf{e}_i - h\mathbf{e}_j) - f(\mathbf{x} - h\mathbf{e}_i + h\mathbf{e}_j) + f(\mathbf{x} - h\mathbf{e}_i - h\mathbf{e}_j)}{4h^2}$ ; $h \approx 10^{-4}$ ; $2n^2 + 1$ évaluations |
+| points critiques | valeurs propres de la hessienne : toutes $> 0$ minimum, toutes $< 0$ maximum, des deux signes selle (indice = nombre de négatives), une nulle et les autres de même signe : pas de conclusion |
+| itération linéaire | $\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$ ; $(\mathbf{I} - \mathbf{M})\mathbf{x}^\star = \mathbf{c}$ ; $\mathbf{e}_k = \mathbf{M}^k\mathbf{e}_0$ ; $\mathbf{M}$ symétrique : convergence $\iff$ tous les $\lvert\lambda_i\rvert < 1$, $\lVert\mathbf{e}_k\rVert \le \rho^k\lVert\mathbf{e}_0\rVert$ ; $d$ décimales : $k \ge \frac{d\ln 10}{-\ln\rho}$ |
+| Richardson | $\mathbf{x}_{k+1} = \mathbf{x}_k + \omega(\mathbf{b} - \mathbf{A}\mathbf{x}_k)$ ; valeurs propres de $\mathbf{I} - \omega\mathbf{A}$ : $1 - \omega\lambda_i$ ; convergence $\iff 0 < \omega < 2/\lambda_{\max}$ ; $\rho(\omega) = \max(\lvert1 - \omega\lambda_{\min}\rvert, \lvert1 - \omega\lambda_{\max}\rvert)$ ; c'est $\mathbf{x} - \omega\nabla f$ pour $f = \frac12\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}$ |
+| conditionnement | $\kappa = \lambda_{\max}/\lambda_{\min}$ ; $\omega^\star = \frac{2}{\lambda_{\min} + \lambda_{\max}}$, $\rho^\star = \frac{\kappa - 1}{\kappa + 1}$ (énoncés) ; $\approx 1{,}15\,\kappa\,d$ itérations pour $d$ décimales ; avec $\omega = 1/\lambda_{\max}$ : $\rho = 1 - \frac1\kappa$ ; gradient conjugué : de l'ordre de $\sqrt\kappa$ |
+| préconditionnement diagonal | $\mathbf{D} = \operatorname{diag}(a_{ii})$, $\tilde{\mathbf{A}} = \mathbf{D}^{-1/2}\mathbf{A}\mathbf{D}^{-1/2}$, $\tilde a_{ij} = \frac{a_{ij}}{\sqrt{a_{ii}a_{jj}}}$, $\mathbf{x} = \mathbf{D}^{-1/2}\mathbf{y}$ ; Jacobi : $\mathbf{x} \leftarrow \mathbf{x} + \mathbf{D}^{-1}(\mathbf{b} - \mathbf{A}\mathbf{x})$ |
+| récurrence d'ordre 2 | $u_{k+2} = p\,u_{k+1} - q\,u_k$ ; $r^2 - pr + q$ ; $u_k = \alpha r_1^k + \beta r_2^k$, ou $(\alpha + \beta k)r^k$ ; $\to 0$ $\iff$ $\lvert r_1\rvert, \lvert r_2\rvert < 1$ $\iff$ $\lvert q\rvert < 1$ et $\lvert p\rvert < 1 + q$ ; compagnon $\begin{pmatrix} p & -q \\ 1 & 0 \end{pmatrix}$ |
+| nombres complexes | $i^2 = -1$ ; $\overline{a + ib} = a - ib$ ; $\lvert a + ib\rvert = \sqrt{a^2 + b^2}$, $\lvert zw\rvert = \lvert z\rvert\lvert w\rvert$ ; $\Delta < 0$ : racines $\frac p2 \pm i\frac{\sqrt{-\Delta}}{2}$, de module $\sqrt q$, $\cos\theta = \frac{p}{2\sqrt q}$ ; $u_k = \lvert r\rvert^k(A\cos k\theta + B\sin k\theta)$ |
+| gradient estimé | $\mathbf{g} = \frac1B\sum_j\nabla f_{K_j}$, $K_j$ uniformes indépendants : $\mathbb{E}[\mathbf{g}] = \nabla F$, $\mathbb{E}\lVert\mathbf{g} - \nabla F\rVert^2 = \frac{\sigma^2}{B}$, $\sigma^2 = \frac1N\sum_k\lVert\nabla f_k - \nabla F\rVert^2$ ; sans remise : $\times\frac{N - B}{N - 1}$ |
+| projections | boule : $\mathbf{x}\min(1, r/\lVert\mathbf{x}\rVert)$, à la distance $\lVert\mathbf{x}\rVert - r$ ; pavé : $\min(\max(x_i, l_i), u_i)$ ; $[-c, c]^n$ garde la direction de $\mathbf{x}$ (hors du pavé) $\iff$ ses coordonnées non nulles ont la même valeur absolue |
+
+*(M20 ajouté avec son chapitre)*
 
 ## Partie V · Architectures
 

@@ -99,8 +99,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | concentration (de la norme) | concentration of measure | en grande dimension, une quantité qui dépend de beaucoup de coordonnées indépendantes varie peu autour de sa valeur typique : la norme d'un vecteur gaussien de $\mathbb{R}^n$ vaut $\sqrt{n}$ à environ 0,7 près | M07 |
 | condition de Slater | Slater's condition | l'existence d'un point strictement admissible ($g_i(\mathbf{x}) < 0$ pour les inégalités non affines) ; avec la convexité, elle donne la dualité forte | M13b |
 | condition nécessaire, suffisante | necessary, sufficient condition | dans $P \Rightarrow Q$, P est suffisante pour Q et Q nécessaire pour P | R4 |
-| conditionnement | condition number | $\kappa(\mathbf{A}) = s_{\max}/s_{\min} \ge 1$ (infini si $\mathbf{A}$ n'est pas de rang plein) : l'amplification maximale d'une erreur relative, $\frac{\lVert \delta\mathbf{x} \rVert}{\lVert \mathbf{x} \rVert} \le \kappa\,\frac{\lVert \delta\mathbf{b} \rVert}{\lVert \mathbf{b} \rVert}$ ; on perd environ $\log_{10}\kappa$ chiffres ; $\kappa(\mathbf{A}^\top\mathbf{A}) = \kappa^2$ ; le déterminant ne le mesure pas | M12d |
+| conditionnement | condition number | $\kappa(\mathbf{A}) = s_{\max}/s_{\min} \ge 1$ (infini si $\mathbf{A}$ n'est pas de rang plein) : l'amplification maximale d'une erreur relative, $\frac{\lVert \delta\mathbf{x} \rVert}{\lVert \mathbf{x} \rVert} \le \kappa\,\frac{\lVert \delta\mathbf{b} \rVert}{\lVert \mathbf{b} \rVert}$ ; on perd environ $\log_{10}\kappa$ chiffres ; $\kappa(\mathbf{A}^\top\mathbf{A}) = \kappa^2$ ; le déterminant ne le mesure pas ; pour une matrice symétrique définie positive, $\lambda_{\max}/\lambda_{\min}$, qui fixe le nombre d'itérations des méthodes itératives (M19) | M12d, M19 |
 | conditions KKT | Karush-Kuhn-Tucker conditions | pour $\min f$ sous $g_i \le 0$ et $h_j = 0$ : admissibilité, stationnarité du lagrangien, $\mu_i \ge 0$ et complémentarité ; nécessaires sous qualification, suffisantes pour un problème convexe | M13b |
+| conjugué (d'un nombre complexe) | complex conjugate | $\overline{a + ib} = a - ib$ ; $z\bar z = \lvert z\rvert^2$ ; les racines non réelles d'un trinôme réel sont conjuguées | M19 |
 | conservateur (test) | conservative test | un test dont le risque de type I réel est plus petit que le seuil annoncé, comme un test à statistique discrète | M08 |
 | continuité | continuity | $f$ est continue en $a$ si $\lim_{x \to a} f(x) = f(a)$ : pas de saut | R7 |
 | contrainte active, inactive | active, inactive constraint | une contrainte d'inégalité atteinte avec égalité à la solution ($g(\mathbf{x}^*) = 0$), ou non ($g(\mathbf{x}^*) < 0$, et son multiplicateur est nul) | M13b |
@@ -125,6 +126,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | courbe ROC | ROC curve (receiver operating characteristic) | pour chaque seuil, le point (taux de faux positifs, recall) : un escalier de (0, 0) à (1, 1) | M03 |
 | couverture | coverage | proportion des échantillons pour lesquels un intervalle de confiance contient la vraie valeur | M02c |
 | covariance empirique | empirical (sample) covariance | $\frac{1}{n}\sum (x_i - \bar{x})(y_i - \bar{y})$ (ou divisée par $n - 1$) : la moyenne des produits des écarts | M02c |
+| critère d'arrêt | stopping criterion | la règle qui arrête une méthode itérative : en général le résidu relatif $\lVert\mathbf{b} - \mathbf{A}\mathbf{x}_k\rVert/\lVert\mathbf{b}\rVert$ sous une tolérance, avec un nombre maximal d'itérations | M19 |
 | croissances comparées | orders of growth, comparative growth rates | pour $x$ très grand, $\ln x \ll x^k \ll a^x$ ($k > 0$, $a > 1$) | R6 |
 | croissante, décroissante | increasing, decreasing | qui conserve (retourne) l'ordre sur un intervalle : $a < b \Rightarrow f(a) \le f(b)$ ($\ge$) | R3 |
 | cross-entropy | cross-entropy | $H(p, q) = -\sum p \log_2 q$ : la longueur moyenne d'un code fait pour la loi $q$, sur des données de loi $p$ ; la log loss en est une | M06 |
@@ -280,6 +282,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | génératif, discriminant (modèle) | generative, discriminative model | un modèle génératif modélise la loi des features dans chaque classe et la proportion des classes, puis applique la formule de Bayes (Naïve Bayes) ; un modèle discriminant modélise directement la classe sachant les features (régression logistique) | M13a |
 | gradient | gradient | vecteur des dérivées partielles | M05b |
 | gradient bon marché (principe du) | cheap gradient principle | le gradient d'une fonction réelle coûte, en mode inverse, un petit multiple du coût de la fonction, quel que soit le nombre de variables (Baur et Strassen, 1983) | M18 |
+| gradient conjugué | conjugate gradient | méthode itérative pour $\mathbf{A}\mathbf{x} = \mathbf{b}$, $\mathbf{A}$ symétrique définie positive (Hestenes et Stiefel, 1952) : au plus $n$ itérations en arithmétique exacte, de l'ordre de $\sqrt\kappa$ en pratique (`scipy.sparse.linalg.cg`) | M19 |
+| gradient estimé sur un échantillon | stochastic gradient estimate | $\frac1B\sum_j\nabla f_{K_j}$, avec $B$ indices tirés au hasard parmi les $N$ termes d'une moyenne : sans biais, de variance $\sigma^2/B$ (le gradient d'un mini-batch) | M19 |
 | gradient fonctionnel | functional gradient | le gradient d'une loss par rapport au vecteur $\mathbf{F}$ des prédictions sur les exemples (une coordonnée par exemple) ; ajouter à l'ensemble $\alpha\,h$, avec $\mathbf{h}$ d'angle aigu avec $-\nabla_{\mathbf{F}}\mathcal{L}$ et $\alpha$ petit, fait baisser la loss au premier ordre | M14 |
 | gradient par rapport à une matrice | gradient with respect to a matrix | le tableau des $\frac{\partial f}{\partial X_{ij}}$, de la forme de $\mathbf{X}$ (NumPy, workbookIA) ; $f(\mathbf{X} + \mathbf{H}) \approx f(\mathbf{X}) + \sum_{ij}G_{ij}H_{ij}$ | M18 |
 | graine | seed | la tangente donnée aux entrées au départ d'une passe directe ($\dot{x}_i = 1$, les autres 0), ou l'adjoint donné à la sortie au départ d'une passe arrière ($\bar{y} = 1$) | M18 |
@@ -290,7 +294,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | Hadamard (produit de) | Hadamard product, element-wise product | $\mathbf{A} \odot \mathbf{B}$, les produits des éléments de même position (`A * B` en NumPy) ; même forme, commutatif | M09a |
 | Hedge (algorithme) | Hedge, exponential weights algorithm | les poids $w_t[k] \propto e^{-\eta L_t[k]}$ sur $K$ experts, $L_t[k]$ leur loss cumulée ; regret au plus $\frac{\ln K}{\eta} + \frac{\eta T}{8}$, soit $\sqrt{T\ln K/2}$ avec le meilleur $\eta$ | M14 |
 | hérédité, initialisation | inductive step, base case | les deux étapes d'une récurrence : $P(n) \Rightarrow P(n + 1)$, et $P(n_0)$ | R4 |
-| hessienne | Hessian | matrice des dérivées secondes ; symétrique, elle a des valeurs propres réelles : définie positive en un point critique, c'est un minimum local ; semi-définie positive partout, la fonction est convexe | M05b, M12c, M19 |
+| hessienne | Hessian | matrice des dérivées secondes, $H_{ij} = \frac{\partial^2 f}{\partial x_i\partial x_j}$, la jacobienne du gradient ; symétrique, elle a des valeurs propres réelles, les courbures extrêmes : définie positive en un point critique, c'est un minimum local ; semi-définie positive partout, la fonction est convexe | M05b, M12c, M19 |
 | hinge loss | hinge loss | $\max(0, 1 - t)$, avec $t = y\,s$ la marge fonctionnelle : convexe, nulle dès $t \ge 1$, au moins égale à l'erreur 0-1 ; la loss de la SVM à marge souple | M13b |
 | Hoeffding (inégalité de) | Hoeffding's inequality | pour $n$ variables indépendantes à valeurs dans $[a, b]$ : $P(\lvert \bar{X} - \mu \rvert \ge t) \le 2e^{-2nt^2/(b - a)^2}$ | M11 |
 | homogénéité (d'une norme) | absolute homogeneity | $\lVert \lambda\mathbf{x} \rVert = \lvert \lambda \rvert\,\lVert \mathbf{x} \rVert$ : multiplier un vecteur par $\lambda$ multiplie sa longueur par $\lvert \lambda \rvert$ | M07 |
@@ -309,6 +313,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | indépendance conditionnelle | conditional independence | $X$ et $Y$ sont indépendantes sachant $Z$ si $P(X, Y \mid Z) = P(X \mid Z)\,P(Y \mid Z)$ ; des variables très corrélées peuvent l'être (deux thermomètres sachant la température) | M13a |
 | indépendance deux à deux, mutuelle | pairwise, mutual independence | chaque paire d'événements est indépendante ; ou tous ensemble le sont : $P(A \cap B \cap C) = P(A)P(B)P(C)$ en plus. La première n'entraîne pas la seconde | M03 |
 | indicatrice | indicator (variable) | variable qui vaut 1 si un événement se produit, 0 sinon (une Bernoulli) | M02b |
+| indice (d'un point selle) | index (of a critical point) | le nombre de valeurs propres négatives de la hessienne : le nombre de directions indépendantes où la fonction descend | M19 |
 | indice (d'une somme) | index (of a sum) | la variable muette de $\sum_{k=m}^{n}$, qui va de $m$ à $n$ | R4 |
 | indice de Gini | Gini impurity, Gini index | $G(\mathbf{p}) = 1 - \sum_k p_k^2 = \sum_k p_k(1 - p_k)$, la somme des variances des indicatrices de classe ; entre 0 (une classe) et $1 - \frac{1}{K}$ (loi uniforme), concave | M13a |
 | inégalité de Cauchy-Schwarz | Cauchy-Schwarz inequality | $\lvert \vec{u} \cdot \vec{v} \rvert \le \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert$ | R9, M07 |
@@ -336,6 +341,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | intervalle de Wald, de Wilson | Wald interval, Wilson (score) interval | deux intervalles d'une proportion : $\hat{p} \pm z\sqrt{\hat{p}(1 - \hat{p})/n}$, faux avec peu de succès ; celui de Wilson, qui inverse un test, reste dans $[0, 1]$ | M08 |
 | inverse d'une matrice | inverse matrix | la matrice $\mathbf{A}^{-1}$ telle que $\mathbf{A}\mathbf{A}^{-1} = \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$ ; unique quand elle existe, seulement pour une matrice carrée | M09a |
 | issue | outcome | un résultat possible d'une expérience aléatoire | R8 |
+| itération de Richardson | Richardson iteration | $\mathbf{x}_{k+1} = \mathbf{x}_k + \omega(\mathbf{b} - \mathbf{A}\mathbf{x}_k)$ pour résoudre $\mathbf{A}\mathbf{x} = \mathbf{b}$ ; converge pour $0 < \omega < 2/\lambda_{\max}$ si $\mathbf{A}$ est symétrique définie positive ; une descente de gradient sur $\frac12\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}$ | M19 |
+| itération linéaire | linear (affine) iteration, fixed-point iteration | $\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$ ; l'écart au point fixe est multiplié par $\mathbf{M}$ ; pour $\mathbf{M}$ symétrique, elle converge depuis tout départ si et seulement si toutes les valeurs propres sont de module $< 1$ | M19 |
+| Jacobi (méthode de) | Jacobi method | résoudre chaque équation $i$ en $x_i$, les autres inconnues gardant leur ancienne valeur : $\mathbf{x} \leftarrow \mathbf{x} + \mathbf{D}^{-1}(\mathbf{b} - \mathbf{A}\mathbf{x})$ ; c'est Richardson après le préconditionnement diagonal | M19 |
 | jacobienne | Jacobian | la matrice $(m, n)$ des dérivées partielles d'une application de $\mathbb{R}^n$ dans $\mathbb{R}^m$, $J_{ij} = \frac{\partial f_i}{\partial x_j}$ : une ligne par sortie, une colonne par entrée (*numerator layout*) ; la meilleure approximation linéaire, $\mathbf{f}(\mathbf{x} + \mathbf{h}) \approx \mathbf{f}(\mathbf{x}) + \mathbf{J}\mathbf{h}$ ; $\lvert\det\mathbf{J}\rvert$ est le facteur local de changement d'aire | M17 |
 | k-means, k-means++ | k-means, k-means++ | regrouper des points en $k$ clusters en alternant l'affectation au centre le plus proche et le remplacement de chaque centre par le barycentre de son cluster ; k-means++ tire les centres de départ avec une probabilité proportionnelle à $D^2$ | M07 |
 | König-Huygens (formule de) | König-Huygens theorem | $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum_i \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + m\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$ | M07 |
@@ -391,6 +399,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | matrice | matrix | tableau de nombres à lignes et colonnes | M09a |
 | matrice augmentée | augmented matrix | $[\mathbf{A} \mid \mathbf{b}]$, la matrice des coefficients suivie de la colonne des seconds membres, sur laquelle on fait le pivot de Gauss | M09a |
 | matrice chapeau | hat matrix | $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, qui envoie $\mathbf{y}$ sur $\hat{\mathbf{y}}$ : symétrique, idempotente, de trace $p$ | M09b |
+| matrice compagnon | companion matrix | $\begin{pmatrix} p & -q \\ 1 & 0 \end{pmatrix}$ pour $u_{k+2} = p\,u_{k+1} - q\,u_k$ : elle fait passer de $(u_{k+1}, u_k)$ à $(u_{k+2}, u_{k+1})$, et son polynôme caractéristique est celui de la récurrence | M19 |
 | matrice d'adjacence | adjacency matrix | $A_{ij} = 1$ s'il y a une arête $i \to j$, 0 sinon (ou le poids de l'arête) ; ses puissances comptent les chemins | M16 |
 | matrice d'une application linéaire | transformation matrix | la matrice dont la colonne $j$ contient les coordonnées de $f(\mathbf{b}_j)$ dans la base de l'arrivée ; dans les bases canoniques, $f(\mathbf{e}_j)$ | M12a |
 | matrice de confusion | confusion matrix | le tableau de contingence de la vérité et de la prédiction d'un classifieur (TP, FN, FP, TN en binaire) | M03 |
@@ -424,6 +433,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | mode | mode | la valeur la plus fréquente d'une série, ou le maximum d'une densité | M02c |
 | mode direct, mode inverse | forward mode, reverse mode | deux façons de faire passer un vecteur à travers une suite de jacobiennes sans les multiplier entre elles : de droite à gauche par des produits jacobienne-vecteur, de gauche à droite par des produits vecteur-jacobienne (la rétropropagation, M18) ; sur un graphe de calcul, le mode direct pousse des tangentes des entrées vers la sortie, le mode inverse des adjoints de la sortie vers les entrées | M17, M18 |
 | modèle linéaire généralisé | generalized linear model (GLM) | une combinaison linéaire des features suivie d'une fonction fixée, $\varphi(\boldsymbol{\theta}^\top\mathbf{x})$, avec une loi de la cible adaptée : la régression linéaire (bruit gaussien) et la régression logistique (labels de Bernoulli) en sont | M13a |
+| module (d'un nombre complexe) | modulus | $\lvert a + ib\rvert = \sqrt{a^2 + b^2}$ ; multiplicatif, $\lvert z^k\rvert = \lvert z\rvert^k$ ; les racines complexes de $r^2 - pr + q$ ont pour module $\sqrt q$ | M19 |
 | modus ponens, modus tollens | modus ponens, modus tollens | les formes valides « $P \Rightarrow Q$ ; $P$ ; donc $Q$ » et « $P \Rightarrow Q$ ; non $Q$ ; donc non $P$ » | M11 |
 | moindres carrés | least squares | choisir les poids qui minimisent la somme des carrés des résidus, $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$ : la solution des équations normales, et le maximum de vraisemblance d'un bruit gaussien | M09b |
 | monôme | monomial | un produit de puissances de variables, $x_1^{k_1}\cdots x_p^{k_p}$, de degré $k_1 + \cdots + k_p$ | M09b |
@@ -440,6 +450,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | négation | negation | la proposition « non P », vraie quand P est fausse | R4 |
 | nier l'antécédent | denying the antecedent | le sophisme formel « $P \Rightarrow Q$ ; non $P$ ; donc non $Q$ » : non valide | M11 |
 | nilpotente (matrice) | nilpotent matrix | une matrice carrée dont une puissance est nulle ; une matrice strictement triangulaire $n \times n$ vérifie $\mathbf{N}^n = \mathbf{0}$ ; ses valeurs propres sont toutes nulles | M16 |
+| nombre complexe | complex number | $z = a + ib$ avec $i^2 = -1$ ; $a$ et $b$ sont ses parties réelle et imaginaire | M19 |
 | nombre décimal | decimal number, terminating decimal | nombre qui s'écrit avec un nombre fini de chiffres après la virgule (ensemble 𝔻) | R1 |
 | nombre dérivé | derivative at a point | $f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}$, la pente de la tangente en $a$ | R7 |
 | nombre dual | dual number | $a + b\varepsilon$ avec $\varepsilon^2 = 0$ ; $f(a + \varepsilon) = f(a) + f'(a)\,\varepsilon$ : le mode direct de la différentiation automatique | M18 |
@@ -474,7 +485,10 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | Parseval (égalité de) | Parseval's identity | dans une base orthonormée, $\lVert \mathbf{v} \rVert^2 = \sum_i c_i^2$, la somme des carrés des coordonnées | M12b |
 | partie entière, plancher, plafond | floor, ceiling | $\lfloor x \rfloor$, le plus grand entier $\le x$ ; $\lceil x \rceil$, le plus petit entier $\ge x$ | R1 |
 | partition (de l'univers) | partition | des événements deux à deux incompatibles dont la réunion est l'univers entier | M03 |
+| pas critique | critical step size | $2/\lambda_{\max}$ : le plus grand pas pour lequel Richardson (ou une descente de gradient de courbure maximale $\lambda_{\max}$) converge depuis tout départ | M19 |
+| pas optimal (de Richardson) | optimal step size | $\omega^\star = \frac{2}{\lambda_{\min} + \lambda_{\max}}$, qui donne le facteur $\frac{\kappa - 1}{\kappa + 1}$ par itération | M19 |
 | passe avant, passe arrière | forward pass, backward pass | en mode inverse : le calcul des valeurs, qu'on garde, puis celui des adjoints, de la sortie vers les entrées | M18 |
+| pavé | box | un produit d'intervalles $[l_1, u_1] \times \cdots \times [l_n, u_n]$ ; projeter dessus, c'est couper chaque coordonnée (`np.clip`), ce qui change la direction en général | M19 |
 | pente, ordonnée à l'origine | slope, intercept | dans $mx + c$, $m$ est la variation pour $x + 1$, et $c = f(0)$ | R3 |
 | percentile, quartile | percentile, quartile | le percentile $k$ est le quantile d'ordre $\frac{k}{100}$ ; les quartiles, les quantiles d'ordre 0,25, 0,5 et 0,75 | M02a |
 | périodique, période | periodic, period | une fonction qui se répète : $f(x + T) = f(x)$ ; cos et sin ont pour période $2\pi$ | R9 |
@@ -493,7 +507,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | point d'inflexion | inflection point | un point où la courbe passe de convexe à concave, ou l'inverse : $f''$ y change de signe | M05a |
 | point de pourcentage | percentage point | écart entre deux pourcentages, obtenu en les soustrayant (de 4 % à 5 % : un point) | R1 |
 | point fixe | fixed point | un $\ell$ tel que $f(\ell) = \ell$ : la limite possible d'une suite $u_{n+1} = f(u_n)$ | R5 |
-| point selle | saddle point | un point critique où $f$ monte dans certaines directions et descend dans d'autres, comme un col de montagne | M05b |
+| point selle | saddle point | un point critique où $f$ monte dans certaines directions et descend dans d'autres, comme un col de montagne ; en dimension $n$, la hessienne y a des valeurs propres des deux signes (M19) | M05b, M19 |
 | polynôme caractéristique | characteristic polynomial | $p_{\mathbf{A}}(\lambda) = \det(\mathbf{A} - \lambda\mathbf{I})$, de degré $n$, dont les racines sont les valeurs propres ; en dimension 2, $\lambda^2 - (\operatorname{tr}\mathbf{A})\lambda + \det\mathbf{A}$ | M12c |
 | polynôme de Taylor, série de Taylor | Taylor polynomial, Taylor series | $\sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x - a)^k$, le polynôme qui a les mêmes $n$ premières dérivées que $f$ en $a$ ; la série, quand $n \to \infty$ | M05a |
 | polynôme, degré | polynomial, degree | somme de puissances entières de $x$ multipliées par des coefficients ; le degré est la plus grande puissance | R3 |
@@ -501,6 +515,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | population | population | l'ensemble (ou la loi) dont les données sont tirées, et dont on veut connaître les paramètres | M02c |
 | position générale | general position | des points sans alignement particulier : dans le plan, jamais trois sur une même droite ; $d + 1$ points de $\mathbb{R}^d$ en position générale sont séparables quels que soient leurs labels | M10 |
 | precision (valeur prédictive positive) | precision, positive predictive value (PPV) | $P(Y = 1 \mid \hat{Y} = 1)$ : la part des alertes justifiées ; elle dépend de la prévalence | M03 |
+| préconditionnement | preconditioning | remplacer un système par un système équivalent mieux conditionné ; le plus simple, diagonal (de Jacobi) : $\mathbf{D}^{-1/2}\mathbf{A}\mathbf{D}^{-1/2}$, qui met chaque inconnue à l'échelle | M19 |
 | prédicat | predicate | une phrase qui dépend d'une variable, comme « $x > 3$ » | R4 |
 | prévalence | prevalence, base rate | $P(Y = 1)$ : la proportion de positifs dans la population ; voir aussi « taux de base » | M03 |
 | primitive | antiderivative | une fonction $F$ telle que $F' = f$ ; deux primitives sur un intervalle diffèrent d'une constante | M02a |
@@ -525,6 +540,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | projection (sur une direction) | projection | l'ombre de $\vec{v}$ sur la direction de $\vec{u}$ : $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert^2}\vec{u}$ | R9, M07, M12b |
 | projection oblique | oblique projection | une matrice idempotente non symétrique : elle envoie sur un sous-espace, mais pas perpendiculairement | M12b |
 | projection orthogonale (sur un sous-espace) | orthogonal projection | le point d'un sous-espace le plus proche d'un vecteur : l'écart est orthogonal au sous-espace ; $\mathbf{Q}\mathbf{Q}^\top\mathbf{v}$ avec une base orthonormée, $\mathbf{A}(\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top\mathbf{v}$ sinon ; les moindres carrés projettent $\mathbf{y}$ sur l'espace des colonnes | M07, M09b, M12b |
+| projection sur une boule | projection onto a ball | $\mathbf{x}\min(1, r/\lVert\mathbf{x}\rVert)$ : un point trop loin est ramené sur la sphère le long du rayon, sans changer de direction | M19 |
 | proposition | proposition, statement | une phrase qui est soit vraie, soit fausse | R4 |
 | pseudo-inverse (de Moore-Penrose) | pseudo-inverse, Moore-Penrose inverse | $\mathbf{A}^+ = \sum_{i \le r}\frac{1}{s_i}\mathbf{v}_i\mathbf{u}_i^\top$, de forme $(n, m)$ ; $\mathbf{A}^+\mathbf{b}$ est la solution des moindres carrés de plus petite norme ; $\mathbf{A}^{-1}$ si $\mathbf{A}$ est inversible, $(\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top$ si ses colonnes sont libres | M12d |
 | pseudo-observations | pseudo-counts | les paramètres $a$ et $b$ d'un a priori Beta, lus comme des succès et des échecs déjà vus | M04 |
@@ -546,6 +562,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | rang plein, rang déficient | full rank, rank deficient | $\operatorname{rg}(\mathbf{A}) = \min(m, n)$, ou moins | M12a |
 | rasoir d'Occam | Occam's razor | à ajustement égal, préférer le modèle le plus simple ; l'évidence bayésienne le fait d'elle-même | M08 |
 | rayon de confiance | confidence radius | la demi-largeur $r$ d'un intervalle $\bar{X} \pm r$ ; Hoeffding, au risque $\delta$ : $r = (b - a)\sqrt{\frac{\ln(2/\delta)}{2n}}$ | M11 |
+| rayon spectral | spectral radius | $\rho(\mathbf{M}) = \max_i\lvert\lambda_i\rvert$ : pour $\mathbf{M}$ symétrique, le facteur par lequel l'écart d'une itération linéaire est multiplié au pire à chaque pas | M19, M22 |
 | réalisation, tirage | realization, sample, draw | une valeur obtenue d'une variable aléatoire, à distinguer de la variable elle-même | M02b |
 | recall (sensibilité) | recall, sensitivity, true positive rate (TPR) | $P(\hat{Y} = 1 \mid Y = 1)$ : la part des positifs détectés | M03 |
 | réciproque (d'une implication) | converse | $Q \Rightarrow P$ pour l'implication $P \Rightarrow Q$ : une autre phrase | R4 |
@@ -553,6 +570,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | recuit simulé | simulated annealing | chercher un minimum en tirant des configurations selon une loi de Boltzmann dont l'énergie est le coût, et en baissant peu à peu la température ; une configuration plus coûteuse de $\Delta$ est acceptée avec la probabilité $e^{-\Delta/T}$ | M17 |
 | récurrence (raisonnement par) | (proof by) induction | démontrer $P(n_0)$, puis $P(n) \Rightarrow P(n + 1)$ pour tout $n \ge n_0$ | R4 |
 | récurrence (suite définie par) | recursively defined sequence, recurrence relation | un premier terme et une règle $u_{n+1} = f(u_n)$ | R5 |
+| récurrence linéaire d'ordre 2 | second-order linear recurrence | $u_{k+2} = p\,u_{k+1} - q\,u_k$, de polynôme caractéristique $r^2 - pr + q$ ; elle tend vers 0 depuis tout départ si et seulement si $\lvert q\rvert < 1$ et $\lvert p\rvert < 1 + q$ | M19 |
 | réduction de variance | variance reduction | la baisse de la variance des cibles quand on coupe un groupe en deux : la variance inter-groupes ; le critère des arbres de régression | M13a |
 | rééchantillon | resample | $n$ valeurs tirées avec remise parmi les $n$ données (bootstrap) | M02c |
 | règle de la chaîne | chain rule | $(g(u(x)))' = g'(u(x)) \times u'(x)$ : on dérive chaque étage d'une composée et on multiplie ; pour plusieurs variables, $\mathbf{J}_{\mathbf{g} \circ \mathbf{f}}(\mathbf{x}) = \mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$, une somme sur les variables intermédiaires | R7, M05b, M17 |
@@ -585,6 +603,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | second degré (polynôme du) | quadratic (polynomial, function) | $ax^2 + bx + c$ avec $a \ne 0$ | R3 |
 | semi-définie positive, définie négative, indéfinie | positive semidefinite, negative definite, indefinite | pour une matrice symétrique : $\mathbf{x}^\top\mathbf{A}\mathbf{x} \ge 0$ pour tout $\mathbf{x}$ (valeurs propres positives ou nulles) ; $< 0$ pour tout $\mathbf{x} \ne \mathbf{0}$ (valeurs propres strictement négatives) ; des valeurs des deux signes (valeurs propres des deux signes) | M12c |
 | sens direct | counterclockwise | le sens inverse des aiguilles d'une montre ; les sommets d'une enveloppe convexe sont rangés dans ce sens | M10 |
+| série de Taylor (à plusieurs variables) | multivariate Taylor series | $f(\mathbf{x} + \mathbf{h}) = f(\mathbf{x}) + \nabla f^\top\mathbf{h} + \frac12\mathbf{h}^\top\nabla^2 f\,\mathbf{h} + \cdots$ ; MML écrit le terme d'ordre $k$ avec le tableau $D^k_{\mathbf{x}}f$ | M19 |
 | seuil (fonction) | step function | $H(z) = 1$ si $z > 0$, 0 sinon (la convention en 0 varie) ; l'activation d'un classifieur linéaire qui répond oui ou non ; c'est la fonction marche de R3 | M10 |
 | seuil d'un test | significance level | $\alpha$, le risque de type I accepté : on rejette $H_0$ quand la p-valeur est au plus $\alpha$ (souvent 0,05) | M08 |
 | seuil de décision | decision threshold | le score à partir duquel on déclare un exemple positif ; $\frac{c_{FP}}{c_{FP} + c_{FN}}$ minimise le coût pour des probabilités calibrées | M03 |
@@ -650,7 +669,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | termes semblables, réduire | like terms, collect like terms | termes de même partie littérale ; réduire, c'est les additionner en additionnant leurs coefficients | R2 |
 | test binomial exact | exact binomial test | test de $H_0 : p = p_0$ par la loi $\mathcal{B}(n, p_0)$ du nombre de succès ; bilatéral : la somme des issues au plus aussi probables que l'observation | M08 |
 | test d'orientation | orientation test | le signe de $(\mathbf{a} - \mathbf{o}) \times (\mathbf{b} - \mathbf{o})$ : à gauche, à droite ou aligné | M10 |
-| test du second ordre | second-derivative test | en un point critique, le signe de $D = f_{xx}f_{yy} - f_{xy}^2$ (et celui de $f_{xx}$) dit minimum, maximum ou point selle ; $D = 0$ : il ne conclut pas | M05b |
+| test du second ordre | second-derivative test | en un point critique, le signe de $D = f_{xx}f_{yy} - f_{xy}^2$ (et celui de $f_{xx}$) dit minimum, maximum ou point selle ; $D = 0$ : il ne conclut pas ; en dimension $n$, les signes des valeurs propres de la hessienne (M19) | M05b, M19 |
 | test par permutation | permutation test | la loi nulle obtenue en rebattant les valeurs entre les groupes ; p-valeur $\frac{C + 1}{B + 1}$ avec $B$ permutations tirées au hasard | M08 |
 | théorème central limite | central limit theorem (CLT) | pour $n$ grand, la moyenne de $n$ variables i.i.d. suit à peu près $\mathcal{N}\big(\mu, \frac{\sigma^2}{n}\big)$, quelle que soit leur loi | M02c |
 | théorème de Cover | Cover's theorem | la proportion des étiquetages séparables de $n$ points en position générale de $\mathbb{R}^d$, $2^{1-n}\sum_{k=0}^{d}\binom{n-1}{k}$ : 1 jusqu'à $d + 1$ points, $\frac{1}{2}$ pour $2(d + 1)$ | M10 |

@@ -21,6 +21,9 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $n!$ | « factorielle n » | n factorial | $1 \times 2 \times \dots \times n$ | $4! = 24$ | R8 |
 | $\binom{n}{k}$ | « k parmi n » | n choose k | nombre de façons de choisir $k$ objets parmi $n$ | $\binom{4}{2} = 6$ | R8 |
 | $\infty$ | « l'infini » | infinity | plus grand que tout nombre (pas un nombre) | $[2 ; +\infty[$, $x \to +\infty$ | R2, R5 |
+| $i$ (nombre complexe) | « i » | imaginary unit | le nombre tel que $i^2 = -1$ ; $z = a + ib$ | $(2 + 3i)(1 - i) = 5 + i$ | M19 |
+| $\bar z$ | « z barre », « conjugué de z » | complex conjugate | $\overline{a + ib} = a - ib$ (à ne pas confondre avec une moyenne ni un adjoint) | $z\bar z = \lvert z\rvert^2$ | M19 |
+| $\lvert z\rvert$ (nombre complexe) | « module de z » | modulus | $\sqrt{a^2 + b^2}$ pour $z = a + ib$ ; $\lvert zw\rvert = \lvert z\rvert\lvert w\rvert$ | $\lvert 0{,}3 + 0{,}4i\rvert = 0{,}5$ | M19 |
 
 ## Sommes, produits, ensembles et logique
 
@@ -187,6 +190,10 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\mathrm{d}f = \operatorname{tr}(\mathbf{G}^\top\mathrm{d}\mathbf{X})$ | « d f égale trace de G transposé d X » | differential | le changement de $f$ au premier ordre quand $\mathbf{X}$ bouge de $\mathrm{d}\mathbf{X}$ ; $\mathbf{G}$ est le gradient | $\mathrm{d}\lVert\mathbf{X}\rVert_F^2 = 2\operatorname{tr}(\mathbf{X}^\top\mathrm{d}\mathbf{X})$ | M18 |
 | $\mathbf{X}^{-\top}$ | « X moins T », « inverse transposée de X » | inverse transpose | $(\mathbf{X}^{-1})^\top$, égale à $(\mathbf{X}^\top)^{-1}$ | $\nabla\ln\det\mathbf{X} = \mathbf{X}^{-\top}$ | M18 |
 | $\operatorname{com}(\mathbf{X})$ | « comatrice de X » | cofactor matrix | la matrice des cofacteurs ; $\mathbf{X}\operatorname{com}(\mathbf{X})^\top = \det\mathbf{X}\;\mathbf{I}$, et $\nabla\det\mathbf{X} = \operatorname{com}(\mathbf{X})$ | $\operatorname{com}\begin{pmatrix} a & b \\ c & d \end{pmatrix} = \begin{pmatrix} d & -c \\ -b & a \end{pmatrix}$ | M18 |
+| $\nabla^2 f(\mathbf{x})$ | « hessienne de f en x », « nabla deux f » | Hessian | la matrice $n \times n$ des dérivées secondes $\frac{\partial^2 f}{\partial x_i\partial x_j}$ ; MML écrit aussi $\mathbf{H}$ | $\nabla^2(\frac12\mathbf{x}^\top\mathbf{A}\mathbf{x}) = \mathbf{A}$ | M19 |
+| $\rho(\mathbf{M})$ | « rhô de M », « rayon spectral de M » | spectral radius | $\max_i\lvert\lambda_i\rvert$ ; pour $\mathbf{M}$ symétrique, $\lVert\mathbf{M}^k\mathbf{e}\rVert \le \rho^k\lVert\mathbf{e}\rVert$ | valeurs propres $0{,}5$ et $-0{,}9$ : $\rho = 0{,}9$ | M19 |
+| $\omega$, $\omega_c$, $\omega^\star$ | « oméga », « oméga c », « oméga étoile » | step size | le pas de Richardson, le pas critique $2/\lambda_{\max}$, le meilleur pas $\frac{2}{\lambda_{\min} + \lambda_{\max}}$ | valeurs propres 1 et 6 : $\omega_c = \frac13$, $\omega^\star = \frac27$ | M19 |
+| $P_C(\mathbf{x})$ | « projection de x sur C » | projection onto C | le point de $C$ le plus proche de $\mathbf{x}$ | boule de rayon $r$ : $\mathbf{x}\min(1, r/\lVert\mathbf{x}\rVert)$ | M19 |
 
 ## Probabilités et statistique
 
@@ -276,4 +283,4 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\rho$ | | rhô | une corrélation, le rayon spectral, la marge d'une SVM |
 | $\sigma$ | $\Sigma$ | sigma | un écart-type, la sigmoïde ; $\Sigma$ : une somme ou une matrice de covariance |
 | $\phi$ ou $\varphi$ | $\Phi$ | phi | une transformation des features ; $\Phi$ : la fonction de répartition de la loi normale |
-| $\omega$ | $\Omega$ | oméga | un résultat d'une expérience ; $\Omega$ : l'univers |
+| $\omega$ | $\Omega$ | oméga | un résultat d'une expérience, le pas de Richardson (M19) ; $\Omega$ : l'univers, une pulsation (M19) |

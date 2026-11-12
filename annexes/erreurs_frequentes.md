@@ -638,3 +638,21 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Vérifier un gradient avec une direction symétrique | $\mathbf{H} = \mathbf{I}$ ou la matrice pleine de 1 : un gradient transposé passe | une direction tirée au hasard, non symétrique, et plusieurs |
 | Vérifier avec un pas trop petit | $h = 10^{-13}$ : les arrondis divisés par $2h$ font croire à une erreur | $h$ de l'ordre de $10^{-5}$ pour une différence centrée en `float64` |
 | Sommer au lieu de faire la moyenne | $\nabla\frac1N\sum_kf_k = \sum_k\nabla f_k$ | $\frac1N\sum_k\nabla f_k$ |
+
+## Hessienne, conditionnement et convergence (M19)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Oublier le $\frac12$ du terme d'ordre 2 | $f(\mathbf{x} + \mathbf{h}) \approx f + \nabla f^\top\mathbf{h} + \mathbf{h}^\top\mathbf{H}\mathbf{h}$ | $\frac12\mathbf{h}^\top\mathbf{H}\mathbf{h}$, comme le $\frac12f''h^2$ d'une variable |
+| Calculer $H_{ij}$ et $H_{ji}$ séparément dans une hessienne numérique | deux formules qui diffèrent par les arrondis, puis `np.linalg.eigvalsh`, qui ne lit qu'un triangle | calculer chaque case au-dessus de la diagonale une fois, puis la recopier |
+| Classer un point critique par la diagonale de la hessienne | $\begin{pmatrix} 1 & 2 \\ 2 & 1 \end{pmatrix}$ « positive », donc un minimum | les signes des **valeurs propres** ($3$ et $-1$ : une selle) |
+| Conclure par le déterminant en dimension 3 | $\det\mathbf{H} = 6 > 0$, donc un minimum, pour des valeurs propres $(-1, -2, 3)$ | regarder toutes les valeurs propres |
+| Regarder la plus grande valeur propre signée | valeurs propres $0{,}5$ et $-1{,}2$ : « tout est sous 1, ça converge » | le plus grand **module** : $1{,}2 > 1$, l'itération diverge |
+| Régler le pas sur la plus petite valeur propre | $\omega = 2/\lambda_{\min}$ | $\omega < 2/\lambda_{\max}$, la plus grande courbure limite le pas |
+| Croire qu'un facteur près de 1 suffit | $\rho = 0{,}99$ « converge vite » | environ 230 itérations par décimale gagnée : regarder $\frac{\ln 10}{-\ln\rho}$ |
+| Croire que multiplier le système change le conditionnement | multiplier $\mathbf{A}$ et $\mathbf{b}$ par 100 « pour aller plus vite » | le pas critique est divisé par 100, $\kappa$ et le nombre d'itérations ne changent pas ; mettre les **inconnues** à l'échelle peut le changer |
+| Se tromper de signe sur $q$ | $u_{k+2} = 1{,}5\,u_{k+1} + u_k$ écrit $r^2 - 1{,}5r + 1$ | $u_{k+2} = a\,u_{k+1} + b\,u_k$ donne $r^2 - ar - b$ |
+| Prendre la partie réelle pour le module | racines $0{,}4 \pm 0{,}4\sqrt3\,i$ « de module $0{,}4$ » | $\sqrt{0{,}4^2 + 0{,}48} = 0{,}8 = \sqrt q$ |
+| Diviser l'erreur type par $B$ | estimation sur $B = 4$ termes : erreur type $\sigma/4$ | $\sigma/\sqrt B = \sigma/2$ ; la **variance** est divisée par $B$ |
+| Projeter sur la boule en coupant les coordonnées | $(12, -5)$ sur la boule de rayon $2{,}6$ : $(2{,}6 ;\ -2{,}6)$ | $\mathbf{x}\min(1, r/\lVert\mathbf{x}\rVert) = (2{,}4 ;\ -1)$ ; couper les coordonnées projette sur un pavé |
+
