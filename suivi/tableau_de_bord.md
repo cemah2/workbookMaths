@@ -1630,3 +1630,42 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M16.20 🏆 Défi : la loi du produit de deux uniformes indépendantes, sa densité et ses deux premiers moments ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (12 cartes)
 <!-- wbm:end M16 -->
+
+<!-- wbm:section M17 -->
+## M17 · Jacobienne et règle de la chaîne ⏱️ 10,2 h
+
+- [ ] M17.Q1 🧠 La forme d'une jacobienne ★ 4 min
+- [ ] M17.Q2 🧠 Diagonale ou pleine ? ★ 4 min
+- [ ] M17.Q3 🧠 Dans quel ordre multiplier les jacobiennes ? ★ 4 min
+- [ ] M17.Q4 🧠 Gradient en ligne ou de la forme de la variable ★ 4 min
+- [ ] M17.Q5 🧠 Jacobienne-vecteur ou vecteur-jacobienne : combien d'opérations ? ★ 4 min (complet)
+- [ ] M17.Q6 🧠 La loi de Boltzmann : populations relatives et énergie moyenne ★ 4 min
+- [ ] M17.R1 🔁 Dérivées partielles et gradient (M05b) ★ 5 min
+- [ ] M17.R2 🔁 La règle de la chaîne en une variable (R7) ★ 5 min
+- [ ] M17.R3 🔁 La matrice de covariance (M02c) ★ 5 min (complet)
+- [ ] M17.1 ✏️ La jacobienne des coordonnées polaires, son déterminant, et l'approximation linéaire près d'un point ★ 15 min
+- [ ] M17.2 ✏️ Une fonction appliquée coordonnée par coordonnée : la jacobienne diagonale, et son produit par un vecteur ★ 15 min
+- [ ] M17.3 ✏️ Dériver une composée de trois applications par le produit de leurs jacobiennes ★★ 20 min
+- [ ] M17.4 ✏️ La normalisation x/‖x‖ : sa jacobienne (I − uuᵀ)/‖x‖, et la direction qu'elle écrase ★★ 20 min (complet)
+- [ ] M17.5 ✏️ Le gradient d'une fonction scalaire d'une composée, dans les deux conventions : J_fᵀ ∇L ★ 15 min
+- [ ] M17.6 ✏️ Dérivées à gauche et à droite d'une fonction définie par morceaux, et la dérivée d'une composée de sept copies d'une fonction lisse ★★ 15 min
+- [ ] M17.7 ✏️ Une loi de Boltzmann à quatre niveaux d'énergie : rapports de populations, énergie moyenne, et la température où le niveau fondamental garde la moitié ★★ 15 min
+- [ ] M17.8 ∂ La règle de la chaîne pour des applications de ℝⁿ dans ℝᵐ, à partir de l'approximation linéaire ★★★ 20 min
+- [ ] M17.9 ∂ Une fonction appliquée coordonnée par coordonnée a une jacobienne diagonale, et J v = f′(x) ⊙ v ★ 15 min (complet)
+- [ ] M17.10 ∂ diag(p) − ppᵀ est la covariance d'un vecteur one-hot : symétrique, semi-définie positive, de noyau contenant 1 ★★ 20 min
+- [ ] M17.11 ✏️ Le recuit simulé : une loi de Boltzmann sur cinq configurations, dont on baisse la température ★★ 15 min (complet)
+- [ ] M17.12 📖 MML §5.3 : gradients de fonctions à valeurs vectorielles, en anglais ★★ 35 min (complet)
+- [ ] M17.13 🗣️ Expliquer la règle de la chaîne multivariée avec des taux de change entre monnaies ★ 10 min
+- [ ] M17.E1 💼 « Qu'est-ce qu'une jacobienne ? Donne un exemple hors du machine learning. » ★ 10 min (complet)
+- [ ] M17.14 🔨 La jacobienne par différences centrées, colonne par colonne ★★ 20 min
+- [ ] M17.15 🔨 Une jacobienne diagonale avec une seule paire d'évaluations ★ 15 min
+- [ ] M17.16 🔨 Un produit jacobienne-vecteur sans former la jacobienne ★ 15 min (complet)
+- [ ] M17.17 📦 `sympy.Matrix.jacobian` et `scipy.differentiate.jacobian` contre ta jacobienne numérique ★ 15 min
+- [ ] M17.18 🔮 Prédire la forme et les zéros de la jacobienne d'une composée, puis vérifier ★ 10 min
+- [ ] M17.19 🔬 Une longue composition : une dérivée qui s'éteint ou explose selon la pente au point fixe ★★ 20 min (complet)
+- [ ] M17.20 🎨 Une grille du plan déformée par une application non linéaire, et par son approximation linéaire ★ 20 min
+- [ ] M17.21 🐛 Chasse à l'erreur : une jacobienne transposée, un produit dans le mauvais ordre, une jacobienne évaluée au mauvais point ★ 15 min
+- [ ] M17.22 🛠️ Un test de propriété : J_{g∘f} = J_g J_f sur des applications tirées au hasard ★ 15 min (complet)
+- [ ] M17.23 🏆 Défi : la jacobienne de l'inversion X ↦ X⁻¹, vue comme une application de ℝ^{n²} dans ℝ^{n²} ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (16 cartes)
+<!-- wbm:end M17 -->

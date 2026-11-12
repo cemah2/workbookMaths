@@ -96,6 +96,8 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\arccos x$ | « arc cosinus de x » | arccosine of x | l'angle de $[0 ; \pi]$ dont le cosinus vaut $x$ | $\arccos 0 = \frac{\pi}{2}$ | R9 |
 | rad, ° | « radian », « degré » | radian, degree | deux unités d'angle : $\pi$ rad $= 180°$ | $\frac{\pi}{4}$ rad $= 45°$ | R9 |
 | $\hat{C}$ | « angle C » | angle C | l'angle d'un triangle au sommet $C$ | $c^2 = a^2 + b^2 - 2ab\cos\hat{C}$ | R9 |
+| $f'_g(a)$, $f'_d(a)$ | « f prime à gauche en a », « f prime à droite en a » | left, right derivative | les dérivées latérales en $a$, les pentes des morceaux de part et d'autre d'un point anguleux | $\lvert x \rvert$ en 0 : $-1$ et $1$ | M17 |
+| $\varphi^{\circ L}$ | « phi rond L », « phi composée L fois » | L-fold composition | $\varphi \circ \cdots \circ \varphi$, $L$ copies ; sa dérivée est $\prod_k\varphi'(x_k)$ le long de la trajectoire | $\cos^{\circ 2}(x) = \cos(\cos x)$ | M17 |
 
 ## Vecteurs et matrices
 
@@ -174,6 +176,10 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $[\mathbf{x}, 1]$, $\mathbf{H}$ | « x, un », « H » | homogeneous coordinates, augmented matrix | le point $\mathbf{x}$ suivi d'une coordonnée 1, et la matrice homogène $\begin{pmatrix} \mathbf{W} & \mathbf{0} \\ \mathbf{b} & 1 \end{pmatrix}$ : $[\mathbf{x}, 1]\,\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$ ; $f_1$ puis $f_2$ : $\mathbf{H}_1\mathbf{H}_2$ | la translation de vecteur $(a, b)$ : $\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ a & b & 1 \end{pmatrix}$ | M16 |
 | $i \to j$ | « i vers j » | edge from i to j | une arête orientée du nœud $i$ au nœud $j$ : $A_{ij} \ne 0$ | $1 \to 2 \to 3$ : un chemin de longueur 2 | M16 |
 | $(\mathbf{A}^k)_{ij}$ | « coefficient i j de A puissance k » | number of walks of length k | pour une matrice d'adjacence, le nombre de chemins de $k$ arêtes de $i$ à $j$ (avec des poids : la somme des produits des poids) | $\mathbf{A}^n = \mathbf{0}$ pour un graphe sans cycle à $n$ nœuds | M16 |
+| $\mathbf{J}_{\mathbf{f}}(\mathbf{x})$, $\frac{\partial\mathbf{f}}{\partial\mathbf{x}}$ | « jacobienne de f en x » | Jacobian of f at x | la matrice $(m, n)$ des $\frac{\partial f_i}{\partial x_j}$, une ligne par sortie, une colonne par entrée ; MML note aussi $\nabla_{\mathbf{x}}\mathbf{f}$ | $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ : $\mathbf{J} = \mathbf{A}$ | M17 |
+| $\mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ | « jacobienne de g en f de x, fois jacobienne de f en x » | chain rule | la jacobienne de $\mathbf{g} \circ \mathbf{f}$ : la dernière appliquée à gauche, évaluée au point intermédiaire | $(m, p) \times (p, n) \to (m, n)$ | M17 |
+| $\mathbf{J}\mathbf{v}$, $\mathbf{u}^\top\mathbf{J}$ | « J v », « u transposé J » | Jacobian-vector product, vector-Jacobian product | la dérivée de toutes les sorties dans la direction $\mathbf{v}$ ; le gradient de $\mathbf{u} \cdot \mathbf{f}$ | $\mathbf{f}(\mathbf{x}) = (\mathbf{a} \cdot \mathbf{x})\mathbf{x}$ : $\mathbf{J}\mathbf{v} = (\mathbf{a} \cdot \mathbf{v})\mathbf{x} + (\mathbf{a} \cdot \mathbf{x})\mathbf{v}$ | M17 |
+| $\mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$ | « diag de p moins p transposé p » | covariance of a one-hot vector | pour $\mathbf{p}$ en ligne : $p_i(1 - p_i)$ sur la diagonale, $-p_ip_j$ ailleurs ; symétrique, semi-définie positive, lignes de somme nulle | $\mathbf{p} = (0{,}8 ;\ 0{,}2)$ : $\begin{pmatrix} 0{,}16 & -0{,}16 \\ -0{,}16 & 0{,}16 \end{pmatrix}$ | M17 |
 
 ## Probabilités et statistique
 
@@ -244,6 +250,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $L_t[k]$, $\mathbf{w}_t$, $\eta$ | « L t de k », « w t », « êta » | cumulative loss, weights, learning rate | la loss cumulée de l'expert $k$ avant le tour $t$, les poids de Hedge à ce tour ($w_t[k] \propto e^{-\eta L_t[k]}$), et son learning rate | $L_1[k] = 0$ : poids uniformes | M14 |
 | $c_X$ | « c de X », « coefficient de variation de X » | coefficient of variation | l'écart-type relatif $\frac{\sigma_X}{\lvert\mathbb{E}[X]\rvert}$ | $1 + c_{XY}^2 = (1 + c_X^2)(1 + c_Y^2)$ pour $X$, $Y$ indépendantes | M16 |
 | $\varepsilon_i$ (signe aléatoire) | « epsilon i » | random sign, Rademacher variable | $\pm 1$ avec la probabilité $\frac12$ chacun, ou un multiplicateur centré ; indépendants entre eux et des $x_i$ : $\mathbb{V}\big(\sum_i\varepsilon_ix_i\big) = \sum_i\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$ | $\mathbb{V}(\varepsilon x) = \mathbb{E}[x^2]$ | M16 |
+| $\frac{e^{-E_i/T}}{Z}$, $Z$ | « e puissance moins E i sur T, sur Z », « Z » | Boltzmann distribution, partition function | la population du niveau d'énergie $E_i$ à la température $T$, et la constante de normalisation $Z = \sum_je^{-E_j/T}$ | niveaux 0 et 1 à $T = 1$ : $\frac{p_2}{p_1} = e^{-1}$ | M17 |
 
 ## Les lettres grecques
 

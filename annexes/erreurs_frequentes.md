@@ -606,3 +606,19 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Croire que décorrélées veut dire indépendantes | « covariance nulle, donc $\mathbb{E}[X^2Y^2] = \mathbb{E}[X^2]\,\mathbb{E}[Y^2]$ » | décorrélées suffit pour additionner des variances, pas pour factoriser n'importe quelle espérance |
 | Additionner des écarts-types | 25 termes indépendants d'écart-type 1 : « écart-type 25 » | les variances s'ajoutent : écart-type $\sqrt{25} = 5$ ; 25 seulement si les termes sont égaux |
 
+## Jacobienne et règle de la chaîne (M17)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Transposer la jacobienne | une ligne par **entrée** : $(n, m)$ pour une application de $\mathbb{R}^n$ dans $\mathbb{R}^m$ | une ligne par sortie, une colonne par entrée : $(m, n)$ |
+| Prendre $\mathbf{W}$ pour la jacobienne de $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$ | « la jacobienne d'une application en lignes est $\mathbf{W}$ » | c'est $\mathbf{W}^\top$ : la sortie $k$ est $\sum_jx_jW_{jk}$ |
+| Multiplier les jacobiennes dans l'ordre d'application | $\mathbf{J}_{\mathbf{f}}\mathbf{J}_{\mathbf{g}}$ pour $\mathbf{g} \circ \mathbf{f}$ | $\mathbf{J}_{\mathbf{g}}\mathbf{J}_{\mathbf{f}}$ : la dernière appliquée à gauche |
+| Évaluer une jacobienne au mauvais point | $\mathbf{J}_{\mathbf{g}}(\mathbf{x})\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ | $\mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))$ : au point intermédiaire ; calculer d'abord tous les points intermédiaires |
+| Oublier la transposée du gradient en colonne | $\nabla_{\mathbf{x}}(L \circ \mathbf{f}) = \mathbf{J}_{\mathbf{f}}\nabla_{\mathbf{y}}L$ | $\mathbf{J}_{\mathbf{f}}^\top\nabla_{\mathbf{y}}L$ (en colonne) ou $\nabla_{\mathbf{y}}L\,\mathbf{J}_{\mathbf{f}}$ (en ligne) |
+| Utiliser le raccourci diagonal sur une application quelconque | $\frac{\mathbf{A}(\mathbf{x} + h\mathbf{1}) - \mathbf{A}(\mathbf{x} - h\mathbf{1})}{2h}$ pris pour la diagonale de $\mathbf{A}$ | il donne $\mathbf{A}\mathbf{1}$ ; il ne vaut que pour une fonction appliquée coordonnée par coordonnée |
+| Former la jacobienne pour un produit par un vecteur | `numerical_jacobian(f, x) @ v` pour $n = 10^4$ | `jacobian_vector_product(f, x, v)` : 2 évaluations au lieu de $2n$ |
+| Donner une seule dérivée en un point anguleux | « la dérivée de l'impôt en 30 k€ vaut 0,3 » | deux dérivées latérales, 0,2 et 0,4 ; un sous-gradient seulement si la fonction est convexe autour |
+| Évaluer toutes les dérivées d'une longue composition au départ | $\frac{\mathrm{d}x_L}{\mathrm{d}x_0} = \varphi'(x_0)^L$ | $\prod_k\varphi'(x_k)$, le long de la trajectoire |
+| Oublier la normalisation d'une loi de Boltzmann | $p_i = e^{-E_i/T}$ | diviser par $Z = \sum_je^{-E_j/T}$ ; seuls les rapports se passent de $Z$ |
+| Confondre $\mathbf{p}^\top\mathbf{p}$ et $\mathbf{p}\,\mathbf{p}^\top$ pour une ligne $\mathbf{p}$ | $\mathrm{diag}(\mathbf{p}) - \sum_ip_i^2$ | $\mathbf{p}^\top\mathbf{p}$ est la matrice $K \times K$ des produits $p_ip_j$ |
+

@@ -26,6 +26,10 @@ rng = np.random.default_rng(42)          # toujours un générateur avec une gra
 | des degrés dans un graphe | `A.sum(axis=1)` (sortants, lignes), `A.sum(axis=0)` (entrants, colonnes) (M16) |
 | tester qu'une matrice est nilpotente (sans flottants) | `B = (A != 0).astype(int)`, puis $n - 1$ fois `B = ((B @ P) > 0).astype(int)` avec `P` le motif de départ : il ne reste que des zéros si et seulement si le graphe est sans cycle (M16) |
 | la partie triangulaire stricte | `np.triu(A, k=1)`, `np.tril(A, k=-1)` ; `np.allclose(A, np.triu(A, k=1))` teste « strictement triangulaire supérieure » |
+| une jacobienne par différences centrées (M17) | pour chaque `j` : `e = np.zeros(n); e[j] = h`, colonne `(f(x + e) - f(x - e)) / (2 * h)`, puis `np.column_stack(colonnes)` (une colonne par entrée) |
+| une matrice diagonale à partir d'un vecteur, et l'inverse | `np.diag(v)` (vecteur → matrice), `np.diag(M)` (matrice → sa diagonale) |
+| une jacobienne avec SciPy | `scipy.differentiate.jacobian(f, x).df` : `f` reçoit des tableaux de points, une colonne par point (M17) |
+| un produit de Kronecker | `np.kron(A, B)` : la matrice par blocs $a_{ij}\mathbf{B}$ (M17.23) |
 
 ## Algèbre linéaire (`np.linalg`)
 

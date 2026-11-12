@@ -135,7 +135,7 @@ Trois choses à retenir :
 - le **point** : $\mathbf{J}_{\mathbf{g}}$ est évaluée en $\mathbf{y} = \mathbf{f}(\mathbf{x})$, le point **intermédiaire**, pas en $\mathbf{x}$ (qui n'a d'ailleurs pas le bon nombre de coordonnées si $p \ne n$) ;
 - les **formes** s'enchaînent : la dimension intermédiaire $p$ disparaît dans le produit.
 
-**L'idée.** Près de $\mathbf{x}$, $\mathbf{f}$ se comporte comme $\mathbf{h} \mapsto \mathbf{J}_{\mathbf{f}}\mathbf{h}$ ; près de $\mathbf{f}(\mathbf{x})$, $\mathbf{g}$ se comporte comme $\mathbf{k} \mapsto \mathbf{J}_{\mathbf{g}}\mathbf{k}$. La composée se comporte donc comme la composée de ces deux applications linéaires, dont la matrice est le produit (M12a §6) : $\mathbf{J}_{\mathbf{g}}\mathbf{J}_{\mathbf{f}}$. ∂ M17.8 rend ce raisonnement rigoureux.
+**L'idée.** Près de $\mathbf{x}$, $\mathbf{f}$ se comporte comme $\mathbf{h} \mapsto \mathbf{J}_{\mathbf{f}}\mathbf{h}$ ; près de $\mathbf{f}(\mathbf{x})$, $\mathbf{g}$ se comporte comme $\mathbf{k} \mapsto \mathbf{J}_{\mathbf{g}}\mathbf{k}$. La composée se comporte donc comme la composée de ces deux applications linéaires, dont la matrice est le produit (M12a §5) : $\mathbf{J}_{\mathbf{g}}\mathbf{J}_{\mathbf{f}}$. ∂ M17.8 rend ce raisonnement rigoureux.
 
 **Coefficient par coefficient.** Le produit matriciel écrit une **somme sur les variables intermédiaires** $y_1, \ldots, y_p$ :
 $$\frac{\partial h_i}{\partial x_j} = \sum_{k=1}^{p}\frac{\partial g_i}{\partial y_k}\,\frac{\partial f_k}{\partial x_j}.$$

@@ -108,6 +108,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | convergent (estimateur) | consistent estimator | estimateur dont l'erreur tend vers 0 quand la taille de l'échantillon grandit | M02c |
 | converger, diverger (suite) | converge, diverge | une suite converge si elle a une limite finie ; sinon elle diverge (vers $\pm\infty$, ou sans limite) | R5 |
 | convexe | convex | un ensemble l'est s'il contient le segment entre deux quelconques de ses points ; une fonction l'est si chaque corde est au-dessus de sa courbe (c'est-à-dire si son épigraphe est un ensemble convexe) | M05a, M10 |
+| coordonnée par coordonnée (fonction appliquée) | elementwise | $\mathbf{f}(\mathbf{x}) = (g(x_1), \ldots, g(x_n))$ pour une fonction $g$ d'une variable (`np.sin(x)`) ; sa jacobienne est diagonale, $\mathrm{diag}(g'(x_i))$, et $\mathbf{J}\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v}$ | M17 |
 | coordonnées dans une base | coordinates, coordinate vector | les coefficients $(c_1, \ldots, c_n)$ de l'écriture unique $\mathbf{v} = c_1\mathbf{b}_1 + \cdots + c_n\mathbf{b}_n$ : la solution de $\mathbf{B}\mathbf{c} = \mathbf{v}$ | M12a |
 | coordonnées homogènes, matrice homogène | homogeneous coordinates, augmented matrix | on ajoute une coordonnée 1 au point : en lignes, $[\mathbf{x}, 1]\,\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$ avec $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \\ \mathbf{b} & 1 \end{pmatrix}$ ; une application affine devient un produit, et composer devient multiplier les matrices homogènes | M16 |
 | coordonnées polaires | polar coordinates | repérer un point du plan par sa distance $r$ à l'origine et son angle $\theta$ ; dans une intégrale double, $dx\,dy$ devient $r\,dr\,d\theta$ | M02b |
@@ -145,6 +146,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | dénombrement | counting | l'art de compter des possibilités sans les lister : principe multiplicatif, factorielles, combinaisons | R8 |
 | densité de probabilité | probability density function (pdf) | fonction positive d'aire totale 1 : $P(a \le X \le b) = \int_a^b f$ ; une probabilité par unité de longueur, qui peut dépasser 1 | M02a |
 | densité jointe | joint density | fonction $f(x, y) \ge 0$ d'intégrale double 1, telle que $P((X, Y) \in D) = \iint_D f$ | M02b |
+| dérivée à gauche, dérivée à droite | left derivative, right derivative (one-sided derivatives) | les limites de $\frac{f(a + h) - f(a)}{h}$ quand $h \to 0$ par valeurs négatives, positives : en un point anguleux, les pentes des deux morceaux ; $f$ est dérivable en $a$ si elles sont égales | M17 |
 | dérivée directionnelle | directional derivative | la pente de $f$ en un point quand on avance dans la direction d'un vecteur unitaire $\mathbf{u}$ : $D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u}$ | M05b |
 | dérivée partielle | partial derivative | dérivée par rapport à une variable, les autres fixées | M05b |
 | dérivée seconde | second derivative | la dérivée de $f'$, notée $f''$ : son signe dit si la pente augmente (courbe convexe) ou diminue (concave) | M05a |
@@ -247,6 +249,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | fonction d'erreur | error function, erf | $\operatorname{erf}(x) = \frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2}\,dt$, un nom donné à cette intégrale sans primitive usuelle | M02a |
 | fonction de lien | link function | dans un modèle linéaire généralisé, la fonction qui relie la moyenne de la cible au score linéaire : le logit pour la régression logistique, l'identité pour la régression linéaire | M13a |
 | fonction de masse | probability mass function (pmf) | $p(x) = P(X = x)$ pour une variable discrète : positive, de somme 1 | M02b |
+| fonction de partition | partition function | $Z = \sum_j e^{-E_j/T}$, la constante qui normalise une loi de Boltzmann | M17 |
 | fonction de plusieurs variables | multivariate function, function of several variables | une fonction qui prend plusieurs nombres et en renvoie un, comme $f(x, y)$ ; son graphe est une surface | M05b |
 | fonction de répartition | cumulative distribution function (cdf) | $F(x) = P(X \le x)$ : croissante de 0 à 1, et $F' = f$ pour une densité $f$ | M02a |
 | fonction définie par morceaux | piecewise function | une formule sur chaque partie de l'ensemble de définition : $\max(0, x)$, la marche, $\lvert x \rvert$ | R3 |
@@ -324,7 +327,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | intervalle de Wald, de Wilson | Wald interval, Wilson (score) interval | deux intervalles d'une proportion : $\hat{p} \pm z\sqrt{\hat{p}(1 - \hat{p})/n}$, faux avec peu de succès ; celui de Wilson, qui inverse un test, reste dans $[0, 1]$ | M08 |
 | inverse d'une matrice | inverse matrix | la matrice $\mathbf{A}^{-1}$ telle que $\mathbf{A}\mathbf{A}^{-1} = \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$ ; unique quand elle existe, seulement pour une matrice carrée | M09a |
 | issue | outcome | un résultat possible d'une expérience aléatoire | R8 |
-| jacobienne | Jacobian | matrice des dérivées partielles d'une fonction à valeurs vectorielles | M17 |
+| jacobienne | Jacobian | la matrice $(m, n)$ des dérivées partielles d'une application de $\mathbb{R}^n$ dans $\mathbb{R}^m$, $J_{ij} = \frac{\partial f_i}{\partial x_j}$ : une ligne par sortie, une colonne par entrée (*numerator layout*) ; la meilleure approximation linéaire, $\mathbf{f}(\mathbf{x} + \mathbf{h}) \approx \mathbf{f}(\mathbf{x}) + \mathbf{J}\mathbf{h}$ ; $\lvert\det\mathbf{J}\rvert$ est le facteur local de changement d'aire | M17 |
 | k-means, k-means++ | k-means, k-means++ | regrouper des points en $k$ clusters en alternant l'affectation au centre le plus proche et le remplacement de chaque centre par le barycentre de son cluster ; k-means++ tire les centres de départ avec une probabilité proportionnelle à $D^2$ | M07 |
 | König-Huygens (formule de) | König-Huygens theorem | $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum_i \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + m\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$ | M07 |
 | lagrangien | Lagrangian | $\mathcal{L}(\mathbf{x}, \boldsymbol{\mu}, \boldsymbol{\lambda}) = f(\mathbf{x}) + \sum_i \mu_i g_i(\mathbf{x}) + \sum_j \lambda_j h_j(\mathbf{x})$, l'objectif plus chaque contrainte multipliée par son multiplicateur | M13b |
@@ -348,6 +351,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | loi binomiale | binomial distribution | le nombre de succès en $n$ essais indépendants de probabilité $p$ : $\binom{n}{k}p^k(1-p)^{n-k}$ | M02b |
 | loi catégorielle (multinoulli) | categorical distribution | une classe parmi $K$, de probabilités $p_1, \ldots, p_K$ de somme 1 | M02b |
 | loi de Bernoulli | Bernoulli distribution | vaut 1 avec la probabilité $p$, 0 sinon ; espérance $p$, variance $p(1 - p)$ | M02b |
+| loi de Boltzmann | Boltzmann distribution | $p_i = \frac{e^{-E_i/T}}{Z}$ pour des niveaux d'énergie $E_i$ à la température $T$ : seuls les écarts d'énergie comptent ; tout sur le niveau le plus bas quand $T \to 0$, uniforme quand $T \to \infty$ | M17 |
 | loi de Poisson | Poisson distribution | le nombre d'événements rares sur une durée : $e^{-\lambda}\frac{\lambda^k}{k!}$, d'espérance et de variance $\lambda$ | M02b |
 | loi des grands nombres | law of large numbers | sur des répétitions indépendantes, la fréquence d'un événement se rapproche de sa probabilité | R8, M02c |
 | loi empirique | empirical distribution | la loi qui met la probabilité $\frac{1}{n}$ sur chacune des $n$ valeurs observées | M02c |
@@ -409,6 +413,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | mise à jour séquentielle | sequential updating | l'a posteriori d'une observation devient l'a priori de la suivante | M04 |
 | mise en équation | setting up an equation, translating a word problem | traduire un énoncé en équation (ou en système) en choisissant les inconnues | R2 |
 | mode | mode | la valeur la plus fréquente d'une série, ou le maximum d'une densité | M02c |
+| mode direct, mode inverse | forward mode, reverse mode | deux façons de faire passer un vecteur à travers une suite de jacobiennes sans les multiplier entre elles : de droite à gauche par des produits jacobienne-vecteur, de gauche à droite par des produits vecteur-jacobienne (la rétropropagation, M18) | M17 |
 | modèle linéaire généralisé | generalized linear model (GLM) | une combinaison linéaire des features suivie d'une fonction fixée, $\varphi(\boldsymbol{\theta}^\top\mathbf{x})$, avec une loi de la cible adaptée : la régression linéaire (bruit gaussien) et la régression logistique (labels de Bernoulli) en sont | M13a |
 | modus ponens, modus tollens | modus ponens, modus tollens | les formes valides « $P \Rightarrow Q$ ; $P$ ; donc $Q$ » et « $P \Rightarrow Q$ ; non $Q$ ; donc non $P$ » | M11 |
 | moindres carrés | least squares | choisir les poids qui minimisent la somme des carrés des résidus, $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$ : la solution des équations normales, et le maximum de vraisemblance d'un bruit gaussien | M09b |
@@ -472,6 +477,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | plancher de variance | variance floor | la part de la variance d'une moyenne de $M$ prédictions qui ne baisse pas quand $M$ grandit ; avec $X_i = a_iZ + E_i$, elle vaut $\bar{a}^2\,\mathbb{V}(Z)$, et seules les covariances la fixent | M14 |
 | plus proche voisin | nearest neighbor | le point d'un ensemble le plus proche d'un point donné ; il dépend de la distance choisie et des unités des features | M07 |
 | poids exponentiels, poids multiplicatifs | exponential weights, multiplicative weights | des poids proportionnels à $e^{-\eta L}$ ; à chaque tour, chacun est multiplié par $e^{-\eta\ell}$ (ou par $1 - \eta\ell$, presque pareil pour $\eta$ petit), puis tous sont renormalisés | M14 |
+| point anguleux | kink, corner | un point où une fonction continue change brusquement de pente : elle y a une dérivée à gauche et une dérivée à droite différentes | M17 |
 | point critique | critical point, stationary point | un point où la dérivée s'annule (en plusieurs variables : où le gradient s'annule) | M05a, M05b |
 | point d'inflexion | inflection point | un point où la courbe passe de convexe à concave, ou l'inverse : $f''$ y change de signe | M05a |
 | point de pourcentage | percentage point | écart entre deux pourcentages, obtenu en les soustrayant (de 4 % à 5 % : un point) | R1 |
@@ -495,11 +501,13 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | problème d'optimisation convexe | convex optimization problem | minimiser une fonction convexe sous des inégalités $g_i \le 0$ convexes et des égalités affines : tout minimum local est global, et les conditions KKT sont suffisantes | M13b |
 | problème primal, problème dual | primal, dual problem | le problème de départ, et le maximum de la fonction duale sous $\boldsymbol{\mu} \ge \mathbf{0}$ : une variable par contrainte ; pour une SVM, une par exemple | M13b |
 | produit cartésien, couple | Cartesian product, ordered pair | $A \times B$ : les couples $(a, b)$ avec $a \in A$, $b \in B$ | R4 |
+| produit jacobienne-vecteur | Jacobian-vector product (JVP) | $\mathbf{J}_{\mathbf{f}}(\mathbf{x})\,\mathbf{v}$ : la dérivée de toutes les sorties dans la direction $\mathbf{v}$ ; 2 évaluations de $\mathbf{f}$ par différences, sans former la matrice | M17 |
 | produit matrice-vecteur | matrix-vector product | $\mathbf{A}\mathbf{x}$ : un produit scalaire par ligne de $\mathbf{A}$, ou la combinaison des colonnes de $\mathbf{A}$ de coefficients les $x_j$ | M09a |
 | produit matriciel | matrix product, matrix multiplication | $(\mathbf{A}\mathbf{B})_{ij} = \sum_k a_{ik}b_{kj}$, pour $(n, p) \times (p, m) \to (n, m)$ ; associatif, pas commutatif, $n\,p\,m$ multiplications | M09a |
 | produit nul (règle du) | zero-product property | un produit est nul si et seulement si l'un au moins de ses facteurs est nul | R2 |
 | produit scalaire | dot product, inner product | $\sum_i x_i y_i$, le produit usuel, mesure d'alignement de deux vecteurs ; plus généralement, une application bilinéaire, symétrique et définie positive, comme $\mathbf{x}^\top\mathbf{M}\mathbf{y}$ | R9, M07, M12b |
 | produit scalaire de fonctions | inner product of functions | $\langle f, g \rangle = \int_a^b f(x)\,g(x)\,dx$ ; l'orthogonalité dépend de l'intervalle ; projeter sur des polynômes, ce sont des moindres carrés continus | M12b |
+| produit vecteur-jacobienne | vector-Jacobian product (VJP) | $\mathbf{u}^\top\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ : le gradient (une ligne) de $\mathbf{x} \mapsto \mathbf{u} \cdot \mathbf{f}(\mathbf{x})$ ; pour une fonction à une seule sortie, un seul produit donne tout le gradient | M17 |
 | produit vectoriel (du plan) | cross product (2-D) | $\mathbf{u} \times \mathbf{v} = u_1v_2 - u_2v_1$ : positif si $\mathbf{v}$ est à gauche de $\mathbf{u}$ ; sa valeur absolue est l'aire du parallélogramme | M10 |
 | programme linéaire | linear program | une optimisation d'une fonction linéaire sous des contraintes linéaires ; de faisabilité quand on cherche seulement un point qui les vérifie toutes (`scipy.optimize.linprog`) | M10 |
 | programme quadratique | quadratic program | une optimisation d'une fonction quadratique sous des contraintes linéaires ; convexe si la matrice de la forme quadratique est semi-définie positive (la SVM et son dual en sont) | M13b |
@@ -531,11 +539,12 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | recall (sensibilité) | recall, sensitivity, true positive rate (TPR) | $P(\hat{Y} = 1 \mid Y = 1)$ : la part des positifs détectés | M03 |
 | réciproque (d'une implication) | converse | $Q \Rightarrow P$ pour l'implication $P \Rightarrow Q$ : une autre phrase | R4 |
 | réciproque (fonction) | inverse function | la fonction $f^{-1}$ qui défait $f$ : $f^{-1}(f(x)) = x$ ; ce n'est pas $\frac{1}{f}$ | R3 |
+| recuit simulé | simulated annealing | chercher un minimum en tirant des configurations selon une loi de Boltzmann dont l'énergie est le coût, et en baissant peu à peu la température ; une configuration plus coûteuse de $\Delta$ est acceptée avec la probabilité $e^{-\Delta/T}$ | M17 |
 | récurrence (raisonnement par) | (proof by) induction | démontrer $P(n_0)$, puis $P(n) \Rightarrow P(n + 1)$ pour tout $n \ge n_0$ | R4 |
 | récurrence (suite définie par) | recursively defined sequence, recurrence relation | un premier terme et une règle $u_{n+1} = f(u_n)$ | R5 |
 | réduction de variance | variance reduction | la baisse de la variance des cibles quand on coupe un groupe en deux : la variance inter-groupes ; le critère des arbres de régression | M13a |
 | rééchantillon | resample | $n$ valeurs tirées avec remise parmi les $n$ données (bootstrap) | M02c |
-| règle de la chaîne | chain rule | $(g(u(x)))' = g'(u(x)) \times u'(x)$ : on dérive chaque étage d'une composée et on multiplie | R7, M05b |
+| règle de la chaîne | chain rule | $(g(u(x)))' = g'(u(x)) \times u'(x)$ : on dérive chaque étage d'une composée et on multiplie ; pour plusieurs variables, $\mathbf{J}_{\mathbf{g} \circ \mathbf{f}}(\mathbf{x}) = \mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$, une somme sur les variables intermédiaires | R7, M05b, M17 |
 | règle de la chaîne (de l'entropie) | chain rule for entropy | $H(X, Y) = H(X) + H(Y \mid X)$ : l'incertitude d'un couple, c'est celle de l'un plus ce qui reste sur l'autre | M06 |
 | règle de la somme | sum rule | on obtient une marginale en sommant la loi jointe sur l'autre variable | M02b, M03 |
 | règle de score propre | proper scoring rule | une façon de noter des probabilités dont la note moyenne est la meilleure quand on annonce les vraies probabilités ; la log-loss en est une, le taux d'erreur non | M13a |
@@ -555,6 +564,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | risque empirique | empirical risk | la moyenne d'une loss sur les exemples d'entraînement ; apprendre, c'est choisir les paramètres qui le minimisent | M09b |
 | sans biais (estimateur) | unbiased estimator | estimateur dont l'espérance est la vraie valeur du paramètre | M02c |
 | sans mémoire | memoryless | $P(T > s + t) = P(T > s)\,P(T > t)$ : avoir attendu ne rapproche pas l'événement (lois géométrique et exponentielle) | M02b |
+| saturation | saturation | une fonction sature loin de l'origine quand elle y devient presque plate : sa dérivée tend vers 0 ($\arctan'(t) = \frac{1}{1 + t^2}$) | M17 |
 | saut de dualité | duality gap | $\min f - \max D \ge 0$, l'écart entre le minimum du primal et le maximum du dual ; nul pour un problème convexe qui vérifie la condition de Slater | M13b |
 | schéma de Horner | Horner's method | évaluer un polynôme en multipliant par $x$ et en ajoutant le coefficient suivant, sans puissances | R3 |
 | score (d'une ACP) | score | la coordonnée $t_{ij} = \mathbf{u}_j^\top(\mathbf{x}_i - \boldsymbol{\mu})$ d'un exemple sur un axe principal ; les scores sur un axe sont de moyenne nulle et de variance $\lambda_j$, et deux axes donnent des scores non corrélés | M12d |

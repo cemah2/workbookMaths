@@ -510,7 +510,20 @@ R0 (prise en main) n'a pas de formule : les priorités de Python (`**` avant le 
 | somme de produits par des signes | $\varepsilon_i$ centrés, indépendants entre eux et des $x_i$ : $\mathbb{V}\big(\sum_i\varepsilon_ix_i\big) = \sum_i\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$ (produits décorrélés, même si les $x_i$ sont corrélés) ; termes indépendants de variance $\sigma^2$ : écart-type $\sigma\sqrt{n}$ |
 | variance d'étage en étage | $v_{k+1} = \gamma v_k$ : $v_k = \gamma^kv_0$ ; $v_{k+1} = g^2v_k + s^2$ : $v_k - \frac{s^2}{1 - g^2} = g^{2k}\big(v_0 - \frac{s^2}{1 - g^2}\big)$ pour $g^2 \ne 1$ ; $g^2 = 1$ : $v_k = v_0 + ks^2$ |
 
-*(M17 à M20 ajoutés avec leurs chapitres)*
+### M17 · Jacobienne et règle de la chaîne
+
+| Notion | Formules |
+|---|---|
+| jacobienne | $\mathbf{f} : \mathbb{R}^n \to \mathbb{R}^m$ : $\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ de forme $(m, n)$, $J_{ij} = \frac{\partial f_i}{\partial x_j}$ ; $\mathbf{f}(\mathbf{x} + \mathbf{h}) \approx \mathbf{f}(\mathbf{x}) + \mathbf{J}\mathbf{h}$ ; $\lvert\det\mathbf{J}\rvert$ = facteur local d'aire ; $\mathbf{x} \mapsto \mathbf{A}\mathbf{x} + \mathbf{b}$ : $\mathbf{A}$ ; en lignes, $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$ : $\mathbf{W}^\top$ ; polaires : $\det = r$ ; différences centrées : colonne $j$ = $\frac{\mathbf{f}(\mathbf{x} + h\mathbf{e}_j) - \mathbf{f}(\mathbf{x} - h\mathbf{e}_j)}{2h}$, $2n$ évaluations |
+| coordonnée par coordonnée | $\mathbf{f}(\mathbf{x}) = g(\mathbf{x})$ : $\mathbf{J} = \mathrm{diag}(g'(x_i))$, $\mathbf{J}\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v}$ ; diagonale en 2 évaluations : $\frac{\mathbf{f}(\mathbf{x} + h\mathbf{1}) - \mathbf{f}(\mathbf{x} - h\mathbf{1})}{2h}$ |
+| règle de la chaîne | $\mathbf{J}_{\mathbf{g} \circ \mathbf{f}}(\mathbf{x}) = \mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$, $(m, p) \times (p, n)$ ; $\frac{\partial h_i}{\partial x_j} = \sum_k\frac{\partial g_i}{\partial y_k}\frac{\partial f_k}{\partial x_j}$ ; $\mathbf{J}_{\mathbf{f}_L \circ \cdots \circ \mathbf{f}_1} = \mathbf{J}_L(\mathbf{y}_{L-1}) \cdots \mathbf{J}_1(\mathbf{y}_0)$ |
+| gradient d'une composée | en ligne (MML) : $\nabla_{\mathbf{x}}(L \circ \mathbf{f}) = \nabla_{\mathbf{y}}L\,\mathbf{J}_{\mathbf{f}}$ ; de la forme de la variable (NumPy) : $\mathbf{J}_{\mathbf{f}}^\top\nabla_{\mathbf{y}}L$ |
+| produits | $\mathbf{J}\mathbf{v} = \lim_{h \to 0}\frac{\mathbf{f}(\mathbf{x} + h\mathbf{v}) - \mathbf{f}(\mathbf{x})}{h}$ (2 évaluations par différences) ; $\mathbf{u}^\top\mathbf{J} = \nabla_{\mathbf{x}}(\mathbf{u} \cdot \mathbf{f})$ ; $\mathbf{f}(\mathbf{x}) = (\mathbf{a} \cdot \mathbf{x})\mathbf{x}$ : $\mathbf{J} = \mathbf{x}\mathbf{a}^\top + (\mathbf{a} \cdot \mathbf{x})\mathbf{I}$ ; $\mathbf{x}/\lVert\mathbf{x}\rVert$ : $\mathbf{J} = \frac{\mathbf{I} - \mathbf{u}\mathbf{u}^\top}{\lVert\mathbf{x}\rVert}$ |
+| une variable | $f'_g(a)$, $f'_d(a)$ (pentes des morceaux) ; sous-gradients d'une fonction convexe en un coin : $[f'_g(a) ;\ f'_d(a)]$ ; $\arctan'(t) = \frac{1}{1 + t^2}$ ; $\frac{\mathrm{d}x_L}{\mathrm{d}x_0} = \prod_{k<L}\varphi'(x_k) \approx C\,\varphi'(x^*)^L$ près d'un point fixe |
+| loi de Boltzmann | $p_i = \frac{e^{-E_i/T}}{Z}$, $Z = \sum_je^{-E_j/T}$ ; $\frac{p_i}{p_j} = e^{-(E_i - E_j)/T}$ ; $T \to 0$ : niveau le plus bas ; $T \to \infty$ : uniforme ; recuit simulé : accepter une hausse $\Delta$ avec la probabilité $e^{-\Delta/T}$ |
+| one-hot | $\mathbf{Y} = \mathbf{e}_I$, $I \sim \mathbf{p}$ (ligne) : $\mathbb{E}[\mathbf{Y}] = \mathbf{p}$, $\mathrm{Cov}(\mathbf{Y}) = \mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$, symétrique, semi-définie positive, $\mathrm{Cov}(\mathbf{Y})\,\mathbf{1}^\top = \mathbf{0}$, rang $K - 1$ si tous les $p_i > 0$ |
+
+*(M18 à M20 ajoutés avec leurs chapitres)*
 
 ## Partie V · Architectures
 
