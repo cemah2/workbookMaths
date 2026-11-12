@@ -55,7 +55,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M16](#m16) | Applications affines, graphes et variance d'un produit | 16 | — | 8,0 h | ✅ exercices | 1 |
 | [M17](#m17) | Jacobienne et règle de la chaîne | 17 | §5.3 | 10,2 h | ✅ exercices | 1 |
 | [M18](#m18) | Différentiation automatique et calcul matriciel | 18 | §5.4, §5.5, §5.6 | 14,6 h | ✅ exercices | 1 |
-| [M19](#m19) | Hessienne, conditionnement et convergence | 19 | §5.7, §5.8, §7.1 | 13,8 h | ✅ exercices | 1 |
+| [M19](#m19) | Hessienne, conditionnement et convergence | 19 | §5.7, §5.8, §7.1 | 14,2 h | ✅ exercices | 1 |
 | [M20](#m20) | Tenseurs, axes et estimateurs pondérés | 20 | — | 7,7 h | ✅ exercices | 1 |
 | [CP4](#cp4) | Examen blanc de la partie IV | — | — | 3,1 h | ✅ exercices | 1 |
 | [M21](#m21) | Convolution | 21 | — | ≈ 10 h (estimé) | plan | 1 |
@@ -83,7 +83,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | I · Fondations | 9 | 319 | 107,6 h | 69,7 h |
 | II · Concepts | 7 | 256 | 83,9 h | 54,0 h |
 | III · ML classique | 8 | 321 | 107,5 h | 71,2 h |
-| IV · Réseaux | 6 | 182 | 57,3 h | 40,6 h |
+| IV · Réseaux | 6 | 182 | 57,7 h | 41,0 h |
 | V · Architectures | 3 | — | ≈ 24 h (estimé) | à détailler |
 | VI · Génératif et RL | 6 | — | ≈ 60 h (estimé) | à détailler |
 | VII · Bonus | 6 | — | ≈ 56 h (estimé) | à détailler |
@@ -3029,7 +3029,7 @@ Dériver un calcul entier : le graphe de calcul d'une formule et la règle de la
 
 La courbure d'une fonction de n variables, puis la convergence des méthodes itératives : la hessienne et Taylor d'ordre 2, la nature d'un point critique par les signes des valeurs propres ; les itérations linéaires x ← M x + c, qui convergent quand toutes les valeurs propres de M (symétrique) sont de module < 1 ; l'itération de Richardson pour un système A x = b, son pas critique 2/λmax, le conditionnement qui fixe la vitesse et le préconditionnement diagonal ; les récurrences linéaires d'ordre 2 et le module de leurs racines (le strict minimum sur les nombres complexes) ; un gradient estimé sans biais sur un échantillon ; la projection sur une boule et sur un pavé. workbookIA 19 en tire le learning rate critique, le momentum, les pas adaptatifs et le clipping.
 
-**Temps** : 13,8 h en parcours complet, 9,4 h en parcours essentiel (lecture 160 min, 22 flashcards).
+**Temps** : 14,2 h en parcours complet, 9,8 h en parcours essentiel (lecture 160 min, 22 flashcards).
 
 **Objectifs**
 
@@ -3093,14 +3093,14 @@ La courbure d'une fonction de n variables, puis la convergence des méthodes it�
 | M19.18 | 🗣️ | Expliquer, sur un dessin de lignes de niveau, pourquoi un système mal conditionné converge lentement | ★ | 10 | §5 | C, E | manuel | — |
 | M19.E1 | 💼 | « Que nous apprend la hessienne en un minimum ? » | ★ | 10 | §1 §2 | C | manuel | — |
 | M19.E2 | 💼 | « Pourquoi un mauvais conditionnement ralentit-il une méthode itérative ? » | ★ | 10 | §5 | C | manuel | — |
-| M19.19 | 🔨 | La hessienne par différences centrées · `numerical_hessian` | ★★ | 25 | §1 | C, E | pytest | — |
-| M19.20 | 🔨 | Le pas critique d'une matrice symétrique définie positive, et les itérés de Richardson · `critical_step_size, richardson_iterates` | ★★ | 25 | §4 | C, E | pytest | — |
+| M19.19 | 🔨 | La hessienne par différences centrées · `numerical_hessian` | ★★ | 35 | §1 | C, E | pytest | — |
+| M19.20 | 🔨 | Le pas critique d'une matrice symétrique définie positive, et les itérés de Richardson · `critical_step_size, richardson_iterates` | ★★ | 30 | §4 | C, E | pytest | — |
 | M19.21 | 🔨 | Une récurrence linéaire d'ordre d · `linear_recurrence` | ★ | 15 | §6 | C | pytest | — |
 | M19.22 | 📦 | `scipy.sparse.linalg.cg` : le gradient conjugué contre Richardson | ★ | 15 | §5 | C | wbm | M19.20 |
 | M19.23 | 🔮 | Prédire le nombre d'itérations de Richardson selon ω, puis vérifier | ★ | 10 | §4 §5 | C, E | wbm | M19.20 |
 | M19.24 | 🔬 | Le nombre d'itérations contre le conditionnement : une droite en échelle logarithmique | ★★ | 20 | §5 | C | wbm | M19.20 |
 | M19.25 | 🎨 | Les itérés de Richardson sur les lignes de niveau d'une forme quadratique | ★ | 20 | §4 §5 | C, E | manuel | M19.20 |
-| M19.26 | 🐛 | Chasse à l'erreur : un pas réglé sur λmin, une hessienne non symétrique, le module d'une racine complexe | ★ | 15 | §2 §4 §6 | C, E | wbm | — |
+| M19.26 | 🐛 | Chasse à l'erreur : un pas réglé sur λmin, une hessienne non symétrique, le module d'une racine complexe | ★ | 25 | §2 §4 §6 | C, E | wbm | — |
 | M19.27 | 🛠️ | Un critère d'arrêt : le résidu relatif ‖b − A x‖/‖b‖ et un nombre maximal d'itérations | ★ | 15 | §4 | C | manuel | M19.20 |
 | M19.28 | 🏆 | Défi : le schéma saute-mouton d'un oscillateur, x_{k+1} = (2 − h²Ω²) x_k − x_{k−1}, borné si et seulement si hΩ < 2 | ★★★ | 30 | §6 | C | wbm | M19.21 |
 

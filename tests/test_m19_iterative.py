@@ -60,8 +60,11 @@ def _expect_error(error, call, what, why):
 
 
 def _show(v):
-    return np.array2string(np.asarray(v, dtype=float), precision=6, suppress_small=True,
-                           max_line_width=10_000).replace("\n", "")
+    """A short text for an array: a vector of more than 8 numbers shows its first 8, then « … »."""
+    arr = np.asarray(v, dtype=float)
+    if arr.ndim == 1 and arr.size > 8:
+        return np.array2string(arr[:8], precision=6, suppress_small=True).replace("]", " …]")
+    return np.array2string(arr, precision=6, suppress_small=True, max_line_width=10_000).replace("\n", "")
 
 
 def _float_array(got, shape, what):
@@ -73,8 +76,14 @@ def _float_array(got, shape, what):
 def _close(got, want, what, rtol=1e-9, atol=1e-12, hint=""):
     got = np.asarray(got, dtype=float)
     want = np.asarray(want, dtype=float)
+    where = ""
+    if got.shape == want.shape and want.ndim == 1 and want.size > 8:
+        wrong = np.flatnonzero(~np.isclose(got, want, rtol=rtol, atol=atol))
+        if wrong.size:
+            i = int(wrong[0])
+            where = f", first difference at index {i}: expected {want[i]:.10g}, got {got[i]:.10g}"
     assert got.shape == want.shape and np.allclose(got, want, rtol=rtol, atol=atol), (
-        f"expected {what} = {_show(want)}, got {_show(got)}" + (f" ({hint})" if hint else ""))
+        f"expected {what} = {_show(want)}, got {_show(got)}{where}" + (f" ({hint})" if hint else ""))
 
 
 def _spd(n, seed, low=0.5, high=6.0):
@@ -181,12 +190,14 @@ def test_numerical_hessian_uses_the_centered_formulas_with_the_given_step(it):
 
 def test_numerical_hessian_is_exactly_symmetric(it):
     f = lambda v: np.exp(v[0] - v[1] ** 2) + np.sin(v[1] * v[2]) / (1.5 + v[0] ** 2)   # noqa: E731
-    got = _result(lambda: it.numerical_hessian(f, [0.37, -0.81, 1.29]), "a symmetric 3 × 3 matrix",
-                  "a function of three variables")
-    _float_array(got, (3, 3), "numerical_hessian for a function of three variables")
-    assert np.array_equal(got, got.T), (
-        f"expected H[j, i] == H[i, j] exactly, got H = {_show(got)} (compute each entry above the diagonal once, "
-        "then copy it below)")
+    points = np.random.default_rng(5212).uniform(-1.5, 1.5, size=(60, 3))
+    for point in points:
+        got = _result(lambda: it.numerical_hessian(f, point), "a symmetric 3 × 3 matrix",
+                      f"a function of three variables at {_show(point)}")
+        _float_array(got, (3, 3), "numerical_hessian for a function of three variables")
+        assert np.array_equal(got, got.T), (
+            f"expected H[j, i] == H[i, j] exactly, got H = {_show(got)} at x = {_show(point)} (compute each entry "
+            "above the diagonal once, then copy it below)")
 
 
 def test_numerical_hessian_evaluates_f_at_most_three_times_per_diagonal_entry_and_four_times_per_pair(it):
@@ -215,7 +226,9 @@ def test_numerical_hessian_does_not_modify_x(it):
     x = np.array([0.25, -1.0])
     f = lambda v: v[0] ** 2 * np.exp(v[1])   # noqa: E731
     _result(lambda: it.numerical_hessian(f, x), "a 2 × 2 Hessian", "x0² e^(x1)")
-    assert np.array_equal(x, [0.25, -1.0]), f"expected x to be left unchanged, got {_show(x)} afterwards"
+    assert np.array_equal(x, [0.25, -1.0]), (
+        f"expected x to be left unchanged, equal to [0.25, -1.0], got {np.array2string(x, precision=17)} afterwards "
+        "(x was modified in place: work on a float copy)")
 
 
 def test_numerical_hessian_accepts_integers_and_one_variable(it):

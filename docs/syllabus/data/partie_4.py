@@ -613,8 +613,8 @@ CHAPTERS = [
             ("M19.E1", "💼", 1, 10, "« Que nous apprend la hessienne en un minimum ? »", "§1 §2", ""),
             ("M19.E2", "💼", 1, 10, "« Pourquoi un mauvais conditionnement ralentit-il une méthode itérative ? »",
              "§5", ""),
-            ("M19.19", "🔨", 2, 25, "La hessienne par différences centrées", "§1", "E m:numerical_hessian"),
-            ("M19.20", "🔨", 2, 25, "Le pas critique d'une matrice symétrique définie positive, et les itérés de "
+            ("M19.19", "🔨", 2, 35, "La hessienne par différences centrées", "§1", "E m:numerical_hessian"),
+            ("M19.20", "🔨", 2, 30, "Le pas critique d'une matrice symétrique définie positive, et les itérés de "
              "Richardson", "§4", "E m:critical_step_size,richardson_iterates"),
             ("M19.21", "🔨", 1, 15, "Une récurrence linéaire d'ordre d", "§6", "m:linear_recurrence"),
             ("M19.22", "📦", 1, 15, "`scipy.sparse.linalg.cg` : le gradient conjugué contre Richardson", "§5",
@@ -625,7 +625,7 @@ CHAPTERS = [
              "logarithmique", "§5", "p:M19.20"),
             ("M19.25", "🎨", 1, 20, "Les itérés de Richardson sur les lignes de niveau d'une forme quadratique",
              "§4 §5", "E p:M19.20"),
-            ("M19.26", "🐛", 1, 15, "Chasse à l'erreur : un pas réglé sur λmin, une hessienne non symétrique, le module "
+            ("M19.26", "🐛", 1, 25, "Chasse à l'erreur : un pas réglé sur λmin, une hessienne non symétrique, le module "
              "d'une racine complexe", "§2 §4 §6", "E"),
             ("M19.27", "🛠️", 1, 15, "Un critère d'arrêt : le résidu relatif ‖b − A x‖/‖b‖ et un nombre maximal "
              "d'itérations", "§4", "p:M19.20"),

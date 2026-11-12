@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §8 |
-| **Temps total estimé** | ≈ 13,8 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 10 h 20, 22 flashcards ≈ 45 min (parcours essentiel ≈ 9,4 h) |
+| **Temps total estimé** | ≈ 14,2 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 10 h 45, 22 flashcards ≈ 45 min (parcours essentiel ≈ 9,8 h) |
 | **Prérequis** | M05b (dérivées partielles secondes, Schwarz, points critiques en dimension 2) ; M05a (Taylor en une variable, choix du pas des différences finies) ; M12c (valeurs propres, théorème spectral, quotient de Rayleigh, formes quadratiques, matrices définies positives, minimum de $\frac12\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}$) ; M12d (conditionnement) ; R5 (suites géométriques, récurrences d'ordre 1) ; R3 (trinôme, discriminant) ; M02c (espérance et variance d'une moyenne, tirages sans remise) ; M12b et M07 (point le plus proche, normes) ; M17 (jacobienne) ; M18 (gradient d'une moyenne) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `iterative.py` : `numerical_hessian`, `critical_step_size`, `richardson_iterates`, `linear_recurrence` |

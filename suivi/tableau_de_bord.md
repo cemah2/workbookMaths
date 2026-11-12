@@ -1719,7 +1719,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 <!-- wbm:end M18 -->
 
 <!-- wbm:section M19 -->
-## M19 · Hessienne, conditionnement et convergence ⏱️ 13,8 h
+## M19 · Hessienne, conditionnement et convergence ⏱️ 14,2 h
 
 - [ ] M19.Q1 🧠 La hessienne : de quelle taille, symétrique, de quoi ? ★ 4 min
 - [ ] M19.Q2 🧠 Minimum, maximum, selle ou direction plate ? ★ 4 min
@@ -1752,14 +1752,14 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M19.18 🗣️ Expliquer, sur un dessin de lignes de niveau, pourquoi un système mal conditionné converge lentement ★ 10 min
 - [ ] M19.E1 💼 « Que nous apprend la hessienne en un minimum ? » ★ 10 min (complet)
 - [ ] M19.E2 💼 « Pourquoi un mauvais conditionnement ralentit-il une méthode itérative ? » ★ 10 min (complet)
-- [ ] M19.19 🔨 La hessienne par différences centrées ★★ 25 min
-- [ ] M19.20 🔨 Le pas critique d'une matrice symétrique définie positive, et les itérés de Richardson ★★ 25 min
+- [ ] M19.19 🔨 La hessienne par différences centrées ★★ 35 min
+- [ ] M19.20 🔨 Le pas critique d'une matrice symétrique définie positive, et les itérés de Richardson ★★ 30 min
 - [ ] M19.21 🔨 Une récurrence linéaire d'ordre d ★ 15 min (complet)
 - [ ] M19.22 📦 `scipy.sparse.linalg.cg` : le gradient conjugué contre Richardson ★ 15 min (complet)
 - [ ] M19.23 🔮 Prédire le nombre d'itérations de Richardson selon ω, puis vérifier ★ 10 min
 - [ ] M19.24 🔬 Le nombre d'itérations contre le conditionnement : une droite en échelle logarithmique ★★ 20 min (complet)
 - [ ] M19.25 🎨 Les itérés de Richardson sur les lignes de niveau d'une forme quadratique ★ 20 min
-- [ ] M19.26 🐛 Chasse à l'erreur : un pas réglé sur λmin, une hessienne non symétrique, le module d'une racine complexe ★ 15 min
+- [ ] M19.26 🐛 Chasse à l'erreur : un pas réglé sur λmin, une hessienne non symétrique, le module d'une racine complexe ★ 25 min
 - [ ] M19.27 🛠️ Un critère d'arrêt : le résidu relatif ‖b − A x‖/‖b‖ et un nombre maximal d'itérations ★ 15 min (complet)
 - [ ] M19.28 🏆 Défi : le schéma saute-mouton d'un oscillateur, x_{k+1} = (2 − h²Ω²) x_k − x_{k−1}, borné si et seulement si hΩ < 2 ★★★ 30 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)

@@ -465,13 +465,13 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 
 | ID | Titre | Type | ★ | ⏱️ | Parcours |
 |---|---|---|---|---|---|
-| M19.19 | La hessienne par différences centrées · `numerical_hessian` | 🔨 | ★★ | 25 | C, E |
-| M19.20 | Le pas critique d'une matrice symétrique définie positive, et les itérés de Richardson · `critical_step_size, richardson_iterates` | 🔨 | ★★ | 25 | C, E |
+| M19.19 | La hessienne par différences centrées · `numerical_hessian` | 🔨 | ★★ | 35 | C, E |
+| M19.20 | Le pas critique d'une matrice symétrique définie positive, et les itérés de Richardson · `critical_step_size, richardson_iterates` | 🔨 | ★★ | 30 | C, E |
 | M19.21 | Une récurrence linéaire d'ordre d · `linear_recurrence` | 🔨 | ★ | 15 | C |
 | M19.22 | `scipy.sparse.linalg.cg` : le gradient conjugué contre Richardson | 📦 | ★ | 15 | C |
 | M19.23 | Prédire le nombre d'itérations de Richardson selon ω, puis vérifier | 🔮 | ★ | 10 | C, E |
 | M19.24 | Le nombre d'itérations contre le conditionnement : une droite en échelle logarithmique | 🔬 | ★★ | 20 | C |
 | M19.25 | Les itérés de Richardson sur les lignes de niveau d'une forme quadratique | 🎨 | ★ | 20 | C, E |
-| M19.26 | Chasse à l'erreur : un pas réglé sur λmin, une hessienne non symétrique, le module d'une racine complexe | 🐛 | ★ | 15 | C, E |
+| M19.26 | Chasse à l'erreur : un pas réglé sur λmin, une hessienne non symétrique, le module d'une racine complexe | 🐛 | ★ | 25 | C, E |
 | M19.27 | Un critère d'arrêt : le résidu relatif ‖b − A x‖/‖b‖ et un nombre maximal d'itérations | 🛠️ | ★ | 15 | C |
 | M19.28 | Défi : le schéma saute-mouton d'un oscillateur, x_{k+1} = (2 − h²Ω²) x_k − x_{k−1}, borné si et seulement si hΩ < 2 | 🏆 | ★★★ | 30 | C |
