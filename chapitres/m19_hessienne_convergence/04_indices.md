@@ -589,3 +589,221 @@ Le plan : définition ; ce qui limite le pas ; ce qui fixe la vitesse ; l'ordre 
 <a id="notebook"></a>
 
 ## Notebook
+
+### M19.19 — La hessienne par différences centrées : `numerical_hessian`
+
+<details><summary>Indice 1</summary>
+
+Fiche §1, « La hessienne par différences centrées » (les deux formules, puis le choix du pas) ; §2 pour le test du second ordre.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Convertis `x` en un tableau de flottants (`np.array(x, dtype=float)`, une copie), vérifie `ndim == 1`, `size > 0` et $h > 0$. Les déplacements $h\mathbf{e}_i$ sont les lignes de `h * np.eye(n)`. Calcule $f(\mathbf{x})$ une seule fois ; calcule chaque case au-dessus de la diagonale une seule fois, puis recopie-la en dessous : la symétrie est alors exacte. Pour e), une liste des plus grands écarts, un par pas de `STEPS_19`, puis `np.argmin` : la liste commence à $10^{-2}$, pas à $10^{-1}$.
+
+</details>
+<details><summary>Indice 3</summary>
+
+```python
+def numerical_hessian(f, x, h=1e-4):
+    point = np.array(x, dtype=float)
+    ...                                       # the checks of the docstring
+    n, E = point.size, h * np.eye(point.size)
+    centre, H = float(f(point)), np.zeros((n, n))
+    for i in range(n):
+        H[i, i] = (float(f(point + E[i])) - 2 * centre + float(f(point - E[i]))) / h ** 2
+        for j in range(i + 1, n):
+            ...                               # the four values of the fiche, / (4 h²), into H[i, j] AND H[j, i]
+    return H
+```
+Pour l'usage : `np.linalg.eigvalsh(numerical_hessian(s_19, np.zeros(3)))` pour b), et `int(np.sum(values < 0))` pour c). Pour e) : `np.array(sympy.hessian(G_EXPR_19, (x_19, y_19)).subs({x_19: 1.2, y_19: -0.5}), dtype=float)`, puis `np.max(np.abs(numerical_hessian(g_19, P_19, h=h) - exact))` pour chaque `h`.
+
+</details>
+
+### M19.20 — Le pas critique et les itérés de Richardson : `critical_step_size`, `richardson_iterates`
+
+<details><summary>Indice 1</summary>
+
+Fiche §4 (le pas critique, l'itération) et §5 (le meilleur pas, la mise à l'échelle diagonale).
+
+</details>
+<details><summary>Indice 2</summary>
+
+`critical_step_size` : une matrice carrée de flottants, la symétrie à la tolérance de la docstring du module, puis `np.linalg.eigvalsh`, qui rend les valeurs propres en ordre **croissant**. `richardson_iterates` : un tableau `np.empty((n_steps + 1, n))` dont la ligne 0 est une copie de `x0` (le vecteur nul s'il manque) ; un nombre de pas se reconnaît avec `isinstance(n, numbers.Integral)` et `not isinstance(n, bool)`. Pour c) et d), les normes des écarts de toutes les lignes d'un coup : `np.linalg.norm(iterates - X_STAR_20, axis=1)`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Les lignes clés : `values = np.linalg.eigvalsh(matrix)`, un `ValueError` si `values[0] <= 0`, puis `return float(2 / values[-1])` ; et, pour l'itération :
+```python
+for k in range(n_steps):
+    x = x + omega * (rhs - matrix @ x)
+    iterates[k + 1] = x
+```
+Pour b) : `scale = 1 / np.sqrt(np.diag(K_20))`, puis `K_20 * np.outer(scale, scale)`. Pour d) : `np.flatnonzero(errors <= 1e-6 * errors[0])[0]`.
+
+</details>
+
+### M19.21 — Une récurrence linéaire d'ordre d : `linear_recurrence`
+
+<details><summary>Indice 1</summary>
+
+Fiche §6 ; la docstring dit dans quel ordre sont rangés les coefficients et les valeurs de départ.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Un tableau `np.zeros(max(n_terms, d))`, rempli d'abord par les $d$ valeurs de départ ; chaque nouveau terme est une somme de $d$ produits, $c_1$ avec le terme précédent, $c_2$ avec celui d'avant, etc. Rends un **nouveau** tableau des `n_terms` premiers termes, même quand `n_terms` $< d$. Pour b), compare à `0.8 ** k * np.cos(k * np.pi / 3)` avec `k = np.arange(40)`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+La ligne clé de la boucle, pour `k` de `d` à `n_terms - 1` : `terms[k] = sum(c[i] * terms[k - 1 - i] for i in range(d))` ; puis `return terms[:n_terms].copy()`. Pour l'usage : `linear_recurrence([0.8, -0.64], [1.0, 0.4], 40)`, et `linear_recurrence([0.5, 0.3, 0.2], [0.0, 10.0, 4.0], 61)[60]`.
+
+</details>
+
+### M19.22 — `scipy.sparse.linalg.cg` : le gradient conjugué contre Richardson
+
+<details><summary>Indice 1</summary>
+
+Fiche §5 (💻, le gradient conjugué) et §3 (la barre) ; `help(scipy.sparse.linalg.cg)` pour ses arguments.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Un compteur : une liste vide `calls = []` et `callback=lambda xk: calls.append(1)`, puis `len(calls)`. `cg` rend un couple `(x, info)`, avec `info = 0` quand il a atteint `rtol`. Pour Richardson, le meilleur pas vient des valeurs propres extrêmes de la formule de l'énoncé ; passe `A_22.toarray()` à ta fonction, puis calcule le résidu relatif de chaque ligne du tableau des itérés.
+
+</details>
+<details><summary>Indice 3</summary>
+
+`lambdas = 2 - 2 * np.cos(np.arange(1, n + 1) * np.pi / (n + 1))`, `omega = 2 / (lambdas.min() + lambdas.max())` ; les résidus relatifs de toutes les lignes : `np.linalg.norm(B_22 - (A_22 @ iterates.T).T, axis=1) / np.linalg.norm(B_22)` ; le premier itéré assez précis : `np.flatnonzero(relative <= 1e-8)[0]`.
+
+</details>
+
+### M19.23 — Prédire le nombre d'itérations de Richardson selon ω
+
+<details><summary>Indice 1</summary>
+
+Fiche §4 (le facteur $\rho(\omega)$) et §3 (le nombre de pas pour gagner $d$ décimales).
+
+</details>
+<details><summary>Indice 2</summary>
+
+Seules les deux valeurs propres extrêmes, 2 et 24, comptent dans $\rho(\omega)$. Pour chaque pas, calcule $1 - 2\omega$ et $1 - 24\omega$, avec leur signe, puis le plus grand des deux modules.
+
+</details>
+<details><summary>Indice 3</summary>
+
+`rho = max(abs(1 - 2 * omega), abs(1 - 24 * omega))` ; si `rho < 1`, le nombre d'itérations est `math.ceil(6 * math.log(10) / -math.log(rho))`, à ranger dans un intervalle ; sinon, regarde ce que devient la composante de l'écart dont le facteur a un module $\ge 1$.
+
+</details>
+
+### M19.24 — Le nombre d'itérations contre le conditionnement
+
+<details><summary>Indice 1</summary>
+
+Fiche §5 (le nombre d'itérations croît comme $\kappa$ ; le gradient conjugué, comme $\sqrt\kappa$) ; M19.22 pour la formule des valeurs propres et le compteur de `cg`.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Une boucle sur `N_24` ; pour chaque barre, trois nombres, ajoutés à trois listes. Le meilleur pas est $\frac{2}{\lambda_{\min} + \lambda_{\max}}$. La pente d'une droite en échelles logarithmiques : `np.polyfit(np.log(kappas_24), np.log(counts), 1)[0]` ; arrondie au demi le plus proche : `round(2 * s) / 2`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+```python
+for n in N_24:
+    A, b = bar_24(n)
+    lambdas = 2 - 2 * np.cos(np.arange(1, n + 1) * np.pi / (n + 1))
+    ...      # κ ; Richardson at the best step (6 000 steps) and its first k ≤ 1e-6 ; cg with rtol=1e-6 and a counter
+```
+Les résidus relatifs de toutes les lignes des itérés : `np.linalg.norm(b - iterates @ A.T, axis=1) / np.linalg.norm(b)`.
+
+</details>
+
+### M19.25 — Les itérés de Richardson sur les lignes de niveau
+
+<details><summary>Indice 1</summary>
+
+Fiche §4 (la figure des deux ressorts) et §5 (« Le dessin ») ; M12c §7 pour les lignes de niveau d'une forme quadratique.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Calcule d'abord les itérés et la solution, puis une grille qui les contient tous (leurs plus petites et plus grandes coordonnées, avec une marge). Des niveaux au-dessus du minimum $f(\mathbf{x}^\star) = -\frac12\mathbf{b}^\top\mathbf{x}^\star$, rapprochés près de lui (`np.geomspace`), donnent des ellipses lisibles. Tout se dessine dans `ax` : `ax.contour`, `ax.plot`, `ax.set_aspect`, `ax.set_title`, jamais `plt.figure` ni `plt.subplots`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+```python
+path = mymath.iterative.richardson_iterates(A, b, omega, x0=x0, n_steps=n_steps)
+x_star = np.linalg.solve(A, b)
+X, Y = np.meshgrid(np.linspace(..., 200), np.linspace(..., 200))
+F = 0.5 * (A[0, 0] * X ** 2 + 2 * A[0, 1] * X * Y + A[1, 1] * Y ** 2) - b[0] * X - b[1] * Y
+...      # ax.contour(X, Y, F, levels=...), then ONE line through path, x_star, equal scales, a title
+```
+
+</details>
+
+### M19.26 — Chasse à l'erreur : un pas réglé sur λmin, une hessienne non symétrique, le module d'une racine complexe
+
+<details><summary>Indice 1</summary>
+
+Les ⚠️ de la fiche : §4 (le pas réglé sur la plus petite valeur propre), §1 (une hessienne numérique non symétrique et `eigvalsh`) et §6 (la partie réelle prise pour le module).
+
+</details>
+<details><summary>Indice 2</summary>
+
+(1) Dans quel ordre `np.linalg.eigvalsh` rend-elle les valeurs propres ? Essaie-la sur `np.diag([5.0, 1.0])`. (2) Affiche `hessian_26(g_26, np.zeros(3))` : que contient le triangle inférieur, et lequel des deux triangles `eigvalsh` lit-elle (son argument `UPLO`) ? (3) Pour deux racines conjuguées $r$ et $\bar r$, que vaut leur produit $r\bar r$, et que vaut-il en fonction de $p$ et $q$ ? Pour a), il te faut toutes les valeurs propres de `K_26` et le pas `omega_26` de la cellule fournie.
+
+</details>
+<details><summary>Indice 3</summary>
+
+a) `max(abs(1 - omega_26 * np.linalg.eigvalsh(K_26)))`. (1) Dans un tableau rangé en ordre croissant, la plus grande valeur est à l'indice `-1`. (2) Pars de `H = hessian_26(f, x, h)`, dont la diagonale et le triangle supérieur sont justes, et recopie le triangle supérieur strict en dessous : `np.triu(H, k=1).T` est ce triangle, à sa place symétrique. (3) Seule la branche des racines complexes est fausse : le module y est la racine carrée du produit des racines. b) Traduis la réponse de `nature_26` en lettre ; c) la même racine carrée, pour $q = 1{,}2$.
+
+</details>
+
+### M19.27 — Un critère d'arrêt : le résidu relatif et un nombre maximal d'itérations
+
+<details><summary>Indice 1</summary>
+
+Fiche §4 (💻, le critère d'arrêt) ; M12d pour le lien entre le résidu et l'erreur.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Une boucle qui, à chaque tour, calcule le résidu de l'itéré **courant**, teste les conditions dans l'ordre de l'énoncé (d'abord la convergence, puis la divergence et `max_iter`), et seulement ensuite fait le pas. Le résidu sert deux fois : au test et au pas. Avec `tol=1`, le départ $\mathbf{x}_0 = \mathbf{0}$ (de résidu relatif 1) suffit déjà : ta fonction doit rendre 0 pas.
+
+</details>
+<details><summary>Indice 3</summary>
+
+```python
+x, k = np.zeros(len(b)), 0
+while True:
+    residual = b - A @ x
+    relative = np.linalg.norm(residual) / norm_b
+    ...                                  # the tests of the statement, each with its return
+    x = x + omega * residual
+    k += 1
+```
+
+</details>
+
+### M19.28 — Défi : le schéma saute-mouton d'un oscillateur
+
+<details><summary>Indice 1</summary>
+
+Fiche §6 (racines complexes de module $\sqrt q$, racine double, triangle de stabilité) ; M05a (la différence centrée de la dérivée seconde).
+
+</details>
+<details><summary>Indice 2</summary>
+
+Ici $q = 1$ : le produit des deux racines vaut 1. Elles sont complexes quand $p^2 < 4q$. Pour la simulation, `linear_recurrence` attend `coefficients = [p, -q]` : attention au signe. L'amplitude d'une suite de termes : `np.max(np.abs(terms))`. Pour d), compte les termes : $x_{1000}$ est le terme d'indice 1 000.
+
+</details>
+<details><summary>Indice 3</summary>
+
+`p = 2 - (h * OMEGA_28) ** 2`, puis `linear_recurrence([p, -1.0], [0.0, h * V0_28], 301)` pour chaque `h` de `H_28` ; b) `max(h for h, a in zip(H_28, amplitudes) if a <= 1)` ; c) `theta = math.acos(1 - (0.03 * OMEGA_28) ** 2 / 2)`, puis `2 * math.pi / theta` ; d) la même simulation en $h = h_c$, avec 1 001 termes.
+
+</details>

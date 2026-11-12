@@ -65189,6 +65189,2531 @@
       },
       "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
     },
+    "M19.1a": {
+      "decimals": 0,
+      "element_hashes": [
+        "a4bc7b3d8a56b9ac1a41c467b3d00ef3a5ecdf72a593ed0f7667ee304c20e0bf",
+        "f4945e28967bad9450529e36844db1f4c2b403ad2f1e91e2a4812f21303a1d0b",
+        "be15cb38cffb2ffef9a64749862eb3c3a754251e61c608fbbd7c21cb68bf39c3"
+      ],
+      "hash": "214b7fbfbf2aa2529574c09cd189b364d6e9b081e0d985856ac2d22dc59388d4",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "7baac2a60057767d5b64dec9f832442c99a8f6e27e20a9c1f338dce062885a41": "∂(e^(x − y))/∂y = −e^(x − y) : la dérivée par rapport à y amène un signe moins"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.1b": {
+      "decimals": 0,
+      "element_hashes": [
+        "30882b720d013a8d026d894eb1d8c5a479b1cd57b28609dcee05ac2d92afebe8",
+        "2fe6ec8827211e5e59ce30b0c01211fedc2b37e131e30e6834837ddb08f6ca2c",
+        "e005c18019a96bfa2836f61377bb6ae0d626e1212ef82349200a876f63227a4f",
+        "8059caca34a43c68ca672585bf5fbe82e6a87c73d1c80cd262e5953f881c6ad5",
+        "81bb4b850bd4536e6496952046e4fc5d8deaaa172daac0fafb940f22ed79ca02",
+        "2290f5faae1a8dc7e21bdf38f6e8ed3a710e4e3d224b4968a8c293c9cfd86f49",
+        "08e70506f28ec88a127311b57734192e3882f06f334995714a2995ad773eb863",
+        "1ce9cba340b62fab642d044c40977ba6df2d9de9a01b1e8eafe2b27805c5e139",
+        "ff3c162c5f52b257280377b3158b55beb572d84640ddf516bc90152df269da40"
+      ],
+      "hash": "76a98faa0c3fd5dcfd2ce7f18ba2d85d1d0fe7d9a64cb1d78c4de90be99b01e9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "aeaf297084bf4c8ccddb0396517145c6a35f3f6863795ef28399d50899655c8f": "∂²(e^(x − y))/∂x∂y = −e^(x − y) : la dérivée par rapport à y amène un signe moins"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.1c": {
+      "coarse_any": {
+        "0": [
+          "b1a7ba90cae3782ce9c85140960a0f4fb1f085bbf579ad684eeb48ec3f32677f"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "48a580ad111e6c3c3c1a123562ce39418cfffde653ffc6da572624151d02426a"
+        ],
+        "2": [
+          "7c8a166ac87dd889bc8557817196bbc1c08059fcf36a47a80bc2d41a222b23fe"
+        ],
+        "3": [
+          "ce131b8253acd096bd67049631883c92edd29d3037718bd023894717dde08446"
+        ],
+        "4": [
+          "319adc4047bcaa983334a5dece830667ec2561eb018756ae4c14fede9e036cb3"
+        ]
+      },
+      "decimals": 6,
+      "hash": "a2ad53771788f0a3caf085a35e99ef7c12b16a913681eb969e602f7591b3b6fd",
+      "hash_coarse": "44a6019c0986ef82a692bad9715da7ef4447151799e31640aa0c78d98db3c4a5",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "ede8aa37143872338322b475298da12270e6726d786c9da15c088c3e68781efa": "Taylor d'ordre 1 part de f(p) : f(p) + ∇f(p)ᵀh"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.1d": {
+      "coarse_any": {
+        "0": [
+          "27e841828323d637b868131fe70a74bdd3ef370485aaa9e2626677b9fe330cb0"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "36d472ad38878aa1af5bd9a4bbcf7a8c27cc7c4b09799bd46edac4b12c731e4b"
+        ],
+        "2": [
+          "16761584e49a2baecccf934a26a3bade864897fa307f25f64df2a7057670a516"
+        ],
+        "3": [
+          "ec2036462a19ee8bdb01b48ce46434947fe93b8ea8f33dbfe7ff25f56860d719"
+        ],
+        "4": [
+          "e92e6c5b526092e16b29040d70f70e9dfcab195d06469e9f95081da1e561afee"
+        ]
+      },
+      "decimals": 6,
+      "hash": "a1ae4df51e50db6589961c2a14088c7d8e28cfcd138326cf72980540556b7d1f",
+      "hash_coarse": "40bf47324eb7b1a23f35b4a3a73ac68912f5b1f396478d1d183e0791362fb171",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "a35c176e8005a238d47f79bc12721240cd7ed076ffb9f041d92d4c5e2da37da7": "le terme d'ordre 2 est ½ hᵀHh : n'oublie pas le ½"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.1e": {
+      "coarse_any": {
+        "0": [
+          "a7544a96058b084b80e97290f1cbebf39914e9413d48cafc9723830f04603243"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "abc050c6e571b2900f69147e9929f314111d210097a1cf1f2a75f93a5924ee4a"
+        ]
+      },
+      "decimals": 3,
+      "hash": "41b20fd22a18145864c335100b73adcbbc033b7df990734ac4472b32d383d6f6",
+      "hash_coarse": "226df65e824c61e234259c1e5207dc0f0890de327a8a3edf3f9b588389f86df1",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "38ee5a38dd0a869fee8585da90ec186446e52ec4533da43093de4959218bd175": "la vraie valeur de f, pas une approximation de Taylor : calcule f(1,1 ; 0,8 ; 2,1)"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.1f": {
+      "hash": "9b6d6e43a4c847764d369beb350003a7fe8542a44624e0c8018a0e6d63c1147b",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "27ab50cdff3cfd625860f7cde1efe1cc005bf122a8e76ec8c97c9c144cfa6bdd": "u est unitaire, u = (2, −1, 2)/3 : la courbure est uᵀHu, le facteur 1/9 compris"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.1g": {
+      "hash": "71464840e4131a28ad9242bee1ab51cda8bf37441d03608e51ef5b005eaba3b7",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "f8bea256be3bb71407ff58b83d4ae8c34ba774e5f86b3359be99961039ca910b": "le déterminant d'un bloc 2 × 2 est ad − bc, avec ici b = c = −4"
+      },
+      "sign": -1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.1h": {
+      "hash": "47cbf2fd797ab35b4b681ca32d8f6c9101896531dfa3641924b4676f3345960b",
+      "kind": "bool",
+      "mistakes": {
+        "af197029cd5f8e3b0685d80627dc12131db8f40bd4e5f4b60c6e88f494a42d0b": "un mineur principal négatif suffit à exclure « définie positive » (critère de Sylvester, M12c §7) : une diagonale positive ne suffit pas"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.2a": {
+      "hash": "7692f4dfe8ed664dfb3647d64a728f68b48100de1935597e8ceb508326330849",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a36742513d6f18b5d95c4b80a21d2200cac2d02775104b4e152b7e78475ea42d": "x et y peuvent aussi être tous deux négatifs : (x + y)² = 9 donne deux valeurs de x + y"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.2b": {
+      "decimals": 0,
+      "element_hashes": [
+        "9c1ff11ba52d56dbb3dbb999a41044c2f5e6f38a5a9b74f297d562124704b44d",
+        "b281f33604d3c4ae26e8dbf5c162bb3b2d35528a788741b93924c065887a9135",
+        "e845daafd46fe8d186068852d0b43aa39ae9b45cb2b75c46e679efd0fa6d2770",
+        "7a6220ab4cab9f0895c6a77d539f1d197781e222184bafc4f03eae9f0c99e194",
+        "3b4e3a697f589dac1359b21036618fcb973d0ab54a9ad5a43dfc9b505422e6b6",
+        "597cc2a32d0e7ee6dca3e19823c844b1ab327ff9a8b7e10b4a6f00f9ad35642f",
+        "d28b340092a67a65dd269f6c08b067a4aec3b9ff6a8b7a80ff6f2dafcdfcfdfc",
+        "36112ae25142c54ead563425073b61751322316cbc648bd4fd769fe8480c17df",
+        "de46897b8d0e87c3bbc35cd54ef1cc307efa79bffe3d9d065bd8bfc73be542cf",
+        "2d595b71c6592083613a0121b3a0d07e9a0e4ff07c28ab4a31203ce0e310fcac",
+        "89acc14dc14d08dc144c3aa2707ec2fe1cbf642fec9005486dda8f4caa72bab6",
+        "73eb9a32969d79be2a7c5996f2b0181be287f3def1284140ee589bb47c6cfd1a"
+      ],
+      "hash": "792c143de0e656e6d2d08a399ce0c8c6def444ff941d18d5c0fb7b9e2c72185c",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "bccdd4c79f7b554f9684cf9878ddc348674198d5fc7fa251399860c6c092f592": "rangés par x CROISSANT : le plus petit x d'abord"
+      },
+      "shape": [
+        4,
+        3
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.2c": {
+      "decimals": 0,
+      "element_hashes": [
+        "7518693acce83d5de385b0618bec7e8d14082f713ab5aa58512fc74659cd2730",
+        "11c7782e82b0f3036560db0cc5f5c55c6252095bed3b47c103c2ee14f3ae587d",
+        "8a78b13738ccdbc151650a808d2b02aab1e184cc960c8b303b949621cc39af87"
+      ],
+      "hash": "5dde384f847703ebd80ae5da1e9d307e64d5750e0f3f885cfb7815f0e8138b36",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "10e14421023b08494c79dd7b2123917ca10e58926c863024ab70f43797a96a2f": "en ordre croissant"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.2d": {
+      "decimals": 0,
+      "element_hashes": [
+        "b3889b413c7c642d2a072dfaf258beb064794c0216cabd05e5c0de69502d216f",
+        "9f4ed9354dfe38118676ade99646145733935a0cf85169036b64a18f4148ca12",
+        "806f9eb5397fad425ea03d3704931cbf1ad17a1ad8b42b812a3a81c537b25f07"
+      ],
+      "hash": "59a4b154f82f7d15f32c6811ec696bcbc3cc9de3f25c0412c6063523230ebfa6",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "69c2fee25e6ba0d49ae50bc4ac46185778a71ce6e9939ae945e3b593d8e66bbc": "en ordre croissant : la plus négative d'abord"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.2e": {
+      "decimals": 0,
+      "element_hashes": [
+        "5e75977e8f35d05c2944a12276cf1d28e660e8c67ae705566379fc551b2aeb17",
+        "c015c7d65877b3855ed33a00de8fb136e1229da359cf7b6b6f3234834552660c",
+        "ecad919ff7fcd42c3fb1d117d323cbd45c58eb05552473ebf68ae77b99dc771a",
+        "67c8c90320f5f16e6d949773f17795382dd9f41519b9f605f050382cc5b61a75"
+      ],
+      "hash": "5e50fb1dc9d383298f6bc0a99632c357cfa14d8091d880d919028a4415c5634d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "f73d9c3e3b81e8defb18cdd23e0c1e202a898f945b4287e52b2245364872d4b2": "compte les valeurs propres NÉGATIVES"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.2f": {
+      "hash": "1e8285d1017000e686290d43e4c274325e70d01f5f2ed486315915e8afa8090c",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": -1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.2g": {
+      "hash": "02fdef1b577a6ef2ee3f50eef724eecd58829bbf3aa844241f0daac28231c4f1",
+      "kind": "bool",
+      "mistakes": {
+        "0912df36358e068779242aae81bbf54bb683228a280e0f4ef439a1629b1264d4": "la valeur propre de la direction z est la même en tout point, et positive : f y monte"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.3a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "e49c0feab3c5cd4ac8fa32e808094470076525648eadbdbeac316ff05d99e5c3"
+        ],
+        [
+          "23f0be0e38ec2cd290a736ffe0ff82e812fefb0ddbe90e8a9b748be458e3f18d"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c622025bf639ee13ad269cecbbf760a7fcfb362549a0807afa02c5f95f0558c0",
+          "68994bc97bb48c8dcdc428f4cfe3570ce87a0e1012b16ad4a0c0de6011734aea",
+          "e2d31a7fb6436b00ca7fba23da64c7f76dfd289cbb28b852412b65d452eb3435",
+          "4bc2b190e738fb9bb55804449966153bd3483a25dc9b736c4aee08b196313ae3",
+          "cce1e506c0b32e4312d268f073800077225ce435ae59cf90d414c2bf0bdc54a7"
+        ],
+        [
+          "86d1a6659d42120ce8ab0f1a512a5ab11972502bec975b7071135fa97d77e87b",
+          "9bd0cea437b1b1ec32aa6695fb4b1cfd45105e12567604b9267e72441b552d6c",
+          "f0f831c2ac1e297ee14f14419b21e43ab0ef590c694c445148e23a7bdb24b5ef",
+          "e9917546df68b15a1df63a56db7cfaa06a1233becac262112b12b1263c731f6c",
+          "53306e587a3f4549cb48bf07c539f0e6b60f84f5f5a0dd8203c501ae2935d084"
+        ]
+      ],
+      "element_hashes": [
+        "fb2287a2f9ed6a7a1c86a4fe61c5385a44afd52cf82e8d38c6a57ae4cb98e83a",
+        "fb2223a5bb561d2178117cce4e8db339da93f38c19158015eadcb8824f9eb0aa"
+      ],
+      "hash": "f39fba5726235344f719b314203d8298aa55678aa87c4d56e41dcfb173fe5d6f",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.3b": {
+      "array_rounded": {
+        "1": "61401f370dff645d628d135885728b0f4c21586a9059293db54d4717cd15e46d"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "54b34be289190bd5fc2b0f3967d1fb582f946a0d775e4b85ad0bbd30ed21cab6"
+        ],
+        [
+          "7865ba4559a24a9094ccd480c14c618111ef1b76cd732d7af747d3c4bab84237"
+        ],
+        [
+          "237278285e912f15761f627818c372e58f3aa4d53765901a424701a1bec2718e"
+        ],
+        [
+          "5558bb6aaee8f6863f65527076975fed7f2ca222ded2af6744ad4215fc6d7e2e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fbd16be79423a6a82eceb9f067860b8d4411c85b6bc147778d42e7fc1e74be28",
+          "2902b87bb12c0990164587e2c5a2821dee76963ff78028574ce5f063195d7ca7",
+          "6d3a77e3567c05462cb070b3f09357701cdb5806b8b724670bb308409d20b088",
+          "63a8d77a08732d856115a427810ca79017570333a5127c0c8a3bf0c37c857766",
+          "9616d221a99a382fd0940e93661970722534fe43f5597f4dbea4fa7eac6b6916"
+        ],
+        [
+          "d9446f0c709f9364b4313b4e1e06068babddb3ac7069a97b4b936ac2dbb5be73",
+          "c4cd3f3c2b1265f18d834f8115493a2790e0ceb64b054a4dd258e4619a11e85d",
+          "b8309a5e8de600f210686d772648988693913601cb92d9134902277d55f7fa3d",
+          "87ca54b90f8b1179104930b31f882a3f3b0797d984b9962d5811ae0df493e445",
+          "9709b7a77b6f7fbc4e3f95ba728a4927c87032423921f4d8f359ed92294ea6e1"
+        ],
+        [
+          "5df16fa1e25400e3303915f1483c35901b0a420554744853281c1899501061d1",
+          "a4528cf1b090c67541833f68b7b0f068c0e74d471f2fa777707534a682cd5ebd",
+          "692edf23b12a464dd6e52a4e5a1327b489009914e17abb46233f9ec1a5f9f0d3",
+          "1b1c06d69710ff4c1bea4f5fc45a6e5d6ad24ccea1ffc0e48c792f5b954abb56",
+          "1912c924fd4f676fe255d2f2ed53b06f25c25a4feae5ae6b57b56569aa333872"
+        ],
+        [
+          "6a15b8743a87295d4afedb02bcdff6198cf416681622b4ee1539eb9b7777950f",
+          "5b727e26dc53029b83a8e118069a6497e20bcba5f6ce31340fa492a537b9d585",
+          "e4875c4b7b8d9cd1a04a86b9e3b1edf1c3fd01ae101e8692e44cef1acc128eff",
+          "4d959dc6b8d487eb9915a71fee9379fe7aa6b01c69a6d1316c5562b082aa9b5d",
+          "77946739b62354c4ed6b06ec48c1d207dfa4d55948858dc06f540510aad06152"
+        ]
+      ],
+      "element_hashes": [
+        "1f856c134408b3115bd3213e77317aa0dcb1b087ee80f6db888c33769e98c140",
+        "2776ec3b2e0e707b23b4b9ea541cae882c0ae31abdeab9886f01df29ecbabf61",
+        "5890d904e279bdfe74033a746f7bbddf5bff081b230da26ca3c0fbdc3701732d",
+        "dc7da6d9060174db3f81ec82b5eeb1067fa969e39e80e64d7d5e3386cf07793b"
+      ],
+      "hash": "2a4084739b2bfb081f3c55a650d307335b6682769c160d6d7b23bb83eab6a76e",
+      "kind": "array",
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.3c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "dec98a762c1bc8130aa7e39264e2fe25ab2fce74b670db2385d17be4d7eb3837"
+        ],
+        [
+          "b0bf81d62c4f1532e4ff7b586977eadbc50068a8dc69cf9bdc845e30c588b318"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "45f3c523e45ed55afda8c16578f6882706f748b3431ec65219d2ba65804cbada",
+          "1e5517642379b6425eb4dd048785ef737cf9274d18955049b86ae56ea78ad9ba",
+          "41435e7bc8e10b23e5370871ff746399b1f879d1f65943bba0e2eaee092bc7d0",
+          "dc10ba388f76fb63de68c441c43005208786df682d89ea3df688057bba59eade",
+          "0bb02fd48077e3834dde151c2cfdc1aad2de05032dc3b46ba9312601e182d38d"
+        ],
+        [
+          "44732d49c7114ebffa2ad5e22d02694c9b88263dcc2e93351ab17729d3ead0bc",
+          "5f25b21efa402d5b444e8b924aa9d1d52b657545b32772d337e9f8635e2da3bb",
+          "be7596fa08fe3709ec19bbffe6555b7a5cf8899f8c36219453860520429d7c90",
+          "29a84639b6cdfa83f8981c3b75fbf1df1e856e6ba922b54a04bcca5171c3825d"
+        ]
+      ],
+      "element_hashes": [
+        "69e790ca4ef5684ae7b6f89a22f86968fd8bafa75af48c2a308d93336c36f6a1",
+        "aa5be4e7c2fae6e0818d41c55d4ae87e9ec85a1624e2ea1231199917443c71c4"
+      ],
+      "hash": "2f3ce30b3e645660eefea1f572485c3eb30b80c80e54f163395b9564026bf8b5",
+      "kind": "array",
+      "mistakes": {
+        "d13974ef29529f3cf12fc697c208c4059bea41d579d1d54c8fc512a9989bb1f3": "l'ordre demandé : la valeur propre de q₁ d'abord, puis celle de q₂"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.3d": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "bbad2fbba2491a4800252575bf22cc70ce6f8e96eeeb2d7108b2d0129d62a778"
+        ],
+        [
+          "9b62edff75c362b6f6e2f4f9dce5b902f9eb47e3fa600bf3054b2b8fa5a055a6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "02534c8dd1df4744eac8da09270529f6310abe4e3e102e4ada7ffee6f4798c67",
+          "55b03701ec4c8a4cfdb23d1beee0cac4ae440adab9d36769e55c6c00986c2a25",
+          "a44793eb4912634571941b186de61232226437ac41ef8ba816ef2deb36e1c052",
+          "9cc7cea5c04ce9dfd8d239618d16bbeb544792b861f12cfa3cf2348923b59ac0",
+          "028b11641860c60ad6ca7303900788a6077aa7c8c3c8bc2d3660d846a7805763"
+        ],
+        [
+          "08a59a327ade81240f12697776177b1aaf35c598137676ec2c2c5c659e481d45",
+          "221670c8be1be6a74cd6205b4b2d7f09265713bd88327d909d8c133efaeb78ac",
+          "5ef57d3d325154f756aacb5747172aeb38dde1c0cbc102576fa869784879ee98",
+          "1a82d2234063a2a17f3caf17cf0ba28c6e5955548297511b6df7efffe8cc6b59",
+          "b7f14604c81ec53938a1f0b97d64f025220cb7d799e3df6f11f5a10f609fa8bd"
+        ]
+      ],
+      "element_hashes": [
+        "901d7bbf712c53cc24ef0e6a3aa457f3b2bf73397963de1636b017f48e58ce43",
+        "919c51db143dc895d0f10dfc32a985b59aa802a304353e9723f6dfb2d40b4e3d"
+      ],
+      "hash": "9f9cff5b1cf5977442d34127783583a731bee01db002c0d8151c3911b5ddf7e9",
+      "kind": "array",
+      "mistakes": {
+        "554ebefc97b4de9916384fe0189b829da9a4508370398da75a73719f6c79f4e6": "décompose l'ÉCART x₀ − x*, pas x₀ lui-même"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.3e": {
+      "array_rounded": {
+        "1": "a7d25495ca3f7bed023917adfd22dc8fb9004661c7826b3b586b5e7a42cad71f"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "ac9e7170feaac7ad31e7899c4c953d1376fe3eb2813500e0c05766f7cd59ac0b"
+        ],
+        [
+          "4daeb1a5e41acbbef1366f7fb79b271da961d480688095c6cfd7102012e36b83"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e74f96298beb9a6e89f6842c25ddb6ce290243fac566eb331a6a58c7d8a3170d",
+          "29a4512853b2a969bcc692fa3daf363fd27cd2426f51c3124c779674ff63e06d",
+          "aef60b310d44c5114174e971d2c07f9933b568195a3024c9b17a6b100e35808d",
+          "0f4a3cce24b93c660bf22d141e5ac561c128ce674abf9754cf613fbc43720c72",
+          "4ffc4bb1916545fc413ac2646000919f73572166476aada7384c7154dd9e8a50"
+        ],
+        [
+          "c8f0d1c1971e9bf49a656b782c22e070aa358796ac405dc870fd03c074c07639",
+          "d8c149c08b1559cb461461d8a5c4ae1ad18b6ea49e0c891430a73ee56eedac84",
+          "ef85e40deb00cdaff428769d9bca151d0e5a556935fc9ce27999d54199e3bde0",
+          "d5d3fbd47ae021212e11031f284ced7cad31468c98a9bde91b361468a6f7f4d3",
+          "558a9777eb56315dd1c22777f5928a6584e464575425a793c7f35c4813472613"
+        ]
+      ],
+      "element_hashes": [
+        "7fd044fd42196b1003006aaab4e51e356dfd7912e5164f6becadc1afd3244817",
+        "efbbefe69a00f031e9b0038237ba9926507a40c38e0be8518beded7cb72ffb3d"
+      ],
+      "hash": "d783bc6d1da66360b36cf91737e96adc43da02d82658e77ac26ba5d11c532543",
+      "kind": "array",
+      "mistakes": {
+        "8a9037ad0244f842af860458de950f530566d0a82c2133a6d2c429eaa989b65e": "xₖ = x* + Mᵏ(x₀ − x*) : M³x₀ seul oublie le point fixe"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.3f": {
+      "hash": "572cea4b5b9521aabf16b4b8d1c995fc249b3054106f7d9bb6b3e01cc32708f2",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "6047e91a9628dec02a173b77f900194cc73da53fd5a594febd4b18c42b239836": "il faut ρᵏ ≤ 10⁻³ : arrondis k vers le haut, jamais vers le bas"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.3g": {
+      "hash": "76496343f001aa8498bc9a618c36c0df38a4853905b14520d32d1a875178fdec",
+      "kind": "bool",
+      "mistakes": {
+        "39d74cc4f2337aed67bd41af92b8a6c056fee813091a3325f9ae7cfba4be33c5": "regarde l'écart de départ x₀ − x* : de quel vecteur propre de M est-il un multiple ?"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.4a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "e92881fcbd60c57293358aad8528099c625e677edfd33b166d82a28715b51f47"
+        ],
+        [
+          "d35def50d5dfe15a5a331a805c46157d283d7fe4becd60192225437eef850efd"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "289ac299ba36d70689c0ca4a8d39456ca90d3be15da3d4ee1af3b2399163958c",
+          "4390eee0bd5ce6b12126cec7472a9369e8390a45f06f2da036a38f2592f5f92b",
+          "97622f7bf78f38fc7851ae148c28a04d528e656e811f43c6ae7a81ca78c2477a",
+          "e3f27bdf56fa8305d575b4bc1b2881fff8f961cd4bd8201ea28b67b5f443abf1"
+        ],
+        [
+          "269d3525b7067279500bcbb39a66af266f9332616ed46367372152753e77c7b1",
+          "4c003c144999ca157ea7ceb3bdc7eaf21ca8ec153b28bbafa84d5aa981d0a850",
+          "4e98e1b8011a72e88fb7c903ca0cdfd89f19f016a3f0abf18e1f9d4ced9275bb",
+          "be93786c2fe5beef01f88413935e17376beb97448f46a64923585a147e67b759",
+          "b8fbc8d05d38d0b8dd52df87e7b6c59279b343cd6cf84d1c6ab729bd9a496d47"
+        ]
+      ],
+      "element_hashes": [
+        "e0b069dfa8ad28850748895ca3cd58d553f06c7fa8915ddaef065cc1ba78761f",
+        "358280ed32dc6c50f6507061ec8b06dbc2dc26af47b87f875247999af0fc83dd"
+      ],
+      "hash": "0f81a9d511dcd8183aa640c1a9404909bebf08b3adc0bcf56a3cb27e207748fd",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.4b": {
+      "array_rounded": {
+        "1": "28ec870cfc820656b8b6f13d0c7eda6348b5f9b91564f36329696a6ec8194998",
+        "2": "eda1d9b642cf45688df97366e3ac2ea0735ee5a079e67249e3658d155e3894c9",
+        "3": "7945bd47717652c22d7c2652b693c2fc8d44a7e60a6d0b3257a806661afe6ceb",
+        "4": "d3ecc030570d885aa2d07e5a4a900df3e298936b091e7869293a990862311b86",
+        "5": "f5f5fa4bda0c7fb150697e794aa3bbbab350a7a23cd691d68a988c7dab69eb7a"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "1e2b08075250de8566d167462b28bce02de101e162d70bc4a74eae23526d110d"
+        ],
+        [
+          "9d70bde3a87f62b90d5b920387a25b711512f1f8589eb5cdea9788d746962a0e"
+        ],
+        [
+          "1fabcb6f906aa867a0f43af7c7fbd427fc976747e0fc7d72939a12d949a02e52"
+        ],
+        [
+          "c985b735f527fbba999be6d30d330cb9686637122a2aae5dda04278e452d5279"
+        ],
+        [
+          "1c0e9b7a25e87ae94531c4af22d2643f401234db8fb42f296825f5a8e40c6887"
+        ],
+        [
+          "a157d4e70cf181ac3fffc05a0e27cdf683219a0d54076457473ae27e08aae2e4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1bb9a131ef4ef1cc344d7f1db780523949ad0b01a733eab77487b2243fb394a9",
+          "2ffa1d5901cc7956267b87bc80af285001838cb2358ba7b0dd6ffcc25b21354f",
+          "49826e75f5bbb827e02eab7d71c37f435a5d459c1d943cc5697d80d6ac1648cc",
+          "2d9f0b6266817aa9387a145096be9a2c37cbc5d130bb6785b9b227cc5c1bbcdb"
+        ],
+        [
+          "93f939a52910ff18193fa248cc5363d0f8b6667589bd062d06000ca8496f4b2d",
+          "1addde73f31eca78ccb74eb384a581be853c755d1717d686a42ef5271f96dcf6",
+          "bd2bdd5802be6448d049f9dcef841c491574a1a845c0e64f84f98be2b47940df",
+          "034c61b4f7663728eebe2343f42a5201392fa7b833bf01906ea41324baabc625"
+        ],
+        [
+          "34fd202ea79318fa28fb7aa419e06223bb6982bd41f7d6896c2e8e7d34d90c8b",
+          "5a3caeeb00e846e56e285c10213f6c6e6e59b4fdc8333364cd3a41db1ba62a58",
+          "aeb82472ea6fa8ca18ae2e0957f3cd9e67e58f9f281f3406d7145ca8a98bcca2",
+          "999f529982124cf92614ed2d117d658a0459d8d79b66950ce33738e318bd2cb2"
+        ],
+        [
+          "d3d2acbd3efd6f89c64bb2c82b39bd2b358b99d78e6758d2957c7378fdb9fcf8",
+          "579ca2e109aef44309707b268505c99ba2ea1f2f7a5efdcaf10ac27b0a575e76",
+          "b6c71fe5159219ddcc30a8e1eea35c1daf4f0136be5170347686c3618b2ac7ed",
+          "53bb2a2209a97fb5e1152ff72ecced96725b65ada725ab11009e887e53495546",
+          "20ba5c20ce20e001d0f9f7ebd08919f1d066b80c6735bb74891350d1e902e32c"
+        ],
+        [
+          "b8fec829a5c47f9c4ff0f3ee446f82cf520f102036bdee9f83737d665fdb6638",
+          "c295e491d5d8c85d723e518c797414446d24eb8e3faf3dfec86231dbcc2fccb1",
+          "42a09b1866b859ba3061700a86c94122e58712bb95828ac01873b498e0dd2bec",
+          "b18a676a4628be1967ab68ef357ef444ff58e6990962a58259ecc4aa0d3d6654"
+        ],
+        [
+          "19fb632f6bc35b5f2243d7f707b5f0c86cd94a16b6fb91ac45976b66afaf3674",
+          "29d05a70575d42af098f2c3ccd8fb9cb7ae20ba7b338f1a3dd2dc878d53b0faa",
+          "312dbd7c491ea065f52ba8a57f79668233171377ecfd3b32b40308555a98bd26",
+          "090737913bb45c41c34b5b7c7a74d35ce4263604906408b1f04f69e70f1e231b",
+          "9333aa54325b3c99abd3a15b1f2d4178bf97068aba421faeae5b6d01ea834f74"
+        ]
+      ],
+      "element_hashes": [
+        "4439ce89c076d4d2049f20dec470efdf918ea4e6adb840c3595c9b202e3cc3fd",
+        "eae754678326ab767147a80e9fd031c0126f2fc413fae940036a5370ac043bb6",
+        "be81a3346d07f40247e88a746b528f93d19403b5a40d7f521d395fb8a80b266d",
+        "567a256d95a2c9bc2a4e9a06c5e38c7b8bd85764afb19ca9b324448eddb8cd89",
+        "090d3cb1e4e3a3eeaefc7d3fd8d687f921a8da278b46b1051d81f2a0f320aa26",
+        "da84f739d30a83e00b2a9eef75d11f122718db4e3e01fa7d05b95c200a385bfc"
+      ],
+      "hash": "315891e17f3b5008499adaaeaa33800676969d8895faf02892d660df8432f346",
+      "kind": "array",
+      "mistakes": {
+        "17c9cdef264d6367783da0c0676b17fdd450aa3c30e63788b29c5117e876139e": "recalcule le résidu b − Axₖ à chaque pas, avec le nouvel itéré"
+      },
+      "shape": [
+        3,
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.4c": {
+      "array_rounded": {
+        "1": "6a9fa2043ccfe6663922a494d33e9157aa206eb6897d6d05d5d19e4b0cfd7184",
+        "2": "cf01776e4b1ae874e7a7d0ccebe4beccfbe1802e8ff119a090509b41d896f19e",
+        "3": "381167b700d5ca064e388cb3d5f839e7d9979eb0810b2e28d01400a119fb0389",
+        "4": "64bd8df3be9bdda2e84a1d553d49eb6742693e896814c990c8e663fa9fda4d59",
+        "5": "e7848e015d8d7689831b9481a1f854799515b18200cf258c1cf9ef5cc5ede69b"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "ae9b61a6bdd9d8efd0d9fb19f5725cfcd33b28f25b77d813328b452bd94d6646"
+        ],
+        [
+          "fbe2b9550eaaef58fce1e0b7f4159e0161918f213f3437835d94117b6f0162a8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "5751e199ae105b507468e3f648a28a488e6df845a46a618dc241fcb333031f8f",
+          "c963f11c9f900e65b9aa9643a4d1c44f3e9780dcede03e6fd1caeec41411d658",
+          "b0eb5aa006b523dab09941a10233fbf7a323162d3ca28081df90498bf42e0a9e",
+          "294ee34192c9054b98088bde506dcfe5a248bbe00415204dbdcac8c866ff7cf4",
+          "fd9aa904813432661c248731bfc31c14563bbdd03b03ee7ef29d4ea5bef0ba9d"
+        ],
+        [
+          "50886757fdb8a521ecf0cc4982f5ca44d528a392154a0e28ed079607860d43b3",
+          "7b92827e80ad54b5b3479e82f912dac9c794eb2711fbd1efa2b777626d455b52",
+          "2de04fc769d5faa2a2c90622e24edf8dfafb8575608eba2bd05e1f9bd197dc57",
+          "2d7633c4c5943fc31a7213ad583b28a3b6dea9eec87d8ae09aace56d4115779e",
+          "9489a1c7fe19a8ef7e9cebbcb9d8840e46dd0b2e674ab0b91da5f27266c1d23e"
+        ]
+      ],
+      "element_hashes": [
+        "7c48732b6d85690076f3c146447b2e7a7c09762f28e8e024c6dc90301dd54093",
+        "7b51b63b9cbdb0e01c58e57b818b41413af5315920552d2d1c94dc8422f52fc7"
+      ],
+      "hash": "5ccda0943d3b2f124e24c37e0bbd3e6d925ac2bb89359afb2cd63194329623be",
+      "kind": "array",
+      "mistakes": {
+        "7a265fab13d17866c56be5b09db0989b6fea7c8d468bdb254bd401b23dcf9526": "le résidu est b − Ax₃, pas Ax₃"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.4d": {
+      "decimals": 0,
+      "element_hashes": [
+        "809c47e97e4535f95d69793c9c336bccc011d1d942168e440d6abc0881c9988e",
+        "11c280915f8353822169fc6b98472bb1c1df61cd33270dd253b694a0e0e44771"
+      ],
+      "hash": "72e5b2bb493b5d14ed18001259ed134c9f27ac4d55ca04889975facef43e4bfb",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "f99cc090deec283861c134d08ccdf682486de138eeb108f67a21958fe0f1107e": "en ordre décroissant"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.4e": {
+      "array_rounded": {
+        "1": "ed9771dea8693f6c2eac6ab307351fe282eb20bea997824f8fd706dd5f0157ec"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "96d8dbf0de32d5bd8e0b6cab91120bf8b74aa144c9e502a9faac95afc847c955"
+        ],
+        [
+          "2360a6255c5609188a0192e028609203602b46b7ec0196b34bf4be86a36c281a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "cac576e500d0de39d2557fc38c720efba376833798fe91a363901b1b4620eef1",
+          "7e45edba02a9175c11f6fc702ad773cd3b4a28b7c0c86863868e8a0192f00aa2",
+          "95f82a5361b64d59ffe7d468b069f19bd5e1c17369486515aa1c24a5dd02a3b5",
+          "24ec150cbee8eee6eeaccb87dda688f005bd40406433ea44b7f85ade9733cee6"
+        ],
+        [
+          "c2c39de667c3fa5c494d156ba55dabbd3026184aec180e22958d81d580763344",
+          "434ccad9aa6f836bdf0d980fb014ed2e52ca168a2f1f22a11d9d2e9c566df13c",
+          "befa420d760b3891542daa3afc091d471565a69b8ef12ab13b44409c277c387c",
+          "5cdf5967a6c15e7743db37b531cd3c7c7d8b9e620d06f03c0005893276676308",
+          "2e2a2d9778004948ff2fb3ca6a5d00542e1980b08e7cda2bbeeac7213d4956f5"
+        ]
+      ],
+      "element_hashes": [
+        "1f8fe2caa4878fb7d3cd030f85e783c6ecc5598d8aa6d827b476d4fcc6bdf899",
+        "60f7b933491c22250b00f315ab6564574e705622b9135ba7b8e470cd30ade936"
+      ],
+      "hash": "e5941a4c76bdcd6f8c17c73d235f6fd25e254e7006d7652b376c7bf298cbf657",
+      "kind": "array",
+      "mistakes": {
+        "75b6d8b80f6a5da0c4bc7163e73948c7bbe3836c193fc85b39ced9ddda209afa": "dans le même ordre que d) : d'abord celle qui vient de la plus grande valeur propre de A"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.4f": {
+      "coarse_any": {
+        "1": [
+          "b4ef418e31d85082ed12ec83f69d51114139b37dcddd1e54b75dfc8e1ec1ac3f",
+          "0055fc285169b68af50f3fd738a9f8189e9193c36e01c9ec19105f08cbf9a9a4"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "0b7099a19d02e299dd11bde572bcf5a656916864700a7de857ae1bf0daa0dbf4"
+        ],
+        "3": [
+          "698c196112e1f7dada4674849974866fe1a98db0f40105b5d8aebfaa8ae3d7b8"
+        ],
+        "4": [
+          "b5fe443b979f0490ed442bd57b013c756ae2e4f446c4f16de15cb37387c416c4"
+        ]
+      },
+      "decimals": 6,
+      "hash": "e8336b98363e00b83cc0df8693000ec28e12ab68da0cea5451fb7f5310225456",
+      "hash_coarse": "033ba1fbcd3055d0759a8a04f3282c0a8d6716fb4031041d4ea59f70abb7082d",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "c3f370ecb781dc9a55414a1f46186d5ec01d1f60254929b78ce541723dd1acb0": "le pas critique se règle sur la PLUS GRANDE valeur propre"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.4g": {
+      "coarse_any": {
+        "0": [
+          "ad2a87b5aea0dcf920f9c4afd5d0e27fc4fd23a6b1b9490572b0da15c2f89896"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "cb03fa9522d417ad0aabf06fbafc94468c64423ed37a67740b03863cb2ce67a8"
+        ],
+        "2": [
+          "76006fd26d1cb993154d97cd1c8175b383e2fda344c9dd7065dc0c1a118e31b8"
+        ],
+        "3": [
+          "faac6458ae9db606edd9c721334bfbab311eab635223f655ac7991de82df3f18"
+        ],
+        "4": [
+          "8a357154e6a0028a1c11536a667bd3da94567763f4a6d49595590065a12b087f"
+        ]
+      },
+      "decimals": 6,
+      "hash": "8d24de67d0a6d5937c8f04bb4c1c8a571827053392da30514133572c97c7e1d1",
+      "hash_coarse": "8c476a7f3e52c25bbf22b5271ce71a546ceaa38486b22161ec49a8f2c1eb91c7",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "76478b199d7fefd7f886df1d0a4cf91b97806c632ca0d4baea893f442e30d9ad": "la valeur propre elle-même, avec son signe, pas son module",
+        "9e1dba12ed076d821b2a28e15c932796e0b315be715a615992e31897f7a3b5c5": "la valeur propre de plus grand MODULE, pas de plus petit"
+      },
+      "sign": -1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.4h": {
+      "hash": "ec5e99ca6182d28f0c78f00d1f29fc03d6e80d3039a439fbefc90bd3efe64c85",
+      "kind": "bool",
+      "mistakes": {
+        "19ad75cf089dbdabacc4d91e8451cf3452e6d06831e45ba0c0519731dce94ca9": "regarde l'écart (1, −1) : de quelle valeur propre de A est-il un vecteur propre, et que vaut 1 − 0,3λ pour elle ?"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.5a": {
+      "decimals": 0,
+      "element_hashes": [
+        "756556e288a187c9523a8633bbd04b45e8fb3b8ddd095d088cfea849caccb340",
+        "757ca4561a7f53ff7bd9b92b524c47a0d7f48d1377e1cb94d51ae5939b7b3a15",
+        "77fedf675a231e8d1c5466c292fdb7fda0a2ff08f3e7bd8bde046285f06a7899"
+      ],
+      "hash": "46b657fb0bedc94480d89aef840407eee26b0ff7d4fd4392beff3d2ff0a35af6",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "c9fe914a0b959289012d135f5aec4e80f37fc363f110e1fb078e3f619478f9e1": "en ordre croissant"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.5b": {
+      "hash": "1ba1084508647427e2c01e6db856b92d0ade088979efef35c6b1652c8418bf1e",
+      "kind": "fraction",
+      "mistakes": {
+        "ff26123e5332bb6b8ca8fd70277e4d9dcf732e482b0369af88b5ae7f33e4c983": "le pas critique se règle sur la PLUS GRANDE valeur propre"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.5c": {
+      "hash": "210ca60123c00dedce4fddee2c12e72e60de75326ec8a13173c77e4cf229c8b4",
+      "kind": "fraction",
+      "mistakes": {
+        "382389f9880d9c198d07aa73fc36e987c4b1d25dd888ff82c219727ad88faba2": "le meilleur pas ne dépend que des deux valeurs propres EXTRÊMES"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.5d": {
+      "hash": "b81515b870cea631ab29c19cea68b9584158c608d02a1127e510349c3061e09f",
+      "kind": "fraction",
+      "mistakes": {
+        "7b9c691f89a37b55adf5097c400005c00628eca79d1d006764e8d5a1104899ce": "κ = λmax/λmin est un quotient, pas une différence"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.5e": {
+      "hash": "a0ec694e72a9740feaea8a0918759523763206ed1f2ae9b1b5b892b4055cf6e8",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "aae46f5f32635aa83dba746407ab1cae16f7f22fac73be5f56e4a22334fa1a35": "ρᵏ ≤ 10⁻⁶ : arrondis k vers le haut, jamais vers le bas"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.5f": {
+      "hash": "535e19ea40a734341c350adfcb138f2a367c1b9b7e8644b6504124b766631836",
+      "kind": "fraction",
+      "mistakes": {
+        "50472ff5a986040a81f9482d2a00c872a13e1306c70b6765405500c1b0483f23": "le facteur est le plus grand des |1 − ωλᵢ| : regarde aussi la plus petite valeur propre"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.5g": {
+      "hash": "459b9a3f9e5eb00e49c09ce1a114a3267ee23b3e7574b06899f73deeea833028",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "8eeb2097f9ef0d04af7595246f0943c45a7cbd8ec8fab47244ea052749354878": "ρᵏ ≤ 10⁻⁶ : arrondis k vers le haut, jamais vers le bas"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.5h": {
+      "hash": "e98713e72dd0691fb3a935ad280d24c4f4b090650f5d9cfaf403d292689d9c33",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "228de5de11b46c1e86bb9940e42d7f7acbe6342ad182d69861dfd9938aa98ed0": "ρᵏ ≤ 10⁻⁶ : arrondis k vers le haut, jamais vers le bas"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.6a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "fe30757877e164e88591a2da018ee4f1a69ea2fa4dbbdb39d03895a3dd19cd1c"
+        ],
+        [
+          "098fa96c09024d8bdaf8130eb57d917c0a4813d99df3d6b30a44acf1e0c063e9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "2e76185c57e8e89cbb0ee8d53ffa40bc14d88077b04bdc769d3178d3c8d02dc3",
+          "938c4269d372a74b21091e832d16ef02fb39c2f19dc44115363ec22db5c0161d",
+          "31a9e4373098dbb391a65e494b0f0fd47d6e5263308ed0a00b9a19a7c974443f",
+          "8ee6375cdda10f427c85f092e14b1d3a9ddebc6db38775d8615a795cbccf09ae"
+        ],
+        [
+          "9a68024125cb6b62df20d947108405554e3881e33f5da5d41cd0248e1ce87554",
+          "95a82ac9ac295c2f2ca8ace577533322af6e3e5791c8242228daac82d8702218",
+          "c37f672c379c1fafae7858e94ebb34d0a27a91f32191edc04baf1b85a1710da6",
+          "1b3f54b9c9713818e1a119743e4eda72ba744fa6ad92872bb110e14b117a60c8"
+        ]
+      ],
+      "element_hashes": [
+        "8cc65077caa3323cff20271ae8ff5813e33abfd8f71834b942a7356f5fb1e5db",
+        "218ab82188fda0ad0e79c11dd6e81a86bdf2a0bb535813e223796658980179a2"
+      ],
+      "hash": "eba33e150437f8427bd4868f5cb8c9501d5279bd4a6badd18d21f101ee6c7dd6",
+      "kind": "array",
+      "mistakes": {
+        "5b1c202df3bd0a264c7d7586d3872a6eea5687b4df68129beaa187ca4eac0b8f": "en ordre décroissant"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.6b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "08de2cf9e94b82355cf822f895060947e931514d2e8551786bee32883b778fce"
+        ],
+        [
+          "d337f470be6b88020aa0ce3f64531c191aebe6388faa2e6474f0718c3f5abb79"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0df7e242da6415b3a083e1ac0b0cfef9d264b349226d10ec7348bd7af1bf77d7",
+          "aab330498ca1475448d2efabd399b099758f7279e23cd1247b5ff76bc315e551",
+          "8b87f3cf368770c6bde65c6fac5b2693186928c10080ed1f851ca214d56f98e4",
+          "ced1034d3972517b3d5260808adac1974bc9b7be47caa95dada2eca8c8880004",
+          "99939c5b02c956c149fdaf0ce98c3ef0e60c9eccd763d63ea961d2206c583269"
+        ],
+        [
+          "87fe773e800188ecede5d818dda07b1883f05d9e9143546ca4c9f01da4cd46af",
+          "0d9b296c463f1d20defe143f07472f26f0b1b7a1f6d7ce356565e7dad2020bb3",
+          "324e0da7d8aa8eae95951ae26729fcefaa35964d71e7b66e09a541f097c8eb1e",
+          "46b8c7cc03096c6cd6307b18f14ef4ba439b33b89168f9d0ef54e2962a19989c",
+          "849030c4c9b84ea89afe397a6f30912ffd1a2f9b54c76e06bade554edf7f8748"
+        ]
+      ],
+      "element_hashes": [
+        "4f9a7851bb19aa91677218575fc92487ced1c52829177a0a85797df4a70f43b8",
+        "70d33ca3324d1960740a2a21588f78d2a37f7df3d461aabc91f32a4ac10e94ae"
+      ],
+      "hash": "a7e6dead95fb3ea52704fceb317950bee0a81354a4479b041a05b5f4027342fe",
+      "kind": "array",
+      "mistakes": {
+        "1c17af3217d5128008a96aeca8a77c6a4186bc029b5268433c021dcabb0002d9": "α va avec la plus grande racine r₁"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.6c": {
+      "array_rounded": {
+        "1": "c5580a993fc6f46511fceb4e1c911db3e300b9018bd6013472b80a56269452d4",
+        "2": "df20e996af60345675c5e593e281e1b69fd6b06b05d2ad10587b16bf4640be2b"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "572767fc389fcdc39d0d71a962ad619e12384108751a61b3e63e22e251700a05"
+        ],
+        [
+          "822953f98b04ea21f1098d7d006348ade736d4f61d31bb2f0a13cae53a1cfdb8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "df884f02f18d5ec8ce91ff2e98daa29026a179610d46826ae9f70d02f30d6e7f",
+          "69ccda03909a3de30514f08902a1dd76a9944ea0652fcfb2605b4c83e41ec3df",
+          "fa6da8b69034f6e390d76548e114bd70c59f8ea84baabfc8d1bbd8d1cbe5ffc0",
+          "fce9dd9c0aaad589778b0b74e2b8c8b774e398badfce67b34252723d98cb48f7",
+          "9f0e015789ae7cd9e791fd8f7506951dd71cb5f05ea9decd35dc3e4adc510b2c"
+        ],
+        [
+          "c9f09a8a8d846d3099a3eaf052076c316b298464f9aec9f38e9e7f3ca7148f03",
+          "436a710dc8f4ac5e6857a8807f195d75298308e8ebba11c8c2438021cbe035c1",
+          "69c774d9f595940cc1b56422e416d25a75eb768c35707674b7d6cf1e48e05fbd",
+          "a06cf91bcfcd0190dc843981d723f69082e8f9d95ef566e46d96e71318f52650"
+        ]
+      ],
+      "element_hashes": [
+        "49f4c73964a4d01a25ea4e48e119e5d2e19103ef3d144d50952b9c68a203c518",
+        "9f5fca9f60c29e239120c0046dcd7da4a1ba9a815f0a424fcd3a7aa5546fff32"
+      ],
+      "hash": "08a3217481c0742df23e6f011e903a75dd7523c6c9dece05e1d1acdc76bef612",
+      "kind": "array",
+      "mistakes": {
+        "78ab3245632e1879a4865f13e26ba02a857178948b6d7e43a8b6c6d0504123be": "la récurrence RETRANCHE q uₖ : uₖ₊₂ = 0,7uₖ₊₁ − 0,1uₖ"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.6d": {
+      "coarse_any": {
+        "3": [
+          "228a2aa069bccfa4cc556b340c679a6186452570b030bddc0dc9ec153298ef21"
+        ]
+      },
+      "coarser": {
+        "4": [
+          "3fb22710e905686258e379a403b10ce565c5f5a648140fb5e7d58ea8818d5726"
+        ]
+      },
+      "decimals": 6,
+      "hash": "5ddc2d37e2eef25f5de185941d1714d61aaf9a8ffdc7fd7b22f85a7653188629",
+      "hash_coarse": "e3b4d3c8728f79d4ea9ebbc1949a39e12a9c3d387bd051b6a7b5d6fd3806a26d",
+      "kind": "float",
+      "magnitude": -3,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.6e": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "4a68a94131d9e3bea174154dfd72b2f6b081adf456efcd28f86fe6363cd72060"
+        ],
+        [
+          "24986d40c50649ff5f99e1e3730134f0e1bbd0254890538ca12c48ee3d85a63b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "be625912be4abd52c454fd0c15a8eb26591ffc9556f058756f3ff6da764f3313",
+          "4644748001b6f9a25acaafb282296d898869cc52deac135dd2a753c47263d31a",
+          "229167c2bdac6523a4bc6f071a1ae49498bfb60a68a96720e46e8efcf6bee67c",
+          "fbda8b9e37844967a0683eac0629d1127209540312f17eb807ba85899bc89931",
+          "b58d190eeaeb173cc16e79cb6e22dccb6ddd6c2fefb948f8a5f3dc30bdf61ace"
+        ],
+        [
+          "fc9e3d4585b770bb5c8d0f96ff47e6410eb92b8e031d0b88617ef39c6194a9c8",
+          "50f8fc506fdadf106fc9d902f03778dc0131be40876e254cd671202922a801f5",
+          "9bf0111bc392a097b12ae423dbbd8bb4ef20a8fb60251a32b0e1972aa9d3c489",
+          "3d6f1d64a6657e4521380064418a6c0d77887323827605eede489d9004aa443b"
+        ]
+      ],
+      "element_hashes": [
+        "09efece3e797a1c3d2cba1ed55819c1c9f3a20b571801c86c74a428498864c80",
+        "4a1598ca1960f391dd6a135067c1b581eb227e7e5737f287f61ce4fc9b20064f"
+      ],
+      "hash": "fc6d60001b6e9efb2f0c258f6208f4261d0ec6da02eead198ad8f016a303722b",
+      "kind": "array",
+      "mistakes": {
+        "882315805ec4d8cad0d34e0e828edb36010e5a59296668a883554d3de80a4a45": "en ordre décroissant"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.6f": {
+      "coarse_any": {
+        "0": [
+          "00b4b2aa68385b3791764d36b25005f337b9be4f43252e50a083287fba4d350a"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "798e53bfd0e6bcc0a54d9090c55fb3d8ef7ab11632f43a8700e6e008e479ff11"
+        ],
+        "2": [
+          "4fcf1472a15c1550f46240f15a9bee2ba17a6eb341ff2ea77e45ef48e53401f1"
+        ],
+        "3": [
+          "15ac51b982537324025de1fc4d789f52e7f7cc725bbe5c16d7913de8090154df"
+        ],
+        "4": [
+          "8f0471e5713850d5a07632510fae1c8889628d2c365f314a6564486ebb196ca4"
+        ]
+      },
+      "decimals": 6,
+      "hash": "a75bf0f8924786bcfe05e862ae5c6224faa0fd6a2794e0104f774095a429b88a",
+      "hash_coarse": "45d368385a668daa560130a08de33839bef8df444012befd44f5f8b8189542b6",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "114be58b574a99d73dbcae56f06e787aa0ff6af6db72d523f7d99ecd583b1fca": "vₖ tend vers 0 quand le coefficient de la racine de module > 1 est NUL : c'est l'autre terme qui doit rester"
+      },
+      "sign": -1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.6g": {
+      "hash": "d7d7b77d05d04c2e7e65c1d8685ede5a2267cbc2d1d3fde24cbf5ea10c2184a5",
+      "kind": "bool",
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.7a": {
+      "coarse_any": {
+        "0": [
+          "d85b238bf81175a0324e00638739d0497e8b0a39545ca2635f7f64612e9ecc96"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5715fda2c9551d957f918445f05d3fe4c66d2c28346bf006f9af3e950bf94be5"
+        ],
+        "2": [
+          "a8bd41d9f5e58aebe7320ffcc001dcb02d1867c97f1c069371224bccc1de15f6"
+        ],
+        "3": [
+          "d1c0b841e1c85ae2cc4b4ecbbd2280d2fd119d36d941cf6bf7ac906f7fbb65fa"
+        ],
+        "4": [
+          "8e273d95b1e8a7f465f75ba396aa1f49f2f46d761bd38a16d0b8a7754aee5746"
+        ]
+      },
+      "decimals": 6,
+      "hash": "124ef77dc40707213c5a3a099566d4cffdd9c97fa4407cf85546dfd46cbf2c30",
+      "hash_coarse": "7c9286c53800e7821970d58cf9aa424b2009b5f8fd057ea8073aea6305bcea5d",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "eceab0ecb7eaa2de9674f6f205f3d0258d5757efb30974649aba118d161b7a1e": "Δ = p² − 4q : n'oublie pas le facteur 4"
+      },
+      "sign": -1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.7b": {
+      "array_rounded": {
+        "1": "a7c95f3ca8b6b07b40f2d0f528ae92b5982eed39d4207d88dc9ab2bbcaf29764"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "0b368a232d21945bab86e0029c8539781700060872e31694f8fe211d2f70f917"
+        ],
+        [
+          "85a997884348fb32be3dc32480466ef77e6c775ca388646108aa4981ec26eb91"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "df515130435f2d600343e992fc7b12f6df9f0f2fb7e07501dd44703aa1161840",
+          "3c752d0f99145f81403179f5e3a465dba40b3e80ea06166e3332d9fb9d693110",
+          "52aa1983e725b1653fbe4cdbb36a488ebb49b9f694eee4f064f584f58ad8cd48",
+          "3623d35e1e95a25a6219c350e5fc566bbb38baeba70386517930c69c6f1fef94",
+          "2df613eade6632be8ee22f2cb04ec059242779c800e4fcadc8011dec5c8f5e34"
+        ],
+        [
+          "0e19fb695f7eb18ab176e67f1118179ee28eb9faf2c1e7069915fbd74f3cbcfb",
+          "11b9783c6b8f27af9d3146eb22277d5c0172cea0481da761deeb0f1e2abcd9a9",
+          "bbd41e71d5c1531ca12f0b3ec45847a87473509998c8b4a1d06be6b55acb0180",
+          "68a86a2d10c65ff95d01928ba298ff036c3ab1c568b248e9092a1e0575b474e4",
+          "63a3c82d2b5c0272fe88a4dc59bb3d6c0290e8111535a591c440e38bd72d3e11"
+        ]
+      ],
+      "element_hashes": [
+        "1383bf887a5b35288ba775b5f90d366ce43423d12000724ce01b01b142d2cca2",
+        "b1efa0a8557f82257aade1333959731971ac8d36d6142aecbcff073a30888ae7"
+      ],
+      "hash": "422b76af60c85af8aa93a386bb5d2c926424e6d1b77e9daa10fa1049755417d7",
+      "kind": "array",
+      "mistakes": {
+        "3fda02592734c2d8e4b2bbdd1480370616d5f039fab61c9507db0409381c8094": "les racines sont p/2 ± i√(−Δ)/2 : divise aussi la partie imaginaire par 2"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.7c": {
+      "coarse_any": {
+        "0": [
+          "37ae104f0504b5543866a69d920e1b3f2d48b136191c8a29580f2e556223fd16"
+        ],
+        "1": [
+          "b42f0f412b14f323ba4c527110b181f296c45af5beb3b4a633707d07e10889ee"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "f45f383321961b394f07a4b29b73cb4859bc951f450b926a3fd97e2b33c8c4a6"
+        ],
+        "3": [
+          "26484338acec49ec85cbab7db7566f3e0d676de00c960daf41d536b04a94dd32"
+        ],
+        "4": [
+          "50584779e3612eb26ad5bc815084f00596fb706ac4a59bc88b164917789cfd2e"
+        ]
+      },
+      "decimals": 6,
+      "hash": "db099b82f8184cc3d00a6408456ef5076c7514c9b26ec5c8ae25d7ef1b164527",
+      "hash_coarse": "ee2cf8bf8eedb8d4ff1eabe8910198539ae11881375fa6c654815f54441db73e",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "b0e9a33f8c5ba247dd66aa3a9418ea43a7d6d35e9240a9bc291fefeb6e4f0764": "le module est √(a² + b²) = √q, pas la partie réelle"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.7d": {
+      "coarse_any": {
+        "0": [
+          "bb9e15be5eebd20b523e0ff9c5b702acac365b4808b5030ff014a77bf5749c67"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "2ff627a5061731244aa6ebb287a30fc19e03c38a3682502a39f87c73be0d96da"
+        ],
+        "2": [
+          "c10e97dc26b9ccdc0cdfefde450cdc64185c2f9a880ff6ae95ba63eb83cdc3dd"
+        ]
+      },
+      "decimals": 4,
+      "hash": "6cd322e8e7f14dfcc7b27e481a73019c1b351e6b487505cf851df68052b047e8",
+      "hash_coarse": "467de32cf626783bab2a438e4da3d1e6490d9e5a811b9b9afe1899859b751343",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "c53248c1fbb3e99f404fa071bafccb29828624d7188bbfc748229fcc8a2ab7b8": "un angle en radians, pas en degrés"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.7e": {
+      "array_rounded": {
+        "1": "fdd8bf696b5b85d85fd162206886b15a22f9f45e8fb2f49b9f66a78edc1bce03",
+        "2": "725b2f06325cd97e42faaeab77c556d4af3412fdc3a5c4a51977f3b5e2eb6366",
+        "3": "c40fa63179b276b416c7016eccf801cd0dc8cc2bf539fc5438eb5d4538b8d0af",
+        "4": "41621ff5c7ad59f99bf5579bf52bd9e34ba64012520ff170aba401532c40fb13",
+        "5": "c8d154169c9dd5c6905323d376094b4de15c636e62efaabee541a969121dfcff"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "2e8796b85e589ca657ff8b1631611837860805f7d976f86307a0990eb2da64bd"
+        ],
+        [
+          "57d8f90f2ddec83d1df1a1d7b4c4c24d27ee7cde9df4c72b5ec1d2b23d695fa6"
+        ],
+        [
+          "c71a2f3793bbb16bcd0bf1b6d9a76157e375f1ff7b7308616b4bbc8c0a9c96b9"
+        ],
+        [
+          "fb216dfe57d3b18725f709a7487782ab15274a0a7f408e545249b3668160f08c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0b46cae4177ef9a1a63e3f54b58a5105d9a79ac8cb79749b781f3108b5bac922",
+          "99dfff6683cd1d6af0372a28798914cc6267337ecff6974eb0cd70276de5635b",
+          "a3c4271031c5a91eb0c811ba4cd5a9e0ab65c9fe9ee4796f42e2b62d767ad4ed",
+          "18b2e58119887ecc3d6bbedbc2d601ff76fca7e5cfb49120134141d49a2339ca",
+          "a23ab685d14a8dcd83ce6d79825d7c1b37ea16144b897bd30023a1e413196f8c"
+        ],
+        [
+          "845705e254fd26d4901c917ca39b902e4fa3c6364c4fe0c75f9c0e87921d4495",
+          "2dd2bb50e081168a18836422280e28eb095cfe8cbd0ff163f1485295537666ea",
+          "07b4ac54ef80f495d5b98d217f7642b81f519215a164fa306ddc693b10b6dddd",
+          "d8f322f51813ff272c0483946330701fcb41c983b9a88d159d80ba5288357505"
+        ],
+        [
+          "40d85809a8b5b1d0c09f58dc939328802da0e31430003c6edb9866c4fde22e7c",
+          "f17085e0b7dae982bdca3f4a4084e70e7a83b39ca5e77919f470dd1466194834"
+        ],
+        [
+          "36d53cab7dd5d6dcfffe011f1a378f589df8974837d1b2e337fbd93adad57c21",
+          "9caa29b675ca9f507e0736f151b84995f378f1fa99fe31f4e603ec32591c4522",
+          "f8ed30493568bb275790613ec71d6e1868826c54cc7837986f7375fa6235bb3f",
+          "b310937f2f83b42427b4a2836732b57d6313fbe09803ff524aff495dd8a2cb8c"
+        ]
+      ],
+      "element_hashes": [
+        "d3d99e9a221750478061bc382d717e1a1d60a681283f05ece3c46e4b6da6009e",
+        "9565cc6dcf8992dadf358afaa05e9c1a167a03b99f3ca45d977cf983b9289a2d",
+        "cff341857b3ebe0fc03645ecece0be33f1144e2ae1b9d38271d2cc58200eb5f3",
+        "e8d82d2de82e36c615e45eada0b064a62895159ee2aae7f162971d1affece803"
+      ],
+      "hash": "af109e9e473d96e09de40b2c161bb2f46f784128f79e50e1807a1df2e7b92a57",
+      "kind": "array",
+      "mistakes": {
+        "2242dd82eee0c5022f98c98bafd530f17066af93200c2b422f3c0728059bfc70": "la récurrence RETRANCHE q uₖ : uₖ₊₂ = p uₖ₊₁ − q uₖ"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.7f": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "92854dc893f415d33581315063a2bae574446119986de61ecfb439d2b65ef75c"
+        ],
+        [
+          "467c883efc6bf7758163357e52681622d46df45278280c3aa0f7f39cf5d8c8e5"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7a3a8b425c5a57cfe032c4e31e30f8e6f3f1f908afff21bda8bba0a725429828",
+          "b5aac850e520eab1ce5b2129d14dad7e22fb537446d015e9a03b944e25eac926",
+          "58b0adde34ca452b6d855122949cc939805c163e8ddc4eb5c0a7ca8ec9d15624",
+          "1d74427e8db49aa8baed741e82298f9bc4f9fca9d2ce6b1c330d0e8d8e1cd625",
+          "98bc15160ec19f7d7586ca6dc0cfa0d7f120978619e75398d473776b08637ec6"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "cbbdd3bef2f5277ecbf3a4755a9b96b551f8536a788da26235ae3d49d73f7f96",
+        "e4c481c401d00bd3554dbd93838bc9e0a2a36f88d0dc2efedfb994fbca33dc4b"
+      ],
+      "hash": "e2ec3d27713ec4019132951628edbf8d4267ab7d263be0b905b01a04ad55c286",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.7g": {
+      "hash": "1549d6e601031dc6acc8b5bf80d429987d6e89225f7d2e590a9d639f9fc344f4",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "14f8f70a3b60a7f11ed99976079a6a9458c7acb60988b02f6c8c10aada4bd1e8": "0,5ᵏ < 10⁻³ : arrondis k vers le haut, jamais vers le bas"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.7h": {
+      "coarse_any": {
+        "0": [
+          "1795c1d1f8b7ef7d8079eeb905e2fca0cf06c156e354af0cfcb8463dae43d5b5"
+        ]
+      },
+      "decimals": 2,
+      "hash": "98620dff8aee13d3edba8e02ea80d27c7938098c41251e8263dbebe1e6fa8e17",
+      "hash_coarse": "3fd4a2f8a838d47b0dc28532804c7b69d8c8558a0570f722c122a18c8f30fabc",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "98249f6ff8cd6e6cebaeb589f9741f4841ac1051eb78ea978c8a107418db069f": "une période complète est un tour, un angle de 2π, pas π"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.8a": {
+      "coarse_any": {
+        "0": [
+          "f06288e2977d4111e2332faf355db6a6c3c5134a57fe2b4d73a23b0961be9946"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b19b5bb2f81565fae58e18fbc2f739c921fcae55f130e55d63468141db59298f"
+        ],
+        "2": [
+          "e193d46fe4035df2966fe97c27dca4041ba1e8f2416348630707d5e47a220407"
+        ],
+        "3": [
+          "729d982a01b66ed6ca352e3c4a458a80a4c39938472490f760bc1017e221327f"
+        ],
+        "4": [
+          "3a6e00b8841f26271aad7fc40e379ba6c4ffba89d7da7ceb9b0ae162549c87b5"
+        ]
+      },
+      "decimals": 6,
+      "hash": "209123276b356e888183801d0b96b67bd189acf82e498b908aa5f28c11de32b3",
+      "hash_coarse": "9979f14314da447f04c75e42fb732834172a37cd016377d8931d9c6b847e63f9",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "a11d39d82b3eb8e8c198cb356d6fa97041f0d0da2de887b3ee063391c2c101a6": "F′(2) est la MOYENNE des quatre dérivées gₖ(2)"
+      },
+      "sign": -1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.8b": {
+      "decimals": 0,
+      "element_hashes": [
+        "27bc52e260c5b58d1369113e95b8bd69de556956a1346e5d7421ecd8eea1e2ba",
+        "44eb4f67a3868d7249b0fa7f56928330289c78a51d8451fb99f5f7270706f5b3",
+        "5d133c92f96b1d925471173bbe881d90192a3b5bfecfca7e0d610ac126ad2143",
+        "c37351bc484c6956765358d707068d15cb7d065a16032d9c3c03796d09860a5b"
+      ],
+      "hash": "75fcc0f61f97941c974467a21f496849ae5c042f0b05e650ebace895ab3891b0",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "53155716078339b0e7d088078824f570e5591776aeb62314efcb556d81b4b349": "gₖ(a) = 2Iₖ(aIₖ − Uₖ) : multiplie chaque résidu aIₖ − Uₖ par 2Iₖ"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.8c": {
+      "coarse_any": {
+        "0": [
+          "30bd5568f4e32f9e7c4b9f3a43747577b83679f02b2096da1d94fe0a11276380"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "d95722f4c270e642ce3ef7ce1c3fa96ec85110656bef9db2760fc92979f0b121"
+        ],
+        "2": [
+          "344cb8b026b3899075e4c2e551e45343f4bc0d6715741a6249b9e71eb0e7ab35"
+        ],
+        "3": [
+          "7fe7ceb9a4cd19606bf5e4f3304477212e09d2d9ecfddce227deefb799fac60f"
+        ],
+        "4": [
+          "7f97585800a44eb074d7ecdd60eb50744287178cfec7c4020c5e5b74436066df"
+        ]
+      },
+      "decimals": 6,
+      "hash": "b5b7cb2d71b973c4ebaf1838c38db153f72ff654e47fe51334eae63acf975290",
+      "hash_coarse": "2288d6d7c15f72a2603e8a03aae9833318605837f8fd75b4a1af36437a27d835",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "1e5d6ed522cd21fc70e76743830abf401695e7fcbb6ad168228cc8bd2ef8d379": "σ² divise par N = 4, la dispersion des quatre gradients, pas par N − 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.8d": {
+      "coarse_any": {
+        "0": [
+          "e0c8a52758a1947b5967de19727ef14cdf977e34acc9a7abaebb0341cd1aefab"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "6604b5e877960b0c381bfa8f1e0f85dc528bd6c41b1ab46e0e4194280ae73c72"
+        ],
+        "2": [
+          "836dc1cf8b36ebd89043f2dbb5371e7e46ab0ef37c9c52f116186c554082d385"
+        ],
+        "3": [
+          "8bc57abcbd8c58f67d920a1aaacea0c36a0b670bbfd43fd3503cb138b24470e1"
+        ],
+        "4": [
+          "a7414edc1c942e070bc16dd851cde5a247c380bed5a5d84eb0c0ccfb4c70c5fb"
+        ]
+      },
+      "decimals": 6,
+      "hash": "6f42b18108d768b0858cc96d386046a4d3755e6dabd4924bc7d9e83860785a82",
+      "hash_coarse": "7ba8ffd15049ac367be968cedd7a86f05cf8f684b7263a3cd4e79f85fdfec729",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "cc345168c393bedf8176a6b722e3c9a4a0e2068ce08bb8d94b1bfbfc308c439c": "la variance d'une moyenne de B tirages indépendants est σ²/B, pas σ²/B²"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.8e": {
+      "coarse_any": {
+        "0": [
+          "1025e4ca2848abe89e0574d2512131644b5b508c2f638c33bbe8b19088f6cda7"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5d3e54fdf86e1d4247dedfc0b373960e086ad64b86e6d9e629c7453a2ad102ac"
+        ],
+        "2": [
+          "9cd7ae76e5493083611d9801d61889c9f0ee0a4adec5fc8556099213d444c55e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "f3a1b5b6b1398715bf5e48b250e37914ec97d8b360fa86cc429eb25afc7d39e0",
+      "hash_coarse": "f728749cd922120de2b0cd8eaee046b1ecde4f9671b8373b0df91c6595915a1f",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "51ecf1715cd4ee96fcce6653a6fd63751e5759505db132efb08570ff71e5b747": "l'erreur type est σ/√B : divise σ par √B, pas par B",
+        "a88b8a24b9f74b1154baf1cdbe675c2332f0a502bbcded12df5a5f3d69c71065": "l'erreur type est la RACINE de la variance"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.8f": {
+      "hash": "041a89d533cc3e786e326a8f801ca123754b9f6b1f27ba2449f8aa63b1ca4d50",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "f976c9937d6846eecfc0a0ec544ed7c5962e907785343d2b21fc6d452e0ff53a": "l'erreur type est σ/√B : élève au carré l'inégalité σ/√B ≤ 0,5"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.8g": {
+      "coarse_any": {
+        "0": [
+          "8151f7f0d3fc039748baf0e2d750ae986936702899318707d0106f459be1a5dc"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "61dcd26b519e88acbe3272ee3c4991da284a8819e17af46e514ed17a527d5742"
+        ],
+        "2": [
+          "c71cee7f9c9346c6589b81354794c65a24e9f0d7d9c6b4cab57bd639ac765eff"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b43f5cf18823215114197367a42d03df529ac7864198d21405058143d2d22ebb",
+      "hash_coarse": "15b7d541dcb2155f8dcdcbb2fa52502cef1147a83e2b46f314df72641e598406",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "496025b0532b248b13db4875fc9f899ee22c1df431cd8313e7b58de3926268e2": "le facteur de population finie est (N − B)/(N − 1), pas son inverse"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.8h": {
+      "hash": "6866378912a10cda174a2872a81a32afbffb8786d4451438c4534497cf607926",
+      "kind": "fraction",
+      "mistakes": {
+        "858385451aa3358e284ebc9e55e9fd63911367eff4d95ca9fb7c125669422b85": "STRICTEMENT positive : une moyenne nulle ne compte pas",
+        "bd1dfd77258c5af8b28221a4bcc6073d049a09404632ac175f0d2ba8ba9c199a": "tirages AVEC remise : les 16 couples ordonnés sont équiprobables, pas les 10 paires"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.8i": {
+      "hash": "5ec6cef57a7f46d4d40304420f5ffd3b999c5d8f1cec5e4f624ee240aa1ff18c",
+      "kind": "fraction",
+      "mistakes": {
+        "d811ed6d4f853ba60bcdd9d9f87c03988517444c3eebfedf2b84732d8e778d1e": "a* annule F′ : a* = Σ IₖUₖ / Σ Iₖ², pas Σ Uₖ / Σ Iₖ"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.9a": {
+      "hash": "6ef1b1948bef8cf927a4d507ecb3bdf34356bd07004d25b100b971d02324df08",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.9b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "1c9d13373911d87d74c8fe186190e1e36190ed93ea2ee3f211401dfe31d4f237"
+        ],
+        [
+          "b009447261341494e703a09d2ba5c72176645db9accf2aeb0d6276fac26ae1da"
+        ],
+        [
+          "eeb8561cb0decb898d9916d50665519b9603baba8c2b9e209bea4b54f90319cc"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "619fec735a19f7432890601ed92dcf0eb165cfbe0a0a105dd2f6984ba7b1b1af",
+          "20278faf7848fa4f0a4ff6bd50680db7ddcf9aaf13221777b93528240cd9adf6",
+          "eaa8770bb9e936edfdea052727558d439064e6ab66f74ff7a4d7ec4522f0065f",
+          "148cd8cd11b0f7e7c5e12bde989914434472dbfe491251e60f10fc07d5e252a1",
+          "c114b3fd520e1bd8256c77009cf993eef7cf530104e5124abd2b3b57403ff9ab"
+        ],
+        [
+          "4bf17e77e253b2d651c381620fddb6dc6dbd70dc954bb4b266d6eb4211c005cf",
+          "9ee86cfd842f2a8f041715256eba2a4e5ea896a5ef3102641841f7fb523c298c",
+          "85529c95ae466355220254685124bd54279b51ecd81f7965a2b478ea5a62a0a6",
+          "4dcac6ed2f04800362ab7be4be9f0b2aa85134939d3c74cd64556a20a911f203",
+          "723bf4a3f62395d1fc2b03f637b25939b764e0b2b7b12b9871ec1c373f60dfc0"
+        ],
+        [
+          "df5594c194b8b9ed6e729e56680d0f608e2501c608a51ca2c6f35ab8986af786",
+          "dee13849e28e4d68fa077a69effadff82a7297d53d7b1a9e2bd014b0bd8d588a",
+          "cf4a00b3780324e899d390c3e96f7dd9f620ef08184ffca42c1db10f401bc4bc",
+          "ce173bbc31ade873f8e78c58477131aede61427a79a594bbfe0eca92770912e1",
+          "d5f27a98ff0b60b84e024173aa2dbbf5501a6e513a414bf11027ec59e65c49f9"
+        ]
+      ],
+      "element_hashes": [
+        "e666333961b7590fe30155017128b86e2b97a0346efc6f612ad856979c02f266",
+        "07f904a73a207c317b01ac63f6bfde4be0439c89872d2529e92da01066cbb8c2",
+        "6dd3cd4d6275717dba14aaf6df41b3de629467c4c3bd61bca6c82f4485ded58f"
+      ],
+      "hash": "5fbb0726a9d17d18fcdeb55a4c74ebea4ed0b2b833028b54c7b6ba5aeeb7ca72",
+      "kind": "array",
+      "mistakes": {
+        "a29f04b687b68a46347ed64b50a9903ce825d24ad22e469ee21a8dbbe90dda32": "couper chaque coordonnée à ±r projette sur le PAVÉ [−r, r]³, pas sur la boule"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.9c": {
+      "decimals": 0,
+      "element_hashes": [
+        "f960853b9794c8a7634bd04de4d90029cfdd8c52a14cca02e97af3cf7a93e1f6",
+        "287f027c35593fdb5504a9c1cbf173d161ea50b932e096d45ba2f0deb4fbf86a",
+        "b424bf673f4f0fbcd8c93d6b768905aabddc69c8c22dde8476aa3ae969743db4"
+      ],
+      "hash": "7126e7f70359807de5ef6ae30b408661dd21b74fce9871f083425d1068e2bec0",
+      "integer": true,
+      "kind": "array",
+      "mistake_decimals": 2,
+      "mistakes": {
+        "b2d6175d7d6a24665fb89b2f59cc24cd0a650dfb83dc97a2b46e3bf31ec4d989": "sur un pavé, chaque coordonnée est coupée séparément, sans facteur commun"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.9d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "b6c01f1789795b19b8112c0371db4a437f52a89cd05c6f47cecf8178f53a7b9f"
+        ],
+        [
+          "5c2cadaab4692ee9ee252520a5436a777991e5c7abfcc35de4ef7780cd0190cf"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "91fa1357447ccd9294a8dd51dd0b008ffcad9401efff71435fa3c2cefc619dce",
+          "2c2daf44fdfbe2d63ce8287842b36cb83b3bf5d848bac3970092620303902b6a",
+          "4e524b8d67f6e87e415ebbc1e5309df231dd2f2173deffa4b4fb87c0709afc1b"
+        ],
+        [
+          "039004bfe1366417ae33cd92f8530f8f044d3bb496afa948ed6ac66376f9b0ba",
+          "4e577c024af526c45c08765ee958f8a5e31af60fc9ce360358e24159e7428f5e",
+          "ea5f2b837f7f831b0400b6a6669a9740906486c0a581faa5cc528f204dab145b"
+        ]
+      ],
+      "element_hashes": [
+        "f79ac62c34ef66629ef19eedf2bf97292d20af695b1ac395d5fa4002b7a08643",
+        "70b956a477cf0925697da0a8e41ac0aab101af3189f338ad2dbfbf37992aebd8"
+      ],
+      "hash": "245359d34767c0e1a109eb1d3f6f57984d2e23a6e6928386eb42f45ccaaa869b",
+      "kind": "array",
+      "mistakes": {
+        "00de2cc98c01cf6021093a25924aee7afef35636c3fdffc172e4c55e1b406b0a": "la distance de x à sa projection est ‖x − P(x)‖, pas ‖x‖"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.9e": {
+      "coarse_any": {
+        "0": [
+          "9af85e64def8bb889109ef21345683a2a2c176085b2d4801c59ee172f700bec9"
+        ],
+        "1": [
+          "270231f303696b74372a7dc632c6ff607b6611b83a404575463017b2449ba21b"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "2ddae2fafa15919a40f1319e6802e36c61fa0c4084d7aead4daa58dc9e68582a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "597a689dacba31a6beee6f4236efa1a08b7249997d0a02dc32082a527de4bcdc",
+      "hash_coarse": "aeb2d70513d3d957f5e1c513ee55620fe8c7ef5b685191af883ee585ba4cc33d",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.9f": {
+      "hash": "52daa57606ab2f30961bdba9dfdf2f9446996dc76b86a684142e757de0ef1ca3",
+      "kind": "bool",
+      "mistakes": {
+        "6acb6de49042762d541dafbe0182d51886be0f772fb73057c319b78db4c0ff0a": "compare les deux vecteurs : l'un est-il un multiple POSITIF de l'autre ?"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.14a": {
+      "hash": "3935624e2c3ad19485d68f1eff31a22e3a4db6a7e2bbd1847be7971cfc619e76",
+      "kind": "str",
+      "mistakes": {
+        "3436d8edcf86146bcc1a691510997aca83881c6e850a18a6d4c2105a3571fdd2": "le gradient de ½xᵀAx est Ax, celui de bᵀx est b : b − Ax en est l'opposé",
+        "bd01c7e51ba1440831b955829208b9170c24080830a4b2da12bda3347edd1f77": "le ½ de ½xᵀAx compense le 2 de la dérivée de xᵀAx"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.14b": {
+      "hash": "1eafa6c387af189edaeefb7cea1eb896cd6bb5ff192a971434776da0ed206d54",
+      "kind": "str",
+      "mistakes": {
+        "3ae620ac5e110e2943b89b89d309892ae14e97a72b9dceac1a665590c0e9e5fe": "la hessienne de ½xᵀAx est A : le ½ compense le 2 de la dérivée seconde",
+        "64a2e617677ff20f7c261b01b7c02ce8e2bb1f6ec6873f834859eecf5d0cc154": "la hessienne de ½xᵀAx est A : le ½ compense le 2 de la dérivée seconde"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.14c": {
+      "hash": "77bf012ab7849e01ea20e8ed14ac966ab3586539cda2a0cb8a8613dcc1cb0ae4",
+      "kind": "str",
+      "mistakes": {
+        "2f96a0298df6c5a845bd6e5d9126aa4e5c775e05720780f602d7f86c5062629e": "le résidu b − Ax est l'OPPOSÉ du gradient : un pas de Richardson descend"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.14d": {
+      "hash": "348407ad403108419189deba334d0c3b2a9dbfb90f8e6492468166b084039c82",
+      "kind": "str",
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.14e": {
+      "hash": "8bde190be0afec45f71d5d9b5ce32ef62ed80a3ead349811199dbaaf16576e9e",
+      "kind": "str",
+      "mistakes": {
+        "21228d8deb86ebf7347fe401e888af563378bc6a843626b9acaf9ee95c957d3b": "c'est la plus GRANDE valeur propre qui limite le pas",
+        "726843d650dbaacb148c0755d53605cfeca52005e482480c4e690ab042a0832a": "c'est le meilleur pas, pas celui au-dessus duquel la descente diverge"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.14f": {
+      "hash": "3c5ef01186c123632e6bbf4632d3cd115b6312209db6217d62e0efc6f6ad8d5b",
+      "kind": "str",
+      "mistakes": {
+        "f292204c72946d558007f3f6308f244fd719402c1091f8b3368c7926974dd360": "∇f = Ax − b : le résidu b − Ax en est l'opposé"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.14g": {
+      "hash": "21938adb68e3b1de39936987a1eef29cbf9d390afe6b1faafa480245b30fad68",
+      "kind": "bool",
+      "mistakes": {
+        "06cd034f2e391a2f6f6893e326027052533d6b8f86b7f833fb94e30abe307b4b": "A symétrique définie positive : f est strictement convexe, et son unique point critique, où ∇f = 0, est la solution"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.15a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "4847715b7e62d17f5c8f989afda0850abcff4dad2d7c99c44a105976be8e962b"
+        ],
+        [
+          "7d01a83f62b881646b35010854c9cc13dcc5bab8627b87a2037618e1313366a8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "cc3fce732d4b2731d566b76393a56ddbd3e77831ea77ff4652decdfb896ede96",
+          "44c52439f40bf84726c30a24dbf3aa782e9c10aca125ef3e5e99235534ce79be"
+        ],
+        [
+          "0cb260eb46357796ff224fa1006c6afe1037b36f8124454da68643be8a8f4596"
+        ]
+      ],
+      "element_hashes": [
+        "60b466070d8d33916522b6a23c2a20a55b4f0449496f48c422b9f2d5191dada8",
+        "bf2c8d0bef3d303a573b580e7133730d25f497e9950c8ffe8139bff7a78d9300"
+      ],
+      "hash": "72b31a62022b036532900e1e59cfbfa3c8af1281f7a2cf0b042dea71ace7b796",
+      "kind": "array",
+      "mistakes": {
+        "32fda0bfff64e81aae31f793796a023b79826a85a72c9e38f644340081904bef": "en ordre décroissant"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.15b": {
+      "decimals": 1,
+      "hash": "e4bdf984ce69175a8c999a68343abcf0b2de5b3260c33d55eac7368589891e5a",
+      "hash_coarse": "c5528c0c86c0be99d60a49819d609ef96bcf9cdc49bca5a65bd2552b983720c0",
+      "kind": "float",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.15c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "ca54acbae6f756c27712ab2c1a3a53f2ba541281e37ce74e3db4022c4b4fdf78"
+        ],
+        [
+          "63c1ca830bad2ad602f14e1cb4969367e182627d3c74ac26fcf56ec4031576a2"
+        ],
+        [
+          "be17fed10c489feffc04bdcd32b4f3e51ade9186828ccc5a81bf75382de18d77"
+        ],
+        [
+          "9a4d5b589bca757e67372ed106f100bc659ce0561b07cb78f33ea26e23d92846"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "92ec2fa3158397e7c84c149d4b7543b22e8dc82f65ce59d3134cf13922258f93",
+          "5d11f664a508111f38ae9bce00f37552340a4e2e1e3a9c20ea00af70ff418507",
+          "8699758661fc5eeb171c1f94da6a9fb8b760f5cd1f4bb1c01140f0c0576a02d1",
+          "0a6bb93a5789ea8a35952aa4a3e9e56db097e151d8d197f2b14d94c9ea0004b7",
+          "38d4c9591df55f42a16a786cd179a94ef62b25e0a523f87fc294467f0271655c"
+        ],
+        [
+          "0eb3c5b526f6aa9f722639aeaa9e36e933dc20da6dd56fea384f42b8a1b38e40",
+          "a218aca403e25bb839a12819683e7d2b745172013429d89e188f1b271e43bb39",
+          "3029a111076043b1a8b3aaf759a9ab3915ace014bd709c64f6107e7c8ae0fff7",
+          "fec035f233898972f0cc5840dfa26588219083dd9ff3a4b04a67d89818b8fe37"
+        ],
+        [
+          "e9a15a935705b1ab5ffb70009f73f7fa8f14fc9279ff2d93494391e93dc94e3c",
+          "4868a31f34bf629972fa6631cd122746c838cb35ba52818dbb59c903cda43b1d",
+          "30bdfb8736cb0a1aedc31656aadf7dfb23babc3ddd77fb61d609bf41e8dd3548",
+          "3926c92ebce5079c45b0236e32c79988b60166bab6856e0b29a959c3183bb8f2"
+        ],
+        [
+          "232ef74ed59a98739804bc4d9292464805f4def92b90fd856d1bcb8f264cc4fb",
+          "4e62aa977d2b09640850d405ed4490d2bc7d2831069556ae344f28aa921e1ffb",
+          "14ecb0dbf14671006d914fe5a76c555f65959375fae6a8f19f8d3b173f7b80e7",
+          "6cd56e1fa2ddfa1a02a496ef25bbf09b8f92dbc647245e4a7a0018d0a6de6c83",
+          "5c1d6312674339316c55f7d950f4971147ae345c49eb28aa6f4943befa640e2d"
+        ]
+      ],
+      "element_hashes": [
+        "36c8b0e16e8395a77869cf244e1cea9a34f348ce40d64e17f3622b559c9db918",
+        "db82b374194af5871c71d96f0d4f97aed0c3fca7df2d6365f36dd80b621303ae",
+        "16f99d33aaf5227a9f7ea5c725065ae5adee96c71b3765a274468b3e94656728",
+        "83385171519d4c0f9cb5b3b217f72c28574805a8dd57933e01ea2726cd04ff97"
+      ],
+      "hash": "67ea8eebabc6c641169bf517a83a8db5e089134e12e708f8a2d20a0566104135",
+      "kind": "array",
+      "mistakes": {
+        "9f0131219880ab07c6048da69aedd5cb1ed84af6d5e4e5f1b95346c01fad2352": "ãᵢⱼ = aᵢⱼ/√(aᵢᵢaⱼⱼ) : divise par la racine des DEUX coefficients diagonaux"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.15d": {
+      "hash": "72b6f88244d4ba6715e946003509d335b101c58ae0da353b08cc141840c7e524",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.15e": {
+      "decimals": 0,
+      "element_hashes": [
+        "e002984d93fb8c932abe8e0a4d557f5340ca99a5a83d779bb2ce7df8d26d7fd1",
+        "55c253a1b89299301b3a12f286faedd9f396723f9a1a1e94675a3a2f0d97fa44"
+      ],
+      "hash": "ba21397403f3c7aee39e0e5f809f04c043f4e5f630f884b85a0b56c61a97d8b1",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1a7f9f78e9a156bef5c5247fc1d23cf291bce710525b416d254f682f83bc36a9": "l'ordre demandé : A d'abord, puis Ã",
+        "e1c2caa3594d4151c22f6b3dda056f07bcba567b86cb93e0c0e95c71bfc720ee": "ρ* arrondi trop tôt : garde 6 chiffres significatifs de ρ* = (κ − 1)/(κ + 1)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.15f": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "ebe22443df129f30af6ea148a6d4fb1e361fee6ae5f4362a2e6660c20eaba63f"
+        ],
+        [
+          "b14dafba88d4d5d0d2ee1cb3303a6fd28c8ae7d9492069f05074c4ebde00a264"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7184f5f4f93847360547c5fd4f88a883c506556c810d59c771f570c4443d2f55",
+          "7655ee32678229e4ab2ad5e58cc57bad2b02186d60a181c432b68f9dd9a3ee1b",
+          "9df8a8d34f90ce6babbc21621d7b5ebb51198912dcd46f353e2b43e1dfffdd63",
+          "92e60c12740349b33c5448eff894e068b19a88cedb9cf74f9dd1c63bb3829335",
+          "e60ff57194803afe459e06d65e91ae79243e976be586591e4d8762b29d89fdbc"
+        ],
+        [
+          "d4bc5a2137b446f9a3a0d0feb8b9b920d7945fb9e1af4ade2864b12adc84e7c7",
+          "96797eae8a11c14d8b6d6a03801e3b6b20f287b1564d30c5b7e53a516f288713",
+          "93f10703f03d90dfa9738d0caf458a808c39f6b6801f258b87d56c6108308c09",
+          "8e15a7056ee10af3e5ccb8330a1dd5cbe4af56ef6c27b80f0bf7bce178ba6197",
+          "20b4477dda733a252a85286cf03676d6865db25ca3e6cb23a384493ccbf9ffec"
+        ]
+      ],
+      "element_hashes": [
+        "45b916e35b9b4c373c8ab14c1c014d6826b9bd1f89a855dfb811d977e13d4c3d",
+        "85e97632586864cca7c3fd5c800213d418c293ad7481dec9d3b798b93c79cb41"
+      ],
+      "hash": "50355c864e1862390266ca4782f27beaacc2f4970c54cbd731be1cffe6796f29",
+      "kind": "array",
+      "mistakes": {
+        "1e643fa989dcefd730e0b7b835add95bc77221ed5673ff963e8e5cfef82d1bdb": "y = D^(1/2)x : multiplie chaque coordonnée par √aᵢᵢ, ne la divise pas"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.19a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "c700b283f6774249dbb9113a1b12633888e3fdd4559bb7ec931b3db955c74920"
+        ],
+        [
+          "92ac65054d85925b3217b7fbe1db7b936b7b2e7fb7b92eaed3252bfddd5efd9d"
+        ],
+        [
+          "165364f53fe4ef33b24e66edef2fa2ce237b2ba54e6fa9a7e1f7136537d5ba7d"
+        ],
+        [
+          "a437e5af63dbf719edf541c742aac3c835b0fe43b3c9cdbbf4195c3cdaad877a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8b8f494ce6a953fcbd84b67cdc908e2bf77023732faea2a7194ed7b109f88cba",
+          "9212dfae72ad64e5eab1f42e4ad120e4e6e0a82a3ba491f9fbd56bdcc3b4697f",
+          "d376f66d9d0ed6962d31602af4eef831eb8b95a4129ad6825edc4bf31812fa55"
+        ],
+        [
+          "9536db5e261599708fd151009f348702695f11449baed85369beaf7024c82cad",
+          "648d1239242cc5206b821831813a804bade669b0dc54cd9c982d8e39c1b2b9e7",
+          "2c93384c409459bb2d2ac2566628d5f3a653e52936835039a54bd4f45486186e"
+        ],
+        [
+          "36cd39de01f78c6b209250fb43e672bfaea52a1592a219b931b56d7f33f5a6b8",
+          "42b6753d4999e7d5693daaf09b347146e9bd4f8cc7765bb925b785087b814d3b",
+          "515e219a1d740f15b39eb25281e24c245342861e19dffc8938c84c9bf32cc814"
+        ],
+        [
+          "bdd79a349270d2744e2aed53f44ae5a89469161fd2ff9006ea68b630c7b02869",
+          "0ffde460a8286c30dee130328d10c73a9222b800d11d95df537db4dd8eecec79",
+          "a1118e4fc267ee33861660cc94c3a27463ef1347a94caff5ec5f8288bc043664"
+        ]
+      ],
+      "element_hashes": [
+        "da049a518c95c4c08086da2416a088a467ccc0bf597729d39ae7d8882147e047",
+        "ef04761828170b65f69f02863f0d2e87a20d001af2cd1d9766cfde203b936947",
+        "d2b46340cd96e13c36c0418dfae135dea9424c7ccb5727d5851e02cddfed1383",
+        "dcc07f687434eb13fef118684683ecfd580042033d68be0b701fef277021d90f"
+      ],
+      "hash": "2a4ea49590f11f8a5195b9e256cc3ee6a7c80ca26e436c86147842f969739834",
+      "kind": "array",
+      "mistakes": {
+        "59995911ae509d2ef546f1f6dda9519b05d7dcc040bcda645aed6cf764daf7d1": "la formule à quatre points divise par 4h² : relis-la dans la docstring"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.19b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "0c2bf04580cd782f7ad2721d4606d744d58b1eed272faed8db8c1946534e14bc"
+        ],
+        [
+          "e8922288d9ea9638eb5ca9c3a49937de84bc28261ae3265f35ac92d71a290e8f"
+        ],
+        [
+          "82b99bc5a18003fae183fdd6544e9a4f3cfbcd28253f15a15f359b8c19fceff5"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ada04024206038ff7497f0ef65284cb1c47c57490686aea2ac5a7dc3686839e1",
+          "d8fb26192e1540ac24c74d3a3086c3b5b3785101d9b94c91c4879fa836d743a0",
+          "eb5c10f79a74b8411be0994962071d3d0c01f663febe6229696b98fb76138801"
+        ],
+        [
+          "6cc766124104ae9b2e03accbaa9c54c671f082769164f9844b2cc2da2c86169d",
+          "955f79edf33aae631aed0c10fd685dd4569e123202da96300883cf249cefd0dd"
+        ],
+        [
+          "9ca809d9955534c6e718d7a3a26e5dfc2db1f7c723ccdcf5fa1147a820a7f423",
+          "4755e0bfda48dd4359cdd320bce104c15762f57518de2f77aa24d3a25ebc1c84",
+          "b3c6c4bf57b1fb776df62a992b490a031d08bd8a48aaf13429011d2653020a4d"
+        ]
+      ],
+      "element_hashes": [
+        "7c04e36a1bd6fed93b40d47b86add6617697953e9158f72dffbe00ccf2e65112",
+        "2d8934291b12f8965bce885ae807f598dba722135ce1e68dbc19df3ea42e44ba",
+        "5c9f05253c4696ef291aa01ff7e8fff1ecd936e7f73860abe9e129cec5bca17a"
+      ],
+      "hash": "19bbc4662851fe24893c705542fb88fcf21daec61ac590035ea51c6d35b0c48a",
+      "kind": "array",
+      "mistakes": {
+        "c3b7ab5c6c6c3cbb593529880429dd7ba08c339efbb2467f72fe14b3cbe19a9d": "en ordre croissant : np.linalg.eigvalsh les rend déjà dans cet ordre"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.19c": {
+      "hash": "81ee10c4c7c6af13a9b3d989a63391be13929320c81cb4949d83ef042de17687",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "3156e399f802c6a1c5f2d046ce80ae732f8db5eb608427b2554442126fe078b4": "l'indice compte les valeurs propres NÉGATIVES"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.19d": {
+      "hash": "6d80650ae8aa0a51801020f6f268e0eb4a00678ece225bb4c97a276abc9ce839",
+      "kind": "str",
+      "mistakes": {
+        "29bfc14710efdacf49e0c49a0e88e1b4297d75383aecf037f73a251d89221754": "des valeurs propres des deux signes : relis le test du second ordre (fiche §2)",
+        "7e145b266c646c34ccb2f8f964f4228ed3889f6533431269fcfd5014519ff81d": "aucune valeur propre n'est nulle, même à la précision des différences finies : le test conclut",
+        "aa38c09669f2d0da319b61e4ace66c1028abb502860bfb3aa115bb08fa39336c": "des valeurs propres des deux signes : relis le test du second ordre (fiche §2)"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.19e": {
+      "hash": "e1afd14f676b4bbd6fb8dc5d4d213d180fa99a466276af80e2b49c8b889930f1",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5c4348eedabc2b516dd0dff36f54f5e6b8ec73c9afabc748fe27ce1e9d4c6179": "np.argmin rend une position dans la liste, et STEPS_19 commence à 10⁻²",
+        "5eed72d46e4280be0b2c5f7401a8e2b2ca80983aba14ad6e09fd7a51a2847952": "10⁻⁵ est le meilleur pas d'une dérivée PREMIÈRE centrée (M05a) ; une dérivée seconde divise par h², et les arrondis grandissent plus vite",
+        "63a01651e84b1d5b49657bd75014cfca15185605a34b2faea54b6ee4da28edc7": "le plus petit pas n'est pas le meilleur : les arrondis, divisés par h², grandissent quand h diminue"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.20a": {
+      "coarse_any": {
+        "2": [
+          "9deaf478e73abda344336e69644ce242a655bb9c8cef390fe2b5d085f342a75d"
+        ]
+      },
+      "coarser": {
+        "3": [
+          "e7611d376375a19c9ffbc2a88deffebbf0b20bcf8bd6be1760c3a47c71a38411"
+        ],
+        "4": [
+          "d3d9aaf40e1a152affbd10c80d2e8f604b604f34a568327831bb45f657fbc0c3"
+        ]
+      },
+      "decimals": 6,
+      "hash": "fe00f20df4782fb2dddea097be5524e2e3c268d5d1e15e0ce3aca19414fb4935",
+      "hash_coarse": "a5830487b9933ede9acee8eb9eaab15e68457877a20c5f0842f38981886beb0d",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "1a0aa66f4a6fae228ba11bf3e01c442cd2133db670d73f77390178c8a7a505c4": "la diagonale de K n'est pas son spectre : calcule ses valeurs propres",
+        "2fc3a7b3215d045d874f02a69d0ccb42716813eea07a3373007594de773652f9": "le pas critique se règle sur la PLUS GRANDE valeur propre"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.20b": {
+      "coarse_any": {
+        "0": [
+          "f70d692b7b4a1f59f6e1c6d360a1973767d3551f90d5d19cc2f788ab953e6d15"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "6a4405dd64a3ac48911dff2941615e70d83590efd1a89388dbbde06089ebe9c9"
+        ],
+        "2": [
+          "8d93321184cde4b5f24dbc07488cb315f1847ee72282fc7bae5779937fcbda23"
+        ],
+        "3": [
+          "e75cb173ade9f147afb637fd8180ff6b9dca62cbf7336c5656ebcadc5cbf6f8e"
+        ],
+        "4": [
+          "faf53327b981333cf26952d7964f671f17da2220ff3ca1b47b3c2fe307bf3931"
+        ]
+      },
+      "decimals": 6,
+      "hash": "748c330633b44c8499c13e45f7fb9a2c93e81257255ab05993c81cbcc1300343",
+      "hash_coarse": "1e0d7ab203eb62cc09c3704f1945ee92b8ab0aa03f445949d3754fae112eb9e9",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.20c": {
+      "coarse_any": {
+        "0": [
+          "1a4f9ba69a8db432aa64dd5e6d912b247c560d4081f5ce77bc797dad0b05d6c5"
+        ],
+        "1": [
+          "b2a4f25b81df30014344a40eebcf8f0d2fc1cc4addf15cab059bf5fe9e0b1d24"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "65b50e6c41dab8ae0dcacf10cbd8df3151f8bc5fbd2e452ce69d9395624f98c7"
+        ]
+      },
+      "decimals": 4,
+      "hash": "51aaba168811466d7965661879c46082d00262ffafd6afdff9d9474bb8d2dc99",
+      "hash_coarse": "cab7156bc5fa4e3caece2f498c2b8ee14fff9fe64e5c184e0ce544c24fc6a791",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "4c9f698151c97a5ec1c4cc2555477670dd0299dbd1683ec2da74ab59a268e885": "ρ(ω) est le PLUS GRAND des |1 − ωλᵢ| : la composante la plus lente finit par l'emporter"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.20d": {
+      "hash": "6aee9d7f8d1ad207f0a3b638130e3757d9629317788279a3d9a26c09e05b75d6",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.21a": {
+      "coarse_any": {
+        "1": [
+          "da9febdaa26773b1165ce553356c722546c271f0dcba7f4dada20e3d313345c8"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "4da2b89824fc03465356c6cd2e11b22aa6e36fb7272c83116150644156f8d597"
+        ],
+        "3": [
+          "9b79a5eec14a21610fd83270e9fb6e9f40d240a4f45fc004f825898fc7af957c"
+        ],
+        "4": [
+          "ba0f5a1f29c6a80de5dfcfba52ee29803b775edac4567d771af7a47d089eb7af"
+        ]
+      },
+      "decimals": 6,
+      "hash": "a44948897b84dfa85135fc8c79ff791cd784f50a3e2f511d33cd1122de50dca2",
+      "hash_coarse": "119b70355995c1866f6e935277345678f0bb40450b8725ad87b8bf131cc25968",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6163db3cc002b87998dd9f17c584d39f70e98469795a000840da93f04261b304": "coefficients = [p, −q] : u_{k+2} = p u_{k+1} − q u_k, le signe de q compte"
+      },
+      "sign": -1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.21b": {
+      "hash": "28c64da22ce5309dacf98911373f56ab80a7b2571c07daaa6d3359fb97dccb45",
+      "kind": "bool",
+      "mistakes": {
+        "3ef82f316cc27a818e741ef54813d489e2fb02b021678465b255808dea2adefb": "compare tes termes à 0,8ᵏ cos(kπ/3), en radians (np.cos), en valeur absolue"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.21c": {
+      "coarse_any": {
+        "0": [
+          "2d9396baca2364e8fd914f3216d8598f7060e1b83dd129dc674999306380e9d3"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "f7c89bf9293ee0be7986a823cbb348b261e876184f891f075fa6b1b5e5153a57"
+        ],
+        "2": [
+          "c20c28e2d654fd273aa4176332ca169bb1d53ae1f2dfcaf51c7b6f155d9bff1e"
+        ],
+        "3": [
+          "184775e601c0f1ed3b4a26555aed4aa61684d2624a40ae249ef96a84cefb4f5f"
+        ],
+        "4": [
+          "6209bd2220a5669c191f6a54e15e8860d31b3957fb4f2a19a799d1cd2287e939"
+        ]
+      },
+      "decimals": 6,
+      "hash": "2641f3b538a915bb94229a59f7951094cf34b59484f7247bd5c7dd0017908a7c",
+      "hash_coarse": "fd9f6e92a945fa41e610d8bab86812974a3a7b001fa1ddbec33556e640c6653b",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "09138a1265781f2f0262ea359ec8261660a190d712f513bca753209fd021e9bf": "c₁ multiplie le terme le plus RÉCENT : coefficients = [0.5, 0.3, 0.2]",
+        "40f1a38c354ec3c2688125fa9303f5dc5cdd345dbc391147e1792994bb70b170": "initial = [u₀, u₁, u₂], dans cet ordre : u₀ = 0 d'abord"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.22a": {
+      "hash": "4ffd1d26ea4845514b09306bc31ec3eab7d8f4d47a1f877e832173cf97ee4ecc",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.22b": {
+      "hash": "edd0871ba47af5d881641794570a9e13526dbc1a027fb999721376ece88f1355",
+      "kind": "int",
+      "magnitude": 3,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.22c": {
+      "decimals": 1,
+      "hash": "fe1b9496ffd751b73268536616dfbb5e219e5cc4b0c5ed90e4de6030154a974c",
+      "hash_coarse": "5b954494d19f4909aa795bab4bc3e571c06d7c8fae2938be254dd7b0f1a26edf",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "d211cb1f8a1c44112ceda7cbcdff586e3bfcb1c71176e9dd7f4d318fc2521806": "λₖ = 2 − 2cos(kπ/(n + 1)) : le dénominateur est n + 1 = 51, et κ = λmax/λmin"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.23a": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "hash": "d639913c7e413560cf5326f269b3315e75fbef27b1a90cffbba268332e3e47c0",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "8638f5222c789b0e82dade4e39bd42f7ba4912bf2291ef1713d3641c86d58886": "un pas plus petit n'est pas plus sûr qu'un autre ici : calcule ρ(ω) pour λmin ET pour λmax",
+        "dd3eff9d8fe172db10cab8133e5a2c75407f0f88715c76a091cc678354c172f8": "un pas plus petit n'est pas plus sûr qu'un autre ici : calcule ρ(ω) pour λmin ET pour λmax"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.23b": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "hash": "43eef4d4b2d159217ce441f2c2911f8affa3858c2716a9f2f14bb930c2d6acf0",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "15c7ebaf3ba53768644797a96d675c24448c55d4006bf3f9244335606446287b": "le meilleur pas égale les facteurs des deux valeurs propres extrêmes : (κ − 1)/(κ + 1)",
+        "2bc0730ad086a1d35ebeb0bf89a526d8f788b18c06bfd3024ad14b11dcb4c6cb": "le meilleur pas égale les facteurs des deux valeurs propres extrêmes : (κ − 1)/(κ + 1)"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.23c": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "hash": "b148d28db91b9525c560f77c1d602357fea3bc925673ac6dac2c77d2fb0eabd4",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "7fa442d91f1001d0e309b240864e30c32cca68639e4d43c2edfa062bb1faddbd": "près du pas critique, la composante de λmax est multipliée par un nombre proche de −1 : elle diminue à peine",
+        "a9f8471c50c8211722bc40e9273df611e0810ba619a84e2af1b0cfe16256d973": "près du pas critique, la composante de λmax est multipliée par un nombre proche de −1 : elle diminue à peine",
+        "c564361a29a11ffada3ea6ae3b1dc660c076f8dd03b39df59cf568f4d9f3705a": "près du pas critique, la composante de λmax est multipliée par un nombre proche de −1 : elle diminue à peine"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.23d": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "hash": "a3b7b440d54a4e511d570d95ee4e08ad01bb15c322f7c6a227f0d053e90c9938",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "087db4483b76443394b979c84202ec0fcff1cfb0ec400cd04d72b320ccd9aaa1": "au-dessus du pas critique, |1 − ωλmax| > 1 : cette composante grandit à chaque pas",
+        "28214c20b7f8e2b2d87a70a8343a09f34d6996b4705edd7591a03ea221403cd8": "au-dessus du pas critique, |1 − ωλmax| > 1 : cette composante grandit à chaque pas",
+        "653db0878b6a488875c5692ebf13093472dd5ff349826ac193e79ad3f0f6f5b2": "au-dessus du pas critique, |1 − ωλmax| > 1 : cette composante grandit à chaque pas",
+        "fd7a629f5c2fec94f78d06584fa77cf82c0ac5c1d7210d45742252e469199dd0": "au-dessus du pas critique, |1 − ωλmax| > 1 : cette composante grandit à chaque pas"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.24a": {
+      "hash": "f2dfdd1a190027642ee12754662b0dad64106cc756c8f8880069f05da9160e9e",
+      "kind": "int",
+      "magnitude": 3,
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.24b": {
+      "choices": [
+        "0.5",
+        "1.0",
+        "1.5",
+        "2.0"
+      ],
+      "decimals": 1,
+      "hash": "c523c055061b3f5e9620ba1c22820cbcfdb79239d7b345726c4752f78696bf9a",
+      "hash_coarse": "13eff52738549082dfca5c7bc836c6f6b1c191b1527ae749fc9730179c28bb90",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "12cb7e25b0c9082c42c4f6a908a3c3810e8b36b8d8447beacafe9614eb9a9886": "Richardson demande de l'ordre de κ itérations (≈ 1,15 κ d) : relis la pente de sa droite",
+        "150a84c72bf02fef6610359b1b89a1d668dc70bf6758b99b7697c98fdfe0a2d2": "Richardson demande de l'ordre de κ itérations (≈ 1,15 κ d) : relis la pente de sa droite",
+        "e441d0f47a4ece601d48c1f9171a48fef60a6cd172d5e983f7f237a9aae26400": "Richardson demande de l'ordre de κ itérations (≈ 1,15 κ d) : relis la pente de sa droite"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.24c": {
+      "alt_coarse": [
+        "3766a35dc968070b5018349fffe994ee6c6c1e6f3a0351179b4597d3a313b0dc"
+      ],
+      "choices": [
+        "0.5",
+        "1.0",
+        "1.5",
+        "2.0"
+      ],
+      "decimals": 1,
+      "hash": "943631c814656f80d20cd22ce53f5ef45130351e5877d16fb50a43296e6a386b",
+      "hash_coarse": "9007c5f6a694e6ab67b840980e2cbde3e3ee4ad68e51fa02ef0c748ead5e1f1a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8e6982270f6da68230e0219114d15686ef4095e1a86ad613b4ae2d9e5739161f": "le gradient conjugué grandit bien plus lentement que Richardson : relis la pente de sa droite",
+        "9f5253e64b8bf404b15409cdd92415d69637ce0da279dc998dc3490fea71afc5": "le gradient conjugué grandit bien plus lentement que Richardson : relis la pente de sa droite",
+        "f69dc68b678fe4fafe203b29447366899b5790f923a7758e4ae6c977cf7d5478": "le gradient conjugué grandit bien plus lentement que Richardson : relis la pente de sa droite"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.26a": {
+      "coarse_any": {
+        "0": [
+          "67aa1232865540ec5a93e15344c59d0e1a2071779c139d559eb031e655a0f46b"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "d793ccf7eb9afb7536fb3d813de4008b7f329cc464c37c473b73ae23c6568c44"
+        ],
+        "2": [
+          "5d008cf49a03ecae19931dbf77a1b70c5880ed0cb017021a5a0faaa9f2722547"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a728aa295f9faa8fbcf2b9726f0cc066ce17fdc2ccf52afbe2f9e5f6d41c560d",
+      "hash_coarse": "85776c4c82d2d5be37bc099671699a3c59a542fb7bcfdfdefbfb58dfcff3a880",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1bb13a90baa4e783a8d2751dcb6dfc54dc827b190c5fccb96b5b85effc2ee41e": "avec le pas du collègue, pas avec un pas juste : ρ(ω) pour ω = critical_26(K_26) / 2",
+        "64db9d1306b9a28d49c7821e4e498b9dc689c1ca2716c7b06debb2595bfe87ed": "le collègue prend la MOITIÉ de ce que rend critical_26"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.26b": {
+      "hash": "30f0f901ea5b8b3925fc41e7677beca5003704e8f6291f048ed59d7332614358",
+      "kind": "str",
+      "mistakes": {
+        "6f19a36639b9fb5bb443c2e3d0d601c319187982edb17ff8188b012c60b54dda": "des valeurs propres des deux signes : relis le test du second ordre (fiche §2)",
+        "8336a296e8071532d8c5963e544b6110a84950bce1a9a4d5585905cf117d6e37": "c'est ce que dit la hessienne du collègue : eigvalsh ne lit qu'un triangle de la matrice, et la tienne doit être symétrique",
+        "e2001c0ee915afcd686ed5f679158736691adec88eb7d831902bda10742aa062": "des valeurs propres des deux signes : relis le test du second ordre (fiche §2)"
+      },
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.26c": {
+      "coarse_any": {
+        "0": [
+          "21111f97874303506f4b05166df5bc10c16596e364092b9a05be305875988672"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "f9f4f39330c1c882f4247340d47980ff04134cc79b51ac2d20538a00dad0ccd4"
+        ],
+        "2": [
+          "437a1e60d56b849c5416dc63a80bb0cda970b2a9a8701c7e57607060de480d4f"
+        ]
+      },
+      "decimals": 4,
+      "hash": "6f62a270654f14c09759c92cc6e957deb49a00df1120400da55e24031f09db38",
+      "hash_coarse": "45ba8a9bedefe5d2238f22f172065aa3b796e8d3f61258daa28279f907383587",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "605fdc5ab671584fbb456847230f1270b92b8cf6762fb5215f87594fdd44655b": "le module de racines complexes conjuguées est √q, pas leur partie réelle |p|/2",
+        "d10ee7f0823104e18c1c366f30a495f9ebadda496ea9173b51270f6c7571e15f": "le module est √q : q est le produit des deux racines conjuguées, le carré de leur module"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.28a": {
+      "coarse_any": {
+        "1": [
+          "c0ff3197d43c905df45e36994364037208b0f66765da388fce25d8898bf48c25"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "4f8d956070034f2b7815e03dab891e81621e938d5b78e6b06b12788fa128591e"
+        ],
+        "3": [
+          "e5aba1c64407ac63f0a5944887ba6e7e83da4a0962b00799370fd7fee3fee25a"
+        ],
+        "4": [
+          "3101e77782e52f15cb4270a9200f7150d63eb844cc1d4cb3fca5c016fc3daade"
+        ]
+      },
+      "decimals": 6,
+      "hash": "752e82f8db54305211a91fbe51451f911a610af284419195907d8d2d0e0cc04f",
+      "hash_coarse": "30068f7b4f1370ce7221680f9519df78e8bd1ac99ca40a30415f73dc818a2c1b",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "4d0287b3600eec3c52e0d74f3a140a23e4f719cacb16fd304d7b2e696a940138": "|p| < 2 avec p = 2 − h²Ω² donne h²Ω² < 4 : prends la racine carrée",
+        "a1b03925c3f9d8ff0908b6a65b3de2f5768b6f83c791cecef9ae0751e6a90374": "les racines restent complexes de module 1 tant que |2 − h²Ω²| < 2, pas |1 − h²Ω²| < 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.28b": {
+      "coarse_any": {
+        "1": [
+          "aedcd7812a2408a13b9b8c2725ebe6029337c0db35a45430001444a054fac420"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "00de6c85db0c080eec794007c7ee13758992ef40562db557df7e14d12468afbc"
+        ],
+        "3": [
+          "1840c6d2c3c364ac7825bf5b321d7fa97ffd39878a7334e5c31098021a9648f8"
+        ],
+        "4": [
+          "c7a9fe98b9db8300825bfbaf50fa0821fee1ebb6dbbb2b5ee63e906359d566d1"
+        ]
+      },
+      "decimals": 6,
+      "hash": "d1a5664bc7addca90433b5a8692ac4417b9da7abdfd678b463a01ee54acb6f21",
+      "hash_coarse": "dc96cc61d2436797a9d97243b5aad9c7f8c9d0574f5d078b62011d0b31e439bf",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a48dda5c6d07c7b9bd189f785b7dfa120830089bf320e603459a42fb94a0a89a": "en hΩ = 2, la racine double −1 fait grandir la suite comme k : elle n'est pas bornée"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.28c": {
+      "coarse_any": {
+        "0": [
+          "a7185541124b7b9ef5b403954e779f3be26434a9699cd38bfd99df437d98e42b"
+        ]
+      },
+      "decimals": 2,
+      "hash": "10765c57df3b8d203782881c86f7207aabd2d266c27fe08f0d1e8790f2561e2c",
+      "hash_coarse": "21e72c5e0df7306b902e74c2575f3551f6b1dfd25c00d4e55f1b18b57168dfae",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "fb564ff13bfc3313c3d28a6a2e8f16190277be893a853c470100a0ec755c261c": "la période du schéma est 2π/θ, avec cos θ = 1 − h²Ω²/2 : proche de 2π/(hΩ), sans lui être égale"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
+    "M19.28d": {
+      "coarse_any": {
+        "0": [
+          "e03dd1e78ea960a35f3601f48ff66027edb4bb43734887820a4fb9d4e55a2862"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "1736c24d73ca932692fced0cec4be1297ff1465526a3d107e3e5a8c1c8346f2d"
+        ],
+        "2": [
+          "3ecb755352038d94377a255a7de58b59403177e1301c0cca8dfeb7f49f0ed780"
+        ],
+        "3": [
+          "9d5ae8dbe3c22ffc0aeec18774895c93b972681df06362e6a6cfa0619ac64767"
+        ],
+        "4": [
+          "6376438ec6887f76b81270bcee3e86fabb38628705f1927928c420930a87340e"
+        ]
+      },
+      "decimals": 6,
+      "hash": "3dce9704420279ff2c2a0b6760f6d56068513f5c69337d7617af5243ab7e3db7",
+      "hash_coarse": "46c8e30302c967723cb184fca30466a6938dcb89760bc2c7da2a071aaa4c7593",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "e2d8ecf89d379bc0fd249308314086706cd2cb840402f6eca0f6440addb6e027": "x₁₀₀₀ est le terme d'indice 1 000 : il faut 1 001 termes"
+      },
+      "sign": 1,
+      "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
