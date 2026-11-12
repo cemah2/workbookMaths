@@ -47,7 +47,7 @@ def test_generated_documents_are_up_to_date(data):
     assert stale == [], f"run `python tools/syllabus.py build` (stale: {stale})"
 
 
-DETAILED_PARTS = {"0", "I", "II", "III", "IV"}  # a part is detailed in its syllabus session (BIBLE §24): add it here then
+DETAILED_PARTS = {"0", "I", "II", "III", "IV", "V"}  # a part is detailed in its syllabus session (BIBLE §24): add it here then
 
 
 def test_detailed_parts_are_detailed_and_later_parts_planned(data):

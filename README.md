@@ -43,8 +43,8 @@ La règle : **la remise à niveau (R0 à R9) pendant le chapitre 0A de workbookI
 | 19 · Optimiseurs | **M19** · Hessienne, conditionnement et convergence |
 | 20 · Deep learning et premiers pas en PyTorch | **M20** · Tenseurs, axes et estimateurs pondérés |
 | CP4 · checkpoint de la partie IV | **CP4** · Examen blanc de la partie IV |
-| 21 · Réseaux convolutifs (CNN) | **M21** · Convolution |
-| 22 · Réseaux récurrents (RNN, LSTM, GRU) | **M22** · Récurrences et gradient évanescent |
+| 21 · Réseaux convolutifs (CNN) | **M21** · Convolution, matrices de Toeplitz et équivariance |
+| 22 · Réseaux récurrents (RNN, LSTM, GRU) | **M22** · Récurrences vectorielles, rayon spectral et normes de matrices |
 | 23 · PyTorch en pratique 1 : du dataset au modèle sauvegardé | — (rien de nouveau) |
 | 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN | — (rien de nouveau) |
 | CP5 · checkpoint de la partie V | **CP5** · Examen blanc de la partie V |
@@ -67,7 +67,7 @@ La règle : **la remise à niveau (R0 à R9) pendant le chapitre 0A de workbookI
 
 `python tools/start_chapter.py 12` prépare d'un coup tous les chapitres de maths à faire avant le chapitre 12 de workbookIA. Le détail de chaque chapitre (contenu, sections de MML, durée estimée) est dans [`docs/BIBLE.md` §8](docs/BIBLE.md#8-plan--chapitre-par-chapitre-de-workbookia).
 
-**Volume estimé** : 49 chapitres, environ 640 h pour le parcours complet (environ 445 h pour le parcours essentiel, la suite étant estimée dans la même proportion que les parties 0 à IV), à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
+**Volume estimé** : 49 chapitres, environ 645 h pour le parcours complet (environ 455 h pour le parcours essentiel, la suite étant estimée dans la même proportion que les parties 0 à V), à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
 
 ## 🚀 Démarrage rapide sur Google Colab
 

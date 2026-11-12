@@ -4,7 +4,7 @@
 
 Pour chaque chapitre de workbookIA, ses notions mathématiques et le chapitre de maths qui les enseigne **avant** lui dans l'ordre de travail commun (`syllabus.py check` le vérifie). Les notions de workbookIA sont lues dans une copie figée (`docs/syllabus/workbookia_notions.json`, commit ff7a37c). « Enseignée » veut dire : le chapitre de maths donne les outils dont la notion a besoin ; les démonstrations du chapitre de workbookIA restent les siennes (règle de partage, BIBLE §8 : la liste « Frontières » de chaque chapitre dans `docs/SYLLABUS.md`). Les notions sans chapitre de maths sont jugées non mathématiques (outils, pratique, vocabulaire du ML) : elles sont listées pour relecture.
 
-**Bilan** : 343 notions mathématiques couvertes, 215 notions non mathématiques.
+**Bilan** : 347 notions mathématiques couvertes, 211 notions non mathématiques.
 
 ## workbookIA 0A · Python, notebooks et outils
 
@@ -404,20 +404,21 @@ Non mathématiques : architecture d'un réseau profond · autograd PyTorch · nn
 | im2col | M21 |
 | max et average pooling | M21 |
 | convolution transposée | M21 |
-| rétropropagation d'une convolution | M18, M21 |
+| rétropropagation d'une convolution | M17, M18, M21 |
 | champ récepteur | M21 |
-| attaque adversariale FGSM | M18 |
+| attaque adversariale FGSM | M18, M21 |
+| visualisation de filtres et de cartes d'activation | M05b, M18 |
 
-Non mathématiques : CNN PyTorch (nn.Conv2d, nn.MaxPool2d) · visualisation de filtres et de cartes d'activation
+Non mathématiques : CNN PyTorch (nn.Conv2d, nn.MaxPool2d)
 
 ## workbookIA 22 · Réseaux récurrents (RNN, LSTM, GRU)
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
-| LSTM et GRU (ordre des portes PyTorch) | M22 |
-| cellule RNN et BPTT | M22 |
-| gradient évanescent et clipping | M22 |
-| génération de texte avec température | M17 |
+| LSTM et GRU (ordre des portes PyTorch) | M09a, M17, M22 |
+| cellule RNN et BPTT | M16, M18, M22 |
+| gradient évanescent et clipping | M19, M22 |
+| génération de texte avec température | M02b, M17 |
 | perplexité | M06 |
 
 Non mathématiques : fenêtres de séries temporelles · vocabulaire caractères/mots, encodage · nn.RNN, nn.LSTM, nn.GRU · prévision de série temporelle avec baseline · CNN-LSTM
@@ -426,18 +427,21 @@ Non mathématiques : fenêtres de séries temporelles · vocabulaire caractères
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
-| CrossEntropyLoss et logits | M17 |
+| CrossEntropyLoss et logits | M06, M13a, M17 |
+| schedulers de learning rate | R1, R5, R9 |
 
-Non mathématiques : workflow PyTorch complet · Dataset, DataLoader, transforms · normalisation et découpage stratifié · nn.Sequential, nn.Flatten, nn.Linear · fonction fit() avec historique · analyse d'erreurs · inférence avec eval et inference_mode · state_dict et checkpoints · modèle pré-entraîné torchvision · schedulers de learning rate · early stopping et meilleur checkpoint · fiche modèle
+Non mathématiques : workflow PyTorch complet · Dataset, DataLoader, transforms · normalisation et découpage stratifié · nn.Sequential, nn.Flatten, nn.Linear · fonction fit() avec historique · analyse d'erreurs · inférence avec eval et inference_mode · state_dict et checkpoints · modèle pré-entraîné torchvision · early stopping et meilleur checkpoint · fiche modèle
 
 ## workbookIA 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
-| dropout et max-norm en PyTorch | M07, M20 |
+| dropout et max-norm en PyTorch | M07, M19, M20 |
+| nn.Conv2d, nn.MaxPool2d, nn.BatchNorm2d | M20, M21 |
+| sorties de nn.LSTM et état porté | M22 |
 | LSTM pour séries (fenêtres, scaler, RMSE) | M09b |
 
-Non mathématiques : démarche expérimentale et journal d'expériences · estimateur scikit-learn autour d'un réseau PyTorch · validation croisée et recherche d'hyperparamètres · nn.Conv2d, nn.MaxPool2d, nn.BatchNorm2d · torchvision.transforms.v2 · Dataset généré à la volée · sorties de nn.LSTM et état porté · génération de texte par caractère et par mot · forward() avec branches et bloc résiduel · précision mixte et torch.compile
+Non mathématiques : démarche expérimentale et journal d'expériences · estimateur scikit-learn autour d'un réseau PyTorch · validation croisée et recherche d'hyperparamètres · torchvision.transforms.v2 · Dataset généré à la volée · génération de texte par caractère et par mot · forward() avec branches et bloc résiduel · précision mixte et torch.compile
 
 ## workbookIA 25 · Autoencodeurs et VAE
 

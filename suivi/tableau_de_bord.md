@@ -89,9 +89,9 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] 🤖 workbookIA **20** · Deep learning et premiers pas en PyTorch
 - [ ] 📐 **CP4** · Examen blanc de la partie IV
 - [ ] 🤖 workbookIA **CP4** · checkpoint (examen blanc, synthèse, mini-projet)
-- [ ] 📐 **M21** · Convolution
+- [ ] 📐 **M21** · Convolution, matrices de Toeplitz et équivariance
 - [ ] 🤖 workbookIA **21** · Réseaux convolutifs (CNN)
-- [ ] 📐 **M22** · Récurrences et gradient évanescent
+- [ ] 📐 **M22** · Récurrences vectorielles, rayon spectral et normes de matrices
 - [ ] 🤖 workbookIA **22** · Réseaux récurrents (RNN, LSTM, GRU)
 - [ ] 🤖 workbookIA **23** · PyTorch en pratique 1 : du dataset au modèle sauvegardé
 - [ ] 🤖 workbookIA **24** · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN
