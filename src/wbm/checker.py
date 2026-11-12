@@ -702,8 +702,9 @@ _COMPUTED_INTEGER = ("Ta fonction renvoie un nombre entier, alors que le bon ré
                      "entière `//`, un `round(...)` ou un `int(...)` dans le calcul ? Relis sa docstring ; si elle fait "
                      "partie de `mymath`, ses tests (`pytest`) disent quel cas pose problème.")
 
-_COMPUTED_NEAR = ("Tout près, mais pas égal : cette valeur vient de ta fonction, ce n'est donc pas une question "
-                  "d'arrondi. Ta fonction s'écarte un peu du bon résultat dans un cas particulier (ex-æquo, bord "
+_COMPUTED_NEAR = ("Tout près, mais pas égal. Cette valeur doit venir de ta fonction, sans arrondi : si tu l'as "
+                  "arrondie ou recopiée toi-même, passe-la telle que le calcul la donne. Sinon, ta fonction (ou le "
+                  "calcul qui l'utilise) s'écarte un peu du bon résultat dans un cas particulier (ex-æquo, bord "
                   "d'intervalle, division par zéro…), ou, pour une simulation, ses tirages ne suivent pas la graine "
                   "et l'ordre que demande sa docstring (un seul générateur, créé une fois) : relis sa docstring ; si "
                   "elle fait partie de `mymath`, ses tests (`pytest`) disent quel cas pose problème.")
@@ -872,8 +873,9 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
     if not sign or x == 0:  # expected 0, or the learner gave 0: no hint that could leak the answer
         return "Ce n'est pas la bonne valeur."
     if computed:  # the value comes from the learner's function: no hint about signs or sizes, point to the tests
-        return ("Ta fonction ne renvoie pas la bonne valeur ici. Relis l'énoncé et sa docstring ; si elle fait "
-                "partie de `mymath`, ses tests (`pytest`) disent quel cas pose problème.")
+        return ("Ta fonction, ou le calcul qui l'utilise, ne donne pas la bonne valeur ici. Relis l'énoncé (ce "
+                "qu'il faut calculer, et avec quoi) et la docstring ; si la fonction fait partie de `mymath` et "
+                "passe ses tests (`pytest`), l'erreur est plutôt dans le calcul qui l'appelle.")
     if (x > 0) != (sign > 0):
         return "Le signe de ta réponse n'est pas le bon, et sa valeur sans le signe non plus : reprends le calcul."
     magnitude = entry.get("magnitude")
@@ -1388,8 +1390,10 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
     if kind == "set":
         return False, "wrong", _set_diagnosis(ex_id, entry, value)
     if kind == "str" and computed:   # a value of the learner's function: no advice about choices or spelling
-        return False, "wrong", ("Ta fonction ne renvoie pas la bonne valeur ici. Relis l'énoncé et sa docstring ; si elle "
-                                "fait partie de `mymath`, ses tests (`pytest`) disent quel cas pose problème.")
+        return False, "wrong", ("Ta fonction, ou le calcul qui l'utilise, ne donne pas la bonne valeur ici. Relis "
+                                "l'énoncé (ce qu'il faut calculer, et avec quoi) et la docstring ; si la fonction fait "
+                                "partie de `mymath` et passe ses tests (`pytest`), l'erreur est plutôt dans le calcul "
+                                "qui l'appelle.")
     if kind == "str" and (_shape_reading(value) is not None or (   # a wrong shape or vector: no spelling hint
             isinstance(value, str) and _NUMBER_TUPLE_TEXT.fullmatch(value))):
         return False, "wrong", _WRONG_SHAPE

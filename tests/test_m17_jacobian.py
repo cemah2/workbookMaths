@@ -204,8 +204,9 @@ def test_numerical_jacobian_takes_2n_evaluations_and_leaves_x_alone(jac):
     kept = x.copy()
     _result(lambda: jac.numerical_jacobian(f, x), "a (4, 7) Jacobian", "a map of ℝ⁷ into ℝ⁴")
     assert np.array_equal(x, kept), (f"expected x to be left unchanged (copy it before moving one coordinate), "
-                                     f"got {_show(x)} instead of {_show(kept)}")
-    assert f.calls <= 2 * n + 1, (f"expected 2 n = {2 * n} evaluations of f (two per column), got {f.calls}")
+                                     f"but it changed by up to {np.abs(x - kept).max():.3g}")
+    assert f.calls <= 2 * n, (f"expected 2 n = {2 * n} evaluations of f (two per column, as the docstring says), "
+                              f"got {f.calls}")
     assert all(p is not x for p in f.seen), "expected f to be called on copies of x, never on x itself"
 
 
@@ -213,7 +214,8 @@ def test_numerical_jacobian_accepts_a_list_of_integers(jac):
     got = _result(lambda: jac.numerical_jacobian(lambda p: p ** 2, [1, 2, 3]), "diag(2, 4, 6)", "x = [1, 2, 3]",
                   "convert x to floats: an array of integers cannot move by h")
     _float_array(got, (3, 3), "numerical_jacobian(lambda p: p ** 2, [1, 2, 3])")
-    _close(got, np.diag([2.0, 4.0, 6.0]), "the Jacobian of p ↦ p² at (1, 2, 3)")
+    _close(got, np.diag([2.0, 4.0, 6.0]), "the Jacobian of p ↦ p² at (1, 2, 3)",
+           hint="convert x to floats: in an array of integers, x[j] + h is cut back to an integer")
 
 
 @pytest.mark.parametrize("x, h, why", [([[1.0, 2.0]], 1e-5, "x is 2-D"),
@@ -264,7 +266,7 @@ def test_diagonal_jacobian_takes_two_evaluations(jac):
     x = np.linspace(-2, 2, 50)
     kept = x.copy()
     _result(lambda: jac.diagonal_jacobian(f, x), "a (50, 50) diagonal matrix", "sin on 50 coordinates")
-    assert f.calls <= 3, (f"expected 2 evaluations of f (x + h and x - h, all the coordinates moved at once), got "
+    assert f.calls <= 2, (f"expected 2 evaluations of f (x + h and x - h, all the coordinates moved at once), got "
                           f"{f.calls}: moving one coordinate at a time costs 2 n")
     assert np.array_equal(x, kept), "expected x to be left unchanged"
 
@@ -322,7 +324,7 @@ def test_jacobian_vector_product_takes_two_evaluations(jac):
     got = _result(lambda: jac.jacobian_vector_product(f, x, v), "J v of length 3", "a map of ℝ²⁰⁰ into ℝ³")
     want = (A @ v) / (1 + (A @ x) ** 2)
     _close(got, want, "J v for p ↦ arctan(A p) of ℝ²⁰⁰ into ℝ³")
-    assert f.calls <= 3, (f"expected 2 evaluations of f (x + h v and x - h v), got {f.calls}: J v needs no "
+    assert f.calls <= 2, (f"expected 2 evaluations of f (x + h v and x - h v), got {f.calls}: J v needs no "
                           "column of the Jacobian")
     assert np.array_equal(x, x_kept) and np.array_equal(v, v_kept), "expected x and v to be left unchanged"
 

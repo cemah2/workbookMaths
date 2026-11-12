@@ -62345,13 +62345,16 @@
       "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
     },
     "M17.7d": {
-      "decimals": 4,
+      "array_rounded": {
+        "1": "f1e9a4c1597ba0d4317606c9ce887e42b1ef8b6c01f0d730faa29c1a47005d12"
+      },
+      "decimals": 6,
       "element_coarse": [
         [
-          "36a8c259de2947f1a241af4782c49e3a86b16c36df903107e7716fd3859f17e1"
+          "346c73d03c3c64c481842054b50eb3be83143d30e4a52d04d29b3a3504ea5ddb"
         ],
         [
-          "ea74d8a65cc67efc7bac3c02a0e7d7049b21a588c2d3c5ea821dff2887feca56"
+          "e7a8a64801767c115e7da46228d90ff9725972084f0e616b1207654dc3d822d3"
         ]
       ],
       "element_coarse_any": [
@@ -62359,17 +62362,20 @@
         [
           "d0c2b367ff07183f291828f9710e0074a7e9b2a45db6e8d47a271bcdd3c10f52",
           "e293bc44ae7a11d3febca3fc0dd005e7f2388d89ea4affe6a4558f4a434f6194",
-          "61107b4052575526dd3d7176e2b777868d450b8b69e71fcd5911679cefc06019"
+          "61107b4052575526dd3d7176e2b777868d450b8b69e71fcd5911679cefc06019",
+          "ea74d8a65cc67efc7bac3c02a0e7d7049b21a588c2d3c5ea821dff2887feca56",
+          "f21db20d6e3fb1c8c45cee89a952c1a08a57811aa7ad2ded59ff31e8ea91a4fd"
         ]
       ],
       "element_hashes": [
-        "157a00249c0575bd7c72a5ed60ed716633b770b850a0cf4eb77da45fb01b9015",
-        "f21db20d6e3fb1c8c45cee89a952c1a08a57811aa7ad2ded59ff31e8ea91a4fd"
+        "3504ccaf9786c65b5a4867e43994408b858f27853a410073fc62051c1e4c41b6",
+        "e3adec0710291e7993d4a6d2ce98b77a00ba9246eb7b91aa14362dbc454e5749"
       ],
-      "hash": "c748bfeb71e03c4c0fbe73116c173856fdeb66d148413c3c175d6cb112b04f05",
+      "hash": "4d5675dfab8387d56b045cb23edb86740c5e4d7f3802a52d956f05d020cf20e9",
       "kind": "array",
       "mistakes": {
-        "7351f100eaa2ebc252ec0a627b0213834501fe75bf2467624849529be34e9b98": "l'ordre demandé : T → 0 d'abord, puis T → ∞"
+        "99e557f7ac38f5d2d1f792b1dabaa4a15ce1a2575fa7a1b7316212667cd819f4": "quand T → ∞, la loi devient uniforme : l'énergie moyenne tend vers la MOYENNE des niveaux, (0 + 1 + 2 + 4)/4",
+        "f9bf319f4ca8a5a318548069fb9be06ead5570f812436541baf8814706f69243": "l'ordre demandé : T → 0 d'abord, puis T → ∞"
       },
       "shape": [
         2
@@ -62553,6 +62559,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "7ae57f52ab4799a5cfb7de700e45f772e1f3651c5fd7fcd348744f7a918a25c9": "la formule e^(−Δ/T) ne vaut que pour une tournée plus LONGUE ; une tournée plus courte est toujours acceptée",
         "91dac181bc79be0defd6e211a78709b968a284c8e39c5d09954ee5f57a71ddb7": "un passage vers une tournée plus COURTE est toujours accepté"
       },
       "sign": 1,
@@ -62611,7 +62618,8 @@
         "042f72a52450274c467725a24da86b40c7fcb4f3eeaa53d4d25d464dd126a210": "diagonal_jacobian fait une évaluation de trop (f(x) seul ?) : f(x + h) et f(x − h) suffisent",
         "17e6e8178dfd553aca33ce665affa81caa2ba0d069a005f9afba41925ae60615": "tes deux fonctions font chacune une évaluation de trop (f(x) seul ?) : les différences centrées n'en ont pas besoin",
         "37cad1195ab588bd1a9310f534d9bc3a65746f3f14d3693376271f686dbbbfaa": "diagonal_jacobian bouge toutes les coordonnées à la fois : une seule paire d'évaluations en tout",
-        "a797173cd91d0c103f089798f479b5ffff47fd186e4663abf76813e3a32be256": "numerical_jacobian fait une évaluation de trop (f(x) seul ?) : deux par colonne suffisent, et la longueur m se lit sur la première différence"
+        "a797173cd91d0c103f089798f479b5ffff47fd186e4663abf76813e3a32be256": "numerical_jacobian fait une évaluation de trop (f(x) seul ?) : deux par colonne suffisent, et la longueur m se lit sur la première différence",
+        "fce499e4bfcb23ce8946b5a29243690c1f9b6bf94b448ac66ff1fa211df950eb": "numerical_jacobian évalue f DEUX fois par colonne (en x + h e_j et en x − h e_j)"
       },
       "shape": [
         2
@@ -62681,6 +62689,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
+        "23ef7b29dca529af12e1813c3925bf1a0fa3e67e77ca6a2cf9505c16188ccc4a": "numerical_jacobian évalue f DEUX fois par colonne (en x + h e_j et en x − h e_j)",
         "26755369f03d2f0bfe65bfb10f6236c5b27461ca2319227afce3e25961bee5d8": "jacobian_vector_product fait une évaluation de trop (f(x) seul ?) : f(x + h v) et f(x − h v) suffisent",
         "57a1181b407dc372c426f8b785856301bc6a2af192f739c0210f65b0b1524d2f": "jacobian_vector_product bouge x dans la seule direction v : deux évaluations en tout",
         "cbdb5a728cf19c0371e3c85d5c5b1d742f099a13c16e854cdd661098bf5c1011": "numerical_jacobian fait une évaluation de trop (f(x) seul ?) : deux par colonne suffisent",

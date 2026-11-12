@@ -179,7 +179,7 @@
 4. 
 5. 
 
-### Ex M17.9 — Une fonction appliquée coordonnée par coordonnée a une jacobienne diagonale, et J v = f′(x) ⊙ v
+### Ex M17.9 — Une fonction appliquée coordonnée par coordonnée a une jacobienne diagonale, et J v = g′(x) ⊙ v
 
 1. 
 2. 

@@ -181,7 +181,9 @@ PAPER = [
          '''decimals=4, mistakes={"c'est la moyenne SIMPLE des niveaux : pondère chaque énergie par sa population à '''
          '''T = 1": float(R(sum(E_7), len(E_7)))}'''),
         ("d", "a list of 2 numbers", "flat([0, R(sum(E_7), len(E_7))])",
-         '''decimals=4, mistakes={"l'ordre demandé : T → 0 d'abord, puis T → ∞": flat([R(sum(E_7), len(E_7)), 0])}'''),
+         '''decimals=6, mistakes={"l'ordre demandé : T → 0 d'abord, puis T → ∞": flat([R(sum(E_7), len(E_7)), 0]),
+                     "quand T → ∞, la loi devient uniforme : l'énergie moyenne tend vers la MOYENNE des niveaux, "
+                     "(0 + 1 + 2 + 4)/4": flat([0, 2])}'''),
         ("e", "a number (4 decimals)", "float(T_HALF_7)",
          '''decimals=4, mistakes={"la moitié de TOUTE la population : p₁ = 1/Z = 1/2, donc Z = 2, avec les trois '''
          '''niveaux excités": float(1 / sympy.log(2))}'''),
@@ -207,7 +209,9 @@ PAPER = [
          '''decimals=4, mistakes={"e^(−Δ/T) : l'écart Δ est DIVISÉ par la température": float(sympy.exp(-R(1, 2))),
                      "la température compte : e^(−Δ/T) avec T = 0,5": float(sympy.exp(-1))}'''),
         ("f", "a number", "1.0",
-         '''decimals=4, mistakes={"un passage vers une tournée plus COURTE est toujours accepté": float(sympy.exp(2))}'''),
+         '''decimals=4, mistakes={"un passage vers une tournée plus COURTE est toujours accepté": float(sympy.exp(2)),
+                     "la formule e^(−Δ/T) ne vaut que pour une tournée plus LONGUE ; une tournée plus courte est "
+                     "toujours acceptée": float(sympy.exp(-2))}'''),
     ]),
 ]
 
@@ -492,6 +496,7 @@ points_15r = [Fraction(-3) + Fraction(6 * i, 299) for i in range(300)]
 wbm.record("M17.15a", [2, 2 * 300],
            mistakes={"diagonal_jacobian bouge toutes les coordonnées à la fois : une seule paire d'évaluations en tout":
                          [2 * 300, 2 * 300],
+                     "numerical_jacobian évalue f DEUX fois par colonne (en x + h e_j et en x − h e_j)": [2, 300],
                      "numerical_jacobian fait une évaluation de trop (f(x) seul ?) : deux par colonne suffisent, et la "
                      "longueur m se lit sur la première différence": [2, 2 * 300 + 1],
                      "diagonal_jacobian fait une évaluation de trop (f(x) seul ?) : f(x + h) et f(x − h) suffisent":
@@ -578,6 +583,7 @@ wbm.record("M17.16a", float(np.linalg.norm(first_16r + second_16r)), decimals=2,
 wbm.record("M17.16b", [2, 2 * 2000],
            mistakes={"jacobian_vector_product bouge x dans la seule direction v : deux évaluations en tout":
                          [2 * 2000, 2 * 2000],
+                     "numerical_jacobian évalue f DEUX fois par colonne (en x + h e_j et en x − h e_j)": [2, 2000],
                      "numerical_jacobian fait une évaluation de trop (f(x) seul ?) : deux par colonne suffisent":
                          [2, 2 * 2000 + 1],
                      "jacobian_vector_product fait une évaluation de trop (f(x) seul ?) : f(x + h v) et f(x − h v) "
@@ -911,7 +917,7 @@ def preimages_20(points, linear):
 def grid_images_20(ax, half_width, n_lines):
     """{(kind, direction, k): colour} for the curves of ax that are the image of a line of the grid: kind "F" or
     "linear", direction "h" (y = a_y + t_k) or "v" (x = a_x + t_k), t_k = np.linspace(-w, w, n)[k]. A curve counts
-    when it has at least 10 points, all coming from that line, and covering the whole line."""
+    when it has at least 20 points, all coming from that line, and covering the whole line."""
     ts = np.linspace(-half_width, half_width, n_lines)
     tolerance = 1e-6 * max(1.0, half_width)
     found = {}
@@ -950,7 +956,7 @@ CHECK_20 = '''with checked("M17.20"):
                 missing_20 = sum((kind_20, d, k) not in found_20 for d in "hv" for k in range(N_LINES_20))
                 report_20(not missing_20, f"{shown_20} : les {2 * N_LINES_20} lignes de la grille ont leur image {name_20}",
                           f"{shown_20} : il manque l'image {name_20} de {missing_20} ligne(s) de la grille sur "
-                          f"{2 * N_LINES_20} (une courbe ax.plot par ligne, d'au moins 10 points, qui couvre toute la "
+                          f"{2 * N_LINES_20} (une courbe ax.plot par ligne, d'au moins 20 points, qui couvre toute la "
                           f"ligne, du bord du carré à l'autre bord)")
             colours_20 = [{c for (kind, _, _), c in found_20.items() if kind == k} for k in ("F", "linear")]
             if colours_20[0] and colours_20[1]:          # (the missing images are reported above)
@@ -1446,7 +1452,7 @@ Pour a), ta `numerical_jacobian` et `inversion_23` suffisent. Pour c) et d), dé
 
 La cellule de vérification compare tes valeurs de a) à c), puis calcule l'écart de d) et enregistre si l'objectif est atteint.
 
-Dans ta copie : écris ta formule de la dérivée dans une direction $H$, et vérifie c) avec elle. Pour $n = 1$, que dit-elle (la dérivée de $x \mapsto \frac{1}{x}$) ? Retrouve la colonne 1 de a) à partir d'elle, avec $H = E_{00}$. Comment b) s'exprime-t-il à partir de $\det X_0$ ? Pourquoi le déterminant d'une matrice $4 \times 4$ ne change-t-il pas quand on change le signe de tous ses coefficients ?""",
+Dans ta copie : écris ta formule de la dérivée dans une direction $H$, et vérifie c) avec elle. Pour $n = 1$, que dit-elle (la dérivée de $x \mapsto \frac{1}{x}$) ? Retrouve la première colonne de a) à partir d'elle, avec $H = E_{00}$ (le 1 en haut à gauche ; les indices partent de 0, comme dans NumPy). Comment b) s'exprime-t-il à partir de $\det X_0$ ? Pourquoi le déterminant d'une matrice $4 \times 4$ ne change-t-il pas quand on change le signe de tous ses coefficients ?""",
     todo='''def inverse_jacobian(X):
     """The (n², n²) Jacobian at X of X ↦ X⁻¹, the matrices flattened row by row (X.reshape(-1)), by a formula:
     neither finite differences nor numerical_jacobian."""
