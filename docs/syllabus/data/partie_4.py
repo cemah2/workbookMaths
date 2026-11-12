@@ -634,7 +634,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M20", "dir": "m20_tenseurs_normalisation", "hours": 7.7, "generation_sessions": 1, "mml": [],
+        "id": "M20", "dir": "m20_tenseurs_normalisation", "hours": 8.8, "generation_sessions": 1, "mml": [],
         "summary": "Les tableaux à k dimensions et leurs axes (forme, remodelage, réductions, diffusion), la notation "
                    "d'Einstein et `einsum`, les moyennes et variances le long d'axes (ddof), le centrage vu comme une "
                    "projection orthogonale et la standardisation invariante par translation et dilatation, "
@@ -680,7 +680,7 @@ CHAPTERS = [
         "mymath": {"module": "tensors.py",
                    "functions": ["einsum_pair", "moments_along_axes", "horvitz_thompson_total"]},
         "reading_minutes": 90,
-        "flashcards": 12,
+        "flashcards": 15,
         "notes": "Frontières : les ∂ 20.5 (espérance et variance du dropout, sous-réseaux, règle du test, Jensen sur une "
                  "ReLU) et 20.8 (le gradient de la batchnorm), 20.3 (dropout à la main), 20.4 (batchnorm à la main), "
                  "20.6 et 20.9 (VGG16), 20.7 (connexion résiduelle et layer norm à la main), 20.Q5, 20.Q6, 20.17 "
@@ -703,7 +703,9 @@ CHAPTERS = [
                  "`tensors` : `einsum_pair` écrit `einsum` pour deux tableaux par des boucles (pas `np.einsum`, "
                  "`tensordot`, `@`, `dot`, `inner` ni `outer`), `moments_along_axes` rend moyenne et variance sans "
                  "normaliser (pas `np.var` ni `np.std`), `horvitz_thompson_total` l'estimation d'un total. Pas de 📖 "
-                 "(MML n'a pas de section sur les tenseurs). Réduit à 8 h (§8).",
+                 "(MML n'a pas de section sur les tenseurs). Réduit à 8 h (§8). COMPOSITION : prévu court (7,7 h), "
+                 "porté à 8,8 h par les durées que l'apprenant simulé a mesurées (session 53) ; la composition d'un "
+                 "chapitre court est gardée (4 quiz, 7 ✏️ et ∂, 3 🔨).",
         "exercises": [
             ("M20.Q1", "🧠", 1, 4, "Forme, axes et nombre d'éléments", "§1", "E"),
             ("M20.Q2", "🧠", 1, 4, "Réduire le long de quel axe ?", "§2", "E"),
@@ -714,13 +716,13 @@ CHAPTERS = [
             ("M20.R3", "🔁", 1, 5, "La limite (1 + x/n)ⁿ → eˣ (M14)", "§6", ""),
             ("M20.1", "✏️", 1, 15, "Un tableau de mesures (stations × jours × heures) : les formes après réductions "
              "et remodelages", "§1 §2", "E"),
-            ("M20.2", "✏️", 1, 15, "Écrire en notation d'Einstein : produit matriciel, trace, forme bilinéaire, "
+            ("M20.2", "✏️", 1, 20, "Écrire en notation d'Einstein : produit matriciel, trace, forme bilinéaire, "
              "produits de matrices empilées le long d'un axe", "§3", "E"),
             ("M20.3", "✏️", 2, 20, "La matrice de centrage, et une standardisation qui ne voit ni translation ni "
              "dilatation", "§4", "E"),
-            ("M20.4", "✏️", 2, 20, "Un sondage à probabilités inégales : l'estimateur de Horvitz-Thompson d'un total, "
+            ("M20.4", "✏️", 2, 25, "Un sondage à probabilités inégales : l'estimateur de Horvitz-Thompson d'un total, "
              "son espérance et sa variance", "§5", "E"),
-            ("M20.5", "✏️", 2, 20, "Un schéma d'Euler en L pas : la jacobienne d'un pas, celle de L pas, et la limite "
+            ("M20.5", "✏️", 2, 30, "Un schéma d'Euler en L pas : la jacobienne d'un pas, celle de L pas, et la limite "
              "(1 + λT/L)ᴸ", "§6", "E"),
             ("M20.6", "∂", 2, 15, "La matrice de centrage est la projection orthogonale sur l'orthogonal de 1", "§4",
              ""),
@@ -731,9 +733,9 @@ CHAPTERS = [
              "tableurs", "§1 §2", "E"),
             ("M20.E1", "💼", 1, 10, "« Pourquoi standardiser des données décalées ou dilatées donne-t-il le même "
              "résultat ? »", "§4", ""),
-            ("M20.10", "🔨", 2, 30, "`einsum` pour deux tableaux, avec des boucles", "§3", "E m:einsum_pair"),
-            ("M20.11", "🔨", 1, 15, "Moyennes et variances le long d'axes choisis", "§2", "E m:moments_along_axes"),
-            ("M20.12", "🔨", 1, 10, "L'estimateur de Horvitz-Thompson d'un total", "§5",
+            ("M20.10", "🔨", 2, 45, "`einsum` pour deux tableaux, avec des boucles", "§3", "E m:einsum_pair"),
+            ("M20.11", "🔨", 1, 25, "Moyennes et variances le long d'axes choisis", "§2", "E m:moments_along_axes"),
+            ("M20.12", "🔨", 1, 15, "L'estimateur de Horvitz-Thompson d'un total", "§5",
              "m:horvitz_thompson_total"),
             ("M20.13", "🔮", 1, 10, "Prédire la forme d'une réduction ou d'un einsum, puis vérifier", "§1 §3", "E"),
             ("M20.14", "🔬", 2, 20, "Simuler un sondage : Horvitz-Thompson contre la moyenne naïve, biais et "
@@ -742,7 +744,7 @@ CHAPTERS = [
              "grandit, à hL fixé", "§6", "E"),
             ("M20.16", "🐛", 1, 15, "Chasse à l'erreur : une moyenne sur le mauvais axe, une diffusion silencieuse, un "
              "ddof oublié", "§2", "E"),
-            ("M20.17", "🛠️", 1, 15, "Un test de propriété : réduire sur deux axes d'un coup, ou l'un après l'autre",
+            ("M20.17", "🛠️", 1, 25, "Un test de propriété : réduire sur deux axes d'un coup, ou l'un après l'autre",
              "§2", "p:M20.11"),
             ("M20.18", "🏆", 3, 25, "Défi : des probabilités d'inclusion proportionnelles à la taille, et un "
              "estimateur presque sans variance", "§5", ""),

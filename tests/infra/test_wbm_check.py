@@ -220,6 +220,12 @@ def test_an_einsum_formula_keeps_its_arrow():
         assert not passes("s.2", e, v), v
 
 
+def test_a_number_given_for_a_shape_text_gets_the_trailing_comma_hint():
+    e = entry("s.3", "(3,)")
+    assert passes("s.3", e, (3,)) and passes("s.3", e, "(3,)")
+    assert "(3,)" in message("s.3", e, 3) and "virgule" in message("s.3", e, 3)
+
+
 def test_booleans_accept_french_words():
     e = entry("b.1", True)
     assert passes("b.1", e, "vrai") and passes("b.1", e, "Oui") and passes("b.1", e, 1)

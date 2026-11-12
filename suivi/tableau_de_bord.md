@@ -1766,7 +1766,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 <!-- wbm:end M19 -->
 
 <!-- wbm:section M20 -->
-## M20 · Tenseurs, axes et estimateurs pondérés ⏱️ 7,7 h
+## M20 · Tenseurs, axes et estimateurs pondérés ⏱️ 8,8 h
 
 - [ ] M20.Q1 🧠 Forme, axes et nombre d'éléments ★ 4 min
 - [ ] M20.Q2 🧠 Réduire le long de quel axe ? ★ 4 min
@@ -1776,23 +1776,23 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M20.R2 🔁 La projection orthogonale sur une droite (M12b) ★ 5 min
 - [ ] M20.R3 🔁 La limite (1 + x/n)ⁿ → eˣ (M14) ★ 5 min (complet)
 - [ ] M20.1 ✏️ Un tableau de mesures (stations × jours × heures) : les formes après réductions et remodelages ★ 15 min
-- [ ] M20.2 ✏️ Écrire en notation d'Einstein : produit matriciel, trace, forme bilinéaire, produits de matrices empilées le long d'un axe ★ 15 min
+- [ ] M20.2 ✏️ Écrire en notation d'Einstein : produit matriciel, trace, forme bilinéaire, produits de matrices empilées le long d'un axe ★ 20 min
 - [ ] M20.3 ✏️ La matrice de centrage, et une standardisation qui ne voit ni translation ni dilatation ★★ 20 min
-- [ ] M20.4 ✏️ Un sondage à probabilités inégales : l'estimateur de Horvitz-Thompson d'un total, son espérance et sa variance ★★ 20 min
-- [ ] M20.5 ✏️ Un schéma d'Euler en L pas : la jacobienne d'un pas, celle de L pas, et la limite (1 + λT/L)ᴸ ★★ 20 min
+- [ ] M20.4 ✏️ Un sondage à probabilités inégales : l'estimateur de Horvitz-Thompson d'un total, son espérance et sa variance ★★ 25 min
+- [ ] M20.5 ✏️ Un schéma d'Euler en L pas : la jacobienne d'un pas, celle de L pas, et la limite (1 + λT/L)ᴸ ★★ 30 min
 - [ ] M20.6 ∂ La matrice de centrage est la projection orthogonale sur l'orthogonal de 1 ★★ 15 min (complet)
 - [ ] M20.7 ∂ L'estimateur de Horvitz-Thompson est sans biais, et sa variance quand les inclusions sont indépendantes ★★ 20 min
 - [ ] M20.8 🔗 Pont : où workbookIA 20 divise par une probabilité ★ 10 min
 - [ ] M20.9 🗣️ Expliquer ce qu'est un axe d'un tableau à quelqu'un qui ne connaît que les tableurs ★ 10 min
 - [ ] M20.E1 💼 « Pourquoi standardiser des données décalées ou dilatées donne-t-il le même résultat ? » ★ 10 min (complet)
-- [ ] M20.10 🔨 `einsum` pour deux tableaux, avec des boucles ★★ 30 min
-- [ ] M20.11 🔨 Moyennes et variances le long d'axes choisis ★ 15 min
-- [ ] M20.12 🔨 L'estimateur de Horvitz-Thompson d'un total ★ 10 min (complet)
+- [ ] M20.10 🔨 `einsum` pour deux tableaux, avec des boucles ★★ 45 min
+- [ ] M20.11 🔨 Moyennes et variances le long d'axes choisis ★ 25 min
+- [ ] M20.12 🔨 L'estimateur de Horvitz-Thompson d'un total ★ 15 min (complet)
 - [ ] M20.13 🔮 Prédire la forme d'une réduction ou d'un einsum, puis vérifier ★ 10 min
 - [ ] M20.14 🔬 Simuler un sondage : Horvitz-Thompson contre la moyenne naïve, biais et variance ★★ 20 min (complet)
 - [ ] M20.15 🎨 Le produit de L jacobiennes I + hJ : ses valeurs singulières extrêmes quand L grandit, à hL fixé ★ 20 min
 - [ ] M20.16 🐛 Chasse à l'erreur : une moyenne sur le mauvais axe, une diffusion silencieuse, un ddof oublié ★ 15 min
-- [ ] M20.17 🛠️ Un test de propriété : réduire sur deux axes d'un coup, ou l'un après l'autre ★ 15 min (complet)
+- [ ] M20.17 🛠️ Un test de propriété : réduire sur deux axes d'un coup, ou l'un après l'autre ★ 25 min (complet)
 - [ ] M20.18 🏆 Défi : des probabilités d'inclusion proportionnelles à la taille, et un estimateur presque sans variance ★★★ 25 min (complet)
-- [ ] Flashcards du chapitre importées dans Anki (12 cartes)
+- [ ] Flashcards du chapitre importées dans Anki (15 cartes)
 <!-- wbm:end M20 -->

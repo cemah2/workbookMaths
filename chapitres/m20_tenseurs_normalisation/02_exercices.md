@@ -128,7 +128,7 @@ Un réseau de 12 stations relève la qualité de l'air à chaque heure pendant 2
 
 Dans ta copie : que contient `R.mean(axis=1)`, en mots ? Pour obtenir ce résultat, pourquoi faut-il remodeler en $(12, 4, 7, 24)$ et non en $(12, 7, 4, 24)$, et que contiendrait la moyenne sur l'axe 2 de ce second remodelage ? Écris une version correcte de h), qui retire à chaque mesure la moyenne de sa station à la même heure sur les 28 jours.
 
-### Ex M20.2 — Écrire en notation d'Einstein : produit matriciel, trace, forme bilinéaire, produits de matrices empilées le long d'un axe ✏️ ★ ⏱️ 15 min
+### Ex M20.2 — Écrire en notation d'Einstein : produit matriciel, trace, forme bilinéaire, produits de matrices empilées le long d'un axe ✏️ ★ ⏱️ 20 min
 **Objectif :** traduire des calculs matriciels en notation d'Einstein et en formules d'`einsum`, les calculer à la main, et compter leur coût.
 **Prérequis :** fiche §3 ; M09a, M12c · **Parcours :** C, E
 
@@ -172,7 +172,7 @@ $m = 6$ et $\mathbf{x} = (3, 7, 4, 9, 5, 8)$. La standardisation utilise ici l'�
 
 Dans ta copie : vérifie que $\lVert\mathbf{x}\rVert^2$ est la somme de e) et f), et nomme le théorème. Calcule la première ligne de $\mathbf{C}^2$ et compare-la à celle de $\mathbf{C}$. Justifie i) et j) sans refaire le calcul. Pour k), quels z-scores changent ?
 
-### Ex M20.4 — Un sondage à probabilités inégales : l'estimateur de Horvitz-Thompson d'un total, son espérance et sa variance ✏️ ★★ ⏱️ 20 min
+### Ex M20.4 — Un sondage à probabilités inégales : l'estimateur de Horvitz-Thompson d'un total, son espérance et sa variance ✏️ ★★ ⏱️ 25 min
 **Objectif :** calculer une estimation de Horvitz-Thompson, son espérance et sa variance, et la comparer à l'estimateur naïf.
 **Prérequis :** fiche §5 ; M02b · **Parcours :** C, E
 
@@ -189,11 +189,11 @@ Un institut veut le chiffre d'affaires total de 6 entreprises, qu'il ne connaît
 | g | l'écart type de $\hat Y$ | un nombre (3 décimales) |
 | h | la probabilité de tirer exactement l'échantillon $S$ | un nombre (7 décimales) |
 | i | la probabilité que l'échantillon soit vide | un nombre (6 décimales) |
-| j | vrai ou faux : multiplier toutes les probabilités par 1,1 diminue la variance de $\hat Y$ | `True` ou `False` |
+| j | le numéro de l'entreprise qui apporte le plus grand terme à la variance de $\hat Y$ | un entier |
 
-Dans ta copie : quelle entreprise apporte le plus grand terme à la variance, et pourquoi ? Propose des probabilités proportionnelles aux $y_i$, de même somme que $\boldsymbol\pi$ ; restent-elles $\le 1$ ? Que vaudrait alors le terme $y_i/\pi_i$ de chaque entreprise tirée ? Pourquoi l'estimation c) est-elle si loin du total, alors que l'estimateur est sans biais ?
+Dans ta copie : pourquoi cette entreprise, et pas celle qui a le plus grand chiffre d'affaires ? Propose des probabilités proportionnelles aux $y_i$, de même somme que $\boldsymbol\pi$ ; restent-elles $\le 1$ ? Que vaudrait alors le terme $y_i/\pi_i$ de chaque entreprise tirée ? Pourquoi l'estimation c) est-elle si loin du total, alors que l'estimateur est sans biais ?
 
-### Ex M20.5 — Un schéma d'Euler en L pas : la jacobienne d'un pas, celle de L pas, et la limite (1 + λT/L)ᴸ ✏️ ★★ ⏱️ 20 min
+### Ex M20.5 — Un schéma d'Euler en L pas : la jacobienne d'un pas, celle de L pas, et la limite (1 + λT/L)ᴸ ✏️ ★★ ⏱️ 30 min
 **Objectif :** calculer la jacobienne d'un pas d'Euler et le produit de $L$ telles jacobiennes, et voir sa limite à horizon fixé.
 **Prérequis :** fiche §6 ; M14, M17, M12d · **Parcours :** C, E
 
@@ -292,12 +292,12 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 
 | ID | Titre | Type | ★ | ⏱️ | Parcours |
 |---|---|---|---|---|---|
-| M20.10 | `einsum` pour deux tableaux, avec des boucles · `einsum_pair` | 🔨 | ★★ | 30 | C, E |
-| M20.11 | Moyennes et variances le long d'axes choisis · `moments_along_axes` | 🔨 | ★ | 15 | C, E |
-| M20.12 | L'estimateur de Horvitz-Thompson d'un total · `horvitz_thompson_total` | 🔨 | ★ | 10 | C |
+| M20.10 | `einsum` pour deux tableaux, avec des boucles · `einsum_pair` | 🔨 | ★★ | 45 | C, E |
+| M20.11 | Moyennes et variances le long d'axes choisis · `moments_along_axes` | 🔨 | ★ | 25 | C, E |
+| M20.12 | L'estimateur de Horvitz-Thompson d'un total · `horvitz_thompson_total` | 🔨 | ★ | 15 | C |
 | M20.13 | Prédire la forme d'une réduction ou d'un einsum, puis vérifier | 🔮 | ★ | 10 | C, E |
 | M20.14 | Simuler un sondage : Horvitz-Thompson contre la moyenne naïve, biais et variance | 🔬 | ★★ | 20 | C |
 | M20.15 | Le produit de L jacobiennes I + hJ : ses valeurs singulières extrêmes quand L grandit, à hL fixé | 🎨 | ★ | 20 | C, E |
 | M20.16 | Chasse à l'erreur : une moyenne sur le mauvais axe, une diffusion silencieuse, un ddof oublié | 🐛 | ★ | 15 | C, E |
-| M20.17 | Un test de propriété : réduire sur deux axes d'un coup, ou l'un après l'autre | 🛠️ | ★ | 15 | C |
+| M20.17 | Un test de propriété : réduire sur deux axes d'un coup, ou l'un après l'autre | 🛠️ | ★ | 25 | C |
 | M20.18 | Défi : des probabilités d'inclusion proportionnelles à la taille, et un estimateur presque sans variance | 🏆 | ★★★ | 25 | C |

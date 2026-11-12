@@ -1292,6 +1292,11 @@ def check_entry(ex_id: str, entry: dict, value, computed: bool = False) -> tuple
         if hint:
             lead = {"array": "une liste de nombres", "set": "une liste de nombres (dans l'ordre que tu veux)"}
             return False, "type", f"J'attends {lead.get(kind, exc)} ; {hint}"
+        if kind == "str" and isinstance(_unwrap_single(value), numbers.Integral) and not isinstance(
+                _unwrap_single(value), bool):        # (3) for the shape (3,): Python reads the number 3 (M20)
+            return False, "type", (f"J'attends {exc} ; j'ai reçu le nombre {_unwrap_single(value)}. Si c'est une "
+                                   "forme à un seul axe, écris-la avec sa virgule, `(3,)` : sans elle, `(3)` est le "
+                                   "nombre 3 en Python.")
         return False, "type", f"J'attends {exc} ; j'ai reçu un objet de type `{_type_name(value)}`."
 
     if kind == "array":
@@ -1500,8 +1505,8 @@ _MISSED_PREDICTION = ("Prédiction ratée : lance l'expérience qui suit, puis c
                       "l'écart.")
 
 _WRONG_SHAPE = ("Ce n'est pas la bonne forme (ou le bon vecteur) : vérifie chaque valeur et leur ordre ; pour la forme "
-                "d'un tenseur, vérifie chaque axe (lequel vient en premier, et sa taille), et n'oublie ni l'axe des "
-                "exemples ni celui des canaux ou des features.")
+                "d'un tableau, vérifie chaque axe (lequel vient en premier, et sa longueur) : n'en oublie aucun, et "
+                "n'en garde pas un de longueur 1 qu'on ne demande pas.")
 
 # a text answer made of digits only (binary digits "0110", a code "0042"): spelling advice would make no sense
 _DIGITS_TEXT = re.compile(r"\s*[+-]?[\d.,\s]*\d[\d.,\s]*")

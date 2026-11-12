@@ -67770,6 +67770,8 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
+        "205183b865289275c2b11b85e1c711224b2929dc70feef9811c7bdd7539e2961": "les indices d'un tableau NumPy se comptent à partir de 0, comme les positions de la file",
+        "a059327fb21101ca7d3539b08c25883cb514c598535fca69dd7ca9c21e03faea": "l'ordre C : le DERNIER indice varie le plus vite ; ton calcul fait varier le premier le plus vite (l'ordre de Fortran)",
         "a12fb278fba6b5dc45f720209d44554ffa88d2eddf5c8a0595f2b7138a8e793c": "les indices dans l'ordre des axes, [i₀, i₁, i₂] : la station d'abord, l'heure en dernier",
         "c5a37868127bc105df4ce82ba686ec5d0cb947192f2844dded39e7a6cfcd4ac5": "les positions de la file se comptent à partir de 0 : la position 1 000 est le 1 001ᵉ élément"
       },
@@ -67824,6 +67826,7 @@
       "hash": "94f7e2772858121d707022d9be198f91bd421713dd8b3c5958daf6e9ae1eae1a",
       "kind": "str",
       "mistakes": {
+        "1935e18926a7654023df066b405cd3fdc180463e6c3ace30ac00577340efa589": "c'est le résultat transposé : les lettres après -> donnent l'ordre des axes",
         "642dfa618e91d14ed1beefa601f5a14debfde4737a40230f6948825baa4f2c5f": "écris la forme explicite, avec -> et les lettres du résultat",
         "c03145b806df18edcae319f7e87b632506cdd28e07aa2478cfaa2921fbc1698e": "une lettre absente du résultat est sommée ; une lettre présente ne l'est pas"
       },
@@ -67843,8 +67846,11 @@
       "hash": "14655fd66939c2e542eab6bd609de7a6235a759beb293f36dd0e250e1d76f4b9",
       "kind": "str",
       "mistakes": {
+        "148457db277d5e9000dc6d37049df83c743df68ada5cc9f96c2ecbddd9c40684": "écris la forme explicite, avec ->",
         "28812c5d284617bcadafb691ebb6593f0b5a81dbc2b8bc541cd57c215b99d5ac": "la trace est un nombre : aucune lettre après ->",
-        "3afb87aa511767dbf80cdb173e9125b7b308ce3f9c0cd537bc0febe8074ac005": "écris (AB)ᵢᵢ en notation d'Einstein : B n'y porte pas ses indices dans le même ordre que A"
+        "3afb87aa511767dbf80cdb173e9125b7b308ce3f9c0cd537bc0febe8074ac005": "écris (AB)ᵢᵢ en notation d'Einstein : B n'y porte pas ses indices dans le même ordre que A",
+        "6d971f1501c846d6ff2fbd4aba1cfa2d4e6f24dc8c7ffd0578da840f4045a757": "c'est la somme de TOUS les coefficients de AB, pas la trace : la trace ne garde que (AB)ᵢᵢ",
+        "9c3454d49a7ff028f9914a26c0ecfa1bbf4a91b6d698161797eb0c9efb518a86": "le même calcul, mais avec les lettres imposées : les axes de A se notent ij"
       },
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
     },
@@ -67915,7 +67921,8 @@
       "kind": "int",
       "magnitude": 4,
       "mistakes": {
-        "208aaa3e4b8b19a72e04a5244685d8395735bc594cc4a2385fb48f76c7aa7425": "deux produits à compter : PQ, puis (PQ)R"
+        "208aaa3e4b8b19a72e04a5244685d8395735bc594cc4a2385fb48f76c7aa7425": "deux produits à compter : PQ, puis (PQ)R",
+        "8691e0b313d5b81dc3e12f15b79ce0188ed9b81fabd9dd9ce9f542d97b7846b4": "c'est le coût de l'autre ordre"
       },
       "sign": 1,
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
@@ -67925,7 +67932,8 @@
       "kind": "int",
       "magnitude": 5,
       "mistakes": {
-        "2b75611cdf759d8b04f08294ed69cacba996063c8953659dffd6f33dc2a4f844": "deux produits à compter : QR, puis P(QR)"
+        "2b75611cdf759d8b04f08294ed69cacba996063c8953659dffd6f33dc2a4f844": "deux produits à compter : QR, puis P(QR)",
+        "86f03016618cecf8e99ba847a5f982e33661da5ab257a7f2bddc0ca81b56df5b": "c'est le coût de l'autre ordre"
       },
       "sign": 1,
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
@@ -68343,11 +68351,14 @@
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
     },
     "M20.4j": {
-      "hash": "78d212a51e68882b7a11dd78df01d9966fc6ec40ce2aaa7c7f0afaef9b69174f",
-      "kind": "bool",
+      "hash": "ec0732493a1c06af1c13727488f38146bbc426392638a07f663ef4edf3c3718a",
+      "kind": "int",
+      "magnitude": 0,
       "mistakes": {
-        "bd96d8bdfa3ce60050aac49930c6e8293588cf93ab2bf46f3454c38f1f5aabfd": "regarde comment chaque terme yᵢ²(1 − πᵢ)/πᵢ varie quand πᵢ grandit"
+        "42e2f68f0e5f7e37a1a08effdcbe3aac9917c561fd443f604cae08c7bdd72185": "la plus grande valeur n'apporte pas le plus grand terme : elle est presque toujours tirée",
+        "dd842f576953c917a4f5c6e71e870da90ae59dc22273ca3409cdfecf2fdf290a": "compare les six termes yᵢ²(1 − πᵢ)/πᵢ"
       },
+      "sign": 1,
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
     },
     "M20.5a": {
@@ -68438,6 +68449,7 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
+        "1557fdebff9d67d599f0cf3e40b5af013728c1dd3171c33bc1abede097a6586e": "h = T/L change avec L : pour L = 50, ce n'est plus le pas de a)",
         "fee4cca095663c2a0f76b055040fa758bfac7d6d3bc70b2482435f04d41d8935": "h = T/L : avec L = 50 pas, chaque pas dure T/50"
       },
       "sign": 1,
@@ -68637,6 +68649,7 @@
       "kind": "array",
       "mistakes": {
         "121ecf7ef3efd1f49188e25f835e1d7ff6bec744cd1c14a5e5a615d97132410a": "h = 0,05 : chaque coefficient de J_F est multiplié par h",
+        "19e279388a12d8c242041d7fe62c84e8a50b3386446b4499787af3ec15eff4a1": "c'est J_F seule : la jacobienne d'un pas est I + h J_F",
         "84600ea7e6186741da1f606e8d76c13efd576c5e96347132a8ecb7c65f91e905": "la dérivée de −sin x est −cos x, pas −sin x",
         "85cb35ba801a46795fb86254904fa42ae8cc8d5dae6136d12742e36188258fe0": "la dérivée de −sin x est −cos x",
         "a31164cfe753d25238149a4f7116065660f12f56a087a9c012eca872994f2aa4": "la jacobienne d'un pas est I + h J_F : l'identité est là"
@@ -68730,7 +68743,8 @@
       "mistakes": {
         "0bfb6bfbe15351f160de34e7dbfa5ec17fc8fa32d9c97adf792f0e27dfa372a0": "la lettre j, partagée, est sommée : elle n'apparaît pas dans le résultat",
         "37ca29b25ffac51509cd0dc1f552195383bf6f33e85f2fe71f49584ce3a7141c": "écris la forme explicite, avec -> et les lettres du résultat",
-        "5fc156939fd41a1819f3dfc973e1ef8d9d91a58fc0c86d2f80855efb4618b42a": "une lettre présente dans le résultat n'est pas sommée"
+        "5fc156939fd41a1819f3dfc973e1ef8d9d91a58fc0c86d2f80855efb4618b42a": "une lettre présente dans le résultat n'est pas sommée",
+        "a31fbc7be9d09d1c235784acd93537f34088f909d4982191b3fba927fe3c1b9c": "c'est Mᵀy : pour My, la lettre sommée est celle des COLONNES de M"
       },
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
     },
@@ -68738,6 +68752,8 @@
       "hash": "c9b0b576916cc3b00b30593483d8978ff1d31323466240c232f3eb266a84335e",
       "kind": "str",
       "mistakes": {
+        "35a19866671b0927130086575175ab2f582423e68acb62a03bbc853a35d0e2fa": "écris la forme explicite, avec ->",
+        "a345f95848f823f8052439e15aae8c00f5689a0d65f8b37b6182b176fabf8d72": "x et My ont le MÊME axe : une seule lettre, répétée, est sommée (deux lettres distinctes multiplient les deux sommes)",
         "cd77bae2ccfea3a716effcb9efa0ad9227ce5bdb03f7833380a182c499833ff4": "le résultat est un nombre : aucune lettre après ->"
       },
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
@@ -68745,32 +68761,33 @@
     "M20.10d": {
       "coarse_any": {
         "0": [
-          "f46a27da328c10f9f4d3e0bd432693ab145ab1315eb08754eccfef60a9598c3f"
+          "3dcf6de1583aee6425c89cf822ec74739c1b5d2ee5446a7f123dde78cdfe475c",
+          "1be3844f89d2385de120cb794bdc73a7b37c018b7ac81ff60f7fae4b8aa44673"
         ]
       },
       "coarser": {
         "1": [
-          "b0bd193b22159b1141487c3abc0d090906782eb4098c4675bd8909a006c750ec"
+          "03e631fb6e88dc96fbad5f619b76bbe209131019f50ae250870c5f2dd5b0a394"
         ],
         "2": [
-          "f60f3e25dda619b9b0100af68bd1e15f1a6b0f3420be2288aa307f27643844f0"
+          "1cb4750dca9ce51a5e309c4ab87aac0de9a3643c3b8d9f57a7adc3b56fba0041"
         ],
         "3": [
-          "227d884b8b1e9d314b425295c955abba3035f5def44db3ae3a56e131b5106d28"
+          "cac3e9540a67276d9412d26524e3bce8c51e6b498296b65289fd594cfa17e0df"
         ],
         "4": [
-          "e12cbf460e344144bbdfc5b8740597cccf773f30ae48c15e4149710521f4f00f"
+          "32e8bb0e4acaa661d4bef041bcbfdd1d70802599b3e2f1b654d51836bcfc672a"
         ]
       },
       "decimals": 6,
-      "hash": "bef3e6968da7807e839673dc10c9dbd50257f4fc3352e66527538ecb53c1b1a9",
-      "hash_coarse": "14cad981de142eaf228283fa5cc5e219b667f48cd5e27d05d28a51c10b4eb3a4",
+      "hash": "742e7711f933f77e1246dbb9c9fd0fe7114be72329491f817a4790a9fefb4dbd",
+      "hash_coarse": "d57c1a2c00b0d0c7cbf5b2ec8538867a36e1ace81768f43f5fbeb8f68fb0eb9b",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "f6e140a6553f9f9eb0eaf7f685b38a1b666dcbef560699c3647dc234a837f9c1": "xᵀMy : x se contracte avec l'indice de LIGNE de M, y avec son indice de colonne"
+        "d78d4b53ea2b2c4e85e1ef7ba6ec4a7b4268f93bb341698a2dadd1c362e3807b": "xᵀMy : x se contracte avec l'indice de LIGNE de M, y avec son indice de colonne"
       },
-      "sign": -1,
+      "sign": 1,
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
     },
     "M20.10e": {
@@ -68801,7 +68818,9 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "a05c9d7b295088bda30815c7fec181dc4097585f025db9ae49a479bee26f4fd9": "ddof = 1 : la variance divise par N − 1"
+        "7f68e7c57bd2fd1a89d5b0aa814979d3b164b909597f177632a694f5d43abde3": "on divise par l'écart type, la RACINE de la variance",
+        "a05c9d7b295088bda30815c7fec181dc4097585f025db9ae49a479bee26f4fd9": "ddof = 1 : la variance divise par N − 1",
+        "d0e5fa6da63ec82a199b11854f5f68f0b0a681e9b8eac24f1229b56cea6ff9c4": "une matière est une colonne : réduis le long de l'axe 0"
       },
       "sign": -1,
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
@@ -68943,10 +68962,11 @@
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
     },
     "M20.13h": {
-      "hash": "0e8b09ac7b3802bbc8fbeb8c770253040755d15c6c58fa067dbdc2789511ab52",
+      "hash": "e3f7e64e310800065469582bea2c388815ac765d63439efb117af4ec7fbac78d",
       "kind": "str",
       "mistakes": {
-        "2cc6a57b17880e2073e31aae8d7c66f7804af4dd7dd40835a6f087cdac7eab88": "reshape(3, -1) fusionne en un seul axe tous les axes qui suivent le premier"
+        "881d0f28bc180732ee5d3df1105a79888cb1406b7848ea94c078a72f480f3e52": "reshape(31, -1) fusionne en un seul axe tous les axes qui suivent le premier",
+        "dc5130c6742b11d826ee0e364a3449519b923cb8facd8f33fc42c02e15551eb6": "transpose(1, 0, 2) échange les deux premiers axes : l'axe des jours vient d'abord"
       },
       "prediction": true,
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
@@ -69068,12 +69088,20 @@
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
     },
     "M20.15c": {
-      "hash": "95d3dda93e2234276944d0f2cc750745e68b3c0a9df3c198612ad6af0dbe85c9",
-      "kind": "int",
-      "magnitude": 0,
+      "coarse_any": {
+        "2": [
+          "34c628960791b7bef370f1fa2da510864e9d1baa1b1d2d78fb39d4d9bd7ffbd2"
+        ]
+      },
+      "decimals": 4,
+      "hash": "759c1acc9001b18cfa54c94d108d41e6f58cc9b689899348b5cf532b658aa556",
+      "hash_coarse": "2a8e23c16f947a2f09dff36ec53cf73c6de58b2a683d7e349cb971f5b020cbe5",
+      "kind": "float",
+      "magnitude": -2,
       "mistakes": {
-        "a743938e77c9910150b2442a989054c49a3e3aeb2764fb3f2e3e53e0e599bbd3": "h = T/L : la condition hK < 1 s'écrit L > KT, avec K = ‖J‖₂ (la plus grande valeur singulière, pas un coefficient de J)",
-        "ad965710fc443eec4be4c1396460a8605020877ee31bcf69c343a1294bc1c493": "h = T/L : la condition hK < 1 s'écrit L > KT, avec K = ‖J‖₂ (la plus grande valeur singulière, pas un coefficient de J)"
+        "4271d262cea574032ada88f0786b747d87e57d138e4a27ee56e63e62de874cf1": "la borne BASSE est (1 − hK)^L : le signe moins",
+        "8309db106d5802a1b981cc14d0aca9598fbca7ef93f00354259c05e9e783e621": "h = T/L = 2/16 : n'oublie pas l'horizon T",
+        "e967e0d53770eea9df57da15d00e8a92c128f5e0dbda4dd3bd104be69bdee587": "la borne pour L = 16, pas sa limite quand L grandit"
       },
       "sign": 1,
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
@@ -69115,6 +69143,9 @@
       ],
       "hash": "ad15773d8873e9fc76b3c320c101e82f7ad1f84c74b4baf26ba82d01b34d4645",
       "kind": "array",
+      "mistakes": {
+        "060ed45a13b243396bded296034ac79ce59b0aafd3753a5133c9b973f753edbc": "une valeur par élève : c'est l'axe 1 ; une matière est une colonne"
+      },
       "shape": [
         3
       ],
@@ -69188,7 +69219,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "5519466ccf6bf2d2f5d9553c5e57a90f963fb817b12823e022187e172fdf40cc": "l'écart type des estimations faites avec TES probabilités, pas avec les probabilités égales"
+        "5519466ccf6bf2d2f5d9553c5e57a90f963fb817b12823e022187e172fdf40cc": "l'écart type des estimations faites avec TES probabilités, pas avec les probabilités égales",
+        "5ed60e4a6302177aefabb269bf538e384a969c7dfbfff09e695ceba2f0675ec8": "un écart type nul : tes tirages sont identiques ; crée le générateur une seule fois, avant la boucle"
       },
       "sign": 1,
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"

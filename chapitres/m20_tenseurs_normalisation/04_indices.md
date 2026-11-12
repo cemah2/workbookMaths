@@ -210,7 +210,7 @@ b) Le poids de sondage est $1/\pi_i$. c) Seules les entreprises 1, 4 et 6 entren
 </details>
 <details><summary>Indice 3</summary>
 
-c) $\frac{2}{0{,}05} + \frac{30}{0{,}9} + \frac{3}{0{,}05}$. f) Les termes valent $76$, $225$, $336$, $100$, $362{,}67$ et… le dernier, à toi. j) Que devient $\frac{1 - \pi}{\pi} = \frac1\pi - 1$ quand $\pi$ grandit ?
+c) $\frac{2}{0{,}05} + \frac{30}{0{,}9} + \frac{3}{0{,}05}$. f) Les quatre premiers termes valent $76$, $225$, $336$ et $100$ ; les deux autres, à toi. j) Compare les six termes de f), pas les six valeurs $y_i$.
 
 </details>
 
@@ -347,7 +347,7 @@ Fiche §3 : la règle de `einsum` (« pour chaque valeur des lettres du résulta
 </details>
 <details><summary>Indice 2</summary>
 
-Découpe la formule : une seule fois `->`, puis une seule virgule à gauche. Convertis `a` et `b` en **copies** de flottants (`np.array(..., dtype=float)`), vérifie que chaque partie ne contient que des lettres distinctes, autant que d'axes. Un dictionnaire lettre → longueur, rempli sur les deux tableaux, voit une lettre commune de deux longueurs. Les lettres sommées sont celles qui n'apparaissent pas dans le résultat. Le résultat est un `np.zeros` de la forme donnée par ses lettres ; `np.ndindex` parcourt ses indices, `itertools.product` toutes les valeurs des lettres sommées. Pour b) et c) : dans le premier appel, la lettre commune à `M_10` et `Y_10` est sommée et il reste celle des lignes de `M_10` ; dans le second, `X_10` et le vecteur du premier appel ont le même axe, et le résultat est un nombre.
+Découpe la formule : une seule fois `->`, puis une seule virgule à gauche ; un espace, comme tout caractère qui n'est pas une lettre, est refusé. Convertis `a` et `b` en **copies** de flottants (`np.array(..., dtype=float)`), vérifie que chaque partie ne contient que des lettres distinctes, autant que d'axes. Un dictionnaire lettre → longueur, rempli sur les deux tableaux, voit une lettre commune de deux longueurs. Les lettres sommées sont celles qui n'apparaissent pas dans le résultat. Le résultat est un `np.zeros` de la forme donnée par ses lettres ; `np.ndindex` parcourt ses indices, `itertools.product` toutes les valeurs des lettres sommées. Pour b) et c) : dans le premier appel, la lettre commune à `M_10` et `Y_10` est sommée et il reste celle des lignes de `M_10` ; dans le second, `X_10` et le vecteur du premier appel ont le même axe, et le résultat est un nombre.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -361,7 +361,7 @@ def einsum_pair(subscripts, a, b):
         ...                                       # itertools.product over the summed letters: add A[...] * B[...]
     return result
 ```
-Pour l'usage : `daily_10 = einsum_pair("sdh,h->sd", T_10, W_10)`, puis `my_10 = einsum_pair(..., M_10, Y_10)` et `einsum_pair(..., X_10, my_10)` avec tes formules de b) et c), et `float(...)` pour un tableau à 0 dimension.
+Pour l'usage : `daily_10 = einsum_pair("sdh,h->sd", T_10, W_10)`, puis `my_10 = einsum_pair(..., M_10, Y_10)` et `einsum_pair(..., X_10, my_10)` avec tes formules de b) et c), et `float(...)` pour un tableau à 0 dimension. Pour a), passe la valeur telle que ton calcul la donne, sans l'arrondir.
 
 </details>
 
@@ -385,7 +385,7 @@ n = int(np.prod([values.shape[ax] for ax in reduced]))
 mean = np.sum(values, axis=reduced, keepdims=True) / n
 ...                                   # the squared deviations summed the same way, divided by n - ddof
 ```
-Pour l'usage : `mean, var = moments_along_axes(NOTES_11, 0, ddof=1)`, puis `(NOTES_11 - mean) / np.sqrt(var)` ; de même pour `RENOTED_11`, et avec `ddof=0` pour c).
+Pour l'usage : `mean, var = moments_along_axes(NOTES_11, 0, ddof=1)`, puis `(NOTES_11 - mean) / np.sqrt(var)` (on divise par l'écart type, la racine de la variance) ; de même pour `RENOTED_11`, et avec `ddof=0` pour c).
 
 </details>
 
@@ -409,6 +409,7 @@ for sample in itertools.product([False, True], repeat=8):
     probability = math.prod(p if drawn else 1 - p for drawn, p in zip(sample, PI_12))
     ...                               # add probability × horvitz_thompson_total(Y_12, list(sample), PI_12)
 ```
+Passe a) et b) tels que le calcul les donne, sans les arrondir.
 
 </details>
 
@@ -439,7 +440,7 @@ Fiche §5 (l'estimateur, sa variance, l'estimateur naïf et son biais, « Choisi
 </details>
 <details><summary>Indice 2</summary>
 
-Une ligne de `DRAWS_14` est le tableau `included` d'un échantillon : une boucle sur les lignes, un appel de `horvitz_thompson_total` par ligne, avec les probabilités du plan qui a tiré ces lignes. L'estimateur naïf n'utilise pas les probabilités : `Y_14[row]` sélectionne les chiffres d'affaires tirés. Pour les biais et écarts types relatifs, divise par `TOTAL_14` (l'écart type avec `ddof=1`), puis multiplie par 100 ; l'erreur type divise encore l'écart type relatif par $\sqrt{3\,000}$.
+Une ligne de `DRAWS_14` est le tableau `included` d'un échantillon : une boucle sur les lignes, un appel de `horvitz_thompson_total` par ligne, avec les probabilités du plan qui a tiré ces lignes. L'estimateur naïf n'utilise pas les probabilités : `Y_14[row]` sélectionne les chiffres d'affaires tirés. Pour les biais et écarts types relatifs, divise par `TOTAL_14` (l'écart type avec `ddof=1`), puis multiplie par 100, sans arrondir ; l'erreur type divise encore l'écart type relatif par $\sqrt{3\,000}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -462,7 +463,7 @@ Fiche §6 (« L pas : un produit de L jacobiennes », les deux bornes, le cas li
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque `L` de `Ls`, $h = T/L$ et la matrice $\mathbf{I} + h\mathbf{J}$ ; `np.linalg.matrix_power(..., L)` fait les $L$ produits ; `np.linalg.svd(P, compute_uv=False)` rend les deux valeurs singulières, la plus grande d'abord : range-les dans un tableau $(11, 2)$ et trace ses deux colonnes contre `Ls`. La borne basse ne se trace qu'aux `L` où $hK < 1$ : une liste en compréhension avec une condition. Tout se dessine dans `ax` (`ax.plot`, `ax.axhline`, `ax.set_xscale`, `ax.set_yscale`), jamais par `plt.figure` ni `plt.subplots`. Pour c), compare $KT/L$ à 1 pour chaque `L`.
+Pour chaque `L` de `Ls`, $h = T/L$ et la matrice $\mathbf{I} + h\mathbf{J}$ ; `np.linalg.matrix_power(..., L)` fait les $L$ produits ; `np.linalg.svd(P, compute_uv=False)` rend les deux valeurs singulières, la plus grande d'abord : range-les dans un tableau $(11, 2)$ et trace ses deux colonnes contre `Ls`. La borne basse ne se trace qu'aux `L` où $hK < 1$ (la vérification refuse les autres) : une liste en compréhension avec une condition. Tout se dessine dans `ax` (`ax.plot`, `ax.axhline`, `ax.set_xscale`, `ax.set_yscale`), jamais par `plt.figure` ni `plt.subplots`. Pour c), le pas vaut $h = T/16$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -474,6 +475,7 @@ limit = np.linalg.svd(scipy.linalg.expm(T * J), compute_uv=False)
 ...      # ax.plot(Ls, values[:, 0], "o-"), the other column, ax.axhline for limit and for e^(KT) (ls="--"), the
          # dashed lower bound at the L where T / L * K < 1, the log scales
 ```
+Pour c) : `(1 - T_15 / 16 * K) ** 16`, avec `K = np.linalg.norm(J_15, 2)`.
 
 </details>
 
@@ -491,7 +493,7 @@ Les ⚠️ de la fiche §2 : se tromper d'axe, la diffusion silencieuse d'un vec
 </details>
 <details><summary>Indice 3</summary>
 
-(1) Dans un tableau (élèves, matières), l'axe 0 parcourt les élèves : c'est lui qui doit disparaître. (2) Sans `keepdims`, `T.mean(axis=1)` a la forme $(n,)$, comme `T[:, 12]`. (3) `np.std` accepte `ddof=1`. Pour a), b) et c) : tes trois fonctions corrigées sur `NOTES_16`, `T_16` et `SMALL_16`.
+(1) Dans un tableau (élèves, matières), l'axe 0 parcourt les élèves : c'est lui qui doit disparaître. (2) Sans `keepdims`, `T.mean(axis=1)` a la forme $(n,)$, comme `T[:, 12]`. (3) `np.std` accepte `ddof=1`. Pour a), b) et c) : tes trois fonctions corrigées sur `NOTES_16`, `T_16` et `SMALL_16`, sans arrondir leurs résultats.
 
 </details>
 
@@ -504,7 +506,7 @@ Fiche §2 (« Réduire en plusieurs fois ») ; Ex M20.11 pour le contrat de `mom
 </details>
 <details><summary>Indice 2</summary>
 
-Les axes réduits étant gardés (longueur 1), réduire d'abord l'axe $a$ ne déplace pas l'axe $b$ : le tableau des moyennes le long de $a$ a encore l'axe $b$ à la même place. Pour chaque valeur de ddof, quatre appels de `moments` : d'un coup sur $(a, b)$ ; le long de $a$ ; le long de $b$ sur les moyennes (sa moyenne et sa variance servent) ; le long de $b$ sur les variances (seule sa moyenne sert). Pour le tirage : `rng.integers(2, 5)` axes, `rng.integers(2, 6, size=...)` pour leurs longueurs, `rng.choice(ndim, size=2, replace=False)` pour deux axes distincts, convertis en `int`.
+Toutes les réductions passent par `moments`, d'un coup comme l'une après l'autre : la vérification compte ses appels. Les axes réduits étant gardés (longueur 1), réduire d'abord l'axe $a$ ne déplace pas l'axe $b$ : le tableau des moyennes le long de $a$ a encore l'axe $b$ à la même place. Pour chaque valeur de ddof, quatre appels de `moments` : d'un coup sur $(a, b)$ ; le long de $a$ ; le long de $b$ sur les moyennes (sa moyenne et sa variance servent) ; le long de $b$ sur les variances (seule sa moyenne sert). Pour le tirage : `rng.integers(2, 5)` axes, `rng.integers(2, 6, size=...)` pour leurs longueurs, `rng.choice(ndim, size=2, replace=False)` pour deux axes distincts, convertis en `int`.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -541,6 +543,6 @@ def pps_probabilities(x, n):
         pi = np.where(certain, 1.0, (n - certain.sum()) * x / x[~certain].sum())
         ...      # the communes not yet certain whose pi exceeds 1: none -> return pi; otherwise, they join certain
 ```
-Pour la simulation : `rng = np.random.default_rng(5339)`, puis, 2 000 fois, `drawn = systematic_sample(pi_18, rng)` et `np.sum(Y_18[drawn] / pi_18[drawn])`.
+Pour la simulation : `rng = np.random.default_rng(5339)`, créé une fois avant la boucle, puis, 2 000 fois, `drawn = systematic_sample(pi_18, rng)` et `np.sum(Y_18[drawn] / pi_18[drawn])`.
 
 </details>

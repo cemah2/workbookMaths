@@ -61,7 +61,8 @@ def _show(v):
     """A short text for an array: more than 8 numbers show the first 8 (flattened), then « … »."""
     arr = np.asarray(v, dtype=float)
     if arr.size > 8:
-        return np.array2string(arr.ravel()[:8], precision=6, suppress_small=True).replace("]", " …]") + (
+        return np.array2string(arr.ravel()[:8], precision=6, suppress_small=True,
+                               max_line_width=10_000).replace("]", " …]") + (
             f" (shape {arr.shape})")
     return np.array2string(arr, precision=6, suppress_small=True, max_line_width=10_000).replace("\n", "")
 
@@ -156,6 +157,8 @@ FORMULAS = [
     ("j,ij->i", (4,), (3, 4), "the same, operands swapped"),
     ("ij,kj->ik", (3, 4), (2, 4), "a matrix times the transpose of another"),
     ("ij,j->j", (3, 4), (4,), "a letter of a alone, summed over"),
+    ("i,ij->i", (3,), (3, 4), "a letter of b alone, summed over"),
+    ("ij,jk->i", (2, 3), (3, 4), "two summed letters, one of them in b alone"),
     ("ij,kl->ijkl", (2, 3), (2, 2), "every product, nothing summed"),
     ("sij,sjk->sik", (3, 2, 4), (3, 4, 2), "a product for each matrix stacked along an axis"),
     ("ijk,kl->ijl", (3, 2, 4), (4, 3), "a 3-axis array times a matrix along its last axis"),
@@ -247,6 +250,8 @@ def test_moments_along_axes_docstring_examples(te):
     x = np.array([[1.0, 2.0, 6.0], [3.0, 2.0, 4.0]])
     got = _result(lambda: te.moments_along_axes(x, axes=1), "(mean [[3], [3]], var [[14/3], [2/3]])",
                   "[[1, 2, 6], [3, 2, 4]], axes=1")
+    assert np.array_equal(x, [[1.0, 2.0, 6.0], [3.0, 2.0, 4.0]]), (
+        f"expected x unchanged by moments_along_axes, got x = {_show(x)} (compute on a copy: never modify x)")
     assert isinstance(got, tuple) and len(got) == 2, f"expected a tuple (mean, var), got {got!r}"
     mean, var = got
     _float_array(mean, (2, 1), "the mean along axes=1 (the reduced axis kept with length 1)")

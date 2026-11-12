@@ -56,7 +56,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M17](#m17) | Jacobienne et règle de la chaîne | 17 | §5.3 | 10,2 h | ✅ exercices | 1 |
 | [M18](#m18) | Différentiation automatique et calcul matriciel | 18 | §5.4, §5.5, §5.6 | 14,6 h | ✅ exercices | 1 |
 | [M19](#m19) | Hessienne, conditionnement et convergence | 19 | §5.7, §5.8, §7.1 | 14,2 h | ✅ exercices | 1 |
-| [M20](#m20) | Tenseurs, axes et estimateurs pondérés | 20 | — | 7,7 h | ✅ exercices | 1 |
+| [M20](#m20) | Tenseurs, axes et estimateurs pondérés | 20 | — | 8,8 h | ✅ exercices | 1 |
 | [CP4](#cp4) | Examen blanc de la partie IV | — | — | 3,1 h | ✅ exercices | 1 |
 | [M21](#m21) | Convolution | 21 | — | ≈ 10 h (estimé) | plan | 1 |
 | [M22](#m22) | Récurrences et gradient évanescent | 22 | (§4.2) | ≈ 10 h (estimé) | plan | 1 |
@@ -83,7 +83,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | I · Fondations | 9 | 319 | 107,6 h | 69,7 h |
 | II · Concepts | 7 | 256 | 83,9 h | 54,0 h |
 | III · ML classique | 8 | 321 | 107,5 h | 71,2 h |
-| IV · Réseaux | 6 | 182 | 57,7 h | 41,0 h |
+| IV · Réseaux | 6 | 182 | 58,8 h | 41,9 h |
 | V · Architectures | 3 | — | ≈ 24 h (estimé) | à détailler |
 | VI · Génératif et RL | 6 | — | ≈ 60 h (estimé) | à détailler |
 | VII · Bonus | 6 | — | ≈ 56 h (estimé) | à détailler |
@@ -3113,7 +3113,7 @@ La courbure d'une fonction de n variables, puis la convergence des méthodes it�
 
 Les tableaux à k dimensions et leurs axes (forme, remodelage, réductions, diffusion), la notation d'Einstein et `einsum`, les moyennes et variances le long d'axes (ddof), le centrage vu comme une projection orthogonale et la standardisation invariante par translation et dilatation, l'estimateur de Horvitz-Thompson (une observation divisée par sa probabilité d'inclusion : sans biais, et sa variance), et les applications proches de l'identité x ↦ x + hF(x), dont la jacobienne I + hJ garde des produits proches de 1. workbookIA 20 en tire le dropout, les normalisations et les connexions résiduelles.
 
-**Temps** : 7,7 h en parcours complet, 6,0 h en parcours essentiel (lecture 90 min, 12 flashcards).
+**Temps** : 8,8 h en parcours complet, 6,8 h en parcours essentiel (lecture 90 min, 15 flashcards).
 
 **Objectifs**
 
@@ -3151,26 +3151,26 @@ Les tableaux à k dimensions et leurs axes (forme, remodelage, réductions, diff
 | M20.R2 | 🔁 | La projection orthogonale sur une droite (M12b) | ★ | 5 | §4 | C, E | manuel | — |
 | M20.R3 | 🔁 | La limite (1 + x/n)ⁿ → eˣ (M14) | ★ | 5 | §6 | C | manuel | — |
 | M20.1 | ✏️ | Un tableau de mesures (stations × jours × heures) : les formes après réductions et remodelages | ★ | 15 | §1 §2 | C, E | wbm | — |
-| M20.2 | ✏️ | Écrire en notation d'Einstein : produit matriciel, trace, forme bilinéaire, produits de matrices empilées le long d'un axe | ★ | 15 | §3 | C, E | wbm | — |
+| M20.2 | ✏️ | Écrire en notation d'Einstein : produit matriciel, trace, forme bilinéaire, produits de matrices empilées le long d'un axe | ★ | 20 | §3 | C, E | wbm | — |
 | M20.3 | ✏️ | La matrice de centrage, et une standardisation qui ne voit ni translation ni dilatation | ★★ | 20 | §4 | C, E | wbm | — |
-| M20.4 | ✏️ | Un sondage à probabilités inégales : l'estimateur de Horvitz-Thompson d'un total, son espérance et sa variance | ★★ | 20 | §5 | C, E | wbm | — |
-| M20.5 | ✏️ | Un schéma d'Euler en L pas : la jacobienne d'un pas, celle de L pas, et la limite (1 + λT/L)ᴸ | ★★ | 20 | §6 | C, E | wbm | — |
+| M20.4 | ✏️ | Un sondage à probabilités inégales : l'estimateur de Horvitz-Thompson d'un total, son espérance et sa variance | ★★ | 25 | §5 | C, E | wbm | — |
+| M20.5 | ✏️ | Un schéma d'Euler en L pas : la jacobienne d'un pas, celle de L pas, et la limite (1 + λT/L)ᴸ | ★★ | 30 | §6 | C, E | wbm | — |
 | M20.6 | ∂ | La matrice de centrage est la projection orthogonale sur l'orthogonal de 1 | ★★ | 15 | §4 | C | manuel | — |
 | M20.7 | ∂ | L'estimateur de Horvitz-Thompson est sans biais, et sa variance quand les inclusions sont indépendantes | ★★ | 20 | §5 | C, E | manuel | — |
 | M20.8 | 🔗 | Pont : où workbookIA 20 divise par une probabilité | ★ | 10 | §5 | C, E | wbm | — |
 | M20.9 | 🗣️ | Expliquer ce qu'est un axe d'un tableau à quelqu'un qui ne connaît que les tableurs | ★ | 10 | §1 §2 | C, E | manuel | — |
 | M20.E1 | 💼 | « Pourquoi standardiser des données décalées ou dilatées donne-t-il le même résultat ? » | ★ | 10 | §4 | C | manuel | — |
-| M20.10 | 🔨 | `einsum` pour deux tableaux, avec des boucles · `einsum_pair` | ★★ | 30 | §3 | C, E | pytest | — |
-| M20.11 | 🔨 | Moyennes et variances le long d'axes choisis · `moments_along_axes` | ★ | 15 | §2 | C, E | pytest | — |
-| M20.12 | 🔨 | L'estimateur de Horvitz-Thompson d'un total · `horvitz_thompson_total` | ★ | 10 | §5 | C | pytest | — |
+| M20.10 | 🔨 | `einsum` pour deux tableaux, avec des boucles · `einsum_pair` | ★★ | 45 | §3 | C, E | pytest | — |
+| M20.11 | 🔨 | Moyennes et variances le long d'axes choisis · `moments_along_axes` | ★ | 25 | §2 | C, E | pytest | — |
+| M20.12 | 🔨 | L'estimateur de Horvitz-Thompson d'un total · `horvitz_thompson_total` | ★ | 15 | §5 | C | pytest | — |
 | M20.13 | 🔮 | Prédire la forme d'une réduction ou d'un einsum, puis vérifier | ★ | 10 | §1 §3 | C, E | wbm | — |
 | M20.14 | 🔬 | Simuler un sondage : Horvitz-Thompson contre la moyenne naïve, biais et variance | ★★ | 20 | §5 | C | wbm | M20.12 |
 | M20.15 | 🎨 | Le produit de L jacobiennes I + hJ : ses valeurs singulières extrêmes quand L grandit, à hL fixé | ★ | 20 | §6 | C, E | manuel | — |
 | M20.16 | 🐛 | Chasse à l'erreur : une moyenne sur le mauvais axe, une diffusion silencieuse, un ddof oublié | ★ | 15 | §2 | C, E | wbm | — |
-| M20.17 | 🛠️ | Un test de propriété : réduire sur deux axes d'un coup, ou l'un après l'autre | ★ | 15 | §2 | C | manuel | M20.11 |
+| M20.17 | 🛠️ | Un test de propriété : réduire sur deux axes d'un coup, ou l'un après l'autre | ★ | 25 | §2 | C | manuel | M20.11 |
 | M20.18 | 🏆 | Défi : des probabilités d'inclusion proportionnelles à la taille, et un estimateur presque sans variance | ★★★ | 25 | §5 | C | wbm | — |
 
-*Notes* : Frontières : les ∂ 20.5 (espérance et variance du dropout, sous-réseaux, règle du test, Jensen sur une ReLU) et 20.8 (le gradient de la batchnorm), 20.3 (dropout à la main), 20.4 (batchnorm à la main), 20.6 et 20.9 (VGG16), 20.7 (connexion résiduelle et layer norm à la main), 20.Q5, 20.Q6, 20.17 (layer norm, RMSNorm), 20.22 et 20.30 (30 couches). M20 enseigne l'estimateur de Horvitz-Thompson sur des sondages (communes, entreprises, arbres d'une forêt) : c'est l'outil du dropout inversé (diviser par la probabilité d'être gardé), sans neurone, masque ni probabilité de coupure, et sans les probabilités 0,5, 0,6, 0,75 et 0,8 ; le centrage est une projection orthogonale (M12b), et la standardisation est invariante par translation et dilatation, sans γ, β, statistiques glissantes, ε ni dérivée de la standardisation (∂ 20.8) ; I + hJ est la jacobienne d'un pas d'Euler, et le produit de L pas, à horizon T = hL fixé, tend vers une exponentielle (M14), sans 0,5³⁰, 1,01³⁰ ni 0,9 et 44 couches. Le pont M20.8 dit seulement où workbookIA 20 divise par une probabilité, sans correspondance π ↔ 1 − p ni formule en p (∂ 20.5.1). Ni la fiche ni un exercice ne composent la normalisation x/‖x‖ de M17.4 avec la matrice de centrage, ni ne tirent des invariances de la standardisation une propriété de sa jacobienne ou d'un gradient (∂ 20.8.3 et 20.8.5). Les tableaux sont des mesures (stations × jours × heures), des notes (élèves × matières) et des images en (hauteur, largeur, canaux), sans les formes de workbookIA 20 ((32, 3, 28, 28), (32, 1, 28, 28), (1, 512, 7, 7), (10, 3, 5), arange(150), arange(30), arange(20)), ni VGG16, ni les vecteurs (1, 2, 3, 6), (2, 4, 6, 8), (2 ; 6 ; 8 ; 12), (2, 2, 8, 8) et le tableau 4 × 2 de 20.4. `einsum` ne sert pas à workbookIA 19 et 20 (il arrive en 21, B3, B6 et 28) : M20 le prépare. `tensors` : `einsum_pair` écrit `einsum` pour deux tableaux par des boucles (pas `np.einsum`, `tensordot`, `@`, `dot`, `inner` ni `outer`), `moments_along_axes` rend moyenne et variance sans normaliser (pas `np.var` ni `np.std`), `horvitz_thompson_total` l'estimation d'un total. Pas de 📖 (MML n'a pas de section sur les tenseurs). Réduit à 8 h (§8).
+*Notes* : Frontières : les ∂ 20.5 (espérance et variance du dropout, sous-réseaux, règle du test, Jensen sur une ReLU) et 20.8 (le gradient de la batchnorm), 20.3 (dropout à la main), 20.4 (batchnorm à la main), 20.6 et 20.9 (VGG16), 20.7 (connexion résiduelle et layer norm à la main), 20.Q5, 20.Q6, 20.17 (layer norm, RMSNorm), 20.22 et 20.30 (30 couches). M20 enseigne l'estimateur de Horvitz-Thompson sur des sondages (communes, entreprises, arbres d'une forêt) : c'est l'outil du dropout inversé (diviser par la probabilité d'être gardé), sans neurone, masque ni probabilité de coupure, et sans les probabilités 0,5, 0,6, 0,75 et 0,8 ; le centrage est une projection orthogonale (M12b), et la standardisation est invariante par translation et dilatation, sans γ, β, statistiques glissantes, ε ni dérivée de la standardisation (∂ 20.8) ; I + hJ est la jacobienne d'un pas d'Euler, et le produit de L pas, à horizon T = hL fixé, tend vers une exponentielle (M14), sans 0,5³⁰, 1,01³⁰ ni 0,9 et 44 couches. Le pont M20.8 dit seulement où workbookIA 20 divise par une probabilité, sans correspondance π ↔ 1 − p ni formule en p (∂ 20.5.1). Ni la fiche ni un exercice ne composent la normalisation x/‖x‖ de M17.4 avec la matrice de centrage, ni ne tirent des invariances de la standardisation une propriété de sa jacobienne ou d'un gradient (∂ 20.8.3 et 20.8.5). Les tableaux sont des mesures (stations × jours × heures), des notes (élèves × matières) et des images en (hauteur, largeur, canaux), sans les formes de workbookIA 20 ((32, 3, 28, 28), (32, 1, 28, 28), (1, 512, 7, 7), (10, 3, 5), arange(150), arange(30), arange(20)), ni VGG16, ni les vecteurs (1, 2, 3, 6), (2, 4, 6, 8), (2 ; 6 ; 8 ; 12), (2, 2, 8, 8) et le tableau 4 × 2 de 20.4. `einsum` ne sert pas à workbookIA 19 et 20 (il arrive en 21, B3, B6 et 28) : M20 le prépare. `tensors` : `einsum_pair` écrit `einsum` pour deux tableaux par des boucles (pas `np.einsum`, `tensordot`, `@`, `dot`, `inner` ni `outer`), `moments_along_axes` rend moyenne et variance sans normaliser (pas `np.var` ni `np.std`), `horvitz_thompson_total` l'estimation d'un total. Pas de 📖 (MML n'a pas de section sur les tenseurs). Réduit à 8 h (§8). COMPOSITION : prévu court (7,7 h), porté à 8,8 h par les durées que l'apprenant simulé a mesurées (session 53) ; la composition d'un chapitre court est gardée (4 quiz, 7 ✏️ et ∂, 3 🔨).
 
 <a id="cp4"></a>
 ## CP4 · Examen blanc de la partie IV

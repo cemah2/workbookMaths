@@ -31,7 +31,7 @@ by a renotation (one subject marked out of 100, another shifted by 2 points), ne
 M20.14 compares Horvitz-Thompson with π ∝ the headcount, the naive N ȳ_S and Horvitz-Thompson with π ∝ the age of the
 firm (unequal probabilities unrelated to y, of the same sum), never a common probability under Poisson sampling; only
 M20.18 compares with the equal probabilities n/N, under a systematic draw of fixed size. The ddof bug of M20.16 is on
-the standard deviation of five repeated measurements, its axis bug on a mean per subject. M20.17 passes the function under test as the first argument
+the standard deviation of five repeated measurements, its axis bug on a mean per subject. The communes 2 and 3 of M20.12 are ordered so that the drawn sample is [3, 4, 5]; M20.13 h reshapes the stations of T_13 (no image put channels first) and W_13 = (2, −1, −1) is no weighting of a grey level; M20.15 c asks the lower bound (1 − hK)^L at L = 16, never the smallest L for which it holds, and nothing at a fixed step h. M20.17 passes the function under test as the first argument
 of check_two_axes(moments, x, a, b), so that the check can run the learner's property test on the reference and on
 three wrong functions built on it.
 """
@@ -81,7 +81,11 @@ PAPER = [
          '''mistakes={"les indices dans l'ordre des axes, [i₀, i₁, i₂] : la station d'abord, l'heure en dernier":
                          [int(i) for i in np.unravel_index(1000, SHAPE_1)][::-1],
                      "les positions de la file se comptent à partir de 0 : la position 1 000 est le 1 001ᵉ élément":
-                         [int(i) for i in np.unravel_index(999, SHAPE_1)]}'''),
+                         [int(i) for i in np.unravel_index(999, SHAPE_1)],
+                     "l'ordre C : le DERNIER indice varie le plus vite ; ton calcul fait varier le premier le plus "
+                     "vite (l'ordre de Fortran)": [int(i) for i in np.unravel_index(1000, SHAPE_1, order="F")],
+                     "les indices d'un tableau NumPy se comptent à partir de 0, comme les positions de la file":
+                         [int(i) + 1 for i in np.unravel_index(1000, SHAPE_1)]}'''),
         ("f", "a list of 3 integers", "[int(i) for i in np.unravel_index(np.ravel_multi_index((3, 1, 3, 5), "
                                       "R_1.shape), SHAPE_1)]",
          '''mistakes={"le jour vaut 7 × semaine + jour de la semaine : l'axe 1 de R, de longueur 4, est celui des "
@@ -101,13 +105,18 @@ PAPER = [
                    "empilées le long d'un axe", [
         ("a", FORMULA, "FORMULA_AB_2",
          '''mistakes={"une lettre absente du résultat est sommée ; une lettre présente ne l'est pas": "ij,jk->ijk",
-                     "écris la forme explicite, avec -> et les lettres du résultat": "ij,jk"}'''),
+                     "écris la forme explicite, avec -> et les lettres du résultat": "ij,jk",
+                     "c'est le résultat transposé : les lettres après -> donnent l'ordre des axes": "ij,jk->ki"}'''),
         ("b", "an integer", "int(AB_2[1, 2])",
          '''mistakes={"ligne 2, colonne 3 : la ligne d'abord, puis la colonne": int(AB_2[2, 1])}'''),
         ("c", FORMULA, "FORMULA_TRACE_2",
          '''mistakes={"écris (AB)ᵢᵢ en notation d'Einstein : B n'y porte pas ses indices dans le même ordre que A":
                          "ij,ij->",
-                     "la trace est un nombre : aucune lettre après ->": "ij,ji->i"}'''),
+                     "la trace est un nombre : aucune lettre après ->": "ij,ji->i",
+                     "c'est la somme de TOUS les coefficients de AB, pas la trace : la trace ne garde que (AB)ᵢᵢ":
+                         "ij,jk->",
+                     "le même calcul, mais avec les lettres imposées : les axes de A se notent ij": "ji,ij->",
+                     "écris la forme explicite, avec ->": "ij,ji"}'''),
         ("d", "an integer", "int(np.trace(AB_2))",
          '''mistakes={"la trace somme la seule DIAGONALE de AB": int(AB_2.sum())}'''),
         ("e", "an integer", "int(np.trace(BA_2))",
@@ -121,9 +130,11 @@ PAPER = [
         ("h", "an integer", "COST_H_2",
          '''mistakes={"le coût compte toutes les lettres, s comprise": COST_H_2 // 10}'''),
         ("i", "an integer", "COST_I_2",
-         '''mistakes={"deux produits à compter : PQ, puis (PQ)R": 30 * 300 * 5}'''),
+         '''mistakes={"deux produits à compter : PQ, puis (PQ)R": 30 * 300 * 5,
+                     "c'est le coût de l'autre ordre": COST_J_2}'''),
         ("j", "an integer", "COST_J_2",
-         '''mistakes={"deux produits à compter : QR, puis P(QR)": 30 * 300 * 50}'''),
+         '''mistakes={"deux produits à compter : QR, puis P(QR)": 30 * 300 * 50,
+                     "c'est le coût de l'autre ordre": COST_I_2}'''),
     ]),
 
     Paper("M20.3", "La matrice de centrage, et une standardisation qui ne voit ni translation ni dilatation", [
@@ -185,8 +196,10 @@ PAPER = [
         ("i", "a number (6 decimals)", "float(P_EMPTY_4)",
          '''decimals=6, mistakes={"l'échantillon est vide quand AUCUNE unité n'est tirée : un facteur 1 − πᵢ par "
                                  "unité": float(1 - sum(PI_4))}'''),
-        ("j", "True or False", "J_4",
-         '''mistakes={"regarde comment chaque terme yᵢ²(1 − πᵢ)/πᵢ varie quand πᵢ grandit": not J_4}'''),
+        ("j", "an integer (a firm numbered from 1)", "J_4",
+         '''mistakes={"la plus grande valeur n'apporte pas le plus grand terme : elle est presque toujours tirée":
+                         LARGEST_Y_4,
+                     "compare les six termes yᵢ²(1 − πᵢ)/πᵢ": SECOND_4}'''),
     ]),
 
     Paper("M20.5", "Un schéma d'Euler en L pas : la jacobienne d'un pas, celle de L pas, et la limite (1 + λT/L)ᴸ", [
@@ -197,7 +210,8 @@ PAPER = [
         ("c", "a number (4 decimals)", "FACTOR_5 ** 5",
          '''decimals=4, mistakes={"x₅ = (1 + hλ)⁵ x₀ : cinq pas, cinq facteurs": FACTOR_5}'''),
         ("d", "a number (4 decimals)", "(1 + LAMBDA_5 * T_5 / 50) ** 50",
-         '''decimals=4, mistakes={"h = T/L : avec L = 50 pas, chaque pas dure T/50": (1 + LAMBDA_5 / 50) ** 50}'''),
+         '''decimals=4, mistakes={"h = T/L : avec L = 50 pas, chaque pas dure T/50": (1 + LAMBDA_5 / 50) ** 50,
+                                 "h = T/L change avec L : pour L = 50, ce n'est plus le pas de a)": FACTOR_5 ** 50}'''),
         ("e", "a number (4 decimals)", "math.exp(LAMBDA_5 * T_5)",
          '''decimals=4, mistakes={"la limite est e^(λT), avec l'horizon T = 2": math.exp(LAMBDA_5)}'''),
         ("f", MATRIX, "ROT_STEP_5.tolist()",
@@ -218,7 +232,9 @@ PAPER = [
                                  "la dérivée de −sin x est −cos x": WRONG_SIN_5.tolist(),
                                  "la dérivée de −sin x est −cos x, pas −sin x": np.round(WRONG_SIN_5, 4).tolist(),
                                  "h = 0,05 : chaque coefficient de J_F est multiplié par h":
-                                     (np.eye(2) + (PEND_5 - np.eye(2)) / H_PEND_5).tolist()}'''),
+                                     (np.eye(2) + (PEND_5 - np.eye(2)) / H_PEND_5).tolist(),
+                                 "c'est J_F seule : la jacobienne d'un pas est I + h J_F":
+                                     ((PEND_5 - np.eye(2)) / H_PEND_5).tolist()}'''),
         ("k", "a number", "float(np.linalg.det(PEND_5))",
          '''decimals=6, mistakes={"det [[a, b], [c, d]] = ad − bc : le produit des coefficients hors de la diagonale se "
                                  "retranche": 1 + float(PEND_5[0, 1] * PEND_5[1, 0])}'''),
@@ -315,7 +331,11 @@ VAR_NO1_4 = sum(y * y / p for y, p in zip(Y_4, PI_4))
 P_S_4 = math.prod(p if i in S_4 else 1 - p for i, p in enumerate(PI_4))
 P_IN_4 = math.prod(PI_4[i] for i in S_4)
 P_EMPTY_4 = math.prod(1 - p for p in PI_4)
-J_4 = bool(sum(y * y * (1 - Fraction(11, 10) * p) / (Fraction(11, 10) * p) for y, p in zip(Y_4, PI_4)) < VAR_4)
+TERMS_4 = [y * y * (1 - p) / p for y, p in zip(Y_4, PI_4)]
+RANKS_4 = sorted(range(len(TERMS_4)), key=lambda i: TERMS_4[i], reverse=True)
+J_4, SECOND_4 = RANKS_4[0] + 1, RANKS_4[1] + 1                      # the firms numbered from 1
+LARGEST_Y_4 = max(range(len(Y_4)), key=lambda i: Y_4[i]) + 1
+assert (J_4, SECOND_4, LARGEST_Y_4) == (5, 3, 4)
 LAMBDA_5, T_5 = -1.2, 2.0                                                                  # M20.5
 H_5 = T_5 / 5
 FACTOR_5 = 1 + H_5 * LAMBDA_5
@@ -344,7 +364,7 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M20.1 à M
                "`06_mes_reponses.md`. Reporte ensuite chaque réponse ici : **la valeur** que tu as trouvée, sous la "
                "forme indiquée en commentaire, jamais le calcul qui y mène :\n"
                "- un entier, ou un nombre avec un point décimal, `-1.25`, arrondi comme le demande la question (une "
-               "valeur exacte se tape aussi comme un calcul, `1/8`) ;\n"
+               "valeur exacte se tape aussi comme une fraction, `1/8`) ;\n"
                "- une **forme** comme un tuple, `(7, 2)`, ou comme un texte, `\"(7, 2)\"` ; une forme à un seul "
                "axe s'écrit avec sa virgule, `(9,)` ;\n"
                "- une liste `[0.2, -1]` ; une matrice comme la liste de ses **lignes**, `[[1, 0], [-2, 3]]`, un "
@@ -366,7 +386,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.linalg
 
-from wbm.nbtools import StopCheck, checked, drawn, filled, run_pytest_group, same, verdict
+from wbm.nbtools import StopCheck, checked, drawn, filled, run_pytest_group, same, shape_text, verdict
 
 TEST_M20 = "tests/test_m20_tensors.py"            # the tests of mymath/tensors.py'''
 
@@ -394,7 +414,8 @@ def tests_cells(keyword: str) -> list:
 NOTE_10 = (r"`daily_10` coïncide avec `np.einsum` ; a) la moyenne pondérée de la station 2, le jour 4, vaut $8{,}6675$ "
            r"(la moyenne simple de la même journée, $8{,}0083$ : les heures de jour, plus chaudes, comptent double). b) "
            r'`"ij,j->i"` donne le vecteur $\mathbf{M}\mathbf{y}$, indicé par $i$ ; c) `"i,i->"` le contracte avec '
-           r"$\mathbf{x}$ ; d) $\mathbf{x}^\top\mathbf{M}\mathbf{y} = -21{,}5$. e) Vrai : le plus grand écart à "
+           r"$\mathbf{x}$ ; d) $\mathbf{x}^\top\mathbf{M}\mathbf{y} = 22{,}5$ (et $\mathbf{y}^\top\mathbf{M}\mathbf{x} = -16{,}5$ : "
+           r"l'ordre compte). e) Vrai : le plus grand écart à "
            r"`np.matmul` est de $9 \cdot 10^{-16}$. Ta fonction fait $3 \times 5 \times 24 = 360$ multiplications pour "
            r'`daily_10` et $6 \times 3 \times 4 \times 2 = 144$ pour e). `"sdh,h->s"` somme aussi sur les jours : 5 fois '
            r"la moyenne des moyennes journalières de la station, car les poids ont pour somme 1 sur chaque journée, pas "
@@ -405,25 +426,25 @@ NOTE_11 = (r"a) L'élève 17 a 7,5 en philosophie : $z = -0{,}6288$. b) Vrai, à
            r"`RENOTED_11` est $a\mathbf{x} + b\mathbf{1}$ avec $a > 0$ ($a = 5$ en maths, $b = 2$ en anglais), et la "
            r"standardisation ne voit ni l'origine ni l'unité (fiche §4). c) Avec ddof = 0, $z = -0{,}6368$ : l'écart "
            r"type est multiplié par $\sqrt{39/40}$, donc chaque note standardisée par $\sqrt{40/39} \approx 1{,}012739$, "
-           r"quelle que soit la case. Ajouter 2 points en anglais à un seul élève n'est pas une translation de toute "
-           r"la colonne : la moyenne et l'écart type de l'anglais changent, donc toutes les cases de la colonne 3, et "
-           r"elles seules ; les autres matières ne bougent pas.")
+           r"quelle que soit la case. Ajouter 2 points en anglais à un seul élève, sur 40, augmente la moyenne de "
+           r"l'anglais de $\frac{2}{40} = 0{,}05$ point.")
 
-NOTE_12 = (r"L'échantillon tiré contient les communes 2, 4 et 5 (indices NumPy) : a) $\frac{8\,600}{0{,}55} + "
+NOTE_12 = (r"L'échantillon tiré contient les communes 3, 4 et 5 (indices NumPy) : a) $\frac{8\,600}{0{,}55} + "
            r"\frac{610}{0{,}08} + \frac{15\,400}{0{,}95} \approx 39\,471{,}89$ habitants, pour un vrai total de 33 960. b) "
            r"L'espérance sur les 256 échantillons vaut exactement $33\,960{,}00$ : l'estimateur est sans biais. La "
            r"variance par énumération, $1{,}4715 \cdot 10^8$ (un écart type de 12 131 habitants, 36 % du total), est "
-           r"celle de la formule de la fiche ; la commune 2 (8 600 habitants, $\pi = 0{,}55$) en apporte 41 %, car son "
+           r"celle de la formule de la fiche ; la commune 3 (8 600 habitants, $\pi = 0{,}55$) en apporte 41 %, car son "
            r"terme $y_i^2\frac{1 - \pi_i}{\pi_i}$ croît comme le carré de sa taille.")
 
 NOTE_13 = (r"a) $(3,)$ : la hauteur et la largeur disparaissent, une moyenne par canal. b) $(120, 160, 1)$ : l'axe des "
-           r"canaux reste, de longueur 1. c) $(120, 160)$ : une image en niveaux de gris, $c$ sommé. d) $(6, 31, 24)$ : "
+           r"canaux reste, de longueur 1. c) $(120, 160)$ : une valeur par pixel, $c$ sommé. d) $(6, 31, 24)$ : "
            r"chaque relevé moins la moyenne de sa station, diffusée. e) $(6,)$ : la somme des carrés des relevés de chaque "
            r"station. f) $(6, 744)$ : les $31 \times 24$ relevés de chaque station, dans l'ordre chronologique. g) "
            r"$(25, 25)$ : la diffusion silencieuse, toutes les différences $m_j - m_i$ ; on voulait sans doute "
-           r"`NOTES_13 - NOTES_13.mean(axis=1, keepdims=True)`, de forme $(25, 4)$. h) $(3, 19\,200)$ : une ligne par "
-           r"canal, ses $120 \times 160$ pixels ; sans la transposition, la première ligne de `IMG_13.reshape(3, -1)` "
-           r"mélangerait les trois canaux des 6 400 premiers pixels.")
+           r"`NOTES_13 - NOTES_13.mean(axis=1, keepdims=True)`, de forme $(25, 4)$. h) $(31, 144)$ : une ligne par "
+           r"jour, les 24 relevés de la station 0, puis ceux de la station 1, etc. ; `T_13.reshape(31, -1)` a la même "
+           r"forme, mais sa première ligne contient les 144 premiers relevés de la file : les six premiers jours de la "
+           r"station 0.")
 
 NOTE_14 = (r"Les échantillons ont de 24 à 60 entreprises. Avec $\pi \propto$ effectif, l'effectif moyen des entreprises "
            r"tirées est de 125 contre 47 dans la population : c) l'estimateur naïf surestime le total de 163,2 %. "
@@ -435,17 +456,18 @@ NOTE_14 = (r"Les échantillons ont de 24 à 60 entreprises. Avec $\pi \propto$ e
            r"`ht_14` vient surtout du nombre d'entreprises tirées, environ $\frac{1}{\sqrt{40}} \approx 16$ %.")
 
 NOTE_15 = (r"$K = \lVert\mathbf{J}\rVert_2 \approx 1{,}7401$, $KT \approx 3{,}4802$ : la borne haute vaut $e^{KT} \approx "
-           r"32{,}5$, et la borne basse tend vers $e^{-KT} \approx 0{,}031$. a) $e^{T\mathbf{J}}$ a pour valeurs "
-           r"singulières $0{,}6165$ et $0{,}4420$ (ses deux valeurs propres, de module $e^{-0{,}65} \approx 0{,}522$, "
-           r"ne sont pas ses valeurs singulières : $\mathbf{J}$ n'est pas symétrique). b) Pour $L = 1\,024$, "
-           r"$\sigma_{\max} \approx 0{,}6181$, à $2 \cdot 10^{-3}$ de la limite. c) $hK < 1$ dès $L = 4$ ($L > KT$). "
-           r"Pour $L = 1$ et $2$, les pas sont si grands que le produit étire : $\lVert\mathbf{I} + 2\mathbf{J}\rVert "
-           r"\approx 3{,}42$, puis $2{,}64$ ; dès $L = 8$, les deux courbes sont proches de leur limite ($0{,}9135$ et "
-           r"$0{,}6962$, puis $0{,}6431$ et $0{,}4666$ pour $L = 64$), et doubler $L$ ne les change presque plus. Les "
-           r"bornes valent pour toute matrice de norme $K$ et ignorent la rotation : elles sont larges, mais ne dépendent "
-           r"pas de $L$ à horizon fixé. Pour l'oscillateur non linéaire, le produit des jacobiennes se stabilise de "
-           r"même ($1{,}4869$ et $0{,}2099$ pour $L = 1\,024$). À pas $h$ fixé, l'horizon $hL$ grandirait avec $L$, et "
-           r"la borne $e^{hKL}$ avec lui.")
+           r"32{,}5$, et la borne basse croît avec $L$ vers $e^{-KT} \approx 0{,}031$. a) $e^{T\mathbf{J}}$ a pour "
+           r"valeurs singulières $0{,}6165$ et $0{,}4420$ (ses deux valeurs propres, de module $e^{-0{,}65} \approx "
+           r"0{,}522$, ne sont pas ses valeurs singulières : $\mathbf{J}$ n'est pas symétrique). b) Pour $L = 1\,024$, "
+           r"$\sigma_{\max} \approx 0{,}6181$, à $2 \cdot 10^{-3}$ de la limite. c) Pour $L = 16$, $hK = \frac{KT}{16} "
+           r"\approx 0{,}2175$ et $(1 - hK)^{16} \approx 0{,}0198$ ; la borne basse n'existe que pour $hK < 1$, ici "
+           r"dès $L = 4$. Pour $L = 1$ et $2$, les pas sont si grands que le produit étire : $\lVert\mathbf{I} + "
+           r"2\mathbf{J}\rVert \approx 3{,}42$, puis $2{,}64$ ; dès $L = 8$, les deux courbes sont proches de leur "
+           r"limite ($0{,}9135$ et $0{,}6962$, puis $0{,}6431$ et $0{,}4666$ pour $L = 64$), et doubler $L$ ne les change "
+           r"presque plus. Les bornes valent pour toute matrice de norme $K$ et ignorent la rotation : elles sont "
+           r"larges, mais, à horizon fixé, la borne haute ne dépend pas de $L$, et la borne basse reste au-dessus de "
+           r"$e^{-2KT}$ dès que $hK \le \frac12$. Pour l'oscillateur non linéaire, le produit des jacobiennes se "
+           r"stabilise de même ($1{,}4869$ et $0{,}2099$ pour $L = 1\,024$).")
 
 NOTE_16 = (r"(1) Sur un tableau carré, `axis=1` donne aussi 5 valeurs : la forme ne pouvait pas voir l'erreur ; il "
            r"fallait comparer les valeurs, ou essayer un tableau non carré. a) Les moyennes des matières valent $[11{,}"
@@ -487,24 +509,24 @@ M_10 = np.array([[2.0, -1.0, 0.0, 3.0],
                  [1.0, 4.0, -2.0, 0.0],
                  [0.0, 2.0, 5.0, -1.0],
                  [-3.0, 0.0, 1.0, 2.0]])
-X_10 = np.array([1.0, -2.0, 3.0, 0.5])
+X_10 = np.array([3.0, -2.0, 1.0, 0.5])
 Y_10 = np.array([2.0, 1.0, -1.0, 4.0])
 P_10 = rng_10.normal(size=(6, 3, 4))                            # six 3 × 4 matrices stacked along axis 0
 Q_10 = rng_10.normal(size=(6, 4, 2))                            # six 4 × 2 matrices
 print("T_10 :", T_10.shape, "; somme des poids W_10 :", W_10.sum())'''
 
 M20_10 = Ex(
-    "M20.10", "🔨", 2, 30, "`einsum` pour deux tableaux, avec des boucles · `einsum_pair`",
+    "M20.10", "🔨", 2, 45, "`einsum` pour deux tableaux, avec des boucles · `einsum_pair`",
     "programmer `einsum` pour deux tableaux par des boucles sur les indices, puis s'en servir pour une moyenne "
     "pondérée le long d'un axe, une forme bilinéaire et des produits de matrices empilées.",
     "fiche §3", tracks="C, E", mymath="tensors.py", given=GIVEN_10, note=NOTE_10,
     body=HOWTO + r"""
 
-Écris `einsum_pair(subscripts, a, b)` (fiche §3), en suivant sa docstring : le résultat de `np.einsum(subscripts, a, b)` pour **deux** tableaux, calculé par des boucles sur toutes les valeurs des indices. La formule s'écrit sous sa forme explicite, `"ij,jk->ik"` : une lettre par axe de `a`, une virgule, une lettre par axe de `b`, puis `->` et les lettres du résultat. Une lettre commune à `a` et à `b` est un indice partagé (les deux axes ont la même longueur) ; une lettre absente du résultat est sommée ; les autres indicent le résultat, dans l'ordre écrit. Le résultat est un **nouveau** tableau de flottants (à 0 dimension pour `"i,i->"`) ; `ValueError` pour une formule mal écrite (pas de `->`, pas exactement une virgule, un caractère qui n'est pas une lettre), un nombre de lettres qui n'est pas le nombre d'axes du tableau, une lettre répétée dans un même tableau ou dans le résultat, une lettre du résultat absente des deux tableaux, ou une lettre commune de deux longueurs différentes.
+Écris `einsum_pair(subscripts, a, b)` (fiche §3), en suivant sa docstring : le résultat de `np.einsum(subscripts, a, b)` pour **deux** tableaux, calculé par des boucles sur toutes les valeurs des indices. La formule s'écrit sous sa forme explicite, `"ij,jk->ik"` : une lettre par axe de `a`, une virgule, une lettre par axe de `b`, puis `->` et les lettres du résultat, **sans espace** (contrairement à `np.einsum`, `einsum_pair` refuse les espaces, comme le dit sa docstring). Une lettre commune à `a` et à `b` est un indice partagé (les deux axes ont la même longueur) ; une lettre absente du résultat est sommée ; les autres indicent le résultat, dans l'ordre écrit. Le résultat est un **nouveau** tableau de flottants (à 0 dimension pour `"i,i->"`) ; `ValueError` pour une formule mal écrite (pas de `->`, pas exactement une virgule, un caractère qui n'est pas une lettre), un nombre de lettres qui n'est pas le nombre d'axes du tableau, une lettre répétée dans un même tableau ou dans le résultat, une lettre du résultat absente des deux tableaux, ou une lettre commune de deux longueurs différentes.
 
 **L'usage.** La cellule fournie donne des températures synthétiques `T_10`, de forme $(3, 5, 24)$ (3 stations, 5 jours, 24 heures), des poids horaires `W_10` de somme 1 (les heures de 6 h à 21 h comptent double), la matrice $\mathbf{M}$ et les vecteurs $\mathbf{x}$ et $\mathbf{y}$ (`M_10`, `X_10`, `Y_10`), et deux piles de matrices, `P_10` de forme $(6, 3, 4)$ et `Q_10` de forme $(6, 4, 2)$. Avec ta fonction :
 - `daily_10` : les moyennes journalières pondérées $\sum_h T[s, d, h]\,w_h$, de forme $(3, 5)$, en **un** appel ;
-- a) celle de la station 2, le jour 4 (indices NumPy ; 4 décimales) ;
+- a) celle de la station 2, le jour 4 (indices NumPy ; la valeur que donne le calcul, sans l'arrondir) ;
 - la forme bilinéaire $\mathbf{x}^\top\mathbf{M}\mathbf{y}$ en **deux** appels : le premier reçoit `M_10` puis `Y_10` (les axes de `M_10` notés `ij`, celui de `Y_10` noté `j`), le second reçoit `X_10` (son axe noté `i`) puis le résultat du premier. b) La formule du premier appel ; c) celle du second (deux textes) ; d) la valeur de $\mathbf{x}^\top\mathbf{M}\mathbf{y}$ (un nombre) ;
 - e) vrai ou faux : `einsum_pair("sij,sjk->sik", P_10, Q_10)` coïncide avec `np.matmul(P_10, Q_10)` à $10^{-12}$ près (`np.allclose(..., rtol=0, atol=1e-12)`).
 
@@ -519,7 +541,7 @@ answer_M20_10c = ...  # c) a text: the formula of the second call (X_10, then th
 daily_10 = answer_M20_10a = answer_M20_10d = answer_M20_10e = ...
 with wbm.attempt("M20.10"):          # if you call einsum_pair here: ⏳ while it is not written
     daily_10 = ...        # the (3, 5) array of the weighted daily means, in one call of einsum_pair
-    answer_M20_10a = ...  # a) a number (4 decimals): that of station 2, day 4
+    answer_M20_10a = ...  # a) a number, as computed (not rounded): that of station 2, day 4
     answer_M20_10d = ...  # d) a number: xᵀ M y, in two calls of einsum_pair
     answer_M20_10e = ...  # e) True or False: einsum_pair("sij,sjk->sik", P_10, Q_10) is np.matmul(P_10, Q_10)'''),
         ("check", '''with checked("M20.10"):
@@ -555,11 +577,15 @@ wbm.record("M20.10a", float(temperatures_10r[2, 4] @ weights_10r), decimals=4,
 wbm.record("M20.10b", "ij,j->i",
            mistakes={"la lettre j, partagée, est sommée : elle n'apparaît pas dans le résultat": "ij,j->j",
                      "une lettre présente dans le résultat n'est pas sommée": "ij,j->ij",
-                     "écris la forme explicite, avec -> et les lettres du résultat": "ij,j"})
+                     "écris la forme explicite, avec -> et les lettres du résultat": "ij,j",
+                     "c'est Mᵀy : pour My, la lettre sommée est celle des COLONNES de M": "ij,i->j"})
 wbm.record("M20.10c", "i,i->",
-           mistakes={"le résultat est un nombre : aucune lettre après ->": "i,i->i"})
+           mistakes={"le résultat est un nombre : aucune lettre après ->": "i,i->i",
+                     "écris la forme explicite, avec ->": "i,i",
+                     "x et My ont le MÊME axe : une seule lettre, répétée, est sommée (deux lettres distinctes "
+                     "multiplient les deux sommes)": "i,j->"})
 m_10r = np.array([[2, -1, 0, 3], [1, 4, -2, 0], [0, 2, 5, -1], [-3, 0, 1, 2]])
-x_10r, y_10r = np.array([1, -2, 3, 0.5]), np.array([2, 1, -1, 4])
+x_10r, y_10r = np.array([3, -2, 1, 0.5]), np.array([2, 1, -1, 4])
 wbm.record("M20.10d", float(x_10r @ m_10r @ y_10r), decimals=6,
            mistakes={"xᵀMy : x se contracte avec l'indice de LIGNE de M, y avec son indice de colonne":
                          float(y_10r @ m_10r @ x_10r)})
@@ -577,7 +603,7 @@ RENOTED_11 = NOTES_11 * np.array([5.0, 1, 1, 1, 1, 1]) + np.array([0.0, 0, 0, 2,
 print("NOTES_11 :", NOTES_11.shape, "; moyennes des matières :", np.round(NOTES_11.mean(axis=0), 2).tolist())'''
 
 M20_11 = Ex(
-    "M20.11", "🔨", 1, 15, "Moyennes et variances le long d'axes choisis · `moments_along_axes`",
+    "M20.11", "🔨", 1, 25, "Moyennes et variances le long d'axes choisis · `moments_along_axes`",
     "programmer la moyenne et la variance d'un tableau le long d'axes choisis, les axes réduits gardés, puis "
     "standardiser un tableau de notes matière par matière et vérifier ses invariances.",
     "fiche §2 et §4 ; M02c", tracks="C, E", mymath="tensors.py", given=GIVEN_11, note=NOTE_11,
@@ -585,11 +611,11 @@ M20_11 = Ex(
 
 **L'usage : standardiser des notes, matière par matière.** La cellule fournie donne les notes sur 20 de 40 élèves dans 6 matières, `NOTES_11`, de forme $(40, 6)$ (une ligne par élève, les matières dans l'ordre de `SUBJECTS_11`), et la même classe renotée, `RENOTED_11` : les maths notées sur 100 (la colonne 0 multipliée par 5) et 2 points ajoutés à tous en anglais (la colonne 3). Avec ta fonction et la diffusion :
 - `Z_11` : les notes standardisées matière par matière, avec ddof = 1, $z = \frac{x - \bar x}{s}$, où $\bar x$ et $s$ sont la moyenne et l'écart type de la colonne ;
-- a) `Z_11[17, 4]`, la note standardisée de l'élève 17 en philosophie (4 décimales) ;
+- a) `Z_11[17, 4]`, la note standardisée de l'élève 17 en philosophie (la valeur que donne le calcul, sans l'arrondir) ;
 - b) vrai ou faux : la standardisation de `RENOTED_11`, faite de même, coïncide avec `Z_11` à $10^{-12}$ près (`np.allclose(..., rtol=0, atol=1e-12)`) ;
-- c) la même case qu'en a), mais standardisée avec ddof = 0 (4 décimales).
+- c) la même case qu'en a), mais standardisée avec ddof = 0 (la valeur que donne le calcul, sans l'arrondir).
 
-La vérification compare aussi `Z_11` à un calcul direct par NumPy. Dans ta copie : pourquoi b) était-il prévisible (fiche §4) ? Quel est le rapport de c) à a), et pourquoi ne dépend-il pas de la case choisie ? Si l'on ajoutait 2 points en anglais à un **seul** élève, quelles cases de `Z_11` changeraient, et pourquoi ?""",
+La vérification compare aussi `Z_11` à un calcul direct par NumPy. Dans ta copie : pourquoi b) était-il prévisible (fiche §4) ? Quel est le rapport de c) à a), et pourquoi ne dépend-il pas de la case choisie ? Si l'on ajoutait 2 points en anglais à un **seul** élève, de combien changerait la moyenne de l'anglais ?""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=tests_cells("test_moments_along_axes_") + [
@@ -597,9 +623,9 @@ La vérification compare aussi `Z_11` à un calcul direct par NumPy. Dans ta cop
         ("todo", '''Z_11 = answer_M20_11a = answer_M20_11b = answer_M20_11c = ...
 with wbm.attempt("M20.11"):          # if you call moments_along_axes here: ⏳ while it is not written
     Z_11 = ...            # the (40, 6) array of the marks standardized subject by subject, ddof = 1
-    answer_M20_11a = ...  # a) a number (4 decimals): Z_11[17, 4]
+    answer_M20_11a = ...  # a) a number, as computed (not rounded): Z_11[17, 4]
     answer_M20_11b = ...  # b) True or False: RENOTED_11 standardized the same way gives Z_11 (atol 1e-12)
-    answer_M20_11c = ...  # c) a number (4 decimals): the same cell, standardized with ddof = 0'''),
+    answer_M20_11c = ...  # c) a number, as computed: the same cell, standardized with ddof = 0'''),
         ("check", '''with checked("M20.11"):
     if filled(Z_11):
         same("M20.11", "Z_11, comparé à un calcul direct par NumPy (ddof = 1, matière par matière)", Z_11,
@@ -630,8 +656,12 @@ marks_11r = np.clip(np.round(2 * rng_11r.normal([11.0, 9.5, 12.0, 13.0, 9.0, 14.
                                                 size=(40, 6))) / 2, 0, 20)
 z1_11r = (marks_11r - marks_11r.mean(axis=0)) / marks_11r.std(axis=0, ddof=1)
 z0_11r = (marks_11r - marks_11r.mean(axis=0)) / marks_11r.std(axis=0)
+rows_11r = (marks_11r - marks_11r.mean(axis=1, keepdims=True)) / marks_11r.std(axis=1, ddof=1, keepdims=True)
+by_var_11r = (marks_11r - marks_11r.mean(axis=0)) / marks_11r.var(axis=0, ddof=1)
 wbm.record("M20.11a", float(z1_11r[17, 4]), decimals=4,
-           mistakes={"ddof = 1 : la variance divise par N − 1": float(z0_11r[17, 4])})
+           mistakes={"ddof = 1 : la variance divise par N − 1": float(z0_11r[17, 4]),
+                     "une matière est une colonne : réduis le long de l'axe 0": float(rows_11r[17, 4]),
+                     "on divise par l'écart type, la RACINE de la variance": float(by_var_11r[17, 4])})
 wbm.record("M20.11b", True,
            mistakes={"chaque colonne de RENOTED_11 est a x + b avec a > 0 : relis les invariances de la fiche (§4)":
                          False})
@@ -640,20 +670,20 @@ wbm.record("M20.11c", float(z0_11r[17, 4]), decimals=4,
     ],
 )
 
-GIVEN_12 = '''Y_12 = np.array([1250.0, 430.0, 8600.0, 2900.0, 610.0, 15400.0, 3800.0, 970.0])   # the inhabitants of 8 communes
-PI_12 = np.array([0.12, 0.05, 0.55, 0.3, 0.08, 0.95, 0.35, 0.1])                    # their inclusion probabilities
+GIVEN_12 = '''Y_12 = np.array([1250.0, 430.0, 2900.0, 8600.0, 610.0, 15400.0, 3800.0, 970.0])   # the inhabitants of 8 communes
+PI_12 = np.array([0.12, 0.05, 0.3, 0.55, 0.08, 0.95, 0.35, 0.1])                    # their inclusion probabilities
 INCLUDED_12 = np.random.default_rng(5334).random(8) < PI_12                          # a Poisson draw
 print("échantillon :", np.flatnonzero(INCLUDED_12).tolist(), "; taille moyenne :", round(PI_12.sum(), 2))'''
 
 M20_12 = Ex(
-    "M20.12", "🔨", 1, 10, "L'estimateur de Horvitz-Thompson d'un total · `horvitz_thompson_total`",
+    "M20.12", "🔨", 1, 15, "L'estimateur de Horvitz-Thompson d'un total · `horvitz_thompson_total`",
     "programmer l'estimateur de Horvitz-Thompson, puis vérifier, en énumérant tous les échantillons, qu'il est sans "
     "biais.", "fiche §5 ; M02b, R8", tracks="C", mymath="tensors.py", given=GIVEN_12, note=NOTE_12,
     body=r"""Écris `horvitz_thompson_total(values, included, inclusion_probs)` (fiche §5), en suivant sa docstring : l'estimation $\hat Y = \sum_{i \in S} y_i/\pi_i$ du total, en `float` ; `included` contient des booléens (ou des 0 et des 1) ; seules les valeurs des unités **tirées** servent (les autres peuvent être inconnues, `nan`) ; `ValueError` si les trois tableaux ne sont pas à une dimension et de même longueur, si `included` contient autre chose, ou si une probabilité n'est pas dans $]0, 1]$.
 
 **L'usage.** La cellule fournie donne les habitants de 8 communes, `Y_12`, leurs probabilités d'inclusion, `PI_12`, et un échantillon tiré indépendamment (tirage de Poisson), `INCLUDED_12`. Avec ta fonction :
-- a) l'estimation du nombre total d'habitants sur cet échantillon (2 décimales) ;
-- b) son espérance exacte : la somme, sur les $2^8 = 256$ échantillons possibles, de l'estimation de chacun multipliée par sa probabilité $\prod_{i \in S}\pi_i\prod_{i \notin S}(1 - \pi_i)$ (2 décimales ; `itertools.product([False, True], repeat=8)` les énumère).
+- a) l'estimation du nombre total d'habitants sur cet échantillon (la valeur que donne le calcul, sans l'arrondir) ;
+- b) son espérance exacte : la somme, sur les $2^8 = 256$ échantillons possibles, de l'estimation de chacun multipliée par sa probabilité $\prod_{i \in S}\pi_i\prod_{i \notin S}(1 - \pi_i)$ (la valeur que donne le calcul, sans l'arrondir ; `itertools.product([False, True], repeat=8)` les énumère).
 
 Dans ta copie : compare a) et b) au vrai total. Calcule aussi, par la même énumération, la variance de l'estimateur, et compare-la à la formule de la fiche. Quelle commune pèse le plus dans cette variance, et pourquoi ?""",
     todo=LOAD_LEARNER,
@@ -662,8 +692,8 @@ Dans ta copie : compare a) et b) au vrai total. Calcule aussi, par la même énu
         ("md", "**L'usage** : une estimation, puis son espérance sur les 256 échantillons possibles."),
         ("todo", '''answer_M20_12a = answer_M20_12b = ...
 with wbm.attempt("M20.12"):          # if you call horvitz_thompson_total here: ⏳ while it is not written
-    answer_M20_12a = ...  # a) a number (2 decimals): the estimate of the total on INCLUDED_12
-    answer_M20_12b = ...  # b) a number (2 decimals): its exact expectation over the 256 samples'''),
+    answer_M20_12a = ...  # a) a number, as computed (not rounded): the estimate of the total on INCLUDED_12
+    answer_M20_12b = ...  # b) a number, as computed: its exact expectation over the 256 samples'''),
         ("check", '''for letter, answer in zip("ab", [answer_M20_12a, answer_M20_12b]):
     wbm.check(f"M20.12{letter}", answer, computed=True)
 if filled(answer_M20_12b):
@@ -685,8 +715,8 @@ print("a)", round(answer_M20_12a, 2), " b)", round(answer_M20_12b, 2), "; vrai t
 print("variance par énumération :", round(variance_12, 1), "; formule de la fiche :", round(terms_12.sum(), 1),
       "; écart type :", round(math.sqrt(variance_12), 1))
 print("termes yᵢ²(1 − πᵢ)/πᵢ :", np.round(terms_12).tolist())'''),
-        ("record", '''y_12r = [1250, 430, 8600, 2900, 610, 15400, 3800, 970]
-pi_12r = [0.12, 0.05, 0.55, 0.3, 0.08, 0.95, 0.35, 0.1]
+        ("record", '''y_12r = [1250, 430, 2900, 8600, 610, 15400, 3800, 970]
+pi_12r = [0.12, 0.05, 0.3, 0.55, 0.08, 0.95, 0.35, 0.1]
 drawn_12r = np.random.default_rng(5334).random(8) < np.array(pi_12r)
 ht_12r = sum(y / p for y, p, d in zip(y_12r, pi_12r, drawn_12r) if d)
 wbm.record("M20.12a", ht_12r, decimals=2,
@@ -712,7 +742,7 @@ PART_A = Part("A", "Ta librairie : `einsum` par des boucles, les moments le long
 GIVEN_13 = '''rng_13 = np.random.default_rng(5335)
 IMG_13 = rng_13.random((120, 160, 3))                          # an image: (height, width, channels)
 T_13 = np.round(rng_13.normal(12.0, 5.0, size=(6, 31, 24)), 1)  # 6 stations × 31 days × 24 hours
-W_13 = np.array([0.3, 0.59, 0.11])                             # the weights of the three channels (a grey level)
+W_13 = np.array([2.0, -1.0, -1.0])                             # a coefficient per channel: red against the others
 NOTES_13 = np.round(rng_13.uniform(4, 19, size=(25, 4)) * 2) / 2  # 25 pupils × 4 subjects'''
 
 EXPERIMENT_13 = '''with checked("M20.13"):
@@ -725,7 +755,7 @@ EXPERIMENT_13 = '''with checked("M20.13"):
                       ("f", "T_13.reshape(6, -1)", lambda: T_13.reshape(6, -1)),
                       ("g", "NOTES_13.mean(axis=1) - NOTES_13.mean(axis=1, keepdims=True)",
                        lambda: NOTES_13.mean(axis=1) - NOTES_13.mean(axis=1, keepdims=True)),
-                      ("h", "IMG_13.transpose(2, 0, 1).reshape(3, -1)", lambda: IMG_13.transpose(2, 0, 1).reshape(3, -1))]
+                      ("h", "T_13.transpose(1, 0, 2).reshape(31, -1)", lambda: T_13.transpose(1, 0, 2).reshape(31, -1))]
     for letter_13, text_13, compute_13 in expressions_13:
         print(f"{letter_13}) {text_13:62} forme {compute_13().shape}")'''
 
@@ -733,7 +763,7 @@ M20_13 = Ex(
     "M20.13", "🔮", 1, 10, "Prédire la forme d'une réduction ou d'un einsum, puis vérifier",
     "prévoir la forme d'un tableau après une réduction, une diffusion, un `einsum` ou un remodelage, puis la voir.",
     "fiche §1 à §3", tracks="C, E", hypothesis=True, given=GIVEN_13, note=NOTE_13,
-    body=r"""La cellule fournie crée quatre tableaux : une image `IMG_13` de forme $(120, 160, 3)$ (hauteur, largeur, canaux), des températures `T_13` de forme $(6, 31, 24)$ (6 stations, 31 jours, 24 heures), les poids `W_13` des trois canaux, de forme $(3,)$, et les notes `NOTES_13` de 25 élèves dans 4 matières, de forme $(25, 4)$. Prédis, **avant d'exécuter quoi que ce soit**, la forme de chaque résultat (un tuple `(7, 2)` ou un texte `"(7, 2)"` ; `(9,)` pour un seul axe) :
+    body=r"""La cellule fournie crée quatre tableaux : une image `IMG_13` de forme $(120, 160, 3)$ (hauteur, largeur, canaux), des températures `T_13` de forme $(6, 31, 24)$ (6 stations, 31 jours, 24 heures), un coefficient par canal, `W_13`, de forme $(3,)$, et les notes `NOTES_13` de 25 élèves dans 4 matières, de forme $(25, 4)$. Prédis, **avant d'exécuter quoi que ce soit**, la forme de chaque résultat (un tuple `(7, 2)` ou un texte `"(7, 2)"` ; `(9,)` pour un seul axe) :
 - a) `IMG_13.mean(axis=(0, 1))` ;
 - b) `IMG_13.sum(axis=2, keepdims=True)` ;
 - c) `np.einsum("hwc,c->hw", IMG_13, W_13)` ;
@@ -741,7 +771,7 @@ M20_13 = Ex(
 - e) `np.einsum("sdh,sdh->s", T_13, T_13)` ;
 - f) `T_13.reshape(6, -1)` ;
 - g) `NOTES_13.mean(axis=1) - NOTES_13.mean(axis=1, keepdims=True)` ;
-- h) `IMG_13.transpose(2, 0, 1).reshape(3, -1)`.
+- h) `T_13.transpose(1, 0, 2).reshape(31, -1)`.
 
 L'expérience calcule chaque expression et affiche sa forme.
 
@@ -753,11 +783,11 @@ prediction_M20_13d = ...  # d) T_13 - T_13.mean(axis=(1, 2), keepdims=True)
 prediction_M20_13e = ...  # e) np.einsum("sdh,sdh->s", T_13, T_13)
 prediction_M20_13f = ...  # f) T_13.reshape(6, -1)
 prediction_M20_13g = ...  # g) NOTES_13.mean(axis=1) - NOTES_13.mean(axis=1, keepdims=True)
-prediction_M20_13h = ...  # h) IMG_13.transpose(2, 0, 1).reshape(3, -1)''',
+prediction_M20_13h = ...  # h) T_13.transpose(1, 0, 2).reshape(31, -1)''',
     check='''for letter, prediction in zip("abcdefgh", [prediction_M20_13a, prediction_M20_13b, prediction_M20_13c,
                                              prediction_M20_13d, prediction_M20_13e, prediction_M20_13f,
                                              prediction_M20_13g, prediction_M20_13h]):
-    wbm.check(f"M20.13{letter}", prediction)''',
+    wbm.check(f"M20.13{letter}", shape_text(prediction))     # a tuple (25,) is shown as (25,), not as 25''',
     record='''img_13r, t_13r, w_13r, notes_13r = np.zeros((120, 160, 3)), np.zeros((6, 31, 24)), np.zeros(3), np.zeros((25, 4))
 
 
@@ -783,8 +813,9 @@ wbm.record("M20.13f", shape_13r(t_13r.reshape(6, -1)), prediction=True,
 wbm.record("M20.13g", shape_13r(notes_13r.mean(axis=1) - notes_13r.mean(axis=1, keepdims=True)), prediction=True,
            mistakes={"(25,) contre (25, 1) : les formes s'alignent à droite, et chaque axe de longueur 1 est répété":
                          {"(25,)", "(25, 1)"}})
-wbm.record("M20.13h", shape_13r(img_13r.transpose(2, 0, 1).reshape(3, -1)), prediction=True,
-           mistakes={"reshape(3, -1) fusionne en un seul axe tous les axes qui suivent le premier": "(3, 120, 160)"})''',
+wbm.record("M20.13h", shape_13r(t_13r.transpose(1, 0, 2).reshape(31, -1)), prediction=True,
+           mistakes={"reshape(31, -1) fusionne en un seul axe tous les axes qui suivent le premier": "(31, 6, 24)",
+                     "transpose(1, 0, 2) échange les deux premiers axes : l'axe des jours vient d'abord": "(6, 744)"})''',
     after=[
         ("md", "**L'expérience.** Elle ne s'exécute qu'une fois tes huit prédictions écrites."),
         ("todo", guarded(EXPERIMENT_13, [f"prediction_M20_13{letter}" for letter in "abcdefgh"],
@@ -792,7 +823,7 @@ wbm.record("M20.13h", shape_13r(img_13r.transpose(2, 0, 1).reshape(3, -1)), pred
         ("solution", EXPERIMENT_13),
         ("md", "**Après l'expérience**, dans ta copie : que contient chaque résultat, en mots ? Pour g), qu'a-t-on "
                "probablement voulu calculer, et comment l'écrire ? Pour h), que contient chaque ligne, et que "
-               "contiendrait la première ligne de `IMG_13.reshape(3, -1)` ?"),
+               "contiendrait la première ligne de `T_13.reshape(31, -1)`, qui a la même forme ?"),
     ],
 )
 
@@ -816,9 +847,12 @@ for name_f14, values_f14 in (("HT, π ∝ effectif", ht_14), ("naïf N ȳ_S", na
     spread_f14 = values_f14.std(ddof=1) / TOTAL_14
     rows_14.append((name_f14, 100 * (values_f14.mean() / TOTAL_14 - 1), 100 * spread_f14,
                     100 * spread_f14 / math.sqrt(len(values_f14))))
-print(f"{'estimateur':18} {'biais relatif':>14} {'écart type relatif':>19} {'erreur type':>12}")
-for name_f14, bias_f14, spread_f14, error_f14 in rows_14:
-    print(f"{name_f14:18} {bias_f14:13.2f} % {spread_f14:17.2f} % {error_f14:10.2f} %")
+if show_table_14:                                  # only once the four answers are right: it shows them
+    print(f"{'estimateur':18} {'biais relatif':>14} {'écart type relatif':>19} {'erreur type':>12}")
+    for name_f14, bias_f14, spread_f14, error_f14 in rows_14:
+        print(f"{name_f14:18} {bias_f14:13.2f} % {spread_f14:17.2f} % {error_f14:10.2f} %")
+else:
+    print("ℹ️ Le tableau des biais et des écarts types relatifs s'affichera quand tes quatre réponses seront justes.")
 fig, axes = plt.subplots(1, 3, figsize=(13.5, 3.8), sharex=True)
 try:
     for ax, (name_f14, values_f14), color_f14 in zip(axes, (("HT, π ∝ effectif", ht_14), ("naïf N ȳ_S, π ∝ effectif",
@@ -863,12 +897,12 @@ La cellule fournie tire 3 000 échantillons avec chacun : `DRAWS_14` et `DRAWS_A
 - `naive_14` : l'estimateur naïf $N\,\bar y_S$ (400 fois la moyenne des $y_i$ tirés), sur les mêmes échantillons `DRAWS_14` ;
 - `ht_age_14` : Horvitz-Thompson avec `PI_AGE_14`, sur `DRAWS_AGE_14`.
 
-Pour un estimateur, le **biais relatif** est $\frac{m}{Y} - 1$ et l'**écart type relatif** $\frac{s}{Y}$, où $m$ et $s$ sont la moyenne et l'écart type (ddof = 1) de ses 3 000 estimations ; l'**erreur type** de Monte-Carlo du biais relatif est $\frac{s}{Y\sqrt{3\,000}}$. La cellule de vérification compare tes tableaux aux estimations attendues, puis affiche ces trois nombres pour chaque estimateur et trace les trois histogrammes, avec le vrai total.
+Pour un estimateur, le **biais relatif** est $\frac{m}{Y} - 1$ et l'**écart type relatif** $\frac{s}{Y}$, où $m$ et $s$ sont la moyenne et l'écart type (ddof = 1) de ses 3 000 estimations ; l'**erreur type** de Monte-Carlo du biais relatif est $\frac{s}{Y\sqrt{3\,000}}$. La cellule de vérification vérifie d'abord tes réponses, compare tes tableaux aux estimations attendues et trace les trois histogrammes, avec le vrai total ; une fois tes quatre réponses justes, elle affiche ces trois nombres pour chaque estimateur.
 
-Réponds, en pourcentages :
-- a) l'écart type relatif de `ht_14` (2 décimales) ;
-- b) celui de `ht_age_14` (2 décimales) ;
-- c) le biais relatif de `naive_14` (1 décimale) ;
+Réponds, en pourcentages (la valeur que donne le calcul, sans l'arrondir) :
+- a) l'écart type relatif de `ht_14` ;
+- b) celui de `ht_age_14` ;
+- c) le biais relatif de `naive_14` ;
 - d) vrai ou faux : le biais relatif de `ht_14` est, en valeur absolue, inférieur à 3 erreurs types.""",
     todo="""ht_14 = naive_14 = ht_age_14 = ...
 answer_M20_14a = answer_M20_14b = answer_M20_14c = answer_M20_14d = ...
@@ -876,13 +910,15 @@ with wbm.attempt("M20.14"):          # horvitz_thompson_total: ⏳ while it is n
     ht_14 = ...           # the 3 000 Horvitz-Thompson estimates with PI_14, one per row of DRAWS_14
     naive_14 = ...        # the 3 000 naive estimates N ȳ_S on the same rows
     ht_age_14 = ...       # the 3 000 Horvitz-Thompson estimates with PI_AGE_14, one per row of DRAWS_AGE_14
-    answer_M20_14a = ...  # a) a number (2 decimals): the relative standard deviation of ht_14, in %
-    answer_M20_14b = ...  # b) a number (2 decimals): that of ht_age_14, in %
-    answer_M20_14c = ...  # c) a number (1 decimal): the relative bias of naive_14, in %
+    answer_M20_14a = ...  # a) a number, as computed (not rounded): the relative standard deviation of ht_14, in %
+    answer_M20_14b = ...  # b) a number, as computed: that of ht_age_14, in %
+    answer_M20_14c = ...  # c) a number, as computed: the relative bias of naive_14, in %
     answer_M20_14d = ...  # d) True or False: |relative bias of ht_14| < 3 standard errors""",
-    check=CHECK_14 + """
-for letter, answer in zip("abcd", [answer_M20_14a, answer_M20_14b, answer_M20_14c, answer_M20_14d]):
-    wbm.check(f"M20.14{letter}", answer, computed=True)""",
+    check="""right_14 = [wbm.check(f"M20.14{letter}", answer, computed=True)
+            for letter, answer in zip("abcd", [answer_M20_14a, answer_M20_14b, answer_M20_14c, answer_M20_14d])]
+show_table_14 = all(right_14)
+
+""" + CHECK_14,
     solution="""horvitz_thompson_total = mymath.tensors.horvitz_thompson_total
 ht_14 = np.array([horvitz_thompson_total(Y_14, row, PI_14) for row in DRAWS_14])
 naive_14 = np.array([N_14 * Y_14[row].mean() for row in DRAWS_14])
@@ -910,6 +946,7 @@ for label_14, pi_s14 in (("π ∝ effectif", PI_14), ("π ∝ âge", PI_AGE_14))
           f"variance de la fiche : écart type relatif {math.sqrt(np.sum(Y_14 ** 2 * (1 - pi_s14) / pi_s14)) / TOTAL_14:.4f}")
 print("biais relatif de ht_14 :", f"{100 * bias_14:.2f} %, soit {bias_14 / error_14:.2f} erreurs types ; de ht_age_14 :",
       f"{100 * relative_14(ht_age_14)[0]:.2f} %")
+show_table_14 = True
 
 """ + CHECK_14,
     record="""rng_14r = np.random.default_rng(5336)
@@ -952,11 +989,11 @@ T_15 = 2.0                                      # the horizon
 LS_15 = [2 ** k for k in range(11)]             # L = 1, 2, 4, ..., 1024'''
 
 CHECK_15 = '''with checked("M20.15"):
-    results_15 = []
-
     def report_15(ok, success, failure):
-        results_15.append(bool(ok))
+        \"\"\"One ✅ line, or one ❌ line that stops the check there (the figure is still shown).\"\"\"
         print(("✅ " + success) if ok else ("❌ " + failure))
+        if not ok:
+            raise StopCheck
 
     K_c15 = np.linalg.norm(J_15, 2)
     values_c15 = np.array([np.linalg.svd(np.linalg.matrix_power(np.eye(2) + (T_15 / L) * J_15, L), compute_uv=False)
@@ -969,24 +1006,26 @@ CHECK_15 = '''with checked("M20.15"):
         lines_15 = [(np.asarray(line.get_xdata(), dtype=float), np.asarray(line.get_ydata(), dtype=float),
                      line.get_linestyle()) for line in ax_15.lines]
 
-        def through_15(points, dashed=False):
-            """True when one line of ax passes by all the points (x, y), dashed or dotted when asked."""
+        def line_through_15(points, dashed=False):
+            \"\"\"The (xs, ys) of the first line of ax that passes by all the points (x, y), dashed or dotted when
+            asked; None when there is none.\"\"\"
             for xs, ys, style in lines_15:
                 if dashed and style not in ("--", ":", "-."):
                     continue
                 if xs.shape == ys.shape and all(np.any(np.isclose(xs, x, rtol=1e-9) & np.isclose(ys, y, rtol=1e-6))
                                                 for x, y in points):
-                    return True
-            return False
+                    return xs, ys
+            return None
 
         def level_15(value, dashed=False):
-            """True when one line of ax is horizontal at value (ax.axhline, or a constant line)."""
+            \"\"\"True when one line of ax is horizontal at value (ax.axhline, or a constant line).\"\"\"
             return any(ys.size >= 2 and np.all(np.isclose(ys[np.isfinite(ys)], value, rtol=1e-6))
                        and (not dashed or style in ("--", ":", "-.")) for _, ys, style in lines_15)
 
         report_15(not opened_15, "draw_products dessine dans l'axe reçu",
                   "draw_products doit dessiner dans l'axe reçu, sans ouvrir de figure (ni plt.figure ni plt.subplots)")
-        report_15(through_15(list(zip(LS_15, values_c15[:, 0]))) and through_15(list(zip(LS_15, values_c15[:, 1]))),
+        report_15(line_through_15(list(zip(LS_15, values_c15[:, 0]))) is not None
+                  and line_through_15(list(zip(LS_15, values_c15[:, 1]))) is not None,
                   "les deux valeurs singulières du produit sont tracées en fonction de L",
                   "il manque une courbe des valeurs singulières du produit (I + (T/L) J)^L : une ligne par valeur "
                   "singulière, une valeur par L de Ls")
@@ -995,17 +1034,24 @@ CHECK_15 = '''with checked("M20.15"):
                   "il manque une droite horizontale aux valeurs singulières de scipy.linalg.expm(T * J) (ax.axhline)")
         report_15(level_15(math.exp(K_c15 * T_15), dashed=True), "la borne e^(KT) est en pointillés",
                   "il manque la borne e^(KT), K = np.linalg.norm(J, 2), en pointillés (ls=\\"--\\")")
-        report_15(through_15(lower_c15, dashed=True), f"la borne (1 − hK)^L est en pointillés, aux {len(lower_c15)} L "
-                                                      "où hK < 1",
+        lower_line_15 = line_through_15(lower_c15, dashed=True)
+        report_15(lower_line_15 is not None, "la borne (1 − hK)^L est en pointillés, aux L où hK < 1",
                   "il manque la borne (1 − hK)^L, h = T/L, en pointillés, aux L de Ls pour lesquels hK < 1")
+        outside_15 = sorted({int(x) if float(x).is_integer() else float(x) for x, y in zip(*lower_line_15)
+                             if np.isfinite(y) and (x <= 0 or T_15 / x * K_c15 >= 1)})
+        report_15(not outside_15, "la borne (1 − hK)^L n'est tracée qu'aux L où hK < 1",
+                  f"la borne (1 − hK)^L est aussi tracée pour L = {outside_15}, où hK ≥ 1 : la fiche ne la donne que "
+                  "pour hK < 1, ne la trace qu'à ces L")
         report_15(ax_15.get_xscale() == "log", "L est en échelle logarithmique",
                   "mets L en échelle logarithmique : ax.set_xscale(\\"log\\", base=2)")
+    except StopCheck:
+        plt.show()
+        raise
     except BaseException:
         plt.close(fig_15)
         raise
     plt.show()
-    verdict("M20.15", all(results_15), "les deux courbes, leurs limites et les deux bornes sont dessinées.",
-            "relis les lignes ❌ ci-dessus.")'''
+    verdict("M20.15", True, "les deux courbes, leurs limites et les deux bornes sont dessinées.", "")'''
 
 M20_15 = Ex(
     "M20.15", "🎨", 1, 20, "Le produit de L jacobiennes I + hJ : ses valeurs singulières extrêmes quand L grandit, à "
@@ -1024,9 +1070,9 @@ M20_15 = Ex(
 Réponds :
 - a) les deux valeurs singulières de $e^{T\mathbf{J}}$, en ordre décroissant (une liste, 4 décimales) ;
 - b) la plus grande valeur singulière du produit pour $L = 1\,024$ (4 décimales) ;
-- c) le plus petit $L$ de `LS_15` pour lequel la borne $(1 - hK)^L$ s'applique, c'est-à-dire $hK < 1$ (un entier).
+- c) la borne $(1 - hK)^L$ pour $L = 16$, avec $h = T/L$ (4 décimales).
 
-La vérification appelle ta fonction et regarde le dessin : les deux courbes, les deux droites de $e^{T\mathbf{J}}$, les deux bornes en pointillés et l'échelle logarithmique en $L$.""",
+La vérification appelle ta fonction et regarde le dessin, dans cet ordre, en s'arrêtant au premier ❌ : les deux courbes, les deux droites de $e^{T\mathbf{J}}$, les deux bornes en pointillés (la borne basse aux seuls $L$ où $hK < 1$) et l'échelle logarithmique en $L$.""",
     todo='''def draw_products(ax, J, T, Ls):
     """In ax (and no other axes): the two singular values of (I + (T/L) J)^L against L (one line each, one point per
     L of Ls), those of expm(T J) as horizontal lines, the bounds e^(KT) and (1 − hK)^L (where hK < 1) dashed,
@@ -1036,7 +1082,7 @@ La vérification appelle ta fonction et regarde le dessin : les deux courbes, le
 
 answer_M20_15a = ...  # a) a list of 2 numbers (4 decimals), decreasing: the singular values of expm(T_15 * J_15)
 answer_M20_15b = ...  # b) a number (4 decimals): the largest singular value of the product for L = 1024
-answer_M20_15c = ...  # c) an integer: the smallest L of LS_15 with hK < 1''',
+answer_M20_15c = ...  # c) a number (4 decimals): the bound (1 − hK)^L for L = 16''',
     check='''for letter, answer in zip("abc", [answer_M20_15a, answer_M20_15b, answer_M20_15c]):
     wbm.check(f"M20.15{letter}", answer)
 if filled(answer_M20_15a, answer_M20_15b):
@@ -1073,12 +1119,13 @@ if filled(answer_M20_15a, answer_M20_15b):
 K_15 = np.linalg.norm(J_15, 2)
 answer_M20_15a = np.linalg.svd(scipy.linalg.expm(T_15 * J_15), compute_uv=False).tolist()
 answer_M20_15b = float(np.linalg.svd(np.linalg.matrix_power(np.eye(2) + (T_15 / 1024) * J_15, 1024), compute_uv=False)[0])
-answer_M20_15c = min(L for L in LS_15 if T_15 / L * K_15 < 1)
+answer_M20_15c = (1 - T_15 / 16 * K_15) ** 16
 print("K =", round(K_15, 4), "; KT =", round(K_15 * T_15, 4), "; e^(KT) =", round(math.exp(K_15 * T_15), 3),
       "; e^(−KT) =", round(math.exp(-K_15 * T_15), 4))
 print("a)", np.round(answer_M20_15a, 4).tolist(), "; valeurs propres de J :", np.round(np.linalg.eigvals(J_15), 4).tolist(),
       "; e^(T Re λ) =", round(math.exp(T_15 * np.linalg.eigvals(J_15).real[0]), 4))
-print("b)", round(answer_M20_15b, 4), " c)", answer_M20_15c)
+print("b)", round(answer_M20_15b, 4), " c)", round(answer_M20_15c, 4), "; hK =", round(T_15 / 16 * K_15, 4),
+      "; la borne basse existe dès L =", min(L for L in LS_15 if T_15 / L * K_15 < 1))
 for L in (1, 2, 4, 8, 64, 1024):
     print(f"L = {L:4d} :", np.round(np.linalg.svd(np.linalg.matrix_power(np.eye(2) + (T_15 / L) * J_15, L),
                                                   compute_uv=False), 4).tolist())
@@ -1096,10 +1143,11 @@ wbm.record("M20.15b", float(product_15r[0]), decimals=4,
            mistakes={"le produit pour L = 1 024, pas sa limite exp(TJ)": float(limit_15r[0]),
                      "la PLUS GRANDE valeur singulière du produit": float(product_15r[1])})
 k_15r = np.linalg.norm(j_15r, 2)
-smallest_15r = min(L for L in [2 ** k for k in range(11)] if 2.0 / L * k_15r < 1)
-wbm.record("M20.15c", smallest_15r,
-           mistakes={"h = T/L : la condition hK < 1 s'écrit L > KT, avec K = ‖J‖₂ (la plus grande valeur singulière, "
-                     "pas un coefficient de J)": {smallest_15r // 2, smallest_15r * 2}})''',
+h_15r = 2.0 / 16
+wbm.record("M20.15c", (1 - h_15r * k_15r) ** 16, decimals=4,
+           mistakes={"la borne BASSE est (1 − hK)^L : le signe moins": (1 + h_15r * k_15r) ** 16,
+                     "la borne pour L = 16, pas sa limite quand L grandit": math.exp(-2.0 * k_15r),
+                     "h = T/L = 2/16 : n'oublie pas l'horizon T": (1 - k_15r / 16) ** 16})''',
     after=[
         ("md", "**Pour aller plus loin** (facultatif). Le même dessin pour un champ non linéaire, l'oscillateur amorti "
                "$F(x, v) = (v,\\ -x - x^3 - 0{,}3\\,v)$ depuis $(1{,}2 ;\\ 0)$, à horizon $T = 4$ : pour chaque $L$, "
@@ -1109,7 +1157,7 @@ wbm.record("M20.15c", smallest_15r,
                "**Dans ta copie** : pourquoi les deux courbes se stabilisent-elles quand $L$ grandit, alors que le "
                "nombre de facteurs double d'un point au suivant ? Pourquoi les valeurs singulières dépassent-elles 1 "
                "pour $L = 1$ et $L = 2$ (calcule $\\lVert\\mathbf{I} + 2\\mathbf{J}\\rVert$), et pourquoi les bornes "
-               "sont-elles si loin des courbes ? Que deviendrait le dessin à pas $h$ fixé, $L$ grandissant ?"),
+               "sont-elles si loin des courbes ?"),
         ("solution", '''def field_15(state):
     """The damped non-linear oscillator F(x, v) = (v, −x − x³ − 0.3 v)."""
     x, v = state
@@ -1205,18 +1253,40 @@ def report_16(ok, success, failure):
     print(("✅ " + success) if ok else ("❌ " + failure))
 
 
+def call_16(part, name, function, *args):
+    """function(*args); an error of the learner's code becomes one ❌ line that names the function (the check of this
+    part stops there, the final verdict stays)."""
+    try:
+        return function(*args)
+    except NotImplementedError:
+        raise
+    except Exception as exc:  # noqa: BLE001 - the learner's error, reported with the name of the function
+        report_16(False, "", f"({part}) {name} : ton code lève {type(exc).__name__} : {str(exc)[:200]}")
+        parts_16.append(part)
+        raise StopCheck from None
+
+
+def close_16(got, want):
+    """True when got is a number (or an array of numbers) of the shape of want, equal to it up to rounding."""
+    try:
+        got = np.asarray(got, dtype=float)
+    except (TypeError, ValueError):
+        return False
+    return got.shape == np.shape(want) and bool(np.allclose(got, want, rtol=1e-9, atol=1e-12))
+
+
 with checked("M20.16"):                                       # (1) subject_means_16_fixed
     rng_c16 = np.random.default_rng(5332)
     wrong_16 = []
     for shape_c16 in ((7, 3), (4, 6), (5, 5), (12, 2)):
         notes_c16 = np.round(rng_c16.uniform(2, 19, size=shape_c16), 1)
-        got_16 = subject_means_16_fixed(notes_c16.copy())
+        got_16 = call_16(1, "subject_means_16_fixed", subject_means_16_fixed, notes_c16.copy())
         want_16 = np.array([np.mean(notes_c16[:, j]) for j in range(shape_c16[1])])
-        if got_16 is None or np.shape(got_16) != want_16.shape or not np.allclose(got_16, want_16):
+        if got_16 is None or not close_16(got_16, want_16):
             wrong_16.append(f"un tableau {shape_c16[0]} × {shape_c16[1]} : attendu {np.round(want_16, 3).tolist()}, "
-                            f"reçu {got_16 if got_16 is None else np.round(np.asarray(got_16, dtype=float), 3).tolist()}"[:220])
+                            f"reçu {got_16!r}"[:220])
     report_16(not wrong_16, "(1) subject_means_16_fixed : quatre tableaux de formes variées",
-              "(1) subject_means_16_fixed, " + " ; ".join(wrong_16[:2]))
+              "(1) subject_means_16_fixed : " + " ; ".join(wrong_16[:2]))
     parts_16.append(1)
 
 with checked("M20.16"):                                       # (2) noon_gap_16_fixed
@@ -1226,11 +1296,11 @@ with checked("M20.16"):                                       # (2) noon_gap_16_
                          * np.cos(2 * np.pi * (HOURS_16 - rng_c16.uniform(10, 18, size=(n_c16, 1))) / 24)
                          + rng_c16.normal(0, 1, size=(n_c16, 24)), 1)
         want_16 = float(np.mean([abs(T_c16[s, 12] - np.mean(T_c16[s])) for s in range(n_c16)]))
-        got_16 = noon_gap_16_fixed(T_c16.copy())
-        if got_16 is None or not math.isclose(float(got_16), want_16, rel_tol=1e-9):
+        got_16 = call_16(2, "noon_gap_16_fixed", noon_gap_16_fixed, T_c16.copy())
+        if got_16 is None or not close_16(got_16, want_16):
             wrong_16.append(f"{n_c16} stations aux profils différents : attendu {want_16:.6g}, reçu {got_16!r}"[:200])
     report_16(not wrong_16, "(2) noon_gap_16_fixed : des stations aux profils différents",
-              "(2) noon_gap_16_fixed, " + " ; ".join(wrong_16[:2]))
+              "(2) noon_gap_16_fixed : " + " ; ".join(wrong_16[:2]))
     parts_16.append(2)
 
 with checked("M20.16"):                                       # (3) sample_sd_16_fixed
@@ -1238,14 +1308,14 @@ with checked("M20.16"):                                       # (3) sample_sd_16
     for size_c16 in (2, 3, 5, 9, 40):
         x_c16 = np.round(rng_c16.normal(10, 3, size=size_c16), 2)
         want_16 = math.sqrt(sum((v - x_c16.mean()) ** 2 for v in x_c16) / (size_c16 - 1))
-        got_16 = sample_sd_16_fixed(x_c16.copy())
-        if got_16 is None or not math.isclose(float(got_16), want_16, rel_tol=1e-9):
+        got_16 = call_16(3, "sample_sd_16_fixed", sample_sd_16_fixed, x_c16.copy())
+        if got_16 is None or not close_16(got_16, want_16):
             wrong_16.append(f"{size_c16} valeurs : attendu {want_16:.6g}, reçu {got_16!r}"[:160])
     report_16(not wrong_16, "(3) sample_sd_16_fixed : des échantillons de 2 à 40 valeurs",
-              "(3) sample_sd_16_fixed, " + " ; ".join(wrong_16[:2]))
+              "(3) sample_sd_16_fixed : " + " ; ".join(wrong_16[:2]))
     parts_16.append(3)
 
-if len(parts_16) == 3:
+if len(set(parts_16)) == 3:
     verdict("M20.16", all(results_16), "les trois fonctions corrigées passent tous les cas.",
             "relis les lignes ❌ ci-dessus.")'''
 
@@ -1259,10 +1329,10 @@ M20_16 = Ex(
 2. `noon_gap_16(T)` reçoit une journée de relevés, `T` de forme (stations, 24), et doit rendre l'écart moyen, sur les stations, entre le relevé de midi (l'heure 12) de chaque station et sa moyenne journalière, en valeur absolue : $\frac1n\sum_s \lvert T[s, 12] - \bar T_s\rvert$. Il l'a vérifiée sur quatre stations au même profil : la valeur attendue.
 3. `sample_sd_16(x)` doit rendre l'écart type d'un échantillon de mesures répétées (l'incertitude d'une mesure), la racine de sa variance sans biais (ddof = 1). Il l'a vérifiée sur 100 000 tirages d'écart type 2 : à peu près 2.
 
-À faire : écris `subject_means_16_fixed`, `noon_gap_16_fixed` et `sample_sd_16_fixed`, puis, avec elles :
-- a) les moyennes des 3 matières du tableau `NOTES_16` (6 élèves, 3 matières ; une liste de 3 nombres, 4 décimales) ;
-- b) l'écart moyen de midi des 5 stations de `T_16` (4 décimales) ;
-- c) l'écart type des 5 mesures répétées d'une même longueur de `SMALL_16`, en mm (4 décimales).
+À faire : écris `subject_means_16_fixed`, `noon_gap_16_fixed` et `sample_sd_16_fixed`, puis, avec elles (la valeur que donne le calcul, sans l'arrondir) :
+- a) les moyennes des 3 matières du tableau `NOTES_16` (6 élèves, 3 matières ; une liste de 3 nombres) ;
+- b) l'écart moyen de midi des 5 stations de `T_16` ;
+- c) l'écart type des 5 mesures répétées d'une même longueur de `SMALL_16`, en mm.
 
 La vérification essaie tes corrections sur des cas que tu ne vois pas : des tableaux de formes variées, des stations aux profils différents, de petits échantillons.""",
     todo='''def subject_means_16_fixed(notes):
@@ -1282,9 +1352,9 @@ def sample_sd_16_fixed(x):
 
 answer_M20_16a = answer_M20_16b = answer_M20_16c = ...
 with wbm.attempt("M20.16"):          # your three functions: ⏳ while they are not written
-    answer_M20_16a = ...  # a) a list of 3 numbers (4 decimals): the means of the subjects of NOTES_16
-    answer_M20_16b = ...  # b) a number (4 decimals): the mean noon gap of T_16
-    answer_M20_16c = ...  # c) a number (4 decimals): the standard deviation of SMALL_16''',
+    answer_M20_16a = ...  # a) a list of 3 numbers, as computed (not rounded): the means of the subjects of NOTES_16
+    answer_M20_16b = ...  # b) a number, as computed: the mean noon gap of T_16
+    answer_M20_16c = ...  # c) a number, as computed: the standard deviation of SMALL_16''',
     check='''for letter, answer in zip("abc", [answer_M20_16a, answer_M20_16b, answer_M20_16c]):
     wbm.check(f"M20.16{letter}", answer, computed=True)
 
@@ -1318,7 +1388,9 @@ print("c)", round(answer_M20_16c, 4), "; le collègue :", round(sample_sd_16(SMA
 ''' + CHECK_16,
     record='''notes_16r = np.array([[12.0, 8.5, 15.0], [9.5, 11.0, 13.0], [14.0, 10.0, 16.5], [7.0, 12.5, 11.0],
                       [15.5, 9.0, 14.0], [10.0, 13.5, 12.0]])
-wbm.record("M20.16a", [sum(notes_16r[:, j]) / 6 for j in range(3)], decimals=4)
+wbm.record("M20.16a", [sum(notes_16r[:, j]) / 6 for j in range(3)], decimals=4,
+           mistakes={"une valeur par élève : c'est l'axe 1 ; une matière est une colonne":
+                         [sum(notes_16r[i]) / 3 for i in range(6)]})
 hours_16r = np.linspace(0.0, 23.0, 24)
 day_16r = np.round(np.array([[8.0], [12.5], [5.0], [15.0], [10.0]])
                    + np.array([[3.0], [6.0], [2.0], [8.0], [4.5]])
@@ -1427,7 +1499,7 @@ CHECK_17 = '''with checked("M20.17"):
             "relis les lignes ❌ ci-dessus.")'''
 
 M20_17 = Ex(
-    "M20.17", "🛠️", 1, 15, "Un test de propriété : réduire sur deux axes d'un coup, ou l'un après l'autre",
+    "M20.17", "🛠️", 1, 25, "Un test de propriété : réduire sur deux axes d'un coup, ou l'un après l'autre",
     "écrire un test de propriété pour les moments le long de deux axes, et s'assurer qu'il attrape trois fonctions "
     "fausses.", "fiche §2 ; Ex M20.11", tracks="C", given=GIVEN_17, note=NOTE_17,
     body=r"""Un **test de propriété** vérifie, sur beaucoup de cas tirés au hasard, une loi que tout résultat juste respecte, sans connaître la réponse de chaque cas (M17, M18). La loi, ici (fiche §2) : pour un tableau `x` et deux axes distincts $a$ et $b$,
@@ -1435,7 +1507,7 @@ M20_17 = Ex(
 - la **variance** d'un coup, avec ddof = 0, est la moyenne, le long de $b$, des variances le long de $a$, plus la variance, le long de $b$, des moyennes le long de $a$ ;
 - avec ddof = 1 partout, cette décomposition n'est plus exacte.
 
-Écris deux fonctions, qui reçoivent la fonction à tester, `moments`, de même contrat que `moments_along_axes` :
+Écris deux fonctions, qui reçoivent la fonction à tester, `moments`, de même contrat que `moments_along_axes`. Toutes les réductions, d'un coup comme l'une après l'autre, passent par `moments` (au moins 4 appels par cas : la vérification les compte) :
 - `check_two_axes(moments, x, a, b)` lève une `AssertionError` (un `assert` avec un message qui dit le cas) si les moyennes ne coïncident pas, ou si la décomposition de la variance avec ddof = 0 n'est pas exacte (`np.allclose`, `rtol=1e-9`, `atol=1e-12`) ; sinon, elle rend l'écart relatif de la même décomposition avec ddof = 1, $\frac{\lvert v_1 - (\text{moyenne des variances} + \text{variance des moyennes})\rvert}{v_1}$, le plus grand sur les valeurs des autres axes (un `float`) ;
 - `property_test_17(moments)` tire 100 cas avec un générateur `np.random.default_rng(5337)`, créé dans la fonction : un tableau de 2 à 4 axes, de longueurs 2 à 5, de valeurs de loi normale, et deux axes distincts tirés au hasard ; elle rend la liste des 100 écarts de `check_two_axes`.
 
@@ -1578,9 +1650,8 @@ CHECK_18 = '''with checked("M20.18"):
             wrong_18.append(f"{label_c18} : attendu un tableau de forme {x_c18.shape}, reçu {got_c18!r}"[:160])
         elif not np.allclose(np.asarray(got_c18, dtype=float), want_c18, rtol=1e-9, atol=1e-12):
             got_c18 = np.asarray(got_c18, dtype=float)
-            wrong_18.append(f"{label_c18} : attendu {int(np.sum(want_c18 >= 1))} unité(s) à π = 1 et une somme "
-                            f"{n_c18}, reçu {int(np.sum(got_c18 >= 1 - 1e-12))} unité(s) à π = 1, une somme "
-                            f"{got_c18.sum():.6g} et un plus grand π de {got_c18.max():.6g}")
+            wrong_18.append(f"{label_c18} : ce ne sont pas les probabilités attendues (somme attendue {n_c18}, reçu "
+                            f"une somme {got_c18.sum():.6g} et un plus grand π de {got_c18.max():.6g})")
     report_18(not wrong_18, f"pps_probabilities : juste sur {len(cases_18)} populations", "pps_probabilities, "
               + " ; ".join(wrong_18[:2]))
     if wrong_18:
@@ -1591,7 +1662,7 @@ CHECK_18 = '''with checked("M20.18"):
               f"tes probabilités sont dans ]0, 1] et ont pour somme {n_18}", "tes probabilités doivent être dans ]0, 1] "
               f"et avoir pour somme {n_18}")
     report_18(certain_c18.any() and X_18[certain_c18].min() > X_18[~certain_c18].max(),
-              f"les {int(certain_c18.sum())} communes prises d'office sont les plus grandes",
+              "les communes prises d'office sont les plus grandes",
               "les communes prises d'office doivent être les plus grandes")
     pi_c18 = np.where(certain_c18, 1.0, pi_c18)
     equal_c18 = np.full(N_18, n_18 / N_18)
@@ -1604,16 +1675,13 @@ CHECK_18 = '''with checked("M20.18"):
         spread_c18 = estimates_c18.std(ddof=1) / TOTAL_18
         bias_c18 = estimates_c18.mean() / TOTAL_18 - 1
         if probabilities_c18 is pi_c18:
-            report_18(spread_c18 < 0.02, f"avec {label_c18}, l'écart type relatif vaut {100 * spread_c18:.2f} % (moins "
-                                         "de 2 %)",
-                      f"avec {label_c18}, l'écart type relatif vaut {100 * spread_c18:.2f} % : plus de 2 %")
+            report_18(spread_c18 < 0.02, f"avec {label_c18}, l'écart type relatif reste sous 2 %",
+                      f"avec {label_c18}, l'écart type relatif dépasse 2 %")
             report_18(abs(bias_c18) < 3 * spread_c18 / math.sqrt(2000),
-                      f"le biais relatif, {100 * bias_c18:.3f} %, est sous 3 erreurs types",
-                      f"le biais relatif, {100 * bias_c18:.3f} %, dépasse 3 erreurs types")
+                      "le biais relatif reste sous 3 erreurs types", "le biais relatif dépasse 3 erreurs types")
         else:
-            report_18(spread_c18 > 0.10, f"avec {label_c18}, l'écart type relatif vaut {100 * spread_c18:.1f} % (plus "
-                                         "de 10 %)",
-                      f"avec {label_c18}, l'écart type relatif ne vaut que {100 * spread_c18:.1f} %")
+            report_18(spread_c18 > 0.10, f"avec {label_c18}, l'écart type relatif dépasse 10 %",
+                      f"avec {label_c18}, l'écart type relatif reste sous 10 %")
     verdict("M20.18", all(results_18), "tes probabilités rendent l'estimation de Horvitz-Thompson presque exacte.",
             "relis les lignes ❌ ci-dessus.")'''
 
@@ -1635,8 +1703,8 @@ Puis, avec tes probabilités `pi_18` pour `X_18` et `n_18` :
 
 Réponds :
 - a) le nombre de communes prises d'office ($\pi_i = 1$) ;
-- b) l'écart type relatif de `estimates_18`, en % (2 décimales ; l'écart type avec ddof = 1, divisé par le vrai total) ;
-- c) celui de `equal_18`, en % (1 décimale).
+- b) l'écart type relatif de `estimates_18`, en % (l'écart type avec ddof = 1, divisé par le vrai total ; la valeur que donne le calcul, sans l'arrondir) ;
+- c) celui de `equal_18`, en % (la valeur que donne le calcul, sans l'arrondir).
 
 La vérification essaie `pps_probabilities` sur d'autres populations et regarde la somme, l'intervalle $]0, 1]$ et les communes prises d'office ; puis elle refait la simulation avec tes probabilités : l'écart type relatif doit rester sous 2 %, celui des probabilités égales dépasser 10 %, et le biais relatif rester sous 3 erreurs types.""",
     todo='''def pps_probabilities(x, n):
@@ -1653,8 +1721,8 @@ with wbm.attempt("M20.18"):          # pps_probabilities: ⏳ while it is not wr
     estimates_18 = ...    # the 2 000 Horvitz-Thompson estimates, systematic draws, np.random.default_rng(5339)
     equal_18 = ...        # the same with the equal probabilities n_18 / N_18 and a second np.random.default_rng(5339)
     answer_M20_18a = ...  # a) an integer: the number of communes with π = 1
-    answer_M20_18b = ...  # b) a number (2 decimals): the relative standard deviation of estimates_18, in %
-    answer_M20_18c = ...  # c) a number (1 decimal): that of equal_18, in %''',
+    answer_M20_18b = ...  # b) a number, as computed (not rounded): the relative standard deviation of estimates_18, in %
+    answer_M20_18c = ...  # c) a number, as computed: that of equal_18, in %''',
     check='''for letter, answer in zip("abc", [answer_M20_18a, answer_M20_18b, answer_M20_18c]):
     wbm.check(f"M20.18{letter}", answer, computed=True)
 
@@ -1732,7 +1800,9 @@ def spread_18r(pi):
 
 wbm.record("M20.18b", spread_18r(pi_18r), decimals=2,
            mistakes={"l'écart type des estimations faites avec TES probabilités, pas avec les probabilités égales":
-                         spread_18r(np.full(150, 21 / 150))})
+                         spread_18r(np.full(150, 21 / 150)),
+                     "un écart type nul : tes tirages sont identiques ; crée le générateur une seule fois, avant la "
+                     "boucle": 0.0})
 wbm.record("M20.18c", spread_18r(np.full(150, 21 / 150)), decimals=1)''',
     after=[
         ("md", "**Dans ta copie** : combien de communes dépassaient 1 avant toute répartition, et combien à la fin ? "

@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §6 |
-| **Temps total estimé** | ≈ 7,7 h : lecture et calculs de la fiche ≈ 1 h 30, exercices ≈ 5 h 46, 12 flashcards ≈ 25 min (parcours essentiel ≈ 6,0 h) |
+| **Temps total estimé** | ≈ 8,8 h : lecture et calculs de la fiche ≈ 1 h 30, exercices ≈ 6 h 46, 15 flashcards ≈ 30 min (parcours essentiel ≈ 6,8 h) |
 | **Prérequis** | workbookIA 0A (tableaux NumPy, `shape`, `axis`, diffusion) ; M02c (moyenne, variance, ddof, z-score) ; M02b (loi de Bernoulli, espérance, variance d'une somme de variables indépendantes) ; M12b (projection orthogonale sur une droite, matrice de projection) ; M09a (produit matriciel et son coût) ; M12c (trace) ; M12d (valeurs singulières, norme d'une matrice) ; M17 (jacobienne, règle de la chaîne) ; M14 ($(1 + x/n)^n \to e^x$) ; R8 (dénombrer les sous-ensembles) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `tensors.py` : `einsum_pair`, `moments_along_axes`, `horvitz_thompson_total` |
