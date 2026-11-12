@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §7 |
 | **Temps total estimé** | ≈ 8 h : lecture et calculs de la fiche ≈ 1 h 20, exercices ≈ 6 h 15, 12 flashcards ≈ 25 min (parcours essentiel ≈ 6 h) |
-| **Prérequis** | M09a (produit matriciel, formes, coût, Hadamard, $\mathbf{Z} = \mathbf{X}\mathbf{W} + \mathbf{b}$) ; M12a (applications affines, composition, réciproque) ; M12c (matrices triangulaires et leurs valeurs propres) ; M02b (indépendance, $\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y]$, variance d'une somme, lois uniforme et normale) ; M02c (covariance, corrélation) ; R5 (suites géométriques et arithmético-géométriques, somme géométrique) ; R4 (récurrence) ; R8 (dénombrement) |
+| **Prérequis** | M09a (produit matriciel, formes, coût, Hadamard, $\mathbf{Z} = \mathbf{X}\mathbf{W} + \mathbf{b}$) ; M12a (applications affines, composition, réciproque) ; M12c (matrices triangulaires et leurs valeurs propres) ; M02b (indépendance, $\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y]$, variance d'une somme, lois uniforme et normale) ; M02c (covariance, corrélation) ; R5 (suites géométriques et arithmético-géométriques, somme géométrique) ; R4 (récurrence) ; R8 (dénombrement, pour les chemins) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `affine.py` : `homogeneous_matrix`, `sum_over_paths`, `variance_of_product` |
 | **MML** | — (aucune section nouvelle : les applications affines sont MML §2.8, lu en M12a, et les sommes de variables aléatoires MML §6.4, lu en M02b et M02c) |
@@ -87,7 +87,7 @@ Une application affine de $\mathbb{R}^n$ dans $\mathbb{R}^m$ est déterminée pa
 
 Pour $N$ points rangés en lignes dans une matrice $\mathbf{X}$ de forme $(N, n)$, les images sont les lignes de
 $$\mathbf{X}\mathbf{W} + \mathbf{1}\mathbf{b}^\top \qquad (N, n) \times (n, m) \to (N, m),$$
-où $\mathbf{1}\mathbf{b}^\top$, produit d'une colonne de $N$ uns par la ligne $\mathbf{b}$, est la matrice $(N, m)$ dont **toutes les lignes valent** $\mathbf{b}$. NumPy écrit simplement `X @ W + b` : la **diffusion** (*broadcasting*, workbookIA 0A) recopie $\mathbf{b}$ sur chaque ligne. La ligne $i$ du résultat ne dépend que de la ligne $i$ de $\mathbf{X}$ : traiter $N$ points ensemble, c'est faire $N$ calculs indépendants en un seul produit, pour $Nnm$ multiplications (M09a §3). Pour l'exemple, avec les points $(3, -2)$ et $(0, 1)$ :
+où $\mathbf{1}\mathbf{b}^\top$, produit d'une colonne de $N$ uns par la ligne $\mathbf{b}^\top$ (dans cette écriture matricielle, $\mathbf{b}$ est rangé en colonne, comme en M09a), est la matrice $(N, m)$ dont **toutes les lignes valent** $\mathbf{b}$. NumPy écrit simplement `X @ W + b` : la **diffusion** (*broadcasting*, workbookIA 0A) recopie $\mathbf{b}$ sur chaque ligne. La ligne $i$ du résultat ne dépend que de la ligne $i$ de $\mathbf{X}$ : traiter $N$ points ensemble, c'est faire $N$ calculs indépendants en un seul produit, pour $Nnm$ multiplications (M09a §3). Pour l'exemple, avec les points $(3, -2)$ et $(0, 1)$ :
 $$\begin{pmatrix} 3 & -2 \\ 0 & 1 \end{pmatrix}\mathbf{W} + \mathbf{1}\mathbf{b}^\top = \begin{pmatrix} 1 & 6 & 2 \\ 1 & 0 & -1 \end{pmatrix} + \begin{pmatrix} 0 & -1 & 4 \\ 0 & -1 & 4 \end{pmatrix} = \begin{pmatrix} 1 & 5 & 6 \\ 1 & -1 & 3 \end{pmatrix}.$$
 
 ⚠️ **Erreur classique.** Ranger $\mathbf{W}$ dans la mauvaise convention. Si $\mathbf{W}$ est rangée $(m, n)$ et qu'on calcule `x @ W`, NumPy refuse dès que $m \ne n$ ; mais si l'application va de $\mathbb{R}^n$ dans lui-même ($m = n$), le calcul **passe sans erreur** et donne une autre application (celle de $\mathbf{W}^\top$). Vérifie toujours une sortie sur un point dont tu connais l'image (🐛 M16.18).
@@ -161,11 +161,11 @@ Un graphe **sans cycle** (*directed acyclic graph*, DAG) est un graphe orienté 
 
 **Théorème.** Un graphe orienté à $n$ nœuds est sans cycle si et seulement si sa matrice d'adjacence est **nilpotente** (*nilpotent*) : $\mathbf{A}^k = \mathbf{0}$ pour un $k$, et alors déjà $\mathbf{A}^n = \mathbf{0}$.
 
-L'idée : un chemin de $n$ arêtes passe par $n + 1$ nœuds, donc deux fois par le même ; entre ces deux passages, il y a un cycle. Sans cycle, il n'y a donc aucun chemin de $n$ arêtes, et $\mathbf{A}^n = \mathbf{0}$. Avec un cycle, on peut le parcourir autant de fois qu'on veut, et aucune puissance ne s'annule (∂ M16.8).
+L'idée : un chemin de $n$ arêtes passe par $n + 1$ nœuds (en comptant le départ), donc deux fois par le même, puisqu'il n'y a que $n$ nœuds : c'est le **principe des tiroirs** (*pigeonhole principle*), $n + 1$ objets rangés dans $n$ tiroirs, dont l'un en reçoit au moins deux ; entre ces deux passages, il y a un cycle. Sans cycle, il n'y a donc aucun chemin de $n$ arêtes, et $\mathbf{A}^n = \mathbf{0}$. Avec un cycle, on peut le parcourir autant de fois qu'on veut, et aucune puissance ne s'annule (∂ M16.8).
 
 ### Une numérotation qui rend A triangulaire
 
-Renuméroter les nœuds ne change pas le graphe ; sa matrice devient $\mathbf{P}\mathbf{A}\mathbf{P}^\top$, où $\mathbf{P}$ est la matrice de permutation qui range les nœuds dans le nouvel ordre. **Un graphe est sans cycle si et seulement si on peut numéroter ses nœuds de sorte que toutes les arêtes aillent d'un numéro vers un numéro plus grand** : la matrice devient alors **strictement triangulaire supérieure** (des zéros sur et sous la diagonale). Dans un sens, c'est facile : une matrice strictement triangulaire supérieure est nilpotente (chaque puissance pousse les cases non nulles d'une diagonale plus haut, et ses valeurs propres sont toutes nulles, M12c), donc le graphe est sans cycle. L'autre sens, construire une telle numérotation pour tout graphe sans cycle, est le travail de workbookIA 16, qui l'appelle un **ordre topologique** (*topological order*) ; on l'admet ici.
+Renuméroter les nœuds ne change pas le graphe ; sa matrice devient $\mathbf{P}\mathbf{A}\mathbf{P}^\top$, où $\mathbf{P}$ est la matrice de permutation qui range les nœuds dans le nouvel ordre. **Un graphe est sans cycle si et seulement si on peut numéroter ses nœuds de sorte que toutes les arêtes aillent d'un numéro vers un numéro plus grand** : la matrice devient alors **strictement triangulaire supérieure** (des zéros sur et sous la diagonale). Dans un sens, c'est facile : une matrice strictement triangulaire supérieure $n \times n$ est nilpotente (chaque puissance pousse les cases non nulles d'une diagonale plus haut, et la puissance $n$ n'en laisse plus aucune : 🔁 M16.R3), donc le graphe est sans cycle. Attention : des valeurs propres toutes nulles ne suffiraient pas à le montrer sans ce calcul. L'autre sens, construire une telle numérotation pour tout graphe sans cycle, est le travail de workbookIA 16, qui l'appelle un **ordre topologique** (*topological order*) ; on l'admet ici.
 
 **Exemple.** Les tâches d'un petit chantier : Plans → Achats, Plans → Découpe, Achats → Découpe, Découpe → Assemblage, Achats → Assemblage. Dans l'ordre (Plans, Achats, Découpe, Assemblage), chaque arête monte vers un numéro plus grand :
 $$\mathbf{A} = \begin{pmatrix} 0 & 1 & 1 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \mathbf{A}^2 = \begin{pmatrix} 0 & 0 & 1 & 2 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \mathbf{A}^3 = \begin{pmatrix} 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \mathbf{A}^4 = \mathbf{0}.$$
@@ -177,13 +177,13 @@ Sans cycle, chaque chemin a au plus $n - 1$ arêtes, et la somme, sur **tous** l
 $$\mathbf{S} = \mathbf{A} + \mathbf{A}^2 + \cdots + \mathbf{A}^{n-1}.$$
 C'est une somme géométrique de matrices, comme $1 + q + \cdots + q^{n-1} = \frac{1 - q^n}{1 - q}$ (R5) : en développant,
 $$(\mathbf{I} - \mathbf{A})(\mathbf{I} + \mathbf{A} + \cdots + \mathbf{A}^{n-1}) = \mathbf{I} - \mathbf{A}^n = \mathbf{I},$$
-donc $\mathbf{I} - \mathbf{A}$ est inversible et $(\mathbf{I} - \mathbf{A})^{-1} = \mathbf{I} + \mathbf{S}$. Pour deux nœuds distincts, $\big((\mathbf{I} - \mathbf{A})^{-1}\big)_{ij} = S_{ij}$ ; sur la diagonale, le 1 de $\mathbf{I}$ compte le « chemin vide ».
+et le produit dans l'autre ordre vaut aussi $\mathbf{I}$, car les deux facteurs, faits de puissances de $\mathbf{A}$, commutent. Donc $\mathbf{I} - \mathbf{A}$ est inversible et $(\mathbf{I} - \mathbf{A})^{-1} = \mathbf{I} + \mathbf{S}$. Pour deux nœuds distincts, $\big((\mathbf{I} - \mathbf{A})^{-1}\big)_{ij} = S_{ij}$ ; sur la diagonale, le 1 de $\mathbf{I}$ compte le « chemin vide ».
 
 **Exemple : un réseau d'eau.** Une source $S$ envoie 60 % de son eau vers le nœud $a$ et 40 % vers le nœud $b$ ; $a$ envoie la moitié de ce qu'il reçoit vers $b$ et l'autre moitié vers le réservoir $R$ ; $b$ envoie 80 % de ce qu'il reçoit vers $R$ (le reste fuit). La part de l'eau de $S$ qui arrive en $R$ est la somme, sur les chemins de $S$ à $R$, des produits des parts :
 $$\underbrace{0{,}6 \times 0{,}5}_{S \to a \to R} + \underbrace{0{,}4 \times 0{,}8}_{S \to b \to R} + \underbrace{0{,}6 \times 0{,}5 \times 0{,}8}_{S \to a \to b \to R} = 0{,}3 + 0{,}32 + 0{,}24 = 0{,}86.$$
 C'est le coefficient $(S, R)$ de $(\mathbf{I} - \mathbf{A})^{-1}$ ; $\mathbf{A}^2$ y apporte $0{,}62$ (deux chemins de 2 arêtes) et $\mathbf{A}^3$ y apporte $0{,}24$. Sur un grand réseau, on ne liste pas les chemins (leur nombre peut croître comme $2^n$) : on calcule les puissances, ou on résout un système.
 
-⚠️ **Erreur classique.** Calculer $(\mathbf{I} - \mathbf{A})^{-1}$ sur un graphe **avec** un cycle et l'appeler « somme sur les chemins » : la matrice peut être inversible, mais la somme sur les chemins est alors infinie, ou n'a pas de sens. On vérifie d'abord l'absence de cycle (`sum_over_paths` refuse un graphe avec un cycle).
+⚠️ **Erreur classique.** Calculer $(\mathbf{I} - \mathbf{A})^{-1}$ sur un graphe **avec** un cycle et l'appeler « somme sur les chemins » : la matrice peut être inversible, mais il y a alors une infinité de chemins (on fait des tours) ; leur somme est infinie ou n'existe pas, et quand les poids sont assez petits pour qu'elle converge, il faut le démontrer. Avec $\mathbf{A} = \begin{pmatrix} 0 & 2 \\ 2 & 0 \end{pmatrix}$, par exemple, $(\mathbf{I} - \mathbf{A})^{-1}$ existe et a des coefficients négatifs, alors que tous les produits de poids sont positifs. On vérifie d'abord l'absence de cycle (`sum_over_paths` refuse un graphe avec un cycle).
 
 🔗 **Plus loin dans ce dépôt** — en M18, la dérivée d'un calcul organisé en graphe sans cycle sera exactement une **somme sur les chemins des produits des dérivées locales** : la règle de la chaîne.
 
@@ -193,7 +193,7 @@ C'est le coefficient $(S, R)$ de $(\mathbf{I} - \mathbf{A})^{-1}$ ; $\mathbf{A}^
 
 M02b §5 l'a montré : si $X$ et $Y$ sont **indépendantes**, $\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y]$. Des fonctions de variables indépendantes sont encore indépendantes : $X^2$ et $Y^2$ le sont, donc $\mathbb{E}[X^2Y^2] = \mathbb{E}[X^2]\,\mathbb{E}[Y^2]$. Avec $\mathbb{E}[X^2] = \mathbb{V}(X) + \mathbb{E}[X]^2$ (R8),
 $$\boxed{\mathbb{V}(XY) = \mathbb{E}[X^2]\,\mathbb{E}[Y^2] - \mathbb{E}[X]^2\,\mathbb{E}[Y]^2 = \mathbb{V}(X)\,\mathbb{V}(Y) + \mathbb{V}(X)\,\mathbb{E}[Y]^2 + \mathbb{V}(Y)\,\mathbb{E}[X]^2.}$$
-Trois termes, tous positifs ou nuls : la variance d'un produit est **au moins** le produit des variances, et lui est égale seulement si les deux moyennes sont nulles (ou si une variance l'est). Si $Y$ est une constante $c$, on retrouve $\mathbb{V}(cX) = c^2\,\mathbb{V}(X)$.
+Trois termes, tous positifs ou nuls : la variance d'un produit est **au moins** le produit des variances, et lui est égale exactement quand $\mathbb{V}(X)\,\mathbb{E}[Y]^2 = 0$ et $\mathbb{V}(Y)\,\mathbb{E}[X]^2 = 0$, par exemple quand les deux moyennes sont nulles. Une seule variance nulle ne suffit pas : pour $X = 2$ (constante) et $\mathbb{V}(Y) = 1$, $\mathbb{V}(XY) = 4$ alors que $\mathbb{V}(X)\,\mathbb{V}(Y) = 0$. Si $Y$ est une constante $c$, on retrouve $\mathbb{V}(cX) = c^2\,\mathbb{V}(X)$.
 
 **Exemple : un chiffre d'affaires.** Un marchand vend chaque jour une quantité $Q$ d'un produit, au prix $P$ du jour, les deux indépendants : $\mathbb{E}[P] = 2{,}5$ €, écart-type 0,2 € ; $\mathbb{E}[Q] = 80$, écart-type 10. Le chiffre d'affaires $R = PQ$ a pour espérance $2{,}5 \times 80 = 200$ € et pour variance
 $$0{,}04 \times 100 + 0{,}04 \times 6\,400 + 100 \times 6{,}25 = 4 + 256 + 625 = 885,$$
@@ -219,7 +219,7 @@ montre que si les $Z_i$ sont **deux à deux décorrélées**, la variance de leu
 
 Des mesures $x_1, \ldots, x_n$ peuvent être fortement corrélées. Multiplions chacune par un nombre aléatoire $\varepsilon_i$ : on forme le vecteur des produits $\boldsymbol{\varepsilon} \odot \mathbf{x}$, coordonnée par coordonnée (le produit de Hadamard de M09a), et sa somme $S = \sum_i\varepsilon_ix_i$.
 
-**Lemme** (admis ici). Si les $\varepsilon_i$ sont **centrés** ($\mathbb{E}[\varepsilon_i] = 0$), **indépendants entre eux et indépendants des $x$**, alors les produits $\varepsilon_ix_i$ sont centrés et deux à deux décorrélés, **même si les $x_i$ sont corrélés**.
+**Lemme** (admis ici). Si les $\varepsilon_i$ sont **centrés** ($\mathbb{E}[\varepsilon_i] = 0$), **indépendants entre eux et indépendants du vecteur $\mathbf{x} = (x_1, \ldots, x_n)$ tout entier**, alors les produits $\varepsilon_ix_i$ sont centrés et deux à deux décorrélés, **même si les $x_i$ sont corrélés**.
 
 Avec la décorrélation et le §5 ($\varepsilon_i$ et $x_i$ indépendants, $\mathbb{E}[\varepsilon_i] = 0$, donc $\mathbb{V}(\varepsilon_ix_i) = \mathbb{E}[\varepsilon_i^2]\,\mathbb{E}[x_i^2] = \mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$) :
 $$\boxed{\mathbb{V}\Big(\sum_{i=1}^n\varepsilon_ix_i\Big) = \sum_{i=1}^n\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2].}$$
@@ -245,7 +245,7 @@ En échelle logarithmique, $\gamma^k$ est une **droite** de pente $\ln\gamma$ : 
 
 Un amplificateur réel ajoute aussi son propre bruit : $Z_{k+1} = gZ_k + N_k$, où le bruit $N_k$, centré, de variance $s^2$, est indépendant de $Z_k$. Les variances vérifient
 $$v_{k+1} = g^2v_k + s^2,$$
-une suite **arithmético-géométrique** (R5). Si $\lvert g \rvert < 1$, elle tend vers le point fixe $v^* = \frac{s^2}{1 - g^2}$, qui résout $v = g^2v + s^2$. Avec $g = 0{,}7$ et $s^2 = 1$, $v^* = \frac{1}{0{,}51} \approx 1{,}96$ : le bruit s'accumule, mais chaque étage atténue l'ancien, et la variance se stabilise (figure, à droite). Si $\lvert g \rvert \ge 1$, elle grandit sans limite.
+une suite **arithmético-géométrique** (R5). Si $\lvert g \rvert < 1$, elle tend vers le point fixe $v^* = \frac{s^2}{1 - g^2}$, qui résout $v = g^2v + s^2$. Avec $g = 0{,}7$ et $s^2 = 1$, $v^* = \frac{1}{0{,}51} \approx 1{,}96$ : le bruit s'accumule, mais chaque étage atténue l'ancien, et la variance se stabilise (figure, à droite). Si $\lvert g \rvert \ge 1$ (et $s^2 > 0$), elle grandit sans limite.
 
 🔗 **Dans workbookIA** — le chapitre 16 suit l'échelle des nombres qui traversent les couches d'un réseau ; tu sais maintenant ce qu'un facteur par étage fait sur beaucoup d'étages.
 
@@ -256,8 +256,8 @@ une suite **arithmético-géométrique** (R5). Si $\lvert g \rvert < 1$, elle te
 - **L'ordre d'une composition.** Avec des lignes, $f_1$ puis $f_2$ s'écrit $\mathbf{H}_1\mathbf{H}_2$ ; avec des colonnes, $\mathbf{H}_2\mathbf{H}_1$.
 - **Le rangement d'une matrice homogène.** En lignes, la translation est sur la dernière **ligne** ; en colonnes, dans la dernière **colonne**.
 - **Chemin ou chemin sans répétition.** $(\mathbf{A}^k)_{ij}$ compte les chemins de $k$ arêtes, nœuds répétés compris : dans un graphe avec un cycle, il y en a de toutes les longueurs.
-- **$(\mathbf{I} - \mathbf{A})^{-1}$ sur un graphe qui a un cycle.** La somme sur les chemins n'a de sens que sans cycle.
-- **$\mathbb{V}(XY) = \mathbb{V}(X)\,\mathbb{V}(Y)$.** Faux dès qu'une moyenne n'est pas nulle.
+- **$(\mathbf{I} - \mathbf{A})^{-1}$ sur un graphe qui a un cycle.** Sans cycle, la somme sur les chemins est finie et vaut $\mathbf{S}$ ; avec un cycle, il y a une infinité de chemins, et l'inverse peut exister sans être cette somme.
+- **$\mathbb{V}(XY) = \mathbb{V}(X)\,\mathbb{V}(Y)$.** Faux en général : il manque les deux termes amplifiés par les moyennes.
 - **Variance ou second moment.** Dans $\mathbb{V}(\sum\varepsilon_ix_i) = \sum\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$, c'est $\mathbb{E}[x_i^2]$, pas $\mathbb{V}(x_i)$.
 - **Décorrélées ou indépendantes.** La variance d'une somme ne demande que des covariances nulles ; l'espérance d'un produit, elle, demande l'indépendance (ou au moins une covariance nulle).
 

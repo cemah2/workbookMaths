@@ -276,7 +276,7 @@ Pour un $l$ fixé, il y a $c_k(i, l)$ façons d'aller de $i$ à $l$, puis $A_{lj
 
 <details><summary>Indice 1</summary>
 
-Le principe des tiroirs (R8) pour le sens direct ; un cycle répété pour la réciproque.
+Le principe des tiroirs (fiche §4) pour le sens direct ; un cycle répété pour la réciproque.
 
 </details>
 <details><summary>Indice 2</summary>

@@ -79,7 +79,7 @@
 - f :
 - g :
 - h :
-- la ligne de W qui répartit x₃ et la colonne de la deuxième sortie ; d) comparé à a) ; pourquoi la ligne 1 de f) ne dépend que de (1, 0, 0) ; les lignes de W dans f) :
+- la ligne de W qui répartit x₃ et la colonne de la deuxième sortie ; d) comparé à a) ; pourquoi la ligne 1 de f) ne dépend que de (1, 0, 0) ; les lignes de W dans f), et la troisième ligne :
 
 ### Ex M16.2 — Rotation, homothétie puis translation du plan : la matrice homogène de la composée, et celle de la réciproque
 
@@ -102,7 +102,7 @@
 - f :
 - g :
 - h :
-- les chemins de f) et de g) ; pourquoi aucune puissance de A n'est nulle ; la rue à supprimer, et g) sans elle :
+- les chemins de f) et de g) ; pourquoi aucune puissance de A n'est nulle ; les rues qu'on peut supprimer, et g) sans l'une d'elles :
 
 ### Ex M16.4 — Un planning de tâches : l'absence de cycle par les puissances de A, une numérotation qui la rend triangulaire, et le nombre de chemins entre deux tâches
 

@@ -115,7 +115,7 @@ $g(x_1, x_2, x_3) = (x_1 - 2x_3 + 3,\ 4x_1 + x_2 - x_3 - 2)$.
 | g | le nombre de paramètres d'une application affine de $\mathbb{R}^{60}$ dans $\mathbb{R}^7$ | un entier |
 | h | le nombre de multiplications du produit $\mathbf{X}\mathbf{W}$ pour 500 points de $\mathbb{R}^{60}$ et cette application | un entier |
 
-Dans ta copie : quelle ligne de $\mathbf{W}$ dit comment $x_3$ se répartit entre les deux sorties, et quelle colonne sert à calculer la deuxième sortie ? Vérifie que d) est la transposée de a). Pourquoi la ligne 1 de f) ne dépend-elle que du point $(1, 0, 0)$ ? Pourquoi f) contient-il, en plus de $\mathbf{b}$, les lignes de $\mathbf{W}$ ?
+Dans ta copie : quelle ligne de $\mathbf{W}$ dit comment $x_3$ se répartit entre les deux sorties, et quelle colonne sert à calculer la deuxième sortie ? Vérifie que d) est la transposée de a). Pourquoi la ligne 1 de f) ne dépend-elle que du point $(1, 0, 0)$ ? Pourquoi les deux premières lignes de f) sont-elles des lignes de $\mathbf{W}$ plus $\mathbf{b}$, et la troisième la somme des lignes de $\mathbf{W}$ plus $\mathbf{b}$ ?
 
 ### Ex M16.2 — Rotation, homothétie puis translation du plan : la matrice homogène de la composée, et celle de la réciproque ✏️ ★★ ⏱️ 20 min
 **Objectif :** écrire des matrices homogènes en lignes, les multiplier dans le bon ordre, appliquer et inverser la composée.
@@ -152,7 +152,7 @@ Cinq carrefours, numérotés de 1 à 5, sont reliés par des rues à sens unique
 | g | le nombre de chemins de longueur 3 qui reviennent à leur carrefour de départ, tous départs confondus | un entier |
 | h | le nombre total de chemins de longueur 2 | un entier |
 
-Dans ta copie : liste les chemins de f) et ceux de g). Pourquoi $\mathbf{A}^k$ n'est-elle nulle pour aucun $k$ ? Quelle rue faudrait-il supprimer pour que le réseau n'ait plus de cycle, et que deviendrait alors g) ?
+Dans ta copie : liste les chemins de f) et ceux de g). Pourquoi $\mathbf{A}^k$ n'est-elle nulle pour aucun $k$ ? Quelles rues pourrait-on supprimer, une seule à la fois, pour que le réseau n'ait plus de cycle, et que deviendrait alors g) ?
 
 ### Ex M16.4 — Un planning de tâches : l'absence de cycle par les puissances de A, une numérotation qui la rend triangulaire, et le nombre de chemins entre deux tâches ✏️ ★★ ⏱️ 25 min
 **Objectif :** vérifier qu'un graphe est sans cycle, le renuméroter pour rendre sa matrice triangulaire, et sommer sur ses chemins.
@@ -203,7 +203,7 @@ Trois mesures centrées $x_1$, $x_2$, $x_3$ ont la matrice de covariance $\begin
 | b | $\mathbb{V}(\varepsilon_2)$ | un nombre |
 | c | $\mathbb{V}(S)$ | un nombre |
 | d | $\operatorname{Cov}(\varepsilon_1x_1,\ \varepsilon_2x_2)$ | un nombre |
-| e | $\mathbb{V}(S)$ si $x_1$ avait pour moyenne 1 au lieu de 0, le reste inchangé | un nombre |
+| e | $\mathbb{V}(S)$ si $x_1$ avait pour moyenne 1 au lieu de 0, le reste inchangé (pour cette question seulement : en f et g, les trois mesures sont de nouveau centrées) | un nombre |
 | f | $\mathbb{V}\big(\varepsilon(x_1 + x_2 + x_3)\big)$, avec **un seul** signe $\varepsilon = \pm 1$ pour les trois mesures | un nombre |
 | g | $\mathbb{V}\big((1 + \varepsilon_1)x_1 + (1 + \varepsilon_2)x_2 + (1 + \varepsilon_3)x_3\big)$ : des multiplicateurs de moyenne 1 | un nombre |
 
@@ -273,7 +273,7 @@ Dans ta copie : pourquoi $\mathbf{1}\mathbf{b}^\top$ est-elle une matrice $4 \ti
 **Objectif :** expliquer sans formule ce que la variance d'un produit doit aux moyennes des facteurs.
 **Prérequis :** fiche §5 · **Parcours :** C, E
 
-Un ami calcule la variance de la surface d'un champ rectangulaire dont la longueur et la largeur sont mesurées avec de petites erreurs indépendantes : « la variance de la longueur fois la variance de la largeur, c'est minuscule, donc la surface est connue presque exactement ». Réponds-lui en 6 à 10 phrases, sans formule, en t'appuyant sur trois idées : ce que devient une petite erreur sur la longueur quand on la multiplie par une largeur de plusieurs dizaines de mètres ; le cas où l'une des deux mesures est exacte ; le seul cas où son calcul est juste. Puis réécris ta réponse en 3 phrases.
+Un ami calcule la variance de la surface d'un champ rectangulaire dont la longueur et la largeur sont mesurées avec de petites erreurs indépendantes : « la variance de la longueur fois la variance de la largeur, c'est minuscule, donc la surface est connue presque exactement ». Réponds-lui en 6 à 10 phrases, sans formule, en t'appuyant sur trois idées : ce que devient une petite erreur sur la longueur quand on la multiplie par une largeur de plusieurs dizaines de mètres ; le cas où l'une des deux mesures est exacte ; le seul cas où son calcul est juste (en dehors de deux mesures exactes, où tout vaut zéro). Puis réécris ta réponse en 3 phrases.
 
 <a id="entretien"></a>
 
