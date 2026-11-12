@@ -58,7 +58,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M19](#m19) | Hessienne, conditionnement et convergence | 19 | §5.7, §5.8, §7.1 | 14,2 h | ✅ exercices | 1 |
 | [M20](#m20) | Tenseurs, axes et estimateurs pondérés | 20 | — | 8,8 h | ✅ exercices | 1 |
 | [CP4](#cp4) | Examen blanc de la partie IV | — | — | 3,1 h | ✅ exercices | 1 |
-| [M21](#m21) | Convolution, matrices de Toeplitz et équivariance | 21 | — | 13,6 h | ✅ exercices | 1 |
+| [M21](#m21) | Convolution, matrices de Toeplitz et équivariance | 21 | — | 14,4 h | ✅ exercices | 1 |
 | [M22](#m22) | Récurrences vectorielles, rayon spectral et normes de matrices | 22 | (§4.2) | 13,5 h | ✅ exercices | 1 |
 | [CP5](#cp5) | Examen blanc de la partie V | — | — | 3,1 h | ✅ exercices | 1 |
 | [M25a](#m25a) | Gaussienne multivariée | 25 | §6.5, §9.3 | ≈ 14 h (estimé) | plan | 1 |
@@ -84,7 +84,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | II · Concepts | 7 | 256 | 83,9 h | 54,0 h |
 | III · ML classique | 8 | 321 | 107,5 h | 71,2 h |
 | IV · Réseaux | 6 | 182 | 58,8 h | 41,9 h |
-| V · Architectures | 3 | 94 | 30,2 h | 23,9 h |
+| V · Architectures | 3 | 94 | 31,1 h | 24,4 h |
 | VI · Génératif et RL | 6 | — | ≈ 60 h (estimé) | à détailler |
 | VII · Bonus | 6 | — | ≈ 56 h (estimé) | à détailler |
 | fin · Fin | 1 | — | ≈ 25 h (estimé) | à détailler |
@@ -3221,7 +3221,7 @@ Le bilan de la partie IV (M16 à M20), juste avant le checkpoint IV de workbookI
 
 La convolution, d'abord entre deux suites (le produit de deux polynômes, la loi de la somme de deux dés, une moyenne mobile), puis la corrélation croisée des bibliothèques, qui ne retourne pas le noyau, et les pochoirs de différences finies ; la convolution comme application linéaire, de matrice de Toeplitz creuse ; l'équivariance par translation, les convolutions circulaires et le pooling ; le pas, la dilatation, le padding, le nombre de positions d'une fenêtre (un dénombrement) et la convolution transposée ; les grilles de mesures à plusieurs canaux, les noyaux séparables, les paramètres et le coût ; la composition de convolutions et le champ récepteur ; enfin le pire cas d'une petite perturbation, une forme linéaire maximisée sur une boule. workbookIA 21 applique ces outils aux réseaux convolutifs.
 
-**Temps** : 13,6 h en parcours complet, 10,4 h en parcours essentiel (lecture 160 min, 22 flashcards).
+**Temps** : 14,4 h en parcours complet, 10,9 h en parcours essentiel (lecture 160 min, 22 flashcards).
 
 **Objectifs**
 
@@ -3265,23 +3265,23 @@ La convolution, d'abord entre deux suites (le produit de deux polynômes, la loi
 | M21.R1 | 🔁 | La moyenne mobile d'une suite (R5) | ★ | 5 | §1 | C, E | manuel | — |
 | M21.R2 | 🔁 | La matrice d'une application linéaire, son noyau et son rang (M12a) | ★ | 5 | §3 | C, E | manuel | — |
 | M21.R3 | 🔁 | Le rang d'un produit extérieur u vᵀ et la décomposition en valeurs singulières (M12d) | ★ | 5 | §6 | C | manuel | — |
-| M21.1 | ✏️ | Deux dés truqués et un produit de polynômes : la même convolution | ★ | 15 | §1 | C, E | wbm | — |
+| M21.1 | ✏️ | Deux dés truqués et un produit de polynômes : la même convolution | ★ | 20 | §1 | C, E | wbm | — |
 | M21.2 | ✏️ | Convoluer et corréler un signal à la main, dans les trois modes | ★★ | 20 | §2 | C, E | wbm | — |
 | M21.3 | ✏️ | Des pochoirs de différences finies : dérivée et dérivée seconde d'un signal échantillonné | ★★ | 15 | §2 | C, E | wbm | — |
 | M21.4 | ✏️ | La matrice de Toeplitz d'une convolution pleine et d'une convolution valide : coefficients non nuls, rang et noyau | ★★ | 20 | §3 | C, E | wbm | — |
 | M21.5 | ✏️ | Décaler puis filtrer, ou filtrer puis décaler : l'équivariance, ses bords et son pas | ★★ | 15 | §4 | C, E | wbm | — |
 | M21.6 | ✏️ | Compter les positions d'une fenêtre : pas, dilatation, padding, « même taille » avec un pas, et le problème inverse | ★★ | 25 | §5 | C, E | wbm | — |
-| M21.7 | ✏️ | Sous-échantillonner et insérer des zéros : la convolution transposée d'un signal et ses recouvrements | ★★ | 20 | §5 | C, E | wbm | — |
-| M21.8 | ✏️ | Une carte de températures filtrée par un laplacien discret et par un lissage séparable | ★★ | 20 | §6 | C, E | wbm | — |
+| M21.7 | ✏️ | Sous-échantillonner et insérer des zéros : la convolution transposée d'un signal et ses recouvrements | ★★ | 25 | §5 | C, E | wbm | — |
+| M21.8 | ✏️ | Une carte de températures filtrée par un laplacien discret et par un lissage séparable | ★★ | 25 | §6 | C, E | wbm | — |
 | M21.9 | ✏️ | Paramètres et coût d'un filtrage à plusieurs canaux : standard, groupé, par canal, 1 × 1 | ★★ | 20 | §6 | C, E | wbm | — |
 | M21.10 | ✏️ | Le noyau équivalent de deux lissages successifs, et le champ récepteur d'une pile avec pas et dilatation | ★★ | 20 | §7 | C, E | wbm | — |
 | M21.11 | ✏️ | Le pire cas d'une erreur de capteurs bornée : une forme linéaire sur les boules L∞ et L2 | ★ | 15 | §8 | C, E | wbm | — |
-| M21.12 | ∂ | La convolution est commutative et associative ; la corrélation croisée ne l'est pas | ★★ | 15 | §1 | C | manuel | — |
-| M21.13 | ∂ | Les applications linéaires qui commutent avec le décalage circulaire sont les convolutions circulaires ; la transposée d'une matrice circulante | ★★★ | 25 | §4 | C | manuel | — |
-| M21.14 | ∂ | Le nombre de positions ⌊(n + 2p − d(k − 1) − 1)/s⌋ + 1 quand la fenêtre tient, par un dénombrement | ★★ | 15 | §5 | C, E | manuel | — |
-| M21.15 | ∂ | Le champ récepteur d'une pile de convolutions : récurrence et forme close | ★★ | 20 | §7 | C | manuel | — |
+| M21.12 | ∂ | La convolution est commutative et associative ; la corrélation croisée ne l'est pas | ★★ | 25 | §1 | C | manuel | — |
+| M21.13 | ∂ | Les applications linéaires qui commutent avec le décalage circulaire sont les convolutions circulaires ; la transposée d'une matrice circulante | ★★★ | 30 | §4 | C | manuel | — |
+| M21.14 | ∂ | Le nombre de positions ⌊(n + 2p − d(k − 1) − 1)/s⌋ + 1 quand la fenêtre tient, par un dénombrement | ★★ | 20 | §5 | C, E | manuel | — |
+| M21.15 | ∂ | Le champ récepteur d'une pile de convolutions : récurrence et forme close | ★★ | 25 | §7 | C | manuel | — |
 | M21.16 | ∂ | Le maximum d'une forme linéaire sur une boule L∞ vaut ε‖g‖₁, atteint en ε signe(g) | ★ | 10 | §8 | C | manuel | — |
-| M21.17 | 🔗 | Pont : filtrer une grille à trois canaux comme les bibliothèques, formes (C, H, W), poids (C_out, C_in, k, k), et sans retournement | ★ | 15 | §2 §6 | C, E | wbm | — |
+| M21.17 | 🔗 | Pont : filtrer une grille à trois canaux comme les bibliothèques, formes (C, H, W), poids (C_out, C_in, k, k), et sans retournement | ★ | 25 | §2 §6 | C, E | wbm | — |
 | M21.18 | 🗣️ | Expliquer avec une règle graduée et un pochoir pourquoi une convolution est équivariante, mais pas invariante | ★ | 10 | §4 | C, E | manuel | — |
 | M21.E1 | 💼 | « Pourquoi une convolution est-elle une matrice de Toeplitz, et pourquoi ne la forme-t-on jamais ? » | ★ | 10 | §3 | C | manuel | — |
 | M21.19 | 🔨 | La convolution de deux suites, dans les trois modes · `convolve` | ★★ | 30 | §1 §2 | C, E | pytest | — |
@@ -3292,7 +3292,7 @@ La convolution, d'abord entre deux suites (le produit de deux polynômes, la loi
 | M21.24 | 🔮 | Prédire l'effet d'un décalage de l'entrée sur un filtrage avec pas, puis vérifier | ★ | 15 | §4 §5 | C, E | wbm | M21.19 |
 | M21.25 | 🔬 | Le coût d'un filtrage direct ou séparable, selon la taille du noyau : mesurer, puis comparer à k² et 2k | ★★ | 20 | §6 | C | wbm | M21.19 |
 | M21.26 | 🎨 | La carte des recouvrements d'une convolution transposée : un damier ou pas, selon k et s | ★ | 15 | §5 | C, E | manuel | — |
-| M21.27 | 🐛 | Chasse à l'erreur : un noyau non retourné, une taille arrondie vers le haut, un noyau de rang 2 « séparé » | ★ | 20 | §2 §5 §6 | C, E | wbm | — |
+| M21.27 | 🐛 | Chasse à l'erreur : un noyau non retourné, des recouvrements supposés réguliers, un noyau de rang 2 « séparé » | ★ | 20 | §2 §5 §6 | C, E | wbm | — |
 | M21.28 | 🛠️ | Un test de propriété : la matrice de Toeplitz fois x égale la convolution, pour des longueurs tirées au hasard | ★ | 15 | §3 | C | manuel | M21.20 |
 | M21.29 | 🏆 | Défi : retrouver un noyau inconnu à partir d'un signal et de sa version filtrée bruitée, par les moindres carrés | ★★★ | 25 | §3 | C | wbm | M21.20 |
 

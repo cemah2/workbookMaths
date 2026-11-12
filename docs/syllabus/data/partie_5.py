@@ -16,7 +16,7 @@ is also compared with the checkpoint V and the mini-project V of workbookIA.
 
 CHAPTERS = [
     {
-        "id": "M21", "dir": "m21_convolution", "hours": 13.6, "generation_sessions": 1, "mml": [],
+        "id": "M21", "dir": "m21_convolution", "hours": 14.4, "generation_sessions": 1, "mml": [],
         "summary": "La convolution, d'abord entre deux suites (le produit de deux polynômes, la loi de la somme de deux "
                    "dés, une moyenne mobile), puis la corrélation croisée des bibliothèques, qui ne retourne pas le "
                    "noyau, et les pochoirs de différences finies ; la convolution comme application linéaire, de "
@@ -153,7 +153,7 @@ CHAPTERS = [
             ("M21.R2", "🔁", 1, 5, "La matrice d'une application linéaire, son noyau et son rang (M12a)", "§3", "E"),
             ("M21.R3", "🔁", 1, 5, "Le rang d'un produit extérieur u vᵀ et la décomposition en valeurs singulières "
              "(M12d)", "§6", ""),
-            ("M21.1", "✏️", 1, 15, "Deux dés truqués et un produit de polynômes : la même convolution", "§1", "E"),
+            ("M21.1", "✏️", 1, 20, "Deux dés truqués et un produit de polynômes : la même convolution", "§1", "E"),
             ("M21.2", "✏️", 2, 20, "Convoluer et corréler un signal à la main, dans les trois modes", "§2", "E"),
             ("M21.3", "✏️", 2, 15, "Des pochoirs de différences finies : dérivée et dérivée seconde d'un signal "
              "échantillonné", "§2", "E"),
@@ -163,9 +163,9 @@ CHAPTERS = [
              "pas", "§4", "E"),
             ("M21.6", "✏️", 2, 25, "Compter les positions d'une fenêtre : pas, dilatation, padding, « même taille » "
              "avec un pas, et le problème inverse", "§5", "E"),
-            ("M21.7", "✏️", 2, 20, "Sous-échantillonner et insérer des zéros : la convolution transposée d'un signal "
+            ("M21.7", "✏️", 2, 25, "Sous-échantillonner et insérer des zéros : la convolution transposée d'un signal "
              "et ses recouvrements", "§5", "E"),
-            ("M21.8", "✏️", 2, 20, "Une carte de températures filtrée par un laplacien discret et par un lissage "
+            ("M21.8", "✏️", 2, 25, "Une carte de températures filtrée par un laplacien discret et par un lissage "
              "séparable", "§6", "E"),
             ("M21.9", "✏️", 2, 20, "Paramètres et coût d'un filtrage à plusieurs canaux : standard, groupé, par canal, "
              "1 × 1", "§6", "E"),
@@ -173,18 +173,18 @@ CHAPTERS = [
              "pile avec pas et dilatation", "§7", "E"),
             ("M21.11", "✏️", 1, 15, "Le pire cas d'une erreur de capteurs bornée : une forme linéaire sur les boules "
              "L∞ et L2", "§8", "E"),
-            ("M21.12", "∂", 2, 15, "La convolution est commutative et associative ; la corrélation croisée ne l'est "
+            ("M21.12", "∂", 2, 25, "La convolution est commutative et associative ; la corrélation croisée ne l'est "
              "pas", "§1", ""),
-            ("M21.13", "∂", 3, 25, "Les applications linéaires qui commutent avec le décalage circulaire sont les "
+            ("M21.13", "∂", 3, 30, "Les applications linéaires qui commutent avec le décalage circulaire sont les "
              "convolutions circulaires ; la transposée d'une matrice circulante", "§4", ""),
-            ("M21.14", "∂", 2, 15, "Le nombre de positions ⌊(n + 2p − d(k − 1) − 1)/s⌋ + 1 quand la fenêtre tient, par un "
+            ("M21.14", "∂", 2, 20, "Le nombre de positions ⌊(n + 2p − d(k − 1) − 1)/s⌋ + 1 quand la fenêtre tient, par un "
              "dénombrement",
              "§5", "E"),
-            ("M21.15", "∂", 2, 20, "Le champ récepteur d'une pile de convolutions : récurrence et forme close", "§7",
+            ("M21.15", "∂", 2, 25, "Le champ récepteur d'une pile de convolutions : récurrence et forme close", "§7",
              ""),
             ("M21.16", "∂", 1, 10, "Le maximum d'une forme linéaire sur une boule L∞ vaut ε‖g‖₁, atteint en "
              "ε signe(g)", "§8", ""),
-            ("M21.17", "🔗", 1, 15, "Pont : filtrer une grille à trois canaux comme les bibliothèques, formes "
+            ("M21.17", "🔗", 1, 25, "Pont : filtrer une grille à trois canaux comme les bibliothèques, formes "
              "(C, H, W), poids (C_out, C_in, k, k), et sans retournement", "§2 §6", "E"),
             ("M21.18", "🗣️", 1, 10, "Expliquer avec une règle graduée et un pochoir pourquoi une convolution est "
              "équivariante, mais pas invariante", "§4", "E"),
@@ -202,8 +202,8 @@ CHAPTERS = [
              "comparer à k² et 2k", "§6", "p:M21.19"),
             ("M21.26", "🎨", 1, 15, "La carte des recouvrements d'une convolution transposée : un damier ou pas, selon "
              "k et s", "§5", "E"),
-            ("M21.27", "🐛", 1, 20, "Chasse à l'erreur : un noyau non retourné, une taille arrondie vers le haut, un "
-             "noyau de rang 2 « séparé »", "§2 §5 §6", "E"),
+            ("M21.27", "🐛", 1, 20, "Chasse à l'erreur : un noyau non retourné, des recouvrements supposés réguliers, "
+             "un noyau de rang 2 « séparé »", "§2 §5 §6", "E"),
             ("M21.28", "🛠️", 1, 15, "Un test de propriété : la matrice de Toeplitz fois x égale la convolution, pour "
              "des longueurs tirées au hasard", "§3", "p:M21.20"),
             ("M21.29", "🏆", 3, 25, "Défi : retrouver un noyau inconnu à partir d'un signal et de sa version filtrée "
