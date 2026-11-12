@@ -91,7 +91,7 @@ X, Y, Z = sympy.symbols("x y z")
 SPHERICAL = sympy.Matrix([X * sympy.sin(Y) * sympy.cos(Z), X * sympy.sin(Y) * sympy.sin(Z), X * sympy.cos(Y)])
 MIXED = sympy.Matrix([sympy.exp(X * Y) - Z, sympy.log(1 + X ** 2) * sympy.sqrt(Z), sympy.atan(Y - Z)])
 WIDE = sympy.Matrix([X * Y * Z + sympy.sin(X), Y ** 3 - 2 * X * Z])                     # ℝ³ → ℝ²
-TALL_2 = sympy.Matrix([X ** 2 * Y, sympy.cos(X + 2 * Y), X - Y ** 2, sympy.tanh(X * Y)])   # ℝ² → ℝ⁴
+TALL_2 = sympy.Matrix([X ** 2 * Y, sympy.cos(X + 2 * Y), X - Y ** 2, sympy.atan(X * Y)])   # ℝ² → ℝ⁴
 
 
 def _numeric(expr, symbols):
@@ -199,7 +199,7 @@ def test_numerical_jacobian_takes_2n_evaluations_and_leaves_x_alone(jac):
     rng = np.random.default_rng(5011)
     n = 7
     A = rng.normal(size=(4, n))
-    f = Counted(lambda p: A @ np.tanh(p))
+    f = Counted(lambda p: A @ np.sin(p))
     x = rng.normal(size=n)
     kept = x.copy()
     _result(lambda: jac.numerical_jacobian(f, x), "a (4, 7) Jacobian", "a map of ℝ⁷ into ℝ⁴")
@@ -316,12 +316,12 @@ def test_jacobian_vector_product_takes_two_evaluations(jac):
     rng = np.random.default_rng(5014)
     n = 200
     A = rng.normal(size=(3, n)) / np.sqrt(n)
-    f = Counted(lambda p: np.tanh(A @ p))
+    f = Counted(lambda p: np.arctan(A @ p))
     x, v = rng.normal(size=n), rng.normal(size=n) / np.sqrt(n)
     x_kept, v_kept = x.copy(), v.copy()
     got = _result(lambda: jac.jacobian_vector_product(f, x, v), "J v of length 3", "a map of ℝ²⁰⁰ into ℝ³")
-    want = (1 - np.tanh(A @ x) ** 2) * (A @ v)
-    _close(got, want, "J v for p ↦ tanh(A p) of ℝ²⁰⁰ into ℝ³")
+    want = (A @ v) / (1 + (A @ x) ** 2)
+    _close(got, want, "J v for p ↦ arctan(A p) of ℝ²⁰⁰ into ℝ³")
     assert f.calls <= 3, (f"expected 2 evaluations of f (x + h v and x - h v), got {f.calls}: J v needs no "
                           "column of the Jacobian")
     assert np.array_equal(x, x_kept) and np.array_equal(v, v_kept), "expected x and v to be left unchanged"

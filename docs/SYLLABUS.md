@@ -2920,7 +2920,7 @@ La dérivée d'une application de ℝⁿ dans ℝᵐ : la jacobienne (une ligne 
 | M17.6 | ✏️ | Dérivées à gauche et à droite d'une fonction définie par morceaux, et la dérivée d'une composée de sept copies d'une fonction lisse | ★★ | 15 | §6 | C, E | wbm | — |
 | M17.7 | ✏️ | Une loi de Boltzmann à quatre niveaux d'énergie : rapports de populations, énergie moyenne, et la température où le niveau fondamental garde la moitié | ★★ | 15 | §7 | C, E | wbm | — |
 | M17.8 | ∂ | La règle de la chaîne pour des applications de ℝⁿ dans ℝᵐ, à partir de l'approximation linéaire | ★★★ | 20 | §3 | C, E | manuel | — |
-| M17.9 | ∂ | Une fonction appliquée coordonnée par coordonnée a une jacobienne diagonale, et J v = f′(x) ⊙ v | ★ | 15 | §2 | C | manuel | — |
+| M17.9 | ∂ | Une fonction appliquée coordonnée par coordonnée a une jacobienne diagonale, et J v = g′(x) ⊙ v | ★ | 15 | §2 | C | manuel | — |
 | M17.10 | ∂ | diag(p) − ppᵀ est la covariance d'un vecteur one-hot : symétrique, semi-définie positive, de noyau contenant 1 | ★★ | 20 | §7 | C, E | manuel | — |
 | M17.11 | ✏️ | Le recuit simulé : une loi de Boltzmann sur cinq configurations, dont on baisse la température | ★★ | 15 | §7 | C | wbm | — |
 | M17.12 | 📖 | MML §5.3 : gradients de fonctions à valeurs vectorielles, en anglais | ★★ | 35 | §1 §3 §4 | C | manuel | — |

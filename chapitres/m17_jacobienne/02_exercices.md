@@ -28,7 +28,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M17.Q2 — Diagonale ou pleine ? 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
 
-Pour chaque application de $\mathbb{R}^4$ dans $\mathbb{R}^4$, dis si sa jacobienne est diagonale (en tout point), triangulaire sans être diagonale, ou pleine.
+Pour chaque application de $\mathbb{R}^4$ dans $\mathbb{R}^4$, dis si sa jacobienne est diagonale (en tout point), triangulaire sans être diagonale, ou pleine (en un point quelconque).
 
 1. $\mathbf{x} \mapsto e^{\mathbf{x}}$ (coordonnée par coordonnée).
 2. $\mathbf{x} \mapsto \mathbf{x} \odot \mathbf{x}$.
@@ -58,7 +58,7 @@ $L : \mathbb{R}^3 \to \mathbb{R}$, $\mathbf{f} : \mathbb{R}^4 \to \mathbb{R}^3$.
 2. Écris $\nabla_{\mathbf{x}}(L \circ \mathbf{f})$ en ligne, puis en colonne.
 3. Quelle est la forme de $\nabla_{\mathbf{x}}(L \circ \mathbf{f})$ dans NumPy ?
 4. Vrai ou faux : $\mathbf{J}_{\mathbf{f}}\,\nabla_{\mathbf{y}}L$ est le gradient de $L \circ \mathbf{f}$ en convention colonne.
-5. Une fonction réelle d'une matrice $\mathbf{W}$ de forme $(4, 2)$ : quelle est la forme de son gradient dans NumPy ?
+5. Une fonction réelle d'une matrice $\mathbf{M}$ de forme $(4, 2)$ : quelle est la forme de son gradient dans NumPy ?
 6. Vrai ou faux : les deux conventions donnent les mêmes nombres.
 
 ### M17.Q5 — Jacobienne-vecteur ou vecteur-jacobienne : combien d'opérations ? 🧠 ★ ⏱️ 4 min
@@ -77,10 +77,10 @@ $L : \mathbb{R}^3 \to \mathbb{R}$, $\mathbf{f} : \mathbb{R}^4 \to \mathbb{R}^3$.
 Un système a trois niveaux d'énergies $0$, $1$ et $3$.
 
 1. À la température $T = 1$, que vaut le rapport $\frac{p_3}{p_2}$ des populations des niveaux d'énergies 3 et 1 ?
-2. Vers quoi tend $\mathbf{p}$ quand $T \to 0$ ? Quand $T \to \infty$ ?
+2. À $T = 1$, que vaut la fonction de partition $Z$ (3 décimales) ?
 3. Vers quoi tend l'énergie moyenne quand $T \to 0$ ? Quand $T \to \infty$ ?
-4. Vrai ou faux : si l'on ajoute 10 à chaque énergie, la loi change.
-5. Vrai ou faux : la population d'un niveau d'énergie plus haute peut dépasser celle d'un niveau plus bas.
+4. À quelle température le niveau d'énergie 3 est-il 100 fois moins peuplé que le niveau d'énergie 0 ?
+5. On ajoute un quatrième état, d'énergie 1 lui aussi : vrai ou faux, il a toujours la même population que l'autre état d'énergie 1.
 6. Vrai ou faux : $\mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$ est inversible.
 
 <a id="rappels"></a>
@@ -115,7 +115,7 @@ $\mathbf{X} = (X_1, X_2)$ a la matrice de covariance $\boldsymbol{\Sigma} = \beg
 1. $\mathbb{V}(X_1 + X_2)$ ? $\mathbb{V}(X_1 - X_2)$ ?
 2. Pour une ligne $\mathbf{v}$, comment s'écrit $\mathbb{V}(\mathbf{v} \cdot \mathbf{X})$ avec $\boldsymbol{\Sigma}$ ?
 3. Pourquoi une matrice de covariance est-elle semi-définie positive ?
-4. Si $X_1 + X_2$ était constant, que vaudrait $\boldsymbol{\Sigma}\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ ?
+4. Pour une autre matrice de covariance $\boldsymbol{\Sigma}'$, celle d'un vecteur $(X_1, X_2)$ dont la somme $X_1 + X_2$ est constante, que vaut $\boldsymbol{\Sigma}'\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ ? Est-ce possible pour la matrice $\boldsymbol{\Sigma}$ ci-dessus ?
 5. Une matrice de covariance est-elle toujours symétrique ? Toujours inversible ?
 
 <a id="papier"></a>
@@ -142,7 +142,7 @@ $\mathbf{f}(r, \theta) = (r\cos\theta,\ r\sin\theta)$, au point $(r, \theta) = (
 | d | l'approximation linéaire de $\mathbf{f}(4{,}1 ;\ \frac{\pi}{6} + 0{,}05)$ | une liste de 2 nombres (4 décimales) |
 | e | la valeur exacte de $\mathbf{f}(4{,}1 ;\ \frac{\pi}{6} + 0{,}05)$ | une liste de 2 nombres (4 décimales) |
 | f | la distance entre d) et e) | un nombre (4 décimales) |
-| g | l'aire approchée de l'image du petit rectangle $[4 ;\ 4{,}01] \times [\frac{\pi}{6} ;\ \frac{\pi}{6} + 0{,}02]$ | un nombre |
+| g | l'aire de l'image du petit rectangle $[4 ;\ 4{,}01] \times [\frac{\pi}{6} ;\ \frac{\pi}{6} + 0{,}02]$, approchée par le déterminant | un nombre (4 décimales) |
 
 Dans ta copie : écris $\mathbf{J}_{\mathbf{f}}(r, \theta)$ en général, et montre que $\det\mathbf{J}_{\mathbf{f}}(r, \theta) = r$. Pourquoi la deuxième colonne a-t-elle la longueur $r$, et la première la longueur 1 (que fait le point quand $\theta$ bouge, puis quand $r$ bouge) ? Pourquoi l'erreur f) est-elle bien plus petite que les déplacements $0{,}1$ et $0{,}05$ ?
 
@@ -210,7 +210,7 @@ $\mathbf{f}(x_1, x_2) = (x_1 - x_2,\ x_1x_2,\ x_2^2)$ de $\mathbb{R}^2$ dans $\m
 | c | $\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ | une matrice |
 | d | $\nabla_{\mathbf{x}}(L \circ \mathbf{f})$ | une liste de 2 nombres |
 | e | la forme de $\mathbf{J}_{\mathbf{f}}^\top$ | une liste de 2 entiers |
-| f | la dérivée directionnelle de $L \circ \mathbf{f}$ en $\mathbf{x}$ dans la direction $(1, 1)$ | un nombre |
+| f | la dérivée en $t = 0$ de $t \mapsto (L \circ \mathbf{f})\big(\mathbf{x} + t\,(1, 1)\big)$ (sans normaliser $(1, 1)$) | un nombre |
 
 Dans ta copie : calcule d) en ligne, $\nabla_{\mathbf{y}}L\,\mathbf{J}_{\mathbf{f}}$, puis en colonne, $\mathbf{J}_{\mathbf{f}}^\top\nabla_{\mathbf{y}}L$, et vérifie par la dérivation directe de $L(\mathbf{f}(\mathbf{x}))$. Pourquoi $\mathbf{J}_{\mathbf{f}}\,\nabla_{\mathbf{y}}L$ n'a-t-il pas de sens ici ?
 
@@ -230,9 +230,9 @@ Dans ta copie : calcule d) en ligne, $\nabla_{\mathbf{y}}L\,\mathbf{J}_{\mathbf{
 | d | les dérivées à gauche et à droite de $x \mapsto \lvert c(x) - 40\rvert$ au point où $c(x) = 40$ | une liste de 2 nombres |
 | e | $x_7 = g^{\circ 7}(1)$ | une fraction entre guillemets (irréductible) |
 | f | la dérivée de $g^{\circ 7}$ en 1 | une fraction entre guillemets (irréductible) |
-| g | $\lvert g'(x^*)\rvert$, au point fixe $x^* > 0$ de $g$ | un nombre (4 décimales) |
+| g | $\lvert g'(x^*)\rvert$, au point fixe $x^* > 0$ de $g$ | un nombre (3 décimales) |
 
-Dans ta copie : $c$ est-elle continue ? En quel coin a-t-elle des sous-gradients (M13b), et lesquels ? Pourquoi n'en a-t-elle pas en l'autre ? Pour f), écris le produit des sept dérivées $g'(x_k)$, avec les $x_k$ en fractions, et observe les simplifications. Comment le facteur g) explique-t-il l'ordre de grandeur de f) ?
+Dans ta copie : $c$ est-elle continue ? Restreinte à $[0 ;\ 300]$, $c$ est convexe : quels sont ses sous-gradients en 100 (M13b) ? Pourquoi $c$, sur tout $[0 ;\ +\infty[$, n'est-elle pas convexe, et pourquoi n'a-t-elle aucun sous-gradient en 300 ? Pour f), écris le produit des sept dérivées $g'(x_k)$, avec les $x_k$ en fractions, et observe les simplifications. Comment le facteur g) explique-t-il l'ordre de grandeur de f) ?
 
 ### Ex M17.7 — Une loi de Boltzmann à quatre niveaux d'énergie : rapports de populations, énergie moyenne, et la température où le niveau fondamental garde la moitié ✏️ ★★ ⏱️ 15 min
 **Objectif :** calculer une loi de Boltzmann, ses rapports de populations et son énergie moyenne, ses limites, et résoudre une équation en température.
@@ -259,14 +259,14 @@ Un livreur cherche la plus courte de cinq tournées A, B, C, D et E, de longueur
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | la probabilité de la tournée B à $T = 5$ | un nombre (4 décimales) |
-| b | la probabilité de la tournée B à $T = 1$ | un nombre (4 décimales) |
+| a | la probabilité de la tournée B à $T = 4$ | un nombre (4 décimales) |
+| b | la probabilité de la tournée B à $T = 1$ | un nombre (2 décimales) |
 | c | la longueur moyenne des tournées tirées à $T = 1$ | un nombre (4 décimales) |
-| d | la plus grande température parmi 5 ; 2 ; 1 ; 0,5 ; 0,2 où la probabilité de B dépasse 0,9 | un nombre |
+| d | la probabilité de tirer la tournée B ou la tournée D, à $T = 1$ | un nombre (4 décimales) |
 | e | la probabilité d'accepter le passage de B à D à $T = 0{,}5$ | un nombre (4 décimales) |
 | f | la probabilité d'accepter le passage de D à B à $T = 0{,}5$ | un nombre |
 
-Dans ta copie : pourquoi peut-on soustraire 38 à toutes les longueurs avant de calculer (fiche §7) ? Que devient la loi quand $T \to \infty$, et pourquoi commence-t-on le recuit à haute température ? Pourquoi accepte-t-on parfois une tournée plus longue ?
+Dans ta copie : écris les poids $e^{-\ell/T}$ des cinq tournées à $T = 1$ sous la forme $e^{-38}$ fois un nombre simple, et dis pourquoi le facteur $e^{-38}$ disparaît. Comment la probabilité d'accepter une tournée plus longue de 1 km évolue-t-elle quand $T$ passe de 1 à 0,5 ? Pourquoi accepte-t-on parfois une tournée plus longue ?
 
 <a id="demonstrations"></a>
 
@@ -276,17 +276,17 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 
 ### Ex M17.8 — La règle de la chaîne pour des applications de ℝⁿ dans ℝᵐ, à partir de l'approximation linéaire ∂ ★★★ ⏱️ 20 min
 **Objectif :** démontrer la règle de la chaîne multivariée à partir de la définition de la jacobienne par l'approximation linéaire.
-**Prérequis :** fiche §1 et §3 ; M12a · **Parcours :** C, E
+**Prérequis :** fiche §1 et §3 ; M12a, M12d · **Parcours :** C, E
 
 On dit que $\mathbf{f} : \mathbb{R}^n \to \mathbb{R}^p$ est **différentiable** en $\mathbf{x}$, de jacobienne $\mathbf{J}_{\mathbf{f}}$, si $\mathbf{f}(\mathbf{x} + \mathbf{h}) = \mathbf{f}(\mathbf{x}) + \mathbf{J}_{\mathbf{f}}\mathbf{h} + \boldsymbol{\varepsilon}_{\mathbf{f}}(\mathbf{h})\,\lVert\mathbf{h}\rVert$ avec $\boldsymbol{\varepsilon}_{\mathbf{f}}(\mathbf{h}) \to \mathbf{0}$ quand $\mathbf{h} \to \mathbf{0}$. $\mathbf{g} : \mathbb{R}^p \to \mathbb{R}^m$ est différentiable en $\mathbf{y} = \mathbf{f}(\mathbf{x})$, de jacobienne $\mathbf{J}_{\mathbf{g}}$.
 
-1. Pose $\mathbf{k} = \mathbf{f}(\mathbf{x} + \mathbf{h}) - \mathbf{f}(\mathbf{x})$. Montre que $\lVert\mathbf{k}\rVert \le C\lVert\mathbf{h}\rVert$ pour $\mathbf{h}$ assez petit, avec une constante $C$ (utilise $\lVert\mathbf{J}_{\mathbf{f}}\mathbf{h}\rVert \le \lVert\mathbf{J}_{\mathbf{f}}\rVert_2\,\lVert\mathbf{h}\rVert$, M12d).
+1. Pose $\mathbf{k} = \mathbf{f}(\mathbf{x} + \mathbf{h}) - \mathbf{f}(\mathbf{x})$. Montre que $\lVert\mathbf{k}\rVert \le C\lVert\mathbf{h}\rVert$ pour $\mathbf{h}$ assez petit, avec une constante $C$ (utilise $\lVert\mathbf{J}_{\mathbf{f}}\mathbf{h}\rVert \le \lVert\mathbf{J}_{\mathbf{f}}\rVert_2\,\lVert\mathbf{h}\rVert$, la norme spectrale de M12d). Attention : $\mathbf{k}$ peut être nul pour un $\mathbf{h}$ non nul ; prévois ce cas à l'étape 3.
 2. Écris $\mathbf{g}(\mathbf{f}(\mathbf{x} + \mathbf{h})) = \mathbf{g}(\mathbf{y} + \mathbf{k})$ avec l'approximation de $\mathbf{g}$, puis remplace $\mathbf{k}$.
 3. Montre que tout ce qui n'est pas $\mathbf{g}(\mathbf{y}) + \mathbf{J}_{\mathbf{g}}\mathbf{J}_{\mathbf{f}}\mathbf{h}$ est petit devant $\lVert\mathbf{h}\rVert$, et conclus : $\mathbf{J}_{\mathbf{g} \circ \mathbf{f}}(\mathbf{x}) = \mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$.
 4. Écris le coefficient $(i, j)$ de ce produit, et interprète-le comme une somme sur les variables intermédiaires.
 5. Retrouve la règle de la chaîne de R7 dans le cas $n = p = m = 1$, et la formule $\nabla_{\mathbf{x}}(L \circ \mathbf{f}) = \nabla_{\mathbf{y}}L\,\mathbf{J}_{\mathbf{f}}$ du §4 dans le cas $m = 1$.
 
-### Ex M17.9 — Une fonction appliquée coordonnée par coordonnée a une jacobienne diagonale, et J v = f′(x) ⊙ v ∂ ★ ⏱️ 15 min
+### Ex M17.9 — Une fonction appliquée coordonnée par coordonnée a une jacobienne diagonale, et J v = g′(x) ⊙ v ∂ ★ ⏱️ 15 min
 **Objectif :** démontrer qu'une fonction appliquée coordonnée par coordonnée a une jacobienne diagonale, et en tirer les coûts.
 **Prérequis :** fiche §2 ; M09a · **Parcours :** C
 
@@ -296,7 +296,7 @@ $g : \mathbb{R} \to \mathbb{R}$ est dérivable, et $\mathbf{f}(\mathbf{x}) = (g(
 2. Montre que $\mathbf{J}_{\mathbf{f}}(\mathbf{x})\,\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v}$ et que $\mathbf{u}^\top\mathbf{J}_{\mathbf{f}}(\mathbf{x}) = (\mathbf{u} \odot g'(\mathbf{x}))^\top$.
 3. Combien de multiplications coûtent ces produits, contre un produit par une matrice pleine $n \times n$ ?
 4. Montre que la coordonnée $i$ de $\frac{\mathbf{f}(\mathbf{x} + h\mathbf{1}) - \mathbf{f}(\mathbf{x} - h\mathbf{1})}{2h}$ tend vers $g'(x_i)$ quand $h \to 0$ : deux évaluations donnent toute la diagonale.
-5. Pour une matrice $\mathbf{A}$ $n \times n$, que donne le même calcul sur $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ ? Conclus sur l'hypothèse nécessaire.
+5. Pour une matrice $\mathbf{A}$ $n \times n$, que donne le même calcul sur $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ ? Conclus : pourquoi ne peut-on pas faire confiance au raccourci sans savoir que la jacobienne est diagonale ?
 
 ### Ex M17.10 — diag(p) − pᵀp est la covariance d'un vecteur one-hot : symétrique, semi-définie positive, de noyau contenant 1 ∂ ★★ ⏱️ 20 min
 **Objectif :** établir la covariance d'un vecteur one-hot, et en déduire ses propriétés.
@@ -308,7 +308,7 @@ $I$ suit une loi $\mathbf{p} = (p_1, \ldots, p_K)$ sur $\{1, \ldots, K\}$ (une l
 2. Déduis-en $\mathrm{Cov}(\mathbf{Y}) = \mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$, coefficient par coefficient.
 3. Montre que cette matrice est symétrique et semi-définie positive, par un argument de variance.
 4. Montre que $\sum_jY_j$ est constant, et déduis-en que chaque ligne de la matrice a une somme nulle, sans calculer la matrice ; conclus qu'elle n'est pas inversible.
-5. Pour $K = 2$, écris la matrice avec $p_1 = q$ et $p_2 = 1 - q$, et reconnais la variance d'une loi de Bernoulli.
+5. Pour la loi uniforme sur $K = 3$ états, écris la matrice, vérifie qu'elle s'écrit $\frac13\mathbf{I} - \frac19\mathbf{1}^\top\mathbf{1}$, et trouve ses valeurs propres (cherche des vecteurs propres orthogonaux à $\mathbf{1}$).
 
 <a id="reflexion"></a>
 
@@ -329,7 +329,7 @@ Lis MML §5.3 (*Gradients of Vector-Valued Functions*), crayon en main, puis ré
 **Objectif :** expliquer sans formule pourquoi la règle de la chaîne multiplie le long des chemins et additionne entre les chemins.
 **Prérequis :** fiche §3 · **Parcours :** C, E
 
-Un ami voyage avec des euros et des dollars ; il les change d'abord en francs suisses et en livres, puis paie tout en yens. Il demande : « si j'ajoute un euro au départ, combien de yens de plus ? » Réponds-lui en 6 à 10 phrases, sans formule, en t'appuyant sur trois idées : le long d'un chemin de change (euro → franc → yen), les taux se **multiplient** ; d'un chemin à l'autre (par le franc ou par la livre), les effets s'**additionnent** ; le tableau de tous les taux d'une étape est une jacobienne, et le tableau d'un bout à l'autre est leur produit. Dis aussi pourquoi les taux sont ceux du jour où l'on change, et ce que deviendrait la réponse si les taux dépendaient du montant changé. Puis réécris ta réponse en 3 phrases.
+Un ami voyage avec des euros et des dollars ; il change chaque euro et chaque dollar en partie en francs suisses, en partie en livres (selon une répartition fixée), puis paie tout en yens. Il demande : « si j'ajoute un euro au départ, combien de yens de plus ? » Réponds-lui en 6 à 10 phrases, sans formule, en t'appuyant sur trois idées : le long d'un chemin de change (euro → franc → yen), les taux se **multiplient** ; d'un chemin à l'autre (par le franc ou par la livre), les effets s'**additionnent** ; le tableau de tous les taux d'une étape est une jacobienne, et le tableau d'un bout à l'autre est leur produit. Dis aussi pourquoi les taux sont ceux du jour où l'on change, et ce que deviendrait la réponse si les taux dépendaient du montant changé. Puis réécris ta réponse en 3 phrases.
 
 <a id="entretien"></a>
 

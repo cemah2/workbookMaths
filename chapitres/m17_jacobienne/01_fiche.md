@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §7 |
 | **Temps total estimé** | ≈ 10,2 h : lecture et calculs de la fiche ≈ 2 h 10, exercices ≈ 7 h 30, 16 flashcards ≈ 35 min (parcours essentiel ≈ 7,2 h) |
-| **Prérequis** | M05b (dérivées partielles, gradient en ligne, dérivée directionnelle) ; R7 (règle de la chaîne en une variable, dérivées usuelles, $\lvert x \rvert$ et $\max(0, x)$) ; R6 (exponentielle, logarithme) ; M09a (produit matriciel et formes, Hadamard, transposée, coût d'un produit) ; M12a (matrice d'une application linéaire, composition) ; M12c (déterminant, valeurs propres, matrices semi-définies positives) ; M02b (loi catégorielle) ; M02c (matrice de covariance) ; M07 (vecteurs one-hot, base canonique) ; M05a (différences finies centrées) ; M13b (sous-gradient) ; M16 (applications affines, conventions lignes et colonnes) |
+| **Prérequis** | M05b (dérivées partielles, gradient en ligne, dérivée directionnelle) ; R7 (règle de la chaîne en une variable, dérivées usuelles, $\lvert x \rvert$ et $\max(0, x)$) ; R6 (exponentielle, logarithme) ; M09a (produit matriciel et formes, Hadamard, transposée, coût d'un produit) ; M12a (matrice d'une application linéaire, composition) ; M12b (projection orthogonale) ; M12c (déterminant, valeurs propres, matrices semi-définies positives) ; M12d (norme spectrale) ; M02b (loi catégorielle) ; M02c (matrice de covariance) ; M07 (vecteurs one-hot, base canonique) ; M05a (différences finies centrées) ; M13b (sous-gradient) ; M16 (applications affines, conventions lignes et colonnes) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `jacobian.py` : `numerical_jacobian`, `diagonal_jacobian`, `jacobian_vector_product` |
 | **MML** | §5.3 (*Gradients of Vector-Valued Functions*) |
@@ -36,7 +36,7 @@ Parcours essentiel : tout sauf M17.Q5, M17.R3, M17.4, M17.9, M17.11, M17.12, M17
 
 **MML §5.3** (*Gradients of Vector-Valued Functions*) : lis-le **après le §1** de cette fiche et **avant le §3**. Il définit la jacobienne dans la même disposition qu'ici (une ligne par sortie), parle de son déterminant comme d'un facteur de changement d'aire, et dérive ses premières composées ; le 📖 M17.12 te guide. Les exercices de MML sur cette section sont conseillés, pas obligatoires. Si un rappel te manque : MML §5.2 (dérivées partielles et gradient, lu en M05b).
 
-Vocabulaire anglais de ce chapitre : *Jacobian*, *Jacobian determinant*, *vector-valued function*, *numerator layout*, *linear approximation*, *elementwise*, *diagonal matrix*, *chain rule*, *Jacobian-vector product (JVP)*, *vector-Jacobian product (VJP)*, *forward mode*, *reverse mode*, *one-sided derivative*, *left derivative*, *right derivative*, *kink*, *subgradient*, *saturation*, *fixed point*, *Boltzmann distribution*, *energy level*, *temperature*, *partition function*, *simulated annealing*, *one-hot vector*, *positive semidefinite*.
+Vocabulaire anglais de ce chapitre : *Jacobian*, *Jacobian determinant*, *vector-valued function*, *numerator layout*, *linear approximation*, *elementwise*, *diagonal matrix*, *chain rule*, *Jacobian-vector product (JVP)*, *vector-Jacobian product (VJP)*, *forward mode*, *reverse mode*, *one-sided derivative*, *left derivative*, *right derivative*, *kink*, *subgradient*, *saturation*, *fixed point*, *Boltzmann distribution*, *energy level*, *temperature*, *partition function*, *simulated annealing*, *one-hot vector*, *positive semidefinite*. workbookIA écrit « Jacobienne » avec une majuscule, dit « élément par élément » là où cette fiche dit « coordonnée par coordonnée », « coude » pour « point anguleux », et parle de dérivées qui « s'évanouissent » pour des dérivées qui s'éteignent.
 
 ## Objectifs d'apprentissage
 
@@ -60,7 +60,7 @@ Vocabulaire anglais de ce chapitre : *Jacobian*, *Jacobian determinant*, *vector
 7. $\mathbf{J}\mathbf{v}$ (**jacobienne-vecteur**) est la dérivée de toutes les sorties dans la direction $\mathbf{v}$ : deux évaluations de $\mathbf{f}$ par différences, contre $2n$ pour la matrice entière. $\mathbf{u}^\top\mathbf{J}$ (**vecteur-jacobienne**) est le gradient de $\mathbf{u} \cdot \mathbf{f}$.
 8. En un point anguleux, une fonction a une dérivée **à gauche** et une dérivée **à droite** ; une fonction qui **sature** a une dérivée qui tend vers 0 loin de l'origine ($\arctan'(t) = \frac{1}{1 + t^2}$).
 9. La dérivée d'une composée de $L$ fonctions d'une variable est le **produit** de $L$ dérivées : près d'un point fixe $x^*$, elle se comporte comme $\lvert\varphi'(x^*)\rvert^L$, et s'éteint ou explose.
-10. **Boltzmann** : $p_i = \frac{e^{-E_i/T}}{\sum_j e^{-E_j/T}}$ ne dépend que des écarts d'énergie, tend vers le niveau le plus bas quand $T \to 0$ et vers l'uniforme quand $T \to \infty$ ; un vecteur one-hot de loi $\mathbf{p}$ a pour covariance $\mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$, symétrique, semi-définie positive, qui annule $\mathbf{1}$.
+10. **Boltzmann** : la population du niveau d'énergie $E_i$ à la température $T$ est $p_i = \frac{e^{-E_i/T}}{\sum_j e^{-E_j/T}}$ ; l'origine des énergies est arbitraire, et $T$ règle la concentration de la loi sur les niveaux bas ; un vecteur one-hot de loi $\mathbf{p}$ a pour covariance $\mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$, symétrique, semi-définie positive, qui annule $\mathbf{1}$.
 
 ## §1 · La jacobienne d'une application de ℝⁿ dans ℝᵐ
 
@@ -112,7 +112,7 @@ avec une erreur en $O(h^2)$, où $\mathbf{e}_j$ est le $j$-ième vecteur de la b
 
 Une fonction $g$ d'une variable, appliquée **coordonnée par coordonnée** (*elementwise*), définit $\mathbf{f}(\mathbf{x}) = (g(x_1), \ldots, g(x_n))$, une application de $\mathbb{R}^n$ dans $\mathbb{R}^n$ ; NumPy l'écrit `np.sin(x)` ou `x ** 3`. La sortie $i$ ne dépend que de $x_i$ : $\frac{\partial f_i}{\partial x_j} = 0$ pour $j \ne i$, et $\frac{\partial f_i}{\partial x_i} = g'(x_i)$. La jacobienne est **diagonale** :
 $$\mathbf{J}_{\mathbf{f}}(\mathbf{x}) = \mathrm{diag}\big(g'(x_1), \ldots, g'(x_n)\big), \qquad \mathbf{J}_{\mathbf{f}}(\mathbf{x})\,\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v},$$
-où $\odot$ est le produit de Hadamard (case par case, M09a) et $g'(\mathbf{x})$ le vecteur des dérivées. On ne stocke donc jamais cette matrice : ses $n$ coefficients utiles tiennent dans un vecteur, et son produit par un vecteur coûte $n$ multiplications au lieu de $n^2$ (∂ M17.9).
+où $\odot$ est le produit de Hadamard (case par case, M09a) et $g'(\mathbf{x})$ le vecteur des dérivées. En pratique, on ne stocke donc pas cette matrice (sauf pour la comparer à une autre jacobienne, comme le fait `diagonal_jacobian` du notebook) : ses $n$ coefficients utiles tiennent dans un vecteur, et son produit par un vecteur coûte $n$ multiplications au lieu de $n^2$ (∂ M17.9).
 
 **Exemple.** $\mathbf{f}(\mathbf{x}) = \sin(\mathbf{x})$ en $\mathbf{x} = (0,\ \frac{\pi}{3},\ \frac{\pi}{2})$ : $\mathbf{J} = \mathrm{diag}(\cos 0, \cos\frac{\pi}{3}, \cos\frac{\pi}{2}) = \mathrm{diag}(1 ;\ 0{,}5 ;\ 0)$, et pour $\mathbf{v} = (2, 4, 6)$, $\mathbf{J}\mathbf{v} = (2, 2, 0)$.
 
@@ -128,7 +128,7 @@ Puisque chaque sortie ne dépend que de son entrée, on peut **bouger toutes les
 
 ### L'énoncé
 
-Soient $\mathbf{f} : \mathbb{R}^n \to \mathbb{R}^p$ et $\mathbf{g} : \mathbb{R}^p \to \mathbb{R}^m$, et $\mathbf{h} = \mathbf{g} \circ \mathbf{f}$ : on applique $\mathbf{f}$, puis $\mathbf{g}$. Alors
+Soient $\mathbf{f} : \mathbb{R}^n \to \mathbb{R}^p$, différentiable en $\mathbf{x}$, et $\mathbf{g} : \mathbb{R}^p \to \mathbb{R}^m$, différentiable en $\mathbf{f}(\mathbf{x})$ (c'est le cas dès que leurs dérivées partielles existent et sont continues autour de ces points), et $\mathbf{h} = \mathbf{g} \circ \mathbf{f}$ : on applique $\mathbf{f}$, puis $\mathbf{g}$. Alors
 $$\boxed{\mathbf{J}_{\mathbf{g} \circ \mathbf{f}}(\mathbf{x}) = \mathbf{J}_{\mathbf{g}}\big(\mathbf{f}(\mathbf{x})\big)\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})} \qquad (m, p) \times (p, n) \to (m, n).$$
 Trois choses à retenir :
 - l'**ordre** : la jacobienne de la dernière application est à **gauche**, comme la dernière fonction dans $\mathbf{g}(\mathbf{f}(\mathbf{x}))$ ;
@@ -149,7 +149,7 @@ d'où $h'(\frac{\pi}{6}) = -\frac{\sqrt3}{2} + \frac{3\sqrt3}{2} = \sqrt3 \appro
 
 Pour une composée de plusieurs applications, $\mathbf{h} = \mathbf{f}_L \circ \cdots \circ \mathbf{f}_2 \circ \mathbf{f}_1$, on applique la règle de proche en proche : avec $\mathbf{y}_0 = \mathbf{x}$ et $\mathbf{y}_k = \mathbf{f}_k(\mathbf{y}_{k-1})$,
 $$\mathbf{J}_{\mathbf{h}}(\mathbf{x}) = \mathbf{J}_{\mathbf{f}_L}(\mathbf{y}_{L-1}) \cdots \mathbf{J}_{\mathbf{f}_2}(\mathbf{y}_1)\,\mathbf{J}_{\mathbf{f}_1}(\mathbf{y}_0).$$
-Chaque jacobienne s'évalue au point où son application est appliquée : il faut donc d'abord calculer tous les points intermédiaires, de $\mathbf{y}_0$ à $\mathbf{y}_{L-1}$ (✏️ M17.3). Pour des applications **affines**, chaque jacobienne est constante, et la composée a pour jacobienne le produit des matrices : c'est cohérent avec M16, où la composée de deux applications affines est encore affine.
+Chaque jacobienne s'évalue au point où son application est appliquée : il faut donc d'abord calculer tous les points intermédiaires, de $\mathbf{y}_0$ à $\mathbf{y}_{L-1}$ (✏️ M17.3). Pour des applications **affines**, chaque jacobienne est constante, et la composée a pour jacobienne le produit des matrices, constant lui aussi : c'est le produit des matrices homogènes de M16, vu sous un autre angle.
 
 ⚠️ **Erreur classique.** Multiplier les jacobiennes dans l'ordre de l'application ($\mathbf{J}_{\mathbf{f}}\mathbf{J}_{\mathbf{g}}$ au lieu de $\mathbf{J}_{\mathbf{g}}\mathbf{J}_{\mathbf{f}}$) : si les formes le permettent (applications carrées), on obtient une autre matrice, sans erreur Python. Et évaluer $\mathbf{J}_{\mathbf{g}}$ en $\mathbf{x}$ au lieu de $\mathbf{f}(\mathbf{x})$ (🐛 M17.21).
 
@@ -171,7 +171,7 @@ En ligne, $(4, 2)\,\mathbf{J}_{\mathbf{f}} = (8 + 2,\ 4 + 2) = (10, 6)$ ; en col
 
 ⚠️ **Erreur classique.** Écrire $\mathbf{J}_{\mathbf{f}}\nabla_{\mathbf{y}}L$ (sans transposer) en convention colonne : les formes $(p, n) \times (p,)$ ne s'enchaînent pas si $n \ne p$, et, si $n = p$, le résultat est faux sans erreur Python. La règle mnémotechnique : en ligne, le gradient multiplie la jacobienne **à gauche** ; en colonne, c'est la **transposée** de la jacobienne qui multiplie le gradient.
 
-📐 **Notations.** MML note $\frac{\mathrm{d}L}{\mathrm{d}\mathbf{x}}$ ou $\nabla_{\mathbf{x}}L$ la ligne ; workbookIA note $\nabla_{\mathbf{x}}L$ le tableau de la forme de $\mathbf{x}$. Devant une formule, demande-toi d'abord **quelle forme** a chaque objet.
+📐 **Notations.** MML note $\frac{\mathrm{d}L}{\mathrm{d}\mathbf{x}}$ ou $\nabla_{\mathbf{x}}L$ la ligne ; workbookIA range le gradient comme la variable, et le note souvent $\frac{\partial L}{\partial\mathbf{W}}$ (ou `dW`) pour un paramètre $\mathbf{W}$. Devant une formule, demande-toi d'abord **quelle forme** a chaque objet.
 
 🔗 **Dans workbookIA** — à partir du chapitre 17, les gradients ont la forme des tableaux de NumPy, et les chapitres suivants les font circuler à travers des jacobiennes transposées.
 
@@ -181,15 +181,17 @@ En ligne, $(4, 2)\,\mathbf{J}_{\mathbf{f}} = (8 + 2,\ 4 + 2) = (10, 6)$ ; en col
 
 Le produit $\mathbf{J}_{\mathbf{f}}(\mathbf{x})\,\mathbf{v}$ (*Jacobian-vector product*, JVP), avec $\mathbf{v}$ une colonne de $n$ coordonnées, est la dérivée de **toutes les sorties** quand on part de $\mathbf{x}$ dans la direction $\mathbf{v}$ :
 $$\mathbf{J}_{\mathbf{f}}(\mathbf{x})\,\mathbf{v} = \lim_{h \to 0}\frac{\mathbf{f}(\mathbf{x} + h\mathbf{v}) - \mathbf{f}(\mathbf{x})}{h} \approx \frac{\mathbf{f}(\mathbf{x} + h\mathbf{v}) - \mathbf{f}(\mathbf{x} - h\mathbf{v})}{2h}.$$
-C'est la dérivée directionnelle de M05b, pour une application à plusieurs sorties. Par différences, elle coûte **deux** évaluations de $\mathbf{f}$, quel que soit $n$, sans former la matrice (🔨 M17.16). Et quand $\mathbf{J}$ a une structure, on la calcule à la main sans jamais l'écrire.
+Pour un vecteur $\mathbf{v}$ unitaire, c'est la dérivée directionnelle de M05b, pour une application à plusieurs sorties ; pour un autre $\mathbf{v}$, elle est multipliée par $\lVert\mathbf{v}\rVert$ (la formule ne normalise pas $\mathbf{v}$). Par différences, elle coûte **deux** évaluations de $\mathbf{f}$, quel que soit $n$, sans former la matrice (🔨 M17.16). Et quand $\mathbf{J}$ a une structure, on la calcule à la main sans jamais l'écrire.
 
 **Exemple.** Pour un vecteur fixe $\mathbf{a}$, $\mathbf{f}(\mathbf{x}) = (\mathbf{a} \cdot \mathbf{x})\,\mathbf{x}$ (de $\mathbb{R}^n$ dans $\mathbb{R}^n$). La sortie $i$ vaut $(\sum_k a_kx_k)\,x_i$, de dérivée $a_jx_i + (\mathbf{a} \cdot \mathbf{x})\,\delta_{ij}$ par rapport à $x_j$ ($\delta_{ij}$ vaut 1 si $i = j$, 0 sinon) :
 $$\mathbf{J}_{\mathbf{f}}(\mathbf{x}) = \mathbf{x}\,\mathbf{a}^\top + (\mathbf{a} \cdot \mathbf{x})\,\mathbf{I}, \qquad \mathbf{J}_{\mathbf{f}}(\mathbf{x})\,\mathbf{v} = (\mathbf{a} \cdot \mathbf{v})\,\mathbf{x} + (\mathbf{a} \cdot \mathbf{x})\,\mathbf{v}.$$
-Le produit coûte deux produits scalaires et deux combinaisons de vecteurs, environ $4n$ opérations, au lieu des $n^2$ coefficients de la matrice. Pour $\mathbf{a} = (1, 2, -1)$, $\mathbf{x} = (1, 0, 2)$ et $\mathbf{v} = (0, 1, 1)$ : $\mathbf{a} \cdot \mathbf{v} = 1$, $\mathbf{a} \cdot \mathbf{x} = -1$, et $\mathbf{J}\mathbf{v} = (1, 0, 2) - (0, 1, 1) = (1, -1, 1)$.
+Le produit coûte deux produits scalaires et deux combinaisons de vecteurs, $O(n)$ opérations, au lieu des $n^2$ coefficients de la matrice. Pour $\mathbf{a} = (1, 2, -1)$, $\mathbf{x} = (1, 0, 2)$ et $\mathbf{v} = (0, 1, 1)$ : $\mathbf{a} \cdot \mathbf{v} = 1$, $\mathbf{a} \cdot \mathbf{x} = -1$, et $\mathbf{J}\mathbf{v} = (1, 0, 2) - (0, 1, 1) = (1, -1, 1)$.
 
 ### Vecteur-jacobienne : un gradient d'un coup
 
 Le produit $\mathbf{u}^\top\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ (*vector-Jacobian product*, VJP), avec $\mathbf{u}$ une colonne de $m$ coordonnées, est une **ligne** de $n$ coordonnées : le gradient de la fonction réelle $\mathbf{x} \mapsto \mathbf{u} \cdot \mathbf{f}(\mathbf{x})$, une combinaison des sorties. C'est exactement ce que demande le §4 : $\nabla_{\mathbf{x}}(L \circ \mathbf{f}) = \nabla_{\mathbf{y}}L\;\mathbf{J}_{\mathbf{f}}$ est un produit vecteur-jacobienne, avec $\mathbf{u}^\top = \nabla_{\mathbf{y}}L$.
+
+📐 **Notations.** Avec des vecteurs en lignes (NumPy, workbookIA), le vecteur est directement une ligne $\mathbf{g}$ de $m$ coordonnées, et le produit s'écrit $\mathbf{g}\,\mathbf{J}$, sans transposée : une ligne de $n$ coordonnées, de la forme de l'entrée.
 
 ### Qui coûte le moins ?
 
@@ -200,7 +202,7 @@ Pour une application de $\mathbb{R}^n$ dans $\mathbb{R}^m$ :
 
 Pour une composée $\mathbf{J}_3\mathbf{J}_2\mathbf{J}_1$, l'ordre des produits change tout. Avec trois jacobiennes $1\,000 \times 1\,000$ et un gradient final $\mathbf{u}^\top$ :
 - $\mathbf{u}^\top\mathbf{J}_3\mathbf{J}_2\mathbf{J}_1$, calculé **de gauche à droite**, ne fait que des produits ligne-matrice : $3 \times 10^6$ multiplications ;
-- former d'abord $\mathbf{J}_3\mathbf{J}_2\mathbf{J}_1$ demande deux produits de matrices, $2 \times 10^9$ multiplications (M09a §3), mille fois plus.
+- former d'abord $\mathbf{J}_3\mathbf{J}_2\mathbf{J}_1$ demande deux produits de matrices, $2 \times 10^9$ multiplications (M09a §3), près de 700 fois plus.
 
 C'est pourquoi on évite de former les jacobiennes : on fait passer un vecteur à travers elles, de droite à gauche (*forward mode*, des produits jacobienne-vecteur) ou de gauche à droite (*reverse mode*, des produits vecteur-jacobienne).
 
@@ -230,11 +232,11 @@ $\arctan$ est croissante, de limites $\pm\frac{\pi}{2}$, et $\arctan'(t) = \frac
 
 Itérons une fonction d'une variable : $x_0$ donné, $x_{k+1} = \varphi(x_k)$, donc $x_L = \varphi^{\circ L}(x_0)$, la composée de $L$ copies de $\varphi$. La règle de la chaîne, appliquée $L$ fois, donne
 $$\frac{\mathrm{d}x_L}{\mathrm{d}x_0} = \varphi'(x_{L-1})\,\varphi'(x_{L-2}) \cdots \varphi'(x_0) = \prod_{k=0}^{L-1}\varphi'(x_k),$$
-le **produit** des dérivées le long de la trajectoire. Si les $x_k$ tendent vers un **point fixe** $x^*$ ($\varphi(x^*) = x^*$), les derniers facteurs valent presque $\varphi'(x^*)$, et le produit se comporte comme une suite géométrique (R5) de raison $\varphi'(x^*)$ :
-- $\lvert\varphi'(x^*)\rvert < 1$ : la dérivée **s'éteint** exponentiellement, la sortie oublie l'entrée ;
-- $\lvert\varphi'(x^*)\rvert > 1$ : la dérivée **explose** ; une petite erreur sur $x_0$ grandit à chaque étape.
+le **produit** des dérivées le long de la trajectoire. Tant que la trajectoire reste près d'un **point fixe** $x^*$ ($\varphi(x^*) = x^*$), les facteurs valent presque $\varphi'(x^*)$, et le produit se comporte comme une suite géométrique (R5) de raison $\varphi'(x^*)$ :
+- $\lvert\varphi'(x^*)\rvert < 1$ : les $x_k$ convergent vers $x^*$, et la dérivée **s'éteint** exponentiellement : la sortie oublie l'entrée ;
+- $\lvert\varphi'(x^*)\rvert > 1$ : le point fixe est repoussant, une petite erreur sur $x_0$ grandit à chaque étape, et la dérivée **explose** tant que la trajectoire reste près de $x^*$ (ensuite, elle s'en éloigne, et ce sont les pentes rencontrées en chemin qui comptent : 🔬 M17.19).
 
-**Exemple : itérer cos.** De $x_0 = 1$, $x_1 = \cos 1 \approx 0{,}540$, $x_2 \approx 0{,}858$, $x_3 \approx 0{,}654$… converge vers le point fixe $x^* \approx 0{,}7391$, solution de $\cos x = x$. La dérivée de la composée vaut $\prod_k(-\sin x_k)$ : $\approx -0{,}84$ pour $L = 1$, $\approx 0{,}019$ pour $L = 10$, $\approx 0{,}00037$ pour $L = 20$. Elle se comporte comme $\lvert\cos'(x^*)\rvert^L = (\sin x^*)^L \approx 0{,}674^L$ : en échelle logarithmique, une droite (figure, à droite). Après 30 itérations, déplacer $x_0$ de $0{,}1$ ne déplace plus $x_{30}$ que d'environ $7 \times 10^{-7}$.
+**Exemple : itérer cos.** De $x_0 = 1$, $x_1 = \cos 1 \approx 0{,}540$, $x_2 \approx 0{,}858$, $x_3 \approx 0{,}654$… converge vers le point fixe $x^* \approx 0{,}7391$, solution de $\cos x = x$. La dérivée de la composée vaut $\prod_k(-\sin x_k)$ : $\approx -0{,}84$ pour $L = 1$, $\approx 0{,}0087$ pour $L = 12$, $\approx 0{,}00037$ pour $L = 20$. Elle se comporte comme $\lvert\cos'(x^*)\rvert^L = (\sin x^*)^L \approx 0{,}674^L$ : en échelle logarithmique, une droite (figure, à droite). Après 30 itérations, déplacer $x_0$ de $0{,}1$ ne déplace plus $x_{30}$ que d'environ $7 \times 10^{-7}$.
 
 🔗 **Dans workbookIA** — le chapitre 17 multiplie de la même façon des dérivées d'une étape à la suivante, et regarde quand ce produit s'éteint.
 
@@ -246,9 +248,9 @@ En physique statistique, un système qui peut occuper $K$ états d'énergies $E_
 $$p_i = \frac{e^{-E_i/T}}{Z}, \qquad Z = \sum_{j=1}^{K}e^{-E_j/T}.$$
 (Les énergies et la température sont dans la même unité : la constante de Boltzmann est prise égale à 1.) $Z$, la **fonction de partition** (*partition function*), normalise : les $p_i$ sont positifs et de somme 1. Les états de basse énergie sont les plus peuplés.
 
-**Exemple.** Trois niveaux d'énergies $0$, $0{,}5$ et $2$, à $T = 1$ : les poids $e^{-E_i}$ valent $1$, $0{,}6065$ et $0{,}1353$, de somme $Z \approx 1{,}7419$, d'où $\mathbf{p} \approx (0{,}5741 ;\ 0{,}3482 ;\ 0{,}0777)$. L'**énergie moyenne** vaut $\sum_ip_iE_i \approx 0{,}3482 \times 0{,}5 + 0{,}0777 \times 2 \approx 0{,}330$.
+**Exemple.** Trois niveaux d'énergies $0$, $0{,}5$ et $2$, à $T = 1$ : les poids $e^{-E_i}$ valent $1$, $0{,}6065$ et $0{,}1353$, de somme $Z \approx 1{,}7419$, d'où $\mathbf{p} \approx (0{,}5741 ;\ 0{,}3482 ;\ 0{,}0777)$. L'**énergie moyenne** vaut $\sum_ip_iE_i \approx 0{,}3482 \times 0{,}5 + 0{,}0777 \times 2 \approx 0{,}3295$.
 
-**Seuls les écarts d'énergie comptent.** Le rapport de deux populations ne dépend que de l'écart de leurs énergies :
+**L'origine des énergies est arbitraire.** Le rapport de deux populations ne fait intervenir que la différence de leurs énergies :
 $$\frac{p_i}{p_j} = e^{-(E_i - E_j)/T}.$$
 Ajouter une même constante $c$ à toutes les énergies multiplie tous les poids par $e^{-c/T}$, qui se simplifie dans le quotient par $Z$ : la loi ne change pas. On peut donc toujours prendre l'énergie la plus basse comme zéro.
 
@@ -264,7 +266,7 @@ Entre les deux, l'énergie moyenne croît avec la température (figure). Le **re
 
 Tirons un état $I$ selon une loi $\mathbf{p} = (p_1, \ldots, p_K)$ (une loi de Boltzmann, ou n'importe quelle loi catégorielle de M02b), et codons-le par le vecteur **one-hot** $\mathbf{Y} = \mathbf{e}_I$ (M07) : $Y_i = 1$ si $I = i$, 0 sinon. Chaque $Y_i$ est une variable de Bernoulli de paramètre $p_i$, donc $\mathbb{E}[\mathbf{Y}] = \mathbf{p}$. Deux coordonnées distinctes ne valent jamais 1 ensemble : $Y_iY_j = 0$ pour $i \ne j$. Avec $\mathbf{p}$ écrit en **ligne**, la matrice de covariance (M02c) est
 $$\mathrm{Cov}(\mathbf{Y}) = \mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}, \qquad \text{de coefficients } p_i(1 - p_i) \text{ sur la diagonale et } -p_ip_j \text{ ailleurs}$$
-($\mathbf{p}^\top\mathbf{p}$, une colonne fois une ligne, est la matrice des produits $p_ip_j$). Ses propriétés viennent toutes de ce qu'elle est une covariance (∂ M17.10) :
+($\mathbf{p}^\top\mathbf{p}$, une colonne fois une ligne, est la matrice des produits $p_ip_j$ ; avec des colonnes, on l'écrirait $\mathbf{p}\,\mathbf{p}^\top$, comme $\mathbf{u}\mathbf{u}^\top$ en ✏️ M17.4 : dans les deux conventions, une colonne fois une ligne donne une matrice, une ligne fois une colonne un nombre). Ses propriétés viennent toutes de ce qu'elle est une covariance (∂ M17.10) :
 - elle est **symétrique** ;
 - elle est **semi-définie positive** : pour toute ligne $\mathbf{v}$, $\mathbf{v}\,\mathrm{Cov}(\mathbf{Y})\,\mathbf{v}^\top = \mathbb{V}(\mathbf{v} \cdot \mathbf{Y}) \ge 0$ (M02c) ;
 - elle **annule le vecteur $\mathbf{1}$** : $\sum_iY_i = 1$ est constant, de variance nulle, donc chaque ligne de la matrice a une somme nulle ; elle n'est jamais inversible ;
@@ -284,9 +286,9 @@ chaque ligne a une somme nulle, et la diagonale est faite des variances de Berno
 - **L'ordre et le point dans la règle de la chaîne.** $\mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ : la dernière appliquée à gauche, évaluée au point intermédiaire.
 - **Le gradient et sa forme.** En ligne (MML), $\nabla_{\mathbf{y}}L\,\mathbf{J}_{\mathbf{f}}$ ; de la forme de la variable (NumPy), $\mathbf{J}_{\mathbf{f}}^\top\nabla_{\mathbf{y}}L$. Jamais $\mathbf{J}_{\mathbf{f}}\nabla_{\mathbf{y}}L$.
 - **Former la jacobienne.** Un produit par un vecteur coûte bien moins cher ; pour un gradient (une seule sortie), un produit vecteur-jacobienne suffit.
-- **Un point anguleux.** Deux dérivées latérales, pas de dérivée ; un sous-gradient seulement si la fonction est convexe autour.
+- **Un point anguleux.** Deux dérivées latérales, pas de dérivée ; des sous-gradients seulement pour une fonction convexe (M13b).
 - **Une longue composition.** Sa dérivée est un **produit** : un facteur presque nul l'écrase, des facteurs de module $> 1$ la font exploser.
-- **Boltzmann.** Seuls les écarts d'énergie comptent ; $T \to 0$ concentre sur le minimum, $T \to \infty$ uniformise.
+- **Boltzmann.** L'origine des énergies est arbitraire ; $T \to 0$ concentre sur le minimum, $T \to \infty$ uniformise ; ne pas oublier de diviser par $Z$.
 - **diag(p) − pᵀp.** Avec $\mathbf{p}$ en ligne, $\mathbf{p}^\top\mathbf{p}$ est une matrice $K \times K$ ; $\mathbf{p}\,\mathbf{p}^\top$ serait un nombre, $\sum_ip_i^2$.
 
 ## Et maintenant

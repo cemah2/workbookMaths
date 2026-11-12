@@ -20,7 +20,7 @@
 1. Diagonale, $\mathrm{diag}(e^{x_i})$.
 2. Diagonale, $\mathrm{diag}(2x_i)$.
 3. Triangulaire (inférieure) : la sortie $i$ dépend de $x_1, \ldots, x_i$ ; la ligne $i$ a des 1 dans les colonnes 1 à $i$.
-4. Pleine : chaque sortie dépend de toutes les entrées par $\lVert\mathbf{x}\rVert$ (✏️ M17.4).
+4. Pleine en un point quelconque : chaque sortie dépend de toutes les entrées par $\lVert\mathbf{x}\rVert$ (✏️ M17.4) ; en des points particuliers (sur les axes), certains coefficients s'annulent.
 5. Diagonale, et constante : $\mathbf{D}$.
 6. Vrai : $\mathbf{J}\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v}$, une multiplication par coordonnée.
 
@@ -50,10 +50,10 @@
 
 ### M17.Q6 — La loi de Boltzmann : populations relatives et énergie moyenne
 1. $e^{-(3 - 1)/1} = e^{-2} \approx 0{,}135$.
-2. $T \to 0$ : $(1, 0, 0)$, tout sur le niveau d'énergie 0. $T \to \infty$ : $(\frac13, \frac13, \frac13)$.
-3. $0$ et $\frac{0 + 1 + 3}{3} = \frac43$.
-4. Faux : seuls les écarts d'énergie comptent.
-5. Faux, pour $T > 0$ : $\frac{p_i}{p_j} = e^{-(E_i - E_j)/T} < 1$ si $E_i > E_j$.
+2. $Z = 1 + e^{-1} + e^{-3} \approx 1 + 0{,}3679 + 0{,}0498 \approx 1{,}418$.
+3. $0$ (tout sur le niveau d'énergie 0) et $\frac{0 + 1 + 3}{3} = \frac43$ (la loi devient uniforme).
+4. $e^{-3/T} = \frac{1}{100}$, soit $T = \frac{3}{\ln 100} \approx 0{,}651$.
+5. Vrai : deux états de même énergie ont le même poids $e^{-E/T}$, donc la même population, à toute température.
 6. Faux : elle annule $\mathbf{1}$ (chaque ligne a une somme nulle).
 
 <a id="rappels"></a>
@@ -78,8 +78,8 @@
 1. $4 + 2 + 2 \times (-1) = 4$ ; $4 + 2 - 2 \times (-1) = 8$.
 2. $\mathbb{V}(\mathbf{v} \cdot \mathbf{X}) = \mathbf{v}\,\boldsymbol{\Sigma}\,\mathbf{v}^\top$.
 3. Parce que $\mathbf{v}\,\boldsymbol{\Sigma}\,\mathbf{v}^\top$ est une variance, donc $\ge 0$, pour tout $\mathbf{v}$.
-4. Le vecteur nul : $\mathbb{V}(X_1 + X_2) = (1, 1)\,\boldsymbol{\Sigma}\,(1, 1)^\top = 0$, et une matrice semi-définie positive qui donne 0 sur un vecteur l'annule (ou, plus simplement, $\mathrm{Cov}(X_i, X_1 + X_2) = 0$ pour chaque $i$ : ce sont les coordonnées de $\boldsymbol{\Sigma}\,(1, 1)^\top$).
-5. Toujours symétrique ($\mathrm{Cov}(X_i, X_j) = \mathrm{Cov}(X_j, X_i)$) ; pas toujours inversible (le cas de la question 4).
+4. Le vecteur nul : les coordonnées de $\boldsymbol{\Sigma}'(1, 1)^\top$ sont $\mathrm{Cov}(X_i, X_1 + X_2)$, nulles puisque $X_1 + X_2$ est constant. Ce n'est pas possible pour $\boldsymbol{\Sigma}$ : $\boldsymbol{\Sigma}(1, 1)^\top = (3, 1)$, et $\mathbb{V}(X_1 + X_2) = 4 \ne 0$.
+5. Toujours symétrique ($\mathrm{Cov}(X_i, X_j) = \mathrm{Cov}(X_j, X_i)$) ; pas toujours inversible (la matrice $\boldsymbol{\Sigma}'$ de la question 4).
 
 <a id="papier"></a>
 
@@ -105,7 +105,7 @@ Dans ta copie : la première colonne, $(\cos\theta, \sin\theta)$, est un vecteur
 
 Dans ta copie : la sortie 2 ne dépend que de $x_2$, donc pas de $x_3$. $g'(0) = 0$ : $g$ a un minimum en 0 (sa tangente est horizontale). $t \mapsto t\,g(t)$ est encore une fonction d'une variable appliquée coordonnée par coordonnée.
 
-**Erreurs fréquentes.** Mettre $g(x_i)$ au lieu de $g'(x_i)$ sur la diagonale. En b), faire un produit scalaire (un nombre) au lieu d'un produit case par case. Compter les zéros de la diagonale hors de c).
+**Erreurs fréquentes.** Mettre $g(x_i)$ au lieu de $g'(x_i)$ sur la diagonale. En b), faire un produit scalaire (un nombre) au lieu d'un produit case par case. En c), oublier le coefficient nul de la diagonale.
 
 **Variante.** $g(t) = t^3$ en $(1, -1, 2)$ : diagonale $(3, 3, 12)$ ; avec $\mathbf{v} = (1, 1, 1)$, $\mathbf{J}\mathbf{v} = (3, 3, 12)$.
 
@@ -141,7 +141,7 @@ Dans ta copie : $\frac{\partial}{\partial x_j}\frac{x_i}{\lVert\mathbf{x}\rVert}
 
 Dans ta copie : $L(\mathbf{f}(\mathbf{x})) = (x_1 - x_2)^2 + 3x_1x_2 - x_2^2$, de dérivées $2(x_1 - x_2) + 3x_2 = 3$ et $-2(x_1 - x_2) + 3x_1 - 2x_2 = 2$. $\mathbf{J}_{\mathbf{f}}$ a la forme $(3, 2)$ et $\nabla_{\mathbf{y}}L$ trois coordonnées : $\mathbf{J}_{\mathbf{f}}\nabla_{\mathbf{y}}L$ n'existe pas.
 
-**Erreurs fréquentes.** Évaluer $\nabla_{\mathbf{y}}L$ en $\mathbf{x}$. Oublier la transposée en convention colonne. Prendre la dérivée directionnelle le long de $(1, 1)$ non normalisé pour une direction unitaire (la question demande la direction $(1, 1)$ telle quelle).
+**Erreurs fréquentes.** Évaluer $\nabla_{\mathbf{y}}L$ en $\mathbf{x}$. Oublier la transposée en convention colonne. Normaliser $(1, 1)$ (on trouve $\frac{5}{\sqrt2} \approx 3{,}54$) : la question demande la dérivée de $t \mapsto (L \circ \mathbf{f})(\mathbf{x} + t\,(1, 1))$, c'est-à-dire $\nabla(L \circ \mathbf{f}) \cdot (1, 1)$.
 
 **Variante.** En $\mathbf{x} = (1, 1)$ : $\mathbf{y} = (0, 1, 1)$, $\nabla_{\mathbf{y}}L = (0, 3, -1)$, $\mathbf{J}_{\mathbf{f}} = \begin{pmatrix} 1 & -1 \\ 1 & 1 \\ 0 & 2 \end{pmatrix}$, gradient $(3, 1)$.
 
@@ -151,7 +151,7 @@ Dans ta copie : $L(\mathbf{f}(\mathbf{x})) = (x_1 - x_2)^2 + 3x_1x_2 - x_2^2$, d
 
 **Démarche.** a) $65 + 0{,}1 \times 20$. b) et c) Les pentes des morceaux de part et d'autre. d) $c(x) = 40$ pour $15 + 0{,}25(x - 100) = 40$, soit $x = 200$, au milieu d'un morceau de pente $0{,}25$ ; à gauche, $c < 40$ et $\lvert c - 40\rvert = 40 - c$, de pente $-0{,}25$ ; à droite, $+0{,}25$. e) $x_1 = \frac12$, $x_2 = \frac23$, $x_3 = \frac35$, $x_4 = \frac58$, $x_5 = \frac{8}{13}$, $x_6 = \frac{13}{21}$, $x_7 = \frac{21}{34}$ (des quotients de nombres de Fibonacci). f) $g'(x) = -\frac{1}{(1 + x)^2}$ ; les $1 + x_k$ valent $2, \frac32, \frac53, \frac85, \frac{13}{8}, \frac{21}{13}, \frac{34}{21}$, dont le produit **se télescope** en 34 ; la dérivée vaut $(-1)^7\frac{1}{34^2} = -\frac{1}{1\,156}$. g) $x^* = \frac{\sqrt5 - 1}{2} \approx 0{,}618$ résout $x(1 + x) = 1$, et $\lvert g'(x^*)\rvert = \frac{1}{(1 + x^*)^2} = (x^*)^2 \approx 0{,}382$.
 
-Dans ta copie : $c$ est continue (les morceaux se raccordent : $c(100) = 15$, $c(300) = 65$). En 100, la pente croît ($0{,}15$ puis $0{,}25$) : la fonction est convexe autour, et les sous-gradients forment $[0{,}15 ;\ 0{,}25]$. En 300, la pente baisse (un coin concave) : aucune droite de pente quelconque ne passe sous la courbe autour de 300, donc pas de sous-gradient. f) est de l'ordre de $0{,}382^7 \approx 0{,}0012$ (les premiers facteurs, loin du point fixe, sont un peu plus petits).
+Dans ta copie : $c$ est continue (les morceaux se raccordent : $c(100) = 15$, $c(300) = 65$). Restreinte à $[0 ;\ 300]$, ses pentes croissent ($0{,}15$ puis $0{,}25$) : elle y est convexe, et ses sous-gradients en 100 forment $[0{,}15 ;\ 0{,}25]$. Sur $[0 ;\ +\infty[$, la pente baisse en 300 : $c(300) = 65$ est au-dessus de la corde entre 200 et 400 ($\frac{40 + 75}{2} = 57{,}5$), donc $c$ n'est pas convexe. En 300, une droite $65 + s(x - 300)$ sous la courbe devrait avoir $s \ge 0{,}25$ (à gauche) et $s \le 0{,}1$ (à droite) : aucun sous-gradient. f) est de l'ordre de $0{,}382^7 \approx 0{,}0012$ : les sept facteurs $\frac{1}{(1 + x_k)^2}$ ($0{,}25$ ; $0{,}44$ ; $0{,}36$ ; $0{,}39$…) oscillent autour de $0{,}382$, et leur produit vaut $\frac{1}{1\,156} \approx 0{,}00087$.
 
 **Erreurs fréquentes.** Donner une seule dérivée en un coin. Inverser gauche et droite. En f), évaluer toutes les dérivées en $x_0 = 1$ (on trouve $-\frac{1}{4^7}$) au lieu de les évaluer le long de la trajectoire.
 
@@ -163,7 +163,7 @@ Dans ta copie : $c$ est continue (les morceaux se raccordent : $c(100) = 15$, $c
 
 **Démarche.** À $T = 1$ : poids $1$, $e^{-1} \approx 0{,}3679$, $e^{-2} \approx 0{,}1353$, $e^{-4} \approx 0{,}0183$, de somme $Z \approx 1{,}5215$. b) $\frac{1}{Z}$. c) $\frac{0{,}3679 + 2 \times 0{,}1353 + 4 \times 0{,}0183}{1{,}5215}$. d) Le niveau fondamental, puis la moyenne $\frac{0 + 1 + 2 + 4}{4}$. e) $p_1 = \frac{1}{Z(T)} = \frac12$ équivaut à $e^{-1/T} + e^{-2/T} + e^{-4/T} = 1$ ; le membre de gauche croît strictement de 0 (quand $T \to 0$) à 3 (quand $T \to \infty$) : une seule solution, par dichotomie entre 1 et 2, $T \approx 1{,}7781$. f) $\frac{p_4}{p_1} = e^{-4/T} = 0{,}1$, soit $T = \frac{4}{\ln 10}$.
 
-Dans ta copie : quand $T$ grandit, les niveaux hauts se peuplent au détriment du fondamental, et la moyenne pondérée des énergies monte. f) ne fait intervenir qu'un **rapport** de populations, où $Z$ se simplifie.
+Dans ta copie : quand $T$ grandit, le fondamental se vide au profit des niveaux hauts (la population d'un niveau intermédiaire peut monter puis redescendre), et l'énergie moyenne croît : on admet que sa dérivée par rapport à $T$ vaut $\frac{\mathbb{V}(E)}{T^2} \ge 0$, où $\mathbb{V}(E)$ est la variance de l'énergie sous la loi de Boltzmann. f) ne fait intervenir qu'un **rapport** de populations, où $Z$ se simplifie.
 
 **Erreurs fréquentes.** Oublier de normaliser par $Z$. Écrire $e^{-E/T}$ avec $E \times T$. En e), chercher $p_1 = \frac12$ sans voir que $Z = 2$.
 
@@ -171,15 +171,15 @@ Dans ta copie : quand $T$ grandit, les niveaux hauts se peuplent au détriment d
 
 ### Ex M17.11 — Le recuit simulé
 
-**Réponses.** a) `0.3045` · b) `0.6435` · c) `38.5112` · d) `0.2` · e) `0.1353` · f) `1`.
+**Réponses.** a) `0.3299` · b) `0.64` · c) `38.5112` · d) `0.8803` · e) `0.1353` · f) `1`.
 
-**Démarche.** Écarts à la plus courte : $(3, 0, 7, 1, 2)$. a) $\frac{1}{e^{-0{,}6} + 1 + e^{-1{,}4} + e^{-0{,}2} + e^{-0{,}4}}$. b) $\frac{1}{e^{-3} + 1 + e^{-7} + e^{-1} + e^{-2}}$. c) $\sum_ip_iE_i$ avec les probabilités de $T = 1$. d) $P(B) \approx 0{,}30$ ; $0{,}45$ ; $0{,}64$ ; $0{,}865$ ; $0{,}993$ : seule $T = 0{,}2$ dépasse $0{,}9$. e) $\Delta = 1$ : $e^{-1/0{,}5} = e^{-2}$. f) La tournée B est plus courte : acceptée toujours.
+**Démarche.** Écarts à la plus courte : $(3, 0, 7, 1, 2)$. a) $\frac{1}{e^{-0{,}75} + 1 + e^{-1{,}75} + e^{-0{,}25} + e^{-0{,}5}}$. b) $\frac{1}{e^{-3} + 1 + e^{-7} + e^{-1} + e^{-2}} \approx 0{,}6435$. c) $\sum_ip_iE_i$ avec les probabilités de $T = 1$. d) $P(B) + P(D) = \frac{1 + e^{-1}}{e^{-3} + 1 + e^{-7} + e^{-1} + e^{-2}}$ : deux tournées distinctes, des probabilités qui s'additionnent. e) $\Delta = 1$ : $e^{-1/0{,}5} = e^{-2}$. f) La tournée B est plus courte : acceptée toujours.
 
-Dans ta copie : soustraire 38 à toutes les longueurs ne change pas la loi (seuls les écarts comptent) et rend les calculs plus simples. À haute température, la loi est presque uniforme : le recuit explore toutes les tournées sans rester bloqué. Accepter parfois une tournée plus longue permet de sortir d'un minimum local, avant que la température ne baisse.
+Dans ta copie : à $T = 1$, les poids $e^{-\ell}$ valent $e^{-38}$ fois $e^{-3}$, $1$, $e^{-7}$, $e^{-1}$ et $e^{-2}$ ; le facteur commun $e^{-38}$ apparaît aussi dans $Z$, et se simplifie dans chaque probabilité. La probabilité d'accepter une tournée plus longue de 1 km passe de $e^{-1} \approx 0{,}37$ à $e^{-2} \approx 0{,}14$ quand $T$ passe de 1 à 0,5 : plus on refroidit, plus le recuit devient exigeant. Accepter parfois une tournée plus longue permet de sortir d'un minimum local, au lieu d'y rester bloqué.
 
-**Erreurs fréquentes.** Oublier la normalisation. En e), prendre $e^{-\Delta T}$ ou $e^{-\Delta}$ sans la température. En f), appliquer la même formule à une tournée plus courte (elle donnerait $e^{2} > 1$).
+**Erreurs fréquentes.** Oublier la normalisation. En d), ne garder que $P(B)$. En e), prendre $e^{-\Delta T}$ ou $e^{-\Delta}$ sans la température. En f), appliquer la même formule à une tournée plus courte (elle donnerait $e^{2} > 1$).
 
-**Variante.** À $T = 2$ : $P(B) \approx 0{,}4489$, et la longueur moyenne vaut environ $39{,}00$ km.
+**Variante.** À $T = 3$ : $P(B) \approx 0{,}3711$, et $P(B \text{ ou } D) \approx 0{,}637$.
 
 <a id="demonstrations"></a>
 
@@ -204,10 +204,10 @@ Dans ta copie : soustraire 38 à toutes les longueurs ne change pas la loi (seul
 1. $f_i(\mathbf{x}) = g(x_i)$ ne dépend pas de $x_j$ pour $j \ne i$ : $\frac{\partial f_i}{\partial x_j} = 0$. Pour $j = i$, c'est la dérivée de $g$ en $x_i$. La matrice n'a de coefficients non nuls que sur la diagonale, $g'(x_i)$.
 2. $(\mathbf{J}\mathbf{v})_i = \sum_jJ_{ij}v_j = g'(x_i)\,v_i$ : c'est $g'(\mathbf{x}) \odot \mathbf{v}$. De même $(\mathbf{u}^\top\mathbf{J})_j = \sum_iu_iJ_{ij} = u_j\,g'(x_j)$.
 3. $n$ multiplications, contre $n^2$ pour une matrice pleine.
-4. $\frac{f_i(\mathbf{x} + h\mathbf{1}) - f_i(\mathbf{x} - h\mathbf{1})}{2h} = \frac{g(x_i + h) - g(x_i - h)}{2h} \to g'(x_i)$ : la coordonnée $i$ ne voit que le déplacement de $x_i$. Deux évaluations de $\mathbf{f}$ suffisent.
-5. Pour $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$, le même calcul donne $\frac{\mathbf{A}(\mathbf{x} + h\mathbf{1}) - \mathbf{A}(\mathbf{x} - h\mathbf{1})}{2h} = \mathbf{A}\mathbf{1}$, la somme des colonnes : la coordonnée $i$ mélange les effets de toutes les entrées. Le raccourci exige que chaque sortie ne dépende que de son entrée.
+4. $\frac{f_i(\mathbf{x} + h\mathbf{1}) - f_i(\mathbf{x} - h\mathbf{1})}{2h} = \frac{g(x_i + h) - g(x_i - h)}{2h} = \frac12\Big(\frac{g(x_i + h) - g(x_i)}{h} + \frac{g(x_i) - g(x_i - h)}{h}\Big)$, et chacun des deux quotients tend vers $g'(x_i)$ : la coordonnée $i$ ne voit que le déplacement de $x_i$. Deux évaluations de $\mathbf{f}$ suffisent.
+5. Pour $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$, le même calcul donne $\frac{\mathbf{A}(\mathbf{x} + h\mathbf{1}) - \mathbf{A}(\mathbf{x} - h\mathbf{1})}{2h} = \mathbf{A}\mathbf{1}$, la somme des colonnes : la coordonnée $i$ mélange les effets de toutes les entrées, et n'a aucune raison d'être $A_{ii}$ (elle peut l'être par hasard, si les autres coefficients de la ligne se compensent). Sans savoir que la jacobienne est diagonale, on ne peut donc pas se fier au raccourci ; quand elle l'est, il est exact (point 4).
 
-**Grille de relecture.** Les deux cas $j \ne i$ et $j = i$ sont traités. Le produit est écrit coordonnée par coordonnée. L'argument du point 4 dit **pourquoi** les autres déplacements n'interviennent pas. Le contre-exemple est calculé.
+**Grille de relecture.** Les deux cas $j \ne i$ et $j = i$ sont traités. Le produit est écrit coordonnée par coordonnée. L'argument du point 4 dit **pourquoi** les autres déplacements n'interviennent pas, et justifie la limite du quotient centré. Le calcul sur $\mathbf{A}$ est fait.
 
 **Variante.** Pour $\mathbf{f}(\mathbf{x}) = \mathbf{x} \odot \mathbf{a}$ ($\mathbf{a}$ fixe), $\mathbf{J} = \mathrm{diag}(\mathbf{a})$, constante.
 
@@ -218,11 +218,11 @@ Dans ta copie : soustraire 38 à toutes les longueurs ne change pas la loi (seul
 2. $\mathrm{Cov}(Y_i, Y_j) = \mathbb{E}[Y_iY_j] - \mathbb{E}[Y_i]\,\mathbb{E}[Y_j]$ vaut $p_i - p_i^2$ si $i = j$ et $-p_ip_j$ sinon : c'est le coefficient $(i, j)$ de $\mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$ (avec $\mathbf{p}$ en ligne, $(\mathbf{p}^\top\mathbf{p})_{ij} = p_ip_j$).
 3. $\mathrm{Cov}(Y_i, Y_j) = \mathrm{Cov}(Y_j, Y_i)$ : symétrique. Pour toute ligne $\mathbf{v}$, $\mathbf{v}\,\mathrm{Cov}(\mathbf{Y})\,\mathbf{v}^\top = \sum_{i,j}v_iv_j\,\mathrm{Cov}(Y_i, Y_j) = \mathbb{V}(\mathbf{v} \cdot \mathbf{Y}) \ge 0$ (M02c) : semi-définie positive.
 4. $\sum_jY_j = 1$, une constante. La somme de la ligne $i$ est $\sum_j\mathrm{Cov}(Y_i, Y_j) = \mathrm{Cov}\big(Y_i, \sum_jY_j\big) = \mathrm{Cov}(Y_i, 1) = 0$. La matrice annule $\mathbf{1}^\top$, qui n'est pas nul : elle n'est pas inversible.
-5. $\begin{pmatrix} q(1 - q) & -q(1 - q) \\ -q(1 - q) & q(1 - q) \end{pmatrix}$ : $q(1 - q)$ est la variance de la loi de Bernoulli de paramètre $q$, et $Y_2 = 1 - Y_1$ donne la covariance $-q(1 - q)$.
+5. Pour $\mathbf{p} = (\frac13, \frac13, \frac13)$ : $\frac29$ sur la diagonale ($\frac13 \times \frac23$) et $-\frac19$ ailleurs, soit $\frac13\mathbf{I} - \frac19\mathbf{1}^\top\mathbf{1}$ (la matrice $\mathbf{1}^\top\mathbf{1}$ est pleine de 1). Elle envoie $\mathbf{1}^\top$ sur $\frac13\mathbf{1}^\top - \frac39\mathbf{1}^\top = \mathbf{0}$ : valeur propre 0. Pour $\mathbf{v}$ orthogonal à $\mathbf{1}$, $\mathbf{1}^\top\mathbf{1}\,\mathbf{v}^\top = \mathbf{0}$, donc la matrice envoie $\mathbf{v}^\top$ sur $\frac13\mathbf{v}^\top$ : valeur propre $\frac13$, sur un plan. Valeurs propres : $0$, $\frac13$, $\frac13$.
 
-**Grille de relecture.** $Y_iY_j = 0$ pour $i \ne j$ est justifié (un seul état). La semi-définie positivité passe par une **variance**, pas par un calcul de valeurs propres. La somme des lignes se déduit de $\sum_jY_j$ constant, sans développer la matrice.
+**Grille de relecture.** $Y_iY_j = 0$ pour $i \ne j$ est justifié (un seul état). La semi-définie positivité passe par une **variance**, pas par un calcul de valeurs propres. La somme des lignes se déduit de $\sum_jY_j$ constant, sans développer la matrice. Au point 5, les vecteurs propres sont trouvés sans polynôme caractéristique.
 
-**Variante.** Pour $\mathbf{p} = (0{,}6 ;\ 0{,}4)$ : la matrice vaut $0{,}24\begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}$, de valeurs propres 0 et $0{,}48$.
+**Variante.** Pour $\mathbf{p} = (0{,}5 ;\ 0{,}25 ;\ 0{,}25)$ : $\begin{pmatrix} 0{,}25 & -0{,}125 & -0{,}125 \\ -0{,}125 & 0{,}1875 & -0{,}0625 \\ -0{,}125 & -0{,}0625 & 0{,}1875 \end{pmatrix}$, de lignes de somme nulle.
 
 <a id="reflexion"></a>
 
@@ -241,7 +241,7 @@ Dans ta copie : soustraire 38 à toutes les longueurs ne change pas la loi (seul
 
 ### Ex M17.13 — Expliquer la règle de la chaîne avec des taux de change
 
-**Réponse modèle (6 à 10 phrases).** Suis ton euro de plus : il devient quelques francs suisses et quelques livres, selon les taux de la première étape, puis ces francs et ces livres deviennent des yens. Le long d'un même chemin, par exemple euro, puis franc, puis yen, les taux se **multiplient** : un euro donne $a$ francs, chaque franc donne $b$ yens, donc $ab$ yens par ce chemin. Si ton euro passe à la fois par le franc et par la livre, les yens des deux chemins s'**additionnent**. Le tableau de tous les taux d'une étape, une ligne par monnaie d'arrivée et une colonne par monnaie de départ, est une jacobienne ; le tableau d'un bout à l'autre est le produit des deux tableaux, la dernière étape à gauche. Les taux sont ceux du jour où l'on change, c'est-à-dire du point où l'on est : si les taux dépendaient du montant (des frais qui baissent pour les grosses sommes), il faudrait les prendre au montant atteint à cette étape, et la réponse ne vaudrait que pour un petit euro de plus, comme une dérivée.
+**Réponse modèle (6 à 10 phrases).** Suis ton euro de plus : une partie devient des francs suisses, l'autre des livres, selon la répartition et les taux de la première étape. Ces francs et ces livres deviennent ensuite des yens, selon les taux de la deuxième étape. Le long d'un même chemin, par exemple de l'euro au franc puis du franc au yen, les taux se multiplient : ce que rapporte un euro par ce chemin est le produit des deux taux. Ton euro passe à la fois par le franc et par la livre, et les yens obtenus par les deux chemins s'additionnent. Le tableau de tous les taux d'une étape, avec une ligne par monnaie d'arrivée et une colonne par monnaie de départ, est une jacobienne. Le tableau d'un bout à l'autre s'obtient en multipliant les deux tableaux, la dernière étape à gauche. Les taux à utiliser sont ceux du jour, au moment où l'on change, comme une jacobienne s'évalue au point où l'on est. Si les taux dépendaient du montant changé, il faudrait les prendre au montant atteint à chaque étape, et la réponse ne vaudrait que pour un petit euro de plus, comme une dérivée.
 
 **En 3 phrases.** Le long d'un chemin de change, les taux se multiplient. D'un chemin à l'autre, les gains s'additionnent. Le tableau des taux d'un bout à l'autre est le produit des tableaux de chaque étape, comme la jacobienne d'une composée.
 
@@ -253,7 +253,7 @@ Dans ta copie : soustraire 38 à toutes les longueurs ne change pas la loi (seul
 
 ### M17.E1 — « Qu'est-ce qu'une jacobienne ? Donne un exemple hors du machine learning. »
 
-**Réponse modèle (60 secondes).** « La jacobienne d'une application qui prend $n$ nombres et en rend $m$ est la matrice $m \times n$ de ses dérivées partielles : une ligne par sortie, une colonne par entrée. Elle donne la meilleure approximation linéaire de l'application près d'un point : un petit déplacement $\mathbf{h}$ des entrées déplace les sorties d'environ $\mathbf{J}\mathbf{h}$. Exemple : une carte, qui envoie la latitude et la longitude d'un lieu sur un point du plan ; sa jacobienne dit de combien de kilomètres sur la carte on bouge par degré de latitude ou de longitude, et la valeur absolue de son déterminant dit de combien la carte agrandit les surfaces à cet endroit, ce qui explique pourquoi certaines projections gonflent les pays proches des pôles. Pour une composée, les jacobiennes se multiplient : c'est la règle de la chaîne. Enfin, on évite souvent de la former, car elle a $mn$ coefficients : on calcule son produit par un vecteur, qui dit comment toutes les sorties bougent dans une direction donnée, pour le prix de quelques évaluations. »
+**Réponse modèle (60 secondes).** « La jacobienne d'une application qui prend $n$ nombres et en rend $m$ est la matrice $m \times n$ de ses dérivées partielles : une ligne par sortie, une colonne par entrée. Elle donne la meilleure approximation linéaire de l'application près d'un point : un petit déplacement $\mathbf{h}$ des entrées déplace les sorties d'environ $\mathbf{J}\mathbf{h}$. Exemple : le passage des coordonnées polaires $(r, \theta)$ aux coordonnées cartésiennes $(x, y)$, qu'utilise un radar ou un GPS ; sa jacobienne a pour colonnes la direction radiale et la direction tangente, et son déterminant vaut $r$ : un petit rectangle $\mathrm{d}r \times \mathrm{d}\theta$ devient une petite figure d'aire environ $r\,\mathrm{d}r\,\mathrm{d}\theta$, ce qui explique le facteur $r$ des intégrales en coordonnées polaires. Pour une composée, les jacobiennes se multiplient : c'est la règle de la chaîne. Enfin, on évite souvent de la former, car elle a $mn$ coefficients : on calcule son produit par un vecteur, qui dit comment toutes les sorties bougent dans une direction donnée, pour le prix de quelques évaluations. »
 
 **Grille.** La définition et la forme ; l'approximation linéaire ; un exemple concret hors du machine learning, avec le sens du déterminant ; la composition ; le produit par un vecteur et son coût.
 

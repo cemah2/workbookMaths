@@ -112,7 +112,7 @@ $\frac{p_i}{p_j} = e^{-(E_i - E_j)/T}$ ; quand $T \to \infty$, la loi devient un
 </details>
 <details><summary>Indice 3</summary>
 
-6 : que vaut la somme de chaque ligne de cette matrice ?
+4 : un rapport de populations, $e^{-3/T} = \frac{1}{100}$. 6 : que vaut la somme de chaque ligne de cette matrice ?
 
 </details>
 
@@ -313,12 +313,12 @@ Relis le §7 et la règle d'acceptation de l'énoncé.
 </details>
 <details><summary>Indice 2</summary>
 
-Soustrais 38 à toutes les longueurs : les écarts sont $(3, 0, 7, 1, 2)$.
+Écris chaque poids $e^{-\ell/T}$ comme $e^{-38/T}$ fois $e^{-\Delta/T}$, où $\Delta$ est l'écart à 38 km : $(3, 0, 7, 1, 2)$ ; le facteur commun se simplifie.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{1}{\sum_j e^{-\Delta_j/5}}$. d) Calcule $P(B)$ pour chaque température de la liste. f) Lis la règle : une tournée plus courte est toujours acceptée.
+a) $\frac{1}{\sum_j e^{-\Delta_j/4}}$. d) Deux tournées distinctes : additionne $P(B)$ et $P(D)$. f) Lis la règle : une tournée plus courte est toujours acceptée.
 
 </details>
 

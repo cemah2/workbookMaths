@@ -267,7 +267,7 @@ CHAPTERS = [
             ("M17.8", "∂", 3, 20, "La règle de la chaîne pour des applications de ℝⁿ dans ℝᵐ, à partir de "
              "l'approximation linéaire", "§3", "E"),
             ("M17.9", "∂", 1, 15, "Une fonction appliquée coordonnée par coordonnée a une jacobienne diagonale, et "
-             "J v = f′(x) ⊙ v", "§2", ""),
+             "J v = g′(x) ⊙ v", "§2", ""),
             ("M17.10", "∂", 2, 20, "diag(p) − ppᵀ est la covariance d'un vecteur one-hot : symétrique, semi-définie "
              "positive, de noyau contenant 1", "§7", "E"),
             ("M17.11", "✏️", 2, 15, "Le recuit simulé : une loi de Boltzmann sur cinq configurations, dont on baisse "
