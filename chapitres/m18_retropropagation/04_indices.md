@@ -40,7 +40,7 @@ Liste les chemins de $x$ à $y$ en partant de $x$ : par $a$ (puis directement ve
 </details>
 <details><summary>Indice 3</summary>
 
-1. et 2. : trois chemins, de produits 2, 3 et $-2$. 3. : les chemins de $a$ à $y$ sont $a \to y$ et $a \to c \to y$. 4. : à chaque étage, un chemin choisit l'un des deux nœuds.
+1. et 2. : trois chemins, de produits 12, $-6$ et 2. 3. : les chemins de $a$ à $y$ sont $a \to y$ et $a \to c \to y$. 4. : un chemin fait 4 pas dans chaque direction ; choisis lesquels des 8 pas vont dans la première (R8).
 
 </details>
 
@@ -282,7 +282,7 @@ Passe avant, puis passe arrière dans l'ordre $f$, $u_3$, $u_2$, $u_1$, puis les
 </details>
 <details><summary>Indice 3</summary>
 
-$\bar{u}_3 = 2$, $\bar{u}_2 = 0{,}5$, puis $\bar{u}_1 = \bar{f} \times u_3 + \bar{u}_2 \times 1$ : $u_1$ a deux successeurs. De même, $\bar{q}$ reçoit une contribution de $u_1$ et une de $u_2$.
+$\bar{u}_3 = 3$, $\bar{u}_2 = 0{,}75$, puis $\bar{u}_1 = \bar{f} \times u_3 + \bar{u}_2 \times 1$ : $u_1$ a deux successeurs. De même, $\bar{q}$ reçoit une contribution de $u_1$ et une de $u_2$.
 
 </details>
 
@@ -336,7 +336,7 @@ $\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_i(\mathbf{A}\mathbf{X})_{ii} = \
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\mathbf{A}^\top$. e) $(\mathbf{A} + \mathbf{A}^\top)\mathbf{X}$ avec $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 4 & 0 \\ 0 & 6 \end{pmatrix}$. f) $\sum_{ij}G_{ij}H_{ij}$ ne garde que $G_{12}$ et $G_{21}$.
+b) $\mathbf{A}^\top$. e) $(\mathbf{A} + \mathbf{A}^\top)\mathbf{X}$ avec $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 4 & 0 \\ 0 & 6 \end{pmatrix}$. f) $\sum_{ij}G_{ij}H_{ij}$ ne garde que $G_{11}$ et $G_{12}$.
 
 </details>
 
@@ -354,7 +354,7 @@ $\det\mathbf{X} = x_{11}x_{22} - x_{12}x_{21}$ : dérive par rapport à chaque c
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\begin{pmatrix} x_{22} & -x_{21} \\ -x_{12} & x_{11} \end{pmatrix}$. d) $\mathbf{X}^{-1} = \frac{1}{\det\mathbf{X}}\begin{pmatrix} x_{22} & -x_{12} \\ -x_{21} & x_{11} \end{pmatrix}$ : compare avec c). f) $\det(\mathbf{X} + 0{,}01\,\mathbf{H}) = 4{,}01 \times 2{,}99 - 1{,}02 \times 2$.
+b) $\begin{pmatrix} x_{22} & -x_{21} \\ -x_{12} & x_{11} \end{pmatrix}$. d) $\mathbf{X}^{-1} = \frac{1}{\det\mathbf{X}}\begin{pmatrix} x_{22} & -x_{12} \\ -x_{21} & x_{11} \end{pmatrix}$ : compare avec c). f) $\det(\mathbf{X} + 0{,}01\,\mathbf{H}) = 4{,}01 \times 2{,}99 - 1{,}02 \times 2$ ; divise par $\det\mathbf{X}$ avant de prendre le logarithme.
 
 </details>
 
@@ -448,7 +448,7 @@ C'est M18.11 « à l'envers » : classe les chemins de $u_j$ à $y$ par leur **p
 </details>
 <details><summary>Indice 3</summary>
 
-$A_j = \sum_{k > j}D_{jk}A_k$. Pour une entrée, $A_i$ est la même somme que $S_N$ de M18.11. En 5., la coordonnée $j$ de $\mathbf{D}\mathbf{A}$ est $\sum_kD_{jk}A_k$, d'où $(\mathbf{I} - \mathbf{D})\mathbf{A} = \mathbf{e}_N$.
+$T_j = \sum_{k > j}D_{jk}T_k$. Pour une entrée, $T_i$ est la même somme que $S_N$ de M18.11. En 5., la coordonnée $j$ de $\mathbf{D}\mathbf{t}$ est $\sum_kD_{jk}T_k$, d'où $(\mathbf{I} - \mathbf{D})\mathbf{t} = \mathbf{e}_N$.
 
 </details>
 
@@ -488,7 +488,7 @@ La jacobienne a une ligne par sortie et une colonne par entrée ; le mode direct
 </details>
 <details><summary>Indice 3</summary>
 
-a) $(3, 2\,000)$. d) Deux évaluations par entrée. f) $10^6 \times 8$ octets.
+a) $(3, 2\,000)$. d) Toutes les émissions qui augmentent ensemble, c'est une seule direction : un produit jacobienne-vecteur. e) La somme des sorties, c'est une seule combinaison des lignes : un produit vecteur-jacobienne. f) $10^6 \times 8$ octets.
 
 </details>
 
@@ -550,7 +550,7 @@ Une variable intermédiaire de l'exemple sert deux fois : son adjoint reçoit de
 
 <details><summary>Indice 1</summary>
 
-Relis le §4 de la fiche et choisis ton image (une rivière et ses affluents, une recette, une chaîne de fournisseurs).
+Relis le §4 de la fiche et choisis ton image (une rivière et ses affluents, une recette).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -582,7 +582,7 @@ Pour chaque méthode : ce qu'elle manipule (des formules, des nombres et un pas 
 </details>
 <details><summary>Indice 3</summary>
 
-Le plan : symbolique (expressions exactes, qui gonflent) ; numérique (approchée, $2n$ évaluations) ; automatique (exacte aux arrondis près, un petit multiple du calcul) ; ses deux modes ; pourquoi le mode inverse en deep learning.
+Le plan : symbolique (expressions exactes, qui gonflent) ; numérique (approchée, une erreur qui dépend du pas) ; automatique (exacte aux arrondis près, même avec des boucles) ; ses deux modes ; pourquoi le mode inverse pour un seul nombre et des milliers d'entrées (la forme d'une aile, par exemple).
 
 </details>
 

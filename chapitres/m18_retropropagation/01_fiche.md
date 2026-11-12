@@ -126,7 +126,7 @@ De $v$ à $y$, un seul : $\frac{\partial y}{\partial v} = 0{,}5 \times 0{,}5 \ti
 
 ### Trop de chemins pour les lister
 
-Le nombre de chemins peut exploser : si chaque étage d'un calcul envoie son résultat dans deux opérations que l'étage suivant recombine, il double à chaque étage, et dépasse le million après 20 étages. On ne liste donc jamais les chemins : on range la somme **nœud par nœud**, en ne passant qu'une fois sur chaque arête. Deux rangements sont possibles, depuis les entrées (§3) ou depuis la sortie (§4) ; tous deux coûtent une multiplication et une addition par arête.
+Le nombre de chemins peut exploser. Dans un calcul en grille, où chaque case $(i, j)$ se calcule à partir de ses voisines $(i - 1, j)$ et $(i, j - 1)$ (comme un tableau de calcul rempli ligne par ligne), un chemin du coin $(0, 0)$ au coin $(k, k)$ fait $k$ pas dans chaque direction, dans n'importe quel ordre : il y en a $\binom{2k}{k}$ (R8), soit $184\,756$ pour $k = 10$ et plus de $10^{11}$ pour $k = 20$. On ne liste donc jamais les chemins : on range la somme **nœud par nœud**, en ne passant qu'une fois sur chaque arête. Deux rangements sont possibles, depuis les entrées (§3) ou depuis la sortie (§4) ; tous deux coûtent une multiplication et une addition par arête.
 
 ⚠️ **Erreur classique.** Oublier un chemin, en général celui d'une entrée qui sert deux fois : ici, ne garder que $t \to u_2 \to u_3 \to y$ donnerait $\frac{\partial y}{\partial t} = 10$, le double de la vraie valeur.
 
@@ -146,8 +146,8 @@ C'est le **mode direct** (*forward mode*) de la **différentiation automatique**
 
 Un **nombre dual** (*dual number*) s'écrit $a + b\varepsilon$, où $a$ et $b$ sont réels et où $\varepsilon$ est un symbole qui vérifie $\varepsilon^2 = 0$ (sans être 0). On calcule avec eux comme avec des polynômes en $\varepsilon$, en effaçant $\varepsilon^2$ :
 $$(a + b\varepsilon) + (c + d\varepsilon) = (a + c) + (b + d)\,\varepsilon, \qquad (a + b\varepsilon)(c + d\varepsilon) = ac + (ad + bc)\,\varepsilon,$$
-$$\frac{a + b\varepsilon}{c + d\varepsilon} = \frac{a}{c} + \frac{bc - ad}{c^2}\,\varepsilon \quad (c \ne 0), \qquad (a + b\varepsilon)^p = a^p + p\,a^{p-1}b\,\varepsilon.$$
-Pour le quotient, multiplie le haut et le bas par $c - d\varepsilon$ : le bas devient $c^2 - d^2\varepsilon^2 = c^2$. Pour une fonction $g$ comme $\exp$, $\ln$, $\sin$ ou $\cos$, on **pose** $g(a + b\varepsilon) = g(a) + g'(a)\,b\,\varepsilon$, ce que donnerait le développement de Taylor (M05a) arrêté au premier ordre.
+$$\frac{a + b\varepsilon}{c + d\varepsilon} = \frac{a}{c} + \frac{bc - ad}{c^2}\,\varepsilon \quad (c \ne 0), \qquad (a + b\varepsilon)^p = a^p + p\,a^{p-1}b\,\varepsilon$$
+(pour un exposant $p$ non entier, avec $a > 0$). Pour le quotient, multiplie le haut et le bas par $c - d\varepsilon$ : le bas devient $c^2 - d^2\varepsilon^2 = c^2$. Pour une fonction $g$ comme $\exp$, $\ln$, $\sin$ ou $\cos$, on **pose** $g(a + b\varepsilon) = g(a) + g'(a)\,b\,\varepsilon$, ce que donnerait le développement de Taylor (M05a) arrêté au premier ordre.
 
 La partie en $\varepsilon$ suit exactement les règles de dérivation : la somme, le produit, le quotient, la composée. D'où le théorème (∂ M18.12) : pour toute fonction $f$ écrite avec ces opérations,
 $$f(a + \varepsilon) = f(a) + f'(a)\,\varepsilon.$$
@@ -178,15 +178,15 @@ Pour calculer $\bar{u}$, il faut les adjoints de tous ses successeurs : on visit
 1. **Passe avant** (*forward pass*) : on calcule et on **garde** toutes les valeurs, car les dérivées locales en ont besoin ($\frac{\partial u_3}{\partial u_2} = u_1$, par exemple).
 2. **Passe arrière** (*backward pass*) : on part de $\bar{y} = 1$ et on remonte, nœud par nœud.
 
-**Le projectile.** Dans l'ordre inverse de la numérotation :
-$$\bar{y} = 1, \quad \bar{u}_5 = \bar{y} \times (-1) = -1, \quad \bar{u}_3 = \bar{y} \times 1 = 1, \quad \bar{u}_4 = \bar{u}_5 \times 5 = -5,$$
+**Le projectile.** Dans l'ordre inverse de la numérotation du §1 ($y$, $u_5$, $u_4$, $u_3$, $u_2$, $u_1$, puis les entrées) :
+$$\bar{y} = 1, \quad \bar{u}_5 = \bar{y} \times (-1) = -1, \quad \bar{u}_4 = \bar{u}_5 \times 5 = -5, \quad \bar{u}_3 = \bar{y} \times 1 = 1,$$
 $$\bar{u}_2 = \bar{u}_3 \times u_1 = 0{,}5, \quad \bar{u}_1 = \bar{u}_3 \times u_2 = 10,$$
-$$\bar{t} = \bar{u}_2 \times v + \bar{u}_4 \times 2t = 10 - 5 = 5, \quad \bar{v} = \bar{u}_2 \times t = 0{,}25, \quad \bar{\theta} = \bar{u}_1 \times \cos\theta = 5\sqrt3.$$
+$$\bar{t} = \bar{u}_2 \times v + \bar{u}_4 \times 2t = 10 - 5 = 5, \quad \bar{\theta} = \bar{u}_1 \times \cos\theta = 5\sqrt3, \quad \bar{v} = \bar{u}_2 \times t = 0{,}25.$$
 **Une seule** passe arrière donne les trois dérivées partielles, que le mode direct obtenait en trois passes. La figure du §1 porte ces adjoints sous les nœuds.
 
 ### Accumuler
 
-$t$ a deux successeurs : son adjoint reçoit deux **contributions**, $\bar{u}_2 \times v$ et $\bar{u}_4 \times 2t$, qui s'**additionnent**. Dans un programme, on part d'adjoints nuls et chaque successeur **ajoute** sa part (`+=`) ; remplacer une part par la suivante (`=`) perd un chemin (🐛 M18.27).
+$t$ a deux successeurs : son adjoint reçoit deux **contributions**, $\bar{u}_2 \times v$ et $\bar{u}_4 \times 2t$, qui s'**additionnent**. En oublier une revient à oublier un chemin, la même erreur qu'au §2 : on obtiendrait 10 au lieu de 5 (🐛 M18.27).
 
 **Le lien avec M17.** Pour une étape $\mathbf{w} = \mathbf{F}(\mathbf{u})$ de jacobienne $\mathbf{J}$, la formule des adjoints s'écrit, en lignes, $\bar{\mathbf{u}} = \bar{\mathbf{w}}\,\mathbf{J}$ : un **produit vecteur-jacobienne** (M17 §5). Le mode inverse fait passer un seul vecteur ligne à travers les jacobiennes, de la sortie vers les entrées, sans jamais les multiplier entre elles.
 
@@ -206,11 +206,11 @@ Le choix se fait donc sur la forme de $\mathbf{J}$ : **peu d'entrées** ($n \ll 
 
 ### Le gradient bon marché
 
-Pour une fonction **réelle** ($m = 1$), le gradient est une seule ligne : **une** passe arrière suffit, alors que le mode direct demande $n$ passes et les différences centrées $2n$ évaluations de $f$ (M05a). C'est le **principe du gradient bon marché** (*cheap gradient principle*) : le gradient coûte un petit multiple, **indépendant de $n$**, du coût de la fonction. W. Baur et V. Strassen l'ont démontré en 1983 pour les fonctions rationnelles : toutes les dérivées partielles se calculent ensemble avec au plus trois fois plus de multiplications et de divisions que la fonction seule. En comptant toutes les opérations, la constante reste de cet ordre (on cite souvent 5).
+Pour une fonction **réelle** ($m = 1$), le gradient est une seule ligne : **une** passe arrière suffit, alors que le mode direct demande $n$ passes. C'est le **principe du gradient bon marché** (*cheap gradient principle*) : le gradient coûte un petit multiple, **indépendant de $n$**, du coût de la fonction. W. Baur et V. Strassen l'ont démontré en 1983 pour les fonctions rationnelles : une fonction et toutes ses dérivées partielles se calculent ensemble avec au plus trois fois plus de multiplications et de divisions que la fonction seule. En comptant aussi les additions, la constante reste petite.
 
-**Exemple.** Une plaque métallique a 1 000 températures imposées sur son bord ; un programme en calcule la température moyenne de la plaque ($\mathbb{R}^{1\,000} \to \mathbb{R}$). Pour savoir quelle température du bord pèse le plus, il faut le gradient : 1 000 passes en mode direct, 2 000 évaluations par différences centrées, **une** passe en mode inverse. À l'opposé, la trajectoire d'un projectile échantillonnée en 1 000 instants, en fonction de sa seule vitesse de départ ($\mathbb{R} \to \mathbb{R}^{1\,000}$), se dérive en **une** passe directe, contre 1 000 passes arrière.
+**Exemple.** Une plaque métallique a 1 000 températures imposées sur son bord ; un programme en calcule la température moyenne de la plaque ($\mathbb{R}^{1\,000} \to \mathbb{R}$). Pour savoir quelle température du bord pèse le plus, il faut le gradient : 1 000 passes en mode direct, **une** passe en mode inverse. À l'opposé, la trajectoire d'un projectile échantillonnée en 1 000 instants, en fonction de sa seule vitesse de départ ($\mathbb{R} \to \mathbb{R}^{1\,000}$), se dérive en **une** passe directe, contre 1 000 passes arrière.
 
-**La mémoire.** Le mode direct ne garde que la valeur et la tangente du nœud en cours : sa mémoire ne grandit pas avec la longueur du calcul. Le mode inverse garde toute la passe avant : pour un très long calcul, c'est la mémoire qui coûte, pas le temps.
+**La mémoire.** Le mode direct garde, comme le calcul de $f$ lui-même, les seules valeurs encore utiles, chacune avec sa tangente : environ deux fois la mémoire de $f$, qui ne grandit pas avec la longueur du calcul. Le mode inverse garde **toute** la passe avant : pour un très long calcul, c'est la mémoire qui coûte, pas le temps.
 
 💻 **Aujourd'hui en pratique** — les bibliothèques de calcul (JAX, PyTorch) enregistrent la passe avant et font le mode inverse pour les gradients ; JAX propose aussi le mode direct (`jax.jvp`), et deux façons de former une jacobienne, colonne par colonne (`jax.jacfwd`) ou ligne par ligne (`jax.jacrev`), à choisir selon sa forme.
 
@@ -233,7 +233,7 @@ Pour $\mathbf{X} = \begin{pmatrix} 3 & 1 \\ 2 & 4 \end{pmatrix}$ ($\det\mathbf{X
 
 ### Lire le gradient dans l'approximation linéaire
 
-Le terme du premier ordre, $\mathbf{H} \mapsto \sum_{ij}G_{ij}H_{ij}$, est une fonction **linéaire** du déplacement. Son coefficient $(i, j)$ se lit en déplaçant un seul coefficient : pour la matrice $\mathbf{E}_{ij}$, qui a un 1 en $(i, j)$ et des 0 ailleurs, $\sum_{kl}G_{kl}(\mathbf{E}_{ij})_{kl} = G_{ij}$. Connaître cette fonction linéaire, c'est donc connaître le gradient, une case à la fois (🔨 M18.22). Le §7 apprend à l'écrire sans passer par les coordonnées.
+Le terme du premier ordre, $\mathbf{H} \mapsto \sum_{ij}G_{ij}H_{ij}$, est une fonction **linéaire** du déplacement. Son coefficient $(i, j)$ se lit en déplaçant un seul coefficient : pour la matrice $\mathbf{E}_{ij}$, qui a un 1 en $(i, j)$ et des 0 ailleurs, $\sum_{kl}G_{kl}(\mathbf{E}_{ij})_{kl} = G_{ij}$. Connaître cette fonction linéaire, c'est donc connaître le gradient, une case à la fois (🔨 M18.22). Le §7 apprend à l'écrire sans passer par les coordonnées. Tout cela vaut pour un tableau à trois indices ou plus : le gradient d'une fonction réelle d'un tableau de forme $(4, 2, 3)$ a la forme $(4, 2, 3)$.
 
 ### Le cas d'un vecteur, et la convention de MML
 
@@ -288,7 +288,7 @@ le **gradient d'une moyenne est la moyenne des gradients**, chacun évalué au m
 
 **Exemple : le centroïde.** Pour des points $\mathbf{x}_1, \ldots, \mathbf{x}_N$ du plan, $F(\mathbf{p}) = \frac{1}{N}\sum_k\lVert\mathbf{p} - \mathbf{x}_k\rVert^2$ est la moyenne des carrés des distances de $\mathbf{p}$ aux points. Chaque terme a pour gradient $2(\mathbf{p} - \mathbf{x}_k)$, donc $\nabla F(\mathbf{p}) = 2(\mathbf{p} - \bar{\mathbf{x}})$, nul au **centroïde** $\bar{\mathbf{x}}$, le minimum de M07. Avec $\mathbf{x}_1 = (0, 0)$, $\mathbf{x}_2 = (4, 0)$, $\mathbf{x}_3 = (2, 6)$ et $\mathbf{p} = (1, 1)$ : les trois gradients valent $(2, 2)$, $(-6, 2)$ et $(-2, -10)$, de moyenne $(-2, -2) = 2\big((1, 1) - (2, 2)\big)$.
 
-**Les distances elles-mêmes.** Pour $\mathbf{p} \ne \mathbf{x}$, $\nabla_{\mathbf{p}}\lVert\mathbf{p} - \mathbf{x}\rVert = \frac{\mathbf{p} - \mathbf{x}}{\lVert\mathbf{p} - \mathbf{x}\rVert}$, le vecteur **unitaire** qui s'éloigne de $\mathbf{x}$ (la règle de la chaîne sur $\sqrt{\lVert\mathbf{p} - \mathbf{x}\rVert^2}$) ; en $\mathbf{p} = \mathbf{x}$, la distance a un coin, comme $\lvert t \rvert$ en 0, et pas de gradient. La moyenne des distances a donc pour gradient la moyenne de vecteurs unitaires : il n'y a plus de formule fermée pour son minimum (✏️ M18.9).
+**Les distances elles-mêmes.** Pour $\mathbf{p} \ne \mathbf{x}$, $\nabla_{\mathbf{p}}\lVert\mathbf{p} - \mathbf{x}\rVert = \frac{\mathbf{p} - \mathbf{x}}{\lVert\mathbf{p} - \mathbf{x}\rVert}$, le vecteur **unitaire** qui s'éloigne de $\mathbf{x}$ (la règle de la chaîne sur $\sqrt{\lVert\mathbf{p} - \mathbf{x}\rVert^2}$) ; en $\mathbf{p} = \mathbf{x}$, la distance a un coin, comme $\lvert t \rvert$ en 0, et pas de gradient. La moyenne des distances a donc pour gradient la moyenne de vecteurs unitaires : en général, il n'y a plus de formule fermée pour son minimum, et on le cherche par une méthode itérative ; ✏️ M18.9 traite un cas où la géométrie le donne.
 
 🔗 **Plus loin dans ce dépôt** — M19 estime le gradient d'une moyenne sur un échantillon tiré au hasard parmi les $N$ termes.
 
@@ -304,7 +304,7 @@ D'un côté, $\varphi'(0)$ se calcule par une **différence centrée** (M05a) : 
 
 ![À gauche, ln det(X + s H) pour une direction H qui n'est pas symétrique, avec la tangente de pente tr(Gᵀ H) et celle du gradient transposé, qui s'en écarte ; à droite, pour une direction symétrique, les deux tangentes sont confondues](figures/verification_direction.png)
 
-**Exemple.** Pour $f = \ln\det$ en $\mathbf{X} = \begin{pmatrix} 2 & 1 \\ 0{,}5 & 3 \end{pmatrix}$ (non symétrique), $\mathbf{G} = \mathbf{X}^{-\top}$. Le long de $\mathbf{H} = \begin{pmatrix} 1 & -1 \\ 1 & 0{,}5 \end{pmatrix}$, $\varphi'(0) = \operatorname{tr}(\mathbf{G}^\top\mathbf{H}) \approx 0{,}636$, alors qu'un gradient transposé, $\mathbf{X}^{-1}$, prédirait $0{,}818$ : démasqué. Le long de la direction symétrique $\begin{pmatrix} 1 & 0{,}5 \\ 0{,}5 & -1 \end{pmatrix}$, les deux prédisent $0{,}045$ (figure).
+**Exemple.** Pour $f = \ln\det$ en $\mathbf{X} = \begin{pmatrix} 2 & -1 \\ 1 & 3 \end{pmatrix}$ (non symétrique, $\det\mathbf{X} = 7$), $\mathbf{G} = \mathbf{X}^{-\top} = \frac17\begin{pmatrix} 3 & -1 \\ 1 & 2 \end{pmatrix}$. Le long de $\mathbf{H} = \begin{pmatrix} 1 & -1 \\ 1 & 0{,}5 \end{pmatrix}$, $\varphi'(0) = \operatorname{tr}(\mathbf{G}^\top\mathbf{H}) = \frac67 \approx 0{,}857$, alors qu'un gradient transposé, $\mathbf{X}^{-1}$, prédirait $\frac27 \approx 0{,}286$ : démasqué. Le long de la direction symétrique $\begin{pmatrix} 1 & 0{,}5 \\ 0{,}5 & -1 \end{pmatrix}$, les deux prédisent $\frac17$ (figure).
 
 ⚠️ **Erreur classique.** Vérifier un gradient avec un pas $h$ trop petit : les arrondis de $f(\mathbf{X} \pm h\mathbf{H})$, divisés par $2h$, grandissent quand $h$ diminue (M05a §7) ; vers $h = 10^{-12}$, il ne reste que trois ou quatre chiffres justes, et un gradient juste paraît faux. Ou vérifier en un point trop particulier (une matrice symétrique, la matrice identité), où plusieurs erreurs se compensent.
 
@@ -313,7 +313,7 @@ D'un côté, $\varphi'(0)$ se calcule par une **différence centrée** (M05a) : 
 - **Un chemin oublié.** Un nœud qui sert deux fois a deux arêtes sortantes ; sa dérivée (ou son adjoint) additionne deux contributions.
 - **$t \cdot t$ n'est pas $t$.** Une opération qui prend deux fois le même argument a pour dérivée locale la somme des deux dérivées partielles, $2t$.
 - **L'ordre des passages.** Mode direct : dans l'ordre du calcul ; mode inverse : dans l'ordre **inverse**, et un adjoint ne sert qu'une fois toutes ses contributions reçues.
-- **`=` au lieu de `+=`.** En accumulant les adjoints, une contribution qui remplace la précédente perd un chemin.
+- **Un adjoint incomplet.** L'adjoint d'un nœud est la somme des contributions de **tous** ses successeurs ; en oublier une perd un chemin.
 - **Les valeurs de la passe avant.** Les dérivées locales se calculent avec les valeurs de la passe avant, qu'il faut garder.
 - **Le choix du mode.** Peu d'entrées : direct ; peu de sorties (un gradient) : inverse.
 - **La forme du gradient.** Par rapport à une matrice, il a la forme de la matrice ; $\mathbf{G}^\top$ a la même forme pour une matrice carrée, et c'est une erreur silencieuse.

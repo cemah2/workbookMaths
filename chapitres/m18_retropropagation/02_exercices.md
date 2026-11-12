@@ -30,12 +30,12 @@ Deux résistances $r_1$ et $r_2$ montées en parallèle ont la résistance équi
 ### M18.Q2 — Combien de chemins, et quelle somme ? 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
 
-Un graphe de calcul a l'entrée $x$, les nœuds $a$, $b$, $c$ et la sortie $y$, et ces arêtes, avec leurs dérivées locales : $x \to a$ : $2$ ; $x \to b$ : $-1$ ; $a \to c$ : $3$ ; $b \to c$ : $4$ ; $a \to y$ : $1$ ; $c \to y$ : $0{,}5$.
+Un graphe de calcul a l'entrée $x$, les nœuds $a$, $b$, $c$ et la sortie $y$, et ces arêtes, avec leurs dérivées locales : $x \to a$ : $3$ ; $x \to b$ : $-2$ ; $a \to c$ : $2$ ; $b \to c$ : $1$ ; $a \to y$ : $4$ ; $c \to y$ : $-1$.
 
 1. Combien de chemins vont de $x$ à $y$ ?
 2. Que vaut $\frac{\partial y}{\partial x}$ ?
 3. Que vaut $\frac{\partial y}{\partial a}$, l'adjoint de $a$ ?
-4. Une entrée est reliée aux 2 nœuds d'un premier étage ; chaque nœud d'un étage est relié aux 2 nœuds de l'étage suivant ; il y a 10 étages, et les 2 nœuds du dernier sont reliés à la sortie. Combien de chemins vont de l'entrée à la sortie ?
+4. Un calcul en grille : chaque case $(i, j)$, pour $0 \le i, j \le 4$, se calcule à partir des cases $(i - 1, j)$ et $(i, j - 1)$ quand elles existent. Combien de chemins vont de la case $(0, 0)$ à la case $(4, 4)$ ?
 5. Vrai ou faux : pour calculer $\frac{\partial y}{\partial x}$, il faut lister tous les chemins.
 6. Une arête a une dérivée locale nulle : que vaut la contribution des chemins qui passent par elle ?
 
@@ -70,7 +70,7 @@ La résistance équivalente de M18.Q1, calculée dans l'ordre $r_1, r_2, u_1, u_
 3. $\mathbf{f} : \mathbb{R}^{50} \to \mathbb{R}^{50}$ : même nombre de passes ; quel mode demande le moins de mémoire ?
 4. Vrai ou faux : le mode inverse doit garder les valeurs de la passe avant.
 5. Vrai ou faux : pour une fonction de $20\,000$ variables, le gradient en mode inverse coûte environ $20\,000$ fois le calcul de la fonction.
-6. Combien d'évaluations de $f : \mathbb{R}^{500} \to \mathbb{R}$ demandent les différences centrées pour tout son gradient ?
+6. Combien de passes directes faut-il pour la dérivée de $f : \mathbb{R}^{500} \to \mathbb{R}$ dans une seule direction $\mathbf{v}$ ?
 
 ### M18.Q6 — La forme d'un gradient par rapport à une matrice 🧠 ★ ⏱️ 4 min
 *Fiche §6 · parcours C, E*
@@ -102,7 +102,7 @@ Les matrices ont les formes qui rendent chaque produit possible.
 3. $F(\mathbf{p})$ est la moyenne des carrés des distances de $\mathbf{p}$ aux points $(1, 3)$ et $(3, -1)$. Que vaut $\nabla F(0, 0)$ ?
 4. Où $\nabla F$ s'annule-t-il ?
 5. Vrai ou faux : pour vérifier un gradient matriciel, la direction $\mathbf{H} = \mathbf{I}$ suffit.
-6. $\mathbf{X}$ a la forme $(100, 100)$. Combien d'évaluations de $f$ demande la vérification le long d'une direction par une différence centrée ? Et toutes les cases une à une ?
+6. $\mathbf{X}$ a la forme $(100, 100)$. Combien d'évaluations de $f$ demande la vérification le long d'une direction par une différence centrée ? Combien de directions **symétriques** faudrait-il pour démasquer un gradient transposé ?
 
 <a id="rappels"></a>
 
@@ -148,6 +148,8 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 - une liste entre crochets, comme `[0.2, -1]` ;
 - une matrice comme la liste de ses lignes, comme `[[1, 0], [-2, 3]]` ;
 - une fraction entre guillemets, comme `"3/7"`, quand la question le dit.
+
+Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'arrondis qu'à la fin.
 
 ### Ex M18.1 — Le graphe de calcul d'une formule de physique, et l'ordre de ses calculs ✏️ ★ ⏱️ 15 min
 **Objectif :** décomposer une formule en opérations élémentaires, dessiner son graphe de calcul et l'évaluer dans un ordre valide.
@@ -207,7 +209,7 @@ Dans ta copie : écris le gradient de $f$ en $(2, -1)$ et vérifie-le en dériva
 **Objectif :** faire une passe avant, puis une passe arrière, et accumuler les adjoints d'un nœud qui sert deux fois.
 **Prérequis :** fiche §4 · **Parcours :** C, E
 
-$f(p, q) = pq\sqrt{pq + q}$, calculée par $u_1 = p \cdot q$, $u_2 = u_1 + q$, $u_3 = \sqrt{u_2}$, $f = u_1 \cdot u_3$, au point $(p, q) = (1, 2)$. Le graphe a six nœuds : $p$, $q$, $u_1$, $u_2$, $u_3$, $f$.
+$f(p, q) = pq\sqrt{pq + q}$, calculée par $u_1 = p \cdot q$, $u_2 = u_1 + q$, $u_3 = \sqrt{u_2}$, $f = u_1 \cdot u_3$, au point $(p, q) = (3, 1)$. Le graphe a six nœuds : $p$, $q$, $u_1$, $u_2$, $u_3$, $f$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -215,10 +217,10 @@ $f(p, q) = pq\sqrt{pq + q}$, calculée par $u_1 = p \cdot q$, $u_2 = u_1 + q$, $
 | b | les adjoints $[\bar{u}_3, \bar{u}_2]$ | une liste de 2 nombres |
 | c | l'adjoint $\bar{u}_1$ | un nombre |
 | d | le gradient $[\bar{p}, \bar{q}]$ | une liste de 2 nombres |
-| e | le changement de $f$ prévu par le gradient quand $(p, q)$ passe à $(1{,}02 ;\ 1{,}99)$ | un nombre |
-| f | le vrai changement $f(1{,}02 ;\ 1{,}99) - f(1, 2)$ | un nombre (4 décimales) |
+| e | le changement de $f$ prévu par le gradient quand $(p, q)$ passe à $(3{,}1 ;\ 0{,}95)$ | un nombre |
+| f | le vrai changement $f(3{,}1 ;\ 0{,}95) - f(3, 1)$ | un nombre (3 décimales) |
 
-Dans ta copie : dessine le graphe avec les valeurs et les adjoints. Quels nœuds reçoivent deux contributions, et pourquoi ? Vérifie d) en dérivant $f$ directement. Pourquoi e) et f) sont-ils proches ?
+Dans ta copie : dessine le graphe avec les valeurs et les adjoints. Quels nœuds reçoivent deux contributions, et pourquoi ? Vérifie d) en dérivant $f$ directement. D'où vient l'écart entre e) et f) ?
 
 ### Ex M18.5 — Le même gradient par les deux modes, et le compte des opérations ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer un même gradient en mode direct et en mode inverse, et compter ce que coûte chacun.
@@ -268,7 +270,7 @@ $\mathbf{A} = \begin{pmatrix} 2 & 1 \\ -1 & 3 \end{pmatrix}$, $\mathbf{X} = \beg
 | c | $\frac{\partial}{\partial X_{12}}\operatorname{tr}(\mathbf{A}\mathbf{X})$ | un nombre |
 | d | $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X})$ | un nombre |
 | e | $\nabla_{\mathbf{X}}\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X})$ | une matrice |
-| f | la dérivée en 0 de $s \mapsto \operatorname{tr}\big((\mathbf{X} + s\mathbf{H})^\top\mathbf{A}(\mathbf{X} + s\mathbf{H})\big)$ pour $\mathbf{H} = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ | un nombre |
+| f | la dérivée en 0 de $s \mapsto \operatorname{tr}\big((\mathbf{X} + s\mathbf{H})^\top\mathbf{A}(\mathbf{X} + s\mathbf{H})\big)$ pour $\mathbf{H} = \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$ | un nombre |
 
 Dans ta copie : écris $\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_{i,j}A_{ji}X_{ij}$ et déduis-en b) ; écris $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X}) = \sum_k\sum_{i,j}X_{ik}A_{ij}X_{jk}$ et dérive par rapport à $X_{pq}$. Pourquoi $2\mathbf{A}\mathbf{X}$ serait-il faux ici ? Que devient e) quand $\mathbf{X}$ n'a qu'une colonne (M09b) ?
 
@@ -285,7 +287,7 @@ $\mathbf{X} = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}$, et $\ln$ est le log
 | c | $\nabla_{\mathbf{X}}\ln\det\mathbf{X}$ | une matrice |
 | d | $\mathbf{X}^{-1}$ | une matrice |
 | e | la dérivée en 0 de $s \mapsto \ln\det(\mathbf{X} + s\mathbf{H})$ pour $\mathbf{H} = \begin{pmatrix} 1 & 2 \\ 0 & -1 \end{pmatrix}$ | un nombre |
-| f | $\ln\det(\mathbf{X} + 0{,}01\,\mathbf{H}) - \ln\det\mathbf{X}$ | un nombre (5 décimales) |
+| f | $\ln\det(\mathbf{X} + 0{,}01\,\mathbf{H}) - \ln\det\mathbf{X}$, calculé comme $\ln\frac{\det(\mathbf{X} + 0{,}01\,\mathbf{H})}{\det\mathbf{X}}$ (sinon, la différence de deux logarithmes voisins perd des chiffres) | un nombre (5 décimales) |
 
 Dans ta copie : comparer c) et d) : lequel est la transposée de l'autre, et pourquoi ce n'est pas un hasard ? Reconnais la comatrice dans b). Pourquoi f) est-il proche de $0{,}01 \times$ e) ?
 
@@ -293,7 +295,7 @@ Dans ta copie : comparer c) et d) : lequel est la transposée de l'autre, et pou
 **Objectif :** dériver une moyenne de distances par la moyenne de leurs gradients, et reconnaître son minimum là où ces vecteurs unitaires s'équilibrent.
 **Prérequis :** fiche §8 ; M07 · **Parcours :** C, E
 
-Quatre villes ont pour coordonnées (en km) $A = (0, 0)$, $B = (8, 0)$, $C = (6, 6)$ et $D = (0, 4)$. On cherche où construire un entrepôt $\mathbf{p}$ pour minimiser la distance moyenne aux villes, $F(\mathbf{p}) = \frac14\sum_k\lVert\mathbf{p} - \mathbf{x}_k\rVert$.
+Quatre villes ont pour coordonnées (en km) $A = (0, 0)$, $B = (8, 0)$, $C = (6, 6)$ et $D = (0, 4)$. On cherche où construire un entrepôt $\mathbf{p}$ pour minimiser la distance moyenne aux villes, $F(\mathbf{p}) = \frac14\sum_k\lVert\mathbf{p} - \mathbf{x}_k\rVert$ (minimiser la somme des distances ou leur moyenne, c'est chercher le même point ; les questions portent sur la moyenne $F$).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -333,7 +335,7 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 **Objectif :** démontrer la formule de la somme sur les chemins, par récurrence dans l'ordre du calcul.
 **Prérequis :** fiche §1 et §2 ; M16, M17 ; R4 (récurrence) · **Parcours :** C, E
 
-Un calcul a les nœuds $u_1, \ldots, u_N$, numérotés dans un ordre de calcul : $u_1, \ldots, u_n$ sont les entrées, et chaque $u_k$ ($k > n$) vaut $\varphi_k$ de ses prédécesseurs, qui ont tous un numéro plus petit ; les $\varphi_k$ sont dérivables, et $y = u_N$. On fixe une entrée $x = u_i$ et on note $\dot{u}_k$ la dérivée de $u_k$ par rapport à $x$, les autres entrées restant fixes. $D_{jk} = \frac{\partial\varphi_k}{\partial u_j}$ est la dérivée locale de l'arête $u_j \to u_k$ (et $D_{jk} = 0$ sans arête).
+Un calcul a les nœuds $u_1, \ldots, u_N$, numérotés dans un ordre de calcul : $u_1, \ldots, u_n$ sont les entrées, sans prédécesseur, et chaque $u_k$ ($k > n$) vaut $\varphi_k$ de ses prédécesseurs, qui ont tous un numéro plus petit ; les $\varphi_k$ sont différentiables (M17, ∂ M17.8), et $y = u_N$. On fixe une entrée $x = u_i$ et on note $\dot{u}_k$ la dérivée de $u_k$ par rapport à $x$, les autres entrées restant fixes. $D_{jk} = \frac{\partial\varphi_k}{\partial u_j}$ est la dérivée locale de l'arête $u_j \to u_k$ (et $D_{jk} = 0$ sans arête).
 
 1. Montre que $\dot{u}_k = \sum_{j < k}D_{jk}\,\dot{u}_j$ pour $k > n$ (règle de la chaîne de M17), et donne $\dot{u}_j$ pour les entrées.
 2. On note $S_k$ la somme, sur les chemins de $x$ à $u_k$, des produits des dérivées locales (avec la convention : le chemin vide de $x$ à lui-même compte pour 1). Montre par récurrence sur $k$ que $\dot{u}_k = S_k$. Pour l'hérédité, classe les chemins de $x$ à $u_k$ selon leur **dernière** arête.
@@ -345,26 +347,26 @@ Un calcul a les nœuds $u_1, \ldots, u_N$, numérotés dans un ordre de calcul :
 **Objectif :** démontrer que l'arithmétique des nombres duaux suit les règles de dérivation, et que la partie en ε d'un calcul est la dérivée.
 **Prérequis :** fiche §3 ; R7 · **Parcours :** C, E
 
-On dit qu'une fonction $f$ (dérivable sur un intervalle) est **compatible** si $f(a + b\varepsilon) = f(a) + b\,f'(a)\,\varepsilon$ pour tous les réels $a$ (de l'intervalle) et $b$. On pose $g(a + b\varepsilon) = g(a) + g'(a)\,b\,\varepsilon$ pour $g = \exp$, $\ln$, $\sin$, $\cos$ : ces fonctions sont compatibles par définition.
+Une fonction $f$ écrite avec des opérations s'évalue en un nombre dual $a + b\varepsilon$ en faisant chaque opération avec les règles des nombres duaux. On dit que $f$ (dérivable sur un intervalle) est **compatible** si le résultat vaut $f(a) + b\,f'(a)\,\varepsilon$ pour tous les réels $a$ (de l'intervalle) et $b$. On pose $g(a + b\varepsilon) = g(a) + g'(a)\,b\,\varepsilon$ pour $g = \exp$, $\ln$, $\sin$, $\cos$ : ces fonctions sont compatibles par définition.
 
 1. Montre que $(a + b\varepsilon)(c + d\varepsilon) = ac + (ad + bc)\,\varepsilon$, et que $\frac{a + b\varepsilon}{c + d\varepsilon} = \frac{a}{c} + \frac{bc - ad}{c^2}\,\varepsilon$ pour $c \ne 0$ (vérifie en multipliant par $c + d\varepsilon$).
 2. Montre que $x \mapsto x$ et les constantes sont compatibles ; puis que, si $f$ et $g$ sont compatibles, $f + g$, $fg$ et $f/g$ (là où $g \ne 0$) le sont.
 3. Montre que, si $f$ et $g$ sont compatibles, $g \circ f$ l'est.
 4. Conclus : pour toute fonction $f$ construite à partir de $x$ et de constantes par sommes, produits, quotients et les quatre fonctions ci-dessus, $f(a + \varepsilon) = f(a) + f'(a)\,\varepsilon$.
-5. Montre directement, avec la formule du binôme, que $(a + b\varepsilon)^n = a^n + n\,a^{n-1}b\,\varepsilon$ pour tout entier $n \ge 1$.
+5. Montre directement, avec la formule du binôme, que $(a + b\varepsilon)^n = a^n + n\,a^{n-1}b\,\varepsilon$ pour tout entier $n \ge 1$. (Pour un exposant réel $p$ et $a > 0$, $x^p = e^{p\ln x}$ est une composée : 3. et 4. s'appliquent.)
 6. Pourquoi la définition $e^{a + b\varepsilon} = e^a + e^ab\,\varepsilon$ est-elle naturelle ? (Écris $e^{a + b\varepsilon} = e^ae^{b\varepsilon}$ et utilise la série de l'exponentielle.)
 
 ### Ex M18.13 — Le mode inverse calcule tout le gradient en un passage : l'adjoint d'un nœud est la somme, sur ses successeurs, des adjoints fois les dérivées locales ∂ ★★★ ⏱️ 20 min
 **Objectif :** démontrer la formule des adjoints, et en tirer qu'une seule passe arrière donne tout le gradient.
 **Prérequis :** fiche §4 ; Ex M18.11 · **Parcours :** C
 
-Mêmes notations qu'en M18.11. Pour chaque nœud $u_j$, on note $A_j$ la somme, sur les chemins de $u_j$ à $y = u_N$, des produits des dérivées locales ($A_N = 1$, le chemin vide).
+Mêmes notations qu'en M18.11. Pour chaque nœud $u_j$, on note $T_j$ la somme, sur les chemins de $u_j$ à $y = u_N$, des produits des dérivées locales ($T_N = 1$, le chemin vide).
 
-1. Montre que $A_j = \sum_{k > j}D_{jk}\,A_k$, en classant les chemins de $u_j$ à $y$ selon leur **première** arête.
-2. Montre qu'en calculant les $A_j$ pour $j = N, N - 1, \ldots, 1$, chaque $A_k$ du membre de droite est déjà connu.
-3. Déduis de M18.11 que $A_i = \frac{\partial y}{\partial x_i}$ pour chaque entrée : une seule passe arrière donne tout le gradient.
-4. Montre que, pour un nœud intermédiaire, $A_j$ est la dérivée de $y$ par rapport à $u_j$ quand on considère $u_j$ comme une entrée libre et qu'on recalcule tout ce qui vient après lui : c'est l'adjoint $\bar{u}_j$.
-5. Écris $\mathbf{A} = (A_1, \ldots, A_N)$ comme solution de $\mathbf{A} = \mathbf{e}_N + \mathbf{D}\mathbf{A}$. Quelle **colonne** de $(\mathbf{I} - \mathbf{D})^{-1}$ obtient-on ? Quelle **ligne** une passe directe donne-t-elle (M18.11) ?
+1. Montre que $T_j = \sum_{k > j}D_{jk}\,T_k$ pour $j < N$, en classant les chemins de $u_j$ à $y$ selon leur **première** arête.
+2. Montre qu'en calculant les $T_j$ pour $j = N, N - 1, \ldots, 1$, chaque $T_k$ du membre de droite est déjà connu.
+3. Déduis de M18.11 que $T_i = \frac{\partial y}{\partial x_i}$ pour chaque entrée : une seule passe arrière donne tout le gradient.
+4. Montre que, pour un nœud intermédiaire, $T_j$ est la dérivée de $y$ par rapport à $u_j$ quand on considère $u_j$ comme une entrée libre et qu'on recalcule tout ce qui vient après lui : c'est l'adjoint $\bar{u}_j$. (Pense à un nouveau calcul dont les entrées sont $u_1, \ldots, u_j$, et applique-lui M18.11.)
+5. Écris $\mathbf{t} = (T_1, \ldots, T_N)$ comme solution de $\mathbf{t} = \mathbf{e}_N + \mathbf{D}\mathbf{t}$. Quelle **colonne** de $(\mathbf{I} - \mathbf{D})^{-1}$ obtient-on ? Quelle **ligne** une passe directe donne-t-elle (M18.11) ?
 6. Combien de fois chaque arête sert-elle dans la passe arrière ? Quelles valeurs de la passe avant faut-il avoir gardées ?
 
 ### Ex M18.14 — ∇ log det X = X⁻ᵀ, par le développement du déterminant selon une ligne ∂ ★★★ ⏱️ 20 min
@@ -378,7 +380,7 @@ $\mathbf{X}$ est une matrice carrée $n \times n$ ; $C_{ij}$ est son cofacteur $
 3. Pour $\det\mathbf{X} \ne 0$, montre que $\operatorname{com}(\mathbf{X}) = \det\mathbf{X}\;\mathbf{X}^{-\top}$.
 4. Déduis-en $\nabla_{\mathbf{X}}\ln\det\mathbf{X} = \mathbf{X}^{-\top}$ pour $\det\mathbf{X} > 0$. Que dire de $\ln\lvert\det\mathbf{X}\rvert$ quand $\det\mathbf{X} < 0$ ?
 5. Vérifie 2. et 4. sur $\mathbf{X} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$.
-6. Déduis-en la différentielle $\mathrm{d}(\det\mathbf{X}) = \det\mathbf{X}\,\operatorname{tr}(\mathbf{X}^{-1}\mathrm{d}\mathbf{X})$.
+6. Pour $\det\mathbf{X} \ne 0$, déduis-en la différentielle $\mathrm{d}(\det\mathbf{X}) = \det\mathbf{X}\,\operatorname{tr}(\mathbf{X}^{-1}\mathrm{d}\mathbf{X})$.
 
 <a id="reflexion"></a>
 
@@ -388,15 +390,15 @@ $\mathbf{X}$ est une matrice carrée $n \times n$ ; $C_{ij}$ est son cofacteur $
 **Objectif :** choisir le mode de différentiation d'un calcul d'après ses nombres d'entrées et de sorties, et chiffrer le temps et la mémoire.
 **Prérequis :** fiche §5 · **Parcours :** C, E
 
-Une simulation de la qualité de l'air d'une ville prend 2 000 nombres en entrée (les émissions de 2 000 rues) et rend 3 nombres (les concentrations moyennes de trois polluants). Elle fait $10^6$ opérations élémentaires.
+Une simulation de la qualité de l'air d'une ville prend 2 000 nombres en entrée (les émissions de 2 000 rues) et rend 3 nombres (les concentrations moyennes de trois polluants). Elle fait $10^6$ opérations élémentaires. On compte les passes directes et les passes arrière, sans compter la passe avant du mode inverse, faite une seule fois.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la forme de la jacobienne de la simulation | une liste de 2 entiers |
-| b | le nombre de passages pour la jacobienne entière, en mode direct puis en mode inverse | une liste de 2 entiers |
-| c | le nombre de passages pour le gradient d'un seul polluant, en mode direct puis en mode inverse | une liste de 2 entiers |
-| d | le nombre d'évaluations de la simulation pour la jacobienne entière par différences centrées | un entier |
-| e | en supposant qu'un passage coûte autant dans les deux modes, combien de fois le mode direct est-il plus long que le mode inverse pour la jacobienne entière ? | un nombre (1 décimale) |
+| b | le nombre de passes pour la jacobienne entière, en mode direct puis en mode inverse | une liste de 2 entiers |
+| c | le nombre de passes pour le gradient d'un seul polluant, en mode direct puis en mode inverse | une liste de 2 entiers |
+| d | le nombre de passes directes pour la dérivée des 3 concentrations quand toutes les émissions augmentent ensemble de 1 % | un entier |
+| e | le nombre de passes arrière pour le gradient de la **somme** des 3 concentrations par rapport aux 2 000 émissions | un entier |
 | f | la mémoire de la passe avant gardée par le mode inverse, si chaque opération y laisse un flottant de 8 octets, en mégaoctets (1 Mo = $10^6$ octets) | un nombre |
 
 Dans ta copie : quel mode choisirais-tu pour cette simulation, et pourquoi ? Le chapitre 18 de workbookIA dérive un calcul qui a un très grand nombre d'entrées et une seule sortie : quel mode lui faut-il, et que lui coûte-t-il en mémoire ?
@@ -412,10 +414,10 @@ $f(\mathbf{x}) = \mathbf{x}^\top\mathbf{A}\mathbf{x} + \mathbf{b}^\top\mathbf{x}
 | a | le gradient de $f$ dans la convention de MML (une ligne) | une matrice d'une ligne : `[[a, b]]` |
 | b | la forme de ce gradient dans NumPy, pour `x` de forme `(2,)` | une liste d'un entier |
 | c | pour une fonction réelle d'une matrice de forme $(3, 4)$ : la forme de son gradient dans NumPy, puis celle de sa jacobienne si l'on aplatit la matrice en un vecteur de 12 coordonnées | une liste de 2 listes de 2 entiers |
-| d | le point $\mathbf{x} - \eta\,\nabla f(\mathbf{x})$ après un pas de descente de gradient, avec $\eta = 0{,}1$ | une liste de 2 nombres |
+| d | le point $\mathbf{x} - \eta\,\nabla f(\mathbf{x})$ après un pas de descente de gradient, avec $\eta = 0{,}05$ | une liste de 2 nombres |
 | e | la forme du gradient d'une fonction réelle d'un tableau de forme $(5, 3, 2)$ dans NumPy | une liste de 3 entiers |
 
-Dans ta copie : écris le gradient de a) en ligne, $\mathbf{x}^\top(\mathbf{A} + \mathbf{A}^\top) + \mathbf{b}^\top$, puis en colonne. Pourquoi faut-il transposer la ligne de MML avant de faire le pas d) ? Dans le chapitre 18 de workbookIA, chaque gradient a la forme de son tableau : quelle règle simple vérifie-t-on alors sur chaque formule ?
+Dans ta copie : écris le gradient de a) en ligne, $\mathbf{x}^\top(\mathbf{A} + \mathbf{A}^\top) + \mathbf{b}^\top$, puis en colonne. Pourquoi faut-il transposer la ligne de MML avant de faire le pas d) ? Quand chaque gradient a la forme de sa variable, quelle vérification simple, sur les formes, repère une transposée oubliée dans une formule de gradient ?
 
 ### Ex M18.17 — MML §5.4 et §5.5 : gradients par rapport à des matrices et identités utiles, en anglais 📖 ★★ ⏱️ 40 min
 **Objectif :** lire deux sections de MML en anglais, et relier leurs notations et leurs identités à celles de la fiche.
@@ -444,7 +446,7 @@ Lis MML §5.6 (*Backpropagation and Automatic Differentiation*), crayon en main 
 **Objectif :** expliquer, avec des mots, pourquoi le mode inverse donne toutes les dérivées en une seule passe.
 **Prérequis :** fiche §4 · **Parcours :** C, E
 
-Une amie a fait la règle de la chaîne en terminale : $(g \circ f)'(x) = g'(f(x))\,f'(x)$. Elle demande comment un ordinateur obtient d'un coup les dérivées d'un résultat par rapport à des milliers de données d'entrée. Réponds-lui en 6 à 10 phrases, sans formule, en t'appuyant sur une image concrète (une recette, un réseau de rivières, une chaîne de fournisseurs…) : ce que mesure l'adjoint d'une étape (« de combien le résultat bouge si cette étape bouge un peu »), pourquoi on part de la fin, pourquoi une étape qui sert à plusieurs suivantes additionne ce qu'elle reçoit, pourquoi il faut avoir gardé les valeurs de l'aller, et pourquoi une seule remontée suffit pour toutes les entrées. Puis réécris ta réponse en 3 phrases.
+Une amie a fait la règle de la chaîne en terminale : $(g \circ f)'(x) = g'(f(x))\,f'(x)$. Elle demande comment un ordinateur obtient d'un coup les dérivées d'un résultat par rapport à des milliers de données d'entrée. Réponds-lui en 6 à 10 phrases, sans formule, en t'appuyant sur une image concrète (une recette, un réseau de rivières…) : ce que mesure l'adjoint d'une étape (« de combien le résultat bouge si cette étape bouge un peu »), pourquoi on part de la fin, pourquoi une étape qui sert à plusieurs suivantes additionne ce qu'elle reçoit, pourquoi il faut avoir gardé les valeurs de l'aller, et pourquoi une seule remontée suffit pour toutes les entrées. Puis réécris ta réponse en 3 phrases.
 
 <a id="entretien"></a>
 
@@ -455,7 +457,7 @@ Une amie a fait la règle de la chaîne en terminale : $(g \circ f)'(x) = g'(f(x
 
 « Différentiation automatique, symbolique ou numérique : quelles différences ? »
 
-Prépare une réponse orale de **60 secondes**. Elle doit dire ce que fait chacune (la formule de la dérivée par des règles de réécriture, comme SymPy ; une approximation par des différences finies ; les règles de dérivation appliquées aux nombres, opération par opération, pendant le calcul), ce que chacune rend (une expression, un nombre approché, un nombre exact aux arrondis près), leurs défauts (expressions qui gonflent ; erreur qui dépend du pas $h$ et $2n$ évaluations pour un gradient ; mémoire du mode inverse), et pourquoi les bibliothèques de deep learning choisissent la différentiation automatique en mode inverse. Compare ensuite avec la réponse modèle de `05_solutions.md`.
+Prépare une réponse orale de **60 secondes**. Elle doit dire ce que fait chacune (la formule de la dérivée par des règles de réécriture, comme SymPy ; une approximation par des différences finies ; les règles de dérivation appliquées aux nombres, opération par opération, pendant le calcul), ce que chacune rend (une expression, un nombre approché, un nombre exact aux arrondis près), leurs défauts (expressions qui gonflent ; erreur qui dépend du pas $h$, entre troncature et arrondis ; mémoire du mode inverse), les deux modes de la différentiation automatique, et pourquoi un code qui dérive un seul nombre par rapport à des milliers d'entrées (une simulation, l'optimisation de la forme d'une aile d'avion) choisit le mode inverse. Compare ensuite avec la réponse modèle de `05_solutions.md`.
 
 ### M18.E2 — « Quand le mode direct est-il préférable au mode inverse ? » 💼 ★ ⏱️ 10 min
 *Fiche §5 · parcours C*

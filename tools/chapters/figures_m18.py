@@ -37,7 +37,7 @@ DPI = 110
 
 V, THETA, T = 20.0, math.pi / 6, 0.5              # §1 to §4: the point of the projectile
 DET_X = np.array([[3.0, 1.0], [2.0, 4.0]])        # §6: the matrix whose determinant is differentiated
-LOGDET_X = np.array([[2.0, 1.0], [0.5, 3.0]])     # §8: the point of the check of ln det X
+LOGDET_X = np.array([[2.0, -1.0], [1.0, 3.0]])     # §8: the point of the check of ln det X
 H_RANDOM = np.array([[1.0, -1.0], [1.0, 0.5]])    # §8: a direction that is not symmetric
 H_SYMMETRIC = np.array([[1.0, 0.5], [0.5, -1.0]])  # §8: a symmetric direction
 
@@ -161,7 +161,7 @@ def direction_check() -> None:
         ax.set_title(title, fontsize=9)
         ax.legend(fontsize=8.5, loc="lower right")
         ax.grid(alpha=0.3)
-    fig.suptitle("Vérifier le gradient G = X⁻ᵀ de ln det X en X = [[2, 1], [0,5, 3]] le long d'une direction H",
+    fig.suptitle("Vérifier le gradient G = X⁻ᵀ de ln det X en X = [[2, −1], [1, 3]] le long d'une direction H",
                  fontsize=11)
     save(fig, "verification_direction.png")
 

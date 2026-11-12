@@ -18,9 +18,9 @@
 
 ### M18.Q2 — Combien de chemins, et quelle somme ?
 1. Trois : $x \to a \to y$, $x \to a \to c \to y$ et $x \to b \to c \to y$.
-2. $2 \times 1 + 2 \times 3 \times 0{,}5 + (-1) \times 4 \times 0{,}5 = 2 + 3 - 2 = 3$.
-3. $1 + 3 \times 0{,}5 = 2{,}5$ : les deux chemins de $a$ à $y$.
-4. $2^{10} = 1\,024$ : à chaque étage, le chemin choisit l'un des deux nœuds.
+2. $3 \times 4 + 3 \times 2 \times (-1) + (-2) \times 1 \times (-1) = 12 - 6 + 2 = 8$.
+3. $4 + 2 \times (-1) = 2$ : les deux chemins de $a$ à $y$.
+4. $\binom{8}{4} = 70$ : un chemin fait 4 pas dans chaque direction, et il suffit de choisir lesquels des 8 pas vont vers $i$ (R8).
 5. Faux : on range la somme nœud par nœud (§3 et §4 de la fiche), une multiplication et une addition par arête.
 6. 0 : le produit le long de ces chemins contient un facteur nul.
 
@@ -44,10 +44,10 @@
 ### M18.Q5 — Direct ou inverse, pour n entrées et m sorties ?
 1. 500 passes en mode direct (une par entrée), une seule en mode inverse.
 2. 2 passes en mode direct, 300 en mode inverse.
-3. Le mode direct : il ne garde que le nœud en cours, alors que le mode inverse garde toute la passe avant.
+3. Le mode direct : il ne garde, comme le calcul de $f$, que les valeurs encore utiles (avec leurs tangentes), alors que le mode inverse garde toute la passe avant.
 4. Vrai : les dérivées locales de la passe arrière en ont besoin.
 5. Faux : il coûte un petit multiple du calcul de la fonction, **indépendant** du nombre de variables (le principe du gradient bon marché).
-6. $2 \times 500 = 1\,000$.
+6. Une seule, avec la graine $\mathbf{v}$ : elle donne le produit jacobienne-vecteur $\mathbf{J}\mathbf{v}$.
 
 ### M18.Q6 — La forme d'un gradient par rapport à une matrice
 1. $(3, 5)$, la forme de $\mathbf{X}$ ; 15 dérivées partielles.
@@ -71,7 +71,7 @@
 3. Le centroïde des deux points est $(2, 1)$, donc $\nabla F(0, 0) = 2\big((0, 0) - (2, 1)\big) = (-4, -2)$.
 4. Au centroïde $(2, 1)$.
 5. Faux : $\mathbf{I}$ est symétrique, et laisse passer un gradient transposé ; elle ne teste que la somme de la diagonale de $\mathbf{G}$.
-6. 2 évaluations ; $2 \times 10\,000 = 20\,000$ pour toutes les cases.
+6. 2 évaluations, quelle que soit la taille de $\mathbf{X}$. Aucun nombre de directions symétriques ne suffit : le long de chacune, $\mathbf{G}^\top$ donne la même pente que $\mathbf{G}$ (fiche §8).
 
 <a id="rappels"></a>
 
@@ -140,13 +140,13 @@ Dans ta copie : $\nabla f(2, -1) = (-3, 5)$, en deux passes (une par variable). 
 
 ### Ex M18.4 — Le mode inverse à la main
 
-**Réponses.** a) `[2, 4, 2, 4]` · b) `[2, 0.5]` · c) `2.5` · d) `[5, 3]` · e) `0.07` · f) `0.0696`.
+**Réponses.** a) `[3, 4, 2, 6]` · b) `[3, 0.75]` · c) `2.75` · d) `[2.75, 9]` · e) `-0.175` · f) `-0.188`.
 
-**Démarche.** Passe avant : $u_1 = 2$, $u_2 = 4$, $u_3 = 2$, $f = 4$. Passe arrière, dans l'ordre $f, u_3, u_2, u_1, q, p$ : $\bar{f} = 1$ ; $\bar{u}_3 = \bar{f} \times u_1 = 2$ ; $\bar{u}_2 = \bar{u}_3 \times \frac{1}{2\sqrt{u_2}} = 2 \times \frac14 = 0{,}5$ ; $\bar{u}_1 = \bar{f} \times u_3 + \bar{u}_2 \times 1 = 2 + 0{,}5 = 2{,}5$ ; $\bar{q} = \bar{u}_2 \times 1 + \bar{u}_1 \times p = 0{,}5 + 2{,}5 = 3$ ; $\bar{p} = \bar{u}_1 \times q = 5$. e) $5 \times 0{,}02 + 3 \times (-0{,}01) = 0{,}07$. f) $u_1 = 2{,}0298$, $u_2 = 4{,}0198$, $f = 2{,}0298 \times 2{,}004944\ldots \approx 4{,}069635$, d'où $0{,}0696$.
+**Démarche.** Passe avant : $u_1 = 3$, $u_2 = 4$, $u_3 = 2$, $f = 6$. Passe arrière, dans l'ordre $f, u_3, u_2, u_1, q, p$ : $\bar{f} = 1$ ; $\bar{u}_3 = \bar{f} \times u_1 = 3$ ; $\bar{u}_2 = \bar{u}_3 \times \frac{1}{2\sqrt{u_2}} = 3 \times \frac14 = 0{,}75$ ; $\bar{u}_1 = \bar{f} \times u_3 + \bar{u}_2 \times 1 = 2 + 0{,}75 = 2{,}75$ ; $\bar{q} = \bar{u}_2 \times 1 + \bar{u}_1 \times p = 0{,}75 + 8{,}25 = 9$ ; $\bar{p} = \bar{u}_1 \times q = 2{,}75$. e) $2{,}75 \times 0{,}1 + 9 \times (-0{,}05) = -0{,}175$. f) $u_1 = 2{,}945$, $u_2 = 3{,}895$, $f = 2{,}945 \times 1{,}973575\ldots \approx 5{,}81218$, d'où $-0{,}188$.
 
-Dans ta copie : $u_1$ reçoit deux contributions ($f$ l'utilise directement, et à travers $u_2$), $q$ aussi (à travers $u_1$ et $u_2$). Dérivée directe : $\frac{\partial f}{\partial p} = q\sqrt{pq + q} + \frac{pq \cdot q}{2\sqrt{pq + q}} = 4 + 1$ et $\frac{\partial f}{\partial q} = p\sqrt{pq + q} + \frac{pq\,(p + 1)}{2\sqrt{pq + q}} = 2 + 1$. e) et f) sont proches parce que le gradient donne l'approximation **linéaire** ; l'écart, environ $4 \times 10^{-4}$, est d'ordre 2 en le déplacement.
+Dans ta copie : $u_1$ reçoit deux contributions ($f$ l'utilise directement, et à travers $u_2$), $q$ aussi (à travers $u_1$ et $u_2$). Dérivée directe : $\frac{\partial f}{\partial p} = q\sqrt{pq + q} + \frac{pq \cdot q}{2\sqrt{pq + q}} = 2 + 0{,}75$ et $\frac{\partial f}{\partial q} = p\sqrt{pq + q} + \frac{pq\,(p + 1)}{2\sqrt{pq + q}} = 6 + 3$. L'écart entre e) et f), environ $0{,}013$, vient des termes d'ordre 2 que l'approximation linéaire néglige ; pour un déplacement dix fois plus petit, il serait environ cent fois plus petit.
 
-**Erreurs fréquentes.** $\bar{u}_1 = 2$ (la contribution de $u_2$ oubliée), qui donne $\bar{p} = 4$ et $\bar{q} = 2{,}5$. Utiliser $\bar{u}_1$ avant d'avoir calculé $\bar{u}_2$. Prendre $\sqrt{u_2}$ pour la dérivée locale de la racine au lieu de $\frac{1}{2\sqrt{u_2}}$.
+**Erreurs fréquentes.** $\bar{u}_1 = 2$ (la contribution de $u_2$ oubliée), qui donne $\bar{p} = 2$ et $\bar{q} = 6{,}75$. Utiliser $\bar{u}_1$ avant d'avoir calculé $\bar{u}_2$. Prendre $\sqrt{u_2}$ pour la dérivée locale de la racine au lieu de $\frac{1}{2\sqrt{u_2}}$.
 
 **Variante.** En $(p, q) = (2, 1)$ : $f = 2\sqrt3$ et $\nabla f = (\frac{4}{\sqrt3} ;\ 3\sqrt3) \approx (2{,}3094 ;\ 5{,}1962)$.
 
@@ -176,9 +176,9 @@ Dans ta copie : le gradient ne dépend pas de $\mathbf{X}$ parce que $f$ est **l
 
 ### Ex M18.7 — Les gradients de tr(AX) et de tr(XᵀAX)
 
-**Réponses.** a) `-3` · b) `[[2, -1], [1, 3]]` · c) `-1` · d) `13` · e) `[[4, 8], [0, -6]]` · f) `8`.
+**Réponses.** a) `-3` · b) `[[2, -1], [1, 3]]` · c) `-1` · d) `13` · e) `[[4, 8], [0, -6]]` · f) `12`.
 
-**Démarche.** $\mathbf{A}\mathbf{X} = \begin{pmatrix} 2 & 3 \\ -1 & -5 \end{pmatrix}$, de trace $-3$. $\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_{i,j}A_{ji}X_{ij}$, donc $\frac{\partial}{\partial X_{ij}} = A_{ji}$ : le gradient est $\mathbf{A}^\top$, et c) vaut $A_{21} = -1$. d) $\mathbf{X}^\top\mathbf{A}\mathbf{X} = \begin{pmatrix} 2 & 3 \\ 5 & 11 \end{pmatrix}$, de trace 13. e) $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X}) = \sum_k\sum_{i,j}X_{ik}A_{ij}X_{jk}$ ; dériver par rapport à $X_{pq}$ donne $\sum_jA_{pj}X_{jq} + \sum_iX_{iq}A_{ip} = (\mathbf{A}\mathbf{X})_{pq} + (\mathbf{A}^\top\mathbf{X})_{pq}$ : le gradient est $(\mathbf{A} + \mathbf{A}^\top)\mathbf{X} = \begin{pmatrix} 4 & 0 \\ 0 & 6 \end{pmatrix}\mathbf{X}$. f) $\sum_{ij}G_{ij}H_{ij} = 8 \times 1 + 0 \times 1 = 8$.
+**Démarche.** $\mathbf{A}\mathbf{X} = \begin{pmatrix} 2 & 3 \\ -1 & -5 \end{pmatrix}$, de trace $-3$. $\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_{i,j}A_{ji}X_{ij}$, donc $\frac{\partial}{\partial X_{ij}} = A_{ji}$ : le gradient est $\mathbf{A}^\top$, et c) vaut $A_{21} = -1$. d) $\mathbf{X}^\top\mathbf{A}\mathbf{X} = \begin{pmatrix} 2 & 3 \\ 5 & 11 \end{pmatrix}$, de trace 13. e) $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X}) = \sum_k\sum_{i,j}X_{ik}A_{ij}X_{jk}$ ; dériver par rapport à $X_{pq}$ donne $\sum_jA_{pj}X_{jq} + \sum_iX_{iq}A_{ip} = (\mathbf{A}\mathbf{X})_{pq} + (\mathbf{A}^\top\mathbf{X})_{pq}$ : le gradient est $(\mathbf{A} + \mathbf{A}^\top)\mathbf{X} = \begin{pmatrix} 4 & 0 \\ 0 & 6 \end{pmatrix}\mathbf{X}$. f) $\sum_{ij}G_{ij}H_{ij} = 4 \times 1 + 8 \times 1 = 12$ ; un gradient transposé donnerait $4 + 0 = 4$ : la direction, non symétrique, le démasque.
 
 Dans ta copie : $2\mathbf{A}\mathbf{X}$ serait faux parce que $\mathbf{A}$ n'est pas symétrique (seule sa partie symétrique compte). Pour une seule colonne $\mathbf{X} = \mathbf{w}$, on retrouve $\nabla(\mathbf{w}^\top\mathbf{A}\mathbf{w}) = (\mathbf{A} + \mathbf{A}^\top)\mathbf{w}$ de M09b.
 
@@ -190,7 +190,7 @@ Dans ta copie : $2\mathbf{A}\mathbf{X}$ serait faux parce que $\mathbf{A}$ n'est
 
 **Réponses.** a) `10` · b) `[[3, -2], [-1, 4]]` · c) `[[0.3, -0.2], [-0.1, 0.4]]` · d) `[[0.3, -0.1], [-0.2, 0.4]]` · e) `-0.5` · f) `-0.00502`.
 
-**Démarche.** $\det\mathbf{X} = x_{11}x_{22} - x_{12}x_{21} = 12 - 2 = 10$, et ses dérivées partielles se rangent en $\begin{pmatrix} x_{22} & -x_{21} \\ -x_{12} & x_{11} \end{pmatrix}$ : la comatrice. c) Par la règle de la chaîne avec $\ln$ : b) divisé par 10. d) $\mathbf{X}^{-1} = \frac{1}{10}\begin{pmatrix} 3 & -1 \\ -2 & 4 \end{pmatrix}$. e) $\sum_{ij}G_{ij}H_{ij} = 0{,}3 \times 1 + (-0{,}2) \times 2 + (-0{,}1) \times 0 + 0{,}4 \times (-1) = -0{,}5$. f) $\det(\mathbf{X} + 0{,}01\,\mathbf{H}) = 4{,}01 \times 2{,}99 - 1{,}02 \times 2 = 9{,}9499$, et $\ln 0{,}99499 \approx -0{,}0050226$.
+**Démarche.** $\det\mathbf{X} = x_{11}x_{22} - x_{12}x_{21} = 12 - 2 = 10$, et ses dérivées partielles se rangent en $\begin{pmatrix} x_{22} & -x_{21} \\ -x_{12} & x_{11} \end{pmatrix}$ : la comatrice. c) Par la règle de la chaîne avec $\ln$ : b) divisé par 10. d) $\mathbf{X}^{-1} = \frac{1}{10}\begin{pmatrix} 3 & -1 \\ -2 & 4 \end{pmatrix}$. e) $\sum_{ij}G_{ij}H_{ij} = 0{,}3 \times 1 + (-0{,}2) \times 2 + (-0{,}1) \times 0 + 0{,}4 \times (-1) = -0{,}5$. f) $\det(\mathbf{X} + 0{,}01\,\mathbf{H}) = 4{,}01 \times 2{,}99 - 1{,}02 \times 2 = 9{,}9499$, et $\ln\frac{9{,}9499}{10} = \ln 0{,}99499 \approx -0{,}0050226$. Avec $\ln 9{,}9499 - \ln 10$ et des logarithmes arrondis à 5 décimales ($2{,}29756 - 2{,}30259$), on trouverait $-0{,}00503$ : la différence de deux nombres voisins perd des chiffres.
 
 Dans ta copie : c) est la transposée de d) : $\nabla\ln\det\mathbf{X} = \mathbf{X}^{-\top}$, parce que la comatrice vaut $\det\mathbf{X}\,\mathbf{X}^{-\top}$ (fiche §7). f) est proche de $0{,}01 \times$ e) $= -0{,}005$ : c'est l'approximation linéaire, et l'écart, environ $2 \times 10^{-5}$, est d'ordre 2.
 
@@ -254,14 +254,14 @@ Dans ta copie : c'est bien le minimum, et pas seulement un point où le gradient
 ### Ex M18.13 — Le mode inverse calcule tout le gradient en un passage
 
 **Démonstration.**
-1. Pour $j < N$, un chemin de $u_j$ à $y$ n'est pas vide ; sa première arête est $u_j \to u_k$ avec $k > j$, et le reste est un chemin de $u_k$ à $y$ ; inversement, une arête $u_j \to u_k$ suivie d'un chemin de $u_k$ à $y$ est un chemin de $u_j$ à $y$. Donc $A_j = \sum_{k > j}D_{jk}A_k$.
-2. En décroissant de $N$ à 1, tous les $A_k$ avec $k > j$ sont déjà calculés quand on arrive à $j$.
-3. Pour une entrée $x_i = u_i$, $A_i$ est la somme sur les chemins de $x_i$ à $y$, c'est-à-dire $S_N$ de M18.11 avec $x = x_i$ : $A_i = \frac{\partial y}{\partial x_i}$. La même passe donne $A_i$ pour **toutes** les entrées.
-4. Considérons $u_j$ comme une entrée libre : on retire les arêtes qui arrivent en $u_j$, et les nœuds qui ne dépendent pas de $u_j$ deviennent des constantes. Les chemins de $u_j$ à $y$ sont les mêmes dans ce nouveau graphe, et M18.11 donne $\frac{\partial y}{\partial u_j} = A_j$ : c'est l'adjoint $\bar{u}_j$.
-5. La coordonnée $j$ de $\mathbf{e}_N + \mathbf{D}\mathbf{A}$ vaut $\delta_{jN} + \sum_kD_{jk}A_k = A_j$. Donc $(\mathbf{I} - \mathbf{D})\mathbf{A} = \mathbf{e}_N$ et $\mathbf{A} = (\mathbf{I} - \mathbf{D})^{-1}\mathbf{e}_N$ : la **colonne** $N$. Une passe directe de graine $\mathbf{e}_i$ donne la **ligne** $i$ (M18.11). Les deux se croisent au coefficient $(i, N)$, $\frac{\partial y}{\partial x_i}$ : le mode direct obtient les $n$ coefficients utiles en $n$ passes, le mode inverse en une.
-6. Chaque arête $u_j \to u_k$ sert une fois, dans le calcul de $A_j$ : le coût est proportionnel au nombre d'arêtes, quel que soit le nombre d'entrées. Les dérivées locales $D_{jk}$ dépendent des valeurs des arguments de $\varphi_k$ : il faut avoir gardé toute la passe avant.
+1. Pour $j < N$, un chemin de $u_j$ à $y$ n'est pas vide ; sa première arête est $u_j \to u_k$ avec $k > j$, et le reste est un chemin de $u_k$ à $y$ ; inversement, une arête $u_j \to u_k$ suivie d'un chemin de $u_k$ à $y$ est un chemin de $u_j$ à $y$. Donc $T_j = \sum_{k > j}D_{jk}T_k$.
+2. En décroissant de $N$ à 1, tous les $T_k$ avec $k > j$ sont déjà calculés quand on arrive à $j$.
+3. Pour une entrée $x_i = u_i$, $T_i$ est la somme sur les chemins de $x_i$ à $y$, c'est-à-dire $S_N$ de M18.11 avec $x = x_i$ : $T_i = \frac{\partial y}{\partial x_i}$. La même passe donne $T_i$ pour **toutes** les entrées.
+4. Considérons un nouveau calcul dont les entrées sont $u_1, \ldots, u_j$ (déjà numérotées en tête) : $u_j$ y devient une entrée libre, les arêtes qui y arrivent disparaissent, et tout ce qui vient après est recalculé à partir de ces entrées. Les chemins de $u_j$ à $y$ sont les mêmes dans ce nouveau graphe, et M18.11 donne $\frac{\partial y}{\partial u_j} = T_j$ : c'est l'adjoint $\bar{u}_j$.
+5. La coordonnée $j$ de $\mathbf{e}_N + \mathbf{D}\mathbf{t}$ vaut $\delta_{jN} + \sum_kD_{jk}T_k = T_j$. Donc $(\mathbf{I} - \mathbf{D})\mathbf{t} = \mathbf{e}_N$ et $\mathbf{t} = (\mathbf{I} - \mathbf{D})^{-1}\mathbf{e}_N$ : la **colonne** $N$. Une passe directe de graine $\mathbf{e}_i$ donne la **ligne** $i$ (M18.11). Les deux se croisent au coefficient $(i, N)$, $\frac{\partial y}{\partial x_i}$ : le mode direct obtient les $n$ coefficients utiles en $n$ passes, le mode inverse en une.
+6. Chaque arête $u_j \to u_k$ sert une fois, dans le calcul de $T_j$ : le coût est proportionnel au nombre d'arêtes, quel que soit le nombre d'entrées. Les dérivées locales $D_{jk}$ dépendent des valeurs des arguments de $\varphi_k$ : il faut avoir gardé toute la passe avant.
 
-**Grille de relecture.** L'étape 1 classe les chemins par leur première arête (symétrique de M18.11). L'ordre décroissant est justifié. Le lien avec M18.11 est explicite pour les entrées. L'interprétation de $A_j$ comme $\frac{\partial y}{\partial u_j}$ précise ce qui est recalculé. Le coût et la mémoire sont dits.
+**Grille de relecture.** L'étape 1 classe les chemins par leur première arête (symétrique de M18.11). L'ordre décroissant est justifié. Le lien avec M18.11 est explicite pour les entrées. L'interprétation de $T_j$ comme $\frac{\partial y}{\partial u_j}$ précise ce qui est recalculé. Le coût et la mémoire sont dits.
 
 **Variante.** Pour $m$ sorties, on fait $m$ passes arrière, de graines $\mathbf{e}_{N_1}, \ldots, \mathbf{e}_{N_m}$ : les $m$ lignes de la jacobienne.
 
@@ -285,23 +285,23 @@ Dans ta copie : c'est bien le minimum, et pas seulement un point où le gradient
 
 ### Ex M18.15 — Pont : combien de passages dans chaque mode ?
 
-**Réponses.** a) `[3, 2000]` · b) `[2000, 3]` · c) `[2000, 1]` · d) `4000` · e) `666.7` · f) `8`.
+**Réponses.** a) `[3, 2000]` · b) `[2000, 3]` · c) `[2000, 1]` · d) `1` · e) `1` · f) `8`.
 
-**Démarche.** La jacobienne a une ligne par sortie et une colonne par entrée : $(3, 2\,000)$. Le mode direct en donne une colonne par passage (2 000 passages), le mode inverse une ligne (3 passages) ; pour un seul polluant, une seule ligne : 1 passage. Les différences centrées demandent deux évaluations par entrée : 4 000. e) $\frac{2\,000}{3} \approx 666{,}7$. f) $10^6 \times 8$ octets $= 8 \times 10^6$ octets, soit 8 Mo.
+**Démarche.** La jacobienne a une ligne par sortie et une colonne par entrée : $(3, 2\,000)$. Le mode direct en donne une colonne par passe (2 000 passes), le mode inverse une ligne (3 passes arrière, après une seule passe avant) ; pour un seul polluant, une seule ligne : 1 passe arrière. d) Faire augmenter toutes les émissions de 1 %, c'est une seule direction $\mathbf{v} = 0{,}01\,\mathbf{x}$ : une passe directe, de graine $\mathbf{v}$, donne $\mathbf{J}\mathbf{v}$. e) Le gradient de la somme des sorties est le produit vecteur-jacobienne $(1, 1, 1)\,\mathbf{J}$ : une passe arrière, de graine $(1, 1, 1)$. f) $10^6 \times 8$ octets $= 8 \times 10^6$ octets, soit 8 Mo.
 
 Dans ta copie : le mode inverse, de loin. Le chapitre 18 de workbookIA dérive une fonction de très nombreuses entrées et d'une seule sortie : une seule passe arrière lui suffit, au prix de la mémoire de toute la passe avant.
 
-**Erreurs fréquentes.** La forme transposée $(2\,000, 3)$. Compter 2 000 évaluations pour les différences centrées (c'est la différence avant). Donner f) en octets.
+**Erreurs fréquentes.** La forme transposée $(2\,000, 3)$. Répondre 2 000 à d) ou 3 à e) : une seule direction (ou une seule combinaison des sorties) ne demande qu'une passe. Donner f) en octets.
 
-**Variante.** Une simulation de $\mathbb{R}^5$ dans $\mathbb{R}^{1\,000}$ : 5 passages directs contre 1 000 passages arrière ; 10 évaluations par différences centrées.
+**Variante.** Une simulation de $\mathbb{R}^5$ dans $\mathbb{R}^{1\,000}$ : 5 passes directes contre 1 000 passes arrière pour la jacobienne entière.
 
 ### Ex M18.16 — Pont : de la convention de MML à celle de NumPy
 
-**Réponses.** a) `[[7, 13]]` · b) `[2]` · c) `[[3, 4], [1, 12]]` · d) `[0.3, 0.7]` · e) `[5, 3, 2]`.
+**Réponses.** a) `[[7, 13]]` · b) `[2]` · c) `[[3, 4], [1, 12]]` · d) `[0.65, 1.35]` · e) `[5, 3, 2]`.
 
-**Démarche.** $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \\ 2 & 6 \end{pmatrix}$, $\mathbf{x}^\top(\mathbf{A} + \mathbf{A}^\top) = (6, 14)$, plus $\mathbf{b}^\top$ : $(7, 13)$, en ligne. En colonne, les mêmes nombres. d) $(1, 2) - 0{,}1\,(7, 13) = (0{,}3 ;\ 0{,}7)$.
+**Démarche.** $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \\ 2 & 6 \end{pmatrix}$, $\mathbf{x}^\top(\mathbf{A} + \mathbf{A}^\top) = (6, 14)$, plus $\mathbf{b}^\top$ : $(7, 13)$, en ligne. En colonne, les mêmes nombres. d) $(1, 2) - 0{,}05\,(7, 13) = (0{,}65 ;\ 1{,}35)$.
 
-Dans ta copie : le pas soustrait un multiple du gradient à $\mathbf{x}$ : il faut qu'il ait la forme de $\mathbf{x}$, d'où la transposée de la ligne de MML. La règle simple : **chaque gradient a la forme de son tableau** ; on la vérifie sur chaque formule avant de calculer.
+Dans ta copie : le pas soustrait un multiple du gradient à $\mathbf{x}$ : il faut qu'il ait la forme de $\mathbf{x}$, d'où la transposée de la ligne de MML. La vérification simple : écrire la forme de chaque facteur d'une formule de gradient et contrôler que le résultat a **la forme de la variable** ; une transposée oubliée donne en général une forme impossible (sauf pour une matrice carrée, où il faut un autre contrôle, comme la direction au hasard du §8).
 
 **Erreurs fréquentes.** Oublier $\mathbf{b}$ ($(6, 14)$). Écrire $2\mathbf{A}\mathbf{x}$ alors que $\mathbf{A}$ n'est pas symétrique ($(11, 11)$ avec $\mathbf{b}$).
 
@@ -323,9 +323,9 @@ Dans ta copie : le pas soustrait un multiple du gradient à $\mathbf{x}$ : il fa
 **Ce qu'il faut avoir relevé.**
 1. Le livre appelle les nœuds intermédiaires des **variables intermédiaires** (*intermediate variables*) et dessine le **graphe de calcul** (*computation graph*) de son exemple : une fonction d'une seule variable, faite de carrés, d'une exponentielle, d'une racine et d'un cosinus.
 2. Le **mode direct** (*forward mode*) suit les données, des entrées vers la sortie ; le **mode inverse** (*reverse mode*) remonte de la sortie vers les entrées. La rétropropagation (*backpropagation*) est le mode inverse appliqué à un réseau.
-3. Avec l'exemple du livre, $a = x^2$, $b = e^a$, $c = a + b$, $d = \sqrt c$, $e = \cos c$, $f = d + e$, en $x = 1$ : $c = 1 + e \approx 3{,}7183$. Adjoints : $\bar{d} = \bar{e} = 1$, $\bar{c} = \frac{1}{2\sqrt c} - \sin c \approx 0{,}2593 + 0{,}5453 = 0{,}8045$, $\bar{b} = \bar{c}$, $\bar{a} = \bar{c} + \bar{b}\,e^a \approx 2{,}9915$ ($a$ sert deux fois : dans $b$ et dans $c$), $\bar{x} = 2x\,\bar{a} \approx 5{,}9831$. Directement : $f'(x) = 2x\,(1 + e^{x^2})\big(\frac{1}{2\sqrt c} - \sin c\big)$, la même valeur.
+3. Ton graphe a un nœud par variable intermédiaire du livre, et l'une d'elles sert deux fois : son adjoint reçoit deux contributions, qui s'additionnent. Les adjoints, calculés de la sortie vers l'entrée avec les valeurs de la passe avant, donnent en $\bar{x}$ un nombre qui doit coïncider (à l'arrondi près) avec la dérivée de la formule, calculée directement par la règle de la chaîne de R7 ; vérifie-le aussi avec `dual_derivative` dans le notebook.
 4. Chaque dérivée locale réutilise une valeur de la passe avant, et chaque arête ne sert qu'une fois : le gradient coûte un petit multiple du calcul de la fonction, comme le dit le principe du gradient bon marché (§5).
-5. Avec $x = 1 + \varepsilon$ : $a = 1 + 2\varepsilon$, $b = e + 2e\,\varepsilon$, $c = (1 + e)(1 + 2\varepsilon)$, puis $d$ et $e$ portent les tangentes $\frac{2(1 + e)}{2\sqrt c}$ et $-2(1 + e)\sin c$ : la partie en $\varepsilon$ de $f$ est la même dérivée, $\approx 5{,}9831$. Les nœuds portent leurs tangentes (dérivées par rapport à $x$) au lieu de leurs adjoints (dérivées de $f$ par rapport à eux), mais la somme sur les chemins est la même.
+5. Avec $x$ remplacé par ton point plus $\varepsilon$, chaque nœud porte sa tangente (sa dérivée par rapport à $x$) au lieu de son adjoint (la dérivée de la sortie par rapport à lui) ; la partie en $\varepsilon$ de la sortie est la même dérivée qu'en 3. : les deux modes rangent différemment la même somme sur les chemins.
 6. Par exemple : *intermediate variable* (variable intermédiaire), *computation graph* (graphe de calcul), *forward mode*, *reverse mode* (modes direct et inverse), *backpropagation* (rétropropagation).
 
 **Grille.** Le vocabulaire des nœuds et du graphe ; le sens de chaque mode ; l'exemple refait par les adjoints et vérifié ; le coût relié au §5 ; la passe duale ; trois mots traduits.
@@ -344,13 +344,13 @@ Dans ta copie : le pas soustrait un multiple du gradient à $\mathbf{x}$ : il fa
 
 ### M18.E1 — « Différentiation automatique, symbolique ou numérique : quelles différences ? »
 
-**Réponse modèle (60 secondes).** « La différentiation symbolique, comme celle de SymPy, manipule des formules : elle applique les règles de dérivation à l'expression et rend une nouvelle expression, exacte, mais qui peut gonfler énormément et ne s'applique pas à un programme avec des boucles et des tests. La différentiation numérique approche la dérivée par des différences finies : elle est simple, mais son erreur dépend du pas, entre la troncature et les arrondis, et un gradient de $n$ variables coûte $2n$ évaluations en différences centrées. La différentiation automatique applique les règles de dérivation aux **nombres**, opération par opération, pendant le calcul : elle rend une dérivée exacte aux arrondis près, pour un petit multiple du coût du calcul. Elle a deux modes : le mode direct, une passe par entrée, et le mode inverse, une passe par sortie, qui doit garder les valeurs de l'aller. Les bibliothèques de deep learning utilisent le mode inverse, parce qu'elles dérivent une seule loss par rapport à des millions de nombres : un gradient complet coûte alors quelques fois le calcul de la loss. »
+**Réponse modèle (60 secondes).** « La différentiation symbolique, comme celle de SymPy, manipule des formules : elle applique les règles de dérivation à l'expression et rend une nouvelle expression, exacte, mais qui peut gonfler énormément et ne s'applique pas directement à un programme avec des boucles et des tests. La différentiation numérique approche la dérivée par des différences finies : elle est simple, mais c'est une approximation, dont l'erreur dépend du pas, entre la troncature quand il est grand et les arrondis quand il est petit. La différentiation automatique applique les règles de dérivation aux **nombres**, opération par opération, pendant le calcul : elle rend une dérivée exacte aux arrondis près, même pour un programme avec des boucles. Elle a deux modes : le mode direct, une passe par entrée, et le mode inverse, une passe par sortie, qui doit garder les valeurs de l'aller. Un code qui dérive un seul nombre par rapport à des milliers d'entrées, comme la traînée d'une aile d'avion en fonction des milliers de points qui décrivent sa forme, choisit le mode inverse : une seule passe arrière lui donne toutes les dérivées, pour un petit multiple du coût du calcul. »
 
-**Grille.** Les trois méthodes et ce que chacune rend ; leurs défauts (gonflement, pas $h$ et coût en $2n$, mémoire) ; les deux modes ; la raison du mode inverse en deep learning.
+**Grille.** Les trois méthodes et ce que chacune rend ; leurs défauts (gonflement, pas $h$, mémoire) ; les deux modes ; la raison du mode inverse pour un seul nombre et beaucoup d'entrées.
 
 ### M18.E2 — « Quand le mode direct est-il préférable au mode inverse ? »
 
-**Réponse modèle (60 secondes).** « Pour une fonction de $n$ entrées et $m$ sorties, une passe du mode direct donne une colonne de la jacobienne, les dérivées de toutes les sorties par rapport à une entrée ; une passe du mode inverse en donne une ligne, le gradient d'une sortie. Le mode direct gagne donc quand il y a peu d'entrées et beaucoup de sorties : par exemple, la trajectoire complète d'une sonde, échantillonnée en des milliers d'instants, en fonction de sa seule vitesse de départ, se dérive en une passe directe. Il gagne aussi en mémoire : il ne garde que le nœud en cours, alors que le mode inverse doit garder toute la passe avant, ce qui pèse pour un très long calcul. Et quand on ne veut la dérivée que dans une seule direction, un produit jacobienne-vecteur, une passe directe suffit. Pour un gradient, une seule sortie et beaucoup d'entrées, c'est le mode inverse. »
+**Réponse modèle (60 secondes).** « Pour une fonction de $n$ entrées et $m$ sorties, une passe du mode direct donne une colonne de la jacobienne, les dérivées de toutes les sorties par rapport à une entrée ; une passe du mode inverse en donne une ligne, le gradient d'une sortie. Le mode direct gagne donc quand il y a peu d'entrées et beaucoup de sorties : par exemple, la trajectoire complète d'une sonde, échantillonnée en des milliers d'instants, en fonction de sa seule vitesse de départ, se dérive en une passe directe. Il gagne aussi en mémoire : il ne garde, comme le calcul lui-même, que les valeurs encore utiles, alors que le mode inverse doit garder toute la passe avant, ce qui pèse pour un très long calcul. Et quand on ne veut la dérivée que dans une seule direction, un produit jacobienne-vecteur, une passe directe suffit. Pour un gradient, une seule sortie et beaucoup d'entrées, c'est le mode inverse. »
 
 **Grille.** Colonne contre ligne ; la règle de choix ; un exemple concret de chaque côté ; la mémoire ; le produit jacobienne-vecteur.
 
