@@ -19,7 +19,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 *Fiche §1 et §2 · parcours C, E*
 
 1. Le noyau retourné de $\mathbf{w} = (2, 0, -1, 5)$ ?
-2. Vrai ou faux : avec le noyau $(-3, 0, 3)$, la convolution valide d'un signal est l'opposée de sa corrélation croisée.
+2. Vrai ou faux : avec le noyau $(2, 5, -5, -2)$, la convolution valide d'un signal est l'opposée de sa corrélation croisée.
 3. $\mathbf{a}$ a 3 termes et $\mathbf{b}$ en a 5. Quels produits $a_ib_j$ additionne-t-on pour obtenir $(\mathbf{a} * \mathbf{b})_4$ ?
 4. La longueur de la convolution pleine de deux suites de 7 et de 4 termes ?
 5. On veut la somme glissante $y_i = 3x_i + x_{i+1} - x_{i+2}$. Quels poids donner à `np.correlate` ? Et à `np.convolve` ?
@@ -56,7 +56,7 @@ Les signaux sont indexés par tous les entiers et nuls hors d'un ensemble fini :
 2. $F(\mathbf{x}) = \max_i x_i$, le maximum de tout le signal.
 3. $F(\mathbf{x})_i = i\,x_i$ : chaque valeur multipliée par sa position.
 4. $F(\mathbf{x}) = \sum_i x_i^2$, l'énergie du signal.
-5. $F(\mathbf{x})_i = x_{3i}$ : on garde une valeur sur 3. De combien de cases la sortie bouge-t-elle quand on décale l'entrée de 6 cases ? Et quand on la décale de 2 cases ?
+5. $F(\mathbf{x})_i = x_{3i}$ : on garde une valeur sur 3. De combien de cases la sortie bouge-t-elle quand on décale l'entrée de 6 cases ? Et, quand on la décale de 2 cases, la sortie est-elle un décalage de l'ancienne ?
 6. Vrai ou faux : sur des signaux périodiques de période $n$, toute convolution circulaire commute avec le décalage circulaire, sans aucun effet de bord.
 
 ### M21.Q5 — Combien de positions ? Pas, dilatation, padding et insertion de zéros 🧠 ★ ⏱️ 4 min
@@ -64,7 +64,7 @@ Les signaux sont indexés par tous les entiers et nuls hors d'un ensemble fini :
 
 1. $n = 40$, $k = 5$, sans padding, pas de 1 : le nombre de positions ?
 2. $n = 41$, $k = 5$, pas $s = 2$, sans padding ?
-3. $n = 41$, $k = 3$, dilatation $d = 4$, pas de 1, sans padding : l'étendue de la fenêtre, puis le nombre de positions ?
+3. $n = 41$, $k = 5$, dilatation $d = 3$, pas de 1, sans padding : l'étendue de la fenêtre, puis le nombre de positions ?
 4. « Même taille » avec un pas de 1 et un noyau de longueur 11 : combien de zéros de chaque côté ?
 5. On insère $s - 1 = 3$ zéros entre deux valeurs consécutives d'une suite de 6 valeurs : combien de valeurs obtient-on ?
 6. Vrai ou faux : avec $n = 30$, $k = 5$, $s = 4$ et $p = 0$, la case 29 est lue par une fenêtre.
@@ -76,8 +76,8 @@ Une grille de mesures a $C_{\text{in}} = 10$ canaux ; on la filtre vers $C_{\tex
 
 1. La forme des poids, et le nombre de paramètres ?
 2. Le même filtrage en convolution groupée à $g = 2$ groupes : le nombre de paramètres ?
-3. Une convolution par canal sur les 10 canaux, avec des noyaux $3 \times 3$ : le nombre de paramètres ?
-4. Une convolution $1 \times 1$ de 10 vers 6 canaux : le nombre de paramètres ? Voit-elle les cases voisines ?
+3. Une convolution par canal sur les 10 canaux, avec des noyaux $3 \times 3$ : le nombre de paramètres (biais compris) ?
+4. Une convolution $1 \times 1$ de 10 vers 6 canaux : le nombre de paramètres, et le nombre de multiplications-additions par case de la grille ?
 5. Un noyau séparable de $9 \times 9$ cases : combien de multiplications par valeur de sortie en direct, puis, environ, en deux passes ?
 6. Vrai ou faux : $\begin{pmatrix} 2 & -4 & 6 \\ -1 & 2 & -3 \end{pmatrix}$ est un noyau séparable (au sens de la fiche : de rang 1).
 
@@ -103,7 +103,7 @@ Un indicateur vaut $f(\mathbf{x}) = \mathbf{g} \cdot \mathbf{x}$, avec $\mathbf{
 3. Le plus grand écart si l'on sait seulement que $\lVert\boldsymbol{\delta}\rVert_2 \le 0{,}3$ ?
 4. Et si $\lVert\boldsymbol{\delta}\rVert_1 \le 0{,}3$ (au plus 0,3 d'erreur en tout, réparties comme on veut) ?
 5. Vrai ou faux : $\boldsymbol{\delta} = 0{,}3\,\mathbf{g}$ est le pire cas sur la boule L∞ de rayon 0,3.
-6. Pour un $\mathbf{g}$ de $\mathbb{R}^{400}$ sans coordonnée nulle, la norme L2 de $0{,}3\operatorname{signe}(\mathbf{g})$ ?
+6. Pour un $\mathbf{g}$ de $\mathbb{R}^{400}$ dont toutes les coordonnées valent $\pm 1$ : le rapport du pire écart sur la boule L∞ de rayon 0,3 au pire écart sur la boule L2 de même rayon ?
 
 <a id="rappels"></a>
 
@@ -118,7 +118,7 @@ Les hauteurs de pluie de six jours consécutifs, en millimètres : $(12, 3, 9, 6
 2. Combien de moyennes complètes pour une série de $n$ valeurs et une fenêtre de $k$ valeurs ?
 3. Montre que $m_{t+1} - m_t = \frac{x_{t+1} - x_{t-2}}{3}$, et vérifie-le sur $m_3 - m_2$.
 4. Avec quel noyau $\mathbf{h}$ la moyenne mobile s'écrit-elle $m_t = (\mathbf{x} * \mathbf{h})_t$ ?
-5. Vrai ou faux : une moyenne mobile laisse une série constante inchangée.
+5. Vrai ou faux : une moyenne mobile laisse une série constante inchangée (pour les moyennes complètes).
 
 ### M21.R2 — La matrice d'une application linéaire, son noyau et son rang (M12a) 🔁 ★ ⏱️ 5 min
 *Fiche §3 · parcours C, E*
@@ -135,7 +135,7 @@ $f(x, y, z) = (x + 2y - z,\ 3y + z)$, de $\mathbb{R}^3$ dans $\mathbb{R}^2$.
 ### M21.R3 — Le rang d'un produit extérieur u vᵀ et la décomposition en valeurs singulières (M12d) 🔁 ★ ⏱️ 5 min
 *Fiche §6 · parcours C*
 
-$\mathbf{u} = (2, 1, -2)$ et $\mathbf{v} = (4, 0, -3)$.
+$\mathbf{u} = (6, 2, -3)$ et $\mathbf{v} = (4, 0, -3)$.
 
 1. La matrice $\mathbf{u}\mathbf{v}^\top$ ?
 2. Son rang ?
@@ -158,7 +158,7 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 
 Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'arrondis qu'à la fin.
 
-### Ex M21.1 — Deux dés truqués et un produit de polynômes : la même convolution ✏️ ★ ⏱️ 15 min
+### Ex M21.1 — Deux dés truqués et un produit de polynômes : la même convolution ✏️ ★ ⏱️ 20 min
 **Objectif :** calculer une convolution comme un produit de polynômes, puis la lire comme la loi de la somme de deux variables indépendantes.
 **Prérequis :** fiche §1 ; R3, R8, M02b · **Parcours :** C, E
 
@@ -206,7 +206,7 @@ Une cuve se remplit à débit croissant ; son volume, en litres, est relevé tou
 | b | les différences centrées $\frac{f_{i+1} - f_{i-1}}{2h}$, aux instants 2 à 8 | une liste de 4 nombres |
 | c | les dérivées secondes $\frac{f_{i+1} - 2f_i + f_{i-1}}{h^2}$, aux instants 2 à 8 | une liste de 4 nombres |
 | d | l'erreur de la différence centrée en $t = 4$ : la valeur de b) moins $f'(4)$ | un nombre |
-| e | l'erreur de la différence avant $\frac{f(4) - f(2)}{2}$ comme approximation de $f'(2)$, puis comme approximation de $f'(3)$ | une liste de 2 nombres |
+| e | l'erreur (valeur approchée moins vraie valeur, comme en d)) de la différence avant $\frac{f(4) - f(2)}{2}$ comme approximation de $f'(2)$, puis comme approximation de $f'(3)$ | une liste de 2 nombres |
 | f | vrai ou faux : `np.convolve(f, [-1, 0, 1], "valid") / 4` donne b) | `True` ou `False` |
 | g | l'erreur de la différence centrée en $t = 4$ si l'on relevait le volume toutes les minutes ($h = 1$) | un nombre |
 
@@ -242,7 +242,7 @@ Un capteur de vibrations enregistre un bref événement, $\mathbf{x} = (0, 0, 2,
 |---|---|---|
 | a | $\mathbf{w} \star \mathbf{x}$, en mode valide | une liste de 8 entiers |
 | b | $\mathbf{w} \star \tau_3\mathbf{x}$ | une liste de 8 entiers |
-| c | le nombre de valeurs non nulles de a) qui manquent dans $\mathbf{w} \star \tau_5\mathbf{x}$ | un entier |
+| c | le nombre de valeurs non nulles de a) perdues dans $\mathbf{w} \star \tau_5\mathbf{x}$ : celles qui, décalées de 5 cases, tomberaient au-delà de la dernière position | un entier |
 | d | la sortie avec un pas de 2, $y_i = \sum_u w_u\,x_{2i+u}$ | une liste de 4 entiers |
 | e | la même sortie avec un pas de 2, pour $\tau_1\mathbf{x}$ | une liste de 4 entiers |
 | f | la même sortie avec un pas de 2, pour $\tau_4\mathbf{x}$ : de combien de cases est-elle décalée par rapport à d) ? | un entier |
@@ -263,7 +263,7 @@ Un sismographe enregistre $n = 1\,000$ échantillons, que l'on parcourt par une 
 | c | le nombre de positions avec une dilatation $d = 4$, un pas de 1 et sans padding | un entier |
 | d | le nombre de positions avec $d = 4$, $s = 5$ et $p = 3$ | un entier |
 
-Une série de 365 températures moyennes journalières est lissée par une fenêtre d'une semaine ($k = 7$, $d = 1$) avec un pas $s = 3$, en mode « même taille » de TensorFlow et Keras (fiche §5).
+Une série de 365 températures moyennes journalières est lissée par une fenêtre d'une semaine ($k = 7$, $d = 1$) avec un pas $s = 3$, selon la règle « même taille » avec un pas de la fiche (§5 : $\lceil n/s\rceil$ positions, zéros répartis au début et à la fin).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -275,12 +275,12 @@ Le problème inverse, sans padding et avec $d = 1$.
 | | Question | Réponse attendue |
 |---|---|---|
 | g | toutes les longueurs $n$ de signal qui donnent exactement 50 positions avec $k = 5$ et $s = 5$, en ordre croissant | une liste d'entiers |
-| h | le pas $s$ qui donne exactement 100 positions avec $n = 1\,000$ et $k = 7$ | un entier |
+| h | le pas $s$ qui donne exactement 125 positions avec $n = 1\,000$ et $k = 7$ | un entier |
 
 Dans ta copie : pour b), quelles cases du signal complété lit la dernière fenêtre, et l'une d'elles est-elle un zéro du padding ? Pour c), l'étendue de la fenêtre. Vérifie e) par la formule des positions, avec le nombre total de zéros à la place de $2p$. Pour g), pourquoi y a-t-il exactement $s$ longueurs ? Pour h), écris l'encadrement de $\frac{993}{s}$ qui donne la réponse, et explique pourquoi aucun autre pas ne convient.
 
-### Ex M21.7 — Sous-échantillonner et insérer des zéros : la convolution transposée d'un signal et ses recouvrements ✏️ ★★ ⏱️ 20 min
-**Objectif :** calculer un sous-échantillonnage et sa transposée, puis une convolution transposée de deux façons, sa taille et ses recouvrements.
+### Ex M21.7 — Sous-échantillonner et insérer des zéros : la convolution transposée d'un signal et ses recouvrements ✏️ ★★ ⏱️ 25 min
+**Objectif :** calculer un sous-échantillonnage et sa transposée, puis une convolution transposée par sa matrice et par la recette « zéros insérés, puis convolution pleine », sa taille et ses recouvrements.
 **Prérequis :** fiche §5 ; M09a · **Parcours :** C, E
 
 Le sous-échantillonnage $\mathbf{D}_3$ garde une valeur sur 3 d'un signal de 7 valeurs : $(\mathbf{D}_3\mathbf{x})_i = x_{3i}$.
@@ -290,7 +290,7 @@ Le sous-échantillonnage $\mathbf{D}_3$ garde une valeur sur 3 d'un signal de 7 
 | a | $\mathbf{D}_3\mathbf{x}$ pour $\mathbf{x} = (5, 1, 8, -2, 0, 4, 7)$ | une liste de 3 entiers |
 | b | $\mathbf{D}_3^\top\mathbf{D}_3\mathbf{x}$ | une liste de 7 entiers |
 
-La convolution transposée de $\mathbf{y} = (3, 1, -2)$ associée au noyau $\mathbf{w} = (2, 1, 3, -1, 1)$, avec un pas $s = 3$ et sans padding.
+La convolution transposée de $\mathbf{y} = (3, 2, -2)$ associée au noyau $\mathbf{w} = (2, 1, 3, -1, 1)$, avec un pas $s = 3$ et sans padding.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -301,9 +301,9 @@ La convolution transposée de $\mathbf{y} = (3, 1, -2)$ associée au noyau $\mat
 | g | la taille de la convolution transposée de c) avec un padding de sortie $p_{\text{out}} = 2$ | un entier |
 | h | pour un noyau de longueur $k = 12$ et un pas $s = 4$ : le nombre de tampons qui couvrent chaque case intérieure | un entier |
 
-Dans ta copie : écris la matrice $\mathbf{D}_3$. Pourquoi $\mathbf{D}_3^\top\mathbf{D}_3$ n'est-elle pas l'identité ? Calcule d) de deux façons : en insérant les zéros puis en convoluant en mode plein, et par les tampons. Vérifie que la somme de d) vaut la somme de $\mathbf{y}$ fois celle de $\mathbf{w}$, et explique pourquoi. Pourquoi e) est-il irrégulier, et h) régulier ? Relie f) à g).
+Dans ta copie : écris la matrice $\mathbf{D}_3$. Pourquoi $\mathbf{D}_3^\top\mathbf{D}_3$ n'est-elle pas l'identité ? Écris la matrice $\mathbf{C}^\top$ ($11 \times 3$) de la convolution transposée : que sont ses colonnes ? Vérifie d) $= \mathbf{C}^\top\mathbf{y}$, puis retrouve-le par $\mathbf{D}_3^\top$ (a) et b) l'ont préparé) suivi de la convolution pleine par $\mathbf{w}$. Pourquoi e) est-il irrégulier, et h) régulier ? Relie f) à g).
 
-### Ex M21.8 — Une carte de températures filtrée par un laplacien discret et par un lissage séparable ✏️ ★★ ⏱️ 20 min
+### Ex M21.8 — Une carte de températures filtrée par un laplacien discret et par un lissage séparable ✏️ ★★ ⏱️ 25 min
 **Objectif :** filtrer une grille de mesures par le laplacien discret, puis par un noyau séparable en deux passes, et compter les multiplications.
 **Prérequis :** fiche §2 et §6 ; M12d · **Parcours :** C, E
 
@@ -321,7 +321,7 @@ On la filtre par le laplacien discret à 5 points de la fiche ($h = 1$), puis pa
 | f | le nombre total de multiplications pour toute la sortie du lissage, en direct, puis en deux passes (la passe verticale d), puis la passe horizontale) | une liste de 2 entiers |
 | g | vrai ou faux : le laplacien discret est un noyau séparable | `True` ou `False` |
 
-Dans ta copie : écris $\mathbf{K}$ et calcule sa valeur $(0, 0)$ en direct, avec ses 9 produits. Pourquoi la corrélation et la convolution donnent-elles ici le même résultat ? Que vaut le laplacien d'une grille où toutes les températures sont égales, et que vaut la somme des coefficients de $\mathbf{K}$ ? Lequel des deux filtres garde le niveau moyen de la carte, lequel ne regarde que ses écarts ? Pour une grande carte, combien de multiplications par valeur de sortie coûtent environ les deux passes ?
+Dans ta copie : écris $\mathbf{K}$ et calcule sa valeur $(0, 0)$ en direct, avec ses 9 produits. Pourquoi la corrélation et la convolution donnent-elles ici le même résultat ? Que vaut le laplacien d'une grille où toutes les températures sont égales ? Pour une grande carte, combien de multiplications par valeur de sortie coûtent environ les deux passes ?
 
 ### Ex M21.9 — Paramètres et coût d'un filtrage à plusieurs canaux : standard, groupé, par canal, 1 × 1 ✏️ ★★ ⏱️ 20 min
 **Objectif :** compter les paramètres, le coût et la mémoire d'un filtrage à plusieurs canaux, dans ses quatre variantes.
@@ -341,7 +341,7 @@ Un satellite fournit une grille de $200 \times 300$ pixels en $C_{\text{in}} = 1
 | h | la forme de la sortie du filtrage standard avec un pas de 2 (même padding) | une forme |
 | i | la mémoire occupée par la sortie du filtrage standard (pas de 1), en octets | un entier |
 
-Dans ta copie : le coût de f) et de g). Pourquoi le nombre de paramètres ne dépend-il pas de la taille de la grille ? Que deviennent b) et c) pour une grille de $400 \times 600$ pixels ? Par combien le pas de 2 divise-t-il le coût, et pourquoi ?
+Dans ta copie : le coût de f) et de g). Pourquoi le nombre de paramètres ne dépend-il pas de la taille de la grille ? Que deviennent b) et c) pour une grille de $400 \times 600$ pixels ? Combien de multiplications-additions coûte une position de sortie ?
 
 ### Ex M21.10 — Le noyau équivalent de deux lissages successifs, et le champ récepteur d'une pile avec pas et dilatation ✏️ ★★ ⏱️ 20 min
 **Objectif :** composer deux sommes glissantes en une seule, avec et sans pas, et calculer le champ récepteur d'une pile.
@@ -353,7 +353,7 @@ On lisse une série par la moyenne de 2 valeurs, $\mathbf{a} = \frac12(1, 1)$, p
 |---|---|---|
 | a | $6\,\mathbf{K}$, où $\mathbf{K}$ est le noyau équivalent | une liste de 4 entiers |
 | b | $\mathbf{z}$ pour $\mathbf{x} = (5, 9, 2, 8, 4, 10, 1)$ | une liste de 4 nombres (4 décimales) |
-| c | $6\,\mathbf{K}$ quand le premier étage a un pas $s_1 = 2$ (le second, un pas de 1) | une liste d'entiers |
+| c | $6\,\mathbf{K}$ quand le premier étage a un pas $s_1 = 3$ (le second, un pas de 1) | une liste d'entiers |
 | d | le pas total de c) | un entier |
 
 Une pile de trois étages, $(k, s, d) = (2, 2, 1)$, puis $(5, 4, 1)$, puis $(3, 1, 4)$.
@@ -392,11 +392,11 @@ Dans ta copie : justifie b) coordonnée par coordonnée, et d) par Cauchy-Schwar
 
 Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque étape et ce qui la justifie, ce que tu conclus. `05_solutions.md` donne une grille de relecture.
 
-### Ex M21.12 — La convolution est commutative et associative ; la corrélation croisée ne l'est pas ∂ ★★ ⏱️ 15 min
+### Ex M21.12 — La convolution est commutative et associative ; la corrélation croisée ne l'est pas ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer la commutativité et l'associativité de la convolution sur sa formule, puis montrer que la corrélation croisée n'a aucune des deux.
 **Prérequis :** fiche §1 et §2 ; R4 · **Parcours :** C
 
-Les suites sont finies, indexées à partir de 0 et nulles hors de leurs indices ; $\mathbf{a}$ a $n$ termes. Pour comparer la corrélation croisée dans les deux sens, on la prend ici en **mode plein** : $\mathbf{a} \star \mathbf{b}$ fait glisser $\mathbf{a}$ sur $\mathbf{b}$ dans toutes les positions où ils se touchent, $(\mathbf{a} \star \mathbf{b})_m = \sum_u a_u\,b_{u + m - (n-1)}$, pour $m = 0, \ldots, n + k - 2$.
+Les suites sont finies, indexées à partir de 0 et nulles hors de leurs indices ; $\mathbf{a}$ a $n$ termes et $\mathbf{b}$ en a $k$. Pour comparer la corrélation croisée dans les deux sens, on la prend ici en **mode plein** : $\mathbf{a} \star \mathbf{b}$ fait glisser $\mathbf{a}$ sur $\mathbf{b}$ dans toutes les positions où ils se touchent, $(\mathbf{a} \star \mathbf{b})_m = \sum_t a_t\,b_{t + m - (n-1)}$, pour $m = 0, \ldots, n + k - 2$.
 
 1. Montre que $\mathbf{a} * \mathbf{b} = \mathbf{b} * \mathbf{a}$, par le changement d'indice $j = m - i$. Explique pourquoi les deux sommes portent sur les mêmes couples d'indices.
 2. Montre que $\big((\mathbf{a} * \mathbf{b}) * \mathbf{c}\big)_m = \sum_{i + j + l = m} a_i\,b_j\,c_l$, et déduis-en l'associativité.
@@ -405,7 +405,7 @@ Les suites sont finies, indexées à partir de 0 et nulles hors de leurs indices
 5. Écris $(\mathbf{a} \star \mathbf{b}) \star \mathbf{c}$ et $\mathbf{a} \star (\mathbf{b} \star \mathbf{c})$ comme des convolutions de $\mathbf{a}$ ou $\tilde{\mathbf{a}}$, $\tilde{\mathbf{b}}$ et $\mathbf{c}$. Déduis-en un contre-exemple à l'associativité, avec des suites de longueur au plus 2.
 6. Quand la corrélation croisée de deux suites est-elle égale à celle prise dans l'autre sens ? Qu'en retiens-tu pour la composition de deux sommes glissantes (fiche §7) ?
 
-### Ex M21.13 — Les applications linéaires qui commutent avec le décalage circulaire sont les convolutions circulaires ; la transposée d'une matrice circulante ∂ ★★★ ⏱️ 25 min
+### Ex M21.13 — Les applications linéaires qui commutent avec le décalage circulaire sont les convolutions circulaires ; la transposée d'une matrice circulante ∂ ★★★ ⏱️ 30 min
 **Objectif :** démontrer que l'équivariance caractérise les convolutions circulaires, et que la transposée d'une matrice circulante est la matrice circulante du noyau retourné circulaire.
 **Prérequis :** fiche §4 ; M09a, M12a · **Parcours :** C
 
@@ -418,7 +418,7 @@ Les indices sont lus modulo $n$. $\mathbf{P}$ est le décalage circulaire, $(\ma
 5. Montre que $\operatorname{circ}(\mathbf{h})\,\mathbf{x} = \mathbf{x} \circledast \mathbf{h}$ pour tout $\mathbf{x}$ : les applications linéaires qui commutent avec le décalage circulaire sont exactement les convolutions circulaires.
 6. Montre que $\operatorname{circ}(\mathbf{h})^\top = \operatorname{circ}(\check{\mathbf{h}})$, avec $\check h_m = h_{(-m) \bmod n}$. Pour $\mathbf{h} = (2, 7, 0, 1, 3)$, écris $\check{\mathbf{h}}$ et le simple renversement de $\mathbf{h}$ ; montre que le renversement est un décalage circulaire de $\check{\mathbf{h}}$, et dis lequel.
 
-### Ex M21.14 — Le nombre de positions ⌊(n + 2p − d(k − 1) − 1)/s⌋ + 1 quand la fenêtre tient, par un dénombrement ∂ ★★ ⏱️ 15 min
+### Ex M21.14 — Le nombre de positions ⌊(n + 2p − d(k − 1) − 1)/s⌋ + 1 quand la fenêtre tient, par un dénombrement ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer la formule du nombre de positions en comptant les positions de départ possibles, et en tirer la règle « même taille » avec un pas.
 **Prérequis :** fiche §5 ; R1 · **Parcours :** C, E
 
@@ -428,9 +428,9 @@ Un signal de longueur $n$ est complété par $p$ zéros de chaque côté ; une f
 2. Montre que le nombre d'entiers $i$ de l'intervalle $[0, \frac As]$ est $\lfloor\frac As\rfloor + 1$ (R1), et conclus.
 3. Que donne la formule quand $A < 0$ ? Distingue $-s \le A \le -1$ et $A < -s$. Pourquoi l'hypothèse est-elle nécessaire ?
 4. Les réglages $k$, $s$, $p$, $d$ étant fixés, montre que deux longueurs $n$ et $n'$ donnent le même nombre de positions si et seulement si $\lfloor\frac As\rfloor = \lfloor\frac{A'}{s}\rfloor$, et que chaque nombre de positions est donné par exactement $s$ longueurs consécutives (tant que $A \ge 0$).
-5. « Même taille » avec un pas : on pose $n_{\text{out}} = \lceil\frac ns\rceil$ et $P_{\text{tot}} = (n_{\text{out}} - 1)s + d(k - 1) + 1 - n$, supposé $\ge 0$. Montre qu'avec $P_{\text{tot}}$ zéros en tout (à la place de $2p$), la formule donne exactement $n_{\text{out}}$ positions, et qu'avec $P_{\text{tot}} - 1$ zéros elle en donne une de moins.
+5. « Même taille » avec un pas : on pose $n_{\text{out}} = \lceil\frac ns\rceil$ et $P_{\text{tot}} = (n_{\text{out}} - 1)s + d(k - 1) + 1 - n$, supposé $\ge 0$. Montre qu'avec $P_{\text{tot}}$ zéros en tout (à la place de $2p$), la formule donne exactement $n_{\text{out}}$ positions, et que, si $P_{\text{tot}} \ge 1$, avec $P_{\text{tot}} - 1$ zéros elle en donne une de moins (utilise la question 3 si $n_{\text{out}} = 1$).
 
-### Ex M21.15 — Le champ récepteur d'une pile de convolutions : récurrence et forme close ∂ ★★ ⏱️ 20 min
+### Ex M21.15 — Le champ récepteur d'une pile de convolutions : récurrence et forme close ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer par récurrence la formule du champ récepteur d'une pile de sommes glissantes, et en tirer sa forme close.
 **Prérequis :** fiche §7 ; R4 · **Parcours :** C
 
@@ -439,7 +439,7 @@ Une pile de $L$ sommes glissantes : l'étage $\ell$ a un noyau de $k_\ell$ poids
 1. Montre par récurrence sur $\ell$ que la sortie $j$ de l'étage $\ell$ ne lit que des cases du signal d'origine comprises entre $J_\ell\,j$ et $J_\ell\,j + r_\ell - 1$, et qu'elle lit les deux cases extrêmes. (Pour l'étape de récurrence, regarde les sorties lues avec $u = 0$ et avec $u = k_\ell - 1$.) Pourquoi la sortie dépend-elle vraiment de ces deux cases extrêmes, c'est-à-dire avec un coefficient non nul ?
 2. Montre que $J_\ell = s_1s_2\cdots s_\ell$.
 3. Déduis-en la forme close $r_L = 1 + \sum_{\ell=1}^{L} d_\ell(k_\ell - 1)\,s_1\cdots s_{\ell-1}$ (une somme télescopique).
-4. Pour $L$ étages identiques de noyaux de longueur 4, de pas 2 et sans dilatation, calcule $r_L$ en fonction de $L$. Combien d'étages faut-il pour un champ récepteur d'au moins 1 000 cases ?
+4. Pour $L$ étages identiques de noyaux de longueur 4, de pas 2 et sans dilatation, calcule $r_L$ en fonction de $L$, et calcule aussi $J_L$. Pour $L = 6$, combien de cases ont en commun les champs récepteurs de deux sorties voisines ? Vers quoi tend $r_L/J_L$, et que veut dire ce nombre pour les lectures ?
 5. Avec $d_1 = 3$ et $k_1 = 2$ (un seul étage), le champ récepteur couvre 4 cases : combien de cases la sortie lit-elle vraiment ? Montre que, si $d_\ell J_{\ell-1} \le r_{\ell-1}$ à chaque étage, la sortie lit **toutes** les cases de son champ récepteur.
 
 ### Ex M21.16 — Le maximum d'une forme linéaire sur une boule L∞ vaut ε‖g‖₁, atteint en ε signe(g) ∂ ★ ⏱️ 10 min
@@ -458,11 +458,11 @@ Soit $\mathbf{g} \in \mathbb{R}^n$ et $\varepsilon > 0$.
 
 ## 🔗 🗣️ Pont et explication
 
-### Ex M21.17 — Pont : filtrer une grille à trois canaux comme les bibliothèques, formes (C, H, W), poids (C_out, C_in, k, k), et sans retournement 🔗 ★ ⏱️ 15 min
+### Ex M21.17 — Pont : filtrer une grille à trois canaux comme les bibliothèques, formes (C, H, W), poids (C_out, C_in, k, k), et sans retournement 🔗 ★ ⏱️ 25 min
 **Objectif :** calculer à la main une sortie d'un filtrage à plusieurs canaux, avec les formes et la convention (sans retournement) des bibliothèques, et voir le décalage du « même taille » pour un noyau de longueur paire.
 **Prérequis :** fiche §2 et §6 ; M20 · **Parcours :** C, E
 
-Une station météo couvre une grille de 4 lignes et 5 colonnes ; en chaque case, trois mesures (température, pression, humidité, ramenées à des entiers). Comme les bibliothèques, on range les canaux en premier : $\mathbf{X}$ a pour canaux
+Des capteurs agricoles couvrent une parcelle découpée en une grille de 4 lignes et 5 colonnes ; en chaque case, trois mesures (température, humidité du sol, ensoleillement, ramenées à des entiers). Comme les bibliothèques, on range les canaux en premier : $\mathbf{X}$ a pour canaux
 $$\mathbf{X}_0 = \begin{pmatrix} 2 & 1 & 0 & 3 & 1 \\ 0 & 4 & 2 & 1 & 3 \\ 1 & 2 & 5 & 0 & 2 \\ 3 & 0 & 1 & 2 & 4 \end{pmatrix}, \quad \mathbf{X}_1 = \begin{pmatrix} 1 & 0 & 2 & 2 & 0 \\ 3 & 1 & 0 & 4 & 1 \\ 2 & 2 & 1 & 0 & 3 \\ 0 & 1 & 3 & 1 & 2 \end{pmatrix}, \quad \mathbf{X}_2 = \begin{pmatrix} 0 & 2 & 1 & 1 & 4 \\ 1 & 0 & 3 & 2 & 0 \\ 4 & 1 & 0 & 2 & 1 \\ 2 & 3 & 1 & 0 & 1 \end{pmatrix}.$$
 Le filtrage a deux sorties. La sortie 0 applique aux canaux 0, 1 et 2 les noyaux $2 \times 2$
 $$\begin{pmatrix} 1 & 0 \\ 2 & -1 \end{pmatrix}, \quad \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}, \quad \begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix}, \quad \text{biais } b_0 = 1 ;$$
@@ -478,7 +478,7 @@ Le filtrage est la somme glissante des bibliothèques (fiche §6), en mode valid
 | d | le nombre de paramètres, biais compris | un entier |
 | e | $Y_{0,0,0}$ | un entier |
 | f | $Y_{1,2,3}$ | un entier |
-| g | la valeur en $(0, 0, 0)$ si l'on retournait chaque noyau $2 \times 2$ selon ses deux axes, comme une convolution 2D (`scipy.signal.convolve2d`), biais compris | un entier |
+| g | le noyau à donner à `scipy.signal.convolve2d`, qui retourne son noyau selon les deux axes (une convolution 2D), pour retrouver la contribution du canal 0 à la sortie 0 | une matrice $2 \times 2$ |
 | h | le nombre de multiplications-additions pour toute la sortie | un entier |
 
 En une dimension, un noyau de longueur paire : $\mathbf{x} = (4, 1, 3, 2, 5)$ et la somme glissante $y_i = x_i + 4x_{i+1}$.
@@ -488,7 +488,7 @@ En une dimension, un noyau de longueur paire : $\mathbf{x} = (4, 1, 3, 2, 5)$ et
 | i | la sortie « même taille » de PyTorch (`padding="same"`, qui met le zéro en trop à droite) | une liste de 5 entiers |
 | j | ce que rend `np.convolve(x, [4, 1], "same")` | une liste de 5 entiers |
 
-Dans ta copie : écris $Y_{0,0,0}$ comme une triple somme. Pourquoi faut-il donner à `np.convolve` les poids dans l'ordre $(4, 1)$, et non $(1, 4)$ ? De combien de cases i) et j) sont-elles décalées, et de quel côté est le zéro en trop dans chacune ? Laquelle des deux opérations une couche de convolution de workbookIA 21 calcule-t-elle ?
+Dans ta copie : écris $Y_{0,0,0}$ comme une triple somme. Pourquoi faut-il donner à `np.convolve` les poids dans l'ordre $(4, 1)$, et non $(1, 4)$ ? De combien de cases i) et j) sont-elles décalées, et de quel côté est le zéro en trop dans chacune ?
 
 ### Ex M21.18 — Expliquer avec une règle graduée et un pochoir pourquoi une convolution est équivariante, mais pas invariante 🗣️ ★ ⏱️ 10 min
 **Objectif :** expliquer sans formule ce qu'est l'équivariance par translation, et la distinguer de l'invariance.
@@ -527,29 +527,29 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 | M21.24 | Prédire l'effet d'un décalage de l'entrée sur un filtrage avec pas, puis vérifier | 🔮 | ★ | 15 | C, E |
 | M21.25 | Le coût d'un filtrage direct ou séparable, selon la taille du noyau : mesurer, puis comparer à k² et 2k | 🔬 | ★★ | 20 | C |
 | M21.26 | La carte des recouvrements d'une convolution transposée : un damier ou pas, selon k et s | 🎨 | ★ | 15 | C, E |
-| M21.27 | Chasse à l'erreur : un noyau non retourné, une taille arrondie vers le haut, un noyau de rang 2 « séparé » | 🐛 | ★ | 20 | C, E |
+| M21.27 | Chasse à l'erreur : un noyau non retourné, des recouvrements supposés réguliers, un noyau de rang 2 « séparé » | 🐛 | ★ | 20 | C, E |
 | M21.28 | Un test de propriété : la matrice de Toeplitz fois x égale la convolution, pour des longueurs tirées au hasard | 🛠️ | ★ | 15 | C |
 | M21.29 | Défi : retrouver un noyau inconnu à partir d'un signal et de sa version filtrée bruitée, par les moindres carrés | 🏆 | ★★★ | 25 | C |
 
 Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le notebook). Les cinq 🔨 complètent ta copie `mon_travail/mymath/convolution.py` (**mymath :** `convolution.py`), dont la docstring du module dit ce qui est permis : NumPy, sauf `np.convolve`, `np.correlate`, `np.polymul`, `np.polynomial` et `np.fft`, aucune fonction de SciPy, et, de `np.linalg`, seulement `svd`, dans `separable_factors`. Chaque 🔨 lance ensuite le groupe de tests de sa fonction dans `tests/test_m21_convolution.py`, puis s'en sert.
 
-**M21.19 · 🔨 `convolve(a, b, mode="full")`.** Écris la convolution des mathématiciens dans les trois modes (la docstring fixe les lignes gardées par « valid » et « same »), puis lance le groupe de tests `convolve`. Ensuite, avec ta fonction : a) la probabilité que trois dés équilibrés à 8 faces (numérotées de 1 à 8, lancés indépendamment) totalisent 12, en fraction irréductible ; b) le coefficient de $X^5$ dans $(2 - X)^7$, par sept convolutions successives ; c) la première valeur du mode même taille de la moyenne mobile sur 5 jours (un noyau de cinq valeurs égales à 0,2) des températures $(8, 10, 13, 15, 14, 12, 11, 9, 7, 6, 8, 10)$ ; d) le nombre de valeurs de ce mode même taille qui sont des moyennes de 5 vraies mesures. Ce qu'il faut observer : les valeurs du bord du mode même taille sont tirées vers 0 par les zéros ajoutés.
+**M21.19 · 🔨 `convolve(a, b, mode="full")`.** Écris la convolution des mathématiciens dans les trois modes (la docstring fixe les lignes gardées par « valid » et « same »), puis lance le groupe de tests `convolve`. Ensuite, avec ta fonction : a) la probabilité que trois dés équilibrés à 8 faces (numérotées de 1 à 8, lancés indépendamment) totalisent 11, en fraction irréductible ; b) le coefficient de $X^5$ dans $(2 - X)^7$, par sept convolutions successives ; c) la première valeur du mode même taille de la moyenne mobile sur 5 jours (un noyau de cinq valeurs égales à 0,2) des températures $(8, 10, 13, 15, 14, 12, 11, 9, 7, 6, 8, 10)$ ; d) le nombre de valeurs de ce mode même taille qui sont des moyennes de 5 vraies mesures. Ce qu'il faut observer : les valeurs du bord du mode même taille sont tirées vers 0 par les zéros ajoutés.
 
 **M21.20 · 🔨 `toeplitz_matrix(kernel, n, mode="full")`.** Écris la matrice de $\mathbf{x} \mapsto$ `convolve(x, kernel, mode)` (colonne $j$ : le noyau descendu de $j$ lignes, puis les lignes du mode), puis lance le groupe de tests `toeplitz_matrix`. Ensuite : a) les rangs des matrices pleine et valide du noyau $(1, -3, 2)$ de M21.4 pour $n = 6$ (avec `np.linalg.matrix_rank`) ; b) le pourcentage de coefficients non nuls de la matrice pleine d'un noyau de 7 coefficients non nuls, pour $n = 1\,000$ (3 décimales) ; c) trois vrai ou faux sur l'énoncé de la transposée (fiche §3) : la transposée de la matrice valide de $\mathbf{w} = (1, 4, -2, 3)$ pour $n = 7$ est la matrice pleine de $\tilde{\mathbf{w}}$ (pour $n = 4$) ; la transposée de sa matrice même taille ($n = 7$) est la matrice même taille de $\tilde{\mathbf{w}}$ ; la même chose pour $\mathbf{w} = (2, 0, -1, 5, 1)$. Ce qu'il faut observer : la transposition échange valide et plein, et ne garde le mode même taille que pour un noyau de longueur impaire.
 
 **M21.21 · 🔨 `circular_convolve(a, b)`.** Écris la convolution circulaire de deux suites de même longueur, puis lance le groupe de tests `circular_convolve`. Ensuite, le profil moyen d'une journée, une température (°C) par heure de 0 h à 23 h : $(9, 8, 8, 7, 6, 7, 8, 10, 12, 14, 16, 17, 19, 20, 21, 20, 18, 16, 14, 13, 12, 11, 10, 9)$ ; l'heure 24 est l'heure 0. On le lisse par la moyenne circulaire centrée sur 3 heures, le noyau $\mathbf{h}$ de 24 valeurs nulles sauf $h_0 = h_1 = h_{23} = \frac13$. a) La valeur lissée à 0 h (4 décimales) ; b) l'heure du maximum lissé ; c) vrai ou faux : en complétant $(3, -1, 2, 5)$ et $(1, 2, -2)$ par des zéros jusqu'à la longueur 6, la convolution circulaire donne la convolution pleine ; d) pour $\mathbf{h} = (5, -2, 0, 3, 1, 4)$, en construisant $\operatorname{circ}(\mathbf{h})$ colonne par colonne avec ta fonction : deux vrai ou faux, $\operatorname{circ}(\mathbf{h})^\top = \operatorname{circ}(\check{\mathbf{h}})$, puis $\operatorname{circ}(\mathbf{h})^\top$ égale la matrice circulante du simple renversement de $\mathbf{h}$.
 
-**M21.22 · 🔨 `separable_factors(kernel, tol=1e-10)`.** Écris la factorisation d'un noyau de rang 1 par la décomposition en valeurs singulières (M12d), avec la convention de signe et la tolérance relative de la docstring, puis lance le groupe de tests `separable_factors`. Ensuite : a) le facteur $\mathbf{v}$ du lissage $\mathbf{K}$ de M21.8 (4 décimales) ; b) vrai ou faux : ta fonction rend `None` pour le laplacien discret ; c) un noyau presque séparable, le produit extérieur de $(1, 2, 4, 2, 1)$ et de $(2, -1, 3)$, plus un bruit gaussien d'écart type 0,001 (graine 5532) : avec la tolérance par défaut, ta fonction rend `None` ; avec une tolérance de $10^{-2}$, elle rend deux facteurs ; l'erreur $\lVert\mathbf{K} - \mathbf{u}\mathbf{v}^\top\rVert_F$ de cette approximation (5 décimales). Ce qu'il faut observer : cette erreur est $\sqrt{s_2^2 + s_3^2}$, comme le dit Eckart-Young (M12d).
+**M21.22 · 🔨 `separable_factors(kernel, tol=1e-10)`.** Écris la factorisation d'un noyau de rang 1 par la décomposition en valeurs singulières (M12d), avec la convention de signe et la tolérance relative de la docstring, puis lance le groupe de tests `separable_factors`. Ensuite : a) le facteur $\mathbf{v}$ du lissage $\mathbf{K}$ de M21.8 (4 décimales) ; b) le rapport $s_2/s_1$ des valeurs singulières de la moyenne en croix $\frac15\begin{pmatrix} 0 & 1 & 0 \\ 1 & 1 & 1 \\ 0 & 1 & 0 \end{pmatrix}$ (3 décimales), et ce que rend ta fonction pour ce noyau ; c) un noyau presque séparable, le produit extérieur de $(1, 2, 4, 2, 1)$ et de $(2, -1, 3)$, plus un bruit gaussien d'écart type 0,001 (graine 5532) : avec la tolérance par défaut, ta fonction rend `None` ; avec une tolérance de $10^{-2}$, elle rend deux facteurs ; l'erreur $\lVert\mathbf{K} - \mathbf{u}\mathbf{v}^\top\rVert_F$ de cette approximation (5 décimales). Ce qu'il faut observer : cette erreur est $\sqrt{s_2^2 + s_3^2}$, comme le dit Eckart-Young (M12d).
 
 **M21.23 · 🔨 `equivalent_kernel(kernels, strides=None)`** (avec ta `convolve`). Écris le noyau équivalent et le pas total d'une pile de sommes glissantes (fiche §7 : le noyau de l'étage $\ell$, dilaté du pas accumulé, convolué avec le noyau des étages précédents), puis lance le groupe de tests `equivalent_kernel`. Ensuite : a) $6\,\mathbf{K}$ pour la pile de M21.10 c) ; b) la longueur du noyau équivalent et le pas total de quatre étages identiques de noyaux de longueur 4 et de pas 2 ; c) le champ récepteur de la pile de M21.10 e), en écrivant le troisième étage, dilaté, comme le noyau à trous $(w_0, 0, 0, 0, w_1, 0, 0, 0, w_2)$ ; d) une pile tirée au hasard (graine 5533 : des noyaux de longueurs 3, 4 et 2, de pas 2, 3 et 1, et un signal de 200 valeurs), appliquée étage par étage, puis par son noyau équivalent avec le pas total : vrai ou faux, les deux sorties coïncident à $10^{-12}$ près (sur les positions communes).
 
 **M21.24 · 🔮 Prédire l'effet d'un décalage de l'entrée sur un filtrage avec pas, puis vérifier.** Un signal de 30 valeurs, nul sauf $x_7 = 2$, $x_8 = 5$, $x_9 = -1$, est filtré par la somme glissante de poids $(1, -1, 2, 1)$ avec un pas de 3, en mode valide (9 positions). On le retarde de $t$ cases ($t$ zéros entrent à gauche). **Avant d'exécuter**, prédis : a) pour $t = 3$, de combien de cases la sortie est décalée ; b) pour $t = 6$ ; c) vrai ou faux : pour $t = 1$, la sortie est un décalage de la sortie d'origine ; d) la même question pour $t = 2$ ; e) les 9 valeurs de la sortie pour $t = 1$, calculées à la main. Puis vérifie avec ta `convolve` (une somme glissante est une convolution valide par le noyau retourné, dont on garde une valeur sur 3). Ce qu'il faut observer : seuls les décalages multiples du pas décalent la sortie ; les autres font lire au filtre d'autres paquets de valeurs, et la sortie change de nombres, pas seulement de place.
 
-**M21.25 · 🔬 Le coût d'un filtrage direct ou séparable, selon la taille du noyau.** Une grille de $300 \times 300$ valeurs tirées au hasard (graine 5535) est filtrée, en mode valide, par des noyaux de rang 1, $\mathbf{K} = \mathbf{a}\mathbf{b}^\top$, de taille $k \times k$ pour $k = 3, 5, 9, 15, 25$. Écris deux fonctions : le filtrage direct, qui ajoute $k^2$ tranches décalées de la grille multipliées par $K_{u,v}$, et le filtrage séparable, qui fait $k$ tranches le long des colonnes avec $\mathbf{a}$, puis $k$ le long des lignes avec $\mathbf{b}$. Mesure leurs temps (`time.perf_counter`, le meilleur de 3 essais), trace-les contre $k$ en échelles logarithmiques, ainsi que leur rapport à côté de $k/2$. a) Le nombre de multiplications par valeur de sortie pour $k = 25$, selon les comptes de la fiche ($k_hk_w$ en direct, environ $k_h + k_w$ en deux passes) ; b) le rapport mesuré des temps pour $k = 25$ est le plus proche de : (A) 2 ; (B) 12,5 ; (C) 625 ; c) vrai ou faux : les deux sorties coïncident à $10^{-9}$ près. Ce qu'il faut conclure : le séparable gagne un facteur de l'ordre de $k/2$, peu de chose pour $k = 3$, beaucoup pour un grand noyau. (La transformée de Fourier, qui accélère encore les très grands noyaux, n'est qu'évoquée dans la fiche, §4.)
+**M21.25 · 🔬 Le coût d'un filtrage direct ou séparable, selon la taille du noyau.** Une grille de $360 \times 360$ valeurs tirées au hasard (graine 5535) est filtrée, en mode valide, par des noyaux de rang 1, $\mathbf{K} = \mathbf{a}\mathbf{b}^\top$, de taille $k \times k$ pour $k = 3, 5, 9, 15, 25$. Écris deux fonctions : le filtrage direct, qui ajoute $k^2$ tranches décalées de la grille multipliées par $K_{u,v}$, et le filtrage séparable, qui fait $k$ tranches le long des colonnes avec $\mathbf{a}$, puis $k$ le long des lignes avec $\mathbf{b}$. Mesure leurs temps (`time.perf_counter`, le meilleur de 3 essais), trace-les contre $k$ en échelles logarithmiques, ainsi que leur rapport à côté de $k/2$. a) Le nombre de multiplications par valeur de sortie pour $k = 25$, selon les comptes de la fiche ($k_hk_w$ en direct, environ $k_h + k_w$ en deux passes) ; b) le rapport mesuré des temps pour $k = 25$ est le plus proche, en ordre de grandeur (sur une échelle logarithmique), de : (A) 2 ; (B) 12,5 ; (C) 625 ; c) vrai ou faux : les deux sorties coïncident à $10^{-9}$ près. Ce qu'il faut conclure : le séparable gagne un facteur de l'ordre de $k/2$, peu de chose pour $k = 3$, beaucoup pour un grand noyau. (La transformée de Fourier, qui accélère encore les très grands noyaux, n'est qu'évoquée dans la fiche, §4.)
 
 **M21.26 · 🎨 La carte des recouvrements d'une convolution transposée.** Pour une entrée de $6 \times 6$ valeurs et des noyaux $k \times k$ de pas $s$ selon les deux axes, compte, en chaque case de la sortie, le nombre de tampons qui la couvrent (en 2D, c'est le produit des comptes des deux axes), pour $(k, s) = (5, 2)$, $(6, 2)$, $(7, 3)$ et $(9, 3)$, et dessine les quatre cartes côte à côte, avec une barre de couleurs et un titre qui donne $(k, s)$. Ce qu'il faut observer : un damier de cases fortes et faibles quand $s$ ne divise pas $k$, une carte uniforme à l'intérieur quand $s$ divise $k$.
 
-**M21.27 · 🐛 Chasse à l'erreur.** Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe. (1) `sliding_sum(x, w)` doit calculer la somme glissante des bibliothèques, $\sum_u w_u\,x_{i+u}$ en mode valide ; elle renvoie `np.convolve(x, w, "valid")`, et il l'a vérifiée sur la dérivée seconde d'une suite de carrés. Il s'en sert pour la vitesse de montée d'un réservoir dont le niveau, relevé toutes les 0,5 h, vaut $(2 ;\ 2{,}5 ;\ 4 ;\ 5 ;\ 7{,}5 ;\ 8)$ m, avec les poids $(-1, 1)$ divisés par 0,5. (2) `n_positions(n, k, s=1, p=0, d=1)` arrondit vers le haut, avec `math.ceil` ; il l'a vérifiée sur trois cas où la division tombe juste. (3) `separate(K)` rend la première colonne de $\mathbf{K}$ et sa première ligne divisée par $K_{0,0}$, sans regarder le rang ; il l'a vérifiée sur un produit extérieur, et l'applique au noyau $\begin{pmatrix} 2 & 1 & 3 \\ 4 & 2 & 5 \\ 2 & 1 & 3 \end{pmatrix}$. Trouve et corrige chaque erreur, puis réponds : a) les vitesses de montée, avec la fonction corrigée ; b) le nombre de positions pour $n = 100$, $k = 6$, $s = 4$, $p = 0$, avec la fonction corrigée ; c) le plus grand écart, en valeur absolue, entre $\mathbf{K}$ et le produit extérieur des deux facteurs de `separate` ; d) vrai ou faux : `separable_factors` rend `None` pour ce noyau ; e) même corrigée, `sliding_sum` diffère d'une case de PyTorch en mode « même taille » pour un noyau de longueur paire : ce que rend `np.convolve` en mode même taille, avec les poids retournés, pour $\mathbf{x} = (3, 1, 4, 1, 5, 9)$ et les poids $(2, -3)$. Pour chaque erreur, dis aussi pourquoi la vérification du collègue ne la voyait pas.
+**M21.27 · 🐛 Chasse à l'erreur.** Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe. (1) `poly_product(p, q)` doit rendre les coefficients du produit de deux polynômes (du terme constant au plus haut degré) ; elle renvoie `np.correlate(p, q, "full")`, et il l'a vérifiée sur $(1 + 2X)(2 + 5X + 2X^2)$, dont le second facteur a des coefficients palindromes. Il l'applique à $(1 + 2X)(3 - X + 4X^2)$. (2) `n_covers(k, s)` doit rendre le nombre de tampons qui couvrent une case intérieure d'une convolution transposée de noyau de longueur $k$ et de pas $s$ ; elle renvoie `k // s`, et il l'a vérifiée sur $(k, s) = (6, 2)$, $(9, 3)$ et $(8, 4)$. (3) `separate(K)` rend la première colonne de $\mathbf{K}$ et sa première ligne divisée par $K_{0,0}$, sans regarder le rang ; il l'a vérifiée sur un produit extérieur, et l'applique au noyau $\begin{pmatrix} 2 & 1 & 3 \\ 4 & 2 & 5 \\ 2 & 1 & 3 \end{pmatrix}$. Trouve et corrige chaque erreur, puis réponds : a) les coefficients de $(1 + 2X)(3 - X + 4X^2)$, avec la fonction corrigée ; b) pour une convolution transposée de noyau de longueur $k = 8$, de pas $s = 3$ et de $m = 6$ valeurs d'entrée, les nombres de tampons qui couvrent les cases 9, 10 et 11 ; c) le plus grand écart, en valeur absolue, entre $\mathbf{K}$ et le produit extérieur des deux facteurs de `separate` ; d) vrai ou faux : `separable_factors` rend `None` pour ce noyau ; e) une question à part, sur le mode « même taille » d'un noyau de longueur paire, où NumPy et PyTorch diffèrent d'une case : pour la somme glissante de poids $(2, -3)$ et $\mathbf{x} = (6, 2, 7, 1, 8, 3)$, ce que rend `np.convolve` en mode même taille, avec les poids retournés. Pour chacune des trois erreurs, dis aussi pourquoi la vérification du collègue ne la voyait pas.
 
 **M21.28 · 🛠️ Un test de propriété.** Écris une fonction de test qui tire au hasard (graine 5538), 200 fois, une longueur de noyau $k$ de 1 à 6, une longueur de signal $n$ de $k$ à 12, un noyau et un signal d'entiers, et vérifie que `toeplitz_matrix(w, n, mode) @ x` égale `convolve(x, w, mode)` dans les trois modes, avec un message d'échec qui dit d'abord ce qui était attendu, puis le cas fautif ($k$, $n$, le mode). Ajoute les cas limites $k = 1$ et $n = k$. Lance-la sur ta librairie, puis sur une version volontairement fausse, fournie, dont le mode même taille garde les lignes à partir de $\lfloor k/2\rfloor$ au lieu de $\lfloor\frac{k-1}{2}\rfloor$ : ton test doit l'attraper, et son message doit montrer un noyau de longueur paire.
 

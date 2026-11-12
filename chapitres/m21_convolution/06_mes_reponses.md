@@ -346,7 +346,7 @@
 
 - ce que montre chaque carte, et la règle qui dit quand il y a un damier :
 
-### Ex M21.27 — Chasse à l'erreur : un noyau non retourné, une taille arrondie vers le haut, un noyau de rang 2 « séparé »
+### Ex M21.27 — Chasse à l'erreur : un noyau non retourné, des recouvrements supposés réguliers, un noyau de rang 2 « séparé »
 
 - pour chaque erreur : ce qu'elle faisait, pourquoi la vérification fournie ne la voyait pas, et ta correction :
 

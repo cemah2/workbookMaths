@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §8 |
-| **Temps total estimé** | ≈ 13,6 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 10 h 10, 22 flashcards ≈ 45 min (parcours essentiel ≈ 10,4 h) |
+| **Temps total estimé** | ≈ 14,4 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 11 h, 22 flashcards ≈ 45 min (parcours essentiel ≈ 10,9 h) |
 | **Prérequis** | R5 (moyenne mobile) ; R3 (polynômes) ; R8 et M02b (loi d'un couple de variables discrètes, indépendance) ; M05a (différences finies avant, centrée et seconde) ; M09a (produit matriciel, transposée, coût d'un produit) ; M12a (matrice d'une application linéaire, noyau, rang, théorème du rang) ; M12d (rang 1, décomposition en valeurs singulières) ; R1 (parties entières $\lfloor x\rfloor$ et $\lceil x\rceil$) ; R4 (sommes $\Sigma$, récurrence) ; M07 (normes L1, L2 et L∞, Cauchy-Schwarz) ; R2 (fonction signe) ; M05b (approximation au premier ordre) ; M09b (moindres carrés) ; M20 (tableaux à plusieurs axes, formes, `einsum`) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `convolution.py` : `convolve`, `toeplitz_matrix`, `circular_convolve`, `equivalent_kernel`, `separable_factors` |

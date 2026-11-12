@@ -94,7 +94,7 @@ $\big\lfloor\frac{n + 2p - d(k - 1) - 1}{s}\big\rfloor + 1$ ; l'étendue d'une f
 </details>
 <details><summary>Indice 3</summary>
 
-3. L'étendue vaut $4 \times 2 + 1$. 5. Chacun des 5 intervalles devient 4 cases. 6. Les fenêtres commencent en $0, 4, 8, \ldots$ ; quelle est la dernière case de la dernière fenêtre ?
+3. L'étendue vaut $3 \times 4 + 1$. 5. Chacun des 5 intervalles devient 4 cases. 6. Les fenêtres commencent en $0, 4, 8, \ldots$ ; quelle est la dernière case de la dernière fenêtre ?
 
 </details>
 
@@ -112,7 +112,7 @@ Paramètres : $C_{\text{out}}\big(\frac{C_{\text{in}}}{g}k_hk_w + 1\big)$. La fo
 </details>
 <details><summary>Indice 3</summary>
 
-2. Chaque sortie lit $\frac{10}{2} = 5$ canaux. 3. Une convolution par canal a autant de sorties que de canaux, et chacune lit un seul canal. 6. Compare les deux lignes de la matrice.
+2. Chaque sortie lit $\frac{10}{2} = 5$ canaux. 3. Une convolution par canal a autant de sorties que de canaux, et chacune lit un seul canal. 4. Chaque case de sortie fait une multiplication-addition par poids (hors biais). 6. Compare les deux lignes de la matrice.
 
 </details>
 
@@ -148,7 +148,7 @@ Boule L∞ → norme L1 de $\mathbf{g}$, en $\varepsilon\operatorname{signe}(\ma
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\lVert\mathbf{g}\rVert_1 = 1 + 4 + 2 + 0 + 2$. 2. Que vaut $g_4\delta_4$, quel que soit $\delta_4$ ? 3. $\lVert\mathbf{g}\rVert_2 = \sqrt{1 + 16 + 4 + 0 + 4}$. 6. Chaque coordonnée vaut $\pm0{,}3$.
+1. $\lVert\mathbf{g}\rVert_1 = 1 + 4 + 2 + 0 + 2$. 2. Que vaut $g_4\delta_4$, quel que soit $\delta_4$ ? 3. $\lVert\mathbf{g}\rVert_2 = \sqrt{1 + 16 + 4 + 0 + 4}$. 6. Les deux pires écarts valent $0{,}3\,\lVert\mathbf{g}\rVert_1$ et $0{,}3\,\lVert\mathbf{g}\rVert_2$ ; ici, $\lVert\mathbf{g}\rVert_1 = 400$ et $\lVert\mathbf{g}\rVert_2 = \sqrt{400}$.
 
 </details>
 
@@ -170,7 +170,7 @@ Une moyenne mobile sur $k$ valeurs a une valeur complète par fenêtre de $k$ va
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\frac{12 + 3 + 9}{3}$, puis on glisse d'une valeur. 4. $\sum_i x_i\,h_{t-i}$ ne doit garder que $i = t - 2, t - 1, t$, chacun avec le poids $\frac13$.
+1. $\frac{12 + 3 + 9}{3}$, puis on glisse d'une valeur. 4. $\sum_i x_i\,h_{t-i}$ ne doit garder que $i = t - 2, t - 1, t$, chacun avec le poids $\frac13$. 5. Une moyenne complète d'une série constante : la constante fois la somme du noyau.
 
 </details>
 
@@ -206,7 +206,7 @@ $(\mathbf{u}\mathbf{v}^\top)_{ij} = u_iv_j$ ; toutes ses lignes sont des multipl
 </details>
 <details><summary>Indice 3</summary>
 
-3. $\lVert\mathbf{u}\rVert = 3$ et $\lVert\mathbf{v}\rVert = 5$. 6. L'erreur de Frobenius du meilleur approximant de rang 1 est la racine de la somme des carrés des valeurs singulières oubliées.
+3. $\lVert\mathbf{u}\rVert = 7$ et $\lVert\mathbf{v}\rVert = 5$. 6. L'erreur de Frobenius du meilleur approximant de rang 1 est la racine de la somme des carrés des valeurs singulières oubliées.
 
 </details>
 
@@ -300,7 +300,7 @@ a) $y_i = x_i - x_{i+1} + 2x_{i+2}$, pour $i = 0$ à 7. Avec un pas de 2, $y_i$ 
 </details>
 <details><summary>Indice 3</summary>
 
-c) Avec $\tau_5$, l'événement occupe les cases 7 à 9 ; la réponse complète aurait besoin des positions 8 et 9. e) La sortie de pas 1 de $\tau_1\mathbf{x}$ est a) décalée d'une case : garde ses valeurs d'indices pairs.
+c) Avec $\tau_5$, l'événement occupe les cases 7 à 9 ; la réponse complète aurait besoin des positions 8 et 9. Compte les valeurs de a) position par position (deux valeurs égales à deux positions comptent deux fois). e) La sortie de pas 1 de $\tau_1\mathbf{x}$ est a) décalée d'une case : garde ses valeurs d'indices pairs.
 
 </details>
 
@@ -318,7 +318,7 @@ $n_{\text{out}} = \big\lfloor\frac{n + 2p - d(k - 1) - 1}{s}\big\rfloor + 1$. En
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\lfloor\frac{997}{3}\rfloor + 1$. d) $\lfloor\frac{981}{5}\rfloor + 1$. g) Encadre : $49 \le \frac{n - 5}{5} < 50$. h) $\lfloor\frac{993}{s}\rfloor = 99$ veut dire $99 \le \frac{993}{s} < 100$.
+b) $\lfloor\frac{997}{3}\rfloor + 1$. d) $\lfloor\frac{981}{5}\rfloor + 1$. g) Encadre : $49 \le \frac{n - 5}{5} < 50$. h) $\lfloor\frac{993}{s}\rfloor = 124$ veut dire $124 \le \frac{993}{s} < 125$.
 
 </details>
 
@@ -331,12 +331,12 @@ Relis le §5 : « Sous-échantillonner, insérer des zéros » et « La convolut
 </details>
 <details><summary>Indice 2</summary>
 
-Taille : $(m - 1)s + k + p_{\text{out}}$ pour $p = 0$ et $d = 1$. Recette : insérer $s - 1$ zéros entre les valeurs, puis convoluer en mode plein par $\mathbf{w}$ ; ou poser $y_i\,\mathbf{w}$ à partir de la case $si$.
+Taille : $(m - 1)s + k + p_{\text{out}}$ pour $p = 0$ et $d = 1$. Recette : insérer $s - 1$ zéros entre les valeurs, puis convoluer en mode plein par $\mathbf{w}$ ; ou poser $y_i\,\mathbf{w}$ à partir de la case $si$. La colonne $i$ de $\mathbf{C}^\top$ est le tampon de $y_i = 1$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-d) Les tampons $3\mathbf{w}$ sur les cases 0 à 4, $\mathbf{w}$ sur 3 à 7, $-2\mathbf{w}$ sur 6 à 10 ; additionne case par case. e) Compte, pour chaque case $j$, les $i \in \{0, 1, 2\}$ tels que $0 \le j - 3i \le 4$. f) $\lfloor\frac{n - 5}{3}\rfloor + 1 = 3$.
+d) Les tampons $3\mathbf{w}$ sur les cases 0 à 4, $2\mathbf{w}$ sur 3 à 7, $-2\mathbf{w}$ sur 6 à 10 ; additionne case par case. e) Compte, pour chaque case $j$, les $i \in \{0, 1, 2\}$ tels que $0 \le j - 3i \le 4$. f) $\lfloor\frac{n - 5}{3}\rfloor + 1 = 3$.
 
 </details>
 
@@ -390,7 +390,7 @@ Le noyau équivalent est $\mathbf{a} * \mathbf{b}$ (pas 1) ; avec un pas $s_1$, 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $(1, 1) * (1, 1, 1)$, divisé par 6. c) $\mathbf{b}$ dilaté de 2 : $\frac13(1, 0, 1, 0, 1)$. e) Le tableau : $r = 1, 2, 10, \ldots$ avec $J = 1, 2, 8, 8$.
+a) $(1, 1) * (1, 1, 1)$, divisé par 6. c) $\mathbf{b}$ dilaté de 3 : $\frac13(1, 0, 0, 1, 0, 0, 1)$. e) Le tableau : $r = 1, 2, 10, \ldots$ avec $J = 1, 2, 8, 8$.
 
 </details>
 
@@ -425,7 +425,7 @@ Relis le §1 (les propriétés et le point de vue des polynômes) et le lien du 
 </details>
 <details><summary>Indice 2</summary>
 
-1. Avec la convention « nul hors des indices », tu peux sommer sur tous les entiers. 3. Écris $(\widetilde{\mathbf{u} * \mathbf{v}})_m = (\mathbf{u} * \mathbf{v})_{n+k-2-m}$, puis change d'indice. 4. Pose $v = n - 1 - u$ dans la définition de la corrélation pleine.
+1. Avec la convention « nul hors des indices », tu peux sommer sur tous les entiers. 3. Écris $(\widetilde{\mathbf{u} * \mathbf{v}})_m = (\mathbf{u} * \mathbf{v})_{n+k-2-m}$, puis change d'indice. 4. Pose $j = n - 1 - t$ dans la définition de la corrélation pleine.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -484,7 +484,7 @@ Relis le théorème du champ récepteur (§7), la définition du champ récepteu
 </details>
 <details><summary>Indice 3</summary>
 
-1. Les bornes : $J_{\ell-1}t_0 = J_\ell\,j$ et $J_{\ell-1}t_{k_\ell-1} + r_{\ell-1} - 1$. 4. $r_L = 1 + \sum_{\ell=1}^{L}3 \times 2^{\ell-1}$. 5. Les intervalles lus par $t_u$ et $t_{u+1}$ commencent à $J_{\ell-1}d_\ell$ cases l'un de l'autre : quand se touchent-ils ?
+1. Les bornes : $J_{\ell-1}t_0 = J_\ell\,j$ et $J_{\ell-1}t_{k_\ell-1} + r_{\ell-1} - 1$. 4. $r_L = 1 + \sum_{\ell=1}^{L}3 \times 2^{\ell-1}$, et $J_L = 2^L$ ; deux sorties voisines commencent à $J_L$ cases l'une de l'autre. 5. Les intervalles lus par $t_u$ et $t_{u+1}$ commencent à $J_{\ell-1}d_\ell$ cases l'un de l'autre : quand se touchent-ils ?
 
 </details>
 
@@ -502,7 +502,7 @@ Relis le théorème du §8 et son idée : sur la boule L∞, les coordonnées so
 </details>
 <details><summary>Indice 3</summary>
 
-4. L'égalité dans 1 impose $g_i\delta_i = \varepsilon\lvert g_i\rvert$ pour chaque $i$. 5. Cauchy-Schwarz entre $(\lvert g_1\rvert, \ldots, \lvert g_n\rvert)$ et le vecteur de uns ; son cas d'égalité.
+4. L'égalité donne $\sum_i(\varepsilon\lvert g_i\rvert - g_i\delta_i) = 0$, une somme de termes positifs ou nuls. 5. Cauchy-Schwarz entre $(\lvert g_1\rvert, \ldots, \lvert g_n\rvert)$ et le vecteur de uns ; son cas d'égalité.
 
 </details>
 
@@ -519,12 +519,12 @@ Relis le §6 : « Plusieurs canaux » (la formule à canaux, les formes) et l'en
 </details>
 <details><summary>Indice 2</summary>
 
-$Y_{o,i,j} = b_o + \sum_c\sum_u\sum_v W_{o,c,u,v}\,X_{c,i+u,j+v}$, sans retournement. Pour e), prends dans chaque canal la fenêtre $2 \times 2$ en haut à gauche. Pour g), retourne chaque noyau d'un demi-tour.
+$Y_{o,i,j} = b_o + \sum_c\sum_u\sum_v W_{o,c,u,v}\,X_{c,i+u,j+v}$, sans retournement. Pour e), prends dans chaque canal la fenêtre $2 \times 2$ en haut à gauche. Pour g), `convolve2d` retourne d'un demi-tour le noyau qu'on lui donne : donne-lui le noyau déjà retourné.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e) Trois produits case par case, de 4 termes chacun, puis le biais 1. h) $3 \times 4$ positions $\times$ 2 sorties $\times$ 12 poids. j) Calcule la convolution pleine $\mathbf{x} * (4, 1)$ (6 valeurs), puis garde-en 5 à partir de l'indice $\lfloor\frac{2 - 1}{2}\rfloor$.
+e) Trois produits case par case, de 4 termes chacun, puis le biais 1. g) Un demi-tour envoie la case $(u, v)$ en $(1 - u, 1 - v)$. h) $3 \times 4$ positions $\times$ 2 sorties $\times$ 12 poids. j) Calcule la convolution pleine $\mathbf{x} * (4, 1)$ (6 valeurs), puis garde-en 5 à partir de l'indice $\lfloor\frac{2 - 1}{2}\rfloor$.
 
 </details>
 
@@ -646,7 +646,7 @@ Fiche §6 (« Reconnaître un noyau séparable ») ; M12d (la décomposition en 
 </details>
 <details><summary>Indice 3</summary>
 
-Les lignes clés : `_, s, Vt = np.linalg.svd(M, full_matrices=False)`, `if s.size > 1 and s[1] > tol * s[0]: return None`, puis `first = np.flatnonzero(np.abs(v) > 1e-8)[0]`. Pour c), `np.linalg.norm(K - np.outer(u, v))` (norme de Frobenius pour une matrice).
+Les lignes clés : `_, s, Vt = np.linalg.svd(M, full_matrices=False)`, `if s.size > 1 and s[1] > tol * s[0]: return None`, puis `first = np.flatnonzero(np.abs(v) > 1e-8)[0]`. Pour b), `np.linalg.svd(K, compute_uv=False)` rend les valeurs singulières : `s[1] / s[0]`. Pour c), `np.linalg.norm(K - np.outer(u, v))` (norme de Frobenius pour une matrice).
 
 </details>
 
@@ -712,7 +712,7 @@ for u in range(k):
     for v in range(k):
         out += K[u, v] * X[u:u + H - k + 1, v:v + W - k + 1]
 ```
-Le rapport des temps se compare à $\frac{k^2}{2k} = \frac k2$.
+Le rapport des temps se compare à $\frac{k^2}{2k} = \frac k2$. Pour b), compare en facteurs, sur une échelle logarithmique : de quel nombre le rapport mesuré est-il le moins loin, en multipliant ou en divisant ?
 
 </details>
 
@@ -734,21 +734,21 @@ En 1D : un tableau de $(m - 1)s + k$ zéros, et, pour chaque $i$, ajoute 1 aux c
 
 </details>
 
-### M21.27 — Chasse à l'erreur : un noyau non retourné, une taille arrondie vers le haut, un noyau de rang 2 « séparé »
+### M21.27 — Chasse à l'erreur : un noyau non retourné, des recouvrements supposés réguliers, un noyau de rang 2 « séparé »
 
 <details><summary>Indice 1</summary>
 
-Les ⚠️ de la fiche : §2 (les poids d'une corrélation passés à `np.convolve`, le « même taille » d'un noyau pair), §5 (arrondir vers le haut) et §6 (séparer un noyau de rang 2).
+La fiche : §1 (le point de vue des polynômes), le ⚠️ du §2 (les poids passés à `np.convolve` ; le « même taille » d'un noyau pair), « Les recouvrements » du §5 et le ⚠️ du §6 (séparer un noyau de rang 2).
 
 </details>
 <details><summary>Indice 2</summary>
 
-(1) Que fait `np.convolve` à ses poids ? Essaie-la avec un noyau antisymétrique. (2) Sur quels cas `math.ceil` et une partie entière vers le bas donnent-ils le même résultat ? (3) Le produit extérieur de la première colonne et de la première ligne redonne-t-il un noyau de rang 2 ?
+(1) Le produit de deux polynômes est la convolution de leurs coefficients (§1) ; que fait `np.correlate` à son second argument ? Essaie-la avec un facteur qui n'est pas palindrome. (2) Combien de tampons reçoivent les cases quand $s$ ne divise pas $k$ (M21.7 e)) ? (3) Le produit extérieur de la première colonne et de la première ligne redonne-t-il un noyau de rang 2 ?
 
 </details>
 <details><summary>Indice 3</summary>
 
-(1) `np.convolve(x, w[::-1], "valid")`. (2) `(n + 2 * p - d * (k - 1) - 1) // s + 1`. (3) Teste d'abord le rang (par exemple avec `separable_factors`), et rends `None` s'il dépasse 1. e) `np.convolve(x, [-3, 2], "same")`.
+(1) `np.convolve(p, q)`. (2) Pour la case $j$, compte les $i$ de 0 à $m - 1$ tels que $0 \le j - 3i \le 7$. (3) Teste d'abord le rang (par exemple avec `separable_factors`), et rends `None` s'il dépasse 1. e) `np.convolve(x, [-3, 2], "same")`.
 
 </details>
 
