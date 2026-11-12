@@ -158,8 +158,8 @@ FORMULAS = [
     ("ij,j->j", (3, 4), (4,), "a letter of a alone, summed over"),
     ("ij,kl->ijkl", (2, 3), (2, 2), "every product, nothing summed"),
     ("sij,sjk->sik", (3, 2, 4), (3, 4, 2), "a product for each matrix stacked along an axis"),
-    ("ijk,kl->ijl", (2, 3, 4), (4, 3), "a 3-axis array times a matrix along its last axis"),
-    ("abc,ca->b", (2, 3, 4), (4, 2), "two summed letters"),
+    ("ijk,kl->ijl", (3, 2, 4), (4, 3), "a 3-axis array times a matrix along its last axis"),
+    ("abc,ca->b", (3, 2, 5), (5, 3), "two summed letters"),
     ("Ij,jK->IK", (2, 3), (3, 2), "upper-case letters"),
     (",i->i", (), (3,), "a 0-d operand (no letter) times a vector"),
     ("ij,->ji", (2, 3), (), "a matrix times a 0-d operand, transposed"),
@@ -264,7 +264,7 @@ def test_moments_along_axes_docstring_examples(te):
 # a table of measurements: 4 stations × 7 days × 6 hours, then other shapes
 CASES = [((4, 7, 6), 0, 0), ((4, 7, 6), 1, 1), ((4, 7, 6), 2, 0), ((4, 7, 6), -1, 1), ((4, 7, 6), (0, 2), 0),
          ((4, 7, 6), (2, 0), 1), ((4, 7, 6), (1, 2), 1), ((4, 7, 6), (0, 1, 2), 0), ((4, 7, 6), (-3, -2), 1),
-         ((9,), 0, 1), ((9,), (0,), 0), ((3, 4, 2, 2), (1, 3), 1), ((3, 4, 2, 2), [0, 2, 3], 0), ((5, 1), 0, 4)]
+         ((9,), 0, 1), ((9,), (0,), 0), ((3, 4, 2, 2), (1, 3), 1), ((3, 4, 2, 2), [0, 1, 3], 0), ((5, 1), 0, 4)]
 
 
 @pytest.mark.parametrize("shape, axes, ddof", CASES, ids=[f"{s}-axes{a}-ddof{d}" for s, a, d in CASES])
@@ -288,11 +288,11 @@ def test_moments_along_axes_match_numpy(te, shape, axes, ddof):
 
 def test_moments_along_axes_is_accurate_for_large_values(te):
     """The definition subtracts the mean first: Σ x²/N - mean² loses every digit when the values are large."""
-    x = 1e8 + np.array([[1.0, 2.0, 3.0, 4.0], [0.0, 0.0, 2.0, 2.0]])
-    mean, var = _result(lambda: te.moments_along_axes(x, axes=1), "var [[1.25], [1]]", "1e8 + [[1, 2, 3, 4], [0, 0, 2, 2]]")
-    _close(mean, [[1e8 + 2.5], [1e8 + 1.0]], "the means of 1e8 + [[1, 2, 3, 4], [0, 0, 2, 2]] along axis 1",
+    x = 1e8 + np.array([[1.0, 2.0, 3.0, 4.0], [0.0, 1.0, 1.0, 4.0]])
+    mean, var = _result(lambda: te.moments_along_axes(x, axes=1), "var [[1.25], [2.25]]", "1e8 + [[1, 2, 3, 4], [0, 1, 1, 4]]")
+    _close(mean, [[1e8 + 2.5], [1e8 + 1.5]], "the means of 1e8 + [[1, 2, 3, 4], [0, 1, 1, 4]] along axis 1",
            rtol=1e-15)
-    _close(var, [[1.25], [1.0]], "the variances of 1e8 + [[1, 2, 3, 4], [0, 0, 2, 2]] along axis 1", rtol=1e-9,
+    _close(var, [[1.25], [2.25]], "the variances of 1e8 + [[1, 2, 3, 4], [0, 1, 1, 4]] along axis 1", rtol=1e-9,
            hint="compute Σ (x - mean)² / (N - ddof) as defined; the formula mean of x² - mean² cancels the digits")
 
 
@@ -306,27 +306,30 @@ def test_moments_along_axes_integers_and_ddof_at_its_limit(te):
 
 
 def test_moments_along_axes_broadcast_back_and_inputs_unchanged(te):
-    """With the reduced axes kept, (x - mean) / sqrt(var) has the shape of x and is centered and scaled."""
-    x = np.random.default_rng(5329).normal(size=(3, 5, 4)) * 3 + 7
+    """With the reduced axes kept, x - mean has the shape of x: centered, its mean is 0 and its variance unchanged."""
+    x = np.random.default_rng(5329).normal(size=(4, 7, 6)) * 3 + 7      # stations × days × hours
     x0 = x.copy()
-    mean, var = _result(lambda: te.moments_along_axes(x, (0, 2)), "a mean and a variance of shape (1, 5, 1)",
-                        "x of shape (3, 5, 4), axes=(0, 2)")
+    mean, var = _result(lambda: te.moments_along_axes(x, (1, 2)), "a mean and a variance of shape (4, 1, 1)",
+                        "x of shape (4, 7, 6), axes=(1, 2)")
     assert np.array_equal(x, x0), "expected x unchanged (the function only computes the two moments)"
-    z = (x - mean) / np.sqrt(var)
-    _close(z.mean(axis=(0, 2)), np.zeros(5), "the means of the standardized values over axes (0, 2)", atol=1e-12)
-    _close((z ** 2).mean(axis=(0, 2)), np.ones(5), "the mean squares of the standardized values over axes (0, 2)")
+    centered = x - mean
+    assert centered.shape == x.shape, f"expected x - mean of shape {x.shape}, got {centered.shape}"
+    mean2, var2 = _result(lambda: te.moments_along_axes(centered, (1, 2)), "the moments of x - mean",
+                          "x - mean, axes=(1, 2)")
+    _close(mean2, np.zeros((4, 1, 1)), "the mean of x - mean along axes (1, 2)", atol=1e-12)
+    _close(var2, var, "the variance of x - mean along axes (1, 2) (a translation does not change it)")
 
 
 MOMENT_REFUSALS = [
-    ((2, 3, 4), 3, 0, "axis 3 does not exist for 3 axes"),
-    ((2, 3, 4), -4, 0, "axis -4 does not exist for 3 axes"),
-    ((2, 3, 4), (0, 0), 0, "axis 0 is repeated"),
-    ((2, 3, 4), (2, -1), 0, "-1 and 2 are the same axis"),
-    ((2, 3, 4), 1, 3, "ddof = N = 3 (division by zero)"),
-    ((2, 3, 4), (0, 2), 9, "ddof = 9 > N = 8"),
-    ((2, 3, 4), 1, -1, "ddof is negative"),
-    ((2, 3, 4), 1, 0.5, "ddof is not an integer"),
-    ((2, 0, 4), 1, 0, "N = 0 values: no mean"),
+    ((2, 5, 3), 3, 0, "axis 3 does not exist for 3 axes"),
+    ((2, 5, 3), -4, 0, "axis -4 does not exist for 3 axes"),
+    ((2, 5, 3), (0, 0), 0, "axis 0 is repeated"),
+    ((2, 5, 3), (2, -1), 0, "-1 and 2 are the same axis"),
+    ((2, 5, 3), 1, 5, "ddof = N = 5 (division by zero)"),
+    ((2, 5, 3), (0, 2), 7, "ddof = 7 > N = 6"),
+    ((2, 5, 3), 1, -1, "ddof is negative"),
+    ((2, 5, 3), 1, 0.5, "ddof is not an integer"),
+    ((2, 0, 3), 1, 0, "N = 0 values: no mean"),
 ]
 
 
@@ -373,7 +376,7 @@ def test_horvitz_thompson_total_matches_exact_fractions(te):
 def test_horvitz_thompson_total_is_unbiased_over_all_samples(te):
     """With independent inclusions, the 2ᴺ samples weighted by their probabilities average to the exact total."""
     values = [12, 0, 7, 30, 5, 18]
-    probs = [Fraction(3, 4), Fraction(1, 5), Fraction(1, 2), Fraction(9, 10), Fraction(1, 8), Fraction(2, 3)]
+    probs = [Fraction(5, 8), Fraction(1, 6), Fraction(3, 7), Fraction(9, 10), Fraction(1, 8), Fraction(2, 3)]
     expectation = Fraction(0)
     for included in itertools.product([False, True], repeat=len(values)):
         weight = Fraction(1)
@@ -392,15 +395,15 @@ def test_horvitz_thompson_total_is_unbiased_over_all_samples(te):
 def test_horvitz_thompson_total_never_reads_the_values_outside_the_sample(te):
     """Outside the sample, the values are unknown: NaN there must not change the estimate."""
     values = [4.0, np.nan, 10.0, np.nan]
-    got = _result(lambda: te.horvitz_thompson_total(values, [True, False, True, False], [0.25, 0.5, 0.4, 0.1]),
-                  "41.0", "values [4, nan, 10, nan] with the NaN outside the sample",
+    got = _result(lambda: te.horvitz_thompson_total(values, [True, False, True, False], [0.125, 0.3, 0.625, 0.1]),
+                  "48.0", "values [4, nan, 10, nan] with the NaN outside the sample",
                   hint="sum over the units of the sample only, not values × included / probs over all units")
-    assert isinstance(got, float) and math.isclose(got, 41.0, rel_tol=1e-12), (
-        f"expected 41.0 (4 / 0.25 + 10 / 0.4: the values outside the sample are not used), got {got!r}")
+    assert isinstance(got, float) and math.isclose(got, 48.0, rel_tol=1e-12), (
+        f"expected 48.0 (4 / 0.125 + 10 / 0.625: the values outside the sample are not used), got {got!r}")
 
 
 def test_horvitz_thompson_total_accepts_booleans_or_0_and_1(te):
-    values, probs = np.array([6.0, 2.0, 9.0]), np.array([0.3, 0.25, 0.9])
+    values, probs = np.array([6.0, 2.0, 9.0]), np.array([0.3, 0.35, 0.9])
     for included, text in (([True, False, True], "booleans"), ([1, 0, 1], "integers 0 and 1"),
                            (np.array([1.0, 0.0, 1.0]), "floats 0. and 1.")):
         got = _result(lambda: te.horvitz_thompson_total(values, included, probs), "30.0", f"included as {text}")
@@ -409,7 +412,7 @@ def test_horvitz_thompson_total_accepts_booleans_or_0_and_1(te):
 
 
 def test_horvitz_thompson_total_empty_sample_and_inputs_unchanged(te):
-    values, included, probs = np.array([5.0, 8.0]), np.array([False, False]), np.array([0.5, 0.5])
+    values, included, probs = np.array([5.0, 8.0]), np.array([False, False]), np.array([0.3, 0.45])
     copies = values.copy(), included.copy(), probs.copy()
     got = _result(lambda: te.horvitz_thompson_total(values, included, probs), "0.0", "an empty sample")
     assert isinstance(got, float) and got == 0.0, f"expected 0.0 for an empty sample (an empty sum), got {got!r}"
@@ -418,17 +421,17 @@ def test_horvitz_thompson_total_empty_sample_and_inputs_unchanged(te):
 
 
 HT_REFUSALS = [
-    ([1.0, 2.0], [True, True, False], [0.5, 0.5], "included has 3 units, values 2"),
-    ([1.0, 2.0], [True, True], [0.5], "inclusion_probs has 1 unit, values 2"),
-    ([[1.0, 2.0]], [[True, True]], [[0.5, 0.5]], "2-D arrays"),
-    (3.0, True, 0.5, "numbers, not 1-D arrays"),
-    ([1.0, 2.0], [1, 2], [0.5, 0.5], "included holds a 2"),
-    ([1.0, 2.0], ["yes", "no"], [0.5, 0.5], "included holds strings"),
-    ([1.0, 2.0], [True, True], [0.5, 0.0], "a probability 0: the unit could never be drawn"),
-    ([1.0, 2.0], [True, False], [0.5, 0.0], "a probability 0, even outside the sample"),
-    ([1.0, 2.0], [True, True], [1.2, 0.5], "a probability above 1"),
-    ([1.0, 2.0], [True, True], [-0.5, 0.5], "a negative probability"),
-    ([1.0, 2.0], [True, True], [np.nan, 0.5], "a probability NaN"),
+    ([1.0, 2.0], [True, True, False], [0.45, 0.45], "included has 3 units, values 2"),
+    ([1.0, 2.0], [True, True], [0.45], "inclusion_probs has 1 unit, values 2"),
+    ([[1.0, 2.0]], [[True, True]], [[0.45, 0.45]], "2-D arrays"),
+    (3.0, True, 0.45, "numbers, not 1-D arrays"),
+    ([1.0, 2.0], [1, 2], [0.45, 0.45], "included holds a 2"),
+    ([1.0, 2.0], ["yes", "no"], [0.45, 0.45], "included holds strings"),
+    ([1.0, 2.0], [True, True], [0.45, 0.0], "a probability 0: the unit could never be drawn"),
+    ([1.0, 2.0], [True, False], [0.45, 0.0], "a probability 0, even outside the sample"),
+    ([1.0, 2.0], [True, True], [1.2, 0.45], "a probability above 1"),
+    ([1.0, 2.0], [True, True], [-0.45, 0.45], "a negative probability"),
+    ([1.0, 2.0], [True, True], [np.nan, 0.45], "a probability NaN"),
 ]
 
 

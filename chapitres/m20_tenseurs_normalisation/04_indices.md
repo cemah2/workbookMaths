@@ -98,7 +98,7 @@ La moyenne vaut 6 ; la somme des carrés des écarts se divise par $N - \text{dd
 </details>
 <details><summary>Indice 3</summary>
 
-Les écarts : $-3, 2, -2, 3$, de carrés de somme 26. 5. Le rapport des deux vaut $\frac{N}{N - 1}$.
+Les écarts : $-2, 4, 1, -4, 1$, de carrés de somme 38. 5. $\frac{N}{N - 1} < 1{,}05$ s'écrit $N > 1{,}05\,(N - 1)$.
 
 </details>
 
@@ -174,7 +174,7 @@ c) $\operatorname{tr}(\mathbf{A}\mathbf{B}) = \sum_i(\mathbf{A}\mathbf{B})_{ii} 
 </details>
 <details><summary>Indice 3</summary>
 
-b) La ligne 2 de $\mathbf{A}$ est $(0, -1)$, la colonne 3 de $\mathbf{B}$ est $(1, 4)$. d) $\mathbf{A}\mathbf{B}$ a la diagonale $(4, 1, 7)$. f) $\mathbf{M}\mathbf{y} = (9, -3)$. i) $\mathbf{P}\mathbf{Q}$ coûte $20 \times 200 \times 4$, puis $(\mathbf{P}\mathbf{Q})\mathbf{R}$ coûte $20 \times 4 \times 60$.
+b) La ligne 2 de $\mathbf{A}$ est $(0, -1)$, la colonne 3 de $\mathbf{B}$ est $(1, 4)$. d) $\mathbf{A}\mathbf{B}$ a la diagonale $(4, 1, 7)$. f) $\mathbf{M}\mathbf{y} = (9, -3)$. i) $\mathbf{P}\mathbf{Q}$ coûte $30 \times 300 \times 5$, puis $(\mathbf{P}\mathbf{Q})\mathbf{R}$ coûte $30 \times 5 \times 50$.
 
 </details>
 
@@ -192,7 +192,7 @@ $C_{ii} = 1 - \frac1m$, $C_{ij} = -\frac1m$. $\mathbf{C}\mathbf{x} = \mathbf{x} 
 </details>
 <details><summary>Indice 3</summary>
 
-$\bar x = 6$. g) $s^2 = 28/5$. h) $z_4 = 3/s$. i) et j) Applique l'encadré : $a = 2{,}5 > 0$, puis $a = -2 < 0$.
+$\bar x = 6$. g) $s^2 = 28/5$. h) $z_6 = 2/s$. i) et j) Applique l'encadré : $a = 2{,}5 > 0$, puis $a = -2 < 0$.
 
 </details>
 
@@ -205,12 +205,12 @@ Fiche §5 : l'encadré « Horvitz-Thompson », l'exemple de la forêt et « L'es
 </details>
 <details><summary>Indice 2</summary>
 
-b) Le poids de sondage est $1/\pi_i$. c) Seules les entreprises 2, 4 et 5 entrent dans la somme. f) Un terme $y_i^2(1 - \pi_i)/\pi_i$ par entreprise, tirée ou non. h) Les tirages sont indépendants : multiplie les $\pi_i$ des entreprises tirées et les $1 - \pi_i$ des autres.
+b) Le poids de sondage est $1/\pi_i$. c) Seules les entreprises 1, 4 et 6 entrent dans la somme. f) Un terme $y_i^2(1 - \pi_i)/\pi_i$ par entreprise, tirée ou non. h) Les tirages sont indépendants : multiplie les $\pi_i$ des entreprises tirées et les $1 - \pi_i$ des autres.
 
 </details>
 <details><summary>Indice 3</summary>
 
-c) $\frac{5}{0{,}1} + \frac{30}{0{,}9} + \frac{8}{0{,}15}$. f) Les termes valent $76$, $225$, $336$, $100$, $362{,}67$ et… le dernier, à toi. j) Que devient $\frac{1 - \pi}{\pi} = \frac1\pi - 1$ quand $\pi$ grandit ?
+c) $\frac{2}{0{,}05} + \frac{30}{0{,}9} + \frac{3}{0{,}05}$. f) Les termes valent $76$, $225$, $336$, $100$, $362{,}67$ et… le dernier, à toi. j) Que devient $\frac{1 - \pi}{\pi} = \frac1\pi - 1$ quand $\pi$ grandit ?
 
 </details>
 
@@ -223,12 +223,12 @@ Fiche §6 : « Un pas d'Euler et sa jacobienne », « Le cas linéaire », l'exe
 </details>
 <details><summary>Indice 2</summary>
 
-c) Chaque pas multiplie par $1 + h\lambda$. e) $e^{\lambda T}$. f) $\mathbf{I} + h\mathbf{J}$ avec $h = 0{,}1$. g) Si $\mathbf{U}^\top\mathbf{U} = c\,\mathbf{I}$, les valeurs singulières de $\mathbf{U}$ valent $\sqrt c$, et celles de $\mathbf{U}^L$ valent $c^{L/2}$. j) La jacobienne de $F$ est $\begin{pmatrix} 0 & 1 \\ -\cos x & 0 \end{pmatrix}$.
+c) Chaque pas multiplie par $1 + h\lambda$. e) $e^{\lambda T}$. f) $\mathbf{I} + h\mathbf{J}$ avec $h = 0{,}1$. g) Si $\mathbf{U}^\top\mathbf{U} = c\,\mathbf{I}$, les valeurs singulières de $\mathbf{U}$ valent $\sqrt c$, et celles de $\mathbf{U}^L$ valent $c^{L/2}$. j) La jacobienne de $F$ est $\begin{pmatrix} 0 & 1 \\ -\cos x & 0 \end{pmatrix}$, et $h = 0{,}05$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-c) $0{,}52^5$. d) $(1 - 2{,}4/50)^{50}$. g) $(1 + 4 \times 0{,}01)^{5}$. h) $(1 + 4 \times 10^{-4})^{50}$. k) $\det\begin{pmatrix} 1 & h \\ -h\cos x & 1 \end{pmatrix} = 1 + h^2\cos x$.
+c) $0{,}52^5$. d) $(1 - 2{,}4/50)^{50}$. g) $(1 + 4 \times 0{,}01)^{5}$, calculé directement (passer par $\sqrt{1{,}04}$ arrondi fait perdre la troisième décimale de justesse). h) $(1 + 4 \times 10^{-4})^{50}$. k) $\det\begin{pmatrix} 1 & h \\ -h\cos x & 1 \end{pmatrix} = 1 + h^2\cos x$.
 
 </details>
 
@@ -263,12 +263,12 @@ Relis l'encadré « Horvitz-Thompson » (fiche §5), et l'espérance et la varia
 </details>
 <details><summary>Indice 2</summary>
 
-1. Linéarité de l'espérance, et $\mathbb{E}[I_i] = \pi_i$. 2. La variance d'une somme de variables indépendantes est la somme des variances ; $\operatorname{Var}(cI_i) = c^2\pi_i(1 - \pi_i)$. 3. Écris $\hat V = \sum_i I_i\,y_i^2\,\frac{1 - \pi_i}{\pi_i^2}$. 5. Le terme de $j$ est toujours nul.
+1. Linéarité de l'espérance, et $\mathbb{E}[I_i] = \pi_i$. 2. La variance d'une somme de variables indépendantes est la somme des variances, et la variance d'une Bernoulli est connue (M02b). 3. Écris $\hat V = \sum_i I_i\,y_i^2\,\frac{1 - \pi_i}{\pi_i^2}$. 4. Remplace $\pi_i$ par $c\,y_i$ dans la formule de la question 2. 5. L'unité $j$ n'apparaît jamais dans la somme.
 
 </details>
 <details><summary>Indice 3</summary>
 
-2. $\operatorname{Var}\left(\frac{y_i}{\pi_i}I_i\right) = \frac{y_i^2}{\pi_i^2}\,\pi_i(1 - \pi_i)$. 3. $\mathbb{E}[\hat V] = \sum_i\pi_i\,y_i^2\,\frac{1 - \pi_i}{\pi_i^2}$ ; la formule de la question 2 demande les $y_i$ des unités **non** tirées. 4. $\hat Y = \frac1\pi\sum_{i \in S}y_i$, et $N\,\bar y_S = \frac{N}{n}\sum_{i \in S}y_i$, avec $n$ aléatoire.
+2. Sors la constante $y_i/\pi_i$ de la variance, au carré. 3. $\mathbb{E}[\hat V] = \sum_i\pi_i\,y_i^2\,\frac{1 - \pi_i}{\pi_i^2}$ ; la formule de la question 2 demande les $y_i$ des unités **non** tirées. 4. Chaque unité tirée apporte $1/c$ : $\hat Y = n/c$, où $n$ est le nombre d'unités tirées.
 
 </details>
 
@@ -285,12 +285,12 @@ Dans la fiche de workbookIA 20, parcours les sous-sections de « Un tour d'horiz
 </details>
 <details><summary>Indice 2</summary>
 
-La formule est suivie d'une phrase qui dit ce que la division garde. Compare avec la phrase « une unité tirée avec la probabilité $\pi_i$ représente $1/\pi_i$ unités » de la fiche §5.
+La division est dans une formule écrite pour la version de la couche qu'utilisent les bibliothèques. b) Relis les titres des sections de cette fiche-ci.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) La couche dont la version utilisée par les bibliothèques s'appelle « inversée ». b) Un mot du chapitre M02b.
+a) La couche dont la version utilisée par les bibliothèques s'appelle « inversée ». b) Le §5.
 
 </details>
 

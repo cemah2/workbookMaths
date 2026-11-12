@@ -36,7 +36,7 @@
 1. $1\,200/0{,}05 = 24\,000$ : la commune représente 20 communes.
 2. Vrai.
 3. Faux : il donne le total **en moyenne** sur les échantillons possibles.
-4. (A) : les grandes entreprises sont sur-représentées dans l'échantillon, et la moyenne de l'échantillon dépasse celle de la population.
+4. (A) : les grandes entreprises sont sur-représentées dans l'échantillon, et la moyenne des chiffres d'affaires de l'échantillon dépasse celle de la population (si la variable étudiée n'avait aucun lien avec la taille, ce serait (C), à l'échantillon vide près).
 5. 0 : l'unité est toujours tirée, son terme $y_i/\pi_i = y_i$ ne varie pas.
 6. $\mathbb{E}[\hat Y] = Y - 40$ : l'unité $j$ n'est jamais tirée, son terme est toujours nul.
 
@@ -45,11 +45,11 @@
 ## 🔁 Rappels
 
 ### M20.R1 — Variance biaisée et non biaisée : ddof (M02c)
-1. La moyenne vaut 6, les écarts $-3, 2, -2, 3$, de carrés de somme 26 : $26/4 = 6{,}5$.
-2. $26/3 \approx 8{,}667$.
-3. $8{,}667$ : pandas utilise ddof = 1 par défaut.
+1. La moyenne vaut 6, les écarts $-2, 4, 1, -4, 1$, de carrés de somme 38 : $38/5 = 7{,}6$.
+2. $38/4 = 9{,}5$.
+3. $9{,}5$ : pandas utilise ddof = 1 par défaut.
 4. Celui de ddof = 1, qui divise par $N - 1$ (le §4 de la fiche dit pourquoi).
-5. Vrai : leur rapport vaut $\frac{N}{N - 1} \to 1$.
+5. $N > 1{,}05\,(N - 1)$ donne $N > 21$ : $N = 22$ ($\frac{22}{21} \approx 1{,}048$, alors que $\frac{21}{20} = 1{,}05$ n'est pas en dessous).
 
 ### M20.R2 — La projection orthogonale sur une droite (M12b)
 1. $\mathbf{a}^\top\mathbf{x} = 3 + 0 + 6 = 9$, $\mathbf{a}^\top\mathbf{a} = 9$ : $\mathbf{p} = \mathbf{a} = (1, 2, 2)$.
@@ -82,49 +82,49 @@ Dans ta copie : `R.mean(axis=1)` contient, pour chaque station, chaque jour de l
 
 ### Ex M20.2 — Écrire en notation d'Einstein : produit matriciel, trace, forme bilinéaire, produits de matrices empilées le long d'un axe
 
-**Réponses.** a) `"ij,jk->ik"` · b) `-4` · c) `"ij,ji->"` · d) `12` · e) `12` · f) `3` · g) `[[3, 1], [4, -1], [-2, 3]]` · h) `1200` · i) `20800` · j) `288000`.
+**Réponses.** a) `"ij,jk->ik"` · b) `-4` · c) `"ij,ji->"` · d) `12` · e) `12` · f) `3` · g) `[[3, 1], [4, -1], [-2, 3]]` · h) `1200` · i) `52500` · j) `525000`.
 
-**Démarche.** $\mathbf{A}\mathbf{B} = \begin{pmatrix} 4 & -2 & 9 \\ -1 & 1 & -4 \\ 7 & -1 & 7 \end{pmatrix}$. b) La ligne 2 de $\mathbf{A}$, $(0, -1)$, par la colonne 3 de $\mathbf{B}$, $(1, 4)$ : $-4$. c) et d) $\operatorname{tr}(\mathbf{A}\mathbf{B}) = \sum_i\sum_j A_{ij}B_{ji} = A_{ij}B_{ji}$ : avec les axes de $\mathbf{A}$ notés `ij`, ceux de $\mathbf{B}$ sont `ji`, et rien ne reste : `"ij,ji->"` ; la diagonale $(4, 1, 7)$ donne 12. e) $\mathbf{B}\mathbf{A} = \begin{pmatrix} 5 & 5 \\ 13 & 7 \end{pmatrix}$, de trace 12. f) $\mathbf{M}\mathbf{y} = (8 + 1,\ -3) = (9, -3)$, puis $\mathbf{x}^\top(9, -3) = 9 - 6 = 3$. g) Pour chaque $s$, $\sum_j (M_s)_{ij}(v_s)_j$ : $\mathbf{M}_1\mathbf{v}_1 = (3, 1)$, $\mathbf{M}_2\mathbf{v}_2 = (4, -1)$, $\mathbf{M}_3\mathbf{v}_3 = (-2, 3)$. h) $10 \times 4 \times 6 \times 5 = 1\,200$. i) $20 \times 200 \times 4 + 20 \times 4 \times 60 = 16\,000 + 4\,800$. j) $200 \times 4 \times 60 + 20 \times 200 \times 60 = 48\,000 + 240\,000$.
+**Démarche.** $\mathbf{A}\mathbf{B} = \begin{pmatrix} 4 & -2 & 9 \\ -1 & 1 & -4 \\ 7 & -1 & 7 \end{pmatrix}$. b) La ligne 2 de $\mathbf{A}$, $(0, -1)$, par la colonne 3 de $\mathbf{B}$, $(1, 4)$ : $-4$. c) et d) $\operatorname{tr}(\mathbf{A}\mathbf{B}) = \sum_i\sum_j A_{ij}B_{ji} = A_{ij}B_{ji}$ : avec les axes de $\mathbf{A}$ notés `ij`, ceux de $\mathbf{B}$ sont `ji`, et rien ne reste : `"ij,ji->"` ; la diagonale $(4, 1, 7)$ donne 12. e) $\mathbf{B}\mathbf{A} = \begin{pmatrix} 5 & 5 \\ 13 & 7 \end{pmatrix}$, de trace 12. f) $\mathbf{M}\mathbf{y} = (8 + 1,\ -3) = (9, -3)$, puis $\mathbf{x}^\top(9, -3) = 9 - 6 = 3$. g) Pour chaque $s$, $\sum_j (M_s)_{ij}(v_s)_j$ : $\mathbf{M}_1\mathbf{v}_1 = (3, 1)$, $\mathbf{M}_2\mathbf{v}_2 = (4, -1)$, $\mathbf{M}_3\mathbf{v}_3 = (-2, 3)$. h) $10 \times 4 \times 6 \times 5 = 1\,200$. i) $30 \times 300 \times 5 + 30 \times 5 \times 50 = 45\,000 + 7\,500$. j) $300 \times 5 \times 50 + 30 \times 300 \times 50 = 75\,000 + 450\,000$, dix fois plus.
 
 Dans ta copie : $\operatorname{tr}(\mathbf{A}\mathbf{B}) = A_{ij}B_{ji}$ et $\operatorname{tr}(\mathbf{B}\mathbf{A}) = B_{ji}A_{ij}$ (en appelant $j$ l'indice des lignes de $\mathbf{B}$) : c'est la même somme des mêmes produits, seuls les noms des indices muets changent. Avec `einsum_pair`, deux appels : `einsum_pair("ij,j->i", M, y)` donne $\mathbf{M}\mathbf{y}$, puis `einsum_pair("i,i->", x, My)` le produit scalaire. g) est la liste des trois produits matrice-vecteur, $\mathbf{M}_s\mathbf{v}_s$, rangés en lignes.
 
-**Erreurs fréquentes.** Écrire `"ij,ij->"` pour la trace de $\mathbf{A}\mathbf{B}$ (c'est $\sum A_{ij}B_{ij}$, qui demanderait deux tableaux de même forme). Calculer $\mathbf{y}^\top\mathbf{M}\mathbf{x} = -6$ au lieu de $\mathbf{x}^\top\mathbf{M}\mathbf{y}$. Sommer sur le mauvais indice en g), ce qui donne $\mathbf{M}_s^\top\mathbf{v}_s$. Oublier la lettre $s$ dans le coût (h), 120).
+**Erreurs fréquentes.** Écrire `"ij,ij->"` pour la trace de $\mathbf{A}\mathbf{B}$ (c'est $\sum A_{ij}B_{ij}$, qui demanderait deux tableaux de même forme). Calculer $\mathbf{y}^\top\mathbf{M}\mathbf{x} = -6$ au lieu de $\mathbf{x}^\top\mathbf{M}\mathbf{y}$. Sommer sur le mauvais indice en g), ce qui donne $\mathbf{M}_s^\top\mathbf{v}_s$. Oublier la lettre $s$ dans le coût (h), 120). Ne compter qu'un des deux produits en i) (45 000).
 
 **Variante.** `np.einsum("ij,ij->", A, A)` $= \sum_{i,j}A_{ij}^2 = 16$, le carré de la norme de Frobenius de $\mathbf{A}$.
 
 ### Ex M20.3 — La matrice de centrage, et une standardisation qui ne voit ni translation ni dilatation
 
-**Réponses.** a) `"5/6"` · b) `"-1/6"` · c) `[-3, 1, -2, 3, -1, 2]` · d) `5` · e) `28` · f) `216` · g) `2.3664` · h) `1.2677` · i) `1.2677` · j) `-1.2677` · k) `False`.
+**Réponses.** a) `"5/6"` · b) `"-1/6"` · c) `[-3, 1, -2, 3, -1, 2]` · d) `5` · e) `28` · f) `216` · g) `2.3664` · h) `0.8452` · i) `0.8452` · j) `-0.8452` · k) `False`.
 
-**Démarche.** $\bar x = 36/6 = 6$. a) et b) $1 - \frac16$ et $-\frac16$. c) $\mathbf{x} - 6\,\mathbf{1}$. d) $6 \times \frac56$. e) $9 + 1 + 4 + 9 + 1 + 4 = 28$. f) $6 \times 6^2$. g) $s^2 = 28/5 = 5{,}6$, $s \approx 2{,}36643$. h) $z_4 = 3/2{,}36643 \approx 1{,}26773$. i) $a = 2{,}5 > 0$ : mêmes z-scores. j) $a = -2 < 0$ : z-scores opposés. k) Faux.
+**Démarche.** $\bar x = 36/6 = 6$. a) et b) $1 - \frac16$ et $-\frac16$. c) $\mathbf{x} - 6\,\mathbf{1}$. d) $6 \times \frac56$. e) $9 + 1 + 4 + 9 + 1 + 4 = 28$. f) $6 \times 6^2$. g) $s^2 = 28/5 = 5{,}6$, $s \approx 2{,}36643$. h) $z_6 = 2/2{,}36643 \approx 0{,}84515$. i) $a = 2{,}5 > 0$ : mêmes z-scores. j) $a = -2 < 0$ : z-scores opposés. k) Faux.
 
 Dans ta copie : $\lVert\mathbf{x}\rVert^2 = 9 + 49 + 16 + 81 + 25 + 64 = 244 = 28 + 216$ : c'est le théorème de Pythagore pour $\mathbf{x} = \bar x\,\mathbf{1} + \mathbf{C}\mathbf{x}$, deux vecteurs orthogonaux (la formule de König-Huygens). La première ligne de $\mathbf{C}^2$ : $(\mathbf{C}^2)_{11} = \frac{25}{36} + 5 \times \frac1{36} = \frac56$ et $(\mathbf{C}^2)_{1j} = 2 \times \frac56 \times \left(-\frac16\right) + 4 \times \frac1{36} = -\frac16$ pour $j \ne 1$ : la même que celle de $\mathbf{C}$. i) et j) : la moyenne de $a\mathbf{x} + b\mathbf{1}$ est $a\bar x + b$, ses écarts $a(x_i - \bar x)$, son écart type $\lvert a\rvert s$, donc ses z-scores $\frac{a}{\lvert a\rvert}z_i$. k) Avec $x_1 = 13$, la moyenne passe à $7{,}67$ et l'écart type change : **tous** les z-scores changent, celui de la première coordonnée en tête.
 
-**Erreurs fréquentes.** Prendre l'écart type avec ddof = 0 ($2{,}1602$, d'où $z_4 = 1{,}3887$). Oublier le signe moins hors de la diagonale. Croire que $a < 0$ ne change rien : la dilatation par un nombre négatif renverse l'ordre des valeurs.
+**Erreurs fréquentes.** Prendre l'écart type avec ddof = 0 ($2{,}1602$, d'où $z_6 = 0{,}9258$). Oublier le signe moins hors de la diagonale. Croire que $a < 0$ ne change rien : la dilatation par un nombre négatif renverse l'ordre des valeurs.
 
 **Variante.** $m = 4$ et $\mathbf{x} = (5, 1, 4, 6)$ : $\bar x = 4$, $\mathbf{C}\mathbf{x} = (1, -3, 0, 2)$, $\lVert\mathbf{C}\mathbf{x}\rVert^2 = 14$, $s = \sqrt{14/3} \approx 2{,}1602$ et $z_1 \approx 0{,}4629$.
 
 ### Ex M20.4 — Un sondage à probabilités inégales : l'estimateur de Horvitz-Thompson d'un total, son espérance et sa variance
 
-**Réponses.** a) `1.55` · b) `6.667` · c) `136.667` · d) `86` · e) `60` · f) `1270.667` · g) `35.646` · h) `0.008529` · i) `0.048329` · j) `True`.
+**Réponses.** a) `1.55` · b) `6.667` · c) `133.333` · d) `70` · e) `60` · f) `1270.667` · g) `35.646` · h) `0.0012049` · i) `0.048329` · j) `True`.
 
-**Démarche.** a) $0{,}05 + 0{,}1 + 0{,}3 + 0{,}9 + 0{,}15 + 0{,}05$. b) $1/0{,}15 = 20/3$. c) $\frac{5}{0{,}1} + \frac{30}{0{,}9} + \frac{8}{0{,}15} = 50 + 33{,}333 + 53{,}333 = \frac{410}{3}$. d) $6 \times \frac{5 + 30 + 8}{3} = 86$. e) L'estimateur est sans biais : $Y = 60$. f) Les termes $y_i^2\frac{1 - \pi_i}{\pi_i}$ valent $4 \times 19 = 76$, $25 \times 9 = 225$, $144 \times \frac73 = 336$, $900 \times \frac19 = 100$, $64 \times \frac{17}{3} = 362{,}667$ et $9 \times 19 = 171$ : $\frac{3812}{3}$. g) $\sqrt{1\,270{,}667} \approx 35{,}646$. h) $0{,}1 \times 0{,}9 \times 0{,}15 \times (0{,}95 \times 0{,}7 \times 0{,}95) = 0{,}0135 \times 0{,}631\,75 \approx 0{,}008\,529$. i) $0{,}95 \times 0{,}9 \times 0{,}7 \times 0{,}1 \times 0{,}85 \times 0{,}95 \approx 0{,}048\,329$. j) Vrai : chaque terme est $y_i^2\left(\frac1{\pi_i} - 1\right)$, qui diminue quand $\pi_i$ grandit ; la variance passe à environ 1 051.
+**Démarche.** a) $0{,}05 + 0{,}1 + 0{,}3 + 0{,}9 + 0{,}15 + 0{,}05$. b) $1/0{,}15 = 20/3$. c) $\frac{2}{0{,}05} + \frac{30}{0{,}9} + \frac{3}{0{,}05} = 40 + 33{,}333 + 60 = \frac{400}{3}$. d) $6 \times \frac{2 + 30 + 3}{3} = 70$. e) L'estimateur est sans biais : $Y = 60$. f) Les termes $y_i^2\frac{1 - \pi_i}{\pi_i}$ valent $4 \times 19 = 76$, $25 \times 9 = 225$, $144 \times \frac73 = 336$, $900 \times \frac19 = 100$, $64 \times \frac{17}{3} = 362{,}667$ et $9 \times 19 = 171$ : $\frac{3812}{3}$. g) $\sqrt{1\,270{,}667} \approx 35{,}646$. h) $0{,}05 \times 0{,}9 \times 0{,}05 \times (0{,}9 \times 0{,}7 \times 0{,}85) = 0{,}002\,25 \times 0{,}5355 \approx 0{,}001\,204\,9$. i) $0{,}95 \times 0{,}9 \times 0{,}7 \times 0{,}1 \times 0{,}85 \times 0{,}95 \approx 0{,}048\,329$. j) Vrai : chaque terme est $y_i^2\left(\frac1{\pi_i} - 1\right)$, qui diminue quand $\pi_i$ grandit ; la variance passe à environ 1 051.
 
-Dans ta copie : le plus grand terme est celui de l'entreprise 5 ($362{,}7$), une valeur moyenne ($y = 8$) avec une petite probabilité ($0{,}15$) ; puis celui de l'entreprise 3 ($336$). Des probabilités proportionnelles aux $y_i$ et de somme $1{,}55$ : $\pi_i = 1{,}55\,y_i/60$, soit environ $(0{,}052 ;\ 0{,}129 ;\ 0{,}31 ;\ 0{,}775 ;\ 0{,}207 ;\ 0{,}078)$, toutes $\le 1$ ; chaque entreprise tirée apporterait alors $y_i/\pi_i = 60/1{,}55 \approx 38{,}7$, et l'estimation vaudrait $38{,}7 \times n$ : ce qui reste aléatoire, c'est le nombre $n$ d'entreprises tirées. Avec le tirage de Poisson, la variance ne baisse d'ailleurs qu'à $\frac{60^2}{1{,}55} - \sum_i y_i^2 \approx 1\,177$ : il faut un tirage de taille fixe pour en profiter (🏆 M20.18). Enfin, c) est à plus de deux écarts types du total : sans biais veut dire juste **en moyenne**, et, avec moins de deux entreprises tirées en moyenne, une estimation isolée peut être très loin ; ici, les entreprises 2 et 5, tirées malgré leurs petites probabilités, pèsent 10 et $6{,}7$ fois leur valeur.
+Dans ta copie : le plus grand terme est celui de l'entreprise 5 ($362{,}7$), une valeur moyenne ($y = 8$) avec une petite probabilité ($0{,}15$) ; puis celui de l'entreprise 3 ($336$). Des probabilités proportionnelles aux $y_i$ et de somme $1{,}55$ : $\pi_i = 1{,}55\,y_i/60$, soit environ $(0{,}052 ;\ 0{,}129 ;\ 0{,}31 ;\ 0{,}775 ;\ 0{,}207 ;\ 0{,}078)$, toutes $\le 1$ ; chaque entreprise tirée apporterait alors $y_i/\pi_i = 60/1{,}55 \approx 38{,}7$, et l'estimation vaudrait $38{,}7 \times n$ : ce qui reste aléatoire, c'est le nombre $n$ d'entreprises tirées. Avec le tirage de Poisson, la variance ne baisse d'ailleurs qu'à $\frac{60^2}{1{,}55} - \sum_i y_i^2 \approx 1\,177$ : il faut un tirage de taille fixe pour en profiter (🏆 M20.18). Enfin, c) est à plus de deux écarts types du total ($\frac{133{,}3 - 60}{35{,}6} \approx 2{,}06$) : sans biais veut dire juste **en moyenne**, et, avec moins de deux entreprises tirées en moyenne, une estimation isolée peut être très loin ; ici, les entreprises 1 et 6, tirées malgré leurs probabilités de $0{,}05$, pèsent chacune 20 fois leur valeur.
 
-**Erreurs fréquentes.** Multiplier par $\pi_i$ au lieu de diviser (c) donnerait $28{,}7$). Sommer $y_i/\pi_i$ sur **toutes** les entreprises ($276{,}7$). Oublier les facteurs $1 - \pi_j$ des entreprises non tirées dans la probabilité d'un échantillon ($0{,}0135$). Prendre $\mathbb{E}[\hat Y]$ pour l'estimation obtenue.
+**Erreurs fréquentes.** Multiplier par $\pi_i$ au lieu de diviser (c) donnerait $27{,}25$). Sommer $y_i/\pi_i$ sur **toutes** les entreprises ($276{,}7$). Oublier les facteurs $1 - \pi_j$ des entreprises non tirées dans la probabilité d'un échantillon ($0{,}002\,25$). Prendre $\mathbb{E}[\hat Y]$ pour l'estimation obtenue.
 
 **Variante.** Sur l'échantillon $\{3, 4\}$, $\hat Y = 40 + 33{,}333 = 73{,}333$ et l'estimation naïve vaut $6 \times 21 = 126$.
 
 ### Ex M20.5 — Un schéma d'Euler en L pas : la jacobienne d'un pas, celle de L pas, et la limite (1 + λT/L)ᴸ
 
-**Réponses.** a) `0.4` · b) `0.52` · c) `0.0380` · d) `0.0855` · e) `0.0907` · f) `[[1, -0.2], [0.2, 1]]` · g) `1.2167` · h) `1.0202` · i) `1` · j) `[[1, 0.1], [-0.05, 1]]` · k) `1.005`.
+**Réponses.** a) `0.4` · b) `0.52` · c) `0.0380` · d) `0.0855` · e) `0.0907` · f) `[[1, -0.2], [0.2, 1]]` · g) `1.217` · h) `1.020` · i) `1` · j) `[[1, 0.05], [-0.025, 1]]` · k) `1.00125`.
 
-**Démarche.** a) $2/5$. b) $1 + 0{,}4 \times (-1{,}2)$. c) $0{,}52^5 \approx 0{,}038\,02$. d) $h = 0{,}04$, $(1 - 0{,}048)^{50} \approx 0{,}085\,48$. e) $e^{-2{,}4} \approx 0{,}090\,72$. f) $h = 0{,}1$ : $\mathbf{I} + 0{,}1\,\mathbf{J}$. g) $(\mathbf{I} + h\mathbf{J})^\top(\mathbf{I} + h\mathbf{J}) = \begin{pmatrix} 1 & 2h \\ -2h & 1 \end{pmatrix}\begin{pmatrix} 1 & -2h \\ 2h & 1 \end{pmatrix} = (1 + 4h^2)\,\mathbf{I}$ : un pas est une rotation multipliée par $\sqrt{1 + 4h^2}$, et le produit de 10 pas une rotation multipliée par $(1{,}04)^{5} \approx 1{,}216\,65$. h) $h = 0{,}01$ : $(1{,}0004)^{50} \approx 1{,}020\,20$. i) $(1 + 4T^2/L^2)^{L/2} \to 1$, les valeurs singulières de $e^{T\mathbf{J}}$, une rotation. j) $\mathbf{J}_F = \begin{pmatrix} 0 & 1 \\ -\cos x & 0 \end{pmatrix}$, avec $\cos\frac\pi3 = \frac12$ : $\mathbf{I} + 0{,}1\,\mathbf{J}_F = \begin{pmatrix} 1 & 0{,}1 \\ -0{,}05 & 1 \end{pmatrix}$. k) $1 + 0{,}005$.
+**Démarche.** a) $2/5$. b) $1 + 0{,}4 \times (-1{,}2)$. c) $0{,}52^5 \approx 0{,}038\,02$. d) $h = 0{,}04$, $(1 - 0{,}048)^{50} \approx 0{,}085\,48$. e) $e^{-2{,}4} \approx 0{,}090\,72$. f) $h = 0{,}1$ : $\mathbf{I} + 0{,}1\,\mathbf{J}$. g) $(\mathbf{I} + h\mathbf{J})^\top(\mathbf{I} + h\mathbf{J}) = \begin{pmatrix} 1 & 2h \\ -2h & 1 \end{pmatrix}\begin{pmatrix} 1 & -2h \\ 2h & 1 \end{pmatrix} = (1 + 4h^2)\,\mathbf{I}$ : un pas est une rotation multipliée par $\sqrt{1 + 4h^2}$, et le produit de 10 pas une rotation multipliée par $(1{,}04)^{5} \approx 1{,}216\,65$, d'où $1{,}217$. h) $h = 0{,}01$ : $(1{,}0004)^{50} \approx 1{,}020\,20$. i) $(1 + 4T^2/L^2)^{L/2} \to 1$, les valeurs singulières de $e^{T\mathbf{J}}$, une rotation. j) $\mathbf{J}_F = \begin{pmatrix} 0 & 1 \\ -\cos x & 0 \end{pmatrix}$, avec $\cos\frac\pi3 = \frac12$ : $\mathbf{I} + 0{,}05\,\mathbf{J}_F = \begin{pmatrix} 1 & 0{,}05 \\ -0{,}025 & 1 \end{pmatrix}$. k) $1 + 0{,}05 \times 0{,}025 = 1{,}00125$, soit $1 + h^2\cos x$.
 
-Dans ta copie : $\mathbf{x}_1 = \left(\frac\pi3,\ 0\right) + 0{,}1\left(0,\ -\sin\frac\pi3\right) \approx (1{,}0472 ;\ -0{,}0866)$. La jacobienne de deux pas est $\mathbf{J}_{\Phi_h}(\mathbf{x}_1)\,\mathbf{J}_{\Phi_h}(\mathbf{x}_0)$, celle du second pas à gauche ; ici, l'angle n'a pas bougé au premier pas (la vitesse de départ est nulle), donc les deux matrices sont égales, et le produit vaut $\begin{pmatrix} 0{,}995 & 0{,}2 \\ -0{,}1 & 0{,}995 \end{pmatrix}$ ; dès le troisième pas, elles diffèrent. $\lVert\mathbf{J}_F\rVert = \max(1, \lvert\cos x\rvert) = 1$ partout : $K = 1$, $hK = 0{,}1$, et les valeurs singulières de la jacobienne de $L$ pas restent entre $0{,}9^L$ et $1{,}1^L \le e^{0{,}1L}$ ; pour deux pas, entre $0{,}81$ et $1{,}21$.
+Dans ta copie : depuis $\mathbf{x}_0 = (\frac\pi3,\ 1)$, $\mathbf{x}_1 = \mathbf{x}_0 + 0{,}05\left(1,\ -\sin\frac\pi3\right) \approx (1{,}0972 ;\ 0{,}9567)$, où $\cos x_1 \approx 0{,}4561$. La jacobienne de deux pas est $\mathbf{J}_{\Phi_h}(\mathbf{x}_1)\,\mathbf{J}_{\Phi_h}(\mathbf{x}_0) = \begin{pmatrix} 1 & 0{,}05 \\ -0{,}0228 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0{,}05 \\ -0{,}025 & 1 \end{pmatrix} \approx \begin{pmatrix} 0{,}99875 & 0{,}1 \\ -0{,}0478 & 0{,}99886 \end{pmatrix}$, celle du second pas à gauche ; dans l'autre ordre, les deux coefficients diagonaux s'échangent : le produit n'est pas le même. $\mathbf{J}_F = \begin{pmatrix} 0 & 1 \\ -\cos x & 0 \end{pmatrix}$ a pour valeurs singulières $1$ et $\lvert\cos x\rvert$ : $K = 1$, $hK = 0{,}05$, et les valeurs singulières de la jacobienne de deux pas sont entre $0{,}95^2 = 0{,}9025$ et $1{,}05^2 = 1{,}1025$ (elles valent environ $0{,}975$ et $1{,}028$).
 
-**Erreurs fréquentes.** Oublier le signe de $\lambda$ ($1{,}48$). Prendre $e^{\lambda}$ au lieu de $e^{\lambda T}$ ($0{,}3012$). Répondre g) avec la valeur d'un seul pas ($1{,}0198$). Oublier l'identité dans la jacobienne d'un pas, ou dériver $-\sin x$ en $+\cos x$.
+**Erreurs fréquentes.** Oublier le signe de $\lambda$ ($1{,}48$). Prendre $e^{\lambda}$ au lieu de $e^{\lambda T}$ ($0{,}3012$). Répondre g) avec la valeur d'un seul pas ($1{,}020$, qui est aussi, par hasard, la réponse de h)). Oublier l'identité dans la jacobienne d'un pas, ou dériver $-\sin x$ en $+\cos x$.
 
 **Variante.** Pour $\lambda = 0{,}5$, $T = 2$, $L = 4$ : $(1 + 0{,}25)^4 \approx 2{,}4414$, pour la limite $e \approx 2{,}7183$.
 
@@ -152,10 +152,10 @@ Dans ta copie : $\mathbf{x}_1 = \left(\frac\pi3,\ 0\right) + 0{,}1\left(0,\ -\si
 1. $I_i$ ne prend que les valeurs 0 et 1 : $\mathbb{E}[I_i] = \mathbb{P}(I_i = 1) = \pi_i$. Par linéarité de l'espérance, qui ne demande aucune indépendance, $\mathbb{E}[\hat Y] = \sum_i\frac{y_i}{\pi_i}\,\mathbb{E}[I_i] = \sum_i y_i = Y$.
 2. Les $\frac{y_i}{\pi_i}I_i$ sont indépendantes : la variance de leur somme est la somme de leurs variances (M02b). $\operatorname{Var}(I_i) = \pi_i(1 - \pi_i)$ (Bernoulli), et $\operatorname{Var}(cX) = c^2\operatorname{Var}(X)$ : $\operatorname{Var}\left(\frac{y_i}{\pi_i}I_i\right) = \frac{y_i^2}{\pi_i^2}\,\pi_i(1 - \pi_i) = y_i^2\,\frac{1 - \pi_i}{\pi_i}$. D'où la formule.
 3. $\hat V = \sum_i I_i\,y_i^2\,\frac{1 - \pi_i}{\pi_i^2}$, et, par linéarité, $\mathbb{E}[\hat V] = \sum_i\pi_i\,y_i^2\,\frac{1 - \pi_i}{\pi_i^2} = \sum_i y_i^2\,\frac{1 - \pi_i}{\pi_i} = \operatorname{Var}(\hat Y)$. C'est la même idée qu'au 1 : chaque terme de la variance, divisé par sa probabilité d'être observé. La formule du 2 demande les $y_i$ de **toutes** les unités, alors qu'on ne connaît que ceux de l'échantillon.
-4. $\hat Y = \frac1\pi\sum_{i \in S}y_i$ et $\operatorname{Var}(\hat Y) = \frac{1 - \pi}{\pi}\sum_i y_i^2$. L'estimateur naïf $N\,\bar y_S = \frac{N}{n}\sum_{i \in S}y_i$ divise par la taille **observée** $n$, au lieu de la taille moyenne $N\pi$ : il n'est pas défini quand $n = 0$, et n'est pas exactement sans biais ; mais, quand les probabilités sont égales, il ne favorise aucune unité et son biais est petit si $N\pi$ est grand. Horvitz-Thompson est exactement sans biais.
-5. Le terme de $j$ est toujours nul ($I_j = 0$ presque sûrement). Les autres termes ont pour espérance leur $y_i$ (question 1) : $\mathbb{E}[\hat Y] = Y - y_j$. L'estimateur reste sans biais si et seulement si $y_j = 0$.
+4. Chaque unité tirée apporte $\frac{y_i}{c\,y_i} = \frac1c$, la même chose : $\hat Y = n/c$, où $n = \sum_i I_i$ est le nombre d'unités tirées. Par la question 2, $\operatorname{Var}(\hat Y) = \sum_i y_i^2\,\frac{1 - c\,y_i}{c\,y_i} = \sum_i\left(\frac{y_i}{c} - y_i^2\right) = \frac Yc - \sum_i y_i^2$. Elle n'est pas nulle (sauf si toutes les $\pi_i$ valent 1) parce que $n$ est aléatoire avec un tirage de Poisson : c'est $\operatorname{Var}(n)/c^2$. Un tirage qui prend exactement $n$ unités, chacune avec la probabilité $\pi_i$, la rendrait nulle (🏆 M20.18).
+5. L'unité $j$ n'est jamais dans $S$ : elle n'apparaît jamais dans la somme. Les autres termes ont pour espérance leur $y_i$ (question 1) : $\mathbb{E}[\hat Y] = Y - y_j$. L'estimateur reste sans biais si et seulement si $y_j = 0$.
 
-**Grille de relecture.** Le 1 dit que la linéarité ne demande pas l'indépendance ; le 2 dit où l'indépendance sert. La variance d'une Bernoulli et le facteur $c^2$ sont écrits. Le 3 explique pourquoi la formule exacte n'est pas calculable. Le 4 distingue taille observée et taille moyenne. Le 5 donne l'espérance, pas seulement « biaisé ».
+**Grille de relecture.** Le 1 dit que la linéarité ne demande pas l'indépendance ; le 2 dit où l'indépendance sert. La variance d'une Bernoulli et le carré de la constante sont écrits. Le 3 explique pourquoi la formule exacte n'est pas calculable. Le 4 trouve un terme constant et attribue la variance restante au nombre d'unités tirées. Le 5 donne l'espérance, pas seulement « biaisé ».
 
 **Variante.** Si l'on tire exactement $n$ unités parmi $N$, sans remise et toutes avec la même probabilité, $\pi_i = n/N$ et $\hat Y = N\,\bar y_S$ : les deux estimateurs coïncident, et l'espérance, par la question 1, vaut toujours $Y$.
 
@@ -165,15 +165,15 @@ Dans ta copie : $\mathbf{x}_1 = \left(\frac\pi3,\ 0\right) + 0{,}1\left(0,\ -\si
 
 ### Ex M20.8 — Pont : où workbookIA 20 divise par une probabilité
 
-**Réponses.** a) `"C"` · b) `"D"` · c) `"C"`.
+**Réponses.** a) `"C"` · b) `"C"`.
 
-**Démarche.** La fiche de workbookIA 20 divise par une probabilité dans la sous-section sur le **dropout**, pour la version des bibliothèques, dite « inversée » ; elle dit que cette division garde l'**espérance** de chaque valeur, de sorte que rien n'est à corriger ensuite. C'est l'idée de Horvitz-Thompson : ce qui a été gardé au hasard est divisé par sa probabilité de l'être.
+**Démarche.** La fiche de workbookIA 20 divise par une probabilité dans la sous-section sur le **dropout** ; dans cette fiche-ci, c'est l'estimateur de Horvitz-Thompson (§5) qui divise par une probabilité.
 
-Dans ta copie : sans division, une partie des valeurs étant mise à zéro au hasard, ce qui passe serait en moyenne plus petit que l'original ; diviser ce qui reste par sa probabilité d'avoir été gardé compense exactement, en moyenne, ce qui a été retiré, comme le poids $1/\pi_i$ compense les unités non tirées.
+Dans ta copie : la sous-section « Le dropout » (§20.4.3 de la fiche de workbookIA 20), pour la version utilisée par les bibliothèques, dite « inversée ».
 
 **Erreurs fréquentes.** Chercher la division dans la batchnorm : elle divise par un écart type, pas par une probabilité.
 
-**Variante.** Dans un sondage, le même raisonnement s'applique à la variance (∂ M20.7, question 3) : un terme observé avec la probabilité $\pi_i$ est divisé par $\pi_i$.
+**Variante.** Dans un sondage, on divise aussi par $\pi_i$ pour estimer la variance (∂ M20.7, question 3).
 
 ### Ex M20.9 — Expliquer ce qu'est un axe d'un tableau à quelqu'un qui ne connaît que les tableurs
 
@@ -187,7 +187,7 @@ Dans ta copie : sans division, une partie des valeurs étant mise à zéro au ha
 
 ### M20.E1 — « Pourquoi standardiser des données décalées ou dilatées donne-t-il le même résultat ? »
 
-**Réponse modèle (60 secondes).** « On obtient exactement les mêmes z-scores. Standardiser, c'est retirer la moyenne, puis diviser par l'écart type. Passer des Celsius aux Fahrenheit, c'est multiplier par 1,8 et ajouter 32. Le 32 décale toutes les valeurs et la moyenne de la même quantité : il disparaît quand on retire la moyenne. Le 1,8 multiplie tous les écarts à la moyenne et l'écart type par 1,8 : il disparaît dans le quotient. Une translation et une dilatation de toute la série, par un facteur positif, ne changent donc rien ; un facteur négatif changerait seulement le signe. En revanche, la standardisation ne gomme pas une modification de quelques valeurs seulement : changer une seule mesure change la moyenne, l'écart type et tous les z-scores, et une valeur aberrante pèse sur tous les autres. Géométriquement, centrer, c'est projeter sur les vecteurs de somme nulle, ce qui efface la direction des translations. En pratique, c'est ce qui rend un modèle indépendant des unités choisies par celui qui a saisi les données. »
+**Réponse modèle (60 secondes).** « On obtient exactement les mêmes z-scores. Standardiser, c'est retirer la moyenne, puis diviser par l'écart type. Passer des Celsius aux Fahrenheit, c'est multiplier par 1,8 et ajouter 32. Le 32 décale toutes les valeurs et la moyenne de la même quantité : il disparaît quand on retire la moyenne. Le 1,8 multiplie tous les écarts à la moyenne et l'écart type par 1,8 : il disparaît dans le quotient. Une translation et une dilatation de toute la série, par un facteur positif, ne changent donc rien ; un facteur négatif changerait seulement le signe. En revanche, la standardisation ne gomme pas une modification de quelques valeurs seulement : changer une seule mesure change la moyenne, l'écart type et tous les z-scores, et une valeur aberrante pèse sur tous les autres. Géométriquement, centrer, c'est projeter sur les vecteurs de somme nulle. En pratique, c'est ce qui rend un modèle indépendant des unités choisies par celui qui a saisi les données. »
 
 **Grille.** La formule ; la translation effacée par le centrage ; la dilatation effacée par la division ; le signe d'un facteur négatif ; ce qui n'est pas effacé ; l'intérêt pratique.
 

@@ -164,7 +164,6 @@
 
 - a :
 - b :
-- c :
 - dans ta copie :
 
 ### Ex M20.9 — Expliquer ce qu'est un axe d'un tableau à quelqu'un qui ne connaît que les tableurs

@@ -58,7 +58,7 @@ Vocabulaire anglais de ce chapitre : *array*, *tensor*, *axis* (pluriel *axes*),
 7. La **matrice de centrage** $\mathbf{C} = \mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top$ est la **projection orthogonale** sur l'hyperplan $\{\mathbf{v} : \sum_i v_i = 0\}$, de dimension $m - 1$ : d'où le $m - 1$ de la variance non biaisée.
 8. La **standardisation** $\mathbf{z} = (\mathbf{x} - \bar x\mathbf{1})/s$ ne change pas si l'on remplace $\mathbf{x}$ par $a\mathbf{x} + b\mathbf{1}$ avec $a > 0$ : elle ne voit ni l'origine ni l'unité.
 9. **Horvitz-Thompson** : chaque unité $i$ entre dans l'échantillon avec la probabilité $\pi_i > 0$ ; $\hat Y = \sum_{i \in S} y_i/\pi_i$ est **sans biais** pour le total $\sum_i y_i$, et, si les tirages sont indépendants, $\operatorname{Var}(\hat Y) = \sum_i y_i^2\,\frac{1 - \pi_i}{\pi_i}$.
-10. Un pas d'Euler $\mathbf{x} \mapsto \mathbf{x} + h\,F(\mathbf{x})$ a pour jacobienne $\mathbf{I} + h\mathbf{J}_F$, de valeurs singulières entre $1 - h\lVert\mathbf{J}_F\rVert$ et $1 + h\lVert\mathbf{J}_F\rVert$ ; le produit de $L$ telles jacobiennes reste entre $(1 - hK)^L$ et $e^{hKL}$, des bornes qui ne dépendent pas de $L$ à horizon $T = hL$ fixé ; $(1 + \lambda T/L)^L \to e^{\lambda T}$.
+10. Un pas d'Euler $\mathbf{x} \mapsto \mathbf{x} + h\,F(\mathbf{x})$ a pour jacobienne $\mathbf{I} + h\mathbf{J}_F$, de valeurs singulières entre $1 - h\lVert\mathbf{J}_F\rVert$ et $1 + h\lVert\mathbf{J}_F\rVert$ ; le produit de $L$ telles jacobiennes reste entre $(1 - hK)^L$ et $e^{hKL}$ ; à horizon $T = hL$ fixé, il reste donc entre deux constantes $> 0$ qui ne dépendent pas de $L$ ; $(1 + \lambda T/L)^L \to e^{\lambda T}$.
 
 ## §1 · Tableaux à k dimensions : forme, axes, remodelage
 
@@ -72,7 +72,7 @@ Une **image en couleur** de 480 lignes et 640 colonnes se range de même en $(\t
 
 ### L'ordre C : où est rangé chaque élément
 
-En mémoire, un tableau est une seule file de nombres. NumPy les range par défaut dans l'**ordre C** (*row-major order*) : le **dernier** indice varie le plus vite, puis l'avant-dernier, et ainsi de suite, comme les kilomètres, les centaines de mètres et les mètres d'un compteur. Dans un tableau de forme $(n_0, n_1, n_2)$, l'élément $(i_0, i_1, i_2)$ occupe la position
+En mémoire, un tableau est une seule file de nombres. NumPy les range par défaut dans l'**ordre C** (*row-major order*) : le **dernier** indice varie le plus vite, puis l'avant-dernier, et ainsi de suite, comme les secondes, puis les minutes, puis les heures d'une horloge. Dans un tableau de forme $(n_0, n_1, n_2)$, l'élément $(i_0, i_1, i_2)$ occupe la position
 $$p = (i_0\,n_1 + i_1)\,n_2 + i_2 = i_0\,(n_1 n_2) + i_1\,n_2 + i_2 .$$
 Les nombres $n_1 n_2$, $n_2$ et $1$ sont les pas qu'il faut faire dans la file pour avancer d'un cran le long de chaque axe. Pour revenir de $p$ aux indices, on fait des divisions euclidiennes successives, en commençant par le dernier axe.
 
@@ -82,7 +82,7 @@ Les nombres $n_1 n_2$, $n_2$ et $1$ sont les pas qu'il faut faire dans la file p
 
 ### Remodeler, transposer
 
-**Remodeler** (*reshape*) donne au tableau une nouvelle forme qui a le même nombre d'éléments, en relisant la file dans l'ordre C et en la rangeant dans l'ordre C : aucun nombre ne bouge dans la file. Une longueur peut s'écrire $-1$ : NumPy la calcule. Le remodelage a un sens simple quand il **fusionne des axes voisins**, dans leur ordre, ou quand il **découpe** un axe en plusieurs :
+**Remodeler** (*reshape*) donne au tableau une nouvelle forme qui a le même nombre d'éléments, en relisant la file dans l'ordre C et en la rangeant dans l'ordre C : aucun nombre ne bouge dans la file. (La file dont on parle est l'ordre C des indices. Après une transposition, NumPy ne déplace rien en mémoire, et un `reshape` qui suit relit les éléments dans l'ordre C des **nouveaux** indices, en faisant une copie.) Une longueur peut s'écrire $-1$ : NumPy la calcule. Le remodelage a un sens simple quand il **fusionne des axes voisins**, dans leur ordre, ou quand il **découpe** un axe en plusieurs :
 - `T.reshape(4, 168)` : chaque ligne contient les 168 relevés d'une station dans l'ordre chronologique (les axes 1 et 2 fusionnés) ;
 - `T.reshape(28, 24)` : une ligne par couple (station, jour) (les axes 0 et 1 fusionnés) ;
 - `T.reshape(4, 7, 4, 6)` : chaque journée découpée en 4 tranches de 6 heures ; l'élément $[s, d, q, r]$ est le relevé de l'heure $6q + r$.
@@ -91,7 +91,7 @@ Les nombres $n_1 n_2$, $n_2$ et $1$ sont les pas qu'il faut faire dans la file p
 
 Ajouter un axe de longueur 1 (`x[:, None]` ou `np.expand_dims`) ou en retirer un (`np.squeeze`) ne change rien à la file : un vecteur de forme $(5,)$ devient une colonne $(5, 1)$ ou une ligne $(1, 5)$.
 
-⚠️ **Erreur classique.** Remodeler pour réordonner des axes : `T.reshape(24, 4, 7)` a bien la forme voulue, mais son élément $[0, 0, 1]$ est le deuxième nombre de la file, $T[0, 0, 1]$ (la station 0 à 1 h), et non $T[1, 0, 0]$. Les nombres sont mélangés, sans aucune erreur. Pour réordonner des axes, on transpose.
+⚠️ **Erreur classique.** Remodeler pour réordonner des axes : `T.reshape(24, 4, 7)` a bien la forme voulue, mais son élément $[0, 0, 1]$ est le deuxième nombre de la file, $T[0, 0, 1]$ (la station 0, le jour 0, à 1 h), et non $T[0, 1, 0]$ (la station 0, le jour 1, à 0 h), qu'aurait donné `T.transpose(2, 0, 1)`. Les nombres sont mélangés, sans aucune erreur. Pour réordonner des axes, on transpose.
 
 🔗 **Dans workbookIA** — le chapitre 20 range ses données dans des tenseurs PyTorch, dont la forme, les axes et le remodelage suivent les mêmes règles, et suit leur forme d'une étape de calcul à la suivante.
 
@@ -109,14 +109,14 @@ Avec **`keepdims=True`**, l'axe réduit reste, avec la longueur 1 : `T.mean(axis
 
 ![Les températures synthétiques des quatre stations : à gauche, la station 0 (7 jours × 24 heures) en couleurs ; au milieu, la moyenne le long de l'axe des jours, un profil horaire par station ; à droite, la moyenne le long de l'axe des heures, une moyenne journalière par station](figures/reductions.png)
 
-**Réduire en plusieurs fois.** Pour une somme, réduire les axes 1 et 2 d'un coup ou l'un après l'autre donne le même résultat ; pour une moyenne aussi, parce que tous les groupes ont la même taille : la moyenne des 7 moyennes journalières, chacune sur 24 heures, est la moyenne des 168 relevés. Pour une **variance**, non. Sur les valeurs d'un tableau réparties en groupes de même taille, la variance de toutes les valeurs (ddof = 0) est la **moyenne des variances des groupes** plus la **variance des moyennes des groupes** : réduire en deux fois oublie l'un des deux termes.
+**Réduire en plusieurs fois.** Pour une somme, réduire les axes 1 et 2 d'un coup ou l'un après l'autre donne le même résultat ; pour une moyenne aussi, parce que tous les groupes ont la même taille : la moyenne des 7 moyennes journalières, chacune sur 24 heures, est la moyenne des 168 relevés. Pour une **variance**, non. Sur les valeurs d'un tableau réparties en groupes de même taille, la variance de toutes les valeurs est la **moyenne des variances des groupes** plus la **variance des moyennes des groupes**, toutes trois avec ddof = 0 : calculer la variance de chaque groupe puis leur moyenne oublie le second terme ; calculer la moyenne de chaque groupe puis la variance de ces moyennes oublie le premier.
 
 ### La diffusion
 
 Une opération entre deux tableaux de formes différentes est permise quand leurs formes sont **compatibles**, selon la règle de **diffusion** (*broadcasting*) :
 1. on aligne les deux formes **à droite** ; s'il manque des axes à gauche à l'une des deux, ils comptent pour la longueur 1 ;
 2. sur chaque axe, les deux longueurs doivent être égales, ou l'une des deux doit valoir 1 ;
-3. un axe de longueur 1 est répété autant qu'il le faut ; le résultat a, sur chaque axe, la plus grande des deux longueurs.
+3. un axe de longueur 1 est répété autant qu'il le faut ; le résultat a, sur chaque axe, la longueur qui n'est pas 1 (ou 1 si les deux valent 1).
 
 Avec $T$ de forme $(4, 7, 24)$ :
 - `T - T.mean(axis=2, keepdims=True)` : $(4, 7, 24)$ contre $(4, 7, 1)$, compatibles ; chaque relevé moins la moyenne de sa journée ;
@@ -131,7 +131,7 @@ Pour réduire le long d'un ensemble d'axes, on compte les valeurs réduites ense
 $$\frac{1}{N - \text{ddof}}\sum (x - \bar x)^2 ,$$
 la somme portant sur les $N$ valeurs. Avec **ddof = 0**, c'est la moyenne des carrés des écarts (le choix par défaut de `np.var`) ; avec **ddof = 1**, c'est l'estimateur sans biais de la variance d'une loi, à partir de $N$ tirages indépendants (M02c), le choix par défaut de pandas. Le §4 explique d'où vient ce $N - 1$.
 
-On calcule la moyenne d'abord, puis les écarts : la formule « moyenne des carrés moins carré de la moyenne », juste sur le papier, perd tous ses chiffres en `float64` quand les valeurs sont grandes devant leur dispersion (des températures en kelvins au millième près, des horodatages).
+On calcule la moyenne d'abord, puis les écarts : la formule « moyenne des carrés moins carré de la moyenne », juste sur le papier, perd en `float64` d'autant plus de chiffres que les valeurs sont grandes devant leur dispersion ; pour des horodatages en secondes (de l'ordre de $1{,}7 \times 10^9$) qui varient de quelques secondes, il n'en reste aucun, et la variance calculée peut même être négative.
 
 **Exemple.** Les notes de 5 élèves dans 3 matières forment un tableau $\mathbf{N}$ de forme $(5, 3)$ :
 $$\mathbf{N} = \begin{pmatrix} 11 & 6 & 10 \\ 10 & 18 & 17 \\ 10 & 9 & 17 \\ 6 & 16 & 14 \\ 13 & 11 & 12 \end{pmatrix}.$$
@@ -175,11 +175,11 @@ Une lettre peut n'apparaître que dans un tableau et pas dans le résultat : ell
 
 ### Le coût d'une contraction
 
-Calculée par des boucles, une formule à deux tableaux fait une multiplication pour **chaque combinaison de valeurs de toutes ses lettres** : son coût est le produit des longueurs de toutes les lettres. Pour `"ij,jk->ik"` avec des formes $(m, n)$ et $(n, p)$, c'est $mnp$ multiplications, le coût du produit matriciel (M09a). Une somme sur plusieurs indices s'appelle une **contraction**.
+Calculée par des boucles, une formule à deux tableaux fait une multiplication pour **chaque combinaison de valeurs de toutes ses lettres** : son coût est le produit des longueurs de toutes les lettres. Pour `"ij,jk->ik"` avec des formes $(m, n)$ et $(n, p)$, c'est $mnp$ multiplications, le coût du produit matriciel (M09a). Une telle somme sur un ou plusieurs indices répétés s'appelle une **contraction**.
 
 Avec trois tableaux, l'**ordre** des contractions compte. $\mathbf{A}$ de forme $(20, 200)$, $\mathbf{B}$ de forme $(200, 4)$, $\mathbf{C}$ de forme $(4, 60)$ : $(\mathbf{A}\mathbf{B})\mathbf{C}$ coûte $20 \cdot 200 \cdot 4 + 20 \cdot 4 \cdot 60 = 20\,800$ multiplications, $\mathbf{A}(\mathbf{B}\mathbf{C})$ en coûte $200 \cdot 4 \cdot 60 + 20 \cdot 200 \cdot 60 = 288\,000$, près de 14 fois plus, pour le même résultat. `np.einsum(..., optimize=True)` et `np.linalg.multi_dot` choisissent l'ordre.
 
-⚠️ **Erreur classique.** Oublier qu'une lettre absente du résultat est sommée : `"ij,jk->ijk"` ne fait **pas** le produit matriciel, il garde tous les produits $A_{ij}B_{jk}$ sans rien sommer. Ou écrire la même lettre pour deux axes de longueurs différentes : `einsum` refuse.
+⚠️ **Erreur classique.** Oublier qu'une lettre absente du résultat est sommée : `"ij,jk->ijk"` ne fait **pas** le produit matriciel, il garde tous les produits $A_{ij}B_{jk}$ sans rien sommer. Ou écrire la même lettre pour deux axes de longueurs différentes : `np.einsum` refuse, sauf si l'une des deux vaut 1, qu'il diffuse alors sans erreur (la fonction `einsum_pair` du notebook, elle, refuse toujours).
 
 🔗 **Dans workbookIA** — `einsum` ne sert pas au chapitre 20, mais revient dans les chapitres sur les convolutions et sur les Transformers, pour écrire en une ligne des produits sur des tableaux à trois ou quatre axes.
 
@@ -208,7 +208,7 @@ C'est aussi ce qui donne le $m - 1$ de la variance sans biais. Supposons les $x_
 $$\sum_i (x_i - \bar x)^2 = \lVert\mathbf{C}\mathbf{e}\rVert^2 = \mathbf{e}^\top\mathbf{C}\mathbf{e} = \sum_{i,j} C_{ij}\,e_ie_j, \qquad \mathbb{E}\Big[\sum_i (x_i - \bar x)^2\Big] = \sum_{i,j} C_{ij}\,\mathbb{E}[e_ie_j] = \sigma^2\sum_i C_{ii} = (m - 1)\,\sigma^2,$$
 puisque $\mathbb{E}[e_ie_j] = 0$ pour $i \ne j$ (indépendance) et $\sigma^2$ pour $i = j$. Diviser la somme des carrés des écarts par $m - 1$ donne donc en moyenne $\sigma^2$ : c'est le ddof = 1 du §2.
 
-**Centrer le long d'un axe.** Pour un tableau $\mathbf{X}$ de forme $(m, n)$, centrer chaque colonne, `X - X.mean(axis=0, keepdims=True)`, c'est calculer $\mathbf{C}_m\mathbf{X}$ ; centrer chaque ligne, c'est $\mathbf{X}\mathbf{C}_n$. En pratique, on ne construit jamais $\mathbf{C}$ ($m^2$ nombres) : la diffusion fait le même calcul en $mn$ opérations. La matrice sert à raisonner.
+**Centrer le long d'un axe.** Pour un tableau $\mathbf{X}$ de forme $(m, n)$, centrer chaque colonne, `X - X.mean(axis=0, keepdims=True)`, c'est calculer $\mathbf{C}_m\mathbf{X}$ ; centrer chaque ligne, c'est $\mathbf{X}\mathbf{C}_n$. En pratique, on ne construit pas $\mathbf{C}$ : la diffusion fait le calcul. La matrice sert à raisonner.
 
 ### Standardiser, et ce que la standardisation ne voit pas
 
@@ -220,15 +220,15 @@ En effet, la moyenne de $a\mathbf{x} + b\mathbf{1}$ est $a\bar x + b$ ; ses éca
 
 **Exemple.** Les températures de l'exemple, en degrés Fahrenheit ($F = 1{,}8\,C + 32$), valent $(53{,}6 ;\ 66{,}2 ;\ 57{,}2 ;\ 62{,}6 ;\ 55{,}4)$. Avec ddof = 0, les deux séries ont les mêmes z-scores : $(-1{,}150 ;\ 1{,}534 ;\ -0{,}383 ;\ 0{,}767 ;\ -0{,}767)$. Des notes sur 20 recopiées sur 100 aussi.
 
-Ce qu'elle voit : tout le reste. Ajouter 10 à **une seule** coordonnée n'est pas une translation le long de $\mathbf{1}$ : la moyenne, l'écart type et tous les z-scores changent. Et un seul relevé aberrant change les z-scores de tous les autres, par la moyenne et par l'écart type.
+Ce qu'elle voit : tout le reste. Ajouter 10 à **une seule** coordonnée n'est pas une translation le long de $\mathbf{1}$ : la moyenne change, et, en général, l'écart type et tous les z-scores aussi. Et un seul relevé aberrant change les z-scores de tous les autres, par la moyenne et par l'écart type.
 
-**Le long d'un axe.** Sur le tableau des notes, standardiser chaque **matière** (le long de l'axe 0) compare les élèves entre eux dans chaque matière : si un professeur ajoute 2 points à tous ses élèves, ou note sur 40, rien ne change. Standardiser chaque **élève** (le long de l'axe 1) compare les matières d'un même élève : c'est l'élève qui peut alors tout décaler sans rien changer. On choisit l'axe selon la question posée, et la question dit quelles différences on veut effacer.
+**Le long d'un axe.** Sur le tableau des notes, standardiser chaque **matière** (le long de l'axe 0) compare les élèves entre eux dans chaque matière : si un professeur ajoute 2 points à tous ses élèves, ou note sur 40, rien ne change. On choisit l'axe selon la question posée : il dit quelles différences on veut effacer.
 
-⚠️ **Erreur classique.** Croire que la standardisation efface toute différence d'échelle entre deux séries : elle efface une translation et une dilatation de **toute** la série, pas un changement qui touche certaines valeurs et pas d'autres. Ou standardiser une série constante : $s = 0$, et la division donne des `nan`.
+⚠️ **Erreur classique.** Croire que la standardisation efface toute différence d'échelle entre deux séries : elle efface une translation et une dilatation de **toute** la série, pas un changement qui touche certaines valeurs et pas d'autres. Ou standardiser une série constante : en théorie $s = 0$ ; en pratique, on obtient des `nan`, ou, si les arrondis laissent un $s$ minuscule (`np.full(3, 0.1)`), des z-scores de $\pm 1$ qui n'ont aucun sens. Compare $s$ à un seuil avant de diviser.
 
 💼 **En entreprise** — on standardise les variables d'un modèle pour que leurs unités (des euros, des mètres, des années) ne pèsent pas dans les calculs de distance ou dans le réglage du pas d'une méthode itérative (M19). L'invariance garantit que le résultat ne dépend pas de l'unité choisie par celui qui a saisi les données.
 
-🔗 **Dans workbookIA** — le chapitre 20 standardise des valeurs à l'intérieur d'un réseau, le long d'axes choisis ; la matrice de centrage, ses $m - 1$ degrés de liberté et les deux invariances de cette section sont les outils pour lire ses formules.
+🔗 **Dans workbookIA** — le chapitre 20 standardise des valeurs le long d'axes choisis ; la matrice de centrage et ses $m - 1$ degrés de liberté aident à lire ses formules.
 
 ## §5 · Diviser par la probabilité d'inclusion : l'estimateur de Horvitz-Thompson
 
@@ -261,7 +261,7 @@ L'espérance se voit terme à terme : $\mathbb{E}[I_i\,y_i/\pi_i] = \pi_i\,y_i/\
 
 ### Choisir les probabilités
 
-Pour une taille moyenne $\sum_i \pi_i$ fixée, quelles probabilités rendent la variance la plus petite ? Elle vaut $\sum_i y_i^2/\pi_i - \sum_i y_i^2$, et l'on peut montrer que $\sum_i y_i^2/\pi_i$ est le plus petit quand les $\pi_i$ sont **proportionnels aux $y_i$** (tant qu'ils restent $\le 1$). L'idée se voit sans calcul : si $\pi_i = c\,y_i$, chaque unité tirée apporte $y_i/\pi_i = 1/c$, la même chose ; la seule incertitude qui reste vient du **nombre** d'unités tirées. Avec un tirage qui prend exactement $n$ unités tout en donnant à chacune la probabilité $\pi_i$ (le tirage systématique du 🏆 M20.18), l'estimation vaut toujours $n/c = Y$ : une variance nulle.
+Pour une taille moyenne $\sum_i \pi_i$ fixée, quelles probabilités rendent la variance la plus petite ? Elle vaut $\sum_i y_i^2/\pi_i - \sum_i y_i^2$, et l'on peut montrer que $\sum_i y_i^2/\pi_i$ est le plus petit quand les $\pi_i$ sont **proportionnels aux $y_i$** (supposés $> 0$, et tant que les $\pi_i$ restent $\le 1$). L'idée se voit sans calcul : si $\pi_i = c\,y_i$, chaque unité tirée apporte $y_i/\pi_i = 1/c$, la même chose ; la seule incertitude qui reste vient du **nombre** d'unités tirées. Avec un tirage qui prend exactement $n$ unités tout en donnant à chacune la probabilité $\pi_i$ (le tirage systématique du 🏆 M20.18), l'estimation vaut toujours $n/c = Y$ : une variance nulle.
 
 On ne connaît pas les $y_i$ (sinon, pas besoin de sondage), mais souvent une **taille** qui leur est à peu près proportionnelle : la surface d'une parcelle, la population d'une commune au dernier recensement, l'effectif d'une entreprise. On tire alors avec des **probabilités proportionnelles à la taille**. Une unité dont la probabilité dépasserait 1 est prise d'office ($\pi_i = 1$), et l'on répartit le reste entre les autres.
 
@@ -269,7 +269,7 @@ On ne connaît pas les $y_i$ (sinon, pas besoin de sondage), mais souvent une **
 
 💼 **En entreprise** — les instituts de statistique publique et les études de marché pondèrent chaque répondant par l'inverse de sa probabilité d'avoir été interrogé ; les mêmes poids corrigent une étude dont les clients interrogés ne ressemblent pas à l'ensemble des clients.
 
-🔗 **Dans workbookIA** — le chapitre 20 divise par une probabilité dans l'une de ses couches de régularisation, pour que la valeur moyenne de ce qui la traverse ne change pas : c'est l'idée de cette section (🔗 M20.8).
+🔗 **Dans workbookIA** — le chapitre 20 divise par une probabilité dans l'une de ses couches de régularisation (🔗 M20.8).
 
 ## §6 · Des applications proches de l'identité : I + hJ
 
@@ -289,13 +289,15 @@ Après $L$ pas, $\mathbf{x}_L = \Phi_h(\Phi_h(\cdots\Phi_h(\mathbf{x}_0)))$. Par
 $$\mathbf{J}_L = \big(\mathbf{I} + h\mathbf{J}_F(\mathbf{x}_{L-1})\big)\cdots\big(\mathbf{I} + h\mathbf{J}_F(\mathbf{x}_1)\big)\big(\mathbf{I} + h\mathbf{J}_F(\mathbf{x}_0)\big).$$
 Or les valeurs singulières d'un produit vérifient $\sigma_{\max}(\mathbf{A}\mathbf{B}) \le \sigma_{\max}(\mathbf{A})\,\sigma_{\max}(\mathbf{B})$ et $\sigma_{\min}(\mathbf{A}\mathbf{B}) \ge \sigma_{\min}(\mathbf{A})\,\sigma_{\min}(\mathbf{B})$ (on applique les bornes de M12d deux fois). Si $\lVert\mathbf{J}_F\rVert \le K$ le long du chemin et $hK < 1$, avec $1 + u \le e^u$ :
 $$(1 - hK)^L \ \le\ \sigma_{\min}(\mathbf{J}_L) \ \le\ \sigma_{\max}(\mathbf{J}_L) \ \le\ (1 + hK)^L \ \le\ e^{hKL}.$$
-À **horizon fixé** $T = hL$, la borne de droite vaut $e^{KT}$, et celle de gauche, $(1 - KT/L)^L$, croît vers $e^{-KT}$ quand $L$ grandit : **deux bornes qui ne dépendent pas de $L$**. Un produit d'un très grand nombre de facteurs proches de l'identité ne s'effondre pas et n'explose pas, tant que $hL$ reste fixé. À pas $h$ fixé, en revanche, $e^{hKL}$ grandit avec $L$.
+À **horizon fixé** $T = hL$, la borne de droite vaut $e^{KT}$ quel que soit $L$. Celle de gauche, $(1 - KT/L)^L$, dépend de $L$, mais elle croît avec $L$ (vers $e^{-KT}$), et, comme $\ln(1 - u) \ge -2u$ pour $0 \le u \le \frac12$, elle dépasse $e^{-2KT}$ dès que $hK \le \frac12$ : pour tout $L \ge 2KT$,
+$$e^{-2KT} \ \le\ \sigma_{\min}(\mathbf{J}_L) \ \le\ \sigma_{\max}(\mathbf{J}_L) \ \le\ e^{KT},$$
+**deux constantes qui ne dépendent pas de $L$**. Un produit d'un très grand nombre de facteurs proches de l'identité ne tend ni vers 0 ni vers l'infini, tant que $hL$ reste fixé. À pas $h$ fixé, en revanche, $e^{hKL}$ grandit et $(1 - hK)^L$ tend vers 0 quand $L$ grandit : les bornes ne disent plus rien.
 
 ### Le cas linéaire : (1 + λT/L)ᴸ et l'exponentielle
 
 Pour $F(x) = \lambda x$ en dimension 1, chaque pas multiplie par $1 + h\lambda$, et
 $$x_L = (1 + h\lambda)^L\,x_0 = \Big(1 + \frac{\lambda T}{L}\Big)^L x_0 \ \xrightarrow[L \to \infty]{}\ e^{\lambda T}x_0$$
-(M14), la solution exacte de $x' = \lambda x$ au temps $T$. Pour $\lambda = -1$ et $T = 1$ : $0{,}25$ avec $L = 2$ pas, $0{,}3487$ avec $L = 10$, $0{,}3660$ avec $L = 100$, pour la limite $e^{-1} = 0{,}3679$.
+(M14), la solution exacte de $x' = \lambda x$ au temps $T$. Pour $\lambda = -0{,}5$ et $T = 1$ : $0{,}5862$ avec $L = 4$ pas, $0{,}6035$ avec $L = 25$, $0{,}6058$ avec $L = 100$, pour la limite $e^{-0{,}5} = 0{,}6065$.
 
 En dimension $n$, pour $F(\mathbf{x}) = \mathbf{J}\mathbf{x}$ avec $\mathbf{J}$ constante, $\mathbf{x}_L = (\mathbf{I} + \frac{T}{L}\mathbf{J})^L\mathbf{x}_0$. Si $\mathbf{J} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1}$ est diagonalisable, $(\mathbf{I} + \frac TL\mathbf{J})^L = \mathbf{P}\,(\mathbf{I} + \frac TL\mathbf{D})^L\,\mathbf{P}^{-1}$, dont la diagonale du milieu tend vers $\operatorname{diag}(e^{\lambda_1T}, \ldots, e^{\lambda_nT})$ : la limite est l'**exponentielle de matrice** $e^{T\mathbf{J}} = \mathbf{P}\,\operatorname{diag}(e^{\lambda_iT})\,\mathbf{P}^{-1}$ (la limite existe aussi pour une matrice non diagonalisable ; on l'admet). `scipy.linalg.expm` la calcule.
 
@@ -303,9 +305,9 @@ En dimension $n$, pour $F(\mathbf{x}) = \mathbf{J}\mathbf{x}$ avec $\mathbf{J}$ 
 
 ![La rotation x' = Jx sur un demi-tour (T = π) : le cercle exact, et les trajectoires d'Euler en L = 6, 12 et 48 pas, des spirales qui s'écartent de moins en moins du cercle quand L grandit](figures/euler_rotation.png)
 
-⚠️ **Erreur classique.** Multiplier les jacobiennes dans le mauvais ordre : celle du dernier pas est à **gauche**. Les matrices ne commutent pas, sauf quand $\mathbf{J}_F$ est constante. Ou croire que les bornes valent à pas fixé quel que soit le nombre de pas : elles valent à **horizon** $hL$ fixé.
+⚠️ **Erreur classique.** Multiplier les jacobiennes dans le mauvais ordre : celle du dernier pas est à **gauche**. En général, les matrices ne commutent pas (elles commutent, par exemple, quand $\mathbf{J}_F$ est constante). Ou croire que le produit reste borné indépendamment de $L$ à pas fixé : il ne l'est qu'à **horizon** $hL$ fixé.
 
-🔗 **Dans workbookIA** — le chapitre 20 enchaîne des applications de la forme $\mathbf{x} \mapsto \mathbf{x} + F(\mathbf{x})$ ; la jacobienne de chacune est l'identité plus celle de $F$, et cette section borne le produit de telles matrices.
+🔗 **Dans workbookIA** — le chapitre 20 enchaîne des applications de la forme $\mathbf{x} \mapsto \mathbf{x} + F(\mathbf{x})$ ; la jacobienne de chacune est l'identité plus celle de $F$.
 
 ## Les pièges classiques ⚠️ (récapitulatif)
 
@@ -317,7 +319,7 @@ En dimension $n$, pour $F(\mathbf{x}) = \mathbf{J}\mathbf{x}$ avec $\mathbf{J}$ 
 - **L'ordre des produits.** Le résultat ne change pas, le coût si.
 - **Les invariances de la standardisation.** Translation et dilatation de **toute** la série : oui ; changement d'une seule valeur : non.
 - **Sans biais n'est pas exact.** Horvitz-Thompson donne le total en moyenne ; une unité de probabilité nulle n'est jamais vue ; la moyenne naïve est biaisée quand les probabilités sont inégales.
-- **Horizon fixé.** Les bornes $(1 - hK)^L$ et $e^{hKL}$ ne dépendent pas de $L$ quand $hL$ est fixé ; le dernier pas est à gauche du produit.
+- **Horizon fixé.** Les bornes $(1 - hK)^L$ et $e^{hKL}$ restent entre deux constantes $> 0$ quand $hL$ est fixé, pas quand $h$ l'est ; le dernier pas est à gauche du produit.
 
 ## Et maintenant
 
