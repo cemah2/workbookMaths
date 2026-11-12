@@ -212,8 +212,6 @@ for _paper in PAPER:                      # a sub-question without wbm.record op
     _paper.subs = [tuple(sub) + ("",) * (4 - len(sub)) for sub in _paper.subs]
 
 PAPER_CONTEXT = '''# Part 0: the answers are computed exactly (SymPy) from the statements
-import itertools
-
 import sympy
 
 R = sympy.Rational
@@ -264,9 +262,11 @@ EDGES_4 = [(TASKS_4.index(u) + 1, TASKS_4.index(v) + 1) for u, v in [
     ("Peinture", "Montage"), ("Montage", "Contrôle"), ("Montage", "Expédition"), ("Contrôle", "Expédition")]]
 A_4 = adjacency(6, EDGES_4)
 PATHS_4 = sum((A_4 ** k for k in range(1, 6)), sympy.zeros(6, 6))     # A + A² + … + A⁵: the paths of every length
-ORDERS_4 = [p for p in itertools.permutations(range(1, 7)) if all(p.index(i) < p.index(j) for i, j in EDGES_4)]
-assert len(ORDERS_4) == 1                      # the only numbering that makes A strictly upper triangular
-ORDER_4 = ORDERS_4[0]
+ORDER_4 = (2, 5, 4, 1, 6, 3)                   # Commande, Découpe, Peinture, Montage, Contrôle, Expédition
+PERM_4 = sympy.Matrix(6, 6, lambda i, j: int(ORDER_4[i] - 1 == j))     # row i picks the old task ORDER_4[i]
+RENUMBERED_4 = PERM_4 * A_4 * PERM_4.T
+assert all(RENUMBERED_4[i, j] == 0 for i in range(6) for j in range(i + 1))   # strictly upper triangular
+assert A_4 ** 5 != sympy.zeros(6, 6)           # a path through the six tasks: no other numbering works
 
 
 def task(name):
@@ -337,7 +337,7 @@ def tests_cells(keyword: str) -> list:
             ("solution", f'run_pytest_group("tests/test_m16_affine.py", "{keyword}", impl="ref")')]
 
 
-GIVEN_12 = '''W_12 = np.array([[1.0, -1.0],
+GIVEN_12 = '''W_12 = np.array([[1.0, -3.0],
                  [0.0, 2.0]])        # an affine map of the plane, x ↦ x W_12 + B_12 (points in rows)
 B_12 = np.array([3.0, 1.0])
 P_12 = np.array([2.0, -1.0])         # a point of the plane'''
@@ -364,7 +364,7 @@ M16_12 = Ex(
 $$\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \\ \mathbf{b} & 1 \end{pmatrix},$$
 avec $\mathbf{W}$ en haut à gauche, une colonne de $n$ zéros à droite, puis la ligne $\mathbf{b}$ suivie de 1 : elle envoie $[\mathbf{x}, 1]$ sur $[\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$.
 
-Les tests tournent d'abord. La cellule d'usage calcule ensuite, avec ta fonction, la matrice homogène de l'application $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$ de la cellule fournie ($\mathbf{W} = \begin{pmatrix} 1 & -1 \\ 0 & 2 \end{pmatrix}$, $\mathbf{b} = (3, 1)$), puis $[2, -1, 1]\,\mathbf{H}$ :
+Les tests tournent d'abord. La cellule d'usage calcule ensuite, avec ta fonction, la matrice homogène de l'application $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$ de la cellule fournie ($\mathbf{W} = \begin{pmatrix} 1 & -3 \\ 0 & 2 \end{pmatrix}$, $\mathbf{b} = (3, 1)$), puis $[2, -1, 1]\,\mathbf{H}$ :
 - a) l'image du point $(2, -1)$, les deux premières coordonnées de $[2, -1, 1]\,\mathbf{H}$ (vérifiée par `wbm.check`).
 
 Dans ta copie : écris $\mathbf{H}$ à la main et refais a). Pourquoi la dernière coordonnée de $[\mathbf{x}, 1]\,\mathbf{H}$ vaut-elle 1 pour tout $\mathbf{x}$ ? Quelle est la forme de la matrice homogène d'une application de $\mathbb{R}^4$ dans $\mathbb{R}^2$, et que vaut sa dernière colonne ?""",
@@ -377,7 +377,7 @@ Dans ta copie : écris $\mathbf{H}$ à la main et refais a). Pourquoi la derniè
 image_12 = np.append(P_12, 1.0) @ H_12
 print("H =", H_12.tolist())
 print("[x, 1] H =", image_12.tolist(), " ; a)", image_12[:2].tolist())'''),
-        ("record", '''w_12r, b_12r, p_12r = np.array([[1.0, -1.0], [0.0, 2.0]]), np.array([3.0, 1.0]), np.array([2.0, -1.0])
+        ("record", '''w_12r, b_12r, p_12r = np.array([[1.0, -3.0], [0.0, 2.0]]), np.array([3.0, 1.0]), np.array([2.0, -1.0])
 wbm.record("M16.12a", (p_12r @ w_12r + b_12r).tolist(),
            mistakes={"la translation manque : b va sur la dernière LIGNE de H, que le 1 de [x, 1] multiplie":
                          (p_12r @ w_12r).tolist(),
@@ -386,12 +386,12 @@ wbm.record("M16.12a", (p_12r @ w_12r + b_12r).tolist(),
                      "W est rangée dans la mauvaise convention : en lignes, x W, avec W de forme (n, m)":
                          (p_12r @ w_12r.T + b_12r).tolist()})'''),
     ],
-    note=r"$\mathbf{H} = \begin{pmatrix} 1 & -1 & 0 \\ 0 & 2 & 0 \\ 3 & 1 & 1 \end{pmatrix}$, et $[2, -1, 1]\,\mathbf{H} = "
-         r"(2 + 3,\ -2 - 2 + 1,\ 1) = (5, -3, 1)$ : a) $(5, -3)$. La dernière colonne de $\mathbf{H}$, $(0, 0, 1)$, "
+    note=r"$\mathbf{H} = \begin{pmatrix} 1 & -3 & 0 \\ 0 & 2 & 0 \\ 3 & 1 & 1 \end{pmatrix}$, et $[2, -1, 1]\,\mathbf{H} = "
+         r"(2 + 3,\ -6 - 2 + 1,\ 1) = (5, -7, 1)$ : a) $(5, -7)$. La dernière colonne de $\mathbf{H}$, $(0, 0, 1)$, "
          r"lit la dernière coordonnée de $[\mathbf{x}, 1]$ : elle vaut toujours 1. Pour une application de "
          r"$\mathbb{R}^4$ dans $\mathbb{R}^2$, $\mathbf{H}$ a la forme $(5, 3)$, de dernière colonne $(0, 0, 0, 0, 1)$. "
          r"Les deux erreurs de rangement se voient sur un seul point : sans la ligne $\mathbf{b}$, l'image serait "
-         r"$(2, -4)$ ; avec la matrice pour des colonnes, $(3, -2)$, et une dernière coordonnée qui ne vaut plus 1.",
+         r"$(2, -8)$ ; avec la matrice pour des colonnes, $(5, -2)$, et une dernière coordonnée qui ne vaut plus 1.",
 )
 
 GIVEN_13 = '''SIZE_13 = 5                                    # a grid of 5 × 5 crossroads
@@ -522,6 +522,7 @@ EXPERIMENT_15 = '''rng_15 = np.random.default_rng(4931)
 same_15 = np.repeat(rng_15.normal(size=(N_DRAWS_15, 1)), N_15, axis=1)   # case 1: the 25 measures are equal
 independent_15 = rng_15.normal(size=(N_DRAWS_15, N_15))                  # case 2: 25 independent measures
 signs_15 = rng_15.choice([-1.0, 1.0], size=(N_DRAWS_15, N_15))           # independent random signs ±1
+signs_15[:, -1] *= 5                                                     # the last multiplier is ±5
 for case_15, measures_15 in (("cas 1, mesures égales", same_15), ("cas 2, mesures indépendantes", independent_15)):
     plain_15 = float(np.std(measures_15.sum(axis=1)))
     signed_15 = float(np.std((signs_15 * measures_15).sum(axis=1)))
@@ -532,11 +533,11 @@ M16_15 = Ex(
     "simuler",
     "prévoir l'écart-type d'une somme de mesures, corrélées ou non, avec ou sans signes aléatoires, puis le vérifier "
     "par une simulation.", "fiche §6 et §7", tracks="C, E", hypothesis=True, given=GIVEN_15,
-    body=r"""On additionne $n = 25$ mesures $x_1, \ldots, x_{25}$, chacune de loi $\mathcal{N}(0, 1)$, dans deux cas. **Cas 1** : les 25 mesures sont **égales**, $x_i = x$ pour tout $i$, avec $x$ de loi $\mathcal{N}(0, 1)$ (un seul tirage, recopié 25 fois). **Cas 2** : les 25 mesures sont **indépendantes**. On les multiplie aussi par des signes $\varepsilon_i = \pm 1$, chacun avec la probabilité $\frac{1}{2}$, indépendants entre eux et des mesures. Pour chaque question, choisis le numéro de la bonne réponse :
+    body=r"""On additionne $n = 25$ mesures $x_1, \ldots, x_{25}$, chacune de loi $\mathcal{N}(0, 1)$, dans deux cas. **Cas 1** : les 25 mesures sont **égales**, $x_i = x$ pour tout $i$, avec $x$ de loi $\mathcal{N}(0, 1)$ (un seul tirage, recopié 25 fois). **Cas 2** : les 25 mesures sont **indépendantes**. On les multiplie aussi par des multiplicateurs aléatoires : $\varepsilon_1, \ldots, \varepsilon_{24}$ valent $\pm 1$ et $\varepsilon_{25}$ vaut $\pm 5$, chacun prenant ses deux valeurs avec la probabilité $\frac{1}{2}$, indépendamment des autres et des mesures. Pour chaque question, choisis le numéro de la bonne réponse :
 - a) l'écart-type de $\sum_i x_i$ dans le cas 1 : (1) 5 ; (2) 25 ; (3) 625 ;
 - b) l'écart-type de $\sum_i x_i$ dans le cas 2 : (1) 5 ; (2) 25 ; (3) 1 ;
-- c) l'écart-type de $\sum_i \varepsilon_ix_i$ dans le cas 1 : (1) 1 ; (2) 5 ; (3) 25 ;
-- d) l'écart-type de $\sum_i \varepsilon_ix_i$ dans le cas 2 : (1) 1 ; (2) 5 ; (3) 25.
+- c) l'écart-type de $\sum_i \varepsilon_ix_i$ dans le cas 1 : (1) 5 ; (2) 7 ; (3) 29 ;
+- d) l'écart-type de $\sum_i \varepsilon_ix_i$ dans le cas 2 : (1) 5 ; (2) 7 ; (3) 49.
 
 **Avant d'exécuter quoi que ce soit**, écris tes quatre prédictions (le **numéro du choix**), vérifie-les, puis lance l'expérience : 200 000 tirages de chaque cas (graine 4931).""",
     todo='''prediction_M16_15a = ...  # a) 1, 2 or 3, written BEFORE running the experiment below
@@ -556,24 +557,24 @@ wbm.record("M16.15d", 2, prediction=True, choices=[1, 2, 3])''',
                          "⏳ Écris d'abord tes quatre prédictions, puis exécute à nouveau.")),
         ("solution", EXPERIMENT_15),
         ("md", "**Après l'expérience**, dans ta copie : écris la variance de chaque somme, et dis ce qui s'additionne "
-               "(les variances, les écarts-types, les covariances). Pourquoi c) et d) sont-elles égales, alors que a) "
-               "et b) diffèrent tant ? Quelle hypothèse du lemme de la fiche (§6) sert dans le cas 1 ? Que deviendrait "
-               "c) avec **un seul** signe $\\varepsilon$ pour les 25 mesures ? Pour $n$ mesures indépendantes, comment "
+               "(les variances, les écarts-types, les covariances). Que prédit le lemme du §6 (admis) pour c) et d), "
+               "et pourquoi c) et d) sont-elles égales, alors que a) et b) diffèrent tant ? Que deviendrait c) avec "
+               "**un seul** signe $\\varepsilon = \\pm 1$ pour les 25 mesures ? Pour $n$ mesures indépendantes, comment "
                "l'écart-type de la somme et celui de la moyenne varient-ils avec $n$ ?"),
     ],
     note=r"a) Dans le cas 1, $\sum_i x_i = 25x$ : variance $25^2 = 625$, écart-type 25 (choix 2) ; les 625 "
          r"covariances, toutes égales à 1, s'additionnent. b) Dans le cas 2, les covariances sont nulles : variance 25, "
-         r"écart-type 5 (choix 1). c) et d) Les signes, centrés et indépendants de tout, rendent les produits "
-         r"$\varepsilon_ix_i$ décorrélés, même dans le cas 1 : $\mathbb{V}\big(\sum_i\varepsilon_ix_i\big) = "
-         r"\sum_i\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2] = 25$ dans les deux cas, écart-type 5 (choix 2). La "
-         r"simulation donne $\approx 25$, $5$, $5$ et $5$. Avec un seul signe $\varepsilon$ pour les 25 mesures, "
+         r"écart-type 5 (choix 1). c) et d) Le lemme du §6 (admis) s'applique dans les deux cas : "
+         r"$\mathbb{V}\big(\sum_i\varepsilon_ix_i\big) = \sum_i\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2] = 24 \times 1 + "
+         r"25 \times 1 = 49$, écart-type 7 (choix 2), que les mesures soient égales ou indépendantes ; 29 additionne "
+         r"les amplitudes, 49 est la variance. La simulation donne $\approx 25$, $5$, $7$ et $7$. Avec un seul signe $\varepsilon$ pour les 25 mesures, "
          r"$\varepsilon\sum_ix_i$ a la variance de $\sum_ix_i$ ($\varepsilon^2 = 1$) : on retrouverait 25 dans le cas "
          r"1. Pour $n$ termes décorrélés, l'écart-type de la somme croît comme $\sqrt{n}$, celui de la moyenne décroît "
          r"comme $\frac{1}{\sqrt{n}}$ ; pour des termes parfaitement corrélés, il croît comme $n$.",
 )
 
 GIVEN_16 = '''GAINS_16 = (0.6, 1.0, 1.1)              # the gain g of each chain
-N_STAGES_16, N_CHAINS_16 = 40, 20000      # 40 stages, 20 000 chains simulated for each gain'''
+N_STAGES_16, N_CHAINS_16 = 40, 25000      # 40 stages, 25 000 chains simulated for each gain'''
 
 FIGURE_16 = '''fig, axes = plt.subplots(1, len(GAINS_16), figsize=(12.0, 3.4))
 try:
@@ -612,9 +613,9 @@ Calcule ensuite, avec tes fonctions ou à la main :
 - b) $v_{40}$ pour $g = 1$ (un nombre) ;
 - c) $v_{40}$ pour $g = 1{,}1$ (1 décimale) ;
 - d) le premier étage $k$ où $v_k$, pour $g = 0{,}6$, est à moins de 1 % de sa limite (un entier) ;
-- e) vrai ou faux : pour $g = 0{,}6$, la variance empirique (`np.var`) de $Z_{40}$ sur 20 000 chaînes simulées avec un générateur de graine 4932 est à moins de 0,05 de la limite de a).
+- e) vrai ou faux : pour $g = 0{,}6$, la variance empirique (`np.var`) de $Z_{40}$ sur 25 000 chaînes simulées avec un générateur de graine 4932 est à moins de 0,05 de la limite de a).
 
-Une cellule trace ensuite, pour chacun des trois gains $g = 0{,}6$, 1 et 1,1, trente chaînes simulées et l'enveloppe $\pm 2\sqrt{v_k}$ donnée par ta récurrence, et affiche la part des 20 000 chaînes simulées qui sont dans l'enveloppe à l'étage 40.
+Une cellule trace ensuite, pour chacun des trois gains $g = 0{,}6$, 1 et 1,1, trente chaînes simulées et l'enveloppe $\pm 2\sqrt{v_k}$ donnée par ta récurrence, et affiche la part des 25 000 chaînes simulées qui sont dans l'enveloppe à l'étage 40.
 
 Dans ta copie : résous $v = g^2v + 1$ pour retrouver a), et écris $v_k$ en fonction de $k$ pour $g = 0{,}6$ (R5 : une suite arithmético-géométrique). Pourquoi l'écart relatif à la limite est-il multiplié par $g^2$ à chaque étage, et que donne d) ? Que valent $v_k$ pour $g = 1$ et pour $g = 1{,}1$ ? Pour $g = 1{,}1$, de quel facteur l'enveloppe s'élargit-elle à chaque étage, au bout de quelques étages ? Pourquoi environ 95 % des chaînes restent-elles dans l'enveloppe (quelle est la loi de $Z_k$) ? Pour quels gains la variance reste-t-elle bornée ?""",
     todo='''def simulate_chain(g, n_stages, n_chains, rng):
@@ -729,7 +730,7 @@ wbm.record("M16.16e", True,
          r"étage. $Z_k$ est une somme de bruits normaux indépendants, donc normale : environ 95 % des chaînes "
          r"($P(\lvert Z \rvert \le 2\sigma) \approx 0{,}954$) restent dans l'enveloppe. e) La variance empirique de $Z_{40}$ "
          r"s'écarte de la limite de quelques centièmes au plus : l'écart-type relatif d'une variance empirique sur "
-         r"20 000 tirages est $\sqrt{2/20\,000} = 1\,\%$, soit $\approx 0{,}016$. La variance reste bornée si et "
+         r"25 000 tirages est $\sqrt{2/25\,000} \approx 0{,}9\,\%$, soit $\approx 0{,}014$. La variance reste bornée si et "
          r"seulement si $\lvert g \rvert < 1$ ; pour $\lvert g \rvert \ge 1$, elle grandit sans limite, linéairement "
          r"pour $\lvert g \rvert = 1$, géométriquement au-delà.",
 )
@@ -1084,8 +1085,8 @@ def paths_count_fixed(A, s, t):
 
 ''' + CHECK_18),
         ("md", "**Après la vérification**, dans ta copie : pour chaque fonction de la collègue, que calcule-t-elle "
-               "exactement, et pourquoi ne lève-t-elle aucune erreur sur les données de la cellule ? Pour quelles "
-               "applications `apply_affine` donnerait-elle la bonne image, et pour quelles autres planterait-elle ? "
+               "exactement, et quelle formule de la fiche aurait-il fallu suivre ? Pour quels "
+               "vecteurs $\\mathbf{b}$ `apply_affine` donnerait-elle la bonne image ? "
                "Pour quelles moyennes `product_variance` a-t-elle raison ? Combien de chemins vont de 0 à 3 dans "
                "`CYCLE_18`, et que penser du nombre trouvé en c) ?"),
     ],
@@ -1094,9 +1095,9 @@ def paths_count_fixed(A, s, t):
          r"\end{pmatrix}$ et $[1, 2, 1]\,\mathbf{H} = (2,\ 1 + 6,\ -1 + 8 + 1) = (2, 7, 8)$. Elle rend $(2, 7) = "
          r"\mathbf{x}\mathbf{W}$ au lieu de $(2 - 1, 7 + 4) = (1, 11)$ : la translation a disparu, et b) la dernière "
          r"coordonnée vaut $\mathbf{x} \cdot \mathbf{b} + 1 = 8$ au lieu de 1 (le 1 de $[\mathbf{x}, 1]$ ne rencontre "
-         r"jamais $\mathbf{b}$). La fonction ne marche que pour $n = m$ (sinon la colonne $\mathbf{b}$ n'a pas la bonne "
-         r"longueur, et l'affectation plante), et elle n'est juste que si $\mathbf{b} = \mathbf{0}$. `product_variance` "
-         r"n'a raison que si les deux moyennes sont nulles (ou si une variance l'est). c) $\mathbf{I} - \mathbf{A}$ est "
+         r"jamais $\mathbf{b}$). Elle n'est juste que si $\mathbf{b} = \mathbf{0}$, quand il n'y a pas de translation. "
+         r"`product_variance` n'a raison que si $\mathbb{V}(X)\,\mathbb{E}[Y]^2 = 0$ et $\mathbb{V}(Y)\,\mathbb{E}[X]^2 = "
+         r"0$, par exemple si les deux moyennes sont nulles. c) $\mathbf{I} - \mathbf{A}$ est "
          r"inversible pour `CYCLE_18`, et le coefficient $(0, 3)$ de son inverse vaut $-2$ : un « nombre de chemins » "
          r"négatif. Les chemins de 0 à 3 sont en nombre infini (on peut tourner sur $0 \to 3 \to 1 \to 0$ ou $0 \to 2 "
          r"\to 3 \to 1 \to 0$), et $\mathbf{I} + \mathbf{A} + \mathbf{A}^2 + \cdots$ diverge : l'égalité avec $(\mathbf{I} - "

@@ -208,7 +208,7 @@
 
 ### Ex M16.15 — Prédire l'écart-type d'une somme de produits aléatoires, mesures corrélées ou non, puis simuler
 
-- tes quatre prédictions avant la simulation, et celles qui t'ont surpris ; pourquoi les signes effacent la corrélation des mesures :
+- tes quatre prédictions avant la simulation, et celles qui t'ont surpris ; ce que prédit le lemme du §6 pour c) et d) :
 
 ### Ex M16.16 — Une variance multipliée d'étage en étage : simuler une chaîne d'amplificateurs bruités
 
@@ -220,7 +220,7 @@
 
 ### Ex M16.18 — Chasse à l'erreur : une matrice homogène écrite pour des colonnes et appliquée à des lignes, Var(XY) = Var X · Var Y, et (I − A)⁻¹ sur un graphe qui a un cycle
 
-- après la vérification : ce que calcule chaque ligne fausse, et sa correction ; les entrées sur lesquelles l'erreur ne se voit pas :
+- après la vérification : ce que calcule chaque fonction de la collègue, et sa correction ; les b pour lesquels apply_affine a raison, les moyennes pour lesquelles product_variance a raison, le nombre trouvé en c) :
 
 ### Ex M16.19 — Un test de propriété : la matrice homogène d'une composée est le produit des matrices homogènes
 

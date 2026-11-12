@@ -442,7 +442,7 @@ Des mesures égales : la somme vaut 25 fois une mesure. Des mesures indépendant
 </details>
 <details><summary>Indice 3</summary>
 
-Avec des signes indépendants, seuls les $\mathbb{E}[x_i^2]$ comptent, que les mesures soient corrélées ou non.
+Avec des multiplicateurs centrés et indépendants, la fiche §6 donne $\sum_i\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$, que les mesures soient corrélées ou non ; $\mathbb{V}(\pm 5) = 25$.
 
 </details>
 

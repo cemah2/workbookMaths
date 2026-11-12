@@ -60887,15 +60887,15 @@
       "decimals": 0,
       "element_hashes": [
         "a94750e86bdb523670765a7ba3ffd3af8f9c936512731c8c0f57d3bb2a8ba70d",
-        "2976bd7a1642f7395126045efdc4a41cb284ae0de9101962af09da35c8462e9f"
+        "15cb90b61357c4a85c11b5494e660b4cabe2342f6ddfccdc3cb6c483f6df4267"
       ],
-      "hash": "422fb16794de1389861d7aafd09976987b93032ed81a215ead8d7727dc01e27c",
+      "hash": "82d57ea2b0a722a25d9000d7e28ee0e671884dec55b8df4c08af7f49382f7afa",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "1b2f2bc310b35943ec4ebd437620dbddf6569996cfd7ff949970c37dfb54e7bd": "c'est la matrice pour des colonnes : avec des lignes, W en haut à gauche, b sur la dernière ligne, et la dernière colonne (0, …, 0, 1)",
-        "9b9ea7ca5db4f9f401abce10fbfe1a97dedd3143f0415ff26a3f8c647c738df2": "W est rangée dans la mauvaise convention : en lignes, x W, avec W de forme (n, m)",
-        "c85a9bf94b9273f800ce67a6c67bb3140afe300bf600cbb18503bdffdc7c2d90": "la translation manque : b va sur la dernière LIGNE de H, que le 1 de [x, 1] multiplie"
+        "79890bb60d018184a0bc191095eedb482d2c80e7e505b6db8285e8b3dbca7b5a": "la translation manque : b va sur la dernière LIGNE de H, que le 1 de [x, 1] multiplie",
+        "bdbeeb4c06b4269faf0f7f1e77f3b7ed8e50aa3fafc4600f1529ce3d4230e1c0": "c'est la matrice pour des colonnes : avec des lignes, W en haut à gauche, b sur la dernière ligne, et la dernière colonne (0, …, 0, 1)",
+        "f19e701b2c42e24b8a6d028bc55619ca6fb24c6e15cc648710db73234007f102": "W est rangée dans la mauvaise convention : en lignes, x W, avec W de forme (n, m)"
       },
       "shape": [
         2
