@@ -194,6 +194,10 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\rho(\mathbf{M})$ | « rhô de M », « rayon spectral de M » | spectral radius | $\max_i\lvert\lambda_i\rvert$ ; pour $\mathbf{M}$ symétrique, $\lVert\mathbf{M}^k\mathbf{e}\rVert \le \rho^k\lVert\mathbf{e}\rVert$ | valeurs propres $0{,}5$ et $-0{,}9$ : $\rho = 0{,}9$ | M19 |
 | $\omega$, $\omega_c$, $\omega^\star$ | « oméga », « oméga c », « oméga étoile » | step size | le pas de Richardson, le pas critique $2/\lambda_{\max}$, le meilleur pas $\frac{2}{\lambda_{\min} + \lambda_{\max}}$ | valeurs propres 1 et 6 : $\omega_c = \frac13$, $\omega^\star = \frac27$ | M19 |
 | $P_C(\mathbf{x})$ | « projection de x sur C » | projection onto C | le point de $C$ le plus proche de $\mathbf{x}$ | boule de rayon $r$ : $\mathbf{x}\min(1, r/\lVert\mathbf{x}\rVert)$ | M19 |
+| $\mathbf{1}$ | « le vecteur un », « vecteur de uns » | vector of ones | le vecteur dont toutes les coordonnées valent 1 ; $\mathbf{1}^\top\mathbf{x} = \sum_i x_i$ | $\bar x = \frac1m\mathbf{1}^\top\mathbf{x}$ | M16, M20 |
+| $\mathbf{C} = \mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top$ | « C », « matrice de centrage » | centering matrix | la projection orthogonale sur les vecteurs de somme nulle : $\mathbf{C}\mathbf{x} = \mathbf{x} - \bar x\mathbf{1}$ | $\operatorname{tr}\mathbf{C} = m - 1$ | M20 |
+| $A_{ij}B_{jk}$ (Einstein) | « A i j B j k », « somme sur j » | Einstein summation | un indice répété est sommé ; `np.einsum("ij,jk->ik", A, B)` | $u_iv_i = \mathbf{u}^\top\mathbf{v}$, $A_{ii} = \operatorname{tr}\mathbf{A}$ | M20 |
+| $e^{T\mathbf{J}}$ | « exponentielle de T J » | matrix exponential | $\lim_{L}(\mathbf{I} + \frac TL\mathbf{J})^L$ ; la solution de $\mathbf{x}' = \mathbf{J}\mathbf{x}$ au temps $T$ | $\mathbf{J} = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ : la rotation d'angle $T$ | M20 |
 
 ## Probabilités et statistique
 
@@ -265,6 +269,8 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $c_X$ | « c de X », « coefficient de variation de X » | coefficient of variation | l'écart-type relatif $\frac{\sigma_X}{\lvert\mathbb{E}[X]\rvert}$ | $1 + c_{XY}^2 = (1 + c_X^2)(1 + c_Y^2)$ pour $X$, $Y$ indépendantes | M16 |
 | $\varepsilon_i$ (signe aléatoire) | « epsilon i » | random sign, Rademacher variable | $\pm 1$ avec la probabilité $\frac12$ chacun, ou un multiplicateur centré ; indépendants entre eux et des $x_i$ : $\mathbb{V}\big(\sum_i\varepsilon_ix_i\big) = \sum_i\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$ | $\mathbb{V}(\varepsilon x) = \mathbb{E}[x^2]$ | M16 |
 | $\frac{e^{-E_i/T}}{Z}$, $Z$ | « e puissance moins E i sur T, sur Z », « Z » | Boltzmann distribution, partition function | la population du niveau d'énergie $E_i$ à la température $T$, et la constante de normalisation $Z = \sum_je^{-E_j/T}$ | niveaux 0 et 1 à $T = 1$ : $\frac{p_2}{p_1} = e^{-1}$ | M17 |
+| $\pi_i$, $1/\pi_i$ | « pi i », « un sur pi i » | inclusion probability, design weight | la probabilité que l'unité $i$ entre dans l'échantillon, et son poids de sondage (pas le nombre 3,14…) | $\pi_i = 0{,}05$ : l'unité représente 20 unités | M20 |
+| $\hat Y$, $I_i$, $S$ | « Y chapeau », « I i », « S » | Horvitz-Thompson estimate, sample indicator, sample | $\hat Y = \sum_{i \in S}y_i/\pi_i = \sum_i I_iy_i/\pi_i$, $I_i = 1$ si l'unité $i$ est dans l'échantillon $S$ | $\mathbb{E}[\hat Y] = \sum_i y_i$ | M20 |
 
 ## Les lettres grecques
 
@@ -279,7 +285,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\theta$ | $\Theta$ | thêta | les paramètres d'un modèle |
 | $\lambda$ | $\Lambda$ | lambda | une valeur propre, une régularisation, un multiplicateur de Lagrange |
 | $\mu$ | | mu | une moyenne, une espérance ; le multiplicateur d'une contrainte d'inégalité |
-| $\pi$ | $\Pi$ | pi | 3,14… ; une politique en RL ; $\Pi$ : un produit |
+| $\pi$ | $\Pi$ | pi | 3,14… ; une politique en RL ; une probabilité d'inclusion $\pi_i$ (M20) ; $\Pi$ : un produit |
 | $\rho$ | | rhô | une corrélation, le rayon spectral, la marge d'une SVM |
 | $\sigma$ | $\Sigma$ | sigma | un écart-type, la sigmoïde ; $\Sigma$ : une somme ou une matrice de covariance |
 | $\phi$ ou $\varphi$ | $\Phi$ | phi | une transformation des features ; $\Phi$ : la fonction de répartition de la loi normale |

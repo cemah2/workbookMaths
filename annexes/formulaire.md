@@ -555,7 +555,17 @@ R0 (prise en main) n'a pas de formule : les priorités de Python (`**` avant le 
 | gradient estimé | $\mathbf{g} = \frac1B\sum_j\nabla f_{K_j}$, $K_j$ uniformes indépendants : $\mathbb{E}[\mathbf{g}] = \nabla F$, $\mathbb{E}\lVert\mathbf{g} - \nabla F\rVert^2 = \frac{\sigma^2}{B}$, $\sigma^2 = \frac1N\sum_k\lVert\nabla f_k - \nabla F\rVert^2$ ; sans remise : $\times\frac{N - B}{N - 1}$ |
 | projections | boule : $\mathbf{x}\min(1, r/\lVert\mathbf{x}\rVert)$, à la distance $\lVert\mathbf{x}\rVert - r$ ; pavé : $\min(\max(x_i, l_i), u_i)$ ; $[-c, c]^n$ garde la direction de $\mathbf{x}$ (hors du pavé) $\iff$ ses coordonnées non nulles ont la même valeur absolue |
 
-*(M20 ajouté avec son chapitre)*
+### M20 · Tenseurs, axes et estimateurs pondérés
+
+| Notion | Formules |
+|---|---|
+| tableaux | forme $(n_0, \ldots, n_{k-1})$, $n_0 n_1 \cdots n_{k-1}$ éléments ; ordre C : $(i_0, i_1, i_2) \mapsto (i_0n_1 + i_1)n_2 + i_2$ ; `reshape` garde la file, `transpose` change l'ordre des axes |
+| réductions et diffusion | `x.mean(axis=a)` : l'axe $a$ disparaît ; `keepdims=True` : il reste, de longueur 1 ; diffusion : formes alignées à droite, longueurs égales ou 1 ; $N$ = produit des longueurs réduites, variance $\frac{1}{N - \text{ddof}}\sum(x - \bar x)^2$ ; groupes de même taille (ddof = 0) : variance totale = moyenne des variances + variance des moyennes |
+| Einstein, `einsum` | $C_{ik} = A_{ij}B_{jk}$ ; `"i,i->"`, `"i,j->ij"`, `"ij,j->i"`, `"ij,jk->ik"`, `"ij,kj->ik"`, `"sij,sjk->sik"`, `"ii->"` ; coût : le produit des longueurs de toutes les lettres ; $(\mathbf{A}\mathbf{B})\mathbf{C}$ pour $(m, n), (n, p), (p, q)$ : $mnp + mpq$ |
+| centrage | $\mathbf{C} = \mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top = \mathbf{C}^\top = \mathbf{C}^2$, $\mathbf{C}\mathbf{1} = \mathbf{0}$ : projection orthogonale sur $\{\sum_i v_i = 0\}$ ; $\operatorname{tr}\mathbf{C} = m - 1$ ; $\sum_i x_i^2 = m\bar x^2 + \sum_i(x_i - \bar x)^2$ ; $\mathbb{E}\big[\sum_i(x_i - \bar x)^2\big] = (m - 1)\sigma^2$ ; colonnes : $\mathbf{C}_m\mathbf{X}$, lignes : $\mathbf{X}\mathbf{C}_n$ |
+| standardisation | $\mathbf{z} = (\mathbf{x} - \bar x\mathbf{1})/s$ ; $\mathbf{z}(a\mathbf{x} + b\mathbf{1}) = \frac{a}{\lvert a\rvert}\mathbf{z}(\mathbf{x})$ pour $a \ne 0$ |
+| Horvitz-Thompson | $\hat Y = \sum_{i \in S}\frac{y_i}{\pi_i}$, $\mathbb{E}[\hat Y] = Y$ (tous $\pi_i > 0$) ; tirages indépendants : $\operatorname{Var}(\hat Y) = \sum_i y_i^2\frac{1 - \pi_i}{\pi_i}$, estimée sans biais par $\sum_{i \in S}y_i^2\frac{1 - \pi_i}{\pi_i^2}$ ; $\mathbb{E}[n] = \sum_i\pi_i$ ; à $\sum_i\pi_i$ fixé, $\sum_i y_i^2/\pi_i$ est minimal pour $\pi_i \propto y_i$ |
+| Euler et $\mathbf{I} + h\mathbf{J}$ | $\Phi_h(\mathbf{x}) = \mathbf{x} + hF(\mathbf{x})$, $\mathbf{J}_{\Phi_h} = \mathbf{I} + h\mathbf{J}_F$, valeurs singulières dans $[1 - h\lVert\mathbf{J}_F\rVert, 1 + h\lVert\mathbf{J}_F\rVert]$ ; $L$ pas : le produit, le dernier à gauche, $(1 - hK)^L \le \sigma_{\min} \le \sigma_{\max} \le e^{hKL}$ ; $(1 + \frac{\lambda T}{L})^L \to e^{\lambda T}$, $(\mathbf{I} + \frac TL\mathbf{J})^L \to e^{T\mathbf{J}}$ |
 
 ## Partie V · Architectures
 

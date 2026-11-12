@@ -35,6 +35,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | asymptote | asymptote | droite dont la courbe se rapproche indéfiniment : horizontale ($y = L$) ou verticale ($x = a$) | R7 |
 | AUC (aire sous la courbe ROC) | area under the curve | $\int_0^1 \text{TPR}\,d(\text{FPR})$ : 1/2 pour le hasard, 1 pour un classement parfait | M02a, M03 |
 | average precision | average precision (AP) | $\sum_j (R_j - R_{j-1})\,P_j$ : l'aire, en rectangles, sous la courbe precision-recall | M03 |
+| axe (d'un tableau) | axis | une direction d'indexation d'un tableau à $k$ dimensions, numérotée à partir de 0 ; l'axe $a$ a la longueur $n_a$ ; réduire le long d'un axe le fait disparaître | M20 |
 | axe principal, composante principale | principal axis, principal component | un vecteur propre unitaire de la matrice de covariance d'un nuage, rangé par valeur propre décroissante : la direction de plus grande variance, puis la plus grande orthogonalement aux précédentes ; « composante principale » désigne selon les auteurs l'axe ou les coordonnées sur l'axe | M12d |
 | balanced accuracy | balanced accuracy | la moyenne des recalls des classes ; 0,5 pour un modèle qui prédit toujours la même classe | M03 |
 | bandit manchot | multi-armed bandit | choisir pas à pas entre $K$ options (des bras) de récompenses moyennes inconnues, pour en accumuler le plus possible : le compromis entre exploration et exploitation | M11 |
@@ -60,7 +61,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | borne, intervalle | bound, interval | ensemble des réels compris entre deux bornes, incluses (crochet fermé) ou non (crochet ouvert) ; une borne peut être infinie | R2 |
 | boule unité | unit ball | les vecteurs de norme au plus 1 ; dans le plan, un losange pour L1, un disque pour L2, un carré pour L∞ ; toujours convexe | M07 |
 | bras | arm | une option d'un problème de bandit : chaque choix donne une récompense aléatoire, de moyenne inconnue | M11 |
-| broadcasting | broadcasting | NumPy répète un tableau le long des axes qui lui manquent : `X - X.mean(axis=0)` retire le vecteur des moyennes à chaque ligne | M09a |
+| broadcasting | broadcasting | NumPy répète un tableau le long des axes qui lui manquent : `X - X.mean(axis=0)` retire le vecteur des moyennes à chaque ligne ; la règle : aligner les formes à droite, longueurs égales ou 1 ; piège : $(n,)$ moins $(n, 1)$ donne $(n, n)$ (M20) | M09a, M20 |
 | calcul symbolique | symbolic computation | calcul exact sur des expressions avec des lettres (SymPy), sans valeurs approchées | R0 |
 | calibration | calibration | un modèle est calibré si $P(Y = 1 \mid \text{score} = p) = p$ : ses probabilités sont honnêtes | M03 |
 | cardinal | cardinality | le nombre d'éléments d'un ensemble fini, noté $\lvert A \rvert$ | R4 |
@@ -104,6 +105,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | conjugué (d'un nombre complexe) | complex conjugate | $\overline{a + ib} = a - ib$ ; $z\bar z = \lvert z\rvert^2$ ; les racines non réelles d'un trinôme réel sont conjuguées | M19 |
 | conservateur (test) | conservative test | un test dont le risque de type I réel est plus petit que le seuil annoncé, comme un test à statistique discrète | M08 |
 | continuité | continuity | $f$ est continue en $a$ si $\lim_{x \to a} f(x) = f(a)$ : pas de saut | R7 |
+| contraction (d'indices) | contraction | sommer un produit de tableaux sur des indices communs : $A_{ij}B_{jk}$ (somme sur $j$) ; calculée par des boucles, elle coûte le produit des longueurs de toutes les lettres | M20 |
 | contrainte active, inactive | active, inactive constraint | une contrainte d'inégalité atteinte avec égalité à la solution ($g(\mathbf{x}^*) = 0$), ou non ($g(\mathbf{x}^*) < 0$, et son multiplicateur est nul) | M13b |
 | contraposée | contrapositive | $\text{non } Q \Rightarrow \text{non } P$, de même valeur que $P \Rightarrow Q$ | R4 |
 | contre-exemple | counterexample | un cas qui rend fausse une phrase « pour tout » | R4 |
@@ -144,7 +146,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | défective (matrice) | defective matrix | une matrice $n \times n$ qui a moins de $n$ vecteurs propres libres : une valeur propre a une multiplicité géométrique inférieure à sa multiplicité algébrique ; elle n'est pas diagonalisable (le cisaillement $\begin{pmatrix} 3 & 1 \\ 0 & 3 \end{pmatrix}$) | M12c |
 | déflation | deflation | remplacer $\mathbf{A}$ symétrique par $\mathbf{A} - \lambda_1\mathbf{q}_1\mathbf{q}_1^\top$, qui a les mêmes valeurs propres sauf $\lambda_1$, remplacée par 0, pour trouver la suivante par la méthode de la puissance | M12c |
 | degré entrant, degré sortant | in-degree, out-degree | le nombre d'arêtes qui arrivent en un nœud, qui en partent : la somme d'une colonne, d'une ligne de la matrice d'adjacence ; dans un réseau de calculs, on dit *fan-in* et *fan-out* | M16 |
-| degrés de liberté | degrees of freedom | le nombre de valeurs libres : les $n$ écarts à la moyenne ont une somme nulle, donc $n - 1$ degrés de liberté | M02c |
+| degrés de liberté | degrees of freedom | le nombre de valeurs libres : les $n$ écarts à la moyenne ont une somme nulle, donc $n - 1$ degrés de liberté ; le vecteur centré vit dans un espace de dimension $n - 1$, la trace de la matrice de centrage (M20) | M02c, M20 |
 | demi-espace | half-space | l'un des deux côtés d'un hyperplan : les $\mathbf{x}$ tels que $\mathbf{w} \cdot \mathbf{x} + b > 0$ (ou $< 0$) | M07 |
 | démonstration par l'absurde | proof by contradiction | supposer la conclusion fausse et aboutir à une contradiction | R4 |
 | dénombrement | counting | l'art de compter des possibilités sans les lister : principe multiplicatif, factorielles, combinaisons | R8 |
@@ -192,6 +194,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | effectif attendu | expected count | l'effectif d'une case d'un tableau de contingence si les variables étaient indépendantes : $\frac{\text{total de la ligne} \times \text{total de la colonne}}{\text{total}}$ | M03 |
 | effet de masque | masking effect | une valeur aberrante gonfle l'écart-type et cache ainsi son propre z-score | M02c |
 | égalité des taux d'erreur | equalized odds | critère d'équité : le même recall et le même taux de faux positifs dans chaque groupe | M03 |
+| Einstein (convention d') | Einstein summation convention | un indice répété dans un produit est sommé : $C_{ik} = A_{ij}B_{jk}$ ; les indices du résultat sont **libres**, les indices sommés **muets** | M20 |
+| einsum | einsum (Einstein summation) | `np.einsum("ij,jk->ik", A, B)` : une lettre par axe, les lettres du résultat après `->` ; celles qui en sont absentes sont sommées | M20 |
 | embedding (table d') | embedding (table) | une matrice d'une ligne par mot (ou par catégorie) : l'embedding du mot $k$ est la ligne $k$, le produit de son vecteur one-hot par la table | M09a |
 | empreinte | hash | code calculé à partir d'une donnée, d'où l'on ne peut pas la retrouver ; sert à comparer sans stocker | R0 |
 | ensemble | set | collection d'éléments distincts | R4 |
@@ -225,15 +229,18 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | espace vectoriel | vector space | un ensemble où l'on additionne des vecteurs et où on les multiplie par des réels, avec les règles de calcul habituelles : $\mathbb{R}^n$, les polynômes, les matrices d'une forme donnée | M12a |
 | espérance | expected value, expectation | moyenne théorique d'une variable aléatoire | R8 |
 | estimateur | estimator | formule qui estime un paramètre à partir de données | M02c |
+| estimateur de Horvitz-Thompson | Horvitz-Thompson estimator | $\hat Y = \sum_{i \in S} y_i/\pi_i$ : chaque valeur tirée divisée par sa probabilité d'inclusion ; sans biais pour le total si tous les $\pi_i > 0$ ; variance $\sum_i y_i^2\frac{1 - \pi_i}{\pi_i}$ pour des tirages indépendants | M20 |
 | estimateur plug-in (de l'entropie) | plug-in estimator | l'entropie des fréquences observées ; elle sous-estime l'entropie, surtout sur de petits échantillons (correction de Miller-Madow : $+\frac{k - 1}{2n\ln 2}$ bit) | M06 |
 | estimation (valeur) | estimate | la valeur d'un estimateur calculée sur les données observées | M02c |
 | estimation de Fermi | Fermi estimate | ordre de grandeur obtenu en découpant une question en facteurs faciles à estimer | R1 |
+| Euler (méthode d') | explicit Euler method | $\mathbf{x}_{k+1} = \mathbf{x}_k + h\,F(\mathbf{x}_k)$ pour suivre $\mathbf{x}' = F(\mathbf{x})$ par pas de durée $h$ ; la jacobienne d'un pas est $\mathbf{I} + h\mathbf{J}_F$ | M20 |
 | événement | event | partie de l'univers : les issues pour lesquelles une phrase est vraie | R8 |
 | événements incompatibles | mutually exclusive events, disjoint events | événements sans issue commune : $A \cap B = \varnothing$ | R8 |
 | événements indépendants | independent events | $P(A \cap B) = P(A)\,P(B)$ : savoir que l'un s'est réalisé ne change pas la probabilité de l'autre | R8 |
 | évidence (vraisemblance marginale) | evidence, marginal likelihood | $P(O) = \sum_j P(O \mid H_j)\,P(H_j)$ : le dénominateur de la formule de Bayes | M04, M08 |
 | experts (prédiction avec des) | prediction with expert advice | à chaque tour, $K$ experts donnent un avis ; on les combine, puis on voit la loss de **chacun** ; on mesure le regret contre le meilleur expert, sans rien supposer sur l'origine des losses | M14 |
 | exponentielle (fonction) | exponential function | $x \mapsto a^x$ ($a > 0$) ; la fonction exponentielle est $\exp(x) = e^x$ | R6 |
+| exponentielle de matrice | matrix exponential | $e^{T\mathbf{J}} = \lim_{L \to \infty}(\mathbf{I} + \frac TL\mathbf{J})^L$ ; pour $\mathbf{J} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1}$, $\mathbf{P}\operatorname{diag}(e^{T\lambda_i})\mathbf{P}^{-1}$ ; la solution de $\mathbf{x}' = \mathbf{J}\mathbf{x}$ au temps $T$ (`scipy.linalg.expm`) | M20 |
 | exposant | exponent | le nombre $n$ de $a^n$ ; en notation scientifique, la puissance de 10 | R1 |
 | expression littérale, variable | algebraic expression, variable | expression où des lettres, les variables, représentent des nombres | R2 |
 | extrapolation de Richardson | Richardson extrapolation | combiner deux approximations de pas $h$ et $\frac{h}{2}$ pour annuler le premier terme d'erreur : $\frac{4D(h/2) - D(h)}{3}$ | M05a |
@@ -263,6 +270,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | fonction duale | dual function | $D(\boldsymbol{\mu}, \boldsymbol{\lambda}) = \inf_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}, \boldsymbol{\lambda})$ pour $\boldsymbol{\mu} \ge \mathbf{0}$ : toujours concave, elle minore le minimum du problème | M13b |
 | fonction quantile | quantile function | la réciproque $F^{-1}$ de la fonction de répartition : $F^{-1}(u) = q_u$ | M02a, M02b |
 | fonction signe | sign function | $\operatorname{sign}(x)$ vaut $-1$, 0 ou 1 selon que $x$ est négatif, nul ou positif | R2 |
+| forme (d'un tableau) | shape | le $k$-uplet $(n_0, \ldots, n_{k-1})$ des longueurs des axes (`x.shape`) ; le tableau a $n_0 n_1 \cdots n_{k-1}$ éléments | M20 |
 | forme canonique | vertex form, completed-square form | $a(x - \alpha)^2 + \beta$, qui montre le sommet d'une parabole | R3 |
 | forme canonique (d'un séparateur) | canonical form | un séparateur dont la plus petite marge fonctionnelle vaut 1 ; sa marge géométrique est alors $\frac{1}{\lVert \mathbf{w} \rVert}$ | M10 |
 | forme d'une matrice | shape | le couple (nombre de lignes, nombre de colonnes), lignes d'abord : $(n, p)$ pour un dataset de $n$ exemples à $p$ features | M09a |
@@ -402,6 +410,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | matrice compagnon | companion matrix | $\begin{pmatrix} p & -q \\ 1 & 0 \end{pmatrix}$ pour $u_{k+2} = p\,u_{k+1} - q\,u_k$ : elle fait passer de $(u_{k+1}, u_k)$ à $(u_{k+2}, u_{k+1})$, et son polynôme caractéristique est celui de la récurrence | M19 |
 | matrice d'adjacence | adjacency matrix | $A_{ij} = 1$ s'il y a une arête $i \to j$, 0 sinon (ou le poids de l'arête) ; ses puissances comptent les chemins | M16 |
 | matrice d'une application linéaire | transformation matrix | la matrice dont la colonne $j$ contient les coordonnées de $f(\mathbf{b}_j)$ dans la base de l'arrivée ; dans les bases canoniques, $f(\mathbf{e}_j)$ | M12a |
+| matrice de centrage | centering matrix | $\mathbf{C} = \mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top$, $\mathbf{C}\mathbf{x} = \mathbf{x} - \bar x\mathbf{1}$ : la projection orthogonale sur les vecteurs de somme nulle ; trace et rang $m - 1$ | M20 |
 | matrice de confusion | confusion matrix | le tableau de contingence de la vérité et de la prédiction d'un classifieur (TP, FN, FP, TN en binaire) | M03 |
 | matrice de corrélation | correlation matrix | la matrice des corrélations $\rho_{ij} = \frac{\Sigma_{ij}}{\sigma_i\sigma_j}$, avec des 1 sur la diagonale | M02c |
 | matrice de covariance | covariance matrix | $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$ : les variances sur la diagonale, symétrique, et $\sum_i\sum_j w_iw_j\Sigma_{ij} = \mathbb{V}(\mathbf{w}^\top\mathbf{X}) \ge 0$ : semi-définie positive ; ses valeurs propres sont les variances le long de ses axes propres, leur somme la variance totale | M02c, M12c |
@@ -472,6 +481,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | opérations élémentaires sur les lignes | elementary row operations | échanger deux lignes, multiplier une ligne par un nombre non nul, ajouter à une ligne un multiple d'une autre : elles ne changent pas les solutions | M09a |
 | optimisme face à l'incertitude | optimism in the face of uncertainty | agir comme si chaque option valait le haut de son intervalle de confiance : le principe des stratégies UCB | M11 |
 | oracle (d'un test) | test oracle | bibliothèque de confiance à laquelle un test compare ta fonction | R0 |
+| ordre C | row-major order (C order) | le rangement en mémoire où le **dernier** indice varie le plus vite : l'élément $(i_0, i_1, i_2)$ d'un tableau $(n_0, n_1, n_2)$ est à la position $(i_0n_1 + i_1)n_2 + i_2$ | M20 |
 | ordre d'une méthode numérique | order of a numerical method | l'exposant $k$ d'une erreur proportionnelle à $h^k$ : diviser le pas par 2 divise l'erreur par $2^k$ | M02a |
 | ordre de grandeur | order of magnitude | la puissance de 10 la plus proche d'un nombre | R1 |
 | ordre topologique | topological order | une numérotation des nœuds d'un graphe sans cycle où chaque arête va d'un numéro à un plus grand ; la matrice d'adjacence renumérotée est strictement triangulaire supérieure | M16 |
@@ -501,6 +511,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | plan tangent | tangent plane | $z = f(a, b) + f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b)$ : le plan qui touche la surface en un point, avec les mêmes pentes | M05b |
 | plancher de variance | variance floor | la part de la variance d'une moyenne de $M$ prédictions qui ne baisse pas quand $M$ grandit ; avec $X_i = a_iZ + E_i$, elle vaut $\bar{a}^2\,\mathbb{V}(Z)$, et seules les covariances la fixent | M14 |
 | plus proche voisin | nearest neighbor | le point d'un ensemble le plus proche d'un point donné ; il dépend de la distance choisie et des unités des features | M07 |
+| poids de sondage | design weight | $1/\pi_i$ : une unité tirée avec la probabilité $\pi_i$ représente $1/\pi_i$ unités de la population | M20 |
 | poids exponentiels, poids multiplicatifs | exponential weights, multiplicative weights | des poids proportionnels à $e^{-\eta L}$ ; à chaque tour, chacun est multiplié par $e^{-\eta\ell}$ (ou par $1 - \eta\ell$, presque pareil pour $\eta$ petit), puis tous sont renormalisés | M14 |
 | point anguleux | kink, corner | un point où une fonction continue change brusquement de pente : elle y a une dérivée à gauche et une dérivée à droite différentes | M17 |
 | point critique | critical point, stationary point | un point où la dérivée s'annule (en plusieurs variables : où le gradient s'annule) | M05a, M05b |
@@ -521,8 +532,10 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | primitive | antiderivative | une fonction $F$ telle que $F' = f$ ; deux primitives sur un intervalle diffèrent d'une constante | M02a |
 | principe multiplicatif | rule of product | $a$ choix puis $b$ choix donnent $a \times b$ possibilités | R8 |
 | probabilité conditionnelle | conditional probability | $P(A \mid B)$ : la probabilité de $A$ sachant que $B$ s'est réalisé | R8, M03 |
+| probabilité d'inclusion | inclusion probability | $\pi_i$, la probabilité que l'unité $i$ de la population entre dans l'échantillon | M20 |
 | probabilité jointe | joint probability | $P(A \cap B)$, ou $P(X = x, Y = y)$ : la probabilité que deux choses arrivent ensemble | M03 |
 | probabilité marginale | marginal probability | la probabilité d'un événement sur une seule variable, en oubliant l'autre : un total de ligne ou de colonne divisé par le total | M03 |
+| probabilités proportionnelles à la taille | probability proportional to size (PPS) | des probabilités d'inclusion $\pi_i \propto x_i$, une taille connue à peu près proportionnelle aux valeurs cherchées ; les unités dont $\pi_i$ dépasserait 1 sont prises d'office | M20 |
 | probabilités totales (formule des) | law of total probability | $P(A) = \sum_k P(A \mid B_k)\,P(B_k)$ pour une partition $B_1, \ldots, B_K$ | M03 |
 | problème d'optimisation convexe | convex optimization problem | minimiser une fonction convexe sous des inégalités $g_i \le 0$ convexes et des égalités affines : tout minimum local est global, et les conditions KKT sont suffisantes | M13b |
 | problème primal, problème dual | primal, dual problem | le problème de départ, et le maximum de la fonction duale sous $\boldsymbol{\mu} \ge \mathbf{0}$ : une variable par contrainte ; pour une SVM, une par exemple | M13b |
@@ -571,6 +584,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | récurrence (raisonnement par) | (proof by) induction | démontrer $P(n_0)$, puis $P(n) \Rightarrow P(n + 1)$ pour tout $n \ge n_0$ | R4 |
 | récurrence (suite définie par) | recursively defined sequence, recurrence relation | un premier terme et une règle $u_{n+1} = f(u_n)$ | R5 |
 | récurrence linéaire d'ordre 2 | second-order linear recurrence | $u_{k+2} = p\,u_{k+1} - q\,u_k$, de polynôme caractéristique $r^2 - pr + q$ ; elle tend vers 0 depuis tout départ si et seulement si $\lvert q\rvert < 1$ et $\lvert p\rvert < 1 + q$ | M19 |
+| réduction (le long d'un axe) | reduction | combiner (somme, moyenne, maximum…) les nombres alignés le long d'un axe : l'axe disparaît, ou reste de longueur 1 avec `keepdims=True` | M20 |
 | réduction de variance | variance reduction | la baisse de la variance des cibles quand on coupe un groupe en deux : la variance inter-groupes ; le critère des arbres de régression | M13a |
 | rééchantillon | resample | $n$ valeurs tirées avec remise parmi les $n$ données (bootstrap) | M02c |
 | règle de la chaîne | chain rule | $(g(u(x)))' = g'(u(x)) \times u'(x)$ : on dérive chaque étage d'une composée et on multiplie ; pour plusieurs variables, $\mathbf{J}_{\mathbf{g} \circ \mathbf{f}}(\mathbf{x}) = \mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$, une somme sur les variables intermédiaires | R7, M05b, M17 |
@@ -586,13 +600,14 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | régularisation | regularization | ajouter à la loss une pénalité sur les poids (ridge, lasso) pour préférer les modèles simples ; une contrainte sur la norme des poids donne la même solution pour la bonne valeur du paramètre (le multiplicateur de Lagrange) | M09b, M13b |
 | relation de Chasles | Chasles' relation | $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$ | R9 |
 | ReLU | rectified linear unit | $\max(0, z)$, l'activation la plus utilisée dans les réseaux | M10 |
+| remodeler | reshape | donner à un tableau une nouvelle forme de même nombre d'éléments, sans changer l'ordre C de la file ; ce n'est pas une transposition | M20 |
 | remontée (substitution) | back substitution | résoudre un système triangulaire supérieur en partant de la dernière ligne, qui n'a qu'une inconnue | M12b |
 | résidu | residual | $r_i = y_i - \hat{y}_i$ : la cible moins la prédiction | M09b |
 | reste de Lagrange | Lagrange remainder | $f(x) - P_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - a)^{n+1}$ pour un $\xi$ entre $a$ et $x$ : il borne l'erreur d'un polynôme de Taylor | M05a |
 | rétropropagation | backpropagation | le mode inverse de la différentiation automatique, appliqué au graphe d'un réseau de neurones (workbookIA 18) | M18 |
 | risque d'erreur de la famille | family-wise error rate (FWER) | la probabilité d'au moins un faux positif dans une famille de tests ; la correction de Bonferroni le garde sous $\alpha$ | M08 |
 | risque empirique | empirical risk | la moyenne d'une loss sur les exemples d'entraînement ; apprendre, c'est choisir les paramètres qui le minimisent | M09b |
-| sans biais (estimateur) | unbiased estimator | estimateur dont l'espérance est la vraie valeur du paramètre | M02c |
+| sans biais (estimateur) | unbiased estimator | estimateur dont l'espérance est la vraie valeur du paramètre ; l'estimateur de Horvitz-Thompson d'un total en est un (M20) | M02c, M20 |
 | sans mémoire | memoryless | $P(T > s + t) = P(T > s)\,P(T > t)$ : avoir attendu ne rapproche pas l'événement (lois géométrique et exponentielle) | M02b |
 | saturation | saturation | une fonction sature loin de l'origine quand elle y devient presque plate : sa dérivée tend vers 0 ($\arctan'(t) = \frac{1}{1 + t^2}$) | M17 |
 | saut de dualité | duality gap | $\min f - \max D \ge 0$, l'écart entre le minimum du primal et le maximum du dual ; nul pour un problème convexe qui vérifie la condition de Slater | M13b |
@@ -633,7 +648,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | sous-espace vectoriel | vector subspace | une partie qui contient $\mathbf{0}$ et est stable par combinaison linéaire ; elle est elle-même un espace vectoriel | M12a |
 | sous-gradient, sous-différentiel | subgradient, subdifferential | $\mathbf{g}$ tel que $f(\mathbf{v}) \ge f(\mathbf{u}) + \mathbf{g} \cdot (\mathbf{v} - \mathbf{u})$ pour tout $\mathbf{v}$ ; leur ensemble $\partial f(\mathbf{u})$ ; à un coude il y en a plusieurs, et $\mathbf{0} \in \partial f(\mathbf{u})$ caractérise un minimum | M13b |
 | spécificité | specificity, true negative rate | $P(\hat{Y} = 0 \mid Y = 0)$ : la part des négatifs bien reconnus | M03 |
-| standardiser | standardize | passer de $X \sim \mathcal{N}(\mu, \sigma^2)$ à $Z = \frac{X - \mu}{\sigma} \sim \mathcal{N}(0, 1)$ | M02b, M02c |
+| standardiser | standardize | passer de $X \sim \mathcal{N}(\mu, \sigma^2)$ à $Z = \frac{X - \mu}{\sigma} \sim \mathcal{N}(0, 1)$ ; pour des données, $(\mathbf{x} - \bar x\mathbf{1})/s$, inchangée si l'on remplace $\mathbf{x}$ par $a\mathbf{x} + b\mathbf{1}$ avec $a > 0$ (M20) | M02b, M02c, M20 |
 | statistique | statistic | une fonction de l'échantillon (moyenne, médiane, maximum) : une variable aléatoire | M02c |
 | statistique de test | test statistic | un nombre calculé sur les données qui mesure l'écart à $H_0$ (un nombre de succès, un écart de moyennes) | M08 |
 | statistique suffisante | sufficient statistic | un résumé des données qui contient toute leur information sur le paramètre ; pour $n$ essais de Bernoulli, le nombre de succès | M04 |
@@ -652,6 +667,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | système « k parmi n » | k-out-of-n system | un système qui fonctionne tant qu'au moins $k$ de ses $n$ composants fonctionnent ; avec des composants indépendants de fiabilité $p$, sa fiabilité est la queue $P(X \ge k)$ de la loi $\mathcal{B}(n, p)$ | M14 |
 | t-SNE | t-SNE (t-distributed stochastic neighbor embedding) | une carte en 2D (ou 3D) d'un nuage de grande dimension, qui garde les voisinages : des probabilités de voisinage gaussiennes dans l'espace d'origine, d'une loi de Student sur la carte, rapprochées par descente de gradient sur leur divergence KL ; pour voir, pas pour mesurer | M12d |
 | table de vérité | truth table | la valeur d'une proposition pour chaque combinaison des valeurs de ses propositions | R4 |
+| tableau à k dimensions (tenseur) | array, tensor | des nombres rangés selon $k$ indices, $(i_0, \ldots, i_{k-1})$ ; « tenseur » dans les bibliothèques d'apprentissage (pas le tenseur des physiciens) | M20 |
 | tableau de contingence | contingency table | le tableau des effectifs de deux variables catégorielles observées ensemble, avec ses totaux dans les marges | M03 |
 | tableau de variations | variation table (sign chart) | tableau du signe de $f'$ et du sens de variation de $f$, avec les valeurs aux points où $f'$ s'annule | R7 |
 | taille d'échantillon (calcul de) | sample size calculation | le nombre d'observations qui donne une puissance voulue : $n \ge \big(\frac{(z_{1-\alpha} + z_{1-\beta})\,\sigma}{\delta}\big)^2$ pour une moyenne | M08 |
@@ -682,9 +698,12 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | théorème fondamental de l'analyse | fundamental theorem of calculus | $\int_a^b f = F(b) - F(a)$ pour une primitive $F$ ; la fonction aire a pour dérivée $f$ | M02a |
 | théorème spectral | spectral theorem | une matrice symétrique réelle a des valeurs propres réelles et une base orthonormée de vecteurs propres : $\mathbf{A} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ | M12c |
 | tirage avec remise, sans remise | sampling with replacement, without replacement | avec remise, l'objet tiré est remis avant le tirage suivant (les tirages sont i.i.d.) ; sans remise, la composition change et les tirages sont dépendants | R8, M02c |
+| tirage de Poisson | Poisson sampling | chaque unité entre dans l'échantillon indépendamment, avec sa probabilité $\pi_i$ ; la taille est aléatoire, d'espérance $\sum_i\pi_i$ | M20 |
+| tirage systématique | systematic sampling | les $\pi_i$ alignés bout à bout sur $[0, n[$ ; on prend les unités qui contiennent $u, u + 1, \ldots, u + n - 1$, $u$ uniforme dans $[0, 1[$ : exactement $n$ unités, chacune avec la probabilité $\pi_i$ | M20 |
 | trace | trace | $\operatorname{tr}\mathbf{A} = \sum_i a_{ii}$ ; linéaire, $\operatorname{tr}(\mathbf{A}\mathbf{B}) = \operatorname{tr}(\mathbf{B}\mathbf{A})$, indépendante de la base, égale à la somme des valeurs propres ; pour une covariance, la variance totale ; $\sum_{ij}G_{ij}H_{ij} = \operatorname{tr}(\mathbf{G}^\top\mathbf{H})$ (M18) | M12c |
 | tranche (d'une surface) | slice, cross-section | la courbe obtenue en figeant une variable, comme $x \mapsto f(x, b)$ ; $\frac{\partial f}{\partial x}(a, b)$ est sa pente en $a$ | M05b |
 | transposée | transpose | $\mathbf{A}^\top$, les lignes devenues colonnes : $(\mathbf{A}^\top)_{ij} = a_{ji}$, et $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$ | M09a |
+| transposer (un tableau) | transpose (axes) | changer l'ordre des axes : `x.transpose(2, 0, 1)` a pour élément $[c, a, b]$ l'élément $[a, b, c]$ de `x` | M20 |
 | triangle de Pascal | Pascal's triangle | les coefficients binomiaux rangés en triangle : chaque nombre est la somme des deux au-dessus | R8 |
 | UMAP | UMAP (uniform manifold approximation and projection) | une carte en 2D qui préserve le graphe des $k$ plus proches voisins (le réglage `n_neighbors`) en minimisant une cross-entropy ; plus rapide que t-SNE, elle place un point nouveau sur une carte existante | M12d |
 | unilatéral, bilatéral (test) | one-sided, two-sided test | l'alternative dans un seul sens, fixé à l'avance, ou dans les deux | M08 |

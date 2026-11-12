@@ -656,3 +656,20 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Diviser l'erreur type par $B$ | estimation sur $B = 4$ termes : erreur type $\sigma/4$ | $\sigma/\sqrt B = \sigma/2$ ; la **variance** est divisée par $B$ |
 | Projeter sur la boule en coupant les coordonnées | $(15, -8)$ sur la boule de rayon $3{,}4$ : $(3{,}4 ;\ -3{,}4)$ | $\mathbf{x}\min(1, r/\lVert\mathbf{x}\rVert) = (3 ;\ -1{,}6)$ ; couper les coordonnées projette sur un pavé |
 
+## Tenseurs, axes et estimateurs pondérés (M20)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Remodeler pour réordonner des axes | `img.reshape(3, 480, 640)` pour mettre les canaux d'une image $(480, 640, 3)$ en premier | `img.transpose(2, 0, 1)` ; `reshape` garde l'ordre de la file et mélange les canaux |
+| Se tromper d'axe | `N.mean(axis=0)` pour la moyenne de chaque élève d'un tableau (élèves, matières) | l'axe nommé **disparaît** : `N.mean(axis=1)` |
+| Oublier `keepdims` avant de soustraire | `T - T.mean(axis=2)` pour un tableau (stations, jours, heures) | `T - T.mean(axis=2, keepdims=True)` |
+| La diffusion silencieuse | `u - v` avec `u` de forme $(5,)$ et `v` de forme $(5, 1)$ : un tableau $(5, 5)$, sans erreur | vérifier la forme ; `u - v.ravel()` |
+| Composer des variances | la variance sur deux axes calculée comme la variance des variances | la variance sur les deux axes d'un coup, `x.var(axis=(1, 2))` ; ou, pour des groupes de même taille, la moyenne des variances plus la variance des moyennes |
+| Mélanger les ddof | `np.var` (divise par $N$) comparé à `pd.Series.var` (divise par $N - 1$) | écrire `ddof` explicitement |
+| Oublier qu'une lettre absente du résultat est sommée | `np.einsum("ij,jk->ijk", A, B)` pour un produit matriciel | `"ij,jk->ik"` ; et toujours la forme explicite, avec `->` |
+| Croire que la standardisation gomme tout changement | ajouter 10 à une seule valeur « ne change pas les z-scores » | seule une transformation $a\mathbf{x} + b\mathbf{1}$ de **toute** la série, $a > 0$, les laisse inchangés |
+| Croire qu'un estimateur sans biais est exact | une estimation de Horvitz-Thompson à deux écarts types du total « est fausse » | sans biais = juste **en moyenne** sur les échantillons possibles |
+| Multiplier toutes les valeurs par les indicatrices | `np.sum(y * included / pi)` quand les valeurs non tirées sont des `nan` | `np.sum(y[included] / pi[included])` |
+| La moyenne naïve avec des probabilités inégales | `N * y[S].mean()` quand les grandes unités sont tirées plus souvent : biaisée | $\sum_{i \in S} y_i/\pi_i$ |
+| Multiplier les jacobiennes dans le mauvais ordre | $\mathbf{J}(\mathbf{x}_0)\,\mathbf{J}(\mathbf{x}_1)$ pour deux pas | $\mathbf{J}(\mathbf{x}_1)\,\mathbf{J}(\mathbf{x}_0)$ : le dernier pas à gauche |
+

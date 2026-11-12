@@ -19,7 +19,10 @@ rng = np.random.default_rng(42)          # toujours un générateur avec une gra
 | la norme L2, L1, L∞ | `np.linalg.norm(v)`, `np.linalg.norm(v, 1)`, `np.linalg.norm(v, np.inf)` |
 | l'identité, des zéros | `np.eye(3)`, `np.zeros((2, 3))` |
 | une matrice diagonale | `np.diag([1, 2, 3])` |
-| un produit à plusieurs indices | `np.einsum("ij,jk->ik", A, B)` (le produit matriciel écrit avec ses indices) |
+| un produit à plusieurs indices | `np.einsum("ij,jk->ik", A, B)` (le produit matriciel écrit avec ses indices) ; une lettre absente du résultat est sommée ; `"sij,sjk->sik"` multiplie des matrices empilées ; `optimize=True` et `np.linalg.multi_dot` choisissent l'ordre des produits (M20) |
+| la position d'un élément dans la file (ordre C), et l'inverse | `np.ravel_multi_index((2, 3, 5), (4, 7, 24))` → `413` ; `np.unravel_index(413, (4, 7, 24))` → `(2, 3, 5)` (M20) |
+| réordonner les axes d'un tableau | `x.transpose(2, 0, 1)`, `np.moveaxis(x, -1, 0)` ; jamais `reshape`, qui garde l'ordre de la file (M20) |
+| réduire en gardant les axes, puis diffuser | `m = x.mean(axis=(1, 2), keepdims=True)` ; `x - m` ; la variance : `((x - m) ** 2).sum(axis=(1, 2), keepdims=True) / (N - ddof)` (M20) |
 | une application affine sur des points rangés en lignes | `X @ W + b` : `W` de forme (entrées, sorties), `b` ajouté à chaque ligne par diffusion (M16) |
 | des coordonnées homogènes | `np.hstack([X, np.ones((len(X), 1))])` ; la matrice homogène : `np.vstack([np.hstack([W, np.zeros((n, 1))]), np.hstack([b, [1.0]])])` (M16) |
 | une puissance de matrice | `np.linalg.matrix_power(A, k)` ; pour toutes les puissances, multiplier pas à pas : `P = P @ A` (M16) |
@@ -80,6 +83,7 @@ rng = np.random.default_rng(42)          # toujours un générateur avec une gra
 | une divergence KL entre deux lois de Bernoulli, en nats | `scipy.special.rel_entr(a, p) + scipy.special.rel_entr(1 - a, 1 - p)` |
 | projeter sur un pavé, sur une boule | `np.clip(x, lo, hi)` (chaque coordonnée) ; `x * min(1.0, r / np.linalg.norm(x))` (même direction) (M19) |
 | une matrice creuse tridiagonale | `scipy.sparse.diags([-1, 2, -1], [-1, 0, 1], shape=(n, n), format="csr")` ; `A @ x` reste un produit matrice-vecteur (M19) |
+| l'exponentielle d'une matrice | `scipy.linalg.expm(T * J)` ; c'est la limite de `np.linalg.matrix_power(np.eye(n) + T / L * J, L)` (M20) |
 | le gradient conjugué | `x, info = scipy.sparse.linalg.cg(A, b, rtol=1e-8, callback=f)` : `info == 0` si la tolérance relative est atteinte ; `f(xk)` est appelée à chaque itération (pour les compter) ; `M=` un préconditionneur (M19) |
 | la variance d'une moyenne pondérée | `w @ S @ w`, avec `S` la matrice de covariance ; sur des tirages en lignes : `np.cov(X, rowvar=False)` |
 | des poids exponentiels stables | `scipy.special.softmax(-eta * L, axis=1)`, ou `np.exp(-eta * (L - L.min(axis=1, keepdims=True)))` puis diviser par la somme de chaque ligne |
