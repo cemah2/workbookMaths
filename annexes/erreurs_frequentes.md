@@ -590,3 +590,19 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Utiliser la loss du tour au lieu de la loss cumulée | $w_t[k] \propto e^{-\eta\ell_{t-1}[k]}$ | $L_t[k] = \sum_{s < t}\ell_s[k]$, la somme des tours précédents |
 | Confondre le gradient par rapport aux prédictions et aux paramètres | « le gradient de la loss exponentielle a autant de coordonnées que le modèle a de coefficients » | $\nabla_{\mathbf{F}}\mathcal{L}$ a une coordonnée par exemple ; la règle de la chaîne mène aux paramètres |
 | Ne pas couper le gradient de Huber | $-(y - F)$ pour un résidu de 2,7 avec $\delta = 0{,}8$ | $-\operatorname{clip}(y - F, -\delta, \delta)$ : au plus $\delta$ en valeur absolue |
+
+## Applications affines, graphes et variance d'un produit (M16)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Ranger $\mathbf{W}$ dans la mauvaise convention | une application de $\mathbb{R}^3$ dans $\mathbb{R}^3$ écrite en colonnes et calculée par `x @ W` : aucune erreur, mais c'est l'application de $\mathbf{W}^\top$ | en lignes, $\mathbf{W}$ a la forme (entrées, sorties) ; vérifier une sortie sur un point connu, comme $(1, 0, \ldots, 0)$ |
+| Mélanger les rangements d'une matrice homogène | la translation dans la dernière colonne, puis $[\mathbf{x}, 1]\,\mathbf{H}$ | en lignes, $\mathbf{b}$ sur la dernière **ligne** et $(0, \ldots, 0, 1)$ en dernière colonne ; en colonnes, l'inverse |
+| Multiplier les matrices homogènes dans le mauvais ordre | $f_1$ puis $f_2$ en lignes : $\mathbf{H}_2\mathbf{H}_1$ | en lignes, la première appliquée est à gauche : $\mathbf{H}_1\mathbf{H}_2$ (à droite avec des colonnes) |
+| Lire $(\mathbf{A}^k)_{ij}$ comme « il existe un chemin » | « $(\mathbf{A}^2)_{14} = 0$, donc 4 est inaccessible depuis 1 » | $(\mathbf{A}^k)_{ij}$ compte les chemins d'exactement $k$ arêtes ; regarder toutes les longueurs |
+| Confondre ligne et colonne de la matrice d'adjacence | le degré entrant de $j$ lu sur la ligne $j$ | ligne $i$ : les arêtes qui partent de $i$ ; colonne $j$ : celles qui arrivent en $j$ |
+| Calculer $(\mathbf{I} - \mathbf{A})^{-1}$ sur un graphe qui a un cycle | `np.linalg.inv(np.eye(n) - A)` appelé « somme sur les chemins » | vérifier d'abord l'absence de cycle (puissances de $\mathbf{A}$, ou une numérotation triangulaire) |
+| Oublier deux termes de la variance d'un produit | $\mathbb{V}(XY) = \mathbb{V}(X)\,\mathbb{V}(Y)$ pour des variables non centrées | $\mathbb{V}(X)\,\mathbb{V}(Y) + \mathbb{V}(X)\,\mathbb{E}[Y]^2 + \mathbb{V}(Y)\,\mathbb{E}[X]^2$, pour des variables **indépendantes** |
+| Mettre $\mathbb{V}(x_i)$ à la place de $\mathbb{E}[x_i^2]$ | $\mathbb{V}(\varepsilon x) = \mathbb{V}(x)$ pour $x$ de moyenne 2 | $\mathbb{V}(\varepsilon x) = \mathbb{V}(\varepsilon)\,\mathbb{E}[x^2]$ quand $\varepsilon$ est centré et indépendant de $x$ |
+| Croire que décorrélées veut dire indépendantes | « covariance nulle, donc $\mathbb{E}[X^2Y^2] = \mathbb{E}[X^2]\,\mathbb{E}[Y^2]$ » | décorrélées suffit pour additionner des variances, pas pour factoriser n'importe quelle espérance |
+| Additionner des écarts-types | 25 termes indépendants d'écart-type 1 : « écart-type 25 » | les variances s'ajoutent : écart-type $\sqrt{25} = 5$ ; 25 seulement si les termes sont égaux |
+

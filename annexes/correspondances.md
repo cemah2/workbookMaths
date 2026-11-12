@@ -23,7 +23,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 13 · Classifieurs | M13a, M13b | §8.3 ; §7.2–7.3, ch. 12 |
 | 14 · Ensembles | M14 | — |
 | 15 · scikit-learn | — (rien de nouveau) | — |
-| 16 · Réseaux feed-forward | M16 | §6.4 |
+| 16 · Réseaux feed-forward | M16 | (§2.8, §6.4) |
 | 17 · Fonctions d'activation | M17 | §5.3 |
 | 18 · Rétropropagation | M18 | §5.4–5.6 |
 | 19 · Optimiseurs | M19 | §5.7–5.8, §7.1, §7.3 |

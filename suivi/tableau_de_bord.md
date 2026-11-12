@@ -1596,3 +1596,37 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] CP3.10 🔗 Problème de synthèse : des données centrées, leurs axes principaux, un modèle sur les scores ★★ 14 min
 - [ ] CP3.11 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
 <!-- wbm:end CP3 -->
+
+<!-- wbm:section M16 -->
+## M16 · Applications affines, graphes et variance d'un produit ⏱️ 8,0 h
+
+- [ ] M16.Q1 🧠 Les formes de W, de b et de x W + b, dans chaque convention ★ 4 min
+- [ ] M16.Q2 🧠 Coordonnées homogènes et composition : vrai ou faux ★ 4 min
+- [ ] M16.Q3 🧠 Lire une matrice d'adjacence : degrés, arêtes, chemins, cycles ★ 4 min
+- [ ] M16.Q4 🧠 Indépendantes, décorrélées, ou ni l'un ni l'autre ? ★ 4 min
+- [ ] M16.R1 🔁 Le produit matriciel, ses formes et son coût (M09a) ★ 5 min
+- [ ] M16.R2 🔁 La variance d'une somme de variables indépendantes (M02b) ★ 5 min
+- [ ] M16.R3 🔁 Les valeurs propres d'une matrice triangulaire (M12c) ★ 5 min (complet)
+- [ ] M16.1 ✏️ Une application affine de ℝ³ dans ℝ² dans les deux conventions : formes, transposée, nombre de paramètres ★ 15 min
+- [ ] M16.2 ✏️ Rotation, homothétie puis translation du plan : la matrice homogène de la composée, et celle de la réciproque ★★ 20 min
+- [ ] M16.3 ✏️ Des rues à sens unique : degrés, matrice d'adjacence, et chemins de longueur 2 et 3 par ses puissances ★ 15 min
+- [ ] M16.4 ✏️ Un planning de tâches : l'absence de cycle par les puissances de A, une numérotation qui la rend triangulaire, et le nombre de chemins entre deux tâches ★★ 25 min
+- [ ] M16.5 ✏️ Un prix aléatoire fois une quantité indépendante : espérance et variance du produit ★★ 15 min
+- [ ] M16.6 ✏️ Des signes aléatoires d'amplitudes différentes sur des mesures corrélées : la variance d'une somme de produits ★★ 20 min
+- [ ] M16.7 ∂ (Aᵏ)ᵢⱼ compte les chemins de longueur k de i à j, par récurrence ★★ 15 min (complet)
+- [ ] M16.8 ∂ Un graphe est sans cycle si et seulement si sa matrice d'adjacence est nilpotente ★★ 20 min
+- [ ] M16.9 ∂ La variance d'un produit de deux variables indépendantes ★★ 15 min (complet)
+- [ ] M16.10 🔗 Pont : n points rangés en lignes, X W + 1bᵀ, et la diffusion de b ★ 15 min
+- [ ] M16.11 🗣️ Expliquer, sur un exemple, pourquoi la variance d'un produit n'est pas le produit des variances ★ 10 min
+- [ ] M16.E1 💼 « Pourquoi l'écart-type d'une somme de n termes indépendants grandit-il comme √n ? » ★ 10 min (complet)
+- [ ] M16.12 🔨 La matrice homogène d'une application affine ★ 15 min
+- [ ] M16.13 🔨 Sommer sur les chemins d'un graphe sans cycle par les puissances de sa matrice ★★ 20 min
+- [ ] M16.14 🔨 Espérance et variance d'un produit de variables indépendantes ★ 15 min (complet)
+- [ ] M16.15 🔮 Prédire l'écart-type d'une somme de produits aléatoires, mesures corrélées ou non, puis simuler ★ 10 min
+- [ ] M16.16 🔬 Une variance multipliée d'étage en étage : simuler une chaîne d'amplificateurs bruités ★★ 20 min (complet)
+- [ ] M16.17 🎨 L'image d'une figure par une suite d'applications affines du plan, en coordonnées homogènes ★ 15 min
+- [ ] M16.18 🐛 Chasse à l'erreur : une matrice homogène écrite pour des colonnes et appliquée à des lignes, Var(XY) = Var X · Var Y, et (I − A)⁻¹ sur un graphe qui a un cycle ★ 15 min
+- [ ] M16.19 🛠️ Un test de propriété : la matrice homogène d'une composée est le produit des matrices homogènes ★ 15 min (complet)
+- [ ] M16.20 🏆 Défi : la loi du produit de deux uniformes indépendantes, sa densité et ses deux premiers moments ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (12 cartes)
+<!-- wbm:end M16 -->

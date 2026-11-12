@@ -498,7 +498,19 @@ R0 (prise en main) n'a pas de formule : les priorités de Python (`**` avant le 
 
 ## Partie IV · Réseaux
 
-*(ajouté avec les chapitres M16 à M20)*
+### M16 · Applications affines, graphes et variance d'un produit
+
+| Notion | Formules |
+|---|---|
+| application affine, en lignes | $f(\mathbf{x}) = \mathbf{x}\mathbf{W} + \mathbf{b}$, $\mathbf{W}$ de forme $(n, m)$, $\mathbf{b}$ de forme $(m,)$ : $nm + m$ paramètres ; en colonnes, $\mathbf{A} = \mathbf{W}^\top$ ; $N$ points en lignes : $\mathbf{X}\mathbf{W} + \mathbf{1}\mathbf{b}^\top$ (`X @ W + b`), $Nnm$ multiplications |
+| coordonnées homogènes | $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \\ \mathbf{b} & 1 \end{pmatrix}$ : $[\mathbf{x}, 1]\,\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$ ; $f_1$ puis $f_2$ : $\mathbf{H}_1\mathbf{H}_2$ ; réciproque : $\mathbf{H}^{-1}$ ; en colonnes, $\begin{pmatrix} \mathbf{A} & \mathbf{b} \\ \mathbf{0}^\top & 1 \end{pmatrix}$ et $\mathbf{H}_2\mathbf{H}_1$ |
+| graphe orienté | $A_{ij} = 1$ pour une arête $i \to j$ ; degré sortant : somme de la ligne $i$ ; degré entrant : somme de la colonne $j$ ; $(\mathbf{A}^k)_{ij}$ = nombre de chemins de longueur $k$ (avec des poids : somme des produits des poids) ; $\operatorname{tr}\mathbf{A}^k$ : chemins fermés |
+| graphe sans cycle | sans cycle $\iff$ $\mathbf{A}$ nilpotente, et alors $\mathbf{A}^n = \mathbf{0}$ ; un ordre topologique rend $\mathbf{A}$ strictement triangulaire supérieure ; $(\mathbf{I} - \mathbf{A})^{-1} = \mathbf{I} + \mathbf{A} + \cdots + \mathbf{A}^{n-1}$ : coefficient $(i, j)$, $i \ne j$ = somme sur les chemins |
+| variance d'un produit ($X$, $Y$ indépendantes) | $\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y]$ ; $\mathbb{V}(XY) = \mathbb{V}(X)\,\mathbb{V}(Y) + \mathbb{V}(X)\,\mathbb{E}[Y]^2 + \mathbb{V}(Y)\,\mathbb{E}[X]^2 = \mathbb{E}[X^2]\,\mathbb{E}[Y^2] - \mathbb{E}[X]^2\,\mathbb{E}[Y]^2$ ; $1 + c_{XY}^2 = (1 + c_X^2)(1 + c_Y^2)$, $c_X = \frac{\sigma_X}{\lvert\mathbb{E}[X]\rvert}$ |
+| somme de produits par des signes | $\varepsilon_i$ centrés, indépendants entre eux et des $x_i$ : $\mathbb{V}\big(\sum_i\varepsilon_ix_i\big) = \sum_i\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$ (produits décorrélés, même si les $x_i$ sont corrélés) ; termes indépendants de variance $\sigma^2$ : écart-type $\sigma\sqrt{n}$ |
+| variance d'étage en étage | $v_{k+1} = \gamma v_k$ : $v_k = \gamma^kv_0$ ; $v_{k+1} = g^2v_k + s^2$ : $v_k - \frac{s^2}{1 - g^2} = g^{2k}\big(v_0 - \frac{s^2}{1 - g^2}\big)$ pour $g^2 \ne 1$ ; $g^2 = 1$ : $v_k = v_0 + ks^2$ |
+
+*(M17 à M20 ajoutés avec leurs chapitres)*
 
 ## Partie V · Architectures
 

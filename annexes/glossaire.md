@@ -17,12 +17,13 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | angle entre deux vecteurs | angle between two vectors | l'angle $\theta \in [0 ; \pi]$ tel que $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert\cos\theta$ | R9, M07 |
 | annulation (catastrophique) | catastrophic cancellation | la perte de chiffres justes quand on soustrait deux nombres presque égaux : l'erreur relative explose | M05a |
 | antécédent, image | preimage, image | $f(x)$ est l'image de $x$ ; un antécédent de $y$ est un $x$ tel que $f(x) = y$ | R3 |
-| application affine | affine mapping | $\varphi(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$ : une partie linéaire suivie d'une translation ; bijective si et seulement si $\mathbf{A}$ est inversible, et alors $\varphi^{-1}(\mathbf{y}) = \mathbf{A}^{-1}(\mathbf{y} - \mathbf{b})$ | M12a |
+| application affine | affine mapping | $\varphi(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$ : une partie linéaire suivie d'une translation (en lignes, $\mathbf{x}\mathbf{W} + \mathbf{b}$ avec $\mathbf{W} = \mathbf{A}^\top$) ; la composée de deux applications affines est affine ; bijective si et seulement si $\mathbf{A}$ est inversible, et alors $\varphi^{-1}(\mathbf{y}) = \mathbf{A}^{-1}(\mathbf{y} - \mathbf{b})$ | M12a, M16 |
 | application linéaire | linear map, linear mapping | $f(\lambda\mathbf{x} + \mu\mathbf{y}) = \lambda f(\mathbf{x}) + \mu f(\mathbf{y})$ ; de $\mathbb{R}^n$ dans $\mathbb{R}^m$, c'est $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$, la colonne $j$ de $\mathbf{A}$ étant $f(\mathbf{e}_j)$ | M12a |
 | approximation affine | linear approximation | $f(a + h) \approx f(a) + f'(a)\,h$ : la courbe remplacée par sa tangente près de $a$ | R7 |
 | approximation de rang faible | low-rank approximation | $\mathbf{A}_k = \sum_{i \le k} s_i\mathbf{u}_i\mathbf{v}_i^\top$, les $k$ premières couches de la SVD : la matrice de rang $k$ la plus proche de $\mathbf{A}$ (Eckart-Young), stockée avec $k(m + n + 1)$ nombres au lieu de $mn$ | M12d |
 | arbre pondéré | probability tree | arbre des étapes d'une expérience, chaque branche portant sa probabilité : on multiplie le long d'un chemin, on additionne les chemins | R8 |
 | arccosinus | arccosine, arccos | la réciproque du cosinus sur $[0 ; \pi]$ : l'unique angle de $[0 ; \pi]$ qui a un cosinus donné | R9 |
+| arête, nœud (d'un graphe) | edge, node (vertex) | un graphe relie des nœuds (ou sommets) par des arêtes ; dans un graphe orienté, l'arête $i \to j$ a un sens, $i$ est un prédécesseur de $j$ et $j$ un successeur de $i$ | M16 |
 | argmax, argmin | argmax, argmin | la valeur de $x$ où une fonction atteint son maximum (son minimum), pas la valeur de ce maximum | R3, M05b |
 | argument, prémisse | argument, premise | une suite de phrases, les prémisses, suivie d'une conclusion qu'elles sont censées justifier | M11 |
 | arrangement | k-permutation | choix ordonné de $k$ objets distincts parmi $n$ : $\frac{n!}{(n - k)!}$ possibilités | R8 |
@@ -71,6 +72,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | changement de base (d'une application linéaire) | basis change | la matrice de $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ dans la base des colonnes de $\mathbf{S}$ : $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ ; entre deux espaces, $\mathbf{T}^{-1}\mathbf{A}\mathbf{S}$ | M12a |
 | changement de base (formule de) | change of base formula | $\log_b x = \frac{\ln x}{\ln b}$ | R6 |
 | changement de variable | change of variables, substitution | $\int_a^b f(g(x))\,g'(x)\,dx = \int_{g(a)}^{g(b)} f(u)\,du$ | M02a |
+| chemin (dans un graphe) | walk, path | une suite de $k$ arêtes consécutives (sa longueur), de $i$ à $j$ ; dans un graphe orienté de matrice d'adjacence $\mathbf{A}$, il y en a $(\mathbf{A}^k)_{ij}$ ; un même nœud peut y revenir (en anglais, *walk* ; *path* exige souvent des nœuds distincts) | M16 |
 | chiffres significatifs | significant figures | les chiffres d'un nombre à partir du premier chiffre non nul | R1 |
 | Cholesky (décomposition de), facteur de Cholesky | Cholesky decomposition, Cholesky factor | $\mathbf{A} = \mathbf{L}\mathbf{L}^\top$, $\mathbf{L}$ triangulaire inférieure à diagonale strictement positive, unique ; elle existe si et seulement si $\mathbf{A}$ est symétrique définie positive, ce qui en fait le test pratique ; elle sert à résoudre des systèmes, à calculer $\det\mathbf{A} = \prod_i l_{ii}^2$, à tirer des vecteurs de covariance donnée | M12c |
 | classe positive | positive class | la classe que l'on cherche à détecter (la panne, le défaut), codée 1 | M03 |
@@ -79,6 +81,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | coefficient | coefficient | nombre qui multiplie la partie littérale d'un terme : 7 dans $7x^2$ | R2 |
 | coefficient binomial | binomial coefficient | $\binom{n}{k}$, « k parmi n » : le nombre de façons de choisir $k$ objets parmi $n$, sans ordre | R8 |
 | coefficient de détermination ($R^2$) | coefficient of determination | $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$ : la part de la variation des cibles que le modèle fait disparaître ; 1 s'il est parfait, négatif possible sur de nouvelles données | M09b |
+| coefficient de variation | coefficient of variation | l'écart-type relatif $c_X = \frac{\sigma_X}{\lvert\mathbb{E}[X]\rvert}$ ; pour un produit de variables indépendantes de moyennes non nulles, $1 + c_{XY}^2 = (1 + c_X^2)(1 + c_Y^2)$ | M16 |
 | coefficient multiplicateur | multiplier, growth factor | nombre $1 + t$ par lequel une évolution de taux $t$ multiplie une valeur | R1 |
 | colinéaires (vecteurs) | collinear vectors | l'un est un multiple de l'autre : $xy' - x'y = 0$ | R9 |
 | combinaison affine | affine combination | une combinaison linéaire dont les coefficients ont une somme égale à 1 (un barycentre) ; une application affine la conserve | M12a |
@@ -106,6 +109,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | converger, diverger (suite) | converge, diverge | une suite converge si elle a une limite finie ; sinon elle diverge (vers $\pm\infty$, ou sans limite) | R5 |
 | convexe | convex | un ensemble l'est s'il contient le segment entre deux quelconques de ses points ; une fonction l'est si chaque corde est au-dessus de sa courbe (c'est-à-dire si son épigraphe est un ensemble convexe) | M05a, M10 |
 | coordonnées dans une base | coordinates, coordinate vector | les coefficients $(c_1, \ldots, c_n)$ de l'écriture unique $\mathbf{v} = c_1\mathbf{b}_1 + \cdots + c_n\mathbf{b}_n$ : la solution de $\mathbf{B}\mathbf{c} = \mathbf{v}$ | M12a |
+| coordonnées homogènes, matrice homogène | homogeneous coordinates, augmented matrix | on ajoute une coordonnée 1 au point : en lignes, $[\mathbf{x}, 1]\,\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$ avec $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \\ \mathbf{b} & 1 \end{pmatrix}$ ; une application affine devient un produit, et composer devient multiplier les matrices homogènes | M16 |
 | coordonnées polaires | polar coordinates | repérer un point du plan par sa distance $r$ à l'origine et son angle $\theta$ ; dans une intégrale double, $dx\,dy$ devient $r\,dr\,d\theta$ | M02b |
 | coordonnées, repère orthonormé | coordinates, orthonormal frame | un repère a une origine et deux axes perpendiculaires de même unité ; un point y est repéré par $(x ; y)$ | R9 |
 | corrélation (coefficient de) | correlation coefficient (Pearson) | $r = \frac{\operatorname{Cov}(x, y)}{s_x s_y}$, entre $-1$ et 1 : la force d'une relation **linéaire** ; le cosinus de l'angle entre les vecteurs d'écarts | M02c |
@@ -121,6 +125,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | croissances comparées | orders of growth, comparative growth rates | pour $x$ très grand, $\ln x \ll x^k \ll a^x$ ($k > 0$, $a > 1$) | R6 |
 | croissante, décroissante | increasing, decreasing | qui conserve (retourne) l'ordre sur un intervalle : $a < b \Rightarrow f(a) \le f(b)$ ($\ge$) | R3 |
 | cross-entropy | cross-entropy | $H(p, q) = -\sum p \log_2 q$ : la longueur moyenne d'un code fait pour la loi $q$, sur des données de loi $p$ ; la log loss en est une | M06 |
+| cycle (d'un graphe) | cycle | un chemin qui revient à son point de départ ; un graphe orienté sans cycle est un DAG | M16 |
 | ddof | ddof (delta degrees of freedom) | le nombre retranché à $n$ au dénominateur d'une variance : `ddof=0` divise par $n$, `ddof=1` par $n - 1$ | M02c |
 | débordement, underflow | overflow, underflow | un résultat trop grand pour un flottant, que NumPy rend `inf` ; trop petit, il est arrondi à 0 (*dépassement par le bas*) ; on garde souvent les mots anglais | M04, M05a |
 | décade, échelle logarithmique | decade, logarithmic scale | sur un axe logarithmique, des écarts égaux sont des rapports égaux ; une décade est un facteur 10 | R6 |
@@ -129,9 +134,11 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | décomposition en valeurs singulières (SVD) | singular value decomposition (SVD) | $\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$, pour toute matrice réelle : $\mathbf{U}$ et $\mathbf{V}$ orthogonales, $\mathbf{S}$ « diagonale » de valeurs singulières positives décroissantes ; une rotation, un étirement des axes, une rotation | M12d |
 | décomposition QR | QR decomposition | $\mathbf{A} = \mathbf{Q}\mathbf{R}$, colonnes de $\mathbf{Q}$ orthonormées (Gram-Schmidt), $\mathbf{R}$ triangulaire supérieure à diagonale positive ; les moindres carrés deviennent $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ | M12b |
 | décomposition spectrale | spectral decomposition, eigendecomposition | pour une matrice symétrique, $\mathbf{A} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top = \sum_i \lambda_i\mathbf{q}_i\mathbf{q}_i^\top$ : une somme de projections orthogonales sur les directions propres, pondérées par les valeurs propres | M12c |
+| décorrélées (variables) | uncorrelated | de covariance nulle ; les variances s'ajoutent alors ; indépendantes implique décorrélées, pas l'inverse ($X$ uniforme sur $\{-1, 0, 1\}$ et $X^2$) | M16 |
 | déduction, induction | deduction, induction | raisonner des prémisses à une conclusion certaine si elles sont vraies ; généraliser des exemples à une conclusion seulement probable (le raisonnement par récurrence est une déduction) | M11 |
 | défective (matrice) | defective matrix | une matrice $n \times n$ qui a moins de $n$ vecteurs propres libres : une valeur propre a une multiplicité géométrique inférieure à sa multiplicité algébrique ; elle n'est pas diagonalisable (le cisaillement $\begin{pmatrix} 3 & 1 \\ 0 & 3 \end{pmatrix}$) | M12c |
 | déflation | deflation | remplacer $\mathbf{A}$ symétrique par $\mathbf{A} - \lambda_1\mathbf{q}_1\mathbf{q}_1^\top$, qui a les mêmes valeurs propres sauf $\lambda_1$, remplacée par 0, pour trouver la suivante par la méthode de la puissance | M12c |
+| degré entrant, degré sortant | in-degree, out-degree | le nombre d'arêtes qui arrivent en un nœud, qui en partent : la somme d'une colonne, d'une ligne de la matrice d'adjacence | M16 |
 | degrés de liberté | degrees of freedom | le nombre de valeurs libres : les $n$ écarts à la moyenne ont une somme nulle, donc $n - 1$ degrés de liberté | M02c |
 | demi-espace | half-space | l'un des deux côtés d'un hyperplan : les $\mathbf{x}$ tels que $\mathbf{w} \cdot \mathbf{x} + b > 0$ (ou $< 0$) | M07 |
 | démonstration par l'absurde | proof by contradiction | supposer la conclusion fausse et aboutir à une contradiction | R4 |
@@ -267,6 +274,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | gradient fonctionnel | functional gradient | le gradient d'une loss par rapport au vecteur $\mathbf{F}$ des prédictions sur les exemples (une coordonnée par exemple) ; ajouter à l'ensemble $\alpha\,h$, avec $\mathbf{h}$ d'angle aigu avec $-\nabla_{\mathbf{F}}\mathcal{L}$ et $\alpha$ petit, fait baisser la loss au premier ordre | M14 |
 | Gram-Schmidt (procédé de) | Gram-Schmidt orthogonalization | retirer de chaque vecteur ses projections sur les vecteurs déjà construits, puis normer : une base orthonormée du même sous-espace ; classique ou modifié selon que l'on projette le vecteur d'origine ou le vecteur courant | M12b |
 | grand O | big O | $f = O(g)$ : $f$ ne croît pas plus vite que $g$, à une constante près ; mesure le coût d'un algorithme | R7 |
+| graphe orienté, graphe orienté sans cycle (DAG) | directed graph, directed acyclic graph (DAG) | des nœuds reliés par des arêtes qui ont un sens ; sans cycle si aucun chemin ne revient à son départ, ce qui équivaut à une matrice d'adjacence nilpotente | M16 |
 | Hadamard (produit de) | Hadamard product, element-wise product | $\mathbf{A} \odot \mathbf{B}$, les produits des éléments de même position (`A * B` en NumPy) ; même forme, commutatif | M09a |
 | Hedge (algorithme) | Hedge, exponential weights algorithm | les poids $w_t[k] \propto e^{-\eta L_t[k]}$ sur $K$ experts, $L_t[k]$ leur loss cumulée ; regret au plus $\frac{\ln K}{\eta} + \frac{\eta T}{8}$, soit $\sqrt{T\ln K/2}$ avec le meilleur $\eta$ | M14 |
 | hérédité, initialisation | inductive step, base case | les deux étapes d'une récurrence : $P(n) \Rightarrow P(n + 1)$, et $P(n_0)$ | R4 |
@@ -370,6 +378,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | matrice | matrix | tableau de nombres à lignes et colonnes | M09a |
 | matrice augmentée | augmented matrix | $[\mathbf{A} \mid \mathbf{b}]$, la matrice des coefficients suivie de la colonne des seconds membres, sur laquelle on fait le pivot de Gauss | M09a |
 | matrice chapeau | hat matrix | $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, qui envoie $\mathbf{y}$ sur $\hat{\mathbf{y}}$ : symétrique, idempotente, de trace $p$ | M09b |
+| matrice d'adjacence | adjacency matrix | $A_{ij} = 1$ s'il y a une arête $i \to j$, 0 sinon (ou le poids de l'arête) ; ses puissances comptent les chemins | M16 |
 | matrice d'une application linéaire | transformation matrix | la matrice dont la colonne $j$ contient les coordonnées de $f(\mathbf{b}_j)$ dans la base de l'arrivée ; dans les bases canoniques, $f(\mathbf{e}_j)$ | M12a |
 | matrice de confusion | confusion matrix | le tableau de contingence de la vérité et de la prédiction d'un classifieur (TP, FN, FP, TN en binaire) | M03 |
 | matrice de corrélation | correlation matrix | la matrice des corrélations $\rho_{ij} = \frac{\Sigma_{ij}}{\sigma_i\sigma_j}$, avec des 1 sur la diagonale | M02c |
@@ -416,6 +425,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | Naïve Bayes | naive Bayes | un classifieur génératif qui suppose les features indépendantes sachant la classe : $P(Y = k \mid \mathbf{x}) \propto \pi_k\prod_j p(x_j \mid k)$, chaque loi estimée par maximum de vraisemblance (avec lissage), la décision en log-probabilités | M13a |
 | négation | negation | la proposition « non P », vraie quand P est fausse | R4 |
 | nier l'antécédent | denying the antecedent | le sophisme formel « $P \Rightarrow Q$ ; non $P$ ; donc non $Q$ » : non valide | M11 |
+| nilpotente (matrice) | nilpotent matrix | une matrice carrée dont une puissance est nulle ; une matrice strictement triangulaire $n \times n$ vérifie $\mathbf{N}^n = \mathbf{0}$ ; ses valeurs propres sont toutes nulles | M16 |
 | nombre décimal | decimal number, terminating decimal | nombre qui s'écrit avec un nombre fini de chiffres après la virgule (ensemble 𝔻) | R1 |
 | nombre dérivé | derivative at a point | $f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}$, la pente de la tangente en $a$ | R7 |
 | nombre e | Euler's number | $e = \lim (1 + \frac{1}{n})^n \approx 2{,}718$, la base de l'exponentielle et de $\ln$ | R6 |
@@ -438,6 +448,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | oracle (d'un test) | test oracle | bibliothèque de confiance à laquelle un test compare ta fonction | R0 |
 | ordre d'une méthode numérique | order of a numerical method | l'exposant $k$ d'une erreur proportionnelle à $h^k$ : diviser le pas par 2 divise l'erreur par $2^k$ | M02a |
 | ordre de grandeur | order of magnitude | la puissance de 10 la plus proche d'un nombre | R1 |
+| ordre topologique | topological order | une numérotation des nœuds d'un graphe sans cycle où chaque arête va d'un numéro à un plus grand ; la matrice d'adjacence renumérotée est strictement triangulaire supérieure | M16 |
 | orthogonaux (vecteurs) | orthogonal vectors | de directions perpendiculaires : leur produit scalaire est nul | R9, M07 |
 | overfitting, underfitting | overfitting, underfitting | un modèle trop souple, qui colle au bruit des données d'entraînement (grande variance) ; un modèle trop simple, qui rate la forme des données (grand biais) | M09b |
 | p-valeur | p-value | la probabilité, calculée en supposant $H_0$ vraie, d'une statistique au moins aussi extrême que celle observée ; pas la probabilité que $H_0$ soit vraie | M08 |
@@ -557,6 +568,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | seuil de décision | decision threshold | le score à partir duquel on déclare un exemple positif ; $\frac{c_{FP}}{c_{FP} + c_{FN}}$ minimise le coût pour des probabilités calibrées | M03 |
 | seuillage doux | soft thresholding | $S(z, \gamma) = \operatorname{signe}(z)\max(\lvert z \rvert - \gamma, 0)$ : rapprocher $z$ de 0 de $\gamma$, ou le mettre à 0 ; la solution du lasso en dimension 1 | M09b |
 | sigmoïde (fonction logistique) | sigmoid, logistic function | $\sigma(x) = \frac{1}{1 + e^{-x}}$, à valeurs dans $]0 \;;\; 1[$ | R6 |
+| signe aléatoire, variable de Rademacher | random sign, Rademacher variable | $\varepsilon = \pm 1$ avec la probabilité $\frac12$ chacun : centrée, de variance 1 ; multipliés par des signes indépendants, des termes corrélés deviennent décorrélés | M16 |
 | silhouette | silhouette (coefficient) | $s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}$, entre $-1$ et 1 : positive quand le point est en moyenne plus près des points de son cluster que de ceux du cluster voisin, négative quand il est plus près de ceux du cluster voisin, nulle à égalité | M07 |
 | similarité cosinus | cosine similarity | $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$, le cosinus de l'angle entre deux vecteurs : compare leurs directions | R9, M07 |
 | simulation par inversion | inverse transform sampling | si $U$ est uniforme sur $[0 ; 1]$, $F^{-1}(U)$ suit la loi de fonction de répartition $F$ | M02b |
@@ -569,6 +581,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | somme infinie, série | infinite sum, series | la limite des sommes partielles ; $\sum_{k=0}^{+\infty} u_0\,q^k = \frac{u_0}{1 - q}$ si $\lvert q \rvert < 1$ | R5 |
 | somme partielle | partial sum | la somme des $n$ premiers termes d'une suite | R5 |
 | somme pondérée | weighted sum | $\sum w_i x_i + b$, sans division ; le calcul d'un neurone | R1 |
+| somme sur les chemins | sum over paths | dans un graphe sans cycle pondéré, la somme, sur les chemins de $i$ à $j$, des produits des poids : le coefficient $(i, j)$ de $\mathbf{A} + \cdots + \mathbf{A}^{n-1}$, ou de $(\mathbf{I} - \mathbf{A})^{-1}$ pour $i \ne j$ | M16 |
 | somme télescopique | telescoping sum | $\sum (b_{k+1} - b_k) = b_{n+1} - b_1$ | R4 |
 | sommes de carrés (totale, expliquée, résiduelle) | total, explained, residual sum of squares (SST, SSE, SSR) | $\mathrm{SCT} = \sum (y_i - \bar{y})^2$, $\mathrm{SCE} = \sum (\hat{y}_i - \bar{y})^2$, $\mathrm{SCR} = \sum r_i^2$ ; $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ pour les moindres carrés avec ordonnée à l'origine | M09b |
 | sommet (d'une enveloppe convexe) | vertex | un point du nuage qui n'est pas combinaison convexe des autres : un coin du polygone | M10 |
@@ -650,6 +663,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | variable de confusion | confounder, confounding variable | une troisième grandeur qui fait varier deux autres, et crée entre elles une corrélation sans causalité | M02c |
 | variance | variance | moyenne des carrés des écarts à l'espérance | R8 |
 | variance d'échantillon | sample variance | $s^2 = \frac{1}{n - 1}\sum (x_i - \bar{x})^2$, estimateur sans biais de $\sigma^2$ ; $s_n^2$ divise par $n$ | M02c |
+| variance d'un produit | variance of a product | pour $X$ et $Y$ indépendantes : $\mathbb{V}(XY) = \mathbb{V}(X)\,\mathbb{V}(Y) + \mathbb{V}(X)\,\mathbb{E}[Y]^2 + \mathbb{V}(Y)\,\mathbb{E}[X]^2$, toujours au moins $\mathbb{V}(X)\,\mathbb{V}(Y)$ | M16 |
 | variance expliquée (part de) | explained variance ratio | $\lambda_j/\sum_l\lambda_l$ : la part de la variance totale que garde l'axe principal $j$ ; la somme des $k$ premières est la part gardée par une ACP à $k$ composantes | M12d |
 | variance intra-groupes, inter-groupes | within-group, between-group variance | la moyenne pondérée des variances des groupes, et la moyenne pondérée des carrés des écarts des moyennes des groupes à la moyenne générale ; leur somme est la variance totale | M13a |
 | vecteur | vector | un déplacement (une direction, un sens, une longueur), donné par ses coordonnées ; en ML, une liste de nombres | R9 |
