@@ -10,17 +10,22 @@ Part 0 checks the paper exercises (✏️ M19.1 to M19.9, 🔗 M19.14 and M19.15
 (M19.19 to M19.28). Wrong-answer messages state a rule, never a number of the answer nor the last step that gives it.
 The data are new: written in the statements, or synthetic with the seeds 5231 to 5239 only (never 19xx); none is a test
 case of tests/test_m19_iterative.py nor the data of a paper exercise. Examples of the fiche come back on purpose: the
-two springs (§4) in M19.20, whose factor at ω = 0.3 and 42 iterations at the best step 2/7 are read again on the
-iterates; the stiff and the soft spring (§5), whose critical step is computed before and after the diagonal scaling;
-the complex recurrence u_{k+2} = 0.8 u_{k+1} − 0.64 u_k (§6) in M19.21, compared with 0.8^k cos(kπ/3); the bar of §3
-(made finer: 50 inner points, ends at 10 °C and 70 °C) in M19.22 and M19.24; and the three recurrences of §6 in the
-colleague's check of M19.26. Nothing of workbookIA 19 is used (the notes of M19 in the syllabus): no optimiser, no
-learning rate, no schedule, no momentum (the leapfrog scheme of M19.28 is a recurrence of mechanics, never a method of
-optimisation), no parabola, valley, Rosenbrock function nor saddle of its list, none of its formulas, numbers or seeds.
-The prediction of M19.23 is about a matrix and a formula (ρ(ω), then d ln 10 / (−ln ρ)), answered by ranges of
-iterations, not a list of steps on a valley; the steps are fractions of the critical step (0.5, the best step, 0.99,
-1.05), never the factor 1.8 of workbookIA. The count of evaluations of f in numerical_hessian is never asked: the
-tests allow 2n² + n, the fiche says 2n² + 1 at best.
+two springs (§4) in M19.20, read on the iterates from 0 at the fiche's step ω = 0.32 (just below the critical step:
+the limit factor 0.92 of λmax, after a start dominated by λmin) and at the best step 2/7 (42 iterations); the stiff
+and the soft spring (§5), whose critical step is computed before and after the diagonal scaling; the complex
+recurrence u_{k+2} = 0.8 u_{k+1} − 0.64 u_k (§6) in M19.21, compared with 0.8^k cos(kπ/3); the bar of §3 (made finer:
+50 inner points, ends at 10 °C and 70 °C) in M19.22 and M19.24; and the three recurrences of §6 in the colleague's
+check of M19.26. Nothing of workbookIA 19 is used (the notes of M19 in the syllabus): no optimiser, no learning rate,
+no schedule, no momentum (the leapfrog scheme of M19.28 is a recurrence of mechanics, never a method of optimisation;
+nothing on hΩ = 0), no parabola, valley, Rosenbrock function nor saddle of its list, none of its formulas, numbers or
+seeds; no step ω with ωλmax = 1.8, no step 0.1 nor 0.125. The prediction of M19.23 is about a 4 × 4 matrix and a
+formula: which of four steps, given as numbers, does not converge (a letter), and ⌈6 ln 10 / (−ln ρ(ω))⌉ for the three
+others (integers), never ranges of steps on a valley; M19.23 and M19.25 take 0.4 ω_c, not 1/λmax, and no question
+is about a stiff component that vanishes in one step (18.3 d, ∂ 19.7.2 of workbookIA). M19.27 updates the residual by its own
+recurrence r_{k+1} = (I − ωA) r_k and bounds it by ρ^k ‖b‖, without the lesson « test before or after the step » of
+workbookIA 5.18. The inertia of M19.26 (n_neg, n_zero, n_pos, a relative tolerance) is not the four-outcome rule of
+classify_critical_point (workbookIA 5). The count of evaluations of f in numerical_hessian is never asked: the tests
+allow 2n² + n, the fiche says 2n² + 1 at best.
 """
 
 from __future__ import annotations
@@ -81,7 +86,9 @@ PAPER = [
          '''mistakes={"en ordre croissant : la plus négative d'abord": EIGEN_2[(-2, -1, 1)][::-1]}'''),
         ("e", "a list of 4 integers", "[sum(v < 0 for v in EIGEN_2[tuple(p)]) for p in CRIT_2]",
          '''mistakes={"compte les valeurs propres NÉGATIVES": [sum(v > 0 for v in EIGEN_2[tuple(p)]) for p in CRIT_2]}'''),
-        ("f", "a number", "int(F_2.subs(dict(zip(V_1, (2, 1, 1)))))"),
+        ("f", "a number", "int(F_2.subs(dict(zip(V_1, (2, 1, 1)))))",
+         '''mistakes={"le minimum local est le point critique dont les trois valeurs propres sont POSITIVES":
+                         {int(F_2.subs(dict(zip(V_1, p)))) for p in CRIT_2 if p != [2, 1, 1]}}'''),
         ("g", "True or False", "all(v < 0 for v in EIGEN_2[(-2, -1, 1)])",
          '''mistakes={"la valeur propre de la direction z est la même en tout point, et positive : f y monte": True}'''),
     ]),
@@ -96,9 +103,11 @@ PAPER = [
         ("d", "a list of 2 numbers: [a, b]", "flat(BASIS_3.solve(X0_3 - STAR_3))",
          '''decimals=6, mistakes={"décompose l'ÉCART x₀ − x*, pas x₀ lui-même": flat(BASIS_3.solve(X0_3))}'''),
         ("e", "a list of 2 numbers", "flat(iterate_3(X0_3, 3))",
-         '''decimals=6, mistakes={"xₖ = x* + Mᵏ(x₀ − x*) : M³x₀ seul oublie le point fixe": flat(M_3 ** 3 * X0_3)}'''),
+         '''decimals=6, mistakes={"xₖ = x* + Mᵏ(x₀ − x*) : M³x₀ seul oublie le point fixe": flat(M_3 ** 3 * X0_3),
+                     "x₃ = x* + e₃ : ajoute le point fixe à l'écart": flat(iterate_3(X0_3, 3) - STAR_3)}'''),
         ("f", "an integer", "STEPS_3",
-         '''mistakes={"il faut ρᵏ ≤ 10⁻³ : arrondis k vers le haut, jamais vers le bas": STEPS_3 - 1}'''),
+         '''fractional="le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
+           mistakes={"il faut ρᵏ ≤ 10⁻³ : arrondis k vers le haut, jamais vers le bas": STEPS_3 - 1}'''),
         ("g", "True or False", "G_3",
          '''mistakes={"regarde l'écart de départ x₀ − x* : de quel vecteur propre de M est-il un multiple ?": not G_3}'''),
     ]),
@@ -116,7 +125,8 @@ PAPER = [
          '''decimals=6, mistakes={"dans le même ordre que d) : d'abord celle qui vient de la plus grande valeur propre de A":
                          [float(1 - OMEGA_4 * v) for v in EIGEN_4[::-1]]}'''),
         ("f", "a number", "float(R(2, max(EIGEN_4)))",
-         '''decimals=6, mistakes={"le pas critique se règle sur la PLUS GRANDE valeur propre": float(R(2, min(EIGEN_4)))}'''),
+         '''decimals=6, mistakes={"le pas critique se règle sur la PLUS GRANDE valeur propre": float(R(2, min(EIGEN_4))),
+                     "le pas critique est 2/λmax : n'oublie pas le 2": float(R(1, max(EIGEN_4)))}'''),
         ("g", "a number", "float(G_4)",
          '''decimals=6, mistakes={"la valeur propre de plus grand MODULE, pas de plus petit": float(SMALL_4),
                      "la valeur propre elle-même, avec son signe, pas son module": float(abs(G_4))}'''),
@@ -139,15 +149,18 @@ PAPER = [
            mistakes={"κ = λmax/λmin est un quotient, pas une différence":
                          str((LMAX_5 - LMIN_5 - 1) / (LMAX_5 - LMIN_5 + 1))}'''),
         ("e", "an integer", "steps_to_gain(RHO_5)",
-         '''mistakes={"ρᵏ ≤ 10⁻⁶ : arrondis k vers le haut, jamais vers le bas": steps_to_gain(RHO_5) - 1}'''),
+         '''fractional="le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
+           mistakes={"ρᵏ ≤ 10⁻⁶ : arrondis k vers le haut, jamais vers le bas": steps_to_gain(RHO_5) - 1}'''),
         ("f", "an irreducible fraction, as text", "str(PRUDENT_5)",
          '''kind="fraction", simplified=True,
            mistakes={"le facteur est le plus grand des |1 − ωλᵢ| : regarde aussi la plus petite valeur propre":
                          str(abs(1 - EIGEN_5[1] / LMAX_5))}'''),
         ("g", "an integer", "steps_to_gain(PRUDENT_5)",
-         '''mistakes={"ρᵏ ≤ 10⁻⁶ : arrondis k vers le haut, jamais vers le bas": steps_to_gain(PRUDENT_5) - 1}'''),
+         '''fractional="le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
+           mistakes={"ρᵏ ≤ 10⁻⁶ : arrondis k vers le haut, jamais vers le bas": steps_to_gain(PRUDENT_5) - 1}'''),
         ("h", "an integer", "steps_to_gain(R(110 - 1, 110 + 1))",
-         '''mistakes={"ρᵏ ≤ 10⁻⁶ : arrondis k vers le haut, jamais vers le bas": steps_to_gain(R(110 - 1, 110 + 1)) - 1}'''),
+         '''fractional="le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
+           mistakes={"ρᵏ ≤ 10⁻⁶ : arrondis k vers le haut, jamais vers le bas": steps_to_gain(R(110 - 1, 110 + 1)) - 1}'''),
     ]),
 
     Paper("M19.6", "Une récurrence d'ordre 2 à racines réelles : terme général et convergence", [
@@ -157,7 +170,9 @@ PAPER = [
          '''decimals=6, mistakes={"α va avec la plus grande racine r₁": flat(COEFS_6[::-1])}'''),
         ("c", "a list of 2 numbers: [u2, u3]", "flat(U_6[2:4])",
          '''decimals=6, mistakes={"la récurrence RETRANCHE q uₖ : uₖ₊₂ = 0,7uₖ₊₁ − 0,1uₖ": flat(PLUS_6[2:4])}'''),
-        ("d", "a number (6 decimals)", "float(U_6[10])", "decimals=6"),
+        ("d", "a number (6 decimals)", "float(U_6[10])",
+         '''decimals=6, mistakes={"uₖ = α r₁ᵏ + β r₂ᵏ : n'oublie pas les coefficients α et β":
+                         float(ROOTS_6[0] ** 10 + ROOTS_6[1] ** 10)}'''),
         ("e", "a list of 2 numbers, in decreasing order", "flat(ROOTS_V_6)",
          '''decimals=6, mistakes={"en ordre décroissant": flat(ROOTS_V_6[::-1])}'''),
         ("f", "a number", "float(V1_6)",
@@ -173,14 +188,16 @@ PAPER = [
          '''decimals=6, mistakes={"les racines sont p/2 ± i√(−Δ)/2 : divise aussi la partie imaginaire par 2":
                          [float(RE_7), float(2 * IM_7)]}'''),
         ("c", "a number", "float(MODULUS_7)",
-         '''decimals=6, mistakes={"le module est √(a² + b²) = √q, pas la partie réelle": float(RE_7)}'''),
+         '''decimals=6, mistakes={"le module est √(a² + b²) = √q, pas la partie réelle": float(RE_7),
+                     "le module est √q : q est le CARRÉ du module, le produit des deux racines conjuguées": float(Q_7)}'''),
         ("d", "a number (4 decimals)", "float(THETA_7)",
          '''decimals=4, mistakes={"un angle en radians, pas en degrés": math.degrees(float(THETA_7))}'''),
         ("e", "a list of 4 numbers (6 decimals): [u2, u3, u4, u5]", "flat(U_7[2:6])",
          '''decimals=6, mistakes={"la récurrence RETRANCHE q uₖ : uₖ₊₂ = p uₖ₊₁ − q uₖ": flat(PLUS_7[2:6])}'''),
         ("f", "a list of 2 numbers: [A, B]", "flat(AB_7)", "decimals=6"),
         ("g", "an integer", "STEPS_7",
-         '''mistakes={"0,5ᵏ < 10⁻³ : arrondis k vers le haut, jamais vers le bas": STEPS_7 - 1}'''),
+         '''fractional="le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
+           mistakes={"0,65ᵏ < 10⁻³ : arrondis k vers le haut, jamais vers le bas": STEPS_7 - 1}'''),
         ("h", "a number (2 decimals)", "float(2 * sympy.pi / THETA_7)",
          '''decimals=2, mistakes={"une période complète est un tour, un angle de 2π, pas π": float(sympy.pi / THETA_7)}'''),
     ]),
@@ -192,18 +209,23 @@ PAPER = [
          '''mistakes={"gₖ(a) = 2Iₖ(aIₖ − Uₖ) : multiplie chaque résidu aIₖ − Uₖ par 2Iₖ": flat(RESIDUALS_8)}'''),
         ("c", "a number", "float(SIGMA2_8)",
          '''decimals=6, mistakes={"σ² divise par N = 4, la dispersion des quatre gradients, pas par N − 1":
-                         float(SIGMA2_8 * 4 / 3)}'''),
+                         {float(SIGMA2_8 * 4 / 3), 19.67, 19.6667},
+                     "σ² est la moyenne des carrés des ÉCARTS à F′(2), pas des carrés des gₖ":
+                         float(sum(g * g for g in G_8) / 4)}'''),
         ("d", "a number", "float(SIGMA2_8 / 2)",
          '''decimals=6, mistakes={"la variance d'une moyenne de B tirages indépendants est σ²/B, pas σ²/B²":
-                         float(SIGMA2_8 / 4)}'''),
+                         {float(SIGMA2_8 / 4), 3.69}}'''),
         ("e", "a number (4 decimals)", "math.sqrt(SIGMA2_8 / 2)",
          '''decimals=4, mistakes={"l'erreur type est la RACINE de la variance": float(SIGMA2_8 / 2),
-                     "l'erreur type est σ/√B : divise σ par √B, pas par B": math.sqrt(SIGMA2_8) / 2}'''),
+                     "l'erreur type est σ/√B : divise σ par √B, pas par B": {math.sqrt(SIGMA2_8) / 2, 1.92}}'''),
         ("f", "an integer", "B_MIN_8",
          '''mistakes={"l'erreur type est σ/√B : élève au carré l'inégalité σ/√B ≤ 0,5": math.ceil(math.sqrt(SIGMA2_8) / 0.5)}'''),
         ("g", "a number (4 decimals)", "float(SIGMA2_8 / 2 * R(4 - 2, 4 - 1))",
          '''decimals=4, mistakes={"le facteur de population finie est (N − B)/(N − 1), pas son inverse":
-                         float(SIGMA2_8 / 2 * R(4 - 1, 4 - 2))}'''),
+                         float(SIGMA2_8 / 2 * R(4 - 1, 4 - 2)),
+                     "sans remise, la variance de la moyenne est multipliée par (N − B)/(N − 1)": float(SIGMA2_8 / 2),
+                     "le facteur de population finie est (N − B)/(N − 1), pas (N − B)/N":
+                         float(SIGMA2_8 / 2 * R(4 - 2, 4))}'''),
         ("h", "an irreducible fraction, as text", "str(POSITIVE_8)",
          '''kind="fraction", simplified=True,
            mistakes={"tirages AVEC remise : les 16 couples ordonnés sont équiprobables, pas les 10 paires": str(PAIRS_8),
@@ -224,7 +246,9 @@ PAPER = [
         ("d", "a list of 2 numbers (4 decimals)", "[float((X_9 - BALL_9).norm()), float((X_9 - BOX_9).norm())]",
          '''decimals=4, mistakes={"la distance de x à sa projection est ‖x − P(x)‖, pas ‖x‖":
                          [float(NORM_9), float((X_9 - BOX_9).norm())]}'''),
-        ("e", "a number (4 decimals)", "float(X_9.dot(BOX_9) / (NORM_9 * BOX_9.norm()))", "decimals=4"),
+        ("e", "a number (4 decimals)", "float(X_9.dot(BOX_9) / (NORM_9 * BOX_9.norm()))",
+         '''decimals=4, mistakes={"le cosinus vaut 1 pour la boule ; sur le pavé, chaque coordonnée est coupée "
+                                 "séparément": 1}'''),
         ("f", "True or False", "F_9",
          '''mistakes={"compare les deux vecteurs : l'un est-il un multiple POSITIF de l'autre ?": not F_9}'''),
     ]),
@@ -254,12 +278,14 @@ PAPER = [
         ("b", "a number (1 decimal)", "float(KAPPA_15)", "decimals=1"),
         ("c", MATRIX, "rows(TILDE_15)",
          '''decimals=6, mistakes={"ãᵢⱼ = aᵢⱼ/√(aᵢᵢaⱼⱼ) : divise par la racine des DEUX coefficients diagonaux":
-                         rows(sympy.diag(*[1 / A_15[i, i] for i in range(2)]) * A_15)}'''),
+                         rows(sympy.diag(*[1 / A_15[i, i] for i in range(2)]) * A_15),
+                     "ãᵢⱼ = aᵢⱼ/√(aᵢᵢaⱼⱼ) : la RACINE du produit des deux coefficients diagonaux":
+                         rows(sympy.Matrix(2, 2, lambda i, j: 1 if i == j else A_15[i, j] / (A_15[i, i] * A_15[j, j])))}'''),
         ("d", "a number", "int(KAPPA_TILDE_15)"),
         ("e", "a list of 2 integers", "STEPS_15",
          '''mistakes={"l'ordre demandé : A d'abord, puis Ã": STEPS_15[::-1],
-                     "ρ* arrondi trop tôt : garde 6 chiffres significatifs de ρ* = (κ − 1)/(κ + 1)":
-                         [STEPS_15[0] - 1, STEPS_15[1]]}'''),
+                     "le nombre d'itérations s'arrondit vers le HAUT ; vérifie aussi que ρ* a gardé 6 chiffres "
+                     "significatifs": [STEPS_15[0] - 1, STEPS_15[1]]}'''),
         ("f", "a list of 2 numbers", "flat(SQRT_D_15 * X_15)",
          '''decimals=6, mistakes={"y = D^(1/2)x : multiplie chaque coordonnée par √aᵢᵢ, ne la divise pas":
                          flat(SQRT_D_15.inv() * X_15)}'''),
@@ -480,7 +506,7 @@ P_19 = np.array([1.2, -0.5])                     # the point of a) and e)
 STEPS_19 = [10.0 ** -k for k in range(2, 9)]     # h = 1e-2, 1e-3, ..., 1e-8'''
 
 M19_19 = Ex(
-    "M19.19", "🔨", 2, 25, "La hessienne par différences centrées · `numerical_hessian`",
+    "M19.19", "🔨", 2, 35, "La hessienne par différences centrées · `numerical_hessian`",
     "programmer la hessienne d'une fonction de $n$ variables par différences centrées, choisir son pas, et classer un "
     "point critique de $\\mathbb{R}^3$ par les signes de ses valeurs propres.",
     "fiche §1 et §2 ; M05a (le pas des différences finies)", tracks="C, E", mymath="iterative.py", given=GIVEN_19,
@@ -586,7 +612,7 @@ B_20 = np.array([2.0, 1.0])
 X_STAR_20 = np.array([1.0, 1.5])               # the solution of A_20 x = B_20'''
 
 M19_20 = Ex(
-    "M19.20", "🔨", 2, 25, "Le pas critique d'une matrice symétrique définie positive, et les itérés de Richardson · "
+    "M19.20", "🔨", 2, 30, "Le pas critique d'une matrice symétrique définie positive, et les itérés de Richardson · "
     "`critical_step_size, richardson_iterates`",
     "programmer le pas critique $2/\\lambda_{\\max}$ et l'itération de Richardson, puis lire sur les itérés le facteur "
     "de convergence et le nombre d'itérations.", "fiche §4 et §5", tracks="C, E", mymath="iterative.py",
@@ -598,10 +624,10 @@ M19_20 = Ex(
 **L'usage : les ressorts de la fiche.** La cellule fournie donne la matrice $\mathbf{K}$ du ressort raide et du ressort souple (§5, `K_20`), et le système des deux ressorts (§4) : $\mathbf{A}$, $\mathbf{b}$ et sa solution $\mathbf{x}^\star = (1 ;\ 1{,}5)$ (`A_20`, `B_20`, `X_STAR_20`). Avec tes fonctions, calcule :
 - a) le pas critique de $\mathbf{K}$ (6 décimales) ;
 - b) le pas critique de $\tilde{\mathbf{K}} = \mathbf{D}^{-1/2}\mathbf{K}\mathbf{D}^{-1/2}$, $\mathbf{D}$ la diagonale de $\mathbf{K}$ (un nombre) ;
-- c) pour les deux ressorts, avec $\omega = 0{,}3$, depuis $\mathbf{0}$ : le rapport $\lVert\mathbf{e}_{61}\rVert/\lVert\mathbf{e}_{60}\rVert$ des normes de deux écarts successifs, $\mathbf{e}_k = \mathbf{x}_k - \mathbf{x}^\star$ (4 décimales) ;
+- c) pour les deux ressorts, avec $\omega = 0{,}32$ (le pas de la fiche, juste sous le pas critique), depuis $\mathbf{0}$ : le rapport $\lVert\mathbf{e}_{61}\rVert/\lVert\mathbf{e}_{60}\rVert$ des normes de deux écarts successifs, $\mathbf{e}_k = \mathbf{x}_k - \mathbf{x}^\star$ (4 décimales) ;
 - d) pour les deux ressorts, au meilleur pas $\omega^\star = \frac27$, depuis $\mathbf{0}$ : le plus petit $k$ tel que $\lVert\mathbf{e}_k\rVert \le 10^{-6}\lVert\mathbf{e}_0\rVert$ (un entier).
 
-Dans ta copie : combien de fois la mise à l'échelle agrandit-elle le pas critique, et pourquoi ? Compare c) à $\rho(0{,}3) = \max(\lvert 1 - 0{,}3\lambda_{\min}\rvert, \lvert 1 - 0{,}3\lambda_{\max}\rvert)$ : laquelle des deux valeurs propres décide, et pourquoi le rapport des premiers pas, $\lVert\mathbf{e}_{11}\rVert/\lVert\mathbf{e}_{10}\rVert$, en est-il plus loin ? Compare d) à la fiche (§5). Avec $\omega^\star$, pourquoi le rapport $\lVert\mathbf{e}_{k+1}\rVert/\lVert\mathbf{e}_k\rVert$ est-il le même à chaque pas, quel que soit le départ ?""",
+Dans ta copie : combien de fois la mise à l'échelle agrandit-elle le pas critique, et pourquoi ? Compare c) à $\rho(0{,}32) = \max(\lvert 1 - 0{,}32\lambda_{\min}\rvert, \lvert 1 - 0{,}32\lambda_{\max}\rvert)$ : laquelle des deux valeurs propres décide ? Calcule aussi $\lVert\mathbf{e}_3\rVert/\lVert\mathbf{e}_2\rVert$ : de quel facteur est-il proche, et pourquoi ce n'est pas le même (compare les deux composantes de $\mathbf{e}_0 = -\mathbf{x}^\star$ sur les vecteurs propres $(1, 2)$ et $(2, -1)$) ? Compare d) à la fiche (§5). Avec $\omega^\star$, pourquoi le rapport $\lVert\mathbf{e}_{k+1}\rVert/\lVert\mathbf{e}_k\rVert$ est-il le même à chaque pas, quel que soit le départ ?""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=tests_cells("critical_step_size or richardson_iterates") + [
@@ -611,7 +637,7 @@ Dans ta copie : combien de fois la mise à l'échelle agrandit-elle le pas criti
 with wbm.attempt("M19.20"):          # if you call your functions here: ⏳ while they are not written
     answer_M19_20a = ...  # a) a number (6 decimals): the critical step of K_20
     answer_M19_20b = ...  # b) a number: the critical step of K̃ = D^(-1/2) K_20 D^(-1/2)
-    answer_M19_20c = ...  # c) a number (4 decimals): ‖e_61‖ / ‖e_60‖ for A_20, B_20, ω = 0.3, from 0
+    answer_M19_20c = ...  # c) a number (4 decimals): ‖e_61‖ / ‖e_60‖ for A_20, B_20, ω = 0.32, from 0
     answer_M19_20d = ...  # d) an integer: the smallest k with ‖e_k‖ ≤ 1e-6 ‖e_0‖ at ω* = 2/7, from 0'''),
         ("check", '''for letter, answer in zip("abcd", [answer_M19_20a, answer_M19_20b, answer_M19_20c, answer_M19_20d]):
     wbm.check(f"M19.20{letter}", answer, computed=True)'''),
@@ -621,13 +647,13 @@ scale_20 = 1 / np.sqrt(np.diag(K_20))
 K_tilde_20 = K_20 * np.outer(scale_20, scale_20)           # k_ij / √(k_ii k_jj)
 answer_M19_20a = critical_step_size(K_20)
 answer_M19_20b = critical_step_size(K_tilde_20)
-errors_20 = np.linalg.norm(richardson_iterates(A_20, B_20, 0.3, n_steps=70) - X_STAR_20, axis=1)
+errors_20 = np.linalg.norm(richardson_iterates(A_20, B_20, 0.32, n_steps=70) - X_STAR_20, axis=1)
 answer_M19_20c = float(errors_20[61] / errors_20[60])
 best_20 = np.linalg.norm(richardson_iterates(A_20, B_20, 2 / 7, n_steps=60) - X_STAR_20, axis=1)
 answer_M19_20d = int(np.flatnonzero(best_20 <= 1e-6 * best_20[0])[0])
 print("a)", round(answer_M19_20a, 6), " b)", round(answer_M19_20b, 6), "; K̃ =", K_tilde_20.tolist(),
       "; rapport :", round(answer_M19_20b / answer_M19_20a, 1))
-print("c)", round(answer_M19_20c, 4), "; ‖e_11‖/‖e_10‖ =", round(float(errors_20[11] / errors_20[10]), 4))
+print("c)", round(answer_M19_20c, 4), "; ‖e_3‖/‖e_2‖ =", round(float(errors_20[3] / errors_20[2]), 4))
 print("d)", answer_M19_20d, "; ‖e_k+1‖/‖e_k‖ au meilleur pas :", np.round(best_20[1:6] / best_20[:5], 6).tolist())'''),
         ("record", '''k_20r = np.array([[100.0, -4.0], [-4.0, 4.0]])
 lambdas_20r = np.linalg.eigvalsh(k_20r)
@@ -635,23 +661,29 @@ wbm.record("M19.20a", 2 / lambdas_20r[-1], decimals=6,
            mistakes={"le pas critique se règle sur la PLUS GRANDE valeur propre": 2 / lambdas_20r[0],
                      "la diagonale de K n'est pas son spectre : calcule ses valeurs propres": 2 / k_20r[0, 0]})
 tilde_20r = k_20r / np.sqrt(np.outer(np.diag(k_20r), np.diag(k_20r)))
-wbm.record("M19.20b", 2 / np.linalg.eigvalsh(tilde_20r)[-1], decimals=6)
+wbm.record("M19.20b", 2 / np.linalg.eigvalsh(tilde_20r)[-1], decimals=6,
+           mistakes={"le pas critique se règle sur la PLUS GRANDE valeur propre de K̃":
+                         2 / np.linalg.eigvalsh(tilde_20r)[0]})
 a_20r, star_20r = np.array([[5.0, -2.0], [-2.0, 2.0]]), np.array([1.0, 1.5])
-m_20r = np.eye(2) - 0.3 * a_20r                                      # e_k = (I − ωA)^k e_0, e_0 = −x*
-e60_20r = np.linalg.matrix_power(m_20r, 60) @ -star_20r
-wbm.record("M19.20c", np.linalg.norm(m_20r @ e60_20r) / np.linalg.norm(e60_20r), decimals=4,
+m_20r = np.eye(2) - 0.32 * a_20r                                     # e_k = (I − ωA)^k e_0, e_0 = −x*
+norms_20r = [np.linalg.norm(np.linalg.matrix_power(m_20r, k) @ -star_20r) for k in range(62)]
+wbm.record("M19.20c", norms_20r[61] / norms_20r[60], decimals=4,
            mistakes={"ρ(ω) est le PLUS GRAND des |1 − ωλᵢ| : la composante la plus lente finit par l'emporter":
-                         min(abs(1 - 0.3 * lambdas) for lambdas in np.linalg.eigvalsh(a_20r))})
+                         min(abs(1 - 0.32 * lambdas) for lambdas in np.linalg.eigvalsh(a_20r)),
+                     "le rapport demandé est celui du 60ᵉ pas, quand la composante la plus lente l'emporte, pas celui "
+                     "des premiers pas": {norms_20r[k + 1] / norms_20r[k] for k in range(4)}})
 rho_20r = (6 - 1) / (6 + 1)                                          # ω* = 2/7: every component × 5/7 in modulus
 wbm.record("M19.20d", math.ceil(6 * math.log(10) / -math.log(rho_20r)))'''),
     ],
     note=r"a) $\lambda_{\max}(\mathbf{K}) = 52 + \sqrt{2\,320} \approx 100{,}166$, d'où $\omega_c \approx 0{,}019967$, "
          r"un peu moins que $\frac{2}{100}$. b) $\tilde{\mathbf{K}} = \begin{pmatrix} 1 & -0{,}2 \\ -0{,}2 & 1 "
          r"\end{pmatrix}$ a pour valeurs propres $0{,}8$ et $1{,}2$ : $\omega_c = \frac{2}{1{,}2} = \frac53$, "
-         r"environ 83 fois plus grand, car la mise à l'échelle ramène la plus grande courbure de 100 à 1,2. c) $\rho(0{,}3) = "
-         r"\max(0{,}7 ;\ 0{,}8) = 0{,}8$ : c'est la valeur propre 6, de facteur $-0{,}8$, qui décide ; le rapport vaut "
-         r"$0{,}8000$ au 60ᵉ pas, mais encore $0{,}72$ au 10ᵉ, car la composante de la valeur propre 1, de facteur $0{,}7$, "
-         r"est huit fois plus grande au départ et met longtemps à devenir négligeable. d) 42, comme dans la fiche : avec "
+         r"environ 83 fois plus grand, car la mise à l'échelle ramène la plus grande courbure de 100 à 1,2. c) $\rho(0{,}32) = "
+         r"\max(0{,}68 ;\ 0{,}92) = 0{,}92$ : c'est la valeur propre 6, de facteur $-0{,}92$, qui décide, et le rapport "
+         r"vaut $0{,}9200$ au 60ᵉ pas. Au début, il est proche de l'autre facteur : $\frac{\lVert\mathbf{e}_3\rVert}"
+         r"{\lVert\mathbf{e}_2\rVert} \approx 0{,}694$, car $\mathbf{e}_0 = -\mathbf{x}^\star$ a une composante huit fois "
+         r"plus grande sur $(1, 2)$, de facteur $0{,}68$, que sur $(2, -1)$ ; elle diminue plus vite, et la composante "
+         r"raide, qui change de signe à chaque pas, l'emporte dès le 7ᵉ pas ; le rapport dépasse $0{,}91$ au 12ᵉ. d) 42, comme dans la fiche : avec "
          r"$\omega^\star$, les deux composantes sont multipliées par $\frac57$ et $-\frac57$, et la norme de l'écart "
          r"exactement par $\frac57$ à chaque pas, depuis tout départ.",
 )
@@ -659,25 +691,26 @@ wbm.record("M19.20d", math.ceil(6 * math.log(10) / -math.log(rho_20r)))'''),
 M19_21 = Ex(
     "M19.21", "🔨", 1, 15, "Une récurrence linéaire d'ordre d · `linear_recurrence`",
     "programmer une récurrence linéaire d'ordre quelconque, retrouver la forme $\\lvert r\\rvert^k\\cos k\\theta$ "
-    "d'une récurrence à racines complexes, et calculer un terme lointain.", "fiche §6 ; R5", tracks="C",
+    "d'une récurrence à racines complexes, et suivre une récurrence d'ordre 3 vers sa limite.", "fiche §6 ; R5",
+    tracks="C",
     mymath="iterative.py",
     body=r"""Écris `linear_recurrence(coefficients, initial, n_terms)` (fiche §6), en suivant sa docstring : les `n_terms` premiers termes de $u_{k+d} = c_1u_{k+d-1} + \cdots + c_du_k$, où `coefficients` $= [c_1, \ldots, c_d]$ ($c_1$ multiplie le terme le plus **récent**) et `initial` $= [u_0, \ldots, u_{d-1}]$, en tableau NumPy de flottants ; une récurrence $u_{k+2} = p\,u_{k+1} - q\,u_k$ s'écrit donc `coefficients = [p, -q]`. Avec moins de `n_terms` que $d$, ce sont les premières valeurs de départ ; `ValueError` si `coefficients` est vide, si `initial` n'a pas $d$ valeurs, ou si `n_terms` n'est pas un entier $\ge 0$ ; le résultat est un **nouveau** tableau.
 
 **L'usage.** Avec ta fonction :
 - a) l'exemple de la fiche (§6), $u_{k+2} = 0{,}8\,u_{k+1} - 0{,}64\,u_k$ depuis $u_0 = 1$, $u_1 = 0{,}4$ : $u_9$ (6 décimales) ;
 - b) vrai ou faux : pour $0 \le k \le 39$, ses termes s'écartent de $0{,}8^k\cos\frac{k\pi}{3}$ de moins de $10^{-12}$ ;
-- c) la récurrence d'ordre 3 $u_{k+3} = 0{,}5\,u_{k+2} + 0{,}3\,u_{k+1} + 0{,}2\,u_k$, depuis $u_0 = 0$, $u_1 = 10$, $u_2 = 4$ : $u_{60}$ (6 décimales).
+- c) la récurrence d'ordre 3 $u_{k+3} = 0{,}5\,u_{k+2} + 0{,}3\,u_{k+1} + 0{,}2\,u_k$, depuis $u_0 = 0$, $u_1 = 10$, $u_2 = 4$ : $u_{11}$ (6 décimales).
 
-Dans ta copie : pourquoi $u_9$ vaut-il $-0{,}8^9$ ? Pour c), les coefficients ont pour somme 1 : chaque terme est une moyenne pondérée des trois précédents. Vérifie que $1$ est racine de $r^3 - 0{,}5r^2 - 0{,}3r - 0{,}2$, factorise, et montre que les deux autres racines sont complexes, de module $\sqrt{0{,}2}$. Montre que $u_{k+2} + 0{,}5\,u_{k+1} + 0{,}2\,u_k$ ne change pas d'un rang au suivant, et déduis-en la limite exacte de $u_k$ : retrouves-tu c) ?""",
+Dans ta copie : pourquoi $u_9$ vaut-il $-0{,}8^9$ ? Pour c), les coefficients ont pour somme 1 : chaque terme est une moyenne pondérée des trois précédents. Vérifie que $1$ est racine de $r^3 - 0{,}5r^2 - 0{,}3r - 0{,}2$, factorise, et montre que les deux autres racines sont complexes, de module $\sqrt{0{,}2}$. Montre que $u_{k+2} + 0{,}5\,u_{k+1} + 0{,}2\,u_k$ ne change pas d'un rang au suivant, et déduis-en la limite exacte $\ell$ de $u_k$. De combien $u_{11}$ s'en écarte-t-il, et de combien l'écart est-il multiplié, à peu près, à chaque rang ?""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=tests_cells("linear_recurrence") + [
-        ("md", "**L'usage** : une oscillation amortie de la fiche, puis un terme lointain d'une récurrence d'ordre 3."),
+        ("md", "**L'usage** : une oscillation amortie de la fiche, puis une récurrence d'ordre 3."),
         ("todo", '''answer_M19_21a = answer_M19_21b = answer_M19_21c = ...
 with wbm.attempt("M19.21"):          # if you call linear_recurrence here: ⏳ while it is not written
     answer_M19_21a = ...  # a) a number (6 decimals): u_9 of u_{k+2} = 0.8 u_{k+1} − 0.64 u_k from (1, 0.4)
     answer_M19_21b = ...  # b) True or False: |u_k − 0.8^k cos(kπ/3)| < 1e-12 for 0 ≤ k ≤ 39
-    answer_M19_21c = ...  # c) a number (6 decimals): u_60 of the order-3 recurrence from (0, 10, 4)'''),
+    answer_M19_21c = ...  # c) a number (6 decimals): u_11 of the order-3 recurrence from (0, 10, 4)'''),
         ("check", '''for letter, answer in zip("abc", [answer_M19_21a, answer_M19_21b, answer_M19_21c]):
     wbm.check(f"M19.21{letter}", answer, computed=True)'''),
         ("solution", '''linear_recurrence = mymath.iterative.linear_recurrence
@@ -686,11 +719,13 @@ k_21 = np.arange(40)
 gap_21 = float(np.max(np.abs(terms_21 - 0.8 ** k_21 * np.cos(k_21 * np.pi / 3))))
 answer_M19_21a = float(terms_21[9])
 answer_M19_21b = bool(gap_21 < 1e-12)
-order3_21 = linear_recurrence([0.5, 0.3, 0.2], [0.0, 10.0, 4.0], 61)
-answer_M19_21c = float(order3_21[60])
+order3_21 = linear_recurrence([0.5, 0.3, 0.2], [0.0, 10.0, 4.0], 41)
+answer_M19_21c = float(order3_21[11])
 print("a)", answer_M19_21a, "; −0.8⁹ =", -0.8 ** 9, " b)", answer_M19_21b, f"(plus grand écart {gap_21:.1e})")
 print("c)", answer_M19_21c, "; premiers termes :", np.round(order3_21[:8], 4).tolist())
-print("u_{k+2} + 0.5 u_{k+1} + 0.2 u_k :", np.round(order3_21[2:7] + 0.5 * order3_21[1:6] + 0.2 * order3_21[0:5], 12).tolist())'''),
+print("u_{k+2} + 0.5 u_{k+1} + 0.2 u_k :", np.round(order3_21[2:7] + 0.5 * order3_21[1:6] + 0.2 * order3_21[0:5], 12).tolist())
+print("écarts à 90/17 :", [f"{abs(u - 90 / 17):.1e}" for u in order3_21[9:14]], "; u_40 − 90/17 =",
+      f"{order3_21[40] - 90 / 17:.1e}")'''),
         ("record", '''from fractions import Fraction
 
 
@@ -710,19 +745,22 @@ wbm.record("M19.21a", float(u9_21r), decimals=6,
 wbm.record("M19.21b", True,
            mistakes={"compare tes termes à 0,8ᵏ cos(kπ/3), en radians (np.cos), en valeur absolue": False})
 weights_21r = [Fraction(1, 2), Fraction(3, 10), Fraction(1, 5)]
-u60_21r = exact_21r(weights_21r, [0, 10, 4], 60)
-assert abs(u60_21r - Fraction(90, 17)) < Fraction(1, 10 ** 12)      # the invariant u2 + 0.5 u1 + 0.2 u0 = 9, divided by 1.7
-wbm.record("M19.21c", float(u60_21r), decimals=6,
+u11_21r = exact_21r(weights_21r, [0, 10, 4], 11)
+neighbours_21r = {round(float(exact_21r(weights_21r, [0, 10, 4], k)), 6) for k in (10, 12)}
+assert round(float(u11_21r), 6) not in neighbours_21r and abs(u11_21r * 10 ** 6 % 1 - Fraction(1, 2)) > Fraction(1, 10)
+wbm.record("M19.21c", float(u11_21r), decimals=6,
            mistakes={"c₁ multiplie le terme le plus RÉCENT : coefficients = [0.5, 0.3, 0.2]":
-                         float(exact_21r(weights_21r[::-1], [0, 10, 4], 60)),
-                     "initial = [u₀, u₁, u₂], dans cet ordre : u₀ = 0 d'abord": float(exact_21r(weights_21r, [4, 10, 0], 60))})'''),
+                         float(exact_21r(weights_21r[::-1], [0, 10, 4], 11)),
+                     "initial = [u₀, u₁, u₂], dans cet ordre : u₀ = 0 d'abord": float(exact_21r(weights_21r, [4, 10, 0], 11)),
+                     "u₁₁ est le terme d'indice 11 : il faut n_terms = 12 termes, puis [11]": neighbours_21r})'''),
     ],
     note=r"a) $u_k = 0{,}8^k\cos\frac{k\pi}{3}$ et $\cos 3\pi = -1$ : $u_9 = -0{,}8^9 = -0{,}134218$. b) Vrai : l'écart "
          r"reste de l'ordre de $10^{-16}$, l'arrondi de chaque produit. c) $r^3 - 0{,}5r^2 - 0{,}3r - 0{,}2 = (r - 1)"
          r"(r^2 + 0{,}5r + 0{,}2)$ : la racine 1, et deux racines complexes $-0{,}25 \pm 0{,}37i$ environ, de module "
          r"$\sqrt{0{,}2} \approx 0{,}447$, qui s'éteignent. La quantité $u_{k+2} + 0{,}5\,u_{k+1} + 0{,}2\,u_k$ vaut 9 à "
-         r"chaque rang ; à la limite $\ell(1 + 0{,}5 + 0{,}2) = 9$, d'où $\ell = \frac{90}{17} \approx 5{,}294118$, déjà "
-         r"atteinte au rang 60 à $10^{-20}$ près.",
+         r"chaque rang ; à la limite $\ell(1 + 0{,}5 + 0{,}2) = 9$, d'où $\ell = \frac{90}{17} \approx 5{,}294118$. "
+         r"$u_{11} \approx 5{,}292669$ s'en écarte encore de $1{,}4 \cdot 10^{-3}$ ; l'écart est multiplié par "
+         r"$\sqrt{0{,}2} \approx 0{,}45$ par rang en moyenne, en oscillant : $u_{40}$ est à $10^{-13}$ près.",
 )
 
 PART_A = Part("A", "Ta librairie : la hessienne numérique, le pas critique, les itérés de Richardson et les récurrences",
@@ -812,24 +850,22 @@ A_23 = (A_23 + A_23.T) / 2
 X_STAR_23 = rng_23.normal(size=4)                              # the solution
 B_23 = A_23 @ X_STAR_23
 X0_23 = X_STAR_23 + Q_23 @ np.ones(4)                          # the start: the same component on each eigenvector
-OMEGA_C_23 = 2 / 24                                            # the critical step 2/λmax
-OMEGAS_23 = {"a) 0,5 ω_c": 0.5 * OMEGA_C_23, "b) ω*": 2 / (2 + 24), "c) 0,99 ω_c": 0.99 * OMEGA_C_23,
-             "d) 1,05 ω_c": 1.05 * OMEGA_C_23}'''
+OMEGAS_23 = {"A": 1 / 30, "B": 1 / 13, "C": 0.0875, "D": 0.0825}   # the four steps'''
 
 EXPERIMENT_23 = '''with checked("M19.23"):
-    print("pas            ω         ρ(ω)     ⌈6 ln 10 / (−ln ρ)⌉   itérations comptées (1 000 pas au plus)")
+    print("pas    ω         ρ(ω)     ⌈6 ln 10 / (−ln ρ)⌉   itérations comptées (1 500 pas au plus)")
     fig_23, ax_23 = plt.subplots(figsize=(7.5, 4.2))
     try:
         for name_23, omega_23 in OMEGAS_23.items():
-            iterates_23 = mymath.iterative.richardson_iterates(A_23, B_23, omega_23, x0=X0_23, n_steps=1000)
+            iterates_23 = mymath.iterative.richardson_iterates(A_23, B_23, omega_23, x0=X0_23, n_steps=1500)
             gains_23 = np.linalg.norm(iterates_23 - X_STAR_23, axis=1) / np.linalg.norm(X0_23 - X_STAR_23)
             reached_23 = np.flatnonzero(gains_23 <= 1e-6)
             rho_23 = max(abs(1 - omega_23 * 2), abs(1 - omega_23 * 24))
             formula_23 = f"{math.ceil(6 * math.log(10) / -math.log(rho_23)):8d}" if rho_23 < 1 else "     ∞  "
-            counted_23 = (f"{reached_23[0]}" if reached_23.size else
-                          f"jamais : l'écart a été multiplié par {gains_23[-1]:.1e}")
-            print(f"{name_23:13} {omega_23:.5f}   {rho_23:.4f}   {formula_23}              {counted_23}")
-            ax_23.semilogy(np.minimum(gains_23, 1e8), label=f"{name_23} : ρ = {rho_23:.3f}")
+            shown_23 = (f"{reached_23[0]}" if reached_23.size else
+                        f"aucune : l'écart a été multiplié par {gains_23[-1]:.1e}")
+            print(f"({name_23})    {omega_23:.5f}   {rho_23:.4f}   {formula_23}              {shown_23}")
+            ax_23.semilogy(np.minimum(gains_23, 1e8), label=f"({name_23}) ω = {omega_23:.4f} : ρ = {rho_23:.3f}")
         ax_23.axhline(1e-6, color="0.5", ls="--", lw=1)
         ax_23.set_xlabel("itération k")
         ax_23.set_ylabel("‖e_k‖ / ‖e_0‖ (échelle log)")
@@ -843,62 +879,67 @@ EXPERIMENT_23 = '''with checked("M19.23"):
 
 M19_23 = Ex(
     "M19.23", "🔮", 1, 10, "Prédire le nombre d'itérations de Richardson selon ω, puis vérifier",
-    "prévoir, par le facteur $\\rho(\\omega)$, combien d'itérations Richardson demande selon son pas, puis le "
-    "compter.", "fiche §3 à §5 ; Ex M19.20", tracks="C, E", hypothesis=True, given=GIVEN_23,
-    body=r"""La cellule fournie construit une matrice symétrique $4 \times 4$, `A_23`, de valeurs propres $2$, $5$, $11$ et $24$, un second membre `B_23` de solution `X_STAR_23`, et un départ `X0_23` dont l'écart a la même composante sur les quatre vecteurs propres. On lance Richardson avec quatre pas, exprimés en fractions du pas critique $\omega_c = \frac{2}{24}$ : a) $0{,}5\,\omega_c$ ; b) le meilleur pas $\omega^\star = \frac{2}{2 + 24}$ ; c) $0{,}99\,\omega_c$ ; d) $1{,}05\,\omega_c$.
+    "prévoir, par le facteur $\\rho(\\omega)$, quel pas fait diverger Richardson et combien d'itérations demandent les "
+    "autres, puis le compter.", "fiche §3 à §5 ; Ex M19.20", tracks="C, E", hypothesis=True, given=GIVEN_23,
+    body=r"""La cellule fournie construit une matrice symétrique $4 \times 4$, `A_23`, de valeurs propres $2$, $5$, $11$ et $24$, un second membre `B_23` de solution `X_STAR_23`, et un départ `X0_23` dont l'écart a la même composante sur les quatre vecteurs propres. On lance Richardson avec quatre pas (`OMEGAS_23`) : (A) $\omega = \frac{1}{30}$ ; (B) $\omega = \frac{1}{13}$ ; (C) $\omega = 0{,}0875$ ; (D) $\omega = 0{,}0825$.
 
-Pour chacun, combien d'itérations faut-il pour **gagner 6 décimales**, $\lVert\mathbf{e}_k\rVert \le 10^{-6}\,\lVert\mathbf{e}_0\rVert$ ? Réponds par le numéro de l'intervalle :
-(1) moins de 40 ; (2) de 40 à 120 ; (3) de 120 à 400 ; (4) plus de 400 ; (5) jamais : l'écart ne diminue pas.
+Prédis, **avant d'exécuter quoi que ce soit** :
+- a) lequel des quatre pas ne converge pas (une lettre entre guillemets) ;
+- b), c) et d) pour les pas (A), (B) et (D) : le nombre d'itérations qui gagne 6 décimales, $\lVert\mathbf{e}_k\rVert \le 10^{-6}\,\lVert\mathbf{e}_0\rVert$, tel que le donne la formule $\left\lceil\frac{6\ln 10}{-\ln\rho(\omega)}\right\rceil$ (fiche §3), avec $\rho(\omega) = \max(\lvert 1 - 2\omega\rvert, \lvert 1 - 24\omega\rvert)$ (fiche §4) : trois entiers.
 
-Pour prédire, calcule pour chaque pas le facteur $\rho(\omega) = \max(\lvert 1 - 2\omega\rvert, \lvert 1 - 24\omega\rvert)$ (fiche §4), puis $\frac{6\ln 10}{-\ln\rho}$ (fiche §3). L'expérience lance ta `richardson_iterates` (1 000 pas au plus), compte, et trace $\lVert\mathbf{e}_k\rVert/\lVert\mathbf{e}_0\rVert$.
+L'expérience lance ta `richardson_iterates` (1 500 pas au plus), compte les itérations depuis `X0_23`, et trace $\lVert\mathbf{e}_k\rVert/\lVert\mathbf{e}_0\rVert$.
 
-**Avant d'exécuter quoi que ce soit**, écris tes quatre prédictions, vérifie-les, puis lance l'expérience.""",
-    todo='''prediction_M19_23a = ...  # a) 1, 2, 3, 4 or 5, for 0.5 ω_c: written BEFORE running the experiment below
-prediction_M19_23b = ...  # b) 1, 2, 3, 4 or 5, for the best step ω*
-prediction_M19_23c = ...  # c) 1, 2, 3, 4 or 5, for 0.99 ω_c
-prediction_M19_23d = ...  # d) 1, 2, 3, 4 or 5, for 1.05 ω_c''',
+Écris tes quatre prédictions, vérifie-les, puis lance l'expérience.""",
+    todo='''prediction_M19_23a = ...  # a) "A", "B", "C" or "D": the step that does not converge, written BEFORE the experiment
+prediction_M19_23b = ...  # b) an integer: the iterations given by the formula for (A)
+prediction_M19_23c = ...  # c) an integer: the iterations given by the formula for (B)
+prediction_M19_23d = ...  # d) an integer: the iterations given by the formula for (D)''',
     check='''for letter, prediction in zip("abcd", [prediction_M19_23a, prediction_M19_23b, prediction_M19_23c,
                                          prediction_M19_23d]):
     wbm.check(f"M19.23{letter}", prediction)''',
-    record='''def range_23r(omega):
-    """The number of the range (1 to 5) of the iterations that gain 6 decimals, by ρ(ω) and the formula."""
-    rho = max(abs(1 - 2 * omega), abs(1 - 24 * omega))
-    if rho >= 1:
-        return 5
-    k = math.ceil(6 * math.log(10) / -math.log(rho))
-    return 1 if k < 40 else 2 if k <= 120 else 3 if k <= 400 else 4
+    record='''def formula_23r(omega, pick=max):
+    """The smallest k with ρ^k ≤ 1e-6, ρ the larger (pick=max) of |1 − 2ω| and |1 − 24ω| (None when ρ ≥ 1)."""
+    rho = pick(abs(1 - 2 * omega), abs(1 - 24 * omega))
+    return math.ceil(6 * math.log(10) / -math.log(rho)) if rho < 1 else None
 
 
-slow_23r = "un pas plus petit n'est pas plus sûr qu'un autre ici : calcule ρ(ω) pour λmin ET pour λmax"
-near_23r = ("près du pas critique, la composante de λmax est multipliée par un nombre proche de −1 : elle diminue "
-            "à peine")
-above_23r = "au-dessus du pas critique, |1 − ωλmax| > 1 : cette composante grandit à chaque pas"
-wbm.record("M19.23a", range_23r(1 / 24), prediction=True, choices=[1, 2, 3, 4, 5],
-           mistakes={slow_23r: {1, 2}})
-wbm.record("M19.23b", range_23r(2 / 26), prediction=True, choices=[1, 2, 3, 4, 5],
-           mistakes={"le meilleur pas égale les facteurs des deux valeurs propres extrêmes : (κ − 1)/(κ + 1)": {3, 4}})
-wbm.record("M19.23c", range_23r(0.99 / 12), prediction=True, choices=[1, 2, 3, 4, 5],
-           mistakes={near_23r: {1, 2, 3}})
-wbm.record("M19.23d", range_23r(1.05 / 12), prediction=True, choices=[1, 2, 3, 4, 5],
-           mistakes={above_23r: {1, 2, 3, 4}})''',
+steps_23r = {"A": 1 / 30, "B": 1 / 13, "C": 0.0875, "D": 0.0825}
+diverging_23r = [name for name, omega in steps_23r.items() if formula_23r(omega) is None]
+assert diverging_23r == ["C"]
+wbm.record("M19.23a", diverging_23r[0], prediction=True,
+           mistakes={"compare chaque pas au pas critique 2/λmax : un pas un peu en dessous converge encore, "
+                     "lentement": "D",
+                     "compare chaque pas au pas critique 2/λmax : un petit pas converge toujours": {"A", "B"}})
+for letter_23r, name_23r in zip("bcd", "ABD"):
+    right_23r = formula_23r(steps_23r[name_23r])
+    wrong_23r = {"le plus petit k tel que ρᵏ ≤ 10⁻⁶ : arrondis vers le HAUT, jamais vers le bas": right_23r - 1}
+    if formula_23r(steps_23r[name_23r], pick=min) != right_23r:
+        wrong_23r["ρ(ω) est le PLUS GRAND des deux modules |1 − 2ω| et |1 − 24ω|"] = formula_23r(steps_23r[name_23r],
+                                                                                             pick=min)
+    wbm.record(f"M19.23{letter_23r}", right_23r, prediction=True, mistakes=wrong_23r,
+               fractional="le plus petit entier qui convient : arrondis vers le HAUT, math.ceil")''',
     after=[
         ("md", "**L'expérience.** Elle ne s'exécute qu'une fois tes quatre prédictions écrites."),
         ("todo", guarded(EXPERIMENT_23, [f"prediction_M19_23{letter}" for letter in "abcd"],
                          "⏳ Écris d'abord tes quatre prédictions, puis exécute à nouveau.")),
         ("solution", EXPERIMENT_23),
-        ("md", "**Après l'expérience**, dans ta copie : pour chaque pas, laquelle des deux valeurs propres extrêmes "
-               "décide de $\\rho(\\omega)$ ? Pourquoi, avec $0{,}5\\,\\omega_c$, la composante de $\\lambda_{\\max}$ "
-               "disparaît-elle en un pas ? Pourquoi les comptes de l'expérience sont-ils un peu en dessous de la "
-               "formule (que vaut $\\lVert\\mathbf{e}_0\\rVert$ comparé à la composante la plus lente) ? Combien de fois "
-               "$0{,}99\\,\\omega_c$ est-il plus lent que $\\omega^\\star$, alors qu'il est plus grand ?"),
+        ("md", "**Après l'expérience**, dans ta copie : calcule le pas critique et le meilleur pas de `A_23`, et place "
+               "les quatre pas par rapport à eux. Pour chacun des trois pas qui convergent, laquelle des deux valeurs "
+               "propres extrêmes décide de $\\rho(\\omega)$ ? Pourquoi les comptes de l'expérience sont-ils un peu en "
+               "dessous de la formule (compare $\\lVert\\mathbf{e}_0\\rVert$ à sa composante sur le vecteur propre le "
+               "plus lent) ? Calcule le rapport des nombres d'itérations de (D) et de (B), alors que $\\omega_D > "
+               "\\omega_B$."),
     ],
-    note=r"a) $0{,}5\,\omega_c = \frac{1}{24}$ : $\rho = \max(\frac{11}{12} ;\ 0) = \frac{11}{12}$, et la formule donne "
-         r"159 itérations (choix 3) ; l'expérience en compte 151, car l'écart de départ n'a que la moitié de sa norme "
-         r"sur le vecteur propre le plus lent. b) $\omega^\star = \frac{1}{13}$ : $\rho = \frac{11}{13} = "
-         r"\frac{\kappa - 1}{\kappa + 1}$ avec $\kappa = 12$, 83 itérations (choix 2), 81 comptées. c) $0{,}99\,\omega_c$ : "
-         r"$\rho = \lvert 1 - 1{,}98\rvert = 0{,}98$, 684 itérations (choix 4), 650 comptées : huit fois plus lent "
-         r"que $\omega^\star$, bien que plus grand. d) $1{,}05\,\omega_c$ : $1 - 2{,}1 = -1{,}1$, la composante de "
-         r"$\lambda_{\max}$ grandit à chaque pas en changeant de signe (choix 5).",
+    note=r"Le pas critique vaut $\frac{2}{24} = \frac{1}{12} \approx 0{,}0833$ : a) (C), $\omega = 0{,}0875$, est au-dessus, "
+         r"$1 - 24\omega = -1{,}1$, et la composante de $\lambda_{\max}$ grandit en changeant de signe ; elle est "
+         r"multipliée par $6 \cdot 10^{61}$ en 1 500 pas. b) (A), $\omega = \frac{1}{30}$ : $\rho = \max(\frac{14}{15} ;\ "
+         r"0{,}2) = \frac{14}{15}$, c'est $\lambda_{\min}$ qui décide ; $\frac{6\ln 10}{\ln(15/14)} \approx 200{,}2$, soit "
+         r"201 itérations ; l'expérience en compte 191. c) (B), le meilleur pas $\frac{2}{2 + 24} = \frac{1}{13}$ : "
+         r"$\rho = \frac{11}{13} = \frac{\kappa - 1}{\kappa + 1}$ avec $\kappa = 12$, 83 itérations ; 81 comptées. d) (D), "
+         r"$\omega = 0{,}0825$, juste sous le pas critique : $\rho = \lvert 1 - 1{,}98\rvert = 0{,}98$, c'est "
+         r"$\lambda_{\max}$ qui décide ; 684 itérations, 650 comptées. Les comptes sont un peu en dessous de la formule, "
+         r"car l'écart de départ n'a que la moitié de sa norme sur le vecteur propre le plus lent. (D) demande "
+         r"$\frac{684}{83} \approx 8{,}2$ fois plus d'itérations que (B), bien que son pas soit plus grand.",
 )
 
 GIVEN_24 = '''N_24 = [2, 3, 5, 8, 13, 20, 32, 50]               # the inner points of eight bars, finer and finer
@@ -1006,10 +1047,10 @@ for n_24r in [2, 3, 5, 8, 13, 20, 32, 50]:
 slopes_24r = [np.polyfit(np.log(kappas_24r), np.log(c), 1)[0] for c in (counts_24r, cg_24r)]
 assert abs(slopes_24r[0] - 1) < 0.15 and abs(slopes_24r[1] - 0.5) < 0.1   # far from the next halves
 wbm.record("M19.24a", counts_24r[-1])
-wbm.record("M19.24b", round(2 * slopes_24r[0]) / 2, decimals=1, choices=[0.5, 1, 1.5, 2],
+wbm.record("M19.24b", round(2 * slopes_24r[0]) / 2, decimals=2, choices=[0.5, 1, 1.5, 2],
            mistakes={"Richardson demande de l'ordre de κ itérations (≈ 1,15 κ d) : relis la pente de sa droite":
                          {0.5, 1.5, 2}})
-wbm.record("M19.24c", round(2 * slopes_24r[1]) / 2, decimals=1, choices=[0.5, 1, 1.5, 2],
+wbm.record("M19.24c", round(2 * slopes_24r[1]) / 2, decimals=2, choices=[0.5, 1, 1.5, 2],
            mistakes={"le gradient conjugué grandit bien plus lentement que Richardson : relis la pente de sa droite":
                          {1, 1.5, 2}})''',
     after=[
@@ -1044,7 +1085,7 @@ B_25 = A_25 @ X_STAR_25
 X0_25 = np.array([-2.0, 1.0])                   # the start
 N_25 = 25                                       # the number of steps
 OMEGA_C_25 = 2 / 14                             # the critical step
-OMEGAS_25 = [0.5 * OMEGA_C_25, 2 / (1 + 14), 0.95 * OMEGA_C_25]   # half of it, the best step, just below it'''
+OMEGAS_25 = [0.4 * OMEGA_C_25, 2 / (1 + 14), 0.95 * OMEGA_C_25]   # 0.4 of it, the best step, just below it'''
 
 CHECK_25 = '''with checked("M19.25"):
     results_25 = []
@@ -1092,7 +1133,7 @@ M19_25 = Ex(
     "dessiner les itérés de Richardson sur les lignes de niveau de $\\frac12\\mathbf{x}^\\top\\mathbf{A}\\mathbf{x} - "
     "\\mathbf{b}^\\top\\mathbf{x}$, et voir l'effet du pas et du conditionnement.", "fiche §4 et §5 ; Ex M19.20",
     tracks="C, E", given=GIVEN_25,
-    body=r"""Richardson est une descente sur $f(\mathbf{x}) = \frac12\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}$ (fiche §4) : on la voit sur les lignes de niveau de $f$, des ellipses centrées en $\mathbf{x}^\star$, allongées dans la direction propre de $\lambda_{\min}$ (fiche §5). La cellule fournie donne $\mathbf{A} = \begin{pmatrix} 10 & 6 \\ 6 & 5 \end{pmatrix}$, de valeurs propres 14 et 1 ($\kappa = 14$ ; vecteurs propres $(3, 2)$ et $(2, -3)$), la solution $\mathbf{x}^\star = (1 ;\ -1)$, $\mathbf{b} = \mathbf{A}\mathbf{x}^\star$, le départ $\mathbf{x}_0 = (-2 ;\ 1)$, $N = 25$ pas, et trois pas : la moitié du pas critique, le meilleur pas et $0{,}95\,\omega_c$ (`OMEGAS_25`).
+    body=r"""Richardson est une descente sur $f(\mathbf{x}) = \frac12\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}$ (fiche §4) : on la voit sur les lignes de niveau de $f$, des ellipses centrées en $\mathbf{x}^\star$, allongées dans la direction propre de $\lambda_{\min}$ (fiche §5). La cellule fournie donne $\mathbf{A} = \begin{pmatrix} 10 & 6 \\ 6 & 5 \end{pmatrix}$, de valeurs propres 14 et 1 ($\kappa = 14$ ; vecteurs propres $(3, 2)$ et $(2, -3)$), la solution $\mathbf{x}^\star = (1 ;\ -1)$, $\mathbf{b} = \mathbf{A}\mathbf{x}^\star$, le départ $\mathbf{x}_0 = (-2 ;\ 1)$, $N = 25$ pas, et trois pas : $0{,}4\,\omega_c$, le meilleur pas et $0{,}95\,\omega_c$ (`OMEGAS_25`).
 
 Écris `draw_richardson(ax, A, b, omega, x0, n_steps)`, qui dessine dans l'axe `ax` (sans en ouvrir d'autre) :
 - les lignes de niveau de $f$ : `ax.contour(X, Y, F, levels=...)`, avec `X, Y = np.meshgrid(xs, ys)` sur une grille qui contient tous les itérés, et `F` la valeur de $f$ en chaque point de la grille (`F = 0.5 * (A[0, 0] * X**2 + 2 * A[0, 1] * X * Y + A[1, 1] * Y**2) - b[0] * X - b[1] * Y`) ;
@@ -1130,20 +1171,22 @@ La vérification appelle ta fonction pour les trois pas, côte à côte, et rega
 ''' + CHECK_25,
     after=[
         ("md", "**Regarde ta figure**, puis, dans ta copie : pour chaque pas, que vaut le facteur $1 - \\omega\\lambda$ "
-               "dans la direction raide $(3, 2)$, et dans la direction plate $(2, -3)$ ? Pourquoi, avec la moitié du "
-               "pas critique, le premier pas tombe-t-il droit sur l'axe long de l'ellipse ? Pourquoi les itérés "
-               "zigzaguent-ils d'un bord à l'autre avec $0{,}95\\,\\omega_c$ ? Le long de l'axe long, lequel des trois "
-               "pas progresse le plus vite, et de combien, au plus, un pas permis peut-il y faire progresser ? Que "
+               "dans la direction raide $(3, 2)$, et dans la direction plate $(2, -3)$ ? Avec $0{,}95\\,\\omega_c$, "
+               "pourquoi les itérés passent-ils de part et d'autre de l'axe long à chaque pas ? Calcule, pour "
+               "$0 < \\omega < \\omega_c$, le plus petit facteur possible $1 - \\omega\\lambda_{\\min}$ dans la "
+               "direction de l'axe long : montre qu'il vaut $1 - \\frac{2}{\\kappa}$, et donne sa valeur ici. Que "
                "verrais-tu avec $1{,}05\\,\\omega_c$ ?"),
     ],
-    note=r"Les facteurs $(1 - 14\omega ;\ 1 - \omega)$ valent $(0 ;\ \frac{13}{14})$ pour $\omega = \frac{1}{14}$, "
-         r"$(-\frac{13}{15} ;\ \frac{13}{15})$ pour $\omega^\star = \frac{2}{15}$, et $(-0{,}9 ;\ 0{,}864)$ pour "
-         r"$0{,}95\,\omega_c$. Avec la moitié du pas critique, la composante raide disparaît en un pas : $\mathbf{x}_1$ "
-         r"est sur l'axe long, puis les itérés le descendent sans osciller. Au meilleur pas, les deux composantes "
-         r"diminuent au même rythme, la raide en changeant de signe. Juste sous le pas critique, la composante raide "
-         r"change de signe et ne diminue que de 10 % par pas : les itérés sautent d'un bord à l'autre des ellipses. Le long de l'axe long, le facteur $1 - \omega$ ne descend jamais sous $1 - \frac{2}{14} \approx "
-         r"0{,}857$ : quel que soit le pas permis, la direction plate avance lentement ; c'est le conditionnement. Avec "
-         r"$1{,}05\,\omega_c$, $1 - 14\omega = -1{,}1$ : les sauts grandissent, l'itération diverge.",
+    note=r"Les facteurs $(1 - 14\omega ;\ 1 - \omega)$ valent $(0{,}2 ;\ \frac{33}{35} \approx 0{,}943)$ pour "
+         r"$0{,}4\,\omega_c = \frac{2}{35}$, $(-\frac{13}{15} ;\ \frac{13}{15})$ pour $\omega^\star = \frac{2}{15}$, et "
+         r"$(-0{,}9 ;\ 0{,}864)$ pour $0{,}95\,\omega_c$. Avec $0{,}4\,\omega_c$, la composante raide diminue vite, sans "
+         r"changer de signe, et la composante plate lentement. Au meilleur pas, les deux composantes diminuent au même "
+         r"rythme, la raide en changeant de signe. Juste sous le pas critique, la composante raide change de signe et ne "
+         r"diminue que de 10 % par pas : les itérés passent de part et d'autre de l'axe long à chaque pas. Pour "
+         r"$0 < \omega < \omega_c = \frac{2}{\lambda_{\max}}$, $1 - \omega\lambda_{\min} > 1 - "
+         r"\frac{2\lambda_{\min}}{\lambda_{\max}} = 1 - \frac{2}{\kappa}$, ici $\frac67 \approx 0{,}857$ : aucun pas "
+         r"permis ne fait mieux dans la direction plate, et c'est le conditionnement qui fixe cette borne. Avec "
+         r"$1{,}05\,\omega_c$, $1 - 14\omega = -1{,}1$ : la composante raide grandit, l'itération diverge.",
 )
 
 GIVEN_26 = '''K_26 = np.array([[3.0, -2.0, 0.0],
@@ -1171,17 +1214,12 @@ def hessian_26(f, x, h=1e-4):
     return H
 
 
-def nature_26(H, tol=1e-6):
-    """The nature of a critical point read on the signs of the eigenvalues of its (symmetric) Hessian H:
-    "minimum", "maximum", "selle", or "?" when the test does not conclude."""
+def inertia_26(H):
+    """The inertia (n_neg, n_zero, n_pos) of a symmetric matrix H: its numbers of negative, zero and positive
+    eigenvalues, an eigenvalue counting as zero when its modulus is at most 1e-8 times the largest modulus."""
     values = np.linalg.eigvalsh(H)
-    if np.all(values > tol):
-        return "minimum"
-    if np.all(values < -tol):
-        return "maximum"
-    if np.any(values > tol) and np.any(values < -tol):
-        return "selle"
-    return "?"
+    zero = 1e-8 * np.max(np.abs(values))
+    return int(np.sum(values < -zero)), int(np.sum(np.abs(values) <= zero)), int(np.sum(values > zero))
 
 
 def converges_26(p, q):
@@ -1203,8 +1241,8 @@ def g_26(v):
 
 # The colleague's checks: all pass
 print("(1) critical_26(4 I) =", critical_26(4 * np.eye(3)))
-print("(2) nature_26 de cos x + y² + z² en 0 :",
-      nature_26(hessian_26(lambda v: np.cos(v[0]) + v[1] ** 2 + v[2] ** 2, np.zeros(3))))
+print("(2) inertia_26 de la hessienne de cos x + y² + z² en 0 :",
+      inertia_26(hessian_26(lambda v: np.cos(v[0]) + v[1] ** 2 + v[2] ** 2, np.zeros(3))), "(une selle)")
 print("(3) converges_26 pour les trois récurrences de la fiche :",
       [converges_26(p, q) for p, q in ((1.0, 0.21), (0.8, 0.64), (1.5, -1.0))])
 omega_26 = critical_26(K_26) / 2                 # « half the critical step, to be safe »
@@ -1264,10 +1302,10 @@ with checked("M19.26"):                                       # (2) hessian_26_f
     report_26(not wrong_26, "(2) hessian_26_fixed : quatre fonctions en des points tirés au hasard, symétrique",
               "(2) hessian_26_fixed, " + " ; ".join(wrong_26[:2]))
     exact_g26 = np.array(sympy.hessian(cases_26[-1][0], xyz_26).subs(dict.fromkeys(xyz_26, 0)), dtype=float)
-    seen_26 = nature_26(hessian_26_fixed(g_26, np.zeros(3)))
-    report_26(seen_26 == nature_26(exact_g26), "(2) avec hessian_26_fixed, nature_26 lit en 0 la même nature que sur "
+    seen_26 = inertia_26(hessian_26_fixed(g_26, np.zeros(3)))
+    report_26(seen_26 == inertia_26(exact_g26), "(2) avec hessian_26_fixed, inertia_26 lit en 0 la même inertie que sur "
                                                "la hessienne exacte de g_26",
-              f"(2) avec hessian_26_fixed, nature_26 dit {seen_26!r} pour g_26 en 0, autre chose qu'avec la hessienne "
+              f"(2) avec hessian_26_fixed, inertia_26 rend {seen_26!r} pour g_26 en 0, autre chose qu'avec la hessienne "
               "exacte")
     parts_26.append(2)
 
@@ -1292,19 +1330,19 @@ if len(parts_26) == 3:
             "relis les lignes ❌ ci-dessus.")'''
 
 M19_26 = Ex(
-    "M19.26", "🐛", 1, 15, "Chasse à l'erreur : un pas réglé sur λmin, une hessienne non symétrique, le module d'une "
+    "M19.26", "🐛", 1, 25, "Chasse à l'erreur : un pas réglé sur λmin, une hessienne non symétrique, le module d'une "
     "racine complexe",
     "reconnaître trois erreurs classiques du chapitre qui ne lèvent aucune erreur Python et passent une vérification "
     "mal choisie, puis les corriger.", "fiche §1, §2, §4 et §6", tracks="C, E", given=GIVEN_26,
     body=r"""Un collègue a écrit trois morceaux de code (cellule fournie) ; chacun a l'erreur que nomme le titre, aucun ne lève d'erreur Python, et chacun a passé la vérification que le collègue a faite :
 1. `critical_26(A)` doit rendre le pas critique $\frac{2}{\lambda_{\max}}$ d'une matrice symétrique définie positive. Il l'a vérifiée sur $4\mathbf{I}$ : 0,5, juste. Puis il a lancé Richardson sur le système des trois masses `K_26`, `F_26` avec la moitié de ce pas, « par prudence » : les itérés explosent.
-2. `hessian_26(f, x, h)` calcule la hessienne par différences centrées, chaque case de la diagonale et au-dessus une seule fois ; `nature_26(H)` lit la nature d'un point critique sur les signes de `np.linalg.eigvalsh(H)`. Il les a vérifiées sur $\cos x + y^2 + z^2$ en $\mathbf{0}$, une selle : juste.
+2. `hessian_26(f, x, h)` calcule la hessienne par différences centrées, chaque case de la diagonale et au-dessus une seule fois ; `inertia_26(H)` rend l'**inertie** $(n_-, n_0, n_+)$ d'une matrice symétrique, ses nombres de valeurs propres négatives, nulles et positives (`np.linalg.eigvalsh`), une valeur propre comptant pour nulle quand son module est au plus $10^{-8}$ fois le plus grand. Il les a vérifiées sur $\cos x + y^2 + z^2$ en $\mathbf{0}$ : $(1, 0, 2)$, une selle, juste.
 3. `converges_26(p, q)` doit dire si toutes les solutions de $u_{k+2} = p\,u_{k+1} - q\,u_k$ tendent vers 0. Il l'a vérifiée sur les trois récurrences de la fiche (§6), $(p, q) = (1 ;\ 0{,}21)$, $(0{,}8 ;\ 0{,}64)$ et $(1{,}5 ;\ -1)$ : juste.
 
 À faire :
 - a) avec le pas du collègue, $\omega$ = `critical_26(K_26) / 2` : le facteur $\rho(\omega) = \max_i\lvert 1 - \omega\lambda_i\rvert$ sur les valeurs propres de `K_26` (un nombre, 4 décimales) ;
 - (1) écris `critical_26_fixed(A)` ;
-- (2) écris `hessian_26_fixed(f, x, h=1e-4)` ; b) avec elle et `nature_26`, la nature du point critique $\mathbf{0}$ de $g(x, y, z) = x^2 + y^2 + z^2 + 3\sin x\sin y + yz$ (`g_26`) : (A) minimum local ; (B) maximum local ; (C) point selle ; (D) le test ne conclut pas (une lettre entre guillemets) ;
+- (2) écris `hessian_26_fixed(f, x, h=1e-4)` ; b) avec elle et `inertia_26`, la nature du point critique $\mathbf{0}$ de $g(x, y, z) = x^2 + y^2 + z^2 + 3\sin x\sin y + yz$ (`g_26`) : (A) minimum local ; (B) maximum local ; (C) point selle ; (D) le test ne conclut pas (une lettre entre guillemets) ;
 - (3) écris `converges_26_fixed(p, q)` ; c) le module des racines de $r^2 - r + 1{,}2$, c'est-à-dire pour $(p, q) = (1 ;\ 1{,}2)$ (4 décimales).
 
 La vérification essaie tes corrections sur des cas que tu ne vois pas : d'autres matrices, d'autres fonctions et d'autres points, une grille de couples $(p, q)$.""",
@@ -1362,9 +1400,20 @@ def converges_26_fixed(p, q):
     return math.sqrt(q) < 1                                    # conjugate roots: their product q is |r|²
 
 
-answer_M19_26b = {"minimum": "A", "maximum": "B", "selle": "C", "?": "D"}[nature_26(hessian_26_fixed(g_26, np.zeros(3)))]
+def letter_26(inertia):
+    """The nature of a critical point read on the inertia of its Hessian (fiche §2), as the letter of the statement."""
+    n_neg, n_zero, n_pos = inertia
+    if n_neg and n_pos:
+        return "C"                                             # eigenvalues of both signs: a saddle
+    if n_zero:
+        return "D"                                             # a zero eigenvalue, the others of one sign
+    return "A" if n_pos else "B"
+
+
+answer_M19_26b = letter_26(inertia_26(hessian_26_fixed(g_26, np.zeros(3))))
 answer_M19_26c = math.sqrt(1.2)
-print("a)", round(answer_M19_26a, 4), " b)", answer_M19_26b, "; le collègue :", nature_26(hessian_26(g_26, np.zeros(3))),
+print("a)", round(answer_M19_26a, 4), " b)", answer_M19_26b, "; inertie :", inertia_26(hessian_26_fixed(g_26, np.zeros(3))), "; le collègue :",
+      inertia_26(hessian_26(g_26, np.zeros(3))),
       "; valeurs propres :", np.round(np.linalg.eigvalsh(hessian_26_fixed(g_26, np.zeros(3))), 4).tolist())
 print("c)", round(answer_M19_26c, 4), "; (p, q) = (1 ; 1,2) : le collègue dit", converges_26(1.0, 1.2),
       "; |u_k| pour k = 20, 40, 60 :", np.round(np.abs(mymath.iterative.linear_recurrence([1.0, -1.2], [1.0, 0.0], 61)
@@ -1403,7 +1452,7 @@ wbm.record("M19.26c", math.sqrt(1.2), decimals=4,
          r"`[-1]` donnent le même pas. b) La hessienne exacte de $g$ en $\mathbf{0}$ est $\begin{pmatrix} 2 & 3 & 0 \\ 3 "
          r"& 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}$, de valeurs propres $2 - \sqrt{10}$, 2 et $2 + \sqrt{10}$ : une selle. "
          r"`eigvalsh` lit par défaut le triangle **inférieur** (`UPLO='L'`) ; celui du collègue est vide, `eigvalsh` voit "
-         r"$\operatorname{diag}(2, 2, 2)$ et conclut « minimum ». Sur $\cos x + y^2 + z^2$, la hessienne est diagonale : "
+         r"$\operatorname{diag}(2, 2, 2)$ et rend l'inertie $(0, 0, 3)$, celle d'un minimum. Sur $\cos x + y^2 + z^2$, la hessienne est diagonale : "
          r"aucun triangle ne manque. c) $\Delta = 1 - 4{,}8 < 0$ : les racines $0{,}5 \pm 0{,}975i$ ont pour module "
          r"$\sqrt{1{,}2} \approx 1{,}0954 > 1$, et la suite diverge en oscillant ; le collègue lit $\frac{\lvert p\rvert}"
          r"{2} = 0{,}5$. Pour $(0{,}8 ;\ 0{,}64)$, $0{,}4$ et $0{,}8$ sont tous deux $< 1$ : il faut $q > 1$ et "
@@ -1424,15 +1473,16 @@ CHECK_27 = '''with checked("M19.27"):
         print(("✅ " + success) if ok else ("❌ " + failure))
 
     def expected_27(A, b, omega, tol, max_iter):
-        """The expected (x, n_iter, converged), by the rule of the statement."""
-        x = np.zeros(len(b))
+        """The expected (x, n_iter, converged), by the rule of the statement (the residual by its own recurrence)."""
+        x, r = np.zeros(len(b)), b.copy()
         for k in range(max_iter + 1):
-            relative = np.linalg.norm(b - A @ x) / np.linalg.norm(b)
+            relative = np.linalg.norm(r) / np.linalg.norm(b)
             if relative <= tol:
                 return x, k, True
             if not np.isfinite(relative) or relative > 1e10 or k == max_iter:
                 return x, k, False
-            x = x + omega * (b - A @ x)
+            product = A @ r
+            x, r = x + omega * r, r - omega * product
 
     def run_27(A, b, omega, **options):
         """solve_richardson on copies of A and b, a RuntimeWarning turned into an error, the triple checked."""
@@ -1464,7 +1514,6 @@ CHECK_27 = '''with checked("M19.27"):
     good_27, bad_27 = 1 / lambdas_27[-1], 1.2 * 2 / lambdas_27[-1]
     cases_27 = [("un bon pas, 1/λmax", K_27, F_27, good_27, {}),
                 ("tol = 1e-3", K_27, F_27, good_27, {"tol": 1e-3}),
-                ("tol = 1 : le départ x₀ = 0 suffit déjà", K_27, F_27, good_27, {"tol": 1.0}),
                 ("max_iter = 15", K_27, F_27, good_27, {"max_iter": 15}),
                 ("un pas trop grand, 1,2 ω_c", K_27, F_27, bad_27, {})]
     rng_27 = np.random.default_rng(5238)
@@ -1481,6 +1530,11 @@ CHECK_27 = '''with checked("M19.27"):
         report_27(same_27(got_27, want_27), f"{label_27} : {shown_27(want_27)}, avec le bon x",
                   f"{label_27} : attendu {shown_27(want_27)}, reçu {shown_27(got_27)}"
                   + ("" if got_27[1] != want_27[1] or got_27[2] != want_27[2] else " avec un autre x"))
+    _, n_nan_27, converged_nan_27 = run_27(K_27, F_27, np.nan)
+    report_27(not converged_nan_27 and n_nan_27 <= 1,
+              f"omega = nan : arrêt après {n_nan_27} pas, converged = {converged_nan_27!r}",
+              f"omega = nan : attendu un arrêt dès que le résidu n'est plus un nombre fini (au plus 1 pas) avec "
+              f"converged = False, reçu {n_nan_27!r} pas et converged = {converged_nan_27!r}")
     x_27, n_27, converged_27 = run_27(K_27, F_27, good_27)
     gap_27 = np.linalg.norm(x_27 - np.linalg.solve(K_27, F_27)) / np.linalg.norm(np.linalg.solve(K_27, F_27))
     report_27(converged_27 and gap_27 < 1e-7, f"pour K_27 x = F_27, x s'écarte de np.linalg.solve de {gap_27:.1e} en "
@@ -1491,60 +1545,79 @@ CHECK_27 = '''with checked("M19.27"):
 
 M19_27 = Ex(
     "M19.27", "🛠️", 1, 15, "Un critère d'arrêt : le résidu relatif ‖b − A x‖/‖b‖ et un nombre maximal d'itérations",
-    "écrire une itération de Richardson qui s'arrête d'elle-même, au premier itéré assez précis, et qui sait dire "
-    "qu'elle n'a pas convergé.", "fiche §4 (💻) ; Ex M19.20", tracks="C", given=GIVEN_27,
-    body=r"""Une méthode itérative utilisable ne fait pas un nombre de pas fixé d'avance : elle s'arrête quand le **résidu relatif** $\frac{\lVert\mathbf{b} - \mathbf{A}\mathbf{x}_k\rVert}{\lVert\mathbf{b}\rVert}$ passe sous une tolérance, et abandonne après un nombre maximal d'itérations (fiche §4, 💻). Écris `solve_richardson(A, b, omega, tol=1e-8, max_iter=10_000)`, qui part de $\mathbf{x}_0 = \mathbf{0}$ et rend le triplet `(x, n_iter, converged)` ; pour $k = 0, 1, 2, \ldots$, elle calcule le résidu relatif de l'itéré courant $\mathbf{x}_k$ :
+    "écrire une itération de Richardson qui suit son résidu par sa propre récurrence, s'arrête d'elle-même au premier "
+    "itéré assez précis, et sait dire qu'elle n'a pas convergé.", "fiche §3 et §4 (💻) ; Ex M19.20 ; M12d",
+    tracks="C", given=GIVEN_27,
+    body=r"""Une méthode itérative utilisable ne fait pas un nombre de pas fixé d'avance : elle s'arrête quand le **résidu relatif** $\frac{\lVert\mathbf{b} - \mathbf{A}\mathbf{x}_k\rVert}{\lVert\mathbf{b}\rVert}$ passe sous une tolérance, et abandonne après un nombre maximal d'itérations (fiche §4, 💻). Calculer $\mathbf{b} - \mathbf{A}\mathbf{x}_k$ à chaque itération en plus du pas coûterait deux produits par $\mathbf{A}$ ; le résidu $\mathbf{r}_k = \mathbf{b} - \mathbf{A}\mathbf{x}_k$ a sa **propre récurrence** : de $\mathbf{x}_{k+1} = \mathbf{x}_k + \omega\,\mathbf{r}_k$, on tire $\mathbf{r}_{k+1} = \mathbf{r}_k - \omega\mathbf{A}\mathbf{r}_k = (\mathbf{I} - \omega\mathbf{A})\,\mathbf{r}_k$, et $\mathbf{r}_0 = \mathbf{b}$ depuis $\mathbf{x}_0 = \mathbf{0}$. Un seul produit par $\mathbf{A}$ par itération suffit.
+
+Écris `solve_richardson(A, b, omega, tol=1e-8, max_iter=10_000)`, qui part de $\mathbf{x}_0 = \mathbf{0}$, $\mathbf{r}_0 = \mathbf{b}$, et rend le triplet `(x, n_iter, converged)` ; pour $k = 0, 1, 2, \ldots$, elle regarde le résidu relatif $\frac{\lVert\mathbf{r}_k\rVert}{\lVert\mathbf{b}\rVert}$ :
 - s'il est $\le$ `tol` : elle rend `(x_k, k, True)` ;
 - sinon, s'il n'est plus un nombre fini, ou s'il dépasse $10^{10}$ (l'itération diverge : inutile d'attendre l'overflow), ou si $k$ = `max_iter` : elle rend `(x_k, k, False)` ;
-- sinon, elle fait un pas de Richardson, $\mathbf{x}_{k+1} = \mathbf{x}_k + \omega(\mathbf{b} - \mathbf{A}\mathbf{x}_k)$.
+- sinon : $\mathbf{p} = \mathbf{A}\mathbf{r}_k$ (le seul produit), $\mathbf{x}_{k+1} = \mathbf{x}_k + \omega\,\mathbf{r}_k$ et $\mathbf{r}_{k+1} = \mathbf{r}_k - \omega\,\mathbf{p}$.
 
-`n_iter` est donc le nombre de pas faits, et le **premier** $k$ qui arrête la boucle : pas une itération de plus. `b` n'est pas nul ; `A` et `b` ne sont pas modifiés ; aucun `RuntimeWarning` (un overflow) ne doit apparaître.
+`b` n'est pas nul ; `A` et `b` ne sont pas modifiés ; aucun `RuntimeWarning` (un overflow) ne doit apparaître ; un pas qui n'est pas un nombre (`np.nan`) doit lui aussi s'arrêter, sans boucle infinie, avec `converged` faux.
 
-La cellule fournie donne le système de quatre masses entre deux murs, reliées par cinq ressorts, `K_27` $\mathbf{x}$ = `F_27`. La vérification lance ta fonction sur ce système avec un bon pas ($\frac{1}{\lambda_{\max}}$), avec `tol=1e-3`, avec `tol=1` (le départ suffit déjà), avec `max_iter=15`, avec un pas trop grand ($1{,}2\,\omega_c$), puis sur trois systèmes tirés au hasard, compare chaque triplet à celui de la règle ci-dessus, et compare la solution de `K_27` à `np.linalg.solve` (permis ici, pour vérifier).
+La cellule fournie donne le système de quatre masses entre deux murs, reliées par cinq ressorts, `K_27` $\mathbf{x}$ = `F_27`. La vérification lance ta fonction sur ce système avec un bon pas ($\frac{1}{\lambda_{\max}}$), avec `tol=1e-3`, avec `max_iter=15`, avec un pas trop grand ($1{,}2\,\omega_c$), avec `omega=np.nan`, puis sur trois systèmes tirés au hasard ; elle compare chaque triplet à celui de la règle ci-dessus, et la solution de `K_27` à `np.linalg.solve` (permis ici, pour vérifier).
 
-Dans ta copie : pourquoi tester le résidu **avant** de faire un pas, et pas après ? Le résidu relatif mesure-t-il l'erreur sur $\mathbf{x}$ ? Montre que $\frac{\lVert\mathbf{x}_k - \mathbf{x}^\star\rVert}{\lVert\mathbf{x}^\star\rVert} \le \kappa\,\frac{\lVert\mathbf{b} - \mathbf{A}\mathbf{x}_k\rVert}{\lVert\mathbf{b}\rVert}$ (M12d), et dis ce que cela veut dire pour un système mal conditionné. Pourquoi un seuil $10^{10}$ suffit-il ici pour conclure à la divergence ?""",
+Dans ta copie :
+1. Démontre $\mathbf{r}_{k+1} = (\mathbf{I} - \omega\mathbf{A})\,\mathbf{r}_k$, puis, depuis $\mathbf{x}_0 = \mathbf{0}$ et pour $\mathbf{A}$ symétrique, $\lVert\mathbf{r}_k\rVert \le \rho(\omega)^k\,\lVert\mathbf{b}\rVert$ (§3 : $\mathbf{I} - \omega\mathbf{A}$ est symétrique, de valeurs propres $1 - \omega\lambda_i$). Pourquoi un résidu relatif au-dessus de 1, a fortiori de $10^{10}$, prouve-t-il que $\rho(\omega) > 1$ ?
+2. Avec cette borne, combien d'itérations au plus faut-il pour `K_27` avec $\omega = \frac{1}{\lambda_{\max}}$ et `tol=1e-8` ? Compare au compte de ta fonction.
+3. Montre que $\frac{\lVert\mathbf{x}_k - \mathbf{x}^\star\rVert}{\lVert\mathbf{x}^\star\rVert} \le \kappa\,\frac{\lVert\mathbf{r}_k\rVert}{\lVert\mathbf{b}\rVert}$ (avec $\mathbf{x}_k - \mathbf{x}^\star = -\mathbf{A}^{-1}\mathbf{r}_k$ et $\lVert\mathbf{b}\rVert \le \lambda_{\max}\lVert\mathbf{x}^\star\rVert$ ; M12d). Que vaut $\kappa$ pour `K_27`, et que garantit `tol=1e-8` sur l'erreur relative de $\mathbf{x}$ ? Que deviendrait cette garantie pour un système de conditionnement $10^6$ ?""",
     todo='''def solve_richardson(A, b, omega, tol=1e-8, max_iter=10_000):
-    """Richardson's iteration from x_0 = 0 for A x = b, stopped at the first k whose relative residual
-    ‖b − A x_k‖ / ‖b‖ is ≤ tol (converged), or is not finite or above 1e10, or when k = max_iter (not converged).
-    Returns (x_k, k, converged)."""
+    """Richardson's iteration from x_0 = 0 for A x = b, its residual r_k = b − A x_k updated by r_{k+1} = r_k − ω A r_k
+    (one product by A per iteration), stopped at the first k whose relative residual ‖r_k‖ / ‖b‖ is ≤ tol (converged),
+    or is not finite or above 1e10, or when k = max_iter (not converged). Returns (x_k, k, converged)."""
     raise NotImplementedError("solve_richardson n'est pas encore écrite (04_indices.md si tu bloques)")''',
     check=CHECK_27,
     solution='''def solve_richardson(A, b, omega, tol=1e-8, max_iter=10_000):
-    """Richardson's iteration from x_0 = 0 for A x = b, stopped at the first k whose relative residual
-    ‖b − A x_k‖ / ‖b‖ is ≤ tol (converged), or is not finite or above 1e10, or when k = max_iter (not converged).
-    Returns (x_k, k, converged)."""
+    """Richardson's iteration from x_0 = 0 for A x = b, its residual r_k = b − A x_k updated by r_{k+1} = r_k − ω A r_k
+    (one product by A per iteration), stopped at the first k whose relative residual ‖r_k‖ / ‖b‖ is ≤ tol (converged),
+    or is not finite or above 1e10, or when k = max_iter (not converged). Returns (x_k, k, converged)."""
     A, b = np.asarray(A, dtype=float), np.asarray(b, dtype=float)
     norm_b = np.linalg.norm(b)
-    x, k = np.zeros(len(b)), 0
+    x, r, k = np.zeros(len(b)), b.copy(), 0
     while True:
-        residual = b - A @ x
-        relative = np.linalg.norm(residual) / norm_b
+        relative = np.linalg.norm(r) / norm_b
         if relative <= tol:
             return x, k, True
         if not np.isfinite(relative) or relative > 1e10 or k == max_iter:
             return x, k, False
-        x = x + omega * residual                               # one step, with the residual already computed
+        product = A @ r                                         # the only product by A of the iteration
+        x = x + omega * r
+        r = r - omega * product                                 # r_{k+1} = (I − ω A) r_k
         k += 1
 
 
 lambdas_s27 = np.linalg.eigvalsh(K_27)
+kappa_s27 = lambdas_s27[-1] / lambdas_s27[0]
 for label_s27, omega_s27 in (("1/λmax", 1 / lambdas_s27[-1]), ("ω*", 2 / (lambdas_s27[0] + lambdas_s27[-1])),
-                             ("1,2 ω_c", 2.4 / lambdas_s27[-1])):
+                             ("1,2 ω_c", 2.4 / lambdas_s27[-1]), ("nan", np.nan)):
     x_s27, n_s27, converged_s27 = solve_richardson(K_27, F_27, omega_s27)
     print(f"ω = {label_s27} : {n_s27} itérations, converged = {converged_s27}, x = {np.round(x_s27, 6).tolist()}")
+rho_s27 = 1 - 1 / kappa_s27                                     # ρ(1/λmax) = 1 − λmin/λmax
+print("κ =", round(kappa_s27, 4), "; borne ρᵏ ≤ 1e-8 pour ω = 1/λmax :",
+      math.ceil(8 * math.log(10) / -math.log(rho_s27)), "itérations au plus")
+x_s27, _, _ = solve_richardson(K_27, F_27, 1 / lambdas_s27[-1])
+x_star_s27 = np.linalg.solve(K_27, F_27)
+print("erreur relative sur x :", f"{np.linalg.norm(x_s27 - x_star_s27) / np.linalg.norm(x_star_s27):.1e}",
+      "; résidu relatif :", f"{np.linalg.norm(F_27 - K_27 @ x_s27) / np.linalg.norm(F_27):.1e}")
 
 
 ''' + CHECK_27,
     note=r"Les valeurs propres de `K_27` vont de $0{,}697$ à $5{,}618$ ($\kappa \approx 8{,}06$). Avec $\omega = "
-         r"\frac{1}{\lambda_{\max}}$, le facteur vaut $1 - \frac{1}{\kappa} \approx 0{,}876$ et le résidu relatif passe "
-         r"sous $10^{-8}$ après 130 itérations (43 avec `tol=1e-3`) ; au meilleur pas, après 70. Avec "
-         r"$1{,}2\,\omega_c$, la composante raide est multipliée par $-1{,}4$ à chaque pas : le résidu dépasse "
-         r"$10^{10}$ après 74 itérations, et la fonction s'arrête avant tout overflow. Tester avant le pas donne le premier $k$ qui "
-         r"satisfait le critère, y compris $k = 0$ ; tester après en ferait un de trop, ou rendrait l'itéré suivant. "
-         r"Le résidu relatif ne borne l'erreur relative sur $\mathbf{x}$ qu'à un facteur $\kappa$ près : sur un système "
-         r"mal conditionné, un petit résidu peut cacher une grande erreur. Pour une matrice symétrique et un départ nul, "
-         r"$\lVert\mathbf{r}_k\rVert \le \rho^k\lVert\mathbf{b}\rVert$ : un résidu relatif au-dessus de 1, a fortiori "
-         r"de $10^{10}$, prouve que $\rho > 1$.",
+         r"\frac{1}{\lambda_{\max}}$, $\rho = 1 - \frac{1}{\kappa} \approx 0{,}876$, et la borne $\rho^k \le 10^{-8}$ "
+         r"demande au plus 140 itérations ; la fonction en fait 130 (43 avec `tol=1e-3`), car $\mathbf{b}$ n'est pas "
+         r"tout entier sur le vecteur propre le plus lent ; au meilleur pas, 70. Avec $1{,}2\,\omega_c$, la composante "
+         r"raide du résidu est multipliée par $-1{,}4$ à chaque pas : le résidu relatif dépasse $10^{10}$ après 74 "
+         r"itérations, et la fonction s'arrête avant tout overflow. Avec `omega=np.nan`, le premier pas rend un résidu "
+         r"`nan`, qui n'est pas fini : arrêt après 1 pas. 1. $\mathbf{r}_{k+1} = \mathbf{b} - \mathbf{A}\mathbf{x}_k - "
+         r"\omega\mathbf{A}\mathbf{r}_k = (\mathbf{I} - \omega\mathbf{A})\,\mathbf{r}_k$ ; une matrice symétrique a pour "
+         r"norme son rayon spectral (§3), d'où $\lVert\mathbf{r}_k\rVert \le \rho^k\lVert\mathbf{r}_0\rVert = "
+         r"\rho^k\lVert\mathbf{b}\rVert$ : si $\rho < 1$, le résidu relatif ne dépasse jamais 1. 3. $\lVert\mathbf{x}_k - "
+         r"\mathbf{x}^\star\rVert \le \frac{\lVert\mathbf{r}_k\rVert}{\lambda_{\min}}$ et $\lVert\mathbf{x}^\star\rVert \ge "
+         r"\frac{\lVert\mathbf{b}\rVert}{\lambda_{\max}}$ donnent le facteur $\kappa$ : pour `K_27`, `tol=1e-8` garantit "
+         r"une erreur relative d'au plus $8 \cdot 10^{-8}$ (on mesure $3 \cdot 10^{-8}$) ; avec $\kappa = 10^6$, le même "
+         r"résidu ne garantirait que $10^{-2}$.",
 )
 
 GIVEN_28 = '''OMEGA_28 = 5.0                                   # the angular frequency of the oscillator, in rad/s
@@ -1561,12 +1634,12 @@ $$x_{k+1} = (2 - h^2\Omega^2)\,x_k - x_{k-1},$$
 une récurrence d'ordre 2 (fiche §6) avec $p = 2 - h^2\Omega^2$ et $q = 1$. On lâche la masse de sa position d'équilibre avec la vitesse $v_0$ : $x_0 = 0$ et $x_1 = h\,v_0$. La cellule fournie donne $\Omega = 5$ rad/s (`OMEGA_28`), $v_0 = 1{,}5$ m/s (`V0_28`) et quinze pas de temps $h = 0{,}04 ;\ 0{,}08 ;\ \ldots ;\ 0{,}60$ s (`H_28`). L'oscillateur exact a l'amplitude $\frac{v_0}{\Omega} = 0{,}3$ m.
 
 **L'objectif.**
-- a) Par la théorie du §6 : les racines de $r^2 - p\,r + 1$ ont pour produit 1 ; elles sont complexes conjuguées, de module 1, quand $\lvert p\rvert < 2$, c'est-à-dire pour $0 < h\Omega < 2$. Le plus grand pas $h_c$ de cet intervalle (un nombre).
+- a) Par la théorie du §6 : les racines de $r^2 - p\,r + 1$ ont pour produit 1 ; elles sont complexes conjuguées, de module 1, quand $\lvert p\rvert < 2$, c'est-à-dire pour $0 < h\Omega < 2$, soit $0 < h < h_c$. Le pas critique $h_c$ (un nombre).
 - b) Par la simulation, avec ta `linear_recurrence` : pour chaque $h$ de `H_28`, les 301 termes $x_0, \ldots, x_{300}$, et leur amplitude $\max_k\lvert x_k\rvert$. On dit la suite **bornée** quand cette amplitude ne dépasse pas 1 m. Le plus grand $h$ de `H_28` pour lequel elle l'est (un nombre).
 - c) Pour un petit pas, $h = 0{,}03$ s : la période des oscillations du schéma, en pas, $\frac{2\pi}{\theta}$ avec $\cos\theta = 1 - \frac{h^2\Omega^2}{2}$ (2 décimales).
 - d) En $h = h_c$ : $\lvert x_{1000}\rvert$, par la simulation (un nombre, 6 décimales).
 
-Dans ta copie : pour $h\Omega > 2$, les racines sont réelles et de produit 1 : pourquoi l'une a-t-elle un module $> 1$ ? En $h\Omega = 2$, quelle est la racine double, et pourquoi $x_k = (\alpha + \beta k)(-1)^k$ grandit-il ici (que vaut $\beta$ pour ce départ) ? Que donne la même formule en $h\Omega = 0$, de racine double 1 ? Compare c) à la période de l'oscillateur exact, $\frac{2\pi}{\Omega}$, comptée en pas, $\frac{2\pi}{h\Omega}$. Le schéma amortit-il l'oscillation, comme une récurrence de module $< 1$ ? Quel pas de `H_28` garderais-tu pour simuler cet oscillateur, et pourquoi pas le plus grand pas borné ?""",
+Dans ta copie : pour $h\Omega > 2$, les racines sont réelles et de produit 1 : pourquoi l'une a-t-elle un module $> 1$ ? En $h\Omega = 2$, quelle est la racine double, et pourquoi $x_k = (\alpha + \beta k)(-1)^k$ grandit-il ici (que vaut $\beta$ pour ce départ) ? Compare c) à la période de l'oscillateur exact, $\frac{2\pi}{\Omega}$, comptée en pas, $\frac{2\pi}{h\Omega}$. Le schéma amortit-il l'oscillation, comme une récurrence de module $< 1$ ? Quel pas de `H_28` garderais-tu pour simuler cet oscillateur, et pourquoi pas le plus grand pas borné ?""",
     todo='''answer_M19_28a = ...  # a) a number: the critical time step h_c, by the theory of §6
 answer_M19_28c = ...  # c) a number (2 decimals): the period 2π/θ, in steps, for h = 0.03
 answer_M19_28b = answer_M19_28d = ...
@@ -1648,8 +1721,7 @@ wbm.record("M19.28d", abs(x_28r[1000]), decimals=6,
          r"m ; au-delà, une racine réelle de module $> 1$ (produit 1) donne une croissance exponentielle, $10^{115}$ dès "
          r"$h = 0{,}44$ s. c) $\cos\theta = 1 - 0{,}01125$, $\theta \approx 0{,}150141$ : $\frac{2\pi}{\theta} \approx "
          r"41{,}85$ pas, un peu moins que $\frac{2\pi}{h\Omega} \approx 41{,}89$ ; la simulation le confirme. d) "
-         r"$\lvert x_{1000}\rvert = 1\,000\,h_c\,v_0 = 600{,}0$ m. En $h\Omega = 0$, la racine double 1 donnerait aussi "
-         r"une croissance linéaire ($x_k = k\,x_1$) : c'est pourquoi l'intervalle est $0 < h\Omega < 2$. Les racines "
+         r"$\lvert x_{1000}\rvert = 1\,000\,h_c\,v_0 = 600$ m. Les racines "
          r"étant de module exactement 1, le schéma n'amortit pas l'oscillation, comme l'oscillateur exact. Pour une "
          r"simulation fidèle, on garde un pas bien plus petit que $h_c$ (0,04 ou 0,08 s : l'amplitude reste à 1 % ou "
          r"2 % de 0,3 m), pas le plus grand pas borné.",

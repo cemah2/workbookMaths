@@ -65441,6 +65441,11 @@
       "hash": "1e8285d1017000e686290d43e4c274325e70d01f5f2ed486315915e8afa8090c",
       "kind": "int",
       "magnitude": 1,
+      "mistakes": {
+        "3c59f2469e1276b2b990a6d257833149e75dc3eb43083a846e3b8087b4e5c189": "le minimum local est le point critique dont les trois valeurs propres sont POSITIVES",
+        "d5c1fad994d63d7211c43e8c6e731c83918c8b16a8dbdbd27749591e1c76dec1": "le minimum local est le point critique dont les trois valeurs propres sont POSITIVES",
+        "f17a7c44e985832251a7cf154c978134a7ec523b6c5d2cc57b99eddcedbc4f83": "le minimum local est le point critique dont les trois valeurs propres sont POSITIVES"
+      },
       "sign": -1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
@@ -65667,6 +65672,7 @@
       "hash": "d783bc6d1da66360b36cf91737e96adc43da02d82658e77ac26ba5d11c532543",
       "kind": "array",
       "mistakes": {
+        "88a66e245c8ac543501f0d64e4676774492b72b38934043972ffb9f30f2687ae": "x₃ = x* + e₃ : ajoute le point fixe à l'écart",
         "8a9037ad0244f842af860458de950f530566d0a82c2133a6d2c429eaa989b65e": "xₖ = x* + Mᵏ(x₀ − x*) : M³x₀ seul oublie le point fixe"
       },
       "shape": [
@@ -65675,6 +65681,7 @@
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
     "M19.3f": {
+      "fractional": "le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
       "hash": "572cea4b5b9521aabf16b4b8d1c995fc249b3054106f7d9bb6b3e01cc32708f2",
       "kind": "int",
       "magnitude": 1,
@@ -65946,6 +65953,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "ac81dbda013716957ed7b5982b309630b6d9a0b12f8a771db9c2644571e92016": "le pas critique est 2/λmax : n'oublie pas le 2",
         "c3f370ecb781dc9a55414a1f46186d5ec01d1f60254929b78ce541723dd1acb0": "le pas critique se règle sur la PLUS GRANDE valeur propre"
       },
       "sign": 1,
@@ -66040,6 +66048,7 @@
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
     "M19.5e": {
+      "fractional": "le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
       "hash": "a0ec694e72a9740feaea8a0918759523763206ed1f2ae9b1b5b892b4055cf6e8",
       "kind": "int",
       "magnitude": 1,
@@ -66060,6 +66069,7 @@
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
     "M19.5g": {
+      "fractional": "le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
       "hash": "459b9a3f9e5eb00e49c09ce1a114a3267ee23b3e7574b06899f73deeea833028",
       "kind": "int",
       "magnitude": 2,
@@ -66070,6 +66080,7 @@
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
     "M19.5h": {
+      "fractional": "le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
       "hash": "e98713e72dd0691fb3a935ad280d24c4f4b090650f5d9cfaf403d292689d9c33",
       "kind": "int",
       "magnitude": 2,
@@ -66216,6 +66227,9 @@
       "hash_coarse": "e3b4d3c8728f79d4ea9ebbc1949a39e12a9c3d387bd051b6a7b5d6fd3806a26d",
       "kind": "float",
       "magnitude": -3,
+      "mistakes": {
+        "a57014d158ec8f206ad2156690dc93aee0a3afe4cfbfde91b30c09e5d55b1396": "uₖ = α r₁ᵏ + β r₂ᵏ : n'oublie pas les coefficients α et β"
+      },
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
@@ -66394,6 +66408,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "14a57114a37d80c3d4fe81c4d56ca2f19522d58c7baa3c229f4c88f2d93e3410": "le module est √q : q est le CARRÉ du module, le produit des deux racines conjuguées",
         "b0e9a33f8c5ba247dd66aa3a9418ea43a7d6d35e9240a9bc291fefeb6e4f0764": "le module est √(a² + b²) = √q, pas la partie réelle"
       },
       "sign": 1,
@@ -66520,11 +66535,12 @@
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
     "M19.7g": {
+      "fractional": "le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
       "hash": "1549d6e601031dc6acc8b5bf80d429987d6e89225f7d2e590a9d639f9fc344f4",
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "14f8f70a3b60a7f11ed99976079a6a9458c7acb60988b02f6c8c10aada4bd1e8": "0,5ᵏ < 10⁻³ : arrondis k vers le haut, jamais vers le bas"
+        "14f8f70a3b60a7f11ed99976079a6a9458c7acb60988b02f6c8c10aada4bd1e8": "0,65ᵏ < 10⁻³ : arrondis k vers le haut, jamais vers le bas"
       },
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
@@ -66622,7 +66638,10 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "1e5d6ed522cd21fc70e76743830abf401695e7fcbb6ad168228cc8bd2ef8d379": "σ² divise par N = 4, la dispersion des quatre gradients, pas par N − 1"
+        "1e5d6ed522cd21fc70e76743830abf401695e7fcbb6ad168228cc8bd2ef8d379": "σ² divise par N = 4, la dispersion des quatre gradients, pas par N − 1",
+        "7773c8a6aad8443bd2b2624c601e7b1b9494b44e317eac167e99c60219ad0bf1": "σ² divise par N = 4, la dispersion des quatre gradients, pas par N − 1",
+        "e51824066a43bc7218f89f89188645eb093400ad43b0758d83c7cc88815e5254": "σ² divise par N = 4, la dispersion des quatre gradients, pas par N − 1",
+        "ee8bf9dfeaf8a30e297dba1daca4ef21a0c1f3dd7fe8afe1a9df16cd06970eb4": "σ² est la moyenne des carrés des ÉCARTS à F′(2), pas des carrés des gₖ"
       },
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
@@ -66653,6 +66672,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "c0b5b827993b9fac079a9c613b0de16f99e9f9cb25d6212afa5fbde2fd7a8435": "la variance d'une moyenne de B tirages indépendants est σ²/B, pas σ²/B²",
         "cc345168c393bedf8176a6b722e3c9a4a0e2068ce08bb8d94b1bfbfc308c439c": "la variance d'une moyenne de B tirages indépendants est σ²/B, pas σ²/B²"
       },
       "sign": 1,
@@ -66679,6 +66699,7 @@
       "magnitude": 0,
       "mistakes": {
         "51ecf1715cd4ee96fcce6653a6fd63751e5759505db132efb08570ff71e5b747": "l'erreur type est σ/√B : divise σ par √B, pas par B",
+        "6e77b5f12a54822748258e96c06ed88443309e21ff1c94f7a6dba0fcfb1e53fb": "l'erreur type est σ/√B : divise σ par √B, pas par B",
         "a88b8a24b9f74b1154baf1cdbe675c2332f0a502bbcded12df5a5f3d69c71065": "l'erreur type est la RACINE de la variance"
       },
       "sign": 1,
@@ -66714,7 +66735,9 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "496025b0532b248b13db4875fc9f899ee22c1df431cd8313e7b58de3926268e2": "le facteur de population finie est (N − B)/(N − 1), pas son inverse"
+        "0dafc1981629d49490b68277ac432b4c479f00363a0dd44a3d76ceae61506006": "le facteur de population finie est (N − B)/(N − 1), pas (N − B)/N",
+        "496025b0532b248b13db4875fc9f899ee22c1df431cd8313e7b58de3926268e2": "le facteur de population finie est (N − B)/(N − 1), pas son inverse",
+        "4a12597f10111f051ba5753e03ce3d6106e420b22a7db570cb5685c9bf9b3e79": "sans remise, la variance de la moyenne est multipliée par (N − B)/(N − 1)"
       },
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
@@ -66872,6 +66895,9 @@
       "hash_coarse": "aeb2d70513d3d957f5e1c513ee55620fe8c7ef5b685191af883ee585ba4cc33d",
       "kind": "float",
       "magnitude": -1,
+      "mistakes": {
+        "a211d13407687f4bb1a96664c12dca7552465c56eeafd1eb8691ca9df55550d6": "le cosinus vaut 1 pour la boule ; sur le pavé, chaque coordonnée est coupée séparément"
+      },
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
@@ -67034,6 +67060,7 @@
       "hash": "67ea8eebabc6c641169bf517a83a8db5e089134e12e708f8a2d20a0566104135",
       "kind": "array",
       "mistakes": {
+        "9c240ac0f31e4bee53dc321a697085b4fb050b4918a7fdf6004fb18bae93d670": "ãᵢⱼ = aᵢⱼ/√(aᵢᵢaⱼⱼ) : la RACINE du produit des deux coefficients diagonaux",
         "9f0131219880ab07c6048da69aedd5cb1ed84af6d5e4e5f1b95346c01fad2352": "ãᵢⱼ = aᵢⱼ/√(aᵢᵢaⱼⱼ) : divise par la racine des DEUX coefficients diagonaux"
       },
       "shape": [
@@ -67060,7 +67087,7 @@
       "kind": "array",
       "mistakes": {
         "1a7f9f78e9a156bef5c5247fc1d23cf291bce710525b416d254f682f83bc36a9": "l'ordre demandé : A d'abord, puis Ã",
-        "e1c2caa3594d4151c22f6b3dda056f07bcba567b86cb93e0c0e95c71bfc720ee": "ρ* arrondi trop tôt : garde 6 chiffres significatifs de ρ* = (κ − 1)/(κ + 1)"
+        "e1c2caa3594d4151c22f6b3dda056f07bcba567b86cb93e0c0e95c71bfc720ee": "le nombre d'itérations s'arrondit vers le HAUT ; vérifie aussi que ρ* a gardé 6 chiffres significatifs"
       },
       "shape": [
         2
@@ -67289,6 +67316,9 @@
       "hash_coarse": "1e0d7ab203eb62cc09c3704f1945ee92b8ab0aa03f445949d3754fae112eb9e9",
       "kind": "float",
       "magnitude": 0,
+      "mistakes": {
+        "0f11528fe89be5e17bc7f2d6eceb2632c25269d7b6113eb7db8a2c22f967344e": "le pas critique se règle sur la PLUS GRANDE valeur propre de K̃"
+      },
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
@@ -67298,21 +67328,25 @@
           "1a4f9ba69a8db432aa64dd5e6d912b247c560d4081f5ce77bc797dad0b05d6c5"
         ],
         "1": [
-          "b2a4f25b81df30014344a40eebcf8f0d2fc1cc4addf15cab059bf5fe9e0b1d24"
+          "6cfd549fd784a25f5c53dd40a67e74a1ebc2e4ec135da94e9649ba5e79d58fb9"
         ]
       },
       "coarser": {
         "2": [
-          "65b50e6c41dab8ae0dcacf10cbd8df3151f8bc5fbd2e452ce69d9395624f98c7"
+          "cedc4822963a016ec8897678672d27f9c5dad06c79e0c3648d62738d589db3b8"
         ]
       },
       "decimals": 4,
-      "hash": "51aaba168811466d7965661879c46082d00262ffafd6afdff9d9474bb8d2dc99",
-      "hash_coarse": "cab7156bc5fa4e3caece2f498c2b8ee14fff9fe64e5c184e0ce544c24fc6a791",
+      "hash": "d7dab019bbdf057b6e6b303c9e32a24be0d1c99092b4c6ba1c35a3b0bfd4338f",
+      "hash_coarse": "d76544c9fb1bc00634417f6c8a00bfc0f419b4e4cc28e27211800eab8bc5701f",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "4c9f698151c97a5ec1c4cc2555477670dd0299dbd1683ec2da74ab59a268e885": "ρ(ω) est le PLUS GRAND des |1 − ωλᵢ| : la composante la plus lente finit par l'emporter"
+        "6a3c8e9f3af2db26fe179008f94d3f96770895e18b29ebf71459648db2f14775": "le rapport demandé est celui du 60ᵉ pas, quand la composante la plus lente l'emporte, pas celui des premiers pas",
+        "704d0896ba234fda1fe8df764d4fe1726aa5f5d27d449f6ab4fa7003884e708f": "le rapport demandé est celui du 60ᵉ pas, quand la composante la plus lente l'emporte, pas celui des premiers pas",
+        "97f89482fc3fe554ae611973a97ad000d536cbce214bdc89e253aceceb12538c": "le rapport demandé est celui du 60ᵉ pas, quand la composante la plus lente l'emporte, pas celui des premiers pas",
+        "d9594bec7e2349c90a884eb6a5cd4b107fea0ade492049cc09d29dafc23fa946": "ρ(ω) est le PLUS GRAND des |1 − ωλᵢ| : la composante la plus lente finit par l'emporter",
+        "db6d35010c6b692d03e7a3d86ab2784421e3a703b319b925b99abe80f2ec8c52": "le rapport demandé est celui du 60ᵉ pas, quand la composante la plus lente l'emporte, pas celui des premiers pas"
       },
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
@@ -67374,20 +67408,22 @@
           "c20c28e2d654fd273aa4176332ca169bb1d53ae1f2dfcaf51c7b6f155d9bff1e"
         ],
         "3": [
-          "184775e601c0f1ed3b4a26555aed4aa61684d2624a40ae249ef96a84cefb4f5f"
+          "ba34cab06f9e22a3aaabf65c9131a9e779b2097102f6d354c6a235e5d7554e6c"
         ],
         "4": [
-          "6209bd2220a5669c191f6a54e15e8860d31b3957fb4f2a19a799d1cd2287e939"
+          "c1a10b9710c4c548105fe7e5f4b7705f4cd69545fd637c93764c52136c617f44"
         ]
       },
       "decimals": 6,
-      "hash": "2641f3b538a915bb94229a59f7951094cf34b59484f7247bd5c7dd0017908a7c",
-      "hash_coarse": "fd9f6e92a945fa41e610d8bab86812974a3a7b001fa1ddbec33556e640c6653b",
+      "hash": "9c9d163d0b6b689795239fc990ad64386f914291424855f26e0274228b982a0a",
+      "hash_coarse": "fbb97da99b4736cd45fe93c2bb4da279a1cae0ad648580ce04ebb79508bf66f1",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "09138a1265781f2f0262ea359ec8261660a190d712f513bca753209fd021e9bf": "c₁ multiplie le terme le plus RÉCENT : coefficients = [0.5, 0.3, 0.2]",
-        "40f1a38c354ec3c2688125fa9303f5dc5cdd345dbc391147e1792994bb70b170": "initial = [u₀, u₁, u₂], dans cet ordre : u₀ = 0 d'abord"
+        "1e2e210a47651d0fb93338a1ad355a0a029a63ace79b85d580adee536186f36a": "initial = [u₀, u₁, u₂], dans cet ordre : u₀ = 0 d'abord",
+        "ea748af27af4db9264422ceadfb8b98b8cc1bebe1cae0a40ce2bc560540c6792": "c₁ multiplie le terme le plus RÉCENT : coefficients = [0.5, 0.3, 0.2]",
+        "f6643b96d44af4a9bb05822d57315c4af7a1a766a4bdb1c8e982cf624bd5dcf2": "u₁₁ est le terme d'indice 11 : il faut n_terms = 12 termes, puis [11]",
+        "f9cf7da429230cd8e99778a18cdf8d4689aafcf519ee2cf6c4177d0ca119f2ec": "u₁₁ est le terme d'indice 11 : il faut n_terms = 12 termes, puis [11]"
       },
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
@@ -67419,79 +67455,49 @@
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
     "M19.23a": {
-      "choices": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
-      "hash": "d639913c7e413560cf5326f269b3315e75fbef27b1a90cffbba268332e3e47c0",
-      "kind": "int",
-      "magnitude": 0,
+      "hash": "c44b6cba30b10e5c752472fabe1b89ad465a5c4631bc1e806e638045c7c217fe",
+      "kind": "str",
       "mistakes": {
-        "8638f5222c789b0e82dade4e39bd42f7ba4912bf2291ef1713d3641c86d58886": "un pas plus petit n'est pas plus sûr qu'un autre ici : calcule ρ(ω) pour λmin ET pour λmax",
-        "dd3eff9d8fe172db10cab8133e5a2c75407f0f88715c76a091cc678354c172f8": "un pas plus petit n'est pas plus sûr qu'un autre ici : calcule ρ(ω) pour λmin ET pour λmax"
+        "3d414998b2ed2f5c3c56352a217543b3dd06909a10ce03ac588a598b56a1bb55": "compare chaque pas au pas critique 2/λmax : un pas un peu en dessous converge encore, lentement",
+        "552c0b57ebab75c0a4d1ed22c34a1ecbb4aff010092967b96a556f468fcfb8f0": "compare chaque pas au pas critique 2/λmax : un petit pas converge toujours",
+        "558fbc759a7fddb28f509426d4f2e5c144d040560cb7c3153ecdfd547e3fdfe4": "compare chaque pas au pas critique 2/λmax : un petit pas converge toujours"
       },
       "prediction": true,
-      "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
     "M19.23b": {
-      "choices": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
-      "hash": "43eef4d4b2d159217ce441f2c2911f8affa3858c2716a9f2f14bb930c2d6acf0",
+      "fractional": "le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
+      "hash": "c5e74a6a10cb3662b8d41c6eb36ac50499d3a92aac6f8062565582fdb511f0f5",
       "kind": "int",
-      "magnitude": 0,
+      "magnitude": 2,
       "mistakes": {
-        "15c7ebaf3ba53768644797a96d675c24448c55d4006bf3f9244335606446287b": "le meilleur pas égale les facteurs des deux valeurs propres extrêmes : (κ − 1)/(κ + 1)",
-        "2bc0730ad086a1d35ebeb0bf89a526d8f788b18c06bfd3024ad14b11dcb4c6cb": "le meilleur pas égale les facteurs des deux valeurs propres extrêmes : (κ − 1)/(κ + 1)"
+        "4006491b18a730e98cbbfa250aae9257e374b3a8a2ab35067af4de021175fab9": "le plus petit k tel que ρᵏ ≤ 10⁻⁶ : arrondis vers le HAUT, jamais vers le bas",
+        "5f7abd915f8e5496d6223c0155de4f3825f3a2f8bd4fa4091c05b17ddbf74508": "ρ(ω) est le PLUS GRAND des deux modules |1 − 2ω| et |1 − 24ω|"
       },
       "prediction": true,
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
     "M19.23c": {
-      "choices": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
-      "hash": "b148d28db91b9525c560f77c1d602357fea3bc925673ac6dac2c77d2fb0eabd4",
+      "fractional": "le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
+      "hash": "be0d7a44dc6fc10044bc7618332fc34e3e77a8082a46d2bb06e035eaf73acba2",
       "kind": "int",
-      "magnitude": 0,
+      "magnitude": 1,
       "mistakes": {
-        "7fa442d91f1001d0e309b240864e30c32cca68639e4d43c2edfa062bb1faddbd": "près du pas critique, la composante de λmax est multipliée par un nombre proche de −1 : elle diminue à peine",
-        "a9f8471c50c8211722bc40e9273df611e0810ba619a84e2af1b0cfe16256d973": "près du pas critique, la composante de λmax est multipliée par un nombre proche de −1 : elle diminue à peine",
-        "c564361a29a11ffada3ea6ae3b1dc660c076f8dd03b39df59cf568f4d9f3705a": "près du pas critique, la composante de λmax est multipliée par un nombre proche de −1 : elle diminue à peine"
+        "c38a76356bd54a82f66d5315a69f86e67140b67ac03360ac0ceb40e9d66701a8": "le plus petit k tel que ρᵏ ≤ 10⁻⁶ : arrondis vers le HAUT, jamais vers le bas"
       },
       "prediction": true,
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
     "M19.23d": {
-      "choices": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
-      "hash": "a3b7b440d54a4e511d570d95ee4e08ad01bb15c322f7c6a227f0d053e90c9938",
+      "fractional": "le plus petit entier qui convient : arrondis vers le HAUT, math.ceil",
+      "hash": "e0c71dfcc938d942f1c023485309c1d23cb92a711877cbbfd9de4ad9a8158886",
       "kind": "int",
-      "magnitude": 0,
+      "magnitude": 2,
       "mistakes": {
-        "087db4483b76443394b979c84202ec0fcff1cfb0ec400cd04d72b320ccd9aaa1": "au-dessus du pas critique, |1 − ωλmax| > 1 : cette composante grandit à chaque pas",
-        "28214c20b7f8e2b2d87a70a8343a09f34d6996b4705edd7591a03ea221403cd8": "au-dessus du pas critique, |1 − ωλmax| > 1 : cette composante grandit à chaque pas",
-        "653db0878b6a488875c5692ebf13093472dd5ff349826ac193e79ad3f0f6f5b2": "au-dessus du pas critique, |1 − ωλmax| > 1 : cette composante grandit à chaque pas",
-        "fd7a629f5c2fec94f78d06584fa77cf82c0ac5c1d7210d45742252e469199dd0": "au-dessus du pas critique, |1 − ωλmax| > 1 : cette composante grandit à chaque pas"
+        "e42c27ea387b2c8bd4590e86eeed771d1d4651a3df4de788c685b6df320f2a4d": "le plus petit k tel que ρᵏ ≤ 10⁻⁶ : arrondis vers le HAUT, jamais vers le bas",
+        "f53cfb03eb799ee05af5d98ea020b5650e92f9062bd3149ac5a0244e0a177666": "ρ(ω) est le PLUS GRAND des deux modules |1 − 2ω| et |1 − 24ω|"
       },
       "prediction": true,
       "sign": 1,
@@ -67506,43 +67512,45 @@
     },
     "M19.24b": {
       "choices": [
-        "0.5",
-        "1.0",
-        "1.5",
-        "2.0"
+        "0.50",
+        "1.00",
+        "1.50",
+        "2.00"
       ],
-      "decimals": 1,
-      "hash": "c523c055061b3f5e9620ba1c22820cbcfdb79239d7b345726c4752f78696bf9a",
-      "hash_coarse": "13eff52738549082dfca5c7bc836c6f6b1c191b1527ae749fc9730179c28bb90",
+      "coarse_any": {
+        "0": [
+          "13eff52738549082dfca5c7bc836c6f6b1c191b1527ae749fc9730179c28bb90"
+        ]
+      },
+      "decimals": 2,
+      "hash": "c8396ffd01c67dfafb99857683b20283a367b019afc0d3880ae0ba840820555a",
+      "hash_coarse": "c523c055061b3f5e9620ba1c22820cbcfdb79239d7b345726c4752f78696bf9a",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "12cb7e25b0c9082c42c4f6a908a3c3810e8b36b8d8447beacafe9614eb9a9886": "Richardson demande de l'ordre de κ itérations (≈ 1,15 κ d) : relis la pente de sa droite",
-        "150a84c72bf02fef6610359b1b89a1d668dc70bf6758b99b7697c98fdfe0a2d2": "Richardson demande de l'ordre de κ itérations (≈ 1,15 κ d) : relis la pente de sa droite",
-        "e441d0f47a4ece601d48c1f9171a48fef60a6cd172d5e983f7f237a9aae26400": "Richardson demande de l'ordre de κ itérations (≈ 1,15 κ d) : relis la pente de sa droite"
+        "266e698c33f8633048d04cb07ad40f097c482c553e5d29d77c04b976658b3e01": "Richardson demande de l'ordre de κ itérations (≈ 1,15 κ d) : relis la pente de sa droite",
+        "42906a78605f583d2a1d0545e523cb50b4e3455b0278106d305f93d2facda8ca": "Richardson demande de l'ordre de κ itérations (≈ 1,15 κ d) : relis la pente de sa droite",
+        "6960532e143c58701dd43a1229d29518d8e9ce4cf67966ada0fb9a29c121d18b": "Richardson demande de l'ordre de κ itérations (≈ 1,15 κ d) : relis la pente de sa droite"
       },
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
     "M19.24c": {
-      "alt_coarse": [
-        "3766a35dc968070b5018349fffe994ee6c6c1e6f3a0351179b4597d3a313b0dc"
-      ],
       "choices": [
-        "0.5",
-        "1.0",
-        "1.5",
-        "2.0"
+        "0.50",
+        "1.00",
+        "1.50",
+        "2.00"
       ],
-      "decimals": 1,
-      "hash": "943631c814656f80d20cd22ce53f5ef45130351e5877d16fb50a43296e6a386b",
-      "hash_coarse": "9007c5f6a694e6ab67b840980e2cbde3e3ee4ad68e51fa02ef0c748ead5e1f1a",
+      "decimals": 2,
+      "hash": "f0c64f4ff604c8d015e9b1a76c30e41bef09c40c1c4e7eb4b58ba8a439b22b5a",
+      "hash_coarse": "943631c814656f80d20cd22ce53f5ef45130351e5877d16fb50a43296e6a386b",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "8e6982270f6da68230e0219114d15686ef4095e1a86ad613b4ae2d9e5739161f": "le gradient conjugué grandit bien plus lentement que Richardson : relis la pente de sa droite",
-        "9f5253e64b8bf404b15409cdd92415d69637ce0da279dc998dc3490fea71afc5": "le gradient conjugué grandit bien plus lentement que Richardson : relis la pente de sa droite",
-        "f69dc68b678fe4fafe203b29447366899b5790f923a7758e4ae6c977cf7d5478": "le gradient conjugué grandit bien plus lentement que Richardson : relis la pente de sa droite"
+        "396491aa0b0ef0c6b045561a88dedf1763b1423abc2493843dab6193d2420a80": "le gradient conjugué grandit bien plus lentement que Richardson : relis la pente de sa droite",
+        "8340f202f8d1e22b0038c1c70af222654fc223ab596a7eed8e8b6fc3b0ce729d": "le gradient conjugué grandit bien plus lentement que Richardson : relis la pente de sa droite",
+        "88b8a470a10734e4291556f48b91e2455d4f0dacd74198f0bc445c5af6d6c539": "le gradient conjugué grandit bien plus lentement que Richardson : relis la pente de sa droite"
       },
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"

@@ -624,7 +624,7 @@ Pour l'usage : `np.linalg.eigvalsh(numerical_hessian(s_19, np.zeros(3)))` pour b
 
 <details><summary>Indice 1</summary>
 
-Fiche §4 (le pas critique, l'itération) et §5 (le meilleur pas, la mise à l'échelle diagonale).
+Fiche §4 (le pas critique, l'itération, l'exemple des deux ressorts) et §5 (le meilleur pas, la mise à l'échelle diagonale).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -640,7 +640,7 @@ for k in range(n_steps):
     x = x + omega * (rhs - matrix @ x)
     iterates[k + 1] = x
 ```
-Pour b) : `scale = 1 / np.sqrt(np.diag(K_20))`, puis `K_20 * np.outer(scale, scale)`. Pour d) : `np.flatnonzero(errors <= 1e-6 * errors[0])[0]`.
+Pour b) : `scale = 1 / np.sqrt(np.diag(K_20))`, puis `K_20 * np.outer(scale, scale)`. Pour c) : 70 pas avec `omega=0.32`, puis `errors[61] / errors[60]`. Pour d) : `np.flatnonzero(errors <= 1e-6 * errors[0])[0]`.
 
 </details>
 
@@ -653,12 +653,12 @@ Fiche §6 ; la docstring dit dans quel ordre sont rangés les coefficients et le
 </details>
 <details><summary>Indice 2</summary>
 
-Un tableau `np.zeros(max(n_terms, d))`, rempli d'abord par les $d$ valeurs de départ ; chaque nouveau terme est une somme de $d$ produits, $c_1$ avec le terme précédent, $c_2$ avec celui d'avant, etc. Rends un **nouveau** tableau des `n_terms` premiers termes, même quand `n_terms` $< d$. Pour b), compare à `0.8 ** k * np.cos(k * np.pi / 3)` avec `k = np.arange(40)`.
+Un tableau `np.zeros(max(n_terms, d))`, rempli d'abord par les $d$ valeurs de départ ; chaque nouveau terme est une somme de $d$ produits, $c_1$ avec le terme précédent, $c_2$ avec celui d'avant, etc. Rends un **nouveau** tableau des `n_terms` premiers termes, même quand `n_terms` $< d$. Pour b), compare à `0.8 ** k * np.cos(k * np.pi / 3)` avec `k = np.arange(40)`. Pour c), compte les termes : $u_{11}$ est le terme d'indice 11, le douzième.
 
 </details>
 <details><summary>Indice 3</summary>
 
-La ligne clé de la boucle, pour `k` de `d` à `n_terms - 1` : `terms[k] = sum(c[i] * terms[k - 1 - i] for i in range(d))` ; puis `return terms[:n_terms].copy()`. Pour l'usage : `linear_recurrence([0.8, -0.64], [1.0, 0.4], 40)`, et `linear_recurrence([0.5, 0.3, 0.2], [0.0, 10.0, 4.0], 61)[60]`.
+La ligne clé de la boucle, pour `k` de `d` à `n_terms - 1` : `terms[k] = sum(c[i] * terms[k - 1 - i] for i in range(d))` ; puis `return terms[:n_terms].copy()`. Pour l'usage : `linear_recurrence([0.8, -0.64], [1.0, 0.4], 40)`, et `linear_recurrence([0.5, 0.3, 0.2], [0.0, 10.0, 4.0], 12)[11]`.
 
 </details>
 
@@ -684,17 +684,17 @@ Un compteur : une liste vide `calls = []` et `callback=lambda xk: calls.append(1
 
 <details><summary>Indice 1</summary>
 
-Fiche §4 (le facteur $\rho(\omega)$) et §3 (le nombre de pas pour gagner $d$ décimales).
+Fiche §4 (le pas critique, le facteur $\rho(\omega)$) et §3 (le nombre de pas pour gagner $d$ décimales).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Seules les deux valeurs propres extrêmes, 2 et 24, comptent dans $\rho(\omega)$. Pour chaque pas, calcule $1 - 2\omega$ et $1 - 24\omega$, avec leur signe, puis le plus grand des deux modules.
+Calcule d'abord le pas critique $\frac{2}{\lambda_{\max}}$ et compare-lui chacun des quatre pas. Seules les deux valeurs propres extrêmes, 2 et 24, comptent dans $\rho(\omega)$ : pour chaque pas, calcule $1 - 2\omega$ et $1 - 24\omega$, avec leur signe, puis le plus grand des deux modules.
 
 </details>
 <details><summary>Indice 3</summary>
 
-`rho = max(abs(1 - 2 * omega), abs(1 - 24 * omega))` ; si `rho < 1`, le nombre d'itérations est `math.ceil(6 * math.log(10) / -math.log(rho))`, à ranger dans un intervalle ; sinon, regarde ce que devient la composante de l'écart dont le facteur a un module $\ge 1$.
+`rho = max(abs(1 - 2 * omega), abs(1 - 24 * omega))` ; un pas converge quand `rho < 1`, et la formule donne alors `math.ceil(6 * math.log(10) / -math.log(rho))`. Calcule-la en Python ou à la calculatrice, en gardant tous les chiffres de $\rho$ jusqu'au bout.
 
 </details>
 
@@ -750,17 +750,17 @@ F = 0.5 * (A[0, 0] * X ** 2 + 2 * A[0, 1] * X * Y + A[1, 1] * Y ** 2) - b[0] * X
 
 <details><summary>Indice 1</summary>
 
-Les ⚠️ de la fiche : §4 (le pas réglé sur la plus petite valeur propre), §1 (une hessienne numérique non symétrique et `eigvalsh`) et §6 (la partie réelle prise pour le module).
+Les ⚠️ de la fiche : §4 (le pas réglé sur la plus petite valeur propre), §1 (une hessienne numérique non symétrique et `eigvalsh`) et §6 (la partie réelle prise pour le module) ; §2 pour lire la nature d'un point critique sur l'inertie.
 
 </details>
 <details><summary>Indice 2</summary>
 
-(1) Dans quel ordre `np.linalg.eigvalsh` rend-elle les valeurs propres ? Essaie-la sur `np.diag([5.0, 1.0])`. (2) Affiche `hessian_26(g_26, np.zeros(3))` : que contient le triangle inférieur, et lequel des deux triangles `eigvalsh` lit-elle (son argument `UPLO`) ? (3) Pour deux racines conjuguées $r$ et $\bar r$, que vaut leur produit $r\bar r$, et que vaut-il en fonction de $p$ et $q$ ? Pour a), il te faut toutes les valeurs propres de `K_26` et le pas `omega_26` de la cellule fournie.
+(1) Dans quel ordre `np.linalg.eigvalsh` rend-elle les valeurs propres ? Essaie-la sur `np.diag([5.0, 1.0])`. (2) Affiche `hessian_26(g_26, np.zeros(3))` : que contient le triangle inférieur, et lequel des deux triangles `eigvalsh` lit-elle (son argument `UPLO`) ? `inertia_26` est juste, à condition de recevoir une matrice symétrique. (3) Pour deux racines conjuguées $r$ et $\bar r$, que vaut leur produit $r\bar r$, et que vaut-il en fonction de $p$ et $q$ ? Pour a), il te faut toutes les valeurs propres de `K_26` et le pas `omega_26` de la cellule fournie.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) `max(abs(1 - omega_26 * np.linalg.eigvalsh(K_26)))`. (1) Dans un tableau rangé en ordre croissant, la plus grande valeur est à l'indice `-1`. (2) Pars de `H = hessian_26(f, x, h)`, dont la diagonale et le triangle supérieur sont justes, et recopie le triangle supérieur strict en dessous : `np.triu(H, k=1).T` est ce triangle, à sa place symétrique. (3) Seule la branche des racines complexes est fausse : le module y est la racine carrée du produit des racines. b) Traduis la réponse de `nature_26` en lettre ; c) la même racine carrée, pour $q = 1{,}2$.
+a) `max(abs(1 - omega_26 * np.linalg.eigvalsh(K_26)))`. (1) Dans un tableau rangé en ordre croissant, la plus grande valeur est à l'indice `-1`. (2) Pars de `H = hessian_26(f, x, h)`, dont la diagonale et le triangle supérieur sont justes, et recopie le triangle supérieur strict en dessous : `np.triu(H, k=1).T` est ce triangle, à sa place symétrique. b) Traduis l'inertie $(n_-, n_0, n_+)$ en lettre par le test du second ordre : des valeurs propres des deux signes d'abord, puis une valeur propre nulle, puis tout du même signe. (3) Seule la branche des racines complexes est fausse : le module y est la racine carrée du produit des racines ; c) la même racine carrée, pour $q = 1{,}2$.
 
 </details>
 
@@ -768,24 +768,23 @@ a) `max(abs(1 - omega_26 * np.linalg.eigvalsh(K_26)))`. (1) Dans un tableau rang
 
 <details><summary>Indice 1</summary>
 
-Fiche §4 (💻, le critère d'arrêt) ; M12d pour le lien entre le résidu et l'erreur.
+Fiche §4 (💻, le critère d'arrêt) et §3 (la norme d'une matrice symétrique, $\rho$) ; M12d pour le lien entre le résidu et l'erreur.
 
 </details>
 <details><summary>Indice 2</summary>
 
-Une boucle qui, à chaque tour, calcule le résidu de l'itéré **courant**, teste les conditions dans l'ordre de l'énoncé (d'abord la convergence, puis la divergence et `max_iter`), et seulement ensuite fait le pas. Le résidu sert deux fois : au test et au pas. Avec `tol=1`, le départ $\mathbf{x}_0 = \mathbf{0}$ (de résidu relatif 1) suffit déjà : ta fonction doit rendre 0 pas.
+Garde deux tableaux, $\mathbf{x}$ et $\mathbf{r}$, avec $\mathbf{r} = \mathbf{b}$ au départ (une copie). À chaque tour : le résidu relatif $\lVert\mathbf{r}\rVert/\lVert\mathbf{b}\rVert$, les tests de l'énoncé dans leur ordre, puis un seul produit $\mathbf{p} = \mathbf{A}\mathbf{r}$, qui sert à mettre $\mathbf{r}$ à jour. Un résidu `nan` n'est ni $\le$ `tol` ni $> 10^{10}$ : seul `np.isfinite` le voit.
 
 </details>
 <details><summary>Indice 3</summary>
 
 ```python
-x, k = np.zeros(len(b)), 0
+x, r, k = np.zeros(len(b)), b.copy(), 0
 while True:
-    residual = b - A @ x
-    relative = np.linalg.norm(residual) / norm_b
+    relative = np.linalg.norm(r) / norm_b
     ...                                  # the tests of the statement, each with its return
-    x = x + omega * residual
-    k += 1
+    p = A @ r                            # the only product by A
+    ...                                  # x_{k+1} and r_{k+1}, then k += 1
 ```
 
 </details>
@@ -799,11 +798,16 @@ Fiche §6 (racines complexes de module $\sqrt q$, racine double, triangle de sta
 </details>
 <details><summary>Indice 2</summary>
 
-Ici $q = 1$ : le produit des deux racines vaut 1. Elles sont complexes quand $p^2 < 4q$. Pour la simulation, `linear_recurrence` attend `coefficients = [p, -q]` : attention au signe. L'amplitude d'une suite de termes : `np.max(np.abs(terms))`. Pour d), compte les termes : $x_{1000}$ est le terme d'indice 1 000.
+Ici $q = 1$ : le produit des deux racines vaut 1. Elles sont complexes quand $p^2 < 4q$. Pour la simulation, `linear_recurrence` attend `coefficients = [p, -q]` : attention au signe. L'amplitude d'une suite de termes est le plus grand $\lvert x_k\rvert$. Pour d), compte les termes : $x_{1000}$ est le terme d'indice 1 000.
 
 </details>
 <details><summary>Indice 3</summary>
 
-`p = 2 - (h * OMEGA_28) ** 2`, puis `linear_recurrence([p, -1.0], [0.0, h * V0_28], 301)` pour chaque `h` de `H_28` ; b) `max(h for h, a in zip(H_28, amplitudes) if a <= 1)` ; c) `theta = math.acos(1 - (0.03 * OMEGA_28) ** 2 / 2)`, puis `2 * math.pi / theta` ; d) la même simulation en $h = h_c$, avec 1 001 termes.
+```python
+def leapfrog_28(h, n_terms):
+    p = ...                                              # 2 − h²Ω²
+    return linear_recurrence([p, -1.0], [0.0, h * V0_28], n_terms)
+```
+L'amplitude pour un pas `h` : `np.max(np.abs(leapfrog_28(h, 301)))`.
 
 </details>
