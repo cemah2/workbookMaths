@@ -258,7 +258,8 @@ FUNCTIONS_1 = [
 ]
 
 
-@pytest.mark.parametrize("text, build, points", FUNCTIONS_1, ids=[f[0] for f in FUNCTIONS_1])
+@pytest.mark.parametrize("text, build, points", FUNCTIONS_1,
+                         ids=["quotient", "sin-cos", "log-exp", "sqrt-power", "cos-exp", "sin2-cos2"])
 def test_dual_derivative_matches_sympy(ad, text, build, points):
     expr = build(T, FOR_SYMPY)
     for x in points:
@@ -325,7 +326,7 @@ FUNCTIONS_N = [
 ]
 
 
-@pytest.mark.parametrize("text, build, symbols, x", FUNCTIONS_N, ids=[f[0] for f in FUNCTIONS_N])
+@pytest.mark.parametrize("text, build, symbols, x", FUNCTIONS_N, ids=["product-sin", "exp-quotient", "log-cos", "cube-quotient"])
 def test_forward_gradient_matches_sympy(ad, text, build, symbols, x):
     expr = build(symbols, FOR_SYMPY)
     at = dict(zip(symbols, map(sympy.Rational, x)))

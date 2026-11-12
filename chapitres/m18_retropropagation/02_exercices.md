@@ -236,7 +236,7 @@ $f(x_1, x_2, x_3) = (x_1 + x_2)(x_2 + x_3)(x_3 + x_1)$, calculée par $u_1 = x_1
 | d | les adjoints $[\bar{u}_1, \bar{u}_2]$ | une liste de 2 nombres |
 | e | le gradient par la passe arrière, $[\bar{x}_1, \bar{x}_2, \bar{x}_3]$ | une liste de 3 nombres |
 | f | le nombre de passes pour le gradient en mode direct, puis en mode inverse (sans compter la passe avant) | une liste de 2 entiers |
-| g | le nombre de produits « dérivée locale × tangente » de toutes les passes directes, puis de produits « adjoint × dérivée locale » de la passe arrière | une liste de 2 entiers |
+| g | le nombre de produits « dérivée locale × tangente » de toutes les passes directes, puis de produits « adjoint × dérivée locale » de la passe arrière, en comptant chaque arête une fois par passe, même quand le produit est par 0 ou par 1 | une liste de 2 entiers |
 
 Dans ta copie : écris les dérivées locales des dix arêtes. Pour g), combien de fois chaque arête sert-elle dans chaque mode ? Que deviendraient ces deux nombres pour une fonction de 100 variables calculée avec 1 000 arêtes ?
 
@@ -474,13 +474,13 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 
 | ID | Titre | Type | ★ | ⏱️ | Parcours |
 |---|---|---|---|---|---|
-| M18.20 | Les nombres duaux : la classe `Dual`, et la dérivée d'une fonction d'une variable · `Dual, dual_derivative` | 🔨 | ★★ | 30 | C, E |
+| M18.20 | Les nombres duaux : la classe `Dual`, et la dérivée d'une fonction d'une variable · `Dual, dual_derivative` | 🔨 | ★★ | 45 | C, E |
 | M18.21 | Le gradient en mode direct : n passages avec des nombres duaux · `forward_gradient` | 🔨 | ★ | 20 | C |
 | M18.22 | Lire le gradient dans la différentielle : G[i, j] = df(E_ij), de la forme de la variable · `gradient_from_differential` | 🔨 | ★ | 15 | C, E |
-| M18.23 | SymPy : dériver une fonction de matrice symbolique, et comparer aux identités | 📦 | ★ | 15 | C |
+| M18.23 | SymPy : dériver une fonction de matrice symbolique, et comparer aux identités | 📦 | ★ | 25 | C |
 | M18.24 | Prédire le nombre d'opérations de chaque mode, puis le compter | 🔮 | ★ | 10 | C, E |
 | M18.25 | Différences finies contre nombres duaux : l'erreur selon le pas h | 🔬 | ★★ | 20 | C |
-| M18.26 | Dessiner un graphe de calcul, avec les dérivées locales sur les arêtes et les adjoints sur les nœuds | 🎨 | ★ | 20 | C |
+| M18.26 | Dessiner un graphe de calcul, avec les dérivées locales sur les arêtes et les adjoints sur les nœuds | 🎨 | ★ | 30 | C |
 | M18.27 | Chasse à l'erreur : un gradient transposé, un adjoint compté sur un seul chemin, un pas h trop petit | 🐛 | ★ | 15 | C, E |
 | M18.28 | Tester une classe par ses propriétés : distributivité et dérivées connues des nombres duaux | 🛠️ | ★ | 15 | C |
 | M18.29 | Défi : dériver une boucle, la méthode de Newton pour √a, en mode direct | 🏆 | ★★★ | 30 | C |

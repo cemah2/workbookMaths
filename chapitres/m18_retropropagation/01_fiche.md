@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §8 |
-| **Temps total estimé** | ≈ 14 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 10 h 35, 22 flashcards ≈ 45 min (parcours essentiel ≈ 8,7 h) |
+| **Temps total estimé** | ≈ 14,6 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 11 h 10, 22 flashcards ≈ 45 min (parcours essentiel ≈ 8,9 h) |
 | **Prérequis** | M17 (jacobiennes, règle de la chaîne multivariée, produits jacobienne-vecteur et vecteur-jacobienne, gradient en ligne ou de la forme de la variable) ; M16 (graphes sans cycle, numérotation triangulaire, somme sur les chemins) ; M09b (gradients de $\mathbf{a}^\top\mathbf{w}$ et $\mathbf{w}^\top\mathbf{A}\mathbf{w}$) ; M12c (trace, déterminant, $\operatorname{tr}(\mathbf{A}\mathbf{x}\mathbf{x}^\top)$) ; M05a (différences finies centrées, choix du pas) ; M05b (gradient, dérivée directionnelle) ; M09a (transposée, inverse, coût d'un produit) ; M07 (centroïde) ; R7 (dérivées usuelles) ; workbookIA 0A (classes Python, surcharge d'opérateurs) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `autodiff.py` : la classe `Dual`, `dual_derivative`, `forward_gradient`, `gradient_from_differential` |

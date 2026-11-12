@@ -1671,7 +1671,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 <!-- wbm:end M17 -->
 
 <!-- wbm:section M18 -->
-## M18 · Différentiation automatique et calcul matriciel ⏱️ 14,0 h
+## M18 · Différentiation automatique et calcul matriciel ⏱️ 14,6 h
 
 - [ ] M18.Q1 🧠 Lire un graphe de calcul : nœuds, arêtes, ordre d'évaluation ★ 4 min
 - [ ] M18.Q2 🧠 Combien de chemins, et quelle somme ? ★ 4 min
@@ -1705,13 +1705,13 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M18.19 🗣️ Expliquer le mode inverse à quelqu'un qui connaît la règle de la chaîne en une variable ★ 10 min
 - [ ] M18.E1 💼 « Différentiation automatique, symbolique ou numérique : quelles différences ? » ★ 10 min (complet)
 - [ ] M18.E2 💼 « Quand le mode direct est-il préférable au mode inverse ? » ★ 10 min (complet)
-- [ ] M18.20 🔨 Les nombres duaux : la classe `Dual`, et la dérivée d'une fonction d'une variable ★★ 30 min
+- [ ] M18.20 🔨 Les nombres duaux : la classe `Dual`, et la dérivée d'une fonction d'une variable ★★ 45 min
 - [ ] M18.21 🔨 Le gradient en mode direct : n passages avec des nombres duaux ★ 20 min (complet)
 - [ ] M18.22 🔨 Lire le gradient dans la différentielle : G[i, j] = df(E_ij), de la forme de la variable ★ 15 min
-- [ ] M18.23 📦 SymPy : dériver une fonction de matrice symbolique, et comparer aux identités ★ 15 min (complet)
+- [ ] M18.23 📦 SymPy : dériver une fonction de matrice symbolique, et comparer aux identités ★ 25 min (complet)
 - [ ] M18.24 🔮 Prédire le nombre d'opérations de chaque mode, puis le compter ★ 10 min
 - [ ] M18.25 🔬 Différences finies contre nombres duaux : l'erreur selon le pas h ★★ 20 min (complet)
-- [ ] M18.26 🎨 Dessiner un graphe de calcul, avec les dérivées locales sur les arêtes et les adjoints sur les nœuds ★ 20 min (complet)
+- [ ] M18.26 🎨 Dessiner un graphe de calcul, avec les dérivées locales sur les arêtes et les adjoints sur les nœuds ★ 30 min (complet)
 - [ ] M18.27 🐛 Chasse à l'erreur : un gradient transposé, un adjoint compté sur un seul chemin, un pas h trop petit ★ 15 min
 - [ ] M18.28 🛠️ Tester une classe par ses propriétés : distributivité et dérivées connues des nombres duaux ★ 15 min (complet)
 - [ ] M18.29 🏆 Défi : dériver une boucle, la méthode de Newton pour √a, en mode direct ★★★ 30 min (complet)

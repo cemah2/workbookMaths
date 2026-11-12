@@ -54,7 +54,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [CP3](#cp3) | Examen blanc de la partie III | — | — | 3,1 h | ✅ exercices | 1 |
 | [M16](#m16) | Applications affines, graphes et variance d'un produit | 16 | — | 8,0 h | ✅ exercices | 1 |
 | [M17](#m17) | Jacobienne et règle de la chaîne | 17 | §5.3 | 10,2 h | ✅ exercices | 1 |
-| [M18](#m18) | Différentiation automatique et calcul matriciel | 18 | §5.4, §5.5, §5.6 | 14,0 h | ✅ exercices | 1 |
+| [M18](#m18) | Différentiation automatique et calcul matriciel | 18 | §5.4, §5.5, §5.6 | 14,6 h | ✅ exercices | 1 |
 | [M19](#m19) | Hessienne, conditionnement et convergence | 19 | §5.7, §5.8, §7.1 | 13,8 h | ✅ exercices | 1 |
 | [M20](#m20) | Tenseurs, axes et estimateurs pondérés | 20 | — | 7,7 h | ✅ exercices | 1 |
 | [CP4](#cp4) | Examen blanc de la partie IV | — | — | 3,1 h | ✅ exercices | 1 |
@@ -83,7 +83,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | I · Fondations | 9 | 319 | 107,6 h | 69,7 h |
 | II · Concepts | 7 | 256 | 83,9 h | 54,0 h |
 | III · ML classique | 8 | 321 | 107,5 h | 71,2 h |
-| IV · Réseaux | 6 | 182 | 56,7 h | 40,4 h |
+| IV · Réseaux | 6 | 182 | 57,3 h | 40,6 h |
 | V · Architectures | 3 | — | ≈ 24 h (estimé) | à détailler |
 | VI · Génératif et RL | 6 | — | ≈ 60 h (estimé) | à détailler |
 | VII · Bonus | 6 | — | ≈ 56 h (estimé) | à détailler |
@@ -2946,7 +2946,7 @@ La dérivée d'une application de ℝⁿ dans ℝᵐ : la jacobienne (une ligne 
 
 Dériver un calcul entier : le graphe de calcul d'une formule et la règle de la chaîne comme somme sur les chemins, le mode direct par les nombres duaux, le mode inverse par des adjoints accumulés dans l'ordre inverse, et ce que coûte chaque mode ; puis les gradients par rapport à un vecteur et à une matrice (de la forme de la variable), la différentielle df = tr(Gᵀ dX), les identités de MML §5.5 (traces, formes bilinéaires, log det), le gradient d'une moyenne, et la vérification d'un gradient matriciel par différences centrées. workbookIA 18 en fait la rétropropagation.
 
-**Temps** : 14,0 h en parcours complet, 8,7 h en parcours essentiel (lecture 160 min, 22 flashcards).
+**Temps** : 14,6 h en parcours complet, 8,9 h en parcours essentiel (lecture 160 min, 22 flashcards).
 
 **Objectifs**
 
@@ -3009,13 +3009,13 @@ Dériver un calcul entier : le graphe de calcul d'une formule et la règle de la
 | M18.19 | 🗣️ | Expliquer le mode inverse à quelqu'un qui connaît la règle de la chaîne en une variable | ★ | 10 | §4 | C, E | manuel | — |
 | M18.E1 | 💼 | « Différentiation automatique, symbolique ou numérique : quelles différences ? » | ★ | 10 | §3 §4 §5 | C | manuel | — |
 | M18.E2 | 💼 | « Quand le mode direct est-il préférable au mode inverse ? » | ★ | 10 | §5 | C | manuel | — |
-| M18.20 | 🔨 | Les nombres duaux : la classe `Dual`, et la dérivée d'une fonction d'une variable · `Dual, dual_derivative` | ★★ | 30 | §3 | C, E | pytest | — |
+| M18.20 | 🔨 | Les nombres duaux : la classe `Dual`, et la dérivée d'une fonction d'une variable · `Dual, dual_derivative` | ★★ | 45 | §3 | C, E | pytest | — |
 | M18.21 | 🔨 | Le gradient en mode direct : n passages avec des nombres duaux · `forward_gradient` | ★ | 20 | §3 §5 | C | pytest | M18.20 |
 | M18.22 | 🔨 | Lire le gradient dans la différentielle : G[i, j] = df(E_ij), de la forme de la variable · `gradient_from_differential` | ★ | 15 | §6 §7 | C, E | pytest | — |
-| M18.23 | 📦 | SymPy : dériver une fonction de matrice symbolique, et comparer aux identités | ★ | 15 | §7 | C | wbm | — |
+| M18.23 | 📦 | SymPy : dériver une fonction de matrice symbolique, et comparer aux identités | ★ | 25 | §7 | C | wbm | — |
 | M18.24 | 🔮 | Prédire le nombre d'opérations de chaque mode, puis le compter | ★ | 10 | §5 | C, E | wbm | M18.20 |
 | M18.25 | 🔬 | Différences finies contre nombres duaux : l'erreur selon le pas h | ★★ | 20 | §3 §8 | C | wbm | M18.20 |
-| M18.26 | 🎨 | Dessiner un graphe de calcul, avec les dérivées locales sur les arêtes et les adjoints sur les nœuds | ★ | 20 | §1 §4 | C | manuel | — |
+| M18.26 | 🎨 | Dessiner un graphe de calcul, avec les dérivées locales sur les arêtes et les adjoints sur les nœuds | ★ | 30 | §1 §4 | C | manuel | — |
 | M18.27 | 🐛 | Chasse à l'erreur : un gradient transposé, un adjoint compté sur un seul chemin, un pas h trop petit | ★ | 15 | §4 §6 §8 | C, E | wbm | — |
 | M18.28 | 🛠️ | Tester une classe par ses propriétés : distributivité et dérivées connues des nombres duaux | ★ | 15 | §3 | C | manuel | M18.20 |
 | M18.29 | 🏆 | Défi : dériver une boucle, la méthode de Newton pour √a, en mode direct | ★★★ | 30 | §3 | C | wbm | M18.20 |

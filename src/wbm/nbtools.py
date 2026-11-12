@@ -84,6 +84,7 @@ _BEGINNER_HINTS = (
                        "lieu de sa valeur ?"),
     ("Did you forget to import", "un module n'est pas importé : ajoute la ligne import en haut du fichier"),
     ("name 'np' is not defined", "NumPy n'est pas importé : ajoute import numpy as np en haut du fichier"),
+    ("name 'math' is not defined", "le module math n'est pas importé : ajoute import math en haut du fichier"),
     ("name 'Fraction' is not defined", "Fraction n'est pas importée : ajoute from fractions import Fraction en haut du "
                                        "fichier"),
     ("name 'plt' is not defined", "Matplotlib n'est pas importé : ajoute import matplotlib.pyplot as plt en haut du "

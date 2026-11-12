@@ -436,19 +436,19 @@ CHAPTERS = [
             ("M18.E1", "💼", 1, 10, "« Différentiation automatique, symbolique ou numérique : quelles différences ? »",
              "§3 §4 §5", ""),
             ("M18.E2", "💼", 1, 10, "« Quand le mode direct est-il préférable au mode inverse ? »", "§5", ""),
-            ("M18.20", "🔨", 2, 30, "Les nombres duaux : la classe `Dual`, et la dérivée d'une fonction d'une "
+            ("M18.20", "🔨", 2, 45, "Les nombres duaux : la classe `Dual`, et la dérivée d'une fonction d'une "
              "variable", "§3", "E m:Dual,dual_derivative"),
             ("M18.21", "🔨", 1, 20, "Le gradient en mode direct : n passages avec des nombres duaux", "§3 §5",
              "m:forward_gradient p:M18.20"),
             ("M18.22", "🔨", 1, 15, "Lire le gradient dans la différentielle : G[i, j] = df(E_ij), de la forme de la "
              "variable", "§6 §7", "E m:gradient_from_differential"),
-            ("M18.23", "📦", 1, 15, "SymPy : dériver une fonction de matrice symbolique, et comparer aux identités",
+            ("M18.23", "📦", 1, 25, "SymPy : dériver une fonction de matrice symbolique, et comparer aux identités",
              "§7", ""),
             ("M18.24", "🔮", 1, 10, "Prédire le nombre d'opérations de chaque mode, puis le compter", "§5",
              "E p:M18.20"),
             ("M18.25", "🔬", 2, 20, "Différences finies contre nombres duaux : l'erreur selon le pas h", "§3 §8",
              "p:M18.20"),
-            ("M18.26", "🎨", 1, 20, "Dessiner un graphe de calcul, avec les dérivées locales sur les arêtes et les "
+            ("M18.26", "🎨", 1, 30, "Dessiner un graphe de calcul, avec les dérivées locales sur les arêtes et les "
              "adjoints sur les nœuds", "§1 §4", ""),
             ("M18.27", "🐛", 1, 15, "Chasse à l'erreur : un gradient transposé, un adjoint compté sur un seul chemin, "
              "un pas h trop petit", "§4 §6 §8", "E"),

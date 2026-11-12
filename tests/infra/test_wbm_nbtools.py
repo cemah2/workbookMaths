@@ -682,6 +682,7 @@ def test_exception_hint_explains_the_common_errors_of_a_beginner():
     assert exception_hint("index 3 is out of bounds") == ""
     # session 13 (R8 learner, D4): a module outside the standard library gets no « Did you forget to import »
     assert "import numpy as np" in exception_hint("name 'np' is not defined")
+    assert "import math" in exception_hint("name 'math' is not defined")
     assert "from fractions import Fraction" in exception_hint("name 'Fraction' is not defined")
 
 
