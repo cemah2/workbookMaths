@@ -523,7 +523,22 @@ R0 (prise en main) n'a pas de formule : les priorités de Python (`**` avant le 
 | loi de Boltzmann | $p_i = \frac{e^{-E_i/T}}{Z}$, $Z = \sum_je^{-E_j/T}$ ; $\frac{p_i}{p_j} = e^{-(E_i - E_j)/T}$ ; $T \to 0$ : niveau le plus bas ; $T \to \infty$ : uniforme ; recuit simulé : accepter une hausse $\Delta$ avec la probabilité $e^{-\Delta/T}$ |
 | one-hot | $\mathbf{Y} = \mathbf{e}_I$, $I \sim \mathbf{p}$ (ligne) : $\mathbb{E}[\mathbf{Y}] = \mathbf{p}$, $\mathrm{Cov}(\mathbf{Y}) = \mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$, symétrique, semi-définie positive, $\mathrm{Cov}(\mathbf{Y})\,\mathbf{1}^\top = \mathbf{0}$, rang $K - 1$ si tous les $p_i > 0$ |
 
-*(M18 à M20 ajoutés avec leurs chapitres)*
+### M18 · Différentiation automatique et calcul matriciel
+
+| Notion | Formules |
+|---|---|
+| graphe de calcul | un nœud par entrée et par opération élémentaire, une arête $u \to w$ si $w$ utilise $u$ ; dérivée locale $\frac{\partial w}{\partial u}$, aux valeurs de la passe avant ; $\frac{\partial y}{\partial x_i} = \sum_{\text{chemins}}\prod_{\text{arêtes}}\frac{\partial w}{\partial u}$ ; en matrices, coefficient $(i, N)$ de $(\mathbf{I} - \mathbf{D})^{-1}$ |
+| mode direct | graine $\dot{x}_i = 1$ ; $\dot{w} = \sum_{u \to w}\frac{\partial w}{\partial u}\,\dot{u}$ dans l'ordre du calcul ; une passe = une colonne de $\mathbf{J}$ ($\mathbf{J}\mathbf{v}$ pour la graine $\mathbf{v}$) ; $n$ passes pour un gradient |
+| nombres duaux | $\varepsilon^2 = 0$ ; $(a + b\varepsilon)(c + d\varepsilon) = ac + (ad + bc)\varepsilon$ ; $\frac{a + b\varepsilon}{c + d\varepsilon} = \frac{a}{c} + \frac{bc - ad}{c^2}\varepsilon$ ; $(a + b\varepsilon)^p = a^p + pa^{p-1}b\,\varepsilon$ ; $g(a + b\varepsilon) = g(a) + g'(a)\,b\,\varepsilon$ ; $f(a + \varepsilon) = f(a) + f'(a)\,\varepsilon$ |
+| mode inverse | $\bar{y} = 1$ ; $\bar{u} = \sum_{u \to w}\bar{w}\,\frac{\partial w}{\partial u}$ dans l'ordre inverse (accumuler) ; une passe arrière = une ligne de $\mathbf{J}$ ($\mathbf{u}^\top\mathbf{J}$), en gardant la passe avant ; un gradient en une passe |
+| coûts | $\mathbb{R}^n \to \mathbb{R}^m$ : $n$ passes directes ou $m$ passes arrière pour $\mathbf{J}$ ; gradient : 1 passe arrière, $n$ passes directes, $2n$ évaluations par différences centrées ; gradient bon marché : un petit multiple du coût de $f$ (Baur et Strassen : au plus $3\times$ les multiplications et divisions) |
+| gradient par rapport à une matrice | $\nabla_{\mathbf{X}}f$ de la forme de $\mathbf{X}$ ; $f(\mathbf{X} + \mathbf{H}) \approx f(\mathbf{X}) + \sum_{ij}G_{ij}H_{ij}$ ; $G_{ij}$ = le terme linéaire en $\mathbf{E}_{ij}$ ; $\mathrm{d}f = \operatorname{tr}(\mathbf{G}^\top\mathrm{d}\mathbf{X})$, et $\mathrm{d}f = \operatorname{tr}(\mathbf{M}\,\mathrm{d}\mathbf{X}) \Rightarrow \mathbf{G} = \mathbf{M}^\top$ |
+| règles de la différentielle | $\mathrm{d}(\mathbf{A}\mathbf{X}\mathbf{B}) = \mathbf{A}\,\mathrm{d}\mathbf{X}\,\mathbf{B}$ ; $\mathrm{d}(\mathbf{X}^\top) = (\mathrm{d}\mathbf{X})^\top$ ; $\mathrm{d}(\mathbf{X}\mathbf{Y}) = \mathrm{d}\mathbf{X}\,\mathbf{Y} + \mathbf{X}\,\mathrm{d}\mathbf{Y}$ ; $\operatorname{tr}(\mathbf{A}\mathbf{B}\mathbf{C}) = \operatorname{tr}(\mathbf{C}\mathbf{A}\mathbf{B})$ ; $\mathrm{d}(\mathbf{X}^{-1}) = -\mathbf{X}^{-1}\,\mathrm{d}\mathbf{X}\,\mathbf{X}^{-1}$ |
+| identités | $\nabla\,\mathbf{a}^\top\mathbf{X}\mathbf{b} = \mathbf{a}\mathbf{b}^\top$ ; $\nabla\operatorname{tr}(\mathbf{A}\mathbf{X}) = \mathbf{A}^\top$ ; $\nabla\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X}) = (\mathbf{A} + \mathbf{A}^\top)\mathbf{X}$ ; $\nabla\lVert\mathbf{X}\rVert_F^2 = 2\mathbf{X}$ ; $\nabla\operatorname{tr}(\mathbf{X}^2) = 2\mathbf{X}^\top$ ; $\nabla\det\mathbf{X} = \operatorname{com}(\mathbf{X}) = \det\mathbf{X}\,\mathbf{X}^{-\top}$ ; $\nabla\ln\det\mathbf{X} = \mathbf{X}^{-\top}$ ; $\nabla\,\mathbf{a}^\top\mathbf{X}^{-1}\mathbf{b} = -\mathbf{X}^{-\top}\mathbf{a}\mathbf{b}^\top\mathbf{X}^{-\top}$ |
+| comatrice | $C_{ij} = (-1)^{i+j}\det$ (sans la ligne $i$ ni la colonne $j$) ; $\mathbf{X}\operatorname{com}(\mathbf{X})^\top = \det\mathbf{X}\;\mathbf{I}$ ; $2 \times 2$ : $\operatorname{com}\begin{pmatrix} a & b \\ c & d \end{pmatrix} = \begin{pmatrix} d & -c \\ -b & a \end{pmatrix}$ |
+| moyenne, vérification | $\nabla\frac1N\sum_kf_k = \frac1N\sum_k\nabla f_k$ ; $\nabla_{\mathbf{p}}\lVert\mathbf{p} - \mathbf{x}\rVert = \frac{\mathbf{p} - \mathbf{x}}{\lVert\mathbf{p} - \mathbf{x}\rVert}$ ; vérifier $\mathbf{G}$ : $\frac{f(\mathbf{X} + h\mathbf{H}) - f(\mathbf{X} - h\mathbf{H})}{2h} \approx \operatorname{tr}(\mathbf{G}^\top\mathbf{H})$, $\mathbf{H}$ au hasard et non symétrique, $h \approx 10^{-5}$ |
+
+*(M19 et M20 ajoutés avec leurs chapitres)*
 
 ## Partie V · Architectures
 

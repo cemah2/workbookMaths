@@ -98,6 +98,9 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\hat{C}$ | « angle C » | angle C | l'angle d'un triangle au sommet $C$ | $c^2 = a^2 + b^2 - 2ab\cos\hat{C}$ | R9 |
 | $f'_g(a)$, $f'_d(a)$ | « f prime à gauche en a », « f prime à droite en a » | left, right derivative | les dérivées latérales en $a$, les pentes des morceaux de part et d'autre d'un point anguleux | $\lvert x \rvert$ en 0 : $-1$ et $1$ | M17 |
 | $\varphi^{\circ L}$ | « phi rond L », « phi composée L fois » | L-fold composition | $\varphi \circ \cdots \circ \varphi$, $L$ copies ; sa dérivée est $\prod_k\varphi'(x_k)$ le long de la trajectoire | $\cos^{\circ 2}(x) = \cos(\cos x)$ | M17 |
+| $\dot{u}$ | « u point » | tangent | en mode direct, la dérivée $\frac{\partial u}{\partial x_i}$ d'un nœud par rapport à l'entrée choisie | la graine sur $t$ : $\dot{t} = 1$, les autres entrées 0 | M18 |
+| $\bar{u}$ (un nœud) | « u barre », « adjoint de u » | adjoint | en mode inverse, $\frac{\partial y}{\partial u}$, la dérivée de la sortie par rapport au nœud $u$ (à ne pas confondre avec la moyenne $\bar{x}$) | $\bar{y} = 1$ au départ de la passe arrière | M18 |
+| $a + b\varepsilon$, $\varepsilon^2 = 0$ | « a plus b epsilon » | dual number | un nombre dual : $a$ porte la valeur, $b$ la dérivée ; $f(a + \varepsilon) = f(a) + f'(a)\,\varepsilon$ | $(2 + \varepsilon)^2 = 4 + 4\varepsilon$ | M18 |
 
 ## Vecteurs et matrices
 
@@ -180,6 +183,10 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ | « jacobienne de g en f de x, fois jacobienne de f en x » | chain rule | la jacobienne de $\mathbf{g} \circ \mathbf{f}$ : la dernière appliquée à gauche, évaluée au point intermédiaire | $(m, p) \times (p, n) \to (m, n)$ | M17 |
 | $\mathbf{J}\mathbf{v}$, $\mathbf{u}^\top\mathbf{J}$ | « J v », « u transposé J » | Jacobian-vector product, vector-Jacobian product | la dérivée de toutes les sorties dans la direction $\mathbf{v}$ ; le gradient de $\mathbf{u} \cdot \mathbf{f}$ | $\mathbf{f}(\mathbf{x}) = (\mathbf{a} \cdot \mathbf{x})\mathbf{x}$ : $\mathbf{J}\mathbf{v} = (\mathbf{a} \cdot \mathbf{v})\mathbf{x} + (\mathbf{a} \cdot \mathbf{x})\mathbf{v}$ | M17 |
 | $\mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$ | « diag de p moins p transposé p » | covariance of a one-hot vector | pour $\mathbf{p}$ en ligne : $p_i(1 - p_i)$ sur la diagonale, $-p_ip_j$ ailleurs ; symétrique, semi-définie positive, lignes de somme nulle | $\mathbf{p} = (0{,}8 ;\ 0{,}2)$ : $\begin{pmatrix} 0{,}16 & -0{,}16 \\ -0{,}16 & 0{,}16 \end{pmatrix}$ | M17 |
+| $\nabla_{\mathbf{X}}f$ | « gradient de f par rapport à X » | gradient with respect to a matrix | le tableau des $\frac{\partial f}{\partial X_{ij}}$, de la forme de $\mathbf{X}$ | $\nabla_{\mathbf{X}}\operatorname{tr}(\mathbf{A}\mathbf{X}) = \mathbf{A}^\top$ | M18 |
+| $\mathrm{d}f = \operatorname{tr}(\mathbf{G}^\top\mathrm{d}\mathbf{X})$ | « d f égale trace de G transposé d X » | differential | le changement de $f$ au premier ordre quand $\mathbf{X}$ bouge de $\mathrm{d}\mathbf{X}$ ; $\mathbf{G}$ est le gradient | $\mathrm{d}\lVert\mathbf{X}\rVert_F^2 = 2\operatorname{tr}(\mathbf{X}^\top\mathrm{d}\mathbf{X})$ | M18 |
+| $\mathbf{X}^{-\top}$ | « X moins T », « inverse transposée de X » | inverse transpose | $(\mathbf{X}^{-1})^\top$, égale à $(\mathbf{X}^\top)^{-1}$ | $\nabla\ln\det\mathbf{X} = \mathbf{X}^{-\top}$ | M18 |
+| $\operatorname{com}(\mathbf{X})$ | « comatrice de X » | cofactor matrix | la matrice des cofacteurs ; $\mathbf{X}\operatorname{com}(\mathbf{X})^\top = \det\mathbf{X}\;\mathbf{I}$, et $\nabla\det\mathbf{X} = \operatorname{com}(\mathbf{X})$ | $\operatorname{com}\begin{pmatrix} a & b \\ c & d \end{pmatrix} = \begin{pmatrix} d & -c \\ -b & a \end{pmatrix}$ | M18 |
 
 ## Probabilités et statistique
 

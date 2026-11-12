@@ -30,6 +30,10 @@ rng = np.random.default_rng(42)          # toujours un générateur avec une gra
 | une matrice diagonale à partir d'un vecteur, et l'inverse | `np.diag(v)` (vecteur → matrice), `np.diag(M)` (matrice → sa diagonale) |
 | une jacobienne avec SciPy | `scipy.differentiate.jacobian(f, x).df` : `f` reçoit des tableaux de points, une colonne par point (M17) |
 | un produit de Kronecker | `np.kron(A, B)` : la matrice par blocs $a_{ij}\mathbf{B}$ (M17.23) |
+| parcourir toutes les cases d'un tableau | `for idx in np.ndindex(X.shape):` donne `(0, 0)`, `(0, 1)`… ; `E = np.zeros(X.shape); E[idx] = 1.0` est le déplacement d'une seule case (M18) |
+| la somme des produits terme à terme, $\operatorname{tr}(\mathbf{G}^\top\mathbf{H})$ | `np.sum(G * H)` ; et $\operatorname{tr}(\mathbf{A}\mathbf{B})$ sans former le produit : `np.sum(A * B.T)` (M18) |
+| vérifier un gradient matriciel le long d'une direction | `H = rng.normal(size=X.shape)` ; `(f(X + h * H) - f(X - h * H)) / (2 * h)` avec `h = 1e-5`, à comparer à `np.sum(G * H)` (M18) |
+| la comatrice d'une matrice inversible | `np.linalg.det(X) * np.linalg.inv(X).T` ; le gradient de $\ln\lvert\det\mathbf{X}\rvert$ : `np.linalg.inv(X).T`, et `np.linalg.slogdet(X)` pour $\ln\lvert\det\mathbf{X}\rvert$ sans débordement (M18) |
 
 ## Algèbre linéaire (`np.linalg`)
 

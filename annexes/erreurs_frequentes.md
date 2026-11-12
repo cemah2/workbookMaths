@@ -617,8 +617,24 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Oublier la transposée du gradient en colonne | $\nabla_{\mathbf{x}}(L \circ \mathbf{f}) = \mathbf{J}_{\mathbf{f}}\nabla_{\mathbf{y}}L$ | $\mathbf{J}_{\mathbf{f}}^\top\nabla_{\mathbf{y}}L$ (en colonne) ou $\nabla_{\mathbf{y}}L\,\mathbf{J}_{\mathbf{f}}$ (en ligne) |
 | Utiliser le raccourci diagonal sur une application quelconque | $\frac{\mathbf{A}(\mathbf{x} + h\mathbf{1}) - \mathbf{A}(\mathbf{x} - h\mathbf{1})}{2h}$ pris pour la diagonale de $\mathbf{A}$ | il donne $\mathbf{A}\mathbf{1}$ ; il ne vaut que pour une fonction appliquée coordonnée par coordonnée |
 | Former la jacobienne pour un produit par un vecteur | `numerical_jacobian(f, x) @ v` pour $n = 10^4$ | `jacobian_vector_product(f, x, v)` : 2 évaluations au lieu de $2n$ |
-| Donner une seule dérivée en un point anguleux | « la dérivée de l'impôt en 30 k€ vaut 0,3 » | deux dérivées latérales, 0,2 et 0,4 ; un sous-gradient seulement si la fonction est convexe autour |
+| Donner une seule dérivée en un point anguleux | « la dérivée de l'impôt en 30 k€ vaut 0,3 » | deux dérivées latérales, 0,2 et 0,4 ; des sous-gradients seulement pour une fonction convexe |
 | Évaluer toutes les dérivées d'une longue composition au départ | $\frac{\mathrm{d}x_L}{\mathrm{d}x_0} = \varphi'(x_0)^L$ | $\prod_k\varphi'(x_k)$, le long de la trajectoire |
 | Oublier la normalisation d'une loi de Boltzmann | $p_i = e^{-E_i/T}$ | diviser par $Z = \sum_je^{-E_j/T}$ ; seuls les rapports se passent de $Z$ |
 | Confondre $\mathbf{p}^\top\mathbf{p}$ et $\mathbf{p}\,\mathbf{p}^\top$ pour une ligne $\mathbf{p}$ | $\mathrm{diag}(\mathbf{p}) - \sum_ip_i^2$ | $\mathbf{p}^\top\mathbf{p}$ est la matrice $K \times K$ des produits $p_ip_j$ |
 
+## Différentiation automatique et calcul matriciel (M18)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Oublier un chemin dans un graphe de calcul | $\frac{\partial y}{\partial t}$ calculé par le seul chemin $t \to u_2 \to u_3 \to y$, quand $t$ sert aussi dans $u_4 = t^2$ | sommer sur **tous** les chemins ; un nœud qui sert deux fois a deux arêtes sortantes |
+| Une seule arête pour $t \cdot t$ | dérivée locale $t$ pour $u = t \cdot t$ | $2t$ : une opération qui prend deux fois le même argument a deux arêtes vers lui |
+| Mettre la graine sur deux entrées pour une dérivée partielle | $x = 2 + \varepsilon$, $y = -1 + \varepsilon$ pour $\frac{\partial f}{\partial x}$ | une graine par passe ($y = -1$) ; deux graines donnent la dérivée dans la direction $(1, 1)$ |
+| Remplacer un adjoint au lieu de l'accumuler | `x_bar = w_bar * dw_dx` puis `x_bar = v_bar * dv_dx` | `x_bar += …` : les contributions des successeurs s'additionnent |
+| Utiliser un adjoint incomplet | calculer $\bar{u}_1$ avant d'avoir $\bar{u}_2$, alors que $u_1 \to u_2$ | visiter les nœuds dans l'ordre inverse du calcul |
+| Choisir le mode direct pour un gradient de beaucoup de variables | $n = 10^4$ passes directes pour une fonction réelle | une passe arrière (le gradient bon marché) |
+| Rendre la transposée d'un gradient matriciel | $\nabla_{\mathbf{X}}\operatorname{tr}(\mathbf{A}\mathbf{X}) = \mathbf{A}$ ; $\nabla\ln\det\mathbf{X} = \mathbf{X}^{-1}$ | $\mathbf{A}^\top$ et $\mathbf{X}^{-\top}$ : $\mathrm{d}f = \operatorname{tr}(\mathbf{M}\,\mathrm{d}\mathbf{X})$ donne $\mathbf{G} = \mathbf{M}^\top$ |
+| Écrire $2\mathbf{A}\mathbf{X}$ pour $\mathbf{A}$ quelconque | $\nabla\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X}) = 2\mathbf{A}\mathbf{X}$ | $(\mathbf{A} + \mathbf{A}^\top)\mathbf{X}$ |
+| Changer l'ordre des facteurs dans une différentielle | $\mathrm{d}(\mathbf{X}^2) = 2\mathbf{X}\,\mathrm{d}\mathbf{X}$ | $\mathrm{d}\mathbf{X}\,\mathbf{X} + \mathbf{X}\,\mathrm{d}\mathbf{X}$ : les matrices ne commutent pas |
+| Vérifier un gradient avec une direction symétrique | $\mathbf{H} = \mathbf{I}$ ou la matrice pleine de 1 : un gradient transposé passe | une direction tirée au hasard, non symétrique, et plusieurs |
+| Vérifier avec un pas trop petit | $h = 10^{-13}$ : les arrondis divisés par $2h$ font croire à une erreur | $h$ de l'ordre de $10^{-5}$ pour une différence centrée en `float64` |
+| Sommer au lieu de faire la moyenne | $\nabla\frac1N\sum_kf_k = \sum_k\nabla f_k$ | $\frac1N\sum_k\nabla f_k$ |

@@ -11,6 +11,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | ACP (analyse en composantes principales) | principal component analysis (PCA) | centrer les données, les projeter sur les $k$ premiers axes principaux (les scores $\mathbf{Z} = \mathbf{X}_c\mathbf{W}_k$), et reconstruire $\hat{\mathbf{X}} = \mathbf{Z}\mathbf{W}_k^\top + \boldsymbol{\mu}$ : le sous-espace de dimension $k$ qui garde le plus de variance, et rend l'erreur de reconstruction la plus petite ; en pratique, par la SVD des données centrées, ou en diagonalisant la covariance quand $n \gg p$ | M12d |
 | activation (fonction d') | activation function | une fonction d'une variable appliquée au score $z = \mathbf{w} \cdot \mathbf{x} + b$ d'un classifieur linéaire : seuil, sigmoïde, tanh, ReLU | M10 |
 | actualiser, valeur actuelle | discount, present value | ramener une somme future à sa valeur d'aujourd'hui : la diviser par $(1 + t)^n$ | R5 |
+| adjoint (d'un nœud) | adjoint | $\bar{u} = \frac{\partial y}{\partial u}$ : la dérivée de la sortie d'un calcul par rapport à un nœud ; le mode inverse les calcule de la sortie vers les entrées, $\bar{u} = \sum_{u \to w}\bar{w}\,\frac{\partial w}{\partial u}$ | M18 |
 | affirmer le conséquent | affirming the consequent | le sophisme formel « $P \Rightarrow Q$ ; $Q$ ; donc $P$ » : non valide, la ligne « $P$ faux, $Q$ vrai » le réfute | M11 |
 | AIC, BIC (critères d'information) | Akaike information criterion, Bayesian information criterion | $\mathrm{AIC} = 2k - 2\ln L$, $\mathrm{BIC} = k\ln n - 2\ln L$ ; le plus petit gagne ; le BIC pénalise davantage chaque paramètre dès $n \ge 8$ | M08 |
 | aire algébrique | signed area | aire comptée positivement au-dessus de l'axe, négativement en dessous : c'est ce que mesure une intégrale | M02a |
@@ -84,6 +85,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | coefficient de variation | coefficient of variation | l'écart-type relatif $c_X = \frac{\sigma_X}{\lvert\mathbb{E}[X]\rvert}$ ; pour un produit de variables indépendantes de moyennes non nulles, $1 + c_{XY}^2 = (1 + c_X^2)(1 + c_Y^2)$ | M16 |
 | coefficient multiplicateur | multiplier, growth factor | nombre $1 + t$ par lequel une évolution de taux $t$ multiplie une valeur | R1 |
 | colinéaires (vecteurs) | collinear vectors | l'un est un multiple de l'autre : $xy' - x'y = 0$ | R9 |
+| comatrice | cofactor matrix (sa transposée : adjugate) | la matrice des cofacteurs $C_{ij}$, $(-1)^{i+j}$ fois le déterminant de la matrice privée de la ligne $i$ et de la colonne $j$ ; $\mathbf{X}\operatorname{com}(\mathbf{X})^\top = \det\mathbf{X}\;\mathbf{I}$, et c'est le gradient de $\det\mathbf{X}$ | M18 |
 | combinaison affine | affine combination | une combinaison linéaire dont les coefficients ont une somme égale à 1 (un barycentre) ; une application affine la conserve | M12a |
 | combinaison convexe | convex combination | $\sum_i t_i\mathbf{x}_i$ avec $t_i \ge 0$ et $\sum_i t_i = 1$ ; le segment, le barycentre en sont | M10 |
 | combinaison linéaire | linear combination | somme de vecteurs multipliés par des nombres | M07, M12a |
@@ -148,6 +150,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | densité jointe | joint density | fonction $f(x, y) \ge 0$ d'intégrale double 1, telle que $P((X, Y) \in D) = \iint_D f$ | M02b |
 | dérivée à gauche, dérivée à droite | left derivative, right derivative (one-sided derivatives) | les limites de $\frac{f(a + h) - f(a)}{h}$ quand $h \to 0$ par valeurs négatives, positives : en un point anguleux, les pentes des deux morceaux ; $f$ est dérivable en $a$ si elles sont égales | M17 |
 | dérivée directionnelle | directional derivative | la pente de $f$ en un point quand on avance dans la direction d'un vecteur unitaire $\mathbf{u}$ : $D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u}$ | M05b |
+| dérivée locale | local derivative | sur l'arête $u \to w$ d'un graphe de calcul, $\frac{\partial w}{\partial u}$ : la dérivée de la seule opération qui calcule $w$, évaluée aux valeurs de la passe avant | M18 |
 | dérivée partielle | partial derivative | dérivée par rapport à une variable, les autres fixées | M05b |
 | dérivée seconde | second derivative | la dérivée de $f'$, notée $f''$ : son signe dit si la pente augmente (courbe convexe) ou diminue (concave) | M05a |
 | dérivée, fonction dérivée | derivative | la pente de la tangente, taux de variation instantané ; la fonction $x \mapsto f'(x)$ qui la donne en chaque point | R7 |
@@ -162,6 +165,8 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | diagramme de Venn | Venn diagram | chaque ensemble dessiné comme une région du plan : une inclusion dit qu'une région est vide, « au moins un » qu'elle contient un élément | M11 |
 | dichotomie | bisection | trouver un zéro en coupant l'intervalle en deux et en gardant la moitié où le signe change | R7 |
 | différence finie (avant, centrée) | finite difference (forward, central) | une approximation de $f'(x)$ par $\frac{f(x + h) - f(x)}{h}$ (ordre 1) ou $\frac{f(x + h) - f(x - h)}{2h}$ (ordre 2) | M05a |
+| différentiation automatique | automatic differentiation (AD, autodiff) | appliquer les règles de dérivation aux nombres, opération par opération, pendant le calcul : une dérivée exacte aux arrondis près, en mode direct ou en mode inverse | M18 |
+| différentielle | differential | le changement d'une fonction au premier ordre ; pour une fonction réelle d'une matrice, $\mathrm{d}f = \operatorname{tr}(\mathbf{G}^\top\mathrm{d}\mathbf{X})$, où l'on lit le gradient $\mathbf{G}$ | M18 |
 | dimension | dimension | le nombre de vecteurs de n'importe quelle base : $\dim\mathbb{R}^n = n$, $\dim\mathbb{R}_d[x] = d + 1$ | M12a |
 | direction de plus grande pente | steepest ascent direction | $\frac{\nabla f}{\lVert \nabla f \rVert}$, la direction où $f$ monte le plus vite, avec la pente $\lVert \nabla f \rVert$ ; l'opposée est celle de plus grande descente | M05b |
 | discriminant | discriminant | $\Delta = b^2 - 4ac$ ; son signe donne le nombre de racines de $ax^2 + bx + c$ | R3 |
@@ -274,9 +279,13 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | générateur pseudo-aléatoire, graine | pseudo-random number generator, seed | programme qui calcule une suite d'apparence aléatoire à partir d'une graine ; la même graine redonne la même suite | R8 |
 | génératif, discriminant (modèle) | generative, discriminative model | un modèle génératif modélise la loi des features dans chaque classe et la proportion des classes, puis applique la formule de Bayes (Naïve Bayes) ; un modèle discriminant modélise directement la classe sachant les features (régression logistique) | M13a |
 | gradient | gradient | vecteur des dérivées partielles | M05b |
+| gradient bon marché (principe du) | cheap gradient principle | le gradient d'une fonction réelle coûte, en mode inverse, un petit multiple du coût de la fonction, quel que soit le nombre de variables (Baur et Strassen, 1983) | M18 |
 | gradient fonctionnel | functional gradient | le gradient d'une loss par rapport au vecteur $\mathbf{F}$ des prédictions sur les exemples (une coordonnée par exemple) ; ajouter à l'ensemble $\alpha\,h$, avec $\mathbf{h}$ d'angle aigu avec $-\nabla_{\mathbf{F}}\mathcal{L}$ et $\alpha$ petit, fait baisser la loss au premier ordre | M14 |
+| gradient par rapport à une matrice | gradient with respect to a matrix | le tableau des $\frac{\partial f}{\partial X_{ij}}$, de la forme de $\mathbf{X}$ (NumPy, workbookIA) ; $f(\mathbf{X} + \mathbf{H}) \approx f(\mathbf{X}) + \sum_{ij}G_{ij}H_{ij}$ | M18 |
+| graine | seed | la tangente donnée aux entrées au départ d'une passe directe ($\dot{x}_i = 1$, les autres 0), ou l'adjoint donné à la sortie au départ d'une passe arrière ($\bar{y} = 1$) | M18 |
 | Gram-Schmidt (procédé de) | Gram-Schmidt orthogonalization | retirer de chaque vecteur ses projections sur les vecteurs déjà construits, puis normer : une base orthonormée du même sous-espace ; classique ou modifié selon que l'on projette le vecteur d'origine ou le vecteur courant | M12b |
 | grand O | big O | $f = O(g)$ : $f$ ne croît pas plus vite que $g$, à une constante près ; mesure le coût d'un algorithme | R7 |
+| graphe de calcul | computation graph | un nœud par entrée et par résultat d'opération élémentaire, une arête $u \to w$ quand l'opération qui calcule $w$ utilise $u$ ; il est sans cycle | M18 |
 | graphe orienté, graphe orienté sans cycle (DAG) | directed graph, directed acyclic graph (DAG) | des nœuds reliés par des arêtes qui ont un sens ; sans cycle si aucun chemin ne revient à son départ, ce qui équivaut à une matrice d'adjacence nilpotente | M16 |
 | Hadamard (produit de) | Hadamard product, element-wise product | $\mathbf{A} \odot \mathbf{B}$, les produits des éléments de même position (`A * B` en NumPy) ; même forme, commutatif | M09a |
 | Hedge (algorithme) | Hedge, exponential weights algorithm | les poids $w_t[k] \propto e^{-\eta L_t[k]}$ sur $K$ experts, $L_t[k]$ leur loss cumulée ; regret au plus $\frac{\ln K}{\eta} + \frac{\eta T}{8}$, soit $\sqrt{T\ln K/2}$ avec le meilleur $\eta$ | M14 |
@@ -351,7 +360,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | loi binomiale | binomial distribution | le nombre de succès en $n$ essais indépendants de probabilité $p$ : $\binom{n}{k}p^k(1-p)^{n-k}$ | M02b |
 | loi catégorielle (multinoulli) | categorical distribution | une classe parmi $K$, de probabilités $p_1, \ldots, p_K$ de somme 1 | M02b |
 | loi de Bernoulli | Bernoulli distribution | vaut 1 avec la probabilité $p$, 0 sinon ; espérance $p$, variance $p(1 - p)$ | M02b |
-| loi de Boltzmann | Boltzmann distribution | $p_i = \frac{e^{-E_i/T}}{Z}$ pour des niveaux d'énergie $E_i$ à la température $T$ : seuls les écarts d'énergie comptent ; tout sur le niveau le plus bas quand $T \to 0$, uniforme quand $T \to \infty$ | M17 |
+| loi de Boltzmann | Boltzmann distribution | $p_i = \frac{e^{-E_i/T}}{Z}$ pour des niveaux d'énergie $E_i$ à la température $T$ : l'origine des énergies est arbitraire ; tout sur le niveau le plus bas quand $T \to 0$, uniforme quand $T \to \infty$ | M17 |
 | loi de Poisson | Poisson distribution | le nombre d'événements rares sur une durée : $e^{-\lambda}\frac{\lambda^k}{k!}$, d'espérance et de variance $\lambda$ | M02b |
 | loi des grands nombres | law of large numbers | sur des répétitions indépendantes, la fréquence d'un événement se rapproche de sa probabilité | R8, M02c |
 | loi empirique | empirical distribution | la loi qui met la probabilité $\frac{1}{n}$ sur chacune des $n$ valeurs observées | M02c |
@@ -413,7 +422,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | mise à jour séquentielle | sequential updating | l'a posteriori d'une observation devient l'a priori de la suivante | M04 |
 | mise en équation | setting up an equation, translating a word problem | traduire un énoncé en équation (ou en système) en choisissant les inconnues | R2 |
 | mode | mode | la valeur la plus fréquente d'une série, ou le maximum d'une densité | M02c |
-| mode direct, mode inverse | forward mode, reverse mode | deux façons de faire passer un vecteur à travers une suite de jacobiennes sans les multiplier entre elles : de droite à gauche par des produits jacobienne-vecteur, de gauche à droite par des produits vecteur-jacobienne (la rétropropagation, M18) | M17 |
+| mode direct, mode inverse | forward mode, reverse mode | deux façons de faire passer un vecteur à travers une suite de jacobiennes sans les multiplier entre elles : de droite à gauche par des produits jacobienne-vecteur, de gauche à droite par des produits vecteur-jacobienne (la rétropropagation, M18) ; sur un graphe de calcul, le mode direct pousse des tangentes des entrées vers la sortie, le mode inverse des adjoints de la sortie vers les entrées | M17, M18 |
 | modèle linéaire généralisé | generalized linear model (GLM) | une combinaison linéaire des features suivie d'une fonction fixée, $\varphi(\boldsymbol{\theta}^\top\mathbf{x})$, avec une loi de la cible adaptée : la régression linéaire (bruit gaussien) et la régression logistique (labels de Bernoulli) en sont | M13a |
 | modus ponens, modus tollens | modus ponens, modus tollens | les formes valides « $P \Rightarrow Q$ ; $P$ ; donc $Q$ » et « $P \Rightarrow Q$ ; non $Q$ ; donc non $P$ » | M11 |
 | moindres carrés | least squares | choisir les poids qui minimisent la somme des carrés des résidus, $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$ : la solution des équations normales, et le maximum de vraisemblance d'un bruit gaussien | M09b |
@@ -433,6 +442,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | nilpotente (matrice) | nilpotent matrix | une matrice carrée dont une puissance est nulle ; une matrice strictement triangulaire $n \times n$ vérifie $\mathbf{N}^n = \mathbf{0}$ ; ses valeurs propres sont toutes nulles | M16 |
 | nombre décimal | decimal number, terminating decimal | nombre qui s'écrit avec un nombre fini de chiffres après la virgule (ensemble 𝔻) | R1 |
 | nombre dérivé | derivative at a point | $f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}$, la pente de la tangente en $a$ | R7 |
+| nombre dual | dual number | $a + b\varepsilon$ avec $\varepsilon^2 = 0$ ; $f(a + \varepsilon) = f(a) + f'(a)\,\varepsilon$ : le mode direct de la différentiation automatique | M18 |
 | nombre e | Euler's number | $e = \lim (1 + \frac{1}{n})^n \approx 2{,}718$, la base de l'exponentielle et de $\ln$ | R6 |
 | nombre rationnel, irrationnel | rational, irrational number | quotient de deux entiers (ℚ) ; un réel qui n'en est pas un, comme $\sqrt{2}$ ou $\pi$ | R1 |
 | normalisation min-max | min-max scaling | la fonction affine $\frac{x - \min}{\max - \min}$, qui ramène des données entre 0 et 1 | R3 |
@@ -464,6 +474,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | Parseval (égalité de) | Parseval's identity | dans une base orthonormée, $\lVert \mathbf{v} \rVert^2 = \sum_i c_i^2$, la somme des carrés des coordonnées | M12b |
 | partie entière, plancher, plafond | floor, ceiling | $\lfloor x \rfloor$, le plus grand entier $\le x$ ; $\lceil x \rceil$, le plus petit entier $\ge x$ | R1 |
 | partition (de l'univers) | partition | des événements deux à deux incompatibles dont la réunion est l'univers entier | M03 |
+| passe avant, passe arrière | forward pass, backward pass | en mode inverse : le calcul des valeurs, qu'on garde, puis celui des adjoints, de la sortie vers les entrées | M18 |
 | pente, ordonnée à l'origine | slope, intercept | dans $mx + c$, $m$ est la variation pour $x + 1$, et $c = f(0)$ | R3 |
 | percentile, quartile | percentile, quartile | le percentile $k$ est le quantile d'ordre $\frac{k}{100}$ ; les quartiles, les quantiles d'ordre 0,25, 0,5 et 0,75 | M02a |
 | périodique, période | periodic, period | une fonction qui se répète : $f(x + T) = f(x)$ ; cos et sin ont pour période $2\pi$ | R9 |
@@ -560,6 +571,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | remontée (substitution) | back substitution | résoudre un système triangulaire supérieur en partant de la dernière ligne, qui n'a qu'une inconnue | M12b |
 | résidu | residual | $r_i = y_i - \hat{y}_i$ : la cible moins la prédiction | M09b |
 | reste de Lagrange | Lagrange remainder | $f(x) - P_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - a)^{n+1}$ pour un $\xi$ entre $a$ et $x$ : il borne l'erreur d'un polynôme de Taylor | M05a |
+| rétropropagation | backpropagation | le mode inverse de la différentiation automatique, appliqué au graphe d'un réseau de neurones (workbookIA 18) | M18 |
 | risque d'erreur de la famille | family-wise error rate (FWER) | la probabilité d'au moins un faux positif dans une famille de tests ; la correction de Bonferroni le garde sous $\alpha$ | M08 |
 | risque empirique | empirical risk | la moyenne d'une loss sur les exemples d'entraînement ; apprendre, c'est choisir les paramètres qui le minimisent | M09b |
 | sans biais (estimateur) | unbiased estimator | estimateur dont l'espérance est la vraie valeur du paramètre | M02c |
@@ -627,6 +639,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | taille de l'effet | effect size | l'ampleur de l'écart mesuré, que la p-valeur ne mesure pas : avec beaucoup de données, un effet minuscule devient significatif | M08 |
 | taille du pas, learning rate | step size, learning rate | le nombre $\eta > 0$ qui règle la longueur d'un pas de descente de gradient | M05b |
 | tangente | tangent line | droite qui touche la courbe en un point avec la même pente : $y = f(a) + f'(a)(x - a)$ | R7 |
+| tangente (d'un nœud) | tangent | en mode direct, $\dot{u} = \frac{\partial u}{\partial x_i}$, la dérivée d'un nœud par rapport à l'entrée choisie ; la partie en $\varepsilon$ d'un nombre dual | M18 |
 | tangente hyperbolique | hyperbolic tangent | $\tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}}$, à valeurs dans $]-1 \;;\; 1[$ | R6 |
 | taux d'accroissement | rate of change, difference quotient | $\frac{f(a + h) - f(a)}{h}$ : la pente de la sécante, une vitesse moyenne | R7 |
 | taux d'évolution | percentage change, relative change | $\frac{V_a - V_d}{V_d}$, la variation rapportée à la valeur de départ | R1 |
@@ -650,7 +663,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | théorème fondamental de l'analyse | fundamental theorem of calculus | $\int_a^b f = F(b) - F(a)$ pour une primitive $F$ ; la fonction aire a pour dérivée $f$ | M02a |
 | théorème spectral | spectral theorem | une matrice symétrique réelle a des valeurs propres réelles et une base orthonormée de vecteurs propres : $\mathbf{A} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ | M12c |
 | tirage avec remise, sans remise | sampling with replacement, without replacement | avec remise, l'objet tiré est remis avant le tirage suivant (les tirages sont i.i.d.) ; sans remise, la composition change et les tirages sont dépendants | R8, M02c |
-| trace | trace | $\operatorname{tr}\mathbf{A} = \sum_i a_{ii}$ ; linéaire, $\operatorname{tr}(\mathbf{A}\mathbf{B}) = \operatorname{tr}(\mathbf{B}\mathbf{A})$, indépendante de la base, égale à la somme des valeurs propres ; pour une covariance, la variance totale | M12c |
+| trace | trace | $\operatorname{tr}\mathbf{A} = \sum_i a_{ii}$ ; linéaire, $\operatorname{tr}(\mathbf{A}\mathbf{B}) = \operatorname{tr}(\mathbf{B}\mathbf{A})$, indépendante de la base, égale à la somme des valeurs propres ; pour une covariance, la variance totale ; $\sum_{ij}G_{ij}H_{ij} = \operatorname{tr}(\mathbf{G}^\top\mathbf{H})$ (M18) | M12c |
 | tranche (d'une surface) | slice, cross-section | la courbe obtenue en figeant une variable, comme $x \mapsto f(x, b)$ ; $\frac{\partial f}{\partial x}(a, b)$ est sa pente en $a$ | M05b |
 | transposée | transpose | $\mathbf{A}^\top$, les lignes devenues colonnes : $(\mathbf{A}^\top)_{ij} = a_{ji}$, et $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$ | M09a |
 | triangle de Pascal | Pascal's triangle | les coefficients binomiaux rangés en triangle : chaque nombre est la somme des deux au-dessus | R8 |
@@ -671,6 +684,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | variable d'écart | slack variable | $\xi_i \ge 0$ dans $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1 - \xi_i$ : la violation autorisée pour l'exemple $i$ ; à l'optimum, la hinge loss de l'exemple | M13b |
 | variable de base, variable libre | basic variable, free variable | une inconnue dont la colonne porte un pivot, ou n'en porte pas ; on choisit les libres, les autres s'en déduisent | M09a |
 | variable de confusion | confounder, confounding variable | une troisième grandeur qui fait varier deux autres, et crée entre elles une corrélation sans causalité | M02c |
+| variable intermédiaire | intermediate variable | le résultat d'une opération élémentaire d'un calcul : un nœud de son graphe de calcul | M18 |
 | variance | variance | moyenne des carrés des écarts à l'espérance | R8 |
 | variance d'échantillon | sample variance | $s^2 = \frac{1}{n - 1}\sum (x_i - \bar{x})^2$, estimateur sans biais de $\sigma^2$ ; $s_n^2$ divise par $n$ | M02c |
 | variance d'un produit | variance of a product | pour $X$ et $Y$ indépendantes : $\mathbb{V}(XY) = \mathbb{V}(X)\,\mathbb{V}(Y) + \mathbb{V}(X)\,\mathbb{E}[Y]^2 + \mathbb{V}(Y)\,\mathbb{E}[X]^2$, toujours au moins $\mathbb{V}(X)\,\mathbb{V}(Y)$ | M16 |

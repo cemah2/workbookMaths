@@ -436,8 +436,8 @@ Lis MML §5.6 (*Backpropagation and Automatic Differentiation*), crayon en main 
 1. Comment MML appelle-t-il les nœuds intermédiaires d'un calcul ? Quel graphe dessine-t-il pour son exemple ?
 2. Quels noms MML donne-t-il aux deux modes ? Dans quel sens chacun parcourt-il le graphe ?
 3. Refais l'exemple du §5.6.2 en un point de ton choix : écris le graphe, ses dérivées locales, puis la dérivée par la somme sur les chemins et par les adjoints. Vérifie-la en dérivant la formule directement.
-4. Que dit MML de ce que coûte le calcul du gradient, comparé au calcul de la fonction ? Relie-le au §5 de la fiche.
-5. MML relie-t-il la différentiation automatique aux nombres duaux ? Sinon, en quoi la passe directe de la fiche (§3) fait-elle le même calcul ?
+4. D'après la section, que coûte le calcul du gradient, comparé au calcul de la fonction ? Relie-le au §5 de la fiche.
+5. Refais la même dérivée en mode direct avec un nombre dual (fiche §3), au même point : retrouve-t-on les mêmes nombres, nœud par nœud ?
 6. Relève trois expressions anglaises de la section et leur traduction dans la fiche.
 
 ### Ex M18.19 — Expliquer le mode inverse à quelqu'un qui connaît la règle de la chaîne en une variable 🗣️ ★ ⏱️ 10 min
