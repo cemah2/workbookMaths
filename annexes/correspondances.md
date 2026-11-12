@@ -29,7 +29,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 19 · Optimiseurs | M19 | §5.7–5.8, §7.1 |
 | 20 · Deep learning et premiers pas en PyTorch | M20 | — |
 | 21 · Réseaux convolutifs (CNN) | M21 | — (Dumoulin et Visin ; Gray) |
-| 22 · Réseaux récurrents (RNN, LSTM, GRU) | M22 | (§4.2) |
+| 22 · Réseaux récurrents (RNN, LSTM, GRU) | M22 | (§4.2, figure 4.4) (Trefethen et Embree ; Horn et Johnson) |
 | 23 · PyTorch en pratique 1 : du dataset au modèle sauvegardé | — (rien de nouveau) | — |
 | 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN | — (rien de nouveau) | — |
 | 25 · Autoencodeurs et VAE | M25a, M25b | §6.5, §9.3 ; §6.7, §8.4–8.5, §10.7, ch. 11 |
@@ -59,7 +59,7 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | §3.1, §3.2.1, §3.3–3.4 Normes, produit scalaire usuel, longueurs et distances, angles et orthogonalité | M07 |
 | §3.2.2–3.2.3, §3.5–3.8 Produits scalaires généraux, bases orthonormées, complément orthogonal, produit scalaire de fonctions, projections | M12b |
 | §3.9 Rotations | MB3 |
-| §4.1–4.4 Déterminant et trace, valeurs propres, Cholesky, diagonalisation | M12c |
+| §4.1–4.4 Déterminant et trace, valeurs propres, Cholesky, diagonalisation | M12c (§4.2 relu en M22, avec sa figure 4.4) |
 | §4.5–4.7 SVD, approximation de matrices, « phylogénie » des matrices | M12d |
 | §5.1 Dérivation d'une variable (dont Taylor) | M05a (R7 en donne les bases, sans renvoyer au livre) |
 | §5.2 Dérivées partielles et gradient | M05b |
@@ -95,4 +95,5 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | Théorie de l'information | M06 | MacKay |
 | Chaînes de Markov | M26 | Blitzstein et Hwang |
 | Convolution, matrices de Toeplitz et circulantes | M21 | Dumoulin et Visin, Gray, documentations de NumPy et de SciPy |
+| Récurrences linéaires avec entrée, rayon spectral d'une matrice quelconque, croissance transitoire, normes induites, produits de matrices différentes | M22 | Trefethen et Embree, Horn et Johnson, Furstenberg et Kesten, documentations de NumPy et de SciPy |
 | Démonstrations | R4 et suite | Hammack, *Book of Proof* |
