@@ -67722,6 +67722,1486 @@
       "sign": 1,
       "source": "chapitres/m19_hessienne_convergence/05_solutions.ipynb"
     },
+    "M20.1a": {
+      "hash": "52d3b5109fd5805356b60fd5e7dffe08e3618e56200bae7c543aca7ffaf552e5",
+      "kind": "int",
+      "magnitude": 3,
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.1b": {
+      "hash": "cf91e376d4359aa960b9d73bbd9d3ddd62fe49c1a7cdf6f7a2f15a3ca44124f8",
+      "kind": "str",
+      "mistakes": {
+        "3a4d4398501bfa0e0cde4550d10880d90884651d3b7e09751c2b6e0852ff9db0": "l'axe nommé disparaît : axis=2 est l'axe des heures",
+        "fe464227c229e7c86e31f46d373a84a2f14cfd89d488befdf38c4677d67f6a66": "sans keepdims=True, l'axe réduit disparaît au lieu de garder la longueur 1"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.1c": {
+      "hash": "bc1fe5924f7662531b61b4cd3691dd18122cb6086f13fbd59a7b4d42bcd8f811",
+      "kind": "str",
+      "mistakes": {
+        "74e16dc7b403e4dc4fc38c93b31b884c7f84effe1674e6976c5b7dd8f6989676": "keepdims=True donne la longueur 1 aux axes RÉDUITS ; les autres gardent leur longueur",
+        "82916a4e6b06d1113f9751ed16f4efce6c1810950e8ff9bcb00d883037a0a67e": "keepdims=True garde les axes réduits, avec la longueur 1 : le résultat a autant d'axes que T"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.1d": {
+      "hash": "0f7b3e41d0f7bb76922be81de05a10327851abf8ceea9eea39b234af38828e79",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "60d8096319a7a5e35346e6fe7c34491c0c4f6f2cd6ca36285b2275e59b166508": "la position est (i₀n₁ + i₁)n₂ + i₂ : le dernier indice s'ajoute à la fin",
+        "b8bd10068e7c00d9bd856246c4ad2c1e1746208f8b97e9ebe85dfa797c8ebcf4": "les positions de la file se comptent à partir de 0, comme les indices",
+        "c8ba51cae900d288b9da6e2ddcf082c09a09096614e763f7207787091f337a3d": "l'ordre C : le DERNIER indice varie le plus vite ; ton calcul fait varier le premier le plus vite (l'ordre de Fortran)"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.1e": {
+      "decimals": 0,
+      "element_hashes": [
+        "e7ef950aeaa2907c4708b0d559abdb451b475862bda6dde977157606bc344d33",
+        "a18aba1612d9a4ecabf1093fafc61674fc2ab1c3586ae2af1a49643e2f54b856",
+        "ba145521a4278bd46f17e0acc6e787a77314b111ff8a88817439d754fdfcb189"
+      ],
+      "hash": "1ca91c970322c0bf996b007516f14a469896bbb31141ebb6ea5ea70de8d16396",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a12fb278fba6b5dc45f720209d44554ffa88d2eddf5c8a0595f2b7138a8e793c": "les indices dans l'ordre des axes, [i₀, i₁, i₂] : la station d'abord, l'heure en dernier",
+        "c5a37868127bc105df4ce82ba686ec5d0cb947192f2844dded39e7a6cfcd4ac5": "les positions de la file se comptent à partir de 0 : la position 1 000 est le 1 001ᵉ élément"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.1f": {
+      "decimals": 0,
+      "element_hashes": [
+        "25f511044bc61b90ac0b441841c10c1db34549e22f4d1c2f6b41cd98f5c3220f",
+        "3bc7610c14c87d19c120dba23f942f0570af47add5b6f75cc98984663966ecf3",
+        "7aa1738b3f928b9091cd0b710379c538ead229422a94b83c6aa51a24aea9afac"
+      ],
+      "hash": "690de5e26295496deddf3f86fb3ab748361d11e0a8981e5969af8b994d9a8403",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "6f6e3a0e46a03678017e2258e5ef7c48cc0fa0302c3d84b304e205e26ba65ada": "le jour vaut 7 × semaine + jour de la semaine : l'axe 1 de R, de longueur 4, est celui des semaines"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.1g": {
+      "hash": "f7751948a3b6f98bb381e7dd0b35f5c26dac7caabfceeb4c3e4e16a4a604ad02",
+      "kind": "str",
+      "mistakes": {
+        "86ecf6a295032f495069cef74c5ec56069634ca9007f1184855ec4ccb2914e70": "l'axe nommé disparaît : quel est l'axe 1 de R = T.reshape(12, 4, 7, 24) ?"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.1h": {
+      "hash": "7fd70fe89c8beb47d8128343b2a09893d3bf533932984737a0854cb84c3be272",
+      "kind": "bool",
+      "mistakes": {
+        "5bc4237ab50f9f03e065ba06095c849881d87bcfc4693e79c9e59bea1cb1b549": "aligne les deux formes à droite, (12, 28, 24) contre la forme de T.mean(axis=1), et compare les longueurs axe par axe"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.1i": {
+      "hash": "17526ff8295e0b6ae1ce08473d2fbc75286c1c4bdbd4e4a9b56f64aea081a6a7",
+      "kind": "str",
+      "mistakes": {
+        "47df23145228f4863e426866d0224e4a3fff66b40e66e28b3763593787fd81a0": "transpose(2, 0, 1) met l'axe 2 en premier, puis les axes 0 et 1, dans cet ordre"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.2a": {
+      "hash": "94f7e2772858121d707022d9be198f91bd421713dd8b3c5958daf6e9ae1eae1a",
+      "kind": "str",
+      "mistakes": {
+        "642dfa618e91d14ed1beefa601f5a14debfde4737a40230f6948825baa4f2c5f": "écris la forme explicite, avec -> et les lettres du résultat",
+        "c03145b806df18edcae319f7e87b632506cdd28e07aa2478cfaa2921fbc1698e": "une lettre absente du résultat est sommée ; une lettre présente ne l'est pas"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.2b": {
+      "hash": "7b613c9dafedc5d2ecb5c686251818b2fa1c6e254ec4b4cf364647d2ef3aa0a1",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "b02b0f9c75ff378066ca17ee129d2e448c22d8f590a5d34259bb56eadec0d595": "ligne 2, colonne 3 : la ligne d'abord, puis la colonne"
+      },
+      "sign": -1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.2c": {
+      "hash": "14655fd66939c2e542eab6bd609de7a6235a759beb293f36dd0e250e1d76f4b9",
+      "kind": "str",
+      "mistakes": {
+        "28812c5d284617bcadafb691ebb6593f0b5a81dbc2b8bc541cd57c215b99d5ac": "la trace est un nombre : aucune lettre après ->",
+        "3afb87aa511767dbf80cdb173e9125b7b308ce3f9c0cd537bc0febe8074ac005": "écris (AB)ᵢᵢ en notation d'Einstein : B n'y porte pas ses indices dans le même ordre que A"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.2d": {
+      "hash": "6dcce555d10c4794159f4749f02bb9b04d91e0918c7c7718f06dcc4e036f88c9",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "286b6a443c7cf624e4f0efb44120b5418182ec2e64b7e62812210503fdba51e2": "la trace somme la seule DIAGONALE de AB"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.2e": {
+      "hash": "a4b93754fe8874decd798bea7415135e9ac795529c256afc4df19e2b9f8c7353",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "a30c7885e7eb1dedbd20c0ccdec47fe71d7bb842c58ec90a35c9fb0127cb5f11": "la trace somme la seule DIAGONALE de BA, une matrice 2 × 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.2f": {
+      "hash": "1d91022932e710946a4fd50d560cd4c70466f2a3ee8ad71bc0ddf78df5c61516",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "cd6ea329867cb8119de46fcec2edcd403452f081b6d9c74e7d2d012f8fa6b1a9": "xᵢMᵢⱼyⱼ : x se contracte avec l'indice de LIGNE de M, y avec son indice de colonne"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.2g": {
+      "decimals": 0,
+      "element_hashes": [
+        "26abc4a2daa9cfc8f8f7ac2a0826517d321a4edad4c70cbd5655567683adce80",
+        "b92ecdc7c168ee045fd93295e7d04f2eef61b68da591514b7760af6628f10519",
+        "e20e43a6adc908e6710e2b85ad39bd4ae5d91788e958d7c8a5d97a6ee0e0929b",
+        "0746c681f3350dc112a6070345d38075e6605a0e769993a86667779b0488dc8d",
+        "b5205e0d5b1ec57181a88f309e1a5d6706b1b5a87051f886db9255f91c1a3541",
+        "e936f83f89bf02d74beb7e0fd1805fa8927a993539148e4bfcb54d572056f92b"
+      ],
+      "hash": "17ad2d18b77d310f649da60c90ded485f9db50308c536b99bcd250a3398195a4",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "129f3969cf8e991c99e750bbcf2843b3a7ed7e915ecc21c417f223aa9adbedd2": "on somme sur j, l'indice de COLONNE de chaque matrice : la ligne s du résultat est Mₛvₛ"
+      },
+      "shape": [
+        3,
+        2
+      ],
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.2h": {
+      "hash": "0f5773d9ab050b58bd7bcbbd12e9605ef6e9da272aa99cbceaafc2d60f6a2e29",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "4e25330f69aa47f291660ed10b41c7025265e36310658be78486794d16dadb1e": "le coût compte toutes les lettres, s comprise"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.2i": {
+      "hash": "ffff076c48e046d0e9119fc95cd30693e424b129e5a26f815ea6121bcf27ffc6",
+      "kind": "int",
+      "magnitude": 4,
+      "mistakes": {
+        "208aaa3e4b8b19a72e04a5244685d8395735bc594cc4a2385fb48f76c7aa7425": "deux produits à compter : PQ, puis (PQ)R"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.2j": {
+      "hash": "2f806be79e81e0c62feab75a68ced3d8b759dae6d4f5038ce564b0e22443903a",
+      "kind": "int",
+      "magnitude": 5,
+      "mistakes": {
+        "2b75611cdf759d8b04f08294ed69cacba996063c8953659dffd6f33dc2a4f844": "deux produits à compter : QR, puis P(QR)"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.3a": {
+      "hash": "98c9f3957867182c1cabaf33b23b4f60e404f8783143cd3a19f907d7838aba4e",
+      "kind": "fraction",
+      "mistakes": {
+        "d8351780ae83c85861f53f0dbe36248753f75f6de9134d58b01b822575dc3376": "C = I − (1/m) 11ᵀ : la diagonale vaut 1 − 1/m"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.3b": {
+      "hash": "c1452996bd3d444293ae5208488e080de85d1ddb6ee577234ed464befe043583",
+      "kind": "fraction",
+      "mistakes": {
+        "4d120aa4ea0a614df9946a7fbb9e8752b363eefe6345cfd5ff082e1e731b574f": "hors de la diagonale, C retranche 1/m : le coefficient est négatif"
+      },
+      "sign": -1,
+      "simplified": true,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.3c": {
+      "decimals": 0,
+      "element_hashes": [
+        "e9e1b94e7002e695d00f8e08e8d67454f43817ace3c4373d8dbd31346f4902a1",
+        "8892ae0eac246a10154d77c69cd9155896aa6dc169ec99e0d2cc2cf5699128ad",
+        "f6b819197b27e7d7c549e443bea93de90d770c36206bf91340f5b24eaa6df66a",
+        "7cf7223c358587e1a614754fc9ef804d959122abbe2a616de814ae4edbe6ca02",
+        "3ffaa69f75091d4f55d61689bc909ed3d316ddd21309f4b879c0b19f28e438da",
+        "76da2c2d30a3555aad366bf77250486a07bbdf0e7222e72c26871c68e9b1229c"
+      ],
+      "hash": "3fa078eb911486deb2f44609e81272f56c7dc288c12edf05b814c535fd653843",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "208f526a66c2945d572c40e33292b82b2a33c2fa70300b56f03df4e3e26eae59": "Cx = x − x̄1 : on retranche la moyenne à chaque coordonnée, pas l'inverse"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.3d": {
+      "hash": "5af104c47fcb98f68675a68a87efcbab6abd1639b188151342156e6bf6498557",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a1d9fb504a9909172af12572e400b7e5f3ea55b9c786ccc91d78bbb04b33e596": "la diagonale de C vaut 1 − 1/m, pas 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.3e": {
+      "hash": "c0a80c04643bc4d6f91a6c7b6b1691a5ef32576e6613d842551b15cd501e08bb",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "46f540b18b0f819e0a25df459308995447828012a4cf6250d279591b5d83f31e": "le carré de la norme est la somme des CARRÉS des coordonnées"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.3f": {
+      "hash": "d866489f1ae27e8e5e0573db172a9572c82380a51f2e46bd1eaa7ba12ea53fde",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "093742576fc45a9d09cab325abaa5f854654d08cd6b48835613efadaf602f1e2": "x̄1 a m coordonnées, toutes égales à x̄ : ‖x̄1‖² = m x̄²"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.3g": {
+      "coarse_any": {
+        "0": [
+          "6139edb4d729d4882d31c533378230781632feab97f5d84a3a86d173388d30d3"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b7e88c9f599318152dac20f1f8f0f895e49144e5630f8c3ca4ece261490888a7"
+        ],
+        "2": [
+          "9485a6149bf5ad558ed8b3fb915ba232276217769f375dcb83ce3924eb5c5b7d"
+        ]
+      },
+      "decimals": 4,
+      "hash": "781a488b4fea7619a7e24befeb4801d23db25d2c1871a78478b586424588f43f",
+      "hash_coarse": "81e99c98e77f898c6236c1b10c60d9748fde337c59ce1780be3dbd37e17e18d3",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "506ec34f8518d17347ac78b5df714c41a52deae33bddad972a9976d5e6b15559": "ddof = 1 : la somme des carrés des écarts se divise par m − 1, pas par m",
+        "c55ae1b1b178751dbe4412e14529fbf3bb242cdad813bcd18794f5515c1f930b": "l'écart type est la RACINE de la variance"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.3h": {
+      "coarse_any": {
+        "0": [
+          "907b37b8e054c93f18664f7e509541a2762b30daea7639cd6cb687ceff55b121"
+        ],
+        "1": [
+          "318ab722e9a6f0bb3f5b08d9edf86b3d5050c6c319011aaaaee0bce93045fb0b"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "77b6c9e47218103f68049fafa1510cf72d9c221bb9b01f4d095d5a178afb3d0a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ab1899acedf695b0c47e7d9c74d9baf7c7c32421c6efee49a1e1d24e3681fe46",
+      "hash_coarse": "709ba1a889dbafd32cd3bfd006111cd358e957743709d8f263f6aed5d0d5f17a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "fd327a54583834b8baca27ac6ab16a0544b38bea9cde6a488c745b297592c3dd": "ddof = 1 : l'écart type divise par m − 1, pas par m"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.3i": {
+      "coarse_any": {
+        "0": [
+          "db6acffa37f12086defade8bc4cd613b24596fd510477b2926de901735e69986"
+        ],
+        "1": [
+          "8c36a2078194398c29a50aba5609ef8995be332312a0b17ab59d587320b935bf"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "562c5cb229e76fdab1195f114660e0ed70172301aa5db64504cc5571fdd96c3b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b2bffd79925015b8d0e855e058bcb8d6a26616915bc09ca895be566bbf63fa90",
+      "hash_coarse": "0c5461eb5146d6cba6968b8cd180f47f5de8b44ca5efd3155f38ca97f2edc945",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "9773327c5f08779f516b32bd11f1feaa211592cac5c1fcdbaf60273b9aa03caa": "une dilatation de facteur a > 0 multiplie aussi l'écart type : relis les invariances de la fiche (§4)"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.3j": {
+      "coarse_any": {
+        "0": [
+          "a836b4c7a3647238006ab46eb54d35e63d490d014073272ce80a0c910352193f"
+        ],
+        "1": [
+          "8121c4cf998df0807f09274622b0cafd5ce49782d122c8941b2a3e1c16d97f30"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "f1629989a12bd76479fd3f1e767cb687b5a484c7bfc101d2d30a09d733dd8520"
+        ]
+      },
+      "decimals": 4,
+      "hash": "132dbd2d676f46f3e0d3394e22b704c66f37563830dd70b3a0c57f8ac63f6264",
+      "hash_coarse": "683e625ccc9bb650896d24f789323555f5d2019624b796d1b53f3bec3a050e72",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "e40b3c3467f992ca974916a554017ff63fc1b2823319eb2c2e5cf33d5779027f": "un facteur a < 0 change le signe des écarts, et l'écart type est multiplié par |a|"
+      },
+      "sign": -1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.3k": {
+      "hash": "db703f3aa75c2aa058106b7d76f1dea733a882cea11a0141ed7b4961d9a05527",
+      "kind": "bool",
+      "mistakes": {
+        "bf949121a4887dbd4c6d4e188cebba4e009e9e2ff8b9322558643f473634ec7a": "ajouter 10 à une seule coordonnée n'est pas une translation le long de 1"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.4a": {
+      "coarse_any": {
+        "0": [
+          "fca717a321a862540b5cbee2cbe428884af04d1efda2b5adb3063a38cc731aff"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "dd0958618ccded11bca95e9c0eb4e940bf33a3486a01d30db8c02daa0b87e202"
+        ],
+        "2": [
+          "75c4f534dd26d0957a8de3e9024ad4c26fd696e90cb619fe2081594099635afa"
+        ],
+        "3": [
+          "7062393f4715a82928d1d428efd35f2974e84c1fad283b7b54a3f1d583b5eac7"
+        ],
+        "4": [
+          "4934202452092c5352e05905bb1388348571cce745fc86a6d9f0a440b4695e84"
+        ]
+      },
+      "decimals": 6,
+      "hash": "e1e18ce7a312c96c6c39ee57daacece6173120191d3f0fcb7c1a08c6130ba2ac",
+      "hash_coarse": "2f7fbf984189695b3875ed50010eff079dc81dba19d497ae27ae3d5bc92cfd36",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.4b": {
+      "coarse_any": {
+        "0": [
+          "f132b87ec335de0f0225a68363a57e271d83b9148452291f5148c66a0a4a74e9"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "72878f460276298650a91c9bf03b5a5c7f5a4894a4c8a284455b4c6b94aec516"
+        ]
+      },
+      "decimals": 3,
+      "hash": "cde34a2f2c5af07935516334d4eee2b5f9ed7191e2ea9473b86afed0c448221a",
+      "hash_coarse": "f563e5a7ef12e796da1571952c5536f0da86504e2196f0a21d4007f55b1a214b",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "64b17b203075a615c29bf0a89534e537807f0487172b076badf94e5e547f86f5": "le poids de sondage est l'INVERSE de la probabilité d'inclusion"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.4c": {
+      "coarse_any": {
+        "0": [
+          "eb25aab4d79887c817940968ec228e887176744b1d3141f88b8ca066ff488efa"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "dd6b3869986276b398ef37ca89b101e2f5ce8846c6f889e39a53ff6eda843c95"
+        ]
+      },
+      "decimals": 3,
+      "hash": "ef087807f5bbf164b479af05027137fe38be03222a3a893687d17aa9fc969733",
+      "hash_coarse": "d4d81d2b4a175b75a48fcc451aa3a98712b3a1de9affe6b5246aa1e18d7435ef",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "15dc5066028204b90dcada21dc8bb0bc15b0cbde019b7f1f4984a91259146088": "on divise chaque valeur tirée par sa probabilité, on ne la multiplie pas",
+        "30f970b3572db31cc04a9959473eb16b043a85eba67daa5907bf1817a172717d": "seules les unités TIRÉES entrent dans l'estimation",
+        "78e9e790dd9458b8fa12985d255956927ff97ef1c1b04d2b7d9d652d09fe6f47": "c'est l'estimateur naïf N ȳ_S, pas celui de Horvitz-Thompson"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.4d": {
+      "coarse_any": {
+        "0": [
+          "3b4e040d92803c599dba0a588c32406e3acbafba4ddb88d1a0655792381dac4c"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b777758e7375451cba33afb36cf13a8afceb998b26c352ed4d46bc02f5520e4e"
+        ],
+        "2": [
+          "7a8e4677a7f0e05f258ed9ac99bbc5def5787f25c4cf9211907deea023129b72"
+        ],
+        "3": [
+          "da14b628268a0e2fa70be2ec170b4314336dbe1dbd44fc92b92ea64d26ffbeb9"
+        ],
+        "4": [
+          "c6075de93d7c9f66e0b386683052f9eebba0b511ef80fd43e0d886f4c312e882"
+        ]
+      },
+      "decimals": 6,
+      "hash": "7572f1f839e27ee9c68f73670ef9861c3cdc77919623b56910f8044470763583",
+      "hash_coarse": "c568f9702ab8245862f17b06d883a9fd1c09202fb4d53324eb25dac6000f19ed",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "47801aa6ecb6c3fdc8418b3f18ac2d6661b9990cb63da4b1fe072bb3e8ad89f2": "N fois la MOYENNE des valeurs tirées, pas leur somme"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.4e": {
+      "coarse_any": {
+        "0": [
+          "762af5cfb9229c1660eae2fa103762be9a5a9ed940d0c5a2f5c90e84aab2fc7c"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "0a86a2cb99fd87c7f2521687ee0773ab0c12ad1dc27e5845f25f2a2acfab1f35"
+        ],
+        "2": [
+          "1dccbf83e034c34660fde8f12370f4b19593816b82eb199705ee56cbd0dddc18"
+        ],
+        "3": [
+          "f522c86b4320b0c493cf46e07be5f69af1d430f283d158b1378fcd81561d53d1"
+        ],
+        "4": [
+          "76751f6bb027659a15d9249e4ee2b49afeb3537cf69cbc7644b09987510c4677"
+        ]
+      },
+      "decimals": 6,
+      "hash": "08b7e48f936056428ac2dde6ec692840b5fc3d0207ab5de427e7cfe5025daa70",
+      "hash_coarse": "8b5243818c467dd45d23879e7c4330d3b3a0343da1c96318eec675027302f89b",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "5462a5a0c1f0a0049c7d5022b18881bc3c0f40760782ddd8d6b0be0174dd9a20": "l'espérance porte sur tous les échantillons possibles, chacun avec sa probabilité, pas sur celui qui a été tiré",
+        "fc8aa7795c35ace363455d7d11e9bea4dfa21dba39477855b1ce9251a110aba5": "l'espérance porte sur tous les échantillons possibles, chacun avec sa probabilité, pas sur celui qui a été tiré"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.4f": {
+      "coarse_any": {
+        "0": [
+          "24c60b4c7b6e6888802c8698dd8d75ff97237dbc47891aa9edbe97e01ebb2f03"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "e1a2926f0e6e6009feb409f2a72ae6324ffce06ece8e3080bef433f021fb8018"
+        ]
+      },
+      "decimals": 3,
+      "hash": "7bc7920056a410b72c90f6c44b0b7eded5d551da15af20c8d158cca191ebc28f",
+      "hash_coarse": "dc12723b5bc6a494360514fc6a8640bbfe7ab53a6224d893eae38789f335a201",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "0e4df0f6ada991e8bf62074d4e72480fffea90e772e219756bc2b85b2b031823": "Var(Iᵢ) = πᵢ(1 − πᵢ) : n'oublie pas le facteur 1 − πᵢ",
+        "a6dd48f6c649f3edb2791acaecba5f2895bbc4f7862d332e832db11fa67a2278": "Var(Iᵢyᵢ/πᵢ) = yᵢ² Var(Iᵢ)/πᵢ², et Var(Iᵢ) = πᵢ(1 − πᵢ) : un πᵢ se simplifie"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.4g": {
+      "coarse_any": {
+        "0": [
+          "569a53a7116344f3424d72bb33299578953697ffd622360963f13b9bb4d27008"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "81d5e50034aeba8ca007eb89489021b39f654bf53608a47b2c1e3b72d2e2e509"
+        ]
+      },
+      "decimals": 3,
+      "hash": "6ac7a28b761c38e4d9e412c7e013594a0d2f419e93271e38becdb4d74b727fa2",
+      "hash_coarse": "8dc6fb231999fbee325fa0a234b346f37a2003fd3fe7d5cf3ff877185d8a09a4",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "e1b35198d29d83c34afe5e68e2e217bd08b5100ff99c5d2b2f44b77b6bae62e0": "l'écart type est la RACINE de la variance"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.4h": {
+      "coarse_any": {
+        "3": [
+          "eba27b60fe86527818a1fb73664a0734dbc7af6a29128a54aa800c99e71580c0"
+        ]
+      },
+      "coarser": {
+        "4": [
+          "1e91d2133b3a6e06dca28fefbba8282695a45a045477db4fd0f5ea960edbf200"
+        ],
+        "5": [
+          "bd9c56e3a656de40ef943c8c33ba7c01a0f8f2478c785aabd48a3c6dd87c9d14"
+        ]
+      },
+      "decimals": 7,
+      "hash": "13fb577dd7746565e11df53574a66a338cd117950735efda63e228fc6c596241",
+      "hash_coarse": "5d1de7c54f74b37423733d848873590e6ca58b00ab86094f67de8f2d9a9d8b8e",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "6870abb11e535ed91cec3957bf492c81c8c3a7c20d579171b7202802ddba62f0": "les unités non tirées comptent aussi, chacune avec la probabilité 1 − πᵢ"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.4i": {
+      "coarse_any": {
+        "2": [
+          "bb9ee82e05f549d2a73ad387ebc8bc1c578fe7d546b9cdf3f5f7a163b200e1bb"
+        ]
+      },
+      "coarser": {
+        "3": [
+          "f3c7ba44403492f1ff9017e4858c3943c3bd44331f5125c8c797cdd4efaf7151"
+        ],
+        "4": [
+          "5421cc802fcbc816a236b43706098f801b0de45f15a104cc96d66a1906352626"
+        ]
+      },
+      "decimals": 6,
+      "hash": "cbda7742f267b544aa8459c729eae051572969f6bf3f7ce1ddfeb4ce306a5266",
+      "hash_coarse": "d385e6aa6f01551e4ebcae16798a534bfa1f5badd324b909f349bf612d65ed2c",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "34759254f40fdb07aa031266acde02392e1024bc0fac4b1907b00472bc20b96c": "l'échantillon est vide quand AUCUNE unité n'est tirée : un facteur 1 − πᵢ par unité"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.4j": {
+      "hash": "78d212a51e68882b7a11dd78df01d9966fc6ec40ce2aaa7c7f0afaef9b69174f",
+      "kind": "bool",
+      "mistakes": {
+        "bd96d8bdfa3ce60050aac49930c6e8293588cf93ab2bf46f3454c38f1f5aabfd": "regarde comment chaque terme yᵢ²(1 − πᵢ)/πᵢ varie quand πᵢ grandit"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.5a": {
+      "coarse_any": {
+        "1": [
+          "fc0f8cf449c2011d466c92c27ee4185cf2fe17cda2269acc365b739b5e26eedf"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "2136303ad2163dc0d678315cfaa35de4c35fdb184335d13ff6ccf5156be944ba"
+        ],
+        "3": [
+          "3426c5362ef16e9a273253606a5145ec3e39f88ed568ea0546538105c8b20662"
+        ],
+        "4": [
+          "cd2b238f037bf7ba6b697b30a55251d0e22dfd3f7064980fef8571fb3bf03b85"
+        ]
+      },
+      "decimals": 6,
+      "hash": "dfc7fbd1c90a5a1dd3f3699397aae73332f86a6a10fee07432a4cd8c09e1f959",
+      "hash_coarse": "fb277ce461a36f7e1a252352fe7b922fa6a22f17d2386264678a1509e5a7e3fa",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.5b": {
+      "coarse_any": {
+        "0": [
+          "083eb03b45a330badba0842bdd57e47049e37905e60519337de68239b94e90e1"
+        ],
+        "1": [
+          "d92b7b5eccb8896d47b6deec0e5e66b4d191445bafca614562b18f009dbbfcff"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "53443498e79bceeb716723a68dd520a6036b68a12879baae959b3d2a6f4d6a84"
+        ],
+        "3": [
+          "4c5a935b851b33dc63dac18875b21b634005c5f0a57c8b9a372b7f1fb3f3a38b"
+        ],
+        "4": [
+          "61aa0b4e7cdd3784a4b5569ee62c58ae6c88f2af1bb9b322a38df2d8c659c5fe"
+        ]
+      },
+      "decimals": 6,
+      "hash": "10fd5b8af6b15e76d58969c638f887b7269374ba59be12676f0734f3fb84707a",
+      "hash_coarse": "8d75ee4a86bcd658c7ce7670b311430f128571de0381acea779d8286514b0351",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "27c77935742491f92e51617f39216b8440b854e207e8070f6f80c881033ff0c7": "λ = −1,2 est négatif : le facteur 1 + hλ est plus petit que 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.5c": {
+      "coarse_any": {
+        "2": [
+          "1937a89bda5638cf735af9208b40fe2e524d087125017758fb6afe98a1a944c7"
+        ]
+      },
+      "decimals": 4,
+      "hash": "30dce06a3b0af0931890905b4a1e605f02456e58c7379348d0026f4999252767",
+      "hash_coarse": "b7aa3f6fe2d9fc78489c4f1602dd19afedf2097feed25b6070e16c34d952d694",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "20e4f2f110d73073d653bdc5ec6b7262ee78906a45d7798c964145e690c0b551": "x₅ = (1 + hλ)⁵ x₀ : cinq pas, cinq facteurs"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.5d": {
+      "coarse_any": {
+        "1": [
+          "ec6b7bad1d9b050b745095a7f92e0da70ebbf871798b5ca805f20e0e3010e20f"
+        ],
+        "2": [
+          "f2b733907cef579099a5bb28b5b57f0964b9f0abc2e55e9b6b76f362cefcb93c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b8db1c2faf91c2a7daf06e22c83bf19e09204221736f6b8ec13ceefda8eda209",
+      "hash_coarse": "75e1cea10d968979cc2c38993df5b128dd845d9a3f2745be97fbd4c4a6ae3bb5",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "fee4cca095663c2a0f76b055040fa758bfac7d6d3bc70b2482435f04d41d8935": "h = T/L : avec L = 50 pas, chaque pas dure T/50"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.5e": {
+      "coarse_any": {
+        "1": [
+          "b41a84758bad8cba604d4de3e0548492e402f9cf11cf47376e614590c9169e53"
+        ],
+        "2": [
+          "2607e8ce583375c6978145d9ae1364234387c12a7da82bf2e7a2d35f6d6ba2e5"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a490cf8adc5c7aa9276784b8a6de786ac3b293404dbf21ad0c0087c8bdb090fd",
+      "hash_coarse": "6a3fa0838aca88f122efcb74327e223099c36f8b5720a702a76f84d1db4991dd",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "ae0611f89401df771c4aff2e43471c0d99887f70a6c08b8a2a1d0d49370755e7": "la limite est e^(λT), avec l'horizon T = 2"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.5f": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "757be13893ea1742be5b361e9d311253e7b1a527c5bfdd3e793135b4d5c369d2"
+        ],
+        [
+          "675f2330794fbc43e94bedda4e1874afd7cb28e387661d113ce1f0ff858daece"
+        ],
+        [
+          "25525084959495013fe1cda0336a0148cc92ca044fd8c1e66ede3314af8da550"
+        ],
+        [
+          "7734edca2b7cb19e7e74233fe0df95d79c77bbfd8d44a910ff75faf69ef0330a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "d3858f4b829c421c1d3e5fbc6d377f5c96b3436534678cd97382755b44b690a0",
+          "34bdc66c64acc39127eec9ab6dc1491c26bc6a881ee2d5a42e1baea3629e0ccb",
+          "e0681f3594b586b3e62af84b96ce6ba2bda3feed79d85a1ce055500717a8eddd",
+          "b0dd242decbd411881cebddb5187e0ebdd3790f81797786a169941e2480aa816",
+          "cb69ee5f44f157379fcb8873f4eadf5db376399124fc92ca0fabcad4d0405ab5"
+        ],
+        [
+          "07a10e03c1dffb1e6eaedd6a04d9b9b83d406627009872afdb10895ea11a1e10",
+          "2e3572bd20b24f803a0cc36dedcc6578080a0365e18668273878ce398c848630",
+          "6169b665c10cf05755a358abd3afd957d35910a0a30da911dbe64784af69893c",
+          "527b7ffff5aef87f2665922b27b89bf0c38aeb006fd0952baa47b99611fb8a0f"
+        ],
+        [
+          "ac9faef21bbd1c00b8e9c1e20c11314084edeb74544aa2dd3aac18605d376c3d",
+          "a6d2af11da72492a02d5365c9614aeff931a7d6204139efc98d287245d3c0fe6",
+          "686d724d4d7366d278e047c9e159fdf6248b432ec94232e9a8d396850c759f01",
+          "3cee99d8f96390c13c541db1df1789fc834a0ed89d87c2caf2c4780b8f8f0382"
+        ],
+        [
+          "76b1ba61d8a9d019d4e565919889fa85534a54c2e0ad6af81cea833e3edd0295",
+          "8c6b2e88b05c585a80616e523f8c84b6e3f4efc6ade894ebaab51d2689190f00",
+          "c9d7d3d0edf5652fc1443d0a4c12e55e5b305e5c9954acd416b1d4f4d738a4a5",
+          "7f0564dfeef5bede75816e158f4092958cc58d9e57ff218b347b8eb380ab42b5",
+          "3dbee5d705836c717fbdedbbcad3c79322cce6a6817799f7402e83e9059bd497"
+        ]
+      ],
+      "element_hashes": [
+        "7a60b9ad2f12e3db4ed1e7343119a8d4b687340dccfcadad79457b1aca3bcde4",
+        "1d6da41273866ba3cb238ba4e84832caef11d55715eda587eb52ec10908c7a7f",
+        "d7f510a2524b2afadffab15dd39e251b1e6979e5d6e43e23a287a1915144c7d9",
+        "5a04ab346561400ef69b5c39b600e1d7be4e29cccfd1ee9ac811ae8c5e4638ca"
+      ],
+      "hash": "68466342d63d867faf468850977122df469f06f340e4c2e751b6a819a96d1370",
+      "kind": "array",
+      "mistakes": {
+        "8922cca777cc44381f6eebe198b94586fad6e0f744073844357512f98293b267": "I + hJ garde les signes de J",
+        "f977dc6227d6eae81dd01b31c45fd9ea2b492b527f4e2cdd866ad9cf88e0a3e5": "h = T/L = 1/10 : chaque pas multiplie J par h"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.5g": {
+      "coarse_any": {
+        "0": [
+          "54ac90d27e5f41ac455b016949297353afeba82d3377302544b96b8b9bb64c75"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "7fa513b6e0a3d3f9703909c73864541be37d934ec437d67a2675636fbf63c37e"
+        ]
+      },
+      "decimals": 3,
+      "hash": "912555d9fa3685447b4eef4e935f4c86c8ecc7ed8984f87f00a1b61459a36295",
+      "hash_coarse": "3a46ad473e453abb8732334217ae81b97852a0e5ec7708209fe794a7485cdd06",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "16072eab1d36cac98f13cb0f61e5bfe5d33f3a17987340396107389125271432": "c'est la valeur singulière d'UN pas : le produit de 10 pas en a la puissance 10",
+        "7d16fb1f8c012fa0f3459432bea172862b97bb867eaa2b8165a9e5b4e4417dba": "chaque pas multiplie les longueurs par √(1 + 4h²), pas par 1 + 4h²"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.5h": {
+      "coarse_any": {
+        "0": [
+          "0dc7efad1da84530c4ff1f72517b9785b7707f696152b987a7b8f0d8873067d6"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "17f147898e46d823526640737f4e5462be6f7b1703c26e1c04358ae0a6b051c4"
+        ]
+      },
+      "decimals": 3,
+      "hash": "b283bd350fe1cb48dd6e5dd6503b5c0a6cc730cdb5c3fb12335f39460678ff38",
+      "hash_coarse": "64cd842b8934d44a79722e10c52793e0c01a98d6e013e70103bea5b236f0d1a0",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "a40f464d186454b5da0dbf95e9c4932bb332a1be05156801c387f194def2c103": "chaque pas multiplie les longueurs par √(1 + 4h²), pas par 1 + 4h²"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.5i": {
+      "hash": "52e42efab7e43951ab23f53f4aa0206b9552d7a10656e0ef18078cce62f104cd",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "37f38a87293d7789119ea3a2b0e076ea9c7eb57da75f1a9b7a292f1ea6b9d76c": "la limite est e^(TJ), une rotation : relis l'exemple de la rotation (fiche §6)"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.5j": {
+      "array_rounded": {
+        "1": "2e58f4cb385a41d15e4d3c098836719a62da3de052c35d4b74efbb5939794f53",
+        "2": "1268383268df6f0dfe5f87d55911ed626327fd9bb39d1bf47c3f4def15a66788"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d6f234405a0cd0acd0fd9b217beda2d89368ca3ff9d7203377d8d4dd6e26de18"
+        ],
+        [
+          "eca1665bafaaa449e2e68f131ec0c8fb5e23234e88663985cd7992d78197108b"
+        ],
+        [
+          "1ddbd620e4a760d62a15c94c4ef46f6964d855096854b43b177be10d60abdf58"
+        ],
+        [
+          "1c1cf7c94c50e7cf6b3f391694b292f2f54203173d5eb56a1d24f697a2c69f16"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6b0c2fef64cc8398bbd6d308ec9206905a4067424ff55275c96cc6aff8b6385a",
+          "ca57fb88e32c038a00ba1123857e40554762bc822732a24aa06ba88cda0a011f",
+          "87402964ee40cc9d3495bcdd995da51220f22e78f88d3303b979c7bbacd9c94a",
+          "d1f09fcf391fda2f450fcacc5390586f059e7cd5e9419b63419e63c7b19a5353",
+          "948f7657f2d7b51724fbfeca8197f7852c76603beb3db5760213d35bf04b8b0d"
+        ],
+        [
+          "5bc35b076d68af658b03bb7c0fc03fb4c9c5cab37db4a9e0d884378e7b402e16",
+          "411a1931bfede594cba104896eb922a20986077666c673da8eab8ac555a7d1fa",
+          "fe0b1271e7b04ce21bcf711c1f809b0d26ab4dd11d9d2df807966d4f77f34fa2",
+          "929c105af0d9304e7c02ca538cbaa768e07f5600149e7fa0c5570e5d4ddba751"
+        ],
+        [
+          "ddc6c763dc9fd85502422c09776c2dbfd9a2e2798fc33d40bbe08753aa271d9d",
+          "b146dc72f22dbf3cb454dd9d5deee4714feaf872fde2e0cf76d9e6f14d935075",
+          "70084f59a1ea6beff71a56e680f5a38aed6461dfbcd3a174f2390494b5d57474"
+        ],
+        [
+          "c2f7686f56a6d7c2a7d533298f3de2092792c01d71e9a1615b846028cb8a344b",
+          "6625ce365c0c05190c03212de84eb98d9984db7d292f13ca26f76838bfcb773c",
+          "97079ae8feb916b8b8c1ff1064ebfdd5251537f66ca5a934e25320be1a775145",
+          "85548e3da649f571247fd65257e24506d9193f0914e2ee776902557dd436d3b6",
+          "1b0fe3dabdc3b523a5afa78489364e6ebf3fe4cd170b932e6849f2f440f73755"
+        ]
+      ],
+      "element_hashes": [
+        "d3baa6984fcb9a8dc5332068954b192f5319ca291250dd109da19661d4cedaea",
+        "95b63a0aae8f880ac18e4b0ed2eb6a073b5bae9dd0e89e28e6b954805234b81b",
+        "287264e911f4cc431c42b15553f84225f63c0fede60763379aad665bb7d14033",
+        "56f5344c5fafc9c0d312c0a2c6ebed59145fb46035f328edecdcfdbd14b14ead"
+      ],
+      "hash": "c8c642827782d7fd1ccaee40520b3da5963ae47a0814a32f1a20fe4e037fed5c",
+      "kind": "array",
+      "mistakes": {
+        "121ecf7ef3efd1f49188e25f835e1d7ff6bec744cd1c14a5e5a615d97132410a": "h = 0,05 : chaque coefficient de J_F est multiplié par h",
+        "84600ea7e6186741da1f606e8d76c13efd576c5e96347132a8ecb7c65f91e905": "la dérivée de −sin x est −cos x, pas −sin x",
+        "85cb35ba801a46795fb86254904fa42ae8cc8d5dae6136d12742e36188258fe0": "la dérivée de −sin x est −cos x",
+        "a31164cfe753d25238149a4f7116065660f12f56a087a9c012eca872994f2aa4": "la jacobienne d'un pas est I + h J_F : l'identité est là"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.5k": {
+      "coarse_any": {
+        "0": [
+          "a4a5056d9b7e8d978f545401e277e6400bf9c4eed1cb94223085620298fe0a04"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b2378e844296090b128d5ef0167db2fc9cd04ae846135113e7d859844254c73a"
+        ],
+        "2": [
+          "e9df9e6bff4eb11baa14cf2547d573a3dfc490b0a26b854e863a02fc4e9ee47b"
+        ],
+        "3": [
+          "b61e7750a15ef9c9a9f422fa31f570c69ce1768a4dd5d772547bd0c25d87eaf8"
+        ],
+        "4": [
+          "7ce60f6fb999de97ca9dcdb3ba26216ed24edfe247ddffd8c9442bb43907a606",
+          "682eb1a4a85551739126730cf259c9bdbade5bfdc8c64e3b7fcd4d673cfefdc9"
+        ]
+      },
+      "decimals": 6,
+      "hash": "796b11d99c3e33ec7268a1f8d7344a8c36297ae0784566a76fe630f665efcd85",
+      "hash_coarse": "1c50045acc808f3a515b4a72663aa3908d54066f58de4bb16b898ebf005ca45f",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "97f47d438099705bfb050df992083d5d5c3f8ff82740ba49b2bb0084fe849f96": "det [[a, b], [c, d]] = ad − bc : le produit des coefficients hors de la diagonale se retranche"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.8a": {
+      "hash": "f7bdb0d49c974c5409f9f82872d10f18110b112c7ceeb1089d2984e3c60c7f7e",
+      "kind": "str",
+      "mistakes": {
+        "078d33654e4cec9bd2a7d03d89fe19b5b099d9ccd2ca158e9252bfea78dbd460": "la couche dense ne tire rien au hasard",
+        "188273f6fb50d26083cae8b29006566375bed8f97e7b52a19395c50f9f4fbe06": "les deux normalisations divisent par un écart type, pas par une probabilité",
+        "40830b9099e290b9adb6c14e071ddf009389304e6a4633b1ab94bbc858d7131f": "les deux normalisations divisent par un écart type, pas par une probabilité"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.8b": {
+      "hash": "d1c2c69cdca7c5ba343ba984fb85acd082907ba7f490dfe5bb1cc05bb92141a4",
+      "kind": "str",
+      "mistakes": {
+        "39c338c9d2aeb68f6af27c29662df83c63a2bbbd0c817e0f1d19eb70e9b236a1": "relis le 🔗 « Dans workbookIA » du §5 de cette fiche",
+        "7e87c7bd98d1d704765299ac34058ab3f178ee49f64d743b82f82a3674fde4fa": "relis le 🔗 « Dans workbookIA » du §5 de cette fiche",
+        "9a7b8e9bfdafae054dfdafdfa36b0b18ae8499cd0697961b38ba50af6441d8a6": "relis le 🔗 « Dans workbookIA » du §5 de cette fiche"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.10a": {
+      "coarse_any": {
+        "0": [
+          "2e2bccbb5df3555f88d42dcea0fe32a37b758b7e9b0e52e3a99be6d1493b575d"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5a9e817aa7b17469c274505175b8fa414c374ab090925799500fc783a5a57e9d"
+        ],
+        "2": [
+          "8cf04c13e3199adacd0abf623c0a78f63b01f6eb79be5a8a16a4aeca449333cc"
+        ]
+      },
+      "decimals": 4,
+      "hash": "9b33292c2a721664c9c7c6b74657ff3130614be66707e7b1c4030ef2dc104fea",
+      "hash_coarse": "485e42d7aa9b41b90a1364b2615add50778f75ea6f050580f0520ed2e513041e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1771558ce790b9e207c2e9f05dc69b0462fcb41f3837b14879c9e73299266c07": "une moyenne PONDÉRÉE : chaque heure compte avec son poids wₕ, pas la moyenne simple"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.10b": {
+      "hash": "99a8d8b551f504aca9945d13c46edbb4307bfb2823446ea678147766b80916b6",
+      "kind": "str",
+      "mistakes": {
+        "0bfb6bfbe15351f160de34e7dbfa5ec17fc8fa32d9c97adf792f0e27dfa372a0": "la lettre j, partagée, est sommée : elle n'apparaît pas dans le résultat",
+        "37ca29b25ffac51509cd0dc1f552195383bf6f33e85f2fe71f49584ce3a7141c": "écris la forme explicite, avec -> et les lettres du résultat",
+        "5fc156939fd41a1819f3dfc973e1ef8d9d91a58fc0c86d2f80855efb4618b42a": "une lettre présente dans le résultat n'est pas sommée"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.10c": {
+      "hash": "c9b0b576916cc3b00b30593483d8978ff1d31323466240c232f3eb266a84335e",
+      "kind": "str",
+      "mistakes": {
+        "cd77bae2ccfea3a716effcb9efa0ad9227ce5bdb03f7833380a182c499833ff4": "le résultat est un nombre : aucune lettre après ->"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.10d": {
+      "coarse_any": {
+        "0": [
+          "f46a27da328c10f9f4d3e0bd432693ab145ab1315eb08754eccfef60a9598c3f"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b0bd193b22159b1141487c3abc0d090906782eb4098c4675bd8909a006c750ec"
+        ],
+        "2": [
+          "f60f3e25dda619b9b0100af68bd1e15f1a6b0f3420be2288aa307f27643844f0"
+        ],
+        "3": [
+          "227d884b8b1e9d314b425295c955abba3035f5def44db3ae3a56e131b5106d28"
+        ],
+        "4": [
+          "e12cbf460e344144bbdfc5b8740597cccf773f30ae48c15e4149710521f4f00f"
+        ]
+      },
+      "decimals": 6,
+      "hash": "bef3e6968da7807e839673dc10c9dbd50257f4fc3352e66527538ecb53c1b1a9",
+      "hash_coarse": "14cad981de142eaf228283fa5cc5e219b667f48cd5e27d05d28a51c10b4eb3a4",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "f6e140a6553f9f9eb0eaf7f685b38a1b666dcbef560699c3647dc234a837f9c1": "xᵀMy : x se contracte avec l'indice de LIGNE de M, y avec son indice de colonne"
+      },
+      "sign": -1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.10e": {
+      "hash": "39637ff184eac6c9c0f37dfc8d6cea174b385052e6b8e5d08bb8390e479b56bb",
+      "kind": "bool",
+      "mistakes": {
+        "e3a1e9fc6cabb5cad6802c86275e3bbd0c925ddfcb63d70438efb3fc860ca280": "si einsum_pair passe ses tests, compare les deux tableaux par np.allclose(..., rtol=0, atol=1e-12)"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.11a": {
+      "coarse_any": {
+        "0": [
+          "2c469600c8fe6de46e4efbb14e220eb4864157a80ab9d8896cd1da9a45290061"
+        ],
+        "1": [
+          "8f97c8ea35f704cf1d3fb908b74f828e833d7f34fc354121eee6c0be9b31702b"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "566290fcc2a13eaeeb10d93d9f9f3ddd68b01427dec4ba643cc409aba6c2e55e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8f30194bbf71f698124d3a99e0d09b0ec227afb99265dec1a8dbef8dde8a2ac8",
+      "hash_coarse": "d8898bb141ec1614f0cfe6c8f599c15c419556270fba8d90238ef47927ae6b79",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a05c9d7b295088bda30815c7fec181dc4097585f025db9ae49a479bee26f4fd9": "ddof = 1 : la variance divise par N − 1"
+      },
+      "sign": -1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.11b": {
+      "hash": "241943ff05a18499e5cac8524831b01fd9f7f20f5c484f4c54e3a3f3fad39ee0",
+      "kind": "bool",
+      "mistakes": {
+        "984ab73bdda076e0394390b99403874ba9d1ccd551348c121785b72dee952bcf": "chaque colonne de RENOTED_11 est a x + b avec a > 0 : relis les invariances de la fiche (§4)"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.11c": {
+      "coarse_any": {
+        "0": [
+          "fa76742b774f369ca6c84194a3856b3099c9aeae41e7904eda74695e14275420"
+        ],
+        "1": [
+          "e49d0e4cb77266666b60360c7fd74b57269a6271486f91024716d02b39137e4b"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "60a1a4459606ef90d5e63f636d6bdf7fce7499663164ebb4ee74d0a466b5a885"
+        ]
+      },
+      "decimals": 4,
+      "hash": "10bed4a2f7e121809ee273f5fc157db0c9b97a8670ad9a3a42287c368ef11b8e",
+      "hash_coarse": "5e3c4aa2921b13b14bf1d0827edf4aa9c6e2ccd13b15f8e45b2ea5a317f07498",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "96d5dc6852de790d3d2d5d55eea43008fc648ed38fd649d8b62bd2bfd001de0c": "ddof = 0 : la variance divise par N"
+      },
+      "sign": -1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.12a": {
+      "coarse_any": {
+        "0": [
+          "b467c68f6097ceda81d7f7dc888db6bafb50bbe7249de29a933b56b154747070"
+        ]
+      },
+      "decimals": 2,
+      "hash": "3491ddc08e52d4d7e757d5fa36ccf2cc163e48e72e1f7ba770bc393dbaf90767",
+      "hash_coarse": "e0094eee778430a3a12baaca17ce857b139d95f95b49628c41c28cba4848c462",
+      "kind": "float",
+      "magnitude": 4,
+      "mistakes": {
+        "9c6f376930e336c019ef06c6f1b72cba301d60f12855d370a4e677120c88f78a": "seules les unités TIRÉES entrent dans l'estimation",
+        "bed9f623328e0226b8f1fc6f26325cf2434c7d49608e6be11cdbd811718dd86a": "on divise chaque valeur tirée par sa probabilité, on ne la multiplie pas",
+        "d98fe9b818527c101c7b7b06a173214e881bc22d42535ffd58d0b5a0a1655a21": "c'est l'estimateur naïf N ȳ_S, pas celui de Horvitz-Thompson"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.12b": {
+      "coarse_any": {
+        "0": [
+          "a8877de3ce75b38ea2f533c096ee7f6f13ba68fb19c23cce4256a4f2e1fd26dc"
+        ]
+      },
+      "decimals": 2,
+      "hash": "14b84250c0816fb618cb79deaf87b8c7055ad5446ec6eba8aad3580fbe3f114b",
+      "hash_coarse": "ced15ff9119e7cdb0ca6346040255c9c998acc5b99ad0aa48b810cad9b0e20af",
+      "kind": "float",
+      "magnitude": 4,
+      "mistakes": {
+        "c12bfc828b382d7b455c301cc5f2fd35e28a407f818f7602b5fdc5da2127b5a1": "chaque échantillon compte avec SA probabilité, pas avec le même poids 1/256"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.13a": {
+      "hash": "f54c37ef7cca41834a29bc95ad048bde44312f988e3a06495837df415b7818fe",
+      "kind": "str",
+      "mistakes": {
+        "9db96c7f71465cb24d38e9bc9648ab34e74a9ff930d69fa1ab50f46593ee1ce2": "les axes NOMMÉS disparaissent : axis=(0, 1) retire la hauteur et la largeur"
+      },
+      "prediction": true,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.13b": {
+      "hash": "6ac8f28146cb83a0d0ebd381397a1e7b2a3d1629d4bd5656f6238f729982709d",
+      "kind": "str",
+      "mistakes": {
+        "aa83a65c89dd89f7d525ae65672dec3b4b825b80658a8e4f04492eeef34f8507": "keepdims=True garde l'axe réduit, avec la longueur 1"
+      },
+      "prediction": true,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.13c": {
+      "hash": "37ae202ce72fd9ec28297244f1cc94f1cf7fc29973308780b06a2e957a6e39b6",
+      "kind": "str",
+      "mistakes": {
+        "71296ffac02378f804af4a6f4b06802fb3554c1f84ef5995864ff3b6a4c8ce15": "la lettre c, absente du résultat, est sommée",
+        "cc3b45acc19929ef351c752ba8926c30c2f950cdab9038400047312747941de2": "le résultat a les lettres écrites après ->, dans cet ordre"
+      },
+      "prediction": true,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.13d": {
+      "hash": "f750b322997681c57640d5e71492274a6b9d6b886081d0ca85392ae662831f68",
+      "kind": "str",
+      "mistakes": {
+        "b3529c97386003cf54fbffd54f64f7ca5258e0ce334770ddb716d2a157f8707c": "la diffusion répète la moyenne le long des axes de longueur 1 : le résultat a la forme du plus grand tableau"
+      },
+      "prediction": true,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.13e": {
+      "hash": "5d5b1d22ac81c2b225dd35bff5a9ce71d64c058b1b59320f8e4414f053b58787",
+      "kind": "str",
+      "mistakes": {
+        "dcf23bfc4bf496f93c38f0803162deb92f93e20ea989f4139c19356ce85b9e22": "les lettres absentes du résultat, d et h, sont sommées"
+      },
+      "prediction": true,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.13f": {
+      "hash": "6a01ab46833482cc96413be8bcf47ef7060b1159503bddc97d4ae7d178766980",
+      "kind": "str",
+      "mistakes": {
+        "2159e7447aac969540cfeb830096de0f421ee206108b74ac475051098130ea0c": "-1 laisse NumPy calculer la longueur qui manque : le nombre d'éléments ne change pas",
+        "4332199dfce6b7f647a1d71755ccedd12bbfbcb241fddad3878d8c3461a951d1": "-1 laisse NumPy calculer la longueur qui manque : le nombre d'éléments ne change pas",
+        "815c517020f4dc820cf497dfdfd00d72ad95780d267d67f159de02b8544373b4": "-1 laisse NumPy calculer la longueur qui manque : le nombre d'éléments ne change pas"
+      },
+      "prediction": true,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.13g": {
+      "hash": "bba4c514209d18ca92a8e242156126a9e70d994fe2bae1f5c9cabe27e75c645e",
+      "kind": "str",
+      "mistakes": {
+        "1f88f4972c17f7feff4641a572e334eee13304516d162fe13f26790e2f23f2a9": "(25,) contre (25, 1) : les formes s'alignent à droite, et chaque axe de longueur 1 est répété",
+        "ec8f770e281aa24de00c916fbf1ed7793dab0663a71e4546b1f98e25d0ca9a3c": "(25,) contre (25, 1) : les formes s'alignent à droite, et chaque axe de longueur 1 est répété"
+      },
+      "prediction": true,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.13h": {
+      "hash": "0e8b09ac7b3802bbc8fbeb8c770253040755d15c6c58fa067dbdc2789511ab52",
+      "kind": "str",
+      "mistakes": {
+        "2cc6a57b17880e2073e31aae8d7c66f7804af4dd7dd40835a6f087cdac7eab88": "reshape(3, -1) fusionne en un seul axe tous les axes qui suivent le premier"
+      },
+      "prediction": true,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.14a": {
+      "coarse_any": {
+        "0": [
+          "94f0277070006fc404bf53cca6e205e24f8a99c221f9edb9ca71bda03a710889"
+        ]
+      },
+      "decimals": 2,
+      "hash": "ab725d6ae5a052d1e0518a77951fa619883d89b407bee44a4328030620878734",
+      "hash_coarse": "011b65c0ce3a0de110f8c28b4ef8ee93a78d2c1dfeb4e5435f86cdeb4be2e9e5",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "c53ab51823fbbe8e4f43bd7f17f074371de75c14efc59261d645213a539983bf": "l'écart type des estimations de ht_14, pas celui de ht_age_14"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.14b": {
+      "coarse_any": {
+        "0": [
+          "b57ce49d10ac6c6911c02212ea976909bdad288214f007c24f4b293a6d398fe3"
+        ]
+      },
+      "decimals": 2,
+      "hash": "12816048d16d2ac103bdd687bbbf98c9d8c5c1104f89836465c21ac251232890",
+      "hash_coarse": "d2f031cbccf8d23105cbb8d64d00258f32330d41b4d4e429cf022e63d4291d0c",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "50f1c1b247e86bcae4696511d3f2179ce084be475f6d76005b3a79f223917362": "l'écart type des estimations de ht_age_14, pas celui de ht_14"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.14c": {
+      "decimals": 1,
+      "hash": "b59e54e373ff07a3aba2f9f290c7507ba9b6f462099d8e7f31ea89a70aeee01b",
+      "hash_coarse": "d2eca4592701e075ec1f3c5b3fbc9046480a7be9e2958031d4a4719c240ad36e",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "b47c4de306986729da2569cf5cbdddf8ff9158f1a9a4c484d1e226885fd6d339": "le biais relatif est m/Y − 1, en % : retire 1 avant de multiplier par 100"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.14d": {
+      "hash": "ec362e78db9db623c6995f23de4f00acc8cf88cfb34f0403c18b4002fdc46f39",
+      "kind": "bool",
+      "mistakes": {
+        "929f800352848d41027abe339e47199d2ae245bb1beddf6981eb129cfcfa436d": "compare |m/Y − 1| à 3 s/(Y√3 000), avec les estimations de ht_14"
+      },
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.15a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "5130b4de786c140356570d171889e3fec6619d17ed97972403246073b53149d9"
+        ],
+        [
+          "fc125a826a6b7cd7a268eb8c17b6fc2996b24b6c43d7c409c97b909ec66a4862"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "92bd70ebcfad84342eeca80482d05bf6e50aedfb8777840589cd3498dc8a162c",
+          "f152554a0b1f6c0dbb20b4e96f702d4f52d39a432d026e97fa2d7ab512e328a6",
+          "186aeddf7c8872d7b2328e3a510029189437e16fae1e0239c77f97a852e514ec"
+        ],
+        [
+          "dd02385b727e3f746b59bac1d6134b1e75f61f2bfda9eaed5b1f00919240d3b1",
+          "a32c4724b8b74e6b8778a42e80bb1afdc82a3c28c012575bac226cd0aa99c3fe"
+        ]
+      ],
+      "element_hashes": [
+        "a2438f744af6180566515cb9e21a146e372c96e6abfc392d61be09920f52d7d3",
+        "0dc484d34517afd86612707719c53ec23e638b5ddc3f1bada0761142422486f6"
+      ],
+      "hash": "4e93d01d9dda68e79fc6ad08e8cabeb86579c96cc1aa619b76db9423368ce052",
+      "kind": "array",
+      "mistakes": {
+        "2b4356b54761f396fa35d8a049dd898b7aef8fc16d1b28cc9ad30ea4a7048ae2": "en ordre DÉCROISSANT, comme les rend np.linalg.svd",
+        "b58164807d69d65894e4fc3013306da9a31559fd9c0c045c5d2390c9961f32fa": "les modules des valeurs propres de exp(TJ) ne sont pas ses valeurs singulières : J n'est pas symétrique"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.15b": {
+      "coarse_any": {
+        "0": [
+          "1f1f0af8b55d0b8f59ca8de41d579068d92786f540cac10d0e4c3a14d3c13dcf"
+        ],
+        "1": [
+          "615003509ea6013ffb28fc9e623db8aacc9ca5362a5f6d04aae5aadb48c05544"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "d1c8c02e12abd7b4befa368cb715c74e551c8d9e303d6ac413220c726358540f"
+        ]
+      },
+      "decimals": 4,
+      "hash": "15adb6f5b776948c15aaf386f46300a11bc7f411e38d3e6845585b03914fe632",
+      "hash_coarse": "753082ce12e5b1aee451fc966e2e841a736d60c8194148a2f7521a2e11d25f62",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "96817fbb7c25168fe15a4378ca652137206d2d0b4fca8e92edce04bbfa69d9f5": "la PLUS GRANDE valeur singulière du produit",
+        "b2dc5d079a313361a7682832b5a1e54546c1b8c69d9c2c377ab7b02e71643e9c": "le produit pour L = 1 024, pas sa limite exp(TJ)"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.15c": {
+      "hash": "95d3dda93e2234276944d0f2cc750745e68b3c0a9df3c198612ad6af0dbe85c9",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a743938e77c9910150b2442a989054c49a3e3aeb2764fb3f2e3e53e0e599bbd3": "h = T/L : la condition hK < 1 s'écrit L > KT, avec K = ‖J‖₂ (la plus grande valeur singulière, pas un coefficient de J)",
+        "ad965710fc443eec4be4c1396460a8605020877ee31bcf69c343a1294bc1c493": "h = T/L : la condition hK < 1 s'écrit L > KT, avec K = ‖J‖₂ (la plus grande valeur singulière, pas un coefficient de J)"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.16a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "3d61d57e6c287b4ebb8e76d6b8016d3bd97d05f52a710289b3f7313ef630620b"
+        ],
+        [
+          "1cf47694ba928516ab603a840d7de5f274edc0500accf46cfbdf351143cf88cd"
+        ],
+        [
+          "4c9177a439e80e204fb2043be42d4665892e212195ec83ed52429085c3bbabd2"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "532363a1cf2d58d9dc4b476378e555e9cb1627caeecfde7e638638325233e797",
+          "7b571eaabf405a24614f3ae38b97242b1fa0c90f162acc75cddd6f76c714094f",
+          "b5cf4b1062ad29cedb57f4f92e8e2465ba1bb6981a8763e4a2f8477e1ff3b764"
+        ],
+        [
+          "360e0ae38b3c20aea7b6a6a969d1de9d2e4d55e5e89c8e12e4466407ea926357",
+          "f8c76106376c2b6e25ecef39a3d1bc5d5367b97f40b64cc33eb6cfe0cd1adbb8",
+          "44413ed5960adc106f3e182ae187a33248c5257d363405e70a2d510d1ce8dffa"
+        ],
+        [
+          "8b924c91223484d9a85a88d5e0c25b930183a9381f6702c26ca9cd090f0d6b3e",
+          "b1e207577e0a8822648df24c83495a2809809eb5b274ac62d4772e768042485f",
+          "b9091bd5352d5b86d5577857b5c7f3de7033b07bcd3440c24e33f08245983cc3"
+        ]
+      ],
+      "element_hashes": [
+        "48a04a9f07d06986ced86da0cbe3a57f055913d4bcf64b36556a17ed16410c84",
+        "4ad8014a51adac79a9d0f483bcf9afadb9b5bcd20e64f99187968a64bf073942",
+        "56eeb3945c6f2fd8b4de1c8c703c92a724f132d434518bf837f0b202e1e3fbc7"
+      ],
+      "hash": "ad15773d8873e9fc76b3c320c101e82f7ad1f84c74b4baf26ba82d01b34d4645",
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.16b": {
+      "coarse_any": {
+        "0": [
+          "4168efcbb49c12ec0467a9c488ded455a3abfbaac7564624b7190637a793d5cd"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c3c99c5c729bbd86c14b97d69d0263c95257168a4d285bd94d09770eccad30c5"
+        ],
+        "2": [
+          "b83ff7802ea8fd94560782be5f4f14d5709797a2c9e470b785aefc3af81e469e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "dac699f5fbb6a54362204eddd7d2f08878e6894b07884cbdf1f8321614f6c16c",
+      "hash_coarse": "31cf667e9cfca1994ef23afeeaec8dddfe7880a5a89981bb5bbcfd575b6e2185",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "e6274863994c46198d5b52162feb4f62366a5af115a4849b527b181c81b619c4": "(n,) moins (n, 1) donne (n, n) : retire à chaque station SA moyenne, un vecteur (n,) contre un vecteur (n,)"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.16c": {
+      "coarse_any": {
+        "0": [
+          "291086859e7d89c36598b3e1c17aecdb83dbd1e80b22cce1c320f48553bf4004"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "f73c8e10d3dc9de465e89ce422c06f110834d8811435b35f7776fffb5c80f1f7"
+        ],
+        "2": [
+          "0891c0aca42ea21167d72c8e6368f50ee095527936d45d3fa9eb62466dad1103"
+        ]
+      },
+      "decimals": 4,
+      "hash": "6d9eed5be84191dbfa65b5118bc9c34332f26bd004f4b57b2118503cf31a6ba6",
+      "hash_coarse": "29369a1cec117df1da2677e5fa9c453fcfdd672c8554b3fef410a1a1b584426d",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "7cbeca677de33045111e9462015cd435585a136cffffe9fd19ff2a64fc9c623c": "l'écart type est la RACINE de la variance",
+        "a2f830fc5431cf427cb97ed67e69f34d04c4920f194e3383caadc01e496f4615": "ddof = 1 : la variance d'un échantillon divise par n − 1 ; np.std divise par n par défaut"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.18a": {
+      "hash": "94afcbcea47623c08e56cbbc86c30645e69eef8f77b8fdfa7736c462ef6db3b8",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "744a991dcf6c2f80e9810af10ac8d0342fc0b0309d002e6ac3c32c14a35feb56": "on recommence : après une répartition, d'autres communes peuvent dépasser 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.18b": {
+      "decimals": 2,
+      "hash": "1b1b7ecc9628f7b574c01ac3e60bc0907f496941ab67e1dd64f4fd55ead0f31e",
+      "hash_coarse": "18498475522b37add2825fae874f071e6eb59f7f675170e030173fa787808b5b",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "5519466ccf6bf2d2f5d9553c5e57a90f963fb817b12823e022187e172fdf40cc": "l'écart type des estimations faites avec TES probabilités, pas avec les probabilités égales"
+      },
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
+    "M20.18c": {
+      "decimals": 1,
+      "hash": "ad01ab2eb7d9ae090757323234a675bda7cc3c65f583cfeb8b61244e1c2773b1",
+      "hash_coarse": "c44ef5ffb633535d33419beeb5bb812b2481678d6d4c13cd8d9a39e7f9335220",
+      "kind": "float",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",

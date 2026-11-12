@@ -212,6 +212,14 @@ def test_strings_ignore_case_accents_and_spaces():
     assert "chaîne" in message("s.1", e, 3)
 
 
+def test_an_einsum_formula_keeps_its_arrow():
+    e = entry("s.2", "ij,ji->")
+    for v in ("ij,ji->", " ij, ji -> ", "IJ,JI->", "ij,ji→"):
+        assert passes("s.2", e, v), v
+    for v in ("ij,j->i", "ij,ji", "i->j,ji"):
+        assert not passes("s.2", e, v), v
+
+
 def test_booleans_accept_french_words():
     e = entry("b.1", True)
     assert passes("b.1", e, "vrai") and passes("b.1", e, "Oui") and passes("b.1", e, 1)

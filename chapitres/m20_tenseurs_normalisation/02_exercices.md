@@ -7,7 +7,7 @@
 
 Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · ⏱️ durée indicative · parcours C = complet, E = essentiel.
 
-Dans tout le chapitre, comme dans la fiche : les axes d'un tableau sont numérotés à partir de 0, et les tableaux sont rangés dans l'**ordre C** ; une **forme** s'écrit comme NumPy l'affiche, `(12, 28)`, ou `(5,)` pour un seul axe ; `ddof` est la correction de la variance, qui divise par $N - \text{ddof}$ ; $\mathbf{1}$ est le vecteur dont toutes les coordonnées valent 1 et $\mathbf{C} = \mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top$ la matrice de centrage ; dans un sondage, $\pi_i$ est la probabilité d'inclusion de l'unité $i$, $S$ l'échantillon tiré, $\hat Y = \sum_{i \in S} y_i/\pi_i$ l'estimateur de Horvitz-Thompson du total, et, sauf mention contraire, les unités sont tirées **indépendamment** (tirage de Poisson). Quand un énoncé numérote les unités ou les coordonnées, il les numérote **à partir de 1**, comme en mathématiques ; les indices d'un tableau NumPy, eux, partent de 0, et les **positions dans la file** aussi, comme dans la fiche. Une matrice s'écrit dans le notebook comme une liste de ses **lignes**.
+Dans tout le chapitre, comme dans la fiche : les axes d'un tableau sont numérotés à partir de 0, et les tableaux sont rangés dans l'**ordre C** ; une **forme** s'écrit comme NumPy l'affiche, `(7, 2)`, ou `(9,)` pour un seul axe ; `ddof` est la correction de la variance, qui divise par $N - \text{ddof}$ ; $\mathbf{1}$ est le vecteur dont toutes les coordonnées valent 1 et $\mathbf{C} = \mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top$ la matrice de centrage ; dans un sondage, $\pi_i$ est la probabilité d'inclusion de l'unité $i$, $S$ l'échantillon tiré, $\hat Y = \sum_{i \in S} y_i/\pi_i$ l'estimateur de Horvitz-Thompson du total, et, sauf mention contraire, les unités sont tirées **indépendamment** (tirage de Poisson). Quand un énoncé numérote les unités ou les coordonnées, il les numérote **à partir de 1**, comme en mathématiques ; les indices d'un tableau NumPy, eux, partent de 0, et les **positions dans la file** aussi, comme dans la fiche. Une matrice s'écrit dans le notebook comme une liste de ses **lignes**.
 
 <a id="quiz"></a>
 
@@ -47,7 +47,7 @@ Une photo en couleur de 600 lignes et 800 colonnes est rangée dans `img`, de fo
 3. Et `np.einsum("i,j->ij", u, v)` ?
 4. Et `np.einsum("ij,kj->ik", A, B)`, en notation matricielle ?
 5. Dans `"abc,cd->ad"`, quelles lettres sont sommées ?
-6. Combien de multiplications fait `"ij,jk->ik"`, calculé par des boucles, pour des tableaux de formes $(50, 20)$ et $(20, 30)$ ?
+6. Combien de multiplications fait la formule `ij,jk->ik`, calculée par des boucles, pour des tableaux de formes $(50, 20)$ et $(20, 30)$ ?
 
 ### M20.Q4 — Diviser par une probabilité : sans biais ou biaisé ? 🧠 ★ ⏱️ 4 min
 *Fiche §5 · parcours C, E*
@@ -99,11 +99,11 @@ $\mathbf{a} = (1, 2, 2)$ et $\mathbf{x} = (3, 0, 3)$.
 
 Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en écrivant ta démarche dans ta copie de `06_mes_reponses.md`. Reporte ensuite **la valeur** trouvée dans la **partie 0 du notebook**, sous la forme demandée :
 - un nombre entier, ou un nombre avec un point décimal, comme `-1.25`, arrondi comme le demande la question ;
-- une forme comme NumPy l'affiche, `(12, 28)` ou `(5,)` ;
+- une forme comme NumPy l'affiche, `(7, 2)` ou `(9,)` ;
 - une liste entre crochets, comme `[0.2, -1]` ;
 - une matrice comme la liste de ses lignes, comme `[[1, 0], [-2, 3]]` ;
 - une fraction entre guillemets, comme `"3/7"`, quand la question le dit ;
-- une formule d'`einsum` entre guillemets, comme `"ij,j->i"`, avec les lettres que l'énoncé impose ;
+- une formule d'`einsum` entre guillemets, comme `"ab,b->a"`, avec les lettres que l'énoncé impose ;
 - `True` ou `False` pour un vrai ou faux.
 
 Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'arrondis qu'à la fin.

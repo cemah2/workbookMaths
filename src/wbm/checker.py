@@ -228,8 +228,9 @@ _IGNORED_CHARS = set("-‐‑‒–—−_   <>")   # "A < C < E": an order
 
 
 def _norm_str(value) -> str:
-    """Case, accents, spaces and hyphens are ignored; typographic apostrophes unified."""
-    text = unicodedata.normalize("NFKD", str(value).translate(_CHAR_MAP))
+    """Case, accents, spaces and hyphens are ignored; typographic apostrophes unified. An arrow ``->`` is kept (as
+    ``→``): in an einsum formula, ``"ij,j->i"`` and ``"ij,ji->"`` differ only by where the arrow is (M20)."""
+    text = unicodedata.normalize("NFKD", str(value).translate(_CHAR_MAP).replace("->", "→"))
     text = "".join(ch for ch in text if not unicodedata.combining(ch)).casefold()
     return "".join(ch for ch in "".join(text.split()) if ch not in _IGNORED_CHARS)
 
