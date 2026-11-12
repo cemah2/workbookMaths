@@ -21,7 +21,7 @@ def verdict(ex_id, entry, value):
 
 # ------------------------------------------------------------------ fraction
 @pytest.mark.parametrize("value", ["3/4", " 3 / 4 ", "6/8", "(3)/(4)", "0.75", "0,75", 0.75, Fraction(3, 4),
-                                   "−3/−4"])
+                                   "−3/−4", "3/4."])     # a full stop copied from the answer sheet (CP4)
 def test_fraction_accepts_every_writing_of_the_value(value):
     entry = entry_of("F.1", Fraction(3, 4), kind="fraction")
     assert verdict("F.1", entry, value)[0], value
@@ -32,6 +32,8 @@ def test_fraction_simplified_refuses_a_reducible_fraction_with_a_dedicated_messa
     passed, status, message = verdict("F.2", entry, "6/8")
     assert not passed and status == "near" and "irréductible" in message
     assert verdict("F.2", entry, "3/4")[0]
+    assert verdict("F.2", entry, "3/4.")[0]
+    assert not verdict("F.2", entry, "6/8.")[0]
 
 
 @pytest.mark.parametrize("value, words", [

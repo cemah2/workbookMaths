@@ -1796,3 +1796,20 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M20.18 🏆 Défi : des probabilités d'inclusion proportionnelles à la taille, et un estimateur presque sans variance ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (15 cartes)
 <!-- wbm:end M20 -->
+
+<!-- wbm:section CP4 -->
+## CP4 · Examen blanc de la partie IV ⏱️ 3,1 h
+
+- [ ] CP4.Q1 🧠 Dix affirmations sur la partie IV : vrai ou faux ★ 10 min
+- [ ] CP4.1 ✏️ Coordonnées homogènes, chemins d'un graphe et variance d'un produit ★★ 10 min
+- [ ] CP4.2 ✏️ Jacobienne d'une composée et produit vecteur-jacobienne ★★ 10 min
+- [ ] CP4.3 ✏️ Mode direct et mode inverse sur un graphe de calcul ★★ 10 min
+- [ ] CP4.4 ✏️ Gradients par rapport à une matrice ★★ 9 min
+- [ ] CP4.5 ✏️ Hessienne, Taylor d'ordre 2 et nature d'un point critique ★★ 10 min
+- [ ] CP4.6 ✏️ Itération de Richardson et récurrence d'ordre 2 ★★ 9 min
+- [ ] CP4.7 ✏️ Moments le long d'axes, einsum et estimateur de Horvitz-Thompson ★★ 8 min
+- [ ] CP4.8 ∂ Une démonstration au choix : une matrice qui raccourcit les vecteurs, ou Var(XY) ≥ Var X · Var Y ★★★ 12 min
+- [ ] CP4.9 🐛 Corriger une copie : cinq erreurs ★★ 8 min
+- [ ] CP4.10 🔗 Problème de synthèse : ajuster une loi exponentielle, du graphe de calcul au pas critique ★★ 14 min
+- [ ] CP4.11 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
+<!-- wbm:end CP4 -->

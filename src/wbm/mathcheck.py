@@ -119,7 +119,8 @@ def _parse_fraction(value) -> tuple[Fraction, bool | None]:
         raise _ApproximateValue(x)
     if isinstance(value, str):
         text = _clean_text(value).replace(" ", "")
-        match = _FRACTION_TEXT.fullmatch(text)
+        # a full stop copied from the answer sheet ("2/11.", CP4): the fraction is still the answer
+        match = _FRACTION_TEXT.fullmatch(text) or (text.endswith(".") and _FRACTION_TEXT.fullmatch(text[:-1]))
         if match:
             outer, num, den = match.groups()
             numerator, denominator = int(num), int(den)

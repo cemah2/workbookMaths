@@ -352,7 +352,9 @@ def _start_one(chapter_id: str | None, *, root: Path, work: Path, stubs: Path, m
     if kind is None:
         out("👉 Teste toute ta librairie : python -m pytest tests/ -q -m mymath")
         return 0
-    missing = {} if kind == "synthesis" else missing_earlier_modules(chapter_id, manifest, work / "mymath")
+    # an exam or the placement test calls no mymath function: the list of missing modules would only be noise
+    missing = {} if kind in ("synthesis", "exam", "placement") else missing_earlier_modules(chapter_id, manifest,
+                                                                                               work / "mymath")
     if missing:
         listing = " · ".join(f"{cid} : {', '.join(files)}" for cid, files in missing.items())
         out(f"ℹ️ Modules de chapitres précédents absents de ta librairie ({listing}).")
