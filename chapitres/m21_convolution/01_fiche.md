@@ -292,9 +292,9 @@ L'idée : une position existe quand la **dernière case** de sa fenêtre reste d
 **Exemples.**
 - $n = 50$, $k = 4$, $s = 3$, $p = 1$ : $\big\lfloor\frac{50 + 2 - 3 - 1}{3}\big\rfloor + 1 = \lfloor 16\rfloor + 1 = 17$. Avec en plus $d = 2$ (étendue 7) : $\big\lfloor\frac{45}{3}\big\rfloor + 1 = 16$.
 - Une seconde de son à 8 000 Hz, $k = 6$, $s = 4$, $p = 1$ : $\big\lfloor\frac{8\,000 + 2 - 5 - 1}{4}\big\rfloor + 1 = \lfloor 1\,999\rfloor + 1 = 2\,000$.
-- **La fenêtre incomplète est perdue.** $n = 20$, $k = 4$, $s = 3$, $p = 0$ : $\big\lfloor\frac{16}{3}\big\rfloor + 1 = 6$ fenêtres, qui commencent en 0, 3, …, 15 ; la dernière couvre les cases 15 à 18, et la case 19 n'est **jamais lue**.
-- **Plusieurs tailles d'entrée, une taille de sortie.** Avec $k = 4$, $s = 3$, $p = 0$ : $n = 19$, $20$ et $21$ donnent tous trois 6 positions, et $n = 22$ en donne 7. La partie entière confond $s$ tailles d'entrée consécutives.
-- **À l'envers.** La somme glissante a $q$ positions si et seulement si $(q - 1)s \le n + 2p - d(k - 1) - 1 \le qs - 1$ : un encadrement qui donne toutes les tailles $n$ possibles. Ici, $q = 6$ donne $15 \le n - 4 \le 17$, soit $n = 19$, 20 ou 21.
+- **La fenêtre incomplète est perdue.** $n = 26$, $k = 4$, $s = 3$, $p = 0$ : $\big\lfloor\frac{22}{3}\big\rfloor + 1 = 8$ fenêtres, qui commencent en 0, 3, …, 21 ; la dernière couvre les cases 21 à 24, et la case 25 n'est **jamais lue**.
+- **Plusieurs tailles d'entrée, une taille de sortie.** Avec $k = 4$, $s = 3$, $p = 0$ : $n = 25$, $26$ et $27$ donnent tous trois 8 positions, et $n = 28$ en donne 9. La partie entière confond $s$ tailles d'entrée consécutives.
+- **À l'envers.** La somme glissante a $q$ positions si et seulement si $(q - 1)s \le n + 2p - d(k - 1) - 1 \le qs - 1$ : un encadrement qui donne toutes les tailles $n$ possibles. Ici, $q = 8$ donne $21 \le n - 4 \le 23$, soit $n = 25$, 26 ou 27.
 
 ⚠️ **Erreur classique.** Arrondir **vers le haut** : la fenêtre incomplète n'existe pas, c'est $\lfloor\cdot\rfloor$. Oublier le « $+ 1$ » (la position 0 compte), le 2 de $2p$ (le padding est de chaque côté), ou, avec une dilatation, garder $k - 1$ au lieu de $d(k - 1)$.
 

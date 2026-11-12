@@ -70693,6 +70693,2194 @@
       "sign": 1,
       "source": "chapitres/m20_tenseurs_normalisation/05_solutions.ipynb"
     },
+    "M21.1a": {
+      "decimals": 0,
+      "element_hashes": [
+        "c025597bd56eba47b79960d91be97a6986f5cbb95ab0e2bd71415590068614d7",
+        "4bb9e42462431992c390cec69a1d00e7169155a8dc94dc0a737eca9caae5bfc4",
+        "76dc387b97f7706e97e42cb1038aabef5b4ff7ae4ba970cda4cfeeb55902f040",
+        "e00e49719038feed7c0a98d8fb972a5bbffb717da926ce39c2b42c5cf94007ba",
+        "3baac56c81f98f6ee3f01c9645a588643475b7de8464e020caa7f540ca2f376e",
+        "677c7023c789fc86dc5c327a4c3c91975274f4d31451bc8c1b48ebac00c373e3"
+      ],
+      "hash": "df94c0bbfe44c867910abe04bafe4d510ef9b1498c838f08c2b2a6ce8b3eeadc",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "47dab3383281e59bfa0dd8b497966dc47fe98085ced99c60648237f82f999e5d": "du terme constant au terme de plus haut degré : ta liste est dans l'autre ordre",
+        "fb885388b0538fc4a7b84d7cc4a2422305685aa9b41999a4270215268bb7f45f": "le coefficient de Xᵐ rassemble les aᵢbⱼ avec i + j = m : en faisant glisser une suite sans la retourner, on calcule une corrélation, pas un produit de polynômes"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.1b": {
+      "hash": "06e0a542671db21314580a3498085685f946352fea903290264cce5356e33e0d",
+      "kind": "fraction",
+      "mistakes": {
+        "445a711009ad5386a2b8ecc6399e2b8e9ecde8b9ae8abcb45c9c00884928c52b": "l'indice du coefficient n'est pas la valeur de S : les faces commencent à 1, les indices à 0",
+        "e3292c56279ad62513fbcee841755b65fd2aa9d692f78cd96f9c82b4fc763741": "chaque dé décale d'une case : l'écart entre l'indice m et la valeur de S compte les deux dés"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.1c": {
+      "hash": "f6f2dca48493a0fe5e63eb45651ad345224875b1419da98110c093891ddba5d5",
+      "kind": "fraction",
+      "mistakes": {
+        "690335767786a187042afc25f3c2e36af3af8bf3d33b30668734d7f1e3b9e4d2": "S ≥ 6 : la valeur 5 n'en fait pas partie",
+        "b218ebd5bf85c67ae0d6fa068c6af1a5637f583d8097fa508022242045ab033d": "quels indices m donnent S ≥ 6 ? Chaque dé décale d'une case"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.1d": {
+      "hash": "5871f2dab1ede5a6a23526fb220c540ee3991fbee50e74e91989ce6921d155ca",
+      "kind": "fraction",
+      "mistakes": {
+        "477d14e475c1aa9787d585e8606704d5be7365ac6585a5d85618aacc85adc949": "c'est l'espérance de l'indice m ; la valeur de S est décalée"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.1e": {
+      "hash": "bc562343acb3b017f55032229d3021398d35cbbfe0c2b628e120f67ba6dc597f",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "72da4bbb10a98c3b9dc2d2551ab3a3de425232e5040a8062805e350b85cc3360": "l'indice m n'est pas la valeur de S"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.1f": {
+      "hash": "7177027755cea7693a16b1c121eb913e6609f06c380da6531b692d79b683e824",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "8bbd2c315f272faa1846661f2220e25c019c8a24242d31820e7aed3a5b351740": "c'est l'indice du plus grand coefficient ; la valeur de S est décalée"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.1g": {
+      "hash": "6f54d0927ae442884fb153ae9369bd182b173329c7a5e35a30cee60ea99c6cb7",
+      "kind": "fraction",
+      "mistakes": {
+        "43005e921c8673d87753f8ab19fbd2412d94f694a2fc0e5ad2b6daa8c0159a27": "A + B + A' ≥ 9 compte aussi la plus grande valeur possible"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.2a": {
+      "decimals": 0,
+      "element_hashes": [
+        "fb126dfd0a5bc361db0be29078659a61c6e37a1ef8fc0f9ba8a083d5eb0b0980",
+        "ad85b0fa073766da6e3c7279daa0d934a5cdf05888e4aab744520c8f09d261d4",
+        "e596c4fd10be5cd02b8f9212a5ab5f975bbd982d56b99e7fe5162f56d9bc2b1c",
+        "25e8f8d6282f5fc9e1b72358221123f567a9113c37a7674b39f8509435f8efc1",
+        "b33226d6c5b5d9fc46b2bd5fbbab6bc1376d493717e6c06d0c0f0d434d7ad7fc"
+      ],
+      "hash": "f143acceac1a70333607f4d8163ccc707222b1d0aff31206ea79c061ece89db7",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5468926b502d8bc880fda1c6fce0dfd7c46deb986e801bb55dc20288a79e5dce": "la corrélation croisée ne retourne pas le noyau : tu as calculé une convolution"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.2b": {
+      "decimals": 0,
+      "element_hashes": [
+        "21c3ca98a09d65e7b1a9194df0d290a4b4d251c8656b567b62e5bf2e72856cf0",
+        "b63e711743e3bc8680c147f65a744fb8a4aa02942b2897227e1ebe6e94e7eb77",
+        "8a73504fd889b229477bb3874af63b8daaa6c0f8fc7dd326acdb81b955dff6e9",
+        "137dd5a2d50bfabc7c566b7be83a40a46d4428d2f73da46e0b24e2491f6ed2cc",
+        "749ef57a6bcd2ac0c70ad13b8bd5a9f10137b7599f078ed1af557e5c64b54f0f",
+        "0dedb8d95dab6c6b74826a9ec07f252b90e442fefe4d3cf91d277d5dafd0b2f3",
+        "b3bcc0983ce8d486eb03807bf563eb30334fe1d789965503c28cd675398f63a9",
+        "524457d93cae48830973c93b74e76e7c6cb5138034b27789b89f8cd22bbce010",
+        "163c8cefa75d832553231d2e243f6ccaaecbb7847aa6f2e94199fc454e3f3562"
+      ],
+      "hash": "38ca3187200647b6c7fc665689b619904fbcad031487fc04a75a1d7847b22b80",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "f24d10625586ed324180af52918e4aa22fb54f6afba554a4f1472b293bbbe3a3": "la convolution retourne le noyau : tu as calculé une corrélation en mode plein"
+      },
+      "shape": [
+        9
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.2c": {
+      "decimals": 0,
+      "element_hashes": [
+        "3d05f08f47502241e5be9953c78cb282dfec4c7989c267aa49b3691158dc25aa",
+        "26ffdf637c9b1f69b6231fc6195bc90cd2381f48e7119f65537fb8f0be6fec45",
+        "01157610be891655f304c95262bb8222db7555ca7ed70decf95e6100dcf0e513",
+        "bf6d84af076f1951986bc03cb8aea844d4fda4416bac0b046a3928711bdcbd59",
+        "6243e9b5087e2b55c3694a3d69ed8dbad4616cac4543b138ae83e4f053c3f628"
+      ],
+      "hash": "44e9b519a852ad7d784573778def0e7548b5d682c1d706fe386768f2901e08af",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3c6519a1348f57ecc44066e02a34d88801b6a7d6eed7310ec137bf4fd8d9c9bd": "la convolution retourne le noyau : tu as fait glisser w sans le retourner"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.2d": {
+      "decimals": 0,
+      "element_hashes": [
+        "ad54743168837012d15d5f95cb6087eedd05f303f7584f06c589404f70f37654",
+        "6bc8aecbd2d4807093f74a331ed34d9b979ded5ac03090a22ccfa5ffb492d9a9",
+        "7fc56c54229601cc22ab460c003a91118d625339726f480ef87423d0441d5d2d",
+        "85bf305c89cd63de0578cf5b792d8d0beaa6af9b4d65c55969cec8cb64102f42",
+        "9e1ecfae5ab4b86d80ab31d76601bd8d999abc1aae364eb4e83c64602f3f1579",
+        "b945772ff2778f454e3dca837bd0077809341afbd8678a91b8df82f526f96ac2",
+        "696ec4e70c0eaf4e8fd81a2423677a5dcb599b7858008d80fb3c63b738768c53"
+      ],
+      "hash": "be89ec1f60e5cf6bd9702546f0c9b157d4e68dd2cf730186b698855d3acfd067",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4d8ff9950bfc7d57927696ff56013ac17c09990783795e6486e634b10aa9eb94": "NumPy commence le mode même taille à l'indice ⌊(min(n, k) − 1)/2⌋ de la convolution pleine, pas à l'indice 0",
+        "ecea4d4126bb9e36f54f5976b0b2488b6067264ae6a62d635af3b2337a9f89f3": "le mode même taille garde aussi une valeur du bord gauche : il ne commence pas à l'indice k − 1"
+      },
+      "shape": [
+        7
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.2e": {
+      "decimals": 0,
+      "element_hashes": [
+        "66ff8b46178acb46395a2df5d04191ade8320261c1da50555d97a8af2f007916",
+        "3931f422222af5cba79d02b399938f6beddff874983ffee8148fe00b46407e44",
+        "521c5a69f07862c7bb7bb0f3215412df24fa03cc4e3b873d0a7ad0910cf91247"
+      ],
+      "hash": "0d6669a49050e3ea2d1616d64b984e406cad8c6cea288e1e687fa7af8e0c4a38",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "ce8495974ca380f32ef7b7c669b71bf2fa711ceee60a8275b4db085fde1f14f6": "une corrélation par w redonne a) : il faut un autre noyau"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.2f": {
+      "hash": "b1e7c3b621fbcf5fb89c15118a01617122c146a9c43970bd67bf65b78d12d592",
+      "kind": "bool",
+      "mistakes": {
+        "2c44b1f79d188df986c62217b8fb8b1a416110ba131a68e034e8ea4ade26bd27": "compare terme à terme : retourner un noyau qui n'est pas symétrique change le résultat"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.2g": {
+      "hash": "51e93d27582b3739521d32fbe751093f21c90fd894e092301c1ae3ae7c79e715",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "2baa955ff238533edb1eaaacbfd9cc8d31bfa371a044b614ef01b61cc477e3ae": "la somme d'une convolution est le PRODUIT des sommes des deux suites, pas leur somme"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.3a": {
+      "decimals": 0,
+      "element_hashes": [
+        "19d48eaf63a0f10c50799ea5795c067ded90467eb4659e9e986866c8146e99c2",
+        "7a9d22cd828378f1cf189f1cf7df86833e83221bd84c2367be8abfd754512829",
+        "1332ba9d7a139c344f0354b3a659abe9c286e3d3ceeb19ac1026c9cb2d8f945d",
+        "388b7ba074438a26eceb0dc35f30a56f3b0e40c9369ed2c82de5e2847928be69",
+        "942ecb5e8ab4bbff6e3ff94562594022d6674c1f633896c606422fb88fee7904"
+      ],
+      "hash": "b6a484d552e3cbe6df00c0e7ec4d6088abba2ddef781f28c013e30011faeb6d3",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4d1f9a614a11ec2e86cbd439d4358e581e680dc8551be395c490d8211296927a": "chaque différence se divise par h"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.3b": {
+      "decimals": 0,
+      "element_hashes": [
+        "4588e86ab6e350e7f5e9d0fa8e58215f5750bddf70b907e634bcc4486f18e65d",
+        "fa89ee3129cd623b63152e09b715106d40872e162a523adfa6df4e80523ebba8",
+        "a9504a2ad045eb1987220ca0c8b48e0e333428d7d221be71c1fe1f76cc48dc43",
+        "ac876b49ccfa342b5703f3a36fad6c9aa1f8595a214fed188d5c6f1a00215ba3"
+      ],
+      "hash": "c255b7dd50d0eac00c5e9a2664b6d78bfbdc4e7b2f92edef2b681be131a80c95",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "57b5f2a2385978505177f874e75ada6cbdec4df9ee3b619e840fe46451a4c363": "ce sont des différences avant ; la différence centrée lit les deux voisins",
+        "75df1241e9a4e75e9bd3b7ec75e78aa85ba4081baa011f1730fde8199458d37f": "la différence centrée divise par 2h, l'écart entre les instants t − h et t + h"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.3c": {
+      "decimals": 0,
+      "element_hashes": [
+        "be40c3c241b3820f51c0f4ba3d205d0d34c6c4948559ad2fe75c32b1c3b8feff",
+        "75721714253c58cc678024bdaf303ee3f5312a54998585f868132a52494be33d",
+        "42680d4fd10dc32c88f5b84489c9e8df16e0d4700bbc267f22f04d0980a4d9bd",
+        "921a320a320392a71b54a8b327c3b4bebea44b0a8deac8c2caa37b0430ba60f2"
+      ],
+      "hash": "acd5d3a5747fb42ba68fd71f08b973fdcc76f90ffc379fc7d0a85ef1d5890fea",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "30f072a5c7b273ee3636dcf01055b841ffe1afff182e0282576550180bd3d0ef": "la dérivée seconde divise par h², pas par h",
+        "b064e05eacdbf2c85a53445c058114c2ca20ae13c349a86a6894829999321b9f": "(fᵢ₊₁ − 2fᵢ + fᵢ₋₁)/h² : as-tu bien divisé, et par le bon nombre ?"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.3d": {
+      "coarse_any": {
+        "0": [
+          "1855d5c5b7131591ea051dfa295d8e350c8903136e6601b041d387e3239a426d"
+        ]
+      },
+      "decimals": 2,
+      "hash": "53a67ec6716a16f2cae1e52c0e4399f17878d970a61f6ce4a0acc337c4b5b2ed",
+      "hash_coarse": "e34a960216225d834b247b8270fc45fd8bf84ac18b64a98f709df0c091c323e4",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "42cc066ad545aea50f985629ad4029c2f7f568e744c58a0f518fdf48d6549d2d": "l'erreur est la valeur approchée MOINS la vraie valeur"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.3e": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "1ed5a1c9ecfd926f79912fab20d1c387c8ed314c54cca76e0712b13e1bd57b1f"
+        ],
+        [
+          "1e18fb21a0325f6e2f17b413a7c32e454d94befce2b592e7395efc012bd85f67",
+          "c0d2f7650830219fbb18d0d6a16811e28533b836bb2b9749c13eaedaf5496885"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fea9cc5bfb27e6cf792a4429ffdcddefdcab11ff348f9f8fd3b25e190540d12c"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "c9f3efbb1349a6b3293b79fef54b22d860ab14498ad25df05c48ebe8d6026259",
+        "30561d2f762dff25ef9d8de4dc388c7fde73fa4285c46d138d60c12afda6b1c8"
+      ],
+      "hash": "8eb5383fd2deb0cd330dddb7032898e3f9218797caaf39911210da9e7dbe1eb5",
+      "kind": "array",
+      "mistakes": {
+        "d86f0c54ad13eae4db942e742b4e742ffc73af841fba02a4cafe2773c2bacf9e": "dans l'ordre de l'énoncé : d'abord f′(2), puis f′(3)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.3f": {
+      "hash": "1c92e95ef0145a2b19ce2d42803eff2a5a0f879119f803a6e63f6cc0194227b0",
+      "kind": "bool",
+      "mistakes": {
+        "7ffa8d5a0988d848f5ee5452c1d927b49854253f47fc10ad8476ac8c88a67cdc": "np.convolve retourne le noyau : regarde le signe de chaque terme"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.3g": {
+      "alt_coarse": [
+        "c60194f91fc3ddd6a39aa54b7cf2980825b992bc5d86f0398e491de033e497ed"
+      ],
+      "decimals": 2,
+      "hash": "b29d31168fe9a7c4bb9c9a61858c37725ed78a34ac0ecff7eb7a40d827cb0099",
+      "hash_coarse": "7470e960eb224dc75c2f0d0666477c22bcc5b7f10b2eeca521850a300d18a773",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "617b8eb45b09d202afd01954c5534a8ba9f5df29c68ad2553453f0f5b13b2aa3": "l'erreur dépend de h : relis sa formule (M05a)",
+        "b5f7c1af6ca30b2a8927951402b2a506914bfecd0e9472621ac7c56fafe2c224": "l'erreur de la différence centrée est d'ordre 2 en h"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.4a": {
+      "decimals": 0,
+      "element_hashes": [
+        "1b50a5ac9b7292caa629f959a3c18a8404725fc43601ffd59e33165237bd4f8a",
+        "2d765243ce783a474c52ecb3030545ca0193e65c30a67efbed5c413e2823425c",
+        "4eaa48ede0438b5ed98be155c3376a6821ce2841783a9848027f28cfdcb84907",
+        "ab87d395179dd7b29d02b9e0ab475579a2c40e4a7b04f2d24dbb25a54b575fda",
+        "4244fdf8d3ea868d17aa3742d5253d6171aa90842a13aa4bf25d57e9ea797d4c",
+        "cc4f5da23113626cd612210a78c6f0ab8d2436c09282d48eeb7a374fbbb2d4b9",
+        "db7ed10ba3b6a6be553517dc0706ebbdd4b82336782cc6918ce5acb8d9091340",
+        "4e3849801f65d3eeacf6bf9b61565c542dc66abedaff4da84e599ded91809b7f",
+        "e0ce97c082a73961b947a3175e492a5b55eb5db448f91264d0771495df118372",
+        "5863b1ca9cd4e43820fb7830c5a147fd4a37df20a34a8ca19812649df0c1dd17",
+        "a19fd30dc6cacc67f5401a89c28683b14e41fba18501642e84ddf867f929b771",
+        "e6cc5520c530d510cd1a430b1169807ec6ac23769f6d9cf4c9a3f38d7a79934e",
+        "5d2318940bf933d6c65d2759c7e26f9f2218347f16b354446a4dbe7c79377763",
+        "3eca22d8f1915d6de70ef7ab02b556525cd5c0cc1bfe7c1c84fea9f9d192a9e2",
+        "0fc334fd8620a854f4bf52064b8710afa50e04fca4cd8f65e73ab8388a613f79",
+        "97ceb83d67179e4d7932ca6b682e8f373ab5e2ce946b5fc5a3bb4be8b02046b7",
+        "cf5fcca4f5ed8868149f0295a32649f274b19401e4944d1c55e685b2868b61df",
+        "18fcb1cc0ed4d4ef32e7613935589c411055ee704d75a161e5bc69792a30cdda",
+        "9dee6b925cb93dc8211858647d32e4ba8db26647e715904268ed0fae249d9a52",
+        "04948d525f98c539cc99a6e6385f7d3c2896a54fc0b1128c905c7803d70440f8",
+        "be78d6adf17b1a9c4cc63c4c56d7921bddacbcc7f80b2813deea19e2001db8bd",
+        "aca87389539f4ff723ff023059bd7c5cc7505bf7d9662bfe37f234c2abb2c011",
+        "5952d8ab6e1ebc70c0ef4a986453df27455c3ff7f6aba5e530567e97a9ab1aba",
+        "50f21215e283940c29485c074eca9190a22ded757d8b1bc1b73ca8200a1b60df",
+        "419cda8703205833d45df3c151947e66cd37efd042f6e88e90af0ee7c6545b26",
+        "5030833fa9e33ae822fcf27b68d86de37f080eb1327f9fb7c44dc411e38effc2",
+        "3c26dcb076bb9d2a8d37bb06d23d9c9e79bcfd3f807cd450ca923d2db34db13a",
+        "0b7d651c01f27951271329e3d667c72f8a1e43ce638e82295b3c12d1dcda8228",
+        "70a7b23e08dd228437f275b9476d8bee6ad97da416a1dcdeaf28c4287478889b",
+        "5ae7bda4a60e1b6ca1a9126cdea67897bedb311b3ce3bde5f01e1645a80fca51",
+        "5f44dd5d49f798c995fe4c3d3826250ebd6edbdd6b7091b42f6f44828c7ff012",
+        "18443fd6e6711de3d95e3f9a7809040f367c97e0a8538bcd220e580316b843db",
+        "87482fbd5d7ddfba2751873a4eeb711f839dbbae97a7e62961129a6599843aac",
+        "93083b56a231a3ed6bb0186d298b077d1d71f0605a70eb6b18652dfad131ce7b",
+        "b98713bab5cd0cd6151d4a45912c072392c62e261d5d37989f0d7c1796e36ee6"
+      ],
+      "hash": "abffa57cfc47890d618f7abfc7f231a71e5a0ff45defec5186c0c521b6133deb",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "33f001e555226126f7488855e2e02cc162ad03f5a5df6d7da8869e0c859fb28d": "T[i, j] = w₍ᵢ₋ⱼ₎ : la colonne j commence par w₀ ; ta matrice est celle du noyau retourné",
+        "357a48e64abe37c16b89faf9478bf93e18e53bed4e4363dcff30f41e38a3a5c8": "chaque COLONNE est le noyau, descendu d'une ligne de plus que la précédente"
+      },
+      "shape": [
+        7,
+        5
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.4b": {
+      "hash": "ed908e6c55a787f1ceec6b768f4e8402cc930cbf660c1d8582daa2c25c1116ef",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "1e1ad978a57db4514ca948c8dfc2b0fa5342c09de2d9d9e2716cd74b174906ee": "compte les coefficients NON NULS, pas tous les coefficients"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.4c": {
+      "decimals": 0,
+      "element_hashes": [
+        "5100b41f09340ac4cf4f59d42e0499780fbe22f925a3f4d6f3d30b9f33a85a29",
+        "9e53c0c172d835bd41958ab53e71f804c978ccb0793ffbf00089c6955b9c9ea8",
+        "05fe57cbbd855ea4ff1150aee18f07999f0d394f6a619dc248d2df6380ab0f02",
+        "ce09202ce8dd2bbca36add22ed67e7c79c4bce9d250ef62bac073967efaf7b99",
+        "4521074dbec3e313dbfa376cb3e5d10f505d658763a197c0cfe3e50d107bafcd",
+        "090e11b85a1ca5fc7114bf63f853e4579eea059d791e8a884c45d9ada4361cc9",
+        "1c11e53f49f21ffd7cff9ae97e32fe19705238cc85b976e3f9c96a349155d700"
+      ],
+      "hash": "6ed818fcbe71ae4dbff6ab8810a6483c40fd14429aefc43aad1c4600671cc0b1",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "9777dfbf7c8ffc9b323cc5d11d756f088ec7c37b24089602f26dd1dbb16adb52": "la convolution retourne le noyau : ton calcul utilise le noyau à l'envers"
+      },
+      "shape": [
+        7
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.4d": {
+      "decimals": 0,
+      "element_hashes": [
+        "60ebebfefe131a48b3fc0d9eb775ca5dbdc8b7822683bc450dcc332314087ad6",
+        "6893ec4e6eeec7b3cea1914e9e15790253175d92cf88b8d9b9c7e0a2e51615a2",
+        "d51246ac7e63615fe904b438aa952a1208e02964bdd1a3352d35854b6676f30e",
+        "b05e5d62e33af3202416626b127d70081959253b529606dec45a5b86d7b30e4e",
+        "7cbf45dcb9d21f96067c4b6c666a42c15845a30935c4bdde8366f66baf9b7e9c",
+        "863f26b93ba46b7218de4705104a09ad65f82d5871466a125164c6f0fb579f3f",
+        "a4320a79919f7ab9e1ae49860087f90a8e069f4931281ff0a20a600866b70848",
+        "c246340de08bf1329689441181619493127b2bf58025fd56cb0e4d5adf60556c",
+        "9c94e0e1573dcc2d612172bed80e2f12e8b59d636c3b1a33ad14666c3f1d6d56",
+        "ecb674fac9168875aee75091d316cf9cf7c8dccad5d4c9547590150c95d4a0ab",
+        "089d50c12a824d73caac737dd51dc4f7ec08815765a7cea42cccafa2f056f12e",
+        "564cf5d117c0ba6f04fec44ede77724ea480b32a8904b6577c84aeab1538001c",
+        "5c36da8f577640dab7280b804047ba48453ff7759a514f530d53e81ecbaecf4d",
+        "5e686425371ece11d2982089de8232d867fa525a8ceea4eaa3fab0a80103fe10",
+        "7f6759b8bcb04c8446e1de89f6c1965a27edcc9df416bdc39a911119c1635099"
+      ],
+      "hash": "17f90768339177846047c031a7a83bc4ef1c3d5277c0c23c4e97a90753785203",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "869ec3296cd3889b2e8a947dbb233a287064ce3bd0ea3ea7aa533c823cea9285": "le mode valide garde les lignes k − 1 à n − 1 de T, pas les premières",
+        "88f48f748a92c083d1509951bed885cfe095a40a07c563d032860a3248dfcbc4": "relis une ligne de T : le noyau y apparaît retourné"
+      },
+      "shape": [
+        3,
+        5
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.4e": {
+      "hash": "9c1c50ead7fdc7c36b424eed5be824980582a556524b15ce285aec2a07814866",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "66425863093af078073149979a813c3f7857c38d1442a4922ec1cde57570bec4": "les trois lignes sont échelonnées : aucune n'est combinaison des autres"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.4f": {
+      "hash": "f8ccf0c992d091ec08eaf251f3da06278d8fc0ea1c68664eecfe800a56bb0896",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5435d1d0db7b5d97c86c42cc23bd5c3059a51daf830b5b368504a0274c49c168": "V a plus de colonnes que de lignes : son noyau n'est pas réduit à 0",
+        "74aa739b97498f98849fba636e41a2266bbc53ea099257444b8d7b799a011089": "c'est le rang ; théorème du rang : dim ker = nombre de colonnes − rang"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.4g": {
+      "hash": "1d01007d8f1a5d85c85ead1786279f2fea78b3ed527a9c7878a31694b1b851a5",
+      "kind": "bool",
+      "mistakes": {
+        "200ce231fe2c47a6496e66c31d8cbb48f6b68ff8fb1171509a6091420afafb7f": "calcule les trois coordonnées de V x pour ce signal"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.4h": {
+      "hash": "f7e9e1e5bd48bfd90a28530ec6073ac5b1140c894940c70f3e494458cfad59b3",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0ead7c2d0619e2f7e236f127f0dfc43f1eca2db8b22af26d322bfa9561943b80": "les colonnes de T sont échelonnées : chacune commence une ligne plus bas, par w₀ ≠ 0"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.4i": {
+      "decimals": 0,
+      "element_hashes": [
+        "d38838cbf3454ae95e0363a23ddac5f5ae8b7fdcd6e352bf41379c98a2e9ab62",
+        "d041912d170493f4ed5db16ee3ee3e25482bc0cc56eae7c890f97a297ea50ffd",
+        "7f4ab0c4021eaf421c140c64d9b601b0ebcae75505642ab5d437c410634cf84e"
+      ],
+      "hash": "0a4c9e09f73d9ae0931faf81d6c79cb515eb288e72fd9566af53390e3c9001b9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "f3cc59615258ca1e96dd6fa170714ae2752331bcdde0548d7a437fbfbae17b56": "lis une colonne de Vᵀ : le noyau n'y est pas dans le même ordre que w"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.5a": {
+      "decimals": 0,
+      "element_hashes": [
+        "a658d9f64f28345d4aa6f78c02ad41c229079c4b718b73dd0ebecddb9c9184ae",
+        "b8308f0f75c9c856946e0efce27631eb184ae52ff682b4022fc2e913616cffbc",
+        "58ad3feaf0bb7fb0d42389ea0f9a34949c5da48562491e6614cef83061c0f9d1",
+        "33ac508b5c67e117d288ebf55763df062a4b832aa60aecc42a40523ec595adff",
+        "6dd4149c6d42c5468864a55e7c030c37f0358ec78e21007cacdb497590b115fc",
+        "5e8c63546ccba351dd78211d12f7bccde20e613f1a21c8332d3b2450a39bc424",
+        "11fe487e7a134e18c9e24cc43e186784e8f86e0c58bdede3281b2997e8b3883a",
+        "15534bb079d0bff0061b50af3abf4ce2e585974d6eeed99693e30a24f2d486a3"
+      ],
+      "hash": "37c278300d38e02c98022b2c65b4d4892841618c800fed9f9c10ae3ed1cc5b22",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "f5ea1074c3994b401438f000d2f705b9322ce8969e4c93b6542f1979f6ae58cc": "la somme glissante ne retourne pas les poids : tu as calculé une convolution"
+      },
+      "shape": [
+        8
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.5b": {
+      "decimals": 0,
+      "element_hashes": [
+        "07badb000f984e9f62ccff34b8726d497f263626247901a71ef79af67f0a7ec7",
+        "fdc66821c34b4eb4ff50aeb6412936c4ae1c3738f5ad2da6e4dc1f75e0a6614a",
+        "6d840b46cdda8d123a1693ba875d97ea5e78ce023bb75f5e814a68938ff6f4e0",
+        "7b2c5eab6210fba1a67fb7f0ab8a3cb986159d05bfe361abea78e69805f4d673",
+        "a78d69660d3aa32bbdb70da184cec0d84149ca9f0f8bf3aae932d55a5a459da3",
+        "1376d5a2ea6dc18f99b917e5b0b8642e7f40d01c1d7e82a6a88c9e8e3eaed784",
+        "a00a313de0062af8e9111682407fed9b2a514ff88b7f94abb731bd56014c42fe",
+        "f3abae0c021702e01670fcc21da8de14908fb6a65100393de08b115a1ff3cb21"
+      ],
+      "hash": "16d87ea589a3c712a9f732dd01cee86dcf79fdf0d2ae827900df167e8adaaf54",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "b7411f2443d09314465bdd770ce3a6bdab5fadce06b93c9ac3370ef83263333e": "τ₃ retarde le signal : sa réponse se déplace vers la droite"
+      },
+      "shape": [
+        8
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.5c": {
+      "hash": "4a9c74ad3e8eecc9cbb23460206c7a33efcd079949fcf12d0472d15e034d6fd2",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "bb72f1842d19e578e6e50d486b8eacf3f5f4d7929ea9f3977b85f283c8d4badf": "compte les valeurs non nulles de a) qui n'apparaissent plus, pas le décalage"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.5d": {
+      "decimals": 0,
+      "element_hashes": [
+        "318f4c361813ec5eb3261af70e22ee427c044dee525282b86097fa62ade96637",
+        "413e1ef43b52aceeb560b2cd7280a65402ca044ec5ed140cbf63c185a9203235",
+        "4b223e55d16afe45ccdbf9b9fe3f68a8c2b71a05974343e0683d79e4d95b0da5",
+        "ad449ea922ed2ca6e84643f670e0d253b7d4f75d32ae40058e2b7b23ba8dc844"
+      ],
+      "hash": "1fd5cb47c1c4db314b6dbc51dba0fd9543b97a8ba12a66d13e683f166cab9fef",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5c47f0ca08daf88761ee9ad00739eab3dd08b619462aa223e3b1a5335e3b97e0": "y₀ lit la fenêtre qui commence à la case 0"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.5e": {
+      "decimals": 0,
+      "element_hashes": [
+        "45c9faf1c3d5aa18c60f2c5c27cf6e619e014b779b76691cd262572972683a50",
+        "88dd5ca79d56ed7502ca259d90fe4f724999f30e3aadb22aff6b3c06c1ddc15c",
+        "00fc7066dea7dae19349e29d5385b6288d11744a431cf302b22d5a9d5255103f",
+        "b708f26a36fdc723931a2f07e554fe28cda6063efdae11a45e3e46a715c3fe34"
+      ],
+      "hash": "bf442af1acae4ef1c49f56371f14b1c6bb2fb1355dc6cadd408fe302dbcdc294",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "9dfc7ad237eda056d3f96d52a2b45ddd3a9e75eb48620cce6c775b8566b91200": "un décalage d'une case de l'entrée ne décale pas cette sortie d'une case : recalcule les fenêtres 0, 2, 4 et 6"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.5f": {
+      "hash": "11e7b444520add96de666fb04743913f23f20e14ab9e635c83d787beddda7522",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "bed5cb46145edc21dd691db9969941f5c49d8e8abe0452422e4d5a182266145b": "c'est le décalage de l'entrée ; la sortie, qui garde une valeur sur 2, bouge moins"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.5g": {
+      "hash": "da570c537a839610b7657db4d40e419abcf4fe2f19e53d7919152dbb85e19ef8",
+      "kind": "bool",
+      "mistakes": {
+        "e95c0b3d93296557f17487bef7514877abc056eba1f5a93c884f98c488d48c56": "compare e) à d) décalée d'une ou deux cases : ce ne sont pas les mêmes nombres"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.6a": {
+      "hash": "854aede0d6c202355c45937f085708804d01ca90bd1e5690c0a66be64f705ec7",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "31e6e7dca393f95e77bc3dbceb1d8c205a0c901ce987fa0e2e5b73a78a69cbc1": "la position 0 compte aussi"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.6b": {
+      "hash": "294012feff73c228a49ece9720196e0ae69a7722e64f2816c4721ebe05f3dce6",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "b213fafba2cffbbbf088ddbc17e26e5893bcafa4922087c631daf4dc7a7f91db": "le padding est ajouté des deux côtés",
+        "b5bd078e03617ce521d28c4544fbb9d828cd08f751da906991db1fe49dbfb619": "la fenêtre incomplète n'existe pas : la partie entière se prend vers le BAS"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.6c": {
+      "hash": "74ba23b98e235bb2a0a69135acc63ee07c95c7d2b2d580c965fca352fd4d6a40",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "77a1ace1e3ee534341a42ba1ef0945e2ef07f4b532b6b813cd09de7bc5193e6c": "la dilatation étale la fenêtre : relis son étendue"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.6d": {
+      "hash": "029190350763995695a7c455b47822e21efc170581463427eb3f4cfeeb6a953b",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "1d4733913d57a02b764f88f24ce9070760fc54f59fd7f657ba6de054537a3a75": "la dilatation étale la fenêtre : relis son étendue",
+        "71352254faaf86a32b86d4f39aab4f3d270d549c498e7b8a578277fc3a8b7905": "la fenêtre incomplète n'existe pas : la partie entière se prend vers le BAS"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.6e": {
+      "hash": "6e50ac9b7f0af091baabeaafa6c78aff5c37315a272391a4e6e6b2ec566fd565",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "68156cf307c3632d0e532c3cefc6a9239e10a3b442f9ad2dfd97472b26ad3128": "une sortie par bloc de s valeurs, le dernier bloc pouvant être incomplet"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.6f": {
+      "decimals": 0,
+      "element_hashes": [
+        "ec086d2e3b683b19ad7d55f6c15a584f70baa080db6b93d99957c68a5dd0d74f",
+        "1dd85b87203c79f84a4d91c73353ce61412223097b2c0e7890d095d2ecd91c63"
+      ],
+      "hash": "f142d84f40e2e92472b84c1216a6e55609e6acdb6bf8f86df0efa4ce178a896c",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "6866df2efdd37f3886aa3c72a2fa925d29557d98a6a86ef43019ca3111751926": "la règle met le zéro en trop à la fin",
+        "d5a1d04557bb4aca37a3a1e6efa69981a88593112d16193bd6038581ef681192": "recalcule le nombre total de zéros, juste assez pour que la dernière fenêtre tienne"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.6g": {
+      "decimals": 0,
+      "element_hashes": [
+        "1ccce81f0e3f19b8bb297767f96b6ff9ffc207abf604cc9a45a06453b69c50f1",
+        "daf83e926c21becf328d628323031e3e5957ae02a975b923e34d8d532002a732",
+        "228184601b7b7e47fbf3e3be35d404ee2b607683887e5e2ef670f7006be9f325",
+        "196df166344507979569a53473e4021c0a05daef8793b0fd820929330be913f6",
+        "6f71214be8f7ff85ad831da3ac0fcb14ac641eac67e5f614cc5e43f85ba05a48"
+      ],
+      "hash": "0b5df50054dd101d92b0678a94e82ce89ee1a39a32860d614cd2dd19c973d12f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5bdf780e6c7af5133d2f34b83475243feb2a7e74396cef6a4b131637885412b1": "vérifie la plus petite de tes longueurs : combien de positions donne-t-elle ?",
+        "7cace420a79e7fd68b0628014bd1a42d396a2c3ed9d42bae98b4edb38a8b6cab": "une partie entière confond plusieurs longueurs consécutives"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.6h": {
+      "hash": "28cf3660f5ab2654a8095bdda7c663d6d2b6a25fb54c32394754f6e6964c53b2",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "782053137be34d006cc36149014721d20d40ab81b4f8b642048783f1e3cdaa4a": "recompte les positions avec ce pas : il en donne plus de 100"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.7a": {
+      "decimals": 0,
+      "element_hashes": [
+        "1590b8eb6f66f8ab0969545d79a13a48a2dc1b428998fb5a598d8ae535bfd515",
+        "895f5499d1c0ac565b2a66b3fb2f9e4fbe922e502f3ae5d11b6dcb24ba610ab1",
+        "9c5f8d5bb08e7af5760d04e533f735a2560e32dbe5efd9d69bcd6846c819ae5f"
+      ],
+      "hash": "9878c96ff44a33c4031b68254d8524e9328d54351eff71a580013b41ad36de28",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5799cca8173484a96aefff476736816c9886bc81d241a0a753582a5c6f09c5f9": "D₃ garde une valeur sur 3, pas les trois premières"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.7b": {
+      "decimals": 0,
+      "element_hashes": [
+        "e88fa24ece607aa8a81f03a1b5d408457c48222e68b265e170a17201f825a987",
+        "e3010fce59dc8c032f89a8317c6cb47abd7b5f580166c1f5182c6f35f4a14928",
+        "11928319cdce1a4a66429d45e20d133fe094936f6ab1030b608fcb07f7a4ae8a",
+        "a2f1853763e591551ff4401f605c20bdc9c7b5e38480155fb81517fe79841224",
+        "40c76d7ba97b0994ee2baf944836cbcd9a80f537470cf507bc91a38945031538",
+        "8f0813007e038a3d1c5c92df25ba78f3b80c1653309a66b2aef2d8b2ed08d51a",
+        "1ad899a2e6640a0786a1796e6d3772302b5c79676d7d4c64ad3f67ea1566ddf1"
+      ],
+      "hash": "e2eaacfd86c2f1b1d7c921a14ac4a4e1ce41abe3eeb72f8cc3be28cb180cc784",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "317946c570a823e2c2c39dba8fcbbc0d8e1ed17103399331fdfa8fa49683a2c2": "D₃ᵀ remet chaque valeur à SA place, la case 3i"
+      },
+      "shape": [
+        7
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.7c": {
+      "hash": "556f766c8e0981849d4df8f54262c6df1b224714fa1715fe10202f0b15ecba90",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "256f964014b18ac7479524b9d59aed535c5d1d13283ee8429f2a050365f1a09e": "la dernière valeur imprime encore tout le noyau",
+        "4c017834cc3ce20a4ea520fbd56e3d9a09a3b4c6a558e4373bc8c21d0eb593bf": "m valeurs donnent m − 1 intervalles de s cases, plus l'étendue du noyau",
+        "761f3c7dd7d99498abd6c28b46798f91381a3a04a6fa0a6800ce7938f85d3648": "il y a m − 1 intervalles de s cases entre m valeurs, pas m"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.7d": {
+      "decimals": 0,
+      "element_hashes": [
+        "c0febffb46a5a2fbdd1f9e6a52df3492548045dd20b53df0d6148d8fe0ebd8ab",
+        "99f6b0d18fbe93c9f624bf4d29068869c2a4aa9cca18f85b02e1096db06bb669",
+        "cb64be0e19409e652977c20de8af78a709f2d8d8a44d76d1d1604224c64edb86",
+        "97f60708fc7693584a69a90af1f2375dfdff23dc6a98dc93e879526ddbaf7d8b",
+        "7f761359d4c2c7071bc7036f632ef87ede836ad53d3cb9709fc0321d5b86179b",
+        "bfbf034eed4dc938f831d86005b6f8a64a45b497d022d640b38a2b1e5350cd94",
+        "faab97825417102ad6fddc2813db071622a5a79231615d3e4296a28185c64bbf",
+        "4ad73e2d99dacf7229b161a5abea6f7b368b52f59c4665ce61dabd9ee41b6930",
+        "1e97d3ed8dafb7e3b72f37e1749a6d7c08b72df49389b3b7ff10df286f6d2109",
+        "4c50dfbbbea6d48387dbef82a275b8837e998bf47646cb00df4af8571e9c9bdb",
+        "df91f680348baaea7d119a77534c32f835c3ab4f0303b6311cbe6b94475f774b"
+      ],
+      "hash": "5af9991c5306d817ee7420940fded21816f990915659754660f90872d8d196d4",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "abd7b7e839b1d69e26717107a69eacfe6989b23896852e7d87e0073e40b46f0f": "chaque valeur yᵢ imprime yᵢ w tel quel : ton calcul utilise le noyau retourné"
+      },
+      "shape": [
+        11
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.7e": {
+      "decimals": 0,
+      "element_hashes": [
+        "9ed1d63c2820d85c90a190b4158ae610da54286ec3e81859b8ef4bb4020f6097",
+        "9a3efd8e4ac14ae1330ee65837dbb304e19652cccac22d15faa04070ff519ec3",
+        "932bcf68590cede8c188f0712d51b424f5af97d5604dbf802c3924b08dc9908d",
+        "be7bbdca1ffeca21184b587ef9b964d834b36c33bc119f27b47b1bc1e6082ec0",
+        "497f0899ba29ccff5e8bbd4cdeae1f68824915367a173db6ca02244c0f5eebee",
+        "b3dd3050161c0d02616cbc9ae31ede8b31d473f0bb672bf7f2bc525bab45fc5d",
+        "982a9c9acd7aeba990aa4aa133f096456be3cc4042f5732a1318249995d4243f",
+        "a8a7ee742d8389afe20c60dcedf18ee839521e5badba904ac8eb3314490121dd",
+        "fe865fa0883d19960cd5ed1807f957bab5ead72c1b485fc202ca877750e46eb3",
+        "2358c598142bd1a9be6498a7383d472548133a9354e70d0b654f7466bcc101ae",
+        "d232e2ccba289083d3df8f9e17cf872c257527302f30f6561360cd19c9a9e4c6"
+      ],
+      "hash": "8332cdaa51a9f3e88c8c6192035ab129ca6449d2b677edb947030b7881045a6d",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        11
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.7f": {
+      "decimals": 0,
+      "element_hashes": [
+        "62f142d95c8ec219870a82f6fd7bb088a0df6f8b34bbeab5e34f923fcb0ebf08",
+        "6bd9d6d744d75a7df2439fe730d87c0fb20945cf417be8d0ebc084eab88a80d7",
+        "ab4dc53e19b4fe594e9e6a2034773b88412b5375116294b53983caf2da89f5b7"
+      ],
+      "hash": "2e61dd35532979cb26e2ef8cebb433e14033edca8d44bdced6b468f2e8e0dcf2",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4d3f3c216f07c84edfc7d91d127516cea60dbe5d64d7c5c71d76a53ab9e45590": "une partie entière confond plusieurs longueurs consécutives"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.7g": {
+      "hash": "d02c35ff2171b808ac17a30661dbe48ca5b5e42e325fee60ac71f1e24fec0ead",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "a51afcfb102347fe3bfee062a509f890ea5490e97d4616b91b44cd911e9762b0": "le padding de sortie s'ajoute une seule fois",
+        "ce908fbc42e788ae9a0a4a82ade2322e4cb7317db893633b14fe9beaea1d723a": "le padding de sortie allonge le résultat"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.7h": {
+      "hash": "270505d64d4adb458edc779429ed704968ac78296f6bb6ab9d7e9bbc4161f063",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "f7ed02a1d48ef12512d12ccb3720a433947fe8a067ed64b7f3ae97997d9b2f85": "compte les i tels que 0 ≤ j − 4i ≤ 11 pour une case j loin des bords"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.8a": {
+      "decimals": 0,
+      "element_hashes": [
+        "70b384e14f683a56dc62f838bd839ff9ec9cdce2175a3243b7ef971a18fc987f",
+        "76869cddd35369bfaf048faacf3fa057d30d4aaa4ecef0e4b1e419315c1927d9",
+        "8aac9306d59965d70f4181a8346698d09c0e43eed0fa9edbd16366c52adcd315",
+        "df342060c8c971f7b6db7c1c063586bd5e6071891e6ab3320935dc72cfb940ee",
+        "ac0d542fbfd0f5bc0c87a35cfc574519821812475e64ca4e5cc3061198762221",
+        "e320f9b54013014bb2ec9706e5b43cfc0331c776c94524ae2c810b10d19ef0c6",
+        "186340eccf46b47bd63146a9ae2d4d515f308f3cfbb2a1a14286dc9320fa3146",
+        "d0726de781e424293da3051a208ca5686c5ff4c2e93ae8109b397eebf7f743c2"
+      ],
+      "hash": "663d86650c38e8e3359a8efa5c31c77928cc28316d7c7498b17f0960e8178704",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "daf290d75e90b3ffd446628b543c2f13456f78375994b8a482d9d56703e06c2c": "le laplacien discret : la somme des quatre voisines MOINS 4 fois la case"
+      },
+      "shape": [
+        2,
+        4
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.8b": {
+      "decimals": 0,
+      "element_hashes": [
+        "1e9979704cd7b3e6896597c5c99d8c0f9b4b9812199ce1b5ff98177481951d69",
+        "01b96dcf4b46a40da289eb1f094622bbd7c96da22a8f58cce5f651e69678881e"
+      ],
+      "hash": "2548d762db381094857cf5fc9644c4fdbc74e4706529da135767eaf5d02120d2",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "17ddd086ab55e72c80e9e9cf46ea6f8e5b9849e0b2e605fe55a801595bf29f91": "c'est la position dans la sortie ; la sortie (i, j) est centrée sur la case (i + 1, j + 1) de T",
+        "793e4fb0e2e62d864f25186ca735dc121bfec9e24a49b8f1c7e1841e99368771": "le plus GRAND laplacien : une case plus froide que ses voisines"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.8c": {
+      "decimals": 0,
+      "element_hashes": [
+        "3cebb30675f7302f598315c04c4469904fcce29998878b73a1731e9de2dc6688",
+        "2228aa03968ef52d9734768c6d992ab3a3d3fca54c876e0041d23c195d633146"
+      ],
+      "hash": "8102c613404f5cd11336c926d904e2d198e695bd64c90c33b00951e998d129fa",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "9621dc8b8ef7ab2760aefe55d02745b5da94a2d7f57b6f008c7d98b6aff295b8": "le plus PETIT laplacien : une case plus chaude que ses voisines",
+        "f6600d4d6f63fe070aaf453bd8d200489294b77e9d6f399300c081ebd9b3adaf": "c'est la position dans la sortie ; la sortie (i, j) est centrée sur la case (i + 1, j + 1) de T"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.8d": {
+      "decimals": 1,
+      "element_hashes": [
+        "a95b9082ead1026fe2a0795910163620055b48000a4e04cfd0416ef28440d78c",
+        "5a150c437a38b03b6a4f30a777629c4ffa518304287ac38bee5393d80a5b3dfb",
+        "dcbec27bb21ce9c95a9f713c680ddbc915542077a2a0c1af5048f68dddb2e717",
+        "1f1c3246b8d3fe26b51c28b95c64abbd104f41aee9f7ec006c64ecda228af472",
+        "0ab99ea32f71d5169062e4cb7d51235ff1865e5b1d6b940d0bfbebba3c6696e5",
+        "11651840dcf47c99c077676ed453efc503a6e647abd8b209fd416b98a78fd17f",
+        "1556d5b6ce01a660cd7215855cf1904fb4c72387b633fb8b4148fba46294547c",
+        "d667157ca2aba8241d723c936671362c756cc5c2b0077fb0dda859c71ab82dfa",
+        "9e9cf48ce53eb6d69b2c6ad6db599ce88bbd69a10ea1568312649fbad483f9a5",
+        "31b478877b4eb5608cf19c2b6d5de01d7855eb19985ee1f11f462b820f1c49c2",
+        "eafba392b3d424b470d5d646e1579f4eeefe16fa03af6e237ad7532d02735a49",
+        "0cdf559fd09ff08b64427a592be21cbe79432364b7b4a13ca3546118af32cd3c"
+      ],
+      "hash": "869f489ab39fe874d36b91a88eb2b47d2bbf8639ae7f4cc92ab9b1261f0beb15",
+      "kind": "array",
+      "mistakes": {
+        "59423f65d29325bdb5b25f588fdf8a188efa338390051f4b75769f9c17d34d65": "la passe VERTICALE combine trois lignes consécutives, dans chaque colonne"
+      },
+      "shape": [
+        2,
+        6
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.8e": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "deb12c81ab706850fca32652faa4bea6dc3d2c7273d1d50ede23902e78cdac16"
+        ],
+        [
+          "2a864c0b7f41e84577474e066d5f4e01db107889e465d59bb6dc5b6d10247693"
+        ],
+        [
+          "d2cd5edf9bf3dd72daf07e1959949522bb9023d8505b6dfb889a74bbdf8181c8"
+        ],
+        [
+          "a976a689541434748f9b321cc31d8b1b08a71a9941f0e584a45a9a0c19ba8245"
+        ],
+        [
+          "47010f1c78fc5b77333290cfae954fdb3cf6863578086c46e321226efeecbac2"
+        ],
+        [
+          "abd4e22b9ad3a80b6a3991b64c92a29122d613604532b49dcfba687213857357"
+        ],
+        [
+          "736ff7b835494fde39c8d6600825e590345ac47931746968120b457214650c1f"
+        ],
+        [
+          "6bda8315df1d5337c508fe773a0ae7d0081e498de10b9d6f0af01b73b5a58fee"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "eb6829c52b1556b0515f397775897dccb17cd9f915a60b0ced9347af1e95be7b"
+        ],
+        [
+          "6ed81b7393705ba926fff5bb15ef479b96af6e89e5a69e39c0990760dcd27161"
+        ],
+        [
+          "defe270286e61e9ea11df8013336f5dd9cd96beaa87e605782e2102b98d57f55"
+        ],
+        [
+          "f2a3f784ae5d274aefc61c8cb58ed40c5d9df0ff95acf196d1bd788f5ac3698d"
+        ],
+        [
+          "5eaf4baf3e906689843d07d37bb80bbe744c23d75645910eff7e8f845e843fff"
+        ],
+        [
+          "1af66a9097680bbe50345cf8ce26f85ff00ad3e96b43f2fe7c61074073b96e30"
+        ],
+        [
+          "c3e9041c9b2daabf3637f45db6df5c25f6f18342a5eadf2d7aa6747d2f0f5fd9"
+        ],
+        [
+          "0f00498e305cd0d71c74d9de688124cbce27bd351f7ca37d48d551916ac39b3e"
+        ]
+      ],
+      "element_hashes": [
+        "d1b1cb357f1c28966cec6b39e830705dc1be8e7b9b9a4eb73c6e688d38537f10",
+        "05a265e85d15c0464b67e80d45931a1f08cdb078c7ec3e22a1e3b87a2ae36806",
+        "84f0d0e37098bb2dd5a11f3bc05a2376bbe6762af6c747fbf37997ba035a940e",
+        "8c7e7803881c0f28e3dd3710525034d83785c6bee4140bb556ef292b0687dbc9",
+        "c195af1078a919213a151df25a7825405b0a573b523af695f6353c0c861bc91f",
+        "4df00cd2fbeba579e2da709ec53a3b976f684074255adce56dba05da435cdcde",
+        "55332b86b173c6374a4627617f694eba5b390ef76b0813f2ffc0ac3d15b03b91",
+        "0da17975baa0e115fe8fa467ad4a9346f466ea9b90e5ac535b857a9944d1121f"
+      ],
+      "hash": "c927cefc8d0f8fc05dd24b6a595cba5017027c0f82bc6bd67919c1c211502198",
+      "kind": "array",
+      "mistakes": {
+        "2f20256ee6f4dd9abb444f2b4ac1e43265ef75cd577bddc18eed32235311d08e": "K = a aᵀ, avec a = (1, 3, 1)/5 : n'oublie pas le facteur de normalisation"
+      },
+      "shape": [
+        2,
+        4
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.8f": {
+      "decimals": 0,
+      "element_hashes": [
+        "060e6c8b6ab81419b423b2f77e79346381649c39e26738b3f79afcbe29d6d298",
+        "35f1ece16e1b0cb3572fc3493c38df1f7232d0faf2cba6eaa552c5ff99212d01"
+      ],
+      "hash": "efa6cd9094f08eead2a591fddbd9ab6fdba95f05d87bd611356a5175ac06735b",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3694d6b322433e5db4ac5dd721e8408c115eb40f9f8751ca9174588df0045f90": "on demande le total pour toute la sortie, pas le compte par valeur",
+        "6b898553ac18f0591610b74da8f890e9cbd73ad6874748d739112f9090ba8654": "dans l'ordre : en direct, puis en deux passes"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.8g": {
+      "hash": "76646f6185ff4de3961f7506549d1b5c1c121cbcddd673d977b8d15965540f74",
+      "kind": "bool",
+      "mistakes": {
+        "ead1d0b48d0adbf0b438a5ad9ec0d66d1e87bf9f8d05295732950ddd6eb17c7d": "un noyau séparable a toutes ses lignes proportionnelles à une même ligne"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.9a": {
+      "hash": "b2c821076b706a25bbc1901e0d1f901bd5616b7ff50534576ae8836929c2f172",
+      "kind": "str",
+      "mistakes": {
+        "802545f00741382c267905acbbbe289ec98ac58bbb72674c54eb14edccb4ebeb": "l'ordre des bibliothèques : (C_out, C_in, k_h, k_w)"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.9b": {
+      "hash": "20cd9add70f32b7414bbb9dc926c5f2a9f29a1681f54f28f7b3ce04058e28542",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "89a105bc1fb6c3db3bd7724ad0a7ffccfd71769be4ffae591f49b30fb2c5d1de": "chaque sortie a aussi un biais"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.9c": {
+      "hash": "2f196c2520af3d3f8de992bc5faf1ad27932ad84c29301d9288d9a523cb96342",
+      "kind": "int",
+      "magnitude": 8,
+      "mistakes": {
+        "5ca7b8a614fdf50d6d2a966f6a8500630182bccc2764abbfcbaf87fd6390f788": "une multiplication-addition par POIDS et par position : le biais s'ajoute, il ne se multiplie pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.9d": {
+      "hash": "a4702c55ba7db7eb2f727c2f867dddcad79b0e8675fe28c5eee25515c39cc8a7",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "506c9140626e6e65dcf176fbbe674a9273aebd6d7e22a1bb8da982dc1d2c96be": "le biais ne se divise pas par g"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.9e": {
+      "hash": "93867c48672d7403802e256acba6fef738c53dd7980f2f17c848181ad3b15ab1",
+      "kind": "int",
+      "magnitude": 7,
+      "mistakes": {
+        "1ac30e4121e5cc709df576f2073479d2104646edd17d8a82c6e108c958b2d389": "chaque sortie ne lit que les canaux de son groupe"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.9f": {
+      "hash": "ac1722a30396bea8ecafce871d22a1159cf156afae759ddafee7c8f196c5f3c8",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "36645415916dbe9adc874be9845fab06a4a8590178a5ec51181d2382abd1fc9c": "chaque sortie a aussi un biais"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.9g": {
+      "hash": "1979edc9efd7833df8ef22c8c9feab62fd9c675ef8bcbf9d76dcbd13a444df78",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "4dea7460ebac0845027b5fa2d41c17213f2214d52666be936ce405cb08020ffe": "chaque sortie a aussi un biais"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.9h": {
+      "hash": "9837f336ff48ff7573cd0a9ac761978c40364e6fb3caa6343ac99ee4e0c017c8",
+      "kind": "str",
+      "mistakes": {
+        "39abee62402947094cb9097a6944d5cd18201b6cf2bba35844e650dde3318a63": "un pas de 2 ne garde qu'une position sur 2 dans chaque direction",
+        "78d5b9654060ee26cbc90ce99812e9f36490179c96650aa93ba801b3f899a823": "la position 0 compte aussi : n'oublie pas le + 1"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.9i": {
+      "hash": "4871174be6fe37892bc9cbd2d4b31e014056e503f2af12c718626ea51a18c975",
+      "kind": "int",
+      "magnitude": 6,
+      "mistakes": {
+        "f61dd9d93bc4dc748015477dd7fe7e2f7d3f5a4dbfc93ae3a6abd2f510f81bab": "c'est le nombre de valeurs ; chacune occupe 4 octets en float32"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.10a": {
+      "decimals": 0,
+      "element_hashes": [
+        "4afa26e5244673522d0345647cfa06a24167b33254a083d07a31feaa79462abe",
+        "cdce4d250f45823ac63c36910b457480ce704176a972bbe25da75179c547764d",
+        "eb1f04a433bdcfe25a727fc28e1ce7f628a38b2eb5265839b1a6201de0eb1cfc",
+        "2eaefabb44a765fa1ac2fb47a66a8bafd2c448c5711c55a02137996946c9732a"
+      ],
+      "hash": "76e7d7b18014a636fc7bccf97f3b87fb88c0ec927fcbd86da2c332af715900a5",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.10b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "5f5f9b58769c65d53da832c38e6016c8c768440772843a5d598b7f185244ae4d"
+        ],
+        [
+          "3ab013b0752def77374062ce428271d8cdcce24443699c31f4522e3765decf25"
+        ],
+        [
+          "f49b26869c876191b13e76f97c8eced157b9e4270b1c0764ad8cbe10e0c204f1"
+        ],
+        [
+          "8e24ce1723e9f97ab0a233f9becf74708667fdeef644409e9da26a127d5d9103"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "176ce8e0d69a4a6ee191a9a1dfec74cf70c8115714dd8c3e472d2a9d75e6874b",
+          "3fbb8177a00bcec480e5bcb8ede437a730650895a9f1dc257b1fdcef5d8231ec",
+          "a8fb08cac50bd99341537c27141679a28206c93ca327e5483a2e60b081a33bc7"
+        ],
+        [
+          "5993ea650fc41ab0b24d2e271b14760ad808679338b55bbdd5c7a63ee84adc19",
+          "7dc5153958b45d6d6ee69baed49b92733f79f00a5a31b8aea4ce426616027dbd",
+          "c7dcd29f450415eaca7a673fa6edb85d0b0c3696705b9cf4dbf2441f630e89c5"
+        ],
+        [
+          "3bff941f83b3d7dea23d4efeaeb18a191df530be248b84546cd22203570e8415",
+          "9e3ec6104aea2a3d5037a19a3e8b1a9f2730272f6a59a44b4a4f84a452aca297",
+          "e0a6526e2ebcedd2cd15ae282144ab87516829a52cfcc4c46da75904eff14936"
+        ],
+        [
+          "b6733920201fb54706cbd48078b52c4d5a42e44e99131e3952a946df51ccad3a",
+          "e3dc24da1a6d66056369e00ee59f0573d81d1f46de56d2ca9fb550c45d37ad56",
+          "801118bce5e44ae382992652e06a70169555ab5edbf7de5e8e2dede80593b3c2"
+        ]
+      ],
+      "element_hashes": [
+        "9ed3f17d61d80cbb6e1d45c7baaa421a7ca8b368dc91d7f882e9799320a6c804",
+        "fabcd0b0c2e08690f896d09004380aecc4695720af8cce2d7fbc1ad935ef26a9",
+        "01ec8575e3fe1368ed59824f0c9a9428a3f663a5589e4f0c438520ea63329ab5",
+        "197ae4dc0dc7c5f96060bbb17a2a2eb9dc510b8be85603b86dd4f9f1e601e082"
+      ],
+      "hash": "0209408bcb1a87e52ec7ae17b3004ffba08d2d9f49737d6952ccaf8b5c3d660a",
+      "kind": "array",
+      "mistakes": {
+        "43dbd9d79467e88665082ba72460866f68897248378c04bd8e7500d54ecba8f4": "c'est y, la sortie du premier étage : il reste la moyenne de 3"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.10c": {
+      "decimals": 0,
+      "element_hashes": [
+        "bed11e52ee743814a9d11b42d4136b57365000f99af010576b78543ac7f36609",
+        "1f0db66f8aa64a7dbbcd1dbb05c160cc65fa41fcec04ab5cb195b789ecf9d374",
+        "b4bb7477b0e7143700a1638ea3fd93e3326f874f6430153a6bb5775bff69ccf2",
+        "c18408954c63cac43046cb87839dabc1cf0773e07263bc31ba1b8baafd9e4046",
+        "4ab7ed390108ea521ebd7810a00a55fbcb1b546c6725e2951e01ccff9a53bb8f",
+        "df9b2c8e8ed4f4da8d06e5c591f808cf835ea46852a564dade5001edd0a5ddaa"
+      ],
+      "hash": "c5940f15cb6eee336cf77b375cfc883185bd5f1a848daa0087c8eb947f0aa72d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "621321a8958c21d3b2781a788732f7a5232ffd79500f876961ac4b169fc93dde": "le pas du premier étage écarte les lectures du second : son noyau est dilaté"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.10d": {
+      "hash": "2be104160c8ccd49fdfc93c78e86b5907b402ee4524d98a7b3971e4ad475dc45",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "af68db9308134e4a28074a26c9506c7788da6b3e428e91ed0b92c6c8c3d121e7": "le pas total est le produit des pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.10e": {
+      "hash": "835c088c831d8d1a161115be720b6ee0d471f8d5489cedaba65678760145f4ca",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "09e99e8bcbbf35d3f828820a9353399a0b68865315ccac1f6bb315522f9eb962": "la dilatation multiplie aussi la contribution de son étage",
+        "0b35c266ab90e99452f1b34032e8419923ab920351b644a46194b96f14b3d2eb": "les étendues ne s'additionnent pas : les pas des étages précédents multiplient chaque contribution",
+        "7a89a0d60494d18856e39267f2e53bcedffc5c0301ef8359e287db857d33e793": "un pas multiplie les contributions des étages SUIVANTS"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.10f": {
+      "hash": "5fd2763ecd6bd50658168fa6a0a5364e9ec56eacca9e686a359700ab71d7e29c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "97fc81b8fbc90568923062f332d9d097a2e8e294b503c8755ec00dff66e10b57": "le pas total est le PRODUIT des pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.10g": {
+      "decimals": 0,
+      "element_hashes": [
+        "edad091b199c2cb0136d20f8a6de5ba4fe2c6b77fa1ba9007dac9e2196fc7ad8",
+        "6cbf29c68d5d8e109dfbebda3352f1be1cb45e47f6f0501b430b2ddfb54d57b3"
+      ],
+      "hash": "da524b5eb6d9a3ab37422c025a436e4cc93f862441fc97d18580cca131846418",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a673a1fd86ce563fd2163cca9099dcaeb21843fae80ee2f4e617b6c438a36fa4": "le champ récepteur a r cases : la dernière est S j + r − 1",
+        "e5a25b11e90acae0af755792a5a9de2418c34cb77079c650b3c2222d1e658738": "la sortie zⱼ commence à la case S j du signal d'origine"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.10h": {
+      "hash": "27d078f4bfc4ba43739944ff7fb3d3d014defa0428c1c173163eb985c6b15ef5",
+      "kind": "bool",
+      "mistakes": {
+        "104018e73f1cd68af10274116e6129f03070aa171d781d6352c9d3957e18abef": "calcule le champ récepteur par la récurrence, puis compare"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.11a": {
+      "hash": "1898a0c633b74364f1582000757009e7bf966cbafc306dfabe605eca5e1e9fe4",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "9800c13a82c66a612e24e512213108bf81599c1e711aa59389595b4f42c15a44": "la norme L1 additionne les VALEURS ABSOLUES des poids"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.11b": {
+      "coarse_any": {
+        "0": [
+          "5834770bd25b233f60ebbf402bfdd37392b8e2d662bb100978b0510d3e7f649a"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "46cd9f1838e0e9530456b21e0f07f4d0054d54606fdfcda16eff2ef79b8ea59e"
+        ]
+      },
+      "decimals": 3,
+      "hash": "0b8ee7772a48a3af9008163e0ca79302b73551194d4e492c80486bc3a087e37d",
+      "hash_coarse": "1975312f77f6983c3120a2d7f9560586d8ca03add78c44fd095950268c591d26",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1b622ef8cacc59b53e3f2f3f0f4f32f551cc9215e22707c4acb3db823e36a239": "la boule L∞ va avec la norme L1 des poids, pas avec leur norme L∞",
+        "eaa63ee91a11b5034bcc2fec14a59233640c23ddc28d3b879136d1ad7994387a": "c'est le pire cas sur la boule L2 : la boule L∞ autorise plus"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.11c": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "890711672f003ba532224fed9b094e6bf242b38e027858f5d42a90e20fe5c4b9",
+          "f63e5f0c5763d3fff0340948856a6ca04047f51435857dc86459893f97c127ac"
+        ],
+        [
+          "07df00bf417606d2fd8c06a30a5a57600076c5c753bf07a61bb086662ef65ab6",
+          "c27225b7ecb7cc4a074966fc4f8724c2f22a653dc63cd258ffe357d522be8184"
+        ],
+        [
+          "b65e26100553e9aad077b10ecd00ed64ce83cc60f3738696d763d4c3ebc801b1",
+          "9e57ec02e1c4c0f6518ebf8c61e1e7a5560197667d7c5c500cb4dc88472e39db"
+        ],
+        [
+          "d18bb1c29ab6f92f5db94cda2da0bb8af7bebe884116eb3a1c7bfc738c05fe11",
+          "57a02299eeaf8ca447817a6252221d31eedcacfb567375b498395eb347162584"
+        ],
+        [
+          "d69dc527643e99892dc0888df7ea8146f442ea7cfea4b5bfc14b0b28d8f0e281",
+          "3683b4dc8df0ad4424b202248237cfc3cb2e7db8fb4c06eeba414d4455b8da5b"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "42525e37baef032d150b973d00249a17bd4f901617a3a09190f8e1afa804b929",
+        "3f4c726df6678beaa30f428507a26e39395a032db2bb13ae793e79dbe1a573a3",
+        "dcbc3086ecbf47b561cc1e59093fae7afc4f632688e05d6d11229b15cae894a7",
+        "fc4ff9a58f604bd5c65c72c2fae1069479ae1ba4dcc3d5b065f75ec6618e91fc",
+        "64d06b797e688363868a165c1cd219297eb625748f4de6c23d9ff955b68e62c5"
+      ],
+      "hash": "845d82f70a8eaea11873c9c59c66ca611875b3c1be735e9493955f1d98c77f76",
+      "kind": "array",
+      "mistakes": {
+        "532febec1c0859b3de299f4108d24ba4b5089724022fd510ff6a70e811717f0e": "c'est le pire cas dans l'autre sens : le signe de chaque erreur doit être celui de son poids",
+        "cd2714987078176de90f37155ec14da2be2cc5cb3c4a9e9419ab1eed6fd3c17a": "chaque erreur vaut au plus ε en valeur absolue : ton vecteur sort de la boule"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.11d": {
+      "coarse_any": {
+        "0": [
+          "f5f9a89577ae70ee8a9b593eb08cbf70599f9c19b8840176edfb29056d680f5b"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "f8883f94ed61d79827ef355587a1b2cf89157ea7eb4940f2f8484d0c16b8dfaa"
+        ]
+      },
+      "decimals": 3,
+      "hash": "f0d46d4d1a85401ad9b7cc293df0f90cf12f6e24a08ca2df620ddb59ce17c081",
+      "hash_coarse": "c174f0baa73e549dd1cb57cc0142382c7b5ad3a75a336deb6fe56b4951b1b5d6",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "0efcd341a04e1f3ca6e44c5f47ecd9c6f76ab1943b526b34ba6dc1ebaddd7839": "c'est le pire cas sur la boule L∞",
+        "9cd320ddb7c9dda0ee1cd96a2c8c0cb52f3b08c99e8152120ee6a9bdeb2f7372": "ε fois la norme L2 : la RACINE de la somme des carrés des poids"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.11e": {
+      "coarse_any": {
+        "0": [
+          "45290f9034e0428c540392d726345f996efaab0460c7ee9a072b1ee306334525"
+        ],
+        "1": [
+          "fc1bee90dcbd1a3b58856e72616019063c494282bdbb668476d81956b4acfe05"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "1eae96646cbff6206bf6002962fe823b61f377d166b178251a1bd2e26ff8d3d6"
+        ]
+      },
+      "decimals": 4,
+      "hash": "04adb33b4c81f56630205dd010ea6cf5b4ba6a37bd1136c40a41742a078c3c33",
+      "hash_coarse": "dfec262de1a9dc8fe08708a877a0cf8fceb8cce796d0b4e324be8350235258f8",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "ba6004121318cd56c06617a49e412e086ee51371819981e13150c93633857fd2": "la norme L2 d'un vecteur n'est pas la plus grande de ses coordonnées : c'est la racine de la somme de leurs carrés"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.11f": {
+      "coarse_any": {
+        "0": [
+          "13c696917ab8d5a56bc8fccd0b17102d4018b22e50f2e36707ce82dffee0c599"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "85c93c952f40c9b20ad40a5fd79ee4bb34d77e42cd95fbdd0791e72834eb0b86",
+          "d1d6b096d8fa0987a0b1e557616b05ddd619490f598a7342910dbae54ff422e0"
+        ]
+      },
+      "decimals": 3,
+      "hash": "d3b14fa0830d05bbc8c1dd846fa5c2dab9012e574b602b7e0d73003882c9c410",
+      "hash_coarse": "d55d4191a4e0432b3b86d8ab30c06486c6b4a6810f7b1b76cce18b370495e1b5",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "698660d6210702cab1a3d0a432e3028213eb5ab918a9c73d77976411ac94923c": "la boule L1 va avec la norme L∞ des poids"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.11g": {
+      "coarse_any": {
+        "0": [
+          "ef8ebf8190d4107ea71d337d74bf6c48b64cdaaaae29f5708f5fba78832c7abf"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "63b856177997932bdd2208eb7067000857d0ab7cc03e87eb739b79be59057033"
+        ]
+      },
+      "decimals": 3,
+      "hash": "9ad3561f7d45b086ca5288675870029956c7f636d846ec0125c59e82bd882a2c",
+      "hash_coarse": "711554c860603f5dab59be54862b430b5604caa717b24818dfc1bf8c5f5dbd37",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "2e32e97c6e9ca72adaf954ae49a7f84f983a34cab9821a7e55a5e1d55d941e98": "le coefficient du centre compte aussi, en valeur absolue",
+        "a0dbfb31cf008dfc96c0474c1990ee5b3ee78408698c22f17f4e45add7ebacd9": "la norme L1 additionne les valeurs ABSOLUES des coefficients"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.11h": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "491b341e2719d41d0be31e307d198433101bb69ed0cd79729d4db6f583cf1d47"
+        ],
+        [
+          "fae8882f26fc011028b420ebfd17a039fe5559ce488f371d856de89a316106e7"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "53eaf5de49e61fa2bb68a9c86e4eed7b49a6f342ad7c8c9c2738595a799f72dc"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "30c167cca8c4038cb9e3bd10fcf527655dc2bcdd44f1bafad55c6013f9c9c841",
+        "9b263b01b025727bee6360d2a0654e3d13b8309947651c8e113122174aec6838"
+      ],
+      "hash": "db468efcdd76fba19cebbcb8c969c990a1d7a5f4f7cd982d60cb61f3b8091efc",
+      "kind": "array",
+      "mistakes": {
+        "623d9ceaa264a8837125937ad2b7cd63baea9fa277e9de4d5c6e6d8714460b33": "la boule L2 va avec la norme L2 des poids",
+        "feddd3869b2ebe8b3c959b17d038014f38635988ec1871954d2356b0fb55c23a": "dans l'ordre : la boule L∞, puis la boule L2"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.17a": {
+      "hash": "ccbeebc289270216f93e2710c98a9cff626a8976bc9bddeb9cd8e44f0fdffd01",
+      "kind": "str",
+      "mistakes": {
+        "6432849ca64b2a3d87e2a544ec5d647c9a6f3791dc75b31fc0b3350a4193495e": "les bibliothèques rangent les canaux en premier : (C, H, W)"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.17b": {
+      "hash": "0f5df5189768f5323ec5bff3bb83181c88bbcdecca1a4a647476841382d46448",
+      "kind": "str",
+      "mistakes": {
+        "6752a924da80b189543db054a265a66c0202adfdd2bb332658fa1dd953f77031": "l'ordre des bibliothèques : (C_out, C_in, k_h, k_w)"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.17c": {
+      "hash": "cfba7cdcecb7b0d6e0f9e1fa778c019c88a8b43a12c148b04958aa393f8d2c25",
+      "kind": "str",
+      "mistakes": {
+        "0b80f550b637175267d08a293296af01d9aca6fc0aeb921031e07a35756ad5ea": "les canaux de sortie en premier",
+        "533b01e0d2eaa5d636cbed5ca6c1d51b6ddaea4087217a163ec26af601852062": "en mode valide, chaque axe perd k − 1 cases"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.17d": {
+      "hash": "abf12b82291af5a584f0f8c6cab3767f4ece564230f13f6ebb5e985d18ac5d93",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "1cbd3223d20f010b0664f9a94e8d746e3137d02b759de3369805b573a7b35074": "chaque sortie a aussi un biais"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.17e": {
+      "hash": "53dcaccff4dd30b26fb9bf1e0041b2a014f72577c82011ae459efa9acec6568a",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "abe1460aad16668fff60c1b48c33645295c37d0e7517295b57a110599b1fd658": "les bibliothèques ne retournent pas les noyaux",
+        "b47e9f8ecbb80fc1b092a32855048f292b52689c329c1bcb31a4c85bf9a0b8d5": "n'oublie pas le biais de la sortie 0"
+      },
+      "sign": -1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.17f": {
+      "hash": "65aafdb2fc3f52f97b27c33531b8215fc8c01964065e12102ca0acd270e65518",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "1b8d8e193c0924e312f85dd4f16ad85f8efb1b1d94dc6598ec0965e095777fd2": "n'oublie pas le biais de la sortie 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.17g": {
+      "hash": "d4a840b8dea3a550baaec701b70c5eb5e28e4df6df0348f70099d5ccf08525a3",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "538756efa53f4a8affb074b9be3f61e734250dbe8a68bdcc5ee8b82b1ba5c2f1": "une convolution 2D retourne les noyaux : sans retournement, c'est e)",
+        "9274b2f8d4c5918a41bd2571550f3327bf7ff6d38b7c1777c308e29fd217270f": "retourne chaque noyau selon ses DEUX axes, pas un seul",
+        "bc3f37b547db32c1fe58bfafec83bb079a78f72f9dca4e0a7894c3b629ba70bc": "retourne chaque noyau selon ses DEUX axes, pas un seul"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.17h": {
+      "hash": "b1e3a0ab2855afad502a5808ddad27ae3b7cf83005a800bf1d61592eceb8ca79",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "02ffd0b6f3da9caeb64c435711099af8da6cccab7b971ac714305277fa7fc960": "compte chaque sortie : une multiplication-addition par poids et par position, pour chaque canal de sortie",
+        "be9926f81e34c6a018bebc850925ca7830a082b39108570f5b4cea4a39d77f3e": "c'est le nombre de poids ; chacun sert à chaque position"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.17i": {
+      "decimals": 0,
+      "element_hashes": [
+        "91881505cbec81adc1ae48153301c28435eac9bb1005e29b7afc72caf3543504",
+        "4b0d45a213c035c5c1f3df35ffd2590fceade27235d87775d93bd0718add4380",
+        "213eeb4c1ba371ea91ab324d661b579d8b1ccbb76804bd7c282f94ff050884e8",
+        "230ebd40ffdeff78774513e625ff4a9cfcbc952c70c40fc0aa472ec02c9dae73",
+        "9bfd12629f6c735051be3c905113e327f9de8800503e115d5fe97f1664d9085c"
+      ],
+      "hash": "37da5a8bb50e50577bc6aa02658aefaf3fae851d1bb6765ec1ed19cb9c0a2300",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "d13d69a4d0e4f0cb8bc80c13b611dd1dde4869e859aa930bbfc3276cd2179759": "c'est ce que rend NumPy ; PyTorch met le zéro en trop à droite"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.17j": {
+      "decimals": 0,
+      "element_hashes": [
+        "6cfa6c9c4257c1d39a6a23c177561e7da4e055d89fe26a57f0af0e8f640bf0f4",
+        "24fcd5d518755cb3024ca0905253086d4f6034aaa63b958e3067d11e3390f7cf",
+        "a9cca92e1d5d8b2671246e7f8f30fa92f336c89f3fd7f5897b49ace7ef8b5cf1",
+        "4f226eb1cd94a318c3b0bef8f3d9d0ca8fb99c7487df477ea2446ac3a2b4779c",
+        "f50dd2946a24d5f7c3e7dad924280d671b8de2e6231e71e421585f817d740085"
+      ],
+      "hash": "0d967acb2df9f496e72680ddf8cda803157c7abe3c4b0b9ec321ac06eca460fe",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4ce1d6e3987ee84a8ca7cb53b4bb2cb0d5b1158752fa3f20399f51e9f49ebbb5": "np.convolve retourne le noyau qu'on lui donne",
+        "9d029030f62eaa2cf6feed295f881c8a72dc84d03d3e93c424823c137a47eebe": "c'est la version de PyTorch ; NumPy met le zéro en trop au début"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.19a": {
+      "hash": "379148a5169dd77ccde2adbb96fc41a3d73d2d4f15bcc2eaa493825814e90507",
+      "kind": "fraction",
+      "mistakes": {
+        "c4569ddc2da03816aae655ff7fab16b130be1d170944644b645c4f0442b656e2": "avec la case 0 de chaque dé, l'indice de la loi est la somme elle-même : il n'y a rien à décaler"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.19b": {
+      "hash": "fc0f61fb92e33c08d8293d3238a358ab59925df86ac380af3b2272f490b80058",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "58c38ae6eb4a74c114eb1f8b39e1612df8a8eda2e9469f1891d0e75e1b941982": "la liste des coefficients commence par le terme constant : le coefficient de X⁵ est à l'indice 5",
+        "a685a343ef3cf42c1b0052c498fd08438f15283bbd027a6c153f1a85d1f927cf": "dans (a + b)ⁿ, le terme en bʲ a le facteur aⁿ⁻ʲ : ici a = 2 et b = −X",
+        "eb0de35da8b96a134d884ffc6d287aa04cf29b74e067095bbd953e0d79f23acc": "le terme en X⁵ de (2 − X)⁷ porte le signe de (−1)⁵"
+      },
+      "sign": -1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.19c": {
+      "coarse_any": {
+        "0": [
+          "4d5a2dd647b8becc2fd13af2b398a6d05ba08f8089d9b3fc681274781d34ce69"
+        ]
+      },
+      "decimals": 2,
+      "hash": "777613096929c81544364eeaf18727fb0c2337f9c268fb867f050e49285291e0",
+      "hash_coarse": "9cc04782d5d81f147493ba03bc4b9be466b45dc64ca134ab9ef8336dcc2d1d3a",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1502d15c1f377327c373c0cc06421e1ba098ce69d5655b4d04521a742d36bbe2": "c'est la première valeur du mode PLEIN : le mode même taille commence à l'indice ⌊(k − 1)/2⌋ de la convolution pleine",
+        "1b8062e10a82a045c5cb3e439a55ea8a5c4bb9fa1a8cc2d59988b3e416e4bb12": "c'est la première moyenne COMPLÈTE (mode valide) ; le mode même taille commence plus tôt, avec des zéros"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.19d": {
+      "hash": "e0871a2983bd0f70d3dde6a52f0c3e8bbdd8fb4c90f8156de3e647727b22f510",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5914727a2bce06d484127b8bbe4daf04656a00b1dc024540033d74b9abc6270f": "le mode même taille a autant de valeurs que le signal ; compte celles qui ne touchent aucun zéro ajouté",
+        "c562efa39ad21e6c3351717e1c90d3e08b910b048623ebd044b7227aa7346ed2": "compte seulement les valeurs dont les 5 termes sont de vraies mesures"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.20a": {
+      "decimals": 0,
+      "element_hashes": [
+        "335adeaaa4ee8f1c6ed7d55bd1f746f3aed01d119a63cb8e79bdbb3767640176",
+        "609a7b663e561d1bb77a77e9141b4951eeb773b8e256acacb8dc1631b92a7de1"
+      ],
+      "hash": "5674873207730c8d0760305ae3e488e16d4808806991c2d95fde0c8d80f07fa6",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5f9c7d7d66ab6388295a102fca8b470a0ec06e4d122f09fd7adb9f54e2d1376a": "une matrice de 4 lignes a un rang d'au plus 4",
+        "a08a4a68d7e4115a718a32eb7df89028dc53bcbbc3c6df48b2f9bb1259700a46": "dans l'ordre : la matrice pleine, puis la valide"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.20b": {
+      "coarse_any": {
+        "0": [
+          "d2cfa6c81c9c7c47d3ec5d50daab030bec48e789f6879d57e9c670b31547d1b6"
+        ],
+        "1": [
+          "dab5307a7722d6b568aef8d729d8db595855724994fc8e5e433b1c9f2bf60ecd"
+        ]
+      },
+      "decimals": 3,
+      "hash": "d45d8ae5df13da339169730756ebc2a4b997576bd748987a4d2237aa99ec74f4",
+      "hash_coarse": "4e8c65db39c30f860a445ed09e2fcf145dc3a10412628b86c2a7774fb2c180d8",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6d883200c5a0bea433088a8ba56ae992d87f2ebde8df8941c1ee21c0fdc360c0": "le pourcentage des coefficients NON NULS",
+        "eb384e93c22d9b889211e30174fbd75a501bd70d04cc4e749ca52706f60512a2": "le nombre de lignes de la matrice pleine est n + k − 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.20c": {
+      "decimals": 0,
+      "element_hashes": [
+        "aae04cb47b43afca231f3e8938f0149a61c3c6e3125d42a4b8337e468a1c4e70",
+        "4dbb1c9878b08703f74f846e4a4eb6c94e3bde236b0bdd8269954c0909242cc2",
+        "59d9b9e03684d916db60f9265718fac8c79aeb6fb30cf56ef08e545c04d35fb8"
+      ],
+      "hash": "2839ca1bcbf5ae5e50af50d4839b88eecffa14ab6d85c0612772fe26b70ca3fb",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "116440f93c109e8a3d2c643ae5e16ae7543a5e49992016e951674d4223af2f4a": "la transposée de la matrice valide (signaux de longueur n) agit sur des signaux de longueur n − k + 1 : compare-la à la matrice pleine du noyau retourné pour ce n-là",
+        "f0e6acd153af1b1234be60405bb672bddfe2bda8f2b4970233d7adc62800dc39": "compare les deux matrices du mode même taille pour le noyau de longueur paire : le zéro en trop change de côté"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.21a": {
+      "coarse_any": {
+        "0": [
+          "4125947ba9e73b9a4d6b823ab76ab530b5e11a3ce03d8985406c83aa3563d316"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c46d630398a1cdcdc6ba2ab7f4d073dbb5763073b0fe0e1801b7d32481a91c91"
+        ],
+        "2": [
+          "699fed0dd803ec2539cad0671be3c74815870a6d741046d86e2d43b9e4aa3d73"
+        ]
+      },
+      "decimals": 4,
+      "hash": "68af0828dcaf259b89a8914312e007713e25694d8941c718b3fc795c36cc62a8",
+      "hash_coarse": "a35b46df834aefd94712a27e854d05083fab0acb4e9cb9c62c8b426ad0c37434",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "4dd877203628cf0198c1c68e1147c04fc21f962384790ace48a3674f77f752a6": "le profil est circulaire : une convolution ordinaire met un zéro avant 0 h, au lieu de l'heure 23",
+        "e42420c043a61efb6b696caf9b86a976ea0f7f49468c983e7afb4e674a671d9d": "la moyenne est CENTRÉE : h₂₃ = 1/3 fait entrer, dans la valeur de chaque heure, l'heure précédente (modulo 24)"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.21b": {
+      "hash": "76831ebcbd50a302786e406c99d2f958774194d7755ae229ceab8735a13f09dc",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "69126cf602e6d619de4ea7e76798ebe9fa70720828a824d3ea9e00561fe30926": "la moyenne est centrée : la valeur lissée de l'heure m lit les heures m − 1, m et m + 1, pas trois heures d'un même côté",
+        "a13ade25f790d61d580f6fa22a9274a161c213bde8d29e1eac60c5c33ce994f8": "la moyenne est centrée : la valeur lissée de l'heure m lit les heures m − 1, m et m + 1, pas trois heures d'un même côté"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.21c": {
+      "hash": "56a86c5758200df3a48cda9f8b90e2260d78b7e76a273a4290045246b36b239b",
+      "kind": "bool",
+      "mistakes": {
+        "cf87e386a550cf290fc8bb2b6a0982515ff2e5558e9c745bdd7e606d51d2baf2": "complétées jusqu'à la longueur n + k − 1, les suites ne se replient plus : compare au résultat de convolve"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.21d": {
+      "decimals": 0,
+      "element_hashes": [
+        "a7bb25f021a8b03c85fc0adb9302b94f152f22c873cbbe2fafad13b08318cc20",
+        "417980994e4a52e1183c8fb4da4d8c00094c794e30ac7dea8d8aede3bce2f9d1"
+      ],
+      "hash": "9b4c197612dafc898e278ee0924e1a6b1ea655ee794e8a3437cbbfdaec642463",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0f20fc0c6fca547100d755aeac11de430dab143503afa2e510d51c91071e1f51": "le simple renversement ne garde pas h₀ à sa place : compare les deux matrices",
+        "9e080a57684922db283f530fb8db886b82e06fd106280971b38c3d7456e7feca": "relis le théorème du §4 : le retourné circulaire garde h₀ à sa place"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.22a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "c067576a0397736baf758886a4906454348654894de8f824d218e4122fa67ae7"
+        ],
+        [
+          "c1b32babfdc2377479529db48880f012bf23173e6008dfcf0bd378e576c1af18"
+        ],
+        [
+          "25151f47c5d2fe0d462ede375324ff18cc0e62b25b3d3ff1bd97a807adb20b04"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "73d4253320104edd5dd7f0ad841cf30558ec47a985a06f7db256d27ed66c129c",
+          "94911d7dc8492fddefc8bc9738ec71b72b17d0d0258488d0e61916bb5c7a11f9"
+        ],
+        [
+          "1452540cc288cdacf88d1c577fbe453ef3ad748ee07a7906983dda3daaa4b01a",
+          "d8f6232a2461723c83c26d973a710eefa8b654730967409bd60cf2cd2d2099f3",
+          "6ebdebe0396c1dd16b8fda79edc3d9382fc23f9d9e836d2ea829cabd45a01c3d"
+        ],
+        [
+          "ff55e6aeda111258dcb09ad5e18a4c3fc7bf5b75861809ae864e7a431b358c45",
+          "fd2679ab20cb285cc49c53cd2c8628f2dddd67ad8c8dc124706021428b91db98"
+        ]
+      ],
+      "element_hashes": [
+        "036785095d0e1a421228b695ecf821e2cca0280e48b28a3861411922f1009b71",
+        "d12e15cf519860431c1f47ee1083b33c7422511e096d369c8826b6ef02564103",
+        "be32bb3f7dae255b9baac68da8aba784abf6f1bf2681a31f9952ead46fd8cfe8"
+      ],
+      "hash": "58920b7803e9a3447b9c5685735e52b8e0fdccf5812a71ba8290644d87199aa1",
+      "kind": "array",
+      "mistakes": {
+        "84ef12e7bc0d846227aafe3f0d4fa66e36e1579ab68d350b307ea3d11f3306e3": "la convention de signe rend positive la première coordonnée nettement non nulle de v",
+        "9bcc1c7be536a1a246acd5a5d4a1909587d0965b88313ec0034e34697dcd836a": "c'est u = K v ; la question demande le facteur v, de norme 1",
+        "cb1caa2251805d3037d488687dfd991a50a8e9bf8fda3c46b14dd9a4612f87db": "v est de norme 1"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.22b": {
+      "hash": "ec83db11950315e7173e1a52b67df62d06145742eeaa2b193169e0d577ca995f",
+      "kind": "bool",
+      "mistakes": {
+        "d2b68beeefd49d0a6c65c7cf6d6fa53f18e43bc188f8f87164f16cc8ed77412a": "le laplacien est de rang 2 : sa deuxième valeur singulière n'est pas petite devant la première"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.22c": {
+      "coarse_any": {
+        "3": [
+          "994174c8895a87ad0ceddb073c078d1e70328d1272563e03f5f69a5e68affb48"
+        ]
+      },
+      "decimals": 5,
+      "hash": "290f46db81012c2c52677554fe0626a7b4ffaa3a0126d92acccaefb98239c2ee",
+      "hash_coarse": "69466ad3fdfcc8441a6d44ca0167f0c84806af78f41ce97ba714cb54384477d7",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "7b79ccfb98ac66feaff7d53bc82210fb7de3a0836f7e8eb634d8948011a8bae3": "l'erreur en norme de Frobenius garde TOUTES les valeurs singulières oubliées",
+        "ab50d22d8339c5a798e3191b0302cdd3da018efd6e730ea455407fe2a01a0e08": "l'erreur en norme de Frobenius garde TOUTES les valeurs singulières oubliées"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.23a": {
+      "decimals": 0,
+      "element_hashes": [
+        "59fa9eee23d58ebc654db4cb2c8d1f43e681d2e20a0b152a501303f14c91d628",
+        "7f7933d890dca028a1614473da36b0284e4223584ce28e65e374d624ff73198b",
+        "bf498167f2e29b8e7d9953318c9195164d7b1764bd6a25cc406c6ea34af7b7e0",
+        "2900d4b4ec6574d50bb9e628b01dac10559d80fb2fc70cc6d1cd317ae24d2291",
+        "9ae04792ee071a2b314a3e67ba887eb7e99578234b4440876fcc5d7785697cd7",
+        "a23e6de63363fc99fea2621b3dc44b437662e9aefa426f491abf68c8787a9be6"
+      ],
+      "hash": "9a6adf6ab5226559810a481ed91c0e73e07615a7998ee98c404e21af48f2e14f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "ce30ff6615129088419c57dd33caaf0bb988b861939385cc932b9220f7a16f2e": "le pas du premier étage dilate le noyau du second"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.23b": {
+      "decimals": 0,
+      "element_hashes": [
+        "c7fa03d14cee48fed0694fb4b1a36976bf03ffe003e7dcd43ebeb943af29e477",
+        "385ec5ed74c6dce8d4191e1298a014b2b65dfefc241cb8634e6aae6e73c71781"
+      ],
+      "hash": "60fd6a956fdd5456a53ef133ee4c9b903569f201f0c106bb910b326ba9441209",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "c258cb9a74a73cf4cdf516cdc8aeb8df699fe90d01b6ba06e6b222adb731d80e": "le pas total est le PRODUIT des pas",
+        "f4b1aa82e9f0e1990d7ec42410183be2fe5cdf6d5e4b3cfd4ffe86fd8b02c9d8": "un pas multiplie les contributions des étages SUIVANTS"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.23c": {
+      "hash": "4d782dca8b0c3f3cb18916b6621e2833bd21f9bfcda566ee120167e1d066e6ee",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "f1cb9a993cc285875b93cca26c80a733989bbc4bf04a79339b6d0fdaaffed5a4": "écris le troisième étage avec ses trous : d − 1 zéros entre deux poids"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.23d": {
+      "hash": "e8c17ca24d7568e8a88fc753aa0eefd2d73750824f5ffc1ba6bc8d2e14bcc874",
+      "kind": "bool",
+      "mistakes": {
+        "b96dd97b13c86289269c497a5ba5aadbb60e275ad2869df86967b63eaa75a974": "si tes fonctions passent leurs vérifications, compare les deux sorties sur leurs positions communes, par np.allclose(..., rtol=0, atol=1e-12)"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.24a": {
+      "hash": "2a61f9a2a550fcb7a636819652f0fbe83c788c7a35b4f862384ef06455d0776b",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "a36127e9331bbda43848e60eb03cc54cbfa7912c15ea9f01ccbd9bfbb2db9436": "la sortie ne garde qu'une valeur sur 3 : compte le décalage en positions de sortie, pas en cases du signal"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.24b": {
+      "hash": "c8fdb022eeccfc6bdfb01cab369ad1328e1d3cc18fb2f532124cf8c874f197ed",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "c59a6a76367fb2e2b14d3e76455689f6d43cb7f4f236b9cd0db654ae1394cc06": "la sortie ne garde qu'une valeur sur 3 : un décalage de l'entrée se compte, à la sortie, en positions de fenêtre"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.24c": {
+      "hash": "0b2bafee4d4d91bc3ce907b09d3efb242052108224a76c5b167fa8325a37a29c",
+      "kind": "bool",
+      "mistakes": {
+        "4e5c85883e6430c32e58e7e179443ea4a3ebe057b2c22292bd03f9cdf063c1a2": "relis le §4 : avec un pas s, seuls certains décalages de l'entrée décalent la sortie"
+      },
+      "prediction": true,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.24d": {
+      "hash": "3bc0c4e76b93cb5f7ea84574185df14be29406d461b6866333b9341599b90d54",
+      "kind": "bool",
+      "mistakes": {
+        "21254bba650eabf8e9988d4f05c508c5e8ecb89ade512d55d7f975c23f652c62": "avec un pas s, un décalage de l'entrée décale la sortie seulement s'il est multiple de s"
+      },
+      "prediction": true,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.24e": {
+      "decimals": 0,
+      "element_hashes": [
+        "de80bc3586a4f23a3ff4f98a9024d7cf71cbfbb6d3f144c388f05d5f815db173",
+        "543326f4c9362e55a98bba3a226c86df8c2c7544dc4eb86b97e6c94940e3c0fa",
+        "8268c48194e58dd48c57338936be868ace92310d09f7ae1a79f5da116ff2a7b9",
+        "d1100b3738a33dbb5744db8dbee84974bf5ab9d9f183621eefb309681798a13d",
+        "8322facf5ea56af161bcf527ff9a94ba5138f1d0225f23d1fc2363ad130493d9",
+        "afaf9339869b07c172fea58d7df48e0895f7905026ed290eca8414ec48033ce0",
+        "105d53cc135f9857b464167482184095a2032f848baef0e2e16547cc524ed4e2",
+        "0a8d5d8c90260df08419dd389e1f090e9b2bba3b2c70ae6ee9aa1274c9ca73b6",
+        "a0b2b837b97f34a7a039a0c83f9811a46922e47c6ab7f7863e82f65273964f03"
+      ],
+      "hash": "4f5f85e9667fca66f5e4a81f082504a24a93ebe1aa8ce56228d58090d794dec4",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "fca6e68e4bcd0c32bb27c3822980268c746f53d859de614283dbe5259253b643": "un décalage d'une case de l'entrée n'est pas un décalage d'une position de la sortie : recalcule chaque fenêtre",
+        "fd59a51fc57fcf878fb8c2a9b9aa870133395197d8f4fd6e6f0cb33e06261208": "c'est la sortie d'origine : avec le signal retardé, chaque fenêtre lit d'autres valeurs"
+      },
+      "prediction": true,
+      "shape": [
+        9
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.25a": {
+      "decimals": 0,
+      "element_hashes": [
+        "3b25bd672c17ab6aa4ccc3feaac5d9707ba35e434ab89787ddbbb156216fdae4",
+        "e0a20796fb78fc0a7b25a94f31fe20f568a41706de61ae09a09eb6872091ea06"
+      ],
+      "hash": "61cec27be3cdc9faae1caeb11a164c7668d0f5b6ff92143a7aaf7d3bf7623586",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "187d274fe8808b7112333cdc1eb7198a5f0068133143f9d0cc040e69e661ec08": "deux passes de k multiplications chacune",
+        "ed8acbbb3d2c318c4aef994c135b3f855da01a539d5f01a9281763ddcd8a7f82": "dans l'ordre : en direct, puis en deux passes"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.25b": {
+      "hash": "5a147dbbea894e850d7d617e678229aaa8999dd9670e8680c5e575fafa5e534c",
+      "kind": "str",
+      "mistakes": {
+        "9165c122ef8401ba3a6c35eaa0898773e8263fc955ff617e7f987531f1687725": "relis tes deux temps pour k = 25 : le rapport se calcule direct / séparable, et se compare aux comptes de a)",
+        "df24dc535da1bfa08b830120ce0d8a795ea282c629c1d2863bcbab96600c60c3": "625 est le nombre de multiplications du filtrage direct, pas le rapport des temps"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.25c": {
+      "hash": "e16002feb46da00fa2f4ed8021885f87b02074a5587c762a8ed2fd1c6e774cee",
+      "kind": "bool",
+      "mistakes": {
+        "41b3f3d8b7ed47c6936e747f8e6d8db2ceb2b0c08a38e36b1cc06cbaddb2136e": "si tes deux fonctions passent la vérification, compare leurs sorties par np.allclose(..., rtol=0, atol=1e-9)"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.27a": {
+      "decimals": 0,
+      "element_hashes": [
+        "620c6209801736eb91e4ac121c161294577b1b4ac0e216c5823ff28154632a47",
+        "c1077141beea07f7e0abb4e1edd008dd3e53cae502fd7df40a48769b9b8f8293",
+        "de2e68612503349de20ec4177856c2d8349d5ee99dcb6202331c21a4cdc0fecf",
+        "8ef697dea3380af0a52830d97e607fe2ec3ab6728f394f788fa6e72a8c42ac27",
+        "b5ddb980c86558be31f3b811bb2d42442cbc593f097504a9351d3d6880dd44ab"
+      ],
+      "hash": "5aede50a9236b1a7631acedc335bdc618686409a3acd33f0d8049bf478761590",
+      "integer": true,
+      "kind": "array",
+      "mistake_decimals": 2,
+      "mistakes": {
+        "b51b720d776786c8a2b2d7d10689ebff84781c322ae0bef39bb695530fe5585f": "les poids (−1, 1) se divisent par 0,5 h : une vitesse en m/h",
+        "f2e69a8ebbb0cddadb5ea325c0f98787f6921be5fe329e366f96504103817b6b": "le niveau monte : une vitesse de montée positive ; np.convolve retourne les poids qu'on lui donne"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.27b": {
+      "hash": "afc13224ac8d6438eea08e94b3bb329d263444f01acf149952d29ebd22265e27",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "fbe9c7933ce52d7a5e14a48fe1895e91b7514890c4671826cff1e17c4930c59a": "la fenêtre incomplète n'existe pas : la partie entière se prend vers le BAS"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.27c": {
+      "coarse_any": {
+        "0": [
+          "678b98126c289e962990f246685a249394feb0cc1e6762cc49fcc90f0e3b3f9a"
+        ]
+      },
+      "decimals": 2,
+      "hash": "3b774f3a1ea3be938b6c09e02f9cb4dc81349ba6879b0d558e255c6d6d720916",
+      "hash_coarse": "0e972bf58c9aac68278eaab3b8c07ad51a207d0d62eb2aaf88fb2979f22ef3f5",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "704c112992ee2078988102d9796512b252c817913d3aa3d63dc5b901cb98bd13": "compare K au produit extérieur case par case : le noyau n'est pas de rang 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.27d": {
+      "hash": "40ad93d39a8f755f22d8157cc3e43286e39e749ac639cd900f5a9e52a718eb84",
+      "kind": "bool",
+      "mistakes": {
+        "3775250b72603bad2d39b8258277bfaeefc44769a476e2eb5a14dd445f8c7e80": "le noyau est de rang 2 : sa deuxième valeur singulière n'est pas négligeable devant la première"
+      },
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.27e": {
+      "decimals": 0,
+      "element_hashes": [
+        "d8050cb1068078b5c0a506bd310c95b0542a729c7e3fd23571865aa6b6e66cd5",
+        "0a138fe778a2af6c04f9fb148ad80a9e37d91e1c9f81546504a0a1e7df446573",
+        "54dc174a74f3b80339646beb377ffa3c3940451775ed6646cd2249ee5679d622",
+        "244bdbafcfbb8b8974b69429a8ce59af349a9b3c9a358520f3a28c2394d02d25",
+        "61d7bc0e8c9cb746f4dc1be8ae0de873578c5050370b32b04a0ebda1cac654ed",
+        "22595fa9d516da215d66d22a75502b6af7d588d7689201b80fd58e953cff2798"
+      ],
+      "hash": "3c648b17dbe6e8777770670ee858369259658f61392c1773f0c2c504976f8325",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "608759f12bf29e49c2245f347f9fa028f795cab2372ad3a7d42e10625ad63cce": "c'est la version de PyTorch, le zéro en trop à droite ; NumPy le met au début",
+        "c92c2ae07026374bdf5ba9fa955ab5810dc8b34739499c8b32ac145bde836b0c": "le noyau à donner à np.convolve est le noyau RETOURNÉ"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.29a": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "64f29de7b721205521ba93fdade20299f9ac0f07133eb5c5a3a667da771d5d12"
+        ],
+        [
+          "2ad522c3552bf6069d01f7f2550f0a0923c29df7da2ed94c2a49c9e768d082d2"
+        ],
+        [
+          "86c6254f02f1a27651d1054c8687d5049dd9e6cdbc70156d85ef1c82c2baa251"
+        ],
+        [
+          "93d699feac7e4aa3048414e9eacacdb09c7725af637fca76bb1de3690c3f6434"
+        ],
+        [
+          "4b11fbc7fdc7063b4606aacc7bbfe1466d6749886b0025538f2791b1f48ab289"
+        ],
+        [
+          "b359a4b1e845aa31dce4c77ed35c7fbd25dbc7d2c9c689e19784eb18eaeebf99",
+          "f43f6d606a099c9a81ae4ff79ea741340c30b627d002ff5fb479625d1a54b424"
+        ],
+        [
+          "c54329f38ac39ac35339cebf914583e96c2ef313e16d7fe6d0b280c3109b7582"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [],
+        [
+          "8f94045569329b062d79b18e33929d16dc9ffbbf385e2d90e0d602ada4afe015"
+        ],
+        [],
+        [
+          "a27392e55671099e5e919316a0d60427b9317d7ebfb20512d84a707d463b23f4"
+        ],
+        [],
+        [
+          "4f168cbdc8963f57f2dbc863c5e642423a2641321503234c86ff08500500f42d"
+        ]
+      ],
+      "element_hashes": [
+        "99e01e1b11ca0a554d06ca37fa1dcb129b9f6ec3bfa754227c8c2077ee5868b5",
+        "1ca6d46c5545d23ba751817eef2baa89524a09f59a37a743ae4273f8fb6e43c7",
+        "066269841b717ad72313199544ed361be0cf244da790d57b8be818eb9b61575e",
+        "21274e0473a65fb1ad1b943acd92e9a6f352b731a9589eb653946415bafcacac",
+        "584bc435d72adff7ef20ee9145a1c113fdfd7f7c0b8479a2ac91a8b3a208c543",
+        "4733c9c350f2c037689337f9674335b166f955d1c8123d8e756c160a0eef2ad1",
+        "214811ffe498455e110c4d36df1ba2d2601ce0a5c0c63c21a20efce4e2c579c6"
+      ],
+      "hash": "b5d785b3042a7b4e0a195ca9f07ef795df197730e198b417321d898d2f099db3",
+      "kind": "array",
+      "mistakes": {
+        "7325aca8af8d702cb472a20ffb6e4acf2b499c83bc057908165efb786d14dfa4": "la matrice de Toeplitz de x envoie le noyau RETOURNÉ sur w ⋆ x : retourne ton estimation"
+      },
+      "shape": [
+        7
+      ],
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.29b": {
+      "decimals": 2,
+      "hash": "e17992474623a988e2ad43a5f5188c2d17e844ca1731b42e60a903d03b5438e5",
+      "hash_coarse": "f0eae9b1a23b00d98dc420bdd24a39cae7c97d0d6256b49bd5e5dff53562387c",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "895a9c1e1995272ab21dd1345e65b08f6eadcb841efc85ce7a18827045bc3b33": "l'écart type du bruit, pas la moyenne du résidu",
+        "b45d5c2fb2e77453ca7ceae8682cb901ea1935f12ae4959c82f2e4fce829b0d1": "divise la norme du résidu par la racine du nombre de degrés de liberté"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
+    "M21.29c": {
+      "choices": [
+        "10",
+        "20",
+        "50",
+        "100",
+        "200",
+        "500"
+      ],
+      "hash": "4a4630e537393097d619f2620ce6a11a436556f7e25774039446a879a36b2ce9",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "05ef076e27459040d6c9699e25d61936c097915657bd70bae316793815faf754": "pour cette valeur de m, regarde l'écart du plus mauvais poids, pas leur écart moyen",
+        "1fcd39e1499dbf63c23be86e12fc16e3f6dd6fe64c7cd6bd707208434cb76964": "vérifie les valeurs plus petites de la liste : on cherche la plus petite qui convient"
+      },
+      "sign": 1,
+      "source": "chapitres/m21_convolution/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
