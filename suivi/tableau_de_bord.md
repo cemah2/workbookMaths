@@ -1669,3 +1669,51 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M17.23 🏆 Défi : la jacobienne de l'inversion X ↦ X⁻¹, vue comme une application de ℝ^{n²} dans ℝ^{n²} ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (16 cartes)
 <!-- wbm:end M17 -->
+
+<!-- wbm:section M18 -->
+## M18 · Différentiation automatique et calcul matriciel ⏱️ 14,0 h
+
+- [ ] M18.Q1 🧠 Lire un graphe de calcul : nœuds, arêtes, ordre d'évaluation ★ 4 min
+- [ ] M18.Q2 🧠 Combien de chemins, et quelle somme ? ★ 4 min
+- [ ] M18.Q3 🧠 Calculer avec ε² = 0 ★ 4 min
+- [ ] M18.Q4 🧠 Le mode inverse : dans quel ordre visiter les nœuds ? ★ 4 min
+- [ ] M18.Q5 🧠 Direct ou inverse, pour n entrées et m sorties ? ★ 4 min
+- [ ] M18.Q6 🧠 La forme d'un gradient par rapport à une matrice ★ 4 min
+- [ ] M18.Q7 🧠 Identités de trace : vrai ou faux ★ 4 min (complet)
+- [ ] M18.Q8 🧠 Gradient d'une moyenne, moyenne des gradients ★ 4 min
+- [ ] M18.R1 🔁 La jacobienne d'une composée (M17) ★ 5 min
+- [ ] M18.R2 🔁 Le gradient de wᵀAw (M09b) ★ 5 min
+- [ ] M18.R3 🔁 Différences centrées et choix du pas (M05a) ★ 5 min (complet)
+- [ ] M18.1 ✏️ Le graphe de calcul d'une formule de physique, et l'ordre de ses calculs ★ 15 min
+- [ ] M18.2 ✏️ Dériver par la somme sur les chemins : une variable qui sert deux fois ★★ 20 min
+- [ ] M18.3 ✏️ Le mode direct à la main : des nombres duaux sur une fonction de deux variables ★★ 20 min
+- [ ] M18.4 ✏️ Le mode inverse à la main : les adjoints d'un graphe de six nœuds ★★ 20 min
+- [ ] M18.5 ✏️ Le même gradient par les deux modes, et le compte des opérations ★★ 20 min
+- [ ] M18.6 ✏️ Le gradient de aᵀXb, de la forme de X ★ 15 min
+- [ ] M18.7 ✏️ Les gradients de tr(AX) et de tr(XᵀAX), coordonnée par coordonnée ★★ 20 min
+- [ ] M18.8 ✏️ Le gradient de log det X sur une matrice 2 × 2, à la main puis par la formule ★★ 20 min (complet)
+- [ ] M18.9 ✏️ Le gradient d'une moyenne de distances : le point qui minimise la somme des distances à des villes ★★ 15 min
+- [ ] M18.10 ✏️ La différentielle d'une fonction de matrice, df = tr(Gᵀ dX), et le gradient G qu'on y lit ★★ 20 min (complet)
+- [ ] M18.11 ∂ La règle de la chaîne sur un graphe sans cycle : la somme sur les chemins, nœud par nœud dans l'ordre de la numérotation ★★ 20 min
+- [ ] M18.12 ∂ Les nombres duaux calculent la dérivée : f(a + bε) = f(a) + b f′(a) ε, pour les sommes, les produits et les composées ★★ 20 min
+- [ ] M18.13 ∂ Le mode inverse calcule tout le gradient en un passage : l'adjoint d'un nœud est la somme, sur ses successeurs, des adjoints fois les dérivées locales ★★★ 20 min (complet)
+- [ ] M18.14 ∂ ∇ log det X = X⁻ᵀ, par le développement du déterminant selon une ligne ★★★ 20 min (complet)
+- [ ] M18.15 🔗 Pont : workbookIA 18 programme le mode inverse ; pour une simulation de ℝ²⁰⁰⁰ dans ℝ³, combien de passages dans chaque mode ? ★ 15 min
+- [ ] M18.16 🔗 Pont : de la convention de MML (gradient en ligne) à celle de NumPy et des bibliothèques de deep learning ★ 15 min (complet)
+- [ ] M18.17 📖 MML §5.4 et §5.5 : gradients par rapport à des matrices et identités utiles, en anglais ★★ 40 min (complet)
+- [ ] M18.18 📖 MML §5.6 : rétropropagation et différentiation automatique, en anglais ★★ 35 min (complet)
+- [ ] M18.19 🗣️ Expliquer le mode inverse à quelqu'un qui connaît la règle de la chaîne en une variable ★ 10 min
+- [ ] M18.E1 💼 « Différentiation automatique, symbolique ou numérique : quelles différences ? » ★ 10 min (complet)
+- [ ] M18.E2 💼 « Quand le mode direct est-il préférable au mode inverse ? » ★ 10 min (complet)
+- [ ] M18.20 🔨 Les nombres duaux : la classe `Dual`, et la dérivée d'une fonction d'une variable ★★ 30 min
+- [ ] M18.21 🔨 Le gradient en mode direct : n passages avec des nombres duaux ★ 20 min (complet)
+- [ ] M18.22 🔨 Lire le gradient dans la différentielle : G[i, j] = df(E_ij), de la forme de la variable ★ 15 min
+- [ ] M18.23 📦 SymPy : dériver une fonction de matrice symbolique, et comparer aux identités ★ 15 min (complet)
+- [ ] M18.24 🔮 Prédire le nombre d'opérations de chaque mode, puis le compter ★ 10 min
+- [ ] M18.25 🔬 Différences finies contre nombres duaux : l'erreur selon le pas h ★★ 20 min (complet)
+- [ ] M18.26 🎨 Dessiner un graphe de calcul, avec les dérivées locales sur les arêtes et les adjoints sur les nœuds ★ 20 min (complet)
+- [ ] M18.27 🐛 Chasse à l'erreur : un gradient transposé, un adjoint compté sur un seul chemin, un pas h trop petit ★ 15 min
+- [ ] M18.28 🛠️ Tester une classe par ses propriétés : distributivité et dérivées connues des nombres duaux ★ 15 min (complet)
+- [ ] M18.29 🏆 Défi : dériver une boucle, la méthode de Newton pour √a, en mode direct ★★★ 30 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (22 cartes)
+<!-- wbm:end M18 -->

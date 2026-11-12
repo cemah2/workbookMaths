@@ -608,4 +608,182 @@ Le plan : colonne contre ligne ; peu d'entrées et beaucoup de sorties ; un exem
 
 ## Notebook
 
-*(indices à compléter)*
+### M18.20 — Les nombres duaux : la classe `Dual`, et `dual_derivative`
+
+<details><summary>Indice 1</summary>
+
+Fiche §3, « Les nombres duaux » ; la docstring de la classe donne la règle de chaque opération.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Une petite fonction d'aide qui change un nombre ordinaire `c` en `Dual(c, 0.0)` évite de répéter ce test dans chaque opération. `__radd__` et `__rmul__` peuvent appeler `__add__` et `__mul__` (la somme et le produit commutent), mais pas `__rsub__` ni `__rtruediv__` : là, l'ordre compte. Chaque opération construit un **nouveau** `Dual`, sans toucher à `self`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Avec `a, b = self.value, self.derivative` et `c, d` ceux de l'autre opérande, le produit est `Dual(a * c, a * d + b * c)`, et `sin` rend `Dual(math.sin(a), math.cos(a) * b)` ; les autres suivent le même modèle. Pour la puissance, traite `p == 0` d'abord, puis les deux cas de `ValueError`. `dual_derivative` : `y = f(Dual(x, 1.0))`, puis trois cas, un `Dual`, un nombre, autre chose. Pour l'usage : `dual_derivative(lambda t: ..., x)[1]`.
+
+</details>
+
+### M18.21 — Le gradient en mode direct : `forward_gradient`
+
+<details><summary>Indice 1</summary>
+
+Fiche §3 (une graine par passe) et §5.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Convertis `x` en un tableau de flottants (`np.array(x, dtype=float)`, une copie), vérifie `ndim == 1` et `size > 0`, puis fais une passe par coordonnée.
+
+</details>
+<details><summary>Indice 3</summary>
+
+La passe `i` évalue `f` sur `[Dual(point[j], 1.0 if j == i else 0.0) for j in range(n)]` ; range la partie `derivative` du résultat à la case `i` d'un tableau `np.zeros(n)` (une fonction qui rend un nombre laisse 0). Pour c), passe `Counted(height_21)` à ta fonction, puis lis son attribut `calls`.
+
+</details>
+
+### M18.22 — Lire le gradient dans la différentielle : `gradient_from_differential`
+
+<details><summary>Indice 1</summary>
+
+Fiche §6, « Lire le gradient dans l'approximation linéaire ».
+
+</details>
+<details><summary>Indice 2</summary>
+
+Ramène `shape` à un tuple (`(shape,)` pour un entier) et vérifie chaque longueur ; `np.ndindex(shape)` parcourt toutes les cases, quel que soit le nombre d'indices.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Pour chaque `index` : un déplacement `np.zeros(shape)` avec un 1 en `index`, puis `float(differential(...))` à la case `index` du gradient. Pour l'usage : `Counted(lambda H: det_X * np.trace(np.linalg.solve(X_22, H)))`, avec `det_X = np.linalg.det(X_22)`.
+
+</details>
+
+### M18.23 — SymPy : dériver une fonction de matrice symbolique
+
+<details><summary>Indice 1</summary>
+
+Fiche §7 ; l'énoncé donne les trois dérivées de `MatrixSymbol` à calculer.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Un seul dictionnaire `{A: sympy.Matrix(A_23), X: sympy.Matrix(X_23), a: sympy.Matrix(a_23), b: sympy.Matrix(b_23)}` sert aux trois évaluations : `.subs(...).doit()`, puis `np.array(..., dtype=float)`. Compare avec `np.allclose` à `A_23.T`, `(A_23 + A_23.T) @ X_23` et `np.outer(a_23, b_23)`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Pour c) : `S = sympy.Matrix(2, 2, sympy.symbols("x11 x12 x21 x22"))` et `L = sympy.log(S.det())` ; la matrice des dérivées est `sympy.Matrix(2, 2, lambda i, j: sympy.diff(L, S[i, j]))`, à évaluer par `.subs(dict(zip(S, X_23.ravel())))`.
+
+</details>
+
+### M18.24 — Prédire le nombre d'opérations de chaque mode
+
+<details><summary>Indice 1</summary>
+
+Fiche §5 : ce que donne une passe directe, ce que donne une passe arrière.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Compte d'abord les multiplications d'une seule évaluation de $f$, un produit de $n$ nombres ; puis le nombre d'évaluations que fait le mode direct pour tout le gradient.
+
+</details>
+<details><summary>Indice 3</summary>
+
+Dans `product_by_hand_24`, compte les multiplications faites à chaque tour de chaque boucle, et le nombre de tours. Pour d), écris chacun des deux comptes comme une fonction de $n$, puis remplace $n$ par 16.
+
+</details>
+
+### M18.25 — Différences finies contre nombres duaux
+
+<details><summary>Indice 1</summary>
+
+M05a (l'erreur d'une différence centrée et le choix du pas) et fiche §8.
+
+</details>
+<details><summary>Indice 2</summary>
+
+`float(sympy.diff(sympy.exp(sympy.sin(x_25)), x_25).subs(x_25, 1))` pour la dérivée exacte ; une liste en compréhension sur `STEPS_25` pour les treize erreurs.
+
+</details>
+<details><summary>Indice 3</summary>
+
+a) `np.argmin` rend un indice, qui part de 0, alors que la liste des pas commence à $h = 10^{-1}$. b) `math.floor(math.log10(...))`. c) et d) Sur des axes logarithmiques, une erreur proportionnelle à $h^p$ est une droite de pente $p$ : compte de combien de puissances de 10 l'erreur change quand $h$ change d'une puissance de 10. e) `mymath.autodiff.dual_derivative(f_dual_25, 1.0)[1]`, comparée en valeur absolue.
+
+</details>
+
+### M18.26 — Dessiner un graphe de calcul
+
+<details><summary>Indice 1</summary>
+
+Fiche §1, §2 et §4 : le projectile, son tableau de dérivées locales, sa passe arrière et sa figure.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Les dérivées locales : celles d'un produit, d'une somme et d'un quotient, par rapport à chacun de leurs arguments, aux valeurs de la passe avant. Les adjoints : $\bar{R} = 1$, puis $\bar{u}_1$ et $\bar{u}_2$, puis $r_1$ et $r_2$, qui ont chacun deux successeurs.
+
+</details>
+<details><summary>Indice 3</summary>
+
+$\bar{u}_2 = \bar{R} \times \left(-\frac{u_1}{u_2^2}\right)$ et $\bar{r}_1 = \bar{u}_1 \times r_2 + \bar{u}_2 \times 1$. Pour le dessin : une boucle sur `local.items()` qui fait `ax.annotate("", xy=positions[w], xytext=positions[u], arrowprops=...)` puis `ax.text(*EDGE_LABELS_26[(u, w)], ...)` ; une autre sur `positions.items()` pour les nœuds et les adjoints ; `Fraction(x).limit_denominator(100)` écrit $\frac49$ plutôt que 0,4444.
+
+</details>
+
+### M18.27 — Chasse à l'erreur : un gradient transposé, un adjoint incomplet, un pas trop petit
+
+<details><summary>Indice 1</summary>
+
+Fiche §4 (un nœud qui a plusieurs successeurs), §7 (le gradient de $\operatorname{tr}(\mathbf{A}\mathbf{X})$) et §8 (« Pourquoi des directions au hasard », et l'erreur classique sur le pas).
+
+</details>
+<details><summary>Indice 2</summary>
+
+(1) `np.random.default_rng(5137).normal(size=X_27.shape)`. (2) Dessine le graphe de $f(x, y) = x\sin(xy)$ : combien d'arêtes partent de $x$ ? Chacune apporte un terme à $\bar{x}$. (3) Le pas que conseillent M05a et la fiche §8.
+
+</details>
+<details><summary>Indice 3</summary>
+
+a) Refais la passe du collègue en $(1, 2)$ : $u_1 = 2$, $u_2 = \sin 2$, $\bar{u}_2 = x = 1$, $\bar{u}_1 = \cos 2$, puis sa ligne de `x_bar`. (2) La ligne de `x_bar` doit avoir deux termes : celui du chemin direct $x \to f$, $\bar{f}\,u_2$, et celui qui passe par $u_1$. (1) La fiche §7 donne le gradient de $\operatorname{tr}(\mathbf{A}\mathbf{X})$ ; vérifie la forme sur une matrice $\mathbf{A}$ qui n'est pas carrée.
+
+</details>
+
+### M18.28 — Tester une classe par ses propriétés
+
+<details><summary>Indice 1</summary>
+
+M17.22 (un test de propriété) et fiche §3.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Distributivité : construis $u$, $v$, $w$ une seule fois par triplet (six nombres de `rng.normal(size=6)`), calcule `u * (v + w)` d'abord, puis `u * v + u * w` avec les mêmes objets, et compare valeurs et dérivées. Dérivées connues : `x = Dual(t, 1.0)`, puis `s, c = x.sin(), x.cos()`.
+
+</details>
+<details><summary>Indice 3</summary>
+
+`assert math.isclose(left.derivative, right.derivative, rel_tol=1e-9, abs_tol=1e-12), f"case {k}: ..."` ; de même pour la valeur. Pour $\sin^2 + \cos^2$, `s * s + c * c` ; pour $t^p$, compare `(x ** p).derivative` à `p * t ** (p - 1)` pour plusieurs `p`, dont un négatif et un fractionnaire.
+
+</details>
+
+### M18.29 — Défi : la méthode de Newton pour √a, en mode direct
+
+<details><summary>Indice 1</summary>
+
+Fiche §3 : une boucle écrite avec les opérations de `Dual` se dérive comme une formule ; la graine est sur $a$.
+
+</details>
+<details><summary>Indice 2</summary>
+
+Tout se joue au départ. Écris $a = m \cdot 4^k$ avec $\frac12 \le m < 2$ : alors $\sqrt{a} = \sqrt{m}\,2^k$, et $2^k$ est à moins d'un facteur $\sqrt2$ de $\sqrt{a}$. `math.frexp(a)` donne $a = m \cdot 2^e$ (rends l'exposant pair), et `math.ldexp(1.0, k)` vaut $2^k$ ; une boucle qui divise par 4 marche aussi.
+
+</details>
+<details><summary>Indice 3</summary>
+
+`a_dual = mymath.autodiff.Dual(a, 1.0)` et un départ constant `Dual(2.0 ** k, 0.0)` ; puis quelques tours de `x = newton_step_29(x, a_dual)`. Compte : l'erreur relative du départ est au plus 0,42, et chaque pas la remplace à peu près par la moitié de son carré.
+
+</details>

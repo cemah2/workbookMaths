@@ -412,7 +412,7 @@ $f(\mathbf{x}) = \mathbf{x}^\top\mathbf{A}\mathbf{x} + \mathbf{b}^\top\mathbf{x}
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le gradient de $f$ dans la convention de MML (une ligne) | une matrice d'une ligne : `[[a, b]]` |
-| b | la forme de ce gradient dans NumPy, pour `x` de forme `(2,)` | une liste d'un entier |
+| b | la forme de ce gradient dans NumPy, pour un vecteur `x` à une seule dimension, de longueur 2 | une liste d'un entier |
 | c | pour une fonction réelle d'une matrice de forme $(3, 4)$ : la forme de son gradient dans NumPy, puis celle de sa jacobienne si l'on aplatit la matrice en un vecteur de 12 coordonnées | une liste de 2 listes de 2 entiers |
 | d | le point $\mathbf{x} - \eta\,\nabla f(\mathbf{x})$ après un pas de descente de gradient, avec $\eta = 0{,}05$ | une liste de 2 nombres |
 | e | la forme du gradient d'une fonction réelle d'un tableau de forme $(5, 3, 2)$ dans NumPy | une liste de 3 entiers |
