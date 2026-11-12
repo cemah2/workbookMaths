@@ -63143,6 +63143,2013 @@
       },
       "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
     },
+    "M18.1a": {
+      "array_rounded": {
+        "1": "2bad3214efbf7cefb2e3d7b5b78bc63b98537bf5184415f72c90c671988adc64"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "6a0051a1340e4f3e206b85529b75f8e1d63173dba18d66316353a58915cf3d8b"
+        ],
+        [
+          "1dbbada448682fbc2b0d2adbe8eee935df75c1d49c5f680af36541af303253ab"
+        ],
+        [
+          "6cafb0f290bc86ff09e62f52954107c97dec27b2fcfe18519b6d1a4e9078b9d0"
+        ],
+        [
+          "923f67cbcfc24cb05e9e60b2f4ca5b41c238827104f54f1a7f7c3a9e3dd1bd32"
+        ],
+        [
+          "ef9c5ed5334ed965d68c93ccf45eba24db8e1def189308a16014d58007af8059"
+        ],
+        [
+          "e81385d0068d6e8fcd4208a4064008182763f984ef98b5372d090dac291f9303"
+        ],
+        [
+          "f267eeb67d7ed42c5107357fe8bced2eeb1715cb4fc410224c3566c31745019a"
+        ],
+        [
+          "b0693876b12a451cae7d05a2a59938603cc9f849ed3f0e970a1748cbc43f7417"
+        ],
+        [
+          "4520789489d4919dd7d8d014fb748457c3ae5da2402d39656f28e93aee90f777"
+        ],
+        [
+          "559fde353e758c89429e049f26b0ca3ca3c82841d72a953845c4acd5134dd78a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "d0182b58025c52b6dc465e4ad3000f3fa41082a2685ae292e9c8e7f2bc2b0b16",
+          "fa477fff235ee176371909b7c086f55eb81afc8e395e8b430ade5ca7be7fb586",
+          "b20b63218f3bbb0cfe6185047ef0d83de390cd0307ddeb43224b27cca1626c27",
+          "3f8d5607a0df3d24f2aaff92cf9fc01142aa48c6b4d030be40a81156dc56ea1b",
+          "2bd2827c1d5368913c9c33617bf5abba89a69bba475db243e879bb2d90a5bf69"
+        ],
+        [
+          "08ac31f53854e837541290e1bf2f3cc227a292b5bbea29b8142e30af91f8f38f",
+          "f235b97d65cfe25f02b192dd5d57cbdb19da075cdd339db4d93562a8194c533f",
+          "e76e881dbc20439096b44f4bfaa3d8f6bea199e17838e73b4779f0074ee49559",
+          "cefedddf534812773a55bccfa1639feaddaa749c36fa6e4f54b2e215b070600a",
+          "c0dcf4471e36c4471551bdcbbbd355c4d7ccb0c83ffac99ad7220376c79552c7"
+        ],
+        [
+          "f9d3071ffb3bd56d671394e7cd87d0339f97c8c17884bb64ff5d9357c3b9d0ca",
+          "3a4388982434ccc1b90d53dcc3a32ff73b9612182aa4a1b9bab6f6afa521d6f2",
+          "4d892f1f30216e1d32ce3a30b10432625248ff8d5fb0188cc65b28b9d9ae02ca",
+          "52883748fc8c62c0e78ae4e36cc0dd8e8752e8eb6f6dea4beb03acbb53a75c49",
+          "cd803475beb6c8d44a1c5448c7bdc30c52ca9ca78429e86666b7f192a00a6f66"
+        ],
+        [
+          "204b6d39ad5c29ec40960444b8eeccbe50315a95f87100b6393f8b4753e3b513",
+          "2cd64d06855ba426f5ee0ac4dd29eaa26d6805054cf83915482cef732cddfb17",
+          "374466a8dc96354db0dbd797566aed17aea77db8e3824b739c31b9db9f512bed",
+          "6ea0200486a6b1ee1161b9de114d42fb387e1b42d4ec0e389ece4f44303e4bf1",
+          "0076ba6e9ebec55e9884c5c7df25a0a98d334648c4dbb52051d348e4553de0e4"
+        ],
+        [
+          "aea0664bdb7570f762b11440dd0b25344e7a369b3852892cb7aa61b49df41fff",
+          "2cd9998d213624b68d28e13dd1013dfcde421469c5c3b7b2b5efaba38cc28e05",
+          "3f0b9aaf5f47e4b869271f36707473813af02a2aff9a9947c62969e697a0a4fc",
+          "c9cf919871166dc173f3c00daa7c02668ef43e1a6825f9455daa82b033af4779",
+          "1bcf6d5d89696b22e0e93cc34b14cdf457895030fc9122ebf48a04e1202d3339"
+        ],
+        [
+          "610721885e2a07cb9983da31f84458c41f315abecdc672adb3d97f8cb0b3fe14",
+          "a6ed378412aa8884d2fdbdbb3e6a8c327eb15b4c4e6dc0d25f470f05a084093d",
+          "f5a704d06aa00b4a3e37303cabaaf89bdab0436cab2fd2cab94c186bb8866c70",
+          "b7a4e6412abc9f3449b623b482f099232970795773577df016e50cf689a6bdf3"
+        ],
+        [
+          "32c3f0235f5cba7b45606fc5b97d31abf4eb0d8453c6dc5afe6a19fd940843db",
+          "b5f24c715f8054aafe9791ab6901ce03c65715c6b5abe7b70d36a9bce30b5d1c",
+          "e6f0bee5694718c665d7aa2bc1ef53b98625b05e14842c65a29383272bb018e9",
+          "f0b01e789e2951cdae3e146c17931e4236db05fbd3eba94c5b7b07e51e9c630e"
+        ],
+        [
+          "16870e87488994338496c9b92e584c9327201a102938f0e8e0a66d0fb2f5e493",
+          "d910b7a5dd8ae72affa9cac01f3f119beeea7c237dcd67c12d2059d2b013c40b",
+          "1f963105d486f375d60b85cec175dd2dedfc07cae4e689f8a114dce1367a1383",
+          "168d04ae3010ff9d58e286a1351210b602fd04c2fc85538daf9d43ef06d7e260",
+          "33fae682029836da8ca26a69a953c6c9a3866302e803e1c6924f295e69d2bf34"
+        ],
+        [
+          "8247b3fc46b1b4a34a578a5d59469153c65b3d1f1986864de12813fec3bc247e",
+          "bd93d01cd32460567465e43a6788cf1c6a697ad7b01bf3b4253f2c32ef2380ab",
+          "fe1d18426a634fd1a6723187f55debaeb5812f30d2c62750099e71a86ef3c086",
+          "d11694d895e3cc0b16b8e39abcf1907b856bf30a8e4ecd33055548bae7c794fe",
+          "0f92d7bc7e517167730aece97138b3fed02c431fff457da548c7ce1b00e95e47"
+        ],
+        [
+          "484fecabaf22edca1e00fd70d16269caf60d6280c16862b493e24eeb9f38d954",
+          "33369bc581bdeebf5559ec095f7fe97a4efe4c898acaec3f921e3c1a8514bdc9",
+          "9708db2ac08744efee031ce37fda6f456c687def4d6e50dddb1d627c3cdee9b2",
+          "87e2481252dd2f7457e8832c6b151a375e2c896bbdf99051aba58297601cc708",
+          "696350a467ee0b1ffd02d1569a7313b69bc815195402860bf45d28189c9764a4"
+        ]
+      ],
+      "element_hashes": [
+        "99b368f561d7ea49a6175d02a64baad76cb76856c2cffea6531fee0a1cd9b8e2",
+        "f947ccab69c3be20b94d84acf4a05f3ce62e4e87fd289f29f6c56a42b5a1f9d6",
+        "23b663d373ef08a24e6691d8d17a0dd916f99692190189f349542dbf5221355c",
+        "e079a22b7920ad289e3358c048d3a40ec2a7e4a7afc6b98cac743fc089c95e0e",
+        "ec3780c82973c79801daf3bb80edce61423493b11491882bbacb2c64114a0c06",
+        "3f1433eac19b9e062898a026d6f7682ea93c03ca068dd44ab458729ad0051a10",
+        "07d8da9285a785ae8b240104126d5697ad89bccba7bedd528d45be1d7d9a7865",
+        "c66edced7b69484fbe5456ed5204aa2f8bf52a383e5534e91e05243505c88df8",
+        "4cc27e580c3ea5e23ea64f415625c9ba2512844ca978e0c370c4b5add9385eb1",
+        "069c0997aaf640a04f0c39d2f15ac20c423d5c764dbeb84dacb26b4d77c0589f"
+      ],
+      "hash": "48adc7a2faa4735d59cf08547c0feb5aabebb81edaee9c4fcb38e9036f7d57aa",
+      "kind": "array",
+      "shape": [
+        10
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.1b": {
+      "hash": "73e540dfc603420efc64371cc03e893c23aefde8e557724e9fa3b8f8f9238509",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "ca79098ea30b65c425d56b16a2561cf990c84865211c06f15a8ab683d461aa53": "l'énergie cinétique a un facteur ½ : c'est u₅ = u₄/2 qui entre dans E, pas u₄"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.1c": {
+      "hash": "418ff76e74742acc83923a02557917a79d006b68c770a236a5bcdb27896e0b5b",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "f273a86bfb37eae094da2b315c6823071ef3a9be4521511abcd8b412e46ef9a9": "compte les ARÊTES, une par argument de chaque opération, pas les nœuds"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.1d": {
+      "hash": "500699be08dd01d85827811709f0f5a14318d15489ba8b528acfa60e73e7f08d",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.1e": {
+      "hash": "1713cb86b0bb3b0d018eb2574fbbcc9b348a804a130815f5971afdb8778c5a31",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "6083073879ab9ee5df9cb2ed1206eb0714c03716b2bfbe9f1fea65427b79c891": "les opérations dont les arguments sont prêts se font EN MÊME TEMPS : compte les étapes du plus long chemin d'une entrée à E, pas les opérations"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.2a": {
+      "hash": "c6fdb19bd759ec1d03f58c681ba8dc9057a59716226bcba76c34db300af38863",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.2b": {
+      "hash": "88813c48c4fcfd89d4f668b11b02ac736ac8a5b7c14fa61b6f6e11393587bcea",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.2c": {
+      "hash": "882eac7c6cca708882ddea1571d70cde54649c80fbda0ff6ee9236cea59b43c7",
+      "kind": "fraction",
+      "mistakes": {
+        "5b333029f8483d49ec5f6d0e8b30d7eae05dad75c4119b0978f418427234bc14": "∂P/∂u₃ = −u₄/u₃² : la dérivée de 1/u₃ est négative"
+      },
+      "sign": -1,
+      "simplified": true,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.2d": {
+      "hash": "2f1dc3864422d4f790c4a401d3495e8b2871d5a55d2b21d7d7e95de99197de59",
+      "kind": "fraction",
+      "mistakes": {
+        "2768d949f3230c8a6f8211700d53a2307a01764ada876295a0b5404a2ec60c3a": "R a deux chemins vers P : tu n'as gardé que celui qui passe par u₂ et u₃",
+        "f23b93fd76534dacee23a9094d2a7967719d8760b5be3944e40b3d256812385f": "R a deux chemins vers P : tu n'as gardé que celui qui passe par u₄"
+      },
+      "sign": -1,
+      "simplified": true,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.2e": {
+      "hash": "7f51f1a9776fd2b0e9f110c3c9c486c6362963d611076d3b008abb1f8f61a240",
+      "kind": "fraction",
+      "mistakes": {
+        "78775f44915c727b2bea452e88f9914ad6eb50989657dafe7ee31db2edfd5650": "la dérivée locale de u₁ = E² est 2E"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.2f": {
+      "hash": "5f1f6bf9157aaa24ef252ae6b183008d91b260e6d32317db3a673a7f789b0361",
+      "kind": "fraction",
+      "mistakes": {
+        "cb6417aec3ab9a8edabebcc7a547aa31e037adb051b09faae41c83b2adc52933": "r n'agit que par u₂ = R + r, au dénominateur : quand r augmente, P diminue"
+      },
+      "sign": -1,
+      "simplified": true,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.2g": {
+      "hash": "174e44c60af1ddc5af6c8523356322a12e941bfdcbdd37a4de8f80e177b55baa",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.3a": {
+      "decimals": 0,
+      "element_hashes": [
+        "ca8cad016159dbebd8d4ae5ff71ea2c3496ce00ac92ea7ab5e8fe963927f842f",
+        "1160775dc03c820113d357e9415e1b58f51b49ea0aedae4ed9931ec93609a692"
+      ],
+      "hash": "78b4a585df7e3588a25d0e6845d99ec01ad461ceead310ce3ce3abba0cc5bc52",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.3b": {
+      "decimals": 0,
+      "element_hashes": [
+        "f57e4073653b63bf6e8c327ed551572a9edeb7cf86bf5fd37f8e2c74b57dcc76",
+        "c03a7d0690db81489cca229e66275fe804ab72b615659e9b61a2ee4e9f5d1d6a"
+      ],
+      "hash": "5f90a298d35bee4e91bea04f455c70767379b072b50782fc82653fd47b8fe042",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.3c": {
+      "decimals": 0,
+      "element_hashes": [
+        "508e593254043b7f348e24003525cb0d5fd8af5d2f5baaa460a64efc6525cb21",
+        "3ca3b0527ee489b1ae9f2bbe4a1f926ee13e7a8e8b358259d39950fc62348ffd"
+      ],
+      "hash": "5c6350cbf1412672743c33427d315c5d5765be405110f61360b8dcd118982592",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.3d": {
+      "decimals": 0,
+      "element_hashes": [
+        "4adfd36ba93e5f1ba955406b4e4a7de0012e5c95d63be6e66f12b1a236b6d8f2",
+        "e9f3e024445922b0e805e1699651fcd73c35a6977833b1b43203e1dc45b6234a"
+      ],
+      "hash": "05286eff494b5b7fc06fe05fcfd05e3bb91906965f223ec5dead50cfcfb35239",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "c3661e8ae1b4532ded1db5af74e4d6912e8fa3583f738c8b45ada376db8686bd": "f est une somme : la partie en ε de ln(x + y) s'ajoute à celle de x²y"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.3e": {
+      "decimals": 0,
+      "element_hashes": [
+        "bb9988826e65b3cf65309d904093bb71a479aaa5e1300e8fa4cfee91bcc533cf",
+        "f7ce1782797266468b4edeaeeaea7fd43894faf8c7428217f8c05bf602a1d895"
+      ],
+      "hash": "05fe33e2a8ef7f7152dcba6cda68319a6f20ec77ef15b7cf069a706dea4ce503",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "476163ef2a8a7bed0b4f161a62b273521134cb6a4333099be8e108fa99be5154": "ln(x + y) dépend aussi de y : sa partie en ε compte dans cette passe"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.3f": {
+      "decimals": 0,
+      "element_hashes": [
+        "fad13af952578162bb7a289b4f1b13c26332fd1949b5e92a1dc0ee6f62bfb349",
+        "ed4d60af03db7004357bffb04668b3ba588de40d8072c6bd54f65b77eff79623"
+      ],
+      "hash": "7bf8de0c50c2295cda5385a8a32dbb865aca702926329ef1d80090050ed6141b",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.3g": {
+      "decimals": 0,
+      "element_hashes": [
+        "6c01fe9f54e8b1bedd2db5568092ba82b2c15b088f7e963cf05ec87edd747cbf",
+        "905ba327feed0c047613c430fa57adb46acdcd61c7ec126bcb88d3fe631a1f06"
+      ],
+      "hash": "c429e18168fcb549ec3f2e9789a55454d0b93ee71ff07348131fbf84681e4717",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3a7aede146bf691ca445660b3b3c71fe0fc871037041b2d0a932b16e7eb352b7": "(a + bε)/(c + dε) = a/c + (bc − ad)/c² ε : le terme bc d'abord, dans cet ordre"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.4a": {
+      "decimals": 0,
+      "element_hashes": [
+        "cc25162255bd5da8132c5befeced6ef375e2063fdcacbce7d64dcca3738909f0",
+        "25f737565c9dec6b5e52f46a33c25e3ab2a86f00a69dfc1ed0624fa304c3f509",
+        "8f3c7152c617096f6a3f088bcdfa0f4601b4288d728f4a0732c2dbd877c8611e",
+        "1f2b76c80dd5880ed3e6156447b8f69745a79c9d2838d3f1fdce3bf424424992"
+      ],
+      "hash": "e8c8a3450a848576c2db79e020a40815cad833df65f99b35301f816aab782d55",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.4b": {
+      "array_rounded": {
+        "1": "054624ffde0179f6319fb320fd16c4ff49fa0ea96e307983ec940bd8fd1aa385"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "3c432e8faa54ea1f3d563165991dbfb5c98550bb26b9d49b2969dbd1a88ac398"
+        ],
+        [
+          "e4e62897d39034d04b37e07250f435cef132e45ad7d24297d79bbfb53fbcacee"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "2aacc310b98a54d7a5f9b5c16642733343a9f467a829eb87b9b190efe8737569",
+          "c1fcd1386cd18ebc39bedc690eee5ccd8166d0ceae5e03876924b332f15314db",
+          "b3ecd3dac52001c7ff17045d186c3b3170f15e30530578a30a44c7a983aeb89c",
+          "5778d9b5d7596c570a72a406d821b8f71a66fd8f606294d872966ced6c887b2d",
+          "451407e647a664543e0bc120834c4796c9c48f86e325bdaaaec88a07b5370a66"
+        ],
+        [
+          "acd73e23462e005f11bbaeb68befa15dd3a7a1c1959f4349ecd4455fbdd9189c",
+          "35b3a4e4671c0613c7faf3461cb1f761c36a61060c099a23491559e7d486ff59",
+          "179fcfeb23c0c22778db29d3cf493e43c7149ea2fadc49d96eab46c3a1054a2c",
+          "b18235466a3b89397ddaf610b8d5ee4a6e087d2629613f93205a2a4f5907b06a",
+          "d3734217f39b1005b8522321a94e5476a05c4fb8a91684649b31027f7c48c08d"
+        ]
+      ],
+      "element_hashes": [
+        "b93f23f9dffbf49db7eb5cb24af337be4b92f14f478ac5f086bf90a250da31bb",
+        "a53f266f6cbf0feb2a346d30ed9de7cd2c3f157946fab40508145e7a17fb38e8"
+      ],
+      "hash": "b9581e0cec0eb79b32dcb8f5cf003b14b43da707fbe3913d9b61b98cf3e3c7a6",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.4c": {
+      "coarse_any": {
+        "0": [
+          "cd0a6cfac6207490876407f2d045a80efe47066ae3d53aaf3bcde3efaaccb2cc"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "bfed55c858e92b9b039072d188d6734340b325bfabb24916657c0dd5d0747eaf"
+        ],
+        "2": [
+          "3d20c138e6bf03522302334f9ac9c84b8c6100be9b19e1f6e318243b4fddc219"
+        ],
+        "3": [
+          "9c18132fb3eaf1d44d9a8bee95a55115e36efd6bb4a1208e24c6064b948cf0c5"
+        ],
+        "4": [
+          "244cac5c085008145b5e14750fa550e9870e55f81e1eaf3ab1b6ecaa9b1c5dce"
+        ]
+      },
+      "decimals": 6,
+      "hash": "6e0be34f343fd9efd0bf51c33dd18002fa8cec2b45fb5de76c58606f69c975d9",
+      "hash_coarse": "74a204d1f6b29b031ddda0e3dcb0008e444849b44c3a5e016137ded613cc0c72",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "56443eb178d6ff28eedc350cd78717ee9ecc38f5374ee757b12729413301c4c2": "u₁ a deux successeurs, f et u₂ : la contribution de f compte aussi",
+        "a5d1ef37ca6b26873e5560673beb574d80bbe21146581cd4734d0cddeeb60544": "u₁ a deux successeurs, f et u₂ : la contribution qui passe par u₂ compte aussi"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.4d": {
+      "array_rounded": {
+        "1": "72e868db74a61d581a481506adbbe7f362e4c211316ad31e8e41f642e1b46970"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "44f50db92b6b2b1f452d9e0a307d40329484f02792ce74ece5c59a026e200543"
+        ],
+        [
+          "c3b278abbaa5102b5031f19743f11807f43bf180916b1df67faa01a9f711bc3a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e42b0e6b24fe6304b790255c6b57989417785ee321ce41f5af24370595da54a3",
+          "c2d6da183c2a24a2f6e34eeaf797623a8157d8c7c1d3ee9ebdf9a7e35fb85cd9",
+          "5b64fd67bf5a41ae3c8ab566fe5e4d9b11619cf975fc63999f7d9c087d00b5c3",
+          "fd2d8a6b5d8ab1d6aa31f982fb397a840df9791c15cb21d569b8966acf824733",
+          "01453e0a2d38eabe7c3fdcad7e6b9df41e05ec2d7f587989cc445f6a67ff79b9"
+        ],
+        [
+          "6badba83879aa8a031b0c49b9bc3067f02f3f8ce53515f135f2a28b8fdbeae4d",
+          "1ed2de568ec12f26b55117998112f019c23c4216f408bbf52a95c7dff76a9f5b",
+          "ee93b0162b57e4a816d7757e434fd1b26b7058d075c0982f428f643fee824da8",
+          "3ea26c35a840108ebb7ab990bd36c8c8fc1bc226181486abf845ce97eefc5bd7",
+          "31b9b86f99c07ad310b655fdd3fdb898b83493539f51ed7b7a166cdcd8992728"
+        ]
+      ],
+      "element_hashes": [
+        "b298106ae188d56ec6640151a84a09641b4c519ed3011b526b07a1237a962209",
+        "f7d90250dbadb3dfb87b22c7422e06a02f5e5a315bb5c42f153ae7fa86bdf99f"
+      ],
+      "hash": "8ee179bf1de0864304208840bc72d88a61e0155b87b3c7493c617eb9f20dd58e",
+      "kind": "array",
+      "mistakes": {
+        "5f3f8553ad9cfc78188e0f114dfeb0a230275e317c5bc5ef5b72163d9e303b49": "q a deux successeurs, u₁ et u₂ : q̄ reçoit aussi la contribution de u₂"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.4e": {
+      "coarse_any": {
+        "1": [
+          "6734fb0a09a47296031015178c5b079673b310ccb1af21f49354a99118b5e419"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "716af60fe3bed958b08977733c02e691151dee3cf41f3c8dfcf43f0be8b66fe9",
+          "f1953d098f1ff694a845fd73afc1a46f5ff08b80a22296bec7618869188022ce"
+        ],
+        "3": [
+          "d6f108e957f8ec88865b23884cc8374a51317d8f7fd78f9cab95462e406b65e4"
+        ],
+        "4": [
+          "d12cafd36b1ca47b771e09850bc147c5985494fd3e1c4fb8cc855158d5e3a156"
+        ]
+      },
+      "decimals": 6,
+      "hash": "613333e1b49de14ac48f1f1b28af7a4343cee2c2cd9923147e9bc83eecb4b137",
+      "hash_coarse": "849d1b360a2f77ba30af716ef06f87801a4628c956e838261fc458a699fcabc1",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "b0c164bc4f50e8ed1daf1fdc9b9fc77fe3ec57d49d76d862386d496f9f32d25d": "(3,1 ; 0,95) − (3 ; 1) = (0,1 ; −0,05) : le pas en q est négatif"
+      },
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.4f": {
+      "coarse_any": {
+        "1": [
+          "83ed892dfaafaec89c33b60df5954de5c3dff57551933732d88a6e8f43eda252"
+        ]
+      },
+      "decimals": 3,
+      "hash": "1be3fc4208febd75f11e5528d242109e9f6d6525064d863a5af3231744c48486",
+      "hash_coarse": "88be8b778c2c4473fc57034af84ed70374ff8f074aa5b7beb49286a6cac02393",
+      "kind": "float",
+      "magnitude": -1,
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.5a": {
+      "hash": "6565ccf532d110f907f8ec42e2b6023887f21cd52cb94fc3c9324f657a987e91",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.5b": {
+      "decimals": 0,
+      "element_hashes": [
+        "cf04daa1e887c67dba851a423dae3114c542e806918865e443c86e054794841c",
+        "4ccfdcaa7fa559e602ed5780d09bbef664241934c8abc10f9591f54d08d1ffed",
+        "475d19fc1d7a2b82d1814ce1af5bc16e21e3fbc9e4b090401d214ffdd59a1693"
+      ],
+      "hash": "3506b77f102e3c65dd29bf12abc5325e48be8b118890011015d09f16fef298da",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.5c": {
+      "decimals": 0,
+      "element_hashes": [
+        "1e3d55ada063e2c2fb547c4c2242741c1d491af713fe5d54b32bd07a3b9da7f2",
+        "f6eee90b2b2f9ba28b8239ee743ca327e55e6b716196fa033f246c9ccd837461"
+      ],
+      "hash": "fdbab50ce70acb89e010509da9d016aef2b1b0d918740d4d83d7d881c13fe965",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "be15592985a15af1df70512d71a82e5c3cbc50144d244d11626d9e705a309133": "la dérivée d'un produit par l'un de ses facteurs est l'autre facteur ; l'ordre demandé : [ū₄, ū₃]"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.5d": {
+      "decimals": 0,
+      "element_hashes": [
+        "cf0486047ae00beed304b916c08cafd31dce3392b41954e39602c631dde28652",
+        "286623081d901f46eb70f1ed4539fd1ba2af71a3b38e39dcc92b88a65355951b"
+      ],
+      "hash": "cb82abe12fccbf2eca6c932adcecae890fd3a24183344af8e844fa92884a6ed2",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4f10a20c1318f329307ed28529ae18b2beacabebcab3da9a672c2bf6a0a32024": "ū₁ = ū₄ × ∂u₄/∂u₁, et ∂(u₁u₂)/∂u₁ = u₂"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.5e": {
+      "decimals": 0,
+      "element_hashes": [
+        "f575bd8e8fa1b8e8698cd388196fad3502e83a42fcd52a314b521eb914ac5d0f",
+        "76c1ad6f0dcbbff26ece206f5a5bc88433eb97cd23911da9150620c6348e8db3",
+        "75040dd563d52ac9649ea61976ae0799bb6371fe9138c168485efe36313c9565"
+      ],
+      "hash": "38f2cba66cc2bf565a3be08f534f07b6d2ecd86b19196ba2e6d57cbb3802e9db",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.5f": {
+      "decimals": 0,
+      "element_hashes": [
+        "8290a08db005941097c7430616d9653affbf764e5f7ba811b519a210f1fc7c68",
+        "b97a50a6d1fab4c791c48a543af553cf9af685fa2090bcd30c2da6dcae2e681a"
+      ],
+      "hash": "b0bf79ce40accf6b325f2f3542545dd37ed7cf643dbb90c99b2c7e46934520f3",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5e035142389599e041f84c508dd45ee80c699c3244e8ea74106da085dbc1cc70": "l'ordre demandé : le mode direct d'abord, puis le mode inverse"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.5g": {
+      "decimals": 0,
+      "element_hashes": [
+        "4ce63f71b73bacc03c102e038596859b326baea56fab1f01f7a818cc55f82c2b",
+        "79b6891454ae07a676646da4d4bd52254b29b80fd03d326986755d46ffb32adb"
+      ],
+      "hash": "8444f9359bf1c251af1e34b917d165af98c9b53c7cc9518f2d683a871d0c02ae",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "721d42558e963159eb43296b19d7a4b957f838dc3aa8e9694df9ea13d6b9c79e": "l'ordre demandé : les passes directes d'abord, puis la passe arrière",
+        "a7e24e6be22c9932a9b6dc9cd1071b01bb5fea6ce5f36e16c5d9fd146af3ae4a": "chaque passe directe passe sur TOUTES les arêtes, et il y a une passe par entrée"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.6a": {
+      "hash": "aaea2798224f2dd643e458cbe777dc5e590260886d6ee70b2f565e8835a8f0e2",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.6b": {
+      "hash": "ef5e9971c34a647e8603c187fb0129be4600b50e40d9768c8b3e49bb266f6725",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.6c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "ff7facfc7d897b622ace145c3eb3dc52256a25b24cf5f31d3e743d89bc6ac486"
+        ],
+        [
+          "df7e49b9f884f8746800b42c0377a4368355f08bf1ae642c64b789f0ade9c5b8"
+        ],
+        [
+          "71d29aa48b4c4742fde0affec40f5731021f813f57339c3cb17816ed0761b05a"
+        ],
+        [
+          "75a3d169cffd89c2c304b93d65a46a085e2d9138b9249f3c75629c0b7e6649bc"
+        ],
+        [
+          "cdec33e9a39c96dd35403a2197ea32f353836cabc00cf18c0fa85320a95eeda0"
+        ],
+        [
+          "8a53f23f90835465a9f00c2428cda29f6fa4ae8c07b4da7325824e8510ae2db5"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a233604da8302cc4ee484e5da9db1b2bfa219556b59584b3d6d7dc1fb22d1560",
+          "ac6722f0b57c1ef8222d19e660ce3965e61fe36bf9c7bfd6ad422b75fed0e331",
+          "6b9aa637555b622379cdbb633840e38c2f5e0d2c2d877c0388cfd78ba448851c",
+          "8236f7355c87cf0b817915a2ce9b9297fd70ca818ea0d3de93d90792a1bff7ce",
+          "a1e2327b0d3bebab318cfb5d7e43d5cc2884af17dcf26cfb15597163f6598bbe"
+        ],
+        [
+          "d76ddbaab5cbae6eed5701973ecf427b89ba860c156bfb9f47ad1f23bbb4c8a4",
+          "4231eae5545133431cd43cd225a1163c2de14a948198250af598f520d5c55a87",
+          "e9e30717ec92f3292776a207786bbfb284c969fd0dab0f02bc0ba90f2abd5317",
+          "83d93a0a56f0d7bc397dfb7ae39aa43123a61c255393ca44361b1867ace38a2d"
+        ],
+        [
+          "6ae8d9a7b02837066353c5c5b8709e2cc1b9118cd90d949c0971ca27e842f0a6",
+          "2452927f4083857866c231d7dcca1c88980b6b1385b53dd794b88fc45e451a3d",
+          "b77709581e0b1f4bf46a0c58c0bfaab2f5ebc480a5cc8746af560e44e8aede56",
+          "41e99360ba6d55ec6a3edd8a9207188bc4715ccb47d6f30d260b04f4d949a93a",
+          "8250d4c4c08cc4c3f956f0425a93b9cc43616c528015a95f5cff34d64760ac7f"
+        ],
+        [
+          "e9c70b07f24bfe7b1162d5cf3ba46fe5a6cf0a7a2f1b817f15a5953e8d6c44b4",
+          "2bb6cf0d356198d25feba6835641c7d41c5fd23156bc945a5f1ae8d35a55500f",
+          "2e02679800a2c26fec431b146bfee625015d7098c69b8be8772dfd0aaaaf1ec1",
+          "93ffd1c09838a2f905874ea5a502fecad09e9ac6f2ce116586cd6c974e4623c6",
+          "8d7ae4a404b2d003ccad27c3e332bf8810f11bcee603879a4bdf11ba6333b8fa"
+        ],
+        [
+          "680d97644546f8ff654a7dace4c9815b7f2a9bdfdd9fa8b920b1d1fcdc52f5e3",
+          "84a94f894752684f43f0fcf55beb2de763d27676b469814f8a87881d86e0789c",
+          "fb6940b38d1f828c7642b2823ae3d26ce809acbdca7c0fe71d3fb12b59796592",
+          "d296012f575a73fb87c0aaf31001545f6250a2e0dd9f993d675878c3f48a45c0",
+          "beff102ac9938e81af54bf9ef58f3bed2baa2173c9b2d6e4f8d385f703d27c01"
+        ],
+        [
+          "f192f705308afaf484908dfb7a9c9327d838651b36ce11007cfbf695234cabe4",
+          "e999839a862cbad8fb6d11f5314f7feb1d00912f3007713dbe960a44a0a91061",
+          "1f01092155074e8657788ae11a59b0b1e4a3bbaec5771407ff23e2be92f429e7",
+          "3db3412c24ad166cad61e162c9e1da2db4607351591cf71bda3bb53b07082d7a",
+          "a581a36436ce978f80a1ccdb821c6ff5334fb84dd1786ee318dc2b47bd432bcb"
+        ]
+      ],
+      "element_hashes": [
+        "0e001d5d2aa9345e6356a559112cc0f3084b2028ab3b7b7063ba41579713ab7c",
+        "b1eaa446a368821879c15895ab811188137bd90fadd9e736192125bbba958348",
+        "22e0c3e24193320d202e898126657c362d7ecff92556b95d2a3d3d3457bee2e7",
+        "7a9f5288bc486234a48769827de507ddb2c31f6088f09ccde6e53230bfdc993b",
+        "e7919aa8361223d0a6e8a3f4a52a1405a23d040a18c7c19a1ecdd5d2ccf0d4a3",
+        "b882d94ecdc7992b46d499f3d1122a08eb663a3c110ee7b29a58cc70b0f48bcf"
+      ],
+      "hash": "e7187e669dc1b826fa299c081e4957063441b3dfcd829d01daa162e2d98bd825",
+      "kind": "array",
+      "mistakes": {
+        "79ec36c93c15633f7250db67927dc8bfcb93cd3180688a9d9983a7452a034fa1": "le gradient a la forme de X, (3, 2) : la ligne i porte a_i, la colonne j porte b_j"
+      },
+      "shape": [
+        3,
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.6d": {
+      "decimals": 0,
+      "element_hashes": [
+        "bc43fa160cb3951de2ef2cd8ef38b7ce5fce0f949ab9b3428bdb46da3e07ad3d",
+        "736dc821dbffd5886433cb2bf38013d6e3db58f0734aeb625a8174ede1791544"
+      ],
+      "hash": "a0fedddb6f0206ffa15a7e4e6473dc0bd2086dfae54c6b55ce92b5826375bcbf",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "b59cffe8c62151c7b1b8fe522c3278707ab42c1510ba7dff3fc5c29ab4688e9a": "la forme est (lignes, colonnes), celle de X"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.6e": {
+      "coarse_any": {
+        "0": [
+          "38341f6f19d0f798ad55e9fd635e45fa641e8d2ddbb0d931e8ebc5ceeb6e4ceb"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b79275146ff3d7320e4d58960ff08d7d2b6ae92fed96ec8d26768a61e36a6b58"
+        ],
+        "2": [
+          "847815fbe047a9ac866e578a0ccceddc1eafccc1bb70723c4fb90a4b5f54b438"
+        ],
+        "3": [
+          "beca07fb7ce25e6d06973f3896855f3017ced2fd0f49cfeff47e871ade6c39f1"
+        ],
+        "4": [
+          "e2222f1502e3a4bf1fdc8fc1d7d0485357cb9fd917a8d8b6daaa0d956876be08"
+        ]
+      },
+      "decimals": 6,
+      "hash": "760d9a1f3d946e7bb3beb062ada17ee4fa9bf4975bd9a00db5e6ddd5edeab771",
+      "hash_coarse": "7933380a462651155c67132c862cea274f3458212587a73242b93f178bdfa21d",
+      "kind": "float",
+      "magnitude": 0,
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.6f": {
+      "coarse_any": {
+        "1": [
+          "308c33600d9bfb5e20f9a0dbc88e98e244fe01ba172613671382f213d52689e0"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "a0b5179143afeffb6c2e8d8fabc0ad84a1c0897f2efb8d67f4772f8ae4d20955"
+        ],
+        "3": [
+          "eefee7e4c5b54d6a47b6519c08782dd69f6f68baf1bdef7e9cc6b849a3eb459e"
+        ],
+        "4": [
+          "e09b8705a7bcc8cb59bc956a1035200d83c2977b1a3e06a365205792e8be20fe"
+        ]
+      },
+      "decimals": 6,
+      "hash": "f52209fb3e86833a3ad4cf1109909300953702947b95f5cb8fc66b1374066fd4",
+      "hash_coarse": "9a9c6384852fcf5df0360c8209b40cc59f71d7f6bf06453a3a870dae898f486b",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "dc45eb13d3c5c9098b8f5c972d073b843d51272a60c853bf7153f411606d9932": "f(X + H) = f(X) + le changement : n'oublie pas f(X)"
+      },
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.7a": {
+      "hash": "ae5c99f5996e6ba106b284c9523e94563929bc654e838df3b50f4b95f9a26eb5",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.7b": {
+      "decimals": 0,
+      "element_hashes": [
+        "a2e9380f816fa734679bc35b0f561adcd9b41ede8cd549043f7600fc5e529198",
+        "7af2cccb22b458ea03efb9b3acfbd35682e56c3483ff1e7512c9bc5e2a55c4a2",
+        "d12d0329bd6805a4c77e549ce78edd2f3f759e59d6ca4c36c61cf19d725ca5ea",
+        "5ce4ae0e1bdcc37134d74aff3cac3cb822b44dd632b85a575250c49c9966ebcf"
+      ],
+      "hash": "81d4f4ed8b6716665d815e233aa176ed3999b623b6fcb8552b00be2b729fda9f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "58f1f213652d438db91f8e7f9a1f18c73b22db21b65f4f360a440995e0c0fb35": "tr(AX) = Σ A_ji X_ij : le coefficient de X_ij est A_ji, le gradient est Aᵀ"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.7c": {
+      "hash": "27d2a41d97ad725a7e1d9336be6058e051976407a1ccf4a097774f65b347c399",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "dfd2422cf507d0494aa44f1a2f799237d1dc301b8582055675c933e040800355": "tr(AX) = Σ A_ji X_ij : le coefficient de X₁₂ est A₂₁, pas A₁₂"
+      },
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.7d": {
+      "hash": "89cf5f21ea854039a37eca6570c3fd16fceb1e70765758e8329e63df2de471e3",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.7e": {
+      "decimals": 0,
+      "element_hashes": [
+        "f22c959f4d0520b7fa1101ce5abae35d54dbb68592437ad74f419f8303d8ec09",
+        "5318ef3ea8e5942e7b91f592fe46c6481401499729da5d2eceee28f63271b26d",
+        "1577e563bc8616a8320e5caab40b97758a39849cfc846c2f857b840c87ecafe0",
+        "977721fe623fda85bbb54d04650dd6ff3704ab5d82d7f1c5551fece78ba5a834"
+      ],
+      "hash": "3f649be784788a8057dc98f26cf7c647546a5268f43ce86ccd5ca05973a0ca79",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "29be3ed143af8006a904e8e82b2a5648eb9c27c2717efb86b5692a48f5616e78": "A n'est pas symétrique : (A + Aᵀ)X, pas 2AX"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.7f": {
+      "hash": "80cebbb1f816746675da6f881efdda73a24d3e9bae6f5cc2e828c78808e46a77",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "4598ed9569399419f2ccf19a15e8534988405012e8a0d1f1d23fa7407d0d1c10": "la dérivée le long de H est Σ G_ij H_ij avec le gradient (A + Aᵀ)X, pas 2AX : revois e)",
+        "dd23e97ed5226623c2e9e3116569a61737fc6570007965c043556a6ae345be1f": "la dérivée le long de H est Σ G_ij H_ij, avec G rangé comme X et pas sa transposée : H n'est pas symétrique, elle les distingue"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.8a": {
+      "hash": "94189dcd03d5c84d532ed04804e56c38c80589d0e44c1d30855579bcdab2b123",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.8b": {
+      "decimals": 0,
+      "element_hashes": [
+        "5f67041e6478f0f33955529b827002795ae3115a101c29355afc54f9e9464788",
+        "4b83c41d0e6320446191ec25e1abb05bbec5cfcdc4145a98c8f4f08c1f5afeca",
+        "cc29c036e8c065b46b88d54df90ab6d710bf017bae2974451d69560af4a3289d",
+        "9d716aef7348448d87c4aeff73b3032da936c61f51abd2c6387eb4ef26d65ab8"
+      ],
+      "hash": "bb386d1509d8319fd2f6142b270b93acdcc11f75f65576690f91f0f16fe59223",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "11593102e385161787df2fe597421d56bc1e694fe1f093492cb522c3a2d88dca": "∂det X/∂X_ij est le cofacteur C_ij, rangé à la place (i, j) : pas la transposée"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.8c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "9e25e2dd2278581c22b9b08e20e9a6fb97cf0ca0c884176bc77f2083bd693f3f"
+        ],
+        [
+          "eed11b8507f1194e25e99e2eb9ca4dd735abc8cd19aaa70397db428da9df98b9"
+        ],
+        [
+          "393e49e0251401cd5f94d4b98c73aa1bb5fe39b30b1fac39c91ec5b0a5f77f07"
+        ],
+        [
+          "78b6c6feacdc86e979a11d9424c2ea5976934209e9d24b641143ed2f49d957bc"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c940c987e69e4b5c5caae5e63fc45a57b59938a420a513962eddae361a0cac26",
+          "7cba3ad220f505dc18802e6c242b9b20ca3b257be90b226b834a33ff9061f8df",
+          "8fc3dde6b1b392a8b1b8c0f33f87a0d98072ac88129d83b801a3e88b7fc03d97",
+          "750b1f135bc8d227ac3ccc16f4a7b49f69daec639358d28227fb906ec64932cf"
+        ],
+        [
+          "e91d19d325ca01f0f6beefae33c5a9e4bfbaf0c3490b16679bac163b68b082fb",
+          "239ee6458ac53c1e6a9f152994e4c35804ed76e57f4e77fae35979e2ce07f9d9",
+          "3a8c621ff661284c225e9ed7d9a072bb18178055314297855c90c29b3e302d3b",
+          "ee75f5e0712f7645f947eeb5dd71a2fe83f7e9c07791039c12e8eb54cabd3ad5"
+        ],
+        [
+          "9acdd76ed649f8d80d7e7159e541cbc812430a06a45e1f26927fdb4f8d61a938",
+          "03e7a1ed73be5bcfd0e83ac58d29f43989a8a127bd58fa8653b82207bdb53958",
+          "9da0d8635e2b4052f868b1d36bc28bc4733fb3bf1181f3b3d28952e43782c0b3",
+          "f00ef445d5f99a112df3cfab07bec096272ae00a8a272a9ac88b9e43628cb08c"
+        ],
+        [
+          "1ecc4d7a619bcbc4bf46082660ca459f4f640d975ad6bb08bef5653a45eb4d3d",
+          "481e50a139e57a0b85f1f67f1fff3531dccb68cae055a8cc2e91db3caa2bcbd3",
+          "7dd01b3b9a754ff53fa82a1b8d6291ed6016c6b69ddac3360503b05adeae50ba",
+          "0d4af874f1722d3ed5b2b0c431b8e83834227effa031cd2b5db4d6607acc5c94"
+        ]
+      ],
+      "element_hashes": [
+        "b5bcc4040429a69ce0c5525276738f73a5fa2d3d6301ebc0f9644bc02a9802d4",
+        "9caf8cb19dc12a56a574fe606e5ef784f47ba992e89c00aeb1610558d87997aa",
+        "46b6ce0e34f885509370028e6a056d89f527e1d05a6c5799351ed31a7c825b2c",
+        "873ed3be57c26c8705dc5f04cc3281e9ab676113c07e9de96bb259d88c6a436b"
+      ],
+      "hash": "f6da717e8c1b773aa6415d0f8d9ddd3e3a8c45097c3a49c67ab7dda3884d1e14",
+      "kind": "array",
+      "mistakes": {
+        "1a0b60fdb99dd3d6b1af15d5a26dc0076e00f61442533aa6f9ddfaf383b3f948": "dérive aussi le logarithme : divise le gradient du déterminant par det X",
+        "768a4dc48e146bc08410791624f211c8aca8d8af1660ebfb149d11d6b45b9482": "le gradient de ln det X est X⁻ᵀ, la transposée de X⁻¹"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.8d": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "57cf01f4bc310e7646c2ed277a3769a0888d19a54b0ba6fd4faa365d013db35e"
+        ],
+        [
+          "798e6d8fd5bb7e53604382be055e327a3fa21624a1915e9c2c10ffcd04417629"
+        ],
+        [
+          "19521bfae642fbc9408101a9ce4c75a67ab1f28f5c4412ab11c317b885810af5"
+        ],
+        [
+          "223897d6017be1c8ef8e3100d55d34c81b6e9d610f9600b1bb7887bee9739048"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a8b4c168bf273e83dd8debf74b76f4be3afe4c6c8b7b792d7131f0c008957938",
+          "b9993e5c1ca279568895c1df38fc768442dd0b3a2fc63f209b97bc618ef6baba",
+          "bd14105030bb1e51202ff62af999807548685780f97f31aa1c8869e119ded41c",
+          "0a3792b0e24ba4e05e8ad9c56de557f1397de6b3d97f31553f29b3eaccf67939"
+        ],
+        [
+          "0839cafb427621c4dabf385da329daaf7670ab240a7fc5d69751aacb8d80bfda",
+          "4d32538be03636c8b8858c32371a351a0fbfbbdc0bf797644259a16dbb5c8c57",
+          "daa4c54f16dd670ad94422eebdf340c31612a014982b5fde0834bf9cf3ac4a06",
+          "64b9dcf5ff0e55b641b2c23ecc155b81280607864ed889fa9b3894d2d79bbdad"
+        ],
+        [
+          "7d17b5d27de09700ad1260c5bf9560bb7e77ec31ef39971c5d1c65716a2c6487",
+          "3931d2d6ec47761edd44618cbc81563afe17b2dfb7d34935c7cbbe0f6242fc4b",
+          "251052097559626e209069d7cc1fe42e6ba93b9ea0682adce1da70f913761a99",
+          "d93cf4ac70dd95ae38c2f50372b2434c49b9fee37f0107f2f453605275ae53a0"
+        ],
+        [
+          "9e5568e8f211891422a2b0fda47fea874bb9152bc187a72e29bcb6735d3199ea",
+          "3799b915f2c87167e88be0671d0fa477aefc4ddff67982f0d2cc655528776d7b",
+          "300586e5c6323ba46f016e6abe5b31babdd08eb3068b0af73f49629970221d3f",
+          "1fbf221b27520da3f42bb36e8926169c703ea9a87936233abf010500ccc2f054"
+        ]
+      ],
+      "element_hashes": [
+        "9ec8475af2216142314abddbc0e4b8ab04e7054e07d3267d2976ef3bca0cc3ba",
+        "7a8000454e26ea7d6668c4be998b6ad88444f1568d64a2a51b93ea7aca4527e9",
+        "c3c6b10496a1a95ca5cd182193d291392f101398e708fd7b212a042b630bc4ad",
+        "76c4e8088f73469df176925391e64ccdfe8b4690cec11c3c3ee1b04af395af5a"
+      ],
+      "hash": "0ea88b6a11422a3917cf75526c7b06a2f26321d230aa4dc42c64be3b53850fcc",
+      "kind": "array",
+      "mistakes": {
+        "a63509a68db7cfe96badd4d6f39cc90f0fde157af7d67b93085c94d2faf4ed8d": "X⁻¹ = com(X)ᵀ / det X : la TRANSPOSÉE de la comatrice"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.8e": {
+      "coarse_any": {
+        "1": [
+          "9512e2eabfb73cf42f06e3509c4a79a7fe0198a672f91586c14956d6a4180a3d"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "f00cb9dd0cbe20aeae34d8e3b4a2a9a60457e351b694b89ba1255275aa4edeb8"
+        ],
+        "3": [
+          "d84c7ed0c6e26e3c09487d0b54b5c1b523bfa854c0fe7a88b55117368fdfccfc"
+        ],
+        "4": [
+          "73ec46c202beda409cfe3e26476d51e58d86850476ed2c691f92f4cdf34eb84e"
+        ]
+      },
+      "decimals": 6,
+      "hash": "57617c750720da49b4cde889c47517af114f5aecec259795838bb87e723c8bea",
+      "hash_coarse": "88e8a84d0c28f2b26f1b971ece08a969e090cd59af0b270e79cafe17fc25e9b6",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a30d54f1500fff5d80ec52352cf798ba9d1e3b519cc6266392cd3fb409320891": "le gradient est X⁻ᵀ : avec X⁻¹, une direction H qui n'est pas symétrique donne une autre valeur"
+      },
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.8f": {
+      "coarse_any": {
+        "2": [
+          "e2c47fc352d779bb56bf98cfd7251ab7a2eb82c0947d048645ca09ec6ce07519"
+        ],
+        "3": [
+          "5a8cff7d685fedb18db8304cb12ee88a0ee68fcd5160ca4d8d395389990d94b9"
+        ]
+      },
+      "decimals": 5,
+      "hash": "6fa88c751e05a6d37a715c50cd99c884210ec903bbb8125decfa4d12679179fe",
+      "hash_coarse": "0198f759be52ebac41776171858a8745c651e8852865316e32ebcf97575e2757",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "4bd42fb78695b53870647845bd2a71a6fb20b9f31e11eb3ac14f7bc543f7b228": "f) demande la vraie différence des ln det, pas sa prévision au premier ordre"
+      },
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.9a": {
+      "coarse_any": {
+        "0": [
+          "ef6b10e083c98a8d98ea65a9d578ac03ac819c411f74a613624b0a79ff12033c"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "0c3b5de5538419c7784439859efe496619f2167056b8b39d603dd793f9727a7f"
+        ]
+      },
+      "decimals": 3,
+      "hash": "3f6feddd86c274add9cf2fdc76b97b80ace5b1219b7775f7bb0838dc0cd19bef",
+      "hash_coarse": "129c29ae6954cb31a323d290ae77829028d19d92288fec530aee00057bafa354",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "0e0e375510928f6911f35af3f80b90bddc644b7afc130900088a1d855765f97f": "F est la MOYENNE des quatre distances : divise leur somme par 4"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.9b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "8ef0511e58b89c9b80055c429e6489b022ca24b756c271d4eb4c89afb355afe8"
+        ],
+        [
+          "9725e9f5adfe2c19d4b32d8ec74495a05c013cc93ad3d811cad90e6836a82d22"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4bc47deb83f854e6ad57fa074a12672c349b6ff9c84f845a4f0366a88603e4b4",
+          "c9d8355245b6f60d08592ec30bf3f8d627ba8b827651de8f2db41b3c93d7c4f5",
+          "b5c02dc3f133a839d4beab469c3db681d2a3307ad0f428af7fcb9cdcf262d5f7"
+        ],
+        [
+          "0a4a3f0b248caf1f23b88d76fcfaadbfa8e3a520cfd840366203e78b2ba9906e",
+          "189958e2be8442c47eaf4eab9204651b410872ee84b95c290ef8afbbc8deb511"
+        ]
+      ],
+      "element_hashes": [
+        "bb6224ab3c023c548852aa3c78a5952979c79573ade4528fdaa8dc34674bc1bf",
+        "2bbe976b32a1da2e101a6117d68cca5e7190f3bfc2abf4947a5d0210009c7c91"
+      ],
+      "hash": "9a1f2815f14b931988b1381913b43da7c28947b2b3d4f8b753e9004f9a5ec3fd",
+      "kind": "array",
+      "mistakes": {
+        "d42d09e3b340aee2f6f0be5091dafe2e5ebe1c40803bf96d99ae73c1f21947bc": "le gradient de ‖p − x‖ s'ÉLOIGNE de x : (p − x)/‖p − x‖, pas (x − p)/‖p − x‖"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.9c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "3279b8a1e7e02028f0efc11cb299a490f3b9df240badb2f8ad7203bb08dddccf"
+        ],
+        [
+          "a10ee59e22dba76660f772dc3d15be25811e670fc6368e6645544c93308c112e"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "b2506ac961b483fb5dd32a9cf76096a42ae1344d63a2bf4ddba96fc16238c6b4"
+        ]
+      ],
+      "element_hashes": [
+        "f0d9865fe93ab0291192d13e9161a4773da59d036faf946ac377d7d4e49668a8",
+        "4856cfe90dc0fdc76d7d05d421cf8498892a13c4772edd67b006ac30e50ddb72"
+      ],
+      "hash": "89963b246e827231c7783509aa1d213030cdac98232def7f711adc7fa65c6b59",
+      "kind": "array",
+      "mistakes": {
+        "635f48078cb93ef9237140a929691b83131c92b7829ded0cb0cb3c9eb412684c": "le gradient d'une moyenne est la MOYENNE des gradients : divise leur somme par 4"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.9d": {
+      "decimals": 0,
+      "element_hashes": [
+        "0397fc8c2fb272b5e9d39d82c3058902aa8ff835c1cfdc92dfa039e0a9c1f990",
+        "828b46bfc696e7ca6cd43ea5a7813dc93eb60bbb215f6282125c752c7e0db738"
+      ],
+      "hash": "94076896a1c737474fc903401741382e1979aafbcd251db22727d722aad0d91f",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.9e": {
+      "coarse_any": {
+        "0": [
+          "dab8fa6488f8815d2cfba42ca985d768c04caeb4137001114ee325b21c8728f3"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "e549c11470b05645d1eed48d508e52cbc096353eefb9d396d29244e717c21c60"
+        ],
+        "2": [
+          "85d204a7c79bb655df7c03a20135a9aec5700e859aa775697ee24542fa01b77d"
+        ]
+      },
+      "decimals": 4,
+      "hash": "841478e14cde04b1f9342aee35372d86ad8417e68f9bca095f7075df592d907f",
+      "hash_coarse": "59f7db028e6fb177b25c0e9c675e5f80ce7f5e8044063e15b684ad3475f01ef7",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "53e35a80523ebb29c6667d7c343f9bfe8c131f4b95d31fc8f1e3a3cdad172739": "la valeur minimale de F, la MOYENNE des distances : divise leur somme par 4"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.9f": {
+      "decimals": 3,
+      "hash": "b651b5d97ea1b876ef58d345993edf148abb21b8616ad2a7f3690aadcc37ce05",
+      "hash_coarse": "27365b5cc62d4fac05e427a431de2e014075df2840524e9157e3489d7ae92ef3",
+      "kind": "float",
+      "magnitude": -2,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.10a": {
+      "hash": "1950f72347acbf98d7d5c388025a28a7871d8aa47585a4b42f19bf1dc447ddd0",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.10b": {
+      "decimals": 0,
+      "element_hashes": [
+        "d5cd8a1255e3a9d5d764e92b8c91349bfedd0184646002ee5c34910db0a912db",
+        "de0b7cd8f02c97f1e9c7fa55f160baddc2d64199831087adcce4d03a4711832c",
+        "b65920d562f932dae9a966daf6cf19b47b201dfe394b4f23c87537df36f1f993",
+        "3f2f8671890d891f719cfc28078a81da4b9e3f4fe885fb4df017e55112380fb3"
+      ],
+      "hash": "5337f078abf0e3c01e3f66e39448d3ef762ff1cbed9a7b4784c473fb390046eb",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2df3d17606eb309fc3a0f70cf949ef9dd86f4405e7415e116db91df58f774f17": "df = 2 tr(X dX) = tr(Gᵀ dX) : on lit G = (2X)ᵀ, la transposée"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.10c": {
+      "hash": "8432e1f7c20c0d269eccf7fe8c962fefbf5983dcdf8bb57f7f7595238a70d302",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "b4d5b1cedc6a3fb4c4bb488797adbfb9197fdff5306607fd9f6751b8d62eb4d9": "tr(X²) = Σ X_ij X_ji : X₁₂ y est multiplié par X₂₁"
+      },
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.10d": {
+      "hash": "3394bbe821c995bdcf69d78f01511f2fdf55a2968c6bbc489e137be4daeb0eb7",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.10e": {
+      "decimals": 0,
+      "element_hashes": [
+        "7a2c1c3a72a052ac96642c266114e3141eba0fc826433e764e0c02e17975fe28",
+        "4584d27b4dadbc4ab5487191d602284d71d2118436aabc56c18e14209ab69426",
+        "243ab35497d9d1307236d54fec59e4ac3b6bee55024c643865c65080e9893585",
+        "5474e2c39bd8ef037edc45ef032bb0053a359dd17f129d6a84863117057443d4"
+      ],
+      "hash": "b3526ada5d4cb5fec712552b0542ae1e45222d729a10dcd776dfc19c5753be3d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "37a6ee0dc4e0a861c038506a81a7768585cf00309c909d12cb859acbac033cf3": "le gradient a la forme de X : la case (i, j) porte ∂g/∂X_ij, pas ∂g/∂X_ji"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.10f": {
+      "hash": "e0cf8eb8d14ab1455b9158a731e4fcc577d7959bf2644fa431838225864dde5d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "f98e4500db790d5853364daac33412d0e6592ed5a0ba4ed6e70bafa2e7a229c7": "la dérivée le long de H est Σ G_ij H_ij avec le gradient 2Xᵀ, pas 2X : revois b)"
+      },
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.15a": {
+      "decimals": 0,
+      "element_hashes": [
+        "44ec97c1f9fee619538a42f02f90747a42c948fc670f9859c7cfd51c097ce88e",
+        "869f78b9c339976bd055032d997218b7a805557c63de013f8c3119d2a263eacf"
+      ],
+      "hash": "307a7ea4795f2531a295f6370a2835a6c29e660cc6cd182e6b454913f154f57f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0871386878f3ffaca0f291d541e30935b524a05477f8f932df18f1cd3f1fd711": "une ligne par SORTIE et une colonne par entrée : (m, n)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.15b": {
+      "decimals": 0,
+      "element_hashes": [
+        "caf9a466ab689b286cebb565ca73626cfc0601289969074cdc68875725f9bdf2",
+        "fb998075d78da6372b20ab235c3fea63bb07d874fce438c16a67ab88eec12a66"
+      ],
+      "hash": "0844a49d7bb8df392dabf20a42a283f5231a19705ce0ba03d800bad9b451b892",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "f9807ae61ddaa5b369da325ec24bb4a3889e6a9461e727dc5a74732ff0e1e8b9": "une passe directe donne une colonne (une entrée), une passe arrière une ligne (une sortie)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.15c": {
+      "decimals": 0,
+      "element_hashes": [
+        "ba4019115f5e1db8afd9708650f0ee7ffb9d642111ed63872e580f2b463e76be",
+        "11ec174d4584a6d648412c8babb1a7bd878c4a0734339c50c6e5224cee1a92bf"
+      ],
+      "hash": "84111355490bbdb9cb583d1ed7e3e7395333aa16d0bd603d1e35192d2ba1052d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5e9526372d746ac70d41d0d2558817f6852266366f4a4de73262096bdd8316e4": "le mode direct a toujours une passe par ENTRÉE, même pour une seule sortie",
+        "fd3fdd2a65fb409e9932e819ad52e1fa1f2b545703e7bf15543ad7a4cb4fc19c": "l'ordre demandé : le mode direct d'abord, puis le mode inverse"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.15d": {
+      "hash": "d0605ad347086670d689b781cb34e1a600e97cfeb488ec737ada0f4c48198213",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "7a6c84b03b78605a7ed99d3a1a904ea92ca336d3f217bc8cb16bc29e18f3217e": "une passe directe peut partir d'une graine quelconque, pas seulement d'un vecteur de base : elle donne alors J v (fiche §3)"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.15e": {
+      "hash": "65f6b3181a31082cf49ee204f8bc1b6a7103c47921db21eadfc3e6ab3438f56f",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "d8f641daf065be67e2601309bc94e689e6b1be2fc919df9b6a131fa25ce579ec": "une passe arrière peut partir d'une graine quelconque sur les sorties : elle donne alors une combinaison des lignes de la jacobienne"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.15f": {
+      "hash": "e1d6121e28fe49cdcf0c20dad762934f1be44405c2b2404940c343e13576830d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "ecea057b604f25e98a129e7c3603d788a9fd0dc61f65bb5580aad598afa04b5d": "en mégaoctets : 1 Mo = 10⁶ octets"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.16a": {
+      "decimals": 0,
+      "element_hashes": [
+        "dd6f2fa0649d28e6333c131ffa71b183ae873cbca26799ff44ddf4d9bdfe4f50",
+        "38c06ca87b827f1a186ca6a7c09f8368ac9cc67ccb036d848e8c1f4620548275"
+      ],
+      "hash": "42dccba298845a2ea2a4bcde80a620e694f8da0d28bbc48990b4bf9e45a04dee",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "39b6261a417dd84724c6083fb0656e780d4d6adebca305cc0b201273a7e19db5": "le gradient de bᵀx est b : n'oublie pas ce terme",
+        "65e7da0f679eb84162950ce3e5e352313c6161dc7d734d00417cd148b26c86b4": "A n'est pas symétrique : le gradient de xᵀAx est xᵀ(A + Aᵀ), pas 2Ax"
+      },
+      "shape": [
+        1,
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.16b": {
+      "decimals": 0,
+      "hash": "e24d72c5d4df02ffd2b287d68733b5f17ca86637d7d96adb804dfd0cdf2c0372",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "03253783e1729798dd84672df80cd74a4198a6daba47589cf0694d52f46ab08f": "dans NumPy, le gradient a la forme de x, un tableau à un indice : pas celle d'une ligne de MML"
+      },
+      "shape": [
+        1
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.16c": {
+      "decimals": 0,
+      "element_hashes": [
+        "288fa11c9749d7ddaa7bbf0f1160bf83c5d785fa7b58f205bb61591e1e30e00c",
+        "64fdfea0e811194c59712588ae98e80223a5cdc82b7dcc9fbb74c21cbdc1581f",
+        "626f540e338fd235c606e00ee70137372316676ceede22b83d0bb3877806fe73",
+        "1c4cf16b276766d12a7941581bc89ddae7f4ced389e21efba6c2be1e9e3fa08f"
+      ],
+      "hash": "a979ed8bd28a466d81c448cbff2cdd521484854b81aad32f19e51cc656857b77",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "22b57781927751fcea084105d604116fdda1de1f9725e95a831c24166121347e": "la jacobienne d'une fonction réelle a UNE ligne (une sortie) et une colonne par entrée",
+        "a6ff26e2777f76dbd2da124e0d127f1d1e4242dc6002cbbfc5dd1cd2bf7961d6": "l'ordre demandé : la forme du gradient d'abord, puis celle de la jacobienne"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.16d": {
+      "array_rounded": {
+        "1": "dc295ee78d7f36ced7842d1f9cb6d309f046a157d3fec61218cde7dd3cd98748"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "f0dbc805add8601894c2f19366eec4c12ccc6cec71b7fbe61badacdfe19f407e"
+        ],
+        [
+          "4763fd8f91f9ea9491558a94366bdfd847fb5093b07247924e6da4525f4a0b92"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e0ebeea600914abb9430d001ea6b41d8e9a4495745244e287262b69963108521",
+          "1788ce0590c8af8769e038a8dd393b8e6143bc35c52cff02b645780873f13cc5",
+          "7f2f8507941b7566b59f149f3d3d64ed9d6d188eede19c9f4c762160cb649b38",
+          "8a0e6e8e9c84775b5c884e9f7b583b1f491a1f72fdab0345a155ab61f5523186",
+          "a8ff718abedcccf7d6c75fbb0091f7ec34dd14807bbf281448ff97f8f66f0227"
+        ],
+        [
+          "4a606305d6146d23c1d736e21bf691a1305d5112613a299474233ab906c179b4",
+          "eb3df2a3862d1592f719843ccb30be798a4e11e94cebba181dfba3569c3e1bce",
+          "e00303f5e10b7eb124c424fc0bd2d111bfb5473e6100ba3a1cab87ddfeee4961",
+          "bff741fdbe976db42627ddc69fccf50312993874938c127a1c169201ac2457f9",
+          "dfd0bf535803fe3341ebad0ca15a2765dcc20e49ac14c089a529b64e1619e19e"
+        ]
+      ],
+      "element_hashes": [
+        "5a5fc932df7101bc747b08cf2ed531afa9b5587d023602df101626edbce9922b",
+        "3f2a1b99cf8bd6c9a9fa865370126c5c37cc4cf302f04f0dd3aea7f2d76e1d08"
+      ],
+      "hash": "3f153951d6d1a8ce9e860ba588e5d35454d7d4b984610c887940593ea77602b0",
+      "kind": "array",
+      "mistakes": {
+        "219c2595a7d986ff6c5c6064a5ec1c72a7ea1cf22e1c0f39257a247e158a585e": "un pas de descente RETRANCHE le gradient : x − η ∇f"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.16e": {
+      "decimals": 0,
+      "element_hashes": [
+        "074b0211edcf592883b3518045e0ae43c5689b93403d1f3024bb1bb383c1479f",
+        "4f58a3cf2922556e39c427ee64dc5378bf666028b09dacae55d00d1512bf7b0c",
+        "bbabe5ec44b3658ffae0b987898ea5f731dd68404780f15ce548fbd13e7f39ee"
+      ],
+      "hash": "bdb22217e6644b8d37cd4b12bfaf0ecb23f06e408aec1297f5afecda6e7d1cf8",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.20a": {
+      "coarse_any": {
+        "0": [
+          "61ef7b95bd38d7cffc0f7dfbee75c15a13d7668642e3822668cc6aae23fa2f64"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "9fcf6e5a011caae155386337a8a86043597afb9d0da164fd067acf28bcd2e381"
+        ],
+        "2": [
+          "f406dcad5acd4520c5925a69de67d589243394851de564c0e1172230f16b2bb2"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3cade8abdaa592a49cc4037faeb5033013e9d4e5388e207eeb7442bead117866",
+      "hash_coarse": "5828f90aafc3cf9cb98d5ea315469b93db6e9dc29425952424c318fd2cedeb58",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "5ca345eed7eaacf6b1937ed13894b667355c3b508b29e1b76716c0bdcf83a7b0": "la règle du quotient : (bc − ad)/c², le terme de la dérivée du numérateur d'abord"
+      },
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.20b": {
+      "coarse_any": {
+        "0": [
+          "4d8b00bc123c73c74163e6e3fce9bb1e9c0df72f91f2417c359f7f1e554ee6a6"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "6414befb0e861f9d02c81ed4b5d66a01c4eb3d411da9e4f8e7aec64f7d24dcd4"
+        ],
+        "2": [
+          "1d6a471cb4a6df5e7594f34c980656e71d9856a457f95639f30b60f301e88272"
+        ]
+      },
+      "decimals": 4,
+      "hash": "2a4c3e9bfc320d85621e6b0c50627178d61db11993697765554adb05642d8390",
+      "hash_coarse": "eeb6da014066959c14fff742faf455be01b42f9d9295ff02766e473d4c2fac1d",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "36bafd5f44d8e93f2765963f3389ecd3bbd4bf54effa1333a2f26feac0aace52": "la règle du produit : (uv)′ = u′v + uv′, les deux termes",
+        "dd8385b7ac2a29928611783316c80e60264f93db314b7d5a7ef558d14e0d46cd": "la dérivée de t ln t a deux termes (la règle du produit), et celle de exp(u) est exp(u) fois celle de u : revois __mul__ et exp, les tests disent lequel"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.20c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "88b99b316addc89e9c8acc692e5383e0658b2d033c564c43ee83e4fe70fd882f"
+        ],
+        [
+          "be2e150ff48db21e091feb8ca5471b8f1c3ce70ce62b94846bdad3034cb0f090"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "dd3251f0417abe5e9d4cbda751245e94b46481e7d46e2f3308235a5f8d7bcbd9",
+          "c983d42de163864cf0fa1493eb84a13ba799459f783e500e1164108f7449bc8c",
+          "517a6f32437dba500f8ae9288fca9eb77d2d36b35a92895c68bbe008ae7f9b7a"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "bade88ddc484616e51b13c9ae741e55bea7e65289867b169fe16c4fef0131c98",
+        "dc2dae9f3c5400b722994673e2ff414cd6ac4dfe96b459af4a421de453ade6e9"
+      ],
+      "hash": "9a56976d93765405efe34a1d05a5b28067e58beb20aa8484b5dcd7768f8d5b64",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.21a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "ac6d5c7091a6b4e51e8dccfdd590ac96587fc7a68ddb85f5040042186c68fa82"
+        ],
+        [
+          "67a7c1a08be51f92ee8ab3a66e647dbdc629d82c96b2a10de6958b5245474dd0"
+        ],
+        [
+          "343b3ca99cd13ee85b354dc122c6ec9c5a3fe9cbcfc7bd00169d1f2a36034a73"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e9a90d3c41cdff1f01355bac2a501505d5297f1dc0aa91656e41f561a9f43063",
+          "94261fb9528bd71022f406c9735dbcdf7e90cc7a3352944a92e77711c0a59f54",
+          "08d77763c5e1a6502ba82ebef51966c5c5f98ed37be3e0091ed5645ab17a02e7"
+        ],
+        [
+          "87f5f03787d9c3bf926aff27ab546aa7cebed904c7553f9d9e79c838fd1cf1d2",
+          "ff5d3f28b5304d1ef0f0a53c5fc4fc0da297a4967fc48258c08a3ad562a22c6b",
+          "6c2565f75363b0e982505925078195ed91b46cb401873e99fd4bff5f74846284"
+        ],
+        [
+          "86a3a1c8059e1f96aa87937b0a58d95a753be9efb5c1f0bacb2075f2d7f797c4",
+          "71f15a6b9f283cd33c9cf1c75ec3c37cebef13c07728bdcb8024b028308146c9",
+          "55fabe9ff4fe8e737effc59e1936c525ae0f211f835722fec619440db96d3159"
+        ]
+      ],
+      "element_hashes": [
+        "a0631c4bd09195f412cfa008d716fba8b9daa48fe8d5e4164a5acc9d439f4366",
+        "4eeb094ae1cf6a84aead115b830c8363221ab188778d5814354c145ae9d038a1",
+        "79571ab39abd5ae6634e74befcff058d856ec626866ee5a5d172764cfebc378c"
+      ],
+      "hash": "b90c30c04007cadb57107ef33db1d7ab9a394a46b80ab2a2d15c38aeb1dc5534",
+      "kind": "array",
+      "mistakes": {
+        "2cdcf8da75a6c14ccffb2b9eeb66767b75dbbeea3dccdc67a29f12ae71225918": "la passe i ne sème QUE x_i : les autres coordonnées ont la dérivée 0.0, sinon la passe donne la dérivée dans la direction (1, 1, 1)",
+        "cba988f597d26fa014eae171a2c5827757d2d4636e9fe98bbb0f1b50353ed88a": "la passe i sème x_i : Dual(x_i, 1.0), et les autres coordonnées avec la dérivée 0.0"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.21b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "71e91df5e9b8b676061cfd9b0f9290c69d7ad07629d8cedab3750cc341060f88"
+        ],
+        [
+          "8595c8fc3a39e5cc55b5387a9686401b9ce0be9d008ac1f13ea6f79de82eb704"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "09272a08ebaa4defe2b5abd620ac3e59e9962bd05521c387762d6938069e0325",
+          "f02d525a5611386bbb137456c06e2819bd1f561b4fbd4c352a4ea9bc78674b36",
+          "36b2258d23608d9829989b71204819a1c99863197c5d5ef8e14293857a645254"
+        ],
+        [
+          "10b52982651714c27b5cccd6c65fb86b51df95cec49c4b0f29013f05abf13db9",
+          "f0aab8e2f53e259e7b003a07eff6612d02a7c5f631e28dc18788de7c0cdf1ed8",
+          "9509ec37decfcba58075806d8f86de5d501bdcca94a834db43492f13b25d1844"
+        ]
+      ],
+      "element_hashes": [
+        "2164c7b9b24334858cf5ea95fccfe72ca6b0eac4a709854f0889491989d35894",
+        "97f43be5636fbc822f2dd951c2a7fbfaaba309a02c4fe808e3bfa88b66f5bfa5"
+      ],
+      "hash": "3a8d979ecb5dcd22339204f81c601ddd3bec40361cba8272a973790e85e7953d",
+      "kind": "array",
+      "mistakes": {
+        "ac2144b1077f98c0caae4fdeff045a85fa2164cacc31a8fa6a6ca73fc135fdb5": "la passe i ne sème QUE x_i : les autres coordonnées ont la dérivée 0.0"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.21c": {
+      "decimals": 0,
+      "element_hashes": [
+        "dd4f015863fdcd61aa7fa9750dffc6853d054c675b520999cda2fd2a89dee962",
+        "6e0c3edf206d30bd506c7733a04bab86b028bafc3b64f2f1776ce2eece37d32e"
+      ],
+      "hash": "de71040ba73149515c3665794e2c704a5302bfc4b02fafe7580f9a85fa3d3253",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "584bbe13915e874823d370d8b9efd3935417d0304b4c33635bb481bd5e9d9987": "forward_gradient fait une évaluation de trop (f(x) seul ?) : la valeur vient avec chaque passe, une passe par coordonnée suffit"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.22a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "ed58a240009896926499c79ccef7184c740a625cd655efc99d134461670ebe8c"
+        ],
+        [
+          "9243389d19aac9fb102c388dcf3a9216f5457adc5ebbceb39d7796bb020066f5"
+        ],
+        [
+          "d9832e3371184c05d9177b74e9fdb68024b3bc1bd29f1290d29676f29dbca79f"
+        ],
+        [
+          "a08295de35129563b1e1a6ce56141ccaf928f51fbe0650615a33df586d54f030"
+        ],
+        [
+          "f9cbf9b5c848f9b64f2e475944ac0caeb75aa5eb69ccc12800080b495b63f169"
+        ],
+        [
+          "4e1a1975d417c88907fed4661e9085a3f65bae6fb647863cf25bc2de1aba5b83"
+        ],
+        [
+          "0a6be91e258ad9c2a5d488aab9769d227874ab2e78178b633b333fb0dd79769c"
+        ],
+        [
+          "cbbb8de9df37c8e41eb5209b9eb8e7f6eb4cbb2ea33b4a38e8d62486c8b37a3a"
+        ],
+        [
+          "22f50f5b358b1b8ded61ec739439798371a07071e96edc511da813284fec6665"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1b0bae5a50dcc442b87fa8944896c33a52487e947ee8525ce17330fa31ca0d90",
+          "0c0b18f22fad0c468436bca1d635aad2e807571175feae9fc7ba9feb1d1377d9",
+          "922ff846e8c19f54c032fdb8338d94f2eb28e1c71334725e5f601568183e7ae5"
+        ],
+        [
+          "0b869dd43c12680c9d0b3e0577ee841d4456a775593d7c2a7432905708872d02",
+          "0de1c7ce2c5b6a190366b422ef829766ef2da30dfedbc3ea830622fd8779757c",
+          "69444423916db7277c54d64d41acf77e606f630f8b018c2fd22274fe2eb0217d"
+        ],
+        [
+          "738bcf4ba78433563b0bfb1eb82dcc589a5c0d4169358cd1269b5b15831cb282",
+          "0fec4e9013c443d962dabb39e8ef1bf13ffc2f1868edf67bb8e1e8c04d300301",
+          "3109592ada50083a1c733d25c5db99a1b4eedbe77fff5d4f35d5c0f11780a510",
+          "7a7ebb44addfc2f8d4acec92c10e9135494fe538ef3c78bd0d796f95befb054f"
+        ],
+        [
+          "42b34f2f4427aec7780629158aa8551fa62c3a54f5e9217a04e019881ae1a526",
+          "a82bebbd034ba6cbe684acc4f2b31ba8cd17e08f34bd2c387a161b15b098e3cc",
+          "79ddbd801f0d90fc062bb6d080304b50a6e8a69bb20efc8f27fe3ae057eb3993"
+        ],
+        [
+          "d632d6f78c340254bb6b31617d1028d8d41fa038bb72aac4935a5925eafcedc1",
+          "f7212df3cfbd51c1d7a4d66e4f828ebd6eac06e40cbdd385f45b5eeb9f261581",
+          "e8704dd0e893ec3f34260e80339bc3539cc495c9508d47c26066e8a11c806854"
+        ],
+        [
+          "df6a614f461308a3c8051959659bf061816160268e3c8b2f870f5e9ab4cc316c",
+          "28cfe65e4119a4194484cb194ad1fb00eaa2cd7d80f23ac7a8cbfe380ad1cf46",
+          "136ad7a89c34605a0d07cef50865094aad487b06c82c200b4825e014ed9a539e"
+        ],
+        [
+          "e183a1158bbcdca0b25bf3660a7e14b19d05b81598ff03ee07c3cbbc4c8546b9",
+          "0b2474cd898e0381d348209c5778687845d83dfe2ef947af18801b68abf7c414",
+          "ab1a6249f6f50a5ec21335c3cfbdb4672f7021bc75631b9d3b4b717b00ddcd22"
+        ],
+        [
+          "0b1d4da5b4ff0f51b8343b96197f301bff08c40b7478911d67ac5b612e41c715",
+          "726c98a1e1e9b73ecb09b03be65f296787a329de7d4ba53f3d1df8538a82f1b0",
+          "1ddf84ed1a0a91aca9d34fa7f9d325296fe5b0dc1b8b764d17ed3bed157506ab"
+        ],
+        [
+          "5d4c0485d120ade580a4c24dd1e9285445de8519e8f8d8b3286557c0257398a2",
+          "25e3e700bfd3ab65ea834f7da23d875bd9e3c87cda88c429219faccec3846e10",
+          "a6d08510e8f462b571f89ebd20c7ae632cf7df63d0755005922e6fe089b87fdc"
+        ]
+      ],
+      "element_hashes": [
+        "a386597251463ae1e21e1966f46433e3537c43218b9e84901c50c5bf20f8f578",
+        "d92c1e1828ffe666963c1ed06af46e8c5cf2d82ae17893667ae1ecfe41c9b233",
+        "0bb2bb811b9212e53afecbe4dcbdbcf7cd39e8ec0bbc8fb0c150c7131e753ac3",
+        "6037174e870534a8b6a9625ff2639c9b38f7778db63baea228419c6e0984cfa2",
+        "48d98bfe7cdfeb87dffb21d3e89f59911a1bb9ff23d2e4afb09db1f8c07d5d82",
+        "9b0507f185abfe2d1ea89ad23f3dc4abda94e244987039a7214a8cbf24c25407",
+        "5e5a4e59f1daedecb757b6f0a09ac3aefd6868e171ffc341a26e20b0eed66a3b",
+        "730beaaf3ae861c8d394397dc367b80805812ae5cd89982e09d847fce1b9528f",
+        "7c6f1ffc1c1953feef81f19fbcaeb8d7ea9777c3eb3333a873e74e4f38831d21"
+      ],
+      "hash": "d62b56c65a7cd9aeeeb63f48b0b9176e42ad4f8efb659f920f42eade7d0dba65",
+      "kind": "array",
+      "mistakes": {
+        "742da1ad1577ffe8722436979d87d88d381831e48d3804be7e761972b1a8dc5e": "le gradient a la forme de X : sa case (i, j) est df(E_ij), pas df(E_ji)",
+        "95b27e3e20d781a2fdcd52d0c0fef49ed7be07c4119104f04013ca2469956b0d": "d(det X) = det X tr(X⁻¹ H) : le facteur det X compte (sans lui, c'est le gradient de ln det X)"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.22b": {
+      "hash": "e85a4e7e871f77116be7535c2f1d596f56bcf647633e7e647531a6aa6ef9e104",
+      "kind": "bool",
+      "mistakes": {
+        "e0e8d2482954f4d0f5bfd021b7c5864d5a240d54a33dfa242aa344fa603f527c": "compare les deux matrices case par case, en valeur absolue : np.max(np.abs(G − C))"
+      },
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.22c": {
+      "hash": "ee3b8bb47de03df08f5a358feb877398c38fbcde5a92fc47b5ddad923cf2728a",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "1c54e78d245c9a936efd42df4dc372d2f2182e2bff54eb550c31c0e2bedc103e": "une évaluation par case suffit : la différentielle est linéaire, sans terme constant à calculer à part"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.23a": {
+      "decimals": 0,
+      "element_hashes": [
+        "bf2c357b74c03476a86590f47e7c869e3f4d38ee7d726cb86e92ae13937b32e5",
+        "9a4a38dceae6a481885718746c9ba16d92b0f4cd7fa5e03ab656e90bd578cf48",
+        "8b2e2365e13e455ebbbb6537a58a0a7293ab9e1e4c525df3fa847657ca517ef3",
+        "d06276bb42a263036507801f12dd6f2d20b6efe4cd6add6803411ba210269dba"
+      ],
+      "hash": "6fb0b0ebde43312cb137dbea5b654e03b689bd027b5cc61e2347f627efaf7a6a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "7629c83e93f7854bbad78416a329bbb60e48a143e63463a403d273ef41940c76": "A n'est pas symétrique : (A + Aᵀ)X, pas 2AX",
+        "f98a318ca5ab74e6de64c5d9c147ab570c5a3b03ee35b58010913336e08ef766": "le gradient a la forme de X, rangé comme X : pas sa transposée"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.23b": {
+      "hash": "5bfdd49e22ef258fa1923b8e1f15edc226f8cc28747e7027c4c7fb127c330a2a",
+      "kind": "bool",
+      "mistakes": {
+        "ee986932a5ff247f74c8ff71bbc31ccb501d93f2cf54df7c87831470cccf0d35": "évalue chaque gradient de SymPy en A_23, X_23, a_23, b_23 (subs, puis doit), et compare-le à l'identité de la fiche avec np.allclose"
+      },
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.23c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "45d2037298f297d948427601104673410f5405785110242b7012142bac5c6231"
+        ],
+        [
+          "5abdc7f4f3822c1497d723c8d7d2575dbd25ecbd424f8724cf99cc463c499a13"
+        ],
+        [
+          "9cef721220d97224d57b537e9dee7b4c6628f576cd96d30f8fc1ba5e816c095b"
+        ],
+        [
+          "d390ce811b708d402deab2fc305c56b5086f07d1a17baea0b91122363b138a25"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4d20f68aae1f233f3e2497d09169615e9cec4abdcb5897092ecaf28eae798ff1",
+          "4166ae558398684b1b67181ac53a840962b3b3f58ba68135da832ef9eeedead4",
+          "2760a5dc809fd6f77eebb989adf8ffb68d4143a93ceca0c854fdbd846beeac5d"
+        ],
+        [
+          "3bae941a655e42b583c65abb29d1705bbb13b331e03f992d21f0d54ea864372e",
+          "10a2087d6fe873735ab1ad5d667c51935a75f2f4d84a3329b26182e506d0bd04",
+          "304cf207a281a3c24a043eba027f204a3b71993fb0c0db9c3df9f1b81de66696"
+        ],
+        [
+          "a63417c28c56853c167d84f94e940abcdb18760d1cd4490dbd2c9d73a02cc0f9",
+          "b58e6676fdb3a79549bed8944bb24f2ddbde4342934d024817d0ffb3347da1a9",
+          "28f11dffc35de67cf18e12a9ca83a78d6968275aa6c7e601b2e9eb358d10316b"
+        ],
+        [
+          "1ea3fc33fffb76f3b274d8bb9bb9cc0185864cf084a5fcd0531032ef4a0eeca3",
+          "9cd894f4dab198f22ee2da58a099d734e3ecf66c4d533bf4f72a20b2e2c8e5ee"
+        ]
+      ],
+      "element_hashes": [
+        "241d07a9eb62697c24649bf238b4c995266d5659c2e35e8397a1f07e41e9ad40",
+        "250f3ff0bd0e30cdf8d496768ef1d22cde1db46b83907770d92e105cd1468507",
+        "056c6b9da62b98d08357e66c74fa6721fa51a97e24307e11844d5c7bffba8965",
+        "1ea869594bb308c89a82d21098e86b5a828d3b96786df47ed2eb0bb978af445f"
+      ],
+      "hash": "9740fbb74df9b071121b23d41bf3ec063874bce9265a43f7a2e27590ad3db0ca",
+      "kind": "array",
+      "mistakes": {
+        "181a8c589f3ba576db4996be8e6e891c53b88c2a3c42809d34dec3298998cfb3": "le gradient de ln det X est X⁻ᵀ, la transposée de X⁻¹",
+        "a4f1672614f6714cc10a4bd7493c7b5feaa4986c068c45fd5c9565c947870ab6": "c'est le gradient de det X : dérive aussi le logarithme",
+        "b9c1270ed4b2bdb3d4ed4d09f0b3fda8e3e4b66a968a594dfdddfe9d3d958f27": "c'est ce que rend MatrixSymbol en SymPy 1.14, et c'est faux : dérive une matrice 2 × 2 de symboles"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.24a": {
+      "hash": "b331926cdb262b63e80604768c7634d3fa38dcf0fd1842daf4671b1383b161d6",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0efdfd7668d040ce86cc56e565c1bc7f9746910848dfec63829961e6620b46cd": "le mode direct fait une passe par ENTRÉE, et la valeur de f vient avec chaque passe"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.24b": {
+      "hash": "f07f1585ced7296500169bb1302a2f3c618fcb5d6184fdc204d416675db8c534",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "719ef31f00c2d8a8cb19ba29529a7996aba051b20179c31eaf8fd95592d56dde": "le mode direct refait tout le calcul à chaque passe, une passe par entrée",
+        "c847d22a45b1374f0cc848a8f2de9d28cd72fc284df18cb349a6e95363a4eca8": "le produit de n nombres demande n − 1 multiplications par passe"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.24c": {
+      "hash": "6f7d60e35a55e602bc6682f5075a6032d5bdb8790380fe8858e553b831e5e446",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "53f6d9e237f4185f40d445bf64ba5f9a9e615f6dda8d0f4a567c175874ad32fa": "compte la passe avant (une multiplication par étape) ET les deux produits de chaque étape de la passe arrière",
+        "b3226bf3b805b7569c59ca041a512db6ca5be508b25183a98aeaae89e6bf593c": "la passe arrière compte aussi : deux produits par étape, l'adjoint de v_k et celui de u_(k−1)"
+      },
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.24d": {
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "hash": "2900a3466761d0ae991a34dd61dd04938109f7034821b618d191b87560439b60",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.25a": {
+      "hash": "9f9c085f2dd8fd617ce42dfa7233a4fca29d933490ea12a10575102f86db3964",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "9da4c790ddd8f46fe57cf2b2bb505612097c02623c636427fef9c49c236e4972": "cherche la PLUS PETITE erreur (np.argmin), pas la plus grande",
+        "ba59fe2548594cd82db1e99a23bb92ed5e0c5dfc11380500e167b5acbae1500e": "np.argmin rend un INDICE, qui part de 0, alors que la liste des pas commence à h = 10⁻¹"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.25b": {
+      "hash": "56bf9f16be516ed2da891117ccd20694385cb0350daad94f29b95ba18a2adb48",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "49c887e1c013d12b65faf9a0b35e95bc2b2488f375dff05b5c2377db94e010f3": "entre 10^m et 10^(m+1) : la partie entière de log₁₀ de l'erreur, vers le bas (math.floor), pas son arrondi"
+      },
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.25c": {
+      "hash": "1b21df87f41f7b932ff446a215adae11d616c850f3e6e6c89ab61bc6d28d54a0",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "71d340efcb1a697ea42813f16c2d1338fe13f32c9a832fe2314170673c710a3d": "à droite, l'erreur diminue avec h : la courbe y monte quand on va vers la droite",
+        "8f8252c4a23f76546e0c48d2d7996acef48bbbf6bb96d03107fc8eba305223da": "l'erreur de troncature d'une différence CENTRÉE est d'un ordre plus élevé que celle d'une différence avant (M05a)"
+      },
+      "sign": 1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.25d": {
+      "hash": "3f861c32212c0e53fb6efde0babf0dbbd8ab860d2da3c871f5a221d148918e72",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "9a485da1f90f65c4cd6a56cf4b43e4fb540277854dccaded275e28bf2488c4a1": "les arrondis de f(1 ± h), de taille fixe, sont divisés par 2h, pas par h²",
+        "9fbc2e51c53da21d6e02108407c954bab7315d7d7be645a82fc3a6f14454c88c": "à gauche, l'erreur GRANDIT quand h diminue : la pente y est négative"
+      },
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.25e": {
+      "hash": "973c93659488d74b25481b5daa36e1a37f1cb68bc0702bb2fb978fc531a3b64c",
+      "kind": "bool",
+      "mistakes": {
+        "99c463bffc25dcbb4dcfef1bd6d7ed6c6accf3eeed7abb6beb67ba974eee8aa3": "compare la partie en ε de f_dual_25(Dual(1.0, 1.0)) à la dérivée exacte de SymPy, en valeur absolue"
+      },
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.27a": {
+      "coarse_any": {
+        "0": [
+          "a40c1711d54b17c0b606123c2d3f80580eb0205e0a8d416f9837a3766e0129d7"
+        ],
+        "1": [
+          "a3017db2b23dab22e6616e6b7a66eba560c07846b7be757404adf02a9e25c8db"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "d677511ea33b9c34617cc487be9385c7fe4e9c6ec1e65a3df461863f77411ec8"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ebc795349fa8e309f3d77a17968f12044e426de462a589b9fe60d481023fd76b",
+      "hash_coarse": "69645f957f89a3551358ec0d8eb7ecd241e1395e90c1836fcfcfa0c3d6ab0edf",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "5cf10ba470f3ebde54515cb5597d7c342f6973a7ac17e2335ba25004d1d1e7c7": "a) demande ce que RENVOIE la passe du collègue : refais-la ligne à ligne, telle qu'elle est écrite",
+        "b8789c53a6b28946b1d668560f1a8d804ae0b7f37bfb775799be5bdf3551fdf6": "relis la ligne qui calcule x_bar : par quel chemin passe le seul terme qu'elle garde ?"
+      },
+      "sign": -1,
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.27b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "30a0a0a65012057a5c2ed268f7597f1700a5ab8a47c929e4ecdf6686ecf82eb7"
+        ],
+        [
+          "b0d08394c184193ea319d1b90ce90c2e78ee5aa2beb2ad6655888bfdcd8d3a11"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4909dc255478be7f2d228e5d43bf07db06964f0b7407d4d0e25782d4a48ba05d",
+          "9580a242ccea430f3b984226a14287c1adaab0abf1729c37c6206196bc17b6a9"
+        ],
+        [
+          "0ebe390ee1140471dd3da2ff9b19e13909e84fdb1eba700225b31f4ee3ee0b10",
+          "b16b889919bd413bf8cac22daa658f260137d9280432848f06b265d261cd410a"
+        ]
+      ],
+      "element_hashes": [
+        "9fbc72afce393e0873b9f7e2566a49252723109dbcf5217118cc14c44227059c",
+        "17212043e4ac89081faee9e787a5356dff74ae9e583c4216c62974e469fae040"
+      ],
+      "hash": "4f2905cb123962ce3eab91be11719d3d9a57b3a9db67521d4b898e4da3220e07",
+      "kind": "array",
+      "mistakes": {
+        "ac1884ff4fc031cba6fedabca7f470b0c33e65082813c580accb005fc5da99e6": "la contribution de u₁ = xy à x̄ compte aussi : ū₁ × y",
+        "c6d7ee69c15807e66a19fde97bd75344fbd4eb7fa44dcc2edcc27e5741493a04": "x a deux successeurs, u₁ = xy et f = x u₂ : son adjoint est la somme de leurs deux contributions ; un chemin est oublié"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
+    "M18.29": {
+      "hash": "f8c3190fc37b6efb5147a5ed5830f989ec37fbefece0082d39cd93dc23e15e83",
+      "kind": "bool",
+      "mistakes": {
+        "0504c8be4fccf58e87df9863935308009cd0025f575aa640d8ec409f6ae705ae": "l'objectif n'est pas atteint : relis les lignes ❌ ci-dessus (opérations interdites, pas de Newton, a en nombre dual, précision)"
+      },
+      "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
