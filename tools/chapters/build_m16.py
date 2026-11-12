@@ -909,10 +909,10 @@ W_18 = np.array([[2.0, 1.0],
                  [0.0, 3.0]])                     # a map of the plane, x ↦ x W_18 + B_18
 B_18 = np.array([-1.0, 4.0])
 P_18 = np.array([[1.0, 2.0]])                     # one point, in a row
-CYCLE_18 = np.array([[0, 1, 0, 0],
-                     [0, 0, 1, 1],
+CYCLE_18 = np.array([[0, 0, 1, 1],
+                     [1, 0, 0, 0],
                      [0, 0, 0, 1],
-                     [0, 1, 0, 0]])               # 0 → 1, 1 → 2, 1 → 3, 2 → 3 and 3 → 1: a graph with a cycle'''
+                     [0, 1, 0, 0]])               # 0 → 2, 0 → 3, 1 → 0, 2 → 3 and 3 → 1: a graph with a cycle'''
 
 CHECK_18 = '''with checked("M16.18"):
     results_18 = []
@@ -946,7 +946,7 @@ CHECK_18 = '''with checked("M16.18"):
                   f"apply_affine_fixed, 4 points et une application de R^{n_18} dans R^{m_18} (W de forme "
                   f"({n_18}, {m_18})) : attendu les images x W + b, une ligne par point, de forme (4, {m_18}) ; "
                   f"{shown_18}")
-    for args_18 in ((1.5, 0.2, -3.0, 0.5), (0.0, 2.0, 0.0, 3.0), (4.0, 0.0, -2.5, 1.5)):   # (B)
+    for args_18 in ((2.5, 0.2, -3.0, 0.4), (0.0, 2.0, 0.0, 3.0), (4.0, 0.0, -2.5, 1.2)):   # (B)
         got_18, error_18 = outcome_18(lambda: product_variance_fixed(*args_18))
         want_18 = args_18[1] * args_18[3] + args_18[1] * args_18[2] ** 2 + args_18[3] * args_18[0] ** 2
         good_18 = (not error_18 and isinstance(got_18, (int, float, np.integer, np.floating))
@@ -1030,8 +1030,8 @@ wbm.record("M16.18a", row_18r[:2].tolist(),
 wbm.record("M16.18b", float(row_18r[2]), decimals=6,
            mistakes={"la dernière colonne de cette H n'est pas (0, …, 0, 1) : refais le produit de [x, 1] par sa "
                      "dernière colonne": 1.0})
-cycle_18r = sympy.Matrix([[0, 1, 0, 0], [0, 0, 1, 1], [0, 0, 0, 1], [0, 1, 0, 0]])
-simple_18r = 2                                     # the paths without a repeated node: 0 → 1 → 3 and 0 → 1 → 2 → 3
+cycle_18r = sympy.Matrix([[0, 0, 1, 1], [1, 0, 0, 0], [0, 0, 0, 1], [0, 1, 0, 0]])
+simple_18r = 2                                     # the paths without a repeated node: 0 → 3 and 0 → 2 → 3
 wbm.record("M16.18c", float((sympy.eye(4) - cycle_18r).inv()[0, 3]), decimals=6,
            mistakes={"c) demande ce que RENVOIE la fonction de la collègue, le coefficient de (I − A)⁻¹, pas un nombre "
                      "de chemins": float(simple_18r)})''',
@@ -1098,8 +1098,8 @@ def paths_count_fixed(A, s, t):
          r"longueur, et l'affectation plante), et elle n'est juste que si $\mathbf{b} = \mathbf{0}$. `product_variance` "
          r"n'a raison que si les deux moyennes sont nulles (ou si une variance l'est). c) $\mathbf{I} - \mathbf{A}$ est "
          r"inversible pour `CYCLE_18`, et le coefficient $(0, 3)$ de son inverse vaut $-2$ : un « nombre de chemins » "
-         r"négatif. Les chemins de 0 à 3 sont en nombre infini (on peut tourner sur $1 \to 3 \to 1$ et $1 \to 2 \to 3 "
-         r"\to 1$), et $\mathbf{I} + \mathbf{A} + \mathbf{A}^2 + \cdots$ diverge : l'égalité avec $(\mathbf{I} - "
+         r"négatif. Les chemins de 0 à 3 sont en nombre infini (on peut tourner sur $0 \to 3 \to 1 \to 0$ ou $0 \to 2 "
+         r"\to 3 \to 1 \to 0$), et $\mathbf{I} + \mathbf{A} + \mathbf{A}^2 + \cdots$ diverge : l'égalité avec $(\mathbf{I} - "
          r"\mathbf{A})^{-1}$ n'a lieu que sans cycle. Quand $\mathbf{I} - \mathbf{A}$ n'est pas inversible, la fonction "
          r"lève `LinAlgError` (une sous-classe de `ValueError`, mais avec le mauvais message) : il faut tester le cycle "
          r"avant.",
@@ -1250,7 +1250,7 @@ CHECK_20E = '''with checked("M16.20e"):
     print(f"écart moyen entre ta densité et l'histogramme, sur les {int(kept_20.sum())} classes de [0,05 ; 0,95] : "
           f"{fr(gap_20, 4)} (objectif : moins de 0,05)")
     fig, ax = plt.subplots(figsize=(6.5, 3.4))
-    ax.bar(centers_20, heights_20, width=edges_20[1] - edges_20[0], color="0.8", label="histogramme de 10⁶ tirages")
+    ax.bar(centers_20, heights_20, width=edges_20[1] - edges_20[0], color="0.82", label="histogramme de 10⁶ tirages")
     ax.plot(centers_20[kept_20], yours_20, "o-", color="C3", ms=3, label="ta densité, density_20")
     ax.set_xlabel("z")
     ax.set_ylabel("densité")
@@ -1384,8 +1384,8 @@ def objectives_cell() -> list:
                "- Vérifier tes calculs papier (partie 0) : une application affine dans les deux conventions et ses "
                "paramètres, des matrices homogènes, leur produit et leur inverse, des chemins comptés par les "
                "puissances de la matrice d'adjacence, un planning de tâches sans cycle, la variance d'un produit et "
-               "d'une somme de produits par des signes aléatoires, un lot de points $\\mathbf{X}\\mathbf{W} + "
-               "\\mathbf{1}\\mathbf{b}^\\top$.\n"
+               "d'une somme de produits par des signes aléatoires, des points rangés en lignes et leurs images "
+               "$\\mathbf{X}\\mathbf{W} + \\mathbf{1}\\mathbf{b}^\\top$.\n"
                "- Écrire les trois fonctions de `mymath/affine.py` et les tester.\n"
                "- Prédire puis simuler l'écart-type d'une somme de produits, suivre une variance d'étage en étage, "
                "tracer les images d'une figure, corriger des erreurs classiques, écrire un test de propriété, et "
