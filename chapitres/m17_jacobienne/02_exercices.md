@@ -159,7 +159,7 @@ $g(t) = \ln(1 + t^2)$, appliquée coordonnée par coordonnée : $\mathbf{f}(\mat
 | c | le nombre de coefficients nuls de $\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ | un entier |
 | d | pour la même fonction sur $n = 1\,000$ coordonnées, le nombre de coefficients **hors** de la diagonale | un entier |
 | e | le nombre d'évaluations de $\mathbf{f}$ pour la diagonale, puis pour la jacobienne entière, par différences centrées, pour $n = 1\,000$ | une liste de 2 entiers |
-| f | la diagonale de la jacobienne de $\mathbf{x} \mapsto \mathbf{x} \odot g(\mathbf{x})$ en $\mathbf{x}$ | une liste de 4 nombres (4 décimales) |
+| f | la diagonale de la jacobienne de $\mathbf{x} \mapsto \mathbf{x} \odot g(\mathbf{x})$ en $\mathbf{x}$ | une liste de 4 nombres (3 décimales) |
 
 Dans ta copie : pourquoi le coefficient $(2, 3)$ de $\mathbf{J}_{\mathbf{f}}$ est-il nul ? Pourquoi un coefficient de la diagonale est-il nul lui aussi, et que dit-il de $g$ en ce point ? Pourquoi f) est-elle encore une jacobienne diagonale ?
 
@@ -261,7 +261,7 @@ Un livreur cherche la plus courte de cinq tournées A, B, C, D et E, de longueur
 |---|---|---|
 | a | la probabilité de la tournée B à $T = 4$ | un nombre (4 décimales) |
 | b | la probabilité de la tournée B à $T = 1$ | un nombre (2 décimales) |
-| c | la longueur moyenne des tournées tirées à $T = 1$ | un nombre (4 décimales) |
+| c | la longueur moyenne des tournées tirées à $T = 1$ | un nombre (2 décimales) |
 | d | la probabilité de tirer la tournée B ou la tournée D, à $T = 1$ | un nombre (4 décimales) |
 | e | la probabilité d'accepter le passage de B à D à $T = 0{,}5$ | un nombre (4 décimales) |
 | f | la probabilité d'accepter le passage de D à B à $T = 0{,}5$ | un nombre |

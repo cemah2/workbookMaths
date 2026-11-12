@@ -61247,6 +61247,1887 @@
       },
       "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
     },
+    "M17.1a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "c0ac8ab0b3bfbef7f5248cd2723863ce547c98b9435937102621d85fc731e631"
+        ],
+        [
+          "38f61d2f0da6bede1eb37bc53fd0ace979c55543ff025d9c1e8c798e8cc73b83"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f0c8b3648cae69d488bdd040c009d4e004cdb8c44480e9ddd5cd51f007152102",
+          "33b5ebcf9cd67e2de655d0c21a765ec7235f9c02c94c9895414cf6fffaecc8a7",
+          "5b8dde6d8f1910e77b4eb9f0ab6215f7f1cef0604b2403b3fb1f3122ce066e36"
+        ],
+        [
+          "d63c47bdd82ecee8c0a3d8afcd868dbf773b72275fbd6c1b10aa7e901723561c",
+          "8a9d1bd20f249ee28b6e9653e56835d3758ef3bd9374304e3f88181fb18e95ad",
+          "e8aaaa6a43a225b816dfc2d6a7ba951227dc54a273328d7b35e0e0fe77feeec0"
+        ]
+      ],
+      "element_hashes": [
+        "d013647b2222a4b844d9400a7f5cd29786fe93e517cdbda43cd576329168833d",
+        "8d3a172254f870bdab4a751c0e49ea3f7496a202135fd9219063f10b6c2f8b2e"
+      ],
+      "hash": "b2b8de69e6f66e5fca1314c9aaf3165978230123059fedd1097dc9afbcd14c3d",
+      "kind": "array",
+      "mistakes": {
+        "4888025e8d5683a86fbfa14b4a5493a80b0ccfa94743ba3997d70f3ea6027866": "θ = π/6 radian : ne remplace pas π/6 par 30 dans un cosinus qui attend des radians",
+        "96a1f84b9fa41e5e1d9f5fd9894ff6ad0b6458074523e4ecded4318a4a197399": "les angles sont en radians : ta calculatrice est-elle réglée en degrés ?"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.1b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "af6a987a67a06458e7a67fd4c22a3e58fe6609f211ec334a3dd21f9477f9a096"
+        ],
+        [
+          "66652bedfc8e075e1f4f570e00b5a0dc6efb87c3b168d5f6551dedfaf21a58b4"
+        ],
+        [
+          "f55e8250829884b765b1475eeaee9a05290d48c31900eba8b44545ddfd9749d1"
+        ],
+        [
+          "363286d176ddfe9e665c28372f3c8a54b2916f2bfd5da577b39727d6327fc056"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "342e1524eb8bfe7c01298333256ad550bd57818932779446a588aababb36e004",
+          "b22279c131072d23c7dcb36f46b2bb93328a73b3a057600d25367f9d2933b516",
+          "57d85bbc42ad754316210a5fd31e5cfc0869933003a4d7da940d63befa7dc86a"
+        ],
+        [
+          "dc3203276d3d389e5f5a4588b4ab149590dc3f375696ee65824b840f2373c5a4",
+          "ed2055439e3c19e05ae8d3b13521fa666d30819b1ac5c5ec9b0e583adb3cd360",
+          "40e416a3731453bcfe758ffa4f6c15e4a3476b065a2092d7c0ba39145162f05f"
+        ],
+        [
+          "0bacca872f1e3ccc61548fbe6f1b53f84027f0eb474679b17f85d6d21ef4bff9",
+          "08cccd55f5176428ff92f2d31d06e6dc4b16a9f757143f88f771ece29e8564d6"
+        ],
+        [
+          "33a69b5ff3e88c654b516344f6cdb871755c8bb30fd1401018703dab87bec84e",
+          "865473741673516fb7ffe95bd4aed9fc27518fde407851ec3b3ebffc6f2838fd",
+          "2737fa5f48790a9871340b663989528efb83d955fc592b6cc0538214c14f47b1"
+        ]
+      ],
+      "element_hashes": [
+        "2b7fbc61f37bffe14d58caaa3b12f9bf45fdf3116d5bc8828c8ebf0e1e0a02c2",
+        "42b1871d00946143fe72c8ce81a36cb0d1cc959339152e0d9de33fbc8c2e6a9d",
+        "95a5a20fd948a91525a96384aabaa5e20ec102a9640d17088674e1d580209ad9",
+        "8814c04d4ce190e86c782b2f921fac342695b4dea799c7c041efcf1cf08478c9"
+      ],
+      "hash": "6753b7b465f8e626a56609739fac97e2ae0c3772570a733bbc4adcce6c7d332b",
+      "kind": "array",
+      "mistakes": {
+        "b5ddfef246dde913ddcac4e15e9bc4a0e95e21200f3a44fea03cdb0f38b31ee8": "une ligne par SORTIE et une colonne par entrée : la ligne 1 est le gradient de r cos θ",
+        "efd4f5c486b8225abe2dfe46ea45f63318399035e4a2f00a22d9c67f52b7362e": "dérive r sin θ par rapport à θ : le facteur r reste"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.1c": {
+      "hash": "89ea2b8526cf4ccfe08a4a174fb073301b9891f7aa50b08f6e17107962ad3291",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "3ac54d5eb4a792643be12fcc700dadfb523aa2af4c3cd586db536f2192425d91": "le facteur r de la deuxième colonne reste dans le déterminant",
+        "86f474f7ae57bdf17c82b6fc9a90124211533f5b709a6d5515f05f88d780826d": "det = ad − bc : attention au signe du produit des coefficients hors de la diagonale"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.1d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "49c584407869c74f57cfbb5b85d3accdfe6e72c2861cc97b33fd21b1ad74a02e"
+        ],
+        [
+          "ebcc5435e561f797b1c92f0d85029d477ddc0a65fee9069e2aff95b9b959f479"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "051814ccefe157cabc470d7ad4c3bbea0e1eb97d4fe4a9edd70c263ecffde513",
+          "9d10a4bbc4c816931ff24d3e338de71d76143500a306b2fb0469da23e7bdb741",
+          "868d1977da75c3582dc4e78a4345650f149df04215e2696ad98437c6115dac6f"
+        ],
+        [
+          "3c96f09cfd9864ec6bad4e777acd636fa216c7f16c03e5ed1a17a95a3a2441b7",
+          "0980f93df81db7260ad0a801892d089dc60b9265d4927a296b42aee42e9de603",
+          "8202e9e9917a25f3f08fc600b25fd7b0f88fe44cdaba649ce51019933d33ab36"
+        ]
+      ],
+      "element_hashes": [
+        "e45c6396731fef5f915cd5093e8f3f47bca8c369c64db8dfce61a15a948d28b5",
+        "0975eac0a4d5b846995b2e2a4e36ae5fdc6fae82db0593f54ff126cc669b03cd"
+      ],
+      "hash": "2c619b1bbb01f6c2a375479244edbe3297cb7c668e4fee4468da4150cad1f785",
+      "kind": "array",
+      "mistakes": {
+        "46ce99075b9b017a3bd4a977c88e937023d00636dfc1577605ead1f817e56ce1": "J h, avec h = (0,1 ; 0,05) en colonne : la jacobienne, pas sa transposée",
+        "a24eafeeb518e87b11882f722a62fcf7c1f42e55ba4e433b275b98076678665b": "l'approximation linéaire est f(a) + J h : n'oublie pas f(a)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.1e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "9ebe5cbf369ed542bbb5935ff31ae0822d9ecfdc7325bcda36ffeb608f3af2c2"
+        ],
+        [
+          "732e91908fb28252c899e2cf744edb795e02e5317dd1677652ae50c1cf257187"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "43df465072adb42cf33c4a7e0cc8b42d8c793c51ed7592162733231ba830975a",
+          "28c3f1a3ed394658c8ee9562bbdcc1e7ac4b83aff9983bb4549dc7ad5690a3dc",
+          "4dd467dc4f70eb6b1578c80f24027c122f616a2cbe733374872f6758299b5549"
+        ],
+        [
+          "5d826bebdfc5366402502ee8b5a8daa3582935763ba15805f7d225b16fb5d8c1",
+          "52060569dc7aba829e96255e1e2d4f2ba55d95be79f1effe9ae2ba461d70a5ea",
+          "946ce4caed2a7f90dd66d34e5b3f5a32a4a4d4e1ec995e190e95f87f4dfc0992"
+        ]
+      ],
+      "element_hashes": [
+        "88f54d3aeb5b2a146fc9f85f7a68ebcf578568c0b44cc0c9da769c9f6db9e147",
+        "75664a7064b8e3fcfb62be0bcaab3174c7cfc1eca2fb92444c5112a217d1baa9"
+      ],
+      "hash": "d6ffdffae98a78f091e2e00079aaa3af83a48c3cdcce87daabee51f658795a5b",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.1f": {
+      "coarse_any": {
+        "2": [
+          "4bc1c2a24fd9b97b01b4ddbe443de6cf899efade67407a79a3c05c86fc03703a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "9527bc0053de729ef2f00e7b2c397bf2c0f2ab3beb78b1b18451b2bae2e9a1ac",
+      "hash_coarse": "c7bbfa641eb395bccd212beb9d79dcadcc1c8fcecf41430bd09e372c00ae6d44",
+      "kind": "float",
+      "magnitude": -3,
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.1g": {
+      "decimals": 4,
+      "hash": "0f2876967ae2a561991023da6645ab31844d68eab439fe0b81cf8bfc0bacda2b",
+      "hash_coarse": "8adf8af157761d44cb0cd4b24840a0c333813e8f46bb3a86f19c92d278faa56b",
+      "kind": "float",
+      "magnitude": -4,
+      "mistakes": {
+        "0bc11a85b76692bfa77e899417a61c8b49a099767aeac9f21238271df0a10843": "les aires sont multipliées par |det J| : l'aire du petit rectangle ne suffit pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.2a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "4b69cb6d8052f3ce30ad3badc9a8e381ada98769bf37362048591cd66f9dbab3"
+        ],
+        [
+          "997455c7cd454f72854520222296827ba2986aa50dc77688435d4235db660fa2"
+        ],
+        [
+          "701ee71e4aa18179739853f87a0c31af424294022c8f2174e24f713fbec95d0b"
+        ],
+        [
+          "c8c2e4a5b432ed2e93a486b535840f230b30246eddcb04eeb3518ea84bb5c1f9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c8e49c1115eda4e61061356cb1d394bf8f987205e9e2413615c4f15bf8b967ee",
+          "384c27fc3cb4fb075b42e4edd68f552f2bbf1fe3e394551f1f77aa85e674f75f",
+          "46e16edcb223cc9cdb5dcb33163fc36fd4d83b870a2786b549a5a11a2a373371"
+        ],
+        [
+          "543ef6b74e8c441455985758a9049922a9e0c52f73aed0e48c52c6b7ead87401",
+          "e8fd5a3e55ccd414cce6492f69106c2c2897ba8309ee074df8bd5394d81e5526",
+          "fefcbb5b1598a8dc3cb7c695aca03bac39c837ba0534e8ea36c769e5422929e3"
+        ],
+        [],
+        [
+          "8d6023c69606f851cae567a8b0a38fc6d6c3b9a1937b84bdc2c9b1852ac077f2",
+          "b4165fbbbf48321d371ebf86d84e8f2ad8739cde0435a6fc8d598988ea9b721d",
+          "0cb46fc3f894a6c6de87f92ca756fefe0fafeaa37e520f409b181cb1075e895f"
+        ]
+      ],
+      "element_hashes": [
+        "242ef21a20b2c3462dd0e38e9bd6cd34b50409dbff5b1e84df856d29bce1d1ce",
+        "4b79a545fce5276575bed89ddd3207a4ac109f93666dc9862cd6aa843a00b2b2",
+        "f70ddbbba1c14fc8d23a948a9c3b566ddd196b718d5fa6e13347ed36011dc29e",
+        "28873ba66aa28dde1c5a144411af2a79c8c7260e132e448351ecf770c7d6a089"
+      ],
+      "hash": "f54ebdb0760ccad4e2733f10a63d72ece73352e421ca7de9ac83edb4d549039d",
+      "kind": "array",
+      "mistakes": {
+        "51b126da81f90a1b0c319fd5e924e21cc7268dde85be622946e225a24db1baa4": "la diagonale porte les DÉRIVÉES g′(xᵢ), pas les valeurs g(xᵢ)"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.2b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "d6e6338b01c77116814c29bca5ecddde58cd89bb8143eec1eb8b9d2360924aa0"
+        ],
+        [
+          "201f142e755061ed5630534f91c62796814ae6f26fc49aca28a70d60887e35f8"
+        ],
+        [
+          "c69d1b5899089381f410adfee6bf1e5d6f4c45e4ee58caa89e5d57947eb66846"
+        ],
+        [
+          "7d221c66b1ac344c31c6cf36472ac8ec1c50c0897507181af7f6b3707a2756e8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b8736f4ee0951b6455301595afb7158785416967bb6674169a4335983c68e78a",
+          "68890229f618d11c2323424031af3a2fd5bcac857aeed9701ba820f040640c8a",
+          "ed5bedd1587bc2856f3697fd77d50ea0871603fa6099106c4b4de950c0c4874b"
+        ],
+        [
+          "3d7dd6937de60bbe653b67be8abf70f322b052d0bcfeef433075b34a1ee6249a",
+          "cff7ecab6f2f986d791403046d3a0174b935b0bce9ef986462b3e961ac511373",
+          "3b1d780b20c13a6ff2deaa902c1c4450f690ff7b41433ed8d3c84874ca8c639e"
+        ],
+        [],
+        [
+          "f2d3a1884306fdff6a6c72f757336a9c31e9ec859e59b3f106bdafdce2250f7c",
+          "bdbb42547cb9cc8228eb414537997b6006e9d04d28a9e2e2e86edc911d78c4a5"
+        ]
+      ],
+      "element_hashes": [
+        "66a15c44ae7d677a3dba98c1ae236e6f72e029b15a9eee5c1884773814b9a237",
+        "9eebf2a7f5458092ce8c0a767aa420e8de19b8b736c23ff6a8529febf176a792",
+        "9360ffc3576143a85441406e11dc12125d2a36c3c9b585662108cbb4f3e4e4c4",
+        "b86b44a8042aed6fb8fe71a8af5de8e4b54a8ad871eea81e13635bf0d1531ee5"
+      ],
+      "hash": "e10a87d1dacf38c9b2f01930c4d94c8187223018858d3d9f23ec2794628bea70",
+      "kind": "array",
+      "mistakes": {
+        "928f03f90c92caca219a12126ba773da4769e14e6fc85a02fa02cf8803ec05df": "J v est un vecteur, une coordonnée par sortie : le produit case par case g′(x) ⊙ v, pas un produit scalaire"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.2c": {
+      "hash": "2e050050998914eaba86b0bad1bb18f7c945946be0652eaffc8fc19a2804082a",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "56578e0c7a212261595db9d34b5c251c3ed2171d9a8d96d808c90c5103ebcba7": "compte aussi les zéros de la diagonale : calcule chaque g′(xᵢ)"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.2d": {
+      "hash": "740bce0bf81441483889baed6dd9da4e52bb933954e5e7cba4f555528ce7288f",
+      "kind": "int",
+      "magnitude": 5,
+      "mistakes": {
+        "2b2f9737b37daf21aa6b251ef2ecbd2581447939f0bbf5d34c5bdb05eb3395fb": "hors de la diagonale : les deux triangles, au-dessus ET au-dessous",
+        "58a416c9f22be4a42a11e4da003417dbd032fd2e0bb23d9eea7655b28902466c": "hors de la diagonale : n² coefficients en tout, moins les n de la diagonale"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.2e": {
+      "decimals": 0,
+      "element_hashes": [
+        "29935fe8f33cd57ee8f39b4c26ff081e530c7513ca247ae41f9768f79c7596ae",
+        "7e8c3946796fc522bb4bfdcca5e215225d18b53c6c31f9eed04893387e891108"
+      ],
+      "hash": "084bc94f99ba5040f29c687a1593818846f4351f0d1a2efc102d10f8e3a2635b",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1364e842736ebd01ba8d165e9b5027ff738ddbb16170aaeda93eb2c38cba1953": "pour la diagonale, toutes les coordonnées bougent ensemble : une seule paire d'évaluations",
+        "3001d2b2fdc37cda328710c32ac62037d5dc76b5eae38765bd492094e23e10e1": "des différences CENTRÉES : deux évaluations par colonne, en x + h e_j et en x − h e_j",
+        "c986720c30ef851eba89a9aa9b70d3ef96356acd9bef70ca9c845f553182712d": "l'ordre demandé : la diagonale d'abord, puis la jacobienne entière"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.2f": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "e398fc0a3fd523a1d20fcc56c7e15d6e5c319a038da9ac0a08b5e856cd5c674e"
+        ],
+        [
+          "bdffbffef59f5e6d2401a2bdb1127ecb03dc1e4e909749511e839f19b15ed783"
+        ],
+        [
+          "1552e94fc13ea28b7779055558ba0e8e7cf9613c629acb70c1f33591de4c8529"
+        ],
+        [
+          "08836a3526ff4ef62c340ec30a5b2467b43430a670469013ae2d83fc2a1224a3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "84d5a2df7961bf2c6572b706a4a2ef938bb9d5e420d3e73dc088e3746403824f",
+          "60b5c8891cdbb1b202144e5df62a83de81d45582a611573aca79900c9a7896ab"
+        ],
+        [
+          "4bb46a38744ed4b515c02801bd7f35db535049d4778328efc1e854d982df7687",
+          "71878c806ffda051b0433a5086b78316b0935d6b158989e42f5c4498eb45f100"
+        ],
+        [],
+        [
+          "98645a77507cb4f166477e1a09fb1cee0a2def60909ab8d5379929c1d25503cd",
+          "d1121cf4141a9d1d857a7f58e498c182c06ff8a521cfe202b52ae9e6567d7d4e"
+        ]
+      ],
+      "element_hashes": [
+        "120e04540ba91cdf811c53f916ac0409976cc41edb3374af8094e3647120b8ed",
+        "1bec5c1b4ffe943eef3820e0af03253d9ab9aea2d12a346537425f8e7ff89edd",
+        "9b231d0e025ac992cdca11a92f9a58dbfa07e73d41790153e55e0cdd1f052102",
+        "d48833a6c4de88e2495d5a0ed845e319bf14507f71f65e97d77d6a4cfd464268"
+      ],
+      "hash": "7b40bd176bd4901805d0515561c8d45498df2d2bbd8c81a861f568438c05616d",
+      "kind": "array",
+      "mistakes": {
+        "7ec73e2d4263e5ce525e3b827787fdeaa3b098fc3115c0609b2d300340f8e47c": "t g(t) est un produit : sa dérivée a deux termes, g(t) + t g′(t)",
+        "bd64eaef9bd2417d26e7fa1cd2a3633b2284df197070d80fc69df9e5ed876608": "règle du produit : (t g(t))′ = g(t) + t g′(t), le second terme compte aussi"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.3a": {
+      "decimals": 0,
+      "element_hashes": [
+        "f732f2b0d4f8ac4c9bf42814276e6bccb8da2e9cb93a7fc7174cc3bccf3a5b45",
+        "f2f943f3e301eba5e83a8908e785600a891c92d5215d48e1aa972e92d869a922",
+        "ea017c2c0ab1abacaf2aad1b711b861f7fc8349ca3d1af2faf5309dc303e5a14"
+      ],
+      "hash": "fcef9d0a0068e557f5260e81e6980d270b7cce05df0b23cb280b8e5bf642fad0",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.3b": {
+      "decimals": 0,
+      "element_hashes": [
+        "8f4e97debd28d20933fff2e4d10e57e536cacd312cf75734a5573a07526fef6f",
+        "4858b1d46095d99a3df781bd55629a76b9dac0e499de18dbbcd02b68c54d26c9",
+        "6e0db96f8e465219a03007f0e131ab1f239a786f761019734ded98effe51ddce",
+        "bdaa8e641a65bdd3359a4b73b57bfe8cb7eed445b8b6973fb0eefad875498303",
+        "da5b8444842de80db76e322d2d4c028d0d8ae02138dd2c8353fab2cd69c14b9d",
+        "2ef5cbd02113967a6598e4bf7e590590e9214542dce452e6395251d42c03c881"
+      ],
+      "hash": "aacab982c49ea2365644a0f5a3dce225c4a97261c0e72ed93379549c5ddc3214",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "65bc2e39e40146ea67f4161be224e5503620f31113032c795f2313a94b8ce1ae": "une ligne par SORTIE et une colonne par entrée : f₁ a 3 sorties et 2 entrées, sa jacobienne 3 lignes et 2 colonnes"
+      },
+      "shape": [
+        3,
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.3c": {
+      "decimals": 0,
+      "element_hashes": [
+        "20760af0d81cef60441c8e305c67c8f670e80e3f2dbd1038bef956d97a762c2f",
+        "f3b38dee508971f609dfd47ecdc06b7a1ff3098319fbad0ae9fac93381883a94",
+        "973763700e3ac16bc9f66d3b6e3c588b4e159a47b9280ade533f4413c3e00af0",
+        "5deea6b0db26dcf53e0637b2d9211ca453ccd8503ff864c9df0824edbfbe0d3c",
+        "9e0e89f44018d0e91f4aae78ce10a0ad532c0c0ac19e629f99863625f7d61fca",
+        "00d19fcc03fd7598f4830a936d3fd6c9be4b74f95f9ff4564be24ebdccc953e4"
+      ],
+      "hash": "ffa398efcaa9f6d83c5f22590b95e94e3e7de927d8d4da8484ff4eb84d5dc49c",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "805ea54a307e5e9117e780759abb6ed9f8ee7c8e015ac58e93ad9b27de300de9": "J_f₂ s'évalue en f₁(1, 2) : w = x − y, attention au signe",
+        "86d0b17fa40fa832b47bfefe70c375aebf451638aca6365b23564d47691aab82": "une ligne par SORTIE et une colonne par entrée : f₂ a 2 sorties et 3 entrées, sa jacobienne 2 lignes et 3 colonnes",
+        "d143d211d33257d21029a4b35347cae9628c7858dd616db99d80937c46b0bb7e": "∂(uv)/∂u = v et ∂(uv)/∂v = u"
+      },
+      "shape": [
+        2,
+        3
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.3d": {
+      "decimals": 0,
+      "element_hashes": [
+        "b192f3fd46190b40f34400fc3af68940193a4c6100c951ed14bd6c3b4f0c6bed",
+        "1f9300206416d58ff46ea1ed608c5fa2ff15e0f7d8f15372dae443378d0d5830"
+      ],
+      "hash": "97ed698612134feb60f5b663609cfe020ce3df1afa898e8795d6e90e5c56456a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "6fcfa6c8c2be15cfff7439e12d70f484d8d36c3cd55bbc518f8b6268c3b7a052": "J_f₃ s'évalue au point où l'on applique f₃, f₂(f₁(1, 2)), pas au point de départ (1, 2)",
+        "dc21ae5373bab67bf6af80c444b48bfedbc6cd02701efb243b08b464815dfa18": "J_f₃ s'évalue au point où l'on applique f₃, f₂(f₁(1, 2)), pas en les deux premières coordonnées de f₁(1, 2)"
+      },
+      "shape": [
+        1,
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.3e": {
+      "decimals": 0,
+      "element_hashes": [
+        "7f0781271d8558085eea9ad1ec6c7a2098be18c65d761cd24f381028464db650",
+        "3b73bc5b2b969e8e3280b66f8300f87e867cca17e9287f8b6f920f5ceb30912e"
+      ],
+      "hash": "ca8b775041451e49c5cde395ec054964355aae1e07dfb56353c66be598072893",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "473c11ef9bca193438841f1401263476c797ffcf68610de8cc5d9a86a05d4b6c": "J_f₃ s'évalue en f₂(f₁(1, 2)) : revois d)",
+        "d3724edbf6db325990960a90d9c06e6819c06d07f93eaa093dd4aede909b4dfc": "J_f₃ s'évalue en f₂(f₁(1, 2)), pas en (1, 2) : revois d)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.3f": {
+      "decimals": 0,
+      "element_hashes": [
+        "6ad3053530b860a90f44f1870d9cacf513290bf7d567ffc38b8ea36b2ef00cc9",
+        "c380535c189c94d0500882bf0ad576b0b1667ab6d00c94f332c87b579e455111"
+      ],
+      "hash": "eb72f597daf573964f04895dfc957d31efed0a216f8253ffaada2ff5763e5419",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "bb0a445895a3b5a635de8214052e288e1ac365af15dd12a7e872185eff73a1ca": "l'ordre demandé : (J_f₃ J_f₂) J_f₁ d'abord, puis J_f₃ (J_f₂ J_f₁)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.4a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "95381aa05156e97f17e0115ff0b41c088efe1de7703bc6ef9162005f6f216e85"
+        ],
+        [
+          "f9238cfaa8263d698930f1326b5ed049a7756115003a44c8afa77a64b205c765"
+        ],
+        [
+          "0c61fa04e8903f5f8de3e506ff71cc1b97b45bb3d783290eeba0f662c0cc3cc8"
+        ],
+        [
+          "7bd3e5b846d0dfdb08dff72759186ef1b6bb28cb1acde492d3ee1eed1a0fe786"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ee6028fa27f6e772bd9f74e60fa7a1a28f53c012a975341d51ddebdbaa8e6456",
+          "69793e4ebc1c6455ec9fa3729159fbcdaec042668c479d657c20ddea2017232f",
+          "4421474d8246391c4091ec429072543db8484de5c46881cd5a75ce7ca97353b5"
+        ],
+        [
+          "343476ddb502c88e00a86e05f28805110e4c5921fbd4fffffe18336a54acd0de",
+          "cb1640a7fac3aae0663eb67d3b38738b5933ed85a0107fcf5e5a2cf674cb7f63",
+          "1318440a36d8987cfacec96a19055a0e7e49a5f4595c8d6f691da0abf0f23087"
+        ],
+        [],
+        [
+          "383e8c7d288bb15d126c147a1406e21c3f5984a8008c487e55a23c7f50f9217f",
+          "3cf997ea0f91cc3cbbd3cc1b59366c1087a070c39dc1d51451021670af37b915",
+          "f0fdeceb6b39ffdbd567010054e439f95ba9155dd226321b3ac1d67002373f0c"
+        ]
+      ],
+      "element_hashes": [
+        "99304825b1ce10c516b85ccd013c9a46daea21c73e769ac042563e36654498e8",
+        "a0ece87d93dc7a3cd187960da7881178f8ff6766d5b68de0e54b6543a1c8d3f4",
+        "3f8b374c3ef62e65fe8a146bb565ad4644275d49ba8b016e61f51b450e5aa267",
+        "f83bb90aae986ecabe0ff7368c197bc63cffbd06a1191e1cbc44e5e43ac8dfd6"
+      ],
+      "hash": "2fb60ac4b6460e25934649e113a60eca0cdafe86b70a91bf1ac03be9ced122ca",
+      "kind": "array",
+      "mistakes": {
+        "9943e76d946fec3dd17e741c520fe55c25711c23acddca6fe65f21b2f451c82b": "‖x‖ est la RACINE de la somme des carrés"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.4b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "0cc6b952968a5cbde3084a8f37fcaa1eb57e2485daf264f6a13beec339b48bf1"
+        ],
+        [
+          "9aed235ec8d03944dfccfb54a4154c747ade47fbee5cc099f18326a001eafcd7"
+        ],
+        [
+          "1cc8ee2943cee0b47ec9e38948bdf1aceb106fab1b4d1188cc64fe26a983e585"
+        ],
+        [
+          "9625c1e5fda590ce76136d003ba6befc55899b666b2d892b24320abfb171bd15"
+        ],
+        [
+          "25fa3b1db62e3a7c110ed87dd6218a4c21655361d5dd244d3ccb8e139b0550b1"
+        ],
+        [
+          "9178ceb6e6c0e172919f7bf13b2db7c16ffd2700d77ccd473ec60d969d36110e"
+        ],
+        [
+          "b177a5b36bb5bf809b17b1ab25bd21c63dff6d1817d0c359f2d725400f0ab796"
+        ],
+        [
+          "f7d27899cdce09b86da83c18fc86db0ecbd62707708cdb0ec325a0603bf7953f"
+        ],
+        [
+          "054cd548497633aa3599885c6232dc2caac1ed0a52eaacd6362204984949037c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "38927b19d3f2bee66486a052d5153eb9b2fb198299841916248a67fa4cacccb9",
+          "308cd77a2b2a5d5187b3f70b89cbb2d4231b63b1a11d0f70950be3d44d3cb95a"
+        ],
+        [],
+        [
+          "2ff494c919f2076f5fb23d0168dd8bc4040dd61067e77a306a1af4985efd6a4c",
+          "9f1349de6e0b9618ce662e60fce8db8b5d7194bbd344469c0cc1b1df13727a09"
+        ],
+        [],
+        [
+          "9e710cdf247fbb20a3954a8790d0c6e0b37b78a1ca1e265dafb074c8444ff4fc",
+          "e734d6ef2aecfc1b509a1a2e3d85fc02d2c9f401b2dd2b2715c1ed4bba0da302"
+        ],
+        [],
+        [
+          "bb0e1ce3c61faaabbd1ca2d8e66b5bc57147e040009cc6d500e6a24543b9ae65",
+          "7a42b2efb3a8dff6eeb1d1d08995d261fc77ba4ad4cbdc744ee79890146e9f71"
+        ],
+        [],
+        [
+          "02f24050133a2d2a3a1cb74f03a6cffcbf1ed126b1a4959294eec1721292bdce",
+          "877a3ff25609ad9d1d9a160b5623127d9defdb9de5f867daa8a78626d701eb19"
+        ]
+      ],
+      "element_hashes": [
+        "416396e69fe5af2cce3d19d4bfc5f584f7c87a9ba9b5de5150a15169fd857c6e",
+        "9ada543398f43fb627b9e1f9a5b338c4da1fab94289c712bca5b5a9f2f9c0bd6",
+        "f01b0c3140883217d8f0360e84884b0a7e2c58843cb587796ec33a99ae5c8e7d",
+        "61e6c582b6752a147e9b0ec2664a3d2c2beb1e1b47b41c29b98b9374c12ec7c7",
+        "236b42eabb19d2073f9d8139da12179b74b03d34ee4e16a289d898314790d824",
+        "1d76e8b957b3ecf4fb38432cd786b98db69fb52970a81647433b6a4dfd4438ec",
+        "47577cefa380236255d0a52f5d4d8e48187f61acbb6fab75db3323bc0155066c",
+        "517c1ab89b4a3530a2cb0812d211c37e17951a57848bc1d8ead3987355cbce00",
+        "c24edc0ef7883b2169fe872b9b76719a9abbe173152244eaf6b58992c146c737"
+      ],
+      "hash": "f22e24b6e211005915c39b6275f29f62218c35d5e521f0e5865b994745da3a18",
+      "kind": "array",
+      "mistakes": {
+        "78bf16dd6659cdbee0cc0d77df898ffcb8cb6a31936f038456fc4e4718ef341a": "divise la projection I − uuᵀ par ‖x‖",
+        "a4aae7b8f31e8909f938986b6a5a08c3b7922e17de3d4a3f376983f5936f3793": "uuᵀ est une matrice (une colonne fois une ligne), pas le nombre uᵀu = 1"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.4c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "3b5f0b8f5b12119bdacaff41fd6766b3c12263e36df4599803222cd1d82ac66d"
+        ],
+        [
+          "0bdc8986b4acdde7fbf572e648102d4273aa040985e1d1f56254bed721ec3eb5"
+        ],
+        [
+          "38019f1651eb0391b9ad44b2dfdb1c28966a124bf63c575be85ba4ebc6254dd0"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "f6c7600e796e965027b89646c6ef5cb1efa0844e500052a6131f977ccc7353c3",
+        "27c056e4acb422e84cc6596de689c4a71a31d14593bc16a51ea9b6778b741e70",
+        "e41f56f4a1e8bce762a714f7617b5093d95166b334f590c961c5957bda65468b"
+      ],
+      "hash": "a5d66a027f52eb8ea5e4fb46d39fad1930c5c4c34b0f1ad9f73897dc0dad57f2",
+      "kind": "array",
+      "mistakes": {
+        "1dd2cc6b07c3b555381c15dec7d4c129d2aa22ce5be045e615620a54eac51d40": "J x n'est pas u : calcule (x − (u · x) u) / ‖x‖"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.4d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "f57eb9318da49a80f3dea6035aed329df61211a12f7bf9798900c94a93b06a97"
+        ],
+        [
+          "1e5ca6da3948f4a20943003aecfc762d90ff8e6978cb7fddabb53e158b513f83"
+        ],
+        [
+          "1ead2dcdff3717bcdbcf496e065d1e664a3a61da78408622fb8ab03cbb5b30d3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f8420bd570a80d78704ec0f36e92941dba169edf2c90d0c0059eecab4143c991",
+          "7e14aea5c69f86cdfa926397113b343bde715095d77a73f6e7ff17de7f6ec62c"
+        ],
+        [
+          "50d45f7a3e3d915c8e88d989a24058307be32169189a29fcbb3dd6ca42131ff6",
+          "4e5d5d81634545ef9ac6600a5c07770b3fa269be0590211ae9e5413d70654e51"
+        ],
+        [
+          "1c4b07694817e4daf2dabbb425fef8a869bd8ebe112d3377c42cf462fdd98d4c",
+          "8a1c986d4d94f443cf59d6497a91e702ed4786c600cdac7abfaf7dae3f2e9718"
+        ]
+      ],
+      "element_hashes": [
+        "07e1e4b16dcbc42aef362bf702498ef56ac88343572f5b9e874b7453834e4033",
+        "907d8c4d101fc2c092f9d07a70cc8fa92e316cc55319561f564dc9cec9ab5526",
+        "05bb71ebe8ec9ba6469df548ff49861254cafbc5dedbf8b69881cdf63ab90d4e"
+      ],
+      "hash": "af143596cbd13e801430d096de80b9ca67d63b39fba1034b0aeaf48c406cd44c",
+      "kind": "array",
+      "mistakes": {
+        "7067139308f35b5fe31b9e89c5253ecb476a60ab6a671a848315da7076b1fb1b": "divise par ‖x‖ = 5"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.4e": {
+      "hash": "82b09ed0253da744c372468906d40f4db0f812f7468fc95629dc6e45030536ea",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "254469a95864e8f49913862e9516faacaf40c4cf540e9988d906ad87bc13ff07": "J envoie x lui-même sur 0 (revois c) : une direction est écrasée"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.4f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "9e5199255cf97f2469ef8cfb43a0735206ba37c794da51d837e9fda4cce158a2"
+        ],
+        [
+          "2f0022bdfbdfc693b62a6f0136d5efbfc6fd23f337c596c7bf98f2b7fe9fd952"
+        ],
+        [
+          "cfb55ce3ffc8671a30407ba3d753f30fcf259d67958b535da09108d04796c9cd"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "a7c55bb90762073b13de0c1ecceb8de2aa81b34b48f083a624ae81aabf70734e",
+          "b7969c609a02ab49f9db69ffe1ff30cbe875f23a3f015d04f3c42099f9c8f568"
+        ],
+        [
+          "10702540eca24c4a16810e6373be0ac1aadace05828a596fee4ad0392128a984",
+          "24cfc5d1d52a4eca5b9dd24b9082c67586f6f1e9619fcc28e7f8775c12f4a254"
+        ]
+      ],
+      "element_hashes": [
+        "7fd93c210b10b0d1d15f9ddb55b7b71b1030a186f145a63b6f23417c086ea1b9",
+        "bcffa184c17431d4c47a5b9fbab7112250415ed42a503111e08eb823cd94ec1f",
+        "8b6e9c78effac54e7d5d32378f015b11a4c48838cd5fc3c59be174fcfe95b68f"
+      ],
+      "hash": "da47c1fdadd77408f8ba29d9401960783fbb651476a363b0cc0882abfe044efc",
+      "kind": "array",
+      "mistakes": {
+        "39961d7e05970203352cb69f1df620d36b96af151a779af17c0bb87113e644dc": "ce sont les valeurs propres de la projection I − uuᵀ : divise-les par ‖x‖"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.5a": {
+      "decimals": 0,
+      "element_hashes": [
+        "65cca5c5e7483fad7e8bf53d8993ef16e60891b055cb0ad7d13936a734b51d3a",
+        "74b19a9cb0d92e64848e5f7bd22261ab30f91d98ebf452241441ee971df5cae1",
+        "023432284f82f880c8a381b75c30de36a5397878b0d5b85f4e8992eece324225"
+      ],
+      "hash": "8dc12c78f2d05510dd1e6f1728080d741eba0be03c36328d038a6d77afee16c6",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.5b": {
+      "decimals": 0,
+      "element_hashes": [
+        "b98a5acf5b9d158f64de6f1a1b9977ae8103f306682f9e112327e200dab43dcc",
+        "73ce11327fde8e605d93c9a7799d7cf900096e7a1cbcea80103157e9c2e163a6",
+        "36ebfdb62a40383556c530fae8cd875cd02b7bafd4f068e72fd44368d499b9af"
+      ],
+      "hash": "1866cf5bf2d5aefdc18ce86ba7b8e7b3898362a4bc73b1cd3a36b6bbf5d2692a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0463651876baf985bfcaf0df9171efd545e37390927d9a9b5128a9eeb894595d": "∇L s'évalue au point intermédiaire y = f(x) : y₁ = x₁ − x₂"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.5c": {
+      "decimals": 0,
+      "element_hashes": [
+        "5747f1c2882ed75cbf425fc40c0249d1895a6e09553a358ec8b76ec43756b863",
+        "4d137c7d6d21fe96888a93b94dc521eb14ef91dd85fc014214e5d49e3f427f91",
+        "a9d15ba5204d8c60d0a9670b7644500a44f1c7175544bcbfd05db6ffd6d5e9c1",
+        "dc52cf48f37d678bc9e7f930153a97161d7ecc0197d92b927f7d64606bfd9e94",
+        "bb1c18ae797f5b9bfb4b1bfa89f0ad324e30e043156f515a93c46b3d7a0da60c",
+        "b3d65bd3e9ce8ddbea22f59a6b59cc0e9eb5db99dc616ce87e79b132c4c5c4ff"
+      ],
+      "hash": "b36a5355a657187f8a8c868521a1b8ffeda0edda2ca34835e80fa1fd6134b613",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2d01f5ce1f3f0696a410dbf72439ebf84ea4edce940241bdd7c6fc7626e7eaca": "une ligne par SORTIE et une colonne par entrée : f a 3 sorties et 2 entrées, sa jacobienne 3 lignes et 2 colonnes"
+      },
+      "shape": [
+        3,
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.5d": {
+      "decimals": 0,
+      "element_hashes": [
+        "d7c77ba54def3e9c481c79b4caddf6cd83d38aeeed3096f9fea241faaf04c3a2",
+        "f664969d08c7364eedd8cfe4147fb2e79045c9fed0ad55a14a0bd814fe37c334"
+      ],
+      "hash": "04f8e8d47929f1d84ebc9b6f03357e1b1c56f56c211dbd11a9928919b90333a5",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3dbda19fc52d441830ff048574d3be9ed48951c5d9339bc57973fbee95e11315": "∇L s'évalue au point intermédiaire y = f(x) : revois b)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.5e": {
+      "decimals": 0,
+      "element_hashes": [
+        "b710fa4c71ab31bacca0e03bf704f38f4bdddc14ac1fc534d47ae0ed0060f8a8",
+        "b1453f16de98e52ed0a8412ed170daca085e8a56ba2e6413510a50ad60f45678"
+      ],
+      "hash": "0aa9a0eb488f3a07909cbceb9ad0f271225e2a8730b27cc207a3223081f0e5b9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "e88122c48adef7bb2b43f30fd1bf742d0966bdf5b1d2dbf9e9d2cf17c7d1ab69": "J_f a la forme (3, 2) : sa transposée échange lignes et colonnes"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.5f": {
+      "coarse_any": {
+        "0": [
+          "2d7f8517cdc4bf9881605874a9eefc23254fca36dd56348f037372e9954f894d"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "fb1ae29cb18e5e887bd51dc335a5793ec4cddf04755d30f8228d18358ceb6f54"
+        ],
+        "2": [
+          "69a3daf8a04f1e98e0f1a0575de55c02aa3807ce1f529bc40c0299ba0d824432"
+        ]
+      },
+      "decimals": 4,
+      "hash": "0519eaec3228fc07312cdf7766aa08c6271d0059777cdee6e682a5a5a3841c7a",
+      "hash_coarse": "3c2666c48ba58246bac61af43ab8f763e0aa3c2538c5a56b7d91037332e9fe91",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "9dc3f067129492d2add73df1419dca37feb619f61465ccce9b9b77e65eb16c60": "la question demande la dérivée de t ↦ (L∘f)(x + t(1, 1)), sans normaliser la direction"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.6a": {
+      "hash": "6331560fa311b6168b07a2f3f9b1b6bdb87862f35f60b5a7f0434e802ab81694",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "0207fbe34a64c3cec254a3f9e84ca1f91f7e7b21f5da1cb44acaa2ba523cb1b3": "au-delà de 300 kWh, le kWh coûte 0,1 €, pas le prix de la première tranche",
+        "6130f1d583c7d874f2370f7059f9f00de34bfc67fe29307082e4842063fff879": "au-delà de 300 kWh, c'est le troisième morceau qui s'applique : la remise, à 0,1 € le kWh",
+        "a5eba53a9acb57ec6c795ff3cc463bb2e10a1990b16846879c73b7ad42edcec1": "chaque tranche a son prix : 65 € pour les 300 premiers kWh, puis le prix de la troisième tranche"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.6b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "381fcd22ff2f380eafa518bc4c8d0b34b3bca71c803bdde9aaa2f31f6f4834cf"
+        ],
+        [
+          "5261f7c7e9bd0d9390ac08bb42637d048f0ec50c3bd2f9e91a6c0f33dac1bc53"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8c648c19aa3ee3d51bbc2fd9d0747e95a4d787c568cd8804826735e0d90470c0",
+          "278eb44a789567eaac094a4bf95e0c27b338fc2486c1f3e7f6805e4bdf7f1929",
+          "2423f87e4ad6f5a388397797fc6bd05850dd913c6361c27a907fe5b65b84e9bf"
+        ],
+        [
+          "22139dac61b7ad61eda8a967d7e84504d53dd05c7340a6a06b84feff60368229",
+          "1294f37d7b9cb08b67d7c3d4ad8f4cf0e49cbf7b5695cecbac49634e22de83d5",
+          "7f2d00a39934266e8d002b70b4c7e786cfe41792770b75800b379c19f082cdae"
+        ]
+      ],
+      "element_hashes": [
+        "c08da73c132c6382ce8178c0f32cf5207fdda315ffa349cb6b37f067641e0f9d",
+        "a8f86a1d3c58b9d9c99ddfb535468ede5ac716e0c012e4f25671399fea88d28b"
+      ],
+      "hash": "d369274fa71fd349bb359b8b5686177d8ff82c5a88ca4dc1443797ee3e572666",
+      "kind": "array",
+      "mistakes": {
+        "b7626ac02f3904752208e683c928880e14dc651ed58947af6f24330e4f0f05a4": "à gauche de 100, la pente du morceau de gauche ; à droite, celle du morceau de droite"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.6c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "59c26cdd9471983fbbf814ac481c4fef5591fc978f880c23877a8ff0be2fe446"
+        ],
+        [
+          "a88cb88a54eda4d8136ce0bd8c178d20854c04b92f10ea072e3f0dbe7952ba81"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e5cee8f7c782e6ff1c6ee25f7828910f230aacf386f171baea2db6ade154ef60",
+          "d8b88b179703887972c695cfc8a4492960a41850b8d3d4ab6b7436ae44c77fda",
+          "a57aab10e88ad5c42072f45915a24b4a77d80705fc52381e1b14930140e8a380"
+        ],
+        [
+          "0a9edd251b6ec45a9c0b3003d2a54eb31f14740a33886243a4a784b1bd8721db",
+          "058f97a426e1fc14eedc6da1719b17968d5e2d7a2a1afdf469584c837783041b"
+        ]
+      ],
+      "element_hashes": [
+        "0edc08cf4094aee9ddcf4c8ed9108aa0f68b2aae30537ade0196f7c739dbd7d9",
+        "d8661889fcf7e31eda41ce690e653671445355260da746985226d207813b87b1"
+      ],
+      "hash": "9e350285bcece2ab955468dcacc8d61b56a76e7ab695f7bf2a190e98d114d51b",
+      "kind": "array",
+      "mistakes": {
+        "32a83f9caf2da605fcc2cae1d0e8179823fcc8ae5e40e148d887ebee338fc9e4": "à gauche de 300, la pente du morceau de gauche ; à droite, celle de la remise"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.6d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "6917c67d8a5eb5056864050b8146e93cc20deed97b363b15fa2b10fcea2f98dd"
+        ],
+        [
+          "89197d00e6d6902c9597dfd5b4e2b00e05487dd8bdb01a59f5f4db0a091583fb"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8170a22a9f410481202e01c17e1f253f9da1c2bbf748948a40b0c2953f009830",
+          "3f43f68619fee35e971bd3f6b410780346b8b3f73996f1682d6e763a792659b8",
+          "98b1746854cd0a41b24f720cfd3cd98262a80e3db2b877ba105c72f4bb7fd430"
+        ],
+        [
+          "9dc724101aa8b40ec42804c52031f4c98882690788c98d09b8d113c11b292e46",
+          "0096d4de91610f24dad877e937fdb3db8785ba483c7c616f75f4fd5676f74a91",
+          "ab4e243a5aebeaeb87c36f678667e7e0dbe35be73e98b577a04652b1d5a27a5a"
+        ]
+      ],
+      "element_hashes": [
+        "494bef1b350fb117de20e87f5ee20cb8fc27a06b00b0c8070cb56d298ff1e287",
+        "927242550250b4f1dd1cdc2aef98e8470a8a4b9fd494d1aa26f82ecb8e424167"
+      ],
+      "hash": "1d0cc983357f9630dac847c0df87f5f1ad613c702b88b31e8e0b3a69d316c816",
+      "kind": "array",
+      "mistakes": {
+        "8b1cdeddff47a81e672c0c4624efd11c322a419fd2c8295a9d31cc7c06ae5a01": "à gauche du point où c(x) = 40, c(x) − 40 est négatif : |c(x) − 40| = 40 − c(x)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.6e": {
+      "hash": "fbdcf149f4407541adb4743a452e833016b1a692f8e8192ca48f3983e1eb8f04",
+      "kind": "fraction",
+      "mistakes": {
+        "159d3df464688fa1fb15a2c12d51f9a38c4c4bde3e4f47a1cbefed84ec31916d": "x₇ : sept applications de g à partir de x₀ = 1, et il y en a une de trop",
+        "fd6b3d2bd319b7a08a1044c4bbb889cdb9f04c7d73b6bafff73f83778e983dfc": "x₇ : sept applications de g à partir de x₀ = 1, et il en manque une"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.6f": {
+      "hash": "fe6a99f1346fe75adc53e3291538f4e1ff28af97165541be5a58eaf3486dda31",
+      "kind": "fraction",
+      "mistakes": {
+        "3d4358c455bf51f6a76239859a63719b6aaf104cf69c418644d85eb3fa586c7b": "g′(x) = −1/(1 + x)² est négative : compte les signes des sept facteurs",
+        "5eba8cf106971fa611c6ec1601270bdbacb511ed45f7cce5343f8e19654d4393": "g′(x) = −1/(1 + x)² : n'oublie pas le carré",
+        "d4c44692b5b6f3dd70330907a4bc7d30675d375c9450c7ef4e80525215623f59": "chaque g′ s'évalue en son point de la trajectoire, x₀, x₁, …, x₆, pas toujours en x₀ = 1"
+      },
+      "sign": -1,
+      "simplified": true,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.6g": {
+      "coarse_any": {
+        "1": [
+          "9c5076773cad4c1b43e60acf1a13b44d098ca613f42113f0dab10ac85e5f9332"
+        ]
+      },
+      "decimals": 3,
+      "hash": "d2e5d41e72bd5d68b076e386358ced5f4b8ca209e29d3be4e592d73c34dcd966",
+      "hash_coarse": "e1ec5f00bbb30f379d85cfde7dd27a080c05bba2f3918d228442445d2aee1146",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "47c778bc0e23eebb5fd9b76c896e040222ae7ea40f3e614ced44921cbd45ae78": "c'est x* = 1/(1 + x*) : |g′(x*)| = 1/(1 + x*)² en est le carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.7a": {
+      "coarse_any": {
+        "1": [
+          "fb6a3a06559e3370997e69bce16762457f15be21caa205790d3256b2e18a10e4"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "ed80f66fcd8cc576b0155ec7c68c6686c6772736e50c2c0170e7c5d0c0cdaa4c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "1711f674cb450dd52ea06960b4b14ec717e53ccf7c575d9121e8947e79be31f3",
+      "hash_coarse": "05eba924809fce6c0cd8bfc284f79e731b608a10941c7923d76f0471f13f8e09",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "a975bc5a8ad029e9f357d0ef0e929f32f63639a88b6a7ad1ebb07574dc0ddd4f": "p₁/p₀ = e^(−(E₁ − E₀)/T) : le niveau le plus haut est le MOINS peuplé"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.7b": {
+      "coarse_any": {
+        "0": [
+          "336ad42d5cb72d25505350bfcfaa310b466ae19becfc053a99e732c5c3adc86d"
+        ],
+        "1": [
+          "1e0ce087d73ea9bb1ad7148dfdbf6cd1c5c317ca7037861e8139a2c8859cdbae"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "677e4827e38740b0c792a65b62b78ce04b778b0268246b30cfb7287e2fcba643"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3c152f93cda7e2ccb8249d4b501b3aeede31634d85134582667178662d9f1f42",
+      "hash_coarse": "94765fa1b4ceceb9ae7280b5907e8e187935e7a17516c85e9ce94e86fa8b9151",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "28f6f36a40052f587da05f665b802cf30688417a61d9ea6accee3135099a3e6a": "normalise : divise le poids e⁰ = 1 par Z, la somme des quatre poids"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.7c": {
+      "coarse_any": {
+        "1": [
+          "277c9a25c12532f515da2bb5b1ef663b84ab1575a28933435c525913250d469b"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "badc03b86f9a11bbe56286db00c60ec4753afc44e585d80fe1cc15ec6b0e4765"
+        ]
+      },
+      "decimals": 4,
+      "hash": "9814ae5088bcc91fc5db08a3b449012232828493bff5660b5ceaad6cb1650c0e",
+      "hash_coarse": "e8619f72952359eec75d99005e8a4172e7ae32782a6b32f819d89559a062d25c",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8696037eb63cd113718ee1d157c25bd0aace45a8389cd65c0ea00b6c8da6437c": "c'est la moyenne SIMPLE des niveaux : pondère chaque énergie par sa population à T = 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.7d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "36a8c259de2947f1a241af4782c49e3a86b16c36df903107e7716fd3859f17e1"
+        ],
+        [
+          "ea74d8a65cc67efc7bac3c02a0e7d7049b21a588c2d3c5ea821dff2887feca56"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "d0c2b367ff07183f291828f9710e0074a7e9b2a45db6e8d47a271bcdd3c10f52",
+          "e293bc44ae7a11d3febca3fc0dd005e7f2388d89ea4affe6a4558f4a434f6194",
+          "61107b4052575526dd3d7176e2b777868d450b8b69e71fcd5911679cefc06019"
+        ]
+      ],
+      "element_hashes": [
+        "157a00249c0575bd7c72a5ed60ed716633b770b850a0cf4eb77da45fb01b9015",
+        "f21db20d6e3fb1c8c45cee89a952c1a08a57811aa7ad2ded59ff31e8ea91a4fd"
+      ],
+      "hash": "c748bfeb71e03c4c0fbe73116c173856fdeb66d148413c3c175d6cb112b04f05",
+      "kind": "array",
+      "mistakes": {
+        "7351f100eaa2ebc252ec0a627b0213834501fe75bf2467624849529be34e9b98": "l'ordre demandé : T → 0 d'abord, puis T → ∞"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.7e": {
+      "coarse_any": {
+        "0": [
+          "31b11884d3014cacfedde5d567dfd9be50dd6a2fe94cfaae75abafb9afe428ad"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "43d5dd5d74ce0f5640d7307d080e6ce07b9db15ef858f3d75f99e832ab96ad68"
+        ],
+        "2": [
+          "58d0a045f3e9fe763397a1a7b0fe3e7c0f81b452dfc6201a754140aa281df397"
+        ]
+      },
+      "decimals": 4,
+      "hash": "585bc84f9e352cc6eb947336289e7c2f5b0cad8e3041f333ca680405edceb2ee",
+      "hash_coarse": "b99de917cd56d2c2407550357939d4fa1dc0ffd1d783d3e3bb69775f30f19a05",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "f9fb42ee14b98a432df470c0b63064002153343c9344d5e5c4184cfe9f3f6bec": "la moitié de TOUTE la population : p₁ = 1/Z = 1/2, donc Z = 2, avec les trois niveaux excités"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.7f": {
+      "coarse_any": {
+        "0": [
+          "fc0e746b4e8c9c9c4ad1e5ebc5dcd50755afbb4f4eab25af12bd0c2922cf3882"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "fdb78f10a2ea827ecb9733ea5f0ca3907b29a81c806199d1321f45e03d901a80"
+        ],
+        "2": [
+          "90d20494d035caedc466f103c92fb4f197c035747a178b08d69df01f3eb077e5"
+        ]
+      },
+      "decimals": 4,
+      "hash": "f509e54437ebc504030a91ed7af417537089ea6ac6cc4c247c0b0c0495d03eab",
+      "hash_coarse": "90cfa971aa5ba11d9cf6153fa84e766d3f83b8cde274ce713389c44974514c3e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "0a914105f1fcee9b7a729699c89453d059071a64c932e6911535f3c58f2842ed": "e^(−E/T) : l'énergie est DIVISÉE par la température",
+        "698ff7b867ed61002c6e86d2c1fe52a664e697e59bd06c359df14983a3f90f7e": "e^(−4/T) = 1/10 se résout avec le logarithme népérien, ln 10"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.11a": {
+      "coarse_any": {
+        "1": [
+          "0aa9598f2616789a584462fa6f27ae9ad9bc351eb6bebce448c8c6711357eb7f"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "817f101e8fe3e344e591ae5de64bead904b28025e47bf97da9c8899315477093"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b5a126db6c654c74b1756ccc8025e6ab1c37040f3d30447524517ab00838e2de",
+      "hash_coarse": "f05a12a9d69758a96a5777b9959bc6780503703b2ee5d1e039ea5465375105c6",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "bae33ea26759300210fc8c0df5b4722bf9e0e8850c6b441db4fc39f95106ead1": "normalise : divise le poids de B par la somme des cinq poids"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.11b": {
+      "coarse_any": {
+        "0": [
+          "4350c208bfa221083938feabb538228e5232a51bb6bbc87227d8b0266dc881ef"
+        ]
+      },
+      "decimals": 2,
+      "hash": "18b77835cbc965c5cd28a1d30a87a99ed1d73eb431efe924c826e1f52379f7f3",
+      "hash_coarse": "a37940aa2e3f248df082ee55382a7847d0689020493be3e86c30da8bb2649a58",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "88f1dd216c09b41c3badf5faf1b7c726ae068cf3f186d63400e3ee23ea1f1ff5": "normalise : divise le poids de B par la somme des cinq poids"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.11c": {
+      "coarse_any": {
+        "0": [
+          "50b1a20cba78b33aa897e6f30a8added4f8eaed2b0e1c4b2cd64607d1333dc84"
+        ]
+      },
+      "decimals": 2,
+      "hash": "1bdc75ac16201b366acaafc63c77a47bf9a499aab3d3f77f8d12ec435914b9ff",
+      "hash_coarse": "a5ccd0a6b6965e2c52ac8e381b17b4762b79c445453a666572ffd9e3a61baa92",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "4e033565ef8d6b4025a34a6c6389ce99cf19bcba536f56e319a205e96510bbca": "pondère chaque longueur par sa probabilité à T = 1 : la moyenne simple des cinq longueurs ne dépend pas de T",
+        "a67095ed0442d4ec48de62d6ed4683e9df940b1d6915faa603948178a6159d26": "tu as calculé avec les écarts à 38 km : ajoute 38 à la moyenne des écarts"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.11d": {
+      "coarse_any": {
+        "0": [
+          "133c4020693154125cef19294b341b0fb7c83ad74f3b7d821c3a111431b19d91"
+        ],
+        "1": [
+          "db726fcf1124cfc4ed3f72e52f588090415c7532b78cf77444944d328030b963"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "aabe82e05e1227eea8d418ca7dd2bedad9199aa4f3868b5207db89343a261da1"
+        ]
+      },
+      "decimals": 4,
+      "hash": "d072c9548750393e4dea150a1ba5c5bfb372b7fd5b2ac96fbb06cbe1fdc3f8fa",
+      "hash_coarse": "4d6dd332664fc18ec98f5f92da25c77d2e53f5a942e254715a24b45c3c21533f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8c8a71ea07de4560df81caf740567150d561f4882ad0be42a371915694c38301": "B ou D : la probabilité de B compte aussi",
+        "a9890dac373db31a73ce6baf9fe2bf5e5fb686c0d805d8586e829310b0ef9760": "B ou D : additionne les deux probabilités"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.11e": {
+      "coarse_any": {
+        "1": [
+          "68322449a9ba6c1df8718ebd8bcd620fb72e38427d28192331dffac38ff06e9e"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "72a186a6f5bb4becdbfe6efb0764fa6bd50d796adbc06584ec38002137e28985"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a8e23b09ac1005ef5dfc4fb1ef4a62d377298c0d72f196c11b8371f313c7c374",
+      "hash_coarse": "47a60c2d300d39268cadf63c87892aa24a5f5f6bf483f35da13e362f9b556ee4",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "872afb4011b5264f9c08ed64c5ef8b0f47b0e960ee0b8184aeb99ab081e76e12": "e^(−Δ/T) : l'écart Δ est DIVISÉ par la température",
+        "ecdf38cea4909105c7a24cc5b4e694242ed08b1c92d9805e32721f8b940cb646": "la température compte : e^(−Δ/T) avec T = 0,5"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.11f": {
+      "coarse_any": {
+        "0": [
+          "54c329adf9ca5d6f47e9e0e00c11baa12d3ed2a73ea7b5fb1c9812b17bc9fd46"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5a80126b9f97b3432f6e517c67717a8bd971b557297185c8b566db206177ba97"
+        ],
+        "2": [
+          "d2db2b0039526e75af0324ced3334e1c445d4334e528b023fa4ebb46165be2c4"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8827964fe6dc38dbc16fbb1b9238e6b6951492d647d2d63d093f360b26dd60ee",
+      "hash_coarse": "88a758367ed4c5359c3942dea3d562de489d26d8fa787b79121aafef75e16d72",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "91dac181bc79be0defd6e211a78709b968a284c8e39c5d09954ee5f57a71ddb7": "un passage vers une tournée plus COURTE est toujours accepté"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.14a": {
+      "coarse_any": {
+        "0": [
+          "7b4051af841a1f9ad31b159a87c5ef8272460c028b118c1de1d6f299c51b85f4"
+        ]
+      },
+      "decimals": 2,
+      "hash": "b41284554574ac6257a1ccef1530ce4e8326c511843d95409211051f7b19d088",
+      "hash_coarse": "daa8615757c7955f4199d3734946c49476c473abe12d7ed23a0b3cbb5f671a8c",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "7ce52c952bff6dab327266b7e05f1692feb9a71e886b2be2f98f633df58a6f55": "la longitude est la 2ᵉ entrée de S : sa colonne est la 2ᵉ de la jacobienne (une colonne par entrée)",
+        "9c38b520cf8535ea52d76b03522a4449a675f51e90b82cd7e5c4fe4e8f9af6cd": "la longitude est la 2ᵉ entrée de S : sa colonne est la 2ᵉ de la jacobienne (une colonne par entrée)",
+        "d411ac85db26c0a97ce3d413fb3f2b974b371d55756b3bf24681f061c62b842c": "la norme d'une colonne est en km par RADIAN : un degré vaut π/180 radian"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.14b": {
+      "alt_hashes": [
+        "22b98c8b71e95d93aea33889622843fcf0c5cfc14a0272b2f519749a1cf29416"
+      ],
+      "coarse_any": {
+        "0": [
+          "3b9dec8e5868cb7566a245df0d60aa2c878a0d46d351f7cc0d671165f70b18bc"
+        ]
+      },
+      "decimals": 2,
+      "hash": "868dca45929fd477f0da5afa9fffa53d1f12dd5ab2e91f2c432b23b871efb61d",
+      "hash_coarse": "89591a495a5f9bc9c07e4bc749a572b23aafd42a3bc1712bfdfede9bd98e8806",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "8e27fc5f5c3db1e3750a634ff53e9663f0f1fdbd3eac8f1f0d12d092f0230aa5": "la latitude est la 1ʳᵉ entrée de S : sa colonne est la 1ʳᵉ de la jacobienne (une colonne par entrée)",
+        "d612b196ff1652a8c9cd622ddc8937e6da05de9d496e9a49816df5758baad8c7": "la norme d'une colonne est en km par RADIAN : un degré vaut π/180 radian"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.15a": {
+      "decimals": 0,
+      "element_hashes": [
+        "09951496dcbdc54ab0b7c25c4317ee3b08e25933c2fc85b7c414cbed66987d51",
+        "ec4c0b219eb63737f0f8670808614bc1951df4186d99f473291f226d73e33431"
+      ],
+      "hash": "fd444a4b009e5f22586d69a413926d571395c31619b78b92fb5847554b4b3339",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "042f72a52450274c467725a24da86b40c7fcb4f3eeaa53d4d25d464dd126a210": "diagonal_jacobian fait une évaluation de trop (f(x) seul ?) : f(x + h) et f(x − h) suffisent",
+        "17e6e8178dfd553aca33ce665affa81caa2ba0d069a005f9afba41925ae60615": "tes deux fonctions font chacune une évaluation de trop (f(x) seul ?) : les différences centrées n'en ont pas besoin",
+        "37cad1195ab588bd1a9310f534d9bc3a65746f3f14d3693376271f686dbbbfaa": "diagonal_jacobian bouge toutes les coordonnées à la fois : une seule paire d'évaluations en tout",
+        "a797173cd91d0c103f089798f479b5ffff47fd186e4663abf76813e3a32be256": "numerical_jacobian fait une évaluation de trop (f(x) seul ?) : deux par colonne suffisent, et la longueur m se lit sur la première différence"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.15b": {
+      "coarse_any": {
+        "0": [
+          "53720808232bfff0aa36427de9c08f7dc2071e0d64d131573800fa4f5f78119f"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "29c6123fbc86543352bff11435fa2010dc012a033bd8c4a18e20f042b093a09f"
+        ],
+        "2": [
+          "2deb0a4ce2acbcbca68fbd720392ea4df5cf606a459d16c072d9ce2eb5284f49"
+        ]
+      },
+      "decimals": 4,
+      "hash": "17149354f23596fd9a37577f32602970d86d06d5a34b56aeb8741fe95cebfed4",
+      "hash_coarse": "868d781c90a324303b0c3a7032e5a3f06e4614214f0158819fa65b73650ba7a4",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "225e98e07da7cd4e242c2e938d9ca344cad8e19aafeee108826b97727656deaa": "c'est la valeur approchée par l'intégrale : b) demande la trace elle-même, calculée avec ta fonction",
+        "cfd9dc1d2f214e927731034d6605c971358790fcd5f3af99fe3de05581f797b5": "la trace somme la diagonale, les DÉRIVÉES arctan′(xᵢ), pas les valeurs arctan(xᵢ)"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.15c": {
+      "hash": "ec274c179c02164feeb3e924850d90b399b1570752d6004265aad228892b9ae2",
+      "kind": "bool",
+      "mistakes": {
+        "d25a0e7e44171897c553da6d0bc3a80a6f1ff61af7e37eebb65fc1d61032a49b": "compare les deux DIAGONALES (np.diag de chaque matrice), en valeur absolue : pour la coordonnée i, les deux fonctions calculent la même différence centrée"
+      },
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.16a": {
+      "coarse_any": {
+        "0": [
+          "878c92c2e3580e880742a246f4c45d360b2840d0e4aa9a9fd7e848e34e2e1c06"
+        ]
+      },
+      "decimals": 2,
+      "hash": "ab34055ca37ff173ed6480f7209ce7552a05b2ec6686e8b87050a4645e2ce9ad",
+      "hash_coarse": "8bc965bc358c887501fbd7a37edfa8c31c9c5f8fdc875943c359f2a9c7aaef05",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "2806dd952c9cd1add27afbeca29a4e6dce3374566741908c78e828cc55df49c0": "une différence centrée se divise par 2h, l'écart entre x + h v et x − h v",
+        "32ea91a6f226a886a00ed4c9c8672aca4b554285ce4f833d38571035d3a0bd62": "la sortie i dépend de x_i ET de x_{i+1} : (J v)_i a deux termes",
+        "eb167c09232ee23c7e966ea6517d973528de4259959b5e0ba2e77ec57812c80d": "J v est la dérivée des sorties dans la direction v, pas les sorties elles-mêmes"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.16b": {
+      "decimals": 0,
+      "element_hashes": [
+        "f69675fb1938909f6815b714e6b784cd14cc9864e2b381e15c71a8456cd97652",
+        "1dfc0a872a494a05275624394baa9e5851f272c20ecf3a3e296487d9602a568c"
+      ],
+      "hash": "21db21bd65ff0bb89b25d8e691e00c08b66c961c2dec9cddc951f9fb5653f0a2",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "26755369f03d2f0bfe65bfb10f6236c5b27461ca2319227afce3e25961bee5d8": "jacobian_vector_product fait une évaluation de trop (f(x) seul ?) : f(x + h v) et f(x − h v) suffisent",
+        "57a1181b407dc372c426f8b785856301bc6a2af192f739c0210f65b0b1524d2f": "jacobian_vector_product bouge x dans la seule direction v : deux évaluations en tout",
+        "cbdb5a728cf19c0371e3c85d5c5b1d742f099a13c16e854cdd661098bf5c1011": "numerical_jacobian fait une évaluation de trop (f(x) seul ?) : deux par colonne suffisent",
+        "e7526ca775f3da1e5b3403ca1165a231eb69be86d1d942f77d38a9948b889deb": "tes deux fonctions font chacune une évaluation de trop (f(x) seul ?) : les différences centrées n'en ont pas besoin"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.17a": {
+      "hash": "91d07634fc6ccc95bfc9702e74c151ab025bb8fb82e284123256364a8f4ae97b",
+      "kind": "expr",
+      "mistakes": {
+        "8ab1a3dbe950c9da9f23df897e07f194a2e9a8035efaf34ca6e1d2389bd11b4a": "attention au signe d'un des termes du développement",
+        "8f0abb2e6da87610e6fb2e2b0e93bccc498e87f44eba88016fb5b390df3239b9": "développe le déterminant jusqu'au bout : deux colonnes de la jacobienne ont le facteur r"
+      },
+      "points": [
+        [
+          "1/3",
+          "-2/5",
+          "3/11"
+        ],
+        [
+          "5/7",
+          "9/4",
+          "13/6"
+        ],
+        [
+          "6/5",
+          "-7/3",
+          "1/3"
+        ],
+        [
+          "-2/5",
+          "3/11",
+          "5/7"
+        ],
+        [
+          "9/4",
+          "13/6",
+          "6/5"
+        ]
+      ],
+      "variables": [
+        "r",
+        "theta",
+        "phi"
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.17b": {
+      "hash": "f9f0467843bbb7f99649b33358731931467f82a16ffbc7d93dada27fac4f85aa",
+      "kind": "bool",
+      "mistakes": {
+        "f0bc18cad4e142dc8bc4046d8f8473166bf367b3c8582557b4384e4fc2b2a9ea": "évalue la jacobienne de SymPy au même point que la tienne, puis compare les deux matrices coefficient par coefficient, en valeur absolue"
+      },
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.17c": {
+      "hash": "4626e3c452eee6fb656ddfabfb78642a95572cfc30f22b646ea5ed9e9fdc2669",
+      "kind": "bool",
+      "mistakes": {
+        "f50576b0a9d4e5fd40afcce7af0f02fd50981d55c0872d3d6434261e17c00c61": "compare ta jacobienne à l'attribut df du résultat de scipy_jacobian, coefficient par coefficient, en valeur absolue"
+      },
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.17d": {
+      "hash": "198e01954bae1d3fe3bbd735eb056cf1dad4f61da3fb220f79df17c6a99bb018",
+      "kind": "bool",
+      "mistakes": {
+        "b19e256295a470d14d479656ee2747fd611273507b23aefe82165593b47d9e11": "regarde le plus petit coefficient de nfev, le tableau des évaluations faites pour chaque coefficient"
+      },
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.18a": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "1b172cab2cae42a8cfb41c0def90bb549926ba3fd504dfc0de3a347376af35f1",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.18b": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "34f862ff7108682a8a6cb2a3fcbe2893db40d9fe29814e7cd3921850385e84ec",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.18c": {
+      "choices": [
+        "1",
+        "2"
+      ],
+      "hash": "45db8f005237ec1884c0dfcce271ed049b15f1a234652b31bef2d5e4bc00e713",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.19a": {
+      "coarse_any": {
+        "1": [
+          "121fc161daa53ebf45a8e5e5b51a10a1a63dc0edfc1c17171fc0b1ec29c55f07"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "6f84c57271a0614f8a89162e94f5225ed802905f83c014396375034b2df0741a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "6e18567645f90515ea8496c9122224b502bcc33f8e1bde5b693a209d67369dbe",
+      "hash_coarse": "0904c6b58afe2516ce5d2b6024ac20ae217d310bdb52d24d5186a0169b3dd5a5",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "86daff875a2f56fc1039b12199cd07fbda6237ac42a6ba8b546c32c864081557": "φ_c(x) = cx − cx² : sa dérivée est c − 2cx",
+        "d7ec10e7461fd611aa72eb9b5932207e8e557beddd669ab77cbe059d14936811": "a) demande la PENTE φ_c′(x*), pas le point fixe x* lui-même"
+      },
+      "sign": -1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.19b": {
+      "coarse_any": {
+        "1": [
+          "3012218dd6d62fa29ae744a74038eb2ade24171268761685feae72c6e6a04211"
+        ]
+      },
+      "decimals": 3,
+      "hash": "a848205dd17b00af4bca1d317913b6decbce0a84d081055da6c47292dad65472",
+      "hash_coarse": "a0896fc83cf09b6308f88d1c12b15ce459de1e1e70e0a9a80e207cb3ae54f17f",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "daa6482d11435be1558997975a30060cbebb23203239e4f75ee836d85ab2f768": "b) demande |D_60|^(1/60), pas son logarithme divisé par 60"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.19c": {
+      "coarse_any": {
+        "0": [
+          "f94120b1bb925da4d35285ca6616b7d2ec603acdb49310503094749514d67dc3"
+        ]
+      },
+      "decimals": 2,
+      "hash": "28e3b8b0275dd71f904cafaf6705472c4f401d01ea1420b3b13344f08fbe887c",
+      "hash_coarse": "4b70281370ff7beec3e545406e0bf5e85001bf7ed03721d3ccc1f071ca41cdea",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8075e5f3e341094a4c6a2b0250dcfdcdba7b1fafa7bd77937742df6c735afee5": "c) demande le taux (1/60) ln|D_60|, pas |D_60|^(1/60)",
+        "c52ec35dc76c8a13c591aebc68673d0b33927a832ae928306b6639d390f64871": "le taux se calcule avec le logarithme népérien, ln"
+      },
+      "sign": 1,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.19d": {
+      "hash": "35b365fdb1cb31f67459178ac52daef03a62d10c9c94cebb95e6af2251a68e3a",
+      "kind": "bool",
+      "mistakes": {
+        "c32ca745b97a7b95682c072dd97e32fb184b4bb33b0229c3a448fc162f03d6d4": "compare les deux trajectoires après 40 itérations, |x_40 − x′_40|, à 0,01 : l'écart de départ est multiplié par |D_k| à chaque pas, en première approximation"
+      },
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.21a": {
+      "decimals": 0,
+      "element_hashes": [
+        "0d812a6062b39486696b04d60ab36dd30c0f48ea8f274ed82d2492a200e7ddbe",
+        "7caf35c7c762ac45b48be19dbfac11adcc1cba06e43579a5da6b5cc4309645e1",
+        "07d0bd1642a52c466df20544acd3409fb1805974c4af9b063c3bb9306218cd59",
+        "b678a95150538d4e6cb62b789a315326a17d4336b99e2a24e7de903fcbb62d69"
+      ],
+      "hash": "8264ed002aa6a013575e0c7c1b5db60572b163fbdf5d0f28d89a561015fff420",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "db5d95731ff7248b2c39e82935a5e8d02b1f65101579a6165d96a1b74c474042": "a) demande ce que RENVOIE chain, la fonction du collègue : refais son produit, dans son ordre"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.21b": {
+      "decimals": 0,
+      "element_hashes": [
+        "2e775a654dcbc1c621a7da7a649f788dfa2384ece30a8262a49a60a301c1404d",
+        "b6a564665d140e38dd3d096e97c590118abafc21428b05862e252793631f0fd3",
+        "b480eb0cd6c33868c92fb0ce8d99f9c0d6ec53154489f4fa2d07c84ad5dc8224",
+        "36be40d2f497ae53ab944c144d2582c594a4eda45acd2f15251ffcf78156704a"
+      ],
+      "hash": "60682b090e8e80ddf6e69dbdbcbe0bc2cb479378cdc4b9577185b7e3e674e19c",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "89c3eb0896685f2144bc394475976b8b934c5c4d44378961442f5407f994f64a": "b) demande ce que RENVOIE composite_jacobian : refais son calcul, avec J_g évaluée là où elle l'évalue"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.21c": {
+      "decimals": 0,
+      "element_hashes": [
+        "52b5cf5b7efb5a99703c3da1dd0bb90c140d8ec2153d22689dac2ec159cd72c7",
+        "c26f5a49bb8aaddbdfc8307458f8c8e9ab18afb2404eae99225196b5b07882a2",
+        "e8bca5655691f83a862f08715edb1cb8dda63a69a58ad989d6cd40742c4c8522",
+        "e632940193412f9a04b46e12573826a062b5c7b9d8ca2b9176615a203dadc104"
+      ],
+      "hash": "74c043808856d56ec805b0d522481759b926494dd2b1cb78c4a82b36954eb1e9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "12c3dcaddb5386878e5ed744b062622b32cbdaf60591a9d5ee3478e9092f63a5": "la jacobienne de f a une ligne par sortie : la ligne 1 est le gradient de x²",
+        "2c10cb1a23319bff8d1eba8e40bc7820caff166748a3828a47440b14b8abb645": "J_g s'évalue au point intermédiaire f(1, 2), pas en (1, 2)",
+        "9036dfff6646564668e0e0dbb351a22976dd30fdf051ae167a8a91c2e510b6b2": "la dernière application, g, a sa jacobienne à GAUCHE : J_g J_f"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.23a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "3e14347ecca09f57498fc0100904aae4702fc9a3a45dca9bb572e373ef2e82d6"
+        ],
+        [
+          "ff5fd26000ac00839ad80670aeca66463f0936beba048ae0469dfbc26acfe315"
+        ],
+        [
+          "78365d596c55e9a0072e0570858b76d186bbeeac30ea834b3aa247eb148d4d09"
+        ],
+        [
+          "5438362657673338b42652b022d1777e84bed22df43cf05d725e24752078d133"
+        ],
+        [
+          "b48c5ee6cbf7288b836abe997366d5fbb0da1701f18c97f25c277e713183e01c"
+        ],
+        [
+          "f903eb7662282f21af0bb7ac170dd6aa4e08f35a2a976419ce29f00fceb43895"
+        ],
+        [
+          "0d99db01535e8aa1ebd35935c6225e48f45f42d2199a689b35a8a5efdf788560"
+        ],
+        [
+          "705dcf2fbeafd47ef22151c2e3d2c90a324bd60779d4b7e12d0da0cabc04bdf0"
+        ],
+        [
+          "0abfed5a49b79e82be410f27719a5a5e22186c77c32e0cee8366bb5b6c0b8795"
+        ],
+        [
+          "47e13b19e4b7b4843ae550239358ee121aca2676399e487eed633a7dcb762037"
+        ],
+        [
+          "6fc51d931ff92cd9e18774943cb35b069d6f86710cfc7b44a80a24ef8af27f4e"
+        ],
+        [
+          "b3b7c3db573860ad53dc8fb9e252acf760387e8bce8eebd3691abd14e313b4ae"
+        ],
+        [
+          "135140643ba069839ec27e64bc55dd7ba7704b9e300283ad73dab71fbedef984"
+        ],
+        [
+          "a19982bc3b17f0f3ebcf813b59f9b190cb85e19ea015e7b8b3358ad331e14e05"
+        ],
+        [
+          "cfef4a8a99832edfff92d4fb5ee75728d248ec6f7ed49232d03aef0fa66fafdd"
+        ],
+        [
+          "0e410ca1420724738249d5bb47700dc294d16ed8179fc593c8f1c4f1e33f3b22"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "86ec1224156c024b7f89f4a05a031cf1c67bc895336034b5fc2fa485a165e4ef",
+          "5b782f26bf992de5288d0d2fcfa97afa80c0692def85292ee2208ba476fd06f8",
+          "671a0c7c03139279d2d7bd91da4e796a9d3999304bee635fb69f6f9b83541897"
+        ],
+        [],
+        [
+          "9655b29ba3e3136d800eed4dc74e333b750c03eb5486eccdf2eb82ea8648c9f9",
+          "b0f9c7d397028560d273b2865de815d4fa8bfaadc61a75764554258f044afc02",
+          "d9fd97b0a9838835343dabb02f50fb9a7fda2939610ea6a71004df7c1f3db4ea"
+        ],
+        [],
+        [
+          "d91ef1191a2be8e8eeee27127ddf368928e17db1a4e91fede9956c181a277b9c",
+          "594693c7b99638b39dc88f5ab11905c72693f612dae0457a0b69a41b2b3e1ae1",
+          "9d29800d706e116c4dc0e61523cad68263ec97e5bc726f26ba95f29156a51e79"
+        ],
+        [
+          "f3d6e1f329b542f37b4036b44cd32ab69c37ea69d4f65bbac5d12acda7660aee",
+          "74893b70cc244693f5f4d778313f6d584bcad043a62c9f4f77a4421a14e28bb6"
+        ],
+        [
+          "5797d248860b0f47c5e2a8e363cdd5a371ce92916f099e6681005cfa8236c9c4",
+          "8f694b260c150df47183394527453d8060154350bdcf72217d2f2e2ed1cb3859",
+          "247e1b212409ca685e32f48e7c080555ab625f4cb4fe9a394d91b6677c2f78ae"
+        ],
+        [
+          "ed6ef0163305232b38310feb09f6fb17e3be19b0024fd223f795e509261bb5bf",
+          "1499afbb45e6dc2790d250baaf8ba6237145adcc5c1697c802c228d541bc76fe"
+        ],
+        [],
+        [],
+        [
+          "151464409d4dd9026430584fcba96a568b4bcdb7effab81c058904c236f3c88e",
+          "b84e7d9ee230acc3c279a5ec49d1e64842b5ccc1b7ef494327354f7c23fa5c6d"
+        ],
+        [],
+        [],
+        [],
+        [
+          "9fa67d4437f8212b1ccd5d14c3512b0ff42cdb755826aa1b066ebc2b91d55b6c",
+          "8942317e2d961289fca968acf5d5e342c4d0bd82b5c74c4a3c35ed1ef0c5e849"
+        ],
+        [
+          "f0d3dbe13ed7c5c1c659d098c10d62c6fcffd64b93eb80c61eb3d2cd1d943f55",
+          "bd365d7ac26ab8388d001a4ea9174c5388ff73fb1a89ff8df45be7f8050c0218",
+          "d946460fe7fe4c8abb31bb37472d8947323c57c54c2d7d39de1c99277f59de1d"
+        ]
+      ],
+      "element_hashes": [
+        "26dbe38a39f98366ae8ee86f6c33a46ec4e34fd9d0afc90cb17c181ea951740a",
+        "1547d0ae324e591c03f0a3cda181ff0832402503cb0dd8f22173ee053cb1e2a2",
+        "e4a64ea52a9145f1745421316a4318c6b164f031c0ceb130e315d859724fb0ef",
+        "d0e06b055bd8acb0bb278e03de89f68be24cc9f7d20704643e18a337e7a6bfb1",
+        "d91c5f6fc49c0de0e067f881e299756296a55c2755820246f3433db235db9463",
+        "eb564ab391925a19345701cec93895e99519a83f31d94a94ce5389fa0e3a8472",
+        "0b76d9f977c37e473c446de75d66efe4193ec55531bce0794f63ea39f5426259",
+        "73b028537512a7cd2bbe53dba3a9a5993b368b414a111b409dbc336b4ce81566",
+        "bf1617588711c1606f87da8bd9a3589d52371611487dacfef55dae059b77672b",
+        "4dfe79bb852e891128205c59bacf24880e4812eb9be4533a11e0eda4e3c328f1",
+        "03a9601e0cd37063187dcacee51f65f4a6b51482af8201d9182031b22ebd5f22",
+        "7ee506751576f95a5316256ef6df03ddc661bd08f4860c63e8e21e182bcdc587",
+        "48ad685fa2cf96cbc75459f28544ebc2db3a6ca17de09dd1954662d3e6d2d2a8",
+        "ea5be32709b74b04049d51d1f13f003a5120860844e854dca307f850ad28b56b",
+        "136e7bc8ceffab422ff3093f8e9eb13e8088a0184bfe4998765b78cbe7d8d6e6",
+        "5c290fff68173897be4841c7ff83f6ab398d29d1c9a5ca85f0e969a023481d17"
+      ],
+      "hash": "5ee737a206d1a94ff249ced62a03e5b8671c96a7344ad7040fd487c2efa35177",
+      "kind": "array",
+      "mistakes": {
+        "6adf7dd82cc783cd158070801f696338ee1f82cb2a8668d85179ec890233465c": "l'aplatissement est ligne par ligne : la coordonnée 2i + j est X[i, j], pas X[j, i]",
+        "907852ba90731259f25afa2a69ad7f697a49be776082277a6584d5f21c9dd5c2": "lignes et colonnes échangées : la ligne 2i + j est le gradient de la sortie X⁻¹[i, j], la colonne 2k + l la dérivée par rapport à X[k, l]"
+      },
+      "shape": [
+        4,
+        4
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.23b": {
+      "hash": "72e69c9d29e174179680d2cb9b55803cdefae812ac1ba751dbbc171764de3940",
+      "kind": "fraction",
+      "mistakes": {
+        "1c7c8ddb190d6dcca7588b92474395fd1a463baffdafa26a1576282e05a8c23e": "(−1)⁴ = 1 : changer le signe des 16 coefficients d'une matrice 4 × 4 ne change pas son déterminant",
+        "4f7cfd1cd4cac17b46bd56cb6afd9951032d329724387977837bacdad3e166cd": "c'est l'inverse de la bonne valeur : près de X₀, l'inversion fait intervenir X₀⁻¹, pas X₀",
+        "89f7ed1ea941bd50c8e1d8faf30f256b6ae4d54221ba8ef9e95a0a50db24f261": "c'est le déterminant de X₀⁻¹ : b) demande celui de la jacobienne 4 × 4 de a)"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.23c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "e0d904d93c040c385fe679df4053515f3d994cb94eefc7d279da29332544aceb"
+        ],
+        [
+          "d8ebee64b1953f56cdb94f325d69c6a6bf964cd397989e4d2595c7744d2b0b91"
+        ],
+        [
+          "17ec1e3c03a775d3e64591a36aaa89217d4d606de9a5be2ae22602ccc6ebbe66"
+        ],
+        [
+          "0634199cf23f3f36a22ecf969163413edbc31f0f8da64b4cd2c97fd99a85f07a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "54a81985043265cadc3fcc264266a12af1356e54c35233fd2030fa45f237784d",
+          "5737f503d63892b77ba363156e8074f8d5a7d5bedb9af4f22cd6646bbe4807f8",
+          "4a76902b5e51fa88d8cdc0e0cb3238b61c7134203726e16b9834eed2bbf9e0e1"
+        ],
+        [
+          "ed1d3bc258deb6abf7bab5c9862863f6dde18736c3ad9af084930285d458c677",
+          "b9a3e1a6926ec176277394460add2dbb81523020748a37310a6c28202b5cc560",
+          "13feb8294f1330a5b1481ef75925f6d29c9e2c259c939cca898ab10d36dbca1b"
+        ],
+        [
+          "78a4bf768e4420c292a2f82d9241b134d9b3f11385ede3c054ee38eb6606b32e",
+          "847e142af34ad5552659b1e7303753e29de851744aab9d23694493b7022c8ad1"
+        ],
+        [
+          "33b68f3f11e81a86a5faf4778b06845f8f137efc6c171273dabd25ff5e2a8981",
+          "f519b9adb9cc9db774e6d4cdc489d87b20032bdb6661131d4d3fba620fa3ea18"
+        ]
+      ],
+      "element_hashes": [
+        "96aec976b1d9b2e21d76e071d188b889a6cdc0d080cf57ff6f3a7046f14307a2",
+        "c2163cb7991d9f2dbe39a2a877e0f54ff9161ec16762d92f8846c9f98754872e",
+        "9d30fe39b114e8709a76a1cf8ce915471fc976857f05a941fdc7061b0d1e2edf",
+        "76e3bd3ef983b5a32cbd2823181b0dd528411f4907726b9e2d29d14ce2069571"
+      ],
+      "hash": "4870555d219ee201f8e3ecc3fab83f374aa394a21d174f9149325a5702cb2ac8",
+      "kind": "array",
+      "mistakes": {
+        "20d742595b28f724c83302dfcf57a783ba761e4458dadb5bcd2462961a932a11": "un produit de matrices ne commute pas : en dérivant X X⁻¹ = I, H reste ENTRE les deux facteurs",
+        "5dd244b14ec2f4b3c00e1c804cadde6984c8cbc3da87844bbbce34fa95e68881": "un produit de matrices ne commute pas : H reste entre les deux facteurs, ni à gauche ni à droite"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
+    "M17.23d": {
+      "hash": "3b1220741f0019395058662c2484297fa7805e3cc8c21c151c090b943054b183",
+      "kind": "bool",
+      "mistakes": {
+        "f637e97e6c4819d23f4751ed42b9230d2e65725fc2b4072fc7d75002ecb53a1d": "ta formule s'écarte de la jacobienne numérique : dérive X X⁻¹ = I dans la direction E_kl, puis range les dérivées une ligne par coefficient de X⁻¹ et une colonne par coefficient de X"
+      },
+      "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",

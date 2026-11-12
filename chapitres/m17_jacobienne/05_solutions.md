@@ -99,7 +99,7 @@ Dans ta copie : la première colonne, $(\cos\theta, \sin\theta)$, est un vecteur
 
 ### Ex M17.2 — Une fonction appliquée coordonnée par coordonnée
 
-**Réponses.** a) `[1, -0.8, 0, 0.6]` · b) `[2, -0.8, 0, 0.3]` · c) `13` · d) `999000` · e) `[2, 2000]` · f) `[1.6931, 3.2094, 0.0, 4.1026]`.
+**Réponses.** a) `[1, -0.8, 0, 0.6]` · b) `[2, -0.8, 0, 0.3]` · c) `13` · d) `999000` · e) `[2, 2000]` · f) `[1.693, 3.209, 0.0, 4.103]`.
 
 **Démarche.** $g'(t) = \frac{2t}{1 + t^2}$ : $1$, $-\frac{4}{5}$, $0$, $\frac{6}{10}$. b) Case par case : $(1 \times 2,\ -0{,}8 \times 1,\ 0 \times (-5),\ 0{,}6 \times 0{,}5)$. c) Les 12 coefficients hors de la diagonale, et $g'(0) = 0$ sur la diagonale. d) $1\,000^2 - 1\,000$. e) Deux évaluations (toutes les coordonnées bougées ensemble), contre deux par colonne. f) $(tg(t))' = g(t) + tg'(t) = \ln(1 + t^2) + \frac{2t^2}{1 + t^2}$ : $\ln 2 + 1$, $\ln 5 + 1{,}6$, $0$, $\ln 10 + 1{,}8$.
 
@@ -153,7 +153,7 @@ Dans ta copie : $L(\mathbf{f}(\mathbf{x})) = (x_1 - x_2)^2 + 3x_1x_2 - x_2^2$, d
 
 Dans ta copie : $c$ est continue (les morceaux se raccordent : $c(100) = 15$, $c(300) = 65$). Restreinte à $[0 ;\ 300]$, ses pentes croissent ($0{,}15$ puis $0{,}25$) : elle y est convexe, et ses sous-gradients en 100 forment $[0{,}15 ;\ 0{,}25]$. Sur $[0 ;\ +\infty[$, la pente baisse en 300 : $c(300) = 65$ est au-dessus de la corde entre 200 et 400 ($\frac{40 + 75}{2} = 57{,}5$), donc $c$ n'est pas convexe. En 300, une droite $65 + s(x - 300)$ sous la courbe devrait avoir $s \ge 0{,}25$ (à gauche) et $s \le 0{,}1$ (à droite) : aucun sous-gradient. f) est de l'ordre de $0{,}382^7 \approx 0{,}0012$ : les sept facteurs $\frac{1}{(1 + x_k)^2}$ ($0{,}25$ ; $0{,}44$ ; $0{,}36$ ; $0{,}39$…) oscillent autour de $0{,}382$, et leur produit vaut $\frac{1}{1\,156} \approx 0{,}00087$.
 
-**Erreurs fréquentes.** Donner une seule dérivée en un coin. Inverser gauche et droite. En f), évaluer toutes les dérivées en $x_0 = 1$ (on trouve $-\frac{1}{4^7}$) au lieu de les évaluer le long de la trajectoire.
+**Erreurs fréquentes.** Donner une seule dérivée en un coin. Inverser gauche et droite. En f), évaluer toutes les dérivées au point de départ $x_0 = 1$ au lieu de les évaluer le long de la trajectoire.
 
 **Variante.** Avec trois copies : $x_3 = \frac35$, et la dérivée vaut $-\frac{1}{25}$ ($= -\frac{1}{5^2}$, avec $F_5 = 5$).
 
@@ -171,7 +171,7 @@ Dans ta copie : quand $T$ grandit, le fondamental se vide au profit des niveaux 
 
 ### Ex M17.11 — Le recuit simulé
 
-**Réponses.** a) `0.3299` · b) `0.64` · c) `38.5112` · d) `0.8803` · e) `0.1353` · f) `1`.
+**Réponses.** a) `0.3299` · b) `0.64` · c) `38.51` · d) `0.8803` · e) `0.1353` · f) `1`.
 
 **Démarche.** Écarts à la plus courte : $(3, 0, 7, 1, 2)$. a) $\frac{1}{e^{-0{,}75} + 1 + e^{-1{,}75} + e^{-0{,}25} + e^{-0{,}5}}$. b) $\frac{1}{e^{-3} + 1 + e^{-7} + e^{-1} + e^{-2}} \approx 0{,}6435$. c) $\sum_ip_iE_i$ avec les probabilités de $T = 1$. d) $P(B) + P(D) = \frac{1 + e^{-1}}{e^{-3} + 1 + e^{-7} + e^{-1} + e^{-2}}$ : deux tournées distinctes, des probabilités qui s'additionnent. e) $\Delta = 1$ : $e^{-1/0{,}5} = e^{-2}$. f) La tournée B est plus courte : acceptée toujours.
 
@@ -262,3 +262,14 @@ Dans ta copie : à $T = 1$, les poids $e^{-\ell}$ valent $e^{-38}$ fois $e^{-3}$
 ## Notebook
 
 Le code complet est dans `05_solutions.ipynb`, exécuté ; voici les réponses et ce qu'il faut en retenir.
+
+- **M17.14 🔨** `numerical_jacobian` : une colonne par entrée, $\frac{\mathbf{f}(\mathbf{x} + h\mathbf{e}_j) - \mathbf{f}(\mathbf{x} - h\mathbf{e}_j)}{2h}$. Pour la Terre (rayon 6 371 km) à la latitude de Lyon, la colonne de la longitude a la longueur $R\cos\varphi$ par radian : un degré de longitude mesure environ 77,58 km, un degré de latitude environ 111,19 km ($R\frac{\pi}{180}$), partout.
+- **M17.15 🔨** `diagonal_jacobian` : 2 appels de $\mathbf{f}$ contre 600 pour la jacobienne entière sur 300 coordonnées. La trace de la jacobienne de arctan sur 300 points de $-3$ à $3$ vaut environ 124,588, proche de $\frac{300}{6}\int_{-3}^{3}\frac{\mathrm{d}t}{1 + t^2} = 100\arctan 3 \approx 124{,}9$.
+- **M17.16 🔨** `jacobian_vector_product` : 2 appels contre 4 000. Pour $f(\mathbf{x})_i = x_ix_{i+1}$, $(\mathbf{J}\mathbf{v})_i = v_ix_{i+1} + x_iv_{i+1}$ ; la norme de $\mathbf{J}\mathbf{v}$ vaut environ 39,18.
+- **M17.17 📦** Le déterminant de la jacobienne des coordonnées sphériques vaut $r^2\sin\theta$ ; `numerical_jacobian`, la jacobienne exacte de SymPy et celle de `scipy.differentiate.jacobian` coïncident à $10^{-8}$ près ; SciPy fait plus d'évaluations (elle raffine son calcul, pas après pas, jusqu'à une tolérance fixée).
+- **M17.18 🔮** (2) une jacobienne $(2, 4)$ ; (3) trois coefficients nuls partout (ligne 1, colonne 4 ; ligne 2, colonnes 2 et 3) ; (2) la sortie 2, $(x_4 + x_1)^2$, ne dépend pas de $x_3$.
+- **M17.19 🔬** Pour $c = 2{,}5$, la pente au point fixe $0{,}6$ vaut $2 - c = -0{,}5$, et $\lvert D_{60}\rvert^{1/60} \approx 0{,}495$ : la dérivée s'éteint comme $0{,}5^k$. Pour $c = 4$, le point fixe $0{,}75$ est repoussant ; la dérivée croît en moyenne comme $e^{0{,}69k} \approx 2^k$, et deux départs à $10^{-10}$ l'un de l'autre sont séparés de plus de 0,01 après 40 itérations, alors que les valeurs restent dans $[0 ; 1]$.
+- **M17.20 🎨** Près de $\mathbf{a}$, la grille déformée et son approximation linéaire sont presque confondues ; loin de $\mathbf{a}$, elles s'écartent : l'erreur de l'approximation linéaire est d'ordre 2 en la distance.
+- **M17.21 🐛** a) `chain(J_f, J_g)` rend $\mathbf{J}_{\mathbf{f}}\mathbf{J}_{\mathbf{g}} = [[6, 2], [4, 0]]$ ; b) `composite_jacobian` évalue $\mathbf{J}_{\mathbf{g}}$ en $\mathbf{x}$ et rend $[[5, 1], [1, -1]]$ ; c) la bonne jacobienne est $\mathbf{J}_{\mathbf{g}}(1, 3)\,\mathbf{J}_{\mathbf{f}}(1, 2) = [[7, 1], [1, -1]]$. Les trois règles violées : une ligne par sortie, la dernière application à gauche, le point intermédiaire.
+- **M17.22 🛠️** Le test compare `jacobian(g∘f, x)` à `jacobian(g, f(x)) @ jacobian(f, x)` en plusieurs points, sans formule exacte : il attrape la jacobienne transposée (formes incompatibles) et les différences avant à grand pas (écart de l'ordre de $h$).
+- **M17.23 🏆** De $XX^{-1} = I$, la dérivée de l'inversion dans la direction $H$ vaut $-X^{-1}HX^{-1}$ ; en $X_0 = [[2, 1], [0, 1]]$ et pour $H = [[0, 1], [1, 0]]$, $[[0{,}25, -0{,}75], [-0{,}5, 0{,}5]]$. La jacobienne $4 \times 4$ (aplatissement par lignes) a ces dérivées pour colonnes ; son déterminant vaut $\frac{1}{16} = \det(X_0)^{-4}$.
