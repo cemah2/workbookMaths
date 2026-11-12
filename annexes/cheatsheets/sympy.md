@@ -30,6 +30,8 @@ a = sp.Symbol("a", positive=True)        # avec une hypothèse (utile pour simpl
 | valeurs et vecteurs propres exacts | `M.charpoly(lam)`, `M.eigenvects()`, `P, D = M.diagonalize()`, `M.is_diagonalizable()` | `eigenvects()` rend des triplets (valeur, multiplicité, base de l'espace propre) ; réservé aux petites matrices |
 | une jacobienne exacte (M17) | `F = sp.Matrix([r * sp.cos(t), r * sp.sin(t)])` ; `J = F.jacobian([r, t])` ; `sp.simplify(J.det())` | la matrice des dérivées partielles, une ligne par sortie ; ici le déterminant $r$ |
 | évaluer une matrice en un point | `np.array(J.subs({r: 2, t: 0}).evalf(), dtype=float)` | un tableau NumPy de flottants |
+| dériver une fonction d'une matrice symbolique (M18) | `X = sp.MatrixSymbol("X", 2, 2)` ; `sp.trace(A * X).diff(X)`, `(a.T * X * b).diff(X)` ; puis `.subs({X: sp.Matrix(...), …}).doit()` | le gradient, de la forme de `X` (`A.T`, `a*b.T`) |
+| le gradient de $\ln\det$ (M18) | `S = sp.Matrix(2, 2, sp.symbols("x11 x12 x21 x22"))` ; `L = sp.log(S.det())` ; `sp.Matrix(2, 2, lambda i, j: sp.diff(L, S[i, j]))` | $\mathbf{X}^{-\top}$ ; avec `MatrixSymbol`, SymPy (1.13 et 1.14) rend 0 pour `sp.log(sp.Determinant(X)).diff(X)`, sans prévenir |
 | écrire en LaTeX | `sp.latex(expr)` | le code LaTeX de l'expression |
 
 > ⚠️ **Piège classique — `1/3` en Python** — `x + 1/3` donne `x + 0.333333333333333` : Python divise avant SymPy. Écris `x + sp.Rational(1, 3)`, ou `sp.S(1) / 3`.

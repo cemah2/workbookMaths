@@ -63365,6 +63365,9 @@
       "hash": "174e44c60af1ddc5af6c8523356322a12e941bfdcbdd37a4de8f80e177b55baa",
       "kind": "int",
       "magnitude": 0,
+      "mistakes": {
+        "ae9d6f49970956e65dc1b810f71b56b550011affd65f140fb916795801fc792a": "4 est la valeur de R dans l'énoncé : cherche où ∂P/∂R s'annule, pour R quelconque"
+      },
       "sign": 1,
       "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
     },
@@ -63608,45 +63611,75 @@
     },
     "M18.4e": {
       "coarse_any": {
-        "1": [
-          "6734fb0a09a47296031015178c5b079673b310ccb1af21f49354a99118b5e419"
+        "0": [
+          "37e4fa81bd1e263983e00e09f2feee53a20654286a9c176df92d07061df29e54"
         ]
       },
       "coarser": {
+        "1": [
+          "5dd9326401cc3f1dca38ba45159fb1582160a5354cb819f74266ff1adef78eff"
+        ],
         "2": [
-          "716af60fe3bed958b08977733c02e691151dee3cf41f3c8dfcf43f0be8b66fe9",
-          "f1953d098f1ff694a845fd73afc1a46f5ff08b80a22296bec7618869188022ce"
+          "a202eb8678fa0cc7ce55c277b240a75f5e604e6b50b7f3b17b0d511f74a97500"
         ],
         "3": [
-          "d6f108e957f8ec88865b23884cc8374a51317d8f7fd78f9cab95462e406b65e4"
+          "c9c73ca017d28f4c36d6d22bf171cc96533d8f2f8ece952892b494e28354d4ee"
         ],
         "4": [
-          "d12cafd36b1ca47b771e09850bc147c5985494fd3e1c4fb8cc855158d5e3a156"
+          "286240b9df5b76ddf2831ebc5e118d565db77019e98bce2b21b675e80ea84ccb"
         ]
       },
       "decimals": 6,
-      "hash": "613333e1b49de14ac48f1f1b28af7a4343cee2c2cd9923147e9bc83eecb4b137",
-      "hash_coarse": "849d1b360a2f77ba30af716ef06f87801a4628c956e838261fc458a699fcabc1",
+      "hash": "162a0230796f7bdd8f789ae874aac585c43039bfe515495639c9fe46374aaadc",
+      "hash_coarse": "c24a17da38238bfb4754572fefb9037836446ffe8ff8c3ea3e23ec7f937702d6",
       "kind": "float",
-      "magnitude": -1,
+      "magnitude": 0,
       "mistakes": {
-        "b0c164bc4f50e8ed1daf1fdc9b9fc77fe3ec57d49d76d862386d496f9f32d25d": "(3,1 ; 0,95) − (3 ; 1) = (0,1 ; −0,05) : le pas en q est négatif"
+        "2b425daf0ea3f3f56ff10ba8fc7395ffbaf574cef4ed7677764859cf4934c746": "sans normaliser v : la dérivée dans la direction v est ∇f · v, avec v tel quel",
+        "5c6abd373d8ce32eeb46edeab319d8a234b365a570b6dd5822bf04be854c2f78": "sans normaliser v : la dérivée dans la direction v est ∇f · v, avec v tel quel",
+        "efa41d8e80834d5605100e1c03b965d3c1104729a22f259886110cea5813144e": "sans normaliser v : la dérivée dans la direction v est ∇f · v, avec v tel quel"
       },
       "sign": -1,
       "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
     },
     "M18.4f": {
-      "coarse_any": {
-        "1": [
-          "83ed892dfaafaec89c33b60df5954de5c3dff57551933732d88a6e8f43eda252"
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "edaa23f337f57f349ff012e5c4dbfe92cc77fc32f8a50b45ffd92993f756e4c7"
+        ],
+        [
+          "71f3ecbcc46608e71e7f35665e808577dc766833765e22745eef845c0cc781f7"
         ]
+      ],
+      "element_coarse_any": [
+        [
+          "b2354903542bb8c883bc1e159e6d09253aaa64786bc0e4f2fe5427db13791009",
+          "13442924bf99c2fd488b1cfbcb52d67968ce3e8de96362f1ca8ea7aabf8890ff",
+          "d60d403913a76c4e7b2b9baef594a0eeeb517ffb049a7e2517dbe369aff4ead4",
+          "2cd888f4a013e8433cdb2184cf8aac3547a0f3c843ac41b07c23f748cfa95821",
+          "ffb7d74b4f15235f8dbf9b76c66e481d245bc66587a850012f69eb877265cb92"
+        ],
+        [
+          "9d6a63af2a80c0ecf59387fd9a1bff40430ed50ca7c54aa09887cbf73f87ca7f",
+          "fc06c9aec3f39b88351257773890ff7e336ca9935cdd451006a6f5adb4c0fc78",
+          "e532513dc7868fcfcf7163bb522e69afff56be2934aa8206a03d9358fcf81da3",
+          "b66c8d75d90b6cf41a876f03bda0a885fb813cb0b8a8d191674c353e6a6f9012",
+          "30cd6036d734b27c7768fec5c38136553e15d6600874165021a4f035b4d48b98"
+        ]
+      ],
+      "element_hashes": [
+        "e48dcb245a913545a5cad6111197c7ac2cc855049eeda46bde7ccc338cad8caa",
+        "596247a875f6d9c5805116eaeadfe38f308639591cafd229271e81756086a4ac"
+      ],
+      "hash": "9d663c26cfa54fd8491eb9eefe34e8735237115ba03561c0ddae32d299239d6b",
+      "kind": "array",
+      "mistakes": {
+        "80727a0e08dc08e0b6aa802d39d505dec135ca3e34a076d806f2f726c44f77e6": "la partie en ε suit la graine (2, −1) : q = 1 − ε, sa tangente est négative"
       },
-      "decimals": 3,
-      "hash": "1be3fc4208febd75f11e5528d242109e9f6d6525064d863a5af3231744c48486",
-      "hash_coarse": "88be8b778c2c4473fc57034af84ed70374ff8f074aa5b7beb49286a6cac02393",
-      "kind": "float",
-      "magnitude": -1,
-      "sign": -1,
+      "shape": [
+        2
+      ],
       "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
     },
     "M18.5a": {
@@ -64497,7 +64530,8 @@
       "kind": "array",
       "mistakes": {
         "39b6261a417dd84724c6083fb0656e780d4d6adebca305cc0b201273a7e19db5": "le gradient de bᵀx est b : n'oublie pas ce terme",
-        "65e7da0f679eb84162950ce3e5e352313c6161dc7d734d00417cd148b26c86b4": "A n'est pas symétrique : le gradient de xᵀAx est xᵀ(A + Aᵀ), pas 2Ax"
+        "65e7da0f679eb84162950ce3e5e352313c6161dc7d734d00417cd148b26c86b4": "A n'est pas symétrique : le gradient de xᵀAx est xᵀ(A + Aᵀ), pas 2Ax",
+        "b9714c046e71670453db9b922a2b55e2a1f362c2652def3bc6c312f0f30ea577": "écris une matrice d'une ligne : [[7, 13]]"
       },
       "shape": [
         1,
@@ -64541,41 +64575,41 @@
     },
     "M18.16d": {
       "array_rounded": {
-        "1": "dc295ee78d7f36ced7842d1f9cb6d309f046a157d3fec61218cde7dd3cd98748"
+        "1": "0c501d5e026885bced17943770a3d4a4eecd8e43d22127382c04c5e054ff4122",
+        "2": "e05926e2f0fadafae3f92cea5c8c7109415c797487d2f0ffefed4e8885b1c0aa"
       },
       "decimals": 6,
       "element_coarse": [
         [
-          "f0dbc805add8601894c2f19366eec4c12ccc6cec71b7fbe61badacdfe19f407e"
+          "ea903133fe2082a6b343798d57e581c81e27dc48552c1e867465a346bce7ebcf"
         ],
         [
-          "4763fd8f91f9ea9491558a94366bdfd847fb5093b07247924e6da4525f4a0b92"
+          "e4d08fe44bfa82390f7667d24618b2eae64ec0a274342a1de78b339e3d72aee2"
         ]
       ],
       "element_coarse_any": [
         [
-          "e0ebeea600914abb9430d001ea6b41d8e9a4495745244e287262b69963108521",
-          "1788ce0590c8af8769e038a8dd393b8e6143bc35c52cff02b645780873f13cc5",
-          "7f2f8507941b7566b59f149f3d3d64ed9d6d188eede19c9f4c762160cb649b38",
-          "8a0e6e8e9c84775b5c884e9f7b583b1f491a1f72fdab0345a155ab61f5523186",
-          "a8ff718abedcccf7d6c75fbb0091f7ec34dd14807bbf281448ff97f8f66f0227"
+          "1e285f9120439bee410c6047ff7c87838a788e30c0b95f4e0b6aa20e0ef9af91",
+          "7b714e86446f8fa60d1f003965064df26a71ec87a8344a4be8bc91fa6fc5088c",
+          "5eb30f9b03fa3294e11b6c36a455d13d8f290c03c066004d96609ef616b1eb2d",
+          "e11a2ab1c31c06cc4f370f1043b5afa1541c819162534fc62572e70e4ea457c0",
+          "84b136d8e54012e5a227516cf28cc1267c5a1d0dad35a17a1aa7f7ff39783c8e"
         ],
         [
-          "4a606305d6146d23c1d736e21bf691a1305d5112613a299474233ab906c179b4",
-          "eb3df2a3862d1592f719843ccb30be798a4e11e94cebba181dfba3569c3e1bce",
-          "e00303f5e10b7eb124c424fc0bd2d111bfb5473e6100ba3a1cab87ddfeee4961",
-          "bff741fdbe976db42627ddc69fccf50312993874938c127a1c169201ac2457f9",
-          "dfd0bf535803fe3341ebad0ca15a2765dcc20e49ac14c089a529b64e1619e19e"
+          "efb7526b7297b0c95b6b5597617382b0a337827d21a6aeeacf6128f6978c7648",
+          "7c19ea44935b754118a46a3745efc7ecf4e356239d64512bc0dea041d6d8e8a0",
+          "35da35c3f92f3ea92de4adb6e7ea82b9329f436b2aff3720491a8d631d9ac70b",
+          "455b676a0314097f0c5781b8de942be9cbba1fab30bb841d6f052269871fe94d"
         ]
       ],
       "element_hashes": [
-        "5a5fc932df7101bc747b08cf2ed531afa9b5587d023602df101626edbce9922b",
-        "3f2a1b99cf8bd6c9a9fa865370126c5c37cc4cf302f04f0dd3aea7f2d76e1d08"
+        "1d6185c5c48794361265630175ac2940c96beb826cf54125faeecbcfa8f0bafb",
+        "83e84ca872b3dfda913c8783411273fecbcd230db637a7531a5703729edc3bd5"
       ],
-      "hash": "3f153951d6d1a8ce9e860ba588e5d35454d7d4b984610c887940593ea77602b0",
+      "hash": "eb2980d086afc0f3f0632c961b01ec0d34b9cf6d6999c7b32d1db6c486a561df",
       "kind": "array",
       "mistakes": {
-        "219c2595a7d986ff6c5c6064a5ec1c72a7ea1cf22e1c0f39257a247e158a585e": "un pas de descente RETRANCHE le gradient : x − η ∇f"
+        "d0ca0ef0e77a1d5830db35e374c9af349f836ec1861df2e313dd75dddedaa513": "un pas de descente RETRANCHE le gradient : x − η ∇f"
       },
       "shape": [
         2
@@ -64769,7 +64803,8 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "584bbe13915e874823d370d8b9efd3935417d0304b4c33635bb481bd5e9d9987": "forward_gradient fait une évaluation de trop (f(x) seul ?) : la valeur vient avec chaque passe, une passe par coordonnée suffit"
+        "584bbe13915e874823d370d8b9efd3935417d0304b4c33635bb481bd5e9d9987": "forward_gradient fait une évaluation de trop (f(x) seul ?) : la valeur vient avec chaque passe, une passe par coordonnée suffit",
+        "7530225d33539dde156ad1be229ba9ac9933de1c7198fceb9e803679e1163720": "un compteur par fonction : Counted(height_21) et Counted(range_21), pas un compteur cumulé"
       },
       "shape": [
         2
@@ -64973,7 +65008,7 @@
       "mistakes": {
         "181a8c589f3ba576db4996be8e6e891c53b88c2a3c42809d34dec3298998cfb3": "le gradient de ln det X est X⁻ᵀ, la transposée de X⁻¹",
         "a4f1672614f6714cc10a4bd7493c7b5feaa4986c068c45fd5c9565c947870ab6": "c'est le gradient de det X : dérive aussi le logarithme",
-        "b9c1270ed4b2bdb3d4ed4d09f0b3fda8e3e4b66a968a594dfdddfe9d3d958f27": "c'est ce que rend MatrixSymbol en SymPy 1.14, et c'est faux : dérive une matrice 2 × 2 de symboles"
+        "b9c1270ed4b2bdb3d4ed4d09f0b3fda8e3e4b66a968a594dfdddfe9d3d958f27": "c'est ce que rend MatrixSymbol en SymPy (1.13 et 1.14), et c'est faux : dérive une matrice 2 × 2 de symboles"
       },
       "shape": [
         2,
@@ -65005,12 +65040,11 @@
       "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
     },
     "M18.24c": {
-      "hash": "6f7d60e35a55e602bc6682f5075a6032d5bdb8790380fe8858e553b831e5e446",
+      "hash": "53f6d9e237f4185f40d445bf64ba5f9a9e615f6dda8d0f4a567c175874ad32fa",
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "53f6d9e237f4185f40d445bf64ba5f9a9e615f6dda8d0f4a567c175874ad32fa": "compte la passe avant (une multiplication par étape) ET les deux produits de chaque étape de la passe arrière",
-        "b3226bf3b805b7569c59ca041a512db6ca5be508b25183a98aeaae89e6bf593c": "la passe arrière compte aussi : deux produits par étape, l'adjoint de v_k et celui de u_(k−1)"
+        "b3226bf3b805b7569c59ca041a512db6ca5be508b25183a98aeaae89e6bf593c": "chaque étape de la passe arrière fait deux produits, un par arête qui arrive à u_k : l'adjoint de v_k et celui de u_(k−1)"
       },
       "prediction": true,
       "sign": 1,
@@ -65035,8 +65069,10 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
+        "0e6b86cb560b7f54029c458e7cd96591417c5e5c78ea380ac54016e8dda9d497": "le plus petit pas n'est pas le meilleur : les arrondis, divisés par 2h, grandissent quand h diminue",
         "9da4c790ddd8f46fe57cf2b2bb505612097c02623c636427fef9c49c236e4972": "cherche la PLUS PETITE erreur (np.argmin), pas la plus grande",
-        "ba59fe2548594cd82db1e99a23bb92ed5e0c5dfc11380500e167b5acbae1500e": "np.argmin rend un INDICE, qui part de 0, alors que la liste des pas commence à h = 10⁻¹"
+        "ac6c3e7fcf044cc30e88f00ea1c5259ccb8dc1c596dd2cead89647b325f16564": "relis errors_25 : le minimum est à un autre pas ; attention, np.argmin compte à partir de 0",
+        "ba59fe2548594cd82db1e99a23bb92ed5e0c5dfc11380500e167b5acbae1500e": "relis errors_25 : le minimum est à un autre pas ; attention, np.argmin compte à partir de 0"
       },
       "sign": 1,
       "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
@@ -65056,7 +65092,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "71d340efcb1a697ea42813f16c2d1338fe13f32c9a832fe2314170673c710a3d": "à droite, l'erreur diminue avec h : la courbe y monte quand on va vers la droite",
+        "71d340efcb1a697ea42813f16c2d1338fe13f32c9a832fe2314170673c710a3d": "à droite (grands h), l'erreur grandit avec h, comme h² : la pente est positive",
         "8f8252c4a23f76546e0c48d2d7996acef48bbbf6bb96d03107fc8eba305223da": "l'erreur de troncature d'une différence CENTRÉE est d'un ordre plus élevé que celle d'une différence avant (M05a)"
       },
       "sign": 1,
@@ -65087,22 +65123,22 @@
           "a40c1711d54b17c0b606123c2d3f80580eb0205e0a8d416f9837a3766e0129d7"
         ],
         "1": [
-          "a3017db2b23dab22e6616e6b7a66eba560c07846b7be757404adf02a9e25c8db"
+          "9068aa705edf89a23ebd1ed65a0f157b98468ff6695ec152c0a0b6e3c781d55a"
         ]
       },
       "coarser": {
         "2": [
-          "d677511ea33b9c34617cc487be9385c7fe4e9c6ec1e65a3df461863f77411ec8"
+          "de6869fdff281b7a3efe19fddc90b3f9031f5a9153415785b62efc8ac0fdce06"
         ]
       },
       "decimals": 4,
-      "hash": "ebc795349fa8e309f3d77a17968f12044e426de462a589b9fe60d481023fd76b",
-      "hash_coarse": "69645f957f89a3551358ec0d8eb7ecd241e1395e90c1836fcfcfa0c3d6ab0edf",
+      "hash": "e9947f8a38f76d4999038f82edab68058a61cd3e65812383402fc0a5462abf55",
+      "hash_coarse": "a07a93ee50a98842fb9c8821751e1c2d422fcbfa69c3b9f87e247c525e2a3f26",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "5cf10ba470f3ebde54515cb5597d7c342f6973a7ac17e2335ba25004d1d1e7c7": "a) demande ce que RENVOIE la passe du collègue : refais-la ligne à ligne, telle qu'elle est écrite",
-        "b8789c53a6b28946b1d668560f1a8d804ae0b7f37bfb775799be5bdf3551fdf6": "relis la ligne qui calcule x_bar : par quel chemin passe le seul terme qu'elle garde ?"
+        "0337d090d4f9af2ee6691fabff272b8dbc87418b96a6a5d6a7c931e992980dbc": "relis la ligne qui calcule x_bar : par quel chemin passe le seul terme qu'elle garde ?",
+        "51f18b1b6625b120595c01145274bafb446ed26813239cde722f679aebe05b0d": "a) demande ce que RENVOIE la passe du collègue : refais-la ligne à ligne, telle qu'elle est écrite"
       },
       "sign": -1,
       "source": "chapitres/m18_retropropagation/05_solutions.ipynb"
@@ -65111,31 +65147,34 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "30a0a0a65012057a5c2ed268f7597f1700a5ab8a47c929e4ecdf6686ecf82eb7"
+          "ecb9b22607c1298e287e2a4226fcf5750825eb7f4e7971a34d610f3a56f84358"
         ],
         [
-          "b0d08394c184193ea319d1b90ce90c2e78ee5aa2beb2ad6655888bfdcd8d3a11"
+          "d5695d6b8f889a4516945306bb3faac10914d032e5904b8bd137540fdf78117f"
         ]
       ],
       "element_coarse_any": [
         [
-          "4909dc255478be7f2d228e5d43bf07db06964f0b7407d4d0e25782d4a48ba05d",
-          "9580a242ccea430f3b984226a14287c1adaab0abf1729c37c6206196bc17b6a9"
+          "d77027ab243497def98d02dc5447d1f3a05e6d18d3d7c13825528f949a8b105f",
+          "2662460db942d092d40c1200a9858bbb45ad490ccf510efa2bc7ef9f9c789c0b",
+          "7c030a29e9c05b18e00debfbb8001c95d0c632a1c97eb57ab911b287dd67d907"
         ],
         [
-          "0ebe390ee1140471dd3da2ff9b19e13909e84fdb1eba700225b31f4ee3ee0b10",
-          "b16b889919bd413bf8cac22daa658f260137d9280432848f06b265d261cd410a"
+          "c50df1f9a3bbc65337b07b8dc4e066866a685885276000e07915f4f514d9b931",
+          "b4335a6cee02495e0fa259ef5a85069b79f558a22bfb434eef8e0847bcd12b51",
+          "b5de6619e452387dc195a8aecf158aa87e88c001c6f4adeab76eb6e39e79aa0b"
         ]
       ],
       "element_hashes": [
-        "9fbc72afce393e0873b9f7e2566a49252723109dbcf5217118cc14c44227059c",
-        "17212043e4ac89081faee9e787a5356dff74ae9e583c4216c62974e469fae040"
+        "b22266bf268a38adc5e57987da74f09a4aab27bf6c5e7ebc031cf818783b9436",
+        "9c383dffac28c84df3adb984011265cc37903a13c2e8251bcfa01ff17d5e4c23"
       ],
-      "hash": "4f2905cb123962ce3eab91be11719d3d9a57b3a9db67521d4b898e4da3220e07",
+      "hash": "4d4d98f7a7e7bd0ada28f7c7cf8b880b63c748a05869e72cb51fb3bd85d8d55b",
       "kind": "array",
       "mistakes": {
-        "ac1884ff4fc031cba6fedabca7f470b0c33e65082813c580accb005fc5da99e6": "la contribution de u₁ = xy à x̄ compte aussi : ū₁ × y",
-        "c6d7ee69c15807e66a19fde97bd75344fbd4eb7fa44dcc2edcc27e5741493a04": "x a deux successeurs, u₁ = xy et f = x u₂ : son adjoint est la somme de leurs deux contributions ; un chemin est oublié"
+        "681c54ee36ed41b03517836d0abc35d3360cdce00feeb864b999baa140cb0416": "la contribution de u₁ = xy à x̄ compte aussi : ū₁ × y",
+        "9c8df20c819e5176b2bd6097f623a405889b629edaaf8592d14d409393d6cb38": "garde les deux derniers éléments : le gradient",
+        "a2918bb775ffdf883b1ee938ae50de409be41defbdb35dbb428f27dd88c03fc4": "x a deux successeurs, u₁ = xy et f = x u₂ : son adjoint est la somme de leurs deux contributions ; un chemin est oublié"
       },
       "shape": [
         2

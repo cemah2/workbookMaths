@@ -694,7 +694,7 @@ Compte d'abord les multiplications d'une seule évaluation de $f$, un produit de
 </details>
 <details><summary>Indice 3</summary>
 
-Dans `product_by_hand_24`, compte les multiplications faites à chaque tour de chaque boucle, et le nombre de tours. Pour d), écris chacun des deux comptes comme une fonction de $n$, puis remplace $n$ par 16.
+Dans `product_by_hand_24`, seule la boucle de la passe arrière est comptée : combien de produits « adjoint × dérivée locale » fait-elle à chaque tour (une arête par produit), et combien de tours ? Pour d), écris chacun des deux comptes comme une fonction de $n$, puis remplace $n$ par 16.
 
 </details>
 
@@ -743,12 +743,12 @@ Fiche §4 (un nœud qui a plusieurs successeurs), §7 (le gradient de $\operator
 </details>
 <details><summary>Indice 2</summary>
 
-(1) `np.random.default_rng(5137).normal(size=X_27.shape)`. (2) Dessine le graphe de $f(x, y) = x\sin(xy)$ : combien d'arêtes partent de $x$ ? Chacune apporte un terme à $\bar{x}$. (3) Le pas que conseillent M05a et la fiche §8.
+(1) `np.random.default_rng(5137).normal(size=X_27.shape)`. (2) Dessine le graphe de $f(x, y) = x\sin(xy)$ : combien d'arêtes partent de $x$ ? Chacune apporte un terme à $\bar{x}$. (3) Le pas que conseillent M05a et la fiche §8, de l'ordre de $10^{-5}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) Refais la passe du collègue en $(1, 2)$ : $u_1 = 2$, $u_2 = \sin 2$, $\bar{u}_2 = x = 1$, $\bar{u}_1 = \cos 2$, puis sa ligne de `x_bar`. (2) La ligne de `x_bar` doit avoir deux termes : celui du chemin direct $x \to f$, $\bar{f}\,u_2$, et celui qui passe par $u_1$. (1) La fiche §7 donne le gradient de $\operatorname{tr}(\mathbf{A}\mathbf{X})$ ; vérifie la forme sur une matrice $\mathbf{A}$ qui n'est pas carrée.
+a) Refais la passe de `adjoints_27` en $(1{,}5 ;\ -0{,}5)$ : $u_1 = xy = -0{,}75$, $u_2 = \sin u_1$, $\bar{u}_2 = x = 1{,}5$, $\bar{u}_1 = 1{,}5\cos(-0{,}75)$, puis sa ligne de `x_bar`. (2) Dans `adjoints_27_fixed`, la ligne de `x_bar` doit avoir deux termes : celui du chemin direct $x \to f$, $\bar{f}\,u_2$, et celui qui passe par $u_1$. (1) La fiche §7 donne le gradient de $\operatorname{tr}(\mathbf{A}\mathbf{X})$ ; vérifie la forme sur une matrice $\mathbf{A}$ qui n'est pas carrée.
 
 </details>
 

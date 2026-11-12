@@ -69,7 +69,8 @@ PAPER = [
          '''kind="fraction", simplified=True,
            mistakes={"r n'agit que par u₂ = R + r, au dénominateur : quand r augmente, P diminue":
                          str(-sympy.diff(P_2, r_2).subs(AT_2))}'''),
-        ("g", "a number", "int(sympy.solve(sympy.diff(P_2.subs({E_2: 12, r_2: 2}), RES_2), RES_2)[0])"),
+        ("g", "a number", "int(sympy.solve(sympy.diff(P_2.subs({E_2: 12, r_2: 2}), RES_2), RES_2)[0])",
+         '''mistakes={"4 est la valeur de R dans l'énoncé : cherche où ∂P/∂R s'annule, pour R quelconque": 4}'''),
     ]),
 
     Paper("M18.3", "Le mode direct à la main : des nombres duaux sur une fonction de deux variables", [
@@ -98,10 +99,12 @@ PAPER = [
         ("d", "a list of 2 numbers: [p̄, q̄]", "flat([BAR_P_4, BAR_Q_4])",
          '''decimals=6, mistakes={"q a deux successeurs, u₁ et u₂ : q̄ reçoit aussi la contribution de u₂":
                          flat([BAR_P_4, BAR_U1_4 * P_4])}'''),
-        ("e", "a number", "float(BAR_P_4 * R(1, 10) + BAR_Q_4 * R(-5, 100))",
-         '''decimals=6, mistakes={"(3,1 ; 0,95) − (3 ; 1) = (0,1 ; −0,05) : le pas en q est négatif":
-                         float(BAR_P_4 * R(1, 10) + BAR_Q_4 * R(5, 100))}'''),
-        ("f", "a number (3 decimals)", "float(F_FUN_4(R(31, 10), R(95, 100)) - F_4)", "decimals=3"),
+        ("e", "a number", "float(2 * BAR_P_4 - 1 * BAR_Q_4)",
+         '''decimals=6, mistakes={"sans normaliser v : la dérivée dans la direction v est ∇f · v, avec v tel quel":
+                         {round(float((2 * BAR_P_4 - BAR_Q_4) / sympy.sqrt(5)), k) for k in (3, 4, 6)}}'''),
+        ("f", LIST2, "dual_3(F_FUN_4(3 + 2 * eps_, 1 - eps_))",
+         '''decimals=6, mistakes={"la partie en ε suit la graine (2, −1) : q = 1 − ε, sa tangente est négative":
+                         [6, -dual_3(F_FUN_4(3 + 2 * eps_, 1 - eps_))[1]]}'''),
     ]),
 
     Paper("M18.5", "Le même gradient par les deux modes, et le compte des opérations", [
@@ -224,7 +227,8 @@ PAPER = [
         ("a", "a matrix of one row: [[a, b]]", "rows(ROW_16)",
          '''mistakes={"le gradient de bᵀx est b : n'oublie pas ce terme": rows(ROW_16 - b_16.T),
                      "A n'est pas symétrique : le gradient de xᵀAx est xᵀ(A + Aᵀ), pas 2Ax":
-                         rows((2 * A_16 * x_16 + b_16).T)}'''),
+                         rows((2 * A_16 * x_16 + b_16).T),
+                     "écris une matrice d'une ligne : [[7, 13]]": flat(ROW_16)}'''),
         ("b", "a list of 1 integer", "[2]",
          '''mistakes={"dans NumPy, le gradient a la forme de x, un tableau à un indice : pas celle d'une ligne de MML":
                          [1, 2]}'''),
@@ -232,8 +236,8 @@ PAPER = [
          '''mistakes={"l'ordre demandé : la forme du gradient d'abord, puis celle de la jacobienne": [[1, 12], [3, 4]],
                      "la jacobienne d'une fonction réelle a UNE ligne (une sortie) et une colonne par entrée":
                          [[3, 4], [12, 1]]}'''),
-        ("d", "a list of 2 numbers", "flat(x_16 - R(5, 100) * ROW_16.T)",
-         '''decimals=6, mistakes={"un pas de descente RETRANCHE le gradient : x − η ∇f": flat(x_16 + R(5, 100) * ROW_16.T)}'''),
+        ("d", "a list of 2 numbers", "flat(x_16 - R(1, 8) * ROW_16.T)",
+         '''decimals=6, mistakes={"un pas de descente RETRANCHE le gradient : x − η ∇f": flat(x_16 + R(1, 8) * ROW_16.T)}'''),
         ("e", "a list of 3 integers", "[5, 3, 2]"),
     ]),
 ]
@@ -460,7 +464,7 @@ def tests_cells(keyword: str) -> list:
 
 
 M18_20 = Ex(
-    "M18.20", "🔨", 2, 30, "Les nombres duaux : la classe `Dual`, et la dérivée d'une fonction d'une variable · "
+    "M18.20", "🔨", 2, 45, "Les nombres duaux : la classe `Dual`, et la dérivée d'une fonction d'une variable · "
     "`Dual, dual_derivative`",
     "programmer l'arithmétique des nombres duaux $a + b\\varepsilon$, $\\varepsilon^2 = 0$, et en tirer la dérivée "
     "exacte d'une fonction d'une variable, sans pas $h$.", "fiche §3 ; workbookIA 0A (surcharge d'opérateurs)",
@@ -579,7 +583,9 @@ wbm.record("M18.21b", [2 * math.sqrt(2), 40 * math.sqrt(2)], decimals=4,
                          [42 * math.sqrt(2)] * 2})
 wbm.record("M18.21c", [3, 2],
            mistakes={"forward_gradient fait une évaluation de trop (f(x) seul ?) : la valeur vient avec chaque passe, "
-                     "une passe par coordonnée suffit": [4, 3]})'''),
+                     "une passe par coordonnée suffit": [4, 3],
+                     "un compteur par fonction : Counted(height_21) et Counted(range_21), pas un compteur cumulé":
+                         [3, 5]})'''),
     ],
     note=r"a) $\left(\frac{\partial y}{\partial v}, \frac{\partial y}{\partial\theta}, \frac{\partial y}{\partial t}"
          r"\right) = (t\sin\theta,\ vt\cos\theta,\ v\sin\theta - 10t) = (0{,}25 ;\ 5\sqrt3 \approx 8{,}6603 ;\ 5)$, les "
@@ -681,14 +687,14 @@ a_23 = np.array([1.0, 2.0])
 b_23 = np.array([-1.0, 4.0])'''
 
 M18_23 = Ex(
-    "M18.23", "📦", 1, 15, "SymPy : dériver une fonction de matrice symbolique, et comparer aux identités",
+    "M18.23", "📦", 1, 25, "SymPy : dériver une fonction de matrice symbolique, et comparer aux identités",
     "dériver des fonctions de matrices avec `sympy.MatrixSymbol`, comparer aux identités de la fiche, et repérer un "
     "cas où SymPy se trompe sans prévenir.", "fiche §7", tracks="C", given=GIVEN_23,
     body=r"""SymPy dérive aussi des expressions de **matrices symboliques** : `X = sympy.MatrixSymbol("X", 2, 2)` est une matrice $2 \times 2$ dont on ne connaît pas les coefficients, et `expr.diff(X)` rend le gradient par rapport à `X`, de la forme de `X` (la convention de la fiche). Avec `A = sympy.MatrixSymbol("A", 2, 2)`, et `a`, `b` de forme $(2, 1)$ :
-- `sympy.trace(A * X).diff(X)`, `sympy.trace(X.T * A * X).diff(X)` et `(a.T * X * b).diff(X)` rendent des expressions de matrices (une forme bilinéaire est une matrice $1 \times 1$, que SymPy dérive sans en extraire le coefficient) ;
+- `sympy.trace(A * X).diff(X)`, `sympy.trace(X.T * A * X).diff(X)` et `(a.T * X * b).diff(X)` rendent des expressions de matrices ;
 - `expr.subs({A: sympy.Matrix(A_23), X: sympy.Matrix(X_23), a: sympy.Matrix(a_23), b: sympy.Matrix(b_23)}).doit()` les évalue en des matrices de nombres, et `np.array(..., dtype=float)` en fait des tableaux NumPy.
 
-⚠️ Pour $\ln\det\mathbf{X}$, essaie `sympy.log(sympy.Determinant(X)).diff(X)` : SymPy 1.14 rend `0`, sans prévenir, et c'est faux. Passe alors par une matrice de **symboles**, `sympy.Matrix(2, 2, sympy.symbols("x11 x12 x21 x22"))`, dont `.det()` est un polynôme : dérive $\ln\det$ par rapport à chacun des quatre symboles, range les dérivées comme la matrice, puis remplace les symboles par les coefficients de `X_23`.
+⚠️ Pour $\ln\det\mathbf{X}$, essaie `sympy.log(sympy.Determinant(X)).diff(X)` : SymPy (1.13 et 1.14) rend `0`, sans prévenir, et c'est faux. Passe alors par une matrice de **symboles**, `sympy.Matrix(2, 2, sympy.symbols("x11 x12 x21 x22"))`, dont `.det()` est un polynôme : dérive $\ln\det$ par rapport à chacun des quatre symboles, range les dérivées comme la matrice, puis remplace les symboles par les coefficients de `X_23`.
 
 La cellule fournie donne $\mathbf{A}$ (`A_23`), $\mathbf{X}$ (`X_23`, qui n'est pas symétrique et dont le déterminant est positif), $\mathbf{a}$ et $\mathbf{b}$ (`a_23`, `b_23`). Calcule avec SymPy :
 - a) le gradient de $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X})$ par `MatrixSymbol`, évalué en `A_23` et `X_23` (une matrice) ;
@@ -738,7 +744,7 @@ wbm.record("M18.23b", True,
                      "l'identité de la fiche avec np.allclose": False})
 wbm.record("M18.23c", inverse_23r.T.tolist(), decimals=4,
            mistakes={"le gradient de ln det X est X⁻ᵀ, la transposée de X⁻¹": inverse_23r.tolist(),
-                     "c'est ce que rend MatrixSymbol en SymPy 1.14, et c'est faux : dérive une matrice 2 × 2 de "
+                     "c'est ce que rend MatrixSymbol en SymPy (1.13 et 1.14), et c'est faux : dérive une matrice 2 × 2 de "
                      "symboles": [[0, 0], [0, 0]],
                      "c'est le gradient de det X : dérive aussi le logarithme":
                          (np.linalg.det(x_mat_23r) * inverse_23r.T).tolist()})''',
@@ -764,12 +770,12 @@ def product_24(v):
 
 def product_by_hand_24(v, counter):
     """f(v) = v_1 ... v_n and its gradient, by a forward pass then a backward pass written by hand:
-    u_1 = v_1, u_k = u_(k-1) v_k, f = u_n. counter[0] counts the multiplications."""
+    u_1 = v_1, u_k = u_(k-1) v_k, f = u_n. counter[0] counts the products « adjoint × local derivative » of the
+    backward pass."""
     n = len(v)
-    u = [v[0]]                                   # forward pass: keep every u_k
+    u = [v[0]]                                   # forward pass: keep every u_k (not counted)
     for k in range(1, n):
         u.append(u[k - 1] * v[k])
-        counter[0] += 1
     v_bar = [0.0] * n
     u_bar = 1.0                                  # the adjoint of f = u_n
     for k in range(n - 1, 0, -1):                # backward pass, u_k = u_(k-1) · v_k
@@ -817,7 +823,7 @@ EXPERIMENT_24 = '''with checked("M18.24"):
         counter_24 = [0]
         _, by_hand_24 = product_by_hand_24(values_n_24, counter_24)
         print(f"n = {n_24} : mode direct, {passes_24} évaluations de f et {products_24} multiplications de duals ; "
-              f"passe avant et passe arrière à la main, {counter_24[0]} multiplications ; mêmes gradients : "
+              f"passe arrière à la main, {counter_24[0]} produits « adjoint × dérivée locale » ; mêmes gradients : "
               f"{bool(np.allclose(gradient_24, by_hand_24))}")'''
 
 M18_24 = Ex(
@@ -827,13 +833,13 @@ M18_24 = Ex(
     given=GIVEN_24,
     body=r"""On dérive $f(\mathbf{v}) = v_1v_2\cdots v_n$, le produit de $n$ nombres calculé une multiplication après l'autre (`product_24`), en $n = 8$ nombres (`VALUES_24`), de deux façons :
 - en **mode direct**, avec **ta** classe `Dual` : une passe par entrée, comme `forward_gradient` (la passe $i$ évalue $f$ sur les duaux `Dual(v_j, 1.0 if j == i else 0.0)`) ;
-- en **mode inverse**, par une passe avant puis une passe arrière **écrites à la main** (`product_by_hand_24`, cellule fournie) : $u_1 = v_1$, $u_k = u_{k-1}v_k$, $f = u_n$, puis, de $k = n$ à 2, $\bar{v}_k = \bar{u}_k\,u_{k-1}$ et $\bar{u}_{k-1} = \bar{u}_k\,v_k$, et enfin $\bar{v}_1 = \bar{u}_1$ ; son compteur compte ses multiplications.
+- en **mode inverse**, par une passe avant puis une passe arrière **écrites à la main** (`product_by_hand_24`, cellule fournie) : $u_1 = v_1$, $u_k = u_{k-1}v_k$, $f = u_n$, puis, de $k = n$ à 2, $\bar{v}_k = \bar{u}_k\,u_{k-1}$ et $\bar{u}_{k-1} = \bar{u}_k\,v_k$, et enfin $\bar{v}_1 = \bar{u}_1$ ; son compteur ne compte que les produits « adjoint × dérivée locale » de la passe arrière, comme en M18.5 g).
 
-L'expérience compte, pour $n = 8$ puis $n = 16$, les évaluations de $f$ et les multiplications de duals du mode direct (les appels de `Dual.__mul__` et `Dual.__rmul__` de ta classe, enveloppés le temps des passes), et les multiplications de la passe à la main ; elle compare aussi les deux gradients. Pour chaque question, écris un entier (le numéro du choix pour d) :
+L'expérience compte, pour $n = 8$ puis $n = 16$, les évaluations de $f$ et les multiplications de duals du mode direct (les appels de `Dual.__mul__` et `Dual.__rmul__` de ta classe, enveloppés le temps des passes), et les produits de la passe arrière à la main ; elle compare aussi les deux gradients. Pour chaque question, écris un entier (le numéro du choix pour d) :
 - a) pour $n = 8$, le nombre d'évaluations de $f$ du mode direct, pour tout le gradient ;
 - b) pour $n = 8$, le nombre total de multiplications de duals, sur toutes les passes ;
-- c) pour $n = 8$, le nombre de multiplications de `product_by_hand_24` (passe avant et passe arrière) ;
-- d) quand $n$ passe de 8 à 16 : (1) les deux comptes doublent environ ; (2) celui du mode direct est multiplié par 4 environ, celui de la passe à la main par 2 environ ; (3) les deux sont multipliés par 4 environ ; (4) celui du mode direct double environ, celui de la passe à la main est multiplié par 4 environ.
+- c) pour $n = 8$, le nombre de produits « adjoint × dérivée locale » de la passe arrière de `product_by_hand_24` ;
+- d) quand $n$ passe de 8 à 16 : (1) les deux comptes, b) et c), doublent environ ; (2) celui du mode direct est multiplié par 4 environ, celui de la passe arrière par 2 environ ; (3) les deux sont multipliés par 4 environ ; (4) celui du mode direct double environ, celui de la passe arrière est multiplié par 4 environ.
 
 **Avant d'exécuter quoi que ce soit**, écris tes quatre prédictions, vérifie-les, puis lance l'expérience.""",
     todo='''prediction_M18_24a = ...  # a) an integer, written BEFORE running the experiment below
@@ -849,11 +855,9 @@ wbm.record("M18.24a", n_24r, prediction=True,
 wbm.record("M18.24b", n_24r * (n_24r - 1), prediction=True,
            mistakes={"le produit de n nombres demande n − 1 multiplications par passe": n_24r * n_24r,
                      "le mode direct refait tout le calcul à chaque passe, une passe par entrée": n_24r - 1})
-wbm.record("M18.24c", 3 * (n_24r - 1), prediction=True,
-           mistakes={"compte la passe avant (une multiplication par étape) ET les deux produits de chaque étape de la "
-                     "passe arrière": 2 * (n_24r - 1),
-                     "la passe arrière compte aussi : deux produits par étape, l'adjoint de v_k et celui de u_(k−1)":
-                         n_24r - 1})
+wbm.record("M18.24c", 2 * (n_24r - 1), prediction=True,
+           mistakes={"chaque étape de la passe arrière fait deux produits, un par arête qui arrive à u_k : l'adjoint de "
+                     "v_k et celui de u_(k−1)": n_24r - 1})
 wbm.record("M18.24d", 2, prediction=True, choices=[1, 2, 3, 4])''',
     after=[
         ("md", "**L'expérience.** Elle ne s'exécute qu'une fois tes quatre prédictions écrites."),
@@ -862,15 +866,17 @@ wbm.record("M18.24d", 2, prediction=True, choices=[1, 2, 3, 4])''',
         ("solution", EXPERIMENT_24),
         ("md", "**Après l'expérience**, dans ta copie : écris les deux comptes pour $n$ quelconque, et dis comment "
                "chacun grandit avec $n$. D'où vient le carré du mode direct (combien de passes, et combien de "
-               "multiplications par passe) ? Que doit garder en mémoire la passe à la main, et le mode direct ? Pour "
+               "multiplications par passe) ? Combien de fois la passe arrière passe-t-elle sur chaque arête ? Que doit "
+               "garder en mémoire la passe arrière, et le mode direct ? Pour "
                "une fonction de $\\mathbb{R}$ dans $\\mathbb{R}^{1\\,000}$, lequel des deux modes choisirais-tu "
                "(fiche §5) ?"),
     ],
     note=r"a) 8 évaluations, une par entrée. b) Chaque passe refait les $n - 1 = 7$ multiplications : $8 \times 7 = "
-         r"56$, soit $n(n - 1)$. c) $n - 1 = 7$ dans la passe avant, puis deux par étape dans la passe arrière, $2(n - "
-         r"1) = 14$ : $3(n - 1) = 21$. d) Choix 2 : pour $n = 16$, $16 \times 15 = 240$ (×4,3) contre 45 (×2,1). Le "
-         r"mode direct grandit comme $n^2$ ($n$ passes de $n - 1$ produits), la passe à la main comme $n$ (une fois "
-         r"chaque arête dans chaque sens). En échange, elle garde les $n$ valeurs $u_k$ de la passe avant ; le mode "
+         r"56$, soit $n(n - 1)$. c) Le graphe a $2(n - 1)$ arêtes, deux par nœud $u_k$ ($u_{k-1} \to u_k$ et $v_k \to "
+         r"u_k$), et la passe arrière fait un produit « adjoint × dérivée locale » par arête : $2(n - 1) = 14$, comme "
+         r"en M18.5 g). d) Choix 2 : de 56 à $16 \times 15 = 240$ (×4,3) pour le mode direct, de 14 à 30 (×2,1) pour la "
+         r"passe arrière. Le mode direct grandit comme $n^2$ ($n$ passes de $n - 1$ produits), la passe arrière comme "
+         r"$n$ (une fois chaque arête). En échange, elle garde les $n$ valeurs $u_k$ de la passe avant ; le mode "
          r"direct ne garde que le nœud en cours. Pour $\mathbb{R} \to \mathbb{R}^{1\,000}$, une seule passe directe "
          r"suffit.",
 )
@@ -937,9 +943,7 @@ with wbm.attempt("M18.25"):          # dual_derivative: ⏳ while it is not writ
 ''' + "\n".join("        " + line if line else "" for line in FIGURE_25.splitlines()) + '''
     else:
         print("⏳ Ex M18.25 : la figure attend tes treize erreurs, errors_25.")
-for letter, answer in zip("ab", [answer_M18_25a, answer_M18_25b]):
-    wbm.check(f"M18.25{letter}", answer, computed=True)
-for letter, answer in zip("cd", [answer_M18_25c, answer_M18_25d]):
+for letter, answer in zip("abcd", [answer_M18_25a, answer_M18_25b, answer_M18_25c, answer_M18_25d]):
     wbm.check(f"M18.25{letter}", answer)
 wbm.check("M18.25e", answer_M18_25e, computed=True)''',
     solution='''x_25 = sympy.Symbol("x")
@@ -965,8 +969,10 @@ errors_25r = [abs((math.exp(math.sin(1 + h)) - math.exp(math.sin(1 - h))) / (2 *
               for h in [10.0 ** -k for k in range(1, 14)]]
 best_25r = int(np.argmin(errors_25r))
 wbm.record("M18.25a", best_25r + 1,
-           mistakes={"np.argmin rend un INDICE, qui part de 0, alors que la liste des pas commence à h = 10⁻¹":
-                         best_25r,
+           mistakes={"le plus petit pas n'est pas le meilleur : les arrondis, divisés par 2h, grandissent quand h "
+                     "diminue": len(errors_25r),
+                     "relis errors_25 : le minimum est à un autre pas ; attention, np.argmin compte à partir de 0":
+                         {best_25r, best_25r + 2},
                      "cherche la PLUS PETITE erreur (np.argmin), pas la plus grande": int(np.argmax(errors_25r)) + 1})
 wbm.record("M18.25b", math.floor(math.log10(errors_25r[best_25r])),
            mistakes={"entre 10^m et 10^(m+1) : la partie entière de log₁₀ de l'erreur, vers le bas (math.floor), pas "
@@ -974,7 +980,7 @@ wbm.record("M18.25b", math.floor(math.log10(errors_25r[best_25r])),
 wbm.record("M18.25c", 2,
            mistakes={"l'erreur de troncature d'une différence CENTRÉE est d'un ordre plus élevé que celle d'une "
                      "différence avant (M05a)": 1,
-                     "à droite, l'erreur diminue avec h : la courbe y monte quand on va vers la droite": -2})
+                     "à droite (grands h), l'erreur grandit avec h, comme h² : la pente est positive": -2})
 wbm.record("M18.25d", -1,
            mistakes={"à gauche, l'erreur GRANDIT quand h diminue : la pente y est négative": 1,
                      "les arrondis de f(1 ± h), de taille fixe, sont divisés par 2h, pas par h²": -2})
@@ -1092,7 +1098,7 @@ CHECK_26 = '''with checked("M18.26"):
                                        "locales et adjoints.", "relis les lignes ❌ ci-dessus.")'''
 
 M18_26 = Ex(
-    "M18.26", "🎨", 1, 20, "Dessiner un graphe de calcul, avec les dérivées locales sur les arêtes et les adjoints "
+    "M18.26", "🎨", 1, 30, "Dessiner un graphe de calcul, avec les dérivées locales sur les arêtes et les adjoints "
     "sur les nœuds",
     "dessiner le graphe de calcul d'une formule avec les valeurs de la passe avant, les dérivées locales des arêtes et "
     "les adjoints de la passe arrière.", "fiche §1, §2 et §4", tracks="C", given=GIVEN_26,
@@ -1173,15 +1179,17 @@ print("3 r̄₁ + 6 r̄₂ =", 3 * ADJOINTS_26["r1"] + 6 * ADJOINTS_26["r2"], ";
          r"donne $r_1\bar{r}_1 + r_2\bar{r}_2 = R$. La plus petite résistance, $r_1$, fait bouger $R$ quatre fois plus.",
 )
 
-GIVEN_27 = '''A_27 = np.array([[1.0, 4.0],
-                 [-2.0, 0.5]])
+GIVEN_27 = """A_27 = np.array([[2.0, 3.0],
+                 [-1.5, 1.0]])
 X_27 = np.array([[1.5, 0.0],
                  [-1.0, 2.5]])
+POINT_27 = np.array([1.5, -0.5])               # the point (x, y) of (2) and (3)
+DIRECTION_27 = np.array([1.0, -1.0])           # the direction of the colleague's check in (3)
 
 
 def check_along(f, G, X, H, h=1e-5):
-    """Compare the central difference of f along the direction H with the prediction Σ G ⊙ H (fiche §8). Returns
-    (True when they differ by less than 1e-6, the central difference, the prediction)."""
+    \"\"\"Compare the central difference of f along the direction H with the prediction Σ G ⊙ H (fiche §8). Returns
+    (True when they differ by less than 1e-6, the central difference, the prediction).\"\"\"
     X, H = np.asarray(X, dtype=float), np.asarray(H, dtype=float)
     numerical = (f(X + h * H) - f(X - h * H)) / (2 * h)
     predicted = float(np.sum(np.asarray(G, dtype=float) * H))
@@ -1189,29 +1197,29 @@ def check_along(f, G, X, H, h=1e-5):
 
 
 def trace_27(X):
-    """f(X) = tr(A_27 X)."""
+    \"\"\"f(X) = tr(A_27 X).\"\"\"
     return float(np.trace(A_27 @ X))
 
 
 def f_27(p):
-    """f(x, y) = x sin(x y), for p = (x, y)."""
+    \"\"\"f(x, y) = x sin(x y), for p = (x, y).\"\"\"
     return p[0] * math.sin(p[0] * p[1])
 
 
 def gradient_27(p):
-    """The gradient of f_27 at p by its formula, (sin(xy) + xy cos(xy), x² cos(xy)): right (checked)."""
+    \"\"\"The gradient of f_27 at p by its formula, (sin(xy) + xy cos(xy), x² cos(xy)): right (checked).\"\"\"
     x, y = p
     return np.array([math.sin(x * y) + x * y * math.cos(x * y), x ** 2 * math.cos(x * y)])
 
 
 # The colleague's code
 def grad_trace(A, X):
-    """The gradient of X ↦ tr(A X), of the shape of X."""
+    \"\"\"The gradient of X ↦ tr(A X), of the shape of X.\"\"\"
     return A
 
 
-def backward_27(x, y):
-    """f(x, y) = x sin(x y) and its gradient (∂f/∂x, ∂f/∂y), by a forward pass then a backward pass, line by line."""
+def adjoints_27(x, y):
+    \"\"\"f(x, y) = x sin(x y) and its gradient (∂f/∂x, ∂f/∂y), by a forward pass then a backward pass, line by line.\"\"\"
     u1 = x * y                       # forward pass
     u2 = math.sin(u1)
     f = x * u2
@@ -1225,9 +1233,9 @@ def backward_27(x, y):
 
 print("(1) check_along de grad_trace le long de I :", check_along(trace_27, grad_trace(A_27, X_27), X_27, np.eye(2)))
 print("(3) check_along de gradient_27 avec h = 1e-13 :",
-      check_along(f_27, gradient_27((1.0, 2.0)), np.array([1.0, 2.0]), np.array([1.0, -1.0]), h=1e-13))'''
+      check_along(f_27, gradient_27(POINT_27), POINT_27, DIRECTION_27, h=1e-13))"""
 
-CHECK_27 = '''results_27, parts_27 = [], []
+CHECK_27 = """results_27, parts_27 = [], []
 
 
 def report_27(ok, success, failure):
@@ -1262,33 +1270,34 @@ with checked("M18.27"):                                       # (1) the directio
               + " ; ".join(wrong_27[:2]))
     parts_27.append(1)
 
-with checked("M18.27"):                                       # (2) backward_27_fixed
+with checked("M18.27"):                                       # (2) adjoints_27_fixed
     wrong_27 = []
-    for point_27 in [(1.0, 2.0), *np.random.default_rng(5139).normal(size=(4, 2)).tolist()]:
-        got_27 = backward_27_fixed(*point_27)
+    for point_27 in [tuple(POINT_27), *np.random.default_rng(5139).normal(size=(4, 2)).tolist()]:
+        got_27 = adjoints_27_fixed(*point_27)
         want_27 = [f_27(point_27), *gradient_27(point_27)]
         if not (isinstance(got_27, tuple) and len(got_27) == 3 and np.allclose(np.asarray(got_27, dtype=float),
                                                                                 want_27)):
             wrong_27.append(f"en {np.round(point_27, 3).tolist()} : attendu {np.round(want_27, 4).tolist()}, reçu "
                             f"{got_27!r}"[:160])
-    report_27(not wrong_27, "(2) backward_27_fixed : la valeur et le gradient en cinq points",
-              "(2) backward_27_fixed, " + " ; ".join(wrong_27[:2]))
+    report_27(not wrong_27, "(2) adjoints_27_fixed : la valeur et le gradient en cinq points",
+              "(2) adjoints_27_fixed, " + " ; ".join(wrong_27[:2]))
     parts_27.append(2)
 
 with checked("M18.27"):                                       # (3) the step of a reliable check
     if not filled(STEP_27):
         print("⏳ Ex M18.27 : (3) pas encore fait (STEP_27).")
         raise StopCheck
+    h_27 = float(STEP_27)
+    report_27(1e-6 <= h_27 <= 1e-4, f"(3) h = {h_27:g}, de l'ordre de 10⁻⁵ (fiche §8)",
+              f"(3) h = {h_27:g} : choisis un pas de l'ordre de 10⁻⁵, entre 10⁻⁶ et 10⁻⁴, celui que conseillent la "
+              f"fiche §8 et M05a pour une différence centrée en float64")
     rng_27 = np.random.default_rng(5139)
-    cases_27 = [(np.array([1.0, 2.0]), np.array([1.0, -1.0]))] + [(rng_27.normal(size=2), rng_27.normal(size=2))
-                                                                 for _ in range(4)]
-    refused_27 = [p for p, d in cases_27 if not check_along(f_27, gradient_27(p), p, d, h=float(STEP_27))[0]]
-    report_27(not refused_27, f"(3) avec h = {float(STEP_27):g}, la vérification accepte le gradient juste en cinq "
-                              f"points", f"(3) avec h = {float(STEP_27):g}, la vérification refuse encore le gradient "
-                              f"juste en {len(refused_27)} point(s) sur 5 : un pas trop petit (les arrondis) ou trop "
-                              f"grand (la troncature)")
-    caught_27 = [p for p, d in cases_27 if not check_along(f_27, np.array(backward_27(*p)[1:]), p, d,
-                                                           h=float(STEP_27))[0]]
+    cases_27 = [(POINT_27, DIRECTION_27)] + [(rng_27.normal(size=2), rng_27.normal(size=2)) for _ in range(4)]
+    refused_27 = [p for p, d in cases_27 if not check_along(f_27, gradient_27(p), p, d, h=h_27)[0]]
+    report_27(not refused_27, f"(3) avec h = {h_27:g}, la vérification accepte le gradient juste en cinq points",
+              f"(3) avec h = {h_27:g}, la vérification refuse encore le gradient juste en {len(refused_27)} point(s) "
+              f"sur 5 : un pas trop petit (les arrondis) ou trop grand (la troncature)")
+    caught_27 = [p for p, d in cases_27 if not check_along(f_27, np.array(adjoints_27(*p)[1:]), p, d, h=h_27)[0]]
     report_27(len(caught_27) == len(cases_27), "(3) et elle démasque la passe du collègue, en cinq points",
               f"(3) avec ce pas, la vérification laisse passer la passe fausse du collègue en "
               f"{len(cases_27) - len(caught_27)} point(s)")
@@ -1296,7 +1305,7 @@ with checked("M18.27"):                                       # (3) the step of 
 
 if len(parts_27) == 3:
     verdict("M18.27", all(results_27), "la direction, les deux fonctions corrigées et le pas passent tous les cas.",
-            "relis les lignes ❌ ci-dessus.")'''
+            "relis les lignes ❌ ci-dessus.")"""
 
 M18_27 = Ex(
     "M18.27", "🐛", 1, 15, "Chasse à l'erreur : un gradient transposé, un adjoint compté sur un seul chemin, un pas h "
@@ -1305,51 +1314,51 @@ M18_27 = Ex(
     "Python, puis les corriger.", "fiche §4, §6 et §8", tracks="C, E", given=GIVEN_27,
     body=r"""Un collègue a écrit trois morceaux de code (cellule fournie) ; chacun a l'erreur que nomme le titre, et aucun ne lève d'erreur Python :
 1. `grad_trace(A, X)` doit rendre le gradient de $\mathbf{X} \mapsto \operatorname{tr}(\mathbf{A}\mathbf{X})$, de la forme de $\mathbf{X}$. Pour le vérifier, il a écrit `check_along(f, G, X, H, h)`, qui compare la différence centrée de $f$ le long d'une direction $\mathbf{H}$, $\frac{f(\mathbf{X} + h\mathbf{H}) - f(\mathbf{X} - h\mathbf{H})}{2h}$, à la prévision $\sum_{ij}G_{ij}H_{ij}$ (fiche §8), et rend `True` quand elles diffèrent de moins de $10^{-6}$. Il l'a appelée en `A_27` et `X_27`, le long de la direction $\mathbf{I}$ : son gradient est passé.
-2. `backward_27(x, y)` rend la valeur de $f(x, y) = x\sin(xy)$ et son gradient $(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y})$, par une passe avant ($u_1 = xy$, $u_2 = \sin u_1$, $f = x\,u_2$) puis une passe arrière écrites ligne à ligne ; l'un de ses adjoints est **incomplet** : il lui manque la contribution d'un chemin.
-3. Il a vérifié la formule du gradient de $f$ (`gradient_27`, qui est juste) avec `check_along` et $h = 10^{-13}$, le long de la direction $(1, -1)$ en $(1, 2)$ : sa vérification dit `False`, et il croit la formule fausse.
+2. `adjoints_27(x, y)` rend la valeur de $f(x, y) = x\sin(xy)$ et son gradient $(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y})$, par une passe avant ($u_1 = xy$, $u_2 = \sin u_1$, $f = x\,u_2$) puis une passe arrière écrites ligne à ligne ; l'un de ses adjoints est **incomplet** : il lui manque la contribution d'un chemin.
+3. Il a vérifié la formule du gradient de $f$ (`gradient_27`, qui est juste) avec `check_along` et $h = 10^{-13}$, le long de la direction $(1, -1)$ en $(1{,}5 ;\ -0{,}5)$ (`DIRECTION_27`, `POINT_27`) : sa vérification dit `False`, et il croit la formule fausse.
 
 À faire :
-- a) d'abord, à la main : le $\bar{x}$ que rend `backward_27(1.0, 2.0)` (4 décimales) ; vérifie-le en appelant la fonction ;
+- a) d'abord, à la main : le $\bar{x}$ que rend `adjoints_27(1.5, -0.5)` (4 décimales) ; vérifie-le en appelant la fonction ;
 - (1) tire une direction `H_27` de la forme de `X_27`, avec `np.random.default_rng(5137)` (des coefficients de loi normale), vérifie qu'elle démasque `grad_trace`, puis écris `grad_trace_fixed(A, X)` ;
-- (2) écris `backward_27_fixed(x, y)`, avec la même passe avant et une passe arrière juste ; b) le gradient qu'elle rend en $(1, 2)$ (une liste de 2 nombres, 4 décimales) ;
+- (2) écris `adjoints_27_fixed(x, y)`, avec la même passe avant et une passe arrière juste ; b) le gradient $(\bar{x}, \bar{y})$ qu'elle rend en $(1{,}5 ;\ -0{,}5)$ (une liste de 2 nombres, 4 décimales) ;
 - (3) choisis le pas `STEP_27` d'une vérification fiable (fiche §8 ; M05a).
 
 La vérification essaie tes corrections sur des cas que tu ne vois pas : d'autres matrices, carrées ou non, d'autres points, d'autres directions.""",
-    todo='''answer_M18_27a = ...  # a) a number (4 decimals): the x̄ that the colleague's backward_27 returns at (1, 2)
+    todo="""answer_M18_27a = ...  # a) a number (4 decimals): the x̄ that the colleague's adjoints_27 returns at (1.5, -0.5)
 
 H_27 = ...            # (1) a direction of the shape of X_27, drawn with np.random.default_rng(5137)
 
 
 def grad_trace_fixed(A, X):
-    """The gradient of X ↦ tr(A X), of the shape of X."""
+    \"\"\"The gradient of X ↦ tr(A X), of the shape of X.\"\"\"
     raise NotImplementedError("grad_trace_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
-def backward_27_fixed(x, y):
-    """f(x, y) = x sin(x y) and its gradient (∂f/∂x, ∂f/∂y), by a forward pass then a backward pass, line by line."""
-    raise NotImplementedError("backward_27_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
+def adjoints_27_fixed(x, y):
+    \"\"\"f(x, y) = x sin(x y) and its gradient (∂f/∂x, ∂f/∂y), by a forward pass then a backward pass, line by line.\"\"\"
+    raise NotImplementedError("adjoints_27_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
 STEP_27 = ...         # (3) the step h of a reliable check by check_along
 answer_M18_27b = ...
-with wbm.attempt("M18.27"):          # backward_27_fixed: ⏳ while it is not written
-    answer_M18_27b = ...  # b) a list of 2 numbers (4 decimals): the gradient that backward_27_fixed returns at (1, 2)''',
-    check='''wbm.check("M18.27a", answer_M18_27a)
+with wbm.attempt("M18.27"):          # adjoints_27_fixed: ⏳ while it is not written
+    answer_M18_27b = ...  # b) a list of 2 numbers (4 decimals): the gradient that adjoints_27_fixed returns""",
+    check="""wbm.check("M18.27a", answer_M18_27a)
 wbm.check("M18.27b", answer_M18_27b, computed=True)
 
-''' + CHECK_27,
-    solution='''answer_M18_27a = backward_27(1.0, 2.0)[1]
+""" + CHECK_27,
+    solution="""answer_M18_27a = adjoints_27(1.5, -0.5)[1]
 H_27 = np.random.default_rng(5137).normal(size=X_27.shape)
 print("(1) le long de H_27 :", check_along(trace_27, grad_trace(A_27, X_27), X_27, H_27))
 
 
 def grad_trace_fixed(A, X):
-    """The gradient of X ↦ tr(A X), of the shape of X."""
+    \"\"\"The gradient of X ↦ tr(A X), of the shape of X.\"\"\"
     return np.asarray(A, dtype=float).T                 # d tr(A X) = tr(A dX): G = Aᵀ
 
 
-def backward_27_fixed(x, y):
-    """f(x, y) = x sin(x y) and its gradient (∂f/∂x, ∂f/∂y), by a forward pass then a backward pass, line by line."""
+def adjoints_27_fixed(x, y):
+    \"\"\"f(x, y) = x sin(x y) and its gradient (∂f/∂x, ∂f/∂y), by a forward pass then a backward pass, line by line.\"\"\"
     u1 = x * y                       # forward pass
     u2 = math.sin(u1)
     f = x * u2
@@ -1361,41 +1370,45 @@ def backward_27_fixed(x, y):
     return f, x_bar, y_bar
 
 
-answer_M18_27b = list(backward_27_fixed(1.0, 2.0)[1:])
+answer_M18_27b = list(adjoints_27_fixed(1.5, -0.5)[1:])
 STEP_27 = 1e-5
-print("a)", round(answer_M18_27a, 4), " b)", np.round(answer_M18_27b, 4).tolist())
-print("(3) avec h = 1e-5 :", check_along(f_27, gradient_27((1.0, 2.0)), np.array([1.0, 2.0]), np.array([1.0, -1.0]),
-                                         h=STEP_27))
+print("a)", round(answer_M18_27a, 4), " b)", np.round(answer_M18_27b, 4).tolist(), "; xy =", 1.5 * -0.5)
+print("(3) avec h = 1e-5 :", check_along(f_27, gradient_27(POINT_27), POINT_27, DIRECTION_27, h=STEP_27))
 
 
-''' + CHECK_27,
-    record='''wbm.record("M18.27a", 2 * math.cos(2.0), decimals=4,
+""" + CHECK_27,
+    record="""x_27r, y_27r = 1.5, -0.5
+xy_27r = x_27r * y_27r
+right_27r = [math.sin(xy_27r) + xy_27r * math.cos(xy_27r), x_27r ** 2 * math.cos(xy_27r)]
+wbm.record("M18.27a", xy_27r * math.cos(xy_27r), decimals=4,
            mistakes={"a) demande ce que RENVOIE la passe du collègue : refais-la ligne à ligne, telle qu'elle est écrite":
-                         math.sin(2.0) + 2 * math.cos(2.0),
+                         right_27r[0],
                      "relis la ligne qui calcule x_bar : par quel chemin passe le seul terme qu'elle garde ?":
-                         math.sin(2.0)})
-wbm.record("M18.27b", [math.sin(2.0) + 2 * math.cos(2.0), math.cos(2.0)], decimals=4,
+                         math.sin(xy_27r)})
+wbm.record("M18.27b", right_27r, decimals=4,
            mistakes={"x a deux successeurs, u₁ = xy et f = x u₂ : son adjoint est la somme de leurs deux contributions ; "
-                     "un chemin est oublié": [2 * math.cos(2.0), math.cos(2.0)],
-                     "la contribution de u₁ = xy à x̄ compte aussi : ū₁ × y": [math.sin(2.0), math.cos(2.0)]})''',
+                     "un chemin est oublié": [xy_27r * math.cos(xy_27r), right_27r[1]],
+                     "la contribution de u₁ = xy à x̄ compte aussi : ū₁ × y": [math.sin(xy_27r), right_27r[1]],
+                     "garde les deux derniers éléments : le gradient": [x_27r * math.sin(xy_27r), *right_27r]})""",
     after=[
         ("md", "**Après la vérification**, dans ta copie : pourquoi la direction $\\mathbf{I}$ ne pouvait-elle pas "
                "voir l'erreur de `grad_trace` (que vaut $\\sum_{ij}G_{ij}I_{ij}$, pour $\\mathbf{G}$ et pour "
                "$\\mathbf{G}^\\top$) ? Pour quelles matrices $\\mathbf{A}$ `grad_trace` aurait-elle raison ? Dans "
-               "`backward_27`, quel chemin de $x$ vers $f$ l'adjoint incomplet oublie-t-il ? Avec "
+               "`adjoints_27`, quel chemin de $x$ vers $f$ l'adjoint incomplet oublie-t-il ? Avec "
                "$h = 10^{-13}$, de quel ordre est l'erreur d'arrondi de la différence centrée (fiche §8, M05a), et "
                "pourquoi dépasse-t-elle $10^{-6}$ ?"),
     ],
-    note=r"a) L'adjoint du collègue est incomplet : il ne garde que le chemin $x \to u_1 \to u_2 \to f$, "
-         r"$\bar{x} = \bar{u}_1y = xy\cos(xy) = 2\cos 2 \approx -0{,}8323$ ; le chemin direct $x \to f$ (le facteur "
-         r"$x$ de $f = x\,u_2$), qui apporte $\bar{f}\,u_2 = \sin 2$, est oublié. b) Avec les deux chemins, "
-         r"$\bar{x} = \sin(xy) + xy\cos(xy) = \sin 2 + 2\cos 2 \approx 0{,}0770$ et $\bar{y} = x^2\cos(xy) = "
-         r"\cos 2 \approx -0{,}4161$. (1) Le long de $\mathbf{I}$, la prévision est $\operatorname{tr}\mathbf{G} = "
+    note=r"En $(1{,}5 ;\ -0{,}5)$, $xy = -0{,}75$. a) L'adjoint du collègue est incomplet : il ne garde que le chemin "
+         r"$x \to u_1 \to u_2 \to f$, $\bar{x} = \bar{u}_1y = xy\cos(xy) \approx -0{,}5488$ ; le chemin direct "
+         r"$x \to f$ (le facteur $x$ de $f = x\,u_2$), qui apporte $\bar{f}\,u_2 = \sin(xy) \approx -0{,}6816$, est "
+         r"oublié. b) Avec les deux chemins, $\bar{x} = \sin(xy) + xy\cos(xy) \approx -1{,}2304$ et $\bar{y} = "
+         r"x^2\cos(xy) \approx 1{,}6463$. (1) Le long de $\mathbf{I}$, la prévision est $\operatorname{tr}\mathbf{G} = "
          r"\operatorname{tr}\mathbf{G}^\top$ : $\mathbf{A}$ et $\mathbf{A}^\top$ passent toutes deux ; une direction "
-         r"gaussienne voit l'écart $\sum_{ij}(\mathbf{A} - \mathbf{A}^\top)_{ij}H_{ij} = 6(H_{12} - H_{21})$. "
+         r"gaussienne voit l'écart $\sum_{ij}(\mathbf{A} - \mathbf{A}^\top)_{ij}H_{ij} = 4{,}5\,(H_{12} - H_{21})$. "
          r"`grad_trace` n'aurait raison que pour $\mathbf{A}$ symétrique. (3) Avec $h = 10^{-13}$, les arrondis de "
-         r"$f(\mathbf{X} \pm h\mathbf{H})$, de l'ordre de $10^{-16}$, divisés par $2h$, font une erreur de l'ordre de "
-         r"$10^{-3}$ ; avec $h = 10^{-5}$, l'erreur tombe vers $10^{-10}$.",
+         r"$f(\mathbf{p} \pm h\mathbf{d})$, de l'ordre de $10^{-16}$, divisés par $2h$, font une erreur bien au-dessus "
+         r"de $10^{-6}$ ; avec $h = 10^{-5}$, l'erreur tombe vers $10^{-10}$ et la vérification démasque la passe "
+         r"fausse.",
 )
 
 GIVEN_28 = '''RefDual = ref_autodiff.Dual
@@ -1559,15 +1572,17 @@ for label_28s, cls_28s in (("BrokenDual", BrokenDual), ("AliasingDual", Aliasing
                "`sin` et `cos` à la fois et garde $\\sin^2 + \\cos^2$ constant. Que verraient alors les tests de "
                "`mymath`, qui comparent à SymPy ?"),
     ],
-    note=r"`BrokenDual` multiplie les dérivées, $(uv)' = u'v'$ (une erreur classique) : $\sin t \cdot \sin t$ a alors "
-         r"la dérivée $\cos^2 t$ et $\cos t \cdot \cos t$ la dérivée $\sin^2 t$, d'où une somme de dérivée 1 au lieu de "
-         r"0 ; écrit avec `** 2`, le test ne passerait pas par le produit et ne verrait rien. La distributivité ne la "
-         r"voit pas : toute règle **bilinéaire** en $(a, b)$ et $(c, d)$ la respecte. `AliasingDual` calcule le bon "
-         r"produit, mais modifie $u$ : dans $u(v + w)$ puis $uv + uw$, le second calcul part d'un $u$ changé, et la "
-         r"distributivité casse ; les dérivées connues, qui n'utilisent pas une valeur après l'avoir multipliée, ne "
-         r"voient rien. Une classe dont `sin` et `cos` doubleraient toutes deux leur dérivée passerait les deux tests "
-         r"(les deux termes de $(\sin^2 + \cos^2)'$ doublent et s'annulent encore) : les tests de `mymath`, qui "
-         r"comparent chaque fonction à SymPy, l'attrapent.",
+    note=r"La **distributivité** réutilise les mêmes objets $u$, $v$, $w$ dans deux calculs, $u(v + w)$ puis "
+         r"$uv + uw$ : un produit qui modifie son opérande fausse le second, et `AliasingDual`, qui calcule pourtant "
+         r"le bon produit, la viole. En revanche, elle compare deux calculs faits avec la même règle du produit : "
+         r"toute règle **bilinéaire** en $(a, b)$ et $(c, d)$, juste ou fausse, la respecte, comme celle de "
+         r"`BrokenDual`, qui multiplie les dérivées, $(uv)' = u'v'$ (une erreur classique). Les **dérivées connues** "
+         r"comparent au contraire à des valeurs justes : sous cette règle, $\sin t \cdot \sin t$ a la dérivée "
+         r"$\cos^2 t$ et $\cos t \cdot \cos t$ la dérivée $\sin^2 t$, d'où une somme de dérivée 1 au lieu de 0 ; écrit "
+         r"avec `** 2`, le test ne passerait pas par le produit. Ces dérivées n'utilisent aucune valeur après l'avoir "
+         r"multipliée : la modification de l'opérande ne s'y voit pas. Une classe dont `sin` et `cos` doubleraient "
+         r"toutes deux leur dérivée respecterait les deux propriétés (les deux termes de $(\sin^2 + \cos^2)'$ doublent "
+         r"et s'annulent encore) : les tests de `mymath`, qui comparent chaque fonction à SymPy, l'attrapent.",
 )
 
 GIVEN_29 = '''A_VALUES_29 = np.geomspace(1e-2, 1e4, 200)      # 200 values of a, evenly spaced on a log scale
