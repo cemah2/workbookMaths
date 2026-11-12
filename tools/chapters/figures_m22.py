@@ -254,7 +254,7 @@ def factors() -> None:
     ax.set_xscale("log")
     ax.set(title="facteurs 2,5 ou 0,3 à pile ou face : (1/t) ln(a₁ ⋯ aₜ), six trajectoires",
            xlabel="années t (échelle logarithmique)", ylim=(-1.3, 1.0))
-    ax.legend(fontsize=9, loc="upper right")
+    ax.legend(fontsize=9, loc="upper center", bbox_to_anchor=(0.5, -0.14), ncol=1)
     ax.grid(alpha=0.25, which="both")
     save(fig, "facteurs_produits.png")
 
