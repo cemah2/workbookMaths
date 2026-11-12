@@ -187,6 +187,14 @@ def _count(n: int, singular: str, plural: str | None = None) -> str:
     return f"{n} {singular if abs(n) < 2 else (plural or singular + 's')}"
 
 
+def _asked(decimals: int) -> str:
+    """What the statement asks: « l'énoncé en demande 3 », or, from 6 decimals on (the precision used for an exact
+    value given as « un nombre »), « l'énoncé demande la valeur exacte (ou au moins 6 décimales) » (M16 learner)."""
+    if decimals >= 6:
+        return f"l'énoncé demande la valeur exacte (ou au moins {_count(decimals, 'décimale')})"
+    return f"l'énoncé en demande {decimals}"
+
+
 def _sympy_to_python(value):
     """SymPy numbers and truth values -> Python ones, inside lists and tuples too: ``sp.Float(0.25)`` -> 0.25,
     ``sp.Integer(3)`` -> 3, ``sp.oo`` -> inf, ``sp.true`` -> True; a ``FiniteSet`` (``sp.solveset``) -> a Python set.
@@ -826,15 +834,15 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
                 if computed:
                     return _COMPUTED_NEAR
                 return (f"Tu y es presque : ta valeur est juste à {_count(decimals - 1, 'décimale')}, mais "
-                        f"l'énoncé en demande {decimals}.")
+                        f"{_asked(decimals)}.")
         for d, hashes in sorted(entry.get("coarser", {}).items(), key=lambda item: -int(item[0])):
             d = int(d)
             if round(x, d) != 0 and abs(x - round(x, d)) < 1e-9 * max(1.0, abs(x)):
                 if hash_answer(ex_id, "float", _fmt_float(x, d)) in hashes:
                     if computed:
                         return _COMPUTED_NEAR
-                    return (f"Tu y es presque : ta valeur est juste à {_count(d, 'décimale')}, mais l'énoncé en "
-                            f"demande {decimals}.")
+                    return (f"Tu y es presque : ta valeur est juste à {_count(d, 'décimale')}, mais "
+                            f"{_asked(decimals)}.")
         # far fewer decimals than asked (0.7 for 0.693): only that, without « presque »
         typed = next((d for d in range(0, decimals) if abs(x - round(x, d)) < 1e-9 * max(1.0, abs(x))), None)
         if typed is not None and round(x, typed) != 0:
@@ -846,7 +854,7 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
                     if typed == 0 and abs(x) == 1:   # a proportion of 1 (every case passes), not an integer division
                         return _COMPUTED_ONE         # (M02c learner)
                     return _COMPUTED_INTEGER if typed == 0 else _COMPUTED_NEAR
-                return (f"Ta valeur n'a que {_count(typed, 'décimale')}, et l'énoncé en demande {decimals} : "
+                return (f"Ta valeur n'a que {_count(typed, 'décimale')}, et {_asked(decimals)} : "
                         "refais l'arrondi avec plus de chiffres (arrondis seulement à la fin du calcul).")
         # one unit away on the last decimal (rounded too early, or truncated), claimed only when that unit is
         # small next to the answer (at least 3 significant digits: with 0.65, the neighbour 0.64 is another
@@ -1012,7 +1020,7 @@ def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False, value
         coarse_any = entry.get("element_coarse_any")
         if wrong_items and coarse_any and not computed and all(
                 _typed_coarse(ex_id, i, x, decimals, coarse_any[i]) for i, x, _ in wrong_items):
-            return (f"Tes valeurs ont trop peu de décimales : l'énoncé en demande {decimals}. Refais l'arrondi avec "
+            return (f"Tes valeurs ont trop peu de décimales : {_asked(decimals)}. Refais l'arrondi avec "
                     "plus de chiffres, à la fin du calcul seulement.")
         if wrong_items:
             first = tuple(int(i) for i in np.unravel_index(wrong_items[0][0], arr.shape))
@@ -1169,6 +1177,9 @@ def _choices_message(entry: dict) -> str:
     """The message of a value that is not one of the choices offered by the statement (a 🔮 answered 1, 2 or 3)."""
     offered = [_choice_text(choice) for choice in entry["choices"]]
     listed = ", ".join(offered[:-1]) + " ou " + offered[-1] if len(offered) > 1 else offered[0]
+    numbered = [str(choice) for choice in entry["choices"]] == [str(k) for k in range(1, len(entry["choices"]) + 1)]
+    if numbered:   # (1) (2) (3): the number of the choice, not the value written after it (M16 learner)
+        return f"Réponds par le numéro du choix, {listed}, pas par la valeur écrite après lui."
     return f"Choisis l'une des valeurs proposées par l'énoncé : {listed}."
 
 

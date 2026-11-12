@@ -1035,8 +1035,10 @@ def test_a_prediction_outside_its_choices_is_told_the_choices():
     import wbm.checker as checker
     entry = checker.make_entry("P.c", 2, None, choices=[1, 2, 3], prediction=True)
     passed, _, message = checker.check_entry("P.c", entry, 4)
-    assert not passed and message.startswith("Choisis l'une des valeurs proposées"), message
+    assert not passed and message.startswith("Réponds par le numéro du choix, 1, 2 ou 3"), message
     assert checker.check_entry("P.c", entry, 3)[2].startswith("Prédiction ratée")
+    other = checker.make_entry("P.d", 4, None, choices=[3, 4, 5], prediction=True)   # values, not numbers of choices
+    assert checker.check_entry("P.d", other, 7)[2].startswith("Choisis l'une des valeurs proposées")
 
 
 @pytest.mark.parametrize("value", ["plus de 50 %", 0.85, 4])
@@ -1045,7 +1047,7 @@ def test_any_value_outside_the_choices_of_a_prediction_is_told_the_choices(value
     import wbm.checker as checker
     entry = checker.make_entry("P.d", 3, None, choices=[1, 2, 3], prediction=True)
     passed, _, message = checker.check_entry("P.d", entry, value)
-    assert not passed and message.startswith("Choisis l'une des valeurs proposées"), message
+    assert not passed and message.startswith("Réponds par le numéro du choix, 1, 2 ou 3"), message
 
 
 def test_a_computed_value_right_only_at_zero_decimals_is_not_almost_right():

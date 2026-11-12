@@ -60259,7 +60259,9 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "9ab9253026254a4415e531c28a8739e2149d3d0ac1f9d580242828d84a195f23": "toutes les arêtes doivent aller vers un numéro PLUS GRAND : une tâche avant celles qui en dépendent"
+        "11576bd8a10ae25c4ac52aa186f4b9f63271b3f1ee2b1335b85a7ce21277a067": "les tâches sont numérotées de 1 à 6 dans l'énoncé : donne leurs anciens numéros, à partir de 1",
+        "9ab9253026254a4415e531c28a8739e2149d3d0ac1f9d580242828d84a195f23": "toutes les arêtes doivent aller vers un numéro PLUS GRAND : une tâche avant celles qui en dépendent",
+        "bbb5ab4585e30d416133e65ffa8304cb833941a101e539b51ea2b9391ec949dc": "c'est le nouveau numéro de chacune des tâches 1 à 6 ; l'énoncé demande l'inverse : les anciens numéros, rangés dans le nouvel ordre"
       },
       "shape": [
         6
@@ -60699,7 +60701,9 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "33ecf3b83c6d95886581ae16570f2d4da02fc243f136ec73ff311cf76e36ad14": "un seul signe pour les trois : les produits restent corrélés"
+        "269f138902daaa33548e4b116e2c20e7dd96491f2c7ee3659cd52f757579ec9b": "un seul signe commun ne décorrèle pas : ε² = 1, donc V(ε T) = V(T), covariances comprises",
+        "33ecf3b83c6d95886581ae16570f2d4da02fc243f136ec73ff311cf76e36ad14": "un seul signe pour les trois : les produits restent corrélés",
+        "ce0dd026fc58c83561f55c4c3752b6b4ccf6a40af31a594ef6574856b7184b06": "en f et g, les trois mesures sont de nouveau centrées : la moyenne 1 de x₁ ne valait que pour e"
       },
       "sign": 1,
       "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
@@ -60731,6 +60735,7 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
+        "102a5d8b6ea3d3817a5af2c913f13b0fd273458dcdcfb4b487f3c04fa07701df": "en f et g, les trois mesures sont de nouveau centrées : la moyenne 1 de x₁ ne valait que pour e",
         "34bac4af36d0fb1f1bea26ffc300d538fc3cdab95b64c1e96ef5f4c3434cc76e": "la somme vaut (x₁ + x₂ + x₃) + S, deux morceaux décorrélés (admis) : la variance de x₁ + x₂ + x₃ s'ajoute à celle de S",
         "44abee06f93be70672e29e366c0f7821011c89fb39a1617c2ae659b7a4a16457": "dans (x₁ + x₂ + x₃) + S, la première somme garde les covariances des mesures",
         "a48cb3048d38ceeddca6742244335ba58b7210a07ba89cb415072d3c5c657e38": "la somme vaut (x₁ + x₂ + x₃) + S, deux morceaux décorrélés (admis) : la variance de S s'ajoute à celle de x₁ + x₂ + x₃"
@@ -60907,7 +60912,8 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "04af00c7fff78ba841609af6f2a01a95b86722f6e4be623bf09d22cc5decac75": "aucun chemin ne va du coin (4, 4) au coin (0, 0) : sum_over_paths(weights, source, target) part de source, et le carrefour (i, j) est le nœud 5i + j"
+        "04af00c7fff78ba841609af6f2a01a95b86722f6e4be623bf09d22cc5decac75": "aucun chemin ne va du coin (4, 4) au coin (0, 0) : sum_over_paths(weights, source, target) part de source, et le carrefour (i, j) est le nœud 5i + j",
+        "5c1ddae00d6cd36e80af556cf832e8119e03f97536835c09fa2c5a1526ed6a58": "la grille a 5 × 5 carrefours, numérotés de 0 à 4 : d'un coin à l'autre, 4 pas vers l'est et 4 vers le nord, pas 5 et 5"
       },
       "sign": 1,
       "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
@@ -61077,7 +61083,7 @@
       "hash": "18d430a9349c55e980be6c61dfee6081acb793752ee088a24c70bd9940e8a91e",
       "kind": "bool",
       "mistakes": {
-        "7b1d65af8fdf70e5daf973efe3dc7539c3126278444889cd8b84745a63f94080": "ta variance simulée s'écarte de la limite : chaque chaîne part de Z_0 = 0 et reçoit un nouveau bruit N(0, 1) à chaque étage ; np.var porte sur la colonne de l'étage 40"
+        "7b1d65af8fdf70e5daf973efe3dc7539c3126278444889cd8b84745a63f94080": "vérifie d'abord la limite de a) (1 / (1 − g²) pour g = 0,6), puis ta simulation : chaque chaîne part de Z_0 = 0 et reçoit un nouveau bruit N(0, 1) à chaque étage, et np.var porte sur la colonne de l'étage 40"
       },
       "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
     },

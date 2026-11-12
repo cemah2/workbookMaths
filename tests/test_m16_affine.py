@@ -252,7 +252,10 @@ def test_paths_from_a_node_to_itself_and_unreachable(aff):
                                     ([[0, 2, 0, 0], [0, 0, 1, 0], [0, 0, 0, -2], [0, 1, 0, 0]],
                                      "the cycle 1 → 2 → 3 → 1, out of reach of node 0's target"),
                                     ([[0, 1, 1], [0, 0, 1], [0, -1, 0]],
-                                     "a cycle 1 → 2 → 1 whose weights have opposite signs")])
+                                     "a cycle 1 → 2 → 1 whose weights have opposite signs"),
+                                    ([[1, 1], [-1, -1]],
+                                     "loops and a cycle 0 → 1 → 0 whose weights cancel: A² = 0, but the pattern has "
+                                     "a cycle")])
 def test_paths_refuses_a_graph_with_a_cycle(aff, A, why):
     exc = _expect_value_error(lambda: aff.sum_over_paths(A, 0, len(A) - 1), f"sum_over_paths({A}, 0, {len(A) - 1})",
                               f"{why}: the graph has a cycle",

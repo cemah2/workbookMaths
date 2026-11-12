@@ -127,7 +127,11 @@ PAPER = [
          f'''mistakes={{"{ALL_LENGTHS}": one_length_4('Commande', 'Expédition')}}'''),
         ("e", "a list of 6 integers", "list(ORDER_4)",
          '''mistakes={"toutes les arêtes doivent aller vers un numéro PLUS GRAND : une tâche avant celles qui en '''
-         '''dépendent": list(reversed(ORDER_4))}'''),
+         '''dépendent": list(reversed(ORDER_4)),
+                     "les tâches sont numérotées de 1 à 6 dans l'énoncé : donne leurs anciens numéros, à partir de 1":
+                         [k - 1 for k in ORDER_4],
+                     "c'est le nouveau numéro de chacune des tâches 1 à 6 ; l'énoncé demande l'inverse : les anciens "
+                     "numéros, rangés dans le nouvel ordre": [ORDER_4.index(k) + 1 for k in range(1, 7)]}'''),
         ("f", "an integer", "int(PATHS_4[task('Découpe'), task('Expédition')])",
          f'''mistakes={{"{ALL_LENGTHS}": one_length_4('Découpe', 'Expédition')}}'''),
         ("g", "an integer", "int(sum(PATHS_4))",
@@ -179,14 +183,20 @@ PAPER = [
         ("e", "a number", "float(V_S_6 + V_EPS_6[0] * 1 ** 2)",
          '''decimals=6, mistakes={"c'est E[x₁²] = V(x₁) + E[x₁]² qui compte, pas V(x₁)": float(V_S_6)}'''),
         ("f", "a number", "float(sum(C_6))",
-         '''decimals=6, mistakes={"un seul signe pour les trois : les produits restent corrélés": float(V_S_6)}'''),
+         '''decimals=6, mistakes={"un seul signe pour les trois : les produits restent corrélés": float(V_S_6),
+                     "un seul signe commun ne décorrèle pas : ε² = 1, donc V(ε T) = V(T), covariances comprises":
+                         float(C_6.trace()),
+                     "en f et g, les trois mesures sont de nouveau centrées : la moyenne 1 de x₁ ne valait que pour e":
+                         float(sum(C_6) + 1)}'''),
         ("g", "a number", "float(sum(C_6) + V_S_6)",
          '''decimals=6, mistakes={"la somme vaut (x₁ + x₂ + x₃) + S, deux morceaux décorrélés (admis) : la variance de '''
          '''S s'ajoute à celle de x₁ + x₂ + x₃": float(sum(C_6)),
                      "la somme vaut (x₁ + x₂ + x₃) + S, deux morceaux décorrélés (admis) : la variance de x₁ + x₂ + x₃ '''
          '''s'ajoute à celle de S": float(V_S_6),
                      "dans (x₁ + x₂ + x₃) + S, la première somme garde les covariances des mesures":
-                         float(C_6.trace() + V_S_6)}'''),
+                         float(C_6.trace() + V_S_6),
+                     "en f et g, les trois mesures sont de nouveau centrées : la moyenne 1 de x₁ ne valait que pour e":
+                         float(sum(C_6) + V_S_6 + 1)}'''),
     ]),
 
     Paper("M16.10", "Pont : n points rangés en lignes, X W + 1bᵀ, et la diffusion de b", [
@@ -422,7 +432,7 @@ M16_13 = Ex(
     "programmer la somme sur les chemins d'un graphe sans cycle par les puissances de sa matrice, après avoir vérifié "
     "l'absence de cycle, et compter les chemins d'un quartier en grille.", "fiche §3 et §4", tracks="C, E",
     mymath="affine.py", given=GIVEN_13,
-    body=r"""Écris `sum_over_paths(weights, source, target)` (fiche §3 et §4), en suivant sa docstring : `ValueError` si `weights` n'est pas une matrice carrée, si un nœud n'est pas un entier de $[0, n - 1]$, ou si le graphe a un cycle (le message est `"the graph has a cycle"`) ; sinon la somme, sur tous les chemins de `source` à `target`, des produits des poids de leurs arêtes, $\sum_{k \ge 1}(\mathbf{A}^k)_{st}$, un `float` ($0$ quand `source == target`). Le cycle se cherche sur le **motif** des poids non nuls, `weights != 0`, par ses puissances booléennes : le graphe est sans cycle si et seulement si la $n$-ième est nulle. Pas de `np.linalg.matrix_power`, de `np.linalg.inv` ni de `np.linalg.solve` : un produit `@` par puissance.
+    body=r"""Écris `sum_over_paths(weights, source, target)` (fiche §3 et §4), en suivant sa docstring : `ValueError` si `weights` n'est pas une matrice carrée, si un nœud n'est pas un entier de $[0, n - 1]$ (un flottant comme `0.0` et un booléen sont refusés : `isinstance(True, int)` vaut `True` en Python, teste les booléens à part), ou si le graphe a un cycle (le message est `"the graph has a cycle"`) ; sinon la somme, sur tous les chemins de `source` à `target`, des produits des poids de leurs arêtes, $\sum_{k \ge 1}(\mathbf{A}^k)_{st}$, un `float` ($0$ quand `source == target`). Le cycle se cherche sur le **motif** des poids non nuls, `weights != 0`, par ses puissances booléennes : le graphe est sans cycle si et seulement si la $n$-ième est nulle. Pas de `np.linalg.matrix_power`, de `np.linalg.inv` ni de `np.linalg.solve` : un produit `@` par puissance.
 
 La cellule fournie construit `GRID_13`, la matrice d'adjacence d'un quartier de $5 \times 5$ carrefours : le carrefour $(i, j)$, pour $i$ et $j$ de 0 à 4, est le nœud $5i + j$, et des rues à sens unique vont vers l'est, $(i, j) \to (i + 1, j)$, et vers le nord, $(i, j) \to (i, j + 1)$. Avec ta fonction, calcule :
 - a) le nombre de chemins du coin $(0, 0)$ au coin $(4, 4)$.
@@ -448,7 +458,9 @@ print("chemins de 8 rues :", power_13[0, -1], " ; une puissance nulle à partir 
       next(k for k in range(1, 26) if not np.linalg.matrix_power(GRID_13, k).any()))'''),
         ("record", '''wbm.record("M16.13a", math.comb(8, 4),
            mistakes={"aucun chemin ne va du coin (4, 4) au coin (0, 0) : sum_over_paths(weights, source, target) part de "
-                     "source, et le carrefour (i, j) est le nœud 5i + j": 0})'''),
+                     "source, et le carrefour (i, j) est le nœud 5i + j": 0,
+                     "la grille a 5 × 5 carrefours, numérotés de 0 à 4 : d'un coin à l'autre, 4 pas vers l'est et 4 "
+                     "vers le nord, pas 5 et 5": math.comb(10, 5)})'''),
         ("solution", CYCLE_DEMO_13),
     ],
     note=r"a) Un chemin de $(0, 0)$ à $(4, 4)$ fait 4 pas vers l'est et 4 vers le nord, dans un ordre quelconque : "
@@ -468,7 +480,7 @@ M16_14 = Ex(
     "M16.14", "🔨", 1, 15, "Espérance et variance d'un produit de variables indépendantes · `variance_of_product`",
     "programmer l'espérance et la variance d'un produit de variables indépendantes, et s'en servir pour l'incertitude "
     "d'une surface.", "fiche §5", tracks="C", mymath="affine.py", given=GIVEN_14,
-    body=r"""Écris `variance_of_product(mean_x, var_x, mean_y, var_y)` (fiche §5), en suivant sa docstring : `ValueError` si une variance est négative (ou si un argument n'est pas un nombre fini) ; sinon le couple $\big(\mathbb{E}[XY], \mathbb{V}(XY)\big)$ pour $X$ et $Y$ indépendantes, deux `float` :
+    body=r"""Écris `variance_of_product(mean_x, var_x, mean_y, var_y)` (fiche §5), en suivant sa docstring : `ValueError` si une variance est négative, ou si un argument n'est pas un nombre réel fini (`nan`, `inf`, et aussi un booléen `True` ou `False`, que Python compte pourtant comme un entier) ; sinon le couple $\big(\mathbb{E}[XY], \mathbb{V}(XY)\big)$ pour $X$ et $Y$ indépendantes, deux `float` :
 $$\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y], \qquad \mathbb{V}(XY) = \mathbb{V}(X)\,\mathbb{V}(Y) + \mathbb{V}(X)\,\mathbb{E}[Y]^2 + \mathbb{V}(Y)\,\mathbb{E}[X]^2.$$
 
 **L'usage.** Un champ rectangulaire est mesuré au décamètre : sa longueur $L$ a pour espérance 85 m et pour écart-type 0,4 m, sa largeur $\ell$ pour espérance 42 m et pour écart-type 0,3 m, les deux mesures étant indépendantes (cellule fournie). Avec ta fonction, calcule :
@@ -589,7 +601,7 @@ try:
         ax.plot(stages_16, band_16, color="C3", lw=1.8, label="± 2 √v_k (ta récurrence)")
         ax.plot(stages_16, -band_16, color="C3", lw=1.8)
         shown_16 = f"{g_16:g}".replace(".", ",")
-        ax.set_title(f"g = {shown_16} : {fr(100 * inside_16, 1)} % des chaînes dans l'enveloppe à l'étage "
+        ax.set_title(f"g = {shown_16} : {fr(100 * inside_16, 1)} % des chaînes\\ndans l'enveloppe à l'étage "
                      f"{N_STAGES_16}", fontsize=9)
         ax.set_xlabel("étage k")
     axes[0].set_ylabel("Z_k")
@@ -719,8 +731,9 @@ wbm.record("M16.16d", right_16r,
                      "c'est le PREMIER étage où v_k est à moins de 1 % de sa limite qui est demandé": right_16r + 1,
                      "l'écart à la limite est multiplié par g² à chaque étage, pas par g": first_stage_16r(g6_16r)})
 wbm.record("M16.16e", True,
-           mistakes={"ta variance simulée s'écarte de la limite : chaque chaîne part de Z_0 = 0 et reçoit un nouveau "
-                     "bruit N(0, 1) à chaque étage ; np.var porte sur la colonne de l'étage 40": False})''',
+           mistakes={"vérifie d'abord la limite de a) (1 / (1 − g²) pour g = 0,6), puis ta simulation : chaque chaîne "
+                     "part de Z_0 = 0 et reçoit un nouveau bruit N(0, 1) à chaque étage, et np.var porte sur la "
+                     "colonne de l'étage 40": False})''',
     note=r"a) Le point fixe de $v = 0{,}36\,v + 1$ est $\frac{1}{0{,}64} = 1{,}5625$, et $v_k = 1{,}5625\,(1 - "
          r"0{,}36^k)$ : l'écart relatif à la limite est $0{,}36^k$, multiplié par $g^2$ à chaque étage. d) $0{,}36^4 "
          r"\approx 0{,}0168 > 0{,}01$ et $0{,}36^5 \approx 0{,}0060 < 0{,}01$ : l'étage 5. b) Pour $g = 1$, chaque étage "
@@ -999,7 +1012,7 @@ M16_18 = Ex(
 - `paths_count(A, s, t)` doit rendre le nombre de chemins de $s$ à $t$ (deux nœuds distincts, numérotés à partir de 0) d'un graphe sans cycle, et lever une `ValueError` si le graphe a un cycle.
 
 Aucune ne lève d'erreur sur les données de la cellule. Calcule à la main, puis vérifie en appelant les fonctions de la collègue :
-- a) l'image du point `P_18` $= (1, 2)$ que rend `apply_affine(P_18, W_18, B_18)` (une liste de 2 nombres) ;
+- a) l'image du point `P_18` $= (1, 2)$ que rend `apply_affine(P_18, W_18, B_18)` (une liste de 2 nombres : la fonction rend une ligne par point, prends `apply_affine(P_18, W_18, B_18)[0].tolist()`) ;
 - b) la dernière coordonnée de $[1, 2, 1]\,\mathbf{H}$, avec la matrice $\mathbf{H}$ que construit `apply_affine` pour `W_18` et `B_18` (un nombre) ;
 - c) ce que rend `paths_count(CYCLE_18, 0, 3)` (un nombre).
 
