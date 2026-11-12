@@ -217,10 +217,10 @@ $f(p, q) = pq\sqrt{pq + q}$, calculée par $u_1 = p \cdot q$, $u_2 = u_1 + q$, $
 | b | les adjoints $[\bar{u}_3, \bar{u}_2]$ | une liste de 2 nombres |
 | c | l'adjoint $\bar{u}_1$ | un nombre |
 | d | le gradient $[\bar{p}, \bar{q}]$ | une liste de 2 nombres |
-| e | le changement de $f$ prévu par le gradient quand $(p, q)$ passe à $(3{,}1 ;\ 0{,}95)$ | un nombre |
-| f | le vrai changement $f(3{,}1 ;\ 0{,}95) - f(3, 1)$ | un nombre (3 décimales) |
+| e | la dérivée de $f$ en $(3, 1)$ dans la direction $\mathbf{v} = (2, -1)$ (sans normaliser $\mathbf{v}$), lue sur le gradient d) | un nombre |
+| f | le nombre dual $f(3 + 2\varepsilon ;\ 1 - \varepsilon)$, calculé nœud par nœud en mode direct ($u_1$, $u_2$, $u_3$, puis $f$) | une liste de 2 nombres |
 
-Dans ta copie : dessine le graphe avec les valeurs et les adjoints. Quels nœuds reçoivent deux contributions, et pourquoi ? Vérifie d) en dérivant $f$ directement. D'où vient l'écart entre e) et f) ?
+Dans ta copie : dessine le graphe avec les valeurs et les adjoints. Quels nœuds reçoivent deux contributions, et pourquoi ? Vérifie d) en dérivant $f$ directement. Pourquoi e) et la partie en $\varepsilon$ de f) sont-elles égales ? Pourquoi une seule passe arrière sert-elle pour toutes les directions $\mathbf{v}$, alors qu'une passe directe n'en traite qu'une ?
 
 ### Ex M18.5 — Le même gradient par les deux modes, et le compte des opérations ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer un même gradient en mode direct et en mode inverse, et compter ce que coûte chacun.
@@ -414,7 +414,7 @@ $f(\mathbf{x}) = \mathbf{x}^\top\mathbf{A}\mathbf{x} + \mathbf{b}^\top\mathbf{x}
 | a | le gradient de $f$ dans la convention de MML (une ligne) | une matrice d'une ligne : `[[a, b]]` |
 | b | la forme de ce gradient dans NumPy, pour un vecteur `x` à une seule dimension, de longueur 2 | une liste d'un entier |
 | c | pour une fonction réelle d'une matrice de forme $(3, 4)$ : la forme de son gradient dans NumPy, puis celle de sa jacobienne si l'on aplatit la matrice en un vecteur de 12 coordonnées | une liste de 2 listes de 2 entiers |
-| d | le point $\mathbf{x} - \eta\,\nabla f(\mathbf{x})$ après un pas de descente de gradient, avec $\eta = 0{,}05$ | une liste de 2 nombres |
+| d | le point $\mathbf{x} - \eta\,\nabla f(\mathbf{x})$ après un pas de descente de gradient, avec $\eta = 0{,}125$ | une liste de 2 nombres |
 | e | la forme du gradient d'une fonction réelle d'un tableau de forme $(5, 3, 2)$ dans NumPy | une liste de 3 entiers |
 
 Dans ta copie : écris le gradient de a) en ligne, $\mathbf{x}^\top(\mathbf{A} + \mathbf{A}^\top) + \mathbf{b}^\top$, puis en colonne. Pourquoi faut-il transposer la ligne de MML avant de faire le pas d) ? Quand chaque gradient a la forme de sa variable, quelle vérification simple, sur les formes, repère une transposée oubliée dans une formule de gradient ?

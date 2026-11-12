@@ -282,7 +282,7 @@ Passe avant, puis passe arrière dans l'ordre $f$, $u_3$, $u_2$, $u_1$, puis les
 </details>
 <details><summary>Indice 3</summary>
 
-$\bar{u}_3 = 3$, $\bar{u}_2 = 0{,}75$, puis $\bar{u}_1 = \bar{f} \times u_3 + \bar{u}_2 \times 1$ : $u_1$ a deux successeurs. De même, $\bar{q}$ reçoit une contribution de $u_1$ et une de $u_2$.
+$\bar{u}_3 = 3$, $\bar{u}_2 = 0{,}75$, puis $\bar{u}_1 = \bar{f} \times u_3 + \bar{u}_2 \times 1$ : $u_1$ a deux successeurs. De même, $\bar{q}$ reçoit une contribution de $u_1$ et une de $u_2$. e) $\nabla f \cdot \mathbf{v}$. f) $u_1 = (3 + 2\varepsilon)(1 - \varepsilon)$, puis $u_2 = u_1 + (1 - \varepsilon)$, et $\sqrt{c + d\varepsilon} = \sqrt c + \frac{d}{2\sqrt c}\varepsilon$.
 
 </details>
 

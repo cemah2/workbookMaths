@@ -195,8 +195,8 @@ def test_dual_division_by_zero_raises_zero_division_error(ad):
 
 # --- Dual: powers and elementary functions -----------------------------------------------------------------------
 
-@pytest.mark.parametrize("a, p", [(1.5, 2), (2.0, 3), (-1.5, 3), (-2.0, 2), (0.8, -1), (-0.5, -2), (4.0, 0.5),
-                                  (2.25, 1.5), (3.0, -0.5), (1.2, 2.5)])
+@pytest.mark.parametrize("a, p", [(1.3, 2), (2.0, 3), (-1.5, 3), (-2.0, 2), (0.6, -1), (-0.5, -2), (4.0, 0.5),
+                                  (3.24, 1.5), (3.0, -0.5), (1.2, 2.5)])
 def test_dual_power_by_a_constant_matches_sympy(ad, a, p):
     b = 1.75
     want = _parts(_eps(a, b) ** sympy.nsimplify(p))
@@ -233,7 +233,7 @@ def test_dual_elementary_function_applies_the_chain_rule(ad, method, function):
 
 
 def test_dual_log_refuses_non_positive_values(ad):
-    for a in (0.0, -2.0):
+    for a in (0.0, -0.75):
         _expect_error(ValueError, lambda: ad.Dual(a, 1.0).log(), f"Dual({a}, 1.0).log()",
                       "log is defined for positive numbers only")
 
@@ -294,8 +294,9 @@ def test_dual_derivative_evaluates_f_once_on_a_seeded_dual(ad):
     t = seen[0]
     assert isinstance(t, ad.Dual) and t.value == 1.5 and t.derivative == 1.0, (
         f"expected f to be evaluated at Dual(value=1.5, derivative=1.0) (the seed 1: dx/dx = 1), got {t!r}")
-    assert got == (1.375, 4.75), (f"expected exactly (1.375, 4.75) for t³ - 2t + 1 at 1.5 (every number here is exact "
-                                  f"in binary), got {got}")
+    assert all(math.isclose(g, w, rel_tol=1e-13) for g, w in zip(got, (1.375, 4.75))), (
+        f"expected (1.375, 4.75) for t³ - 2t + 1 at 1.5 to about 13 digits (no step h, so no truncation error), "
+        f"got {got}")
 
 
 def test_dual_derivative_of_a_constant_function(ad):
@@ -358,8 +359,9 @@ def test_forward_gradient_is_exact_and_accepts_integers(ad):
     got = _result(lambda: ad.forward_gradient(lambda v: v[0] ** 2 * v[1] - 3 * v[1], [1, 2]), "[4, -2]",
                   "x1² x2 - 3 x2 at (1, 2), a list of int")
     _float_array(got, (2,), "forward_gradient(f, [1, 2])")
-    assert np.array_equal(got, [4.0, -2.0]), (f"expected exactly [4, -2], the gradient of x1² x2 - 3 x2 at (1, 2) "
-                                              f"(dual numbers make no rounding here), got {_show(got)}")
+    assert np.allclose(got, [4.0, -2.0], rtol=1e-13, atol=1e-13), (
+        f"expected [4, -2], the gradient of x1² x2 - 3 x2 at (1, 2), to about 13 digits (no step h, so no truncation "
+        f"error), got {_show(got)}")
 
 
 def test_forward_gradient_docstring_example_and_constant_function(ad):

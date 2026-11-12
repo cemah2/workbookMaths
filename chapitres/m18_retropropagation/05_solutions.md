@@ -140,13 +140,15 @@ Dans ta copie : $\nabla f(2, -1) = (-3, 5)$, en deux passes (une par variable). 
 
 ### Ex M18.4 — Le mode inverse à la main
 
-**Réponses.** a) `[3, 4, 2, 6]` · b) `[3, 0.75]` · c) `2.75` · d) `[2.75, 9]` · e) `-0.175` · f) `-0.188`.
+**Réponses.** a) `[3, 4, 2, 6]` · b) `[3, 0.75]` · c) `2.75` · d) `[2.75, 9]` · e) `-3.5` · f) `[6, -3.5]`.
 
-**Démarche.** Passe avant : $u_1 = 3$, $u_2 = 4$, $u_3 = 2$, $f = 6$. Passe arrière, dans l'ordre $f, u_3, u_2, u_1, q, p$ : $\bar{f} = 1$ ; $\bar{u}_3 = \bar{f} \times u_1 = 3$ ; $\bar{u}_2 = \bar{u}_3 \times \frac{1}{2\sqrt{u_2}} = 3 \times \frac14 = 0{,}75$ ; $\bar{u}_1 = \bar{f} \times u_3 + \bar{u}_2 \times 1 = 2 + 0{,}75 = 2{,}75$ ; $\bar{q} = \bar{u}_2 \times 1 + \bar{u}_1 \times p = 0{,}75 + 8{,}25 = 9$ ; $\bar{p} = \bar{u}_1 \times q = 2{,}75$. e) $2{,}75 \times 0{,}1 + 9 \times (-0{,}05) = -0{,}175$. f) $u_1 = 2{,}945$, $u_2 = 3{,}895$, $f = 2{,}945 \times 1{,}973575\ldots \approx 5{,}81218$, d'où $-0{,}188$.
+**Démarche.** Passe avant : $u_1 = 3$, $u_2 = 4$, $u_3 = 2$, $f = 6$. Passe arrière, dans l'ordre $f, u_3, u_2, u_1, q, p$ : $\bar{f} = 1$ ; $\bar{u}_3 = \bar{f} \times u_1 = 3$ ; $\bar{u}_2 = \bar{u}_3 \times \frac{1}{2\sqrt{u_2}} = 3 \times \frac14 = 0{,}75$ ; $\bar{u}_1 = \bar{f} \times u_3 + \bar{u}_2 \times 1 = 2 + 0{,}75 = 2{,}75$ ; $\bar{q} = \bar{u}_2 \times 1 + \bar{u}_1 \times p = 0{,}75 + 8{,}25 = 9$ ; $\bar{p} = \bar{u}_1 \times q = 2{,}75$. e) $\nabla f \cdot \mathbf{v} = 2{,}75 \times 2 + 9 \times (-1) = -3{,}5$. f) $u_1 = (3 + 2\varepsilon)(1 - \varepsilon) = 3 - \varepsilon$, $u_2 = u_1 + q = 4 - 2\varepsilon$, $u_3 = \sqrt{u_2} = 2 + \frac{-2}{2 \times 2}\varepsilon = 2 - 0{,}5\,\varepsilon$, $f = u_1u_3 = 6 + \big(3 \times (-0{,}5) + (-1) \times 2\big)\varepsilon = 6 - 3{,}5\,\varepsilon$.
 
-Dans ta copie : $u_1$ reçoit deux contributions ($f$ l'utilise directement, et à travers $u_2$), $q$ aussi (à travers $u_1$ et $u_2$). Dérivée directe : $\frac{\partial f}{\partial p} = q\sqrt{pq + q} + \frac{pq \cdot q}{2\sqrt{pq + q}} = 2 + 0{,}75$ et $\frac{\partial f}{\partial q} = p\sqrt{pq + q} + \frac{pq\,(p + 1)}{2\sqrt{pq + q}} = 6 + 3$. L'écart entre e) et f), environ $0{,}013$, vient des termes d'ordre 2 que l'approximation linéaire néglige ; pour un déplacement dix fois plus petit, il serait environ cent fois plus petit.
+Dans ta copie : $u_1$ reçoit deux contributions ($f$ l'utilise directement, et à travers $u_2$), $q$ aussi (à travers $u_1$ et $u_2$). Dérivée directe : $\frac{\partial f}{\partial p} = q\sqrt{pq + q} + \frac{pq \cdot q}{2\sqrt{pq + q}} = 2 + 0{,}75$ et $\frac{\partial f}{\partial q} = p\sqrt{pq + q} + \frac{pq\,(p + 1)}{2\sqrt{pq + q}} = 6 + 3$. e) et la partie en $\varepsilon$ de f) sont deux façons de calculer la même dérivée dans la direction $\mathbf{v}$ : la passe directe de graine $\mathbf{v}$ calcule le produit jacobienne-vecteur $\mathbf{J}\mathbf{v}$ (M17), et le gradient de la passe arrière le donne par un produit scalaire. La passe arrière donne **tout** le gradient, donc la dérivée dans toutes les directions ; une passe directe ne porte qu'une graine, donc une seule direction.
 
 **Erreurs fréquentes.** $\bar{u}_1 = 2$ (la contribution de $u_2$ oubliée), qui donne $\bar{p} = 2$ et $\bar{q} = 6{,}75$. Utiliser $\bar{u}_1$ avant d'avoir calculé $\bar{u}_2$. Prendre $\sqrt{u_2}$ pour la dérivée locale de la racine au lieu de $\frac{1}{2\sqrt{u_2}}$.
+
+**Erreurs fréquentes (suite).** Normaliser $\mathbf{v}$ en e) (on trouverait $-\frac{3{,}5}{\sqrt5}$) : la question demande la dérivée dans la direction $\mathbf{v}$ telle quelle, comme une passe directe de graine $\mathbf{v}$.
 
 **Variante.** En $(p, q) = (2, 1)$ : $f = 2\sqrt3$ et $\nabla f = (\frac{4}{\sqrt3} ;\ 3\sqrt3) \approx (2{,}3094 ;\ 5{,}1962)$.
 
@@ -297,9 +299,9 @@ Dans ta copie : le mode inverse, de loin. Le chapitre 18 de workbookIA dérive u
 
 ### Ex M18.16 — Pont : de la convention de MML à celle de NumPy
 
-**Réponses.** a) `[[7, 13]]` · b) `[2]` · c) `[[3, 4], [1, 12]]` · d) `[0.65, 1.35]` · e) `[5, 3, 2]`.
+**Réponses.** a) `[[7, 13]]` · b) `[2]` · c) `[[3, 4], [1, 12]]` · d) `[0.125, 0.375]` · e) `[5, 3, 2]`.
 
-**Démarche.** $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \\ 2 & 6 \end{pmatrix}$, $\mathbf{x}^\top(\mathbf{A} + \mathbf{A}^\top) = (6, 14)$, plus $\mathbf{b}^\top$ : $(7, 13)$, en ligne. En colonne, les mêmes nombres. d) $(1, 2) - 0{,}05\,(7, 13) = (0{,}65 ;\ 1{,}35)$.
+**Démarche.** $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \\ 2 & 6 \end{pmatrix}$, $\mathbf{x}^\top(\mathbf{A} + \mathbf{A}^\top) = (6, 14)$, plus $\mathbf{b}^\top$ : $(7, 13)$, en ligne. En colonne, les mêmes nombres. d) $(1, 2) - 0{,}125\,(7, 13) = (0{,}125 ;\ 0{,}375)$.
 
 Dans ta copie : le pas soustrait un multiple du gradient à $\mathbf{x}$ : il faut qu'il ait la forme de $\mathbf{x}$, d'où la transposée de la ligne de MML. La vérification simple : écrire la forme de chaque facteur d'une formule de gradient et contrôler que le résultat a **la forme de la variable** ; une transposée oubliée donne en général une forme impossible (sauf pour une matrice carrée, où il faut un autre contrôle, comme la direction au hasard du §8).
 
