@@ -388,7 +388,7 @@ M17_14 = Ex(
 
 Écris `numerical_jacobian(f, x, h=1e-5)` (fiche §1), en suivant sa docstring : `ValueError` si `x` n'est pas un tableau 1-D non vide, si `h` n'est pas un nombre $> 0$, ou si les valeurs de `f` ne sont pas des tableaux 1-D, toutes de la même longueur ; sinon la matrice $(m, n)$ dont la colonne $j$ est
 $$\frac{\mathbf{f}(\mathbf{x} + h\,\mathbf{e}_j) - \mathbf{f}(\mathbf{x} - h\,\mathbf{e}_j)}{2h},$$
-où $\mathbf{e}_j$ est le $j$-ième vecteur de la base canonique. Une **colonne** de la jacobienne est la dérivée de **toutes les sorties** quand on bouge **une seule entrée**, les autres fixées ; une ligne est le gradient d'une sortie. La matrice entière coûte $2n$ évaluations de $\mathbf{f}$.
+où $\mathbf{e}_j$ est le $j$-ième vecteur de la base canonique. La colonne $j$ est la vitesse de $\mathbf{f}(\mathbf{x})$ quand seule $x_j$ varie (fiche §1) ; la ligne $i$ est le gradient de la sortie $f_i$. La matrice entière coûte $2n$ évaluations de $\mathbf{f}$.
 
 **L'usage.** On prend la Terre pour une sphère de rayon $R = 6\,371$ km. Le point de latitude $\varphi$ et de longitude $\lambda$ (en radians) est
 $$\mathbf{S}(\varphi, \lambda) = R\,(\cos\varphi\cos\lambda,\ \cos\varphi\sin\lambda,\ \sin\varphi),$$
@@ -744,7 +744,7 @@ wbm.record("M17.18c", 2, prediction=True, choices=[1, 2])''',
 )
 
 GIVEN_19 = '''X0_19, N_STEPS_19 = 0.3, 60
-SLOPES_19 = (1.5, 2.5, 2.9, 4.0)             # the values of c of the figure
+C_VALUES_19 = (1.4, 2.6, 2.8, 4.0)           # the values of c of the figure
 STARTS_19 = np.sin(np.pi / 2 * np.linspace(0.0, 1.0, 10002)[1:-1]) ** 2    # the 10 000 starts of c), in ]0, 1[,
                                              # spread as the points of a long trajectory of φ_4 (closer near 0 and 1)
 
@@ -756,7 +756,7 @@ def parabola_19(c):
 FIGURE_19 = '''fig, ax = plt.subplots(figsize=(7.5, 4.2))
 try:
     steps_19 = np.arange(N_STEPS_19 + 1)
-    for c_19, colour_19 in zip(SLOPES_19, ("C0", "C1", "C2", "C3")):
+    for c_19, colour_19 in zip(C_VALUES_19, ("C0", "C1", "C2", "C3")):
         xs_19, ds_19 = (np.asarray(a, dtype=float) for a in iterate_with_derivative(*parabola_19(c_19), X0_19,
                                                                                      N_STEPS_19))
         shown_19 = f"{c_19:g}".replace(".", ",")
@@ -783,14 +783,14 @@ $$D_k = \frac{\mathrm{d}x_k}{\mathrm{d}x_0} = \prod_{j < k}\varphi_c'(x_j), \qqu
 Écris `iterate_with_derivative(phi, dphi, x0, n_steps)`, qui rend deux tableaux de longueur `n_steps + 1` : les $x_k$ et les $D_k$, de $k = 0$ à `n_steps` (la cellule fournie donne $\varphi_c$ et $\varphi_c'$ par `parabola_19(c)`).
 
 Pour $1 < c < 3$, la trajectoire converge vers le point fixe $x^* = 1 - \frac{1}{c}$, où la pente vaut $\varphi_c'(x^*) = 2 - c$ : les derniers facteurs du produit valent presque $2 - c$, et $D_k$ s'éteint comme $\lvert 2 - c\rvert^k$. Pour $c = 4$, le point fixe $x^* = 0{,}75$ est **repoussant** (pente $-2$) : la trajectoire ne s'en approche pas, elle erre dans $[0 ; 1]$, et $D_k$ grandit en moyenne comme $2^k$, alors que les $x_k$ restent dans $[0 ; 1]$. Calcule, avec $L = 60$ itérations :
-- a) pour $c = 2{,}5$, la pente $\varphi_c'(x^*)$ au point fixe (un nombre) ;
-- b) pour $c = 2{,}5$, $\lvert D_{60}\rvert^{1/60}$ (3 décimales) ;
+- a) pour $c = 2{,}6$, la pente $\varphi_c'(x^*)$ au point fixe (un nombre) ;
+- b) pour $c = 2{,}6$, $\lvert D_{60}\rvert^{1/60}$ (3 décimales) ;
 - c) pour $c = 4$, le taux moyen de croissance $\frac{1}{60}\ln\lvert D_{60}\rvert$, en **moyenne sur les 10 000 départs** `STARTS_19` (2 décimales) ;
 - d) vrai ou faux : pour $c = 4$, les trajectoires parties de $0{,}3$ et de $0{,}3 + 10^{-10}$ sont à plus de $0{,}01$ l'une de l'autre après 40 itérations.
 
 Pourquoi une moyenne en c) : pour $c = 4$, les erreurs d'arrondi des flottants sont, elles aussi, multipliées par 2 à chaque pas en moyenne ; après une cinquantaine d'itérations, la trajectoire calculée n'est plus celle qu'on calculerait exactement, et le taux d'un seul départ dépend de ces détails (d'une écriture de $\varphi_c$ à une autre, par exemple). La moyenne sur beaucoup de départs, elle, n'en dépend presque plus. Les 10 000 départs de `STARTS_19` (cellule fournie) sont plus serrés près de 0 et de 1 : ils sont répartis comme les points d'une très longue trajectoire de $\varphi_4$, ce qui rend la moyenne indépendante des premiers pas. Ta fonction peut prendre un `x0` qui est un tableau de départs, si tu l'écris avec des opérations de NumPy ; sinon, fais une boucle sur les départs (moins d'une seconde).
 
-Une cellule trace ensuite, avec ta fonction, $\lvert D_k\rvert$ en échelle logarithmique pour $c = 1{,}5$ ; $2{,}5$ ; $2{,}9$ et $4$, avec, en pointillés, des droites de pente $\ln\lvert 2 - c\rvert$ pour $c < 3$.""",
+Une cellule trace ensuite, avec ta fonction, $\lvert D_k\rvert$ en échelle logarithmique pour $c = 1{,}4$ ; $2{,}6$ ; $2{,}8$ et $4$, avec, en pointillés, des droites de pente $\ln\lvert 2 - c\rvert$ pour $c < 3$.""",
     todo='''def iterate_with_derivative(phi, dphi, x0, n_steps):
     """The arrays (x_0, ..., x_n) and (D_0, ..., D_n), n = n_steps: x_{k+1} = phi(x_k), D_0 = 1 and
     D_{k+1} = dphi(x_k) D_k, the derivative dx_k/dx_0 by the chain rule."""
@@ -798,9 +798,9 @@ Une cellule trace ensuite, avec ta fonction, $\lvert D_k\rvert$ en échelle loga
 
 
 answer_M17_19a = answer_M17_19b = answer_M17_19c = answer_M17_19d = ...
-answer_M17_19a = ...  # a) a number: the slope φ_c′(x*) at the fixed point, c = 2.5
+answer_M17_19a = ...  # a) a number: the slope φ_c′(x*) at the fixed point, c = 2.6
 with wbm.attempt("M17.19"):          # if you call iterate_with_derivative here: ⏳ while it is not written
-    answer_M17_19b = ...  # b) a number (3 decimals): |D_60|^(1/60), c = 2.5
+    answer_M17_19b = ...  # b) a number (3 decimals): |D_60|^(1/60), c = 2.6
     answer_M17_19c = ...  # c) a number (2 decimals): the mean over STARTS_19 of ln|D_60| / 60, c = 4
     answer_M17_19d = ...  # d) True or False''',
     check='''wbm.check("M17.19a", answer_M17_19a)
@@ -819,9 +819,9 @@ with checked("M17.19 figure"):
     return np.array(xs, dtype=float), np.array(ds, dtype=float)
 
 
-phi_25, dphi_25 = parabola_19(2.5)
+phi_25, dphi_25 = parabola_19(2.6)
 phi_4, dphi_4 = parabola_19(4.0)
-answer_M17_19a = round(dphi_25(1 - 1 / 2.5), 12)                # φ′(x*) = 2 − c
+answer_M17_19a = round(dphi_25(1 - 1 / 2.6), 12)                # φ′(x*) = 2 − c
 xs_25, ds_25 = iterate_with_derivative(phi_25, dphi_25, X0_19, N_STEPS_19)
 answer_M17_19b = float(abs(ds_25[-1]) ** (1 / N_STEPS_19))
 xs_4, ds_4 = iterate_with_derivative(phi_4, dphi_4, STARTS_19, N_STEPS_19)      # 10 000 starts at once
@@ -835,7 +835,7 @@ print("a)", answer_M17_19a, " b)", round(answer_M17_19b, 3), " c)", round(answer
       f"({answer_M17_19c:.4f} ; ln 2 = {math.log(2):.4f} ; écart-type des 10 000 taux : {np.std(rates_19):.3f} ; "
       f"avec 10 000 départs uniformes : {np.mean(np.log(np.abs(uniform_19))) / N_STEPS_19:.4f})",
       " d)", answer_M17_19d)
-print("c = 2,5 : les premiers facteurs φ′(x_k) :", np.round(dphi_25(xs_25[:6]), 3).tolist(), "; x_60 =", xs_25[-1])
+print("c = 2,6 : les premiers facteurs φ′(x_k) :", np.round(dphi_25(xs_25[:6]), 3).tolist(), "; x_60 =", xs_25[-1])
 print("c = 4 : écart entre les deux trajectoires aux itérations 10, 20, 30, 40 :",
       [f"{abs(near_19[k] - far_19[k]):.1e}" for k in (10, 20, 30, 40)])
 
@@ -848,10 +848,10 @@ print("c = 4 : écart entre les deux trajectoires aux itérations 10, 20, 30, 40
     return x, d
 
 
-wbm.record("M17.19a", 2 - 2.5, decimals=4,
-           mistakes={"a) demande la PENTE φ_c′(x*), pas le point fixe x* lui-même": 1 - 1 / 2.5,
-                     "φ_c(x) = cx − cx² : sa dérivée est c − 2cx": 2.5 * (1 - (1 - 1 / 2.5))})
-_, d_25r = run_19r(2.5, 0.3, 60)
+wbm.record("M17.19a", 2 - 2.6, decimals=4,
+           mistakes={"a) demande la PENTE φ_c′(x*), pas le point fixe x* lui-même": 1 - 1 / 2.6,
+                     "φ_c(x) = cx − cx² : sa dérivée est c − 2cx": 2.6 * (1 - (1 - 1 / 2.6))})
+_, d_25r = run_19r(2.6, 0.3, 60)
 wbm.record("M17.19b", float(abs(d_25r) ** (1 / 60)), decimals=3,
            mistakes={"b) demande |D_60|^(1/60), pas son logarithme divisé par 60": float(np.log(abs(d_25r)) / 60)})
 _, d_4r = run_19r(4.0, np.sin(np.pi / 2 * np.linspace(0.0, 1.0, 10002)[1:-1]) ** 2, 60)
@@ -862,21 +862,21 @@ wbm.record("M17.19d", bool(abs(run_19r(4.0, 0.3, 40)[0] - run_19r(4.0, 0.3 + 1e-
            mistakes={"compare les deux trajectoires après 40 itérations, |x_40 − x′_40|, à 0,01 : l'écart de départ "
                      "est multiplié par |D_k| à chaque pas, en première approximation": False})''',
     after=[
-        ("md", "**Dans ta copie** : pour $c = 2{,}5$, écris les premiers facteurs $\\varphi_c'(x_0)$, "
+        ("md", "**Dans ta copie** : pour $c = 2{,}6$, écris les premiers facteurs $\\varphi_c'(x_0)$, "
                "$\\varphi_c'(x_1)$, … : pourquoi b) est-elle un peu plus petite que $\\lvert 2 - c\\rvert$ ? Pour "
-               "$c = 2{,}9$, pourquoi la courbe met-elle plus longtemps à rejoindre sa droite, et pourquoi "
-               "décroît-elle si lentement ? Pour $c = 1{,}5$ et $c = 2{,}5$, les pentes sont les mêmes : qu'est-ce qui "
+               "$c = 2{,}8$, pourquoi la courbe met-elle plus longtemps à rejoindre sa droite, et pourquoi "
+               "décroît-elle si lentement ? Pour $c = 1{,}4$ et $c = 2{,}6$, les pentes sont les mêmes : qu'est-ce qui "
                "distingue les deux trajectoires (regarde le signe des $D_k$) ? Pour $c = 4$, comment l'écart de d) "
                "grandit-il entre les itérations 10 et 40, et que dit-il de la prévision de $x_{60}$ à partir d'un "
                "$x_0$ connu à $10^{-10}$ près ?"),
     ],
     note=r"a) $\varphi_c'(x) = c(1 - 2x)$ et $x^* = 1 - \frac{1}{c}$ donnent $\varphi_c'(x^*) = c - 2c + 2 = 2 - c = "
-         r"-0{,}5$. b) $\lvert D_{60}\rvert^{1/60} \approx 0{,}495$, un peu sous $0{,}5$ : le deuxième facteur, "
-         r"$\varphi_c'(x_1)$ avec $x_1 = 0{,}525$, ne vaut que $-0{,}125$, et les premiers facteurs, loin du point fixe, "
+         r"-0{,}6$. b) $\lvert D_{60}\rvert^{1/60} \approx 0{,}597$, un peu sous $0{,}6$ : le deuxième facteur, "
+         r"$\varphi_c'(x_1)$ avec $x_1 = 0{,}546$, ne vaut que $-0{,}239$, et les premiers facteurs, loin du point fixe, "
          r"pèsent sur la moyenne géométrique. Les $D_k$ changent de signe à chaque pas (pente négative) : la trajectoire "
-         r"tourne autour de $x^*$ ; pour $c = 1{,}5$, pente $+0{,}5$, elle s'en approche d'un seul côté. Pour "
-         r"$c = 2{,}9$, $\lvert 2 - c\rvert = 0{,}9$ : la convergence est lente, et $D_k$ ne perd qu'un facteur "
-         r"$0{,}9$ par pas. c) La moyenne des 10 000 taux vaut $\approx 0{,}693$, $\ln 2$ à quelques $10^{-4}$ près : "
+         r"tourne autour de $x^*$ ; pour $c = 1{,}4$, pente $+0{,}6$, elle s'en approche d'un seul côté. Pour "
+         r"$c = 2{,}8$, $\lvert 2 - c\rvert = 0{,}8$ : la convergence est plus lente, et $D_k$ ne perd qu'un facteur "
+         r"$0{,}8$ par pas. c) La moyenne des 10 000 taux vaut $\approx 0{,}693$, $\ln 2$ à quelques $10^{-4}$ près : "
          r"$D_k$ double en moyenne à chaque pas. Les départs suivent la loi des points d'une longue trajectoire de "
          r"$\varphi_4$ (la loi de l'arc sinus, de densité $\frac{1}{\pi\sqrt{x(1 - x)}}$) ; avec des départs "
          r"uniformes, la moyenne serait un peu plus petite, $\approx 0{,}686$, car les premiers pas n'ont pas encore "
@@ -917,7 +917,7 @@ def grid_images_20(ax, half_width, n_lines):
     found = {}
     for line in ax.lines:
         points = np.column_stack([np.asarray(line.get_xdata(), dtype=float), np.asarray(line.get_ydata(), dtype=float)])
-        if len(points) < 10 or not np.all(np.isfinite(points)):
+        if len(points) < 20 or not np.all(np.isfinite(points)):
             continue
         for kind in ("F", "linear"):
             q = preimages_20(points, kind == "linear") - A_20        # the preimages, from the centre
@@ -1179,7 +1179,7 @@ M17_21 = Ex(
     body=r"""Un collègue a écrit trois fonctions (cellule fournie) ; leurs docstrings disent ce qu'elles doivent faire, et chacune a l'erreur que nomme le titre :
 - `jacobian_by_hand(p)` doit rendre la jacobienne de $\mathbf{f}(x, y) = (x^2,\ x + y)$ au point $\mathbf{p}$ ;
 - `chain(Jf, Jg)` doit rendre la jacobienne de $\mathbf{g} \circ \mathbf{f}$ en $\mathbf{x}$, à partir de la jacobienne `Jf` de $\mathbf{f}$ en $\mathbf{x}$ et de la jacobienne `Jg` de $\mathbf{g}$ en $\mathbf{f}(\mathbf{x})$ ;
-- `composite_jacobian(f, jac_f, jac_g, x)` doit rendre la jacobienne de $\mathbf{g} \circ \mathbf{f}$ en $\mathbf{x}$, à partir de $\mathbf{f}$ et des fonctions `jac_f` et `jac_g` qui donnent les jacobiennes de $\mathbf{f}$ et de $\mathbf{g}$ en un point.
+- `composite_jacobian(f, jac_f, jac_g, x)` doit rendre la jacobienne de $\mathbf{g} \circ \mathbf{f}$ en $\mathbf{x}$, à partir de $\mathbf{f}$ et des fonctions `jac_f` et `jac_g` qui donnent les jacobiennes de $\mathbf{f}$ et de $\mathbf{g}$ en un point ; son erreur : `jac_g` est évaluée au point de départ $\mathbf{x}$ au lieu du point intermédiaire $\mathbf{f}(\mathbf{x})$.
 
 La cellule donne aussi $\mathbf{f}$ (`f_21`), $\mathbf{g}(u, v) = (uv,\ u - v)$ (`g_21`), la jacobienne exacte de $\mathbf{g}$ (`jac_g_21`), une jacobienne numérique de $\mathbf{f}$ (`jac_f_numeric_21`, par la référence) et le point $\mathbf{x} = (1, 2)$ (`X_21`). Aucune des trois fonctions ne lève d'erreur sur ces données. Calcule à la main, puis vérifie en appelant les fonctions du collègue :
 - a) ce que rend `chain(jac_f_numeric_21(X_21), jac_g_21(f_21(X_21)))` (une matrice, ses coefficients arrondis à l'entier) ;
@@ -1199,7 +1199,7 @@ answer_M17_21b = np.round(composite_jacobian(f_21, jac_f_numeric_21, jac_g_21, X
 answer_M17_21c = np.round(jg_21 @ jf_21).tolist()
 print("J_f =", np.round(jf_21, 6).tolist(), "; jacobian_by_hand =", jacobian_by_hand(X_21).tolist())
 print("a)", answer_M17_21a, " b)", answer_M17_21b, " c)", answer_M17_21c)
-print("J_g au mauvais point (1, 2) :", jac_g_21(X_21).tolist())''',
+print("J_g au point de départ (1, 2) au lieu du point intermédiaire :", jac_g_21(X_21).tolist())''',
     record='''jf_21r = np.array([[2.0, 0.0], [1.0, 1.0]])           # J_f(1, 2)
 jg_21r = np.array([[3.0, 1.0], [1.0, -1.0]])          # J_g(f(1, 2)) = J_g(1, 3)
 jg_x_21r = np.array([[2.0, 1.0], [1.0, -1.0]])        # J_g(1, 2): the wrong point

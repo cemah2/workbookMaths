@@ -62796,40 +62796,46 @@
     },
     "M17.19a": {
       "coarse_any": {
+        "0": [
+          "f51bab636e0182826b25b9348a2eec83fa1a10005832d0f0687770355ef4e833"
+        ],
         "1": [
-          "121fc161daa53ebf45a8e5e5b51a10a1a63dc0edfc1c17171fc0b1ec29c55f07"
+          "a669efc59b70ee7d8303e1175c0c62159fcf51bc924bd9e2ab1f352fb4b63b0c"
         ]
       },
       "coarser": {
         "2": [
-          "6f84c57271a0614f8a89162e94f5225ed802905f83c014396375034b2df0741a"
+          "b889016f8fa79096f6da851cb0b9aacafd3494377b85d609f991a0f40dbf9b7d"
         ]
       },
       "decimals": 4,
-      "hash": "6e18567645f90515ea8496c9122224b502bcc33f8e1bde5b693a209d67369dbe",
-      "hash_coarse": "0904c6b58afe2516ce5d2b6024ac20ae217d310bdb52d24d5186a0169b3dd5a5",
+      "hash": "7cef7ce099db076b4d86fabd8c62d91fb36aeed97f940040764333a9976be6d5",
+      "hash_coarse": "b39df32ae079c4e20fa9b3eb94464a92988cdaf0f73dfbbc476ff7734d31bfc0",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "86daff875a2f56fc1039b12199cd07fbda6237ac42a6ba8b546c32c864081557": "φ_c(x) = cx − cx² : sa dérivée est c − 2cx",
-        "d7ec10e7461fd611aa72eb9b5932207e8e557beddd669ab77cbe059d14936811": "a) demande la PENTE φ_c′(x*), pas le point fixe x* lui-même"
+        "56b9f6779e2fb177bf5e3703fde8b284bae7a363939909e58bf8731b27a716b3": "a) demande la PENTE φ_c′(x*), pas le point fixe x* lui-même",
+        "86daff875a2f56fc1039b12199cd07fbda6237ac42a6ba8b546c32c864081557": "φ_c(x) = cx − cx² : sa dérivée est c − 2cx"
       },
       "sign": -1,
       "source": "chapitres/m17_jacobienne/05_solutions.ipynb"
     },
     "M17.19b": {
       "coarse_any": {
+        "0": [
+          "84c8d743a5af4f57f9c7006599bbd10bd7324c55ea09c59e06931e45825fae4a"
+        ],
         "1": [
-          "3012218dd6d62fa29ae744a74038eb2ade24171268761685feae72c6e6a04211"
+          "1b0fc8c2555a996634f0e4fc8657140a0998589941a3e957e6d937a2a06381cb"
         ]
       },
       "decimals": 3,
-      "hash": "a848205dd17b00af4bca1d317913b6decbce0a84d081055da6c47292dad65472",
-      "hash_coarse": "a0896fc83cf09b6308f88d1c12b15ce459de1e1e70e0a9a80e207cb3ae54f17f",
+      "hash": "f189cb427d6ca725da8b768e83a225793fdd1a86d4449bf7af4f2b63c4cc4427",
+      "hash_coarse": "4a95e9a3651faaac8c6d01ffb0283ae2331d15915292985a014d97bd2d40afba",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "daa6482d11435be1558997975a30060cbebb23203239e4f75ee836d85ab2f768": "b) demande |D_60|^(1/60), pas son logarithme divisé par 60"
+        "b4544738141fad91486ddd7e6f185092d23592e07d5a14645d8c590e1d7adcfb": "b) demande |D_60|^(1/60), pas son logarithme divisé par 60"
       },
       "sign": 1,
       "source": "chapitres/m17_jacobienne/05_solutions.ipynb"

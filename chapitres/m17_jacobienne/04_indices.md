@@ -550,7 +550,7 @@ Une boucle qui garde $x_k$ et $D_k$ : $D_{k+1} = D_k\,\varphi'(x_k)$, puis $x_{k
 </details>
 <details><summary>Indice 3</summary>
 
-Pour $c = 2{,}5$, $x^* = 0{,}6$ et $\varphi'(x^*) = c(1 - 2x^*)$.
+Pour $c = 2{,}6$, $x^* = 1 - \frac{1}{c}$ et $\varphi'(x^*) = c(1 - 2x^*)$.
 
 </details>
 
@@ -568,7 +568,7 @@ Une ligne de la grille est un ensemble de points $\mathbf{p}$ ; trace $F(\mathbf
 </details>
 <details><summary>Indice 3</summary>
 
-Pour des points rangés en lignes `P` de forme `(k, 2)`, l'approximation linéaire s'écrit `F(a) + (P - a) @ J.T`.
+Pour des points rangés en colonnes dans `P`, de forme `(2, k)`, l'approximation linéaire s'écrit `F(a)[:, None] + J @ (P - a[:, None])`.
 
 </details>
 

@@ -245,7 +245,7 @@
 
 ### Ex M17.19 — Une longue composition : une dérivée qui s'éteint ou explose selon la pente au point fixe
 
-- la pente au point fixe pour c = 2,5 ; les taux mesurés ; pourquoi la dérivée explose pour c = 4 alors que les valeurs restent dans [0 ; 1] :
+- la pente au point fixe pour c = 2,6 ; les taux mesurés ; pourquoi la dérivée explose pour c = 4 alors que les valeurs restent dans [0 ; 1] :
 
 ### Ex M17.20 — Une grille du plan déformée par une application non linéaire, et par son approximation linéaire
 
