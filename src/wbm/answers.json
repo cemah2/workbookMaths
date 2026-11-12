@@ -59649,6 +59649,1598 @@
       "kind": "bool",
       "source": "chapitres/m14_ensembles/05_solutions.ipynb"
     },
+    "M16.1a": {
+      "decimals": 0,
+      "element_hashes": [
+        "1a7c32e81812eb10636ef1790cc828902505a59dd4096de444be27694109871d",
+        "02b404eb554da6de8d7be1175740881f95d353f9774f6be3d5eba1dbcc2c7743",
+        "d9387c7fffac7d57448c6bf498750228696e42f3dff84b6c9bbfb16a507b3285",
+        "f2f43bc05d905d97229b5d15d2b767ef17f860ae20854bedd78dc30b80b03755",
+        "22fbd887a0c57438f7b940ff51d7f273d796e189e9c4f3167503dc79ebe91400",
+        "5dc76a335ff944ebaf55a6e7273170d701d6ba8099af693e172a23505f7105b8"
+      ],
+      "hash": "074022dc1de603d27903f31a50de2aeaf8acc031bc7e0b30f7b03df282307cc9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a3e3d3290504009f77ca0b03cd44e9fec17d5534890b5cbeaeacf60393eb2b81": "en lignes, W a une ligne par ENTRÉE et une colonne par sortie : forme (3, 2)"
+      },
+      "shape": [
+        3,
+        2
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.1b": {
+      "decimals": 0,
+      "element_hashes": [
+        "4fc2a9e0bf26e2e14a1dcc883251d260b13bc91b01bf7fce0d6e41b0ba456d01",
+        "ef76588cad157400a1efbdf8bcb553b5f653547114bd8030b27bee99a86d6261"
+      ],
+      "hash": "748b3a10684bf5ea727dafefdf0ad1e52a5fe0afdac8964b669703b34ac2262d",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.1c": {
+      "decimals": 0,
+      "element_hashes": [
+        "3b51608a22bc4c5401844181bf649ba6ad51cc0071f50d99b945fdabe8a44f49",
+        "eb7c1adddfbf560d8e81d0c184dd81855f5f3e19f3ae7d7ebff7886e1b9c68e9"
+      ],
+      "hash": "0d557ce25d3b2942f3c17937aee737e9e470bc310a0199078c289177c39be2f4",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "7377dfe9674d2d6b2f8f3d418f94751bf1bda7e1b3a80cd3904467af1b66fbd6": "g(x) = x W + b : n'oublie pas b"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.1d": {
+      "decimals": 0,
+      "element_hashes": [
+        "0aa8827ca11e17af690a8869d02760b5eaf5e78964b4cf8731d1831ff93b2bd9",
+        "880c91c1b49517d9b64b73f12f359d08fa695c044c76284a1e4179484f7646f9",
+        "0d3fc0b77bdefce01381c87a20397f1e0ad737498768e2577d48bd9ac1fa813c",
+        "cffe15fd185d3669823450683dade1ecb686659e1869a66d5771692ec3cb2430",
+        "b5ec6dd60e7270f8f4aca378eb8c3bdf5a9b76a2ef59ce1e2751bcaaa4caa6ff",
+        "15800fff4c38df15bd585b268e8dc717467bdef0bc6493f75b101d42887786b0"
+      ],
+      "hash": "df519d4f998185ded757e78988354e8fbdee4797f9e4008edf309ad101db9843",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "242e2f662e1e35c3150f93b96e7c36d6c2f471956f5d447733f61f39f136e9d1": "en colonnes, c'est la transposée : une ligne par SORTIE, une colonne par entrée"
+      },
+      "shape": [
+        2,
+        3
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.1e": {
+      "hash": "1643923254911fa1ee1e098464730dcc1f162d63f5ffce3526788c2e7ada0a07",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5507c60fe0659eae528dab2b892fb8f259b6ee646ad779d07aa2a9552c091d9d": "b compte aussi : une coordonnée par sortie",
+        "a78ec10e56e428ec198a3337c592e1fc391a40c6cfeed74e92fae6f76937db65": "un paramètre par coefficient de W et par coordonnée de b, pas un par entrée et par sortie"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.1f": {
+      "decimals": 0,
+      "element_hashes": [
+        "f1ea70791e3161b035cb499e1b04fd5b13b2d15eebc6114bf99e16919c520c15",
+        "ae6df2c504f3e54d3f28df02473d370c2f20b6d46308d21bec50fd57b1624ae7",
+        "1d9ff94fb9d5d7d44fd7eff795f7ceb2bd92008c4fd6c63116268fb8516c434b",
+        "c42c592ce8be5f1d5ed348096c79ac092c5713f1179590134ba8a059fc87b00a",
+        "492ecf0028c722db0db7f720d0b57f885649419af3bce75d2867af236d9019e5",
+        "9e67d18a2380a6e01be23cea36ccdd660a6f31adfa06b548ea08b65a32228167"
+      ],
+      "hash": "bad9901dd82f42ba89b6df914102f3ef173052ece1a06d41e325225dd70e71d8",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "d533859fc75a8bd3ad529dd18ac4edff57ef662bbbba6add79d8acc89fecced3": "chaque image est x W + b : ajoute b à chaque ligne (le terme 1bᵀ)"
+      },
+      "shape": [
+        3,
+        2
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.1g": {
+      "hash": "b4ea427a06c870470cc17036ff1bacaf13f29a32844a37d1ac3d2ae3f7b6e70d",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "112370b6c0650db2f49fdab80b9906c6ccbee17cbaf9229e7727356ce4e428d2": "W a un coefficient par couple (entrée, sortie) : n m coefficients, pas n + m",
+        "e6d87bc7c128ca35b60999af6c038b1fd4cec5312d62c04e26fb7bf59fafd6e7": "b compte aussi : une coordonnée par sortie"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.1h": {
+      "hash": "e1ae3edb9315f2f07d7c53f6387b6aff4cb38aef1fa321d399be00a6be0b1054",
+      "kind": "int",
+      "magnitude": 5,
+      "mistakes": {
+        "117e86aa9d5de0119eb7963d081dc3f9e8b1eaf3103db93dc853136f8b5c8f65": "chaque point a m sorties, et chacune demande n multiplications",
+        "98b2f0b9c9b3d4dbec160735a2969b02d92cb63018a8aa486d028709b5164c37": "chaque sortie d'un point demande n multiplications, une par entrée"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.2a": {
+      "decimals": 0,
+      "element_hashes": [
+        "b81f859de369ecef6a09c88e5bed06811cfb9c0d4ede7288608e7eadaf224d67",
+        "837c38ee27623512b78ed9f789d386d42f78919a890e294b713f2fdbed3eee5c",
+        "b1653494b736497aee8fa4bcc8bff98fa67ab17b22a4ae7ae3f4fc2ee0f0f01e",
+        "20b61f226f5692084d50a650bcf33d96c48c1feefa17cb48b203b6dc4cf30b22",
+        "182a012813b443d57853b45ae568b1a044d194b514df4cbed58cdcf4fb282ce6",
+        "95a49e2cebe0e08e960e67f6a09d290e769e57bb7822b99164619c62996e9ce0",
+        "9fc56a9793738052dfc81f8215aa1bde4b2da02f803815508cb852536a32888f",
+        "5e0a1245172eb12219bf4a189639f419d1ad5f81a04e42b8532ff6c22aca8ed4",
+        "fd7f1a79b1a1f33279309f731bd9371728fde0df6e2a4371c935186bffe51894"
+      ],
+      "hash": "0f8245451402b84ab361f072a3ebe3155fef3b714e10b57d3a4d195eb22061d9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "34b579edcda49b782877c46114c0108a58750ecea76c4481f07404a80357e506": "avec des lignes, la ligne 1 de W est l'image de (1, 0), la ligne 2 celle de (0, 1)"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.2b": {
+      "decimals": 0,
+      "element_hashes": [
+        "50451d423f946939413e2b5a3e7d511cb83fe7ced4a9a656d3f3003b733609d8",
+        "601bfae078e1b13c7a86f942e106e6653584ea700db998a91b27fc258c442cc6",
+        "4cdc0d76141433338c7579a3cfeb2bda5d75c75382bd63a80170bbe31d95e032",
+        "95cd2ac23b380445942f20dd1caa98a60fb9dac09602ff034e824519abca7e9f",
+        "78133fb515d5df442a3165c8f845daf4b49e2afc20c05529cdff1629e5295d1b",
+        "269d1b44ff98e5744ab99326b3e3b0e75d6e09f24080862531c7e3040c5deb50",
+        "89d7ba0ec2414e922fc7de227df9ea4802b9157402065491b8e1c7c67561bbde",
+        "09e382e5f7f5594db366c2d22c7c146023fbaabc06a35051a4d297aa408e09a6",
+        "bd2bbfcae1d0ccdcea6352f84c4b64a465d7a0562f7be6fa49d1bc24fe9cc6b8"
+      ],
+      "hash": "8aa3c9cd6d50918e749959c06804a6e869945147aaa2387c41f30adcf5ba2396",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5958d03b5b29091332ad470c49c47f54ffa5f51e64b9484da818d181cf535159": "la dernière case reste 1 : seule la partie linéaire est multipliée par 2"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.2c": {
+      "decimals": 0,
+      "element_hashes": [
+        "dc313de0a63e7c8706a0e9dcedb21db2712a2daf53ac42e1c0d3d259c61719b8",
+        "ed033f7e645194854d2c965513136a6b003f19ddee10b381c105db93ce529c1f",
+        "eed0f7869e0b96ab88a193caa77fb3e73d40d55379fdf434bda02fee1a28cb62",
+        "49e38b251ed5e179b0a49db8c2ea0a615f60a33ddf88a42a0fec928cb4076404",
+        "f0a4ef62f5a1bd05ed9081b551802c3dc40e40bd886b1e998b4f25b0f286e14e",
+        "52e13b73229c6dfb5285e9ee67203e2afa41a13534ddab433e58286c6f754122",
+        "bbc2b1c730a4e0a1ec75e0cb95e98cb9a59e829748a8e8b0866bba5e861c60d2",
+        "121fdee8c81628bba203bb57a1bf071a9a93db4c76ad1ede8f699918ef7aa748",
+        "29455aa51229b39414984817cc1e5562a029ece2ce7fc53b714728e52bd258f3"
+      ],
+      "hash": "7bc83708a68f420d5856fbb3ea42af3b09329668c054ae117e663d6269003887",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2915ea9e3eeeb4978155f0ffa6cd402119ac77ac6e633296eaf098d3ae070eba": "avec des lignes, la translation va sur la dernière LIGNE, et la dernière colonne reste (0, 0, 1)"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.2d": {
+      "decimals": 0,
+      "element_hashes": [
+        "b158ba018acf6728031c188675ae8e82a45bd238cb48be62ac3fbf0bd273f46d",
+        "5a303696cab6b13ebb1fb0d0165b84dc0bc69c4ad7cda957f40485bef91cd9f2",
+        "b455217c8f9865b62de6d24c37019594de67f93c3fe453045afffb8c429c1087",
+        "061631b8b2b0d80f621251cc5df9d1b9e0f2811036bcb4b85cff856cf6d09f6a",
+        "ed59e9f3badbe4f4d3fe92fc057ec96eed015b8fa5af2ea5c0f0b6a47c32411c",
+        "c732b75c50b12d12f8093c25d0722b18b897167176a4caa249a89fabb607840d",
+        "f1a25c590888aa2c7bf08973c0633d82b92dba3ac41e859f5fc3cdcd7e156c0c",
+        "ca17e1e476a76d8b910642e978c550782757ec2161ab1a7ba9202071339a959a",
+        "96ce53ca0b846e069a8eeab6b570ed6fb89562f242c0ec7a91a1a9f7b4c99653"
+      ],
+      "hash": "82233f2adbcf5753d08117fa85b0a34ba303b51701c10f8af12545174ec2edf4",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "6de48218aed2892214df8351c2ac7788f45a137d43c6d835b378143f2372e024": "avec des lignes, la première application appliquée est à gauche du produit",
+        "a847081e7c09dd1271e6032bbbe44120c3492c06841bbac14fd29e1759954bf0": "vérifie H₁ sur le point (1, 0), qui doit aller en (0, 1) : avec des lignes, la ligne 1 de W est son image"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.2e": {
+      "decimals": 0,
+      "element_hashes": [
+        "8a8e7597791240b75d3e25bedbf0da639d8e8633a4f0ab4fe92c1df094b6840b",
+        "457c0f5172fd65c3a9d2b22c7e6bbe5d3ea548ce8f4b0b35071c0a588debdfc1"
+      ],
+      "hash": "5972149127ed9c40958866b9bd4974331e0d77058a4016157349b12722159ae3",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "9708d3415e69e9aab90d5daba01d1c287741f46b52b709d0f85b7b485af0e06a": "avec des lignes, la première application appliquée est à gauche du produit : f₁ d'abord",
+        "bd04d416497ec1dee2cb69a12b55430b0df0413246e3bbb1bef7150210c9ff07": "l'image est un point du plan : deux coordonnées, sans le 1 final"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.2f": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "0408c91349e324113cf9d0aed209cd11deb31988ca57acbada839e23e13e217d"
+        ],
+        [
+          "36fde7479304699f0794928afdd5709eeffb6c54b23d4959c736565666bbf258"
+        ],
+        [
+          "d0f0058f5c1250293100ddf3372d8ca95de39f6df63350305986a9a7b912eae1"
+        ],
+        [
+          "060fb990bbe9a8a99e68fbb4bf110a4850f6397ae669c4b3848681269ca0333b"
+        ],
+        [
+          "242ffaee5cad98ce6972f6eaa20cb5f280d0304c6e46a19f57c67d43e68a5f23"
+        ],
+        [
+          "0d9e4573b1dc9bd5276f73a91680b189c68c06724b28acbae1f8fb93423b82c6"
+        ],
+        [
+          "54a115ed89d61420c25727844daf7fba6d11ca4ed2235cee46a4283ecd25cb7d"
+        ],
+        [
+          "de7e1f569d1fb13cf336c899adfa1b8423c92ddf3d0935e14a7308881836d309"
+        ],
+        [
+          "4b85e8f398baf029c4cec266b5947ca7244dab453b91a5aa603a0333a73bb787"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+          "c9dd632711127a39d4011910b0fc18a32bb612eec53831529cb8d97315fdaf9b"
+        ],
+        [],
+        [
+          "75ad037ec6472a2bee074194b8e29e8614c020829dce0966da763e2114325f41"
+        ]
+      ],
+      "element_hashes": [
+        "f2effc4c5ca31421f6f7e7b8f02fcbe1f3086a4831fe1545bac39507fe7dd865",
+        "c39c76446aa73194575d9cac50e3027d4fed819c7dfcc6e5dc9dba2a82f97e8a",
+        "95cd1dd5a6e3d5f5250f546df0f28cf78d1a9be0bd798a0eb81c27dd7e843e73",
+        "0b05a53bbda32917e675624bac0821b085a37d49897c7715097b60a87344ab21",
+        "6b6a602db0a77809fac01b7de6e80d312029e7efa181079e97413e7c8a613938",
+        "bb077e1693ed522941bd44a6861f84c0157ec2eb21fe31b053c36547e08293d5",
+        "7c7eadccc4fc529c2be905192b8f21bd41b79af8f3eb2aae8ad281c7346c82ec",
+        "ceb04b5880dc33c5290474e5b46edf9c46398e8104447ccc55e7213947acb5e8",
+        "e85f929b57df4820592432b9aa147fb690f43956a4415a205dc2de728b644dbf"
+      ],
+      "hash": "d037ac60e6f8fb8e82f9bb24ff1b9d465c02424c89b60e4dac84294049b2037a",
+      "kind": "array",
+      "mistakes": {
+        "cfc26d18a490b8d34983e0b91a76e46e115da6cbc36eddd3fbd704c8cb621121": "on retire d'abord la translation, puis on défait la partie linéaire : la translation de la réciproque est transformée",
+        "d54c1aaee4b6c9a079d7bd2402cf00c71bf51ac2e53ea034e7c5ffa43f5fc13b": "défaire une translation, c'est retrancher son vecteur : attention au signe"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.2g": {
+      "decimals": 0,
+      "element_hashes": [
+        "ac1f977e213be2e392ec47b70a270b70cb5e2b6f4b9a98b37c468717d476b2f5",
+        "46239c69098d014ec77d880dc2f760c41e65ec7226eeba80583fec1841854fc9"
+      ],
+      "hash": "433abbeaa79fb548dee8f7738ce85c622f5318c69a675597eb9013b3eacffef9",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2f6fb4781fb826ff1f91ad758071a35cf8f649d9feffdf0b420a12f20bcf49a1": "g) applique f₃ d'abord, puis f₂, puis f₁ : l'ordre inverse de e)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.3a": {
+      "decimals": 0,
+      "element_hashes": [
+        "d1375825cad747efab94484ab5aa24b379acd5e7e8788618207f2767f3d093ad",
+        "bd48f8ab30456e4597eaffa86e2808df83048a1079dcc399a46345a2cece193f",
+        "06598b00264f470c6ce72bf4a434ee1fb4b2761471b617d8bd9031029e18dab8",
+        "930a9429b53049c52ed571fecd469052b24e04bb0ab8ad942a18db1b24b7ab15",
+        "6db38dd436a566a6407c80933b9147e1ac6cb2805769d78ca6028911d23100d7",
+        "262b190a2735cc5bf1f116b0782fc61b6dfd3d38bacf7e247c51f26076570f6b",
+        "758ae20fc713ba59bb03ca82cd87def79b807e0d2ea8532f5a7840782183c5c4",
+        "e1fd3e8883f33d27b4120c15383717d463f8706d64087a81b2e8c88628da3975",
+        "b644b6205cf5a64acff509cc3e2fb7962ba77e8da4ffb9c0f6505093599f40fb",
+        "a4ed15c8177bd6d24562da919d5a80a860ce69706bc329ea4661ce3515335aef",
+        "68610afb6bd0f4cc38109eaa786ba9829e3f9b0ca11ee9730dd1b13ede6ccfef",
+        "267a371ea5502858da3de370872dc3b3856ae1cf4c08331d411b7c3b91a31ebe",
+        "f1b72bd09c74b74f561b7801bd52273d75e9677b1f0f847784fe00e79e28d7dd",
+        "257aefaa340f992ca2f2dad88f366df46fd306fb575c998fb11a25c1c5cb0035",
+        "863f74d3cef753f0c4100bddee839795e112872e5bd8f7709a1a34a3b84b4efb",
+        "e08ff2faa7c925f6ddb9662c2faeb26f7f16d55733adf74e15b483d73e030359",
+        "c6bf6636f928b153ec8b52956acb70cc583debaedb020ec7c47292ce537d25dc",
+        "c73bdfdad27974c2dd8f48a7f68a337d9f2886558b0169b1113748246f62e3fb",
+        "c6686319f063b688881aa1f7fa10f530ad0721fdd7cf8a364e826ea7bd7e0830",
+        "fa290f9dd919d1ba82023402e77232a00bc3ad3d8b50424326a6c21e14e9c751",
+        "37ffa85312fcab9d803ddaab43a6da1892a5acbfe196991d9d32675ea3422906",
+        "b4961ade8e52bfb6fde19869f9ea24f4b08a80176ef4c5902a8539fafb682fcb",
+        "84b5b7e16643dbd3563d877fa793719a37821274dc2f6bac9e4eededa118b14b",
+        "dc8f61069f96381813398694cc613ebcbdb91e635696965deac103cfac9ee760",
+        "2723d49272002d6b132bd73773f599eaea6bbc9bd86ce97826769fc17179bb8e"
+      ],
+      "hash": "1a2ac62cfe7886ba4c3be52d672e42228844961af2307ba721544663859c6b76",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "79d58575b892bd65b5b34f2a373b65151a4627983eb3680a0d772d929b3f5c14": "A[i][j] = 1 pour une arête i → j : la ligne i liste les successeurs de i"
+      },
+      "shape": [
+        5,
+        5
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.3b": {
+      "decimals": 0,
+      "element_hashes": [
+        "4230bd0e3f76bcf109b8d45cea42f9c1fd5cf34ab759ed1952d8648c4fd645ac",
+        "cc7cddd92c6249beb5d178bf49a1181cc0868ce246176a5742355ddd57753bdb",
+        "654693640cf54271bd9ff00508a55aec36c971673997046f23708a536763f9d4",
+        "daddc0e1ad26420909861ed2eebfd490906fb1f52698477c506ed07f3bec9da8",
+        "fc8818bb418f6d5df488b020f33fe1bf7956e7a5d3a5c79fcfada9d35fde485a"
+      ],
+      "hash": "d603c903e4252255e638801043d10f3e14e6facfff9959c3df08917c1fc2e7cd",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0a72c954eb14fcd65cfe09f398993ff2a307f0187abfe5cd69aff5600c4990b9": "le degré sortant compte les rues qui PARTENT du carrefour : la somme de sa LIGNE"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.3c": {
+      "decimals": 0,
+      "element_hashes": [
+        "39d5afdc0eb46db07f1062d42d77c90273d3add236c7c3d943cdb19970c06f97",
+        "eeb2b9c9d10fd41ecb582852df88e2ff0546573f532d8a11e9f52f4cae8c2adb",
+        "efb48c54633d1695c0d1c4b3155488bfeb5738ed9bf1feb53b2cc4244b2918bb",
+        "7b06e85c3d20be5bf558ec1a887dd18f4fccf26764ac64826e400bafdb018e1c",
+        "485cf4ed256dca1ab1ba8e8da824eae74b0950be4d15b0a6506e76460c926e56"
+      ],
+      "hash": "d21f60f82dcdc26d9c4d669f051ce4f21d968e974154736c386d6409ba16ca4f",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3e7a546f811e01c416dcdf6172a4982e9871bf8e1bacbebbcded53d8d9537031": "le degré entrant compte les rues qui ARRIVENT au carrefour : la somme de sa COLONNE"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.3d": {
+      "decimals": 0,
+      "element_hashes": [
+        "f9fe40ab62c4a86231236a235cba4337c5e204ed06442da8c8792bf3cb3d69b7",
+        "7bede560d2aad2deed77d70fd24f06ddd18d790b24c096f107d6941c425f9e3a",
+        "032ab89145259e8926999a59fcc435eede4e8b973bdf4a828d74c829a7ba4b65",
+        "8d0be63831efa58ceced4fb8c2feef8d848a223719b392de17e927b09acf38b8",
+        "03d6f8d615ba933e40eb5c511e3d358b6b9f4763637da1db8d159ac75a3a8363",
+        "3c177a33fa6f286750dad6a7b38efb68b4c7b9a1a4ec7d676855eabaab69b6ac",
+        "6b809c81257587ba644e8de3b78530e67eff4aadecc45385bd45611dddb38fc6",
+        "79841c3ec29bcacd9a2c44578566e5845ed8dacec9f1d05603ca5c533c788bf8",
+        "c3e0a6614c8403c2d751792f8dc61658a79d2d74d85500b15c0a2994b29d9fdc",
+        "9cf5cfdb11fbe0916cf3cccd8bbd4824e02c63d0b273e651b658c06793358453",
+        "4b0b31c9afe191f2ae9479d47877077849542e4b19e1b063fb07e74a117eff17",
+        "3067d0779ab9064eeb41b1025a2a67a0a838c37d0164cd01c77a95b20352ae99",
+        "dd560f48c728bfd3239d596d09440c7fd4ba4dc8e6e32f9c177b1a3d7e765d5b",
+        "a74796b3c81ad8cb6adbf1101cbe5c6e55c9b33ce3d40e9cbdbba92438c5f661",
+        "875bc0cca8636308575ac187174faee131d956397983ebe8c890345cd33c6962",
+        "b666a198e9d1bf39319231a0067cb0f2d5d4f577c0ea2e9c278188717475aab9",
+        "b808f46441f30f64e504c4016c1521208b3d7a0d2f1226a8b6942b11b70abde0",
+        "f5e6518e6533d469c9859e6d6d6924c108c07a9d0ec0c7e4670a9080359156f5",
+        "cfccb61bbd7037ec187eafc3e5869cbf088f7400c1ee36e30271c7c468ffa319",
+        "704c843c21181a99acd411f3e756b5993ae0617c6e9f56849d1fb2cd0d19d3d2",
+        "1fe197d6bddb412510fe5f8128abc6c0f1b32fd1e181f65e9d5b2044c3c4d923",
+        "c390f6ebd9a34f647f439b0efd6b7627bcc49e6be7ab6d21537b741543f083b4",
+        "067444d498df5c8d9bafac16f4b227cc133f79586591f8b1975220b16f9094de",
+        "803539de39c58c628f6e9cf64a73691d3b3388f08f42fbabd43e654a312e774b",
+        "1e5ef22c604bf6a417f25c23bd9f87f3a8957f436e63c07a01c48c2b66673a64"
+      ],
+      "hash": "c79dd9c4ce90b81286e275b8ee2ee498d9ad0141d0d1c514a24440115dc82da1",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "9ae1f32514a75b3d54dcbfddbe815edc8190413340c0a3fc5eb7bb4bf8045351": "A² est le produit matriciel A A, pas le carré de chaque case",
+        "ffe3df4d1e031e6c93ff7febd163c15e6631bbe892fa316471256f0d701cc13d": "A² se lit comme A : la case (i, j) compte les chemins qui partent de i et arrivent en j"
+      },
+      "shape": [
+        5,
+        5
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.3e": {
+      "hash": "225c13fe7e2ed4ac5b36144b2f9913dce5239d78911bacb7fe29a7f19278482d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "3f0aabb19d2bd3364d68e9a2f98dcbb33aa6029bc270820c2ae50371131437cb": "un chemin de longueur 2 : lis la case (1, 4) de A², pas celle de A"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.3f": {
+      "hash": "7a9e5826f1ee50e487d2d3c6ec16d6ceb69d9a79f7344643f95171653b7b022e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "79801a51bb271b9b2ccb3987c0fba7fb61aff159c5151ccbcc292d0ba749d01e": "un chemin de longueur 3 : la case (1, 5) de A³, pas celle de A²",
+        "e7b38bf38d331aa17d74f8381a8428a4345b02da72c60aa676d96f3c85449f97": "à chaque carrefour, suis TOUTES les rues qui en partent : liste les chemins un par un"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.3g": {
+      "hash": "ffcc803a630974e1ef1d0fae4bf474fd632ae0f11aa30a5cd771d45a6a16a02b",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5933264657ab96fba9f9e9f6eced9d075a6cae3d837cd869b51220ff6d964099": "des chemins de 3 rues : la diagonale de A³, pas celle de A²",
+        "aabfd8b45a9473f4074e25ed14b4471d05c6400c4ce220ef5c43d6b57d637328": "chaque cycle compte une fois par carrefour de départ : la trace de A³"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.3h": {
+      "hash": "6c4f4af21c3476408a30e4cc9e0df08d2c374450ff202c31dc180077590fc4dc",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "68869846436588673316865699a1800689161fea4dea364fb6ddd33f0f236302": "h) compte les chemins de 2 rues : la somme des cases de A², pas de A"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.4a": {
+      "decimals": 0,
+      "element_hashes": [
+        "3cc17ae0feb9b927e3cdf78aaed95ca98f6cded1270fa76a3270ebbb54b47ca7",
+        "2ae47f14d1f8ad889fa79808e58aa6e8803eae5eeda21b88eba0de56bbbf6365",
+        "f3ae7056d21abcdfcbbd22040a96cf4fe5239e9300bc706a792df15c591f4477",
+        "7c1b6002ce71b3a377f914d95b363cf865828bf5090a389c63f5fdf5484b1228",
+        "c774f29e5ec51240a24e94667c24252783a81942e1e6e18ea1b0a2a0b3008620",
+        "0ca47ae998623b30bc6d3f6d1e33e02a28abaffaa75dbcfce8d4f8358c71e85b",
+        "434f3930e596141897b482d61ce856c7685294010c24b74042c537674af2b769",
+        "f1602a5324d808a78cbf987bbe5c3389a917a8f2ae6b0bb39c7a67bd4e97606f",
+        "55cba64f56b3028c1d19afa3cdc64eff2ae92c9991dcbe771378e52fff8d688f",
+        "7faa9b11d24a9f1859402d0be649f248efd21a9aff9b6ab905beb8e56368a466",
+        "d4ea31645788650b1b86ede20f0f177f67615b9c9147e416f395edbfdbf2f7c1",
+        "768371720a4972a37714968774b43b1650d26a6bbf41b715817e9c75b1b01977",
+        "52343e839087516a063c5f04c54280e12cca29b2e4c1995be0d3b685384fdf56",
+        "0bfce42a6759eb7065f692346b8910a2ceecdada317c418e9ecb69608c8b4e6d",
+        "d420ab153d569e762d2dd15611310439585cbfc5bc2b8a9de341806f17999a91",
+        "ecd78d122b82a26ab8f286d66aaf1eab29bfdeb967f2c519d197b058ad0b05ca",
+        "ab5c3a143b13525ba1b9df636882690760347cd806361ad7ebd57ed8eba69311",
+        "2ae9afb5102b950017c898af43a9d740c26f5be8b8d36b336966fc4b3e3c60fc",
+        "fef367a86294be65546d61871cf41d5f926b76eccff1110de1a53006bc1645de",
+        "4ab9ea6dbfdb82c220d50c37f9c1fb436a9daa1044639d526b75281ee7ec945e",
+        "a40084c1020044cac2b89061138919b9987711630e0c2af1b9c6bd89368b8e8c",
+        "7cdce15e0292f8e97cb0beac1598ff4b8c3a37172f04b4c31f400323d9800e3e",
+        "0b7739bdb054078dda065e8a19bff2bf74d52ab7e7ea08ae1bf2d3b30db3051e",
+        "358b89fae97362727a30de05ac63489e8ea1d257d882c83d1ea73bf256d6c0c7",
+        "449c52d8da8af6072cf0dce20b6ab7053fedc58e3be8c1afdd2756098c066ab9",
+        "f4d627131aba95203784999d0f0dad870e68ea3755a5b6fe84cb5a428c118b9c",
+        "4845afd1315577c62a5b0d1e2807e1cd5b97d360a0acd10a07071ebeba0e67f5",
+        "d276d5fc521f74bd9d5007621ffe77669033525b2356e566d1f672af1b146531",
+        "418986d09beac18dabb218c2410614640beb5b5dab0db661c81994415e68f815",
+        "c870173c4ff9319e482c4440fccb98953d3f4090bf1a43a2c37bb0772b29f042",
+        "21bf076214994442a4d5807a836ec5ea834028d497e909cca653f71364b583ef",
+        "0faafcc9c6179dd03a2bbe8d0c3beb7464a6dbb733dd0235786e9683c6d6da42",
+        "ec6ae894237ce8180c66878b3ed6fc5510cc8ac25fe74e969d6e765bed5120a6",
+        "28818911e7dd02f12257f8a2193981744eaaa83cbfd6d39c3dbbc94327f37304",
+        "69b031717fdd9a7e3cd0535b6b8eccf8eeb96a9e67ae61b502e3560180c3f772",
+        "f983c42acf78108e0f01c8194c3542d413741d403ad6f231b46c701a1bba0b82"
+      ],
+      "hash": "7924b68f588f1260a06d323b67cd1d31dbea1147131744d062c26ce8cb71e04a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "52ecad861f3d2c212d569865d08e7de7af717a2491fe16f4bb7b8bdf7953fac4": "A[i][j] = 1 quand la tâche i doit être finie avant la tâche j : la ligne i liste les tâches qui attendent i"
+      },
+      "shape": [
+        6,
+        6
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.4b": {
+      "decimals": 0,
+      "element_hashes": [
+        "1a5f7d2bf1d08bacb2009aa12ab53c7b9126e973fedaa95b9041aef8e1d7fbe5",
+        "fc10cf8d22c2076ed31bb3119b4d1fa154b40ceeeceee31e9878f7df2745b4e1",
+        "6eee222af4ead52a1daecb1f77e01a6c2ce83aae28da64eaf5435f7085a26b3b",
+        "57eb37e9c8c302e4a4e53e6169d8f87c41fc21a2a7754ee4fb5e88649fd487c9",
+        "f71528e20d52321bab86480b31bfb1ca726b0945ca44dfdbc2da4d3777563fae",
+        "56aac7c3822fd30a59eeb35b2ae9f215eefa638336018a674948a95a47f1176e"
+      ],
+      "hash": "08bdadbc32dbe933a10eca61fab0a87f52941052709b64160d2d4a0e3e3a370d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "3c547e2fd46eba6d10ca966044d87cf892e73e8d00b3b5824102766d7b8a392f": "le degré entrant compte les arêtes qui ARRIVENT à la tâche : la somme de sa COLONNE"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.4c": {
+      "hash": "703009dad52a5e5b63e072e421e326e7a9c6557b32bd9717ad3b0a1b30dbc15f",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "4da144bb841ff5e4629d87498f7687e1603637ab50995465c4c52bb8a9ab6f2d": "un chemin DE Commande À Montage : la ligne de Commande, la colonne de Montage"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.4d": {
+      "hash": "7d3f1a05ed11440588403012e1cf9cd0f2c7bbf1c4e3bd6f5a737e195f022bd8",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2057b97b19111fdb12e5c70943ed5a7a1358b30ec8419194a665e31962721091": "les chemins de TOUTES les longueurs comptent : additionne les cases de A, A², …, A⁵ (une seule puissance ne compte qu'une longueur)",
+        "3983a9f3bb03373eb0996942089b903cc5b70d26209f1268bf7e94fe1aa7a52a": "les chemins de TOUTES les longueurs comptent : additionne les cases de A, A², …, A⁵ (une seule puissance ne compte qu'une longueur)",
+        "4d9c4b2b8ca615be67f8d38b0ab32cf5e54c4f72cad1ec4cb0a37d50858992a4": "les chemins de TOUTES les longueurs comptent : additionne les cases de A, A², …, A⁵ (une seule puissance ne compte qu'une longueur)",
+        "b683774bac919deaa101ec575e2fbc976a5f5eb95f140dd7c06038cd92016edc": "les chemins de TOUTES les longueurs comptent : additionne les cases de A, A², …, A⁵ (une seule puissance ne compte qu'une longueur)"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.4e": {
+      "decimals": 0,
+      "element_hashes": [
+        "2b379e4d03bac730194a87abfac0ba153eaeef4e0ce1d936fb651d8b2fe8743e",
+        "29930e585611ca11a1088db653b903c5bf6c6461d215947f7146c74172a83401",
+        "b25220933678426b5158685f4db826ce1141538c82352618c89bcab9f558676f",
+        "4673a31f81946e8ed8457fe87a81b3037d0a8dc79e593bbe001db794f58f0d58",
+        "ff1075498b3259f4a79719e3fd53d60016d3bb3d61025b699c082ffc1a490b83",
+        "ba1d6a53d8a709673f987cb1fd5b69c2bc53026dd9c96e118542f2fcc8eb3f8d"
+      ],
+      "hash": "307f3d8fe8cd57c8e083e4ef3b8fe5bf5945d2ca7f84954d619d93772417a9ac",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "9ab9253026254a4415e531c28a8739e2149d3d0ac1f9d580242828d84a195f23": "toutes les arêtes doivent aller vers un numéro PLUS GRAND : une tâche avant celles qui en dépendent"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.4f": {
+      "hash": "5649e142281c9bd5450c0b801cf7e135a8379d736348c9eeddec58e171f4098c",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "98de88d4372ac69be145c0b1b18393082ee361b6101e519373de546aa0926023": "les chemins de TOUTES les longueurs comptent : additionne les cases de A, A², …, A⁵ (une seule puissance ne compte qu'une longueur)",
+        "c152dd00b7f27d155f29a617b55190d6a84fe1b57bcb75bc883fc8ef1d1ba4e4": "les chemins de TOUTES les longueurs comptent : additionne les cases de A, A², …, A⁵ (une seule puissance ne compte qu'une longueur)",
+        "fe05542ced8357a0056fb9351cf5d3ca00c6741fd7353a5455e5380ee1c6654f": "les chemins de TOUTES les longueurs comptent : additionne les cases de A, A², …, A⁵ (une seule puissance ne compte qu'une longueur)"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.4g": {
+      "hash": "3f969f0a8573403a2812be5fa2c58f902ffa30aaecf66bbb4c3e13d8cb71875e",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "273fdf64155f737f99a616dbb9a900f28e75768841541e138ca4ea1f7e933879": "g) compte les chemins de toutes les longueurs, de 1 à 5 arêtes, pas seulement les arêtes",
+        "5ef67136a589af9f3e63efca9f978cbbd78a46b21242c96d2032cadfa7b07053": "un chemin a au moins une arête : la somme porte sur A + A² + ⋯ + A⁵, sans I"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.5a": {
+      "coarse_any": {
+        "0": [
+          "3f8f94dfe95bc618c9fb68dda2eb4c38337daaa9d19c3fd1d7ec4a3fc03fbc10"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "bfd181abb4e2240f522232e21aeffec7dc92d06815a860fd5a97dcfccb72396e"
+        ],
+        "2": [
+          "a06f7fae006edae98b82a4c31e1487728e64909ad3e7c2c205bd8a769edba0f1"
+        ],
+        "3": [
+          "1f3253e7a828a4e37468851eda42a6dd5e0eadc1d4bd9431ff9c263a28014868"
+        ],
+        "4": [
+          "0b596221b254cc924a818f57b83653e7bd0837f69087f90e32eeefeb9fcffa0e"
+        ]
+      },
+      "decimals": 6,
+      "hash": "e01c1b61354f6036ba3d0a8621269b01d5a44216e07e3838c7a727a09c192dfb",
+      "hash_coarse": "12ec7ba20fd1f18c2654846c2d20ba8c12ae4cc18fc8c001e4bc2cf297a31e5b",
+      "kind": "float",
+      "magnitude": 2,
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.5b": {
+      "coarse_any": {
+        "0": [
+          "a8a0d49c285de2adcb1558a3c7fa5695134769f7a57d5facc307970aa5c56a96"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "24d81c4836f77ea785f2b9d267b1d529b810634c791a9218488b6def6dec3055"
+        ],
+        "2": [
+          "98a0c4305c4aee09dbac1a981cc3670e286558d1040daf1558a0c5ad83d48ab5"
+        ],
+        "3": [
+          "90172ee91c242fd33d69c0bf27629aad536f124ba2df0ec25cd80431a82ee6f4"
+        ],
+        "4": [
+          "3d020cd2553483d8ec419bf0ff058a48d7ca848d5bbb8a0f8d52a3844f0d5f44"
+        ]
+      },
+      "decimals": 6,
+      "hash": "bd93d09474e935b0a44b2a397aa39cf0c865afac6ff7d481ee17ba003429df21",
+      "hash_coarse": "3048e991205700c059680e8332f6c8cd892824b97d21352bcec493cb554c42c9",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "63df93e9e3cd27554501d3a7a426b700e13a774720ce00665ed277020b5be65e": "E[X²] = V(X) + E[X]² : la variance ET le carré de la moyenne"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.5c": {
+      "coarse_any": {
+        "0": [
+          "c37717c52cadf43aa2063a50b2f13156319ef27788646cd302a007dfd13b77d0"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "638597fa396ef677747362ad31944a91ac81b36ce9ad6828a2d6eb989b67bac1"
+        ],
+        "2": [
+          "9fd6445b8475852b15a0f77a40f8ad6deeded1ce8dc4216764cb8aad05ced401"
+        ],
+        "3": [
+          "82b35c8b398709f3586e95ee7d5514d8dfa7f87d51016a33bc283526951d6fd5"
+        ],
+        "4": [
+          "725e3c46c6e3082142c68f18ab5cf7d06b4aad9ea55c61e42751c7066ffec69c"
+        ]
+      },
+      "decimals": 6,
+      "hash": "5371423e539029b7ebd7c844ea6d0289675e0af635ddbe4636b7e62d8bd38bf7",
+      "hash_coarse": "a5d19e13e7b093441b11aac0795c482214f5e08e8f2ce04f2c787c196f4b35ca",
+      "kind": "float",
+      "magnitude": 4,
+      "mistakes": {
+        "c17a03bf31a4a25a2de9ec1bfbbf3288b0fdbb8c11f248b54ede043a62a636c9": "E[X²] = V(X) + E[X]² : la variance ET le carré de la moyenne"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.5d": {
+      "coarse_any": {
+        "0": [
+          "c4a9a7d911389168a002c2afd77e6e0048dac6732d526529ad9d6673042fad9b"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5a897469925396a043921ffbc8c3608a82937e7710a29a5c0d8e5c90e7f79c77"
+        ],
+        "2": [
+          "33c8d7429989386350fc31bd60fdf4ec7fd0c2492b41bef9c77feda45c2e6a18"
+        ],
+        "3": [
+          "6d03fd9cec66add5bf441b6d37f7a71d372828e208e188c3ec723a13a7000497"
+        ],
+        "4": [
+          "5fcac603ec71a365df93a8afae719fb83ba7a8a21d9bacc851703f6fdfb517b4"
+        ]
+      },
+      "decimals": 6,
+      "hash": "21947cbd2957e317c52143c4084bdbdb980faec021a4492eb39a39a0cca4e43a",
+      "hash_coarse": "e6a5037fe4fb471d006155db7280527b8b6671d2a38acff5adf14b845451c169",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "56be8624db93816cd109d4aa980cb3e1bca8d9d556b3b1f57c1b957985f32a99": "V(PQ) n'est pas V(P) V(Q) : les moyennes non nulles comptent",
+        "621342918d64589dba0e25917795ed3ebf79b0e9db8ddc50e8931edb2580ee43": "trois termes : le produit des variances compte aussi",
+        "6d762636ee97d45db2c25b84e9161acb739c31598b73cb75a4a3f590fb099dd6": "trois termes : V(P) E[Q]² ET V(Q) E[P]², en plus de V(P) V(Q)",
+        "e22c87410df3866bcc0bf62fb8debf2cd52af1ad112246a971bf82c45bb0ed73": "trois termes : V(P) E[Q]² ET V(Q) E[P]², en plus de V(P) V(Q)"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.5e": {
+      "coarse_any": {
+        "0": [
+          "5b924602846c26d01521512854a67a2c83b3f1b45089cc74685c2bc6a855443f"
+        ]
+      },
+      "decimals": 2,
+      "hash": "b7511009b01338134bf64cde914b607ae1e7a5b0cd6ffbbec90dcdb03f0f4487",
+      "hash_coarse": "4eb76788534199027ddf90dc8aa87566979ba06e8bb85a6e50af3850fc18c810",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "236a1eccd707e4f46a1007b4ecc5b1bd976985a62093a2e6af358afe2bcfc673": "la racine de la variance complète, avec ses trois termes",
+        "2d6dc8a0133d782a905b604bd5e144137abbfd528b9813ed46ca9251fbc1f71f": "l'écart-type est la RACINE de la variance",
+        "d757578bfbe0d53f1f0d685edde1b8c5398e4259dac0fd12a400a2b81c3e6a3a": "l'écart-type est la racine de la variance complète de d), pas de V(P) V(Q)"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.5f": {
+      "coarse_any": {
+        "0": [
+          "9056c756d3772f1d1e827eb92dd0b706eafc3bf96cd1ec9b22f0105e3480100f"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "f3eb33f8f74ddc629d1a1c7488277b8196f0e7d26852d658d22d052ddd590f24"
+        ],
+        "2": [
+          "4cbe2c9c6ebca695217e89c942fbe231422f47fbe863123f13758cc60a032b2f"
+        ],
+        "3": [
+          "abb8c5694642a3711b560d6ef883d5645e7e0552c3106503365238016642b941"
+        ],
+        "4": [
+          "7fd6376f18e67b22f48eccb5580677c6f564a1bc1edb6de094f14489f9c73443"
+        ]
+      },
+      "decimals": 6,
+      "hash": "d13052918bb78291202cf9afdabb511514d52b1840f20f4f71694fcefc6cda27",
+      "hash_coarse": "9b1184850af00bd6fa0d520c8f14f80a1a05ab3b4585edeb440b39659d13f65e",
+      "kind": "float",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.5g": {
+      "coarse_any": {
+        "1": [
+          "d1e5175a5c5192abb4df7f635547319762657ac6079ec7e34c30d9a454bdb312"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "28503a7aac70a5e87b394da5f3bfd437874a2b108a1b12a776fe89dff3db01cb"
+        ]
+      },
+      "decimals": 4,
+      "hash": "6fc1b7a392697d4de6c167c6cb2adcf65a1eac468e2d00318116757e8fa7ae99",
+      "hash_coarse": "035436d69f78d101058016cdf8d9d5239b8cf2907f8ca5ecc879cde80d8a6549",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "14b4b836fc1b758550df24d3bada04a1c253432d901779a65b51dd71838442eb": "c_R = σ_R / E[R] : l'écart-type, la racine de la variance",
+        "f3027a4801dd29e3d13d1759a10a54a954cc7627ceb4afafd4df0501fcb942cd": "σ_R vient de la variance complète de d), pas de V(P) V(Q)"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.5h": {
+      "coarse_any": {
+        "0": [
+          "e8497cf960f54c700b07990cf50b8eb8b18b1dd8bf0c71b6f19657bf8b26924e"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "f61c3d1078826b88a0bde0c26ee86f5a7d8c8487fdc8e8e3ecbaf1afba87ea59"
+        ],
+        "2": [
+          "afcd23fc42b156811789f05ab7a74515b19e1a63a564fa0d57a1b9117872c2f8"
+        ],
+        "3": [
+          "ab03bdd2742c7ce01b53ea13743b513af99e5d2224fd12df63cf534b4a4e02de"
+        ],
+        "4": [
+          "386288fb5d22eb9302b7305f9cb0cc9c90495e66839453e828c0a6179185b7ad"
+        ]
+      },
+      "decimals": 6,
+      "hash": "30a1eed5f88fd70bce06b987f9e9cb9e9cdd4569bd2aa5a4edae87d91818eeed",
+      "hash_coarse": "e0f48ca557288255401a948b91af613934b7001c6434dd9dc51149457bcffc7b",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "b6958660645a6a152a4c6bef4263234a43382e6c54ccf6e142152bea94d61be0": "V(cQ) = c² V(Q) : un facteur constant sort de la variance, au carré",
+        "c27df45b824e886899c3c4f106d721ec4732b6046e33d279b51b85ee98d3f440": "un facteur constant sort de la variance au CARRÉ"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.6a": {
+      "coarse_any": {
+        "0": [
+          "809fc180410ebb0e86603742cae930d1296bbe157a253640342984d4c032ee23"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "fc8dbb7d34f042a566be022337e226304b04ea39c00665f412632eb43883f838"
+        ],
+        "2": [
+          "1034c912d369ae6987e8156d26eb0c3529e28c5d449eb283aef59ed243709231"
+        ],
+        "3": [
+          "d8a5c464e11db78e37ed942c9a16d9e46cefa146d5bf17d15e422777a62303b9"
+        ],
+        "4": [
+          "9200b4720d2ccb54a10f9c23bd8ed5c231cfac12c874aa527b5f28167cc246e1"
+        ]
+      },
+      "decimals": 6,
+      "hash": "8cae741a3d9b895431811eb6aab9241cef4a2caa23c5c2f76e400eecb002e1e9",
+      "hash_coarse": "f5f5ae594ba4e2ff912f5032c2fe28a099d2e4c2952422f2d22879543238bb9a",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "9d3c8d48725b9e2b58b1a6b8f6bd9c035059350fbcea471e5aab471107b2c0b8": "x₁, x₂, x₃ sont corrélées : la variance de la somme compte aussi les covariances"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.6b": {
+      "coarse_any": {
+        "1": [
+          "fdcdf7cb7a6fa7b85b55ae6539a78cc8a79597f7f6594be0f65ffb432082f404",
+          "e6027720ddad2947537e5d1b2b1d62a3fc1765640c4f04ccc0bf5cea4c9a3fbb"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "13fceb4c8b73a0458bdacd1602035f3ebdafc5782d399c99bd3d48a2f6d57dbe"
+        ],
+        "3": [
+          "0232d7fd1cecb50e73f41714fcb2b9285a80b5895f3ba893f974796500c003fe"
+        ],
+        "4": [
+          "64a89cc8f6307de0297e04c9580c901b0a1343514c096eb484addce0e279f0b2"
+        ]
+      },
+      "decimals": 6,
+      "hash": "692ae3a06e84389835ce0ecbe851183756925008c701cf254d84d0928d39c50a",
+      "hash_coarse": "17f14195a6705ea0a213a30ec3c36d7c5620cd71b2b110923cfbed31dd42ca65",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "e296ac84761f317ed39f2cc358629f9b56c76639bc5df752a14a8510cfef4adc": "la variance d'un signe ±a vaut a², pas a",
+        "f0a4daf66917109e3ec244e1c1be30ac1937c5e2b3464912d797bd7896630ec7": "ε₂ est centré, mais il n'est pas constant : sa variance est E[ε₂²]"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.6c": {
+      "coarse_any": {
+        "0": [
+          "79590beb72eed849a12f1f0efd8b3a83a76dc6794db6c2138bd6401291e03422"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "1de6f449e32ef6a758d77714f1f900502b4c11de834a7a8b8427ec0896484a60",
+          "6805c0d284fce24be7daadabcd105674f6ee64bc0fe1a160d4af818bb4a5eafe"
+        ],
+        "2": [
+          "b822db997cf1825e8a8bae0b07bb451aa8227a639f90bcfb59789cb8b63b4db5"
+        ],
+        "3": [
+          "32c8897953560267d7b785d3df90109bcea7c5ac1b39e6a190e895332567ce44"
+        ],
+        "4": [
+          "2d42098f9b5100965cea9215eca73ab87c100b4750ee40b79ef8cf185f2ae614"
+        ]
+      },
+      "decimals": 6,
+      "hash": "5e650ae5b6d651f4296dcf3228f91ae945486b7567f2e09106275c7ecf7f7592",
+      "hash_coarse": "9bd916afc3042ecbdd1d53f2b178063ede02d116135fde576873ed3d5c954c23",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "17a78fb2c5a4dd04ce1de79cd5ce4d3df31f5e174ac63282ebd752f959cf3625": "la variance d'un signe ±a vaut a², le carré de l'amplitude",
+        "69838a774ec0d8241aeba7d32a792b0b0cbe0d079f072ed5d3f2cb2bceb5b337": "des signes centrés et indépendants rendent les produits décorrélés : les covariances disparaissent",
+        "90655389d7c3ffa253d9f4cf8b32687768a00ef5f729f1876c23238239b42d61": "chaque terme est multiplié par V(εᵢ), qui dépend de l'amplitude du signe"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.6d": {
+      "coarse_any": {
+        "0": [
+          "909a8186d489b91820fce81cdabe9a8f8b1d5ae2ec23a1c9cc8f614274f05758"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "ca6417954fe0a634cedfdff6d54f33ad9a1f40eb1c81186f574489b5ba03300f"
+        ],
+        "2": [
+          "aecbec413f7be53ffd5de8c8b788af1b5e84a924553315f9e110d7423c7b133c"
+        ],
+        "3": [
+          "a4e20ce30e71400e68e9f113a193af7d79d7829ab26038cc1f0fe9c6e0be6255"
+        ],
+        "4": [
+          "730d175d54ea95794fd473d90263038296b4acaca4eee1a1578591ef3ccdaef3"
+        ]
+      },
+      "decimals": 6,
+      "hash": "d86bf3fbcfa47507ef6a3aa4dff1024ca978ad4c7caf1d14550cf4582eca41d4",
+      "hash_coarse": "f6229dd71040167e36546cb4527fa3ce063224d36e4134e0ff266060662df0cf",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "b0df2eb5af28b75f0e5e6da61493b0e130239f3a8cafc1789bff5892703d7a56": "un même signe ne décorrèle pas : ε₁² = 1, il reste Cov(x₁, x₂)"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.6e": {
+      "coarse_any": {
+        "0": [
+          "6db2aa5103e678cb235176643a4b1dc153a41542158962584833db2deecf913e"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "8e8f997856d1bee4df8f604ddb998ae2e17ebf0b29bd5d74d9bd466e98bf4392",
+          "d148ce2bfa6e1e5347f902e66341f5c9249fba80695b82f1a2cb549b4560b085"
+        ],
+        "2": [
+          "74b285ea4132c7946d1f37595a393f12b6913b0076d484619be9562ff2c2af2a"
+        ],
+        "3": [
+          "67e4af1279ae48fdacb39a06428814afdcc595c9cd5652c376a85bcab4e3b6e7"
+        ],
+        "4": [
+          "42780dc3eceebc9ed468df46972b700f7e14e6a1638ba57ccbc5327cee678252"
+        ]
+      },
+      "decimals": 6,
+      "hash": "112dee7111aa3f3a8cb98332204e7f1d290c199a5f972503a19dca8d4a4fce15",
+      "hash_coarse": "7703b6f37f4f2e2c97bdadfebcb75890cfb3b9fa059dbaa054a9fc41e3e128d7",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "3f7e56b346fba59abc97e9007fc3ceee132a334eff407c87b27507fad1b16c5b": "c'est E[x₁²] = V(x₁) + E[x₁]² qui compte, pas V(x₁)"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.6f": {
+      "coarse_any": {
+        "0": [
+          "df3f5d91b16f325e23cd6a98bb056ea7131a744731d8e87403d3da20d8f9fe7d"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "ee348ef0196db2ee17606eeebf711aae6ce19e752aa86b0ac118214ed8ef7829"
+        ],
+        "2": [
+          "66176e95bdf7d34466ce5acc218ea5a0f2b6da48e3915ce8027a91a394a9031e"
+        ],
+        "3": [
+          "de0675667036332e8e3166f5c465559298ac4b409fc7654ade222f1aae1734a6"
+        ],
+        "4": [
+          "e04db5ce4223b4d12a2a8292df909b47d98117b209892df7b25aaa337e8c91e3"
+        ]
+      },
+      "decimals": 6,
+      "hash": "c871ebf8bc9798f24945e08352aa08d5f4ffde8e117899e14e0f344e8f242295",
+      "hash_coarse": "17633aeafb30ccea7d27a95ae12277a9f1c817cceaac18fa88647f6cf3dc5913",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "33ecf3b83c6d95886581ae16570f2d4da02fc243f136ec73ff311cf76e36ad14": "un seul signe pour les trois : les produits restent corrélés"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.6g": {
+      "coarse_any": {
+        "0": [
+          "821b7f4ecce338d23cd45790ec1b511fced581871381cc77f81a95536457fa23"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "1a27bf73c0dec3d5398e842900837816b568c8e49762c06b246a459ee979bab9",
+          "c68efc2c08761ebf7ff294148db47be6ae3897d3a468ac43aafea9de0d52c5d6"
+        ],
+        "2": [
+          "a028772fb589277a6039fec6082584510c63dc5c2ac019846546c272c0bb30bc"
+        ],
+        "3": [
+          "91bd31eb2351a4b24e6a44e4314ecd798ad29ec5f4c41cf39f6a08a0c9bb44ce"
+        ],
+        "4": [
+          "0c096ff8db8494d854c62f43f7d44f1a5daa782ededaa7dbc60eeec583fa3b9b"
+        ]
+      },
+      "decimals": 6,
+      "hash": "700e5ad1afb8f1d2736a9b9a170ed6a26aa5ae4bb85f17f8a618d4077620a764",
+      "hash_coarse": "0f314ff49d89c3f3104ed8fa643fc1a8e7e1bb46ab14f41b68db008a1d721b82",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "34bac4af36d0fb1f1bea26ffc300d538fc3cdab95b64c1e96ef5f4c3434cc76e": "la somme vaut (x₁ + x₂ + x₃) + S, deux morceaux décorrélés (admis) : la variance de x₁ + x₂ + x₃ s'ajoute à celle de S",
+        "44abee06f93be70672e29e366c0f7821011c89fb39a1617c2ae659b7a4a16457": "dans (x₁ + x₂ + x₃) + S, la première somme garde les covariances des mesures",
+        "a48cb3048d38ceeddca6742244335ba58b7210a07ba89cb415072d3c5c657e38": "la somme vaut (x₁ + x₂ + x₃) + S, deux morceaux décorrélés (admis) : la variance de S s'ajoute à celle de x₁ + x₂ + x₃"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.10a": {
+      "decimals": 0,
+      "element_hashes": [
+        "f98a67ed9943a9ac7180ddcfa56e67bf84bbdfa8fd89e2fb3032c3782ed07801",
+        "12c1c3869b23555230d5c88826b08e0d28af7410b4f85e92fbcbcdc736bc2655"
+      ],
+      "hash": "7c02504e64e387a3e5bf244af94c1798fc127922531e0060a0c4c6e9aae5909d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "67c6ddc25743e6de6e4ca3e778dbdb056d1f880a4418ed47467d00d4a39f3e47": "le produit (N, n) × (n, m) a la forme (N, m) : une colonne par SORTIE",
+        "9a25cc1c88fe7798bc19206f219a0afd90e81b26a3d2babc7bb6e8f5f1a5199d": "une ligne par point : la forme est (nombre de points, nombre de sorties)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.10b": {
+      "decimals": 0,
+      "element_hashes": [
+        "9d1751ebfd2ac666a64905dc1be6625598856a1b805d97513dd1789c15f528bc",
+        "d30a2ae90dfb31ace94c3ac3923be4aa498153d65173a983e7a76717d9185e99",
+        "806fece3337be45eb508748282f1b41d6ccee6ac328e49736212d5580e5ecb7d",
+        "27eefee7ae54bc9565a0e5c13d247133fa18531997c6fc72f2218493924d4f5c",
+        "75d5b4fd750e738b05867916f27b98a1ecc306588691ced237477891031191f2",
+        "390243bab5c85365163a74d967df2c701b7d6a4abace53e44c4a9b72f5ace916",
+        "3ce893a02fbeeb5f64f4ee34a1fb2df0981fe04390076f55fca580b908cc49fb",
+        "639cd2a4301e41ea236c092e77c13d9c3e3a94668bde9112638b194baad9547f",
+        "604f82c59b50c857b1e6d7539da2a9db0ffee91b960aef6de70f0cf2381e5f5b",
+        "04c3c3c328d3046b0f2aa742b40d8c5e0c337b5ea1792a18c6cad08eaf537085",
+        "8fba8a740cbc92d93fa0df1c0ab976f930a1f4b7ccdd6ea4615ec77f4dc6ba04",
+        "b820d2fc4f48ec5498332cfd5c2e247937d09dc638248205dfa3590ae996b3c1"
+      ],
+      "hash": "4676a1081748b8efbc0b4bd336243a02a14e23f5e7fab8eb5e872a3c946ca5a1",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "215dceb74ca58ed0d2b0c9c538d56b51d12f1f6497729643daae00ea7cca92de": "1bᵀ a une ligne par point, et chacune vaut b"
+      },
+      "shape": [
+        4,
+        3
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.10c": {
+      "decimals": 0,
+      "element_hashes": [
+        "d426e2bdb04846882782c39272b49c6a8ab646c5836e70836923ac0091862afe",
+        "7991f2ed2b4257d764b4461c29a06aec8466a11b3a7f8528a616bcec76529632",
+        "625cb9134d782f0d0fa2e5556786796228f92e1c16bd0f53956830c36463adb2",
+        "6e39ee52fe71515bc63206be537b8e87519d503b092003f7e96d8aa09dbae30e",
+        "469309a09f7d4de50c385799ae7b36742b837a7df548a3f677e6681bc59563cf",
+        "a4c5e9679994f33eed10d5b687c18914023a6466d683a3326abbd5d21867f282",
+        "5a6f995dc89d3dbf7fde947a393c4730c45cca4a7b97179d307f1d488d66026e",
+        "c6aec6246dc7e293613f196938df98928b1d34be30f247b7d117edb33f88e00b",
+        "1a84aeb293507cf9bcabca4fd80f0b7a971312d5e3c80449329b29faa5188445",
+        "7628e7d6d5c4db3df980cf4e2a615e83bd634e25a787612656ed6f99846bce1c",
+        "a38f8ea1cee943dcc7c1c192c4a627873473549a3a38de76e349157b00a8360e",
+        "606d20f0a6e52afc9fde9c1dab16216ca303d99089ee368001e1e4ad1fdda65f"
+      ],
+      "hash": "37db250aaafb04cda37c419124cf3d7e6fdb3b9ad24f33c429c657123004e666",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "e7ff5b10380f24eaa9eff2c4ce47af2c18136a0448f7f4ddd0cc1b2ee2947d9d": "ajoute b à chaque ligne : X W + 1bᵀ"
+      },
+      "shape": [
+        4,
+        3
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.10d": {
+      "decimals": 0,
+      "element_hashes": [
+        "8aa3097d9e80bfb24fb3c590a2c466f81f60680532efcb851846e4af6b38c169",
+        "8c5b709b295ebd8d72966739e5883bd4d94e33b09a2f18b9348ba406550f8981",
+        "7b569798070a99ae4c44980a24997cb3270cd86f4cd176ecbf0f54616879faee",
+        "225d91d0c50f3d72c4f77ee566029b2c39ae771789773f751f7948961c8bbad3",
+        "f5d56d52b5cb71520c9b45bd721f974446b10781711d31db6bb5479da19967ec",
+        "a1263babc22c02778961175dc405d68429497f651e11f87df680cd4c5d6f3fd1",
+        "1384e64b601360ff25ee117ac7524ade56587847e1876bd500c0c6ebecd8cdb2",
+        "7a8a8b5b6149b4ff468bf8fadea0b79de681b051457057e08960024856c7c27e",
+        "f7b471a378e2243e3632aa3d7963b2c6fecf2c5fb54bfcbda0004ac90b6c91f9",
+        "3e56b8bc0c226cd711c05ff586d988c0d0aa43de96f2e22c8fb8809a7d3f9116",
+        "b65ab688bb29cd56549308bf47a1216cdabcada05b9202ad5f84952d36904a75",
+        "bccd7c21608dce00d4468051b597dbdb00cc29efaeecf55667eec861aa13b6fa"
+      ],
+      "hash": "c3e40843e922aec14b55340afd5ba5be21aab3f3118fa5a70a43778dae05570d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2c3e03641fc7b3f1dd5b3111cc59d206a48a22dbbc8acc308538665603fb404f": "en lignes, W en haut à gauche et b sur la dernière LIGNE, suivi de 1"
+      },
+      "shape": [
+        3,
+        4
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.10e": {
+      "decimals": 0,
+      "element_hashes": [
+        "a4fa760e8908f4893ae69d9543d6366b14ee3535bb2669da6fba08a23cde400a",
+        "c3fb92822ec6c7f00b07da9d3c3e2d2261bcb3733038d255c876ce812a33d00f",
+        "4f465916e2ecb971c24a10514804f2d7c88d554a9187e039c9448f90969615b7",
+        "ca2ddf94761bc9a6fbe5efb8e096ebb932ef6552e42cfdb4af026fcda6086ec1",
+        "926cf5e63cfd7193e226b0d08846b56ec46676f4ca877d75b29d67d57a68583f",
+        "3ce3dd90fccfb046c2a4c6f96fba5c9edcc641c8b90ccfe70d8a41af10dd4567",
+        "fbe484020de0aac5f01c68100c0858f59cec9422385ad5d318463b13ed5bdd6a",
+        "0998e86ae055ec16fc60cbcf42b0d0fb993b0e8912b9f4eea8749b82230d9ec7",
+        "0c672f8ae1a5951662ef7aec3297989b06c2c7ecf80141ef880509d3aa1e8029",
+        "4062176314f4d2b23e0d1c4be63216aef98d4bab496df53e25d7793e4ddf80b5",
+        "94f019ef7f7fd4dccae344a00ac77c95acdcbec7903fa24c545a35922a75cb24",
+        "cd10a1ee7ed798ebf6399113a4f86492fc94b145b53dc68be9a3384009470723",
+        "5b0ef34b4bcb9b68c28ab66be9598cc8269769ba8ce87c74442a1b1c041b1650",
+        "da976d328e145cec5c23458036de95de710f734a0349bbf1d055cf46c7c15ef2",
+        "62fbd4d7179e4ebf93cd10bd7deb88741be6c61efd988359085360055e8c61fc",
+        "febfa6f92eb6618d502726549987a6acef5836afc26f180b19055c6e5d5cd8de"
+      ],
+      "hash": "cd80f9b35b6cc87ed99c1f3ff2c76b3ac56954ed789497965bd20e099ed339dd",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1a854ab93c5dbb927c60d3bbd054687692f5ff99549431e1848a2651fa4e8e93": "[X | 1] H garde la dernière coordonnée de chaque point"
+      },
+      "shape": [
+        4,
+        4
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.10f": {
+      "hash": "0d4ae7ff33a06fcb492627c9d29f52838c40d9f995a7b1b1fe328f690d427021",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "49df2840184df7e350f6f1bc02a09cbaeb4dace99f1eb263b1967094ba1195f1": "f) compte le produit X W, pas [X | 1] H",
+        "74ff8534f896f44da730ff43c885ca875c85ff31f5a0ed8550a99a46c2c6a2f6": "chaque sortie de chaque point demande n multiplications, une par entrée"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.12a": {
+      "decimals": 0,
+      "element_hashes": [
+        "a94750e86bdb523670765a7ba3ffd3af8f9c936512731c8c0f57d3bb2a8ba70d",
+        "2976bd7a1642f7395126045efdc4a41cb284ae0de9101962af09da35c8462e9f"
+      ],
+      "hash": "422fb16794de1389861d7aafd09976987b93032ed81a215ead8d7727dc01e27c",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "1b2f2bc310b35943ec4ebd437620dbddf6569996cfd7ff949970c37dfb54e7bd": "c'est la matrice pour des colonnes : avec des lignes, W en haut à gauche, b sur la dernière ligne, et la dernière colonne (0, …, 0, 1)",
+        "9b9ea7ca5db4f9f401abce10fbfe1a97dedd3143f0415ff26a3f8c647c738df2": "W est rangée dans la mauvaise convention : en lignes, x W, avec W de forme (n, m)",
+        "c85a9bf94b9273f800ce67a6c67bb3140afe300bf600cbb18503bdffdc7c2d90": "la translation manque : b va sur la dernière LIGNE de H, que le 1 de [x, 1] multiplie"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.13a": {
+      "hash": "b318edcf2a59fb2f9d79548d156955a9c434ea584cd360175afdb4f3de3a6243",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "04af00c7fff78ba841609af6f2a01a95b86722f6e4be623bf09d22cc5decac75": "aucun chemin ne va du coin (4, 4) au coin (0, 0) : sum_over_paths(weights, source, target) part de source, et le carrefour (i, j) est le nœud 5i + j"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.14a": {
+      "coarse_any": {
+        "0": [
+          "322feed35f3814879f19e9836b844b8b11af72f94a6b152c0d127231d250cf3f"
+        ]
+      },
+      "decimals": 2,
+      "hash": "5a32f30b959a41611eb5060fa15221212203efea29b73ddc20c89854c7e3ab41",
+      "hash_coarse": "4fa71dcda0943cbfc1e6adcb3dd30e05c5117f7021acf4e86532800078e88e2b",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "0d1f660f8ff32adc1db5a8f7d17f8440217e15ab0ee3bedfe2d3a3b89e6a0c42": "a) demande l'écart-type, la racine de la variance",
+        "24e8569ff8e8e2fca0ae458aa0f22340e875875c9999cc25055a2ec0cded4583": "V(L ℓ) n'est pas V(L) V(ℓ) : les moyennes non nulles comptent",
+        "917004db69d3f30f11c808e3b0d3d9a4a7355241929dcda3a2baa62c056e8fe2": "variance_of_product prend des VARIANCES : le carré de chaque écart-type"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.15a": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "295953e37721623fe946c22e2e9068108dca8f876d97e1fd926fa350d07baf39",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.15b": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "b096f9ce0f426f9a3ddfc149a389f8315433aefe284faf744183ba1972c0c3f0",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.15c": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "1942f6aa29a19169152285c6bd687089e2006ee68c588c69a59fb9cd8fd50690",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.15d": {
+      "choices": [
+        "1",
+        "2",
+        "3"
+      ],
+      "hash": "923232b5b120f636a964835638473b96cf30aca4da5742f1110815b948dc645d",
+      "kind": "int",
+      "magnitude": 0,
+      "prediction": true,
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.16a": {
+      "alt_coarse": [
+        "9d37259a83a8cebdcd1db16d151be36c6e0f8912ec94e45eb6290869f5fa21a6"
+      ],
+      "coarse_any": {
+        "0": [
+          "7e740d2f5fac6b736296f802a9f320de9a97865950c9cedf5cff1056ed8cdf1b"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "3f15277113ebb3d456b30badb7fcd5e6af5c97acb84ce56fbb56cf7b3b2e0e71"
+        ],
+        "2": [
+          "8ad0aa88db5f5a5cebd3928c10ad09e449904df89d6d79353b5685b5d6875f5d"
+        ]
+      },
+      "decimals": 4,
+      "hash": "12ac20e58f42c109b502e19fbe0c591d1eb33905b0a6245c00f2851c8fad49fa",
+      "hash_coarse": "d65a20f5c869690799e805526fbfce3e3c01dfaf8511a5eee854a2edd9773bf4",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "5f75d6b92e489f162cb4197c2d0ec016439421195c87d73e58ccf6ba2fc6584d": "à chaque étage, la variance est multipliée par g², le carré du gain",
+        "bdc3dd48b91ec160f7f0c122752bb375b34131ffc77de6b3a102997bbdee0a29": "le point fixe résout v = g² v + 1 : isole v"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.16b": {
+      "coarse_any": {
+        "0": [
+          "586db22598c48de2313d78597e41197fae0d3c4bc7c34b04f70ec6c98ac3e583"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "100d2c22482d043388b62215917ecce7fc9353934065f0179e7d15441c85ee17"
+        ],
+        "2": [
+          "6036925412fac9848cd216a9981b7b8b9235b7b2e8c58e5823d83fda7994316d"
+        ],
+        "3": [
+          "42bb08fd9b487b1f97519c8c0e8cf72b66347ad981b3374bb13105cc1afa5ecd"
+        ],
+        "4": [
+          "f6e8d95dc8ace2195e25796a7b1eec3da4f9c8d8305480e4a173ef2434557116"
+        ]
+      },
+      "decimals": 6,
+      "hash": "a8281b2f15435893d13fab5f42ff1154fd36bbae0a758aff092d1b1c8fea1d98",
+      "hash_coarse": "96c27e7f02ddb644c240a41b984a308eef5f449d4ce9b9d349e134efa7d8a433",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "603ff34f826674d97de81a61866ad4960e293d0835f7630649179be0641efb13": "compte les bruits ajoutés : v_0 = 0, avant le premier étage, et un bruit par étage",
+        "cd0ecd40eb5f7c7bc26a7ea79c2a10fbfcecb6590ec43fa721db772b74848084": "compte les bruits ajoutés : v_0 = 0, avant le premier étage, et un bruit par étage",
+        "f4e1d4c720dbe5b716a35d3a2ad790f2b524ccf4c1e3a82b55dde29af9d11798": "pour g = 1, la variance ne se stabilise pas : chaque étage ajoute la variance d'un bruit"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.16c": {
+      "decimals": 1,
+      "hash": "f2d41fd8b66ba30d6c5764a412a859db0e8be1d4dfce9fe26474fee453c63783",
+      "hash_coarse": "01f786e0ae2bf66ab9d8220b2bbdcebe7ca6ef35098986214a0a8cea084b2355",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "4a685d8ff7e9cde772967c56bc24bea48f9f91d38bcb731e4ea08bd3bedfe12e": "v_40 : quarante étages après v_0 = 0, un bruit par étage",
+        "6bb8742b3882a89fb573fa46f3dcf926db9db3fafa9641c0f245c317cc5db2d6": "à chaque étage, la variance est multipliée par g², le carré du gain",
+        "c5867c4532cb54cf0fee6aa941db4903d6ab37e4742a05a93fe8a8b7b4669880": "v_0 = 0 : la variance vient des bruits, un par étage, chacun amplifié par les étages suivants",
+        "e2d2af786882fd2a184ed84195245c58f0cb17318cf1e69ac13651090d55132b": "v_40 : quarante étages après v_0 = 0, un bruit par étage"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.16d": {
+      "fractional": "le premier étage, un entier : vérifie l'inégalité pour ta valeur et pour la précédente",
+      "hash": "997c4582bb1e81cc7a4f57f909d226e71ab097dee353e349321bf0b3617069fe",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0731b88fc1bf7f12155c171292aa14dc41f43a543d8b48d59a55c0c77a6af372": "à cet étage, v_k est encore à plus de 1 % de sa limite : vérifie l'inégalité pour ta valeur",
+        "c0d34b450107f0fa81ce184e33e478bac5bb0dfa39d4d07533d61626e2be9155": "c'est le PREMIER étage où v_k est à moins de 1 % de sa limite qui est demandé",
+        "e9db7c8c2a5b2bdbb82f380782db5b1fc3074f65f84faf6661b32c5418d54cdf": "l'écart à la limite est multiplié par g² à chaque étage, pas par g"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.16e": {
+      "hash": "18d430a9349c55e980be6c61dfee6081acb793752ee088a24c70bd9940e8a91e",
+      "kind": "bool",
+      "mistakes": {
+        "7b1d65af8fdf70e5daf973efe3dc7539c3126278444889cd8b84745a63f94080": "ta variance simulée s'écarte de la limite : chaque chaîne part de Z_0 = 0 et reçoit un nouveau bruit N(0, 1) à chaque étage ; np.var porte sur la colonne de l'étage 40"
+      },
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.18a": {
+      "decimals": 0,
+      "element_hashes": [
+        "433af4ecef4c4fac6dfc9f25e33ce6ac7bb84be23a400f8447ccec9d5fb5cac8",
+        "42561e4879383a2941231537eb1e50feb9f7a43640f2b882a9193df1e3916480"
+      ],
+      "hash": "1948c06ffa47ee770efc17254e0ae9185ff3f369d2b5363147b43ed12f52e4ad",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "06b8e4ddce666a2154bdce053d1a3744a1d8001fd8b7daa13bdab59236ff281e": "la fonction multiplie la LIGNE [x, 1] par H, H à droite : pas H par une colonne",
+        "70d692c104097c84a092e2feff588f02f132ef69897e1980c846de2789d1fe42": "la fonction rend chaque image sans sa dernière coordonnée : deux nombres",
+        "a99f8bc5fc0b9d8708016a918fbd14dedf867b4bc1167afaaea5fada74bcf13e": "a) demande ce que RENVOIE la fonction de la collègue : refais son produit [x, 1] H, avec sa matrice H"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.18b": {
+      "coarse_any": {
+        "0": [
+          "87f91f7638a8c8ac375974670c9d5dc30aaf60037577f05ba8f48b436747c8a8"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "a1313a435e4a7073d623d5663f9595e999f1054d49b17d22a143e55a2218c843"
+        ],
+        "2": [
+          "286ece96aedd5086ce8b1c33a7b4bc6c59fe607422705d756aacf7924c82fc69"
+        ],
+        "3": [
+          "18fe15c4e909ce37aefef5527148330540ff55cbd24f42c9c7d028afe1cb1e00"
+        ],
+        "4": [
+          "c23b85ee3e133f799b7e36795502ba8c529a967962635660bf192167d072fd2d"
+        ]
+      },
+      "decimals": 6,
+      "hash": "fa32271b6c4fc2e9ec2ed46781550920555e4e5bea3d38ae1cc75d4aaed6e0bc",
+      "hash_coarse": "aa90e3d782e508ee15338afe86c6bfad511f3598b990f983c322ed68523929bf",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "16ff9cdbec037ec4db6180538699198dcede0031ce828daaf784f28878e48b43": "la dernière colonne de cette H n'est pas (0, …, 0, 1) : refais le produit de [x, 1] par sa dernière colonne"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.18c": {
+      "coarse_any": {
+        "0": [
+          "044b75b201ea381673330653da8ebb546ca297b096eebf1d57dcddcfb9cf7890"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "a93214e3a2b7cdf8b32fa9fc6ad12ae5e31f8cf835b98ad347f18fdada8963bc"
+        ],
+        "2": [
+          "68a9c5e5bbf7fbd02fea192810ee16ca9e9f9243af6d5fc62a677767f13fae73"
+        ],
+        "3": [
+          "f72517f7ec246c37c041d52bac42112a9fe0f043f87b365024d6140368da4ef6"
+        ],
+        "4": [
+          "316acc20aef9464ca42f3a1fbfb24bca1742467cdeccf19e5b157120b5d8558c"
+        ]
+      },
+      "decimals": 6,
+      "hash": "e160c8f68ea6eb333514dafb8cf8eda5f2d950b47635b50f180b2583b66117c0",
+      "hash_coarse": "60d3565df34537578ef7e17850f0c6d3c0485e86c0d5493af45bab7cf3ee50a9",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "21a0ff7db64a1b0ca886e36fa87ab2c319c28a344bda050b5454db91d65554ab": "c) demande ce que RENVOIE la fonction de la collègue, le coefficient de (I − A)⁻¹, pas un nombre de chemins"
+      },
+      "sign": -1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.20a": {
+      "hash": "86cdbc0db5f0f46835c3be50ab48997479a61a822e6167e236926342f9558b1b",
+      "kind": "fraction",
+      "mistakes": {
+        "0d8f4956099a2acf127d449efd937d158c8cd761682e62a2ef671dabcb287c1e": "E[UV] = E[U] E[V] pour des variables indépendantes"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.20b": {
+      "hash": "2fc4a082f53f06c07daeaf7c1414f5703cdae0b828f331422530bcd76f37e947",
+      "kind": "fraction",
+      "mistakes": {
+        "ae9325f38b8d171782099e6b7a633f41564e0411c0a8ebf177dfa934cc20833f": "V(Z) = E[Z²] − E[Z]² : retranche le carré de l'espérance",
+        "da24aab531baf81e7dba6d25459777bda5ecf0dd4730eeba200fe7357022b233": "V(UV) n'est pas V(U) V(V) : les moyennes non nulles comptent"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.20c": {
+      "coarse_any": {
+        "0": [
+          "273def0ea622790704622f666d57545df13ba73198b1c55b087be6f17cf02418"
+        ],
+        "1": [
+          "f5dc7a923804d653bfcb5ba2cd45ccd42e7995740fe5418abaeb7a7811221be2"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "be02dd20ec269a21a00728968076911a1317494732b6acfbed2944c4eb2e20d3"
+        ]
+      },
+      "decimals": 4,
+      "hash": "301dd79d1c4794ea27db8ee397b83af14eb6098bdc903b55a8bcfc14d031a44f",
+      "hash_coarse": "ad29d9230d2a1acc2f98260b7c19303fd2f2d17301cb8a5822fea2bf9360ee46",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "40f6c4de19403dfef20ab95f9243f08e948d472c98ab715608bc1d71769a3a1f": "pour u ≤ 1/4, tout v convient : cette bande de la région compte aussi",
+        "7980f235c198b5f8d6f7d6c4d8a34ab2592063fbee1890baf87ed93188fe3eb9": "Z = UV n'est pas uniforme : calcule l'aire de la région {uv ≤ 1/4} du carré unité",
+        "b5b57b14b0b99f33d4e359b76cb01a7648f3600d3be4a5a32e4305b4905f797b": "P(Z ≤ 1/4) est l'aire du côté des PETITS produits, sous l'hyperbole uv = 1/4"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.20d": {
+      "coarse_any": {
+        "1": [
+          "cd2ed29676e7729553c6b02208f71a23aeb268f8172c1de3fe42a0bdfaabe208"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "32df7995858d54264ad6da237579f7d2661a386a08d19ac76261f4d5e0ed7b0e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b833f8074fec0cd0f825ca3b1ac8393dd3bd17910316e753b9017eb9bc957dff",
+      "hash_coarse": "ac2e22d671b6b36f0ed2964cc159a6d6a68463410886e0c3ce515ee028f2cf71",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "65245970a35b86d0d82c74b249fe3ffa7b269b75635df7e49efa871752d444e0": "la médiane de Z n'est ni son espérance ni le produit des médianes de U et V : résous P(Z ≤ m) = 1/2",
+        "a5de5a474f6a3c6d99b66cc75b5fea2f762558dc096e7cc6e31a55e5e885c1bb": "Z n'est pas uniforme : résous P(Z ≤ m) = 1/2 avec sa fonction de répartition"
+      },
+      "sign": 1,
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
+    "M16.20e": {
+      "hash": "a479418befe7938d157dd0c94240133329a6054241d3a66f3fc111c65416e0bf",
+      "kind": "bool",
+      "mistakes": {
+        "a380baa3280cbf19889e1040f0806ab5e9ffa1cf68bef4c1acf58964057dbd54": "ta densité s'écarte de l'histogramme : la densité est la DÉRIVÉE de la fonction de répartition F(z) = P(Z ≤ z), l'aire de la région {uv ≤ z} du carré unité"
+      },
+      "source": "chapitres/m16_couches_affines/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
