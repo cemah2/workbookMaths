@@ -76,7 +76,7 @@ Calcule $1 - 2\omega$ et $1 - 4\omega$ pour chaque pas, puis regarde si les deux
 </details>
 <details><summary>Indice 3</summary>
 
-5. Le maximum de deux fonctions affines par morceaux est le plus petit là où $\lvert 1 - 2\omega\rvert = \lvert 1 - 4\omega\rvert$ avec des signes contraires : $1 - 2\omega = -(1 - 4\omega)$.
+5. Applique l'énoncé du §5 : $\omega^\star = \frac{2}{\lambda_{\min} + \lambda_{\max}}$ et $\rho^\star = \frac{\kappa - 1}{\kappa + 1}$.
 
 </details>
 
@@ -94,7 +94,7 @@ Relis le §5 : « Le meilleur pas, et le prix du conditionnement » et « Ce qui
 </details>
 <details><summary>Indice 3</summary>
 
-5. Après la mise à l'échelle, une matrice diagonale devient l'identité. 6. Une matrice orthogonale ne change pas les valeurs propres de $\mathbf{Q}^\top\mathbf{A}\mathbf{Q}$.
+5. $\tilde a_{12} = \frac{0{,}9}{\sqrt{9 \times 1}}$, puis les valeurs propres d'une matrice $\begin{pmatrix} 1 & c \\ c & 1 \end{pmatrix}$ sont $1 \pm c$. 6. Une matrice orthogonale ne change pas les valeurs propres de $\mathbf{Q}^\top\mathbf{A}\mathbf{Q}$.
 
 </details>
 
@@ -282,7 +282,7 @@ Calcule à chaque pas $\mathbf{A}\mathbf{x}_k$, puis le résidu, puis le pas. Le
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\mathbf{x}_1 = 0{,}1\,\mathbf{b}$ ; $\mathbf{A}\mathbf{x}_1 = (2{,}8 ;\ 3{,}6)$. d) $5 \pm 3$. g) $1 - 0{,}3 \times 8$. h) L'écart de départ $(1, -1)$ est un vecteur propre : de quelle valeur propre de $\mathbf{I} - 0{,}3\,\mathbf{A}$ ?
+b) $\mathbf{x}_1 = 0{,}08\,\mathbf{b}$ ; $\mathbf{A}\mathbf{x}_1 = (2{,}24 ;\ 2{,}88)$. d) $5 \pm 3$. g) $1 - 0{,}3 \times 8$. h) L'écart de départ $(1, -1)$ est un vecteur propre : de quelle valeur propre de $\mathbf{I} - 0{,}3\,\mathbf{A}$ ?
 
 </details>
 
@@ -295,12 +295,12 @@ Relis l'encadré « Énoncé » du §5 et la formule $k \ge \frac{d\ln 10}{-\ln\
 </details>
 <details><summary>Indice 2</summary>
 
-a) Le bloc $\begin{pmatrix} 6 & 5 \\ 5 & 6 \end{pmatrix}$ a pour valeurs propres $6 \pm 5$ ; la troisième se lit. Ensuite $\omega^\star = \frac{2}{\lambda_{\min} + \lambda_{\max}}$ et $\rho^\star = \frac{\kappa - 1}{\kappa + 1}$.
+a) Le bloc $\begin{pmatrix} 7 & 6 \\ 6 & 7 \end{pmatrix}$ a pour valeurs propres $7 \pm 6$ ; la troisième se lit. Ensuite $\omega^\star = \frac{2}{\lambda_{\min} + \lambda_{\max}}$ et $\rho^\star = \frac{\kappa - 1}{\kappa + 1}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e) $\frac{6\ln 10}{\ln(6/5)} \approx 75{,}8$. f) $1 - \frac{1}{11}$. h) $\kappa = 110$ : $\rho^\star = \frac{109}{111}$.
+e) $\frac{6\ln 10}{\ln(7/6)} \approx 89{,}6$. f) $1 - \frac{1}{13}$. h) $\kappa = 110$ : $\rho^\star = \frac{109}{111}$.
 
 </details>
 
@@ -331,12 +331,12 @@ Relis « Le strict minimum sur les nombres complexes » et l'exemple qui le suit
 </details>
 <details><summary>Indice 2</summary>
 
-$p = 0{,}6$, $q = 0{,}25$ : $\Delta = p^2 - 4q$ ; les racines sont $\frac p2 \pm i\frac{\sqrt{-\Delta}}{2}$, de module $\sqrt q$ ; $\cos\theta = \frac{p}{2\sqrt q}$.
+$p = 0{,}5$, $q = 0{,}4225$ : $\Delta = p^2 - 4q$ ; les racines sont $\frac p2 \pm i\frac{\sqrt{-\Delta}}{2}$, de module $\sqrt q$ ; $\cos\theta = \frac{p}{2\sqrt q}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e) $u_2 = 0{,}6 \times 0{,}3 - 0{,}25 \times 1$, puis continue. f) $k = 0$ donne $A = u_0$ ; $k = 1$ donne $0{,}5(0{,}6A + 0{,}8B) = u_1$. h) Une période fait tourner l'angle de $2\pi$.
+e) $u_2 = 0{,}5 \times 0{,}25 - 0{,}4225 \times 1$, puis continue. f) $k = 0$ donne $A = u_0$ ; $k = 1$ donne $0{,}65(A\cos\theta + B\sin\theta) = u_1$, avec $\cos\theta = \frac{5}{13}$ et $\sin\theta = \frac{12}{13}$. h) Une période fait tourner l'angle de $2\pi$.
 
 </details>
 
@@ -483,12 +483,12 @@ Relis « Préconditionner » (fiche §5) et son exemple des deux ressorts.
 </details>
 <details><summary>Indice 2</summary>
 
-a) Trace $16{,}25$, déterminant $4 - 1 = 3$. c) $\tilde a_{ij} = \frac{a_{ij}}{\sqrt{a_{ii}a_{jj}}}$. e) Le nombre d'itérations au meilleur pas est $\frac{6\ln 10}{-\ln\frac{\kappa - 1}{\kappa + 1}}$.
+a) Trace $16{,}25$, déterminant $4 - 1 = 3$ ; pour ne pas perdre de chiffres, calcule la petite valeur propre comme le déterminant divisé par la grande. c) $\tilde a_{ij} = \frac{a_{ij}}{\sqrt{a_{ii}a_{jj}}}$. e) Le nombre d'itérations au meilleur pas est $\frac{6\ln 10}{-\ln\frac{\kappa - 1}{\kappa + 1}}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-c) $\frac{1}{\sqrt{16 \times 0{,}25}} = 0{,}5$. f) $y_i = \sqrt{a_{ii}}\,x_i$.
+c) $\frac{1}{\sqrt{16 \times 0{,}25}} = 0{,}5$. f) $y_i = \sqrt{a_{ii}}\,x_i$. Dans ta copie : regarde la diagonale de $\begin{pmatrix} 1 & 0{,}9 \\ 0{,}9 & 1 \end{pmatrix}$.
 
 </details>
 
@@ -519,7 +519,7 @@ Lis le §7.1 jusqu'à la fin de son exemple, puis la remarque sur le conditionne
 </details>
 <details><summary>Indice 2</summary>
 
-2. Pour une matrice $2 \times 2$ symétrique, trace et déterminant donnent les valeurs propres. 4. Une mise à jour qui utilise la position actuelle et la précédente relie trois termes consécutifs de la suite.
+2. Pour une matrice $2 \times 2$ symétrique, trace et déterminant donnent les valeurs propres. 4. Repère dans la formule le terme qui n'existe pas dans la descente simple.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -542,7 +542,7 @@ Des cercles pour un conditionnement 1 ; des ellipses dont les axes sont dans le 
 </details>
 <details><summary>Indice 3</summary>
 
-Le plan : la forme des lignes ; le résidu perpendiculaire aux lignes ; le pas limité par la direction raide ; la direction plate qui avance peu ; l'allongement et le nombre d'itérations ; la mise à l'échelle.
+Le plan : la forme des lignes ; le résidu perpendiculaire aux lignes ; le pas limité par la direction propre de la plus grande valeur propre ; l'autre direction qui avance peu ; l'allongement et le nombre d'itérations ; la mise à l'échelle.
 
 </details>
 
@@ -554,17 +554,17 @@ Le plan : la forme des lignes ; le résidu perpendiculaire aux lignes ; le pas l
 
 <details><summary>Indice 1</summary>
 
-Relis l'essentiel en 10 lignes, points 1 à 3 et 5.
+Relis l'essentiel en 10 lignes, points 1 à 3, et « Les formes quadratiques » de M12c §7.
 
 </details>
 <details><summary>Indice 2</summary>
 
-Taylor d'ordre 2 ; les valeurs propres comme courbures ; le test du second ordre ; les valeurs propres extrêmes et le pas.
+Taylor d'ordre 2 ; les valeurs propres comme courbures ; le test du second ordre ; les lignes de niveau, des ellipses de demi-axes proportionnels à $1/\sqrt{\lambda_i}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Le plan : définition ; courbures ; nature du point ; pas et lenteur ; coût en grande dimension.
+Le plan : définition ; courbures ; nature du point ; forme des lignes de niveau ; coût en grande dimension.
 
 </details>
 

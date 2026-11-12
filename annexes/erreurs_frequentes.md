@@ -648,11 +648,11 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Classer un point critique par la diagonale de la hessienne | $\begin{pmatrix} 1 & 2 \\ 2 & 1 \end{pmatrix}$ « positive », donc un minimum | les signes des **valeurs propres** ($3$ et $-1$ : une selle) |
 | Conclure par le déterminant en dimension 3 | $\det\mathbf{H} = 6 > 0$, donc un minimum, pour des valeurs propres $(-1, -2, 3)$ | regarder toutes les valeurs propres |
 | Regarder la plus grande valeur propre signée | valeurs propres $0{,}5$ et $-1{,}2$ : « tout est sous 1, ça converge » | le plus grand **module** : $1{,}2 > 1$, l'itération diverge |
-| Régler le pas sur la plus petite valeur propre | $\omega = 2/\lambda_{\min}$ | $\omega < 2/\lambda_{\max}$, la plus grande courbure limite le pas |
+| Régler le pas sur la plus petite valeur propre | $\omega = 2/\lambda_{\min}$ | $\omega < 2/\lambda_{\max}$ : c'est la plus grande valeur propre qui fixe le pas critique |
 | Croire qu'un facteur près de 1 suffit | $\rho = 0{,}99$ « converge vite » | environ 230 itérations par décimale gagnée : regarder $\frac{\ln 10}{-\ln\rho}$ |
 | Croire que multiplier le système change le conditionnement | multiplier $\mathbf{A}$ et $\mathbf{b}$ par 100 « pour aller plus vite » | le pas critique est divisé par 100, $\kappa$ et le nombre d'itérations ne changent pas ; mettre les **inconnues** à l'échelle peut le changer |
 | Se tromper de signe sur $q$ | $u_{k+2} = 1{,}5\,u_{k+1} + u_k$ écrit $r^2 - 1{,}5r + 1$ | $u_{k+2} = a\,u_{k+1} + b\,u_k$ donne $r^2 - ar - b$ |
 | Prendre la partie réelle pour le module | racines $0{,}4 \pm 0{,}4\sqrt3\,i$ « de module $0{,}4$ » | $\sqrt{0{,}4^2 + 0{,}48} = 0{,}8 = \sqrt q$ |
 | Diviser l'erreur type par $B$ | estimation sur $B = 4$ termes : erreur type $\sigma/4$ | $\sigma/\sqrt B = \sigma/2$ ; la **variance** est divisée par $B$ |
-| Projeter sur la boule en coupant les coordonnées | $(12, -5)$ sur la boule de rayon $2{,}6$ : $(2{,}6 ;\ -2{,}6)$ | $\mathbf{x}\min(1, r/\lVert\mathbf{x}\rVert) = (2{,}4 ;\ -1)$ ; couper les coordonnées projette sur un pavé |
+| Projeter sur la boule en coupant les coordonnées | $(15, -8)$ sur la boule de rayon $3{,}4$ : $(3{,}4 ;\ -3{,}4)$ | $\mathbf{x}\min(1, r/\lVert\mathbf{x}\rVert) = (3 ;\ -1{,}6)$ ; couper les coordonnées projette sur un pavé |
 

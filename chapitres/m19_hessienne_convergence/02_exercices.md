@@ -54,11 +54,11 @@ $\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$, avec $\mathbf{M}$ sym�
 
 $\mathbf{A} = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}$, de valeurs propres $2$ et $4$.
 
-1. Les valeurs propres de $\mathbf{I} - \omega\mathbf{A}$ pour $\omega = 0{,}125$ ? Richardson converge-t-elle ?
+1. Les valeurs propres de $\mathbf{I} - \omega\mathbf{A}$ pour $\omega = 0{,}075$ ? Richardson converge-t-elle ?
 2. Le pas critique ?
 3. Pour $\omega = 0{,}6$ : les valeurs propres de $\mathbf{I} - \omega\mathbf{A}$, et la conclusion ?
 4. Pour $\omega = -0{,}1$ : même question.
-5. Le pas qui rend $\max(\lvert1 - 2\omega\rvert, \lvert1 - 4\omega\rvert)$ le plus petit, et ce facteur ?
+5. Le meilleur pas $\omega^\star$ de la fiche (§5), et le facteur de convergence qu'il donne ?
 6. Vrai ou faux : si $0 < \omega < 2/\lambda_{\max}$, toutes les valeurs propres de $\mathbf{I} - \omega\mathbf{A}$ sont dans $]-1, 1[$.
 
 ### M19.Q5 — Le conditionnement : ce qui ralentit, ce qui ne change rien 🧠 ★ ⏱️ 4 min
@@ -68,7 +68,7 @@ $\mathbf{A} = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}$, de valeurs propres 
 2. On multiplie $\mathbf{A}$ et $\mathbf{b}$ par 10. Qu'est-ce qui change : le conditionnement, le pas critique, le nombre d'itérations au meilleur pas ?
 3. Le facteur de Richardson au meilleur pas pour $\kappa = 100$ (3 décimales) ?
 4. Pour gagner 6 décimales avec ce facteur, il faut environ : (A) 7 itérations ; (B) 70 ; (C) 700 ; (D) 7 000.
-5. $\mathbf{A} = \operatorname{diag}(0{,}5 ;\ 50)$ : son conditionnement après le préconditionnement diagonal ?
+5. $\mathbf{A} = \begin{pmatrix} 9 & 0{,}9 \\ 0{,}9 & 1 \end{pmatrix}$ : la matrice $\mathbf{D}^{-1/2}\mathbf{A}\mathbf{D}^{-1/2}$ du préconditionnement diagonal, et son conditionnement ?
 6. Vrai ou faux : remplacer les inconnues par $\mathbf{x} = \mathbf{Q}\mathbf{y}$, avec $\mathbf{Q}$ orthogonale, change le conditionnement.
 
 ### M19.Q6 — Module d'un nombre complexe et racines d'un trinôme 🧠 ★ ⏱️ 4 min
@@ -84,7 +84,7 @@ $\mathbf{A} = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}$, de valeurs propres 
 ### M19.Q7 — Un gradient estimé sur un échantillon : vrai ou faux 🧠 ★ ⏱️ 4 min
 *Fiche §7 · parcours C, E*
 
-On estime le gradient d'une moyenne de $N$ termes par la moyenne des gradients de $B$ termes tirés au hasard.
+On estime le gradient d'une moyenne de $N$ termes par la moyenne des gradients de $B$ termes tirés au hasard, uniformément et avec remise (sauf au 5.).
 
 1. Tirés uniformément avec remise, l'espérance de l'estimation est le vrai gradient.
 2. Doubler $B$ divise par 2 la variance de l'estimation.
@@ -97,7 +97,7 @@ On estime le gradient d'une moyenne de $N$ termes par la moyenne des gradients d
 *Fiche §8 · parcours C*
 
 1. La projection de $(0, 9)$ sur la boule de rayon 3 ?
-2. La projection de $(10, 1)$ sur le pavé $[-2, 2]^2$ ? La direction est-elle gardée ?
+2. La projection de $(7 ;\ 1{,}2)$ sur le pavé $[-2, 2]^2$ ? La direction est-elle gardée ?
 3. La projection de $(5, -5)$ sur le pavé $[-2, 2]^2$ ? La direction est-elle gardée ?
 4. La projection de $(2 ;\ -1{,}5)$ sur la boule de rayon 4 ?
 5. Vrai ou faux : projeter deux fois de suite sur la même boule donne le même point que projeter une fois.
@@ -114,7 +114,7 @@ $\mathbf{S} = \begin{pmatrix} 6 & 2 \\ 2 & 3 \end{pmatrix}$.
 
 1. Les valeurs propres de $\mathbf{S}$ (trace et déterminant) ?
 2. Un vecteur propre unitaire pour chacune ?
-3. Vrai ou faux : ces deux vecteurs propres sont orthogonaux, quelle que soit la matrice symétrique.
+3. Vrai ou faux : pour toute matrice symétrique $2 \times 2$ à deux valeurs propres distinctes, les vecteurs propres associés sont orthogonaux.
 4. Les valeurs propres de $\mathbf{S}^3$ ?
 5. $\mathbf{S}$ est-elle définie positive ?
 6. Écris $\mathbf{x}^\top\mathbf{S}\mathbf{x}$ avec les coordonnées $y_1$, $y_2$ de $\mathbf{x}$ dans la base des vecteurs propres.
@@ -162,7 +162,7 @@ $f(x, y, z) = x^2z + yz^2 - 3xy + e^{x - y}$, au point $\mathbf{p} = (1, 1, 2)$.
 | b | $\nabla^2 f(\mathbf{p})$ | une matrice |
 | c | l'approximation de Taylor d'ordre 1 de $f(1{,}1 ;\ 0{,}8 ;\ 2{,}1)$ | un nombre |
 | d | l'approximation de Taylor d'ordre 2 de $f(1{,}1 ;\ 0{,}8 ;\ 2{,}1)$ | un nombre |
-| e | la vraie valeur $f(1{,}1 ;\ 0{,}8 ;\ 2{,}1)$ | un nombre (4 décimales) |
+| e | la vraie valeur $f(1{,}1 ;\ 0{,}8 ;\ 2{,}1)$ | un nombre (3 décimales) |
 | f | la courbure de $f$ en $\mathbf{p}$ dans la direction unitaire $\mathbf{u} = \frac13(2, -1, 2)$ | un nombre |
 | g | le déterminant du bloc $2 \times 2$ en haut à gauche de $\nabla^2 f(\mathbf{p})$ | un nombre |
 | h | vrai ou faux : $\nabla^2 f(\mathbf{p})$ est définie positive | `True` ou `False` |
@@ -214,10 +214,10 @@ $\mathbf{A} = \begin{pmatrix} 5 & 3 \\ 3 & 5 \end{pmatrix}$ et $\mathbf{b} = (2 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la solution $\mathbf{x}^\star$ de $\mathbf{A}\mathbf{x} = \mathbf{b}$ | une liste de 2 nombres |
-| b | $\mathbf{x}_1$, $\mathbf{x}_2$, $\mathbf{x}_3$ avec $\omega = 0{,}1$ | une liste de 3 listes de 2 nombres |
-| c | le résidu $\mathbf{b} - \mathbf{A}\mathbf{x}_3$ | une liste de 2 nombres |
+| b | $\mathbf{x}_1$, $\mathbf{x}_2$, $\mathbf{x}_3$ avec $\omega = 0{,}08$ | une liste de 3 listes de 2 nombres (6 décimales) |
+| c | le résidu $\mathbf{b} - \mathbf{A}\mathbf{x}_3$ | une liste de 2 nombres (6 décimales) |
 | d | les valeurs propres de $\mathbf{A}$, en ordre décroissant | une liste de 2 nombres |
-| e | les valeurs propres de $\mathbf{I} - 0{,}1\,\mathbf{A}$, dans le même ordre que d) | une liste de 2 nombres |
+| e | les valeurs propres de $\mathbf{I} - 0{,}08\,\mathbf{A}$, dans le même ordre que d) | une liste de 2 nombres |
 | f | le pas critique | un nombre |
 | g | avec $\omega = 0{,}3$ : la valeur propre de $\mathbf{I} - \omega\mathbf{A}$ de plus grand module | un nombre |
 | h | vrai ou faux : avec $\omega = 0{,}3$, l'itération partie de $\mathbf{x}_0 = \mathbf{x}^\star + (1, -1)$ converge | `True` ou `False` |
@@ -228,7 +228,7 @@ Dans ta copie : la solution est loin de $\mathbf{x}_3$ ; quelle composante de l'
 **Objectif :** appliquer les formules du meilleur pas et du facteur de convergence, et chiffrer le nombre d'itérations selon le pas et le conditionnement.
 **Prérequis :** fiche §4 et §5 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 6 & 5 & 0 \\ 5 & 6 & 0 \\ 0 & 0 & 6 \end{pmatrix}$.
+$\mathbf{A} = \begin{pmatrix} 7 & 6 & 0 \\ 6 & 7 & 0 \\ 0 & 0 & 7 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -241,7 +241,7 @@ $\mathbf{A} = \begin{pmatrix} 6 & 5 & 0 \\ 5 & 6 & 0 \\ 0 & 0 & 6 \end{pmatrix}$
 | g | le plus petit nombre d'itérations qui gagne 6 décimales avec ce pas | un entier |
 | h | pour une matrice de valeurs propres extrêmes $1$ et $110$, le plus petit nombre d'itérations qui gagne 6 décimales au meilleur pas | un entier |
 
-Dans ta copie : vérifie d) en calculant les trois facteurs $\lvert 1 - \omega^\star\lambda_i\rvert$ ; pourquoi la valeur propre 6 ne compte-t-elle pas ? Compare e) et h) à l'approximation $1{,}15\,\kappa\,d$ de la fiche. Le pas prudent coûte combien de fois plus d'itérations ?
+Dans ta copie : vérifie d) avec la formule $\rho(\omega) = \max(\lvert 1 - \omega\lambda_{\min}\rvert, \lvert 1 - \omega\lambda_{\max}\rvert)$ du §4 ; pourquoi la valeur propre 7 ne compte-t-elle pas ? Compare e) et h) à l'approximation $1{,}15\,\kappa\,d$ de la fiche. Le pas prudent coûte combien de fois plus d'itérations ?
 
 ### Ex M19.6 — Une récurrence d'ordre 2 à racines réelles : terme général et convergence ✏️ ★★ ⏱️ 20 min
 **Objectif :** résoudre une récurrence d'ordre 2 par son polynôme caractéristique, et trouver un départ qui converge malgré une racine de module $> 1$.
@@ -265,7 +265,7 @@ Dans ta copie : vérifie c) par la formule de b). Quel terme de $u_k$ l'emporte 
 **Objectif :** calculer les racines complexes d'une récurrence d'ordre 2, leur module et leur angle, et en tirer une oscillation amortie.
 **Prérequis :** fiche §6 · **Parcours :** C, E
 
-$u_{k+2} = 0{,}6\,u_{k+1} - 0{,}25\,u_k$, avec $u_0 = 1$ et $u_1 = 0{,}3$.
+$u_{k+2} = 0{,}5\,u_{k+1} - 0{,}4225\,u_k$, avec $u_0 = 1$ et $u_1 = 0{,}25$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -273,12 +273,12 @@ $u_{k+2} = 0{,}6\,u_{k+1} - 0{,}25\,u_k$, avec $u_0 = 1$ et $u_1 = 0{,}3$.
 | b | la partie réelle des racines, puis leur partie imaginaire positive | une liste de 2 nombres |
 | c | le module des racines | un nombre |
 | d | l'angle $\theta \in\ ]0, \pi[$ tel que $\cos\theta = \frac{p}{2\sqrt q}$ | un nombre (4 décimales) |
-| e | $[u_2, u_3, u_4, u_5]$ | une liste de 4 nombres (5 décimales) |
-| f | les coefficients $[A, B]$ de $u_k = 0{,}5^k(A\cos k\theta + B\sin k\theta)$ | une liste de 2 nombres |
-| g | le plus petit $k$ tel que $0{,}5^k < 10^{-3}$ | un entier |
+| e | $[u_2, u_3, u_4, u_5]$ | une liste de 4 nombres (6 décimales) |
+| f | les coefficients $[A, B]$ de $u_k = 0{,}65^k(A\cos k\theta + B\sin k\theta)$ | une liste de 2 nombres |
+| g | le plus petit $k$ tel que $0{,}65^k < 10^{-3}$ | un entier |
 | h | la période de l'oscillation, en pas | un nombre (2 décimales) |
 
-Dans ta copie : vérifie $u_4$ par la formule de f). Pourquoi $\lvert u_k\rvert \le 0{,}5^k$ ici ? Sur un dessin, place les deux racines dans le plan, avec leur module et leur angle.
+Dans ta copie : vérifie $u_4$ par la formule de f). Pourquoi $\lvert u_k\rvert \le 0{,}65^k$ ici ? Sur un dessin, place les deux racines dans le plan, avec leur module et leur angle.
 
 ### Ex M19.8 — Une pente estimée sur B points tirés au hasard : espérance et variance de l'estimation ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer le gradient exact d'une moyenne et la dispersion des gradients individuels, puis la variance et l'erreur type d'une estimation sur un échantillon, avec et sans remise.
@@ -343,7 +343,7 @@ $\mathbf{A}$ est symétrique définie positive, de valeurs propres $0 < \lambda_
 
 1. Écris l'itération de Richardson sous la forme $\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$. Montre que, pour $\omega \ne 0$, son unique point fixe est la solution de $\mathbf{A}\mathbf{x} = \mathbf{b}$.
 2. Montre que $\mathbf{M}$ est symétrique, et que ses valeurs propres sont les $1 - \omega\lambda_i$, avec les mêmes vecteurs propres que $\mathbf{A}$.
-3. Montre que $\lvert 1 - \omega\lambda\rvert < 1$ équivaut à $0 < \omega\lambda < 2$. Conclus : l'itération converge depuis tout départ si et seulement si $0 < \omega < 2/\lambda_{\max}$.
+3. Montre que $\lvert 1 - \omega\lambda\rvert < 1$ équivaut à $0 < \omega\lambda < 2$. Conclus : l'itération converge vers la solution depuis tout départ si et seulement si $0 < \omega < 2/\lambda_{\max}$. (Pour $\omega = 0$, chaque départ est un point fixe.)
 4. Montre que $\max_i\lvert 1 - \omega\lambda_i\rvert = \max(\lvert1 - \omega\lambda_{\min}\rvert, \lvert1 - \omega\lambda_{\max}\rvert)$.
 5. Que se passe-t-il pour $\omega = 2/\lambda_{\max}$ exactement, depuis un départ dont l'écart a une composante sur le vecteur propre de $\lambda_{\max}$ ?
 
@@ -353,8 +353,8 @@ $\mathbf{A}$ est symétrique définie positive, de valeurs propres $0 < \lambda_
 
 $u_{k+2} = p\,u_{k+1} - q\,u_k$, de polynôme $P(r) = r^2 - pr + q$ et de racines $r_1$, $r_2$ (réelles ou complexes conjuguées).
 
-1. Racines distinctes : montre que, pour tous $u_0$, $u_1$, il existe un unique couple $(\alpha, \beta)$ tel que $u_k = \alpha r_1^k + \beta r_2^k$ pour $k = 0$ et $k = 1$, puis, par récurrence, pour tout $k$.
-2. Montre que toutes les solutions tendent vers 0 si et seulement si $\lvert r_1\rvert < 1$ et $\lvert r_2\rvert < 1$. Pour la réciproque, choisis un départ qui donne $(\alpha, \beta) = (1, 0)$. Traite aussi la racine double, avec $u_k = (\alpha + \beta k)r^k$ (on admet que $k\,s^k \to 0$ pour $0 \le s < 1$).
+1. Racines distinctes : montre que, pour tous $u_0$, $u_1$, il existe un unique couple $(\alpha, \beta)$, éventuellement complexe, tel que $u_k = \alpha r_1^k + \beta r_2^k$ pour $k = 0$ et $k = 1$, puis, par récurrence, pour tout $k$.
+2. Montre que toutes les solutions réelles tendent vers 0 si et seulement si $\lvert r_1\rvert < 1$ et $\lvert r_2\rvert < 1$. Pour la réciproque, choisis un départ qui donne $(\alpha, \beta) = (1, 0)$ ; si les racines sont complexes, utilise plutôt la partie réelle de la suite $r_1^k$, qui est une solution réelle. Traite aussi la racine double $r \ne 0$ : vérifie que $k\,r^k$ est solution, puis que $u_k = (\alpha + \beta k)r^k$ (on admet que $k\,s^k \to 0$ pour $0 \le s < 1$).
 3. Racines complexes ($p^2 < 4q$) : montre que $\lvert r_1\rvert = \lvert r_2\rvert = \sqrt q$, puis que la condition équivaut à $q < 1$, et qu'alors $\lvert p\rvert < 2\sqrt q \le 1 + q$.
 4. Racines réelles ($p^2 \ge 4q$) : montre que les deux racines sont dans $]-1, 1[$ si et seulement si $P(1) > 0$, $P(-1) > 0$ et $-1 < \frac p2 < 1$. Traduis $P(1) > 0$ et $P(-1) > 0$ en $\lvert p\rvert < 1 + q$, puis montre que, avec $p^2 \ge 4q$, ces conditions donnent $\lvert q\rvert < 1$.
 5. Conclus : les deux racines sont de module $< 1$ si et seulement si $\lvert q\rvert < 1$ et $\lvert p\rvert < 1 + q$. Dessine la région dans le plan $(p, q)$.
@@ -391,24 +391,24 @@ $\mathbf{A}$ est symétrique définie positive, et $f(\mathbf{x}) = \frac12\math
 | f | le résidu $\mathbf{b} - \mathbf{A}\mathbf{x}$ est : (A) le gradient de $f$ ; (B) l'opposé du gradient de $f$ ; (C) la hessienne de $f$ ; (D) la valeur de $f$ | une lettre entre guillemets |
 | g | vrai ou faux : le minimum de $f$ est la solution de $\mathbf{A}\mathbf{x} = \mathbf{b}$ | `True` ou `False` |
 
-Dans ta copie : pour les deux ressorts de la fiche, que représente $f$ ? Pourquoi « courbure » et « valeur propre de la hessienne » sont-ils ici la même chose ? Quelle hypothèse sur $\mathbf{A}$ garantit que $f$ a un unique minimum ?
+Dans ta copie : pour les deux ressorts de la fiche, que représente $f$ ? Pourquoi le résidu est-il perpendiculaire aux lignes de niveau de $f$ (M05b) ? Quelle hypothèse sur $\mathbf{A}$ garantit que $f$ a un unique minimum ?
 
 ### Ex M19.15 — Pont : le préconditionnement diagonal, une idée commune à plusieurs méthodes de workbookIA 19 🔗 ★ ⏱️ 15 min
-**Objectif :** mesurer ce que gagne une mise à l'échelle diagonale, et reconnaître cette idée dans des méthodes de workbookIA 19.
+**Objectif :** mesurer ce que gagne une mise à l'échelle diagonale, et ce qu'elle ne peut pas corriger.
 **Prérequis :** fiche §5 ; Ex M19.5 · **Parcours :** C
 
 Un système $\mathbf{A}\mathbf{x} = \mathbf{b}$ a pour matrice $\mathbf{A} = \begin{pmatrix} 16 & 1 \\ 1 & 0{,}25 \end{pmatrix}$ : ses deux inconnues vivent à des échelles très différentes. On note $\mathbf{D} = \operatorname{diag}(16 ;\ 0{,}25)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | les valeurs propres de $\mathbf{A}$, en ordre décroissant | une liste de 2 nombres (4 décimales) |
+| a | les valeurs propres de $\mathbf{A}$, en ordre décroissant | une liste de 2 nombres (3 décimales) |
 | b | le conditionnement de $\mathbf{A}$ | un nombre (1 décimale) |
 | c | la matrice $\tilde{\mathbf{A}} = \mathbf{D}^{-1/2}\mathbf{A}\mathbf{D}^{-1/2}$ | une matrice |
 | d | le conditionnement de $\tilde{\mathbf{A}}$ | un nombre |
 | e | le plus petit nombre d'itérations qui gagne 6 décimales au meilleur pas, pour $\mathbf{A}$ puis pour $\tilde{\mathbf{A}}$ | une liste de 2 entiers |
 | f | les nouvelles inconnues $\mathbf{y} = \mathbf{D}^{1/2}\mathbf{x}$ pour $\mathbf{x} = (0{,}5 ;\ 2)$ | une liste de 2 nombres |
 
-Dans ta copie : écris le pas de Richardson sur $\tilde{\mathbf{A}}$ dans les inconnues $\mathbf{x}$ : chaque coordonnée du résidu est divisée par quoi ? Le chapitre 19 de workbookIA présente des méthodes qui divisent chaque coordonnée du pas par une échelle propre à cette coordonnée, estimée au fil des itérations : en quoi est-ce la même idée, et en quoi est-ce différent (une échelle fixe, connue d'avance, contre une échelle estimée) ? Pourquoi une mise à l'échelle diagonale ne peut-elle pas corriger un mauvais conditionnement dû à de forts couplages entre les inconnues ?
+Dans ta copie : écris le pas de Richardson sur $\tilde{\mathbf{A}}$ dans les inconnues $\mathbf{x}$ : chaque coordonnée du résidu est divisée par quoi ? Pour $\begin{pmatrix} 1 & 0{,}9 \\ 0{,}9 & 1 \end{pmatrix}$, que fait la mise à l'échelle diagonale à son conditionnement, et pourquoi ? Le chapitre 19 de workbookIA retrouvera l'idée d'une mise à l'échelle diagonale : résume en une phrase, pour la relire alors, ce qu'elle peut et ne peut pas changer au conditionnement d'un système.
 
 ### Ex M19.16 — MML §5.7 et §5.8 : dérivées d'ordre supérieur et Taylor à plusieurs variables, en anglais 📖 ★★ ⏱️ 35 min
 **Objectif :** lire deux sections de MML en anglais, et relier leurs notations à celles de la fiche.
@@ -422,14 +422,14 @@ Lis MML §5.7 (*Higher-Order Derivatives*) et §5.8 (*Linearization and Multivar
 5. Relève trois expressions anglaises de ces sections et leur traduction dans la fiche.
 
 ### Ex M19.17 — MML §7.1 : la descente de gradient, le pas, le momentum et la version stochastique, en anglais 📖 ★★ ⏱️ 40 min
-**Objectif :** lire la section de MML sur la descente de gradient, et la relier à Richardson, au conditionnement, aux récurrences d'ordre 2 et au gradient estimé.
+**Objectif :** lire la section de MML sur la descente de gradient, et la relier à Richardson, au conditionnement et au gradient estimé.
 **Prérequis :** fiche §3 à §7 · **Parcours :** C
 
 Lis MML §7.1 (*Optimization Using Gradient Descent*), crayon en main, puis réponds dans ta copie, en français :
 1. Comment MML note-t-il le pas ? Que dit-il d'un pas trop petit, d'un pas trop grand ?
 2. Son exemple porte sur une forme quadratique $\frac12\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}$ en dimension 2. Calcule les valeurs propres de sa matrice, son conditionnement et le pas critique de la fiche. Le pas qu'il choisit est-il sous ce pas critique ?
 3. Que dit sa remarque sur le conditionnement ? Quel remède propose-t-il, et quel est son lien avec le §5 de la fiche ?
-4. Le §7.1.2 ajoute un terme qui fait intervenir la position précédente. Pourquoi la mise à jour devient-elle une récurrence d'ordre 2 ? (N'étudie pas sa convergence : workbookIA 19 le fera.)
+4. Le §7.1.2 ajoute un terme à la mise à jour : que garde-t-elle en mémoire d'un pas à l'autre ? (N'étudie pas cette méthode : workbookIA 19 le fera.)
 5. Le §7.1.3 estime le gradient sur une partie des données. Pourquoi l'estimation est-elle sans biais ? Relie-le au §7 de la fiche.
 6. Relève trois expressions anglaises de la section et leur traduction dans la fiche.
 
@@ -448,7 +448,7 @@ Un ami programme une méthode itérative pour calculer l'équilibre d'une struct
 
 « Que nous apprend la hessienne en un minimum ? »
 
-Prépare une réponse orale de **60 secondes**. Elle doit dire ce qu'est la hessienne (les dérivées secondes, symétrique), ce qu'elle décrit (la courbure dans chaque direction, le terme d'ordre 2 de Taylor), ce que disent ses valeurs propres en un point critique (minimum, maximum, selle, cas douteux), ce que disent ses valeurs propres extrêmes en un minimum (la courbure la plus forte limite le pas d'une descente, le rapport des deux fixe sa lenteur), et ce qu'elle coûte à calculer en grande dimension ($n^2$ coefficients, d'où des méthodes qui ne la forment jamais). Compare ensuite avec la réponse modèle de `05_solutions.md`.
+Prépare une réponse orale de **60 secondes**. Elle doit dire ce qu'est la hessienne (les dérivées secondes, symétrique), ce qu'elle décrit (la courbure dans chaque direction, le terme d'ordre 2 de Taylor), ce que disent ses valeurs propres en un point critique (minimum, maximum, selle, cas douteux), ce qu'elles disent de la forme des lignes de niveau autour d'un minimum (des ellipses, leurs axes et leur allongement), et ce qu'elle coûte à calculer en grande dimension ($n^2$ coefficients, d'où des méthodes qui ne la forment jamais). Compare ensuite avec la réponse modèle de `05_solutions.md`.
 
 ### M19.E2 — « Pourquoi un mauvais conditionnement ralentit-il une méthode itérative ? » 💼 ★ ⏱️ 10 min
 *Fiche §5 · parcours C*

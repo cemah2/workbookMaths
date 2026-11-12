@@ -37,9 +37,9 @@ Parcours essentiel : tout sauf M19.Q8, M19.R3, M19.12, M19.13, M19.14, M19.15, M
 
 **MML §5.7 et §5.8** (*Higher-Order Derivatives*, *Linearization and Multivariate Taylor Series*) : lis-les **après le §1** de cette fiche et **avant le §2**. Le §5.7 définit la hessienne et ses notations ; le §5.8 écrit le développement de Taylor à plusieurs variables avec des tableaux à plusieurs indices (des *tensors*), et le termine par un exemple calculé jusqu'à l'ordre 3 ; le 📖 M19.16 te guide.
 
-**MML §7.1** (*Optimization Using Gradient Descent*) : lis-le **après le §5** et **avant le §6**. Son début (la descente de gradient, le choix du pas, son exemple sur une forme quadratique et sa remarque sur le conditionnement) reprend les §4 et §5 avec d'autres notations ; ses deux sous-sections suivantes, sur le momentum (§7.1.2) et la version stochastique (§7.1.3), se lisent comme un aperçu : la fiche en étudie les outils mathématiques (§6 et §7), et workbookIA 19 les méthodes ; le 📖 M19.17 te guide. Les exercices de MML sur ces sections sont conseillés, pas obligatoires.
+**MML §7.1** (*Optimization Using Gradient Descent*) : lis-le **après le §5** et **avant le §6**. Son début (la descente de gradient, le choix du pas, son exemple sur une forme quadratique et sa remarque sur le conditionnement) reprend les §4 et §5 avec d'autres notations ; ses deux sous-sections suivantes, sur le momentum (§7.1.2) et la version stochastique (§7.1.3), se lisent comme un aperçu de workbookIA 19 ; la seconde s'appuie sur le §7 de la fiche ; le 📖 M19.17 te guide. Les exercices de MML sur ces sections sont conseillés, pas obligatoires.
 
-Vocabulaire anglais de ce chapitre : *Hessian*, *second-order partial derivative*, *Taylor polynomial*, *Taylor series*, *critical point*, *stationary point*, *saddle point*, *local minimum*, *positive definite*, *indefinite*, *fixed point*, *fixed-point iteration*, *Richardson iteration*, *residual*, *step size*, *spectral radius*, *condition number*, *ill-conditioned*, *preconditioning*, *preconditioner*, *Jacobi method*, *conjugate gradient*, *linear recurrence*, *characteristic polynomial*, *companion matrix*, *complex number*, *modulus*, *complex conjugate*, *unbiased estimator*, *variance*, *sampling with replacement*, *projection*, *ball*, *box*, *clipping*. MML note le pas $\gamma$ (*step-size*) ; workbookIA dit **learning rate** et le note $\eta$ ; la fiche note $\omega$ le pas de Richardson.
+Vocabulaire anglais de ce chapitre : *Hessian*, *second-order partial derivative*, *Taylor polynomial*, *Taylor series*, *critical point*, *stationary point*, *saddle point*, *local minimum*, *positive definite*, *indefinite*, *fixed point*, *fixed-point iteration*, *Richardson iteration*, *residual*, *step size*, *spectral radius*, *condition number*, *ill-conditioned*, *preconditioning*, *preconditioner*, *Jacobi method*, *conjugate gradient*, *linear recurrence*, *characteristic polynomial*, *companion matrix*, *complex number*, *modulus*, *complex conjugate*, *unbiased estimator*, *variance*, *sampling with replacement*, *projection*, *ball*, *box*. MML note le pas $\gamma$ (*step-size*) ; workbookIA dit **learning rate** et le note $\eta$ ; la fiche note $\omega$ le pas de Richardson.
 
 ## Objectifs d'apprentissage
 
@@ -58,9 +58,9 @@ Vocabulaire anglais de ce chapitre : *Hessian*, *second-order partial derivative
 2. **Taylor d'ordre 2** : $f(\mathbf{x} + \mathbf{h}) \approx f(\mathbf{x}) + \nabla f(\mathbf{x})^\top\mathbf{h} + \frac12\mathbf{h}^\top\nabla^2 f(\mathbf{x})\,\mathbf{h}$ ; la courbure dans la direction unitaire $\mathbf{u}$ vaut $\mathbf{u}^\top\nabla^2 f\,\mathbf{u}$, entre $\lambda_{\min}$ et $\lambda_{\max}$.
 3. En un **point critique** ($\nabla f = \mathbf{0}$) : valeurs propres de la hessienne toutes $> 0$ → **minimum** local ; toutes $< 0$ → **maximum** ; des deux signes → **point selle** ; une valeur propre nulle et les autres de même signe → le test ne conclut pas.
 4. **Itération linéaire** $\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$ : l'écart au point fixe vérifie $\mathbf{e}_{k+1} = \mathbf{M}\mathbf{e}_k$. Pour $\mathbf{M}$ symétrique, elle converge vers un même point depuis tout départ **si et seulement si** toutes ses valeurs propres sont de module $< 1$, et l'écart est multiplié au pire par $\rho = \max_i \lvert\lambda_i\rvert$ à chaque pas.
-5. **Richardson** pour $\mathbf{A}\mathbf{x} = \mathbf{b}$ ($\mathbf{A}$ symétrique définie positive) : $\mathbf{x} \leftarrow \mathbf{x} + \omega(\mathbf{b} - \mathbf{A}\mathbf{x})$. Les valeurs propres de $\mathbf{I} - \omega\mathbf{A}$ sont les $1 - \omega\lambda_i$ : convergence si et seulement si $0 < \omega < 2/\lambda_{\max}$, le **pas critique**. C'est une descente de gradient sur $\frac12\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}$.
-6. **Conditionnement** $\kappa = \lambda_{\max}/\lambda_{\min}$ : avec le meilleur pas $\frac{2}{\lambda_{\min} + \lambda_{\max}}$, l'écart est multiplié par $\frac{\kappa - 1}{\kappa + 1}$ à chaque pas, et le nombre d'itérations croît comme $\kappa$.
-7. **Préconditionnement diagonal** : diviser chaque inconnue par $\sqrt{a_{ii}}$ remplace $\mathbf{A}$ par $\mathbf{D}^{-1/2}\mathbf{A}\mathbf{D}^{-1/2}$, de diagonale 1, souvent bien mieux conditionnée.
+5. **Richardson** pour $\mathbf{A}\mathbf{x} = \mathbf{b}$ ($\mathbf{A}$ symétrique définie positive) : $\mathbf{x} \leftarrow \mathbf{x} + \omega(\mathbf{b} - \mathbf{A}\mathbf{x})$. Les valeurs propres de $\mathbf{I} - \omega\mathbf{A}$ sont les $1 - \omega\lambda_i$ : convergence vers la solution depuis tout départ si et seulement si $0 < \omega < 2/\lambda_{\max}$, le **pas critique**. C'est une descente de gradient sur $\frac12\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}$.
+6. **Conditionnement** $\kappa = \lambda_{\max}/\lambda_{\min}$ : avec le meilleur pas $\frac{2}{\lambda_{\min} + \lambda_{\max}}$, l'écart est multiplié au pire par $\frac{\kappa - 1}{\kappa + 1}$ à chaque pas, et le nombre d'itérations croît comme $\kappa$.
+7. **Préconditionnement diagonal** : poser $x_i = y_i/\sqrt{a_{ii}}$ (mettre chaque inconnue à l'échelle) remplace $\mathbf{A}$ par $\mathbf{D}^{-1/2}\mathbf{A}\mathbf{D}^{-1/2}$, de diagonale 1, souvent bien mieux conditionnée.
 8. **Récurrence d'ordre 2** $u_{k+2} = p\,u_{k+1} - q\,u_k$ : racines de $r^2 - pr + q$ ; $u_k = \alpha r_1^k + \beta r_2^k$. Elle tend vers 0 depuis tout départ si et seulement si les deux racines sont de **module** $< 1$, c'est-à-dire $\lvert q\rvert < 1$ et $\lvert p\rvert < 1 + q$. Des racines complexes conjuguées ont pour module $\sqrt{q}$ : une oscillation amortie.
 9. **Gradient sur un échantillon** de $B$ termes tirés au hasard parmi les $N$ d'une moyenne : **sans biais**, de variance $\sigma^2/B$ (avec remise) ; diviser l'erreur type par 2 demande 4 fois plus de termes.
 10. **Projeter** sur la boule de rayon $r$ : $\mathbf{x}\min(1, r/\lVert\mathbf{x}\rVert)$, **même direction** ; sur un pavé : chaque coordonnée ramenée dans son intervalle, ce qui **change la direction** en général.
@@ -82,7 +82,7 @@ $$\mathbf{H} = \begin{pmatrix} 4 & 2 & 0 \\ 2 & 0 & -2 \\ 0 & -2 & -6 \end{pmatr
 
 Pour un déplacement $\mathbf{h}$, on regarde $f$ le long du segment, $\varphi(t) = f(\mathbf{x} + t\mathbf{h})$. La règle de la chaîne (M17) donne $\varphi'(t) = \nabla f(\mathbf{x} + t\mathbf{h})^\top\mathbf{h}$, puis, en dérivant chaque $\frac{\partial f}{\partial x_i}(\mathbf{x} + t\mathbf{h})$ de la même façon, $\varphi''(t) = \mathbf{h}^\top\nabla^2 f(\mathbf{x} + t\mathbf{h})\,\mathbf{h}$. Le Taylor d'ordre 2 en une variable (M05a), $\varphi(1) \approx \varphi(0) + \varphi'(0) + \frac12\varphi''(0)$, devient le **développement de Taylor d'ordre 2** en $n$ variables :
 $$f(\mathbf{x} + \mathbf{h}) = f(\mathbf{x}) + \nabla f(\mathbf{x})^\top\mathbf{h} + \tfrac12\,\mathbf{h}^\top\nabla^2 f(\mathbf{x})\,\mathbf{h} + R(\mathbf{h}), \qquad \frac{R(\mathbf{h})}{\lVert\mathbf{h}\rVert^2} \to 0 \text{ quand } \mathbf{h} \to \mathbf{0}.$$
-Le terme d'ordre 1 est l'approximation linéaire (M05b, M17) ; le terme d'ordre 2 est une **forme quadratique** en $\mathbf{h}$ (M12c §7), de matrice $\frac12\nabla^2 f(\mathbf{x})$.
+Si $f$ est trois fois dérivable, de dérivées troisièmes continues, le reste est même de l'ordre de $\lVert\mathbf{h}\rVert^3$. Le terme d'ordre 1 est l'approximation linéaire (M05b, M17) ; le terme d'ordre 2 est une **forme quadratique** en $\mathbf{h}$ (M12c §7), de matrice $\frac12\nabla^2 f(\mathbf{x})$.
 
 **Exemple (suite).** Avec $\mathbf{h} = (0{,}2 ;\ -0{,}1 ;\ 0{,}1)$ : $\nabla f^\top\mathbf{h} = 0{,}8 - 0{,}3 - 0{,}1 = 0{,}4$ ; $\mathbf{H}\mathbf{h} = (0{,}6 ;\ 0{,}2 ;\ -0{,}4)$ et $\mathbf{h}^\top\mathbf{H}\mathbf{h} = 0{,}12 - 0{,}02 - 0{,}04 = 0{,}06$. Taylor d'ordre 1 prédit $5{,}4$, d'ordre 2 $5{,}4 + 0{,}03 = 5{,}43$ ; la vraie valeur, $f(1{,}2 ;\ 1{,}9 ;\ -0{,}9) = 5{,}427$. L'erreur passe de $0{,}027$ à $0{,}003$.
 
@@ -128,7 +128,7 @@ Les trois premiers cas sont admis ici ; ils viennent de Taylor et de la continui
 - En $(0, 0, 0)$ : valeurs propres $-12$, $1$, $3$ : un **point selle** d'indice 1. On le voit sur la fonction : $f(t, 0, 0) = t^3 - 6t^2 < 0$ pour $t$ petit non nul, alors que $f(0, t, 0) = t^2 > 0$.
 - En $(4, 0, 0)$ : valeurs propres $12$, $1$, $3$ : un **minimum local**, où $f = 64 - 96 = -32$. Il n'est pas global : $f(t, 0, 0) \to -\infty$ quand $t \to -\infty$.
 
-![Les lignes de niveau de x³ − 6x² + y² (la tranche z = 0 de l'exemple) : un col en (0, 0), un creux en (4, 0), et, en chaque point, les directions propres de la hessienne, de courbures −12 et 2, puis 12 et 2](figures/points_critiques.png)
+![Les lignes de niveau de x³ − 6x² + y² (la tranche z = 0 de l'exemple) : un col en (0, 0), un creux en (4, 0), et, en chaque point, les directions propres de la hessienne de cette tranche, de courbures −12 et 2, puis 12 et 2](figures/points_critiques.png)
 
 **Quand une valeur propre est nulle.** $g_1(x, y, z) = x^2 + y^2 + z^4$ et $g_2(x, y, z) = x^2 + y^2 - z^4$ ont toutes deux en $\mathbf{0}$ la hessienne $\operatorname{diag}(2, 2, 0)$ : le test ne conclut pas. $g_1$ y a un minimum ; $g_2$ une selle, puisqu'elle descend le long de l'axe des $z$. Dans la direction propre de la valeur propre nulle, Taylor d'ordre 2 est **plat**, et c'est l'ordre suivant qui décide.
 
@@ -154,19 +154,19 @@ Chaque composante évolue **seule**, multipliée par sa valeur propre à chaque 
 
 > **Théorème.** Soit $\mathbf{M}$ symétrique, de valeurs propres $\lambda_1, \ldots, \lambda_n$. L'itération $\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$ converge **vers un même point depuis tout départ** si et seulement si $\lvert\lambda_i\rvert < 1$ pour tout $i$. Ce point est alors l'unique point fixe, et, avec $\rho = \max_i\lvert\lambda_i\rvert$,
 > $$\lVert\mathbf{e}_k\rVert \le \rho^k\,\lVert\mathbf{e}_0\rVert,$$
-> avec égalité quand $\mathbf{e}_0$ est un vecteur propre de valeur propre $\pm\rho$.
+> avec égalité quand $\mathbf{e}_0$ n'a de composantes que sur des vecteurs propres de valeurs propres $\pm\rho$.
 
 Le nombre $\rho$, le plus grand module des valeurs propres, s'appelle le **rayon spectral** (*spectral radius*) de $\mathbf{M}$ ; c'est lui qui fixe la vitesse. Pour diviser l'écart par $10^d$ (gagner $d$ décimales), il suffit de $k$ pas avec $\rho^k \le 10^{-d}$, soit
 $$k \ge \frac{d\,\ln 10}{-\ln\rho}.$$
 Avec $\rho = 0{,}5$, chaque pas gagne un peu plus de 0,3 décimale ; avec $\rho = 0{,}99$, il en faut environ 230 pour en gagner une.
 
-**Un départ particulier.** Si une valeur propre vérifie $\lvert\lambda_j\rvert \ge 1$, la composante $y_j$ ne diminue pas : l'itération ne converge pas depuis les départs qui ont $y_j \ne 0$. Mais un départ dont l'écart n'a **aucune** composante sur $\mathbf{q}_j$ converge quand même (M19.4) ; le théorème parle de **tout** départ.
+**Un départ particulier.** Si une valeur propre vérifie $\lvert\lambda_j\rvert \ge 1$, la composante $y_j$ ne diminue pas : l'itération ne converge pas vers $\mathbf{x}^\star$ depuis les départs qui ont $y_j \ne 0$. Mais un départ dont l'écart n'a **aucune** composante sur $\mathbf{q}_j$ converge quand même (M19.4) ; le théorème parle de **tout** départ.
 
 **Exemple : une barre qui tiédit.** Une barre a ses deux bouts maintenus à 0 °C et 40 °C ; on cherche la température d'équilibre en trois points intérieurs régulièrement espacés. À l'équilibre, chaque température est la moyenne de ses deux voisines. L'itération qui remplace chaque température par la moyenne de ses voisines s'écrit
 $$\mathbf{T}_{k+1} = \underbrace{\tfrac12\begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix}}_{\mathbf{M}}\mathbf{T}_k + \underbrace{\begin{pmatrix} 0 \\ 0 \\ 20 \end{pmatrix}}_{\mathbf{c}}$$
 (le 20 est la moitié du bout à 40 °C). Le point fixe est le profil linéaire $\mathbf{T}^\star = (10 ;\ 20 ;\ 30)$. Les valeurs propres de $\mathbf{M}$ sont $\frac{\sqrt2}{2}$, $0$ et $-\frac{\sqrt2}{2}$ (vecteurs propres $(1, \sqrt2, 1)$, $(1, 0, -1)$, $(1, -\sqrt2, 1)$) : $\rho = \frac{\sqrt2}{2} \approx 0{,}707$, l'écart est divisé par 2 tous les deux pas. Depuis $\mathbf{T}_0 = \mathbf{0}$ : $\mathbf{T}_1 = (0 ;\ 0 ;\ 20)$, $\mathbf{T}_2 = (0 ;\ 10 ;\ 20)$, $\mathbf{T}_3 = (5 ;\ 10 ;\ 25)$, $\mathbf{T}_4 = (5 ;\ 15 ;\ 25)$ : les écarts $\mathbf{e}_2 = (-10 ;\ -10 ;\ -10)$ et $\mathbf{e}_4 = (-5 ;\ -5 ;\ -5)$ se divisent bien par 2. Pour gagner 6 décimales, il faut $\frac{6\ln 10}{\ln\sqrt2} \approx 39{,}9$, soit 40 pas.
 
-**Une matrice qui n'est pas symétrique.** Le critère des valeurs propres reste vrai pour toute matrice $\mathbf{M}$ diagonalisable, avec des valeurs propres qui peuvent être complexes, mais l'écart peut **grandir** pendant plusieurs pas avant de décroître : la majoration $\rho^k$ ne vaut plus. M22 traite le cas général ; ici, les matrices seront symétriques, sauf au §6.
+**Une matrice qui n'est pas symétrique.** Le critère des valeurs propres reste vrai pour toute matrice carrée $\mathbf{M}$, avec des valeurs propres qui peuvent être complexes, mais l'écart peut **grandir** pendant plusieurs pas avant de décroître : la majoration $\rho^k$ ne vaut plus. M22 traite le cas général ; ici, les matrices seront symétriques, sauf au §6.
 
 ⚠️ **Erreur classique.** Regarder la plus grande valeur propre **signée** au lieu du plus grand **module** : $\mathbf{M}$ de valeurs propres $0{,}5$ et $-1{,}2$ diverge. Ou croire que la limite dépend du départ : quand toutes les valeurs propres sont de module $< 1$, la limite est l'unique point fixe, quel que soit le départ. (Avec $\mathbf{M} = \mathbf{I}$ et $\mathbf{c} = \mathbf{0}$, chaque départ est un point fixe : la suite « converge », vers son départ ; c'est pourquoi le théorème parle d'un **même** point.)
 
@@ -178,7 +178,7 @@ Pour résoudre $\mathbf{A}\mathbf{x} = \mathbf{b}$, avec $\mathbf{A}$ **symétri
 $$\mathbf{x}_{k+1} = \mathbf{x}_k + \omega\,(\mathbf{b} - \mathbf{A}\mathbf{x}_k).$$
 C'est l'**itération de Richardson** (*Richardson iteration*, L. F. Richardson, 1911), de **pas** $\omega > 0$. (Le même Richardson a donné son nom à l'extrapolation de M05a, `approx.richardson_derivative` : deux idées différentes, deux fonctions de `mymath`.) Elle coûte un produit $\mathbf{A}\mathbf{x}$ par pas, ce qui est très peu quand $\mathbf{A}$ est grande et **creuse** (presque toute nulle). C'est une itération linéaire : $\mathbf{M} = \mathbf{I} - \omega\mathbf{A}$ et $\mathbf{c} = \omega\mathbf{b}$ ; un point fixe vérifie $\omega(\mathbf{b} - \mathbf{A}\mathbf{x}^\star) = \mathbf{0}$, c'est **la** solution. $\mathbf{M}$ est symétrique, et ses valeurs propres se lisent sur celles de $\mathbf{A}$ : si $\mathbf{A}\mathbf{q} = \lambda\mathbf{q}$, alors $(\mathbf{I} - \omega\mathbf{A})\mathbf{q} = (1 - \omega\lambda)\mathbf{q}$.
 
-> **Théorème** (∂ M19.11). Soit $\mathbf{A}$ symétrique définie positive, de valeurs propres $0 < \lambda_{\min} \le \cdots \le \lambda_{\max}$. L'itération de Richardson converge depuis tout départ si et seulement si
+> **Théorème** (∂ M19.11). Soit $\mathbf{A}$ symétrique définie positive, de valeurs propres $0 < \lambda_{\min} \le \cdots \le \lambda_{\max}$. L'itération de Richardson converge vers la solution depuis tout départ si et seulement si
 > $$0 < \omega < \frac{2}{\lambda_{\max}}.$$
 > Son facteur de convergence est $\rho(\omega) = \max\left(\lvert1 - \omega\lambda_{\min}\rvert,\ \lvert1 - \omega\lambda_{\max}\rvert\right)$.
 
@@ -191,21 +191,19 @@ Ses valeurs propres sont $1$ (vecteur $(1, 2)$) et $6$ (vecteur $(2, -1)$) : le 
 - Avec $\omega = 0{,}32$, juste sous le pas critique : $1 - 0{,}32 \times 6 = -0{,}92$, la composante raide change de signe à chaque pas et diminue à peine : les itérés **oscillent** de part et d'autre de la solution.
 - Avec $\omega = 0{,}35 > \frac13$ : $1 - 2{,}1 = -1{,}1$, l'itération diverge.
 
-![Les itérés de Richardson pour les deux ressorts, sur les lignes de niveau de ½ xᵀAx − bᵀx : avec ω = 0,25, ils avancent régulièrement ; avec ω = 2/7, ils vont plus vite ; avec ω = 0,32, ils sautent d'un bord à l'autre des ellipses](figures/richardson_ressorts.png)
+![Les itérés de Richardson pour les deux ressorts, sur les lignes de niveau de ½ xᵀAx − bᵀx : avec ω = 0,25, ils avancent régulièrement ; avec ω = 2/7, ils vont plus vite ; avec ω = 0,32, ils sautent de part et d'autre de la solution](figures/richardson_ressorts.png)
 
 ### Richardson est une descente de gradient
 
 Pour $\mathbf{A}$ symétrique définie positive, la fonction $f(\mathbf{x}) = \frac12\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}$ a pour gradient $\mathbf{A}\mathbf{x} - \mathbf{b}$, pour hessienne $\mathbf{A}$, et pour unique minimum la solution de $\mathbf{A}\mathbf{x} = \mathbf{b}$ (M12c §7). Le résidu est donc **l'opposé du gradient**, et un pas de Richardson est un pas de **descente de gradient** sur $f$, de pas $\omega$ :
 $$\mathbf{x} + \omega(\mathbf{b} - \mathbf{A}\mathbf{x}) = \mathbf{x} - \omega\,\nabla f(\mathbf{x}).$$
-Pour les ressorts, $f$ est l'énergie des ressorts moins le travail des forces : l'équilibre est le minimum de l'énergie, et Richardson le cherche en descendant. Le pas critique $2/\lambda_{\max}$ se lit alors sur la **plus grande courbure** de $f$. On l'énonce sans le démontrer ici pour des fonctions plus générales :
+Pour les ressorts, $f$ est l'énergie des ressorts moins le travail des forces : l'équilibre est le minimum de l'énergie, et Richardson le cherche en descendant. Pour des fonctions plus générales, on énonce sans le démontrer :
 
 > **Énoncé** (admis). Si la hessienne de $f$ a, en tout point, ses valeurs propres dans un intervalle $[\mu, L]$ avec $\mu > 0$, la descente de gradient de pas fixe $\eta$, avec $0 < \eta < 2/L$, converge depuis tout départ vers l'unique minimum de $f$.
 
-Près d'un minimum $\mathbf{p}$, le gradient ressemble à $\nabla^2 f(\mathbf{p})\,(\mathbf{x} - \mathbf{p})$ : la descente s'y comporte comme Richardson avec $\mathbf{A} = \nabla^2 f(\mathbf{p})$.
-
 💻 **Aujourd'hui en pratique** — personne ne résout un petit système dense par Richardson : `np.linalg.solve` ou Cholesky (M12c) le font exactement. Les méthodes itératives servent pour les très grands systèmes creux (des millions d'inconnues, dans les simulations de chaleur, de mécanique, de circuits), où l'on ne peut ni stocker ni factoriser $\mathbf{A}$ ; on y préfère des méthodes plus rapides que Richardson (le gradient conjugué, §5), qui reposent sur les mêmes idées. Et un critère d'arrêt s'impose : le **résidu relatif** $\lVert\mathbf{b} - \mathbf{A}\mathbf{x}_k\rVert/\lVert\mathbf{b}\rVert$ sous une tolérance, avec un nombre maximal d'itérations (🛠️ M19.27).
 
-🔗 **Dans workbookIA** — le chapitre 19 règle le pas des méthodes qu'il étudie (le learning rate) ; la plus grande courbure de la fonction minimisée y joue le rôle de $\lambda_{\max}$.
+🔗 **Dans workbookIA** — le chapitre 19 règle le pas (le learning rate) des méthodes qu'il étudie ; il s'appuiera sur ce paragraphe (🔗 M19.14).
 
 ⚠️ **Erreur classique.** Régler le pas sur la **plus petite** valeur propre, $\omega = 2/\lambda_{\min}$ : la composante raide est multipliée par $1 - 2\lambda_{\max}/\lambda_{\min} < -1$, et tout diverge. Ou oublier que $\omega$ doit être **positif** : un pas négatif monte au lieu de descendre.
 
@@ -215,12 +213,12 @@ Près d'un minimum $\mathbf{p}$, le gradient ressemble à $\nabla^2 f(\mathbf{p}
 
 Le **conditionnement** (*condition number*) d'une matrice symétrique définie positive est
 $$\kappa(\mathbf{A}) = \frac{\lambda_{\max}}{\lambda_{\min}} \ge 1,$$
-le rapport $\sigma_{\max}/\sigma_{\min}$ de M12d, puisque les valeurs singulières d'une telle matrice sont ses valeurs propres. On l'énonce sans démonstration (le graphe ci-dessous le rend visible) :
+le rapport $\sigma_{\max}/\sigma_{\min}$ de M12d, puisque les valeurs singulières d'une telle matrice sont ses valeurs propres. On énonce sans démonstration :
 
-> **Énoncé.** Le facteur $\rho(\omega)$ de Richardson est le plus petit pour $\omega^\star = \dfrac{2}{\lambda_{\min} + \lambda_{\max}}$, qui égale $\lvert 1 - \omega\lambda_{\min}\rvert$ et $\lvert 1 - \omega\lambda_{\max}\rvert$ ; il vaut alors
+> **Énoncé.** Le facteur $\rho(\omega)$ de Richardson est le plus petit pour le **meilleur pas** $\omega^\star = \dfrac{2}{\lambda_{\min} + \lambda_{\max}}$ ; il vaut alors
 > $$\rho^\star = \frac{\lambda_{\max} - \lambda_{\min}}{\lambda_{\max} + \lambda_{\min}} = \frac{\kappa - 1}{\kappa + 1}.$$
 
-![Le facteur de convergence ρ(ω) de Richardson pour les deux ressorts (valeurs propres 1 et 6) : la droite |1 − ω| et le V de |1 − 6ω| ; leur maximum est le plus petit en ω* = 2/7, où il vaut 5/7, et dépasse 1 au-delà du pas critique 1/3](figures/facteur_richardson.png)
+![Le facteur de convergence ρ(ω) de Richardson pour les deux ressorts (valeurs propres 1 et 6), en fonction du pas : il vaut 5/7 au meilleur pas ω* = 2/7, et dépasse 1 au-delà du pas critique 1/3](figures/facteur_richardson.png)
 
 Le facteur ne dépend que de $\kappa$. Pour les ressorts, $\kappa = 6$ : $\omega^\star = \frac27$ et $\rho^\star = \frac57 \approx 0{,}714$, et gagner 6 décimales demande $\frac{6\ln 10}{-\ln(5/7)} \approx 41{,}1$, soit 42 itérations, contre 49 avec $\omega = 0{,}25$ ($\rho = 0{,}75$).
 
@@ -230,7 +228,7 @@ Multiplier le conditionnement par 10 multiplie le travail par 10. Avec le pas pr
 
 **Ce qui ne change rien.** Multiplier $\mathbf{A}$ et $\mathbf{b}$ par un même nombre $s > 0$ multiplie les valeurs propres par $s$ : le pas critique est divisé par $s$, mais $\kappa$, le facteur $\rho^\star$ et le nombre d'itérations ne changent pas. Tourner les inconnues ($\mathbf{x} = \mathbf{Q}\mathbf{y}$, avec $\mathbf{Q}$ orthogonale) remplace $\mathbf{A}$ par $\mathbf{Q}^\top\mathbf{A}\mathbf{Q}$, qui a les mêmes valeurs propres. Le conditionnement est une propriété de la **forme** des lignes de niveau, pas de leur échelle ni de leur orientation.
 
-**Le dessin.** Les lignes de niveau de $f(\mathbf{x}) = \frac12\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}$ sont des ellipses centrées en $\mathbf{x}^\star$, de demi-axes proportionnels à $1/\sqrt{\lambda_i}$ le long des vecteurs propres (M12c §7) : leur allongement vaut $\sqrt\kappa$. Le résidu, opposé au gradient, est perpendiculaire aux lignes de niveau (M05b) ; sur des ellipses très allongées, il pointe presque en travers, vers l'axe court. Le pas doit rester sous $2/\lambda_{\max}$ pour ne pas sauter de plus en plus loin dans la direction raide, et, avec ce pas, la direction plate, de courbure $\lambda_{\min}$, ne progresse que d'un facteur $1 - \omega\lambda_{\min} \ge 1 - \frac{2}{\kappa}$ par pas : très lentement (🗣️ M19.18).
+**Le dessin.** Les lignes de niveau de $f(\mathbf{x}) = \frac12\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}$ sont des ellipses centrées en $\mathbf{x}^\star$, de demi-axes proportionnels à $1/\sqrt{\lambda_i}$ le long des vecteurs propres (M12c §7) : leur allongement vaut $\sqrt\kappa$. Le résidu, opposé au gradient, est perpendiculaire aux lignes de niveau (M05b) ; sur des ellipses très allongées, il pointe presque en travers, dans la direction de leur petit axe, et presque pas vers le centre. Le pas doit rester sous $2/\lambda_{\max}$ pour que la composante de l'écart le long du vecteur propre de $\lambda_{\max}$ ne grandisse pas, et, avec ce pas, la composante le long du vecteur propre de $\lambda_{\min}$ n'est multipliée que par $1 - \omega\lambda_{\min} > 1 - \frac{2}{\kappa}$ à chaque pas : elle diminue très lentement (🗣️ M19.18).
 
 ### Préconditionner
 
@@ -246,7 +244,7 @@ Avec $\omega = 1$, c'est la **méthode de Jacobi** (*Jacobi method*) : chaque é
 
 💻 **Aujourd'hui en pratique** — pour un grand système symétrique défini positif, la méthode de choix est le **gradient conjugué** (*conjugate gradient*, M. Hestenes et E. Stiefel, 1952) : à chaque pas, il choisit la meilleure combinaison de toutes les directions déjà explorées, et son nombre d'itérations croît comme $\sqrt\kappa$ au lieu de $\kappa$ ; en arithmétique exacte, il trouve la solution en au plus $n$ pas. `scipy.sparse.linalg.cg` l'implémente, avec un argument `M` pour un préconditionneur (📦 M19.22). Les préconditionneurs utilisés en pratique vont bien au-delà de la diagonale (Cholesky incomplet, multigrille).
 
-🔗 **Dans workbookIA** — le chapitre 19 retrouve la même idée : plusieurs de ses méthodes divisent chaque coordonnée du pas par une échelle propre à cette coordonnée (🔗 M19.15).
+🔗 **Dans workbookIA** — le chapitre 19 retrouvera l'idée d'une mise à l'échelle diagonale (🔗 M19.15).
 
 ## §6 · Récurrences linéaires d'ordre 2 et module des racines
 
@@ -262,7 +260,7 @@ On cherche des solutions géométriques $u_k = r^k$ : il faut $r^{k+2} = p\,r^{k
 - deux racines **distinctes** $r_1 \ne r_2$ : $u_k = \alpha\,r_1^k + \beta\,r_2^k$, où $\alpha$ et $\beta$ se calculent avec $u_0 = \alpha + \beta$ et $u_1 = \alpha r_1 + \beta r_2$ ;
 - une racine **double** $r$ ($p^2 = 4q$, $r = p/2$) : $u_k = (\alpha + \beta k)\,r^k$.
 
-Deux valeurs de départ fixent $\alpha$ et $\beta$, et toutes les solutions sont de cette forme (∂ M19.12).
+Deux valeurs de départ fixent $\alpha$ et $\beta$, et toutes les solutions sont de cette forme (∂ M19.12 ; pour une racine double, on suppose $r \ne 0$).
 
 **Exemple.** $u_{k+2} = u_{k+1} - 0{,}21\,u_k$, avec $u_0 = 2$, $u_1 = 1$. Le polynôme $r^2 - r + 0{,}21$ a pour racines $0{,}7$ et $0{,}3$ (somme 1, produit $0{,}21$). Les conditions $\alpha + \beta = 2$ et $0{,}7\alpha + 0{,}3\beta = 1$ donnent $\alpha = \beta = 1$ : $u_k = 0{,}7^k + 0{,}3^k$. Vérification : $u_2 = 1 - 0{,}42 = 0{,}58 = 0{,}49 + 0{,}09$.
 
@@ -293,7 +291,7 @@ Dans le plan $(p, q)$, c'est l'intérieur du **triangle** de sommets $(-2, 1)$, 
 
 ⚠️ **Erreur classique.** Prendre la **partie réelle** d'une racine complexe pour son module : $0{,}4 \pm 0{,}4\sqrt3\,i$ a un module $0{,}8$, pas $0{,}4$. Se tromper de signe sur $q$ : $u_{k+2} = p\,u_{k+1} - q\,u_k$ donne $r^2 - pr + q$, et $u_{k+2} = a\,u_{k+1} + b\,u_k$ donne $r^2 - ar - b$. Ou conclure à la convergence parce que $\lvert q\rvert < 1$ seulement : $(p, q) = (1{,}5 ;\ 0{,}2)$ a les racines $1{,}35$ et $0{,}15$ environ.
 
-🔗 **Dans workbookIA** — le chapitre 19 étudie des méthodes qui gardent en mémoire le pas précédent : leur écart obéit à une récurrence d'ordre 2, et c'est le module des racines de son polynôme qui décide de leur convergence. Le défi M19.28 applique le critère à un schéma de la mécanique.
+🔗 **Dans workbookIA** — le chapitre 19 se servira de ce critère. Le défi M19.28 l'applique à un schéma de la mécanique.
 
 ## §7 · Un gradient estimé sur un échantillon : sans biais, et sa variance
 
@@ -323,7 +321,7 @@ Diviser l'erreur type par 2 demande 4 fois plus de termes, et par 10, cent fois 
 
 **Projeter** un point $\mathbf{x}$ sur un ensemble $C$, c'est le remplacer par le point de $C$ le plus proche de lui :
 $$P_C(\mathbf{x}) = \arg\min_{\mathbf{y} \in C}\lVert\mathbf{x} - \mathbf{y}\rVert.$$
-M12b l'a fait pour un sous-espace (la projection orthogonale). Pour un ensemble **convexe** et **fermé** (M10), ce point existe et il est unique (admis). Si $\mathbf{x}$ est déjà dans $C$, $P_C(\mathbf{x}) = \mathbf{x}$, et projeter deux fois revient à projeter une fois. Deux ensembles convexes reviennent sans cesse : une boule et un pavé.
+M12b l'a fait pour un sous-espace (la projection orthogonale). Pour un ensemble **convexe**, **fermé** et non vide (M10), ce point existe et il est unique (admis). Si $\mathbf{x}$ est déjà dans $C$, $P_C(\mathbf{x}) = \mathbf{x}$, et projeter deux fois revient à projeter une fois. Deux ensembles convexes reviennent sans cesse : une boule et un pavé.
 
 **La boule** de centre $\mathbf{0}$ et de rayon $r$, $\{\mathbf{y} : \lVert\mathbf{y}\rVert \le r\}$ (norme L2, M07) :
 $$P(\mathbf{x}) = \begin{cases} \mathbf{x} & \text{si } \lVert\mathbf{x}\rVert \le r, \\ r\,\dfrac{\mathbf{x}}{\lVert\mathbf{x}\rVert} & \text{sinon,} \end{cases} \qquad \text{soit } P(\mathbf{x}) = \mathbf{x}\,\min\left(1,\ \frac{r}{\lVert\mathbf{x}\rVert}\right).$$
@@ -331,19 +329,19 @@ Un point trop loin est ramené sur la sphère **le long du rayon** : sa **direct
 
 **Le pavé** (*box*) $[l_1, u_1] \times \cdots \times [l_n, u_n]$ : le carré de la distance, $\sum_i(x_i - y_i)^2$, est une somme de termes qui ne dépendent chacun que d'une coordonnée. On minimise donc chaque terme séparément, sur son intervalle : la coordonnée $y_i$ la plus proche de $x_i$ dans $[l_i, u_i]$ est $x_i$ lui-même s'il y est, sinon le bord le plus proche :
 $$P(\mathbf{x})_i = \min\big(\max(x_i, l_i),\ u_i\big),$$
-ce que NumPy écrit `np.clip(x, l, u)`. Chaque coordonnée est **coupée** (*clipping*) indépendamment des autres : les grandes coordonnées sont ramenées au bord, les petites ne bougent pas. La **direction change** en général.
+ce que NumPy écrit `np.clip(x, l, u)`. Chaque coordonnée est **coupée** indépendamment des autres : les grandes coordonnées sont ramenées au bord, les petites ne bougent pas. La **direction change** en général.
 
-**Exemple.** $\mathbf{x} = (12 ;\ -5)$, de norme 13.
-- Sur la boule de rayon $2{,}6$ : $P(\mathbf{x}) = \frac{2{,}6}{13}\,\mathbf{x} = (2{,}4 ;\ -1)$, à la distance $13 - 2{,}6 = 10{,}4$ de $\mathbf{x}$.
-- Sur le pavé $[-2, 2]^2$ : $P(\mathbf{x}) = (2 ;\ -2)$, à la distance $\lVert(10 ;\ -3)\rVert = \sqrt{109} \approx 10{,}44$. Sa direction est la diagonale, tournée d'environ 22° par rapport à celle de $\mathbf{x}$ : les deux coordonnées, très inégales au départ, sont devenues égales en valeur absolue.
+**Exemple.** $\mathbf{x} = (15 ;\ -8)$, de norme 17.
+- Sur la boule de rayon $3{,}4$ : $P(\mathbf{x}) = \frac{3{,}4}{17}\,\mathbf{x} = (3 ;\ -1{,}6)$, à la distance $17 - 3{,}4 = 13{,}6$ de $\mathbf{x}$.
+- Sur le pavé $[-2, 2]^2$ : $P(\mathbf{x}) = (2 ;\ -2)$, à la distance $\lVert(13 ;\ -6)\rVert = \sqrt{205} \approx 14{,}32$. Sa direction est la diagonale : le cosinus de l'angle qu'elle fait avec $\mathbf{x}$ vaut $\frac{30 + 16}{17 \times 2\sqrt2} \approx 0{,}957$, et non 1. Les deux coordonnées, très inégales au départ, sont devenues égales en valeur absolue.
 
-![Le vecteur (12 ; −5) projeté sur la boule de rayon 2,6 (le long du rayon, même direction) et sur le pavé [−2, 2]² (chaque coordonnée coupée : la direction tourne vers la diagonale)](figures/projections.png)
+![Le vecteur (15 ; −8) projeté sur la boule de rayon 3,4 (le long du rayon, même direction) et sur le pavé [−2, 2]² (chaque coordonnée coupée : la direction tourne vers la diagonale)](figures/projections.png)
 
 **Quand la projection sur le pavé garde-t-elle la direction ?** Pour un pavé $[-c, c]^n$ et un $\mathbf{x}$ à l'extérieur, seulement si toutes ses coordonnées non nulles ont la même valeur absolue (∂ M19.13) : le pavé égalise les grandes coordonnées.
 
-**À quoi ça sert.** À respecter une contrainte après chaque pas d'une méthode itérative (un paramètre qui doit rester dans un intervalle, une longueur bornée) : on fait le pas, puis on projette. Pour une boule, cela limite la **longueur** d'un vecteur sans toucher à sa direction ; pour un pavé, cela borne chaque coordonnée, au prix de la direction. MML §7.2 traite l'optimisation sous contraintes plus généralement.
+**À quoi ça sert.** À respecter une contrainte après chaque pas d'une méthode itérative : des températures qui doivent rester entre deux bornes (un pavé), une position qui doit rester dans un disque (une boule). On fait le pas, puis on remplace le point obtenu par le point permis le plus proche. MML §7.2 traite l'optimisation sous contraintes plus généralement.
 
-🔗 **Dans workbookIA** — le chapitre 19 limite la longueur de certains vecteurs trop grands en les ramenant sur une boule, et explique pourquoi il préfère cette projection à celle qui coupe chaque coordonnée.
+🔗 **Dans workbookIA** — le chapitre 19 se servira de la projection sur une boule.
 
 ⚠️ **Erreur classique.** Projeter sur la boule en coupant chaque coordonnée à $\pm r$ : c'est la projection sur le **pavé** $[-r, r]^n$, qui laisse des points de norme jusqu'à $r\sqrt n$ et change la direction. Ou multiplier par $r/\lVert\mathbf{x}\rVert$ **même quand** $\lVert\mathbf{x}\rVert < r$ : un point déjà dans la boule serait agrandi.
 
@@ -363,7 +361,7 @@ ce que NumPy écrit `np.clip(x, l, u)`. Chaque coordonnée est **coupée** (*cli
 
 **Dans ce dépôt** : M20 (tenseurs, axes et estimateurs pondérés), juste avant workbookIA 20 : les tableaux à plusieurs axes, les moyennes et variances le long d'axes, un estimateur qui divise par une probabilité, et les applications proches de l'identité. M22 reprendra les valeurs propres complexes et le rayon spectral d'une matrice quelconque.
 
-**Dans workbookIA** : le chapitre 19 règle le pas des méthodes de descente par la courbure, les compare sur des fonctions mal conditionnées, ajoute à certaines une mémoire du pas précédent ou une échelle par coordonnée, estime le gradient sur des mini-batches et limite la longueur des pas trop grands.
+**Dans workbookIA** : le chapitre 19 règle le pas des méthodes de descente, les compare sur des fonctions mal conditionnées, ajoute à certaines une mémoire du pas précédent ou une échelle par coordonnée, estime le gradient sur des mini-batches et limite la longueur des pas trop grands.
 
 ## Pour aller plus loin
 

@@ -485,7 +485,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | Parseval (égalité de) | Parseval's identity | dans une base orthonormée, $\lVert \mathbf{v} \rVert^2 = \sum_i c_i^2$, la somme des carrés des coordonnées | M12b |
 | partie entière, plancher, plafond | floor, ceiling | $\lfloor x \rfloor$, le plus grand entier $\le x$ ; $\lceil x \rceil$, le plus petit entier $\ge x$ | R1 |
 | partition (de l'univers) | partition | des événements deux à deux incompatibles dont la réunion est l'univers entier | M03 |
-| pas critique | critical step size | $2/\lambda_{\max}$ : le plus grand pas pour lequel Richardson (ou une descente de gradient de courbure maximale $\lambda_{\max}$) converge depuis tout départ | M19 |
+| pas critique | critical step size | $2/\lambda_{\max}$ : le plus grand pas pour lequel Richardson converge vers la solution depuis tout départ | M19 |
 | pas optimal (de Richardson) | optimal step size | $\omega^\star = \frac{2}{\lambda_{\min} + \lambda_{\max}}$, qui donne le facteur $\frac{\kappa - 1}{\kappa + 1}$ par itération | M19 |
 | passe avant, passe arrière | forward pass, backward pass | en mode inverse : le calcul des valeurs, qu'on garde, puis celui des adjoints, de la sortie vers les entrées | M18 |
 | pavé | box | un produit d'intervalles $[l_1, u_1] \times \cdots \times [l_n, u_n]$ ; projeter dessus, c'est couper chaque coordonnée (`np.clip`), ce qui change la direction en général | M19 |

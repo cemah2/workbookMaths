@@ -33,11 +33,11 @@
 6. Faux : la limite est l'unique point fixe, quel que soit le départ.
 
 ### M19.Q4 — Le pas de Richardson : lire la convergence sur les valeurs propres de I − ωA
-1. $1 - 0{,}25 = 0{,}75$ et $1 - 0{,}5 = 0{,}5$ : converge, facteur $0{,}75$.
+1. $1 - 0{,}15 = 0{,}85$ et $1 - 0{,}3 = 0{,}7$ : converge, facteur $0{,}85$.
 2. $\frac{2}{4} = 0{,}5$.
 3. $1 - 1{,}2 = -0{,}2$ et $1 - 2{,}4 = -1{,}4$ : diverge (la composante de la valeur propre 4).
 4. $1{,}2$ et $1{,}4$ : diverge ; un pas négatif monte au lieu de descendre.
-5. $1 - 2\omega = -(1 - 4\omega)$ donne $\omega = \frac13$, et le facteur $\frac13$ (c'est $\frac{\kappa - 1}{\kappa + 1}$ avec $\kappa = 2$).
+5. $\omega^\star = \frac{2}{2 + 4} = \frac13$, et le facteur $\frac{\kappa - 1}{\kappa + 1} = \frac13$, avec $\kappa = 2$.
 6. Vrai : $0 < \omega\lambda_i \le \omega\lambda_{\max} < 2$ donne $-1 < 1 - \omega\lambda_i < 1$.
 
 ### M19.Q5 — Le conditionnement : ce qui ralentit, ce qui ne change rien
@@ -45,7 +45,7 @@
 2. Le conditionnement ne change pas, le pas critique est divisé par 10, le nombre d'itérations au meilleur pas ne change pas.
 3. $\frac{99}{101} \approx 0{,}980$.
 4. (C) : $\frac{6\ln 10}{-\ln(99/101)} \approx 691$ ; l'approximation $1{,}15\,\kappa\,d$ donne 690.
-5. $1$ : la mise à l'échelle d'une matrice diagonale donne l'identité.
+5. $\tilde{\mathbf{A}} = \begin{pmatrix} 1 & 0{,}3 \\ 0{,}3 & 1 \end{pmatrix}$ ($\frac{0{,}9}{\sqrt{9 \times 1}} = 0{,}3$), de valeurs propres $1{,}3$ et $0{,}7$ : $\kappa = \frac{13}{7} \approx 1{,}86$, contre $\frac{9{,}1}{0{,}9} \approx 10{,}1$ pour $\mathbf{A}$.
 6. Faux : $\mathbf{Q}^\top\mathbf{A}\mathbf{Q}$ a les mêmes valeurs propres que $\mathbf{A}$.
 
 ### M19.Q6 — Module d'un nombre complexe et racines d'un trinôme
@@ -66,7 +66,7 @@
 
 ### M19.Q8 — Boule ou pavé : la direction est-elle gardée ?
 1. $(0, 3)$.
-2. $(2, 1)$ : non, $(10, 1)$ et $(2, 1)$ ne sont pas proportionnels.
+2. $(2 ;\ 1{,}2)$ : non, $(7 ;\ 1{,}2)$ et $(2 ;\ 1{,}2)$ ne sont pas proportionnels.
 3. $(2, -2)$ : oui, c'est $0{,}4 \times (5, -5)$ (les deux coordonnées ont la même valeur absolue).
 4. $(2 ;\ -1{,}5)$ lui-même : sa norme vaut $2{,}5 < 4$.
 5. Vrai : le premier résultat est dans la boule.
@@ -79,7 +79,7 @@
 ### M19.R1 — Le théorème spectral et les valeurs propres d'une matrice symétrique (M12c)
 1. $\lambda^2 - 9\lambda + 14 = 0$ : $7$ et $2$.
 2. $\frac{1}{\sqrt5}(2, 1)$ pour 7 ($\mathbf{S}(2, 1) = (14, 7)$) et $\frac{1}{\sqrt5}(1, -2)$ pour 2 ($\mathbf{S}(1, -2) = (2, -4)$).
-3. Vrai : des vecteurs propres de valeurs propres distinctes d'une matrice symétrique sont orthogonaux, et l'on peut toujours en choisir une base orthonormée (théorème spectral).
+3. Vrai : des vecteurs propres de valeurs propres distinctes d'une matrice symétrique sont orthogonaux (pour une valeur propre double, comme pour $\mathbf{I}$, il faut les **choisir** orthogonaux ; le théorème spectral dit qu'on le peut).
 4. $343$ et $8$.
 5. Oui : ses deux valeurs propres sont positives.
 6. $7y_1^2 + 2y_2^2$.
@@ -104,13 +104,13 @@
 
 ### Ex M19.1 — La hessienne d'une fonction de trois variables, et son développement de Taylor d'ordre 2
 
-**Réponses.** a) `[2, 0, 5]` · b) `[[5, -4, 2], [-4, 1, 4], [2, 4, 2]]` · c) `4.7` · d) `4.775` · e) `4.7789` · f) `5` · g) `-11` · h) `False`.
+**Réponses.** a) `[2, 0, 5]` · b) `[[5, -4, 2], [-4, 1, 4], [2, 4, 2]]` · c) `4.7` · d) `4.775` · e) `4.779` · f) `5` · g) `-11` · h) `False`.
 
 **Démarche.** En $\mathbf{p} = (1, 1, 2)$, $e^{x - y} = 1$ et $f(\mathbf{p}) = 2 + 4 - 3 + 1 = 4$. Le gradient : $\frac{\partial f}{\partial x} = 2xz - 3y + e^{x-y} = 4 - 3 + 1 = 2$, $\frac{\partial f}{\partial y} = z^2 - 3x - e^{x-y} = 4 - 3 - 1 = 0$, $\frac{\partial f}{\partial z} = x^2 + 2yz = 5$. Les dérivées secondes : $f_{xx} = 2z + e^{x-y} = 5$, $f_{xy} = -3 - e^{x-y} = -4$, $f_{xz} = 2x = 2$, $f_{yy} = e^{x-y} = 1$, $f_{yz} = 2z = 4$, $f_{zz} = 2y = 2$. Avec $\mathbf{h} = (0{,}1 ;\ -0{,}2 ;\ 0{,}1)$ : $\nabla f^\top\mathbf{h} = 0{,}2 + 0{,}5 = 0{,}7$, d'où c) $4{,}7$ ; $\mathbf{H}\mathbf{h} = (1{,}5 ;\ -0{,}2 ;\ -0{,}4)$, $\mathbf{h}^\top\mathbf{H}\mathbf{h} = 0{,}15 + 0{,}04 - 0{,}04 = 0{,}15$, d'où d) $4{,}7 + 0{,}075 = 4{,}775$. e) $1{,}21 \times 2{,}1 + 0{,}8 \times 4{,}41 - 3 \times 0{,}88 + e^{0{,}3} = 2{,}541 + 3{,}528 - 2{,}64 + 1{,}349859 = 4{,}778859$. f) $\mathbf{H}(2, -1, 2) = (18, -1, 4)$, produit scalaire avec $(2, -1, 2)$ : $36 + 1 + 8 = 45$, divisé par 9 : 5. g) $5 \times 1 - 16 = -11$.
 
 Dans ta copie : l'erreur de c) vaut environ $0{,}079$, celle de d) $0{,}0039$ ; avec $\lVert\mathbf{h}\rVert = \sqrt{0{,}06} \approx 0{,}245$, la première est de l'ordre de $\lVert\mathbf{h}\rVert^2$, la seconde de $\lVert\mathbf{h}\rVert^3$. h) Un mineur principal négatif suffit à exclure « définie positive » (Sylvester) ; directement, la courbure vaut $f_{xx} = 5 > 0$ le long de $\mathbf{e}_1$, et, le long de $(1, 1, 0)/\sqrt2$, $\frac{5 - 8 + 1}{2} = -1 < 0$ : la hessienne est indéfinie (ses valeurs propres sont environ $7{,}52$ ; $5$ ; $-4{,}52$). $\mathbf{H}\mathbf{u} = \frac13(18, -1, 4)$ n'est pas proportionnel à $\mathbf{u}$ : ce n'est pas un vecteur propre. La courbure dans une direction unitaire est toujours entre $\lambda_{\min}$ et $\lambda_{\max}$ (le quotient de Rayleigh).
 
-**Erreurs fréquentes.** Oublier le $\frac12$ (d) donnerait $4{,}85$). Dériver $e^{x - y}$ par rapport à $y$ sans le signe moins ($f_{xy} = -2$). Arrondir $e^{0{,}3}$ à $1{,}35$ (e) donnerait $4{,}7790$).
+**Erreurs fréquentes.** Oublier le $\frac12$ (d) donnerait $4{,}85$). Dériver $e^{x - y}$ par rapport à $y$ sans le signe moins ($f_{xy} = -2$). Arrondir $e^{0{,}3}$ trop tôt : la valeur $4{,}778859$ est tout près de $4{,}77885$, et quatre décimales basculeraient avec $e^{0{,}3} \approx 1{,}34985$ (d'où les trois décimales demandées).
 
 **Variante.** Au point $(0, 0, 1)$ : $f = 1$, $\nabla f = (1, 0, 0)$ et $\nabla^2 f = \begin{pmatrix} 3 & -4 & 0 \\ -4 & 1 & 2 \\ 0 & 2 & 0 \end{pmatrix}$.
 
@@ -140,25 +140,25 @@ Dans ta copie : depuis $\mathbf{0}$, $\mathbf{e}_0 = (-4, -2) = -2\,\mathbf{q}_1
 
 ### Ex M19.4 — Résoudre un système 2 × 2 par l'itération de Richardson : trois pas à la main, et le pas critique
 
-**Réponses.** a) `[-0.5, 1.5]` · b) `[[0.2, 0.6], [0.12, 0.84], [0.008, 0.984]]` · c) `[-0.992, 1.056]` · d) `[8, 2]` · e) `[0.2, 0.8]` · f) `0.25` · g) `-1.4` · h) `True`.
+**Réponses.** a) `[-0.5, 1.5]` · b) `[[0.16, 0.48], [0.1408, 0.7296], [0.069376, 0.883968]]` · c) `[-0.998784, 1.372032]` · d) `[8, 2]` · e) `[0.36, 0.84]` · f) `0.25` · g) `-1.4` · h) `True`.
 
-**Démarche.** a) $\det\mathbf{A} = 16$, $\mathbf{x}^\star = \frac{1}{16}\begin{pmatrix} 5 & -3 \\ -3 & 5 \end{pmatrix}(2, 6) = (-0{,}5 ;\ 1{,}5)$. b) $\mathbf{x}_1 = 0{,}1\,\mathbf{b} = (0{,}2 ;\ 0{,}6)$ ; $\mathbf{A}\mathbf{x}_1 = (2{,}8 ;\ 3{,}6)$, résidu $(-0{,}8 ;\ 2{,}4)$, $\mathbf{x}_2 = (0{,}12 ;\ 0{,}84)$ ; $\mathbf{A}\mathbf{x}_2 = (3{,}12 ;\ 4{,}56)$, résidu $(-1{,}12 ;\ 1{,}44)$, $\mathbf{x}_3 = (0{,}008 ;\ 0{,}984)$. c) $\mathbf{A}\mathbf{x}_3 = (2{,}992 ;\ 4{,}944)$. d) $5 \pm 3$, vecteurs $(1, 1)$ et $(1, -1)$. e) $1 - 0{,}8$ et $1 - 0{,}2$. f) $2/8$. g) $1 - 0{,}3 \times 8 = -1{,}4$ (l'autre vaut $0{,}4$). h) L'écart $(1, -1)$ est un vecteur propre de valeur propre $0{,}4$.
+**Démarche.** a) $\det\mathbf{A} = 16$, $\mathbf{x}^\star = \frac{1}{16}\begin{pmatrix} 5 & -3 \\ -3 & 5 \end{pmatrix}(2, 6) = (-0{,}5 ;\ 1{,}5)$. b) $\mathbf{x}_1 = 0{,}08\,\mathbf{b} = (0{,}16 ;\ 0{,}48)$ ; $\mathbf{A}\mathbf{x}_1 = (2{,}24 ;\ 2{,}88)$, résidu $(-0{,}24 ;\ 3{,}12)$, $\mathbf{x}_2 = (0{,}1408 ;\ 0{,}7296)$ ; $\mathbf{A}\mathbf{x}_2 = (2{,}8928 ;\ 4{,}0704)$, résidu $(-0{,}8928 ;\ 1{,}9296)$, $\mathbf{x}_3 = (0{,}069376 ;\ 0{,}883968)$. c) $\mathbf{A}\mathbf{x}_3 = (2{,}998784 ;\ 4{,}627968)$. d) $5 \pm 3$, vecteurs $(1, 1)$ et $(1, -1)$. e) $1 - 0{,}64$ et $1 - 0{,}16$. f) $2/8$. g) $1 - 0{,}3 \times 8 = -1{,}4$ (l'autre vaut $0{,}4$). h) L'écart $(1, -1)$ est un vecteur propre de valeur propre $0{,}4$.
 
-Dans ta copie : $\mathbf{e}_0 = -\mathbf{x}^\star = -0{,}5\,(1, 1) + 1 \times (1, -1)$. La composante le long de $(1, -1)$ (valeur propre 2 de $\mathbf{A}$) n'est multipliée que par $0{,}8$ à chaque pas : c'est elle qui traîne ; celle le long de $(1, 1)$ est divisée par 5 à chaque pas. Avec $\omega = 0{,}3$ depuis $\mathbf{0}$, la composante le long de $(1, 1)$ est multipliée par $-1{,}4$ : les itérés sautent de part et d'autre, de plus en plus loin. h) Ce départ n'a aucune composante sur la direction qui diverge ; le théorème parle de tout départ, et presque tout départ en a une (et, sur ordinateur, les arrondis en créent une).
+Dans ta copie : $\mathbf{e}_0 = -\mathbf{x}^\star = -0{,}5\,(1, 1) + 1 \times (1, -1)$. La composante le long de $(1, -1)$ (valeur propre 2 de $\mathbf{A}$) n'est multipliée que par $0{,}84$ à chaque pas : c'est elle qui traîne ; celle le long de $(1, 1)$ est multipliée par $0{,}36$. Avec $\omega = 0{,}3$ depuis $\mathbf{0}$, la composante le long de $(1, 1)$ est multipliée par $-1{,}4$ : les itérés sautent de part et d'autre, de plus en plus loin. h) Ce départ n'a aucune composante sur la direction qui diverge ; le théorème parle de tout départ, et presque tout départ en a une. Sur ordinateur, les arrondis en créent une, minuscule, qui est multipliée par $-1{,}4$ à chaque pas : en `float64`, l'itération finit par diverger, après une centaine de pas.
 
-**Erreurs fréquentes.** Oublier de recalculer $\mathbf{A}\mathbf{x}_k$ à chaque pas. Donner $\frac{2}{\lambda_{\min}} = 1$ pour le pas critique. Répondre $0{,}4$ à g) (la valeur propre de plus petit module).
+**Erreurs fréquentes.** Oublier de recalculer $\mathbf{A}\mathbf{x}_k$ à chaque pas. Donner $\frac{2}{\lambda_{\min}} = 1$ pour le pas critique. Répondre $0{,}4$ à g) (la valeur propre de plus petit module), ou $1{,}4$ (son module, sans le signe).
 
 **Variante.** Avec $\omega = 0{,}05$ : $\mathbf{x}_1 = (0{,}1 ;\ 0{,}3)$, $\mathbf{x}_2 = (0{,}13 ;\ 0{,}51)$, et $\mathbf{I} - 0{,}05\,\mathbf{A}$ a les valeurs propres $0{,}6$ et $0{,}9$.
 
 ### Ex M19.5 — Le meilleur pas de Richardson (énoncé), et le nombre d'itérations pour gagner six décimales
 
-**Réponses.** a) `[1, 6, 11]` · b) `"2/11"` · c) `"1/6"` · d) `"5/6"` · e) `76` · f) `"10/11"` · g) `145` · h) `760`.
+**Réponses.** a) `[1, 7, 13]` · b) `"2/13"` · c) `"1/7"` · d) `"6/7"` · e) `90` · f) `"12/13"` · g) `173` · h) `760`.
 
-**Démarche.** a) Le bloc $\begin{pmatrix} 6 & 5 \\ 5 & 6 \end{pmatrix}$ a pour valeurs propres $11$ et $1$, et le troisième axe donne 6 ; $\kappa = 11$. b) $\frac{2}{11}$. c) $\frac{2}{1 + 11} = \frac16$. d) $\frac{11 - 1}{11 + 1} = \frac{10}{12}$. e) $\frac{6\ln 10}{\ln 1{,}2} = \frac{13{,}8155}{0{,}18232} \approx 75{,}8$, donc 76. f) $1 - \frac{1}{11}$. g) $\frac{13{,}8155}{\ln 1{,}1} = \frac{13{,}8155}{0{,}09531} \approx 145{,}0$ : $(10/11)^{144} \approx 1{,}10 \times 10^{-6}$ ne suffit pas, $(10/11)^{145} \approx 0{,}996 \times 10^{-6}$ suffit. h) $\rho^\star = \frac{109}{111}$, $\frac{13{,}8155}{0{,}018182} \approx 759{,}8$, donc 760.
+**Démarche.** a) Le bloc $\begin{pmatrix} 7 & 6 \\ 6 & 7 \end{pmatrix}$ a pour valeurs propres $13$ et $1$, et le troisième axe donne 7 ; $\kappa = 13$. b) $\frac{2}{13}$. c) $\frac{2}{1 + 13} = \frac17$. d) $\frac{13 - 1}{13 + 1} = \frac{12}{14}$. e) $\frac{6\ln 10}{\ln(7/6)} = \frac{13{,}8155}{0{,}154151} \approx 89{,}6$, donc 90 ($(6/7)^{89} \approx 1{,}10 \times 10^{-6}$ ne suffit pas). f) $1 - \frac{1}{13}$. g) $\frac{13{,}8155}{\ln(13/12)} = \frac{13{,}8155}{0{,}080043} \approx 172{,}6$, donc 173. h) $\rho^\star = \frac{109}{111}$, $\frac{13{,}8155}{0{,}018182} \approx 759{,}8$, donc 760.
 
-Dans ta copie : au meilleur pas, $\lvert 1 - \frac16\rvert = \lvert 1 - \frac{11}{6}\rvert = \frac56$ et $\lvert 1 - 1\rvert = 0$ : la valeur propre du milieu est toujours mieux traitée que les deux extrêmes. L'approximation $1{,}15\,\kappa\,d$ donne $1{,}15 \times 11 \times 6 \approx 76$ et $1{,}15 \times 110 \times 6 \approx 759$ : multiplier $\kappa$ par 10 multiplie le travail par 10. Le pas prudent coûte $145/76 \approx 1{,}9$ fois plus, environ deux fois, comme le dit la fiche.
+Dans ta copie : $\rho(\frac17) = \max\left(\lvert 1 - \frac17\rvert, \lvert 1 - \frac{13}{7}\rvert\right) = \frac67$ ; la valeur propre du milieu donne $\lvert 1 - 1\rvert = 0$ : seules les deux extrêmes comptent (∂ M19.11.4). L'approximation $1{,}15\,\kappa\,d$ donne $1{,}15 \times 13 \times 6 \approx 90$ et $1{,}15 \times 110 \times 6 \approx 759$ : multiplier $\kappa$ par environ 8,5 multiplie le travail d'autant. Le pas prudent coûte $173/90 \approx 1{,}9$ fois plus, environ deux fois, comme le dit la fiche.
 
-**Erreurs fréquentes.** Prendre $\frac{\kappa - 1}{\kappa + 1}$ avec $\kappa = \lambda_{\max} - \lambda_{\min}$. Arrondir e) vers le bas (75 pas laissent $1{,}15 \times 10^{-6}$). Utiliser la valeur propre 6 dans le facteur.
+**Erreurs fréquentes.** Prendre $\frac{\kappa - 1}{\kappa + 1}$ avec $\kappa = \lambda_{\max} - \lambda_{\min}$. Arrondir e) vers le bas (89 pas laissent $1{,}10 \times 10^{-6}$). Utiliser la valeur propre 7 dans le facteur.
 
 **Variante.** $\mathbf{A} = \begin{pmatrix} 4 & 3 & 0 \\ 3 & 4 & 0 \\ 0 & 0 & 2 \end{pmatrix}$ : valeurs propres $1$, $2$, $7$, $\omega^\star = \frac14$, $\rho^\star = \frac34$, et 49 itérations pour 6 décimales.
 
@@ -176,15 +176,15 @@ Dans ta copie : par b), $u_2 = 2 \times 0{,}25 + 0{,}04$ et $u_3 = 2 \times 0{,}
 
 ### Ex M19.7 — Une récurrence d'ordre 2 à racines complexes : module et oscillation amortie
 
-**Réponses.** a) `-0.64` · b) `[0.3, 0.4]` · c) `0.5` · d) `0.9273` · e) `[-0.07, -0.117, -0.0527, -0.00237]` · f) `[1, 0]` · g) `10` · h) `6.78`.
+**Réponses.** a) `-1.44` · b) `[0.25, 0.6]` · c) `0.65` · d) `1.176` · e) `[-0.2975, -0.254375, -0.001494, 0.106727]` · f) `[1, 0]` · g) `17` · h) `5.34`.
 
-**Démarche.** a) $0{,}36 - 1 = -0{,}64$. b) $\frac{0{,}6}{2} \pm i\,\frac{\sqrt{0{,}64}}{2} = 0{,}3 \pm 0{,}4i$. c) $\sqrt{0{,}09 + 0{,}16} = 0{,}5 = \sqrt{0{,}25}$. d) $\cos\theta = \frac{0{,}6}{2 \times 0{,}5} = 0{,}6$, $\theta = \arccos 0{,}6 \approx 0{,}9273$ (et $\sin\theta = 0{,}8$). e) $u_2 = 0{,}18 - 0{,}25$, $u_3 = -0{,}042 - 0{,}075$, $u_4 = -0{,}0702 + 0{,}0175$, $u_5 = -0{,}03162 + 0{,}02925$. f) $A = u_0 = 1$, puis $0{,}5(0{,}6 + 0{,}8B) = 0{,}3$ donne $B = 0$. g) $0{,}5^{10} \approx 0{,}00098$. h) $\frac{2\pi}{0{,}9273} \approx 6{,}78$.
+**Démarche.** a) $0{,}25 - 1{,}69 = -1{,}44$. b) $\frac{0{,}5}{2} \pm i\,\frac{\sqrt{1{,}44}}{2} = 0{,}25 \pm 0{,}6i$. c) $\sqrt{0{,}0625 + 0{,}36} = 0{,}65 = \sqrt{0{,}4225}$. d) $\cos\theta = \frac{0{,}5}{2 \times 0{,}65} = \frac{5}{13}$ (et $\sin\theta = \frac{12}{13}$), $\theta = \arccos\frac{5}{13} \approx 1{,}1760$. e) $u_2 = 0{,}125 - 0{,}4225$, $u_3 = -0{,}14875 - 0{,}105625$, $u_4 = -0{,}1271875 + 0{,}12569375$, $u_5 = -0{,}000746875 + 0{,}10747344$. f) $A = u_0 = 1$, puis $0{,}65\left(\frac{5}{13} + \frac{12}{13}B\right) = 0{,}25$ donne $B = 0$. g) $0{,}65^{16} \approx 0{,}00102$ et $0{,}65^{17} \approx 0{,}00066$. h) $\frac{2\pi}{1{,}1760} \approx 5{,}34$.
 
-Dans ta copie : $u_4 = 0{,}0625\cos(4\theta) = 0{,}0625 \times (-0{,}8432) \approx -0{,}0527$. Ici $u_k = 0{,}5^k\cos k\theta$ et $\lvert\cos\rvert \le 1$. Les racines sont aux points $(0{,}3 ;\ \pm0{,}4)$ du plan, sur le cercle de rayon $0{,}5$, à l'angle $\pm\theta$.
+Dans ta copie : $u_4 = 0{,}65^4\cos(4\theta) = 0{,}17850625 \times (-0{,}008368) \approx -0{,}001494$. Ici $u_k = 0{,}65^k\cos k\theta$ et $\lvert\cos\rvert \le 1$. Les racines sont aux points $(0{,}25 ;\ \pm0{,}6)$ du plan, sur le cercle de rayon $0{,}65$, à l'angle $\pm\theta$.
 
-**Erreurs fréquentes.** Prendre $0{,}3$ (la partie réelle) pour le module. Calculer $\theta$ en degrés ($53{,}13°$). Oublier le signe moins de la récurrence ($u_2 = 0{,}18 + 0{,}25$).
+**Erreurs fréquentes.** Prendre $0{,}25$ (la partie réelle) pour le module. Calculer $\theta$ en degrés ($67{,}38°$). Oublier le signe moins de la récurrence ($u_2 = 0{,}125 + 0{,}4225$). Compter 16 en g) ($0{,}65^{16}$ dépasse encore $10^{-3}$).
 
-**Variante.** $u_{k+2} = 0{,}8\,u_{k+1} - 0{,}25\,u_k$ : racines $0{,}4 \pm 0{,}3i$, module $0{,}5$, $\cos\theta = 0{,}8$, période $\frac{2\pi}{0{,}6435} \approx 9{,}76$ pas.
+**Variante.** $u_{k+2} = 0{,}96\,u_{k+1} - 0{,}36\,u_k$ : racines $0{,}48 \pm 0{,}36i$, module $0{,}6$, $\cos\theta = 0{,}8$, période $\frac{2\pi}{0{,}6435} \approx 9{,}76$ pas.
 
 ### Ex M19.8 — Une pente estimée sur B points tirés au hasard : espérance et variance de l'estimation
 
@@ -232,7 +232,7 @@ Dans ta copie : la projection sur la boule est un multiple positif de $\mathbf{x
 **Démonstration.**
 1. $\mathbf{x}_{k+1} = \mathbf{x}_k + \omega\mathbf{b} - \omega\mathbf{A}\mathbf{x}_k = (\mathbf{I} - \omega\mathbf{A})\mathbf{x}_k + \omega\mathbf{b}$ : $\mathbf{M} = \mathbf{I} - \omega\mathbf{A}$ et $\mathbf{c} = \omega\mathbf{b}$. Un point fixe vérifie $\mathbf{x} = \mathbf{x} + \omega(\mathbf{b} - \mathbf{A}\mathbf{x})$, soit $\omega(\mathbf{b} - \mathbf{A}\mathbf{x}) = \mathbf{0}$, donc $\mathbf{A}\mathbf{x} = \mathbf{b}$ pour $\omega \ne 0$ ; $\mathbf{A}$ est inversible (ses valeurs propres sont positives), et la solution est unique.
 2. $\mathbf{M}^\top = \mathbf{I} - \omega\mathbf{A}^\top = \mathbf{M}$. Si $\mathbf{A}\mathbf{q}_i = \lambda_i\mathbf{q}_i$, $\mathbf{M}\mathbf{q}_i = (1 - \omega\lambda_i)\mathbf{q}_i$ ; les $\mathbf{q}_i$ formant une base, ce sont toutes les valeurs propres de $\mathbf{M}$.
-3. $\lvert 1 - \omega\lambda\rvert < 1 \iff -1 < 1 - \omega\lambda < 1 \iff 0 < \omega\lambda < 2$. Par ∂ M19.10, l'itération converge depuis tout départ si et seulement si $0 < \omega\lambda_i < 2$ pour tout $i$. Comme les $\lambda_i$ sont positives, $\omega\lambda_i > 0$ équivaut à $\omega > 0$, et $\omega\lambda_i < 2$ pour tout $i$ équivaut à $\omega\lambda_{\max} < 2$. D'où $0 < \omega < 2/\lambda_{\max}$.
+3. $\lvert 1 - \omega\lambda\rvert < 1 \iff -1 < 1 - \omega\lambda < 1 \iff 0 < \omega\lambda < 2$. Par ∂ M19.10, l'itération converge vers un même point, la solution, depuis tout départ si et seulement si $0 < \omega\lambda_i < 2$ pour tout $i$ (pour $\omega = 0$, $\mathbf{M} = \mathbf{I}$ : chaque départ reste en place). Comme les $\lambda_i$ sont positives, $\omega\lambda_i > 0$ équivaut à $\omega > 0$, et $\omega\lambda_i < 2$ pour tout $i$ équivaut à $\omega\lambda_{\max} < 2$. D'où $0 < \omega < 2/\lambda_{\max}$.
 4. $\lambda \mapsto 1 - \omega\lambda$ est affine, donc monotone sur $[\lambda_{\min}, \lambda_{\max}]$ : ses valeurs sur cet intervalle sont entre $1 - \omega\lambda_{\min}$ et $1 - \omega\lambda_{\max}$, et son module y est au plus le plus grand des deux modules extrêmes, atteint aux bouts.
 5. Pour $\omega = 2/\lambda_{\max}$, $1 - \omega\lambda_{\max} = -1$ : la composante de l'écart le long de ce vecteur propre change de signe à chaque pas sans diminuer ; les itérés oscillent entre deux points, sans converger (les autres composantes, elles, tendent vers 0 si $\lambda_{\min} < \lambda_{\max}$).
 
@@ -264,7 +264,7 @@ Dans ta copie : la projection sur la boule est un multiple positif de $\mathbf{x
 
 **Grille de relecture.** L'inégalité triangulaire appliquée à $\mathbf{x} = (\mathbf{x} - \mathbf{y}) + \mathbf{y}$ ; l'appartenance de $\mathbf{y}^\star$ à la boule et le calcul de sa distance ; l'unicité par le cas d'égalité ; la séparation des coordonnées pour le pavé ; les deux sens de la question 5, avec le cas des coordonnées nulles.
 
-**Variante.** Pour une boule de centre $\mathbf{a}$, la projection est $\mathbf{a} + r\,\frac{\mathbf{x} - \mathbf{a}}{\lVert\mathbf{x} - \mathbf{a}\rVert}$ quand $\lVert\mathbf{x} - \mathbf{a}\rVert > r$ (on se ramène au centre $\mathbf{0}$ en translatant) : pour $\mathbf{a} = (1, 1)$, $r = 2{,}6$ et $\mathbf{x} = (13, 6)$, $\mathbf{x} - \mathbf{a} = (12, 5)$ est de norme 13, et la projection est $\mathbf{a} + 0{,}2\,(12, 5) = (3{,}4 ;\ 2)$.
+**Variante.** Pour une boule de centre $\mathbf{a}$, la projection est $\mathbf{a} + r\,\frac{\mathbf{x} - \mathbf{a}}{\lVert\mathbf{x} - \mathbf{a}\rVert}$ quand $\lVert\mathbf{x} - \mathbf{a}\rVert > r$ (on se ramène au centre $\mathbf{0}$ en translatant) : pour $\mathbf{a} = (1, 1)$, $r = 4{,}5$ et $\mathbf{x} = (25, 8)$, $\mathbf{x} - \mathbf{a} = (24, 7)$ est de norme 25, et la projection est $\mathbf{a} + 0{,}18\,(24, 7) = (5{,}32 ;\ 2{,}26)$.
 
 <a id="reflexion"></a>
 
@@ -276,7 +276,7 @@ Dans ta copie : la projection sur la boule est un multiple positif de $\mathbf{x
 
 **Démarche.** Pour $\mathbf{A}$ symétrique, $\nabla\left(\frac12\mathbf{x}^\top\mathbf{A}\mathbf{x}\right) = \mathbf{A}\mathbf{x}$ et $\nabla(\mathbf{b}^\top\mathbf{x}) = \mathbf{b}$, d'où $\nabla f = \mathbf{A}\mathbf{x} - \mathbf{b}$ et $\nabla^2 f = \mathbf{A}$. Le résidu est $-\nabla f$, et le pas de Richardson est $\mathbf{x} - \omega\nabla f(\mathbf{x})$ : une descente de gradient de pas $\omega$, le learning rate de workbookIA. Le pas critique est celui de Richardson, $2/\lambda_{\max}$. g) $f$ est strictement convexe (sa hessienne $\mathbf{A}$ est définie positive), et son unique point critique, $\nabla f = \mathbf{0}$, est la solution (M12c §7).
 
-Dans ta copie : pour les ressorts, $f$ est l'énergie élastique moins le travail des forces ; son minimum est l'équilibre. La hessienne de $f$ est $\mathbf{A}$ en tout point : ses valeurs propres sont les courbures de $f$ dans les directions propres. « Symétrique définie positive » garantit un unique minimum.
+Dans ta copie : pour les ressorts, $f$ est l'énergie élastique moins le travail des forces ; son minimum est l'équilibre. Le gradient est perpendiculaire aux lignes de niveau (M05b), et le résidu est son opposé : il l'est aussi. « Symétrique définie positive » garantit que $f$ est strictement convexe, donc un unique minimum.
 
 **Erreurs fréquentes.** Oublier le $\frac12$ et prendre $2\mathbf{A}$ pour hessienne. Confondre le résidu et le gradient (même direction, signes contraires).
 
@@ -284,13 +284,13 @@ Dans ta copie : pour les ressorts, $f$ est l'énergie élastique moins le travai
 
 ### Ex M19.15 — Pont : le préconditionnement diagonal
 
-**Réponses.** a) `[16.0632, 0.1868]` · b) `86.0` · c) `[[1, 0.5], [0.5, 1]]` · d) `3` · e) `[595, 20]` · f) `[2, 1]`.
+**Réponses.** a) `[16.063, 0.187]` · b) `86.0` · c) `[[1, 0.5], [0.5, 1]]` · d) `3` · e) `[595, 20]` · f) `[2, 1]`.
 
-**Démarche.** a) $\lambda^2 - 16{,}25\lambda + 3 = 0$ : $\frac{16{,}25 \pm \sqrt{252{,}0625}}{2}$. b) $16{,}0632/0{,}1868 \approx 86{,}0$. c) $\frac{1}{\sqrt{16 \times 0{,}25}} = 0{,}5$. d) $\tilde{\mathbf{A}}$ a pour valeurs propres $1{,}5$ et $0{,}5$. e) $\rho^\star = \frac{85{,}0}{87{,}0} \approx 0{,}97701$ et $\frac{13{,}8155}{0{,}02326} \approx 594{,}1$, donc 595 ; puis $\rho^\star = \frac12$ et $\frac{13{,}8155}{0{,}6931} \approx 19{,}9$, donc 20. f) $(4 \times 0{,}5 ;\ 0{,}5 \times 2)$.
+**Démarche.** a) $\lambda^2 - 16{,}25\lambda + 3 = 0$ : $\lambda_{\max} = \frac{16{,}25 + \sqrt{252{,}0625}}{2} \approx 16{,}06324$, puis $\lambda_{\min} = \frac{3}{\lambda_{\max}} \approx 0{,}186762$ (par la différence des deux termes, on perdrait des chiffres). b) $16{,}06324/0{,}186762 \approx 86{,}01$. c) $\frac{1}{\sqrt{16 \times 0{,}25}} = 0{,}5$. d) $\tilde{\mathbf{A}}$ a pour valeurs propres $1{,}5$ et $0{,}5$. e) $\rho^\star = \frac{85{,}009}{87{,}009} \approx 0{,}977014$ et $\frac{13{,}8155}{0{,}023254} \approx 594{,}1$, donc 595 ; puis $\rho^\star = \frac12$ et $\frac{13{,}8155}{0{,}6931} \approx 19{,}9$, donc 20. f) $(4 \times 0{,}5 ;\ 0{,}5 \times 2)$.
 
-Dans ta copie : sur $\tilde{\mathbf{A}}$, $\mathbf{y} \leftarrow \mathbf{y} + \omega\,\mathbf{D}^{-1/2}(\mathbf{b} - \mathbf{A}\mathbf{x})$, et, avec $\mathbf{x} = \mathbf{D}^{-1/2}\mathbf{y}$, $\mathbf{x} \leftarrow \mathbf{x} + \omega\,\mathbf{D}^{-1}(\mathbf{b} - \mathbf{A}\mathbf{x})$ : la coordonnée $i$ du résidu est divisée par $a_{ii}$, la courbure de la fonction le long de l'axe $i$. Les méthodes de workbookIA 19 qui divisent chaque coordonnée du pas par une échelle propre partent de la même idée : rendre comparables des directions de courbures très différentes. La différence : ici l'échelle est fixe et connue (la diagonale de $\mathbf{A}$) ; là, elle est estimée au fil des itérations, à partir des gradients déjà vus, sans connaître la hessienne. Une mise à l'échelle diagonale ne tourne pas les axes : si le mauvais conditionnement vient de directions propres en biais (de forts couplages), elle ne peut pas le corriger (la matrice de la barre du §3, de diagonale constante, en est un exemple).
+Dans ta copie : sur $\tilde{\mathbf{A}}$, $\mathbf{y} \leftarrow \mathbf{y} + \omega\,\mathbf{D}^{-1/2}(\mathbf{b} - \mathbf{A}\mathbf{x})$, et, avec $\mathbf{x} = \mathbf{D}^{-1/2}\mathbf{y}$, $\mathbf{x} \leftarrow \mathbf{x} + \omega\,\mathbf{D}^{-1}(\mathbf{b} - \mathbf{A}\mathbf{x})$ : la coordonnée $i$ du résidu est divisée par $a_{ii}$. Pour $\begin{pmatrix} 1 & 0{,}9 \\ 0{,}9 & 1 \end{pmatrix}$, la diagonale vaut déjà 1 : $\mathbf{D} = \mathbf{I}$, la mise à l'échelle ne change rien, et $\kappa = \frac{1{,}9}{0{,}1} = 19$ reste. Le mauvais conditionnement vient ici du couplage : les vecteurs propres $(1, 1)$ et $(1, -1)$ sont à 45° des axes, et une mise à l'échelle des inconnues, qui étire les axes sans les tourner, ne peut pas les redresser. En une phrase : une mise à l'échelle diagonale corrige les différences d'échelle entre les inconnues, pas les couplages entre elles.
 
-**Erreurs fréquentes.** Diviser par $a_{ii}$ au lieu de $\sqrt{a_{ii}a_{jj}}$ pour $\tilde a_{ij}$ (on obtiendrait une matrice non symétrique). Arrondir $\kappa$ à 86 avant de calculer e) donne aussi 595 ; l'arrondir à 80 donnerait 553.
+**Erreurs fréquentes.** Diviser par $a_{ii}$ au lieu de $\sqrt{a_{ii}a_{jj}}$ pour $\tilde a_{ij}$ (on obtiendrait une matrice non symétrique). Calculer $\lambda_{\min}$ par la différence $\frac{16{,}25 - 15{,}8765}{2}$ avec trop peu de chiffres. Arrondir $\rho^\star$ à $0{,}9770$ (on trouverait 594) : garde 6 chiffres significatifs.
 
 **Variante.** $\mathbf{A} = \begin{pmatrix} 9 & 0{,}6 \\ 0{,}6 & 1 \end{pmatrix}$ : $\kappa \approx 9{,}47$ ; $\tilde{\mathbf{A}} = \begin{pmatrix} 1 & 0{,}2 \\ 0{,}2 & 1 \end{pmatrix}$, $\kappa = 1{,}5$.
 
@@ -311,19 +311,19 @@ Dans ta copie : sur $\tilde{\mathbf{A}}$, $\mathbf{y} \leftarrow \mathbf{y} + \o
 1. MML note le pas $\gamma$ (*step-size*). Trop petit, la descente est lente ; trop grand, elle dépasse le minimum, oscille ou diverge.
 2. Pour la matrice de l'exemple (diagonale 2 et 20, coefficient hors diagonale 1), $\lambda^2 - 22\lambda + 39 = 0$ donne $11 \pm \sqrt{82}$, soit environ $1{,}94$ et $20{,}06$ : $\kappa \approx 10{,}3$ et le pas critique vaut $2/20{,}06 \approx 0{,}0997$. Le pas choisi par MML est en dessous, mais assez près pour que la composante raide soit multipliée par un nombre négatif proche de $-0{,}7$ : les itérés zigzaguent, comme sur sa figure.
 3. La remarque relie la lenteur au conditionnement (le rapport des valeurs singulières extrêmes) : sur des lignes de niveau très allongées, le gradient pointe presque en travers, vers l'axe court. Le remède proposé est un **préconditionneur** : résoudre un système équivalent dont la matrice est mieux conditionnée, et facile à calculer. La mise à l'échelle diagonale du §5 en est le cas le plus simple.
-4. La mise à jour avec momentum ajoute un multiple de $\mathbf{x}_i - \mathbf{x}_{i-1}$ : le nouveau point dépend des deux précédents, et l'écart au minimum obéit, pour une forme quadratique, à une récurrence linéaire d'ordre 2 (une par direction propre). Sa convergence relève du critère du §6 ; workbookIA 19 l'étudie.
+4. La mise à jour avec momentum garde en mémoire le déplacement précédent, $\mathbf{x}_i - \mathbf{x}_{i-1}$, et en ajoute un multiple au pas ; workbookIA 19 étudie cette méthode.
 5. La fonction est une somme (ou une moyenne) de termes, un par donnée ; le gradient calculé sur une partie tirée au hasard a pour espérance le vrai gradient (linéarité de l'espérance), comme au §7 de la fiche.
 6. Par exemple : *step-size* (pas), *condition number* (conditionnement), *preconditioner* (préconditionneur), *momentum*, *stochastic gradient descent* (descente de gradient stochastique), *mini-batch*.
 
-**Grille.** Le pas et ses deux défauts ; les valeurs propres, le conditionnement et le pas critique de l'exemple ; le préconditionneur relié au §5 ; la récurrence d'ordre 2 reconnue sans être étudiée ; l'estimation sans biais reliée au §7 ; trois mots traduits.
+**Grille.** Le pas et ses deux défauts ; les valeurs propres, le conditionnement et le pas critique de l'exemple ; le préconditionneur relié au §5 ; ce que garde le momentum, sans l'étudier ; l'estimation sans biais reliée au §7 ; trois mots traduits.
 
 ### Ex M19.18 — Expliquer, sur un dessin de lignes de niveau, pourquoi un système mal conditionné converge lentement
 
-**Réponse modèle (6 à 10 phrases).** Ta méthode cherche le point le plus bas d'un paysage dont les courbes de même hauteur sont des ellipses. Si la structure est bien équilibrée, ce sont presque des cercles : la pente pointe droit vers le centre, et quelques pas suffisent. Si certaines poutres sont bien plus raides que d'autres, les ellipses deviennent très allongées : cinquante fois plus raides dans un sens que dans l'autre pour un conditionnement de 50. La pente est perpendiculaire aux courbes, donc elle pointe surtout en travers, vers l'axe court, et presque pas vers le centre. Le pas ne peut pas dépasser une limite fixée par la direction la plus raide : au-delà, chaque pas saute de plus en plus loin d'un bord à l'autre. Avec ce petit pas, le long de l'axe long, où la pente est douce, la méthode avance de très peu à chaque itération. Le nombre d'itérations grandit donc comme l'allongement, mesuré par le conditionnement : cent fois plus allongé, cent fois plus d'itérations. Si le déséquilibre vient seulement des unités ou des échelles des inconnues, les remettre à l'échelle arrondit les ellipses et rend la convergence rapide.
+**Réponse modèle (6 à 10 phrases).** L'équilibre de ta structure est le point où son énergie est la plus basse, et chaque itération corrige la position des poutres dans la direction du résidu, ce qui reste de déséquilibre. Les courbes d'énergie constante sont des ellipses. Si toutes les poutres ont des raideurs voisines, ce sont presque des cercles : le résidu pointe vers l'équilibre, et quelques itérations suffisent. Si certaines sont bien plus raides que d'autres, les ellipses deviennent très allongées, cinquante fois plus raides dans une direction que dans l'autre pour un conditionnement de 50. Le résidu est perpendiculaire aux courbes : il pointe surtout en travers des ellipses, et presque pas vers le centre. La correction ne peut pas dépasser une taille fixée par la direction la plus raide, sinon chaque itération repart plus loin de l'autre côté. Avec cette petite correction, la direction la plus souple n'avance presque pas à chaque itération. Le nombre d'itérations grandit donc comme l'allongement, mesuré par le conditionnement : cent fois plus allongé, cent fois plus d'itérations. Si le déséquilibre vient seulement des unités ou des échelles des inconnues, les remettre à l'échelle rend les ellipses presque circulaires, et la convergence redevient rapide.
 
-**En 3 phrases.** Un système mal conditionné a des courbes de niveau très allongées, et la pente y pointe surtout en travers. Le pas est limité par la direction la plus raide, si bien que la direction plate avance très lentement. Remettre les inconnues à l'échelle peut arrondir les courbes et accélérer beaucoup la méthode.
+**En 3 phrases.** Un système mal conditionné a des courbes d'énergie très allongées, et le résidu y pointe surtout en travers. La correction est limitée par la direction la plus raide, si bien que la direction la plus souple avance très lentement. Remettre les inconnues à l'échelle peut rendre les courbes presque circulaires et accélérer beaucoup la méthode.
 
-**Grille.** Les deux dessins ; la pente perpendiculaire aux lignes ; le pas limité par la direction raide ; la lenteur le long de l'axe long ; la croissance avec le conditionnement ; la mise à l'échelle.
+**Grille.** Les deux dessins ; le résidu perpendiculaire aux lignes ; la correction limitée par la direction raide ; la lenteur le long de l'axe long ; la croissance avec le conditionnement ; la mise à l'échelle.
 
 <a id="entretien"></a>
 
@@ -331,9 +331,9 @@ Dans ta copie : sur $\tilde{\mathbf{A}}$, $\mathbf{y} \leftarrow \mathbf{y} + \o
 
 ### M19.E1 — « Que nous apprend la hessienne en un minimum ? »
 
-**Réponse modèle (60 secondes).** « La hessienne est la matrice des dérivées secondes d'une fonction de plusieurs variables ; elle est symétrique. Elle décrit la courbure : le développement de Taylor d'ordre 2 ajoute à l'approximation linéaire un terme un demi de h transposé H h, et la courbure dans une direction unitaire u vaut u transposé H u. En un point où le gradient s'annule, ses valeurs propres disent la nature du point : toutes positives, c'est un minimum local ; toutes négatives, un maximum ; de signes mélangés, un point selle ; une valeur propre nulle, et il faut regarder plus loin. En un minimum, ses valeurs propres extrêmes disent aussi comment une méthode de descente s'y comporte : la plus grande courbure limite le pas, qui doit rester sous deux divisé par lambda max, et le rapport de la plus grande à la plus petite, le conditionnement, fixe la lenteur. Enfin, elle a n au carré coefficients : en très grande dimension, on ne la forme jamais, on en calcule des produits avec des vecteurs, ou on l'approche. »
+**Réponse modèle (60 secondes).** « La hessienne est la matrice des dérivées secondes d'une fonction de plusieurs variables ; elle est symétrique. Elle décrit la courbure : le développement de Taylor d'ordre 2 ajoute à l'approximation linéaire un terme un demi de h transposé H h, et la courbure dans une direction unitaire u vaut u transposé H u. En un point où le gradient s'annule, ses valeurs propres disent la nature du point : toutes positives, c'est un minimum local ; toutes négatives, un maximum ; de signes mélangés, un point selle ; une valeur propre nulle, et il faut regarder plus loin. En un minimum, elle dit aussi la forme du creux : les lignes de niveau y ressemblent à des ellipses, d'axes les vecteurs propres et de demi-axes proportionnels à un sur racine de lambda ; le rapport de la plus grande à la plus petite valeur propre mesure leur allongement. Enfin, elle a n au carré coefficients : en très grande dimension, on ne la forme jamais, on en calcule des produits avec des vecteurs, ou on l'approche. »
 
-**Grille.** Définition et symétrie ; courbure et Taylor ; le test par les valeurs propres ; le pas critique et le conditionnement ; le coût en $n^2$.
+**Grille.** Définition et symétrie ; courbure et Taylor ; le test par les valeurs propres ; la forme des lignes de niveau autour du minimum ; le coût en $n^2$.
 
 ### M19.E2 — « Pourquoi un mauvais conditionnement ralentit-il une méthode itérative ? »
 

@@ -7,7 +7,7 @@ Writes small PNG files into chapitres/m19_hessienne_convergence/figures/: the le
 two critical points (a saddle and a minimum) and the eigendirections of the Hessian there; Richardson's iterates for
 the system of two springs, A = [[5, −2], [−2, 2]], b = (2, 1), on the level lines of ½ xᵀAx − bᵀx, for three steps;
 the convergence factor ρ(ω) = max(|1 − ω|, |1 − 6ω|) of the same system; the stability triangle of the recurrences
-u_{k+2} = p u_{k+1} − q u_k in the plane (p, q), with the parabola q = p²/4; the projections of (12, −5) on a ball and
+u_{k+2} = p u_{k+1} − q u_k in the plane (p, q), with the parabola q = p²/4; the projections of (15, −8) on a ball and
 on a box. The numbers are those of the fiche; none comes from workbookIA 19 (no loss, no valley, no learning rate, no
 19xx seed). No randomness.
 """
@@ -36,11 +36,11 @@ DPI = 110
 
 SPRINGS_A = np.array([[5.0, -2.0], [-2.0, 2.0]])   # §4: the stiffness matrix of the two springs (eigenvalues 1, 6)
 SPRINGS_B = np.array([2.0, 1.0])                    # §4: the two forces; the solution is (1, 1.5)
-START = np.array([-1.0, 2.0])                       # a start with a large component on the stiff direction
+START = np.array([0.0, 0.0])                        # the start of the fiche
 STEPS = [(0.25, "ω = 0,25 (ρ = 0,75)"), (2 / 7, "ω = 2/7, le meilleur pas (ρ = 5/7)"),
          (0.32, "ω = 0,32, près du pas critique 1/3 (ρ = 0,92)")]
-PROJECTED = np.array([12.0, -5.0])                  # §8: the vector projected on the ball and on the box
-RADIUS, HALF_SIDE = 2.6, 2.0
+PROJECTED = np.array([15.0, -8.0])                  # §8: the vector projected on the ball and on the box
+RADIUS, HALF_SIDE = 3.4, 2.0
 
 
 def french_number(value: float, _pos=None) -> str:
@@ -92,7 +92,7 @@ def critical_points() -> None:
     ax.text(4.15, 1.45, "courbure 2", color=C[4], fontsize=9, bbox=box)
     ax.set(xlabel="x", ylabel="y", xlim=(-2.2, 6.2), ylim=(-4.5, 4.5))
     ax.set_aspect("equal")
-    ax.set_title("Les lignes de niveau de x³ − 6x² + y² et les directions propres de la hessienne\n"
+    ax.set_title("Les lignes de niveau de x³ − 6x² + y² et les directions propres de sa hessienne\n"
                  "aux deux points critiques (la ligne de niveau 0 en couleur passe par la selle)", fontsize=10)
     save(fig, "points_critiques.png")
 
@@ -119,7 +119,7 @@ def richardson_springs() -> None:
                    linestyles="solid")
         path = richardson(omega, START, 12)
         ax.plot(path[:, 0], path[:, 1], "-o", color=C[0], ms=3.5, lw=1.2)
-        ax.plot(*START, "s", color=C[1], ms=7, label="départ (−1 ; 2)")
+        ax.plot(*START, "s", color=C[1], ms=7, label="départ (0 ; 0)")
         ax.plot(*solution, "*", color=C[2], ms=13, label="solution (1 ; 1,5)")
         ax.set_title(title + "\n12 pas", fontsize=9.5)
         ax.set_xlabel("$x_1$")
@@ -135,11 +135,9 @@ def richardson_springs() -> None:
 def factor_curve() -> None:
     """§5: ρ(ω) = max(|1 − ω|, |1 − 6ω|) for the two springs."""
     omegas = np.linspace(0, 0.4, 801)
-    small, large = np.abs(1 - omegas), np.abs(1 - 6 * omegas)
+    factor = np.maximum(np.abs(1 - omegas), np.abs(1 - 6 * omegas))
     fig, ax = plt.subplots(figsize=(7.4, 4.4))
-    ax.plot(omegas, small, color=C[0], lw=1.4, ls="--", label="|1 − ω λmin|, λmin = 1")
-    ax.plot(omegas, large, color=C[1], lw=1.4, ls="--", label="|1 − ω λmax|, λmax = 6")
-    ax.plot(omegas, np.maximum(small, large), color=C[2], lw=2.6, label="ρ(ω), le plus grand des deux")
+    ax.plot(omegas, factor, color=C[2], lw=2.6, label="ρ(ω) = max(|1 − ω|, |1 − 6ω|)")
     ax.axhline(1, color="0.4", lw=0.9)
     ax.axvline(1 / 3, color=C[1], lw=1, ls=":")
     ax.plot([2 / 7], [5 / 7], "o", color=C[2], ms=8, zorder=5)
@@ -149,7 +147,7 @@ def factor_curve() -> None:
     ax.set(xlabel="le pas ω", ylabel="facteur par pas", xlim=(0, 0.4), ylim=(0, 1.5))
     ax.legend(fontsize=8.5, loc="lower left")
     ax.grid(alpha=0.25)
-    ax.set_title("Le facteur de convergence de Richardson pour les deux ressorts", fontsize=10.5)
+    ax.set_title("Le facteur de convergence de Richardson pour les deux ressorts (valeurs propres 1 et 6)", fontsize=10.5)
     save(fig, "facteur_richardson.png")
 
 
@@ -183,7 +181,7 @@ def stability_triangle() -> None:
 
 
 def projections() -> None:
-    """§8: (12, −5) projected on the ball of radius 2,6 and on the box [−2, 2]²."""
+    """§8: (15, −8) projected on the ball of radius 3,4 and on the box [−2, 2]²."""
     ball = PROJECTED * min(1.0, RADIUS / np.linalg.norm(PROJECTED))
     box = np.clip(PROJECTED, -HALF_SIDE, HALF_SIDE)
     fig, ax = plt.subplots(figsize=(8.4, 4.6))
@@ -191,18 +189,18 @@ def projections() -> None:
     ax.add_patch(Rectangle((-HALF_SIDE, -HALF_SIDE), 2 * HALF_SIDE, 2 * HALF_SIDE, fc=C[1], alpha=0.10, ec=C[1],
                            lw=1.6))
     arrow(ax, (0, 0), PROJECTED, "0.35")
-    ax.text(PROJECTED[0] - 1.2, PROJECTED[1] - 0.8, "x = (12 ; −5)", fontsize=10)
-    for point, color, text, offset in ((ball, C[0], "sur la boule de rayon 2,6 :\n(2,4 ; −1), même direction",
+    ax.text(PROJECTED[0] - 1.2, PROJECTED[1] - 0.9, "x = (15 ; −8)", fontsize=10)
+    for point, color, text, offset in ((ball, C[0], "sur la boule de rayon 3,4 :\n(3 ; −1,6), même direction",
                                         (0.4, 0.55)),
-                                       (box, C[1], "sur le pavé [−2, 2]² :\n(2 ; −2), direction changée", (-5.2, -1.4))):
+                                       (box, C[1], "sur le pavé [−2, 2]² :\n(2 ; −2), direction changée", (-5.6, -2.6))):
         ax.plot([PROJECTED[0], point[0]], [PROJECTED[1], point[1]], ls=":", color=color, lw=1.3)
         ax.plot(*point, "o", color=color, ms=7, zorder=5)
         ax.text(point[0] + offset[0], point[1] + offset[1], text, fontsize=9, color=color)
-    ax.plot([0, 2.6 * 2], [0, -2.6 * 2], color=C[1], lw=0.8, ls="--")
-    ax.set(xlim=(-3.4, 13.5), ylim=(-6.2, 3.4), xlabel="première coordonnée", ylabel="seconde coordonnée")
+    ax.plot([0, 3.2 * 2], [0, -3.2 * 2], color=C[1], lw=0.8, ls="--")
+    ax.set(xlim=(-4.0, 16.5), ylim=(-9.2, 4.2), xlabel="première coordonnée", ylabel="seconde coordonnée")
     ax.set_aspect("equal")
     ax.grid(alpha=0.25)
-    ax.set_title("Projeter (12 ; −5) : la boule garde la direction, le pavé coupe chaque coordonnée", fontsize=10.5)
+    ax.set_title("Projeter (15 ; −8) : la boule garde la direction, le pavé coupe chaque coordonnée", fontsize=10.5)
     save(fig, "projections.png")
 
 
