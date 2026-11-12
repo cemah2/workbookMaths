@@ -22,13 +22,13 @@ Les trois blocs sont indépendants : §1 et §2 (applications affines), §3 et �
 
 | Section | Quiz 🧠 et rappels 🔁 | Papier et réflexion | Notebook |
 |---|---|---|---|
-| §1 Applications affines : formes et conventions | Q1, R1 | M16.1 ✏️, M16.10 🔗 | M16.18 🐛 |
-| §2 Composer : les coordonnées homogènes | Q2 | M16.2 ✏️ | M16.12 🔨, M16.17 🎨, M16.19 🛠️ |
+| §1 Applications affines : formes et conventions | Q1, R1 | M16.1 ✏️, M16.10 🔗 | M16.12 🔨 |
+| §2 Composer : les coordonnées homogènes | Q2 | M16.2 ✏️ | M16.12 🔨, M16.17 🎨, M16.18 🐛, M16.19 🛠️ |
 | §3 Graphes orientés et matrice d'adjacence | Q3 | M16.3 ✏️, M16.7 ∂ | M16.13 🔨 |
 | §4 Graphes sans cycle | Q3, R3 | M16.4 ✏️, M16.8 ∂ | M16.13 🔨, M16.18 🐛 |
 | §5 Espérance et variance d'un produit | Q4, R2 | M16.5 ✏️, M16.9 ∂, M16.11 🗣️ | M16.14 🔨, M16.18 🐛, M16.20 🏆 |
 | §6 Sommes de produits : décorrélées suffit | Q4 | M16.6 ✏️, M16.E1 💼 | M16.15 🔮 |
-| §7 Des variances qui se multiplient d'étage en étage | | M16.E1 💼 | M16.15 🔮, M16.16 🔬 |
+| §7 Des variances qui se multiplient d'étage en étage | | | M16.16 🔬 |
 
 Parcours essentiel : tout sauf M16.R3, M16.7, M16.9, M16.E1, M16.14, M16.16, M16.19 et M16.20.
 
@@ -59,7 +59,7 @@ Vocabulaire anglais de ce chapitre : *affine map*, *row vector*, *column vector*
 7. Sans cycle, $(\mathbf{I} - \mathbf{A})^{-1} = \mathbf{I} + \mathbf{A} + \cdots + \mathbf{A}^{n-1}$ : son coefficient $(s, t)$, pour $s \ne t$, est la somme, sur tous les chemins de $s$ à $t$, des produits des poids.
 8. $X$ et $Y$ indépendantes : $\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y]$ et $\mathbb{V}(XY) = \mathbb{V}(X)\,\mathbb{V}(Y) + \mathbb{V}(X)\,\mathbb{E}[Y]^2 + \mathbb{V}(Y)\,\mathbb{E}[X]^2$, **pas** $\mathbb{V}(X)\,\mathbb{V}(Y)$ (sauf si les deux moyennes sont nulles).
 9. Des variables deux à deux **décorrélées** ont une somme de variance égale à la somme des variances, même si elles ne sont pas indépendantes ; des multiplicateurs aléatoires centrés et indépendants rendent décorrélés des produits $\varepsilon_ix_i$ dont les $x_i$ sont corrélés : $\mathbb{V}\big(\sum_i\varepsilon_ix_i\big) = \sum_i\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$.
-10. Un gain aléatoire indépendant de second moment $\gamma$ à chaque étage : $\mathbb{E}[Z_k^2] = \gamma^k\,\mathbb{E}[Z_0^2]$, une suite géométrique, qui explose si $\gamma > 1$ et s'éteint si $\gamma < 1$.
+10. Un gain aléatoire indépendant de moment d'ordre 2 $\gamma$ à chaque étage : $\mathbb{E}[Z_k^2] = \gamma^k\,\mathbb{E}[Z_0^2]$, une suite géométrique, qui explose si $\gamma > 1$ et s'éteint si $\gamma < 1$.
 
 ## §1 · Applications affines : formes et conventions
 
@@ -73,11 +73,11 @@ Le coefficient $W_{jk}$ est le poids de l'entrée $j$ dans la sortie $k$ : la **
 
 **En colonnes** (la convention de MML) : $\mathbf{x}$ est une colonne, et $f(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$ avec $\mathbf{A}$ de forme $(m, n)$. Comme $(\mathbf{x}\mathbf{W})^\top = \mathbf{W}^\top\mathbf{x}^\top$ (M09a §4), les deux écritures donnent la même application si et seulement si $\mathbf{A} = \mathbf{W}^\top$.
 
-**Exemple.** $f(x_1, x_2) = (x_1 + x_2,\ 2x_1 - 1,\ -x_2 + 4)$, de $\mathbb{R}^2$ dans $\mathbb{R}^3$. Chaque sortie lit ses coefficients dans une colonne :
-$$\mathbf{W} = \begin{pmatrix} 1 & 2 & 0 \\ 1 & 0 & -1 \end{pmatrix}\ (2, 3), \qquad \mathbf{b} = (0, -1, 4), \qquad \mathbf{A} = \mathbf{W}^\top = \begin{pmatrix} 1 & 1 \\ 2 & 0 \\ 0 & -1 \end{pmatrix}\ (3, 2).$$
-Pour $\mathbf{x} = (3, -2)$ : $\mathbf{x}\mathbf{W} = (3 - 2,\ 6 + 0,\ 0 + 2) = (1, 6, 2)$, et $f(\mathbf{x}) = (1, 5, 6)$.
+**Exemple.** $f(x_1, x_2) = (x_1 + x_2,\ 2x_1 - 1,\ -3x_2 + 4)$, de $\mathbb{R}^2$ dans $\mathbb{R}^3$. Chaque sortie lit ses coefficients dans une colonne :
+$$\mathbf{W} = \begin{pmatrix} 1 & 2 & 0 \\ 1 & 0 & -3 \end{pmatrix}\ (2, 3), \qquad \mathbf{b} = (0, -1, 4), \qquad \mathbf{A} = \mathbf{W}^\top = \begin{pmatrix} 1 & 1 \\ 2 & 0 \\ 0 & -3 \end{pmatrix}\ (3, 2).$$
+Pour $\mathbf{x} = (3, -2)$ : $\mathbf{x}\mathbf{W} = (3 - 2,\ 6 + 0,\ 0 + 6) = (1, 6, 6)$, et $f(\mathbf{x}) = (1, 5, 10)$.
 
-📐 **Notations.** Comme workbookIA, cette fiche range les points **en lignes** et écrit $\mathbf{x}\mathbf{W} + \mathbf{b}$ ; MML et M12a écrivent $\mathbf{A}\mathbf{x} + \mathbf{b}$ avec des colonnes. Pour passer de l'une à l'autre, on transpose la matrice ; l'ordre des produits s'inverse quand on compose (§2).
+📐 **Notations.** Comme workbookIA, cette fiche range les points **en lignes** et écrit $\mathbf{x}\mathbf{W} + \mathbf{b}$ ; MML et M12a écrivent $\mathbf{A}\mathbf{x} + \mathbf{b}$ avec des colonnes. Pour passer de l'une à l'autre, on transpose la matrice ; l'ordre des produits s'inverse quand on compose (§2). Deux pièges de lettres : workbookIA appelle $n$ le nombre d'exemples et $n_{\text{in}}$, $n_{\text{out}}$ les dimensions, si bien que notre $(N, n, m)$ y devient $(n, n_{\text{in}}, n_{\text{out}})$ ; et la matrice en colonnes, notée ici $\mathbf{A} = \mathbf{W}^\top$, s'appelle souvent $\mathbf{W}$ elle aussi (dans PyTorch, le poids de `nn.Linear` a la forme (sorties, entrées)) : seule la forme dit dans quelle convention on est. À partir du §3, $\mathbf{A}$ désigne une matrice d'adjacence.
 
 ### Compter les paramètres
 
@@ -87,10 +87,10 @@ Une application affine de $\mathbb{R}^n$ dans $\mathbb{R}^m$ est déterminée pa
 
 Pour $N$ points rangés en lignes dans une matrice $\mathbf{X}$ de forme $(N, n)$, les images sont les lignes de
 $$\mathbf{X}\mathbf{W} + \mathbf{1}\mathbf{b}^\top \qquad (N, n) \times (n, m) \to (N, m),$$
-où $\mathbf{1}\mathbf{b}^\top$, produit d'une colonne de $N$ uns par la ligne $\mathbf{b}^\top$ (dans cette écriture matricielle, $\mathbf{b}$ est rangé en colonne, comme en M09a), est la matrice $(N, m)$ dont **toutes les lignes valent** $\mathbf{b}$. NumPy écrit simplement `X @ W + b` : la **diffusion** (*broadcasting*, workbookIA 0A) recopie $\mathbf{b}$ sur chaque ligne. La ligne $i$ du résultat ne dépend que de la ligne $i$ de $\mathbf{X}$ : traiter $N$ points ensemble, c'est faire $N$ calculs indépendants en un seul produit, pour $Nnm$ multiplications (M09a §3). Pour l'exemple, avec les points $(3, -2)$ et $(0, 1)$ :
-$$\begin{pmatrix} 3 & -2 \\ 0 & 1 \end{pmatrix}\mathbf{W} + \mathbf{1}\mathbf{b}^\top = \begin{pmatrix} 1 & 6 & 2 \\ 1 & 0 & -1 \end{pmatrix} + \begin{pmatrix} 0 & -1 & 4 \\ 0 & -1 & 4 \end{pmatrix} = \begin{pmatrix} 1 & 5 & 6 \\ 1 & -1 & 3 \end{pmatrix}.$$
+où $\mathbf{1}\mathbf{b}^\top$, produit d'une colonne de $N$ uns par la ligne $\mathbf{b}^\top$ (dans une formule matricielle, un vecteur $\mathbf{b}$ de forme $(m,)$ se lit comme une colonne, et $\mathbf{b}^\top$ est la ligne correspondante, comme dans MML), est la matrice $(N, m)$ dont **toutes les lignes valent** $\mathbf{b}$. NumPy écrit simplement `X @ W + b` : la **diffusion** (*broadcasting*, workbookIA 0A) recopie $\mathbf{b}$ sur chaque ligne. La ligne $i$ du résultat ne dépend que de la ligne $i$ de $\mathbf{X}$ : traiter $N$ points ensemble, c'est faire $N$ calculs indépendants en un seul produit, pour $Nnm$ multiplications (M09a §3). Pour l'exemple, avec les points $(3, -2)$ et $(0, 1)$ :
+$$\begin{pmatrix} 3 & -2 \\ 0 & 1 \end{pmatrix}\mathbf{W} + \mathbf{1}\mathbf{b}^\top = \begin{pmatrix} 1 & 6 & 6 \\ 1 & 0 & -3 \end{pmatrix} + \begin{pmatrix} 0 & -1 & 4 \\ 0 & -1 & 4 \end{pmatrix} = \begin{pmatrix} 1 & 5 & 10 \\ 1 & -1 & 1 \end{pmatrix}.$$
 
-⚠️ **Erreur classique.** Ranger $\mathbf{W}$ dans la mauvaise convention. Si $\mathbf{W}$ est rangée $(m, n)$ et qu'on calcule `x @ W`, NumPy refuse dès que $m \ne n$ ; mais si l'application va de $\mathbb{R}^n$ dans lui-même ($m = n$), le calcul **passe sans erreur** et donne une autre application (celle de $\mathbf{W}^\top$). Vérifie toujours une sortie sur un point dont tu connais l'image (🐛 M16.18).
+⚠️ **Erreur classique.** Ranger $\mathbf{W}$ dans la mauvaise convention. Si $\mathbf{W}$ est rangée $(m, n)$ et qu'on calcule `x @ W`, NumPy refuse dès que $m \ne n$ ; mais si l'application va de $\mathbb{R}^n$ dans lui-même ($m = n$), le calcul **passe sans erreur** et donne une autre application (celle de $\mathbf{W}^\top$). Vérifie toujours une sortie sur un point dont tu connais l'image (🧠 M16.Q1).
 
 🔗 **Dans workbookIA** — le chapitre 16 range les poids d'une couche en $(n_{\text{in}}, n_{\text{out}})$, une colonne par neurone, comme ici.
 
@@ -124,7 +124,7 @@ Donc $(f_2 \circ f_1)(x, y) = (3x + 6y - 1,\ 3y + 3)$. Vérification sur le poin
 
 ### Nœuds, arêtes, degrés
 
-Un **graphe orienté** (*directed graph*) est un ensemble de **nœuds** (*nodes*, ou sommets) reliés par des **arêtes** orientées (*edges*) : l'arête $i \to j$ va du nœud $i$ au nœud $j$ ; $i$ est un **prédécesseur** de $j$, $j$ un **successeur** de $i$. Le **degré entrant** (*in-degree*) d'un nœud compte les arêtes qui y arrivent, son **degré sortant** (*out-degree*) celles qui en partent. Un réseau de rues à sens unique, des tâches dont certaines doivent précéder d'autres, des formules qui utilisent le résultat d'autres formules sont des graphes orientés.
+Un **graphe orienté** (*directed graph*) est un ensemble de **nœuds** (*nodes*, ou sommets) reliés par des **arêtes** orientées (*edges*) : l'arête $i \to j$ va du nœud $i$ au nœud $j$ ; $i$ est un **prédécesseur** de $j$, $j$ un **successeur** de $i$ (on dit aussi **parent** et **enfant** ; plus loin dans le graphe, les nœuds d'où part un chemin vers $j$ sont ses **ancêtres**, ceux où arrive un chemin parti de $i$ sont ses **descendants**). Le **degré entrant** (*in-degree*) d'un nœud compte les arêtes qui y arrivent, son **degré sortant** (*out-degree*) celles qui en partent. Un réseau de rues à sens unique, des tâches dont certaines doivent précéder d'autres, des formules qui utilisent le résultat d'autres formules sont des graphes orientés.
 
 La **matrice d'adjacence** (*adjacency matrix*) d'un graphe à $n$ nœuds numérotés $1, \ldots, n$ est la matrice $n \times n$
 $$A_{ij} = \begin{cases} 1 & \text{s'il y a une arête } i \to j, \\ 0 & \text{sinon.} \end{cases}$$
@@ -137,7 +137,7 @@ $$\mathbf{A} = \begin{pmatrix} 0 & 1 & 1 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 1 \
 
 ### Les puissances de A comptent les chemins
 
-Un **chemin** de longueur $k$ (*walk*) de $i$ à $j$ est une suite de $k$ arêtes consécutives qui part de $i$ et arrive en $j$ ; un même nœud peut y revenir. Un chemin qui revient à son point de départ est un **cycle** (*cycle*).
+Un **chemin** de longueur $k$ (*walk*) de $i$ à $j$ est une suite de $k$ arêtes consécutives qui part de $i$ et arrive en $j$ ; un même nœud peut y revenir. Un chemin qui revient à son point de départ est un **cycle** (*cycle*), qu'on appelle aussi une **boucle** ; une arête $i \to i$ est un cycle de longueur 1.
 
 **Théorème.** $(\mathbf{A}^k)_{ij}$ est le nombre de chemins de longueur $k$ de $i$ à $j$.
 
@@ -151,7 +151,7 @@ $(\mathbf{A}^2)_{14} = 2$ : $V_1 \to V_2 \to V_4$ et $V_1 \to V_3 \to V_4$. La d
 
 Si chaque arête $i \to j$ porte un **poids** $A_{ij}$ (une probabilité, un débit, un coût multiplicatif), la même récurrence montre que $(\mathbf{A}^k)_{ij}$ est la **somme, sur les chemins de longueur $k$ de $i$ à $j$, des produits des poids** de leurs arêtes. Avec des poids 0 et 1, on retrouve le comptage. (Une chaîne de Markov, en M26, est un graphe dont les poids sont des probabilités de transition.)
 
-🔗 **Dans workbookIA** — le chapitre 16 décrit un réseau comme un graphe orienté dont les nœuds sont des calculs ; le degré entrant d'un nœud y est son *fan-in*.
+🔗 **Dans workbookIA** — le chapitre 16 décrit un réseau comme un graphe orienté dont les nœuds sont des calculs ; le degré entrant d'un nœud y est son *fan-in*, et son degré sortant son *fan-out*. Dans une couche dense, chaque entrée est reliée à toutes les sorties : son degré sortant est le nombre de sorties, et le degré entrant de chaque sortie est le nombre d'entrées.
 
 ## §4 · Graphes sans cycle : nilpotence, numérotation triangulaire, somme sur les chemins
 
@@ -179,8 +179,8 @@ C'est une somme géométrique de matrices, comme $1 + q + \cdots + q^{n-1} = \fr
 $$(\mathbf{I} - \mathbf{A})(\mathbf{I} + \mathbf{A} + \cdots + \mathbf{A}^{n-1}) = \mathbf{I} - \mathbf{A}^n = \mathbf{I},$$
 et le produit dans l'autre ordre vaut aussi $\mathbf{I}$, car les deux facteurs, faits de puissances de $\mathbf{A}$, commutent. Donc $\mathbf{I} - \mathbf{A}$ est inversible et $(\mathbf{I} - \mathbf{A})^{-1} = \mathbf{I} + \mathbf{S}$. Pour deux nœuds distincts, $\big((\mathbf{I} - \mathbf{A})^{-1}\big)_{ij} = S_{ij}$ ; sur la diagonale, le 1 de $\mathbf{I}$ compte le « chemin vide ».
 
-**Exemple : un réseau d'eau.** Une source $S$ envoie 60 % de son eau vers le nœud $a$ et 40 % vers le nœud $b$ ; $a$ envoie la moitié de ce qu'il reçoit vers $b$ et l'autre moitié vers le réservoir $R$ ; $b$ envoie 80 % de ce qu'il reçoit vers $R$ (le reste fuit). La part de l'eau de $S$ qui arrive en $R$ est la somme, sur les chemins de $S$ à $R$, des produits des parts :
-$$\underbrace{0{,}6 \times 0{,}5}_{S \to a \to R} + \underbrace{0{,}4 \times 0{,}8}_{S \to b \to R} + \underbrace{0{,}6 \times 0{,}5 \times 0{,}8}_{S \to a \to b \to R} = 0{,}3 + 0{,}32 + 0{,}24 = 0{,}86.$$
+**Exemple : un réseau d'eau.** Un captage $c$ envoie 60 % de son eau vers le nœud $a$ et 40 % vers le nœud $b$ ; $a$ envoie la moitié de ce qu'il reçoit vers $b$ et l'autre moitié vers la ville $v$ ; $b$ envoie 80 % de ce qu'il reçoit vers $R$ (le reste fuit). La part de l'eau de $S$ qui arrive en $R$ est la somme, sur les chemins de $S$ à $R$, des produits des parts :
+$$\underbrace{0{,}6 \times 0{,}5}_{c \to a \to v} + \underbrace{0{,}4 \times 0{,}8}_{c \to b \to v} + \underbrace{0{,}6 \times 0{,}5 \times 0{,}8}_{c \to a \to b \to v} = 0{,}3 + 0{,}32 + 0{,}24 = 0{,}86.$$
 C'est le coefficient $(S, R)$ de $(\mathbf{I} - \mathbf{A})^{-1}$ ; $\mathbf{A}^2$ y apporte $0{,}62$ (deux chemins de 2 arêtes) et $\mathbf{A}^3$ y apporte $0{,}24$. Sur un grand réseau, on ne liste pas les chemins (leur nombre peut croître comme $2^n$) : on calcule les puissances, ou on résout un système.
 
 ⚠️ **Erreur classique.** Calculer $(\mathbf{I} - \mathbf{A})^{-1}$ sur un graphe **avec** un cycle et l'appeler « somme sur les chemins » : la matrice peut être inversible, mais il y a alors une infinité de chemins (on fait des tours) ; leur somme est infinie ou n'existe pas, et quand les poids sont assez petits pour qu'elle converge, il faut le démontrer. Avec $\mathbf{A} = \begin{pmatrix} 0 & 2 \\ 2 & 0 \end{pmatrix}$, par exemple, $(\mathbf{I} - \mathbf{A})^{-1}$ existe et a des coefficients négatifs, alors que tous les produits de poids sont positifs. On vérifie d'abord l'absence de cycle (`sum_over_paths` refuse un graphe avec un cycle).
@@ -223,7 +223,7 @@ Des mesures $x_1, \ldots, x_n$ peuvent être fortement corrélées. Multiplions 
 
 Avec la décorrélation et le §5 ($\varepsilon_i$ et $x_i$ indépendants, $\mathbb{E}[\varepsilon_i] = 0$, donc $\mathbb{V}(\varepsilon_ix_i) = \mathbb{E}[\varepsilon_i^2]\,\mathbb{E}[x_i^2] = \mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$) :
 $$\boxed{\mathbb{V}\Big(\sum_{i=1}^n\varepsilon_ix_i\Big) = \sum_{i=1}^n\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2].}$$
-C'est le **second moment** $\mathbb{E}[x_i^2]$ de chaque mesure qui compte, pas sa variance (les $x_i$ ne sont pas forcément centrés), et les covariances des $x_i$ ont disparu.
+C'est le **moment d'ordre 2** (*second moment*) $\mathbb{E}[x_i^2]$ de chaque mesure qui compte, pas sa variance (les $x_i$ ne sont pas forcément centrés), et les covariances des $x_i$ ont disparu.
 
 **Exemple.** Deux capteurs mesurent la même grandeur : $x_2 = x_1$, avec $\mathbb{E}[x_1] = 0$ et $\mathbb{V}(x_1) = 3$. Sans multiplicateurs, $\mathbb{V}(x_1 + x_2) = \mathbb{V}(2x_1) = 12$ : la corrélation parfaite double l'écart-type. Avec des **signes aléatoires** indépendants $\varepsilon_i = \pm 1$ (une **variable de Rademacher**, de variance 1), $\mathbb{V}(\varepsilon_1x_1 + \varepsilon_2x_2) = 3 + 3 = 6$ : une fois sur deux, les deux signes s'opposent et la somme s'annule. Les signes ont « cassé » la corrélation.
 
@@ -235,15 +235,15 @@ C'est le **second moment** $\mathbb{E}[x_i^2]$ de chaque mesure qui compte, pas 
 
 Une grandeur traverse une chaîne d'étages ; à chaque étage, elle est multipliée par un gain aléatoire $G_k$, indépendant de tout ce qui précède : $Z_{k+1} = G_kZ_k$. Si $\mathbb{E}[G_k^2] = \gamma$ pour chaque étage, le §5 (indépendance de $G_k$ et $Z_k$) donne
 $$\mathbb{E}[Z_{k+1}^2] = \mathbb{E}[G_k^2]\,\mathbb{E}[Z_k^2] = \gamma\,\mathbb{E}[Z_k^2], \qquad \text{donc} \qquad \mathbb{E}[Z_k^2] = \gamma^k\,\mathbb{E}[Z_0^2] :$$
-une **suite géométrique** de raison $\gamma$ (R5). Après 25 étages, $1{,}2^{25} \approx 95$ : le second moment a été multiplié par près de cent ; $0{,}85^{25} \approx 0{,}017$ : il a été divisé par près de soixante. L'écart-type typique est multiplié par $\gamma^{k/2}$. Seul $\gamma = 1$ garde l'échelle d'un étage à l'autre ; et pour qu'elle tienne sur $L$ étages, il faut que $\gamma$ soit égal à 1 à environ $\frac{1}{L}$ près, puisque $\gamma^L = e^{L\ln\gamma} \approx e^{L(\gamma - 1)}$.
+une **suite géométrique** de raison $\gamma$ (R5). Après 25 étages, $1{,}2^{25} \approx 95$ : le moment d'ordre 2 a été multiplié par près de cent ; $0{,}85^{25} \approx 0{,}017$ : il a été divisé par près de soixante. L'écart-type typique est multiplié par $\gamma^{k/2}$. Seul $\gamma = 1$ garde l'échelle d'un étage à l'autre ; et pour qu'elle tienne sur $L$ étages, il faut que $\gamma$ soit égal à 1 à environ $\frac{1}{L}$ près, puisque $\gamma^L = e^{L\ln\gamma} \approx e^{L(\gamma - 1)}$.
 
-![À gauche, E[Zₖ²] = γᵏ en échelle logarithmique pour γ = 1,2, 1 et 0,85 : trois droites, et la simulation qui les suit ; à droite, la variance d'une chaîne d'amplificateurs bruités de gain 0,7, qui se stabilise vers 1,96](figures/variances_etages.png)
+![À gauche, le facteur total γᴸ en fonction de γ pour 5, 25 et 100 étages, en échelle logarithmique : la fenêtre où il reste entre ½ et 2 se resserre autour de 1 ; à droite, la variance d'une chaîne d'amplificateurs bruités de gain 0,7, qui se stabilise vers 1,96](figures/variances_etages.png)
 
-En échelle logarithmique, $\gamma^k$ est une **droite** de pente $\ln\gamma$ : une petite erreur sur $\gamma$ devient une énorme erreur après beaucoup d'étages.
+La figure, à gauche, montre cette fenêtre : $\gamma^L$ reste entre $\frac12$ et 2 tant que $\lvert\ln\gamma\rvert \le \frac{\ln 2}{L}$, soit, pour $L = 25$, $\gamma$ entre 0,973 et 1,028 environ ; pour $L = 100$, la fenêtre est quatre fois plus étroite.
 
 ### Avec un bruit à chaque étage
 
-Un amplificateur réel ajoute aussi son propre bruit : $Z_{k+1} = gZ_k + N_k$, où le bruit $N_k$, centré, de variance $s^2$, est indépendant de $Z_k$. Les variances vérifient
+Un amplificateur réel ajoute aussi son propre bruit : $Z_{k+1} = gZ_k + N_k$, où le bruit $N_k$, centré, de variance $s^2$, est indépendant de $Z_k$. Ici $g$ multiplie l'**amplitude** $Z_k$ ; la variance, elle, est multipliée par $g^2$, qui joue le rôle du $\gamma$ du paragraphe précédent. Selon les textes, le mot « gain » désigne l'un ou l'autre facteur : vérifie toujours s'il multiplie l'amplitude ou la variance. Les variances vérifient
 $$v_{k+1} = g^2v_k + s^2,$$
 une suite **arithmético-géométrique** (R5). Si $\lvert g \rvert < 1$, elle tend vers le point fixe $v^* = \frac{s^2}{1 - g^2}$, qui résout $v = g^2v + s^2$. Avec $g = 0{,}7$ et $s^2 = 1$, $v^* = \frac{1}{0{,}51} \approx 1{,}96$ : le bruit s'accumule, mais chaque étage atténue l'ancien, et la variance se stabilise (figure, à droite). Si $\lvert g \rvert \ge 1$ (et $s^2 > 0$), elle grandit sans limite.
 
@@ -258,7 +258,7 @@ une suite **arithmético-géométrique** (R5). Si $\lvert g \rvert < 1$, elle te
 - **Chemin ou chemin sans répétition.** $(\mathbf{A}^k)_{ij}$ compte les chemins de $k$ arêtes, nœuds répétés compris : dans un graphe avec un cycle, il y en a de toutes les longueurs.
 - **$(\mathbf{I} - \mathbf{A})^{-1}$ sur un graphe qui a un cycle.** Sans cycle, la somme sur les chemins est finie et vaut $\mathbf{S}$ ; avec un cycle, il y a une infinité de chemins, et l'inverse peut exister sans être cette somme.
 - **$\mathbb{V}(XY) = \mathbb{V}(X)\,\mathbb{V}(Y)$.** Faux en général : il manque les deux termes amplifiés par les moyennes.
-- **Variance ou second moment.** Dans $\mathbb{V}(\sum\varepsilon_ix_i) = \sum\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$, c'est $\mathbb{E}[x_i^2]$, pas $\mathbb{V}(x_i)$.
+- **Variance ou moment d'ordre 2.** Dans $\mathbb{V}(\sum\varepsilon_ix_i) = \sum\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$, c'est $\mathbb{E}[x_i^2]$, pas $\mathbb{V}(x_i)$.
 - **Décorrélées ou indépendantes.** La variance d'une somme ne demande que des covariances nulles ; l'espérance d'un produit, elle, demande l'indépendance (ou au moins une covariance nulle).
 
 ## Et maintenant

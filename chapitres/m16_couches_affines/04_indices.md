@@ -205,7 +205,7 @@ Relis le §4 : la numérotation triangulaire, puis la somme sur les chemins.
 </details>
 <details><summary>Indice 2</summary>
 
-e) Cherche la tâche qui n'a aucun prédécesseur : elle prend le numéro 1 ; enlève-la, et recommence. d) Toutes les routes de Commande à Expédition passent par Montage.
+e) Cherche un chemin qui passe par les six tâches : chacune de ses arêtes doit aller vers un numéro plus grand. d) Toutes les routes de Commande à Expédition passent par Montage.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -246,7 +246,7 @@ $\mathbb{V}(\pm a) = a^2$ ; $\mathbb{V}\big(\sum\varepsilon_ix_i\big) = \sum\mat
 </details>
 <details><summary>Indice 3</summary>
 
-e) $\mathbb{E}[x_1^2] = \mathbb{V}(x_1) + \mathbb{E}[x_1]^2$. f) Un seul signe : $\mathbb{V}(\varepsilon T) = \mathbb{E}[\varepsilon^2]\,\mathbb{E}[T^2]$. g) La somme vaut $T + S$ ; calcule $\operatorname{Cov}(T, S)$ terme à terme.
+e) $\mathbb{E}[x_1^2] = \mathbb{V}(x_1) + \mathbb{E}[x_1]^2$. d) $\varepsilon_1^2 = 1$. f) Un seul signe : $\mathbb{V}(\varepsilon T) = \mathbb{E}[\varepsilon^2]\,\mathbb{E}[T^2]$. g) La somme vaut $T + S$, deux morceaux décorrélés : leurs variances s'ajoutent.
 
 </details>
 
@@ -321,7 +321,7 @@ Relis « Beaucoup de points d'un coup » (§1), puis le §2.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{1}\mathbf{b}^\top$ : une colonne de 4 uns fois la ligne $\mathbf{b}$.
+$\mathbf{1}\mathbf{b}^\top$ : une colonne de 4 uns fois la ligne $\mathbf{b}^\top$.
 
 </details>
 <details><summary>Indice 3</summary>

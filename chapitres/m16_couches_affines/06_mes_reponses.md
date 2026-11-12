@@ -136,7 +136,7 @@
 - e :
 - f :
 - g :
-- d) justifié hypothèse par hypothèse ; les covariances absentes de c) ; E[x₁²] et non V(x₁) dans e) ; l'hypothèse qui manque à f) et à g), et la covariance des deux morceaux de g) :
+- pourquoi d) n'est pas nul ; les covariances absentes de c) ; E[x₁²] et non V(x₁) dans e) ; l'hypothèse qui manque à f) et à g) ; g) écrit comme (x₁ + x₂ + x₃) + S :
 
 ## ∂ Démonstrations
 
@@ -218,7 +218,7 @@
 
 - l'ordre des produits de matrices ; ce que fait chaque étape à la flèche :
 
-### Ex M16.18 — Chasse à l'erreur : une matrice homogène écrite pour des colonnes, Var(XY) = Var X · Var Y, et (I − A)⁻¹ sur un graphe qui a un cycle
+### Ex M16.18 — Chasse à l'erreur : une matrice homogène écrite pour des colonnes et appliquée à des lignes, Var(XY) = Var X · Var Y, et (I − A)⁻¹ sur un graphe qui a un cycle
 
 - après la vérification : ce que calcule chaque ligne fausse, et sa correction ; les entrées sur lesquelles l'erreur ne se voit pas :
 

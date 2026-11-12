@@ -32,11 +32,10 @@ from wbm import plot as wbplot  # noqa: E402
 OUT = ROOT / "chapitres" / "m16_couches_affines" / "figures"
 C = wbplot.CATEGORICAL
 DPI = 110
-SEED = 4901
 
 H1 = np.array([[1.0, 0.0, 0.0], [2.0, 1.0, 0.0], [0.0, 1.0, 1.0]])     # §2: shear (x, y) ↦ (x + 2y, y), then + (0, 1)
 H2 = np.array([[3.0, 0.0, 0.0], [0.0, 3.0, 0.0], [-1.0, 0.0, 1.0]])    # §2: homothety of ratio 3, then + (−1, 0)
-GAMMAS = (1.2, 1.0, 0.85)                                              # §7: E[G²] of the random gains
+DEPTHS = (5, 25, 100)                                                  # §7: γ^L as a function of γ, for L stages
 STAGES = 25
 G_NOISY, S2_NOISY = 0.7, 1.0                                           # §7: Z_{k+1} = 0,7 Z_k + N_k, V(N_k) = 1
 
@@ -105,29 +104,27 @@ def graphs() -> None:
     axes[0].set(xlim=(-0.5, 3.5), ylim=(-0.5, 2.5))
     water = {0: (0, 1), 1: (1.5, 2), 2: (1.5, 0), 3: (3, 1)}
     flows = {(0, 1): 0.6, (0, 2): 0.4, (1, 2): 0.5, (1, 3): 0.5, (2, 3): 0.8}
-    _draw_graph(axes[1], water, list(flows), {0: "S", 1: "a", 2: "b", 3: "R"}, weights=flows, color=C[1])
-    axes[1].set_title("Un réseau d'eau sans cycle : la part de l'eau qui passe\nde la source S au réservoir R vaut 0,86",
+    _draw_graph(axes[1], water, list(flows), {0: "c", 1: "a", 2: "b", 3: "v"}, weights=flows, color=C[1])
+    axes[1].set_title("Un réseau d'eau sans cycle : la part de l'eau qui passe\ndu captage c à la ville v vaut 0,86",
                       fontsize=10)
     axes[1].set(xlim=(-0.5, 3.5), ylim=(-0.5, 2.5))
     save(fig, "graphes.png")
 
 
 def stages() -> None:
-    """§7: E[Z_k²] when a random gain of second moment γ multiplies Z at each stage; a chain of noisy amplifiers."""
-    rng = np.random.default_rng(SEED)
+    """§7: γ^L as a function of γ for several numbers of stages L; a chain of noisy amplifiers."""
     k = np.arange(STAGES + 1)
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.0))
-    for gamma, color in zip(GAMMAS, C):
-        axes[0].plot(k, gamma ** k, color=color, lw=2, label=f"γ = {french_number(gamma)} : γᵏ")
-        signs = rng.choice([-1.0, 1.0], size=(20000, STAGES))
-        spread = 1 + 0.3 * rng.uniform(-1, 1, size=(20000, STAGES))            # E[spread] = 1
-        gains = signs * np.sqrt(gamma * spread)                                  # E[G²] = γ, independent gains
-        z = np.cumprod(np.hstack([np.ones((20000, 1)), gains]), axis=1)         # Z_0 = 1
-        axes[0].plot(k[::3], np.mean(z ** 2, axis=0)[::3], "o", color=color, ms=4)
+    gamma = np.linspace(0.92, 1.08, 401)
+    axes[0].axhspan(0.5, 2.0, color="0.9", zorder=0, label="entre ½ et 2")
+    for depth, color in zip(DEPTHS, C):
+        axes[0].plot(gamma, gamma ** depth, color=color, lw=2, label=f"L = {depth} étages")
+    axes[0].axvline(1.0, color="0.5", lw=0.8)
     axes[0].set_yscale("log")
-    axes[0].set(xlabel="étage k", ylabel="E[Zₖ²] (échelle log)",
-                title="Un gain aléatoire par étage : E[Zₖ²] = γᵏ\n(courbes : la formule ; points : 20 000 simulations)")
-    axes[0].legend(fontsize=9)
+    axes[0].set(xlabel="γ, le facteur par étage", ylabel="γᴸ (échelle log)", ylim=(1e-3, 1e3),
+                title="Le facteur total γᴸ en fonction de γ :\nplus il y a d'étages, plus la fenêtre autour de 1 est étroite")
+    axes[0].xaxis.set_major_formatter(FuncFormatter(french_number))
+    axes[0].legend(fontsize=9, loc="upper left")
     v = [0.0]
     for _ in range(STAGES):
         v.append(G_NOISY ** 2 * v[-1] + S2_NOISY)

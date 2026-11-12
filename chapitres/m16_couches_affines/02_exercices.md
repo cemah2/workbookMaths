@@ -63,11 +63,11 @@ Un graphe à 4 nœuds a pour matrice d'adjacence $\mathbf{A} = \begin{pmatrix} 0
 ### M16.R1 — Le produit matriciel, ses formes et son coût (M09a) 🔁 ★ ⏱️ 5 min
 *Fiche §1 · parcours C, E*
 
-1. $\mathbf{A}$ a la forme $(3, 4)$ et $\mathbf{B}$ la forme $(4, 6)$ : forme de $\mathbf{A}\mathbf{B}$ ? Le produit $\mathbf{B}\mathbf{A}$ existe-t-il ?
-2. Combien de multiplications coûte $\mathbf{A}\mathbf{B}$ ?
-3. Écris $(\mathbf{A}\mathbf{B})^\top$ en fonction de $\mathbf{A}^\top$ et $\mathbf{B}^\top$.
-4. Calcule le produit de Hadamard $(1, -2, 3) \odot (4, 0, -1)$.
-5. $\mathbf{x}$ est une ligne de forme $(4,)$ : forme de $\mathbf{x}\mathbf{B}$ ?
+1. Calcule le produit de Hadamard $(1, -2, 3) \odot (4, 0, -1)$.
+2. $\mathbf{A}$, $\mathbf{B}$ et $\mathbf{C}$ ont les formes $(2, 5)$, $(5, 7)$ et $(7, 3)$ : forme du produit $\mathbf{A}\mathbf{B}\mathbf{C}$ ?
+3. Combien de multiplications coûte $(\mathbf{A}\mathbf{B})\mathbf{C}$ ? Et $\mathbf{A}(\mathbf{B}\mathbf{C})$ ?
+4. Écris $(\mathbf{A}\mathbf{B}\mathbf{C})^\top$ en fonction des transposées.
+5. $\mathbf{x}$ est une ligne de forme $(2,)$ : forme de $\mathbf{x}\mathbf{A}\mathbf{B}$ ?
 
 ### M16.R2 — La variance d'une somme de variables indépendantes (M02b) 🔁 ★ ⏱️ 5 min
 *Fiche §5 · parcours C, E*
@@ -173,7 +173,7 @@ Un atelier fabrique un meuble en six tâches, numérotées dans l'ordre où on l
 Dans ta copie : pourquoi $\mathbf{A}$ n'est-elle pas triangulaire dans la numérotation donnée ? Pourquoi e) est-elle la seule numérotation possible ici ? Écris la matrice renumérotée et déduis-en, sans calcul de puissance, que $\mathbf{A}^6 = \mathbf{0}$. Pourquoi d) est-il le coefficient (Commande, Expédition) de $(\mathbf{I} - \mathbf{A})^{-1}$ ?
 
 ### Ex M16.5 — Un prix aléatoire fois une quantité indépendante : espérance et variance du produit ✏️ ★★ ⏱️ 15 min
-**Objectif :** calculer l'espérance, le second moment et la variance d'un produit de variables indépendantes, et mesurer ce qu'oublie la formule fausse.
+**Objectif :** calculer l'espérance, le moment d'ordre 2 et la variance d'un produit de variables indépendantes, et mesurer ce qu'oublie la formule fausse.
 **Prérequis :** fiche §5 ; M02b · **Parcours :** C, E
 
 Une coopérative vend chaque semaine une quantité $Q$ de pommes (en kilos), au prix $P$ du marché (en € par kilo) ; $P$ et $Q$ sont indépendants, $\mathbb{E}[P] = 3$, $\mathbb{V}(P) = 0{,}16$, $\mathbb{E}[Q] = 120$, $\mathbb{V}(Q) = 400$. La recette est $R = PQ$.
@@ -202,12 +202,12 @@ Trois mesures centrées $x_1$, $x_2$, $x_3$ ont la matrice de covariance $\begin
 | a | $\mathbb{V}(x_1 + x_2 + x_3)$ | un nombre |
 | b | $\mathbb{V}(\varepsilon_2)$ | un nombre |
 | c | $\mathbb{V}(S)$ | un nombre |
-| d | $\operatorname{Cov}(\varepsilon_1x_1,\ \varepsilon_2x_2)$ | un nombre |
+| d | $\operatorname{Cov}(\varepsilon_1x_1,\ \varepsilon_1x_2)$ : le **même** signe $\varepsilon_1$ multiplie $x_1$ et $x_2$ | un nombre |
 | e | $\mathbb{V}(S)$ si $x_1$ avait pour moyenne 1 au lieu de 0, le reste inchangé (pour cette question seulement : en f et g, les trois mesures sont de nouveau centrées) | un nombre |
 | f | $\mathbb{V}\big(\varepsilon(x_1 + x_2 + x_3)\big)$, avec **un seul** signe $\varepsilon = \pm 1$ pour les trois mesures | un nombre |
-| g | $\mathbb{V}\big((1 + \varepsilon_1)x_1 + (1 + \varepsilon_2)x_2 + (1 + \varepsilon_3)x_3\big)$ : des multiplicateurs de moyenne 1 | un nombre |
+| g | $\mathbb{V}\big((1 + \varepsilon_1)x_1 + (1 + \varepsilon_2)x_2 + (1 + \varepsilon_3)x_3\big)$ : des multiplicateurs de moyenne 1 (on admet que $x_1 + x_2 + x_3$ et $S$ sont décorrélées) | un nombre |
 
-Dans ta copie : justifie d) à partir des hypothèses (laquelle sert à chaque étape ?). Pourquoi les covariances 5, 1 et 2 n'apparaissent-elles pas dans c) ? Pourquoi e) fait-il intervenir $\mathbb{E}[x_1^2]$ et non $\mathbb{V}(x_1)$ ? Explique f) et g) : quelle hypothèse du lemme manque à chaque fois ? Pour g), écris la somme comme $(x_1 + x_2 + x_3) + S$ et calcule la covariance des deux morceaux.
+Dans ta copie : pourquoi d) n'est-il pas nul, alors que le lemme rend $\varepsilon_1x_1$ et $\varepsilon_2x_2$ décorrélés ? Pourquoi les covariances 5, 1 et 2 n'apparaissent-elles pas dans c) ? Pourquoi e) fait-il intervenir $\mathbb{E}[x_1^2]$ et non $\mathbb{V}(x_1)$ ? Explique f) et g) : quelle hypothèse du lemme manque à chaque fois ? Pour g), écris la somme comme $(x_1 + x_2 + x_3) + S$.
 
 <a id="demonstrations"></a>
 
@@ -280,11 +280,11 @@ Un ami calcule la variance de la surface d'un champ rectangulaire dont la longue
 ## 💼 Entretien
 
 ### M16.E1 — « Pourquoi l'écart-type d'une somme de n termes indépendants grandit-il comme √n ? » 💼 ★ ⏱️ 10 min
-*Fiche §6 et §7 · parcours C*
+*Fiche §6 · parcours C*
 
 « Pourquoi l'écart-type d'une somme de $n$ termes indépendants grandit-il comme $\sqrt{n}$ ? »
 
-Prépare une réponse orale de **60 secondes**. Elle doit dire ce qui s'additionne (les variances, grâce aux covariances nulles) et ce qui ne s'additionne pas (les écarts-types), ce que change une corrélation entre les termes (jusqu'à une croissance en $n$), le cas de termes multipliés par des signes aléatoires indépendants, la conséquence pour la moyenne de $n$ termes (un écart-type en $\frac{1}{\sqrt{n}}$), et ce que cela implique quand on additionne beaucoup de contributions aléatoires : pour garder une échelle donnée, il faut réduire chaque contribution. Compare ensuite avec la réponse modèle de `05_solutions.md`.
+Prépare une réponse orale de **60 secondes**. Elle doit dire ce qui s'additionne (les variances, grâce aux covariances nulles) et ce qui ne s'additionne pas (les écarts-types), ce que change une corrélation entre les termes (jusqu'à une croissance en $n$), le cas de termes multipliés par des signes aléatoires indépendants, et la conséquence pour la moyenne de $n$ termes (un écart-type en $\frac{\sigma}{\sqrt{n}}$, la raison pour laquelle on répète une mesure). Compare ensuite avec la réponse modèle de `05_solutions.md`.
 
 <a id="notebook"></a>
 

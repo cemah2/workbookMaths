@@ -23,7 +23,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | approximation de rang faible | low-rank approximation | $\mathbf{A}_k = \sum_{i \le k} s_i\mathbf{u}_i\mathbf{v}_i^\top$, les $k$ premières couches de la SVD : la matrice de rang $k$ la plus proche de $\mathbf{A}$ (Eckart-Young), stockée avec $k(m + n + 1)$ nombres au lieu de $mn$ | M12d |
 | arbre pondéré | probability tree | arbre des étapes d'une expérience, chaque branche portant sa probabilité : on multiplie le long d'un chemin, on additionne les chemins | R8 |
 | arccosinus | arccosine, arccos | la réciproque du cosinus sur $[0 ; \pi]$ : l'unique angle de $[0 ; \pi]$ qui a un cosinus donné | R9 |
-| arête, nœud (d'un graphe) | edge, node (vertex) | un graphe relie des nœuds (ou sommets) par des arêtes ; dans un graphe orienté, l'arête $i \to j$ a un sens, $i$ est un prédécesseur de $j$ et $j$ un successeur de $i$ | M16 |
+| arête, nœud (d'un graphe) | edge, node (vertex) | un graphe relie des nœuds (ou sommets) par des arêtes ; dans un graphe orienté, l'arête $i \to j$ a un sens, $i$ est un prédécesseur (ou parent) de $j$ et $j$ un successeur (ou enfant) de $i$ ; les nœuds d'où part un chemin vers $j$ sont ses ancêtres, ceux où arrive un chemin parti de $i$ ses descendants | M16 |
 | argmax, argmin | argmax, argmin | la valeur de $x$ où une fonction atteint son maximum (son minimum), pas la valeur de ce maximum | R3, M05b |
 | argument, prémisse | argument, premise | une suite de phrases, les prémisses, suivie d'une conclusion qu'elles sont censées justifier | M11 |
 | arrangement | k-permutation | choix ordonné de $k$ objets distincts parmi $n$ : $\frac{n!}{(n - k)!}$ possibilités | R8 |
@@ -125,7 +125,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | croissances comparées | orders of growth, comparative growth rates | pour $x$ très grand, $\ln x \ll x^k \ll a^x$ ($k > 0$, $a > 1$) | R6 |
 | croissante, décroissante | increasing, decreasing | qui conserve (retourne) l'ordre sur un intervalle : $a < b \Rightarrow f(a) \le f(b)$ ($\ge$) | R3 |
 | cross-entropy | cross-entropy | $H(p, q) = -\sum p \log_2 q$ : la longueur moyenne d'un code fait pour la loi $q$, sur des données de loi $p$ ; la log loss en est une | M06 |
-| cycle (d'un graphe) | cycle | un chemin qui revient à son point de départ ; un graphe orienté sans cycle est un DAG | M16 |
+| cycle (d'un graphe), boucle | cycle, loop | un chemin qui revient à son point de départ ; une arête $i \to i$ est un cycle de longueur 1 ; un graphe orienté sans cycle est un DAG | M16 |
 | ddof | ddof (delta degrees of freedom) | le nombre retranché à $n$ au dénominateur d'une variance : `ddof=0` divise par $n$, `ddof=1` par $n - 1$ | M02c |
 | débordement, underflow | overflow, underflow | un résultat trop grand pour un flottant, que NumPy rend `inf` ; trop petit, il est arrondi à 0 (*dépassement par le bas*) ; on garde souvent les mots anglais | M04, M05a |
 | décade, échelle logarithmique | decade, logarithmic scale | sur un axe logarithmique, des écarts égaux sont des rapports égaux ; une décade est un facteur 10 | R6 |
@@ -138,7 +138,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | déduction, induction | deduction, induction | raisonner des prémisses à une conclusion certaine si elles sont vraies ; généraliser des exemples à une conclusion seulement probable (le raisonnement par récurrence est une déduction) | M11 |
 | défective (matrice) | defective matrix | une matrice $n \times n$ qui a moins de $n$ vecteurs propres libres : une valeur propre a une multiplicité géométrique inférieure à sa multiplicité algébrique ; elle n'est pas diagonalisable (le cisaillement $\begin{pmatrix} 3 & 1 \\ 0 & 3 \end{pmatrix}$) | M12c |
 | déflation | deflation | remplacer $\mathbf{A}$ symétrique par $\mathbf{A} - \lambda_1\mathbf{q}_1\mathbf{q}_1^\top$, qui a les mêmes valeurs propres sauf $\lambda_1$, remplacée par 0, pour trouver la suivante par la méthode de la puissance | M12c |
-| degré entrant, degré sortant | in-degree, out-degree | le nombre d'arêtes qui arrivent en un nœud, qui en partent : la somme d'une colonne, d'une ligne de la matrice d'adjacence | M16 |
+| degré entrant, degré sortant | in-degree, out-degree | le nombre d'arêtes qui arrivent en un nœud, qui en partent : la somme d'une colonne, d'une ligne de la matrice d'adjacence ; dans un réseau de calculs, on dit *fan-in* et *fan-out* | M16 |
 | degrés de liberté | degrees of freedom | le nombre de valeurs libres : les $n$ écarts à la moyenne ont une somme nulle, donc $n - 1$ degrés de liberté | M02c |
 | demi-espace | half-space | l'un des deux côtés d'un hyperplan : les $\mathbf{x}$ tels que $\mathbf{w} \cdot \mathbf{x} + b > 0$ (ou $< 0$) | M07 |
 | démonstration par l'absurde | proof by contradiction | supposer la conclusion fausse et aboutir à une contradiction | R4 |
