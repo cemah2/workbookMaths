@@ -11,34 +11,41 @@ of its statement (exact fractions and loops written in the cell, NumPy for the p
 positions counted one by one, never by the formula they check); parts A to D are the notebook exercises (M21.19 to
 M21.29). Wrong-answer messages state a rule, never a number of the answer nor the last step that gives it.
 
-Data. The notebook exercises take the data of 02_exercices.md: three 8-sided dice, (2 − X)⁷, twelve daily
-temperatures (8, 10, 13, 15, 14, 12, 11, 9, 7, 6, 8, 10) and a 5-day average (M21.19); the kernel (1, −3, 2) of M21.4
-with n = 6, a kernel of 7 non-zero coefficients (4, −2, 1, 3, −1, 2, 5) with n = 1 000, the kernels (1, 4, −2, 3) and
-(2, 0, −1, 5, 1) (M21.20); a daily profile of 24 hourly temperatures, the sequences (3, −1, 2, 5) and (1, 2, −2), the
-kernel (5, −2, 0, 3, 1, 4) (M21.21); the smoothing kernel of M21.8, the five-point Laplacian, the outer product of
-(1, 2, 4, 2, 1) and (2, −1, 3) plus a noise of standard deviation 0.001 (M21.22); the stacks of M21.10, four stages of
-length 4 and step 2, a random stack (M21.23); a signal of 30 values, zero but (x₇, x₈, x₉) = (2, 5, −1), the weights
-(1, −1, 2, 1) with a step 3 (M21.24); a grid of 300 × 300 random values and kernels of rank 1 for k = 3, 5, 9, 15, 25
-(M21.25); a 6 × 6 input and (k, s) = (5, 2), (6, 2), (7, 3), (9, 3) (M21.26); the levels (2, 2.5, 4, 5, 7.5, 8) m of
-a reservoir every 0.5 h, the kernel [[2, 1, 3], [4, 2, 5], [2, 1, 3]], x = (3, 1, 4, 1, 5, 9) with (2, −3) (M21.27);
-200 random kernels and signals of integers (M21.28); 7 secret weights, 2 000 Gaussian values, a noise 0.05 (M21.29).
+Data. The notebook exercises take the data of 02_exercices.md: three 8-sided dice and their total 11, (2 − X)⁷,
+twelve daily temperatures (8, 10, 13, 15, 14, 12, 11, 9, 7, 6, 8, 10) and a 5-day average (M21.19); the kernel
+(1, −3, 2) of M21.4 with n = 6, a kernel of 7 non-zero coefficients (4, −2, 1, 3, −1, 2, 5) with n = 1 000, the
+kernels (1, 4, −2, 3) and (2, 0, −1, 5, 1) (M21.20); a daily profile of 24 hourly temperatures, the sequences
+(3, −1, 2, 5) and (1, 2, −2), the kernel (5, −2, 0, 3, 1, 4) (M21.21); the smoothing kernel of M21.8, the mean over a
+cross of five cells (1/5)[[0, 1, 0], [1, 1, 1], [0, 1, 0]] (singular values 2/5, 1/5, 0), the outer product of
+(1, 2, 4, 2, 1) and (2, −1, 3) plus a noise of standard deviation 0.001 (M21.22); the stacks of M21.10 (the first one
+with a step s₁ = 3), four stages of length 4 and step 2, a random stack (M21.23); a signal of 30 values, zero but
+(x₇, x₈, x₉) = (2, 5, −1), the weights (1, −1, 2, 1) with a step 3 (M21.24); a grid of 360 × 360 random values and
+kernels of rank 1 for k = 3, 5, 9, 15, 25 (M21.25); a 6 × 6 input and (k, s) = (5, 2), (6, 2), (7, 3), (9, 3)
+(M21.26); the polynomials (1 + 2X)(3 − X + 4X²), checked by the colleague on (1 + 2X)(2 + 5X + 2X²), a transposed
+convolution with k = 8, s = 3, m = 6 (checked by the colleague on (k, s) = (6, 2), (9, 3), (8, 4)), the kernel
+[[2, 1, 3], [4, 2, 5], [2, 1, 3]], x = (6, 2, 7, 1, 8, 3) with the weights (2, −3) (M21.27); 200 random kernels and
+signals of integers (M21.28); 7 secret weights, 2 000 Gaussian values, a noise 0.05 (M21.29). Part 0 takes the data
+of the corrected statements (M21.6 h: 125 positions; M21.7: y = (3, 2, −2); M21.10 c: s₁ = 3; M21.17 g: the kernel
+given to scipy.signal.convolve2d).
 Seeds 5511 to 5539 only (the tests use 5410 to 5500): 5532 (M21.22), 5533 (M21.23), 5535 (M21.25), 5538 (M21.28),
 5539 (M21.29), and 5521 to 5529 for the hidden cases of the check cells. The check cells use their own data (random
-shapes, kernels of even and odd lengths), never the test cases of tests/test_m21_convolution.py, nor the examples of
-the docstrings of the stub, nor those of the fiche: no x = (2, 5, −1, 3, 0, 4) with w = (3, 1, −2), no capteur
-(5, 11, 8, 2, 14), no chariot 2t² + 1, no w = (3, −1, 2), no h = (4, 1, 0, 2), no altitudes Z, no lissage (1, 4, 1)/6,
-no grille météo 100 × 150, no pile (4, 2, 1), (3, 2, 1), (3, 1, 2), no g = (3, −1, 2, −2), no transposée de
-(2, −1, 3) par (1, 3, 3, 1). Two statements reuse a docstring example of the stub (reported to the coordinator): the
-Laplacian of separable_factors (M21.22 b) and the signal (3, 1, 4, 1, 5) of convolve, extended by 9 (M21.27 e).
+shapes, kernels of even and odd lengths, non-palindromic polynomials, steps that divide k or not), never the test
+cases of tests/test_m21_convolution.py, nor the examples of the docstrings of the stub (no (3, 1, 4, 1, 5), no
+(2 + X)(1 + 3X + X²), no Laplacian sent to separable_factors, no [2, 1, 3] nor [1, 2, 3] sent to toeplitz_matrix, no
+[[1, 1], [1, 1]] nor [[1, 1, 1], [1, −1]] stack), nor those of the fiche: no x = (2, 5, −1, 3, 0, 4) with
+w = (3, 1, −2), no capteur (5, 11, 8, 2, 14), no chariot 2t² + 1, no w = (3, −1, 2), no h = (4, 1, 0, 2), no
+altitudes Z, no lissage (1, 4, 1)/6, no grille météo 100 × 150, no pile (4, 2, 1), (3, 2, 1), (3, 1, 2), no
+g = (3, −1, 2, −2), no transposée de (2, −1, 3) par (1, 3, 3, 1), no n = 26 with k = 4, s = 3.
 
 Nothing of workbookIA 21 is used (the notes of M21 in the syllabus): no image, MNIST, Fashion-MNIST, CIFAR-10 nor
 ImageNet, no layer, learned filter, network, loss, gradient nor attack, no Sobel, box blur 1/9 nor sharpening kernel,
 no (2, 0, 1, 3) with (1, 2), (1, 2, 3, 4) nor (1, 0, −1), no x = (1, 2, −1, 3) with (2, −1) or (1, −1), no size 28,
 32 or 224, none of the receptive fields 3, 5, 7, 9, 11, 15, 35, 6, 18 of its stacks, none of its transposed sizes, no
-PyTorch. The bug (1) of M21.27 is a flipped kernel in a sliding sum on a reservoir, never a learned filter; its bug (2)
-rounds up a count, without the cases (n, k, s, p, d) of the size function of workbookIA 21; its bug (3) separates a
-rank-2 kernel. The property test of M21.28 runs the learner's test on the reference and on a wrong « same » mode
-(rows from ⌊k/2⌋), built on the reference. M21.29 estimates the kernel of a sensor by least squares (M09b), with the
+PyTorch. The bug (1) of M21.27 is a product of polynomials computed by np.correlate (a kernel not flipped), never a
+learned filter; its bug (2) assumes regular overlaps (k // s) in a transposed convolution, never a size function
+of workbookIA 21; its bug (3) separates a rank-2 kernel; no function n_positions nor sliding_sum is left. The
+property test of M21.28 runs the learner's test on the reference and on a wrong « same » mode (rows from ⌊k/2⌋), built
+on the reference. M21.29 estimates the kernel of a sensor by least squares (M09b), with the
 Toeplitz matrix of x or the window matrix of the fiche, never a gradient.
 """
 
@@ -69,6 +76,8 @@ PAPER = [
         ("a", "a list of 6 integers", "POLY_1",
          '''mistakes={"le coefficient de Xᵐ rassemble les aᵢbⱼ avec i + j = m : en faisant glisser une suite sans la "
                      "retourner, on calcule une corrélation, pas un produit de polynômes": CORR_1,
+                     "le coefficient de Xᵐ rassemble les aᵢbⱼ avec i + j = m : en faisant glisser une suite sans la "
+                     "retourner, dans un sens ou dans l'autre, on calcule une corrélation": CORR_OTHER_1,
                      "du terme constant au terme de plus haut degré : ta liste est dans l'autre ordre": POLY_1[::-1]}'''),
         ("b", FRACTION, "str(P_S_1[5])",
          '''kind="fraction", simplified=True,
@@ -176,8 +185,12 @@ PAPER = [
                          ints(fraction_convolve(X_5, W_5)[len(W_5) - 1:len(X_5)])}'''),
         ("b", "a list of 8 integers", "correlate_valid(delayed_5(X_5, 3), W_5)",
          '''mistakes={"τ₃ retarde le signal : sa réponse se déplace vers la droite": A_5[3:] + [0] * 3}'''),
-        ("c", "an integer", "sum(v != 0 for v in A_5) - sum(v != 0 for v in correlate_valid(delayed_5(X_5, 5), W_5))",
-         '''mistakes={"compte les valeurs non nulles de a) qui n'apparaissent plus, pas le décalage": 5}'''),
+        ("c", "an integer", "LOST_5",
+         '''mistakes={"compte les valeurs non nulles de a) qui, décalées de 5 cases, n'ont plus de position, pas le "
+                     "décalage": 5,
+                     "compte les termes, pas les valeurs distinctes : chacun des deux −4 de a) a sa propre position":
+                         len({v for i, v in enumerate(A_5) if v != 0 and i + 5 > len(A_5) - 1}
+                             - set(correlate_valid(delayed_5(X_5, 5), W_5)))}'''),
         ("d", "a list of 4 integers", "STRIDE2_5[0]",
          '''mistakes={"y₀ lit la fenêtre qui commence à la case 0": A_5[1::2]}'''),
         ("e", "a list of 4 integers", "STRIDE2_5[1]",
@@ -215,7 +228,8 @@ PAPER = [
                      "vérifie la plus petite de tes longueurs : combien de positions donne-t-elle ?":
                          [n - 5 for n in LENGTHS_6]}'''),
         ("h", "an integer", "STEP_6",
-         '''mistakes={"recompte les positions avec ce pas : il en donne plus de 100": STEP_6 - 1}'''),
+         '''mistakes={"avec ce pas, recompte les positions : il en donne plus de 125": STEP_6 - 1,
+                     "avec ce pas, recompte les positions : il en donne moins de 125": STEP_6 + 1}'''),
     ]),
 
     Paper("M21.7", "Sous-échantillonner et insérer des zéros : la convolution transposée d'un signal et ses "
@@ -225,7 +239,8 @@ PAPER = [
         ("b", "a list of 7 integers", "(D3_7.T @ D3_7 @ X_7).tolist()",
          '''mistakes={"D₃ᵀ remet chaque valeur à SA place, la case 3i": (D3_7 @ X_7).tolist() + [0] * 4}'''),
         ("c", "an integer", "len(TRANSPOSED_7)",
-         '''mistakes={"m valeurs donnent m − 1 intervalles de s cases, plus l'étendue du noyau": M_7 * S_7,
+         '''mistakes={"compte les intervalles entre les m valeurs, puis ajoute ce que couvre le dernier tampon":
+                         M_7 * S_7,
                      "la dernière valeur imprime encore tout le noyau": SIZE_7 - 1,
                      "il y a m − 1 intervalles de s cases entre m valeurs, pas m": M_7 * S_7 + K_7}'''),
         ("d", "a list of integers", "TRANSPOSED_7.tolist()",
@@ -297,11 +312,13 @@ PAPER = [
         ("b", "a list of 4 numbers (4 decimals)", "[float(v) for v in Z_10]",
          '''decimals=4, mistakes={"c'est y, la sortie du premier étage : il reste la moyenne de 3":
                                      [float(v) for v in correlate_valid(X_10, A_10)]}'''),
-        ("c", "a list of integers", "ints(6 * v for v in trimmed(stack_kernel_10([A_10, B_10], [2, 1])))",
+        ("c", "a list of integers", "ints(6 * v for v in trimmed(stack_kernel_10([A_10, B_10], [3, 1])))",
          '''mistakes={"le pas du premier étage écarte les lectures du second : son noyau est dilaté":
-                         ints(6 * v for v in trimmed(stack_kernel_10([A_10, B_10], [1, 1])))}'''),
-        ("d", "an integer", "math.prod([2, 1])",
-         '''mistakes={"le pas total est le produit des pas": sum([2, 1])}'''),
+                         ints(6 * v for v in trimmed(stack_kernel_10([A_10, B_10], [1, 1]))),
+                     "le noyau du second étage est dilaté du pas du premier étage, s₁":
+                         ints(6 * v for v in trimmed(stack_kernel_10([A_10, B_10], [2, 1])))}'''),
+        ("d", "an integer", "math.prod([3, 1])",
+         '''mistakes={"le pas total est le produit des pas": sum([3, 1])}'''),
         ("e", "an integer", "R_10",
          '''mistakes={"un pas multiplie les contributions des étages SUIVANTS":
                          1 + sum(d * (k - 1) for k, s, d in STACK_10),
@@ -363,11 +380,12 @@ PAPER = [
                      "les bibliothèques ne retournent pas les noyaux": int(FLIPPED_17[0, 0, 0])}'''),
         ("f", "an integer", "int(Y_17[1, 2, 3])",
          '''mistakes={"n'oublie pas le biais de la sortie 1": int(Y_17[1, 2, 3] - B_17[1])}'''),
-        ("g", "an integer", "int(FLIPPED_17[0, 0, 0])",
-         '''mistakes={"retourne chaque noyau selon ses DEUX axes, pas un seul":
-                         {int(filter_17(X_17, W_17[:, :, ::-1, :], B_17)[0, 0, 0]),
-                          int(filter_17(X_17, W_17[:, :, :, ::-1], B_17)[0, 0, 0])},
-                     "une convolution 2D retourne les noyaux : sans retournement, c'est e)": int(Y_17[0, 0, 0])}'''),
+        ("g", "a 2 × 2 matrix (list of rows)", "KERNEL_2D_17.tolist()",
+         '''mistakes={"retourne le noyau selon ses DEUX axes : tu n'as inversé que l'ordre des lignes":
+                         W_17[0, 0, ::-1, :].tolist(),
+                     "retourne le noyau selon ses DEUX axes : tu n'as inversé que l'ordre des colonnes":
+                         W_17[0, 0, :, ::-1].tolist(),
+                     "convolve2d retourne le noyau qu'on lui donne": W_17[0, 0].tolist()}'''),
         ("h", "an integer", "int(Y_17.size * W_17[0].size)",
          '''mistakes={"compte chaque sortie : une multiplication-addition par poids et par position, pour chaque canal "
                      "de sortie": int(Y_17[0].size * W_17[0].size),
@@ -376,7 +394,9 @@ PAPER = [
          '''mistakes={"c'est ce que rend NumPy ; PyTorch met le zéro en trop à droite": NUMPY_SAME_17}'''),
         ("j", "a list of 5 integers", "NUMPY_SAME_17",
          '''mistakes={"c'est la version de PyTorch ; NumPy met le zéro en trop au début": TORCH_SAME_17,
-                     "np.convolve retourne le noyau qu'on lui donne": correlate_valid(X1D_17 + [0], [4, 1])}'''),
+                     "np.convolve retourne le noyau qu'on lui donne": correlate_valid(X1D_17 + [0], [4, 1]),
+                     "np.convolve retourne le noyau qu'on lui donne, et met le zéro en trop au début":
+                         np.convolve(X1D_17, [1, 4], "same").tolist()}'''),
     ]),
 ]
 
@@ -389,6 +409,7 @@ from fractions import Fraction
 from itertools import product
 
 import numpy as np
+import scipy.signal
 
 
 def shape_of(shape):
@@ -442,6 +463,7 @@ LAW_A_1 = [Fraction(FACES_A_1.count(v), 6) for v in (1, 2, 3)]                  
 LAW_B_1 = [Fraction(FACES_B_1.count(v), 8) for v in (1, 2, 3, 4)]
 POLY_1 = ints(fraction_convolve([3, 2, 1], [1, 1, 2, 4]))                    # (3 + 2X + X²)(1 + X + 2X² + 4X³)
 CORR_1 = ints(fraction_convolve([3, 2, 1], [4, 2, 1, 1]))                    # sliding without flipping
+CORR_OTHER_1 = ints(fraction_convolve([1, 2, 3], [1, 1, 2, 4]))              # the same, in the other direction
 P_S_1 = {m + 2: p for m, p in enumerate(fraction_convolve(LAW_A_1, LAW_B_1))}                # index m ↔ S = m + 2
 assert P_S_1 == {s: Fraction(sum(a + b == s for a, b in product(FACES_A_1, FACES_B_1)), 48) for s in P_S_1}
 P_T_1 = {m + 3: p for m, p in enumerate(fraction_convolve(fraction_convolve(LAW_A_1, LAW_B_1), LAW_A_1))}  # + A'
@@ -499,18 +521,20 @@ def shift_between_5(y, y0):
 
 
 A_5 = correlate_valid(X_5, W_5)
+LOST_5 = sum(1 for i, v in enumerate(A_5) if v != 0 and i + 5 > len(A_5) - 1)          # shifted beyond the end
+assert LOST_5 == sum(v != 0 for v in A_5) - sum(v != 0 for v in correlate_valid(delayed_5(X_5, 5), W_5))
 STRIDE2_5 = {t: correlate_valid(delayed_5(X_5, t), W_5, s=2) for t in (0, 1, 4)}
 N_OUT_6 = -(-365 // 3)                                                                        # M21.6: ⌈365/3⌉
 TOTAL_6 = max((N_OUT_6 - 1) * 3 + 6 + 1 - 365, 0)                                             # zeros in all
 ZEROS_6 = [TOTAL_6 // 2, TOTAL_6 - TOTAL_6 // 2]
 assert (365 + TOTAL_6 - 6 - 1) // 3 + 1 == N_OUT_6
 LENGTHS_6 = [n for n in range(1, 400) if count_positions(n, 5, s=5) == 50]
-STEPS_6 = [s for s in range(1, 1000) if count_positions(1000, 7, s=s) == 100]
+STEPS_6 = [s for s in range(1, 1000) if count_positions(1000, 7, s=s) == 125]
 assert len(STEPS_6) == 1
 STEP_6 = STEPS_6[0]
 X_7 = [5, 1, 8, -2, 0, 4, 7]                                                                  # M21.7
 D3_7 = np.eye(len(X_7), dtype=int)[::3]                                                       # (D₃ x)_i = x_{3i}
-Y_7, W_7, S_7 = [3, 1, -2], [2, 1, 3, -1, 1], 3
+Y_7, W_7, S_7 = [3, 2, -2], [2, 1, 3, -1, 1], 3
 M_7, K_7 = len(Y_7), len(W_7)
 
 
@@ -621,6 +645,8 @@ def filter_17(X, W, b):
 
 Y_17 = filter_17(X_17, W_17, B_17)
 FLIPPED_17 = filter_17(X_17, W_17[:, :, ::-1, ::-1], B_17)                                  # both axes flipped
+KERNEL_2D_17 = W_17[0, 0, ::-1, ::-1]                                                         # a half turn
+assert np.array_equal(scipy.signal.convolve2d(X_17[0], KERNEL_2D_17, "valid"), correlate2d_valid(X_17[0], W_17[0, 0]))
 X1D_17, W1D_17 = [4, 1, 3, 2, 5], [1, 4]                                                      # y_i = x_i + 4 x_{i+1}
 TORCH_SAME_17 = correlate_valid(X1D_17 + [0], W1D_17)                                         # one zero on the right
 NUMPY_SAME_17 = np.convolve(X1D_17, [4, 1], "same").tolist()'''
@@ -694,10 +720,10 @@ def tests_cells(keyword: str) -> list:
 
 
 NOTE_19 = (r"La convolution pleine par une boucle sur $\mathbf{b}$ (chaque $b_j$ ajoute $b_j\,\mathbf{a}$ à partir de "
-           r"la case $j$), puis les lignes du mode. a) Trois dés à 8 faces totalisent 12 avec la probabilité "
-           r"$\frac{46}{512} = \frac{23}{256}$ : la loi d'un dé, $(0, \frac18, \ldots, \frac18)$, convoluée deux fois "
-           r"avec elle-même, l'indice étant la somme ; le calcul en flottants est exact, car $\frac18$ est une "
-           r"puissance de 2. b) Le coefficient de $X^5$ dans $(2 - X)^7$ vaut $\binom75 \times 2^2 \times (-1)^5 = "
+           r"la case $j$), puis les lignes du mode. a) Trois dés à 8 faces totalisent 11 avec la probabilité "
+           r"$\frac{42}{512} = \frac{21}{256}$ : la loi d'un dé, $(0, \frac18, \ldots, \frac18)$, convoluée deux fois "
+           r"avec elle-même, l'indice étant la somme (sans la case 0, l'indice $m$ serait le total $m + 3$) ; le calcul "
+           r"en flottants est exact, car $\frac18$ est une puissance de 2. b) Le coefficient de $X^5$ dans $(2 - X)^7$ vaut $\binom75 \times 2^2 \times (-1)^5 = "
            r"-84$. c) La première valeur du mode même taille vaut $\frac{8 + 10 + 13}{5} = 6{,}2$ : deux des cinq "
            r"termes sont des zéros, alors que la première moyenne complète vaut 12. d) 8 valeurs sur 12 sont des "
            r"moyennes de 5 vraies mesures, les $12 - 5 + 1$ du mode valide ; les deux premières et les deux dernières "
@@ -721,15 +747,15 @@ NOTE_21 = (r"Pour chaque $i$, ajouter $a_i$ fois $\mathbf{b}$ décalé circulair
 NOTE_22 = (r"La décomposition en valeurs singulières, le test $s_2 \le \text{tol} \cdot s_1$, puis $\mathbf{v}$, le "
            r"premier vecteur singulier à droite (sa première coordonnée nettement non nulle rendue positive), et "
            r"$\mathbf{u} = \mathbf{K}\mathbf{v}$. a) Pour le lissage de M21.8, $\mathbf{v} = \frac{1}{\sqrt{11}}(1, 3, "
-           r"1) \approx (0{,}3015 ;\ 0{,}9045 ;\ 0{,}3015)$ et $\mathbf{u} = \frac{\sqrt{11}}{25}(1, 3, 1)$. b) Vrai : "
-           r"le laplacien a pour valeurs singulières $\sqrt6 + 2 \approx 4{,}449$, $\sqrt6 - 2 \approx 0{,}449$ et 0 : "
-           r"$\frac{s_2}{s_1} \approx 0{,}1$, très loin de la tolérance. c) Le noyau bruité a pour valeurs singulières $19{,}08$, $1{,}3 \cdot 10^{-3}$ "
+           r"1) \approx (0{,}3015 ;\ 0{,}9045 ;\ 0{,}3015)$ et $\mathbf{u} = \frac{\sqrt{11}}{25}(1, 3, 1)$. b) $0{,}500$ : "
+           r"la moyenne en croix a pour valeurs singulières $\frac25$, $\frac15$ et 0 (rang 2), bien loin de la "
+           r"tolérance, et ta fonction rend `None`. c) Le noyau bruité a pour valeurs singulières $19{,}08$, $1{,}3 \cdot 10^{-3}$ "
            r"et $1{,}0 \cdot 10^{-3}$ : rejeté avec la tolérance $10^{-10}$, accepté avec $10^{-2}$ ; l'erreur de "
            r"l'approximation de rang 1 vaut $0{,}00166 = \sqrt{s_2^2 + s_3^2}$ (Eckart-Young, M12d).")
 
 NOTE_23 = (r"$\mathbf{K} \leftarrow \mathbf{K} * (\mathbf{w}_\ell$ dilaté de $S)$, puis $S \leftarrow S\,s_\ell$, en "
-           r"partant de $\mathbf{K} = (1)$ et $S = 1$. a) $6\,\mathbf{K} = (1, 1, 1, 1, 1, 1)$ avec $S = 2$, comme "
-           r"M21.10 c) et d). b) Quatre étages de noyaux de longueur 4 et de pas 2 : $[46, 16]$, soit $1 + 3(1 + 2 + 4 "
+           r"partant de $\mathbf{K} = (1)$ et $S = 1$. a) $6\,\mathbf{K} = (1, 1, 0, 1, 1, 0, 1, 1)$ avec $S = 3$, "
+           r"comme M21.10 c) et d) : le second étage lit une valeur sur 3 du premier. b) Quatre étages de noyaux de longueur 4 et de pas 2 : $[46, 16]$, soit $1 + 3(1 + 2 + 4 "
            r"+ 8) = 46$ (∂ M21.15). c) Le troisième étage écrit avec ses trous, $(w_0, 0, 0, 0, w_1, 0, 0, 0, w_2)$, "
            r"donne un noyau de 74 coefficients, le champ récepteur de M21.10 e) ; avec des poids égaux à 1, 44 d'entre "
            r"eux sont nuls : les trous de la plage (seuls trois blocs de 10 cases comptent). d) Vrai : la pile de noyaux de longueurs 3, 4 et 2 et de pas 2, 3 et "
@@ -750,7 +776,7 @@ M21_19 = Ex(
 
 **L'usage.** Avec ta fonction :
 - `law_19` : la loi de la somme de trois dés équilibrés à 8 faces, numérotées de 1 à 8, lancés indépendamment, rangée par **valeur de la somme** : un dé est la suite $(0, \frac18, \ldots, \frac18)$ de 9 termes (la case 0, de probabilité 0, puis les faces 1 à 8), et la loi de la somme, convoluée trois fois, a 25 termes, l'indice étant la somme (de 0 à 24) ;
-- a) la probabilité que les trois dés totalisent 12, en fraction irréductible (`"p/q"` ; la valeur flottante de `law_19[12]`, exacte ici, est aussi acceptée) ;
+- a) la probabilité que les trois dés totalisent 11, en fraction irréductible (`"p/q"` ; la valeur flottante de `law_19[11]`, exacte ici, est aussi acceptée) ;
 - b) le coefficient de $X^5$ dans $(2 - X)^7$, par sept convolutions successives (les coefficients d'un polynôme rangés du terme constant au terme de plus haut degré) ;
 - c) la première valeur du mode même taille de la moyenne mobile sur 5 jours (`AVERAGE_19`, cinq valeurs égales à 0,2) des températures `TEMPERATURES_19` (la valeur que donne le calcul, sans l'arrondir) ;
 - d) le nombre de valeurs de ce mode même taille qui sont des moyennes de 5 vraies mesures.
@@ -763,7 +789,7 @@ La vérification compare aussi `law_19` à la loi calculée par `np.convolve`. D
         ("todo", '''law_19 = answer_M21_19a = answer_M21_19b = answer_M21_19c = answer_M21_19d = ...
 with wbm.attempt("M21.19"):          # if you call convolve here: ⏳ while it is not written
     law_19 = ...          # the 25 probabilities of the sum of three 8-sided dice, the index being the sum (0 to 24)
-    answer_M21_19a = ...  # a) P(sum = 12): an irreducible fraction "p/q" (or the exact float law_19[12])
+    answer_M21_19a = ...  # a) P(sum = 11): an irreducible fraction "p/q" (or the exact float law_19[11])
     answer_M21_19b = ...  # b) an integer: the coefficient of X^5 in (2 - X)^7, by seven successive convolutions
     answer_M21_19c = ...  # c) a number, as computed (not rounded): the first value of the "same" mode of the average
     answer_M21_19d = ...  # d) an integer: how many values of this "same" mode are averages of 5 true measures'''),
@@ -780,7 +806,7 @@ wbm.check("M21.19d", answer_M21_19d)'''),
         ("solution", '''convolve = mymath.convolution.convolve
 die_19 = np.r_[0.0, np.full(8, 1 / 8)]                     # index = the face: the case 0, then 1/8 eight times
 law_19 = convolve(convolve(die_19, die_19), die_19)        # index = the sum of the three dice
-answer_M21_19a = str(Fraction(float(law_19[12])).limit_denominator(10_000))
+answer_M21_19a = str(Fraction(float(law_19[11])).limit_denominator(10_000))
 power_19 = np.array([1.0])
 for _ in range(7):
     power_19 = convolve(power_19, [2.0, -1.0])            # the coefficients of (2 - X)^k, constant term first
@@ -788,15 +814,17 @@ answer_M21_19b = int(round(power_19[5]))
 same_19 = convolve(TEMPERATURES_19, AVERAGE_19, "same")
 answer_M21_19c = float(same_19[0])
 answer_M21_19d = len(convolve(TEMPERATURES_19, AVERAGE_19, "valid"))
-print("a)", answer_M21_19a, "=", float(law_19[12]), "; somme des 25 probabilités :", law_19.sum())
+print("a)", answer_M21_19a, "=", float(law_19[11]), "; somme des 25 probabilités :", law_19.sum())
 print("b) (2 − X)⁷ :", np.round(power_19).astype(int).tolist(), "→", answer_M21_19b)
 print("mode même taille :", np.round(same_19, 2).tolist())
 print("mode valide :     ", np.round(convolve(TEMPERATURES_19, AVERAGE_19, "valid"), 2).tolist())
 print("c)", round(answer_M21_19c, 4), " d)", answer_M21_19d)'''),
         ("record", '''counts_19r = [sum(sum(faces) == total for faces in itertools.product(range(1, 9), repeat=3)) for total in range(25)]
-wbm.record("M21.19a", str(Fraction(counts_19r[12], 8 ** 3)), kind="fraction", simplified=True,
-           mistakes={"avec la case 0 de chaque dé, l'indice de la loi est la somme elle-même : il n'y a rien à "
-                     "décaler": str(Fraction(counts_19r[12 - 3], 8 ** 3))})
+wbm.record("M21.19a", str(Fraction(counts_19r[11], 8 ** 3)), kind="fraction", simplified=True,
+           mistakes={"chaque dé commence à la face 1 : l'indice d'une valeur de la convolution n'est pas le total":
+                         str(Fraction(counts_19r[11 + 3], 8 ** 3)),
+                     "avec la case 0 de chaque dé, l'indice de la loi est la somme elle-même : il n'y a rien à "
+                     "décaler": str(Fraction(counts_19r[11 - 3], 8 ** 3))})
 coefficients_19r = [math.comb(7, j) * 2 ** (7 - j) * (-1) ** j for j in range(8)]    # (2 - X)^7, constant term first
 wbm.record("M21.19b", coefficients_19r[5],
            mistakes={"le terme en X⁵ de (2 − X)⁷ porte le signe de (−1)⁵": -coefficients_19r[5],
@@ -983,7 +1011,7 @@ wbm.record("M21.21d", [bool(np.array_equal(circ_21r.T, scipy.linalg.circulant(h_
 
 GIVEN_22 = '''A8_22 = np.array([1.0, 3.0, 1.0]) / 5
 K8_22 = np.outer(A8_22, A8_22)                                       # the smoothing kernel of M21.8
-LAPLACIAN_22 = np.array([[0.0, 1, 0], [1, -4, 1], [0, 1, 0]])         # the five-point Laplacian
+CROSS_22 = np.array([[0.0, 1, 0], [1, 1, 1], [0, 1, 0]]) / 5         # the mean over a cross of five cells
 NOISY_22 = (np.outer([1.0, 2.0, 4.0, 2.0, 1.0], [2.0, -1.0, 3.0])
             + 1e-3 * np.random.default_rng(5532).standard_normal((5, 3)))   # nearly separable'''
 
@@ -996,27 +1024,32 @@ M21_22 = Ex(
 
 Écris `separable_factors(kernel, tol=1e-10)` (fiche §6), en suivant sa docstring : par la décomposition en valeurs singulières (M12d, `np.linalg.svd`, la seule fonction de `np.linalg` permise, ici seulement), le noyau est séparable quand sa deuxième valeur singulière vaut au plus `tol` fois la première ; alors $\mathbf{v}$ est le premier vecteur singulier à droite, de norme 1, sa première coordonnée de valeur absolue $> 10^{-8}$ rendue positive, et $\mathbf{u} = \mathbf{K}\mathbf{v}$ ; sinon, `None`. `ValueError` pour un noyau qui n'est pas à deux dimensions, vide ou identiquement nul, ou une tolérance négative.
 
-**L'usage.** La cellule fournie donne le lissage $\mathbf{K} = \mathbf{a}\mathbf{a}^\top$ de M21.8, avec $\mathbf{a} = \frac15(1, 3, 1)$ (`K8_22`), le laplacien discret (`LAPLACIAN_22`), et un noyau presque séparable, le produit extérieur de $(1, 2, 4, 2, 1)$ et de $(2, -1, 3)$ plus un bruit gaussien d'écart type 0,001 (`NOISY_22`, graine 5532). Avec ta fonction :
+**L'usage.** La cellule fournie donne le lissage $\mathbf{K} = \mathbf{a}\mathbf{a}^\top$ de M21.8, avec $\mathbf{a} = \frac15(1, 3, 1)$ (`K8_22`), la moyenne en croix $\frac15\begin{pmatrix} 0 & 1 & 0 \\ 1 & 1 & 1 \\ 0 & 1 & 0 \end{pmatrix}$ (`CROSS_22`), et un noyau presque séparable, le produit extérieur de $(1, 2, 4, 2, 1)$ et de $(2, -1, 3)$ plus un bruit gaussien d'écart type 0,001 (`NOISY_22`, graine 5532). Avec ta fonction :
 - a) le facteur $\mathbf{v}$ de `K8_22` (une liste de 3 nombres, la valeur que donne le calcul, sans l'arrondir) ;
-- b) vrai ou faux : ta fonction rend `None` pour le laplacien discret ;
+- b) le rapport $s_2/s_1$ des valeurs singulières de `CROSS_22` (`np.linalg.svd` ; la valeur que donne le calcul, sans l'arrondir), et `factors_cross_22`, ce que rend ta fonction pour ce noyau ;
 - `factors_default_22`, ce que rend ta fonction pour `NOISY_22` avec la tolérance par défaut, et `factors_loose_22`, avec une tolérance de $10^{-2}$ ;
 - c) l'erreur $\lVert\mathbf{K} - \mathbf{u}\mathbf{v}^\top\rVert_F$ de l'approximation de rang 1 donnée par `factors_loose_22` (`np.linalg.norm` ; la valeur que donne le calcul, sans l'arrondir).
 
-La vérification regarde aussi que `factors_default_22` vaut `None`, que `factors_loose_22` est un couple de facteurs, et compare c) à $\sqrt{s_2^2 + s_3^2}$, calculé par NumPy. Dans ta copie : que vaut $\mathbf{u}$ en a) ? Pourquoi c) vaut-il $\sqrt{s_2^2 + s_3^2}$ (Eckart-Young, M12d) ? Quel rapport $\frac{s_2}{s_1}$ sépare les deux tolérances ?""",
+La vérification regarde aussi que `factors_cross_22` et `factors_default_22` valent `None`, que `factors_loose_22` est un couple de facteurs, et compare c) à $\sqrt{s_2^2 + s_3^2}$, calculé par NumPy. Dans ta copie : que vaut $\mathbf{u}$ en a) ? Quelles sont les valeurs singulières de la moyenne en croix, et pourquoi son rang vaut-il 2 ? Pourquoi c) vaut-il $\sqrt{s_2^2 + s_3^2}$ (Eckart-Young, M12d) ? Quel rapport $\frac{s_2}{s_1}$ sépare les deux tolérances ?""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=tests_cells("test_separable_factors_") + [
         ("md", "**L'usage** : un noyau séparable, un noyau qui ne l'est pas, et un noyau presque séparable."),
-        ("todo", '''answer_M21_22a = answer_M21_22b = answer_M21_22c = factors_default_22 = factors_loose_22 = ...
+        ("todo", '''answer_M21_22a = answer_M21_22b = answer_M21_22c = ...
+factors_cross_22 = factors_default_22 = factors_loose_22 = ...
 with wbm.attempt("M21.22"):          # if you call separable_factors here: ⏳ while it is not written
     answer_M21_22a = ...      # a) a list of 3 numbers, as computed (not rounded): the factor v of K8_22
-    answer_M21_22b = ...      # b) True or False: separable_factors(LAPLACIAN_22) is None
+    answer_M21_22b = ...      # b) a number, as computed: s2 / s1 for CROSS_22 (np.linalg.svd)
+    factors_cross_22 = ...    # what separable_factors(CROSS_22) returns
     factors_default_22 = ...  # separable_factors(NOISY_22), with the default tolerance
     factors_loose_22 = ...    # separable_factors(NOISY_22, tol=1e-2)
     answer_M21_22c = ...      # c) a number, as computed: the Frobenius norm of NOISY_22 - outer(u, v), (u, v) = factors_loose_22'''),
         ("check", '''for letter, answer in zip("abc", [answer_M21_22a, answer_M21_22b, answer_M21_22c]):
     wbm.check(f"M21.22{letter}", answer, computed=True)
-if factors_default_22 is not ...:                         # None is the right answer here: not filled() (None = ⏳)
+if factors_cross_22 is not ...:                           # None is the right answer here: not filled() (None = ⏳)
+    verdict("M21.22", factors_cross_22 is None, "la moyenne en croix, de rang 2, n'est pas séparable : None.",
+            "la moyenne en croix est de rang 2 (s₂ n'est pas petit devant s₁) : ta fonction doit rendre None.")
+if factors_default_22 is not ...:
     verdict("M21.22", factors_default_22 is None, "avec la tolérance par défaut, NOISY_22 n'est pas séparable.",
             "avec la tolérance par défaut (1e-10), NOISY_22 a s₂ trop grand devant s₁ : ta fonction doit rendre None.")
 if filled(factors_loose_22):
@@ -1031,14 +1064,16 @@ if filled(answer_M21_22c):
         ("solution", '''separable_factors = mymath.convolution.separable_factors
 u_22, v_22 = separable_factors(K8_22)
 answer_M21_22a = v_22.tolist()
-answer_M21_22b = separable_factors(LAPLACIAN_22) is None
+singular_cross_22 = np.linalg.svd(CROSS_22, compute_uv=False)
+answer_M21_22b = float(singular_cross_22[1] / singular_cross_22[0])
+factors_cross_22 = separable_factors(CROSS_22)
 factors_default_22 = separable_factors(NOISY_22)
 factors_loose_22 = separable_factors(NOISY_22, tol=1e-2)
 answer_M21_22c = float(np.linalg.norm(NOISY_22 - np.outer(*factors_loose_22)))
 singular_22 = np.linalg.svd(NOISY_22, compute_uv=False)
 print("a) v =", np.round(v_22, 4).tolist(), "; u =", np.round(u_22, 4).tolist(), "; √11/25 =", round(math.sqrt(11) / 25, 4))
-print("b)", answer_M21_22b, "; valeurs singulières du laplacien :",
-      np.round(np.linalg.svd(LAPLACIAN_22, compute_uv=False), 4).tolist())
+print("b)", round(answer_M21_22b, 6), "; valeurs singulières de la moyenne en croix :",
+      np.round(singular_cross_22, 6).tolist(), "; separable_factors :", factors_cross_22)
 print("NOISY_22 : s =", [f"{s:.3e}" for s in singular_22], "; s₂/s₁ =", f"{singular_22[1] / singular_22[0]:.2e}")
 print("tolérance par défaut :", factors_default_22, "; tolérance 1e-2 : deux facteurs")
 print("c)", f"{answer_M21_22c:.6f}", "; √(s₂² + s₃²) =", f"{math.sqrt(np.sum(singular_22[1:] ** 2)):.6f}")'''),
@@ -1049,9 +1084,13 @@ wbm.record("M21.22a", v_22r.tolist(), decimals=4,
                      "v est de norme 1": (np.array([1.0, 3.0, 1.0]) / 5).tolist(),
                      "c'est u = K v ; la question demande le facteur v, de norme 1":
                          (np.outer([1, 3, 1], [1, 3, 1]) / 25 @ v_22r).tolist()})
-wbm.record("M21.22b", bool(np.linalg.matrix_rank([[0, 1, 0], [1, -4, 1], [0, 1, 0]]) > 1),
-           mistakes={"le laplacien est de rang 2 : sa deuxième valeur singulière n'est pas petite devant la première":
-                         False})
+s_cross_22r = np.linalg.svd(np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]]) / 5, compute_uv=False)
+assert np.allclose(s_cross_22r, [2 / 5, 1 / 5, 0])                     # the eigenvalues 2/5, −1/5 and 0, in absolute value
+wbm.record("M21.22b", float(s_cross_22r[1] / s_cross_22r[0]), decimals=3,
+           mistakes={"s₁ est la plus grande valeur singulière : le rapport s₂/s₁ est au plus 1":
+                         float(s_cross_22r[0] / s_cross_22r[1]),
+                     "s₂ est la deuxième valeur singulière, en ordre décroissant ; 0 est la troisième":
+                         round(float(s_cross_22r[2] / s_cross_22r[0]), 12)})
 noisy_22r = (np.outer([1.0, 2.0, 4.0, 2.0, 1.0], [2.0, -1.0, 3.0])
              + 1e-3 * np.random.default_rng(5532).standard_normal((5, 3)))
 s_22r = np.linalg.svd(noisy_22r, compute_uv=False)
@@ -1100,7 +1139,7 @@ M21_23 = Ex(
 Écris `equivalent_kernel(kernels, strides=None)` (fiche §7), en suivant sa docstring, avec ta `convolve` : l'étage $\ell$ calcule la somme glissante des bibliothèques $y_i = \sum_u w_{\ell,u}\,x_{s_\ell i + u}$ (sans retournement ni padding), et toute la pile est une seule somme glissante $z_j = \sum_t K_t\,x_{Sj+t}$, de pas $S = s_1 \cdots s_L$. En partant de $\mathbf{K} = (1)$ et $S = 1$, chaque étage remplace $\mathbf{K}$ par sa convolution avec $\mathbf{w}_\ell$ **dilaté** de $S$ ($S - 1$ zéros entre deux coefficients), puis $S$ par $S\,s_\ell$. Le couple `(K, S)` : un tableau de flottants, de longueur $1 + \sum_\ell (k_\ell - 1)\,s_1 \cdots s_{\ell-1}$ (zéros compris), et un `int` ; `ValueError` sans noyau, pour un noyau qui n'est pas à une dimension ou qui est vide, ou des pas qui ne sont pas $L$ entiers $\ge 1$.
 
 **L'usage.** Écris aussi `strided_sum(x, w, s)`, la somme glissante de pas $s$ en mode valide, avec ta `convolve` (une somme glissante est une convolution valide par le noyau retourné, dont on garde une valeur sur $s$). La cellule fournie tire (graine 5533) une pile de trois étages, de noyaux de longueurs 3, 4 et 2 (`KERNELS_23`) et de pas 2, 3 et 1 (`STRIDES_23`), et un signal de 200 valeurs (`X_23`). Avec tes fonctions :
-- a) $6\,\mathbf{K}$ pour la pile de M21.10 c) : $\frac12(1, 1)$ avec un pas de 2, puis $\frac13(1, 1, 1)$ avec un pas de 1 (une liste de nombres, la valeur que donne le calcul) ;
+- a) $6\,\mathbf{K}$ pour la pile de M21.10 c) : $\frac12(1, 1)$ avec un pas de 3, puis $\frac13(1, 1, 1)$ avec un pas de 1 (une liste de nombres, la valeur que donne le calcul) ;
 - b) la longueur du noyau équivalent et le pas total de quatre étages identiques, de noyaux de longueur 4 et de pas 2 (une liste de 2 entiers) ;
 - c) le champ récepteur de la pile de M21.10 e), $(k, s, d) = (2, 2, 1)$, $(5, 4, 1)$, $(3, 1, 4)$, en écrivant le troisième étage, dilaté, comme le noyau à trous $(w_0, 0, 0, 0, w_1, 0, 0, 0, w_2)$ (un entier : la longueur du noyau équivalent) ;
 - `stack_23` : `X_23` passé dans les trois étages, l'un après l'autre, par `strided_sum` ; `direct_23` : `X_23` passé dans la seule somme glissante du noyau équivalent, avec le pas total ;
@@ -1119,7 +1158,7 @@ La vérification essaie aussi `strided_sum` sur des cas que tu ne vois pas, et c
 
 answer_M21_23a = answer_M21_23b = answer_M21_23c = answer_M21_23d = stack_23 = direct_23 = ...
 with wbm.attempt("M21.23"):          # equivalent_kernel and strided_sum: ⏳ while they are not written
-    answer_M21_23a = ...  # a) a list of numbers, as computed: 6 K for (1, 1)/2 with a step 2, then (1, 1, 1)/3 with a step 1
+    answer_M21_23a = ...  # a) a list of numbers, as computed: 6 K for (1, 1)/2 with a step 3, then (1, 1, 1)/3 with a step 1
     answer_M21_23b = ...  # b) a list of 2 integers: [len(K), S] for four stages of kernels of length 4 and step 2
     answer_M21_23c = ...  # c) an integer: len(K) for the stack of M21.10 e), its third stage written with its holes
     stack_23 = ...        # X_23 through the three stages of KERNELS_23 and STRIDES_23, one after the other
@@ -1139,7 +1178,7 @@ def strided_sum(x, w, s=1):
     return convolve(x, np.asarray(w, dtype=float)[::-1], "valid")[::s]      # flip, keep one value in s
 
 
-K_a23, S_a23 = equivalent_kernel([[0.5, 0.5], [1 / 3, 1 / 3, 1 / 3]], strides=[2, 1])
+K_a23, S_a23 = equivalent_kernel([[0.5, 0.5], [1 / 3, 1 / 3, 1 / 3]], strides=[3, 1])
 answer_M21_23a = (6 * K_a23).tolist()
 K_b23, S_b23 = equivalent_kernel([[1.0, 1.0, 1.0, 1.0]] * 4, strides=[2] * 4)
 answer_M21_23b = [len(K_b23), S_b23]
@@ -1175,8 +1214,11 @@ def receptive_field_23r(stack):
     return r
 
 
-wbm.record("M21.23a", np.round(6 * np.array(stack_kernel_23r([[0.5, 0.5], [1 / 3] * 3], [2, 1])), 9).tolist(),
-           mistakes={"le pas du premier étage dilate le noyau du second": [1, 2, 2, 1]})
+wbm.record("M21.23a", np.round(6 * np.array(stack_kernel_23r([[0.5, 0.5], [1 / 3] * 3], [3, 1])), 9).tolist(),
+           mistakes={"le pas du premier étage dilate le noyau du second":
+                         np.round(6 * np.array(stack_kernel_23r([[0.5, 0.5], [1 / 3] * 3], [1, 1])), 9).tolist(),
+                     "le noyau du second étage est dilaté du pas du premier étage, s₁":
+                         np.round(6 * np.array(stack_kernel_23r([[0.5, 0.5], [1 / 3] * 3], [2, 1])), 9).tolist()})
 wbm.record("M21.23b", [receptive_field_23r([(4, 2, 1)] * 4), 2 ** 4],
            mistakes={"un pas multiplie les contributions des étages SUIVANTS": [1 + 4 * 3, 2 ** 4],
                      "le pas total est le PRODUIT des pas": [receptive_field_23r([(4, 2, 1)] * 4), 4 * 2]})
@@ -1311,7 +1353,7 @@ wbm.record("M21.24e", outputs_24r[1], prediction=True,
 )
 
 GIVEN_25 = '''rng_25 = np.random.default_rng(5535)
-GRID_25 = rng_25.standard_normal((300, 300))                    # a grid of 300 × 300 random values
+GRID_25 = rng_25.standard_normal((360, 360))                    # a grid of 360 × 360 random values
 KS_25 = [3, 5, 9, 15, 25]
 FACTORS_25 = {k: (rng_25.standard_normal(k), rng_25.standard_normal(k)) for k in KS_25}   # K = outer(a, b) for each k
 
@@ -1396,14 +1438,14 @@ M21_25 = Ex(
     "comparer à k² et 2k",
     "mesurer le coût d'un filtrage direct et d'un filtrage séparable selon la taille du noyau, et le comparer aux "
     "comptes $k^2$ et $2k$ de la fiche.", "fiche §6 ; Ex M21.8", tracks="C", given=GIVEN_25, note=NOTE_25,
-    body=r"""Une grille de $300 \times 300$ valeurs tirées au hasard (`GRID_25`, graine 5535) est filtrée, en mode valide, par des noyaux de rang 1, $\mathbf{K} = \mathbf{a}\mathbf{b}^\top$ (fiche §6), de taille $k \times k$ pour $k = 3, 5, 9, 15, 25$ (`KS_25` ; les facteurs $\mathbf{a}$ et $\mathbf{b}$ de chaque $k$ sont dans `FACTORS_25[k]`). Écris :
+    body=r"""Une grille de $360 \times 360$ valeurs tirées au hasard (`GRID_25`, graine 5535) est filtrée, en mode valide, par des noyaux de rang 1, $\mathbf{K} = \mathbf{a}\mathbf{b}^\top$ (fiche §6), de taille $k \times k$ pour $k = 3, 5, 9, 15, 25$ (`KS_25` ; les facteurs $\mathbf{a}$ et $\mathbf{b}$ de chaque $k$ sont dans `FACTORS_25[k]`). Écris :
 - `direct_25(X, a, b)` : la somme glissante valide de la grille $\mathbf{X}$ par $\mathbf{K} = \mathbf{a}\mathbf{b}^\top$, qui ajoute les $k^2$ tranches de $\mathbf{X}$ décalées de $(u, v)$, chacune multipliée par $K_{u,v}$ ;
 - `separable_25(X, a, b)` : la même chose en deux passes, $k$ tranches le long des colonnes (décalées de $u$ lignes) multipliées par $a_u$, puis $k$ tranches du résultat le long des lignes (décalées de $v$ colonnes) multipliées par $b_v$ ;
 - `draw_costs_25(ax_time, ax_ratio, ks, direct_times, separable_times)`, qui dessine dans les deux axes reçus (sans en ouvrir d'autre) : dans `ax_time`, les deux temps contre $k$, une ligne avec des points pour chacun, les deux échelles logarithmiques ; dans `ax_ratio`, le rapport des temps (direct / séparable) contre $k$, et la droite $\frac k2$ ; des légendes et des titres.
 
 Puis mesure, avec `best_time_25` (fournie : le meilleur de 3 essais, `time.perf_counter`), `direct_times_25` et `separable_times_25`, les temps de tes deux fonctions sur `GRID_25`, un par $k$ de `KS_25`. Réponds :
 - a) le nombre de multiplications par valeur de sortie pour $k = 25$, selon les comptes de la fiche ($k_hk_w$ en direct, environ $k_h + k_w$ en deux passes), dans cet ordre (une liste de 2 entiers) ;
-- b) le rapport mesuré des temps pour $k = 25$ est le plus proche de : (A) 2 ; (B) 12,5 ; (C) 625 (une lettre) ;
+- b) le rapport mesuré des temps pour $k = 25$ est le plus proche, en ordre de grandeur (sur une échelle logarithmique), de : (A) 2 ; (B) 12,5 ; (C) 625 (une lettre) ;
 - c) vrai ou faux : pour $k = 25$, les deux sorties coïncident à $10^{-9}$ près (`np.allclose(..., rtol=0, atol=1e-9)`).
 
 La vérification essaie tes deux filtrages sur des grilles que tu ne vois pas (comparés à `scipy.signal.correlate2d`), puis appelle `draw_costs_25` et regarde le dessin, en s'arrêtant au premier ❌. (La transformée de Fourier, qui accélère encore les très grands noyaux, n'est qu'évoquée dans la fiche, §4.)""",
@@ -1430,7 +1472,7 @@ with wbm.attempt("M21.25"):          # your functions: ⏳ while they are not wr
     direct_times_25 = ...     # the 5 best times of direct_25 on GRID_25, one per k of KS_25 (best_time_25)
     separable_times_25 = ...  # the same for separable_25
     answer_M21_25a = ...  # a) a list of 2 integers: multiplications per output value for k = 25, direct then two passes
-    answer_M21_25b = ...  # b) "A", "B" or "C": your measured ratio for k = 25 is closest to (A) 2, (B) 12.5, (C) 625
+    answer_M21_25b = ...  # b) "A", "B" or "C": your measured ratio for k = 25 is closest, on a log scale, to (A) 2, (B) 12.5, (C) 625
     answer_M21_25c = ...  # c) True or False: for k = 25, the two outputs coincide to 1e-9''',
     check='''wbm.check("M21.25a", answer_M21_25a)
 wbm.check("M21.25b", answer_M21_25b)
@@ -1475,7 +1517,7 @@ def draw_costs_25(ax_time, ax_ratio, ks, direct_times, separable_times):
     ax_time.xaxis.set_minor_locator(plt.NullLocator())
     ax_time.set_xlabel("taille du noyau k (échelle log)")
     ax_time.set_ylabel("temps (s, échelle log)")
-    ax_time.set_title("filtrage d'une grille 300 × 300 par un noyau k × k de rang 1", fontsize=10)
+    ax_time.set_title("filtrage d'une grille 360 × 360 par un noyau k × k de rang 1", fontsize=10)
     ax_time.grid(True, which="both", alpha=0.3)
     ax_time.legend(fontsize=8)
     ax_ratio.plot(ks, direct / separable, "o-", color="C2", label="rapport mesuré (direct / séparable)")
@@ -1511,10 +1553,10 @@ print("a)", answer_M21_25a, " b)", answer_M21_25b, f"(rapport mesuré {ratio_25:
                      "dans l'ordre : en direct, puis en deux passes": [25 + 25, 25 * 25]})
 wbm.record("M21.25b", "B",
            mistakes={"relis tes deux temps pour k = 25 : le rapport se calcule direct / séparable, et se compare aux "
-                     "comptes de a)": "A",
+                     "trois valeurs sur une échelle logarithmique (par leurs rapports, pas par leurs différences)": "A",
                      "625 est le nombre de multiplications du filtrage direct, pas le rapport des temps": "C"})
 rng_25r = np.random.default_rng(5535)
-grid_25r = rng_25r.standard_normal((300, 300))
+grid_25r = rng_25r.standard_normal((360, 360))
 a_25r, b_25r = {k: (rng_25r.standard_normal(k), rng_25r.standard_normal(k)) for k in [3, 5, 9, 15, 25]}[25]
 two_passes_25r = scipy.signal.correlate2d(scipy.signal.correlate2d(grid_25r, a_25r[:, None], "valid"), b_25r[None, :],
                                           "valid")
@@ -1666,16 +1708,18 @@ PART_B = Part("B", "Prédire, mesurer, dessiner",
 # ---------------------------------------------------------------------------
 # Notebook exercises: debug and test (M21.27, M21.28)
 # ---------------------------------------------------------------------------
-NOTE_27 = (r"(1) `np.convolve` retourne le noyau : `sliding_sum` doit lui donner `w[::-1]` (ou appeler "
-           r"`np.correlate`). La vérification du collègue utilisait la dérivée seconde, symétrique, que le "
-           r"retournement ne change pas. a) Les vitesses de montée valent $(1, 3, 2, 5, 1)$ m/h ; la version fausse "
-           r"donnait leurs opposées. (2) La dernière fenêtre incomplète n'existe pas : `//` (ou `math.floor`) au lieu "
-           r"de `math.ceil` ; les trois cas du collègue tombaient juste, et les deux arrondis coïncidaient. b) 24 "
-           r"positions (la version fausse en compte 25). (3) Une première colonne et une première ligne ne suffisent "
-           r"que pour un noyau de rang 1 (et avec $K_{0,0} \ne 0$) : il faut tester le rang, par exemple avec "
+NOTE_27 = (r"(1) Un produit de polynômes est une convolution : `np.correlate` ne retourne pas son second argument, "
+           r"il faut `np.convolve(p, q)`. La vérification du collègue prenait un facteur palindrome, $(2, 5, 2)$, que "
+           r"le retournement ne change pas. a) $(1 + 2X)(3 - X + 4X^2) = 3 + 5X + 2X^2 + 8X^3$ ; la version fausse "
+           r"rend $(4, 7, 1, 6)$. (2) `k // s` ne vaut que si $s$ divise $k$ : sinon, le nombre de tampons change "
+           r"d'une case à l'autre, et il faut compter, pour la case $j$, les $i$ tels que $0 \le j - s\,i \le k - 1$. "
+           r"Les trois cas du collègue avaient $s$ qui divise $k$. b) $(3, 3, 2)$ pour les cases 9, 10 et 11 ; la "
+           r"carte complète vaut $(1, 1, 1, 2, 2, 2, 3, 3, 2, 3, 3, 2, 3, 3, 2, 3, 3, 2, 2, 2, 1, 1, 1)$, et la "
+           r"version fausse dit 2 partout. (3) Une première colonne et une première ligne ne suffisent que pour un "
+           r"noyau de rang 1 (et avec $K_{0,0} \ne 0$) : il faut tester le rang, par exemple avec "
            r"`separable_factors`. c) L'écart maximal vaut 1, en ligne 1, colonne 2 ($5$ contre $6$), sans aucun "
            r"message d'erreur. d) Vrai : le noyau est de rang 2, avec $\frac{s_2}{s_1} \approx 0{,}043$. e) "
-           r"$(-9, 3, -10, 5, -13, -17)$, alors que PyTorch donne $(3, -10, 5, -13, -17, 18)$ : les mêmes nombres, "
+           r"$(-18, 6, -17, 11, -22, 7)$, alors que PyTorch donne $(6, -17, 11, -22, 7, 6)$ : les mêmes nombres, "
            r"décalés d'une case.")
 
 NOTE_28 = (r"Le test passe sur la référence (202 cas, 606 appels de `toeplitz_matrix`), et attrape la version fausse "
@@ -1686,21 +1730,20 @@ NOTE_28 = (r"Le test passe sur la référence (202 cas, 606 appels de `toeplitz_
 
 GIVEN_C = 'ref_conv = wbm.load_mymath("ref", alias="mymath_ref").convolution   # the reference: the check of M21.28'
 
-GIVEN_27 = '''LEVELS_27 = np.array([2.0, 2.5, 4.0, 5.0, 7.5, 8.0])      # the level of a reservoir (m), every 0.5 h
-HOURS_27 = 0.5
+GIVEN_27 = '''P_27, Q_27 = np.array([1.0, 2.0]), np.array([3.0, -1.0, 4.0])      # (1 + 2X)(3 − X + 4X²)
 K_27 = np.array([[2.0, 1.0, 3.0], [4.0, 2.0, 5.0], [2.0, 1.0, 3.0]])
-X_27, W_27 = np.array([3.0, 1.0, 4.0, 1.0, 5.0, 9.0]), np.array([2.0, -3.0])
+X_27, W_27 = np.array([6.0, 2.0, 7.0, 1.0, 8.0, 3.0]), np.array([2.0, -3.0])
 
 
 # The colleague's code
-def sliding_sum(x, w):
-    """The sliding sum of the libraries, valid mode: y[i] = Σ_u w[u] x[i + u]."""
-    return np.convolve(x, w, "valid")
+def poly_product(p, q):
+    """The coefficients of the product of two polynomials, from the constant term to the highest degree."""
+    return np.correlate(p, q, "full")
 
 
-def n_positions(n, k, s=1, p=0, d=1):
-    """The number of positions of a window of k weights, step s, padding p on each side, dilation d."""
-    return math.ceil((n + 2 * p - d * (k - 1) - 1) / s) + 1
+def n_covers(k, s):
+    """The number of stamps that cover an inner cell of a transposed convolution: kernel of length k, step s."""
+    return k // s
 
 
 def separate(K):
@@ -1710,9 +1753,9 @@ def separate(K):
 
 
 # The colleague's checks: all pass
-print("(1) dérivée seconde de (1, 4, 9, 16) :", sliding_sum([1, 4, 9, 16], [1, -2, 1]).tolist(), "(attendu [2, 2])")
-print("(2) positions pour (n, k, s) = (9, 3, 2), (13, 5, 4), (10, 4, 3) :",
-      [n_positions(n, k, s) for n, k, s in ((9, 3, 2), (13, 5, 4), (10, 4, 3))], "(attendu [4, 3, 3], à la main)")
+print("(1) (1 + 2X)(2 + 5X + 2X²) :", poly_product([1, 2], [2, 5, 2]).tolist(), "(attendu [2, 9, 12, 4])")
+print("(2) n_covers : (k, s) = (6, 2) →", n_covers(6, 2), "; (9, 3) →", n_covers(9, 3), "; (8, 4) →", n_covers(8, 4),
+      "(comptés à la main sur une case intérieure : k/s)")
 u_c27, v_c27 = separate(np.outer([1, 2], [3, 1, 2]))
 print("(3) un produit extérieur reconstruit :", bool(np.allclose(np.outer(u_c27, v_c27), np.outer([1, 2], [3, 1, 2]))))'''
 
@@ -1738,31 +1781,35 @@ def call_27(part, name, function, *args):
 
 
 rng_c27 = np.random.default_rng(5521)
-with checked("M21.27"):                                       # (1) sliding_sum_fixed
+with checked("M21.27"):                                       # (1) poly_product_fixed
     wrong_27 = []
-    for n_c27, k_c27 in ((9, 2), (12, 5), (7, 4), (6, 6), (10, 1)):
-        x_c27, w_c27 = np.round(rng_c27.normal(0, 3, size=n_c27), 2), np.round(rng_c27.normal(0, 2, size=k_c27), 2)
-        want_c27 = np.correlate(x_c27, w_c27, "valid")
-        got_c27 = call_27(1, "sliding_sum_fixed", sliding_sum_fixed, x_c27.copy(), w_c27.copy())
+    for n_c27, m_c27 in ((2, 4), (4, 2), (3, 3), (5, 1), (1, 3)):
+        p_c27 = rng_c27.integers(-5, 6, size=n_c27).astype(float)
+        q_c27 = rng_c27.integers(-5, 6, size=m_c27).astype(float)
+        q_c27[0], q_c27[-1] = 2.0, -3.0 if m_c27 > 1 else 2.0         # never a palindrome
+        want_c27 = np.array([sum(p_c27[i] * q_c27[d - i] for i in range(n_c27) if 0 <= d - i < m_c27)
+                             for d in range(n_c27 + m_c27 - 1)])          # the product, expanded term by term
+        got_c27 = call_27(1, "poly_product_fixed", poly_product_fixed, p_c27.copy(), q_c27.copy())
         if got_c27 is None or np.shape(got_c27) != want_c27.shape or not np.allclose(got_c27, want_c27):
-            wrong_27.append(f"un signal de {n_c27} valeurs et un noyau non symétrique de {k_c27} poids : attendu "
-                            f"{np.round(want_c27, 3).tolist()}, reçu {shown(got_c27, 3)}"[:260])
-    report_27(not wrong_27, "(1) sliding_sum_fixed : des noyaux non symétriques, de longueur paire ou impaire",
-              "(1) sliding_sum_fixed : " + " ; ".join(wrong_27[:2]))
+            wrong_27.append(f"p = {p_c27.astype(int).tolist()}, q = {q_c27.astype(int).tolist()} : attendu "
+                            f"{want_c27.astype(int).tolist()}, reçu {shown(got_c27, 3)}"[:260])
+    report_27(not wrong_27, "(1) poly_product_fixed : des polynômes aux coefficients non palindromes, de degrés variés "
+              "(comparé au développement terme à terme)", "(1) poly_product_fixed : " + " ; ".join(wrong_27[:2]))
     parts_27.append(1)
 
-with checked("M21.27"):                                       # (2) n_positions_fixed
+with checked("M21.27"):                                       # (2) n_covers_fixed
     wrong_27 = []
-    for n_c27, k_c27, s_c27, p_c27, d_c27 in ((100, 6, 4, 0, 1), (37, 3, 5, 1, 2), (64, 7, 3, 2, 1), (20, 4, 2, 0, 3),
-                                              (11, 11, 1, 0, 1), (50, 5, 7, 3, 1)):
-        want_c27 = sum(1 for start in range(0, n_c27 + 2 * p_c27, s_c27)
-                       if start + d_c27 * (k_c27 - 1) <= n_c27 + 2 * p_c27 - 1)
-        got_c27 = call_27(2, "n_positions_fixed", n_positions_fixed, n_c27, k_c27, s_c27, p_c27, d_c27)
-        if got_c27 != want_c27:
-            wrong_27.append(f"(n, k, s, p, d) = ({n_c27}, {k_c27}, {s_c27}, {p_c27}, {d_c27}) : attendu {want_c27}, "
-                            f"reçu {got_c27!r}"[:160])
-    report_27(not wrong_27, "(2) n_positions_fixed : six réglages dont la division ne tombe pas toujours juste "
-              "(fenêtres comptées une par une)", "(2) n_positions_fixed : " + " ; ".join(wrong_27[:2]))
+    for k_c27, s_c27, m_c27 in ((8, 3, 6), (5, 2, 4), (7, 3, 5), (6, 2, 3), (4, 5, 3), (1, 1, 4)):
+        stamps_c27 = np.zeros((m_c27 - 1) * s_c27 + k_c27, dtype=int)
+        for i_c27 in range(m_c27):
+            stamps_c27[s_c27 * i_c27:s_c27 * i_c27 + k_c27] += 1          # the stamps, put one by one
+        got_c27 = [call_27(2, "n_covers_fixed", n_covers_fixed, j_c27, k_c27, s_c27, m_c27)
+                   for j_c27 in range(len(stamps_c27))]
+        if got_c27 != stamps_c27.tolist():
+            wrong_27.append(f"(k, s, m) = ({k_c27}, {s_c27}, {m_c27}), toutes les cases : attendu "
+                            f"{stamps_c27.tolist()}, reçu {got_c27!r}"[:220])
+    report_27(not wrong_27, "(2) n_covers_fixed : toutes les cases de six convolutions transposées, s divisant k ou "
+              "pas (tampons posés un par un)", "(2) n_covers_fixed : " + " ; ".join(wrong_27[:2]))
     parts_27.append(2)
 
 with checked("M21.27"):                                       # (3) separate_fixed
@@ -1789,31 +1836,33 @@ if len(set(parts_27)) == 3:
             "relis les lignes ❌ ci-dessus.")'''
 
 M21_27 = Ex(
-    "M21.27", "🐛", 1, 20, "Chasse à l'erreur : un noyau non retourné, une taille arrondie vers le haut, un noyau de "
-    "rang 2 « séparé »",
+    "M21.27", "🐛", 1, 20, "Chasse à l'erreur : un noyau non retourné, des recouvrements supposés réguliers, un noyau "
+    "de rang 2 « séparé »",
     "reconnaître trois erreurs classiques qui ne lèvent aucune erreur Python et passent une vérification mal "
-    "choisie, puis les corriger.", "fiche §2, §5 et §6 ; Ex M21.22", tracks="C, E", given=GIVEN_27, note=NOTE_27,
+    "choisie, puis les corriger.", "fiche §1, §5 et §6 ; Ex M21.7 et M21.22", tracks="C, E", given=GIVEN_27,
+    note=NOTE_27,
     body=r"""Un collègue a écrit trois fonctions (cellule fournie) ; chacune a l'erreur que nomme le titre, aucune ne lève d'erreur Python, et chacune a passé la vérification qu'il a faite :
-1. `sliding_sum(x, w)` doit calculer la somme glissante des bibliothèques, $\sum_u w_u\,x_{i+u}$ en mode valide ; elle renvoie `np.convolve(x, w, "valid")`. Il l'a vérifiée sur la dérivée seconde d'une suite de carrés. Il s'en sert pour la vitesse de montée d'un réservoir dont le niveau, relevé toutes les 0,5 h, vaut $(2 ;\ 2{,}5 ;\ 4 ;\ 5 ;\ 7{,}5 ;\ 8)$ m (`LEVELS_27`), avec les poids $(-1, 1)$ divisés par 0,5.
-2. `n_positions(n, k, s=1, p=0, d=1)` doit compter les positions d'une fenêtre (fiche §5) ; elle arrondit vers le haut, avec `math.ceil`. Il l'a vérifiée sur trois cas où la division tombe juste.
+1. `poly_product(p, q)` doit rendre les coefficients du produit de deux polynômes, du terme constant au terme de plus haut degré ; elle renvoie `np.correlate(p, q, "full")`. Il l'a vérifiée sur $(1 + 2X)(2 + 5X + 2X^2)$, dont le second facteur a des coefficients palindromes, et l'applique à $(1 + 2X)(3 - X + 4X^2)$ (`P_27`, `Q_27`).
+2. `n_covers(k, s)` doit rendre le nombre de tampons qui couvrent une case intérieure d'une convolution transposée de noyau de longueur $k$ et de pas $s$ (fiche §5) ; elle renvoie `k // s`. Il l'a vérifiée sur $(k, s) = (6, 2)$, $(9, 3)$ et $(8, 4)$.
 3. `separate(K)` doit rendre les deux facteurs d'un noyau séparable ; elle rend la première colonne de $\mathbf{K}$ et sa première ligne divisée par $K_{0,0}$, sans regarder le rang. Il l'a vérifiée sur un produit extérieur, et l'applique au noyau $\begin{pmatrix} 2 & 1 & 3 \\ 4 & 2 & 5 \\ 2 & 1 & 3 \end{pmatrix}$ (`K_27`).
 
-À faire : écris `sliding_sum_fixed`, `n_positions_fixed` et `separate_fixed` (qui rend les deux facteurs d'un noyau de rang 1, et `None` sinon), puis réponds :
-- a) les vitesses de montée, en m/h, avec `sliding_sum_fixed` (la valeur que donne le calcul) ;
-- b) le nombre de positions pour $n = 100$, $k = 6$, $s = 4$, $p = 0$, avec `n_positions_fixed` ;
+À faire : écris `poly_product_fixed(p, q)`, `n_covers_fixed(j, k, s, m)` (le nombre de tampons qui couvrent la case $j$ d'une convolution transposée de $m$ valeurs d'entrée, de noyau de longueur $k$ et de pas $s$ : le nombre de $i \in \{0, \ldots, m - 1\}$ tels que $0 \le j - s\,i \le k - 1$) et `separate_fixed(K)` (qui rend les deux facteurs d'un noyau de rang 1, et `None` sinon), puis réponds :
+- a) les coefficients de $(1 + 2X)(3 - X + 4X^2)$, avec `poly_product_fixed` (la valeur que donne le calcul) ;
+- b) pour une convolution transposée de noyau de longueur $k = 8$, de pas $s = 3$ et de $m = 6$ valeurs d'entrée, les nombres de tampons qui couvrent les cases 9, 10 et 11, avec `n_covers_fixed` (une liste de 3 entiers) ;
 - c) le plus grand écart, en valeur absolue, entre `K_27` et le produit extérieur des deux facteurs que rend le `separate` du collègue (la valeur que donne le calcul) ;
 - d) vrai ou faux : ta `separable_factors` (M21.22) rend `None` pour ce noyau ;
-- e) même corrigée, `sliding_sum` diffère d'une case de PyTorch en mode « même taille » pour un noyau de longueur paire : ce que rend `np.convolve` en mode même taille, avec les poids retournés, pour $\mathbf{x} = (3, 1, 4, 1, 5, 9)$ et les poids $(2, -3)$ (`X_27`, `W_27` ; la valeur que donne le calcul).
+- e) une question à part, sur le mode « même taille » d'un noyau de longueur paire, où NumPy et PyTorch diffèrent d'une case : pour la somme glissante de poids $(2, -3)$ et $\mathbf{x} = (6, 2, 7, 1, 8, 3)$ (`W_27`, `X_27`), ce que rend `np.convolve` en mode même taille, avec les poids retournés (la valeur que donne le calcul).
 
-La vérification essaie tes corrections sur des cas que tu ne vois pas : des noyaux non symétriques, des divisions qui ne tombent pas juste, des noyaux de rang 1 (dont un avec $K_{0,0} = 0$) et de rang 2.""",
-    todo='''def sliding_sum_fixed(x, w):
-    """The sliding sum of the libraries, valid mode: y[i] = Σ_u w[u] x[i + u]."""
-    raise NotImplementedError("sliding_sum_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
+La vérification essaie tes corrections sur des cas que tu ne vois pas : des polynômes aux coefficients non palindromes, toutes les cases de convolutions transposées où $s$ divise $k$ ou pas, des noyaux de rang 1 (dont un avec $K_{0,0} = 0$) et de rang 2.""",
+    todo='''def poly_product_fixed(p, q):
+    """The coefficients of the product of two polynomials, from the constant term to the highest degree."""
+    raise NotImplementedError("poly_product_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
-def n_positions_fixed(n, k, s=1, p=0, d=1):
-    """The number of positions of a window of k weights, step s, padding p on each side, dilation d."""
-    raise NotImplementedError("n_positions_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
+def n_covers_fixed(j, k, s, m):
+    """The number of stamps that cover the cell j of a transposed convolution of m inputs, kernel of length k, step s:
+    the number of i in {0, ..., m - 1} such that 0 <= j - s i <= k - 1."""
+    raise NotImplementedError("n_covers_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
 def separate_fixed(K):
@@ -1823,8 +1872,8 @@ def separate_fixed(K):
 
 answer_M21_27a = answer_M21_27b = answer_M21_27c = answer_M21_27d = answer_M21_27e = ...
 with wbm.attempt("M21.27"):          # your three functions: ⏳ while they are not written
-    answer_M21_27a = ...  # a) a list of 5 numbers, as computed: the rise speeds (m/h) of LEVELS_27, by sliding_sum_fixed
-    answer_M21_27b = ...  # b) an integer: n_positions_fixed(100, 6, s=4)
+    answer_M21_27a = ...  # a) a list of 4 numbers, as computed: poly_product_fixed(P_27, Q_27)
+    answer_M21_27b = ...  # b) a list of 3 integers: the stamps on the cells 9, 10 and 11 (k = 8, s = 3, m = 6)
     answer_M21_27c = ...  # c) a number, as computed: the largest |K_27 - outer(u, v)|, (u, v) from the colleague's separate
     answer_M21_27d = ...  # d) True or False: your separable_factors(K_27) is None
     answer_M21_27e = ...  # e) a list of 6 numbers, as computed: np.convolve(X_27, W_27[::-1], "same")''',
@@ -1832,14 +1881,15 @@ with wbm.attempt("M21.27"):          # your three functions: ⏳ while they are 
     wbm.check(f"M21.27{letter}", answer, computed=True)
 
 ''' + CHECK_27,
-    solution='''def sliding_sum_fixed(x, w):
-    """The sliding sum of the libraries, valid mode: y[i] = Σ_u w[u] x[i + u]."""
-    return np.convolve(x, np.asarray(w, dtype=float)[::-1], "valid")     # np.convolve flips its kernel: flip it first
+    solution='''def poly_product_fixed(p, q):
+    """The coefficients of the product of two polynomials, from the constant term to the highest degree."""
+    return np.convolve(p, q)              # a product of polynomials is a convolution: np.correlate does not flip q
 
 
-def n_positions_fixed(n, k, s=1, p=0, d=1):
-    """The number of positions of a window of k weights, step s, padding p on each side, dilation d."""
-    return (n + 2 * p - d * (k - 1) - 1) // s + 1          # the incomplete window does not exist: round down
+def n_covers_fixed(j, k, s, m):
+    """The number of stamps that cover the cell j of a transposed convolution of m inputs, kernel of length k, step s:
+    the number of i in {0, ..., m - 1} such that 0 <= j - s i <= k - 1."""
+    return sum(1 for i in range(m) if 0 <= j - s * i <= k - 1)
 
 
 def separate_fixed(K):
@@ -1847,31 +1897,36 @@ def separate_fixed(K):
     return mymath.convolution.separable_factors(K)         # tests the rank, and works when K[0, 0] = 0
 
 
-answer_M21_27a = (sliding_sum_fixed(LEVELS_27, [-1, 1]) / HOURS_27).tolist()
-answer_M21_27b = n_positions_fixed(100, 6, s=4)
+answer_M21_27a = poly_product_fixed(P_27, Q_27).tolist()
+answer_M21_27b = [n_covers_fixed(j, 8, 3, 6) for j in (9, 10, 11)]
 u_27, v_27 = separate(K_27)
 answer_M21_27c = float(np.max(np.abs(K_27 - np.outer(u_27, v_27))))
 answer_M21_27d = mymath.convolution.separable_factors(K_27) is None
 answer_M21_27e = np.convolve(X_27, W_27[::-1], "same").tolist()
 pytorch_27 = [float(W_27[0] * X_27[i] + W_27[1] * (X_27[i + 1] if i + 1 < len(X_27) else 0)) for i in range(len(X_27))]
-print("a)", answer_M21_27a, "; le collègue :", (sliding_sum(LEVELS_27, [-1, 1]) / HOURS_27).tolist())
-print("b)", answer_M21_27b, "; le collègue :", n_positions(100, 6, s=4))
+print("a)", answer_M21_27a, "; le collègue :", poly_product(P_27, Q_27).tolist())
+print("b)", answer_M21_27b, "; le collègue :", n_covers(8, 3), "partout ; la carte des 23 cases :",
+      [n_covers_fixed(j, 8, 3, 6) for j in range((6 - 1) * 3 + 8)])
 print("c)", answer_M21_27c, "; produit extérieur du collègue :\\n", np.outer(u_27, v_27))
 print("d)", answer_M21_27d, "; s₂/s₁ =", round(float(np.divide(*np.linalg.svd(K_27, compute_uv=False)[[1, 0]])), 4))
 print("e)", answer_M21_27e, "; PyTorch (zéro en trop à droite) :", pytorch_27)
 
 
 ''' + CHECK_27,
-    record='''levels_27r = np.array([2.0, 2.5, 4.0, 5.0, 7.5, 8.0])
-speeds_27r = np.correlate(levels_27r, [-1.0, 1.0], "valid") / 0.5
-wbm.record("M21.27a", speeds_27r.tolist(),
-           mistakes={"le niveau monte : une vitesse de montée positive ; np.convolve retourne les poids qu'on lui donne":
-                         (-speeds_27r).tolist(),
-                     "les poids (−1, 1) se divisent par 0,5 h : une vitesse en m/h": (speeds_27r * 0.5).tolist()})
-count_27r = sum(1 for start in range(0, 100, 4) if start + 5 <= 99)          # the windows that fit, one by one
-wbm.record("M21.27b", count_27r,
-           mistakes={"la fenêtre incomplète n'existe pas : la partie entière se prend vers le BAS":
-                         math.ceil((100 - 5 - 1) / 4) + 1})
+    record='''p_27r, q_27r = [1, 2], [3, -1, 4]
+product_27r = [sum(p_27r[i] * q_27r[m - i] for i in range(len(p_27r)) if 0 <= m - i < len(q_27r))
+               for m in range(len(p_27r) + len(q_27r) - 1)]                    # the coefficients, by the definition
+wbm.record("M21.27a", product_27r,
+           mistakes={"le produit de deux polynômes est une convolution : np.correlate ne retourne pas son second "
+                     "argument": np.correlate(p_27r, q_27r, "full").tolist()})
+stamps_27r = np.zeros((6 - 1) * 3 + 8, dtype=int)
+for i_27r in range(6):
+    stamps_27r[3 * i_27r:3 * i_27r + 8] += 1                                   # the stamps, put one by one
+wbm.record("M21.27b", stamps_27r[[9, 10, 11]].tolist(),
+           mistakes={"s ne divise pas k : le nombre de tampons change d'une case à l'autre ; compte les i tels que "
+                     "0 ≤ j − s i ≤ k − 1": [8 // 3] * 3,
+                     "s ne divise pas k : les cases intérieures ne reçoivent pas toutes le même nombre de tampons ; "
+                     "compte les i tels que 0 ≤ j − s i ≤ k − 1": [8 // 3 + 1] * 3})
 kernel_27r = np.array([[2.0, 1.0, 3.0], [4.0, 2.0, 5.0], [2.0, 1.0, 3.0]])
 bogus_27r = np.outer(kernel_27r[:, 0], kernel_27r[0, :] / kernel_27r[0, 0])
 wbm.record("M21.27c", float(np.max(np.abs(kernel_27r - bogus_27r))), decimals=2,
@@ -1879,17 +1934,17 @@ wbm.record("M21.27c", float(np.max(np.abs(kernel_27r - bogus_27r))), decimals=2,
 wbm.record("M21.27d", bool(np.linalg.matrix_rank(kernel_27r) > 1),
            mistakes={"le noyau est de rang 2 : sa deuxième valeur singulière n'est pas négligeable devant la première":
                          False})
-x_27r, w_27r = [3, 1, 4, 1, 5, 9], [2, -3]
+x_27r, w_27r = [6, 2, 7, 1, 8, 3], [2, -3]
 wbm.record("M21.27e", np.convolve(x_27r, w_27r[::-1], "same").tolist(),
            mistakes={"c'est la version de PyTorch, le zéro en trop à droite ; NumPy le met au début":
                          [w_27r[0] * x_27r[i] + w_27r[1] * (x_27r[i + 1] if i + 1 < 6 else 0) for i in range(6)],
-                     "le noyau à donner à np.convolve est le noyau RETOURNÉ": np.convolve(x_27r, w_27r, "same").tolist()})''',
+                     "np.convolve retourne les poids qu'on lui donne": np.convolve(x_27r, w_27r, "same").tolist()})''',
     after=[
         ("md", "**Après la vérification**, dans ta copie : pour chaque erreur, pourquoi la vérification du collègue "
-               "ne la voyait-elle pas, et quelle vérification l'aurait vue ? Pour (2), quelle case du signal la "
-               "fenêtre en trop lirait-elle ? Pour (3), quelle case de `K_27` le produit extérieur du collègue "
-               "manque-t-il, et que se passerait-il avec $K_{0,0} = 0$ ? Pour e), de quel côté est le zéro en trop "
-               "dans chaque bibliothèque ?"),
+               "ne la voyait-elle pas (un facteur palindrome, des couples où $s$ divise $k$, un noyau de rang 1), et "
+               "quelle vérification l'aurait vue ? Écris la carte complète des tampons pour $k = 8$, $s = 3$, $m = 6$. "
+               "Pour (3), quelle case de `K_27` le produit extérieur du collègue manque-t-il, et que se passerait-il "
+               "avec $K_{0,0} = 0$ ? Pour e), de quel côté est le zéro en trop dans chaque bibliothèque ?"),
     ],
 )
 
